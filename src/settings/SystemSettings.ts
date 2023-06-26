@@ -6,9 +6,9 @@ import { gameSettings } from './SettingsStore';
 import SystemSettingsComponent from '../apps/settings/SystemSettings.svelte';
 
 export default class SystemSettings extends SvelteApplication {
-  refresh: boolean;
+  promise = null;
 
-  refreshHook: any;
+  resolve = null;
 
   constructor(options = {}, dialogData = {}) {
     super({
@@ -26,15 +26,11 @@ export default class SystemSettings extends SvelteApplication {
       ...options
     }, { dialogData });
 
-    this.refresh = false;
-
     // @ts-ignore
-    this.refreshHook = Hooks.on('updateSetting', (updateData) => {
-      const { key } = updateData;
-      const parts = key.split('.');
-      if (parts[0] !== 'a5e') return;
+    this.options.svelte.props.dialog = this;
 
-      if (gameSettings.refreshSettings.includes(parts.at(-1))) this.refresh = true;
+    this.promise = new Promise((resolve) => {
+      this.resolve = resolve;
     });
   }
 
@@ -72,13 +68,16 @@ export default class SystemSettings extends SvelteApplication {
     });
   }
 
-  close() {
+  submit(results) {
+    this.#resolvePromise(results);
     // @ts-ignore
-    Hooks.off('updateSetting', this.refreshHook);
-    if (this.refresh) {
-      // @ts-ignore
-      foundry.utils.debounce(() => window.location.reload(), 250)();
+    if (results.reload) foundry.utils.debounce(() => window.location.reload(), 250)();
+    return super.close();
+  }
+
+  #resolvePromise(data) {
+    if (this.resolve) {
+      this.resolve(data);
     }
-    super.close();
   }
 }
