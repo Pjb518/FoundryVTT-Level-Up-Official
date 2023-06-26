@@ -6,6 +6,7 @@ import registerFilterConfig from './config/registerFilterConfig';
 import registerPreLocalizationProperties from './config/registerPreLocalizationProperties';
 import registerPublisherConfig from './config/registerPublisherConfig';
 import registerReducerConfig from './config/registerReducerConfig';
+import registerSettingsConfig from './config/registerSettingsConfig';
 
 const A5E = {};
 
@@ -1436,6 +1437,7 @@ registerEffectLocalizationConfig(A5E);
 registerEffectGroupConfig(A5E);
 registerPublisherConfig(A5E);
 registerReducerConfig(A5E);
+registerSettingsConfig(A5E);
 
 registerPreLocalizationProperties(A5E);
 
