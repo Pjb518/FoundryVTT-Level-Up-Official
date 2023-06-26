@@ -21,11 +21,45 @@ class A5eGameSettings extends TJSGameSettings {
           scope: scope.world,
           config: true,
           type: Array,
-          default: ['bloodied'],
-          refreshRequired: true
+          default: ['bloodied']
+        }
+      },
+      {
+        namespace,
+        key: 'hideChatDescriptionsByDefault',
+        options: {
+          name: 'A5E.settings.hideChatDescriptionsByDefault',
+          hint: 'A5E.settings.hints.hideChatDescriptionsByDefault',
+          scope: scope.client,
+          config: true,
+          default: false,
+          type: Boolean
+        }
+      },
+      {
+        namespace,
+        key: 'protectRolls',
+        options: {
+          name: 'A5E.settings.protectRolls',
+          hint: 'A5E.settings.hints.protectRolls',
+          scope: scope.world,
+          config: true,
+          default: false,
+          type: Boolean
+        }
+      },
+      {
+        namespace,
+        key: 'terseRollFormulae',
+        options: {
+          name: 'A5E.settings.terseRollFormulae',
+          hint: 'A5E.settings.hints.terseRollFormulae',
+          scope: scope.client,
+          config: true,
+          default: false,
+          type: Boolean
         }
       }
-
     ];
 
     this.registerAll(settings, false);
