@@ -32,7 +32,7 @@
                 checked={updates.get("hideChatDescriptionsByDefault") ??
                     $hideDescription ??
                     false}
-                on:change={({ detail }) => {
+                on:updateSelection={({ detail }) => {
                     updates.set("hideChatDescriptionsByDefault", detail);
                     reload = true;
                 }}
@@ -43,7 +43,7 @@
             <Checkbox
                 label="A5E.settings.protectRolls"
                 checked={updates.get("protectRolls") ?? $protectRolls ?? false}
-                on:change={({ detail }) => {
+                on:updateSelection={({ detail }) => {
                     updates.set("protectRolls", detail);
                     reload = true;
                 }}
@@ -59,7 +59,7 @@
                 checked={updates.get("terseRollFormulae") ??
                     $terseRolls ??
                     false}
-                on:change={({ detail }) => {
+                on:updateSelection={({ detail }) => {
                     updates.set("terseRollFormulae", detail);
                     reload = true;
                 }}
