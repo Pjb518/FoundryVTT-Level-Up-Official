@@ -37,6 +37,7 @@ import TemplatePreparationManager from '../managers/TemplatePreparationManager';
 import MigrationList from '../migration/MigrationList';
 import MigrationRunner from '../migration/MigrationRunner';
 import handleMigration from '../migration/handleMigration';
+import handlePackMigration from '../migration/handlePackMigration';
 
 export default function init() {
   game.a5e = {
@@ -71,7 +72,8 @@ export default function init() {
     migrations: {
       MigrationList,
       MigrationRunner,
-      handleMigration
+      handleMigration,
+      handlePackMigration
     }
   };
 
