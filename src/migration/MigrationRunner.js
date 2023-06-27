@@ -237,25 +237,26 @@ export default class MigrationRunner extends MigrationRunnerBase {
    * @param {Object} compendium
    * @returns {Promise<void>}
    */
-  async runCompendiumMigration(compendium) {
-    // ui.notifications.info(localize('A5E.MigrationStarting', { version: game.system.version }), {
-    //   permanent: true
-    // });
+  async runCompendiumMigration(compendium, legacyMigrate = false) {
+    if (!['Actor', 'Item'].includes(compendium.documentName)) return;
 
     const documents = await compendium.getDocuments();
-    const lowestSchemaVersion = Math.min(
+    const lowestSchemaVersion = legacyMigrate ? 0.00 : Math.min(
       MigrationRunnerBase.LATEST_SCHEMA_VERSION,
       ...documents.map((d) => d.system?.schema?.version).filter((d) => !!d)
     );
 
+    console.log(lowestSchemaVersion);
+
     const migrations = this.migrations
       .filter((migration) => migration.version > lowestSchemaVersion);
 
+    const wasLocked = compendium.locked;
+    if (wasLocked) await compendium.configure({ locked: false });
+
     await this.#migrateDocuments(compendium, migrations);
 
-    // ui.notifications.info(localize('A5E.MigrationFinished', { version: game.system.version }), {
-    //   permanent: true
-    // });
+    if (wasLocked) await compendium.configure({ locked: true });
   }
 
   /**
