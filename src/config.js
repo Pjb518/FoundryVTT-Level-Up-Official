@@ -368,6 +368,18 @@ A5E.damageBonusSummariesByContext = {
   weaponAttacks: 'A5E.damageBonuses.summaries.contexts.weaponAttacks'
 };
 
+A5E.EQUIPPED_STATES = {
+  NOT_CARRIED: 0,
+  CARRIED: 1,
+  EQUIPPED: 2
+};
+
+A5E.equipmentStatesLocalizations = {
+  0: 'A5E.carryType.notCarried',
+  1: 'A5E.carryType.carried',
+  2: 'A5E.carryType.equipped'
+};
+
 A5E.featureTypes = {
   background: 'A5E.FeatureBackground',
   boon: 'A5E.FeatureBoon',

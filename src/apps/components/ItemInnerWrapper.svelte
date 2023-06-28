@@ -77,6 +77,7 @@
     }
 
     const actor = getContext("actor");
+    const { EQUIPPED_STATES } = CONFIG.A5E;
     let usesType = actionId ? "action" : "item";
 
     $: flags = $actor.flags;
@@ -247,13 +248,20 @@
                 {/if}
 
                 <button
-                    class="action-button fas fa-shield-alt"
-                    class:active={item.system.equipped}
+                    class="action-button fas"
+                    class:fa-shield-alt={item.system.equippedState ===
+                        EQUIPPED_STATES.EQUIPPED}
+                    class:fa-person-carry-box={item.system.equippedState ===
+                        EQUIPPED_STATES.CARRIED}
+                    class:fa-tents={item.system.equippedState ===
+                        EQUIPPED_STATES.NOT_CARRIED}
+                    class:active={item.system.equippedState ===
+                        EQUIPPED_STATES.EQUIPPED}
                     data-tooltip={item.system.equipped
                         ? "A5E.ButtonToolTipUnequip"
                         : "A5E.ButtonToolTipEquip"}
                     data-tooltip-direction="UP"
-                    on:click|stopPropagation={() => item.toggleEquipped()}
+                    on:click|stopPropagation={() => item.toggleEquippedState()}
                 />
 
                 <button

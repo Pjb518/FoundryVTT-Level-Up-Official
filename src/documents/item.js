@@ -444,11 +444,14 @@ export default class ItemA5e extends Item {
     });
   }
 
-  async toggleEquipped() {
+  async toggleEquippedState() {
     if (!this.type === 'object' || !this.actor) return;
 
+    const currentState = this.system.equippedState;
+    const newState = (currentState + 1) % 3;
+
     await this.update({
-      'system.equipped': !this.system.equipped
+      'system.equippedState': newState
     });
   }
 

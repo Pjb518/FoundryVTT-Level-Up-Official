@@ -18,6 +18,7 @@
     export let actionId = null;
 
     const actor = getContext("actor");
+    const { A5E } = CONFIG;
 
     let showDescription = false;
     let rightClickConfigure =
@@ -107,7 +108,8 @@
 <!-- svelte-ignore a11y-click-events-have-key-events -->
 <li
     class="item-wrapper"
-    class:item-wrapper--highlight={item.system.prepared || item.system.equipped}
+    class:item-wrapper--highlight={item.system.prepared ||
+        item.system.equippedState === A5E.EQUIPPED_STATES.EQUIPPED}
     draggable="true"
     on:dragstart={onDragStart}
     on:click={() => {
