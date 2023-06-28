@@ -1,7 +1,7 @@
 /* eslint-disable no-console */
 /* eslint-disable no-await-in-loop */
 /* eslint-disable no-restricted-syntax */
-// eslint-disable-next-line no-unused-vars
+// eslint-disable-next-line no-unused-vars, @typescript-eslint/no-unused-vars
 import MigrationBase from './MigrationBase';
 
 export default class MigrationRunnerBase {
