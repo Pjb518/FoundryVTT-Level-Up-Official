@@ -256,8 +256,10 @@
                         EQUIPPED_STATES.CARRIED}
                     class:fa-tents={item.system.equippedState ===
                         EQUIPPED_STATES.NOT_CARRIED}
-                    class:active={item.system.equippedState ===
-                        EQUIPPED_STATES.EQUIPPED}
+                    class:active={[
+                        EQUIPPED_STATES.EQUIPPED,
+                        EQUIPPED_STATES.CARRIED,
+                    ].includes(item.system.equippedState)}
                     data-tooltip={A5E.equippedStates[
                         item.system.equippedState ?? 0
                     ]}

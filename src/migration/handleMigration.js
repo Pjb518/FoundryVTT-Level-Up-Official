@@ -27,9 +27,10 @@ export default async function handleMigration() {
   }
 
   // Perform Migrations if necessary
-  const migrationRunner = new MigrationRunner(
-    MigrationList.constructFromVersion(currentVersion)
-  );
+  const migrationList = MigrationList.constructFromVersion(currentVersion);
+  // eslint-disable-next-line no-console
+  console.debug('A5E | Migration List', migrationList);
+  const migrationRunner = new MigrationRunner(migrationList);
 
   if (migrationRunner.needsMigration()) {
     if (currentVersion && currentVersion < MigrationRunner.MIN_SAFE_VERSION) {

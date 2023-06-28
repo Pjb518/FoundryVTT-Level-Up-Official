@@ -154,6 +154,15 @@ A5E.actorSizes = {
   titan: 'A5E.SizeTitanic'
 };
 
+A5E.advancementItemTypes = [
+  'background',
+  'class',
+  'culture',
+  'destiny',
+  'heritage',
+  'subclass'
+];
+
 A5E.ammunitionProperties = {
   explosive: 'A5E.AmmunitionPropertyExplosive',
   flaming: 'A5E.AmmunitionPropertyFlaming',

@@ -1,7 +1,5 @@
 import MigrationBase from '../MigrationBase';
 
-const FEATURE_ITEMS = ['background', 'class', 'culture', 'destiny', 'heritage', 'subclass'];
-
 function createAmmoConsumer(i) {
   const [actionId, action] = Object.entries(i.system.actions ?? {})?.[0] ?? [[], []];
   if (!actionId) return;
@@ -82,7 +80,8 @@ export default class Migration002Ooze extends MigrationBase {
   static version = 0.002;
 
   #createConsumers(itemData) {
-    if (FEATURE_ITEMS.includes(itemData.type)) return;
+    if (CONFIG.A5E.advancementItemTypes.includes(itemData.type)) return;
+
     // Ammunition Consumers
     if (itemData.type === 'object' && itemData.system.objectType === 'weapon') {
       createAmmoConsumer(itemData);
