@@ -1,12 +1,15 @@
 /* eslint-disable no-unused-vars */
-// eslint-disable-next-line import/no-unresolved
+import computeSaveDC from '../utils/computeSaveDC';
 import getAttackAbility from '../utils/getAttackAbility';
 import getDeterministicBonus from '../dice/getDeterministicBonus';
 import getRollFormula from '../utils/getRollFormula';
 import overrideRollMode from '../utils/overrideRollMode';
 import overrideExpertiseDie from '../utils/overrideExpertiseDie';
 import prepareConsumers from '../apps/dataPreparationHelpers/itemActivationConsumers/prepareConsumers';
+import prepareDamageBonuses from '../apps/dataPreparationHelpers/itemActivationRolls/prepareDamageBonuses';
+import prepareHealingBonuses from '../apps/dataPreparationHelpers/itemActivationRolls/prepareHealingBonuses';
 import prepareHitDice from '../apps/dataPreparationHelpers/prepareHitDice';
+import preparePrompts from '../apps/dataPreparationHelpers/itemActivationPrompts/preparePrompts';
 import prepareRolls from '../apps/dataPreparationHelpers/itemActivationRolls/prepareRolls';
 
 import ActionActivationDialog from '../apps/dialogs/initializers/ActionActivationDialog';
@@ -16,8 +19,6 @@ import ActionsManager from '../managers/ActionsManager';
 import ResourceConsumptionManager from '../managers/ResourceConsumptionManager';
 import RollPreparationManager from '../managers/RollPreparationManager';
 import TemplatePreparationManager from '../managers/TemplatePreparationManager';
-import prepareDamageBonuses from '../apps/dataPreparationHelpers/itemActivationRolls/prepareDamageBonuses';
-import prepareHealingBonuses from '../apps/dataPreparationHelpers/itemActivationRolls/prepareHealingBonuses';
 
 /**
  * Override and extend the basic Item implementation.
@@ -241,13 +242,14 @@ export default class ItemA5e extends Item {
     const consumers = this.#getDefaultConsumerData(prepareConsumers(action.consumers));
     const { damageBonuses, healingBonuses } = this.#getDefaultBonuses(this.actor, rolls);
     const otherRolls = this.#getDefaultRollData(rolls);
+    const prompts = this.#getDefaultPrompts(action.prompts);
 
     return {
       attack,
       consumers,
       damageBonuses,
       healingBonuses,
-      prompts: [],
+      prompts,
       rolls: otherRolls
     };
   }
@@ -376,6 +378,22 @@ export default class ItemA5e extends Item {
     }, []);
 
     return { damageBonuses: defaultDamageBonuses, healingBonuses: defaultHealingBonuses };
+  }
+
+  #getDefaultPrompts(prompts) {
+    const promptsByType = preparePrompts(prompts, this);
+
+    return Object.entries(promptsByType).reduce((defaultPrompts, [promptType, promptGroup]) => {
+      defaultPrompts.push(...promptGroup.reduce((acc, [, prompt]) => {
+        if (promptType === 'savingThrow') prompt.dc = computeSaveDC(this.actor, prompt.saveDC);
+
+        if (prompt.default ?? true) acc.push(prompt);
+
+        return acc;
+      }, []));
+
+      return defaultPrompts;
+    }, []);
   }
 
   #getDefaultRollData(rolls) {
