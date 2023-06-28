@@ -1,6 +1,10 @@
 export default function calculateInventoryWeight(actor) {
+  const { EQUIPPED_STATES } = CONFIG.A5E;
   const actorData = actor.system;
-  const equippedItems = actor.items.filter((item) => item.system.equipped);
+  const equippedItems = actor.items.filter(
+    (item) => [EQUIPPED_STATES.EQUIPPED, EQUIPPED_STATES.CARRIED]
+      .includes(item.system.equippedState)
+  );
 
   const totalItemWeight = equippedItems.reduce((acc, curr) => {
     const { quantity } = curr.system;
