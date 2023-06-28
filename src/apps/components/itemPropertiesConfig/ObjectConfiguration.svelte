@@ -159,7 +159,7 @@
 
             <FormSection heading="A5E.ItemEquippedState" --label-width="100%">
                 <RadioGroup
-                    options={Object.entries(A5E.equippedStatesLocalizations)}
+                    options={Object.entries(A5E.equippedStates)}
                     selected={$item.system.equippedState}
                     on:updateSelection={({ detail }) =>
                         updateDocumentDataFromField(

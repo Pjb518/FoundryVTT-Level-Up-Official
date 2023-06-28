@@ -374,7 +374,7 @@ A5E.EQUIPPED_STATES = {
   EQUIPPED: 2
 };
 
-A5E.equippedStatesLocalizations = {
+A5E.equippedStates = {
   0: 'A5E.equippedState.notCarried',
   1: 'A5E.equippedState.carried',
   2: 'A5E.equippedState.equipped'

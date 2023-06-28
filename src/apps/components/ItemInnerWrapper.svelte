@@ -77,7 +77,8 @@
     }
 
     const actor = getContext("actor");
-    const { EQUIPPED_STATES } = CONFIG.A5E;
+    const { A5E } = CONFIG;
+    const { EQUIPPED_STATES } = A5E;
     let usesType = actionId ? "action" : "item";
 
     $: flags = $actor.flags;
@@ -257,9 +258,9 @@
                         EQUIPPED_STATES.NOT_CARRIED}
                     class:active={item.system.equippedState ===
                         EQUIPPED_STATES.EQUIPPED}
-                    data-tooltip={item.system.equipped
-                        ? "A5E.ButtonToolTipUnequip"
-                        : "A5E.ButtonToolTipEquip"}
+                    data-tooltip={A5E.equippedStates[
+                        item.system.equippedState ?? 0
+                    ]}
                     data-tooltip-direction="UP"
                     on:click|stopPropagation={() => item.toggleEquippedState()}
                 />
