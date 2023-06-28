@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/return-await */
 /* eslint-disable no-continue */
 /* eslint-disable no-await-in-loop */
 /* eslint-disable no-console */
@@ -5,7 +6,7 @@
 // eslint-disable-next-line no-unused-vars, import/no-unresolved
 import { localize } from '@typhonjs-fvtt/runtime/svelte/helper';
 
-// eslint-disable-next-line no-unused-vars
+// eslint-disable-next-line no-unused-vars, @typescript-eslint/no-unused-vars
 import MigrationBase from './MigrationBase';
 import MigrationRunnerBase from './MigrationRunnerBase';
 
@@ -95,6 +96,48 @@ export default class MigrationRunner extends MigrationRunnerBase {
   }
 
   /**
+   * Migrate adventure documents
+   * @param {*} collection
+   * @param {Array<MigrationBase>} migrations
+   * @returns {Promise<void>}
+   */
+  async #migrateAdventureDocuments(collection, migrations) {
+    const pack = 'metadata' in collection ? collection.metadata.id : null;
+
+    for (const adventureDoc of collection.contents) {
+      const updateGroup = [];
+      const actors = [...adventureDoc.actors];
+      const items = [...adventureDoc.items];
+
+      // Migrate Adventure Actors
+      for (const actor of actors) {
+        const updated = await this.#migrateActor(migrations, actor, { pack });
+        if (updated) updateGroup.push(updated);
+      }
+
+      try {
+        await adventureDoc.update({ actors: updateGroup }, { noHook: true, pack });
+      } catch (e) {
+        console.warn(e);
+      }
+
+      updateGroup.length = 0;
+
+      // Migrate Adventure Items
+      for (const item of items) {
+        const updated = await this.#migrateItem(migrations, item, { pack });
+        if (updated) updateGroup.push(updated);
+      }
+
+      try {
+        await adventureDoc.update({ items: updateGroup }, { noHook: true, pack });
+      } catch (e) {
+        console.warn(e);
+      }
+    }
+  }
+
+  /**
    *
    * @param {Array<MigrationBase>} migrations
    * @param {Object} actor
@@ -148,7 +191,7 @@ export default class MigrationRunner extends MigrationRunnerBase {
    * @param {Object} item
    * @param {Promise<Object>} options
    */
-  // eslint-disable-next-line no-unused-vars
+  // eslint-disable-next-line no-unused-vars, @typescript-eslint/no-unused-vars
   async #migrateItem(migrations, item, options = {}) {
     const baseData = item.toObject();
     const updateData = await (() => {
@@ -238,15 +281,28 @@ export default class MigrationRunner extends MigrationRunnerBase {
    * @returns {Promise<void>}
    */
   async runCompendiumMigration(compendium, legacyMigrate = false) {
-    if (!['Actor', 'Item'].includes(compendium.documentName)) return;
+    if (!['Adventure', 'Actor', 'Item'].includes(compendium.documentName)) return;
 
     const documents = await compendium.getDocuments();
-    const lowestSchemaVersion = legacyMigrate ? 0.00 : Math.min(
-      MigrationRunnerBase.LATEST_SCHEMA_VERSION,
-      ...documents.map((d) => d.system?.schema?.version).filter((d) => !!d)
-    );
+    let lowestSchemaVersion;
 
-    console.log(lowestSchemaVersion);
+    if (legacyMigrate) {
+      lowestSchemaVersion = 0.00;
+    } else if (compendium.documentName === 'Adventure') {
+      lowestSchemaVersion = Math.min(
+        MigrationRunnerBase.LATEST_SCHEMA_VERSION,
+        ...documents.flatMap((d) => {
+          const actors = [...d.items].map((a) => a.system?.schema?.version).filter((a) => !!a);
+          const items = [...d.items].map((i) => i.system?.schema?.version).filter((i) => !!i);
+          return [...actors, ...items];
+        })
+      );
+    } else {
+      lowestSchemaVersion = Math.min(
+        MigrationRunnerBase.LATEST_SCHEMA_VERSION,
+        ...documents.map((d) => d.system?.schema?.version).filter((d) => !!d)
+      );
+    }
 
     const migrations = this.migrations
       .filter((migration) => migration.version > lowestSchemaVersion);
@@ -254,7 +310,9 @@ export default class MigrationRunner extends MigrationRunnerBase {
     const wasLocked = compendium.locked;
     if (wasLocked) await compendium.configure({ locked: false });
 
-    await this.#migrateDocuments(compendium, migrations);
+    if (compendium.documentName === 'Adventure') {
+      await this.#migrateAdventureDocuments(compendium, migrations);
+    } else await this.#migrateDocuments(compendium, migrations);
 
     if (wasLocked) await compendium.configure({ locked: true });
   }
