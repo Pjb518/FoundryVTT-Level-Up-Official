@@ -16,6 +16,8 @@ import ActionsManager from '../managers/ActionsManager';
 import ResourceConsumptionManager from '../managers/ResourceConsumptionManager';
 import RollPreparationManager from '../managers/RollPreparationManager';
 import TemplatePreparationManager from '../managers/TemplatePreparationManager';
+import prepareDamageBonuses from '../apps/dataPreparationHelpers/itemActivationRolls/prepareDamageBonuses';
+import prepareHealingBonuses from '../apps/dataPreparationHelpers/itemActivationRolls/prepareHealingBonuses';
 
 /**
  * Override and extend the basic Item implementation.
@@ -236,12 +238,15 @@ export default class ItemA5e extends Item {
     const rolls = prepareRolls(action.rolls);
 
     const attack = this.#getDefaultAttackRollData(rolls.attack, options);
-    const otherRolls = this.#getDefaultRollData(rolls);
     const consumers = this.#getDefaultConsumerData(prepareConsumers(action.consumers));
+    const { damageBonuses, healingBonuses } = this.#getDefaultBonuses(this.actor, rolls);
+    const otherRolls = this.#getDefaultRollData(rolls);
 
     return {
       attack,
       consumers,
+      damageBonuses,
+      healingBonuses,
       prompts: [],
       rolls: otherRolls
     };
@@ -354,6 +359,23 @@ export default class ItemA5e extends Item {
       itemUses: itemUsesData,
       spell: spellData
     };
+  }
+
+  #getDefaultBonuses(actor, rolls) {
+    const damageBonuses = prepareDamageBonuses(actor, rolls);
+    const healingBonuses = prepareHealingBonuses(actor, rolls);
+
+    const defaultDamageBonuses = damageBonuses.reduce((acc, [, bonus]) => {
+      if (bonus.default ?? true) acc.push(bonus);
+      return acc;
+    }, []);
+
+    const defaultHealingBonuses = healingBonuses.reduce((acc, [, bonus]) => {
+      if (bonus.default ?? true) acc.push(bonus);
+      return acc;
+    }, []);
+
+    return { damageBonuses: defaultDamageBonuses, healingBonuses: defaultHealingBonuses };
   }
 
   #getDefaultRollData(rolls) {
