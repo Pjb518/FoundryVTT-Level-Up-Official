@@ -155,14 +155,16 @@
                             detail
                         )}
                 />
+            </FormSection>
 
-                <Checkbox
-                    label="A5E.ItemEquipped"
-                    checked={$item.system.equipped}
+            <FormSection heading="A5E.ItemEquippedState" --label-width="100%">
+                <RadioGroup
+                    options={Object.entries(A5E.equippedStatesLocalizations)}
+                    selected={$item.system.equippedState}
                     on:updateSelection={({ detail }) =>
                         updateDocumentDataFromField(
                             $item,
-                            "system.equipped",
+                            "system.equippedState",
                             detail
                         )}
                 />

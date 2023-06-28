@@ -38,7 +38,7 @@ export default class ActiveEffectA5e extends ActiveEffect {
     const { parentItem } = this;
     if (!parentItem || parentItem?.type !== 'object') return false;
 
-    return !parentItem?.system?.equipped;
+    return parentItem?.system?.equippedState === CONFIG.A5E.EQUIPPED_STATES.EQUIPPED;
   }
 
   get parentItem() {

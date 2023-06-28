@@ -374,10 +374,10 @@ A5E.EQUIPPED_STATES = {
   EQUIPPED: 2
 };
 
-A5E.equipmentStatesLocalizations = {
-  0: 'A5E.carryType.notCarried',
-  1: 'A5E.carryType.carried',
-  2: 'A5E.carryType.equipped'
+A5E.equippedStatesLocalizations = {
+  0: 'A5E.equippedState.notCarried',
+  1: 'A5E.equippedState.carried',
+  2: 'A5E.equippedState.equipped'
 };
 
 A5E.featureTypes = {
