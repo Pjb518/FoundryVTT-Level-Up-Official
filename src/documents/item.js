@@ -87,15 +87,14 @@ export default class ItemA5e extends Item {
   }
 
   async #activateAction(actionId, options) {
+    let activationData;
     const action = this.actions[actionId];
-    // let activationData;
-    const activationData = await this.#showActionActivationPrompt(actionId, options);
 
-    // if (options.skipRollDialog) {
-    //   activationData = this.#getDefaultActionActivationData(actionId, options);
-    // } else {
-    //   activationData = await this.#showActionActivationPrompt(actionId, options);
-    // }
+    if (options.skipRollDialog) {
+      activationData = this.#getDefaultActionActivationData(actionId, options);
+    } else {
+      activationData = await this.#showActionActivationPrompt(actionId, options);
+    }
 
     if (!activationData) return null;
 
@@ -237,13 +236,14 @@ export default class ItemA5e extends Item {
     const rolls = prepareRolls(action.rolls);
 
     const attack = this.#getDefaultAttackRollData(rolls.attack, options);
+    const otherRolls = this.#getDefaultRollData(rolls);
     const consumers = this.#getDefaultConsumerData(prepareConsumers(action.consumers));
 
     return {
       attack,
       consumers,
       prompts: [],
-      rolls: []
+      rolls: otherRolls
     };
   }
 
@@ -354,6 +354,19 @@ export default class ItemA5e extends Item {
       itemUses: itemUsesData,
       spell: spellData
     };
+  }
+
+  #getDefaultRollData(rolls) {
+    return Object.entries(rolls).reduce((defaultRolls, [rollType, rollGroup]) => {
+      if (rollType === 'attack') return defaultRolls;
+
+      defaultRolls.push(...rollGroup.reduce((acc, [, roll]) => {
+        if (roll.default ?? true) acc.push(roll);
+        return acc;
+      }, []));
+
+      return defaultRolls;
+    }, []);
   }
 
   #getConsumerFromPreparedConsumers(consumers, type) {
