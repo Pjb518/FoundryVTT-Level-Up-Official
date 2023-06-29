@@ -12,7 +12,10 @@
     function getScalingSummary(roll) {
         const mode = roll.scaling?.mode;
         const formula = roll.scaling?.formula ?? 0;
-        const healingType = healingTypes[roll.healingType ?? "healing"];
+
+        const healingType = (
+            healingTypes[roll.healingType] ?? healingTypes["healing"]
+        ).toLocaleLowerCase();
 
         // TODO: Provide some means of getting a base spell level for non-spell items.
         const level = getOrdinalNumber($item.system.level ?? 1);
@@ -44,11 +47,12 @@
             if (!roll.scaling?.step || roll.scaling?.step === 1) {
                 return localize("A5E.scaling.summaries.spellPoint.healing", {
                     formula,
+                    healingType,
                 });
             } else {
                 return localize(
                     "A5E.scaling.summaries.steppedSpellPoint.healing",
-                    { formula, step }
+                    { formula, step, healingType }
                 );
             }
         }
@@ -57,11 +61,13 @@
             if (!roll.scaling?.step || roll.scaling?.step === 1) {
                 return localize("A5E.scaling.summaries.uses.healing", {
                     formula,
+                    healingType,
                 });
             } else {
                 return localize("A5E.scaling.summaries.steppedUses.healing", {
                     formula,
                     step,
+                    healingType,
                 });
             }
         }
