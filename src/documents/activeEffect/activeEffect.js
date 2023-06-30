@@ -264,8 +264,10 @@ export default class ActiveEffectA5e extends ActiveEffect {
     // Reset tokens
     if (foundry.utils.getProperty(this.parent, 'prototypeToken.actorLink') ?? true) {
       const tokens = this.parent.getActiveTokens().map((t) => t.document);
-      tokens.forEach((t) => t.reset());
+      if (!tokens.length) return;
+      tokens.forEach((t) => t?.reset());
     } else {
+      if (!this.parent.token) return;
       this.parent.token.reset();
     }
 
