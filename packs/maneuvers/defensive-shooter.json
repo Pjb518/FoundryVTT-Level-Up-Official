@@ -1,0 +1,108 @@
+{
+	"name": "Defensive Shooter",
+	"type": "maneuver",
+	"img": "icons/magic/defensive/barrier-shield-dome-deflect-teal.webp",
+	"system": {
+		"actions": {
+			"LRoU6JBfYFFJnVLi": {
+				"name": "Defensive Shooter",
+				"activation": {
+					"cost": 1,
+					"type": "bonusAction",
+					"reactionTrigger": ""
+				},
+				"duration": {
+					"unit": "special",
+					"value": ""
+				},
+				"ranges": {
+					"3ZCZY4KHiqX3pbhC": {
+						"range": "self"
+					}
+				},
+				"area": {
+					"shape": "sphere",
+					"radius": 15,
+					"placeTemplate": true
+				},
+				"target": {
+					"quantity": "",
+					"type": "other"
+				},
+				"rolls": {
+					"Al81WJpNAp1qv8rs": {
+						"bonus": "",
+						"critThreshold": "20",
+						"type": "attack",
+						"attackType": "rangedWeaponAttack",
+						"ability": "default"
+					}
+				},
+				"prompts": {
+					"PMkG1UXwYSZ0N5Vf": {
+						"ability": "con",
+						"onSave": "speed is not reduced",
+						"saveDC": {
+							"type": "custom",
+							"bonus": "@maneuverDC"
+						},
+						"type": "savingThrow"
+					}
+				},
+				"consumers": {
+					"CLqNL36YcYsl4x34": {
+						"quantity": 1,
+						"resource": "exertion",
+						"type": "resource"
+					}
+				}
+			}
+		},
+		"description": "<div class=\"page\" title=\"Page 39\">\n<div class=\"layoutArea\">\n<div class=\"column\">\n<p>Responding to aggressive movement, you attack any who draw too near with a binding shot. So long as you maintain this stance you may use your reaction to make a ranged weapon opportunity attack against any creature that moves into or out of a space within 15ft of you. Creatures struck by this attack must make a Constitution saving throw or have their speed reduced to 0 until the start of your next turn.</p>\n</div>\n</div>\n</div>",
+		"favorite": false,
+		"secretDescription": "",
+		"source": {
+			"name": "System Architecture: Motif Classes",
+			"link": "https://bit.ly/437OgQZ",
+			"publisher": "purpleMartinGames"
+		},
+		"uses": {
+			"value": null,
+			"max": null,
+			"per": "",
+			"recharge": {
+				"formula": "1d6",
+				"threshold": 6
+			}
+		},
+		"schema": {
+			"version": 0.004,
+			"lastMigration": {
+				"version": {
+					"schema": null,
+					"foundry": "11.304",
+					"system": "0.12.6"
+				}
+			}
+		},
+		"degree": "4",
+		"exertionCost": 1,
+		"isStance": false,
+		"prerequisite": "",
+		"tradition": "arcaneArtillery",
+		"ability": "default",
+		"proficient": true,
+		"save": {
+			"dc": "@maneuverDC",
+			"onSave": "speed is not reduced",
+			"targetAbility": "con"
+		},
+		"equippedState": 0,
+		"-=recharge": null,
+		"-=equipped": null
+	},
+	"effects": [],
+	"flags": {},
+	"folder": "i9sLNpPr0Ypb8Y02",
+	"_id": "vz7h5m2qwkr7b9vz"
+}

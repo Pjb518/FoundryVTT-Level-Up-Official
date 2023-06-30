@@ -1,0 +1,93 @@
+{
+	"name": "Ramshot",
+	"type": "maneuver",
+	"img": "icons/creatures/mammals/ox-bull-horned-glowing-orange.webp",
+	"system": {
+		"actions": {
+			"Gt3NVOk1xLBYaRxc": {
+				"name": "Ramshot",
+				"activation": {
+					"cost": 1,
+					"type": "action",
+					"reactionTrigger": ""
+				},
+				"duration": {
+					"unit": "instantaneous",
+					"value": ""
+				},
+				"area": {
+					"shape": "",
+					"placeTemplate": false
+				},
+				"target": {
+					"quantity": 1,
+					"type": "creature"
+				},
+				"prompts": {
+					"bRqyTVzlVvwAKEvQ": {
+						"ability": "str",
+						"onSave": "avoid being knocked prone",
+						"saveDC": {
+							"type": "custom",
+							"bonus": "@maneuverDC"
+						},
+						"type": "savingThrow"
+					}
+				},
+				"consumers": {
+					"XHav1NVTZdEjQjNm": {
+						"quantity": 2,
+						"resource": "exertion",
+						"type": "resource"
+					}
+				}
+			}
+		},
+		"description": "<div class=\"page\" title=\"Page 38\">\n<div class=\"layoutArea\">\n<div class=\"column\">\n<p>As your missile flies it is infused with the strength of the charging ram. When you take this attack action on your turn, any enemy struck by your ranged weapon attacks must make a strength saving throw or be knocked prone.</p>\n</div>\n</div>\n</div>",
+		"favorite": false,
+		"secretDescription": "",
+		"source": {
+			"name": "System Architecture: Motif Classes",
+			"link": "https://bit.ly/437OgQZ",
+			"publisher": "purpleMartinGames"
+		},
+		"uses": {
+			"value": null,
+			"max": null,
+			"per": "",
+			"recharge": {
+				"formula": "1d6",
+				"threshold": 6
+			}
+		},
+		"schema": {
+			"version": 0.004,
+			"lastMigration": {
+				"version": {
+					"schema": null,
+					"foundry": "11.304",
+					"system": "0.12.6"
+				}
+			}
+		},
+		"degree": "2",
+		"exertionCost": 2,
+		"isStance": false,
+		"prerequisite": "",
+		"tradition": "arcaneArtillery",
+		"ability": "",
+		"proficient": true,
+		"save": {
+			"dc": "@maneuverDC",
+			"onSave": "avoid being knocked prone",
+			"targetAbility": "str"
+		},
+		"equippedState": 0,
+		"-=recharge": null,
+		"-=equipped": null
+	},
+	"effects": [],
+	"flags": {},
+	"folder": "i9sLNpPr0Ypb8Y02",
+	"_id": "ixtzpmuxr5chimnm"
+}

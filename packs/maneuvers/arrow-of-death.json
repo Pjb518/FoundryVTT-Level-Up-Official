@@ -1,0 +1,102 @@
+{
+	"name": "Arrow of Death",
+	"type": "maneuver",
+	"img": "icons/skills/ranged/projectile-explosion-black-orange.webp",
+	"system": {
+		"actions": {
+			"FvLlPp7CWS5d8jtp": {
+				"name": "Arrow of Death",
+				"activation": {
+					"cost": 1,
+					"type": "action",
+					"reactionTrigger": ""
+				},
+				"duration": {
+					"unit": "instantaneous",
+					"value": ""
+				},
+				"area": {
+					"shape": "",
+					"placeTemplate": false
+				},
+				"target": {
+					"quantity": 1,
+					"type": "creatureObject"
+				},
+				"rolls": {
+					"NggGQYUqQJGDkYL3": {
+						"bonus": "",
+						"critThreshold": "20",
+						"type": "attack",
+						"attackType": "rangedWeaponAttack",
+						"ability": "default"
+					}
+				},
+				"prompts": {
+					"BR9fHKwvLGL0f8zo": {
+						"ability": "cha",
+						"onSave": "No extra damage taken",
+						"saveDC": {
+							"type": "custom",
+							"bonus": "@maneuverDC"
+						},
+						"type": "savingThrow"
+					}
+				},
+				"consumers": {
+					"FT4zmCO42Rhigxnc": {
+						"quantity": 3,
+						"resource": "exertion",
+						"type": "resource"
+					}
+				}
+			}
+		},
+		"description": "<div class=\"page\" title=\"Page 39\">\n<div class=\"layoutArea\">\n<div class=\"column\">\n<p>With a whisper of death singing behind it, your arrow spells doom for your foes. As a special attack action you make a single ranged weapon attack against a foe within range. The target of this ranged weapon attack must make a Charisma save or be struck by a critical hit. If you roll a natural 20 on the attack roll, this attack triples the normal damage of your attack if the target also fails their saving throw.</p>\n</div>\n</div>\n</div>",
+		"favorite": false,
+		"secretDescription": "",
+		"source": {
+			"name": "System Architecture: Motif Classes",
+			"link": "https://bit.ly/437OgQZ",
+			"publisher": "purpleMartinGames"
+		},
+		"uses": {
+			"value": null,
+			"max": null,
+			"per": "",
+			"recharge": {
+				"formula": "1d6",
+				"threshold": 6
+			}
+		},
+		"schema": {
+			"version": 0.004,
+			"lastMigration": {
+				"version": {
+					"schema": null,
+					"foundry": "11.304",
+					"system": "0.12.6"
+				}
+			}
+		},
+		"degree": "5",
+		"exertionCost": 3,
+		"isStance": false,
+		"prerequisite": "",
+		"tradition": "arcaneArtillery",
+		"ability": "default",
+		"proficient": true,
+		"save": {
+			"dc": "@maneuverDC",
+			"onSave": "No extra damage taken",
+			"targetAbility": "cha"
+		},
+		"equippedState": 0,
+		"-=recharge": null,
+		"-=equipped": null
+	},
+	"effects": [],
+	"flags": {},
+	"folder": "i9sLNpPr0Ypb8Y02",
+	"_id": "gnujjmr7pprz3s8a"
+}

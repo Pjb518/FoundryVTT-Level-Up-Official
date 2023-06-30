@@ -1,0 +1,103 @@
+{
+	"name": "Smokescreen",
+	"type": "maneuver",
+	"img": "icons/magic/air/wind-tornado-wall-blue.webp",
+	"system": {
+		"actions": {
+			"VQUwafEUg3OM0mOK": {
+				"name": "Smokescreen",
+				"activation": {
+					"cost": 1,
+					"type": "action",
+					"reactionTrigger": ""
+				},
+				"duration": {
+					"unit": "minute",
+					"value": 1
+				},
+				"area": {
+					"shape": "cube",
+					"width": 15,
+					"placeTemplate": true
+				},
+				"target": {
+					"quantity": 1,
+					"type": "creatureObject"
+				},
+				"rolls": {
+					"YsfG17ZLuJ1Ponfw": {
+						"bonus": "",
+						"critThreshold": "20",
+						"type": "attack",
+						"attackType": "rangedWeaponAttack",
+						"ability": "default"
+					}
+				},
+				"prompts": {
+					"WMg0XcVNmahDL6Tg": {
+						"ability": "con",
+						"onSave": "avoid disadvantage on perception & investigation",
+						"saveDC": {
+							"type": "custom",
+							"bonus": "@maneuverDC"
+						},
+						"type": "savingThrow"
+					}
+				},
+				"consumers": {
+					"xMuHyWYFr6XDm5cm": {
+						"quantity": 2,
+						"resource": "exertion",
+						"type": "resource"
+					}
+				}
+			}
+		},
+		"description": "<div class=\"page\" title=\"Page 39\">\n<div class=\"layoutArea\">\n<div class=\"column\">\n<p>With an explosive pop on impact your attack releases noxious smoke. Make a ranged attack as normal. If this attack hits your target, it bursts into a cloud of gas with a 15ft cube centered on your target&rsquo;s square until the end of your next turn. Each creature that starts their turn in or moves through the smoke must make a constitution save against your maneuver DC or have disadvantage on perception and investigation checks for 1 minute. Affected creatures can attempt additional saves at the end of each of their turns, ending the effect on a success.</p>\n</div>\n</div>\n</div>",
+		"favorite": false,
+		"secretDescription": "",
+		"source": {
+			"name": "System Architecture: Motif Classes",
+			"link": "https://bit.ly/437OgQZ",
+			"publisher": "purpleMartinGames"
+		},
+		"uses": {
+			"value": null,
+			"max": null,
+			"per": "",
+			"recharge": {
+				"formula": "1d6",
+				"threshold": 6
+			}
+		},
+		"schema": {
+			"version": 0.004,
+			"lastMigration": {
+				"version": {
+					"schema": null,
+					"foundry": "11.304",
+					"system": "0.12.6"
+				}
+			}
+		},
+		"degree": "2",
+		"exertionCost": 2,
+		"isStance": false,
+		"prerequisite": "",
+		"tradition": "arcaneArtillery",
+		"ability": "default",
+		"proficient": true,
+		"save": {
+			"dc": "@maneuverDC",
+			"onSave": "avoid disadvantage on perception & investigation",
+			"targetAbility": "con"
+		},
+		"equippedState": 0,
+		"-=recharge": null,
+		"-=equipped": null
+	},
+	"effects": [],
+	"flags": {},
+	"folder": "i9sLNpPr0Ypb8Y02",
+	"_id": "z7eplaztd151isn0"
+}

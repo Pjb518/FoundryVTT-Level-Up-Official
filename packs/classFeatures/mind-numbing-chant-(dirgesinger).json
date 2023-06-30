@@ -1,0 +1,70 @@
+{
+	"name": "Mind Numbing Chant (Dirgesinger)",
+	"type": "feature",
+	"img": "icons/magic/control/encase-creature-monster-hold.webp",
+	"system": {
+		"actions": {
+			"d0WhzQi1XNG448oD": {
+				"name": "Mind Numbing Chant",
+				"descriptionOutputs": [
+					"action"
+				],
+				"activation": {
+					"type": "reaction",
+					"cost": 1,
+					"reactionTrigger": "When a creature you can see makes an initiative check, ability check, attack roll, or saving throw."
+				},
+				"duration": {
+					"unit": "instantaneous"
+				},
+				"target": {
+					"type": "creature",
+					"quantity": 1
+				},
+				"ranges": {
+					"L9zpL68JLZHu4pu5": {
+						"range": "medium"
+					}
+				},
+				"consumers": {}
+			}
+		},
+		"description": "<p dir=\"ltr\">At 1st level, your monotone speech and shrill wails can weaken the resolve of even the staunchest opponent. You gain a pool of Chant dice equal to your Intelligence modifier. These dice begin as d4s. These dice are expended when used and recharge at the end of a long rest.</p>\n<p dir=\"ltr\">When a creature you can see makes an initiative check, ability check, attack roll, or saving throw, you may use your reaction to expend one Chant die. This causes the creature to take a penalty to the check equal to one roll of the Chant die. To use this feature you must be within 60 feet of the target creature, you must be able to see it and it must be able to hear you, and you must not be surprised.</p>\n<p dir=\"ltr\">You may decide to use this feature after the d20 is rolled but before the Narrator announces the results of the check.</p>\n<p dir=\"ltr\">At 5th level your Chant die increases to d6, at 10th level it increases to d8, and at 15th level it increases to d10. You may combine your dirgesinger levels with bard or warlock levels when determining the die size of this feature.</p>",
+		"favorite": false,
+		"secretDescription": "",
+		"source": {
+			"name": "System Architecture: Motif Classes",
+			"link": "https://bit.ly/437OgQZ",
+			"publisher": "purpleMartinGames"
+		},
+		"uses": {
+			"value": null,
+			"max": "@int.mod",
+			"per": "longRest",
+			"recharge": {
+				"formula": "1d6",
+				"threshold": 6
+			}
+		},
+		"schema": {
+			"version": 0.004,
+			"lastMigration": {
+				"version": {
+					"schema": null,
+					"foundry": "11.304",
+					"system": "0.12.6"
+				}
+			}
+		},
+		"concentration": false,
+		"featureType": "class",
+		"prerequisite": "",
+		"equippedState": 0,
+		"-=recharge": null,
+		"-=equipped": null
+	},
+	"effects": [],
+	"flags": {},
+	"folder": "LWdpQBEkwCF8vTrg",
+	"_id": "el6nhqunz3mytxw6"
+}

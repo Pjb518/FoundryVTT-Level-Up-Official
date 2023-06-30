@@ -1,0 +1,92 @@
+{
+	"name": "Invocation: Eldritch Madness (Dirgesinger)",
+	"type": "feature",
+	"img": "icons/magic/sonic/explosion-shock-sound-wave.webp",
+	"system": {
+		"actions": {
+			"Cu77RBtY9cPhdl3Q": {
+				"name": "New Action",
+				"activation": {
+					"type": "action",
+					"cost": 1
+				},
+				"duration": {
+					"unit": "instantaneous"
+				},
+				"ranges": {
+					"ZMFRKTr5X5GreCRZ": {
+						"range": 80,
+						"unit": "feet"
+					}
+				},
+				"area": {
+					"shape": "sphere",
+					"quantity": 1,
+					"radius": 15,
+					"placeTemplate": true
+				},
+				"target": {
+					"type": "creature",
+					"quantity": 0
+				},
+				"rolls": {
+					"c5E4rs8NbklFLkBU": {
+						"type": "damage",
+						"default": true,
+						"formula": "6d4",
+						"damageType": "force"
+					}
+				},
+				"prompts": {
+					"JU1gg5pDEQ7aRysP": {
+						"type": "savingThrow",
+						"default": true,
+						"ability": "int",
+						"saveDC": {
+							"type": "spellcasting"
+						},
+						"onSave": "No effect."
+					}
+				},
+				"consumers": {}
+			}
+		},
+		"description": "<p dir=\"ltr\"><em><strong>Prerequisites: </strong>7th level, Eldritch Chant feature</em></p>\n<p dir=\"ltr\">You can use an action to unleash your Eldritch Chant against all creatures within a sphere with a radius of fifteen feet, the origin of which must be within eighty feet of you. Each creature in the area makes an Intelligence saving throw. Creatures that fail take 6d4 Force damage and are Confused for 1 minute.</p>\n<p dir=\"ltr\">At the beginning of each round, roll 1d8 once and have each creature act in the same manner according to the roll. Instead of following the normal chart for Confused creatures, use the following chart:</p>\n<ul>\n<li dir=\"ltr\" aria-level=\"1\">\n<p dir=\"ltr\" role=\"presentation\">1&ndash;2: The Confused creatures do nothing.</p>\n</li>\n<li dir=\"ltr\" aria-level=\"1\">\n<p dir=\"ltr\" role=\"presentation\">3&ndash;6: The Confused creatures take no action or bonus action and use all of their movement to move toward the nearest group of other Confused creatures, bunching together tightly. A creature adjacent to at least 3 other Violently Confused creatures stops moving and does not move if this option is rolled again.</p>\n</li>\n<li dir=\"ltr\" aria-level=\"1\">\n<p dir=\"ltr\" role=\"presentation\">7&ndash;8: The Confused creatures make a melee weapon or spell attack against another randomly determined creature within range. A Confused creature that is adjacent to at least 3 other Confused creatures activates this option on a roll of 5&ndash;8.</p>\n</li>\n</ul>\n<p dir=\"ltr\">Creatures Confused by this invocation are able to take reactions, but only to make attacks of opportunity.</p>\n<p dir=\"ltr\">Creatures Confused by this invocation may make an Intelligence saving throw to free themselves from this feature when they take damage, but the save is at disadvantage if they are damaged by another Confused creature. They make this save against your spell save DC.</p>\n<p dir=\"ltr\">Once you use this feature, you cannot do so again until you finish a short or long rest. You also regain the use of this feature after you&rsquo;ve spent 5 spell points to cast a spell or use other features (or spent spell slots worth 5 spell points).</p>\n<p>&nbsp;</p>",
+		"favorite": false,
+		"secretDescription": "",
+		"source": {
+			"name": "System Architecture: Motif Classes",
+			"link": "https://bit.ly/437OgQZ",
+			"publisher": "purpleMartinGames"
+		},
+		"uses": {
+			"value": null,
+			"max": "",
+			"per": null,
+			"recharge": {
+				"formula": "1d6",
+				"threshold": 6
+			}
+		},
+		"schema": {
+			"version": 0.004,
+			"lastMigration": {
+				"version": {
+					"schema": null,
+					"foundry": "11.304",
+					"system": "0.12.6"
+				}
+			}
+		},
+		"concentration": false,
+		"featureType": "class",
+		"prerequisite": "",
+		"equippedState": 0,
+		"-=recharge": null,
+		"-=equipped": null
+	},
+	"effects": [],
+	"flags": {},
+	"folder": "LWdpQBEkwCF8vTrg",
+	"_id": "ooxgu5rajl9hul8t"
+}
