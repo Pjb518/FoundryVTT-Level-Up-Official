@@ -94,14 +94,18 @@
                     {#if rollData.rollMode === 1}
                         <span
                             class="roll-mode-label roll-mode-label--advantage"
+                            data-tooltip="Advantage"
+                            data-tooltip-direction="LEFT"
                         >
-                            Advantage
+                            A
                         </span>
                     {:else if rollData.rollMode === -1}
                         <span
                             class="roll-mode-label roll-mode-label--disadvantage"
+                            data-tooltip="Disadvantage"
+                            data-tooltip-direction="LEFT"
                         >
-                            Disadvantage
+                            D
                         </span>
                     {/if}
 
@@ -176,6 +180,7 @@
 
     .roll-mode-label {
         display: block;
+        width: fit-content;
         margin-left: auto;
         padding: 0.15rem 0.4rem;
         font-size: 0.694rem;

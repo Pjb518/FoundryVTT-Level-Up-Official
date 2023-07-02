@@ -747,7 +747,7 @@ export default class ActorA5e extends Actor {
 
     if (!dialogData) return null;
 
-    const { rollFormula, visibilityMode } = dialogData;
+    const { rollFormula, rollMode, visibilityMode } = dialogData;
     const roll = await new Roll(rollFormula).roll({ async: true });
 
     const chatData = {
@@ -763,7 +763,8 @@ export default class ActorA5e extends Actor {
           actorId: this.uuid,
           cardType: 'abilityCheck',
           img: this.token?.img ?? this.img,
-          name: this.name
+          name: this.name,
+          rollMode
         }
       },
       content: '<article></article>'
@@ -875,7 +876,10 @@ export default class ActorA5e extends Actor {
 
     if (dialogData === null) return null;
 
-    const { rollFormula, visibilityMode } = dialogData;
+    const {
+      rollFormula, rollMode, saveType, visibilityMode
+    } = dialogData;
+
     const roll = await new Roll(rollFormula).roll({ async: true });
 
     const chatData = {
@@ -891,7 +895,9 @@ export default class ActorA5e extends Actor {
           actorId: this.uuid,
           cardType: 'savingThrow',
           img: this.token?.img ?? this.img,
-          name: this.name
+          name: this.name,
+          rollMode,
+          saveType
         }
       },
       content: '<article></article>'
@@ -960,7 +966,10 @@ export default class ActorA5e extends Actor {
 
     if (!rollData) return null;
 
-    const { rollFormula, abilityKey, visibilityMode } = rollData;
+    const {
+      abilityKey, rollFormula, rollMode, visibilityMode
+    } = rollData;
+
     const roll = await new Roll(rollFormula).roll({ async: true });
 
     const chatData = {
@@ -977,6 +986,7 @@ export default class ActorA5e extends Actor {
           cardType: 'skillCheck',
           img: this.token?.img ?? this.img,
           name: this.name,
+          rollMode,
           skillKey
         }
       },

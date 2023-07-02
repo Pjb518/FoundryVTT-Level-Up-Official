@@ -5,6 +5,7 @@
     import BaseHeader from "./BaseHeader.svelte";
 
     export let message;
+    console.log($message);
 
     function getTitle() {
         const ability = localize(abilities[abilityKey]);
@@ -15,7 +16,9 @@
             case "hitDice":
                 return $message?.flags?.a5e?.title;
             case "savingThrow":
-                return localize("A5E.SavingThrowSpecific", { ability });
+                return $message?.flags?.a5e?.saveType === "concentration"
+                    ? localize("A5E.ConcentrationCheck")
+                    : localize("A5E.SavingThrowSpecific", { ability });
             case "skillCheck":
                 const { skillKey } = $message?.flags?.a5e;
                 const skill = localize(skills[skillKey]);
@@ -41,6 +44,7 @@
     {img}
     altText={name}
     clickableHeader={false}
+    rollMode={$message?.flags?.a5e?.rollMode}
     subtitle={getSubtitle()}
     title={getTitle()}
     on:repeatCard={() => dispatch("repeatCard")}

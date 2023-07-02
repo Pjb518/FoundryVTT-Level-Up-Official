@@ -48,7 +48,12 @@
     const localizeSave = localize(CONFIG.A5E.abilities[abilityKey]);
 
     function onSubmit() {
-        dialog.submit({ rollFormula, visibilityMode });
+        dialog.submit({
+            rollFormula,
+            rollMode,
+            saveType,
+            visibilityMode,
+        });
     }
 
     let expertiseDie =

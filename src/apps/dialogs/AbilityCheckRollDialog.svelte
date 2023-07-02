@@ -30,7 +30,7 @@
     });
 
     function onSubmit() {
-        dialog.submit({ rollFormula, visibilityMode });
+        dialog.submit({ rollFormula, rollMode, visibilityMode });
     }
 
     let expertiseDie =
