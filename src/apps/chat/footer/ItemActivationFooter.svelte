@@ -72,7 +72,7 @@
     .card-footer {
         display: flex;
         align-items: center;
-        gap: 1rem;
+        gap: 0.75rem;
     }
 
     .component-wrapper {
@@ -95,7 +95,6 @@
     }
 
     .spell-level {
-        font-size: 0.833rem;
-        font-style: italic;
+        font-size: 0.694rem;
     }
 </style>

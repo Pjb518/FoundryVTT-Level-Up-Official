@@ -126,6 +126,7 @@ export default class RollPreparationManager {
       isCrit,
       label,
       roll,
+      rollMode: _roll.rollMode,
       type: 'attack'
     };
   }
