@@ -147,6 +147,7 @@ export default class ItemA5e extends Item {
           actorId: this.actor.uuid,
           itemId: this.uuid,
           cardType: 'item',
+          castingLevel: activationData.consumers?.spell?.level ?? this.system.level ?? null,
           img: action.img ?? this.img ?? 'icons/svg/item-bag.svg',
           name: this.name,
           actionName: action.name,

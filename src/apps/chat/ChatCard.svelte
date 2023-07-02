@@ -9,6 +9,7 @@
 
     import CheckBody from "./body/CheckBody.svelte";
     import ItemActivationBody from "./body/ItemActivationBody.svelte";
+    import ItemActivationFooter from "./footer/ItemActivationFooter.svelte";
 
     function getHeaderComponent() {
         switch ($message?.flags?.a5e?.cardType) {
@@ -57,3 +58,7 @@
 />
 
 <svelte:component this={getBodyComponent()} {message} {hideDescription} />
+
+{#if $message?.flags?.a5e?.cardType === "item"}
+    <ItemActivationFooter {message} />
+{/if}
