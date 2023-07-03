@@ -372,7 +372,9 @@
           }
         },
         "attributes": {
-          "ac": 10,
+          "ac": {
+            "base": 10
+          },
           "death": {
             "success": 0,
             "failure": 0
@@ -638,6 +640,14 @@
           }
         }
       },
+      "armorClass": {
+        "ac": {
+          "value": "",
+          "maxDex": 0,
+          "mode": 0,
+          "requiresUnarmored": false
+        }
+      },
       "schema": {
         "schema": {
           "version": null,
@@ -697,6 +707,7 @@
     },
     "feature": {
       "templates": [
+        "armorClass",
         "base",
         "schema"
       ],
@@ -706,6 +717,7 @@
     },
     "maneuver": {
       "templates": [
+        "armorClass",
         "base",
         "schema"
       ],
@@ -717,6 +729,7 @@
     },
     "object": {
       "templates": [
+        "armorClass",
         "base",
         "schema"
       ],
