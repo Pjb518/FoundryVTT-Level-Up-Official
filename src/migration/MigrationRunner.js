@@ -357,14 +357,16 @@ export default class MigrationRunner extends MigrationRunnerBase {
         if (!wasSuccessful) continue;
 
         // Only migrate if the synthetic actor has replaced data to migrate.
-        const hasMigratableData = !!token._source.actorData.flags?.a5e
-          || Object.keys(token._source.actorData).some((k) => ['items', 'system'].includes(k));
+        const deltaSource = token.delta?.source;
+        const hasMigratableData = (!!deltaSource && deltaSource.flags?.a5e)
+          || ((deltaSource ?? {}).items ?? []).length > 0
+          || Object.keys(deltaSource?.system ?? {}).length > 0;
 
         if (actor.isToken && hasMigratableData) {
           const updateData = await this.#migrateActor(migrations, actor);
           if (updateData) {
             try {
-              await actor.update(updateData);
+              await actor.update(updateData, { noHook: true });
             } catch (e) {
               console.warn(e);
             }
