@@ -117,6 +117,13 @@ export default class ActorA5e extends Actor {
   prepareBaseData() {
     const actorType = this.type;
 
+    // Add AC data to the actor.
+    foundry.utils.mergeObject(this.system.attributes.ac, {
+      changes: [],
+      armorWorn: '',
+      shieldWorn: ''
+    });
+
     if (actorType === 'character') {
       return this.prepareCharacterData();
     }
@@ -262,6 +269,7 @@ export default class ActorA5e extends Actor {
     }
 
     this.prepareSkills();
+    this.prepareArmorClass();
   }
 
   /**
@@ -429,6 +437,62 @@ export default class ActorA5e extends Actor {
         console.error(`Couldn't calculate a ${skillName} passive score for ${this.name}`);
         skill.passive = null;
       }
+    });
+  }
+
+  prepareArmorClass() {
+    const currentStr = this.system.abilities.str.value;
+    const baseAC = this.system.attributes.ac.base;
+    let changes = [];
+    let worShield;
+    let worArmor;
+
+    // Calculate changes from items.
+    this.items.forEach((item) => {
+      const { ac } = item.system;
+      if (!ac) return;
+
+      const {
+        formula, maxDex, minStr, mode, requiresUnarmored
+      } = ac;
+
+      if (!formula || currentStr < minStr) return;
+      let value;
+
+      if (maxDex && maxDex > 0) {
+        value = formula.replaceAll(/@dex\.mod|@abilities\.dex\.mod/gm, `min(@dex.mod, ${maxDex})`);
+      }
+
+      console.log(value);
+      value = getDeterministicBonus(value, this.getRollData()) ?? 0;
+
+      changes.push({
+        id: item.uuid,
+        mode,
+        value,
+        requiresUnarmored
+      });
+    });
+
+    // Sort changes by mode.
+    changes = changes.sort((a, b) => a.mode - b.mode);
+
+    // Calculate the AC for each mode.
+    const overrideAC = changes.reduce((acc, curr) => {
+      if (curr.mode !== 5) return acc;
+
+      if (curr.value > acc?.value) return curr;
+      return acc;
+    }, baseAC);
+
+    const bonusAC = changes.reduce((acc, curr) => {
+      if (curr.mode !== 0) return acc;
+      return acc + curr.value;
+    }, 0);
+
+    foundry.utils.mergeObject(this.system.attributes.ac, {
+      changes,
+      value: overrideAC?.value ?? overrideAC + bonusAC
     });
   }
 
