@@ -14,7 +14,6 @@
         getContext("#external").application;
 
     function onSubmit() {
-        console.log(updates);
         for (const [key, value] of updates) {
             const setting = settings.getStore(key);
             setting.set(value);

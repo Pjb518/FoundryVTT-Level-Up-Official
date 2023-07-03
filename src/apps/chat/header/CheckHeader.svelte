@@ -5,7 +5,6 @@
     import BaseHeader from "./BaseHeader.svelte";
 
     export let message;
-    console.log($message);
 
     function getTitle() {
         const ability = localize(abilities[abilityKey]);
