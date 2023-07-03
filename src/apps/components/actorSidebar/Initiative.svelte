@@ -31,6 +31,7 @@
 
     {#if sheetIsLocked}
         <!-- svelte-ignore a11y-click-events-have-key-events -->
+        <!-- svelte-ignore a11y-no-static-element-interactions -->
         <i
             class="initiative-roll-button fas fa-dice-d20"
             class:initiative-roll-button--shift={$pressedKeysStore.Shift}
@@ -48,6 +49,7 @@
         />
     {:else}
         <!-- svelte-ignore a11y-click-events-have-key-events -->
+        <!-- svelte-ignore a11y-no-static-element-interactions -->
         <i
             class="initiative-roll-button fas fa-cog"
             data-tooltip="A5E.InitiativeConfigurationTitle"

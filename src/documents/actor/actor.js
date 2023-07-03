@@ -10,6 +10,7 @@ import ActorInitConfigDialog from '../../apps/dialogs/ActorInitConfigDialog.svel
 import ActorManueverConfigDialog from '../../apps/dialogs/ActorManueverConfigDialog.svelte';
 import ActorSpellConfigDialog from '../../apps/dialogs/ActorSpellConfigDialog.svelte';
 import ArmorProfConfigDialog from '../../apps/dialogs/ArmorProfConfigDialog.svelte';
+import ArmorClassConfigDialog from '../../apps/dialogs/ArmorClassConfigDialog.svelte';
 import ConditionImmunitiesConfigDialog from '../../apps/dialogs/ConditionImmunitiesConfigDialog.svelte';
 import CreatureSizeConfigDialog from '../../apps/dialogs/CreatureSizeConfigDialog.svelte';
 import CreatureTypeConfigDialog from '../../apps/dialogs/CreatureTypeConfigDialog.svelte';
@@ -49,6 +50,7 @@ export default class ActorA5e extends Actor {
     this.#configDialogMap = {
       ability: AbilityCheckConfigDialog,
       armor: ArmorProfConfigDialog,
+      armorClass: ArmorClassConfigDialog,
       conditionImmunities: ConditionImmunitiesConfigDialog,
       damageImmunities: DamageImmunitiesConfigDialog,
       damageResistances: DamageResistancesConfigDialog,
@@ -572,6 +574,11 @@ export default class ActorA5e extends Actor {
 
     const dialog = new DialogComponent(this, id);
     dialog.render(true);
+  }
+
+  configureArmorClass(data = {}, options = {}) {
+    const title = localize('A5E.ACConfigurationPrompt', { name: this.name });
+    this.#configure('armorClass', title, data, options);
   }
 
   configureDamageImmunities(data = {}, options = {}) {
