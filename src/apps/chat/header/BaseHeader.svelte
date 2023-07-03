@@ -21,36 +21,31 @@
 >
     <img class="card-image" src={img} alt={altText} />
 
-    <div class="card-header__text">
-        <h2 class="card-title">
-            {title}
+    <h2 class="card-title">{title}</h2>
 
-            {#if rollMode === 1}
-                <span
-                    class="roll-mode-label roll-mode-label--advantage"
-                    data-tooltip="Advantage"
-                    data-tooltip-direction="LEFT"
-                >
-                    A
-                </span>
-            {:else if rollMode === -1}
-                <span
-                    class="roll-mode-label roll-mode-label--disadvantage"
-                    data-tooltip="Disadvantage"
-                    data-tooltip-direction="LEFT"
-                >
-                    D
-                </span>
-            {/if}
-        </h2>
+    {#if rollMode === 1}
+        <span
+            class="roll-mode-label roll-mode-label--advantage"
+            data-tooltip="Advantage"
+            data-tooltip-direction="LEFT"
+        >
+            Adv
+        </span>
+    {:else if rollMode === -1}
+        <span
+            class="roll-mode-label roll-mode-label--disadvantage"
+            data-tooltip="Disadvantage"
+            data-tooltip-direction="LEFT"
+        >
+            Dis
+        </span>
+    {/if}
 
-        {#if subtitle}
-            <h3 class="card-subtitle">
-                {subtitle}
-            </h3>
-        {/if}
+    {#if subtitle}
+        <h3 class="card-subtitle">{subtitle}</h3>
+    {/if}
 
-        <!-- <div class="u-flex u-flex-col">
+    <!-- <div class="u-flex u-flex-col">
             <button on:click={() => dispatch("repeatCard")}>
                 <i class="fa-solid fa-repeat" />
             </button>
@@ -59,7 +54,6 @@
                 <i class="fa-solid fa-dice" />
             </button>
         </div> -->
-    </div>
 </header>
 
 <style lang="scss">
@@ -68,56 +62,51 @@
         width: 2.5rem;
         height: 2.5rem;
         border-radius: 4px;
+        grid-area: image;
     }
 
     .card-header {
-        display: flex;
+        display: grid;
+        grid-template-areas:
+            "image title flag"
+            "image subtitle subtitle";
+        grid-template-columns: 2.5rem 1fr max-content;
+        grid-template-rows: 1fr max-content;
+        gap: 0.125rem 0.5rem;
         align-items: center;
-        gap: 0.5rem;
-        width: 100%;
-        padding: 0.25rem;
-        padding-bottom: 0;
-
-        &__text {
-            display: flex;
-            flex-direction: column;
-            gap: 0.125rem;
-            width: 100%;
-        }
+        padding-top: 0.25rem;
 
         &--clickable {
             cursor: pointer;
         }
     }
 
-    .card-title {
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        width: 100%;
+    .card-title,
+    .card-subtitle {
         margin-bottom: 0;
+        border-bottom: 0;
+    }
+
+    .card-title {
         font-size: 1rem;
         font-weight: bold;
-        border-bottom: 0;
+        grid-area: title;
     }
 
     .card-subtitle {
-        margin-bottom: 0;
         font-size: 0.833rem;
-        border-bottom: 0;
         color: #7e7960;
+        grid-area: subtitle;
     }
 
     .roll-mode-label {
-        display: block;
-        width: fit-content;
         padding: 0.15rem 0.4rem;
         font-size: 0.694rem;
-        font-weight: 400;
         line-height: 1;
         color: white;
         border: 1px solid;
         border-radius: 3px;
+        grid-area: flag;
 
         &--advantage {
             border-color: #425f65;

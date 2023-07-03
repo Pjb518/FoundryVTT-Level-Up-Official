@@ -97,7 +97,7 @@
                             data-tooltip="Advantage"
                             data-tooltip-direction="LEFT"
                         >
-                            A
+                            Adv
                         </span>
                     {:else if rollData.rollMode === -1}
                         <span
@@ -105,7 +105,7 @@
                             data-tooltip="Disadvantage"
                             data-tooltip-direction="LEFT"
                         >
-                            D
+                            Dis
                         </span>
                     {/if}
 
@@ -180,6 +180,7 @@
 
     .roll-mode-label {
         display: block;
+        flex-shrink: 0;
         width: fit-content;
         margin-left: auto;
         padding: 0.15rem 0.4rem;
