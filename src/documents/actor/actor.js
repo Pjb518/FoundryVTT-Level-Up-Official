@@ -443,56 +443,64 @@ export default class ActorA5e extends Actor {
   prepareArmorClass() {
     const currentStr = this.system.abilities.str.value;
     const baseAC = this.system.attributes.ac.base;
-    let changes = [];
-    let worShield;
-    let worArmor;
+    let override = { present: false, type: null };
+    let wornShield;
+    let wornArmor;
 
-    // Calculate changes from items.
-    this.items.forEach((item) => {
+    // Calculate changes from items in one reduce.
+    const changes = this.items.reduce((acc, item) => {
       const { ac } = item.system;
-      if (!ac) return;
+      if (!ac) return acc;
 
-      const {
-        formula, maxDex, minStr, mode, requiresUnarmored
-      } = ac;
+      const { formula, maxDex, minStr } = ac;
+      const { mode, requiresUnarmored } = ac;
 
-      if (!formula || currentStr < minStr) return;
-      let value;
+      if (!formula || currentStr < minStr) return acc;
 
-      if (maxDex && maxDex > 0) {
-        value = formula.replaceAll(/@dex\.mod|@abilities\.dex\.mod/gm, `min(@dex.mod, ${maxDex})`);
+      // Process objects and  worn armor/shield.
+      if (item.type === 'object') {
+        if (item.system.equippedState !== CONFIG.A5E.EQUIPPED_STATES.EQUIPPED) return acc;
+
+        if (item.system.objectType === 'armor') {
+          if (!wornArmor && wornArmor.length) wornArmor = item.uuid;
+          else return acc;
+        } else if (item.system.objectType === 'shield') {
+          if (!wornShield && wornShield.length) wornShield = item.uuid;
+          else return acc;
+        }
       }
 
-      console.log(value);
+      // Only allow one override change with priority object > feature > other.
+      if (mode === 5) {
+        if (!override.present) override = { present: true, type: item.type };
+        else if (override.type === 'feature' && item.type === 'object') override = { present: true, type: item.type };
+        else return acc;
+      }
+
+      // Process max dex modifiers.
+      let value;
+      if (maxDex && maxDex > 0) value = formula.replaceAll(/@dex\.mod|@abilities\.dex\.mod/gm, `min(@dex.mod, ${maxDex})`);
       value = getDeterministicBonus(value, this.getRollData()) ?? 0;
 
-      changes.push({
+      acc.push({
         id: item.uuid,
         mode,
         value,
         requiresUnarmored
       });
-    });
 
-    // Sort changes by mode.
-    changes = changes.sort((a, b) => a.mode - b.mode);
-
-    // Calculate the AC for each mode.
-    const overrideAC = changes.reduce((acc, curr) => {
-      if (curr.mode !== 5) return acc;
-
-      if (curr.value > acc?.value) return curr;
       return acc;
-    }, baseAC);
+    }, [])
+      // TODO: Add support for requiresUnarmored via filter.
+      .sort((a, b) => a.mode - b.mode);
 
-    const bonusAC = changes.reduce((acc, curr) => {
-      if (curr.mode !== 0) return acc;
-      return acc + curr.value;
-    }, 0);
+    // Calculate the final AC value.
+    const finalAC = changes
+      .reduce((acc, { value, mode }) => (mode === 5 ? value : acc + value), baseAC);
 
     foundry.utils.mergeObject(this.system.attributes.ac, {
       changes,
-      value: overrideAC?.value ?? overrideAC + bonusAC
+      value: finalAC
     });
   }
 
