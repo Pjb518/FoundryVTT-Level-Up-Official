@@ -32,15 +32,16 @@
 					}
 				},
 				"schema": {
-					"version": 0.003,
+					"version": 0.004,
 					"lastMigration": {
 						"version": {
-							"schema": null,
-							"foundry": "10.291",
-							"system": "0.10.7"
+							"schema": 0.003,
+							"foundry": "11.302",
+							"system": "0.12.7"
 						}
 					}
 				},
+				"concentration": false,
 				"featureType": "",
 				"prerequisite": ""
 			},
@@ -77,15 +78,16 @@
 					}
 				},
 				"schema": {
-					"version": 0.003,
+					"version": 0.004,
 					"lastMigration": {
 						"version": {
-							"schema": null,
-							"foundry": "10.291",
-							"system": "0.10.7"
+							"schema": 0.003,
+							"foundry": "11.302",
+							"system": "0.12.7"
 						}
 					}
 				},
+				"concentration": false,
 				"featureType": "",
 				"prerequisite": ""
 			},
@@ -169,12 +171,12 @@
 					}
 				},
 				"schema": {
-					"version": 0.003,
+					"version": 0.004,
 					"lastMigration": {
 						"version": {
-							"schema": null,
-							"foundry": "10.291",
-							"system": "0.10.7"
+							"schema": 0.003,
+							"foundry": "11.302",
+							"system": "0.12.7"
 						}
 					}
 				},
@@ -267,12 +269,12 @@
 					}
 				},
 				"schema": {
-					"version": 0.003,
+					"version": 0.004,
 					"lastMigration": {
 						"version": {
-							"schema": null,
-							"foundry": "10.291",
-							"system": "0.10.7"
+							"schema": 0.003,
+							"foundry": "11.302",
+							"system": "0.12.7"
 						}
 					}
 				},
@@ -356,12 +358,12 @@
 					}
 				},
 				"schema": {
-					"version": 0.003,
+					"version": 0.004,
 					"lastMigration": {
 						"version": {
-							"schema": null,
-							"foundry": "10.291",
-							"system": "0.10.7"
+							"schema": 0.003,
+							"foundry": "11.302",
+							"system": "0.12.7"
 						}
 					}
 				},
@@ -445,12 +447,12 @@
 					}
 				},
 				"schema": {
-					"version": 0.003,
+					"version": 0.004,
 					"lastMigration": {
 						"version": {
-							"schema": null,
-							"foundry": "10.291",
-							"system": "0.10.7"
+							"schema": 0.003,
+							"foundry": "11.302",
+							"system": "0.12.7"
 						}
 					}
 				},
@@ -534,12 +536,12 @@
 					}
 				},
 				"schema": {
-					"version": 0.003,
+					"version": 0.004,
 					"lastMigration": {
 						"version": {
-							"schema": null,
-							"foundry": "10.291",
-							"system": "0.10.7"
+							"schema": 0.003,
+							"foundry": "11.302",
+							"system": "0.12.7"
 						}
 					}
 				},
@@ -623,12 +625,12 @@
 					}
 				},
 				"schema": {
-					"version": 0.003,
+					"version": 0.004,
 					"lastMigration": {
 						"version": {
-							"schema": null,
-							"foundry": "10.291",
-							"system": "0.10.7"
+							"schema": 0.003,
+							"foundry": "11.302",
+							"system": "0.12.7"
 						}
 					}
 				},
@@ -651,9 +653,6 @@
 		"a5e": {
 			"availableSpellLevels": [],
 			"sheetIsLocked": true
-		},
-		"core": {
-			"sourceId": "Compendium.a5e.a5e-monsters.48uepw2zmu3me2sj"
 		}
 	},
 	"system": {
@@ -733,12 +732,12 @@
 			}
 		},
 		"schema": {
-			"version": 0.003,
+			"version": 0.004,
 			"lastMigration": {
 				"version": {
-					"schema": null,
-					"foundry": "10.291",
-					"system": "0.10.7"
+					"schema": 0.003,
+					"foundry": "11.302",
+					"system": "0.12.7"
 				}
 			}
 		},
@@ -1102,7 +1101,8 @@
 			"senses": {
 				"blindsight": {
 					"distance": null,
-					"unit": "feet"
+					"unit": "feet",
+					"otherwiseBlind": false
 				},
 				"darkvision": {
 					"distance": 30,
@@ -1129,6 +1129,8 @@
 				"save": "",
 				"skill": ""
 			},
+			"damage": {},
+			"healing": {},
 			"maneuverDC": "",
 			"meleeSpellAttack": "",
 			"meleeWeaponAttack": "",
@@ -1165,29 +1167,50 @@
 				"value": 0,
 				"max": 0,
 				"per": "",
-				"hideMax": false
+				"hideMax": false,
+				"recharge": {
+					"formula": "",
+					"threshold": 6
+				}
 			},
 			"secondary": {
 				"label": "",
 				"value": 0,
 				"max": 0,
 				"per": "",
-				"hideMax": false
+				"hideMax": false,
+				"recharge": {
+					"formula": "",
+					"threshold": 6
+				}
 			},
 			"tertiary": {
 				"label": "",
 				"value": 0,
 				"max": 0,
 				"per": "",
-				"hideMax": false
+				"hideMax": false,
+				"recharge": {
+					"formula": "",
+					"threshold": 6
+				}
 			},
 			"quaternary": {
 				"label": "",
 				"value": 0,
 				"max": 0,
 				"per": "",
-				"hideMax": false
+				"hideMax": false,
+				"recharge": {
+					"formula": "",
+					"threshold": 6
+				}
 			}
+		},
+		"source": {
+			"name": "",
+			"link": "",
+			"publisher": ""
 		},
 		"traits": {
 			"size": "tiny",
@@ -1259,7 +1282,10 @@
 			"contrast": 0,
 			"visionMode": "basic"
 		},
-		"detectionModes": []
+		"detectionModes": [],
+		"appendNumber": false,
+		"prependAdjective": false
 	},
+	"folder": "kUmArr8kC7FQ2uZc",
 	"_id": "48uepw2zmu3me2sj"
 }
