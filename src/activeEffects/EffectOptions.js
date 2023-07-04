@@ -183,6 +183,8 @@ export default class EffectOptions {
       delete baseValues[`system.abilities.${a}.save.mod`];
     });
 
+    delete baseValues['system.attributes.ac.value'];
+
     // Delete text details like bio, class, etc.
     delete baseValues['system.details.age'];
     delete baseValues['system.details.appearance'];
@@ -225,6 +227,7 @@ export default class EffectOptions {
 
   // eslint-disable-next-line no-unused-vars, @typescript-eslint/no-unused-vars
   static modifyDerivedValues(actorType, derivedValues = {}, characterOptions = {}) {
+    derivedValues['system.attributes.ac.value'] = [0, EffectOptions.DEFAULT_MODES];
     derivedValues['system.attributes.hp.max'] = [0, EffectOptions.DEFAULT_MODES];
     derivedValues['system.attributes.maneuverDC'] = [0, EffectOptions.DEFAULT_MODES];
     derivedValues['system.attributes.spellDC'] = [0, EffectOptions.DEFAULT_MODES];

@@ -30,6 +30,13 @@ export default function registerEffectGroupConfig(A5E) {
         'system.abilities.wis.value'
       ]
     },
+    ac: {
+      label: 'A5E.effects.groups.ac',
+      items: [
+        'system.attributes.ac.base',
+        'system.attributes.ac.value'
+      ]
+    },
     attackRollModes: {
       label: 'A5E.effects.groups.attackRollModes',
       items: [
