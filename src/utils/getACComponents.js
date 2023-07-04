@@ -8,13 +8,28 @@ export default function getACComponents(actor) {
   if (!baseChanges.length) return '';
 
   // Get ac base effects
-  // const effectChanges = actor.effects.reduce((acc, effect) => {
-  //   const changes = effect.data.changes
-  //     .filter((change) => change.key === 'system.attributes.ac.value');
-  //   return acc.concat(changes);
-  // });
+  const effectChanges = actor.effects.reduce((acc, effect) => {
+    const changes = effect.changes
+      .reduce((changesAcc, change) => {
+        if (change.key !== 'system.attributes.ac.value') return changesAcc;
 
-  const components = baseChanges
+        changesAcc.push({
+          name: effect.name,
+          mode: change.mode,
+          value: change.value,
+          requiresUnarmored: false
+        });
+        return changesAcc;
+      }, []);
+
+    return acc.concat(changes);
+  }, []);
+
+  let changes;
+  if (effectChanges.find(({ mode }) => mode === 5)) changes = effectChanges;
+  else changes = baseChanges.concat(effectChanges);
+
+  const components = changes
     .sort((a, b) => b.mode - a.mode)
     .map(({ mode, name, value }) => {
       // eslint-disable-next-line no-nested-ternary
