@@ -462,10 +462,10 @@ export default class ActorA5e extends Actor {
         if (item.system.equippedState !== CONFIG.A5E.EQUIPPED_STATES.EQUIPPED) return acc;
 
         if (item.system.objectType === 'armor') {
-          if (!wornArmor && wornArmor.length) wornArmor = item.uuid;
+          if (!wornArmor && !wornArmor?.length) wornArmor = item.uuid;
           else return acc;
         } else if (item.system.objectType === 'shield') {
-          if (!wornShield && wornShield.length) wornShield = item.uuid;
+          if (!wornShield && !wornShield?.length) wornShield = item.uuid;
           else return acc;
         }
       }
@@ -478,12 +478,12 @@ export default class ActorA5e extends Actor {
       }
 
       // Process max dex modifiers.
-      let value;
+      let value = formula;
       if (maxDex && maxDex > 0) value = formula.replaceAll(/@dex\.mod|@abilities\.dex\.mod/gm, `min(@dex.mod, ${maxDex})`);
       value = getDeterministicBonus(value, this.getRollData()) ?? 0;
 
       acc.push({
-        id: item.uuid,
+        name: item.name,
         mode,
         value,
         requiresUnarmored
@@ -492,7 +492,17 @@ export default class ActorA5e extends Actor {
       return acc;
     }, [])
       // TODO: Add support for requiresUnarmored via filter.
-      .sort((a, b) => a.mode - b.mode);
+      .sort((a, b) => b.mode - a.mode);
+
+    // Add Base to changes
+    if (changes[0]?.mode !== 5) {
+      changes.unshift({
+        name: 'Natural Armor',
+        mode: 5,
+        value: baseAC,
+        requiresUnarmored: false
+      });
+    }
 
     // Calculate the final AC value.
     const finalAC = changes
@@ -500,7 +510,9 @@ export default class ActorA5e extends Actor {
 
     foundry.utils.mergeObject(this.system.attributes.ac, {
       changes,
-      value: parseInt(finalAC, 10) || 10
+      value: parseInt(finalAC, 10) || 10,
+      wornArmor,
+      wornShield
     });
   }
 

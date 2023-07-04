@@ -1,11 +1,15 @@
 <script>
     import { getContext } from "svelte";
 
+    import getACComponents from "../../../utils/getACComponents";
+
     const actor = getContext("actor");
 
     $: sheetIsLocked = !$actor.isOwner
         ? true
         : $actor.flags?.a5e?.sheetIsLocked ?? true;
+
+    $: acFormula = getACComponents($actor);
 </script>
 
 <li class="ac-wrapper">
@@ -19,6 +23,8 @@
             value={$actor.system.attributes.ac.value}
             placeholder="10"
             disabled={true}
+            data-tooltip={acFormula}
+            data-tooltip-direction="UP"
         />
 
         <svg
