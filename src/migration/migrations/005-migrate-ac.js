@@ -14,7 +14,7 @@ export default class Migration005MigrateAC extends MigrationBase {
     if (!ac) return;
 
     foundry.utils.setProperty(actorData, 'system.attributes.ac', {
-      base: ac
+      base: parseInt(ac, 10) || 10
     });
   }
 }

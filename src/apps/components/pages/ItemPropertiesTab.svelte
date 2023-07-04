@@ -2,6 +2,7 @@
     import { getContext } from "svelte";
 
     import AmmunitionConfiguration from "../itemPropertiesConfig/AmmunitionConfiguration.svelte";
+    import ArmorClassConfiguration from "../itemPropertiesConfig/ArmorClassConfiguration.svelte";
     import ArmorConfiguration from "../itemPropertiesConfig/ArmorConfiguration.svelte";
     import FeatureConfiguration from "../itemPropertiesConfig/FeatureConfiguration.svelte";
     import ManeuverConfiguration from "../itemPropertiesConfig/ManeuverConfiguration.svelte";
@@ -18,8 +19,10 @@
 <div class="u-flex u-flex-col u-gap-xl properties__container">
     {#if $item.type === "feature"}
         <FeatureConfiguration />
+        <ArmorClassConfiguration />
     {:else if $item.type === "maneuver"}
         <ManeuverConfiguration />
+        <ArmorClassConfiguration />
     {:else if $item.type === "object"}
         <ObjectConfiguration />
         <MaterialConfiguration />
@@ -32,6 +35,7 @@
         {:else if $item.system.objectType === "weapon"}
             <WeaponConfiguration />
         {/if}
+        <ArmorClassConfiguration />
     {:else if $item.type === "spell"}
         <SpellConfiguration />
     {/if}

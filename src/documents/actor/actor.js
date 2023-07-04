@@ -442,7 +442,7 @@ export default class ActorA5e extends Actor {
 
   prepareArmorClass() {
     const currentStr = this.system.abilities.str.value;
-    const baseAC = this.system.attributes.ac.base;
+    const baseAC = parseInt(this.system.attributes.ac.base, 10) || 10;
     let override = { present: false, type: null };
     let wornShield;
     let wornArmor;
@@ -500,7 +500,7 @@ export default class ActorA5e extends Actor {
 
     foundry.utils.mergeObject(this.system.attributes.ac, {
       changes,
-      value: finalAC
+      value: parseInt(finalAC, 10) || 10
     });
   }
 
