@@ -45,7 +45,7 @@
         <!-- svelte-ignore a11y-no-static-element-interactions -->
         <i
             class="ac-config-button fas fa-cog"
-            data-tooltip="A5E.InitiativeConfigurationTitle"
+            data-tooltip="A5E.ArmorClassConfigurationTitle"
             data-tooltip-direction="DOWN"
             on:click={() => $actor.configureArmorClass()}
         />
