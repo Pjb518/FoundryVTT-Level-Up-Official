@@ -17,7 +17,6 @@ export default class TokenDocumentA5e extends TokenDocument {
 
   applyActiveEffects() {
     this.overrides = {};
-
     if (!this.actor) return;
 
     ActiveEffectA5e.applyEffects(
