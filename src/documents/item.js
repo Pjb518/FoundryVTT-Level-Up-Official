@@ -449,7 +449,30 @@ export default class ItemA5e extends Item {
     if (!this.type === 'object' || !this.actor) return;
 
     const currentState = this.system.equippedState;
-    const newState = (currentState + 1) % 3;
+    let newState = (currentState + 1) % 3;
+
+    // Check if armor is already equipped
+    if (newState === 2 && this.system.objectType === 'armor') {
+      const isUnderarmor = this.system.materialProperties.includes('underarmor');
+      const wornArmor = this.parent?.system?.attributes?.ac?.wornArmor;
+      if (isUnderarmor && wornArmor?.underarmor !== '') newState = 0;
+      else if (wornArmor?.armor !== '') newState = 0;
+
+      // Warn user
+      if (newState === 0) {
+        ui.notifications.warn(game.i18n.localize('A5E.armorClass.armorAlreadyEquipped'));
+      }
+    }
+
+    // Check if 2 shields are already equipped
+    if (newState === 2 && this.system.objectType === 'shield') {
+      const wornShield = this.parent?.system?.attributes?.ac?.wornShield;
+      if (wornShield?.shields?.length >= 2) newState = 0;
+
+      if (newState === 0) {
+        ui.notifications.warn(game.i18n.localize('A5E.armorClass.shieldAlreadyEquipped'));
+      }
+    }
 
     await this.update({
       'system.equippedState': newState
