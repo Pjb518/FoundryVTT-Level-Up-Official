@@ -7,14 +7,20 @@
 
     import getACComponents from "../../utils/getACComponents";
     import updateDocumentDataFromField from "../../utils/updateDocumentDataFromField";
+    import RadioGroup from "../components/RadioGroup.svelte";
 
     export let { actorDocument, appId } = getContext("#external").application;
 
     const actor = new TJSDocument(actorDocument);
+    const { A5E } = CONFIG;
 
     $: acFormula = getACComponents($actor);
-    $: wornArmor = fromUuidSync($actor.system.attributes.ac.wornArmor);
-    $: wornShield = fromUuidSync($actor.system.attributes.ac.wornShield);
+
+    $: ac = $actor.system.attributes.ac;
+    $: availableShields = ac.wornShield.shields.map((shield) => {
+        const item = fromUuidSync(shield);
+        return [item.uuid, item.name];
+    });
 </script>
 
 <article>
@@ -39,31 +45,33 @@
             </div>
         </FormSection>
 
-        <FormSection>
-            <div class="u-flex u-flex-col u-gap-md">
-                <div>
-                    <label class="u-text-bold u-text-sm" for="">
-                        Worn Armor:
-                    </label>
-                    <p>
-                        {wornArmor?.name ?? localize("A5E.None")}
-                        {wornArmor ? `[ ${wornArmor.system.ac.formula} ]` : ""}
-                    </p>
-                </div>
-
-                <div>
-                    <label class="u-text-bold u-text-sm" for="">
-                        Worn Shield:
-                    </label>
-                    <p>
-                        {wornShield?.name ?? localize("A5E.None")}
-                        {wornShield
-                            ? `[ ${wornShield.system.ac.formula} ]`
-                            : ""}
-                    </p>
-                </div>
-            </div>
+        <FormSection heading="A5E.armorClass.appliedArmorTypes.label">
+            <RadioGroup
+                options={Object.entries(A5E.appliedArmorTypes)}
+                selected={$actor.system.attributes.ac.wornArmor.applied}
+                on:updateSelection={({ detail }) =>
+                    updateDocumentDataFromField(
+                        $actor,
+                        "system.attributes.ac.wornArmor.applied",
+                        detail
+                    )}
+            />
         </FormSection>
+
+        {#if availableShields.length}
+            <FormSection heading="A5E.armorClass.shield">
+                <RadioGroup
+                    options={availableShields}
+                    selected={$actor.system.attributes.ac.wornShield.applied}
+                    on:updateSelection={({ detail }) =>
+                        updateDocumentDataFromField(
+                            $actor,
+                            "system.attributes.ac.wornShield.applied",
+                            detail
+                        )}
+                />
+            </FormSection>
+        {/if}
 
         <div class="u-flex u-flex-col u-gap-sm">
             <h3 class="u-text-bold u-text-sm">

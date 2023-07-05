@@ -169,6 +169,11 @@ A5E.ammunitionProperties = {
   punching: 'A5E.AmmunitionPropertyPunching'
 };
 
+A5E.appliedArmorTypes = {
+  armor: 'A5E.armorClass.appliedArmorTypes.armor',
+  underarmor: 'A5E.armorClass.appliedArmorTypes.underarmor'
+};
+
 A5E.areaIcons = {
   circle: '<i class="fa-regular fa-circle"></i>',
   cone: '<i class="fa-solid fa-wifi"></i>',

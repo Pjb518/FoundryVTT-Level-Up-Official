@@ -5,12 +5,13 @@
  */
 export default function getACComponents(actor) {
   const baseChanges = actor.system.attributes.ac.changes;
-  if (!baseChanges.length) return '';
+  if (!baseChanges.overrides.length && !baseChanges.bonuses.length) return '';
 
   // Get ac base effects
   const effectChanges = actor.effects.reduce((acc, effect) => {
     const changes = effect.changes
       .reduce((changesAcc, change) => {
+        if (effect.isSuppressed) return changesAcc;
         if (change.key !== 'system.attributes.ac.value') return changesAcc;
 
         changesAcc.push({
@@ -27,7 +28,11 @@ export default function getACComponents(actor) {
 
   let changes;
   if (effectChanges.find(({ mode }) => mode === 5)) changes = effectChanges;
-  else changes = baseChanges.concat(effectChanges);
+  else {
+    changes = baseChanges.overrides.filter(({ isSuppressed }) => !isSuppressed)
+      .concat(baseChanges.bonuses.filter(({ isSuppressed }) => !isSuppressed))
+      .concat(effectChanges);
+  }
 
   const components = changes
     .sort((a, b) => b.mode - a.mode)

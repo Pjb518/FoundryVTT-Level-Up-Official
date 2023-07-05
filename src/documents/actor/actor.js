@@ -119,9 +119,7 @@ export default class ActorA5e extends Actor {
 
     // Add AC data to the actor.
     foundry.utils.mergeObject(this.system.attributes.ac, {
-      changes: [],
-      armorWorn: '',
-      shieldWorn: ''
+      changes: { overrides: [], bonuses: [] }
     });
 
     if (actorType === 'character') {
@@ -272,6 +270,166 @@ export default class ActorA5e extends Actor {
     this.prepareArmorClass();
   }
 
+  prepareArmorClass() {
+    const baseAC = parseInt(this.system.attributes.ac.base, 10) || 10;
+    const currentStr = this.system.abilities.str.value;
+    const wornArmor = {
+      armor: '',
+      underarmor: '',
+      applied: this.system.attributes.ac.wornArmor.applied ?? 'armor'
+    };
+    const wornShield = {
+      shields: [],
+      applied: this.system.attributes.ac.wornShield.applied ?? ''
+    };
+
+    // Calculate changes from items in one reduce.
+    const changes = this.items.reduce((acc, item) => {
+      const { ac } = item.system;
+      if (!ac) return acc;
+
+      const { formula, maxDex, minStr } = ac;
+      const { mode, requiresUnarmored } = ac;
+
+      if (!formula || currentStr < minStr) return acc;
+
+      // Process objects and  worn armor/shield.
+      if (item.type === 'object') {
+        if (item.system.equippedState !== CONFIG.A5E.EQUIPPED_STATES.EQUIPPED) return acc;
+
+        if (item.system.objectType === 'armor') {
+          const isUnderArmor = item.system.materialProperties.includes('underarmor');
+          if (isUnderArmor && !wornArmor.underarmor) wornArmor.underarmor = item.uuid;
+          else if (!isUnderArmor && !wornArmor.armor) wornArmor.armor = item.uuid;
+          else return acc;
+        } else if (item.system.objectType === 'shield') {
+          if (wornShield.shields.length >= 2) return acc;
+          if (wornShield.applied === '') wornShield.applied = item.uuid;
+          wornShield.shields.push(item.uuid);
+        }
+      }
+
+      // Process max dex modifiers.
+      let value = formula;
+      if (maxDex && maxDex > 0) value = formula.replaceAll(/@dex\.mod|@abilities\.dex\.mod/gm, `min(@dex.mod, ${maxDex})`);
+      value = getDeterministicBonus(value, this.getRollData()) ?? 0;
+
+      // Process AC if item is broken
+      if (item.type === 'object' && item.system.broken) {
+        if (item.system.objectType === 'armor' && value > 10) {
+          value = 10 + Math.max(Math.floor((value - 10) / 2), 1);
+        } else value = Math.max(Math.floor(value / 2), 1);
+      }
+
+      // Process suppression state
+      let isSuppressed = false;
+      if (item.type === 'object') {
+        if (item.system.objectType === 'armor') {
+          const { applied } = wornArmor;
+          if ((wornArmor[applied] && wornArmor[applied] !== item.uuid)) isSuppressed = true;
+          if (wornArmor[applied] === '') isSuppressed = true;
+        } else if (item.system.objectType === 'shield') {
+          const { applied } = wornShield;
+          if (applied && item.uuid !== applied) isSuppressed = true;
+        }
+      }
+
+      const change = {
+        name: item.name,
+        id: item.uuid,
+        mode,
+        value,
+        requiresUnarmored,
+        isSuppressed
+      };
+
+      if (mode === 5) {
+        acc.overrides.push(change);
+      } else acc.bonuses.push(change);
+
+      return acc;
+    }, { overrides: [], bonuses: [] });
+
+    // Process requiresUnarmored
+    if (changes.overrides.length) {
+      changes.overrides = changes.overrides.map((change) => {
+        if (!change.requiresUnarmored || change.mode !== 5) return change;
+        if (!wornArmor.armor && !wornArmor.underarmor) return change;
+        change.isSuppressed = true;
+        return change;
+      });
+    }
+
+    // Add Base to changes
+    if (!changes.overrides.length || changes.overrides.every(({ isSuppressed }) => isSuppressed)) {
+      changes.overrides.push({
+        name: 'Natural Armor',
+        mode: 5,
+        value: baseAC,
+        requiresUnarmored: false,
+        isSuppressed: false
+      });
+    }
+
+    // Calculate the final AC value.
+    const baseValue = changes.overrides.filter(({ isSuppressed }) => !isSuppressed)[0]?.value ?? 10;
+    const finalAC = changes.bonuses.reduce(
+      (acc, { value }) => acc + value,
+      baseValue
+    );
+
+    foundry.utils.mergeObject(this.system.attributes.ac, {
+      changes,
+      value: parseInt(finalAC, 10) || 10,
+      wornArmor,
+      wornShield
+    });
+  }
+
+  prepareSkills() {
+    const actorData = this.system;
+    const proficiencyBonus = actorData.attributes.prof;
+    const jackOfAllTrades = this.flags.a5e?.jackOfAllTrades;
+
+    Object.values(actorData.skills).forEach((skill) => {
+      if (skill.proficient) skill.mod = proficiencyBonus;
+      else if (jackOfAllTrades) skill.mod = Math.floor(proficiencyBonus / 2);
+      else skill.mod = 0;
+    });
+
+    Object.entries(actorData.skills).forEach(([key, skill]) => {
+      const skillName = localize(CONFIG.A5E.skills[key]);
+      const { check: globalCheckBonus, skill: globalSkillBonus } = actorData.bonuses.abilities;
+
+      let deterministicBonus;
+
+      try {
+        deterministicBonus = getDeterministicBonus(
+          [
+            skill.mod,
+            skill.bonuses.check,
+            globalSkillBonus.trim(),
+            globalCheckBonus.trim()
+          ].filter(Boolean).join(' + '),
+          this.getRollData()
+        );
+      } catch {
+        // eslint-disable-next-line no-console
+        console.error(`Couldn't calculate a ${skillName} modifier for ${this.name}`);
+      }
+
+      skill.deterministicBonus = deterministicBonus ?? skill.mod;
+
+      try {
+        skill.passive = this._calculatePassiveScore(skill);
+      } catch {
+        // eslint-disable-next-line no-console
+        console.error(`Couldn't calculate a ${skillName} passive score for ${this.name}`);
+        skill.passive = null;
+      }
+    });
+  }
+
   /**
    * Prepare active effects for the actor with the phase 'afterDerived'.
    */
@@ -394,126 +552,6 @@ export default class ActorA5e extends Actor {
 
     Hooks.callAll('a5e.actorHealed', this, { prevHp: { value, temp }, healingData: { healing, options } });
     return this.update(updates);
-  }
-
-  prepareSkills() {
-    const actorData = this.system;
-    const proficiencyBonus = actorData.attributes.prof;
-    const jackOfAllTrades = this.flags.a5e?.jackOfAllTrades;
-
-    Object.values(actorData.skills).forEach((skill) => {
-      if (skill.proficient) skill.mod = proficiencyBonus;
-      else if (jackOfAllTrades) skill.mod = Math.floor(proficiencyBonus / 2);
-      else skill.mod = 0;
-    });
-
-    Object.entries(actorData.skills).forEach(([key, skill]) => {
-      const skillName = localize(CONFIG.A5E.skills[key]);
-      const { check: globalCheckBonus, skill: globalSkillBonus } = actorData.bonuses.abilities;
-
-      let deterministicBonus;
-
-      try {
-        deterministicBonus = getDeterministicBonus(
-          [
-            skill.mod,
-            skill.bonuses.check,
-            globalSkillBonus.trim(),
-            globalCheckBonus.trim()
-          ].filter(Boolean).join(' + '),
-          this.getRollData()
-        );
-      } catch {
-        // eslint-disable-next-line no-console
-        console.error(`Couldn't calculate a ${skillName} modifier for ${this.name}`);
-      }
-
-      skill.deterministicBonus = deterministicBonus ?? skill.mod;
-
-      try {
-        skill.passive = this._calculatePassiveScore(skill);
-      } catch {
-        // eslint-disable-next-line no-console
-        console.error(`Couldn't calculate a ${skillName} passive score for ${this.name}`);
-        skill.passive = null;
-      }
-    });
-  }
-
-  prepareArmorClass() {
-    const currentStr = this.system.abilities.str.value;
-    const baseAC = parseInt(this.system.attributes.ac.base, 10) || 10;
-    let override = { present: false, type: null };
-    let wornShield;
-    let wornArmor;
-
-    // Calculate changes from items in one reduce.
-    const changes = this.items.reduce((acc, item) => {
-      const { ac } = item.system;
-      if (!ac) return acc;
-
-      const { formula, maxDex, minStr } = ac;
-      const { mode, requiresUnarmored } = ac;
-
-      if (!formula || currentStr < minStr) return acc;
-
-      // Process objects and  worn armor/shield.
-      if (item.type === 'object') {
-        if (item.system.equippedState !== CONFIG.A5E.EQUIPPED_STATES.EQUIPPED) return acc;
-
-        if (item.system.objectType === 'armor') {
-          if (!wornArmor && !wornArmor?.length) wornArmor = item.uuid;
-          else return acc;
-        } else if (item.system.objectType === 'shield') {
-          if (!wornShield && !wornShield?.length) wornShield = item.uuid;
-          else return acc;
-        }
-      }
-
-      // Only allow one override change with priority object > feature > other.
-      if (mode === 5) {
-        if (!override.present) override = { present: true, type: item.type };
-        else if (override.type === 'feature' && item.type === 'object') override = { present: true, type: item.type };
-        else return acc;
-      }
-
-      // Process max dex modifiers.
-      let value = formula;
-      if (maxDex && maxDex > 0) value = formula.replaceAll(/@dex\.mod|@abilities\.dex\.mod/gm, `min(@dex.mod, ${maxDex})`);
-      value = getDeterministicBonus(value, this.getRollData()) ?? 0;
-
-      acc.push({
-        name: item.name,
-        mode,
-        value,
-        requiresUnarmored
-      });
-
-      return acc;
-    }, [])
-      // TODO: Add support for requiresUnarmored via filter.
-      .sort((a, b) => b.mode - a.mode);
-
-    // Add Base to changes
-    if (changes[0]?.mode !== 5) {
-      changes.unshift({
-        name: 'Natural Armor',
-        mode: 5,
-        value: baseAC,
-        requiresUnarmored: false
-      });
-    }
-
-    // Calculate the final AC value.
-    const finalAC = changes
-      .reduce((acc, { value, mode }) => (mode === 5 ? value : acc + value), baseAC);
-
-    foundry.utils.mergeObject(this.system.attributes.ac, {
-      changes,
-      value: parseInt(finalAC, 10) || 10,
-      wornArmor,
-      wornShield
-    });
   }
 
   /** @inheritdoc */
