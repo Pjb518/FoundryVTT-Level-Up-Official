@@ -75,7 +75,7 @@
                     {/each}
                 </select>
             {:else}
-                <p class="a5e-field-group__hint" style="color: #8b6225;">
+                <p class="u-w-50 a5e-field-group__hint" style="color: #8b6225;">
                     <i class="fa-solid fa-circle-exclamation" />
 
                     Item selection will be available when item is on an actor.
@@ -83,24 +83,24 @@
             {/if}
         </div>
 
-        {#if $item.actor}
-            <div class="u-flex u-flex-col u-gap-sm u-w-30">
-                <h3 class="a5e-field-group__heading">
-                    {localize("A5E.ItemQuantity")}
-                </h3>
+        <!-- {#if $item.actor} -->
+        <div class="u-flex u-flex-col u-gap-sm u-w-30">
+            <h3 class="a5e-field-group__heading">
+                {localize("A5E.ItemQuantity")}
+            </h3>
 
-                <input
-                    type="number"
-                    d-type="Number"
-                    value={consumer.quantity ?? 1}
-                    on:change={({ target }) =>
-                        updateDocumentDataFromField(
-                            $item,
-                            `system.actions.${actionId}.consumers.${consumerId}.quantity`,
-                            Number(target.value)
-                        )}
-                />
-            </div>
-        {/if}
+            <input
+                type="number"
+                d-type="Number"
+                value={consumer.quantity ?? 1}
+                on:change={({ target }) =>
+                    updateDocumentDataFromField(
+                        $item,
+                        `system.actions.${actionId}.consumers.${consumerId}.quantity`,
+                        Number(target.value)
+                    )}
+            />
+        </div>
+        <!-- {/if} -->
     </div>
 </section>
