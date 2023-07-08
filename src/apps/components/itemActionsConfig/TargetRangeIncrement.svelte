@@ -115,6 +115,9 @@
         />
 
         <FormSection
+            hint={includeUnit
+                ? "When units are selected range must be a number."
+                : null}
             --background="none"
             --direction="row"
             --gap="0.5rem"
