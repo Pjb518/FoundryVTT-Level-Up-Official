@@ -119,9 +119,9 @@ export default class ActorA5e extends Actor {
 
     // Add AC data to the actor.
     if (this.system.schema.version >= 0.005) {
-      foundry.utils.mergeObject(this.system.attributes.ac, {
-        changes: { overrides: [], bonuses: [] }
-      });
+      this.system.attributes.ac.changes ??= { overrides: [], bonuses: [] };
+      this.system.attributes.ac.wornArmor ??= { armor: '', underarmor: '' };
+      this.system.attributes.ac.wornShield ??= { shields: [], applied: '' };
     }
 
     if (actorType === 'character') {
@@ -276,15 +276,8 @@ export default class ActorA5e extends Actor {
   prepareArmorClass() {
     const baseAC = parseInt(this.system.attributes.ac.base, 10) || 10;
     const currentStr = this.system.abilities.str.value;
-    const wornArmor = {
-      armor: '',
-      underarmor: '',
-      applied: this.system.attributes.ac.wornArmor.applied ?? 'armor'
-    };
-    const wornShield = {
-      shields: [],
-      applied: this.system.attributes.ac.wornShield.applied ?? ''
-    };
+    const wornArmor = { armor: '', underarmor: '' };
+    let wornShield = { shields: [], applied: '' };
 
     // Calculate changes from items in one reduce.
     const changes = this.items.reduce((acc, item) => {
@@ -296,7 +289,7 @@ export default class ActorA5e extends Actor {
 
       if (!formula || currentStr < minStr) return acc;
 
-      // Process objects and  worn armor/shield.
+      // Process objects and worn armor/shield.
       if (item.type === 'object') {
         if (item.system.equippedState !== CONFIG.A5E.EQUIPPED_STATES.EQUIPPED) return acc;
 
@@ -305,10 +298,6 @@ export default class ActorA5e extends Actor {
           if (isUnderArmor && !wornArmor.underarmor) wornArmor.underarmor = item.uuid;
           else if (!isUnderArmor && !wornArmor.armor) wornArmor.armor = item.uuid;
           else return acc;
-        } else if (item.system.objectType === 'shield') {
-          if (wornShield.shields.length >= 2) return acc;
-          if (wornShield.applied === '') wornShield.applied = item.uuid;
-          wornShield.shields.push(item.uuid);
         }
       }
 
@@ -324,17 +313,9 @@ export default class ActorA5e extends Actor {
         } else value = Math.max(Math.floor(value / 2), 1);
       }
 
-      // Process suppression state
-      let isSuppressed = false;
-      if (item.type === 'object') {
-        if (item.system.objectType === 'armor') {
-          const { applied } = wornArmor;
-          if ((wornArmor[applied] && wornArmor[applied] !== item.uuid)) isSuppressed = true;
-          if (wornArmor[applied] === '') isSuppressed = true;
-        } else if (item.system.objectType === 'shield') {
-          const { applied } = wornShield;
-          if (applied && item.uuid !== applied) isSuppressed = true;
-        }
+      // Process shields
+      if (item.type === 'object' && item.system.objectType === 'shield') {
+        wornShield.shields.push({ id: item.uuid, value });
       }
 
       const change = {
@@ -343,7 +324,7 @@ export default class ActorA5e extends Actor {
         mode,
         value,
         requiresUnarmored,
-        isSuppressed
+        isSuppressed: false
       };
 
       if (mode === 5) {
@@ -353,7 +334,27 @@ export default class ActorA5e extends Actor {
       return acc;
     }, { overrides: [], bonuses: [] });
 
-    // Process requiresUnarmored
+
+    // Process suppression for shields.
+    if (wornShield.shields.length) {
+      const maxShieldBonus = wornShield.shields.reduce((acc, shield) => {
+        if (shield.value > acc.value) return shield;
+        return acc;
+      }, { id: '', value: 0 })
+
+      wornShield.applied = maxShieldBonus.id;
+      changes.bonuses = changes.bonuses.filter((change) => {
+        if (change.id === wornShield.applied) return true;
+        return !wornShield.shields.some(({ id }) => id === change.id);
+      });
+    }
+
+    // Process suppression for underarmor.
+    if (wornArmor.armor && wornArmor.underarmor) {
+      changes.overrides = changes.overrides.filter((change) => change.id !== wornArmor.underarmor);
+    }
+
+    // Process suppression for requiresUnarmored.
     if (changes.overrides.length) {
       changes.overrides = changes.overrides.map((change) => {
         if (!change.requiresUnarmored || change.mode !== 5) return change;
@@ -362,6 +363,8 @@ export default class ActorA5e extends Actor {
         return change;
       });
     }
+
+    // TODO: Process suppression for requires no shield.
 
     // Add Base to changes
     if (!changes.overrides.length || changes.overrides.every(({ isSuppressed }) => isSuppressed)) {
