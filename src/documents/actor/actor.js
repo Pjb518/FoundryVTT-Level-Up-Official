@@ -118,9 +118,11 @@ export default class ActorA5e extends Actor {
     const actorType = this.type;
 
     // Add AC data to the actor.
-    foundry.utils.mergeObject(this.system.attributes.ac, {
-      changes: { overrides: [], bonuses: [] }
-    });
+    if (this.system.schema.version >= 0.005) {
+      foundry.utils.mergeObject(this.system.attributes.ac, {
+        changes: { overrides: [], bonuses: [] }
+      });
+    }
 
     if (actorType === 'character') {
       return this.prepareCharacterData();
@@ -267,6 +269,7 @@ export default class ActorA5e extends Actor {
     }
 
     this.prepareSkills();
+    if (this.system.schema.version < 0.005) return;
     this.prepareArmorClass();
   }
 
