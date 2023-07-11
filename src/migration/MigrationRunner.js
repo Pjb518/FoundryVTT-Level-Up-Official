@@ -9,6 +9,7 @@ import { localize } from '@typhonjs-fvtt/runtime/svelte/helper';
 // eslint-disable-next-line no-unused-vars, @typescript-eslint/no-unused-vars
 import MigrationBase from './MigrationBase';
 import MigrationRunnerBase from './MigrationRunnerBase';
+import Progress from '../progress/Progress';
 
 export default class MigrationRunner extends MigrationRunnerBase {
   /**
@@ -61,9 +62,10 @@ export default class MigrationRunner extends MigrationRunnerBase {
   * Migrate actor or item documents in batches of 50
    * @param {*} collection
    * @param {Array<MigrationBase>} migrations
+   * @param {Progress} progress
    * @returns {Promise<void>}
    */
-  async #migrateDocuments(collection, migrations) {
+  async #migrateDocuments(collection, migrations, progress) {
     const { documentClass } = collection;
     const pack = 'metadata' in collection ? collection.metadata.id : null;
     const updateGroup = [];
@@ -72,6 +74,7 @@ export default class MigrationRunner extends MigrationRunnerBase {
       if (updateGroup.length === 50) {
         try {
           await documentClass.updateDocuments(updateGroup, { noHook: true, pack });
+          progress?.advance({ by: updateGroup.length });
         } catch (e) {
           console.error(e);
         } finally {
@@ -89,6 +92,7 @@ export default class MigrationRunner extends MigrationRunnerBase {
     if (updateGroup.length > 0) {
       try {
         await documentClass.updateDocuments(updateGroup, { noHook: true, pack });
+        progress?.advance({ by: updateGroup.length });
       } catch (e) {
         console.warn(e);
       }
@@ -151,7 +155,9 @@ export default class MigrationRunner extends MigrationRunnerBase {
       try {
         return this.getUpdatedActor(actorData, migrations);
       } catch (e) {
-        console.error(e);
+        if (e instanceof Error) {
+          console.error(`Error thrown while migrating ${item.uuid}: ${e.message}`);
+        }
         return null;
       }
     })();
@@ -198,7 +204,9 @@ export default class MigrationRunner extends MigrationRunnerBase {
       try {
         return this.getUpdatedItem(baseData, migrations);
       } catch (e) {
-        console.error(e);
+        if (e instanceof Error) {
+          console.error(`Error thrown while migrating ${item.uuid}: ${e.message}`);
+        }
         return null;
       }
     })();
@@ -208,6 +216,26 @@ export default class MigrationRunner extends MigrationRunnerBase {
     // TODO: Add active effects in the future
 
     return updateData;
+  }
+
+  /**
+   * @param {Object} journal
+   * @param {Array<MigrationBase>} migrations
+   */
+  async #migrateWorldJournalEntry(journalEntry, migrations, progress) {
+    if (!migrations.some((migration) => !!migration.updateJournalEntry)) return;
+
+    try {
+      const updated = await this.getUpdatedJournalEntry(journalEntry.toObject(), migrations);
+      const changes = diffObject(journalEntry.toObject(), updated);
+      if (Object.keys(changes).length > 0) {
+        await journalEntry.update(changes, { noHook: true });
+      }
+    } catch (e) {
+      console.warn(e);
+    }
+
+    progress.advance();
   }
 
   /**
@@ -283,6 +311,11 @@ export default class MigrationRunner extends MigrationRunnerBase {
   async runCompendiumMigration(compendium, legacyMigrate = false) {
     if (!['Adventure', 'Actor', 'Item'].includes(compendium.documentName)) return;
 
+    const progress = new Progress({
+      label: localize("A5E.migration.compendium.running"),
+      max: pack.index.size
+    });
+
     const documents = await compendium.getDocuments();
     let lowestSchemaVersion;
 
@@ -312,9 +345,10 @@ export default class MigrationRunner extends MigrationRunnerBase {
 
     if (compendium.documentName === 'Adventure') {
       await this.#migrateAdventureDocuments(compendium, migrations);
-    } else await this.#migrateDocuments(compendium, migrations);
+    } else await this.#migrateDocuments(compendium, migrations, progress);
 
     if (wasLocked) await compendium.configure({ locked: true });
+    if (progress.value < progress.max) progress.close();
   }
 
   /**
@@ -326,11 +360,30 @@ export default class MigrationRunner extends MigrationRunnerBase {
     if (migrations.length === 0) return;
     console.info(`A5E | Found ${migrations.length} migrations`);
 
+    const progress = new Progress({
+      label: localize("A5E.migration.running"),
+      max: Math.floor(
+        game.actors.size +
+        game.items.size +
+        game.journal.size +
+        game.scenes
+          .map((s) => s.tokens.contents)
+          .flat()
+          .filter((t) => t.actor?.isToken).length
+      )
+    });
+
     // Migrate actors && items
     console.info(`A5E | Migrating ${game.actors.size} actors.`);
-    await this.#migrateDocuments(game.actors, migrations);
+    await this.#migrateDocuments(game.actors, migrations, progress);
+
     console.info(`A5E | Migrating ${game.items.size} items.`);
-    await this.#migrateDocuments(game.items, migrations);
+    await this.#migrateDocuments(game.items, migrations, progress);
+
+    // Migrate journal entries
+    for (const entry of game.journal) {
+      await this.#migrateWorldJournalEntry(entry, migrations, progress);
+    }
 
     // Migrate free form documents
     const promises = [];
@@ -345,6 +398,7 @@ export default class MigrationRunner extends MigrationRunnerBase {
     await Promise.allSettled(promises);
 
     console.info(`A5E | Migrating ${game.scenes.size} scenes.`);
+
     // TODO: Optimize this to be faster
     // Migrate tokens and synthetic actors
     for (const scene of game.scenes) {
@@ -371,16 +425,25 @@ export default class MigrationRunner extends MigrationRunnerBase {
               console.warn(e);
             }
           }
+
+          progress.advance();
         }
       }
     }
+
+    // Defensive check to ensure the progress bar is closed.
+    if (progress.value < progress.max) progress.close();
 
     // Migrate compendiums
     for (const pack of game.packs) {
       if (pack.metadata.packageType !== 'world') continue;
       if (!['Actor', 'Item'].includes(pack.documentName)) continue;
+
+      ui.notifications.info(localize('A5E.MigrationCompendium', { pack: pack.metadata.label }));
       console.info(`A5E | Migrating ${pack.index.size} documents in ${pack.metadata.id}.`);
-      await this.runCompendiumMigration(pack);
+
+      await this.runCompendiumMigration(pack, progress);
+      ui.notifications.info(localize('A5E.MigrationCompendiumFinished', { pack: pack.metadata.label }));
     }
   }
 
