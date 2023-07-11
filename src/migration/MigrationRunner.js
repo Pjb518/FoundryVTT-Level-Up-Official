@@ -9,7 +9,7 @@ import { localize } from '@typhonjs-fvtt/runtime/svelte/helper';
 // eslint-disable-next-line no-unused-vars, @typescript-eslint/no-unused-vars
 import MigrationBase from './MigrationBase';
 import MigrationRunnerBase from './MigrationRunnerBase';
-import Progress from '../progress/Progress';
+import Progress from '../A5EProgress';
 
 export default class MigrationRunner extends MigrationRunnerBase {
   /**
@@ -313,7 +313,7 @@ export default class MigrationRunner extends MigrationRunnerBase {
 
     const progress = new Progress({
       label: localize("A5E.migration.compendium.running"),
-      max: pack.index.size
+      max: compendium.index.size
     });
 
     const documents = await compendium.getDocuments();
@@ -439,11 +439,11 @@ export default class MigrationRunner extends MigrationRunnerBase {
       if (pack.metadata.packageType !== 'world') continue;
       if (!['Actor', 'Item'].includes(pack.documentName)) continue;
 
-      ui.notifications.info(localize('A5E.MigrationCompendium', { pack: pack.metadata.label }));
+      ui.notifications.info(localize('A5E.migration.compendium.starting', { packName: pack.metadata.label }));
       console.info(`A5E | Migrating ${pack.index.size} documents in ${pack.metadata.id}.`);
 
       await this.runCompendiumMigration(pack, progress);
-      ui.notifications.info(localize('A5E.MigrationCompendiumFinished', { pack: pack.metadata.label }));
+      ui.notifications.info(localize('A5E.migration.compendium.finished', { packName: pack.metadata.label }));
     }
   }
 
@@ -459,7 +459,7 @@ export default class MigrationRunner extends MigrationRunnerBase {
     };
     const systemVersion = game.system.version;
 
-    ui.notifications.info(localize('A5E.MigrationStarting', { version: systemVersion }), {
+    ui.notifications.info(localize('A5E.migration.starting', { version: systemVersion }), {
       permanent: true
     });
 
@@ -486,7 +486,7 @@ export default class MigrationRunner extends MigrationRunnerBase {
       }
     }
 
-    ui.notifications.info(localize('A5E.MigrationFinished', { version: systemVersion }), {
+    ui.notifications.info(localize('A5E.migration.finished', { version: systemVersion }), {
       permanent: true
     });
 

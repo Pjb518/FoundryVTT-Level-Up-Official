@@ -189,7 +189,7 @@ export default class MigrationRunnerBase {
    * @param {Array<MigrationBase>} migrations
    * @returns {Object}
    */
-  async getUpdatesUser(user, migrations) {
+  async getUpdatedUser(user, migrations) {
     const userData = foundry.utils.deepClone(user);
 
     for (const migration of migrations) {
