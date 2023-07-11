@@ -218,6 +218,16 @@ A5E.armor = {
   shield: 'A5E.ArmorShield'
 };
 
+A5E.ARMOR_MODES = {
+  ADD: 1,
+  OVERRIDE: 2,
+}
+
+A5E.armorModes = {
+  1: 'A5E.armor.mode.add',
+  2: 'A5E.armor.mode.override'
+}
+
 /**
  * The set of core armor properties in the system.
  * @enum {string}

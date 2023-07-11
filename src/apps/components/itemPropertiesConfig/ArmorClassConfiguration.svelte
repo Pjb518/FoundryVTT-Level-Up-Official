@@ -9,8 +9,8 @@
     const item = getContext("item");
     const appId = getContext("appId");
     const modes = [
-        ["Add", 2],
-        ["Override", 5],
+        ["Add", CONFIG.A5E.ARMOR_MODES.ADD],
+        ["Override", CONFIG.A5E.ARMOR_MODES.OVERRIDE],
     ];
 
     let editMode = false;
@@ -54,9 +54,9 @@
             >
                 <input
                     type="text"
-                    name="system.ac.formula"
-                    id="{appId}-ac-formula"
-                    value={$item.system.ac.formula ?? ""}
+                    name="system.ac.baseFormula"
+                    id="{appId}-ac-base-formula"
+                    value={$item.system.ac.baseFormula ?? ""}
                     on:change={({ target }) =>
                         updateDocumentDataFromField(
                             $item,
@@ -140,6 +140,19 @@
 
             <FormSection --gap="0.5rem 1.25rem">
                 <Checkbox
+                    label="A5E.armorClass.requiresNoShield"
+                    checked={$item.system.ac.requiresNoShield ?? false}
+                    on:updateSelection={({ detail }) =>
+                        updateDocumentDataFromField(
+                            $item,
+                            "system.ac.requiresNoShield",
+                            detail
+                        )}
+                />
+            </FormSection>
+
+            <FormSection --gap="0.5rem 1.25rem">
+                <Checkbox
                     label="A5E.armorClass.requiresUnarmored"
                     checked={$item.system.ac.requiresUnarmored ?? false}
                     on:updateSelection={({ detail }) =>
@@ -186,6 +199,15 @@
                 </dt>
                 <dd class="u-m-0 u-p-0">
                     {$item.system.ac.mode === 2 ? "Add" : "Override"}
+                </dd>
+            </div>
+
+            <div class="u-flex u-gap-md">
+                <dt class="u-text-bold">
+                    {localize("A5E.armorClass.requiresNoShield")}:
+                </dt>
+                <dd class="u-m-0 u-p-0">
+                    {$item.system.ac.requiresNoShield ?? false}
                 </dd>
             </div>
 

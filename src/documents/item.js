@@ -30,6 +30,29 @@ export default class ItemA5e extends Item {
   }
 
   // *****************************************************************************************
+  prepareDerivedData() {
+    const itemData = this.system;
+
+    // Calculate AC formula
+    const { ac } = itemData;
+    if (!ac) return;
+
+    const { baseFormula, maxDex } = ac;
+    let formula = baseFormula;
+    if (maxDex && maxDex > 0) formula = baseFormula
+      .replaceAll(/@dex\.mod|@abilities\.dex\.mod/gm, `min(@dex.mod, ${maxDex})`);
+
+    if (itemData.broken) {
+      if (itemData.objectType === 'armor') {
+        formula = `10 + max(floor((${formula}) / 2), 1)`
+      }
+      else formula = `max(floor((${formula}) / 2), 1)`;
+    }
+
+    foundry.utils.setProperty(this, 'system.ac.formula', formula);
+  }
+
+  // *****************************************************************************************
 
   /**
    * A handler for activating an item. An actionId can be passed to this method to use a specific
@@ -452,11 +475,19 @@ export default class ItemA5e extends Item {
     let newState = (currentState + 1) % 3;
 
     // Check if armor is already equipped
-    if (newState === 2 && this.system.objectType === 'armor') {
+    if (newState === CONFIG.A5E.EQUIPPED_STATES.EQUIPPED && this.system.objectType === 'armor') {
+      const { hasArmor, hasUnderArmor } = this.parent.items.reduce((acc, item) => {
+        if (item.system.equippedState !== CONFIG.A5E.EQUIPPED_STATES.EQUIPPED ||
+          item.system.objectType !== 'armor') return acc;
+        const isUnderarmor = item.system.materialProperties.includes('underarmor');
+        if (isUnderarmor) acc.hasUnderArmor = true;
+        else acc.hasArmor = true;
+        return acc;
+      }, { hasArmor: false, hasUnderArmor: false });
+
       const isUnderarmor = this.system.materialProperties.includes('underarmor');
-      const wornArmor = this.parent?.system?.attributes?.ac?.wornArmor;
-      if (isUnderarmor && wornArmor?.underarmor !== '') newState = 0;
-      else if (wornArmor?.armor !== '') newState = 0;
+      if (isUnderarmor && hasUnderArmor) newState = 0;
+      else if (!isUnderarmor & hasArmor) newState = 0;
 
       // Warn user
       if (newState === 0) {
@@ -466,9 +497,10 @@ export default class ItemA5e extends Item {
 
     // Check if 2 shields are already equipped
     if (newState === 2 && this.system.objectType === 'shield') {
-      const wornShield = this.parent?.system?.attributes?.ac?.wornShield;
-      if (wornShield?.shields?.length >= 2) newState = 0;
-
+      const shields = this.parent.items.filter((i) => (
+        i.system.equippedState === CONFIG.A5E.EQUIPPED_STATES.EQUIPPED
+        && i.system.objectType === 'shield'));
+      if (shields.length >= 2) newState = 0;
       if (newState === 0) {
         ui.notifications.warn(game.i18n.localize('A5E.armorClass.shieldAlreadyEquipped'));
       }

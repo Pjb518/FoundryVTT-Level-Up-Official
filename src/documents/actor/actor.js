@@ -119,9 +119,7 @@ export default class ActorA5e extends Actor {
 
     // Add AC data to the actor.
     if (this.system.schema.version >= 0.005) {
-      this.system.attributes.ac.changes ??= { overrides: [], bonuses: [] };
-      this.system.attributes.ac.wornArmor ??= { armor: '', underarmor: '' };
-      this.system.attributes.ac.wornShield ??= { shields: [], applied: '' };
+      this.system.attributes.ac.changes = { override: null, bonuses: [] };
     }
 
     if (actorType === 'character') {
@@ -274,122 +272,72 @@ export default class ActorA5e extends Actor {
   }
 
   prepareArmorClass() {
-    const baseAC = parseInt(this.system.attributes.ac.base, 10) || 10;
-    const currentStr = this.system.abilities.str.value;
-    const wornArmor = { armor: '', underarmor: '' };
-    let wornShield = { shields: [], applied: '' };
-
-    // Calculate changes from items in one reduce.
-    const changes = this.items.reduce((acc, item) => {
-      const { ac } = item.system;
-      if (!ac) return acc;
-
-      const { formula, maxDex, minStr } = ac;
-      const { mode, requiresUnarmored } = ac;
-
-      if (!formula || currentStr < minStr) return acc;
-
-      // Process objects and worn armor/shield.
-      if (item.type === 'object') {
-        if (item.system.equippedState !== CONFIG.A5E.EQUIPPED_STATES.EQUIPPED) return acc;
-
-        if (item.system.objectType === 'armor') {
-          const isUnderArmor = item.system.materialProperties.includes('underarmor');
-          if (isUnderArmor && !wornArmor.underarmor) wornArmor.underarmor = item.uuid;
-          else if (!isUnderArmor && !wornArmor.armor) wornArmor.armor = item.uuid;
-          else return acc;
-        }
-      }
-
-      // Process max dex modifiers.
-      let value = formula;
-      if (maxDex && maxDex > 0) value = formula.replaceAll(/@dex\.mod|@abilities\.dex\.mod/gm, `min(@dex.mod, ${maxDex})`);
-      value = getDeterministicBonus(value, this.getRollData()) ?? 0;
-
-      // Process AC if item is broken
-      if (item.type === 'object' && item.system.broken) {
-        if (item.system.objectType === 'armor' && value > 10) {
-          value = 10 + Math.max(Math.floor((value - 10) / 2), 1);
-        } else value = Math.max(Math.floor(value / 2), 1);
-      }
-
-      // Process shields
-      if (item.type === 'object' && item.system.objectType === 'shield') {
-        wornShield.shields.push({ id: item.uuid, value });
-      }
-
-      const change = {
-        name: item.name,
-        id: item.uuid,
-        mode,
-        value,
-        requiresUnarmored,
-        isSuppressed: false
-      };
-
-      if (mode === 5) {
-        acc.overrides.push(change);
-      } else acc.bonuses.push(change);
-
-      return acc;
-    }, { overrides: [], bonuses: [] });
-
-
-    // Process suppression for shields.
-    if (wornShield.shields.length) {
-      const maxShieldBonus = wornShield.shields.reduce((acc, shield) => {
-        if (shield.value > acc.value) return shield;
-        return acc;
-      }, { id: '', value: 0 })
-
-      wornShield.applied = maxShieldBonus.id;
-      changes.bonuses = changes.bonuses.filter((change) => {
-        if (change.id === wornShield.applied) return true;
-        return !wornShield.shields.some(({ id }) => id === change.id);
-      });
-    }
-
-    // Process suppression for underarmor.
-    if (wornArmor.armor && wornArmor.underarmor) {
-      changes.overrides = changes.overrides.filter((change) => change.id !== wornArmor.underarmor);
-    }
-
-    // Process suppression for requiresUnarmored.
-    if (changes.overrides.length) {
-      changes.overrides = changes.overrides.map((change) => {
-        if (!change.requiresUnarmored || change.mode !== 5) return change;
-        if (!wornArmor.armor && !wornArmor.underarmor) return change;
-        change.isSuppressed = true;
-        return change;
-      });
-    }
-
-    // TODO: Process suppression for requires no shield.
+    const changes = this.prepareArmorChanges();
 
     // Add Base to changes
-    if (!changes.overrides.length || changes.overrides.every(({ isSuppressed }) => isSuppressed)) {
-      changes.overrides.push({
-        name: 'Natural Armor',
-        mode: 5,
-        value: baseAC,
-        requiresUnarmored: false,
-        isSuppressed: false
-      });
-    }
+    const baseAC = parseInt(this.system.attributes.ac.base, 10) || 10
+    changes.override ??= { name: 'Natural Armor', mode: CONFIG.A5E.ARMOR_MODES.OVERRIDE, value: baseAC };
 
     // Calculate the final AC value.
-    const baseValue = changes.overrides.filter(({ isSuppressed }) => !isSuppressed)[0]?.value ?? 10;
-    const finalAC = changes.bonuses.reduce(
-      (acc, { value }) => acc + value,
-      baseValue
-    );
+    const finalAC = changes.bonuses.reduce((acc, { value }) => acc + value, changes.override?.value ?? 10);
 
     foundry.utils.mergeObject(this.system.attributes.ac, {
       changes,
       value: parseInt(finalAC, 10) || 10,
-      wornArmor,
-      wornShield
     });
+  }
+
+  determineDefenseConfiguration() {
+    const currentStr = this.system.abilities.str.value;
+    return this.items.reduce((acc, item) => {
+      if (item.system.equippedState !== CONFIG.A5E.EQUIPPED_STATES.EQUIPPED) return acc;
+
+      const { formula, minStr } = item.system.ac ?? {};
+      if (!formula || (currentStr < minStr)) return acc;
+
+      if (item.system.objectType === 'armor') acc.hasArmor = true;
+      else if (item.system.objectType === 'shield') acc.hasShield = true;
+
+      return acc;
+    }, { hasArmor: false, hasShield: false });
+  }
+
+  prepareArmorChanges() {
+    const currentStr = this.system.abilities.str.value;
+    const { hasArmor, hasShield } = this.determineDefenseConfiguration();
+
+    const changes = this.items.reduce((acc, item) => {
+      const { formula, minStr, mode, requiresUnarmored, requiresNoShield } = item.system.ac ?? {};
+      if (!formula || currentStr < minStr) return acc;
+
+      if (item.type === 'feature' && mode === CONFIG.A5E.ARMOR_MODES.OVERRIDE && !hasArmor) return acc;
+      if (requiresUnarmored && hasArmor || requiresNoShield && hasShield) return acc;
+
+      if (item.type === 'object' &&
+        item.system.equippedState !== CONFIG.A5E.EQUIPPED_STATES.EQUIPPED
+      ) return acc;
+
+      if (item.system.objectType === 'armor') {
+        const isUnderArmor = item.system.materialProperties.includes('underarmor');
+        if (isUnderArmor && acc.override) return acc;
+      }
+
+      const value = getDeterministicBonus(formula, this.getRollData()) ?? 0;
+      const change = { name: item.name, id: item.uuid, mode, value };
+
+      if (mode === CONFIG.A5E.ARMOR_MODES.OVERRIDE) acc.override = change;
+      else if (item.system.objectType === 'shield' && value > (acc.shield?.value ?? 0)) {
+        acc.shield = change;
+      } else acc.bonuses.push(change);
+
+      return acc;
+    }, { override: null, shield: null, bonuses: [] });
+
+    // Merge shield into bonuses
+    if (changes.shield) changes.bonuses.unshift(changes.shield);
+    delete changes.shield;
+
+    return changes;
   }
 
   prepareSkills() {
