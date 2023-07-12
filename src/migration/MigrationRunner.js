@@ -304,6 +304,15 @@ export default class MigrationRunner extends MigrationRunnerBase {
     }
   }
 
+  async runDocumentMigration(document, migrations) {
+    if (!['Actor', 'Item'].includes(document.documentName)) return;
+    const updated = 'items' in document
+      ? await this.#migrateActor(migrations, document)
+      : await this.#migrateItem(migrations, document);
+
+    await document.update(updated);
+  }
+
   /**
    *
    * @param {Object} compendium
@@ -349,7 +358,7 @@ export default class MigrationRunner extends MigrationRunnerBase {
     } else await this.#migrateDocuments(compendium, migrations, progress);
 
     if (wasLocked) await compendium.configure({ locked: true });
-    if (progress.value < progress.max) progress.close();
+    progress.close();
   }
 
   /**
@@ -433,7 +442,7 @@ export default class MigrationRunner extends MigrationRunnerBase {
     }
 
     // Defensive check to ensure the progress bar is closed.
-    if (progress.value < progress.max) progress.close();
+    progress.close();
 
     // Migrate compendiums
     for (const pack of game.packs) {
