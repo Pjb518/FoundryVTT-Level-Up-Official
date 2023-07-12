@@ -20,6 +20,8 @@ import ResourceConsumptionManager from '../managers/ResourceConsumptionManager';
 import RollPreparationManager from '../managers/RollPreparationManager';
 import TemplatePreparationManager from '../managers/TemplatePreparationManager';
 
+import MigrationRunnerBase from '../migration/MigrationRunnerBase';
+
 /**
  * Override and extend the basic Item implementation.
  * @extends {Item}
@@ -560,6 +562,18 @@ export default class ItemA5e extends Item {
     roll.toMessage();
 
     if (roll.total >= threshold) await this.update({ [updatePath]: Math.min(max, current + 1) });
+  }
+
+
+  /** @inheritdoc */
+  async _preCreate(data, options, user) {
+    await super._preCreate(data, options, user);
+
+
+    // Add schema version
+    this.updateSource({
+      'system.schema': { version: MigrationRunnerBase.LATEST_SCHEMA_VERSION }
+    });
   }
 
   async _onCreate(data, options, user) {

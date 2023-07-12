@@ -74,10 +74,10 @@ export default class MigrationRunner extends MigrationRunnerBase {
       if (updateGroup.length === 50) {
         try {
           await documentClass.updateDocuments(updateGroup, { noHook: true, pack });
-          progress?.advance({ by: updateGroup.length });
         } catch (e) {
           console.error(e);
         } finally {
+          progress?.advance({ by: updateGroup.length });
           updateGroup.length = 0;
         }
       }
@@ -92,8 +92,8 @@ export default class MigrationRunner extends MigrationRunnerBase {
     if (updateGroup.length > 0) {
       try {
         await documentClass.updateDocuments(updateGroup, { noHook: true, pack });
-        progress?.advance({ by: updateGroup.length });
       } catch (e) {
+        progress?.advance({ by: updateGroup.length });
         console.warn(e);
       }
     }
@@ -221,6 +221,7 @@ export default class MigrationRunner extends MigrationRunnerBase {
   /**
    * @param {Object} journal
    * @param {Array<MigrationBase>} migrations
+   * @param {Progress} progress
    */
   async #migrateWorldJournalEntry(journalEntry, migrations, progress) {
     if (!migrations.some((migration) => !!migration.updateJournalEntry)) return;

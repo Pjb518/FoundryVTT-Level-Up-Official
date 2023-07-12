@@ -2,6 +2,7 @@
 import { localize } from '@typhonjs-fvtt/runtime/svelte/helper';
 
 import ActiveEffectA5e from '../activeEffect/activeEffect';
+import MigrationRunnerBase from '../../migration/MigrationRunnerBase';
 import RestManager from '../../managers/RestManager';
 
 import AbilityCheckConfigDialog from '../../apps/dialogs/ActorAbilityConfigDialog.svelte';
@@ -401,6 +402,11 @@ export default class ActorA5e extends Actor {
   /** @inheritdoc */
   async _preCreate(data, options, user) {
     await super._preCreate(data, options, user);
+
+    // Add schema version
+    this.updateSource({
+      'system.schema': { version: MigrationRunnerBase.LATEST_SCHEMA_VERSION }
+    });
 
     // Player character configuration
     if (this.type === 'character') {

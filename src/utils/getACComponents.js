@@ -4,8 +4,8 @@
  * @returns {String}
  */
 export default function getACComponents(actor) {
-  const baseChanges = actor.system.attributes.ac.changes;
-  if (!baseChanges.override && !baseChanges.bonuses.length) return '';
+  const baseChanges = actor.system.attributes.ac.changes ?? {};
+  if (!baseChanges?.override && !baseChanges?.bonuses?.length) return '';
 
   // Get ac base effects
   const effectChanges = actor.effects.reduce((acc, effect) => {
