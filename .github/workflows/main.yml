@@ -33,7 +33,7 @@ jobs:
     - name: Install Dependencies
       if: ${{ steps.cache-npm.outputs.cache-hit != 'true' }}
       run: |
-        npm i
+        npm i --force
 
     # Builds Packs
     - name: Build System

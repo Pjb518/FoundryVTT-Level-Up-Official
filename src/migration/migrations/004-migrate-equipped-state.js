@@ -10,6 +10,8 @@ export default class Migration004EquippedState extends MigrationBase {
   static version = 0.004;
 
   async updateItem(itemData) {
+    if (itemData.type !== 'object') return;
+
     const equippedState = itemData.system.equipped
       ? CONFIG.A5E.EQUIPPED_STATES.EQUIPPED
       : CONFIG.A5E.EQUIPPED_STATES.NOT_CARRIED;

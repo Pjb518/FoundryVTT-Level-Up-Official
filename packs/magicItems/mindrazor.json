@@ -1,122 +1,120 @@
 {
-  "name": "Mindrazor",
-  "type": "object",
-  "img": "icons/weapons/daggers/dagger-magical-glowing-blue.webp",
-  "effects": [],
-  "flags": {
-    "core": {
-      "sourceId": "Compendium.a5e.a5e-magic-items.vsxpocumd94u4m0s"
-    }
-  },
-  "system": {
-    "actions": {
-      "f8W9GTfNDZGprvNl": {
-        "name": "Mindrazor",
-        "activation": {
-          "cost": 1,
-          "type": "action",
-          "reactionTrigger": ""
-        },
-        "duration": {
-          "unit": "",
-          "value": ""
-        },
-        "ranges": {
-          "jCPo2ccKTrVoHHQ9": {
-            "range": "fiveFeet"
-          }
-        },
-        "area": {
-          "shape": "",
-          "size": "",
-          "placeTemplate": false
-        },
-        "target": {
-          "quantity": 1,
-          "type": "creatureObject"
-        },
-        "rolls": {
-          "1OupwW89ic3SqynJ": {
-            "bonus": "",
-            "critThreshold": "20",
-            "type": "attack",
-            "attackType": "meleeWeaponAttack",
-            "ability": "default"
-          },
-          "nPSfNbMpv82sRu2s": {
-            "canCrit": true,
-            "damageType": "piercing",
-            "formula": "1d4 + @finesse.mod",
-            "name": "Dagger",
-            "type": "damage"
-          }
-        },
-        "prompts": {
-          "YsEq9RsI0WbC4tI9": {
-            "ability": "cha",
-            "onSave": "ends confusion effect",
-            "saveDC": {
-              "type": "custom",
-              "bonus": "15"
-            },
-            "type": "savingThrow"
-          }
-        },
-        "consumers": {
-          "dZdWY9UqbBwnJo1V": {
-            "type": "itemUses"
-          }
-        }
-      }
-    },
-    "description": "<p>This dagger carves through minds as easily as flesh. You gain a +3 bonus to attack and damage rolls made with this magic weapon.</p><p>Weapon attacks using <em>mindrazor </em>deal an extra [[/r 2d6 #psychic]] psychic damage against creatures. When you roll a natural 20 on an attack with this weapon, the target becomes confused for 1 minute. At theend of each of its turns, a confused creature makes a DC 15 Intelligence saving throw, ending the effect on itself on a success.</p><p>You can use an action to work <em>mindrazor </em>upon the memories of a restrained or incapacited creature within 5 feet (as @Compendium[a5e.a5e-spells.2gcyh1jcj71nbb1y]{Modify Memory} cast at 9th-level). Once you have used this property, you cannot do so again until you have finished a short rest.</p>",
-    "favorite": false,
-    "secretDescription": "",
-    "source": "",
-    "uses": {
-      "value": 1,
-      "max": 1,
-      "per": "shortRest",
-      "recharge": {
-        "formula": "1d6",
-        "threshold": 6
-      }
-    },
-    "schema": {
-      "version": 0.003,
-      "lastMigration": {
-        "version": {
-          "schema": null,
-          "foundry": "10.291",
-          "system": "0.10.7"
-        }
-      }
-    },
-    "ammunitionProperties": [],
-    "armorCategory": "",
-    "armorProperties": [],
-    "attuned": false,
-    "broken": false,
-    "bulky": false,
-    "craftingComponents": "Vitrified brain",
-    "equipped": false,
-    "materialProperties": [],
-    "objectType": "weapon",
-    "plotItem": false,
-    "price": "100000 gp",
-    "quantity": 1,
-    "rarity": "legendary",
-    "requiresAttunement": true,
-    "shieldCategory": "",
-    "unidentified": false,
-    "unidentifiedDescription": "",
-    "unidentifiedName": "",
-    "weaponProperties": [
-      "dualWielding",
-      "finesse",
-      "simple"
-    ],
-    "weight": 1
-  },
-  "_id": "vsxpocumd94u4m0s"
+	"name": "Mindrazor",
+	"type": "object",
+	"img": "icons/weapons/daggers/dagger-magical-glowing-blue.webp",
+	"effects": [],
+	"flags": {},
+	"system": {
+		"actions": {
+			"f8W9GTfNDZGprvNl": {
+				"name": "Mindrazor",
+				"activation": {
+					"cost": 1,
+					"type": "action",
+					"reactionTrigger": ""
+				},
+				"duration": {
+					"unit": "",
+					"value": ""
+				},
+				"ranges": {
+					"jCPo2ccKTrVoHHQ9": {
+						"range": "fiveFeet"
+					}
+				},
+				"area": {
+					"shape": "",
+					"size": "",
+					"placeTemplate": false
+				},
+				"target": {
+					"quantity": 1,
+					"type": "creatureObject"
+				},
+				"rolls": {
+					"1OupwW89ic3SqynJ": {
+						"bonus": "",
+						"critThreshold": "20",
+						"type": "attack",
+						"attackType": "meleeWeaponAttack",
+						"ability": "default"
+					},
+					"nPSfNbMpv82sRu2s": {
+						"canCrit": true,
+						"damageType": "piercing",
+						"formula": "1d4 + @finesse.mod",
+						"name": "Dagger",
+						"type": "damage"
+					}
+				},
+				"prompts": {
+					"YsEq9RsI0WbC4tI9": {
+						"ability": "cha",
+						"onSave": "ends confusion effect",
+						"saveDC": {
+							"type": "custom",
+							"bonus": "15"
+						},
+						"type": "savingThrow"
+					}
+				},
+				"consumers": {
+					"dZdWY9UqbBwnJo1V": {
+						"type": "itemUses"
+					}
+				}
+			}
+		},
+		"description": "<p>This dagger carves through minds as easily as flesh. You gain a +3 bonus to attack and damage rolls made with this magic weapon.</p><p>Weapon attacks using <em>mindrazor </em>deal an extra [[/r 2d6 #psychic]] psychic damage against creatures. When you roll a natural 20 on an attack with this weapon, the target becomes confused for 1 minute. At theend of each of its turns, a confused creature makes a DC 15 Intelligence saving throw, ending the effect on itself on a success.</p><p>You can use an action to work <em>mindrazor </em>upon the memories of a restrained or incapacited creature within 5 feet (as @Compendium[a5e.a5e-spells.2gcyh1jcj71nbb1y]{Modify Memory} cast at 9th-level). Once you have used this property, you cannot do so again until you have finished a short rest.</p>",
+		"favorite": false,
+		"secretDescription": "",
+		"source": "",
+		"uses": {
+			"value": 1,
+			"max": 1,
+			"per": "shortRest",
+			"recharge": {
+				"formula": "1d6",
+				"threshold": 6
+			}
+		},
+		"schema": {
+			"version": 0.004,
+			"lastMigration": {
+				"version": {
+					"schema": 0.003,
+					"foundry": "11.302",
+					"system": "0.12.7"
+				}
+			}
+		},
+		"ammunitionProperties": [],
+		"armorCategory": "",
+		"armorProperties": [],
+		"attuned": false,
+		"broken": false,
+		"bulky": false,
+		"craftingComponents": "Vitrified brain",
+		"equippedState": 0,
+		"materialProperties": [],
+		"objectType": "weapon",
+		"plotItem": false,
+		"price": "100000 gp",
+		"proficient": true,
+		"quantity": 1,
+		"rarity": "legendary",
+		"requiresAttunement": true,
+		"shieldCategory": "",
+		"unidentified": false,
+		"unidentifiedDescription": "",
+		"unidentifiedName": "",
+		"weaponProperties": [
+			"dualWielding",
+			"finesse",
+			"simple"
+		],
+		"weight": 1
+	},
+	"folder": "t4M8y7azhVNzVn1Q",
+	"_id": "vsxpocumd94u4m0s"
 }

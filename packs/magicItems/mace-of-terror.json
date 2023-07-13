@@ -1,121 +1,119 @@
 {
-  "name": "Mace of Terror",
-  "type": "object",
-  "img": "icons/weapons/maces/mace-round-spiked-black.webp",
-  "effects": [],
-  "flags": {
-    "core": {
-      "sourceId": "Compendium.a5e.a5e-magic-items.qorptyj64vjjfwn2"
-    }
-  },
-  "system": {
-    "actions": {
-      "7ZQFSuw3Rx4jJIuB": {
-        "name": "Mace of Terror",
-        "activation": {
-          "cost": 1,
-          "type": "action",
-          "reactionTrigger": ""
-        },
-        "duration": {
-          "unit": "minute",
-          "value": 1
-        },
-        "ranges": {
-          "kNNhiC6JVeslanu6": {
-            "range": "fiveFeet"
-          }
-        },
-        "area": {
-          "shape": "",
-          "size": "",
-          "placeTemplate": false
-        },
-        "target": {
-          "quantity": 1,
-          "type": "creatureObject"
-        },
-        "rolls": {
-          "X9xVWTqCGjxWfSsI": {
-            "bonus": "",
-            "critThreshold": "20",
-            "type": "attack",
-            "attackType": "meleeWeaponAttack",
-            "ability": "default"
-          },
-          "p9WsC0Xjo2W46M0b": {
-            "canCrit": true,
-            "damageType": "bludgeoning",
-            "formula": "1d6 + @str.mod",
-            "name": "Mace",
-            "type": "damage"
-          }
-        },
-        "prompts": {
-          "QtNNUyu1yjzzJgtP": {
-            "ability": "wis",
-            "onSave": "no effect or effect ends",
-            "saveDC": {
-              "type": "custom",
-              "bonus": "15"
-            },
-            "type": "savingThrow"
-          }
-        },
-        "consumers": {
-          "IkrCLlhniuNG06G6": {
-            "type": "itemUses"
-          }
-        }
-      }
-    },
-    "description": "<p>This weapon has 3 charges and regains [[/r 1d3 #charges]] charges􀀃 each dawn. While you hold it, you can use an action􀀃 to expend 1 charge and emanate terror in a 30-foot􀀃 radius. Each creature you choose within the area􀀃 makes a DC 15 Wisdom saving throw or it becomes􀀃 frightened of you for 1 minute, moving away from􀀃 you as fast as possible on its turns (it can only use􀀃 the Dash action, try to escape anything preventing􀀃 it from moving, or use the Dodge action if it cannot􀀃 move or attempt escape) and remaining at least 30􀀃 feet from you. The creature cannot take reactions.􀀃 At the end of each of its turns, a frightened creature􀀃 can repeat the saving throw, ending the effect on􀀃a success.</p>",
-    "favorite": false,
-    "secretDescription": "",
-    "source": "",
-    "uses": {
-      "value": 3,
-      "max": 3,
-      "per": "",
-      "recharge": {
-        "formula": "1d6",
-        "threshold": 6
-      }
-    },
-    "schema": {
-      "version": 0.003,
-      "lastMigration": {
-        "version": {
-          "schema": null,
-          "foundry": "10.291",
-          "system": "0.10.7"
-        }
-      }
-    },
-    "ammunitionProperties": [],
-    "armorCategory": "",
-    "armorProperties": [],
-    "attuned": false,
-    "broken": false,
-    "bulky": false,
-    "craftingComponents": "Shard of a broken mirror that once reflected a banshee’s horrifying visage",
-    "equipped": false,
-    "materialProperties": [],
-    "objectType": "weapon",
-    "plotItem": false,
-    "price": "5000 gp",
-    "quantity": 1,
-    "rarity": "rare",
-    "requiresAttunement": true,
-    "shieldCategory": "",
-    "unidentified": false,
-    "unidentifiedDescription": "",
-    "unidentifiedName": "",
-    "weaponProperties": [
-      "defensive",
-      "simple"
-    ],
-    "weight": 4
-  },
-  "_id": "qorptyj64vjjfwn2"
+	"name": "Mace of Terror",
+	"type": "object",
+	"img": "icons/weapons/maces/mace-round-spiked-black.webp",
+	"effects": [],
+	"flags": {},
+	"system": {
+		"actions": {
+			"7ZQFSuw3Rx4jJIuB": {
+				"name": "Mace of Terror",
+				"activation": {
+					"cost": 1,
+					"type": "action",
+					"reactionTrigger": ""
+				},
+				"duration": {
+					"unit": "minute",
+					"value": 1
+				},
+				"ranges": {
+					"kNNhiC6JVeslanu6": {
+						"range": "fiveFeet"
+					}
+				},
+				"area": {
+					"shape": "",
+					"size": "",
+					"placeTemplate": false
+				},
+				"target": {
+					"quantity": 1,
+					"type": "creatureObject"
+				},
+				"rolls": {
+					"X9xVWTqCGjxWfSsI": {
+						"bonus": "",
+						"critThreshold": "20",
+						"type": "attack",
+						"attackType": "meleeWeaponAttack",
+						"ability": "default"
+					},
+					"p9WsC0Xjo2W46M0b": {
+						"canCrit": true,
+						"damageType": "bludgeoning",
+						"formula": "1d6 + @str.mod",
+						"name": "Mace",
+						"type": "damage"
+					}
+				},
+				"prompts": {
+					"QtNNUyu1yjzzJgtP": {
+						"ability": "wis",
+						"onSave": "no effect or effect ends",
+						"saveDC": {
+							"type": "custom",
+							"bonus": "15"
+						},
+						"type": "savingThrow"
+					}
+				},
+				"consumers": {
+					"IkrCLlhniuNG06G6": {
+						"type": "itemUses"
+					}
+				}
+			}
+		},
+		"description": "<p>This weapon has 3 charges and regains [[/r 1d3 #charges]] charges􀀃 each dawn. While you hold it, you can use an action􀀃 to expend 1 charge and emanate terror in a 30-foot􀀃 radius. Each creature you choose within the area􀀃 makes a DC 15 Wisdom saving throw or it becomes􀀃 frightened of you for 1 minute, moving away from􀀃 you as fast as possible on its turns (it can only use􀀃 the Dash action, try to escape anything preventing􀀃 it from moving, or use the Dodge action if it cannot􀀃 move or attempt escape) and remaining at least 30􀀃 feet from you. The creature cannot take reactions.􀀃 At the end of each of its turns, a frightened creature􀀃 can repeat the saving throw, ending the effect on􀀃a success.</p>",
+		"favorite": false,
+		"secretDescription": "",
+		"source": "",
+		"uses": {
+			"value": 3,
+			"max": 3,
+			"per": "",
+			"recharge": {
+				"formula": "1d6",
+				"threshold": 6
+			}
+		},
+		"schema": {
+			"version": 0.004,
+			"lastMigration": {
+				"version": {
+					"schema": 0.003,
+					"foundry": "11.302",
+					"system": "0.12.7"
+				}
+			}
+		},
+		"ammunitionProperties": [],
+		"armorCategory": "",
+		"armorProperties": [],
+		"attuned": false,
+		"broken": false,
+		"bulky": false,
+		"craftingComponents": "Shard of a broken mirror that once reflected a banshee’s horrifying visage",
+		"equippedState": 0,
+		"materialProperties": [],
+		"objectType": "weapon",
+		"plotItem": false,
+		"price": "5000 gp",
+		"proficient": true,
+		"quantity": 1,
+		"rarity": "rare",
+		"requiresAttunement": true,
+		"shieldCategory": "",
+		"unidentified": false,
+		"unidentifiedDescription": "",
+		"unidentifiedName": "",
+		"weaponProperties": [
+			"defensive",
+			"simple"
+		],
+		"weight": 4
+	},
+	"folder": "t4M8y7azhVNzVn1Q",
+	"_id": "qorptyj64vjjfwn2"
 }
