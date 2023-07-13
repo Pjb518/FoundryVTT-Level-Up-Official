@@ -8,6 +8,7 @@
 
     const item = getContext("item");
     const appId = getContext("appId");
+    const { armorModes } = CONFIG.A5E;
     const modes = [
         ["Add", CONFIG.A5E.ARMOR_MODES.ADD],
         ["Override", CONFIG.A5E.ARMOR_MODES.OVERRIDE],
@@ -198,7 +199,7 @@
                     {localize("A5E.armorClass.mode")}:
                 </dt>
                 <dd class="u-m-0 u-p-0">
-                    {$item.system.ac.mode === 2 ? "Add" : "Override"}
+                    {armorModes[$item.system.ac.mode]}
                 </dd>
             </div>
 

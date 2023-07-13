@@ -13,6 +13,7 @@ export default function registerPreLocalizationProperties(A5E) {
     'ammunitionProperties',
     'areaTypes',
     'armor',
+    "armorModes",
     'armorProperties',
     'attackTypes',
     'conditions',

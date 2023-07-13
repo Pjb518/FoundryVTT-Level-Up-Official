@@ -224,8 +224,8 @@ A5E.ARMOR_MODES = {
 }
 
 A5E.armorModes = {
-  1: 'A5E.armor.mode.add',
-  2: 'A5E.armor.mode.override'
+  1: 'A5E.armorClass.modes.add',
+  2: 'A5E.armorClass.modes.override'
 }
 
 /**
