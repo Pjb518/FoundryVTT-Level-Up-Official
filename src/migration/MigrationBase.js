@@ -49,7 +49,7 @@ export default class MigrationBase {
    * @param {*} userData
    * @returns {Promise<void>}
    */
-  async updateUse(userData) { }
+  async updateUser(userData) { }
 
   /**
    *

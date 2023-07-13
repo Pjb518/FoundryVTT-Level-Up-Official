@@ -13,6 +13,15 @@
 			"sort": 0,
 			"flags": {},
 			"system": {
+				"ac": {
+					"baseFormula": "",
+					"formula": "",
+					"maxDex": 0,
+					"minStr": 0,
+					"mode": 1,
+					"requiresNoShield": false,
+					"requiresUnarmored": false
+				},
 				"actions": {},
 				"description": "<p>After taking fire damage, the mummy catches fire and takes [[/r 1d10 #ongoing fire]] ongoing fire damage if it isn’t already suffering ongoing fire damage. A creature can use an action to extinguish this fire.<br></p>",
 				"favorite": false,
@@ -59,6 +68,15 @@
 				}
 			},
 			"system": {
+				"ac": {
+					"baseFormula": "",
+					"formula": "",
+					"maxDex": 0,
+					"minStr": 0,
+					"mode": 1,
+					"requiresNoShield": false,
+					"requiresUnarmored": false
+				},
 				"actions": {
 					"CMTvthQlNqQHc21o": {
 						"name": "Multiattack",
@@ -124,6 +142,15 @@
 			"sort": 0,
 			"flags": {},
 			"system": {
+				"ac": {
+					"baseFormula": "",
+					"formula": "",
+					"maxDex": 0,
+					"minStr": 0,
+					"mode": 1,
+					"requiresNoShield": false,
+					"requiresUnarmored": false
+				},
 				"actions": {
 					"6VTB63dwcWjKda3c": {
 						"name": "Dreadful Glare (Gaze)",
@@ -205,6 +232,15 @@
 			"sort": 0,
 			"flags": {},
 			"system": {
+				"ac": {
+					"baseFormula": "",
+					"formula": "",
+					"maxDex": 0,
+					"minStr": 0,
+					"mode": 1,
+					"requiresNoShield": false,
+					"requiresUnarmored": false
+				},
 				"actions": {
 					"mCYhpohr8v6u4kBT": {
 						"name": "Rotting Fist",
@@ -309,6 +345,15 @@
 			"sort": 0,
 			"flags": {},
 			"system": {
+				"ac": {
+					"baseFormula": "",
+					"formula": "",
+					"maxDex": 0,
+					"minStr": 0,
+					"mode": 1,
+					"requiresNoShield": false,
+					"requiresUnarmored": false
+				},
 				"actions": {},
 				"description": "<p>A mummy’s touch inflicts a dreadful curse called mummy rot. A cursed creature can’t regain hit points, and its hit point maximum decreases by an amount equal to the creature’s total number of Hit Dice for every 24 hours that elapse. If this curse reduces the target’s hit point maximum to 0, the target dies and crumbles to dust.</p>",
 				"favorite": false,
@@ -973,12 +1018,12 @@
 			}
 		},
 		"schema": {
-			"version": 0.004,
+			"version": 0.005,
 			"lastMigration": {
 				"version": {
-					"schema": 0.003,
-					"foundry": "11.302",
-					"system": "0.12.7"
+					"schema": 0.004,
+					"foundry": "11.305",
+					"system": "0.12.9"
 				}
 			}
 		},
@@ -1273,7 +1318,10 @@
 			}
 		},
 		"attributes": {
-			"ac": 11,
+			"ac": {
+				"base": 11,
+				"value": 0
+			},
 			"death": {
 				"success": 0,
 				"failure": 0

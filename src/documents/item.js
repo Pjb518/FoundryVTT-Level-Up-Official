@@ -20,6 +20,8 @@ import ResourceConsumptionManager from '../managers/ResourceConsumptionManager';
 import RollPreparationManager from '../managers/RollPreparationManager';
 import TemplatePreparationManager from '../managers/TemplatePreparationManager';
 
+import MigrationRunnerBase from '../migration/MigrationRunnerBase';
+
 /**
  * Override and extend the basic Item implementation.
  * @extends {Item}
@@ -27,6 +29,29 @@ import TemplatePreparationManager from '../managers/TemplatePreparationManager';
 export default class ItemA5e extends Item {
   get actions() {
     return new ActionsManager(this);
+  }
+
+  // *****************************************************************************************
+  prepareDerivedData() {
+    const itemData = this.system;
+
+    // Calculate AC formula
+    const { ac } = itemData;
+    if (!ac) return;
+
+    const { baseFormula, maxDex } = ac;
+    let formula = baseFormula;
+    if (maxDex && maxDex > 0) formula = baseFormula
+      .replaceAll(/@dex\.mod|@abilities\.dex\.mod/gm, `min(@dex.mod, ${maxDex})`);
+
+    if (itemData.broken) {
+      if (itemData.objectType === 'armor') {
+        formula = `10 + max(floor((${formula}) / 2), 1)`
+      }
+      else formula = `max(floor((${formula}) / 2), 1)`;
+    }
+
+    foundry.utils.setProperty(this, 'system.ac.formula', formula);
   }
 
   // *****************************************************************************************
@@ -449,7 +474,39 @@ export default class ItemA5e extends Item {
     if (!this.type === 'object' || !this.actor) return;
 
     const currentState = this.system.equippedState;
-    const newState = (currentState + 1) % 3;
+    let newState = (currentState + 1) % 3;
+
+    // Check if armor is already equipped
+    if (newState === CONFIG.A5E.EQUIPPED_STATES.EQUIPPED && this.system.objectType === 'armor') {
+      const { hasArmor, hasUnderArmor } = this.parent.items.reduce((acc, item) => {
+        if (item.system.equippedState !== CONFIG.A5E.EQUIPPED_STATES.EQUIPPED ||
+          item.system.objectType !== 'armor') return acc;
+        const isUnderarmor = item.system.materialProperties.includes('underarmor');
+        if (isUnderarmor) acc.hasUnderArmor = true;
+        else acc.hasArmor = true;
+        return acc;
+      }, { hasArmor: false, hasUnderArmor: false });
+
+      const isUnderarmor = this.system.materialProperties.includes('underarmor');
+      if (isUnderarmor && hasUnderArmor) newState = 0;
+      else if (!isUnderarmor & hasArmor) newState = 0;
+
+      // Warn user
+      if (newState === 0) {
+        ui.notifications.warn(game.i18n.localize('A5E.armorClass.armorAlreadyEquipped'));
+      }
+    }
+
+    // Check if 2 shields are already equipped
+    if (newState === 2 && this.system.objectType === 'shield') {
+      const shields = this.parent.items.filter((i) => (
+        i.system.equippedState === CONFIG.A5E.EQUIPPED_STATES.EQUIPPED
+        && i.system.objectType === 'shield'));
+      if (shields.length >= 2) newState = 0;
+      if (newState === 0) {
+        ui.notifications.warn(game.i18n.localize('A5E.armorClass.shieldAlreadyEquipped'));
+      }
+    }
 
     await this.update({
       'system.equippedState': newState
@@ -505,6 +562,18 @@ export default class ItemA5e extends Item {
     roll.toMessage();
 
     if (roll.total >= threshold) await this.update({ [updatePath]: Math.min(max, current + 1) });
+  }
+
+
+  /** @inheritdoc */
+  async _preCreate(data, options, user) {
+    await super._preCreate(data, options, user);
+
+
+    // Add schema version
+    this.updateSource({
+      'system.schema': { version: MigrationRunnerBase.LATEST_SCHEMA_VERSION }
+    });
   }
 
   async _onCreate(data, options, user) {

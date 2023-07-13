@@ -5,7 +5,7 @@
 import MigrationBase from './MigrationBase';
 
 export default class MigrationRunnerBase {
-  static LATEST_SCHEMA_VERSION = 0.004;
+  static LATEST_SCHEMA_VERSION = 0.005;
 
   static MIN_SAFE_VERSION = 0;
 
@@ -70,20 +70,20 @@ export default class MigrationRunnerBase {
   async getUpdatedActor(actor, migrations) {
     const actorData = foundry.utils.deepClone(actor);
 
-    // FIXME: Probably merge these 2 iterators
-    // Handle Pre-Updates
     for (const migration of migrations) {
-      for (const currentItem of actorData.items) {
-        await migration.preUpdateItem(currentItem, actorData);
-      }
-    }
+      try {
+        await migration?.updateActor?.(actorData);
 
-    // Handles Updates
-    for (const migration of migrations) {
-      await migration.updateActor(actorData);
-
-      for (const currentItem of actorData.items) {
-        await migration.updateItem(currentItem, actorData);
+        for (const currentItem of actorData.items) {
+          try {
+            await migration?.preUpdateItem?.(currentItem, actorData);
+            await migration?.updateItem?.(currentItem, actorData);
+          } catch (e) {
+            console.error(e);
+          }
+        }
+      } catch (e) {
+        console.error(e);
       }
     }
 
@@ -110,13 +110,13 @@ export default class MigrationRunnerBase {
   async getUpdatedItem(item, migrations) {
     const itemData = foundry.utils.deepClone(item);
 
-    // FIXME: Probably merge these 2 iterators
-    for (const migration of migrations) {
-      await migration.preUpdateItem(itemData);
-    }
-
-    for (const migration of migrations) {
-      await migration.updateItem(itemData);
+    try {
+      for (const migration of migrations) {
+        await migration?.preUpdateItem?.(itemData);
+        await migration?.updateItem?.(itemData);
+      }
+    } catch (e) {
+      console.error(e);
     }
 
     if (migrations.length > 0) {
@@ -136,13 +136,32 @@ export default class MigrationRunnerBase {
 
     for (const migration of migrations) {
       try {
-        await migration.updateMacro(macroData);
+        await migration?.updateMacro?.(macroData);
       } catch (e) {
         console.error(e);
       }
     }
 
     return macroData;
+  }
+
+  /**
+   * @param {Object} journal
+   * @param {Array<MigrationBase>} migrations
+   * @returns {Object}
+   */
+  async getUpdatedJournalEntry(journal, migrations) {
+    const clone = deepClone(journal);
+
+    for (const migration of migrations) {
+      try {
+        await migration.updateJournalEntry?.(clone);
+      } catch (e) {
+        console.error(e);
+      }
+    }
+
+    return clone;
   }
 
   /**
@@ -154,7 +173,11 @@ export default class MigrationRunnerBase {
   async getUpdatedToken(token, migrations) {
     const tokenData = token.toObject();
     for (const migration of migrations) {
-      await migration.updateToken(tokenData, token.actor, token.scene);
+      try {
+        await migration?.updateToken?.(tokenData, token.actor, token.scene);
+      } catch (e) {
+        console.error(e);
+      }
     }
 
     return tokenData;
@@ -166,12 +189,12 @@ export default class MigrationRunnerBase {
    * @param {Array<MigrationBase>} migrations
    * @returns {Object}
    */
-  async getUpdatesUser(user, migrations) {
+  async getUpdatedUser(user, migrations) {
     const userData = foundry.utils.deepClone(user);
 
     for (const migration of migrations) {
       try {
-        await migration.updateUser(userData);
+        await migration?.updateUser?.(userData);
       } catch (e) {
         console.error(e);
       }

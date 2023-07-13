@@ -2,6 +2,7 @@
 import { localize } from '@typhonjs-fvtt/runtime/svelte/helper';
 
 import ActiveEffectA5e from '../activeEffect/activeEffect';
+import MigrationRunnerBase from '../../migration/MigrationRunnerBase';
 import RestManager from '../../managers/RestManager';
 
 import AbilityCheckConfigDialog from '../../apps/dialogs/ActorAbilityConfigDialog.svelte';
@@ -10,6 +11,7 @@ import ActorInitConfigDialog from '../../apps/dialogs/ActorInitConfigDialog.svel
 import ActorManueverConfigDialog from '../../apps/dialogs/ActorManueverConfigDialog.svelte';
 import ActorSpellConfigDialog from '../../apps/dialogs/ActorSpellConfigDialog.svelte';
 import ArmorProfConfigDialog from '../../apps/dialogs/ArmorProfConfigDialog.svelte';
+import ArmorClassConfigDialog from '../../apps/dialogs/ArmorClassConfigDialog.svelte';
 import ConditionImmunitiesConfigDialog from '../../apps/dialogs/ConditionImmunitiesConfigDialog.svelte';
 import CreatureSizeConfigDialog from '../../apps/dialogs/CreatureSizeConfigDialog.svelte';
 import CreatureTypeConfigDialog from '../../apps/dialogs/CreatureTypeConfigDialog.svelte';
@@ -49,6 +51,7 @@ export default class ActorA5e extends Actor {
     this.#configDialogMap = {
       ability: AbilityCheckConfigDialog,
       armor: ArmorProfConfigDialog,
+      armorClass: ArmorClassConfigDialog,
       conditionImmunities: ConditionImmunitiesConfigDialog,
       damageImmunities: DamageImmunitiesConfigDialog,
       damageResistances: DamageResistancesConfigDialog,
@@ -114,6 +117,11 @@ export default class ActorA5e extends Actor {
    */
   prepareBaseData() {
     const actorType = this.type;
+
+    // Add AC data to the actor.
+    if (this.system.schema.version >= 0.005) {
+      this.system.attributes.ac.changes = { override: null, bonuses: [] };
+    }
 
     if (actorType === 'character') {
       return this.prepareCharacterData();
@@ -260,6 +268,121 @@ export default class ActorA5e extends Actor {
     }
 
     this.prepareSkills();
+    if (this.system.schema.version < 0.005) return;
+    this.prepareArmorClass();
+  }
+
+  prepareArmorClass() {
+    const changes = this.prepareArmorChanges();
+
+    // Add Base to changes
+    const baseAC = parseInt(this.system.attributes.ac.base, 10) || 10
+    changes.override ??= { name: 'Natural Armor', mode: CONFIG.A5E.ARMOR_MODES.OVERRIDE, value: baseAC };
+
+    // Calculate the final AC value.
+    const finalAC = changes.bonuses.reduce((acc, { value }) => acc + value, changes.override?.value ?? 10);
+
+    foundry.utils.mergeObject(this.system.attributes.ac, {
+      changes,
+      value: parseInt(finalAC, 10) || 10,
+    });
+  }
+
+  determineDefenseConfiguration() {
+    const currentStr = this.system.abilities.str.value;
+    return this.items.reduce((acc, item) => {
+      if (item.system.equippedState !== CONFIG.A5E.EQUIPPED_STATES.EQUIPPED) return acc;
+
+      const { formula, minStr } = item.system.ac ?? {};
+      if (!formula || (currentStr < minStr)) return acc;
+
+      if (item.system.objectType === 'armor') acc.hasArmor = true;
+      else if (item.system.objectType === 'shield') acc.hasShield = true;
+
+      return acc;
+    }, { hasArmor: false, hasShield: false });
+  }
+
+  prepareArmorChanges() {
+    const currentStr = this.system.abilities.str.value;
+    const { hasArmor, hasShield } = this.determineDefenseConfiguration();
+
+    const changes = this.items.reduce((acc, item) => {
+      const { formula, minStr, mode, requiresUnarmored, requiresNoShield } = item.system.ac ?? {};
+      if (!formula || currentStr < minStr) return acc;
+
+      if (item.type === 'feature' && mode === CONFIG.A5E.ARMOR_MODES.OVERRIDE && !hasArmor) return acc;
+      if (requiresUnarmored && hasArmor || requiresNoShield && hasShield) return acc;
+
+      if (item.type === 'object' &&
+        item.system.equippedState !== CONFIG.A5E.EQUIPPED_STATES.EQUIPPED
+      ) return acc;
+
+      if (item.system.objectType === 'armor') {
+        const isUnderArmor = item.system.materialProperties.includes('underarmor');
+        if (isUnderArmor && acc.override) return acc;
+      }
+
+      const value = getDeterministicBonus(formula, this.getRollData()) ?? 0;
+      const change = { name: item.name, id: item.uuid, mode, value };
+
+      if (mode === CONFIG.A5E.ARMOR_MODES.OVERRIDE) acc.override = change;
+      else if (item.system.objectType === 'shield' && value > (acc.shield?.value ?? 0)) {
+        acc.shield = change;
+      } else acc.bonuses.push(change);
+
+      return acc;
+    }, { override: null, shield: null, bonuses: [] });
+
+    // Merge shield into bonuses
+    if (changes.shield) changes.bonuses.unshift(changes.shield);
+    delete changes.shield;
+
+    return changes;
+  }
+
+  prepareSkills() {
+    const actorData = this.system;
+    const proficiencyBonus = actorData.attributes.prof;
+    const jackOfAllTrades = this.flags.a5e?.jackOfAllTrades;
+
+    Object.values(actorData.skills).forEach((skill) => {
+      if (skill.proficient) skill.mod = proficiencyBonus;
+      else if (jackOfAllTrades) skill.mod = Math.floor(proficiencyBonus / 2);
+      else skill.mod = 0;
+    });
+
+    Object.entries(actorData.skills).forEach(([key, skill]) => {
+      const skillName = localize(CONFIG.A5E.skills[key]);
+      const { check: globalCheckBonus, skill: globalSkillBonus } = actorData.bonuses.abilities;
+
+      let deterministicBonus;
+
+      try {
+        deterministicBonus = getDeterministicBonus(
+          [
+            skill.mod,
+            skill.bonuses.check,
+            globalSkillBonus.trim(),
+            globalCheckBonus.trim()
+          ].filter(Boolean).join(' + '),
+          this.getRollData()
+        );
+      } catch {
+        // eslint-disable-next-line no-console
+        console.error(`Couldn't calculate a ${skillName} modifier for ${this.name}`);
+      }
+
+      skill.deterministicBonus = deterministicBonus ?? skill.mod;
+
+      try {
+        skill.passive = this._calculatePassiveScore(skill);
+      } catch {
+        // eslint-disable-next-line no-console
+        console.error(`Couldn't calculate a ${skillName} passive score for ${this.name}`);
+        skill.passive = null;
+      }
+    });
   }
 
   /**
@@ -279,6 +402,11 @@ export default class ActorA5e extends Actor {
   /** @inheritdoc */
   async _preCreate(data, options, user) {
     await super._preCreate(data, options, user);
+
+    // Add schema version
+    this.updateSource({
+      'system.schema': { version: MigrationRunnerBase.LATEST_SCHEMA_VERSION }
+    });
 
     // Player character configuration
     if (this.type === 'character') {
@@ -384,50 +512,6 @@ export default class ActorA5e extends Actor {
 
     Hooks.callAll('a5e.actorHealed', this, { prevHp: { value, temp }, healingData: { healing, options } });
     return this.update(updates);
-  }
-
-  prepareSkills() {
-    const actorData = this.system;
-    const proficiencyBonus = actorData.attributes.prof;
-    const jackOfAllTrades = this.flags.a5e?.jackOfAllTrades;
-
-    Object.values(actorData.skills).forEach((skill) => {
-      if (skill.proficient) skill.mod = proficiencyBonus;
-      else if (jackOfAllTrades) skill.mod = Math.floor(proficiencyBonus / 2);
-      else skill.mod = 0;
-    });
-
-    Object.entries(actorData.skills).forEach(([key, skill]) => {
-      const skillName = localize(CONFIG.A5E.skills[key]);
-      const { check: globalCheckBonus, skill: globalSkillBonus } = actorData.bonuses.abilities;
-
-      let deterministicBonus;
-
-      try {
-        deterministicBonus = getDeterministicBonus(
-          [
-            skill.mod,
-            skill.bonuses.check,
-            globalSkillBonus.trim(),
-            globalCheckBonus.trim()
-          ].filter(Boolean).join(' + '),
-          this.getRollData()
-        );
-      } catch {
-        // eslint-disable-next-line no-console
-        console.error(`Couldn't calculate a ${skillName} modifier for ${this.name}`);
-      }
-
-      skill.deterministicBonus = deterministicBonus ?? skill.mod;
-
-      try {
-        skill.passive = this._calculatePassiveScore(skill);
-      } catch {
-        // eslint-disable-next-line no-console
-        console.error(`Couldn't calculate a ${skillName} passive score for ${this.name}`);
-        skill.passive = null;
-      }
-    });
   }
 
   /** @inheritdoc */
@@ -572,6 +656,11 @@ export default class ActorA5e extends Actor {
 
     const dialog = new DialogComponent(this, id);
     dialog.render(true);
+  }
+
+  configureArmorClass(data = {}, options = {}) {
+    const title = localize('A5E.ACConfigurationPrompt', { name: this.name });
+    this.#configure('armorClass', title, data, options);
   }
 
   configureDamageImmunities(data = {}, options = {}) {

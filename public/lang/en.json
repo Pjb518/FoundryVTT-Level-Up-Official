@@ -32,6 +32,23 @@
       "charisma": "Cha"
     }
   },
+  "A5E.armorClass": {
+    "appliedArmorTypes": {
+      "armor": "Armor",
+      "label": "Applied Armor",
+      "underarmor": "Underarmor"
+    },
+    "armorAlreadyEquipped": "Unable to equip another armor.",
+    "base": "Base AC",
+    "formula": "AC Formula",
+    "maxDex": "Max Dex Bonus",
+    "minStr": "Min Strength",
+    "mode": "AC Mode",
+    "requiresNoShield": "Requires No Shield",
+    "requiresUnarmored": "Requires No Armor",
+    "shield": "Shield Bonus",
+    "shieldAlreadyEquipped": "Unable to equip more than 2 shields."
+  },
   "A5E.damageBonuses": {
     "contexts": {
       "all": "All Damage Rolls",
@@ -82,6 +99,7 @@
     "new": "New Effect",
     "groups": {
       "abilityChecks": "Ability Checks",
+      "ac": "Armor Class",
       "attackRollModes": "Attack Roll Modes",
       "attunement": "Attunement",
       "bonuses": "Bonuses",
@@ -144,6 +162,10 @@
         "wisdomSaveExpertiseDice": "Wisdom Save Expertise Dice",
         "wisdomSaveProficiency": "Wisdom Save Proficiency",
         "wisdomValue": "Wisdom Value"
+      },
+      "armorClass": {
+        "base": "Natural Armor Class",
+        "value": "Armor Class Bonuses"
       },
       "bonuses": {
         "check": "Global Ability Check Bonus",
@@ -583,7 +605,6 @@
         "truesightDistance": "Truesight Range",
         "truesightUnit": "Truesight Range Unit"
       },
-      "armorClass": "Armor Class",
       "attunementCurrent": "Current Attunement Count",
       "attunementMax": "Maximum Attunement Count",
       "deathSaveFailures": "Failed Death Saving Throws",
@@ -661,6 +682,17 @@
     "toothAndClaw": "Tooth and Claw",
     "unendingWheel": "Unending Wheel",
     "vipersFangs": "Viper's Fangs"
+  },
+  "A5E.migration": {
+    "starting": "Applying Level Up system migration for version {version}. Please be patient and do not close your game or shut down your server.",
+    "finished": "Level Up system migration to version {version} completed!",
+    "running": "Running system migration ...",
+    "migrateDocument": "Migrate {type}",
+    "compendium": {
+      "starting": "Applying Migration to Compendium Pack {packName}. Please be patient and do not close your game or shut down your server.",
+      "finished": "Successfully Migrated Compendium Pack {packName}!",
+      "running": "Running Compendium Pack Migration ..."
+    }
   },
   "A5E.objectProperties": {
     "rebounding": "Rebounding",
@@ -1440,8 +1472,6 @@
   "A5E.MeasurementFeetAbbr": "ft.",
   "A5E.MeasurementPounds": "Pounds",
   "A5E.MeasurementPoundsAbbr": "lbs.",
-  "A5E.MigrationStarting": "Applying Level Up system migration for version {version}. Please be patient and do not close your game or shut down your server.",
-  "A5E.MigrationFinished": "Level Up system migration to version {version} completed!",
   "A5E.MinimumD20Roll": "Minimum D20 Roll",
   "A5E.Movement": "Movement",
   "A5E.MovementSpeed": "Movement Speed",
@@ -1843,6 +1873,7 @@
   "A5E.TabActivation": "Activation",
   "A5E.TabAmmunitionProperties": "Ammunition Properties",
   "A5E.TabAttributes": "Attributes",
+  "A5E.TabArmorClassProperties": "Armor Class Properties",
   "A5E.TabArmorProperties": "Armor Properties",
   "A5E.TabBiography": "Bio",
   "A5E.TabConsumers": "Consumers",

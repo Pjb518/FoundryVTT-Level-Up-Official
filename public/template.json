@@ -372,7 +372,10 @@
           }
         },
         "attributes": {
-          "ac": 10,
+          "ac": {
+            "base": 10,
+            "value": 0
+          },
           "death": {
             "success": 0,
             "failure": 0
@@ -638,6 +641,17 @@
           }
         }
       },
+      "armorClass": {
+        "ac": {
+          "baseFormula": "",
+          "formula": "",
+          "maxDex": 0,
+          "minStr": 0,
+          "mode": 1,
+          "requiresNoShield": false,
+          "requiresUnarmored": false
+        }
+      },
       "schema": {
         "schema": {
           "version": null,
@@ -697,6 +711,7 @@
     },
     "feature": {
       "templates": [
+        "armorClass",
         "base",
         "schema"
       ],
@@ -717,6 +732,7 @@
     },
     "object": {
       "templates": [
+        "armorClass",
         "base",
         "schema"
       ],

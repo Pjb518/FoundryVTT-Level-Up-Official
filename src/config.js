@@ -169,6 +169,11 @@ A5E.ammunitionProperties = {
   punching: 'A5E.AmmunitionPropertyPunching'
 };
 
+A5E.appliedArmorTypes = {
+  armor: 'A5E.armorClass.appliedArmorTypes.armor',
+  underarmor: 'A5E.armorClass.appliedArmorTypes.underarmor'
+};
+
 A5E.areaIcons = {
   circle: '<i class="fa-regular fa-circle"></i>',
   cone: '<i class="fa-solid fa-wifi"></i>',
@@ -212,6 +217,16 @@ A5E.armor = {
   heavy: 'A5E.ArmorHeavy',
   shield: 'A5E.ArmorShield'
 };
+
+A5E.ARMOR_MODES = {
+  ADD: 1,
+  OVERRIDE: 2,
+}
+
+A5E.armorModes = {
+  1: 'A5E.armor.mode.add',
+  2: 'A5E.armor.mode.override'
+}
 
 /**
  * The set of core armor properties in the system.

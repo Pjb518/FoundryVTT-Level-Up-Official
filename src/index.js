@@ -4,6 +4,7 @@ import canvasInit from './hooks/canvasInit';
 import createActor from './hooks/createActor';
 import createToken from './hooks/createToken';
 import init from './hooks/init';
+import getDocumentDirectoryContext from './hooks/getDocumentDirectoryContext';
 import preDeleteChatMessage from './hooks/preDeleteChatMessage';
 import preCreateChatMessage from './hooks/preCreateChatMessage';
 import ready from './hooks/ready';
@@ -16,6 +17,10 @@ Hooks.once('setup', setup);
 Hooks.once('ready', ready);
 
 Hooks.on('canvasInit', canvasInit);
+
+Hooks.on('getActorDirectoryEntryContext', (dialog, html, data) => getDocumentDirectoryContext(dialog, html, data, 'Actor'));
+Hooks.on('getItemDirectoryEntryContext', (dialog, html, data) => getDocumentDirectoryContext(dialog, html, data, 'Item'));
+Hooks.on('getCompendiumDirectoryEntryContext', (dialog, html, data) => getDocumentDirectoryContext(dialog, html, data, 'Pack'));
 
 Hooks.on('createActor', createActor);
 Hooks.on('createToken', createToken);

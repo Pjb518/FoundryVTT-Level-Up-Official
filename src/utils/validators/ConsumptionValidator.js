@@ -62,15 +62,15 @@ export default class ConsumptionValidator {
 
   #validateItemQuantity(_, consumer) {
     const item = this.#actor.items.get(consumer.itemId);
-    if (!item) return;
-
-    const quantity = item.system.quantity ?? 1;
-    if (quantity >= consumer.quantity) return;
+    if (item) {
+      const quantity = item.system.quantity ?? 0;
+      if (quantity >= consumer.quantity) return;
+    }
 
     if (consumer.type === 'ammunition') {
       this.warnings.push(localize('A5E.validations.warnings.ammunition'));
     } else {
-      this.warnings.push(localize('A5E.validations.warnings.quantity', { name: item.name }));
+      this.warnings.push(localize('A5E.validations.warnings.quantity', { name: item?.name }));
     }
   }
 

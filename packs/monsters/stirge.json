@@ -13,6 +13,15 @@
 			"sort": 0,
 			"flags": {},
 			"system": {
+				"ac": {
+					"baseFormula": "",
+					"formula": "",
+					"maxDex": 0,
+					"minStr": 0,
+					"mode": 1,
+					"requiresNoShield": false,
+					"requiresUnarmored": false
+				},
 				"actions": {
 					"tPX1F9dDfjda7QNx": {
 						"name": "Proboscis",
@@ -113,6 +122,15 @@
 			"sort": 0,
 			"flags": {},
 			"system": {
+				"ac": {
+					"baseFormula": "",
+					"formula": "",
+					"maxDex": 0,
+					"minStr": 0,
+					"mode": 1,
+					"requiresNoShield": false,
+					"requiresUnarmored": false
+				},
 				"actions": {},
 				"description": "<p>The stirge drains blood from the creature it is attached to. The creature loses 4 (1d8) hit points. After the stirge has drained 8 hit points, it detaches itself and can’t use Blood Drain again until it finishes a rest.</p>",
 				"favorite": false,
@@ -777,12 +795,12 @@
 			}
 		},
 		"schema": {
-			"version": 0.004,
+			"version": 0.005,
 			"lastMigration": {
 				"version": {
-					"schema": 0.003,
-					"foundry": "11.302",
-					"system": "0.12.7"
+					"schema": 0.004,
+					"foundry": "11.305",
+					"system": "0.12.9"
 				}
 			}
 		},
@@ -1077,7 +1095,10 @@
 			}
 		},
 		"attributes": {
-			"ac": 13,
+			"ac": {
+				"base": 13,
+				"value": 0
+			},
 			"death": {
 				"success": 0,
 				"failure": 0
