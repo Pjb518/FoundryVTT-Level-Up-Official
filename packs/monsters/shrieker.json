@@ -13,6 +13,15 @@
 			"sort": 0,
 			"flags": {},
 			"system": {
+				"ac": {
+					"baseFormula": "",
+					"formula": "",
+					"maxDex": 0,
+					"minStr": 0,
+					"mode": 1,
+					"requiresNoShield": false,
+					"requiresUnarmored": false
+				},
 				"actions": {},
 				"description": "<p>While motionless, the shrieker is indistinguishable from a normal fungus.</p>",
 				"favorite": false,
@@ -55,6 +64,15 @@
 			"sort": 0,
 			"flags": {},
 			"system": {
+				"ac": {
+					"baseFormula": "",
+					"formula": "",
+					"maxDex": 0,
+					"minStr": 0,
+					"mode": 1,
+					"requiresNoShield": false,
+					"requiresUnarmored": false
+				},
 				"actions": {},
 				"description": "<p>If the shrieker perceives a creature within 30 feet, or if an area of bright light is within 30 feet, it shrieks loudly and continuously. The shriek is audible within 300 feet. The shrieker continues to shriek for 1 minute after the creature or light has moved away. </p>",
 				"favorite": false,
@@ -719,12 +737,12 @@
 			}
 		},
 		"schema": {
-			"version": 0.004,
+			"version": 0.005,
 			"lastMigration": {
 				"version": {
-					"schema": 0.003,
-					"foundry": "11.302",
-					"system": "0.12.7"
+					"schema": 0.004,
+					"foundry": "11.305",
+					"system": "0.12.9"
 				}
 			}
 		},
@@ -1019,7 +1037,10 @@
 			}
 		},
 		"attributes": {
-			"ac": 5,
+			"ac": {
+				"base": 5,
+				"value": 0
+			},
 			"death": {
 				"success": 0,
 				"failure": 0

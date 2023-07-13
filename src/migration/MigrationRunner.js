@@ -435,7 +435,6 @@ export default class MigrationRunner extends MigrationRunnerBase {
               console.warn(e);
             }
           }
-
           progress.advance();
         }
       }

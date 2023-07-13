@@ -17,6 +17,15 @@
 				}
 			},
 			"system": {
+				"ac": {
+					"baseFormula": "",
+					"formula": "",
+					"maxDex": 0,
+					"minStr": 0,
+					"mode": 1,
+					"requiresNoShield": false,
+					"requiresUnarmored": false
+				},
 				"actions": {},
 				"description": "<p>The swarm can occupy another creature’s space and move through any opening large enough for a Tiny creature. It can’t gain hit points or temporary hit points.</p>",
 				"favorite": false,
@@ -63,6 +72,15 @@
 				}
 			},
 			"system": {
+				"ac": {
+					"baseFormula": "",
+					"formula": "",
+					"maxDex": 0,
+					"minStr": 0,
+					"mode": 1,
+					"requiresNoShield": false,
+					"requiresUnarmored": false
+				},
 				"actions": {
 					"oOI21bB9l3A5zNCP": {
 						"name": "Bite",
@@ -783,12 +801,12 @@
 			}
 		},
 		"schema": {
-			"version": 0.004,
+			"version": 0.005,
 			"lastMigration": {
 				"version": {
-					"schema": 0.003,
-					"foundry": "11.302",
-					"system": "0.12.7"
+					"schema": 0.004,
+					"foundry": "11.305",
+					"system": "0.12.9"
 				}
 			}
 		},
@@ -1083,7 +1101,10 @@
 			}
 		},
 		"attributes": {
-			"ac": 12,
+			"ac": {
+				"base": 12,
+				"value": 0
+			},
 			"death": {
 				"success": 0,
 				"failure": 0

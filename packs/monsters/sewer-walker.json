@@ -79,12 +79,12 @@
 			}
 		},
 		"schema": {
-			"version": 0.004,
+			"version": 0.005,
 			"lastMigration": {
 				"version": {
-					"schema": 0.003,
-					"foundry": "11.302",
-					"system": "0.12.7"
+					"schema": 0.004,
+					"foundry": "11.305",
+					"system": "0.12.9"
 				}
 			}
 		},
@@ -379,7 +379,10 @@
 			}
 		},
 		"attributes": {
-			"ac": 15,
+			"ac": {
+				"base": 15,
+				"value": 0
+			},
 			"death": {
 				"success": 0,
 				"failure": 0
@@ -1203,6 +1206,15 @@
 			"_id": "ds1pVzsjYLtHHIq6",
 			"img": "icons/magic/control/sihouette-hold-beam-green.webp",
 			"system": {
+				"ac": {
+					"baseFormula": "",
+					"formula": "",
+					"maxDex": 0,
+					"minStr": 0,
+					"mode": 1,
+					"requiresNoShield": false,
+					"requiresUnarmored": false
+				},
 				"actions": {},
 				"description": "<p>When the sewer walker is subjected to <em>acid</em> damage, it instead regains hit points equal to the acid damage dealt.</p>",
 				"favorite": true,
@@ -1245,6 +1257,15 @@
 			"type": "feature",
 			"img": "icons/skills/melee/blade-tips-triple-steel.webp",
 			"system": {
+				"ac": {
+					"baseFormula": "",
+					"formula": "",
+					"maxDex": 0,
+					"minStr": 0,
+					"mode": 1,
+					"requiresNoShield": false,
+					"requiresUnarmored": false
+				},
 				"actions": {},
 				"description": "<p>The sewer walker makes two lash attacks.</p><p>If both attacks hit one Medium or smaller creature, the target is <em>grappled</em> (escape DC 15), and the sewer walker uses their <strong>Drown</strong> action against it.</p>",
 				"favorite": true,
@@ -1291,6 +1312,15 @@
 			"_id": "snY5VJlMhOnKBfcf",
 			"img": "icons/magic/nature/root-vine-hand-strike.webp",
 			"system": {
+				"ac": {
+					"baseFormula": "",
+					"formula": "",
+					"maxDex": 0,
+					"minStr": 0,
+					"mode": 1,
+					"requiresNoShield": false,
+					"requiresUnarmored": false
+				},
 				"actions": {
 					"SKDhkos2E8r3X26r": {
 						"name": "Lash",
@@ -1377,6 +1407,15 @@
 			"_id": "ZiVm5RuvAwhaPSXv",
 			"img": "icons/magic/water/tendrils-ice-growth.webp",
 			"system": {
+				"ac": {
+					"baseFormula": "",
+					"formula": "",
+					"maxDex": 0,
+					"minStr": 0,
+					"mode": 1,
+					"requiresNoShield": false,
+					"requiresUnarmored": false
+				},
 				"actions": {},
 				"description": "<p>The sewer walker drags a Medium or smaller <em>grappled</em> creature under its body.</p><p>The creature is <em>restrained</em>, <em>rattled</em>, can’t breathe, and moves with the sewer walker.</p><p>At the start of each of the sewer walker’s turns, the target takes 11 (2d6 + 4) <em>acid</em> damage.</p><p>When the grapple ends, the creature is no longer being drowned.</p><p>The sewer walker can only be drowning one creature at a time.</p>",
 				"favorite": false,
