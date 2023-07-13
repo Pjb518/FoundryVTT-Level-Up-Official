@@ -9,7 +9,7 @@ export default class TokenHUDA5e extends TokenHUD {
   getData() {
     let data = super.getData();
     data = foundry.utils.mergeObject(data, {
-      AC: this.object.actor?.system?.attributes?.ac ?? 10
+      AC: this.object.actor?.system?.attributes?.ac?.value ?? 10
     });
     return data;
   }
