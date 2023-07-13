@@ -311,7 +311,7 @@ export default class ActorA5e extends Actor {
       const { formula, minStr, mode, requiresUnarmored, requiresNoShield } = item.system.ac ?? {};
       if (!formula || currentStr < minStr) return acc;
 
-      if (item.type === 'feature' && mode === CONFIG.A5E.ARMOR_MODES.OVERRIDE && !hasArmor) return acc;
+      if (item.type === 'feature' && mode === CONFIG.A5E.ARMOR_MODES.OVERRIDE && hasArmor) return acc;
       if (requiresUnarmored && hasArmor || requiresNoShield && hasShield) return acc;
 
       if (item.type === 'object' &&
