@@ -139,31 +139,33 @@
                 </div>
             </FormSection>
 
-            <FormSection --gap="0.5rem 1.25rem">
-                <Checkbox
-                    label="A5E.armorClass.requiresNoShield"
-                    checked={$item.system.ac.requiresNoShield ?? false}
-                    on:updateSelection={({ detail }) =>
-                        updateDocumentDataFromField(
-                            $item,
-                            "system.ac.requiresNoShield",
-                            detail
-                        )}
-                />
-            </FormSection>
+            {#if !["armor", "shield"].includes($item.system?.objectType)}
+                <FormSection --gap="0.5rem 1.25rem">
+                    <Checkbox
+                        label="A5E.armorClass.requiresNoShield"
+                        checked={$item.system.ac.requiresNoShield ?? false}
+                        on:updateSelection={({ detail }) =>
+                            updateDocumentDataFromField(
+                                $item,
+                                "system.ac.requiresNoShield",
+                                detail
+                            )}
+                    />
+                </FormSection>
 
-            <FormSection --gap="0.5rem 1.25rem">
-                <Checkbox
-                    label="A5E.armorClass.requiresUnarmored"
-                    checked={$item.system.ac.requiresUnarmored ?? false}
-                    on:updateSelection={({ detail }) =>
-                        updateDocumentDataFromField(
-                            $item,
-                            "system.ac.requiresUnarmored",
-                            detail
-                        )}
-                />
-            </FormSection>
+                <FormSection --gap="0.5rem 1.25rem">
+                    <Checkbox
+                        label="A5E.armorClass.requiresUnarmored"
+                        checked={$item.system.ac.requiresUnarmored ?? false}
+                        on:updateSelection={({ detail }) =>
+                            updateDocumentDataFromField(
+                                $item,
+                                "system.ac.requiresUnarmored",
+                                detail
+                            )}
+                    />
+                </FormSection>
+            {/if}
         </div>
     {:else}
         <dl class="a5e-box u-flex u-flex-col u-gap-sm u-m-0 u-p-md u-text-sm">
@@ -203,23 +205,25 @@
                 </dd>
             </div>
 
-            <div class="u-flex u-gap-md">
-                <dt class="u-text-bold">
-                    {localize("A5E.armorClass.requiresNoShield")}:
-                </dt>
-                <dd class="u-m-0 u-p-0">
-                    {$item.system.ac.requiresNoShield ?? false}
-                </dd>
-            </div>
+            {#if !["armor", "shield"].includes($item.system?.objectType)}
+                <div class="u-flex u-gap-md">
+                    <dt class="u-text-bold">
+                        {localize("A5E.armorClass.requiresNoShield")}:
+                    </dt>
+                    <dd class="u-m-0 u-p-0">
+                        {$item.system.ac.requiresNoShield ?? false}
+                    </dd>
+                </div>
 
-            <div class="u-flex u-gap-md">
-                <dt class="u-text-bold">
-                    {localize("A5E.armorClass.requiresUnarmored")}:
-                </dt>
-                <dd class="u-m-0 u-p-0">
-                    {$item.system.ac.requiresUnarmored ?? false}
-                </dd>
-            </div>
+                <div class="u-flex u-gap-md">
+                    <dt class="u-text-bold">
+                        {localize("A5E.armorClass.requiresUnarmored")}:
+                    </dt>
+                    <dd class="u-m-0 u-p-0">
+                        {$item.system.ac.requiresUnarmored ?? false}
+                    </dd>
+                </div>
+            {/if}
         </dl>
     {/if}
 </section>
