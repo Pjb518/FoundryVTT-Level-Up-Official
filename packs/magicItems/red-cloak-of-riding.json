@@ -2,9 +2,58 @@
 	"name": "Red Cloak of Riding",
 	"type": "object",
 	"img": "icons/equipment/back/cloakcollared-red-gold.webp",
-	"effects": [],
+	"effects": [
+		{
+			"icon": "icons/svg/aura.svg",
+			"origin": "Item.VKSbEXYUbJ0stE8S",
+			"flags": {
+				"a5e": {
+					"sort": 0,
+					"transferType": "passive"
+				}
+			},
+			"transfer": false,
+			"name": "Disadvantage Insight & Perception",
+			"_id": "mWSGh6JuQEXE5MB2",
+			"changes": [
+				{
+					"key": "flags.a5e.effects.rollMode.skillCheck.ins",
+					"mode": 5,
+					"value": "-1",
+					"priority": 50
+				},
+				{
+					"key": "flags.a5e.effects.rollMode.skillCheck.prc",
+					"mode": 5,
+					"value": "-1",
+					"priority": 50
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": null,
+				"combat": null,
+				"rounds": null,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "",
+			"statuses": []
+		}
+	],
 	"flags": {},
 	"system": {
+		"ac": {
+			"baseFormula": "2",
+			"formula": "",
+			"maxDex": 0,
+			"minStr": 0,
+			"mode": 1,
+			"requiresNoShield": true,
+			"requiresUnarmored": true
+		},
 		"actions": {},
 		"description": "<p><strong>Crafting Components:</strong> Werewolf blood</p><hr class=\"a5e-rule u-my-md\"><p>While wearing this scarlet cloak, you gain a +2 bonus to AC but have disadvantage on Insight and Perception checks. In addition, when you are reduced to 0 hit points and wearing this cloak, you drop to 1 hit point instead. You can’t use this feature again until you finish a long rest.</p>",
 		"favorite": false,
@@ -20,7 +69,7 @@
 			}
 		},
 		"schema": {
-			"version": 0.004,
+			"version": 0.005,
 			"lastMigration": {
 				"version": {
 					"schema": 0.003,
@@ -52,6 +101,6 @@
 		"weaponProperties": [],
 		"weight": 0
 	},
-	"folder": "t4M8y7azhVNzVn1Q",
+	"folder": null,
 	"_id": "msujy59n6co0kt5n"
 }

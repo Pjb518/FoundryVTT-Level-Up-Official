@@ -2,15 +2,62 @@
 	"name": "Osseous Plate",
 	"type": "object",
 	"img": "icons/commodities/metal/mail-chain-steel.webp",
-	"effects": [],
+	"effects": [
+		{
+			"icon": "icons/svg/aura.svg",
+			"origin": "Item.DZBy75Z4RI4IYcrw",
+			"flags": {
+				"a5e": {
+					"sort": 0,
+					"transferType": "onUse"
+				}
+			},
+			"transfer": false,
+			"name": "Osseous Plate",
+			"_id": "kEq0dPbVbI5w6l0N",
+			"changes": [
+				{
+					"key": "system.traits.damageResistances",
+					"mode": 2,
+					"value": "necrotic",
+					"priority": null
+				},
+				{
+					"key": "system.traits.damageVulnerabilities",
+					"mode": 2,
+					"value": "bludgeoning",
+					"priority": null
+				},
+				{
+					"key": "system.traits.damageResistances",
+					"mode": 2,
+					"value": "poison",
+					"priority": null
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": null,
+				"combat": null,
+				"rounds": null,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "",
+			"statuses": []
+		}
+	],
 	"flags": {},
 	"system": {
 		"ac": {
-			"baseFormula": "18",
+			"baseFormula": "16",
 			"formula": "",
 			"maxDex": 0,
 			"minStr": 13,
 			"mode": 2,
+			"requiresNoShield": false,
 			"requiresUnarmored": false
 		},
 		"actions": {
@@ -51,7 +98,7 @@
 			}
 		},
 		"schema": {
-			"version": 0.004,
+			"version": 0.005,
 			"lastMigration": {
 				"version": {
 					"schema": 0.003,
@@ -85,6 +132,6 @@
 		"weaponProperties": [],
 		"weight": 20
 	},
-	"folder": "t4M8y7azhVNzVn1Q",
+	"folder": null,
 	"_id": "lufvx5lpa8kqd1qp"
 }
