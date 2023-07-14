@@ -54,6 +54,7 @@
                 data-action-id={id}
                 draggable="true"
                 on:dragstart={(event) => _onDragStart(event, id)}
+                on:auxclick={() => configureAction(id)}
             >
                 <img
                     class="action__image"
