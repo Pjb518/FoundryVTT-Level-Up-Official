@@ -90,7 +90,7 @@
         return data;
     }
 
-    let description = getDescription(item)
+    $: description = getDescription(item)
         .then((data) => (description = data))
         .catch((err) => (description = err));
 
