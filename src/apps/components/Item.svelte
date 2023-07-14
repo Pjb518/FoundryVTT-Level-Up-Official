@@ -106,6 +106,7 @@
 </script>
 
 <!-- svelte-ignore a11y-click-events-have-key-events -->
+<!-- svelte-ignore a11y-no-noninteractive-element-interactions -->
 <li
     class="item-wrapper"
     class:item-wrapper--highlight={item.system.prepared ||
@@ -139,7 +140,7 @@
 
     <ItemInnerWrapper {actionId} {action} {item} />
 
-    {#if !$actor.pack && $actor.isOwner}
+    {#if $actor.isOwner}
         <ItemActionButtons action={actionId} {item} />
     {/if}
 </li>

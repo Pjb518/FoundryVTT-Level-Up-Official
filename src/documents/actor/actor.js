@@ -276,15 +276,16 @@ export default class ActorA5e extends Actor {
     const changes = this.prepareArmorChanges();
 
     // Add Base to changes
-    const baseAC = parseInt(this.system.attributes.ac.base, 10) || 10
+    const baseAC = parseInt(this.system.attributes.ac.base, 10) || 10;
     changes.override ??= { name: 'Natural Armor', mode: CONFIG.A5E.ARMOR_MODES.OVERRIDE, value: baseAC };
 
     // Calculate the final AC value.
-    const finalAC = changes.bonuses.reduce((acc, { value }) => acc + value, changes.override?.value ?? 10);
+    const finalAC = changes.bonuses
+      .reduce((acc, { value }) => acc + value, changes.override?.value ?? 10);
 
     foundry.utils.mergeObject(this.system.attributes.ac, {
       changes,
-      value: parseInt(finalAC, 10) || 10,
+      value: parseInt(finalAC, 10) || 10
     });
   }
 
@@ -308,14 +309,16 @@ export default class ActorA5e extends Actor {
     const { hasArmor, hasShield } = this.determineDefenseConfiguration();
 
     const changes = this.items.reduce((acc, item) => {
-      const { formula, minStr, mode, requiresUnarmored, requiresNoShield } = item.system.ac ?? {};
+      const {
+        formula, minStr, mode, requiresUnarmored, requiresNoShield
+      } = item.system.ac ?? {};
       if (!formula || currentStr < minStr) return acc;
 
       if (item.type === 'feature' && mode === CONFIG.A5E.ARMOR_MODES.OVERRIDE && hasArmor) return acc;
-      if (requiresUnarmored && hasArmor || requiresNoShield && hasShield) return acc;
+      if ((requiresUnarmored && hasArmor) || (requiresNoShield && hasShield)) return acc;
 
-      if (item.type === 'object' &&
-        item.system.equippedState !== CONFIG.A5E.EQUIPPED_STATES.EQUIPPED
+      if (item.type === 'object'
+        && item.system.equippedState !== CONFIG.A5E.EQUIPPED_STATES.EQUIPPED
       ) return acc;
 
       if (item.system.objectType === 'armor') {
@@ -324,7 +327,9 @@ export default class ActorA5e extends Actor {
       }
 
       const value = getDeterministicBonus(formula, this.getRollData()) ?? 0;
-      const change = { name: item.name, id: item.uuid, mode, value };
+      const change = {
+        name: item.name, id: item.uuid, mode, value
+      };
 
       if (mode === CONFIG.A5E.ARMOR_MODES.OVERRIDE) acc.override = change;
       else if (item.system.objectType === 'shield' && value > (acc.shield?.value ?? 0)) {

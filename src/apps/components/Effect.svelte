@@ -137,9 +137,10 @@
 
     <!-- Summary -->
 
-    {#if !$doc.pack && $doc.isOwner}
+    {#if $doc.isOwner}
         {#if !sheetIsLocked}
             <!-- svelte-ignore a11y-click-events-have-key-events -->
+            <!-- svelte-ignore a11y-no-static-element-interactions -->
             <div class="track" on:click|stopPropagation>
                 <i class="track-icon fa-solid fa-ellipsis-vertical" />
 
