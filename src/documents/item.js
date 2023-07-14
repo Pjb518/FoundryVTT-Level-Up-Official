@@ -571,8 +571,15 @@ export default class ItemA5e extends Item {
 
     // Add schema version
     if (!this.system.schema.version) {
+      let version = null;
+      if (typeof this.system?.equipped === 'boolean') version = 0.003;
+      else if (typeof this.system?.recharge === 'string') version = 0.002;
+      else if (typeof this.system?.uses?.max === 'string') version = 0.001;
+      else if (this.system?.actionOptions) version = null;
+      else version = MigrationRunnerBase.LATEST_SCHEMA_VERSION;
+
       this.updateSource({
-        'system.schema': { version: MigrationRunnerBase.LATEST_SCHEMA_VERSION }
+        'system.schema': { version }
       });
     }
   }

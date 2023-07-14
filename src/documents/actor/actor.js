@@ -408,10 +408,19 @@ export default class ActorA5e extends Actor {
   async _preCreate(data, options, user) {
     await super._preCreate(data, options, user);
 
+    const items = [...this.items];
     // Add schema version
     if (!this.system.schema.version) {
+      let version = null;
+      if (['number', 'string'].includes(typeof this.system.ac)) version = 0.004;
+      else if (items.some((i) => typeof i.system?.equipped === 'boolean')) version = 0.003;
+      else if (items.some((i) => typeof i.system?.recharge === 'string')) version = 0.002;
+      else if (items.some((i) => typeof i.system?.uses?.max === 'number')) version = 0.001;
+      else if (typeof this.system.attributes.movement?.walk?.unit !== 'string') version = null;
+      else version = MigrationRunnerBase.LATEST_SCHEMA_VERSION;
+
       this.updateSource({
-        'system.schema': { version: MigrationRunnerBase.LATEST_SCHEMA_VERSION }
+        'system.schema': { version }
       });
     }
 
