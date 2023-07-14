@@ -409,9 +409,11 @@ export default class ActorA5e extends Actor {
     await super._preCreate(data, options, user);
 
     // Add schema version
-    this.updateSource({
-      'system.schema': { version: MigrationRunnerBase.LATEST_SCHEMA_VERSION }
-    });
+    if (!this.system.schema.version) {
+      this.updateSource({
+        'system.schema': { version: MigrationRunnerBase.LATEST_SCHEMA_VERSION }
+      });
+    }
 
     // Player character configuration
     if (this.type === 'character') {

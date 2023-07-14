@@ -41,14 +41,15 @@ export default class ItemA5e extends Item {
 
     const { baseFormula, maxDex } = ac;
     let formula = baseFormula;
-    if (maxDex && maxDex > 0) formula = baseFormula
-      .replaceAll(/@dex\.mod|@abilities\.dex\.mod/gm, `min(@dex.mod, ${maxDex})`);
+    if (maxDex && maxDex > 0) {
+      formula = baseFormula
+        .replaceAll(/@dex\.mod|@abilities\.dex\.mod/gm, `min(@dex.mod, ${maxDex})`);
+    }
 
     if (itemData.broken) {
       if (itemData.objectType === 'armor') {
-        formula = `10 + max(floor((${formula}) / 2), 1)`
-      }
-      else formula = `max(floor((${formula}) / 2), 1)`;
+        formula = `10 + max(floor((${formula}) / 2), 1)`;
+      } else formula = `max(floor((${formula}) / 2), 1)`;
     }
 
     foundry.utils.setProperty(this, 'system.ac.formula', formula);
@@ -479,8 +480,8 @@ export default class ItemA5e extends Item {
     // Check if armor is already equipped
     if (newState === CONFIG.A5E.EQUIPPED_STATES.EQUIPPED && this.system.objectType === 'armor') {
       const { hasArmor, hasUnderArmor } = this.parent.items.reduce((acc, item) => {
-        if (item.system.equippedState !== CONFIG.A5E.EQUIPPED_STATES.EQUIPPED ||
-          item.system.objectType !== 'armor') return acc;
+        if (item.system.equippedState !== CONFIG.A5E.EQUIPPED_STATES.EQUIPPED
+          || item.system.objectType !== 'armor') return acc;
         const isUnderarmor = item.system.materialProperties.includes('underarmor');
         if (isUnderarmor) acc.hasUnderArmor = true;
         else acc.hasArmor = true;
@@ -489,7 +490,7 @@ export default class ItemA5e extends Item {
 
       const isUnderarmor = this.system.materialProperties.includes('underarmor');
       if (isUnderarmor && hasUnderArmor) newState = 0;
-      else if (!isUnderarmor & hasArmor) newState = 0;
+      else if (!isUnderarmor && hasArmor) newState = 0;
 
       // Warn user
       if (newState === 0) {
@@ -564,16 +565,16 @@ export default class ItemA5e extends Item {
     if (roll.total >= threshold) await this.update({ [updatePath]: Math.min(max, current + 1) });
   }
 
-
   /** @inheritdoc */
   async _preCreate(data, options, user) {
     await super._preCreate(data, options, user);
 
-
     // Add schema version
-    this.updateSource({
-      'system.schema': { version: MigrationRunnerBase.LATEST_SCHEMA_VERSION }
-    });
+    if (!this.system.schema.version) {
+      this.updateSource({
+        'system.schema': { version: MigrationRunnerBase.LATEST_SCHEMA_VERSION }
+      });
+    }
   }
 
   async _onCreate(data, options, user) {
