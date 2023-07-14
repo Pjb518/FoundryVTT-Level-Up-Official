@@ -112,6 +112,7 @@ A5E.abilityActivationTypes = {
   legendaryAction: 'A5E.ActionActivationLegendaryAction',
   minute: 'A5E.DurationMinute',
   none: 'A5E.ActionActivationNone',
+  objectInteraction: 'A5E.ActionActivationObjectInteraction',
   reaction: 'A5E.ActionActivationReaction',
   special: 'A5E.ActionActivationSpecial'
 };
@@ -128,6 +129,7 @@ A5E.abilityActivationTypesPlural = {
   legendaryAction: 'A5E.ActionActivationLegendaryActionPlural',
   minute: 'A5E.DurationMinutePlural',
   none: 'A5E.ActionActivationNone',
+  objectInteraction: 'A5E.ActionActivationObjectInteractionPlural',
   reaction: 'A5E.ActionActivationReaction',
   special: 'A5E.ActionActivationSpecial'
 };
@@ -220,13 +222,13 @@ A5E.armor = {
 
 A5E.ARMOR_MODES = {
   ADD: 1,
-  OVERRIDE: 2,
-}
+  OVERRIDE: 2
+};
 
 A5E.armorModes = {
   1: 'A5E.armorClass.modes.add',
   2: 'A5E.armorClass.modes.override'
-}
+};
 
 /**
  * The set of core armor properties in the system.
