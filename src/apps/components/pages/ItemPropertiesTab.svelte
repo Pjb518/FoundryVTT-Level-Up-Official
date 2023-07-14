@@ -22,7 +22,6 @@
         <ArmorClassConfiguration />
     {:else if $item.type === "maneuver"}
         <ManeuverConfiguration />
-        <ArmorClassConfiguration />
     {:else if $item.type === "object"}
         <ObjectConfiguration />
         <MaterialConfiguration />
