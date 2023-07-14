@@ -6,8 +6,11 @@
     import { localize } from "@typhonjs-fvtt/runtime/svelte/helper";
 
     import NavigationBar from "../components/navigation/NavigationBar.svelte";
-    import SettingsEffectsTab from "./SettingsEffectsTab.svelte";
+    import Settings5eTab from "./Settings5eTab.svelte";
+    import SettingsActorTab from "./SettingsActorTab.svelte";
+    import SettingsCanvasTab from "./SettingsCanvasTab.svelte";
     import SettingsChatCardTab from "./SettingsChatCardTab.svelte";
+    import SettingsEffectsTab from "./SettingsEffectsTab.svelte";
 
     export let elementRoot;
     export let { appId, settings, dialog } =
@@ -30,6 +33,16 @@
 
     const tabs = [
         {
+            name: "actor",
+            label: "A5E.settings.navigation.actor",
+            component: SettingsActorTab,
+        },
+        {
+            name: "canvas",
+            label: "A5E.settings.navigation.canvas",
+            component: SettingsCanvasTab,
+        },
+        {
             name: "chat",
             label: "A5E.settings.navigation.chat",
             component: SettingsChatCardTab,
@@ -38,6 +51,11 @@
             name: "effects",
             label: "A5E.settings.navigation.activeEffects",
             component: SettingsEffectsTab,
+        },
+        {
+            name: "5eSettings",
+            label: "A5E.settings.navigation.5eSettings",
+            component: Settings5eTab,
         },
     ];
 

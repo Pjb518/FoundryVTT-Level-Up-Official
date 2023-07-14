@@ -1,6 +1,8 @@
 // eslint-disable-next-line import/no-unresolved
 import { TJSGameSettings } from '@typhonjs-fvtt/svelte-standard/store';
 
+import MigrationRunner from '../migration/MigrationRunner';
+
 class A5eGameSettings extends TJSGameSettings {
   constructor() {
     super('a5e');
@@ -12,6 +14,123 @@ class A5eGameSettings extends TJSGameSettings {
     const namespace = 'a5e';
     const scope = { client: 'client', world: 'world' };
     const settings = [
+      // Actor Settings
+      {
+        namespace,
+        key: 'collapseActionList',
+        options: {
+          name: 'A5E.settings.hideActionListInLockedMode',
+          hint: 'A5E.settings.hints.hideActionListInLockedMode',
+          scope: scope.client,
+          config: true,
+          default: false,
+          type: Boolean
+        }
+      },
+      {
+        namespace,
+        key: 'currencyWeight',
+        options: {
+          name: 'A5E.settings.trackCurrencyWeight',
+          hint: 'A5E.settings.hints.trackCurrencyWeight',
+          scope: scope.world,
+          config: true,
+          default: true,
+          type: Boolean
+        }
+      },
+      {
+        namespace,
+        key: 'hideDeleteConfirmation',
+        options: {
+          name: 'A5E.settings.hideDeletionConfirmationDialog',
+          hint: 'A5E.settings.hints.hideDeletionConfirmationDialog',
+          scope: scope.client,
+          config: true,
+          type: Boolean,
+          default: false
+        }
+      },
+      {
+        namespace,
+        key: 'itemRightClickConfigure',
+        options: {
+          name: 'A5E.settings.itemRightClickConfigure',
+          hint: 'A5E.settings.hints.itemRightClickConfigure',
+          scope: scope.client,
+          config: true,
+          default: false,
+          type: Boolean
+        }
+      },
+      {
+        namespace,
+        key: 'randomizeNPCHitPoints',
+        options: {
+          name: 'A5E.settings.randomizeNPCHitPoints',
+          hint: 'A5E.settings.hints.randomizeNPCHitPoints',
+          scope: scope.world,
+          config: true,
+          default: false,
+          type: Boolean
+        }
+      },
+      {
+        namespace,
+        key: 'reverseAltBehavior',
+        options: {
+          name: 'A5E.settings.reverseAltBehavior',
+          hint: 'A5E.settings.hints.reverseAltBehavior',
+          scope: scope.client,
+          config: true,
+          default: false,
+          type: Boolean
+        }
+      },
+      {
+        namespace,
+        key: 'reverseInitiativeAltBehavior',
+        options: {
+          name: 'A5E.settings.reverseInitiativeAltBehavior',
+          hint: 'A5E.settings.hints.reverseInitiativeAltBehavior',
+          scope: scope.client,
+          config: true,
+          default: false,
+          type: Boolean
+        }
+      },
+      // Canvas Settings
+      {
+        namespace,
+        key: 'diagonalRule',
+        options: {
+          name: 'A5E.settings.diagonalMovementMeasurement',
+          hint: 'A5E.settings.hints.diagonalMovementMeasurement',
+          scope: scope.world,
+          config: true,
+          default: 'normal',
+          type: String,
+          choices: {
+            normal: 'A5E.settings.diagonalMovementMeasurementNormal',
+            euclidean: 'A5E.settings.diagonalMovementMeasurementEuclidean',
+            5105: 'A5E.settings.diagonalMovementMeasurementAlternating'
+          },
+          onChange: (rule) => { canvas.grid.diagonalRule = rule; }
+        }
+      },
+      {
+        namespace,
+        key: 'placeItemTemplateDefault',
+        options: {
+          name: 'A5E.settings.placeItemTemplateDefault',
+          hint: 'A5E.settings.hints.placeItemTemplateDefault',
+          scope: scope.world,
+          config: true,
+          default: false,
+          type: Boolean
+        }
+      },
+      // Effects
       {
         namespace,
         key: 'automatedConditions',
@@ -24,6 +143,7 @@ class A5eGameSettings extends TJSGameSettings {
           default: ['bloodied']
         }
       },
+      // Chat Card Settings
       {
         namespace,
         key: 'hideChatDescriptionsByDefault',
@@ -59,13 +179,46 @@ class A5eGameSettings extends TJSGameSettings {
           default: false,
           type: Boolean
         }
+      },
+      // 5E Specific Settings
+      {
+        namespace,
+        key: '5eStyleDeathSaves',
+        options: {
+          name: 'A5E.settings.5eStyleDeathSaves',
+          hint: 'A5E.settings.hints.5eStyleDeathSaves',
+          scope: scope.world,
+          config: true,
+          default: false,
+          type: Boolean
+        }
+      },
+      // Hidden system settings
+      {
+        namespace,
+        key: 'systemMigrationVersion',
+        options: {
+          name: 'A5E.settings.systemMigrationVersion',
+          scope: scope.world,
+          config: false,
+          type: String,
+          default: ''
+        }
+      },
+      {
+        namespace,
+        key: 'worldSchemaVersion',
+        options: {
+          name: 'A5E.settings.worldSchemaVersion',
+          scope: scope.world,
+          config: false,
+          default: MigrationRunner.LATEST_SCHEMA_VERSION,
+          type: Number
+        }
       }
     ];
 
     this.registerAll(settings, false);
-    this.refreshSettings = settings
-      .filter((s) => s.options.refreshRequired)
-      .map((s) => s.key);
   }
 }
 

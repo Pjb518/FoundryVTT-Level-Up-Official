@@ -1,9 +1,8 @@
 <script>
     import { getContext } from "svelte";
-    import { localize } from "@typhonjs-fvtt/runtime/svelte/helper";
 
-    import CheckboxGroup from "../components/CheckboxGroup.svelte";
     import FormSection from "../components/FormSection.svelte";
+    import Checkbox from "../components/Checkbox.svelte";
 
     export let reload;
 
@@ -11,30 +10,8 @@
     const settings = getContext("settings");
     const updates = getContext("updates");
 
-    // Conditions Automation
-    const conditions = [
-        "blinded",
-        "bloodied",
-        "encumbered",
-        // 'fatigue',
-        // 'frightened',
-        "grappled",
-        "invisible",
-        "paralyzed",
-        "petrified",
-        "poisoned",
-        "prone",
-        "rattled",
-        "restrained",
-        "slowed",
-        // 'strife',
-        "stunned",
-        "unconscious",
-    ].map((c) => [c, localize(`A5E.Condition${c.capitalize()}`)]);
-
-    const automatedConditions = settings.getStore("automatedConditions");
-    let selectedConditions =
-        updates.get("automatedConditions") ?? $automatedConditions;
+    let diagonalRule = settings.getStore("diagonalRule");
+    let placeTemplate = settings.getStore("placeItemTemplateDefault");
 </script>
 
 <section
@@ -42,19 +19,40 @@
 >
     <section class="setting-group">
         <header class="setting-header">
-            <h3 class="setting-heading">
-                {localize("A5E.settings.automateConditions")}
-            </h3>
+            <h3 class="setting-heading">Grid Settings</h3>
         </header>
-        <!-- Condition Automation -->
-        <FormSection>
-            <CheckboxGroup
-                options={conditions}
-                selected={selectedConditions}
+
+        <FormSection
+            hint="A5E.settings.hints.diagonalMovementMeasurement"
+            --gap="0.25rem"
+        >
+            <Checkbox
+                label="A5E.settings.diagonalMovementMeasurement"
+                checked={updates.get("diagonalRule") ?? $diagonalRule ?? false}
                 on:updateSelection={({ detail }) => {
-                    updates.set("automatedConditions", detail);
-                    selectedConditions = detail;
+                    updates.set("diagonalRule", detail);
                     reload = true;
+                }}
+            />
+        </FormSection>
+    </section>
+
+    <section class="setting-group">
+        <header class="setting-header">
+            <h3 class="setting-heading">Template Settings</h3>
+        </header>
+
+        <FormSection
+            hint="A5E.settings.hints.placeItemTemplateDefault"
+            --gap="0.25rem"
+        >
+            <Checkbox
+                label="A5E.settings.placeItemTemplateDefault"
+                checked={updates.get("placeItemTemplateDefault") ??
+                    $placeTemplate ??
+                    false}
+                on:updateSelection={({ detail }) => {
+                    updates.set("placeItemTemplateDefault", detail);
                 }}
             />
         </FormSection>

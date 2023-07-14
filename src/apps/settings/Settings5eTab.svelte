@@ -2,39 +2,16 @@
     import { getContext } from "svelte";
     import { localize } from "@typhonjs-fvtt/runtime/svelte/helper";
 
-    import CheckboxGroup from "../components/CheckboxGroup.svelte";
     import FormSection from "../components/FormSection.svelte";
+    import Checkbox from "../components/Checkbox.svelte";
 
-    export let reload;
+    // export let reload;
 
     const appId = getContext("appId");
     const settings = getContext("settings");
     const updates = getContext("updates");
 
-    // Conditions Automation
-    const conditions = [
-        "blinded",
-        "bloodied",
-        "encumbered",
-        // 'fatigue',
-        // 'frightened',
-        "grappled",
-        "invisible",
-        "paralyzed",
-        "petrified",
-        "poisoned",
-        "prone",
-        "rattled",
-        "restrained",
-        "slowed",
-        // 'strife',
-        "stunned",
-        "unconscious",
-    ].map((c) => [c, localize(`A5E.Condition${c.capitalize()}`)]);
-
-    const automatedConditions = settings.getStore("automatedConditions");
-    let selectedConditions =
-        updates.get("automatedConditions") ?? $automatedConditions;
+    let deathSaves = settings.getStore("5eStyleDeathSaves");
 </script>
 
 <section
@@ -43,18 +20,21 @@
     <section class="setting-group">
         <header class="setting-header">
             <h3 class="setting-heading">
-                {localize("A5E.settings.automateConditions")}
+                {localize("A5E.settings.sectionHeader.actorBehavior")}
             </h3>
         </header>
-        <!-- Condition Automation -->
-        <FormSection>
-            <CheckboxGroup
-                options={conditions}
-                selected={selectedConditions}
+
+        <FormSection
+            hint="A5E.settings.hints.5eStyleDeathSaves"
+            --gap="0.25rem"
+        >
+            <Checkbox
+                label="A5E.settings.5eStyleDeathSaves"
+                checked={updates.get("5eStyleDeathSaves") ??
+                    $deathSaves ??
+                    false}
                 on:updateSelection={({ detail }) => {
-                    updates.set("automatedConditions", detail);
-                    selectedConditions = detail;
-                    reload = true;
+                    updates.set("5eStyleDeathSaves", detail);
                 }}
             />
         </FormSection>

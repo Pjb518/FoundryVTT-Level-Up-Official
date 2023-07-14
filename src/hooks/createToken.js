@@ -1,7 +1,3 @@
-export default async function createToken(token, options, userId) {
-  rollTokenHitDie(token, userId);
-}
-
 async function rollTokenHitDie(token, userID) {
   const { actor } = token;
   const userPlacingToken = game.users.get(userID);
@@ -32,4 +28,8 @@ async function rollTokenHitDie(token, userID) {
       value: hpRoll.total
     }
   });
+}
+
+export default async function createToken(token, options, userId) {
+  rollTokenHitDie(token, userId);
 }
