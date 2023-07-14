@@ -1,4 +1,4 @@
-export function sortAscending(document, reducer, documentName) {
+export async function sortAscending(document, reducer, documentName) {
   const entities = [...reducer];
   entities.sort((a, b) => a.name.toLowerCase().localeCompare(b.name.toLowerCase()));
 
@@ -6,10 +6,10 @@ export function sortAscending(document, reducer, documentName) {
     ? { _id: entity.id, flags: { a5e: { sort: idx } } }
     : { _id: entity.id, sort: idx }));
 
-  document.updateEmbeddedDocuments(documentName, updateData);
+  await document.updateEmbeddedDocuments(documentName, updateData);
 }
 
-export function sortDescending(document, reducer, documentName) {
+export async function sortDescending(document, reducer, documentName) {
   const entities = [...reducer];
   entities
     .sort((a, b) => a.name.toLowerCase().localeCompare(b.name.toLowerCase()))
@@ -19,5 +19,5 @@ export function sortDescending(document, reducer, documentName) {
     ? { _id: entity.id, flags: { a5e: { sort: idx } } }
     : { _id: entity.id, sort: idx }));
 
-  document.updateEmbeddedDocuments(documentName, updateData);
+  await document.updateEmbeddedDocuments(documentName, updateData);
 }

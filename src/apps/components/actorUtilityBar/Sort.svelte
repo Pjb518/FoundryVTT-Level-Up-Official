@@ -26,14 +26,14 @@
         2: sortAscending,
     };
 
-    function onSortReducer() {
-        sortMappings[sortMode]($document, $reducer, documentName);
+    async function onSortReducer() {
+        await sortMappings[sortMode]($document, $reducer, documentName);
 
         // TODO: Change when custom sort is implemented
         let newMode = (sortMode + 1) % 3;
         newMode = newMode === 0 ? 1 : newMode;
 
-        $document.setFlag("a5e", "sortMode", newMode);
+        await $document.setFlag("a5e", "sortMode", newMode);
     }
 
     $: sortMode = $document.getFlag("a5e", "sortMode") || 0;
