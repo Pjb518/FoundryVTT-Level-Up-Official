@@ -1,3 +1,5 @@
+import getDeterministicBonus from '../dice/getDeterministicBonus';
+
 /**
   * Returns the AC components of an actor
  * @param {*} actor
@@ -6,6 +8,7 @@
 export default function getACComponents(actor) {
   const baseChanges = actor.system.attributes.ac.changes ?? {};
   if (!baseChanges?.override && !baseChanges?.bonuses?.length) return '';
+  const overrideModes = [CONFIG.A5E.ARMOR_MODES.OVERRIDE, CONST.ACTIVE_EFFECT_MODES.OVERRIDE];
 
   // Get ac base effects
   const effectChanges = actor.effects.reduce((acc, effect) => {
@@ -16,7 +19,7 @@ export default function getACComponents(actor) {
         changesAcc.push({
           name: effect.name,
           mode: change.mode,
-          value: change.value,
+          value: getDeterministicBonus(change.value, actor.getRollData()) ?? 0
         });
         return changesAcc;
       }, []);
@@ -25,14 +28,15 @@ export default function getACComponents(actor) {
   }, []);
 
   let changes;
-  if (effectChanges.find(({ mode }) => mode === 5)) changes = effectChanges;
-  else changes = [baseChanges.override].concat(baseChanges.bonuses).concat(effectChanges);
+  if (effectChanges.find(({ mode }) => mode === 5)) {
+    changes = effectChanges.sort((a, b) => b.mode - a.mode);
+  } else changes = [baseChanges.override].concat(baseChanges.bonuses).concat(effectChanges);
 
   const components = changes
     .sort((a, b) => b.mode - a.mode)
     .map(({ mode, name, value }) => {
       // eslint-disable-next-line no-nested-ternary
-      const sign = mode === CONFIG.A5E.ARMOR_MODES.OVERRIDE
+      const sign = overrideModes.includes(mode)
         ? ''
         : value >= 0
           ? '+'
