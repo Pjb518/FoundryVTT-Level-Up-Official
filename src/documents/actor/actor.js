@@ -420,7 +420,7 @@ export default class ActorA5e extends Actor {
       else version = MigrationRunnerBase.LATEST_SCHEMA_VERSION;
 
       this.updateSource({
-        'system.schema': { version }
+        'system.schema.version': version
       });
     }
 

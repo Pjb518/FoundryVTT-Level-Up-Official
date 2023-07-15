@@ -579,7 +579,7 @@ export default class ItemA5e extends Item {
       else version = MigrationRunnerBase.LATEST_SCHEMA_VERSION;
 
       this.updateSource({
-        'system.schema': { version }
+        'system.schema.version': version
       });
     }
   }
