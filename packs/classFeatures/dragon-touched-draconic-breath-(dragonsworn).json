@@ -1,0 +1,154 @@
+{
+  "folder": "JYxKvmwGSwZTxnsA",
+  "name": "Dragon Touched - Draconic Breath (Dragonsworn)",
+  "type": "feature",
+  "img": "icons/magic/fire/beam-jet-stream-blue.webp",
+  "system": {
+    "ac": {
+      "baseFormula": "",
+      "formula": "",
+      "maxDex": 0,
+      "minStr": 0,
+      "mode": 1,
+      "requiresNoShield": false,
+      "requiresUnarmored": false
+    },
+    "actions": {
+      "FbbtUVskDERD3r5y": {
+        "name": " Draconic Breath - Cone",
+        "activation": {
+          "type": "action",
+          "cost": 1
+        },
+        "consumers": {},
+        "rolls": {
+          "dKNzoSOZrJN88cwr": {
+            "type": "damage",
+            "default": false,
+            "formula": "2d6",
+            "label": "Fire",
+            "damageType": "fire"
+          },
+          "YdyFq0aUBlLxEfNT": {
+            "type": "damage",
+            "default": false,
+            "formula": "2d6",
+            "label": "Cold",
+            "damageType": "cold"
+          },
+          "sdX3544jbfxyBeVM": {
+            "type": "damage",
+            "default": false,
+            "formula": "2d6",
+            "label": "Lightning",
+            "damageType": "lightning"
+          },
+          "Hni1HTZLZBkWBzMB": {
+            "type": "damage",
+            "default": false,
+            "formula": "2d6",
+            "label": "Acid",
+            "damageType": "acid"
+          },
+          "OCJyg3taxcNf4tsB": {
+            "type": "damage",
+            "default": false,
+            "formula": "2d6",
+            "label": "Poison",
+            "damageType": "poison"
+          }
+        },
+        "prompts": {
+          "gFMeFaEJb6bTVCd0": {
+            "type": "savingThrow",
+            "default": false,
+            "ability": "dex",
+            "saveDC": {
+              "type": "spellcasting"
+            },
+            "label": "Dexterity - Fire, Lightning, or Acid",
+            "onSave": "half damage"
+          },
+          "K1fOesx7kDtY6Rox": {
+            "type": "savingThrow",
+            "default": false,
+            "ability": "con",
+            "saveDC": {
+              "type": "spellcasting"
+            },
+            "label": "Constitution - Cold or Poison",
+            "onSave": "half damage"
+          }
+        },
+        "uses": {
+          "value": 0,
+          "max": "",
+          "per": "shortRest",
+          "recharge": {
+            "formula": "1d6",
+            "threshold": 6
+          }
+        },
+        "duration": {
+          "unit": "instantaneous"
+        },
+        "area": {
+          "shape": "cone",
+          "quantity": 1,
+          "length": 15,
+          "placeTemplate": true
+        }
+      },
+      "I7XIGMN610oOlKy7": {
+        "name": " Draconic Breath - Line",
+        "activation": {},
+        "consumers": {},
+        "rolls": {},
+        "prompts": {},
+        "uses": {
+          "value": 0,
+          "max": "",
+          "per": "",
+          "recharge": {
+            "formula": "1d6",
+            "threshold": 6
+          }
+        }
+      }
+    },
+    "description": "<p class=\"MsoNormal\" style=\"margin-bottom: .0001pt;\">When you select this archetype at 1st level, you gain a boon of draconic power.<span style=\"mso-spacerun: yes;\">&nbsp; </span>Choose a damage type as your draconic damage type: fire, cold, lightning, acid, or poison.<span style=\"mso-spacerun: yes;\">&nbsp; </span>Once chosen this cannot be changed.<span style=\"mso-spacerun: yes;\">&nbsp; </span></p>\n<p class=\"MsoNormal\" style=\"margin-bottom: .0001pt;\">Select one of the following:</p>\n<p class=\"MsoNormal\" style=\"margin-bottom: .0001pt;\"><strong><s>Dragon Curse</s></strong></p>\n<p class=\"MsoNormal\" style=\"margin-bottom: .0001pt;\"><strong>Draconic Breath</strong></p>\n<p class=\"MsoNormal\" style=\"margin-bottom: .0001pt;\">You may use an action to breath out a 15 foot cone or 5 foot wide 30 long foot line.<span style=\"mso-spacerun: yes;\">&nbsp; </span>You choose the shape of this breath when you gain this ability and cannot change it. Creatures in the area must make a Dexterity saving throw against your warlock spell save DC or take 2d6 damage of your draconic damage type on a failure or half damage on a success. If your draconic damage type is cold or poison, they must instead make a Constitution saving throw.<span style=\"mso-spacerun: yes;\">&nbsp; </span></p>\n<p class=\"MsoNormal\" style=\"margin-bottom: .0001pt;\">This damage increases by 1d6 at 10th level, and again at 15th and 20th level.<span style=\"mso-spacerun: yes;\">&nbsp; </span></p>\n<p class=\"MsoNormal\" style=\"margin-bottom: .0001pt;\">At 14th level the area increases to a 30 foot cone or a 5 foot wide, 60 foot long line.<span style=\"mso-spacerun: yes;\">&nbsp; </span></p>\n<p class=\"MsoNormal\" style=\"margin-bottom: .0001pt;\">You can use this attack a number of times equal to your proficiency bonus and regain all expended uses when you finish a short or long rest.</p>",
+    "favorite": false,
+    "secretDescription": "",
+    "source": {
+      "name": "Mysterious and Marvelous Miscellanea",
+      "link": "https://bit.ly/42ysoNZ",
+      "publisher": "rollThemBones"
+    },
+    "uses": {
+      "value": null,
+      "max": "",
+      "per": null,
+      "recharge": {
+        "formula": "1d6",
+        "threshold": "6"
+      }
+    },
+    "schema": {
+      "version": 0.005,
+      "lastMigration": {
+        "version": {
+          "schema": 0.004,
+          "foundry": "11.305",
+          "system": "0.13.1"
+        }
+      }
+    },
+    "concentration": false,
+    "featureType": "class",
+    "prerequisite": "Warlock Level 1; Dragonsworn Archetype",
+    "equippedState": 0
+  },
+  "effects": [],
+  "flags": {},
+  "_id": "6vhz2tqhoxvspbog"
+}
