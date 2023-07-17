@@ -1,6 +1,6 @@
 {
 	"folder": null,
-	"name": "Scourge of Corpse Flies",
+	"name": "Lance Crab",
 	"type": "npc",
 	"img": "icons/svg/mystery-man.svg",
 	"system": {
@@ -18,7 +18,7 @@
 				}
 			},
 			"dex": {
-				"value": 18,
+				"value": 14,
 				"check": {
 					"expertiseDice": 0,
 					"bonus": ""
@@ -30,7 +30,7 @@
 				}
 			},
 			"con": {
-				"value": 16,
+				"value": 10,
 				"check": {
 					"expertiseDice": 0,
 					"bonus": ""
@@ -43,7 +43,7 @@
 				}
 			},
 			"int": {
-				"value": 10,
+				"value": 1,
 				"check": {
 					"expertiseDice": 0,
 					"bonus": ""
@@ -67,7 +67,7 @@
 				}
 			},
 			"cha": {
-				"value": 8,
+				"value": 4,
 				"check": {
 					"expertiseDice": 0,
 					"bonus": ""
@@ -303,7 +303,7 @@
 			"ste": {
 				"ability": "dex",
 				"value": 0,
-				"proficient": false,
+				"proficient": true,
 				"specialties": [],
 				"expertiseDice": 0,
 				"minRoll": 1,
@@ -379,15 +379,15 @@
 				"failure": 0
 			},
 			"hp": {
-				"value": 105,
-				"baseMax": 105,
-				"temp": 0,
+				"value": 32,
+				"baseMax": 32,
+				"temp": "",
 				"bonus": 0
 			},
 			"hitDice": {
 				"d6": {
-					"current": 5,
-					"total": 5
+					"current": 0,
+					"total": 0
 				},
 				"d8": {
 					"current": 0,
@@ -398,8 +398,8 @@
 					"total": 0
 				},
 				"d12": {
-					"current": 0,
-					"total": 0
+					"current": 5,
+					"total": 5
 				},
 				"d4": {
 					"current": 0,
@@ -420,15 +420,15 @@
 					"unit": "feet"
 				},
 				"climb": {
-					"distance": 30,
+					"distance": 0,
 					"unit": "feet"
 				},
 				"fly": {
-					"distance": 30,
+					"distance": 0,
 					"unit": "feet"
 				},
 				"swim": {
-					"distance": 0,
+					"distance": 30,
 					"unit": "feet"
 				},
 				"walk": {
@@ -441,12 +441,12 @@
 			},
 			"senses": {
 				"blindsight": {
-					"distance": 0,
+					"distance": 30,
 					"unit": "feet",
 					"otherwiseBlind": false
 				},
 				"darkvision": {
-					"distance": 60,
+					"distance": 0,
 					"unit": "feet"
 				},
 				"tremorsense": {
@@ -488,19 +488,16 @@
 		},
 		"details": {
 			"bio": "",
-			"creatureTypes": [
-				"monstrosity"
-			],
+			"creatureTypes": [],
 			"isSwarm": false,
-			"cr": 6,
+			"cr": 1,
 			"elite": false,
-			"privateNotes": ""
+			"privateNotes": "",
+			"notes": "<h3>Description</h3>\n<p>Lance crabs are a particularly dangerous denizen of the western shore, moving in groups as large as ten individuals. In addition to a natural aggressiveness that drives them attack anything they can eat, these crustaceans have a series of spines growing forward from the rear of their shells that can be launched at their prey.</p>"
 		},
 		"proficiencies": {
 			"armor": [],
-			"languages": [
-				"telepathy 60 ft."
-			],
+			"languages": [],
 			"tools": [],
 			"weapons": []
 		},
@@ -557,28 +554,15 @@
 		},
 		"traits": {
 			"size": "med",
-			"conditionImmunities": [
-				"charmed",
-				"frightened",
-				"grappled",
-				"paralyzed",
-				"petrified",
-				"poisoned",
-				"prone",
-				"restrained",
-				"stunned",
-				"unconscious"
-			],
+			"conditionImmunities": [],
 			"damageImmunities": [],
-			"damageResistances": [
-				"poison"
-			],
+			"damageResistances": [],
 			"damageVulnerabilities": []
 		}
 	},
 	"prototypeToken": {
-		"name": "Scourge of Corpse Flies",
-		"displayName": 0,
+		"name": "Lance Crab",
+		"displayName": 20,
 		"actorLink": false,
 		"appendNumber": false,
 		"prependAdjective": false,
@@ -596,10 +580,10 @@
 		"lockRotation": false,
 		"rotation": 0,
 		"alpha": 1,
-		"disposition": -1,
-		"displayBars": 0,
+		"disposition": 0,
+		"displayBars": 20,
 		"bar1": {
-			"attribute": "attributes.hp"
+			"attribute": "attributes.hp.value"
 		},
 		"bar2": {
 			"attribute": null
@@ -631,14 +615,20 @@
 			"enabled": true,
 			"range": 60,
 			"angle": 360,
-			"visionMode": "darkvision",
-			"attenuation": 0,
+			"visionMode": "basic",
+			"attenuation": 0.1,
 			"brightness": 0,
-			"saturation": -1,
+			"saturation": 0,
 			"contrast": 0,
 			"color": null
 		},
-		"detectionModes": [],
+		"detectionModes": [
+			{
+				"id": "basicSight",
+				"range": 60,
+				"enabled": true
+			}
+		],
 		"flags": {},
 		"randomImg": false
 	},
@@ -725,20 +715,11 @@
 				"prerequisite": "",
 				"tradition": ""
 			},
-			"_id": "joS6NyiE46810DKQ",
+			"_id": "aJJaAASa2SeGuCe5",
 			"folder": null,
 			"sort": 0,
 			"ownership": {
-				"default": 0,
-				"BPdbTKQg018lvS6q": 3
-			},
-			"_stats": {
-				"systemId": "a5e",
-				"systemVersion": "0.13.3",
-				"coreVersion": "11.305",
-				"createdTime": 1689536976552,
-				"modifiedTime": 1689536976552,
-				"lastModifiedBy": "BPdbTKQg018lvS6q"
+				"default": 0
 			}
 		},
 		{
@@ -823,20 +804,11 @@
 				"prerequisite": "",
 				"tradition": ""
 			},
-			"_id": "a7ZkVHxkfqiRZ4cv",
+			"_id": "yTIR6vQH6hcBUqIT",
 			"folder": null,
 			"sort": 0,
 			"ownership": {
-				"default": 0,
-				"BPdbTKQg018lvS6q": 3
-			},
-			"_stats": {
-				"systemId": "a5e",
-				"systemVersion": "0.13.3",
-				"coreVersion": "11.305",
-				"createdTime": 1689536976552,
-				"modifiedTime": 1689536976552,
-				"lastModifiedBy": "BPdbTKQg018lvS6q"
+				"default": 0
 			}
 		},
 		{
@@ -930,20 +902,11 @@
 				"prerequisite": "",
 				"tradition": ""
 			},
-			"_id": "GVifYdv24ImiDx0e",
+			"_id": "eoXJzre12b1UEhVf",
 			"folder": null,
 			"sort": 0,
 			"ownership": {
-				"default": 0,
-				"BPdbTKQg018lvS6q": 3
-			},
-			"_stats": {
-				"systemId": "a5e",
-				"systemVersion": "0.13.3",
-				"coreVersion": "11.305",
-				"createdTime": 1689536976552,
-				"modifiedTime": 1689536976552,
-				"lastModifiedBy": "BPdbTKQg018lvS6q"
+				"default": 0
 			}
 		},
 		{
@@ -1028,20 +991,11 @@
 				"prerequisite": "",
 				"tradition": ""
 			},
-			"_id": "rjM99pDctSmLnH1v",
+			"_id": "6ZRpy3jjkegzRr71",
 			"folder": null,
 			"sort": 0,
 			"ownership": {
-				"default": 0,
-				"BPdbTKQg018lvS6q": 3
-			},
-			"_stats": {
-				"systemId": "a5e",
-				"systemVersion": "0.13.3",
-				"coreVersion": "11.305",
-				"createdTime": 1689536976552,
-				"modifiedTime": 1689536976552,
-				"lastModifiedBy": "BPdbTKQg018lvS6q"
+				"default": 0
 			}
 		},
 		{
@@ -1126,20 +1080,11 @@
 				"prerequisite": "",
 				"tradition": ""
 			},
-			"_id": "uBDHnxiK2yeCLfi6",
+			"_id": "dATmZRJq4t224LuW",
 			"folder": null,
 			"sort": 0,
 			"ownership": {
-				"default": 0,
-				"BPdbTKQg018lvS6q": 3
-			},
-			"_stats": {
-				"systemId": "a5e",
-				"systemVersion": "0.13.3",
-				"coreVersion": "11.305",
-				"createdTime": 1689536976552,
-				"modifiedTime": 1689536976552,
-				"lastModifiedBy": "BPdbTKQg018lvS6q"
+				"default": 0
 			}
 		},
 		{
@@ -1233,88 +1178,15 @@
 				"prerequisite": "",
 				"tradition": ""
 			},
-			"_id": "KFRl2zKxEdKdSh5m",
+			"_id": "nxHG65MISvr6mehb",
 			"folder": null,
 			"sort": 0,
 			"ownership": {
-				"default": 0,
-				"BPdbTKQg018lvS6q": 3
-			},
-			"_stats": {
-				"systemId": "a5e",
-				"systemVersion": "0.13.3",
-				"coreVersion": "11.305",
-				"createdTime": 1689536976552,
-				"modifiedTime": 1689536976552,
-				"lastModifiedBy": "BPdbTKQg018lvS6q"
+				"default": 0
 			}
 		},
 		{
-			"_id": "6P9ANsgGr5Q0awrj",
-			"name": "Swarm",
-			"type": "feature",
-			"img": "icons/svg/item-bag.svg",
-			"effects": [],
-			"folder": null,
-			"sort": 0,
-			"flags": {
-				"core": {
-					"sourceId": "Item.O4rfmFbmQha1aafV"
-				}
-			},
-			"system": {
-				"ac": {
-					"baseFormula": "",
-					"formula": "",
-					"maxDex": 0,
-					"minStr": 0,
-					"mode": 1,
-					"requiresNoShield": false,
-					"requiresUnarmored": false
-				},
-				"actions": {},
-				"description": "<p>The swarm can occupy another creature’s space and move through any opening large enough for a Tiny creature. It can’t gain hit points or temporary hit points.</p>",
-				"favorite": false,
-				"secretDescription": "",
-				"source": "",
-				"uses": {
-					"value": null,
-					"max": "",
-					"per": null,
-					"recharge": {
-						"formula": "",
-						"threshold": ""
-					}
-				},
-				"schema": {
-					"version": 0.004,
-					"lastMigration": {
-						"version": {
-							"schema": 0.003,
-							"foundry": "11.302",
-							"system": "0.12.7"
-						}
-					}
-				},
-				"concentration": false,
-				"featureType": "",
-				"prerequisite": ""
-			},
-			"ownership": {
-				"default": 0,
-				"BPdbTKQg018lvS6q": 3
-			},
-			"_stats": {
-				"systemId": "a5e",
-				"systemVersion": "0.13.3",
-				"coreVersion": "11.305",
-				"createdTime": 1689535612851,
-				"modifiedTime": 1689537247913,
-				"lastModifiedBy": "BPdbTKQg018lvS6q"
-			}
-		},
-		{
-			"_id": "9HIUMor2Pd9X8nxV",
+			"_id": "xsZYyaXnl4kHLATC",
 			"name": "Spider Climb",
 			"type": "feature",
 			"img": "icons/creatures/invertebrates/spider-beetle-runed-green.webp",
@@ -1337,7 +1209,7 @@
 					"requiresUnarmored": false
 				},
 				"actions": {},
-				"description": "<p>The scourge can climb even on difficult surfaces, including upside down on ceilings, without needing to make an ability check.</p>",
+				"description": "<p>The corpse fly can climb even on difficult surfaces, including upside down on ceilings, without needing to make an ability check.</p>",
 				"favorite": false,
 				"secretDescription": "",
 				"source": "",
@@ -1365,16 +1237,7 @@
 				"prerequisite": ""
 			},
 			"ownership": {
-				"default": 0,
-				"BPdbTKQg018lvS6q": 3
-			},
-			"_stats": {
-				"systemId": "a5e",
-				"systemVersion": "0.13.3",
-				"coreVersion": "11.305",
-				"createdTime": 1689536190327,
-				"modifiedTime": 1689537287499,
-				"lastModifiedBy": "BPdbTKQg018lvS6q"
+				"default": 0
 			}
 		},
 		{
@@ -1409,29 +1272,15 @@
 							"j4EqLSRx0lPxfyRl": {
 								"type": "damage",
 								"default": true,
-								"formula": "6d6+4",
-								"damageType": "piercing",
-								"label": "if not bloodied"
+								"formula": "2d4+2",
+								"damageType": "piercing"
 							},
-							"Kpx6mC1Na2F2MhDw": {
+							"ETjZNxyHZNPjIzWP": {
 								"type": "damage",
 								"default": true,
-								"label": "if bloodied",
-								"formula": "3d6+4"
-							},
-							"6uzmtaqVqNbAQMOc": {
-								"type": "damage",
-								"default": true,
-								"label": "on succesful Constitution saving throw if not bloodied",
-								"formula": "4d6",
-								"damageType": "poison"
-							},
-							"96bblLfrU10wOTHF": {
-								"type": "damage",
-								"default": true,
-								"label": "on succesful Constitution saving throw if bloodied",
+								"formula": "1d4",
 								"damageType": "poison",
-								"formula": "2d6"
+								"label": "on failed Constitution saving throw"
 							}
 						},
 						"prompts": {
@@ -1441,9 +1290,9 @@
 								"ability": "con",
 								"saveDC": {
 									"type": "custom",
-									"bonus": "14"
+									"bonus": "12"
 								},
-								"onSave": "poison damage",
+								"onSave": "[[1d4]] poison damage",
 								"label": "blood maggot infestation if fail"
 							}
 						},
@@ -1466,8 +1315,7 @@
 						},
 						"ranges": {
 							"mpA97zW7MoQ8h12q": {
-								"range": 0,
-								"unit": "feet"
+								"range": "fiveFeet"
 							}
 						},
 						"target": {
@@ -1476,7 +1324,7 @@
 						}
 					}
 				},
-				"description": "<p><em>Melee Weapon Attack:</em> +6 to hit, reach 0 ft., one target. <em>Hit:</em> 25 (6d6 + 4) piercing damage or 14 (3d6+4) if the swarm is bloodird. The target makes a DC 14 Constitution saving throw, contracting a blood maggot infestation on a failed save. On a successful save, it instead takes 14 (4d6) poison damage or 7 (2d6) if the swarm is bloodied. If the target is reduced to 0 hit points from this attack it dies and rises 1 minute later as a gorger zombie.</p>",
+				"description": "<p><em>Melee Weapon Attack:</em> +4 to hit, reach 5 ft., one target. <em>Hit:</em> 7 (2d4 + 2) piercing damage, and the target makes a DC 12 Constitution saving throw, contracting a blood maggot infestation on a failed save. On a successful save, it instead takes 2 (1d4) poison damage. If the target is reduced to 0 hit points from this attack it dies and rises 1 minute later as a gorger zombie.</p>",
 				"favorite": true,
 				"secretDescription": "",
 				"source": {
@@ -1501,27 +1349,18 @@
 				"featureType": "naturalWeapon",
 				"prerequisite": ""
 			},
-			"_id": "hDLLYuCddywU9suj",
+			"_id": "S2GLOlzjidATrwjY",
 			"img": "icons/creatures/abilities/mouth-teeth-rows-white.webp",
 			"effects": [],
 			"folder": null,
 			"sort": 0,
 			"ownership": {
-				"default": 0,
-				"BPdbTKQg018lvS6q": 3
+				"default": 0
 			},
-			"flags": {},
-			"_stats": {
-				"systemId": "a5e",
-				"systemVersion": "0.13.3",
-				"coreVersion": "11.305",
-				"createdTime": 1689536258028,
-				"modifiedTime": 1689537687499,
-				"lastModifiedBy": "BPdbTKQg018lvS6q"
-			}
+			"flags": {}
 		},
 		{
-			"name": "Corrosive Bite Spit (Recharge 5-)",
+			"name": "Corrosive Bite Spit",
 			"type": "feature",
 			"system": {
 				"ac": {
@@ -1552,7 +1391,7 @@
 							"Gwpj5TaSDhCn6oPG": {
 								"type": "damage",
 								"default": true,
-								"formula": "8d6",
+								"formula": "2d6+2",
 								"damageType": "acid"
 							}
 						},
@@ -1581,7 +1420,7 @@
 						}
 					}
 				},
-				"description": "<p><em>Ranged Weapon Attack:</em> +7 to hit, range 15/30 ft., one target. <em>Hit:</em> 28 (8d6) acid damage.</p>",
+				"description": "<p><em>Ranged Weapon Attack:</em> +4 to hit, range 15/30 ft., one target. <em>Hit:</em> 9 (2d6 + 2) acid damage.</p>",
 				"favorite": true,
 				"secretDescription": "",
 				"source": {
@@ -1606,24 +1445,15 @@
 				"featureType": "naturalWeapon",
 				"prerequisite": ""
 			},
-			"_id": "sywAdRzXnzc16TDM",
+			"_id": "tSGy7lT8Je51lyE8",
 			"img": "icons/magic/acid/projectile-smoke-glowing.webp",
 			"effects": [],
 			"folder": null,
 			"sort": 0,
 			"ownership": {
-				"default": 0,
-				"BPdbTKQg018lvS6q": 3
+				"default": 0
 			},
-			"flags": {},
-			"_stats": {
-				"systemId": "a5e",
-				"systemVersion": "0.13.3",
-				"coreVersion": "11.305",
-				"createdTime": 1689536607873,
-				"modifiedTime": 1689537771998,
-				"lastModifiedBy": "BPdbTKQg018lvS6q"
-			}
+			"flags": {}
 		}
 	],
 	"effects": [],
@@ -1631,21 +1461,7 @@
 		"a5e": {
 			"sheetIsLocked": true,
 			"currentTab": "core"
-		},
-		"exportSource": {
-			"world": "motif",
-			"system": "a5e",
-			"coreVersion": "11.305",
-			"systemVersion": "0.13.3"
 		}
 	},
-	"_stats": {
-		"systemId": "a5e",
-		"systemVersion": "0.13.3",
-		"coreVersion": "11.305",
-		"createdTime": 1689536976164,
-		"modifiedTime": 1689552051493,
-		"lastModifiedBy": "YAxwsFl3SDgjuxrk"
-	},
-	"_id": "7wwylmzi5r842gjv"
+	"_id": "6yr822b1xbge2qu2"
 }

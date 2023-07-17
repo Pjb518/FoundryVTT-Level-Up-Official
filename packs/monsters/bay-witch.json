@@ -1,12 +1,12 @@
 {
 	"folder": null,
-	"name": "Scourge of Corpse Flies",
+	"name": "Bay Witch",
 	"type": "npc",
 	"img": "icons/svg/mystery-man.svg",
 	"system": {
 		"abilities": {
 			"str": {
-				"value": 12,
+				"value": 16,
 				"check": {
 					"expertiseDice": 0,
 					"bonus": ""
@@ -18,7 +18,7 @@
 				}
 			},
 			"dex": {
-				"value": 18,
+				"value": 12,
 				"check": {
 					"expertiseDice": 0,
 					"bonus": ""
@@ -36,14 +36,14 @@
 					"bonus": ""
 				},
 				"save": {
-					"proficient": false,
+					"proficient": true,
 					"expertiseDice": 0,
 					"bonus": "",
 					"concentrationBonus": ""
 				}
 			},
 			"int": {
-				"value": 10,
+				"value": 12,
 				"check": {
 					"expertiseDice": 0,
 					"bonus": ""
@@ -55,19 +55,19 @@
 				}
 			},
 			"wis": {
-				"value": 8,
+				"value": 12,
 				"check": {
 					"expertiseDice": 0,
 					"bonus": ""
 				},
 				"save": {
-					"proficient": false,
+					"proficient": true,
 					"expertiseDice": 0,
 					"bonus": ""
 				}
 			},
 			"cha": {
-				"value": 8,
+				"value": 16,
 				"check": {
 					"expertiseDice": 0,
 					"bonus": ""
@@ -111,7 +111,7 @@
 			"arc": {
 				"ability": "int",
 				"value": 0,
-				"proficient": false,
+				"proficient": true,
 				"specialties": [],
 				"expertiseDice": 0,
 				"minRoll": 1,
@@ -147,7 +147,7 @@
 			"dec": {
 				"ability": "cha",
 				"value": 0,
-				"proficient": false,
+				"proficient": true,
 				"specialties": [],
 				"expertiseDice": 0,
 				"minRoll": 1,
@@ -183,7 +183,7 @@
 			"ins": {
 				"ability": "wis",
 				"value": 0,
-				"proficient": false,
+				"proficient": true,
 				"specialties": [],
 				"expertiseDice": 0,
 				"minRoll": 1,
@@ -371,7 +371,7 @@
 		},
 		"attributes": {
 			"ac": {
-				"base": 15,
+				"base": 14,
 				"value": 0
 			},
 			"death": {
@@ -379,19 +379,19 @@
 				"failure": 0
 			},
 			"hp": {
-				"value": 105,
-				"baseMax": 105,
-				"temp": 0,
+				"value": 52,
+				"baseMax": 52,
+				"temp": "",
 				"bonus": 0
 			},
 			"hitDice": {
 				"d6": {
-					"current": 5,
-					"total": 5
-				},
-				"d8": {
 					"current": 0,
 					"total": 0
+				},
+				"d8": {
+					"current": 7,
+					"total": 7
 				},
 				"d10": {
 					"current": 0,
@@ -420,15 +420,15 @@
 					"unit": "feet"
 				},
 				"climb": {
-					"distance": 30,
+					"distance": 0,
 					"unit": "feet"
 				},
 				"fly": {
-					"distance": 30,
+					"distance": 0,
 					"unit": "feet"
 				},
 				"swim": {
-					"distance": 0,
+					"distance": 40,
 					"unit": "feet"
 				},
 				"walk": {
@@ -441,12 +441,12 @@
 			},
 			"senses": {
 				"blindsight": {
-					"distance": 0,
+					"distance": 60,
 					"unit": "feet",
 					"otherwiseBlind": false
 				},
 				"darkvision": {
-					"distance": 60,
+					"distance": 0,
 					"unit": "feet"
 				},
 				"tremorsense": {
@@ -461,7 +461,7 @@
 			"inspiration": false,
 			"fatigue": 0,
 			"strife": 0,
-			"spellcasting": "int",
+			"spellcasting": "cha",
 			"casterLevel": 0
 		},
 		"bonuses": {
@@ -489,17 +489,20 @@
 		"details": {
 			"bio": "",
 			"creatureTypes": [
-				"monstrosity"
+				"fey"
 			],
 			"isSwarm": false,
-			"cr": 6,
+			"cr": 2,
 			"elite": false,
-			"privateNotes": ""
+			"privateNotes": "",
+			"notes": "<div class=\"field--item\">\n<h3>Description</h3>\n<p>Sometimes a sea hag develops the ability to see the future, visions dancing around every individual they meet. As this power grows, the overwhelmed hag tends to become more and more solitary, even to the point of abandoning its coven. Ultimately this effect clouds the hag&rsquo;s sight, leaving it blind to all but the visions.</p>\n<p>When receiving visitors, a bay witch will agree to foresee their future for a price. These visions often seem innocuous, but will have some terrible meaning that will only later become apparent.</p>\n</div>"
 		},
 		"proficiencies": {
 			"armor": [],
 			"languages": [
-				"telepathy 60 ft."
+				"aquan",
+				"common",
+				"giant"
 			],
 			"tools": [],
 			"weapons": []
@@ -557,28 +560,15 @@
 		},
 		"traits": {
 			"size": "med",
-			"conditionImmunities": [
-				"charmed",
-				"frightened",
-				"grappled",
-				"paralyzed",
-				"petrified",
-				"poisoned",
-				"prone",
-				"restrained",
-				"stunned",
-				"unconscious"
-			],
+			"conditionImmunities": [],
 			"damageImmunities": [],
-			"damageResistances": [
-				"poison"
-			],
+			"damageResistances": [],
 			"damageVulnerabilities": []
 		}
 	},
 	"prototypeToken": {
-		"name": "Scourge of Corpse Flies",
-		"displayName": 0,
+		"name": "Bay Witch",
+		"displayName": 20,
 		"actorLink": false,
 		"appendNumber": false,
 		"prependAdjective": false,
@@ -596,10 +586,10 @@
 		"lockRotation": false,
 		"rotation": 0,
 		"alpha": 1,
-		"disposition": -1,
-		"displayBars": 0,
+		"disposition": 0,
+		"displayBars": 20,
 		"bar1": {
-			"attribute": "attributes.hp"
+			"attribute": null
 		},
 		"bar2": {
 			"attribute": null
@@ -631,15 +621,28 @@
 			"enabled": true,
 			"range": 60,
 			"angle": 360,
-			"visionMode": "darkvision",
-			"attenuation": 0,
+			"visionMode": "basic",
+			"attenuation": 0.1,
 			"brightness": 0,
-			"saturation": -1,
+			"saturation": 0,
 			"contrast": 0,
 			"color": null
 		},
-		"detectionModes": [],
-		"flags": {},
+		"detectionModes": [
+			{
+				"id": "seeAll",
+				"range": 60,
+				"enabled": true
+			}
+		],
+		"flags": {
+			"wall-height": {
+				"tokenHeight": 0
+			},
+			"core": {
+				"occlusionRadius": null
+			}
+		},
 		"randomImg": false
 	},
 	"items": [
@@ -725,20 +728,11 @@
 				"prerequisite": "",
 				"tradition": ""
 			},
-			"_id": "joS6NyiE46810DKQ",
+			"_id": "fMXapXzr94E4Mewc",
 			"folder": null,
 			"sort": 0,
 			"ownership": {
-				"default": 0,
-				"BPdbTKQg018lvS6q": 3
-			},
-			"_stats": {
-				"systemId": "a5e",
-				"systemVersion": "0.13.3",
-				"coreVersion": "11.305",
-				"createdTime": 1689536976552,
-				"modifiedTime": 1689536976552,
-				"lastModifiedBy": "BPdbTKQg018lvS6q"
+				"default": 0
 			}
 		},
 		{
@@ -823,20 +817,11 @@
 				"prerequisite": "",
 				"tradition": ""
 			},
-			"_id": "a7ZkVHxkfqiRZ4cv",
+			"_id": "UjAzNhmI7Cc69ePN",
 			"folder": null,
 			"sort": 0,
 			"ownership": {
-				"default": 0,
-				"BPdbTKQg018lvS6q": 3
-			},
-			"_stats": {
-				"systemId": "a5e",
-				"systemVersion": "0.13.3",
-				"coreVersion": "11.305",
-				"createdTime": 1689536976552,
-				"modifiedTime": 1689536976552,
-				"lastModifiedBy": "BPdbTKQg018lvS6q"
+				"default": 0
 			}
 		},
 		{
@@ -930,20 +915,11 @@
 				"prerequisite": "",
 				"tradition": ""
 			},
-			"_id": "GVifYdv24ImiDx0e",
+			"_id": "xr9SJtDCQQXYO74G",
 			"folder": null,
 			"sort": 0,
 			"ownership": {
-				"default": 0,
-				"BPdbTKQg018lvS6q": 3
-			},
-			"_stats": {
-				"systemId": "a5e",
-				"systemVersion": "0.13.3",
-				"coreVersion": "11.305",
-				"createdTime": 1689536976552,
-				"modifiedTime": 1689536976552,
-				"lastModifiedBy": "BPdbTKQg018lvS6q"
+				"default": 0
 			}
 		},
 		{
@@ -1028,20 +1004,11 @@
 				"prerequisite": "",
 				"tradition": ""
 			},
-			"_id": "rjM99pDctSmLnH1v",
+			"_id": "qplNRUG00pDxTn6e",
 			"folder": null,
 			"sort": 0,
 			"ownership": {
-				"default": 0,
-				"BPdbTKQg018lvS6q": 3
-			},
-			"_stats": {
-				"systemId": "a5e",
-				"systemVersion": "0.13.3",
-				"coreVersion": "11.305",
-				"createdTime": 1689536976552,
-				"modifiedTime": 1689536976552,
-				"lastModifiedBy": "BPdbTKQg018lvS6q"
+				"default": 0
 			}
 		},
 		{
@@ -1126,20 +1093,11 @@
 				"prerequisite": "",
 				"tradition": ""
 			},
-			"_id": "uBDHnxiK2yeCLfi6",
+			"_id": "FInqWkMMDN5QTDvm",
 			"folder": null,
 			"sort": 0,
 			"ownership": {
-				"default": 0,
-				"BPdbTKQg018lvS6q": 3
-			},
-			"_stats": {
-				"systemId": "a5e",
-				"systemVersion": "0.13.3",
-				"coreVersion": "11.305",
-				"createdTime": 1689536976552,
-				"modifiedTime": 1689536976552,
-				"lastModifiedBy": "BPdbTKQg018lvS6q"
+				"default": 0
 			}
 		},
 		{
@@ -1233,35 +1191,16 @@
 				"prerequisite": "",
 				"tradition": ""
 			},
-			"_id": "KFRl2zKxEdKdSh5m",
+			"_id": "rRx2IlQRgI194WKQ",
 			"folder": null,
 			"sort": 0,
 			"ownership": {
-				"default": 0,
-				"BPdbTKQg018lvS6q": 3
-			},
-			"_stats": {
-				"systemId": "a5e",
-				"systemVersion": "0.13.3",
-				"coreVersion": "11.305",
-				"createdTime": 1689536976552,
-				"modifiedTime": 1689536976552,
-				"lastModifiedBy": "BPdbTKQg018lvS6q"
+				"default": 0
 			}
 		},
 		{
-			"_id": "6P9ANsgGr5Q0awrj",
-			"name": "Swarm",
+			"name": "Amphibious",
 			"type": "feature",
-			"img": "icons/svg/item-bag.svg",
-			"effects": [],
-			"folder": null,
-			"sort": 0,
-			"flags": {
-				"core": {
-					"sourceId": "Item.O4rfmFbmQha1aafV"
-				}
-			},
 			"system": {
 				"ac": {
 					"baseFormula": "",
@@ -1273,59 +1212,44 @@
 					"requiresUnarmored": false
 				},
 				"actions": {},
-				"description": "<p>The swarm can occupy another creature’s space and move through any opening large enough for a Tiny creature. It can’t gain hit points or temporary hit points.</p>",
+				"description": "<p>The hag can breathe air and water.</p>",
 				"favorite": false,
 				"secretDescription": "",
-				"source": "",
+				"source": {
+					"name": "",
+					"link": "",
+					"publisher": ""
+				},
 				"uses": {
 					"value": null,
 					"max": "",
 					"per": null,
 					"recharge": {
-						"formula": "",
-						"threshold": ""
+						"formula": "1d6",
+						"threshold": "6"
 					}
 				},
 				"schema": {
-					"version": 0.004,
-					"lastMigration": {
-						"version": {
-							"schema": 0.003,
-							"foundry": "11.302",
-							"system": "0.12.7"
-						}
-					}
+					"version": 0.001,
+					"lastMigration": null
 				},
 				"concentration": false,
 				"featureType": "",
 				"prerequisite": ""
 			},
+			"_id": "7zOGeBevZGR6HszX",
+			"img": "icons/environment/creatures/frog-spotted-green.webp",
+			"effects": [],
+			"folder": null,
+			"sort": 0,
 			"ownership": {
-				"default": 0,
-				"BPdbTKQg018lvS6q": 3
+				"default": 0
 			},
-			"_stats": {
-				"systemId": "a5e",
-				"systemVersion": "0.13.3",
-				"coreVersion": "11.305",
-				"createdTime": 1689535612851,
-				"modifiedTime": 1689537247913,
-				"lastModifiedBy": "BPdbTKQg018lvS6q"
-			}
+			"flags": {}
 		},
 		{
-			"_id": "9HIUMor2Pd9X8nxV",
-			"name": "Spider Climb",
+			"name": "Curse",
 			"type": "feature",
-			"img": "icons/creatures/invertebrates/spider-beetle-runed-green.webp",
-			"effects": [],
-			"folder": "TagvSSdROJKdyFpX",
-			"sort": 0,
-			"flags": {
-				"core": {
-					"sourceId": "Item.O4rfmFbmQha1aafV"
-				}
-			},
 			"system": {
 				"ac": {
 					"baseFormula": "",
@@ -1337,7 +1261,457 @@
 					"requiresUnarmored": false
 				},
 				"actions": {},
-				"description": "<p>The scourge can climb even on difficult surfaces, including upside down on ceilings, without needing to make an ability check.</p>",
+				"description": "<p>A creature that makes a bargain with the hag is magically <span class=\"freelinking-link\"><a title=\"Click to view a local node.\" href=\"https://a5e.tools/rules/cursed\" hreflang=\"en\">cursed</a></span> for 30 days. While it is cursed, the target automatically fails saving throws against the hag&rsquo;s <em> <span class=\"freelinking-link\"><a title=\"Click to view a local node.\" href=\"https://a5e.tools/spell/scrying\" hreflang=\"en\">scrying</a></span> </em>and <em> <span class=\"freelinking-link\"><a title=\"Click to view a local node.\" href=\"https://a5e.tools/spell/geas\" hreflang=\"en\">geas</a></span> </em> spells, and the hag can cast <em> <span class=\"freelinking-link\"><a title=\"Click to view a local node.\" href=\"https://a5e.tools/spell/control-weather\" hreflang=\"en\">control weather</a></span> </em> centered on the creature.</p>",
+				"favorite": false,
+				"secretDescription": "",
+				"source": {
+					"name": "",
+					"link": "",
+					"publisher": ""
+				},
+				"uses": {
+					"value": null,
+					"max": "",
+					"per": null,
+					"recharge": {
+						"formula": "1d6",
+						"threshold": "6"
+					}
+				},
+				"schema": {
+					"version": 0.001,
+					"lastMigration": null
+				},
+				"concentration": false,
+				"featureType": "",
+				"prerequisite": ""
+			},
+			"_id": "2dYgkEqjvmb6t4tj",
+			"img": "icons/magic/unholy/hand-marked-pink.webp",
+			"effects": [],
+			"folder": null,
+			"sort": 0,
+			"ownership": {
+				"default": 0
+			},
+			"flags": {}
+		},
+		{
+			"name": "Expanded Spellcasting",
+			"type": "feature",
+			"system": {
+				"ac": {
+					"baseFormula": "",
+					"formula": "",
+					"maxDex": 0,
+					"minStr": 0,
+					"mode": 1,
+					"requiresNoShield": false,
+					"requiresUnarmored": false
+				},
+				"actions": {},
+				"description": "<p>The bay witch can cast <em> <span class=\"freelinking-link\">augury</span> </em> at will.</p>",
+				"favorite": true,
+				"secretDescription": "",
+				"source": {
+					"name": "",
+					"link": "",
+					"publisher": ""
+				},
+				"uses": {
+					"value": null,
+					"max": "",
+					"per": null,
+					"recharge": {
+						"formula": "1d6",
+						"threshold": "6"
+					}
+				},
+				"schema": {
+					"version": 0.001,
+					"lastMigration": null
+				},
+				"concentration": false,
+				"featureType": "",
+				"prerequisite": ""
+			},
+			"_id": "SCkzzYLLz0ipx7KO",
+			"img": "icons/magic/perception/orb-crystal-ball-scrying.webp",
+			"effects": [],
+			"folder": null,
+			"sort": 0,
+			"ownership": {
+				"default": 0
+			},
+			"flags": {}
+		},
+		{
+			"name": "Innate Spellcasting",
+			"type": "feature",
+			"system": {
+				"ac": {
+					"baseFormula": "",
+					"formula": "",
+					"maxDex": 0,
+					"minStr": 0,
+					"mode": 1,
+					"requiresNoShield": false,
+					"requiresUnarmored": false
+				},
+				"actions": {},
+				"description": "<p>The hag&rsquo;s innate spellcasting ability is Charisma (spell save DC 13). It can innately cast the following spells, requiring no material components:</p>\n<p>At will: <em> <span class=\"freelinking-link\">dancing lights</span>, <span class=\"freelinking-link\">disguise self</span> </em></p>\n<p>1/day: <em> <span class=\"freelinking-link\">control weather</span>, <span class=\"freelinking-link\">geas</span>, <span class=\"freelinking-link\">scrying</span></em></p>",
+				"favorite": true,
+				"secretDescription": "",
+				"source": {
+					"name": "",
+					"link": "",
+					"publisher": ""
+				},
+				"uses": {
+					"value": null,
+					"max": "",
+					"per": null,
+					"recharge": {
+						"formula": "1d6",
+						"threshold": "6"
+					}
+				},
+				"schema": {
+					"version": 0.001,
+					"lastMigration": null
+				},
+				"concentration": false,
+				"featureType": "other",
+				"prerequisite": ""
+			},
+			"_id": "wWkndRy5uH6LktwS",
+			"img": "icons/magic/symbols/runes-triangle-orange-purple.webp",
+			"effects": [],
+			"folder": null,
+			"sort": 0,
+			"ownership": {
+				"default": 0
+			},
+			"flags": {}
+		},
+		{
+			"name": "Claws",
+			"type": "feature",
+			"system": {
+				"ac": {
+					"baseFormula": "",
+					"formula": "",
+					"maxDex": 0,
+					"minStr": 0,
+					"mode": 1,
+					"requiresNoShield": false,
+					"requiresUnarmored": false
+				},
+				"actions": {
+					"PAWMDWCsixqk9gsV": {
+						"name": "Claws",
+						"activation": {
+							"type": "action",
+							"cost": 1
+						},
+						"consumers": {},
+						"rolls": {
+							"vEUAWABDELoY3klS": {
+								"type": "attack",
+								"default": true,
+								"attackType": "meleeWeaponAttack",
+								"proficient": true,
+								"ability": "str"
+							},
+							"TWqzIqgcn1aZVMut": {
+								"type": "damage",
+								"default": true,
+								"formula": "2d6+@str.mod",
+								"damageType": "slashing"
+							}
+						},
+						"prompts": {},
+						"uses": {
+							"value": 0,
+							"max": "",
+							"per": "",
+							"recharge": {
+								"formula": "1d6",
+								"threshold": 6
+							}
+						},
+						"duration": {
+							"unit": "instantaneous"
+						},
+						"ranges": {
+							"TBrwEfwvq48EyT18": {
+								"range": "fiveFeet"
+							}
+						},
+						"target": {
+							"type": "creature",
+							"quantity": 1
+						}
+					}
+				},
+				"description": "<p>Melee Weapon Attack: +5 to hit, reach 5 ft., one creature. Hit: 10 (2d6 + 3) slashing damage.</p>",
+				"favorite": true,
+				"secretDescription": "",
+				"source": {
+					"name": "",
+					"link": "",
+					"publisher": ""
+				},
+				"uses": {
+					"value": null,
+					"max": "",
+					"per": null,
+					"recharge": {
+						"formula": "1d6",
+						"threshold": "6"
+					}
+				},
+				"schema": {
+					"version": 0.001,
+					"lastMigration": null
+				},
+				"concentration": false,
+				"featureType": "naturalWeapon",
+				"prerequisite": ""
+			},
+			"_id": "pj4JPjMkiOZpYilc",
+			"img": "icons/skills/melee/blood-slash-foam-red.webp",
+			"effects": [],
+			"folder": null,
+			"sort": 0,
+			"ownership": {
+				"default": 0
+			},
+			"flags": {}
+		},
+		{
+			"name": "Terrifying Visions",
+			"type": "feature",
+			"system": {
+				"ac": {
+					"baseFormula": "",
+					"formula": "",
+					"maxDex": 0,
+					"minStr": 0,
+					"mode": 1,
+					"requiresNoShield": false,
+					"requiresUnarmored": false
+				},
+				"actions": {
+					"Xh5afXQH3YQGtPQF": {
+						"name": "Terrifying Visions",
+						"activation": {
+							"type": "bonusAction",
+							"cost": 1
+						},
+						"consumers": {},
+						"rolls": {},
+						"prompts": {
+							"gKciv356m4kR8c3m": {
+								"type": "savingThrow",
+								"default": true,
+								"ability": "wis",
+								"saveDC": {
+									"type": "spellcasting"
+								},
+								"onSave": "No effect on save"
+							}
+						},
+						"uses": {
+							"value": 0,
+							"max": "",
+							"per": "",
+							"recharge": {
+								"formula": "1d6",
+								"threshold": 6
+							}
+						},
+						"duration": {
+							"unit": "instantaneous"
+						},
+						"ranges": {
+							"TrhbjAEfkbd4Qz76": {
+								"range": "short"
+							}
+						}
+					}
+				},
+				"description": "<p>The witch sends waves of visions, filling its enemies minds with images of their own death. This ability operates identically to @UUID[Compendium.a5e.a5e-monsters.Actor.rberdj5q0ja992iv.Item.LrUD966DOSqeJGQy]{Horrific Transformation} except that creatures failing the save gain an <span class=\"freelinking-link\">expertise die</span> on their next Wisdom or Dexterity <span class=\"freelinking-link\">saving throw</span>, guided by the premonitions of the future.</p>",
+				"favorite": true,
+				"secretDescription": "",
+				"source": {
+					"name": "",
+					"link": "",
+					"publisher": ""
+				},
+				"uses": {
+					"value": null,
+					"max": "",
+					"per": null,
+					"recharge": {
+						"formula": "1d6",
+						"threshold": "6"
+					}
+				},
+				"schema": {
+					"version": 0.001,
+					"lastMigration": null
+				},
+				"concentration": false,
+				"featureType": "other",
+				"prerequisite": ""
+			},
+			"_id": "QYm79BwivIsjVB8z",
+			"img": "icons/magic/death/skull-energy-light-white.webp",
+			"effects": [],
+			"folder": null,
+			"sort": 0,
+			"ownership": {
+				"default": 0
+			},
+			"flags": {}
+		},
+		{
+			"name": "Foretelling",
+			"type": "feature",
+			"system": {
+				"ac": {
+					"baseFormula": "",
+					"formula": "",
+					"maxDex": 0,
+					"minStr": 0,
+					"mode": 1,
+					"requiresNoShield": false,
+					"requiresUnarmored": false
+				},
+				"actions": {
+					"TaOxSiKQGoSz2gyG": {
+						"name": "Foretelling",
+						"activation": {
+							"type": "reaction",
+							"cost": 1,
+							"reactionTrigger": "When a bay witch is attacked or forced to make a saving throw."
+						},
+						"consumers": {
+							"8i7vK4uWmYHkC95Z": {
+								"type": "itemUses",
+								"default": true,
+								"quantity": 1
+							}
+						},
+						"rolls": {},
+						"prompts": {},
+						"uses": {
+							"value": 0,
+							"max": "",
+							"per": "",
+							"recharge": {
+								"formula": "",
+								"threshold": 0
+							}
+						},
+						"duration": {
+							"unit": "instantaneous"
+						},
+						"ranges": {
+							"GK2WBZnwd9PPLbCs": {
+								"range": "self"
+							}
+						},
+						"target": {
+							"type": "self",
+							"quantity": 1
+						}
+					}
+				},
+				"description": "<p>When a bay witch is attacked or forced to make a saving throw it can draw on its kaleidoscope of visions to foresee the outcome. The bay witch gains <span class=\"freelinking-link\">advantage</span> on its next <span class=\"freelinking-link\">saving throw</span> and its AC increases by 3 until the start of its next turn.</p>",
+				"favorite": true,
+				"secretDescription": "",
+				"source": {
+					"name": "",
+					"link": "",
+					"publisher": ""
+				},
+				"uses": {
+					"value": 1,
+					"max": "1",
+					"per": "recharge",
+					"recharge": {
+						"formula": "1d6",
+						"threshold": 5
+					}
+				},
+				"schema": {
+					"version": 0.001,
+					"lastMigration": null
+				},
+				"concentration": false,
+				"featureType": "",
+				"prerequisite": ""
+			},
+			"_id": "v1wh5xCF59ObJws3",
+			"img": "icons/magic/perception/orb-crystal-ball-scrying.webp",
+			"effects": [],
+			"folder": null,
+			"sort": 0,
+			"ownership": {
+				"default": 0
+			},
+			"flags": {}
+		},
+		{
+			"name": "Augury",
+			"type": "spell",
+			"img": "icons/sundries/gaming/dice-runed-brown.webp",
+			"effects": [],
+			"flags": {
+				"core": {
+					"sourceId": "Compendium.a5e.a5e-spells.qsa7b22n3y1pbzf6"
+				}
+			},
+			"system": {
+				"actions": {
+					"XIV22O1RFIOcyrMN": {
+						"name": "Augury",
+						"activation": {
+							"cost": 1,
+							"type": "minute",
+							"reactionTrigger": ""
+						},
+						"duration": {
+							"unit": "instantaneous",
+							"value": ""
+						},
+						"ranges": {
+							"yx16o4KTfoQobkxy": {
+								"range": "self"
+							}
+						},
+						"area": {
+							"shape": "",
+							"size": "",
+							"placeTemplate": false
+						},
+						"target": {
+							"quantity": "",
+							"type": "self"
+						},
+						"consumers": {
+							"tVhkY6UcDpf5TFcy": {
+								"mode": "variable",
+								"spellLevel": 2,
+								"points": 3,
+								"type": "spell"
+							}
+						}
+					}
+				},
+				"description": "<p>With the aid of a divining tool, you receive an omen from beyond the Material Plane about the results of a specific course of action that you intend to take within the next 30 minutes. The Narrator chooses from the following:</p><ul><li>Fortunate omen (good results)</li><li>Calamity omen (bad results)</li><li>Ambivalence omen (both good and bad results)</li><li>No omen (results that aren't especially good or bad)</li></ul><p>This omen does not account for possible circumstances that could change the outcome, such as making additional preparations.<p>When you cast this spell again before finishing a long rest, the chance of getting a random reading from the above options increases. The Narrator makes the following roll in secret: second casting&mdash;25%, third casting&mdash;50%, fourth casting&mdash;75%, fifth casting&mdash;100%.</p>",
 				"favorite": false,
 				"secretDescription": "",
 				"source": "",
@@ -1360,269 +1734,553 @@
 						}
 					}
 				},
+				"components": {
+					"vocalized": true,
+					"seen": true,
+					"material": true
+				},
 				"concentration": false,
-				"featureType": "",
-				"prerequisite": ""
+				"level": 2,
+				"materials": "divinatory items worth at least 25 gold",
+				"materialsConsumed": false,
+				"prepared": true,
+				"prerequisite": "",
+				"ritual": false,
+				"schools": {
+					"primary": "divination",
+					"secondary": [
+						"communication",
+						"divine",
+						"scrying"
+					]
+				}
 			},
+			"_id": "YbJlINu59pLfR8C5",
+			"folder": null,
+			"sort": 0,
 			"ownership": {
-				"default": 0,
-				"BPdbTKQg018lvS6q": 3
-			},
-			"_stats": {
-				"systemId": "a5e",
-				"systemVersion": "0.13.3",
-				"coreVersion": "11.305",
-				"createdTime": 1689536190327,
-				"modifiedTime": 1689537287499,
-				"lastModifiedBy": "BPdbTKQg018lvS6q"
+				"default": 0
 			}
 		},
 		{
-			"name": "Putrid Bite",
-			"type": "feature",
+			"name": "Disguise Self",
+			"type": "spell",
+			"img": "icons/equipment/head/mask-carved-wood-brown.webp",
+			"effects": [],
+			"flags": {
+				"core": {
+					"sourceId": "Compendium.a5e.a5e-spells.vemj08hawvmf44ya"
+				}
+			},
 			"system": {
-				"ac": {
-					"baseFormula": "",
-					"formula": "",
-					"maxDex": 0,
-					"minStr": 0,
-					"mode": 1,
-					"requiresNoShield": false,
-					"requiresUnarmored": false
-				},
 				"actions": {
-					"tATbjEVBjYkDgEsx": {
-						"name": "Putrid Bite",
+					"0qEkbCJOCXxfm5km": {
+						"name": "Disguise Self",
 						"activation": {
+							"cost": 1,
 							"type": "action",
-							"cost": 1
+							"reactionTrigger": ""
 						},
-						"consumers": {},
+						"duration": {
+							"unit": "hour",
+							"value": "1"
+						},
+						"ranges": {
+							"iJ3osELZvlki2bnh": {
+								"range": "self"
+							}
+						},
+						"area": {
+							"shape": "",
+							"size": "",
+							"placeTemplate": false
+						},
+						"target": {
+							"quantity": "",
+							"type": "self"
+						},
 						"rolls": {
-							"U1rgcbyc3MuhhMzo": {
-								"type": "attack",
-								"default": true,
-								"attackType": "meleeWeaponAttack",
-								"proficient": true,
-								"ability": "dex"
-							},
-							"j4EqLSRx0lPxfyRl": {
-								"type": "damage",
-								"default": true,
-								"formula": "6d6+4",
-								"damageType": "piercing",
-								"label": "if not bloodied"
-							},
-							"Kpx6mC1Na2F2MhDw": {
-								"type": "damage",
-								"default": true,
-								"label": "if bloodied",
-								"formula": "3d6+4"
-							},
-							"6uzmtaqVqNbAQMOc": {
-								"type": "damage",
-								"default": true,
-								"label": "on succesful Constitution saving throw if not bloodied",
-								"formula": "4d6",
-								"damageType": "poison"
-							},
-							"96bblLfrU10wOTHF": {
-								"type": "damage",
-								"default": true,
-								"label": "on succesful Constitution saving throw if bloodied",
-								"damageType": "poison",
-								"formula": "2d6"
+							"s94L7q2SUWlijC86": {
+								"ability": "str",
+								"type": "abilityCheck"
+							}
+						},
+						"consumers": {
+							"2DofRkvcuvCYUUGH": {
+								"mode": "variable",
+								"spellLevel": 1,
+								"points": 2,
+								"type": "spell"
+							}
+						}
+					}
+				},
+				"description": "<p>Until the spell ends or you use an action to dismiss it, you and your gear are cloaked by an illusory disguise that makes you appear like another creature of your general size and body type, including but not limited to: your heritage, 1 foot of height, weight, clothing, tattoos, piercings, facial features, hair style and length, skin and eye coloration, sex, and any other distinguishing features. You cannot disguise yourself as a creature of a different size category, and your limb structure remains the same; for example if you're bipedal, you can't use this spell to appear as a quadruped.</p><p>The disguise does not hold up to physical inspection. A creature that tries to grab an illusory hat, for example, finds its hand passes straight through the figment. To see through your disguise without such an inspection, a creature must use its action to make an Investigation check against your spell save DC.</p><p><strong><em>Cast at Higher Levels.</em></strong> When using a 3rd-level spell slot or higher, this spell functions identically to the seeming spell, except the spell's duration is 10 minutes.</p>",
+				"favorite": false,
+				"secretDescription": "",
+				"source": "",
+				"uses": {
+					"value": null,
+					"max": "",
+					"per": null,
+					"recharge": {
+						"formula": "",
+						"threshold": ""
+					}
+				},
+				"schema": {
+					"version": 0.003,
+					"lastMigration": {
+						"version": {
+							"schema": null,
+							"foundry": "10.291",
+							"system": "0.10.7"
+						}
+					}
+				},
+				"components": {
+					"vocalized": true,
+					"seen": true,
+					"material": false
+				},
+				"concentration": false,
+				"level": 1,
+				"materials": "",
+				"materialsConsumed": false,
+				"prepared": true,
+				"prerequisite": "",
+				"ritual": false,
+				"schools": {
+					"primary": "illusion",
+					"secondary": [
+						"arcane",
+						"obscurement"
+					]
+				}
+			},
+			"_id": "RXUCNZesd0juTArX",
+			"folder": null,
+			"sort": 0,
+			"ownership": {
+				"default": 0
+			}
+		},
+		{
+			"name": "Control Weather",
+			"type": "spell",
+			"img": "icons/magic/lightning/bolt-cloud-sky-white.webp",
+			"effects": [],
+			"flags": {
+				"core": {
+					"sourceId": "Compendium.a5e.a5e-spells.ekzbxzb2pzhffev9"
+				}
+			},
+			"system": {
+				"actions": {
+					"u46Z48QhWEaCHW2A": {
+						"name": "Control Weather",
+						"activation": {
+							"cost": 10,
+							"type": "minute",
+							"reactionTrigger": ""
+						},
+						"duration": {
+							"unit": "hour",
+							"value": "8"
+						},
+						"ranges": {
+							"53Gqh9typ5nlLyd4": {
+								"range": "self"
+							}
+						},
+						"area": {
+							"shape": "sphere",
+							"radius": "5",
+							"placeTemplate": false
+						},
+						"target": {
+							"quantity": "",
+							"type": ""
+						},
+						"consumers": {
+							"pROtAgDOHxKjqhj2": {
+								"mode": "variable",
+								"spellLevel": 8,
+								"points": 11,
+								"type": "spell"
+							}
+						}
+					}
+				},
+				"description": "<p>You must be outdoors to cast this spell, and it ends early if you don't have a clear path to the sky.</p><p>Until the spell ends, you change the weather conditions in the area from what is normal for the current climate and season. Choose to increase or decrease each weather condition (precipitation, temperature, and wind) up or down by one stage on the following tables. Whenever you change the wind, you can also change its direction. The new conditions take effect after 1d4 &times; 10 minutes, at which point you can change the conditions again. The weather gradually returns to normal when the spell ends.</p>",
+				"favorite": false,
+				"secretDescription": "",
+				"source": "",
+				"uses": {
+					"value": 1,
+					"max": "1",
+					"per": "day",
+					"recharge": {
+						"formula": "",
+						"threshold": ""
+					}
+				},
+				"schema": {
+					"version": 0.003,
+					"lastMigration": {
+						"version": {
+							"schema": null,
+							"foundry": "10.291",
+							"system": "0.10.7"
+						}
+					}
+				},
+				"components": {
+					"vocalized": true,
+					"seen": true,
+					"material": true
+				},
+				"concentration": true,
+				"level": 8,
+				"materials": "burning incense, bits of earth, and wood mixed with water",
+				"materialsConsumed": false,
+				"prepared": true,
+				"prerequisite": "",
+				"ritual": false,
+				"schools": {
+					"primary": "transmutation",
+					"secondary": [
+						"arcane",
+						"divine",
+						"nature",
+						"weather"
+					]
+				}
+			},
+			"_id": "woY5VolDUgXQpwm0",
+			"folder": null,
+			"sort": 0,
+			"ownership": {
+				"default": 0
+			}
+		},
+		{
+			"name": "Dancing Lights",
+			"type": "spell",
+			"img": "icons/magic/light/projectiles-trio-pink.webp",
+			"effects": [],
+			"flags": {
+				"core": {
+					"sourceId": "Compendium.a5e.a5e-spells.kh26gom04osoo005"
+				}
+			},
+			"system": {
+				"actions": {
+					"ujamq8LIqiSNoAYw": {
+						"name": "Dancing Lights",
+						"activation": {
+							"cost": 1,
+							"type": "action",
+							"reactionTrigger": ""
+						},
+						"duration": {
+							"unit": "minute",
+							"value": "1"
+						},
+						"ranges": {
+							"vZh5NgxuSNZSsAbg": {
+								"range": "long"
+							}
+						},
+						"area": {
+							"shape": "",
+							"size": "",
+							"placeTemplate": false
+						},
+						"target": {
+							"quantity": "",
+							"type": "none"
+						},
+						"consumers": {}
+					}
+				},
+				"description": "<p>You create up to four hovering lights which appear as torches, lanterns, or glowing orbs that can be combined into a glowing Medium-sized humanoid form. Each sheds dim light in a 10-foot radius.</p><p>You can use a bonus action to move the lights up to 60 feet so long as each remains within 20 feet of another light created by this spell. A dancing light winks out when it exceeds the spell's range.</p>",
+				"favorite": false,
+				"secretDescription": "",
+				"source": "",
+				"uses": {
+					"value": null,
+					"max": "",
+					"per": null,
+					"recharge": {
+						"formula": "",
+						"threshold": ""
+					}
+				},
+				"schema": {
+					"version": 0.003,
+					"lastMigration": {
+						"version": {
+							"schema": null,
+							"foundry": "10.291",
+							"system": "0.10.7"
+						}
+					}
+				},
+				"components": {
+					"vocalized": true,
+					"seen": true,
+					"material": true
+				},
+				"concentration": true,
+				"level": 0,
+				"materials": "bit of phosphorus or wychwood, or a glowworm",
+				"materialsConsumed": false,
+				"prepared": true,
+				"prerequisite": "",
+				"ritual": false,
+				"schools": {
+					"primary": "evocation",
+					"secondary": [
+						"arcane",
+						"utility"
+					]
+				}
+			},
+			"_id": "aDBcX4YBNhV8HlRO",
+			"folder": null,
+			"sort": 0,
+			"ownership": {
+				"default": 0
+			}
+		},
+		{
+			"name": "Geas",
+			"type": "spell",
+			"img": "icons/magic/control/debuff-chains-shackles-movement-blue.webp",
+			"effects": [],
+			"flags": {
+				"core": {
+					"sourceId": "Compendium.a5e.a5e-spells.a64cea2ij2t33xva"
+				}
+			},
+			"system": {
+				"actions": {
+					"N9xiXIQzTeFTddm4": {
+						"name": "Geas",
+						"activation": {
+							"cost": 1,
+							"type": "minute",
+							"reactionTrigger": ""
+						},
+						"duration": {
+							"unit": "day",
+							"value": "30"
+						},
+						"ranges": {
+							"VwgNAv3ZfaNsgrEr": {
+								"range": "medium"
+							}
+						},
+						"area": {
+							"shape": "",
+							"size": "",
+							"placeTemplate": false
+						},
+						"target": {
+							"quantity": "",
+							"type": "creature"
+						},
+						"rolls": {
+							"t0qZTfQwSQikSyZl": {
+								"canCrit": false,
+								"damageType": "psychic",
+								"formula": "5d10",
+								"name": "",
+								"type": "damage"
 							}
 						},
 						"prompts": {
-							"U5OkhF3IkJN5y2K7": {
-								"type": "savingThrow",
-								"default": true,
-								"ability": "con",
+							"kdzSg3egJZ3RA2LI": {
+								"ability": "wis",
+								"onSave": "Negates effect",
 								"saveDC": {
-									"type": "custom",
-									"bonus": "14"
+									"type": "spellcasting",
+									"bonus": ""
 								},
-								"onSave": "poison damage",
-								"label": "blood maggot infestation if fail"
+								"type": "savingThrow"
 							}
 						},
-						"uses": {
-							"value": 0,
-							"max": "",
-							"per": "",
-							"recharge": {
-								"formula": "1d6",
-								"threshold": 6
+						"consumers": {
+							"9rCiLcFjg6oBnJOD": {
+								"mode": "variable",
+								"spellLevel": 5,
+								"points": 7,
+								"type": "spell"
 							}
-						},
-						"descriptionOutputs": [
-							"action",
-							"item"
-						],
-						"duration": {
-							"unit": "",
-							"value": 1
-						},
-						"ranges": {
-							"mpA97zW7MoQ8h12q": {
-								"range": 0,
-								"unit": "feet"
-							}
-						},
-						"target": {
-							"type": "creature",
-							"quantity": 1
 						}
 					}
 				},
-				"description": "<p><em>Melee Weapon Attack:</em> +6 to hit, reach 0 ft., one target. <em>Hit:</em> 25 (6d6 + 4) piercing damage or 14 (3d6+4) if the swarm is bloodird. The target makes a DC 14 Constitution saving throw, contracting a blood maggot infestation on a failed save. On a successful save, it instead takes 14 (4d6) poison damage or 7 (2d6) if the swarm is bloodied. If the target is reduced to 0 hit points from this attack it dies and rises 1 minute later as a gorger zombie.</p>",
-				"favorite": true,
+				"description": "<p>You give a command to a target which can understand you. It becomes charmed by you.</p><p>While charmed in this way, it takes 5d10 psychic damage the first time each day that it disobeys your command. Your command can be any course of action or inaction that wouldn't result in the target's death. The spell ends if the command is suicidal or you use an action to dismiss the spell. Alternatively, a <em>remove curse</em>, <em>greater restoration</em>, or <em>wish</em> spell cast on the target using a spell slot at least as high as the slot used to cast this spell also ends it.</p><p><strong><em>Cast at Higher Levels.</em></strong> The spell's duration is 1 year when using a 7th-level spell slot, or permanent until dispelled when using a 9th-level spell slot.</p>",
+				"favorite": false,
 				"secretDescription": "",
-				"source": {
-					"name": "",
-					"link": "",
-					"publisher": ""
-				},
+				"source": "",
 				"uses": {
-					"value": null,
-					"max": "",
-					"per": null,
+					"value": 1,
+					"max": "1",
+					"per": "day",
 					"recharge": {
-						"formula": "1d6",
-						"threshold": "6"
+						"formula": "",
+						"threshold": ""
 					}
 				},
 				"schema": {
-					"version": 0.001,
-					"lastMigration": null
+					"version": 0.003,
+					"lastMigration": {
+						"version": {
+							"schema": null,
+							"foundry": "10.291",
+							"system": "0.10.7"
+						}
+					}
+				},
+				"components": {
+					"vocalized": true,
+					"seen": true,
+					"material": false
 				},
 				"concentration": false,
-				"featureType": "naturalWeapon",
-				"prerequisite": ""
+				"level": 5,
+				"materials": "",
+				"materialsConsumed": false,
+				"prepared": true,
+				"prerequisite": "",
+				"ritual": false,
+				"schools": {
+					"primary": "enchantment",
+					"secondary": [
+						"arcane",
+						"compulsion",
+						"divine",
+						"law"
+					]
+				}
 			},
-			"_id": "hDLLYuCddywU9suj",
-			"img": "icons/creatures/abilities/mouth-teeth-rows-white.webp",
-			"effects": [],
+			"_id": "gvwpiXIJ0Db2swTm",
 			"folder": null,
 			"sort": 0,
 			"ownership": {
-				"default": 0,
-				"BPdbTKQg018lvS6q": 3
-			},
-			"flags": {},
-			"_stats": {
-				"systemId": "a5e",
-				"systemVersion": "0.13.3",
-				"coreVersion": "11.305",
-				"createdTime": 1689536258028,
-				"modifiedTime": 1689537687499,
-				"lastModifiedBy": "BPdbTKQg018lvS6q"
+				"default": 0
 			}
 		},
 		{
-			"name": "Corrosive Bite Spit (Recharge 5-)",
-			"type": "feature",
+			"name": "Scrying",
+			"type": "spell",
+			"img": "icons/magic/perception/orb-crystal-ball-scrying-blue.webp",
+			"effects": [],
+			"flags": {
+				"core": {
+					"sourceId": "Compendium.a5e.a5e-spells.ppht0do531mq84uw"
+				}
+			},
 			"system": {
-				"ac": {
-					"baseFormula": "",
-					"formula": "",
-					"maxDex": 0,
-					"minStr": 0,
-					"mode": 1,
-					"requiresNoShield": false,
-					"requiresUnarmored": false
-				},
 				"actions": {
-					"HhGP3EXxbHJAqKnr": {
-						"name": "Corrosive Bite Spit",
+					"peJQ1fHIjg99kKDX": {
+						"name": "Scrying",
 						"activation": {
-							"type": "action",
-							"cost": 1
+							"cost": 10,
+							"type": "minute",
+							"reactionTrigger": ""
 						},
-						"consumers": {},
-						"rolls": {
-							"lbbZNG8CexP8k1DU": {
-								"type": "attack",
-								"default": true,
-								"attackType": "rangedWeaponAttack",
-								"proficient": true,
-								"ability": "dex"
-							},
-							"Gwpj5TaSDhCn6oPG": {
-								"type": "damage",
-								"default": true,
-								"formula": "8d6",
-								"damageType": "acid"
-							}
+						"duration": {
+							"unit": "minute",
+							"value": "10"
 						},
-						"prompts": {},
-						"uses": {
-							"value": 1,
-							"max": "1",
-							"per": "recharge",
-							"recharge": {
-								"formula": "1d6",
-								"threshold": 5
-							}
-						},
-						"descriptionOutputs": [
-							"action"
-						],
 						"ranges": {
-							"aksBS46SA7qm6HRE": {
-								"range": null,
-								"unit": "feet"
+							"qOCRptUDIby1Pqv6": {
+								"range": "self"
 							}
+						},
+						"area": {
+							"shape": "",
+							"size": "",
+							"placeTemplate": false
 						},
 						"target": {
-							"type": "creature",
-							"quantity": 1
+							"quantity": "",
+							"type": "creature"
+						},
+						"prompts": {
+							"EPTW9bO0k35sFNNt": {
+								"ability": "wis",
+								"onSave": "Negates effect for 24 hours",
+								"saveDC": {
+									"type": "custom",
+									"bonus": ""
+								},
+								"type": "savingThrow"
+							}
+						},
+						"consumers": {
+							"RxEb7wIpo6uNME7e": {
+								"mode": "variable",
+								"spellLevel": 5,
+								"points": 7,
+								"type": "spell"
+							}
 						}
 					}
 				},
-				"description": "<p><em>Ranged Weapon Attack:</em> +7 to hit, range 15/30 ft., one target. <em>Hit:</em> 28 (8d6) acid damage.</p>",
-				"favorite": true,
+				"description": "<p>You can see and hear a specific creature that you choose. The difficulty of the saving throw for this spell is modified by your knowledge of the target and whether you possess a physical item with a connection to the target.</p><p>On a failed save, you can see and hear the target through an invisible sensor that appears within 10 feet of it and moves with the target. Any creature who can see invisibility or rolls a critical success on its saving throw perceives the sensor as a fist-sized glowing orb hovering in the air. Creatures cannot see or hear you through the sensor.</p><p>If you choose to target a location, the sensor appears at that location and is immobile.</p>",
+				"favorite": false,
 				"secretDescription": "",
-				"source": {
-					"name": "",
-					"link": "",
-					"publisher": ""
-				},
+				"source": "",
 				"uses": {
-					"value": null,
-					"max": "",
-					"per": null,
+					"value": 1,
+					"max": "1",
+					"per": "day",
 					"recharge": {
-						"formula": "1d6",
-						"threshold": "6"
+						"formula": "",
+						"threshold": ""
 					}
 				},
 				"schema": {
-					"version": 0.001,
-					"lastMigration": null
+					"version": 0.003,
+					"lastMigration": {
+						"version": {
+							"schema": null,
+							"foundry": "10.291",
+							"system": "0.10.7"
+						}
+					}
 				},
-				"concentration": false,
-				"featureType": "naturalWeapon",
-				"prerequisite": ""
+				"components": {
+					"vocalized": true,
+					"seen": true,
+					"material": true
+				},
+				"concentration": true,
+				"level": 5,
+				"materials": "focus worth at least 1, 000 gold",
+				"materialsConsumed": false,
+				"prepared": true,
+				"prerequisite": "",
+				"ritual": false,
+				"schools": {
+					"primary": "divination",
+					"secondary": [
+						"arcane",
+						"divine",
+						"nature",
+						"scrying"
+					]
+				}
 			},
-			"_id": "sywAdRzXnzc16TDM",
-			"img": "icons/magic/acid/projectile-smoke-glowing.webp",
-			"effects": [],
+			"_id": "KVwzxQTDAXKDHcKi",
 			"folder": null,
 			"sort": 0,
 			"ownership": {
-				"default": 0,
-				"BPdbTKQg018lvS6q": 3
-			},
-			"flags": {},
-			"_stats": {
-				"systemId": "a5e",
-				"systemVersion": "0.13.3",
-				"coreVersion": "11.305",
-				"createdTime": 1689536607873,
-				"modifiedTime": 1689537771998,
-				"lastModifiedBy": "BPdbTKQg018lvS6q"
+				"default": 0
 			}
 		}
 	],
@@ -1630,22 +2288,9 @@
 	"flags": {
 		"a5e": {
 			"sheetIsLocked": true,
-			"currentTab": "core"
-		},
-		"exportSource": {
-			"world": "motif",
-			"system": "a5e",
-			"coreVersion": "11.305",
-			"systemVersion": "0.13.3"
+			"currentTab": "core",
+			"showSpellSlots": false
 		}
 	},
-	"_stats": {
-		"systemId": "a5e",
-		"systemVersion": "0.13.3",
-		"coreVersion": "11.305",
-		"createdTime": 1689536976164,
-		"modifiedTime": 1689552051493,
-		"lastModifiedBy": "YAxwsFl3SDgjuxrk"
-	},
-	"_id": "7wwylmzi5r842gjv"
+	"_id": "b2rk05yfed1uy88j"
 }
