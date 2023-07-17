@@ -76,11 +76,11 @@
         >
             <Checkbox
                 label="A5E.settings.hideActionListInLockedMode"
-                checked={updates.get("hideActionListInLockedMode") ??
+                checked={updates.get("collapseActionList") ??
                     $hideActionList ??
                     false}
                 on:updateSelection={({ detail }) =>
-                    updates.set("hideActionListInLockedMode", detail)}
+                    updates.set("collapseActionList", detail)}
             />
         </FormSection>
 
@@ -90,11 +90,11 @@
         >
             <Checkbox
                 label="A5E.settings.hideDeletionConfirmationDialog"
-                checked={updates.get("hideDeletionConfirmationDialog") ??
+                checked={updates.get("hideDeleteConfirmation") ??
                     $hideDeleteDialog ??
                     false}
                 on:updateSelection={({ detail }) =>
-                    updates.set("hideDeletionConfirmationDialog", detail)}
+                    updates.set("hideDeleteConfirmation", detail)}
             />
         </FormSection>
 
