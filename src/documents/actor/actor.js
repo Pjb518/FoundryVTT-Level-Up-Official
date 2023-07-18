@@ -442,7 +442,7 @@ export default class ActorA5e extends Actor {
 
     // If temp hp drops to or below 0, set the value to 0.
     if (foundry.utils.getProperty(changed, 'system.attributes.hp.temp') <= 0) {
-      foundry.utils.setProperty(changed, 'system.attributes.hp.temp', '');
+      foundry.utils.setProperty(changed, 'system.attributes.hp.temp', 0);
     }
 
     // Reset death save counters
