@@ -330,6 +330,18 @@ A5E.creatureTypes = {
   undead: 'A5E.CreatureUndead'
 };
 
+A5E.DAMAGED_STATES = {
+  INTACT: 0,
+  DAMAGED: 1,
+  BROKEN: 2
+};
+
+A5E.damagedStates = {
+  0: 'A5E.damagedState.intact',
+  1: 'A5E.damagedState.damaged',
+  2: 'A5E.damagedState.broken'
+};
+
 A5E.damageScalingModes = {
   cantrip: 'A5E.scaling.modes.cantrip',
   spellLevel: 'A5E.scaling.modes.spellLevel',

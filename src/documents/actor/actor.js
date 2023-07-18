@@ -121,7 +121,7 @@ export default class ActorA5e extends Actor {
     // Add AC data to the actor.
     if (this.system.schema.version >= 0.005) {
       if (typeof this.system.attributes.ac !== 'object') {
-        this.system.attributes.ac = { base: this.system.attributes.ac };
+        this.system.attributes.ac = { baseFormula: `${this.system.attributes.ac}` };
       }
       this.system.attributes.ac.changes = { override: null, bonuses: [] };
     }
@@ -279,7 +279,10 @@ export default class ActorA5e extends Actor {
     const changes = this.prepareArmorChanges();
 
     // Add Base to changes
-    const baseAC = parseInt(this.system.attributes.ac.base, 10) || 10;
+    const baseAC = getDeterministicBonus(
+      this.system.attributes.ac.baseFormula || '10 + @dex.mod',
+      this.getRollData()
+    );
     changes.override ??= { name: 'Natural Armor', mode: CONFIG.A5E.ARMOR_MODES.OVERRIDE, value: baseAC };
 
     // Calculate the final AC value.

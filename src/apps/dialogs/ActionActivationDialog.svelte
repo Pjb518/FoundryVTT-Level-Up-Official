@@ -240,7 +240,12 @@
     {/if}
 
     <section>
-        <button on:click|preventDefault={onSubmit}>
+        <!-- svelte-ignore missing-declaration -->
+        <button
+            disabled={game.settings.get("a5e", "preventActionRollOnWarning") &&
+                warnings.length}
+            on:click|preventDefault={onSubmit}
+        >
             {#if warnings.length}
                 <i
                     class="fa-solid fa-circle-exclamation"

@@ -78,7 +78,7 @@
 
     const actor = getContext("actor");
     const { A5E } = CONFIG;
-    const { EQUIPPED_STATES } = A5E;
+    const { DAMAGED_STATES, EQUIPPED_STATES } = A5E;
     let usesType = actionId ? "action" : "item";
 
     $: flags = $actor.flags;
@@ -268,13 +268,22 @@
                 />
 
                 <button
-                    class="action-button fas fa-heart-crack"
-                    class:active={item.system.broken}
-                    data-tooltip={item.system.broken
-                        ? "A5E.ButtonToolTipFixBroken"
-                        : "A5E.ButtonToolTipBroken"}
+                    class="action-button fas"
+                    class:fa-heart={item.system.damagedState ===
+                        DAMAGED_STATES.INTACT}
+                    class:fa-heart-crack={item.system.damagedState ===
+                        DAMAGED_STATES.DAMAGED}
+                    class:fa-heart-pulse={item.system.damagedState ===
+                        DAMAGED_STATES.BROKEN}
+                    class:active={[
+                        DAMAGED_STATES.DAMAGED,
+                        DAMAGED_STATES.BROKEN,
+                    ].includes(item.system.damagedState)}
+                    data-tooltip={A5E.damagedStates[
+                        item.system.damagedState ?? 0
+                    ]}
                     data-tooltip-direction="UP"
-                    on:click|stopPropagation={() => item.toggleBroken()}
+                    on:click|stopPropagation={() => item.toggleDamagedState()}
                 />
             {/if}
 

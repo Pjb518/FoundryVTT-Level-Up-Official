@@ -44,6 +44,8 @@
     // $: name = getItemName($item);
 
     const item = getContext("item");
+    const { A5E } = CONFIG;
+    const { DAMAGED_STATES } = A5E;
     const prerequisiteTypes = ["maneuver", "feature", "spell"];
     const headerButtonTypes = ["object"];
     const appId = getContext("appId");
@@ -57,6 +59,7 @@
 
 <header class="sheet-header">
     <!-- svelte-ignore a11y-click-events-have-key-events -->
+    <!-- svelte-ignore a11y-no-noninteractive-element-interactions -->
     <img
         class="item-image"
         src={$item.img}
@@ -132,13 +135,20 @@
             {/if}
 
             <button
-                class="header-button fa-solid fa-heart-crack"
-                class:active={$item.system.broken}
-                data-tooltip={$item.system.broken
-                    ? "A5E.ButtonToolTipFixBroken"
-                    : "A5E.ButtonToolTipBroken"}
+                class="header-button fas"
+                class:fa-heart={$item.system.damagedState ===
+                    DAMAGED_STATES.INTACT}
+                class:fa-heart-crack={$item.system.damagedState ===
+                    DAMAGED_STATES.DAMAGED}
+                class:fa-heart-pulse={$item.system.damagedState ===
+                    DAMAGED_STATES.BROKEN}
+                class:active={[
+                    DAMAGED_STATES.DAMAGED,
+                    DAMAGED_STATES.BROKEN,
+                ].includes($item.system.damagedState)}
+                data-tooltip={A5E.damagedStates[$item.system.damagedState ?? 0]}
                 data-tooltip-direction="UP"
-                on:click|stopPropagation={() => $item.toggleBroken()}
+                on:click|stopPropagation={() => $item.toggleDamagedState()}
             />
         </div>
     {/if}

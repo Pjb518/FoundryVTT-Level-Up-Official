@@ -24,14 +24,14 @@
             <div class="u-w-full">
                 <input
                     class="a5e-input"
-                    type="number"
+                    type="text"
                     name="system.attributes.ac.base"
                     value={$actor.system.attributes.ac.base}
                     on:change={({ target }) =>
                         updateDocumentDataFromField(
                             $actor,
                             target.name,
-                            Number(target.value)
+                            target.value
                         )}
                 />
             </div>

@@ -46,6 +46,7 @@
 {/if}
 
 <!-- svelte-ignore a11y-click-events-have-key-events -->
+<!-- svelte-ignore a11y-no-static-element-interactions -->
 <div
     class="a5e-roll a5e-roll--total u-pointer"
     on:click={() => (tooltipIsVisible = !tooltipIsVisible)}
@@ -57,11 +58,11 @@
             <li>
                 <button
                     class="button"
-                    data-tooltip="Apply Quarter Damage"
+                    data-tooltip="Apply Damage"
                     data-tooltip-direction="UP"
-                    on:click|stopPropagation={() => applyDamage(0.25)}
+                    on:click|stopPropagation={() => applyDamage()}
                 >
-                    <i class="fa-solid fa-shield button__icon" />
+                    <i class="fa-solid fa-heart-crack button__icon" />
                 </button>
             </li>
 
@@ -79,11 +80,11 @@
             <li>
                 <button
                     class="button"
-                    data-tooltip="Apply Damage"
+                    data-tooltip="Apply Quarter Damage"
                     data-tooltip-direction="UP"
-                    on:click|stopPropagation={() => applyDamage()}
+                    on:click|stopPropagation={() => applyDamage(0.25)}
                 >
-                    <i class="fa-solid fa-heart-crack button__icon" />
+                    <i class="fa-solid fa-shield button__icon" />
                 </button>
             </li>
 
