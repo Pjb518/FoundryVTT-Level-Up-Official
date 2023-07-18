@@ -1,11 +1,11 @@
 import A5E from '../../config';
 
 const base = {
-  bar: ['attributes.hp', 'attributes.hp.temp'],
+  bar: ['attributes.hp'],
   value: [
     ...Object.keys(A5E.skills).map((s) => `skills.${s}.passive`),
     ...Object.keys(A5E.abilities).map((a) => `abilities.${a}.value`),
-    'attributes.ac'
+    'attributes.hp.temp'
   ]
 };
 
