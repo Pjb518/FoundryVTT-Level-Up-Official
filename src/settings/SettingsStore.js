@@ -180,6 +180,39 @@ class A5eGameSettings extends TJSGameSettings {
           type: Boolean
         }
       },
+      // Roll Settings
+      {
+        namespace,
+        key: 'critCalculationMode',
+        options: {
+          name: 'A5E.settings.critCalculationMode',
+          hint: 'A5E.settings.hints.critCalculationMode',
+          scope: scope.world,
+          config: true,
+          default: 'doubleAllDamage',
+          type: String,
+          choices: {
+            doubleAllDamage: 'A5E.settings.critDoubleAllDamage',
+            doubleDiceDamage: 'A5E.settings.critDoubleDiceDamage',
+            doubleDiceQuantity: 'A5E.settings.critDoubleDiceQuantity',
+            doubleDiceQuantityAndMods: 'A5E.settings.critDoubleDiceQuantityAndMods',
+            maxDamage: 'A5E.settings.critMaxDamage',
+            maxDamagePlusRoll: 'A5E.settings.critMaxDamagePlusRoll'
+          }
+        }
+      },
+      {
+        namespace,
+        key: 'preventActionRollOnWarning',
+        options: {
+          name: 'A5E.settings.preventActionRollOnWarning',
+          hint: 'A5E.settings.hints.preventActionRollOnWarning',
+          scope: scope.world,
+          config: true,
+          default: false,
+          type: Boolean
+        }
+      },
       // 5E Specific Settings
       {
         namespace,

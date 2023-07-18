@@ -11,6 +11,7 @@
     import SettingsCanvasTab from "./SettingsCanvasTab.svelte";
     import SettingsChatCardTab from "./SettingsChatCardTab.svelte";
     import SettingsEffectsTab from "./SettingsEffectsTab.svelte";
+    import SettingsRollTab from "./SettingsRollTab.svelte";
 
     export let elementRoot;
     export let { appId, settings, dialog } =
@@ -51,6 +52,11 @@
             name: "effects",
             label: "A5E.settings.navigation.activeEffects",
             component: SettingsEffectsTab,
+        },
+        {
+            name: "rolls",
+            label: "A5E.settings.navigation.rolls",
+            component: SettingsRollTab,
         },
         {
             name: "5eSettings",
