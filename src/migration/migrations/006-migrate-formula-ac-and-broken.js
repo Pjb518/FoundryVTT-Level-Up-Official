@@ -12,8 +12,15 @@ export default class Migration006MigrateFormulaACAndBroken extends MigrationBase
   async updateActor(actorData) {
     const { base } = actorData.system.attributes.ac ?? { base: 10 };
 
-    foundry.utils.setProperty(actorData, 'system.attributes.ac.baseFormula', `${base}`);
-    actorData['system.attributes.ac.-=base'] = null;
+    if (typeof actorData.system.attributes.ac !== 'object') {
+      foundry.utils.setProperty(actorData, 'system.attributes.ac', {
+        baseFormula: `${actorData.system.attributes.ac}`,
+        value: 0
+      });
+    } else {
+      foundry.utils.setProperty(actorData, 'system.attributes.ac.baseFormula', `${base}`);
+      actorData['system.attributes.ac.-=base'] = null;
+    }
   }
 
   /**
@@ -22,5 +29,13 @@ export default class Migration006MigrateFormulaACAndBroken extends MigrationBase
    * @returns {Promise<void>}
    */
   async updateItem(itemData) {
+    if (itemData.type !== 'object') return;
+
+    const damagedState = itemData.system.broken
+      ? CONFIG.A5E.DAMAGED_STATES.BROKEN
+      : CONFIG.A5E.DAMAGED_STATES.INTACT;
+
+    foundry.utils.setProperty(itemData, 'system.damagedState', damagedState);
+    itemData['system.-=broken'] = null;
   }
 }
