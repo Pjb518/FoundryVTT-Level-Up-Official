@@ -280,8 +280,8 @@ export default class ActorA5e extends Actor {
 
     // Add Base to changes
     const baseAC = getDeterministicBonus(
-      this.system.attribute.ac.baseFormula || '10 + @dex.mod',
-      this.getRollData
+      this.system.attributes.ac.baseFormula || '10 + @dex.mod',
+      this.getRollData()
     );
     changes.override ??= { name: 'Natural Armor', mode: CONFIG.A5E.ARMOR_MODES.OVERRIDE, value: baseAC };
 

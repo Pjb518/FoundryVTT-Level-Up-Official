@@ -240,14 +240,14 @@
             </FormSection>
 
             <FormSection heading="A5E.ItemCondition" --direction="column">
-                <Checkbox
-                    label="A5E.ItemBroken"
-                    checked={$item.system.broken}
+                <RadioGroup
+                    options={Object.entries(A5E.damagedStates)}
+                    selected={$item.system.damagedState}
                     on:updateSelection={({ detail }) =>
                         updateDocumentDataFromField(
                             $item,
-                            "system.broken",
-                            detail
+                            "system.damagedState",
+                            Number(detail)
                         )}
                 />
             </FormSection>

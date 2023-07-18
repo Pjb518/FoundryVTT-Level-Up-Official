@@ -36,17 +36,16 @@ export default class ItemA5e extends Item {
     const itemData = this.system;
 
     // Calculate AC formula
-    const { ac } = itemData;
-    if (!ac) return;
+    const { baseFormula, maxDex } = itemData.ac ?? {};
+    if (!baseFormula) return;
 
-    const { baseFormula, maxDex } = ac;
     let formula = baseFormula;
     if (maxDex && maxDex > 0) {
       formula = baseFormula
         .replaceAll(/@dex\.mod|@abilities\.dex\.mod/gm, `min(@dex.mod, ${maxDex})`);
     }
 
-    if (itemData.broken) {
+    if (itemData.damagedState === CONFIG.A5E.DAMAGED_STATES.BROKEN) {
       if (itemData.objectType === 'armor') {
         formula = `10 + max(floor((${formula}) / 2), 1)`;
       } else formula = `max(floor((${formula}) / 2), 1)`;
@@ -463,11 +462,14 @@ export default class ItemA5e extends Item {
     });
   }
 
-  async toggleBroken() {
+  async toggleDamagedState() {
     if (!this.type === 'object') return;
 
+    const currentState = this.system.damagedState;
+    const newState = (currentState + 1) % 3;
+
     await this.update({
-      'system.broken': !this.system.broken
+      'system.damagedState': newState
     });
   }
 
