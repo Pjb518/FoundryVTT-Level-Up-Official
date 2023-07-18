@@ -18,15 +18,15 @@
 <article>
     <div class="u-flex u-flex-col u-gap-md">
         <FormSection
-            heading="A5E.armorClass.base"
+            heading="A5E.armorClass.baseFormula"
             hint="For NPCs this value states their Natural Armor."
         >
             <div class="u-w-full">
                 <input
                     class="a5e-input"
                     type="text"
-                    name="system.attributes.ac.base"
-                    value={$actor.system.attributes.ac.base}
+                    name="system.attributes.ac.baseFormula"
+                    value={$actor.system.attributes.ac.baseFormula}
                     on:change={({ target }) =>
                         updateDocumentDataFromField(
                             $actor,
