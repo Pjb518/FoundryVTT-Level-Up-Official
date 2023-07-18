@@ -120,6 +120,9 @@ export default class ActorA5e extends Actor {
 
     // Add AC data to the actor.
     if (this.system.schema.version >= 0.005) {
+      if (typeof this.system.attributes.ac !== 'object') {
+        this.system.attributes.ac = { base: this.system.attributes.ac };
+      }
       this.system.attributes.ac.changes = { override: null, bonuses: [] };
     }
 
