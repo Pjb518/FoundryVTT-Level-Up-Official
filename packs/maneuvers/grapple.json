@@ -3,11 +3,7 @@
 	"type": "maneuver",
 	"img": "icons/skills/melee/unarmed-punch-fist.webp",
 	"effects": [],
-	"flags": {
-		"core": {
-			"sourceId": "Compendium.a5e.a5e-maneuvers.9umrahwm68f81d7l"
-		}
-	},
+	"flags": {},
 	"system": {
 		"actions": {
 			"wOKLPnhKpnhU1kEj": {
@@ -23,7 +19,7 @@
 				},
 				"ranges": {
 					"5nrDtksc3KPCbcJd": {
-						"range": "touch"
+						"range": "fiveFeet"
 					}
 				},
 				"area": {
@@ -48,7 +44,15 @@
 						"type": "savingThrow"
 					}
 				},
-				"consumers": {}
+				"consumers": {},
+				"rolls": {
+					"GjyfHt0lKnETufaD": {
+						"type": "damage",
+						"default": true,
+						"formula": "1 + @finesse.mod",
+						"canCrit": false
+					}
+				}
 			}
 		},
 		"description": "<p>You can use the Grapple maneuver to grab or wrestle a creature. If you are able to make multiple attacks with the Attack action, this maneuver replaces one of them.</p>\n<p>You must have at least one free hand to attempt a grapple, your target must be within your reach, and the target must be no more than one size category larger than you. The target makes a Strength or Dexterity saving throw against your maneuver DC. On a failure, you deal basic melee damage and the target becomes grappled (see Appendix A: Conditions on page 616). In addition to things that end the condition, you can release the target at any time (no action required).</p>\n<p><em>Escaping a Grapple.</em> While grappled, a creature can use its action to attempt to escape. It must succeed on a Strength or Dexterity saving throw against your maneuver DC.</p>\n<p><em>Moving a Grappled Creature. </em>When you move, you can drag or carry the grappled creature with you. When you do so, your Speed is halved, unless the creature's weight is within your carrying capacity and you are not encumbered by bulky items.</p>\n<p><em>Freeing a Grappled Creature.</em> You can use the Grapple maneuver to try to free another grappled or restrained creature. The creature grappling or restraining the target makes a Strength saving throw against your maneuver DC. If it fails the saving throw, the grappled or restrained creature is freed. Additionally, you may move the freed creature 5 feet in any direction.</p>",
@@ -65,12 +69,12 @@
 			}
 		},
 		"schema": {
-			"version": 0.003,
+			"version": 0.006,
 			"lastMigration": {
 				"version": {
-					"schema": null,
-					"foundry": "10.291",
-					"system": "0.10.7"
+					"schema": 0.005,
+					"foundry": "11.305",
+					"system": "0.13.3"
 				}
 			}
 		},
@@ -78,7 +82,9 @@
 		"exertionCost": 0,
 		"isStance": false,
 		"prerequisite": "",
-		"tradition": ""
+		"tradition": "",
+		"equippedState": 0
 	},
+	"folder": null,
 	"_id": "9umrahwm68f81d7l"
 }
