@@ -64,7 +64,12 @@ export default class ActiveEffectA5e extends ActiveEffect {
     change.key = change.key.replace('@token.', '');
 
     // Resolve/Validate Data
-    if (phase !== 'afterDerived') {
+    const effectConfig = game.a5e.activeEffects.EffectOptions.options
+      .all.allOptionsObj?.[change.key];
+
+    if (effectConfig && effectConfig.phase === 'applyAEs') {
+      // Add support for weird effects
+    } else if (phase !== 'afterDerived') {
       const resValue = Roll.replaceFormulaData(
         change.value,
         document.getRollData(),

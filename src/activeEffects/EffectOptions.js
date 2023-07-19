@@ -17,13 +17,13 @@ export default class EffectOptions {
 
   static CUSTOM_ONLY = Object.keys(EffectOptions.MODES).filter((k) => k === 'CUSTOM');
 
-  constructor(fieldOption, sampleValue, data = { modes: [], options: [], phase: 'applyAEs' }) {
+  constructor(fieldOption, sampleValue, data = { modes: [], options: [], phase: 'afterDerived' }) {
     this.fieldOption = fieldOption;
     this.label = CONFIG.A5E.effectsKeyLocalizations?.[fieldOption] ?? fieldOption;
     this.sampleValue = sampleValue;
     this.modes = data.modes ?? [];
     this.options = data.options ?? [];
-    this.phase = data.phase ?? 'applyAEs';
+    this.phase = data.phase ?? 'afterDerived';
   }
 
   static createOptions() {
@@ -63,7 +63,8 @@ export default class EffectOptions {
           baseValues[option][0],
           {
             modes: baseValues[option][1] ?? EffectOptions.DEFAULT_MODES,
-            options: baseValues[option][2] ?? []
+            options: baseValues[option][2] ?? [],
+            phase: baseValues[option]?.[3] ?? 'afterDerived'
           }
         );
       });
@@ -167,6 +168,7 @@ export default class EffectOptions {
       });
 
     // Proficiency is prepared in base data so we add it here.
+    baseValues['system.attributes.ac.baseFormula'] = [0, EffectOptions.OVERRIDE_ONLY, [], 'applyAEs'];
     baseValues['system.attributes.prof'] = [0, EffectOptions.DEFAULT_MODES];
 
     // Add options for size

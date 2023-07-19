@@ -33,7 +33,7 @@ export default function registerEffectGroupConfig(A5E) {
     ac: {
       label: 'A5E.effects.groups.ac',
       items: [
-        'system.attributes.ac.base',
+        'system.attributes.ac.baseFormula',
         'system.attributes.ac.value'
       ]
     },
