@@ -10,16 +10,63 @@
     export let actionId = "";
     export let item;
 
-    const { weaponProperties } = CONFIG.A5E;
+    function prepareArmorProperties(item) {
+        const properties = [];
+
+        if (item.system.armorProperties) {
+            properties.push(
+                ...item.system.armorProperties.map((property) =>
+                    localize(armorProperties[property] ?? property)
+                )
+            );
+        }
+
+        properties.push(...prepareMaterialProperties(item));
+        properties.sort((a, b) => a.localeCompare(b));
+
+        return properties.join(", ");
+    }
+
+    function prepareMaterialProperties(item) {
+        if (!item.system.materialProperties) return [];
+
+        return item.system.materialProperties.map((property) =>
+            localize(materialProperties[property] ?? property)
+        );
+    }
+
+    function prepareWeaponProperties(item) {
+        const properties = [];
+
+        if (item.system.weaponProperties) {
+            properties.push(
+                ...item.system.weaponProperties.map((property) =>
+                    localize(weaponProperties[property] ?? property)
+                )
+            );
+        }
+
+        properties.push(...prepareMaterialProperties(item));
+        properties.sort((a, b) => a.localeCompare(b));
+
+        return properties.join(", ");
+    }
+
+    const { armorProperties, materialProperties, weaponProperties } =
+        CONFIG.A5E;
+
+    $: armorPropertyList = prepareArmorProperties(item);
+    $: weaponPropertyList = prepareWeaponProperties(item);
+
     let listHeight;
 </script>
 
-{#if !actionId && item.system.objectType === "weapon" && item.system.weaponProperties.length}
-    <p class="object-properties">
-        {item.system.weaponProperties
-            .map((property) => localize(weaponProperties[property] ?? property))
-            .join(", ")}
-    </p>
+{#if !actionId}
+    {#if item.system.objectType === "armor" && armorPropertyList.length}
+        <p class="object-properties">{armorPropertyList}</p>
+    {:else if item.system.objectType === "weapon" && weaponPropertyList.length}
+        <p class="object-properties">{weaponPropertyList}</p>
+    {/if}
 {/if}
 
 <dl
