@@ -11,6 +11,7 @@ const config = {
     port: 30001,
     open: true,
     proxy: {
+      '^(/systems/a5e/(assets|lang|packs|style.css))': 'http://localhost:30000',
       '^(?!/systems/a5e)': 'http://localhost:30000',
       '/socket.io': {
         target: 'ws://localhost:30000',
