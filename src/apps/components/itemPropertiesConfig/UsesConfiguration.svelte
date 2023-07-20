@@ -10,11 +10,19 @@
 
     function prepareUsesSummary(item) {
         const { uses } = item.system;
+
+        const maxUses = item.actor
+            ? getDeterministicBonus(
+                  uses?.max ?? 0,
+                  item.actor?.getRollData() ?? {}
+              )
+            : uses?.max;
+
         let summary;
 
-        if (uses.value && uses.max) summary = `${uses.value} / ${uses.max}`;
-        else if (uses.value && !uses.max) summary = uses.value;
-        else if (!uses.value && uses.max) summary = `0 / ${uses.max}`;
+        if (uses.value && maxUses) summary = `${uses.value} / ${maxUses}`;
+        else if (uses.value && !maxUses) summary = uses.value;
+        else if (!uses.value && maxUses) summary = `0 / ${maxUses}`;
         else return null;
 
         if (uses.per === "recharge") {
