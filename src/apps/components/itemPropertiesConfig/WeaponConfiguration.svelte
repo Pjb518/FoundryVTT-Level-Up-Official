@@ -2,20 +2,27 @@
     import { getContext } from "svelte";
     import { localize } from "@typhonjs-fvtt/runtime/svelte/helper";
 
-    import localeSort from "../../../utils/localeSort";
     import updateDocumentDataFromField from "../../../utils/updateDocumentDataFromField";
 
     import FormSection from "../FormSection.svelte";
     import CheckboxGroup from "../CheckboxGroup.svelte";
 
-    function toggleEditMode() {
-        editMode = !editMode;
+    function prepareWeaponProperties(item) {
+        const properties = item.system.weaponProperties.map(
+            (property) => weaponProperties[property] ?? property
+        );
+
+        properties.sort((a, b) => a.localeCompare(b));
+
+        return properties.join(", ");
     }
 
     const item = getContext("item");
     const { weaponProperties } = CONFIG.A5E;
 
     let editMode = false;
+
+    $: selectedWeaponProperties = prepareWeaponProperties($item);
 </script>
 
 <section>
@@ -32,7 +39,7 @@
             u-text-lg
             u-w-fit
         "
-        on:click={toggleEditMode}
+        on:click={() => (editMode = !editMode)}
     >
         <h3>{localize("A5E.TabWeaponProperties")}</h3>
         <i
@@ -61,29 +68,9 @@
         <dl class="a5e-box u-flex u-flex-col u-gap-sm u-m-0 u-p-md u-text-sm">
             <div class="u-flex u-gap-md">
                 <dt class="u-text-bold">{localize("A5E.WeaponProperties")}:</dt>
+
                 <dd class="u-m-0 u-p-0">
-                    {#if $item.system.weaponProperties.length}
-                        <ul
-                            class="
-                            u-comma-list
-                            u-flex
-                            u-flex-shrink-0
-                            u-gap-ch
-                            u-list-style-none
-                            u-m-0
-                            u-p-0
-                            u-w-fit
-                        "
-                        >
-                            {#each localeSort($item.system.weaponProperties) as property}
-                                <li key={property}>
-                                    {weaponProperties[property] ?? property}
-                                </li>
-                            {/each}
-                        </ul>
-                    {:else}
-                        {localize("A5E.None")}
-                    {/if}
+                    {selectedWeaponProperties || localize("A5E.None")}
                 </dd>
             </div>
         </dl>
