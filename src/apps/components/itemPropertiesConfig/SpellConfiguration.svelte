@@ -2,7 +2,6 @@
     import { getContext } from "svelte";
     import { localize } from "@typhonjs-fvtt/runtime/svelte/helper";
 
-    import localeSort from "../../../utils/localeSort";
     import objectEntriesNumberKeyConverter from "../../../utils/objectEntriesNumberKeyConverter";
     import updateDocumentDataFromField from "../../../utils/updateDocumentDataFromField";
 
@@ -12,19 +11,43 @@
     import RadioGroup from "../RadioGroup.svelte";
     import Tag from "../Tag.svelte";
 
+    function prepareSpellComponents(item) {
+        return Object.entries(item.system.components)
+            .filter(([_, state]) => state)
+            .map(
+                ([component]) =>
+                    spellComponentAbbreviations[component] ?? component
+            )
+            .join(", ");
+    }
+
+    function prepareSecondarySpellSchools(item) {
+        const schools = item.system.schools.secondary.map(
+            (school) => spellSchools.secondary[school] ?? school
+        );
+
+        schools.sort((a, b) => a.localeCompare(b));
+
+        return schools.join(", ");
+    }
+
     const item = getContext("item");
-    const appId = getContext("appId");
-    const { A5E } = CONFIG;
+
+    const {
+        spellComponents,
+        spellComponentAbbreviations,
+        spellLevels,
+        spellSchools,
+    } = CONFIG.A5E;
 
     let editMode = false;
 
-    function toggleEditMode() {
-        editMode = !editMode;
-    }
+    $: selectedSpellComponents = prepareSpellComponents($item);
+    $: selectedSecondarySpellSchools = prepareSecondarySpellSchools($item);
 </script>
 
 <section>
-    <!-- svelte-ignore a11y-click-events-have-key-events -->
+    <!-- svelte-ignore a11y-click-events-have-key-events a11y-no-static-element-interactions -->
     <header
         class="
             u-align-center
@@ -37,9 +60,10 @@
             u-text-lg
             u-w-fit
         "
-        on:click={toggleEditMode}
+        on:click={() => (editMode = !editMode)}
     >
         <h3>{localize("A5E.TabSpellConfiguration")}</h3>
+
         <i
             class="u-text-sm fas"
             class:fa-chevron-up={editMode}
@@ -51,7 +75,7 @@
         <div class="u-flex u-flex-col u-gap-md">
             <FormSection heading="A5E.SpellLevel">
                 <RadioGroup
-                    options={objectEntriesNumberKeyConverter(A5E.spellLevels)}
+                    options={objectEntriesNumberKeyConverter(spellLevels)}
                     selected={$item.system.level}
                     on:updateSelection={(event) =>
                         updateDocumentDataFromField(
@@ -64,7 +88,7 @@
 
             <FormSection heading="A5E.SpellSchoolPrimary">
                 <RadioGroup
-                    options={Object.entries(A5E.spellSchools.primary)}
+                    options={Object.entries(spellSchools.primary)}
                     selected={$item.system.schools.primary}
                     on:updateSelection={(event) =>
                         updateDocumentDataFromField(
@@ -77,7 +101,7 @@
 
             <FormSection heading="A5E.SpellSchoolSecondaryPlural">
                 <CheckboxGroup
-                    options={Object.entries(A5E.spellSchools.secondary)}
+                    options={Object.entries(spellSchools.secondary)}
                     selected={$item.system.schools.secondary}
                     on:updateSelection={(event) =>
                         updateDocumentDataFromField(
@@ -92,7 +116,7 @@
                 <ul
                     class="u-flex u-flex-wrap u-gap-sm u-list-style-none u-m-0 u-p-0 u-text-xs u-w-full"
                 >
-                    {#each Object.entries(A5E.spellComponents) as [value, label]}
+                    {#each Object.entries(spellComponents) as [value, label]}
                         <Tag
                             {label}
                             {value}
@@ -174,8 +198,9 @@
                     <dt class="summary-list__label">
                         {localize("A5E.SpellLevel")}:
                     </dt>
+
                     <dd class="summary-list__value">
-                        {A5E.spellLevels[$item.system.level]}
+                        {spellLevels[$item.system.level]}
                     </dd>
                 </div>
 
@@ -183,8 +208,9 @@
                     <dt class="summary-list__label">
                         {localize("A5E.SpellSchoolPrimary")}:
                     </dt>
+
                     <dd class="summary-list__value">
-                        {A5E.spellSchools.primary[$item.system.schools.primary]}
+                        {spellSchools.primary[$item.system.schools.primary]}
                     </dd>
                 </div>
 
@@ -192,18 +218,9 @@
                     <dt class="summary-list__label">
                         {localize("A5E.SpellSchoolSecondaryPlural")}:
                     </dt>
+
                     <dd class="summary-list__value">
-                        {#if $item.system.schools.secondary.length}
-                            {localeSort(
-                                $item.system.schools.secondary.map(
-                                    (school) =>
-                                        A5E.spellSchools.secondary[school] ??
-                                        school
-                                )
-                            ).join(", ")}
-                        {:else}
-                            {localize("A5E.None")}
-                        {/if}
+                        {selectedSecondarySpellSchools || localize("A5E.None")}
                     </dd>
                 </div>
 
@@ -213,20 +230,9 @@
                     <dt class="summary-list__label">
                         {localize("A5E.SpellComponents")}:
                     </dt>
+
                     <dd class="summary-list__value">
-                        {#if Object.values($item.system.components).some(Boolean)}
-                            {Object.entries($item.system.components)
-                                .filter(([_, state]) => state)
-                                .map(
-                                    ([component]) =>
-                                        A5E.spellComponentAbbreviations[
-                                            component
-                                        ] ?? component
-                                )
-                                .join(", ")}
-                        {:else}
-                            {localize("A5E.None")}
-                        {/if}
+                        {selectedSpellComponents || localize("A5E.None")}
                     </dd>
                 </div>
 
