@@ -457,7 +457,7 @@
 			"_id": "aq1sUcJD0BKsUMLQ",
 			"name": "Shortsword",
 			"type": "object",
-			"img": "icons/svg/sword.svg",
+			"img": "icons/weapons/swords/sword-ringed-engraved.webp",
 			"effects": [],
 			"folder": "Trz8owMBHCekLeQa",
 			"sort": 2200000,
@@ -514,24 +514,26 @@
 							},
 							"rmv21QmYgjpRuVQR": {
 								"canCrit": true,
-								"damageType": "slashing",
-								"formula": "1d6+@finesse.mod",
+								"damageType": "piercing",
+								"formula": "1d6 + @finesse.mod",
 								"name": "Base",
 								"type": "damage"
 							},
 							"YIL7avvRtPtWDXye": {
 								"canCrit": true,
-								"damageType": "slashing",
+								"damageType": "piercing",
 								"formula": "8d6",
 								"name": "Sneak Attack",
-								"type": "damage"
+								"type": "damage",
+								"label": "Sneak Attack"
 							},
 							"b5VyujDO5rjbFrZQ": {
 								"canCrit": true,
 								"damageType": "poison",
 								"formula": "5d6",
 								"name": "Deadly Poison",
-								"type": "damage"
+								"type": "damage",
+								"label": "Deadly Poison"
 							}
 						},
 						"prompts": {
@@ -548,7 +550,7 @@
 						"consumers": {}
 					}
 				},
-				"description": "<p><em>Melee Weapon Attack:</em> +11 to hit, reach 5 ft., one target. <em>Hit:</em> 8 (1d6 + 5) piercing damage. The target makes a DC 19 Constitution saving throw, taking 17 (5d6) poison damage on a failure, or half as much damage on a success.</p><p><em>Defensive (medium), finesse, parrying</em></p><p><strong>Defensive.</strong> This weapon is designed to be used with a shield of the stated degree or lighter (light, medium, or heavy). When you make an attack with this weapon and are using a shield designed for it, you can use a bonus action to either make an attack with your shield or increase your Armor Class by 1 until the start of your next turn.</p><p><strong>Finesse.</strong> You may choose to use your Dexterity modifier for attack and damage rolls made with this weapon.</p><p><strong>Parrying.</strong> When you are wielding this weapon and you are not using a shield, once before your next turn you can gain an expertise die to your AC against a single melee attack made against you by a creature you can see. You cannot use this property while incapacitated, paralyzed, rattled, restrained, or stunned.</p>",
+				"description": "<p><strong>Defensive.</strong> This weapon is designed to be used with a shield of the stated degree or lighter (light, medium, or heavy). When you make an attack with this weapon and are using a shield designed for it, you can use a bonus action to either make an attack with your shield or increase your Armor Class by 1 until the start of your next turn.</p>\n<p><strong>Finesse.</strong> You may choose to use your Dexterity modifier for attack and damage rolls made with this weapon.</p>\n<p><strong>Parrying.</strong> When you are wielding this weapon and you are not using a shield, once before your next turn you can gain an expertise die to your AC against a single melee attack made against you by a creature you can see. You cannot use this property while incapacitated, paralyzed, rattled, restrained, or stunned.</p>",
 				"favorite": true,
 				"secretDescription": "",
 				"source": "",
@@ -578,7 +580,7 @@
 				"bulky": false,
 				"craftingComponents": "",
 				"damagedState": 0,
-				"equippedState": 2,
+				"equippedState": 1,
 				"materialProperties": [],
 				"objectType": "weapon",
 				"plotItem": false,
@@ -607,7 +609,7 @@
 			"_id": "nX0Z7s07T0ZYu0S7",
 			"name": "Light Crossbow",
 			"type": "object",
-			"img": "icons/svg/thrust.svg",
+			"img": "icons/weapons/crossbows/handcrossbow-black.webp",
 			"effects": [],
 			"folder": "xmwf3OrLCCk6exr8",
 			"sort": 200000,
@@ -674,14 +676,16 @@
 								"damageType": "piercing",
 								"formula": "8d6",
 								"name": "Sneak Attack",
-								"type": "damage"
+								"type": "damage",
+								"label": "Sneak Attack"
 							},
 							"FpA564KENaUF4Ry2": {
 								"canCrit": true,
 								"damageType": "poison",
 								"formula": "5d6",
 								"name": "Deadly Poison",
-								"type": "damage"
+								"type": "damage",
+								"label": "Deadly Poison"
 							}
 						},
 						"prompts": {
@@ -699,12 +703,13 @@
 							"f36Q3mm0ZylWiBEF": {
 								"itemid": "",
 								"quantity": 1,
-								"type": "ammunition"
+								"type": "ammunition",
+								"itemId": "j3I3rpR7SsHqK9yA"
 							}
 						}
 					}
 				},
-				"description": "<p><em>Ranged Weapon Attack:</em> +11 to hit, range 80/320 ft., one target. <em>Hit:</em> 9 (1d8 + 5) piercing damage. The target makes a DC 19 Constitution saving throw, taking 17 (5d6) poison damage on a failure, or half as much damage on a success.</p><p><br><em>Loading, range (80/320), simple, two-handed</em></p><p><strong>Loading.</strong> This weapon must be loaded before it can be used. You may only make one attack with a loading weapon when you use an action, bonus action, or reaction to fire it, regardless of the number of attacks you can normally make.</p><p><strong>Range.</strong> This weapon fires ammunition. The range lists two numbers after it, both measured in feet—the first is the weapon's normal range, and the second is the weapon's maximum range. You have disadvantage on attack rolls made beyond the weapon's normal range, and you cannot make attacks against targets beyond the weapon's maximum range.</p><p><strong>Simple.</strong> This weapon can be used with very little skill or training, and all creatures gain proficiency with it.</p><p><strong>Two-Handed.</strong> You must use two hands to wield this weapon.</p>",
+				"description": "<p><strong>Loading.</strong> This weapon must be loaded before it can be used. You may only make one attack with a loading weapon when you use an action, bonus action, or reaction to fire it, regardless of the number of attacks you can normally make.</p>\n<p><strong>Range.</strong> This weapon fires ammunition. The range lists two numbers after it, both measured in feet&mdash;the first is the weapon's normal range, and the second is the weapon's maximum range. You have disadvantage on attack rolls made beyond the weapon's normal range, and you cannot make attacks against targets beyond the weapon's maximum range.</p>\n<p><strong>Simple.</strong> This weapon can be used with very little skill or training, and all creatures gain proficiency with it.</p>\n<p><strong>Two-Handed.</strong> You must use two hands to wield this weapon.</p>",
 				"favorite": true,
 				"secretDescription": "",
 				"source": "",
@@ -734,7 +739,7 @@
 				"bulky": false,
 				"craftingComponents": "",
 				"damagedState": 0,
-				"equippedState": 2,
+				"equippedState": 1,
 				"materialProperties": [],
 				"objectType": "weapon",
 				"plotItem": false,
@@ -815,7 +820,7 @@
 			"_id": "jqCAjX90GWle4be8",
 			"name": "Deadly Poison",
 			"type": "object",
-			"img": "icons/svg/blood.svg",
+			"img": "icons/consumables/potions/potion-jug-corked-skull-poison-brown-green.webp",
 			"effects": [],
 			"folder": "YGNARy1juIEmfDLD",
 			"sort": 100000,
@@ -1437,13 +1442,157 @@
 			"folder": null,
 			"sort": 0,
 			"_id": "cWzbkBM1Jh5uEqmw"
+		},
+		{
+			"name": "Crossbow Bolts",
+			"type": "object",
+			"img": "icons/weapons/ammunition/arrows-war-red.webp",
+			"effects": [],
+			"flags": {},
+			"system": {
+				"ac": {
+					"baseFormula": "",
+					"formula": "",
+					"maxDex": 0,
+					"minStr": 0,
+					"mode": 1,
+					"requiresNoShield": false,
+					"requiresUnarmored": false
+				},
+				"actions": {},
+				"description": "<p>A bundle of 20 bolts.</p>",
+				"favorite": false,
+				"secretDescription": "",
+				"source": "",
+				"uses": {
+					"value": null,
+					"max": "",
+					"per": null,
+					"recharge": {
+						"formula": "1d6",
+						"threshold": 6
+					}
+				},
+				"schema": {
+					"version": 0.006,
+					"lastMigration": {
+						"version": {
+							"schema": 0.004,
+							"foundry": "11.305",
+							"system": "0.13.3"
+						}
+					}
+				},
+				"ammunitionProperties": [],
+				"armorCategory": "",
+				"armorProperties": [],
+				"attuned": false,
+				"bulky": false,
+				"craftingComponents": "",
+				"damagedState": 0,
+				"equippedState": 1,
+				"materialProperties": [],
+				"objectType": "ammunition",
+				"plotItem": false,
+				"price": "1 gp",
+				"proficient": true,
+				"quantity": 20,
+				"rarity": "common",
+				"requiresAttunement": false,
+				"shieldCategory": "",
+				"unidentified": false,
+				"unidentifiedDescription": "",
+				"unidentifiedName": "",
+				"weaponProperties": [],
+				"weight": 1
+			},
+			"folder": "Hi0Exa3LBwLdqM1Q",
+			"_id": "j3I3rpR7SsHqK9yA",
+			"sort": 0,
+			"ownership": {
+				"default": 0
+			}
+		},
+		{
+			"name": "Brigandine, Leather",
+			"type": "object",
+			"img": "icons/equipment/chest/breastplate-collared-leather-brown.webp",
+			"effects": [],
+			"flags": {},
+			"system": {
+				"ac": {
+					"baseFormula": "13 + @dex.mod",
+					"formula": "",
+					"maxDex": 0,
+					"minStr": 0,
+					"mode": 2,
+					"requiresNoShield": false,
+					"requiresUnarmored": false
+				},
+				"actions": {},
+				"description": "",
+				"favorite": false,
+				"secretDescription": "",
+				"source": "",
+				"uses": {
+					"value": null,
+					"max": "",
+					"per": null,
+					"recharge": {
+						"formula": "1d6",
+						"threshold": 6
+					}
+				},
+				"schema": {
+					"version": 0.006,
+					"lastMigration": {
+						"version": {
+							"schema": 0.004,
+							"foundry": "11.305",
+							"system": "0.13.3"
+						}
+					}
+				},
+				"ammunitionProperties": [],
+				"armorCategory": "medium",
+				"armorProperties": [],
+				"attuned": false,
+				"bulky": false,
+				"craftingComponents": "",
+				"damagedState": 0,
+				"equippedState": 2,
+				"materialProperties": [
+					"comfortable",
+					"flaw"
+				],
+				"objectType": "armor",
+				"plotItem": false,
+				"price": "20 gp",
+				"proficient": true,
+				"quantity": 1,
+				"rarity": "common",
+				"requiresAttunement": false,
+				"shieldCategory": "",
+				"unidentified": false,
+				"unidentifiedDescription": "",
+				"unidentifiedName": "",
+				"weaponProperties": [],
+				"weight": 10
+			},
+			"folder": "Hi0Exa3LBwLdqM1Q",
+			"_id": "Wec82VsU3zaU3rzj",
+			"sort": 0,
+			"ownership": {
+				"default": 0
+			}
 		}
 	],
 	"effects": [],
 	"flags": {
 		"a5e": {
 			"availableSpellLevels": [],
-			"sheetIsLocked": true
+			"sheetIsLocked": true,
+			"currentTab": "inventory"
 		}
 	},
 	"system": {
@@ -1824,7 +1973,7 @@
 		},
 		"attributes": {
 			"ac": {
-				"baseFormula": "18",
+				"baseFormula": "",
 				"value": 0
 			},
 			"death": {
@@ -2051,7 +2200,7 @@
 		"disposition": 0,
 		"displayBars": 50,
 		"bar1": {
-			"attribute": null
+			"attribute": "attributes.hp"
 		},
 		"bar2": {
 			"attribute": null
