@@ -2,12 +2,66 @@
 	"name": "Bane",
 	"type": "spell",
 	"img": "icons/magic/unholy/hand-light-green.webp",
-	"effects": [],
-	"flags": {
-		"core": {
-			"sourceId": "Compendium.a5e.a5e-spells.o94b50tj959v55mm"
+	"effects": [
+		{
+			"icon": "icons/magic/unholy/hand-light-green.webp",
+			"origin": "Item.i5XOwOskrx5AJkYg",
+			"flags": {
+				"a5e": {
+					"sort": 0,
+					"transferType": "onUse"
+				}
+			},
+			"transfer": false,
+			"name": "Bane",
+			"_id": "10bmEifXE2UZdfFf",
+			"changes": [
+				{
+					"key": "system.bonuses.abilities.save",
+					"mode": 2,
+					"value": "-1d4",
+					"priority": null
+				},
+				{
+					"key": "system.bonuses.meleeSpellAttack",
+					"mode": 2,
+					"value": "-1d4",
+					"priority": null
+				},
+				{
+					"key": "system.bonuses.meleeWeaponAttack",
+					"mode": 2,
+					"value": "-1d4",
+					"priority": null
+				},
+				{
+					"key": "system.bonuses.rangedSpellAttack",
+					"mode": 2,
+					"value": "-1d4",
+					"priority": null
+				},
+				{
+					"key": "system.bonuses.rangedWeaponAttack",
+					"mode": 2,
+					"value": "-1d4",
+					"priority": null
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": null,
+				"combat": null,
+				"rounds": null,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "",
+			"statuses": []
 		}
-	},
+	],
+	"flags": {},
 	"system": {
 		"actions": {
 			"eYoBeDy7qYbkXOil": {
@@ -48,6 +102,11 @@
 							"bonus": ""
 						},
 						"type": "savingThrow"
+					},
+					"ECjFqWzEWvzmljfy": {
+						"type": "effect",
+						"default": true,
+						"effectId": "10bmEifXE2UZdfFf"
 					}
 				},
 				"consumers": {
@@ -93,6 +152,7 @@
 		"materials": "a small straw dolly",
 		"materialsConsumed": false,
 		"prepared": false,
+		"prerequisite": "",
 		"ritual": false,
 		"schools": {
 			"primary": "enchantment",
@@ -101,5 +161,6 @@
 			]
 		}
 	},
+	"folder": null,
 	"_id": "o94b50tj959v55mm"
 }
