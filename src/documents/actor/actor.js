@@ -312,12 +312,12 @@ export default class ActorA5e extends Actor {
   }
 
   determineDefenseConfiguration() {
-    const currentStr = this.system.abilities.str.value;
+    // const currentStr = this.system.abilities.str.value;
     return this.items.reduce((acc, item) => {
       if (item.system.equippedState !== CONFIG.A5E.EQUIPPED_STATES.EQUIPPED) return acc;
 
-      const { formula, minStr } = item.system.ac ?? {};
-      if (!formula || (currentStr < minStr)) return acc;
+      const { formula } = item.system.ac ?? {};
+      if (!formula) return acc;
 
       if (item.system.objectType === 'armor') acc.hasArmor = true;
       else if (item.system.objectType === 'shield') acc.hasShield = true;
@@ -327,14 +327,14 @@ export default class ActorA5e extends Actor {
   }
 
   prepareArmorChanges() {
-    const currentStr = this.system.abilities.str.value;
+    // const currentStr = this.system.abilities.str.value;
     const { hasArmor, hasShield } = this.determineDefenseConfiguration();
 
     const changes = this.items.reduce((acc, item) => {
       const {
-        formula, minStr, mode, requiresUnarmored, requiresNoShield
+        formula, mode, requiresUnarmored, requiresNoShield
       } = item.system.ac ?? {};
-      if (!formula || currentStr < minStr) return acc;
+      if (!formula) return acc;
 
       if (item.type === 'feature' && mode === CONFIG.A5E.ARMOR_MODES.OVERRIDE && hasArmor) return acc;
       if ((requiresUnarmored && hasArmor) || (requiresNoShield && hasShield)) return acc;
