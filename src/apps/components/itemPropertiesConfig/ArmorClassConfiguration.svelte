@@ -9,21 +9,17 @@
     const item = getContext("item");
     const appId = getContext("appId");
     const { armorModes } = CONFIG.A5E;
+
     const modes = [
         ["Add", CONFIG.A5E.ARMOR_MODES.ADD],
         ["Override", CONFIG.A5E.ARMOR_MODES.OVERRIDE],
     ];
 
     let editMode = false;
-
-    function toggleEditMode() {
-        editMode = !editMode;
-    }
 </script>
 
 <section>
-    <!-- svelte-ignore a11y-click-events-have-key-events -->
-    <!-- svelte-ignore a11y-no-static-element-interactions -->
+    <!-- svelte-ignore a11y-click-events-have-key-events a11y-no-static-element-interactions -->
     <header
         class="
             u-align-center
@@ -36,7 +32,7 @@
             u-text-lg
             u-w-fit
         "
-        on:click={toggleEditMode}
+        on:click={() => (editMode = !editMode)}
     >
         <h3>{localize("A5E.TabArmorClassProperties")}</h3>
         <i
@@ -173,6 +169,7 @@
                 <dt class="u-text-bold">
                     {localize("A5E.armorClass.formula")}:
                 </dt>
+
                 <dd class="u-m-0 u-p-0">
                     {$item.system.ac.formula ?? ""}
                 </dd>
@@ -182,6 +179,7 @@
                 <dt class="u-text-bold">
                     {localize("A5E.armorClass.maxDex")}:
                 </dt>
+
                 <dd class="u-m-0 u-p-0">
                     {$item.system.ac.maxDex ?? 0}
                 </dd>
@@ -191,6 +189,7 @@
                 <dt class="u-text-bold">
                     {localize("A5E.armorClass.minStr")}:
                 </dt>
+
                 <dd class="u-m-0 u-p-0">
                     {$item.system.ac.minStr ?? 0}
                 </dd>
@@ -200,6 +199,7 @@
                 <dt class="u-text-bold">
                     {localize("A5E.armorClass.mode")}:
                 </dt>
+
                 <dd class="u-m-0 u-p-0">
                     {armorModes[$item.system.ac.mode]}
                 </dd>
@@ -210,6 +210,7 @@
                     <dt class="u-text-bold">
                         {localize("A5E.armorClass.requiresNoShield")}:
                     </dt>
+
                     <dd class="u-m-0 u-p-0">
                         {$item.system.ac.requiresNoShield ?? false}
                     </dd>
@@ -219,6 +220,7 @@
                     <dt class="u-text-bold">
                         {localize("A5E.armorClass.requiresUnarmored")}:
                     </dt>
+
                     <dd class="u-m-0 u-p-0">
                         {$item.system.ac.requiresUnarmored ?? false}
                     </dd>
