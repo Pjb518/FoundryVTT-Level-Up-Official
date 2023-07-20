@@ -115,7 +115,7 @@ export default class MigrationRunner extends MigrationRunnerBase {
 
       // Migrate Adventure Actors
       for (const actor of actors) {
-        const updated = await this.#migrateActor(migrations, actor, { pack });
+        const updated = await this.#migrateActor(migrations, actor, { pack, isAdventure: true });
         if (updated) updateGroup.push(updated);
       }
 
@@ -149,14 +149,14 @@ export default class MigrationRunner extends MigrationRunnerBase {
    */
   async #migrateActor(migrations, actor, options = {}) {
     // TODO: Return if up to schema version.
-    const { pack } = options;
+    const { isAdventure, pack } = options;
     const actorData = actor.toObject();
     const updateData = await (() => {
       try {
         return this.getUpdatedActor(actorData, migrations);
       } catch (e) {
         if (e instanceof Error) {
-          console.error(`Error thrown while migrating ${item.uuid}: ${e.message}`);
+          console.error(`Error thrown while migrating ${actor.uuid}: ${e.message}`);
         }
         return null;
       }
@@ -187,7 +187,7 @@ export default class MigrationRunner extends MigrationRunnerBase {
       }
     }
 
-    updateData.items = actor.isToken ? updatedItems : itemDiff.updated;
+    updateData.items = actor.isToken || isAdventure ? updatedItems : itemDiff.updated;
     return updateData;
   }
 
@@ -322,7 +322,7 @@ export default class MigrationRunner extends MigrationRunnerBase {
     if (!['Adventure', 'Actor', 'Item'].includes(compendium.documentName)) return;
 
     const progress = new Progress({
-      label: localize("A5E.migration.compendium.running"),
+      label: localize('A5E.migration.compendium.running'),
       max: compendium.index.size
     });
 
@@ -343,10 +343,11 @@ export default class MigrationRunner extends MigrationRunnerBase {
     } else {
       lowestSchemaVersion = Math.min(
         MigrationRunnerBase.LATEST_SCHEMA_VERSION,
-        ...documents.map((d) => d.system?.schema?.version).filter((d) => !!d)
+        ...documents.map((d) => d.system?.schema?.version ?? 0.00).filter((d) => !!d)
       );
     }
 
+    console.log(`A5E | Lowest Schema Version: ${lowestSchemaVersion}`);
     const migrations = this.migrations
       .filter((migration) => migration.version > lowestSchemaVersion);
 
@@ -371,12 +372,12 @@ export default class MigrationRunner extends MigrationRunnerBase {
     console.info(`A5E | Found ${migrations.length} migrations`);
 
     const progress = new Progress({
-      label: localize("A5E.migration.running"),
+      label: localize('A5E.migration.running'),
       max: Math.floor(
-        game.actors.size +
-        game.items.size +
-        game.journal.size +
-        game.scenes
+        game.actors.size
+        + game.items.size
+        + game.journal.size
+        + game.scenes
           .map((s) => s.tokens.contents)
           .flat()
           .filter((t) => t.actor?.isToken).length
