@@ -2,28 +2,32 @@
     import { getContext } from "svelte";
     import { localize } from "@typhonjs-fvtt/runtime/svelte/helper";
 
-    import localeSort from "../../../utils/localeSort";
     import updateDocumentDataFromField from "../../../utils/updateDocumentDataFromField";
 
     import FormSection from "../FormSection.svelte";
     import CheckboxGroup from "../CheckboxGroup.svelte";
     import RadioGroup from "../RadioGroup.svelte";
 
+    function prepareArmorProperties(item) {
+        const properties = item.system.armorProperties.map(
+            (property) => armorProperties[property] ?? property
+        );
+
+        properties.sort((a, b) => a.localeCompare(b));
+
+        return properties.join(", ");
+    }
+
     const item = getContext("item");
+    const { armor: armorTypes, armorProperties } = CONFIG.A5E;
 
     let editMode = false;
 
-    function toggleEditMode() {
-        editMode = !editMode;
-    }
-
-    const armorTypes = CONFIG.A5E.armor;
-    const armorProperties = CONFIG.A5E.armorProperties;
+    $: selectedArmorProperties = prepareArmorProperties($item);
 </script>
 
 <section>
-    <!-- svelte-ignore a11y-click-events-have-key-events -->
-    <!-- svelte-ignore a11y-no-static-element-interactions -->
+    <!-- svelte-ignore a11y-click-events-have-key-events a11y-no-static-element-interactions -->
     <header
         class="
             u-align-center
@@ -36,9 +40,10 @@
             u-text-lg
             u-w-fit
         "
-        on:click={toggleEditMode}
+        on:click={() => (editMode = !editMode)}
     >
         <h3>{localize("Armor Configuration")}</h3>
+
         <i
             class="u-text-sm fas"
             class:fa-chevron-up={editMode}
@@ -90,29 +95,9 @@
 
             <div class="u-flex u-gap-md">
                 <dt class="u-text-bold">{localize("A5E.ArmorProperties")}:</dt>
+
                 <dd class="u-m-0 u-p-0">
-                    {#if $item.system.armorProperties.length}
-                        <ul
-                            class="
-                                u-comma-list
-                                u-flex
-                                u-flex-shrink-0
-                                u-gap-ch
-                                u-list-style-none
-                                u-m-0
-                                u-p-0
-                                u-w-fit
-                            "
-                        >
-                            {#each localeSort($item.system.armorProperties) as property}
-                                <li key={property}>
-                                    {armorProperties[property] ?? property}
-                                </li>
-                            {/each}
-                        </ul>
-                    {:else}
-                        {localize("A5E.None")}
-                    {/if}
+                    {selectedArmorProperties || localize("A5E.None")}
                 </dd>
             </div>
         </dl>
