@@ -8,13 +8,12 @@ import getDeterministicBonus from '../dice/getDeterministicBonus';
 export default function getACComponents(actor) {
   const baseChanges = actor.system.attributes.ac.changes ?? {};
   if (!baseChanges?.override && !baseChanges?.bonuses?.length) return '';
-  const overrideModes = [CONFIG.A5E.ARMOR_MODES.OVERRIDE, CONST.ACTIVE_EFFECT_MODES.OVERRIDE];
 
   // Get ac base effects
   const effectChanges = actor.effects.reduce((acc, effect) => {
     const changes = effect.changes
       .reduce((changesAcc, change) => {
-        if (change.key !== 'system.attributes.ac.value') return changesAcc;
+        if (change.key !== 'system.attributes.ac.changes.bonuses.value') return changesAcc;
 
         changesAcc.push({
           name: effect.name,
@@ -28,22 +27,15 @@ export default function getACComponents(actor) {
   }, []);
 
   let changes;
-  if (effectChanges.find(({ mode }) => mode === 5)) {
-    changes = effectChanges.sort((a, b) => b.mode - a.mode);
-  } else changes = [baseChanges.override].concat(baseChanges.bonuses).concat(effectChanges);
+  if (effectChanges.find(({ mode }) => mode === CONST.ACTIVE_EFFECT_MODES.OVERRIDE)) {
+    changes = effectChanges;
+  } else changes = (baseChanges.bonuses.components ?? []).concat(effectChanges);
 
-  const components = changes
-    .sort((a, b) => b.mode - a.mode)
-    .map(({ mode, name, value }) => {
-      // eslint-disable-next-line no-nested-ternary
-      const sign = overrideModes.includes(mode)
-        ? ''
-        : value >= 0
-          ? '+'
-          : '-';
+  const components = changes.map(({ name, value }) => {
+    const sign = value >= 0 ? '+' : '-';
+    return `${sign} ${value} [${name}]`;
+  });
 
-      return `${sign} ${value} [${name}]`;
-    });
-
+  components.unshift(`${baseChanges.override.value} [${baseChanges.override.name}]`);
   return components.join(' ');
 }

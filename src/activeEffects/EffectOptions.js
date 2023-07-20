@@ -168,7 +168,6 @@ export default class EffectOptions {
       });
 
     // Proficiency is prepared in base data so we add it here.
-    baseValues['system.attributes.ac.baseFormula'] = [0, EffectOptions.OVERRIDE_ONLY, [], 'applyAEs'];
     baseValues['system.attributes.prof'] = [0, EffectOptions.DEFAULT_MODES];
 
     // Add options for size
@@ -185,6 +184,7 @@ export default class EffectOptions {
       delete baseValues[`system.abilities.${a}.save.mod`];
     });
 
+    delete baseValues['system.attributes.ac.baseFormula'];
     delete baseValues['system.attributes.ac.value'];
 
     // Delete text details like bio, class, etc.
@@ -229,7 +229,8 @@ export default class EffectOptions {
 
   // eslint-disable-next-line no-unused-vars, @typescript-eslint/no-unused-vars
   static modifyDerivedValues(actorType, derivedValues = {}, characterOptions = {}) {
-    derivedValues['system.attributes.ac.value'] = [0, EffectOptions.DEFAULT_MODES];
+    derivedValues['system.attributes.ac.baseFormula'] = [0, EffectOptions.OVERRIDE_ONLY, []];
+    derivedValues['system.attributes.ac.changes.bonuses.value'] = [0, EffectOptions.DEFAULT_MODES];
     derivedValues['system.attributes.hp.max'] = [0, EffectOptions.DEFAULT_MODES];
     derivedValues['system.attributes.maneuverDC'] = [0, EffectOptions.DEFAULT_MODES];
     derivedValues['system.attributes.spellDC'] = [0, EffectOptions.DEFAULT_MODES];

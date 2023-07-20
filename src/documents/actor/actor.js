@@ -109,6 +109,9 @@ export default class ActorA5e extends Actor {
     super.prepareEmbeddedDocuments();
     this.prepareDerivedData();
     this.afterDerivedData();
+
+    if (this.system.schema.version < 0.005) return;
+    this.prepareArmorClass();
   }
 
   /**
@@ -123,7 +126,9 @@ export default class ActorA5e extends Actor {
       if (typeof this.system.attributes.ac !== 'object') {
         this.system.attributes.ac = { baseFormula: `${this.system.attributes.ac}` };
       }
-      this.system.attributes.ac.changes = { override: null, bonuses: [] };
+      this.system.attributes.ac.changes = {
+        override: null, bonuses: { components: [], value: 0 }
+      };
     }
 
     if (actorType === 'character') {
@@ -272,23 +277,33 @@ export default class ActorA5e extends Actor {
 
     this.prepareSkills();
     if (this.system.schema.version < 0.005) return;
-    this.prepareArmorClass();
+    foundry.utils.setProperty(this, 'system.attributes.ac.changes', this.prepareArmorChanges());
   }
 
   prepareArmorClass() {
-    const changes = this.prepareArmorChanges();
+    const changes = this.system.attributes.ac.changes ?? {};
 
     // Add Base to changes
+    let name = 'Natural Armor';
     const baseAC = getDeterministicBonus(
       `${this.system.attributes.ac.baseFormula}` || '10 + @dex.mod',
       this.getRollData()
     );
 
+    // Check for baseArmor override
+    const overrideProperty = foundry.utils.getProperty(this.overrides, 'system.attributes.ac.baseFormula');
+    if (overrideProperty) {
+      const effectOverride = this.actorEffects
+        .find((effect) => effect.changes.some((change) => change.key.includes('ac.baseFormula')));
+
+      name = effectOverride?.name ?? name;
+      changes.override = { name, mode: CONFIG.A5E.ARMOR_MODES.OVERRIDE, value: baseAC };
+    }
+
     changes.override ??= { name: 'Natural Armor', mode: CONFIG.A5E.ARMOR_MODES.OVERRIDE, value: baseAC };
 
     // Calculate the final AC value.
-    const finalAC = changes.bonuses
-      .reduce((acc, { value }) => acc + value, changes.override?.value ?? 10);
+    const finalAC = (changes.override?.value ?? baseAC) + changes.bonuses.value;
 
     foundry.utils.mergeObject(this.system.attributes.ac, {
       changes,
@@ -346,7 +361,9 @@ export default class ActorA5e extends Actor {
       return acc;
     }, { override: null, shield: null, bonuses: [] });
 
-    // Merge shield into bonuses
+    // Bring reduced changes in line with the expected format
+    const bonuses = changes.bonuses.reduce((acc, { value }) => acc + value, 0);
+    changes.bonuses = { components: changes.bonuses, value: bonuses };
     if (changes.shield) changes.bonuses.unshift(changes.shield);
     delete changes.shield;
 
