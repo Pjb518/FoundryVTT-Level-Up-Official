@@ -7,7 +7,7 @@
 			"_id": "B0WeQRTQwCEVrQCP",
 			"name": "Undead Nature",
 			"type": "feature",
-			"img": "icons/svg/item-bag.svg",
+			"img": "icons/magic/death/undead-skeleton-worn-blue.webp",
 			"effects": [],
 			"folder": null,
 			"sort": 0,
@@ -75,7 +75,7 @@
 				},
 				"actions": {},
 				"description": "<p>The skeleton makes two melee attacks.</p>",
-				"favorite": false,
+				"favorite": true,
 				"secretDescription": "",
 				"source": "",
 				"uses": {
@@ -109,7 +109,7 @@
 			"_id": "vv7iYUOnOc0JcRNb",
 			"name": "Longsword",
 			"type": "object",
-			"img": "icons/svg/item-bag.svg",
+			"img": "icons/weapons/swords/greatsword-crossguard-steel.webp",
 			"effects": [],
 			"folder": null,
 			"sort": 0,
@@ -198,7 +198,7 @@
 				"bulky": false,
 				"craftingComponents": "",
 				"damagedState": 0,
-				"equippedState": 0,
+				"equippedState": 1,
 				"materialProperties": [],
 				"objectType": "weapon",
 				"plotItem": false,
@@ -223,7 +223,7 @@
 			"_id": "r8dRh1OdIkOquIPK",
 			"name": "Heavy Crossbow (100/ 400 ft)",
 			"type": "object",
-			"img": "icons/svg/item-bag.svg",
+			"img": "icons/weapons/crossbows/crossbow-purple.webp",
 			"effects": [],
 			"folder": null,
 			"sort": 0,
@@ -279,7 +279,8 @@
 							"BETezbxmrKyW4tbF": {
 								"itemid": "",
 								"quantity": 1,
-								"type": "ammunition"
+								"type": "ammunition",
+								"itemId": "iV5tqjVfWeilnsc6"
 							}
 						}
 					}
@@ -314,7 +315,7 @@
 				"bulky": false,
 				"craftingComponents": "",
 				"damagedState": 0,
-				"equippedState": 0,
+				"equippedState": 1,
 				"materialProperties": [],
 				"objectType": "weapon",
 				"plotItem": false,
@@ -339,7 +340,7 @@
 			"_id": "8v3VN4r4gqUMM76U",
 			"name": "Shielding Riposte (Reaction)",
 			"type": "feature",
-			"img": "icons/svg/item-bag.svg",
+			"img": "icons/skills/melee/strike-sword-blood-red.webp",
 			"effects": [],
 			"folder": null,
 			"sort": 0,
@@ -379,7 +380,7 @@
 					}
 				},
 				"description": "<p>When a creature within the skeleton’s reach misses with a melee attack against the skeleton or a creature within 5 feet, the skeleton makes a longsword attack against the attacker. The skeleton must be wielding a longsword to use this reaction.</p>",
-				"favorite": false,
+				"favorite": true,
 				"secretDescription": "",
 				"source": "",
 				"uses": {
@@ -960,12 +961,83 @@
 			"folder": null,
 			"sort": 0,
 			"_id": "asbCI9MOOeLx2CeG"
+		},
+		{
+			"name": "Crossbow Bolts",
+			"type": "object",
+			"img": "icons/weapons/ammunition/arrows-war-red.webp",
+			"effects": [],
+			"flags": {},
+			"system": {
+				"ac": {
+					"baseFormula": "",
+					"formula": "",
+					"maxDex": 0,
+					"minStr": 0,
+					"mode": 1,
+					"requiresNoShield": false,
+					"requiresUnarmored": false
+				},
+				"actions": {},
+				"description": "<p>A bundle of 20 bolts.</p>",
+				"favorite": false,
+				"secretDescription": "",
+				"source": "",
+				"uses": {
+					"value": null,
+					"max": "",
+					"per": null,
+					"recharge": {
+						"formula": "1d6",
+						"threshold": 6
+					}
+				},
+				"schema": {
+					"version": 0.006,
+					"lastMigration": {
+						"version": {
+							"schema": 0.004,
+							"foundry": "11.305",
+							"system": "0.13.3"
+						}
+					}
+				},
+				"ammunitionProperties": [],
+				"armorCategory": "",
+				"armorProperties": [],
+				"attuned": false,
+				"bulky": false,
+				"craftingComponents": "",
+				"damagedState": 0,
+				"equippedState": 0,
+				"materialProperties": [],
+				"objectType": "ammunition",
+				"plotItem": false,
+				"price": "1 gp",
+				"proficient": true,
+				"quantity": 20,
+				"rarity": "common",
+				"requiresAttunement": false,
+				"shieldCategory": "",
+				"unidentified": false,
+				"unidentifiedDescription": "",
+				"unidentifiedName": "",
+				"weaponProperties": [],
+				"weight": 1
+			},
+			"folder": "Hi0Exa3LBwLdqM1Q",
+			"_id": "iV5tqjVfWeilnsc6",
+			"sort": 0,
+			"ownership": {
+				"default": 0
+			}
 		}
 	],
 	"effects": [],
 	"flags": {
 		"a5e": {
-			"sheetIsLocked": true
+			"sheetIsLocked": true,
+			"currentTab": "skills"
 		}
 	},
 	"system": {

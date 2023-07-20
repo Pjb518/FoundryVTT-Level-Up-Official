@@ -7,7 +7,7 @@
 			"_id": "B0WeQRTQwCEVrQCP",
 			"name": "Undead Nature",
 			"type": "feature",
-			"img": "icons/svg/item-bag.svg",
+			"img": "icons/magic/death/undead-skeleton-worn-blue.webp",
 			"effects": [],
 			"folder": null,
 			"sort": 0,
@@ -58,7 +58,7 @@
 			"_id": "JqQt4b9ZgztRfu73",
 			"name": "Shortsword",
 			"type": "object",
-			"img": "icons/svg/item-bag.svg",
+			"img": "icons/weapons/swords/sword-guard-worn-gold.webp",
 			"effects": [],
 			"folder": null,
 			"sort": 0,
@@ -166,9 +166,9 @@
 		},
 		{
 			"_id": "7oUNNREGtEDfXrxi",
-			"name": "Shortbow (80/320 ft)",
+			"name": "Shortbow",
 			"type": "object",
-			"img": "icons/svg/item-bag.svg",
+			"img": "icons/weapons/bows/longbow-leather-green.webp",
 			"effects": [],
 			"folder": null,
 			"sort": 0,
@@ -185,7 +185,7 @@
 				},
 				"actions": {
 					"LLzb85H2c7fki2Ed": {
-						"name": "Shortbow (80/320 ft)",
+						"name": "Attack",
 						"activation": {
 							"cost": "",
 							"type": "",
@@ -201,8 +201,8 @@
 							"placeTemplate": false
 						},
 						"target": {
-							"quantity": "",
-							"type": ""
+							"quantity": 1,
+							"type": "creature"
 						},
 						"rolls": {
 							"laHVO182qLTUaWjv": {
@@ -215,16 +215,27 @@
 							"qhRc4CIY7UFB3dUR": {
 								"canCrit": true,
 								"damageType": "piercing",
-								"formula": "1d6+@dex.mod",
+								"formula": "1d6 + @dex.mod",
 								"name": "Ranged Weapon Attack",
 								"type": "damage"
 							}
 						},
 						"consumers": {
-							"UDoCeHCaUdJVdeO4": {
-								"itemid": "",
-								"quantity": 1,
-								"type": "ammunition"
+							"cLXMzV9xEC65UmSc": {
+								"type": "ammunition",
+								"default": true,
+								"itemId": "ZPOGXfYTjdHKNbIH",
+								"quantity": 1
+							}
+						},
+						"ranges": {
+							"OUUTR4FQsB7iDwdZ": {
+								"range": 80,
+								"unit": "feet"
+							},
+							"YNUgJbGF2bgxrniP": {
+								"range": 320,
+								"unit": "feet"
 							}
 						}
 					}
@@ -831,12 +842,84 @@
 			"folder": null,
 			"sort": 0,
 			"_id": "743E4uODZH4dCCnb"
+		},
+		{
+			"name": "Arrows",
+			"type": "object",
+			"img": "icons/weapons/ammunition/arrows-war-white.webp",
+			"effects": [],
+			"flags": {},
+			"system": {
+				"ac": {
+					"baseFormula": "",
+					"formula": "",
+					"maxDex": 0,
+					"minStr": 0,
+					"mode": 1,
+					"requiresNoShield": false,
+					"requiresUnarmored": false
+				},
+				"actions": {},
+				"description": "<p>A bundle of 20 arrows.</p>",
+				"favorite": false,
+				"secretDescription": "",
+				"source": "",
+				"uses": {
+					"value": null,
+					"max": "",
+					"per": null,
+					"recharge": {
+						"formula": "1d6",
+						"threshold": 6
+					}
+				},
+				"schema": {
+					"version": 0.006,
+					"lastMigration": {
+						"version": {
+							"schema": 0.004,
+							"foundry": "11.305",
+							"system": "0.13.3"
+						}
+					}
+				},
+				"ammunitionProperties": [],
+				"armorCategory": "",
+				"armorProperties": [],
+				"attuned": false,
+				"bulky": false,
+				"craftingComponents": "",
+				"damagedState": 0,
+				"equippedState": 0,
+				"materialProperties": [],
+				"objectType": "ammunition",
+				"plotItem": false,
+				"price": "1 gp",
+				"proficient": true,
+				"quantity": 20,
+				"rarity": "common",
+				"requiresAttunement": false,
+				"shieldCategory": "",
+				"unidentified": false,
+				"unidentifiedDescription": "",
+				"unidentifiedName": "",
+				"weaponProperties": [],
+				"weight": 1
+			},
+			"folder": "Hi0Exa3LBwLdqM1Q",
+			"_id": "ZPOGXfYTjdHKNbIH",
+			"sort": 0,
+			"ownership": {
+				"default": 0
+			}
 		}
 	],
 	"effects": [],
 	"flags": {
 		"a5e": {
-			"sheetIsLocked": true
+			"sheetIsLocked": false,
+			"currentTab": "settings",
+			"showSpellTab": false
 		}
 	},
 	"system": {

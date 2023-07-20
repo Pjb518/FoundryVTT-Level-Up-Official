@@ -7,7 +7,7 @@
 			"_id": "wWPF1ifV0n1Xd48F",
 			"name": "Undead Nature",
 			"type": "feature",
-			"img": "icons/svg/item-bag.svg",
+			"img": "icons/magic/death/skeleton-dinosaur-skull-tan.webp",
 			"effects": [],
 			"folder": null,
 			"sort": 0,
@@ -56,7 +56,7 @@
 		},
 		{
 			"_id": "zYKqF9t9elZljalQ",
-			"name": "Bite (10 ft)",
+			"name": "Bite",
 			"type": "object",
 			"img": "icons/creatures/abilities/mouth-teeth-long-red.webp",
 			"effects": [],
@@ -75,10 +75,10 @@
 				},
 				"actions": {
 					"UdjMSxAnCWXVwtNY": {
-						"name": "Bite (10 ft)",
+						"name": "Attack",
 						"activation": {
-							"cost": "",
-							"type": "",
+							"cost": 1,
+							"type": "action",
 							"reactionTrigger": ""
 						},
 						"duration": {
@@ -91,8 +91,8 @@
 							"placeTemplate": false
 						},
 						"target": {
-							"quantity": "",
-							"type": ""
+							"quantity": 1,
+							"type": "creature"
 						},
 						"rolls": {
 							"KlcqQxBrFS26lIks": {
@@ -105,7 +105,7 @@
 							"reQVnXV1XXT2xUM7": {
 								"canCrit": true,
 								"damageType": "piercing",
-								"formula": "3d12+@str.mod",
+								"formula": "3d12 + @str.mod",
 								"name": "Melee Weapon Attack",
 								"type": "damage"
 							}
@@ -121,7 +121,13 @@
 								"type": "savingThrow"
 							}
 						},
-						"consumers": {}
+						"consumers": {},
+						"ranges": {
+							"rMkpFEqtGmm5NmAw": {
+								"range": 10,
+								"unit": "feet"
+							}
+						}
 					}
 				},
 				"description": "<p>If the target is a creature, it is grappled (escape DC 17). Until this grapple ends, the skeleton can’t bite a different creature and it has advantage on bite attacks against the grappled creature.</p>",
@@ -228,9 +234,9 @@
 		},
 		{
 			"_id": "7RfBZpv8imWixL0X",
-			"name": "Tail (10 ft)",
+			"name": "Tail",
 			"type": "object",
-			"img": "icons/skills/wounds/injury-pain-impaled-hand-blood.webp",
+			"img": "icons/creatures/abilities/tail-swipe-green.webp",
 			"effects": [],
 			"folder": null,
 			"sort": 0,
@@ -247,7 +253,7 @@
 				},
 				"actions": {
 					"7wXUzUXTmor4zqqw": {
-						"name": "Tail (10 ft)",
+						"name": "Attack",
 						"activation": {
 							"cost": "",
 							"type": "",
@@ -263,8 +269,8 @@
 							"placeTemplate": false
 						},
 						"target": {
-							"quantity": "",
-							"type": ""
+							"quantity": 1,
+							"type": "creature"
 						},
 						"rolls": {
 							"JceEbkS5HTweV4ha": {
@@ -277,15 +283,22 @@
 							"rJecPSKxDIBhl7pC": {
 								"canCrit": true,
 								"damageType": "bludgeoning",
-								"formula": "3d6+@str.mod",
+								"formula": "3d6 + @str.mod",
 								"name": "Melee Weapon Attack",
 								"type": "damage"
 							}
 						},
-						"consumers": {}
+						"consumers": {},
+						"ranges": {
+							"fD1Cv1Bjg51X3OtU": {
+								"range": 10,
+								"unit": "feet"
+							}
+						},
+						"img": "icons/creatures/abilities/tail-swipe-green.webp"
 					}
 				},
-				"description": "<h1></h1>",
+				"description": "",
 				"favorite": true,
 				"secretDescription": "",
 				"source": "",
@@ -892,7 +905,9 @@
 	"effects": [],
 	"flags": {
 		"a5e": {
-			"sheetIsLocked": true
+			"sheetIsLocked": false,
+			"currentTab": "core",
+			"showSpellTab": false
 		}
 	},
 	"system": {

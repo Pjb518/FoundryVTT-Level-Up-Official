@@ -7,7 +7,7 @@
 			"_id": "wWPF1ifV0n1Xd48F",
 			"name": "Undead Nature",
 			"type": "feature",
-			"img": "icons/svg/item-bag.svg",
+			"img": "icons/magic/death/skull-cattle-totem-glow-red.webp",
 			"effects": [],
 			"folder": null,
 			"sort": 0,
@@ -24,7 +24,7 @@
 				},
 				"actions": {},
 				"description": "<p>A skeleton doesn’t require air, sustenance, or sleep.</p>",
-				"favorite": false,
+				"favorite": true,
 				"secretDescription": "",
 				"source": "",
 				"uses": {
@@ -49,127 +49,6 @@
 				"concentration": false,
 				"featureType": "",
 				"prerequisite": ""
-			},
-			"ownership": {
-				"default": 0
-			}
-		},
-		{
-			"_id": "zYKqF9t9elZljalQ",
-			"name": "Hooves",
-			"type": "object",
-			"img": "icons/svg/item-bag.svg",
-			"effects": [],
-			"folder": null,
-			"sort": 0,
-			"flags": {},
-			"system": {
-				"ac": {
-					"baseFormula": "",
-					"formula": "",
-					"maxDex": 0,
-					"minStr": 0,
-					"mode": 1,
-					"requiresNoShield": false,
-					"requiresUnarmored": false
-				},
-				"actions": {
-					"Z79XW1LyOjBqD0SW": {
-						"name": "Hooves",
-						"activation": {
-							"cost": "",
-							"type": "",
-							"reactionTrigger": ""
-						},
-						"duration": {
-							"unit": "",
-							"value": ""
-						},
-						"area": {
-							"shape": "",
-							"size": "",
-							"placeTemplate": false
-						},
-						"target": {
-							"quantity": "",
-							"type": ""
-						},
-						"rolls": {
-							"xJPlHosStfZulVXa": {
-								"bonus": "",
-								"critThreshold": "20",
-								"type": "attack",
-								"attackType": "meleeWeaponAttack",
-								"ability": "str"
-							},
-							"qeObkY8H2aMyNLMs": {
-								"canCrit": true,
-								"damageType": "bludgeoning",
-								"formula": "1d6+@str.mod",
-								"name": "Melee Weapon Attack",
-								"type": "damage"
-							}
-						},
-						"prompts": {
-							"TBrNAV5lDVNJVcpV": {
-								"ability": "str",
-								"onSave": "Not prone",
-								"saveDC": {
-									"type": "custom",
-									"bonus": "14"
-								},
-								"type": "savingThrow"
-							}
-						},
-						"consumers": {}
-					}
-				},
-				"description": "<p>If the skeleton moves at least 20 feet straight towards the target before the attack, the target makes a DC 14 Strength saving throw, falling prone on a failure.</p>",
-				"favorite": true,
-				"secretDescription": "",
-				"source": "",
-				"uses": {
-					"value": null,
-					"max": "",
-					"per": null,
-					"recharge": {
-						"formula": "",
-						"threshold": ""
-					}
-				},
-				"schema": {
-					"version": 0.004,
-					"lastMigration": {
-						"version": {
-							"schema": 0.003,
-							"foundry": "11.302",
-							"system": "0.12.7"
-						}
-					}
-				},
-				"ammunitionProperties": [],
-				"armorCategory": "",
-				"armorProperties": [],
-				"attuned": false,
-				"bulky": false,
-				"craftingComponents": "",
-				"damagedState": 0,
-				"equippedState": 0,
-				"materialProperties": [],
-				"objectType": "weapon",
-				"plotItem": false,
-				"price": 0,
-				"proficient": true,
-				"quantity": 1,
-				"rarity": "common",
-				"requiresAttunement": false,
-				"shieldCategory": "",
-				"unidentified": false,
-				"unidentifiedDescription": "",
-				"unidentifiedName": "",
-				"weaponProperties": [],
-				"weight": 0,
-				"broken": false
 			},
 			"ownership": {
 				"default": 0
@@ -726,12 +605,123 @@
 			"folder": null,
 			"sort": 0,
 			"_id": "NnagP5JCOxyDcELf"
+		},
+		{
+			"name": "Hooves",
+			"type": "feature",
+			"system": {
+				"ac": {
+					"baseFormula": "",
+					"formula": "",
+					"maxDex": 0,
+					"minStr": 0,
+					"mode": 1,
+					"requiresNoShield": false,
+					"requiresUnarmored": false
+				},
+				"actions": {
+					"MwXjS5yJDhy4tkqo": {
+						"name": "Attack",
+						"activation": {
+							"cost": "",
+							"type": "",
+							"reactionTrigger": ""
+						},
+						"consumers": {},
+						"rolls": {
+							"xJPlHosStfZulVXa": {
+								"bonus": "",
+								"critThreshold": "20",
+								"type": "attack",
+								"attackType": "meleeWeaponAttack",
+								"ability": "str"
+							},
+							"qeObkY8H2aMyNLMs": {
+								"canCrit": true,
+								"damageType": "bludgeoning",
+								"formula": "1d6+@str.mod",
+								"name": "Melee Weapon Attack",
+								"type": "damage"
+							}
+						},
+						"prompts": {
+							"TBrNAV5lDVNJVcpV": {
+								"ability": "str",
+								"onSave": "Not prone",
+								"saveDC": {
+									"type": "custom",
+									"bonus": "14"
+								},
+								"type": "savingThrow"
+							}
+						},
+						"uses": {
+							"value": 0,
+							"max": "",
+							"per": "",
+							"recharge": {
+								"formula": "1d6",
+								"threshold": 6
+							}
+						},
+						"duration": {
+							"unit": "",
+							"value": ""
+						},
+						"area": {
+							"shape": "",
+							"size": "",
+							"placeTemplate": false
+						},
+						"target": {
+							"quantity": "",
+							"type": ""
+						},
+						"img": "icons/svg/item-bag.svg"
+					}
+				},
+				"description": "",
+				"favorite": true,
+				"secretDescription": "",
+				"source": {
+					"name": "",
+					"link": "",
+					"publisher": ""
+				},
+				"uses": {
+					"value": null,
+					"max": "",
+					"per": null,
+					"recharge": {
+						"formula": "1d6",
+						"threshold": "6"
+					}
+				},
+				"schema": {
+					"version": 0.001,
+					"lastMigration": null
+				},
+				"concentration": false,
+				"featureType": "naturalWeapon",
+				"prerequisite": ""
+			},
+			"_id": "WG7CwqrFFHLyWcAs",
+			"img": "icons/magic/earth/barrier-stone-brown-green.webp",
+			"effects": [],
+			"folder": null,
+			"sort": 0,
+			"ownership": {
+				"default": 0
+			},
+			"flags": {}
 		}
 	],
 	"effects": [],
 	"flags": {
 		"a5e": {
-			"sheetIsLocked": true
+			"sheetIsLocked": true,
+			"currentTab": "core",
+			"showSpellTab": false
 		}
 	},
 	"system": {
