@@ -12,15 +12,11 @@
 
     let editMode = false;
 
-    function toggleEditMode() {
-        editMode = !editMode;
-    }
-
     const featureTypes = CONFIG.A5E.featureTypes;
 </script>
 
 <section>
-    <!-- svelte-ignore a11y-click-events-have-key-events -->
+    <!-- svelte-ignore a11y-click-events-have-key-events a11y-no-static-element-interactions -->
     <header
         class="
             u-align-center
@@ -33,9 +29,10 @@
             u-text-lg
             u-w-fit
         "
-        on:click={toggleEditMode}
+        on:click={() => (editMode = !editMode)}
     >
         <h3>{localize("A5E.TabFeatureProperties")}</h3>
+
         <i
             class="u-text-sm fas"
             class:fa-chevron-up={editMode}

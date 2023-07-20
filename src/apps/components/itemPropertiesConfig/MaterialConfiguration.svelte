@@ -2,24 +2,31 @@
     import { getContext } from "svelte";
     import { localize } from "@typhonjs-fvtt/runtime/svelte/helper";
 
-    import localeSort from "../../../utils/localeSort";
     import updateDocumentDataFromField from "../../../utils/updateDocumentDataFromField";
 
     import FormSection from "../FormSection.svelte";
     import CheckboxGroup from "../CheckboxGroup.svelte";
 
+    function prepareMaterialProperties(item) {
+        const properties = item.system.materialProperties.map(
+            (property) => materialProperties[property] ?? property
+        );
+
+        properties.sort((a, b) => a.localeCompare(b));
+
+        return properties.join(", ");
+    }
+
     const item = getContext("item");
-    const { A5E } = CONFIG;
+    const { materialProperties } = CONFIG.A5E;
 
     let editMode = false;
 
-    function toggleEditMode() {
-        editMode = !editMode;
-    }
+    $: selectedMaterialProperties = prepareMaterialProperties($item);
 </script>
 
 <section>
-    <!-- svelte-ignore a11y-click-events-have-key-events -->
+    <!-- svelte-ignore a11y-click-events-have-key-events a11y-no-static-element-interactions -->
     <header
         class="
             u-align-center
@@ -32,9 +39,10 @@
             u-text-lg
             u-w-fit
         "
-        on:click={toggleEditMode}
+        on:click={() => (editMode = !editMode)}
     >
         <h3>{localize("A5E.MaterialProperties")}</h3>
+
         <i
             class="u-text-sm fas"
             class:fa-chevron-up={editMode}
@@ -46,7 +54,7 @@
         <div class="u-flex u-flex-col u-gap-md">
             <FormSection heading="A5E.MaterialProperties">
                 <CheckboxGroup
-                    options={Object.entries(A5E.materialProperties)}
+                    options={Object.entries(materialProperties)}
                     selected={$item.system.materialProperties}
                     on:updateSelection={(event) =>
                         updateDocumentDataFromField(
@@ -63,30 +71,9 @@
                 <dt class="u-text-bold">
                     {localize("A5E.MaterialProperties")}:
                 </dt>
+
                 <dd class="u-m-0 u-p-0">
-                    {#if $item.system.materialProperties.length}
-                        <ul
-                            class="
-                                u-comma-list
-                                u-flex
-                                u-flex-shrink-0
-                                u-gap-ch
-                                u-list-style-none
-                                u-m-0
-                                u-p-0
-                                u-w-fit
-                            "
-                        >
-                            {#each localeSort($item.system.materialProperties) as property}
-                                <li key={property}>
-                                    {A5E.materialProperties[property] ??
-                                        property}
-                                </li>
-                            {/each}
-                        </ul>
-                    {:else}
-                        {localize("A5E.None")}
-                    {/if}
+                    {selectedMaterialProperties || localize("A5E.None")}
                 </dd>
             </div>
         </dl>

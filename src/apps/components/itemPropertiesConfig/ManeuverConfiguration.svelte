@@ -11,17 +11,13 @@
 
     const item = getContext("item");
     const appId = getContext("appId");
-    const { A5E } = CONFIG;
+    const { maneuverDegrees, maneuverTraditions } = CONFIG.A5E;
 
     let editMode = false;
-
-    function toggleEditMode() {
-        editMode = !editMode;
-    }
 </script>
 
 <section>
-    <!-- svelte-ignore a11y-click-events-have-key-events -->
+    <!-- svelte-ignore a11y-click-events-have-key-events a11y-no-static-element-interactions -->
     <header
         class="
             u-align-center
@@ -34,9 +30,10 @@
             u-text-lg
             u-w-fit
         "
-        on:click={toggleEditMode}
+        on:click={() => (editMode = !editMode)}
     >
         <h3>{localize("A5E.TabManeuverProperties")}</h3>
+
         <i
             class="u-text-sm fas"
             class:fa-chevron-up={editMode}
@@ -48,9 +45,7 @@
         <div class="u-flex u-flex-col u-gap-md">
             <FormSection heading="A5E.ManeuverDegreePrompt">
                 <RadioGroup
-                    options={objectEntriesNumberKeyConverter(
-                        A5E.maneuverDegrees
-                    )}
+                    options={objectEntriesNumberKeyConverter(maneuverDegrees)}
                     selected={parseInt($item.system.degree, 10)}
                     on:updateSelection={(event) =>
                         updateDocumentDataFromField(
@@ -64,7 +59,7 @@
             {#if $item.system.degree > 0}
                 <FormSection heading="A5E.ManeuverTraditionPrompt">
                     <RadioGroup
-                        options={Object.entries(A5E.maneuverTraditions)}
+                        options={Object.entries(maneuverTraditions)}
                         selected={$item.system.tradition}
                         on:updateSelection={(event) =>
                             updateDocumentDataFromField(
@@ -119,7 +114,7 @@
                 </dt>
 
                 <dd class="u-m-0 u-p-0">
-                    {A5E.maneuverDegrees[$item.system.degree]}
+                    {maneuverDegrees[$item.system.degree]}
 
                     {#if $item.system.degree > 0 && $item.system.isStance}
                         {localize("A5E.ManeuverStance")}
@@ -134,7 +129,7 @@
                     </dt>
 
                     <dd class="u-m-0 u-p-0">
-                        {A5E.maneuverTraditions[$item.system.tradition] ??
+                        {maneuverTraditions[$item.system.tradition] ??
                             localize("A5E.None")}
                     </dd>
                 </div>
@@ -143,6 +138,7 @@
                     <dt class="u-text-bold">
                         {localize("A5E.ItemExertionCost")}:
                     </dt>
+
                     <dd class="u-m-0 u-p-0">
                         {$item.system.exertionCost || 0}
                     </dd>
