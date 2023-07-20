@@ -8,27 +8,34 @@
 
     import FormSection from "../FormSection.svelte";
 
+    function prepareUsesSummary(item) {
+        const { uses } = item.system;
+        let summary;
+
+        if (uses.value && uses.max) summary = `${uses.value} / ${uses.max}`;
+        else if (uses.value && !uses.max) summary = uses.value;
+        else if (!uses.value && uses.max) summary = `0 / ${uses.max}`;
+        else return null;
+
+        if (uses.per === "recharge") {
+            summary = `${summary} (Recharges on ${uses.recharge.threshold})`;
+        } else if (uses.per) {
+            summary = `${summary} (Per ${resourceRecoveryOptions[uses.per]})`;
+        }
+
+        return summary;
+    }
+
     const item = getContext("item");
-    const { A5E } = CONFIG;
+    const { resourceRecoveryOptions } = CONFIG.A5E;
 
     let editMode = false;
 
-    function toggleEditMode() {
-        editMode = !editMode;
-    }
-
-    $: hasUses = $item.system.uses.value || $item.system.uses.max;
-
-    $: itemMaxUses = $item.actor
-        ? getDeterministicBonus(
-              $item.system.uses?.max ?? 0,
-              $item.actor?.getRollData() ?? {}
-          )
-        : $item.system.uses?.max;
+    $: usesSummary = prepareUsesSummary($item);
 </script>
 
 <section>
-    <!-- svelte-ignore a11y-click-events-have-key-events -->
+    <!-- svelte-ignore a11y-click-events-have-key-events a11y-no-static-element-interactions -->
     <header
         class="
             u-align-center
@@ -41,9 +48,10 @@
             u-text-lg
             u-w-fit
         "
-        on:click={toggleEditMode}
+        on:click={() => (editMode = !editMode)}
     >
         <h3>{localize("A5E.ItemUsesConfiguration")}</h3>
+
         <i
             class="u-text-sm fas"
             class:fa-chevron-up={editMode}
@@ -94,6 +102,7 @@
 
                     <div class="u-flex u-flex-col u-gap-xs u-w-fit">
                         <h3 class="u-text-sm">{localize("A5E.UsesPer")}</h3>
+
                         <select
                             class="u-h-8 u-w-40"
                             name="system.uses.per"
@@ -106,7 +115,7 @@
                         >
                             <option value="" />
 
-                            {#each Object.entries(A5E.resourceRecoveryOptions) as [key, name]}
+                            {#each Object.entries(resourceRecoveryOptions) as [key, name]}
                                 <option
                                     {key}
                                     value={key}
@@ -173,42 +182,17 @@
             {/if}
         </div>
     {:else}
-        <dl class="a5e-box u-flex u-flex-col u-gap-sm u-m-0 u-p-md u-text-sm">
+        <dl class="a5e-box u-flex u-gap-sm u-m-0 u-p-md u-text-sm">
             <dt class="u-text-bold">{localize("A5E.Uses")}:</dt>
-            <dd class="align-center u-flex u-gap-sm u-m-0 u-p-0">
-                {#if hasUses}
-                    <div class="u-flex u-gap-md">
-                        <span>
-                            {$item.system.uses.value || 0}
-                        </span>
 
-                        {#if $item.system.uses.max}
-                            <span>/</span>
-                            <span>{itemMaxUses}</span>
-                        {/if}
-
-                        {#if $item.system.uses.per === "recharge"}
-                            <span
-                                data-tooltip={$item.system.uses.recharge
-                                    .formula}
-                                data-tooltip-direction="UP"
-                            >
-                                ( Recharges on {$item.system.uses.recharge
-                                    .threshold} )
-                            </span>
-                        {:else if $item.system.uses.per}
-                            <span>
-                                ( Per {localize(
-                                    A5E.resourceRecoveryOptions[
-                                        $item.system.uses.per
-                                    ]
-                                )} )
-                            </span>
-                        {/if}
-                    </div>
-                {:else}
-                    {localize("A5E.None")}
-                {/if}
+            <dd
+                class="align-center u-flex u-gap-sm u-m-0 u-p-0"
+                data-tooltip={$item.system.uses.per === "recharge"
+                    ? $item.system.uses.recharge.formula
+                    : null}
+                data-tooltip-direction="UP"
+            >
+                {usesSummary || localize("A5E.None")}
             </dd>
         </dl>
     {/if}
