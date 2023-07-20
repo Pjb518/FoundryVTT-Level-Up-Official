@@ -8,14 +8,14 @@
     import FormSection from "../FormSection.svelte";
     import CheckboxGroup from "../CheckboxGroup.svelte";
 
+    function toggleEditMode() {
+        editMode = !editMode;
+    }
+
     const item = getContext("item");
     const { weaponProperties } = CONFIG.A5E;
 
     let editMode = false;
-
-    function toggleEditMode() {
-        editMode = !editMode;
-    }
 </script>
 
 <section>

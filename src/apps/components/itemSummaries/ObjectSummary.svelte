@@ -10,18 +10,30 @@
     export let actionId = "";
     export let item;
 
-    function prepareArmorProperties(item) {
-        const properties = [];
+    function prepareObjectProperties(item) {
+        const { objectType } = item.system;
+        const properties = prepareMaterialProperties(item);
 
-        if (item.system.armorProperties) {
+        if (objectType === "armor") {
             properties.push(
-                ...item.system.armorProperties.map((property) =>
-                    localize(armorProperties[property] ?? property)
+                ...item.system.armorProperties.map(
+                    (property) => armorProperties[property] ?? property
+                )
+            );
+        } else if (objectType === "shield") {
+            properties.push(
+                ...item.system.shieldProperties.map(
+                    (property) => shieldProperties[property] ?? property
+                )
+            );
+        } else if (objectType === "weapon") {
+            properties.push(
+                ...item.system.weaponProperties.map(
+                    (property) => weaponProperties[property] ?? property
                 )
             );
         }
 
-        properties.push(...prepareMaterialProperties(item));
         properties.sort((a, b) => a.localeCompare(b));
 
         return properties.join(", ");
@@ -35,38 +47,20 @@
         );
     }
 
-    function prepareWeaponProperties(item) {
-        const properties = [];
+    const {
+        armorProperties,
+        materialProperties,
+        shieldProperties,
+        weaponProperties,
+    } = CONFIG.A5E;
 
-        if (item.system.weaponProperties) {
-            properties.push(
-                ...item.system.weaponProperties.map((property) =>
-                    localize(weaponProperties[property] ?? property)
-                )
-            );
-        }
-
-        properties.push(...prepareMaterialProperties(item));
-        properties.sort((a, b) => a.localeCompare(b));
-
-        return properties.join(", ");
-    }
-
-    const { armorProperties, materialProperties, weaponProperties } =
-        CONFIG.A5E;
-
-    $: armorPropertyList = prepareArmorProperties(item);
-    $: weaponPropertyList = prepareWeaponProperties(item);
+    $: objectProperties = prepareObjectProperties(item);
 
     let listHeight;
 </script>
 
-{#if !actionId}
-    {#if item.system.objectType === "armor" && armorPropertyList.length}
-        <p class="object-properties">{armorPropertyList}</p>
-    {:else if item.system.objectType === "weapon" && weaponPropertyList.length}
-        <p class="object-properties">{weaponPropertyList}</p>
-    {/if}
+{#if !actionId && objectProperties}
+    <p class="object-properties">{objectProperties}</p>
 {/if}
 
 <dl
