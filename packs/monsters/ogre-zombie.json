@@ -5,9 +5,9 @@
 	"items": [
 		{
 			"_id": "atMg40IDSHC3H8xU",
-			"name": "Undead Fortitude (1/Day)",
+			"name": "Undead Fortitude",
 			"type": "feature",
-			"img": "icons/svg/item-bag.svg",
+			"img": "icons/magic/death/hand-dirt-undead-zombie.webp",
 			"effects": [],
 			"folder": null,
 			"sort": 0,
@@ -51,9 +51,9 @@
 				"secretDescription": "",
 				"source": "",
 				"uses": {
-					"value": null,
-					"max": "",
-					"per": null,
+					"value": 1,
+					"max": "1",
+					"per": "day",
 					"recharge": {
 						"formula": "",
 						"threshold": ""
@@ -81,7 +81,7 @@
 			"_id": "1KOhuCWhN8KIdgTS",
 			"name": "Undead Nature",
 			"type": "feature",
-			"img": "icons/svg/item-bag.svg",
+			"img": "icons/magic/death/undead-skeleton-worn-blue.webp",
 			"effects": [],
 			"folder": null,
 			"sort": 0,
@@ -132,7 +132,7 @@
 			"_id": "7hY9t8zY6JiIJSWt",
 			"name": "Grab",
 			"type": "feature",
-			"img": "icons/svg/item-bag.svg",
+			"img": "icons/skills/melee/hand-grip-staff-teal.webp",
 			"effects": [],
 			"folder": null,
 			"sort": 0,
@@ -327,7 +327,7 @@
 			"_id": "B3nlw65kzREpEW6c",
 			"name": "Sweeping Strike",
 			"type": "feature",
-			"img": "icons/svg/item-bag.svg",
+			"img": "icons/skills/melee/strike-sword-steel-yellow.webp",
 			"effects": [],
 			"folder": null,
 			"sort": 0,
@@ -378,7 +378,7 @@
 							"hh704sa1HF1VHTRK": {
 								"canCrit": true,
 								"damageType": "bludgeoning",
-								"formula": "1d8+@str.mod",
+								"formula": "1d8 + @str.mod",
 								"name": "Sweeping Strike",
 								"type": "damage"
 							}
@@ -394,7 +394,12 @@
 								"type": "savingThrow"
 							}
 						},
-						"consumers": {}
+						"consumers": {},
+						"ranges": {
+							"0YpmBb8KU1ZlILWg": {
+								"range": "fiveFeet"
+							}
+						}
 					}
 				},
 				"description": "<p>Targets all creatures within 5 feet, dealing damage. If the target is a Medium or smaller creature, it makes a DC 14 Strength saving throw. On a failure, it is pushed 10 feet away from the ogre.</p>",
@@ -432,7 +437,7 @@
 			"_id": "iHvSk0317dPoqVVb",
 			"name": "Greatclub",
 			"type": "object",
-			"img": "icons/svg/item-bag.svg",
+			"img": "icons/weapons/clubs/club-simple-black.webp",
 			"effects": [],
 			"folder": null,
 			"sort": 0,
@@ -449,7 +454,7 @@
 				},
 				"actions": {
 					"p3KjXqJatrNAUYqp": {
-						"name": "Greatclub",
+						"name": "Attack",
 						"activation": {
 							"cost": "",
 							"type": "",
@@ -528,7 +533,7 @@
 				"bulky": false,
 				"craftingComponents": "",
 				"damagedState": 0,
-				"equippedState": 0,
+				"equippedState": 1,
 				"materialProperties": [],
 				"objectType": "weapon",
 				"plotItem": false,
@@ -1105,7 +1110,9 @@
 	"effects": [],
 	"flags": {
 		"a5e": {
-			"sheetIsLocked": true
+			"sheetIsLocked": true,
+			"currentTab": "core",
+			"showSpellTab": false
 		}
 	},
 	"system": {
