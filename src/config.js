@@ -792,6 +792,12 @@ A5E.scrollData = {
   }
 };
 
+A5E.shieldProperties = {
+  handsFree: 'A5E.shieldProperties.handsFree',
+  mirrored: 'A5E.shieldProperties.mirrored',
+  spikes: 'A5E.shieldProperties.spikes'
+};
+
 /**
  * The set of core shield types in the system.
  * @enum {string}

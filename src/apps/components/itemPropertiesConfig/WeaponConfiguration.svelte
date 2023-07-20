@@ -9,7 +9,7 @@
     import CheckboxGroup from "../CheckboxGroup.svelte";
 
     const item = getContext("item");
-    const { A5E } = CONFIG;
+    const { weaponProperties } = CONFIG.A5E;
 
     let editMode = false;
 
@@ -19,7 +19,7 @@
 </script>
 
 <section>
-    <!-- svelte-ignore a11y-click-events-have-key-events -->
+    <!-- svelte-ignore a11y-click-events-have-key-events a11y-no-static-element-interactions -->
     <header
         class="
             u-align-center
@@ -46,7 +46,7 @@
         <div class="u-flex u-flex-col u-gap-md">
             <FormSection heading="A5E.WeaponProperties">
                 <CheckboxGroup
-                    options={Object.entries(A5E.weaponProperties)}
+                    options={Object.entries(weaponProperties)}
                     selected={$item.system.weaponProperties}
                     on:updateSelection={(event) =>
                         updateDocumentDataFromField(
@@ -77,7 +77,7 @@
                         >
                             {#each localeSort($item.system.weaponProperties) as property}
                                 <li key={property}>
-                                    {A5E.weaponProperties[property] ?? property}
+                                    {weaponProperties[property] ?? property}
                                 </li>
                             {/each}
                         </ul>
