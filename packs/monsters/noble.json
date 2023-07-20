@@ -1,7 +1,7 @@
 {
 	"name": "Noble",
 	"type": "npc",
-	"img": "icons/equipment/neck/collar-rounded-gold-purple.webp",
+	"img": "icons/svg/mystery-man.svg",
 	"items": [
 		{
 			"_id": "0RwD4LHy660eY8PB",
@@ -121,87 +121,10 @@
 			}
 		},
 		{
-			"_id": "VHpKLID9EDlwuq90",
-			"name": "Breastplate/Cuirass (Steel)",
-			"type": "object",
-			"img": "icons/equipment/chest/breastplate-gorget-steel-white.webp",
-			"effects": [],
-			"folder": "lga2GVh1Wd1dY3KJ",
-			"sort": 0,
-			"flags": {
-				"core": {
-					"sourceId": "Item.4BPIJ5HtH8pRPcAf"
-				}
-			},
-			"system": {
-				"ac": {
-					"baseFormula": "",
-					"formula": "",
-					"maxDex": 0,
-					"minStr": 0,
-					"mode": 1,
-					"requiresNoShield": false,
-					"requiresUnarmored": false
-				},
-				"actions": {},
-				"description": "<p><em>Low-Maintenance (Expertise Die)</em></p><p><strong>AC 14 (DEX +2 max)</strong></p>",
-				"favorite": false,
-				"secretDescription": "",
-				"source": "",
-				"uses": {
-					"value": null,
-					"max": "",
-					"per": null,
-					"recharge": {
-						"formula": "",
-						"threshold": ""
-					}
-				},
-				"schema": {
-					"version": 0.004,
-					"lastMigration": {
-						"version": {
-							"schema": 0.003,
-							"foundry": "11.302",
-							"system": "0.12.7"
-						}
-					}
-				},
-				"ammunitionProperties": [],
-				"armorCategory": "medium",
-				"armorProperties": [],
-				"attuned": false,
-				"bulky": false,
-				"craftingComponents": "",
-				"damagedState": 0,
-				"equippedState": 2,
-				"materialProperties": [
-					"lowMaintenance"
-				],
-				"objectType": "armor",
-				"plotItem": false,
-				"price": "400 gp",
-				"proficient": true,
-				"quantity": 1,
-				"rarity": "common",
-				"requiresAttunement": false,
-				"shieldCategory": "",
-				"unidentified": false,
-				"unidentifiedDescription": "",
-				"unidentifiedName": "",
-				"weaponProperties": [],
-				"weight": 20,
-				"broken": false
-			},
-			"ownership": {
-				"default": 0
-			}
-		},
-		{
 			"_id": "XObXXY4HuTye49Bf",
 			"name": "Parry",
 			"type": "feature",
-			"img": "icons/svg/item-bag.svg",
+			"img": "icons/skills/melee/swords-parry-block-blue.webp",
 			"effects": [],
 			"folder": null,
 			"sort": 0,
@@ -822,6 +745,78 @@
 			"folder": null,
 			"sort": 0,
 			"_id": "yoe1WOUJZCA6zf3I"
+		},
+		{
+			"name": "Breastplate (Steel)",
+			"type": "object",
+			"img": "icons/equipment/chest/breastplate-gorget-steel-white.webp",
+			"effects": [],
+			"flags": {},
+			"system": {
+				"ac": {
+					"baseFormula": "14 + @dex.mod",
+					"formula": "",
+					"maxDex": 2,
+					"minStr": 11,
+					"mode": 2,
+					"requiresNoShield": false,
+					"requiresUnarmored": false
+				},
+				"actions": {},
+				"description": "",
+				"favorite": false,
+				"secretDescription": "",
+				"source": "",
+				"uses": {
+					"value": null,
+					"max": "",
+					"per": null,
+					"recharge": {
+						"formula": "1d6",
+						"threshold": 6
+					}
+				},
+				"schema": {
+					"version": 0.006,
+					"lastMigration": {
+						"version": {
+							"schema": 0.004,
+							"foundry": "11.305",
+							"system": "0.13.3"
+						}
+					}
+				},
+				"ammunitionProperties": [],
+				"armorCategory": "medium",
+				"armorProperties": [],
+				"attuned": false,
+				"bulky": false,
+				"craftingComponents": "",
+				"damagedState": 0,
+				"equippedState": 2,
+				"materialProperties": [
+					"lowMaintenance"
+				],
+				"objectType": "armor",
+				"plotItem": false,
+				"price": "400 gp",
+				"proficient": true,
+				"quantity": 1,
+				"rarity": "common",
+				"requiresAttunement": false,
+				"shieldCategory": "",
+				"unidentified": false,
+				"unidentifiedDescription": "",
+				"unidentifiedName": "",
+				"weaponProperties": [],
+				"weight": 20
+			},
+			"folder": "Hi0Exa3LBwLdqM1Q",
+			"_id": "CGMjS44QASCcNFCD",
+			"sort": 0,
+			"ownership": {
+				"default": 0
+			}
 		}
 	],
 	"effects": [],
@@ -829,7 +824,9 @@
 		"a5e": {
 			"availableSpellLevels": [],
 			"showSpellSlots": false,
-			"showSpellPoints": false
+			"showSpellPoints": false,
+			"currentTab": "inventory",
+			"sheetIsLocked": true
 		}
 	},
 	"system": {
@@ -1442,10 +1439,14 @@
 		"bar2": {
 			"attribute": null
 		},
-		"flags": {},
+		"flags": {
+			"wall-height": {
+				"tokenHeight": 0
+			}
+		},
 		"randomImg": false,
 		"texture": {
-			"src": "icons/equipment/neck/collar-rounded-gold-purple.webp",
+			"src": "icons/svg/mystery-man.svg",
 			"scaleX": 1,
 			"scaleY": 1,
 			"offsetX": 0,
