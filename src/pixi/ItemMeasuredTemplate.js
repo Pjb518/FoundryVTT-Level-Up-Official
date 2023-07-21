@@ -41,7 +41,7 @@ export default class ItemMeasuredTemplate extends MeasuredTemplate {
   }
 
   async _finishPlacement(e) {
-    this.layer._onDragLeftCancel(e);
+    this.layer._onDragLeftCancel(e ?? {});
     canvas.stage.off('mousemove', this.#events.move);
     canvas.stage.off('mousedown', this.#events.confirm);
     canvas.app.view.oncontextmenu = null;
@@ -90,7 +90,7 @@ export default class ItemMeasuredTemplate extends MeasuredTemplate {
   }
 
   async _onCancel(e) {
-    await this._finishPlacement(e);
+    await this._finishPlacement(e ?? {});
     this.#events.reject();
   }
 }
