@@ -361,11 +361,12 @@ export default class ActorA5e extends Actor {
       return acc;
     }, { override: null, shield: null, bonuses: [] });
 
+    if (changes.shield) changes.bonuses.unshift(changes.shield);
+    delete changes.shield;
+
     // Bring reduced changes in line with the expected format
     const bonuses = changes.bonuses.reduce((acc, { value }) => acc + value, 0);
     changes.bonuses = { components: changes.bonuses, value: bonuses };
-    if (changes.shield) changes.bonuses.unshift(changes.shield);
-    delete changes.shield;
 
     return changes;
   }
