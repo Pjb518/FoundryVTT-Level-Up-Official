@@ -1,8 +1,114 @@
 {
-	"name": "Lacedon Ghoul",
+	"name": "Shadow Claw",
 	"type": "npc",
-	"img": "systems/a5e/assets/ghoul.webp",
+	"img": "systems/a5e/assets/shadow.webp",
 	"items": [
+		{
+			"_id": "ojc4znqSfH7kw6C7",
+			"name": "Claw",
+			"type": "feature",
+			"img": "icons/skills/melee/blood-slash-foam-red.webp",
+			"effects": [],
+			"folder": null,
+			"sort": 1,
+			"flags": {},
+			"system": {
+				"ac": {
+					"baseFormula": "",
+					"formula": "",
+					"maxDex": 0,
+					"minStr": 0,
+					"mode": 1,
+					"requiresNoShield": false,
+					"requiresUnarmored": false
+				},
+				"actions": {
+					"dp8aqKbYCxqh6GFP": {
+						"name": "Claw",
+						"activation": {
+							"cost": 1,
+							"type": "action",
+							"reactionTrigger": ""
+						},
+						"duration": {
+							"unit": "",
+							"value": ""
+						},
+						"area": {
+							"shape": "",
+							"size": "",
+							"placeTemplate": false
+						},
+						"target": {
+							"quantity": 1,
+							"type": "creature"
+						},
+						"rolls": {
+							"9GburYv4umvwF6nm": {
+								"bonus": "",
+								"critThreshold": "20",
+								"type": "attack",
+								"attackType": "meleeWeaponAttack",
+								"ability": "dex"
+							},
+							"zzKJl3fwHYM0vJAM": {
+								"canCrit": true,
+								"damageType": "necrotic",
+								"formula": "2d6 + @dex.mod",
+								"name": "",
+								"type": "damage"
+							}
+						},
+						"prompts": {
+							"uh5gPiUddCSulYGV": {
+								"ability": "con",
+								"onSave": "Negates",
+								"saveDC": {
+									"type": "custom",
+									"bonus": "12"
+								},
+								"type": "savingThrow"
+							}
+						},
+						"consumers": {},
+						"ranges": {
+							"dwTtJYXIEIlEQUPK": {
+								"range": "short"
+							}
+						}
+					}
+				},
+				"description": "<p>+4 to hit, reach 30 ft., one creature. Hit: 9 (2d6 + 2) necrotic damage, and the target makes a DC 12 Constitution saving throw. On a failure, the target is cursed until it finishes a short or long rest or is the subject of remove curse or a similar spell.</p>\n<p>While cursed, the target makes attack rolls, Strength checks, and Strength saving throws with disadvantage. If the target dies while cursed, a new undead shadow rises from the corpse in 1d4 hours, the corpse no longer casts a natural shadow, and the target can&rsquo;t be raised from the dead until the new shadow is destroyed.</p>",
+				"favorite": true,
+				"secretDescription": "",
+				"source": "",
+				"uses": {
+					"value": null,
+					"max": "",
+					"per": null,
+					"recharge": {
+						"formula": "",
+						"threshold": ""
+					}
+				},
+				"schema": {
+					"version": 0.004,
+					"lastMigration": {
+						"version": {
+							"schema": 0.003,
+							"foundry": "11.302",
+							"system": "0.12.7"
+						}
+					}
+				},
+				"concentration": false,
+				"featureType": "naturalWeapon",
+				"prerequisite": ""
+			},
+			"ownership": {
+				"default": 0
+			}
+		},
 		{
 			"name": "Shove",
 			"type": "maneuver",
@@ -15,7 +121,7 @@
 			},
 			"system": {
 				"actions": {
-					"wylyEApSRT5qgcv6": {
+					"12UT6KATQ6NQbtKI": {
 						"name": "Shove",
 						"activation": {
 							"cost": 1,
@@ -27,7 +133,7 @@
 							"value": null
 						},
 						"ranges": {
-							"e86DXaAOPLhiqmRn": {
+							"CNjYl3GWkfnVOirL": {
 								"range": "fiveFeet"
 							}
 						},
@@ -43,7 +149,7 @@
 							"size": ""
 						},
 						"rolls": {
-							"j78y9s2ATZCTyumP": {
+							"8nLCu0EEriXZ5aRS": {
 								"canCrit": false,
 								"damageType": "bludgeoning",
 								"formula": "1 + @str.mod",
@@ -52,7 +158,7 @@
 							}
 						},
 						"prompts": {
-							"BLPdysvSj2kWngmY": {
+							"9tniu4wpxchk4tfG": {
 								"ability": "str",
 								"onSave": "",
 								"saveDC": {
@@ -99,7 +205,7 @@
 			},
 			"folder": null,
 			"sort": 0,
-			"_id": "aPhAs3DT3nXh8qc2"
+			"_id": "neFwdlepX6qURBQY"
 		},
 		{
 			"name": "Disarm",
@@ -113,7 +219,7 @@
 			},
 			"system": {
 				"actions": {
-					"91gJLFPqmCjlMVPX": {
+					"WNEHHOJ7XPKhd4rx": {
 						"name": "Disarm",
 						"activation": {
 							"cost": 1,
@@ -125,7 +231,7 @@
 							"value": null
 						},
 						"ranges": {
-							"iO9HlUEpv1xGXV03": {
+							"SYnBReFprZ4bLwt3": {
 								"range": "touch"
 							}
 						},
@@ -141,7 +247,7 @@
 							"size": ""
 						},
 						"rolls": {
-							"6ZE4jWEEtMHpNwWz": {
+							"ZUwYJSOo8eSNBnib": {
 								"canCrit": false,
 								"damageType": "",
 								"formula": "1 + @str.mod",
@@ -150,7 +256,7 @@
 							}
 						},
 						"prompts": {
-							"q3vdDmhnmyyoMSih": {
+							"5obgrzmD1yG163Vr": {
 								"ability": "str",
 								"onSave": "",
 								"saveDC": {
@@ -197,7 +303,7 @@
 			},
 			"folder": null,
 			"sort": 0,
-			"_id": "EihkAvopyVhz5lyk"
+			"_id": "pzruPpRZVawoVrat"
 		},
 		{
 			"name": "Grab On",
@@ -211,7 +317,7 @@
 			},
 			"system": {
 				"actions": {
-					"iH4bg6VL2rmsayMP": {
+					"ifXQbUAAFjZ706ej": {
 						"name": "Grab On",
 						"activation": {
 							"cost": 1,
@@ -223,7 +329,7 @@
 							"value": null
 						},
 						"ranges": {
-							"BQ0PB5iEtM03MikM": {
+							"fYbmjbyVxTfVRiDF": {
 								"range": "touch"
 							}
 						},
@@ -239,7 +345,7 @@
 							"size": ""
 						},
 						"prompts": {
-							"OJaRdwZ5nTvxEegd": {
+							"032GvJPqiVESP1GF": {
 								"ability": "str",
 								"onSave": "",
 								"saveDC": {
@@ -286,7 +392,7 @@
 			},
 			"folder": null,
 			"sort": 0,
-			"_id": "pG62K4zNBaqCfU5p"
+			"_id": "IwhnaOROADDGrchk"
 		},
 		{
 			"name": "Knockdown",
@@ -300,7 +406,7 @@
 			},
 			"system": {
 				"actions": {
-					"0varhk6FM1RYx5B5": {
+					"ip5VLcYIbi4vdzSY": {
 						"name": "Knockdown",
 						"activation": {
 							"cost": 1,
@@ -312,7 +418,7 @@
 							"value": null
 						},
 						"ranges": {
-							"6EoBPyDULELslNW8": {
+							"MsuOkNfBRlpgmael": {
 								"range": "touch"
 							}
 						},
@@ -328,7 +434,7 @@
 							"size": ""
 						},
 						"prompts": {
-							"2MremxncZ6fxM6iA": {
+							"N3N7hYBTLhNecQCJ": {
 								"ability": "str",
 								"onSave": "",
 								"saveDC": {
@@ -375,7 +481,7 @@
 			},
 			"folder": null,
 			"sort": 0,
-			"_id": "5lKwHmi4PPr5mptU"
+			"_id": "V1u036iKL6zUGRBN"
 		},
 		{
 			"name": "Grapple",
@@ -389,7 +495,7 @@
 			},
 			"system": {
 				"actions": {
-					"oyNF4MSgz3PuLF8y": {
+					"jDFcpIQhZmM5Dpe2": {
 						"name": "Grapple",
 						"activation": {
 							"cost": 1,
@@ -401,7 +507,7 @@
 							"value": null
 						},
 						"ranges": {
-							"btQb6evZhmh8aout": {
+							"Au9d0SPhyrenDLG1": {
 								"range": "touch"
 							}
 						},
@@ -417,7 +523,7 @@
 							"size": ""
 						},
 						"prompts": {
-							"mvMzehIyvq62Ef5w": {
+							"ZVxHUC0fAbguKDLu": {
 								"ability": "str",
 								"onSave": "",
 								"saveDC": {
@@ -464,7 +570,7 @@
 			},
 			"folder": null,
 			"sort": 0,
-			"_id": "G7UqdYPDEzi0z7YE"
+			"_id": "yxkVqdN362Xnof3y"
 		},
 		{
 			"name": "Overrun",
@@ -478,7 +584,7 @@
 			},
 			"system": {
 				"actions": {
-					"D5bMexiWPMqgTEJB": {
+					"l2KUpyzKhP3P2xjK": {
 						"name": "Overrun",
 						"activation": {
 							"cost": 1,
@@ -490,7 +596,7 @@
 							"value": null
 						},
 						"ranges": {
-							"h9Z7I3XoZ0QwggLw": {
+							"HzYlCohSggVANNSP": {
 								"range": "touch"
 							}
 						},
@@ -506,7 +612,7 @@
 							"size": ""
 						},
 						"prompts": {
-							"o7kTAfVMavskI7gC": {
+							"04QOr5xgM8avX7O8": {
 								"ability": "str",
 								"onSave": "",
 								"saveDC": {
@@ -553,112 +659,13 @@
 			},
 			"folder": null,
 			"sort": 0,
-			"_id": "uZpCEWjF9lDUlKrB"
+			"_id": "ehLZ33RTOIoqoVLj"
 		},
 		{
-			"_id": "KEJfiryqKZmrjW3X",
-			"name": "Bite",
+			"_id": "P8vtvGGRr725dDqp",
+			"name": "Amorphous",
 			"type": "feature",
-			"img": "icons/creatures/abilities/mouth-teeth-long-red.webp",
-			"effects": [],
-			"folder": "xwueFImsOVfwH3NS",
-			"sort": 0,
-			"flags": {
-				"core": {
-					"sourceId": "Item.6y5L0wnBLYVcFKCn"
-				}
-			},
-			"system": {
-				"ac": {
-					"baseFormula": "",
-					"formula": "",
-					"maxDex": 0,
-					"minStr": 0,
-					"mode": 1,
-					"requiresNoShield": false,
-					"requiresUnarmored": false
-				},
-				"actions": {
-					"cdj9UsX9uHs5Egvz": {
-						"name": "Bite",
-						"activation": {
-							"cost": 1,
-							"type": "action",
-							"reactionTrigger": ""
-						},
-						"duration": {
-							"unit": "",
-							"value": ""
-						},
-						"ranges": {
-							"7MVGJmixWHJXf903": {
-								"range": "fiveFeet"
-							}
-						},
-						"area": {
-							"shape": "",
-							"size": "",
-							"placeTemplate": false
-						},
-						"target": {
-							"quantity": 1,
-							"type": "other"
-						},
-						"rolls": {
-							"s16rQsFDAowtaAJp": {
-								"bonus": "",
-								"critThreshold": "20",
-								"type": "attack",
-								"attackType": "meleeWeaponAttack",
-								"ability": "dex"
-							},
-							"QW5SCdVDifmgivUq": {
-								"canCrit": true,
-								"damageType": "piercing",
-								"formula": "1d8 + @dex.mod",
-								"name": "Bite Damage",
-								"type": "damage"
-							}
-						},
-						"consumers": {}
-					}
-				},
-				"description": "",
-				"favorite": true,
-				"secretDescription": "",
-				"source": "",
-				"uses": {
-					"value": null,
-					"max": "",
-					"per": null,
-					"recharge": {
-						"formula": "",
-						"threshold": ""
-					}
-				},
-				"schema": {
-					"version": 0.004,
-					"lastMigration": {
-						"version": {
-							"schema": 0.003,
-							"foundry": "11.302",
-							"system": "0.12.7"
-						}
-					}
-				},
-				"concentration": false,
-				"featureType": "naturalWeapon",
-				"prerequisite": ""
-			},
-			"ownership": {
-				"default": 0
-			}
-		},
-		{
-			"_id": "GwRk1hPlC3rgY54W",
-			"name": "Undead Nature",
-			"type": "feature",
-			"img": "icons/magic/death/blood-corruption-vomit-red.webp",
+			"img": "icons/magic/control/silhouette-hold-change-blue.webp",
 			"effects": [],
 			"folder": null,
 			"sort": 0,
@@ -674,7 +681,7 @@
 					"requiresUnarmored": false
 				},
 				"actions": {},
-				"description": "<p>Ghouls and ghasts don't require air, sustenance, or sleep.</p>",
+				"description": "<p>The shadow can pass through an opening as narrow as 1 inch wide without squeezing.</p>",
 				"favorite": true,
 				"secretDescription": "",
 				"source": "",
@@ -706,128 +713,14 @@
 			}
 		},
 		{
-			"_id": "AJmq9gbf6U5YgJ0T",
-			"name": "Paralyzing Claw",
+			"_id": "NXqBKIRFNkd2xQTQ",
+			"name": "Sunlight Weakness",
 			"type": "feature",
-			"img": "icons/skills/melee/blood-slash-foam-red.webp",
+			"img": "icons/magic/nature/symbol-sun-yellow.webp",
 			"effects": [],
-			"folder": "xwueFImsOVfwH3NS",
-			"sort": 1,
-			"flags": {
-				"core": {
-					"sourceId": "Item.JJTNs2abQROW1TiV"
-				}
-			},
-			"system": {
-				"ac": {
-					"baseFormula": "",
-					"formula": "",
-					"maxDex": 0,
-					"minStr": 0,
-					"mode": 1,
-					"requiresNoShield": false,
-					"requiresUnarmored": false
-				},
-				"actions": {
-					"aut5K9SvQOGtO8QY": {
-						"name": "Paralyzing Claw",
-						"activation": {
-							"cost": 1,
-							"type": "action",
-							"reactionTrigger": ""
-						},
-						"duration": {
-							"unit": "instantaneous",
-							"value": ""
-						},
-						"ranges": {
-							"IriYaJZozrayY6Km": {
-								"range": "fiveFeet"
-							}
-						},
-						"area": {
-							"shape": "",
-							"size": "",
-							"placeTemplate": false
-						},
-						"target": {
-							"quantity": 1,
-							"type": "creatureObject"
-						},
-						"rolls": {
-							"8zCHqAvOh0rzGyXj": {
-								"bonus": "",
-								"critThreshold": "20",
-								"type": "attack",
-								"attackType": "meleeWeaponAttack",
-								"ability": "dex"
-							},
-							"GhPo6gshftQ2IheS": {
-								"canCrit": true,
-								"damageType": "slashing",
-								"formula": "1d6 + @dex.mod",
-								"name": "Claw Damage",
-								"type": "damage"
-							}
-						},
-						"prompts": {
-							"Kfr5ENKmbFTTkzHd": {
-								"ability": "con",
-								"onSave": "Target is immune to any Paralyzing Claw for 24 hours. Elf automatically saves.",
-								"saveDC": {
-									"type": "custom",
-									"bonus": "10"
-								},
-								"type": "savingThrow"
-							}
-						},
-						"consumers": {}
-					}
-				},
-				"description": "<p>If the target is a living creature other than an elf, it makes a DC 10 Constitution saving throw. On a failure, the target is paralyzed for 1 minute. The target repeats the saving throw at the end of its turns, ending the effect on itself on a success. If the target’s saving throw is successful or the effect ends for it, it is immune to any Paralyzing Claw for 24 hours.</p>",
-				"favorite": true,
-				"secretDescription": "",
-				"source": "",
-				"uses": {
-					"value": null,
-					"max": "",
-					"per": null,
-					"recharge": {
-						"formula": "",
-						"threshold": ""
-					}
-				},
-				"schema": {
-					"version": 0.004,
-					"lastMigration": {
-						"version": {
-							"schema": 0.003,
-							"foundry": "11.302",
-							"system": "0.12.7"
-						}
-					}
-				},
-				"concentration": false,
-				"featureType": "",
-				"prerequisite": ""
-			},
-			"ownership": {
-				"default": 0
-			}
-		},
-		{
-			"_id": "C3If42T83L3Atfm5",
-			"name": "Radiant Sensitivity",
-			"type": "feature",
-			"img": "icons/magic/light/beam-rays-red-large.webp",
-			"effects": [],
-			"folder": "xwueFImsOVfwH3NS",
-			"sort": 2,
-			"flags": {
-				"core": {
-					"sourceId": "Item.2ibo6fejAILkOsKz"
-				}
-			},
+			"folder": null,
+			"sort": 3,
+			"flags": {},
 			"system": {
 				"ac": {
 					"baseFormula": "",
@@ -839,7 +732,7 @@
 					"requiresUnarmored": false
 				},
 				"actions": {},
-				"description": "<p>When the creature takes radiant damage, it has disadvantage on attack rolls and on Perception checks that rely on sight until the end of its next turn.</p>",
+				"description": "<p>While in sunlight, the shadow has disadvantage on attack rolls, ability checks, and saving throws.</p>",
 				"favorite": true,
 				"secretDescription": "",
 				"source": "",
@@ -869,21 +762,146 @@
 			"ownership": {
 				"default": 0
 			}
+		},
+		{
+			"_id": "DlGqK37VyQ9n0TpC",
+			"name": "Undead Nature",
+			"type": "feature",
+			"img": "icons/magic/death/skull-energy-light-white.webp",
+			"effects": [],
+			"folder": null,
+			"sort": 4,
+			"flags": {},
+			"system": {
+				"ac": {
+					"baseFormula": "",
+					"formula": "",
+					"maxDex": 0,
+					"minStr": 0,
+					"mode": 1,
+					"requiresNoShield": false,
+					"requiresUnarmored": false
+				},
+				"actions": {},
+				"description": "<p>A shadow doesn’t require air, sustenance, or sleep.</p>",
+				"favorite": true,
+				"secretDescription": "",
+				"source": "",
+				"uses": {
+					"value": null,
+					"max": "",
+					"per": null,
+					"recharge": {
+						"formula": "",
+						"threshold": ""
+					}
+				},
+				"schema": {
+					"version": 0.004,
+					"lastMigration": {
+						"version": {
+							"schema": 0.003,
+							"foundry": "11.302",
+							"system": "0.12.7"
+						}
+					}
+				},
+				"concentration": false,
+				"featureType": "",
+				"prerequisite": ""
+			},
+			"ownership": {
+				"default": 0
+			}
+		},
+		{
+			"_id": "xO3yy21O3wEWoLO8",
+			"name": "Shadow Sneak",
+			"type": "feature",
+			"img": "icons/magic/perception/silhouette-stealth-shadow.webp",
+			"effects": [],
+			"folder": null,
+			"sort": 2,
+			"flags": {},
+			"system": {
+				"ac": {
+					"baseFormula": "",
+					"formula": "",
+					"maxDex": 0,
+					"minStr": 0,
+					"mode": 1,
+					"requiresNoShield": false,
+					"requiresUnarmored": false
+				},
+				"actions": {
+					"5LeIqQ2wRrnRQsM9": {
+						"name": "Shadow Sneak",
+						"activation": {
+							"cost": 1,
+							"type": "bonusAction",
+							"reactionTrigger": ""
+						},
+						"duration": {
+							"unit": "",
+							"value": ""
+						},
+						"area": {
+							"shape": "",
+							"size": "",
+							"placeTemplate": false
+						},
+						"target": {
+							"quantity": "",
+							"type": ""
+						},
+						"consumers": {}
+					}
+				},
+				"description": "<p>The shadow takes the Hide action even if obscured only by dim light or darkness.</p>",
+				"favorite": true,
+				"secretDescription": "",
+				"source": "",
+				"uses": {
+					"value": null,
+					"max": "",
+					"per": null,
+					"recharge": {
+						"formula": "",
+						"threshold": ""
+					}
+				},
+				"schema": {
+					"version": 0.004,
+					"lastMigration": {
+						"version": {
+							"schema": 0.003,
+							"foundry": "11.302",
+							"system": "0.12.7"
+						}
+					}
+				},
+				"concentration": false,
+				"featureType": "other",
+				"prerequisite": ""
+			},
+			"ownership": {
+				"default": 0
+			}
 		}
 	],
 	"effects": [],
 	"flags": {
 		"a5e": {
-			"availableSpellLevels": [],
 			"sheetIsLocked": true,
-			"currentTab": "core",
+			"currentTab": "settings",
+			"sortMode": 1,
 			"showSpellTab": false
 		}
 	},
 	"system": {
 		"abilities": {
 			"str": {
-				"value": 12,
+				"value": 6,
 				"check": {
 					"expertiseDice": 0,
 					"bonus": ""
@@ -920,7 +938,7 @@
 				}
 			},
 			"int": {
-				"value": 6,
+				"value": 8,
 				"check": {
 					"expertiseDice": 0,
 					"bonus": ""
@@ -944,7 +962,7 @@
 				}
 			},
 			"cha": {
-				"value": 6,
+				"value": 14,
 				"check": {
 					"expertiseDice": 0,
 					"bonus": ""
@@ -1186,7 +1204,7 @@
 			"ste": {
 				"ability": "dex",
 				"value": 0,
-				"proficient": false,
+				"proficient": true,
 				"specialties": [],
 				"expertiseDice": 0,
 				"minRoll": 1,
@@ -1266,8 +1284,8 @@
 				"failure": 0
 			},
 			"hp": {
-				"value": 22,
-				"baseMax": 22,
+				"value": 18,
+				"baseMax": 18,
 				"temp": 0,
 				"bonus": 0
 			},
@@ -1277,8 +1295,8 @@
 					"total": 0
 				},
 				"d8": {
-					"current": 5,
-					"total": 5
+					"current": 4,
+					"total": 4
 				},
 				"d10": {
 					"current": 0,
@@ -1315,11 +1333,11 @@
 					"unit": "feet"
 				},
 				"swim": {
-					"distance": 30,
+					"distance": 0,
 					"unit": "feet"
 				},
 				"walk": {
-					"distance": 30,
+					"distance": 0,
 					"unit": "feet"
 				},
 				"traits": {
@@ -1328,20 +1346,20 @@
 			},
 			"senses": {
 				"blindsight": {
-					"distance": 0,
+					"distance": null,
 					"unit": "feet",
 					"otherwiseBlind": false
 				},
 				"darkvision": {
-					"distance": 60,
+					"distance": 120,
 					"unit": "feet"
 				},
 				"tremorsense": {
-					"distance": 0,
+					"distance": null,
 					"unit": "feet"
 				},
 				"truesight": {
-					"distance": 0,
+					"distance": null,
 					"unit": "feet"
 				}
 			},
@@ -1374,7 +1392,7 @@
 			"cp": 0
 		},
 		"details": {
-			"bio": "",
+			"bio": "<h2>Combat</h2><p>If in shadow or darkness, the shadow attacks, hides, and then moves away from its target. If in bright light, the shadow flees to a darker area. Shadows only attack creatures in bright light if they outnumber their foe two to one or more. If a shadow retreats, it follows a creature it has <a target=\"_blank\" rel=\"noopener noreferrer nofollow\" href=\"https://a5e.tools/rules/cursed\">cursed</a> .</p><hr class=\"a5e-rule u-my-md\"><h2>Legends and Lore</h2><p>With an Arcana or Religion check, characters can learn the following:</p><p><strong>DC 10</strong> When a person dies in the dark, their spirit may rise again as a shadow. Necromancers and undead (including other shadows) can create shadows, as well.</p><p><strong>DC 15</strong> Like moths drawn to a flame, shadows crave light, but they are greatly weakened when they enter it.</p><p><strong>DC 20</strong> Shadows drain the strength from living creatures they touch. If a shadow kills you, it steals your shadow, and you can’t be raised from the dead until it is returned.</p><p>Description</p><p>Darkness given form and will, imbued with a hunger for light and the warmth of the living, shadows are dreadful undead born from those who die in the dark. As they slake their terrible hunger, more shadows arise.</p><p><strong><em>The Hungering Dark.</em> </strong>Shadows are tortured by their longing for light, but they fear to enter it. They lurk in the shadows around firelight, and may even lie in wait in the shadows of their prey, striking when they can be assured of surprise. Their touch drains vitality and strength. The bodies of those slain by this draining touch cast no shadow, for their shadows have left, becoming new undead shadows with wills of their own.</p><p><strong><em>Called Forth by Death. </em></strong>Shadows are created by powerful undead. <a target=\"_blank\" rel=\"noopener noreferrer nofollow\" href=\"https://a5e.tools/node/1813\">Vampires</a> and <a target=\"_blank\" rel=\"noopener noreferrer nofollow\" href=\"https://a5e.tools/node/1713\">liches</a> that have journeyed beyond the Bleak Gate know the secrets of tearing away a living being's shade to create an unliving shadow. But shadows owe no fealty to their creators. All shadows serve only one master: death itself.</p><p>Signs</p><p>1 A corpse that doesn’t cast a shadow</p><p>2 Drops of blood; nearby, a tipped-over lantern and a smashed oil flask</p><p>3 Torches dim and lanterns gutter</p><p>4 DC 14 Perception check: your shadows act independently</p><p>Encounters</p><p>Shadows collect in tunnels and dungeons that have never seen the sun.</p><p><strong>CR 0–2</strong> 1 or 2 <a target=\"_blank\" rel=\"noopener noreferrer nofollow\" href=\"https://a5e.tools/node/1787\">shadows</a></p><p><strong>Treasure</strong> 40 gp, 70 sp, silver bracelet tarnished nearly black (25 gp)</p><p><strong>CR 3–4</strong> 3 or 4 <a target=\"_blank\" rel=\"noopener noreferrer nofollow\" href=\"https://a5e.tools/node/1787\">shadows</a> ; 2 <a target=\"_blank\" rel=\"noopener noreferrer nofollow\" href=\"https://a5e.tools/node/1787\">shadows</a> with 1d4 <a target=\"_blank\" rel=\"noopener noreferrer nofollow\" href=\"https://a5e.tools/node/1937\">giant bats</a> , <a target=\"_blank\" rel=\"noopener noreferrer nofollow\" href=\"https://a5e.tools/node/1520\">lemures</a> , <a target=\"_blank\" rel=\"noopener noreferrer nofollow\" href=\"https://a5e.tools/node/1790\">skeletons</a> , or <a target=\"_blank\" rel=\"noopener noreferrer nofollow\" href=\"https://a5e.tools/node/1827\">zombies</a></p><p><strong>Treasure</strong> old-fashioned breastplate (400 gp), <a target=\"_blank\" rel=\"noopener noreferrer nofollow\" href=\"https://a5e.tools/node/1241\"><em>1 rapier</em></a><em> </em>that glows when wielded (casting light as a torch)</p><p>Monster Type Description</p><p></p><p>Undead are supernatural creatures or spirits that are no longer alive but are still animate. Some have been reanimated by magic spells, such as <a target=\"_blank\" rel=\"noopener noreferrer nofollow\" href=\"https://a5e.tools/node/1790\">skeletons</a> . Others, like <a target=\"_blank\" rel=\"noopener noreferrer nofollow\" href=\"https://a5e.tools/node/1813\">vampires</a> , are the products of an evil ritual or curse.</p>",
 			"creatureTypes": [
 				"undead"
 			],
@@ -1385,9 +1403,7 @@
 		},
 		"proficiencies": {
 			"armor": [],
-			"languages": [
-				"common"
-			],
+			"languages": [],
 			"tools": [],
 			"weapons": []
 		},
@@ -1444,24 +1460,27 @@
 		},
 		"traits": {
 			"size": "med",
-			"conditionImmunities": [
-				"charmed",
-				"fatigue",
-				"paralyzed",
-				"poisoned"
-			],
+			"conditionImmunities": [],
 			"damageImmunities": [
-				"poison"
-			],
-			"damageResistances": [
+				"poison",
 				"necrotic"
 			],
-			"damageVulnerabilities": []
+			"damageResistances": [
+				"acid",
+				"cold",
+				"fire",
+				"lightning",
+				"thunder",
+				"Non-magical weapons"
+			],
+			"damageVulnerabilities": [
+				"radiant"
+			]
 		}
 	},
 	"prototypeToken": {
-		"name": "Ghoul",
-		"displayName": 0,
+		"name": "Shadow",
+		"displayName": 30,
 		"actorLink": false,
 		"width": 1,
 		"height": 1,
@@ -1472,7 +1491,6 @@
 			"alpha": 0.5,
 			"angle": 360,
 			"bright": 0,
-			"color": null,
 			"coloration": 1,
 			"dim": 0,
 			"luminosity": 0.5,
@@ -1489,10 +1507,11 @@
 				"min": 0,
 				"max": 1
 			},
-			"attenuation": 0.5
+			"attenuation": 0.5,
+			"color": null
 		},
-		"disposition": 0,
-		"displayBars": 50,
+		"disposition": -1,
+		"displayBars": 0,
 		"bar1": {
 			"attribute": "attributes.hp"
 		},
@@ -1502,13 +1521,13 @@
 		"flags": {},
 		"randomImg": false,
 		"texture": {
-			"src": "systems/a5e/assets/ghoul.webp",
-			"tint": null,
+			"src": "systems/a5e/assets/shadow.webp",
 			"scaleX": 1,
 			"scaleY": 1,
 			"offsetX": 0,
 			"offsetY": 0,
-			"rotation": 0
+			"rotation": 0,
+			"tint": null
 		},
 		"sight": {
 			"angle": 360,
@@ -1526,5 +1545,5 @@
 		"prependAdjective": false
 	},
 	"folder": "lmZbC4BTRItcgNpI",
-	"_id": "7knnkm1ntmvz5qco"
+	"_id": "7cvkxj9mg4md7dux"
 }

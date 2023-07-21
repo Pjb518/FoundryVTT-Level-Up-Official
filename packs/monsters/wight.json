@@ -7,7 +7,7 @@
 			"_id": "osp894uSgRsRJUKg",
 			"name": "Cold Aura",
 			"type": "feature",
-			"img": "icons/svg/item-bag.svg",
+			"img": "icons/magic/water/snowflake-ice-snow-white.webp",
 			"effects": [],
 			"folder": null,
 			"sort": 0,
@@ -90,7 +90,7 @@
 			"_id": "qRZyaUpQhVR20WMY",
 			"name": "Sunlight sensivity",
 			"type": "feature",
-			"img": "icons/svg/item-bag.svg",
+			"img": "icons/magic/nature/symbol-sun-yellow.webp",
 			"effects": [],
 			"folder": null,
 			"sort": 0,
@@ -141,7 +141,7 @@
 			"_id": "uXFB6hnhf2tR1K0L",
 			"name": "Undead Nature",
 			"type": "feature",
-			"img": "icons/svg/item-bag.svg",
+			"img": "icons/magic/death/skull-energy-light-purple.webp",
 			"effects": [],
 			"folder": null,
 			"sort": 0,
@@ -189,81 +189,10 @@
 			}
 		},
 		{
-			"_id": "cy1rZt0Pu6ivTotS",
-			"name": "Seltsamer Schlüssel",
-			"type": "object",
-			"img": "icons/sundries/misc/key-gold.webp",
-			"effects": [],
-			"folder": null,
-			"sort": 0,
-			"flags": {},
-			"system": {
-				"ac": {
-					"baseFormula": "",
-					"formula": "",
-					"maxDex": 0,
-					"minStr": 0,
-					"mode": 1,
-					"requiresNoShield": false,
-					"requiresUnarmored": false
-				},
-				"actions": {},
-				"description": "<p>Ein einfacher, goldener Schl&uuml;ssel</p>",
-				"favorite": false,
-				"secretDescription": "",
-				"source": "",
-				"uses": {
-					"value": null,
-					"max": "",
-					"per": null,
-					"recharge": {
-						"formula": "",
-						"threshold": ""
-					}
-				},
-				"schema": {
-					"version": 0.004,
-					"lastMigration": {
-						"version": {
-							"schema": 0.003,
-							"foundry": "11.302",
-							"system": "0.12.7"
-						}
-					}
-				},
-				"ammunitionProperties": [],
-				"armorCategory": "",
-				"armorProperties": [],
-				"attuned": false,
-				"bulky": false,
-				"craftingComponents": "",
-				"damagedState": 0,
-				"equippedState": 0,
-				"materialProperties": [],
-				"objectType": "",
-				"plotItem": false,
-				"price": 0,
-				"proficient": true,
-				"quantity": 1,
-				"rarity": "common",
-				"requiresAttunement": false,
-				"shieldCategory": "",
-				"unidentified": false,
-				"unidentifiedDescription": "",
-				"unidentifiedName": "",
-				"weaponProperties": [],
-				"weight": 0,
-				"broken": false
-			},
-			"ownership": {
-				"default": 0
-			}
-		},
-		{
 			"_id": "MT2gFADihAgL4u6v",
 			"name": "Seize",
 			"type": "feature",
-			"img": "icons/svg/item-bag.svg",
+			"img": "icons/skills/melee/hand-grip-staff-teal.webp",
 			"effects": [],
 			"folder": null,
 			"sort": 0,
@@ -358,7 +287,7 @@
 			"_id": "P9KLGXTGgo183N5q",
 			"name": "Life Drain",
 			"type": "feature",
-			"img": "icons/svg/item-bag.svg",
+			"img": "icons/magic/unholy/hand-claw-fire-blue.webp",
 			"effects": [],
 			"folder": null,
 			"sort": 0,
@@ -464,7 +393,7 @@
 			"_id": "sSSUdLXQWNAS9t1T",
 			"name": "Longsword",
 			"type": "object",
-			"img": "icons/svg/item-bag.svg",
+			"img": "icons/weapons/swords/greatsword-crossguard-flanged-purple.webp",
 			"effects": [],
 			"folder": null,
 			"sort": 0,
@@ -516,7 +445,7 @@
 							"fMywBfl2XsoN6xBy": {
 								"canCrit": true,
 								"damageType": "slashing",
-								"formula": "1d8+@str.mod",
+								"formula": "1d8 + @str.mod",
 								"name": "Slashing Damage",
 								"type": "damage"
 							},
@@ -571,6 +500,7 @@
 				"rarity": "common",
 				"requiresAttunement": false,
 				"shieldCategory": "",
+				"shieldProperties": [],
 				"unidentified": false,
 				"unidentifiedDescription": "",
 				"unidentifiedName": "",
@@ -588,7 +518,7 @@
 			"_id": "AySkldj2iMdGwl90",
 			"name": "Longbow",
 			"type": "object",
-			"img": "icons/svg/item-bag.svg",
+			"img": "icons/weapons/bows/longbow-leather-green.webp",
 			"effects": [],
 			"folder": null,
 			"sort": 0,
@@ -659,7 +589,8 @@
 							"lG4PJhjkRexd7ioq": {
 								"itemid": "",
 								"quantity": 1,
-								"type": "ammunition"
+								"type": "ammunition",
+								"itemId": "r25Z2N9smfpqCkdO"
 							}
 						}
 					}
@@ -704,6 +635,7 @@
 				"rarity": "common",
 				"requiresAttunement": false,
 				"shieldCategory": "",
+				"shieldProperties": [],
 				"unidentified": false,
 				"unidentifiedDescription": "",
 				"unidentifiedName": "",
@@ -1270,10 +1202,161 @@
 			"folder": null,
 			"sort": 0,
 			"_id": "06oti8mtIPUZ6iQD"
+		},
+		{
+			"name": "Arrows",
+			"type": "object",
+			"img": "icons/weapons/ammunition/arrows-war-white.webp",
+			"effects": [],
+			"flags": {},
+			"system": {
+				"ac": {
+					"baseFormula": "",
+					"formula": "",
+					"maxDex": 0,
+					"minStr": 0,
+					"mode": 1,
+					"requiresNoShield": false,
+					"requiresUnarmored": false
+				},
+				"actions": {},
+				"description": "<p>A bundle of 20 arrows.</p>",
+				"favorite": false,
+				"secretDescription": "",
+				"source": "",
+				"uses": {
+					"value": null,
+					"max": "",
+					"per": null,
+					"recharge": {
+						"formula": "1d6",
+						"threshold": 6
+					}
+				},
+				"schema": {
+					"version": 0.006,
+					"lastMigration": {
+						"version": {
+							"schema": 0.004,
+							"foundry": "11.305",
+							"system": "0.13.3"
+						}
+					}
+				},
+				"ammunitionProperties": [],
+				"armorCategory": "",
+				"armorProperties": [],
+				"attuned": false,
+				"bulky": false,
+				"craftingComponents": "",
+				"damagedState": 0,
+				"equippedState": 2,
+				"materialProperties": [],
+				"objectType": "ammunition",
+				"plotItem": false,
+				"price": "1 gp",
+				"proficient": true,
+				"quantity": 20,
+				"rarity": "common",
+				"requiresAttunement": false,
+				"shieldCategory": "",
+				"shieldProperties": [],
+				"unidentified": false,
+				"unidentifiedDescription": "",
+				"unidentifiedName": "",
+				"weaponProperties": [],
+				"weight": 1
+			},
+			"folder": "Hi0Exa3LBwLdqM1Q",
+			"_id": "r25Z2N9smfpqCkdO",
+			"sort": 0,
+			"ownership": {
+				"default": 0
+			}
+		},
+		{
+			"name": "Brigandine, Leather",
+			"type": "object",
+			"img": "icons/equipment/chest/breastplate-collared-leather-brown.webp",
+			"effects": [],
+			"flags": {},
+			"system": {
+				"ac": {
+					"baseFormula": "13 + @dex.mod",
+					"formula": "",
+					"maxDex": 0,
+					"minStr": 0,
+					"mode": 2,
+					"requiresNoShield": false,
+					"requiresUnarmored": false
+				},
+				"actions": {},
+				"description": "",
+				"favorite": false,
+				"secretDescription": "",
+				"source": "",
+				"uses": {
+					"value": null,
+					"max": "",
+					"per": null,
+					"recharge": {
+						"formula": "1d6",
+						"threshold": 6
+					}
+				},
+				"schema": {
+					"version": 0.006,
+					"lastMigration": {
+						"version": {
+							"schema": 0.004,
+							"foundry": "11.305",
+							"system": "0.13.3"
+						}
+					}
+				},
+				"ammunitionProperties": [],
+				"armorCategory": "medium",
+				"armorProperties": [],
+				"attuned": false,
+				"bulky": false,
+				"craftingComponents": "",
+				"damagedState": 0,
+				"equippedState": 2,
+				"materialProperties": [
+					"comfortable",
+					"flaw"
+				],
+				"objectType": "armor",
+				"plotItem": false,
+				"price": "20 gp",
+				"proficient": true,
+				"quantity": 1,
+				"rarity": "common",
+				"requiresAttunement": false,
+				"shieldCategory": "",
+				"shieldProperties": [],
+				"unidentified": false,
+				"unidentifiedDescription": "",
+				"unidentifiedName": "",
+				"weaponProperties": [],
+				"weight": 10
+			},
+			"folder": "Hi0Exa3LBwLdqM1Q",
+			"_id": "aBbGYeIK8JUvtaxX",
+			"sort": 0,
+			"ownership": {
+				"default": 0
+			}
 		}
 	],
 	"effects": [],
-	"flags": {},
+	"flags": {
+		"a5e": {
+			"currentTab": "inventory",
+			"showSpellTab": false,
+			"sheetIsLocked": true
+		}
+	},
 	"system": {
 		"abilities": {
 			"str": {
@@ -1652,7 +1735,7 @@
 		},
 		"attributes": {
 			"ac": {
-				"baseFormula": "15",
+				"baseFormula": "",
 				"value": 0
 			},
 			"death": {

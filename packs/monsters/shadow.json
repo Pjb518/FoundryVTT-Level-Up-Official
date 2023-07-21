@@ -7,7 +7,7 @@
 			"_id": "PK6XVokifLb9k402",
 			"name": "Amorphous",
 			"type": "feature",
-			"img": "icons/svg/item-bag.svg",
+			"img": "icons/magic/control/silhouette-hold-change-blue.webp",
 			"effects": [],
 			"folder": null,
 			"sort": 0,
@@ -24,7 +24,7 @@
 				},
 				"actions": {},
 				"description": "<p>The shadow can pass through an opening as narrow as 1 inch wide without squeezing.</p>",
-				"favorite": false,
+				"favorite": true,
 				"secretDescription": "",
 				"source": "",
 				"uses": {
@@ -58,10 +58,10 @@
 			"_id": "H7b6ullyqg76Twoq",
 			"name": "Sunlight Weakness",
 			"type": "feature",
-			"img": "icons/svg/item-bag.svg",
+			"img": "icons/magic/nature/symbol-sun-yellow.webp",
 			"effects": [],
 			"folder": null,
-			"sort": 0,
+			"sort": 3,
 			"flags": {},
 			"system": {
 				"ac": {
@@ -75,7 +75,7 @@
 				},
 				"actions": {},
 				"description": "<p>While in sunlight, the shadow has disadvantage on attack rolls, ability checks, and saving throws.</p>",
-				"favorite": false,
+				"favorite": true,
 				"secretDescription": "",
 				"source": "",
 				"uses": {
@@ -109,10 +109,10 @@
 			"_id": "XZLcza0YHr1jW3Du",
 			"name": "Undead Nature",
 			"type": "feature",
-			"img": "icons/svg/item-bag.svg",
+			"img": "icons/magic/death/skull-energy-light-white.webp",
 			"effects": [],
 			"folder": null,
-			"sort": 0,
+			"sort": 4,
 			"flags": {},
 			"system": {
 				"ac": {
@@ -126,7 +126,7 @@
 				},
 				"actions": {},
 				"description": "<p>A shadow doesn’t require air, sustenance, or sleep.</p>",
-				"favorite": false,
+				"favorite": true,
 				"secretDescription": "",
 				"source": "",
 				"uses": {
@@ -163,7 +163,7 @@
 			"img": "icons/skills/melee/blood-slash-foam-red.webp",
 			"effects": [],
 			"folder": null,
-			"sort": 0,
+			"sort": 1,
 			"flags": {},
 			"system": {
 				"ac": {
@@ -179,8 +179,8 @@
 					"dp8aqKbYCxqh6GFP": {
 						"name": "Claw",
 						"activation": {
-							"cost": "",
-							"type": "",
+							"cost": 1,
+							"type": "action",
 							"reactionTrigger": ""
 						},
 						"duration": {
@@ -207,7 +207,7 @@
 							"zzKJl3fwHYM0vJAM": {
 								"canCrit": true,
 								"damageType": "necrotic",
-								"formula": "2d6+2",
+								"formula": "2d6 + @dex.mod",
 								"name": "",
 								"type": "damage"
 							}
@@ -223,7 +223,12 @@
 								"type": "savingThrow"
 							}
 						},
-						"consumers": {}
+						"consumers": {},
+						"ranges": {
+							"dG6J3uTsjMwnduqI": {
+								"range": "fiveFeet"
+							}
+						}
 					}
 				},
 				"description": "<p>+4 to hit, reach 5 ft., one creature. Hit: 9 (2d6 + 2) necrotic damage, and the target makes a DC 12 Constitution saving throw. On a failure, the target is cursed until it finishes a short or long rest or is the subject of remove curse or a similar spell. </p><p>While cursed, the target makes attack rolls, Strength checks, and Strength saving throws with disadvantage. If the target dies while cursed, a new undead shadow rises from the corpse in 1d4 hours, the corpse no longer casts a natural shadow, and the target can’t be raised from the dead until the new shadow is destroyed.</p>",
@@ -261,10 +266,10 @@
 			"_id": "rUdaccuIoPSVSmko",
 			"name": "Shadow Sneak",
 			"type": "feature",
-			"img": "icons/svg/item-bag.svg",
+			"img": "icons/magic/perception/silhouette-stealth-shadow.webp",
 			"effects": [],
 			"folder": null,
-			"sort": 0,
+			"sort": 2,
 			"flags": {},
 			"system": {
 				"ac": {
@@ -301,7 +306,7 @@
 					}
 				},
 				"description": "<p>The shadow takes the Hide action even if obscured only by dim light or darkness.</p>",
-				"favorite": false,
+				"favorite": true,
 				"secretDescription": "",
 				"source": "",
 				"uses": {
@@ -887,7 +892,10 @@
 	"effects": [],
 	"flags": {
 		"a5e": {
-			"sheetIsLocked": false
+			"sheetIsLocked": true,
+			"currentTab": "core",
+			"sortMode": 1,
+			"showSpellTab": false
 		}
 	},
 	"system": {
