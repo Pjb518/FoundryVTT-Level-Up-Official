@@ -14,7 +14,7 @@ export default class ItemMeasuredTemplate extends MeasuredTemplate {
     this.layer.preview.addChild(this);
 
     // Hide sheet
-    await this.actorSheet?.minimize();
+    // await this.actorSheet?.minimize();
 
     // Enable interactive mode
     return this.activatePreviewListeners(initialLayer);
@@ -47,7 +47,7 @@ export default class ItemMeasuredTemplate extends MeasuredTemplate {
     canvas.app.view.oncontextmenu = null;
     canvas.app.view.onwheel = null;
     this.#initialLayer.activate();
-    await this.actorSheet?.maximize();
+    // await this.actorSheet?.maximize();
   }
 
   _onMove(e) {

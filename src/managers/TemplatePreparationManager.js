@@ -38,6 +38,8 @@ export default class TemplatePreparationManager {
     const { area } = this.#action;
     const quantity = area.quantity ?? 1;
 
+    await this.#actor?.sheet?.minimize();
+
     try {
       for (let i = 0; i < quantity; i += 1) {
         const templateDocument = this.#createTemplateDocument(area);
@@ -64,6 +66,8 @@ export default class TemplatePreparationManager {
       }
     } catch (err) {
       // Empty Block
+    } finally {
+      await this.#actor?.sheet?.maximize();
     }
   }
 
