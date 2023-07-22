@@ -1,13 +1,13 @@
 {
-	"name": "Skeletal Tyrannosaurus Rex (Copy)",
+	"name": "Winged Skeletal Champion",
 	"type": "npc",
 	"img": "systems/a5e/assets/skeleton.webp",
 	"items": [
 		{
-			"_id": "wWPF1ifV0n1Xd48F",
+			"_id": "B0WeQRTQwCEVrQCP",
 			"name": "Undead Nature",
 			"type": "feature",
-			"img": "icons/magic/death/skeleton-dinosaur-skull-tan.webp",
+			"img": "icons/magic/death/undead-skeleton-worn-blue.webp",
 			"effects": [],
 			"folder": null,
 			"sort": 0,
@@ -55,135 +55,7 @@
 			}
 		},
 		{
-			"_id": "zYKqF9t9elZljalQ",
-			"name": "Bite",
-			"type": "object",
-			"img": "icons/creatures/abilities/mouth-teeth-long-red.webp",
-			"effects": [],
-			"folder": null,
-			"sort": 0,
-			"flags": {},
-			"system": {
-				"ac": {
-					"baseFormula": "",
-					"formula": "",
-					"maxDex": 0,
-					"minStr": 0,
-					"mode": 1,
-					"requiresNoShield": false,
-					"requiresUnarmored": false
-				},
-				"actions": {
-					"UdjMSxAnCWXVwtNY": {
-						"name": "Attack",
-						"activation": {
-							"cost": 1,
-							"type": "action",
-							"reactionTrigger": ""
-						},
-						"duration": {
-							"unit": "",
-							"value": ""
-						},
-						"area": {
-							"shape": "",
-							"size": "",
-							"placeTemplate": false
-						},
-						"target": {
-							"quantity": 1,
-							"type": "creature"
-						},
-						"rolls": {
-							"KlcqQxBrFS26lIks": {
-								"bonus": "",
-								"critThreshold": "20",
-								"type": "attack",
-								"attackType": "meleeWeaponAttack",
-								"ability": "str"
-							},
-							"reQVnXV1XXT2xUM7": {
-								"canCrit": true,
-								"damageType": "piercing",
-								"formula": "3d12 + @str.mod",
-								"name": "Melee Weapon Attack",
-								"type": "damage"
-							}
-						},
-						"prompts": {
-							"m9DhO34wXJ02lnc5": {
-								"ability": "dex",
-								"onSave": "Not grabbed",
-								"saveDC": {
-									"type": "custom",
-									"bonus": "17"
-								},
-								"type": "savingThrow"
-							}
-						},
-						"consumers": {},
-						"ranges": {
-							"rMkpFEqtGmm5NmAw": {
-								"range": 10,
-								"unit": "feet"
-							}
-						}
-					}
-				},
-				"description": "<p>If the target is a creature, it is grappled (escape DC 17). Until this grapple ends, the skeleton can’t bite a different creature and it has advantage on bite attacks against the grappled creature.</p>",
-				"favorite": true,
-				"secretDescription": "",
-				"source": "",
-				"uses": {
-					"value": null,
-					"max": "",
-					"per": null,
-					"recharge": {
-						"formula": "",
-						"threshold": ""
-					}
-				},
-				"schema": {
-					"version": 0.004,
-					"lastMigration": {
-						"version": {
-							"schema": 0.003,
-							"foundry": "11.302",
-							"system": "0.12.7"
-						}
-					}
-				},
-				"ammunitionProperties": [],
-				"armorCategory": "",
-				"armorProperties": [],
-				"attuned": false,
-				"bulky": false,
-				"craftingComponents": "",
-				"damagedState": 0,
-				"equippedState": 0,
-				"materialProperties": [],
-				"objectType": "weapon",
-				"plotItem": false,
-				"price": 0,
-				"proficient": true,
-				"quantity": 1,
-				"rarity": "common",
-				"requiresAttunement": false,
-				"shieldCategory": "",
-				"shieldProperties": [],
-				"unidentified": false,
-				"unidentifiedDescription": "",
-				"unidentifiedName": "",
-				"weaponProperties": [],
-				"weight": 0,
-				"broken": false
-			},
-			"ownership": {
-				"default": 0
-			}
-		},
-		{
-			"_id": "nbkl0ca80t33UPax",
+			"_id": "mC8nSCnNSB9DGDvr",
 			"name": "Multiattack",
 			"type": "feature",
 			"img": "icons/skills/melee/blade-tips-triple-steel.webp",
@@ -202,7 +74,7 @@
 					"requiresUnarmored": false
 				},
 				"actions": {},
-				"description": "<p>The skeleton makes a bite attack and a tail attack against two different targets.</p>",
+				"description": "<p>The skeleton makes two melee attacks.</p>",
 				"favorite": true,
 				"secretDescription": "",
 				"source": "",
@@ -234,14 +106,18 @@
 			}
 		},
 		{
-			"_id": "7RfBZpv8imWixL0X",
-			"name": "Tail",
+			"_id": "vv7iYUOnOc0JcRNb",
+			"name": "Longsword",
 			"type": "object",
-			"img": "icons/creatures/abilities/tail-swipe-green.webp",
+			"img": "icons/weapons/swords/greatsword-crossguard-steel.webp",
 			"effects": [],
 			"folder": null,
 			"sort": 0,
-			"flags": {},
+			"flags": {
+				"core": {
+					"sourceId": "Item.DnouWypympzTMZ5W"
+				}
+			},
 			"system": {
 				"ac": {
 					"baseFormula": "",
@@ -253,8 +129,8 @@
 					"requiresUnarmored": false
 				},
 				"actions": {
-					"7wXUzUXTmor4zqqw": {
-						"name": "Attack",
+					"4Sz5kjH47CxQmzYC": {
+						"name": "Longsword",
 						"activation": {
 							"cost": "",
 							"type": "",
@@ -270,33 +146,26 @@
 							"placeTemplate": false
 						},
 						"target": {
-							"quantity": 1,
-							"type": "creature"
+							"quantity": "",
+							"type": ""
 						},
 						"rolls": {
-							"JceEbkS5HTweV4ha": {
+							"PHIMglTjOjZXgX3A": {
 								"bonus": "",
 								"critThreshold": "20",
 								"type": "attack",
 								"attackType": "meleeWeaponAttack",
 								"ability": "str"
 							},
-							"rJecPSKxDIBhl7pC": {
+							"wAObTReFLXoQnWow": {
 								"canCrit": true,
-								"damageType": "bludgeoning",
-								"formula": "3d6 + @str.mod",
+								"damageType": "slashing",
+								"formula": "1d8+@str.mod",
 								"name": "Melee Weapon Attack",
 								"type": "damage"
 							}
 						},
-						"consumers": {},
-						"ranges": {
-							"fD1Cv1Bjg51X3OtU": {
-								"range": 10,
-								"unit": "feet"
-							}
-						},
-						"img": "icons/creatures/abilities/tail-swipe-green.webp"
+						"consumers": {}
 					}
 				},
 				"description": "",
@@ -329,7 +198,7 @@
 				"bulky": false,
 				"craftingComponents": "",
 				"damagedState": 0,
-				"equippedState": 0,
+				"equippedState": 1,
 				"materialProperties": [],
 				"objectType": "weapon",
 				"plotItem": false,
@@ -352,6 +221,198 @@
 			}
 		},
 		{
+			"_id": "r8dRh1OdIkOquIPK",
+			"name": "Heavy Crossbow (100/ 400 ft)",
+			"type": "object",
+			"img": "icons/weapons/crossbows/crossbow-purple.webp",
+			"effects": [],
+			"folder": null,
+			"sort": 0,
+			"flags": {},
+			"system": {
+				"ac": {
+					"baseFormula": "",
+					"formula": "",
+					"maxDex": 0,
+					"minStr": 0,
+					"mode": 1,
+					"requiresNoShield": false,
+					"requiresUnarmored": false
+				},
+				"actions": {
+					"GfGktZorxjwlk6lM": {
+						"name": "Heavy Crossbow (100/ 400 ft)",
+						"activation": {
+							"cost": "",
+							"type": "",
+							"reactionTrigger": ""
+						},
+						"duration": {
+							"unit": "",
+							"value": ""
+						},
+						"area": {
+							"shape": "",
+							"size": "",
+							"placeTemplate": false
+						},
+						"target": {
+							"quantity": "",
+							"type": ""
+						},
+						"rolls": {
+							"BehSGFxw8axUA4vc": {
+								"bonus": "",
+								"critThreshold": "20",
+								"type": "attack",
+								"attackType": "rangedWeaponAttack",
+								"ability": "dex"
+							},
+							"QSqw2p1y2ARii4zl": {
+								"canCrit": true,
+								"damageType": "piercing",
+								"formula": "1d10+@dex.mod",
+								"name": "Ranged Weapon Attack",
+								"type": "damage"
+							}
+						},
+						"consumers": {
+							"BETezbxmrKyW4tbF": {
+								"itemid": "",
+								"quantity": 1,
+								"type": "ammunition",
+								"itemId": "iV5tqjVfWeilnsc6"
+							}
+						}
+					}
+				},
+				"description": "",
+				"favorite": true,
+				"secretDescription": "",
+				"source": "",
+				"uses": {
+					"value": null,
+					"max": "",
+					"per": null,
+					"recharge": {
+						"formula": "",
+						"threshold": ""
+					}
+				},
+				"schema": {
+					"version": 0.004,
+					"lastMigration": {
+						"version": {
+							"schema": 0.003,
+							"foundry": "11.302",
+							"system": "0.12.7"
+						}
+					}
+				},
+				"ammunitionProperties": [],
+				"armorCategory": "",
+				"armorProperties": [],
+				"attuned": false,
+				"bulky": false,
+				"craftingComponents": "",
+				"damagedState": 0,
+				"equippedState": 1,
+				"materialProperties": [],
+				"objectType": "weapon",
+				"plotItem": false,
+				"price": 0,
+				"proficient": true,
+				"quantity": 1,
+				"rarity": "common",
+				"requiresAttunement": false,
+				"shieldCategory": "",
+				"shieldProperties": [],
+				"unidentified": false,
+				"unidentifiedDescription": "",
+				"unidentifiedName": "",
+				"weaponProperties": [],
+				"weight": 0,
+				"broken": false
+			},
+			"ownership": {
+				"default": 0
+			}
+		},
+		{
+			"_id": "8v3VN4r4gqUMM76U",
+			"name": "Shielding Riposte (Reaction)",
+			"type": "feature",
+			"img": "icons/skills/melee/strike-sword-blood-red.webp",
+			"effects": [],
+			"folder": null,
+			"sort": 0,
+			"flags": {},
+			"system": {
+				"ac": {
+					"baseFormula": "",
+					"formula": "",
+					"maxDex": 0,
+					"minStr": 0,
+					"mode": 1,
+					"requiresNoShield": false,
+					"requiresUnarmored": false
+				},
+				"actions": {
+					"F1vrcPxgB2HwKMUF": {
+						"name": "Shielding Riposte (Reaction)",
+						"activation": {
+							"cost": 1,
+							"type": "reaction",
+							"reactionTrigger": "When a creature within the skeleton's reach misses with a melee attack"
+						},
+						"duration": {
+							"unit": "",
+							"value": ""
+						},
+						"area": {
+							"shape": "",
+							"size": "",
+							"placeTemplate": false
+						},
+						"target": {
+							"quantity": "",
+							"type": ""
+						},
+						"consumers": {}
+					}
+				},
+				"description": "<p>When a creature within the skeleton’s reach misses with a melee attack against the skeleton or a creature within 5 feet, the skeleton makes a longsword attack against the attacker. The skeleton must be wielding a longsword to use this reaction.</p>",
+				"favorite": true,
+				"secretDescription": "",
+				"source": "",
+				"uses": {
+					"value": null,
+					"max": "",
+					"per": null,
+					"recharge": {
+						"formula": "",
+						"threshold": ""
+					}
+				},
+				"schema": {
+					"version": 0.004,
+					"lastMigration": {
+						"version": {
+							"schema": 0.003,
+							"foundry": "11.302",
+							"system": "0.12.7"
+						}
+					}
+				},
+				"concentration": false,
+				"featureType": "",
+				"prerequisite": ""
+			},
+			"ownership": {
+				"default": 0
+			}
+		},
+		{
 			"name": "Shove",
 			"type": "maneuver",
 			"img": "icons/skills/melee/shield-block-bash-yellow.webp",
@@ -363,7 +424,7 @@
 			},
 			"system": {
 				"actions": {
-					"db8BErSF0zrKOQ1D": {
+					"35pzjCBwhtpcsg5c": {
 						"name": "Shove",
 						"activation": {
 							"cost": 1,
@@ -375,7 +436,7 @@
 							"value": null
 						},
 						"ranges": {
-							"I6Kc6Or6y3lYhRno": {
+							"Ue5eA2L1wra9w3QU": {
 								"range": "fiveFeet"
 							}
 						},
@@ -391,7 +452,7 @@
 							"size": ""
 						},
 						"rolls": {
-							"S2aCTnPpljsvUicm": {
+							"Mmb49MnVK9X5Tg0u": {
 								"canCrit": false,
 								"damageType": "bludgeoning",
 								"formula": "1 + @str.mod",
@@ -400,7 +461,7 @@
 							}
 						},
 						"prompts": {
-							"x6BJbxpWQAPQe5QX": {
+							"P95TUHUC0PglpbvT": {
 								"ability": "str",
 								"onSave": "",
 								"saveDC": {
@@ -447,7 +508,7 @@
 			},
 			"folder": null,
 			"sort": 0,
-			"_id": "KLQ7shodaAEzWwbU"
+			"_id": "gJTCFXVjxc75yBT4"
 		},
 		{
 			"name": "Disarm",
@@ -461,7 +522,7 @@
 			},
 			"system": {
 				"actions": {
-					"Y634lK3cbxa0N4VI": {
+					"30xpvA1NzDQdacIT": {
 						"name": "Disarm",
 						"activation": {
 							"cost": 1,
@@ -473,7 +534,7 @@
 							"value": null
 						},
 						"ranges": {
-							"zdAyLRVfOEbSMeNd": {
+							"AjFn8tfHEXT6lSOS": {
 								"range": "touch"
 							}
 						},
@@ -489,7 +550,7 @@
 							"size": ""
 						},
 						"rolls": {
-							"ELldSSZGIpqZutkT": {
+							"kcAYlHRGFmIGiaOt": {
 								"canCrit": false,
 								"damageType": "",
 								"formula": "1 + @str.mod",
@@ -498,7 +559,7 @@
 							}
 						},
 						"prompts": {
-							"TFJMa9waw9rAA5j9": {
+							"duxyChsE2fk1zxcz": {
 								"ability": "str",
 								"onSave": "",
 								"saveDC": {
@@ -545,7 +606,7 @@
 			},
 			"folder": null,
 			"sort": 0,
-			"_id": "rrBacA1ks4ToeubD"
+			"_id": "4L7o8K70ksk0FugI"
 		},
 		{
 			"name": "Grab On",
@@ -559,7 +620,7 @@
 			},
 			"system": {
 				"actions": {
-					"Ccm1Mny2rP1oStlx": {
+					"IyB5sS92LuiMMNgB": {
 						"name": "Grab On",
 						"activation": {
 							"cost": 1,
@@ -571,7 +632,7 @@
 							"value": null
 						},
 						"ranges": {
-							"Wz03CHqvQiaKLn2r": {
+							"wktcDefmN5EyR8T1": {
 								"range": "touch"
 							}
 						},
@@ -587,7 +648,7 @@
 							"size": ""
 						},
 						"prompts": {
-							"iKtklO45tjqmamRF": {
+							"ltbAqWtyXqrk5V8J": {
 								"ability": "str",
 								"onSave": "",
 								"saveDC": {
@@ -634,7 +695,7 @@
 			},
 			"folder": null,
 			"sort": 0,
-			"_id": "EkZd3saq4L2Zbkfh"
+			"_id": "MWr1QmtcL0bwa9n1"
 		},
 		{
 			"name": "Knockdown",
@@ -648,7 +709,7 @@
 			},
 			"system": {
 				"actions": {
-					"lbTLB3Dc7TaC7AG9": {
+					"LUYO2Azgnfsx3Rxz": {
 						"name": "Knockdown",
 						"activation": {
 							"cost": 1,
@@ -660,7 +721,7 @@
 							"value": null
 						},
 						"ranges": {
-							"bMXSDWJrUFRrnmZz": {
+							"CZQBpJM3zH2MsqX8": {
 								"range": "touch"
 							}
 						},
@@ -676,7 +737,7 @@
 							"size": ""
 						},
 						"prompts": {
-							"Vb8X7NWSeJBaOQoi": {
+							"pS5NrWuwPWR2V6GS": {
 								"ability": "str",
 								"onSave": "",
 								"saveDC": {
@@ -723,7 +784,7 @@
 			},
 			"folder": null,
 			"sort": 0,
-			"_id": "5yPW6py2iPo0f0bs"
+			"_id": "bcqcO6recaxo3T1H"
 		},
 		{
 			"name": "Grapple",
@@ -737,7 +798,7 @@
 			},
 			"system": {
 				"actions": {
-					"JplcUvqivXZvW3Zm": {
+					"MYd7Lfw6ItWTm7DU": {
 						"name": "Grapple",
 						"activation": {
 							"cost": 1,
@@ -749,7 +810,7 @@
 							"value": null
 						},
 						"ranges": {
-							"HFdfzRLWgKiQnQB7": {
+							"WSwPHCyAt041vRO2": {
 								"range": "touch"
 							}
 						},
@@ -765,7 +826,7 @@
 							"size": ""
 						},
 						"prompts": {
-							"aIti8Dpk4s4uUt5w": {
+							"48nUbBT1AJUvdaOY": {
 								"ability": "str",
 								"onSave": "",
 								"saveDC": {
@@ -812,7 +873,7 @@
 			},
 			"folder": null,
 			"sort": 0,
-			"_id": "bCjED4pe9K5rDGeW"
+			"_id": "jcKduybg2Uma40ra"
 		},
 		{
 			"name": "Overrun",
@@ -826,7 +887,7 @@
 			},
 			"system": {
 				"actions": {
-					"1VbzgbdcTGz0GiA4": {
+					"4XbM6B88QITve1ml": {
 						"name": "Overrun",
 						"activation": {
 							"cost": 1,
@@ -838,7 +899,7 @@
 							"value": null
 						},
 						"ranges": {
-							"vgzN80ArLQAx0xdw": {
+							"gImsc2Wg5EXhIcME": {
 								"range": "touch"
 							}
 						},
@@ -854,7 +915,7 @@
 							"size": ""
 						},
 						"prompts": {
-							"yyQvcpJQjG1mdvbH": {
+							"Ggu5Z4LIln3nu4tx": {
 								"ability": "str",
 								"onSave": "",
 								"saveDC": {
@@ -901,58 +962,128 @@
 			},
 			"folder": null,
 			"sort": 0,
-			"_id": "HUIm7DfZo4zjN0CE"
+			"_id": "asbCI9MOOeLx2CeG"
+		},
+		{
+			"name": "Crossbow Bolts",
+			"type": "object",
+			"img": "icons/weapons/ammunition/arrows-war-red.webp",
+			"effects": [],
+			"flags": {},
+			"system": {
+				"ac": {
+					"baseFormula": "",
+					"formula": "",
+					"maxDex": 0,
+					"minStr": 0,
+					"mode": 1,
+					"requiresNoShield": false,
+					"requiresUnarmored": false
+				},
+				"actions": {},
+				"description": "<p>A bundle of 20 bolts.</p>",
+				"favorite": false,
+				"secretDescription": "",
+				"source": "",
+				"uses": {
+					"value": null,
+					"max": "",
+					"per": null,
+					"recharge": {
+						"formula": "1d6",
+						"threshold": 6
+					}
+				},
+				"schema": {
+					"version": 0.006,
+					"lastMigration": {
+						"version": {
+							"schema": 0.004,
+							"foundry": "11.305",
+							"system": "0.13.3"
+						}
+					}
+				},
+				"ammunitionProperties": [],
+				"armorCategory": "",
+				"armorProperties": [],
+				"attuned": false,
+				"bulky": false,
+				"craftingComponents": "",
+				"damagedState": 0,
+				"equippedState": 0,
+				"materialProperties": [],
+				"objectType": "ammunition",
+				"plotItem": false,
+				"price": "1 gp",
+				"proficient": true,
+				"quantity": 20,
+				"rarity": "common",
+				"requiresAttunement": false,
+				"shieldCategory": "",
+				"shieldProperties": [],
+				"unidentified": false,
+				"unidentifiedDescription": "",
+				"unidentifiedName": "",
+				"weaponProperties": [],
+				"weight": 1
+			},
+			"folder": "Hi0Exa3LBwLdqM1Q",
+			"_id": "iV5tqjVfWeilnsc6",
+			"sort": 0,
+			"ownership": {
+				"default": 0
+			}
 		}
 	],
 	"effects": [],
 	"flags": {
 		"a5e": {
-			"sheetIsLocked": false,
-			"currentTab": "notes",
-			"showSpellTab": false
+			"sheetIsLocked": true,
+			"currentTab": "notes"
 		}
 	},
 	"system": {
 		"abilities": {
 			"str": {
-				"value": 22,
+				"value": 16,
 				"check": {
 					"expertiseDice": 0,
 					"bonus": ""
 				},
 				"save": {
-					"proficient": false,
+					"proficient": true,
 					"expertiseDice": 0,
 					"bonus": ""
 				}
 			},
 			"dex": {
-				"value": 10,
+				"value": 16,
 				"check": {
 					"expertiseDice": 0,
 					"bonus": ""
 				},
 				"save": {
-					"proficient": false,
+					"proficient": true,
 					"expertiseDice": 0,
 					"bonus": ""
 				}
 			},
 			"con": {
-				"value": 20,
+				"value": 14,
 				"check": {
 					"expertiseDice": 0,
 					"bonus": ""
 				},
 				"save": {
-					"proficient": false,
+					"proficient": true,
 					"expertiseDice": 0,
 					"bonus": "",
 					"concentrationBonus": ""
 				}
 			},
 			"int": {
-				"value": 2,
+				"value": 6,
 				"check": {
 					"expertiseDice": 0,
 					"bonus": ""
@@ -1290,7 +1421,7 @@
 		},
 		"attributes": {
 			"ac": {
-				"baseFormula": "13",
+				"baseFormula": "15",
 				"value": 0
 			},
 			"death": {
@@ -1298,8 +1429,8 @@
 				"failure": 0
 			},
 			"hp": {
-				"value": 126,
-				"baseMax": 126,
+				"value": 58,
+				"baseMax": 58,
 				"temp": 0,
 				"bonus": 0
 			},
@@ -1309,16 +1440,16 @@
 					"total": 0
 				},
 				"d8": {
+					"current": 9,
+					"total": 9
+				},
+				"d10": {
 					"current": 0,
 					"total": 0
 				},
-				"d10": {
-					"current": 4,
-					"total": 4
-				},
 				"d12": {
-					"current": 11,
-					"total": 11
+					"current": 0,
+					"total": 0
 				},
 				"d4": {
 					"current": 0,
@@ -1343,7 +1474,7 @@
 					"unit": "feet"
 				},
 				"fly": {
-					"distance": 0,
+					"distance": 60,
 					"unit": "feet"
 				},
 				"swim": {
@@ -1351,7 +1482,7 @@
 					"unit": "feet"
 				},
 				"walk": {
-					"distance": 50,
+					"distance": 30,
 					"unit": "feet"
 				},
 				"traits": {
@@ -1406,18 +1537,20 @@
 			"cp": 0
 		},
 		"details": {
-			"bio": "<h3>COMBAT</h3>\n<p>Skeletons follow the last order given them by their creator: defend the gates, attack trespassers, etc. Without orders, they attack any creatures that approach them. Skeletons don&rsquo;t retreat unless commanded to do so.</p>\n<hr>\n<h3>LEGENDS AND LORE</h3>\n<p>With an Arcana or Religion check, characters can learn the following:</p>\n<p><strong>DC 10 </strong>Necromancy imbues skeletons with a semblance of life, although some skeletons rise spontaneously on cursed battlefields or in cities ravaged by plague.</p>\n<p><strong>DC 15 </strong>Nearly anything with bones can be reanimated as a skeleton. Like most undead, skeletons are immune to poison, but their brittle bones can be easily smashed.</p>\n<p><strong>DC 20 </strong>Skeletons generally follow the orders given to them by their creator. Without such orders, skeletons may revert to activities they performed in life.</p>\n<h3>DESCRIPTION</h3>\n<p>Skeletons are fleshless corpses imbued by necromantic energies with a mockery of life. Most often, spellcasters create skeletons to act as guards and servants, but it&rsquo;s not unheard of for skeletons to arise from cursed grounds where the living are outnumbered by the unburied dead.</p>\n<p><em><strong>Following Orders</strong></em>. Skeletons follow their creators&rsquo; instructions to the best of their limited ability. They understand language and can follow detailed instructions, but their ability to think independently is limited. If ordered to cross a dangerous river, a skeleton may take a detour to use a bridge. In the absence of a bridge, however, it will risk a dangerous swim rather than build a raft or search for a safe place to cross.</p>\n<p><em><strong>Shreds of Memory</strong></em>. If left to its own devices, a skeleton without orders may mimic habitual activities from its previous life. In a tavern, one skeleton may shuffle a handful of faded playing cards, while another stands behind the bar to polish mugs. A skeleton will abandon such pursuits to attack living creatures, unless it has been specifically ordered otherwise.</p>\n<h3>BEHAVIOR</h3>\n<p><strong>Humanoid Skeleton Behavior</strong></p>\n<p>1 Standing guard</p>\n<p>2 Lying motionless on the ground; leaps up to attack if approached</p>\n<p>3 Patrolling a path worn into the floor</p>\n<p>4 Miming everyday activities such as drinking and dicing; attacks if approached</p>\n<p>5 Attacks anyone who engages in a forbidden activity, such as examining a specific item</p>\n<p>6 Sharpening a sword down to the nub</p>\n<p>7 With Intelligence 10, speaks Common</p>\n<p>8 Luring trespassers into pit traps, or throwing levers to open pit traps under their feet</p>\n<hr>\n<p><strong>Beast Skeleton Behavior</strong></p>\n<p>1 In a cage or shackled to a wall</p>\n<p>2 Follows any command it hears</p>\n<p>3 Attacks on sight</p>\n<p>4 Hunting, raising silent jaws to the sky as if to roar</p>\n<p><strong>SIGNS</strong></p>\n<p>1 Broken bones</p>\n<p>2 Inanimate skeletons</p>\n<p>3 Smashed sarcophagi or coffins, or defiled tombs</p>\n<p>4 DC 12 Perception check: distant clattering</p>\n<h3>ENCOUNTERS</h3>\n<p>Skeletons patrol arcane laboratories, march across ancient battlefields, and extend bony hands from crumbling sarcophagi.</p>\n<p><strong>CR 0&ndash;2</strong> 1d4 skeletons; 1 or 2 skeletons riding skeletal warhorses</p>\n<p><strong>&nbsp; &nbsp;Treasure </strong>30 gp, 100 ep (coins minted in a long-forgotten era)</p>\n<p><strong>CR 3&ndash;4</strong> skeletal champion; skeleton horde; 1d4 + 4 skeletons</p>\n<p><strong>&nbsp; &nbsp;Treasure </strong>120 gp, silver-chased hunting horn (75 gp), 8 +1 arrows (make a screaming sound when fired)</p>\n<p><strong>CR 5&ndash;10</strong> skeletal champion with skeleton horde; skeletal tyrannosaurus rex; 2 skeletal champions riding skeletal warhorses</p>\n<p><strong>&nbsp; &nbsp;Treasure </strong>200 gp, twisted steel crown set with garnets (250 gp), ceremonial gold-encrusted sword (250 gp), winged boots</p>",
+			"bio": "<h3><strong>COMBAT</strong></h3>\n<p>Skeletons follow the last order given them by their creator: defend the gates, attack trespassers, etc. Without orders, they attack any creatures that approach them. Skeletons don&rsquo;t retreat unless commanded to do so.</p>\n<hr class=\"a5e-rule u-my-md\">\n<h3><strong>LEGENDS AND LORE</strong></h3>\n<p>With an Arcana or Religion check, characters can learn the following:</p>\n<p><strong>DC 10</strong> Necromancy imbues skeletons with a semblance of life, although some skeletons rise spontaneously on cursed battlefields or in cities ravaged by plague.</p>\n<p><strong>DC 15</strong> Nearly anything with bones can be reanimated as a skeleton. Like most undead, skeletons are immune to poison, but their brittle bones can be easily smashed.</p>\n<p><strong>DC 20</strong> Skeletons generally follow the orders given to them by their creator. Without such orders, skeletons may revert to activities they performed in life.</p>\n<h3><strong>DESCRIPTION</strong></h3>\n<p>Skeletons are fleshless corpses imbued by necromantic energies with a mockery of life. Most often, spellcasters create skeletons to act as guards and servants, but it&rsquo;s not unheard of for skeletons to arise from cursed grounds where the living are outnumbered by the unburied dead.</p>\n<p><span class=\"fontstyle0\">With giant bat wings grafted to their shoulder blades, winged skeletons look like nightmare soldiers in hellish armies. While they are not fiends, they often serve as scouts for evil masters.</span> </p>\n<p><strong><em>Following Orders.</em></strong> Skeletons follow their creators&rsquo; instructions to the best of their limited ability. They understand language and can follow detailed instructions, but their ability to think independently is limited. If ordered to cross a dangerous river, a skeleton may take a detour to use a bridge. In the absence of a bridge, however, it will risk a dangerous swim rather than build a raft or search for a safe place to cross.</p>\n<p><strong><em>Shreds of Memory. </em></strong>If left to its own devices, a skeleton without orders may mimic habitual activities from its previous life. In a tavern, one skeleton may shuffle a handful of faded playing cards, while another stands behind the bar to polish mugs. A skeleton will abandon such pursuits to attack living creatures, unless it has been specifically ordered otherwise.</p>\n<h3><strong>BEHAVIOR</strong></h3>\n<p><strong>Humanoid Skeleton Behavior</strong></p>\n<p>1 Standing guard</p>\n<p>2 Lying motionless on the ground; leaps up to attack if approached</p>\n<p>3 Patrolling a path worn into the floor</p>\n<p>4 Miming everyday activities such as drinking and dicing; attacks if approached</p>\n<p>5 Attacks anyone who engages in a forbidden activity, such as examining a specific item</p>\n<p>6 Sharpening a sword down to the nub</p>\n<p>7 With Intelligence 10, speaks Common</p>\n<p>8 Luring trespassers into pit traps, or throwing levers to open pit traps under their feet</p>\n<hr class=\"a5e-rule u-my-md\">\n<p><strong>Beast Skeleton Behavior</strong></p>\n<p>1 In a cage or shackled to a wall</p>\n<p>2 Follows any command it hears</p>\n<p>3 Attacks on sight</p>\n<p>4 Hunting, raising silent jaws to the sky as if to roar</p>\n<p><strong>SIGNS</strong></p>\n<p>1 Broken bones</p>\n<p>2 Inanimate skeletons</p>\n<p>3 Smashed sarcophagi or coffins, or defiled tombs</p>\n<p>4 DC 12 Perception check: distant clattering</p>\n<h3><strong>ENCOUNTERS</strong></h3>\n<p>Skeletons patrol arcane laboratories, march across ancient battlefields, and extend bony hands from crumbling sarcophagi.</p>\n<p><strong>CR 0&ndash;2</strong> 1d4 skeletons; 1 or 2 skeletons riding skeletal warhorses</p>\n<p><strong>&nbsp; &nbsp;Treasure</strong> 30 gp, 100 ep (coins minted in a long-forgotten era)</p>\n<p><strong>CR 3&ndash;4</strong> skeletal champion; skeleton horde; 1d4 + 4 skeletons</p>\n<p><strong>&nbsp; &nbsp;Treasure</strong> 120 gp, silver-chased hunting horn (75 gp), 8 <em>+1 arrows</em> (make a screaming sound when fired)</p>\n<p><strong>CR 5&ndash;10</strong> skeletal champion with skeleton horde; skeletal tyrannosaurus rex; 2 skeletal champions riding skeletal warhorses</p>\n<p><strong>&nbsp; &nbsp;Treasure</strong> 200 gp, twisted steel crown set with garnets (250 gp), ceremonial gold-encrusted sword (250 gp), <em>winged boots</em></p>",
 			"creatureTypes": [
 				"undead"
 			],
 			"isSwarm": false,
-			"cr": 8,
+			"cr": 3,
 			"elite": false,
 			"privateNotes": ""
 		},
 		"proficiencies": {
 			"armor": [],
-			"languages": [],
+			"languages": [
+				"understands the languages it knew in life but can’t speak"
+			],
 			"tools": [],
 			"weapons": []
 		},
@@ -1473,7 +1606,7 @@
 			"publisher": ""
 		},
 		"traits": {
-			"size": "huge",
+			"size": "med",
 			"conditionImmunities": [
 				"fatigue",
 				"poisoned"
@@ -1488,11 +1621,11 @@
 		}
 	},
 	"prototypeToken": {
-		"name": "Skeletal Tyrannosaurus Rex",
-		"displayName": 20,
+		"name": "Winged Skeletal Champion",
+		"displayName": 30,
 		"actorLink": false,
-		"width": 3,
-		"height": 3,
+		"width": 1,
+		"height": 1,
 		"lockRotation": false,
 		"rotation": 0,
 		"alpha": 1,
@@ -1554,5 +1687,5 @@
 		"prependAdjective": false
 	},
 	"folder": null,
-	"_id": "q3tqs29roun0s64s"
+	"_id": "6g1gecxzg5u5gvms"
 }
