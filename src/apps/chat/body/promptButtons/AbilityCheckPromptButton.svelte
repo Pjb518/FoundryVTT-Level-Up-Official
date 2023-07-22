@@ -21,8 +21,10 @@
     }
 </script>
 
-<button on:click={() => rollPrompt()}>
+<div>
+    <button on:click={() => rollPrompt()} />
+
     {localize("A5E.AbilityCheckPrompt", {
         ability: localize(abilities[prompt.ability]),
     })}
-</button>
+</div>
