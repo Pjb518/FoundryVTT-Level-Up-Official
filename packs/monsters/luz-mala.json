@@ -1,118 +1,12 @@
 {
-	"name": "Shadow Claw",
+	"name": "Luz Mala",
 	"type": "npc",
-	"img": "systems/a5e/assets/shadow.webp",
+	"img": "systems/a5e/assets/will-o-wisp.webp",
 	"items": [
-		{
-			"_id": "ojc4znqSfH7kw6C7",
-			"name": "Claw",
-			"type": "feature",
-			"img": "icons/skills/melee/blood-slash-foam-red.webp",
-			"effects": [],
-			"folder": null,
-			"sort": 1,
-			"flags": {},
-			"system": {
-				"ac": {
-					"baseFormula": "",
-					"formula": "",
-					"maxDex": 0,
-					"minStr": 0,
-					"mode": 1,
-					"requiresNoShield": false,
-					"requiresUnarmored": false
-				},
-				"actions": {
-					"dp8aqKbYCxqh6GFP": {
-						"name": "Claw",
-						"activation": {
-							"cost": 1,
-							"type": "action",
-							"reactionTrigger": ""
-						},
-						"duration": {
-							"unit": "",
-							"value": ""
-						},
-						"area": {
-							"shape": "",
-							"size": "",
-							"placeTemplate": false
-						},
-						"target": {
-							"quantity": 1,
-							"type": "creature"
-						},
-						"rolls": {
-							"9GburYv4umvwF6nm": {
-								"bonus": "",
-								"critThreshold": "20",
-								"type": "attack",
-								"attackType": "meleeWeaponAttack",
-								"ability": "dex"
-							},
-							"zzKJl3fwHYM0vJAM": {
-								"canCrit": true,
-								"damageType": "necrotic",
-								"formula": "2d6 + @dex.mod",
-								"name": "",
-								"type": "damage"
-							}
-						},
-						"prompts": {
-							"uh5gPiUddCSulYGV": {
-								"ability": "con",
-								"onSave": "Negates",
-								"saveDC": {
-									"type": "custom",
-									"bonus": "12"
-								},
-								"type": "savingThrow"
-							}
-						},
-						"consumers": {},
-						"ranges": {
-							"dwTtJYXIEIlEQUPK": {
-								"range": "short"
-							}
-						}
-					}
-				},
-				"description": "<p>+4 to hit, reach 30 ft., one creature. Hit: 9 (2d6 + 2) necrotic damage, and the target makes a DC 12 Constitution saving throw. On a failure, the target is cursed until it finishes a short or long rest or is the subject of remove curse or a similar spell.</p>\n<p>While cursed, the target makes attack rolls, Strength checks, and Strength saving throws with disadvantage. If the target dies while cursed, a new undead shadow rises from the corpse in 1d4 hours, the corpse no longer casts a natural shadow, and the target can&rsquo;t be raised from the dead until the new shadow is destroyed.</p>",
-				"favorite": true,
-				"secretDescription": "",
-				"source": "",
-				"uses": {
-					"value": null,
-					"max": "",
-					"per": null,
-					"recharge": {
-						"formula": "",
-						"threshold": ""
-					}
-				},
-				"schema": {
-					"version": 0.004,
-					"lastMigration": {
-						"version": {
-							"schema": 0.003,
-							"foundry": "11.302",
-							"system": "0.12.7"
-						}
-					}
-				},
-				"concentration": false,
-				"featureType": "naturalWeapon",
-				"prerequisite": ""
-			},
-			"ownership": {
-				"default": 0
-			}
-		},
 		{
 			"name": "Shove",
 			"type": "maneuver",
-			"img": "icons/skills/melee/shield-block-bash-yellow.webp",
+			"img": "https://assets.forge-vtt.com/bazaar/core/icons/skills/melee/shield-block-bash-yellow.webp",
 			"effects": [],
 			"flags": {
 				"core": {
@@ -121,7 +15,7 @@
 			},
 			"system": {
 				"actions": {
-					"12UT6KATQ6NQbtKI": {
+					"KlaSaIdap4dlNuAv": {
 						"name": "Shove",
 						"activation": {
 							"cost": 1,
@@ -133,7 +27,7 @@
 							"value": null
 						},
 						"ranges": {
-							"CNjYl3GWkfnVOirL": {
+							"Z2tZu2diNbK6avxv": {
 								"range": "fiveFeet"
 							}
 						},
@@ -149,7 +43,7 @@
 							"size": ""
 						},
 						"rolls": {
-							"8nLCu0EEriXZ5aRS": {
+							"VIE7GMVR1EWiEl6b": {
 								"canCrit": false,
 								"damageType": "bludgeoning",
 								"formula": "1 + @str.mod",
@@ -158,7 +52,7 @@
 							}
 						},
 						"prompts": {
-							"9tniu4wpxchk4tfG": {
+							"r0YKLeqdxRNp8Le9": {
 								"ability": "str",
 								"onSave": "",
 								"saveDC": {
@@ -205,12 +99,12 @@
 			},
 			"folder": null,
 			"sort": 0,
-			"_id": "neFwdlepX6qURBQY"
+			"_id": "005THizFZsr5mq0y"
 		},
 		{
 			"name": "Disarm",
 			"type": "maneuver",
-			"img": "icons/skills/melee/sword-damaged-broken-glow-red.webp",
+			"img": "https://assets.forge-vtt.com/bazaar/core/icons/skills/melee/sword-damaged-broken-glow-red.webp",
 			"effects": [],
 			"flags": {
 				"core": {
@@ -219,7 +113,7 @@
 			},
 			"system": {
 				"actions": {
-					"WNEHHOJ7XPKhd4rx": {
+					"Sitkk9TfiyHlLjXC": {
 						"name": "Disarm",
 						"activation": {
 							"cost": 1,
@@ -231,7 +125,7 @@
 							"value": null
 						},
 						"ranges": {
-							"SYnBReFprZ4bLwt3": {
+							"XgRObtM06jwDZ7yR": {
 								"range": "touch"
 							}
 						},
@@ -247,7 +141,7 @@
 							"size": ""
 						},
 						"rolls": {
-							"ZUwYJSOo8eSNBnib": {
+							"6sHGyHT2hmv8AGKs": {
 								"canCrit": false,
 								"damageType": "",
 								"formula": "1 + @str.mod",
@@ -256,7 +150,7 @@
 							}
 						},
 						"prompts": {
-							"5obgrzmD1yG163Vr": {
+							"IECrAAOwLycAHqP1": {
 								"ability": "str",
 								"onSave": "",
 								"saveDC": {
@@ -303,12 +197,12 @@
 			},
 			"folder": null,
 			"sort": 0,
-			"_id": "pzruPpRZVawoVrat"
+			"_id": "u0cWM07v7j0X2JKS"
 		},
 		{
 			"name": "Grab On",
 			"type": "maneuver",
-			"img": "icons/skills/melee/hand-grip-staff-teal.webp",
+			"img": "https://assets.forge-vtt.com/bazaar/core/icons/skills/melee/hand-grip-staff-teal.webp",
 			"effects": [],
 			"flags": {
 				"core": {
@@ -317,7 +211,7 @@
 			},
 			"system": {
 				"actions": {
-					"ifXQbUAAFjZ706ej": {
+					"XbfOFWsdys82WVAf": {
 						"name": "Grab On",
 						"activation": {
 							"cost": 1,
@@ -329,7 +223,7 @@
 							"value": null
 						},
 						"ranges": {
-							"fYbmjbyVxTfVRiDF": {
+							"jMB6umCPjjMMVVeD": {
 								"range": "touch"
 							}
 						},
@@ -345,7 +239,7 @@
 							"size": ""
 						},
 						"prompts": {
-							"032GvJPqiVESP1GF": {
+							"gwZ9lypCO21LeLNp": {
 								"ability": "str",
 								"onSave": "",
 								"saveDC": {
@@ -392,12 +286,12 @@
 			},
 			"folder": null,
 			"sort": 0,
-			"_id": "IwhnaOROADDGrchk"
+			"_id": "Ujcjp0f2PaW7aVYq"
 		},
 		{
 			"name": "Knockdown",
 			"type": "maneuver",
-			"img": "icons/magic/control/silhouette-fall-slip-prone.webp",
+			"img": "https://assets.forge-vtt.com/bazaar/core/icons/magic/control/silhouette-fall-slip-prone.webp",
 			"effects": [],
 			"flags": {
 				"core": {
@@ -406,7 +300,7 @@
 			},
 			"system": {
 				"actions": {
-					"ip5VLcYIbi4vdzSY": {
+					"LhtjAhQoMJzNSmSJ": {
 						"name": "Knockdown",
 						"activation": {
 							"cost": 1,
@@ -418,7 +312,7 @@
 							"value": null
 						},
 						"ranges": {
-							"MsuOkNfBRlpgmael": {
+							"HEcnaf77LKil1Ej2": {
 								"range": "touch"
 							}
 						},
@@ -434,7 +328,7 @@
 							"size": ""
 						},
 						"prompts": {
-							"N3N7hYBTLhNecQCJ": {
+							"L5zrdVeuDSG1DwGd": {
 								"ability": "str",
 								"onSave": "",
 								"saveDC": {
@@ -481,12 +375,12 @@
 			},
 			"folder": null,
 			"sort": 0,
-			"_id": "V1u036iKL6zUGRBN"
+			"_id": "lqdxGljb2x36Xrw2"
 		},
 		{
 			"name": "Grapple",
 			"type": "maneuver",
-			"img": "icons/skills/melee/unarmed-punch-fist.webp",
+			"img": "https://assets.forge-vtt.com/bazaar/core/icons/skills/melee/unarmed-punch-fist.webp",
 			"effects": [],
 			"flags": {
 				"core": {
@@ -495,7 +389,7 @@
 			},
 			"system": {
 				"actions": {
-					"jDFcpIQhZmM5Dpe2": {
+					"0TRiXJbO3421DuPR": {
 						"name": "Grapple",
 						"activation": {
 							"cost": 1,
@@ -507,7 +401,7 @@
 							"value": null
 						},
 						"ranges": {
-							"Au9d0SPhyrenDLG1": {
+							"BItUzb7B1MG1X3tS": {
 								"range": "touch"
 							}
 						},
@@ -523,7 +417,7 @@
 							"size": ""
 						},
 						"prompts": {
-							"ZVxHUC0fAbguKDLu": {
+							"PWkHwdU1Hy64dn8g": {
 								"ability": "str",
 								"onSave": "",
 								"saveDC": {
@@ -570,12 +464,12 @@
 			},
 			"folder": null,
 			"sort": 0,
-			"_id": "yxkVqdN362Xnof3y"
+			"_id": "nSZ1WWDEQupeq1Ty"
 		},
 		{
 			"name": "Overrun",
 			"type": "maneuver",
-			"img": "icons/skills/melee/shield-damaged-broken-blue.webp",
+			"img": "https://assets.forge-vtt.com/bazaar/core/icons/skills/melee/shield-damaged-broken-blue.webp",
 			"effects": [],
 			"flags": {
 				"core": {
@@ -584,7 +478,7 @@
 			},
 			"system": {
 				"actions": {
-					"l2KUpyzKhP3P2xjK": {
+					"OKSsvu5gzTvP2afi": {
 						"name": "Overrun",
 						"activation": {
 							"cost": 1,
@@ -596,7 +490,7 @@
 							"value": null
 						},
 						"ranges": {
-							"HzYlCohSggVANNSP": {
+							"vKEKwO7hfOgGAVbD": {
 								"range": "touch"
 							}
 						},
@@ -612,7 +506,7 @@
 							"size": ""
 						},
 						"prompts": {
-							"04QOr5xgM8avX7O8": {
+							"N0sNdtSPYPvoPucL": {
 								"ability": "str",
 								"onSave": "",
 								"saveDC": {
@@ -659,170 +553,11 @@
 			},
 			"folder": null,
 			"sort": 0,
-			"_id": "ehLZ33RTOIoqoVLj"
+			"_id": "dvTgih9Eu93vYNFH"
 		},
 		{
-			"_id": "P8vtvGGRr725dDqp",
-			"name": "Amorphous",
+			"name": "Conductive",
 			"type": "feature",
-			"img": "icons/magic/control/silhouette-hold-change-blue.webp",
-			"effects": [],
-			"folder": null,
-			"sort": 0,
-			"flags": {},
-			"system": {
-				"ac": {
-					"baseFormula": "",
-					"formula": "",
-					"maxDex": 0,
-					"minStr": 0,
-					"mode": 1,
-					"requiresNoShield": false,
-					"requiresUnarmored": false
-				},
-				"actions": {},
-				"description": "<p>The shadow can pass through an opening as narrow as 1 inch wide without squeezing.</p>",
-				"favorite": true,
-				"secretDescription": "",
-				"source": "",
-				"uses": {
-					"value": null,
-					"max": "",
-					"per": null,
-					"recharge": {
-						"formula": "",
-						"threshold": ""
-					}
-				},
-				"schema": {
-					"version": 0.004,
-					"lastMigration": {
-						"version": {
-							"schema": 0.003,
-							"foundry": "11.302",
-							"system": "0.12.7"
-						}
-					}
-				},
-				"concentration": false,
-				"featureType": "",
-				"prerequisite": ""
-			},
-			"ownership": {
-				"default": 0
-			}
-		},
-		{
-			"_id": "NXqBKIRFNkd2xQTQ",
-			"name": "Sunlight Weakness",
-			"type": "feature",
-			"img": "icons/magic/nature/symbol-sun-yellow.webp",
-			"effects": [],
-			"folder": null,
-			"sort": 3,
-			"flags": {},
-			"system": {
-				"ac": {
-					"baseFormula": "",
-					"formula": "",
-					"maxDex": 0,
-					"minStr": 0,
-					"mode": 1,
-					"requiresNoShield": false,
-					"requiresUnarmored": false
-				},
-				"actions": {},
-				"description": "<p>While in sunlight, the shadow has disadvantage on attack rolls, ability checks, and saving throws.</p>",
-				"favorite": true,
-				"secretDescription": "",
-				"source": "",
-				"uses": {
-					"value": null,
-					"max": "",
-					"per": null,
-					"recharge": {
-						"formula": "",
-						"threshold": ""
-					}
-				},
-				"schema": {
-					"version": 0.004,
-					"lastMigration": {
-						"version": {
-							"schema": 0.003,
-							"foundry": "11.302",
-							"system": "0.12.7"
-						}
-					}
-				},
-				"concentration": false,
-				"featureType": "",
-				"prerequisite": ""
-			},
-			"ownership": {
-				"default": 0
-			}
-		},
-		{
-			"_id": "DlGqK37VyQ9n0TpC",
-			"name": "Undead Nature",
-			"type": "feature",
-			"img": "icons/magic/death/skull-energy-light-white.webp",
-			"effects": [],
-			"folder": null,
-			"sort": 4,
-			"flags": {},
-			"system": {
-				"ac": {
-					"baseFormula": "",
-					"formula": "",
-					"maxDex": 0,
-					"minStr": 0,
-					"mode": 1,
-					"requiresNoShield": false,
-					"requiresUnarmored": false
-				},
-				"actions": {},
-				"description": "<p>A shadow doesn’t require air, sustenance, or sleep.</p>",
-				"favorite": true,
-				"secretDescription": "",
-				"source": "",
-				"uses": {
-					"value": null,
-					"max": "",
-					"per": null,
-					"recharge": {
-						"formula": "",
-						"threshold": ""
-					}
-				},
-				"schema": {
-					"version": 0.004,
-					"lastMigration": {
-						"version": {
-							"schema": 0.003,
-							"foundry": "11.302",
-							"system": "0.12.7"
-						}
-					}
-				},
-				"concentration": false,
-				"featureType": "",
-				"prerequisite": ""
-			},
-			"ownership": {
-				"default": 0
-			}
-		},
-		{
-			"_id": "xO3yy21O3wEWoLO8",
-			"name": "Shadow Sneak",
-			"type": "feature",
-			"img": "icons/magic/perception/silhouette-stealth-shadow.webp",
-			"effects": [],
-			"folder": null,
-			"sort": 2,
-			"flags": {},
 			"system": {
 				"ac": {
 					"baseFormula": "",
@@ -834,74 +569,584 @@
 					"requiresUnarmored": false
 				},
 				"actions": {
-					"5LeIqQ2wRrnRQsM9": {
-						"name": "Shadow Sneak",
+					"ZoLDnIDSW0mK2sdL": {
+						"name": "New Action",
 						"activation": {
-							"cost": 1,
-							"type": "bonusAction",
-							"reactionTrigger": ""
+							"type": "special"
+						},
+						"consumers": {},
+						"rolls": {
+							"Q4kSFqiB2FepsbMc": {
+								"type": "damage",
+								"default": true,
+								"formula": "2d6",
+								"damageType": "lightning",
+								"canCrit": false,
+								"label": "Each time a creature touches the luz mala or hits it with a metal melee weapon for the first time on a turn"
+							}
+						},
+						"prompts": {},
+						"uses": {
+							"value": 0,
+							"max": "",
+							"per": "",
+							"recharge": {
+								"formula": "1d6",
+								"threshold": 6
+							}
 						},
 						"duration": {
-							"unit": "",
-							"value": ""
-						},
-						"area": {
-							"shape": "",
-							"size": "",
-							"placeTemplate": false
+							"unit": "special",
+							"value": 1
 						},
 						"target": {
-							"quantity": "",
-							"type": ""
-						},
-						"consumers": {}
+							"type": "creature",
+							"quantity": 1
+						}
 					}
 				},
-				"description": "<p>The shadow takes the Hide action even if obscured only by dim light or darkness.</p>",
+				"description": "<p>Each time a creature touches the luz mala or hits it with a metal melee weapon for the first time on a turn, the creature takes 7 (2d6) lightning damage. This trait doesn&rsquo;t function while the luz mala glow is extinguished.</p>",
 				"favorite": true,
 				"secretDescription": "",
-				"source": "",
+				"source": {
+					"name": "",
+					"link": "",
+					"publisher": ""
+				},
 				"uses": {
 					"value": null,
 					"max": "",
 					"per": null,
 					"recharge": {
-						"formula": "",
-						"threshold": ""
+						"formula": "1d6",
+						"threshold": "6"
 					}
 				},
 				"schema": {
-					"version": 0.004,
-					"lastMigration": {
-						"version": {
-							"schema": 0.003,
-							"foundry": "11.302",
-							"system": "0.12.7"
+					"version": 0.001,
+					"lastMigration": null
+				},
+				"concentration": false,
+				"featureType": "naturalWeapon",
+				"prerequisite": ""
+			},
+			"_id": "chBUthj4KYUzskTL",
+			"img": "icons/magic/lightning/orb-ball-blue.webp",
+			"effects": [],
+			"folder": null,
+			"sort": 0,
+			"ownership": {
+				"default": 0
+			},
+			"flags": {}
+		},
+		{
+			"name": "Treasure Sense",
+			"type": "feature",
+			"system": {
+				"ac": {
+					"baseFormula": "",
+					"formula": "",
+					"maxDex": 0,
+					"minStr": 0,
+					"mode": 1,
+					"requiresNoShield": false,
+					"requiresUnarmored": false
+				},
+				"actions": {},
+				"description": "<p>The luz mala knows the location of coins, gems, and other nonmagical wealth within 500 feet.</p>",
+				"favorite": true,
+				"secretDescription": "",
+				"source": {
+					"name": "",
+					"link": "",
+					"publisher": ""
+				},
+				"uses": {
+					"value": null,
+					"max": "",
+					"per": null,
+					"recharge": {
+						"formula": "1d6",
+						"threshold": "6"
+					}
+				},
+				"schema": {
+					"version": 0.001,
+					"lastMigration": null
+				},
+				"concentration": false,
+				"featureType": "heritage",
+				"prerequisite": ""
+			},
+			"_id": "A5f0PNJUmnPI6kGT",
+			"img": "icons/commodities/currency/coins-assorted-mix-copper-silver-gold.webp",
+			"effects": [],
+			"folder": null,
+			"sort": 0,
+			"ownership": {
+				"default": 0
+			},
+			"flags": {}
+		},
+		{
+			"name": "Shock",
+			"type": "feature",
+			"system": {
+				"ac": {
+					"baseFormula": "",
+					"formula": "",
+					"maxDex": 0,
+					"minStr": 0,
+					"mode": 1,
+					"requiresNoShield": false,
+					"requiresUnarmored": false
+				},
+				"actions": {
+					"XAjDgIG6sDgo9KR9": {
+						"name": "Shock. ",
+						"activation": {
+							"type": "action",
+							"cost": 1
+						},
+						"consumers": {},
+						"rolls": {
+							"k3NPA8WBFuTzEeUE": {
+								"type": "attack",
+								"default": true,
+								"attackType": "meleeWeaponAttack",
+								"proficient": true,
+								"ability": "wis",
+								"label": "Melee Spell Attack"
+							},
+							"SXovMSExlMDgMdqi": {
+								"type": "damage",
+								"default": true,
+								"formula": "3d6",
+								"damageType": "lightning"
+							}
+						},
+						"prompts": {},
+						"uses": {
+							"value": 0,
+							"max": "",
+							"per": "",
+							"recharge": {
+								"formula": "1d6",
+								"threshold": 6
+							}
+						},
+						"duration": {
+							"unit": "instantaneous"
+						},
+						"ranges": {
+							"ZIbaZwPadlAmBjj4": {
+								"range": "fiveFeet"
+							}
+						},
+						"target": {
+							"type": "creature",
+							"quantity": 1
 						}
 					}
 				},
+				"description": "<p>Melee Spell Attack: +6 to hit, reach 5 ft., one target. Hit: 10 (3d6) lightning damage. The luz mala can&rsquo;t make this attack while its glow is extinguished.</p>",
+				"favorite": true,
+				"secretDescription": "",
+				"source": {
+					"name": "",
+					"link": "",
+					"publisher": ""
+				},
+				"uses": {
+					"value": null,
+					"max": "",
+					"per": null,
+					"recharge": {
+						"formula": "1d6",
+						"threshold": "6"
+					}
+				},
+				"schema": {
+					"version": 0.001,
+					"lastMigration": null
+				},
 				"concentration": false,
-				"featureType": "other",
+				"featureType": "naturalWeapon",
 				"prerequisite": ""
 			},
+			"_id": "19nMJsN5l28pzFaK",
+			"img": "icons/magic/lightning/claws-unarmed-strike-teal.webp",
+			"effects": [],
+			"folder": null,
+			"sort": 0,
 			"ownership": {
 				"default": 0
-			}
+			},
+			"flags": {}
+		},
+		{
+			"name": "Dreadful Light",
+			"type": "feature",
+			"system": {
+				"ac": {
+					"baseFormula": "",
+					"formula": "",
+					"maxDex": 0,
+					"minStr": 0,
+					"mode": 1,
+					"requiresNoShield": false,
+					"requiresUnarmored": false
+				},
+				"actions": {
+					"yYFIxI36cI7ufaJe": {
+						"name": "Dreadful Light.",
+						"activation": {
+							"type": "special"
+						},
+						"consumers": {},
+						"rolls": {},
+						"prompts": {
+							"inD5rWu8V3QByJyf": {
+								"type": "savingThrow",
+								"default": true,
+								"ability": "wis",
+								"saveDC": {
+									"type": "custom",
+									"bonus": "13"
+								},
+								"onSave": " If a creature’s saving throw is successful, it is immune to any luz mala’s Dreadful Light for 24 hours."
+							}
+						},
+						"uses": {
+							"value": 0,
+							"max": "",
+							"per": "",
+							"recharge": {
+								"formula": "1d6",
+								"threshold": 6
+							}
+						},
+						"area": {
+							"shape": "circle",
+							"quantity": 1
+						}
+					}
+				},
+				"description": "<p>A creature that begins its turn in the area illuminated by the luz mala or enters it for the first time on a turn must make a DC 13 Wisdom&nbsp;<span class=\"freelinking-link\">saving throw</span>&nbsp;or become&nbsp;<span class=\"freelinking-link\">fright\u0002ened</span>&nbsp;of the luz mala and drop whatever it&rsquo;s holding. These effects last for one minute, and the creature can repeat the saving throw at the beginning of its turn as long as the luz mala isn&rsquo;t in its line of sight, ending the effect on a success. This also effect ends if the luz mala extinguishes its light. If a creature&rsquo;s saving throw is successful, it is immune to any luz mala&rsquo;s Dreadful Light for 24 hours.</p>",
+				"favorite": true,
+				"secretDescription": "",
+				"source": {
+					"name": "",
+					"link": "",
+					"publisher": ""
+				},
+				"uses": {
+					"value": null,
+					"max": "",
+					"per": null,
+					"recharge": {
+						"formula": "1d6",
+						"threshold": "6"
+					}
+				},
+				"schema": {
+					"version": 0.001,
+					"lastMigration": null
+				},
+				"concentration": false,
+				"featureType": "naturalWeapon",
+				"prerequisite": ""
+			},
+			"_id": "X8oRQbJBueQ40mUG",
+			"img": "icons/magic/light/explosion-star-large-pink.webp",
+			"effects": [],
+			"folder": null,
+			"sort": 0,
+			"ownership": {
+				"default": 0
+			},
+			"flags": {}
+		},
+		{
+			"name": "Illumination",
+			"type": "feature",
+			"system": {
+				"ac": {
+					"baseFormula": "",
+					"formula": "",
+					"maxDex": 0,
+					"minStr": 0,
+					"mode": 1,
+					"requiresNoShield": false,
+					"requiresUnarmored": false
+				},
+				"actions": {},
+				"description": "<p>The luz mala&nbsp;alters the radius of its glow (shedding&nbsp;<span class=\"freelinking-link\">bright light</span>&nbsp;in a 5- to 20-foot radius and dim light for the same number of feet beyond that radius), changes the color of its glow, or extinguishes its glow (making it&nbsp;<span class=\"freelinking-link\">invisible</span>&nbsp;).</p>",
+				"favorite": true,
+				"secretDescription": "",
+				"source": {
+					"name": "",
+					"link": "",
+					"publisher": ""
+				},
+				"uses": {
+					"value": null,
+					"max": "",
+					"per": null,
+					"recharge": {
+						"formula": "1d6",
+						"threshold": "6"
+					}
+				},
+				"schema": {
+					"version": 0.001,
+					"lastMigration": null
+				},
+				"concentration": false,
+				"featureType": "heritage",
+				"prerequisite": ""
+			},
+			"_id": "MmRh0xpd4g5utWCN",
+			"img": "icons/magic/light/explosion-star-large-teal-purple.webp",
+			"effects": [],
+			"folder": null,
+			"sort": 0,
+			"ownership": {
+				"default": 0
+			},
+			"flags": {}
+		},
+		{
+			"name": "Insubstantial",
+			"type": "feature",
+			"system": {
+				"ac": {
+					"baseFormula": "",
+					"formula": "",
+					"maxDex": 0,
+					"minStr": 0,
+					"mode": 1,
+					"requiresNoShield": false,
+					"requiresUnarmored": false
+				},
+				"actions": {
+					"4hUq0RI5IHRyhBwX": {
+						"name": "Insubstantial.",
+						"activation": {},
+						"consumers": {},
+						"rolls": {
+							"7MfSlOz9OOfhDklG": {
+								"type": "damage",
+								"default": true,
+								"label": "It can move through creatures and objects. It takes 5 (1d10) force damage if it ends its turn inside an object. ",
+								"formula": "1d10",
+								"damageType": "force",
+								"canCrit": false
+							}
+						},
+						"prompts": {},
+						"uses": {
+							"value": 0,
+							"max": "",
+							"per": "",
+							"recharge": {
+								"formula": "1d6",
+								"threshold": 6
+							}
+						},
+						"ranges": {
+							"7yYaP5C6tGYEGKbE": {
+								"range": "self"
+							}
+						}
+					}
+				},
+				"description": "<p>The luz mala can&rsquo;t pick up or move objects or creatures. It can move through creatures and objects. It takes 5 (1d10) force damage if it ends its turn inside an object.&nbsp;</p>",
+				"favorite": true,
+				"secretDescription": "",
+				"source": {
+					"name": "",
+					"link": "",
+					"publisher": ""
+				},
+				"uses": {
+					"value": null,
+					"max": "",
+					"per": null,
+					"recharge": {
+						"formula": "1d6",
+						"threshold": "6"
+					}
+				},
+				"schema": {
+					"version": 0.001,
+					"lastMigration": null
+				},
+				"concentration": false,
+				"featureType": "heritage",
+				"prerequisite": ""
+			},
+			"_id": "2YQ1pk7iLLJwDjLy",
+			"img": "icons/magic/control/silhouette-hold-change-blue.webp",
+			"effects": [],
+			"folder": null,
+			"sort": 0,
+			"ownership": {
+				"default": 0
+			},
+			"flags": {}
+		},
+		{
+			"name": "Undead Nature.",
+			"type": "feature",
+			"system": {
+				"ac": {
+					"baseFormula": "",
+					"formula": "",
+					"maxDex": 0,
+					"minStr": 0,
+					"mode": 1,
+					"requiresNoShield": false,
+					"requiresUnarmored": false
+				},
+				"actions": {},
+				"description": "<p>A luz mala doesn&rsquo;t require air, sustenance, or sleep.</p>",
+				"favorite": false,
+				"secretDescription": "",
+				"source": {
+					"name": "",
+					"link": "",
+					"publisher": ""
+				},
+				"uses": {
+					"value": null,
+					"max": "",
+					"per": null,
+					"recharge": {
+						"formula": "1d6",
+						"threshold": "6"
+					}
+				},
+				"schema": {
+					"version": 0.001,
+					"lastMigration": null
+				},
+				"concentration": false,
+				"featureType": "heritage",
+				"prerequisite": ""
+			},
+			"_id": "fqSreGM9hgGAWonQ",
+			"img": "icons/magic/death/undead-skeleton-worn-blue.webp",
+			"effects": [],
+			"folder": null,
+			"sort": 0,
+			"ownership": {
+				"default": 0
+			},
+			"flags": {}
+		},
+		{
+			"name": "Spirit Drain",
+			"type": "feature",
+			"system": {
+				"ac": {
+					"baseFormula": "",
+					"formula": "",
+					"maxDex": 0,
+					"minStr": 0,
+					"mode": 1,
+					"requiresNoShield": false,
+					"requiresUnarmored": false
+				},
+				"actions": {
+					"B1eBmMnGSZe1jMET": {
+						"name": "Spirit Drain.",
+						"activation": {},
+						"consumers": {},
+						"rolls": {
+							"rpUL2BzO709aNkXw": {
+								"type": "attack",
+								"default": true,
+								"attackType": "meleeWeaponAttack",
+								"proficient": true,
+								"ability": "wis"
+							},
+							"WhT1yhl5weJEGcHR": {
+								"type": "damage",
+								"default": true,
+								"damageType": "necrotic",
+								"formula": "3d10"
+							}
+						},
+						"prompts": {},
+						"uses": {
+							"value": 0,
+							"max": "",
+							"per": "",
+							"recharge": {
+								"formula": "1d6",
+								"threshold": 6
+							}
+						},
+						"ranges": {
+							"wlPydnhB7GCNAGUZ": {
+								"range": "fiveFeet"
+							}
+						},
+						"target": {
+							"type": "creature",
+							"quantity": 1
+						}
+					}
+				},
+				"description": "<p><em>Melee Spell Attack:</em>&nbsp;+6 to hit, reach 5 ft., one target. Hit: 16 (3d10) necrotic damage. The luz mala can&rsquo;t make this attack while its glow is extinguished</p>",
+				"favorite": true,
+				"secretDescription": "",
+				"source": {
+					"name": "",
+					"link": "",
+					"publisher": ""
+				},
+				"uses": {
+					"value": null,
+					"max": "",
+					"per": null,
+					"recharge": {
+						"formula": "1d6",
+						"threshold": "6"
+					}
+				},
+				"schema": {
+					"version": 0.001,
+					"lastMigration": null
+				},
+				"concentration": false,
+				"featureType": "naturalWeapon",
+				"prerequisite": ""
+			},
+			"_id": "ib75li3Tf7HxU4Rp",
+			"img": "icons/magic/death/hand-undead-skeleton-fire-pink.webp",
+			"effects": [],
+			"folder": null,
+			"sort": 0,
+			"ownership": {
+				"default": 0
+			},
+			"flags": {}
 		}
 	],
 	"effects": [],
 	"flags": {
 		"a5e": {
 			"sheetIsLocked": true,
-			"currentTab": "settings",
-			"sortMode": 1,
-			"showSpellTab": false
+			"currentTab": "core"
 		}
 	},
 	"system": {
 		"abilities": {
 			"str": {
-				"value": 6,
+				"value": 2,
 				"check": {
 					"expertiseDice": 0,
 					"bonus": ""
@@ -913,7 +1158,7 @@
 				}
 			},
 			"dex": {
-				"value": 14,
+				"value": 24,
 				"check": {
 					"expertiseDice": 0,
 					"bonus": ""
@@ -938,7 +1183,7 @@
 				}
 			},
 			"int": {
-				"value": 8,
+				"value": 12,
 				"check": {
 					"expertiseDice": 0,
 					"bonus": ""
@@ -950,7 +1195,7 @@
 				}
 			},
 			"wis": {
-				"value": 10,
+				"value": 18,
 				"check": {
 					"expertiseDice": 0,
 					"bonus": ""
@@ -962,7 +1207,7 @@
 				}
 			},
 			"cha": {
-				"value": 14,
+				"value": 12,
 				"check": {
 					"expertiseDice": 0,
 					"bonus": ""
@@ -1204,7 +1449,7 @@
 			"ste": {
 				"ability": "dex",
 				"value": 0,
-				"proficient": true,
+				"proficient": false,
 				"specialties": [],
 				"expertiseDice": 0,
 				"minRoll": 1,
@@ -1276,7 +1521,7 @@
 		},
 		"attributes": {
 			"ac": {
-				"baseFormula": "",
+				"baseFormula": "10 + @dex.mod",
 				"value": 0
 			},
 			"death": {
@@ -1284,19 +1529,19 @@
 				"failure": 0
 			},
 			"hp": {
-				"value": 18,
-				"baseMax": 18,
+				"value": 45,
+				"baseMax": 45,
 				"temp": 0,
 				"bonus": 0
 			},
 			"hitDice": {
 				"d6": {
-					"current": 0,
-					"total": 0
+					"current": 15,
+					"total": 15
 				},
 				"d8": {
-					"current": 4,
-					"total": 4
+					"current": 0,
+					"total": 0
 				},
 				"d10": {
 					"current": 0,
@@ -1329,7 +1574,7 @@
 					"unit": "feet"
 				},
 				"fly": {
-					"distance": 0,
+					"distance": 50,
 					"unit": "feet"
 				},
 				"swim": {
@@ -1392,18 +1637,20 @@
 			"cp": 0
 		},
 		"details": {
-			"bio": "<h2>Combat</h2><p>If in shadow or darkness, the shadow attacks, hides, and then moves away from its target. If in bright light, the shadow flees to a darker area. Shadows only attack creatures in bright light if they outnumber their foe two to one or more. If a shadow retreats, it follows a creature it has <a target=\"_blank\" rel=\"noopener noreferrer nofollow\" href=\"https://a5e.tools/rules/cursed\">cursed</a> .</p><hr class=\"a5e-rule u-my-md\"><h2>Legends and Lore</h2><p>With an Arcana or Religion check, characters can learn the following:</p><p><strong>DC 10</strong> When a person dies in the dark, their spirit may rise again as a shadow. Necromancers and undead (including other shadows) can create shadows, as well.</p><p><strong>DC 15</strong> Like moths drawn to a flame, shadows crave light, but they are greatly weakened when they enter it.</p><p><strong>DC 20</strong> Shadows drain the strength from living creatures they touch. If a shadow kills you, it steals your shadow, and you can’t be raised from the dead until it is returned.</p><p>Description</p><p>Darkness given form and will, imbued with a hunger for light and the warmth of the living, shadows are dreadful undead born from those who die in the dark. As they slake their terrible hunger, more shadows arise.</p><p><strong><em>The Hungering Dark.</em> </strong>Shadows are tortured by their longing for light, but they fear to enter it. They lurk in the shadows around firelight, and may even lie in wait in the shadows of their prey, striking when they can be assured of surprise. Their touch drains vitality and strength. The bodies of those slain by this draining touch cast no shadow, for their shadows have left, becoming new undead shadows with wills of their own.</p><p><strong><em>Called Forth by Death. </em></strong>Shadows are created by powerful undead. <a target=\"_blank\" rel=\"noopener noreferrer nofollow\" href=\"https://a5e.tools/node/1813\">Vampires</a> and <a target=\"_blank\" rel=\"noopener noreferrer nofollow\" href=\"https://a5e.tools/node/1713\">liches</a> that have journeyed beyond the Bleak Gate know the secrets of tearing away a living being's shade to create an unliving shadow. But shadows owe no fealty to their creators. All shadows serve only one master: death itself.</p><p>Signs</p><p>1 A corpse that doesn’t cast a shadow</p><p>2 Drops of blood; nearby, a tipped-over lantern and a smashed oil flask</p><p>3 Torches dim and lanterns gutter</p><p>4 DC 14 Perception check: your shadows act independently</p><p>Encounters</p><p>Shadows collect in tunnels and dungeons that have never seen the sun.</p><p><strong>CR 0–2</strong> 1 or 2 <a target=\"_blank\" rel=\"noopener noreferrer nofollow\" href=\"https://a5e.tools/node/1787\">shadows</a></p><p><strong>Treasure</strong> 40 gp, 70 sp, silver bracelet tarnished nearly black (25 gp)</p><p><strong>CR 3–4</strong> 3 or 4 <a target=\"_blank\" rel=\"noopener noreferrer nofollow\" href=\"https://a5e.tools/node/1787\">shadows</a> ; 2 <a target=\"_blank\" rel=\"noopener noreferrer nofollow\" href=\"https://a5e.tools/node/1787\">shadows</a> with 1d4 <a target=\"_blank\" rel=\"noopener noreferrer nofollow\" href=\"https://a5e.tools/node/1937\">giant bats</a> , <a target=\"_blank\" rel=\"noopener noreferrer nofollow\" href=\"https://a5e.tools/node/1520\">lemures</a> , <a target=\"_blank\" rel=\"noopener noreferrer nofollow\" href=\"https://a5e.tools/node/1790\">skeletons</a> , or <a target=\"_blank\" rel=\"noopener noreferrer nofollow\" href=\"https://a5e.tools/node/1827\">zombies</a></p><p><strong>Treasure</strong> old-fashioned breastplate (400 gp), <a target=\"_blank\" rel=\"noopener noreferrer nofollow\" href=\"https://a5e.tools/node/1241\"><em>1 rapier</em></a><em> </em>that glows when wielded (casting light as a torch)</p><p>Monster Type Description</p><p></p><p>Undead are supernatural creatures or spirits that are no longer alive but are still animate. Some have been reanimated by magic spells, such as <a target=\"_blank\" rel=\"noopener noreferrer nofollow\" href=\"https://a5e.tools/node/1790\">skeletons</a> . Others, like <a target=\"_blank\" rel=\"noopener noreferrer nofollow\" href=\"https://a5e.tools/node/1813\">vampires</a> , are the products of an evil ritual or curse.</p>",
+			"bio": "<h2><strong>COMBAT</strong></h2><p>The will-o’-wisp attacks, turns invisible, and then moves to safety. On its next turn it moves to melee range, turns visible, and attacks. It repeats this pattern. The will-o’-wisp fights only to preserve its treasure. It may retreat to summon allies or otherwise cause trouble.</p><hr class=\"a5e-rule u-my-md\"><h2><strong>LEGENDS AND LORE</strong></h2><p>With an Arcana or Religion check, characters can learn the following:</p><p><strong>DC 10</strong> Undead spirits known as will-o’-wisps take the form of glowing spheres of light to lead unwary travelers astray.</p><p><strong>DC 15</strong> Will-o’-wisps have no physical bodies, making them insubstantial and immune to most forms of damage.</p><p><strong>DC 20</strong> Every will-o’-wisp guards a secret cache of wealth that it coveted in life. The path to a will-o’-wisp’s treasure, however, is fraught with peril.</p><p><strong>DESCRIPTION</strong></p><p>Will-o’-wisps, also called corpse lights, are glowing balls of light that appear at night and lure travelers into danger. Seen from a distance, they resemble beckoning lanterns or cheery cottage windows—but those who pursue them are more likely to lose their lives than find their way.</p><p><strong><em>Markers of Hidden Treasure</em>.</strong> Will-o’-wisps are the undead spirits of misers who couldn’t bear to leave their worldly wealth behind as they passed on to the afterlife. They haunt their former hoards, guarding secret caches or traveling a lonely circuit between buried treasures.&nbsp;</p><p>Some foolish souls may try to follow a wisp to its treasure trove. Such pursuits are dangerous: a will-o’-wisp, cunning in the defense of its hoard, travels over precipices, traps, and other hazards even when it believes itself alone. If a will-o’-wisp becomes aware of pursuers, it chooses an even deadlier route.</p><p><strong><em>Malevolent Spirits</em>.</strong> Will-o’-wisps have few thoughts beyond preserving and adding to their hoards. They rarely attack creatures directly except to defend their treasure, but they may lead travelers astray in order to acquire their wealth. Some will-o’-wisps lure creatures into bogs and quicksand: an enemy caught in a mire is self-burying treasure. Other will-o’-wisps prefer to lead creatures into the clutches of unintelligent monsters, gloating over the coins that accumulate in the monster’s lair. Still others, the undead shades of greedy pirates, appear amidst storms, shining deceptive signals to lead ships onto deadly shoals.</p><p><strong>BEHAVIOR</strong></p><p><strong>Wilderness and Underground Behavior</strong></p><p>1-3 On its way to a treasure cache; if it notices travelers, it leads them through dangerous obstacles (monsters, bogs, traps, cliffs)</p><p>4 Attacks travelers directly: tries to do so in an area of standing water (it gains advantage on on shock attacks made against creatures in the water)</p><p>5 Hovering above its most recent victim</p><p>6 Circling a hazard such as a sinkhole, hunting pit trap, or pit trap</p><hr class=\"a5e-rule u-my-md\"><p><strong>Sea Behavior</strong></p><p>1 Masquerading as the signal lights of a ship, trying to lead vessels onto a dangerous reef</p><p>2 Blinking like a lighthouse beacon</p><p>3 Following a ship, pointing it out to enemies</p><p>4 Clinging to a mast, shocking anyone who climbs it</p><p><strong>SIGNS</strong></p><p>1 A distant flicker of blue light</p><p>2 Cheery orange light, like a bobbing lantern, on the horizon</p><p>3 A distant steady light</p><p>4 A flash like a bolt of lightning splits the sky</p><p><strong>ENCOUNTERS</strong></p><p>Will-o’-wisps can be found at night in deserted and dangerous places, particularly swamps and bodies of water.</p><p><strong>CR 0–2</strong> will-o’-wisp</p><p><strong>Treasure</strong> 150 gp, 400 sp, 500 cp, <em>potion of greater healing</em>, <em>eyes of the eagle</em></p><p><strong>CR 3–4</strong> 2 will-o’-wisps; will-o’-wisp with 1 or 2 ghouls or shadows</p><p><strong>Treasure</strong> 350 gp, 3 jasper gemstones (50 gp each), <em>spell scroll</em> of <em>locate object</em>, <em>+1 shortsword</em> (made of obsidian; doesn’t conduct electricity)</p><p><strong>CR 5–10</strong> will-o’-wisp with flesh guardian, owlbear, or shambling mound</p><p><strong>Treasure</strong> 50 pp, 600 gp, deeds of ownership to property in slums or ruins, unsigned last will and testament, 3 <em>potions of superior healing</em>, <em>ring of swimming</em></p>",
 			"creatureTypes": [
 				"undead"
 			],
 			"isSwarm": false,
-			"cr": 1,
+			"cr": 4,
 			"elite": false,
-			"privateNotes": ""
+			"privateNotes": "<div class=\"field field--name-field-monster-description field--type-text-long field--label-above\">\n<div class=\"field--label\">DESCRIPTION</div>\n<div class=\"field--item\">\n<p>A luz mala is created after the death of a creature that has done truly evil deeds in the pursuit of greed. In its avarice, a luz mala seeks to steal the lifeforce of living creatures, even though it can&rsquo;t benefit from this theft.</p>\n</div>\n</div>\n<div class=\"field field--name-field-monster-type-description field--type-text-long field--label-above\">\n<div class=\"field--label\">MONSTER TYPE DESCRIPTION</div>\n<div class=\"field--item\">\n<p>Undead are supernatural creatures or spirits that are no longer alive but are still animate. Some have been reanimated by magic spells, such as&nbsp;<span class=\"freelinking-link\">skeletons</span>&nbsp;. Others, like&nbsp;<span class=\"freelinking-link\">vampires</span>&nbsp;, are the products of an evil ritual or curse.</p>\n</div>\n</div>"
 		},
 		"proficiencies": {
 			"armor": [],
-			"languages": [],
+			"languages": [
+				"the languages it knew in life"
+			],
 			"tools": [],
 			"weapons": []
 		},
@@ -1459,9 +1706,19 @@
 			"publisher": ""
 		},
 		"traits": {
-			"size": "med",
-			"conditionImmunities": [],
+			"size": "sm",
+			"conditionImmunities": [
+				"fatigue",
+				"grappled",
+				"paralyzed",
+				"petrified",
+				"poisoned",
+				"prone",
+				"restrained",
+				"unconscious"
+			],
 			"damageImmunities": [
+				"lightning",
 				"poison",
 				"necrotic"
 			],
@@ -1469,17 +1726,14 @@
 				"acid",
 				"cold",
 				"fire",
-				"lightning",
 				"thunder",
-				"Non-magical weapons"
+				"Damage from non-magical weapons"
 			],
-			"damageVulnerabilities": [
-				"radiant"
-			]
+			"damageVulnerabilities": []
 		}
 	},
 	"prototypeToken": {
-		"name": "Shadow",
+		"name": "Will-o-Wisp",
 		"displayName": 30,
 		"actorLink": false,
 		"width": 1,
@@ -1510,8 +1764,8 @@
 			"attenuation": 0.5,
 			"color": null
 		},
-		"disposition": -1,
-		"displayBars": 0,
+		"disposition": 0,
+		"displayBars": 50,
 		"bar1": {
 			"attribute": "attributes.hp"
 		},
@@ -1521,7 +1775,7 @@
 		"flags": {},
 		"randomImg": false,
 		"texture": {
-			"src": "systems/a5e/assets/shadow.webp",
+			"src": "https://assets.forge-vtt.com/bazaar/systems/a5e/assets/assets/will-o-wisp.webp",
 			"scaleX": 1,
 			"scaleY": 1,
 			"offsetX": 0,
@@ -1531,7 +1785,7 @@
 		},
 		"sight": {
 			"angle": 360,
-			"enabled": false,
+			"enabled": true,
 			"range": 0,
 			"brightness": 1,
 			"color": null,
@@ -1540,10 +1794,16 @@
 			"contrast": 0,
 			"visionMode": "basic"
 		},
-		"detectionModes": [],
+		"detectionModes": [
+			{
+				"id": "basicSight",
+				"range": 0,
+				"enabled": true
+			}
+		],
 		"appendNumber": false,
 		"prependAdjective": false
 	},
-	"folder": "lmZbC4BTRItcgNpI",
-	"_id": "34m5kul3utacd8eg"
+	"folder": null,
+	"_id": "0pxe69ejyvin2s6i"
 }
