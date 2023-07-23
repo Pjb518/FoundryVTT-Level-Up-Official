@@ -19,8 +19,8 @@ class A5eGameSettings extends TJSGameSettings {
         namespace,
         key: 'collapseActionList',
         options: {
-          name: 'A5E.settings.hideActionListInLockedMode',
-          hint: 'A5E.settings.hints.hideActionListInLockedMode',
+          name: 'A5E.settings.collapseActionList',
+          hint: 'A5E.settings.hints.collapseActionList',
           scope: scope.client,
           config: true,
           default: false,
@@ -104,16 +104,16 @@ class A5eGameSettings extends TJSGameSettings {
         namespace,
         key: 'diagonalRule',
         options: {
-          name: 'A5E.settings.diagonalMovementMeasurement',
-          hint: 'A5E.settings.hints.diagonalMovementMeasurement',
+          name: 'A5E.settings.diagonalRule',
+          hint: 'A5E.settings.hints.diagonalRule',
           scope: scope.world,
           config: true,
           default: 'normal',
           type: String,
           choices: {
-            normal: 'A5E.settings.diagonalMovementMeasurementNormal',
-            euclidean: 'A5E.settings.diagonalMovementMeasurementEuclidean',
-            5105: 'A5E.settings.diagonalMovementMeasurementAlternating'
+            normal: 'A5E.settings.diagonalRuleNormal',
+            euclidean: 'A5E.settings.diagonalRuleEuclidean',
+            5105: 'A5E.settings.diagonalRuleAlternating'
           },
           onChange: (rule) => { canvas.grid.diagonalRule = rule; }
         }

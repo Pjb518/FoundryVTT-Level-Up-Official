@@ -3,6 +3,7 @@
 
     import FormSection from "../components/FormSection.svelte";
     import Checkbox from "../components/Checkbox.svelte";
+    import RadioGroup from "../components/RadioGroup.svelte";
 
     export let reload;
 
@@ -11,6 +12,10 @@
     const updates = getContext("updates");
 
     let diagonalRule = settings.getStore("diagonalRule");
+    let selectedDiagonalRule = updates.get("diagonalRule") ?? $diagonalRule;
+    const diagonalRuleOptions =
+        game.settings.settings.get("a5e.diagonalRule").choices;
+
     let placeTemplate = settings.getStore("placeItemTemplateDefault");
 </script>
 
@@ -22,15 +27,13 @@
             <h3 class="setting-heading">Grid Settings</h3>
         </header>
 
-        <FormSection
-            hint="A5E.settings.hints.diagonalMovementMeasurement"
-            --gap="0.25rem"
-        >
-            <Checkbox
-                label="A5E.settings.diagonalMovementMeasurement"
-                checked={updates.get("diagonalRule") ?? $diagonalRule ?? false}
+        <FormSection hint="A5E.settings.hints.diagonalRule" --gap="0.25rem">
+            <RadioGroup
+                options={Object.entries(diagonalRuleOptions)}
+                selected={selectedDiagonalRule}
                 on:updateSelection={({ detail }) => {
                     updates.set("diagonalRule", detail);
+                    selectedDiagonalRule = detail;
                     reload = true;
                 }}
             />

@@ -38,11 +38,11 @@
         >
             <Checkbox
                 label="A5E.settings.trackCurrencyWeight"
-                checked={updates.get("trackCurrencyWeight") ??
+                checked={updates.get("currencyWeight") ??
                     $trackCurrency ??
                     false}
                 on:updateSelection={({ detail }) => {
-                    updates.set("trackCurrencyWeight", detail);
+                    updates.set("currencyWeight", detail);
                 }}
             />
         </FormSection>
@@ -71,11 +71,11 @@
         </header>
 
         <FormSection
-            hint="A5E.settings.hints.hideActionListInLockedMode"
+            hint="A5E.settings.hints.collapseActionList"
             --gap="0.25rem"
         >
             <Checkbox
-                label="A5E.settings.hideActionListInLockedMode"
+                label="A5E.settings.collapseActionList"
                 checked={updates.get("collapseActionList") ??
                     $hideActionList ??
                     false}
