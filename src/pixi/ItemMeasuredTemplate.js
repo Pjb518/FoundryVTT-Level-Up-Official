@@ -10,11 +10,13 @@ export default class ItemMeasuredTemplate extends MeasuredTemplate {
 
     // Draw template and switch to template layer
     this.draw();
-    this.layer.activate();
+    // TODO: Remove when upstream bug is fixed
+    try {
+      this.layer.activate();
+    } catch (err) {
+      if (err.name !== 'TypeError') throw new Error(err);
+    }
     this.layer.preview.addChild(this);
-
-    // Hide sheet
-    // await this.actorSheet?.minimize();
 
     // Enable interactive mode
     return this.activatePreviewListeners(initialLayer);
@@ -47,7 +49,6 @@ export default class ItemMeasuredTemplate extends MeasuredTemplate {
     canvas.app.view.oncontextmenu = null;
     canvas.app.view.onwheel = null;
     this.#initialLayer.activate();
-    // await this.actorSheet?.maximize();
   }
 
   _onMove(e) {
