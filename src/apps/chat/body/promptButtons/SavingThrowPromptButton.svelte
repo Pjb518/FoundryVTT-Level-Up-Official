@@ -49,21 +49,19 @@
         class:roll-button--ctrl={$pressedKeysStore.Control}
         on:click={() => rollPrompt()}
     >
-        <img class="die" src="/icons/svg/d20.svg" alt="Roll" />
+        <i class="die fa-solid fa-dice-d20" />
     </button>
 
-    <span class="title">
-        {getSavingThrowPrompt()}
-    </span>
-
-    <span class="subtitle">Testing</span>
+    <header class="title-wrapper">
+        <span class="title">{getSavingThrowPrompt()}</span>
+        <span class="subtitle">Lorem ipsum dolor sit, amet consectetur.</span>
+    </header>
 </div>
 
 <style lang="scss">
     .die {
         display: block;
-        height: 100%;
-        width: auto;
+        font-size: 2rem;
         padding: 0;
         margin: 0;
         border: 0;
@@ -76,54 +74,45 @@
         margin: 0;
         background: transparent;
         border: 0;
+        color: #7e7960;
         grid-area: icon;
         transition: all 0.15s ease-in-out;
         box-shadow: none;
-        grid-area: die;
 
-        filter: saturate(0%) brightness(78%) contrast(65%);
+        transition: 0.15s all ease-in-out;
 
-        :hover {
-            filter: saturate(0%) brightness(60%) contrast(65%);
+        &:hover {
+            color: #555;
         }
 
         &--shift:hover {
-            filter: brightness(0) saturate(100%) invert(58%) sepia(10%)
-                saturate(2832%) hue-rotate(73deg) brightness(88%) contrast(76%);
-
-            // filter: invert(34%) sepia(4%) saturate(4360%) hue-rotate(143deg)
-            //     brightness(78%) contrast(65%);
+            color: #2b6537;
         }
 
         &--ctrl:hover {
-            filter: brightness(0) saturate(100%) invert(18%) sepia(80%)
-                saturate(5142%) hue-rotate(348deg) brightness(74%) contrast(94%);
-            // filter: invert(15%) sepia(27%) saturate(4731%) hue-rotate(338deg)
-            //     brightness(101%) contrast(95%);
+            color: #8b2525;
         }
     }
 
     .save-prompt {
-        display: grid;
-        grid-template-areas:
-            "die title"
-            "die subtitle";
-        grid-template-columns: min-content 1fr;
-        grid-template-rows: repeat(2, min-content);
-        gap: 0rem 0.5rem;
+        display: flex;
         align-items: center;
+        gap: 0.5rem;
     }
 
     .subtitle {
-        grid-area: subtitle;
         width: 100%;
         font-size: 0.694rem;
         color: #7e7960;
     }
 
     .title {
-        grid-area: title;
         font-size: 0.833rem;
         font-weight: bold;
+    }
+
+    .title-wrapper {
+        display: flex;
+        flex-direction: column;
     }
 </style>
