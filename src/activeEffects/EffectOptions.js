@@ -23,7 +23,7 @@ export default class EffectOptions {
     this.sampleValue = sampleValue;
     this.modes = data.modes ?? [];
     this.options = data.options ?? [];
-    this.phase = data.phase ?? 'afterDerived';
+    this.phase = data.phase ?? 'applyAEs';
   }
 
   static createOptions() {
@@ -64,7 +64,7 @@ export default class EffectOptions {
           {
             modes: baseValues[option][1] ?? EffectOptions.DEFAULT_MODES,
             options: baseValues[option][2] ?? [],
-            phase: baseValues[option]?.[3] ?? 'afterDerived'
+            phase: baseValues[option]?.[3] ?? 'applyAEs'
           }
         );
       });
