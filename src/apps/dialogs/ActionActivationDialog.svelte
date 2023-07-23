@@ -125,8 +125,8 @@
     let itemUsesData = {};
     let spellData = {};
     let placeTemplate =
-        action?.area?.placeTemplate ??
-        game.settings.get("a5e", "placeItemTemplateDefault") ??
+        game.settings.get("a5e", "placeItemTemplateDefault") ||
+        action?.area?.placeTemplate ||
         false;
     let selectedDamageBonuses = getDefaultSelections({ damageBonuses });
     let selectedHealingBonuses = getDefaultSelections({ healingBonuses });
