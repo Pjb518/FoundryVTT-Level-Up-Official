@@ -5,6 +5,7 @@
     import Checkbox from "../Checkbox.svelte";
     import FormSection from "../FormSection.svelte";
 
+    import determineIfPropertyModifiedByEffect from "../../../utils/determineIfPropertyModifiedByEffect ";
     import updateDocumentDataFromField from "../../../utils/updateDocumentDataFromField";
 
     function getDamageBonusSummary(damageBonus) {
@@ -38,6 +39,43 @@
         "currencyWeight"
     );
 
+    $: disableMeleeWeaponAttack = determineIfPropertyModifiedByEffect(
+        $actor,
+        "system.bonuses.meleeWeaponAttack"
+    );
+    $: disableRangedWeaponAttack = determineIfPropertyModifiedByEffect(
+        $actor,
+        "system.bonuses.rangedWeaponAttack"
+    );
+    $: disableMeleeSpellAttack = determineIfPropertyModifiedByEffect(
+        $actor,
+        "system.bonuses.meleeSpellAttack"
+    );
+    $: disableRangedSpellAttack = determineIfPropertyModifiedByEffect(
+        $actor,
+        "system.bonuses.rangedSpellAttack"
+    );
+    $: disableManeuverDC = determineIfPropertyModifiedByEffect(
+        $actor,
+        "system.bonuses.maneuverDC"
+    );
+    $: disableSpellDC = determineIfPropertyModifiedByEffect(
+        $actor,
+        "system.bonuses.spellDC"
+    );
+    $: disableAbilityCheckBonusGlobal = determineIfPropertyModifiedByEffect(
+        $actor,
+        "system.bonuses.abilities.check"
+    );
+    $: disableSavingThrowBonusGlobal = determineIfPropertyModifiedByEffect(
+        $actor,
+        "system.bonuses.abilities.save"
+    );
+    $: disableSkillCheckBonusGlobal = determineIfPropertyModifiedByEffect(
+        $actor,
+        "system.bonuses.abilities.skill"
+    );
+
     $: flags = $actor.flags;
 </script>
 
@@ -56,12 +94,17 @@
         </small>
 
         <div class="global-bonus-container">
-            <FormSection heading="Melee Weapon Attack">
+            <FormSection
+                heading="Melee Weapon Attack"
+                showWarning={disableMeleeWeaponAttack}
+                warning="A5E.validations.warnings.modifiedByEffect"
+            >
                 <input
                     class="a5e-input"
                     type="text"
                     name="system.bonuses.meleeWeaponAttack"
                     value={$actor.system.bonuses.meleeWeaponAttack}
+                    disabled={disableMeleeWeaponAttack}
                     on:change={({ target }) =>
                         updateDocumentDataFromField(
                             $actor,
@@ -71,12 +114,17 @@
                 />
             </FormSection>
 
-            <FormSection heading="Ranged Weapon Attack">
+            <FormSection
+                heading="Ranged Weapon Attack"
+                showWarning={disableRangedWeaponAttack}
+                warning="A5E.validations.warnings.modifiedByEffect"
+            >
                 <input
                     class="a5e-input"
                     type="text"
                     name="system.bonuses.rangedWeaponAttack"
                     value={$actor.system.bonuses.rangedWeaponAttack}
+                    disabled={disableRangedWeaponAttack}
                     on:change={({ target }) =>
                         updateDocumentDataFromField(
                             $actor,
@@ -86,12 +134,17 @@
                 />
             </FormSection>
 
-            <FormSection heading="Melee Spell Attack">
+            <FormSection
+                heading="Melee Spell Attack"
+                showWarning={disableMeleeSpellAttack}
+                warning="A5E.validations.warnings.modifiedByEffect"
+            >
                 <input
                     class="a5e-input"
                     type="text"
                     name="system.bonuses.meleeSpellAttack"
                     value={$actor.system.bonuses.meleeSpellAttack}
+                    disabled={disableMeleeSpellAttack}
                     on:change={({ target }) =>
                         updateDocumentDataFromField(
                             $actor,
@@ -101,12 +154,17 @@
                 />
             </FormSection>
 
-            <FormSection heading="Ranged Spell Attack">
+            <FormSection
+                heading="Ranged Spell Attack"
+                showWarning={disableRangedSpellAttack}
+                warning="A5E.validations.warnings.modifiedByEffect"
+            >
                 <input
                     class="a5e-input"
                     type="text"
                     name="system.bonuses.rangedSpellAttack"
                     value={$actor.system.bonuses.rangedSpellAttack}
+                    disabled={disableRangedSpellAttack}
                     on:change={({ target }) =>
                         updateDocumentDataFromField(
                             $actor,
@@ -120,12 +178,17 @@
         <hr class="divider" />
 
         <div class="global-bonus-container">
-            <FormSection heading="A5E.ManeuverDCBonus">
+            <FormSection
+                heading="A5E.ManeuverDCBonus"
+                showWarning={disableManeuverDC}
+                warning="A5E.validations.warnings.modifiedByEffect"
+            >
                 <input
                     class="a5e-input"
                     type="text"
                     name="system.bonuses.maneuverDC"
                     value={$actor.system.bonuses.maneuverDC}
+                    disabled={disableManeuverDC}
                     on:change={({ target }) =>
                         updateDocumentDataFromField(
                             $actor,
@@ -135,12 +198,17 @@
                 />
             </FormSection>
 
-            <FormSection heading="A5E.SpellDCBonus">
+            <FormSection
+                heading="A5E.SpellDCBonus"
+                showWarning={disableSpellDC}
+                warning="A5E.validations.warnings.modifiedByEffect"
+            >
                 <input
                     class="a5e-input"
                     type="text"
                     name="system.bonuses.spellDC"
                     value={$actor.system.bonuses.spellDC}
+                    disabled={disableSpellDC}
                     on:change={({ target }) =>
                         updateDocumentDataFromField(
                             $actor,
@@ -154,12 +222,17 @@
         <hr class="divider" />
 
         <div class="global-bonus-container">
-            <FormSection heading="A5E.AbilityCheckBonusGlobal">
+            <FormSection
+                heading="A5E.AbilityCheckBonusGlobal"
+                showWarning={disableAbilityCheckBonusGlobal}
+                warning="A5E.validations.warnings.modifiedByEffect"
+            >
                 <input
                     class="a5e-input"
                     type="text"
                     name="system.bonuses.abilities.check"
                     value={$actor.system.bonuses.abilities.check}
+                    disabled={disableAbilityCheckBonusGlobal}
                     on:change={({ target }) =>
                         updateDocumentDataFromField(
                             $actor,
@@ -169,12 +242,17 @@
                 />
             </FormSection>
 
-            <FormSection heading="A5E.SavingThrowBonusGlobal">
+            <FormSection
+                heading="A5E.SavingThrowBonusGlobal"
+                showWarning={disableSavingThrowBonusGlobal}
+                warning="A5E.validations.warnings.modifiedByEffect"
+            >
                 <input
                     class="a5e-input"
                     type="text"
                     name="system.bonuses.abilities.save"
                     value={$actor.system.bonuses.abilities.save}
+                    disabled={disableSavingThrowBonusGlobal}
                     on:change={({ target }) =>
                         updateDocumentDataFromField(
                             $actor,
@@ -184,12 +262,17 @@
                 />
             </FormSection>
 
-            <FormSection heading="A5E.SkillCheckBonusGlobal">
+            <FormSection
+                heading="A5E.SkillCheckBonusGlobal"
+                showWarning={disableSkillCheckBonusGlobal}
+                warning="A5E.validations.warnings.modifiedByEffect"
+            >
                 <input
                     class="a5e-input"
                     type="text"
                     name="system.bonuses.abilities.skill"
                     value={$actor.system.bonuses.abilities.skill}
+                    disabled={disableSkillCheckBonusGlobal}
                     on:change={({ target }) =>
                         updateDocumentDataFromField(
                             $actor,

@@ -4,6 +4,7 @@
 
     import Tag from "../Tag.svelte";
 
+    import determineIfPropertyModifiedByEffect from "../../../utils/determineIfPropertyModifiedByEffect ";
     import prepareArmorProficiencies from "../../dataPreparationHelpers/prepareArmorProficiencies";
     import prepareConditionImmunities from "../../dataPreparationHelpers/prepareConditionImmunities";
     import prepareCreatureTypes from "../../dataPreparationHelpers/prepareCreatureTypes";
@@ -19,66 +20,87 @@
 
     const actor = getContext("actor");
 
+    function openConfig(dialogMethod, propertyKey) {
+        if (!determineIfPropertyModifiedByEffect($actor, propertyKey))
+            return $actor[dialogMethod]();
+
+        ui.notifications.warn(
+            localize("A5E.validations.warnings.modifiedByEffect")
+        );
+    }
+
     $: details = [
         {
             label: localize("A5E.Movement"),
             values: prepareMovementData($actor),
             dialogMethod: "configureMovement",
+            propertyKey: "system.attributes.movement",
         },
         {
             label: localize("A5E.SensesSpecial"),
             values: prepareSenses($actor),
             dialogMethod: "configureSenses",
+            propertyKey: "system.attributes.senses",
         },
         {
             label: localize("A5E.Languages"),
             values: prepareLanguageProficiencies($actor),
             dialogMethod: "configureLanguages",
+            propertyKey: "system.proficiencies.languages",
         },
         {
             label: localize("A5E.ConditionImmunities"),
             values: prepareConditionImmunities($actor),
             dialogMethod: "configureConditionImmunities",
+            propertyKey: "system.traits.conditionImmunities",
         },
         {
             label: localize("A5E.DamageImmunities"),
             values: prepareDamageImmunities($actor),
             dialogMethod: "configureDamageImmunities",
+            propertyKey: "system.traits.damageImmunities",
         },
         {
             label: localize("A5E.DamageResistances"),
             values: prepareDamageResistances($actor),
             dialogMethod: "configureDamageResistances",
+            propertyKey: "system.traits.damageResistances",
         },
         {
             label: localize("A5E.DamageVulnerabilities"),
             values: prepareDamageVulnerabilities($actor),
             dialogMethod: "configureDamageVulnerabilities",
+            propertyKey: "system.traits.damageVulnerabilities",
         },
         {
             label: localize("A5E.WeaponProficiencies"),
             values: prepareWeaponProficiencies($actor),
             dialogMethod: "configureWeaponProficiencies",
+            propertyKey: "system.proficiencies.weapons",
         },
         {
             label: localize("A5E.ArmorProficiencies"),
             values: prepareArmorProficiencies($actor),
             dialogMethod: "configureArmorProficiencies",
+            propertyKey: "system.proficiencies.armor",
         },
         {
             label: localize("A5E.ToolProficiencies"),
             values: prepareToolProficiencies($actor),
             dialogMethod: "configureToolProficiencies",
+            propertyKey: "system.proficiencies.tools",
         },
         {
             label: localize("A5E.Size"),
             values: prepareCreatureSize($actor),
             dialogMethod: "configureSizeCategory",
+            propertyKey: "system.traits.size",
         },
         {
             label: localize("A5E.CreatureTypesLabel"),
             values: prepareCreatureTypes($actor),
             dialogMethod: "configureCreatureTypes",
+            propertyKey: "system.details.creatureTypes",
         },
     ];
 
@@ -87,7 +109,7 @@
         : $actor.flags?.a5e?.sheetIsLocked ?? true;
 </script>
 
-{#each details as { label, values, dialogMethod }}
+{#each details as { label, values, dialogMethod, propertyKey }}
     {#if values.length || !sheetIsLocked}
         <section class="details-section">
             <h2 class="details-header">
@@ -96,17 +118,15 @@
 
             {#if !sheetIsLocked}
                 <!-- svelte-ignore a11y-click-events-have-key-events -->
+                <!-- svelte-ignore a11y-no-static-element-interactions -->
                 <i
                     class="fas fa-gear a5e-config-button details-config"
-                    on:click={() => $actor[dialogMethod]()}
+                    on:click={() => openConfig(dialogMethod, propertyKey)}
                 />
             {/if}
 
             <ul class="details-list">
                 {#each values as tag}
-                    <!-- <li class="a5e-tag a5e-tag--tight details-tag">
-                        {tag}
-                    </li> -->
                     <Tag
                         label={tag}
                         value={tag}
