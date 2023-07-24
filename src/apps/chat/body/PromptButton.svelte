@@ -1,8 +1,7 @@
 <script>
     import { createEventDispatcher } from "svelte";
 
-    import pressedKeysStore from "../../../stores/pressedKeysStore";
-
+    export let promptType;
     export let title;
     export let subtitle = null;
 
@@ -11,12 +10,14 @@
 
 <div class="save-prompt">
     <button
-        class="roll-button"
-        class:roll-button--shift={$pressedKeysStore.Shift}
-        class:roll-button--ctrl={$pressedKeysStore.Control}
+        class={promptType === "effect" ? "effect-button" : "roll-button"}
         on:click={() => dispatch("triggerPrompt")}
     >
-        <i class="die fa-solid fa-dice-d20" />
+        {#if promptType === "effect"}
+            <i class="die fa-solid fa-circle-down" />
+        {:else}
+            <i class="die fa-solid fa-dice-d20" />
+        {/if}
     </button>
 
     <header class="title-wrapper">
@@ -37,6 +38,7 @@
         border: 0;
     }
 
+    .effect-button,
     .roll-button {
         width: 2.5rem;
         height: 2.5rem;
@@ -50,18 +52,14 @@
         box-shadow: none;
 
         transition: 0.15s all ease-in-out;
+    }
 
-        &:hover {
-            color: #555;
-        }
+    .roll-button:hover {
+        color: var(--hover-color, #555);
+    }
 
-        &--shift:hover {
-            color: #2b6537;
-        }
-
-        &--ctrl:hover {
-            color: #8b2525;
-        }
+    .effect-button:hover {
+        color: #555;
     }
 
     .save-prompt {

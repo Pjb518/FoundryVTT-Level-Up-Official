@@ -9,9 +9,17 @@
     import Roll from "../dice/Roll.svelte";
 
     import prepareSelectedTokenActors from "../../dataPreparationHelpers/prepareSelectedTokenActors";
+    import pressedKeysStore from "../../../stores/pressedKeysStore";
 
     export let message;
     export let hideDescription = false;
+
+    function getHoverColor(pressedKeysStore) {
+        if (pressedKeysStore.Shift) return "#2b6537";
+        if (pressedKeysStore.Control) return "#8b2525";
+
+        return "#555";
+    }
 
     function getPromptTitle(prompt, promptType) {
         switch (promptType) {
@@ -163,6 +171,8 @@
     const hasRolls = rolls.length;
     const hasPrompts = Object.values(prompts).flat().length;
     const item = fromUuidSync($message?.flags?.a5e?.itemId ?? "");
+
+    $: hoverColor = getHoverColor($pressedKeysStore);
 </script>
 
 <article>
@@ -243,8 +253,10 @@
                 <section class="prompt-button-wrapper">
                     {#each prompts[promptType] as prompt}
                         <PromptButton
+                            {promptType}
                             title={getPromptTitle(prompt, promptType)}
                             subtitle={null}
+                            --hover-color={hoverColor}
                             on:triggerPrompt={() =>
                                 triggerPrompt(prompt, promptType)}
                         />
