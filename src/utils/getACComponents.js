@@ -1,3 +1,4 @@
+/* eslint-disable no-param-reassign */
 import getDeterministicBonus from '../dice/getDeterministicBonus';
 
 /**
@@ -40,15 +41,21 @@ export default function getACComponents(actor) {
   });
 
   // Add override component
-  const formulaTerms = new Roll(baseChanges.override.formula, actor.getRollData())
-    .evaluate({ async: false }).terms;
-  const overrideComponents = [];
-  formulaTerms.forEach((term) => {
-    if (term instanceof OperatorTerm) return;
-    if (term.options.flavor) overrideComponents.push(`${term.total} [${term.options.flavor}]`);
-    else overrideComponents.push(`${term.total}`);
-  });
+  if (baseChanges.override.formula) {
+    const formulaTerms = new Roll(baseChanges.override.formula, actor.getRollData())
+      .evaluate({ async: false }).terms;
 
-  components.unshift(overrideComponents.join(' + '));
+    const formula = (formulaTerms ?? []).reduce((acc, term, idx) => {
+      if (term instanceof OperatorTerm) return acc;
+      const sign = term.total >= 0 ? '+' : '-';
+      if (idx > 0) acc += ` ${sign} `;
+      if (term.options?.flavor) acc += `${Math.abs(term.total)} [${term.options.flavor}]`;
+      else acc += `${Math.abs(term.total)}`;
+      return acc;
+    }, '');
+
+    components.unshift(formula);
+  } else components.unshift(`${baseChanges.override.value} [${baseChanges.override.name}]`);
+
   return components.join(' ');
 }
