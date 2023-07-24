@@ -26,6 +26,9 @@ export default function getACComponents(actor) {
     return acc.concat(changes);
   }, []);
 
+  /**
+   * We don't need to worry about base ac overrides here because the property is changed by effects.
+   */
   let changes;
   if (effectChanges.find(({ mode }) => mode === CONST.ACTIVE_EFFECT_MODES.OVERRIDE)) {
     changes = effectChanges;
@@ -36,6 +39,16 @@ export default function getACComponents(actor) {
     return `${sign} ${value} [${name}]`;
   });
 
-  components.unshift(`${baseChanges.override.value} [${baseChanges.override.name}]`);
+  // Add override component
+  const formulaTerms = new Roll(baseChanges.override.formula, actor.getRollData())
+    .evaluate({ async: false }).terms;
+  const overrideComponents = [];
+  formulaTerms.forEach((term) => {
+    if (term instanceof OperatorTerm) return;
+    if (term.options.flavor) overrideComponents.push(`${term.total} [${term.options.flavor}]`);
+    else overrideComponents.push(`${term.total}`);
+  });
+
+  components.unshift(overrideComponents.join(' + '));
   return components.join(' ');
 }

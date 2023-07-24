@@ -300,7 +300,12 @@ export default class ActorA5e extends Actor {
       changes.override = { name, mode: CONFIG.A5E.ARMOR_MODES.OVERRIDE, value: baseAC };
     }
 
-    changes.override ??= { name: 'Natural Armor', mode: CONFIG.A5E.ARMOR_MODES.OVERRIDE, value: baseAC };
+    changes.override ??= {
+      name: 'Natural Armor',
+      mode: CONFIG.A5E.ARMOR_MODES.OVERRIDE,
+      formula: this.system.attributes.ac.baseFormula,
+      value: baseAC
+    };
 
     // Calculate the final AC value.
     const finalAC = (changes.override?.value ?? baseAC) + changes.bonuses.value;
