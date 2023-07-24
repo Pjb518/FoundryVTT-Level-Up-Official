@@ -161,7 +161,7 @@
                         updateDocumentDataFromField(
                             $item,
                             "system.equippedState",
-                            detail
+                            parseInt(detail, 10)
                         )}
                 />
             </FormSection>
@@ -242,7 +242,7 @@
                         updateDocumentDataFromField(
                             $item,
                             "system.damagedState",
-                            Number(detail)
+                            parseInt(detail, 10)
                         )}
                 />
             </FormSection>
