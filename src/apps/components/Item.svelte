@@ -249,13 +249,19 @@
         }
 
         &--shift:hover {
-            filter: invert(34%) sepia(4%) saturate(4360%) hue-rotate(143deg)
-                brightness(78%) contrast(65%);
+            filter: brightness(0) saturate(100%) invert(58%) sepia(10%)
+                saturate(2832%) hue-rotate(73deg) brightness(88%) contrast(76%);
+
+            // filter: invert(34%) sepia(4%) saturate(4360%) hue-rotate(143deg)
+            //     brightness(78%) contrast(65%);
         }
 
         &--ctrl:hover {
-            filter: invert(15%) sepia(27%) saturate(4731%) hue-rotate(338deg)
-                brightness(101%) contrast(95%);
+            filter: brightness(0) saturate(100%) invert(18%) sepia(80%)
+                saturate(5142%) hue-rotate(348deg) brightness(74%) contrast(94%);
+
+            // filter: invert(15%) sepia(27%) saturate(4731%) hue-rotate(338deg)
+            //     brightness(101%) contrast(95%);
         }
     }
 </style>
