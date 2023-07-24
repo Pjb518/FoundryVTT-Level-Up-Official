@@ -1,5 +1,6 @@
 /* eslint-disable no-param-reassign */
 import getDeterministicBonus from '../dice/getDeterministicBonus';
+import simplifyOperatorTerms from '../dice/simplifyOperatorTerms';
 
 /**
   * Returns the AC components of an actor
@@ -45,10 +46,9 @@ export default function getACComponents(actor) {
     const formulaTerms = new Roll(baseChanges.override.formula, actor.getRollData())
       .evaluate({ async: false }).terms;
 
-    const formula = (formulaTerms ?? []).reduce((acc, term, idx) => {
-      if (term instanceof OperatorTerm) return acc;
-      if (idx > 0) acc += ` ${term.total >= 0 ? '+' : '-'} `;
-      acc += `${Math.abs(term.total)}`;
+    const formula = simplifyOperatorTerms(formulaTerms ?? []).reduce((acc, term) => {
+      if (term instanceof OperatorTerm) return `${acc} ${term.operator} `;
+      acc += `${term.total}`;
       if (term.options?.flavor) acc += ` [${term.options.flavor}]`;
       return acc;
     }, '');
