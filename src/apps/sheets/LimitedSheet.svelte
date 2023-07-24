@@ -2,7 +2,7 @@
 
 <script>
     import { getContext } from "svelte";
-    import { ApplicationShell } from "@typhonjs-fvtt/runtime/svelte/component/core";
+    import { ApplicationShell } from "#runtime/svelte/component/core";
 
     export let { document, sheet } = getContext("#external").application;
     export let elementRoot;

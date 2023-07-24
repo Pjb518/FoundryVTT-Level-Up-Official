@@ -1,5 +1,5 @@
 // eslint-disable-next-line import/no-unresolved
-import { TJSDialog } from '@typhonjs-fvtt/runtime/svelte/application';
+import { TJSDialog } from '#runtime/svelte/application';
 
 /**
  * Provides a dialog for creating documents that by default is modal and not draggable.

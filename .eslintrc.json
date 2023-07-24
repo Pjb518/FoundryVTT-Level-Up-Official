@@ -19,7 +19,10 @@
     "no-constant-binary-expression": ["error"],
     "no-underscore-dangle": "off",
     "no-use-before-define": ["error", { "functions": false, "classes": true }],
-    "no-param-reassign": [ "error", { "props": false }]
+    "no-param-reassign": [ "error", { "props": false }],
+    "import/no-unresolved": ["error", {
+        "ignore": ["^#runtime/.+", "^#standard/.+"]
+    }]
   },
   "globals": {
     "$": "readonly",

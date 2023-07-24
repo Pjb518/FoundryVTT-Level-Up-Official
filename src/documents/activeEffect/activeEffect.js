@@ -1,5 +1,5 @@
 // eslint-disable-next-line import/no-unresolved
-import { localize } from '@typhonjs-fvtt/runtime/svelte/helper';
+import { localize } from '#runtime/svelte/helper';
 
 import getCorrectedTypeValueFromKey from './getCorrectedTypeValueFromKey';
 import getDeterministicBonus from '../../dice/getDeterministicBonus';

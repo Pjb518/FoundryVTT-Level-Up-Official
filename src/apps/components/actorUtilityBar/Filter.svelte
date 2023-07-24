@@ -1,10 +1,7 @@
 <script>
     import { getContext } from "svelte";
-    import { localize } from "@typhonjs-fvtt/runtime/svelte/helper";
-    import {
-        TJSMenu,
-        TJSToggleIconButton,
-    } from "@typhonjs-fvtt/svelte-standard/component";
+    import { localize } from "#runtime/svelte/helper";
+    import { TJSMenu, TJSToggleIconButton } from "#standard/component";
 
     import arraysAreEqual from "../../../utils/arraysAreEqual";
     import updateFilters from "../../../utils/updateFilters";

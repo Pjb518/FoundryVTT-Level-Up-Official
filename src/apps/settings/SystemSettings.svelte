@@ -2,8 +2,8 @@
 
 <script>
     import { getContext, setContext } from "svelte";
-    import { ApplicationShell } from "@typhonjs-fvtt/runtime/svelte/component/core";
-    import { localize } from "@typhonjs-fvtt/runtime/svelte/helper";
+    import { ApplicationShell } from "#runtime/svelte/component/core";
+    import { localize } from "#runtime/svelte/helper";
 
     import NavigationBar from "../components/navigation/NavigationBar.svelte";
     import Settings5eTab from "./Settings5eTab.svelte";

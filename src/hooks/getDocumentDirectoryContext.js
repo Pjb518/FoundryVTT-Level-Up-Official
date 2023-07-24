@@ -1,7 +1,7 @@
-import { localize } from '@typhonjs-fvtt/runtime/svelte/helper';
+import { localize } from '#runtime/svelte/helper';
 
-import handleDocumentMigration from "../migration/handleDocumentMigration";
-import handlePackMigration from "../migration/handlePackMigration";
+import handleDocumentMigration from '../migration/handleDocumentMigration';
+import handlePackMigration from '../migration/handlePackMigration';
 
 export default function getDocumentDirectoryContext(dialog, html, data, type) {
   if (!game.user.isGM) return;
@@ -10,7 +10,7 @@ export default function getDocumentDirectoryContext(dialog, html, data, type) {
     name: localize('A5E.migration.migrateDocument', { type }),
     icon: '<i class="fa-solid fa-crow"></i>',
     callback: ($li) => callMigration($li, type)
-  }
+  };
 
   html.push(menu);
 }

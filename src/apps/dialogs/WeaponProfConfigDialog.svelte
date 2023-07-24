@@ -1,6 +1,6 @@
 <script>
     import { getContext } from "svelte";
-    import { TJSDocument } from "@typhonjs-fvtt/runtime/svelte/store";
+    import { TJSDocument } from "#runtime/svelte/store/fvtt/document";
 
     import TagGroup from "../components/TagGroup.svelte";
     import InputField from "../components/InputField.svelte";

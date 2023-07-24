@@ -1,6 +1,6 @@
 <script>
     import { getContext } from "svelte";
-    import { localize } from "@typhonjs-fvtt/runtime/svelte/helper";
+    import { localize } from "#runtime/svelte/helper";
     import Effect from "./Effect.svelte";
 
     export let label;

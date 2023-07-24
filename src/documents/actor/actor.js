@@ -1,5 +1,5 @@
 // eslint-disable-next-line import/no-unresolved
-import { localize } from '@typhonjs-fvtt/runtime/svelte/helper';
+import { localize } from '#runtime/svelte/helper';
 
 import ActiveEffectA5e from '../activeEffect/activeEffect';
 import MigrationRunnerBase from '../../migration/MigrationRunnerBase';

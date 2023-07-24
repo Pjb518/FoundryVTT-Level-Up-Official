@@ -1,7 +1,7 @@
 <script>
-    import { localize } from "@typhonjs-fvtt/runtime/svelte/helper";
+    import { localize } from "#runtime/svelte/helper";
     import { getContext } from "svelte";
-    import { TJSDocument } from "@typhonjs-fvtt/runtime/svelte/store";
+    import { TJSDocument } from "#runtime/svelte/store/fvtt/document";
 
     import updateDocumentDataFromField from "../../utils/updateDocumentDataFromField";
 

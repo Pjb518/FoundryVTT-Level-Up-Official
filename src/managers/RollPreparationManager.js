@@ -1,5 +1,5 @@
 // eslint-disable-next-line import/no-unresolved
-import { localize } from '@typhonjs-fvtt/runtime/svelte/helper';
+import { localize } from '#runtime/svelte/helper';
 
 import constructCritDamageRoll from '../dice/damage/constructCritDamageRoll';
 import constructD20RollFormula from '../dice/constructD20RollFormula';

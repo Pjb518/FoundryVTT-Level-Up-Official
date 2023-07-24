@@ -1,6 +1,6 @@
 <script>
     import { getContext, onDestroy } from "svelte";
-    import { TJSIconButton } from "@typhonjs-fvtt/svelte-standard/component";
+    import { TJSIconButton } from "#standard/component";
 
     import {
         sortAscending,

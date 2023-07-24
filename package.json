@@ -12,6 +12,10 @@
     "build:fixIds": "node -e \"import('./compendia.mjs').then( m => m.fixIds())\"",
     "build:saveIds": "node -e \"import('./compendia.mjs').then( m => m.saveIds())\""
   },
+  "imports": {
+    "#runtime/*": "@typhonjs-fvtt/runtime/*",
+    "#standard/*": "@typhonjs-fvtt/svelte-standard/*"
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/Pjb518/FoundryVTT-Level-Up-Official"
@@ -53,8 +57,8 @@
   "dependencies": {
     "@rollup/plugin-node-resolve": "^15.1.0",
     "@sveltejs/vite-plugin-svelte": "^2.4.3",
-    "@typhonjs-fvtt/runtime": "^0.0.23",
-    "@typhonjs-fvtt/svelte-standard": "^0.0.23",
+    "@typhonjs-fvtt/runtime": "^0.1.0",
+    "@typhonjs-fvtt/svelte-standard": "^0.1.0",
     "svelte": "^4.1.1",
     "svelte-preprocess": "^5.0.4"
   }

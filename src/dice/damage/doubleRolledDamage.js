@@ -1,5 +1,5 @@
 // eslint-disable-next-line import/no-unresolved
-import { localize } from '@typhonjs-fvtt/runtime/svelte/helper';
+import { localize } from '#runtime/svelte/helper';
 
 export default async function doubleRolledDamage(baseRoll) {
   const terms = [

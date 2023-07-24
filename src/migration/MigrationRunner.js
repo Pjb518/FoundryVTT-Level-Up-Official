@@ -4,7 +4,7 @@
 /* eslint-disable no-console */
 /* eslint-disable no-restricted-syntax */
 // eslint-disable-next-line no-unused-vars, import/no-unresolved
-import { localize } from '@typhonjs-fvtt/runtime/svelte/helper';
+import { localize } from '#runtime/svelte/helper';
 
 // eslint-disable-next-line no-unused-vars, @typescript-eslint/no-unused-vars
 import MigrationBase from './MigrationBase';

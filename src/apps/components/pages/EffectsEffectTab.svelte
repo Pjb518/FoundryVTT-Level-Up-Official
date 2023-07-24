@@ -1,7 +1,7 @@
 <script>
     import { getContext } from "svelte";
-    import { localize } from "@typhonjs-fvtt/runtime/svelte/helper";
-    import { TJSIconButton } from "@typhonjs-fvtt/svelte-standard/component";
+    import { localize } from "#runtime/svelte/helper";
+    import { TJSIconButton } from "#standard/component";
 
     import getEffectOptionGroups from "../../handlers/getEffectOptionGroups";
 

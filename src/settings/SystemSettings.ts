@@ -1,5 +1,5 @@
-import { SvelteApplication } from '@typhonjs-fvtt/runtime/svelte/application';
-import { localize } from '@typhonjs-fvtt/runtime/svelte/helper';
+import { localize } from '#runtime/svelte/helper';
+import { SvelteApplication } from '#runtime/svelte/application';
 
 import { gameSettings } from './SettingsStore';
 

@@ -1,8 +1,8 @@
 // eslint-disable-next-line import/no-unresolved
-import { TJSDialog } from '@typhonjs-fvtt/runtime/svelte/application';
+import { localize } from '#runtime/svelte/helper';
+import { TJSDialog } from '#runtime/svelte/application';
 
 // eslint-disable-next-line import/no-unresolved
-import { localize } from '@typhonjs-fvtt/runtime/svelte/helper';
 
 import AbilityCheckRollDialogComponent from '../AbilityCheckRollDialog.svelte';
 

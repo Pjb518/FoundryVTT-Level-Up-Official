@@ -1,5 +1,5 @@
 // eslint-disable-next-line import/no-unresolved
-import { createFilterQuery } from '@typhonjs-fvtt/svelte-standard/store';
+import { DynReducerHelper } from '#runtime/svelte/store/reducer';
 
 /**
  * Adds a filter to a given reducer
@@ -7,7 +7,7 @@ import { createFilterQuery } from '@typhonjs-fvtt/svelte-standard/store';
  * @returns {} searchInput
  */
 export function addSearchFilter(reducer) {
-  const searchFilter = createFilterQuery('name');
+  const searchFilter = DynReducerHelper.filters.regexObjectQuery('name');
   const searchInput = {
     store: searchFilter,
     placeholder: 'Search',

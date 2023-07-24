@@ -1,7 +1,7 @@
 /* eslint-disable import/no-unresolved */
-import { SvelteApplication } from '@typhonjs-fvtt/runtime/svelte/application';
-import { TJSDocument } from '@typhonjs-fvtt/runtime/svelte/store';
-import { localize } from '@typhonjs-fvtt/runtime/svelte/helper';
+import { localize } from '#runtime/svelte/helper';
+import { TJSDocument } from '#runtime/svelte/store/fvtt/document';
+import { SvelteApplication } from '#runtime/svelte/application';
 
 import ActiveEffectConfigSheet from './sheets/ActiveEffectConfig.svelte';
 

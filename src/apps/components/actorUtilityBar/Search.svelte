@@ -1,6 +1,6 @@
 <script>
     import { getContext, onDestroy } from "svelte";
-    import { TJSInput } from "@typhonjs-fvtt/svelte-standard/component";
+    import { TJSInput } from "#standard/component";
 
     import {
         addSearchFilter,

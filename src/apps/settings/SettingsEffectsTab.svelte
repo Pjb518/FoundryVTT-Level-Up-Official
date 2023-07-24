@@ -1,6 +1,6 @@
 <script>
     import { getContext } from "svelte";
-    import { localize } from "@typhonjs-fvtt/runtime/svelte/helper";
+    import { localize } from "#runtime/svelte/helper";
 
     import CheckboxGroup from "../components/CheckboxGroup.svelte";
     import FormSection from "../components/FormSection.svelte";

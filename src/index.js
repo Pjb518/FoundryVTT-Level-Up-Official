@@ -1,5 +1,7 @@
 import './scss/main.scss';
 
+import '#runtime/tinymce';
+
 import canvasInit from './hooks/canvasInit';
 import createActor from './hooks/createActor';
 import createToken from './hooks/createToken';
