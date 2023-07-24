@@ -1,0 +1,96 @@
+{
+	"name": "Deathgrip",
+	"type": "maneuver",
+	"img": "icons/magic/unholy/hand-claw-glow-orange.webp",
+	"system": {
+		"actions": {
+			"ODaJSQ4aMfVVbnwW": {
+				"name": "Deathgrip",
+				"activation": {
+					"type": "action",
+					"cost": 1
+				},
+				"consumers": {
+					"9MsCVkz0ZJ0JIAjy": {
+						"type": "resource",
+						"default": true,
+						"resource": "exertion",
+						"quantity": 3
+					}
+				},
+				"rolls": {
+					"V3JorzuQJL8OkWqy": {
+						"type": "damage",
+						"default": true,
+						"critBonus": "",
+						"label": "Base Damage",
+						"formula": "1 + @str.mod",
+						"damageType": "necrotic"
+					}
+				},
+				"prompts": {
+					"sboVPfYawYXXJ8Oz": {
+						"type": "savingThrow",
+						"default": true,
+						"ability": "str",
+						"saveDC": {
+							"type": "maneuver"
+						},
+						"onSave": "Negates additional damage & restrained condition."
+					}
+				},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"threshold": 6
+					}
+				},
+				"duration": {
+					"unit": "instantaneous"
+				},
+				"ranges": {
+					"EWtirXt3mV16kXnZ": {
+						"range": "touch"
+					}
+				},
+				"target": {
+					"type": "creature",
+					"quantity": 1
+				}
+			}
+		},
+		"description": "<p>A phantasmal force manifests around your weapon, waiting to wrap itself around a foe. Make a melee weapon attack . On a hit, the target must make a Strength saving throw or take additional necrotic damage equal to your base melee damage and become restrained until the beginning of your next turn.</p>",
+		"favorite": false,
+		"secretDescription": "",
+		"source": {
+			"name": "",
+			"link": "",
+			"publisher": ""
+		},
+		"uses": {
+			"value": null,
+			"max": "",
+			"per": null,
+			"recharge": {
+				"formula": "1d6",
+				"threshold": "6"
+			}
+		},
+		"schema": {
+			"version": 0.001,
+			"lastMigration": null
+		},
+		"degree": 4,
+		"exertionCost": 3,
+		"isStance": false,
+		"prerequisite": "",
+		"tradition": "eldritchBlackguard"
+	},
+	"effects": [],
+	"flags": {},
+	"folder": "BASN0TFFKlfCnCYY",
+	"_id": "4an853xpdqbis81n"
+}
