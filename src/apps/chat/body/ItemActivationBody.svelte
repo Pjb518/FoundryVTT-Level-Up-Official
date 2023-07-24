@@ -116,9 +116,7 @@
     }
 
     function getGenericRollPromptTitle(prompt) {
-        return localize("A5E.GenericRollPrompt", {
-            label: prompt?.label ?? localize("A5E.Other"),
-        });
+        return prompt?.label || localize("A5E.Other");
     }
 
     async function triggerPrompt(prompt) {
