@@ -53,7 +53,7 @@
     }
 
     function getSavingThrowPromptSubtitle(prompt) {
-        return null;
+        return prompt.onSave;
     }
 
     function getSkillCheckPromptSubtitle(prompt) {
@@ -194,10 +194,10 @@
 
     const promptTypes = [
         "abilityCheck",
-        "effect",
         "savingThrow",
         "skillCheck",
         "generic",
+        "effect",
     ];
 
     const { actionDescription, itemDescription, unidentifiedDescription } =
@@ -295,22 +295,24 @@
     {#if hasPrompts}
         <hr class="a5e-rule a5e-rule--card" />
 
-        {#each promptTypes as promptType}
-            {#if prompts[promptType]?.length}
-                <section class="prompt-button-wrapper">
-                    {#each prompts[promptType] as prompt}
-                        <PromptButton
-                            {prompt}
-                            icon={getEffectIcon(prompt)}
-                            title={getPromptTitle(prompt)}
-                            subtitle={getPromptSubtitle(prompt)}
-                            --hover-color={hoverColor}
-                            on:triggerPrompt={() => triggerPrompt(prompt)}
-                        />
-                    {/each}
-                </section>
-            {/if}
-        {/each}
+        <section class="prompts">
+            {#each promptTypes as promptType}
+                {#if prompts[promptType]?.length}
+                    <section class="prompt-button-wrapper">
+                        {#each prompts[promptType] as prompt}
+                            <PromptButton
+                                {prompt}
+                                icon={getEffectIcon(prompt)}
+                                title={getPromptTitle(prompt)}
+                                subtitle={getPromptSubtitle(prompt)}
+                                --hover-color={hoverColor}
+                                on:triggerPrompt={() => triggerPrompt(prompt)}
+                            />
+                        {/each}
+                    </section>
+                {/if}
+            {/each}
+        </section>
     {/if}
 </article>
 
@@ -329,6 +331,12 @@
     }
 
     .prompt-button-wrapper {
+        display: flex;
+        flex-direction: column;
+        gap: 0.5rem;
+    }
+
+    .prompts {
         display: flex;
         flex-direction: column;
         gap: 0.5rem;

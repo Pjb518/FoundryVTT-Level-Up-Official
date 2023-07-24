@@ -45,6 +45,7 @@
         display: flex;
         align-items: center;
         justify-content: center;
+        flex-shrink: 0;
         width: 2.5rem;
         height: 2.5rem;
 
@@ -92,7 +93,7 @@
     .title-wrapper {
         display: flex;
         flex-direction: column;
-        align-items: flex-start;
         gap: 0.125rem;
+        text-align: left;
     }
 </style>
