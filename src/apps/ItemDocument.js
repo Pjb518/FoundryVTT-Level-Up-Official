@@ -1,4 +1,3 @@
-// eslint-disable-next-line import/no-unresolved
 import { TJSDocument } from '#runtime/svelte/store/fvtt/document';
 
 import { ItemActiveEffectMapReducer } from './reducers/ActiveEffectMapReducer';
