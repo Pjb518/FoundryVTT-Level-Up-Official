@@ -14,6 +14,14 @@
     export let message;
     export let hideDescription = false;
 
+    function getEffectIcon(prompt) {
+        if (prompt.type !== "effect") return null;
+
+        const effect = fromUuidSync(prompt.effectUuid);
+
+        return effect.icon;
+    }
+
     function getHoverColor(pressedKeysStore) {
         if (pressedKeysStore.Shift) return "#2b6537";
         if (pressedKeysStore.Control) return "#8b2525";
@@ -21,8 +29,43 @@
         return "#555";
     }
 
-    function getPromptTitle(prompt, promptType) {
-        switch (promptType) {
+    function getPromptSubtitle(prompt) {
+        switch (prompt.type) {
+            case "abilityCheck":
+                return getAbilityCheckPromptSubtitle(prompt);
+            case "effect":
+                return getEffectPromptSubtitle(prompt);
+            case "savingThrow":
+                return getSavingThrowPromptSubtitle(prompt);
+            case "skillCheck":
+                return getSkillCheckPromptSubtitle(prompt);
+            case "generic":
+                return getGenericRollPromptSubtitle(prompt);
+        }
+    }
+
+    function getAbilityCheckPromptSubtitle(prompt) {
+        return null;
+    }
+
+    function getEffectPromptSubtitle(prompt) {
+        return "Apply effect";
+    }
+
+    function getSavingThrowPromptSubtitle(prompt) {
+        return null;
+    }
+
+    function getSkillCheckPromptSubtitle(prompt) {
+        return null;
+    }
+
+    function getGenericRollPromptSubtitle(prompt) {
+        return null;
+    }
+
+    function getPromptTitle(prompt) {
+        switch (prompt.type) {
             case "abilityCheck":
                 return getAbilityCheckPromptTitle(prompt);
             case "effect":
@@ -32,7 +75,7 @@
             case "skillCheck":
                 return getSkillCheckPromptTitle(prompt);
             case "generic":
-                return getGenericPromptTitle(prompt);
+                return getGenericRollPromptTitle(prompt);
         }
     }
 
@@ -43,7 +86,9 @@
     }
 
     function getEffectPromptTitle(prompt) {
-        return prompt.name;
+        const effect = fromUuidSync(prompt.effectUuid);
+
+        return effect.name;
     }
 
     function getSavingThrowPromptTitle(prompt) {
@@ -70,13 +115,13 @@
         });
     }
 
-    function getGenericPromptTitle(prompt) {
+    function getGenericRollPromptTitle(prompt) {
         return localize("A5E.GenericRollPrompt", {
             label: prompt?.label ?? localize("A5E.Other"),
         });
     }
 
-    async function triggerPrompt(prompt, promptType) {
+    async function triggerPrompt(prompt) {
         const tokenActors = prepareSelectedTokenActors();
 
         if (!tokenActors.length) {
@@ -84,15 +129,15 @@
             return;
         }
 
-        if (promptType === "abilityCheck") {
+        if (prompt.type === "abilityCheck") {
             await triggerAbilityCheckPrompt(tokenActors, prompt);
-        } else if (promptType === "effect") {
+        } else if (prompt.type === "effect") {
             await triggerEffectPrompt(tokenActors, prompt);
-        } else if (promptType === "savingThrow") {
+        } else if (prompt.type === "savingThrow") {
             await triggerSavingThrowPrompt(tokenActors, prompt);
-        } else if (promptType === "skillCheck") {
+        } else if (prompt.type === "skillCheck") {
             await triggerSkillCheckPrompt(tokenActors, prompt);
-        } else if (promptType === "generic") {
+        } else if (prompt.type === "generic") {
             await triggerGenericRollPrompt(tokenActors, prompt);
         }
     }
@@ -104,8 +149,10 @@
     }
 
     async function triggerEffectPrompt(tokenActors, prompt) {
+        const effect = fromUuidSync(prompt.effectUuid);
+
         tokenActors.forEach((actor) => {
-            prompt.transferEffect(actor);
+            effect.transferEffect(actor);
         });
     }
 
@@ -253,12 +300,12 @@
                 <section class="prompt-button-wrapper">
                     {#each prompts[promptType] as prompt}
                         <PromptButton
-                            {promptType}
-                            title={getPromptTitle(prompt, promptType)}
-                            subtitle={null}
+                            {prompt}
+                            icon={getEffectIcon(prompt)}
+                            title={getPromptTitle(prompt)}
+                            subtitle={getPromptSubtitle(prompt)}
                             --hover-color={hoverColor}
-                            on:triggerPrompt={() =>
-                                triggerPrompt(prompt, promptType)}
+                            on:triggerPrompt={() => triggerPrompt(prompt)}
                         />
                     {/each}
                 </section>

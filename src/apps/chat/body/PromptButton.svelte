@@ -1,24 +1,25 @@
 <script>
     import { createEventDispatcher } from "svelte";
 
-    export let promptType;
+    export let icon = null;
+    export let prompt;
     export let title;
     export let subtitle = null;
 
     const dispatch = createEventDispatcher();
 </script>
 
-<div class="save-prompt">
-    <button
-        class={promptType === "effect" ? "effect-button" : "roll-button"}
-        on:click={() => dispatch("triggerPrompt")}
+<button class="save-prompt" on:click={() => dispatch("triggerPrompt")}>
+    <div
+        class="icon-wrapper"
+        class:icon-wrapper--effect={prompt.type === "effect"}
     >
-        {#if promptType === "effect"}
-            <i class="die fa-solid fa-circle-down" />
+        {#if prompt.type === "effect"}
+            <img class="effect-icon" src={icon} alt="title" />
         {:else}
             <i class="die fa-solid fa-dice-d20" />
         {/if}
-    </button>
+    </div>
 
     <header class="title-wrapper">
         <span class="title">{title}</span>
@@ -27,7 +28,7 @@
             <span class="subtitle">{subtitle}</span>
         {/if}
     </header>
-</div>
+</button>
 
 <style lang="scss">
     .die {
@@ -35,52 +36,63 @@
         font-size: 2rem;
         padding: 0;
         margin: 0;
+        color: #7e7960;
         border: 0;
+        transition: all 0.15s ease-in-out;
     }
 
-    .effect-button,
-    .roll-button {
+    .icon-wrapper {
+        display: flex;
+        align-items: center;
+        justify-content: center;
         width: 2.5rem;
         height: 2.5rem;
-        padding: 0;
-        margin: 0;
-        background: transparent;
-        border: 0;
-        color: #7e7960;
-        grid-area: icon;
-        transition: all 0.15s ease-in-out;
-        box-shadow: none;
 
-        transition: 0.15s all ease-in-out;
+        &--effect {
+            padding: 0.25rem;
+            border-radius: 4px;
+        }
     }
 
-    .roll-button:hover {
-        color: var(--hover-color, #555);
-    }
-
-    .effect-button:hover {
-        color: #555;
+    .effect-icon {
+        width: 2rem;
+        height: 2rem;
+        object-fit: cover;
+        object-position: top;
     }
 
     .save-prompt {
         display: flex;
         align-items: center;
         gap: 0.5rem;
+        margin: 0;
+        padding: 0;
+        background: transparent;
+        border: 0;
+        box-shadow: none;
+
+        &:hover .die {
+            color: var(--hover-color, #555);
+        }
     }
 
     .subtitle {
         width: 100%;
         font-size: 0.694rem;
+        line-height: 1;
         color: #7e7960;
     }
 
     .title {
         font-size: 0.833rem;
+        line-height: 1;
         font-weight: bold;
     }
 
     .title-wrapper {
         display: flex;
         flex-direction: column;
+        align-items: flex-start;
+        gap: 0.125rem;
     }
 </style>
