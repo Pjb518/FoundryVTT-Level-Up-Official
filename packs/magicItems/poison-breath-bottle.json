@@ -1,0 +1,124 @@
+{
+	"folder": "6DCzJxFsOeMQut9C",
+	"name": "Poison Breath Bottle",
+	"type": "object",
+	"img": "icons/consumables/potions/flask-corked-green.webp",
+	"system": {
+		"ac": {
+			"baseFormula": "",
+			"formula": "",
+			"maxDex": 0,
+			"minStr": 0,
+			"mode": 1,
+			"requiresNoShield": false,
+			"requiresUnarmored": false
+		},
+		"actions": {
+			"L3AGkoUg8u44vJhF": {
+				"name": "Throw",
+				"activation": {
+					"type": "action",
+					"cost": 1
+				},
+				"consumers": {},
+				"rolls": {
+					"KCs4p8Ka5AcHfBmP": {
+						"type": "damage",
+						"default": true,
+						"canCrit": false,
+						"formula": "2d6",
+						"damageType": "poison",
+						"defaultLabel": "Poison Damage #1"
+					}
+				},
+				"prompts": {
+					"WvgGxGpKoN1Kusfy": {
+						"type": "savingThrow",
+						"default": true,
+						"ability": "con",
+						"saveDC": {
+							"type": "custom",
+							"bonus": "12"
+						},
+						"onSave": "no damage, no poisoned condition",
+						"label": "Poison Damage and Poisoned Condition",
+						"defaultLabel": "Constitution Saving Throw #1"
+					}
+				},
+				"uses": {
+					"value": 1,
+					"max": "1",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"threshold": 6
+					}
+				},
+				"duration": {
+					"unit": "minute",
+					"value": 1
+				},
+				"ranges": {
+					"fbDG830PfKFxTCJU": {
+						"range": 20,
+						"unit": "feet"
+					}
+				},
+				"area": {
+					"shape": "sphere",
+					"quantity": 1,
+					"radius": 5,
+					"placeTemplate": true
+				},
+				"img": "icons/consumables/potions/flask-corked-green.webp"
+			}
+		},
+		"description": "<div>\n<p>You can use an action to throw this green vial at a point within 20 feet. The vial shatters on impact and creates a 5-foot-radius cloud of poison gas. A creature that starts its turn in the cloud must succeed on a DC 12 Constitution saving throw or take 2d6 poison damage and become poisoned until the end of its next turn. The area inside the cloud is lightly obscured. The cloud remains for 1 minute or until a strong wind disperses it.</p>\n</div>",
+		"favorite": false,
+		"secretDescription": "",
+		"source": {
+			"name": "",
+			"link": "",
+			"publisher": ""
+		},
+		"uses": {
+			"value": null,
+			"max": "",
+			"per": null,
+			"recharge": {
+				"formula": "1d6",
+				"threshold": "6"
+			}
+		},
+		"schema": {
+			"version": 0.001,
+			"lastMigration": null
+		},
+		"ammunitionProperties": [],
+		"armorCategory": "",
+		"armorProperties": [],
+		"attuned": false,
+		"bulky": false,
+		"craftingComponents": "Green dragon breath",
+		"damagedState": 0,
+		"equippedState": 0,
+		"materialProperties": [],
+		"objectType": "consumable",
+		"plotItem": false,
+		"price": "75",
+		"proficient": true,
+		"quantity": 1,
+		"rarity": "uncommon",
+		"requiresAttunement": false,
+		"shieldCategory": "",
+		"shieldProperties": [],
+		"unidentified": false,
+		"unidentifiedDescription": "",
+		"unidentifiedName": "",
+		"weaponProperties": [],
+		"weight": 0
+	},
+	"effects": [],
+	"flags": {},
+	"_id": "c73ck4bbbzudoqln"
+}
