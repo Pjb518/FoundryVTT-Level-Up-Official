@@ -1,18 +1,130 @@
 <script>
     import { slide } from "svelte/transition";
+    import { localize } from "@typhonjs-fvtt/runtime/svelte/helper";
 
     import zip from "../../../utils/zip";
 
-    import AbilityCheckPromptButton from "./promptButtons/AbilityCheckPromptButton.svelte";
-    import ActiveEffectPromptButton from "./promptButtons/ActiveEffectPromptButton.svelte";
     import D20Roll from "../dice/D20Roll.svelte";
-    import GenericRollPromptButton from "./promptButtons/GenericRollPromptButton.svelte";
+    import PromptButton from "./PromptButton.svelte";
     import Roll from "../dice/Roll.svelte";
-    import SavingThrowPromptButton from "./promptButtons/SavingThrowPromptButton.svelte";
-    import SkillCheckPromptButton from "./promptButtons/SkillCheckPromptButton.svelte";
+
+    import prepareSelectedTokenActors from "../../dataPreparationHelpers/prepareSelectedTokenActors";
 
     export let message;
     export let hideDescription = false;
+
+    function getPromptTitle(prompt, promptType) {
+        switch (promptType) {
+            case "abilityCheck":
+                return getAbilityCheckPromptTitle(prompt);
+            case "effect":
+                return getEffectPromptTitle(prompt);
+            case "savingThrow":
+                return getSavingThrowPromptTitle(prompt);
+            case "skillCheck":
+                return getSkillCheckPromptTitle(prompt);
+            case "generic":
+                return getGenericPromptTitle(prompt);
+        }
+    }
+
+    function getAbilityCheckPromptTitle(prompt) {
+        return localize("A5E.AbilityCheckPrompt", {
+            ability: localize(abilities[prompt.ability]),
+        });
+    }
+
+    function getEffectPromptTitle(prompt) {
+        return prompt.name;
+    }
+
+    function getSavingThrowPromptTitle(prompt) {
+        if (game.settings.get("a5e", "protectRolls") ?? false) {
+            const actorId = $message?.flags?.a5e?.actorId;
+            const actor = fromUuidSync(actorId);
+
+            if (actor && actor.type !== "character" && actor.permission < 2) {
+                return localize("A5E.RollPromptSavingThrow", {
+                    ability: localize(abilities[prompt.ability]),
+                });
+            }
+        }
+
+        return localize("A5E.RollPromptSavingThrowWithDC", {
+            ability: localize(abilities[prompt.ability]),
+            dc: prompt.dc,
+        });
+    }
+
+    function getSkillCheckPromptTitle(prompt) {
+        return localize("A5E.SkillCheckPrompt", {
+            skill: localize(skills[prompt.skill]),
+        });
+    }
+
+    function getGenericPromptTitle(prompt) {
+        return localize("A5E.GenericRollPrompt", {
+            label: prompt?.label ?? localize("A5E.Other"),
+        });
+    }
+
+    async function triggerPrompt(prompt, promptType) {
+        const tokenActors = prepareSelectedTokenActors();
+
+        if (!tokenActors.length) {
+            ui.notifications.warn("No tokens selected");
+            return;
+        }
+
+        if (promptType === "abilityCheck") {
+            await triggerAbilityCheckPrompt(tokenActors, prompt);
+        } else if (promptType === "effect") {
+            await triggerEffectPrompt(tokenActors, prompt);
+        } else if (promptType === "savingThrow") {
+            await triggerSavingThrowPrompt(tokenActors, prompt);
+        } else if (promptType === "skillCheck") {
+            await triggerSkillCheckPrompt(tokenActors, prompt);
+        } else if (promptType === "generic") {
+            await triggerGenericRollPrompt(tokenActors, prompt);
+        }
+    }
+
+    async function triggerAbilityCheckPrompt(tokenActors, prompt) {
+        tokenActors.forEach((token) => {
+            token.rollAbilityCheck(prompt.ability);
+        });
+    }
+
+    async function triggerEffectPrompt(tokenActors, prompt) {
+        tokenActors.forEach((actor) => {
+            prompt.transferEffect(actor);
+        });
+    }
+
+    async function triggerSavingThrowPrompt(tokenActors, prompt) {
+        tokenActors.forEach((token) => {
+            token.rollSavingThrow(prompt.ability);
+        });
+    }
+
+    async function triggerSkillCheckPrompt(tokenActors, prompt) {
+        tokenActors.forEach((token) => {
+            token.rollSkillCheck(prompt.skill, { abilityKey: prompt.ability });
+        });
+    }
+
+    async function triggerGenericRollPrompt(tokenActors, prompt) {
+        for (const token of tokenActors) {
+            const { rollFormula } = constructRollFormula({
+                actor: token,
+                formula: prompt.formula,
+            });
+
+            await new Roll(rollFormula).toMessage({ async: true });
+        }
+    }
+
+    const { abilities, skills } = CONFIG.A5E;
 
     const rollSortKeyMap = {
         attack: 0,
@@ -25,13 +137,13 @@
         generic: 7,
     };
 
-    const promptComponentMap = {
-        abilityCheck: AbilityCheckPromptButton,
-        effect: ActiveEffectPromptButton,
-        savingThrow: SavingThrowPromptButton,
-        skillCheck: SkillCheckPromptButton,
-        generic: GenericRollPromptButton,
-    };
+    const promptTypes = [
+        "abilityCheck",
+        "effect",
+        "savingThrow",
+        "skillCheck",
+        "generic",
+    ];
 
     const { actionDescription, itemDescription, unidentifiedDescription } =
         $message.flags?.a5e;
@@ -126,11 +238,16 @@
     {#if hasPrompts}
         <hr class="a5e-rule a5e-rule--card" />
 
-        {#each Object.entries(promptComponentMap) as [promptType, Component]}
+        {#each promptTypes as promptType}
             {#if prompts[promptType]?.length}
                 <section class="prompt-button-wrapper">
                     {#each prompts[promptType] as prompt}
-                        <Component {prompt} />
+                        <PromptButton
+                            title={getPromptTitle(prompt, promptType)}
+                            subtitle={null}
+                            on:triggerPrompt={() =>
+                                triggerPrompt(prompt, promptType)}
+                        />
                     {/each}
                 </section>
             {/if}
