@@ -1,5 +1,5 @@
 // eslint-disable-next-line import/no-unresolved
-import { SvelteApplication } from '@typhonjs-fvtt/runtime/svelte/application';
+import { SvelteApplication } from '#runtime/svelte/application';
 
 import ActorDocument from './ActorDocument';
 

@@ -1,5 +1,5 @@
 // eslint-disable-next-line import/no-unresolved
-import { TJSDocument } from '@typhonjs-fvtt/runtime/svelte/store';
+import { TJSDocument } from '#runtime/svelte/store/fvtt/document';
 
 import { ActorActiveEffectMapReducer } from './reducers/ActiveEffectMapReducer';
 import FavoriteMapReducer from './reducers/FavoriteMapReducer';
@@ -24,12 +24,12 @@ export default class ActorDocument extends TJSDocument {
   constructor(doc, options) {
     super(doc, options);
 
-    this.#activeEffects = this.embedded.create('ActiveEffect', ActorActiveEffectMapReducer);
-    this.#favorites = this.embedded.create('Item', FavoriteMapReducer);
-    this.#features = this.embedded.create('Item', FeatureMapReducer);
-    this.#maneuvers = this.embedded.create('Item', ManeuverMapReducer);
-    this.#objects = this.embedded.create('Item', ObjectMapReducer);
-    this.#spells = this.embedded.create('Item', SpellMapReducer);
+    this.#activeEffects = this.embedded.create(ActiveEffect, ActorActiveEffectMapReducer);
+    this.#favorites = this.embedded.create(Item, FavoriteMapReducer);
+    this.#features = this.embedded.create(Item, FeatureMapReducer);
+    this.#maneuvers = this.embedded.create(Item, ManeuverMapReducer);
+    this.#objects = this.embedded.create(Item, ObjectMapReducer);
+    this.#spells = this.embedded.create(Item, SpellMapReducer);
   }
 
   get activeEffects() { return this.#activeEffects; }

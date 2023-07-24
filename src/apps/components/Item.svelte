@@ -1,7 +1,7 @@
 <script>
     import { getContext } from "svelte";
     import { slide } from "svelte/transition";
-    import { localize } from "@typhonjs-fvtt/runtime/svelte/helper";
+    import { localize } from "#runtime/svelte/helper";
 
     import pressedKeysStore from "../../stores/pressedKeysStore";
     import getKeyPressAsOptions from "../handlers/getKeyPressAsOptions";

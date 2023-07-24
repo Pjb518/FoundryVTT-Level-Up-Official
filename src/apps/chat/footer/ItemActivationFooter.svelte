@@ -1,5 +1,5 @@
 <script>
-    import { localize } from "@typhonjs-fvtt/runtime/svelte/helper";
+    import { localize } from "#runtime/svelte/helper";
 
     function getSpellComponents(item) {
         if (!item?.system?.components) return [];

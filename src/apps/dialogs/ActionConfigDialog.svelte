@@ -1,7 +1,7 @@
 <svelte:options accessors={true} />
 
 <script>
-    import { TJSDocument } from "@typhonjs-fvtt/runtime/svelte/store";
+    import { TJSDocument } from "#runtime/svelte/store/fvtt/document";
     import { getContext, setContext } from "svelte";
 
     import ActionsActivationTab from "../components/pages/ActionsActivationTab.svelte";

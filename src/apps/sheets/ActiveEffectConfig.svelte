@@ -2,7 +2,7 @@
 
 <script>
     import { getContext, setContext } from "svelte";
-    import { ApplicationShell } from "@typhonjs-fvtt/runtime/svelte/component/core";
+    import { ApplicationShell } from "#runtime/svelte/component/core";
 
     import EffectsDescriptionTab from "../components/pages/EffectsDescriptionTab.svelte";
     import EffectsEffectTab from "../components/pages/EffectsEffectTab.svelte";

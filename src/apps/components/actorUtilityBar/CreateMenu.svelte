@@ -1,11 +1,11 @@
 <script>
     import { getContext } from "svelte";
-    import { localize } from "@typhonjs-fvtt/runtime/svelte/helper";
+    import { localize } from "#runtime/svelte/helper";
     import {
         TJSMenu,
         TJSIconButton,
         TJSToggleIconButton,
-    } from "@typhonjs-fvtt/svelte-standard/component";
+    } from "#standard/component";
     import { createEventDispatcher } from "svelte";
 
     import createItem from "../../../utils/createItem";

@@ -1,5 +1,5 @@
 // eslint-disable-next-line import/no-unresolved
-import { TJSGameSettings } from '@typhonjs-fvtt/svelte-standard/store';
+import { TJSGameSettings } from '#runtime/svelte/store/fvtt/settings';
 
 import MigrationRunner from '../migration/MigrationRunner';
 

@@ -1,7 +1,7 @@
 <script>
     import { getContext } from "svelte";
-    import { localize } from "@typhonjs-fvtt/runtime/svelte/helper";
-    import { TJSDocument } from "@typhonjs-fvtt/runtime/svelte/store";
+    import { localize } from "#runtime/svelte/helper";
+    import { TJSDocument } from "#runtime/svelte/store/fvtt/document";
 
     import Checkbox from "../components/Checkbox.svelte";
     import CustomTagGroup from "../components/CustomTagGroup.svelte";

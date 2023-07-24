@@ -2,7 +2,7 @@
 
 <script>
     import { setContext } from "svelte";
-    import { TJSDocument } from "@typhonjs-fvtt/runtime/svelte/store";
+    import { TJSDocument } from "#runtime/svelte/store/fvtt/document";
 
     import CheckHeader from "./header/CheckHeader.svelte";
     import ItemActivationHeader from "./header/ItemActivationHeader.svelte";

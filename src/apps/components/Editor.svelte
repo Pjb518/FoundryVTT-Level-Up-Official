@@ -1,6 +1,6 @@
 <script>
-    import { localize } from "@typhonjs-fvtt/runtime/svelte/helper";
-    import { TJSTinyMCE } from "@typhonjs-fvtt/svelte-standard/component";
+    import { localize } from "#runtime/svelte/helper";
+    import { TJSTinyMCE } from "#standard/component";
 
     export let document;
     export let content;

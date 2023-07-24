@@ -1,5 +1,5 @@
 <script>
-    import { localize } from "@typhonjs-fvtt/runtime/svelte/helper";
+    import { localize } from "#runtime/svelte/helper";
 
     import ActivationCost from "./summarySections/ActivationCost.svelte";
     import Area from "./summarySections/Area.svelte";

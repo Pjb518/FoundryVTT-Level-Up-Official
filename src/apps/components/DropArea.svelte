@@ -1,6 +1,6 @@
 <script>
     import { createEventDispatcher } from "svelte";
-    import { TJSDocument } from "@typhonjs-fvtt/runtime/svelte/store";
+    import { TJSDocument } from "#runtime/svelte/store/fvtt/document";
 
     export let uuid;
 
