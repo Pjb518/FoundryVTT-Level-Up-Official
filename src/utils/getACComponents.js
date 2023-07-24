@@ -47,10 +47,9 @@ export default function getACComponents(actor) {
 
     const formula = (formulaTerms ?? []).reduce((acc, term, idx) => {
       if (term instanceof OperatorTerm) return acc;
-      const sign = term.total >= 0 ? '+' : '-';
-      if (idx > 0) acc += ` ${sign} `;
-      if (term.options?.flavor) acc += `${Math.abs(term.total)} [${term.options.flavor}]`;
-      else acc += `${Math.abs(term.total)}`;
+      if (idx > 0) acc += ` ${term.total >= 0 ? '+' : '-'} `;
+      acc += `${Math.abs(term.total)}`;
+      if (term.options?.flavor) acc += ` [${term.options.flavor}]`;
       return acc;
     }, '');
 
