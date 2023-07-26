@@ -19,7 +19,12 @@ async function rollTokenHitDie(token, userID) {
   if (hitPointFormula === null) return;
 
   const hpRoll = new Roll(hitPointFormula);
-  await hpRoll.toMessage({ flavor: `Rolling hit points for ${token.name}.` }, { rollMode: 'gmroll' });
+  if (!(game.settings.get('a5e', 'hideRandomizedHPRolls'))) {
+    await hpRoll.toMessage(
+      { flavor: `Rolling hit points for ${token.name}.` },
+      { rollMode: 'gmroll' }
+    );
+  } else await hpRoll.evaluate({ async: true });
 
   // Update token with new information
   actor.update({

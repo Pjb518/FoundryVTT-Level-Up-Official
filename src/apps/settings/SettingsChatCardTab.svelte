@@ -11,6 +11,7 @@
     const updates = getContext("updates");
 
     const hideDescription = settings.getStore("hideChatDescriptionsByDefault");
+    const hideHpRolls = settings.getStore("hideRandomizedHPRolls");
     const protectRolls = settings.getStore("protectRolls");
     const terseRolls = settings.getStore("terseRollFormulae");
 </script>
@@ -35,6 +36,21 @@
                 on:updateSelection={({ detail }) => {
                     updates.set("hideChatDescriptionsByDefault", detail);
                     reload = true;
+                }}
+            />
+        </FormSection>
+
+        <FormSection
+            hint="A5E.settings.hints.hideRandomizedHPRolls"
+            --gap="0.25rem"
+        >
+            <Checkbox
+                label="A5E.settings.hideRandomizedHPRolls"
+                checked={updates.get("hideRandomizedHPRolls") ??
+                    $hideHpRolls ??
+                    false}
+                on:updateSelection={({ detail }) => {
+                    updates.set("hideRandomizedHPRolls", detail);
                 }}
             />
         </FormSection>

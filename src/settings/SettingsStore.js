@@ -158,6 +158,18 @@ class A5eGameSettings extends TJSGameSettings {
       },
       {
         namespace,
+        key: 'hideRandomizedHPRolls',
+        options: {
+          name: 'A5E.settings.hideRandomizedHPRolls',
+          hint: 'A5E.settings.hints.hideRandomizedHPRolls',
+          scope: scope.world,
+          config: true,
+          default: false,
+          type: Boolean
+        }
+      },
+      {
+        namespace,
         key: 'protectRolls',
         options: {
           name: 'A5E.settings.protectRolls',
