@@ -7,7 +7,7 @@
 			"_id": "5Yc9QSpP0UfkiczE",
 			"name": "Javelin",
 			"type": "object",
-			"img": "icons/svg/item-bag.svg",
+			"img": "icons/weapons/polearms/spear-simple-engraved.webp",
 			"effects": [],
 			"folder": null,
 			"sort": 0,
@@ -110,6 +110,7 @@
 				"rarity": "common",
 				"requiresAttunement": false,
 				"shieldCategory": "",
+				"shieldProperties": [],
 				"unidentified": false,
 				"unidentifiedDescription": "",
 				"unidentifiedName": "",
@@ -127,7 +128,7 @@
 			"_id": "w2HwcqZ5sZoOIcZ2",
 			"name": "Spellcasting",
 			"type": "feature",
-			"img": "icons/svg/item-bag.svg",
+			"img": "icons/magic/symbols/runes-star-orange.webp",
 			"effects": [],
 			"folder": null,
 			"sort": 0,
@@ -143,7 +144,7 @@
 					"requiresUnarmored": false
 				},
 				"actions": {},
-				"description": "<p>The imperator is a 5th level spellcaster. Its spellcasting ability is Intelligence (spell save DC 14, +6 to hit with spell attacks). It has the following cleric and wizard spells prepared:</p><ul><li><p>Cantrips (at will): <em>light</em>,<em> sacred flame</em></p></li><li><p>1st-level (4 slots): <em>create or destroy water</em>,<em> healing word</em></p></li><li><p>2nd-level (3 slots): <em>burning gust of wind</em>, <em>lesser restoration</em></p></li><li><p>3rd-level (2 slots): <em>major image, venomous fireball</em></p></li></ul>",
+				"description": "<p>The imperator is a 5th level spellcaster. Its spellcasting ability is Intelligence (spell save DC 14, +6 to hit with spell attacks). It has the following cleric and wizard spells prepared:</p>\n<p><strong>Cantrips (at will): </strong><em>light</em>,<em> sacred flame</em></p>\n<p><strong>1st-level (4 slots): </strong><em>create or destroy water</em>,<em> healing word</em></p>\n<p><strong>2nd-level (3 slots): </strong><em>burning gust of wind</em>, <em>lesser restoration</em></p>\n<p><strong>3rd-level (2 slots):</strong> <em>major image, venomous fireball</em></p>",
 				"favorite": false,
 				"secretDescription": "",
 				"source": "",
@@ -277,7 +278,7 @@
 			"_id": "xMNrPuaoESIcbmQb",
 			"name": "Sting",
 			"type": "feature",
-			"img": "icons/svg/item-bag.svg",
+			"img": "icons/creatures/abilities/stinger-poison-green.webp",
 			"effects": [],
 			"folder": null,
 			"sort": 0,
@@ -996,7 +997,7 @@
 					}
 				},
 				"description": "<p>Until the spell ends, you create an image that appears completely real. The illusion includes sounds, smells, and temperature in addition to visual phenomena. None of the effects of the illusion are able to cause actual harm.</p><p>While within range you can use an action to move the illusion. As the image moves you may also change its appearance to make the movement seem natural (like a roc moving its wings to fly) and also change the nonvisual elements of the illusion for the same reason (like the sound of beating wings as the roc flies).</p><p>Any physical interaction immediately reveals the image is an illusion, as objects and creatures alike pass through it. An Investigation check against your spell save DC also reveals the image is an illusion.</p><p>When a creature realizes the image is an illusion, the effects become fainter for that creature.</p><p><strong><em>Cast at Higher Levels.</em></strong> When cast using a 6th-level spell slot the illusion lasts until dispelled without requiring concentration.</p>",
-				"favorite": false,
+				"favorite": true,
 				"secretDescription": "",
 				"source": "",
 				"uses": {
@@ -1046,9 +1047,9 @@
 			"sort": 0
 		},
 		{
-			"name": "Fireball",
+			"name": "Venomous Fireball",
 			"type": "spell",
-			"img": "icons/magic/fire/explosion-fireball-large-red-orange.webp",
+			"img": "icons/magic/air/fog-gas-smoke-swirling-green.webp",
 			"effects": [],
 			"flags": {
 				"core": {
@@ -1058,7 +1059,7 @@
 			"system": {
 				"actions": {
 					"CVkWr37CemgLcpXZ": {
-						"name": "Fireball",
+						"name": "Cast Spell",
 						"activation": {
 							"cost": 1,
 							"type": "action",
@@ -1085,7 +1086,7 @@
 						"rolls": {
 							"e9MtWpgQtR5V1hxX": {
 								"canCrit": false,
-								"damageType": "fire",
+								"damageType": "poison",
 								"formula": "6d6",
 								"name": "",
 								"type": "damage",
@@ -1098,7 +1099,7 @@
 						"prompts": {
 							"mhxKT92Mp2XFeWIl": {
 								"ability": "dex",
-								"onSave": "Half damage",
+								"onSave": "Half damage and not poisoned on save",
 								"saveDC": {
 									"type": "spellcasting",
 									"bonus": ""
@@ -1116,8 +1117,8 @@
 						}
 					}
 				},
-				"description": "<p>A fiery mote streaks to a point within range and explodes in a burst of flame. The fire spreads around corners and ignites unattended flammable objects. Each creature in the area takes 6d6 fire damage.</p><p><strong><em>Cast at Higher Levels.</em></strong> The damage increases by 1d6 for each slot level above 3rd.</p>",
-				"favorite": false,
+				"description": "<p>Green fire streaks from the imperator to a point within 120 feet and explodes in a 20-foot radius, spreading around corners. Each creature in the area makes a DC 15 Dexterity&nbsp;<span class=\"freelinking-link\">saving throw</span>, taking 21 (6d6) poison damage on a failed save or half damage on a success. A creature that fails the save is also&nbsp;<span class=\"freelinking-link\">poisoned</span>&nbsp; until the end of its next turn.</p>",
+				"favorite": true,
 				"secretDescription": "",
 				"source": "",
 				"uses": {
@@ -1167,9 +1168,9 @@
 			"sort": 0
 		},
 		{
-			"name": "Gust of Wind",
+			"name": "Burning Gust of Wind",
 			"type": "spell",
-			"img": "icons/magic/air/wind-swirl-gray-blue.webp",
+			"img": "icons/magic/air/wind-swirl-red-orange.webp",
 			"effects": [],
 			"flags": {
 				"core": {
@@ -1179,7 +1180,7 @@
 			"system": {
 				"actions": {
 					"IFc7ALYZmyF9krn2": {
-						"name": "Gust of Wind",
+						"name": "Cast Spell",
 						"activation": {
 							"cost": 1,
 							"type": "action",
@@ -1207,7 +1208,7 @@
 						"prompts": {
 							"zFS1YAEU6aNM2hAq": {
 								"ability": "str",
-								"onSave": "Special",
+								"onSave": "See text",
 								"saveDC": {
 									"type": "spellcasting",
 									"bonus": ""
@@ -1222,11 +1223,20 @@
 								"points": 3,
 								"type": "spell"
 							}
+						},
+						"rolls": {
+							"bDoVKpOEVKQOh98l": {
+								"type": "damage",
+								"default": true,
+								"formula": "2d6",
+								"damageType": "fire",
+								"canCrit": false
+							}
 						}
 					}
 				},
-				"description": "<p>A torrent of wind erupts from your hand in a direction you choose. Each creature that starts its turn in the area or moves into the area must succeed on a Strength saving throw or be pushed 15 feet from you in the direction of the line.</p><p>Any creature in the area must spend 2 feet of movement for every foot moved when trying to approach you.</p><p>The blast of wind extinguishes small fires and disperses gas or vapor.</p><p>You can use a bonus action to change the direction of the gust.</p>",
-				"favorite": false,
+				"description": "<p>A hot blast of wind erupts from the imperator&rsquo;s claw in a line 10 feet wide and 60 feet long. It extinguishes small fires and disperses vapors. For 1 minute or until the imperator&rsquo;s concentration is broken, each creature that starts its turn in the area or moves into the area must succeed on a DC 15 Strength <span class=\"freelinking-link\">saving throw</span>&nbsp;or be pushed 15 feet directly away and take 7 (2d6) fire damage. A creature in the area must spend 2 feet of movement for every foot moved towards the imperator. The imperator can change the direction of the gust with a bonus action.</p>",
+				"favorite": true,
 				"secretDescription": "",
 				"source": "",
 				"uses": {
@@ -1327,7 +1337,7 @@
 					}
 				},
 				"description": "<p>Until the spell ends, the target emits bright light in a 20-foot radius and dim light an additional 20 feet. Light emanating from the target may be any color. Completely covering the target with something that is not transparent blocks the light. The spell ends when you use an action to dismiss it or if you cast it again.</p>",
-				"favorite": false,
+				"favorite": true,
 				"secretDescription": "",
 				"source": "",
 				"uses": {
@@ -1436,7 +1446,7 @@
 					}
 				},
 				"description": "<p>As long as you can see the target (even if it has cover) radiant holy flame envelops it, dealing 1d8 radiant damage.</p><p>This spell's damage increases by 1d8 when you reach 5th level (2d8), 11th level (3d8), and 17th level (4d8).</p>",
-				"favorite": false,
+				"favorite": true,
 				"secretDescription": "",
 				"source": "",
 				"uses": {
@@ -1493,116 +1503,6 @@
 			"sort": 0
 		},
 		{
-			"name": "Heal",
-			"type": "spell",
-			"img": "icons/magic/life/heart-cross-strong-flame-green.webp",
-			"effects": [],
-			"flags": {
-				"core": {
-					"sourceId": "Compendium.a5e.a5e-spells.i4869qu4aokvlvxr"
-				}
-			},
-			"system": {
-				"actions": {
-					"XWJ26F7JXKHF8yMo": {
-						"name": "Heal",
-						"activation": {
-							"cost": 1,
-							"type": "action",
-							"reactionTrigger": ""
-						},
-						"duration": {
-							"unit": "instantaneous",
-							"value": ""
-						},
-						"ranges": {
-							"U6bNDrDcAEZ0UYdu": {
-								"range": "medium"
-							}
-						},
-						"area": {
-							"shape": "",
-							"size": "",
-							"placeTemplate": false
-						},
-						"target": {
-							"quantity": "",
-							"type": "creature"
-						},
-						"rolls": {
-							"J8L7y8BndXrGBe7j": {
-								"defaultSelection": true,
-								"formula": "70",
-								"healingType": "healing",
-								"name": "",
-								"type": "healing",
-								"scaling": {
-									"mode": "spellLevel",
-									"formula": "10"
-								}
-							}
-						},
-						"consumers": {
-							"jfElxc8HGrXhyRja": {
-								"mode": "variable",
-								"spellLevel": 6,
-								"points": 9,
-								"type": "spell"
-							}
-						}
-					}
-				},
-				"description": "<p>A torrent of healing energy suffuses the target and it regains 70 hit points. The spell also ends blindness, deafness, and any diseases afflicting the target.</p><p><strong><em>Cast at Higher Levels.</em></strong> The hit points regained increase by 10 for each slot level above 6th.</p>",
-				"favorite": false,
-				"secretDescription": "",
-				"source": "",
-				"uses": {
-					"value": null,
-					"max": "",
-					"per": null,
-					"recharge": {
-						"formula": "",
-						"threshold": ""
-					}
-				},
-				"schema": {
-					"version": 0.004,
-					"lastMigration": {
-						"version": {
-							"schema": 0.003,
-							"foundry": "11.302",
-							"system": "0.12.7"
-						}
-					}
-				},
-				"components": {
-					"vocalized": true,
-					"seen": true,
-					"material": false
-				},
-				"concentration": false,
-				"level": 6,
-				"materials": "",
-				"materialsConsumed": false,
-				"prepared": false,
-				"prerequisite": "",
-				"ritual": false,
-				"schools": {
-					"primary": "evocation",
-					"secondary": [
-						"divine",
-						"healing"
-					]
-				}
-			},
-			"_id": "c9JkVUAiZgDrhPYp",
-			"ownership": {
-				"default": 0
-			},
-			"folder": "BbUxVruynb9EuYXi",
-			"sort": 0
-		},
-		{
 			"name": "Create or Destroy Water",
 			"type": "spell",
 			"img": "icons/magic/water/projectiles-ice-explosion.webp",
@@ -1650,7 +1550,7 @@
 					}
 				},
 				"description": "<p>Choose one of the following.</p><ul><li><p><strong>Create Water:</strong> You fill the target with up to 10 gallons of nonpotable water or 1 Supply of clean water. Alternatively, the water falls as rain that extinguishes exposed flames in the area.</p></li><li><p><strong>Destroy Water:</strong> You destroy up to 10 gallons of water in the target. Alternatively, you destroy fog in the area.</p></li></ul><p><strong><em>Cast at Higher Levels.</em></strong> For each slot level above 1st, you either create or destroy 10 additional gallons of water, or the size of the cube increases by 5 feet.</p>",
-				"favorite": false,
+				"favorite": true,
 				"secretDescription": "",
 				"source": "",
 				"uses": {
@@ -1748,7 +1648,7 @@
 					}
 				},
 				"description": "<p>Your glowing hand removes one disease or condition affecting the target. Choose from blinded, deafened, paralyzed, or poisoned. At the Narrator's discretion, some diseases might not be curable with this spell.</p>",
-				"favorite": false,
+				"favorite": true,
 				"secretDescription": "",
 				"source": "",
 				"uses": {
@@ -1800,7 +1700,12 @@
 		}
 	],
 	"effects": [],
-	"flags": {},
+	"flags": {
+		"a5e": {
+			"currentTab": "core",
+			"sheetIsLocked": true
+		}
+	},
 	"system": {
 		"abilities": {
 			"str": {

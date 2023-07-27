@@ -167,6 +167,7 @@ export default class ItemA5e extends Item {
       type: rolls.length ? CONST.CHAT_MESSAGE_TYPES.ROLL : CONST.CHAT_MESSAGE_TYPES.OTHER,
       sound: CONFIG.sounds.dice,
       rolls: rolls.map(({ roll }) => roll),
+      rollMode: activationData.visibilityMode ?? game.settings.get('core', 'rollMode'),
       flags: {
         a5e: {
           actorId: this.actor.uuid,
