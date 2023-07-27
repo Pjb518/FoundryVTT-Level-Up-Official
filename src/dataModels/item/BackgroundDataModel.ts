@@ -5,7 +5,7 @@ import type { SchemaSchema } from '../template/SchemaDataModel';
 type BackgroundSchema = {
   description: string;
   defaultASI: string;
-  includeASI: boolean;
+  includesASI: boolean;
   equipment: Object;
   feature: string;
   proficiencies: {
@@ -22,7 +22,7 @@ type BackgroundSchema = {
     tools: {
       count: number;
       fixed: string[];
-      options: string[];
+      options: string;
     },
     weapons: {
       count: number;
@@ -43,7 +43,7 @@ export default class BackgroundDataModel extends A5EDataModel.mixin(SchemaDataMo
     return this.mergeSchema(super.defineSchema(), {
       description: new foundry.data.fields.StringField({ nullable: false, initial: '' }),
       defaultASI: new foundry.data.fields.StringField({ nullable: false, initial: '' }),
-      includeASI: new foundry.data.fields.BooleanField({ nullable: false, initial: true }),
+      includesASI: new foundry.data.fields.BooleanField({ nullable: false, initial: true }),
       equipment: new foundry.data.fields.ObjectField({ nullable: false, initial: {} }),
       feature: new foundry.data.fields.StringField({ nullable: false, initial: '' }),
       proficiencies: new foundry.data.fields.SchemaField({
@@ -66,7 +66,7 @@ export default class BackgroundDataModel extends A5EDataModel.mixin(SchemaDataMo
             integer: true, nullable: false, initial: 0
           }),
           fixed: new foundry.data.fields.ArrayField(new foundry.data.fields.StringField()),
-          options: new foundry.data.fields.ArrayField(new foundry.data.fields.StringField())
+          options: new foundry.data.fields.StringField({ nullable: false, initial: '' })
         }),
         weapons: new foundry.data.fields.SchemaField({
           count: new foundry.data.fields.NumberField({
