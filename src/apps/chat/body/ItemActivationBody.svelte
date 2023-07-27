@@ -6,7 +6,7 @@
 
     import D20Roll from "../dice/D20Roll.svelte";
     import PromptButton from "./PromptButton.svelte";
-    import Roll from "../dice/Roll.svelte";
+    import RollComponent from "../dice/Roll.svelte";
 
     import constructRollFormula from "../../../dice/constructRollFormula";
     import getKeyPressAsOptions from "../../handlers/getKeyPressAsOptions";
@@ -124,8 +124,6 @@
     async function triggerPrompt(prompt) {
         const tokenActors = prepareSelectedTokenActors();
         const options = getKeyPressAsOptions($pressedKeysStore);
-
-        console.log(options);
 
         if (!tokenActors.length) {
             ui.notifications.warn("No tokens selected");
@@ -292,7 +290,7 @@
                 {#if ["abilityCheck", "attack", "savingThrow", "skillCheck", "toolCheck"].includes(rollData.type)}
                     <D20Roll {roll} critThreshold={rollData.critThreshold} />
                 {:else}
-                    <Roll {roll} {rollData} />
+                    <RollComponent {roll} {rollData} />
                 {/if}
             </div>
         {/each}
