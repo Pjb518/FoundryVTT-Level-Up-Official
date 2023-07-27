@@ -10,6 +10,7 @@
     import NavigationBar from "../components/navigation/NavigationBar.svelte";
     import BackgroundFeaturesTab from "../components/pages/BackgroundFeaturesTab.svelte";
     import BackgroundEquipmentTab from "../components/pages/BackgroundEquipmentTab.svelte";
+    import BackgroundCultureDetailsTab from "../components/pages/BackgroundCultureDetailsTab.svelte";
 
     export let { document } = getContext("#external").application;
     export let elementRoot;
@@ -29,7 +30,7 @@
         {
             name: "details",
             label: "A5E.TabDetails",
-            component: BackgroundDetailsTab,
+            component: BackgroundCultureDetailsTab,
         },
         {
             name: "features",
