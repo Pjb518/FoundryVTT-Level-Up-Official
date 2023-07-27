@@ -8,6 +8,8 @@
     import PromptButton from "./PromptButton.svelte";
     import Roll from "../dice/Roll.svelte";
 
+    import constructRollFormula from "../../../dice/constructRollFormula";
+    import getKeyPressAsOptions from "../../handlers/getKeyPressAsOptions";
     import prepareSelectedTokenActors from "../../dataPreparationHelpers/prepareSelectedTokenActors";
     import pressedKeysStore from "../../../stores/pressedKeysStore";
 
@@ -121,6 +123,9 @@
 
     async function triggerPrompt(prompt) {
         const tokenActors = prepareSelectedTokenActors();
+        const options = getKeyPressAsOptions($pressedKeysStore);
+
+        console.log(options);
 
         if (!tokenActors.length) {
             ui.notifications.warn("No tokens selected");
@@ -128,21 +133,21 @@
         }
 
         if (prompt.type === "abilityCheck") {
-            await triggerAbilityCheckPrompt(tokenActors, prompt);
+            await triggerAbilityCheckPrompt(tokenActors, prompt, options);
         } else if (prompt.type === "effect") {
             await triggerEffectPrompt(tokenActors, prompt);
         } else if (prompt.type === "savingThrow") {
-            await triggerSavingThrowPrompt(tokenActors, prompt);
+            await triggerSavingThrowPrompt(tokenActors, prompt, options);
         } else if (prompt.type === "skillCheck") {
-            await triggerSkillCheckPrompt(tokenActors, prompt);
+            await triggerSkillCheckPrompt(tokenActors, prompt, options);
         } else if (prompt.type === "generic") {
             await triggerGenericRollPrompt(tokenActors, prompt);
         }
     }
 
-    async function triggerAbilityCheckPrompt(tokenActors, prompt) {
+    async function triggerAbilityCheckPrompt(tokenActors, prompt, options) {
         tokenActors.forEach((token) => {
-            token.rollAbilityCheck(prompt.ability);
+            token.rollAbilityCheck(prompt.ability, options);
         });
     }
 
@@ -154,15 +159,18 @@
         });
     }
 
-    async function triggerSavingThrowPrompt(tokenActors, prompt) {
+    async function triggerSavingThrowPrompt(tokenActors, prompt, options) {
         tokenActors.forEach((token) => {
-            token.rollSavingThrow(prompt.ability);
+            token.rollSavingThrow(prompt.ability, options);
         });
     }
 
-    async function triggerSkillCheckPrompt(tokenActors, prompt) {
+    async function triggerSkillCheckPrompt(tokenActors, prompt, options) {
         tokenActors.forEach((token) => {
-            token.rollSkillCheck(prompt.skill, { abilityKey: prompt.ability });
+            token.rollSkillCheck(prompt.skill, {
+                abilityKey: prompt.ability,
+                ...options,
+            });
         });
     }
 
