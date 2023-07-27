@@ -1205,7 +1205,7 @@
 			"_id": "6P9ANsgGr5Q0awrj",
 			"name": "Swarm",
 			"type": "feature",
-			"img": "icons/svg/item-bag.svg",
+			"img": "icons/creatures/invertebrates/wasp-swarm-tan.webp",
 			"effects": [],
 			"folder": null,
 			"sort": 0,
@@ -1226,7 +1226,7 @@
 				},
 				"actions": {},
 				"description": "<p>The swarm can occupy another creature’s space and move through any opening large enough for a Tiny creature. It can’t gain hit points or temporary hit points.</p>",
-				"favorite": false,
+				"favorite": true,
 				"secretDescription": "",
 				"source": "",
 				"uses": {
@@ -1281,7 +1281,7 @@
 				},
 				"actions": {},
 				"description": "<p>The scourge can climb even on difficult surfaces, including upside down on ceilings, without needing to make an ability check.</p>",
-				"favorite": false,
+				"favorite": true,
 				"secretDescription": "",
 				"source": "",
 				"uses": {
@@ -1446,7 +1446,7 @@
 			"flags": {}
 		},
 		{
-			"name": "Corrosive Bite Spit (Recharge 5-)",
+			"name": "Corrosive Bite Spit",
 			"type": "feature",
 			"system": {
 				"ac": {
@@ -1460,12 +1460,18 @@
 				},
 				"actions": {
 					"HhGP3EXxbHJAqKnr": {
-						"name": "Corrosive Bite Spit",
+						"name": "Attack",
 						"activation": {
 							"type": "action",
 							"cost": 1
 						},
-						"consumers": {},
+						"consumers": {
+							"0j8WOyQCz4pQ5uri": {
+								"type": "itemUses",
+								"default": true,
+								"quantity": 1
+							}
+						},
 						"rolls": {
 							"lbbZNG8CexP8k1DU": {
 								"type": "attack",
@@ -1483,9 +1489,9 @@
 						},
 						"prompts": {},
 						"uses": {
-							"value": 1,
-							"max": "1",
-							"per": "recharge",
+							"value": 0,
+							"max": "",
+							"per": "",
 							"recharge": {
 								"formula": "1d6",
 								"threshold": 5
@@ -1515,12 +1521,12 @@
 					"publisher": ""
 				},
 				"uses": {
-					"value": null,
-					"max": "",
-					"per": null,
+					"value": 1,
+					"max": "1",
+					"per": "recharge",
 					"recharge": {
 						"formula": "1d6",
-						"threshold": "6"
+						"threshold": 5
 					}
 				},
 				"schema": {
@@ -1546,7 +1552,8 @@
 	"flags": {
 		"a5e": {
 			"sheetIsLocked": true,
-			"currentTab": "core"
+			"currentTab": "core",
+			"showSpellTab": false
 		}
 	},
 	"_id": "7wwylmzi5r842gjv"
