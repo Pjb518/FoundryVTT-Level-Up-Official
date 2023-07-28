@@ -4,9 +4,8 @@
 
     import zip from "../../../utils/zip";
 
-    import D20Roll from "../dice/D20Roll.svelte";
     import PromptButton from "./PromptButton.svelte";
-    import RollComponent from "../dice/Roll.svelte";
+    import RollSummary from "./RollSummary.svelte";
 
     import constructRollFormula from "../../../dice/constructRollFormula";
     import getKeyPressAsOptions from "../../handlers/getKeyPressAsOptions";
@@ -259,41 +258,11 @@
     {#if hasRolls}
         <hr class="a5e-rule a5e-rule--card" />
 
-        {#each rolls ?? [] as [roll, rollData]}
-            <div class="roll-container">
-                <header class="roll-header">
-                    <h3 class="roll-label">{rollData.label}</h3>
-
-                    {#if rollData.rollMode === 1}
-                        <span
-                            class="roll-mode-label roll-mode-label--advantage"
-                            data-tooltip="Advantage"
-                            data-tooltip-direction="LEFT"
-                        >
-                            Adv
-                        </span>
-                    {:else if rollData.rollMode === -1}
-                        <span
-                            class="roll-mode-label roll-mode-label--disadvantage"
-                            data-tooltip="Disadvantage"
-                            data-tooltip-direction="LEFT"
-                        >
-                            Dis
-                        </span>
-                    {/if}
-
-                    {#if rollData.userLabel}
-                        <span class="roll-sublabel">{rollData.userLabel}</span>
-                    {/if}
-                </header>
-
-                {#if ["abilityCheck", "attack", "savingThrow", "skillCheck", "toolCheck"].includes(rollData.type)}
-                    <D20Roll {roll} critThreshold={rollData.critThreshold} />
-                {:else}
-                    <RollComponent {roll} {rollData} />
-                {/if}
-            </div>
-        {/each}
+        <section class="rolls">
+            {#each rolls ?? [] as [roll, rollData]}
+                <RollSummary {roll} {rollData} />
+            {/each}
+        </section>
     {/if}
 
     {#if hasPrompts}
@@ -340,58 +309,10 @@
         gap: 0.5rem;
     }
 
-    .prompts {
+    .prompts,
+    .rolls {
         display: flex;
         flex-direction: column;
         gap: 0.5rem;
-    }
-
-    .roll-container {
-        display: flex;
-        flex-direction: column;
-        gap: 0.25rem;
-    }
-
-    .roll-header {
-        display: flex;
-        flex-wrap: wrap;
-        align-items: center;
-    }
-
-    .roll-label {
-        width: fit-content;
-        margin: 0;
-        font-size: 0.833rem;
-        font-weight: bold;
-        border: 0;
-    }
-
-    .roll-mode-label {
-        display: block;
-        flex-shrink: 0;
-        width: fit-content;
-        margin-left: auto;
-        padding: 0.15rem 0.4rem;
-        font-size: 0.694rem;
-        line-height: 1;
-        color: white;
-        border: 1px solid;
-        border-radius: 3px;
-
-        &--advantage {
-            border-color: #425f65;
-            background: #425f65;
-        }
-
-        &--disadvantage {
-            border-color: #772020;
-            background: #8b2525;
-        }
-    }
-
-    .roll-sublabel {
-        width: 100%;
-        font-size: 0.694rem;
-        color: #7e7960;
     }
 </style>

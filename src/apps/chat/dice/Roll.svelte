@@ -1,6 +1,4 @@
 <script>
-    import RollTooltip from "../dice/RollTooltip.svelte";
-
     function applyDamage(multiplier = 1) {
         const { character } = game.user;
         const selectedTokens = canvas.tokens.controlled;
@@ -33,23 +31,16 @@
 
     export let roll;
     export let rollData;
-
-    let tooltipIsVisible = false;
+    export let isCriticalFailure;
+    export let isCriticalSuccess;
 </script>
-
-{#if tooltipIsVisible}
-    <RollTooltip
-        {roll}
-        on:toggleTooltipVisibility={() =>
-            (tooltipIsVisible = !tooltipIsVisible)}
-    />
-{/if}
 
 <!-- svelte-ignore a11y-click-events-have-key-events -->
 <!-- svelte-ignore a11y-no-static-element-interactions -->
 <div
     class="a5e-roll a5e-roll--total u-pointer"
-    on:click={() => (tooltipIsVisible = !tooltipIsVisible)}
+    class:max={isCriticalSuccess}
+    class:min={isCriticalFailure}
 >
     {roll.total}
 
@@ -133,6 +124,14 @@
 </div>
 
 <style lang="scss">
+    .a5e-roll {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 2.25rem;
+        width: 2.5rem;
+    }
+
     .a5e-roll--total {
         position: relative;
 
@@ -169,5 +168,17 @@
         &__icon {
             margin: 0;
         }
+    }
+
+    .max {
+        color: #18520b;
+        background-color: #c7d0c0;
+        border: 1px solid #97ae8f;
+    }
+
+    .min {
+        color: #aa0200;
+        background-color: #ffdddd;
+        border: 1px solid #f0b5b5;
     }
 </style>
