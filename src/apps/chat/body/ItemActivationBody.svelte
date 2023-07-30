@@ -261,6 +261,10 @@
         <section class="rolls">
             {#each rolls ?? [] as [roll, rollData]}
                 <RollSummary {roll} {rollData} />
+
+                {#if rolls.length > 1 && rollData.type === "attack"}
+                    <hr class="a5e-rule" />
+                {/if}
             {/each}
         </section>
     {/if}
