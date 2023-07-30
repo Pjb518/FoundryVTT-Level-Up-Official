@@ -1,4 +1,3 @@
-// eslint-disable-next-line import/no-unresolved
 import { localize } from '#runtime/svelte/helper';
 
 import constructCritDamageRoll from '../dice/damage/constructCritDamageRoll';

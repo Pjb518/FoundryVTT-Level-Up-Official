@@ -1,5 +1,4 @@
 /* eslint-disable max-classes-per-file */
-// eslint-disable-next-line import/no-unresolved
 import { DynMapReducer } from '#runtime/svelte/store/reducer';
 
 export class ActorActiveEffectMapReducer extends DynMapReducer {

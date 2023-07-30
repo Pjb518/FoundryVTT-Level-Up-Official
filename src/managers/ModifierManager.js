@@ -1,5 +1,5 @@
-// eslint-disable-next-line import/no-unresolved
 import { localize } from '#runtime/svelte/helper';
+
 import getExpertiseDieSize from '../utils/getExpertiseDieSize';
 
 export default class ModifierManager {

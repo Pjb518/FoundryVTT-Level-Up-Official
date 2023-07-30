@@ -1,4 +1,3 @@
-// eslint-disable-next-line import/no-unresolved
 import { localize } from '#runtime/svelte/helper';
 
 function getItemName(itemType, subType) {

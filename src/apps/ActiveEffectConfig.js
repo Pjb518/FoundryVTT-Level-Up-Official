@@ -1,4 +1,3 @@
-/* eslint-disable import/no-unresolved */
 import { localize } from '#runtime/svelte/helper';
 import { TJSDocument } from '#runtime/svelte/store/fvtt/document';
 import { SvelteApplication } from '#runtime/svelte/application';

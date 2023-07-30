@@ -1,4 +1,3 @@
-// eslint-disable-next-line import/no-unresolved
 import { SvelteApplication } from '#runtime/svelte/application';
 
 import ItemDocument from './ItemDocument';
