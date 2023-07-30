@@ -1,9 +1,9 @@
 <script>
-    import Roll from "../dice/Roll.svelte";
     import RollTooltip from "../dice/RollTooltip.svelte";
 
     export let roll;
     export let rollData = {};
+    export let isAction = true;
 
     function isCriticalSuccess(roll) {
         const d20Roll = roll.terms.find((term) => term.faces === 20);
@@ -33,40 +33,42 @@
     class="roll-container"
     on:click={() => (tooltipIsVisible = !tooltipIsVisible)}
 >
-    <div class="roll-wrapper">
-        <Roll
-            {roll}
-            {rollData}
-            isCriticalFailure={isCriticalFailure(roll)}
-            isCriticalSuccess={isCriticalSuccess(roll)}
-        />
+    <div
+        class="roll"
+        class:roll--max={isCriticalSuccess(roll)}
+        class:roll--min={isCriticalFailure(roll)}
+        class:roll--wide={!isAction}
+    >
+        {roll.total}
     </div>
 
-    <header class="roll-header">
-        <h3 class="roll-label">{rollData.label}</h3>
+    {#if isAction}
+        <header class="roll-header">
+            <h3 class="roll-label">{rollData.label}</h3>
 
-        {#if rollData.rollMode === 1}
-            <span
-                class="roll-mode-label roll-mode-label--advantage"
-                data-tooltip="Advantage"
-                data-tooltip-direction="LEFT"
-            >
-                Adv
-            </span>
-        {:else if rollData.rollMode === -1}
-            <span
-                class="roll-mode-label roll-mode-label--disadvantage"
-                data-tooltip="Disadvantage"
-                data-tooltip-direction="LEFT"
-            >
-                Dis
-            </span>
-        {/if}
+            {#if rollData.rollMode === 1}
+                <span
+                    class="roll-mode-label roll-mode-label--advantage"
+                    data-tooltip="Advantage"
+                    data-tooltip-direction="LEFT"
+                >
+                    Adv
+                </span>
+            {:else if rollData.rollMode === -1}
+                <span
+                    class="roll-mode-label roll-mode-label--disadvantage"
+                    data-tooltip="Disadvantage"
+                    data-tooltip-direction="LEFT"
+                >
+                    Dis
+                </span>
+            {/if}
 
-        {#if rollData.userLabel}
-            <span class="roll-sublabel">{rollData.userLabel}</span>
-        {/if}
-    </header>
+            {#if rollData.userLabel}
+                <span class="roll-sublabel">{rollData.userLabel}</span>
+            {/if}
+        </header>
+    {/if}
 
     {#if rollData.type === "damage"}
         <button class="damage-button">
@@ -98,6 +100,37 @@
 
         i {
             margin: 0;
+        }
+    }
+
+    .roll {
+        display: flex;
+        flex-grow: 0;
+        align-items: center;
+        justify-content: center;
+        height: 2.25rem;
+        width: 2.5rem;
+        font-size: 1.2rem;
+        font-weight: 700;
+        background: rgba(0, 0, 0, 0.05);
+        border: 1px solid #ccc;
+        border-radius: 3px;
+
+        &--max {
+            color: #18520b;
+            background-color: #c7d0c0;
+            border: 1px solid #97ae8f;
+        }
+
+        &--min {
+            color: #aa0200;
+            background-color: #ffdddd;
+            border: 1px solid #f0b5b5;
+        }
+
+        &--wide {
+            width: 100%;
+            height: 2rem;
         }
     }
 

@@ -79,6 +79,7 @@
     .tooltip {
         width: 100%;
         flex-shrink: 0;
+        padding: 0 0.125rem;
     }
 
     .tooltip-formula {

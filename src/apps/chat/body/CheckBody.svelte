@@ -6,8 +6,18 @@
 
 <hr class="a5e-rule a5e-rule--card" />
 
-{#each $message.rolls as roll}
-    <RollSummary {roll} />
-{/each}
+<section class="rolls">
+    {#each $message.rolls as roll}
+        <RollSummary {roll} isAction={false} />
+    {/each}
+</section>
 
 <!-- TODO: Potentially add skill critical and fumble options here -->
+
+<style lang="scss">
+    .rolls {
+        display: flex;
+        flex-direction: column;
+        gap: 0.5rem;
+    }
+</style>

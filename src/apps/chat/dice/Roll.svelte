@@ -33,6 +33,7 @@
     export let rollData;
     export let isCriticalFailure;
     export let isCriticalSuccess;
+    export let wide;
 </script>
 
 <!-- svelte-ignore a11y-click-events-have-key-events -->
@@ -41,6 +42,7 @@
     class="a5e-roll a5e-roll--total u-pointer"
     class:max={isCriticalSuccess}
     class:min={isCriticalFailure}
+    class:a5e-roll--wide={wide}
 >
     {roll.total}
 
@@ -126,17 +128,23 @@
 <style lang="scss">
     .a5e-roll {
         display: flex;
+        flex-grow: 0;
         align-items: center;
         justify-content: center;
         height: 2.25rem;
         width: 2.5rem;
-    }
 
-    .a5e-roll--total {
-        position: relative;
+        &--total {
+            position: relative;
 
-        &:hover .button-list {
-            display: flex;
+            &:hover .button-list {
+                display: flex;
+            }
+        }
+
+        &--wide {
+            width: 100%;
+            height: 2rem;
         }
     }
 
