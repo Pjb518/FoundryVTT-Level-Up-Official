@@ -27,7 +27,7 @@
         if (pressedKeysStore.Shift) return "#2b6537";
         if (pressedKeysStore.Control) return "#8b2525";
 
-        return "#555";
+        return "#191813";
     }
 
     function getPromptSubtitle(prompt) {

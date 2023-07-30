@@ -76,11 +76,11 @@
         box-shadow: none;
 
         &:hover .die {
-            color: var(--hover-color, #555);
+            color: var(--hover-color, #191813);
         }
 
         &:hover .die--generic-prompt {
-            color: #555;
+            color: #191813;
         }
     }
 
