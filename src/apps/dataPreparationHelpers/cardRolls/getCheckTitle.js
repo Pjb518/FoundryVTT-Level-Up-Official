@@ -5,6 +5,7 @@ export default function getCheckLabel(messageData) {
   const { abilities, skills } = CONFIG.A5E;
   const { abilityKey, skillKey } = messageData;
   const ability = localize(abilities[abilityKey]);
+  const skill = skills[skillKey];
 
   switch (messageData.cardType) {
     case 'abilityCheck':
@@ -16,7 +17,7 @@ export default function getCheckLabel(messageData) {
         ? localize('A5E.ConcentrationCheck')
         : localize('A5E.SavingThrowSpecific', { ability });
     case 'skillCheck':
-      return localize('A5E.SkillCheck', { skill: localize(skills[skillKey]) });
+      return ability ? localize('A5E.SkillCheckAbility', { skill, ability }) : localize('A5E.SkillCheck', { skill });
     default:
       return null;
   }

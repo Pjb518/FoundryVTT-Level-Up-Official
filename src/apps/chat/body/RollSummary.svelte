@@ -46,12 +46,6 @@
     <header class="roll-header">
         <h3 class="roll-label">
             {rollData.label}
-
-            {#if rollData.secondaryLabel}
-                <span class="roll-secondary-label">
-                    ({rollData.secondaryLabel})
-                </span>
-            {/if}
         </h3>
 
         {#if rollData.rollMode || rollData.userLabel}
@@ -172,13 +166,6 @@
             border-color: #772020;
             background: #8b2525;
         }
-    }
-
-    .roll-secondary-label {
-        font-size: 0.694rem;
-        font-weight: 400;
-        line-height: 1;
-        color: #7e7960;
     }
 
     .roll-sublabel {

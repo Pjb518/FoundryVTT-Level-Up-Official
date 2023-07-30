@@ -290,7 +290,6 @@ export default class RollPreparationManager {
       _roll.skill,
       _roll.ability,
       { situationalMods: _roll.bonus }
-
     );
 
     if (!rollFormula) return null;
