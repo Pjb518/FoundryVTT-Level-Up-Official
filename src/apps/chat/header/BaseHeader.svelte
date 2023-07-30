@@ -44,7 +44,7 @@
         display: flex;
         gap: 0.5rem;
         align-items: center;
-        padding-block: 0.25rem 0.5rem;
+        padding-block: 0.25rem var(--bottom-padding, 0.5rem);
 
         &--clickable {
             cursor: pointer;
