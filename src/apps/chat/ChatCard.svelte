@@ -7,8 +7,8 @@
     import CheckHeader from "./header/CheckHeader.svelte";
     import ItemActivationHeader from "./header/ItemActivationHeader.svelte";
 
-    import CheckBody from "./body/CheckBody.svelte";
-    import ItemActivationBody from "./body/ItemActivationBody.svelte";
+    // import CheckBody from "./body/CheckBody.svelte";
+    import CardBody from "./body/CardBody.svelte";
     import ItemActivationFooter from "./footer/ItemActivationFooter.svelte";
 
     function getHeaderComponent() {
@@ -20,18 +20,6 @@
             case "savingThrow":
             case "skillCheck":
                 return CheckHeader;
-        }
-    }
-
-    function getBodyComponent() {
-        switch ($message?.flags?.a5e?.cardType) {
-            case "item":
-                return ItemActivationBody;
-            case "abilityCheck":
-            case "hitDice":
-            case "savingThrow":
-            case "skillCheck":
-                return CheckBody;
         }
     }
 
@@ -57,7 +45,11 @@
     on:toggleDescription={() => (hideDescription = !hideDescription)}
 />
 
-<svelte:component this={getBodyComponent()} {message} {hideDescription} />
+<CardBody
+    {message}
+    hideDescription={hideDescription ||
+        $message?.flags?.a5e?.cardType !== "item"}
+/>
 
 {#if $message?.flags?.a5e?.cardType === "item"}
     <ItemActivationFooter {message} />

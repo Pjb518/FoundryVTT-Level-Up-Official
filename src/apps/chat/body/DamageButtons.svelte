@@ -84,9 +84,7 @@
             {/each}
         </ol>
     </div>
-{/if}
-
-{#if rollData.healingType === "temporaryHealing"}
+{:else if rollData.healingType === "temporaryHealing"}
     <button
         class="healing-button"
         data-tooltip={"Apply Temporary Healing"}

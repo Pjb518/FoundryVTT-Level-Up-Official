@@ -1,14 +1,15 @@
 <script>
     import { slide } from "svelte/transition";
-    import { localize } from "@typhonjs-fvtt/runtime/svelte/helper";
-
-    import zip from "../../../utils/zip";
 
     import PromptButton from "./PromptButton.svelte";
     import RollSummary from "./RollSummary.svelte";
 
     import constructRollFormula from "../../../dice/constructRollFormula";
     import getKeyPressAsOptions from "../../handlers/getKeyPressAsOptions";
+    import getPromptTitle from "../../dataPreparationHelpers/cardPrompts/getPromptTitle";
+    import getPromptSubtitle from "../../dataPreparationHelpers/cardPrompts/getPromptSubtitle";
+    import preparePrompts from "../../dataPreparationHelpers/cardPrompts/preparePrompts";
+    import prepareRolls from "../../dataPreparationHelpers/cardRolls/prepareRolls";
     import prepareSelectedTokenActors from "../../dataPreparationHelpers/prepareSelectedTokenActors";
     import pressedKeysStore from "../../../stores/pressedKeysStore";
 
@@ -28,96 +29,6 @@
         if (pressedKeysStore.Control) return "#8b2525";
 
         return "#191813";
-    }
-
-    function getPromptSubtitle(prompt) {
-        switch (prompt.type) {
-            case "abilityCheck":
-                return getAbilityCheckPromptSubtitle(prompt);
-            case "effect":
-                return getEffectPromptSubtitle(prompt);
-            case "savingThrow":
-                return getSavingThrowPromptSubtitle(prompt);
-            case "skillCheck":
-                return getSkillCheckPromptSubtitle(prompt);
-            case "generic":
-                return getGenericRollPromptSubtitle(prompt);
-        }
-    }
-
-    function getAbilityCheckPromptSubtitle(prompt) {
-        return null;
-    }
-
-    function getEffectPromptSubtitle(prompt) {
-        return "Apply effect";
-    }
-
-    function getSavingThrowPromptSubtitle(prompt) {
-        return prompt.onSave;
-    }
-
-    function getSkillCheckPromptSubtitle(prompt) {
-        return null;
-    }
-
-    function getGenericRollPromptSubtitle(prompt) {
-        return null;
-    }
-
-    function getPromptTitle(prompt) {
-        switch (prompt.type) {
-            case "abilityCheck":
-                return getAbilityCheckPromptTitle(prompt);
-            case "effect":
-                return getEffectPromptTitle(prompt);
-            case "savingThrow":
-                return getSavingThrowPromptTitle(prompt);
-            case "skillCheck":
-                return getSkillCheckPromptTitle(prompt);
-            case "generic":
-                return getGenericRollPromptTitle(prompt);
-        }
-    }
-
-    function getAbilityCheckPromptTitle(prompt) {
-        return localize("A5E.AbilityCheckPrompt", {
-            ability: localize(abilities[prompt.ability]),
-        });
-    }
-
-    function getEffectPromptTitle(prompt) {
-        const effect = fromUuidSync(prompt.effectUuid);
-
-        return effect.name;
-    }
-
-    function getSavingThrowPromptTitle(prompt) {
-        if (game.settings.get("a5e", "protectRolls") ?? false) {
-            const actorId = $message?.flags?.a5e?.actorId;
-            const actor = fromUuidSync(actorId);
-
-            if (actor && actor.type !== "character" && actor.permission < 2) {
-                return localize("A5E.RollPromptSavingThrow", {
-                    ability: localize(abilities[prompt.ability]),
-                });
-            }
-        }
-
-        return localize("A5E.RollPromptSavingThrowWithDC", {
-            ability: localize(abilities[prompt.ability]),
-            dc: prompt.dc,
-        });
-    }
-
-    function getSkillCheckPromptTitle(prompt) {
-        return localize("A5E.SkillCheckPrompt", {
-            skill: localize(skills[prompt.skill]),
-        });
-    }
-
-    function getGenericRollPromptTitle(prompt) {
-        return prompt?.label || localize("A5E.Other");
     }
 
     async function triggerPrompt(prompt) {
@@ -182,19 +93,6 @@
         }
     }
 
-    const { abilities, skills } = CONFIG.A5E;
-
-    const rollSortKeyMap = {
-        attack: 0,
-        damage: 1,
-        healing: 2,
-        abilityCheck: 3,
-        skillCheck: 4,
-        savingThrow: 5,
-        toolCheck: 6,
-        generic: 7,
-    };
-
     const promptTypes = [
         "abilityCheck",
         "savingThrow",
@@ -206,20 +104,10 @@
     const { actionDescription, itemDescription, unidentifiedDescription } =
         $message.flags?.a5e;
 
-    const prompts =
-        $message.flags?.a5e?.prompts?.reduce((acc, prompt) => {
-            acc[prompt.type] ??= [];
-            acc[prompt.type].push(prompt);
-
-            return acc;
-        }, {}) ?? {};
-
-    const rolls = zip($message.rolls, $message.flags?.a5e?.rollData).sort(
-        (a, b) => rollSortKeyMap[a[1]?.type] - rollSortKeyMap[b[1]?.type]
-    );
-
-    const hasRolls = rolls.length;
+    const prompts = preparePrompts($message);
     const hasPrompts = Object.values(prompts).flat().length;
+    const rolls = prepareRolls($message);
+    const hasRolls = rolls.length;
     const item = fromUuidSync($message?.flags?.a5e?.itemId ?? "");
 
     $: hoverColor = getHoverColor($pressedKeysStore);
@@ -233,7 +121,7 @@
             out:slide={{ duration: 150 }}
         >
             {#if itemDescription || unidentifiedDescription}
-                <hr class="a5e-rule a5e-rule--card" />
+                <hr class="a5e-rule" />
 
                 <div>
                     <!-- svelte-ignore missing-declaration -->
@@ -280,7 +168,10 @@
                             <PromptButton
                                 {prompt}
                                 icon={getEffectIcon(prompt)}
-                                title={getPromptTitle(prompt)}
+                                title={getPromptTitle(
+                                    prompt,
+                                    $message?.flags?.a5e?.actorId
+                                )}
                                 subtitle={getPromptSubtitle(prompt)}
                                 --hover-color={hoverColor}
                                 on:triggerPrompt={() => triggerPrompt(prompt)}
@@ -298,7 +189,6 @@
         display: flex;
         flex-direction: column;
         gap: 0.25rem;
-        padding-top: 0.5rem;
     }
 
     .description-block {

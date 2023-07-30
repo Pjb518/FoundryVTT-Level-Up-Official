@@ -43,25 +43,35 @@
         {roll.total}
     </div>
 
-    {#if isAction}
-        <header class="roll-header">
-            <h3 class="roll-label">{rollData.label}</h3>
+    <header class="roll-header">
+        <h3 class="roll-label">
+            {rollData.label}
 
-            {#if rollData.rollMode}
-                <span
-                    class="roll-mode roll-mode--advantage"
-                    class:roll-mode--advantage={rollData.rollMode === 1}
-                    class:roll-mode--disadvantage={rollData.rollMode === -1}
-                >
-                    {rollData.rollMode === 1 ? "Advantage" : "Disadvantage"}
+            {#if rollData.secondaryLabel}
+                <span class="roll-secondary-label">
+                    ({rollData.secondaryLabel})
                 </span>
             {/if}
+        </h3>
 
-            {#if rollData.userLabel}
-                <span class="roll-sublabel">{rollData.userLabel}</span>
-            {/if}
-        </header>
-    {/if}
+        {#if rollData.rollMode || rollData.userLabel}
+            <div class="subtitle-wrapper">
+                {#if rollData.rollMode}
+                    <span
+                        class="roll-mode roll-mode--advantage"
+                        class:roll-mode--advantage={rollData.rollMode === 1}
+                        class:roll-mode--disadvantage={rollData.rollMode === -1}
+                    >
+                        {rollData.rollMode === 1 ? "Advantage" : "Disadvantage"}
+                    </span>
+                {/if}
+
+                {#if rollData.userLabel}
+                    <span class="roll-sublabel">{rollData.userLabel}</span>
+                {/if}
+            </div>
+        {/if}
+    </header>
 
     {#if rollData.type === "damage" || rollData.type === "healing"}
         <DamageButtons {roll} {rollData} />
@@ -127,11 +137,14 @@
     .roll-header {
         display: flex;
         flex-direction: column;
-        gap: 0.125rem;
+        gap: 0.25rem;
         text-align: left;
     }
 
     .roll-label {
+        display: flex;
+        align-items: center;
+        gap: 0.375rem;
         margin: 0;
         font-size: 0.833rem;
         line-height: 1;
@@ -161,10 +174,23 @@
         }
     }
 
+    .roll-secondary-label {
+        font-size: 0.694rem;
+        font-weight: 400;
+        line-height: 1;
+        color: #7e7960;
+    }
+
     .roll-sublabel {
         width: 100%;
         font-size: 0.694rem;
         line-height: 1;
         color: #7e7960;
+    }
+
+    .subtitle-wrapper {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
     }
 </style>
