@@ -1,5 +1,5 @@
 <script>
-    import RollTooltip from "../dice/RollTooltip.svelte";
+    import RollTooltip from "../tooltips/RollTooltip.svelte";
     import DamageButtons from "./DamageButtons.svelte";
 
     export let roll;

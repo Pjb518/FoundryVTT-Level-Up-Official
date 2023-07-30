@@ -3,7 +3,7 @@
     import { slide } from "svelte/transition";
 
     import DieResult from "./DieResult.svelte";
-    import RollFormula from "../dice/RollFormula.svelte";
+    import RollFormula from "./RollFormula.svelte";
 
     function getTooltipPermissions(message) {
         if (!game.settings.get("a5e", "protectRolls") ?? true) return true;
