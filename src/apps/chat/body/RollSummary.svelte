@@ -46,21 +46,13 @@
         <header class="roll-header">
             <h3 class="roll-label">{rollData.label}</h3>
 
-            {#if rollData.rollMode === 1}
+            {#if rollData.rollMode}
                 <span
-                    class="roll-mode-label roll-mode-label--advantage"
-                    data-tooltip="Advantage"
-                    data-tooltip-direction="LEFT"
+                    class="roll-mode roll-mode--advantage"
+                    class:roll-mode--advantage={rollData.rollMode === 1}
+                    class:roll-mode--disadvantage={rollData.rollMode === -1}
                 >
-                    Adv
-                </span>
-            {:else if rollData.rollMode === -1}
-                <span
-                    class="roll-mode-label roll-mode-label--disadvantage"
-                    data-tooltip="Disadvantage"
-                    data-tooltip-direction="LEFT"
-                >
-                    Dis
+                    {rollData.rollMode === 1 ? "Advantage" : "Disadvantage"}
                 </span>
             {/if}
 
@@ -164,12 +156,11 @@
         border: 0;
     }
 
-    .roll-mode-label {
+    .roll-mode {
         display: block;
         flex-shrink: 0;
         width: fit-content;
-        margin-left: auto;
-        padding: 0.15rem 0.4rem;
+        padding: 0.075rem 0.3rem;
         font-size: 0.694rem;
         line-height: 1;
         color: white;
