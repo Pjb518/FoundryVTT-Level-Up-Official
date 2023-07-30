@@ -1,5 +1,6 @@
 <script>
     import RollTooltip from "../dice/RollTooltip.svelte";
+    import DamageButtons from "./DamageButtons.svelte";
 
     export let roll;
     export let rollData = {};
@@ -62,14 +63,8 @@
         </header>
     {/if}
 
-    {#if rollData.type === "damage"}
-        <button class="damage-button">
-            <i class="fa-solid fa-heart-circle-minus" />
-        </button>
-    {:else if rollData.type === "healing"}
-        <button class="healing-button">
-            <i class="fa-solid fa-heart-circle-plus" />
-        </button>
+    {#if rollData.type === "damage" || rollData.type === "healing"}
+        <DamageButtons {roll} {rollData} />
     {/if}
 </button>
 
@@ -83,18 +78,6 @@
 {/if}
 
 <style lang="scss">
-    .damage-button,
-    .healing-button {
-        width: fit-content;
-        margin-left: auto;
-        padding: 0.25rem;
-        line-height: 1;
-
-        i {
-            margin: 0;
-        }
-    }
-
     .roll {
         display: flex;
         flex-grow: 0;
