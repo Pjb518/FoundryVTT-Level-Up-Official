@@ -1,5 +1,10 @@
 <script>
     function applyDamage(multiplier = 1) {
+        if (multiplier < 0) {
+            applyHealing("healing");
+            return;
+        }
+
         const { character } = game.user;
         const selectedTokens = canvas.tokens.controlled;
         const damage = roll.total * multiplier;
@@ -33,6 +38,11 @@
     export let rollData;
 
     const damageButtons = [
+        {
+            label: "Apply Damage as Healing",
+            multiplier: -1,
+            icon: "fa-heart-circle-plus",
+        },
         {
             label: "Apply Double Damage",
             multiplier: 2,
