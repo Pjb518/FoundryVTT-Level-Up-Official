@@ -175,14 +175,15 @@ export default class RestManager {
 
   #restoreSpellResources() {
     const { spellResources } = this.#actor.system;
-    const flags = this.#actor.flags.a5e;
+    const flags = this.#actor?.flags?.a5e ?? {};
     const restoreSpellPointsOnShortRest = flags?.restoreSpellPointsOnShortRest ?? true;
+    const restoreSpellSlotsOnShortRest = flags?.restoreSpellSlotsOnShortRest ?? false;
 
     if (this.#type === 'long' || restoreSpellPointsOnShortRest) {
       this.#updates.actor['system.spellResources.points.current'] = Math.max(spellResources.points.max, 0);
     }
 
-    if (this.#type === 'long') {
+    if (this.#type === 'long' || restoreSpellSlotsOnShortRest) {
       Object.entries(spellResources.slots ?? {}).forEach(([level, { max }]) => {
         this.#updates.actor[`system.spellResources.slots.${level}.current`] = Math.max(max, 0);
       });

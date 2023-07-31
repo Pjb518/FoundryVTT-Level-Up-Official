@@ -90,6 +90,20 @@
             />
         </FormSection>
     {/if}
+
+    <FormSection>
+        <Checkbox
+            label="A5E.settings.restoreSpellSlotsOnShortRest"
+            checked={flags.restoreSpellSlotsOnShortRest ?? false}
+            on:updateSelection={({ detail }) => {
+                updateDocumentDataFromField(
+                    $actor,
+                    "flags.a5e.restoreSpellSlotsOnShortRest",
+                    detail
+                );
+            }}
+        />
+    </FormSection>
 </article>
 
 <style lang="scss">
