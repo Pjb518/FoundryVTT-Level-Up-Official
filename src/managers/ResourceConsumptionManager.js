@@ -1,3 +1,5 @@
+import getDeterministicBonus from '../dice/getDeterministicBonus';
+
 export default class ResourceConsumptionManager {
   #actor;
 
@@ -51,12 +53,15 @@ export default class ResourceConsumptionManager {
   }
 
   #consumeActionUses({ quantity } = {}) {
-    const actionUses = this.action?.uses;
+    const actionUses = this.action?.uses ?? {};
 
-    if (!quantity || !actionUses || !this.#actor) return;
+    if (!quantity || (actionUses?.value !== 0 && !actionUses?.value) || !this.#actor) return;
 
-    const newValue = Math.max(actionUses.value - quantity, 0);
-    if (newValue !== 0 && !newValue) return;
+    const max = getDeterministicBonus(
+      actionUses?.max ?? actionUses.value,
+      this.#actor.getRollData()
+    );
+    const newValue = Math.clamped(actionUses.value - quantity, 0, max);
 
     this.#updates.item[`system.actions.${this.#actionId}.uses.value`] = newValue;
   }
@@ -76,10 +81,13 @@ export default class ResourceConsumptionManager {
 
   #consumeItemUses({ quantity } = {}) {
     const { value } = this.#item.system.uses;
+    if ((value !== 0 && !value) || !quantity || !this.#actor) return;
 
-    if ((value !== 0 && !value) || !quantity) return;
-
-    this.#updates.item['system.uses.value'] = Math.max(value - quantity, 0);
+    const max = getDeterministicBonus(
+      this.#item.system.uses.max ?? value,
+      this.#actor.getRollData()
+    );
+    this.#updates.item['system.uses.value'] = Math.clamped(value - quantity, 0, max);
   }
 
   async #consumeQuantity({ itemId, quantity } = {}) {
