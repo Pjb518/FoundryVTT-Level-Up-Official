@@ -10,6 +10,8 @@
     const settings = getContext("settings");
     const updates = getContext("updates");
 
+    const isGM = game.user.isGM;
+
     const hideDescription = settings.getStore("hideChatDescriptionsByDefault");
     const hideHpRolls = settings.getStore("hideRandomizedHPRolls");
     const protectRolls = settings.getStore("protectRolls");
@@ -40,31 +42,37 @@
             />
         </FormSection>
 
-        <FormSection
-            hint="A5E.settings.hints.hideRandomizedHPRolls"
-            --gap="0.25rem"
-        >
-            <Checkbox
-                label="A5E.settings.hideRandomizedHPRolls"
-                checked={updates.get("hideRandomizedHPRolls") ??
-                    $hideHpRolls ??
-                    false}
-                on:updateSelection={({ detail }) => {
-                    updates.set("hideRandomizedHPRolls", detail);
-                }}
-            />
-        </FormSection>
+        {#if isGM}
+            <FormSection
+                hint="A5E.settings.hints.hideRandomizedHPRolls"
+                --gap="0.25rem"
+            >
+                <Checkbox
+                    label="A5E.settings.hideRandomizedHPRolls"
+                    checked={updates.get("hideRandomizedHPRolls") ??
+                        $hideHpRolls ??
+                        false}
+                    on:updateSelection={({ detail }) => {
+                        updates.set("hideRandomizedHPRolls", detail);
+                    }}
+                />
+            </FormSection>
+        {/if}
 
-        <FormSection hint="A5E.settings.hints.protectRolls" --gap="0.25rem">
-            <Checkbox
-                label="A5E.settings.protectRolls"
-                checked={updates.get("protectRolls") ?? $protectRolls ?? false}
-                on:updateSelection={({ detail }) => {
-                    updates.set("protectRolls", detail);
-                    reload = true;
-                }}
-            />
-        </FormSection>
+        {#if isGM}
+            <FormSection hint="A5E.settings.hints.protectRolls" --gap="0.25rem">
+                <Checkbox
+                    label="A5E.settings.protectRolls"
+                    checked={updates.get("protectRolls") ??
+                        $protectRolls ??
+                        false}
+                    on:updateSelection={({ detail }) => {
+                        updates.set("protectRolls", detail);
+                        reload = true;
+                    }}
+                />
+            </FormSection>
+        {/if}
 
         <FormSection
             hint="A5E.settings.hints.terseRollFormulae"

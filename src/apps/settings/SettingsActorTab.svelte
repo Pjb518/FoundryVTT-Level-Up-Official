@@ -5,11 +5,14 @@
     import FormSection from "../components/FormSection.svelte";
     import Checkbox from "../components/Checkbox.svelte";
 
-    // export let reload;
+    export let reload;
 
     const appId = getContext("appId");
+    const gmSettings = getContext("gmSettings");
     const settings = getContext("settings");
     const updates = getContext("updates");
+
+    const isGM = game.user.isGM;
 
     // Stores
     let trackCurrency = settings.getStore("currencyWeight");
@@ -32,35 +35,39 @@
             </h3>
         </header>
 
-        <FormSection
-            hint="A5E.settings.hints.trackCurrencyWeight"
-            --gap="0.25rem"
-        >
-            <Checkbox
-                label="A5E.settings.trackCurrencyWeight"
-                checked={updates.get("currencyWeight") ??
-                    $trackCurrency ??
-                    false}
-                on:updateSelection={({ detail }) => {
-                    updates.set("currencyWeight", detail);
-                }}
-            />
-        </FormSection>
+        {#if isGM}
+            <FormSection
+                hint="A5E.settings.hints.trackCurrencyWeight"
+                --gap="0.25rem"
+            >
+                <Checkbox
+                    label="A5E.settings.trackCurrencyWeight"
+                    checked={updates.get("currencyWeight") ??
+                        $trackCurrency ??
+                        false}
+                    on:updateSelection={({ detail }) => {
+                        updates.set("currencyWeight", detail);
+                    }}
+                />
+            </FormSection>
+        {/if}
 
-        <FormSection
-            hint="A5E.settings.hints.randomizeNPCHitPoints"
-            --gap="0.25rem"
-        >
-            <Checkbox
-                label="A5E.settings.randomizeNPCHitPoints"
-                checked={updates.get("randomizeNPCHitPoints") ??
-                    $randomHP ??
-                    false}
-                on:updateSelection={({ detail }) => {
-                    updates.set("randomizeNPCHitPoints", detail);
-                }}
-            />
-        </FormSection>
+        {#if isGM}
+            <FormSection
+                hint="A5E.settings.hints.randomizeNPCHitPoints"
+                --gap="0.25rem"
+            >
+                <Checkbox
+                    label="A5E.settings.randomizeNPCHitPoints"
+                    checked={updates.get("randomizeNPCHitPoints") ??
+                        $randomHP ??
+                        false}
+                    on:updateSelection={({ detail }) => {
+                        updates.set("randomizeNPCHitPoints", detail);
+                    }}
+                />
+            </FormSection>
+        {/if}
     </section>
 
     <section class="setting-group">

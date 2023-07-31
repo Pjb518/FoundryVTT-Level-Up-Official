@@ -6,8 +6,7 @@ import MigrationRunner from '../migration/MigrationRunner';
 class A5eGameSettings extends TJSGameSettings {
   constructor() {
     super('a5e');
-
-    this.refreshSettings = [];
+    this.settingsData = null;
   }
 
   init() {
@@ -264,6 +263,7 @@ class A5eGameSettings extends TJSGameSettings {
     ];
 
     this.registerAll(settings, false);
+    this.settingsData = settings;
   }
 }
 

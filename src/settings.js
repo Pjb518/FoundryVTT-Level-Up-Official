@@ -10,6 +10,6 @@ export default function registerSystemSettings() {
     label: 'Configure System Settings',
     icon: 'fas fa bars',
     type: SettingsShim,
-    restricted: true
+    restricted: false
   });
 }
