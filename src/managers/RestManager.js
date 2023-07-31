@@ -35,6 +35,7 @@ export default class RestManager {
       this.#adjustStrifeAndFatigue();
       this.#restoreHitDice();
       this.#restoreHitPoints();
+      await this.#removeTemporaryActiveEffects();
     }
 
     // Optionally consume supply
@@ -188,5 +189,15 @@ export default class RestManager {
         this.#updates.actor[`system.spellResources.slots.${level}.current`] = Math.max(max, 0);
       });
     }
+  }
+
+  async #removeTemporaryActiveEffects() {
+    if (!(game.settings.get('a5e', 'removeActiveEffectsOnLongRest'))) return;
+
+    const effects = Array.from(this.#actor.effects)
+      .filter((e) => e.flags?.a5e?.transferType === 'onUse');
+
+    if (!effects.length) return;
+    await this.#actor.deleteEmbeddedDocuments('ActiveEffect', effects.map((e) => e.id));
   }
 }

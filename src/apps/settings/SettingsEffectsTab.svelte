@@ -37,6 +37,7 @@
         updates.get("automatedConditions") ?? $automatedConditions;
 
     const automateBloodied = settings.getStore("automateBloodiedApplication");
+    const removeEffects = settings.getStore("removeActiveEffectsOnLongRest");
 </script>
 
 <section
@@ -77,6 +78,21 @@
                 on:updateSelection={({ detail }) => {
                     updates.set("automateBloodiedApplication", detail);
                     reload = true;
+                }}
+            />
+        </FormSection>
+
+        <FormSection
+            hint="A5E.settings.hints.removeActiveEffectsOnLongRest"
+            --gap="0.25rem"
+        >
+            <Checkbox
+                label="A5E.settings.removeActiveEffectsOnLongRest"
+                checked={updates.get("removeActiveEffectsOnLongRest") ??
+                    $removeEffects ??
+                    false}
+                on:updateSelection={({ detail }) => {
+                    updates.set("removeActiveEffectsOnLongRest", detail);
                 }}
             />
         </FormSection>

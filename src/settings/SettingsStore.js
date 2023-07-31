@@ -154,6 +154,18 @@ class A5eGameSettings extends TJSGameSettings {
           default: true
         }
       },
+      {
+        namespace,
+        key: 'removeActiveEffectsOnLongRest',
+        options: {
+          name: 'A5E.settings.removeActiveEffectsOnLongRest',
+          hint: 'A5E.settings.hints.removeActiveEffectsOnLongRest',
+          scope: scope.world,
+          config: true,
+          type: Boolean,
+          default: false
+        }
+      },
       // Chat Card Settings
       {
         namespace,
