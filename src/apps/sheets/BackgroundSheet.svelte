@@ -4,13 +4,12 @@
     import { getContext, setContext } from "svelte";
     import { ApplicationShell } from "#runtime/svelte/component/core";
 
-    import BackgroundDetailsTab from "../components/pages/BackgroundDetailsTab.svelte";
+    import BackgroundCultureDetailsTab from "../components/pages/BackgroundCultureDetailsTab.svelte";
+    import BackgroundCultureFeaturesTab from "../components/pages/BackgroundCultureFeaturesTab.svelte";
+    import BackgroundEquipmentTab from "../components/pages/BackgroundEquipmentTab.svelte";
     import ItemDescriptionTab from "../components/pages/ItemDescriptionTab.svelte";
     import ItemSheetHeader from "../components/itemSheetsHeader/ItemSheetHeader.svelte";
     import NavigationBar from "../components/navigation/NavigationBar.svelte";
-    import BackgroundFeaturesTab from "../components/pages/BackgroundFeaturesTab.svelte";
-    import BackgroundEquipmentTab from "../components/pages/BackgroundEquipmentTab.svelte";
-    import BackgroundCultureDetailsTab from "../components/pages/BackgroundCultureDetailsTab.svelte";
 
     export let { document } = getContext("#external").application;
     export let elementRoot;
@@ -35,7 +34,7 @@
         {
             name: "features",
             label: "A5E.TabFeatures",
-            component: BackgroundFeaturesTab,
+            component: BackgroundCultureFeaturesTab,
         },
         {
             name: "equipment",
