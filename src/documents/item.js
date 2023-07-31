@@ -216,6 +216,7 @@ export default class ItemA5e extends Item {
       flags: {
         a5e: {
           actorId: this.actor.uuid,
+          itemId: this.uuid,
           cardType: 'item',
           actionDescription: action?.descriptionOutputs?.includes('action')
             ? await TextEditor.enrichHTML(action.description, {
