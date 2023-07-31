@@ -3,6 +3,7 @@
     import { localize } from "#runtime/svelte/helper";
 
     import CheckboxGroup from "../components/CheckboxGroup.svelte";
+    import Checkbox from "../components/Checkbox.svelte";
     import FormSection from "../components/FormSection.svelte";
 
     export let reload;
@@ -14,7 +15,6 @@
     // Conditions Automation
     const conditions = [
         "blinded",
-        "bloodied",
         "encumbered",
         // 'fatigue',
         // 'frightened',
@@ -35,6 +35,8 @@
     const automatedConditions = settings.getStore("automatedConditions");
     let selectedConditions =
         updates.get("automatedConditions") ?? $automatedConditions;
+
+    const automateBloodied = settings.getStore("automateBloodiedApplication");
 </script>
 
 <section
@@ -46,14 +48,34 @@
                 {localize("A5E.settings.automateConditions")}
             </h3>
         </header>
+
         <!-- Condition Automation -->
-        <FormSection>
+        <FormSection
+            hint="A5E.settings.hints.automateConditions"
+            --gap="0.25rem"
+        >
             <CheckboxGroup
                 options={conditions}
                 selected={selectedConditions}
                 on:updateSelection={({ detail }) => {
                     updates.set("automatedConditions", detail);
                     selectedConditions = detail;
+                    reload = true;
+                }}
+            />
+        </FormSection>
+
+        <FormSection
+            hint="A5E.settings.hints.automateBloodiedApplication"
+            --gap="0.25rem"
+        >
+            <Checkbox
+                label="A5E.settings.automateBloodiedApplication"
+                checked={updates.get("automateBloodiedApplication") ??
+                    $automateBloodied ??
+                    false}
+                on:updateSelection={({ detail }) => {
+                    updates.set("automateBloodiedApplication", detail);
                     reload = true;
                 }}
             />

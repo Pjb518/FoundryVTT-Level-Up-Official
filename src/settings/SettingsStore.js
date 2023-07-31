@@ -139,7 +139,19 @@ class A5eGameSettings extends TJSGameSettings {
           scope: scope.world,
           config: true,
           type: Array,
-          default: ['bloodied']
+          default: []
+        }
+      },
+      {
+        namespace,
+        key: 'automateBloodiedApplication',
+        options: {
+          name: 'A5E.settings.automateBloodiedApplication',
+          hint: 'A5E.settings.hints.automateBloodiedApplication',
+          scope: scope.world,
+          config: true,
+          type: Boolean,
+          default: true
         }
       },
       // Chat Card Settings
