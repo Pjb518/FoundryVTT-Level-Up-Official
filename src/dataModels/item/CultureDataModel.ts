@@ -19,13 +19,11 @@ type CultureSchema = {
     },
     tools: {
       count: number;
-      fixed: string[];
       options: string;
     },
     weapons: {
       count: number;
-      fixed: string[];
-      options: string[];
+      options: string;
     },
     armor: {
       count: number;
@@ -61,15 +59,13 @@ export default class CultureDataModel extends A5EDataModel.mixin(SchemaDataModel
           count: new foundry.data.fields.NumberField({
             integer: true, nullable: false, initial: 0
           }),
-          fixed: new foundry.data.fields.ArrayField(new foundry.data.fields.StringField()),
           options: new foundry.data.fields.StringField({ nullable: false, initial: '' })
         }),
         weapons: new foundry.data.fields.SchemaField({
           count: new foundry.data.fields.NumberField({
             integer: true, nullable: false, initial: 0
           }),
-          fixed: new foundry.data.fields.ArrayField(new foundry.data.fields.StringField()),
-          options: new foundry.data.fields.ArrayField(new foundry.data.fields.StringField())
+          options: new foundry.data.fields.StringField({ nullable: false, initial: '' })
         }),
         armor: new foundry.data.fields.SchemaField({
           count: new foundry.data.fields.NumberField({
