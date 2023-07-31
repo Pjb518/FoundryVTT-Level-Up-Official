@@ -21,13 +21,11 @@ type BackgroundSchema = {
     },
     tools: {
       count: number;
-      fixed: string[];
       options: string;
     },
     weapons: {
       count: number;
-      fixed: string[];
-      options: string[];
+      options: string;
     },
     armor: {
       count: number;
@@ -47,6 +45,13 @@ export default class BackgroundDataModel extends A5EDataModel.mixin(SchemaDataMo
       equipment: new foundry.data.fields.ObjectField({ nullable: false, initial: {} }),
       feature: new foundry.data.fields.StringField({ nullable: false, initial: '' }),
       proficiencies: new foundry.data.fields.SchemaField({
+        armor: new foundry.data.fields.SchemaField({
+          count: new foundry.data.fields.NumberField({
+            integer: true, nullable: false, initial: 0
+          }),
+          fixed: new foundry.data.fields.ArrayField(new foundry.data.fields.StringField()),
+          options: new foundry.data.fields.ArrayField(new foundry.data.fields.StringField())
+        }),
         languages: new foundry.data.fields.SchemaField({
           count: new foundry.data.fields.NumberField({
             integer: true, nullable: false, initial: 0
@@ -65,22 +70,13 @@ export default class BackgroundDataModel extends A5EDataModel.mixin(SchemaDataMo
           count: new foundry.data.fields.NumberField({
             integer: true, nullable: false, initial: 0
           }),
-          fixed: new foundry.data.fields.ArrayField(new foundry.data.fields.StringField()),
           options: new foundry.data.fields.StringField({ nullable: false, initial: '' })
         }),
         weapons: new foundry.data.fields.SchemaField({
           count: new foundry.data.fields.NumberField({
             integer: true, nullable: false, initial: 0
           }),
-          fixed: new foundry.data.fields.ArrayField(new foundry.data.fields.StringField()),
-          options: new foundry.data.fields.ArrayField(new foundry.data.fields.StringField())
-        }),
-        armor: new foundry.data.fields.SchemaField({
-          count: new foundry.data.fields.NumberField({
-            integer: true, nullable: false, initial: 0
-          }),
-          fixed: new foundry.data.fields.ArrayField(new foundry.data.fields.StringField()),
-          options: new foundry.data.fields.ArrayField(new foundry.data.fields.StringField())
+          options: new foundry.data.fields.StringField({ nullable: false, initial: '' })
         })
       })
     });

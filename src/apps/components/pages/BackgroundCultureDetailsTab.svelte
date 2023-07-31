@@ -79,7 +79,7 @@
     <FormSection --direction="column" --gap="1rem">
         <section class="u-flex u-flex-col u-gap-sm">
             <h3 class="u-text-bold u-text-sm">
-                {localize("A5E.advancementSheet.fixedOptions", {
+                {localize("A5E.advancementSheet.mandatoryOptions", {
                     type: localize("A5E.Languages"),
                 })}
             </h3>
@@ -87,7 +87,7 @@
             <CheckboxGroup
                 options={languageOptions}
                 selected={languages.fixed}
-                disabledOptions={skills.options}
+                disabledOptions={languages.options}
                 on:updateSelection={({ detail }) =>
                     updateDocumentDataFromField(
                         $item,
@@ -142,7 +142,7 @@
     <FormSection --direction="column" --gap="1rem">
         <section class="u-flex u-flex-col u-gap-sm">
             <h3 class="u-text-bold u-text-sm">
-                {localize("A5E.advancementSheet.fixedOptions", {
+                {localize("A5E.advancementSheet.mandatoryOptions", {
                     type: localize("A5E.SkillPlural"),
                 })}
             </h3>
@@ -206,7 +206,7 @@
     <FormSection --direction="column" --gap="1rem">
         <section class="u-flex u-flex-col u-gap-sm">
             <h3 class="u-text-bold u-text-sm">
-                {localize("A5E.advancementSheet.fixedOptions", {
+                {localize("A5E.advancementSheet.mandatoryOptions", {
                     type: localize("A5E.ArmorPlural"),
                 })}
             </h3>
@@ -267,7 +267,94 @@
     </FormSection>
 
     <!-- Weapons -->
+    <FormSection --direction="column" --gap="1rem">
+        <section class="u-flex u-flex-col u-gap-sm">
+            <h3 class="u-text-bold u-text-sm">
+                {localize("A5E.advancementSheet.mandatoryOptions", {
+                    type: localize("A5E.Weapons"),
+                })}
+            </h3>
+
+            <input
+                class="a5e-input a5e-input--slim"
+                type="text"
+                name="system.proficiencies.weapons.options"
+                value={weapons.options ?? ""}
+                on:change={({ target }) =>
+                    updateDocumentDataFromField(
+                        $item,
+                        target.name,
+                        target.value
+                    )}
+            />
+        </section>
+
+        <section class="u-flex u-flex-col u-gap-sm">
+            <h3 class="u-text-bold u-text-sm">
+                {localize("A5E.advancementSheet.additionalOptions", {
+                    type: localize("A5E.Weapons"),
+                })}
+            </h3>
+
+            <input
+                class="a5e-input a5e-input--small a5e-input--slim"
+                type="number"
+                name="system.proficiencies.weapons.count"
+                value={weapons.count ?? 0}
+                on:change={({ target }) =>
+                    updateDocumentDataFromField(
+                        $item,
+                        target.name,
+                        parseInt(target.value, 10) ?? 0
+                    )}
+            />
+        </section>
+    </FormSection>
+
     <!-- Tools -->
+    <FormSection --direction="column" --gap="1rem">
+        <section class="u-flex u-flex-col u-gap-sm">
+            <h3 class="u-text-bold u-text-sm">
+                {localize("A5E.advancementSheet.mandatoryOptions", {
+                    type: localize("A5E.ToolPlural"),
+                })}
+            </h3>
+
+            <input
+                class="a5e-input a5e-input--slim"
+                type="text"
+                name="system.proficiencies.tools.options"
+                value={tools.options ?? ""}
+                on:change={({ target }) =>
+                    updateDocumentDataFromField(
+                        $item,
+                        target.name,
+                        target.value
+                    )}
+            />
+        </section>
+
+        <section class="u-flex u-flex-col u-gap-sm">
+            <h3 class="u-text-bold u-text-sm">
+                {localize("A5E.advancementSheet.additionalOptions", {
+                    type: localize("A5E.ToolPlural"),
+                })}
+            </h3>
+
+            <input
+                class="a5e-input a5e-input--small a5e-input--slim"
+                type="number"
+                name="system.proficiencies.tools.count"
+                value={tools.count ?? 0}
+                on:change={({ target }) =>
+                    updateDocumentDataFromField(
+                        $item,
+                        target.name,
+                        parseInt(target.value, 10) ?? 0
+                    )}
+            />
+        </section>
+    </FormSection>
 </article>
 
 <style lang="scss">
