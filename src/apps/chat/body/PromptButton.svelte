@@ -17,7 +17,10 @@
         {#if prompt.type === "effect"}
             <img class="effect-icon" src={icon} alt="title" />
         {:else}
-            <i class="die fa-solid fa-dice-d20" />
+            <i
+                class="die fa-solid fa-dice-d20"
+                class:die--generic-prompt={prompt.type === "generic"}
+            />
         {/if}
     </div>
 
@@ -73,7 +76,11 @@
         box-shadow: none;
 
         &:hover .die {
-            color: var(--hover-color, #555);
+            color: var(--hover-color, #191813);
+        }
+
+        &:hover .die--generic-prompt {
+            color: #191813;
         }
     }
 

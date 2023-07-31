@@ -42,6 +42,7 @@
             name: "canvas",
             label: "A5E.settings.navigation.canvas",
             component: SettingsCanvasTab,
+            display: game.user.isGM,
         },
         {
             name: "chat",
@@ -52,16 +53,19 @@
             name: "effects",
             label: "A5E.settings.navigation.activeEffects",
             component: SettingsEffectsTab,
+            display: game.user.isGM,
         },
         {
             name: "rolls",
             label: "A5E.settings.navigation.rolls",
             component: SettingsRollTab,
+            display: game.user.isGM,
         },
         {
             name: "5eSettings",
             label: "A5E.settings.navigation.5eSettings",
             component: Settings5eTab,
+            display: game.user.isGM,
         },
     ];
 
@@ -69,8 +73,15 @@
     let updates = new Map();
     let reload = false;
 
-    setContext("settings", settings);
+    let { settingsData } = settings;
+    let gmSettings = settingsData.reduce((acc, setting) => {
+        if (setting?.options?.scope === "world") acc.add(setting.key);
+        return acc;
+    }, new Set());
+
     setContext("appId", appId);
+    setContext("gmSettings", gmSettings);
+    setContext("settings", settings);
     setContext("updates", updates);
 </script>
 

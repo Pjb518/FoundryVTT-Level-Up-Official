@@ -1,4 +1,3 @@
-// eslint-disable-next-line import/no-unresolved
 import { TJSDialog } from '#runtime/svelte/application';
 import GenericActorResourceConfigComponent from '../GenericActorResourceConfigDialog.svelte';
 

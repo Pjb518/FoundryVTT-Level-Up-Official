@@ -1,4 +1,3 @@
-// eslint-disable-next-line import/no-unresolved
 import { DynMapReducer } from '#runtime/svelte/store/reducer';
 
 export default class ObjectMapReducer extends DynMapReducer {

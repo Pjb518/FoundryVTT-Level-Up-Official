@@ -6,8 +6,7 @@ import MigrationRunner from '../migration/MigrationRunner';
 class A5eGameSettings extends TJSGameSettings {
   constructor() {
     super('a5e');
-
-    this.refreshSettings = [];
+    this.settingsData = null;
   }
 
   init() {
@@ -140,7 +139,31 @@ class A5eGameSettings extends TJSGameSettings {
           scope: scope.world,
           config: true,
           type: Array,
-          default: ['bloodied']
+          default: []
+        }
+      },
+      {
+        namespace,
+        key: 'automateBloodiedApplication',
+        options: {
+          name: 'A5E.settings.automateBloodiedApplication',
+          hint: 'A5E.settings.hints.automateBloodiedApplication',
+          scope: scope.world,
+          config: true,
+          type: Boolean,
+          default: true
+        }
+      },
+      {
+        namespace,
+        key: 'removeActiveEffectsOnLongRest',
+        options: {
+          name: 'A5E.settings.removeActiveEffectsOnLongRest',
+          hint: 'A5E.settings.hints.removeActiveEffectsOnLongRest',
+          scope: scope.world,
+          config: true,
+          type: Boolean,
+          default: false
         }
       },
       // Chat Card Settings
@@ -264,6 +287,7 @@ class A5eGameSettings extends TJSGameSettings {
     ];
 
     this.registerAll(settings, false);
+    this.settingsData = settings;
   }
 }
 

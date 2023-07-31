@@ -1,4 +1,3 @@
-// eslint-disable-next-line import/no-unresolved
 import { SvelteApplication } from '#runtime/svelte/application';
 
 import ItemDocument from './ItemDocument';
@@ -16,7 +15,10 @@ export default class ItemSheet extends SvelteApplication {
   constructor(item, options = {}) {
     options.svelte ??= {};
 
-    if (item.permission === CONST.DOCUMENT_PERMISSION_LEVELS.LIMITED) {
+    if ([
+      CONST.DOCUMENT_OWNERSHIP_LEVELS.NONE,
+      CONST.DOCUMENT_OWNERSHIP_LEVELS.LIMITED
+    ].includes(item.permission)) {
       options.classes = ['a5e-sheet', 'a5e-item-sheet', 'a5e-actor-sheet--limited'];
       options.svelte.class = LimitedSheetComponent;
       options.width = 512;

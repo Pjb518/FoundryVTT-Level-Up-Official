@@ -1,8 +1,5 @@
-// eslint-disable-next-line import/no-unresolved
 import { localize } from '#runtime/svelte/helper';
 import { TJSDialog } from '#runtime/svelte/application';
-
-// eslint-disable-next-line import/no-unresolved
 
 import SavingThrowRollDialogComponent from '../SavingThrowRollDialog.svelte';
 
@@ -11,17 +8,6 @@ import SavingThrowRollDialogComponent from '../SavingThrowRollDialog.svelte';
  */
 export default class SavingThrowRollDialog extends TJSDialog {
   constructor(actorDocument, abilityKey, options) {
-    super({
-      title: setTitle(),
-      content: {
-        class: SavingThrowRollDialogComponent,
-        props: { actorDocument, abilityKey, options }
-      }
-    }, {
-      classes: ['a5e-sheet'],
-      width: 420
-    });
-
     function setTitle() {
       if (options?.saveType === 'death') {
         return localize(
@@ -34,6 +20,17 @@ export default class SavingThrowRollDialog extends TJSDialog {
         { name: actorDocument.name, ability: localize(CONFIG.A5E.abilities[abilityKey]) }
       );
     }
+
+    super({
+      title: setTitle(),
+      content: {
+        class: SavingThrowRollDialogComponent,
+        props: { actorDocument, abilityKey, options }
+      }
+    }, {
+      classes: ['a5e-sheet'],
+      width: 420
+    });
 
     this.data.content.props.dialog = this;
 

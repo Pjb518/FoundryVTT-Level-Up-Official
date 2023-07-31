@@ -1,8 +1,5 @@
-// eslint-disable-next-line import/no-unresolved
 import { TJSDocument } from '#runtime/svelte/store/fvtt/document';
 import { TJSDialog } from '#runtime/svelte/application';
-
-// eslint-disable-next-line import/no-unresolved
 
 /**
  * Provides a dialog for creating documents that by default is modal and not draggable.

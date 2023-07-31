@@ -3,7 +3,7 @@
     import { slide } from "svelte/transition";
 
     import DieResult from "./DieResult.svelte";
-    import RollFormula from "../dice/RollFormula.svelte";
+    import RollFormula from "./RollFormula.svelte";
 
     function getTooltipPermissions(message) {
         if (!game.settings.get("a5e", "protectRolls") ?? true) return true;
@@ -28,13 +28,11 @@
 </script>
 
 {#if showTooltip}
-    <div in:slide={{ duration: 150 }} out:slide={{ duration: 150 }}>
-        <RollFormula
-            {roll}
-            on:toggleTooltipVisibility={() =>
-                dispatch("toggleTooltipVisibility")}
-        />
-
+    <div
+        class="tooltip"
+        in:slide={{ duration: 150 }}
+        out:slide={{ duration: 150 }}
+    >
         {#each roll.dice as part}
             <section class="u-mb-md">
                 <header
@@ -68,10 +66,22 @@
                 </ol>
             </section>
         {/each}
+
+        <RollFormula
+            {roll}
+            on:toggleTooltipVisibility={() =>
+                dispatch("toggleTooltipVisibility")}
+        />
     </div>
 {/if}
 
 <style lang="scss">
+    .tooltip {
+        width: 100%;
+        flex-shrink: 0;
+        padding: 0 0.125rem;
+    }
+
     .tooltip-formula {
         display: flex;
         gap: 0.5rem;

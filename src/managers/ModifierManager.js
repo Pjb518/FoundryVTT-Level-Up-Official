@@ -1,5 +1,5 @@
-// eslint-disable-next-line import/no-unresolved
 import { localize } from '#runtime/svelte/helper';
+
 import getExpertiseDieSize from '../utils/getExpertiseDieSize';
 
 export default class ModifierManager {
@@ -84,7 +84,7 @@ export default class ModifierManager {
 
     return {
       label: localize('A5E.AbilityCheckBonus', {
-        ability: localize(CONFIG.A5E.abilities[ability])
+        ability: CONFIG.A5E.abilities[ability]
       }),
       value: this.actor.system.abilities[ability]?.check.bonus ?? null
     };
@@ -97,7 +97,7 @@ export default class ModifierManager {
 
     return {
       label: localize('A5E.AbilityCheckMod', {
-        ability: localize(CONFIG.A5E.abilities[ability] ?? ability)
+        ability: CONFIG.A5E.abilities[ability] ?? ability
       }),
       value: this.actor.system.abilities[ability]?.mod ?? null
     };
@@ -110,7 +110,7 @@ export default class ModifierManager {
 
     return {
       label: localize('A5E.AbilityCheckMod', {
-        ability: localize(CONFIG.A5E.abilities[ability] ?? ability)
+        ability: CONFIG.A5E.abilities[ability] ?? ability
       }),
       value: this.actor.system.abilities[ability]?.save.mod ?? null
     };
