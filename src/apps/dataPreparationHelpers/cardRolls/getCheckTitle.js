@@ -3,7 +3,7 @@ import { localize } from '@typhonjs-fvtt/runtime/svelte/helper';
 
 export default function getCheckLabel(messageData) {
   const { abilities, skills } = CONFIG.A5E;
-  const { abilityKey, skillKey } = messageData;
+  const { abilityKey, saveType, skillKey } = messageData;
   const ability = localize(abilities[abilityKey]);
   const skill = skills[skillKey];
 
@@ -13,9 +13,11 @@ export default function getCheckLabel(messageData) {
     case 'hitDice':
       return messageData.title;
     case 'savingThrow':
-      return messageData.saveType === 'concentration'
-        ? localize('A5E.ConcentrationCheck')
-        : localize('A5E.SavingThrowSpecific', { ability });
+      switch (saveType) {
+        case 'concentration': return localize('A5E.ConcentrationCheck');
+        case 'death': return localize('A5E.DeathSavingThrow');
+        default: return localize('A5E.SavingThrowSpecific', { ability });
+      }
     case 'skillCheck':
       return ability ? localize('A5E.SkillCheckAbility', { skill, ability }) : localize('A5E.SkillCheck', { skill });
     default:
