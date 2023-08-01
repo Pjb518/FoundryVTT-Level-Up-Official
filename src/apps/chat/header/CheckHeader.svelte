@@ -10,7 +10,7 @@
     const dispatch = createEventDispatcher();
 </script>
 
-{#if actor.testUserPermission(game.user, 1)}
+{#if actor?.testUserPermission(game.user, 1)}
     <BaseHeader
         {img}
         altText={name}
