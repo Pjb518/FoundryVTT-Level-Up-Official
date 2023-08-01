@@ -942,6 +942,7 @@ export default class ActorA5e extends Actor {
 
   async rollDeathSavingThrow(options = {}) {
     options.saveType = 'death';
+    options.visibilityMode ??= 'gmroll';
 
     this.rollSavingThrow(null, options);
   }
@@ -1070,7 +1071,7 @@ export default class ActorA5e extends Actor {
       type: 'savingThrow'
     });
 
-    return { rollFormula };
+    return { rollFormula, visibilityMode: options.visibilityMode ?? null };
   }
 
   async #showSavingThrowPrompt(abilityKey, options) {

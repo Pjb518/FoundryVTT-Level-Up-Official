@@ -60,11 +60,13 @@
         options.expertiseDice ??
         $actor.system.abilities[abilityKey]?.save.expertiseDice;
 
+    let visibilityMode =
+        options.visibilityMode ?? game.settings.get("core", "rollMode");
+
     let saveType = options.saveType ?? "standard";
     let selectedRollMode = options.rollMode ?? CONFIG.A5E.ROLL_MODE.NORMAL;
     let rollFormula;
     let situationalMods = options.situationalMods ?? "";
-    let visibilityMode = game.settings.get("core", "rollMode");
 
     $: rollMode = overrideRollMode($actor, selectedRollMode, {
         ability: abilityKey,
