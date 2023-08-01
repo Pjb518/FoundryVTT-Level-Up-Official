@@ -41,11 +41,13 @@
     let expertiseDie =
         options.expertiseDice ?? $actor.system.skills[skillKey].expertiseDice;
 
+    let visibilityMode =
+        options.visibilityMode ?? game.settings.get("core", "rollMode");
+
     let { minRoll } = options.minRoll ?? $actor.system.skills[skillKey];
     let rollFormula;
     let selectedRollMode = options.rollMode ?? CONFIG.A5E.ROLL_MODE.NORMAL;
     let situationalMods = options.situationalMods ?? "";
-    let visibilityMode = game.settings.get("core", "rollMode");
 
     let rollMode = overrideRollMode($actor, selectedRollMode, {
         ability: abilityKey,

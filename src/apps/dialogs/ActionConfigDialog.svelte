@@ -65,7 +65,7 @@
 
 <article>
     <header class="action-header">
-        <!-- svelte-ignore a11y-click-events-have-key-events -->
+        <!-- svelte-ignore a11y-click-events-have-key-events a11y-no-noninteractive-element-interactions -->
         <img
             class="item-image"
             src={$item?.actions[actionId]?.img ?? $item.img}

@@ -929,7 +929,7 @@ export default class ActorA5e extends Actor {
       type: 'abilityCheck'
     });
 
-    return { rollFormula };
+    return { rollFormula, visibilityMode: options.visibilityMode ?? null };
   }
 
   async #showAbilityCheckPrompt(abilityKey, options) {
@@ -1160,7 +1160,7 @@ export default class ActorA5e extends Actor {
       situationalMods: options.situationalMods
     });
 
-    return { rollFormula, abilityKey };
+    return { abilityKey, rollFormula, visibilityMode: options.visibilityMode ?? null };
   }
 
   async #showSkillCheckPrompt(skillKey, options) {

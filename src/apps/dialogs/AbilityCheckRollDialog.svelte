@@ -44,9 +44,11 @@
         type: "check",
     });
 
+    let visibilityMode =
+        options.visibilityMode ?? game.settings.get("core", "rollMode");
+
     let rollFormula;
     let situationalMods = options.situationalMods ?? "";
-    let visibilityMode = game.settings.get("core", "rollMode");
 
     $: rollFormula = getRollFormula($actor, {
         ability: abilityKey,
