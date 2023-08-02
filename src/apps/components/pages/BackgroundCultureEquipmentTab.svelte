@@ -29,6 +29,7 @@
     <section class="section-wrapper">
         <DropArea
             {uuids}
+            attribute="equipment"
             on:item-dropped={updateEquipment}
             on:item-deleted={deleteEquipment}
         />

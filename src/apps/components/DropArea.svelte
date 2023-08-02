@@ -4,6 +4,7 @@
 
     export let uuids = [];
     export let singleDocument = false;
+    export let attribute = null;
 
     const dispatch = createEventDispatcher();
 
@@ -52,6 +53,7 @@
                     <OrIginItemWrapper
                         {uuid}
                         {doc}
+                        {attribute}
                         on:item-deleted={(event) =>
                             dispatch("item-deleted", [event, uuid])}
                     />

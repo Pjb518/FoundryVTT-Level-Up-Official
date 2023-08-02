@@ -63,9 +63,9 @@ export default class ForeignDocumentManager extends DataProxy {
   /** ************************************************
    * Internal Methods
    * ************************************************ */
-  async add(uuid: string, updateData = {}, update = true): boolean {
+  async add(uuid: string, updateData = {}): boolean {
     const duplicate = this.getIdByUuid(uuid);
-    if (duplicate && !update) {
+    if (duplicate) {
       ui.notifications.warn(this.#duplicateWarning);
       return false;
     }
