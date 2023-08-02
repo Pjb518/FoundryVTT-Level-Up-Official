@@ -918,7 +918,7 @@ export default class ActorA5e extends Actor {
   getDefaultAbilityCheckData(abilityKey, options = {}) {
     const ability = this.system.abilities[abilityKey];
     const defaultRollMode = options?.rollMode ?? CONFIG.A5E.ROLL_MODE.NORMAL;
-    const expertiseDie = ability.check.expertiseDice;
+    const expertiseDie = options.expertiseDice ?? ability.check.expertiseDice;
 
     const rollMode = overrideRollMode(
       this,
@@ -1060,7 +1060,7 @@ export default class ActorA5e extends Actor {
   getDefaultSavingThrowData(abilityKey, options = {}) {
     const ability = this.system.abilities[abilityKey];
     const defaultRollMode = options?.rollMode ?? CONFIG.A5E.ROLL_MODE.NORMAL;
-    const expertiseDie = ability.save.expertiseDice;
+    const expertiseDie = options.expertiseDice ?? ability.save.expertiseDice;
 
     const rollMode = overrideRollMode(
       this,
@@ -1150,7 +1150,7 @@ export default class ActorA5e extends Actor {
     const skill = this.system.skills[skillKey];
     const abilityKey = options?.abilityKey ?? skill.ability;
     const defaultRollMode = options?.rollMode ?? CONFIG.A5E.ROLL_MODE.NORMAL;
-    const expertiseDie = skill.expertiseDice;
+    const expertiseDie = options.expertiseDice ?? skill.expertiseDice;
 
     const rollMode = overrideRollMode(
       this,
