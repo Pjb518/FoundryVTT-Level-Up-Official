@@ -79,6 +79,7 @@
         align-items: center;
         justify-content: center;
     }
+
     .number-input {
         background: transparent;
         border: 1px solid var(--input-border-color, #bbb);

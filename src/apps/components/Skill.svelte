@@ -72,7 +72,7 @@
         class:skill__roll-icon--ctrl={$pressedKeysStore.Control}
     />
 
-    <!-- svelte-ignore a11y-click-events-have-key-events -->
+    <!-- svelte-ignore a11y-click-events-have-key-events a11y-no-noninteractive-element-interactions -->
     <h3
         class="skill__name"
         class:disable-pointer-events={!$actor.isOwner}

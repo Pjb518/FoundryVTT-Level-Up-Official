@@ -10,20 +10,24 @@
 
     async function getDocs() {
         const docs = new Map();
+
         for await (const uuid of uuids) {
             const doc = await fromUuid(uuid);
             if (doc) docs.set(uuid, doc);
         }
+
         return docs;
     }
 
     $: docs = getDocs(uuids)
         .then((data) => (docs = data))
         .catch((err) => (docs = err));
+
     $: firstDocument = Array.from(docs)?.[0]?.[1] ?? null;
 </script>
 
 {#await docs}
+    <!-- TODO: We should update this to use a simple spinner component -->
     <p>Loading...</p>
 {:then docs}
     <section class="drop-container">
