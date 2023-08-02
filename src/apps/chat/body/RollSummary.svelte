@@ -1,4 +1,6 @@
 <script>
+    import { localize } from "#runtime/svelte/helper";
+
     import RollTooltip from "../tooltips/RollTooltip.svelte";
     import DamageButtons from "./DamageButtons.svelte";
 
@@ -24,6 +26,16 @@
 
         return d20Roll.results.some(
             ({ result, active }) => active && result === 1
+        );
+    }
+
+    function getRollModeLabel({ rollMode }) {
+        if (!rollMode) return null;
+
+        return localize(
+            rollMode === 1
+                ? "A5E.RollModeAdvantage"
+                : "A5E.RollModeDisadvantage"
         );
     }
 
@@ -56,7 +68,7 @@
                         class:roll-mode--advantage={rollData.rollMode === 1}
                         class:roll-mode--disadvantage={rollData.rollMode === -1}
                     >
-                        {rollData.rollMode === 1 ? "Advantage" : "Disadvantage"}
+                        {getRollModeLabel(rollData)}
                     </span>
                 {/if}
 
