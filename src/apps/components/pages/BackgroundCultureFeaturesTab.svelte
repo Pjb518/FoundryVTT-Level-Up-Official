@@ -25,15 +25,21 @@
     }
 
     async function updateCultureFeatures(event) {
-        const [dragEvent, docs] = event.detail;
+        const [dragEvent] = event.detail;
         try {
-            console.log(docs);
+            const { uuid } = JSON.parse(
+                dragEvent.dataTransfer.getData("text/plain")
+            );
+            await $item.features.add(uuid, { optional: false });
         } catch (err) {
             console.error(err);
         }
     }
 
-    async function deleteCultureFeatures(event) {}
+    async function deleteCultureFeatures(event) {
+        const [_, uuid] = event.detail;
+        await $item.features.delete(uuid);
+    }
 
     function updateFeatures(event) {
         if ($item.type === "background") updateBackgroundFeature(event);

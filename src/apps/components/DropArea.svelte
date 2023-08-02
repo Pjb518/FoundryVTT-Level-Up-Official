@@ -74,7 +74,7 @@
                             data-tooltip="A5E.ButtonToolTipDelete"
                             data-tooltip-direction="UP"
                             on:click={(event) =>
-                                dispatch("item-deleted", [event, docs])}
+                                dispatch("item-deleted", [event, uuid])}
                         />
                     </li>
                 {/each}
