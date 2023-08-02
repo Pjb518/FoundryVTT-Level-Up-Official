@@ -16,6 +16,7 @@ import ActionActivationDialog from '../apps/dialogs/initializers/ActionActivatio
 import ActionSelectionDialog from '../apps/dialogs/initializers/ActionSelectionDialog';
 
 import ActionsManager from '../managers/ActionsManager';
+import ForeignDocumentManager from '../managers/ForeignDocumentManager';
 import ResourceConsumptionManager from '../managers/ResourceConsumptionManager';
 import RollPreparationManager from '../managers/RollPreparationManager';
 import TemplatePreparationManager from '../managers/TemplatePreparationManager';
@@ -33,6 +34,12 @@ export default class ItemA5e extends Item {
 
   // *****************************************************************************************
   prepareDerivedData() {
+    if (this.type === 'object') this.prepareArmorData();
+    if (this.type === 'feature') this.prepareArmorData();
+    if (this.type === 'culture') this.prepareForeignDocuments();
+  }
+
+  prepareArmorData() {
     const itemData = this.system;
 
     // Calculate AC formula
@@ -52,6 +59,14 @@ export default class ItemA5e extends Item {
     }
 
     foundry.utils.setProperty(this, 'system.ac.formula', formula);
+  }
+
+  prepareForeignDocuments() {
+    foundry.utils.setProperty(this, 'features', new ForeignDocumentManager(
+      this,
+      'features',
+      { validate: (obj) => obj.type === 'feature' && obj.system?.featureType === 'culture' }
+    ));
   }
 
   // *****************************************************************************************
