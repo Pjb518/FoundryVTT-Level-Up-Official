@@ -1,6 +1,6 @@
 <script>
     import { createEventDispatcher } from "svelte";
-    import OrIginItemWrapper from "./OrIginItemWrapper.svelte";
+    import OriginItemWrapper from "./OriginItemWrapper.svelte";
 
     export let uuids = [];
     export let singleDocument = false;
@@ -30,7 +30,7 @@
         <!-- svelte-ignore a11y-no-static-element-interactions -->
         {#if singleDocument && firstDocument}
             <div class="drop-area">
-                <OrIginItemWrapper
+                <OriginItemWrapper
                     uuid={firstDocument.uuid}
                     doc={firstDocument}
                     on:item-deleted={(event) =>
@@ -50,7 +50,7 @@
         {#if !singleDocument}
             <div class="document-list">
                 {#each docs as [uuid, doc]}
-                    <OrIginItemWrapper
+                    <OriginItemWrapper
                         {uuid}
                         {doc}
                         {attribute}

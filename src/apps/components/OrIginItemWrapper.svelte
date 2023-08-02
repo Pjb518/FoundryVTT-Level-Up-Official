@@ -1,6 +1,5 @@
 <script>
     import { createEventDispatcher, getContext } from "svelte";
-    import { localize } from "#runtime/svelte/helper";
     import updateDocumentDataFromField from "../../utils/updateDocumentDataFromField";
 
     export let doc;
