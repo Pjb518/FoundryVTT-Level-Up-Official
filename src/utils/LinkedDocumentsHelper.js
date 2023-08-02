@@ -104,7 +104,7 @@ export default class LinkedDocumentsHelper {
    */
   getLinkedPropertyKey(uuid) {
     const entry = Object.entries(this.linkedDocuments).find(
-      // eslint-disable-next-line no-unused-vars
+      // eslint-disable-next-line no-unused-vars, @typescript-eslint/no-unused-vars
       ([_, value]) => value.uuid === uuid
     );
     return entry ? entry[0] : undefined;
