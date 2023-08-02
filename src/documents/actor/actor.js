@@ -908,7 +908,10 @@ export default class ActorA5e extends Actor {
       content: '<article></article>'
     };
 
-    const hookData = { abilityKey, rollFormula };
+    const hookData = {
+      abilityKey, expertiseDie, rollFormula, rollMode
+    };
+
     Hooks.callAll('a5e.rollAbilityCheck', this, hookData, roll);
 
     const chatCard = await ChatMessage.create(chatData);
@@ -1044,7 +1047,9 @@ export default class ActorA5e extends Actor {
       content: '<article></article>'
     };
 
-    const hookData = { abilityKey, rollFormula };
+    const hookData = {
+      abilityKey, expertiseDie, rollFormula, rollMode
+    };
 
     if (options?.saveType === 'death') {
       Hooks.callAll('a5e.rollDeathSavingThrow', this, hookData, roll);
@@ -1137,7 +1142,7 @@ export default class ActorA5e extends Actor {
     };
 
     const hookData = {
-      abilityKey, expertiseDie, rollFormula, skillKey
+      abilityKey, expertiseDie, rollFormula, rollMode, skillKey
     };
 
     Hooks.callAll('a5e.rollSkillCheck', this, hookData, roll);
