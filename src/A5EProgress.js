@@ -2,7 +2,7 @@ export default class Progress {
   #value = 0;
 
   constructor({ max, label }) {
-    this.label = label ?? "";
+    this.label = label ?? '';
     this.max = max;
     this.#value = 0;
   }
@@ -14,7 +14,7 @@ export default class Progress {
     SceneNavigation.displayProgressBar({ label, pct });
   }
 
-  close({ label = "" } = {}) {
+  close({ label = '' } = {}) {
     SceneNavigation.displayProgressBar({ label, pct: 100 });
   }
 }
