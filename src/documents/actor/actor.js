@@ -881,7 +881,10 @@ export default class ActorA5e extends Actor {
 
     if (!dialogData) return null;
 
-    const { rollFormula, rollMode, visibilityMode } = dialogData;
+    const {
+      expertiseDie, rollFormula, rollMode, visibilityMode
+    } = dialogData;
+
     const roll = await new Roll(rollFormula).roll({ async: true });
 
     const chatData = {
@@ -896,6 +899,7 @@ export default class ActorA5e extends Actor {
           abilityKey,
           actorId: this.uuid,
           cardType: 'abilityCheck',
+          expertiseDice: expertiseDie,
           img: this.token?.img ?? this.img,
           name: this.name,
           rollMode
@@ -914,6 +918,7 @@ export default class ActorA5e extends Actor {
   getDefaultAbilityCheckData(abilityKey, options = {}) {
     const ability = this.system.abilities[abilityKey];
     const defaultRollMode = options?.rollMode ?? CONFIG.A5E.ROLL_MODE.NORMAL;
+    const expertiseDie = ability.check.expertiseDice;
 
     const rollMode = overrideRollMode(
       this,
@@ -923,13 +928,13 @@ export default class ActorA5e extends Actor {
 
     const rollFormula = getRollFormula(this, {
       ability: abilityKey,
-      expertiseDie: ability.check.expertiseDice,
+      expertiseDie,
       rollMode,
       situationalMods: options.situationalMods,
       type: 'abilityCheck'
     });
 
-    return { rollFormula, visibilityMode: options.visibilityMode ?? null };
+    return { expertiseDie, rollFormula, visibilityMode: options.visibilityMode ?? null };
   }
 
   async #showAbilityCheckPrompt(abilityKey, options) {
@@ -1012,7 +1017,7 @@ export default class ActorA5e extends Actor {
     if (dialogData === null) return null;
 
     const {
-      rollFormula, rollMode, saveType, visibilityMode
+      expertiseDie, rollFormula, rollMode, saveType, visibilityMode
     } = dialogData;
 
     const roll = await new Roll(rollFormula).roll({ async: true });
@@ -1029,6 +1034,7 @@ export default class ActorA5e extends Actor {
           abilityKey,
           actorId: this.uuid,
           cardType: 'savingThrow',
+          expertiseDice: expertiseDie,
           img: this.token?.img ?? this.img,
           name: this.name,
           rollMode,
@@ -1054,6 +1060,7 @@ export default class ActorA5e extends Actor {
   getDefaultSavingThrowData(abilityKey, options = {}) {
     const ability = this.system.abilities[abilityKey];
     const defaultRollMode = options?.rollMode ?? CONFIG.A5E.ROLL_MODE.NORMAL;
+    const expertiseDie = ability.save.expertiseDice;
 
     const rollMode = overrideRollMode(
       this,
@@ -1063,7 +1070,7 @@ export default class ActorA5e extends Actor {
 
     const rollFormula = getRollFormula(this, {
       ability: abilityKey,
-      expertiseDie: ability.save.expertiseDice,
+      expertiseDie,
       proficient: ability.save.proficient,
       rollMode,
       saveType: options.saveType,
@@ -1071,7 +1078,7 @@ export default class ActorA5e extends Actor {
       type: 'savingThrow'
     });
 
-    return { rollFormula, visibilityMode: options.visibilityMode ?? null };
+    return { expertiseDie, rollFormula, visibilityMode: options.visibilityMode ?? null };
   }
 
   async #showSavingThrowPrompt(abilityKey, options) {
@@ -1102,7 +1109,7 @@ export default class ActorA5e extends Actor {
     if (!rollData) return null;
 
     const {
-      abilityKey, rollFormula, rollMode, visibilityMode
+      abilityKey, expertiseDie, rollFormula, rollMode, visibilityMode
     } = rollData;
 
     const roll = await new Roll(rollFormula).roll({ async: true });
@@ -1119,6 +1126,7 @@ export default class ActorA5e extends Actor {
           abilityKey,
           actorId: this.uuid,
           cardType: 'skillCheck',
+          expertiseDice: expertiseDie,
           img: this.token?.img ?? this.img,
           name: this.name,
           rollMode,
@@ -1129,7 +1137,7 @@ export default class ActorA5e extends Actor {
     };
 
     const hookData = {
-      abilityKey, rollFormula, skillKey
+      abilityKey, expertiseDie, rollFormula, skillKey
     };
 
     Hooks.callAll('a5e.rollSkillCheck', this, hookData, roll);
@@ -1142,6 +1150,7 @@ export default class ActorA5e extends Actor {
     const skill = this.system.skills[skillKey];
     const abilityKey = options?.abilityKey ?? skill.ability;
     const defaultRollMode = options?.rollMode ?? CONFIG.A5E.ROLL_MODE.NORMAL;
+    const expertiseDie = skill.expertiseDice;
 
     const rollMode = overrideRollMode(
       this,
@@ -1151,7 +1160,7 @@ export default class ActorA5e extends Actor {
 
     const rollFormula = getRollFormula(this, {
       ability: abilityKey,
-      expertiseDie: skill.expertiseDice,
+      expertiseDie,
       minRoll: options.minRoll ?? skill.minRoll,
       proficient: skill.proficient,
       type: 'skillCheck',
@@ -1160,7 +1169,9 @@ export default class ActorA5e extends Actor {
       situationalMods: options.situationalMods
     });
 
-    return { abilityKey, rollFormula, visibilityMode: options.visibilityMode ?? null };
+    return {
+      abilityKey, expertiseDie, rollFormula, visibilityMode: options.visibilityMode ?? null
+    };
   }
 
   async #showSkillCheckPrompt(skillKey, options) {

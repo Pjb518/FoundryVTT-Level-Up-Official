@@ -32,7 +32,13 @@
     });
 
     function onSubmit() {
-        dialog.submit({ rollFormula, abilityKey, rollMode, visibilityMode });
+        dialog.submit({
+            expertiseDie,
+            rollFormula,
+            abilityKey,
+            rollMode,
+            visibilityMode,
+        });
     }
 
     let abilityKey =

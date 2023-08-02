@@ -49,6 +49,7 @@
 
     function onSubmit() {
         dialog.submit({
+            expertiseDie,
             rollFormula,
             rollMode,
             saveType,
