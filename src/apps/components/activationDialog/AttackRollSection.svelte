@@ -21,6 +21,7 @@
     function updateData() {
         attackRollData = {
             ...attackRoll,
+            expertiseDie,
             rollMode,
             formula: rollFormula,
         };

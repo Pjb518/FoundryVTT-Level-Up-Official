@@ -122,6 +122,7 @@ export default class RollPreparationManager {
     return {
       attackType: _roll.attackType,
       critThreshold,
+      expertiseDice: _roll.expertiseDie,
       isCrit,
       label,
       roll,

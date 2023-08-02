@@ -4,6 +4,8 @@
     import RollTooltip from "../tooltips/RollTooltip.svelte";
     import DamageButtons from "./DamageButtons.svelte";
 
+    import getExpertiseDieSize from "../../../utils/getExpertiseDieSize";
+
     export let roll;
     export let rollData = {};
     export let isAction = true;
@@ -39,6 +41,14 @@
         );
     }
 
+    function getExpertiseLabel({ expertiseDice }) {
+        if (!expertiseDice) return null;
+
+        return localize("A5E.ExpertiseDieSpecific", {
+            dieSize: getExpertiseDieSize(expertiseDice),
+        });
+    }
+
     let tooltipIsVisible = false;
 </script>
 
@@ -60,15 +70,20 @@
             {rollData.label}
         </h3>
 
-        {#if rollData.rollMode || rollData.userLabel}
+        {#if rollData.expertiseDice || rollData.rollMode || rollData.userLabel}
             <div class="subtitle-wrapper">
                 {#if rollData.rollMode}
                     <span
-                        class="roll-mode roll-mode--advantage"
-                        class:roll-mode--advantage={rollData.rollMode === 1}
+                        class="roll-mode"
                         class:roll-mode--disadvantage={rollData.rollMode === -1}
                     >
                         {getRollModeLabel(rollData)}
+                    </span>
+                {/if}
+
+                {#if rollData.expertiseDice}
+                    <span class="expertise-label">
+                        {getExpertiseLabel(rollData)}
                     </span>
                 {/if}
 
@@ -158,6 +173,7 @@
         border: 0;
     }
 
+    .expertise-label,
     .roll-mode {
         display: block;
         flex-shrink: 0;
@@ -166,18 +182,14 @@
         font-size: 0.694rem;
         line-height: 1;
         color: white;
-        border: 1px solid;
+        background: #425f65;
+        border: 1px solid #425f65;
         border-radius: 3px;
+    }
 
-        &--advantage {
-            border-color: #425f65;
-            background: #425f65;
-        }
-
-        &--disadvantage {
-            border-color: #772020;
-            background: #8b2525;
-        }
+    .roll-mode--disadvantage {
+        border-color: #772020;
+        background: #8b2525;
     }
 
     .roll-sublabel {
@@ -190,6 +202,6 @@
     .subtitle-wrapper {
         display: flex;
         align-items: center;
-        gap: 0.5rem;
+        gap: 0.25rem;
     }
 </style>

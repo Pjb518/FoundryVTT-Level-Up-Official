@@ -124,16 +124,16 @@
     let hitDiceData = {};
     let itemUsesData = {};
     let spellData = {};
+    let selectedDamageBonuses = getDefaultSelections({ damageBonuses });
+    let selectedHealingBonuses = getDefaultSelections({ healingBonuses });
+    let selectedPrompts = getDefaultSelections(prompts);
+    let selectedRolls = getDefaultSelections(rolls);
+    let visibilityMode = game.settings.get("core", "rollMode");
+
     let placeTemplate =
         game.settings.get("a5e", "placeItemTemplateDefault") ||
         action?.area?.placeTemplate ||
         false;
-    let selectedDamageBonuses = getDefaultSelections({ damageBonuses });
-    let selectedHealingBonuses = getDefaultSelections({ healingBonuses });
-
-    let selectedPrompts = getDefaultSelections(prompts);
-    let selectedRolls = getDefaultSelections(rolls);
-    let visibilityMode = game.settings.get("core", "rollMode");
 
     const validator = new ConsumptionValidator(
         $actor,
