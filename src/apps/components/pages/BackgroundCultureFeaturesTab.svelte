@@ -20,7 +20,6 @@
     }
 
     async function deleteBackgroundFeature(event) {
-        const [_, docs] = event.detail;
         $item.update({ "system.feature": "" });
     }
 
