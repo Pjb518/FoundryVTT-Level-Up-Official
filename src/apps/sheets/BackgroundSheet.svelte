@@ -6,7 +6,7 @@
 
     import BackgroundCultureDetailsTab from "../components/pages/BackgroundCultureDetailsTab.svelte";
     import BackgroundCultureFeaturesTab from "../components/pages/BackgroundCultureFeaturesTab.svelte";
-    import BackgroundEquipmentTab from "../components/pages/BackgroundEquipmentTab.svelte";
+    import BackgroundCultureEquipmentTab from "../components/pages/BackgroundCultureEquipmentTab.svelte";
     import ItemDescriptionTab from "../components/pages/ItemDescriptionTab.svelte";
     import ItemSheetHeader from "../components/itemSheetsHeader/ItemSheetHeader.svelte";
     import NavigationBar from "../components/navigation/NavigationBar.svelte";
@@ -39,7 +39,7 @@
         {
             name: "equipment",
             label: "A5E.Equipment",
-            component: BackgroundEquipmentTab,
+            component: BackgroundCultureEquipmentTab,
         },
     ];
 

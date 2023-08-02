@@ -9,7 +9,8 @@
     async function getDocs() {
         const docs = new Map();
         for await (const uuid of uuids) {
-            docs.set(uuid, await fromUuid(uuid));
+            const doc = await fromUuid(uuid);
+            if (doc) docs.set(uuid, doc);
         }
         return docs;
     }
@@ -68,7 +69,6 @@
                         />
 
                         <h3>{doc?.name}</h3>
-
                         <button
                             class="a5e-button a5e-button--delete delete-button fas fa-trash"
                             data-tooltip="A5E.ButtonToolTipDelete"

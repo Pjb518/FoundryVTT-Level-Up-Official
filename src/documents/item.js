@@ -34,9 +34,8 @@ export default class ItemA5e extends Item {
 
   // *****************************************************************************************
   prepareDerivedData() {
-    if (this.type === 'object') this.prepareArmorData();
-    if (this.type === 'feature') this.prepareArmorData();
-    if (this.type === 'culture') this.prepareForeignDocuments();
+    if (['object', 'feature'].includes(this.type)) this.prepareArmorData();
+    if (['culture', 'background'].includes(this.type)) this.prepareForeignDocuments();
   }
 
   prepareArmorData() {
@@ -62,11 +61,21 @@ export default class ItemA5e extends Item {
   }
 
   prepareForeignDocuments() {
-    foundry.utils.setProperty(this, 'features', new ForeignDocumentManager(
-      this,
-      'features',
-      { validate: (obj) => obj.type === 'feature' && obj.system?.featureType === 'culture' }
-    ));
+    if (this.type === 'culture') {
+      foundry.utils.setProperty(this, 'features', new ForeignDocumentManager(
+        this,
+        'features',
+        { validate: (obj) => obj.type === 'feature' && obj.system?.featureType === 'culture' }
+      ));
+    }
+
+    if (['background', 'culture'].includes(this.type)) {
+      foundry.utils.setProperty(this, 'equipment', new ForeignDocumentManager(
+        this,
+        'equipment',
+        { validate: (obj) => obj.type === 'object' }
+      ));
+    }
   }
 
   // *****************************************************************************************
