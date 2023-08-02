@@ -7,30 +7,19 @@
     const item = getContext("item");
 
     function addFeature(event, path) {
-        const [dragEvent, feature] = event.detail;
-        const transferData = dragEvent.dataTransfer?.getData("text/plain");
-
-        if (!transferData)
-            return ui.notifications.warn("The item is not a feature.");
-
-        const { uuid } = JSON.parse(transferData);
-        if (!uuid) return ui.notifications.warn("No UUID found on feature.");
-
-        $item.update({
-            [`system.${path}`]: uuid,
-        });
-
-        feature?.setFromUUID(uuid);
+        const [dragEvent] = event.detail;
+        try {
+            const { uuid } = JSON.parse(
+                dragEvent.dataTransfer.getData("text/plain")
+            );
+            $item.update({ [`system.${path}`]: uuid });
+        } catch (err) {
+            console.error(err);
+        }
     }
 
     function deleteFeature(event, path) {
-        const [_, feature] = event.detail;
-
-        $item.update({
-            [`system.${path}`]: "",
-        });
-
-        feature.set();
+        $item.update({ [`system.${path}`]: "" });
     }
 
     $: source = $item.system.sourceOfInspiration || null;
@@ -44,7 +33,8 @@
             {localize("A5E.DestinyFeatureSource")}
         </h3>
         <DropArea
-            uuid={source}
+            uuids={[source]}
+            singleDocument={true}
             on:item-dropped={(event) =>
                 addFeature(event, "sourceOfInspiration")}
             on:item-deleted={(event) =>
@@ -58,7 +48,8 @@
         </h3>
 
         <DropArea
-            uuid={inspiration}
+            uuids={[inspiration]}
+            singleDocument={true}
             on:item-dropped={(event) => addFeature(event, "inspirationFeature")}
             on:item-deleted={(event) =>
                 deleteFeature(event, "inspirationFeature")}
@@ -71,7 +62,8 @@
         </h3>
 
         <DropArea
-            uuid={fulfillment}
+            uuids={[fulfillment]}
+            singleDocument={true}
             on:item-dropped={(event) => addFeature(event, "fulfillmentFeature")}
             on:item-deleted={(event) =>
                 deleteFeature(event, "fulfillmentFeature")}
