@@ -116,6 +116,19 @@ export default class ActorSheet extends SvelteApplication {
     return buttons;
   }
 
+  async #getCultureFeatures(item, featureList) {
+    const cultureFeatures = [];
+
+    // eslint-disable-next-line no-restricted-syntax
+    for (const feature of featureList) {
+      // eslint-disable-next-line no-await-in-loop
+      const f = await fromUuid(item.features[feature]?.uuid);
+      if (f) cultureFeatures.push(f);
+    }
+
+    return cultureFeatures;
+  }
+
   #getProficiencies(property, selectedOptions) {
     return [...new Set([
       ...this.actor.system.proficiencies[property],
@@ -299,11 +312,7 @@ export default class ActorSheet extends SvelteApplication {
     });
 
     // Setup Culture Feature and Equipment
-    const cultureFeatures = (await Promise.allSettled(
-      features.map((feature) => fromUuid(item.features[feature]?.uuid))
-    )
-    ).map((p) => p.value).filter(Boolean);
-
+    const cultureFeatures = await this.#getCultureFeatures(item, features);
     const startingEquipment = await this.#getStartingEquipment(item, selectedEquipment);
 
     // Do not attempt to add items if there are no background features or starting
