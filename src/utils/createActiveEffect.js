@@ -3,7 +3,7 @@ import { localize } from '#runtime/svelte/helper';
 export default async function createEffect(document, effectType) {
   const updateData = {
     label: localize('A5E.effects.new'),
-    icon: 'icons/svg/aura.svg',
+    icon: document.documentName === 'Item' ? document.img : 'icons/svg/aura.svg',
     origin: document.uuid
   };
 
