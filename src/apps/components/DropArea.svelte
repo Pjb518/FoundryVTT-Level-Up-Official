@@ -1,6 +1,7 @@
 <script>
     import { createEventDispatcher } from "svelte";
     import OriginItemWrapper from "./OriginItemWrapper.svelte";
+    import Spinner from "../Spinner.svelte";
 
     export let uuids = [];
     export let singleDocument = false;
@@ -27,8 +28,7 @@
 </script>
 
 {#await docs}
-    <!-- TODO: We should update this to use a simple spinner component -->
-    <p>Loading...</p>
+    <Spinner />
 {:then docs}
     <section class="drop-container">
         <!-- svelte-ignore a11y-no-static-element-interactions -->
