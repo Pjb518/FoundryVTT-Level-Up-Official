@@ -1,5 +1,6 @@
 <script>
     import { createEventDispatcher, getContext } from "svelte";
+
     import updateDocumentDataFromField from "../../utils/updateDocumentDataFromField";
 
     export let doc;
@@ -11,6 +12,7 @@
 
     let docData = $originItem ? $originItem[attribute]?.getUuid(uuid) : null;
     let docId = $originItem ? $originItem[attribute]?.getIdByUuid(uuid) : null;
+    let originalQuantity = doc?.type === "object" ? doc?.system?.quantity : 1;
 </script>
 
 <li class="document-wrapper">
@@ -24,7 +26,8 @@
                 class="number-input"
                 id="{uuid}-quantity"
                 type="number"
-                value={$originItem.system[attribute][docId].quantity ?? 1}
+                value={$originItem.system?.[attribute]?.[docId]?.quantity ??
+                    originalQuantity}
                 min="1"
                 on:change={({ target }) =>
                     updateDocumentDataFromField(

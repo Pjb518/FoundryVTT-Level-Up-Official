@@ -70,8 +70,8 @@ export default class ForeignDocumentManager extends DataProxy {
       return false;
     }
 
+    const obj = await fromUuid(uuid);
     if (this.#validate) {
-      const obj = await fromUuid(uuid);
       if (!this.#validate(obj)) {
         ui.notifications.warn(this.#validateWarning);
         return false;
@@ -79,6 +79,7 @@ export default class ForeignDocumentManager extends DataProxy {
     }
 
     foundry.utils.mergeObject(updateData, { uuid });
+    if (obj?.type === 'object') updateData.quantity = obj?.system?.quantity ?? 1;
 
     const key = duplicate || foundry.utils.randomID();
     await this.#doc.update({ [`system.${this.#attribute}.${key}`]: updateData });
