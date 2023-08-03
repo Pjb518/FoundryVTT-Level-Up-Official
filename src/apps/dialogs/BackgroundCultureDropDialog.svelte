@@ -79,8 +79,9 @@
     }
 
     function submitForm() {
-        console.log({
+        application.submit({
             selectedAbilityScores,
+            selectedArmor,
             selectedEquipment,
             selectedLanguages,
             selectedSkills,
@@ -148,10 +149,8 @@
                 orange={languages.options}
                 disabled={selectedLanguages.length >= numLanguages}
                 disabledOptions={$actor.system.proficiencies.languages}
-                on:updateSelection={({ detail }) => {
-                    console.log(detail);
-                    selectedLanguages = detail;
-                }}
+                on:updateSelection={({ detail }) =>
+                    (selectedLanguages = detail)}
             />
         </FormSection>
     {/if}
@@ -248,19 +247,34 @@
                 on:click|preventDefault={updateWeapons}
             >
                 {localize("A5E.ButtonAdd", {
-                    type: localize("A5E.ToolPlural"),
+                    type: localize("A5E.Weapons"),
                 })}
             </button>
 
             {#if selectedWeapons.length}
                 <CheckboxGroup
-                    options={Object.entries(toolKeys).filter(([toolKey]) =>
-                        selectedWeapons.includes(toolKey)
+                    options={Object.entries(weaponKeys).filter(([weaponKey]) =>
+                        selectedWeapons.includes(weaponKey)
                     )}
                     optionStyles="cursor: auto;"
                     selected={selectedWeapons}
                 />
             {/if}
+        </FormSection>
+    {/if}
+
+    {#if equipmentLength}
+        <FormSection heading="A5E.BackgroundDropEquipmentSelect">
+            <!-- svelte-ignore missing-declaration -->
+            <CheckboxGroup
+                options={Object.entries($item.system.equipment).map(
+                    ([key, e]) => [key, fromUuidSync(e.uuid)?.name]
+                )}
+                selected={selectedEquipment}
+                on:updateSelection={({ detail }) => {
+                    selectedEquipment = detail;
+                }}
+            />
         </FormSection>
     {/if}
 

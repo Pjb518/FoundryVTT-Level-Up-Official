@@ -5,8 +5,6 @@ import ActorDocument from './ActorDocument';
 import ActorSheetComponent from './sheets/ActorSheet.svelte';
 import LimitedSheetComponent from './sheets/LimitedSheet.svelte';
 import BackgroundCultureDropDialog from './dialogs/initializers/BackgroundCultureDropDialog';
-import BackgroundDropDialog from './dialogs/initializers/BackgroundDropDialog';
-import CultureDropDialog from './dialogs/initializers/CultureDropDialog';
 
 export default class ActorSheet extends SvelteApplication {
   /**
@@ -168,10 +166,12 @@ export default class ActorSheet extends SvelteApplication {
     }
 
     let selectedAbilityScores = [];
+    let selectedArmor = [];
     let selectedEquipment = [];
     let selectedSkills = [];
     let selectedLanguages = [];
     let selectedTools = [];
+    let selectedWeapons = [];
 
     const dialog = new BackgroundCultureDropDialog(this.actor, item);
     dialog.render(true);
@@ -179,10 +179,12 @@ export default class ActorSheet extends SvelteApplication {
     try {
       ({
         selectedAbilityScores,
+        selectedArmor,
         selectedEquipment,
         selectedLanguages,
         selectedSkills,
-        selectedTools
+        selectedTools,
+        selectedWeapons
       } = await dialog.promise);
     } catch (error) {
       return;
@@ -195,6 +197,13 @@ export default class ActorSheet extends SvelteApplication {
     selectedAbilityScores.forEach((abl) => {
       updates[`system.abilities.${abl}.value`] = this.actor.system.abilities[abl].value + 1;
     });
+
+    // Setup Armor Proficiencies
+    const updatedArmor = [...new Set([
+      ...this.actor.system.proficiencies.armor,
+      ...selectedArmor
+    ])];
+    updates['system.proficiencies.armor'] = updatedArmor;
 
     // Setup Languages
     const updatedLanguages = [...new Set([
@@ -215,13 +224,21 @@ export default class ActorSheet extends SvelteApplication {
     ])];
     updates['system.proficiencies.tools'] = updatedTools;
 
+    // Setup Weapons
+    const updatedWeapons = [...new Set([
+      ...this.actor.system.proficiencies.weapons,
+      ...selectedWeapons
+    ])];
+    updates['system.proficiencies.weapons'] = updatedWeapons;
+
     // Update Actor
     await this.actor.update(updates);
 
     // Setup Background Feature and Equipment
     const backgroundFeature = await fromUuid(feature);
+    console.log(backgroundFeature);
     const startingEquipment = await Promise.all(selectedEquipment.map(
-      (equipmentItem) => fromUuid(equipmentItem)
+      (equipmentItem) => fromUuid(item.equipment[equipmentItem]?.uuid)
     ));
 
     // Do not attempt to add items if there are no background features or starting
@@ -243,7 +260,7 @@ export default class ActorSheet extends SvelteApplication {
 
     let selectedLanguages = [];
 
-    const dialog = new CultureDropDialog(this.actor, item);
+    const dialog = new BackgroundCultureDropDialog(this.actor, item);
     dialog.render(true);
 
     try {
