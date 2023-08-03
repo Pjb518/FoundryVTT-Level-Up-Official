@@ -221,14 +221,12 @@ export default class ActorSheet extends SvelteApplication {
       ...this.actor.system.proficiencies.armor,
       ...selectedArmor
     ])];
-    updates['system.proficiencies.armor'] = updatedArmor;
 
     // Setup Languages
     const updatedLanguages = [...new Set([
       ...this.actor.system.proficiencies.languages,
       ...selectedLanguages
     ])];
-    updates['system.proficiencies.languages'] = updatedLanguages;
 
     // Setup Skills
     selectedSkills.forEach((skill) => {
@@ -240,17 +238,21 @@ export default class ActorSheet extends SvelteApplication {
       ...this.actor.system.proficiencies.tools,
       ...selectedTools
     ])];
-    updates['system.proficiencies.tools'] = updatedTools;
 
     // Setup Weapons
     const updatedWeapons = [...new Set([
       ...this.actor.system.proficiencies.weapons,
       ...selectedWeapons
     ])];
-    updates['system.proficiencies.weapons'] = updatedWeapons;
 
     // Update Actor
-    await this.actor.update(updates);
+    await this.actor.update({
+      ...updates,
+      'system.proficiencies.armor': updatedArmor,
+      'system.proficiencies.languages': updatedLanguages,
+      'system.proficiencies.tools': updatedTools,
+      'system.proficiencies.weapons': updatedWeapons
+    });
 
     // Setup Background Feature and Equipment
     const backgroundFeature = await fromUuid(feature);
@@ -304,14 +306,12 @@ export default class ActorSheet extends SvelteApplication {
       ...this.actor.system.proficiencies.armor,
       ...selectedArmor
     ])];
-    updates['system.proficiencies.armor'] = updatedArmor;
 
     // Setup Languages
     const updatedLanguages = [...new Set([
       ...this.actor.system.proficiencies.languages,
       ...selectedLanguages
     ])];
-    updates['system.proficiencies.languages'] = updatedLanguages;
 
     // Setup Skills
     selectedSkills.forEach((skill) => {
@@ -323,17 +323,21 @@ export default class ActorSheet extends SvelteApplication {
       ...this.actor.system.proficiencies.tools,
       ...selectedTools
     ])];
-    updates['system.proficiencies.tools'] = updatedTools;
 
     // Setup Weapons
     const updatedWeapons = [...new Set([
       ...this.actor.system.proficiencies.weapons,
       ...selectedWeapons
     ])];
-    updates['system.proficiencies.weapons'] = updatedWeapons;
 
     // Update Actor
-    await this.actor.update(updates);
+    await this.actor.update({
+      ...updates,
+      'system.proficiencies.armor': updatedArmor,
+      'system.proficiencies.languages': updatedLanguages,
+      'system.proficiencies.tools': updatedTools,
+      'system.proficiencies.weapons': updatedWeapons
+    });
 
     // Setup Culture Feature and Equipment
     const cultureFeatures = (await Promise.allSettled(
