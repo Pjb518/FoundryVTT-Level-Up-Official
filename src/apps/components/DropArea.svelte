@@ -1,47 +1,83 @@
 <script>
     import { createEventDispatcher } from "svelte";
-    import { TJSDocument } from "#runtime/svelte/store/fvtt/document";
+    import OriginItemWrapper from "./OriginItemWrapper.svelte";
+    import Spinner from "../Spinner.svelte";
 
-    export let uuid;
+    export let uuids = [];
+    export let singleDocument = false;
+    export let attribute = null;
 
     const dispatch = createEventDispatcher();
-    const feature = new TJSDocument();
 
-    feature.setFromUUID(uuid);
+    async function getDocs() {
+        const docs = new Map();
+
+        for await (const uuid of uuids) {
+            const doc = await fromUuid(uuid);
+            if (doc) docs.set(uuid, doc);
+        }
+
+        return docs;
+    }
+
+    $: docs = getDocs(uuids)
+        .then((data) => (docs = data))
+        .catch((err) => (docs = err));
+
+    $: firstDocument = Array.from(docs)?.[0]?.[1] ?? null;
 </script>
 
-<div
-    class="drop-area"
-    on:drop|preventDefault|stopPropagation={(event) =>
-        dispatch("item-dropped", [event, feature])}
->
-    {#if $feature}
-        <div class="feature-wrapper">
-            <img
-                class="feature-image"
-                src={$feature.img}
-                alt={$feature.name}
-                title={$feature.name}
-            />
+{#await docs}
+    <Spinner />
+{:then docs}
+    <section class="drop-container">
+        <!-- svelte-ignore a11y-no-static-element-interactions -->
+        {#if singleDocument && firstDocument}
+            <div
+                class="drop-area"
+                on:drop|preventDefault|stopPropagation={(event) => {
+                    if (!singleDocument) return;
+                    dispatch("item-dropped", [event, docs]);
+                }}
+            >
+                <OriginItemWrapper
+                    uuid={firstDocument.uuid}
+                    doc={firstDocument}
+                    on:item-deleted={(event) =>
+                        dispatch("item-deleted", [event, firstDocument.uuid])}
+                />
+            </div>
+        {:else}
+            <div
+                class="drop-area"
+                on:drop|preventDefault|stopPropagation={(event) =>
+                    dispatch("item-dropped", [event, docs])}
+            >
+                <i class="drop-icon fa-sold fa-plus" />
+            </div>
+        {/if}
 
-            <h3>{$feature?.name}</h3>
-
-            <button
-                class="a5e-button a5e-button--delete delete-button fas fa-trash"
-                data-tooltip="A5E.ButtonToolTipDelete"
-                data-tooltip-direction="UP"
-                on:click={(event) => dispatch("item-deleted", [event, feature])}
-            />
-        </div>
-    {:else}
-        <i class="drop-icon fa-solid fa-plus" />
-    {/if}
-</div>
+        {#if !singleDocument}
+            <div class="document-list">
+                {#each docs as [uuid, doc]}
+                    <OriginItemWrapper
+                        {uuid}
+                        {doc}
+                        {attribute}
+                        on:item-deleted={(event) =>
+                            dispatch("item-deleted", [event, uuid])}
+                    />
+                {/each}
+            </div>
+        {/if}
+    </section>
+{/await}
 
 <style lang="scss">
-    .delete-button {
-        margin-inline: auto 0.5rem;
-        padding: 0.25rem;
+    .drop-container {
+        display: flex;
+        flex-direction: column;
+        gap: 0.5rem;
     }
 
     .drop-area {
@@ -57,29 +93,17 @@
 
     .drop-icon {
         color: #888;
-        font-size: 1.2rem;
+        font-size: 1.44rem;
+        font-style: normal;
     }
 
-    .feature-wrapper {
+    .document-list {
         display: flex;
-        align-items: center;
-        width: 100%;
-        gap: 0.5rem;
-        padding: 0.25rem;
-        font-size: 0.833rem;
-        background: #f6f2eb;
-        box-shadow: 0 0 5px #ccc inset;
-        border-radius: 3px;
-        border: 1px solid #ccc;
-
-        h3 {
-            font-size: 0.833rem;
-        }
-    }
-
-    .feature-image {
-        height: 2rem;
-        width: 2rem;
-        border-radius: 3px;
+        flex-direction: column;
+        gap: 0.25rem;
+        padding: 0;
+        margin: 0;
+        list-style: none;
+        overflow-y: auto;
     }
 </style>

@@ -10,6 +10,11 @@ import ItemA5e from '../documents/item';
 import TokenA5e from '../documents/token';
 import TokenDocumentA5e from '../documents/tokenDocument';
 
+// DataModels
+import BackgroundDataModel from '../dataModels/item/BackgroundDataModel';
+import CultureDataModel from '../dataModels/item/CultureDataModel';
+import DestinyDataModel from '../dataModels/item/DestinyDataModel';
+
 import EffectOptions from '../activeEffects/EffectOptions';
 
 import _onCombatControl from '../combat/_onCombatControl';
@@ -90,6 +95,11 @@ export default function init() {
   CONFIG.Dice.rolls.push(D20Roll);
 
   CONFIG.MeasuredTemplate.defaults.angle = 60;
+
+  // DataModels
+  CONFIG.Item.dataModels.background = BackgroundDataModel;
+  CONFIG.Item.dataModels.culture = CultureDataModel;
+  CONFIG.Item.dataModels.destiny = DestinyDataModel;
 
   Actors.unregisterSheet('core', ActorSheet);
   Actors.registerSheet('a5e', ActorSheetA5e, {

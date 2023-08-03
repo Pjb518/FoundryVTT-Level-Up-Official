@@ -3,7 +3,7 @@
 /* eslint-disable no-undef */
 /* eslint-disable no-underscore-dangle */
 import { changes, flags } from './conditionsConfig';
-import automateBloodied from './utils/bloodied';
+import automateCondition from './utils/automateHpConditions';
 import { addSubConditions, removeSubConditions, preventIfSourceActivated } from './utils/subConditions';
 
 // ++++++++++++++++++++++++++++++++++++++++++++++++++++++++
@@ -25,7 +25,9 @@ export default function setupConditions() {
 
   // Apply Bloodied Condition.
   const applyBloodied = game.settings.get('a5e', 'automateBloodiedApplication') ?? true;
-  if (applyBloodied) Hooks.on('updateActor', automateBloodied);
+  const applyUnconscious = game.settings.get('a5e', 'automateUnconsciousApplication') ?? true;
+  if (applyBloodied) Hooks.on('updateActor', (d, c) => automateCondition(d, c, 'bloodied'));
+  if (applyUnconscious) Hooks.on('updateActor', (d, c) => automateCondition(d, c, 'unconscious'));
 }
 
 // ++++++++++++++++++++++++++++++++++++++++++++++++++++++++

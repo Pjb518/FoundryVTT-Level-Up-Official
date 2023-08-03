@@ -8,24 +8,29 @@
  * @param {ActorA5e} actor
  * @param {Object} changes
  */
-export default async function automateBloodied(actor, changes) {
+export default async function automateHpConditions(actor, changes, id) {
   // Guard for non-gm users
   if (!game.user.isGM) return;
+  // eslint-disable-next-line no-param-reassign
+  id = actor.type === 'npc' && id === 'unconscious' ? 'dead' : id;
 
   // Guard for non hp changes.
   if (!changes?.system?.attributes?.hp) return;
 
   const { value, max } = actor.system.attributes.hp;
-  const condition = CONFIG.statusEffects.find((c) => c.id === 'bloodied');
+  const condition = CONFIG.statusEffects.find((c) => c.id === id);
   if (!condition) return;
 
-  const isBloodied = (value <= (max / 2));
-  const hasCondition = actor.statuses.has('bloodied');
+  const isApplicable = id === 'bloodied'
+    ? (value <= (max / 2)) && (value > 0)
+    : (value <= 0);
+  const overlay = ['unconscious', 'dead'].includes(id);
+  const hasCondition = actor.statuses.has(id);
 
   // TODO: Call hook to recharge uses on bloodied
   // Handle Application of Condition
   if (actor.type === 'character' && actor.parent === null) {
-    if (isBloodied && !hasCondition) {
+    if (isApplicable && !hasCondition) {
       const createData = foundry.utils.deepClone(condition);
       createData.label = game.i18n.localize(condition.label);
       createData.statuses = [condition.id];
@@ -39,19 +44,21 @@ export default async function automateBloodied(actor, changes) {
 
       await cls.create(createData, { parent: actor });
 
-      Hooks.callAll('a5e.bloodied', actor, true);
-    } else if (!isBloodied && hasCondition) {
+      Hooks.callAll(`a5e.${id}`, actor, true);
+    } else if (!isApplicable && hasCondition) {
       const existing = actor.effects.reduce((arr, e) => {
-        if ((e.statuses.size === 1) && e.statuses.has('bloodied')) arr.push(e.id);
+        if ((e.statuses.size === 1) && e.statuses.has(id)) arr.push(e.id);
         return arr;
       }, []);
 
       if (existing.length) await actor.deleteEmbeddedDocuments('ActiveEffect', existing);
     }
   } else if (actor.type === 'npc' && actor.token !== null) {
-    if (isBloodied && !hasCondition) {
-      actor.token.toggleActiveEffect(condition);
-      Hooks.callAll('a5e.bloodied', actor, true);
-    } else if (!isBloodied && hasCondition) actor.token.toggleActiveEffect(condition);
+    if (isApplicable && !hasCondition) {
+      actor.token.toggleActiveEffect(condition, { overlay });
+      Hooks.callAll(`a5e.${id}`, actor, true);
+    } else if (!isApplicable && hasCondition) {
+      actor.token.toggleActiveEffect(condition, { overlay });
+    }
   }
 }
