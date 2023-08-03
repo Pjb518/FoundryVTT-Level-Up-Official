@@ -304,14 +304,7 @@ export default class ActorSheet extends SvelteApplication {
     )
     ).map((p) => p.value).filter(Boolean);
 
-    const startingEquipment = (await Promise.allSettled(
-      selectedEquipment.map(async (equipmentItem) => {
-        const i = (await fromUuid(item.equipment[equipmentItem]?.uuid)).toObject();
-        if (!i) return null;
-        i.system.quantity = item.equipment[equipmentItem]?.quantity;
-        return i;
-      })
-    )).map((p) => p.value).filter(Boolean);
+    const startingEquipment = await this.#getStartingEquipment(item, selectedEquipment);
 
     // Do not attempt to add items if there are no background features or starting
     // equipment to add.
