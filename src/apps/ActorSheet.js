@@ -116,6 +116,13 @@ export default class ActorSheet extends SvelteApplication {
     return buttons;
   }
 
+  #getProficiencies(property, selectedOptions) {
+    return [...new Set([
+      ...this.actor.system.proficiencies[property],
+      ...selectedOptions
+    ])];
+  }
+
   async #getStartingEquipment(item, selectedEquipment) {
     const startingEquipment = [];
 
@@ -216,42 +223,18 @@ export default class ActorSheet extends SvelteApplication {
       updates[`system.abilities.${abl}.value`] = this.actor.system.abilities[abl].value + 1;
     });
 
-    // Setup Armor Proficiencies
-    const updatedArmor = [...new Set([
-      ...this.actor.system.proficiencies.armor,
-      ...selectedArmor
-    ])];
-
-    // Setup Languages
-    const updatedLanguages = [...new Set([
-      ...this.actor.system.proficiencies.languages,
-      ...selectedLanguages
-    ])];
-
     // Setup Skills
     selectedSkills.forEach((skill) => {
       updates[`system.skills.${skill}.proficient`] = true;
     });
 
-    // Setup Tools
-    const updatedTools = [...new Set([
-      ...this.actor.system.proficiencies.tools,
-      ...selectedTools
-    ])];
-
-    // Setup Weapons
-    const updatedWeapons = [...new Set([
-      ...this.actor.system.proficiencies.weapons,
-      ...selectedWeapons
-    ])];
-
     // Update Actor
     await this.actor.update({
       ...updates,
-      'system.proficiencies.armor': updatedArmor,
-      'system.proficiencies.languages': updatedLanguages,
-      'system.proficiencies.tools': updatedTools,
-      'system.proficiencies.weapons': updatedWeapons
+      'system.proficiencies.armor': this.#getProficiencies('armor', selectedArmor),
+      'system.proficiencies.languages': this.#getProficiencies('languages', selectedLanguages),
+      'system.proficiencies.tools': this.#getProficiencies('tools', selectedTools),
+      'system.proficiencies.weapons': this.#getProficiencies('weapons', selectedWeapons)
     });
 
     // Setup Background Feature and Equipment
@@ -301,42 +284,18 @@ export default class ActorSheet extends SvelteApplication {
     const features = Object.keys(item.system.features);
     const updates = {};
 
-    // Setup Armor Proficiencies
-    const updatedArmor = [...new Set([
-      ...this.actor.system.proficiencies.armor,
-      ...selectedArmor
-    ])];
-
-    // Setup Languages
-    const updatedLanguages = [...new Set([
-      ...this.actor.system.proficiencies.languages,
-      ...selectedLanguages
-    ])];
-
     // Setup Skills
     selectedSkills.forEach((skill) => {
       updates[`system.skills.${skill}.proficient`] = true;
     });
 
-    // Setup Tools
-    const updatedTools = [...new Set([
-      ...this.actor.system.proficiencies.tools,
-      ...selectedTools
-    ])];
-
-    // Setup Weapons
-    const updatedWeapons = [...new Set([
-      ...this.actor.system.proficiencies.weapons,
-      ...selectedWeapons
-    ])];
-
     // Update Actor
     await this.actor.update({
       ...updates,
-      'system.proficiencies.armor': updatedArmor,
-      'system.proficiencies.languages': updatedLanguages,
-      'system.proficiencies.tools': updatedTools,
-      'system.proficiencies.weapons': updatedWeapons
+      'system.proficiencies.armor': this.#getProficiencies('armor', selectedArmor),
+      'system.proficiencies.languages': this.#getProficiencies('languages', selectedLanguages),
+      'system.proficiencies.tools': this.#getProficiencies('tools', selectedTools),
+      'system.proficiencies.weapons': this.#getProficiencies('weapons', selectedWeapons)
     });
 
     // Setup Culture Feature and Equipment
