@@ -4,7 +4,7 @@ import ActorDocument from './ActorDocument';
 
 import ActorSheetComponent from './sheets/ActorSheet.svelte';
 import LimitedSheetComponent from './sheets/LimitedSheet.svelte';
-
+import BackgroundCultureDropDialog from './dialogs/initializers/BackgroundCultureDropDialog';
 import BackgroundDropDialog from './dialogs/initializers/BackgroundDropDialog';
 import CultureDropDialog from './dialogs/initializers/CultureDropDialog';
 
@@ -173,7 +173,7 @@ export default class ActorSheet extends SvelteApplication {
     let selectedLanguages = [];
     let selectedTools = [];
 
-    const dialog = new BackgroundDropDialog(this.actor, item);
+    const dialog = new BackgroundCultureDropDialog(this.actor, item);
     dialog.render(true);
 
     try {
