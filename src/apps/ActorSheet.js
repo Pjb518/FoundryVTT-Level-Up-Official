@@ -236,10 +236,14 @@ export default class ActorSheet extends SvelteApplication {
 
     // Setup Background Feature and Equipment
     const backgroundFeature = await fromUuid(feature);
-    console.log(backgroundFeature);
-    const startingEquipment = await Promise.all(selectedEquipment.map(
-      (equipmentItem) => fromUuid(item.equipment[equipmentItem]?.uuid)
-    ));
+    const startingEquipment = (await Promise.allSettled(
+      selectedEquipment.map(async (equipmentItem) => {
+        const i = (await fromUuid(item.equipment[equipmentItem]?.uuid)).toObject();
+        if (!i) return null;
+        i.system.quantity = item.equipment[equipmentItem]?.quantity;
+        return i;
+      })
+    )).map((p) => p.value).filter(Boolean);
 
     // Do not attempt to add items if there are no background features or starting
     // equipment to add.
@@ -258,39 +262,90 @@ export default class ActorSheet extends SvelteApplication {
       return;
     }
 
+    let selectedArmor = [];
+    let selectedEquipment = [];
+    let selectedSkills = [];
     let selectedLanguages = [];
+    let selectedTools = [];
+    let selectedWeapons = [];
 
     const dialog = new BackgroundCultureDropDialog(this.actor, item);
     dialog.render(true);
 
     try {
-      ({ selectedLanguages } = await dialog.promise);
+      ({
+        selectedArmor,
+        selectedEquipment,
+        selectedLanguages,
+        selectedSkills,
+        selectedTools,
+        selectedWeapons
+      } = await dialog.promise);
     } catch (error) {
       return;
     }
 
-    const { features } = item.system;
+    const features = Object.keys(item.system.features);
     const updates = {};
 
+    // Setup Armor Proficiencies
+    const updatedArmor = [...new Set([
+      ...this.actor.system.proficiencies.armor,
+      ...selectedArmor
+    ])];
+    updates['system.proficiencies.armor'] = updatedArmor;
+
+    // Setup Languages
     const updatedLanguages = [...new Set([
       ...this.actor.system.proficiencies.languages,
       ...selectedLanguages
     ])];
     updates['system.proficiencies.languages'] = updatedLanguages;
 
+    // Setup Skills
+    selectedSkills.forEach((skill) => {
+      updates[`system.skills.${skill}.proficient`] = true;
+    });
+
+    // Setup Tools
+    const updatedTools = [...new Set([
+      ...this.actor.system.proficiencies.tools,
+      ...selectedTools
+    ])];
+    updates['system.proficiencies.tools'] = updatedTools;
+
+    // Setup Weapons
+    const updatedWeapons = [...new Set([
+      ...this.actor.system.proficiencies.weapons,
+      ...selectedWeapons
+    ])];
+    updates['system.proficiencies.weapons'] = updatedWeapons;
+
     // Update Actor
-    this.actor.update(updates);
+    await this.actor.update(updates);
 
-    // Setup features
-    const cultureFeatures = await Promise.all(
-      Object.values(features)
-        .map((f) => fromUuid(f.uuid))
-    );
+    // Setup Culture Feature and Equipment
+    const cultureFeatures = (await Promise.allSettled(
+      features.map((feature) => fromUuid(item.features[feature]?.uuid))
+    )
+    ).map((p) => p.value).filter(Boolean);
 
-    if (cultureFeatures.length) {
-      this.actor.createEmbeddedDocuments('Item', [
+    const startingEquipment = (await Promise.allSettled(
+      selectedEquipment.map(async (equipmentItem) => {
+        const i = (await fromUuid(item.equipment[equipmentItem]?.uuid)).toObject();
+        if (!i) return null;
+        i.system.quantity = item.equipment[equipmentItem]?.quantity;
+        return i;
+      })
+    )).map((p) => p.value).filter(Boolean);
+
+    // Do not attempt to add items if there are no background features or starting
+    // equipment to add.
+    if (cultureFeatures.length || startingEquipment.length) {
+      await this.actor.createEmbeddedDocuments('Item', [
         item,
-        ...cultureFeatures
+        ...cultureFeatures,
+        ...startingEquipment
       ].filter(Boolean));
     }
   }
