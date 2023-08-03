@@ -117,16 +117,11 @@ export default class ActorSheet extends SvelteApplication {
   }
 
   async #getCultureFeatures(item, featureList) {
-    const cultureFeatures = [];
+    const cultureFeatures = await Promise.all(
+      featureList.map(async (feature) => fromUuid(item.features[feature]?.uuid))
+    );
 
-    // eslint-disable-next-line no-restricted-syntax
-    for (const feature of featureList) {
-      // eslint-disable-next-line no-await-in-loop
-      const f = await fromUuid(item.features[feature]?.uuid);
-      if (f) cultureFeatures.push(f);
-    }
-
-    return cultureFeatures;
+    return cultureFeatures.filter(Boolean);
   }
 
   #getProficiencies(property, selectedOptions) {
@@ -136,22 +131,20 @@ export default class ActorSheet extends SvelteApplication {
     ])];
   }
 
-  async #getStartingEquipment(item, selectedEquipment) {
-    const startingEquipment = [];
+  async #getStartingEquipment(item, selectedEquipmentIds) {
+    const selectedEquipment = await Promise.all(selectedEquipmentIds.map(
+      async (id) => fromUuid(item.equipment[id]?.uuid)
+    ));
 
-    // eslint-disable-next-line no-restricted-syntax
-    for (const equipmentItem of selectedEquipment) {
-      // eslint-disable-next-line no-await-in-loop
-      const itemDocument = await fromUuid(item.equipment[equipmentItem]?.uuid);
-
-      if (itemDocument) {
-        const i = itemDocument.toObject();
-        i.system.quantity = item.equipment[equipmentItem]?.quantity;
-        startingEquipment.push(i);
+    return selectedEquipment.reduce((startingEquipment, curr) => {
+      if (curr) {
+        const equipmentItem = curr.toObject();
+        equipmentItem.system.quantity = item.equipment[curr]?.quantity;
+        startingEquipment.push(equipmentItem);
       }
-    }
 
-    return startingEquipment;
+      return startingEquipment;
+    }, []);
   }
 
   _onImport(event) {
