@@ -116,6 +116,24 @@ export default class ActorSheet extends SvelteApplication {
     return buttons;
   }
 
+  async #getStartingEquipment(item, selectedEquipment) {
+    const startingEquipment = [];
+
+    // eslint-disable-next-line no-restricted-syntax
+    for (const equipmentItem of selectedEquipment) {
+      // eslint-disable-next-line no-await-in-loop
+      const itemDocument = await fromUuid(item.equipment[equipmentItem]?.uuid);
+
+      if (itemDocument) {
+        const i = itemDocument.toObject();
+        i.system.quantity = item.equipment[equipmentItem]?.quantity;
+        startingEquipment.push(i);
+      }
+    }
+
+    return startingEquipment;
+  }
+
   _onImport(event) {
     if (event) event.preventDefault();
     return this.actor.collection
@@ -236,14 +254,7 @@ export default class ActorSheet extends SvelteApplication {
 
     // Setup Background Feature and Equipment
     const backgroundFeature = await fromUuid(feature);
-    const startingEquipment = (await Promise.allSettled(
-      selectedEquipment.map(async (equipmentItem) => {
-        const i = (await fromUuid(item.equipment[equipmentItem]?.uuid)).toObject();
-        if (!i) return null;
-        i.system.quantity = item.equipment[equipmentItem]?.quantity;
-        return i;
-      })
-    )).map((p) => p.value).filter(Boolean);
+    const startingEquipment = await this.#getStartingEquipment(item, selectedEquipment);
 
     // Do not attempt to add items if there are no background features or starting
     // equipment to add.
