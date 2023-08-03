@@ -33,7 +33,13 @@
     <section class="drop-container">
         <!-- svelte-ignore a11y-no-static-element-interactions -->
         {#if singleDocument && firstDocument}
-            <div class="drop-area">
+            <div
+                class="drop-area"
+                on:drop|preventDefault|stopPropagation={(event) => {
+                    if (!singleDocument) return;
+                    dispatch("item-dropped", [event, docs]);
+                }}
+            >
                 <OriginItemWrapper
                     uuid={firstDocument.uuid}
                     doc={firstDocument}
