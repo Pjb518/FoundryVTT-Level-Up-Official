@@ -15,9 +15,9 @@ export default class ForeignDocumentManager extends DataProxy {
 
   #validate: (value: any) => boolean;
 
-  #duplicateWarning = 'A5E.DuplicateLinkedDocumentsWarning';
+  #duplicateWarning = 'A5E.validations.warnings.duplicateForeignDocument';
 
-  #validateWarning = 'A5E.InvalidLinkedDocumentsWarning';
+  #validateWarning = 'A5E.validations.warnings.invalidForeignDocument';
 
   constructor(doc: any, attribute: string, options: ForeignDocumentManagerOptions) {
     if (!(doc instanceof Item)) {

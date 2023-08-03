@@ -1,11 +1,12 @@
 <script>
     import { getContext } from "svelte";
+    import { localize } from "#runtime/svelte/helper";
 
     import DropArea from "../DropArea.svelte";
 
     const item = getContext("item");
 
-    function updateBackgroundFeature(event) {
+    async function updateBackgroundFeature(event) {
         const [dragEvent] = event.detail;
         try {
             const { uuid } = JSON.parse(
@@ -13,6 +14,17 @@
             );
 
             // TODO: Validate that this is the correct feature type
+            const doc = await fromUuid(uuid);
+            if (
+                doc?.type !== "feature" ||
+                doc?.system?.featureType !== "background"
+            ) {
+                ui.notifications.warn(
+                    localize("A5E.validations.warnings.invalidForeignDocument")
+                );
+                return;
+            }
+
             $item.update({ "system.feature": uuid });
         } catch (err) {
             console.error(err);

@@ -6,12 +6,22 @@
 
     const item = getContext("item");
 
-    function addFeature(event, path) {
+    async function addFeature(event, path) {
         const [dragEvent] = event.detail;
         try {
             const { uuid } = JSON.parse(
                 dragEvent.dataTransfer.getData("text/plain")
             );
+
+            const doc = await fromUuid(uuid);
+            if (
+                doc?.type !== "feature" ||
+                doc?.system?.featureType !== "destiny"
+            )
+                return ui.notifications.warn(
+                    localize("A5E.validations.warnings.InvalidForeignDocument")
+                );
+
             $item.update({ [`system.${path}`]: uuid });
         } catch (err) {
             console.error(err);

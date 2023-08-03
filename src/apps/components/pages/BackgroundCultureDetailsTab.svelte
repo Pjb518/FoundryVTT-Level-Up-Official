@@ -2,14 +2,11 @@
     import { getContext } from "svelte";
     import { localize } from "#runtime/svelte/helper";
 
-    import prepareAbilityOptions from "../../dataPreparationHelpers/prepareAbilityOptions";
     import updateDocumentDataFromField from "../../../utils/updateDocumentDataFromField";
 
     import Checkbox from "../Checkbox.svelte";
-    import CustomTagGroup from "../CustomTagGroup.svelte";
     import FormSection from "../FormSection.svelte";
     import RadioGroup from "../RadioGroup.svelte";
-    import MultiStateCheckBoxGroup from "../MultiStateCheckBoxGroup.svelte";
     import CheckboxGroup from "../CheckboxGroup.svelte";
 
     const item = getContext("item");
