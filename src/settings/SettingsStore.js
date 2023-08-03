@@ -156,6 +156,18 @@ class A5eGameSettings extends TJSGameSettings {
       },
       {
         namespace,
+        key: 'automateUnconsciousApplication',
+        options: {
+          name: 'A5E.settings.automateUnconsciousApplication',
+          hint: 'A5E.settings.hints.automateUnconsciousApplication',
+          scope: scope.world,
+          config: true,
+          type: Boolean,
+          default: true
+        }
+      },
+      {
+        namespace,
         key: 'removeActiveEffectsOnLongRest',
         options: {
           name: 'A5E.settings.removeActiveEffectsOnLongRest',

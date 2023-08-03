@@ -37,6 +37,9 @@
         updates.get("automatedConditions") ?? $automatedConditions;
 
     const automateBloodied = settings.getStore("automateBloodiedApplication");
+    const automateUnconscious = settings.getStore(
+        "automateUnconsciousApplication"
+    );
     const removeEffects = settings.getStore("removeActiveEffectsOnLongRest");
 </script>
 
@@ -77,6 +80,22 @@
                     false}
                 on:updateSelection={({ detail }) => {
                     updates.set("automateBloodiedApplication", detail);
+                    reload = true;
+                }}
+            />
+        </FormSection>
+
+        <FormSection
+            hint="A5E.settings.hints.automateUnconsciousApplication"
+            --gap="0.25rem"
+        >
+            <Checkbox
+                label="A5E.settings.automateUnconsciousApplication"
+                checked={updates.get("automateUnconsciousApplication") ??
+                    $automateUnconscious ??
+                    false}
+                on:updateSelection={({ detail }) => {
+                    updates.set("automateUnconsciousApplication", detail);
                     reload = true;
                 }}
             />
