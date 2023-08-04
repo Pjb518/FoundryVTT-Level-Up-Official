@@ -48,6 +48,14 @@
         const d20Term = newRoll.terms[0];
         const originalResultsLength = d20Term.results.length;
 
+        // If there isn't a secondary d20 result in the message rollData, store the
+        // secondary die result for the current die if available.
+        if (d20Term.number === 2) {
+            const secondDieResult = d20Term.results[1].result;
+            $message.flags.a5e.rollData[rollIndex].secondDieResult ??=
+                secondDieResult;
+        }
+
         // Remove kh and kl modifiers
         d20Term.modifiers = d20Term.modifiers.filter(
             (modifier) => !["kh", "kl"].includes(modifier)
@@ -64,7 +72,17 @@
             // Add a second die if there isn't one already
             if (originalRollMode === 0) {
                 d20Term.number = 2;
-                await d20Term.roll();
+
+                const { secondDieResult } =
+                    $message?.flags?.a5e?.rollData[rollIndex];
+
+                // If a secondary d20 roll exists in the rollData, use that; otherwise,
+                // generate a new result.
+                if (secondDieResult) {
+                    d20Term.results.push({ result: secondDieResult });
+                } else {
+                    await d20Term.roll();
+                }
             }
         }
 
