@@ -297,6 +297,8 @@ function getConditions() {
       flags: { a5e: {} }
     }
   ].map((c) => {
+    // Assign icon
+    c.icon = CONFIG.A5E.ConditionIcons[c.id] ?? c.icon;
     if (!enabledConditions.has(c.id)) {
       if (c.changes.length !== 0) { c.changes = []; }
     }
