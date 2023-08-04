@@ -85,10 +85,7 @@
         $message.rolls.splice(rollIndex, 1, newRoll);
 
         // Update the corresponding rollData object
-        $message.flags.a5e.rollData.splice(rollIndex, 1, {
-            ...$message.flags.a5e.rollData[rollIndex],
-            rollMode,
-        });
+        $message.flags.a5e.rollData[rollIndex].rollMode = rollMode;
 
         // Permanently update the message with the new data
         await $message.update({
