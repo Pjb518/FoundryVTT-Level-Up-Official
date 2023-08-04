@@ -46,6 +46,7 @@
         newRoll.terms = [...originalRoll.terms];
 
         const d20Term = newRoll.terms[0];
+        const originalResultsLength = d20Term.results.length;
 
         // Remove kh and kl modifiers
         d20Term.modifiers = d20Term.modifiers.filter(
@@ -80,6 +81,28 @@
         newRoll._formula = Roll.getFormula(newRoll.terms);
         newRoll._total = newRoll._evaluateTotal();
         await newRoll.evaluate();
+
+        if (
+            game.modules.get("dice-so-nice")?.active &&
+            d20Term.results.length > originalResultsLength
+        ) {
+            const fakeD20Roll = Roll.fromTerms([new Die({ ...d20Term })]);
+
+            fakeD20Roll.terms[0].number = fakeD20Roll.terms[0].results.length;
+            fakeD20Roll.terms[0].results = fakeD20Roll.terms[0].results.filter(
+                (_, index) => index > 0
+            );
+
+            game.dice3d.showForRoll(
+                fakeD20Roll,
+                game.users.get($message.user.id),
+                true,
+                $message.whisper,
+                $message.blind,
+                null,
+                $message.speaker
+            );
+        }
 
         // Replace the old roll with the new one in the message rolls array
         $message.rolls.splice(rollIndex, 1, newRoll);
