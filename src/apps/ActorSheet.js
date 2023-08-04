@@ -4,9 +4,7 @@ import ActorDocument from './ActorDocument';
 
 import ActorSheetComponent from './sheets/ActorSheet.svelte';
 import LimitedSheetComponent from './sheets/LimitedSheet.svelte';
-
-import BackgroundDropDialog from './dialogs/initializers/BackgroundDropDialog';
-import CultureDropDialog from './dialogs/initializers/CultureDropDialog';
+import BackgroundCultureDropDialog from './dialogs/initializers/BackgroundCultureDropDialog';
 
 export default class ActorSheet extends SvelteApplication {
   /**
@@ -118,6 +116,37 @@ export default class ActorSheet extends SvelteApplication {
     return buttons;
   }
 
+  async #getCultureFeatures(item, featureList) {
+    const cultureFeatures = await Promise.all(
+      featureList.map(async (feature) => fromUuid(item.features[feature]?.uuid))
+    );
+
+    return cultureFeatures.filter(Boolean);
+  }
+
+  #getProficiencies(property, selectedOptions) {
+    return [...new Set([
+      ...this.actor.system.proficiencies[property],
+      ...selectedOptions
+    ])];
+  }
+
+  async #getStartingEquipment(item, selectedEquipmentIds) {
+    const selectedEquipment = await Promise.all(selectedEquipmentIds.map(
+      async (id) => fromUuid(item.equipment[id]?.uuid)
+    ));
+
+    return selectedEquipment.reduce((startingEquipment, curr) => {
+      if (curr) {
+        const equipmentItem = curr.toObject();
+        equipmentItem.system.quantity = item.equipment[curr]?.quantity;
+        startingEquipment.push(equipmentItem);
+      }
+
+      return startingEquipment;
+    }, []);
+  }
+
   _onImport(event) {
     if (event) event.preventDefault();
     return this.actor.collection
@@ -168,21 +197,25 @@ export default class ActorSheet extends SvelteApplication {
     }
 
     let selectedAbilityScores = [];
+    let selectedArmor = [];
     let selectedEquipment = [];
     let selectedSkills = [];
     let selectedLanguages = [];
     let selectedTools = [];
+    let selectedWeapons = [];
 
-    const dialog = new BackgroundDropDialog(this.actor, item);
+    const dialog = new BackgroundCultureDropDialog(this.actor, item);
     dialog.render(true);
 
     try {
       ({
         selectedAbilityScores,
+        selectedArmor,
         selectedEquipment,
         selectedLanguages,
         selectedSkills,
-        selectedTools
+        selectedTools,
+        selectedWeapons
       } = await dialog.promise);
     } catch (error) {
       return;
@@ -196,33 +229,23 @@ export default class ActorSheet extends SvelteApplication {
       updates[`system.abilities.${abl}.value`] = this.actor.system.abilities[abl].value + 1;
     });
 
-    // Setup Languages
-    const updatedLanguages = [...new Set([
-      ...this.actor.system.proficiencies.languages,
-      ...selectedLanguages
-    ])];
-    updates['system.proficiencies.languages'] = updatedLanguages;
-
     // Setup Skills
     selectedSkills.forEach((skill) => {
       updates[`system.skills.${skill}.proficient`] = true;
     });
 
-    // Setup Tools
-    const updatedTools = [...new Set([
-      ...this.actor.system.proficiencies.tools,
-      ...selectedTools
-    ])];
-    updates['system.proficiencies.tools'] = updatedTools;
-
     // Update Actor
-    await this.actor.update(updates);
+    await this.actor.update({
+      ...updates,
+      'system.proficiencies.armor': this.#getProficiencies('armor', selectedArmor),
+      'system.proficiencies.languages': this.#getProficiencies('languages', selectedLanguages),
+      'system.proficiencies.tools': this.#getProficiencies('tools', selectedTools),
+      'system.proficiencies.weapons': this.#getProficiencies('weapons', selectedWeapons)
+    });
 
     // Setup Background Feature and Equipment
     const backgroundFeature = await fromUuid(feature);
-    const startingEquipment = await Promise.all(selectedEquipment.map(
-      (equipmentItem) => fromUuid(equipmentItem)
-    ));
+    const startingEquipment = await this.#getStartingEquipment(item, selectedEquipment);
 
     // Do not attempt to add items if there are no background features or starting
     // equipment to add.
@@ -241,39 +264,57 @@ export default class ActorSheet extends SvelteApplication {
       return;
     }
 
+    let selectedArmor = [];
+    let selectedEquipment = [];
+    let selectedSkills = [];
     let selectedLanguages = [];
+    let selectedTools = [];
+    let selectedWeapons = [];
 
-    const dialog = new CultureDropDialog(this.actor, item);
+    const dialog = new BackgroundCultureDropDialog(this.actor, item);
     dialog.render(true);
 
     try {
-      ({ selectedLanguages } = await dialog.promise);
+      ({
+        selectedArmor,
+        selectedEquipment,
+        selectedLanguages,
+        selectedSkills,
+        selectedTools,
+        selectedWeapons
+      } = await dialog.promise);
     } catch (error) {
       return;
     }
 
-    const { features } = item.system;
+    const features = Object.keys(item.system.features);
     const updates = {};
 
-    const updatedLanguages = [...new Set([
-      ...this.actor.system.proficiencies.languages,
-      ...selectedLanguages
-    ])];
-    updates['system.proficiencies.languages'] = updatedLanguages;
+    // Setup Skills
+    selectedSkills.forEach((skill) => {
+      updates[`system.skills.${skill}.proficient`] = true;
+    });
 
     // Update Actor
-    this.actor.update(updates);
+    await this.actor.update({
+      ...updates,
+      'system.proficiencies.armor': this.#getProficiencies('armor', selectedArmor),
+      'system.proficiencies.languages': this.#getProficiencies('languages', selectedLanguages),
+      'system.proficiencies.tools': this.#getProficiencies('tools', selectedTools),
+      'system.proficiencies.weapons': this.#getProficiencies('weapons', selectedWeapons)
+    });
 
-    // Setup features
-    const cultureFeatures = await Promise.all(
-      Object.values(features)
-        .map((f) => fromUuid(f.uuid))
-    );
+    // Setup Culture Feature and Equipment
+    const cultureFeatures = await this.#getCultureFeatures(item, features);
+    const startingEquipment = await this.#getStartingEquipment(item, selectedEquipment);
 
-    if (cultureFeatures.length) {
-      this.actor.createEmbeddedDocuments('Item', [
+    // Do not attempt to add items if there are no background features or starting
+    // equipment to add.
+    if (cultureFeatures.length || startingEquipment.length) {
+      await this.actor.createEmbeddedDocuments('Item', [
         item,
-        ...cultureFeatures
+        ...cultureFeatures,
+        ...startingEquipment
       ].filter(Boolean));
     }
   }

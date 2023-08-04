@@ -1,16 +1,16 @@
 import { TJSDialog } from '#runtime/svelte/application';
 
-import BackgroundDropDialogComponent from '../BackgroundDropDialog.svelte';
+import BackgroundCultureDropDialogComponent from '../BackgroundCultureDropDialog.svelte';
 
 /**
  * Provides a dialog for creating documents that by default is modal and not draggable.
  */
-export default class BackgroundDropDialog extends TJSDialog {
+export default class BackgroundCultureDropDialog extends TJSDialog {
   constructor(actorDocument, itemDocument) {
     super({
       title: 'Test',
       content: {
-        class: BackgroundDropDialogComponent,
+        class: BackgroundCultureDropDialogComponent,
         props: { actorDocument, itemDocument }
       }
     }, { classes: ['a5e-sheet'], width: 480 });

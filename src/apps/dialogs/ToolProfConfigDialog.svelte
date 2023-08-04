@@ -32,7 +32,7 @@
         ];
 
         if (submitDialog) {
-            tools = proficiencies;
+            dialogTools = proficiencies.slice(0, max);
             return;
         }
 

@@ -1,5 +1,6 @@
 <script>
     import { getContext } from "svelte";
+    import { localize } from "#runtime/svelte/helper";
     import { TJSDocument } from "#runtime/svelte/store/fvtt/document";
 
     import TagGroup from "../components/TagGroup.svelte";
@@ -7,7 +8,15 @@
 
     import updateDocumentDataFromField from "../../utils/updateDocumentDataFromField";
 
-    export let { actorDocument, appId } = getContext("#external").application;
+    export let { application } = getContext("#external");
+    export let {
+        actorDocument,
+        appId,
+        max,
+        submitDialog,
+        dialogWeapons,
+        dialogHint,
+    } = getContext("#external").application;
 
     function updateFunction() {
         const proficiencies = [
@@ -20,6 +29,11 @@
                 .filter(Boolean),
         ];
 
+        if (submitDialog) {
+            dialogWeapons = proficiencies.slice(0, max);
+            return;
+        }
+
         updateDocumentDataFromField(
             $actor,
             "system.proficiencies.weapons",
@@ -27,12 +41,22 @@
         );
     }
 
+    function submitForm() {
+        application.submit({
+            weapons,
+        });
+    }
+
     const actor = new TJSDocument(actorDocument);
     const martialWeapons = CONFIG.A5E.weaponsPlural.martial;
     const rareWeapons = CONFIG.A5E.weaponsPlural.rare;
     const simpleWeapons = CONFIG.A5E.weaponsPlural.simple;
 
-    $: weaponProficiencies = $actor.system.proficiencies.weapons.reduce(
+    $: weapons = submitDialog
+        ? dialogWeapons
+        : $actor.system.proficiencies.weapons;
+
+    $: weaponProficiencies = weapons.reduce(
         (acc, curr) => {
             if (Object.keys(martialWeapons).includes(curr)) {
                 acc.martial.push(curr);
@@ -62,6 +86,8 @@
         heading="A5E.WeaponsSimple"
         tags={simpleWeapons}
         bind:selected={weaponProficiencies.simple}
+        disabled={weapons.length >= max}
+        red={submitDialog ? $actor.system.proficiencies.weapons : false}
         {updateFunction}
     />
 
@@ -69,6 +95,8 @@
         heading="A5E.WeaponsMartial"
         tags={martialWeapons}
         bind:selected={weaponProficiencies.martial}
+        disabled={weapons.length >= max}
+        red={submitDialog ? $actor.system.proficiencies.weapons : false}
         {updateFunction}
     />
 
@@ -76,6 +104,8 @@
         heading="A5E.WeaponsRare"
         tags={rareWeapons}
         bind:selected={weaponProficiencies.rare}
+        disabled={weapons.length >= max}
+        red={submitDialog ? $actor.system.proficiencies.weapons : false}
         {updateFunction}
     />
 
@@ -85,4 +115,12 @@
         bind:fieldValue={otherProficiencies}
         {updateFunction}
     />
+
+    {#if submitDialog}
+        <div class="u-flex">
+            <button on:click|preventDefault={submitForm}>
+                {localize("A5E.Submit")}
+            </button>
+        </div>
+    {/if}
 </form>

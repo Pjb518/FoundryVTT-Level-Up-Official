@@ -9,7 +9,9 @@
 
     export let options = [];
     export let selected = [];
+    export let disabledOptions = [];
     export let disabled = false;
+    export let orange = [];
     export let red = [];
     export let showCustomInput = true;
     export let heading = "";
@@ -57,6 +59,7 @@
 
         <!-- svelte-ignore a11y-click-events-have-key-events -->
         <!-- svelte-ignore a11y-missing-attribute -->
+        <!-- svelte-ignore a11y-no-static-element-interactions -->
         <a on:click={toggleAll} class="u-text-xs"> + Toggle All</a>
     </header>
 {/if}
@@ -65,7 +68,9 @@
     {options}
     selected={selectedCoreOptions}
     {disabled}
+    {disabledOptions}
     {red}
+    {orange}
     on:updateSelection={(event) => (selectedCoreOptions = event.detail)}
 />
 
