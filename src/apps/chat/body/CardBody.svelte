@@ -31,6 +31,72 @@
         return "#191813";
     }
 
+    async function toggleRollMode(rollIndex, rollMode) {
+        const [originalRoll, originalRollData] = rolls[rollIndex];
+        const originalRollMode = originalRollData.rollMode;
+
+        if (originalRollMode === rollMode) return;
+
+        const newRoll = new Roll(
+            originalRoll.formula,
+            { ...originalRoll.data },
+            { ...originalRoll.options }
+        );
+
+        newRoll.terms = [...originalRoll.terms];
+
+        const d20Term = newRoll.terms[0];
+
+        // Remove kh and kl modifiers
+        d20Term.modifiers = d20Term.modifiers.filter(
+            (modifier) => !["kh", "kl"].includes(modifier)
+        );
+
+        if (rollMode === 0) {
+            // Set the number of dice to 1 and keep only the first die
+            d20Term.number = 1;
+            d20Term.results = [d20Term.results.shift()];
+        } else {
+            // Add a kh modifier for advantage and a kl modifier for disadvantage
+            d20Term.modifiers.push(rollMode === 1 ? "kh" : "kl");
+
+            // Add a second die if there isn't one already
+            if (originalRollMode === 0) {
+                d20Term.number = 2;
+                await d20Term.roll();
+            }
+        }
+
+        // Reset all the metadata for the new d20Term results
+        d20Term.results.forEach((term) => {
+            term.active = true;
+            delete term.discarded;
+            delete term.indexThrow;
+        });
+
+        d20Term._evaluateModifiers();
+
+        // Update the formula and total information for the new roll and evaluate the roll
+        newRoll._formula = Roll.getFormula(newRoll.terms);
+        newRoll._total = newRoll._evaluateTotal();
+        await newRoll.evaluate();
+
+        // Replace the old roll with the new one in the message rolls array
+        $message.rolls.splice(rollIndex, 1, newRoll);
+
+        // Update the corresponding rollData object
+        $message.flags.a5e.rollData.splice(rollIndex, 1, {
+            ...$message.flags.a5e.rollData[rollIndex],
+            rollMode,
+        });
+
+        // Permanently update the message with the new data
+        await $message.update({
+            rolls: $message.rolls,
+            "flags.a5e.rollData": $message.flags.a5e.rollData,
+        });
+    }
+
     async function triggerPrompt(prompt) {
         const tokenActors = prepareSelectedTokenActors();
         const options = getKeyPressAsOptions($pressedKeysStore);
@@ -147,8 +213,13 @@
         <hr class="a5e-rule a5e-rule--card" />
 
         <section class="rolls">
-            {#each rolls ?? [] as [roll, rollData]}
-                <RollSummary {roll} {rollData} />
+            {#each rolls ?? [] as [roll, rollData], i}
+                <RollSummary
+                    {roll}
+                    {rollData}
+                    on:toggleRollMode={({ detail }) =>
+                        toggleRollMode(i, detail)}
+                />
 
                 {#if rolls.length > 1 && rollData.type === "attack"}
                     <hr class="a5e-rule" />

@@ -5,6 +5,7 @@
     import DamageButtons from "./DamageButtons.svelte";
 
     import getExpertiseDieSize from "../../../utils/getExpertiseDieSize";
+    import RollModeButtons from "./RollModeButtons.svelte";
 
     export let roll;
     export let rollData = {};
@@ -96,6 +97,8 @@
 
     {#if rollData.type === "damage" || rollData.type === "healing"}
         <DamageButtons {roll} {rollData} />
+    {:else if rollData.type === "attack"}
+        <RollModeButtons on:toggleRollMode />
     {/if}
 </button>
 
