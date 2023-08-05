@@ -1130,36 +1130,47 @@ export default class ActorA5e extends Actor {
    * @returns {Promise<undefined>}
    */
   async rollSkillCheck(skillKey, options = {}) {
-    let rollData;
+    let dialogData;
 
-    if (options.skipRollDialog) rollData = this.getDefaultSkillCheckData(skillKey, options);
-    else rollData = await this.#showSkillCheckPrompt(skillKey, options);
+    if (options.skipRollDialog) dialogData = this.getDefaultSkillCheckData(skillKey, options);
+    else dialogData = await this.#showSkillCheckPrompt(skillKey, options);
 
-    if (!rollData) return null;
+    if (!dialogData) return null;
 
     const {
       abilityKey, expertiseDie, rollFormula, rollMode, visibilityMode
-    } = rollData;
+    } = dialogData;
 
-    const roll = await new Roll(rollFormula).roll({ async: true });
+    const rollPreparationManager = new RollPreparationManager({
+      actor: this,
+      rolls: [
+        {
+          ability: abilityKey,
+          expertiseDie,
+          rollFormula,
+          rollMode,
+          skill: skillKey,
+          type: 'skillCheck'
+        }
+      ]
+    });
+
+    const rolls = await rollPreparationManager.prepareRolls();
 
     const chatData = {
       user: game.user?.id,
       speaker: ChatMessage.getSpeaker({ actor: this }),
       type: CONST.CHAT_MESSAGE_TYPES.ROLL,
       sound: CONFIG.sounds.dice,
-      rolls: [roll],
+      rolls: rolls.map(({ roll }) => roll),
       rollMode: visibilityMode ?? game.settings.get('core', 'rollMode'),
       flags: {
         a5e: {
-          abilityKey,
           actorId: this.uuid,
           cardType: 'skillCheck',
-          expertiseDice: expertiseDie,
           img: this.token?.img ?? this.img,
           name: this.name,
-          rollMode,
-          skillKey
+          rollData: rolls.map(({ roll, ...rollData }) => rollData)
         }
       },
       content: '<article></article>'
@@ -1169,7 +1180,7 @@ export default class ActorA5e extends Actor {
       abilityKey, expertiseDie, rollFormula, rollMode, skillKey
     };
 
-    Hooks.callAll('a5e.rollSkillCheck', this, hookData, roll);
+    Hooks.callAll('a5e.rollSkillCheck', this, hookData, rolls);
 
     const chatCard = await ChatMessage.create(chatData);
     return chatCard;

@@ -301,24 +301,29 @@ export default class RollPreparationManager {
   async #prepareSkillCheckRoll(_roll) {
     const skill = localize(CONFIG.A5E.skills[_roll?.skill]);
 
-    const { abilityKey: ability, rollFormula } = this.#actor.getDefaultSkillCheckData(
+    const defaultData = this.#actor.getDefaultSkillCheckData(
       _roll.skill,
       _roll.ability,
       { situationalMods: _roll.bonus }
     );
 
+    const ability = _roll.ability ?? defaultData.ability;
+    const rollFormula = _roll.rollFormula ?? defaultData.rollFormula;
+
     if (!rollFormula) return null;
 
     const roll = await new Roll(rollFormula).evaluate({ async: true });
 
-    const label = ability
+    const label = ability && ability !== 'none'
       ? localize('A5E.SkillCheckAbility', { skill, ability: localize(CONFIG.A5E.abilities[ability]) })
       : localize('A5E.SkillCheck', { skill });
 
     return {
+      expertiseDice: _roll.expertiseDie ?? defaultData.expertiseDie,
       label,
       userLabel: _roll.label,
       roll,
+      rollMode: _roll.rollMode ?? defaultData._rollMode,
       type: 'skillCheck'
     };
   }
