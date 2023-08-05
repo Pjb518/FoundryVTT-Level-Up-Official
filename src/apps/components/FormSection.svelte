@@ -46,6 +46,8 @@
         font-weight: bold;
         flex-shrink: 1;
         width: var(--label-width, auto);
+        border-bottom: 0;
+        margin-bottom: 0;
     }
 
     .hint,

@@ -5,7 +5,7 @@
     import DamageButtons from "./DamageButtons.svelte";
 
     import getExpertiseDieSize from "../../../utils/getExpertiseDieSize";
-    import RollModeButtons from "./RollModeButtons.svelte";
+    import RollConfigurationOptions from "./RollConfigurationOptions.svelte";
 
     export let roll;
     export let rollData = {};
@@ -51,6 +51,7 @@
     }
 
     let tooltipIsVisible = false;
+    let showRollConfig = false;
 </script>
 
 <button
@@ -71,7 +72,7 @@
             {rollData.label}
         </h3>
 
-        {#if rollData.expertiseDice || rollData.rollMode || rollData.userLabel}
+        {#if !showRollConfig && (rollData.expertiseDice || rollData.rollMode || rollData.userLabel)}
             <div class="subtitle-wrapper">
                 {#if rollData.rollMode}
                     <span
@@ -98,9 +99,22 @@
     {#if rollData.type === "damage" || rollData.type === "healing"}
         <DamageButtons {roll} {rollData} />
     {:else if ["abilityCheck", "attack", "savingThrow", "skillCheck", "toolCheck"].includes(rollData.type)}
-        <RollModeButtons on:toggleRollMode />
+        <button
+            class="roll-mode-button fa-dice fa-solid"
+            on:click|stopPropagation={() => (showRollConfig = !showRollConfig)}
+            data-tooltip={"Modify Roll"}
+            data-tooltip-direction="LEFT"
+        />
     {/if}
 </button>
+
+{#if showRollConfig}
+    <RollConfigurationOptions
+        {rollData}
+        on:toggleRollMode
+        on:toggleExpertiseDice
+    />
+{/if}
 
 {#if tooltipIsVisible}
     <RollTooltip
@@ -168,12 +182,33 @@
     .roll-label {
         display: flex;
         align-items: center;
-        gap: 0.375rem;
+        gap: 0.5rem;
         margin: 0;
         font-size: 0.833rem;
         line-height: 1;
         font-weight: bold;
         border: 0;
+    }
+
+    .roll-mode-button {
+        width: fit-content;
+        margin: 0;
+        margin-left: auto;
+        padding: 0.25rem 0.375rem;
+        font-size: 0.833rem;
+        line-height: 1;
+        color: #7e7960;
+        background: rgba(0, 0, 0, 0.05);
+        border: 1px solid #ccc;
+        border-radius: 3px;
+
+        transition: all 0.15s ease-in-out;
+
+        &:hover,
+        &:focus {
+            color: #191813;
+            box-shadow: none;
+        }
     }
 
     .expertise-label,
