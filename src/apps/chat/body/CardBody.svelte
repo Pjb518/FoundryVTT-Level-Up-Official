@@ -84,12 +84,12 @@
                 },
             });
 
-            if (rollData[rollIndex].expertiseDiceResults[expertiseDice]) {
+            const pastResults = rollData[rollIndex].expertiseDiceResults ?? {};
+
+            if (pastResults[expertiseDice]) {
                 newExpertiseDieRoll.results.push({
                     active: true,
-                    result: rollData[rollIndex].expertiseDiceResults[
-                        expertiseDice
-                    ],
+                    result: pastResults[expertiseDice],
                 });
 
                 newExpertiseDieRoll._evaluated = true;
@@ -104,6 +104,18 @@
                 );
             } else {
                 newRoll.terms.splice(expertiseDieIndex, 1, newExpertiseDieRoll);
+            }
+
+            if (game.modules.get("dice-so-nice")?.active) {
+                game.dice3d.showForRoll(
+                    Roll.fromTerms([newExpertiseDieRoll]),
+                    game.users.get($message.user.id),
+                    true,
+                    $message.whisper,
+                    $message.blind,
+                    null,
+                    $message.speaker
+                );
             }
         }
 
