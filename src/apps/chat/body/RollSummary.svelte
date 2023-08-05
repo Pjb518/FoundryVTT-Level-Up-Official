@@ -97,7 +97,7 @@
 
     {#if rollData.type === "damage" || rollData.type === "healing"}
         <DamageButtons {roll} {rollData} />
-    {:else if rollData.type === "attack"}
+    {:else if ["attack"].includes(rollData.type)}
         <RollModeButtons on:toggleRollMode />
     {/if}
 </button>

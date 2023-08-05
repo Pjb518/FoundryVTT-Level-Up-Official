@@ -61,7 +61,7 @@
             (modifier) => !["kh", "kl"].includes(modifier)
         );
 
-        if (rollMode === 0) {
+        if (!rollMode) {
             // Set the number of dice to 1 and keep only the first die
             d20Term.number = 1;
             d20Term.results = [d20Term.results.shift()];
@@ -70,7 +70,7 @@
             d20Term.modifiers.push(rollMode === 1 ? "kh" : "kl");
 
             // Add a second die if there isn't one already
-            if (originalRollMode === 0) {
+            if (!originalRollMode) {
                 d20Term.number = 2;
 
                 const { secondDieResult } =
