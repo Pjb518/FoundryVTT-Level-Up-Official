@@ -1,5 +1,6 @@
 <script>
     import { localize } from "#runtime/svelte/helper";
+    import { getContext } from "svelte";
 
     import RollTooltip from "../tooltips/RollTooltip.svelte";
     import DamageButtons from "./DamageButtons.svelte";
@@ -52,6 +53,9 @@
 
     let tooltipIsVisible = false;
     let showRollConfig = false;
+
+    const message = getContext("message");
+    const actor = fromUuidSync($message?.flags?.a5e?.actorId);
 </script>
 
 <button
@@ -98,7 +102,7 @@
 
     {#if rollData.type === "damage" || rollData.type === "healing"}
         <DamageButtons {roll} {rollData} />
-    {:else if ["abilityCheck", "attack", "savingThrow", "skillCheck", "toolCheck"].includes(rollData.type)}
+    {:else if (game.user.isGM || actor?.testUserPermission(game.user, 2)) && ["abilityCheck", "attack", "savingThrow", "skillCheck", "toolCheck"].includes(rollData.type)}
         <button
             class="roll-mode-button fa-dice fa-solid"
             on:click|stopPropagation={() => (showRollConfig = !showRollConfig)}
