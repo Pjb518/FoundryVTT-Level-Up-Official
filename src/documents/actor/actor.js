@@ -962,6 +962,7 @@ export default class ActorA5e extends Actor {
 
   async rollDeathSavingThrow(options = {}) {
     options.saveType = 'death';
+    options.expertiseDice ??= 0;
     options.visibilityMode ??= 'gmroll';
 
     this.rollSavingThrow(null, options);
@@ -1035,25 +1036,36 @@ export default class ActorA5e extends Actor {
       expertiseDie, rollFormula, rollMode, saveType, visibilityMode
     } = dialogData;
 
-    const roll = await new Roll(rollFormula).roll({ async: true });
+    const rollPreparationManager = new RollPreparationManager({
+      actor: this,
+      rolls: [
+        {
+          ability: abilityKey,
+          expertiseDie,
+          rollFormula,
+          rollMode,
+          saveType,
+          type: 'savingThrow'
+        }
+      ]
+    });
+
+    const rolls = await rollPreparationManager.prepareRolls();
 
     const chatData = {
       user: game.user?.id,
       speaker: ChatMessage.getSpeaker({ actor: this }),
       type: CONST.CHAT_MESSAGE_TYPES.ROLL,
       sound: CONFIG.sounds.dice,
-      rolls: [roll],
+      rolls: rolls.map(({ roll }) => roll),
       rollMode: visibilityMode ?? game.settings.get('core', 'rollMode'),
       flags: {
         a5e: {
-          abilityKey,
           actorId: this.uuid,
           cardType: 'savingThrow',
-          expertiseDice: expertiseDie,
           img: this.token?.img ?? this.img,
           name: this.name,
-          rollMode,
-          saveType
+          rollData: rolls.map(({ roll, ...rollData }) => rollData)
         }
       },
       content: '<article></article>'
@@ -1064,10 +1076,10 @@ export default class ActorA5e extends Actor {
     };
 
     if (options?.saveType === 'death') {
-      Hooks.callAll('a5e.rollDeathSavingThrow', this, hookData, roll);
-      this.updateDeathSavingThrowFigures(roll);
+      Hooks.callAll('a5e.rollDeathSavingThrow', this, hookData, rolls);
+      this.updateDeathSavingThrowFigures(rolls.map(({ roll }) => roll)[0]);
     } else {
-      Hooks.callAll('a5e.rollSavingThrow', this, hookData, roll);
+      Hooks.callAll('a5e.rollSavingThrow', this, hookData, rolls);
     }
 
     const chatCard = await ChatMessage.create(chatData);
@@ -1077,7 +1089,7 @@ export default class ActorA5e extends Actor {
   getDefaultSavingThrowData(abilityKey, options = {}) {
     const ability = this.system.abilities[abilityKey];
     const defaultRollMode = options?.rollMode ?? CONFIG.A5E.ROLL_MODE.NORMAL;
-    const expertiseDie = options.expertiseDice ?? ability.save.expertiseDice;
+    const expertiseDie = options.expertiseDice ?? ability?.save.expertiseDice ?? 0;
 
     const rollMode = overrideRollMode(
       this,
@@ -1088,7 +1100,7 @@ export default class ActorA5e extends Actor {
     const rollFormula = getRollFormula(this, {
       ability: abilityKey,
       expertiseDie,
-      proficient: ability.save.proficient,
+      proficient: ability?.save.proficient ?? false,
       rollMode,
       saveType: options.saveType,
       situationalMods: options.situationalMods,

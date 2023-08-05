@@ -270,21 +270,30 @@ export default class RollPreparationManager {
   }
 
   async #prepareSavingThrowRoll(_roll) {
-    const { rollFormula } = this.#actor.getDefaultSavingThrowData(
+    const defaultData = this.#actor.getDefaultSavingThrowData(
       _roll.ability,
       { situationalMods: _roll.bonus }
     );
+
+    const rollFormula = _roll.rollFormula ?? defaultData.rollFormula;
 
     if (!rollFormula) return null;
 
     const ability = localize(CONFIG.A5E.abilities[_roll?.ability ?? '']);
     const roll = await new Roll(rollFormula).evaluate({ async: true });
-    const label = localize('A5E.SavingThrowSpecific', { ability });
+    let label;
+
+    if (_roll.saveType === 'concentration') label = localize('A5E.ConcentrationCheck');
+    else if (_roll.saveType === 'death') label = localize('A5E.DeathSavingThrow');
+    else label = localize('A5E.SavingThrowSpecific', { ability });
 
     return {
+      expertiseDice: _roll.expertiseDie ?? defaultData.expertiseDie,
       label,
       userLabel: _roll.label,
       roll,
+      rollMode: _roll.rollMode ?? defaultData._rollMode,
+      saveType: _roll.saveType,
       type: 'savingThrow'
     };
   }
