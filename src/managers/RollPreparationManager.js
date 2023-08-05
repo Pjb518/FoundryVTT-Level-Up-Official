@@ -17,7 +17,9 @@ export default class RollPreparationManager {
 
   #rolls;
 
-  constructor(actor, item, consumers, damageBonuses, healingBonuses, rolls) {
+  constructor({
+    actor, item, consumers, damageBonuses, healingBonuses, rolls
+  }) {
     this.#actor = actor;
     this.#consumers = consumers;
     this.#damageBonuses = damageBonuses;
@@ -89,10 +91,12 @@ export default class RollPreparationManager {
   }
 
   async #prepareAbilityCheckRoll(_roll) {
-    const { rollFormula } = this.#actor.getDefaultAbilityCheckData(
+    const defaultData = this.#actor.getDefaultAbilityCheckData(
       _roll.ability,
       { situationalMods: _roll.bonus }
     );
+
+    const rollFormula = _roll.rollFormula ?? defaultData.rollFormula;
 
     if (!rollFormula) return null;
 
@@ -101,9 +105,11 @@ export default class RollPreparationManager {
     const label = localize('A5E.AbilityCheckSpecific', { ability });
 
     return {
+      expertiseDice: _roll.expertiseDie ?? defaultData.expertiseDie,
       label,
       userLabel: _roll.label,
       roll,
+      rollMode: _roll.rollMode ?? defaultData._rollMode,
       type: 'abilityCheck'
     };
   }

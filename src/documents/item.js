@@ -153,14 +153,14 @@ export default class ItemA5e extends Item {
     activationData.rolls ??= [];
     activationData.rolls.push(activationData?.attack ?? {});
 
-    const rollPreparationManager = new RollPreparationManager(
-      this.actor,
-      this,
-      activationData.consumers ?? {},
-      activationData.damageBonuses ?? {},
-      activationData.healingBonuses ?? {},
-      activationData.rolls ?? {}
-    );
+    const rollPreparationManager = new RollPreparationManager({
+      actor: this.actor,
+      item: this,
+      consumers: activationData.consumers ?? {},
+      damageBonuses: activationData.damageBonuses ?? {},
+      healingBonuses: activationData.healingBonuses ?? {},
+      rolls: activationData.rolls ?? {}
+    });
 
     const rolls = await rollPreparationManager.prepareRolls();
 

@@ -7,7 +7,6 @@
     import CheckHeader from "./header/CheckHeader.svelte";
     import ItemActivationHeader from "./header/ItemActivationHeader.svelte";
 
-    // import CheckBody from "./body/CheckBody.svelte";
     import CardBody from "./body/CardBody.svelte";
     import ItemActivationFooter from "./footer/ItemActivationFooter.svelte";
 
@@ -22,8 +21,6 @@
                 return CheckHeader;
         }
     }
-
-    async function modifyRolls() {}
 
     async function repeatCard() {}
 
@@ -40,7 +37,6 @@
 <svelte:component
     this={getHeaderComponent()}
     {message}
-    on:modifyRolls={() => modifyRolls()}
     on:repeatCard={() => repeatCard()}
     on:toggleDescription={() => (hideDescription = !hideDescription)}
 />

@@ -3,6 +3,7 @@ import { localize } from '#runtime/svelte/helper';
 import ActiveEffectA5e from '../activeEffect/activeEffect';
 import MigrationRunnerBase from '../../migration/MigrationRunnerBase';
 import RestManager from '../../managers/RestManager';
+import RollPreparationManager from '../../managers/RollPreparationManager';
 
 import AbilityCheckConfigDialog from '../../apps/dialogs/ActorAbilityConfigDialog.svelte';
 import ActorHpConfigDialog from '../../apps/dialogs/ActorHpConfigDialog.svelte';
@@ -885,24 +886,35 @@ export default class ActorA5e extends Actor {
       expertiseDie, rollFormula, rollMode, visibilityMode
     } = dialogData;
 
-    const roll = await new Roll(rollFormula).roll({ async: true });
+    const rollPreparationManager = new RollPreparationManager({
+      actor: this,
+      rolls: [
+        {
+          ability: abilityKey,
+          expertiseDie,
+          rollFormula,
+          rollMode,
+          type: 'abilityCheck'
+        }
+      ]
+    });
+
+    const rolls = await rollPreparationManager.prepareRolls();
 
     const chatData = {
       user: game.user?.id,
       speaker: ChatMessage.getSpeaker({ actor: this }),
       type: CONST.CHAT_MESSAGE_TYPES.ROLL,
       sound: CONFIG.sounds.dice,
-      rolls: [roll],
+      rolls: rolls.map(({ roll }) => roll),
       rollMode: visibilityMode ?? game.settings.get('core', 'rollMode'),
       flags: {
         a5e: {
-          abilityKey,
           actorId: this.uuid,
           cardType: 'abilityCheck',
-          expertiseDice: expertiseDie,
           img: this.token?.img ?? this.img,
           name: this.name,
-          rollMode
+          rollData: rolls.map(({ roll, ...rollData }) => rollData)
         }
       },
       content: '<article></article>'
@@ -912,7 +924,7 @@ export default class ActorA5e extends Actor {
       abilityKey, expertiseDie, rollFormula, rollMode
     };
 
-    Hooks.callAll('a5e.rollAbilityCheck', this, hookData, roll);
+    Hooks.callAll('a5e.rollAbilityCheck', this, hookData, rolls);
 
     const chatCard = await ChatMessage.create(chatData);
     return chatCard;
