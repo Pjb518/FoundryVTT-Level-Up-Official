@@ -51,6 +51,32 @@
         });
     }
 
+    async function toggleRollConfig() {
+        showRollConfig = !showRollConfig;
+
+        if (showRollConfig) {
+            const messages = [...(game.messages ?? [])];
+            const lastMessage = messages[messages.length - 1];
+
+            if ($message.id === lastMessage?.id) {
+                setTimeout(() => ui.chat.scrollBottom(), 0);
+            }
+        }
+    }
+
+    async function toggleRollTooltip() {
+        tooltipIsVisible = !tooltipIsVisible;
+
+        if (tooltipIsVisible) {
+            const messages = [...(game.messages ?? [])];
+            const lastMessage = messages[messages.length - 1];
+
+            if ($message.id === lastMessage?.id) {
+                setTimeout(() => ui.chat.scrollBottom(), 0);
+            }
+        }
+    }
+
     let tooltipIsVisible = false;
     let showRollConfig = false;
 
@@ -58,10 +84,7 @@
     const actor = fromUuidSync($message?.flags?.a5e?.actorId);
 </script>
 
-<button
-    class="roll-container"
-    on:click={() => (tooltipIsVisible = !tooltipIsVisible)}
->
+<button class="roll-container" on:click={toggleRollTooltip}>
     <div
         class="roll"
         class:roll--max={isCriticalSuccess(roll)}
@@ -105,7 +128,7 @@
     {:else if (game.user.isGM || actor?.testUserPermission(game.user, 2)) && ["abilityCheck", "attack", "savingThrow", "skillCheck", "toolCheck"].includes(rollData.type)}
         <button
             class="roll-mode-button fa-dice fa-solid"
-            on:click|stopPropagation={() => (showRollConfig = !showRollConfig)}
+            on:click|stopPropagation={toggleRollConfig}
             data-tooltip={"Modify Roll"}
             data-tooltip-direction="LEFT"
         />
