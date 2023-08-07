@@ -33,6 +33,7 @@ import HealingBonusConfigDialog from '../../apps/dialogs/initializers/HealingBon
 import SavingThrowRollDialog from '../../apps/dialogs/initializers/SavingThrowRollDialog';
 import SkillCheckRollDialog from '../../apps/dialogs/initializers/SkillCheckRollDialog';
 
+import automateHpConditions from '../../activeEffects/utils/automateHpConditions';
 import getDeterministicBonus from '../../dice/getDeterministicBonus';
 import getRollFormula from '../../utils/getRollFormula';
 import overrideRollMode from '../../utils/overrideRollMode';
@@ -494,6 +495,16 @@ export default class ActorA5e extends Actor {
         foundry.utils.setProperty(changed, 'prototypeToken.width', CONFIG.A5E.tokenDimensions[newSize]);
       }
     }
+  }
+
+  _onUpdate(changed, options, userId) {
+    super._onUpdate(changed, options, userId);
+
+    const applyBloodied = game.settings.get('a5e', 'automateBloodiedApplication') ?? true;
+    const applyUnconscious = game.settings.get('a5e', 'automateUnconsciousApplication') ?? true;
+
+    if (applyBloodied) automateHpConditions(this, changed, userId, 'bloodied');
+    if (applyUnconscious) automateHpConditions(this, changed, userId, 'unconscious');
   }
 
   /**

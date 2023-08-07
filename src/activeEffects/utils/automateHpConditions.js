@@ -8,24 +8,25 @@
  * @param {ActorA5e} actor
  * @param {Object} changes
  */
-export default async function automateHpConditions(actor, changes, id) {
+export default async function automateHpConditions(actor, changes, userId, conditionId) {
   // Guard for non-gm users
-  if (!game.user.isGM) return;
+  if (game.user.id !== userId) return;
+
   // eslint-disable-next-line no-param-reassign
-  id = actor.type === 'npc' && id === 'unconscious' ? 'dead' : id;
+  conditionId = actor.type === 'npc' && conditionId === 'unconscious' ? 'dead' : conditionId;
 
   // Guard for non hp changes.
   if (!changes?.system?.attributes?.hp) return;
 
   const { value, max } = actor.system.attributes.hp;
-  const condition = CONFIG.statusEffects.find((c) => c.id === id);
+  const condition = CONFIG.statusEffects.find((c) => c.id === conditionId);
   if (!condition) return;
 
-  const isApplicable = id === 'bloodied'
+  const isApplicable = conditionId === 'bloodied'
     ? (value <= (max / 2)) && (value > 0)
     : (value <= 0);
-  const overlay = ['unconscious', 'dead'].includes(id);
-  const hasCondition = actor.statuses.has(id);
+  const overlay = ['unconscious', 'dead'].includes(conditionId);
+  const hasCondition = actor.statuses.has(conditionId);
 
   // TODO: Call hook to recharge uses on bloodied
   // Handle Application of Condition
@@ -44,10 +45,10 @@ export default async function automateHpConditions(actor, changes, id) {
 
       await cls.create(createData, { parent: actor });
 
-      Hooks.callAll(`a5e.${id}`, actor, true);
+      Hooks.callAll(`a5e.${conditionId}`, actor, true);
     } else if (!isApplicable && hasCondition) {
       const existing = actor.effects.reduce((arr, e) => {
-        if ((e.statuses.size === 1) && e.statuses.has(id)) arr.push(e.id);
+        if ((e.statuses.size === 1) && e.statuses.has(conditionId)) arr.push(e.id);
         return arr;
       }, []);
 
@@ -56,7 +57,7 @@ export default async function automateHpConditions(actor, changes, id) {
   } else if (actor.type === 'npc' && actor.token !== null) {
     if (isApplicable && !hasCondition) {
       actor.token.toggleActiveEffect(condition, { overlay });
-      Hooks.callAll(`a5e.${id}`, actor, true);
+      Hooks.callAll(`a5e.${conditionId}`, actor, true);
     } else if (!isApplicable && hasCondition) {
       actor.token.toggleActiveEffect(condition, { overlay });
     }

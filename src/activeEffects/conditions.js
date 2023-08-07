@@ -1,9 +1,4 @@
-/* eslint-disable prefer-rest-params */
-/* eslint-disable func-names */
-/* eslint-disable no-undef */
-/* eslint-disable no-underscore-dangle */
 import { changes, flags } from './conditionsConfig';
-import automateCondition from './utils/automateHpConditions';
 import { addSubConditions, removeSubConditions, preventIfSourceActivated } from './utils/subConditions';
 
 // ++++++++++++++++++++++++++++++++++++++++++++++++++++++++
@@ -23,11 +18,7 @@ export default function setupConditions() {
   // Setup Hook to remove sub-conditions
   Hooks.on('deleteActiveEffect', removeSubConditions);
 
-  // Apply Bloodied Condition.
-  const applyBloodied = game.settings.get('a5e', 'automateBloodiedApplication') ?? true;
-  const applyUnconscious = game.settings.get('a5e', 'automateUnconsciousApplication') ?? true;
-  if (applyBloodied) Hooks.on('updateActor', (d, c) => automateCondition(d, c, 'bloodied'));
-  if (applyUnconscious) Hooks.on('updateActor', (d, c) => automateCondition(d, c, 'unconscious'));
+  // Apply Bloodied & Unconscious Condition (Moved to actor).
 }
 
 // ++++++++++++++++++++++++++++++++++++++++++++++++++++++++
