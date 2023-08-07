@@ -5,6 +5,7 @@ import ItemDocument from './ItemDocument';
 import BackgroundSheetComponent from './sheets/BackgroundSheet.svelte';
 import CultureSheetComponent from './sheets/CultureSheet.svelte';
 import DestinySheetComponent from './sheets/DestinySheet.svelte';
+import HeritageSheetComponent from './sheets/HeritageSheet.svelte';
 import ItemSheetComponent from './sheets/ItemSheet.svelte';
 import LimitedSheetComponent from './sheets/LimitedSheet.svelte';
 
@@ -154,6 +155,7 @@ export default class ItemSheet extends SvelteApplication {
     if (type === 'background') return BackgroundSheetComponent;
     if (type === 'culture') return CultureSheetComponent;
     if (type === 'destiny') return DestinySheetComponent;
+    if (type === 'heritage') return HeritageSheetComponent;
     return ItemSheetComponent;
   }
 }

@@ -14,6 +14,7 @@ import TokenDocumentA5e from '../documents/tokenDocument';
 import BackgroundDataModel from '../dataModels/item/BackgroundDataModel';
 import CultureDataModel from '../dataModels/item/CultureDataModel';
 import DestinyDataModel from '../dataModels/item/DestinyDataModel';
+import HeritageDataModel from '../dataModels/item/HeritageDataModel';
 
 import EffectOptions from '../activeEffects/EffectOptions';
 
@@ -100,6 +101,7 @@ export default function init() {
   CONFIG.Item.dataModels.background = BackgroundDataModel;
   CONFIG.Item.dataModels.culture = CultureDataModel;
   CONFIG.Item.dataModels.destiny = DestinyDataModel;
+  CONFIG.Item.dataModels.heritage = HeritageDataModel;
 
   Actors.unregisterSheet('core', ActorSheet);
   Actors.registerSheet('a5e', ActorSheetA5e, {
