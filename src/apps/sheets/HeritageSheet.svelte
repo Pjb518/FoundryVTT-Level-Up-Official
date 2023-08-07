@@ -4,6 +4,7 @@
     import { getContext, setContext } from "svelte";
     import { ApplicationShell } from "#runtime/svelte/component/core";
 
+    import HeritageFeaturesTab from "../components/pages/HeritageFeaturesTab.svelte";
     import ItemDescriptionTab from "../components/pages/ItemDescriptionTab.svelte";
     import ItemSheetHeader from "../components/itemSheetsHeader/ItemSheetHeader.svelte";
     import NavigationBar from "../components/navigation/NavigationBar.svelte";
@@ -26,12 +27,7 @@
         {
             name: "features",
             label: "A5E.TabFeatures",
-            component: ItemDescriptionTab,
-        },
-        {
-            name: "5e",
-            label: "A5E.Tab5e",
-            component: ItemDescriptionTab,
+            component: HeritageFeaturesTab,
         },
     ];
 

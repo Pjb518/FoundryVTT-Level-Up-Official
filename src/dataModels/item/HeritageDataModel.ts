@@ -7,7 +7,6 @@ type HeritageSchema = {
   features: Object;
   gifts: Object;
   paragonGifts: Object;
-  paragonLevels: number;
   schemaVersion: SchemaSchema;
 };
 
@@ -17,10 +16,7 @@ export default class HeritageDataModel extends A5EDataModel.mixin(SchemaDataMode
       description: new foundry.data.fields.StringField({ nullable: false, initial: '' }),
       features: new foundry.data.fields.ObjectField({ nullable: false, initial: {} }),
       gifts: new foundry.data.fields.ObjectField({ nullable: false, initial: {} }),
-      paragonGifts: new foundry.data.fields.ObjectField({ nullable: false, initial: {} }),
-      paragonLevels: new foundry.data.fields.NumberField({
-        integer: true, nullable: false, initial: 10
-      })
+      paragonGifts: new foundry.data.fields.ObjectField({ nullable: false, initial: {} })
     });
   }
 }
