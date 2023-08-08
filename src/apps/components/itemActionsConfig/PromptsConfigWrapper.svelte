@@ -34,8 +34,10 @@
     <FormSection>
         <div class="button-wrapper">
             <!-- svelte-ignore a11y-click-events-have-key-events -->
+            <!-- svelte-ignore a11y-no-static-element-interactions -->
             <i class="button fa-solid fa-clone" on:click={duplicatePrompt} />
             <!-- svelte-ignore a11y-click-events-have-key-events -->
+            <!-- svelte-ignore a11y-no-static-element-interactions -->
             <i
                 class="button button--delete fas fa-trash"
                 on:click={deletePrompt}

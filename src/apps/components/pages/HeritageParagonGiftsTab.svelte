@@ -1,5 +1,6 @@
 <script>
     import { getContext } from "svelte";
+    import { localize } from "#runtime/svelte/helper";
 
     import DropArea from "../DropArea.svelte";
 
@@ -11,7 +12,7 @@
             const { uuid } = JSON.parse(
                 dragEvent.dataTransfer.getData("text/plain")
             );
-            await $item.features.add(uuid, { optional: false });
+            await $item.paragonGifts.add(uuid, { optional: false });
         } catch (err) {
             console.error(err);
         }
@@ -19,18 +20,24 @@
 
     async function deleteHeritageFeatures(event) {
         const [_, uuid] = event.detail;
-        await $item.features.delete(uuid);
+        await $item.paragonGifts.delete(uuid);
     }
 
-    $: baseFeatures = Object.values($item.system.features).map((f) => f.uuid);
+    $: paragonGifts = Object.values($item.system.paragonGifts).map(
+        (f) => f.uuid
+    );
 </script>
 
 <article>
     <section class="section-wrapper">
+        <h3 class="u-text-sm u-text-bold">
+            {localize("A5E.originSheets.heritage.features.paragonGifts")}
+        </h3>
+
         <DropArea
-            uuids={baseFeatures}
-            on:item-dropped={updateHeritageFeatures}
-            on:item-deleted={deleteHeritageFeatures}
+            uuids={paragonGifts}
+            on:item-dropped={(e) => updateHeritageFeatures(e, "paragonGifts")}
+            on:item-deleted={(e) => deleteHeritageFeatures(e, "paragonGifts")}
         />
     </section>
 </article>

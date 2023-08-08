@@ -20,12 +20,13 @@ export default class ItemSheet extends SvelteApplication {
       CONST.DOCUMENT_OWNERSHIP_LEVELS.NONE,
       CONST.DOCUMENT_OWNERSHIP_LEVELS.LIMITED
     ].includes(item.permission)) {
-      options.classes = ['a5e-sheet', 'a5e-item-sheet', 'a5e-actor-sheet--limited'];
+      options.classes = ['a5e-sheet', 'a5e-sheet--item', 'a5e-actor-sheet--limited'];
       options.svelte.class = LimitedSheetComponent;
       options.width = 512;
       options.resizable = false;
     } else {
       options.svelte.class = ItemSheet.getSheetComponent(item.type);
+      options.classes = ['a5e-sheet', 'a5e-sheet--item'];
       options.width = 555;
       options.height = 592;
       options.resizable = true;
@@ -36,6 +37,7 @@ export default class ItemSheet extends SvelteApplication {
       {
         baseApplication: 'ItemSheet',
         id: `item-sheet-${item.id}`,
+        classes: ['a5e-sheet', 'a5e-sheet--item'],
         title: item.name,
         svelte: {
           props: {}

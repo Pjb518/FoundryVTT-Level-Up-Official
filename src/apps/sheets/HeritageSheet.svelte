@@ -5,6 +5,8 @@
     import { ApplicationShell } from "#runtime/svelte/component/core";
 
     import HeritageFeaturesTab from "../components/pages/HeritageFeaturesTab.svelte";
+    import HeritageGiftsTab from "../components/pages/HeritageGiftsTab.svelte";
+    import HeritageParagonGiftsTab from "../components/pages/HeritageParagonGiftsTab.svelte";
     import ItemDescriptionTab from "../components/pages/ItemDescriptionTab.svelte";
     import ItemSheetHeader from "../components/itemSheetsHeader/ItemSheetHeader.svelte";
     import NavigationBar from "../components/navigation/NavigationBar.svelte";
@@ -28,6 +30,16 @@
             name: "features",
             label: "A5E.TabFeatures",
             component: HeritageFeaturesTab,
+        },
+        {
+            name: "gifts",
+            label: "A5E.TabGifts",
+            component: HeritageGiftsTab,
+        },
+        {
+            name: "paragonGifts",
+            label: "A5E.TabParagonGifts",
+            component: HeritageParagonGiftsTab,
         },
     ];
 
@@ -53,7 +65,5 @@
         height: 100%;
         padding: 0.75rem;
         gap: 0.5rem;
-
-        background: rgba(246, 242, 235, 0.5);
     }
 </style>
