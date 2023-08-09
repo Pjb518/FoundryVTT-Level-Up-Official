@@ -9,7 +9,7 @@
 
     const item = getContext("item");
 
-    async function addGift() {
+    async function addCategory() {
         $item.update({
             "system.giftCategories": {
                 ...$item.system.giftCategories,
@@ -18,7 +18,7 @@
         });
     }
 
-    async function deleteGift(id) {
+    async function deleteCategory(id) {
         const uuids = Object.values($item.system.gifts).reduce((acc, gift) => {
             const { uuid, category } = gift;
             if (category === id) acc.push(uuid);
@@ -79,7 +79,7 @@
                     <button
                         class="a5e-button a5e-button--delete fas fa-trash"
                         style="margin-right: 1.1rem;"
-                        on:click={() => deleteGift(id)}
+                        on:click={() => deleteCategory(id)}
                     />
                 </div>
 
@@ -97,7 +97,7 @@
             menuList={[]}
             offset={{ x: -110, y: -120 }}
             documentName="Heritage"
-            on:press={addGift}
+            on:press={addCategory}
         />
     </div>
 </article>
