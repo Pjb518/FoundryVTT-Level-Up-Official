@@ -438,7 +438,7 @@
         justify-content: center;
         height: 1rem;
         width: 1rem;
-        border-radius: 3px;
+        border-radius: $border-radius-standard;
         font-size: 0.579rem;
         background: var(--indicator-background, #c6c5bc);
     }

@@ -38,7 +38,7 @@
         margin: var(--margin, 0);
         padding: var(--padding, 0.5rem);
         background: var(--background, rgba(0, 0, 0, 0.05));
-        border-radius: 3px;
+        border-radius: $border-radius-standard;
     }
 
     .form-heading {

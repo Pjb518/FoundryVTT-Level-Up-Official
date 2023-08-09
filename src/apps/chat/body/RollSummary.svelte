@@ -164,7 +164,7 @@
         font-weight: 700;
         background: rgba(0, 0, 0, 0.05);
         border: 1px solid #ccc;
-        border-radius: 3px;
+        border-radius: $border-radius-standard;
 
         &--max {
             color: #18520b;
@@ -227,7 +227,7 @@
         color: #7e7960;
         background: rgba(0, 0, 0, 0.05);
         border: 1px solid #ccc;
-        border-radius: 3px;
+        border-radius: $border-radius-standard;
 
         transition: all 0.15s ease-in-out;
 
@@ -249,7 +249,7 @@
         color: white;
         background: $color-primary;
         border: 1px solid $color-primary;
-        border-radius: 3px;
+        border-radius: $border-radius-standard;
     }
 
     .roll-mode--disadvantage {

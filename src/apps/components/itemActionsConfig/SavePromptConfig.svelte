@@ -184,7 +184,7 @@
         justify-content: center;
         height: 1.625rem;
         width: 3rem;
-        border-radius: 3px;
+        border-radius: $border-radius-standard;
         background: rgba(0, 0, 0, 0.05);
 
         &--invalid {

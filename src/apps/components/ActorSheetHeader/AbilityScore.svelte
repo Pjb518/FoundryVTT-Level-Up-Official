@@ -88,7 +88,7 @@
         width: 100%;
         color: #f6f2eb;
         font-family: "Modesto Condensed", serif;
-        border-radius: 3px;
+        border-radius: $border-radius-standard;
         gap: 0.25rem;
         overflow: hidden;
 

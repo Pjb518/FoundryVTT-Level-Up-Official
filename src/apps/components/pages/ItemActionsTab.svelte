@@ -100,7 +100,7 @@
         padding-right: 0.5rem;
         background: rgba(0, 0, 0, 0.05);
         border: 1px solid #ccc;
-        border-radius: 3px;
+        border-radius: $border-radius-standard;
         font-size: 0.833rem;
 
         &__image {

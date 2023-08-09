@@ -145,7 +145,7 @@
         position: relative;
         padding: 0.125rem 0.25rem 0.25rem 0.25rem;
         border: 1px solid #ccc;
-        border-radius: 3px;
+        border-radius: $border-radius-standard;
         min-width: 7rem;
     }
 

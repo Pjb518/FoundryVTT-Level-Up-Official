@@ -190,7 +190,7 @@
         padding: 0.125rem;
         padding-right: 0.5rem;
         border: 1px solid #ccc;
-        border-radius: 3px;
+        border-radius: $border-radius-standard;
         background: rgba(0, 0, 0, 0.05);
         cursor: pointer;
     }
@@ -205,7 +205,7 @@
         padding: 0;
         margin: 0;
         background: transparent;
-        border-radius: 3px;
+        border-radius: $border-radius-standard;
         grid-area: icon;
 
         &:hover {
@@ -275,7 +275,7 @@
         justify-content: center;
         height: 1rem;
         width: 1rem;
-        border-radius: 3px;
+        border-radius: $border-radius-standard;
         font-size: 0.833rem;
         color: #808080;
     }

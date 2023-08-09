@@ -677,7 +677,7 @@
         gap: 0.25rem;
         padding: 0.5rem;
         background: rgba(0, 0, 0, 0.05);
-        border-radius: 3px;
+        border-radius: $border-radius-standard;
 
         &__header {
             display: flex;

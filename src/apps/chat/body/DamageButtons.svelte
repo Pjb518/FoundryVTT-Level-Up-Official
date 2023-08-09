@@ -115,7 +115,7 @@
         padding: 0;
         list-style: none;
         border: 1px solid #ccc;
-        border-radius: 3px;
+        border-radius: $border-radius-standard;
 
         &__item {
             display: flex;
@@ -152,7 +152,7 @@
             color: #7e7960;
             background: rgba(0, 0, 0, 0.05);
             border: 1px solid #ccc;
-            border-radius: 3px;
+            border-radius: $border-radius-standard;
 
             transition: all 0.15s ease-in-out;
 
@@ -173,7 +173,7 @@
         color: #7e7960;
         background: rgba(0, 0, 0, 0.05);
         border: 1px solid #ccc;
-        border-radius: 3px;
+        border-radius: $border-radius-standard;
 
         transition: all 0.15s ease-in-out;
 

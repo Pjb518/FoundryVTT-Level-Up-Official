@@ -263,7 +263,7 @@
         background: transparent;
         color: #999;
         border: 1px solid #7a7971;
-        border-radius: 3px;
+        border-radius: $border-radius-standard;
         cursor: pointer;
 
         transition: all 0.15s ease-in-out;

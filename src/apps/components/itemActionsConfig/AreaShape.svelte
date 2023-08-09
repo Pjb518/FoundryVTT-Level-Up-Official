@@ -59,7 +59,7 @@
             align-items: center;
             flex-grow: 1;
             gap: 0.75rem;
-            border-radius: 3px;
+            border-radius: $border-radius-standard;
             border: 1px solid #bbb;
             font-size: 0.833rem;
             padding: 0.375rem 0.75rem;

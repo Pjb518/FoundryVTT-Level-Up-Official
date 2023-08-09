@@ -57,7 +57,7 @@
         padding-right: 0.5rem;
         font-size: 0.833rem;
         background: #f6f2eb;
-        border-radius: 3px;
+        border-radius: $border-radius-standard;
         border: 1px solid #ccc;
 
         h3 {
@@ -69,7 +69,7 @@
     .document-image {
         height: 2rem;
         width: 2rem;
-        border-radius: 3px;
+        border-radius: $border-radius-standard;
     }
 
     .delete-button {

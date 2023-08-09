@@ -33,7 +33,7 @@
         color: #f6f2eb;
         font-family: "Modesto Condensed", serif;
         font-size: 1rem;
-        border-radius: 3px;
+        border-radius: $border-radius-standard;
         text-transform: lowercase;
         box-shadow: 0 0 10px darken($color: $color-primary, $amount: 10) inset;
     }
