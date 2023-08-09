@@ -34,20 +34,6 @@
         }
     }
 
-    async function onDrop(event) {
-        const transferData = event.dataTransfer.getData("text/plain");
-        if (!transferData) return;
-
-        const dragData = JSON.parse(transferData);
-        if (dragData?.actorId === $actor.id) return;
-        if (dragData?.parentId === $actor.id) return;
-
-        const { uuid } = dragData;
-        const document = await fromUuid(uuid);
-
-        sheet._onDropDocument(document);
-    }
-
     function getTabs(actor) {
         return [
             {
@@ -120,10 +106,13 @@
         tabs[0];
 
     setContext("actor", actor);
+    setContext("sheet", sheet);
 </script>
 
 <ApplicationShell bind:elementRoot>
-    <main on:drop|preventDefault|stopPropagation={(event) => onDrop(event)}>
+    <main
+        on:drop|preventDefault|stopPropagation={(event) => sheet._onDrop(event)}
+    >
         <ActorSidebar />
 
         <section class="main-container">

@@ -18,6 +18,7 @@
     export let actionId = null;
 
     const actor = getContext("actor");
+    const sheet = getContext("sheet");
     const { A5E } = CONFIG;
 
     let showDescription = false;
@@ -80,6 +81,32 @@
         );
     }
 
+    async function onDropObject(event) {
+        // Run the default drop handler for the sheet in case the source is different.
+        await sheet._onDrop(event);
+
+        console.log("Item Drop");
+        const transferData = event.dataTransfer.getData("text/plain");
+        if (!transferData) return;
+
+        console.log(transferData);
+
+        let droppedItem;
+        try {
+            const dragData = JSON.parse(transferData);
+            const { uuid } = dragData;
+            droppedItem = await fromUuid(uuid);
+        } catch (err) {
+            console.error(err);
+        }
+
+        if (!droppedItem) return;
+        if (droppedItem.type !== "object") return;
+
+        // Update container and item
+        droppedItem.updateContainer(item.uuid);
+    }
+
     async function getDescription() {
         const data =
             (await TextEditor.enrichHTML(
@@ -89,6 +116,17 @@
 
         return data;
     }
+
+    $: children = Object.entries(item?.containerItems?.documents ?? {}).reduce(
+        (acc, [k, v]) => {
+            const i = fromUuidSync(v.uuid);
+            if (!i) return acc;
+
+            acc.push([k, i]);
+            return acc;
+        },
+        []
+    );
 
     $: description = getDescription(item)
         .then((data) => (description = data))
@@ -113,6 +151,7 @@
         item.system.equippedState === A5E.EQUIPPED_STATES.EQUIPPED}
     draggable="true"
     on:dragstart={onDragStart}
+    on:drop|preventDefault|stopPropagation={(e) => onDropObject(e)}
     on:click={() => {
         showDescription = !showDescription;
     }}
@@ -167,6 +206,14 @@
     <ul class="actions-list">
         {#each item?.actions?.entries() as [id, action] (id)}
             <svelte:self {item} {action} actionId={id} />
+        {/each}
+    </ul>
+{/if}
+
+{#if children.length}
+    <ul class="actions-list">
+        {#each children as [id, child] (id)}
+            <svelte:self item={child} />
         {/each}
     </ul>
 {/if}

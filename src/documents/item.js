@@ -587,6 +587,18 @@ export default class ItemA5e extends Item {
     });
   }
 
+  async updateContainer(containerUuid) {
+    if (this.type !== 'object') return;
+    const container = await fromUuid(containerUuid);
+    if (!container
+      || container?.type !== 'object'
+      || container?.system?.objectType !== 'container'
+      || container?.parent?.id !== this.parent?.id) return;
+
+    await this.update({ 'system.containerId': containerUuid });
+    await container.containerItems.add(this.uuid);
+  }
+
   async recharge(actionId, state = false) {
     if (state || !this.actor) return;
     let max = getDeterministicBonus(this.system.uses.max, this.actor.getRollData());
@@ -641,6 +653,24 @@ export default class ItemA5e extends Item {
     const updateArr = effects.map((effect) => ({ _id: effect._id, origin: this.uuid }));
 
     this.updateEmbeddedDocuments('ActiveEffect', updateArr);
+  }
+
+  async _onDelete(data, options, user) {
+    super._onDelete(data, options, user);
+
+    // Clean up container
+    if (!this.parent) return;
+    if (this.type === 'object') {
+      if (this.system.objectType === 'container') {
+        // eslint-disable-next-line no-undef
+        const items = Object.values(this.system.items).map(({ uuid }) => fromUuidSync(uuid));
+        const updates = items.map((i) => ({ _id: i.id, 'system.containerId': '' }));
+        await this.parent?.updateEmbeddedDocuments('Item', updates);
+      }
+
+      const container = await fromUuid(this.system.containerId);
+      if (container) await container?.containerItems?.delete(this.uuid);
+    }
   }
 
   static async _onCreateDocuments(items, context) {

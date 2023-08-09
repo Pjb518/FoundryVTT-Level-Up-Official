@@ -15,7 +15,9 @@ export default class ObjectMapReducer extends DynMapReducer {
         reducer.filters.add((item) => ['armor', 'shield', 'helm'].includes(item.system.objectType));
         return;
       }
-      reducer.filters.add((item) => item.system.objectType === key);
+
+      // TODO: Make this more robust
+      reducer.filters.add((item) => item.system.objectType === key && !item.system?.containerId);
     });
     delete this._types.shield;
     delete this._types.helm;

@@ -169,6 +169,20 @@ export default class ActorSheet extends SvelteApplication {
     sheetConfigDialog.render(true);
   }
 
+  async _onDrop(event) {
+    const transferData = event.dataTransfer.getData('text/plain');
+    if (!transferData) return;
+
+    const dragData = JSON.parse(transferData);
+    if (dragData?.actorId === this.actor?.id) return;
+    if (dragData?.parentId === this.actor?.id) return;
+
+    const { uuid } = dragData;
+    const document = await fromUuid(uuid);
+
+    this._onDropDocument(document);
+  }
+
   async _onDropDocument(document) {
     if (document.documentName === 'Actor') this.#onDropActor(document);
     else if (document.documentName === 'Item') this.#onDropItem(document);
