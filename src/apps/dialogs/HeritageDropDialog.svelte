@@ -17,7 +17,10 @@
     const item = new TJSDocument(itemDocument);
 
     function submitForm() {
-        application.submit({});
+        application.submit({
+            gifts,
+            selectedFeatures,
+        });
     }
 
     let selectedGiftCategory = "";

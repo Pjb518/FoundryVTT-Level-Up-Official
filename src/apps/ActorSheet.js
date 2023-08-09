@@ -348,8 +348,29 @@ export default class ActorSheet extends SvelteApplication {
       return;
     }
 
+    let selectedFeatures = [];
+    let gifts = [];
+
     const dialog = new HeritageDropDialog(this.actor, item);
     dialog.render(true);
+
+    try {
+      ({
+        selectedFeatures,
+        gifts
+      } = await dialog.promise);
+    } catch (error) {
+      return;
+    }
+
+    const itemDocuments = await Promise.all(
+      [...selectedFeatures, ...gifts].map(async (uuid) => (await fromUuid(uuid)).toObject())
+    );
+
+    this.actor.createEmbeddedDocuments('Item', [
+      item,
+      ...itemDocuments
+    ]);
   }
 
   #onDropSpell(item) {
