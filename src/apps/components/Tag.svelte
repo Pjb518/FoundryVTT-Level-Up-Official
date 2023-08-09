@@ -32,8 +32,6 @@
 </li>
 
 <style lang="scss">
-    @import "../../scss/base/variables";
-
     .tag {
         all: unset;
         background: transparent;
