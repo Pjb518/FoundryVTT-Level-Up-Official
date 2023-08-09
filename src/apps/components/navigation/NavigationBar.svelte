@@ -31,7 +31,7 @@
         padding: 0.375rem 0.75rem;
         background: $color-primary;
         color: $color-light-text;
-        font-family: "Modesto Condensed", serif;
+        font-family: $font-primary;
         font-size: 1rem;
         border-radius: $border-radius-standard;
         text-transform: lowercase;

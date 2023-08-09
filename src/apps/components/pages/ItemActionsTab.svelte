@@ -139,7 +139,7 @@
             padding: 0;
             margin: 0;
             list-style: none;
-            font-family: "Signika", sans-serif;
+            font-family: $font-secondary;
         }
     }
 
@@ -148,7 +148,7 @@
     }
 
     .tab-heading {
-        font-family: "Modesto Condensed", serif;
+        font-family: $font-primary;
         font-size: 1.44rem;
     }
 </style>

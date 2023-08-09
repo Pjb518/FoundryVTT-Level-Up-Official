@@ -52,7 +52,7 @@
 
     // .section-title {
     //     font-size: 0.833rem;
-    //     font-family: "Signika", sans-serif;
+    //     font-family: $font-secondary;
     //     font-weight: bold;
     //     margin-bottom: 0.125rem;
     // }

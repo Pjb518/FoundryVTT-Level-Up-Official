@@ -101,7 +101,7 @@
         gap: 0.25rem;
         border-radius: 4px;
         height: 100%;
-        font-family: "Modesto Condensed", serif;
+        font-family: $font-primary;
     }
 
     .level-box {

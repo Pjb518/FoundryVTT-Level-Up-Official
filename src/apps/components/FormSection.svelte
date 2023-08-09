@@ -55,7 +55,7 @@
         display: block;
         width: 100%;
         padding-right: 0.25rem;
-        font-family: "Signika", sans-serif;
+        font-family: $font-secondary;
         font-size: 0.694rem;
     }
 

@@ -50,7 +50,7 @@
 
     .effect-name,
     .effect-name[type="text"] {
-        font-family: "Modesto Condensed", serif;
+        font-family: $font-primary;
         font-size: 1.728rem;
         border: 0;
         background: transparent;

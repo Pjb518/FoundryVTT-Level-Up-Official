@@ -92,7 +92,7 @@
         justify-content: center;
         width: 3.5rem;
         padding: 0.125rem 0;
-        font-family: "Modesto Condensed", serif;
+        font-family: $font-primary;
         color: #7e7960;
         border: 1px solid #ccc;
         border-radius: 4px;

@@ -46,7 +46,7 @@
         width: 2.5rem;
         height: 2.5rem;
         font-size: 1.44rem;
-        font-family: "Modesto Condensed", serif;
+        font-family: $font-primary;
         margin: auto;
     }
 

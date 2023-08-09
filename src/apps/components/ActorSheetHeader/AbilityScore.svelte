@@ -87,7 +87,7 @@
         align-items: center;
         width: 100%;
         color: $color-light-text;
-        font-family: "Modesto Condensed", serif;
+        font-family: $font-primary;
         border-radius: $border-radius-standard;
         gap: 0.25rem;
         overflow: hidden;
@@ -128,7 +128,7 @@
         width: 100%;
         padding: 0.125rem 0;
         margin: 0;
-        font-family: "Modesto Condensed", serif;
+        font-family: $font-primary;
         color: #7e7960;
         border: 1px solid #ccc;
         border-radius: 4px;
