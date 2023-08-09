@@ -149,6 +149,6 @@
 
     .tab-heading {
         font-family: $font-primary;
-        font-size: 1.44rem;
+        font-size: $font-size-xl;
     }
 </style>

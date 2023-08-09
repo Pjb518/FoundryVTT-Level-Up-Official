@@ -288,11 +288,11 @@
         background: none;
         color: #999;
         border: 0;
-        font-size: 1.2rem;
+        font-size: $font-size-lg;
         transition: $standard-transition;
 
         &--active-toggle {
-            font-size: 1.44rem;
+            font-size: $font-size-xl;
         }
 
         &:hover {

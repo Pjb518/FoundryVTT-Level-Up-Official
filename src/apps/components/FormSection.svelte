@@ -56,7 +56,7 @@
         width: 100%;
         padding-right: 0.25rem;
         font-family: $font-secondary;
-        font-size: 0.694rem;
+        font-size: $font-size-xs;
     }
 
     .warning {

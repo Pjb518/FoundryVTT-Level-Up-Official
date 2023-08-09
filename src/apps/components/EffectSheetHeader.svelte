@@ -51,7 +51,7 @@
     .effect-name,
     .effect-name[type="text"] {
         font-family: $font-primary;
-        font-size: 1.728rem;
+        font-size: $font-size-xxl;
         border: 0;
         background: transparent;
         text-overflow: ellipsis;

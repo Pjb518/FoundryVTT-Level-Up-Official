@@ -104,7 +104,7 @@
             color: $color-dark-text;
             margin-bottom: 0;
             background: none;
-            font-size: 1.44rem;
+            font-size: $font-size-xl;
             font-weight: inherit;
             text-align: center;
 
@@ -141,7 +141,7 @@
         cursor: pointer;
 
         &__label {
-            font-size: 0.694rem;
+            font-size: $font-size-xs;
         }
 
         &__value {

@@ -160,7 +160,7 @@
         justify-content: center;
         height: 2.25rem;
         width: 2.5rem;
-        font-size: 1.2rem;
+        font-size: $font-size-lg;
         font-weight: 700;
         background: rgba(0, 0, 0, 0.05);
         border: 1px solid #ccc;
@@ -244,7 +244,7 @@
         flex-shrink: 0;
         width: fit-content;
         padding: 0.075rem 0.3rem;
-        font-size: 0.694rem;
+        font-size: $font-size-xs;
         line-height: 1;
         color: white;
         background: $color-primary;
@@ -259,7 +259,7 @@
 
     .roll-sublabel {
         width: 100%;
-        font-size: 0.694rem;
+        font-size: $font-size-xs;
         line-height: 1;
         color: #7e7960;
     }

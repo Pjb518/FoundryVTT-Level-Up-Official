@@ -78,7 +78,7 @@
     />
 {/if}
 
-<style>
+<style lang="scss">
     article {
         position: relative;
         display: grid;
@@ -93,6 +93,6 @@
     button {
         background: transparent;
         color: white;
-        font-size: 0.694rem;
+        font-size: $font-size-xs;
     }
 </style>

@@ -246,7 +246,7 @@
     .item-name,
     .item-name[type="text"] {
         font-family: $font-primary;
-        font-size: 1.728rem;
+        font-size: $font-size-xxl;
         border: 0;
         background: transparent;
         text-overflow: ellipsis;
@@ -309,7 +309,7 @@
         background: #82817d;
         color: white;
         width: max-content;
-        font-size: 0.694rem;
+        font-size: $font-size-xs;
         padding-inline: 0.75rem;
         white-space: nowrap;
         transition: $standard-transition;

@@ -65,7 +65,7 @@
         background: none;
         font-weight: inherit;
         text-align: center;
-        font-size: 1.44rem;
+        font-size: $font-size-xl;
         z-index: 1;
 
         &:disabled {
@@ -99,7 +99,7 @@
         justify-content: center;
         flex-grow: 1;
         color: #7e7960;
-        font-size: 1.44rem;
+        font-size: $font-size-xl;
         width: 2.5rem;
         height: 2.5rem;
         margin: auto;

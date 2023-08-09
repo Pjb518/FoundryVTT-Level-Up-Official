@@ -409,7 +409,7 @@
     .ammunition-selector {
         height: 1.25rem;
         width: fit-content;
-        font-size: 0.694rem;
+        font-size: $font-size-xs;
 
         &:focus {
             box-shadow: none;
@@ -439,7 +439,7 @@
         height: 1rem;
         width: 1rem;
         border-radius: $border-radius-standard;
-        font-size: 0.579rem;
+        font-size: $font-size-xxs;
         background: var(--indicator-background, #c6c5bc);
     }
 
@@ -481,7 +481,7 @@
     }
 
     .number-input {
-        font-size: 0.694rem;
+        font-size: $font-size-xs;
         text-align: center;
     }
 

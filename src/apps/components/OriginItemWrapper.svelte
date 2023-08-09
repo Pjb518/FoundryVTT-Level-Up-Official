@@ -88,7 +88,7 @@
         border: 1px solid var(--input-border-color, #bbb);
         height: 1.125rem;
         width: 7ch;
-        font-size: 0.694rem;
+        font-size: $font-size-xs;
         text-align: center;
 
         &:hover {

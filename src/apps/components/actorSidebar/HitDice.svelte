@@ -45,7 +45,7 @@
         position: relative;
         width: 2.5rem;
         height: 2.5rem;
-        font-size: 1.44rem;
+        font-size: $font-size-xl;
         font-family: $font-primary;
         margin: auto;
     }

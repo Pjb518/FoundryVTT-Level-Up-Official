@@ -86,7 +86,7 @@
 
     .subtitle {
         width: 100%;
-        font-size: 0.694rem;
+        font-size: $font-size-xs;
         line-height: 1;
         color: #7e7960;
     }

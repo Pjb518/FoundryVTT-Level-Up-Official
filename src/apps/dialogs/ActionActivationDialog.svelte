@@ -287,7 +287,7 @@
 
         .warning {
             font-family: $font-secondary;
-            font-size: 0.694rem;
+            font-size: $font-size-xs;
         }
     }
 </style>

@@ -172,7 +172,7 @@
     }
 
     .hint {
-        font-size: 0.694rem;
+        font-size: $font-size-xs;
     }
 
     .filter-hints {

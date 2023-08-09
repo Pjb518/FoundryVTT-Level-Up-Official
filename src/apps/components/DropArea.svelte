@@ -93,7 +93,7 @@
 
     .drop-icon {
         color: #888;
-        font-size: 1.44rem;
+        font-size: $font-size-xl;
         font-style: normal;
     }
 

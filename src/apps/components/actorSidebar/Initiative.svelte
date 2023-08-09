@@ -70,7 +70,7 @@
         justify-content: center;
         flex-grow: 1;
         color: #7e7960;
-        font-size: 1.44rem;
+        font-size: $font-size-xl;
         width: 2.5rem;
         height: 2.5rem;
         margin: auto;
