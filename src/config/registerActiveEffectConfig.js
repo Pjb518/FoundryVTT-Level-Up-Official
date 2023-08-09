@@ -37,8 +37,8 @@ export default function registerActiveEffectConfig(A5E) {
 
   A5E.itemActiveEffectTypes = {
     onUse: 'A5E.effects.types.singular.onUse',
-    passive: 'A5E.effects.types.singular.passive'
-    // permanent: 'A5E.effects.types.singular.permanent'
+    passive: 'A5E.effects.types.singular.passive',
+    permanent: 'A5E.effects.types.singular.permanent'
   };
 
   A5E.itemActiveEffectTypesPlural = {

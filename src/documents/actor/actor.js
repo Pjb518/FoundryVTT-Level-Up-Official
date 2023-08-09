@@ -435,6 +435,17 @@ export default class ActorA5e extends Actor {
     );
   }
 
+  async applyPermanentEffects() {
+    const effects = Array.from(this.items).flatMap((i) => i.effects.contents)
+      .filter((e) => e.flags?.a5e?.transferType === 'permanent');
+
+    const overrides = ActiveEffectA5e.getPermanentEffectChanges(this._source, effects);
+
+    // TODO: Add warning
+
+    await this.update(overrides);
+  }
+
   /** @inheritdoc */
   async _preCreate(data, options, user) {
     await super._preCreate(data, options, user);

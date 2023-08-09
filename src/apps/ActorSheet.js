@@ -367,10 +367,13 @@ export default class ActorSheet extends SvelteApplication {
       [...selectedFeatures, ...gifts].map(async (uuid) => (await fromUuid(uuid)).toObject())
     );
 
-    this.actor.createEmbeddedDocuments('Item', [
+    await this.actor.createEmbeddedDocuments('Item', [
       item,
       ...itemDocuments
     ]);
+
+    // Apply permanent effects
+    this.actor.applyPermanentEffects();
   }
 
   #onDropSpell(item) {
