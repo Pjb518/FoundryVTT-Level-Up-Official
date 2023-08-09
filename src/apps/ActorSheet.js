@@ -258,6 +258,9 @@ export default class ActorSheet extends SvelteApplication {
         backgroundFeature,
         ...startingEquipment
       ].filter(Boolean));
+
+      // Apply permanent effects
+      this.actor.applyPermanentEffects();
     }
   }
 
@@ -319,6 +322,9 @@ export default class ActorSheet extends SvelteApplication {
         ...cultureFeatures,
         ...startingEquipment
       ].filter(Boolean));
+
+      // Apply permanent effects
+      this.actor.applyPermanentEffects();
     }
   }
 
@@ -336,10 +342,13 @@ export default class ActorSheet extends SvelteApplication {
     ];
     const features = (await Promise.all(uuids.map((uuid) => fromUuid(uuid)))).filter((f) => f);
 
-    this.actor.createEmbeddedDocuments('Item', [
+    await this.actor.createEmbeddedDocuments('Item', [
       item,
       ...features
     ]);
+
+    // Apply permanent effects
+    this.actor.applyPermanentEffects();
   }
 
   async #onDropHeritage(item) {
