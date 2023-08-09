@@ -83,21 +83,21 @@
 
     async function onDropObject(event) {
         // Run the default drop handler for the sheet in case the source is different.
-        await sheet._onDrop(event);
+        let droppedItem = (await sheet._onDrop(event))?.[0] ?? null;
 
-        console.log("Item Drop");
         const transferData = event.dataTransfer.getData("text/plain");
-        if (!transferData) return;
+        if (!transferData && !droppedItem) return;
 
         console.log(transferData);
 
-        let droppedItem;
-        try {
-            const dragData = JSON.parse(transferData);
-            const { uuid } = dragData;
-            droppedItem = await fromUuid(uuid);
-        } catch (err) {
-            console.error(err);
+        if (!droppedItem) {
+            try {
+                const dragData = JSON.parse(transferData);
+                const { uuid } = dragData;
+                droppedItem = await fromUuid(uuid);
+            } catch (err) {
+                console.error(err);
+            }
         }
 
         if (!droppedItem) return;

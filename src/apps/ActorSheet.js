@@ -171,22 +171,24 @@ export default class ActorSheet extends SvelteApplication {
 
   async _onDrop(event) {
     const transferData = event.dataTransfer.getData('text/plain');
-    if (!transferData) return;
+    if (!transferData) return null;
 
     const dragData = JSON.parse(transferData);
-    if (dragData?.actorId === this.actor?.id) return;
-    if (dragData?.parentId === this.actor?.id) return;
+    if (dragData?.actorId === this.actor?.id) return null;
+    if (dragData?.parentId === this.actor?.id) return null;
 
     const { uuid } = dragData;
     const document = await fromUuid(uuid);
 
-    this._onDropDocument(document);
+    return this._onDropDocument(document);
   }
 
   async _onDropDocument(document) {
-    if (document.documentName === 'Actor') this.#onDropActor(document);
-    else if (document.documentName === 'Item') this.#onDropItem(document);
-    else if (document.documentName === 'ActiveEffect') this.#onDropActiveEffect(document);
+    if (document.documentName === 'Actor') return this.#onDropActor(document);
+    if (document.documentName === 'Item') return this.#onDropItem(document);
+    if (document.documentName === 'ActiveEffect') return this.#onDropActiveEffect(document);
+
+    return null;
   }
 
   // eslint-disable-next-line no-unused-vars, no-empty-function, @typescript-eslint/no-unused-vars
@@ -199,12 +201,14 @@ export default class ActorSheet extends SvelteApplication {
   }
 
   async #onDropItem(item) {
-    if (item.type === 'background') this.#onDropBackground(item);
-    else if (item.type === 'culture') this.#onDropCulture(item);
-    else if (item.type === 'destiny') this.#onDropDestiny(item);
-    else if (item.type === 'heritage') this.#onDropHeritage(item);
-    else if (item.type === 'spell') this.#onDropSpell(item);
-    else this.actor.createEmbeddedDocuments('Item', [item]);
+    if (item.type === 'background') return this.#onDropBackground(item);
+    if (item.type === 'culture') return this.#onDropCulture(item);
+    if (item.type === 'destiny') return this.#onDropDestiny(item);
+    if (item.type === 'heritage') return this.#onDropHeritage(item);
+    if (item.type === 'spell') return this.#onDropSpell(item);
+
+    const items = this.actor.createEmbeddedDocuments('Item', [item]);
+    return items;
   }
 
   async #onDropBackground(item) {
