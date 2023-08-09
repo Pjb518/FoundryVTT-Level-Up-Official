@@ -398,10 +398,10 @@
     }
 
     .active {
-        color: #425f65;
+        color: $color-primary;
 
         &:hover {
-            color: #425f65;
+            color: $color-primary;
             box-shadow: none;
         }
     }

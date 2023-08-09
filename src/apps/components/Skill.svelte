@@ -198,7 +198,7 @@
 
             &--jack,
             &--proficient {
-                color: #425f65;
+                color: $color-primary;
             }
 
             &--locked {

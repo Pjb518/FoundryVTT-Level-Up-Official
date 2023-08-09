@@ -91,7 +91,7 @@
 
 <form class="a5e-form u-py-lg u-px-xl a5e-form--reactive-dialog u-bg-none">
     {#if dialogHint}
-        <div class="u-mb-md u-text-sm" style="color: #8b6225;">
+        <div class="u-mb-md u-text-sm" style="color: $color-warning;">
             <i class="fa-solid fa-circle-exclamation" />
             {localize(dialogHint)}
         </div>

@@ -42,13 +42,14 @@
             display: none;
 
             &:checked + .area-shape__label {
-                background: #425f65;
-                border-color: darken($color: #425f65, $amount: 5);
-                box-shadow: 0 0 10px darken($color: #425f65, $amount: 10) inset;
+                background: $color-primary;
+                border-color: darken($color: $color-primary, $amount: 5);
+                box-shadow: 0 0 10px darken($color: $color-primary, $amount: 10)
+                    inset;
                 color: #f6f2eb;
 
                 &:hover {
-                    background: #425f65;
+                    background: $color-primary;
                 }
             }
         }

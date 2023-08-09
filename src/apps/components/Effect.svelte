@@ -296,7 +296,7 @@
         }
 
         &:hover {
-            color: #425f65;
+            color: $color-primary;
         }
 
         &:hover,
@@ -324,7 +324,7 @@
     }
 
     .delete-button:hover {
-        color: #8b2525;
+        color: $color-secondary;
     }
 
     .track {

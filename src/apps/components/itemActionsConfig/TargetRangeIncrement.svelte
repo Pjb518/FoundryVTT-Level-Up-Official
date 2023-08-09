@@ -176,7 +176,7 @@
         &:hover {
             box-shadow: none;
             transform: scale(1.2);
-            color: #8b2525;
+            color: $color-secondary;
         }
     }
 </style>

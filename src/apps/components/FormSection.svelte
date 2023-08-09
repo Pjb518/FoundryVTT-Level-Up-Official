@@ -60,6 +60,6 @@
     }
 
     .warning {
-        color: #8b6225;
+        color: $color-warning;
     }
 </style>

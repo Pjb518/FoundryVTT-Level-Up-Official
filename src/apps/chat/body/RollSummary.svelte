@@ -247,14 +247,14 @@
         font-size: 0.694rem;
         line-height: 1;
         color: white;
-        background: #425f65;
-        border: 1px solid #425f65;
+        background: $color-primary;
+        border: 1px solid $color-primary;
         border-radius: 3px;
     }
 
     .roll-mode--disadvantage {
         border-color: #772020;
-        background: #8b2525;
+        background: $color-secondary;
     }
 
     .roll-sublabel {

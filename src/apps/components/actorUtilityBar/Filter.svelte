@@ -179,11 +179,11 @@
         position: relative;
 
         &--green {
-            color: #425f65;
+            color: $color-primary;
         }
 
         &--red {
-            color: #8b2525;
+            color: $color-secondary;
         }
     }
 </style>

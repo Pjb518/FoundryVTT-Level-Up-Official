@@ -78,7 +78,7 @@
         }
 
         &--delete:hover {
-            color: #8b2525;
+            color: $color-secondary;
         }
     }
 

@@ -27,7 +27,7 @@
 
     function getHoverColor(pressedKeysStore) {
         if (pressedKeysStore.Shift) return "#2b6537";
-        if (pressedKeysStore.Control) return "#8b2525";
+        if (pressedKeysStore.Control) return "$color-secondary";
 
         return "#191813";
     }

@@ -210,10 +210,10 @@
     }
 
     .active {
-        color: #425f65;
+        color: $color-primary;
 
         &:hover {
-            color: #425f65;
+            color: $color-primary;
             box-shadow: none;
         }
     }
@@ -226,7 +226,7 @@
 
             &.active {
                 transform: none;
-                color: #425f65;
+                color: $color-primary;
             }
         }
     }
@@ -321,7 +321,7 @@
         &:hover:not(:disabled),
         &:focus:not(:disabled) {
             box-shadow: none;
-            background-color: #425f65;
+            background-color: $color-primary;
         }
     }
 </style>
