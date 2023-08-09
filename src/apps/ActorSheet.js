@@ -4,7 +4,9 @@ import ActorDocument from './ActorDocument';
 
 import ActorSheetComponent from './sheets/ActorSheet.svelte';
 import LimitedSheetComponent from './sheets/LimitedSheet.svelte';
+
 import BackgroundCultureDropDialog from './dialogs/initializers/BackgroundCultureDropDialog';
+import HeritageDropDialog from './dialogs/initializers/HeritageDropDialog';
 
 export default class ActorSheet extends SvelteApplication {
   /**
@@ -186,6 +188,7 @@ export default class ActorSheet extends SvelteApplication {
     if (item.type === 'background') this.#onDropBackground(item);
     else if (item.type === 'culture') this.#onDropCulture(item);
     else if (item.type === 'destiny') this.#onDropDestiny(item);
+    else if (item.type === 'heritage') this.#onDropHeritage(item);
     else if (item.type === 'spell') this.#onDropSpell(item);
     else this.actor.createEmbeddedDocuments('Item', [item]);
   }
@@ -337,6 +340,16 @@ export default class ActorSheet extends SvelteApplication {
       item,
       ...features
     ]);
+  }
+
+  async #onDropHeritage(item) {
+    if (this.actor.type !== 'character') {
+      ui.notifications.warn('Heritage documents cannot be added to NPCs.');
+      return;
+    }
+
+    const dialog = new HeritageDropDialog(this.actor, item);
+    dialog.render(true);
   }
 
   #onDropSpell(item) {
