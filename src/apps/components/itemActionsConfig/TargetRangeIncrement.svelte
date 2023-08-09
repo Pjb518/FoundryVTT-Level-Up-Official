@@ -166,7 +166,7 @@
         right: 0.75rem;
         width: fit-content;
         padding: 0.25rem;
-        font-size: 1rem;
+        font-size: $font-size-md;
         color: #999;
         background: none;
         cursor: pointer;

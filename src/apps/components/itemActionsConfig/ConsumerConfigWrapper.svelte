@@ -40,7 +40,7 @@
         top: 0.75rem;
         right: 0.75rem;
         color: #999;
-        font-size: 1rem;
+        font-size: $font-size-md;
     }
 
     .config-wrapper {

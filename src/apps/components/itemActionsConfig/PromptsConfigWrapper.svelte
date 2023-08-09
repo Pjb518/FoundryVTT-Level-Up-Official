@@ -57,7 +57,7 @@
         top: 0.5rem;
         right: 0.5rem;
         color: #999;
-        font-size: 1rem;
+        font-size: $font-size-md;
     }
 
     .button {

@@ -32,7 +32,7 @@
         background: $color-primary;
         color: $color-light-text;
         font-family: $font-primary;
-        font-size: 1rem;
+        font-size: $font-size-md;
         border-radius: $border-radius-standard;
         text-transform: lowercase;
         box-shadow: 0 0 10px darken($color: $color-primary, $amount: 10) inset;

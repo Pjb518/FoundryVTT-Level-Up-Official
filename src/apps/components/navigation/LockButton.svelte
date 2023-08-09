@@ -29,7 +29,7 @@
         width: fit-content;
         padding: 0 0.125rem;
         margin-left: auto;
-        font-size: 1rem;
+        font-size: $font-size-md;
         color: inherit;
         opacity: 0.85;
         background: transparent;

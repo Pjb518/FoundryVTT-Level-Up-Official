@@ -74,7 +74,7 @@
     }
 
     .ac-label {
-        font-size: 1rem;
+        font-size: $font-size-md;
         text-align: center;
         padding-bottom: 0.125rem;
     }

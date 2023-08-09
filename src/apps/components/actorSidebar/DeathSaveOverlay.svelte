@@ -131,7 +131,7 @@
             border: 0;
             background: transparent;
             color: inherit;
-            font-size: 1rem;
+            font-size: $font-size-md;
             text-align: center;
             padding: 0;
 

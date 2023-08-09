@@ -143,7 +143,7 @@
             background: var(--track-background, #ebe9e0);
             border-radius: 50%;
             cursor: pointer;
-            font-size: 1rem;
+            font-size: $font-size-md;
             transform: translateX(-1px);
 
             transition: $standard-transition;

@@ -281,7 +281,7 @@
         display: flex;
         align-items: center;
         font-family: $font-primary;
-        font-size: 1rem;
+        font-size: $font-size-md;
         align-items: center;
     }
 

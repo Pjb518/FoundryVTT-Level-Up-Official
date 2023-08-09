@@ -111,7 +111,7 @@
         border: 0;
         background: transparent;
         padding-inline: 0.25rem;
-        font-size: 1rem;
+        font-size: $font-size-md;
 
         &:active,
         &:focus {

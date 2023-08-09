@@ -66,7 +66,7 @@
                 <div class="button-wrapper">
                     <button
                         class="a5e-button a5e-button--delete fas fa-trash"
-                        style="font-size: 1rem;"
+                        style="font-size: $font-size-md;"
                         on:click={() => deleteChange(idx)}
                     />
                 </div>
@@ -237,7 +237,7 @@
         top: 0.75rem;
         right: 0.75rem;
         color: #999;
-        font-size: 1rem;
+        font-size: $font-size-md;
     }
 
     .changes-list {

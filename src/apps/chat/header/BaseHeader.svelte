@@ -72,7 +72,7 @@
     }
 
     .card-title {
-        font-size: 1rem;
+        font-size: $font-size-md;
         font-weight: bold;
         grid-area: title;
     }

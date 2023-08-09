@@ -156,7 +156,7 @@
     {/if}
 </form>
 
-<style>
+<style lang="scss">
     form {
         display: flex;
         flex-direction: column;

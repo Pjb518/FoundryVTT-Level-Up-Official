@@ -13,7 +13,7 @@
         justify-content: space-between;
         gap: 0.75rem;
         padding-right: 0.25rem;
-        font-size: 1rem;
+        font-size: $font-size-md;
         color: rgba(0 0 0 / 0.2);
     }
 
