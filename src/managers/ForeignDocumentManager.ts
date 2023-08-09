@@ -93,4 +93,17 @@ export default class ForeignDocumentManager extends DataProxy {
     await this.#doc.update({ [`system.${this.#attribute}.-=${key}`]: null });
     return true;
   }
+
+  async deleteDocuments(uuids: string[]): boolean {
+    const keys = uuids.map((uuid) => this.getIdByUuid(uuid)).filter((key) => key);
+    if (keys.length === 0) return false;
+
+    const updates = {};
+    keys.forEach((key) => {
+      updates[`system.${this.#attribute}.-=${key}`] = null;
+    });
+
+    await this.#doc.update(updates);
+    return true;
+  }
 }

@@ -18,6 +18,19 @@
         });
     }
 
+    async function deleteGift(id) {
+        const uuids = Object.values($item.system.gifts).reduce((acc, gift) => {
+            const { uuid, category } = gift;
+            if (category === id) acc.push(uuid);
+            return acc;
+        }, []);
+
+        await $item.gifts.deleteDocuments(uuids);
+        await $item.update({
+            [`system.giftCategories.-=${id}`]: null,
+        });
+    }
+
     async function updateHeritageFeatures(event, category) {
         const [dragEvent] = event.detail;
         try {
@@ -50,7 +63,25 @@
     <section class="section-wrapper">
         {#each giftCategories as [id, label]}
             <FormSection --direction="column" --gap="0.5rem">
-                <input class="a5e-input" type="text" value={label} />
+                <div class="category-header">
+                    <input
+                        class="a5e-input a5e-input--slim category-heading"
+                        type="text"
+                        value={label}
+                        on:change={({ target }) =>
+                            updateDocumentDataFromField(
+                                $item,
+                                `system.giftCategories.${id}`,
+                                target.value
+                            )}
+                    />
+
+                    <button
+                        class="a5e-button a5e-button--delete fas fa-trash"
+                        style="margin-right: 1.1rem;"
+                        on:click={() => deleteGift(id)}
+                    />
+                </div>
 
                 <DropArea
                     uuids={gifts[id] ?? []}
@@ -88,10 +119,19 @@
         overflow-y: auto;
     }
 
-    .gift-wrapper {
+    .category-header {
         display: flex;
-        flex-direction: column;
-        gap: 0.275rem;
+        justify-content: space-between;
+        gap: 0.5rem;
+        padding-inline-end: 0.2rem;
+    }
+
+    .category-heading {
+        width: 70%;
+        border: none;
+        background-color: transparent;
+        padding: 0;
+        font-weight: bold;
     }
 
     .sticky-add-button {
