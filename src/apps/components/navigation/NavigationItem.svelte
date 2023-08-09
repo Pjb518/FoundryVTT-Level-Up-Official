@@ -25,7 +25,7 @@
 <style lang="scss">
     .nav {
         &-icon {
-            font-size: 0.833rem;
+            font-size: $font-size-sm;
         }
 
         &-item {
@@ -33,7 +33,7 @@
             font-family: inherit;
             background: transparent;
             color: inherit;
-            font-size: 0.833rem;
+            font-size: $font-size-sm;
             line-height: unset;
 
             transition: $standard-transition;

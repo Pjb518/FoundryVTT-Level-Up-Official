@@ -237,7 +237,7 @@
     }
 
     .name {
-        font-size: 0.833rem;
+        font-size: $font-size-sm;
         overflow: hidden;
         text-overflow: ellipsis;
         white-space: nowrap;
@@ -276,7 +276,7 @@
         height: 1rem;
         width: 1rem;
         border-radius: $border-radius-standard;
-        font-size: 0.833rem;
+        font-size: $font-size-sm;
         color: #808080;
     }
 

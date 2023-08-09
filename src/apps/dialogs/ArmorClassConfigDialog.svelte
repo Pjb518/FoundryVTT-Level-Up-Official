@@ -56,7 +56,7 @@
 
     .ac-formula-preview {
         padding: 0.5rem;
-        font-size: 0.833rem;
+        font-size: $font-size-sm;
         border: 1px solid #7a7971;
         border-radius: 4px;
     }

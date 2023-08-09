@@ -454,7 +454,7 @@
     }
 
     .name {
-        font-size: 0.833rem;
+        font-size: $font-size-sm;
         overflow: hidden;
         text-overflow: ellipsis;
         white-space: nowrap;

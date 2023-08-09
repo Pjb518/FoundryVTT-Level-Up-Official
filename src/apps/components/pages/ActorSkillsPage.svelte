@@ -87,7 +87,7 @@
         width: 100%;
         gap: 0.25rem 0.5rem;
         margin: 0;
-        font-size: 0.833rem;
+        font-size: $font-size-sm;
 
         &__list {
             margin: 0;

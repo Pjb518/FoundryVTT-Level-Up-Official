@@ -49,7 +49,7 @@
         gap: 0.625rem;
         position: relative;
         padding: 0.75rem;
-        font-size: 0.833rem;
+        font-size: $font-size-sm;
         // background: rgba(246, 242, 235, 0.4);
         background-color: rgba(0, 0, 0, 0.05);
         border-radius: 4px;

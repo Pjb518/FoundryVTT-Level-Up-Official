@@ -209,7 +209,7 @@
         width: 1.125rem;
         height: 1.125rem;
         padding: 0;
-        font-size: 0.833rem;
+        font-size: $font-size-sm;
         color: #555;
         background-color: rgba(0 0 0 / 0.1);
     }

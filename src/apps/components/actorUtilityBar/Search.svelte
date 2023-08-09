@@ -28,7 +28,7 @@
 <style lang="scss">
     .search-container {
         flex-grow: 1;
-        font-size: 0.833rem;
+        font-size: $font-size-sm;
         color: black;
     }
 </style>

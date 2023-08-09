@@ -77,7 +77,7 @@
 
     .section-subheading {
         width: 100%;
-        font-size: 0.833rem;
+        font-size: $font-size-sm;
         font-weight: bold;
         margin-bottom: 0.25rem;
     }

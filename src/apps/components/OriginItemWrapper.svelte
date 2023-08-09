@@ -55,14 +55,14 @@
         gap: 0.5rem;
         padding: 0.25rem;
         padding-right: 0.5rem;
-        font-size: 0.833rem;
+        font-size: $font-size-sm;
         background: $color-light-background;
         border-radius: $border-radius-standard;
         border: 1px solid #ccc;
 
         h3 {
             flex: 1;
-            font-size: 0.833rem;
+            font-size: $font-size-sm;
         }
     }
 

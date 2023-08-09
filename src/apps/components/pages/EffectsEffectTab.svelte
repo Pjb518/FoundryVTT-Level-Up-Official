@@ -260,7 +260,7 @@
         position: relative;
         width: 100%;
         padding: 0.75rem;
-        font-size: 0.833rem;
+        font-size: $font-size-sm;
         background-color: rgba(0, 0, 0, 0.05);
         border-radius: 4px;
     }

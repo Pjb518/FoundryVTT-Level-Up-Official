@@ -132,7 +132,7 @@
         padding-inline: 0.5rem;
         border: 1px solid #ccc;
         border-top: 0;
-        font-size: 0.833rem;
+        font-size: $font-size-sm;
 
         &:nth-child(even) {
             border-left: 0;

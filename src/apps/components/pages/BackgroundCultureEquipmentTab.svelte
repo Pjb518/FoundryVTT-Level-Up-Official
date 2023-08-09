@@ -51,7 +51,7 @@
     }
 
     // .section-title {
-    //     font-size: 0.833rem;
+    //     font-size: $font-size-sm;
     //     font-family: $font-secondary;
     //     font-weight: bold;
     //     margin-bottom: 0.125rem;

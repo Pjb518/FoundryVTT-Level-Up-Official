@@ -112,13 +112,13 @@
     .heading {
         display: block;
         font-weight: bold;
-        font-size: 0.833rem;
+        font-size: $font-size-sm;
         margin-bottom: 0.25rem;
     }
 
     .roll-formula-preview {
         padding: 0.5rem;
-        font-size: 0.833rem;
+        font-size: $font-size-sm;
         border: 1px solid #7a7971;
         border-radius: 4px;
     }

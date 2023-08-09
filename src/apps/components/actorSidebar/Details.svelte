@@ -152,7 +152,7 @@
 
     .details-header {
         font-family: $font-secondary;
-        font-size: 0.833rem;
+        font-size: $font-size-sm;
         // font-weight: bold;
         padding-left: 0.125rem;
         padding-bottom: 0.125rem;

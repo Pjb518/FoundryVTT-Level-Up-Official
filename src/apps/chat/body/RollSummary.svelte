@@ -211,7 +211,7 @@
         align-items: center;
         gap: 0.5rem;
         margin: 0;
-        font-size: 0.833rem;
+        font-size: $font-size-sm;
         line-height: 1;
         font-weight: bold;
         border: 0;
@@ -222,7 +222,7 @@
         margin: 0;
         margin-left: auto;
         padding: 0.25rem 0.375rem;
-        font-size: 0.833rem;
+        font-size: $font-size-sm;
         line-height: 1;
         color: #7e7960;
         background: rgba(0, 0, 0, 0.05);

@@ -101,7 +101,7 @@
         background: rgba(0, 0, 0, 0.05);
         border: 1px solid #ccc;
         border-radius: $border-radius-standard;
-        font-size: 0.833rem;
+        font-size: $font-size-sm;
 
         &__image {
             display: block;

@@ -46,7 +46,7 @@
         display: flex;
         flex-direction: column;
         gap: 0.25rem;
-        font-size: 0.833rem;
+        font-size: $font-size-sm;
         text-align: left;
     }
 

@@ -42,7 +42,7 @@
     }
 
     .form-heading {
-        font-size: 0.833rem;
+        font-size: $font-size-sm;
         font-weight: bold;
         flex-shrink: 1;
         width: var(--label-width, auto);

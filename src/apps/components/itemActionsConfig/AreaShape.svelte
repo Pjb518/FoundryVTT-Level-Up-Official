@@ -61,7 +61,7 @@
             gap: 0.75rem;
             border-radius: $border-radius-standard;
             border: 1px solid #bbb;
-            font-size: 0.833rem;
+            font-size: $font-size-sm;
             padding: 0.375rem 0.75rem;
             cursor: pointer;
             transition: $standard-transition;
