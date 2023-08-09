@@ -376,6 +376,11 @@ export default class ActorSheet extends SvelteApplication {
       [...selectedFeatures, ...gifts].map(async (uuid) => (await fromUuid(uuid)).toObject())
     );
 
+    await this.actor.update({
+      'system.traits.size': item.system.creatureSize,
+      'system.details.creatureTypes': item.system.creatureTypes
+    });
+
     await this.actor.createEmbeddedDocuments('Item', [
       item,
       ...itemDocuments
