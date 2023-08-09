@@ -266,7 +266,7 @@
         border-radius: $border-radius-standard;
         cursor: pointer;
 
-        transition: all 0.15s ease-in-out;
+        transition: $standard-transition;
 
         i {
             margin: 0;

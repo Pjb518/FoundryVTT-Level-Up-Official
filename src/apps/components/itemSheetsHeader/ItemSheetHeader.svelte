@@ -192,7 +192,7 @@
     .header-button {
         display: flex;
         font-size: 2.25rem;
-        transition: all 0.15s ease-in-out;
+        transition: $standard-transition;
         padding: 0;
         background: none;
         color: #999;
@@ -297,7 +297,7 @@
 
         &__image {
             height: 100%;
-            transition: all 0.15s ease-in-out;
+            transition: $standard-transition;
         }
     }
 
@@ -312,7 +312,7 @@
         font-size: 0.694rem;
         padding-inline: 0.75rem;
         white-space: nowrap;
-        transition: all 0.15s ease-in-out;
+        transition: $standard-transition;
 
         &:disabled {
             cursor: auto;

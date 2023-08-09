@@ -281,7 +281,7 @@
             font-size: 0.833rem;
             padding: 0.375rem 0.75rem;
             cursor: pointer;
-            transition: all 0.15s ease-in-out;
+            transition: $standard-transition;
 
             &:hover {
                 background-color: rgba(0, 0, 0, 0.1);
@@ -312,7 +312,7 @@
         border-radius: $border-radius-standard;
         cursor: pointer;
 
-        transition: all 0.15s ease-in-out;
+        transition: $standard-transition;
 
         i {
             margin: 0;

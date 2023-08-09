@@ -90,7 +90,7 @@
     //     font-size: 0.833rem;
     //     color: #7e7960;
 
-    //     transition: all 0.15s ease-in-out;
+    //     transition: $standard-transition;
 
     //     &:focus,
     //     &:hover {

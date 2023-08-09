@@ -53,7 +53,7 @@
             font-size: 1.2rem;
             transform: translateX(-1px);
 
-            transition: all 0.15s ease-in-out;
+            transition: $standard-transition;
         }
 
         &:hover {

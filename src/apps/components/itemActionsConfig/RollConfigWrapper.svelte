@@ -67,7 +67,7 @@
         margin: 0;
         padding: 0.25rem;
         cursor: pointer;
-        transition: all 0.15s ease-in-out;
+        transition: $standard-transition;
 
         &:hover {
             transform: scale(1.2);
@@ -78,7 +78,7 @@
         margin: 0;
         padding: 0.25rem;
         cursor: pointer;
-        transition: all 0.15s ease-in-out;
+        transition: $standard-transition;
 
         &:hover {
             color: #555;

@@ -99,7 +99,7 @@
             font-size: 1.2rem;
             transform: translateX(-1px);
 
-            transition: all 0.15s ease-in-out;
+            transition: $standard-transition;
 
             @each $level, $color in $colors {
                 &-level-#{$level} {
@@ -118,7 +118,7 @@
             background: transparent;
             border-radius: 0;
 
-            transition: all 0.15s ease-in-out;
+            transition: $standard-transition;
 
             &:focus,
             &:hover {
@@ -145,7 +145,7 @@
             opacity: 0;
             transform: translateX(-1rem);
 
-            transition: all 0.15s ease-in-out;
+            transition: $standard-transition;
         }
 
         &-strife {

@@ -171,7 +171,7 @@
         background: none;
         cursor: pointer;
 
-        transition: all 0.15s ease-in-out;
+        transition: $standard-transition;
 
         &:hover {
             box-shadow: none;

@@ -36,7 +36,7 @@
             font-size: 0.833rem;
             line-height: unset;
 
-            transition: all 0.15s ease-in-out;
+            transition: $standard-transition;
 
             &:focus,
             &:hover {

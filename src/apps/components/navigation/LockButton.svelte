@@ -38,7 +38,7 @@
         // Nudge the button down 1px so that it _looks_ centred
         top: 1px;
 
-        transition: all 0.15s ease-in-out;
+        transition: $standard-transition;
 
         &:focus,
         &:hover {

@@ -644,7 +644,7 @@
         padding: 0.25rem;
         background: none;
         border: 0;
-        transition: all 0.15s ease-in-out;
+        transition: $standard-transition;
         color: #999;
 
         &:hover {
@@ -746,7 +746,7 @@
         font-size: 0.833rem;
         color: #7e7960;
 
-        transition: all 0.15s ease-in-out;
+        transition: $standard-transition;
 
         &:focus,
         &:hover {

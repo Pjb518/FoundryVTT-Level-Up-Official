@@ -165,7 +165,7 @@
             background: transparent;
             color: rgba(0, 0, 0, 0.25);
 
-            transition: all 0.15s ease-in-out;
+            transition: $standard-transition;
 
             &:focus,
             &:hover {
@@ -220,7 +220,7 @@
         &__roll-icon {
             display: none;
             color: #555;
-            transition: all 0.15s ease-in-out;
+            transition: $standard-transition;
 
             &--ctrl {
                 color: #ffb63b;

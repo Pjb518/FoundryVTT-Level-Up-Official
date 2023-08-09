@@ -229,7 +229,7 @@
         border: 1px solid #ccc;
         border-radius: $border-radius-standard;
 
-        transition: all 0.15s ease-in-out;
+        transition: $standard-transition;
 
         &:hover,
         &:focus {

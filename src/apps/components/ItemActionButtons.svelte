@@ -99,7 +99,7 @@
         padding: 0.25rem;
         background: none;
         border: 0;
-        transition: all 0.15s ease-in-out;
+        transition: $standard-transition;
         color: var(--icon-color, #999);
 
         &:hover {
@@ -146,7 +146,7 @@
             font-size: 1rem;
             transform: translateX(-1px);
 
-            transition: all 0.15s ease-in-out;
+            transition: $standard-transition;
         }
 
         &-items {
@@ -165,7 +165,7 @@
             opacity: 0;
             transform: translateX(calc(-100% - 1rem));
 
-            transition: all 0.15s ease-in-out;
+            transition: $standard-transition;
         }
 
         &:hover {

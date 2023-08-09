@@ -41,7 +41,7 @@
         margin: 0;
         color: #7e7960;
         border: 0;
-        transition: all 0.15s ease-in-out;
+        transition: $standard-transition;
     }
 
     .icon-wrapper {

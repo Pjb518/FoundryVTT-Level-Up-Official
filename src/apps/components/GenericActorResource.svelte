@@ -194,7 +194,7 @@
 
         i {
             height: 27px;
-            transition: all 0.15s ease-in-out;
+            transition: $standard-transition;
 
             &:hover {
                 transform: scale(1.2);

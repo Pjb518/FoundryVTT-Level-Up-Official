@@ -165,7 +165,7 @@
         color: #bbbaba;
         border: 0;
         padding: 0.125rem;
-        transition: all 0.15s ease-in-out;
+        transition: $standard-transition;
         cursor: pointer;
 
         &:hover {

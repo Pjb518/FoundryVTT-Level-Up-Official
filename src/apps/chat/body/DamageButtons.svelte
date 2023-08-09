@@ -128,7 +128,7 @@
             background: #e1ddd5;
             color: #7e7960;
 
-            transition: all 0.15s ease-in-out;
+            transition: $standard-transition;
 
             &:hover {
                 color: $color-dark-text;
@@ -154,7 +154,7 @@
             border: 1px solid #ccc;
             border-radius: $border-radius-standard;
 
-            transition: all 0.15s ease-in-out;
+            transition: $standard-transition;
 
             &:hover {
                 color: $color-dark-text;
@@ -175,7 +175,7 @@
         border: 1px solid #ccc;
         border-radius: $border-radius-standard;
 
-        transition: all 0.15s ease-in-out;
+        transition: $standard-transition;
 
         &:hover {
             color: $color-dark-text;
