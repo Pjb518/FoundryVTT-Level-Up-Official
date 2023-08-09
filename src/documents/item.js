@@ -35,6 +35,7 @@ export default class ItemA5e extends Item {
   // *****************************************************************************************
   prepareDerivedData() {
     if (['object', 'feature'].includes(this.type)) this.prepareArmorData();
+    if (this.type === 'object' && this.system.objectType === 'container') this.prepareContainer();
     if (['culture', 'background', 'heritage'].includes(this.type)) this.prepareForeignDocuments();
   }
 
@@ -58,6 +59,14 @@ export default class ItemA5e extends Item {
     }
 
     foundry.utils.setProperty(this, 'system.ac.formula', formula);
+  }
+
+  prepareContainer() {
+    foundry.utils.setProperty(this, 'containerItems', new ForeignDocumentManager(
+      this,
+      'items',
+      { validate: (obj) => obj.type === 'object' }
+    ));
   }
 
   prepareForeignDocuments() {
