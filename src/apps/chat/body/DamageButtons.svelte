@@ -131,7 +131,7 @@
             transition: all 0.15s ease-in-out;
 
             &:hover {
-                color: #191813;
+                color: $color-dark-text;
             }
         }
     }
@@ -157,7 +157,7 @@
             transition: all 0.15s ease-in-out;
 
             &:hover {
-                color: #191813;
+                color: $color-dark-text;
                 box-shadow: none;
             }
         }
@@ -178,7 +178,7 @@
         transition: all 0.15s ease-in-out;
 
         &:hover {
-            color: #191813;
+            color: $color-dark-text;
             box-shadow: none;
         }
     }

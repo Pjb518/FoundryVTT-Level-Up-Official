@@ -56,7 +56,7 @@
         padding: 0.25rem;
         padding-right: 0.5rem;
         font-size: 0.833rem;
-        background: #f6f2eb;
+        background: $color-light-background;
         border-radius: $border-radius-standard;
         border: 1px solid #ccc;
 

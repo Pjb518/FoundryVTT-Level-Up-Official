@@ -86,7 +86,7 @@
         grid-template-columns: repeat(2, 1fr);
         align-items: center;
         width: 100%;
-        color: #f6f2eb;
+        color: $color-light-text;
         font-family: "Modesto Condensed", serif;
         border-radius: $border-radius-standard;
         gap: 0.25rem;
@@ -101,7 +101,7 @@
             align-items: center;
             height: 26px;
             border: 0;
-            color: #191813;
+            color: $color-dark-text;
             margin-bottom: 0;
             background: none;
             font-size: 1.44rem;
@@ -113,7 +113,7 @@
             }
 
             &::placeholder {
-                color: lighten(#191813, 35%);
+                color: lighten($color-dark-text, 35%);
             }
         }
     }
@@ -132,7 +132,7 @@
         color: #7e7960;
         border: 1px solid #ccc;
         border-radius: 4px;
-        background: #f6f2eb;
+        background: $color-light-background;
         box-shadow: 0 0 5px #ccc inset;
         line-height: unset;
     }
@@ -145,7 +145,7 @@
         }
 
         &__value {
-            color: #191813;
+            color: $color-dark-text;
         }
     }
 

@@ -30,7 +30,7 @@
         margin: 0.25rem 0;
         padding: 0.375rem 0.75rem;
         background: $color-primary;
-        color: #f6f2eb;
+        color: $color-light-text;
         font-family: "Modesto Condensed", serif;
         font-size: 1rem;
         border-radius: $border-radius-standard;

@@ -128,7 +128,7 @@
         color: #7e7960;
         border: 1px solid #ccc;
         border-radius: 4px;
-        background: #f6f2eb;
+        background: $color-light-background;
         box-shadow: 0 0 5px #ccc inset;
         z-index: 4;
     }

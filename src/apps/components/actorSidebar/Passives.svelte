@@ -43,7 +43,7 @@
         color: #7e7960;
         border: 1px solid #ccc;
         border-radius: 4px;
-        background-color: #f6f2eb;
+        background-color: $color-light-background;
         box-shadow: 0 0 5px #ccc inset;
     }
 

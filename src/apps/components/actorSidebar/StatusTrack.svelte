@@ -91,7 +91,7 @@
             align-items: center;
             justify-content: center;
             border: 1px solid #ccc;
-            background: #f6f2eb;
+            background: $color-light-background;
             border-radius: 50%;
             box-shadow: 0 0 10px #ccc inset;
             color: rgba(0, 0, 0, 0.2);
@@ -139,7 +139,7 @@
             border: 1px solid #ccc;
             border-left: 0;
             margin: 0;
-            background: #f6f2eb;
+            background: $color-light-background;
             border-radius: 0 1rem 1rem 0;
             list-style: none;
             opacity: 0;
@@ -161,7 +161,7 @@
             }
 
             .track-icon {
-                color: lighten(#191813, 35%);
+                color: lighten($color-dark-text, 35%);
 
                 @each $level, $color in $colors {
                     &-level-#{$level} {

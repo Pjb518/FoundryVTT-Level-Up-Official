@@ -233,7 +233,7 @@
 
         &:hover,
         &:focus {
-            color: #191813;
+            color: $color-dark-text;
             box-shadow: none;
         }
     }

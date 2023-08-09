@@ -29,7 +29,7 @@
         if (pressedKeysStore.Shift) return "#2b6537";
         if (pressedKeysStore.Control) return "$color-secondary";
 
-        return "#191813";
+        return "$color-dark-text";
     }
 
     async function toggleExpertiseDice(rollIndex, expertiseDice) {
