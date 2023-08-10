@@ -7,6 +7,11 @@ export default function calculateInventoryWeight(actor) {
   );
 
   const totalItemWeight = equippedItems.reduce((acc, curr) => {
+    if (curr.system.containerId) {
+      const container = equippedItems.find((i) => i.uuid === curr.system.containerId);
+      if (!container) return acc;
+    }
+
     const { quantity } = curr.system;
     const itemWeight = parseFloat(curr.system.weight || 0, 10) ?? 0;
 
