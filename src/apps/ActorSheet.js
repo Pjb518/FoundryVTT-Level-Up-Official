@@ -169,26 +169,27 @@ export default class ActorSheet extends SvelteApplication {
     sheetConfigDialog.render(true);
   }
 
-  async _onDrop(event) {
+  async _onDrop(event, options = {}) {
     const transferData = event.dataTransfer.getData('text/plain');
-    if (!transferData) return null;
+    if (!transferData) return;
 
     const dragData = JSON.parse(transferData);
-    if (dragData?.actorId === this.actor?.id) return null;
-    if (dragData?.parentId === this.actor?.id) return null;
+
+    if (this.actor?.flags?.a5e?.currentTab !== 'inventory') {
+      if (dragData?.actorId === this.actor?.id) return;
+      if (dragData?.parentId === this.actor?.id) return;
+    }
 
     const { uuid } = dragData;
     const document = await fromUuid(uuid);
 
-    return this._onDropDocument(document);
+    this._onDropDocument(document, options);
   }
 
-  async _onDropDocument(document) {
-    if (document.documentName === 'Actor') return this.#onDropActor(document);
-    if (document.documentName === 'Item') return this.#onDropItem(document);
-    if (document.documentName === 'ActiveEffect') return this.#onDropActiveEffect(document);
-
-    return null;
+  async _onDropDocument(document, options = {}) {
+    if (document.documentName === 'Actor') this.#onDropActor(document);
+    else if (document.documentName === 'Item') this.#onDropItem(document, options);
+    else if (document.documentName === 'ActiveEffect') this.#onDropActiveEffect(document);
   }
 
   // eslint-disable-next-line no-unused-vars, no-empty-function, @typescript-eslint/no-unused-vars
@@ -200,15 +201,14 @@ export default class ActorSheet extends SvelteApplication {
     this.actor.createEmbeddedDocuments('ActiveEffect', [effect]);
   }
 
-  async #onDropItem(item) {
-    if (item.type === 'background') return this.#onDropBackground(item);
-    if (item.type === 'culture') return this.#onDropCulture(item);
-    if (item.type === 'destiny') return this.#onDropDestiny(item);
-    if (item.type === 'heritage') return this.#onDropHeritage(item);
-    if (item.type === 'spell') return this.#onDropSpell(item);
-
-    const items = this.actor.createEmbeddedDocuments('Item', [item]);
-    return items;
+  async #onDropItem(item, options = {}) {
+    if (item.type === 'background') this.#onDropBackground(item);
+    else if (item.type === 'culture') this.#onDropCulture(item);
+    else if (item.type === 'destiny') this.#onDropDestiny(item);
+    else if (item.type === 'heritage') this.#onDropHeritage(item);
+    else if (item.type === 'object') this.#onDropObject(item, options);
+    else if (item.type === 'spell') this.#onDropSpell(item);
+    else this.actor.createEmbeddedDocuments('Item', [item]);
   }
 
   async #onDropBackground(item) {
@@ -403,12 +403,21 @@ export default class ActorSheet extends SvelteApplication {
     this.actor.applyPermanentEffects();
   }
 
-  #onDropSpell(item) {
-    if (this.actor?.flags?.a5e?.currentTab !== 'inventory') {
-      this.actor.createEmbeddedDocuments('Item', [item]);
+  async #onDropObject(item, options) {
+    // Check if item is dropped is on the sheet already
+    if (item?.parent?.id === this.actor.id) {
+      item.updateContainer(options.containerUuid ?? '');
       return;
     }
 
+    const i = item.toObject();
+    i.system.containerId = options.containerUuid ?? '';
+    (await this.actor.createEmbeddedDocuments('Item', [i]))
+      ?.[0]
+      ?.updateContainer(options.containerUuid ?? '');
+  }
+
+  #onDropSpell(item) {
     const spellLevel = item.system.level;
 
     const {

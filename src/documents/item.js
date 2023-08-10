@@ -589,6 +589,15 @@ export default class ItemA5e extends Item {
 
   async updateContainer(containerUuid) {
     if (this.type !== 'object') return;
+
+    if (!containerUuid) {
+      const container = await fromUuid(this.system.containerId);
+      if (!container) return;
+
+      await this.update({ 'system.containerId': '' });
+      await container.containerItems.delete(this.uuid);
+    }
+
     const container = await fromUuid(containerUuid);
     if (!container
       || container?.type !== 'object'

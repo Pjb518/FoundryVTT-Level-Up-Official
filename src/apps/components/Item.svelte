@@ -81,30 +81,8 @@
         );
     }
 
-    async function onDropObject(event) {
-        // Run the default drop handler for the sheet in case the source is different.
-        let droppedItem = (await sheet._onDrop(event))?.[0] ?? null;
-
-        const transferData = event.dataTransfer.getData("text/plain");
-        if (!transferData && !droppedItem) return;
-
-        console.log(transferData);
-
-        if (!droppedItem) {
-            try {
-                const dragData = JSON.parse(transferData);
-                const { uuid } = dragData;
-                droppedItem = await fromUuid(uuid);
-            } catch (err) {
-                console.error(err);
-            }
-        }
-
-        if (!droppedItem) return;
-        if (droppedItem.type !== "object") return;
-
-        // Update container and item
-        droppedItem.updateContainer(item.uuid);
+    function onDropObject(event) {
+        sheet._onDrop(event, { containerUuid: item.uuid });
     }
 
     async function getDescription() {
