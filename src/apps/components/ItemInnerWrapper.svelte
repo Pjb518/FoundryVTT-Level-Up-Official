@@ -248,24 +248,27 @@
                     />
                 {/if}
 
-                <button
-                    class="action-button fas"
-                    class:fa-shield-alt={item.system.equippedState ===
-                        EQUIPPED_STATES.EQUIPPED}
-                    class:fa-person-carry-box={item.system.equippedState ===
-                        EQUIPPED_STATES.CARRIED}
-                    class:fa-tents={item.system.equippedState ===
-                        EQUIPPED_STATES.NOT_CARRIED}
-                    class:active={[
-                        EQUIPPED_STATES.EQUIPPED,
-                        EQUIPPED_STATES.CARRIED,
-                    ].includes(item.system.equippedState)}
-                    data-tooltip={A5E.equippedStates[
-                        item.system.equippedState ?? 0
-                    ]}
-                    data-tooltip-direction="UP"
-                    on:click|stopPropagation={() => item.toggleEquippedState()}
-                />
+                {#if !item.system?.containerId}
+                    <button
+                        class="action-button fas"
+                        class:fa-shield-alt={item.system.equippedState ===
+                            EQUIPPED_STATES.EQUIPPED}
+                        class:fa-person-carry-box={item.system.equippedState ===
+                            EQUIPPED_STATES.CARRIED}
+                        class:fa-tents={item.system.equippedState ===
+                            EQUIPPED_STATES.NOT_CARRIED}
+                        class:active={[
+                            EQUIPPED_STATES.EQUIPPED,
+                            EQUIPPED_STATES.CARRIED,
+                        ].includes(item.system.equippedState)}
+                        data-tooltip={A5E.equippedStates[
+                            item.system.equippedState ?? 0
+                        ]}
+                        data-tooltip-direction="UP"
+                        on:click|stopPropagation={() =>
+                            item.toggleEquippedState()}
+                    />
+                {/if}
 
                 <button
                     class="action-button fas"

@@ -127,7 +127,8 @@
 <li
     class="item-wrapper"
     class:item-wrapper--highlight={item.system.prepared ||
-        item.system.equippedState === A5E.EQUIPPED_STATES.EQUIPPED}
+        (item.system.equippedState === A5E.EQUIPPED_STATES.EQUIPPED &&
+            !item.system?.containerId)}
     draggable="true"
     on:dragstart={onDragStart}
     on:drop|preventDefault|stopPropagation={(e) => onDropObject(e)}
