@@ -1,3 +1,4 @@
+/* eslint-disable no-continue */
 import { SvelteApplication } from '#runtime/svelte/application';
 
 import ActorDocument from './ActorDocument';
@@ -403,7 +404,49 @@ export default class ActorSheet extends SvelteApplication {
     this.actor.applyPermanentEffects();
   }
 
+  async #onDropContainer(item) {
+    const emptyContainer = item.toObject();
+    emptyContainer.system.items = {};
+    emptyContainer.system.containerId = null;
+
+    const container = (await this.actor.createEmbeddedDocuments('Item', [emptyContainer]))?.[0];
+    const containerItems = Object.values(item.system.items);
+
+    // Get all items and sub-containers
+    const items = [];
+    const subContainers = [];
+
+    // eslint-disable-next-line no-restricted-syntax
+    for await (const { uuid } of containerItems) {
+      let i = await fromUuid(uuid);
+      if (!i) continue;
+      if (i.system.objectType === 'container') {
+        subContainers.push(i);
+        continue;
+      }
+
+      i = i.toObject();
+      i.system.containerId = container.uuid;
+      items.push(i);
+    }
+
+    // Create sub-containers
+    const newSubContainers = await Promise.all(
+      subContainers.map((c) => this.#onDropContainer(c))
+    );
+
+    const newItems = await this.actor.createEmbeddedDocuments('Item', items);
+    [...newItems, ...newSubContainers].forEach((i) => i.updateContainer(container.uuid));
+
+    return container;
+  }
+
   async #onDropObject(item, options) {
+    if (item.system.objectType === 'container' && item.parent?.id !== this.actor.id) {
+      this.#onDropContainer(item);
+      return;
+    }
+
     // Check if item is dropped is on the sheet already
     if (item?.parent?.id === this.actor.id) {
       item.updateContainer(options.containerUuid ?? '');

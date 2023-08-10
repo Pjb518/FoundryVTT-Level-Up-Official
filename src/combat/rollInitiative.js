@@ -60,6 +60,7 @@ export default async function rollInitiative(
       flags: { 'core.initiativeRoll': true }
     }, messageOptions);
 
+    // eslint-disable-next-line no-await-in-loop
     const chatData = await roll.toMessage(messageData, {
       create: false,
       rollMode: combatant.hidden && (rollMode === 'roll') ? 'gmroll' : rollMode

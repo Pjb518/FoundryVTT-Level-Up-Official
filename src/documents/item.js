@@ -588,7 +588,7 @@ export default class ItemA5e extends Item {
   }
 
   async updateContainer(containerUuid) {
-    if (this.type !== 'object') return;
+    if (this.type !== 'object' || containerUuid === this.uuid) return;
 
     if (!containerUuid) {
       const container = await fromUuid(this.system.containerId);
