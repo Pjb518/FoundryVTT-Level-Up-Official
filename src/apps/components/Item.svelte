@@ -99,6 +99,7 @@
         (acc, [k, v]) => {
             const i = fromUuidSync(v.uuid);
             if (!i) return acc;
+            if (i.parent?.id !== $actor.id) return acc;
 
             acc.push([k, i]);
             return acc;
