@@ -224,6 +224,16 @@ export default class ActiveEffectA5e extends ActiveEffect {
     return change.value;
   }
 
+  // -------------------------------------------------------
+  //  CRUD Methods
+  // -------------------------------------------------------
+  _onCreate(data, options, userId) {
+    super._onCreate(data, options, userId);
+    if (this.parent?.documentName === 'Item') return;
+
+    this.#addSubConditions(data);
+  }
+
   _preUpdate(data, options, userId) {
     // Update parent effect
     this._preUpdateParentEffect(data, options, userId);
@@ -303,10 +313,60 @@ export default class ActiveEffectA5e extends ActiveEffect {
 
   _onDelete(options, userId) {
     super._onDelete(options, userId);
-
     if (this.parent?.documentName !== 'Actor') return;
+
+    this.#deleteSubConditions();
+
     this.parent.effectPhases = null;
     this.parent.reset();
+  }
+
+  #addSubConditions(data) {
+    const statuses = data.statuses ?? [];
+    const subConditions = new Set();
+    statuses.forEach((statusId) => {
+      const statusEffect = CONFIG.statusEffects.find((e) => e.id === statusId);
+      if (!statusEffect) return;
+
+      subConditions.add(...statusEffect?.statuses ?? []);
+    });
+
+    if (!subConditions.size) return;
+    const token = this.parent?.getActiveTokens()?.[0];
+    if (!token) return;
+
+    subConditions.forEach((c) => {
+      if (this.parent?.statuses?.has(c)) return;
+      const effect = CONFIG.statusEffects.find((e) => e.id === c);
+      if (!effect) return;
+
+      if (data.statuses?.[0]) {
+        foundry.utils.setProperty(effect, 'flags.a5e.source', data.statuses[0]);
+      }
+      token.document.toggleActiveEffect(effect, { active: true });
+    });
+  }
+
+  #deleteSubConditions() {
+    const statuses = this.statuses ?? [];
+    const subConditions = new Set();
+    statuses.forEach((statusId) => {
+      const statusEffect = CONFIG.statusEffects.find((e) => e.id === statusId);
+      if (!statusEffect) return;
+
+      subConditions.add(...statusEffect?.statuses ?? []);
+    });
+
+    if (!subConditions.size) return;
+    const token = this.parent?.getActiveTokens()?.[0];
+    if (!token) return;
+
+    subConditions.forEach((c) => {
+      const effect = CONFIG.statusEffects.find((e) => e.id === c);
+      if (!effect) return;
+
+      token.document.toggleActiveEffect(effect, { active: false });
+    });
   }
 
   async duplicateEffect() {
@@ -317,6 +377,9 @@ export default class ActiveEffectA5e extends ActiveEffect {
     if (owningDocument) owningDocument.createEmbeddedDocuments('ActiveEffect', [newEffect]);
   }
 
+  // -------------------------------------------------------
+  //  Custom API
+  // -------------------------------------------------------
   async toggleActiveState() {
     await this.update({ disabled: !this.disabled });
   }

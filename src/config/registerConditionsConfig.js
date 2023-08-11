@@ -342,7 +342,8 @@ export default function registerConditionsConfig(A5E) {
       label: 'A5E.ConditionParalyzed',
       icon: 'icons/svg/paralysis.svg',
       changes: changes.paralyzed,
-      duration: {}
+      duration: {},
+      statuses: ['incapacitated']
     },
     // Petrified
     {
@@ -350,7 +351,8 @@ export default function registerConditionsConfig(A5E) {
       label: 'A5E.ConditionPetrified',
       icon: 'systems/a5e/assets/icons/petrified.svg',
       changes: changes.petrified,
-      duration: {}
+      duration: {},
+      statuses: ['incapacitated']
     },
     // Poisoned
     {
@@ -407,7 +409,8 @@ export default function registerConditionsConfig(A5E) {
       label: 'A5E.ConditionStunned',
       icon: 'icons/svg/daze.svg',
       changes: changes.stunned,
-      duration: {}
+      duration: {},
+      statuses: ['incapacitated']
     },
     // Unconscious
     {
@@ -418,7 +421,8 @@ export default function registerConditionsConfig(A5E) {
       duration: {},
       flags: {
         core: { overlay: true }
-      }
+      },
+      statuses: ['incapacitated']
     },
     ...Array.from({ length: 10 }, (_, i) => ({
       id: `generic${i + 1}`,
