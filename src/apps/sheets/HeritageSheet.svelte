@@ -34,7 +34,7 @@
         },
         {
             name: "features",
-            label: "A5E.TabFeatures",
+            label: "A5E.TabTraits",
             component: HeritageFeaturesTab,
         },
         {
