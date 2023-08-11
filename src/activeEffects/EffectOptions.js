@@ -275,6 +275,9 @@ export default class EffectOptions {
     specialValues['flags.a5e.effects.damageVulnerabilities.all'] = [[], EffectOptions.CUSTOM_ONLY, null];
     specialValues['flags.a5e.effects.conditionImmunities.all'] = [[], EffectOptions.CUSTOM_ONLY, null];
 
+    const statusConditions = Object.entries(A5E.conditions);
+    specialValues['flags.a5e.effects.statusConditions'] = [[], EffectOptions.CUSTOM_ONLY, statusConditions];
+
     // TODO: Maybe add something to automatically fail?
 
     // Token Effects
