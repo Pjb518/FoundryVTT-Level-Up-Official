@@ -13,6 +13,8 @@ export default function getACComponents(actor) {
 
   // Get ac base effects
   const effectChanges = actor.effects.reduce((acc, effect) => {
+    if (effect.isSuppressed) return acc;
+
     const changes = effect.changes
       .reduce((changesAcc, change) => {
         if (change.key !== 'system.attributes.ac.changes.bonuses.value') return changesAcc;
