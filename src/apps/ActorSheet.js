@@ -417,7 +417,7 @@ export default class ActorSheet extends SvelteApplication {
     const subContainers = [];
 
     // eslint-disable-next-line no-restricted-syntax
-    for await (const { uuid } of containerItems) {
+    for await (const { uuid, quantity } of containerItems) {
       let i = await fromUuid(uuid);
       if (!i) continue;
       if (i.system.objectType === 'container') {
@@ -427,6 +427,7 @@ export default class ActorSheet extends SvelteApplication {
 
       i = i.toObject();
       i.system.containerId = container.uuid;
+      if (quantity) i.system.quantity = quantity ?? i.system.quantity;
       items.push(i);
     }
 
