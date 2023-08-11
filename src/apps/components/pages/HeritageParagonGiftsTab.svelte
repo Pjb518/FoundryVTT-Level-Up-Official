@@ -71,6 +71,7 @@
                         class="a5e-input a5e-input--slim category-heading"
                         type="text"
                         value={label}
+                        placeholder="New Paragon Category"
                         on:change={({ target }) =>
                             updateDocumentDataFromField(
                                 $item,
