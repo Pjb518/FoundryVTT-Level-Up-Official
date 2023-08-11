@@ -1,6 +1,6 @@
 import { localize } from '#runtime/svelte/helper';
 
-import getCorrectedTypeValueFromKey from './getCorrectedTypeValueFromKey';
+import getCorrectedTypeValueFromKey from './utils/getCorrectedTypeValueFromKey';
 import getDeterministicBonus from '../../dice/getDeterministicBonus';
 import castType from '../../utils/castType';
 
