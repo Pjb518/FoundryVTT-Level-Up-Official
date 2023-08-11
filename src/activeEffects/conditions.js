@@ -1,3 +1,4 @@
+import registerConditionsConfig from '../config/registerConditionsConfig';
 import { changes, flags } from './conditionsConfig';
 import { addSubConditions, removeSubConditions, preventIfSourceActivated } from './utils/subConditions';
 
@@ -7,7 +8,8 @@ import { addSubConditions, removeSubConditions, preventIfSourceActivated } from 
 export default function setupConditions() {
   // Replace default conditions with system specific conditions.
   // eslint-disable-next-line @typescript-eslint/no-use-before-define
-  CONFIG.statusEffects = getConditions();
+  // CONFIG.statusEffects = getConditions();
+  CONFIG.statusEffects = registerConditionsConfig(CONFIG.A5E);
 
   // Setup Hook to apply sub-conditions
   Hooks.on('createActiveEffect', addSubConditions);
