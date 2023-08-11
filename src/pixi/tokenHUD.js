@@ -9,10 +9,20 @@ import { localize } from '#runtime/svelte/helper';
 export default class TokenHUDA5e extends TokenHUD {
   /** @override */
   getData() {
-    let data = super.getData();
-    data = foundry.utils.mergeObject(data, {
+    const data = foundry.utils.mergeObject(super.getData(), {
       AC: this.object.actor?.system?.attributes?.ac?.value ?? 10
     });
+
+    const [genericConditions, statusEffects] = Object.entries(data.statusEffects)
+      .reduce((acc, [key, value]) => {
+        if (value.id.includes('generic')) acc[0][key] = value;
+        else acc[1][key] = value;
+        return acc;
+      }, [{}, {}]);
+
+    data.statusEffects = statusEffects;
+    data.genericConditions = genericConditions;
+
     return data;
   }
 
