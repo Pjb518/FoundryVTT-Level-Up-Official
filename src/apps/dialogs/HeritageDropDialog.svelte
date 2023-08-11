@@ -19,28 +19,42 @@
     function submitForm() {
         application.submit({
             gifts,
+            paragonGifts,
             selectedFeatures,
         });
     }
 
     let selectedGiftCategory = "";
-    let selectedFeatures = [];
+    let selectedParagonCategories = "";
+    let selectedFeatures =
+        Object.values($item.system.features ?? {}).map(({ uuid }) => uuid) ??
+        [];
 
     $: gifts = Object.values($item.system.gifts).reduce((acc, gift) => {
         if (gift.category === selectedGiftCategory) acc.push(gift.uuid);
         return acc;
     }, []);
 
+    $: paragonGifts = Object.values($item.system.paragonGifts).reduce(
+        (acc, gift) => {
+            if (gift.category === selectedParagonCategories)
+                acc.push(gift.uuid);
+            return acc;
+        },
+        []
+    );
+
     $: features = Object.values($item.system.features).map((f) => {
         const data = fromUuidSync(f.uuid);
         return [f.uuid, data.name];
     });
     $: giftCategories = Object.entries($item.system.giftCategories);
+    $: paragonCategories = Object.entries($item.system.paragonCategories);
 </script>
 
 <form>
     <section>
-        <FormSection heading={localize("A5E.originSheets.heritage.features")}>
+        <FormSection heading={localize("A5E.originSheets.heritage.traits")}>
             <CheckboxGroup
                 options={features}
                 selected={selectedFeatures}
@@ -56,6 +70,19 @@
                     (selectedGiftCategory = detail)}
             />
         </FormSection>
+
+        {#if $actor.system.details.level >= 10}
+            <FormSection
+                heading={localize("A5E.originSheets.heritage.paragonGifts")}
+            >
+                <RadioGroup
+                    options={paragonCategories}
+                    selected={selectedParagonCategories}
+                    on:updateSelection={({ detail }) =>
+                        (selectedParagonCategories = detail)}
+                />
+            </FormSection>
+        {/if}
     </section>
 
     <div class="button-container">
