@@ -1,4 +1,4 @@
-import TokenHUDA5e from '../documents/tokenHUD';
+import TokenHUDA5e from '../pixi/tokenHUD';
 
 import measureDistances from '../pixi/measureDistances';
 
