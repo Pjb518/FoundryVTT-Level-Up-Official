@@ -12,6 +12,7 @@
     import ItemGmNotesTab from "../components/pages/ItemGmNotesTab.svelte";
     import ItemUnidentifiedDescriptionTab from "../components/pages/ItemUnidentifiedDescriptionTab.svelte";
     import ItemEffectsTab from "../components/pages/ItemEffectsTab.svelte";
+    import ItemEquipmentTab from "../components/pages/ItemEquipmentTab.svelte";
 
     export let { appId, document, sheet } = getContext("#external").application;
     export let elementRoot;
@@ -58,6 +59,15 @@
             label: "A5E.ItemSheetLabelPropertiesTab",
             component: ItemPropertiesTab,
             display: !$item.system.unidentified || game.user.isGM,
+        },
+        {
+            name: "equipment",
+            label: "A5E.Equipment",
+            component: ItemEquipmentTab,
+            display:
+                $item.type === "object" &&
+                $item.system.objectType === "container" &&
+                (!$item.system.unidentified || game.user.isGM),
         },
         {
             name: "actions",

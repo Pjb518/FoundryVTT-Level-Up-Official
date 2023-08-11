@@ -6,9 +6,12 @@
     export let doc;
     export let uuid;
     export let attribute = null;
+    export let showDropZone = true;
 
     const originItem = getContext("item");
     const dispatch = createEventDispatcher();
+
+    const showQuantity = ["items", "equipment"].includes(attribute);
 
     let docData = $originItem ? $originItem[attribute]?.getUuid(uuid) : null;
     let docId = $originItem ? $originItem[attribute]?.getIdByUuid(uuid) : null;
@@ -20,7 +23,7 @@
 
     <h3>{doc?.name}</h3>
 
-    {#if docData && attribute === "equipment"}
+    {#if docData && showQuantity}
         <div class="quantity-wrapper">
             <input
                 class="number-input"
@@ -29,6 +32,7 @@
                 value={$originItem.system?.[attribute]?.[docId]?.quantity ??
                     originalQuantity}
                 min="1"
+                disabled={!showDropZone}
                 on:change={({ target }) =>
                     updateDocumentDataFromField(
                         $originItem,
@@ -39,12 +43,14 @@
         </div>
     {/if}
 
-    <button
-        class="a5e-button a5e-button--delete delete-button fas fa-trash"
-        data-tooltip="A5E.ButtonToolTipDelete"
-        data-tooltip-direction="UP"
-        on:click={(event) => dispatch("item-deleted", [event, uuid])}
-    />
+    {#if showDropZone}
+        <button
+            class="a5e-button a5e-button--delete delete-button fas fa-trash"
+            data-tooltip="A5E.ButtonToolTipDelete"
+            data-tooltip-direction="UP"
+            on:click={(event) => dispatch("item-deleted", [event, uuid])}
+        />
+    {/if}
 </li>
 
 <style lang="scss">

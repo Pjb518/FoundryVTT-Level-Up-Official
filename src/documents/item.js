@@ -62,7 +62,7 @@ export default class ItemA5e extends Item {
   }
 
   prepareContainer() {
-    foundry.utils.setProperty(this, 'containerItems', new ForeignDocumentManager(
+    foundry.utils.setProperty(this, 'items', new ForeignDocumentManager(
       this,
       'items',
       { validate: (obj) => obj.type === 'object' }
@@ -595,7 +595,7 @@ export default class ItemA5e extends Item {
       if (!container) return;
 
       await this.update({ 'system.containerId': '' });
-      await container.containerItems.delete(this.uuid);
+      await container.items.delete(this.uuid);
     }
 
     const container = await fromUuid(containerUuid);
@@ -605,7 +605,7 @@ export default class ItemA5e extends Item {
       || container?.parent?.id !== this.parent?.id) return;
 
     await this.update({ 'system.containerId': containerUuid });
-    await container.containerItems.add(this.uuid);
+    await container.items.add(this.uuid);
   }
 
   async recharge(actionId, state = false) {
@@ -678,7 +678,7 @@ export default class ItemA5e extends Item {
       }
 
       const container = await fromUuid(this.system.containerId);
-      if (container) await container?.containerItems?.delete(this.uuid);
+      if (container) await container?.items?.delete(this.uuid);
     }
   }
 
