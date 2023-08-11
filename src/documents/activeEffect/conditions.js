@@ -1,5 +1,5 @@
-import registerConditionsConfig from '../config/registerConditionsConfig';
-import preventIfSourceActivated from './utils/subConditions';
+import registerConditionsConfig from '../../config/registerConditionsConfig';
+import preventIfSourceActivated from './utils/preventIfSourceActivated';
 
 // ++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 //                     Conditions Object

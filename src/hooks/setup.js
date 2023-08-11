@@ -1,5 +1,5 @@
 import registerSystemSettings from '../settings';
-import setupConditions from '../activeEffects/conditions';
+import setupConditions from '../documents/activeEffect/conditions';
 
 export default function setup() {
   registerSystemSettings();

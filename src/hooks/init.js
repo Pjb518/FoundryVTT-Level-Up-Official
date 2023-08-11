@@ -16,7 +16,7 @@ import CultureDataModel from '../dataModels/item/CultureDataModel';
 import DestinyDataModel from '../dataModels/item/DestinyDataModel';
 import HeritageDataModel from '../dataModels/item/HeritageDataModel';
 
-import EffectOptions from '../activeEffects/EffectOptions';
+import EffectOptions from '../documents/activeEffect/EffectOptions';
 
 import _onCombatControl from '../combat/_onCombatControl';
 import _onCombatantControl from '../combat/_onCombatantControl';

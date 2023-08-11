@@ -33,7 +33,7 @@ import HealingBonusConfigDialog from '../../apps/dialogs/initializers/HealingBon
 import SavingThrowRollDialog from '../../apps/dialogs/initializers/SavingThrowRollDialog';
 import SkillCheckRollDialog from '../../apps/dialogs/initializers/SkillCheckRollDialog';
 
-import automateHpConditions from '../../activeEffects/utils/automateHpConditions';
+import automateHpConditions from '../activeEffect/utils/automateHpConditions';
 import getDeterministicBonus from '../../dice/getDeterministicBonus';
 import getRollFormula from '../../utils/getRollFormula';
 import overrideRollMode from '../../utils/overrideRollMode';

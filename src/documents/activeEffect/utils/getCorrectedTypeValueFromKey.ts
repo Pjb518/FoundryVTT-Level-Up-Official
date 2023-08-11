@@ -1,5 +1,5 @@
 // @ts-nocheck
-import castType from '../../utils/castType';
+import castType from '../../../utils/castType';
 
 export default function getCorrectedTypeValueFromKey(actor, key: string): any {
   const model = game.model.Actor[actor.type] ?? {};
