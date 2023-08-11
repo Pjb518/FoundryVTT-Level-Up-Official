@@ -1,14 +1,30 @@
 /* stylelint-disable selector-max-compound-selectors */
 /* stylelint-disable selector-max-id */
 #token-hud .status-effects {
-  width: max-content;
-  grid-template-columns: repeat(3, minmax(8em, 1fr));
+  display: flex;
+  flex-direction: column;
   gap: 0.5em;
-  padding: 0.5em;
-  font-size: $font-size-lg;
+  font-size: 1.2rem;
   line-height: 1.2rem;
-  text-align: left;
 
+  .status-effects-conditions {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(8em, 1fr));
+    gap: 0.5em;
+    padding: 0.5em;
+    font-size: 1.2rem;
+    line-height: 1.2rem;
+    text-align: left;
+    width: max-content;
+    border-bottom: 0.5px solid #ccc;
+  }
+
+  .generic-effects-container {
+    display: flex;
+    justify-content: space-around;
+    padding-inline: 0.25rem;
+    padding-bottom: 0.25rem;
+  }
 
   .condition-container {
     display: flex;
