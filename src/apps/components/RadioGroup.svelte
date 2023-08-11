@@ -19,6 +19,10 @@
             dispatch("updateSelection", value);
         }
     }
+
+    // Cast string to boolean
+
+    console.log(selected);
 </script>
 
 <ul
@@ -37,7 +41,8 @@
     {#each options as [value, label]}
         <!-- svelte-ignore a11y-click-events-have-key-events -->
         <Tag
-            active={selected === value || selected?.toString() === value}
+            active={selected === value ||
+                selected?.toString() === value?.toString()}
             {label}
             {optionStyles}
             {value}
