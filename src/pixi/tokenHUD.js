@@ -1,3 +1,6 @@
+/* eslint-disable no-continue */
+/* eslint-disable no-await-in-loop */
+/* eslint-disable no-restricted-syntax */
 import { localize } from '#runtime/svelte/helper';
 
 /**
@@ -44,19 +47,20 @@ export default class TokenHUDA5e extends TokenHUD {
    */
   async _clearAllConditions(event) {
     event.stopPropagation();
-    const conditions = this._getStatusEffectChoices();
 
-    // NOTE: When toggleEffect is called, it updates all effects.
-    // So effects which are pending changes could get "untoggled"
-    // So we must await each effect to ensure all effects are untoggled.
-    // In theory we could do the toggle ourselves, but the logic seems non-trivial.
+    const choices = this._getStatusEffectChoices();
+    const conditions = CONFIG.statusEffects
+      .sort((a, b) => (b?.statuses?.length ?? 0) - (a?.statuses?.length ?? 0));
 
-    // eslint-disable-next-line no-restricted-syntax
-    for (const condition of Object.values(conditions)) {
-      if (condition.isActive) {
-        // eslint-disable-next-line no-await-in-loop
-        await this.object.toggleEffect({ id: condition.id, icon: condition.src });
-      }
+    const skipConditions = new Set();
+    for (const condition of conditions) {
+      if (skipConditions.has(condition.id)) continue;
+
+      const key = condition.icon;
+      if (!(choices[key]?.isActive)) continue;
+      if (condition?.statuses?.length) skipConditions.add(condition.statuses[0]);
+
+      await this.object.document.toggleActiveEffect(condition, { active: false });
     }
   }
 }
