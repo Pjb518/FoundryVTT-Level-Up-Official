@@ -3,7 +3,12 @@ import { DynMapReducer } from '#runtime/svelte/store/reducer';
 
 export class ActorActiveEffectMapReducer extends DynMapReducer {
   initialize() {
-    this.filters.add((effect) => effect?.statuses?.size === 0);
+    this.filters.add((effect) => {
+      const statusCondition = effect?.changes?.find((c) => c.key === 'flags.a5e.effects.statusConditions');
+      if (statusCondition) return true;
+      return effect?.statuses?.size === 0;
+    });
+
     this.sort.set((a, b) => (a?.flags?.a5e?.sort ?? 0) - (b?.flags?.a5e?.sort ?? 0));
 
     this._types = {
@@ -18,7 +23,6 @@ export class ActorActiveEffectMapReducer extends DynMapReducer {
 
 export class ItemActiveEffectMapReducer extends DynMapReducer {
   initialize() {
-    this.filters.add((effect) => effect?.statuses?.size === 0);
     this.sort.set((a, b) => (a?.flags?.a5e?.sort ?? 0) - (b?.flags?.a5e?.sort ?? 0));
 
     this._types = {

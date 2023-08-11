@@ -226,17 +226,40 @@ export default class ActiveEffectA5e extends ActiveEffect {
 
   _preUpdate(data, options, userId) {
     // Update parent effect
-    if (!(this.parent?.parent instanceof Actor)) return super._preUpdate(data, options, userId);
+    this._preUpdateParentEffect(data, options, userId);
+
+    // Update status effects
+    this._preUpdateStatusEffects(data, options, userId);
+
+    return super._preUpdate(data, options, userId);
+  }
+
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
+  _preUpdateParentEffect(data, options, userId) {
+    if (!(this.parent?.parent instanceof Actor)) return;
     const actor = this.parent.parent;
 
-    if (this.flags?.a5e?.transferType !== 'passive') return super._preUpdate(data, options, userId);
+    if (this.flags?.a5e?.transferType !== 'passive') return;
     const parentEffect = actor.effects.contents.find((e) => this.equals(e));
-    if (!parentEffect) return super._preUpdate(data, options, userId);
+    if (!parentEffect) return;
     const parentUpdateData = foundry.utils.deepClone(data);
     delete parentUpdateData._id;
     parentEffect.update(parentUpdateData);
+  }
 
-    return super._preUpdate(data, options, userId);
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
+  _preUpdateStatusEffects(data, options, userId) {
+    const changes = data.changes ?? [];
+    const statuses = new Set();
+    changes.forEach((change) => {
+      if (change.key === 'flags.a5e.effects.statusCondition') return;
+      const statusEffect = CONFIG.statusEffects.find((e) => e.id === change.value);
+      if (!statusEffect) return;
+
+      statuses.add(statusEffect.id);
+    });
+
+    data.statuses = Array.from(statuses);
   }
 
   _onUpdate(data, options, userId) {

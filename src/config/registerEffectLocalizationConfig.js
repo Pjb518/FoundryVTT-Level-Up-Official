@@ -9,6 +9,7 @@ export default function registerEffectLocalizationConfig(A5E) {
     'flags.a5e.effects.damageResistances.all': 'A5E.effects.keys.flags.damageResistances.all',
     'flags.a5e.effects.damageVulnerabilities.all': 'A5E.effects.keys.flags.damageVulnerabilities.all',
     'flags.a5e.effects.expertiseDie': 'A5E.effects.keys.flags.expertiseDie',
+    'flags.a5e.effects.statusConditions': 'A5E.effects.keys.flags.statusConditions',
     'flags.a5e.effects.grants.rollMode.attack.all': 'A5E.effects.keys.flags.grantsRollMode.all',
     'flags.a5e.effects.grants.rollMode.attack.meleeSpellAttack': 'A5E.effects.keys.flags.grantsRollMode.meleeSpellAttack',
     'flags.a5e.effects.grants.rollMode.attack.meleeWeaponAttack': 'A5E.effects.keys.flags.grantsRollMode.meleeWeaponAttack',

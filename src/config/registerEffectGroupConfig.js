@@ -71,6 +71,7 @@ export default function registerEffectGroupConfig(A5E) {
     conditions: {
       label: 'A5E.effects.groups.conditions',
       items: [
+        'flags.a5e.effects.statusConditions',
         'system.attributes.fatigue',
         'system.attributes.strife'
       ]
