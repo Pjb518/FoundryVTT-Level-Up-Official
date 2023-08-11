@@ -8,6 +8,7 @@ export default function registerActiveEffectConfig(A5E) {
     temporary: 'A5E.effects.types.plural.temporary'
   };
 
+  // TODO: Allow people to replace these with settings
   A5E.ConditionIcons = {
     blinded: 'icons/svg/blind.svg',
     bloodied: 'icons/svg/blood.svg',
