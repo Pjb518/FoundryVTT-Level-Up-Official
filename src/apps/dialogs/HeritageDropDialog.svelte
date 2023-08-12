@@ -48,8 +48,12 @@
         const data = fromUuidSync(f.uuid);
         return [f.uuid, data.name];
     });
-    $: giftCategories = Object.entries($item.system.giftCategories);
-    $: paragonCategories = Object.entries($item.system.paragonCategories);
+    $: giftCategories = Object.entries($item.system.giftCategories).map(
+        ([uuid, name]) => [uuid, name || "New Gift Category"]
+    );
+    $: paragonCategories = Object.entries($item.system.paragonCategories).map(
+        ([uuid, name]) => [uuid, name || "New Paragon Category"]
+    );
 </script>
 
 <form>
