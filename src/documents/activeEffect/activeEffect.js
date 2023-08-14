@@ -224,6 +224,11 @@ export default class ActiveEffectA5e extends ActiveEffect {
     return change.value;
   }
 
+  _onCreate(data, options, userId) {
+    super._onCreate(data, options, userId);
+    this.#updateCanvas();
+  }
+
   _preUpdate(data, options, userId) {
     // Update parent effect
     if (!(this.parent?.parent instanceof Actor)) return super._preUpdate(data, options, userId);
@@ -241,7 +246,7 @@ export default class ActiveEffectA5e extends ActiveEffect {
 
   _onUpdate(data, options, userId) {
     super._onUpdate(data, options, userId);
-    this.#updateCanvas(data);
+    this.#updateCanvas();
 
     if (!(this.parent?.parent instanceof Actor)) return;
     const actor = this.parent.parent;
@@ -254,12 +259,11 @@ export default class ActiveEffectA5e extends ActiveEffect {
    * Updates the canvas perception and lights if token effect has changed.
    * @param {Object} data
    */
-  #updateCanvas(data) {
+  #updateCanvas() {
     if (this.parent?.documentName !== 'Actor') return;
 
-    const hasDisabled = Object.keys(data).includes('disabled');
-    const changeKeys = data.changes?.map((c) => c.key) ?? [];
-    if (!(changeKeys.some((k) => k.startsWith('@token'))) && !hasDisabled) return;
+    const changeKeys = this.changes?.map((c) => c.key) ?? [];
+    if (!(changeKeys.some((k) => k.startsWith('@token')))) return;
 
     // Reset tokens
     if (foundry.utils.getProperty(this.parent, 'prototypeToken.actorLink') ?? true) {
@@ -271,7 +275,7 @@ export default class ActiveEffectA5e extends ActiveEffect {
       this.parent.token.reset();
     }
 
-    const updateLighting = changeKeys.some((k) => k.startsWith('@token.light')) || hasDisabled;
+    const updateLighting = changeKeys.some((k) => k.startsWith('@token.light'));
 
     if (updateLighting) {
       canvas.perception.update({ initializeLighting: updateLighting }, true);
@@ -280,6 +284,7 @@ export default class ActiveEffectA5e extends ActiveEffect {
 
   _onDelete(options, userId) {
     super._onDelete(options, userId);
+    this.#updateCanvas();
 
     if (this.parent?.documentName !== 'Actor') return;
     this.parent.effectPhases = null;

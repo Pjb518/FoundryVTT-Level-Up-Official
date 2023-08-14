@@ -115,6 +115,7 @@
 
     <div class="5e-field-group">
         <!-- svelte-ignore a11y-click-events-have-key-events -->
+        <!-- svelte-ignore a11y-no-static-element-interactions -->
         <header
             class="u-align-center u-flex u-gap-md u-pointer u-w-fit"
             on:click={() => (hintToggle = !hintToggle)}
