@@ -1,10 +1,21 @@
 <script>
+    import { localize } from "#runtime/svelte/helper";
     import { getContext } from "svelte";
     import FormSection from "../FormSection.svelte";
     import RadioGroup from "../RadioGroup.svelte";
 
     const effect = getContext("effect");
     const { A5E } = CONFIG;
+
+    function updateDuration(key, value) {
+        console.log(key);
+        console.log(value);
+        console.log(unit);
+        $effect.update({ [`duration.${key}`]: value === 0 ? null : value });
+    }
+
+    $: durationType = $effect.flags?.a5e?.duration?.type ?? "seconds";
+    $: unit = $effect.flags?.a5e?.duration?.unit ?? "seconds";
 </script>
 
 <article>
@@ -16,4 +27,81 @@
                 $effect.update({ "flags.a5e.transferType": detail })}
         />
     </FormSection>
+    {#if $effect.flags?.a5e?.transferType === "onUse"}
+        <FormSection heading="Effect Duration">
+            <RadioGroup
+                options={Object.entries(A5E.effectDurationTypes)}
+                selected={durationType}
+                on:updateSelection={({ detail }) =>
+                    $effect.update({
+                        "flags.a5e.duration.type": detail,
+                    })}
+            />
+            {#if durationType === "seconds"}
+                <div class="u-flex u-gap-md">
+                    <input
+                        class="small-input"
+                        type="number"
+                        value={$effect.duration.seconds ?? 0}
+                        on:change={({ target }) =>
+                            updateDuration(
+                                $effect.flags.a5e.duration.type,
+                                Number(target.value)
+                            )}
+                    />
+                    <select
+                        class="u-w-fit"
+                        on:change={({ target }) =>
+                            $effect.update({
+                                "flags.a5e.duration.unit": target.value,
+                            })}
+                    >
+                        {#each Object.entries(A5E.effectDurationUnits) as [value, label]}
+                            <option {value} selected={value}>
+                                {localize(label)}
+                            </option>
+                        {/each}
+                    </select>
+                </div>
+            {:else if durationType === "rounds"}
+                <input
+                    type="number"
+                    name=""
+                    value={$effect.duration.rounds ?? 0}
+                    on:change={({ target }) =>
+                        updateDuration(
+                            $effect.flags.a5e.duration.type,
+                            Number(target.value)
+                        )}
+                />
+            {:else if durationType === "turns"}
+                <input
+                    type="number"
+                    name=""
+                    value={$effect.duration.turns ?? 0}
+                    on:change={({ target }) =>
+                        updateDuration(
+                            $effect.flags.a5e.duration.type,
+                            Number(target.value)
+                        )}
+                />
+            {/if}
+        </FormSection>
+    {/if}
+
+    <style lang="scss">
+        article {
+            display: flex;
+            flex-direction: column;
+            flex: 1;
+            gap: 0.75rem;
+            overflow: hidden;
+        }
+
+        .small-input {
+            width: 3rem;
+            text-align: center;
+            font-size: 0.833rem;
+        }
+    </style>
 </article>
