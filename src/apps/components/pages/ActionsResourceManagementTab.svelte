@@ -296,7 +296,7 @@
         flex-direction: column;
         gap: 0.25rem;
         white-space: nowrap;
-        font-size: 0.833rem;
+        font-size: $font-size-sm;
 
         &__label {
             display: block;

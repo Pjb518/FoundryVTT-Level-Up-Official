@@ -107,8 +107,8 @@
 
         &__icon {
             cursor: pointer;
-            font-size: 1.2rem;
-            transition: all 0.15s ease-in-out;
+            font-size: $font-size-lg;
+            transition: $standard-transition;
 
             &:hover {
                 color: #fff;
@@ -131,7 +131,7 @@
             border: 0;
             background: transparent;
             color: inherit;
-            font-size: 1rem;
+            font-size: $font-size-md;
             text-align: center;
             padding: 0;
 

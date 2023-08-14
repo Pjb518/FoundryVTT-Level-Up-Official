@@ -75,7 +75,10 @@
                     {/each}
                 </select>
             {:else}
-                <p class="u-w-50 a5e-field-group__hint" style="color: #8b6225;">
+                <p
+                    class="u-w-50 a5e-field-group__hint"
+                    style="color: $color-warning;"
+                >
                     <i class="fa-solid fa-circle-exclamation" />
 
                     Item selection will be available when item is on an actor.

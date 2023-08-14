@@ -50,8 +50,8 @@
 
     .effect-name,
     .effect-name[type="text"] {
-        font-family: "Modesto Condensed", serif;
-        font-size: 1.728rem;
+        font-family: $font-primary;
+        font-size: $font-size-xxl;
         border: 0;
         background: transparent;
         text-overflow: ellipsis;

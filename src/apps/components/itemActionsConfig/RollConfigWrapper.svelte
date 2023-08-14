@@ -62,14 +62,14 @@
         top: 0.75rem;
         right: 0.75rem;
         color: #999;
-        font-size: 1rem;
+        font-size: $font-size-md;
     }
 
     .button {
         margin: 0;
         padding: 0.25rem;
         cursor: pointer;
-        transition: all 0.15s ease-in-out;
+        transition: $standard-transition;
 
         &:hover {
             transform: scale(1.2);
@@ -80,7 +80,7 @@
         margin: 0;
         padding: 0.25rem;
         cursor: pointer;
-        transition: all 0.15s ease-in-out;
+        transition: $standard-transition;
 
         &:hover {
             color: #555;
@@ -88,7 +88,7 @@
         }
 
         &--delete:hover {
-            color: #8b2525;
+            color: $color-secondary;
         }
     }
 

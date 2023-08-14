@@ -45,22 +45,22 @@
             align-items: center;
             justify-content: center;
             border: 1px solid #ccc;
-            background-color: #f6f2eb;
+            background-color: $color-light-background;
             border-radius: 50%;
             box-shadow: 0 0 10px #ccc inset;
             color: rgba(0 0 0 / 0.2);
             cursor: pointer;
-            font-size: 1.2rem;
+            font-size: $font-size-lg;
             transform: translateX(-1px);
 
-            transition: all 0.15s ease-in-out;
+            transition: $standard-transition;
         }
 
         &:hover {
             background-color: darken(#dddace, 2.5%);
 
             .rest__icon {
-                color: lighten(#191813, 35%);
+                color: lighten($color-dark-text, 35%);
             }
         }
     }

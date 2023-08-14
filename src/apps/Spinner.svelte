@@ -1,5 +1,5 @@
 <script>
-    export let color = "#425f65";
+    export let color = "$color-primary";
     export let unit = "px";
     export let duration = "3s";
     export let size = "30";

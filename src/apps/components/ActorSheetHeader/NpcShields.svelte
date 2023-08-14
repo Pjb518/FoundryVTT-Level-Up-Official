@@ -101,7 +101,7 @@
         gap: 0.25rem;
         border-radius: 4px;
         height: 100%;
-        font-family: "Modesto Condensed", serif;
+        font-family: $font-primary;
     }
 
     .level-box {
@@ -115,7 +115,7 @@
         color: #7e7960;
         border: 1px solid #ccc;
         border-radius: 4px;
-        background: #f6f2eb;
+        background: $color-light-background;
         box-shadow: 0 0 5px #ccc inset;
         z-index: 4;
     }
@@ -130,7 +130,7 @@
         border: 0;
         background: transparent;
         padding-inline: 0.125rem;
-        font-size: 1rem;
+        font-size: $font-size-md;
 
         &:active,
         &:focus {
@@ -140,14 +140,14 @@
     }
 
     .xp-label {
-        font-size: 0.694rem;
+        font-size: $font-size-xs;
     }
 
     .shield-elite {
         font-size: 0.95rem;
         border: 0;
         padding: 0.125rem;
-        transition: all 0.15s ease-in-out;
+        transition: $standard-transition;
 
         &--unlocked {
             cursor: pointer;

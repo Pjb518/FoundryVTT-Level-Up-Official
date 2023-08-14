@@ -258,7 +258,7 @@
         flex-direction: column;
         gap: 0.375rem;
         margin: 0;
-        font-size: 0.833rem;
+        font-size: $font-size-sm;
 
         &__item {
             display: flex;

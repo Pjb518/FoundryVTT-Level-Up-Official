@@ -38,11 +38,11 @@
         margin: var(--margin, 0);
         padding: var(--padding, 0.5rem);
         background: var(--background, rgba(0, 0, 0, 0.05));
-        border-radius: 3px;
+        border-radius: $border-radius-standard;
     }
 
     .form-heading {
-        font-size: 0.833rem;
+        font-size: $font-size-sm;
         font-weight: bold;
         flex-shrink: 1;
         width: var(--label-width, auto);
@@ -55,11 +55,11 @@
         display: block;
         width: 100%;
         padding-right: 0.25rem;
-        font-family: "Signika", sans-serif;
-        font-size: 0.694rem;
+        font-family: $font-secondary;
+        font-size: $font-size-xs;
     }
 
     .warning {
-        color: #8b6225;
+        color: $color-warning;
     }
 </style>

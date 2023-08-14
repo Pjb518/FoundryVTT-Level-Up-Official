@@ -36,13 +36,18 @@ const config = {
   },
   plugins: [
     svelte({
-      preprocess: preprocess(),
+      preprocess: preprocess({
+        scss: {
+          prependData: '@import "src/scss//base/_variables.scss";'
+        }
+      }),
       onwarn: (warning, handler) => {
         // Suppress `a11y-missing-attribute` for missing href in <a> links.
         // Foundry doesn't follow accessibility rules.
         if (warning.message.includes('<a> element should have an href attribute')) return;
         if (warning.code === 'a11y-click-events-have-key-events') return;
 
+        // eslint-disable-next-line no-console
         console.log(warning);
 
         // Let Rollup handle all other warnings normally.

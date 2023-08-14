@@ -100,8 +100,8 @@
         padding-right: 0.5rem;
         background: rgba(0, 0, 0, 0.05);
         border: 1px solid #ccc;
-        border-radius: 3px;
-        font-size: 0.833rem;
+        border-radius: $border-radius-standard;
+        font-size: $font-size-sm;
 
         &__image {
             display: block;
@@ -113,7 +113,7 @@
             padding: 0.25rem;
             background: none;
             border: 0;
-            transition: all 0.15s ease-in-out;
+            transition: $standard-transition;
             color: #999;
 
             &:hover,
@@ -139,16 +139,16 @@
             padding: 0;
             margin: 0;
             list-style: none;
-            font-family: "Signika", sans-serif;
+            font-family: $font-secondary;
         }
     }
 
     .delete-button:hover {
-        color: #8b2525;
+        color: $color-secondary;
     }
 
     .tab-heading {
-        font-family: "Modesto Condensed", serif;
-        font-size: 1.44rem;
+        font-family: $font-primary;
+        font-size: $font-size-xl;
     }
 </style>

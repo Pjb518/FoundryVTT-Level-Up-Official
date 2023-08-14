@@ -145,7 +145,7 @@
         position: relative;
         padding: 0.125rem 0.25rem 0.25rem 0.25rem;
         border: 1px solid #ccc;
-        border-radius: 3px;
+        border-radius: $border-radius-standard;
         min-width: 7rem;
     }
 
@@ -194,7 +194,7 @@
 
         i {
             height: 27px;
-            transition: all 0.15s ease-in-out;
+            transition: $standard-transition;
 
             &:hover {
                 transform: scale(1.2);
@@ -209,7 +209,7 @@
         width: 1.125rem;
         height: 1.125rem;
         padding: 0;
-        font-size: 0.833rem;
+        font-size: $font-size-sm;
         color: #555;
         background-color: rgba(0 0 0 / 0.1);
     }

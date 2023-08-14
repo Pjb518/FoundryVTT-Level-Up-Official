@@ -99,7 +99,7 @@
         padding: 0.25rem;
         background: none;
         border: 0;
-        transition: all 0.15s ease-in-out;
+        transition: $standard-transition;
         color: var(--icon-color, #999);
 
         &:hover {
@@ -114,7 +114,7 @@
     }
 
     .delete-button:hover {
-        color: #8b2525;
+        color: $color-secondary;
     }
 
     .track {
@@ -143,10 +143,10 @@
             background: var(--track-background, #ebe9e0);
             border-radius: 50%;
             cursor: pointer;
-            font-size: 1rem;
+            font-size: $font-size-md;
             transform: translateX(-1px);
 
-            transition: all 0.15s ease-in-out;
+            transition: $standard-transition;
         }
 
         &-items {
@@ -165,7 +165,7 @@
             opacity: 0;
             transform: translateX(calc(-100% - 1rem));
 
-            transition: all 0.15s ease-in-out;
+            transition: $standard-transition;
         }
 
         &:hover {

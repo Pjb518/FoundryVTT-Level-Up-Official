@@ -147,7 +147,7 @@
         color: #999;
         border: 0;
 
-        transition: all 0.15s ease-in-out;
+        transition: $standard-transition;
 
         &:hover {
             color: #555;

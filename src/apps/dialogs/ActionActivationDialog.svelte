@@ -160,7 +160,7 @@
     {#if warnings.length}
         <section class="warning__wrapper">
             {#each warnings as warning}
-                <p class="warning" style="color: #8b6225;">
+                <p class="warning" style="color: $color-warning;">
                     <i class="fa-solid fa-circle-exclamation" />
                     {warning}
                 </p>
@@ -249,7 +249,7 @@
             {#if warnings.length}
                 <i
                     class="fa-solid fa-circle-exclamation"
-                    style="color: #8b6225;"
+                    style="color: $color-warning;"
                 />
             {:else}
                 <i class="fa-solid fa-dice" />
@@ -286,8 +286,8 @@
         padding-inline: 0.25rem;
 
         .warning {
-            font-family: "Signika", sans-serif;
-            font-size: 0.694rem;
+            font-family: $font-secondary;
+            font-size: $font-size-xs;
         }
     }
 </style>

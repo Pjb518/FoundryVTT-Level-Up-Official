@@ -132,7 +132,7 @@
         padding-inline: 0.5rem;
         border: 1px solid #ccc;
         border-top: 0;
-        font-size: 0.833rem;
+        font-size: $font-size-sm;
 
         &:nth-child(even) {
             border-left: 0;
@@ -165,7 +165,7 @@
             background: transparent;
             color: rgba(0, 0, 0, 0.25);
 
-            transition: all 0.15s ease-in-out;
+            transition: $standard-transition;
 
             &:focus,
             &:hover {
@@ -198,7 +198,7 @@
 
             &--jack,
             &--proficient {
-                color: #425f65;
+                color: $color-primary;
             }
 
             &--locked {
@@ -220,7 +220,7 @@
         &__roll-icon {
             display: none;
             color: #555;
-            transition: all 0.15s ease-in-out;
+            transition: $standard-transition;
 
             &--ctrl {
                 color: #ffb63b;

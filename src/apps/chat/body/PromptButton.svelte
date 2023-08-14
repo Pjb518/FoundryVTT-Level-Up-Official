@@ -41,7 +41,7 @@
         margin: 0;
         color: #7e7960;
         border: 0;
-        transition: all 0.15s ease-in-out;
+        transition: $standard-transition;
     }
 
     .icon-wrapper {
@@ -76,23 +76,23 @@
         box-shadow: none;
 
         &:hover .die {
-            color: var(--hover-color, #191813);
+            color: var(--hover-color, $color-dark-text);
         }
 
         &:hover .die--generic-prompt {
-            color: #191813;
+            color: $color-dark-text;
         }
     }
 
     .subtitle {
         width: 100%;
-        font-size: 0.694rem;
+        font-size: $font-size-xs;
         line-height: 1;
         color: #7e7960;
     }
 
     .title {
-        font-size: 0.833rem;
+        font-size: $font-size-sm;
         line-height: 1;
         font-weight: bold;
     }

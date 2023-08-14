@@ -311,7 +311,7 @@
     }
 
     .tools-config {
-        font-size: 0.694rem;
+        font-size: $font-size-xs;
         margin-left: auto;
         margin-right: 0.75rem;
         line-height: 1;

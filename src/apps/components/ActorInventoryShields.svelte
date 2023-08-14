@@ -197,7 +197,7 @@
     .footer-shield-header {
         flex: 0 0 100%;
         text-align: center;
-        font-size: 0.833rem;
+        font-size: $font-size-sm;
         font-weight: bold;
     }
 

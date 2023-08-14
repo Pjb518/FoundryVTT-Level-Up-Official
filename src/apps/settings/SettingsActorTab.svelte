@@ -174,10 +174,10 @@
     //     margin: 0;
     //     background: transparent;
     //     line-height: 1;
-    //     font-size: 0.833rem;
+    //     font-size: $font-size-sm;
     //     color: #7e7960;
 
-    //     transition: all 0.15s ease-in-out;
+    //     transition: $standard-transition;
 
     //     &:focus,
     //     &:hover {
@@ -187,7 +187,7 @@
     // }
 
     .setting-heading {
-        font-size: 0.833rem;
+        font-size: $font-size-sm;
         white-space: nowrap;
     }
 </style>

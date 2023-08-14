@@ -46,7 +46,7 @@
         display: flex;
         flex-direction: column;
         gap: 0.25rem;
-        font-size: 0.833rem;
+        font-size: $font-size-sm;
         text-align: left;
     }
 
@@ -91,15 +91,15 @@
             align-items: center;
             justify-content: center;
             border: 1px solid #ccc;
-            background: #f6f2eb;
+            background: $color-light-background;
             border-radius: 50%;
             box-shadow: 0 0 10px #ccc inset;
             color: rgba(0, 0, 0, 0.2);
             cursor: pointer;
-            font-size: 1.2rem;
+            font-size: $font-size-lg;
             transform: translateX(-1px);
 
-            transition: all 0.15s ease-in-out;
+            transition: $standard-transition;
 
             @each $level, $color in $colors {
                 &-level-#{$level} {
@@ -118,7 +118,7 @@
             background: transparent;
             border-radius: 0;
 
-            transition: all 0.15s ease-in-out;
+            transition: $standard-transition;
 
             &:focus,
             &:hover {
@@ -139,13 +139,13 @@
             border: 1px solid #ccc;
             border-left: 0;
             margin: 0;
-            background: #f6f2eb;
+            background: $color-light-background;
             border-radius: 0 1rem 1rem 0;
             list-style: none;
             opacity: 0;
             transform: translateX(-1rem);
 
-            transition: all 0.15s ease-in-out;
+            transition: $standard-transition;
         }
 
         &-strife {
@@ -161,7 +161,7 @@
             }
 
             .track-icon {
-                color: lighten(#191813, 35%);
+                color: lighten($color-dark-text, 35%);
 
                 @each $level, $color in $colors {
                     &-level-#{$level} {

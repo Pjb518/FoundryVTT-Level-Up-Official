@@ -144,7 +144,7 @@
         justify-content: space-evenly;
         align-items: center;
         gap: 0.5rem;
-        font-family: "Modesto Condensed", serif;
+        font-family: $font-primary;
         padding: 0;
         list-style: none;
     }

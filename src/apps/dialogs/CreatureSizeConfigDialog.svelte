@@ -35,6 +35,6 @@
         height: 100%;
         gap: 0.5rem;
         overflow: auto;
-        background: rgba(246, 242, 235, 0.5);
+        background: $color-sheet-background;
     }
 </style>

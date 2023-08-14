@@ -67,6 +67,6 @@
     .hint {
         margin-top: 0.25rem;
         color: #555;
-        font-size: 0.694rem;
+        font-size: $font-size-xs;
     }
 </style>

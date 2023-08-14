@@ -49,7 +49,7 @@
         height: 2.75rem;
         margin-inline: 0.5rem;
         border-radius: 4px;
-        font-family: "Modesto Condensed", serif;
+        font-family: $font-primary;
     }
 
     main {

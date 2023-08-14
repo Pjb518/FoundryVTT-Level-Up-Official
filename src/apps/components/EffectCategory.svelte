@@ -59,7 +59,7 @@
     }
 
     .category-heading {
-        font-size: 0.833rem;
+        font-size: $font-size-sm;
     }
 
     .effects-container {

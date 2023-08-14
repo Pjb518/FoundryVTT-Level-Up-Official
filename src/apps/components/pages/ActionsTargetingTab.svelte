@@ -259,14 +259,14 @@
         width: 1.625rem;
         padding: 0;
         margin: 0;
-        font-size: 1rem;
+        font-size: $font-size-md;
         background: transparent;
         color: #999;
         border: 1px solid #7a7971;
-        border-radius: 3px;
+        border-radius: $border-radius-standard;
         cursor: pointer;
 
-        transition: all 0.15s ease-in-out;
+        transition: $standard-transition;
 
         i {
             margin: 0;

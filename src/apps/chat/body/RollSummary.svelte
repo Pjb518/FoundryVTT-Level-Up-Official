@@ -160,11 +160,11 @@
         justify-content: center;
         height: 2.25rem;
         width: 2.5rem;
-        font-size: 1.2rem;
+        font-size: $font-size-lg;
         font-weight: 700;
         background: rgba(0, 0, 0, 0.05);
         border: 1px solid #ccc;
-        border-radius: 3px;
+        border-radius: $border-radius-standard;
 
         &--max {
             color: #18520b;
@@ -211,7 +211,7 @@
         align-items: center;
         gap: 0.5rem;
         margin: 0;
-        font-size: 0.833rem;
+        font-size: $font-size-sm;
         line-height: 1;
         font-weight: bold;
         border: 0;
@@ -222,18 +222,18 @@
         margin: 0;
         margin-left: auto;
         padding: 0.25rem 0.375rem;
-        font-size: 0.833rem;
+        font-size: $font-size-sm;
         line-height: 1;
         color: #7e7960;
         background: rgba(0, 0, 0, 0.05);
         border: 1px solid #ccc;
-        border-radius: 3px;
+        border-radius: $border-radius-standard;
 
-        transition: all 0.15s ease-in-out;
+        transition: $standard-transition;
 
         &:hover,
         &:focus {
-            color: #191813;
+            color: $color-dark-text;
             box-shadow: none;
         }
     }
@@ -244,22 +244,22 @@
         flex-shrink: 0;
         width: fit-content;
         padding: 0.075rem 0.3rem;
-        font-size: 0.694rem;
+        font-size: $font-size-xs;
         line-height: 1;
         color: white;
-        background: #425f65;
-        border: 1px solid #425f65;
-        border-radius: 3px;
+        background: $color-primary;
+        border: 1px solid $color-primary;
+        border-radius: $border-radius-standard;
     }
 
     .roll-mode--disadvantage {
         border-color: #772020;
-        background: #8b2525;
+        background: $color-secondary;
     }
 
     .roll-sublabel {
         width: 100%;
-        font-size: 0.694rem;
+        font-size: $font-size-xs;
         line-height: 1;
         color: #7e7960;
     }

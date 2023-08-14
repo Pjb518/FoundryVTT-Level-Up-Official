@@ -190,7 +190,7 @@
         padding: 0.125rem;
         padding-right: 0.5rem;
         border: 1px solid #ccc;
-        border-radius: 3px;
+        border-radius: $border-radius-standard;
         background: rgba(0, 0, 0, 0.05);
         cursor: pointer;
     }
@@ -205,7 +205,7 @@
         padding: 0;
         margin: 0;
         background: transparent;
-        border-radius: 3px;
+        border-radius: $border-radius-standard;
         grid-area: icon;
 
         &:hover {
@@ -237,7 +237,7 @@
     }
 
     .name {
-        font-size: 0.833rem;
+        font-size: $font-size-sm;
         overflow: hidden;
         text-overflow: ellipsis;
         white-space: nowrap;
@@ -275,8 +275,8 @@
         justify-content: center;
         height: 1rem;
         width: 1rem;
-        border-radius: 3px;
-        font-size: 0.833rem;
+        border-radius: $border-radius-standard;
+        font-size: $font-size-sm;
         color: #808080;
     }
 
@@ -288,15 +288,15 @@
         background: none;
         color: #999;
         border: 0;
-        font-size: 1.2rem;
-        transition: all 0.15s ease-in-out;
+        font-size: $font-size-lg;
+        transition: $standard-transition;
 
         &--active-toggle {
-            font-size: 1.44rem;
+            font-size: $font-size-xl;
         }
 
         &:hover {
-            color: #425f65;
+            color: $color-primary;
         }
 
         &:hover,
@@ -309,7 +309,7 @@
         padding: 0.25rem;
         background: none;
         border: 0;
-        transition: all 0.15s ease-in-out;
+        transition: $standard-transition;
         color: #999;
 
         &:hover {
@@ -324,7 +324,7 @@
     }
 
     .delete-button:hover {
-        color: #8b2525;
+        color: $color-secondary;
     }
 
     .track {
@@ -353,10 +353,10 @@
             background: #ebe9e0;
             border-radius: 50%;
             cursor: pointer;
-            font-size: 1rem;
+            font-size: $font-size-md;
             transform: translateX(-1px);
 
-            transition: all 0.15s ease-in-out;
+            transition: $standard-transition;
         }
 
         &-items {
@@ -375,7 +375,7 @@
             opacity: 0;
             transform: translateX(calc(-100% - 1rem));
 
-            transition: all 0.15s ease-in-out;
+            transition: $standard-transition;
         }
 
         &:hover {

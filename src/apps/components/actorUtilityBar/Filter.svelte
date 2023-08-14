@@ -87,7 +87,7 @@
         --tjs-icon-button-background-selected="none"
         --tjs-icon-button-text-shadow-hover="none"
         --tjs-icon-button-text-shadow-focus="none"
-        --tjs-icon-button-transition="all 0.15s ease-in-out"
+        --tjs-icon-button-transition="$standard-transition"
         --tjs-icon-button-diameter="1rem"
         --tjs-icon-button-border-radius="0"
     >
@@ -172,18 +172,18 @@
     }
 
     .hint {
-        font-size: 0.694rem;
+        font-size: $font-size-xs;
     }
 
     .filter-hints {
         position: relative;
 
         &--green {
-            color: #425f65;
+            color: $color-primary;
         }
 
         &--red {
-            color: #8b2525;
+            color: $color-secondary;
         }
     }
 </style>

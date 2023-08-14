@@ -12,6 +12,6 @@
         gap: 0.25rem;
         align-items: center;
         justify-content: space-between;
-        font-size: 0.833rem;
+        font-size: $font-size-sm;
     }
 </style>
