@@ -153,7 +153,7 @@
     </div>
 </section>
 
-<style>
+<style lang="scss">
     .hint {
         display: grid;
         grid-template-columns: max-content 1fr;
