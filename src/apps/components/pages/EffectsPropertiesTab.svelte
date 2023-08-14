@@ -7,15 +7,32 @@
     const effect = getContext("effect");
     const { A5E } = CONFIG;
 
-    function updateDuration(key, value) {
-        console.log(key);
-        console.log(value);
-        console.log(unit);
-        $effect.update({ [`duration.${key}`]: value === 0 ? null : value });
+    const durationMap = {
+        seconds: 1,
+        minutes: 60,
+        hours: 3600,
+    };
+
+    function updateDuration(key, value, changedUnit = null) {
+        if (key === "seconds") {
+            const newValue = Math.max(0, value * durationMap[unit]);
+            $effect.update({
+                "flags.a5e.duration.unit": changedUnit ?? unit,
+                "duration.seconds": newValue,
+            });
+        } else
+            $effect.update({ [`duration.${key}`]: value === 0 ? null : value });
     }
 
+    function updateUnit(unit) {
+        updateDuration("seconds", parsedSecondsValue, unit);
+    }
+
+    $: parsedSecondsValue = Math.floor(
+        ($effect.duration.seconds ?? 0) / durationMap[unit]
+    );
     $: durationType = $effect.flags?.a5e?.duration?.type ?? "seconds";
-    $: unit = $effect.flags?.a5e?.duration?.unit ?? "seconds";
+    $: unit = $effect.flags?.a5e?.duration?.unit ?? "minutes";
 </script>
 
 <article>
@@ -27,6 +44,7 @@
                 $effect.update({ "flags.a5e.transferType": detail })}
         />
     </FormSection>
+
     {#if $effect.flags?.a5e?.transferType === "onUse"}
         <FormSection heading="Effect Duration">
             <RadioGroup
@@ -37,27 +55,22 @@
                         "flags.a5e.duration.type": detail,
                     })}
             />
+
             {#if durationType === "seconds"}
                 <div class="u-flex u-gap-md">
                     <input
                         class="small-input"
                         type="number"
-                        value={$effect.duration.seconds ?? 0}
+                        value={parsedSecondsValue}
                         on:change={({ target }) =>
-                            updateDuration(
-                                $effect.flags.a5e.duration.type,
-                                Number(target.value)
-                            )}
+                            updateDuration(durationType, Number(target.value))}
                     />
                     <select
                         class="u-w-fit"
-                        on:change={({ target }) =>
-                            $effect.update({
-                                "flags.a5e.duration.unit": target.value,
-                            })}
+                        on:change={({ target }) => updateUnit(target.value)}
                     >
                         {#each Object.entries(A5E.effectDurationUnits) as [value, label]}
-                            <option {value} selected={value}>
+                            <option {value} selected={value === unit}>
                                 {localize(label)}
                             </option>
                         {/each}
@@ -69,10 +82,7 @@
                     name=""
                     value={$effect.duration.rounds ?? 0}
                     on:change={({ target }) =>
-                        updateDuration(
-                            $effect.flags.a5e.duration.type,
-                            Number(target.value)
-                        )}
+                        updateDuration(durationType, Number(target.value))}
                 />
             {:else if durationType === "turns"}
                 <input
@@ -80,10 +90,7 @@
                     name=""
                     value={$effect.duration.turns ?? 0}
                     on:change={({ target }) =>
-                        updateDuration(
-                            $effect.flags.a5e.duration.type,
-                            Number(target.value)
-                        )}
+                        updateDuration(durationType, Number(target.value))}
                 />
             {/if}
         </FormSection>
