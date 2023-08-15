@@ -50,12 +50,12 @@ export default function registerActiveEffectConfig(A5E) {
   A5E.effectDurationTypes = {
     seconds: 'A5E.effects.durationTypes.plural.seconds',
     rounds: 'A5E.effects.durationTypes.plural.rounds',
-    turns: 'A5E.effects.durationTypes.plural.turns',
+    turns: 'A5E.effects.durationTypes.plural.turns'
   };
 
   A5E.effectDurationUnits = {
     seconds: 'A5E.effects.durationUnits.plural.seconds',
     minutes: 'A5E.effects.durationUnits.plural.minutes',
-    hours: 'A5E.effects.durationUnits.plural.hours',
+    hours: 'A5E.effects.durationUnits.plural.hours'
   };
 }
