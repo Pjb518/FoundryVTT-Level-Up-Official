@@ -80,7 +80,7 @@ export default class Migration002Ooze extends MigrationBase {
   static version = 0.002;
 
   #createConsumers(itemData) {
-    if (CONFIG.A5E.advancementItemTypes.includes(itemData.type)) return;
+    if (CONFIG.A5E.originItemTypes.includes(itemData.type)) return;
 
     // Ammunition Consumers
     if (itemData.type === 'object' && itemData.system.objectType === 'weapon') {

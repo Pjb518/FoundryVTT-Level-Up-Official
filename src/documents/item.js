@@ -609,8 +609,12 @@ export default class ItemA5e extends Item {
   async _preCreate(data, options, user) {
     await super._preCreate(data, options, user);
 
+    const key = CONFIG.A5E.originItemTypes?.includes(data.type)
+      ? 'system.schemaVersion.version'
+      : 'system.schema.version';
+
     // Add schema version
-    if (!this.system.schema.version) {
+    if (!foundry.utils.getProperty(data, key)) {
       let version = null;
       if (typeof this.system?.equipped === 'boolean') version = 0.003;
       else if (typeof this.system?.recharge === 'string') version = 0.002;
@@ -619,7 +623,7 @@ export default class ItemA5e extends Item {
       else version = MigrationRunnerBase.LATEST_SCHEMA_VERSION;
 
       this.updateSource({
-        'system.schema.version': version
+        [key]: version
       });
     }
   }
