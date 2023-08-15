@@ -120,13 +120,13 @@
             {/if}
         </FormSection>
     {/if}
-
-    <style lang="scss">
-        article {
-            display: flex;
-            flex-direction: column;
-            gap: 0.75rem;
-            overflow: hidden;
-        }
-    </style>
 </article>
+
+<style lang="scss">
+    article {
+        display: flex;
+        flex-direction: column;
+        gap: 0.75rem;
+        overflow: hidden;
+    }
+</style>

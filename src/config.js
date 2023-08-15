@@ -1160,7 +1160,7 @@ A5E.timePeriodsPlural = {
 
 A5E.tokenDimensions = {
   tiny: 0.5,
-  sm: 0.5,
+  sm: 1,
   med: 1,
   lg: 2,
   huge: 3,
