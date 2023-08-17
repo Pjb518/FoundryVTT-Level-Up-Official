@@ -15,17 +15,36 @@
 </script>
 
 <article>
-    <FormSection heading="A5E.SizeCategory">
-        <RadioGroup
-            options={creatureSizes}
-            selected={$item.system.creatureSize}
-            on:updateSelection={({ detail }) =>
-                updateDocumentDataFromField(
-                    $item,
-                    "system.creatureSize",
-                    detail
-                )}
-        />
+    <FormSection --direction="column" --gap="0.75rem">
+        <section class="u-flex u-flex-col u-gap-sm">
+            <h3 class="u-text-bold u-text-sm">Size Category</h3>
+
+            <RadioGroup
+                options={creatureSizes}
+                selected={$item.system.creatureSize.fixed}
+                on:updateSelection={({ detail }) =>
+                    updateDocumentDataFromField(
+                        $item,
+                        "system.creatureSize.fixed",
+                        detail
+                    )}
+            />
+        </section>
+
+        <section class="u-flex u-flex-col u-gap-sm">
+            <h3 class="u-text-bold u-text-sm">Optional Size Choices</h3>
+
+            <CheckboxGroup
+                options={creatureSizes}
+                selected={$item.system.creatureSize.options}
+                on:updateSelection={({ detail }) =>
+                    updateDocumentDataFromField(
+                        $item,
+                        "system.creatureSize.options",
+                        detail
+                    )}
+            />
+        </section>
     </FormSection>
 
     <FormSection heading="A5E.CreatureTypesLabel">

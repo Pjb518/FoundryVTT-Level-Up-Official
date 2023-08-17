@@ -358,6 +358,7 @@ export default class ActorSheet extends SvelteApplication {
     }
 
     let selectedFeatures = [];
+    let selectedCreatureSize = '';
     let gifts = [];
     let paragonGifts = [];
 
@@ -367,6 +368,7 @@ export default class ActorSheet extends SvelteApplication {
     try {
       ({
         selectedFeatures,
+        selectedCreatureSize,
         gifts,
         paragonGifts
       } = await dialog.promise);
@@ -380,7 +382,7 @@ export default class ActorSheet extends SvelteApplication {
     );
 
     await this.actor.update({
-      'system.traits.size': item.system.creatureSize,
+      'system.traits.size': selectedCreatureSize ?? item.system.creatureSize.fixed ?? '',
       'system.details.creatureTypes': item.system.creatureTypes
     });
 

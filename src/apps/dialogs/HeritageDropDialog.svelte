@@ -8,6 +8,7 @@
     import CheckboxGroup from "../components/CheckboxGroup.svelte";
     import FormSection from "../components/FormSection.svelte";
     import RadioGroup from "../components/RadioGroup.svelte";
+    import CustomTagGroup from "../components/CustomTagGroup.svelte";
 
     export let { application } = getContext("#external");
     export let { actorDocument, itemDocument } =
@@ -15,15 +16,18 @@
 
     const actor = new TJSDocument(actorDocument);
     const item = new TJSDocument(itemDocument);
+    const { A5E } = CONFIG;
 
     function submitForm() {
         application.submit({
             gifts,
             paragonGifts,
+            selectedCreatureSize,
             selectedFeatures,
         });
     }
 
+    let selectedCreatureSize = "";
     let selectedGiftCategory = "";
     let selectedParagonCategories = "";
     let selectedFeatures =
@@ -58,6 +62,24 @@
 
 <form>
     <section>
+        {#if $item.system.creatureSize.options.length}
+            <FormSection
+                heading="A5E.CreatureSizeLabel"
+                warning="Creature Size not selected."
+                showWarning={!selectedCreatureSize}
+            >
+                <RadioGroup
+                    options={$item.system.creatureSize.options.map((s) => [
+                        s,
+                        A5E.actorSizes[s],
+                    ])}
+                    selected={selectedCreatureSize}
+                    on:updateSelection={({ detail }) =>
+                        (selectedCreatureSize = detail)}
+                />
+            </FormSection>
+        {/if}
+
         <FormSection heading={localize("A5E.originSheets.heritage.traits")}>
             <CheckboxGroup
                 options={features}
