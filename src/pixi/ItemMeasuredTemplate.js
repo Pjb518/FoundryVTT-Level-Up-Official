@@ -88,6 +88,8 @@ export default class ItemMeasuredTemplate extends MeasuredTemplate {
     this.#events.resolve(
       canvas.scene.createEmbeddedDocuments('MeasuredTemplate', [this.document.toObject()])
     );
+
+    Hooks.callAll('a5e.measuredTemplatePlaced', this.item, this.document.toObject(), game.user.id);
   }
 
   async _onCancel(e) {
