@@ -148,7 +148,7 @@ export default class ActiveEffectA5e extends ActiveEffect {
 
     if (isArrayAdd) {
       if (isSubtract) return current.filter((e) => e !== delta.includes(e));
-      return [...current, ...delta];
+      return [...new Set([...current, ...delta])];
     }
 
     if (isSetAdd) {

@@ -439,10 +439,9 @@ export default class ActorA5e extends Actor {
     const effects = Array.from(this.items).flatMap((i) => i.effects.contents)
       .filter((e) => e.flags?.a5e?.transferType === 'permanent');
 
-    const overrides = ActiveEffectA5e.getPermanentEffectChanges(this._source, effects);
+    const overrides = ActiveEffectA5e.getPermanentEffectChanges(this.toObject(), effects);
 
     // TODO: Add warning
-
     await this.update(overrides);
   }
 
