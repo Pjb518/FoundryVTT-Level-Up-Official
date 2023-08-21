@@ -505,6 +505,7 @@ A5E.languages = {
   gnoll: 'A5E.LanguagesGnoll',
   gnomish: 'A5E.LanguagesGnomish',
   goblin: 'A5E.LanguagesGoblin',
+  grimlock: 'A5E.LanguagesGrimlock',
   halfling: 'A5E.LanguagesHalfling',
   ignan: 'A5E.LanguagesIgnan',
   infernal: 'A5E.LanguagesInfernal',
