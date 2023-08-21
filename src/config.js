@@ -510,6 +510,7 @@ A5E.languages = {
   ignan: 'A5E.LanguagesIgnan',
   infernal: 'A5E.LanguagesInfernal',
   minotaur: 'A5E.LanguagesMinotaur',
+  mycelial: 'A5E.LanguagesMycelial',
   orc: 'A5E.LanguagesOrc',
   primordial: 'A5E.LanguagesPrimordial',
   sylvan: 'A5E.LanguagesSylvan',
