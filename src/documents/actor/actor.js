@@ -440,6 +440,8 @@ export default class ActorA5e extends Actor {
       .filter((e) => e.flags?.a5e?.transferType === 'permanent');
 
     const overrides = ActiveEffectA5e.getPermanentEffectChanges(this.toObject(), effects);
+    // FIXME: Store theses updates somewhere so they can be undone and so
+    // that the next run can figure out what changed
 
     // TODO: Add warning
     await this.update(overrides);
