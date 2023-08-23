@@ -62,7 +62,9 @@ export default class TemplatePreparationManager {
         const templateData = await template?.drawPreview();
         placed = true;
 
-        if (templateData) { Hooks.callAll('a5e.templateCreated', this, templateData, game.user.id); }
+        if (templateData) {
+          Hooks.callAll('a5e.measuredTemplatePlaced', this.#item, templateData, game.user.id);
+        }
       }
     } catch (err) {
       // Empty Block
