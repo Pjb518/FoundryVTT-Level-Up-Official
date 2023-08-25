@@ -59,345 +59,13 @@
 			}
 		},
 		{
-			"_id": "I9v1gmySkYqdlWU6",
-			"name": "Claws",
-			"type": "feature",
-			"img": "icons/skills/melee/blood-slash-foam-red.webp",
-			"effects": [],
-			"folder": null,
-			"sort": 0,
-			"flags": {},
-			"system": {
-				"ac": {
-					"baseFormula": "",
-					"formula": "",
-					"maxDex": 0,
-					"minStr": 0,
-					"mode": 1,
-					"requiresNoShield": false,
-					"requiresUnarmored": false
-				},
-				"actions": {
-					"OOT8TVQWDtBdmJqB": {
-						"name": "Claws",
-						"activation": {
-							"cost": 1,
-							"type": "action",
-							"reactionTrigger": ""
-						},
-						"duration": {
-							"unit": "",
-							"value": ""
-						},
-						"ranges": {
-							"2f9FKplkvIDvZYGm": {
-								"range": "fiveFeet"
-							}
-						},
-						"area": {
-							"shape": "",
-							"size": "",
-							"placeTemplate": false
-						},
-						"target": {
-							"quantity": 1,
-							"type": "creatureObject"
-						},
-						"rolls": {
-							"9seggBEf81GfNhlC": {
-								"bonus": "",
-								"critThreshold": "20",
-								"type": "attack",
-								"attackType": "meleeWeaponAttack",
-								"ability": "str"
-							},
-							"zGyFnFKsBwbmPDHB": {
-								"canCrit": true,
-								"damageType": "piercing",
-								"formula": "2d6 +@str.mod",
-								"name": "Piercing",
-								"type": "damage"
-							}
-						},
-						"consumers": {}
-					}
-				},
-				"description": "<p>On a succesful hit the target is grappled (escape DC 14). Until this grapple ends, the merrow can’t attack a different creature with its claws.</p>",
-				"favorite": true,
-				"secretDescription": "",
-				"source": "",
-				"uses": {
-					"value": null,
-					"max": "",
-					"per": null,
-					"recharge": {
-						"formula": "",
-						"threshold": ""
-					}
-				},
-				"schema": {
-					"version": 0.004,
-					"lastMigration": {
-						"version": {
-							"schema": 0.003,
-							"foundry": "11.302",
-							"system": "0.12.7"
-						}
-					}
-				},
-				"concentration": false,
-				"featureType": "",
-				"prerequisite": ""
-			},
-			"ownership": {
-				"default": 0
-			}
-		},
-		{
-			"_id": "O6rYMl9RKFdj4kDX",
-			"name": "Harpoon",
-			"type": "object",
-			"img": "icons/weapons/polearms/spear-hooked-blue.webp",
-			"effects": [],
-			"folder": null,
-			"sort": 0,
-			"flags": {
-				"core": {
-					"sourceId": "Item.EKJeT365cxfqNDjH"
-				}
-			},
-			"system": {
-				"ac": {
-					"baseFormula": "",
-					"formula": "",
-					"maxDex": 0,
-					"minStr": 0,
-					"mode": 1,
-					"requiresNoShield": false,
-					"requiresUnarmored": false
-				},
-				"actions": {
-					"R6AhPxE0u75WBN6e": {
-						"name": "Harpoon",
-						"activation": {
-							"cost": 1,
-							"type": "action",
-							"reactionTrigger": ""
-						},
-						"duration": {
-							"unit": "",
-							"value": ""
-						},
-						"ranges": {
-							"vFw3GXedKDhXAAUU": {
-								"range": "10 ft."
-							},
-							"OXJn3dYSfMAc6HCL": {
-								"range": "20/60 ft."
-							}
-						},
-						"area": {
-							"shape": "",
-							"size": "",
-							"placeTemplate": false
-						},
-						"target": {
-							"quantity": 1,
-							"type": "creatureObject"
-						},
-						"rolls": {
-							"0mOWbbZ2sENvlG2m": {
-								"bonus": "",
-								"critThreshold": "20",
-								"type": "attack",
-								"attackType": "meleeWeaponAttack",
-								"ability": "str"
-							},
-							"Z4h9X1Lgp05RvHoY": {
-								"canCrit": true,
-								"damageType": "piercing",
-								"formula": "1d4 +@str.mod",
-								"name": "Piercing",
-								"type": "damage"
-							}
-						},
-						"prompts": {
-							"fcLiCSPGYQO0DMyk": {
-								"ability": "str",
-								"onSave": "No effect",
-								"saveDC": {
-									"type": "custom",
-									"bonus": "14"
-								},
-								"type": "savingThrow"
-							}
-						},
-						"consumers": {}
-					}
-				},
-				"description": "<p>On a hit the target makes a DC 14 Strength saving throw. On a failure, the merrow pulls the target up to 20 feet toward the merrow.</p>",
-				"favorite": true,
-				"secretDescription": "",
-				"source": "",
-				"uses": {
-					"value": null,
-					"max": "",
-					"per": null,
-					"recharge": {
-						"formula": "",
-						"threshold": ""
-					}
-				},
-				"schema": {
-					"version": 0.004,
-					"lastMigration": {
-						"version": {
-							"schema": 0.003,
-							"foundry": "11.302",
-							"system": "0.12.7"
-						}
-					}
-				},
-				"ammunitionProperties": [],
-				"armorCategory": "",
-				"armorProperties": [],
-				"attuned": false,
-				"bulky": false,
-				"craftingComponents": "",
-				"damagedState": 0,
-				"equippedState": 2,
-				"materialProperties": [],
-				"objectType": "weapon",
-				"plotItem": false,
-				"price": "0 gp",
-				"proficient": true,
-				"quantity": 1,
-				"rarity": "common",
-				"requiresAttunement": false,
-				"shieldCategory": "",
-				"unidentified": false,
-				"unidentifiedDescription": "",
-				"unidentifiedName": "",
-				"weaponProperties": [
-					"thrown"
-				],
-				"weight": 0,
-				"broken": false
-			},
-			"ownership": {
-				"default": 0
-			}
-		},
-		{
-			"_id": "kiqXglD3fED59HPM",
-			"name": "Bite",
-			"type": "feature",
-			"img": "icons/creatures/abilities/mouth-teeth-long-red.webp",
-			"effects": [],
-			"folder": null,
-			"sort": 0,
-			"flags": {},
-			"system": {
-				"ac": {
-					"baseFormula": "",
-					"formula": "",
-					"maxDex": 0,
-					"minStr": 0,
-					"mode": 1,
-					"requiresNoShield": false,
-					"requiresUnarmored": false
-				},
-				"actions": {
-					"xgfsg7zbCGvKudjq": {
-						"name": "Bite",
-						"activation": {
-							"cost": 1,
-							"type": "bonusAction",
-							"reactionTrigger": ""
-						},
-						"duration": {
-							"unit": "",
-							"value": ""
-						},
-						"ranges": {
-							"t5H1KypWVF561dJX": {
-								"range": "fiveFeet"
-							}
-						},
-						"area": {
-							"shape": "",
-							"size": "",
-							"placeTemplate": false
-						},
-						"target": {
-							"quantity": 1,
-							"type": "creatureObject"
-						},
-						"rolls": {
-							"MZuOX5rFqG42GRc3": {
-								"bonus": "",
-								"critThreshold": "20",
-								"type": "attack",
-								"attackType": "meleeWeaponAttack",
-								"ability": "str"
-							},
-							"atgXaedAvBI2zstU": {
-								"canCrit": true,
-								"damageType": "piercing",
-								"formula": "1d4 +@str.mod",
-								"name": "Piercing",
-								"type": "damage"
-							},
-							"sh1LhWJ2QJbYSrir": {
-								"canCrit": true,
-								"damageType": "piercing",
-								"formula": "2d4 +@str.mod",
-								"name": "Grappled target",
-								"type": "damage"
-							}
-						},
-						"consumers": {}
-					}
-				},
-				"description": "<p>Deals an extra weapon damage die if the Merrow is grappling the target.</p>",
-				"favorite": true,
-				"secretDescription": "",
-				"source": "",
-				"uses": {
-					"value": null,
-					"max": "",
-					"per": null,
-					"recharge": {
-						"formula": "",
-						"threshold": ""
-					}
-				},
-				"schema": {
-					"version": 0.004,
-					"lastMigration": {
-						"version": {
-							"schema": 0.003,
-							"foundry": "11.302",
-							"system": "0.12.7"
-						}
-					}
-				},
-				"concentration": false,
-				"featureType": "naturalWeapon",
-				"prerequisite": ""
-			},
-			"ownership": {
-				"default": 0
-			}
-		},
-		{
 			"_id": "jiS123Oo7ZyVXKVa",
 			"name": "Innate Spellcasting",
 			"type": "feature",
-			"img": "icons/svg/item-bag.svg",
+			"img": "icons/magic/symbols/ring-circle-smoke-blue.webp",
 			"effects": [],
 			"folder": null,
-			"sort": 0,
+			"sort": 5,
 			"flags": {},
 			"system": {
 				"ac": {
@@ -448,7 +116,7 @@
 			"img": "icons/skills/wounds/anatomy-organ-heart-red.webp",
 			"effects": [],
 			"folder": null,
-			"sort": 0,
+			"sort": 8,
 			"flags": {},
 			"system": {
 				"ac": {
@@ -462,265 +130,13 @@
 				},
 				"actions": {},
 				"description": "<p>The merrow regains 10 hit points at the beginning of each of its turns as long as it has at least 1 hit point.</p>",
-				"favorite": false,
-				"secretDescription": "",
-				"source": "",
-				"uses": {
-					"value": null,
-					"max": "",
-					"per": null,
-					"recharge": {
-						"formula": "",
-						"threshold": ""
-					}
-				},
-				"schema": {
-					"version": 0.004,
-					"lastMigration": {
-						"version": {
-							"schema": 0.003,
-							"foundry": "11.302",
-							"system": "0.12.7"
-						}
-					}
-				},
-				"concentration": false,
-				"featureType": "",
-				"prerequisite": ""
-			},
-			"ownership": {
-				"default": 0
-			}
-		},
-		{
-			"_id": "fci82N1L91AxxTa3",
-			"name": "Darkness (2nd-Level; V,S, Concentration)",
-			"type": "feature",
-			"img": "icons/svg/item-bag.svg",
-			"effects": [],
-			"folder": null,
-			"sort": 0,
-			"flags": {},
-			"system": {
-				"ac": {
-					"baseFormula": "",
-					"formula": "",
-					"maxDex": 0,
-					"minStr": 0,
-					"mode": 1,
-					"requiresNoShield": false,
-					"requiresUnarmored": false
-				},
-				"actions": {
-					"pr5nhBhQwpvjdZNL": {
-						"name": "Darkness (2nd-Level; V,S, Concentration)",
-						"activation": {
-							"cost": 1,
-							"type": "action",
-							"reactionTrigger": ""
-						},
-						"duration": {
-							"unit": "minute",
-							"value": 10
-						},
-						"ranges": {
-							"rrHIiUTfK9FrpPxF": {
-								"range": "medium"
-							}
-						},
-						"area": {
-							"shape": "sphere",
-							"size": "15",
-							"placeTemplate": false
-						},
-						"target": {
-							"quantity": "",
-							"type": ""
-						},
-						"consumers": {}
-					}
-				},
-				"description": "<p><strong>Duration</strong>: Concentration (10 minutes) </p><p>Magical darkness heavily obscures darkvision and blocks nonmagical light in the area. The darkness spreads around corners. If any of the area overlaps with magical light created by a spell of 2nd-level or lower, the spell that created the light is dispelled.</p><p>When cast on an object that is in your possession or unattended, the darkness emanates from it and moves with it. Completely covering the object with something that is not transparent blocks the darkness.</p>",
-				"favorite": false,
-				"secretDescription": "",
-				"source": "",
-				"uses": {
-					"value": null,
-					"max": "",
-					"per": null,
-					"recharge": {
-						"formula": "",
-						"threshold": ""
-					}
-				},
-				"schema": {
-					"version": 0.004,
-					"lastMigration": {
-						"version": {
-							"schema": 0.003,
-							"foundry": "11.302",
-							"system": "0.12.7"
-						}
-					}
-				},
-				"concentration": false,
-				"featureType": "",
-				"prerequisite": ""
-			},
-			"ownership": {
-				"default": 0
-			}
-		},
-		{
-			"_id": "rM7vpFMBotTh1ACh",
-			"name": "Invisibility (2nd-Level; V, S, Concentration)",
-			"type": "feature",
-			"img": "icons/creatures/webs/webthin-blue.webp",
-			"effects": [],
-			"folder": null,
-			"sort": 0,
-			"flags": {},
-			"system": {
-				"ac": {
-					"baseFormula": "",
-					"formula": "",
-					"maxDex": 0,
-					"minStr": 0,
-					"mode": 1,
-					"requiresNoShield": false,
-					"requiresUnarmored": false
-				},
-				"actions": {
-					"PNbniNDu2hufMcxl": {
-						"name": "Invisibility (2nd-Level; V, S, Concentration)",
-						"activation": {
-							"cost": 1,
-							"type": "action",
-							"reactionTrigger": ""
-						},
-						"duration": {
-							"unit": "hour",
-							"value": 1
-						},
-						"ranges": {
-							"6tVnSeQacn9s7CRN": {
-								"range": "touch"
-							}
-						},
-						"area": {
-							"shape": "",
-							"size": "",
-							"placeTemplate": false
-						},
-						"target": {
-							"quantity": 1,
-							"type": "creature"
-						},
-						"consumers": {}
-					}
-				},
-				"description": "<p><strong>Duration</strong>: Concentration (1 hour)</p><p>You wreathe a creature in an illusory veil, making it invisible. Anything the target is carrying or wearing is also invisible as long as it remains in the target’s possession. The spell’s effects end for a target that attacks or casts a spell.</p>",
-				"favorite": false,
-				"secretDescription": "",
-				"source": "",
-				"uses": {
-					"value": null,
-					"max": "",
-					"per": null,
-					"recharge": {
-						"formula": "",
-						"threshold": ""
-					}
-				},
-				"schema": {
-					"version": 0.004,
-					"lastMigration": {
-						"version": {
-							"schema": 0.003,
-							"foundry": "11.302",
-							"system": "0.12.7"
-						}
-					}
-				},
-				"concentration": false,
-				"featureType": "",
-				"prerequisite": ""
-			},
-			"ownership": {
-				"default": 0
-			}
-		},
-		{
-			"_id": "PXfMC0pAM1xETX0b",
-			"name": "Charm Person (1st-Level; V, S)",
-			"type": "feature",
-			"img": "icons/magic/life/heart-red-blue.webp",
-			"effects": [],
-			"folder": null,
-			"sort": 0,
-			"flags": {},
-			"system": {
-				"ac": {
-					"baseFormula": "",
-					"formula": "",
-					"maxDex": 0,
-					"minStr": 0,
-					"mode": 1,
-					"requiresNoShield": false,
-					"requiresUnarmored": false
-				},
-				"actions": {
-					"IYO57gRRpiluWMdF": {
-						"name": "Charm Person (1st-Level; V, S)",
-						"activation": {
-							"cost": 1,
-							"type": "action",
-							"reactionTrigger": ""
-						},
-						"duration": {
-							"unit": "hour",
-							"value": 1
-						},
-						"ranges": {
-							"bYA5lO4KeLMyGubS": {
-								"range": "short"
-							}
-						},
-						"area": {
-							"shape": "",
-							"size": "",
-							"placeTemplate": false
-						},
-						"target": {
-							"quantity": 1,
-							"type": "creature"
-						},
-						"prompts": {
-							"f8JceQwv6rOLHrOj": {
-								"ability": "wis",
-								"onSave": "Negates",
-								"saveDC": {
-									"type": "custom",
-									"bonus": "12"
-								},
-								"type": "savingThrow"
-							}
-						},
-						"consumers": {
-							"Ecn37dZkTVQvbpFZ": {
-								"type": "itemUses"
-							}
-						}
-					}
-				},
-				"description": "<p><strong>Target</strong>: One humanoid creature<br><strong>Duration</strong>: 1 hour</p><p>You only require line of sight to the target (not line of effect) and it has advantage on its saving throw to resist the spell if you or your companions are fighting it. Until the spell ends, the target is charmed by you and friendly towards you.</p><p>The spell ends if you or your companions do anything harmful towards the target. The target knows it was charmed by you when the spell ends.</p>",
 				"favorite": true,
 				"secretDescription": "",
 				"source": "",
 				"uses": {
-					"value": 1,
-					"max": 1,
-					"per": "day",
+					"value": null,
+					"max": "",
+					"per": null,
 					"recharge": {
 						"formula": "",
 						"threshold": ""
@@ -748,10 +164,10 @@
 			"_id": "RppHVUoozQxVKUst",
 			"name": "Mage Bolt",
 			"type": "feature",
-			"img": "icons/svg/item-bag.svg",
+			"img": "icons/magic/lightning/bolt-strike-forked-sparks-blue.webp",
 			"effects": [],
 			"folder": null,
-			"sort": 0,
+			"sort": 7,
 			"flags": {},
 			"system": {
 				"ac": {
@@ -801,7 +217,7 @@
 						"prompts": {
 							"wDOjg3ANones7gqo": {
 								"ability": "dex",
-								"onSave": "half damage",
+								"onSave": "The target takes half damage on a save",
 								"saveDC": {
 									"type": "custom",
 									"bonus": "12"
@@ -816,7 +232,7 @@
 						}
 					}
 				},
-				"description": "<p>The mage targets a creature within 30 feet.</p>",
+				"description": "<p>The mage targets a creature within 30 feet. The target makes a DC 12 Dexterity&nbsp;<span class=\"freelinking-link\">saving throw</span>&nbsp;, taking 21 (6d6) lightning damage on a failed save or half damage on a success.</p>",
 				"favorite": true,
 				"secretDescription": "",
 				"source": "",
@@ -851,10 +267,10 @@
 			"_id": "CRt0OQwiAhkAHvFI",
 			"name": "Shapeshift",
 			"type": "feature",
-			"img": "icons/svg/item-bag.svg",
+			"img": "icons/magic/control/silhouette-hold-change-blue.webp",
 			"effects": [],
 			"folder": null,
-			"sort": 0,
+			"sort": 9,
 			"flags": {},
 			"system": {
 				"ac": {
@@ -891,7 +307,7 @@
 					}
 				},
 				"description": "<p>The mage changes its form to that of a Medium merfolk or back into its true form. While shapeshifted, it can’t use its bite attack but its statistics are otherwise unchanged except for its size. It reverts to its true form if it dies.</p>",
-				"favorite": false,
+				"favorite": true,
 				"secretDescription": "",
 				"source": "",
 				"uses": {
@@ -1472,10 +888,731 @@
 			"folder": null,
 			"sort": 0,
 			"_id": "cUqw1ZbOKGy8yiz7"
+		},
+		{
+			"_id": "7bSaxG0w1xV0kWsT",
+			"name": "Claws",
+			"type": "feature",
+			"img": "icons/skills/melee/blood-slash-foam-red.webp",
+			"effects": [],
+			"folder": null,
+			"sort": 3,
+			"flags": {},
+			"system": {
+				"ac": {
+					"baseFormula": "",
+					"formula": "",
+					"maxDex": 0,
+					"minStr": 0,
+					"mode": 1,
+					"requiresNoShield": false,
+					"requiresUnarmored": false
+				},
+				"actions": {
+					"Aclb3K9ssNyLYc1x": {
+						"name": "Claws",
+						"activation": {
+							"cost": 1,
+							"type": "action",
+							"reactionTrigger": ""
+						},
+						"duration": {
+							"unit": "",
+							"value": ""
+						},
+						"ranges": {
+							"Hhj2H5xJf34QImDi": {
+								"range": "fiveFeet"
+							}
+						},
+						"area": {
+							"shape": "",
+							"size": "",
+							"placeTemplate": false
+						},
+						"target": {
+							"quantity": 1,
+							"type": "creatureObject"
+						},
+						"rolls": {
+							"tAHFMbrZvB0ZhgsQ": {
+								"bonus": "",
+								"critThreshold": "20",
+								"type": "attack",
+								"attackType": "meleeWeaponAttack",
+								"ability": "str"
+							},
+							"jftH8evcgbpWYQY1": {
+								"canCrit": true,
+								"damageType": "piercing",
+								"formula": "2d6 + @str.mod",
+								"name": "Piercing",
+								"type": "damage"
+							}
+						},
+						"consumers": {}
+					}
+				},
+				"description": "<p>On a succesful hit the target is grappled (escape DC 14). Until this grapple ends, the merrow can’t attack a different creature with its claws.</p>",
+				"favorite": true,
+				"secretDescription": "",
+				"source": "",
+				"uses": {
+					"value": null,
+					"max": "",
+					"per": null,
+					"recharge": {
+						"formula": "",
+						"threshold": ""
+					}
+				},
+				"schema": {
+					"version": 0.004,
+					"lastMigration": {
+						"version": {
+							"schema": 0.003,
+							"foundry": "11.302",
+							"system": "0.12.7"
+						}
+					}
+				},
+				"concentration": false,
+				"featureType": "",
+				"prerequisite": ""
+			},
+			"ownership": {
+				"default": 0
+			}
+		},
+		{
+			"_id": "iFm16iVGBLnnfOIe",
+			"name": "Harpoon",
+			"type": "object",
+			"img": "icons/weapons/polearms/spear-hooked-blue.webp",
+			"effects": [],
+			"folder": null,
+			"sort": 0,
+			"flags": {
+				"core": {
+					"sourceId": "Item.EKJeT365cxfqNDjH"
+				}
+			},
+			"system": {
+				"ac": {
+					"baseFormula": "",
+					"formula": "",
+					"maxDex": 0,
+					"minStr": 0,
+					"mode": 1,
+					"requiresNoShield": false,
+					"requiresUnarmored": false
+				},
+				"actions": {
+					"Ai2NbxRQbTejbV9d": {
+						"name": "Melee Attack",
+						"activation": {
+							"cost": 1,
+							"type": "action",
+							"reactionTrigger": ""
+						},
+						"duration": {
+							"unit": "",
+							"value": ""
+						},
+						"ranges": {
+							"7Xt6ilYeAiDJ6jFn": {
+								"range": "10",
+								"unit": "feet"
+							}
+						},
+						"area": {
+							"shape": "",
+							"size": "",
+							"placeTemplate": false
+						},
+						"target": {
+							"quantity": 1,
+							"type": "creatureObject"
+						},
+						"rolls": {
+							"0Bne4vMiZrjR6yIJ": {
+								"bonus": "",
+								"critThreshold": "20",
+								"type": "attack",
+								"attackType": "meleeWeaponAttack",
+								"ability": "str"
+							},
+							"CgUgsxiJg9k3BZy0": {
+								"canCrit": true,
+								"damageType": "piercing",
+								"formula": "2d6 + @str.mod",
+								"name": "Piercing",
+								"type": "damage"
+							}
+						},
+						"prompts": {
+							"SGIBYvG0RAKJF5rd": {
+								"ability": "str",
+								"onSave": "Target not pulled on save",
+								"saveDC": {
+									"type": "maneuver",
+									"bonus": ""
+								},
+								"type": "savingThrow",
+								"default": true
+							}
+						},
+						"consumers": {}
+					},
+					"TaH1otuFRbQVvsN3": {
+						"name": "Thrown Attack",
+						"activation": {
+							"cost": 1,
+							"type": "action",
+							"reactionTrigger": ""
+						},
+						"duration": {
+							"unit": "",
+							"value": ""
+						},
+						"ranges": {
+							"xFzuAqkVQHMgaVEx": {
+								"range": 20,
+								"unit": "feet"
+							},
+							"5AwxAOT48BezDlsa": {
+								"range": "medium"
+							}
+						},
+						"area": {
+							"shape": "",
+							"size": "",
+							"placeTemplate": false
+						},
+						"target": {
+							"quantity": 1,
+							"type": "creatureObject"
+						},
+						"rolls": {
+							"0Bne4vMiZrjR6yIJ": {
+								"bonus": "",
+								"critThreshold": "20",
+								"type": "attack",
+								"attackType": "rangedWeaponAttack",
+								"ability": "str"
+							},
+							"CgUgsxiJg9k3BZy0": {
+								"canCrit": true,
+								"damageType": "piercing",
+								"formula": "2d6 + @str.mod",
+								"name": "Piercing",
+								"type": "damage"
+							}
+						},
+						"prompts": {
+							"SGIBYvG0RAKJF5rd": {
+								"ability": "str",
+								"onSave": "Target not pulled on save",
+								"saveDC": {
+									"type": "maneuver",
+									"bonus": ""
+								},
+								"type": "savingThrow"
+							}
+						},
+						"consumers": {}
+					}
+				},
+				"description": "<p>On a hit the target makes a DC 14 Strength saving throw. On a failure, the merrow pulls the target up to 20 feet toward the merrow.</p>",
+				"favorite": true,
+				"secretDescription": "",
+				"source": "",
+				"uses": {
+					"value": null,
+					"max": "",
+					"per": null,
+					"recharge": {
+						"formula": "",
+						"threshold": ""
+					}
+				},
+				"schema": {
+					"version": 0.004,
+					"lastMigration": {
+						"version": {
+							"schema": 0.003,
+							"foundry": "11.302",
+							"system": "0.12.7"
+						}
+					}
+				},
+				"ammunitionProperties": [],
+				"armorCategory": "",
+				"armorProperties": [],
+				"attuned": false,
+				"bulky": false,
+				"craftingComponents": "",
+				"damagedState": 0,
+				"equippedState": 2,
+				"materialProperties": [],
+				"objectType": "weapon",
+				"plotItem": false,
+				"price": "0 gp",
+				"proficient": true,
+				"quantity": 1,
+				"rarity": "common",
+				"requiresAttunement": false,
+				"shieldCategory": "",
+				"shieldProperties": [],
+				"unidentified": false,
+				"unidentifiedDescription": "",
+				"unidentifiedName": "",
+				"weaponProperties": [
+					"thrown"
+				],
+				"weight": 0,
+				"broken": false
+			},
+			"ownership": {
+				"default": 0
+			}
+		},
+		{
+			"_id": "gx5h0gdyLsGJ5CBg",
+			"name": "Bite",
+			"type": "feature",
+			"img": "icons/creatures/abilities/mouth-teeth-long-red.webp",
+			"effects": [],
+			"folder": null,
+			"sort": 1,
+			"flags": {},
+			"system": {
+				"ac": {
+					"baseFormula": "",
+					"formula": "",
+					"maxDex": 0,
+					"minStr": 0,
+					"mode": 1,
+					"requiresNoShield": false,
+					"requiresUnarmored": false
+				},
+				"actions": {
+					"Xr654aZ0guvOZC9p": {
+						"name": "Attack",
+						"activation": {
+							"cost": 1,
+							"type": "bonusAction",
+							"reactionTrigger": ""
+						},
+						"duration": {
+							"unit": "",
+							"value": ""
+						},
+						"ranges": {
+							"mlQXVaRnr0XWaWl8": {
+								"range": "fiveFeet"
+							}
+						},
+						"area": {
+							"shape": "",
+							"size": "",
+							"placeTemplate": false
+						},
+						"target": {
+							"quantity": 1,
+							"type": "creatureObject"
+						},
+						"rolls": {
+							"dZ9mAlzs8OawNKPO": {
+								"bonus": "",
+								"critThreshold": "20",
+								"type": "attack",
+								"attackType": "meleeWeaponAttack",
+								"ability": "str"
+							},
+							"EuVF3mkqiYGjrwz0": {
+								"canCrit": true,
+								"damageType": "piercing",
+								"formula": "1d4 + @str.mod",
+								"name": "Piercing",
+								"type": "damage"
+							}
+						},
+						"consumers": {}
+					},
+					"kbYEbQ6O1M9ItEca": {
+						"name": "Attack against Grappled Target",
+						"activation": {
+							"cost": 1,
+							"type": "bonusAction",
+							"reactionTrigger": ""
+						},
+						"duration": {
+							"unit": "",
+							"value": ""
+						},
+						"ranges": {
+							"mlQXVaRnr0XWaWl8": {
+								"range": "fiveFeet"
+							}
+						},
+						"area": {
+							"shape": "",
+							"size": "",
+							"placeTemplate": false
+						},
+						"target": {
+							"quantity": 1,
+							"type": "creatureObject"
+						},
+						"rolls": {
+							"dZ9mAlzs8OawNKPO": {
+								"bonus": "",
+								"critThreshold": "20",
+								"type": "attack",
+								"attackType": "meleeWeaponAttack",
+								"ability": "str"
+							},
+							"EuVF3mkqiYGjrwz0": {
+								"canCrit": true,
+								"damageType": "piercing",
+								"formula": "2d4 + @str.mod",
+								"name": "Piercing",
+								"type": "damage"
+							}
+						},
+						"consumers": {}
+					}
+				},
+				"description": "<p>Deals an extra weapon damage die if the Merrow is grappling the target.</p>",
+				"favorite": true,
+				"secretDescription": "",
+				"source": "",
+				"uses": {
+					"value": null,
+					"max": "",
+					"per": null,
+					"recharge": {
+						"formula": "",
+						"threshold": ""
+					}
+				},
+				"schema": {
+					"version": 0.004,
+					"lastMigration": {
+						"version": {
+							"schema": 0.003,
+							"foundry": "11.302",
+							"system": "0.12.7"
+						}
+					}
+				},
+				"concentration": false,
+				"featureType": "naturalWeapon",
+				"prerequisite": ""
+			},
+			"ownership": {
+				"default": 0
+			}
+		},
+		{
+			"name": "Darkness",
+			"type": "spell",
+			"img": "icons/magic/unholy/orb-glowing-purple.webp",
+			"effects": [],
+			"flags": {
+				"core": {
+					"sourceId": "Compendium.a5e.a5e-spells.0ou0qutr7p2bedg0"
+				}
+			},
+			"system": {
+				"actions": {
+					"LQlQq3OIRpMOsCHF": {
+						"name": "Cast Spell",
+						"activation": {
+							"cost": 1,
+							"type": "action",
+							"reactionTrigger": ""
+						},
+						"duration": {
+							"unit": "minute",
+							"value": "10"
+						},
+						"ranges": {
+							"uEiVvrN8F3RQmpwF": {
+								"range": "medium"
+							}
+						},
+						"area": {
+							"shape": "sphere",
+							"radius": "15",
+							"placeTemplate": false
+						},
+						"target": {
+							"quantity": "",
+							"type": ""
+						},
+						"consumers": {}
+					}
+				},
+				"description": "<p>Magical darkness heavily obscures darkvision and blocks nonmagical light in the area. The darkness spreads around corners. If any of the area overlaps with magical light created by a spell of 2nd-level or lower, the spell that created the light is dispelled.</p><p>When cast on an object that is in your possession or unattended, the darkness emanates from it and moves with it. Completely covering the object with something that is not transparent blocks the darkness.</p>",
+				"favorite": true,
+				"secretDescription": "",
+				"source": "",
+				"uses": {
+					"value": null,
+					"max": "",
+					"per": null,
+					"recharge": {
+						"formula": "",
+						"threshold": ""
+					}
+				},
+				"schema": {
+					"version": 0.003,
+					"lastMigration": {
+						"version": {
+							"schema": null,
+							"foundry": "10.291",
+							"system": "0.10.7"
+						}
+					}
+				},
+				"components": {
+					"vocalized": true,
+					"seen": false,
+					"material": true
+				},
+				"concentration": true,
+				"level": 2,
+				"materials": "bat fur and a drop of pitch or piece of coal",
+				"materialsConsumed": false,
+				"prepared": false,
+				"prerequisite": "",
+				"ritual": false,
+				"schools": {
+					"primary": "evocation",
+					"secondary": [
+						"arcane",
+						"shadow"
+					]
+				}
+			},
+			"_id": "CzLsrVlCh6vGVMd3",
+			"folder": null,
+			"sort": 0,
+			"ownership": {
+				"default": 0
+			}
+		},
+		{
+			"name": "Invisibility",
+			"type": "spell",
+			"img": "icons/magic/light/explosion-star-glow-silhouette.webp",
+			"effects": [],
+			"flags": {
+				"core": {
+					"sourceId": "Compendium.a5e.a5e-spells.4eidicv0lyqevtwd"
+				}
+			},
+			"system": {
+				"actions": {
+					"JmYFAmw4m4fpTJH3": {
+						"name": "Cast Spell",
+						"activation": {
+							"cost": 1,
+							"type": "action",
+							"reactionTrigger": ""
+						},
+						"duration": {
+							"unit": "hour",
+							"value": "1"
+						},
+						"ranges": {
+							"njg9gnRa30ArNRv0": {
+								"range": "touch"
+							}
+						},
+						"area": {
+							"shape": "",
+							"size": "",
+							"placeTemplate": false
+						},
+						"target": {
+							"quantity": "",
+							"type": "creature"
+						},
+						"consumers": {}
+					}
+				},
+				"description": "<p>You wreathe a creature in an illusory veil, making it invisible. Anything the target is carrying or wearing is also invisible as long as it remains in the target's possession. The spell's effects end for a target that attacks or casts a spell.</p><p><strong><em>Cast at Higher Levels.</em></strong> Target one additional creature for each slot level above 2nd.</p>",
+				"favorite": true,
+				"secretDescription": "",
+				"source": "",
+				"uses": {
+					"value": null,
+					"max": "",
+					"per": null,
+					"recharge": {
+						"formula": "",
+						"threshold": ""
+					}
+				},
+				"schema": {
+					"version": 0.003,
+					"lastMigration": {
+						"version": {
+							"schema": null,
+							"foundry": "10.291",
+							"system": "0.10.7"
+						}
+					}
+				},
+				"components": {
+					"vocalized": true,
+					"seen": true,
+					"material": true
+				},
+				"concentration": true,
+				"level": 2,
+				"materials": "piece of a veil",
+				"materialsConsumed": false,
+				"prepared": false,
+				"prerequisite": "",
+				"ritual": false,
+				"schools": {
+					"primary": "illusion",
+					"secondary": [
+						"arcane",
+						"obscurement",
+						"shadow"
+					]
+				}
+			},
+			"_id": "JlhCzBgbcieSCgur",
+			"folder": null,
+			"sort": 0,
+			"ownership": {
+				"default": 0
+			}
+		},
+		{
+			"name": "Charm Person",
+			"type": "spell",
+			"img": "icons/magic/control/control-influence-puppet.webp",
+			"effects": [],
+			"flags": {
+				"core": {
+					"sourceId": "Compendium.a5e.a5e-spells.zf1kpjwhg9fabe01"
+				}
+			},
+			"system": {
+				"actions": {
+					"F8BStUMZ0QkuHIWs": {
+						"name": "Cast Spell",
+						"activation": {
+							"cost": 1,
+							"type": "action",
+							"reactionTrigger": ""
+						},
+						"duration": {
+							"unit": "hour",
+							"value": "1"
+						},
+						"ranges": {
+							"D03zfzZhGAKBLTsK": {
+								"range": "short"
+							}
+						},
+						"area": {
+							"shape": "",
+							"size": "",
+							"placeTemplate": false
+						},
+						"target": {
+							"quantity": "",
+							"type": "creature"
+						},
+						"prompts": {
+							"pvX82eum3zUAY8rx": {
+								"ability": "wis",
+								"onSave": "The target is unaffected on a save",
+								"saveDC": {
+									"type": "spellcasting",
+									"bonus": ""
+								},
+								"type": "savingThrow"
+							}
+						},
+						"consumers": {
+							"aVD7ODuhqRSXkkGH": {
+								"type": "itemUses",
+								"default": true,
+								"quantity": 1
+							}
+						}
+					}
+				},
+				"description": "<p>You only require line of sight to the target (not line of effect) and it has advantage on its saving throw to resist the spell if you or your companions are fighting it. Until the spell ends, the target is charmed by you and friendly towards you.</p><p>The spell ends if you or your companions do anything harmful towards the target. The target knows it was charmed by you when the spell ends.</p><p><strong><em>Cast at Higher Levels.</em></strong> For each slot level above 1st, you affect one additional target that is within 30 feet of other targets.</p>",
+				"favorite": true,
+				"secretDescription": "",
+				"source": "",
+				"uses": {
+					"value": 1,
+					"max": "1",
+					"per": "day",
+					"recharge": {
+						"formula": "",
+						"threshold": ""
+					}
+				},
+				"schema": {
+					"version": 0.003,
+					"lastMigration": {
+						"version": {
+							"schema": null,
+							"foundry": "10.291",
+							"system": "0.10.7"
+						}
+					}
+				},
+				"components": {
+					"vocalized": true,
+					"seen": true,
+					"material": false
+				},
+				"concentration": false,
+				"level": 1,
+				"materials": "",
+				"materialsConsumed": false,
+				"prepared": false,
+				"prerequisite": "",
+				"ritual": false,
+				"schools": {
+					"primary": "enchantment",
+					"secondary": [
+						"arcane",
+						"compulsion"
+					]
+				}
+			},
+			"_id": "VLunDpcEiMwUbh7s",
+			"folder": null,
+			"sort": 0,
+			"ownership": {
+				"default": 0
+			}
 		}
 	],
 	"effects": [],
-	"flags": {},
+	"flags": {
+		"a5e": {
+			"currentTab": "core",
+			"sheetIsLocked": true,
+			"sortMode": 1,
+			"showSpellSlots": false
+		}
+	},
 	"system": {
 		"abilities": {
 			"str": {

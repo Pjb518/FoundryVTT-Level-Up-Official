@@ -28,7 +28,7 @@
 				},
 				"actions": {},
 				"description": "<p>The creature can breathe air and water</p>",
-				"favorite": false,
+				"favorite": true,
 				"secretDescription": "",
 				"source": "",
 				"uses": {
@@ -65,7 +65,7 @@
 			"img": "icons/skills/melee/blood-slash-foam-red.webp",
 			"effects": [],
 			"folder": null,
-			"sort": 0,
+			"sort": 2,
 			"flags": {},
 			"system": {
 				"ac": {
@@ -114,7 +114,7 @@
 							"jftH8evcgbpWYQY1": {
 								"canCrit": true,
 								"damageType": "piercing",
-								"formula": "2d6 +@str.mod",
+								"formula": "2d6 + @str.mod",
 								"name": "Piercing",
 								"type": "damage"
 							}
@@ -178,7 +178,7 @@
 				},
 				"actions": {
 					"Ai2NbxRQbTejbV9d": {
-						"name": "Harpoon",
+						"name": "Melee Attack",
 						"activation": {
 							"cost": 1,
 							"type": "action",
@@ -190,10 +190,8 @@
 						},
 						"ranges": {
 							"7Xt6ilYeAiDJ6jFn": {
-								"range": "10 ft."
-							},
-							"xFzuAqkVQHMgaVEx": {
-								"range": "20/60 ft."
+								"range": "10",
+								"unit": "feet"
 							}
 						},
 						"area": {
@@ -216,7 +214,7 @@
 							"CgUgsxiJg9k3BZy0": {
 								"canCrit": true,
 								"damageType": "piercing",
-								"formula": "1d4 +@str.mod",
+								"formula": "2d6 + @str.mod",
 								"name": "Piercing",
 								"type": "damage"
 							}
@@ -224,10 +222,69 @@
 						"prompts": {
 							"SGIBYvG0RAKJF5rd": {
 								"ability": "str",
-								"onSave": "No effect",
+								"onSave": "Target not pulled on save",
 								"saveDC": {
-									"type": "custom",
-									"bonus": "14"
+									"type": "maneuver",
+									"bonus": ""
+								},
+								"type": "savingThrow",
+								"default": true
+							}
+						},
+						"consumers": {}
+					},
+					"TaH1otuFRbQVvsN3": {
+						"name": "Thrown Attack",
+						"activation": {
+							"cost": 1,
+							"type": "action",
+							"reactionTrigger": ""
+						},
+						"duration": {
+							"unit": "",
+							"value": ""
+						},
+						"ranges": {
+							"xFzuAqkVQHMgaVEx": {
+								"range": 20,
+								"unit": "feet"
+							},
+							"5AwxAOT48BezDlsa": {
+								"range": "medium"
+							}
+						},
+						"area": {
+							"shape": "",
+							"size": "",
+							"placeTemplate": false
+						},
+						"target": {
+							"quantity": 1,
+							"type": "creatureObject"
+						},
+						"rolls": {
+							"0Bne4vMiZrjR6yIJ": {
+								"bonus": "",
+								"critThreshold": "20",
+								"type": "attack",
+								"attackType": "rangedWeaponAttack",
+								"ability": "str"
+							},
+							"CgUgsxiJg9k3BZy0": {
+								"canCrit": true,
+								"damageType": "piercing",
+								"formula": "2d6 + @str.mod",
+								"name": "Piercing",
+								"type": "damage"
+							}
+						},
+						"prompts": {
+							"SGIBYvG0RAKJF5rd": {
+								"ability": "str",
+								"onSave": "Target not pulled on save",
+								"saveDC": {
+									"type": "maneuver",
+									"bonus": ""
 								},
 								"type": "savingThrow"
 							}
@@ -275,6 +332,7 @@
 				"rarity": "common",
 				"requiresAttunement": false,
 				"shieldCategory": "",
+				"shieldProperties": [],
 				"unidentified": false,
 				"unidentifiedDescription": "",
 				"unidentifiedName": "",
@@ -295,7 +353,7 @@
 			"img": "icons/creatures/abilities/mouth-teeth-long-red.webp",
 			"effects": [],
 			"folder": null,
-			"sort": 100000,
+			"sort": 1,
 			"flags": {},
 			"system": {
 				"ac": {
@@ -309,7 +367,7 @@
 				},
 				"actions": {
 					"Xr654aZ0guvOZC9p": {
-						"name": "Bite",
+						"name": "Attack",
 						"activation": {
 							"cost": 1,
 							"type": "bonusAction",
@@ -344,15 +402,51 @@
 							"EuVF3mkqiYGjrwz0": {
 								"canCrit": true,
 								"damageType": "piercing",
-								"formula": "1d4 +@str.mod",
+								"formula": "1d4 + @str.mod",
 								"name": "Piercing",
 								"type": "damage"
+							}
+						},
+						"consumers": {}
+					},
+					"kbYEbQ6O1M9ItEca": {
+						"name": "Attack against Grappled Target",
+						"activation": {
+							"cost": 1,
+							"type": "bonusAction",
+							"reactionTrigger": ""
+						},
+						"duration": {
+							"unit": "",
+							"value": ""
+						},
+						"ranges": {
+							"mlQXVaRnr0XWaWl8": {
+								"range": "fiveFeet"
+							}
+						},
+						"area": {
+							"shape": "",
+							"size": "",
+							"placeTemplate": false
+						},
+						"target": {
+							"quantity": 1,
+							"type": "creatureObject"
+						},
+						"rolls": {
+							"dZ9mAlzs8OawNKPO": {
+								"bonus": "",
+								"critThreshold": "20",
+								"type": "attack",
+								"attackType": "meleeWeaponAttack",
+								"ability": "str"
 							},
-							"lp4eljbecB2mepud": {
+							"EuVF3mkqiYGjrwz0": {
 								"canCrit": true,
 								"damageType": "piercing",
-								"formula": "2d4 +@str.mod",
-								"name": "Grappled target",
+								"formula": "2d4 + @str.mod",
+								"name": "Piercing",
 								"type": "damage"
 							}
 						},
@@ -944,7 +1038,13 @@
 		}
 	],
 	"effects": [],
-	"flags": {},
+	"flags": {
+		"a5e": {
+			"currentTab": "core",
+			"showSpellTab": false,
+			"sortMode": 1
+		}
+	},
 	"system": {
 		"abilities": {
 			"str": {
