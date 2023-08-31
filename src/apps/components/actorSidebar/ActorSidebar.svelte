@@ -51,6 +51,7 @@
     <section class="actor-portrait-wrapper">
         <HitPointBar {hp}>
             <!-- svelte-ignore a11y-click-events-have-key-events -->
+            <!-- svelte-ignore a11y-no-noninteractive-element-interactions -->
             <img
                 class="actor-image"
                 src={$actor.img}

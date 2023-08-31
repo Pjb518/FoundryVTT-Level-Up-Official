@@ -39,6 +39,7 @@
             <label class="xp-label" for="{$actor.id}-elite">Elite</label>
 
             <!-- svelte-ignore a11y-click-events-have-key-events -->
+            <!-- svelte-ignore a11y-no-static-element-interactions -->
             <i
                 class="fas fa-skull shield-elite"
                 class:shield-elite--unlocked={!sheetIsLocked}

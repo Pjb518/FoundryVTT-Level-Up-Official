@@ -21,6 +21,7 @@
     <article class="config-wrapper">
         <div class="button-wrapper">
             <!-- svelte-ignore a11y-click-events-have-key-events -->
+            <!-- svelte-ignore a11y-no-static-element-interactions -->
             <i
                 class="button button--delete fas fa-trash"
                 on:click={deleteConsumer}

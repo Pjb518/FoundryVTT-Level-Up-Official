@@ -93,6 +93,7 @@
                 {#each ["d6", "d8", "d10", "d12"] as die}
                     <div class="a5e-hit-die-wrapper">
                         <!-- svelte-ignore a11y-click-events-have-key-events -->
+                        <!-- svelte-ignore a11y-no-static-element-interactions -->
                         <div
                             class="a5e-hit-die a5e-hit-die--rollable a5e-hit-die--{die}"
                             class:disabled={hitDice[die].current === 0}

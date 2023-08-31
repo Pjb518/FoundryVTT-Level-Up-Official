@@ -10,6 +10,7 @@
     const dispatch = createEventDispatcher();
 </script>
 
+<!-- svelte-ignore missing-declaration -->
 {#if game.user.isGM || actor?.testUserPermission(game.user, 1)}
     <BaseHeader
         {img}

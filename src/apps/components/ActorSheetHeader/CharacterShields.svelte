@@ -19,6 +19,7 @@
         </label>
 
         <!-- svelte-ignore a11y-click-events-have-key-events -->
+        <!-- svelte-ignore a11y-no-static-element-interactions -->
         <i
             class="fas fa-dice-d20 shield-inspiration"
             class:shield-inspiration--active={hasInspiration}

@@ -123,6 +123,7 @@
         {/if}
     </header>
 
+    <!-- svelte-ignore missing-declaration -->
     {#if rollData.type === "damage" || rollData.type === "healing"}
         <DamageButtons {roll} {rollData} />
     {:else if (game.user.isGM || actor?.testUserPermission(game.user, 2)) && ["abilityCheck", "attack", "savingThrow", "skillCheck", "toolCheck"].includes(rollData.type)}

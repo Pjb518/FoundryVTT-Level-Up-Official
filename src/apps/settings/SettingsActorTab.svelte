@@ -5,7 +5,7 @@
     import FormSection from "../components/FormSection.svelte";
     import Checkbox from "../components/Checkbox.svelte";
 
-    export let reload;
+    // export let reload;
 
     const appId = getContext("appId");
     const gmSettings = getContext("gmSettings");
