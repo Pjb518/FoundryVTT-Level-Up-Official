@@ -6,7 +6,9 @@
 export default function registerFilterConfig(A5E) {
   const abilityActionFilters = {};
   Object.entries(A5E.abilityActivationTypes).forEach(([value, label]) => {
-    abilityActionFilters[value] = { label, key: 'system.activation.type', type: 'action' };
+    abilityActionFilters[value] = {
+      label, key: 'system.activation.type', type: 'action', truthValue: 'or'
+    };
   });
 
   A5E.filters = {
@@ -57,26 +59,35 @@ export default function registerFilterConfig(A5E) {
           material: {
             label: 'A5E.SpellComponentMaterial',
             key: 'system.components.material',
-            type: 'boolean'
+            type: 'boolean',
+            truthValue: 'or'
           },
           seen: {
             label: 'A5E.SpellComponentSeen',
             key: 'system.components.seen',
-            type: 'boolean'
+            type: 'boolean',
+            truthValue: 'or'
           },
           vocalized: {
             label: 'A5E.SpellComponentVocalized',
             key: 'system.components.vocalized',
-            type: 'boolean'
+            type: 'boolean',
+            truthValue: 'or'
           }
         }
       },
       miscellaneous: {
         label: 'A5E.FilterLabelMiscellaneous',
         filters: {
-          concentration: { label: 'A5E.ConditionConcentration', key: 'system.concentration', type: 'boolean' },
-          ritual: { label: 'A5E.SpellRitual', key: 'system.ritual', type: 'boolean' },
-          prepared: { label: 'A5E.SpellPrepared', key: 'system.prepared', type: 'boolean' }
+          concentration: {
+            label: 'A5E.ConditionConcentration', key: 'system.concentration', type: 'boolean'
+          },
+          ritual: {
+            label: 'A5E.SpellRitual', key: 'system.ritual', type: 'boolean'
+          },
+          prepared: {
+            label: 'A5E.SpellPrepared', key: 'system.prepared', type: 'boolean'
+          }
         }
       },
       primarySpellSchools: {
@@ -88,7 +99,7 @@ export default function registerFilterConfig(A5E) {
 
   Object.entries(A5E.maneuverTraditions).forEach(([value, label]) => {
     A5E.filters.maneuvers.traditions.filters[value] = {
-      label, key: 'system.tradition', type: 'value'
+      label, key: 'system.tradition', type: 'value', truthValue: 'or'
     };
   });
 
@@ -100,7 +111,7 @@ export default function registerFilterConfig(A5E) {
 
   Object.entries(A5E.spellSchools.primary).forEach(([value, label]) => {
     A5E.filters.spells.primarySpellSchools.filters[value] = {
-      label, key: 'system.schools.primary', type: 'value'
+      label, key: 'system.schools.primary', type: 'value', truthValue: 'or'
     };
   });
 }
