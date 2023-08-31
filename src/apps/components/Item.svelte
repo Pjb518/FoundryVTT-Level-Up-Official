@@ -16,11 +16,11 @@
     export let item;
     export let action = null;
     export let actionId = null;
+    export let showDescription = false;
 
     const actor = getContext("actor");
     const { A5E } = CONFIG;
 
-    let showDescription = false;
     let rightClickConfigure =
         game.settings.get("a5e", "itemRightClickConfigure") ?? false;
     let isGM = game.user.isGM;

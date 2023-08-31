@@ -12,6 +12,7 @@
     import Sort from "../actorUtilityBar/Sort.svelte";
     import TabFooter from "../TabFooter.svelte";
     import UtilityBar from "../actorUtilityBar/UtilityBar.svelte";
+    import ShowDescription from "../actorUtilityBar/ShowDescription.svelte";
 
     const actor = getContext("actor");
     const { spells } = actor;
@@ -36,12 +37,16 @@
 
         return false;
     };
+    let showDescription = false;
 </script>
 
 <div class="spells-page">
     {#if $actor.isOwner}
         <UtilityBar>
             <Search {reducerType} />
+            <ShowDescription
+                on:updateSelection={() => (showDescription = !showDescription)}
+            />
             <Sort {reducerType} />
             <Filter {reducerType} />
             <CreateMenu {reducerType} {menuList} />
@@ -54,6 +59,7 @@
                 <ItemCategory
                     {level}
                     {label}
+                    {showDescription}
                     items={$spells._levels[level]}
                     type="spellLevels"
                     usesRequired={usesRequired(spells)}
@@ -139,6 +145,7 @@
                 </h3>
 
                 <!-- svelte-ignore a11y-click-events-have-key-events -->
+                <!-- svelte-ignore a11y-no-static-element-interactions -->
                 <i
                     class="fas fa-gear a5e-config-button u-text-sm"
                     on:click={() => $actor.configureSpellTab()}

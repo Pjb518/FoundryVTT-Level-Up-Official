@@ -5,6 +5,7 @@
     import Filter from "../actorUtilityBar/Filter.svelte";
     import ItemCategory from "../ItemCategory.svelte";
     import Search from "../actorUtilityBar/Search.svelte";
+    import ShowDescription from "../actorUtilityBar/ShowDescription.svelte";
     import Sort from "../actorUtilityBar/Sort.svelte";
     import UtilityBar from "../actorUtilityBar/UtilityBar.svelte";
 
@@ -22,12 +23,17 @@
     $: sortedFeatures = Object.entries($features._types).sort(
         (a, b) => sortMap[a[0]] - sortMap[b[0]]
     );
+
+    let showDescription = false;
 </script>
 
 <div class="features-page">
     {#if $actor.isOwner}
         <UtilityBar>
             <Search {reducerType} />
+            <ShowDescription
+                on:updateSelection={() => (showDescription = !showDescription)}
+            />
             <Sort {reducerType} />
             <Filter {reducerType} />
             <CreateMenu {reducerType} {menuList} />
@@ -37,6 +43,7 @@
     <section class="features-main-container">
         {#if $actor.type === "npc"}
             <ItemCategory
+                {showDescription}
                 label=""
                 items={$features}
                 type="featureTypes"
@@ -48,6 +55,7 @@
                     <ItemCategory
                         {label}
                         {items}
+                        {showDescription}
                         type="featureTypes"
                         usesRequired={usesRequired($features)}
                     />

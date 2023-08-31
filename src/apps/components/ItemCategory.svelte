@@ -10,6 +10,7 @@
     export let level = 0;
     export let items;
     export let type;
+    export let showDescription = false;
 
     export let usesRequired = false;
     export let quantityRequired = false;
@@ -170,6 +171,7 @@
         {#each [...items] as item (item.id)}
             <Item
                 {item}
+                {showDescription}
                 --itemTemplateAreas={itemTemplateConfiguration.areas}
                 --itemTemplateColumns={itemTemplateConfiguration.columns}
             />

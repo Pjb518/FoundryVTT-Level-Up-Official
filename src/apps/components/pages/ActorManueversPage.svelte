@@ -9,6 +9,7 @@
     import Filter from "../actorUtilityBar/Filter.svelte";
     import ItemCategory from "../ItemCategory.svelte";
     import Search from "../actorUtilityBar/Search.svelte";
+    import ShowDescription from "../actorUtilityBar/ShowDescription.svelte";
     import Sort from "../actorUtilityBar/Sort.svelte";
     import TabFooter from "../TabFooter.svelte";
     import UtilityBar from "../actorUtilityBar/UtilityBar.svelte";
@@ -24,12 +25,17 @@
     $: sheetIsLocked = !$actor.isOwner
         ? true
         : $actor.flags?.a5e?.sheetIsLocked ?? true;
+
+    let showDescription = false;
 </script>
 
 <div class="maneuvers-page">
     {#if $actor.isOwner}
         <UtilityBar>
             <Search {reducerType} />
+            <ShowDescription
+                on:updateSelection={() => (showDescription = !showDescription)}
+            />
             <Sort {reducerType} />
             <Filter {reducerType} />
             <CreateMenu {reducerType} {menuList} />
@@ -42,6 +48,7 @@
                 <ItemCategory
                     {label}
                     {items}
+                    {showDescription}
                     type="maneuverDegrees"
                     usesRequired={usesRequired(maneuvers)}
                 />
