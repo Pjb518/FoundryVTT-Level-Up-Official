@@ -114,6 +114,7 @@
                 </h3>
 
                 <!-- svelte-ignore a11y-click-events-have-key-events -->
+                <!-- svelte-ignore a11y-no-static-element-interactions -->
                 <i
                     class="fas fa-gear a5e-config-button"
                     on:click={() => $actor.configureManeuvers()}
