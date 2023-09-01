@@ -59,20 +59,17 @@ export default function registerFilterConfig(A5E) {
           material: {
             label: 'A5E.SpellComponentMaterial',
             key: 'system.components.material',
-            type: 'boolean',
-            truthValue: 'or'
+            type: 'boolean'
           },
           seen: {
             label: 'A5E.SpellComponentSeen',
             key: 'system.components.seen',
-            type: 'boolean',
-            truthValue: 'or'
+            type: 'boolean'
           },
           vocalized: {
             label: 'A5E.SpellComponentVocalized',
             key: 'system.components.vocalized',
-            type: 'boolean',
-            truthValue: 'or'
+            type: 'boolean'
           }
         }
       },

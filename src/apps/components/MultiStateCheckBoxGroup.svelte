@@ -51,6 +51,7 @@
             red={selected[1].includes(value) && color === "red"}
             {label}
             {value}
+            --color-hover="black"
             on:tagToggle={({ detail }) => updateSelection(detail)}
             on:tagToggleAux={({ detail }) => updateSelection(detail, true)}
         />
