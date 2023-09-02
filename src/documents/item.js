@@ -254,6 +254,7 @@ export default class ItemA5e extends Item {
           actorId: this.actor.uuid,
           itemId: this.uuid,
           cardType: 'item',
+          actionName: action?.name,
           actionDescription: action?.descriptionOutputs?.includes('action')
             ? await TextEditor.enrichHTML(action.description, {
               async: true
@@ -269,7 +270,7 @@ export default class ItemA5e extends Item {
               async: false
             })
             : null,
-          img: this.img,
+          img: action?.img ?? this.img,
           name: this.name
         }
       },

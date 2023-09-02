@@ -1,8 +1,8 @@
 <script>
     import { getContext } from "svelte";
-    import { localize } from "#runtime/svelte/helper";
 
     import DeletionConfirmationDialog from "../dialogs/initializers/DeletionConfirmationDialog";
+    import ShowDescription from "./actorUtilityBar/ShowDescription.svelte";
 
     export let item;
     export let action = null;
@@ -51,6 +51,10 @@
         item.duplicateItem();
     }
 
+    function showDescription() {
+        item.shareItemDescription(item.actions.get(action));
+    }
+
     const actor = getContext("actor");
 
     $: sheetIsLocked = !$actor.isOwner
@@ -58,9 +62,20 @@
         : $actor.flags?.a5e?.sheetIsLocked ?? true;
 </script>
 
+{#if sheetIsLocked}
+    <div class="track">
+        <!-- svelte-ignore a11y-click-events-have-key-events a11y-no-static-element-interactions -->
+        <i
+            on:click|stopPropagation={showDescription}
+            class="track-icon track-icon--description-button fa-regular fa-file-lines"
+            data-tooltip={`Share ${action ? "Action" : "Item"} Description`}
+            data-tooltip-direction="UP"
+        />
+    </div>
+{/if}
+
 {#if !sheetIsLocked}
-    <!-- svelte-ignore a11y-click-events-have-key-events -->
-    <!-- svelte-ignore a11y-no-static-element-interactions -->
+    <!-- svelte-ignore a11y-click-events-have-key-events a11y-no-static-element-interactions -->
     <div class="track" on:click|stopPropagation>
         <i class="track-icon fa-solid fa-ellipsis-vertical" />
 
@@ -148,6 +163,10 @@
             transform: translateX(-1px);
 
             transition: $standard-transition;
+
+            &--description-button {
+                font-size: 0.833rem;
+            }
         }
 
         &-items {

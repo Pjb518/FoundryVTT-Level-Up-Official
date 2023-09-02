@@ -18,13 +18,8 @@
     const actor = getContext("actor");
 
     const A5E = CONFIG.A5E;
-    // const itemContext = [...items][0]?.type || "item";
 
-    function getHeadingTemplateConfiguration(
-        usesRequired,
-        quantityRequired,
-        sheetIsLocked
-    ) {
+    function getHeadingTemplateConfiguration(usesRequired, quantityRequired) {
         let areas = "name";
         let columns = "1fr";
 
@@ -41,19 +36,13 @@
             columns = "1fr 4rem";
         }
 
-        if (!sheetIsLocked) {
-            areas += ` menu`;
-            columns += ` 2rem`;
-        }
+        areas += ` menu`;
+        columns += ` 2rem`;
 
         return { areas: `"${areas}"`, columns };
     }
 
-    function getItemTemplateConfiguration(
-        usesRequired,
-        quantityRequired,
-        sheetIsLocked
-    ) {
+    function getItemTemplateConfiguration(usesRequired, quantityRequired) {
         let areas = "icon name indicators";
         let columns = "min-content 1fr min-content";
 
@@ -70,42 +59,23 @@
             columns = "min-content 1fr min-content 4rem";
         }
 
-        if (!sheetIsLocked) {
-            areas += ` menu`;
-            columns += ` 2rem`;
-        }
+        areas += ` menu`;
+        columns += ` 2rem`;
 
         return { areas: `"${areas}"`, columns };
     }
 
-    // function createItem() {
-    //     const updateData = {
-    //         name: `New ${itemContext}`,
-    //         type: itemContext,
-    //     };
-
-    //     if (label !== "" && itemContext !== "item")
-    //         updateData[`system.${itemContext}Type`] = label;
-
-    //     $actor.createEmbeddedDocuments("Item", [updateData]);
-    // }
-
-    $: sheetIsLocked = !$actor.isOwner
-        ? true
-        : $actor.flags?.a5e?.sheetIsLocked ?? true;
     $: showSpellSlots = $actor.flags?.a5e?.showSpellSlots ?? true;
     $: showSpellPoints = $actor.flags?.a5e?.showSpellPoints ?? false;
 
     $: headingTemplateConfiguration = getHeadingTemplateConfiguration(
         usesRequired,
-        quantityRequired,
-        sheetIsLocked
+        quantityRequired
     );
 
     $: itemTemplateConfiguration = getItemTemplateConfiguration(
         usesRequired,
-        quantityRequired,
-        sheetIsLocked
+        quantityRequired
     );
 </script>
 
@@ -152,18 +122,6 @@
             {#if usesRequired}
                 <h3 class="category-heading category-heading--uses">Uses</h3>
             {/if}
-
-            <!-- {#if !sheetIsLocked}
-                <i class="inventory-add-icon a5e-config-button" />
-                <button
-                    class="a5e-button a5e-button--add inventory-add-icon"
-                    on:click={createItem}
-                >
-                    {localize("A5E.ButtonAdd", {
-                        type: localize(A5E.itemTypes[itemContext]),
-                    })}
-                </button>
-            {/if} -->
         </header>
     {/if}
 
@@ -213,16 +171,6 @@
             grid-area: uses;
         }
     }
-
-    // .category-header {
-    //     display: flex;
-
-    //     height: 1.5rem;
-
-    //     .inventory-add-icon {
-    //         padding-inline: 0.25rem;
-    //     }
-    // }
 
     .items-container {
         display: flex;

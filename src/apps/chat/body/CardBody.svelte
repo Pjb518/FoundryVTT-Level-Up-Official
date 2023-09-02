@@ -320,7 +320,7 @@
 </script>
 
 <article>
-    {#if !hideDescription}
+    {#if (itemDescription || unidentifiedDescription || actionDescription) && !hideDescription}
         <section
             class="description-block"
             in:slide={{ duration: 150 }}
