@@ -636,6 +636,7 @@ export default class ActorA5e extends Actor {
       skill.deterministicBonus,
       skill.bonuses.passive,
       rollData.abilities[skill.ability]?.check?.deterministicBonus ?? 0,
+      skill.expertiseDice ? 3 : 0,
 
       // Remove the double addition of the global check bonus
       `- ${getDeterministicBonus(rollData.bonuses.abilities.check.trim(), rollData)}`
