@@ -24,7 +24,7 @@
 				},
 				"actions": {},
 				"description": "<p>The creature can breathe air and water</p>",
-				"favorite": false,
+				"favorite": true,
 				"secretDescription": "",
 				"source": "",
 				"uses": {
@@ -116,6 +116,7 @@
 				"rarity": "common",
 				"requiresAttunement": false,
 				"shieldCategory": "",
+				"shieldProperties": [],
 				"unidentified": false,
 				"unidentifiedDescription": "",
 				"unidentifiedName": "",
@@ -131,7 +132,7 @@
 			"_id": "6YhmQNr7N9E6rvUO",
 			"name": "Brave",
 			"type": "feature",
-			"img": "icons/svg/item-bag.svg",
+			"img": "icons/magic/life/heart-cross-strong-flame-purple-orange.webp",
 			"effects": [],
 			"folder": null,
 			"sort": 0,
@@ -148,7 +149,7 @@
 				},
 				"actions": {},
 				"description": "<p>The knight has advantage on saving throws against being frightened.</p>",
-				"favorite": false,
+				"favorite": true,
 				"secretDescription": "",
 				"source": "",
 				"uses": {
@@ -199,7 +200,7 @@
 				},
 				"actions": {},
 				"description": "<p>The knight makes two trident attacks</p>",
-				"favorite": false,
+				"favorite": true,
 				"secretDescription": "",
 				"source": "",
 				"uses": {
@@ -230,160 +231,6 @@
 			}
 		},
 		{
-			"_id": "JsxRMKcwQBnVIrZg",
-			"name": "Trident",
-			"type": "object",
-			"img": "icons/weapons/polearms/trident-silver-blue.webp",
-			"effects": [],
-			"folder": null,
-			"sort": 0,
-			"flags": {
-				"core": {
-					"sourceId": "Item.9avauxiNr9Ytsbzz"
-				}
-			},
-			"system": {
-				"ac": {
-					"baseFormula": "",
-					"formula": "",
-					"maxDex": 0,
-					"minStr": 0,
-					"mode": 1,
-					"requiresNoShield": false,
-					"requiresUnarmored": false
-				},
-				"actions": {
-					"I051ph71NwpPELCG": {
-						"name": "Trident",
-						"activation": {
-							"cost": 1,
-							"type": "action",
-							"reactionTrigger": ""
-						},
-						"duration": {
-							"unit": "",
-							"value": ""
-						},
-						"ranges": {
-							"sDLXahxiJWcfHz8M": {
-								"range": "fiveFeet"
-							},
-							"LGAF2VB8ulNobrUy": {
-								"range": "20/60 ft."
-							}
-						},
-						"area": {
-							"shape": "",
-							"size": "",
-							"placeTemplate": false
-						},
-						"target": {
-							"quantity": 1,
-							"type": "creatureObject"
-						},
-						"rolls": {
-							"6XRcg0hXGxNnm7qK": {
-								"bonus": "",
-								"critThreshold": "20",
-								"type": "attack",
-								"attackType": "meleeWeaponAttack",
-								"ability": "str"
-							},
-							"DkRw419ECHiFczb3": {
-								"canCrit": true,
-								"damageType": "piercing",
-								"formula": "1d8 +@str.mod",
-								"name": "Two Handed",
-								"type": "damage"
-							},
-							"Mtp6BV2S6h15Z0xG": {
-								"canCrit": true,
-								"damageType": "piercing",
-								"formula": "1d6 +@str.mod",
-								"name": "One Handed",
-								"type": "damage"
-							},
-							"20KcrJmibsQ21XPY": {
-								"canCrit": true,
-								"damageType": "piercing",
-								"formula": "1d6 +@str.mod",
-								"name": "Thrown",
-								"type": "damage"
-							},
-							"eQdlBgUzLQZ5VYmz": {
-								"canCrit": true,
-								"damageType": "piercing",
-								"formula": "1d8 +@str.mod",
-								"name": "Mounted one handed",
-								"type": "damage"
-							},
-							"pSicEmoPl1Ft84gB": {
-								"canCrit": true,
-								"damageType": "",
-								"formula": "1d10 +@str.mod",
-								"name": "Mounted two handed",
-								"type": "damage"
-							}
-						},
-						"consumers": {}
-					}
-				},
-				"description": "",
-				"favorite": true,
-				"secretDescription": "",
-				"source": "",
-				"uses": {
-					"value": null,
-					"max": "",
-					"per": null,
-					"recharge": {
-						"formula": "",
-						"threshold": ""
-					}
-				},
-				"schema": {
-					"version": 0.004,
-					"lastMigration": {
-						"version": {
-							"schema": 0.003,
-							"foundry": "11.302",
-							"system": "0.12.7"
-						}
-					}
-				},
-				"ammunitionProperties": [],
-				"armorCategory": "",
-				"armorProperties": [],
-				"attuned": false,
-				"bulky": false,
-				"craftingComponents": "",
-				"damagedState": 0,
-				"equippedState": 2,
-				"materialProperties": [],
-				"objectType": "weapon",
-				"plotItem": false,
-				"price": "10 gp",
-				"proficient": true,
-				"quantity": 1,
-				"rarity": "common",
-				"requiresAttunement": false,
-				"shieldCategory": "",
-				"unidentified": false,
-				"unidentifiedDescription": "",
-				"unidentifiedName": "",
-				"weaponProperties": [
-					"mounted",
-					"thrown",
-					"versatile"
-				],
-				"weight": 3,
-				"broken": false
-			},
-			"ownership": {
-				"default": 0
-			}
-		},
-		{
 			"_id": "9Wh8nVM9i93Jgaak",
 			"name": "Lance (Mounted Only)",
 			"type": "object",
@@ -408,7 +255,7 @@
 				},
 				"actions": {
 					"lbZ1TSIeQNZxZ5vt": {
-						"name": "Lance (Mounted Only)",
+						"name": "Attack",
 						"activation": {
 							"cost": 1,
 							"type": "action",
@@ -443,22 +290,25 @@
 							"pqmYyZALidk5pJ6a": {
 								"canCrit": true,
 								"damageType": "piercing",
-								"formula": "1d12 +@str.mod",
+								"formula": "1d12 + @str.mod",
 								"name": "Piercing",
-								"type": "damage"
+								"type": "damage",
+								"label": "Base Damage"
 							},
 							"Jneh3OsjnLoeahli": {
 								"canCrit": true,
 								"damageType": "piercing",
 								"formula": "1d12",
 								"name": "Bonus damage",
-								"type": "damage"
+								"type": "damage",
+								"label": "Charge Damage",
+								"default": false
 							}
 						},
 						"prompts": {
 							"GEqULJT2H2eZ35Mf": {
 								"ability": "str",
-								"onSave": "The target does not fall prone",
+								"onSave": "On a save, the target is not knocked prone",
 								"saveDC": {
 									"type": "custom",
 									"bonus": "13"
@@ -499,7 +349,7 @@
 				"bulky": false,
 				"craftingComponents": "",
 				"damagedState": 0,
-				"equippedState": 0,
+				"equippedState": 1,
 				"materialProperties": [],
 				"objectType": "weapon",
 				"plotItem": false,
@@ -509,6 +359,7 @@
 				"rarity": "common",
 				"requiresAttunement": false,
 				"shieldCategory": "",
+				"shieldProperties": [],
 				"unidentified": false,
 				"unidentifiedDescription": "",
 				"unidentifiedName": "",
@@ -527,7 +378,7 @@
 			"_id": "xYjwVItaWjIfJz4D",
 			"name": "Knightly Inspiration",
 			"type": "feature",
-			"img": "icons/svg/item-bag.svg",
+			"img": "icons/skills/social/intimidation-impressing.webp",
 			"effects": [],
 			"folder": null,
 			"sort": 0,
@@ -576,87 +427,13 @@
 					}
 				},
 				"description": "<p>The knight inspires creatures of its choice within 30 feet that can hear and understand it. For the next minute, inspired creatures gain an expertise die [[/r 1d4]] on attack rolls and saving throws. A creature can benefit from only one Knightly Inspiration at a time, and the knight cannot target itself.</p>",
-				"favorite": false,
+				"favorite": true,
 				"secretDescription": "",
 				"source": "",
 				"uses": {
 					"value": 1,
 					"max": 1,
 					"per": "day",
-					"recharge": {
-						"formula": "",
-						"threshold": ""
-					}
-				},
-				"schema": {
-					"version": 0.004,
-					"lastMigration": {
-						"version": {
-							"schema": 0.003,
-							"foundry": "11.302",
-							"system": "0.12.7"
-						}
-					}
-				},
-				"concentration": false,
-				"featureType": "",
-				"prerequisite": ""
-			},
-			"ownership": {
-				"default": 0
-			}
-		},
-		{
-			"_id": "mQboqcnunlac2hJs",
-			"name": "Trident",
-			"type": "feature",
-			"img": "icons/svg/item-bag.svg",
-			"effects": [],
-			"folder": null,
-			"sort": 0,
-			"flags": {},
-			"system": {
-				"ac": {
-					"baseFormula": "",
-					"formula": "",
-					"maxDex": 0,
-					"minStr": 0,
-					"mode": 1,
-					"requiresNoShield": false,
-					"requiresUnarmored": false
-				},
-				"actions": {
-					"R4Vhtq5C2GM2WeBX": {
-						"name": "Trident",
-						"activation": {
-							"cost": 1,
-							"type": "bonusAction",
-							"reactionTrigger": ""
-						},
-						"duration": {
-							"unit": "",
-							"value": ""
-						},
-						"area": {
-							"shape": "",
-							"size": "",
-							"placeTemplate": false
-						},
-						"target": {
-							"quantity": "",
-							"type": "self"
-						},
-						"consumers": {}
-					}
-				},
-				"description": "<p>The knight makes a trident attack.</p>",
-				"favorite": false,
-				"secretDescription": "",
-				"source": "",
-				"uses": {
-					"value": null,
-					"max": "",
-					"per": null,
 					"recharge": {
 						"formula": "",
 						"threshold": ""
@@ -1231,10 +1008,194 @@
 			"folder": null,
 			"sort": 0,
 			"_id": "Msmd1j48kldHVjFL"
+		},
+		{
+			"_id": "3o9JFweCOUTjGOsi",
+			"name": "Trident",
+			"type": "object",
+			"img": "icons/weapons/polearms/trident-silver-blue.webp",
+			"effects": [],
+			"folder": null,
+			"sort": 0,
+			"flags": {},
+			"system": {
+				"ac": {
+					"baseFormula": "",
+					"formula": "",
+					"maxDex": 0,
+					"minStr": 0,
+					"mode": 1,
+					"requiresNoShield": false,
+					"requiresUnarmored": false
+				},
+				"actions": {
+					"Mr8JN2h6jeowaLik": {
+						"name": "Melee Attack",
+						"activation": {
+							"cost": 1,
+							"type": "action",
+							"reactionTrigger": ""
+						},
+						"duration": {
+							"unit": "",
+							"value": ""
+						},
+						"ranges": {
+							"e1QvMWwvNpEogves": {
+								"range": "fiveFeet"
+							}
+						},
+						"area": {
+							"shape": "",
+							"size": "",
+							"placeTemplate": false
+						},
+						"target": {
+							"quantity": 1,
+							"type": "creatureObject"
+						},
+						"rolls": {
+							"fAE4utBH7FdY1Vgy": {
+								"bonus": "",
+								"critThreshold": "20",
+								"type": "attack",
+								"attackType": "meleeWeaponAttack",
+								"ability": "str"
+							},
+							"ByNnxtlPg2n0j55l": {
+								"canCrit": true,
+								"damageType": "piercing",
+								"formula": "1d8 + @str.mod",
+								"name": "Two-Handed",
+								"type": "damage",
+								"label": "Two-handed attack"
+							},
+							"nDgK8JEX3PRYdsRd": {
+								"canCrit": true,
+								"damageType": "piercing",
+								"formula": "1d6 + @str.mod",
+								"name": "One-Handed",
+								"type": "damage",
+								"label": "One-handed attack",
+								"default": false
+							}
+						},
+						"consumers": {}
+					},
+					"XKghYNXZwMYj1mwr": {
+						"name": "Thrown Attack",
+						"activation": {
+							"cost": 1,
+							"type": "action",
+							"reactionTrigger": ""
+						},
+						"duration": {
+							"unit": "",
+							"value": ""
+						},
+						"ranges": {
+							"e1QvMWwvNpEogves": {
+								"range": 20,
+								"unit": "feet"
+							},
+							"G77tEyHUN6FEMG8z": {
+								"range": "medium"
+							}
+						},
+						"area": {
+							"shape": "",
+							"size": "",
+							"placeTemplate": false
+						},
+						"target": {
+							"quantity": 1,
+							"type": "creatureObject"
+						},
+						"rolls": {
+							"fAE4utBH7FdY1Vgy": {
+								"bonus": "",
+								"critThreshold": "20",
+								"type": "attack",
+								"attackType": "rangedWeaponAttack",
+								"ability": "str"
+							},
+							"nDgK8JEX3PRYdsRd": {
+								"canCrit": true,
+								"damageType": "piercing",
+								"formula": "1d6 + @str.mod",
+								"name": "One-Handed",
+								"type": "damage",
+								"label": "",
+								"default": false
+							}
+						},
+						"consumers": {}
+					}
+				},
+				"description": "",
+				"favorite": true,
+				"secretDescription": "",
+				"source": "",
+				"uses": {
+					"value": null,
+					"max": "",
+					"per": null,
+					"recharge": {
+						"formula": "",
+						"threshold": ""
+					}
+				},
+				"schema": {
+					"version": 0.004,
+					"lastMigration": {
+						"version": {
+							"schema": 0.003,
+							"foundry": "11.302",
+							"system": "0.12.7"
+						}
+					}
+				},
+				"ammunitionProperties": [],
+				"armorCategory": "",
+				"armorProperties": [],
+				"attuned": false,
+				"bulky": false,
+				"craftingComponents": "",
+				"damagedState": 0,
+				"equippedState": 2,
+				"materialProperties": [],
+				"objectType": "weapon",
+				"plotItem": false,
+				"price": "10 gp",
+				"proficient": true,
+				"quantity": 1,
+				"rarity": "common",
+				"requiresAttunement": false,
+				"shieldCategory": "",
+				"shieldProperties": [],
+				"unidentified": false,
+				"unidentifiedDescription": "",
+				"unidentifiedName": "",
+				"weaponProperties": [
+					"mounted",
+					"thrown",
+					"versatile"
+				],
+				"weight": 3,
+				"broken": false
+			},
+			"ownership": {
+				"default": 0
+			}
 		}
 	],
 	"effects": [],
-	"flags": {},
+	"flags": {
+		"a5e": {
+			"sheetIsLocked": true,
+			"currentTab": "core"
+		}
+	},
 	"system": {
 		"abilities": {
 			"str": {
