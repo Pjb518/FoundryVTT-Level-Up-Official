@@ -82,7 +82,10 @@
     }
 
     function onDropObject(event) {
-        sheet._onDrop(event, { containerUuid: item.uuid });
+        if (item?.system?.objectType === "container") {
+            sheet._onDrop(event, { containerUuid: item.uuid });
+        }
+        sheet._onDrop(event);
     }
 
     async function getDescription() {
