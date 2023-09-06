@@ -11,7 +11,6 @@
     const dispatch = createEventDispatcher();
 
     const showQuantity = ["equipment"].includes(attribute);
-
     let docData = $originItem ? $originItem[attribute]?.getUuid(uuid) : null;
     let docId = $originItem ? $originItem[attribute]?.getIdByUuid(uuid) : null;
     let originalQuantity = doc?.type === "object" ? doc?.system?.quantity : 1;

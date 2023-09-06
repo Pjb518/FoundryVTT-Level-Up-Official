@@ -106,4 +106,15 @@ export default class ForeignDocumentManager extends DataProxy {
     await this.#doc.update(updates);
     return true;
   }
+
+  async clean() {
+    const updates = {};
+    // eslint-disable-next-line no-restricted-syntax
+    for await (const [key, value] of Object.entries(this.#doc.system[this.#attribute])) {
+      const child = await fromUuid(value?.uuid);
+      if (!child) updates[`system.${this.#attribute}.-=${key}`] = null;
+    }
+
+    await this.#doc.update(updates);
+  }
 }

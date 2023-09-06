@@ -11,7 +11,12 @@
             const { uuid } = JSON.parse(
                 dragEvent.dataTransfer.getData("text/plain")
             );
+            const child = await fromUuid(uuid);
+            if (!child) return;
+            if (child.parent?.uuid !== $item?.parent?.uuid) return;
+
             await $item.items.add(uuid, { optional: true });
+            await child.update({ "system.containerId": $item.uuid });
         } catch (err) {
             console.error(err);
         }
@@ -19,12 +24,13 @@
 
     async function deleteEquipment(event) {
         const [_, uuid] = event.detail;
+        const child = await fromUuid(uuid);
+        if (!child) return;
+        if (child.parent?.uuid !== $item?.parent?.uuid) return;
+
+        await child.update({ "system.containerId": "" });
         await $item.items.delete(uuid);
     }
-
-    let showDropZone = $item.parent
-        ? !["Actor", "ActorDelta"].includes($item?.parent?.documentName)
-        : true;
 
     $: uuids = Object.values($item.system.items ?? {}).map((e) => e.uuid);
 </script>
@@ -34,7 +40,6 @@
         <DropArea
             {uuids}
             attribute="items"
-            {showDropZone}
             on:item-dropped={updateEquipment}
             on:item-deleted={deleteEquipment}
         />
