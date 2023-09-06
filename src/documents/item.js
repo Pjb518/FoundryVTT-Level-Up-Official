@@ -671,8 +671,6 @@ export default class ItemA5e extends Item {
   }
 
   async _onDelete(data, options, user) {
-    super._onDelete(data, options, user);
-
     // Clean up container
     if (!this.parent) return;
     if (this.type === 'object') {
@@ -686,6 +684,8 @@ export default class ItemA5e extends Item {
       const container = await fromUuid(this.system.containerId);
       if (container) await container?.items?.delete(this.uuid);
     }
+
+    super._onDelete(data, options, user);
   }
 
   static async _onCreateDocuments(items, context) {

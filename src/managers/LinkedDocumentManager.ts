@@ -1,4 +1,5 @@
 // @ts-nocheck
+import DataProxy from './DataProxy';
 
 type LinkedDocumentManagerOptions = {
   validate?: (value: any) => boolean;
@@ -6,7 +7,7 @@ type LinkedDocumentManagerOptions = {
   validateWarning?: string;
 };
 
-export default class LinkedDocumentManager {
+export default class LinkedDocumentManager extends DataProxy {
   #attribute: string;
 
   #children: Map<String, any>;
@@ -32,6 +33,7 @@ export default class LinkedDocumentManager {
       throw Error(`LinkedDocumentManager: Document must have 'system.${attribute}'`);
     }
 
+    super(foundry.utils.getProperty(doc, `system.${attribute}`));
     this.#doc = doc;
     this.#attribute = attribute;
 
@@ -73,8 +75,9 @@ export default class LinkedDocumentManager {
   }
 
   getIdByUuid(uuid: string): String | undefined {
+    const children = this.#doc.system[this.#attribute];
     // eslint-disable-next-line @typescript-eslint/no-unused-vars
-    const entry = [...(this.#children ?? [])].find(([_, value]) => value.uuid === uuid);
+    const entry = Object.entries(children ?? {}).find(([_, value]) => value.uuid === uuid);
     return entry ? entry[0] : undefined;
   }
 
