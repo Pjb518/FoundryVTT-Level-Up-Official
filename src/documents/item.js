@@ -16,7 +16,6 @@ import ActionActivationDialog from '../apps/dialogs/initializers/ActionActivatio
 import ActionSelectionDialog from '../apps/dialogs/initializers/ActionSelectionDialog';
 
 import ActionsManager from '../managers/ActionsManager';
-import LinkedDocumentManager from '../managers/LinkedDocumentManager';
 import ForeignDocumentManager from '../managers/ForeignDocumentManager';
 import ResourceConsumptionManager from '../managers/ResourceConsumptionManager';
 import RollPreparationManager from '../managers/RollPreparationManager';
@@ -63,7 +62,7 @@ export default class ItemA5e extends Item {
   }
 
   prepareContainer() {
-    foundry.utils.setProperty(this, 'items', new LinkedDocumentManager(
+    foundry.utils.setProperty(this, 'items', new ForeignDocumentManager(
       this,
       'items',
       { validate: (obj) => obj.type === 'object' }

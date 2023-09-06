@@ -99,25 +99,17 @@
         return data;
     }
 
-    async function getContainerItems() {
-        const documents = await item?.items?.getDocuments();
-        if (!documents) return [];
+    $: containerItems = Object.entries(item?.items?.documents ?? {}).reduce(
+        (acc, [k, v]) => {
+            const i = fromUuidSync(v.uuid);
+            if (!i) return acc;
+            if (i.parent?.id !== $actor.id) return acc;
 
-        const containerItems = [...documents].reduce(
-            (acc, [uuid, childDoc]) => {
-                if (childDoc.parent?.id !== $actor.id) return acc;
-                acc.push([uuid, childDoc]);
-                return acc;
-            },
-            []
-        );
-
-        return containerItems;
-    }
-
-    $: containerItems = getContainerItems(item)
-        .then((data) => (containerItems = data))
-        .catch((err) => (containerItems = err));
+            acc.push([k, i]);
+            return acc;
+        },
+        []
+    );
 
     $: description = getDescription(item)
         .then((data) => (description = data))
