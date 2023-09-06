@@ -598,7 +598,12 @@ export default class ItemA5e extends Item {
 
       await this.update({ 'system.containerId': '' });
       await container.items.delete(this.uuid);
+      return;
     }
+
+    // Remove from old container
+    const oldContainer = await fromUuid(this.system.containerId);
+    if (oldContainer) await oldContainer.items.delete(this.uuid);
 
     const container = await fromUuid(containerUuid);
     if (!container

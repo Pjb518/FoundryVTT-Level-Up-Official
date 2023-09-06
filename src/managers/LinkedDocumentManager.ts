@@ -53,7 +53,7 @@ export default class LinkedDocumentManager extends DataProxy {
 
     // eslint-disable-next-line no-restricted-syntax
     for await (const value of Object.values(this.#doc.system[this.#attribute])) {
-      const child = await fromUuid(value.uuid);
+      const child = await fromUuid(value?.uuid);
       if (child) children.set(value.uuid, child);
     }
 
@@ -111,6 +111,6 @@ export default class LinkedDocumentManager extends DataProxy {
     const key = this.getIdByUuid(uuid);
     if (!key) return;
 
-    await this.#doc.update({ [`system.${this.#attribute}.${key}`]: null });
+    await this.#doc.update({ [`system.${this.#attribute}.-=${key}`]: null });
   }
 }

@@ -84,6 +84,7 @@
     function onDropObject(event) {
         if (item?.system?.objectType === "container") {
             sheet._onDrop(event, { containerUuid: item.uuid });
+            return;
         }
         sheet._onDrop(event);
     }
