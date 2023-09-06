@@ -32,8 +32,6 @@
 </li>
 
 <style lang="scss">
-    @import "../../scss/base/variables";
-
     .tag {
         all: unset;
         background: transparent;
@@ -49,56 +47,59 @@
         &:hover,
         &:focus {
             background: darken(#dddace, 2.5%);
+            color: var(--color-hover, inherit);
         }
 
         &:disabled,
         &[disabled] {
-            background: #aaa;
+            background: $color-disabled;
             border: 1px solid #999;
             color: white;
             cursor: auto;
 
             &:hover,
             &:focus {
-                background: #aaa;
+                background: $color-disabled;
             }
         }
 
         &--red {
-            border-color: darken(#8b2525, 5%);
-            background: #8b2525;
-            color: lighten(#8b2525, 95%);
+            border-color: darken($color-secondary, 5%);
+            background: $color-secondary;
+            color: lighten($color-secondary, 95%);
 
             &:hover,
             &:focus {
-                background: #8b2525;
+                background: $color-secondary;
+                color: var(--color-hover, lighten($color-secondary, 80%));
             }
 
             &:disabled,
             &[disabled],
             &:disabled:hover,
             &[disabled]:hover {
-                background: #8b2525;
-                color: lighten(#8b2525, 95%);
+                background: $color-secondary;
+                color: lighten($color-secondary, 95%);
             }
         }
 
         &--orange {
-            border-color: darken(#8b6225, 5%);
-            background: #8b6225;
-            color: lighten(#8b6225, 95%);
+            border-color: darken($color-warning, 5%);
+            background: $color-warning;
+            color: lighten($color-warning, 95%);
 
             &:hover,
             &:focus {
-                background: #8b6225;
+                background: $color-warning;
+                color: var(--color-hover, lighten($color-warning, 80%));
             }
 
             &:disabled,
             &[disabled],
             &:disabled:hover,
             &[disabled]:hover {
-                background: #8b6225;
-                color: lighten(#8b6225, 95%);
+                background: $color-warning;
+                color: lighten($color-warning, 95%);
             }
         }
 
@@ -110,6 +111,7 @@
             &:hover,
             &:focus {
                 background: $color-primary;
+                color: var(--color-hover, lighten($color-primary, 80%));
             }
 
             &:disabled,

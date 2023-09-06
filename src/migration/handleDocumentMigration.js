@@ -1,5 +1,5 @@
-import MigrationList from "./MigrationList";
-import MigrationRunner from "./MigrationRunner";
+import MigrationList from './MigrationList';
+import MigrationRunner from './MigrationRunner';
 
 export default async function handleDocumentMigration(document) {
   if (!game.user.isGM) return;
@@ -9,7 +9,9 @@ export default async function handleDocumentMigration(document) {
   const currentVersion = legacyMigrate ? '0.000' : game.settings.get('a5e', 'worldSchemaVersion');
 
   const migrationRunner = new MigrationRunner(
-    MigrationList.constructFromVersion(document.system.schema.version ?? 0.000)
+    MigrationList.constructFromVersion(
+      document.system.schema.version ?? document.system.schemaVersion.version ?? 0.000
+    )
   );
 
   await migrationRunner.runDocumentMigration(

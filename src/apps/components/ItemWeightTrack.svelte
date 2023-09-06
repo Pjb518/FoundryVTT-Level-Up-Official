@@ -32,7 +32,7 @@
         class="u-h-full u-rounded"
         style="color: #eee; text-shadow: 0 0 2px #000"
         style:background-color={encumbrancePercentage === 100
-            ? "#8b2525"
+            ? "$color-secondary"
             : "#0b5a2f"}
         style:width={`${Math.min(encumbrancePercentage, 100)}%`}
     >

@@ -29,7 +29,7 @@
         width: fit-content;
         padding: 0 0.125rem;
         margin-left: auto;
-        font-size: 1rem;
+        font-size: $font-size-md;
         color: inherit;
         opacity: 0.85;
         background: transparent;
@@ -38,7 +38,7 @@
         // Nudge the button down 1px so that it _looks_ centred
         top: 1px;
 
-        transition: all 0.15s ease-in-out;
+        transition: $standard-transition;
 
         &:focus,
         &:hover {

@@ -20,6 +20,6 @@
         margin: 0;
         padding: 0;
         list-style: none;
-        font-family: "Modesto Condensed", serif;
+        font-family: $font-primary;
     }
 </style>

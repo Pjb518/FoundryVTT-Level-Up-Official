@@ -259,13 +259,14 @@
             display: none;
 
             &:checked + .area-shape-label {
-                background: #425f65;
-                border-color: darken($color: #425f65, $amount: 5);
-                box-shadow: 0 0 10px darken($color: #425f65, $amount: 10) inset;
-                color: #f6f2eb;
+                background: $color-primary;
+                border-color: darken($color: $color-primary, $amount: 5);
+                box-shadow: 0 0 10px darken($color: $color-primary, $amount: 10)
+                    inset;
+                color: $color-light-text;
 
                 &:hover {
-                    background: #425f65;
+                    background: $color-primary;
                 }
             }
         }
@@ -275,12 +276,12 @@
             align-items: center;
             flex-grow: 1;
             gap: 0.75rem;
-            border-radius: 3px;
+            border-radius: $border-radius-standard;
             border: 1px solid #bbb;
-            font-size: 0.833rem;
+            font-size: $font-size-sm;
             padding: 0.375rem 0.75rem;
             cursor: pointer;
-            transition: all 0.15s ease-in-out;
+            transition: $standard-transition;
 
             &:hover {
                 background-color: rgba(0, 0, 0, 0.1);
@@ -304,14 +305,14 @@
         width: 1.625rem;
         padding: 0;
         margin: 0;
-        font-size: 1rem;
+        font-size: $font-size-md;
         background: transparent;
         color: #999;
         border: 1px solid #7a7971;
-        border-radius: 3px;
+        border-radius: $border-radius-standard;
         cursor: pointer;
 
-        transition: all 0.15s ease-in-out;
+        transition: $standard-transition;
 
         i {
             margin: 0;

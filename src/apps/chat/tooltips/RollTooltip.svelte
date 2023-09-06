@@ -88,7 +88,7 @@
     }
 
     .tooltip-flavor {
-        font-size: 0.833rem;
+        font-size: $font-size-sm;
         font-weight: normal;
         color: #7e7960;
     }

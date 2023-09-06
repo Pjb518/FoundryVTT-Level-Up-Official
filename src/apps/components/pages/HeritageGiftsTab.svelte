@@ -1,10 +1,10 @@
 <script>
     import { getContext } from "svelte";
-    import { localize } from "#runtime/svelte/helper";
 
     import CreateMenu from "../actorUtilityBar/CreateMenu.svelte";
     import DropArea from "../DropArea.svelte";
     import FormSection from "../FormSection.svelte";
+
     import updateDocumentDataFromField from "../../../utils/updateDocumentDataFromField";
 
     const item = getContext("item");
@@ -68,6 +68,7 @@
                         class="a5e-input a5e-input--slim category-heading"
                         type="text"
                         value={label}
+                        placeholder="New Gift Category"
                         on:change={({ target }) =>
                             updateDocumentDataFromField(
                                 $item,

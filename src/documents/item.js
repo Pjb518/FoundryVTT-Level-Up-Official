@@ -263,6 +263,7 @@ export default class ItemA5e extends Item {
           actorId: this.actor.uuid,
           itemId: this.uuid,
           cardType: 'item',
+          actionName: action?.name,
           actionDescription: action?.descriptionOutputs?.includes('action')
             ? await TextEditor.enrichHTML(action.description, {
               async: true
@@ -278,7 +279,7 @@ export default class ItemA5e extends Item {
               async: false
             })
             : null,
-          img: this.img,
+          img: action?.img ?? this.img,
           name: this.name
         }
       },
@@ -639,8 +640,12 @@ export default class ItemA5e extends Item {
   async _preCreate(data, options, user) {
     await super._preCreate(data, options, user);
 
+    const key = CONFIG.A5E.originItemTypes?.includes(data.type)
+      ? 'system.schemaVersion.version'
+      : 'system.schema.version';
+
     // Add schema version
-    if (!this.system.schema.version) {
+    if (!foundry.utils.getProperty(data, key)) {
       let version = null;
       if (typeof this.system?.equipped === 'boolean') version = 0.003;
       else if (typeof this.system?.recharge === 'string') version = 0.002;
@@ -649,7 +654,7 @@ export default class ItemA5e extends Item {
       else version = MigrationRunnerBase.LATEST_SCHEMA_VERSION;
 
       this.updateSource({
-        'system.schema.version': version
+        [key]: version
       });
     }
   }

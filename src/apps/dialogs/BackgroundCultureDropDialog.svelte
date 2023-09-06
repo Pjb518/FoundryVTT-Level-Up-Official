@@ -100,6 +100,14 @@
     let numLanguages = languages.count + languages.fixed.length;
     let numSkills = skills.count + skills.fixed.length;
 
+    const languageOptions = [
+        ...new Set([
+            ...languages.fixed,
+            ...languages.options,
+            ...Object.keys(A5E.languages),
+        ]),
+    ].map((l) => [l, A5E.languages?.[l] ?? l]);
+
     let selectedEquipment = [];
     let selectedLanguages = [...languages.fixed];
     let selectedSkills = [
@@ -143,7 +151,7 @@
                 hint="A5E.originSheets.optionalSelectionHint"
             >
                 <CustomTagGroup
-                    options={Object.entries(A5E.languages)}
+                    options={languageOptions}
                     selected={languages.fixed.filter(
                         (l) =>
                             !$actor.system.proficiencies.languages.includes(l)
@@ -311,7 +319,7 @@
     }
 
     .tools-config {
-        font-size: 0.694rem;
+        font-size: $font-size-xs;
         margin-left: auto;
         margin-right: 0.75rem;
         line-height: 1;

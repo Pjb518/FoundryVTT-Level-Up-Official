@@ -166,17 +166,17 @@
         right: 0.75rem;
         width: fit-content;
         padding: 0.25rem;
-        font-size: 1rem;
+        font-size: $font-size-md;
         color: #999;
         background: none;
         cursor: pointer;
 
-        transition: all 0.15s ease-in-out;
+        transition: $standard-transition;
 
         &:hover {
             box-shadow: none;
             transform: scale(1.2);
-            color: #8b2525;
+            color: $color-secondary;
         }
     }
 </style>

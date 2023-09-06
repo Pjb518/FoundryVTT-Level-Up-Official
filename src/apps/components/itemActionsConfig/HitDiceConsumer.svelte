@@ -68,7 +68,7 @@
                 on:updateSelection={({ detail }) => (selected = detail)}
             />
         {:else}
-            <p class="a5e-field-group__hint" style="color: #8b6225;">
+            <p class="a5e-field-group__hint" style="color: $color-warning;">
                 <i class="fa-solid fa-circle-exclamation" />
                 Hit Dice selection will be available when item is on an actor.
             </p>

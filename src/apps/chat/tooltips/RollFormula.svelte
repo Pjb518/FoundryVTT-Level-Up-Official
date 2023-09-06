@@ -30,7 +30,7 @@
         min-height: 1.5rem;
         margin: 0 0 0.25rem;
         padding: 0.25rem;
-        font-size: 0.833rem;
+        font-size: $font-size-sm;
         background: rgba(0, 0, 0, 0.05);
         border: 1px solid #ccc;
         border-radius: 4px;

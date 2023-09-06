@@ -151,8 +151,8 @@
     }
 
     .details-header {
-        font-family: "Signika", sans-serif;
-        font-size: 0.833rem;
+        font-family: $font-secondary;
+        font-size: $font-size-sm;
         // font-weight: bold;
         padding-left: 0.125rem;
         padding-bottom: 0.125rem;
@@ -170,7 +170,7 @@
         display: flex;
         flex-wrap: wrap;
         gap: 0.25rem;
-        font-size: 0.579rem;
+        font-size: $font-size-xxs;
         margin: 0;
         padding: 0;
         list-style: none;

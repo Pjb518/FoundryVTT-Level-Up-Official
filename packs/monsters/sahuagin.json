@@ -7,7 +7,7 @@
 			"_id": "LFMD4KJqvXQBhDre",
 			"name": "Trident",
 			"type": "object",
-			"img": "icons/svg/item-bag.svg",
+			"img": "icons/weapons/polearms/trident-silver-blue.webp",
 			"effects": [],
 			"folder": null,
 			"sort": 0,
@@ -24,10 +24,10 @@
 				},
 				"actions": {
 					"Mr8JN2h6jeowaLik": {
-						"name": "Trident",
+						"name": "Melee Attack",
 						"activation": {
-							"cost": "",
-							"type": "",
+							"cost": 1,
+							"type": "action",
 							"reactionTrigger": ""
 						},
 						"duration": {
@@ -36,10 +36,7 @@
 						},
 						"ranges": {
 							"e1QvMWwvNpEogves": {
-								"range": "20"
-							},
-							"EiQGneUgZQPtC3SH": {
-								"range": "medium"
+								"range": "fiveFeet"
 							}
 						},
 						"area": {
@@ -48,8 +45,8 @@
 							"placeTemplate": false
 						},
 						"target": {
-							"quantity": "",
-							"type": ""
+							"quantity": 1,
+							"type": "creatureObject"
 						},
 						"rolls": {
 							"fAE4utBH7FdY1Vgy": {
@@ -62,16 +59,68 @@
 							"ByNnxtlPg2n0j55l": {
 								"canCrit": true,
 								"damageType": "piercing",
-								"formula": "1d10+@str.mod",
+								"formula": "1d8 + @str.mod",
 								"name": "Two-Handed",
-								"type": "damage"
+								"type": "damage",
+								"label": "Two-handed attack"
 							},
 							"nDgK8JEX3PRYdsRd": {
 								"canCrit": true,
 								"damageType": "piercing",
-								"formula": "1d8+@str.mod",
+								"formula": "1d6 + @str.mod",
 								"name": "One-Handed",
-								"type": "damage"
+								"type": "damage",
+								"label": "One-handed attack",
+								"default": false
+							}
+						},
+						"consumers": {}
+					},
+					"XKghYNXZwMYj1mwr": {
+						"name": "Thrown Attack",
+						"activation": {
+							"cost": 1,
+							"type": "action",
+							"reactionTrigger": ""
+						},
+						"duration": {
+							"unit": "",
+							"value": ""
+						},
+						"ranges": {
+							"e1QvMWwvNpEogves": {
+								"range": 20,
+								"unit": "feet"
+							},
+							"G77tEyHUN6FEMG8z": {
+								"range": "medium"
+							}
+						},
+						"area": {
+							"shape": "",
+							"size": "",
+							"placeTemplate": false
+						},
+						"target": {
+							"quantity": 1,
+							"type": "creatureObject"
+						},
+						"rolls": {
+							"fAE4utBH7FdY1Vgy": {
+								"bonus": "",
+								"critThreshold": "20",
+								"type": "attack",
+								"attackType": "rangedWeaponAttack",
+								"ability": "str"
+							},
+							"nDgK8JEX3PRYdsRd": {
+								"canCrit": true,
+								"damageType": "piercing",
+								"formula": "1d6 + @str.mod",
+								"name": "One-Handed",
+								"type": "damage",
+								"label": "",
+								"default": false
 							}
 						},
 						"consumers": {}
@@ -117,6 +166,7 @@
 				"rarity": "common",
 				"requiresAttunement": false,
 				"shieldCategory": "",
+				"shieldProperties": [],
 				"unidentified": false,
 				"unidentifiedDescription": "",
 				"unidentifiedName": "",
@@ -136,10 +186,10 @@
 			"_id": "NmNEMwWxbM6guA4Z",
 			"name": "Blood Frenzy",
 			"type": "feature",
-			"img": "icons/svg/item-bag.svg",
+			"img": "icons/skills/wounds/blood-drip-droplet-red.webp",
 			"effects": [],
 			"folder": null,
-			"sort": 0,
+			"sort": 1,
 			"flags": {
 				"core": {
 					"sourceId": "Item.bTKtjPdNuYBeMNaK"
@@ -157,7 +207,7 @@
 				},
 				"actions": {},
 				"description": "<p>The sahuagin has advantage on melee attack rolls against creatures that don’t have all their hit points.</p>",
-				"favorite": false,
+				"favorite": true,
 				"secretDescription": "",
 				"source": "",
 				"uses": {
@@ -194,7 +244,7 @@
 			"img": "icons/environment/creatures/frog-spotted-green.webp",
 			"effects": [],
 			"folder": null,
-			"sort": 0,
+			"sort": 3,
 			"flags": {
 				"core": {
 					"sourceId": "Item.VCP4aqBJP6I09eWX"
@@ -212,7 +262,7 @@
 				},
 				"actions": {},
 				"description": "<p>The sahuagin can breathe air and water. When breathing air, it must immerse itself in water once every 4 hours or begin to suffocate.</p>",
-				"favorite": false,
+				"favorite": true,
 				"secretDescription": "",
 				"source": "",
 				"uses": {
@@ -249,7 +299,7 @@
 			"img": "icons/magic/defensive/illusion-evasion-echo-purple.webp",
 			"effects": [],
 			"folder": null,
-			"sort": 0,
+			"sort": 4,
 			"flags": {
 				"core": {
 					"sourceId": "Item.UENs5hNLMvB8vlj5"
@@ -295,7 +345,7 @@
 					}
 				},
 				"description": "<p>The sahuagin can command any shark within 120 feet of it using magical telepathy.</p>",
-				"favorite": false,
+				"favorite": true,
 				"secretDescription": "",
 				"source": "",
 				"uses": {
@@ -332,7 +382,7 @@
 			"img": "icons/skills/melee/blood-slash-foam-red.webp",
 			"effects": [],
 			"folder": null,
-			"sort": 0,
+			"sort": 2,
 			"flags": {
 				"core": {
 					"sourceId": "Item.UkShXb1o9e887Wjq"
@@ -470,8 +520,8 @@
 							"placeTemplate": false
 						},
 						"target": {
-							"quantity": "",
-							"type": ""
+							"quantity": 1,
+							"type": "creatureObject"
 						},
 						"rolls": {
 							"cLdyDBjdjbVAhykC": {
@@ -484,7 +534,7 @@
 							"NFW3lFbHuKCWJhCu": {
 								"canCrit": true,
 								"damageType": "piercing",
-								"formula": "1d4+@str.mod",
+								"formula": "1d4 + @str.mod",
 								"name": "Bite",
 								"type": "damage"
 							}
@@ -1077,7 +1127,13 @@
 		}
 	],
 	"effects": [],
-	"flags": {},
+	"flags": {
+		"a5e": {
+			"currentTab": "core",
+			"showSpellTab": false,
+			"sortMode": 1
+		}
+	},
 	"system": {
 		"abilities": {
 			"str": {

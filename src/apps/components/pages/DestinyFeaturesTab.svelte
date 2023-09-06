@@ -95,8 +95,8 @@
         gap: 0.275rem;
     }
     .section-title {
-        font-size: 0.833rem;
-        font-family: "Signika", sans-serif;
+        font-size: $font-size-sm;
+        font-family: $font-secondary;
         font-weight: bold;
         margin-bottom: 0.125rem;
     }

@@ -46,12 +46,18 @@ export default class MigrationRunner extends MigrationRunnerBase {
       if (updated) document.updateSource(updated);
     }
 
-    document.updateSource({ 'system.schema.version ': currentVersion });
+    if (CONFIG.A5E.originItemTypes.includes(document.type)) {
+      document.updateSource({ 'system.schemaVersion.version': currentVersion });
+    } else {
+      document.updateSource({ 'system.schema.version ': currentVersion });
+    }
     // Discriminate between item and actor without importing, which would throw errors
     // on the migration test
     if ('items' in document && 'token' in document) {
       for (const item of document.items) {
-        if (!item.schemaVersion) {
+        if (CONFIG.A5E.originItemTypes.includes(item.type) && !item.schemaVersion) {
+          item.updateSource({ 'system.schemaVersion.version': currentVersion });
+        } else if (!item.schemaVersion) {
           item.updateSource({ 'system.schema.version': currentVersion });
         }
       }

@@ -439,10 +439,11 @@ export default class ActorA5e extends Actor {
     const effects = Array.from(this.items).flatMap((i) => i.effects.contents)
       .filter((e) => e.flags?.a5e?.transferType === 'permanent');
 
-    const overrides = ActiveEffectA5e.getPermanentEffectChanges(this._source, effects);
+    const overrides = ActiveEffectA5e.getPermanentEffectChanges(this.toObject(), effects);
+    // FIXME: Store theses updates somewhere so they can be undone and so
+    // that the next run can figure out what changed
 
     // TODO: Add warning
-
     await this.update(overrides);
   }
 
@@ -635,6 +636,7 @@ export default class ActorA5e extends Actor {
       skill.deterministicBonus,
       skill.bonuses.passive,
       rollData.abilities[skill.ability]?.check?.deterministicBonus ?? 0,
+      skill.expertiseDice ? 3 : 0,
 
       // Remove the double addition of the global check bonus
       `- ${getDeterministicBonus(rollData.bonuses.abilities.check.trim(), rollData)}`

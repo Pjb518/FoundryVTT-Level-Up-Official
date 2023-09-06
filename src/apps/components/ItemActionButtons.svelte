@@ -1,8 +1,8 @@
 <script>
     import { getContext } from "svelte";
-    import { localize } from "#runtime/svelte/helper";
 
     import DeletionConfirmationDialog from "../dialogs/initializers/DeletionConfirmationDialog";
+    import ShowDescription from "./actorUtilityBar/ShowDescription.svelte";
 
     export let item;
     export let action = null;
@@ -51,6 +51,10 @@
         item.duplicateItem();
     }
 
+    function showDescription() {
+        item.shareItemDescription(item.actions.get(action));
+    }
+
     const actor = getContext("actor");
 
     $: sheetIsLocked = !$actor.isOwner
@@ -58,8 +62,20 @@
         : $actor.flags?.a5e?.sheetIsLocked ?? true;
 </script>
 
+{#if sheetIsLocked}
+    <div class="track">
+        <!-- svelte-ignore a11y-click-events-have-key-events a11y-no-static-element-interactions -->
+        <i
+            on:click|stopPropagation={showDescription}
+            class="track-icon track-icon--description-button fa-regular fa-file-lines"
+            data-tooltip={`Share ${action ? "Action" : "Item"} Description`}
+            data-tooltip-direction="UP"
+        />
+    </div>
+{/if}
+
 {#if !sheetIsLocked}
-    <!-- svelte-ignore a11y-click-events-have-key-events -->
+    <!-- svelte-ignore a11y-click-events-have-key-events a11y-no-static-element-interactions -->
     <div class="track" on:click|stopPropagation>
         <i class="track-icon fa-solid fa-ellipsis-vertical" />
 
@@ -99,7 +115,7 @@
         padding: 0.25rem;
         background: none;
         border: 0;
-        transition: all 0.15s ease-in-out;
+        transition: $standard-transition;
         color: var(--icon-color, #999);
 
         &:hover {
@@ -114,7 +130,7 @@
     }
 
     .delete-button:hover {
-        color: #8b2525;
+        color: $color-secondary;
     }
 
     .track {
@@ -143,10 +159,14 @@
             background: var(--track-background, #ebe9e0);
             border-radius: 50%;
             cursor: pointer;
-            font-size: 1rem;
+            font-size: $font-size-md;
             transform: translateX(-1px);
 
-            transition: all 0.15s ease-in-out;
+            transition: $standard-transition;
+
+            &--description-button {
+                font-size: 0.833rem;
+            }
         }
 
         &-items {
@@ -165,7 +185,7 @@
             opacity: 0;
             transform: translateX(calc(-100% - 1rem));
 
-            transition: all 0.15s ease-in-out;
+            transition: $standard-transition;
         }
 
         &:hover {

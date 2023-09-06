@@ -9,6 +9,7 @@
     import Filter from "../actorUtilityBar/Filter.svelte";
     import ItemCategory from "../ItemCategory.svelte";
     import Search from "../actorUtilityBar/Search.svelte";
+    import ShowDescription from "../actorUtilityBar/ShowDescription.svelte";
     import Sort from "../actorUtilityBar/Sort.svelte";
     import TabFooter from "../TabFooter.svelte";
     import UtilityBar from "../actorUtilityBar/UtilityBar.svelte";
@@ -24,12 +25,17 @@
     $: sheetIsLocked = !$actor.isOwner
         ? true
         : $actor.flags?.a5e?.sheetIsLocked ?? true;
+
+    let showDescription = false;
 </script>
 
 <div class="maneuvers-page">
     {#if $actor.isOwner}
         <UtilityBar>
             <Search {reducerType} />
+            <ShowDescription
+                on:updateSelection={() => (showDescription = !showDescription)}
+            />
             <Sort {reducerType} />
             <Filter {reducerType} />
             <CreateMenu {reducerType} {menuList} />
@@ -42,6 +48,7 @@
                 <ItemCategory
                     {label}
                     {items}
+                    {showDescription}
                     type="maneuverDegrees"
                     usesRequired={usesRequired(maneuvers)}
                 />
@@ -107,6 +114,7 @@
                 </h3>
 
                 <!-- svelte-ignore a11y-click-events-have-key-events -->
+                <!-- svelte-ignore a11y-no-static-element-interactions -->
                 <i
                     class="fas fa-gear a5e-config-button"
                     on:click={() => $actor.configureManeuvers()}
@@ -147,7 +155,7 @@
         color: #999;
         border: 0;
 
-        transition: all 0.15s ease-in-out;
+        transition: $standard-transition;
 
         &:hover {
             color: #555;

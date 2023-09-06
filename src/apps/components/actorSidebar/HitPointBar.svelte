@@ -8,6 +8,7 @@
 
     const actor = getContext("actor");
 
+    // TODO: Convert to variables
     $: primaryBarColor = $actor.isBloodied ? "#8b2525" : "#2b6537";
     $: hpPrimaryPercentage = Math.min((hp.value / hp.max) * 100, 100);
     $: hpTempPercentage = Math.min(((hp.temp || 0) / hp.max) * 100, 100);

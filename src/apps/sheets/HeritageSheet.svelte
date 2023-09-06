@@ -4,6 +4,7 @@
     import { getContext, setContext } from "svelte";
     import { ApplicationShell } from "#runtime/svelte/component/core";
 
+    import HeritageDetailsTab from "../components/pages/HeritageDetailsTab.svelte";
     import HeritageFeaturesTab from "../components/pages/HeritageFeaturesTab.svelte";
     import HeritageGiftsTab from "../components/pages/HeritageGiftsTab.svelte";
     import HeritageParagonGiftsTab from "../components/pages/HeritageParagonGiftsTab.svelte";
@@ -27,8 +28,13 @@
             component: ItemDescriptionTab,
         },
         {
+            name: "details",
+            label: "A5E.TabDetails",
+            component: HeritageDetailsTab,
+        },
+        {
             name: "features",
-            label: "A5E.TabFeatures",
+            label: "A5E.TabTraits",
             component: HeritageFeaturesTab,
         },
         {

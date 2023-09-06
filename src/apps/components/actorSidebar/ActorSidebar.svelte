@@ -51,6 +51,7 @@
     <section class="actor-portrait-wrapper">
         <HitPointBar {hp}>
             <!-- svelte-ignore a11y-click-events-have-key-events -->
+            <!-- svelte-ignore a11y-no-noninteractive-element-interactions -->
             <img
                 class="actor-image"
                 src={$actor.img}
@@ -144,7 +145,7 @@
         justify-content: space-evenly;
         align-items: center;
         gap: 0.5rem;
-        font-family: "Modesto Condensed", serif;
+        font-family: $font-primary;
         padding: 0;
         list-style: none;
     }

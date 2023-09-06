@@ -24,7 +24,7 @@
 				},
 				"actions": {},
 				"description": "<p>The creature can breathe air and water</p>",
-				"favorite": false,
+				"favorite": true,
 				"secretDescription": "",
 				"source": "",
 				"uses": {
@@ -49,160 +49,6 @@
 				"concentration": false,
 				"featureType": "",
 				"prerequisite": ""
-			},
-			"ownership": {
-				"default": 0
-			}
-		},
-		{
-			"_id": "O64vDdsJ01jGasUN",
-			"name": "Trident",
-			"type": "object",
-			"img": "icons/weapons/polearms/trident-silver-blue.webp",
-			"effects": [],
-			"folder": null,
-			"sort": 0,
-			"flags": {
-				"core": {
-					"sourceId": "Item.9avauxiNr9Ytsbzz"
-				}
-			},
-			"system": {
-				"ac": {
-					"baseFormula": "",
-					"formula": "",
-					"maxDex": 0,
-					"minStr": 0,
-					"mode": 1,
-					"requiresNoShield": false,
-					"requiresUnarmored": false
-				},
-				"actions": {
-					"am34qyNYN8wgBZfJ": {
-						"name": "Trident",
-						"activation": {
-							"cost": 1,
-							"type": "action",
-							"reactionTrigger": ""
-						},
-						"duration": {
-							"unit": "",
-							"value": ""
-						},
-						"ranges": {
-							"UThSB7JgFx4m2Gaf": {
-								"range": "fiveFeet"
-							},
-							"0zEtWhQ1Yzzupagj": {
-								"range": "20/60 ft."
-							}
-						},
-						"area": {
-							"shape": "",
-							"size": "",
-							"placeTemplate": false
-						},
-						"target": {
-							"quantity": 1,
-							"type": "creatureObject"
-						},
-						"rolls": {
-							"UpzDdUmXjrgLcwXO": {
-								"bonus": "",
-								"critThreshold": "20",
-								"type": "attack",
-								"attackType": "meleeWeaponAttack",
-								"ability": "str"
-							},
-							"HWqnmB539SxXnKFG": {
-								"canCrit": true,
-								"damageType": "piercing",
-								"formula": "1d8 +@str.mod",
-								"name": "Two Handed",
-								"type": "damage"
-							},
-							"2QeyNfzdBdAPHUEE": {
-								"canCrit": true,
-								"damageType": "piercing",
-								"formula": "1d6 +@str.mod",
-								"name": "One Handed",
-								"type": "damage"
-							},
-							"vr0m037pW0KGB056": {
-								"canCrit": true,
-								"damageType": "piercing",
-								"formula": "1d6 +@str.mod",
-								"name": "Thrown",
-								"type": "damage"
-							},
-							"IzsCpO6Q3reWBl68": {
-								"canCrit": true,
-								"damageType": "piercing",
-								"formula": "1d8 +@str.mod",
-								"name": "Mounted one handed",
-								"type": "damage"
-							},
-							"SO2lE8tn4KNvYGKa": {
-								"canCrit": true,
-								"damageType": "",
-								"formula": "1d10 +@str.mod",
-								"name": "Mounted two handed",
-								"type": "damage"
-							}
-						},
-						"consumers": {}
-					}
-				},
-				"description": "",
-				"favorite": true,
-				"secretDescription": "",
-				"source": "",
-				"uses": {
-					"value": null,
-					"max": "",
-					"per": null,
-					"recharge": {
-						"formula": "",
-						"threshold": ""
-					}
-				},
-				"schema": {
-					"version": 0.004,
-					"lastMigration": {
-						"version": {
-							"schema": 0.003,
-							"foundry": "11.302",
-							"system": "0.12.7"
-						}
-					}
-				},
-				"ammunitionProperties": [],
-				"armorCategory": "",
-				"armorProperties": [],
-				"attuned": false,
-				"bulky": false,
-				"craftingComponents": "",
-				"damagedState": 0,
-				"equippedState": 2,
-				"materialProperties": [],
-				"objectType": "weapon",
-				"plotItem": false,
-				"price": "10 gp",
-				"proficient": true,
-				"quantity": 1,
-				"rarity": "common",
-				"requiresAttunement": false,
-				"shieldCategory": "",
-				"unidentified": false,
-				"unidentifiedDescription": "",
-				"unidentifiedName": "",
-				"weaponProperties": [
-					"mounted",
-					"thrown",
-					"versatile"
-				],
-				"weight": 3,
-				"broken": false
 			},
 			"ownership": {
 				"default": 0
@@ -759,10 +605,194 @@
 			"folder": null,
 			"sort": 0,
 			"_id": "1CJFFJ6JPKrKyWCD"
+		},
+		{
+			"_id": "kthrR6oMkrIGlPJo",
+			"name": "Trident",
+			"type": "object",
+			"img": "icons/weapons/polearms/trident-silver-blue.webp",
+			"effects": [],
+			"folder": null,
+			"sort": 0,
+			"flags": {},
+			"system": {
+				"ac": {
+					"baseFormula": "",
+					"formula": "",
+					"maxDex": 0,
+					"minStr": 0,
+					"mode": 1,
+					"requiresNoShield": false,
+					"requiresUnarmored": false
+				},
+				"actions": {
+					"Mr8JN2h6jeowaLik": {
+						"name": "Melee Attack",
+						"activation": {
+							"cost": 1,
+							"type": "action",
+							"reactionTrigger": ""
+						},
+						"duration": {
+							"unit": "",
+							"value": ""
+						},
+						"ranges": {
+							"e1QvMWwvNpEogves": {
+								"range": "fiveFeet"
+							}
+						},
+						"area": {
+							"shape": "",
+							"size": "",
+							"placeTemplate": false
+						},
+						"target": {
+							"quantity": 1,
+							"type": "creatureObject"
+						},
+						"rolls": {
+							"fAE4utBH7FdY1Vgy": {
+								"bonus": "",
+								"critThreshold": "20",
+								"type": "attack",
+								"attackType": "meleeWeaponAttack",
+								"ability": "str"
+							},
+							"ByNnxtlPg2n0j55l": {
+								"canCrit": true,
+								"damageType": "piercing",
+								"formula": "1d8 + @str.mod",
+								"name": "Two-Handed",
+								"type": "damage",
+								"label": "Two-handed attack"
+							},
+							"nDgK8JEX3PRYdsRd": {
+								"canCrit": true,
+								"damageType": "piercing",
+								"formula": "1d6 + @str.mod",
+								"name": "One-Handed",
+								"type": "damage",
+								"label": "One-handed attack",
+								"default": false
+							}
+						},
+						"consumers": {}
+					},
+					"XKghYNXZwMYj1mwr": {
+						"name": "Thrown Attack",
+						"activation": {
+							"cost": 1,
+							"type": "action",
+							"reactionTrigger": ""
+						},
+						"duration": {
+							"unit": "",
+							"value": ""
+						},
+						"ranges": {
+							"e1QvMWwvNpEogves": {
+								"range": 20,
+								"unit": "feet"
+							},
+							"G77tEyHUN6FEMG8z": {
+								"range": "medium"
+							}
+						},
+						"area": {
+							"shape": "",
+							"size": "",
+							"placeTemplate": false
+						},
+						"target": {
+							"quantity": 1,
+							"type": "creatureObject"
+						},
+						"rolls": {
+							"fAE4utBH7FdY1Vgy": {
+								"bonus": "",
+								"critThreshold": "20",
+								"type": "attack",
+								"attackType": "rangedWeaponAttack",
+								"ability": "str"
+							},
+							"nDgK8JEX3PRYdsRd": {
+								"canCrit": true,
+								"damageType": "piercing",
+								"formula": "1d6 + @str.mod",
+								"name": "One-Handed",
+								"type": "damage",
+								"label": "",
+								"default": false
+							}
+						},
+						"consumers": {}
+					}
+				},
+				"description": "",
+				"favorite": true,
+				"secretDescription": "",
+				"source": "",
+				"uses": {
+					"value": null,
+					"max": "",
+					"per": null,
+					"recharge": {
+						"formula": "",
+						"threshold": ""
+					}
+				},
+				"schema": {
+					"version": 0.004,
+					"lastMigration": {
+						"version": {
+							"schema": 0.003,
+							"foundry": "11.302",
+							"system": "0.12.7"
+						}
+					}
+				},
+				"ammunitionProperties": [],
+				"armorCategory": "",
+				"armorProperties": [],
+				"attuned": false,
+				"bulky": false,
+				"craftingComponents": "",
+				"damagedState": 0,
+				"equippedState": 2,
+				"materialProperties": [],
+				"objectType": "weapon",
+				"plotItem": false,
+				"price": "10 gp",
+				"proficient": true,
+				"quantity": 1,
+				"rarity": "common",
+				"requiresAttunement": false,
+				"shieldCategory": "",
+				"shieldProperties": [],
+				"unidentified": false,
+				"unidentifiedDescription": "",
+				"unidentifiedName": "",
+				"weaponProperties": [
+					"mounted",
+					"thrown",
+					"versatile"
+				],
+				"weight": 3,
+				"broken": false
+			},
+			"ownership": {
+				"default": 0
+			}
 		}
 	],
 	"effects": [],
-	"flags": {},
+	"flags": {
+		"a5e": {
+			"currentTab": "core",
+			"sheetIsLocked": false
+		}
+	},
 	"system": {
 		"abilities": {
 			"str": {

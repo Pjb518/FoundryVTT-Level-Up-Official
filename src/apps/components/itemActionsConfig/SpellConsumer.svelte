@@ -115,6 +115,7 @@
 
     <div class="5e-field-group">
         <!-- svelte-ignore a11y-click-events-have-key-events -->
+        <!-- svelte-ignore a11y-no-static-element-interactions -->
         <header
             class="u-align-center u-flex u-gap-md u-pointer u-w-fit"
             on:click={() => (hintToggle = !hintToggle)}
@@ -153,14 +154,14 @@
     </div>
 </section>
 
-<style>
+<style lang="scss">
     .hint {
         display: grid;
         grid-template-columns: max-content 1fr;
 
         column-gap: 0.75rem;
         row-gap: 0.25rem;
-        font-size: 0.694rem;
+        font-size: $font-size-xs;
         padding: 0.5rem;
         margin-top: 0.25rem;
     }

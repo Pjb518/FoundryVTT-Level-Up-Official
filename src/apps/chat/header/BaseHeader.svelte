@@ -60,7 +60,7 @@
     }
 
     .card-subtitle {
-        font-size: 0.833rem;
+        font-size: $font-size-sm;
         color: #7e7960;
         grid-area: subtitle;
     }
@@ -72,7 +72,7 @@
     }
 
     .card-title {
-        font-size: 1rem;
+        font-size: $font-size-md;
         font-weight: bold;
         grid-area: title;
     }

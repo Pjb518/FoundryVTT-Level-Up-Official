@@ -79,6 +79,7 @@
         hint="A5E.HintSeparateBySemiColon"
         --background="none"
         --padding="0"
+        --gap="0.5rem"
     >
         <input
             class="a5e-input"

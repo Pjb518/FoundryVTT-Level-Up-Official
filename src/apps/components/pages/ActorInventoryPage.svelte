@@ -7,6 +7,7 @@
     import ItemCategory from "../ItemCategory.svelte";
     import ItemWeightTrack from "../ItemWeightTrack.svelte";
     import Search from "../actorUtilityBar/Search.svelte";
+    import ShowDescription from "../actorUtilityBar/ShowDescription.svelte";
     import Sort from "../actorUtilityBar/Sort.svelte";
     import TabFooter from "../TabFooter.svelte";
     import UtilityBar from "../actorUtilityBar/UtilityBar.svelte";
@@ -26,12 +27,17 @@
     $: sortedObjects = Object.entries($objects._types).sort(
         (a, b) => sortMap[a[0]] - sortMap[b[0]]
     );
+
+    let showDescription = false;
 </script>
 
 <div class="inventory-page">
     {#if $actor.isOwner}
         <UtilityBar>
             <Search {reducerType} />
+            <ShowDescription
+                on:updateSelection={() => (showDescription = !showDescription)}
+            />
             <Sort {reducerType} />
             <Filter {reducerType} />
             <CreateMenu {reducerType} {menuList} />
@@ -44,6 +50,7 @@
                 <ItemCategory
                     {label}
                     {items}
+                    {showDescription}
                     type="objectTypesPlural"
                     quantityRequired={quantityRequired(objects)}
                     usesRequired={usesRequired(objects)}

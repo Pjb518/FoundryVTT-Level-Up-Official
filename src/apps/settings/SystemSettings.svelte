@@ -101,7 +101,7 @@
             {#if reload}
                 <i
                     class="fa-solid fa-circle-exclamation"
-                    style="color: #8b6225"
+                    style="color: $color-warning"
                     data-tooltip={localize("A5E.settings.reload")}
                     data-tooltip-direction="UP"
                 />
@@ -121,7 +121,7 @@
         padding: 0.75rem;
         gap: 0.5rem;
 
-        background: rgba(246, 242, 235, 0.5);
+        background: $color-sheet-background;
     }
 
     .submit {

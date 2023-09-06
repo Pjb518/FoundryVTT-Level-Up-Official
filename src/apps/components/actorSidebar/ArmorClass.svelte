@@ -65,7 +65,7 @@
         background: none;
         font-weight: inherit;
         text-align: center;
-        font-size: 1.44rem;
+        font-size: $font-size-xl;
         z-index: 1;
 
         &:disabled {
@@ -74,7 +74,7 @@
     }
 
     .ac-label {
-        font-size: 1rem;
+        font-size: $font-size-md;
         text-align: center;
         padding-bottom: 0.125rem;
     }
@@ -99,13 +99,13 @@
         justify-content: center;
         flex-grow: 1;
         color: #7e7960;
-        font-size: 1.44rem;
+        font-size: $font-size-xl;
         width: 2.5rem;
         height: 2.5rem;
         margin: auto;
         cursor: pointer;
 
-        transition: all 0.15s ease-in-out;
+        transition: $standard-transition;
 
         &:hover {
             transform: scale(1.2);

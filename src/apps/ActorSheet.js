@@ -377,7 +377,9 @@ export default class ActorSheet extends SvelteApplication {
     }
 
     let selectedFeatures = [];
+    let selectedCreatureSize = '';
     let gifts = [];
+    let paragonGifts = [];
 
     const dialog = new HeritageDropDialog(this.actor, item);
     dialog.render(true);
@@ -385,15 +387,23 @@ export default class ActorSheet extends SvelteApplication {
     try {
       ({
         selectedFeatures,
-        gifts
+        selectedCreatureSize,
+        gifts,
+        paragonGifts
       } = await dialog.promise);
     } catch (error) {
       return;
     }
 
     const itemDocuments = await Promise.all(
-      [...selectedFeatures, ...gifts].map(async (uuid) => (await fromUuid(uuid)).toObject())
+      [...selectedFeatures, ...gifts, ...paragonGifts]
+        .map(async (uuid) => (await fromUuid(uuid)).toObject())
     );
+
+    await this.actor.update({
+      'system.traits.size': selectedCreatureSize ?? item.system.creatureSize.fixed ?? '',
+      'system.details.creatureTypes': item.system.creatureTypes
+    });
 
     await this.actor.createEmbeddedDocuments('Item', [
       item,

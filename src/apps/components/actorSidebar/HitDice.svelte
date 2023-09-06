@@ -45,13 +45,13 @@
         position: relative;
         width: 2.5rem;
         height: 2.5rem;
-        font-size: 1.44rem;
-        font-family: "Modesto Condensed", serif;
+        font-size: $font-size-xl;
+        font-family: $font-primary;
         margin: auto;
     }
 
     .hit-die-label {
-        font-size: 1rem;
+        font-size: $font-size-md;
         text-align: center;
         padding-bottom: 0.125rem;
     }

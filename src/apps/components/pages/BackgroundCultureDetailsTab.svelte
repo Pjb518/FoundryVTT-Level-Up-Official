@@ -8,6 +8,7 @@
     import FormSection from "../FormSection.svelte";
     import RadioGroup from "../RadioGroup.svelte";
     import CheckboxGroup from "../CheckboxGroup.svelte";
+    import CustomTagGroup from "../CustomTagGroup.svelte";
 
     const item = getContext("item");
 
@@ -81,7 +82,7 @@
                 })}
             </h3>
 
-            <CheckboxGroup
+            <CustomTagGroup
                 options={languageOptions}
                 selected={languages.fixed}
                 disabledOptions={languages.options}
@@ -100,7 +101,8 @@
                     type: localize("A5E.Languages"),
                 })}
             </h3>
-            <CheckboxGroup
+
+            <CustomTagGroup
                 options={languageOptions}
                 selected={languages.options}
                 disabledOptions={languages.fixed}

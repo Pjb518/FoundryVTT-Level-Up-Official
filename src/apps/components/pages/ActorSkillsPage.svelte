@@ -18,7 +18,9 @@
 
 <div class="skill-page-wrapper">
     {#if showSpecialties}
-        <div style="border: 1px solid #ccc; border-radius: 3px;">
+        <div
+            style="border: 1px solid #ccc; border-radius: $border-radius-standard;"
+        >
             <FormSection heading="Skill Specialties">
                 <dl class="skill-specialties">
                     {#each Object.entries(skills) as [key, skill]}
@@ -67,7 +69,7 @@
         padding: 0;
         list-style: none;
         border: 1px solid #ccc;
-        border-radius: 3px;
+        border-radius: $border-radius-standard;
     }
 
     .skill-page-wrapper {
@@ -85,7 +87,7 @@
         width: 100%;
         gap: 0.25rem 0.5rem;
         margin: 0;
-        font-size: 0.833rem;
+        font-size: $font-size-sm;
 
         &__list {
             margin: 0;

@@ -51,6 +51,7 @@
             red={selected[1].includes(value) && color === "red"}
             {label}
             {value}
+            --color-hover="black"
             on:tagToggle={({ detail }) => updateSelection(detail)}
             on:tagToggleAux={({ detail }) => updateSelection(detail, true)}
         />
@@ -67,6 +68,6 @@
     .hint {
         margin-top: 0.25rem;
         color: #555;
-        font-size: 0.694rem;
+        font-size: $font-size-xs;
     }
 </style>

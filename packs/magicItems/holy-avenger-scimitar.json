@@ -18,12 +18,12 @@
 			"uR0hqOoP5zqGzxC8": {
 				"name": "Holy Avenger Scimitar",
 				"activation": {
-					"cost": "",
-					"type": "",
+					"cost": 1,
+					"type": "action",
 					"reactionTrigger": ""
 				},
 				"duration": {
-					"unit": "",
+					"unit": "instantaneous",
 					"value": ""
 				},
 				"area": {
@@ -37,7 +37,7 @@
 				},
 				"rolls": {
 					"YOAd1wel0FS3CXS1": {
-						"bonus": "",
+						"bonus": "3",
 						"critThreshold": "20",
 						"type": "attack",
 						"attackType": "meleeWeaponAttack",
@@ -46,15 +46,21 @@
 					"lV5FiEgFFui2V8Ii": {
 						"canCrit": true,
 						"damageType": "slashing",
-						"formula": "1d6 + @finesse.mod",
+						"formula": "1d6 + @finesse.mod + 3",
 						"name": "Scimitar",
 						"type": "damage"
+					},
+					"OAdvsrPX715mc22g": {
+						"type": "damage",
+						"default": false,
+						"damageType": "radiant",
+						"formula": "2d10"
 					}
 				},
 				"consumers": {}
 			}
 		},
-		"description": "<p><em>Defensive (Light), Dual-Wielding, Finesse</em></p>",
+		"description": "<p><em>Defensive (Light), Dual-Wielding, Finesse</em></p>\n<p>You gain a +3 bonus to attack and damage rolls made with this magic sword. While you are attuned to the sword and use it to attack a fiend or undead, on a hit it deals an extra 2d10 radiant damage. In addition, while drawn the sword creates an aura in a 10-foot radius around you. You and friendly creatures in the aura gain&nbsp;<span class=\"freelinking-link\">advantage</span>&nbsp;on&nbsp;<span class=\"freelinking-link\">saving throws</span>&nbsp;against spells and other magical effects. If you have 17 or more levels in the herald class, the aura increases to a 30-foot radius.</p>",
 		"favorite": false,
 		"secretDescription": "",
 		"source": "",
@@ -82,28 +88,29 @@
 		"armorProperties": [],
 		"attuned": false,
 		"bulky": false,
-		"craftingComponents": "",
+		"craftingComponents": " Holy symbol that has traveled to an Upper Plane",
 		"damagedState": 0,
 		"equippedState": 0,
 		"materialProperties": [],
 		"objectType": "weapon",
 		"plotItem": false,
-		"price": "20 gp",
+		"price": "10000 gp",
 		"proficient": true,
 		"quantity": 1,
-		"rarity": "common",
-		"requiresAttunement": false,
+		"rarity": "legendary",
+		"requiresAttunement": true,
 		"shieldCategory": "",
+		"shieldProperties": [],
 		"unidentified": false,
 		"unidentifiedDescription": "",
 		"unidentifiedName": "",
 		"weaponProperties": [
 			"finesse",
-			"defensive",
-			"dualWielding"
+			"dualWielding",
+			"defensiveLight"
 		],
 		"weight": 3
 	},
-	"folder": "UZpOnU4Egi62h2Py",
+	"folder": null,
 	"_id": "3u67r3oxrocyigzd"
 }

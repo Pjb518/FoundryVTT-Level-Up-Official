@@ -104,7 +104,12 @@
         />
     </FormSection>
 
-    <FormSection heading={passiveBonusHeading} --direction="column">
+    <FormSection
+        heading={passiveBonusHeading}
+        --direction="column"
+        warning="The +3 bonus for your expertise die has been included in your passive score automatically. You do not need to add it again here."
+        showWarning={skill.expertiseDice}
+    >
         <input
             class="a5e-input"
             type="number"
@@ -181,6 +186,6 @@
         padding: 0.75rem;
         gap: 0.5rem;
         overflow: auto;
-        background: rgba(246, 242, 235, 0.5);
+        background: $color-sheet-background;
     }
 </style>

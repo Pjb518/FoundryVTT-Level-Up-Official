@@ -39,22 +39,22 @@
         align-items: center;
         flex: 1;
         padding: 0.125rem 0;
-        font-family: "Modesto Condensed", serif;
+        font-family: $font-primary;
         color: #7e7960;
         border: 1px solid #ccc;
         border-radius: 4px;
-        background-color: #f6f2eb;
+        background-color: $color-light-background;
         box-shadow: 0 0 5px #ccc inset;
     }
 
     .passive-label {
-        font-size: 0.694rem;
+        font-size: $font-size-xs;
     }
 
     .passive-value {
         color: black;
         text-align: center;
         padding-inline: 0.25rem;
-        font-size: 1rem;
+        font-size: $font-size-md;
     }
 </style>

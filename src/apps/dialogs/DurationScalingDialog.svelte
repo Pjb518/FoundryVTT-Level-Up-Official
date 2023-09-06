@@ -152,7 +152,7 @@
     {/if}
 </form>
 
-<style>
+<style lang="scss">
     form {
         display: flex;
         flex-direction: column;
@@ -162,12 +162,12 @@
 
     label {
         font-weight: bold;
-        font-size: 0.833rem;
+        font-size: $font-size-sm;
     }
 
     input {
         height: 2rem;
-        font-size: 0.833rem;
+        font-size: $font-size-sm;
     }
 
     .a5e-field-group--spell-level {

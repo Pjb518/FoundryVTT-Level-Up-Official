@@ -93,8 +93,13 @@ export default class MigrationRunnerBase {
       this.#updateSchemaRecord(actorData.system.schema, latestMigration);
 
       for (const itemData of actorData.items) {
-        itemData.system.schema ??= { version: null, lastMigration: null };
-        this.#updateSchemaRecord(itemData.system.schema, latestMigration);
+        if (CONFIG.A5E.originItemTypes.includes(itemData.type)) {
+          itemData.system.schemaVersion ??= { version: null, lastMigration: null };
+          this.#updateSchemaRecord(itemData.system.schemaVersion, latestMigration);
+        } else {
+          itemData.system.schema ??= { version: null, lastMigration: null };
+          this.#updateSchemaRecord(itemData.system.schema, latestMigration);
+        }
       }
     }
 
@@ -120,7 +125,11 @@ export default class MigrationRunnerBase {
     }
 
     if (migrations.length > 0) {
-      this.#updateSchemaRecord(itemData.system.schema, migrations.slice(-1)[0]);
+      if (CONFIG.A5E.originItemTypes.includes(itemData.type)) {
+        this.#updateSchemaRecord(itemData.system.schemaVersion, migrations.slice(-1)[0]);
+      } else {
+        this.#updateSchemaRecord(itemData.system.schema, migrations.slice(-1)[0]);
+      }
     }
     return itemData;
   }

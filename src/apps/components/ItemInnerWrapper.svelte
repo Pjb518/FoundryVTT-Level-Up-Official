@@ -387,7 +387,7 @@
         color: var(--icon-color, #999);
         border: 0;
 
-        transition: all 0.15s ease-in-out;
+        transition: $standard-transition;
 
         &:hover {
             color: #555;
@@ -401,10 +401,10 @@
     }
 
     .active {
-        color: #425f65;
+        color: $color-primary;
 
         &:hover {
-            color: #425f65;
+            color: $color-primary;
             box-shadow: none;
         }
     }
@@ -412,7 +412,7 @@
     .ammunition-selector {
         height: 1.25rem;
         width: fit-content;
-        font-size: 0.694rem;
+        font-size: $font-size-xs;
 
         &:focus {
             box-shadow: none;
@@ -441,8 +441,8 @@
         justify-content: center;
         height: 1rem;
         width: 1rem;
-        border-radius: 3px;
-        font-size: 0.579rem;
+        border-radius: $border-radius-standard;
+        font-size: $font-size-xxs;
         background: var(--indicator-background, #c6c5bc);
     }
 
@@ -457,7 +457,7 @@
     }
 
     .name {
-        font-size: 0.833rem;
+        font-size: $font-size-sm;
         overflow: hidden;
         text-overflow: ellipsis;
         white-space: nowrap;
@@ -484,7 +484,7 @@
     }
 
     .number-input {
-        font-size: 0.694rem;
+        font-size: $font-size-xs;
         text-align: center;
     }
 

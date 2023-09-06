@@ -46,4 +46,16 @@ export default function registerActiveEffectConfig(A5E) {
     passive: 'A5E.effects.types.plural.passive',
     permanent: 'A5E.effects.types.plural.permanent'
   };
+
+  A5E.effectDurationTypes = {
+    seconds: 'A5E.effects.durationTypes.plural.seconds',
+    rounds: 'A5E.effects.durationTypes.plural.rounds',
+    turns: 'A5E.effects.durationTypes.plural.turns'
+  };
+
+  A5E.effectDurationUnits = {
+    seconds: 'A5E.effects.durationUnits.plural.seconds',
+    minutes: 'A5E.effects.durationUnits.plural.minutes',
+    hours: 'A5E.effects.durationUnits.plural.hours'
+  };
 }

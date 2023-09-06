@@ -4,6 +4,11 @@ import type { SchemaSchema } from '../template/SchemaDataModel';
 
 type HeritageSchema = {
   description: string;
+  creatureTypes: string[];
+  creatureSize: {
+    fixed: string,
+    options: string[]
+  };
   features: Object;
   giftCategories: Object;
   gifts: Object;
@@ -17,6 +22,16 @@ export default class HeritageDataModel extends A5EDataModel.mixin(SchemaDataMode
   static defineSchema(): HeritageSchema {
     return this.mergeSchema(super.defineSchema(), {
       description: new foundry.data.fields.StringField({ nullable: false, initial: '' }),
+      creatureTypes: new foundry.data.fields.ArrayField(
+        new foundry.data.fields.StringField({ nullable: false, initial: '' }),
+        { initial: ['humanoid'] }
+      ),
+      creatureSize: new foundry.data.fields.SchemaField({
+        fixed: new foundry.data.fields.StringField({ nullable: false, initial: 'med' }),
+        options: new foundry.data.fields.ArrayField(
+          new foundry.data.fields.StringField({ nullable: false, initial: '' })
+        )
+      }),
       giftCategories: new foundry.data.fields.ObjectField({ nullable: false, initial: {} }),
       features: new foundry.data.fields.ObjectField({ nullable: false, initial: {} }),
       gifts: new foundry.data.fields.ObjectField({ nullable: false, initial: {} }),

@@ -315,7 +315,7 @@ export default class RollPreparationManager {
     const roll = await new Roll(rollFormula).evaluate({ async: true });
 
     const label = ability && ability !== 'none'
-      ? localize('A5E.SkillCheckAbility', { skill, ability: localize(CONFIG.A5E.abilities[ability]) })
+      ? localize('A5E.SkillCheckAbility', { skill, ability: CONFIG.A5E.abilityAbbreviations[ability] })
       : localize('A5E.SkillCheck', { skill });
 
     return {

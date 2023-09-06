@@ -18,12 +18,12 @@
 			"XQB78QowFwK2GT0C": {
 				"name": "Holy Avenger Rapier",
 				"activation": {
-					"cost": "",
-					"type": "",
+					"cost": 1,
+					"type": "action",
 					"reactionTrigger": ""
 				},
 				"duration": {
-					"unit": "",
+					"unit": "instantaneous",
 					"value": ""
 				},
 				"area": {
@@ -37,7 +37,7 @@
 				},
 				"rolls": {
 					"sTJEtt3BmmmMlyFV": {
-						"bonus": "",
+						"bonus": "3",
 						"critThreshold": "20",
 						"type": "attack",
 						"attackType": "meleeWeaponAttack",
@@ -46,15 +46,21 @@
 					"zeC10mutpXp7BZZ9": {
 						"canCrit": true,
 						"damageType": "piercing",
-						"formula": "1d8 + @finesse.mod",
+						"formula": "1d8 + @finesse.mod + 3",
 						"name": "Rapier",
 						"type": "damage"
+					},
+					"VCtdLXSFJ2KrLMPH": {
+						"type": "damage",
+						"default": false,
+						"damageType": "radiant",
+						"formula": "2d10"
 					}
 				},
 				"consumers": {}
 			}
 		},
-		"description": "<p><em>Defensive (Light), Finesse</em></p>",
+		"description": "<p><em>Defensive (Light), Finesse</em></p>\n<p>You gain a +3 bonus to attack and damage rolls made with this magic sword. While you are attuned to the sword and use it to attack a fiend or undead, on a hit it deals an extra 2d10 radiant damage. In addition, while drawn the sword creates an aura in a 10-foot radius around you. You and friendly creatures in the aura gain&nbsp;<span class=\"freelinking-link\">advantage</span>&nbsp;on&nbsp;<span class=\"freelinking-link\">saving throws</span>&nbsp;against spells and other magical effects. If you have 17 or more levels in the herald class, the aura increases to a 30-foot radius.</p>",
 		"favorite": false,
 		"secretDescription": "",
 		"source": "",
@@ -82,27 +88,28 @@
 		"armorProperties": [],
 		"attuned": false,
 		"bulky": false,
-		"craftingComponents": "",
+		"craftingComponents": " Holy symbol that has traveled to an Upper Plane",
 		"damagedState": 0,
 		"equippedState": 0,
 		"materialProperties": [],
 		"objectType": "weapon",
 		"plotItem": false,
-		"price": "25 gp",
+		"price": "10000 gp",
 		"proficient": true,
 		"quantity": 1,
-		"rarity": "common",
-		"requiresAttunement": false,
+		"rarity": "legendary",
+		"requiresAttunement": true,
 		"shieldCategory": "",
+		"shieldProperties": [],
 		"unidentified": false,
 		"unidentifiedDescription": "",
 		"unidentifiedName": "",
 		"weaponProperties": [
-			"defensive",
-			"finesse"
+			"finesse",
+			"defensiveLight"
 		],
 		"weight": 2
 	},
-	"folder": "UZpOnU4Egi62h2Py",
+	"folder": null,
 	"_id": "iqd8qk3yza68xje1"
 }

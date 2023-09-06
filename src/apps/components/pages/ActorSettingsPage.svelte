@@ -633,6 +633,22 @@
             </FormSection>
         </section>
     {/if}
+
+    <section class="setting-group">
+        <header class="setting-header">
+            <h3 class="setting-heading">Triggers</h3>
+        </header>
+
+        <button
+            class="a5e-button trigger-button"
+            on:click={() => {
+                $actor.applyPermanentEffects();
+                document.activeElement.blur();
+            }}
+        >
+            Re-Calculate Permanent Effects
+        </button>
+    </section>
 </section>
 
 <style lang="scss">
@@ -644,7 +660,7 @@
         padding: 0.25rem;
         background: none;
         border: 0;
-        transition: all 0.15s ease-in-out;
+        transition: $standard-transition;
         color: #999;
 
         &:hover {
@@ -659,7 +675,7 @@
     }
 
     .delete-button:hover {
-        color: #8b2525;
+        color: $color-secondary;
     }
 
     .bonus-list {
@@ -677,7 +693,7 @@
         gap: 0.25rem;
         padding: 0.5rem;
         background: rgba(0, 0, 0, 0.05);
-        border-radius: 3px;
+        border-radius: $border-radius-standard;
 
         &__header {
             display: flex;
@@ -686,11 +702,11 @@
         }
 
         &__heading {
-            font-size: 0.833rem;
+            font-size: $font-size-sm;
         }
 
         &__summary {
-            font-size: 0.694rem;
+            font-size: $font-size-xs;
         }
     }
 
@@ -743,10 +759,10 @@
         margin: 0;
         background: transparent;
         line-height: 1;
-        font-size: 0.833rem;
+        font-size: $font-size-sm;
         color: #7e7960;
 
-        transition: all 0.15s ease-in-out;
+        transition: $standard-transition;
 
         &:focus,
         &:hover {
@@ -755,8 +771,24 @@
         }
     }
 
+    .trigger-button {
+        margin: 0.25rem;
+        width: fit-content;
+        padding-inline: 0.75rem;
+        background: transparent;
+        border: 1px solid #4f4f4f;
+        transition: $standard-transition;
+
+        &:focus,
+        &:hover {
+            box-shadow: none;
+            background: $color-primary;
+            color: $color-light-text;
+        }
+    }
+
     .setting-heading {
-        font-size: 0.833rem;
+        font-size: $font-size-sm;
         white-space: nowrap;
     }
 </style>

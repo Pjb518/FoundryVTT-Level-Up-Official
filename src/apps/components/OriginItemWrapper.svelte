@@ -61,21 +61,21 @@
         gap: 0.5rem;
         padding: 0.25rem;
         padding-right: 0.5rem;
-        font-size: 0.833rem;
-        background: #f6f2eb;
-        border-radius: 3px;
+        font-size: $font-size-sm;
+        background: $color-light-background;
+        border-radius: $border-radius-standard;
         border: 1px solid #ccc;
 
         h3 {
             flex: 1;
-            font-size: 0.833rem;
+            font-size: $font-size-sm;
         }
     }
 
     .document-image {
         height: 2rem;
         width: 2rem;
-        border-radius: 3px;
+        border-radius: $border-radius-standard;
     }
 
     .delete-button {
@@ -94,7 +94,7 @@
         border: 1px solid var(--input-border-color, #bbb);
         height: 1.125rem;
         width: 7ch;
-        font-size: 0.694rem;
+        font-size: $font-size-xs;
         text-align: center;
 
         &:hover {

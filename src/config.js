@@ -156,13 +156,11 @@ A5E.actorSizes = {
   titan: 'A5E.SizeTitanic'
 };
 
-A5E.advancementItemTypes = [
+A5E.originItemTypes = [
   'background',
-  'class',
   'culture',
   'destiny',
-  'heritage',
-  'subclass'
+  'heritage'
 ];
 
 A5E.ammunitionProperties = {
@@ -504,11 +502,15 @@ A5E.languages = {
   dwarvish: 'A5E.LanguagesDwarvish',
   elvish: 'A5E.LanguagesElvish',
   giant: 'A5E.LanguagesGiant',
+  gnoll: 'A5E.LanguagesGnoll',
   gnomish: 'A5E.LanguagesGnomish',
   goblin: 'A5E.LanguagesGoblin',
+  grimlock: 'A5E.LanguagesGrimlock',
   halfling: 'A5E.LanguagesHalfling',
   ignan: 'A5E.LanguagesIgnan',
   infernal: 'A5E.LanguagesInfernal',
+  minotaur: 'A5E.LanguagesMinotaur',
+  mycelial: 'A5E.LanguagesMycelial',
   orc: 'A5E.LanguagesOrc',
   primordial: 'A5E.LanguagesPrimordial',
   sylvan: 'A5E.LanguagesSylvan',
@@ -1162,7 +1164,7 @@ A5E.timePeriodsPlural = {
 
 A5E.tokenDimensions = {
   tiny: 0.5,
-  sm: 0.5,
+  sm: 1,
   med: 1,
   lg: 2,
   huge: 3,
