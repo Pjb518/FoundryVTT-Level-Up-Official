@@ -218,6 +218,8 @@ export default class ActorSheet extends SvelteApplication {
       return;
     }
 
+    await item.equipment.clean();
+
     let selectedAbilityScores = [];
     let selectedArmor = [];
     let selectedEquipment = [];
@@ -288,6 +290,9 @@ export default class ActorSheet extends SvelteApplication {
       ui.notifications.warn('Culture documents cannot be added to NPCs.');
       return;
     }
+
+    await item.features.clean();
+    await item.equipment.clean();
 
     let selectedArmor = [];
     let selectedEquipment = [];
@@ -376,6 +381,8 @@ export default class ActorSheet extends SvelteApplication {
       return;
     }
 
+    ['features', 'gifts', 'paragonGifts'].forEach((key) => item?.[key]?.clean());
+
     let selectedFeatures = [];
     let selectedCreatureSize = '';
     let gifts = [];
@@ -454,6 +461,7 @@ export default class ActorSheet extends SvelteApplication {
 
   async #onDropObject(item, options) {
     if (item.system.objectType === 'container' && item.parent?.id !== this.actor.id) {
+      await item.items.clean();
       this.#onDropContainer(item);
       return;
     }
