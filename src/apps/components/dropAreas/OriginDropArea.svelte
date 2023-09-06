@@ -6,7 +6,6 @@
     export let uuids = [];
     export let singleDocument = false;
     export let attribute = null;
-    export let showDropZone = true;
 
     const dispatch = createEventDispatcher();
 
@@ -48,7 +47,7 @@
                         dispatch("item-deleted", [event, firstDocument.uuid])}
                 />
             </div>
-        {:else if showDropZone}
+        {:else}
             <div
                 class="drop-area"
                 on:drop|preventDefault|stopPropagation={(event) =>
@@ -65,7 +64,6 @@
                         {uuid}
                         {doc}
                         {attribute}
-                        {showDropZone}
                         on:item-deleted={(event) =>
                             dispatch("item-deleted", [event, uuid])}
                     />

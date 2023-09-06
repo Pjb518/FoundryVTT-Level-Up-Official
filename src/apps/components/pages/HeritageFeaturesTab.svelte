@@ -1,7 +1,7 @@
 <script>
     import { getContext } from "svelte";
 
-    import DropArea from "../DropArea.svelte";
+    import DropArea from "../dropAreas/OriginDropArea.svelte";
 
     const item = getContext("item");
 

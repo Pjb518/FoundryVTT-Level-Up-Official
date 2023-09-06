@@ -2,7 +2,7 @@
     import { getContext } from "svelte";
     import { localize } from "#runtime/svelte/helper";
 
-    import DropArea from "../DropArea.svelte";
+    import DropArea from "../dropAreas/OriginDropArea.svelte";
 
     const item = getContext("item");
 

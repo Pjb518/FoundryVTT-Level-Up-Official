@@ -2,7 +2,7 @@
     import { getContext } from "svelte";
 
     import CreateMenu from "../actorUtilityBar/CreateMenu.svelte";
-    import DropArea from "../DropArea.svelte";
+    import DropArea from "../dropAreas/OriginDropArea.svelte";
     import FormSection from "../FormSection.svelte";
 
     import updateDocumentDataFromField from "../../../utils/updateDocumentDataFromField";
