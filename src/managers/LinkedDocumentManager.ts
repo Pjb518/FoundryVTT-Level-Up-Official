@@ -61,7 +61,10 @@ export default class LinkedDocumentManager {
   /** ************************************************
    * Iterator Returns
    * ************************************************ */
-  get documents() {
+  async getDocuments(): Map<String, any> | undefined {
+    if (this.#children?.size) return this.#children;
+
+    await this.populateChildren();
     return this.#children;
   }
 
@@ -70,7 +73,8 @@ export default class LinkedDocumentManager {
   }
 
   getIdByUuid(uuid: string): String | undefined {
-    const entry = [...this.#children.entries()].find(([_, value]) => value.uuid === uuid);
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
+    const entry = [...(this.#children ?? [])].find(([_, value]) => value.uuid === uuid);
     return entry ? entry[0] : undefined;
   }
 

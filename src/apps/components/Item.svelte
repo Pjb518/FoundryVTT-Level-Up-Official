@@ -95,17 +95,25 @@
         return data;
     }
 
-    $: children = Object.entries(item?.items?.documents ?? {}).reduce(
-        (acc, [k, v]) => {
-            const i = fromUuidSync(v.uuid);
-            if (!i) return acc;
-            if (i.parent?.id !== $actor.id) return acc;
+    async function getContainerItems() {
+        const documents = await item?.items?.getDocuments();
+        if (!documents) return [];
 
-            acc.push([k, i]);
-            return acc;
-        },
-        []
-    );
+        const containerItems = [...documents].reduce(
+            (acc, [uuid, childDoc]) => {
+                if (childDoc.parent?.id !== $actor.id) return acc;
+                acc.push([uuid, childDoc]);
+                return acc;
+            },
+            []
+        );
+
+        return containerItems;
+    }
+
+    $: containerItems = getContainerItems(item)
+        .then((data) => (containerItems = data))
+        .catch((err) => (containerItems = err));
 
     $: description = getDescription(item)
         .then((data) => (description = data))
@@ -190,9 +198,9 @@
     </ul>
 {/if}
 
-{#if children.length}
+{#if containerItems.length}
     <ul class="actions-list">
-        {#each children as [id, child] (id)}
+        {#each containerItems as [id, child] (id)}
             <svelte:self item={child} />
         {/each}
     </ul>
