@@ -1,3 +1,4 @@
+/* eslint-disable no-continue */
 /* eslint-disable no-unused-vars */
 import computeSaveDC from '../utils/computeSaveDC';
 import getAttackAbility from '../utils/getAttackAbility';
@@ -662,6 +663,31 @@ export default class ItemA5e extends Item {
         [key]: version
       });
     }
+  }
+
+  async _preUpdate(data, options, user) {
+    if (foundry.utils.getProperty(data, 'system.objectType')) await this._preUpdateObjectType();
+
+    super._onUpdate(data, options, user);
+  }
+
+  async _preUpdateObjectType() {
+    if (this?.system?.objectType !== 'container') return;
+
+    const updates = {};
+    const children = Object.entries(this.system.items ?? {});
+
+    // eslint-disable-next-line no-restricted-syntax
+    for await (const [key, item] of children) {
+      updates[`system.items.-=${key}`] = null;
+
+      const child = await fromUuid(item.uuid);
+      if (!child) continue;
+
+      await child.update({ 'system.containerId': '' });
+    }
+
+    await this.update(updates);
   }
 
   async _onCreate(data, options, user) {
