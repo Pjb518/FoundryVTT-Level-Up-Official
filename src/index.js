@@ -10,6 +10,7 @@ import getDocumentDirectoryContext from './hooks/getDocumentDirectoryContext';
 import preDeleteChatMessage from './hooks/preDeleteChatMessage';
 import preCreateChatMessage from './hooks/preCreateChatMessage';
 import ready from './hooks/ready';
+import renderApplication from './hooks/renderApplication';
 import renderChatMessage from './hooks/renderChatMessage';
 import setup from './hooks/setup';
 import updateActor from './hooks/updateActor';
@@ -29,6 +30,7 @@ Hooks.on('createToken', createToken);
 
 Hooks.on('updateActor', updateActor);
 
+Hooks.on('renderApplication', renderApplication);
 Hooks.on('renderChatMessage', renderChatMessage);
 Hooks.on('preCreateChatMessage', preCreateChatMessage);
 Hooks.on('preDeleteChatMessage', preDeleteChatMessage);
