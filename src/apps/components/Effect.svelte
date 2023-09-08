@@ -102,7 +102,7 @@
             <div class="component-wrapper">
                 <div
                     class="component"
-                    data-tooltip="A5E.effects.type.temporary"
+                    data-tooltip="A5E.effects.types.singular.temporary"
                     data-tooltip-direction="UP"
                 >
                     <i class="fa-solid fa-hourglass-half" />
