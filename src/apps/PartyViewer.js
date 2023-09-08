@@ -16,7 +16,7 @@ export default class PartyViewer extends TJSDialog {
       content: {
         class: PartyViewerComponent,
         props: {
-          settings: new TJSLiveGameSettings(gameSettings)
+          settings: gameSettings
         }
       }
     }, {

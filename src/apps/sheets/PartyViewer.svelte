@@ -21,10 +21,10 @@
 
     async function onDropActor(uuid) {
         if (currentParty?.name) {
-            const currentPartyData = settings.parties[currentParty.name];
+            const currentPartyData = $partiesStore[currentParty.name];
             currentPartyData.actors.push(uuid);
 
-            await game.settings.set("a5e", "parties", settings.parties);
+            await game.settings.set("a5e", "parties", $partiesStore);
         } else {
             await game.settings.set("a5e", "parties", {
                 [foundry.utils.randomID()]: {
@@ -39,12 +39,15 @@
         currentParty = parties[event.detail];
     }
 
-    const parties = Object.entries(settings.parties).map(([id, partyData]) => ({
+    let partiesStore = settings.getStore("parties");
+
+    $: parties = Object.entries($partiesStore ?? {}).map(([id, partyData]) => ({
         name: id,
         label: partyData.name ?? "New Party",
+        actors: partyData.actors ?? [],
     }));
 
-    let currentParty = parties[0];
+    $: currentParty = parties[0];
 </script>
 
 <main>
@@ -59,7 +62,7 @@
     </div>
 
     <ul>
-        {#each settings.parties[currentParty.name]?.actors ?? [] as actor}
+        {#each currentParty.actors ?? [] as actor}
             <li>{actor}</li>
         {/each}
     </ul>
