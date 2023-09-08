@@ -1261,11 +1261,30 @@ export default class ActorA5e extends Actor {
     }
   }
 
-  async triggerRest() {
-    const title = localize('A5E.RestConfigurationPrompt', { name: this.name });
-    const dialog = new GenericConfigDialog(this, title, RestDialog);
-    await dialog.render(true);
-    const restData = await dialog?.promise;
+  /**
+   *
+   * @param {Object} restOptions
+   * @param {Boolean} restOptions.consumeSupply
+   * @param {Boolean} restOptions.haven
+   * @param {Boolean} restOptions.recoverStrifeAndFatigue
+   * @param {'long' | 'short'} restOptions.restType
+   * @returns
+   */
+  async triggerRest(restOptions = {}) {
+    let restData;
+    if (foundry.utils.isEmpty(restOptions)) {
+      const title = localize('A5E.RestConfigurationPrompt', { name: this.name });
+      const dialog = new GenericConfigDialog(this, title, RestDialog);
+      await dialog.render(true);
+      restData = await dialog?.promise;
+    } else {
+      restData = foundry.utils.mergeObject({
+        consumeSupply: false,
+        haven: true,
+        recoverStrifeAndFatigue: true,
+        restType: 'short'
+      }, restOptions);
+    }
 
     if (!restData) return;
     const restManger = new RestManager(this, restData);
