@@ -71,7 +71,7 @@
             &:hover,
             &:focus {
                 background: $color-secondary;
-                color: var(--color-hover, lighten($color-secondary, 80%));
+                color: lighten($color-secondary, 80%);
             }
 
             &:disabled,
@@ -91,7 +91,7 @@
             &:hover,
             &:focus {
                 background: $color-warning;
-                color: var(--color-hover, lighten($color-warning, 80%));
+                color: lighten($color-warning, 80%);
             }
 
             &:disabled,
@@ -111,7 +111,7 @@
             &:hover,
             &:focus {
                 background: $color-primary;
-                color: var(--color-hover, lighten($color-primary, 80%));
+                color: lighten($color-primary, 80%);
             }
 
             &:disabled,
