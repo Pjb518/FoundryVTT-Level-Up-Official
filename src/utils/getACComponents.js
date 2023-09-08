@@ -38,7 +38,7 @@ export default function getACComponents(actor) {
 
   const components = changes.map(({ name, value }) => {
     const sign = value >= 0 ? '+' : '-';
-    return `${sign} ${value} [${name}]`;
+    return `${sign} ${Math.abs(value)}[${name}]`;
   });
 
   // Add override component
@@ -49,12 +49,19 @@ export default function getACComponents(actor) {
     const formula = simplifyOperatorTerms(formulaTerms ?? []).reduce((acc, term) => {
       if (term instanceof OperatorTerm) return `${acc} ${term.operator} `;
       acc += `${term.total}`;
-      if (term.options?.flavor) acc += ` [${term.options.flavor}]`;
+      if (term.options?.flavor) acc += `[${term.options.flavor}]`;
       return acc;
     }, '');
 
     components.unshift(formula);
-  } else components.unshift(`${baseChanges.override.value} [${baseChanges.override.name}]`);
+  } else components.unshift(`${baseChanges.override.value}[${baseChanges.override.name}]`);
 
-  return components.join(' ');
+  // Finalize the formula string
+  const acFormula = simplifyOperatorTerms(
+    new Roll(components.join(' '), actor.getRollData())
+      .evaluate({ async: false })
+      .terms ?? []
+  );
+
+  return Roll.getFormula(acFormula);
 }
