@@ -225,17 +225,26 @@ export default class ItemA5e extends Item {
           actionName: action.name,
           actionDescription: action?.descriptionOutputs?.includes('action')
             ? await TextEditor.enrichHTML(action.description, {
-              async: true
+              async: true,
+              secrets: this.isOwner,
+              relativeTo: this,
+              rollData: this?.actor?.getRollData() ?? {}
             })
             : null,
           itemDescription: action?.descriptionOutputs?.includes('item') ?? true
             ? await TextEditor.enrichHTML(this.system.description, {
-              async: true
+              async: true,
+              secrets: this.isOwner,
+              relativeTo: this,
+              rollData: this?.actor?.getRollData() ?? {}
             })
             : null,
           unidentifiedDescription: action?.descriptionOutputs?.includes('item') ?? true
-            ? TextEditor.enrichHTML(this.system.unidentifiedDescription, {
-              async: false
+            ? await TextEditor.enrichHTML(this.system.unidentifiedDescription, {
+              async: true,
+              secrets: this.isOwner,
+              relativeTo: this,
+              rollData: this?.actor?.getRollData() ?? {}
             })
             : null,
           prompts: activationData.prompts,
@@ -267,17 +276,26 @@ export default class ItemA5e extends Item {
           actionName: action?.name,
           actionDescription: action?.descriptionOutputs?.includes('action')
             ? await TextEditor.enrichHTML(action.description, {
-              async: true
+              async: true,
+              secrets: this.isOwner,
+              relativeTo: this,
+              rollData: this?.actor?.getRollData() ?? {}
             })
             : null,
           itemDescription: action?.descriptionOutputs?.includes('item') ?? true
             ? await TextEditor.enrichHTML(this.system.description, {
-              async: true
+              async: true,
+              secrets: this.isOwner,
+              relativeTo: this,
+              rollData: this?.actor?.getRollData() ?? {}
             })
             : null,
           unidentifiedDescription: action?.descriptionOutputs?.includes('item') ?? true
-            ? TextEditor.enrichHTML(this.system.unidentifiedDescription, {
-              async: false
+            ? await TextEditor.enrichHTML(this.system.unidentifiedDescription, {
+              async: true,
+              secrets: this.isOwner,
+              relativeTo: this,
+              rollData: this?.actor?.getRollData() ?? {}
             })
             : null,
           img: action?.img ?? this.img,

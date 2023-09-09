@@ -93,7 +93,12 @@
         const data =
             (await TextEditor.enrichHTML(
                 actionId ? action.description : item.system.description,
-                { async: true }
+                {
+                    async: true,
+                    secrets: item.isOwner,
+                    relativeTo: item,
+                    rollData: $actor?.getRollData() ?? {},
+                }
             )) ?? localize("A5E.NoDescription");
 
         return data;
