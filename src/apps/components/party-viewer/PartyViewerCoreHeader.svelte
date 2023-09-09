@@ -45,7 +45,7 @@
 <style lang="scss">
     .core-header {
         display: grid;
-        grid-template-areas: var((--grid-areas));
+        grid-template-areas: var(--grid-areas);
         grid-template-columns: var(--grid-template);
         gap: 0.5rem;
         padding: 0.25rem 0.125rem;

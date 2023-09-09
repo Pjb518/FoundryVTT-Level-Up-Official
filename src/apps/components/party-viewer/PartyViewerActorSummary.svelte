@@ -3,6 +3,7 @@
 
     import PartyViewerCoreSummary from "./PartyViewerCoreSummary.svelte";
     import PartyViewerResourceSummary from "./PartyViewerResourceSummary.svelte";
+    import PartyViewerWealthSummary from "./PartyViewerWealthSummary.svelte";
 
     export let uuid;
     export let currentViewMode = "core";
@@ -13,6 +14,8 @@
                 return PartyViewerCoreSummary;
             case "resources":
                 return PartyViewerResourceSummary;
+            case "wealth":
+                return PartyViewerWealthSummary;
             default:
                 return PartyViewerCoreSummary;
         }
@@ -20,13 +23,15 @@
 
     const actor = new TJSDocument();
     actor.setFromUUID(uuid);
+
+    $: viewComponent = getViewModeComponent(currentViewMode);
 </script>
 
-<li class="party-member">
+<li class="party-member" on:dblclick={() => $actor?.sheet.render(true)}>
     <img class="actor-image" src={$actor?.img} alt={$actor?.name} />
     <span class="actor-name">{$actor?.name}</span>
 
-    <svelte:component this={getViewModeComponent(currentViewMode)} {actor} />
+    <svelte:component this={viewComponent} {actor} />
 </li>
 
 <style lang="scss">
@@ -55,5 +60,6 @@
         border: 1px solid #ccc;
         border-radius: $border-radius-standard;
         background: var(--item-background, rgba(0, 0, 0, 0.05));
+        cursor: pointer;
     }
 </style>

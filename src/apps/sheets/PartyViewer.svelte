@@ -6,6 +6,7 @@
     import PartyViewerActorSummary from "../components/party-viewer/PartyViewerActorSummary.svelte";
     import PartyViewerCoreHeader from "../components/party-viewer/PartyViewerCoreHeader.svelte";
     import PartyViewerResourceHeader from "../components/party-viewer/PartyViewerResourceHeader.svelte";
+    import PartyViewerWealthHeader from "../components/party-viewer/PartyViewerWealthHeader.svelte";
     import RadioGroup from "../components/RadioGroup.svelte";
 
     export let { settings } = getContext("#external").application;
@@ -24,7 +25,9 @@
             case "core":
                 return `"img name hp ac maneuverDC spellDC perception insight investigation"`;
             case "resources":
-                return `"img name"`;
+                return `"img name exertion spellPoints spellSlots"`;
+            case "wealth":
+                return `"img name cp sp ep gp pp"`;
             default:
                 return `"img name hp ac maneuverDC spellDC perception insight investigation"`;
         }
@@ -35,7 +38,9 @@
             case "core":
                 return "2rem 1fr 4rem repeat(6, 3rem)";
             case "resources":
-                return "2rem 1fr";
+                return "2rem 1fr 3.5rem 3.5rem 19.75rem";
+            case "wealth":
+                return "2rem 1fr repeat(5, 3rem)";
             default:
                 return "2rem 1fr 4rem repeat(6, 3rem)";
         }
@@ -47,6 +52,8 @@
                 return PartyViewerCoreHeader;
             case "resources":
                 return PartyViewerResourceHeader;
+            case "wealth":
+                return PartyViewerWealthHeader;
             default:
                 return PartyViewerCoreHeader;
         }
@@ -161,6 +168,7 @@
         {#each currentParty?.actors ?? [] as uuid (uuid)}
             <PartyViewerActorSummary
                 {uuid}
+                {currentViewMode}
                 --grid-areas={getGridAreaDefinition(currentViewMode)}
                 --grid-template={getGridSizeDefinition(currentViewMode)}
             />
