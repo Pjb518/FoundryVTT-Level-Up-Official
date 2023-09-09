@@ -1,9 +1,15 @@
 <script>
     import { getContext } from "svelte";
-    import { TJSDocument } from "#runtime/svelte/store/fvtt/document";
+
+    import FormSection from "../components/FormSection.svelte";
     import NavigationBar from "../components/navigation/NavigationBar.svelte";
+    import PartyViewerActorSummary from "../components/party-viewer/PartyViewerActorSummary.svelte";
 
     export let { settings } = getContext("#external").application;
+
+    function addNewParty() {
+        console.log("WORKING");
+    }
 
     async function onDropDocument(event) {
         try {
@@ -22,6 +28,9 @@
     async function onDropActor(uuid) {
         if (currentParty?.name) {
             const currentPartyData = $partiesStore[currentParty.name];
+
+            if (currentParty.actors.includes(uuid)) return;
+
             currentPartyData.actors.push(uuid);
 
             await game.settings.set("a5e", "parties", $partiesStore);
@@ -39,47 +48,67 @@
         currentParty = parties[event.detail];
     }
 
+    function updatePartyName(event) {
+        const partyData = $partiesStore[currentParty.name];
+        partyData.name = event.target.value;
+        game.settings.set("a5e", "parties", $partiesStore);
+    }
+
     let partiesStore = settings.getStore("parties");
 
     $: parties = Object.entries($partiesStore ?? {}).map(([id, partyData]) => ({
         name: id,
-        label: partyData.name ?? "New Party",
+        label: partyData.name || "New Party",
         actors: partyData.actors ?? [],
     }));
 
     $: currentParty = parties[0];
 </script>
 
-<main>
+<article on:drop={(event) => onDropDocument(event)}>
     <NavigationBar
         currentTab={currentParty}
+        showAdd={true}
         tabs={parties}
         on:tab-change={updateCurrentParty}
+        on:add-button-clicked={addNewParty}
     />
 
-    <div class="drop-area" on:drop={(event) => onDropDocument(event)}>
-        Drop Area
-    </div>
+    <FormSection
+        heading="Party Name"
+        --background="none"
+        --gap="0.25rem"
+        --margin="0.375rem 0.125rem"
+        --padding="0"
+    >
+        <input
+            type="text"
+            value={$partiesStore[currentParty?.name]?.name}
+            placeholder="New Party"
+            on:change={updatePartyName}
+        />
+    </FormSection>
 
-    <ul>
-        {#each currentParty.actors ?? [] as actor}
-            <li>{actor}</li>
+    <ul class="party-member-list">
+        {#each currentParty?.actors ?? [] as uuid (uuid)}
+            <PartyViewerActorSummary {uuid} />
         {/each}
     </ul>
-</main>
+</article>
 
 <style lang="scss">
-    main {
+    article {
+        min-height: 20rem;
         padding: 0.25rem 0.5rem;
     }
 
-    .drop-area {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        height: 4rem;
-        margin-block: 0.5rem;
-        background: #ddd;
-        border-radius: 3px;
+    .party-member-list {
+        display: grid;
+        gap: 0.25rem;
+        max-height: 30rem;
+        padding: 0;
+        margin: 0 0.125rem;
+        list-style: none;
+        overflow-y: auto;
     }
 </style>

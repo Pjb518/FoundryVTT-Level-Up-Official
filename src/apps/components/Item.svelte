@@ -251,6 +251,7 @@
         display: block;
         height: 100%;
         width: auto;
+        object-fit: cover;
 
         &--die {
             display: none;

@@ -1,10 +1,9 @@
 import { localize } from '#runtime/svelte/helper';
 import { TJSDialog } from '#runtime/svelte/application';
-import { TJSLiveGameSettings } from '#runtime/svelte/store/fvtt/settings';
-
-import PartyViewerComponent from './sheets/PartyViewer.svelte';
 
 import { gameSettings } from '../settings/SettingsStore';
+
+import PartyViewerComponent from './sheets/PartyViewer.svelte';
 
 /**
  * Provides a dialog for creating documents that by default is modal and not draggable.
