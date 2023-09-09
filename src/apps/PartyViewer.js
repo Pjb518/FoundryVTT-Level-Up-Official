@@ -17,7 +17,8 @@ export default class PartyViewer extends TJSDialog {
         props: {
           settings: gameSettings
         }
-      }
+      },
+      zIndex: null
     }, {
       classes: ['a5e-sheet'],
       width: 640
