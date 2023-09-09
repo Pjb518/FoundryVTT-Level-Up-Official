@@ -1,13 +1,19 @@
-<header class="wealth-header">
+<script>
+    export let totalPartyWealth = {};
+</script>
+
+<footer class="wealth-footer">
+    <h3 class="heading">Party Total</h3>
+
     {#each ["cp", "sp", "ep", "gp", "pp"] as denomination}
-        <h3 class="heading heading--{denomination}">
-            {denomination}
-        </h3>
+        <span class="total total--{denomination}">
+            {totalPartyWealth[denomination] ?? 0}
+        </span>
     {/each}
-</header>
+</footer>
 
 <style lang="scss">
-    .wealth-header {
+    .wealth-footer {
         display: grid;
         grid-template-areas: var(--grid-areas);
         grid-template-columns: var(--grid-template);
@@ -18,11 +24,19 @@
     }
 
     .heading {
+        grid-column-start: img;
+        grid-column-end: name;
+        padding-right: 0.5rem;
+        font-size: 0.833rem;
+        font-weight: bold;
+        text-align: right;
+        line-height: 1;
+    }
+
+    .total {
         font-size: 0.833rem;
         line-height: 1;
         text-align: center;
-        font-weight: bold;
-        text-transform: uppercase;
 
         &--cp {
             grid-area: cp;

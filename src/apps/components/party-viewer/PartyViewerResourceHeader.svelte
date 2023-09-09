@@ -29,7 +29,7 @@
         grid-template-columns: var(--grid-template);
         align-items: end;
         gap: 0.5rem;
-        padding: 0.25rem 0.125rem;
+        padding: 0.375rem 0.125rem;
         border-bottom: 1px solid #ccc;
         border-top: 1px solid #ccc;
     }
@@ -53,7 +53,6 @@
         gap: 0.5rem;
         width: 100%;
         grid-area: spellSlots;
-        padding-top: 0.125rem;
 
         &__heading {
             font-size: 0.833rem;

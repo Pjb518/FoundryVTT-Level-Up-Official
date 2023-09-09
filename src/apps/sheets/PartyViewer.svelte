@@ -7,6 +7,7 @@
     import PartyViewerCoreHeader from "../components/party-viewer/PartyViewerCoreHeader.svelte";
     import PartyViewerResourceHeader from "../components/party-viewer/PartyViewerResourceHeader.svelte";
     import PartyViewerWealthHeader from "../components/party-viewer/PartyViewerWealthHeader.svelte";
+    import PartyViewerWealthFooter from "../components/party-viewer/PartyViewerWealthFooter.svelte";
     import RadioGroup from "../components/RadioGroup.svelte";
 
     export let { settings } = getContext("#external").application;
@@ -57,6 +58,25 @@
             default:
                 return PartyViewerCoreHeader;
         }
+    }
+
+    function getTotalPartyWealth(parties) {
+        const currentPartyData = parties[currentParty.name];
+
+        return currentPartyData?.actors?.reduce(
+            (wealthData, uuid) => {
+                const actor = fromUuidSync(uuid);
+
+                wealthData.cp += actor?.system?.currency?.cp ?? 0;
+                wealthData.sp += actor?.system?.currency?.sp ?? 0;
+                wealthData.ep += actor?.system?.currency?.ep ?? 0;
+                wealthData.gp += actor?.system?.currency?.gp ?? 0;
+                wealthData.pp += actor?.system?.currency?.pp ?? 0;
+
+                return wealthData;
+            },
+            { cp: 0, sp: 0, ep: 0, gp: 0, pp: 0 }
+        );
     }
 
     async function onDropDocument(event) {
@@ -119,6 +139,7 @@
 
     $: currentParty = parties[0];
     $: currentViewMode = viewModes[0][0];
+    $: totalPartyWealth = getTotalPartyWealth($partiesStore);
 </script>
 
 <article on:drop={(event) => onDropDocument(event)}>
@@ -174,6 +195,16 @@
             />
         {/each}
     </ul>
+
+    {#if currentViewMode === "wealth"}
+        <footer>
+            <PartyViewerWealthFooter
+                {totalPartyWealth}
+                --grid-areas={getGridAreaDefinition(currentViewMode)}
+                --grid-template={getGridSizeDefinition(currentViewMode)}
+            />
+        </footer>
+    {/if}
 </article>
 
 <style lang="scss">
