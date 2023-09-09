@@ -4,11 +4,30 @@
     import FormSection from "../components/FormSection.svelte";
     import NavigationBar from "../components/navigation/NavigationBar.svelte";
     import PartyViewerActorSummary from "../components/party-viewer/PartyViewerActorSummary.svelte";
+    import PartyViewerCoreHeader from "../components/party-viewer/PartyViewerCoreHeader.svelte";
+    import PartyViewerResourceHeader from "../components/party-viewer/PartyViewerResourceHeader.svelte";
+    import RadioGroup from "../components/RadioGroup.svelte";
 
     export let { settings } = getContext("#external").application;
 
-    function addNewParty() {
-        console.log("WORKING");
+    async function addNewParty() {
+        $partiesStore[foundry.utils.randomID()] = {
+            name: "New Party",
+            actors: [],
+        };
+
+        await game.settings.set("a5e", "parties", $partiesStore);
+    }
+
+    function getViewModeComponent(viewMode) {
+        switch (viewMode) {
+            case "core":
+                return PartyViewerCoreHeader;
+            case "resources":
+                return PartyViewerResourceHeader;
+            default:
+                return PartyViewerCoreHeader;
+        }
     }
 
     async function onDropDocument(event) {
@@ -37,7 +56,7 @@
         } else {
             await game.settings.set("a5e", "parties", {
                 [foundry.utils.randomID()]: {
-                    name: "Example 1",
+                    name: "New Party",
                     actors: [uuid],
                 },
             });
@@ -54,6 +73,13 @@
         game.settings.set("a5e", "parties", $partiesStore);
     }
 
+    const viewModes = [
+        ["core", "Core"],
+        ["resources", "Resources"],
+        ["languages", "Languages"],
+        ["wealth", "Wealth"],
+    ];
+
     let partiesStore = settings.getStore("parties");
 
     $: parties = Object.entries($partiesStore ?? {}).map(([id, partyData]) => ({
@@ -63,22 +89,23 @@
     }));
 
     $: currentParty = parties[0];
+    $: currentViewMode = viewModes[0][0];
 </script>
 
 <article on:drop={(event) => onDropDocument(event)}>
-    <NavigationBar
+    <!-- <NavigationBar
         currentTab={currentParty}
         showAdd={true}
         tabs={parties}
         on:tab-change={updateCurrentParty}
         on:add-button-clicked={addNewParty}
-    />
+    /> -->
 
-    <FormSection
+    <!-- <FormSection
         heading="Party Name"
         --background="none"
         --gap="0.25rem"
-        --margin="0.375rem 0.125rem"
+        --margin="0.375rem 0 0.375rem 0.12rem"
         --padding="0"
     >
         <input
@@ -87,7 +114,24 @@
             placeholder="New Party"
             on:change={updatePartyName}
         />
+    </FormSection> -->
+
+    <FormSection
+        --background="none"
+        --gap="0.25rem"
+        --margin="0.375rem 0 0.375rem 0.12rem"
+        --padding="0"
+    >
+        <RadioGroup
+            options={viewModes}
+            selected={currentViewMode}
+            on:updateSelection={(event) => (currentViewMode = event.detail)}
+        />
     </FormSection>
+
+    <header>
+        <svelte:component this={getViewModeComponent(currentViewMode)} />
+    </header>
 
     <ul class="party-member-list">
         {#each currentParty?.actors ?? [] as uuid (uuid)}

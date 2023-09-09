@@ -1,7 +1,22 @@
 <script>
     import { TJSDocument } from "#runtime/svelte/store/fvtt/document";
 
+    import PartyViewerCoreSummary from "./PartyViewerCoreSummary.svelte";
+    import PartyViewerResourceSummary from "./PartyViewerResourceSummary.svelte";
+
     export let uuid;
+    export let currentViewMode = "core";
+
+    function getViewModeComponent(viewMode) {
+        switch (viewMode) {
+            case "core":
+                return PartyViewerCoreSummary;
+            case "resources":
+                return PartyViewerResourceSummary;
+            default:
+                return PartyViewerCoreSummary;
+        }
+    }
 
     const actor = new TJSDocument();
     actor.setFromUUID(uuid);
@@ -10,6 +25,8 @@
 <li class="party-member">
     <img class="actor-image" src={$actor?.img} alt={$actor?.name} />
     <span>{$actor?.name}</span>
+
+    <svelte:component this={getViewModeComponent(currentViewMode)} {actor} />
 </li>
 
 <style lang="scss">
