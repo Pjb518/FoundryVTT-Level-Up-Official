@@ -125,7 +125,7 @@
     const viewModes = [
         ["core", "Core"],
         ["resources", "Resources"],
-        ["languages", "Languages"],
+        // ["languages", "Languages"],
         ["wealth", "Wealth"],
     ];
 
