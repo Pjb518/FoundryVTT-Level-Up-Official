@@ -1,4 +1,5 @@
 <script>
+    import { createEventDispatcher } from "svelte";
     import { TJSDocument } from "#runtime/svelte/store/fvtt/document";
 
     import PartyViewerCoreSummary from "./PartyViewerCoreSummary.svelte";
@@ -21,6 +22,7 @@
         }
     }
 
+    const dispatch = createEventDispatcher();
     const actor = new TJSDocument();
     actor.setFromUUID(uuid);
 
@@ -32,6 +34,15 @@
     <span class="actor-name">{$actor?.name}</span>
 
     <svelte:component this={viewComponent} {actor} />
+
+    <span class="delete-wrapper">
+        <button
+            class="a5e-button a5e-button--delete delete-button fas fa-trash"
+            data-tooltip="Remove Actor from the Party"
+            data-tooltip-direction="UP"
+            on:click={() => dispatch("remove-actor", uuid)}
+        />
+    </span>
 </li>
 
 <style lang="scss">
@@ -48,6 +59,15 @@
         grid-area: name;
         padding-left: 0.5rem;
         text-overflow: ellipsis;
+    }
+
+    .delete-button {
+        padding: 0.25rem;
+        grid-area: delete;
+    }
+
+    .delete-wrapper {
+        text-align: center;
     }
 
     .party-member {

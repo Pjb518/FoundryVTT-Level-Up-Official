@@ -24,26 +24,26 @@
     function getGridAreaDefinition(viewMode) {
         switch (viewMode) {
             case "core":
-                return `"img name hp ac maneuverDC spellDC perception insight investigation"`;
+                return `"img name hp ac maneuverDC spellDC perception insight investigation delete"`;
             case "resources":
-                return `"img name exertion spellPoints spellSlots"`;
+                return `"img name exertion spellPoints spellSlots delete"`;
             case "wealth":
-                return `"img name cp sp ep gp pp"`;
+                return `"img name cp sp ep gp pp delete"`;
             default:
-                return `"img name hp ac maneuverDC spellDC perception insight investigation"`;
+                return `"img name hp ac maneuverDC spellDC perception insight investigation delete"`;
         }
     }
 
     function getGridSizeDefinition(viewMode) {
         switch (viewMode) {
             case "core":
-                return "2rem 1fr 4rem repeat(6, 3rem)";
+                return "2rem 1fr 4rem repeat(6, 3rem) 2rem";
             case "resources":
-                return "2rem 1fr 3.5rem 3.5rem 19.75rem";
+                return "2rem 1fr 3.5rem 3.5rem 19.75rem 2rem";
             case "wealth":
-                return "2rem 1fr repeat(5, 3.5rem)";
+                return "2rem 1fr repeat(5, 3.5rem) 2rem";
             default:
-                return "2rem 1fr 4rem repeat(6, 3rem)";
+                return "2rem 1fr 4rem repeat(6, 3rem) 2rem";
         }
     }
 
@@ -110,6 +110,18 @@
                 },
             });
         }
+    }
+
+    async function removeActorFromParty({ detail: uuid }) {
+        const currentPartyData = $partiesStore[currentParty.name];
+        const { actors } = currentPartyData;
+        const targetIndex = actors.indexOf(uuid);
+
+        if (targetIndex === -1) return;
+
+        actors.splice(targetIndex, 1);
+
+        await game.settings.set("a5e", "parties", $partiesStore);
     }
 
     // function updateCurrentParty(event) {
@@ -192,6 +204,7 @@
                 {currentViewMode}
                 --grid-areas={getGridAreaDefinition(currentViewMode)}
                 --grid-template={getGridSizeDefinition(currentViewMode)}
+                on:remove-actor={removeActorFromParty}
             />
         {/each}
     </ul>
