@@ -26,7 +26,7 @@
     .heading {
         grid-column-start: img;
         grid-column-end: name;
-        padding-right: 0.5rem;
+        padding-right: 0.75rem;
         font-size: 0.833rem;
         font-weight: bold;
         text-align: right;

@@ -41,7 +41,7 @@
             case "resources":
                 return "2rem 1fr 3.5rem 3.5rem 19.75rem";
             case "wealth":
-                return "2rem 1fr repeat(5, 3rem)";
+                return "2rem 1fr repeat(5, 3.5rem)";
             default:
                 return "2rem 1fr 4rem repeat(6, 3rem)";
         }
