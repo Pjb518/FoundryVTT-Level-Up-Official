@@ -1,5 +1,7 @@
 <script>
     import { getContext } from "svelte";
+
+    import AddButton from "./AddButton.svelte";
     import LockButton from "./LockButton.svelte";
     import NavigationItem from "./NavigationItem.svelte";
 
@@ -8,6 +10,7 @@
     export let currentTab;
     export let tabs;
     export let showLock = false;
+    export let showAdd = false;
 </script>
 
 <nav class="nav-wrapper">
@@ -21,6 +24,11 @@
         <!-- svelte-ignore missing-declaration -->
         {#if showLock && $actor.permission !== CONST.DOCUMENT_PERMISSION_LEVELS.OBSERVER}
             <LockButton />
+        {/if}
+
+        <!-- svelte-ignore missing-declaration -->
+        {#if showAdd}
+            <AddButton on:add-button-clicked />
         {/if}
     </ul>
 </nav>

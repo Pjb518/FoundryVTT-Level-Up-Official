@@ -24,6 +24,7 @@
 
     let rightClickConfigure =
         game.settings.get("a5e", "itemRightClickConfigure") ?? false;
+
     let isGM = game.user.isGM;
 
     function determineActionListVisibility(action, item, sheetIsLocked) {
@@ -255,6 +256,7 @@
         display: block;
         height: 100%;
         width: auto;
+        object-fit: cover;
 
         &--die {
             display: none;

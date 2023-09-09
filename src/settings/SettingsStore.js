@@ -295,6 +295,20 @@ class A5eGameSettings extends TJSGameSettings {
           default: MigrationRunner.LATEST_SCHEMA_VERSION,
           type: Number
         }
+      },
+      {
+        namespace,
+        key: 'parties',
+        options: {
+          name: 'A5E.settings.parties',
+          scope: scope.world,
+          config: false,
+          default: {
+            name: 'Party 1',
+            actors: []
+          },
+          type: Object
+        }
       }
     ];
 
