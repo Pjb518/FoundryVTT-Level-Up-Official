@@ -12,6 +12,18 @@
     />
 
     <i
+        class="heading heading--maneuver-dc fa-solid fa-hand-fist"
+        data-tooltip="Maneuver DC"
+        data-tooltip-direction="UP"
+    />
+
+    <i
+        class="heading heading--spell-dc fa-solid fa-wand-sparkles"
+        data-tooltip="Spell DC"
+        data-tooltip-direction="UP"
+    />
+
+    <i
         class="heading heading--perception fa-solid fa-eye"
         data-tooltip="Passive Perception"
         data-tooltip-direction="UP"
@@ -26,12 +38,6 @@
     <i
         class="heading heading--investigation fa-solid fa-magnifying-glass"
         data-tooltip="Passive Investigation"
-        data-tooltip-direction="UP"
-    />
-
-    <i
-        class="heading heading--stealth fa-solid fa-user-secret"
-        data-tooltip="Passive Stealth"
         data-tooltip-direction="UP"
     />
 </header>
@@ -60,19 +66,23 @@
         }
 
         &--insight {
-            grid-area: passiveInsight;
+            grid-area: insight;
         }
 
         &--investigation {
-            grid-area: passiveInvestigation;
+            grid-area: investigation;
+        }
+
+        &--maneuver-dc {
+            grid-area: maneuverDC;
         }
 
         &--perception {
-            grid-area: passivePerception;
+            grid-area: perception;
         }
 
-        &--stealth {
-            grid-area: passiveStealth;
+        &--spell-dc {
+            grid-area: spellDC;
         }
     }
 </style>

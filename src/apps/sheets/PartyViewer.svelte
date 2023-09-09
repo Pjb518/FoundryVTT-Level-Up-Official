@@ -22,22 +22,22 @@
     function getGridAreaDefinition(viewMode) {
         switch (viewMode) {
             case "core":
-                return `"img name hp ac passivePerception passiveInsight passiveInvestigation passiveStealth"`;
+                return `"img name hp ac maneuverDC spellDC perception insight investigation"`;
             case "resources":
                 return `"img name"`;
             default:
-                return `"img name hp ac passivePerception passiveInsight passiveInvestigation passiveStealth"`;
+                return `"img name hp ac maneuverDC spellDC perception insight investigation"`;
         }
     }
 
     function getGridSizeDefinition(viewMode) {
         switch (viewMode) {
             case "core":
-                return "2rem 1fr 4rem repeat(5, 3rem)";
+                return "2rem 1fr 4rem repeat(6, 3rem)";
             case "resources":
                 return "2rem 1fr";
             default:
-                return "2rem 1fr 4rem repeat(5, 3rem)";
+                return "2rem 1fr 4rem repeat(6, 3rem)";
         }
     }
 
