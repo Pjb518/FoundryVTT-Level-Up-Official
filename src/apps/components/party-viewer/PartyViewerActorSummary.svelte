@@ -24,23 +24,31 @@
 
 <li class="party-member">
     <img class="actor-image" src={$actor?.img} alt={$actor?.name} />
-    <span>{$actor?.name}</span>
+    <span class="actor-name">{$actor?.name}</span>
 
     <svelte:component this={getViewModeComponent(currentViewMode)} {actor} />
 </li>
 
 <style lang="scss">
     .actor-image {
-        height: 2.25rem;
-        width: 2.25rem;
+        height: 2rem;
+        width: 2rem;
         margin: 0;
         padding: 0;
         object-fit: cover;
+        grid-area: img;
+    }
+
+    .actor-name {
+        grid-area: name;
+        padding-left: 0.5rem;
+        text-overflow: ellipsis;
     }
 
     .party-member {
         display: grid;
-        grid-template-columns: max-content 1fr;
+        grid-template-areas: var((--grid-areas));
+        grid-template-columns: var(--grid-template);
         align-items: center;
         gap: 0.5rem;
         padding: 0.125rem;

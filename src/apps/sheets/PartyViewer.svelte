@@ -2,7 +2,7 @@
     import { getContext } from "svelte";
 
     import FormSection from "../components/FormSection.svelte";
-    import NavigationBar from "../components/navigation/NavigationBar.svelte";
+    // import NavigationBar from "../components/navigation/NavigationBar.svelte";
     import PartyViewerActorSummary from "../components/party-viewer/PartyViewerActorSummary.svelte";
     import PartyViewerCoreHeader from "../components/party-viewer/PartyViewerCoreHeader.svelte";
     import PartyViewerResourceHeader from "../components/party-viewer/PartyViewerResourceHeader.svelte";
@@ -10,13 +10,35 @@
 
     export let { settings } = getContext("#external").application;
 
-    async function addNewParty() {
-        $partiesStore[foundry.utils.randomID()] = {
-            name: "New Party",
-            actors: [],
-        };
+    // async function addNewParty() {
+    //     $partiesStore[foundry.utils.randomID()] = {
+    //         name: "New Party",
+    //         actors: [],
+    //     };
 
-        await game.settings.set("a5e", "parties", $partiesStore);
+    //     await game.settings.set("a5e", "parties", $partiesStore);
+    // }
+
+    function getGridAreaDefinition(viewMode) {
+        switch (viewMode) {
+            case "core":
+                return `"img name hp ac passivePerception passiveInsight passiveInvestigation passiveStealth"`;
+            case "resources":
+                return `"img name"`;
+            default:
+                return `"img name hp ac passivePerception passiveInsight passiveInvestigation passiveStealth"`;
+        }
+    }
+
+    function getGridSizeDefinition(viewMode) {
+        switch (viewMode) {
+            case "core":
+                return "2rem 1fr 4rem repeat(5, 3rem)";
+            case "resources":
+                return "2rem 1fr";
+            default:
+                return "2rem 1fr 4rem repeat(5, 3rem)";
+        }
     }
 
     function getViewModeComponent(viewMode) {
@@ -63,15 +85,15 @@
         }
     }
 
-    function updateCurrentParty(event) {
-        currentParty = parties[event.detail];
-    }
+    // function updateCurrentParty(event) {
+    //     currentParty = parties[event.detail];
+    // }
 
-    function updatePartyName(event) {
-        const partyData = $partiesStore[currentParty.name];
-        partyData.name = event.target.value;
-        game.settings.set("a5e", "parties", $partiesStore);
-    }
+    // function updatePartyName(event) {
+    //     const partyData = $partiesStore[currentParty.name];
+    //     partyData.name = event.target.value;
+    //     game.settings.set("a5e", "parties", $partiesStore);
+    // }
 
     const viewModes = [
         ["core", "Core"],
@@ -119,7 +141,7 @@
     <FormSection
         --background="none"
         --gap="0.25rem"
-        --margin="0.375rem 0 0.375rem 0.12rem"
+        --margin="0.375rem 0 0.375rem"
         --padding="0"
     >
         <RadioGroup
@@ -129,13 +151,19 @@
         />
     </FormSection>
 
-    <header>
-        <svelte:component this={getViewModeComponent(currentViewMode)} />
-    </header>
+    <svelte:component
+        this={getViewModeComponent(currentViewMode)}
+        --grid-areas={getGridAreaDefinition(currentViewMode)}
+        --grid-template={getGridSizeDefinition(currentViewMode)}
+    />
 
     <ul class="party-member-list">
         {#each currentParty?.actors ?? [] as uuid (uuid)}
-            <PartyViewerActorSummary {uuid} />
+            <PartyViewerActorSummary
+                {uuid}
+                --grid-areas={getGridAreaDefinition(currentViewMode)}
+                --grid-template={getGridSizeDefinition(currentViewMode)}
+            />
         {/each}
     </ul>
 </article>
@@ -151,7 +179,7 @@
         gap: 0.25rem;
         max-height: 30rem;
         padding: 0;
-        margin: 0 0.125rem;
+        margin: 0.25rem 0;
         list-style: none;
         overflow-y: auto;
     }
