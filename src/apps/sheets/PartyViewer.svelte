@@ -63,10 +63,10 @@
     }
 
     function getHighestPassiveScoresForParty() {
-        return $currentParty?.actors?.reduce((passiveScores, uuid) => {
-            const actor = fromUuidSync(uuid);
+        return ($partyMembers ?? []).reduce((passiveScores, actor) => {
+            const actorData = get(actor);
 
-            Object.entries(actor?.system?.skills ?? {}).forEach(
+            Object.entries(actorData?.system?.skills ?? {}).forEach(
                 ([skillKey, { passive }]) => {
                     passiveScores[skillKey] ??= 0;
 
@@ -81,15 +81,16 @@
     }
 
     function getTotalPartyWealth() {
-        return $currentParty?.actors?.reduce(
-            (wealthData, uuid) => {
-                const actor = fromUuidSync(uuid);
+        return ($partyMembers ?? []).reduce(
+            (wealthData, actor) => {
+                const reactiveDocument = get(actor);
+                const currency = reactiveDocument?.system?.currency;
 
-                wealthData.cp += actor?.system?.currency?.cp ?? 0;
-                wealthData.sp += actor?.system?.currency?.sp ?? 0;
-                wealthData.ep += actor?.system?.currency?.ep ?? 0;
-                wealthData.gp += actor?.system?.currency?.gp ?? 0;
-                wealthData.pp += actor?.system?.currency?.pp ?? 0;
+                wealthData.cp += currency?.cp ?? 0;
+                wealthData.sp += currency?.sp ?? 0;
+                wealthData.ep += currency?.ep ?? 0;
+                wealthData.gp += currency?.gp ?? 0;
+                wealthData.pp += currency?.pp ?? 0;
 
                 return wealthData;
             },
@@ -137,6 +138,11 @@
         actors.splice(targetIndex, 1);
 
         await game.settings.set("a5e", "parties", $partiesStore);
+    }
+
+    function updatePartyData() {
+        totalPartyWealth = getTotalPartyWealth();
+        highestPassiveScores = getHighestPassiveScoresForParty();
     }
 
     // function updateCurrentParty(event) {
@@ -187,9 +193,10 @@
         }, []);
     });
 
+    let totalPartyWealth = getTotalPartyWealth();
+    let highestPassiveScores = getHighestPassiveScoresForParty();
+
     $: currentViewMode = viewModes[0][0];
-    $: totalPartyWealth = getTotalPartyWealth($partiesStore);
-    $: highestPassiveScores = getHighestPassiveScoresForParty($partiesStore);
 </script>
 
 <article on:drop={(event) => onDropDocument(event)}>
@@ -244,6 +251,7 @@
                     {highestPassiveScores}
                     --grid-areas={getGridAreaDefinition(currentViewMode)}
                     --grid-template={getGridSizeDefinition(currentViewMode)}
+                    on:actor-updated={updatePartyData}
                     on:remove-actor={removeActorFromParty}
                 />
             {/each}

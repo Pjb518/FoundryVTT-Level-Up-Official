@@ -1,5 +1,5 @@
 <script>
-    import { createEventDispatcher } from "svelte";
+    import { createEventDispatcher, onDestroy } from "svelte";
 
     import PartyViewerCoreSummary from "./PartyViewerCoreSummary.svelte";
     import PartyViewerResourceSummary from "./PartyViewerResourceSummary.svelte";
@@ -24,7 +24,13 @@
 
     const dispatch = createEventDispatcher();
 
+    const unsubscribe = actor.subscribe((_) => dispatch("actor-updated"));
+
     $: viewComponent = getViewModeComponent(currentViewMode);
+
+    onDestroy(() => {
+        unsubscribe();
+    });
 </script>
 
 <li class="party-member" on:dblclick={() => $actor?.sheet.render(true)}>
