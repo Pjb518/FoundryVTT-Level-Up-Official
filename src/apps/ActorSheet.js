@@ -473,6 +473,11 @@ export default class ActorSheet extends SvelteApplication {
   }
 
   #onDropSpell(item) {
+    if (this.actor?.flags?.a5e?.currentTab !== 'inventory') {
+      this.actor.createEmbeddedDocuments('Item', [item]);
+      return;
+    }
+
     const spellLevel = item.system.level;
 
     const {
