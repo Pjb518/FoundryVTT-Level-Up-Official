@@ -1,3 +1,9 @@
+<script>
+    const spellLevels = Object.entries(CONFIG.A5E.spellLevels).filter(
+        ([spellLevel]) => spellLevel && spellLevel !== "0"
+    );
+</script>
+
 <header class="core-header">
     <i
         class="heading heading--exertion fa-solid fa-dumbbell"
@@ -15,8 +21,14 @@
         <h3 class="spell-slots__heading">Spell Slots by Level</h3>
 
         <ol class="spell-levels">
-            {#each [1, 2, 3, 4, 5, 6, 7, 8, 9] as spellLevel}
-                <li class="spell-level">{spellLevel}</li>
+            {#each spellLevels as [spellLevel, tooltip]}
+                <li
+                    class="spell-level"
+                    data-tooltip={tooltip}
+                    data-tooltip-direction="UP"
+                >
+                    {spellLevel}
+                </li>
             {/each}
         </ol>
     </div>
@@ -66,6 +78,7 @@
         gap: 0.5rem;
         padding: 0;
         margin: 0;
+        font-weight: bold;
         list-style: none;
     }
 
