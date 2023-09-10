@@ -1,7 +1,14 @@
 <script>
-    const spellLevels = Object.entries(CONFIG.A5E.spellLevels).filter(
-        ([spellLevel]) => spellLevel && spellLevel !== "0"
-    );
+    export let propData = {};
+
+    function getSpellLevels({ highestSpellSlotLevel }) {
+        return Object.entries(CONFIG.A5E.spellLevels).filter(
+            ([spellLevel]) =>
+                spellLevel &&
+                spellLevel !== "0" &&
+                spellLevel <= highestSpellSlotLevel
+        );
+    }
 </script>
 
 <header class="core-header">
@@ -21,7 +28,7 @@
         <h3 class="spell-slots__heading">Spell Slots by Level</h3>
 
         <ol class="spell-levels">
-            {#each spellLevels as [spellLevel, tooltip]}
+            {#each getSpellLevels(propData) as [spellLevel, tooltip]}
                 <li
                     class="spell-level"
                     data-tooltip={tooltip}
@@ -62,14 +69,17 @@
     .spell-slots {
         display: flex;
         flex-direction: column;
+        align-items: center;
         gap: 0.5rem;
         width: 100%;
+        min-width: 7.5rem;
         grid-area: spellSlots;
 
         &__heading {
             font-size: 0.833rem;
             text-align: center;
             font-weight: 700;
+            white-space: nowrap;
         }
     }
 

@@ -41,7 +41,7 @@
             case "core":
                 return "2rem 1fr 4rem repeat(6, 3rem) 2rem";
             case "resources":
-                return "2rem 1fr 3.5rem 3.5rem 19.75rem 2rem";
+                return "2rem 1fr 3.5rem 3.5rem min-content 2rem";
             case "wealth":
                 return "2rem 1fr repeat(5, 3.5rem) 2rem";
             default:
@@ -78,6 +78,22 @@
 
             return passiveScores;
         }, {});
+    }
+
+    function getHighestSpellSlotLevel() {
+        return ($partyMembers ?? []).reduce((highestSlotLevel, actor) => {
+            const actorData = get(actor);
+
+            Object.entries(
+                actorData?.system?.spellResources?.slots ?? {}
+            ).forEach(([slotLevel, { max }]) => {
+                if (slotLevel > highestSlotLevel && max && max > 0) {
+                    highestSlotLevel = slotLevel;
+                }
+            });
+
+            return highestSlotLevel;
+        }, 1);
     }
 
     function getTotalPartyWealth() {
@@ -143,6 +159,7 @@
     function updatePartyData() {
         totalPartyWealth = getTotalPartyWealth();
         highestPassiveScores = getHighestPassiveScoresForParty();
+        highestSpellSlotLevel = getHighestSpellSlotLevel();
     }
 
     // function updateCurrentParty(event) {
@@ -195,6 +212,7 @@
 
     let totalPartyWealth = getTotalPartyWealth();
     let highestPassiveScores = getHighestPassiveScoresForParty();
+    let highestSpellSlotLevel = getHighestSpellSlotLevel();
 
     $: currentViewMode = viewModes[0][0];
 </script>
@@ -239,6 +257,7 @@
 
         <svelte:component
             this={getViewModeComponent(currentViewMode)}
+            propData={{ highestSpellSlotLevel }}
             --grid-areas={getGridAreaDefinition(currentViewMode)}
             --grid-template={getGridSizeDefinition(currentViewMode)}
         />
@@ -249,6 +268,7 @@
                     {actor}
                     {currentViewMode}
                     {highestPassiveScores}
+                    {highestSpellSlotLevel}
                     --grid-areas={getGridAreaDefinition(currentViewMode)}
                     --grid-template={getGridSizeDefinition(currentViewMode)}
                     on:actor-updated={updatePartyData}

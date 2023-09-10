@@ -1,4 +1,6 @@
 <script>
+    import { localize } from "#runtime/svelte/helper";
+
     export let actor;
     export let propData = {};
 
@@ -23,7 +25,11 @@
         {actorData?.attributes.exertion?.current} / {actorData?.attributes
             .exertion?.max}
     {:else}
-        N/A
+        <i
+            class="cross fa-solid fa-xmark"
+            data-tooltip="{$actor.name} does not have an exertion pool."
+            data-tooltip-direction="UP"
+        />
     {/if}
 </span>
 
@@ -32,21 +38,39 @@
         {actorData?.spellResources.points.current} / {actorData?.spellResources
             .points.max}
     {:else}
-        N/A
+        <i
+            class="cross fa-solid fa-xmark"
+            data-tooltip="{$actor.name} does not have a spell point pool."
+            data-tooltip-direction="UP"
+        />
     {/if}
 </span>
 
 <ol class="spell-slots">
-    {#each Object.entries(actorData?.spellResources.slots ?? {}) as [level, { current }]}
-        {#if level && level !== "0"}
+    {#each Object.entries(actorData?.spellResources.slots ?? {}) as [level, { current, max }]}
+        {#if level && level !== "0" && level <= propData.highestSpellSlotLevel}
             <li class="field field--spell-slot">
-                {current}
+                {#if max && max > 0}
+                    {current}
+                {:else}
+                    <i
+                        class="cross fa-solid fa-xmark"
+                        data-tooltip="{$actor.name} has no spell slots of {localize(
+                            CONFIG.A5E.spellLevels[level]
+                        ).toLowerCase()}."
+                        data-tooltip-direction="UP"
+                    />
+                {/if}
             </li>
         {/if}
     {/each}
 </ol>
 
 <style lang="scss">
+    .cross {
+        color: #aaa;
+    }
+
     .field {
         text-align: center;
         margin-inline: 0.25rem;
@@ -67,7 +91,9 @@
 
     .spell-slots {
         display: flex;
+        justify-content: center;
         gap: 0.5rem;
+        min-width: 7.5rem;
         padding: 0;
         margin: 0;
         list-style: none;
