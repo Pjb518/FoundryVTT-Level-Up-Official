@@ -2,11 +2,24 @@
     export let actor;
     export let propData = {};
 
+    function hasExertionPool(actor) {
+        return actor?.system?.attributes.exertion?.max;
+    }
+
+    function hasSpellPoints(actor) {
+        if (!actor?.flags?.a5e?.showSpellPoints) return false;
+        if (!actor?.system?.spellResources?.points?.max) return false;
+
+        return true;
+    }
+
     $: actorData = $actor?.system;
+    $: showExertion = hasExertionPool($actor);
+    $: showSpellPoints = hasSpellPoints($actor);
 </script>
 
 <span class="field field--exertion">
-    {#if actorData?.attributes.exertion}
+    {#if showExertion}
         {actorData?.attributes.exertion?.current} / {actorData?.attributes
             .exertion?.max}
     {:else}
@@ -15,8 +28,12 @@
 </span>
 
 <span class="field field--spell-points">
-    {actorData?.spellResources.points.current} / {actorData?.spellResources
-        .points.max}
+    {#if showSpellPoints}
+        {actorData?.spellResources.points.current} / {actorData?.spellResources
+            .points.max}
+    {:else}
+        N/A
+    {/if}
 </span>
 
 <ol class="spell-slots">
