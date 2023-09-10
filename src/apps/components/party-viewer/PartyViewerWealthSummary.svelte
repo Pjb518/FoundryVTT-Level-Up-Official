@@ -1,10 +1,11 @@
 <script>
     export let actor;
+    export let propData = {};
 
     $: actorData = $actor?.system ?? {};
 </script>
 
-{#each Object.entries(actorData?.currency) as [denomination, quantity]}
+{#each Object.entries(actorData?.currency ?? {}) as [denomination, quantity]}
     <span class="field field--{denomination}">
         {quantity}
     </span>

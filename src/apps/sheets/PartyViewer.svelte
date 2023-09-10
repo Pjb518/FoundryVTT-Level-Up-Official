@@ -10,7 +10,7 @@
     import PartyViewerWealthFooter from "../components/party-viewer/PartyViewerWealthFooter.svelte";
     import RadioGroup from "../components/RadioGroup.svelte";
 
-    export let { settings } = getContext("#external").application;
+    export let { settings, sheet } = getContext("#external").application;
 
     // async function addNewParty() {
     //     $partiesStore[foundry.utils.randomID()] = {
@@ -58,6 +58,26 @@
             default:
                 return PartyViewerCoreHeader;
         }
+    }
+
+    function getHighestPassiveScoresForParty(parties) {
+        const currentPartyData = parties[currentParty.name];
+
+        return currentPartyData?.actors?.reduce((passiveScores, uuid) => {
+            const actor = fromUuidSync(uuid);
+
+            Object.entries(actor?.system?.skills ?? {}).forEach(
+                ([skillKey, { passive }]) => {
+                    passiveScores[skillKey] ??= 0;
+
+                    if (passive > passiveScores[skillKey]) {
+                        passiveScores[skillKey] = passive;
+                    }
+                }
+            );
+
+            return passiveScores;
+        }, {});
     }
 
     function getTotalPartyWealth(parties) {
@@ -152,6 +172,7 @@
     $: currentParty = parties[0];
     $: currentViewMode = viewModes[0][0];
     $: totalPartyWealth = getTotalPartyWealth($partiesStore);
+    $: highestPassiveScores = getHighestPassiveScoresForParty($partiesStore);
 </script>
 
 <article on:drop={(event) => onDropDocument(event)}>
@@ -178,45 +199,52 @@
         />
     </FormSection> -->
 
-    <FormSection
-        --background="none"
-        --gap="0.25rem"
-        --margin="0.375rem 0 0.375rem"
-        --padding="0"
-    >
-        <RadioGroup
-            options={viewModes}
-            selected={currentViewMode}
-            on:updateSelection={(event) => (currentViewMode = event.detail)}
+    {#if currentParty?.actors?.length}
+        <FormSection
+            --background="none"
+            --gap="0.25rem"
+            --margin="0.375rem 0 0.375rem"
+            --padding="0"
+        >
+            <RadioGroup
+                options={viewModes}
+                selected={currentViewMode}
+                on:updateSelection={(event) => (currentViewMode = event.detail)}
+            />
+        </FormSection>
+
+        <svelte:component
+            this={getViewModeComponent(currentViewMode)}
+            --grid-areas={getGridAreaDefinition(currentViewMode)}
+            --grid-template={getGridSizeDefinition(currentViewMode)}
         />
-    </FormSection>
 
-    <svelte:component
-        this={getViewModeComponent(currentViewMode)}
-        --grid-areas={getGridAreaDefinition(currentViewMode)}
-        --grid-template={getGridSizeDefinition(currentViewMode)}
-    />
+        <ul class="party-member-list">
+            {#each currentParty?.actors ?? [] as uuid (uuid)}
+                <PartyViewerActorSummary
+                    {uuid}
+                    {currentViewMode}
+                    {highestPassiveScores}
+                    --grid-areas={getGridAreaDefinition(currentViewMode)}
+                    --grid-template={getGridSizeDefinition(currentViewMode)}
+                    on:remove-actor={removeActorFromParty}
+                />
+            {/each}
+        </ul>
 
-    <ul class="party-member-list">
-        {#each currentParty?.actors ?? [] as uuid (uuid)}
-            <PartyViewerActorSummary
-                {uuid}
-                {currentViewMode}
-                --grid-areas={getGridAreaDefinition(currentViewMode)}
-                --grid-template={getGridSizeDefinition(currentViewMode)}
-                on:remove-actor={removeActorFromParty}
-            />
-        {/each}
-    </ul>
-
-    {#if currentViewMode === "wealth"}
-        <footer>
-            <PartyViewerWealthFooter
-                {totalPartyWealth}
-                --grid-areas={getGridAreaDefinition(currentViewMode)}
-                --grid-template={getGridSizeDefinition(currentViewMode)}
-            />
-        </footer>
+        {#if currentViewMode === "wealth"}
+            <footer>
+                <PartyViewerWealthFooter
+                    {totalPartyWealth}
+                    --grid-areas={getGridAreaDefinition(currentViewMode)}
+                    --grid-template={getGridSizeDefinition(currentViewMode)}
+                />
+            </footer>
+        {/if}
+    {:else}
+        <div class="instructions">
+            Drop actors into this window to populate the party.
+        </div>
     {/if}
 </article>
 
@@ -234,5 +262,17 @@
         margin: 0.25rem 0;
         list-style: none;
         overflow-y: auto;
+    }
+
+    .instructions {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 5rem;
+        padding: 1rem;
+        margin: 1rem;
+        font-size: 1rem;
+        border: 2px solid #ccc;
+        border-radius: 3px;
     }
 </style>

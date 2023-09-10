@@ -1,5 +1,6 @@
 <script>
     export let actor;
+    export let propData = {};
 
     $: actorData = $actor?.system;
 </script>
@@ -20,15 +21,27 @@
     {actorData?.attributes.spellDC}
 </span>
 
-<span class="field field--perception">
+<span
+    class="field field--perception"
+    class:field--highlight={actorData?.skills?.prc.passive ===
+        propData.highestPassiveScores.prc}
+>
     {actorData?.skills?.prc.passive}
 </span>
 
-<span class="field field--insight">
+<span
+    class="field field--insight"
+    class:field--highlight={actorData?.skills?.ins.passive ===
+        propData.highestPassiveScores.ins}
+>
     {actorData?.skills?.ins.passive}
 </span>
 
-<span class="field field--investigation">
+<span
+    class="field field--investigation"
+    class:field--highlight={actorData?.skills?.inv.passive ===
+        propData.highestPassiveScores.inv}
+>
     {actorData?.skills?.inv.passive}
 </span>
 
@@ -66,11 +79,11 @@
             grid-area: spellDC;
         }
 
-        // &--highlight {
-        //     background: #425f65;
-        //     color: white;
-        //     border: 1px solid #425f65;
-        //     border-radius: 3px;
-        // }
+        &--highlight {
+            background: #425f65;
+            color: white;
+            border: 1px solid #425f65;
+            border-radius: 3px;
+        }
     }
 </style>

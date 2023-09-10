@@ -1,5 +1,6 @@
 <script>
     export let actor;
+    export let propData = {};
 
     $: actorData = $actor?.system;
 </script>

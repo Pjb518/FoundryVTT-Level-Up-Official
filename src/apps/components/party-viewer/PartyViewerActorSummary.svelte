@@ -8,6 +8,7 @@
 
     export let uuid;
     export let currentViewMode = "core";
+    export let highestPassiveScores = {};
 
     function getViewModeComponent(viewMode) {
         switch (viewMode) {
@@ -33,7 +34,11 @@
     <img class="actor-image" src={$actor?.img} alt={$actor?.name} />
     <span class="actor-name">{$actor?.name}</span>
 
-    <svelte:component this={viewComponent} {actor} />
+    <svelte:component
+        this={viewComponent}
+        {actor}
+        propData={{ highestPassiveScores }}
+    />
 
     <span class="delete-wrapper">
         <button
