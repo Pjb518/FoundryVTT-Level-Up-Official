@@ -1,12 +1,11 @@
 <script>
     import { createEventDispatcher } from "svelte";
-    import { TJSDocument } from "#runtime/svelte/store/fvtt/document";
 
     import PartyViewerCoreSummary from "./PartyViewerCoreSummary.svelte";
     import PartyViewerResourceSummary from "./PartyViewerResourceSummary.svelte";
     import PartyViewerWealthSummary from "./PartyViewerWealthSummary.svelte";
 
-    export let uuid;
+    export let actor;
     export let currentViewMode = "core";
     export let highestPassiveScores = {};
 
@@ -24,8 +23,6 @@
     }
 
     const dispatch = createEventDispatcher();
-    const actor = new TJSDocument();
-    actor.setFromUUID(uuid);
 
     $: viewComponent = getViewModeComponent(currentViewMode);
 </script>
@@ -45,7 +42,7 @@
             class="a5e-button a5e-button--delete delete-button fas fa-trash"
             data-tooltip="Remove Actor from the Party"
             data-tooltip-direction="UP"
-            on:click={() => dispatch("remove-actor", uuid)}
+            on:click={() => dispatch("remove-actor", $actor.uuid)}
         />
     </span>
 </li>

@@ -1,5 +1,7 @@
 <script>
     import { getContext } from "svelte";
+    import { derived, get } from "svelte/store";
+    import { TJSDocument } from "#runtime/svelte/store/fvtt/document";
 
     import FormSection from "../components/FormSection.svelte";
     // import NavigationBar from "../components/navigation/NavigationBar.svelte";
@@ -60,10 +62,8 @@
         }
     }
 
-    function getHighestPassiveScoresForParty(parties) {
-        const currentPartyData = parties[currentParty.name];
-
-        return currentPartyData?.actors?.reduce((passiveScores, uuid) => {
+    function getHighestPassiveScoresForParty() {
+        return $currentParty?.actors?.reduce((passiveScores, uuid) => {
             const actor = fromUuidSync(uuid);
 
             Object.entries(actor?.system?.skills ?? {}).forEach(
@@ -80,10 +80,8 @@
         }, {});
     }
 
-    function getTotalPartyWealth(parties) {
-        const currentPartyData = parties[currentParty.name];
-
-        return currentPartyData?.actors?.reduce(
+    function getTotalPartyWealth() {
+        return $currentParty?.actors?.reduce(
             (wealthData, uuid) => {
                 const actor = fromUuidSync(uuid);
 
@@ -114,12 +112,10 @@
     }
 
     async function onDropActor(uuid) {
-        if (currentParty?.name) {
-            const currentPartyData = $partiesStore[currentParty.name];
+        if ($currentParty?.actors?.length) {
+            if ($currentParty.actors?.includes(uuid)) return;
 
-            if (currentParty.actors.includes(uuid)) return;
-
-            currentPartyData.actors.push(uuid);
+            $currentParty.actors?.push(uuid);
 
             await game.settings.set("a5e", "parties", $partiesStore);
         } else {
@@ -133,8 +129,7 @@
     }
 
     async function removeActorFromParty({ detail: uuid }) {
-        const currentPartyData = $partiesStore[currentParty.name];
-        const { actors } = currentPartyData;
+        const { actors } = $currentParty;
         const targetIndex = actors.indexOf(uuid);
 
         if (targetIndex === -1) return;
@@ -163,13 +158,35 @@
 
     let partiesStore = settings.getStore("parties");
 
-    $: parties = Object.entries($partiesStore ?? {}).map(([id, partyData]) => ({
-        name: id,
-        label: partyData.name || "New Party",
-        actors: partyData.actors ?? [],
-    }));
+    let currentParty = derived(partiesStore, ($partiesStore) => {
+        const parties = Object.entries($partiesStore ?? {}).map(
+            ([id, partyData]) => ({
+                id,
+                label: partyData.name || "New Party",
+                actors: partyData.actors ?? [],
+            })
+        );
 
-    $: currentParty = parties[0];
+        if (parties.length) {
+            return $partiesStore[parties[0]?.id];
+        }
+
+        return {};
+    });
+
+    let partyMembers = derived(currentParty, ($currentParty) => {
+        return ($currentParty?.actors ?? []).reduce((actors, uuid) => {
+            const actor = fromUuidSync(uuid);
+
+            if (actor) {
+                const reactiveDocument = new TJSDocument(actor);
+                actors.push(reactiveDocument);
+            }
+
+            return actors;
+        }, []);
+    });
+
     $: currentViewMode = viewModes[0][0];
     $: totalPartyWealth = getTotalPartyWealth($partiesStore);
     $: highestPassiveScores = getHighestPassiveScoresForParty($partiesStore);
@@ -199,7 +216,7 @@
         />
     </FormSection> -->
 
-    {#if currentParty?.actors?.length}
+    {#if $partyMembers.length}
         <FormSection
             --background="none"
             --gap="0.25rem"
@@ -220,9 +237,9 @@
         />
 
         <ul class="party-member-list">
-            {#each currentParty?.actors ?? [] as uuid (uuid)}
+            {#each $partyMembers ?? [] as actor}
                 <PartyViewerActorSummary
-                    {uuid}
+                    {actor}
                     {currentViewMode}
                     {highestPassiveScores}
                     --grid-areas={getGridAreaDefinition(currentViewMode)}
