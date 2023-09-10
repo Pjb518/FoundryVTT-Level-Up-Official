@@ -60,6 +60,7 @@
         margin: 0;
         padding: 0;
         object-fit: cover;
+        object-position: 50% 0;
         grid-area: img;
     }
 
