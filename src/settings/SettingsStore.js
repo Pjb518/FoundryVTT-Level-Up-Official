@@ -304,8 +304,10 @@ class A5eGameSettings extends TJSGameSettings {
           scope: scope.world,
           config: false,
           default: {
-            name: 'Party 1',
-            actors: []
+            '5Di3aRnZbNtrXq0K': {
+              name: 'New Party',
+              actors: []
+            }
           },
           type: Object
         }
