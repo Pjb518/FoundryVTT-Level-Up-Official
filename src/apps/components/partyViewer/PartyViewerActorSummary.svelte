@@ -51,14 +51,16 @@
         }}
     />
 
-    <span class="delete-wrapper">
-        <button
-            class="a5e-button a5e-button--delete delete-button fas fa-trash"
-            data-tooltip="Remove Actor from the Party"
-            data-tooltip-direction="UP"
-            on:click={() => dispatch("remove-actor", $actor.uuid)}
-        />
-    </span>
+    {#if game.user.isGM}
+        <span class="delete-wrapper">
+            <button
+                class="a5e-button a5e-button--delete delete-button fas fa-trash"
+                data-tooltip="Remove Actor from the Party"
+                data-tooltip-direction="UP"
+                on:click={() => dispatch("remove-actor", $actor.uuid)}
+            />
+        </span>
+    {/if}
 </li>
 
 <style lang="scss">

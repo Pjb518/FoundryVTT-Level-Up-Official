@@ -5,11 +5,11 @@
 
     import FormSection from "../components/FormSection.svelte";
     // import NavigationBar from "../components/navigation/NavigationBar.svelte";
-    import PartyViewerActorSummary from "../components/party-viewer/PartyViewerActorSummary.svelte";
-    import PartyViewerCoreHeader from "../components/party-viewer/PartyViewerCoreHeader.svelte";
-    import PartyViewerResourceHeader from "../components/party-viewer/PartyViewerResourceHeader.svelte";
-    import PartyViewerWealthHeader from "../components/party-viewer/PartyViewerWealthHeader.svelte";
-    import PartyViewerWealthFooter from "../components/party-viewer/PartyViewerWealthFooter.svelte";
+    import PartyViewerActorSummary from "../components/partyViewer/PartyViewerActorSummary.svelte";
+    import PartyViewerCoreHeader from "../components/partyViewer/PartyViewerCoreHeader.svelte";
+    import PartyViewerResourceHeader from "../components/partyViewer/PartyViewerResourceHeader.svelte";
+    import PartyViewerWealthHeader from "../components/partyViewer/PartyViewerWealthHeader.svelte";
+    import PartyViewerWealthFooter from "../components/partyViewer/PartyViewerWealthFooter.svelte";
     import RadioGroup from "../components/RadioGroup.svelte";
 
     export let { settings, sheet } = getContext("#external").application;
@@ -41,16 +41,17 @@
 
     function getGridAreaDefinition(viewMode) {
         const base = "img name";
+        const end = game.user.isGM ? "delete" : "";
 
         switch (viewMode) {
             case "core":
-                return `"${base} hp ac maneuverDC spellDC perception insight investigation delete"`;
+                return `"${base} hp ac maneuverDC spellDC perception insight investigation ${end}"`;
             case "resources":
                 return getResourcePanelGridAreaDefinition();
             case "wealth":
-                return `"${base} cp sp ep gp pp delete"`;
+                return `"${base} cp sp ep gp pp ${end}"`;
             default:
-                return `"${base} hp ac maneuverDC spellDC perception insight investigation delete"`;
+                return `"${base} hp ac maneuverDC spellDC perception insight investigation ${end}"`;
         }
     }
 
@@ -72,24 +73,25 @@
             tableElements.push("noResources");
         }
 
-        // Add a cell for the delete button.
-        tableElements.push("delete");
+        // Add a cell for the delete button if user is a GM
+        if (game.user.isGM) tableElements.push("delete");
 
         return `"${tableElements.join(" ")}"`;
     }
 
     function getGridSizeDefinition(viewMode) {
         const base = "1.75rem 1fr";
+        const end = game.user.isGM ? "2rem" : "";
 
         switch (viewMode) {
             case "core":
-                return `${base} 4rem repeat(6, 3rem) 2rem`;
+                return `${base} 4rem repeat(6, 3rem) ${end}`;
             case "resources":
                 return getResourcePanelGridSizeDefinition();
             case "wealth":
-                return `${base} repeat(5, 3.5rem) 2rem`;
+                return `${base} repeat(5, 3.5rem) ${end}`;
             default:
-                return `${base} 4rem repeat(6, 3rem) 2rem`;
+                return `${base} 4rem repeat(6, 3rem) ${end}`;
         }
     }
 
@@ -111,8 +113,8 @@
             tableElements.push("1fr");
         }
 
-        // Add a cell for the delete button.
-        tableElements.push("2rem");
+        // Add a cell for the delete button if user is a GM
+        if (game.user.isGM) tableElements.push("2rem");
 
         return tableElements.join(" ");
     }
@@ -391,7 +393,7 @@
 
 <style lang="scss">
     article {
-        min-height: 17.5rem;
+        min-height: 15rem;
         min-width: 40rem;
         padding: 0.25rem 0.5rem;
     }
