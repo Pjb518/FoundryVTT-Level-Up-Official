@@ -28,47 +28,49 @@
 <section
     class="u-flex-grow u-flex u-flex-col u-overflow-y-auto u-gap-md u-px-md u-mt-xl"
 >
-    <section class="setting-group">
-        <header class="setting-header">
-            <h3 class="setting-heading">
-                {localize("A5E.settings.sectionHeader.actorBehavior")}
-            </h3>
-        </header>
+    {#if isGM}
+        <section class="setting-group">
+            <header class="setting-header">
+                <h3 class="setting-heading">
+                    {localize("A5E.settings.sectionHeader.actorBehavior")}
+                </h3>
+            </header>
 
-        {#if isGM}
-            <FormSection
-                hint="A5E.settings.hints.trackCurrencyWeight"
-                --gap="0.25rem"
-            >
-                <Checkbox
-                    label="A5E.settings.trackCurrencyWeight"
-                    checked={updates.get("currencyWeight") ??
-                        $trackCurrency ??
-                        false}
-                    on:updateSelection={({ detail }) => {
-                        updates.set("currencyWeight", detail);
-                    }}
-                />
-            </FormSection>
-        {/if}
+            {#if isGM}
+                <FormSection
+                    hint="A5E.settings.hints.trackCurrencyWeight"
+                    --gap="0.25rem"
+                >
+                    <Checkbox
+                        label="A5E.settings.trackCurrencyWeight"
+                        checked={updates.get("currencyWeight") ??
+                            $trackCurrency ??
+                            false}
+                        on:updateSelection={({ detail }) => {
+                            updates.set("currencyWeight", detail);
+                        }}
+                    />
+                </FormSection>
+            {/if}
 
-        {#if isGM}
-            <FormSection
-                hint="A5E.settings.hints.randomizeNPCHitPoints"
-                --gap="0.25rem"
-            >
-                <Checkbox
-                    label="A5E.settings.randomizeNPCHitPoints"
-                    checked={updates.get("randomizeNPCHitPoints") ??
-                        $randomHP ??
-                        false}
-                    on:updateSelection={({ detail }) => {
-                        updates.set("randomizeNPCHitPoints", detail);
-                    }}
-                />
-            </FormSection>
-        {/if}
-    </section>
+            {#if isGM}
+                <FormSection
+                    hint="A5E.settings.hints.randomizeNPCHitPoints"
+                    --gap="0.25rem"
+                >
+                    <Checkbox
+                        label="A5E.settings.randomizeNPCHitPoints"
+                        checked={updates.get("randomizeNPCHitPoints") ??
+                            $randomHP ??
+                            false}
+                        on:updateSelection={({ detail }) => {
+                            updates.set("randomizeNPCHitPoints", detail);
+                        }}
+                    />
+                </FormSection>
+            {/if}
+        </section>
+    {/if}
 
     <section class="setting-group">
         <header class="setting-header">
