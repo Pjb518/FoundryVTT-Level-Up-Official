@@ -3,9 +3,17 @@
     export let propData = {};
 
     $: actorData = $actor?.system;
+    $: isBloodied =
+        $actor?.system?.attributes.hp.max / 2 >=
+        $actor?.system?.attributes.hp.value;
 </script>
 
-<span class="field field--hp">
+<span
+    class="field field--hp"
+    class:field--highlight-red={isBloodied}
+    data-tooltip={isBloodied ? `${$actor.name} is Bloodied` : null}
+    data-tooltip-direction="UP"
+>
     {actorData?.attributes.hp.value} / {actorData?.attributes.hp.max}
 </span>
 
@@ -80,9 +88,16 @@
         }
 
         &--highlight {
-            background: #425f65;
+            background: $color-primary;
             color: white;
-            border: 1px solid #425f65;
+            border: 1px solid darken($color-primary, 5%);
+            border-radius: 3px;
+        }
+
+        &--highlight-red {
+            background: $color-secondary;
+            color: white;
+            border: 1px solid darken($color-secondary, 5%);
             border-radius: 3px;
         }
     }

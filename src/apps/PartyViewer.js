@@ -21,7 +21,7 @@ export default class PartyViewer extends TJSDialog {
       zIndex: null
     }, {
       classes: ['a5e-sheet'],
-      width: 720
+      width: 700
     });
 
     this.data.content.props.sheet = this;
