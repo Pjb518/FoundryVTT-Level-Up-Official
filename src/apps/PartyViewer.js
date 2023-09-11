@@ -18,10 +18,11 @@ export default class PartyViewer extends TJSDialog {
           settings: gameSettings
         }
       },
+      resizable: true,
       zIndex: null
     }, {
-      classes: ['a5e-sheet'],
-      width: 700
+      classes: ['a5e-sheet', 'a5e-sheet--party-viewer'],
+      width: 672
     });
 
     this.data.content.props.sheet = this;

@@ -388,6 +388,7 @@
 <style lang="scss">
     article {
         min-height: 17.5rem;
+        min-width: 40rem;
         padding: 0.25rem 0.5rem;
     }
 
