@@ -4,6 +4,7 @@ import EffectOption from '../EffectOption';
 
 import modifyBaseOptions from './modifyBaseOptions';
 import modifyDerivedOptions from './modifyDerivedOptions';
+import modifySpecialOptions from './modifySpecialOptions';
 
 export default function constructEffectOptions() {
   const options = {};
@@ -34,14 +35,14 @@ export default function constructEffectOptions() {
     // Base Options are all those fields defined in template.json,
     // game.system.model and are things the user can directly change
     Object.keys(baseOptions).forEach((key) => {
-      const [sampleValue, modes, effectOpts, effectType, phase] = baseOptions[key];
+      const [sampleValue, modes, effectOpts, componentType, phase] = baseOptions[key];
       options[type].baseOptions[key] = new EffectOption(
         key,
         sampleValue,
         {
           modes: modes ?? MODES.DEFAULT_MODES,
           options: effectOpts ?? [],
-          type: effectType ?? 'DEFAULT',
+          type: componentType ?? 'DEFAULT',
           phase: phase ?? 'applyAEs'
         }
       );
@@ -51,14 +52,14 @@ export default function constructEffectOptions() {
     const derivedOptions = {};
     modifyDerivedOptions(derivedOptions, type);
     Object.keys(derivedOptions).forEach((key) => {
-      const [sampleValue, modes, effectOpts, effectType, phase] = derivedOptions[key];
+      const [sampleValue, modes, effectOpts, componentType, phase] = derivedOptions[key];
       options[type].derivedOptions[key] = new EffectOption(
         key,
         sampleValue,
         {
           modes: modes ?? MODES.DEFAULT_MODES,
           options: effectOpts ?? [],
-          type: effectType ?? 'DEFAULT',
+          type: componentType ?? 'DEFAULT',
           phase: phase ?? 'afterDerived'
         }
       );
@@ -66,15 +67,16 @@ export default function constructEffectOptions() {
 
     // Add Special Options
     const specialOptions = {};
+    modifySpecialOptions(specialOptions);
     Object.keys(specialOptions).forEach((key) => {
-      const [sampleValue, modes, effectOpts, effectType, phase] = specialOptions[key];
+      const [sampleValue, modes, effectOpts, componentType, phase] = specialOptions[key];
       options[type].allOptions[key] = new EffectOption(
         key,
         sampleValue,
         {
           modes: modes ?? MODES.DEFAULT_MODES,
           options: effectOpts ?? [],
-          type: effectType ?? 'DEFAULT',
+          type: componentType ?? 'DEFAULT',
           phase: phase ?? 'afterDerived'
         }
       );
