@@ -40,15 +40,17 @@
     }
 
     function getGridAreaDefinition(viewMode) {
+        const base = "img name";
+
         switch (viewMode) {
             case "core":
-                return `"img name hp ac maneuverDC spellDC perception insight investigation delete"`;
+                return `"${base} hp ac maneuverDC spellDC perception insight investigation delete"`;
             case "resources":
                 return getResourcePanelGridAreaDefinition();
             case "wealth":
-                return `"img name cp sp ep gp pp delete"`;
+                return `"${base} cp sp ep gp pp delete"`;
             default:
-                return `"img name hp ac maneuverDC spellDC perception insight investigation delete"`;
+                return `"${base} hp ac maneuverDC spellDC perception insight investigation delete"`;
         }
     }
 
@@ -77,21 +79,23 @@
     }
 
     function getGridSizeDefinition(viewMode) {
+        const base = "1.75rem 1fr";
+
         switch (viewMode) {
             case "core":
-                return "2rem 1fr 4rem repeat(6, 3rem) 2rem";
+                return `${base} 4rem repeat(6, 3rem) 2rem`;
             case "resources":
                 return getResourcePanelGridSizeDefinition();
             case "wealth":
-                return "2rem 1fr repeat(5, 3.5rem) 2rem";
+                return `${base} repeat(5, 3.5rem) 2rem`;
             default:
-                return "2rem 1fr 4rem repeat(6, 3rem) 2rem";
+                return `${base} 4rem repeat(6, 3rem) 2rem`;
         }
     }
 
     function getResourcePanelGridSizeDefinition() {
         // Initialize the elements array with cells for the image and name.
-        const tableElements = ["2rem", "1fr"];
+        const tableElements = ["1.75rem", "1fr"];
 
         // Conditionally add cells for exertion, spell points, and spell slots.
         if (partyHasExertionPool) tableElements.push("3.5rem");

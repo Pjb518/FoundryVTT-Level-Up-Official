@@ -63,8 +63,8 @@
 
 <style lang="scss">
     .actor-image {
-        height: 2rem;
-        width: 2rem;
+        height: 1.75rem;
+        width: 1.75rem;
         margin: 0;
         padding: 0;
         object-fit: cover;
@@ -74,7 +74,7 @@
 
     .actor-name {
         grid-area: name;
-        padding-left: 0.5rem;
+        padding-left: 0.25rem;
         text-overflow: ellipsis;
     }
 
