@@ -9,6 +9,8 @@
     export let currentViewMode = "core";
     export let highestPassiveScores = {};
     export let highestSpellSlotLevel = 0;
+    export let partyHasExertionPool = true;
+    export let partyHasSpellPointPool = true;
 
     function getViewModeComponent(viewMode) {
         switch (viewMode) {
@@ -41,7 +43,12 @@
     <svelte:component
         this={viewComponent}
         {actor}
-        propData={{ highestPassiveScores, highestSpellSlotLevel }}
+        propData={{
+            highestPassiveScores,
+            highestSpellSlotLevel,
+            partyHasExertionPool,
+            partyHasSpellPointPool,
+        }}
     />
 
     <span class="delete-wrapper">

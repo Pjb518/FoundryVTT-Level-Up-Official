@@ -1,5 +1,5 @@
 <script>
-    import { getContext } from "svelte";
+    import { getContext, onDestroy } from "svelte";
     import { derived, get } from "svelte/store";
     import { TJSDocument } from "#runtime/svelte/store/fvtt/document";
 
@@ -23,12 +23,28 @@
     //     await game.settings.set("a5e", "parties", $partiesStore);
     // }
 
+    function getAnyMemberHasExertionPool() {
+        return ($partyMembers ?? []).some((actor) => {
+            const actorData = get(actor);
+
+            return actorData?.system?.attributes?.exertion?.max;
+        });
+    }
+
+    function getAnyMemberHasSpellPointPool() {
+        return ($partyMembers ?? []).some((actor) => {
+            const actorData = get(actor);
+
+            return actorData?.system?.spellResources?.points?.max;
+        });
+    }
+
     function getGridAreaDefinition(viewMode) {
         switch (viewMode) {
             case "core":
                 return `"img name hp ac maneuverDC spellDC perception insight investigation delete"`;
             case "resources":
-                return `"img name exertion spellPoints spellSlots delete"`;
+                return getResourcePanelGridAreaDefinition();
             case "wealth":
                 return `"img name cp sp ep gp pp delete"`;
             default:
@@ -36,17 +52,47 @@
         }
     }
 
+    function getResourcePanelGridAreaDefinition() {
+        // Initialize the elements array with cells for the image and name.
+        const tableElements = ["img", "name"];
+
+        // Conditionally add cells for exertion, spell points, and spell slots.
+        if (partyHasExertionPool) tableElements.push("exertion");
+        if (partyHasSpellPointPool) tableElements.push("spellPoints");
+        if (highestSpellSlotLevel) tableElements.push("spellSlots");
+
+        // Add a cell for the delete button.
+        tableElements.push("delete");
+
+        return `"${tableElements.join(" ")}"`;
+    }
+
     function getGridSizeDefinition(viewMode) {
         switch (viewMode) {
             case "core":
                 return "2rem 1fr 4rem repeat(6, 3rem) 2rem";
             case "resources":
-                return "2rem 1fr 3.5rem 3.5rem min-content 2rem";
+                return getResourcePanelGridSizeDefinition();
             case "wealth":
                 return "2rem 1fr repeat(5, 3.5rem) 2rem";
             default:
                 return "2rem 1fr 4rem repeat(6, 3rem) 2rem";
         }
+    }
+
+    function getResourcePanelGridSizeDefinition() {
+        // Initialize the elements array with cells for the image and name.
+        const tableElements = ["2rem", "1fr"];
+
+        // Conditionally add cells for exertion, spell points, and spell slots.
+        if (partyHasExertionPool) tableElements.push("3.5rem");
+        if (partyHasSpellPointPool) tableElements.push("3.5rem");
+        if (highestSpellSlotLevel) tableElements.push("min-content");
+
+        // Add a cell for the delete button.
+        tableElements.push("2rem");
+
+        return tableElements.join(" ");
     }
 
     function getViewModeComponent(viewMode) {
@@ -93,7 +139,7 @@
             });
 
             return highestSlotLevel;
-        }, 1);
+        }, 0);
     }
 
     function getTotalPartyWealth() {
@@ -160,6 +206,10 @@
         totalPartyWealth = getTotalPartyWealth();
         highestPassiveScores = getHighestPassiveScoresForParty();
         highestSpellSlotLevel = getHighestSpellSlotLevel();
+        partyHasExertionPool = getAnyMemberHasExertionPool();
+        partyHasSpellPointPool = getAnyMemberHasSpellPointPool();
+        gridAreaDefinition = getGridAreaDefinition(currentViewMode);
+        gridSizeDefinition = getGridSizeDefinition(currentViewMode);
     }
 
     // function updateCurrentParty(event) {
@@ -210,11 +260,27 @@
         }, []);
     });
 
-    let totalPartyWealth = getTotalPartyWealth();
     let highestPassiveScores = getHighestPassiveScoresForParty();
     let highestSpellSlotLevel = getHighestSpellSlotLevel();
+    let partyHasExertionPool = getAnyMemberHasExertionPool();
+    let partyHasSpellPointPool = getAnyMemberHasSpellPointPool();
+    let totalPartyWealth = getTotalPartyWealth();
 
     $: currentViewMode = viewModes[0][0];
+    $: gridAreaDefinition = getGridAreaDefinition(currentViewMode);
+    $: gridSizeDefinition = getGridSizeDefinition(currentViewMode);
+
+    const unsubscribe = partyMembers.subscribe((_) => {
+        highestPassiveScores = getHighestPassiveScoresForParty();
+        highestSpellSlotLevel = getHighestSpellSlotLevel();
+        gridAreaDefinition = getGridAreaDefinition(currentViewMode);
+        gridSizeDefinition = getGridSizeDefinition(currentViewMode);
+        totalPartyWealth = getTotalPartyWealth();
+    });
+
+    onDestroy(() => {
+        unsubscribe();
+    });
 </script>
 
 <article on:drop={(event) => onDropDocument(event)}>
@@ -257,9 +323,13 @@
 
         <svelte:component
             this={getViewModeComponent(currentViewMode)}
-            propData={{ highestSpellSlotLevel }}
-            --grid-areas={getGridAreaDefinition(currentViewMode)}
-            --grid-template={getGridSizeDefinition(currentViewMode)}
+            propData={{
+                highestSpellSlotLevel,
+                partyHasExertionPool,
+                partyHasSpellPointPool,
+            }}
+            --grid-areas={gridAreaDefinition}
+            --grid-template={gridSizeDefinition}
         />
 
         <ul class="party-member-list">
@@ -269,8 +339,10 @@
                     {currentViewMode}
                     {highestPassiveScores}
                     {highestSpellSlotLevel}
-                    --grid-areas={getGridAreaDefinition(currentViewMode)}
-                    --grid-template={getGridSizeDefinition(currentViewMode)}
+                    {partyHasExertionPool}
+                    {partyHasSpellPointPool}
+                    --grid-areas={gridAreaDefinition}
+                    --grid-template={gridSizeDefinition}
                     on:actor-updated={updatePartyData}
                     on:remove-actor={removeActorFromParty}
                 />
@@ -281,8 +353,8 @@
             <footer>
                 <PartyViewerWealthFooter
                     {totalPartyWealth}
-                    --grid-areas={getGridAreaDefinition(currentViewMode)}
-                    --grid-template={getGridSizeDefinition(currentViewMode)}
+                    --grid-areas={gridAreaDefinition}
+                    --grid-template={gridSizeDefinition}
                 />
             </footer>
         {/if}
