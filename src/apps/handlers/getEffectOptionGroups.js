@@ -18,7 +18,7 @@ export default function getEffectOptionGroups(optionsList) {
   // have a group defined, put it in the "other" category.
   const groups = Object.entries(
     options.reduce((acc, curr) => {
-      const group = groupMap[curr.fieldOption] ?? 'other';
+      const group = groupMap[curr.effectKey] ?? 'other';
 
       acc[group] ??= [];
       acc[group].push(curr);

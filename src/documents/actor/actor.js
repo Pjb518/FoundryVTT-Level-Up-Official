@@ -184,8 +184,8 @@ export default class ActorA5e extends Actor {
       this.actorEffects,
       'applyAEs',
       'afterDerived',
-      (change) => game.a5e.activeEffects.EffectOptions.options[this.type]
-        .allOptionsObj[change.key]?.phase === 'applyAEs'
+      (change) => game.a5e.activeEffects.options[this.type]
+        .allOptions[change.key]?.phase === 'applyAEs'
     );
 
     // Apply special statuses that changed to active tokens
@@ -430,8 +430,8 @@ export default class ActorA5e extends Actor {
       this.actorEffects,
       'afterDerived',
       null,
-      (change) => game.a5e.activeEffects.EffectOptions.options[this.type]
-        .allOptionsObj[change.key]?.phase === 'afterDerived'
+      (change) => game.a5e.activeEffects.options[this.type]
+        .allOptions[change.key]?.phase === 'afterDerived'
     );
   }
 

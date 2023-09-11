@@ -70,7 +70,7 @@ export default function constructEffectOptions() {
     modifySpecialOptions(specialOptions);
     Object.keys(specialOptions).forEach((key) => {
       const [sampleValue, modes, effectOpts, componentType, phase] = specialOptions[key];
-      options[type].allOptions[key] = new EffectOption(
+      options[type].derivedOptions[key] = new EffectOption(
         key,
         sampleValue,
         {

@@ -89,8 +89,8 @@
                                     label={groupLabels[groupLabel] ??
                                         groupLabel}
                                 >
-                                    {#each items as { fieldOption, label }}
-                                        <option value={fieldOption}>
+                                    {#each items as { effectKey, label }}
+                                        <option value={effectKey}>
                                             {label}
                                         </option>
                                     {/each}

@@ -16,11 +16,11 @@ import CultureDataModel from '../dataModels/item/CultureDataModel';
 import DestinyDataModel from '../dataModels/item/DestinyDataModel';
 import HeritageDataModel from '../dataModels/item/HeritageDataModel';
 
-import EffectOptions from '../documents/activeEffect/EffectOptions';
+import constructEffectOptions from '../documents/activeEffect/utils/constructEffectOptions';
+import EffectOption from '../documents/activeEffect/EffectOption';
 
 import _onCombatControl from '../combat/_onCombatControl';
 import _onCombatantControl from '../combat/_onCombatantControl';
-import constructEffectOptions from '../documents/activeEffect/utils/constructEffectOptions';
 import getInitiativeFormula from '../combat/getInitiativeFormula';
 import getInitiativeRoll from '../combat/getInitiativeRoll';
 import preloadHandlebarsTemplates from '../templates';
@@ -74,8 +74,8 @@ export default function init() {
       ItemSheetA5e
     },
     activeEffects: {
-      EffectOptions,
-      options: constructEffectOptions()
+      EffectOption,
+      options: {}
     },
     config: A5E,
     dice: {
@@ -147,7 +147,7 @@ export default function init() {
   // Prelocalize any static strings once localization files become available.
   Hooks.once('i18nInit', () => {
     performPreLocalization(CONFIG.A5E);
-    game.a5e.activeEffects.EffectOptions.createOptions();
+    game.a5e.activeEffects.options = constructEffectOptions();
   });
 
   return preloadHandlebarsTemplates();
