@@ -61,6 +61,15 @@
         if (partyHasSpellPointPool) tableElements.push("spellPoints");
         if (highestSpellSlotLevel) tableElements.push("spellSlots");
 
+        // Add a section to show the "no resources" message when there's nothing to display.
+        if (
+            !partyHasExertionPool &&
+            !partyHasSpellPointPool &&
+            !highestSpellSlotLevel
+        ) {
+            tableElements.push("noResources");
+        }
+
         // Add a cell for the delete button.
         tableElements.push("delete");
 
@@ -88,6 +97,15 @@
         if (partyHasExertionPool) tableElements.push("3.5rem");
         if (partyHasSpellPointPool) tableElements.push("3.5rem");
         if (highestSpellSlotLevel) tableElements.push("min-content");
+
+        // Add a section to show the "no resources" message when there's nothing to display.
+        if (
+            !partyHasExertionPool &&
+            !partyHasSpellPointPool &&
+            !highestSpellSlotLevel
+        ) {
+            tableElements.push("1fr");
+        }
 
         // Add a cell for the delete button.
         tableElements.push("2rem");
@@ -273,6 +291,8 @@
     const unsubscribe = partyMembers.subscribe((_) => {
         highestPassiveScores = getHighestPassiveScoresForParty();
         highestSpellSlotLevel = getHighestSpellSlotLevel();
+        partyHasExertionPool = getAnyMemberHasExertionPool();
+        partyHasSpellPointPool = getAnyMemberHasSpellPointPool();
         gridAreaDefinition = getGridAreaDefinition(currentViewMode);
         gridSizeDefinition = getGridSizeDefinition(currentViewMode);
         totalPartyWealth = getTotalPartyWealth();

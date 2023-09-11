@@ -11,41 +11,43 @@
     }
 </script>
 
-<header class="core-header">
-    {#if propData.partyHasExertionPool}
-        <i
-            class="heading heading--exertion fa-solid fa-dumbbell"
-            data-tooltip="Exertion"
-            data-tooltip-direction="UP"
-        />
-    {/if}
+{#if propData.partyHasExertionPool || propData.partyHasSpellPointPool || propData.highestSpellSlotLevel}
+    <header class="core-header">
+        {#if propData.partyHasExertionPool}
+            <i
+                class="heading heading--exertion fa-solid fa-dumbbell"
+                data-tooltip="Exertion"
+                data-tooltip-direction="UP"
+            />
+        {/if}
 
-    {#if propData.partyHasSpellPointPool}
-        <i
-            class="heading heading--spell-points fa-solid fa-hand-sparkles"
-            data-tooltip="Spell Points"
-            data-tooltip-direction="UP"
-        />
-    {/if}
+        {#if propData.partyHasSpellPointPool}
+            <i
+                class="heading heading--spell-points fa-solid fa-hand-sparkles"
+                data-tooltip="Spell Points"
+                data-tooltip-direction="UP"
+            />
+        {/if}
 
-    {#if propData.highestSpellSlotLevel}
-        <div class="spell-slots">
-            <h3 class="spell-slots__heading">Spell Slots by Level</h3>
+        {#if propData.highestSpellSlotLevel}
+            <div class="spell-slots">
+                <h3 class="spell-slots__heading">Spell Slots by Level</h3>
 
-            <ol class="spell-levels">
-                {#each getSpellLevels(propData) as [spellLevel, tooltip]}
-                    <li
-                        class="spell-level"
-                        data-tooltip={tooltip}
-                        data-tooltip-direction="UP"
-                    >
-                        {spellLevel}
-                    </li>
-                {/each}
-            </ol>
-        </div>
-    {/if}
-</header>
+                <ol class="spell-levels">
+                    {#each getSpellLevels(propData) as [spellLevel, tooltip]}
+                        <li
+                            class="spell-level"
+                            data-tooltip={tooltip}
+                            data-tooltip-direction="UP"
+                        >
+                            {spellLevel}
+                        </li>
+                    {/each}
+                </ol>
+            </div>
+        {/if}
+    </header>
+{/if}
 
 <style lang="scss">
     .core-header {
