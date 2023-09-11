@@ -185,6 +185,14 @@
     }
 
     async function onDropDocument(event) {
+        if (!game.user.isGM) {
+            ui.notifications.warn(
+                "You do not have permission to edit this party."
+            );
+
+            return;
+        }
+
         try {
             const { uuid } = JSON.parse(
                 event.dataTransfer.getData("text/plain")
