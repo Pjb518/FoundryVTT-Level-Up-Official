@@ -20,6 +20,7 @@ import EffectOptions from '../documents/activeEffect/EffectOptions';
 
 import _onCombatControl from '../combat/_onCombatControl';
 import _onCombatantControl from '../combat/_onCombatantControl';
+import constructEffectOptions from '../documents/activeEffect/utils/constructEffectOptions';
 import getInitiativeFormula from '../combat/getInitiativeFormula';
 import getInitiativeRoll from '../combat/getInitiativeRoll';
 import preloadHandlebarsTemplates from '../templates';
@@ -46,13 +47,35 @@ import handleMigration from '../migration/handleMigration';
 import handlePackMigration from '../migration/handlePackMigration';
 
 export default function init() {
+  CONFIG.A5E = A5E;
+  CONFIG.ActiveEffect.documentClass = ActiveEffectA5e;
+  CONFIG.Actor.documentClass = ActorA5e;
+  CONFIG.Actor.trackableAttributes = trackableAttributes;
+  CONFIG.Item.documentClass = ItemA5e;
+  CONFIG.Token.documentClass = TokenDocumentA5e;
+  CONFIG.Token.objectClass = TokenA5e;
+
+  CONFIG.Dice.D20Roll = D20Roll;
+
+  CONFIG.Dice.rolls.push(D20Roll);
+
+  CONFIG.MeasuredTemplate.defaults.angle = 60;
+
+  // DataModels
+  CONFIG.Item.dataModels.background = BackgroundDataModel;
+  CONFIG.Item.dataModels.culture = CultureDataModel;
+  CONFIG.Item.dataModels.destiny = DestinyDataModel;
+  CONFIG.Item.dataModels.heritage = HeritageDataModel;
+
+  // Initialize the game's A5E namespace
   game.a5e = {
     applications: {
       ActorSheetA5e,
       ItemSheetA5e
     },
     activeEffects: {
-      EffectOptions
+      EffectOptions,
+      options: constructEffectOptions()
     },
     config: A5E,
     dice: {
@@ -83,26 +106,7 @@ export default function init() {
     }
   };
 
-  CONFIG.A5E = A5E;
-  CONFIG.ActiveEffect.documentClass = ActiveEffectA5e;
-  CONFIG.Actor.documentClass = ActorA5e;
-  CONFIG.Actor.trackableAttributes = trackableAttributes;
-  CONFIG.Item.documentClass = ItemA5e;
-  CONFIG.Token.documentClass = TokenDocumentA5e;
-  CONFIG.Token.objectClass = TokenA5e;
-
-  CONFIG.Dice.D20Roll = D20Roll;
-
-  CONFIG.Dice.rolls.push(D20Roll);
-
-  CONFIG.MeasuredTemplate.defaults.angle = 60;
-
-  // DataModels
-  CONFIG.Item.dataModels.background = BackgroundDataModel;
-  CONFIG.Item.dataModels.culture = CultureDataModel;
-  CONFIG.Item.dataModels.destiny = DestinyDataModel;
-  CONFIG.Item.dataModels.heritage = HeritageDataModel;
-
+  // Register sheet application classes
   Actors.unregisterSheet('core', ActorSheet);
   Actors.registerSheet('a5e', ActorSheetA5e, {
     types: ['character'],
