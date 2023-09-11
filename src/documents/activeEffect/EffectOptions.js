@@ -3,7 +3,7 @@ import A5E from '../../config';
 export default class EffectOptions {
   static options = {};
 
-  static MODES = CONST.ACTIVE_EFFECT_MODES;
+  static MODES = A5E.ACTIVE_EFFECT_MODES;
 
   static DEFAULT_MODES = Object.keys(EffectOptions.MODES)
     .filter((k) => k !== 'CUSTOM')

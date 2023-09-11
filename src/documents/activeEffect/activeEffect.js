@@ -95,7 +95,7 @@ export default class ActiveEffectA5e extends ActiveEffect {
    * @param {*} change
    */
   #getNewValue(current, change, delta) {
-    const MODES = CONST.ACTIVE_EFFECT_MODES;
+    const MODES = CONFIG.A5E.ACTIVE_EFFECT_MODES;
     const { mode } = change;
 
     if (mode === MODES.ADD) return this.#addOrSubtractValues(current, delta);

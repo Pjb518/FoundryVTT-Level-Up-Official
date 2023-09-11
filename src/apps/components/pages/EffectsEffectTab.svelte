@@ -43,7 +43,7 @@
         $effect.update({ changes });
     }
 
-    const MODES = CONST.ACTIVE_EFFECT_MODES;
+    const MODES = CONFIG.A5E.ACTIVE_EFFECT_MODES;
     const optionsList = sheet.optionsList;
     const optionGroups = getEffectOptionGroups(sheet.optionsList);
 

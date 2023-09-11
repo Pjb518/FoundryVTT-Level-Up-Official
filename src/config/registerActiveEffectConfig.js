@@ -1,4 +1,15 @@
 export default function registerActiveEffectConfig(A5E) {
+  A5E.ACTIVE_EFFECT_MODES = {
+    CUSTOM: 0,
+    MULTIPLY: 1,
+    ADD: 2,
+    SUBTRACT: 3,
+    DOWNGRADE: 4,
+    UPGRADE: 5,
+    OVERRIDE: 6,
+    PREDICATE: 7
+  };
+
   A5E.activeEffectTypes = {
     onUse: 'A5E.effects.types.plural.onUse',
     ongoing: 'A5E.effects.types.plural.ongoing',

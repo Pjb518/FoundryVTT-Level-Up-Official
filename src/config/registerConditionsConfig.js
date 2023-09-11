@@ -1,6 +1,6 @@
-const MODES = CONST.ACTIVE_EFFECT_MODES;
-
 function generateChanges(A5E) {
+  const MODES = A5E.ACTIVE_EFFECT_MODES;
+
   return {
     blinded: [
       {

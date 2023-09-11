@@ -34,7 +34,7 @@ export default function getACComponents(actor) {
    * We don't need to worry about base ac overrides here because the property is changed by effects.
    */
   let changes;
-  if (effectChanges.find(({ mode }) => mode === CONST.ACTIVE_EFFECT_MODES.OVERRIDE)) {
+  if (effectChanges.find(({ mode }) => mode === CONFIG.A5E.ACTIVE_EFFECT_MODES.OVERRIDE)) {
     changes = effectChanges;
   } else changes = (baseChanges.bonuses.components ?? []).concat(effectChanges);
 
