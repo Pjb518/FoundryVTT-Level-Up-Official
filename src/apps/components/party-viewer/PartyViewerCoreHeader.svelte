@@ -48,6 +48,7 @@
         grid-template-areas: var(--grid-areas);
         grid-template-columns: var(--grid-template);
         gap: 0.5rem;
+        min-height: 1.75rem;
         padding: 0.375rem 0.125rem;
         border-bottom: 1px solid #ccc;
         border-top: 1px solid #ccc;

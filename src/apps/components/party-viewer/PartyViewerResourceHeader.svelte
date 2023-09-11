@@ -11,43 +11,41 @@
     }
 </script>
 
-{#if propData.partyHasExertionPool || propData.partyHasSpellPointPool || propData.highestSpellSlotLevel}
-    <header class="core-header">
-        {#if propData.partyHasExertionPool}
-            <i
-                class="heading heading--exertion fa-solid fa-dumbbell"
-                data-tooltip="Exertion"
-                data-tooltip-direction="UP"
-            />
-        {/if}
+<header class="core-header">
+    {#if propData.partyHasExertionPool}
+        <i
+            class="heading heading--exertion fa-solid fa-dumbbell"
+            data-tooltip="Exertion"
+            data-tooltip-direction="UP"
+        />
+    {/if}
 
-        {#if propData.partyHasSpellPointPool}
-            <i
-                class="heading heading--spell-points fa-solid fa-hand-sparkles"
-                data-tooltip="Spell Points"
-                data-tooltip-direction="UP"
-            />
-        {/if}
+    {#if propData.partyHasSpellPointPool}
+        <i
+            class="heading heading--spell-points fa-solid fa-hand-sparkles"
+            data-tooltip="Spell Points"
+            data-tooltip-direction="UP"
+        />
+    {/if}
 
-        {#if propData.highestSpellSlotLevel}
-            <div class="spell-slots">
-                <h3 class="spell-slots__heading">Spell Slots by Level</h3>
+    {#if propData.highestSpellSlotLevel}
+        <div class="spell-slots">
+            <h3 class="spell-slots__heading">Spell Slots by Level</h3>
 
-                <ol class="spell-levels">
-                    {#each getSpellLevels(propData) as [spellLevel, tooltip]}
-                        <li
-                            class="spell-level"
-                            data-tooltip={tooltip}
-                            data-tooltip-direction="UP"
-                        >
-                            {spellLevel}
-                        </li>
-                    {/each}
-                </ol>
-            </div>
-        {/if}
-    </header>
-{/if}
+            <ol class="spell-levels">
+                {#each getSpellLevels(propData) as [spellLevel, tooltip]}
+                    <li
+                        class="spell-level"
+                        data-tooltip={tooltip}
+                        data-tooltip-direction="UP"
+                    >
+                        {spellLevel}
+                    </li>
+                {/each}
+            </ol>
+        </div>
+    {/if}
+</header>
 
 <style lang="scss">
     .core-header {
@@ -56,6 +54,7 @@
         grid-template-columns: var(--grid-template);
         align-items: end;
         gap: 0.5rem;
+        min-height: 1.75rem;
         padding: 0.375rem 0.125rem;
         border-bottom: 1px solid #ccc;
         border-top: 1px solid #ccc;
