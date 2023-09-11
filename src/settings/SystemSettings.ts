@@ -22,7 +22,7 @@ export default class SystemSettings extends SvelteApplication {
         }
       },
       width: 600,
-      height: 800,
+      height: 'auto',
       ...options
     }, { dialogData });
 

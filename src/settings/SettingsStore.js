@@ -311,6 +311,17 @@ class A5eGameSettings extends TJSGameSettings {
           },
           type: Object
         }
+      },
+      {
+        namespace,
+        key: 'playersCanAccessPartyViewer',
+        options: {
+          name: 'A5E.settings.playersCanAccessPartyViewer',
+          scope: scope.world,
+          config: true,
+          default: false,
+          type: Boolean
+        }
       }
     ];
 

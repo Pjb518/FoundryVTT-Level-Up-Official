@@ -11,6 +11,7 @@
     import SettingsCanvasTab from "./SettingsCanvasTab.svelte";
     import SettingsChatCardTab from "./SettingsChatCardTab.svelte";
     import SettingsEffectsTab from "./SettingsEffectsTab.svelte";
+    import SettingsPartyViewerTab from "./SettingsPartyViewerTab.svelte";
     import SettingsRollTab from "./SettingsRollTab.svelte";
 
     export let elementRoot;
@@ -56,6 +57,12 @@
             display: game.user.isGM,
         },
         {
+            name: "partyViewer",
+            label: "Party Viewer",
+            component: SettingsPartyViewerTab,
+            display: game.user.isGM,
+        },
+        {
             name: "rolls",
             label: "A5E.settings.navigation.rolls",
             component: SettingsRollTab,
@@ -74,6 +81,7 @@
     let reload = false;
 
     let { settingsData } = settings;
+
     let gmSettings = settingsData.reduce((acc, setting) => {
         if (setting?.options?.scope === "world") acc.add(setting.key);
         return acc;
@@ -118,6 +126,7 @@
         display: flex;
         flex-direction: column;
         height: 100%;
+        min-height: 30rem;
         padding: 0.75rem;
         gap: 0.5rem;
 

@@ -1,0 +1,66 @@
+<script>
+    import { getContext } from "svelte";
+
+    import Checkbox from "../components/Checkbox.svelte";
+    import FormSection from "../components/FormSection.svelte";
+
+    export let reload;
+
+    const settings = getContext("settings");
+    const updates = getContext("updates");
+
+    const playersCanAccessPartyViewer = settings.getStore(
+        "playersCanAccessPartyViewer"
+    );
+</script>
+
+<section
+    class="u-flex-grow u-flex u-flex-col u-overflow-y-auto u-gap-md u-px-md u-mt-xl"
+>
+    <section class="setting-group">
+        <header class="setting-header">
+            <h3 class="setting-heading">Player Access</h3>
+        </header>
+
+        <FormSection
+            hint="Players will be able to view but not edit the summary information in the Party Viewer window."
+            --gap="0.25rem"
+        >
+            <Checkbox
+                label="Players can access the Party Viewer"
+                checked={updates.get("playersCanAccessPartyViewer") ??
+                    $playersCanAccessPartyViewer ??
+                    false}
+                on:updateSelection={({ detail }) => {
+                    updates.set("playersCanAccessPartyViewer", detail);
+                    reload = true;
+                }}
+            />
+        </FormSection>
+    </section>
+</section>
+
+<style lang="scss">
+    .setting-group {
+        display: flex;
+        flex-direction: column;
+        gap: 0.25rem;
+
+        &:not(:last-child) {
+            margin-bottom: 0.25rem;
+        }
+    }
+
+    .setting-header {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 0 0.5rem 0.25rem 0.125rem;
+        border-bottom: 1px solid #ccc;
+    }
+
+    .setting-heading {
+        font-size: $font-size-sm;
+        white-space: nowrap;
+    }
+</style>

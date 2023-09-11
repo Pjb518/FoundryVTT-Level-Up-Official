@@ -8,7 +8,6 @@
 
     export let reload;
 
-    const appId = getContext("appId");
     const settings = getContext("settings");
     const updates = getContext("updates");
 
@@ -33,14 +32,15 @@
     ].map((c) => [c, localize(`A5E.Condition${c.capitalize()}`)]);
 
     const automatedConditions = settings.getStore("automatedConditions");
-    let selectedConditions =
-        updates.get("automatedConditions") ?? $automatedConditions;
-
     const automateBloodied = settings.getStore("automateBloodiedApplication");
+    const removeEffects = settings.getStore("removeActiveEffectsOnLongRest");
+
     const automateUnconscious = settings.getStore(
         "automateUnconsciousApplication"
     );
-    const removeEffects = settings.getStore("removeActiveEffectsOnLongRest");
+
+    let selectedConditions =
+        updates.get("automatedConditions") ?? $automatedConditions;
 </script>
 
 <section

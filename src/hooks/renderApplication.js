@@ -1,7 +1,10 @@
 import renderPartyViewer from './renderPartyViewer';
 
 export default function renderApplication(application) {
-  if (application.constructor.name !== 'SceneControls' || !game.user.isGM) return;
+  if (
+    application.constructor.name !== 'SceneControls'
+    || (!game.settings.get('a5e', 'playersCanAccessPartyViewer') && !game.user.isGM)
+  ) return;
 
   const sceneControls = document.querySelector('nav#controls .main-controls');
   const button = document.createElement('li');
