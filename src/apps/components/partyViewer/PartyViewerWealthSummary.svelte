@@ -5,9 +5,9 @@
     $: actorData = $actor?.system ?? {};
 </script>
 
-{#each Object.entries(actorData?.currency ?? {}) as [denomination, quantity]}
+{#each ["pp", "gp", "ep", "sp", "cp"] as denomination}
     <span class="field field--{denomination}">
-        {quantity}
+        {actorData?.currency ? actorData?.currency[denomination] : 0}
     </span>
 {/each}
 

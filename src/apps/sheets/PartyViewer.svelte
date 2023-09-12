@@ -49,7 +49,7 @@
             case "resources":
                 return getResourcePanelGridAreaDefinition();
             case "wealth":
-                return `"${base} cp sp ep gp pp ${end}"`;
+                return `"${base} pp gp ep sp cp ${end}"`;
             default:
                 return `"${base} hp ac maneuverDC spellDC perception insight investigation ${end}"`;
         }

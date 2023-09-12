@@ -1,5 +1,5 @@
 <header class="wealth-header">
-    {#each ["cp", "sp", "ep", "gp", "pp"] as denomination}
+    {#each ["pp", "gp", "ep", "sp", "cp"] as denomination}
         <h3
             class="heading heading--{denomination}"
             data-tooltip="A5E.effects.keys.currency.{denomination}"

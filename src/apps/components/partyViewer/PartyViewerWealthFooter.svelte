@@ -5,7 +5,7 @@
 <footer class="wealth-footer">
     <h3 class="heading">Party Total</h3>
 
-    {#each ["cp", "sp", "ep", "gp", "pp"] as denomination}
+    {#each ["pp", "gp", "ep", "sp", "cp"] as denomination}
         <span class="total total--{denomination}">
             {totalPartyWealth[denomination] ?? 0}
         </span>
