@@ -24,7 +24,7 @@
 				},
 				"actions": {},
 				"description": "<p>The manticore attacks with its bite and its claws.</p>",
-				"favorite": false,
+				"favorite": true,
 				"secretDescription": "",
 				"source": "",
 				"uses": {
@@ -75,7 +75,7 @@
 				},
 				"actions": {
 					"ZoBPVPdmvCvtaTXd": {
-						"name": "Bite",
+						"name": "Attack",
 						"activation": {
 							"cost": 1,
 							"type": "action",
@@ -110,7 +110,7 @@
 							"LlpbEXD4QME5N8UW": {
 								"canCrit": true,
 								"damageType": "piercing",
-								"formula": "1d6 +@str.mod",
+								"formula": "1d6 + @str.mod",
 								"name": "Piercing",
 								"type": "damage"
 							}
@@ -174,7 +174,7 @@
 				},
 				"actions": {
 					"zQbwiiWYnVsgGkg8": {
-						"name": "Claw",
+						"name": "Attack",
 						"activation": {
 							"cost": 1,
 							"type": "action",
@@ -209,7 +209,7 @@
 							"A7jda52i4Te4GmCU": {
 								"canCrit": true,
 								"damageType": "slashing",
-								"formula": "2d4 +@str.mod",
+								"formula": "2d4 + @str.mod",
 								"name": "Slashing",
 								"type": "damage"
 							}
@@ -280,7 +280,7 @@
 				},
 				"actions": {
 					"IsnaXMaNairoJknW": {
-						"name": "Tail",
+						"name": "Attack",
 						"activation": {
 							"cost": 1,
 							"type": "action",
@@ -315,7 +315,7 @@
 							"Z2T7wZ1R5yM0g1PG": {
 								"canCrit": true,
 								"damageType": "piercing",
-								"formula": "1d8 =@str.mod",
+								"formula": "1d8 + @str.mod",
 								"name": "Piercing",
 								"type": "damage"
 							}
@@ -375,25 +375,23 @@
 				},
 				"actions": {
 					"6F6JEp4g2WEnlPkX": {
-						"name": "Tail Spike Volley",
+						"name": "Fire Volley",
 						"activation": {
 							"cost": 1,
 							"type": "action",
 							"reactionTrigger": ""
 						},
 						"duration": {
-							"unit": "",
+							"unit": "instantaneous",
 							"value": ""
 						},
-						"ranges": {
-							"TNH9ZbYqfg0lSmjj": {
-								"range": "medium"
-							}
-						},
+						"ranges": {},
 						"area": {
 							"shape": "line",
 							"size": "5",
-							"placeTemplate": false
+							"placeTemplate": true,
+							"length": 60,
+							"width": 5
 						},
 						"target": {
 							"quantity": null,
@@ -411,7 +409,7 @@
 						"prompts": {
 							"uedFLf5YddkRlmiq": {
 								"ability": "dex",
-								"onSave": "Half damage",
+								"onSave": "Targets take half damage on a successful save",
 								"saveDC": {
 									"type": "custom",
 									"bonus": "12"
@@ -482,7 +480,7 @@
 				},
 				"actions": {
 					"9W8Ti0uMVLLoI4Hh": {
-						"name": "Tail Whip",
+						"name": "Tail Attack",
 						"activation": {
 							"cost": 1,
 							"type": "reaction",
@@ -498,14 +496,35 @@
 							"placeTemplate": false
 						},
 						"target": {
-							"quantity": "",
-							"type": ""
+							"quantity": 1,
+							"type": "creatureObject"
 						},
-						"consumers": {}
+						"consumers": {},
+						"ranges": {
+							"vww1LnGy1nI8Pc97": {
+								"range": 10,
+								"unit": "feet"
+							}
+						},
+						"rolls": {
+							"K6RGFhVkGNnRYWfn": {
+								"type": "attack",
+								"default": true,
+								"attackType": "meleeWeaponAttack",
+								"proficient": true,
+								"ability": "str"
+							},
+							"4ZEsJPhd0816gmWv": {
+								"type": "damage",
+								"default": true,
+								"formula": "1d8 + @str.mod",
+								"damageType": "piercing"
+							}
+						}
 					}
 				},
 				"description": "<p>If a creature the manticore can see hits it with a melee attack, the manticore attacks the attacker with its tail. If it hits, it can fly up to half its fly speed without provoking opportunity attacks from the attacker.<br></p>",
-				"favorite": false,
+				"favorite": true,
 				"secretDescription": "",
 				"source": "",
 				"uses": {
@@ -1089,7 +1108,13 @@
 		}
 	],
 	"effects": [],
-	"flags": {},
+	"flags": {
+		"a5e": {
+			"currentTab": "core",
+			"sheetIsLocked": true,
+			"showSpellTab": false
+		}
+	},
 	"system": {
 		"abilities": {
 			"str": {
@@ -1476,8 +1501,8 @@
 				"failure": 0
 			},
 			"hp": {
-				"value": 10,
-				"baseMax": 10,
+				"value": 68,
+				"baseMax": 68,
 				"temp": 0,
 				"bonus": 0
 			},
@@ -1491,8 +1516,8 @@
 					"total": 0
 				},
 				"d10": {
-					"current": 0,
-					"total": 0
+					"current": 8,
+					"total": 8
 				},
 				"d12": {
 					"current": 0,
