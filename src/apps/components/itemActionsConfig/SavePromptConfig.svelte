@@ -56,12 +56,6 @@
 
     $: saveDC = onSaveDCUpdate($actor, prompt?.saveDC?.type, saveDCBonus);
 
-    $: updateDocumentDataFromField(
-        $item,
-        `system.actions.${actionId}.prompts.${promptId}.saveDC.bonus`,
-        saveDCBonus
-    );
-
     $: selectedAbility = prompt.ability ?? "none";
     $: selectedAbility, updateAbility();
 </script>
@@ -128,7 +122,17 @@
         --padding="0"
     >
         <div class="u-flex u-gap-sm">
-            <input type="text" autocomplete="off" bind:value={saveDCBonus} />
+            <input
+                type="text"
+                autocomplete="off"
+                bind:value={saveDCBonus}
+                on:change={({ target }) =>
+                    updateDocumentDataFromField(
+                        $item,
+                        `system.actions.${actionId}.prompts.${promptId}.saveDC.bonus`,
+                        target.value
+                    )}
+            />
 
             {#if saveDC || !saveDCIsValid}
                 <span
