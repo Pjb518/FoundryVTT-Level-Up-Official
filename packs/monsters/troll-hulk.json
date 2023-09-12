@@ -4,57 +4,6 @@
 	"img": "systems/a5e/assets/troll.webp",
 	"items": [
 		{
-			"_id": "Z9LiON9IwrCuItSA",
-			"name": "Keen Smell",
-			"type": "feature",
-			"img": "icons/svg/item-bag.svg",
-			"effects": [],
-			"folder": null,
-			"sort": 0,
-			"flags": {},
-			"system": {
-				"ac": {
-					"baseFormula": "",
-					"formula": "",
-					"maxDex": 0,
-					"minStr": 0,
-					"mode": 1,
-					"requiresNoShield": false,
-					"requiresUnarmored": false
-				},
-				"actions": {},
-				"description": "<p>The troll has advantage on Perception checks that rely on smell.</p>",
-				"favorite": false,
-				"secretDescription": "",
-				"source": "",
-				"uses": {
-					"value": null,
-					"max": "",
-					"per": null,
-					"recharge": {
-						"formula": "",
-						"threshold": ""
-					}
-				},
-				"schema": {
-					"version": 0.004,
-					"lastMigration": {
-						"version": {
-							"schema": 0.003,
-							"foundry": "11.302",
-							"system": "0.12.7"
-						}
-					}
-				},
-				"concentration": false,
-				"featureType": "",
-				"prerequisite": ""
-			},
-			"ownership": {
-				"default": 0
-			}
-		},
-		{
 			"_id": "nnAonsXRMHJM3PXj",
 			"name": "Regeneration",
 			"type": "feature",
@@ -177,7 +126,7 @@
 				},
 				"actions": {
 					"zBFvLQKbofPHWcPg": {
-						"name": "Bite",
+						"name": "Attack",
 						"activation": {
 							"cost": 1,
 							"type": "action",
@@ -207,12 +156,12 @@
 								"critThreshold": "20",
 								"type": "attack",
 								"attackType": "meleeWeaponAttack",
-								"ability": "default"
+								"ability": "str"
 							},
 							"voQ7NtauALIuHjFe": {
 								"canCrit": true,
 								"damageType": "piercing",
-								"formula": "3d12+ @default.mod",
+								"formula": "3d12+ @str.mod",
 								"name": "Default",
 								"type": "damage"
 							}
@@ -272,7 +221,7 @@
 				},
 				"actions": {
 					"xGvWcNZGDtfOKE3O": {
-						"name": "Claw",
+						"name": "Attack",
 						"activation": {
 							"cost": 1,
 							"type": "action",
@@ -303,12 +252,12 @@
 								"critThreshold": "20",
 								"type": "attack",
 								"attackType": "meleeWeaponAttack",
-								"ability": "default"
+								"ability": "str"
 							},
 							"g9XXEKoiOVQHgZxb": {
 								"canCrit": true,
 								"damageType": "slashing",
-								"formula": "3d4 + @default.mod",
+								"formula": "3d4 + @str.mod",
 								"name": "Default",
 								"type": "damage"
 							}
@@ -903,7 +852,7 @@
 			"_id": "6ldCHDek37do0Qno",
 			"name": "Legendary Resistance",
 			"type": "feature",
-			"img": "icons/svg/item-bag.svg",
+			"img": "icons/commodities/treasure/crown-gold-laurel-wreath.webp",
 			"effects": [],
 			"folder": null,
 			"sort": 0,
@@ -992,22 +941,22 @@
 				},
 				"actions": {
 					"i8O5KtNiDEFY0jcl": {
-						"name": "Rock",
+						"name": "Throw Rock",
 						"activation": {},
 						"consumers": {},
 						"rolls": {
 							"j7RQMLfOLondE9yI": {
 								"type": "attack",
 								"default": true,
-								"attackType": "meleeWeaponAttack",
+								"attackType": "rangedWeaponAttack",
 								"proficient": true,
-								"ability": "default"
+								"ability": "str"
 							},
 							"hCm6eVLisvba2a62": {
 								"type": "damage",
 								"default": true,
 								"damageType": "bludgeoning",
-								"formula": "3d12 + @default.mod"
+								"formula": "3d12 + @str.mod"
 							}
 						},
 						"prompts": {},
@@ -1110,7 +1059,7 @@
 				"prerequisite": ""
 			},
 			"_id": "mRQAo5V8d87SUgj1",
-			"img": "icons/svg/item-bag.svg",
+			"img": "icons/skills/social/intimidation-impressing.webp",
 			"effects": [],
 			"folder": null,
 			"sort": 0,
@@ -1159,7 +1108,7 @@
 				"prerequisite": ""
 			},
 			"_id": "vjMY31cVYeR8ECcg",
-			"img": "icons/svg/item-bag.svg",
+			"img": "icons/skills/movement/arrow-upward-yellow.webp",
 			"effects": [],
 			"folder": null,
 			"sort": 0,
@@ -1314,6 +1263,57 @@
 				"default": 0
 			},
 			"flags": {}
+		},
+		{
+			"_id": "nPG7Y1FlGKGW5uJ8",
+			"name": "Keen Smell",
+			"type": "feature",
+			"img": "icons/creatures/mammals/wolf-shadow-black.webp",
+			"effects": [],
+			"folder": null,
+			"sort": 2,
+			"flags": {},
+			"system": {
+				"ac": {
+					"baseFormula": "",
+					"formula": "",
+					"maxDex": 0,
+					"minStr": 0,
+					"mode": 1,
+					"requiresNoShield": false,
+					"requiresUnarmored": false
+				},
+				"actions": {},
+				"description": "<p>The troll has advantage on Perception checks that rely on smell.</p>",
+				"favorite": true,
+				"secretDescription": "",
+				"source": "",
+				"uses": {
+					"value": null,
+					"max": "",
+					"per": null,
+					"recharge": {
+						"formula": "",
+						"threshold": ""
+					}
+				},
+				"schema": {
+					"version": 0.004,
+					"lastMigration": {
+						"version": {
+							"schema": 0.003,
+							"foundry": "11.302",
+							"system": "0.12.7"
+						}
+					}
+				},
+				"concentration": false,
+				"featureType": "",
+				"prerequisite": ""
+			},
+			"ownership": {
+				"default": 0
+			}
 		}
 	],
 	"effects": [],

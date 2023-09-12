@@ -4,57 +4,6 @@
 	"img": "systems/a5e/assets/troll.webp",
 	"items": [
 		{
-			"_id": "Z9LiON9IwrCuItSA",
-			"name": "Keen Smell",
-			"type": "feature",
-			"img": "icons/svg/item-bag.svg",
-			"effects": [],
-			"folder": null,
-			"sort": 0,
-			"flags": {},
-			"system": {
-				"ac": {
-					"baseFormula": "",
-					"formula": "",
-					"maxDex": 0,
-					"minStr": 0,
-					"mode": 1,
-					"requiresNoShield": false,
-					"requiresUnarmored": false
-				},
-				"actions": {},
-				"description": "<p>The troll has advantage on Perception checks that rely on smell.</p>",
-				"favorite": false,
-				"secretDescription": "",
-				"source": "",
-				"uses": {
-					"value": null,
-					"max": "",
-					"per": null,
-					"recharge": {
-						"formula": "",
-						"threshold": ""
-					}
-				},
-				"schema": {
-					"version": 0.004,
-					"lastMigration": {
-						"version": {
-							"schema": 0.003,
-							"foundry": "11.302",
-							"system": "0.12.7"
-						}
-					}
-				},
-				"concentration": false,
-				"featureType": "",
-				"prerequisite": ""
-			},
-			"ownership": {
-				"default": 0
-			}
-		},
-		{
 			"_id": "nnAonsXRMHJM3PXj",
 			"name": "Regeneration",
 			"type": "feature",
@@ -177,7 +126,7 @@
 				},
 				"actions": {
 					"zBFvLQKbofPHWcPg": {
-						"name": "Bite",
+						"name": "Attack",
 						"activation": {
 							"cost": 1,
 							"type": "action",
@@ -207,12 +156,12 @@
 								"critThreshold": "20",
 								"type": "attack",
 								"attackType": "meleeWeaponAttack",
-								"ability": "default"
+								"ability": "str"
 							},
 							"voQ7NtauALIuHjFe": {
 								"canCrit": true,
 								"damageType": "piercing",
-								"formula": "3d12+ @default.mod",
+								"formula": "3d12+ @str.mod",
 								"name": "Default",
 								"type": "damage"
 							}
@@ -303,12 +252,12 @@
 								"critThreshold": "20",
 								"type": "attack",
 								"attackType": "meleeWeaponAttack",
-								"ability": "default"
+								"ability": "str"
 							},
 							"g9XXEKoiOVQHgZxb": {
 								"canCrit": true,
 								"damageType": "slashing",
-								"formula": "3d4 + @default.mod",
+								"formula": "3d4 + @str.mod",
 								"name": "Default",
 								"type": "damage"
 							}
@@ -900,275 +849,6 @@
 			"_id": "6r2P3mImF3AwNEx8"
 		},
 		{
-			"_id": "6ldCHDek37do0Qno",
-			"name": "Legendary Resistance",
-			"type": "feature",
-			"img": "icons/svg/item-bag.svg",
-			"effects": [],
-			"folder": null,
-			"sort": 0,
-			"flags": {},
-			"system": {
-				"ac": {
-					"baseFormula": "",
-					"formula": "",
-					"maxDex": 0,
-					"minStr": 0,
-					"mode": 1,
-					"requiresNoShield": false,
-					"requiresUnarmored": false
-				},
-				"actions": {
-					"6a9TBmDwiX7n8JbP": {
-						"name": "Legendary Resistance",
-						"activation": {
-							"cost": 1,
-							"type": "none",
-							"reactionTrigger": ""
-						},
-						"duration": {
-							"unit": "",
-							"value": ""
-						},
-						"area": {
-							"shape": "",
-							"size": "",
-							"placeTemplate": false
-						},
-						"target": {
-							"quantity": "",
-							"type": ""
-						},
-						"consumers": {
-							"VXmm9tUZsNW8QbJE": {
-								"type": "itemUses"
-							}
-						}
-					}
-				},
-				"description": "<p>The troll has four extra troll, humanoid, or giant faces budding from its hide. When the troll fails a&nbsp;<span class=\"freelinking-link\">saving throw</span>&nbsp;, it can choose to succeed instead. If it does, one of its extra faces dies. When the troll succeeds on a saving throw in this way, it takes no damage from an effect that would deal half damage on a success. Once the troll has used this trait four times, it can&rsquo;t do so again until it consumes another creature that has a face.</p>",
-				"favorite": true,
-				"secretDescription": "",
-				"source": "",
-				"uses": {
-					"value": 4,
-					"max": "4",
-					"per": "day",
-					"recharge": {
-						"formula": "",
-						"threshold": ""
-					}
-				},
-				"schema": {
-					"version": 0.004,
-					"lastMigration": {
-						"version": {
-							"schema": 0.003,
-							"foundry": "11.302",
-							"system": "0.12.7"
-						}
-					}
-				},
-				"concentration": false,
-				"featureType": "",
-				"prerequisite": ""
-			},
-			"ownership": {
-				"default": 0
-			}
-		},
-		{
-			"name": "Rock",
-			"type": "feature",
-			"system": {
-				"ac": {
-					"baseFormula": "",
-					"formula": "",
-					"maxDex": 0,
-					"minStr": 0,
-					"mode": 2,
-					"requiresNoShield": false,
-					"requiresUnarmored": false
-				},
-				"actions": {
-					"i8O5KtNiDEFY0jcl": {
-						"name": "Rock",
-						"activation": {},
-						"consumers": {},
-						"rolls": {
-							"j7RQMLfOLondE9yI": {
-								"type": "attack",
-								"default": true,
-								"attackType": "meleeWeaponAttack",
-								"proficient": true,
-								"ability": "default"
-							},
-							"hCm6eVLisvba2a62": {
-								"type": "damage",
-								"default": true,
-								"damageType": "bludgeoning",
-								"formula": "3d12 + @default.mod"
-							}
-						},
-						"prompts": {},
-						"uses": {
-							"value": 0,
-							"max": "",
-							"per": "",
-							"recharge": {
-								"formula": "1d6",
-								"threshold": 6
-							}
-						},
-						"ranges": {
-							"rtnr2pKb9fjrPXe6": {
-								"range": 20,
-								"unit": "feet"
-							},
-							"1QkuQZw0vB7HTgzj": {
-								"range": "medium"
-							}
-						},
-						"target": {
-							"type": "creature",
-							"quantity": 1
-						}
-					}
-				},
-				"description": "<p><em>Ranged Weapon Attack:&nbsp;</em>+12 to hit, reach 5 ft., one target.&nbsp;<em>Hit:&nbsp;</em>26 (3d12 + 7) bludgeoning damage. If the target is a creature, it must succeed on a DC 20 Strength&nbsp;<span class=\"freelinking-link\">saving throw</span>&nbsp;or be knocked&nbsp;<span class=\"freelinking-link\">prone</span>&nbsp;.</p>",
-				"favorite": true,
-				"secretDescription": "",
-				"source": {
-					"name": "",
-					"link": "",
-					"publisher": ""
-				},
-				"uses": {
-					"value": null,
-					"max": "",
-					"per": null,
-					"recharge": {
-						"formula": "1d6",
-						"threshold": "6"
-					}
-				},
-				"schema": {
-					"version": 0.001,
-					"lastMigration": null
-				},
-				"concentration": false,
-				"featureType": "other",
-				"prerequisite": ""
-			},
-			"_id": "z6Pi0u4jWW2AtQ9V",
-			"img": "icons/magic/earth/projectile-boulder-debris.webp",
-			"effects": [],
-			"folder": null,
-			"sort": 0,
-			"ownership": {
-				"default": 0
-			},
-			"flags": {}
-		},
-		{
-			"name": "Legendary Actions",
-			"type": "feature",
-			"system": {
-				"ac": {
-					"baseFormula": "",
-					"formula": "",
-					"maxDex": 0,
-					"minStr": 0,
-					"mode": 2,
-					"requiresNoShield": false,
-					"requiresUnarmored": false
-				},
-				"actions": {},
-				"description": "<p>The troll can take 2 legendary actions, choosing from the options below. Only one legendary action can be used at a time and only at the end of another creature&rsquo;s turn. It regains spent legendary actions at the start of its turn.</p>",
-				"favorite": true,
-				"secretDescription": "",
-				"source": {
-					"name": "",
-					"link": "",
-					"publisher": ""
-				},
-				"uses": {
-					"value": 2,
-					"max": "2",
-					"per": null,
-					"recharge": {
-						"formula": "1d6",
-						"threshold": "6"
-					}
-				},
-				"schema": {
-					"version": 0.001,
-					"lastMigration": null
-				},
-				"concentration": false,
-				"featureType": "legendaryAction",
-				"prerequisite": ""
-			},
-			"_id": "mRQAo5V8d87SUgj1",
-			"img": "icons/svg/item-bag.svg",
-			"effects": [],
-			"folder": null,
-			"sort": 0,
-			"ownership": {
-				"default": 0
-			},
-			"flags": {}
-		},
-		{
-			"name": "Clumsy Leap (Legendary Action)",
-			"type": "feature",
-			"system": {
-				"ac": {
-					"baseFormula": "",
-					"formula": "",
-					"maxDex": 0,
-					"minStr": 0,
-					"mode": 2,
-					"requiresNoShield": false,
-					"requiresUnarmored": false
-				},
-				"actions": {},
-				"description": "<p>The troll leaps up to 50 feet horizontally or 20 feet vertically, with or without a running start. The troll lands&nbsp;<span class=\"freelinking-link\">prone</span>.</p>",
-				"favorite": true,
-				"secretDescription": "",
-				"source": {
-					"name": "",
-					"link": "",
-					"publisher": ""
-				},
-				"uses": {
-					"value": null,
-					"max": "",
-					"per": null,
-					"recharge": {
-						"formula": "1d6",
-						"threshold": "6"
-					}
-				},
-				"schema": {
-					"version": 0.001,
-					"lastMigration": null
-				},
-				"concentration": false,
-				"featureType": "other",
-				"prerequisite": ""
-			},
-			"_id": "vjMY31cVYeR8ECcg",
-			"img": "icons/svg/item-bag.svg",
-			"effects": [],
-			"folder": null,
-			"sort": 0,
-			"ownership": {
-				"default": 0
-			},
-			"flags": {}
-		},
-		{
 			"name": "Lunging Claw (Legendary Action)",
 			"type": "feature",
 			"system": {
@@ -1380,7 +1060,7 @@
 				"prerequisite": ""
 			},
 			"_id": "1gsZu7378JmPPULR",
-			"img": "icons/svg/item-bag.svg",
+			"img": "icons/magic/life/heart-area-circle-red-green.webp",
 			"effects": [],
 			"folder": null,
 			"sort": 0,
@@ -1429,7 +1109,7 @@
 				"prerequisite": ""
 			},
 			"_id": "k2gJtaMj15GEwRLI",
-			"img": "icons/svg/item-bag.svg",
+			"img": "icons/commodities/biological/pustules-brown.webp",
 			"effects": [],
 			"folder": null,
 			"sort": 0,
@@ -1437,6 +1117,228 @@
 				"default": 0
 			},
 			"flags": {}
+		},
+		{
+			"_id": "taPkUpy9nwJXpsmu",
+			"name": "Legendary Resistance",
+			"type": "feature",
+			"img": "icons/commodities/treasure/crown-gold-laurel-wreath.webp",
+			"effects": [],
+			"folder": null,
+			"sort": 0,
+			"flags": {},
+			"system": {
+				"ac": {
+					"baseFormula": "",
+					"formula": "",
+					"maxDex": 0,
+					"minStr": 0,
+					"mode": 1,
+					"requiresNoShield": false,
+					"requiresUnarmored": false
+				},
+				"actions": {
+					"6a9TBmDwiX7n8JbP": {
+						"name": "Legendary Resistance",
+						"activation": {
+							"cost": 1,
+							"type": "none",
+							"reactionTrigger": ""
+						},
+						"duration": {
+							"unit": "",
+							"value": ""
+						},
+						"area": {
+							"shape": "",
+							"size": "",
+							"placeTemplate": false
+						},
+						"target": {
+							"quantity": "",
+							"type": ""
+						},
+						"consumers": {
+							"VXmm9tUZsNW8QbJE": {
+								"type": "itemUses"
+							}
+						}
+					}
+				},
+				"description": "<p>The troll has four extra troll, humanoid, or giant faces budding from its hide. When the troll fails a&nbsp;<span class=\"freelinking-link\">saving throw</span>&nbsp;, it can choose to succeed instead. If it does, one of its extra faces dies. When the troll succeeds on a saving throw in this way, it takes no damage from an effect that would deal half damage on a success. Once the troll has used this trait four times, it can&rsquo;t do so again until it consumes another creature that has a face.</p>",
+				"favorite": true,
+				"secretDescription": "",
+				"source": "",
+				"uses": {
+					"value": 4,
+					"max": "4",
+					"per": "day",
+					"recharge": {
+						"formula": "",
+						"threshold": ""
+					}
+				},
+				"schema": {
+					"version": 0.004,
+					"lastMigration": {
+						"version": {
+							"schema": 0.003,
+							"foundry": "11.302",
+							"system": "0.12.7"
+						}
+					}
+				},
+				"concentration": false,
+				"featureType": "",
+				"prerequisite": ""
+			},
+			"ownership": {
+				"default": 0
+			}
+		},
+		{
+			"name": "Rock",
+			"type": "feature",
+			"system": {
+				"ac": {
+					"baseFormula": "",
+					"formula": "",
+					"maxDex": 0,
+					"minStr": 0,
+					"mode": 2,
+					"requiresNoShield": false,
+					"requiresUnarmored": false
+				},
+				"actions": {
+					"i8O5KtNiDEFY0jcl": {
+						"name": "Throw Rock",
+						"activation": {},
+						"consumers": {},
+						"rolls": {
+							"j7RQMLfOLondE9yI": {
+								"type": "attack",
+								"default": true,
+								"attackType": "rangedWeaponAttack",
+								"proficient": true,
+								"ability": "str"
+							},
+							"hCm6eVLisvba2a62": {
+								"type": "damage",
+								"default": true,
+								"damageType": "bludgeoning",
+								"formula": "3d12 + @str.mod"
+							}
+						},
+						"prompts": {},
+						"uses": {
+							"value": 0,
+							"max": "",
+							"per": "",
+							"recharge": {
+								"formula": "1d6",
+								"threshold": 6
+							}
+						},
+						"ranges": {
+							"rtnr2pKb9fjrPXe6": {
+								"range": 20,
+								"unit": "feet"
+							},
+							"1QkuQZw0vB7HTgzj": {
+								"range": "medium"
+							}
+						},
+						"target": {
+							"type": "creature",
+							"quantity": 1
+						}
+					}
+				},
+				"description": "<p><em>Ranged Weapon Attack:&nbsp;</em>+12 to hit, reach 5 ft., one target.&nbsp;<em>Hit:&nbsp;</em>26 (3d12 + 7) bludgeoning damage. If the target is a creature, it must succeed on a DC 20 Strength&nbsp;<span class=\"freelinking-link\">saving throw</span>&nbsp;or be knocked&nbsp;<span class=\"freelinking-link\">prone</span>&nbsp;.</p>",
+				"favorite": true,
+				"secretDescription": "",
+				"source": {
+					"name": "",
+					"link": "",
+					"publisher": ""
+				},
+				"uses": {
+					"value": null,
+					"max": "",
+					"per": null,
+					"recharge": {
+						"formula": "1d6",
+						"threshold": "6"
+					}
+				},
+				"schema": {
+					"version": 0.001,
+					"lastMigration": null
+				},
+				"concentration": false,
+				"featureType": "other",
+				"prerequisite": ""
+			},
+			"_id": "tAn7xMUftGed8PI5",
+			"img": "icons/magic/earth/projectile-boulder-debris.webp",
+			"effects": [],
+			"folder": null,
+			"sort": 0,
+			"ownership": {
+				"default": 0
+			},
+			"flags": {}
+		},
+		{
+			"_id": "VYUMyyopG21s4WQW",
+			"name": "Keen Smell",
+			"type": "feature",
+			"img": "icons/creatures/mammals/wolf-shadow-black.webp",
+			"effects": [],
+			"folder": null,
+			"sort": 2,
+			"flags": {},
+			"system": {
+				"ac": {
+					"baseFormula": "",
+					"formula": "",
+					"maxDex": 0,
+					"minStr": 0,
+					"mode": 1,
+					"requiresNoShield": false,
+					"requiresUnarmored": false
+				},
+				"actions": {},
+				"description": "<p>The troll has advantage on Perception checks that rely on smell.</p>",
+				"favorite": true,
+				"secretDescription": "",
+				"source": "",
+				"uses": {
+					"value": null,
+					"max": "",
+					"per": null,
+					"recharge": {
+						"formula": "",
+						"threshold": ""
+					}
+				},
+				"schema": {
+					"version": 0.004,
+					"lastMigration": {
+						"version": {
+							"schema": 0.003,
+							"foundry": "11.302",
+							"system": "0.12.7"
+						}
+					}
+				},
+				"concentration": false,
+				"featureType": "",
+				"prerequisite": ""
+			},
+			"ownership": {
+				"default": 0
+			}
 		}
 	],
 	"effects": [],

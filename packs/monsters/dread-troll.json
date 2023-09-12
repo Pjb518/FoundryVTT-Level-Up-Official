@@ -4,64 +4,13 @@
 	"img": "systems/a5e/assets/troll.webp",
 	"items": [
 		{
-			"_id": "Z9LiON9IwrCuItSA",
-			"name": "Keen Smell",
-			"type": "feature",
-			"img": "icons/svg/item-bag.svg",
-			"effects": [],
-			"folder": null,
-			"sort": 0,
-			"flags": {},
-			"system": {
-				"ac": {
-					"baseFormula": "",
-					"formula": "",
-					"maxDex": 0,
-					"minStr": 0,
-					"mode": 1,
-					"requiresNoShield": false,
-					"requiresUnarmored": false
-				},
-				"actions": {},
-				"description": "<p>The troll has advantage on Perception checks that rely on smell.</p>",
-				"favorite": false,
-				"secretDescription": "",
-				"source": "",
-				"uses": {
-					"value": null,
-					"max": "",
-					"per": null,
-					"recharge": {
-						"formula": "",
-						"threshold": ""
-					}
-				},
-				"schema": {
-					"version": 0.004,
-					"lastMigration": {
-						"version": {
-							"schema": 0.003,
-							"foundry": "11.302",
-							"system": "0.12.7"
-						}
-					}
-				},
-				"concentration": false,
-				"featureType": "",
-				"prerequisite": ""
-			},
-			"ownership": {
-				"default": 0
-			}
-		},
-		{
 			"_id": "nnAonsXRMHJM3PXj",
 			"name": "Regeneration",
 			"type": "feature",
 			"img": "icons/skills/wounds/anatomy-organ-heart-red.webp",
 			"effects": [],
 			"folder": null,
-			"sort": 0,
+			"sort": 4,
 			"flags": {},
 			"system": {
 				"ac": {
@@ -75,58 +24,7 @@
 				},
 				"actions": {},
 				"description": "<p>The troll regains 10 hit points at the start of its turn. If the troll takes acid or fire damage, this trait doesn’t function on its next turn. The troll dies only if it starts its turn with 0 hit points and doesn’t regenerate.</p>",
-				"favorite": false,
-				"secretDescription": "",
-				"source": "",
-				"uses": {
-					"value": null,
-					"max": "",
-					"per": null,
-					"recharge": {
-						"formula": "",
-						"threshold": ""
-					}
-				},
-				"schema": {
-					"version": 0.004,
-					"lastMigration": {
-						"version": {
-							"schema": 0.003,
-							"foundry": "11.302",
-							"system": "0.12.7"
-						}
-					}
-				},
-				"concentration": false,
-				"featureType": "",
-				"prerequisite": ""
-			},
-			"ownership": {
-				"default": 0
-			}
-		},
-		{
-			"_id": "g8ErAT6KkKFqIUyn",
-			"name": "Severed Limbs",
-			"type": "feature",
-			"img": "icons/svg/item-bag.svg",
-			"effects": [],
-			"folder": null,
-			"sort": 0,
-			"flags": {},
-			"system": {
-				"ac": {
-					"baseFormula": "",
-					"formula": "",
-					"maxDex": 0,
-					"minStr": 0,
-					"mode": 1,
-					"requiresNoShield": false,
-					"requiresUnarmored": false
-				},
-				"actions": {},
-				"description": "<p>If the troll is dealt a critical hit with a slashing weapon, one of its extremities is severed. The extremity has AC 15, 10 hit points, a Speed of 10, and the troll’s Regeneration trait. The troll controls the severed extremity and perceives through it with the appropriate senses (for instance, it sees through the eyes of its severed head). As a bonus action, the troll can reattach the extremity. While the troll is missing the extremity, its maximum hit points are reduced by 10. Roll d6 to determine the severed extremity:</p><p>1-4: <strong><em>Arm.</em></strong> If the troll has an arm, it loses an arm. It loses one of its claw attacks, and the severed arm can make a claw attack.</p><p>5-6: <strong><em>Head.</em></strong> If the troll has a head, it loses its head. It loses its bite attack, and the severed head can make a bite attack.&nbsp;</p>",
-				"favorite": false,
+				"favorite": true,
 				"secretDescription": "",
 				"source": "",
 				"uses": {
@@ -163,7 +61,7 @@
 			"img": "icons/skills/melee/blade-tips-triple-steel.webp",
 			"effects": [],
 			"folder": null,
-			"sort": 0,
+			"sort": 3,
 			"flags": {},
 			"system": {
 				"ac": {
@@ -177,7 +75,7 @@
 				},
 				"actions": {},
 				"description": "<p>The troll makes two bite attacks and three claw attacks.</p>",
-				"favorite": false,
+				"favorite": true,
 				"secretDescription": "",
 				"source": "",
 				"uses": {
@@ -228,7 +126,7 @@
 				},
 				"actions": {
 					"eMIucJDE8KuHU4sg": {
-						"name": "Bite",
+						"name": "Attack",
 						"activation": {
 							"cost": 1,
 							"type": "action",
@@ -258,12 +156,12 @@
 								"critThreshold": "20",
 								"type": "attack",
 								"attackType": "meleeWeaponAttack",
-								"ability": "default"
+								"ability": "str"
 							},
 							"cweZl9vTMUQ82cOf": {
 								"canCrit": true,
 								"damageType": "piercing",
-								"formula": "2d6 + @default.mod",
+								"formula": "2d6 + @str.mod",
 								"name": "Default",
 								"type": "damage"
 							}
@@ -309,7 +207,7 @@
 			"img": "icons/skills/melee/blood-slash-foam-red.webp",
 			"effects": [],
 			"folder": null,
-			"sort": 0,
+			"sort": 1,
 			"flags": {},
 			"system": {
 				"ac": {
@@ -323,7 +221,7 @@
 				},
 				"actions": {
 					"hAXOVKNvyx5HB2Zw": {
-						"name": "Claw",
+						"name": "Attack",
 						"activation": {
 							"cost": 1,
 							"type": "action",
@@ -353,12 +251,12 @@
 								"critThreshold": "20",
 								"type": "attack",
 								"attackType": "meleeWeaponAttack",
-								"ability": "default"
+								"ability": "str"
 							},
 							"IqNYXGYlewcdzj1s": {
 								"canCrit": true,
 								"damageType": "slashing",
-								"formula": "2d4 + @default.mod",
+								"formula": "2d4 + @str.mod",
 								"name": "Default",
 								"type": "damage"
 							}
@@ -948,6 +846,108 @@
 			"folder": null,
 			"sort": 0,
 			"_id": "FcxRpRPLYtaJe12Y"
+		},
+		{
+			"_id": "qvqAn74ylou0fs44",
+			"name": "Keen Smell",
+			"type": "feature",
+			"img": "icons/creatures/mammals/wolf-shadow-black.webp",
+			"effects": [],
+			"folder": null,
+			"sort": 2,
+			"flags": {},
+			"system": {
+				"ac": {
+					"baseFormula": "",
+					"formula": "",
+					"maxDex": 0,
+					"minStr": 0,
+					"mode": 1,
+					"requiresNoShield": false,
+					"requiresUnarmored": false
+				},
+				"actions": {},
+				"description": "<p>The troll has advantage on Perception checks that rely on smell.</p>",
+				"favorite": true,
+				"secretDescription": "",
+				"source": "",
+				"uses": {
+					"value": null,
+					"max": "",
+					"per": null,
+					"recharge": {
+						"formula": "",
+						"threshold": ""
+					}
+				},
+				"schema": {
+					"version": 0.004,
+					"lastMigration": {
+						"version": {
+							"schema": 0.003,
+							"foundry": "11.302",
+							"system": "0.12.7"
+						}
+					}
+				},
+				"concentration": false,
+				"featureType": "",
+				"prerequisite": ""
+			},
+			"ownership": {
+				"default": 0
+			}
+		},
+		{
+			"_id": "wJrGpEdO1G95YeeF",
+			"name": "Severed Limbs",
+			"type": "feature",
+			"img": "icons/commodities/biological/hand-yellow-red.webp",
+			"effects": [],
+			"folder": null,
+			"sort": 5,
+			"flags": {},
+			"system": {
+				"ac": {
+					"baseFormula": "",
+					"formula": "",
+					"maxDex": 0,
+					"minStr": 0,
+					"mode": 1,
+					"requiresNoShield": false,
+					"requiresUnarmored": false
+				},
+				"actions": {},
+				"description": "<p>If the troll is dealt a critical hit with a slashing weapon, one of its extremities is severed. The extremity has AC 15, 10 hit points, a Speed of 10, and the troll’s Regeneration trait. The troll controls the severed extremity and perceives through it with the appropriate senses (for instance, it sees through the eyes of its severed head). As a bonus action, the troll can reattach the extremity. While the troll is missing the extremity, its maximum hit points are reduced by 10. Roll d6 to determine the severed extremity:</p><p>1-4: <strong><em>Arm.</em></strong> If the troll has an arm, it loses an arm. It loses one of its claw attacks, and the severed arm can make a claw attack.</p><p>5-6: <strong><em>Head.</em></strong> If the troll has a head, it loses its head. It loses its bite attack, and the severed head can make a bite attack.&nbsp;</p>",
+				"favorite": true,
+				"secretDescription": "",
+				"source": "",
+				"uses": {
+					"value": null,
+					"max": "",
+					"per": null,
+					"recharge": {
+						"formula": "",
+						"threshold": ""
+					}
+				},
+				"schema": {
+					"version": 0.004,
+					"lastMigration": {
+						"version": {
+							"schema": 0.003,
+							"foundry": "11.302",
+							"system": "0.12.7"
+						}
+					}
+				},
+				"concentration": false,
+				"featureType": "",
+				"prerequisite": ""
+			},
+			"ownership": {
+				"default": 0
+			}
 		}
 	],
 	"effects": [],
@@ -955,7 +955,11 @@
 		"a5e": {
 			"availableSpellLevels": [],
 			"showSpellSlots": false,
-			"showSpellPoints": false
+			"showSpellPoints": false,
+			"sheetIsLocked": true,
+			"currentTab": "core",
+			"showSpellTab": false,
+			"sortMode": 1
 		}
 	},
 	"system": {
