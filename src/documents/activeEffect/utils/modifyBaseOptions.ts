@@ -34,14 +34,24 @@ export default function modifyBaseOptions(options: Object) {
       options[`system.attributes.senses.${s}.unit`] = ['', MODES.OVERRIDE_ONLY, Object.entries(CONFIG.A5E.visionUnits), 'RADIO'];
     });
 
-  // Add options for languages
+  // Add options for details
+  options['system.details.creatureTypes'] = ['', MODES.DEFAULT_MODES, Object.entries(CONFIG.A5E.creatureTypes), 'TAG_GROUP'];
+
+  // Add options for traits
+  options['system.traits.conditionImmunities'] = ['', MODES.DEFAULT_MODES, Object.entries(CONFIG.A5E.conditions), 'TAG_GROUP'];
+  options['system.traits.damageImmunities'] = ['', MODES.DEFAULT_MODES, Object.entries(CONFIG.A5E.damageTypes), 'TAG_GROUP'];
+  options['system.traits.damageResistances'] = ['', MODES.DEFAULT_MODES, Object.entries(CONFIG.A5E.damageTypes), 'TAG_GROUP'];
+  options['system.traits.damageVulnerabilities'] = ['', MODES.DEFAULT_MODES, Object.entries(CONFIG.A5E.damageTypes), 'TAG_GROUP'];
+  options['system.traits.size'] = ['', MODES.OVERRIDE_ONLY, Object.entries(CONFIG.A5E.actorSizes), 'RADIO'];
+
+  // Add options for proficiencies
+  options['system.proficiencies.armor'] = ['', MODES.DEFAULT_MODES, Object.entries(CONFIG.A5E.armor), 'TAG_GROUP'];
   options['system.proficiencies.languages'] = ['', MODES.DEFAULT_MODES, Object.entries(CONFIG.A5E.languages), 'TAG_GROUP'];
+  options['system.proficiencies.tools'] = ['', MODES.DEFAULT_MODES, Object.values(CONFIG.A5E.tools).flatMap((c) => Object.entries(c)), 'TAG_GROUP'];
+  options['system.proficiencies.weapons'] = ['', MODES.DEFAULT_MODES, Object.values(CONFIG.A5E.weapons).flatMap((c) => Object.entries(c)), 'TAG_GROUP'];
 
   // Proficiency is prepared in base data so we add it here.
   options['system.attributes.prof'] = [0, MODES.DEFAULT_MODES];
-
-  // Add options for size
-  options['system.traits.size'] = ['', MODES.OVERRIDE_ONLY, Object.entries(CONFIG.A5E.actorSizes), 'RADIO'];
 
   // Adds options for spell casting ability
   options['system.attributes.spellcasting'] = ['', MODES.OVERRIDE_ONLY, Object.entries(CONFIG.A5E.abilities), 'RADIO'];
