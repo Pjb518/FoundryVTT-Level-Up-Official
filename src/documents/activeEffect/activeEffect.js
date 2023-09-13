@@ -111,7 +111,7 @@ export default class ActiveEffectA5e extends ActiveEffect {
         ? -1 * delta
         : delta;
 
-      return this.#addOrSubtractValues(current, addedChange);
+      return this.#addOrSubtractValues(current, addedChange, true);
     }
 
     if (mode === MODES.DOWNGRADE) {
@@ -147,12 +147,11 @@ export default class ActiveEffectA5e extends ActiveEffect {
     const isSetAdd = current instanceof Set && delta instanceof Set;
 
     if (isNumericAddition) {
-      if (isSubtract) return (current ?? 0) - delta;
       return (current ?? 0) + delta;
     }
 
     if (isArrayAdd) {
-      if (isSubtract) return current.filter((e) => e !== delta.includes(e));
+      if (isSubtract) return current.filter((e) => !delta.includes(e));
       return [...new Set([...current, ...delta])];
     }
 
@@ -284,11 +283,20 @@ export default class ActiveEffectA5e extends ActiveEffect {
     const changes = data.changes ?? [];
     const statuses = new Set();
     changes.forEach((change) => {
-      if (change.key === 'flags.a5e.effects.statusCondition') return;
-      const statusEffect = CONFIG.statusEffects.find((e) => e.id === change.value);
-      if (!statusEffect) return;
+      if (change.key !== 'flags.a5e.effects.statusConditions') return;
+      let values;
+      try {
+        values = JSON.parse(change.value);
+        if (!Array.isArray(values)) return;
+      } catch (e) {
+        return;
+      }
 
-      statuses.add(statusEffect.id);
+      values.forEach((value) => {
+        const statusEffect = CONFIG.statusEffects.find((e) => e.id === value);
+        if (!statusEffect) return;
+        statuses.add(statusEffect.id);
+      });
     });
 
     data.statuses = Array.from(statuses);
