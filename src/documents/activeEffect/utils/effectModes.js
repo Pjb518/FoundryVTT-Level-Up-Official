@@ -6,7 +6,7 @@ const DEFAULT_MODES = Object.keys(MODES)
   .sort((a, b) => a.localeCompare(b));
 
 const DEFAULT_STRING_MODES = Object.keys(MODES)
-  .filter((k) => !['CUSTOM', 'MULTIPLY', 'ADD', 'SUBTRACT', 'PREDICATE'].includes(k))
+  .filter((k) => !['CUSTOM', 'UPGRADE', 'DOWNGRADE', 'SUBTRACT', 'PREDICATE'].includes(k))
   .sort((a, b) => a.localeCompare(b));
 
 const OVERRIDE_ONLY = ['OVERRIDE'];

@@ -2,6 +2,8 @@
     import { createEventDispatcher, getContext } from "svelte";
     import { localize } from "#runtime/svelte/helper";
 
+    import getEffectOptionGroups from "../../handlers/getEffectOptionGroups";
+
     import Select from "svelte-select";
 
     export let idx;
@@ -14,26 +16,8 @@
     const optionsList = sheet.optionsList;
 
     const effectKeyLocalizations = CONFIG.A5E.effectsKeyLocalizations;
-
     const MODES = CONFIG.A5E.ACTIVE_EFFECT_MODES;
-    const options = Object.values(optionsList);
-    const groupMap = Object.entries(CONFIG.A5E.effectKeyGroups).reduce(
-        (acc, [group, { items }]) => {
-            items.forEach((item) => {
-                acc[item] = group;
-            });
-            return acc;
-        },
-        {}
-    );
-
-    const optionsGroups = options.map((opt) => {
-        return {
-            label: opt.label,
-            key: opt.effectKey,
-            group: groupMap[opt.effectKey] ?? "other",
-        };
-    });
+    const items = getEffectOptionGroups(optionsList);
 
     const groupBy = (item) => item.group;
 </script>
@@ -44,7 +28,7 @@
     </h3>
 
     <Select
-        items={optionsGroups}
+        {items}
         value={effectKeyLocalizations[key]}
         {groupBy}
         on:change={({ detail }) => dispatch("changeKey", detail.key)}

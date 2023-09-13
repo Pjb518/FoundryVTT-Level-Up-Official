@@ -1,12 +1,9 @@
 <script>
     import { getContext } from "svelte";
-    import { localize } from "#runtime/svelte/helper";
     import { TJSIconButton } from "#standard/component";
 
-    import getEffectOptionGroups from "../../handlers/getEffectOptionGroups";
-
     import ChangeConfiguration from "../effectChanges/ChangeConfiguration.svelte";
-    import RadioGroup from "../RadioGroup.svelte";
+    import ChangeValue from "../effectChanges/ChangeValue.svelte";
 
     const effect = getContext("effect");
     const sheet = getContext("sheet");
@@ -49,8 +46,6 @@
 
     /** @type {Array<Object>}*/
     let changes = $effect.changes;
-
-    console.log(changes);
 </script>
 
 <article>
@@ -78,62 +73,12 @@
                     />
                 </div>
 
-                <!-- TODO: Add Components Based on value type -->
-                <!--  -->
-                {#if typeof optionsList[key]?.sampleValue === "boolean"}
-                    <div class="change-section">
-                        <h3 class="u-text-sm u-text-bold">
-                            {localize("A5E.effects.options")}
-                        </h3>
-                        <RadioGroup
-                            allowDeselect={false}
-                            options={optionsList[key].options ?? [[null, null]]}
-                            selected={changes[idx].value}
-                            on:updateSelection={({ detail }) =>
-                                updateChange(idx, "value", detail)}
-                        />
-                    </div>
-                {:else}
-                    <!-- Show either options or value field -->
-                    {#if optionsList[key]?.options?.length}
-                        <div class="change-section">
-                            <h3 class="u-text-sm u-text-bold">
-                                {localize("A5E.effects.options")}
-                            </h3>
-                            <RadioGroup
-                                allowDeselect={false}
-                                options={optionsList[key].options ?? [
-                                    [null, null],
-                                ]}
-                                selected={changes[idx].value}
-                                on:updateSelection={({ detail }) =>
-                                    updateChange(idx, "value", detail)}
-                            />
-                        </div>
-                    {:else if optionsList[key]?.modes?.[0] === "CUSTOM"}
-                        <!-- Hide value field if mode is CUSTOM -->
-                    {:else}
-                        <div class="row">
-                            <div class="change-section u-w-full">
-                                <h3 class="u-text-sm u-text-bold">
-                                    {localize("A5E.effects.value")}
-                                </h3>
-
-                                <input
-                                    type="text"
-                                    name=""
-                                    {value}
-                                    on:change={({ target }) =>
-                                        updateChange(
-                                            idx,
-                                            "value",
-                                            target.value
-                                        )}
-                                />
-                            </div>
-                        </div>
-                    {/if}
-                {/if}
+                <ChangeValue
+                    {key}
+                    {value}
+                    on:change={({ detail }) =>
+                        updateChange(idx, "value", detail)}
+                />
             </div>
         {/each}
     </section>
@@ -201,20 +146,10 @@
         border-radius: 4px;
     }
 
-    .change-section {
-        display: flex;
-        flex-direction: column;
-        gap: 0.275rem;
-    }
-
     .row {
         display: flex;
         gap: 0.75rem;
         width: 100%;
-    }
-
-    .small-input {
-        width: 5rem;
     }
 
     .sticky-add-button {

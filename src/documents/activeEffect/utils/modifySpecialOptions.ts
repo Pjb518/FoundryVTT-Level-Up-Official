@@ -35,13 +35,13 @@ export default function modifySpecialOptions(options: Object) {
   // options['flags.a5e.effects.expertiseDie'] = [0, MODES.ADD_AND_OVERRIDE];
 
   // Add options for damage and conditions
-  options['flags.a5e.effects.damageImmunities.all'] = [[], MODES.CUSTOM_ONLY];
-  options['flags.a5e.effects.damageResistances.all'] = [[], MODES.CUSTOM_ONLY];
-  options['flags.a5e.effects.damageVulnerabilities.all'] = [[], MODES.CUSTOM_ONLY];
-  options['flags.a5e.effects.conditionImmunities.all'] = [[], MODES.CUSTOM_ONLY];
+  options['flags.a5e.effects.damageImmunities.all'] = [[], MODES.CUSTOM_ONLY, null, 'NONE'];
+  options['flags.a5e.effects.damageResistances.all'] = [[], MODES.CUSTOM_ONLY, null, 'NONE'];
+  options['flags.a5e.effects.damageVulnerabilities.all'] = [[], MODES.CUSTOM_ONLY, null, 'NONE'];
+  options['flags.a5e.effects.conditionImmunities.all'] = [[], MODES.CUSTOM_ONLY, null, 'NONE'];
 
   const statusConditions = Object.entries(CONFIG.A5E.conditions);
-  options['flags.a5e.effects.statusConditions'] = [[], MODES.CUSTOM_ONLY, statusConditions];
+  options['flags.a5e.effects.statusConditions'] = [[], MODES.CUSTOM_ONLY, statusConditions, 'CHECKBOX'];
 
   // TODO: Maybe add something to automatically fail?
 

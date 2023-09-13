@@ -34,6 +34,9 @@ export default function modifyBaseOptions(options: Object) {
       options[`system.attributes.senses.${s}.unit`] = ['', MODES.OVERRIDE_ONLY, Object.entries(CONFIG.A5E.visionUnits), 'RADIO'];
     });
 
+  // Add options for languages
+  options['system.proficiencies.languages'] = ['', MODES.DEFAULT_MODES, Object.entries(CONFIG.A5E.languages), 'TAG_GROUP'];
+
   // Proficiency is prepared in base data so we add it here.
   options['system.attributes.prof'] = [0, MODES.DEFAULT_MODES];
 
