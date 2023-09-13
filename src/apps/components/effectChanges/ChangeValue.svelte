@@ -23,6 +23,32 @@
         }
     }
 
+    function convertToObject(value) {
+        try {
+            const obj = JSON.parse((value ?? "").trim());
+            if (typeof obj !== "object") throw new Error();
+            obj.comparisonOperator = obj.comparisonOperator ?? "==";
+            obj.comparisonValue = obj.comparisonValue ?? "";
+            obj.positiveValue = obj.positiveValue ?? "";
+            obj.negativeValue = obj.negativeValue ?? "";
+            return obj;
+        } catch {
+            return {
+                comparisonOperator: "==",
+                comparisonValue: "",
+                positiveValue: "",
+                negativeValue: "",
+            };
+        }
+    }
+
+    function updateObjectValue(obj) {
+        const returnValue = JSON.stringify(obj);
+        dispatch("change", returnValue);
+    }
+
+    let conditionalObj = convertToObject(value);
+
     const MODES = CONFIG.A5E.ACTIVE_EFFECT_MODES;
     const optionsList = sheet.optionsList;
     $: componentType = optionsList[key]?.type ?? "DEFAULT";
@@ -32,7 +58,10 @@
 {#if mode === MODES.CONDITIONAL}
     <div class="conditional-container u-pt-sm">
         If original value is
-        <select>
+        <select
+            bind:value={conditionalObj.comparisonOperator}
+            on:change={() => updateObjectValue(conditionalObj)}
+        >
             <option value="==">equal to</option>
             <option value="!==">not equal</option>
             <option value=">">greater than</option>
@@ -40,22 +69,32 @@
             <option value="<">less than</option>
             <option value="<=">less than or equal to</option>
         </select>
-        <input class="conditional-input" type="text" />
-        then change to <input class="conditional-input" type="text" />
-        else change to <input class="conditional-input" type="text" />
-    </div>
 
-    <!-- <span class="u-flex">
-        If original value is
-        <select>
-            <option value="">{">="}</option>
-            <option value="">{"<="}</option>
-        </select>
-        than
-        <input class="u-w-20" type="number" />
-        then change to <input class="a5e-input--slim u-w-20" type="number" />
-        else change to <input class="a5e-input--slim u-w-20" type="number" />
-    </span> -->
+        <input
+            class="conditional-input"
+            type="text"
+            bind:value={conditionalObj.comparisonValue}
+            on:change={() => updateObjectValue(conditionalObj)}
+        />
+
+        then change to
+
+        <input
+            class="conditional-input"
+            type="text"
+            bind:value={conditionalObj.positiveValue}
+            on:change={() => updateObjectValue(conditionalObj)}
+        />
+
+        else change to
+
+        <input
+            class="conditional-input"
+            type="text"
+            bind:value={conditionalObj.negativeValue}
+            on:change={() => updateObjectValue(conditionalObj)}
+        />
+    </div>
 {:else if componentType === "RADIO"}
     <div class="change-section">
         <h3 class="u-text-sm u-text-bold">

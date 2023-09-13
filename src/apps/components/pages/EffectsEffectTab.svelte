@@ -49,6 +49,7 @@
 </script>
 
 <article>
+    {console.log(changes)}
     <section class="changes-list">
         {#each changes as { key, value, mode }, idx (idx)}
             <div class="change-container">
