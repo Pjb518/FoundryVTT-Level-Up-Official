@@ -1,8 +1,9 @@
 import { localize } from '#runtime/svelte/helper';
 
+import castType from '../../utils/castType';
+import evaluateConditional from './utils/evaluateConditional';
 import getCorrectedTypeValueFromKey from './utils/getCorrectedTypeValueFromKey';
 import getDeterministicBonus from '../../dice/getDeterministicBonus';
-import castType from '../../utils/castType';
 
 /**
  * Add system-specific logic to the base ActiveEffect Class
@@ -81,7 +82,7 @@ export default class ActiveEffectA5e extends ActiveEffect {
       targetType
     );
 
-    const newValue = this.#getNewValue(current, change, delta);
+    const newValue = this.#getNewValue(document, current, change, delta);
     const changes = { [change.key]: newValue };
 
     // Apply all changes to the Actor data
@@ -94,7 +95,7 @@ export default class ActiveEffectA5e extends ActiveEffect {
    * @param {*} current
    * @param {*} change
    */
-  #getNewValue(current, change, delta) {
+  #getNewValue(document, current, change, delta) {
     const MODES = CONFIG.A5E.ACTIVE_EFFECT_MODES;
     const { mode } = change;
 
@@ -130,6 +131,10 @@ export default class ActiveEffectA5e extends ActiveEffect {
 
     if (mode === MODES.CUSTOM) {
       return this.#applyCustom(change);
+    }
+
+    if (mode === MODES.CONDITIONAL) {
+      return this.#applyConditional(document, current, change);
     }
 
     return current;
@@ -185,6 +190,23 @@ export default class ActiveEffectA5e extends ActiveEffect {
 
     change.key = newKey;
     return delta;
+  }
+
+  #applyConditional(document, current, change) {
+    let obj;
+    try {
+      obj = JSON.parse(change.value);
+      if (typeof obj !== 'object') return current;
+    } catch (e) {
+      return current;
+    }
+
+    const compareValue = getDeterministicBonus(obj.comparisonValue ?? '0', document.getRollData());
+    const operator = obj.comparisonOperator ?? '==';
+    const positiveValue = getDeterministicBonus(obj.positiveValue ?? '0', document.getRollData());
+    const negativeValue = getDeterministicBonus(obj.negativeValue ?? '0', document.getRollData());
+
+    return evaluateConditional(current, operator, compareValue, positiveValue, negativeValue);
   }
 
   /**
