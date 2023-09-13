@@ -45,12 +45,12 @@
     const optionsList = sheet.optionsList;
 
     /** @type {Array<Object>}*/
-    let changes = $effect.changes;
+    $: changes = $effect.changes;
 </script>
 
 <article>
     <section class="changes-list">
-        {#each changes as { key, value }, idx (idx)}
+        {#each changes as { key, value, mode }, idx (idx)}
             <div class="change-container">
                 <div class="button-wrapper">
                     <button
@@ -76,6 +76,7 @@
                 <ChangeValue
                     {key}
                     {value}
+                    {mode}
                     on:change={({ detail }) =>
                         updateChange(idx, "value", detail)}
                 />

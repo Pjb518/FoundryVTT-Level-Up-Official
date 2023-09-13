@@ -6,12 +6,12 @@ const DEFAULT_MODES = Object.keys(MODES)
   .sort((a, b) => a.localeCompare(b));
 
 const DEFAULT_STRING_MODES = Object.keys(MODES)
-  .filter((k) => !['CUSTOM', 'UPGRADE', 'DOWNGRADE', 'SUBTRACT', 'PREDICATE'].includes(k))
+  .filter((k) => !['CUSTOM', 'UPGRADE', 'DOWNGRADE', 'SUBTRACT', 'CONDITIONAL'].includes(k))
   .sort((a, b) => a.localeCompare(b));
 
 const OVERRIDE_ONLY = ['OVERRIDE'];
 const CUSTOM_ONLY = ['CUSTOM'];
-const PREDICATE_ONLY = ['PREDICATE'];
+const CONDITIONAL_ONLY = ['CONDITIONAL'];
 
 export default {
   MODES,
@@ -19,5 +19,5 @@ export default {
   DEFAULT_STRING_MODES,
   OVERRIDE_ONLY,
   CUSTOM_ONLY,
-  PREDICATE_ONLY
+  CONDITIONAL_ONLY
 };

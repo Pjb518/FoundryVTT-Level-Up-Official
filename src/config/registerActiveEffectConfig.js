@@ -7,7 +7,7 @@ export default function registerActiveEffectConfig(A5E) {
     DOWNGRADE: 4,
     UPGRADE: 5,
     OVERRIDE: 6,
-    PREDICATE: 7
+    CONDITIONAL: 7
   };
 
   A5E.activeEffectTypes = {
