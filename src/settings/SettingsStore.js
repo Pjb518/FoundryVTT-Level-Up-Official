@@ -306,7 +306,8 @@ class A5eGameSettings extends TJSGameSettings {
           default: {
             '5Di3aRnZbNtrXq0K': {
               name: 'New Party',
-              actors: []
+              actors: [],
+              isLocked: false
             }
           },
           type: Object

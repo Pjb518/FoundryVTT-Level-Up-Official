@@ -12,6 +12,7 @@
     export let partyHasExertionPool = true;
     export let partyHasInspiration = false;
     export let partyHasSpellPointPool = true;
+    export let partyIsLocked = false;
     export let showActorImagesInPartyViewer = true;
 
     function getViewModeComponent(viewMode) {
@@ -57,7 +58,7 @@
         }}
     />
 
-    {#if game.user.isGM}
+    {#if game.user.isGM && !partyIsLocked}
         <span class="delete-wrapper">
             <button
                 class="a5e-button a5e-button--delete delete-button fas fa-trash"

@@ -53,7 +53,7 @@
         if ($showActorImagesInPartyViewer) base = "img name";
         else base = "name";
 
-        const end = game.user.isGM ? "delete" : "";
+        const end = game.user.isGM && !partyIsLocked ? "delete" : "";
 
         switch (viewMode) {
             case "core":
@@ -90,7 +90,7 @@
         }
 
         // Add a cell for the delete button if user is a GM
-        if (game.user.isGM) tableElements.push("delete");
+        if (game.user.isGM && !partyIsLocked) tableElements.push("delete");
 
         return `"${tableElements.join(" ")}"`;
     }
@@ -101,7 +101,7 @@
         if ($showActorImagesInPartyViewer) base = "1.75rem 1fr";
         else base = "1fr";
 
-        const end = game.user.isGM ? "2rem" : "";
+        const end = game.user.isGM && !partyIsLocked ? "2rem" : "";
 
         switch (viewMode) {
             case "core":
@@ -147,7 +147,7 @@
         }
 
         // Add a cell for the delete button if user is a GM
-        if (game.user.isGM) tableElements.push("2rem");
+        if (game.user.isGM && !partyIsLocked) tableElements.push("2rem");
 
         return tableElements.join(" ");
     }
@@ -240,6 +240,11 @@
     }
 
     async function onDropActor(uuid) {
+        if (partyIsLocked) {
+            ui.notifications.warn("This party is locked.");
+            return;
+        }
+
         if ($currentParty?.actors?.length) {
             if ($currentParty.actors?.includes(uuid)) return;
 
@@ -251,6 +256,7 @@
                 [foundry.utils.randomID()]: {
                     name: "New Party",
                     actors: [uuid],
+                    isLocked: false,
                 },
             });
         }
@@ -267,15 +273,40 @@
         await game.settings.set("a5e", "parties", $partiesStore);
     }
 
+    async function togglePartyLock() {
+        const parties = Object.entries($partiesStore ?? {}).map(
+            ([id, partyData]) => ({
+                id,
+                label: partyData.name || "New Party",
+                actors: partyData.actors ?? [],
+                isLocked: partyData.isLocked ?? false,
+            })
+        );
+
+        if (parties.length) {
+            const p = $partiesStore[parties[0]?.id];
+            p.isLocked = !p?.isLocked;
+            await game.settings.set("a5e", "parties", $partiesStore);
+        }
+    }
+
     function updatePartyData() {
-        totalPartyWealth = getTotalPartyWealth();
         highestPassiveScores = getHighestPassiveScoresForParty();
         highestSpellSlotLevel = getHighestSpellSlotLevel();
         partyHasExertionPool = getAnyMemberHasExertionPool();
         partyHasInspiration = getAnyMemberHasInspiration();
         partyHasSpellPointPool = getAnyMemberHasSpellPointPool();
-        gridAreaDefinition = getGridAreaDefinition(currentViewMode);
-        gridSizeDefinition = getGridSizeDefinition(currentViewMode);
+        totalPartyWealth = getTotalPartyWealth();
+
+        gridAreaDefinition = getGridAreaDefinition(
+            currentViewMode,
+            partyIsLocked
+        );
+
+        gridSizeDefinition = getGridSizeDefinition(
+            currentViewMode,
+            partyIsLocked
+        );
     }
 
     // function updateCurrentParty(event) {
@@ -303,6 +334,7 @@
                 id,
                 label: partyData.name || "New Party",
                 actors: partyData.actors ?? [],
+                isLocked: partyData.isLocked ?? false,
             })
         );
 
@@ -334,8 +366,17 @@
     let totalPartyWealth = getTotalPartyWealth();
 
     $: currentViewMode = viewModes[0][0];
-    $: gridAreaDefinition = getGridAreaDefinition(currentViewMode);
-    $: gridSizeDefinition = getGridSizeDefinition(currentViewMode);
+    $: partyIsLocked = $currentParty.isLocked ?? false;
+
+    $: gridAreaDefinition = getGridAreaDefinition(
+        currentViewMode,
+        partyIsLocked
+    );
+
+    $: gridSizeDefinition = getGridSizeDefinition(
+        currentViewMode,
+        partyIsLocked
+    );
 
     const showActorImagesInPartyViewer = settings.getStore(
         "showActorImagesInPartyViewer"
@@ -347,9 +388,17 @@
         partyHasExertionPool = getAnyMemberHasExertionPool();
         partyHasInspiration = getAnyMemberHasInspiration();
         partyHasSpellPointPool = getAnyMemberHasSpellPointPool();
-        gridAreaDefinition = getGridAreaDefinition(currentViewMode);
-        gridSizeDefinition = getGridSizeDefinition(currentViewMode);
         totalPartyWealth = getTotalPartyWealth();
+
+        gridAreaDefinition = getGridAreaDefinition(
+            currentViewMode,
+            partyIsLocked
+        );
+
+        gridSizeDefinition = getGridSizeDefinition(
+            currentViewMode,
+            partyIsLocked
+        );
     });
 
     onDestroy(() => {
@@ -384,15 +433,24 @@
     {#if $partyMembers.length}
         <FormSection
             --background="none"
-            --gap="0.25rem"
+            --gap="0.75rem"
             --margin="0.375rem 0 0.375rem"
             --padding="0"
+            --wrap="no-wrap"
         >
             <RadioGroup
                 allowDeselect={false}
                 options={viewModes}
                 selected={currentViewMode}
+                --radio-group-width="fit-content"
                 on:updateSelection={(event) => (currentViewMode = event.detail)}
+            />
+
+            <button
+                class="sheet-lock fas {partyIsLocked
+                    ? 'sheet-lock--locked fa-lock'
+                    : 'fa-unlock'}"
+                on:click={togglePartyLock}
             />
         </FormSection>
 
@@ -403,6 +461,7 @@
                 partyHasExertionPool,
                 partyHasInspiration,
                 partyHasSpellPointPool,
+                partyIsLocked,
                 showActorImagesInPartyViewer,
             }}
             --grid-areas={gridAreaDefinition}
@@ -419,6 +478,7 @@
                     {partyHasExertionPool}
                     {partyHasInspiration}
                     {partyHasSpellPointPool}
+                    {partyIsLocked}
                     {showActorImagesInPartyViewer}
                     --grid-areas={gridAreaDefinition}
                     --grid-template={gridSizeDefinition}
@@ -431,6 +491,7 @@
         {#if currentViewMode === "wealth"}
             <footer>
                 <PartyViewerWealthFooter
+                    {partyIsLocked}
                     {totalPartyWealth}
                     {showActorImagesInPartyViewer}
                     --grid-areas={gridAreaDefinition}
@@ -472,5 +533,35 @@
         font-size: 1rem;
         border: 2px solid #ccc;
         border-radius: 3px;
+    }
+
+    .sheet-lock {
+        position: relative;
+        display: flex;
+        align-items: center;
+        height: 100%;
+        width: fit-content;
+        padding: 0 0.125rem;
+        margin-right: auto;
+        font-size: $font-size-md;
+        color: #999;
+        opacity: 0.85;
+        background: transparent;
+        cursor: pointer;
+
+        // Nudge the button down 1px so that it _looks_ centred
+        top: 1px;
+
+        transition: $standard-transition;
+
+        &--locked {
+            color: $color-primary;
+        }
+
+        &:focus,
+        &:hover {
+            transform: scale(1.1);
+            box-shadow: none;
+        }
     }
 </style>

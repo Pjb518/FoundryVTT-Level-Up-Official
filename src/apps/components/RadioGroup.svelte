@@ -23,14 +23,7 @@
 
 <ul
     class="
-        u-flex
-        u-flex-wrap
-        u-gap-sm
-        u-list-style-none
-        u-m-0
-        u-p-0
-        u-text-xs
-        u-w-full
+        radio-group
         {listClasses}
     "
 >
@@ -46,3 +39,16 @@
         />
     {/each}
 </ul>
+
+<style lang="scss">
+    .radio-group {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.375rem;
+        width: var(--radio-group-width, 100%);
+        margin: 0;
+        padding: 0;
+        font-size: 0.694rem;
+        list-style: none;
+    }
+</style>

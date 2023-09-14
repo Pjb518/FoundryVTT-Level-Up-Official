@@ -31,9 +31,10 @@
         position: relative;
         display: flex;
         flex-direction: var(--direction, row);
-        flex-wrap: wrap;
+        flex-wrap: var(--wrap, wrap);
         flex-grow: var(--grow, 0);
         align-items: var(--item-alignment, initial);
+        justify-content: var(--item-justification, initial);
         gap: var(--gap, 0.375rem);
         margin: var(--margin, 0);
         padding: var(--padding, 0.5rem);
