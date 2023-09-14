@@ -257,7 +257,7 @@
 
         &--purple-highlight {
             --icon-color: hsla(260, 50%, 40%, 0.302);
-            --icon-color-active: hsla(280, 55%, 30%, 0.75);
+            --icon-color-active: hsla(280, 35%, 30%, 0.75);
             --indicator-background: hsla(280, 55%, 50%, 0.302);
             --indicator-text-color: black;
             --input-border-color: hsla(280, 75%, 60%, 0.302);

@@ -22,6 +22,17 @@
     $: menuList = Object.entries(spellLevels);
     $: spellResources = $actor.system.spellResources;
 
+    $: preparedSpellCount = $actor.items.filter((item) => {
+        if (item.type !== "spell") return false;
+        if (
+            !item.system.prepared ||
+            item.system.prepared === CONFIG.A5E.PREPARED_STATES.ALWAYS_PREPARED
+        )
+            return false;
+
+        return true;
+    }).length;
+
     $: sheetIsLocked = !$actor.isOwner
         ? true
         : $actor.flags?.a5e?.sheetIsLocked ?? true;
@@ -70,7 +81,23 @@
         {/each}
     </section>
 
-    <TabFooter>
+    <TabFooter --padding-right="1rem">
+        <!-- Prepared Spells Count -->
+        {#if preparedSpellCount}
+            <div
+                class="u-flex u-flex-wrap u-align-center u-gap-md"
+                data-tooltip="This number does not include spells which are marked as always prepared."
+                data-tooltip-direction="UP"
+            >
+                <h3 class="u-mb-0 u-text-bold u-text-sm u-flex-grow-1">
+                    Spells Prepared:
+                </h3>
+
+                <span class="a5e-footer-group__input">{preparedSpellCount}</span
+                >
+            </div>
+        {/if}
+
         <!-- Spell Points -->
         {#if $actor.flags.a5e?.showSpellPoints ?? false}
             <div class="u-flex u-flex-wrap u-align-center u-gap-md">
@@ -139,7 +166,7 @@
 
         {#if !sheetIsLocked}
             <div
-                class="u-align-center u-flex u-gap-md u-h-6 u-mr-lg"
+                class="u-align-center u-flex u-gap-md u-h-6"
                 class:u-ml-auto={!$actor.flags.a5e?.showSpellPoints ?? true}
             >
                 <h3 class="u-mb-0 u-text-bold u-text-sm">

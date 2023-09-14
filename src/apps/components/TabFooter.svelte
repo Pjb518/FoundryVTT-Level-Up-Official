@@ -13,5 +13,6 @@
         align-items: center;
         justify-content: space-between;
         font-size: $font-size-sm;
+        padding-right: var(--padding-right, 0);
     }
 </style>

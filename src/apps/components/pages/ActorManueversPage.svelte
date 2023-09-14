@@ -56,7 +56,7 @@
         {/each}
     </section>
 
-    <TabFooter>
+    <TabFooter --padding-right="1rem">
         {#if $actor.type === "character"}
             <div class="u-flex u-align-center u-gap-md">
                 <h3 class="u-mb-0 u-text-sm u-text-bold">
@@ -108,7 +108,7 @@
         {/if}
 
         {#if !sheetIsLocked}
-            <div class="u-flex u-align-center u-gap-md u-mr-lg u-ml-auto">
+            <div class="u-flex u-align-center u-gap-md u-ml-auto">
                 <h3 class="u-mb-0 u-text-sm u-text-bold">
                     {localize("A5E.ConfigureManeuvers")}
                 </h3>
