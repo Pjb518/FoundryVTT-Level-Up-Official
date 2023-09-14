@@ -10,10 +10,10 @@ import registerSettingsConfig from './config/registerSettingsConfig';
 
 const A5E = {};
 
-A5E.ROLL_MODE = {
-  NORMAL: 0,
-  ADVANTAGE: 1,
-  DISADVANTAGE: -1
+A5E.DAMAGED_STATES = {
+  INTACT: 0,
+  DAMAGED: 1,
+  BROKEN: 2
 };
 
 A5E.DICE_ROLL_MODES = {
@@ -71,6 +71,24 @@ A5E.CR_EXP_LEVELS = {
   28: 120000,
   29: 135000,
   30: 155000
+};
+
+A5E.EQUIPPED_STATES = {
+  NOT_CARRIED: 0,
+  CARRIED: 1,
+  EQUIPPED: 2
+};
+
+A5E.PREPARED_STATES = {
+  UNPREPARED: 0,
+  PREPARED: 1,
+  ALWAYS_PREPARED: 2
+};
+
+A5E.ROLL_MODE = {
+  NORMAL: 0,
+  ADVANTAGE: 1,
+  DISADVANTAGE: -1
 };
 
 /**
@@ -328,12 +346,6 @@ A5E.creatureTypes = {
   undead: 'A5E.CreatureUndead'
 };
 
-A5E.DAMAGED_STATES = {
-  INTACT: 0,
-  DAMAGED: 1,
-  BROKEN: 2
-};
-
 A5E.damagedStates = {
   0: 'A5E.damagedState.intact',
   1: 'A5E.damagedState.damaged',
@@ -402,12 +414,6 @@ A5E.damageBonusSummariesByContext = {
   rangedSpellAttacks: 'A5E.damageBonuses.summaries.contexts.rangedSpellAttacks',
   spellAttacks: 'A5E.damageBonuses.summaries.contexts.spellAttacks',
   weaponAttacks: 'A5E.damageBonuses.summaries.contexts.weaponAttacks'
-};
-
-A5E.EQUIPPED_STATES = {
-  NOT_CARRIED: 0,
-  CARRIED: 1,
-  EQUIPPED: 2
 };
 
 A5E.equippedStates = {
@@ -646,6 +652,12 @@ A5E.objectTypesPlural = {
   shield: 'A5E.ObjectTypeShieldPlural',
   tool: 'A5E.ObjectTypeToolPlural',
   weapon: 'A5E.ObjectTypeWeaponPlural'
+};
+
+A5E.preparedStates = {
+  0: 'A5E.preparedState.unprepared',
+  1: 'A5E.preparedState.prepared',
+  2: 'A5E.preparedState.alwaysPrepared'
 };
 
 /**

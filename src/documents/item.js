@@ -594,8 +594,11 @@ export default class ItemA5e extends Item {
   async togglePrepared() {
     if (!this.type === 'spell' || !this.actor) return;
 
+    const currentState = Number(this.system.prepared);
+    const newState = (currentState + 1) % 3;
+
     await this.update({
-      'system.prepared': !this.system.prepared
+      'system.prepared': newState
     });
   }
 

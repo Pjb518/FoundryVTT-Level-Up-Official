@@ -21,6 +21,7 @@
 
     $: menuList = Object.entries(spellLevels);
     $: spellResources = $actor.system.spellResources;
+
     $: sheetIsLocked = !$actor.isOwner
         ? true
         : $actor.flags?.a5e?.sheetIsLocked ?? true;
@@ -37,6 +38,7 @@
 
         return false;
     };
+
     let showDescription = false;
 </script>
 

@@ -136,9 +136,12 @@
 <!-- svelte-ignore a11y-no-noninteractive-element-interactions -->
 <li
     class="item-wrapper"
-    class:item-wrapper--highlight={item.system.prepared ||
+    class:item-wrapper--highlight={Number(item.system.prepared ?? 0) ===
+        A5E.PREPARED_STATES.PREPARED ||
         (item.system.equippedState === A5E.EQUIPPED_STATES.EQUIPPED &&
             !item.system?.containerId)}
+    class:item-wrapper--purple-highlight={Number(item.system.prepared ?? 0) ===
+        A5E.PREPARED_STATES.ALWAYS_PREPARED}
     draggable="true"
     on:dragstart={onDragStart}
     on:drop|preventDefault|stopPropagation={(e) => onDropObject(e)}
@@ -243,12 +246,24 @@
 
         &--highlight {
             --icon-color: hsla(145, 100%, 15%, 0.302);
+            --icon-color-active: hsla(145, 100%, 15%, 0.75);
             --indicator-background: hsla(145, 100%, 32%, 0.302);
             --indicator-text-color: black;
             --input-border-color: hsla(145, 100%, 15%, 0.302);
             --item-background: hsla(145, 100%, 42%, 0.302);
             --track-background: hsl(120, 43%, 87%);
             --track-border-color: hsla(145, 100%, 25%, 0.302);
+        }
+
+        &--purple-highlight {
+            --icon-color: hsla(260, 50%, 40%, 0.302);
+            --icon-color-active: hsla(280, 55%, 30%, 0.75);
+            --indicator-background: hsla(280, 55%, 50%, 0.302);
+            --indicator-text-color: black;
+            --input-border-color: hsla(280, 75%, 60%, 0.302);
+            --item-background: hsla(280, 75%, 60%, 0.22);
+            --track-background: hsl(280, 30%, 90%);
+            --track-border-color: hsla(280, 30%, 40%, 0.302);
         }
     }
 

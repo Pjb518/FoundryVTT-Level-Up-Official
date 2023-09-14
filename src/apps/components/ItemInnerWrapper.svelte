@@ -78,7 +78,7 @@
 
     const actor = getContext("actor");
     const { A5E } = CONFIG;
-    const { DAMAGED_STATES, EQUIPPED_STATES } = A5E;
+    const { DAMAGED_STATES, EQUIPPED_STATES, PREPARED_STATES } = A5E;
     let usesType = actionId ? "action" : "item";
 
     $: flags = $actor.flags;
@@ -292,11 +292,21 @@
 
             {#if item.type === "spell"}
                 <button
-                    class="action-button fas fa-book"
-                    class:active={item.system.prepared}
-                    data-tooltip={item.system.prepared
-                        ? "A5E.ButtonToolTipUnprepare"
-                        : "A5E.ButtonToolTipPrepare"}
+                    class="action-button fas"
+                    class:fa-book={[
+                        PREPARED_STATES.UNPREPARED,
+                        PREPARED_STATES.PREPARED,
+                    ].includes(Number(item.system.prepared ?? 0))}
+                    class:fa-book-sparkles={Number(
+                        item.system.prepared ?? 0
+                    ) === PREPARED_STATES.ALWAYS_PREPARED}
+                    class:active={[
+                        PREPARED_STATES.PREPARED,
+                        PREPARED_STATES.ALWAYS_PREPARED,
+                    ].includes(Number(item.system.prepared ?? 0))}
+                    data-tooltip={A5E.preparedStates[
+                        Number(item.system.prepared ?? 0)
+                    ]}
                     data-tooltip-direction="UP"
                     on:click|stopPropagation={() => item.togglePrepared()}
                 />
@@ -390,7 +400,7 @@
         transition: $standard-transition;
 
         &:hover {
-            color: #555;
+            color: var(--icon-color-active, #555);
             transform: scale(1.2);
         }
 
@@ -401,10 +411,10 @@
     }
 
     .active {
-        color: $color-primary;
+        color: var(--icon-color-active, $color-primary);
 
         &:hover {
-            color: $color-primary;
+            color: var(--icon-color-active, $color-primary);
             box-shadow: none;
         }
     }

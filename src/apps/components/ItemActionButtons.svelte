@@ -119,7 +119,7 @@
         color: var(--icon-color, #999);
 
         &:hover {
-            color: #555;
+            color: var(--icon-color-active, #555);
             transform: scale(1.2);
         }
 

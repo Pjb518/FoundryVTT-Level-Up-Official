@@ -34,6 +34,7 @@
     const item = getContext("item");
 
     const {
+        PREPARED_STATES,
         spellComponents,
         spellComponentAbbreviations,
         spellLevels,
@@ -175,6 +176,21 @@
                         );
                     }}
                 />
+
+                {#if $item.system.prepared}
+                    <Checkbox
+                        label="Always Prepared"
+                        checked={Number($item.system.prepared ?? 0) ===
+                            PREPARED_STATES.ALWAYS_PREPARED}
+                        on:updateSelection={({ detail }) => {
+                            updateDocumentDataFromField(
+                                $item,
+                                "system.prepared",
+                                detail ? 2 : 1
+                            );
+                        }}
+                    />
+                {/if}
 
                 {#if $item.system.level > 0}
                     <Checkbox
