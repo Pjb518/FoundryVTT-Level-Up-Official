@@ -137,7 +137,7 @@ export default class RollPreparationManager {
     };
   }
 
-  async #prepareBonusDamageRolls() {
+  async #prepareBonusDamageRolls(attackRoll) {
     const bonusDamage = Object.values(this.#damageBonuses).filter(
       ({ damageType }) => damageType && damageType !== 'null'
     );
@@ -149,7 +149,7 @@ export default class RollPreparationManager {
         canCrit: true,
         critBonus: 0,
         damageType
-      }))
+      }, attackRoll))
     );
   }
 
