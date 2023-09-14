@@ -60,7 +60,7 @@
             name: "partyViewer",
             label: "Party Viewer",
             component: SettingsPartyViewerTab,
-            display: game.user.isGM,
+            display: $playersCanAccessPartyViewer,
         },
         {
             name: "rolls",
@@ -86,6 +86,10 @@
         if (setting?.options?.scope === "world") acc.add(setting.key);
         return acc;
     }, new Set());
+
+    const playersCanAccessPartyViewer = settings.getStore(
+        "playersCanAccessPartyViewer"
+    );
 
     setContext("appId", appId);
     setContext("gmSettings", gmSettings);

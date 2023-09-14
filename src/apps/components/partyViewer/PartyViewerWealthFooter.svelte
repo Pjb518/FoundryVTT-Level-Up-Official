@@ -1,9 +1,15 @@
 <script>
     export let totalPartyWealth = {};
+    export let showActorImagesInPartyViewer = true;
 </script>
 
 <footer class="wealth-footer">
-    <h3 class="heading">Party Total</h3>
+    <h3
+        class="heading"
+        class:heading--no-actor-image={!$showActorImagesInPartyViewer}
+    >
+        Party Total
+    </h3>
 
     {#each ["pp", "gp", "ep", "sp", "cp"] as denomination}
         <span class="total total--{denomination}">
@@ -32,6 +38,10 @@
         font-weight: bold;
         text-align: right;
         line-height: 1;
+
+        &--no-actor-image {
+            grid-area: name;
+        }
     }
 
     .total {

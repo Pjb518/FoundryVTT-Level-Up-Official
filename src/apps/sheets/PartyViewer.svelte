@@ -48,7 +48,11 @@
     }
 
     function getGridAreaDefinition(viewMode) {
-        const base = "img name";
+        let base;
+
+        if ($showActorImagesInPartyViewer) base = "img name";
+        else base = "name";
+
         const end = game.user.isGM ? "delete" : "";
 
         switch (viewMode) {
@@ -65,7 +69,10 @@
 
     function getResourcePanelGridAreaDefinition() {
         // Initialize the elements array with cells for the image and name.
-        const tableElements = ["img", "name"];
+        const tableElements = [];
+
+        if ($showActorImagesInPartyViewer) tableElements.push("img", "name");
+        else tableElements.push("name");
 
         // Conditionally add cells for inspiration, exertion, spell points, and spell slots.
         if (partyHasInspiration) tableElements.push("inspiration");
@@ -89,7 +96,11 @@
     }
 
     function getGridSizeDefinition(viewMode) {
-        const base = "1.75rem 1fr";
+        let base;
+
+        if ($showActorImagesInPartyViewer) base = "1.75rem 1fr";
+        else base = "1fr";
+
         const end = game.user.isGM ? "2rem" : "";
 
         switch (viewMode) {
@@ -106,7 +117,10 @@
 
     function getResourcePanelGridSizeDefinition() {
         // Initialize the elements array with cells for the image and name.
-        const tableElements = ["1.75rem", "1fr"];
+        const tableElements = [];
+
+        if ($showActorImagesInPartyViewer) tableElements.push("1.75rem", "1fr");
+        else tableElements.push("1fr");
 
         let inspirationWidth = "1.75rem";
         let poolWidth = "3.5rem";
@@ -323,6 +337,10 @@
     $: gridAreaDefinition = getGridAreaDefinition(currentViewMode);
     $: gridSizeDefinition = getGridSizeDefinition(currentViewMode);
 
+    const showActorImagesInPartyViewer = settings.getStore(
+        "showActorImagesInPartyViewer"
+    );
+
     const unsubscribe = partyMembers.subscribe((_) => {
         highestPassiveScores = getHighestPassiveScoresForParty();
         highestSpellSlotLevel = getHighestSpellSlotLevel();
@@ -384,6 +402,7 @@
                 partyHasExertionPool,
                 partyHasInspiration,
                 partyHasSpellPointPool,
+                showActorImagesInPartyViewer,
             }}
             --grid-areas={gridAreaDefinition}
             --grid-template={gridSizeDefinition}
@@ -399,6 +418,7 @@
                     {partyHasExertionPool}
                     {partyHasInspiration}
                     {partyHasSpellPointPool}
+                    {showActorImagesInPartyViewer}
                     --grid-areas={gridAreaDefinition}
                     --grid-template={gridSizeDefinition}
                     on:actor-updated={updatePartyData}
@@ -411,6 +431,7 @@
             <footer>
                 <PartyViewerWealthFooter
                     {totalPartyWealth}
+                    {showActorImagesInPartyViewer}
                     --grid-areas={gridAreaDefinition}
                     --grid-template={gridSizeDefinition}
                 />

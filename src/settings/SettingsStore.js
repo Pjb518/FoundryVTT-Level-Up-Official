@@ -322,6 +322,17 @@ class A5eGameSettings extends TJSGameSettings {
           default: false,
           type: Boolean
         }
+      },
+      {
+        namespace,
+        key: 'showActorImagesInPartyViewer',
+        options: {
+          name: 'A5E.settings.showActorImagesInPartyViewer',
+          scope: scope.client,
+          config: true,
+          default: true,
+          type: Boolean
+        }
       }
     ];
 

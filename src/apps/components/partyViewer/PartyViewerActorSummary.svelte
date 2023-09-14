@@ -12,6 +12,7 @@
     export let partyHasExertionPool = true;
     export let partyHasInspiration = false;
     export let partyHasSpellPointPool = true;
+    export let showActorImagesInPartyViewer = true;
 
     function getViewModeComponent(viewMode) {
         switch (viewMode) {
@@ -38,7 +39,10 @@
 </script>
 
 <li class="party-member" on:dblclick={() => $actor?.sheet.render(true)}>
-    <img class="actor-image" src={$actor?.img} alt={$actor?.name} />
+    {#if $showActorImagesInPartyViewer}
+        <img class="actor-image" src={$actor?.img} alt={$actor?.name} />
+    {/if}
+
     <span class="actor-name">{$actor?.name}</span>
 
     <svelte:component

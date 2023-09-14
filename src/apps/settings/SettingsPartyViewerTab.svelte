@@ -12,6 +12,10 @@
     const playersCanAccessPartyViewer = settings.getStore(
         "playersCanAccessPartyViewer"
     );
+
+    const showActorImagesInPartyViewer = settings.getStore(
+        "showActorImagesInPartyViewer"
+    );
 </script>
 
 <section
@@ -19,25 +23,46 @@
 >
     <section class="setting-group">
         <header class="setting-header">
-            <h3 class="setting-heading">Player Access</h3>
+            <h3 class="setting-heading">Appearance</h3>
         </header>
 
-        <FormSection
-            hint="Players will be able to view but not edit the summary information in the Party Viewer window."
-            --gap="0.25rem"
-        >
+        <FormSection --gap="0.25rem">
             <Checkbox
-                label="Players can access the Party Viewer"
-                checked={updates.get("playersCanAccessPartyViewer") ??
-                    $playersCanAccessPartyViewer ??
-                    false}
+                label="Show character images in the party viewer"
+                checked={updates.get("showActorImagesInPartyViewer") ??
+                    $showActorImagesInPartyViewer ??
+                    true}
                 on:updateSelection={({ detail }) => {
-                    updates.set("playersCanAccessPartyViewer", detail);
+                    updates.set("showActorImagesInPartyViewer", detail);
                     reload = true;
                 }}
             />
         </FormSection>
     </section>
+
+    {#if game.user.isGM}
+        <section class="setting-group">
+            <header class="setting-header">
+                <h3 class="setting-heading">Player Access</h3>
+            </header>
+
+            <FormSection
+                hint="Players will be able to view but not edit the summary information in the Party Viewer window."
+                --gap="0.25rem"
+            >
+                <Checkbox
+                    label="Players can access the Party Viewer"
+                    checked={updates.get("playersCanAccessPartyViewer") ??
+                        $playersCanAccessPartyViewer ??
+                        false}
+                    on:updateSelection={({ detail }) => {
+                        updates.set("playersCanAccessPartyViewer", detail);
+                        reload = true;
+                    }}
+                />
+            </FormSection>
+        </section>
+    {/if}
 </section>
 
 <style lang="scss">
