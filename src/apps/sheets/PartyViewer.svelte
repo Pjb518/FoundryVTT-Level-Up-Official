@@ -389,6 +389,7 @@
             --padding="0"
         >
             <RadioGroup
+                allowDeselect={false}
                 options={viewModes}
                 selected={currentViewMode}
                 on:updateSelection={(event) => (currentViewMode = event.detail)}
