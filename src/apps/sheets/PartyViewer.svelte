@@ -446,12 +446,14 @@
                 on:updateSelection={(event) => (currentViewMode = event.detail)}
             />
 
-            <button
-                class="sheet-lock fas {partyIsLocked
-                    ? 'sheet-lock--locked fa-lock'
-                    : 'fa-unlock'}"
-                on:click={togglePartyLock}
-            />
+            {#if game.user.isGM}
+                <button
+                    class="sheet-lock fas {partyIsLocked
+                        ? 'sheet-lock--locked fa-lock'
+                        : 'fa-unlock'}"
+                    on:click={togglePartyLock}
+                />
+            {/if}
         </FormSection>
 
         <svelte:component
