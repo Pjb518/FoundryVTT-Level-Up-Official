@@ -79,7 +79,11 @@
         <ol class="spell-slots">
             {#each Object.entries(actorData?.spellResources.slots ?? {}) as [level, { current, max }]}
                 {#if level && level !== "0" && level <= propData.highestSpellSlotLevel}
-                    <li class="field field--spell-slot">
+                    <li
+                        class="field field--spell-slot"
+                        class:field--narrow-spell-slot={propData.highestSpellSlotLevel >=
+                            8}
+                    >
                         {#if max && max > 0}
                             {current}
                         {:else}
@@ -134,6 +138,10 @@
         &--spell-slot {
             width: 1.75rem;
             margin: 0;
+        }
+
+        &--narrow-spell-slot {
+            width: 1.5rem;
         }
     }
 

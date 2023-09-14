@@ -108,10 +108,19 @@
         // Initialize the elements array with cells for the image and name.
         const tableElements = ["1.75rem", "1fr"];
 
+        let inspirationWidth = "1.75rem";
+        let poolWidth = "3.5rem";
+
+        // Conditionally decrease the width of various cells to account for very full tables.
+        if (highestSpellSlotLevel >= 8) {
+            inspirationWidth = "1.5rem";
+            poolWidth = "3.25rem";
+        }
+
         // Conditionally add cells for inspiration, exertion, spell points, and spell slots.
-        if (partyHasInspiration) tableElements.push("3.5rem");
-        if (partyHasExertionPool) tableElements.push("3.5rem");
-        if (partyHasSpellPointPool) tableElements.push("3.5rem");
+        if (partyHasInspiration) tableElements.push(inspirationWidth);
+        if (partyHasExertionPool) tableElements.push(poolWidth);
+        if (partyHasSpellPointPool) tableElements.push(poolWidth);
         if (highestSpellSlotLevel) tableElements.push("min-content");
 
         // Add a section to show the "no resources" message when there's nothing to display.

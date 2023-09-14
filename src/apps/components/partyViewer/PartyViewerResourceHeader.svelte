@@ -44,6 +44,8 @@
                 {#each getSpellLevels(propData) as [spellLevel, tooltip]}
                     <li
                         class="spell-level"
+                        class:spell-level--narrow={propData.highestSpellSlotLevel >=
+                            8}
                         data-tooltip={tooltip}
                         data-tooltip-direction="UP"
                     >
@@ -114,5 +116,9 @@
     .spell-level {
         width: 1.75rem;
         text-align: center;
+
+        &--narrow {
+            width: 1.5rem;
+        }
     }
 </style>
