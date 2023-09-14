@@ -452,6 +452,10 @@
                         ? 'sheet-lock--locked fa-lock'
                         : 'fa-unlock'}"
                     on:click={togglePartyLock}
+                    data-tooltip={partyIsLocked
+                        ? "Unlock this party"
+                        : "Lock this party"}
+                    data-tooltip-direction="UP"
                 />
             {/if}
         </FormSection>
