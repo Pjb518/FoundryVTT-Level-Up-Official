@@ -10,6 +10,7 @@
     export let highestPassiveScores = {};
     export let highestSpellSlotLevel = 0;
     export let partyHasExertionPool = true;
+    export let partyHasInspiration = false;
     export let partyHasSpellPointPool = true;
 
     function getViewModeComponent(viewMode) {
@@ -47,6 +48,7 @@
             highestPassiveScores,
             highestSpellSlotLevel,
             partyHasExertionPool,
+            partyHasInspiration,
             partyHasSpellPointPool,
         }}
     />

@@ -12,6 +12,14 @@
 </script>
 
 <header class="core-header">
+    {#if propData.partyHasInspiration}
+        <i
+            class="heading heading--inspiration fa-solid fa-dice-d20"
+            data-tooltip="Inspiration"
+            data-tooltip-direction="UP"
+        />
+    {/if}
+
     {#if propData.partyHasExertionPool}
         <i
             class="heading heading--exertion fa-solid fa-dumbbell"
@@ -66,6 +74,10 @@
 
         &--exertion {
             grid-area: exertion;
+        }
+
+        &--inspiration {
+            grid-area: inspiration;
         }
 
         &--spell-points {

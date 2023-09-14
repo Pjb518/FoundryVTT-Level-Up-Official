@@ -31,6 +31,14 @@
         });
     }
 
+    function getAnyMemberHasInspiration() {
+        return ($partyMembers ?? []).some((actor) => {
+            const actorData = get(actor);
+
+            return actorData?.system?.attributes?.inspiration;
+        });
+    }
+
     function getAnyMemberHasSpellPointPool() {
         return ($partyMembers ?? []).some((actor) => {
             const actorData = get(actor);
@@ -59,7 +67,8 @@
         // Initialize the elements array with cells for the image and name.
         const tableElements = ["img", "name"];
 
-        // Conditionally add cells for exertion, spell points, and spell slots.
+        // Conditionally add cells for inspiration, exertion, spell points, and spell slots.
+        if (partyHasInspiration) tableElements.push("inspiration");
         if (partyHasExertionPool) tableElements.push("exertion");
         if (partyHasSpellPointPool) tableElements.push("spellPoints");
         if (highestSpellSlotLevel) tableElements.push("spellSlots");
@@ -99,7 +108,8 @@
         // Initialize the elements array with cells for the image and name.
         const tableElements = ["1.75rem", "1fr"];
 
-        // Conditionally add cells for exertion, spell points, and spell slots.
+        // Conditionally add cells for inspiration, exertion, spell points, and spell slots.
+        if (partyHasInspiration) tableElements.push("3.5rem");
         if (partyHasExertionPool) tableElements.push("3.5rem");
         if (partyHasSpellPointPool) tableElements.push("3.5rem");
         if (highestSpellSlotLevel) tableElements.push("min-content");
@@ -239,6 +249,7 @@
         highestPassiveScores = getHighestPassiveScoresForParty();
         highestSpellSlotLevel = getHighestSpellSlotLevel();
         partyHasExertionPool = getAnyMemberHasExertionPool();
+        partyHasInspiration = getAnyMemberHasInspiration();
         partyHasSpellPointPool = getAnyMemberHasSpellPointPool();
         gridAreaDefinition = getGridAreaDefinition(currentViewMode);
         gridSizeDefinition = getGridSizeDefinition(currentViewMode);
@@ -295,6 +306,7 @@
     let highestPassiveScores = getHighestPassiveScoresForParty();
     let highestSpellSlotLevel = getHighestSpellSlotLevel();
     let partyHasExertionPool = getAnyMemberHasExertionPool();
+    let partyHasInspiration = getAnyMemberHasInspiration();
     let partyHasSpellPointPool = getAnyMemberHasSpellPointPool();
     let totalPartyWealth = getTotalPartyWealth();
 
@@ -306,6 +318,7 @@
         highestPassiveScores = getHighestPassiveScoresForParty();
         highestSpellSlotLevel = getHighestSpellSlotLevel();
         partyHasExertionPool = getAnyMemberHasExertionPool();
+        partyHasInspiration = getAnyMemberHasInspiration();
         partyHasSpellPointPool = getAnyMemberHasSpellPointPool();
         gridAreaDefinition = getGridAreaDefinition(currentViewMode);
         gridSizeDefinition = getGridSizeDefinition(currentViewMode);
@@ -360,6 +373,7 @@
             propData={{
                 highestSpellSlotLevel,
                 partyHasExertionPool,
+                partyHasInspiration,
                 partyHasSpellPointPool,
             }}
             --grid-areas={gridAreaDefinition}
@@ -374,6 +388,7 @@
                     {highestPassiveScores}
                     {highestSpellSlotLevel}
                     {partyHasExertionPool}
+                    {partyHasInspiration}
                     {partyHasSpellPointPool}
                     --grid-areas={gridAreaDefinition}
                     --grid-template={gridSizeDefinition}

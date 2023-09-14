@@ -18,9 +18,33 @@
     $: actorData = $actor?.system;
     $: showExertion = hasExertionPool($actor);
     $: showSpellPoints = hasSpellPoints($actor);
+
+    $: showResources =
+        propData.partyHasExertionPool ||
+        propData.partyHasInspiration ||
+        propData.partyHasSpellPointPool ||
+        propData.highestSpellSlotLevel;
 </script>
 
-{#if propData.partyHasExertionPool || propData.partyHasSpellPointPool || propData.highestSpellSlotLevel}
+{#if showResources}
+    {#if propData.partyHasInspiration}
+        <span class="field field--inspiration">
+            {#if actorData?.attributes.inspiration}
+                <i
+                    class="check fa-solid fa-circle-check"
+                    data-tooltip="{$actor.name} has inspiration."
+                    data-tooltip-direction="UP"
+                />
+            {:else}
+                <i
+                    class="cross fa-solid fa-xmark"
+                    data-tooltip="{$actor.name} does not have inspiration."
+                    data-tooltip-direction="UP"
+                />
+            {/if}
+        </span>
+    {/if}
+
     {#if propData.partyHasExertionPool}
         <span class="field field--exertion">
             {#if showExertion}
@@ -77,6 +101,10 @@
 {/if}
 
 <style lang="scss">
+    .check {
+        color: $color-primary;
+    }
+
     .cross {
         color: #aaa;
     }
@@ -87,6 +115,10 @@
 
         &--exertion {
             grid-area: exertion;
+        }
+
+        &--inspiration {
+            grid-area: inspiration;
         }
 
         &--no-resources {
