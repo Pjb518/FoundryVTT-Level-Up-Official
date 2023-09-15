@@ -79,8 +79,10 @@ export default class TokenHUDA5e extends TokenHUD {
    * Destroy svelte components when the HUD is closed
    */
   clear() {
-    this?._svelteComponent?.$destroy();
-    console.log(this?._svelteComponent);
     super.clear();
+    if (this?._svelteComponent?.$destroy) {
+      this._svelteComponent.$destroy();
+      this._svelteComponent = null;
+    }
   }
 }

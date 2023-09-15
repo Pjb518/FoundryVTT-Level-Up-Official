@@ -3,9 +3,7 @@
 <script>
     import { setContext } from "svelte";
     import { localize } from "#runtime/svelte/helper";
-    import { TJSDocument } from "#runtime/svelte/store/fvtt/document";
 
-    export let tokenDocument;
     export let HUD;
 
     function handleStatusEffectClick({ id, src }, { overlay = false } = {}) {
@@ -20,9 +18,9 @@
     const data = HUD.getData();
     const statusEffects = Object.values(data.statusEffects);
     const genericEffects = Object.values(data.genericConditions);
-    const token = new TJSDocument(tokenDocument);
 
-    setContext("token", token);
+    $: conditionImmunities =
+        HUD?.object?.actor?.system?.traits?.conditionImmunities ?? [];
 </script>
 
 <div class="status-effects-container">
@@ -31,6 +29,7 @@
             class="condition-container {effect.cssClass}"
             title={effect.title ?? ""}
             data-status-id={effect.id}
+            disabled={conditionImmunities.includes(effect.id)}
             on:click|preventDefault|stopPropagation={() =>
                 handleStatusEffectClick(effect)}
             on:auxclick|preventDefault|stopPropagation={() =>
@@ -97,7 +96,6 @@
         .active {
             img,
             h3 {
-                border: none;
                 font-weight: bold;
                 filter: invert(62%) sepia(32%) saturate(6599%)
                     hue-rotate(110deg) brightness(96%) contrast(83%);
@@ -124,8 +122,23 @@
             color: $color-primary-light;
         }
 
+        &:disabled {
+            img,
+            h3 {
+                cursor: not-allowed;
+                font-weight: bold;
+                filter: invert(11%) sepia(42%) saturate(7092%)
+                    hue-rotate(352deg) brightness(94%) contrast(81%);
+            }
+
+            &:hover {
+                color: rgb(204 204 204);
+            }
+        }
+
         h3 {
             height: 1rem;
+            border: none;
         }
 
         img {
@@ -184,4 +197,6 @@
             font-weight: bold;
         }
     }
+    // Generate filter
+    // https://isotropic.co/tool/hex-color-to-css-filter/
 </style>

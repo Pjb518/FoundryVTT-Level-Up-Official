@@ -7,6 +7,6 @@ export default function renderTokenHUDA5E(HUD, html, token) {
   target.innerHTML = '';
   HUD._svelteComponent = new A5eTokenHUD({
     target,
-    props: { tokenDocument: token, HUD }
+    props: { HUD }
   });
 }
