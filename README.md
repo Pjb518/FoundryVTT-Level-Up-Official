@@ -15,9 +15,8 @@ If you want to keep up to date with the system's development and influence its f
 
 ## Funding
 
-If you'd like to support the development of the Level Up: Advanced 5th Edition system for Foundry VTT, please consider donating to my Ko-Fi page:
-
-[![ko-fi](https://ko-fi.com/img/githubbutton_sm.svg)](https://ko-fi.com/nekrodarkmoon)
+If you'd like to support the development of the Level Up: Advanced 5th Edition system for Foundry VTT, please see our Patreon page: <br />
+[![Patreon](https://img.shields.io/endpoint.svg?url=https%3A%2F%2Fshieldsio-patreon.vercel.app%2Fapi%3Fusername%3DForgemasterModules%26type%3Dpatrons&style=for-the-badge)](https://patreon.com/ForgemasterModules)
 
 ## Modules
 
