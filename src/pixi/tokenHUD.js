@@ -73,4 +73,12 @@ export default class TokenHUDA5e extends TokenHUD {
       await this.object.document.toggleActiveEffect(condition, { active: false });
     }
   }
+
+  /**
+   * Destroy svelte components when the HUD is closed
+   */
+  clear() {
+    this?._svelteComponent?.$destroy();
+    super.clear();
+  }
 }
