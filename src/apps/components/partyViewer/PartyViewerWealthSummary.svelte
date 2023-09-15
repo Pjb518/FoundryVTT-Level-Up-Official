@@ -1,6 +1,6 @@
 <script>
     export let actor;
-    export let propData = {};
+    export const propData = {};
 
     $: actorData = $actor?.system ?? {};
 </script>

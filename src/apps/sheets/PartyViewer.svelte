@@ -7,6 +7,7 @@
     // import NavigationBar from "../components/navigation/NavigationBar.svelte";
     import PartyViewerActorSummary from "../components/partyViewer/PartyViewerActorSummary.svelte";
     import PartyViewerCoreHeader from "../components/partyViewer/PartyViewerCoreHeader.svelte";
+    import PartyViewerLanguagesHeader from "../components/partyViewer/PartyViewerLanguagesHeader.svelte";
     import PartyViewerResourceHeader from "../components/partyViewer/PartyViewerResourceHeader.svelte";
     import PartyViewerWealthHeader from "../components/partyViewer/PartyViewerWealthHeader.svelte";
     import PartyViewerWealthFooter from "../components/partyViewer/PartyViewerWealthFooter.svelte";
@@ -58,6 +59,8 @@
         switch (viewMode) {
             case "core":
                 return `"${base} hp ac maneuverDC spellDC perception insight investigation ${end}"`;
+            case "languages":
+                return `"${base} languages ${end}"`;
             case "resources":
                 return getResourcePanelGridAreaDefinition();
             case "wealth":
@@ -106,6 +109,8 @@
         switch (viewMode) {
             case "core":
                 return `${base} 4rem repeat(6, 3rem) ${end}`;
+            case "languages":
+                return `${base} 2.5fr ${end}`;
             case "resources":
                 return getResourcePanelGridSizeDefinition();
             case "wealth":
@@ -156,6 +161,8 @@
         switch (viewMode) {
             case "core":
                 return PartyViewerCoreHeader;
+            case "languages":
+                return PartyViewerLanguagesHeader;
             case "resources":
                 return PartyViewerResourceHeader;
             case "wealth":
@@ -322,7 +329,7 @@
     const viewModes = [
         ["core", "Core"],
         ["resources", "Resources"],
-        // ["languages", "Languages"],
+        ["languages", "Languages"],
         ["wealth", "Wealth"],
     ];
 
@@ -514,7 +521,7 @@
 
 <style lang="scss">
     article {
-        min-height: 15rem;
+        min-height: 14rem;
         min-width: 40rem;
         padding: 0.25rem 0.5rem;
     }
