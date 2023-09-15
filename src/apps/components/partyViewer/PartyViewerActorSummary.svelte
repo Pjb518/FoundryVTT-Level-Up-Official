@@ -2,6 +2,7 @@
     import { createEventDispatcher, onDestroy } from "svelte";
 
     import PartyViewerCoreSummary from "./PartyViewerCoreSummary.svelte";
+    import PartyViewerLanguagesSummary from "./PartyViewerLanguagesSummary.svelte";
     import PartyViewerResourceSummary from "./PartyViewerResourceSummary.svelte";
     import PartyViewerWealthSummary from "./PartyViewerWealthSummary.svelte";
 
@@ -19,6 +20,8 @@
         switch (viewMode) {
             case "core":
                 return PartyViewerCoreSummary;
+            case "languages":
+                return PartyViewerLanguagesSummary;
             case "resources":
                 return PartyViewerResourceSummary;
             case "wealth":
