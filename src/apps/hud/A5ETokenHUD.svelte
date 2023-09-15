@@ -2,32 +2,51 @@
 
 <script>
     import { setContext } from "svelte";
+    import { localize } from "#runtime/svelte/helper";
     import { TJSDocument } from "#runtime/svelte/store/fvtt/document";
 
     export let tokenDocument;
     export let HUD;
 
-    const token = new TJSDocument(tokenDocument);
+    function handleStatusEffectClick({ id, src }, { overlay = false } = {}) {
+        const effect =
+            id && HUD?.object?.actor
+                ? CONFIG.statusEffects.find((e) => e.id === id)
+                : src;
+
+        return HUD?.object?.toggleEffect(effect, { overlay });
+    }
 
     const data = HUD.getData();
     const statusEffects = Object.values(data.statusEffects);
     const genericEffects = Object.values(data.genericConditions);
+    const token = new TJSDocument(tokenDocument);
 
     setContext("token", token);
 </script>
 
-<div class="status-effects-conditions">
+<div class="status-effects-container">
     {#each statusEffects as effect}
-        <div class="conditon-container">
+        <button
+            class="condition-container {effect.cssClass}"
+            title={effect.title ?? ""}
+            data-status-id={effect.id}
+            on:click|preventDefault|stopPropagation={() =>
+                handleStatusEffectClick(effect)}
+            on:auxclick|preventDefault|stopPropagation={() =>
+                handleStatusEffectClick(effect, { overlay: true })}
+        >
             <img
-                class="effect-control {effect.cssClass}"
+                class={effect.cssClass}
                 src={effect.src}
-                title={effect.title ?? ""}
                 alt={effect.title ?? ""}
+                title={effect.title ?? ""}
                 data-status-id={effect.id}
             />
-            <div class="condition-name">{effect.title}</div>
-        </div>
+            <h3 class="condition-title">
+                {effect.title}
+            </h3>
+        </button>
     {/each}
 </div>
 
@@ -35,20 +54,36 @@
 
 <div class="generic-effects-container">
     {#each genericEffects as effect}
-        <div class="condition-container">
+        <button
+            class="condition-container {effect.cssClass}"
+            title={effect.title ?? ""}
+            data-status-id={effect.id}
+            on:click|preventDefault|stopPropagation={() =>
+                handleStatusEffectClick(effect)}
+            on:auxclick|preventDefault|stopPropagation={() =>
+                handleStatusEffectClick(effect, { overlay: true })}
+        >
             <img
-                class="effect-control {effect.cssClass}"
+                class={effect.cssClass}
                 src={effect.src}
-                title={effect.title ?? ""}
                 alt={effect.title ?? ""}
+                title={effect.title ?? ""}
                 data-status-id={effect.id}
             />
-        </div>
+        </button>
     {/each}
 </div>
 
+<button
+    class="clear-all-conditions"
+    on:click={HUD?._clearAllConditions.bind(HUD)}
+>
+    <i class="fa-solid fa-octagon-xmark" />
+    {localize("A5E.UIClearAll")}
+</button>
+
 <style lang="scss">
-    .status-effects-conditions {
+    .status-effects-container {
         display: grid;
         grid-template-columns: repeat(3, minmax(8em, 1fr));
         gap: 0.75rem;
@@ -59,16 +94,47 @@
         text-align: left;
         width: max-content;
 
-        .condition-container .effect-control {
-            &.active {
+        .active {
+            img,
+            h3 {
+                border: none;
+                font-weight: bold;
                 filter: invert(62%) sepia(32%) saturate(6599%)
                     hue-rotate(110deg) brightness(96%) contrast(83%);
             }
+        }
+    }
 
-            &.active + .condition-name {
-                color: $color-primary-light;
-                font-weight: 600;
-            }
+    .condition-container {
+        display: flex;
+        position: relative;
+        gap: 0.5rem;
+        font-size: 1rem;
+        align-items: center;
+        margin-block: 0.125rem;
+        border: none;
+        color: rgb(204 204 204);
+        cursor: pointer;
+        transition: $standard-transition;
+
+        &:hover,
+        &:focus {
+            outline: none;
+            box-shadow: none;
+            color: $color-primary-light;
+        }
+
+        h3 {
+            height: 1rem;
+        }
+
+        img {
+            width: 2rem;
+            height: 2rem;
+            margin: 0;
+            padding: 0;
+            border: none;
+            opacity: 1;
         }
     }
 
@@ -79,52 +145,25 @@
         padding-block-end: 0.75rem;
 
         .condition-container {
-            border-radius: 50%;
-            border: 3px solid black;
-            aspect-ratio: 1/1;
+            justify-content: center;
 
-            &:hover {
-                outline: 3px solid #ccc;
+            img {
+                width: 2rem;
+                aspect-ratio: 1/1;
+                border: 2px solid black;
+                border-radius: 50%;
+
+                &:hover {
+                    outline: 3px solid #ccc;
+                }
             }
+        }
 
-            .active {
+        .active {
+            img {
                 border-radius: 50%;
                 outline: 4px solid #ccc;
-                // border: 3px solid #ccc;
             }
-        }
-    }
-
-    .condition-container {
-        display: flex;
-        position: relative;
-        align-items: center;
-        margin-block: 0.125rem;
-        color: rgb(204 204 204);
-        cursor: pointer;
-        transition: $standard-transition;
-
-        &:hover {
-            color: $color-primary-light;
-        }
-
-        // Generate filter
-        // https://stackoverflow.com/questions/22252472/how-to-change-the-color-of-an-svg-element
-        .effect-control {
-            width: 100%;
-            padding-inline-end: calc(100% - 24px);
-            opacity: 1;
-        }
-
-        .condition-name {
-            position: absolute;
-            padding-left: 0.25em;
-            left: 24px;
-            max-width: calc(100% - 24px);
-            overflow: hidden;
-            text-overflow: ellipsis;
-            white-space: nowrap;
-            pointer-events: none;
         }
     }
 
@@ -134,12 +173,15 @@
         right: -1px;
         padding: 0.25em;
         color: rgb(204 204 204);
+        border: none;
         border-radius: 4px 4px 0 0;
-        background-color: rgba(51 51 51 / 0.6);
+        background-color: black;
+        font-size: 1.25rem;
         cursor: pointer;
 
         &:hover {
             color: $color-secondary;
+            font-weight: bold;
         }
     }
 </style>

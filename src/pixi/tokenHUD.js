@@ -56,6 +56,7 @@ export default class TokenHUDA5e extends TokenHUD {
    * @param {*} event
    */
   async _clearAllConditions(event) {
+    event.preventDefault();
     event.stopPropagation();
 
     const choices = this._getStatusEffectChoices();
@@ -79,6 +80,7 @@ export default class TokenHUDA5e extends TokenHUD {
    */
   clear() {
     this?._svelteComponent?.$destroy();
+    console.log(this?._svelteComponent);
     super.clear();
   }
 }
