@@ -1,12 +1,12 @@
 {
 	"folder": null,
-	"name": "Black Pudding",
+	"name": "Fetid Witch",
 	"type": "npc",
 	"img": "icons/svg/mystery-man.svg",
 	"system": {
 		"abilities": {
 			"str": {
-				"value": 16,
+				"value": 14,
 				"check": {
 					"expertiseDice": 0,
 					"bonus": ""
@@ -18,7 +18,7 @@
 				}
 			},
 			"dex": {
-				"value": 4,
+				"value": 14,
 				"check": {
 					"expertiseDice": 0,
 					"bonus": ""
@@ -30,20 +30,20 @@
 				}
 			},
 			"con": {
-				"value": 16,
+				"value": 14,
 				"check": {
 					"expertiseDice": 0,
 					"bonus": ""
 				},
 				"save": {
-					"proficient": false,
+					"proficient": true,
 					"expertiseDice": 0,
 					"bonus": "",
 					"concentrationBonus": ""
 				}
 			},
 			"int": {
-				"value": 1,
+				"value": 14,
 				"check": {
 					"expertiseDice": 0,
 					"bonus": ""
@@ -55,19 +55,19 @@
 				}
 			},
 			"wis": {
-				"value": 6,
+				"value": 14,
 				"check": {
 					"expertiseDice": 0,
 					"bonus": ""
 				},
 				"save": {
-					"proficient": false,
+					"proficient": true,
 					"expertiseDice": 0,
 					"bonus": ""
 				}
 			},
 			"cha": {
-				"value": 1,
+				"value": 6,
 				"check": {
 					"expertiseDice": 0,
 					"bonus": ""
@@ -99,7 +99,7 @@
 			"ani": {
 				"ability": "wis",
 				"value": 0,
-				"proficient": false,
+				"proficient": true,
 				"specialties": [],
 				"expertiseDice": 0,
 				"minRoll": 1,
@@ -219,7 +219,7 @@
 			"med": {
 				"ability": "wis",
 				"value": 0,
-				"proficient": false,
+				"proficient": true,
 				"specialties": [],
 				"expertiseDice": 0,
 				"minRoll": 1,
@@ -231,7 +231,7 @@
 			"nat": {
 				"ability": "int",
 				"value": 0,
-				"proficient": false,
+				"proficient": true,
 				"specialties": [],
 				"expertiseDice": 0,
 				"minRoll": 1,
@@ -243,7 +243,7 @@
 			"prc": {
 				"ability": "wis",
 				"value": 0,
-				"proficient": false,
+				"proficient": true,
 				"specialties": [],
 				"expertiseDice": 0,
 				"minRoll": 1,
@@ -328,12 +328,12 @@
 		"spellResources": {
 			"slots": {
 				"1": {
-					"current": 0,
-					"max": 0
+					"current": 4,
+					"max": 4
 				},
 				"2": {
-					"current": 0,
-					"max": 0
+					"current": 3,
+					"max": 3
 				},
 				"3": {
 					"current": 0,
@@ -371,7 +371,7 @@
 		},
 		"attributes": {
 			"ac": {
-				"baseFormula": "8",
+				"baseFormula": "10 + @dex.mod",
 				"value": 0
 			},
 			"death": {
@@ -379,8 +379,8 @@
 				"failure": 0
 			},
 			"hp": {
-				"value": 85,
-				"baseMax": 85,
+				"value": 39,
+				"baseMax": 39,
 				"temp": 0,
 				"bonus": 0
 			},
@@ -390,12 +390,12 @@
 					"total": 0
 				},
 				"d8": {
-					"current": 0,
-					"total": 0
+					"current": 6,
+					"total": 6
 				},
 				"d10": {
-					"current": 10,
-					"total": 10
+					"current": 0,
+					"total": 0
 				},
 				"d12": {
 					"current": 0,
@@ -420,7 +420,7 @@
 					"unit": "feet"
 				},
 				"climb": {
-					"distance": 20,
+					"distance": 0,
 					"unit": "feet"
 				},
 				"fly": {
@@ -428,11 +428,11 @@
 					"unit": "feet"
 				},
 				"swim": {
-					"distance": 20,
+					"distance": 0,
 					"unit": "feet"
 				},
 				"walk": {
-					"distance": 20,
+					"distance": 30,
 					"unit": "feet"
 				},
 				"traits": {
@@ -441,9 +441,9 @@
 			},
 			"senses": {
 				"blindsight": {
-					"distance": 60,
+					"distance": 0,
 					"unit": "feet",
-					"otherwiseBlind": true
+					"otherwiseBlind": false
 				},
 				"darkvision": {
 					"distance": 0,
@@ -461,7 +461,7 @@
 			"inspiration": false,
 			"fatigue": 0,
 			"strife": 0,
-			"spellcasting": "int",
+			"spellcasting": "wis",
 			"casterLevel": 0
 		},
 		"bonuses": {
@@ -487,18 +487,21 @@
 			"cp": 0
 		},
 		"details": {
-			"bio": "<h2><strong>COMBAT</strong></h2>\n<p>The pudding lurks on walls or ceilings or conceals itself in shadows. It attacks creatures who venture into range and pursues the closest creature. It retreats only if exposed to sunlight, in which case it tries to climb away or squeeze into a crack.</p>\n<hr class=\"a5e-rule u-my-md\">\n<h2><strong>LEGENDS AND LORE</strong></h2>\n<p>With an Arcana or Nature check, characters can learn the following:</p>\n<p><strong>DC 10</strong> Mindless and able to squeeze through the narrowest of cracks, oozes inhabit dank, dark places all over the world.</p>\n<p><strong>DC 15</strong> There are many different types of oozes. Perhaps the strangest is the gelatinous cube: a nearly transparent ooze that engulfs dungeon explorers who stumble into it.</p>\n<p><strong>DC 20</strong> Oozes dissolve any organic matter they come into contact with. Some oozes, such as black puddings, corrode metal as well</p>\n<hr class=\"a5e-rule u-my-md\">\n<h2><strong>DESCRIPTION</strong></h2>\n<p>A black pudding undulates along the ground and climbs walls, cresting and falling like a slow sea of oil or tar. When motionless, it resembles a dark pool of shadow and may be lost in an area of darkness.&nbsp;</p>\n<p>Black puddings devour living and dead organic materials, like flesh, wood, and bone, and melt metal as well. An adventurer who falls into a pool of black pudding leaves nothing behind but the gemstones of their jewelry.</p>\n<p>A black pudding doesn&rsquo;t shrink from swords or axes. When a black pudding is cut in half, it simply becomes two smaller black puddings.</p>\n<hr class=\"a5e-rule u-my-md\">\n<h2><strong>SIGNS</strong></h2>\n<p>1&ndash;2 DC 13 Perception check: pristine floors or walls</p>\n<p>2 A door missing its metal hinges (gray ooze), a door missing its lower half (black pudding), or a skeleton (gelatinous cube or ochre jelly)</p>\n<p>3 A bit of writhing ooze stuck in a crack</p>\n<p>4 Wet and dripping walls and floors. DC 14 Investigation or Survival: The area is completely free of lichen, fungus, and other life that might thrive in this environment</p>\n<hr class=\"a5e-rule u-my-md\">\n<h2><strong>ENCOUNTERS</strong></h2>\n<p><strong>Ooze Encounters </strong>Oozes lurk in sunless areas such as caverns, dungeons, and the ocean depths, as well as in areas of the Abyss and the Bleak Gate.</p>\n<p><strong>CR 0&ndash;2</strong> gelatinous cube; ochre jelly; 1 to 3 gray oozes; gray ooze in pit trap</p>\n<p><strong>Treasure</strong> flat carnelian gem carved with a lion, possibly once part of a signet ring (75 gp)</p>\n<p><strong>CR 3&ndash;4</strong> black pudding; gelatinous cube in pit trap; 2 gelatinous cubes or ochre jellies; ochre jelly with 1d4 flying swords&nbsp;</p>\n<p><strong>Treasure</strong> flint, chalk, marble chess pieces (125 gp), malachite gem (10 gp), <em>+1 dagger</em> enchanted with <em>continual flame</em></p>\n<p><strong>CR 5&ndash;10</strong> elder black pudding; gelatinous wall; black pudding with walking statue or mimic</p>\n<p><strong>Treasure</strong> 3 sealed wine bottles containing fine wine (100 gp each), 4 amethyst gemstones (100 gp each), 2 <em>elemental gems</em> (fire)</p>\n<hr class=\"a5e-rule u-my-md\">\n<h2><strong>MONSTER TYPE DESCRIPTION</strong></h2>\n<p>Oozes are ambulatory, predatory amoeboid creatures that infest caverns and other dark places. A gelatinous cube is an ooze.</p>",
+			"bio": "",
 			"creatureTypes": [
-				"ooze"
+				"humanoid"
 			],
 			"isSwarm": false,
-			"cr": 0,
+			"cr": 2,
 			"elite": false,
 			"privateNotes": ""
 		},
 		"proficiencies": {
 			"armor": [],
-			"languages": [],
+			"languages": [
+				"common",
+				"druidic"
+			],
 			"tools": [],
 			"weapons": []
 		},
@@ -554,27 +557,15 @@
 			"publisher": ""
 		},
 		"traits": {
-			"size": "lg",
-			"conditionImmunities": [
-				"blinded",
-				"charmed",
-				"deafened",
-				"fatigue",
-				"frightened",
-				"prone"
-			],
+			"size": "med",
+			"conditionImmunities": [],
 			"damageImmunities": [],
-			"damageResistances": [
-				"acid",
-				"cold",
-				"lightning",
-				"slashing"
-			],
+			"damageResistances": [],
 			"damageVulnerabilities": []
 		}
 	},
 	"prototypeToken": {
-		"name": "Black Pudding",
+		"name": "Fetid Witch",
 		"displayName": 0,
 		"actorLink": false,
 		"appendNumber": false,
@@ -585,11 +576,10 @@
 			"scaleY": 1,
 			"offsetX": 0,
 			"offsetY": 0,
-			"rotation": 0,
-			"tint": null
+			"rotation": 0
 		},
-		"width": 2,
-		"height": 2,
+		"width": 1,
+		"height": 1,
 		"lockRotation": false,
 		"rotation": 0,
 		"alpha": 1,
@@ -621,8 +611,7 @@
 			"darkness": {
 				"min": 0,
 				"max": 1
-			},
-			"color": null
+			}
 		},
 		"sight": {
 			"enabled": false,
@@ -632,8 +621,7 @@
 			"attenuation": 0.1,
 			"brightness": 0,
 			"saturation": 0,
-			"contrast": 0,
-			"color": null
+			"contrast": 0
 		},
 		"detectionModes": [],
 		"flags": {},
@@ -733,7 +721,7 @@
 				"equippedState": 0
 			},
 			"folder": null,
-			"_id": "6WNpLc8fLg9oXkHT",
+			"_id": "HmHfa2GH4VQUaMlf",
 			"sort": 0,
 			"ownership": {
 				"default": 0,
@@ -743,8 +731,8 @@
 				"systemId": "a5e",
 				"systemVersion": "0.14.17",
 				"coreVersion": "11.308",
-				"createdTime": 1694773605048,
-				"modifiedTime": 1694773605048,
+				"createdTime": 1694771801643,
+				"modifiedTime": 1694771801643,
 				"lastModifiedBy": "3Y2gVQm11sFC8K3d"
 			}
 		},
@@ -841,7 +829,7 @@
 				"equippedState": 0
 			},
 			"folder": null,
-			"_id": "fJna4wZeZLpqwf5r",
+			"_id": "jYV5aXnwm6qPp8NG",
 			"sort": 0,
 			"ownership": {
 				"default": 0,
@@ -851,8 +839,8 @@
 				"systemId": "a5e",
 				"systemVersion": "0.14.17",
 				"coreVersion": "11.308",
-				"createdTime": 1694773605048,
-				"modifiedTime": 1694773605048,
+				"createdTime": 1694771801643,
+				"modifiedTime": 1694771801643,
 				"lastModifiedBy": "3Y2gVQm11sFC8K3d"
 			}
 		},
@@ -949,7 +937,7 @@
 				"equippedState": 0
 			},
 			"folder": null,
-			"_id": "tDEhvzOrwG6o11ZJ",
+			"_id": "huqPyEk7JJRTiAzj",
 			"sort": 0,
 			"ownership": {
 				"default": 0,
@@ -959,8 +947,8 @@
 				"systemId": "a5e",
 				"systemVersion": "0.14.17",
 				"coreVersion": "11.308",
-				"createdTime": 1694773605048,
-				"modifiedTime": 1694773605048,
+				"createdTime": 1694771801643,
+				"modifiedTime": 1694771801643,
 				"lastModifiedBy": "3Y2gVQm11sFC8K3d"
 			}
 		},
@@ -1057,7 +1045,7 @@
 				"equippedState": 0
 			},
 			"folder": null,
-			"_id": "WyXAD0P9pXek6P1x",
+			"_id": "AsppBGFIk2bvUOJC",
 			"sort": 0,
 			"ownership": {
 				"default": 0,
@@ -1067,8 +1055,8 @@
 				"systemId": "a5e",
 				"systemVersion": "0.14.17",
 				"coreVersion": "11.308",
-				"createdTime": 1694773605048,
-				"modifiedTime": 1694773605048,
+				"createdTime": 1694771801643,
+				"modifiedTime": 1694771801643,
 				"lastModifiedBy": "3Y2gVQm11sFC8K3d"
 			}
 		},
@@ -1165,7 +1153,7 @@
 				"equippedState": 0
 			},
 			"folder": null,
-			"_id": "qZdXEuPq5a4m40i5",
+			"_id": "JWbmY5ACUq75BZeJ",
 			"sort": 0,
 			"ownership": {
 				"default": 0,
@@ -1175,8 +1163,8 @@
 				"systemId": "a5e",
 				"systemVersion": "0.14.17",
 				"coreVersion": "11.308",
-				"createdTime": 1694773605048,
-				"modifiedTime": 1694773605048,
+				"createdTime": 1694771801643,
+				"modifiedTime": 1694771801643,
 				"lastModifiedBy": "3Y2gVQm11sFC8K3d"
 			}
 		},
@@ -1273,7 +1261,7 @@
 				"equippedState": 0
 			},
 			"folder": null,
-			"_id": "5lgmM3nJh8grjn7w",
+			"_id": "dsvIuFt4CubSRVnq",
 			"sort": 0,
 			"ownership": {
 				"default": 0,
@@ -1283,388 +1271,143 @@
 				"systemId": "a5e",
 				"systemVersion": "0.14.17",
 				"coreVersion": "11.308",
-				"createdTime": 1694773605048,
-				"modifiedTime": 1694773605048,
+				"createdTime": 1694771801643,
+				"modifiedTime": 1694771801643,
 				"lastModifiedBy": "3Y2gVQm11sFC8K3d"
 			}
 		},
 		{
-			"_id": "EmNhucMkZbClrRRP",
-			"name": "Amorphous",
+			"name": "Carrier",
 			"type": "feature",
-			"img": "icons/svg/item-bag.svg",
-			"effects": [],
-			"folder": "MrHKXdZgN2tcvnWu",
-			"sort": -100000,
-			"flags": {
-				"core": {
-					"sourceId": "Item.8sly2HIVUXge17ST"
-				},
-				"scene-packer": {
-					"hash": "d1782a1fdb852fa3363b1cab4bc58a42eb4f204d"
-				}
-			},
 			"system": {
 				"ac": {
 					"baseFormula": "",
 					"formula": "",
 					"maxDex": 0,
 					"minStr": 0,
-					"mode": 1,
+					"mode": 2,
 					"requiresNoShield": false,
 					"requiresUnarmored": false
 				},
-				"actions": {
-					"XLcyFsqqM3jViQro": {
-						"name": "Amorphous",
-						"activation": {
-							"cost": "",
-							"type": "none",
-							"reactionTrigger": ""
-						},
-						"duration": {
-							"unit": "permanent",
-							"value": ""
-						},
-						"area": {
-							"shape": "",
-							"size": "",
-							"placeTemplate": false
-						},
-						"target": {
-							"quantity": "",
-							"type": ""
-						},
-						"consumers": {}
-					}
-				},
-				"description": "<p>The jelly can pass through an opening as narrow as 1 inch wide without squeezing.</p>",
+				"actions": {},
+				"description": "<p>The witch can contract and spread&nbsp;<span class=\"freelinking-link\">diseases</span>&nbsp;, but never suffers any of their ill effects.</p>",
 				"favorite": false,
 				"secretDescription": "",
-				"source": "",
+				"source": {
+					"name": "",
+					"link": "",
+					"publisher": ""
+				},
 				"uses": {
 					"value": null,
 					"max": "",
 					"per": null,
 					"recharge": {
-						"formula": "",
-						"threshold": ""
+						"formula": "1d6",
+						"threshold": "6"
 					}
 				},
 				"schema": {
-					"version": 0.004,
-					"lastMigration": {
-						"version": {
-							"schema": 0.003,
-							"foundry": "11.302",
-							"system": "0.12.7"
-						}
-					}
+					"version": 0.001,
+					"lastMigration": null
 				},
 				"concentration": false,
-				"featureType": "",
+				"featureType": "other",
 				"prerequisite": ""
 			},
-			"ownership": {
-				"default": 0,
-				"3Y2gVQm11sFC8K3d": 3
-			},
-			"_stats": {
-				"systemId": "a5e",
-				"systemVersion": "0.14.17",
-				"coreVersion": "11.308",
-				"createdTime": 1694773640303,
-				"modifiedTime": 1694773640303,
-				"lastModifiedBy": "3Y2gVQm11sFC8K3d"
-			}
-		},
-		{
-			"_id": "ovHPG6PXne7pcu0K",
-			"name": "Sunlight Sensitivity",
-			"type": "feature",
-			"img": "icons/svg/item-bag.svg",
-			"effects": [],
-			"folder": "MrHKXdZgN2tcvnWu",
-			"sort": -75000,
-			"flags": {
-				"core": {
-					"sourceId": "Item.gxnCe4DFSL5p3DuX"
-				},
-				"scene-packer": {
-					"hash": "823db74398de428c622665e58624bb4583092968"
-				}
-			},
-			"system": {
-				"ac": {
-					"baseFormula": "",
-					"formula": "",
-					"maxDex": 0,
-					"minStr": 0,
-					"mode": 1,
-					"requiresNoShield": false,
-					"requiresUnarmored": false
-				},
-				"actions": {
-					"oAZGuUPTDcCHOFK7": {
-						"name": "Sunlight Sensitivity",
-						"activation": {
-							"cost": "",
-							"type": "none",
-							"reactionTrigger": ""
-						},
-						"duration": {
-							"unit": "permanent",
-							"value": ""
-						},
-						"area": {
-							"shape": "",
-							"size": "",
-							"placeTemplate": false
-						},
-						"target": {
-							"quantity": "",
-							"type": ""
-						},
-						"consumers": {}
-					}
-				},
-				"description": "<p>While in sunlight, the jelly has disadvantage on attack rolls.</p>",
-				"favorite": false,
-				"secretDescription": "",
-				"source": "",
-				"uses": {
-					"value": null,
-					"max": "",
-					"per": null,
-					"recharge": {
-						"formula": "",
-						"threshold": ""
-					}
-				},
-				"schema": {
-					"version": 0.004,
-					"lastMigration": {
-						"version": {
-							"schema": 0.003,
-							"foundry": "11.302",
-							"system": "0.12.7"
-						}
-					}
-				},
-				"concentration": false,
-				"featureType": "",
-				"prerequisite": ""
-			},
-			"ownership": {
-				"default": 0,
-				"3Y2gVQm11sFC8K3d": 3
-			},
-			"_stats": {
-				"systemId": "a5e",
-				"systemVersion": "0.14.17",
-				"coreVersion": "11.308",
-				"createdTime": 1694773641122,
-				"modifiedTime": 1694773641122,
-				"lastModifiedBy": "3Y2gVQm11sFC8K3d"
-			}
-		},
-		{
-			"_id": "zgrumc98HhYm7uCD",
-			"name": "Ooze Nature",
-			"type": "feature",
-			"img": "icons/svg/item-bag.svg",
-			"effects": [],
-			"folder": "MrHKXdZgN2tcvnWu",
-			"sort": -50000,
-			"flags": {
-				"core": {
-					"sourceId": "Item.TGISdkZEUaYg3NrU"
-				},
-				"scene-packer": {
-					"hash": "022c96095f0cb0d7fadd45cc5cc31219f97f9818"
-				}
-			},
-			"system": {
-				"ac": {
-					"baseFormula": "",
-					"formula": "",
-					"maxDex": 0,
-					"minStr": 0,
-					"mode": 1,
-					"requiresNoShield": false,
-					"requiresUnarmored": false
-				},
-				"actions": {
-					"0X9N71AH9X8xarIQ": {
-						"name": "Ooze Nature",
-						"activation": {
-							"cost": "",
-							"type": "none",
-							"reactionTrigger": ""
-						},
-						"duration": {
-							"unit": "permanent",
-							"value": ""
-						},
-						"area": {
-							"shape": "",
-							"size": "",
-							"placeTemplate": false
-						},
-						"target": {
-							"quantity": "",
-							"type": ""
-						},
-						"consumers": {}
-					}
-				},
-				"description": "<p>An ooze doesn’t require air or sleep.</p>",
-				"favorite": false,
-				"secretDescription": "",
-				"source": "",
-				"uses": {
-					"value": null,
-					"max": "",
-					"per": null,
-					"recharge": {
-						"formula": "",
-						"threshold": ""
-					}
-				},
-				"schema": {
-					"version": 0.004,
-					"lastMigration": {
-						"version": {
-							"schema": 0.003,
-							"foundry": "11.302",
-							"system": "0.12.7"
-						}
-					}
-				},
-				"concentration": false,
-				"featureType": "",
-				"prerequisite": ""
-			},
-			"ownership": {
-				"default": 0,
-				"3Y2gVQm11sFC8K3d": 3
-			},
-			"_stats": {
-				"systemId": "a5e",
-				"systemVersion": "0.14.17",
-				"coreVersion": "11.308",
-				"createdTime": 1694773642343,
-				"modifiedTime": 1694773642343,
-				"lastModifiedBy": "3Y2gVQm11sFC8K3d"
-			}
-		},
-		{
-			"_id": "sBXgfRxRCMDAXIhj",
-			"name": "Corrosive Body",
-			"type": "feature",
+			"_id": "8W8aiErbiSf3wPuw",
 			"img": "icons/svg/item-bag.svg",
 			"effects": [],
 			"folder": null,
 			"sort": 0,
-			"flags": {
-				"scene-packer": {
-					"hash": "96a0f7f6422c2bdcd9fc072bd0d7da97c9553aad"
-				}
-			},
-			"system": {
-				"ac": {
-					"baseFormula": "",
-					"formula": "",
-					"maxDex": 0,
-					"minStr": 0,
-					"mode": 1,
-					"requiresNoShield": false,
-					"requiresUnarmored": false
-				},
-				"actions": {
-					"jHFYnYo86dhk9BHY": {
-						"name": "Corrosive Body",
-						"activation": {
-							"cost": "",
-							"type": "none",
-							"reactionTrigger": ""
-						},
-						"duration": {
-							"unit": "permanent",
-							"value": ""
-						},
-						"area": {
-							"shape": "",
-							"size": "",
-							"placeTemplate": false
-						},
-						"target": {
-							"quantity": "",
-							"type": ""
-						},
-						"rolls": {
-							"brWb7LHIJImqA0Pk": {
-								"canCrit": false,
-								"damageType": "acid",
-								"formula": "2d8",
-								"name": "acid",
-								"type": "damage"
-							}
-						},
-						"consumers": {}
-					}
-				},
-				"description": "<p>A creature that touches the pudding or hits it with a melee attack while within 5 feet takes 9 (2d8) acid damage. A nonmagical weapon made of metal or wood that hits the black pudding corrodes after dealing damage, taking a permanent -1 penalty to damage rolls per hit. If this penalty reaches -5, the weapon is destroyed. Wooden or metal nonmagical ammunition is destroyed after dealing damage. Any other metal or organic object that touches it takes 9 (2d8) acid damage.</p>",
-				"favorite": true,
-				"secretDescription": "",
-				"source": "",
-				"uses": {
-					"value": null,
-					"max": "",
-					"per": null,
-					"recharge": {
-						"formula": "",
-						"threshold": ""
-					}
-				},
-				"schema": {
-					"version": 0.004,
-					"lastMigration": {
-						"version": {
-							"schema": 0.003,
-							"foundry": "11.302",
-							"system": "0.12.7"
-						}
-					}
-				},
-				"concentration": false,
-				"featureType": "",
-				"prerequisite": ""
-			},
 			"ownership": {
 				"default": 0,
 				"3Y2gVQm11sFC8K3d": 3
+			},
+			"flags": {
+				"scene-packer": {
+					"hash": "45cfc00b6299b60dcc79e6492e0139a55485ec6d"
+				}
 			},
 			"_stats": {
 				"systemId": "a5e",
 				"systemVersion": "0.14.17",
 				"coreVersion": "11.308",
-				"createdTime": 1694773643683,
-				"modifiedTime": 1694773643683,
+				"createdTime": 1694772004931,
+				"modifiedTime": 1694772016147,
 				"lastModifiedBy": "3Y2gVQm11sFC8K3d"
 			}
 		},
 		{
-			"_id": "STI5l6P6sSnKK533",
-			"name": "Psuedopod",
+			"name": "Vermin Master",
 			"type": "feature",
+			"system": {
+				"ac": {
+					"baseFormula": "",
+					"formula": "",
+					"maxDex": 0,
+					"minStr": 0,
+					"mode": 2,
+					"requiresNoShield": false,
+					"requiresUnarmored": false
+				},
+				"actions": {},
+				"description": "<p>When the witch casts a spell that targets only a rat, bat, or insect, she can cast it at its lowest level without expending a spell slot. She can communicate telepathically with any such creature within 10 miles.</p>",
+				"favorite": false,
+				"secretDescription": "",
+				"source": {
+					"name": "",
+					"link": "",
+					"publisher": ""
+				},
+				"uses": {
+					"value": null,
+					"max": "",
+					"per": null,
+					"recharge": {
+						"formula": "1d6",
+						"threshold": "6"
+					}
+				},
+				"schema": {
+					"version": 0.001,
+					"lastMigration": null
+				},
+				"concentration": false,
+				"featureType": "other",
+				"prerequisite": ""
+			},
+			"_id": "gWRtlpK7mpk2ZVqX",
 			"img": "icons/svg/item-bag.svg",
 			"effects": [],
 			"folder": null,
 			"sort": 0,
+			"ownership": {
+				"default": 0,
+				"3Y2gVQm11sFC8K3d": 3
+			},
 			"flags": {
 				"scene-packer": {
-					"hash": "3f4baa1e206612dd21ccf23563ad01e7e792acde"
+					"hash": "45cfc00b6299b60dcc79e6492e0139a55485ec6d"
+				}
+			},
+			"_stats": {
+				"systemId": "a5e",
+				"systemVersion": "0.14.17",
+				"coreVersion": "11.308",
+				"createdTime": 1694772018653,
+				"modifiedTime": 1694772031645,
+				"lastModifiedBy": "3Y2gVQm11sFC8K3d"
+			}
+		},
+		{
+			"name": "Staff of Squalor",
+			"type": "object",
+			"img": "icons/weapons/staves/staff-simple.webp",
+			"effects": [],
+			"flags": {
+				"scene-packer": {
+					"hash": "40dc6ad05b6a9e1d0a904d32686f4e0359b83232"
 				}
 			},
 			"system": {
@@ -1678,11 +1421,11 @@
 					"requiresUnarmored": false
 				},
 				"actions": {
-					"VGfpvtGcRwN0EFfz": {
-						"name": "Psuedopod",
+					"kCg6rq5fMTR4DASN": {
+						"name": "Staff of Squalor",
 						"activation": {
-							"cost": 1,
-							"type": "action",
+							"cost": "",
+							"type": "",
 							"reactionTrigger": ""
 						},
 						"duration": {
@@ -1696,35 +1439,502 @@
 						},
 						"target": {
 							"quantity": 1,
-							"type": "creature"
+							"type": "creatureObject"
 						},
 						"rolls": {
-							"LmDVCaTJ7TszoWih": {
+							"kIPu7GmdIzAicMJ7": {
 								"bonus": "",
 								"critThreshold": "20",
 								"type": "attack",
 								"attackType": "meleeWeaponAttack",
-								"ability": "str"
+								"ability": "default"
 							},
-							"NYpVbZE5bSCC83Yc": {
+							"pkL2dfIfjmcWiwlT": {
 								"canCrit": true,
 								"damageType": "bludgeoning",
-								"formula": "1d6 + @str.mod",
-								"name": "bludgeoning",
-								"type": "damage"
+								"formula": "1d8 + @str.mod",
+								"name": "Quarterstaff",
+								"type": "damage",
+								"label": "one hand"
 							},
-							"Dd47e9Cd4Y8noP56": {
-								"canCrit": true,
-								"damageType": "acid",
-								"formula": "2d8",
-								"name": "acid",
-								"type": "damage"
+							"mfoU0u1rUZhhbcW1": {
+								"type": "damage",
+								"default": true,
+								"damageType": "bludgeoning",
+								"formula": "1d10 + @str.mod",
+								"label": "two hands"
 							}
+						},
+						"consumers": {},
+						"prompts": {
+							"CiJHzlOXlAR1sh3k": {
+								"type": "savingThrow",
+								"default": true,
+								"ability": "con",
+								"saveDC": {
+									"type": "spellcasting"
+								},
+								"onSave": "not contact sewer plaque"
+							}
+						}
+					}
+				},
+				"description": "<p><em>Melee Weapon Attack:</em>&nbsp;+4 to hit, reach 5 ft., one target.&nbsp;<em>Hit:</em>&nbsp;6 (1d8 + 2) bludgeoning damage, or 7 (1d10 + 2) bludgeoning damage if used with two hands. If the target is a creature, it must succeed on a DC 12 Constitution&nbsp;<span class=\"freelinking-link\">saving throw</span>&nbsp;or contract&nbsp;<span class=\"freelinking-link\">sewer plague</span>&nbsp;.</p>",
+				"favorite": false,
+				"secretDescription": "",
+				"source": "",
+				"uses": {
+					"value": null,
+					"max": "",
+					"per": null,
+					"recharge": {
+						"formula": "1d6",
+						"threshold": 6
+					}
+				},
+				"schema": {
+					"version": 0.006,
+					"lastMigration": {
+						"version": {
+							"schema": 0.004,
+							"foundry": "11.305",
+							"system": "0.13.3"
+						}
+					}
+				},
+				"ammunitionProperties": [],
+				"armorCategory": "",
+				"armorProperties": [],
+				"attuned": false,
+				"bulky": false,
+				"craftingComponents": "",
+				"containerId": "",
+				"damagedState": 0,
+				"equippedState": 0,
+				"items": {},
+				"materialProperties": [],
+				"objectType": "weapon",
+				"plotItem": false,
+				"price": "2 sp",
+				"proficient": true,
+				"quantity": 1,
+				"rarity": "common",
+				"requiresAttunement": false,
+				"shieldCategory": "",
+				"shieldProperties": [],
+				"unidentified": false,
+				"unidentifiedDescription": "",
+				"unidentifiedName": "",
+				"weaponProperties": [
+					"parrying",
+					"simple",
+					"twoHanded"
+				],
+				"weight": 4
+			},
+			"folder": "Hi0Exa3LBwLdqM1Q",
+			"_id": "M32zRa3Jv9K7OYVA",
+			"sort": 0,
+			"ownership": {
+				"default": 0,
+				"3Y2gVQm11sFC8K3d": 3
+			},
+			"_stats": {
+				"systemId": "a5e",
+				"systemVersion": "0.14.17",
+				"coreVersion": "11.308",
+				"createdTime": 1694772052996,
+				"modifiedTime": 1694772151973,
+				"lastModifiedBy": "3Y2gVQm11sFC8K3d"
+			}
+		},
+		{
+			"name": "Druidcraft",
+			"type": "spell",
+			"img": "icons/magic/nature/leaf-glow-triple-orange-purple.webp",
+			"effects": [],
+			"flags": {
+				"core": {
+					"sourceId": "Compendium.a5e.a5e-spells.5o1rvwzxmsh5ji9i"
+				},
+				"scene-packer": {
+					"hash": "f0c511f8b354666f708f4422399486c3b1cfc3be"
+				}
+			},
+			"system": {
+				"actions": {
+					"HeJorDgGuRSDTrnj": {
+						"name": "Druidcraft",
+						"activation": {
+							"cost": 1,
+							"type": "action",
+							"reactionTrigger": ""
+						},
+						"duration": {
+							"unit": "instantaneous",
+							"value": ""
+						},
+						"ranges": {
+							"JCylRPrWHXrKHfEF": {
+								"range": "short"
+							}
+						},
+						"area": {
+							"shape": "",
+							"size": "",
+							"placeTemplate": false
+						},
+						"target": {
+							"quantity": "",
+							"type": "other"
 						},
 						"consumers": {}
 					}
 				},
-				"description": "<p><em>Melee Weapon Attack:</em><br><em>On Hit: </em>Nonmagical metal armor worn by the target corrodes, taking a permanent -1 penalty to its AC protection per hit. If the penalty reduces the armor’s AC protection to 10, the armor is destroyed.</p>",
+				"description": "<p>You call upon your mastery of nature to produce one of the following effects within range:</p><ul><li><p>You create a minor, harmless sensory effect that lasts for 1 round and predicts the next 24 hours of weather in your current location. For example, the effect might create a miniature thunderhead if storms are predicted.</p></li><li><p>You instantly make a plant feature develop, but never to produce Supply. For example, you can cause a flower to bloom or a seed pod to open.</p></li><li><p>You create an instantaneous, harmless sensory effect such as the sound of running water, birdsong, or the smell of mulch. The effect must fit in a 5-foot cube.</p></li><li><p>You instantly ignite or extinguish a candle, torch, smoking pipe, or small campfire.</p></li></ul>",
+				"favorite": false,
+				"secretDescription": "",
+				"source": "",
+				"uses": {
+					"value": null,
+					"max": "",
+					"per": null,
+					"recharge": {
+						"formula": "",
+						"threshold": ""
+					}
+				},
+				"schema": {
+					"version": 0.003,
+					"lastMigration": {
+						"version": {
+							"schema": null,
+							"foundry": "10.291",
+							"system": "0.10.7"
+						}
+					}
+				},
+				"components": {
+					"vocalized": true,
+					"seen": true,
+					"material": false
+				},
+				"concentration": false,
+				"level": 0,
+				"materials": "",
+				"materialsConsumed": false,
+				"prepared": false,
+				"prerequisite": "",
+				"ritual": false,
+				"schools": {
+					"primary": "transmutation",
+					"secondary": [
+						"nature",
+						"utility"
+					]
+				}
+			},
+			"_id": "ty7eIWkubgD2m4px",
+			"folder": null,
+			"sort": 0,
+			"ownership": {
+				"default": 0,
+				"3Y2gVQm11sFC8K3d": 3
+			},
+			"_stats": {
+				"systemId": "a5e",
+				"systemVersion": "0.14.17",
+				"coreVersion": "11.308",
+				"createdTime": 1694772190323,
+				"modifiedTime": 1694772190323,
+				"lastModifiedBy": "3Y2gVQm11sFC8K3d"
+			}
+		},
+		{
+			"name": "Mending",
+			"type": "spell",
+			"img": "icons/commodities/treasure/puzzle-box-glowing-blue.webp",
+			"effects": [],
+			"flags": {
+				"core": {
+					"sourceId": "Compendium.a5e.a5e-spells.pblaa5w3f6tuqxuj"
+				},
+				"scene-packer": {
+					"hash": "cc2b73f32792bd8400130b20fb4215fe38db6025"
+				}
+			},
+			"system": {
+				"actions": {
+					"SvBCBi1euAtKKCaw": {
+						"name": "Mending",
+						"activation": {
+							"cost": 1,
+							"type": "minute",
+							"reactionTrigger": ""
+						},
+						"duration": {
+							"unit": "instantaneous",
+							"value": ""
+						},
+						"ranges": {
+							"fF0SzrjLyRunoy0i": {
+								"range": "touch"
+							}
+						},
+						"area": {
+							"shape": "",
+							"size": "",
+							"placeTemplate": false
+						},
+						"target": {
+							"quantity": "",
+							"type": "object"
+						},
+						"consumers": {}
+					}
+				},
+				"description": "<p>You repair a single rip or break in the target object (for example, a cracked goblet, torn page, or ripped robe). The break must be smaller than 1 foot in all dimensions. The spell leaves no trace that the object was damaged.</p><p>Magic items and constructs may be repaired in this way, but their magic is not restored. You gain an expertise die on maintenance checks if you are able to cast this spell on the item you are treating.</p>",
+				"favorite": false,
+				"secretDescription": "",
+				"source": "",
+				"uses": {
+					"value": null,
+					"max": "",
+					"per": null,
+					"recharge": {
+						"formula": "",
+						"threshold": ""
+					}
+				},
+				"schema": {
+					"version": 0.003,
+					"lastMigration": {
+						"version": {
+							"schema": null,
+							"foundry": "10.291",
+							"system": "0.10.7"
+						}
+					}
+				},
+				"components": {
+					"vocalized": true,
+					"seen": true,
+					"material": true
+				},
+				"concentration": false,
+				"level": 0,
+				"materials": "fragment of equine bone",
+				"materialsConsumed": false,
+				"prepared": false,
+				"prerequisite": "",
+				"ritual": false,
+				"schools": {
+					"primary": "transmutation",
+					"secondary": [
+						"arcane",
+						"transformation",
+						"utility"
+					]
+				}
+			},
+			"_id": "z3Iyd3X7iwEkbNHk",
+			"folder": null,
+			"sort": 0,
+			"ownership": {
+				"default": 0,
+				"3Y2gVQm11sFC8K3d": 3
+			},
+			"_stats": {
+				"systemId": "a5e",
+				"systemVersion": "0.14.17",
+				"coreVersion": "11.308",
+				"createdTime": 1694772194955,
+				"modifiedTime": 1694772194955,
+				"lastModifiedBy": "3Y2gVQm11sFC8K3d"
+			}
+		},
+		{
+			"name": "Animal Friendship",
+			"type": "spell",
+			"img": "icons/creatures/mammals/elk-moose-marked-green.webp",
+			"effects": [],
+			"flags": {
+				"core": {
+					"sourceId": "Compendium.a5e.a5e-spells.1laktjzxk5nh1x1r"
+				},
+				"scene-packer": {
+					"hash": "9f641372e86883e73a1cc7dc6cab39e6097a74ed"
+				}
+			},
+			"system": {
+				"actions": {
+					"IV3HIuyqtazSa3SL": {
+						"name": "Animal Friendship",
+						"activation": {
+							"cost": 1,
+							"type": "action",
+							"reactionTrigger": ""
+						},
+						"duration": {
+							"unit": "hour",
+							"value": "24"
+						},
+						"ranges": {
+							"Sq7GpokSS170wv8L": {
+								"range": "short"
+							}
+						},
+						"area": {
+							"shape": "",
+							"size": "",
+							"placeTemplate": false
+						},
+						"target": {
+							"quantity": "",
+							"type": "creature"
+						},
+						"prompts": {
+							"PwcoRftiVfDdbbMn": {
+								"ability": "wis",
+								"onSave": "Negates effect",
+								"saveDC": {
+									"type": "custom",
+									"bonus": ""
+								},
+								"type": "savingThrow"
+							}
+						},
+						"consumers": {
+							"REreIaie5jZUD7V8": {
+								"mode": "variable",
+								"spellLevel": 1,
+								"points": 2,
+								"type": "spell"
+							}
+						}
+					}
+				},
+				"description": "<p>You allow your inner beauty to shine through in song and dance whether to call a bird from its tree or a badger from its sett. Until the spell ends or one of your companions harms it (whichever is sooner), the target is charmed by you.</p><p><strong><em>Cast at Higher Levels.</em></strong> Choose one additional target for each slot level above 1st.</p>",
+				"favorite": false,
+				"secretDescription": "",
+				"source": "",
+				"uses": {
+					"value": null,
+					"max": "",
+					"per": null,
+					"recharge": {
+						"formula": "",
+						"threshold": ""
+					}
+				},
+				"schema": {
+					"version": 0.003,
+					"lastMigration": {
+						"version": {
+							"schema": null,
+							"foundry": "10.291",
+							"system": "0.10.7"
+						}
+					}
+				},
+				"components": {
+					"vocalized": true,
+					"seen": true,
+					"material": true
+				},
+				"concentration": false,
+				"level": 1,
+				"materials": "red ribbon",
+				"materialsConsumed": false,
+				"prepared": 1,
+				"prerequisite": "",
+				"ritual": false,
+				"schools": {
+					"primary": "enchantment",
+					"secondary": [
+						"beasts",
+						"compulsion",
+						"nature"
+					]
+				}
+			},
+			"_id": "SvPJN37P00SAtTB0",
+			"folder": null,
+			"sort": 0,
+			"ownership": {
+				"default": 0,
+				"3Y2gVQm11sFC8K3d": 3
+			},
+			"_stats": {
+				"systemId": "a5e",
+				"systemVersion": "0.14.17",
+				"coreVersion": "11.308",
+				"createdTime": 1694772201943,
+				"modifiedTime": 1694772209752,
+				"lastModifiedBy": "3Y2gVQm11sFC8K3d"
+			}
+		},
+		{
+			"name": "Entangle",
+			"type": "spell",
+			"img": "icons/magic/nature/vines-thorned-entwined-teal.webp",
+			"effects": [],
+			"flags": {
+				"scene-packer": {
+					"hash": "f36561c02ca60ee00b527fcad3e17c70e4ccdcd5"
+				}
+			},
+			"system": {
+				"actions": {
+					"ZfEnsbcwOloyqNZ9": {
+						"name": "Entangle",
+						"activation": {
+							"cost": 1,
+							"type": "action",
+							"reactionTrigger": ""
+						},
+						"duration": {
+							"unit": "minute",
+							"value": "1"
+						},
+						"ranges": {
+							"d3UiEW3SSRoAJkj3": {
+								"range": "long"
+							}
+						},
+						"area": {
+							"shape": "square",
+							"width": "20",
+							"placeTemplate": true,
+							"quantity": 1
+						},
+						"target": {
+							"quantity": "",
+							"type": ""
+						},
+						"rolls": {},
+						"prompts": {
+							"IMiggoS1dG4L0K0O": {
+								"ability": "str",
+								"onSave": "Negates effect",
+								"saveDC": {
+									"type": "spellcasting",
+									"bonus": ""
+								},
+								"type": "savingThrow"
+							}
+						},
+						"consumers": {
+							"2j5I2qcx5kemFuVs": {
+								"mode": "variable",
+								"spellLevel": 1,
+								"points": 2,
+								"type": "spell"
+							}
+						}
+					}
+				},
+				"description": "<p>Constraining plants erupt from the ground in the spell's area, wrapping vines and tendrils around creatures. Until the spell ends, the area is difficult terrain.</p><p>A creature in the area when you cast the spell makes a Strength saving throw or it becomes restrained as the plants wrap around it. A creature restrained in this way can use its action to make a Strength check against your spell save DC, freeing itself on a success.</p><p>When the spell ends, the plants wither away.</p>",
 				"favorite": true,
 				"secretDescription": "",
 				"source": "",
@@ -1738,19 +1948,39 @@
 					}
 				},
 				"schema": {
-					"version": 0.004,
+					"version": 0.003,
 					"lastMigration": {
 						"version": {
-							"schema": 0.003,
-							"foundry": "11.302",
-							"system": "0.12.7"
+							"schema": null,
+							"foundry": "10.291",
+							"system": "0.10.7"
 						}
 					}
 				},
-				"concentration": false,
-				"featureType": "",
-				"prerequisite": ""
+				"components": {
+					"vocalized": true,
+					"seen": true,
+					"material": false
+				},
+				"concentration": true,
+				"level": 1,
+				"materials": "",
+				"materialsConsumed": false,
+				"prepared": 1,
+				"prerequisite": "",
+				"ritual": false,
+				"schools": {
+					"primary": "conjuration",
+					"secondary": [
+						"nature",
+						"plants",
+						"terrain"
+					]
+				}
 			},
+			"folder": null,
+			"_id": "6MZA17Z0oVdcaHPT",
+			"sort": 0,
 			"ownership": {
 				"default": 0,
 				"3Y2gVQm11sFC8K3d": 3
@@ -1759,52 +1989,40 @@
 				"systemId": "a5e",
 				"systemVersion": "0.14.17",
 				"coreVersion": "11.308",
-				"createdTime": 1694773644975,
-				"modifiedTime": 1694773644975,
+				"createdTime": 1694772206919,
+				"modifiedTime": 1694772237539,
 				"lastModifiedBy": "3Y2gVQm11sFC8K3d"
 			}
 		},
 		{
-			"_id": "nSTZWXyYbesshdGk",
-			"name": "Split (Reaction)",
-			"type": "feature",
-			"img": "icons/svg/item-bag.svg",
+			"name": "Hold Person",
+			"type": "spell",
+			"img": "icons/magic/control/debuff-chains-blue.webp",
 			"effects": [],
-			"folder": "MrHKXdZgN2tcvnWu",
-			"sort": 62500,
 			"flags": {
 				"core": {
-					"sourceId": "Item.dJts9yWqnKpeUKSI"
+					"sourceId": "Compendium.a5e.a5e-spells.ztgij3hd5gktogqt"
 				},
 				"scene-packer": {
-					"hash": "ffcfc195dc69f6545134b2e1d633d26b128fe793"
+					"hash": "f51a2cc122727124b0c075f1533bc0ecd6ef6031"
 				}
 			},
 			"system": {
-				"ac": {
-					"baseFormula": "",
-					"formula": "",
-					"maxDex": 0,
-					"minStr": 0,
-					"mode": 1,
-					"requiresNoShield": false,
-					"requiresUnarmored": false
-				},
 				"actions": {
-					"7zgCvuAY1CZAjQEm": {
-						"name": "Split (Reaction)",
+					"D4D1cBdgTkodRK1D": {
+						"name": "Hold Person",
 						"activation": {
 							"cost": 1,
-							"type": "reaction",
-							"reactionTrigger": "When a Medium or larger jelly with at least 10 hit points is subjected to lightning or slashing damage"
+							"type": "action",
+							"reactionTrigger": ""
 						},
 						"duration": {
-							"unit": "permanent",
-							"value": ""
+							"unit": "minute",
+							"value": "1"
 						},
 						"ranges": {
-							"2qblFjZnl5nr3nhd": {
-								"range": "self"
+							"rmPJFnEeukXjCUNG": {
+								"range": "medium"
 							}
 						},
 						"area": {
@@ -1814,13 +2032,31 @@
 						},
 						"target": {
 							"quantity": "",
-							"type": "self"
+							"type": "creature"
 						},
-						"consumers": {}
+						"prompts": {
+							"Npdatp8WDrXifPQc": {
+								"ability": "wis",
+								"onSave": "Negates effect",
+								"saveDC": {
+									"type": "spellcasting",
+									"bonus": ""
+								},
+								"type": "savingThrow"
+							}
+						},
+						"consumers": {
+							"FDPRrZzlNfwrBCJu": {
+								"mode": "variable",
+								"spellLevel": 2,
+								"points": 3,
+								"type": "spell"
+							}
+						}
 					}
 				},
-				"description": "<p>When a Medium or larger pudding with at least 10 hit points is subjected to lightning or slashing damage, it splits into two puddings that are each one size smaller, freeing any grappled targets. Each new pudding has half the original’s hit points (rounded down).</p>",
-				"favorite": false,
+				"description": "<p>The target is paralyzed. At the end of each of its turns, the target makes another saving throw, ending the spell's effects on it on a successful save.</p><p><strong><em>Cast at Higher Levels.</em></strong> Target an additional creature within 30 feet of the first target for each slot level above 2nd.</p>",
+				"favorite": true,
 				"secretDescription": "",
 				"source": "",
 				"uses": {
@@ -1833,19 +2069,38 @@
 					}
 				},
 				"schema": {
-					"version": 0.004,
+					"version": 0.003,
 					"lastMigration": {
 						"version": {
-							"schema": 0.003,
-							"foundry": "11.302",
-							"system": "0.12.7"
+							"schema": null,
+							"foundry": "10.291",
+							"system": "0.10.7"
 						}
 					}
 				},
-				"concentration": false,
-				"featureType": "",
-				"prerequisite": ""
+				"components": {
+					"vocalized": true,
+					"seen": true,
+					"material": true
+				},
+				"concentration": true,
+				"level": 2,
+				"materials": "piece of iron",
+				"materialsConsumed": false,
+				"prepared": 1,
+				"prerequisite": "",
+				"ritual": false,
+				"schools": {
+					"primary": "enchantment",
+					"secondary": [
+						"affliction",
+						"arcane"
+					]
+				}
 			},
+			"_id": "eB6FtH7PjC30YbSd",
+			"folder": null,
+			"sort": 0,
 			"ownership": {
 				"default": 0,
 				"3Y2gVQm11sFC8K3d": 3
@@ -1854,48 +2109,41 @@
 				"systemId": "a5e",
 				"systemVersion": "0.14.17",
 				"coreVersion": "11.308",
-				"createdTime": 1694773645800,
-				"modifiedTime": 1694773645800,
+				"createdTime": 1694772220804,
+				"modifiedTime": 1694772236513,
 				"lastModifiedBy": "3Y2gVQm11sFC8K3d"
 			}
 		},
 		{
-			"_id": "Jr5JsOkTBNBnXskp",
 			"name": "Spider Climb",
-			"type": "feature",
-			"img": "icons/creatures/invertebrates/spider-beetle-runed-green.webp",
+			"type": "spell",
+			"img": "icons/creatures/webs/web-spider-glowing-purple.webp",
 			"effects": [],
-			"folder": "MrHKXdZgN2tcvnWu",
-			"sort": 75000,
 			"flags": {
 				"core": {
-					"sourceId": "Item.dP16AjGb1R5hFF8x"
+					"sourceId": "Compendium.a5e.a5e-spells.kz3xe6ems34f2ubo"
 				},
 				"scene-packer": {
-					"hash": "44f5cc13b62c06442680d4e53037b8fe2512c7b6"
+					"hash": "5bb0f4e7d7057edcae6208b019b53aaab7657e7b"
 				}
 			},
 			"system": {
-				"ac": {
-					"baseFormula": "",
-					"formula": "",
-					"maxDex": 0,
-					"minStr": 0,
-					"mode": 1,
-					"requiresNoShield": false,
-					"requiresUnarmored": false
-				},
 				"actions": {
-					"JNtksyoDI86DcSE0": {
+					"GWa9uJi4MquZXIi6": {
 						"name": "Spider Climb",
 						"activation": {
-							"cost": "",
-							"type": "none",
+							"cost": 1,
+							"type": "action",
 							"reactionTrigger": ""
 						},
 						"duration": {
-							"unit": "permanent",
-							"value": ""
+							"unit": "hour",
+							"value": "1"
+						},
+						"ranges": {
+							"6SPhi6tPm46eeoCR": {
+								"range": "touch"
+							}
 						},
 						"area": {
 							"shape": "",
@@ -1904,12 +2152,19 @@
 						},
 						"target": {
 							"quantity": "",
-							"type": ""
+							"type": "creature"
 						},
-						"consumers": {}
+						"consumers": {
+							"ebhYxR9NKxUdqid3": {
+								"mode": "variable",
+								"spellLevel": 2,
+								"points": 3,
+								"type": "spell"
+							}
+						}
 					}
 				},
-				"description": "<p>The pudding can use its climb speed even on difficult surfaces and upside down on ceilings.&nbsp;</p>",
+				"description": "<p>The target gains the ability to walk on walls and upside down on ceilings, as well as a climbing speed equal to its base Speed.</p><p><strong><em>Cast at Higher Levels.</em></strong> You can affect one additional target for each slot level above 2nd.</p>",
 				"favorite": false,
 				"secretDescription": "",
 				"source": "",
@@ -1923,19 +2178,39 @@
 					}
 				},
 				"schema": {
-					"version": 0.004,
+					"version": 0.003,
 					"lastMigration": {
 						"version": {
-							"schema": 0.003,
-							"foundry": "11.302",
-							"system": "0.12.7"
+							"schema": null,
+							"foundry": "10.291",
+							"system": "0.10.7"
 						}
 					}
 				},
-				"concentration": false,
-				"featureType": "",
-				"prerequisite": ""
+				"components": {
+					"vocalized": true,
+					"seen": true,
+					"material": true
+				},
+				"concentration": true,
+				"level": 2,
+				"materials": "cobweb and small wooden shoe",
+				"materialsConsumed": false,
+				"prepared": 1,
+				"prerequisite": "",
+				"ritual": false,
+				"schools": {
+					"primary": "transmutation",
+					"secondary": [
+						"arcane",
+						"movement",
+						"utility"
+					]
+				}
 			},
+			"_id": "rcFE43KOtBBVNzb5",
+			"folder": null,
+			"sort": 0,
 			"ownership": {
 				"default": 0,
 				"3Y2gVQm11sFC8K3d": 3
@@ -1944,8 +2219,226 @@
 				"systemId": "a5e",
 				"systemVersion": "0.14.17",
 				"coreVersion": "11.308",
-				"createdTime": 1694773646866,
-				"modifiedTime": 1694773646866,
+				"createdTime": 1694772229239,
+				"modifiedTime": 1694772229899,
+				"lastModifiedBy": "3Y2gVQm11sFC8K3d"
+			}
+		},
+		{
+			"name": "Rupture",
+			"type": "feature",
+			"system": {
+				"ac": {
+					"baseFormula": "",
+					"formula": "",
+					"maxDex": 0,
+					"minStr": 0,
+					"mode": 2,
+					"requiresNoShield": false,
+					"requiresUnarmored": false
+				},
+				"actions": {
+					"1mPnj22001ESBW07": {
+						"name": "New Action",
+						"activation": {
+							"type": "action",
+							"cost": 1
+						},
+						"consumers": {},
+						"rolls": {
+							"yRkeeFfHFwpNCPQq": {
+								"type": "damage",
+								"default": true,
+								"damageType": "thunder",
+								"formula": "2d6"
+							}
+						},
+						"prompts": {
+							"r8HOsODZDV4qEhGh": {
+								"type": "savingThrow",
+								"default": true,
+								"ability": "con",
+								"saveDC": {
+									"type": "spellcasting"
+								},
+								"onSave": "Takes half damage and isn't poisoned"
+							}
+						},
+						"uses": {
+							"value": 0,
+							"max": "",
+							"per": "",
+							"recharge": {
+								"formula": "1d6",
+								"threshold": 6
+							}
+						},
+						"ranges": {
+							"KkKXNjrOBhZcYK1o": {
+								"range": "medium"
+							}
+						},
+						"area": {
+							"shape": "circle",
+							"quantity": 1,
+							"radius": 10
+						}
+					}
+				},
+				"description": "<p><span class=\"markedContent\"><span dir=\"ltr\" role=\"presentation\">The witch targets th</span></span>e corpse of a rat within 60 feet, causing it to explode. Creatures within 10 feet of the explosion make a DC 12 Constitution&nbsp;<span class=\"freelinking-link\">saving throw</span>&nbsp;. On a failed save, the target takes 7 (2d6) thunder damage and is&nbsp;<span class=\"freelinking-link\">poisoned</span>&nbsp;for 1 minute. On a success, the creature takes half damage and isn&rsquo;t poisoned. A poisoned creature can repeat the saving throw at the end of each of its turns, ending the effect on itself on a success.</p>",
+				"favorite": true,
+				"secretDescription": "",
+				"source": {
+					"name": "",
+					"link": "",
+					"publisher": ""
+				},
+				"uses": {
+					"value": null,
+					"max": "",
+					"per": null,
+					"recharge": {
+						"formula": "1d6",
+						"threshold": "6"
+					}
+				},
+				"schema": {
+					"version": 0.001,
+					"lastMigration": null
+				},
+				"concentration": false,
+				"featureType": "other",
+				"prerequisite": ""
+			},
+			"_id": "qRrrztmkAM3UcWob",
+			"img": "icons/svg/item-bag.svg",
+			"effects": [],
+			"folder": null,
+			"sort": 0,
+			"ownership": {
+				"default": 0,
+				"3Y2gVQm11sFC8K3d": 3
+			},
+			"flags": {
+				"scene-packer": {
+					"hash": "45cfc00b6299b60dcc79e6492e0139a55485ec6d"
+				}
+			},
+			"_stats": {
+				"systemId": "a5e",
+				"systemVersion": "0.14.17",
+				"coreVersion": "11.308",
+				"createdTime": 1694772256224,
+				"modifiedTime": 1694772445239,
+				"lastModifiedBy": "3Y2gVQm11sFC8K3d"
+			}
+		},
+		{
+			"name": "Poison Cloud (Recharge 4–6)",
+			"type": "feature",
+			"system": {
+				"ac": {
+					"baseFormula": "",
+					"formula": "",
+					"maxDex": 0,
+					"minStr": 0,
+					"mode": 2,
+					"requiresNoShield": false,
+					"requiresUnarmored": false
+				},
+				"actions": {
+					"4QpGSszHbC3PM8pC": {
+						"name": "Poison Cloud",
+						"activation": {
+							"type": "bonusAction",
+							"cost": 1
+						},
+						"consumers": {},
+						"rolls": {
+							"Ymk5mFulxDLw96Sg": {
+								"type": "damage",
+								"default": true,
+								"damageType": "poison",
+								"formula": "1d8"
+							}
+						},
+						"prompts": {
+							"8nXA6EwMiJ8UlZXK": {
+								"type": "savingThrow",
+								"default": true,
+								"ability": "con",
+								"saveDC": {
+									"type": "spellcasting"
+								},
+								"onSave": "takes half damage and speed reduction isn't applied"
+							}
+						},
+						"uses": {
+							"value": 0,
+							"max": "",
+							"per": "",
+							"recharge": {
+								"formula": "1d6",
+								"threshold": 6
+							}
+						},
+						"ranges": {
+							"UVJQ3s8JIGfLnzZ9": {
+								"range": "short"
+							}
+						},
+						"area": {
+							"shape": "circle",
+							"quantity": 1,
+							"radius": 5
+						}
+					}
+				},
+				"description": "<p><span dir=\"ltr\" role=\"presentation\">Poison gas appears in a</span><span dir=\"ltr\" role=\"presentation\">&nbsp;5-foot radius around a point the witch can see within</span><span dir=\"ltr\" role=\"presentation\">&nbsp;30 feet. Each creature that enters the cloud for the</span><span dir=\"ltr\" role=\"presentation\">&nbsp;first time on a turn or starts its turn there makes a</span><span dir=\"ltr\" role=\"presentation\">&nbsp;DC 12 Constitution&nbsp;<span class=\"freelinking-link\">saving throw</span>&nbsp;. On a failure, it takes</span><span dir=\"ltr\" role=\"presentation\">&nbsp;4 (1d8) poison damage and its speed is halved until</span><span dir=\"ltr\" role=\"presentation\">&nbsp;the end of its next turn. On a success, it takes half</span><span dir=\"ltr\" role=\"presentation\"> damage and its speed isn&rsquo;t reduced.</span></p>",
+				"favorite": true,
+				"secretDescription": "",
+				"source": {
+					"name": "",
+					"link": "",
+					"publisher": ""
+				},
+				"uses": {
+					"value": null,
+					"max": "",
+					"per": "recharge",
+					"recharge": {
+						"formula": "1d6",
+						"threshold": 4
+					}
+				},
+				"schema": {
+					"version": 0.001,
+					"lastMigration": null
+				},
+				"concentration": false,
+				"featureType": "other",
+				"prerequisite": ""
+			},
+			"_id": "w9BOsn1vAcfHgc6R",
+			"img": "icons/svg/item-bag.svg",
+			"effects": [],
+			"folder": null,
+			"sort": 0,
+			"ownership": {
+				"default": 0,
+				"3Y2gVQm11sFC8K3d": 3
+			},
+			"flags": {
+				"scene-packer": {
+					"hash": "45cfc00b6299b60dcc79e6492e0139a55485ec6d"
+				}
+			},
+			"_stats": {
+				"systemId": "a5e",
+				"systemVersion": "0.14.17",
+				"coreVersion": "11.308",
+				"createdTime": 1694772350313,
+				"modifiedTime": 1694772444572,
 				"lastModifiedBy": "3Y2gVQm11sFC8K3d"
 			}
 		}
@@ -1953,12 +2446,12 @@
 	"effects": [],
 	"flags": {
 		"scene-packer": {
-			"hash": "b128bc74d738d83f56b8b197ff79a0ddd8dd1ab1",
-			"sourceId": "Actor.TXVHZ9YtAj00LVth"
+			"hash": "46af13224d1e6ab6e04dd43167a676ba8c10aa05",
+			"sourceId": "Actor.ajQHEuL0NbfsjBbU"
 		},
 		"a5e": {
-			"currentTab": "notes",
-			"sheetIsLocked": false
+			"sheetIsLocked": true,
+			"currentTab": "core"
 		},
 		"exportSource": {
 			"world": "pmg-spells",
@@ -1971,9 +2464,9 @@
 		"systemId": "a5e",
 		"systemVersion": "0.14.15",
 		"coreVersion": "11.308",
-		"createdTime": 1694773604933,
-		"modifiedTime": 1694981318426,
+		"createdTime": 1694771801541,
+		"modifiedTime": 1694981415428,
 		"lastModifiedBy": "lCRiQclGlfIQqUGV"
 	},
-	"_id": "kt5g06icmg0y93bf"
+	"_id": "n8idv35p15azftpi"
 }

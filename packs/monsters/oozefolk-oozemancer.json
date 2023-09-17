@@ -1,12 +1,12 @@
 {
 	"folder": null,
-	"name": "Black Pudding",
+	"name": "Oozefolk Oozemancer",
 	"type": "npc",
 	"img": "icons/svg/mystery-man.svg",
 	"system": {
 		"abilities": {
 			"str": {
-				"value": 16,
+				"value": 10,
 				"check": {
 					"expertiseDice": 0,
 					"bonus": ""
@@ -18,7 +18,7 @@
 				}
 			},
 			"dex": {
-				"value": 4,
+				"value": 14,
 				"check": {
 					"expertiseDice": 0,
 					"bonus": ""
@@ -43,31 +43,31 @@
 				}
 			},
 			"int": {
-				"value": 1,
+				"value": 16,
 				"check": {
 					"expertiseDice": 0,
 					"bonus": ""
 				},
 				"save": {
-					"proficient": false,
+					"proficient": true,
 					"expertiseDice": 0,
 					"bonus": ""
 				}
 			},
 			"wis": {
-				"value": 6,
+				"value": 12,
 				"check": {
 					"expertiseDice": 0,
 					"bonus": ""
 				},
 				"save": {
-					"proficient": false,
+					"proficient": true,
 					"expertiseDice": 0,
 					"bonus": ""
 				}
 			},
 			"cha": {
-				"value": 1,
+				"value": 10,
 				"check": {
 					"expertiseDice": 0,
 					"bonus": ""
@@ -111,7 +111,7 @@
 			"arc": {
 				"ability": "int",
 				"value": 0,
-				"proficient": false,
+				"proficient": true,
 				"specialties": [],
 				"expertiseDice": 0,
 				"minRoll": 1,
@@ -147,9 +147,9 @@
 			"dec": {
 				"ability": "cha",
 				"value": 0,
-				"proficient": false,
+				"proficient": true,
 				"specialties": [],
-				"expertiseDice": 0,
+				"expertiseDice": 1,
 				"minRoll": 1,
 				"bonuses": {
 					"check": "",
@@ -328,12 +328,12 @@
 		"spellResources": {
 			"slots": {
 				"1": {
-					"current": 0,
-					"max": 0
+					"current": 4,
+					"max": 4
 				},
 				"2": {
-					"current": 0,
-					"max": 0
+					"current": 3,
+					"max": 3
 				},
 				"3": {
 					"current": 0,
@@ -371,7 +371,7 @@
 		},
 		"attributes": {
 			"ac": {
-				"baseFormula": "8",
+				"baseFormula": "10 + @dex.mod",
 				"value": 0
 			},
 			"death": {
@@ -379,23 +379,23 @@
 				"failure": 0
 			},
 			"hp": {
-				"value": 85,
-				"baseMax": 85,
+				"value": 52,
+				"baseMax": 52,
 				"temp": 0,
 				"bonus": 0
 			},
 			"hitDice": {
 				"d6": {
-					"current": 0,
-					"total": 0
+					"current": 8,
+					"total": 8
 				},
 				"d8": {
 					"current": 0,
 					"total": 0
 				},
 				"d10": {
-					"current": 10,
-					"total": 10
+					"current": 0,
+					"total": 0
 				},
 				"d12": {
 					"current": 0,
@@ -420,7 +420,7 @@
 					"unit": "feet"
 				},
 				"climb": {
-					"distance": 20,
+					"distance": 30,
 					"unit": "feet"
 				},
 				"fly": {
@@ -428,11 +428,11 @@
 					"unit": "feet"
 				},
 				"swim": {
-					"distance": 20,
+					"distance": 0,
 					"unit": "feet"
 				},
 				"walk": {
-					"distance": 20,
+					"distance": 30,
 					"unit": "feet"
 				},
 				"traits": {
@@ -441,12 +441,12 @@
 			},
 			"senses": {
 				"blindsight": {
-					"distance": 60,
+					"distance": 0,
 					"unit": "feet",
-					"otherwiseBlind": true
+					"otherwiseBlind": false
 				},
 				"darkvision": {
-					"distance": 0,
+					"distance": 60,
 					"unit": "feet"
 				},
 				"tremorsense": {
@@ -462,7 +462,7 @@
 			"fatigue": 0,
 			"strife": 0,
 			"spellcasting": "int",
-			"casterLevel": 0
+			"casterLevel": 4
 		},
 		"bonuses": {
 			"abilities": {
@@ -487,18 +487,20 @@
 			"cp": 0
 		},
 		"details": {
-			"bio": "<h2><strong>COMBAT</strong></h2>\n<p>The pudding lurks on walls or ceilings or conceals itself in shadows. It attacks creatures who venture into range and pursues the closest creature. It retreats only if exposed to sunlight, in which case it tries to climb away or squeeze into a crack.</p>\n<hr class=\"a5e-rule u-my-md\">\n<h2><strong>LEGENDS AND LORE</strong></h2>\n<p>With an Arcana or Nature check, characters can learn the following:</p>\n<p><strong>DC 10</strong> Mindless and able to squeeze through the narrowest of cracks, oozes inhabit dank, dark places all over the world.</p>\n<p><strong>DC 15</strong> There are many different types of oozes. Perhaps the strangest is the gelatinous cube: a nearly transparent ooze that engulfs dungeon explorers who stumble into it.</p>\n<p><strong>DC 20</strong> Oozes dissolve any organic matter they come into contact with. Some oozes, such as black puddings, corrode metal as well</p>\n<hr class=\"a5e-rule u-my-md\">\n<h2><strong>DESCRIPTION</strong></h2>\n<p>A black pudding undulates along the ground and climbs walls, cresting and falling like a slow sea of oil or tar. When motionless, it resembles a dark pool of shadow and may be lost in an area of darkness.&nbsp;</p>\n<p>Black puddings devour living and dead organic materials, like flesh, wood, and bone, and melt metal as well. An adventurer who falls into a pool of black pudding leaves nothing behind but the gemstones of their jewelry.</p>\n<p>A black pudding doesn&rsquo;t shrink from swords or axes. When a black pudding is cut in half, it simply becomes two smaller black puddings.</p>\n<hr class=\"a5e-rule u-my-md\">\n<h2><strong>SIGNS</strong></h2>\n<p>1&ndash;2 DC 13 Perception check: pristine floors or walls</p>\n<p>2 A door missing its metal hinges (gray ooze), a door missing its lower half (black pudding), or a skeleton (gelatinous cube or ochre jelly)</p>\n<p>3 A bit of writhing ooze stuck in a crack</p>\n<p>4 Wet and dripping walls and floors. DC 14 Investigation or Survival: The area is completely free of lichen, fungus, and other life that might thrive in this environment</p>\n<hr class=\"a5e-rule u-my-md\">\n<h2><strong>ENCOUNTERS</strong></h2>\n<p><strong>Ooze Encounters </strong>Oozes lurk in sunless areas such as caverns, dungeons, and the ocean depths, as well as in areas of the Abyss and the Bleak Gate.</p>\n<p><strong>CR 0&ndash;2</strong> gelatinous cube; ochre jelly; 1 to 3 gray oozes; gray ooze in pit trap</p>\n<p><strong>Treasure</strong> flat carnelian gem carved with a lion, possibly once part of a signet ring (75 gp)</p>\n<p><strong>CR 3&ndash;4</strong> black pudding; gelatinous cube in pit trap; 2 gelatinous cubes or ochre jellies; ochre jelly with 1d4 flying swords&nbsp;</p>\n<p><strong>Treasure</strong> flint, chalk, marble chess pieces (125 gp), malachite gem (10 gp), <em>+1 dagger</em> enchanted with <em>continual flame</em></p>\n<p><strong>CR 5&ndash;10</strong> elder black pudding; gelatinous wall; black pudding with walking statue or mimic</p>\n<p><strong>Treasure</strong> 3 sealed wine bottles containing fine wine (100 gp each), 4 amethyst gemstones (100 gp each), 2 <em>elemental gems</em> (fire)</p>\n<hr class=\"a5e-rule u-my-md\">\n<h2><strong>MONSTER TYPE DESCRIPTION</strong></h2>\n<p>Oozes are ambulatory, predatory amoeboid creatures that infest caverns and other dark places. A gelatinous cube is an ooze.</p>",
+			"bio": "",
 			"creatureTypes": [
-				"ooze"
+				"humanoid"
 			],
 			"isSwarm": false,
-			"cr": 0,
+			"cr": 3,
 			"elite": false,
 			"privateNotes": ""
 		},
 		"proficiencies": {
 			"armor": [],
-			"languages": [],
+			"languages": [
+				"any two"
+			],
 			"tools": [],
 			"weapons": []
 		},
@@ -554,27 +556,15 @@
 			"publisher": ""
 		},
 		"traits": {
-			"size": "lg",
-			"conditionImmunities": [
-				"blinded",
-				"charmed",
-				"deafened",
-				"fatigue",
-				"frightened",
-				"prone"
-			],
+			"size": "sm",
+			"conditionImmunities": [],
 			"damageImmunities": [],
-			"damageResistances": [
-				"acid",
-				"cold",
-				"lightning",
-				"slashing"
-			],
+			"damageResistances": [],
 			"damageVulnerabilities": []
 		}
 	},
 	"prototypeToken": {
-		"name": "Black Pudding",
+		"name": "Oozefolk Oozemancer",
 		"displayName": 0,
 		"actorLink": false,
 		"appendNumber": false,
@@ -585,11 +575,10 @@
 			"scaleY": 1,
 			"offsetX": 0,
 			"offsetY": 0,
-			"rotation": 0,
-			"tint": null
+			"rotation": 0
 		},
-		"width": 2,
-		"height": 2,
+		"width": 1,
+		"height": 1,
 		"lockRotation": false,
 		"rotation": 0,
 		"alpha": 1,
@@ -621,8 +610,7 @@
 			"darkness": {
 				"min": 0,
 				"max": 1
-			},
-			"color": null
+			}
 		},
 		"sight": {
 			"enabled": false,
@@ -632,8 +620,7 @@
 			"attenuation": 0.1,
 			"brightness": 0,
 			"saturation": 0,
-			"contrast": 0,
-			"color": null
+			"contrast": 0
 		},
 		"detectionModes": [],
 		"flags": {},
@@ -733,7 +720,7 @@
 				"equippedState": 0
 			},
 			"folder": null,
-			"_id": "6WNpLc8fLg9oXkHT",
+			"_id": "TSlTaYBxhluhwkVs",
 			"sort": 0,
 			"ownership": {
 				"default": 0,
@@ -743,8 +730,8 @@
 				"systemId": "a5e",
 				"systemVersion": "0.14.17",
 				"coreVersion": "11.308",
-				"createdTime": 1694773605048,
-				"modifiedTime": 1694773605048,
+				"createdTime": 1694774506176,
+				"modifiedTime": 1694774506176,
 				"lastModifiedBy": "3Y2gVQm11sFC8K3d"
 			}
 		},
@@ -841,7 +828,7 @@
 				"equippedState": 0
 			},
 			"folder": null,
-			"_id": "fJna4wZeZLpqwf5r",
+			"_id": "Rwfm8VYjxWD9sKM7",
 			"sort": 0,
 			"ownership": {
 				"default": 0,
@@ -851,8 +838,8 @@
 				"systemId": "a5e",
 				"systemVersion": "0.14.17",
 				"coreVersion": "11.308",
-				"createdTime": 1694773605048,
-				"modifiedTime": 1694773605048,
+				"createdTime": 1694774506176,
+				"modifiedTime": 1694774506176,
 				"lastModifiedBy": "3Y2gVQm11sFC8K3d"
 			}
 		},
@@ -949,7 +936,7 @@
 				"equippedState": 0
 			},
 			"folder": null,
-			"_id": "tDEhvzOrwG6o11ZJ",
+			"_id": "NfGhLhceEbY2xcks",
 			"sort": 0,
 			"ownership": {
 				"default": 0,
@@ -959,8 +946,8 @@
 				"systemId": "a5e",
 				"systemVersion": "0.14.17",
 				"coreVersion": "11.308",
-				"createdTime": 1694773605048,
-				"modifiedTime": 1694773605048,
+				"createdTime": 1694774506176,
+				"modifiedTime": 1694774506176,
 				"lastModifiedBy": "3Y2gVQm11sFC8K3d"
 			}
 		},
@@ -1057,7 +1044,7 @@
 				"equippedState": 0
 			},
 			"folder": null,
-			"_id": "WyXAD0P9pXek6P1x",
+			"_id": "EVJy1ixLHYV5iS21",
 			"sort": 0,
 			"ownership": {
 				"default": 0,
@@ -1067,8 +1054,8 @@
 				"systemId": "a5e",
 				"systemVersion": "0.14.17",
 				"coreVersion": "11.308",
-				"createdTime": 1694773605048,
-				"modifiedTime": 1694773605048,
+				"createdTime": 1694774506176,
+				"modifiedTime": 1694774506176,
 				"lastModifiedBy": "3Y2gVQm11sFC8K3d"
 			}
 		},
@@ -1165,7 +1152,7 @@
 				"equippedState": 0
 			},
 			"folder": null,
-			"_id": "qZdXEuPq5a4m40i5",
+			"_id": "OXLmn9iGrPazYPxE",
 			"sort": 0,
 			"ownership": {
 				"default": 0,
@@ -1175,8 +1162,8 @@
 				"systemId": "a5e",
 				"systemVersion": "0.14.17",
 				"coreVersion": "11.308",
-				"createdTime": 1694773605048,
-				"modifiedTime": 1694773605048,
+				"createdTime": 1694774506176,
+				"modifiedTime": 1694774506176,
 				"lastModifiedBy": "3Y2gVQm11sFC8K3d"
 			}
 		},
@@ -1273,7 +1260,7 @@
 				"equippedState": 0
 			},
 			"folder": null,
-			"_id": "5lgmM3nJh8grjn7w",
+			"_id": "oCFts1s3cs43rOM0",
 			"sort": 0,
 			"ownership": {
 				"default": 0,
@@ -1283,315 +1270,162 @@
 				"systemId": "a5e",
 				"systemVersion": "0.14.17",
 				"coreVersion": "11.308",
-				"createdTime": 1694773605048,
-				"modifiedTime": 1694773605048,
+				"createdTime": 1694774506176,
+				"modifiedTime": 1694774506176,
 				"lastModifiedBy": "3Y2gVQm11sFC8K3d"
 			}
 		},
 		{
-			"_id": "EmNhucMkZbClrRRP",
-			"name": "Amorphous",
+			"name": "Amorphous Form",
 			"type": "feature",
-			"img": "icons/svg/item-bag.svg",
-			"effects": [],
-			"folder": "MrHKXdZgN2tcvnWu",
-			"sort": -100000,
-			"flags": {
-				"core": {
-					"sourceId": "Item.8sly2HIVUXge17ST"
-				},
-				"scene-packer": {
-					"hash": "d1782a1fdb852fa3363b1cab4bc58a42eb4f204d"
-				}
-			},
 			"system": {
 				"ac": {
 					"baseFormula": "",
 					"formula": "",
 					"maxDex": 0,
 					"minStr": 0,
-					"mode": 1,
+					"mode": 2,
 					"requiresNoShield": false,
 					"requiresUnarmored": false
 				},
-				"actions": {
-					"XLcyFsqqM3jViQro": {
-						"name": "Amorphous",
-						"activation": {
-							"cost": "",
-							"type": "none",
-							"reactionTrigger": ""
-						},
-						"duration": {
-							"unit": "permanent",
-							"value": ""
-						},
-						"area": {
-							"shape": "",
-							"size": "",
-							"placeTemplate": false
-						},
-						"target": {
-							"quantity": "",
-							"type": ""
-						},
-						"consumers": {}
-					}
-				},
-				"description": "<p>The jelly can pass through an opening as narrow as 1 inch wide without squeezing.</p>",
+				"actions": {},
+				"description": "<p>While unarmored and not carrying any items, the oozemancer can pass through an opening as narrow as 1 inch wide without squeezing.</p>",
 				"favorite": false,
 				"secretDescription": "",
-				"source": "",
+				"source": {
+					"name": "",
+					"link": "",
+					"publisher": ""
+				},
 				"uses": {
 					"value": null,
 					"max": "",
 					"per": null,
 					"recharge": {
-						"formula": "",
-						"threshold": ""
+						"formula": "1d6",
+						"threshold": "6"
 					}
 				},
 				"schema": {
-					"version": 0.004,
-					"lastMigration": {
-						"version": {
-							"schema": 0.003,
-							"foundry": "11.302",
-							"system": "0.12.7"
-						}
-					}
+					"version": 0.001,
+					"lastMigration": null
 				},
 				"concentration": false,
-				"featureType": "",
+				"featureType": "other",
 				"prerequisite": ""
 			},
-			"ownership": {
-				"default": 0,
-				"3Y2gVQm11sFC8K3d": 3
-			},
-			"_stats": {
-				"systemId": "a5e",
-				"systemVersion": "0.14.17",
-				"coreVersion": "11.308",
-				"createdTime": 1694773640303,
-				"modifiedTime": 1694773640303,
-				"lastModifiedBy": "3Y2gVQm11sFC8K3d"
-			}
-		},
-		{
-			"_id": "ovHPG6PXne7pcu0K",
-			"name": "Sunlight Sensitivity",
-			"type": "feature",
-			"img": "icons/svg/item-bag.svg",
-			"effects": [],
-			"folder": "MrHKXdZgN2tcvnWu",
-			"sort": -75000,
-			"flags": {
-				"core": {
-					"sourceId": "Item.gxnCe4DFSL5p3DuX"
-				},
-				"scene-packer": {
-					"hash": "823db74398de428c622665e58624bb4583092968"
-				}
-			},
-			"system": {
-				"ac": {
-					"baseFormula": "",
-					"formula": "",
-					"maxDex": 0,
-					"minStr": 0,
-					"mode": 1,
-					"requiresNoShield": false,
-					"requiresUnarmored": false
-				},
-				"actions": {
-					"oAZGuUPTDcCHOFK7": {
-						"name": "Sunlight Sensitivity",
-						"activation": {
-							"cost": "",
-							"type": "none",
-							"reactionTrigger": ""
-						},
-						"duration": {
-							"unit": "permanent",
-							"value": ""
-						},
-						"area": {
-							"shape": "",
-							"size": "",
-							"placeTemplate": false
-						},
-						"target": {
-							"quantity": "",
-							"type": ""
-						},
-						"consumers": {}
-					}
-				},
-				"description": "<p>While in sunlight, the jelly has disadvantage on attack rolls.</p>",
-				"favorite": false,
-				"secretDescription": "",
-				"source": "",
-				"uses": {
-					"value": null,
-					"max": "",
-					"per": null,
-					"recharge": {
-						"formula": "",
-						"threshold": ""
-					}
-				},
-				"schema": {
-					"version": 0.004,
-					"lastMigration": {
-						"version": {
-							"schema": 0.003,
-							"foundry": "11.302",
-							"system": "0.12.7"
-						}
-					}
-				},
-				"concentration": false,
-				"featureType": "",
-				"prerequisite": ""
-			},
-			"ownership": {
-				"default": 0,
-				"3Y2gVQm11sFC8K3d": 3
-			},
-			"_stats": {
-				"systemId": "a5e",
-				"systemVersion": "0.14.17",
-				"coreVersion": "11.308",
-				"createdTime": 1694773641122,
-				"modifiedTime": 1694773641122,
-				"lastModifiedBy": "3Y2gVQm11sFC8K3d"
-			}
-		},
-		{
-			"_id": "zgrumc98HhYm7uCD",
-			"name": "Ooze Nature",
-			"type": "feature",
-			"img": "icons/svg/item-bag.svg",
-			"effects": [],
-			"folder": "MrHKXdZgN2tcvnWu",
-			"sort": -50000,
-			"flags": {
-				"core": {
-					"sourceId": "Item.TGISdkZEUaYg3NrU"
-				},
-				"scene-packer": {
-					"hash": "022c96095f0cb0d7fadd45cc5cc31219f97f9818"
-				}
-			},
-			"system": {
-				"ac": {
-					"baseFormula": "",
-					"formula": "",
-					"maxDex": 0,
-					"minStr": 0,
-					"mode": 1,
-					"requiresNoShield": false,
-					"requiresUnarmored": false
-				},
-				"actions": {
-					"0X9N71AH9X8xarIQ": {
-						"name": "Ooze Nature",
-						"activation": {
-							"cost": "",
-							"type": "none",
-							"reactionTrigger": ""
-						},
-						"duration": {
-							"unit": "permanent",
-							"value": ""
-						},
-						"area": {
-							"shape": "",
-							"size": "",
-							"placeTemplate": false
-						},
-						"target": {
-							"quantity": "",
-							"type": ""
-						},
-						"consumers": {}
-					}
-				},
-				"description": "<p>An ooze doesn’t require air or sleep.</p>",
-				"favorite": false,
-				"secretDescription": "",
-				"source": "",
-				"uses": {
-					"value": null,
-					"max": "",
-					"per": null,
-					"recharge": {
-						"formula": "",
-						"threshold": ""
-					}
-				},
-				"schema": {
-					"version": 0.004,
-					"lastMigration": {
-						"version": {
-							"schema": 0.003,
-							"foundry": "11.302",
-							"system": "0.12.7"
-						}
-					}
-				},
-				"concentration": false,
-				"featureType": "",
-				"prerequisite": ""
-			},
-			"ownership": {
-				"default": 0,
-				"3Y2gVQm11sFC8K3d": 3
-			},
-			"_stats": {
-				"systemId": "a5e",
-				"systemVersion": "0.14.17",
-				"coreVersion": "11.308",
-				"createdTime": 1694773642343,
-				"modifiedTime": 1694773642343,
-				"lastModifiedBy": "3Y2gVQm11sFC8K3d"
-			}
-		},
-		{
-			"_id": "sBXgfRxRCMDAXIhj",
-			"name": "Corrosive Body",
-			"type": "feature",
+			"_id": "tlPFJ6RZnDKmPJep",
 			"img": "icons/svg/item-bag.svg",
 			"effects": [],
 			"folder": null,
 			"sort": 0,
+			"ownership": {
+				"default": 0,
+				"3Y2gVQm11sFC8K3d": 3
+			},
 			"flags": {
 				"scene-packer": {
-					"hash": "96a0f7f6422c2bdcd9fc072bd0d7da97c9553aad"
+					"hash": "45cfc00b6299b60dcc79e6492e0139a55485ec6d"
 				}
 			},
+			"_stats": {
+				"systemId": "a5e",
+				"systemVersion": "0.14.17",
+				"coreVersion": "11.308",
+				"createdTime": 1694774701876,
+				"modifiedTime": 1694774718300,
+				"lastModifiedBy": "3Y2gVQm11sFC8K3d"
+			}
+		},
+		{
+			"name": "Hasty Pudding",
+			"type": "feature",
 			"system": {
 				"ac": {
 					"baseFormula": "",
 					"formula": "",
 					"maxDex": 0,
 					"minStr": 0,
-					"mode": 1,
+					"mode": 2,
 					"requiresNoShield": false,
 					"requiresUnarmored": false
 				},
+				"actions": {},
+				"description": "<p>Each ooze of the oozemancer&rsquo;s choice that starts its turn within 30 feet of the oozemancer can use the Dash action as a bonus action.</p>",
+				"favorite": false,
+				"secretDescription": "",
+				"source": {
+					"name": "",
+					"link": "",
+					"publisher": ""
+				},
+				"uses": {
+					"value": null,
+					"max": "",
+					"per": null,
+					"recharge": {
+						"formula": "1d6",
+						"threshold": "6"
+					}
+				},
+				"schema": {
+					"version": 0.001,
+					"lastMigration": null
+				},
+				"concentration": false,
+				"featureType": "other",
+				"prerequisite": ""
+			},
+			"_id": "8zu0y7bZY8M6higi",
+			"img": "icons/svg/item-bag.svg",
+			"effects": [],
+			"folder": null,
+			"sort": 0,
+			"ownership": {
+				"default": 0,
+				"3Y2gVQm11sFC8K3d": 3
+			},
+			"flags": {
+				"scene-packer": {
+					"hash": "45cfc00b6299b60dcc79e6492e0139a55485ec6d"
+				}
+			},
+			"_stats": {
+				"systemId": "a5e",
+				"systemVersion": "0.14.17",
+				"coreVersion": "11.308",
+				"createdTime": 1694774765643,
+				"modifiedTime": 1694774775292,
+				"lastModifiedBy": "3Y2gVQm11sFC8K3d"
+			}
+		},
+		{
+			"name": "Acid Splash",
+			"type": "spell",
+			"img": "icons/magic/acid/projectile-smoke-glowing.webp",
+			"effects": [],
+			"flags": {
+				"scene-packer": {
+					"hash": "b9dcef82664586c01cb7ee0c26bfc518057389c9"
+				}
+			},
+			"system": {
 				"actions": {
-					"jHFYnYo86dhk9BHY": {
-						"name": "Corrosive Body",
+					"kGnGXWGTJgpCtDrN": {
+						"name": "Cast Spell",
 						"activation": {
-							"cost": "",
-							"type": "none",
+							"cost": 1,
+							"type": "action",
 							"reactionTrigger": ""
 						},
 						"duration": {
-							"unit": "permanent",
+							"unit": "instantaneous",
 							"value": ""
+						},
+						"ranges": {
+							"swW2Dhm89yY7C2CK": {
+								"range": "medium"
+							}
 						},
 						"area": {
 							"shape": "",
@@ -1600,21 +1434,498 @@
 						},
 						"target": {
 							"quantity": "",
-							"type": ""
+							"type": "creature"
 						},
 						"rolls": {
-							"brWb7LHIJImqA0Pk": {
+							"Cj65qeJjdlkUWDEc": {
 								"canCrit": false,
 								"damageType": "acid",
-								"formula": "2d8",
-								"name": "acid",
-								"type": "damage"
+								"formula": "1d6",
+								"name": "",
+								"type": "damage",
+								"scaling": {
+									"mode": "cantrip",
+									"formula": "1d6"
+								}
 							}
+						},
+						"prompts": {
+							"oX9KY6l5VldCVftd": {
+								"ability": "dex",
+								"onSave": "Deals no damage to targets who pass their save",
+								"saveDC": {
+									"type": "spellcasting",
+									"bonus": ""
+								},
+								"type": "savingThrow"
+							}
+						},
+						"consumers": {},
+						"img": "icons/magic/acid/projectile-smoke-glowing.webp"
+					}
+				},
+				"description": "<p>A stinking bubble of acid is conjured out of thin air to fly at the targets, dealing 1d6 acid damage.</p><p>This spell's damage increases by 1d6 when you reach 5th level (2d6), 11th level (3d6), and 17th level (4d6).</p>",
+				"favorite": true,
+				"secretDescription": "",
+				"source": "",
+				"uses": {
+					"value": null,
+					"max": null,
+					"per": "",
+					"recharge": {
+						"formula": "",
+						"threshold": ""
+					}
+				},
+				"schema": {
+					"version": 0.003,
+					"lastMigration": {
+						"version": {
+							"schema": null,
+							"foundry": "10.291",
+							"system": "0.10.7"
+						}
+					}
+				},
+				"components": {
+					"vocalized": true,
+					"seen": true,
+					"material": false
+				},
+				"concentration": false,
+				"level": 0,
+				"materials": "",
+				"materialsConsumed": false,
+				"prepared": false,
+				"prerequisite": "",
+				"ritual": false,
+				"schools": {
+					"primary": "conjuration",
+					"secondary": [
+						"acid",
+						"arcane"
+					]
+				}
+			},
+			"folder": null,
+			"_id": "9ZsLl3NiXExPnND1",
+			"sort": 0,
+			"ownership": {
+				"default": 0,
+				"3Y2gVQm11sFC8K3d": 3
+			},
+			"_stats": {
+				"systemId": "a5e",
+				"systemVersion": "0.14.17",
+				"coreVersion": "11.308",
+				"createdTime": 1694774808344,
+				"modifiedTime": 1694774890806,
+				"lastModifiedBy": "3Y2gVQm11sFC8K3d"
+			}
+		},
+		{
+			"name": "Prestidigitation",
+			"type": "spell",
+			"img": "icons/magic/air/air-smoke-casting.webp",
+			"effects": [],
+			"flags": {
+				"core": {
+					"sourceId": "Compendium.a5e.a5e-spells.uy8he1yquaiym6y8"
+				},
+				"scene-packer": {
+					"hash": "b5a68277771c507cbc69faece2d881e0d83e312b"
+				}
+			},
+			"system": {
+				"actions": {
+					"ytGTtNAZ4tA05XbO": {
+						"name": "Prestidigitation",
+						"activation": {
+							"cost": 1,
+							"type": "action",
+							"reactionTrigger": ""
+						},
+						"duration": {
+							"unit": "hour",
+							"value": "1"
+						},
+						"ranges": {
+							"t2VTRTsRjJrzYVjH": {
+								"range": "short"
+							}
+						},
+						"area": {
+							"shape": "",
+							"size": "",
+							"placeTemplate": false
+						},
+						"target": {
+							"quantity": "",
+							"type": "other"
 						},
 						"consumers": {}
 					}
 				},
-				"description": "<p>A creature that touches the pudding or hits it with a melee attack while within 5 feet takes 9 (2d8) acid damage. A nonmagical weapon made of metal or wood that hits the black pudding corrodes after dealing damage, taking a permanent -1 penalty to damage rolls per hit. If this penalty reaches -5, the weapon is destroyed. Wooden or metal nonmagical ammunition is destroyed after dealing damage. Any other metal or organic object that touches it takes 9 (2d8) acid damage.</p>",
+				"description": "<p>You wield arcane energies to produce minor effects. Choose one of the following:</p><ul><li>create a single burst of magic that manifests to one of the senses (for example a burst of sound, sparks, or an odd odor).</li><li>clean or soil an object of 1 cubic foot or less.</li><li>light or snuff a flame.</li><li>chill, warm, or flavor nonliving material of 1 cubic foot or less for 1 hour.</li><li>color or mark an object or surface for 1 hour.</li><li>create an ordinary trinket or illusionary image that fits in your hand and lasts for 1 round.</li></ul><p>You may cast this spell multiple times, though only three effects may be active at a time. Dismissing each effect requires an action.</p>",
+				"favorite": false,
+				"secretDescription": "",
+				"source": "",
+				"uses": {
+					"value": null,
+					"max": "",
+					"per": null,
+					"recharge": {
+						"formula": "",
+						"threshold": ""
+					}
+				},
+				"schema": {
+					"version": 0.003,
+					"lastMigration": {
+						"version": {
+							"schema": null,
+							"foundry": "10.291",
+							"system": "0.10.7"
+						}
+					}
+				},
+				"components": {
+					"vocalized": true,
+					"seen": true,
+					"material": false
+				},
+				"concentration": false,
+				"level": 0,
+				"materials": "",
+				"materialsConsumed": false,
+				"prepared": false,
+				"prerequisite": "",
+				"ritual": false,
+				"schools": {
+					"primary": "transmutation",
+					"secondary": [
+						"arcane",
+						"utility"
+					]
+				}
+			},
+			"_id": "dfoWQRDEExXXkVgE",
+			"folder": null,
+			"sort": 0,
+			"ownership": {
+				"default": 0,
+				"3Y2gVQm11sFC8K3d": 3
+			},
+			"_stats": {
+				"systemId": "a5e",
+				"systemVersion": "0.14.17",
+				"coreVersion": "11.308",
+				"createdTime": 1694774814160,
+				"modifiedTime": 1694774814160,
+				"lastModifiedBy": "3Y2gVQm11sFC8K3d"
+			}
+		},
+		{
+			"name": "Animal Friendship (oozes only)",
+			"type": "spell",
+			"img": "icons/creatures/mammals/elk-moose-marked-green.webp",
+			"effects": [],
+			"flags": {
+				"core": {
+					"sourceId": "Compendium.a5e.a5e-spells.1laktjzxk5nh1x1r"
+				},
+				"scene-packer": {
+					"hash": "9f641372e86883e73a1cc7dc6cab39e6097a74ed"
+				}
+			},
+			"system": {
+				"actions": {
+					"IV3HIuyqtazSa3SL": {
+						"name": "Animal Friendship",
+						"activation": {
+							"cost": 1,
+							"type": "action",
+							"reactionTrigger": ""
+						},
+						"duration": {
+							"unit": "hour",
+							"value": "24"
+						},
+						"ranges": {
+							"Sq7GpokSS170wv8L": {
+								"range": "short"
+							}
+						},
+						"area": {
+							"shape": "",
+							"size": "",
+							"placeTemplate": false
+						},
+						"target": {
+							"quantity": "",
+							"type": "creature"
+						},
+						"prompts": {
+							"PwcoRftiVfDdbbMn": {
+								"ability": "wis",
+								"onSave": "Negates effect",
+								"saveDC": {
+									"type": "custom",
+									"bonus": ""
+								},
+								"type": "savingThrow"
+							}
+						},
+						"consumers": {
+							"REreIaie5jZUD7V8": {
+								"mode": "variable",
+								"spellLevel": 1,
+								"points": 2,
+								"type": "spell"
+							}
+						}
+					}
+				},
+				"description": "<p>You allow your inner beauty to shine through in song and dance whether to call a bird from its tree or a badger from its sett. Until the spell ends or one of your companions harms it (whichever is sooner), the target is charmed by you.</p><p><strong><em>Cast at Higher Levels.</em></strong> Choose one additional target for each slot level above 1st.</p>",
+				"favorite": false,
+				"secretDescription": "",
+				"source": "",
+				"uses": {
+					"value": null,
+					"max": "",
+					"per": null,
+					"recharge": {
+						"formula": "",
+						"threshold": ""
+					}
+				},
+				"schema": {
+					"version": 0.003,
+					"lastMigration": {
+						"version": {
+							"schema": null,
+							"foundry": "10.291",
+							"system": "0.10.7"
+						}
+					}
+				},
+				"components": {
+					"vocalized": true,
+					"seen": true,
+					"material": true
+				},
+				"concentration": false,
+				"level": 1,
+				"materials": "red ribbon",
+				"materialsConsumed": false,
+				"prepared": 1,
+				"prerequisite": "",
+				"ritual": false,
+				"schools": {
+					"primary": "enchantment",
+					"secondary": [
+						"beasts",
+						"compulsion",
+						"nature"
+					]
+				}
+			},
+			"_id": "Sz6TBCZ5EFRnsioq",
+			"folder": null,
+			"sort": 0,
+			"ownership": {
+				"default": 0,
+				"3Y2gVQm11sFC8K3d": 3
+			},
+			"_stats": {
+				"systemId": "a5e",
+				"systemVersion": "0.14.17",
+				"coreVersion": "11.308",
+				"createdTime": 1694774828790,
+				"modifiedTime": 1694774875989,
+				"lastModifiedBy": "3Y2gVQm11sFC8K3d"
+			}
+		},
+		{
+			"name": "Find Familiar (gray ooze only)",
+			"type": "spell",
+			"img": "icons/creatures/birds/raptor-owl-flying-moon.webp",
+			"effects": [],
+			"flags": {
+				"core": {
+					"sourceId": "Compendium.a5e.a5e-spells.6l4bmc7ovgcn2c9k"
+				},
+				"scene-packer": {
+					"hash": "adef8b08589b85e3f7d382948521d5eb6da80c09"
+				}
+			},
+			"system": {
+				"actions": {
+					"yhXj7O2bH8zQgMCF": {
+						"name": "Find Familiar",
+						"activation": {
+							"cost": 1,
+							"type": "hour",
+							"reactionTrigger": ""
+						},
+						"duration": {
+							"unit": "instantaneous",
+							"value": ""
+						},
+						"ranges": {
+							"78GJ7PD51AU6mjl1": {
+								"range": "short"
+							}
+						},
+						"area": {
+							"shape": "",
+							"size": "",
+							"placeTemplate": false
+						},
+						"target": {
+							"quantity": "",
+							"type": "none"
+						},
+						"consumers": {
+							"kuhptYVBzVVmlKgF": {
+								"mode": "variable",
+								"spellLevel": 1,
+								"points": 2,
+								"type": "spell"
+							}
+						}
+					}
+				},
+				"description": "<p>Your familiar, a spirit that takes the form of any CR 0 beast of Small or Tiny size, appears in an unoccupied space within range. It has the statistics of the chosen form, but is your choice of a celestial, fey, or fiend (instead of a beast).</p><p>Your familiar is an independent creature that rolls its own initiative and acts on its own turn in combat (but cannot take the Attack action). However, it is loyal to you and always obeys your commands.</p><p>When the familiar drops to 0 hit points, it vanishes without a trace. Casting the spell again causes it to reappear.</p><p>You are able to communicate telepathically with your familiar when it is within 100 feet. As long as it is within this range, you can use an action to see through your familiar's eyes and hear through its ears until the beginning of your next turn, gaining the benefit of any special senses it has. During this time, you are blind and deaf to your body's surroundings.</p><p>You can use an action to either permanently dismiss your familiar or temporarily dismiss it to a pocket dimension where it awaits your summons. While it is temporarily dismissed, you can use an action to call it back, causing it to appear in any unoccupied space within 30 feet of you.</p><p>You can't have more than one familiar at a time, but if you cast this spell while you already have a familiar, you can cause it to adopt a different form.</p><p>Finally, when you cast a spell with a range of Touch and your familiar is within 100 feet of you, it can deliver the spell as if it was the spellcaster. Your familiar must use its reaction to deliver the spell when you cast it. If the spell requires an attack roll, use your attack bonus for the spell.</p>",
+				"favorite": false,
+				"secretDescription": "",
+				"source": "",
+				"uses": {
+					"value": null,
+					"max": "",
+					"per": null,
+					"recharge": {
+						"formula": "",
+						"threshold": ""
+					}
+				},
+				"schema": {
+					"version": 0.003,
+					"lastMigration": {
+						"version": {
+							"schema": null,
+							"foundry": "10.291",
+							"system": "0.10.7"
+						}
+					}
+				},
+				"components": {
+					"vocalized": true,
+					"seen": true,
+					"material": true
+				},
+				"concentration": false,
+				"level": 1,
+				"materials": "10 gold worth of charcoal, incense, and herbs that must be burned in a brass brazier",
+				"materialsConsumed": false,
+				"prepared": 1,
+				"prerequisite": "",
+				"ritual": true,
+				"schools": {
+					"primary": "conjuration",
+					"secondary": [
+						"arcane",
+						"summoning"
+					]
+				}
+			},
+			"_id": "cJjrUBlq1FJfKyl1",
+			"folder": null,
+			"sort": 0,
+			"ownership": {
+				"default": 0,
+				"3Y2gVQm11sFC8K3d": 3
+			},
+			"_stats": {
+				"systemId": "a5e",
+				"systemVersion": "0.14.17",
+				"coreVersion": "11.308",
+				"createdTime": 1694774846596,
+				"modifiedTime": 1694774873517,
+				"lastModifiedBy": "3Y2gVQm11sFC8K3d"
+			}
+		},
+		{
+			"name": "Acid Arrow",
+			"type": "spell",
+			"img": "icons/magic/acid/projectile-stream-bubbles.webp",
+			"effects": [],
+			"flags": {
+				"core": {
+					"sourceId": "Compendium.a5e.a5e-spells.nz5w9m7a9pvxjw3i"
+				},
+				"scene-packer": {
+					"hash": "62fa6fd75304d2a7fe3fde76e34d311130b02b8e"
+				}
+			},
+			"system": {
+				"actions": {
+					"FWz3KZgbN5Av9qet": {
+						"name": "Acid Arrow",
+						"activation": {
+							"cost": 1,
+							"type": "action",
+							"reactionTrigger": ""
+						},
+						"duration": {
+							"unit": "instantaneous",
+							"value": ""
+						},
+						"ranges": {
+							"Mag7aVG9Jf2lfRlZ": {
+								"range": "long"
+							}
+						},
+						"area": {
+							"shape": "",
+							"size": "",
+							"placeTemplate": false
+						},
+						"target": {
+							"quantity": "",
+							"type": "creatureObject"
+						},
+						"rolls": {
+							"WCMoWZTCXyWijy3r": {
+								"bonus": "",
+								"critThreshold": 20,
+								"type": "attack",
+								"attackType": "rangedSpellAttack",
+								"ability": "spellcasting"
+							},
+							"vrV4CI87pxZBRsRs": {
+								"canCrit": true,
+								"damageType": "acid",
+								"formula": "4d4",
+								"name": "",
+								"type": "damage",
+								"scaling": {
+									"mode": "spellLevel",
+									"formula": "1d4"
+								}
+							}
+						},
+						"consumers": {
+							"jZTkbL4gXip2MIgm": {
+								"mode": "variable",
+								"spellLevel": 2,
+								"points": 3,
+								"type": "spell"
+							}
+						}
+					}
+				},
+				"description": "<p>A jet of acid streaks towards the target like a hissing, green arrow. Make a ranged spell attack.</p><p>On a hit the target takes 4d4 acid damage and 2d4 ongoing acid damage for 1 round. On a miss the target takes half damage.</p><p><strong><em>Cast at Higher Levels.</em></strong> Increase this spell's initial and ongoing damage by 1d4 per slot level above 2nd.</p>",
 				"favorite": true,
 				"secretDescription": "",
 				"source": "",
@@ -1628,19 +1939,38 @@
 					}
 				},
 				"schema": {
-					"version": 0.004,
+					"version": 0.003,
 					"lastMigration": {
 						"version": {
-							"schema": 0.003,
-							"foundry": "11.302",
-							"system": "0.12.7"
+							"schema": null,
+							"foundry": "10.291",
+							"system": "0.10.7"
 						}
 					}
 				},
+				"components": {
+					"vocalized": true,
+					"seen": true,
+					"material": true
+				},
 				"concentration": false,
-				"featureType": "",
-				"prerequisite": ""
+				"level": 2,
+				"materials": "flint arrowhead",
+				"materialsConsumed": false,
+				"prepared": 1,
+				"prerequisite": "",
+				"ritual": false,
+				"schools": {
+					"primary": "evocation",
+					"secondary": [
+						"acid",
+						"arcane"
+					]
+				}
 			},
+			"_id": "vxgR4FhlaUWPXHPk",
+			"folder": null,
+			"sort": 0,
 			"ownership": {
 				"default": 0,
 				"3Y2gVQm11sFC8K3d": 3
@@ -1649,22 +1979,135 @@
 				"systemId": "a5e",
 				"systemVersion": "0.14.17",
 				"coreVersion": "11.308",
-				"createdTime": 1694773643683,
-				"modifiedTime": 1694773643683,
+				"createdTime": 1694774863588,
+				"modifiedTime": 1694774889638,
 				"lastModifiedBy": "3Y2gVQm11sFC8K3d"
 			}
 		},
 		{
-			"_id": "STI5l6P6sSnKK533",
-			"name": "Psuedopod",
-			"type": "feature",
-			"img": "icons/svg/item-bag.svg",
+			"name": "Spider Climb",
+			"type": "spell",
+			"img": "icons/creatures/webs/web-spider-glowing-purple.webp",
 			"effects": [],
+			"flags": {
+				"core": {
+					"sourceId": "Compendium.a5e.a5e-spells.kz3xe6ems34f2ubo"
+				},
+				"scene-packer": {
+					"hash": "5bb0f4e7d7057edcae6208b019b53aaab7657e7b"
+				}
+			},
+			"system": {
+				"actions": {
+					"GWa9uJi4MquZXIi6": {
+						"name": "Spider Climb",
+						"activation": {
+							"cost": 1,
+							"type": "action",
+							"reactionTrigger": ""
+						},
+						"duration": {
+							"unit": "hour",
+							"value": "1"
+						},
+						"ranges": {
+							"6SPhi6tPm46eeoCR": {
+								"range": "touch"
+							}
+						},
+						"area": {
+							"shape": "",
+							"size": "",
+							"placeTemplate": false
+						},
+						"target": {
+							"quantity": "",
+							"type": "creature"
+						},
+						"consumers": {
+							"ebhYxR9NKxUdqid3": {
+								"mode": "variable",
+								"spellLevel": 2,
+								"points": 3,
+								"type": "spell"
+							}
+						}
+					}
+				},
+				"description": "<p>The target gains the ability to walk on walls and upside down on ceilings, as well as a climbing speed equal to its base Speed.</p><p><strong><em>Cast at Higher Levels.</em></strong> You can affect one additional target for each slot level above 2nd.</p>",
+				"favorite": false,
+				"secretDescription": "",
+				"source": "",
+				"uses": {
+					"value": null,
+					"max": "",
+					"per": null,
+					"recharge": {
+						"formula": "",
+						"threshold": ""
+					}
+				},
+				"schema": {
+					"version": 0.003,
+					"lastMigration": {
+						"version": {
+							"schema": null,
+							"foundry": "10.291",
+							"system": "0.10.7"
+						}
+					}
+				},
+				"components": {
+					"vocalized": true,
+					"seen": true,
+					"material": true
+				},
+				"concentration": true,
+				"level": 2,
+				"materials": "cobweb and small wooden shoe",
+				"materialsConsumed": false,
+				"prepared": 1,
+				"prerequisite": "",
+				"ritual": false,
+				"schools": {
+					"primary": "transmutation",
+					"secondary": [
+						"arcane",
+						"movement",
+						"utility"
+					]
+				}
+			},
+			"_id": "SC3qJvHOMuogC9Xb",
 			"folder": null,
 			"sort": 0,
+			"ownership": {
+				"default": 0,
+				"3Y2gVQm11sFC8K3d": 3
+			},
+			"_stats": {
+				"systemId": "a5e",
+				"systemVersion": "0.14.17",
+				"coreVersion": "11.308",
+				"createdTime": 1694774870935,
+				"modifiedTime": 1694774871796,
+				"lastModifiedBy": "3Y2gVQm11sFC8K3d"
+			}
+		},
+		{
+			"_id": "HobaVSz5AuNScX01",
+			"name": "Multiattack",
+			"type": "feature",
+			"img": "icons/skills/melee/blade-tips-triple-steel.webp",
+			"effects": [],
+			"folder": "yKYZJ2BF51Rij43x",
+			"sort": 100000,
 			"flags": {
+				"core": {
+					"sourceId": "Item.Hcp8zUrtUBaXFT4i"
+				},
 				"scene-packer": {
-					"hash": "3f4baa1e206612dd21ccf23563ad01e7e792acde"
+					"hash": "e69d6881dfaaf2e1e1bb8e5fd2ecd207f0d65c50"
 				}
 			},
 			"system": {
@@ -1678,8 +2121,8 @@
 					"requiresUnarmored": false
 				},
 				"actions": {
-					"VGfpvtGcRwN0EFfz": {
-						"name": "Psuedopod",
+					"ZApeK4FjZlVr5bRJ": {
+						"name": "Multiattack",
 						"activation": {
 							"cost": 1,
 							"type": "action",
@@ -1695,221 +2138,13 @@
 							"placeTemplate": false
 						},
 						"target": {
-							"quantity": 1,
-							"type": "creature"
-						},
-						"rolls": {
-							"LmDVCaTJ7TszoWih": {
-								"bonus": "",
-								"critThreshold": "20",
-								"type": "attack",
-								"attackType": "meleeWeaponAttack",
-								"ability": "str"
-							},
-							"NYpVbZE5bSCC83Yc": {
-								"canCrit": true,
-								"damageType": "bludgeoning",
-								"formula": "1d6 + @str.mod",
-								"name": "bludgeoning",
-								"type": "damage"
-							},
-							"Dd47e9Cd4Y8noP56": {
-								"canCrit": true,
-								"damageType": "acid",
-								"formula": "2d8",
-								"name": "acid",
-								"type": "damage"
-							}
-						},
-						"consumers": {}
-					}
-				},
-				"description": "<p><em>Melee Weapon Attack:</em><br><em>On Hit: </em>Nonmagical metal armor worn by the target corrodes, taking a permanent -1 penalty to its AC protection per hit. If the penalty reduces the armor’s AC protection to 10, the armor is destroyed.</p>",
-				"favorite": true,
-				"secretDescription": "",
-				"source": "",
-				"uses": {
-					"value": null,
-					"max": "",
-					"per": null,
-					"recharge": {
-						"formula": "",
-						"threshold": ""
-					}
-				},
-				"schema": {
-					"version": 0.004,
-					"lastMigration": {
-						"version": {
-							"schema": 0.003,
-							"foundry": "11.302",
-							"system": "0.12.7"
-						}
-					}
-				},
-				"concentration": false,
-				"featureType": "",
-				"prerequisite": ""
-			},
-			"ownership": {
-				"default": 0,
-				"3Y2gVQm11sFC8K3d": 3
-			},
-			"_stats": {
-				"systemId": "a5e",
-				"systemVersion": "0.14.17",
-				"coreVersion": "11.308",
-				"createdTime": 1694773644975,
-				"modifiedTime": 1694773644975,
-				"lastModifiedBy": "3Y2gVQm11sFC8K3d"
-			}
-		},
-		{
-			"_id": "nSTZWXyYbesshdGk",
-			"name": "Split (Reaction)",
-			"type": "feature",
-			"img": "icons/svg/item-bag.svg",
-			"effects": [],
-			"folder": "MrHKXdZgN2tcvnWu",
-			"sort": 62500,
-			"flags": {
-				"core": {
-					"sourceId": "Item.dJts9yWqnKpeUKSI"
-				},
-				"scene-packer": {
-					"hash": "ffcfc195dc69f6545134b2e1d633d26b128fe793"
-				}
-			},
-			"system": {
-				"ac": {
-					"baseFormula": "",
-					"formula": "",
-					"maxDex": 0,
-					"minStr": 0,
-					"mode": 1,
-					"requiresNoShield": false,
-					"requiresUnarmored": false
-				},
-				"actions": {
-					"7zgCvuAY1CZAjQEm": {
-						"name": "Split (Reaction)",
-						"activation": {
-							"cost": 1,
-							"type": "reaction",
-							"reactionTrigger": "When a Medium or larger jelly with at least 10 hit points is subjected to lightning or slashing damage"
-						},
-						"duration": {
-							"unit": "permanent",
-							"value": ""
-						},
-						"ranges": {
-							"2qblFjZnl5nr3nhd": {
-								"range": "self"
-							}
-						},
-						"area": {
-							"shape": "",
-							"size": "",
-							"placeTemplate": false
-						},
-						"target": {
-							"quantity": "",
-							"type": "self"
-						},
-						"consumers": {}
-					}
-				},
-				"description": "<p>When a Medium or larger pudding with at least 10 hit points is subjected to lightning or slashing damage, it splits into two puddings that are each one size smaller, freeing any grappled targets. Each new pudding has half the original’s hit points (rounded down).</p>",
-				"favorite": false,
-				"secretDescription": "",
-				"source": "",
-				"uses": {
-					"value": null,
-					"max": "",
-					"per": null,
-					"recharge": {
-						"formula": "",
-						"threshold": ""
-					}
-				},
-				"schema": {
-					"version": 0.004,
-					"lastMigration": {
-						"version": {
-							"schema": 0.003,
-							"foundry": "11.302",
-							"system": "0.12.7"
-						}
-					}
-				},
-				"concentration": false,
-				"featureType": "",
-				"prerequisite": ""
-			},
-			"ownership": {
-				"default": 0,
-				"3Y2gVQm11sFC8K3d": 3
-			},
-			"_stats": {
-				"systemId": "a5e",
-				"systemVersion": "0.14.17",
-				"coreVersion": "11.308",
-				"createdTime": 1694773645800,
-				"modifiedTime": 1694773645800,
-				"lastModifiedBy": "3Y2gVQm11sFC8K3d"
-			}
-		},
-		{
-			"_id": "Jr5JsOkTBNBnXskp",
-			"name": "Spider Climb",
-			"type": "feature",
-			"img": "icons/creatures/invertebrates/spider-beetle-runed-green.webp",
-			"effects": [],
-			"folder": "MrHKXdZgN2tcvnWu",
-			"sort": 75000,
-			"flags": {
-				"core": {
-					"sourceId": "Item.dP16AjGb1R5hFF8x"
-				},
-				"scene-packer": {
-					"hash": "44f5cc13b62c06442680d4e53037b8fe2512c7b6"
-				}
-			},
-			"system": {
-				"ac": {
-					"baseFormula": "",
-					"formula": "",
-					"maxDex": 0,
-					"minStr": 0,
-					"mode": 1,
-					"requiresNoShield": false,
-					"requiresUnarmored": false
-				},
-				"actions": {
-					"JNtksyoDI86DcSE0": {
-						"name": "Spider Climb",
-						"activation": {
-							"cost": "",
-							"type": "none",
-							"reactionTrigger": ""
-						},
-						"duration": {
-							"unit": "permanent",
-							"value": ""
-						},
-						"area": {
-							"shape": "",
-							"size": "",
-							"placeTemplate": false
-						},
-						"target": {
 							"quantity": "",
 							"type": ""
 						},
 						"consumers": {}
 					}
 				},
-				"description": "<p>The pudding can use its climb speed even on difficult surfaces and upside down on ceilings.&nbsp;</p>",
+				"description": "<p>The oozemancer attacks with its ooze touch and casts a spell.</p>",
 				"favorite": false,
 				"secretDescription": "",
 				"source": "",
@@ -1944,8 +2179,110 @@
 				"systemId": "a5e",
 				"systemVersion": "0.14.17",
 				"coreVersion": "11.308",
-				"createdTime": 1694773646866,
-				"modifiedTime": 1694773646866,
+				"createdTime": 1694768097234,
+				"modifiedTime": 1694774977947,
+				"lastModifiedBy": "3Y2gVQm11sFC8K3d"
+			}
+		},
+		{
+			"name": "Ooze Touch",
+			"type": "feature",
+			"system": {
+				"ac": {
+					"baseFormula": "",
+					"formula": "",
+					"maxDex": 0,
+					"minStr": 0,
+					"mode": 2,
+					"requiresNoShield": false,
+					"requiresUnarmored": false
+				},
+				"actions": {
+					"SQcLl8gVNSNywpod": {
+						"name": "Ooze Touch",
+						"activation": {},
+						"consumers": {},
+						"rolls": {
+							"51V94NFVWbKkdzXT": {
+								"type": "attack",
+								"default": true,
+								"attackType": "meleeWeaponAttack",
+								"proficient": true,
+								"ability": "default"
+							},
+							"IR3m3HbaNyvlbbVx": {
+								"type": "damage",
+								"default": true,
+								"formula": "1d8 + @finesse.mod",
+								"damageType": "acid"
+							}
+						},
+						"prompts": {},
+						"uses": {
+							"value": 0,
+							"max": "",
+							"per": "",
+							"recharge": {
+								"formula": "1d6",
+								"threshold": 6
+							}
+						},
+						"ranges": {
+							"PHd39GsdaJ3t7MUa": {
+								"range": "fiveFeet"
+							}
+						},
+						"target": {
+							"type": "creatureObject",
+							"quantity": 1
+						}
+					}
+				},
+				"description": "<p><em>Melee Weapon Attack:</em>&nbsp;+4 to hit, reach 5 ft., one target.<em>&nbsp;Hit:</em>&nbsp;6 (1d8 + 2) acid damage.</p>",
+				"favorite": true,
+				"secretDescription": "",
+				"source": {
+					"name": "",
+					"link": "",
+					"publisher": ""
+				},
+				"uses": {
+					"value": null,
+					"max": "",
+					"per": null,
+					"recharge": {
+						"formula": "1d6",
+						"threshold": "6"
+					}
+				},
+				"schema": {
+					"version": 0.001,
+					"lastMigration": null
+				},
+				"concentration": false,
+				"featureType": "naturalWeapon",
+				"prerequisite": ""
+			},
+			"_id": "ha0iLlunvZZf7ekE",
+			"img": "icons/svg/item-bag.svg",
+			"effects": [],
+			"folder": null,
+			"sort": 0,
+			"ownership": {
+				"default": 0,
+				"3Y2gVQm11sFC8K3d": 3
+			},
+			"flags": {
+				"scene-packer": {
+					"hash": "09da164a50300f407e30cfedde8a13f70bf65e0e"
+				}
+			},
+			"_stats": {
+				"systemId": "a5e",
+				"systemVersion": "0.14.17",
+				"coreVersion": "11.308",
+				"createdTime": 1694774983363,
+				"modifiedTime": 1694777788778,
 				"lastModifiedBy": "3Y2gVQm11sFC8K3d"
 			}
 		}
@@ -1953,12 +2290,12 @@
 	"effects": [],
 	"flags": {
 		"scene-packer": {
-			"hash": "b128bc74d738d83f56b8b197ff79a0ddd8dd1ab1",
-			"sourceId": "Actor.TXVHZ9YtAj00LVth"
+			"hash": "f3784e78a3722f8ea38ae152e3a8bf2c758aed40",
+			"sourceId": "Actor.oWcNLkqfuaWSuxi3"
 		},
 		"a5e": {
-			"currentTab": "notes",
-			"sheetIsLocked": false
+			"sheetIsLocked": true,
+			"currentTab": "core"
 		},
 		"exportSource": {
 			"world": "pmg-spells",
@@ -1971,9 +2308,9 @@
 		"systemId": "a5e",
 		"systemVersion": "0.14.15",
 		"coreVersion": "11.308",
-		"createdTime": 1694773604933,
-		"modifiedTime": 1694981318426,
+		"createdTime": 1694774506081,
+		"modifiedTime": 1694981454524,
 		"lastModifiedBy": "lCRiQclGlfIQqUGV"
 	},
-	"_id": "kt5g06icmg0y93bf"
+	"_id": "uljqryzfrsp1ue3y"
 }

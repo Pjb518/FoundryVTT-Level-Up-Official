@@ -1,12 +1,12 @@
 {
 	"folder": null,
-	"name": "Black Pudding",
+	"name": "Draconic Horror",
 	"type": "npc",
 	"img": "icons/svg/mystery-man.svg",
 	"system": {
 		"abilities": {
 			"str": {
-				"value": 16,
+				"value": 22,
 				"check": {
 					"expertiseDice": 0,
 					"bonus": ""
@@ -18,32 +18,32 @@
 				}
 			},
 			"dex": {
-				"value": 4,
+				"value": 14,
 				"check": {
 					"expertiseDice": 0,
 					"bonus": ""
 				},
 				"save": {
-					"proficient": false,
+					"proficient": true,
 					"expertiseDice": 0,
 					"bonus": ""
 				}
 			},
 			"con": {
-				"value": 16,
+				"value": 20,
 				"check": {
 					"expertiseDice": 0,
 					"bonus": ""
 				},
 				"save": {
-					"proficient": false,
+					"proficient": true,
 					"expertiseDice": 0,
 					"bonus": "",
 					"concentrationBonus": ""
 				}
 			},
 			"int": {
-				"value": 1,
+				"value": 12,
 				"check": {
 					"expertiseDice": 0,
 					"bonus": ""
@@ -55,19 +55,19 @@
 				}
 			},
 			"wis": {
-				"value": 6,
+				"value": 16,
 				"check": {
 					"expertiseDice": 0,
 					"bonus": ""
 				},
 				"save": {
-					"proficient": false,
+					"proficient": true,
 					"expertiseDice": 0,
 					"bonus": ""
 				}
 			},
 			"cha": {
-				"value": 1,
+				"value": 22,
 				"check": {
 					"expertiseDice": 0,
 					"bonus": ""
@@ -371,7 +371,7 @@
 		},
 		"attributes": {
 			"ac": {
-				"baseFormula": "8",
+				"baseFormula": "10 + @dex.mod + @prof",
 				"value": 0
 			},
 			"death": {
@@ -379,8 +379,8 @@
 				"failure": 0
 			},
 			"hp": {
-				"value": 85,
-				"baseMax": 85,
+				"value": 287,
+				"baseMax": 287,
 				"temp": 0,
 				"bonus": 0
 			},
@@ -394,12 +394,12 @@
 					"total": 0
 				},
 				"d10": {
-					"current": 10,
-					"total": 10
-				},
-				"d12": {
 					"current": 0,
 					"total": 0
+				},
+				"d12": {
+					"current": 25,
+					"total": 25
 				},
 				"d4": {
 					"current": 0,
@@ -420,19 +420,19 @@
 					"unit": "feet"
 				},
 				"climb": {
-					"distance": 20,
-					"unit": "feet"
-				},
-				"fly": {
 					"distance": 0,
 					"unit": "feet"
 				},
+				"fly": {
+					"distance": 100,
+					"unit": "feet"
+				},
 				"swim": {
-					"distance": 20,
+					"distance": 0,
 					"unit": "feet"
 				},
 				"walk": {
-					"distance": 20,
+					"distance": 40,
 					"unit": "feet"
 				},
 				"traits": {
@@ -441,16 +441,16 @@
 			},
 			"senses": {
 				"blindsight": {
-					"distance": 60,
+					"distance": 0,
 					"unit": "feet",
-					"otherwiseBlind": true
+					"otherwiseBlind": false
 				},
 				"darkvision": {
-					"distance": 0,
+					"distance": 120,
 					"unit": "feet"
 				},
 				"tremorsense": {
-					"distance": 0,
+					"distance": 30,
 					"unit": "feet"
 				},
 				"truesight": {
@@ -487,18 +487,22 @@
 			"cp": 0
 		},
 		"details": {
-			"bio": "<h2><strong>COMBAT</strong></h2>\n<p>The pudding lurks on walls or ceilings or conceals itself in shadows. It attacks creatures who venture into range and pursues the closest creature. It retreats only if exposed to sunlight, in which case it tries to climb away or squeeze into a crack.</p>\n<hr class=\"a5e-rule u-my-md\">\n<h2><strong>LEGENDS AND LORE</strong></h2>\n<p>With an Arcana or Nature check, characters can learn the following:</p>\n<p><strong>DC 10</strong> Mindless and able to squeeze through the narrowest of cracks, oozes inhabit dank, dark places all over the world.</p>\n<p><strong>DC 15</strong> There are many different types of oozes. Perhaps the strangest is the gelatinous cube: a nearly transparent ooze that engulfs dungeon explorers who stumble into it.</p>\n<p><strong>DC 20</strong> Oozes dissolve any organic matter they come into contact with. Some oozes, such as black puddings, corrode metal as well</p>\n<hr class=\"a5e-rule u-my-md\">\n<h2><strong>DESCRIPTION</strong></h2>\n<p>A black pudding undulates along the ground and climbs walls, cresting and falling like a slow sea of oil or tar. When motionless, it resembles a dark pool of shadow and may be lost in an area of darkness.&nbsp;</p>\n<p>Black puddings devour living and dead organic materials, like flesh, wood, and bone, and melt metal as well. An adventurer who falls into a pool of black pudding leaves nothing behind but the gemstones of their jewelry.</p>\n<p>A black pudding doesn&rsquo;t shrink from swords or axes. When a black pudding is cut in half, it simply becomes two smaller black puddings.</p>\n<hr class=\"a5e-rule u-my-md\">\n<h2><strong>SIGNS</strong></h2>\n<p>1&ndash;2 DC 13 Perception check: pristine floors or walls</p>\n<p>2 A door missing its metal hinges (gray ooze), a door missing its lower half (black pudding), or a skeleton (gelatinous cube or ochre jelly)</p>\n<p>3 A bit of writhing ooze stuck in a crack</p>\n<p>4 Wet and dripping walls and floors. DC 14 Investigation or Survival: The area is completely free of lichen, fungus, and other life that might thrive in this environment</p>\n<hr class=\"a5e-rule u-my-md\">\n<h2><strong>ENCOUNTERS</strong></h2>\n<p><strong>Ooze Encounters </strong>Oozes lurk in sunless areas such as caverns, dungeons, and the ocean depths, as well as in areas of the Abyss and the Bleak Gate.</p>\n<p><strong>CR 0&ndash;2</strong> gelatinous cube; ochre jelly; 1 to 3 gray oozes; gray ooze in pit trap</p>\n<p><strong>Treasure</strong> flat carnelian gem carved with a lion, possibly once part of a signet ring (75 gp)</p>\n<p><strong>CR 3&ndash;4</strong> black pudding; gelatinous cube in pit trap; 2 gelatinous cubes or ochre jellies; ochre jelly with 1d4 flying swords&nbsp;</p>\n<p><strong>Treasure</strong> flint, chalk, marble chess pieces (125 gp), malachite gem (10 gp), <em>+1 dagger</em> enchanted with <em>continual flame</em></p>\n<p><strong>CR 5&ndash;10</strong> elder black pudding; gelatinous wall; black pudding with walking statue or mimic</p>\n<p><strong>Treasure</strong> 3 sealed wine bottles containing fine wine (100 gp each), 4 amethyst gemstones (100 gp each), 2 <em>elemental gems</em> (fire)</p>\n<hr class=\"a5e-rule u-my-md\">\n<h2><strong>MONSTER TYPE DESCRIPTION</strong></h2>\n<p>Oozes are ambulatory, predatory amoeboid creatures that infest caverns and other dark places. A gelatinous cube is an ooze.</p>",
+			"bio": "<div class=\"field field--name-field-monster-other-notes field--type-text-long field--label-hidden field--item\">\n<h2>COMBAT</h2>\n<p>The draconic horror leads with its Horrifying Breath but otherwise prefers to stay in the midst of its enemies, making maximum use of its horrific maws attack and Horrifying Cacophony and Warper of Reality traits. It reserves its stinger for low-AC, high-damage characters such as rogues or spellcasters, hoping to turn some of their damage output against their allies.</p>\n<hr>\n<h2>LEGENDS AND LORE</h2>\n<p>With an Arcana or History check, characters can learn the following:</p>\n<p><strong>DC 10&nbsp;</strong>Draconic horrors are created when a dragon&rsquo;s egg is exposed to energies from the Far Realms.</p>\n<p><strong>DC 15</strong>&nbsp;The minds of draconic horrors are too warped to be controlled or harmed by psychic energy.</p>\n</div>\n<div class=\"field field--name-field-monster-description field--type-text-long field--label-above\">\n<div class=\"field--label\">DESCRIPTION</div>\n<div class=\"field--item\">\n<p>When a dragon&rsquo;s egg is exposed to the eldritch energies of the Far Realms, the creature that hatches is not quite a dragon. Its tail ends in a bulbous stinger, and dozens of extra eyes and mouths sprout along the length of its gangly and misshapen body. While the extra eyes grant the dragon heightened senses, the mouths murmur words of madness that stagger the mind, even as they bite and tear the flesh of creatures foolish enough to wander into their reach.</p>\n<p class=\"Indent1\"><em><strong>Non-Euclidean Spaces.</strong></em>&nbsp;Both corrupted and corrupting, a draconic horror warps space around itself, causing objects to elongate strangely and sprout superfluous eyes and mouths. While the spatial distortions disappear when the dragon leaves the area, an extra eye can blink from a surface for months afterward.</p>\n</div>\n</div>\n<div class=\"field field--name-field-monster-behavior field--type-text-long field--label-above\">\n<div class=\"field--label\">BEHAVIOR</div>\n<div class=\"field--item\">\n<p>1 Tormenting its creator for the crime of creating it</p>\n<p>2 Imprisoned in a space it is magically barred from leaving</p>\n<p>3 Guarding prisoners in which it has implanted larvae</p>\n<p>4 Speaking to an unseen and undetectable presence</p>\n</div>\n</div>\n<div class=\"field field--name-field-monster-signs field--type-text-long field--label-above\">\n<div class=\"field--label\">SIGNS</div>\n<div class=\"field--item\">\n<p>1&ndash;2 Eyes and mouths sprouting from surfaces</p>\n<p>3 Trail of bloody corpses</p>\n<p>4 1d4&nbsp;<span class=\"freelinking-link\"><a title=\"Click to view a local node.\" href=\"https://a5e.tools/node/1645\" hreflang=\"en\">gibbering mouthers</a></span></p>\n</div>\n</div>\n<div class=\"field field--name-field-monster-encounters field--type-text-long field--label-above\">\n<div class=\"field--label\">ENCOUNTERS</div>\n<div class=\"field--item\">\n<p>Draconic horrors are constructed in laboratories or warped in places of eldritch magic.</p>\n<p><strong>CR 17&ndash;22</strong>&nbsp;<span class=\"freelinking-link\"><a title=\"Click to view a local node.\" href=\"https://a5e.tools/node/2848\" hreflang=\"en\">draconic horror</a></span>&nbsp;with 1 or 2&nbsp;<span class=\"freelinking-link\"><a title=\"Click to view a local node.\" href=\"https://a5e.tools/node/1645\" hreflang=\"en\">gibbering mouthers</a></span></p>\n<p><strong>Treasure&nbsp;</strong>arcane equipment worth 15,000 gp,&nbsp;<a href=\"https://a5e.tools/node/1235\">wand of the war mage +3</a>&nbsp;made from gilded dragon bone</p>\n</div>\n</div>",
 			"creatureTypes": [
-				"ooze"
+				"aberration",
+				"dragon"
 			],
 			"isSwarm": false,
-			"cr": 0,
+			"cr": 19,
 			"elite": false,
 			"privateNotes": ""
 		},
 		"proficiencies": {
 			"armor": [],
-			"languages": [],
+			"languages": [
+				"common",
+				"draconic"
+			],
 			"tools": [],
 			"weapons": []
 		},
@@ -554,27 +558,28 @@
 			"publisher": ""
 		},
 		"traits": {
-			"size": "lg",
+			"size": "huge",
 			"conditionImmunities": [
 				"blinded",
 				"charmed",
-				"deafened",
-				"fatigue",
+				"confused",
 				"frightened",
-				"prone"
+				"paralyzed",
+				"petrified",
+				"poisoned"
 			],
-			"damageImmunities": [],
+			"damageImmunities": [
+				"psychic",
+				"poison"
+			],
 			"damageResistances": [
-				"acid",
-				"cold",
-				"lightning",
-				"slashing"
+				"damage from nonmagical weapons"
 			],
 			"damageVulnerabilities": []
 		}
 	},
 	"prototypeToken": {
-		"name": "Black Pudding",
+		"name": "Draconic Horror",
 		"displayName": 0,
 		"actorLink": false,
 		"appendNumber": false,
@@ -585,11 +590,10 @@
 			"scaleY": 1,
 			"offsetX": 0,
 			"offsetY": 0,
-			"rotation": 0,
-			"tint": null
+			"rotation": 0
 		},
-		"width": 2,
-		"height": 2,
+		"width": 3,
+		"height": 3,
 		"lockRotation": false,
 		"rotation": 0,
 		"alpha": 1,
@@ -621,8 +625,7 @@
 			"darkness": {
 				"min": 0,
 				"max": 1
-			},
-			"color": null
+			}
 		},
 		"sight": {
 			"enabled": false,
@@ -632,8 +635,7 @@
 			"attenuation": 0.1,
 			"brightness": 0,
 			"saturation": 0,
-			"contrast": 0,
-			"color": null
+			"contrast": 0
 		},
 		"detectionModes": [],
 		"flags": {},
@@ -733,7 +735,7 @@
 				"equippedState": 0
 			},
 			"folder": null,
-			"_id": "6WNpLc8fLg9oXkHT",
+			"_id": "Kz45pASVSq61bVCu",
 			"sort": 0,
 			"ownership": {
 				"default": 0,
@@ -743,8 +745,8 @@
 				"systemId": "a5e",
 				"systemVersion": "0.14.17",
 				"coreVersion": "11.308",
-				"createdTime": 1694773605048,
-				"modifiedTime": 1694773605048,
+				"createdTime": 1694769541981,
+				"modifiedTime": 1694769541981,
 				"lastModifiedBy": "3Y2gVQm11sFC8K3d"
 			}
 		},
@@ -841,7 +843,7 @@
 				"equippedState": 0
 			},
 			"folder": null,
-			"_id": "fJna4wZeZLpqwf5r",
+			"_id": "e2mHM9ggYl7lT4GF",
 			"sort": 0,
 			"ownership": {
 				"default": 0,
@@ -851,8 +853,8 @@
 				"systemId": "a5e",
 				"systemVersion": "0.14.17",
 				"coreVersion": "11.308",
-				"createdTime": 1694773605048,
-				"modifiedTime": 1694773605048,
+				"createdTime": 1694769541981,
+				"modifiedTime": 1694769541981,
 				"lastModifiedBy": "3Y2gVQm11sFC8K3d"
 			}
 		},
@@ -949,7 +951,7 @@
 				"equippedState": 0
 			},
 			"folder": null,
-			"_id": "tDEhvzOrwG6o11ZJ",
+			"_id": "cHBrJSzLXQhUNcSG",
 			"sort": 0,
 			"ownership": {
 				"default": 0,
@@ -959,8 +961,8 @@
 				"systemId": "a5e",
 				"systemVersion": "0.14.17",
 				"coreVersion": "11.308",
-				"createdTime": 1694773605048,
-				"modifiedTime": 1694773605048,
+				"createdTime": 1694769541981,
+				"modifiedTime": 1694769541981,
 				"lastModifiedBy": "3Y2gVQm11sFC8K3d"
 			}
 		},
@@ -1057,7 +1059,7 @@
 				"equippedState": 0
 			},
 			"folder": null,
-			"_id": "WyXAD0P9pXek6P1x",
+			"_id": "rfXwjth2PTWxZc9J",
 			"sort": 0,
 			"ownership": {
 				"default": 0,
@@ -1067,8 +1069,8 @@
 				"systemId": "a5e",
 				"systemVersion": "0.14.17",
 				"coreVersion": "11.308",
-				"createdTime": 1694773605048,
-				"modifiedTime": 1694773605048,
+				"createdTime": 1694769541981,
+				"modifiedTime": 1694769541981,
 				"lastModifiedBy": "3Y2gVQm11sFC8K3d"
 			}
 		},
@@ -1165,7 +1167,7 @@
 				"equippedState": 0
 			},
 			"folder": null,
-			"_id": "qZdXEuPq5a4m40i5",
+			"_id": "GnVmV3WtjoA0kxqa",
 			"sort": 0,
 			"ownership": {
 				"default": 0,
@@ -1175,8 +1177,8 @@
 				"systemId": "a5e",
 				"systemVersion": "0.14.17",
 				"coreVersion": "11.308",
-				"createdTime": 1694773605048,
-				"modifiedTime": 1694773605048,
+				"createdTime": 1694769541981,
+				"modifiedTime": 1694769541981,
 				"lastModifiedBy": "3Y2gVQm11sFC8K3d"
 			}
 		},
@@ -1273,7 +1275,7 @@
 				"equippedState": 0
 			},
 			"folder": null,
-			"_id": "5lgmM3nJh8grjn7w",
+			"_id": "sGb7Vw8rf6PErjpo",
 			"sort": 0,
 			"ownership": {
 				"default": 0,
@@ -1283,292 +1285,25 @@
 				"systemId": "a5e",
 				"systemVersion": "0.14.17",
 				"coreVersion": "11.308",
-				"createdTime": 1694773605048,
-				"modifiedTime": 1694773605048,
+				"createdTime": 1694769541981,
+				"modifiedTime": 1694769541981,
 				"lastModifiedBy": "3Y2gVQm11sFC8K3d"
 			}
 		},
 		{
-			"_id": "EmNhucMkZbClrRRP",
-			"name": "Amorphous",
+			"_id": "9Ec0viXvuikmSImN",
+			"name": "Amphibious",
 			"type": "feature",
-			"img": "icons/svg/item-bag.svg",
-			"effects": [],
-			"folder": "MrHKXdZgN2tcvnWu",
-			"sort": -100000,
-			"flags": {
-				"core": {
-					"sourceId": "Item.8sly2HIVUXge17ST"
-				},
-				"scene-packer": {
-					"hash": "d1782a1fdb852fa3363b1cab4bc58a42eb4f204d"
-				}
-			},
-			"system": {
-				"ac": {
-					"baseFormula": "",
-					"formula": "",
-					"maxDex": 0,
-					"minStr": 0,
-					"mode": 1,
-					"requiresNoShield": false,
-					"requiresUnarmored": false
-				},
-				"actions": {
-					"XLcyFsqqM3jViQro": {
-						"name": "Amorphous",
-						"activation": {
-							"cost": "",
-							"type": "none",
-							"reactionTrigger": ""
-						},
-						"duration": {
-							"unit": "permanent",
-							"value": ""
-						},
-						"area": {
-							"shape": "",
-							"size": "",
-							"placeTemplate": false
-						},
-						"target": {
-							"quantity": "",
-							"type": ""
-						},
-						"consumers": {}
-					}
-				},
-				"description": "<p>The jelly can pass through an opening as narrow as 1 inch wide without squeezing.</p>",
-				"favorite": false,
-				"secretDescription": "",
-				"source": "",
-				"uses": {
-					"value": null,
-					"max": "",
-					"per": null,
-					"recharge": {
-						"formula": "",
-						"threshold": ""
-					}
-				},
-				"schema": {
-					"version": 0.004,
-					"lastMigration": {
-						"version": {
-							"schema": 0.003,
-							"foundry": "11.302",
-							"system": "0.12.7"
-						}
-					}
-				},
-				"concentration": false,
-				"featureType": "",
-				"prerequisite": ""
-			},
-			"ownership": {
-				"default": 0,
-				"3Y2gVQm11sFC8K3d": 3
-			},
-			"_stats": {
-				"systemId": "a5e",
-				"systemVersion": "0.14.17",
-				"coreVersion": "11.308",
-				"createdTime": 1694773640303,
-				"modifiedTime": 1694773640303,
-				"lastModifiedBy": "3Y2gVQm11sFC8K3d"
-			}
-		},
-		{
-			"_id": "ovHPG6PXne7pcu0K",
-			"name": "Sunlight Sensitivity",
-			"type": "feature",
-			"img": "icons/svg/item-bag.svg",
-			"effects": [],
-			"folder": "MrHKXdZgN2tcvnWu",
-			"sort": -75000,
-			"flags": {
-				"core": {
-					"sourceId": "Item.gxnCe4DFSL5p3DuX"
-				},
-				"scene-packer": {
-					"hash": "823db74398de428c622665e58624bb4583092968"
-				}
-			},
-			"system": {
-				"ac": {
-					"baseFormula": "",
-					"formula": "",
-					"maxDex": 0,
-					"minStr": 0,
-					"mode": 1,
-					"requiresNoShield": false,
-					"requiresUnarmored": false
-				},
-				"actions": {
-					"oAZGuUPTDcCHOFK7": {
-						"name": "Sunlight Sensitivity",
-						"activation": {
-							"cost": "",
-							"type": "none",
-							"reactionTrigger": ""
-						},
-						"duration": {
-							"unit": "permanent",
-							"value": ""
-						},
-						"area": {
-							"shape": "",
-							"size": "",
-							"placeTemplate": false
-						},
-						"target": {
-							"quantity": "",
-							"type": ""
-						},
-						"consumers": {}
-					}
-				},
-				"description": "<p>While in sunlight, the jelly has disadvantage on attack rolls.</p>",
-				"favorite": false,
-				"secretDescription": "",
-				"source": "",
-				"uses": {
-					"value": null,
-					"max": "",
-					"per": null,
-					"recharge": {
-						"formula": "",
-						"threshold": ""
-					}
-				},
-				"schema": {
-					"version": 0.004,
-					"lastMigration": {
-						"version": {
-							"schema": 0.003,
-							"foundry": "11.302",
-							"system": "0.12.7"
-						}
-					}
-				},
-				"concentration": false,
-				"featureType": "",
-				"prerequisite": ""
-			},
-			"ownership": {
-				"default": 0,
-				"3Y2gVQm11sFC8K3d": 3
-			},
-			"_stats": {
-				"systemId": "a5e",
-				"systemVersion": "0.14.17",
-				"coreVersion": "11.308",
-				"createdTime": 1694773641122,
-				"modifiedTime": 1694773641122,
-				"lastModifiedBy": "3Y2gVQm11sFC8K3d"
-			}
-		},
-		{
-			"_id": "zgrumc98HhYm7uCD",
-			"name": "Ooze Nature",
-			"type": "feature",
-			"img": "icons/svg/item-bag.svg",
-			"effects": [],
-			"folder": "MrHKXdZgN2tcvnWu",
-			"sort": -50000,
-			"flags": {
-				"core": {
-					"sourceId": "Item.TGISdkZEUaYg3NrU"
-				},
-				"scene-packer": {
-					"hash": "022c96095f0cb0d7fadd45cc5cc31219f97f9818"
-				}
-			},
-			"system": {
-				"ac": {
-					"baseFormula": "",
-					"formula": "",
-					"maxDex": 0,
-					"minStr": 0,
-					"mode": 1,
-					"requiresNoShield": false,
-					"requiresUnarmored": false
-				},
-				"actions": {
-					"0X9N71AH9X8xarIQ": {
-						"name": "Ooze Nature",
-						"activation": {
-							"cost": "",
-							"type": "none",
-							"reactionTrigger": ""
-						},
-						"duration": {
-							"unit": "permanent",
-							"value": ""
-						},
-						"area": {
-							"shape": "",
-							"size": "",
-							"placeTemplate": false
-						},
-						"target": {
-							"quantity": "",
-							"type": ""
-						},
-						"consumers": {}
-					}
-				},
-				"description": "<p>An ooze doesn’t require air or sleep.</p>",
-				"favorite": false,
-				"secretDescription": "",
-				"source": "",
-				"uses": {
-					"value": null,
-					"max": "",
-					"per": null,
-					"recharge": {
-						"formula": "",
-						"threshold": ""
-					}
-				},
-				"schema": {
-					"version": 0.004,
-					"lastMigration": {
-						"version": {
-							"schema": 0.003,
-							"foundry": "11.302",
-							"system": "0.12.7"
-						}
-					}
-				},
-				"concentration": false,
-				"featureType": "",
-				"prerequisite": ""
-			},
-			"ownership": {
-				"default": 0,
-				"3Y2gVQm11sFC8K3d": 3
-			},
-			"_stats": {
-				"systemId": "a5e",
-				"systemVersion": "0.14.17",
-				"coreVersion": "11.308",
-				"createdTime": 1694773642343,
-				"modifiedTime": 1694773642343,
-				"lastModifiedBy": "3Y2gVQm11sFC8K3d"
-			}
-		},
-		{
-			"_id": "sBXgfRxRCMDAXIhj",
-			"name": "Corrosive Body",
-			"type": "feature",
-			"img": "icons/svg/item-bag.svg",
+			"img": "icons/environment/creatures/frog-spotted-green.webp",
 			"effects": [],
 			"folder": null,
 			"sort": 0,
 			"flags": {
+				"core": {
+					"sourceId": "Compendium.forge-vtt-shared-compendiums-a5e-creature-features.item-1-monster-features.O4rfmFbmQha1aafV"
+				},
 				"scene-packer": {
-					"hash": "96a0f7f6422c2bdcd9fc072bd0d7da97c9553aad"
+					"hash": "db7e7b6124d1873aa1d99ab1ff71688665170d69"
 				}
 			},
 			"system": {
@@ -1581,47 +1316,307 @@
 					"requiresNoShield": false,
 					"requiresUnarmored": false
 				},
+				"actions": {},
+				"description": "<p>The horror can breathe air and water.</p>",
+				"favorite": false,
+				"secretDescription": "",
+				"source": "",
+				"uses": {
+					"value": null,
+					"max": "",
+					"per": null,
+					"recharge": {
+						"formula": "",
+						"threshold": ""
+					}
+				},
+				"schema": {
+					"version": 0.004,
+					"lastMigration": {
+						"version": {
+							"schema": 0.003,
+							"foundry": "11.302",
+							"system": "0.12.7"
+						}
+					}
+				},
+				"concentration": false,
+				"featureType": "",
+				"prerequisite": ""
+			},
+			"ownership": {
+				"default": 0,
+				"3Y2gVQm11sFC8K3d": 3
+			},
+			"_stats": {
+				"systemId": "a5e",
+				"systemVersion": "0.14.17",
+				"coreVersion": "11.308",
+				"createdTime": 1690833211391,
+				"modifiedTime": 1694769895247,
+				"lastModifiedBy": "3Y2gVQm11sFC8K3d"
+			}
+		},
+		{
+			"_id": "qibamflKiraglvmf",
+			"name": "Legendary Resistance (3/Day)",
+			"type": "feature",
+			"img": "icons/svg/item-bag.svg",
+			"effects": [],
+			"folder": null,
+			"sort": 200000,
+			"flags": {
+				"scene-packer": {
+					"hash": "da5f6880973d2414ad1e5b6b3654be5ac2ba83d8"
+				}
+			},
+			"system": {
+				"ac": {
+					"baseFormula": "",
+					"formula": "",
+					"maxDex": 0,
+					"minStr": 0,
+					"mode": 1,
+					"requiresNoShield": false,
+					"requiresUnarmored": false
+				},
+				"actions": {},
+				"description": "<p>When the horror fails a&nbsp;<span class=\"freelinking-link\">saving throw</span>&nbsp;while it is within 60 feet of another aberration, it can choose to succeed instead. When it does so, an aberration of its choice dies.</p>",
+				"favorite": false,
+				"secretDescription": "",
+				"source": "",
+				"uses": {
+					"value": null,
+					"max": "",
+					"per": null,
+					"recharge": {
+						"formula": "",
+						"threshold": ""
+					}
+				},
+				"schema": {
+					"version": 0.004,
+					"lastMigration": {
+						"version": {
+							"schema": 0.003,
+							"foundry": "11.302",
+							"system": "0.12.7"
+						}
+					}
+				},
+				"concentration": false,
+				"featureType": "",
+				"prerequisite": ""
+			},
+			"ownership": {
+				"default": 0,
+				"3Y2gVQm11sFC8K3d": 3
+			},
+			"_stats": {
+				"systemId": "a5e",
+				"systemVersion": "0.14.17",
+				"coreVersion": "11.308",
+				"createdTime": 1694768147598,
+				"modifiedTime": 1694769929082,
+				"lastModifiedBy": "3Y2gVQm11sFC8K3d"
+			}
+		},
+		{
+			"name": "Horrifying Cacophony",
+			"type": "feature",
+			"system": {
+				"ac": {
+					"baseFormula": "",
+					"formula": "",
+					"maxDex": 0,
+					"minStr": 0,
+					"mode": 2,
+					"requiresNoShield": false,
+					"requiresUnarmored": false
+				},
 				"actions": {
-					"jHFYnYo86dhk9BHY": {
-						"name": "Corrosive Body",
-						"activation": {
-							"cost": "",
-							"type": "none",
-							"reactionTrigger": ""
-						},
-						"duration": {
-							"unit": "permanent",
-							"value": ""
-						},
-						"area": {
-							"shape": "",
-							"size": "",
-							"placeTemplate": false
-						},
-						"target": {
-							"quantity": "",
-							"type": ""
-						},
+					"Sqp7TijBMoz3Pirf": {
+						"name": "Cacophony of Horror",
+						"activation": {},
+						"consumers": {},
 						"rolls": {
-							"brWb7LHIJImqA0Pk": {
-								"canCrit": false,
-								"damageType": "acid",
-								"formula": "2d8",
-								"name": "acid",
-								"type": "damage"
+							"TgzbdkfZjpETsxS8": {
+								"type": "damage",
+								"default": true,
+								"damageType": "psychic",
+								"formula": "4d6"
 							}
 						},
-						"consumers": {}
+						"prompts": {
+							"Qqzf6dtpVTLOPn4o": {
+								"type": "savingThrow",
+								"default": true,
+								"ability": "int",
+								"saveDC": {
+									"type": "wis"
+								},
+								"onSave": "takes half damage and isn't confused"
+							}
+						},
+						"uses": {
+							"value": 0,
+							"max": "",
+							"per": "",
+							"recharge": {
+								"formula": "1d6",
+								"threshold": 6
+							}
+						},
+						"ranges": {},
+						"area": {
+							"shape": "circle",
+							"quantity": 1,
+							"radius": 20
+						}
 					}
 				},
-				"description": "<p>A creature that touches the pudding or hits it with a melee attack while within 5 feet takes 9 (2d8) acid damage. A nonmagical weapon made of metal or wood that hits the black pudding corrodes after dealing damage, taking a permanent -1 penalty to damage rolls per hit. If this penalty reaches -5, the weapon is destroyed. Wooden or metal nonmagical ammunition is destroyed after dealing damage. Any other metal or organic object that touches it takes 9 (2d8) acid damage.</p>",
-				"favorite": true,
+				"description": "<p>A non-aberration that starts its turn within 20 feet of the horror and can hear it makes a DC 17 Intelligence&nbsp;<span class=\"freelinking-link\">saving throw</span>&nbsp;. On a failed save, the creature takes 14 (4d6) psychic damage and is&nbsp;confused&nbsp;until the start of its next turn. On a success, the creature takes half damage and isn&rsquo;t confused. A creature that succeeds on its saving throw is immune to the horror&rsquo;s Horrifying Cacophony for 24 hours.</p>",
+				"favorite": false,
 				"secretDescription": "",
-				"source": "",
+				"source": {
+					"name": "",
+					"link": "",
+					"publisher": ""
+				},
 				"uses": {
 					"value": null,
 					"max": "",
 					"per": null,
+					"recharge": {
+						"formula": "1d6",
+						"threshold": "6"
+					}
+				},
+				"schema": {
+					"version": 0.001,
+					"lastMigration": null
+				},
+				"concentration": false,
+				"featureType": "other",
+				"prerequisite": ""
+			},
+			"_id": "C4DyZBQZO5rCInOK",
+			"img": "icons/svg/item-bag.svg",
+			"effects": [],
+			"folder": null,
+			"sort": 0,
+			"ownership": {
+				"default": 0,
+				"3Y2gVQm11sFC8K3d": 3
+			},
+			"flags": {
+				"scene-packer": {
+					"hash": "45cfc00b6299b60dcc79e6492e0139a55485ec6d"
+				}
+			},
+			"_stats": {
+				"systemId": "a5e",
+				"systemVersion": "0.14.17",
+				"coreVersion": "11.308",
+				"createdTime": 1694769965074,
+				"modifiedTime": 1694770080032,
+				"lastModifiedBy": "3Y2gVQm11sFC8K3d"
+			}
+		},
+		{
+			"name": "Warper of Reality",
+			"type": "feature",
+			"system": {
+				"ac": {
+					"baseFormula": "",
+					"formula": "",
+					"maxDex": 0,
+					"minStr": 0,
+					"mode": 2,
+					"requiresNoShield": false,
+					"requiresUnarmored": false
+				},
+				"actions": {},
+				"description": "<p>Non-aberrations treat the ground within 20 feet of the horror as&nbsp;<span class=\"freelinking-link\">difficult terrain</span>. The flying speed of any non-aberration creature within 20 feet of the horror is halved.</p>",
+				"favorite": false,
+				"secretDescription": "",
+				"source": {
+					"name": "",
+					"link": "",
+					"publisher": ""
+				},
+				"uses": {
+					"value": null,
+					"max": "",
+					"per": null,
+					"recharge": {
+						"formula": "1d6",
+						"threshold": "6"
+					}
+				},
+				"schema": {
+					"version": 0.001,
+					"lastMigration": null
+				},
+				"concentration": false,
+				"featureType": "other",
+				"prerequisite": ""
+			},
+			"_id": "HvhggqzEHYJZ8Ek3",
+			"img": "icons/svg/item-bag.svg",
+			"effects": [],
+			"folder": null,
+			"sort": 0,
+			"ownership": {
+				"default": 0,
+				"3Y2gVQm11sFC8K3d": 3
+			},
+			"flags": {
+				"scene-packer": {
+					"hash": "45cfc00b6299b60dcc79e6492e0139a55485ec6d"
+				}
+			},
+			"_stats": {
+				"systemId": "a5e",
+				"systemVersion": "0.14.17",
+				"coreVersion": "11.308",
+				"createdTime": 1694770092963,
+				"modifiedTime": 1694770103990,
+				"lastModifiedBy": "3Y2gVQm11sFC8K3d"
+			}
+		},
+		{
+			"_id": "Xk0MVElxDGLXvjtJ",
+			"name": "Legendary Actions",
+			"type": "feature",
+			"img": "icons/svg/item-bag.svg",
+			"effects": [],
+			"folder": null,
+			"sort": 0,
+			"flags": {
+				"scene-packer": {
+					"hash": "2dc94c4ca698d5ae53432180b5637841a1b47c75"
+				}
+			},
+			"system": {
+				"ac": {
+					"baseFormula": "",
+					"formula": "",
+					"maxDex": 0,
+					"minStr": 0,
+					"mode": 1,
+					"requiresNoShield": false,
+					"requiresUnarmored": false
+				},
+				"actions": {},
+				"description": "<p>The horror can take 2 legendary actions, choosing from the options below. Only one legendary action can be used at a time and only at the end of another creature&rsquo;s turn. It regains spent legendary actions at the start of its turn.</p>",
+				"favorite": false,
+				"secretDescription": "",
+				"source": "",
+				"uses": {
+					"value": 2,
+					"max": "2",
+					"per": "round",
 					"recharge": {
 						"formula": "",
 						"threshold": ""
@@ -1649,22 +1644,25 @@
 				"systemId": "a5e",
 				"systemVersion": "0.14.17",
 				"coreVersion": "11.308",
-				"createdTime": 1694773643683,
-				"modifiedTime": 1694773643683,
+				"createdTime": 1694768210682,
+				"modifiedTime": 1694770566101,
 				"lastModifiedBy": "3Y2gVQm11sFC8K3d"
 			}
 		},
 		{
-			"_id": "STI5l6P6sSnKK533",
-			"name": "Psuedopod",
+			"_id": "FPiiJAxAqpKQMNgE",
+			"name": "Multiattack",
 			"type": "feature",
-			"img": "icons/svg/item-bag.svg",
+			"img": "icons/skills/melee/blade-tips-triple-steel.webp",
 			"effects": [],
-			"folder": null,
-			"sort": 0,
+			"folder": "yKYZJ2BF51Rij43x",
+			"sort": 100000,
 			"flags": {
+				"core": {
+					"sourceId": "Item.Hcp8zUrtUBaXFT4i"
+				},
 				"scene-packer": {
-					"hash": "3f4baa1e206612dd21ccf23563ad01e7e792acde"
+					"hash": "797f403857da2edc368dcd949a80f06879eae6e9"
 				}
 			},
 			"system": {
@@ -1678,8 +1676,8 @@
 					"requiresUnarmored": false
 				},
 				"actions": {
-					"VGfpvtGcRwN0EFfz": {
-						"name": "Psuedopod",
+					"ZApeK4FjZlVr5bRJ": {
+						"name": "Multiattack",
 						"activation": {
 							"cost": 1,
 							"type": "action",
@@ -1695,221 +1693,13 @@
 							"placeTemplate": false
 						},
 						"target": {
-							"quantity": 1,
-							"type": "creature"
-						},
-						"rolls": {
-							"LmDVCaTJ7TszoWih": {
-								"bonus": "",
-								"critThreshold": "20",
-								"type": "attack",
-								"attackType": "meleeWeaponAttack",
-								"ability": "str"
-							},
-							"NYpVbZE5bSCC83Yc": {
-								"canCrit": true,
-								"damageType": "bludgeoning",
-								"formula": "1d6 + @str.mod",
-								"name": "bludgeoning",
-								"type": "damage"
-							},
-							"Dd47e9Cd4Y8noP56": {
-								"canCrit": true,
-								"damageType": "acid",
-								"formula": "2d8",
-								"name": "acid",
-								"type": "damage"
-							}
-						},
-						"consumers": {}
-					}
-				},
-				"description": "<p><em>Melee Weapon Attack:</em><br><em>On Hit: </em>Nonmagical metal armor worn by the target corrodes, taking a permanent -1 penalty to its AC protection per hit. If the penalty reduces the armor’s AC protection to 10, the armor is destroyed.</p>",
-				"favorite": true,
-				"secretDescription": "",
-				"source": "",
-				"uses": {
-					"value": null,
-					"max": "",
-					"per": null,
-					"recharge": {
-						"formula": "",
-						"threshold": ""
-					}
-				},
-				"schema": {
-					"version": 0.004,
-					"lastMigration": {
-						"version": {
-							"schema": 0.003,
-							"foundry": "11.302",
-							"system": "0.12.7"
-						}
-					}
-				},
-				"concentration": false,
-				"featureType": "",
-				"prerequisite": ""
-			},
-			"ownership": {
-				"default": 0,
-				"3Y2gVQm11sFC8K3d": 3
-			},
-			"_stats": {
-				"systemId": "a5e",
-				"systemVersion": "0.14.17",
-				"coreVersion": "11.308",
-				"createdTime": 1694773644975,
-				"modifiedTime": 1694773644975,
-				"lastModifiedBy": "3Y2gVQm11sFC8K3d"
-			}
-		},
-		{
-			"_id": "nSTZWXyYbesshdGk",
-			"name": "Split (Reaction)",
-			"type": "feature",
-			"img": "icons/svg/item-bag.svg",
-			"effects": [],
-			"folder": "MrHKXdZgN2tcvnWu",
-			"sort": 62500,
-			"flags": {
-				"core": {
-					"sourceId": "Item.dJts9yWqnKpeUKSI"
-				},
-				"scene-packer": {
-					"hash": "ffcfc195dc69f6545134b2e1d633d26b128fe793"
-				}
-			},
-			"system": {
-				"ac": {
-					"baseFormula": "",
-					"formula": "",
-					"maxDex": 0,
-					"minStr": 0,
-					"mode": 1,
-					"requiresNoShield": false,
-					"requiresUnarmored": false
-				},
-				"actions": {
-					"7zgCvuAY1CZAjQEm": {
-						"name": "Split (Reaction)",
-						"activation": {
-							"cost": 1,
-							"type": "reaction",
-							"reactionTrigger": "When a Medium or larger jelly with at least 10 hit points is subjected to lightning or slashing damage"
-						},
-						"duration": {
-							"unit": "permanent",
-							"value": ""
-						},
-						"ranges": {
-							"2qblFjZnl5nr3nhd": {
-								"range": "self"
-							}
-						},
-						"area": {
-							"shape": "",
-							"size": "",
-							"placeTemplate": false
-						},
-						"target": {
-							"quantity": "",
-							"type": "self"
-						},
-						"consumers": {}
-					}
-				},
-				"description": "<p>When a Medium or larger pudding with at least 10 hit points is subjected to lightning or slashing damage, it splits into two puddings that are each one size smaller, freeing any grappled targets. Each new pudding has half the original’s hit points (rounded down).</p>",
-				"favorite": false,
-				"secretDescription": "",
-				"source": "",
-				"uses": {
-					"value": null,
-					"max": "",
-					"per": null,
-					"recharge": {
-						"formula": "",
-						"threshold": ""
-					}
-				},
-				"schema": {
-					"version": 0.004,
-					"lastMigration": {
-						"version": {
-							"schema": 0.003,
-							"foundry": "11.302",
-							"system": "0.12.7"
-						}
-					}
-				},
-				"concentration": false,
-				"featureType": "",
-				"prerequisite": ""
-			},
-			"ownership": {
-				"default": 0,
-				"3Y2gVQm11sFC8K3d": 3
-			},
-			"_stats": {
-				"systemId": "a5e",
-				"systemVersion": "0.14.17",
-				"coreVersion": "11.308",
-				"createdTime": 1694773645800,
-				"modifiedTime": 1694773645800,
-				"lastModifiedBy": "3Y2gVQm11sFC8K3d"
-			}
-		},
-		{
-			"_id": "Jr5JsOkTBNBnXskp",
-			"name": "Spider Climb",
-			"type": "feature",
-			"img": "icons/creatures/invertebrates/spider-beetle-runed-green.webp",
-			"effects": [],
-			"folder": "MrHKXdZgN2tcvnWu",
-			"sort": 75000,
-			"flags": {
-				"core": {
-					"sourceId": "Item.dP16AjGb1R5hFF8x"
-				},
-				"scene-packer": {
-					"hash": "44f5cc13b62c06442680d4e53037b8fe2512c7b6"
-				}
-			},
-			"system": {
-				"ac": {
-					"baseFormula": "",
-					"formula": "",
-					"maxDex": 0,
-					"minStr": 0,
-					"mode": 1,
-					"requiresNoShield": false,
-					"requiresUnarmored": false
-				},
-				"actions": {
-					"JNtksyoDI86DcSE0": {
-						"name": "Spider Climb",
-						"activation": {
-							"cost": "",
-							"type": "none",
-							"reactionTrigger": ""
-						},
-						"duration": {
-							"unit": "permanent",
-							"value": ""
-						},
-						"area": {
-							"shape": "",
-							"size": "",
-							"placeTemplate": false
-						},
-						"target": {
 							"quantity": "",
 							"type": ""
 						},
 						"consumers": {}
 					}
 				},
-				"description": "<p>The pudding can use its climb speed even on difficult surfaces and upside down on ceilings.&nbsp;</p>",
+				"description": "<p>The horror attacks twice with its claws, once with its horrific maws, and once with its stinger.</p>",
 				"favorite": false,
 				"secretDescription": "",
 				"source": "",
@@ -1944,8 +1734,726 @@
 				"systemId": "a5e",
 				"systemVersion": "0.14.17",
 				"coreVersion": "11.308",
-				"createdTime": 1694773646866,
-				"modifiedTime": 1694773646866,
+				"createdTime": 1694768097234,
+				"modifiedTime": 1694770139198,
+				"lastModifiedBy": "3Y2gVQm11sFC8K3d"
+			}
+		},
+		{
+			"name": "Claws",
+			"type": "feature",
+			"system": {
+				"ac": {
+					"baseFormula": "",
+					"formula": "",
+					"maxDex": 0,
+					"minStr": 0,
+					"mode": 2,
+					"requiresNoShield": false,
+					"requiresUnarmored": false
+				},
+				"actions": {
+					"2hBKQlqClNPOlsaN": {
+						"name": "Claws",
+						"activation": {},
+						"consumers": {},
+						"rolls": {
+							"mXYrMSDsGg8S8H1a": {
+								"type": "attack",
+								"default": true,
+								"attackType": "meleeWeaponAttack",
+								"proficient": true,
+								"ability": "str"
+							},
+							"HezuZOCApJZxQPya": {
+								"type": "damage",
+								"default": true,
+								"damageType": "slashing",
+								"formula": "2d8 + @str.mod"
+							}
+						},
+						"prompts": {},
+						"uses": {
+							"value": 0,
+							"max": "",
+							"per": "",
+							"recharge": {
+								"formula": "1d6",
+								"threshold": 6
+							}
+						},
+						"ranges": {
+							"s8i2h0ywPdojJDDy": {
+								"range": "fiveFeet"
+							}
+						},
+						"target": {
+							"type": "creatureObject",
+							"quantity": 1
+						}
+					}
+				},
+				"description": "<p><em>Melee Weapon Attack:&nbsp;</em>+12 to hit, reach 5 ft., one target.&nbsp;<em>Hit:&nbsp;</em>15 (2d8 + 6) slashing damage.</p>",
+				"favorite": true,
+				"secretDescription": "",
+				"source": {
+					"name": "",
+					"link": "",
+					"publisher": ""
+				},
+				"uses": {
+					"value": null,
+					"max": "",
+					"per": null,
+					"recharge": {
+						"formula": "1d6",
+						"threshold": "6"
+					}
+				},
+				"schema": {
+					"version": 0.001,
+					"lastMigration": null
+				},
+				"concentration": false,
+				"featureType": "naturalWeapon",
+				"prerequisite": ""
+			},
+			"_id": "5oCPw5uEudjdqKca",
+			"img": "icons/svg/item-bag.svg",
+			"effects": [],
+			"folder": null,
+			"sort": 0,
+			"ownership": {
+				"default": 0,
+				"3Y2gVQm11sFC8K3d": 3
+			},
+			"flags": {
+				"scene-packer": {
+					"hash": "09da164a50300f407e30cfedde8a13f70bf65e0e"
+				}
+			},
+			"_stats": {
+				"systemId": "a5e",
+				"systemVersion": "0.14.17",
+				"coreVersion": "11.308",
+				"createdTime": 1694770215086,
+				"modifiedTime": 1694770263681,
+				"lastModifiedBy": "3Y2gVQm11sFC8K3d"
+			}
+		},
+		{
+			"name": "Horrific Maws",
+			"type": "feature",
+			"system": {
+				"ac": {
+					"baseFormula": "",
+					"formula": "",
+					"maxDex": 0,
+					"minStr": 0,
+					"mode": 2,
+					"requiresNoShield": false,
+					"requiresUnarmored": false
+				},
+				"actions": {
+					"3MdqV3sxswpuKl9O": {
+						"name": "Horrific Maws",
+						"activation": {},
+						"consumers": {},
+						"rolls": {
+							"whQyMmyrCAyr5HJr": {
+								"type": "attack",
+								"default": true,
+								"attackType": "meleeWeaponAttack",
+								"proficient": true,
+								"ability": "str"
+							},
+							"cE53l4Wm3BnCbrj4": {
+								"type": "damage",
+								"default": true,
+								"formula": "2d10 + @str.mod",
+								"damageType": "piercing"
+							},
+							"orCVVAwuP7Oj3VEy": {
+								"type": "damage",
+								"default": true,
+								"formula": "2d6",
+								"damageType": "psychic"
+							}
+						},
+						"prompts": {},
+						"uses": {
+							"value": 0,
+							"max": "",
+							"per": "",
+							"recharge": {
+								"formula": "1d6",
+								"threshold": 6
+							}
+						},
+						"ranges": {
+							"OXBxygH593HeS3DA": {
+								"range": "fiveFeet"
+							}
+						},
+						"target": {
+							"type": "creatureObject",
+							"quantity": 5
+						}
+					}
+				},
+				"description": "<p><em>Melee Weapon Attack:</em>&nbsp;+12 to hit, reach 5 ft., up to five targets.&nbsp;<em>Hit:</em>&nbsp;17 (2d10 + 6) piercing damage plus 7 (2d6) psychic damage.</p>",
+				"favorite": true,
+				"secretDescription": "",
+				"source": {
+					"name": "",
+					"link": "",
+					"publisher": ""
+				},
+				"uses": {
+					"value": null,
+					"max": "",
+					"per": null,
+					"recharge": {
+						"formula": "1d6",
+						"threshold": "6"
+					}
+				},
+				"schema": {
+					"version": 0.001,
+					"lastMigration": null
+				},
+				"concentration": false,
+				"featureType": "naturalWeapon",
+				"prerequisite": ""
+			},
+			"_id": "BOAbzkQ5xieeNxWt",
+			"img": "icons/svg/item-bag.svg",
+			"effects": [],
+			"folder": null,
+			"sort": 0,
+			"ownership": {
+				"default": 0,
+				"3Y2gVQm11sFC8K3d": 3
+			},
+			"flags": {
+				"scene-packer": {
+					"hash": "09da164a50300f407e30cfedde8a13f70bf65e0e"
+				}
+			},
+			"_stats": {
+				"systemId": "a5e",
+				"systemVersion": "0.14.17",
+				"coreVersion": "11.308",
+				"createdTime": 1694770273724,
+				"modifiedTime": 1694770344488,
+				"lastModifiedBy": "3Y2gVQm11sFC8K3d"
+			}
+		},
+		{
+			"name": "Stinger",
+			"type": "feature",
+			"system": {
+				"ac": {
+					"baseFormula": "",
+					"formula": "",
+					"maxDex": 0,
+					"minStr": 0,
+					"mode": 2,
+					"requiresNoShield": false,
+					"requiresUnarmored": false
+				},
+				"actions": {
+					"pR9sWPc1t9O5Z4SS": {
+						"name": "Stinger",
+						"activation": {},
+						"consumers": {},
+						"rolls": {
+							"OLmNmPJusNZXIYcj": {
+								"type": "attack",
+								"default": true,
+								"attackType": "meleeWeaponAttack",
+								"proficient": true,
+								"ability": "str"
+							},
+							"hKW3xtMB42pLniRY": {
+								"type": "damage",
+								"default": true,
+								"formula": "4d8",
+								"damageType": "piercing"
+							}
+						},
+						"prompts": {
+							"WbyFEvw54lehDEIw": {
+								"type": "savingThrow",
+								"default": true,
+								"ability": "con",
+								"saveDC": {
+									"type": "con"
+								},
+								"onSave": "Get implanted with a larval seed."
+							}
+						},
+						"uses": {
+							"value": 0,
+							"max": "",
+							"per": "",
+							"recharge": {
+								"formula": "1d6",
+								"threshold": 6
+							}
+						},
+						"ranges": {
+							"Cipo7Q1LFdN18ISL": {
+								"range": 15,
+								"unit": "feet"
+							}
+						},
+						"target": {
+							"type": "creatureObject",
+							"quantity": 1
+						}
+					}
+				},
+				"description": "<p><em>Melee Weapon Attack:</em>&nbsp;+12 to hit, reach 15 ft., one target.&nbsp;<em>Hit:</em>&nbsp;24 (4d8 + 6) piercing damage and the target must make a DC 19&nbsp;<span class=\"freelinking-link\">Constitution save</span>&nbsp;. On a failed save, the target is implanted with a larval seed. The target is&nbsp;confused&nbsp;until the end of its next turn and then takes 27 (6d8) necrotic damage and two levels of&nbsp;strife&nbsp;as a newly formed&nbsp;<span class=\"freelinking-link\">gibbering mouther</span>&nbsp;rips from its body.</p>",
+				"favorite": true,
+				"secretDescription": "",
+				"source": {
+					"name": "",
+					"link": "",
+					"publisher": ""
+				},
+				"uses": {
+					"value": null,
+					"max": "",
+					"per": null,
+					"recharge": {
+						"formula": "1d6",
+						"threshold": "6"
+					}
+				},
+				"schema": {
+					"version": 0.001,
+					"lastMigration": null
+				},
+				"concentration": false,
+				"featureType": "naturalWeapon",
+				"prerequisite": ""
+			},
+			"_id": "0qOshIx529yte8Xh",
+			"img": "icons/svg/item-bag.svg",
+			"effects": [],
+			"folder": null,
+			"sort": 0,
+			"ownership": {
+				"default": 0,
+				"3Y2gVQm11sFC8K3d": 3
+			},
+			"flags": {
+				"scene-packer": {
+					"hash": "09da164a50300f407e30cfedde8a13f70bf65e0e"
+				}
+			},
+			"_stats": {
+				"systemId": "a5e",
+				"systemVersion": "0.14.17",
+				"coreVersion": "11.308",
+				"createdTime": 1694770351608,
+				"modifiedTime": 1694770436874,
+				"lastModifiedBy": "3Y2gVQm11sFC8K3d"
+			}
+		},
+		{
+			"name": "Horrifying Breath (Recharge 5–6)",
+			"type": "feature",
+			"system": {
+				"ac": {
+					"baseFormula": "",
+					"formula": "",
+					"maxDex": 0,
+					"minStr": 0,
+					"mode": 2,
+					"requiresNoShield": false,
+					"requiresUnarmored": false
+				},
+				"actions": {
+					"ubw3WGKldmZuz0qR": {
+						"name": "Horrifying Breath",
+						"activation": {
+							"type": "action",
+							"cost": 1
+						},
+						"consumers": {},
+						"rolls": {
+							"fAL5ML5GqMT5N2l5": {
+								"type": "damage",
+								"default": true,
+								"damageType": "psychic",
+								"formula": "18d6"
+							}
+						},
+						"prompts": {
+							"U6sYJ9Y0qJpOdK9l": {
+								"type": "savingThrow",
+								"default": true,
+								"ability": "wis",
+								"saveDC": {
+									"type": "con"
+								},
+								"onSave": "Takes half damage and doesn't get strife"
+							}
+						},
+						"uses": {
+							"value": 0,
+							"max": "",
+							"per": "",
+							"recharge": {
+								"formula": "1d6",
+								"threshold": 6
+							}
+						},
+						"area": {
+							"shape": "cone",
+							"quantity": 1,
+							"length": 60
+						},
+						"target": {
+							"type": "",
+							"quantity": 1
+						}
+					}
+				},
+				"description": "<p>The draconic horror exhales a blast of psychic energy in a 60-foot cone. Each non-aberration creature in the area must make a DC 19 Wisdom&nbsp;<span class=\"freelinking-link\">saving throw</span>&nbsp;. On a failed save, the target takes 63 (18d6) psychic damage and gains a level of&nbsp;strife. On a success, the target takes half damage and doesn&rsquo;t gain strife.</p>",
+				"favorite": true,
+				"secretDescription": "",
+				"source": {
+					"name": "",
+					"link": "",
+					"publisher": ""
+				},
+				"uses": {
+					"value": null,
+					"max": "",
+					"per": "recharge",
+					"recharge": {
+						"formula": "1d6",
+						"threshold": 5
+					}
+				},
+				"schema": {
+					"version": 0.001,
+					"lastMigration": null
+				},
+				"concentration": false,
+				"featureType": "naturalWeapon",
+				"prerequisite": ""
+			},
+			"_id": "7rNfqPGRUy7ZUN7G",
+			"img": "icons/svg/item-bag.svg",
+			"effects": [],
+			"folder": null,
+			"sort": 0,
+			"ownership": {
+				"default": 0,
+				"3Y2gVQm11sFC8K3d": 3
+			},
+			"flags": {
+				"scene-packer": {
+					"hash": "09da164a50300f407e30cfedde8a13f70bf65e0e"
+				}
+			},
+			"_stats": {
+				"systemId": "a5e",
+				"systemVersion": "0.14.17",
+				"coreVersion": "11.308",
+				"createdTime": 1694770446794,
+				"modifiedTime": 1694770546056,
+				"lastModifiedBy": "3Y2gVQm11sFC8K3d"
+			}
+		},
+		{
+			"name": "Absorb Ally",
+			"type": "feature",
+			"system": {
+				"ac": {
+					"baseFormula": "",
+					"formula": "",
+					"maxDex": 0,
+					"minStr": 0,
+					"mode": 2,
+					"requiresNoShield": false,
+					"requiresUnarmored": false
+				},
+				"actions": {
+					"WchNJ28mG9P7B4K6": {
+						"name": "Absorb Ally",
+						"activation": {},
+						"consumers": {},
+						"rolls": {
+							"ERmRYHyD4mE8YjFx": {
+								"type": "healing",
+								"default": true,
+								"formula": "6d8"
+							}
+						},
+						"prompts": {},
+						"uses": {
+							"value": 0,
+							"max": "",
+							"per": "",
+							"recharge": {
+								"formula": "1d6",
+								"threshold": 6
+							}
+						},
+						"ranges": {
+							"AnNMvPvQrYr3CA3f": {
+								"range": "self"
+							}
+						},
+						"target": {
+							"type": "self",
+							"quantity": 1
+						}
+					}
+				},
+				"description": "<p>The horror consumes a Large or smaller aberration within 5 feet of it, regaining 27 (6d8) hit points.</p>",
+				"favorite": true,
+				"secretDescription": "",
+				"source": {
+					"name": "",
+					"link": "",
+					"publisher": ""
+				},
+				"uses": {
+					"value": null,
+					"max": "",
+					"per": null,
+					"recharge": {
+						"formula": "1d6",
+						"threshold": "6"
+					}
+				},
+				"schema": {
+					"version": 0.001,
+					"lastMigration": null
+				},
+				"concentration": false,
+				"featureType": "legendaryAction",
+				"prerequisite": ""
+			},
+			"_id": "A3Yc6DJQlSJAczvA",
+			"img": "icons/svg/item-bag.svg",
+			"effects": [],
+			"folder": null,
+			"sort": 0,
+			"ownership": {
+				"default": 0,
+				"3Y2gVQm11sFC8K3d": 3
+			},
+			"flags": {
+				"scene-packer": {
+					"hash": "d8c40e07752b24fc39d0ae4a3e9fea109c8189a5"
+				}
+			},
+			"_stats": {
+				"systemId": "a5e",
+				"systemVersion": "0.14.17",
+				"coreVersion": "11.308",
+				"createdTime": 1694770600870,
+				"modifiedTime": 1694770668885,
+				"lastModifiedBy": "3Y2gVQm11sFC8K3d"
+			}
+		},
+		{
+			"name": "Psionic Assault",
+			"type": "feature",
+			"system": {
+				"ac": {
+					"baseFormula": "",
+					"formula": "",
+					"maxDex": 0,
+					"minStr": 0,
+					"mode": 2,
+					"requiresNoShield": false,
+					"requiresUnarmored": false
+				},
+				"actions": {
+					"kZBO7i0IVAL2cT6W": {
+						"name": "Psionic Assault",
+						"activation": {},
+						"consumers": {},
+						"rolls": {},
+						"prompts": {
+							"Sv6IDb0cLQ5wlz9w": {
+								"type": "savingThrow",
+								"default": true,
+								"ability": "str",
+								"saveDC": {
+									"type": "con"
+								},
+								"onSave": "Not be frightened or Paralyzed"
+							}
+						},
+						"uses": {
+							"value": 0,
+							"max": "",
+							"per": "",
+							"recharge": {
+								"formula": "1d6",
+								"threshold": 6
+							}
+						},
+						"ranges": {
+							"eGsw4Gk63bvBXpdC": {
+								"range": "long"
+							}
+						},
+						"area": {
+							"shape": "circle",
+							"quantity": 1,
+							"radius": 120
+						}
+					}
+				},
+				"description": "<p>The horror targets a creature within 120 feet with a blast of psionic energy. The target must succeed on a DC 19 Charisma save or be&nbsp;frightened&nbsp;until the end of its next turn. A creature that fails the save by 5 or more is also&nbsp;paralyzed&nbsp;while frightened in this way.</p>",
+				"favorite": true,
+				"secretDescription": "",
+				"source": {
+					"name": "",
+					"link": "",
+					"publisher": ""
+				},
+				"uses": {
+					"value": null,
+					"max": "",
+					"per": null,
+					"recharge": {
+						"formula": "1d6",
+						"threshold": "6"
+					}
+				},
+				"schema": {
+					"version": 0.001,
+					"lastMigration": null
+				},
+				"concentration": false,
+				"featureType": "legendaryAction",
+				"prerequisite": ""
+			},
+			"_id": "OFJ7OgVVMPRJS7kZ",
+			"img": "icons/svg/item-bag.svg",
+			"effects": [],
+			"folder": null,
+			"sort": 0,
+			"ownership": {
+				"default": 0,
+				"3Y2gVQm11sFC8K3d": 3
+			},
+			"flags": {
+				"scene-packer": {
+					"hash": "d8c40e07752b24fc39d0ae4a3e9fea109c8189a5"
+				}
+			},
+			"_stats": {
+				"systemId": "a5e",
+				"systemVersion": "0.14.17",
+				"coreVersion": "11.308",
+				"createdTime": 1694770677776,
+				"modifiedTime": 1694770752459,
+				"lastModifiedBy": "3Y2gVQm11sFC8K3d"
+			}
+		},
+		{
+			"name": "Whirlwind",
+			"type": "feature",
+			"system": {
+				"ac": {
+					"baseFormula": "",
+					"formula": "",
+					"maxDex": 0,
+					"minStr": 0,
+					"mode": 2,
+					"requiresNoShield": false,
+					"requiresUnarmored": false
+				},
+				"actions": {
+					"ILwSOLOivkKhU0kp": {
+						"name": "Whirlwind",
+						"activation": {},
+						"consumers": {},
+						"rolls": {},
+						"prompts": {
+							"NXQXY93pzh6sxPkJ": {
+								"type": "savingThrow",
+								"default": true,
+								"ability": "str",
+								"saveDC": {
+									"type": "maneuver"
+								},
+								"onSave": "Not be pushed or pulled from the horror"
+							}
+						},
+						"uses": {
+							"value": 0,
+							"max": "",
+							"per": "",
+							"recharge": {
+								"formula": "1d6",
+								"threshold": 6
+							}
+						},
+						"area": {
+							"shape": "circle",
+							"quantity": 1,
+							"radius": 30
+						}
+					}
+				},
+				"description": "<p>The horror flaps its wings, creating a howling wind. Non-aberration creatures within 30 feet of the horror must succeed on a DC 20 Strength&nbsp;<span class=\"freelinking-link\">saving throw</span>&nbsp;or be pushed 10 feet directly away from the horror or pulled 10 feet closer (horror&rsquo;s choice; same effect on all applicable creatures).</p>",
+				"favorite": false,
+				"secretDescription": "",
+				"source": {
+					"name": "",
+					"link": "",
+					"publisher": ""
+				},
+				"uses": {
+					"value": null,
+					"max": "",
+					"per": null,
+					"recharge": {
+						"formula": "1d6",
+						"threshold": "6"
+					}
+				},
+				"schema": {
+					"version": 0.001,
+					"lastMigration": null
+				},
+				"concentration": false,
+				"featureType": "legendaryAction",
+				"prerequisite": ""
+			},
+			"_id": "GRgNqhrfP9nNtTtQ",
+			"img": "icons/svg/item-bag.svg",
+			"effects": [],
+			"folder": null,
+			"sort": 0,
+			"ownership": {
+				"default": 0,
+				"3Y2gVQm11sFC8K3d": 3
+			},
+			"flags": {
+				"scene-packer": {
+					"hash": "d8c40e07752b24fc39d0ae4a3e9fea109c8189a5"
+				}
+			},
+			"_stats": {
+				"systemId": "a5e",
+				"systemVersion": "0.14.17",
+				"coreVersion": "11.308",
+				"createdTime": 1694770761613,
+				"modifiedTime": 1694770826009,
 				"lastModifiedBy": "3Y2gVQm11sFC8K3d"
 			}
 		}
@@ -1953,12 +2461,12 @@
 	"effects": [],
 	"flags": {
 		"scene-packer": {
-			"hash": "b128bc74d738d83f56b8b197ff79a0ddd8dd1ab1",
-			"sourceId": "Actor.TXVHZ9YtAj00LVth"
+			"hash": "b01b659282ed1e8f5c9e7927a7843d9e69ea7195",
+			"sourceId": "Actor.9J36sOOMgOKk0IAU"
 		},
 		"a5e": {
-			"currentTab": "notes",
-			"sheetIsLocked": false
+			"sheetIsLocked": true,
+			"currentTab": "core"
 		},
 		"exportSource": {
 			"world": "pmg-spells",
@@ -1971,9 +2479,9 @@
 		"systemId": "a5e",
 		"systemVersion": "0.14.15",
 		"coreVersion": "11.308",
-		"createdTime": 1694773604933,
-		"modifiedTime": 1694981318426,
+		"createdTime": 1694769541209,
+		"modifiedTime": 1694981369254,
 		"lastModifiedBy": "lCRiQclGlfIQqUGV"
 	},
-	"_id": "kt5g06icmg0y93bf"
+	"_id": "9ug1r07aar53dlph"
 }

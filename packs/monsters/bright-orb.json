@@ -1,12 +1,12 @@
 {
 	"folder": null,
-	"name": "Black Pudding",
+	"name": "Bright Orb",
 	"type": "npc",
 	"img": "icons/svg/mystery-man.svg",
 	"system": {
 		"abilities": {
 			"str": {
-				"value": 16,
+				"value": 2,
 				"check": {
 					"expertiseDice": 0,
 					"bonus": ""
@@ -18,7 +18,7 @@
 				}
 			},
 			"dex": {
-				"value": 4,
+				"value": 10,
 				"check": {
 					"expertiseDice": 0,
 					"bonus": ""
@@ -30,7 +30,7 @@
 				}
 			},
 			"con": {
-				"value": 16,
+				"value": 10,
 				"check": {
 					"expertiseDice": 0,
 					"bonus": ""
@@ -43,7 +43,7 @@
 				}
 			},
 			"int": {
-				"value": 1,
+				"value": 3,
 				"check": {
 					"expertiseDice": 0,
 					"bonus": ""
@@ -55,7 +55,7 @@
 				}
 			},
 			"wis": {
-				"value": 6,
+				"value": 10,
 				"check": {
 					"expertiseDice": 0,
 					"bonus": ""
@@ -67,7 +67,7 @@
 				}
 			},
 			"cha": {
-				"value": 1,
+				"value": 3,
 				"check": {
 					"expertiseDice": 0,
 					"bonus": ""
@@ -371,7 +371,7 @@
 		},
 		"attributes": {
 			"ac": {
-				"baseFormula": "8",
+				"baseFormula": "10 + @dex.mod",
 				"value": 0
 			},
 			"death": {
@@ -379,8 +379,8 @@
 				"failure": 0
 			},
 			"hp": {
-				"value": 85,
-				"baseMax": 85,
+				"value": 30,
+				"baseMax": 30,
 				"temp": 0,
 				"bonus": 0
 			},
@@ -394,16 +394,16 @@
 					"total": 0
 				},
 				"d10": {
-					"current": 10,
-					"total": 10
+					"current": 0,
+					"total": 0
 				},
 				"d12": {
 					"current": 0,
 					"total": 0
 				},
 				"d4": {
-					"current": 0,
-					"total": 0
+					"current": 12,
+					"total": 12
 				},
 				"d20": {
 					"current": 0,
@@ -420,23 +420,23 @@
 					"unit": "feet"
 				},
 				"climb": {
-					"distance": 20,
-					"unit": "feet"
-				},
-				"fly": {
 					"distance": 0,
 					"unit": "feet"
 				},
+				"fly": {
+					"distance": 25,
+					"unit": "feet"
+				},
 				"swim": {
-					"distance": 20,
+					"distance": 0,
 					"unit": "feet"
 				},
 				"walk": {
-					"distance": 20,
+					"distance": 0,
 					"unit": "feet"
 				},
 				"traits": {
-					"hover": false
+					"hover": true
 				}
 			},
 			"senses": {
@@ -487,12 +487,12 @@
 			"cp": 0
 		},
 		"details": {
-			"bio": "<h2><strong>COMBAT</strong></h2>\n<p>The pudding lurks on walls or ceilings or conceals itself in shadows. It attacks creatures who venture into range and pursues the closest creature. It retreats only if exposed to sunlight, in which case it tries to climb away or squeeze into a crack.</p>\n<hr class=\"a5e-rule u-my-md\">\n<h2><strong>LEGENDS AND LORE</strong></h2>\n<p>With an Arcana or Nature check, characters can learn the following:</p>\n<p><strong>DC 10</strong> Mindless and able to squeeze through the narrowest of cracks, oozes inhabit dank, dark places all over the world.</p>\n<p><strong>DC 15</strong> There are many different types of oozes. Perhaps the strangest is the gelatinous cube: a nearly transparent ooze that engulfs dungeon explorers who stumble into it.</p>\n<p><strong>DC 20</strong> Oozes dissolve any organic matter they come into contact with. Some oozes, such as black puddings, corrode metal as well</p>\n<hr class=\"a5e-rule u-my-md\">\n<h2><strong>DESCRIPTION</strong></h2>\n<p>A black pudding undulates along the ground and climbs walls, cresting and falling like a slow sea of oil or tar. When motionless, it resembles a dark pool of shadow and may be lost in an area of darkness.&nbsp;</p>\n<p>Black puddings devour living and dead organic materials, like flesh, wood, and bone, and melt metal as well. An adventurer who falls into a pool of black pudding leaves nothing behind but the gemstones of their jewelry.</p>\n<p>A black pudding doesn&rsquo;t shrink from swords or axes. When a black pudding is cut in half, it simply becomes two smaller black puddings.</p>\n<hr class=\"a5e-rule u-my-md\">\n<h2><strong>SIGNS</strong></h2>\n<p>1&ndash;2 DC 13 Perception check: pristine floors or walls</p>\n<p>2 A door missing its metal hinges (gray ooze), a door missing its lower half (black pudding), or a skeleton (gelatinous cube or ochre jelly)</p>\n<p>3 A bit of writhing ooze stuck in a crack</p>\n<p>4 Wet and dripping walls and floors. DC 14 Investigation or Survival: The area is completely free of lichen, fungus, and other life that might thrive in this environment</p>\n<hr class=\"a5e-rule u-my-md\">\n<h2><strong>ENCOUNTERS</strong></h2>\n<p><strong>Ooze Encounters </strong>Oozes lurk in sunless areas such as caverns, dungeons, and the ocean depths, as well as in areas of the Abyss and the Bleak Gate.</p>\n<p><strong>CR 0&ndash;2</strong> gelatinous cube; ochre jelly; 1 to 3 gray oozes; gray ooze in pit trap</p>\n<p><strong>Treasure</strong> flat carnelian gem carved with a lion, possibly once part of a signet ring (75 gp)</p>\n<p><strong>CR 3&ndash;4</strong> black pudding; gelatinous cube in pit trap; 2 gelatinous cubes or ochre jellies; ochre jelly with 1d4 flying swords&nbsp;</p>\n<p><strong>Treasure</strong> flint, chalk, marble chess pieces (125 gp), malachite gem (10 gp), <em>+1 dagger</em> enchanted with <em>continual flame</em></p>\n<p><strong>CR 5&ndash;10</strong> elder black pudding; gelatinous wall; black pudding with walking statue or mimic</p>\n<p><strong>Treasure</strong> 3 sealed wine bottles containing fine wine (100 gp each), 4 amethyst gemstones (100 gp each), 2 <em>elemental gems</em> (fire)</p>\n<hr class=\"a5e-rule u-my-md\">\n<h2><strong>MONSTER TYPE DESCRIPTION</strong></h2>\n<p>Oozes are ambulatory, predatory amoeboid creatures that infest caverns and other dark places. A gelatinous cube is an ooze.</p>",
+			"bio": "<div class=\"field field--name-field-monster-other-notes field--type-text-long field--label-hidden field--item\">\n<h2>LEGENDS AND LORE</h2>\n<p>With an Arcana or Nature check, characters can learn the following:</p>\n<p><strong>DC 10&nbsp;</strong>Bright orbs feed on magic and can temporarily suppress permanent magical effects.</p>\n<p><strong>DC 15&nbsp;</strong>Spells and magic weapons do less harm to bright orbs, and they are immune to psychic attacks. Mundane weapons are more effective at destroying them.</p>\n<p><strong>DC 20</strong>&nbsp;Bright orbs make good eating! A spellcaster that eats a fresh bright orb regains some of their magical reserves.</p>\n<hr>\n<p><em><strong>Delicious.&nbsp;</strong></em>The flesh of a bright orb has a unique citrus flavor and can be dried for extended storage. Eating a bright orb within 24 hours of its death is also magically restorative. A creature that consumes a fresh bright orb regains one expended spell slot. Roll a d4 to determine the maximum spell slot level the creature can regain.</p>\n</div>\n<div class=\"field field--name-field-monster-description field--type-text-long field--label-above\">\n<div class=\"field--label\">DESCRIPTION</div>\n<div class=\"field--item\">\n<p>Wherever tombs are warded by ancient curses, or vaults are filled with unattended magic items, bright orbs appear to feed. Tangles of bioluminescent thread about the size of an apple, bright orbs are a rare species of fungus that consume decaying magic. Sometimes mistaken for will-o&rsquo;wisps, many scholars refer to bright orbs as false wisps.</p>\n<p><em><strong>Born of Magic.</strong></em>&nbsp;Bright orbs appear spontaneously in magic-rich environments, growing from spores to consume the enchantments that spawned them. Bright orbs exhibit a number of magical defenses, including the ability to release bursts of blinding light, to create illusory duplicates, and to strike out with magical force when they are wounded.</p>\n<p><em><strong>Mindless Consumption.</strong></em>&nbsp;Bright orbs feed on magic, and thus are a nuisance to those who might otherwise consider cultivating them for their useful properties. A bright orb is as likely to consume the<em>&nbsp;<span class=\"freelinking-link\"><a title=\"Click to view a local node.\" href=\"https://a5e.tools/spell/mage-armor\" hreflang=\"en\">mage armor</a></span>&nbsp;</em>of an &ldquo;ally&rdquo; as it is to interrupt a<em>&nbsp;<span class=\"freelinking-link\"><a title=\"Click to view a local node.\" href=\"https://a5e.tools/spell/fireball\" hreflang=\"en\">fireball</a></span>&nbsp;</em>spell cast by their enemy.</p>\n<p><strong><em>Limitless Growth.&nbsp;</em></strong>A bright orb in a sufficiently magical environment could continue to grow indefinitely. In wizard schools and bardic colleges, stories of enormous, blazing orbs are told to encourage young practitioners to clean up their magical experiments and store magic objects securely.</p>\n</div>\n</div>\n<div class=\"field field--name-field-monster-behavior field--type-text-long field--label-above\">\n<div class=\"field--label\">BEHAVIOR</div>\n<div class=\"field--item\">\n<h2>COMBAT</h2>\n<p>Bright orbs are mindless, instinctively consuming magic and reacting to nearby stimuli. A&nbsp;<span class=\"freelinking-link\"><a title=\"Click to view a local node.\" href=\"https://a5e.tools/rules/conditions\" hreflang=\"en\">bloodied</a></span>&nbsp;bright orb retreats, using Magic Missile Barrage to punish the creatures that harmed it.</p>\n</div>\n</div>\n<div class=\"field field--name-field-monster-signs field--type-text-long field--label-above\">\n<div class=\"field--label\">SIGNS</div>\n<div class=\"field--item\">\n<p>1 Glowing and sparking&nbsp;<em><span class=\"freelinking-link\"><a title=\"Click to view a local node.\" href=\"https://a5e.tools/spell/glyph-warding\" hreflang=\"en\">glyph of warding</a></span>&nbsp;</em>that triggers no spell</p>\n<p>2<em>&nbsp;<span class=\"freelinking-link\"><a title=\"Click to view a local node.\" href=\"https://a5e.tools/spell/wall-force\" hreflang=\"en\">Wall of force</a></span>&nbsp;</em>with a 6-foot-diameter hole through it</p>\n<p>3 Floating, luminescent spores</p>\n<p>4 Broken magic wand</p>\n</div>\n</div>\n<div class=\"field field--name-field-monster-encounters field--type-text-long field--label-above\">\n<div class=\"field--label\">ENCOUNTERS</div>\n<div class=\"field--item\">\n<p>Bright orbs are found most often in ancient ruins rich with magic.</p>\n<p><strong>CR 0&ndash;2&nbsp;</strong><span class=\"freelinking-link\"><a title=\"Click to view a local node.\" href=\"https://a5e.tools/node/2847\" hreflang=\"en\">bright orb</a></span></p>\n<p><strong>Treasure&nbsp;</strong>six identical<em>&nbsp;<span class=\"freelinking-link\"><a title=\"Click to view a local node.\" href=\"https://a5e.tools/node/1090\" hreflang=\"en\">potions of healing</a></span>&nbsp;</em>, three of which are drained of magic</p>\n<p><strong>CR 3&ndash;4</strong>&nbsp;2&nbsp;<span class=\"freelinking-link\"><a title=\"Click to view a local node.\" href=\"https://a5e.tools/node/2847\" hreflang=\"en\">bright orbs</a></span></p>\n<p><strong>Treasure</strong>&nbsp;damaged&nbsp;<span class=\"freelinking-link\"><a title=\"Click to view a local node.\" href=\"https://a5e.tools/node/1237\" hreflang=\"en\">wand of wonder</a></span>&nbsp;visibly leaking magical energy (this wand has only 4 charges)</p>\n</div>\n</div>",
 			"creatureTypes": [
-				"ooze"
+				"plant"
 			],
 			"isSwarm": false,
-			"cr": 0,
+			"cr": 2,
 			"elite": false,
 			"privateNotes": ""
 		},
@@ -554,27 +554,29 @@
 			"publisher": ""
 		},
 		"traits": {
-			"size": "lg",
+			"size": "tiny",
 			"conditionImmunities": [
 				"blinded",
 				"charmed",
 				"deafened",
 				"fatigue",
 				"frightened",
-				"prone"
+				"prone",
+				"restrained",
+				"stunned"
 			],
-			"damageImmunities": [],
+			"damageImmunities": [
+				"psychic"
+			],
 			"damageResistances": [
-				"acid",
-				"cold",
-				"lightning",
-				"slashing"
+				"damage from spells",
+				"damage from magical weapons"
 			],
 			"damageVulnerabilities": []
 		}
 	},
 	"prototypeToken": {
-		"name": "Black Pudding",
+		"name": "Bright Orb",
 		"displayName": 0,
 		"actorLink": false,
 		"appendNumber": false,
@@ -585,11 +587,10 @@
 			"scaleY": 1,
 			"offsetX": 0,
 			"offsetY": 0,
-			"rotation": 0,
-			"tint": null
+			"rotation": 0
 		},
-		"width": 2,
-		"height": 2,
+		"width": 0.5,
+		"height": 0.5,
 		"lockRotation": false,
 		"rotation": 0,
 		"alpha": 1,
@@ -621,8 +622,7 @@
 			"darkness": {
 				"min": 0,
 				"max": 1
-			},
-			"color": null
+			}
 		},
 		"sight": {
 			"enabled": false,
@@ -632,8 +632,7 @@
 			"attenuation": 0.1,
 			"brightness": 0,
 			"saturation": 0,
-			"contrast": 0,
-			"color": null
+			"contrast": 0
 		},
 		"detectionModes": [],
 		"flags": {},
@@ -733,7 +732,7 @@
 				"equippedState": 0
 			},
 			"folder": null,
-			"_id": "6WNpLc8fLg9oXkHT",
+			"_id": "87kL16iSW1jmdDj3",
 			"sort": 0,
 			"ownership": {
 				"default": 0,
@@ -743,8 +742,8 @@
 				"systemId": "a5e",
 				"systemVersion": "0.14.17",
 				"coreVersion": "11.308",
-				"createdTime": 1694773605048,
-				"modifiedTime": 1694773605048,
+				"createdTime": 1694766858553,
+				"modifiedTime": 1694766858553,
 				"lastModifiedBy": "3Y2gVQm11sFC8K3d"
 			}
 		},
@@ -841,7 +840,7 @@
 				"equippedState": 0
 			},
 			"folder": null,
-			"_id": "fJna4wZeZLpqwf5r",
+			"_id": "AvwS2IRjR2yUVJAp",
 			"sort": 0,
 			"ownership": {
 				"default": 0,
@@ -851,8 +850,8 @@
 				"systemId": "a5e",
 				"systemVersion": "0.14.17",
 				"coreVersion": "11.308",
-				"createdTime": 1694773605048,
-				"modifiedTime": 1694773605048,
+				"createdTime": 1694766858553,
+				"modifiedTime": 1694766858553,
 				"lastModifiedBy": "3Y2gVQm11sFC8K3d"
 			}
 		},
@@ -949,7 +948,7 @@
 				"equippedState": 0
 			},
 			"folder": null,
-			"_id": "tDEhvzOrwG6o11ZJ",
+			"_id": "sTgrJzP3p1oqVin4",
 			"sort": 0,
 			"ownership": {
 				"default": 0,
@@ -959,8 +958,8 @@
 				"systemId": "a5e",
 				"systemVersion": "0.14.17",
 				"coreVersion": "11.308",
-				"createdTime": 1694773605048,
-				"modifiedTime": 1694773605048,
+				"createdTime": 1694766858553,
+				"modifiedTime": 1694766858553,
 				"lastModifiedBy": "3Y2gVQm11sFC8K3d"
 			}
 		},
@@ -1057,7 +1056,7 @@
 				"equippedState": 0
 			},
 			"folder": null,
-			"_id": "WyXAD0P9pXek6P1x",
+			"_id": "4rsWQSHMj2KkZjhc",
 			"sort": 0,
 			"ownership": {
 				"default": 0,
@@ -1067,8 +1066,8 @@
 				"systemId": "a5e",
 				"systemVersion": "0.14.17",
 				"coreVersion": "11.308",
-				"createdTime": 1694773605048,
-				"modifiedTime": 1694773605048,
+				"createdTime": 1694766858553,
+				"modifiedTime": 1694766858553,
 				"lastModifiedBy": "3Y2gVQm11sFC8K3d"
 			}
 		},
@@ -1165,7 +1164,7 @@
 				"equippedState": 0
 			},
 			"folder": null,
-			"_id": "qZdXEuPq5a4m40i5",
+			"_id": "2gn9fNUAMY1VfLBb",
 			"sort": 0,
 			"ownership": {
 				"default": 0,
@@ -1175,8 +1174,8 @@
 				"systemId": "a5e",
 				"systemVersion": "0.14.17",
 				"coreVersion": "11.308",
-				"createdTime": 1694773605048,
-				"modifiedTime": 1694773605048,
+				"createdTime": 1694766858553,
+				"modifiedTime": 1694766858553,
 				"lastModifiedBy": "3Y2gVQm11sFC8K3d"
 			}
 		},
@@ -1273,7 +1272,7 @@
 				"equippedState": 0
 			},
 			"folder": null,
-			"_id": "5lgmM3nJh8grjn7w",
+			"_id": "iFxB95x3rBMjjTHS",
 			"sort": 0,
 			"ownership": {
 				"default": 0,
@@ -1283,669 +1282,657 @@
 				"systemId": "a5e",
 				"systemVersion": "0.14.17",
 				"coreVersion": "11.308",
-				"createdTime": 1694773605048,
-				"modifiedTime": 1694773605048,
+				"createdTime": 1694766858553,
+				"modifiedTime": 1694766858553,
 				"lastModifiedBy": "3Y2gVQm11sFC8K3d"
 			}
 		},
 		{
-			"_id": "EmNhucMkZbClrRRP",
-			"name": "Amorphous",
+			"name": "Detect Magic",
 			"type": "feature",
-			"img": "icons/svg/item-bag.svg",
-			"effects": [],
-			"folder": "MrHKXdZgN2tcvnWu",
-			"sort": -100000,
-			"flags": {
-				"core": {
-					"sourceId": "Item.8sly2HIVUXge17ST"
-				},
-				"scene-packer": {
-					"hash": "d1782a1fdb852fa3363b1cab4bc58a42eb4f204d"
-				}
-			},
 			"system": {
 				"ac": {
 					"baseFormula": "",
 					"formula": "",
 					"maxDex": 0,
 					"minStr": 0,
-					"mode": 1,
+					"mode": 2,
 					"requiresNoShield": false,
 					"requiresUnarmored": false
 				},
-				"actions": {
-					"XLcyFsqqM3jViQro": {
-						"name": "Amorphous",
-						"activation": {
-							"cost": "",
-							"type": "none",
-							"reactionTrigger": ""
-						},
-						"duration": {
-							"unit": "permanent",
-							"value": ""
-						},
-						"area": {
-							"shape": "",
-							"size": "",
-							"placeTemplate": false
-						},
-						"target": {
-							"quantity": "",
-							"type": ""
-						},
-						"consumers": {}
-					}
-				},
-				"description": "<p>The jelly can pass through an opening as narrow as 1 inch wide without squeezing.</p>",
+				"actions": {},
+				"description": "<p>The bright orb senses creatures that bear magic and magic objects within 500 feet.</p>",
 				"favorite": false,
 				"secretDescription": "",
-				"source": "",
+				"source": {
+					"name": "",
+					"link": "",
+					"publisher": ""
+				},
 				"uses": {
 					"value": null,
 					"max": "",
 					"per": null,
 					"recharge": {
-						"formula": "",
-						"threshold": ""
+						"formula": "1d6",
+						"threshold": "6"
 					}
 				},
 				"schema": {
-					"version": 0.004,
-					"lastMigration": {
-						"version": {
-							"schema": 0.003,
-							"foundry": "11.302",
-							"system": "0.12.7"
-						}
-					}
+					"version": 0.001,
+					"lastMigration": null
 				},
 				"concentration": false,
-				"featureType": "",
+				"featureType": "other",
 				"prerequisite": ""
 			},
-			"ownership": {
-				"default": 0,
-				"3Y2gVQm11sFC8K3d": 3
-			},
-			"_stats": {
-				"systemId": "a5e",
-				"systemVersion": "0.14.17",
-				"coreVersion": "11.308",
-				"createdTime": 1694773640303,
-				"modifiedTime": 1694773640303,
-				"lastModifiedBy": "3Y2gVQm11sFC8K3d"
-			}
-		},
-		{
-			"_id": "ovHPG6PXne7pcu0K",
-			"name": "Sunlight Sensitivity",
-			"type": "feature",
-			"img": "icons/svg/item-bag.svg",
-			"effects": [],
-			"folder": "MrHKXdZgN2tcvnWu",
-			"sort": -75000,
-			"flags": {
-				"core": {
-					"sourceId": "Item.gxnCe4DFSL5p3DuX"
-				},
-				"scene-packer": {
-					"hash": "823db74398de428c622665e58624bb4583092968"
-				}
-			},
-			"system": {
-				"ac": {
-					"baseFormula": "",
-					"formula": "",
-					"maxDex": 0,
-					"minStr": 0,
-					"mode": 1,
-					"requiresNoShield": false,
-					"requiresUnarmored": false
-				},
-				"actions": {
-					"oAZGuUPTDcCHOFK7": {
-						"name": "Sunlight Sensitivity",
-						"activation": {
-							"cost": "",
-							"type": "none",
-							"reactionTrigger": ""
-						},
-						"duration": {
-							"unit": "permanent",
-							"value": ""
-						},
-						"area": {
-							"shape": "",
-							"size": "",
-							"placeTemplate": false
-						},
-						"target": {
-							"quantity": "",
-							"type": ""
-						},
-						"consumers": {}
-					}
-				},
-				"description": "<p>While in sunlight, the jelly has disadvantage on attack rolls.</p>",
-				"favorite": false,
-				"secretDescription": "",
-				"source": "",
-				"uses": {
-					"value": null,
-					"max": "",
-					"per": null,
-					"recharge": {
-						"formula": "",
-						"threshold": ""
-					}
-				},
-				"schema": {
-					"version": 0.004,
-					"lastMigration": {
-						"version": {
-							"schema": 0.003,
-							"foundry": "11.302",
-							"system": "0.12.7"
-						}
-					}
-				},
-				"concentration": false,
-				"featureType": "",
-				"prerequisite": ""
-			},
-			"ownership": {
-				"default": 0,
-				"3Y2gVQm11sFC8K3d": 3
-			},
-			"_stats": {
-				"systemId": "a5e",
-				"systemVersion": "0.14.17",
-				"coreVersion": "11.308",
-				"createdTime": 1694773641122,
-				"modifiedTime": 1694773641122,
-				"lastModifiedBy": "3Y2gVQm11sFC8K3d"
-			}
-		},
-		{
-			"_id": "zgrumc98HhYm7uCD",
-			"name": "Ooze Nature",
-			"type": "feature",
-			"img": "icons/svg/item-bag.svg",
-			"effects": [],
-			"folder": "MrHKXdZgN2tcvnWu",
-			"sort": -50000,
-			"flags": {
-				"core": {
-					"sourceId": "Item.TGISdkZEUaYg3NrU"
-				},
-				"scene-packer": {
-					"hash": "022c96095f0cb0d7fadd45cc5cc31219f97f9818"
-				}
-			},
-			"system": {
-				"ac": {
-					"baseFormula": "",
-					"formula": "",
-					"maxDex": 0,
-					"minStr": 0,
-					"mode": 1,
-					"requiresNoShield": false,
-					"requiresUnarmored": false
-				},
-				"actions": {
-					"0X9N71AH9X8xarIQ": {
-						"name": "Ooze Nature",
-						"activation": {
-							"cost": "",
-							"type": "none",
-							"reactionTrigger": ""
-						},
-						"duration": {
-							"unit": "permanent",
-							"value": ""
-						},
-						"area": {
-							"shape": "",
-							"size": "",
-							"placeTemplate": false
-						},
-						"target": {
-							"quantity": "",
-							"type": ""
-						},
-						"consumers": {}
-					}
-				},
-				"description": "<p>An ooze doesn’t require air or sleep.</p>",
-				"favorite": false,
-				"secretDescription": "",
-				"source": "",
-				"uses": {
-					"value": null,
-					"max": "",
-					"per": null,
-					"recharge": {
-						"formula": "",
-						"threshold": ""
-					}
-				},
-				"schema": {
-					"version": 0.004,
-					"lastMigration": {
-						"version": {
-							"schema": 0.003,
-							"foundry": "11.302",
-							"system": "0.12.7"
-						}
-					}
-				},
-				"concentration": false,
-				"featureType": "",
-				"prerequisite": ""
-			},
-			"ownership": {
-				"default": 0,
-				"3Y2gVQm11sFC8K3d": 3
-			},
-			"_stats": {
-				"systemId": "a5e",
-				"systemVersion": "0.14.17",
-				"coreVersion": "11.308",
-				"createdTime": 1694773642343,
-				"modifiedTime": 1694773642343,
-				"lastModifiedBy": "3Y2gVQm11sFC8K3d"
-			}
-		},
-		{
-			"_id": "sBXgfRxRCMDAXIhj",
-			"name": "Corrosive Body",
-			"type": "feature",
+			"_id": "UMyFOYMloZm1rNz1",
 			"img": "icons/svg/item-bag.svg",
 			"effects": [],
 			"folder": null,
 			"sort": 0,
-			"flags": {
-				"scene-packer": {
-					"hash": "96a0f7f6422c2bdcd9fc072bd0d7da97c9553aad"
-				}
-			},
-			"system": {
-				"ac": {
-					"baseFormula": "",
-					"formula": "",
-					"maxDex": 0,
-					"minStr": 0,
-					"mode": 1,
-					"requiresNoShield": false,
-					"requiresUnarmored": false
-				},
-				"actions": {
-					"jHFYnYo86dhk9BHY": {
-						"name": "Corrosive Body",
-						"activation": {
-							"cost": "",
-							"type": "none",
-							"reactionTrigger": ""
-						},
-						"duration": {
-							"unit": "permanent",
-							"value": ""
-						},
-						"area": {
-							"shape": "",
-							"size": "",
-							"placeTemplate": false
-						},
-						"target": {
-							"quantity": "",
-							"type": ""
-						},
-						"rolls": {
-							"brWb7LHIJImqA0Pk": {
-								"canCrit": false,
-								"damageType": "acid",
-								"formula": "2d8",
-								"name": "acid",
-								"type": "damage"
-							}
-						},
-						"consumers": {}
-					}
-				},
-				"description": "<p>A creature that touches the pudding or hits it with a melee attack while within 5 feet takes 9 (2d8) acid damage. A nonmagical weapon made of metal or wood that hits the black pudding corrodes after dealing damage, taking a permanent -1 penalty to damage rolls per hit. If this penalty reaches -5, the weapon is destroyed. Wooden or metal nonmagical ammunition is destroyed after dealing damage. Any other metal or organic object that touches it takes 9 (2d8) acid damage.</p>",
-				"favorite": true,
-				"secretDescription": "",
-				"source": "",
-				"uses": {
-					"value": null,
-					"max": "",
-					"per": null,
-					"recharge": {
-						"formula": "",
-						"threshold": ""
-					}
-				},
-				"schema": {
-					"version": 0.004,
-					"lastMigration": {
-						"version": {
-							"schema": 0.003,
-							"foundry": "11.302",
-							"system": "0.12.7"
-						}
-					}
-				},
-				"concentration": false,
-				"featureType": "",
-				"prerequisite": ""
-			},
 			"ownership": {
 				"default": 0,
 				"3Y2gVQm11sFC8K3d": 3
+			},
+			"flags": {
+				"scene-packer": {
+					"hash": "45cfc00b6299b60dcc79e6492e0139a55485ec6d"
+				}
 			},
 			"_stats": {
 				"systemId": "a5e",
 				"systemVersion": "0.14.17",
 				"coreVersion": "11.308",
-				"createdTime": 1694773643683,
-				"modifiedTime": 1694773643683,
+				"createdTime": 1694766933715,
+				"modifiedTime": 1694766944582,
 				"lastModifiedBy": "3Y2gVQm11sFC8K3d"
 			}
 		},
 		{
-			"_id": "STI5l6P6sSnKK533",
-			"name": "Psuedopod",
+			"name": "Illumination",
 			"type": "feature",
-			"img": "icons/svg/item-bag.svg",
-			"effects": [],
-			"folder": null,
-			"sort": 0,
-			"flags": {
-				"scene-packer": {
-					"hash": "3f4baa1e206612dd21ccf23563ad01e7e792acde"
-				}
-			},
 			"system": {
 				"ac": {
 					"baseFormula": "",
 					"formula": "",
 					"maxDex": 0,
 					"minStr": 0,
-					"mode": 1,
+					"mode": 2,
+					"requiresNoShield": false,
+					"requiresUnarmored": false
+				},
+				"actions": {},
+				"description": "<p>The bright orb sheds&nbsp;<span class=\"freelinking-link\">bright light</span>&nbsp;in a 10-foot radius and&nbsp;<span class=\"freelinking-link\">dim light</span>&nbsp;for an additional 10 feet.</p>",
+				"favorite": false,
+				"secretDescription": "",
+				"source": {
+					"name": "",
+					"link": "",
+					"publisher": ""
+				},
+				"uses": {
+					"value": null,
+					"max": "",
+					"per": null,
+					"recharge": {
+						"formula": "1d6",
+						"threshold": "6"
+					}
+				},
+				"schema": {
+					"version": 0.001,
+					"lastMigration": null
+				},
+				"concentration": false,
+				"featureType": "other",
+				"prerequisite": ""
+			},
+			"_id": "pIyG64hS6sgPZas8",
+			"img": "icons/svg/item-bag.svg",
+			"effects": [],
+			"folder": null,
+			"sort": 0,
+			"ownership": {
+				"default": 0,
+				"3Y2gVQm11sFC8K3d": 3
+			},
+			"flags": {
+				"scene-packer": {
+					"hash": "45cfc00b6299b60dcc79e6492e0139a55485ec6d"
+				}
+			},
+			"_stats": {
+				"systemId": "a5e",
+				"systemVersion": "0.14.17",
+				"coreVersion": "11.308",
+				"createdTime": 1694766960882,
+				"modifiedTime": 1694766972033,
+				"lastModifiedBy": "3Y2gVQm11sFC8K3d"
+			}
+		},
+		{
+			"name": "Arcane Touch",
+			"type": "feature",
+			"system": {
+				"ac": {
+					"baseFormula": "",
+					"formula": "",
+					"maxDex": 0,
+					"minStr": 0,
+					"mode": 2,
 					"requiresNoShield": false,
 					"requiresUnarmored": false
 				},
 				"actions": {
-					"VGfpvtGcRwN0EFfz": {
-						"name": "Psuedopod",
+					"dPKRh0SYT6FffLpU": {
+						"name": "Arcane Touch",
 						"activation": {
-							"cost": 1,
 							"type": "action",
-							"reactionTrigger": ""
+							"cost": 1
 						},
-						"duration": {
-							"unit": "",
-							"value": ""
-						},
-						"area": {
-							"shape": "",
-							"size": "",
-							"placeTemplate": false
-						},
-						"target": {
-							"quantity": 1,
-							"type": "creature"
-						},
+						"consumers": {},
 						"rolls": {
-							"LmDVCaTJ7TszoWih": {
-								"bonus": "",
-								"critThreshold": "20",
+							"uizMKnYndlIk3goR": {
 								"type": "attack",
+								"default": true,
 								"attackType": "meleeWeaponAttack",
-								"ability": "str"
+								"proficient": true,
+								"ability": "dex"
 							},
-							"NYpVbZE5bSCC83Yc": {
-								"canCrit": true,
-								"damageType": "bludgeoning",
-								"formula": "1d6 + @str.mod",
-								"name": "bludgeoning",
-								"type": "damage"
-							},
-							"Dd47e9Cd4Y8noP56": {
-								"canCrit": true,
-								"damageType": "acid",
-								"formula": "2d8",
-								"name": "acid",
-								"type": "damage"
+							"1kzijbLGO9DOcNY1": {
+								"type": "damage",
+								"default": true,
+								"damageType": "force",
+								"formula": "1d8"
 							}
 						},
-						"consumers": {}
+						"prompts": {},
+						"uses": {
+							"value": 0,
+							"max": "",
+							"per": "",
+							"recharge": {
+								"formula": "1d6",
+								"threshold": 6
+							}
+						},
+						"target": {
+							"type": "creatureObject",
+							"quantity": 1
+						}
 					}
 				},
-				"description": "<p><em>Melee Weapon Attack:</em><br><em>On Hit: </em>Nonmagical metal armor worn by the target corrodes, taking a permanent -1 penalty to its AC protection per hit. If the penalty reduces the armor’s AC protection to 10, the armor is destroyed.</p>",
+				"description": "<p><em>Melee Weapon Attack:&nbsp;</em>+2 to hit, reach 5 ft., one target.&nbsp;<em>Hit:&nbsp;</em>4 (1d8) force damage, and the target is subject to Consume Magic.</p>",
 				"favorite": true,
 				"secretDescription": "",
-				"source": "",
+				"source": {
+					"name": "",
+					"link": "",
+					"publisher": ""
+				},
 				"uses": {
 					"value": null,
 					"max": "",
 					"per": null,
 					"recharge": {
-						"formula": "",
-						"threshold": ""
+						"formula": "1d6",
+						"threshold": "6"
 					}
 				},
 				"schema": {
-					"version": 0.004,
-					"lastMigration": {
-						"version": {
-							"schema": 0.003,
-							"foundry": "11.302",
-							"system": "0.12.7"
-						}
-					}
+					"version": 0.001,
+					"lastMigration": null
 				},
 				"concentration": false,
-				"featureType": "",
+				"featureType": "naturalWeapon",
 				"prerequisite": ""
 			},
+			"_id": "b7r5itSK1tSxZ4m3",
+			"img": "icons/svg/item-bag.svg",
+			"effects": [],
+			"folder": null,
+			"sort": 0,
 			"ownership": {
 				"default": 0,
 				"3Y2gVQm11sFC8K3d": 3
+			},
+			"flags": {
+				"scene-packer": {
+					"hash": "09da164a50300f407e30cfedde8a13f70bf65e0e"
+				}
 			},
 			"_stats": {
 				"systemId": "a5e",
 				"systemVersion": "0.14.17",
 				"coreVersion": "11.308",
-				"createdTime": 1694773644975,
-				"modifiedTime": 1694773644975,
+				"createdTime": 1694766987404,
+				"modifiedTime": 1694768084085,
 				"lastModifiedBy": "3Y2gVQm11sFC8K3d"
 			}
 		},
 		{
-			"_id": "nSTZWXyYbesshdGk",
-			"name": "Split (Reaction)",
+			"name": "Consume Magic",
 			"type": "feature",
-			"img": "icons/svg/item-bag.svg",
-			"effects": [],
-			"folder": "MrHKXdZgN2tcvnWu",
-			"sort": 62500,
-			"flags": {
-				"core": {
-					"sourceId": "Item.dJts9yWqnKpeUKSI"
-				},
-				"scene-packer": {
-					"hash": "ffcfc195dc69f6545134b2e1d633d26b128fe793"
-				}
-			},
 			"system": {
 				"ac": {
 					"baseFormula": "",
 					"formula": "",
 					"maxDex": 0,
 					"minStr": 0,
-					"mode": 1,
+					"mode": 2,
+					"requiresNoShield": false,
+					"requiresUnarmored": false
+				},
+				"actions": {},
+				"description": "<p>The bright orb targets a creature, an object, or an ongoing magical effect within 30 feet of it and attempts to consume the magic, ending one effect if the magic is temporary (such as a spell with a limited duration) or suppressing one effect for 1 minute if the magic is permanent (such as a magic item). If the magic was created by a spell of 3rd level or higher, the bright orb must make a Wisdom check against a DC equal to 10 + the spell&rsquo;s level or Consume Magic fails. At the Narrator&rsquo;s discretion, a success might cause a magical effect to malfunction instead of end.</p>",
+				"favorite": false,
+				"secretDescription": "",
+				"source": {
+					"name": "",
+					"link": "",
+					"publisher": ""
+				},
+				"uses": {
+					"value": null,
+					"max": "",
+					"per": null,
+					"recharge": {
+						"formula": "1d6",
+						"threshold": "6"
+					}
+				},
+				"schema": {
+					"version": 0.001,
+					"lastMigration": null
+				},
+				"concentration": false,
+				"featureType": "other",
+				"prerequisite": ""
+			},
+			"_id": "3Nzaw5GaqCTOBbpv",
+			"img": "icons/svg/item-bag.svg",
+			"effects": [],
+			"folder": null,
+			"sort": 0,
+			"ownership": {
+				"default": 0,
+				"3Y2gVQm11sFC8K3d": 3
+			},
+			"flags": {
+				"scene-packer": {
+					"hash": "45cfc00b6299b60dcc79e6492e0139a55485ec6d"
+				}
+			},
+			"_stats": {
+				"systemId": "a5e",
+				"systemVersion": "0.14.17",
+				"coreVersion": "11.308",
+				"createdTime": 1694767060869,
+				"modifiedTime": 1694767076123,
+				"lastModifiedBy": "3Y2gVQm11sFC8K3d"
+			}
+		},
+		{
+			"name": "Magic Missle Barrage",
+			"type": "feature",
+			"system": {
+				"ac": {
+					"baseFormula": "",
+					"formula": "",
+					"maxDex": 0,
+					"minStr": 0,
+					"mode": 2,
 					"requiresNoShield": false,
 					"requiresUnarmored": false
 				},
 				"actions": {
-					"7zgCvuAY1CZAjQEm": {
-						"name": "Split (Reaction)",
+					"S6XIEMSU8TMv6gaW": {
+						"name": "Magic Missle Barrage",
 						"activation": {
-							"cost": 1,
-							"type": "reaction",
-							"reactionTrigger": "When a Medium or larger jelly with at least 10 hit points is subjected to lightning or slashing damage"
+							"type": "action",
+							"cost": 1
 						},
-						"duration": {
-							"unit": "permanent",
-							"value": ""
+						"consumers": {},
+						"rolls": {
+							"IhSrIxj18SyfLHDD": {
+								"type": "damage",
+								"default": true,
+								"damageType": "force",
+								"formula": "3d4 + 3"
+							}
+						},
+						"prompts": {},
+						"uses": {
+							"value": 0,
+							"max": "",
+							"per": "",
+							"recharge": {
+								"formula": "1d6",
+								"threshold": 6
+							}
 						},
 						"ranges": {
-							"2qblFjZnl5nr3nhd": {
-								"range": "self"
+							"PspGa9wByw463qc8": {
+								"range": "long"
 							}
 						},
-						"area": {
-							"shape": "",
-							"size": "",
-							"placeTemplate": false
-						},
 						"target": {
-							"quantity": "",
-							"type": "self"
-						},
-						"consumers": {}
+							"type": "creature",
+							"quantity": 2
+						}
 					}
 				},
-				"description": "<p>When a Medium or larger pudding with at least 10 hit points is subjected to lightning or slashing damage, it splits into two puddings that are each one size smaller, freeing any grappled targets. Each new pudding has half the original’s hit points (rounded down).</p>",
-				"favorite": false,
+				"description": "<p>The bright orb targets up to two creatures within 120 feet, launching a barrage of magical darts of force at each creature. The missiles strike unerringly and simultaneously, dealing 10 (3d4 + 3) force damage to each creature.</p>",
+				"favorite": true,
 				"secretDescription": "",
-				"source": "",
+				"source": {
+					"name": "",
+					"link": "",
+					"publisher": ""
+				},
 				"uses": {
 					"value": null,
 					"max": "",
 					"per": null,
 					"recharge": {
-						"formula": "",
-						"threshold": ""
+						"formula": "1d6",
+						"threshold": "6"
 					}
 				},
 				"schema": {
-					"version": 0.004,
-					"lastMigration": {
-						"version": {
-							"schema": 0.003,
-							"foundry": "11.302",
-							"system": "0.12.7"
-						}
-					}
+					"version": 0.001,
+					"lastMigration": null
 				},
 				"concentration": false,
-				"featureType": "",
+				"featureType": "other",
 				"prerequisite": ""
 			},
+			"_id": "pw9jD9Rl5pqyxAlw",
+			"img": "icons/svg/item-bag.svg",
+			"effects": [],
+			"folder": null,
+			"sort": 0,
 			"ownership": {
 				"default": 0,
 				"3Y2gVQm11sFC8K3d": 3
+			},
+			"flags": {
+				"scene-packer": {
+					"hash": "45cfc00b6299b60dcc79e6492e0139a55485ec6d"
+				}
 			},
 			"_stats": {
 				"systemId": "a5e",
 				"systemVersion": "0.14.17",
 				"coreVersion": "11.308",
-				"createdTime": 1694773645800,
-				"modifiedTime": 1694773645800,
+				"createdTime": 1694767097750,
+				"modifiedTime": 1694768082575,
 				"lastModifiedBy": "3Y2gVQm11sFC8K3d"
 			}
 		},
 		{
-			"_id": "Jr5JsOkTBNBnXskp",
-			"name": "Spider Climb",
+			"name": "Illusory Duplicate",
 			"type": "feature",
-			"img": "icons/creatures/invertebrates/spider-beetle-runed-green.webp",
-			"effects": [],
-			"folder": "MrHKXdZgN2tcvnWu",
-			"sort": 75000,
-			"flags": {
-				"core": {
-					"sourceId": "Item.dP16AjGb1R5hFF8x"
-				},
-				"scene-packer": {
-					"hash": "44f5cc13b62c06442680d4e53037b8fe2512c7b6"
-				}
-			},
 			"system": {
 				"ac": {
 					"baseFormula": "",
 					"formula": "",
 					"maxDex": 0,
 					"minStr": 0,
-					"mode": 1,
+					"mode": 2,
 					"requiresNoShield": false,
 					"requiresUnarmored": false
 				},
 				"actions": {
-					"JNtksyoDI86DcSE0": {
-						"name": "Spider Climb",
+					"6Zhm0I3wz78kkUCj": {
+						"name": "Illusory Duplicate",
 						"activation": {
-							"cost": "",
-							"type": "none",
-							"reactionTrigger": ""
+							"type": "bonusAction",
+							"cost": 1
 						},
-						"duration": {
-							"unit": "permanent",
-							"value": ""
-						},
-						"area": {
-							"shape": "",
-							"size": "",
-							"placeTemplate": false
-						},
-						"target": {
-							"quantity": "",
-							"type": ""
-						},
-						"consumers": {}
+						"consumers": {},
+						"rolls": {},
+						"prompts": {},
+						"uses": {
+							"value": 0,
+							"max": "",
+							"per": "",
+							"recharge": {
+								"formula": "1d6",
+								"threshold": 6
+							}
+						}
 					}
 				},
-				"description": "<p>The pudding can use its climb speed even on difficult surfaces and upside down on ceilings.&nbsp;</p>",
+				"description": "<p>An illusory duplicate of the bright orb appears in its space. The duplicate obscures the orb&rsquo;s true location and moves with the bright orb for 1 minute or until it is destroyed. Whenever the real bright orb is targeted by an attack, there is a chance the duplicate is hit instead. Roll the attack as usual; if the result of the d20 roll is odd, the attack hits the duplicate, and the duplicate is destroyed.</p>",
 				"favorite": false,
 				"secretDescription": "",
-				"source": "",
+				"source": {
+					"name": "",
+					"link": "",
+					"publisher": ""
+				},
 				"uses": {
 					"value": null,
 					"max": "",
 					"per": null,
 					"recharge": {
-						"formula": "",
-						"threshold": ""
+						"formula": "1d6",
+						"threshold": "6"
 					}
 				},
 				"schema": {
-					"version": 0.004,
-					"lastMigration": {
-						"version": {
-							"schema": 0.003,
-							"foundry": "11.302",
-							"system": "0.12.7"
-						}
-					}
+					"version": 0.001,
+					"lastMigration": null
 				},
 				"concentration": false,
-				"featureType": "",
+				"featureType": "other",
 				"prerequisite": ""
 			},
+			"_id": "O7XUfdqI9Gwt5Zxl",
+			"img": "icons/svg/item-bag.svg",
+			"effects": [],
+			"folder": null,
+			"sort": 0,
 			"ownership": {
 				"default": 0,
 				"3Y2gVQm11sFC8K3d": 3
+			},
+			"flags": {
+				"scene-packer": {
+					"hash": "45cfc00b6299b60dcc79e6492e0139a55485ec6d"
+				}
 			},
 			"_stats": {
 				"systemId": "a5e",
 				"systemVersion": "0.14.17",
 				"coreVersion": "11.308",
-				"createdTime": 1694773646866,
-				"modifiedTime": 1694773646866,
+				"createdTime": 1694767175044,
+				"modifiedTime": 1694767340212,
+				"lastModifiedBy": "3Y2gVQm11sFC8K3d"
+			}
+		},
+		{
+			"name": "Blinding Rebuke (1/Day)",
+			"type": "feature",
+			"system": {
+				"ac": {
+					"baseFormula": "",
+					"formula": "",
+					"maxDex": 0,
+					"minStr": 0,
+					"mode": 2,
+					"requiresNoShield": false,
+					"requiresUnarmored": false
+				},
+				"actions": {
+					"3PpUQ8JBr1rYeBN9": {
+						"name": "Blinding Rebuke",
+						"activation": {
+							"type": "reaction",
+							"cost": 1,
+							"reactionTrigger": "Targeted by a harmful spell or hit by an attack made by a creature within 30 feet of it."
+						},
+						"consumers": {},
+						"rolls": {
+							"515ssog9l8mOxq72": {
+								"type": "damage",
+								"default": true,
+								"damageType": "radiant",
+								"formula": "3d8"
+							}
+						},
+						"prompts": {
+							"4lXOF6mCLlkGDEtW": {
+								"type": "savingThrow",
+								"default": true,
+								"ability": "dex",
+								"saveDC": {
+									"type": "maneuver"
+								},
+								"onSave": "takes half damage and isn't blinded"
+							}
+						},
+						"uses": {
+							"value": 0,
+							"max": "",
+							"per": "",
+							"recharge": {
+								"formula": "1d6",
+								"threshold": 6
+							}
+						}
+					}
+				},
+				"description": "<p>When the bright orb is targeted by a harmful spell or hit by an attack made by a creature within 30 feet of it, it releases an intense flash of blinding light. Each creature within 30 feet of the bright orb makes a DC 10 Dexterity&nbsp;<span class=\"freelinking-link\">saving throw</span>&nbsp;. On a failed save, the target takes 13 (3d8) radiant damage and is&nbsp;<span class=\"freelinking-link\">blinded</span>&nbsp;until the end of its next turn. On a success, the target takes half damage and isn&rsquo;t blinded.</p>",
+				"favorite": true,
+				"secretDescription": "",
+				"source": {
+					"name": "",
+					"link": "",
+					"publisher": ""
+				},
+				"uses": {
+					"value": 1,
+					"max": "1",
+					"per": "day",
+					"recharge": {
+						"formula": "1d6",
+						"threshold": "6"
+					}
+				},
+				"schema": {
+					"version": 0.001,
+					"lastMigration": null
+				},
+				"concentration": false,
+				"featureType": "other",
+				"prerequisite": ""
+			},
+			"_id": "9OBugpyZ3ihKRUpN",
+			"img": "icons/svg/item-bag.svg",
+			"effects": [],
+			"folder": null,
+			"sort": 0,
+			"ownership": {
+				"default": 0,
+				"3Y2gVQm11sFC8K3d": 3
+			},
+			"flags": {
+				"scene-packer": {
+					"hash": "45cfc00b6299b60dcc79e6492e0139a55485ec6d"
+				}
+			},
+			"_stats": {
+				"systemId": "a5e",
+				"systemVersion": "0.14.17",
+				"coreVersion": "11.308",
+				"createdTime": 1694767373607,
+				"modifiedTime": 1694768086579,
+				"lastModifiedBy": "3Y2gVQm11sFC8K3d"
+			}
+		},
+		{
+			"name": "Consume Spell (1/Day)",
+			"type": "feature",
+			"system": {
+				"ac": {
+					"baseFormula": "",
+					"formula": "",
+					"maxDex": 0,
+					"minStr": 0,
+					"mode": 2,
+					"requiresNoShield": false,
+					"requiresUnarmored": false
+				},
+				"actions": {
+					"QzmSM7lxZbZPFvjJ": {
+						"name": "Consume Spell",
+						"activation": {
+							"type": "reaction",
+							"cost": 1,
+							"reactionTrigger": "When a creature within 60 feet casts a spell"
+						},
+						"consumers": {},
+						"rolls": {},
+						"prompts": {},
+						"uses": {
+							"value": 0,
+							"max": "",
+							"per": "",
+							"recharge": {
+								"formula": "1d6",
+								"threshold": 6
+							}
+						}
+					}
+				},
+				"description": "<p>When a creature within 60 feet&nbsp;<span class=\"freelinking-link\">casts a spell</span>, the bright orb uses Consume Magic, targeting the triggering spell.</p>",
+				"favorite": true,
+				"secretDescription": "",
+				"source": {
+					"name": "",
+					"link": "",
+					"publisher": ""
+				},
+				"uses": {
+					"value": 1,
+					"max": "1",
+					"per": "day",
+					"recharge": {
+						"formula": "1d6",
+						"threshold": "6"
+					}
+				},
+				"schema": {
+					"version": 0.001,
+					"lastMigration": null
+				},
+				"concentration": false,
+				"featureType": "other",
+				"prerequisite": ""
+			},
+			"_id": "HauIUixBZla9hN1N",
+			"img": "icons/svg/item-bag.svg",
+			"effects": [],
+			"folder": null,
+			"sort": 0,
+			"ownership": {
+				"default": 0,
+				"3Y2gVQm11sFC8K3d": 3
+			},
+			"flags": {
+				"scene-packer": {
+					"hash": "45cfc00b6299b60dcc79e6492e0139a55485ec6d"
+				}
+			},
+			"_stats": {
+				"systemId": "a5e",
+				"systemVersion": "0.14.17",
+				"coreVersion": "11.308",
+				"createdTime": 1694767493565,
+				"modifiedTime": 1694768087030,
 				"lastModifiedBy": "3Y2gVQm11sFC8K3d"
 			}
 		}
@@ -1953,12 +1940,12 @@
 	"effects": [],
 	"flags": {
 		"scene-packer": {
-			"hash": "b128bc74d738d83f56b8b197ff79a0ddd8dd1ab1",
-			"sourceId": "Actor.TXVHZ9YtAj00LVth"
+			"hash": "011ab609912bfe74d2f35283779964aef026901e",
+			"sourceId": "Actor.eW6hhlNdn9eCLhiq"
 		},
 		"a5e": {
-			"currentTab": "notes",
-			"sheetIsLocked": false
+			"sheetIsLocked": true,
+			"currentTab": "features"
 		},
 		"exportSource": {
 			"world": "pmg-spells",
@@ -1971,9 +1958,9 @@
 		"systemId": "a5e",
 		"systemVersion": "0.14.15",
 		"coreVersion": "11.308",
-		"createdTime": 1694773604933,
-		"modifiedTime": 1694981318426,
+		"createdTime": 1694766858489,
+		"modifiedTime": 1694981332948,
 		"lastModifiedBy": "lCRiQclGlfIQqUGV"
 	},
-	"_id": "kt5g06icmg0y93bf"
+	"_id": "zhrhde9f9wfovj1x"
 }
