@@ -15,7 +15,8 @@ If you want to keep up to date with the system's development and influence its f
 
 ## Funding
 
-If you'd like to support the development of the Level Up: Advanced 5th Edition system for Foundry VTT, please see our Patreon page: <br />
+If you'd like to support the development of the Level Up: Advanced 5th Edition system for Foundry VTT, please consider becoming a patron. In addition to helping fund system development, patrons also get early access to system features and exclusive modules, such as our 5e → A5e conversion tools. You can find our Patreon page page below.
+
 [![Patreon](https://img.shields.io/endpoint.svg?url=https%3A%2F%2Fshieldsio-patreon.vercel.app%2Fapi%3Fusername%3DForgemasterModules%26type%3Dpatrons&style=for-the-badge)](https://patreon.com/ForgemasterModules)
 
 ## Modules
