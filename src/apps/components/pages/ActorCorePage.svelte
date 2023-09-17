@@ -1,5 +1,5 @@
 <script>
-    import { getContext } from "svelte";
+    import { getContext, onDestroy } from "svelte";
 
     import GenericActorResource from "../GenericActorResource.svelte";
     import ItemCategory from "../ItemCategory.svelte";
@@ -13,8 +13,20 @@
     const actor = getContext("actor");
     const { favorites } = actor;
 
+    let showQuantity = quantityRequired($favorites);
+    let showUses = usesRequired($favorites);
+
     $: resources = $actor.system.resources;
     $: flags = $actor.flags;
+
+    const unsubscribe = favorites.subscribe((_) => {
+        showQuantity = quantityRequired($favorites);
+        showUses = usesRequired($favorites);
+    });
+
+    onDestroy(() => {
+        unsubscribe();
+    });
 </script>
 
 {#if !(flags.a5e?.hideGenericResources ?? $actor.type === "npc")}
@@ -32,8 +44,8 @@
             icon="fas fa-star heading-icon"
             items={[...$favorites]}
             type="favorites"
-            quantityRequired={quantityRequired($favorites)}
-            usesRequired={usesRequired($favorites)}
+            {showQuantity}
+            {showUses}
         />
     </section>
 {:else}

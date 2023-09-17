@@ -1,5 +1,5 @@
 <script>
-    import { getContext } from "svelte";
+    import { getContext, onDestroy } from "svelte";
 
     import CreateMenu from "../actorUtilityBar/CreateMenu.svelte";
     import Filter from "../actorUtilityBar/Filter.svelte";
@@ -19,12 +19,21 @@
     const subTypes = A5E.featureTypes;
     const sortMap = CONFIG.A5E.reducerSortMap.features;
 
+    let showDescription = false;
+    let showUses = usesRequired(features);
+
     $: menuList = Object.entries(subTypes);
     $: sortedFeatures = Object.entries($features._types).sort(
         (a, b) => sortMap[a[0]] - sortMap[b[0]]
     );
 
-    let showDescription = false;
+    const unsubscribe = features.subscribe((_) => {
+        showUses = usesRequired(features);
+    });
+
+    onDestroy(() => {
+        unsubscribe();
+    });
 </script>
 
 <div class="features-page">
@@ -46,8 +55,8 @@
                 {showDescription}
                 label=""
                 items={$features}
+                {showUses}
                 type="featureTypes"
-                usesRequired={usesRequired($features)}
             />
         {:else}
             {#each sortedFeatures as [label, items]}
@@ -56,8 +65,8 @@
                         {label}
                         {items}
                         {showDescription}
+                        {showUses}
                         type="featureTypes"
-                        usesRequired={usesRequired($features)}
                     />
                 {/if}
             {/each}

@@ -1,6 +1,6 @@
 <script>
     import { localize } from "#runtime/svelte/helper";
-    import { getContext } from "svelte";
+    import { getContext, onDestroy } from "svelte";
 
     import updateDocumentDataFromField from "../../../utils/updateDocumentDataFromField";
     import usesRequired from "../../../utils/usesRequired";
@@ -20,13 +20,22 @@
     const subTypes = CONFIG.A5E.maneuverDegrees;
     const reducerType = "maneuvers";
 
+    let showDescription = false;
+    let showUses = usesRequired(maneuvers);
+
     $: exertion = $actor.system.attributes.exertion;
     $: menuList = Object.entries(subTypes);
     $: sheetIsLocked = !$actor.isOwner
         ? true
         : $actor.flags?.a5e?.sheetIsLocked ?? true;
 
-    let showDescription = false;
+    const unsubscribe = maneuvers.subscribe((_) => {
+        showUses = usesRequired(maneuvers);
+    });
+
+    onDestroy(() => {
+        unsubscribe();
+    });
 </script>
 
 <div class="maneuvers-page">
@@ -49,8 +58,8 @@
                     {label}
                     {items}
                     {showDescription}
+                    {showUses}
                     type="maneuverDegrees"
-                    usesRequired={usesRequired(maneuvers)}
                 />
             {/if}
         {/each}

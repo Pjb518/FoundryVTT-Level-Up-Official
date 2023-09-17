@@ -1,6 +1,6 @@
 <script>
     import { localize } from "#runtime/svelte/helper";
-    import { getContext } from "svelte";
+    import { getContext, onDestroy } from "svelte";
 
     import updateDocumentDataFromField from "../../../utils/updateDocumentDataFromField";
     import usesRequired from "../../../utils/usesRequired";
@@ -51,6 +51,15 @@
     };
 
     let showDescription = false;
+    let showUses = false;
+
+    const unsubscribe = spells.subscribe((_) => {
+        showUses = usesRequired(spells);
+    });
+
+    onDestroy(() => {
+        unsubscribe();
+    });
 </script>
 
 <div class="spells-page">
@@ -73,9 +82,9 @@
                     {level}
                     {label}
                     {showDescription}
+                    {showUses}
                     items={$spells._levels[level]}
                     type="spellLevels"
-                    usesRequired={usesRequired(spells)}
                 />
             {/if}
         {/each}

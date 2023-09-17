@@ -1,5 +1,5 @@
 <script>
-    import { getContext } from "svelte";
+    import { getContext, onDestroy } from "svelte";
 
     import CreateMenu from "../actorUtilityBar/CreateMenu.svelte";
     import Filter from "../actorUtilityBar/Filter.svelte";
@@ -23,12 +23,23 @@
     const subTypes = A5E.objectTypes;
     const reducerType = "objects";
 
+    let showDescription = false;
+    let showUses = usesRequired(objects);
+    let showQuantity = quantityRequired(objects);
+
     $: menuList = Object.entries(subTypes);
     $: sortedObjects = Object.entries($objects._types).sort(
         (a, b) => sortMap[a[0]] - sortMap[b[0]]
     );
 
-    let showDescription = false;
+    const unsubscribe = objects.subscribe((_) => {
+        showUses = usesRequired(objects);
+        showQuantity = quantityRequired(objects);
+    });
+
+    onDestroy(() => {
+        unsubscribe();
+    });
 </script>
 
 <div class="inventory-page">
@@ -51,9 +62,9 @@
                     {label}
                     {items}
                     {showDescription}
+                    {showQuantity}
+                    {showUses}
                     type="objectTypesPlural"
-                    quantityRequired={quantityRequired(objects)}
-                    usesRequired={usesRequired(objects)}
                 />
             {/if}
         {/each}

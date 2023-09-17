@@ -11,27 +11,26 @@
     export let items;
     export let type;
     export let showDescription = false;
-
-    export let usesRequired = false;
-    export let quantityRequired = false;
+    export let showUses = false;
+    export let showQuantity = false;
 
     const actor = getContext("actor");
 
     const A5E = CONFIG.A5E;
 
-    function getHeadingTemplateConfiguration(usesRequired, quantityRequired) {
+    function getHeadingTemplateConfiguration(showUses, showQuantity) {
         let areas = "name";
         let columns = "1fr";
 
-        if (usesRequired) {
-            if (quantityRequired) {
+        if (showUses) {
+            if (showQuantity) {
                 areas = "name quantity uses";
                 columns = "1fr 4rem 6.25rem";
             } else {
                 areas = "name uses";
                 columns = "1fr 6.25rem";
             }
-        } else if (quantityRequired) {
+        } else if (showQuantity) {
             areas = "name quantity";
             columns = "1fr 4rem";
         }
@@ -42,19 +41,19 @@
         return { areas: `"${areas}"`, columns };
     }
 
-    function getItemTemplateConfiguration(usesRequired, quantityRequired) {
+    function getItemTemplateConfiguration(showUses, showQuantity) {
         let areas = "icon name indicators";
         let columns = "min-content 1fr min-content";
 
-        if (usesRequired) {
-            if (quantityRequired) {
+        if (showUses) {
+            if (showQuantity) {
                 areas = "icon name indicators quantity uses";
                 columns = "min-content 1fr min-content 4rem 6.25rem";
             } else {
                 areas = "icon name indicators uses";
                 columns = "min-content 1fr min-content 6.25rem";
             }
-        } else if (quantityRequired) {
+        } else if (showQuantity) {
             areas = "icon name indicators quantity";
             columns = "min-content 1fr min-content 4rem";
         }
@@ -69,13 +68,13 @@
     $: showSpellPoints = $actor.flags?.a5e?.showSpellPoints ?? false;
 
     $: headingTemplateConfiguration = getHeadingTemplateConfiguration(
-        usesRequired,
-        quantityRequired
+        showUses,
+        showQuantity
     );
 
     $: itemTemplateConfiguration = getItemTemplateConfiguration(
-        usesRequired,
-        quantityRequired
+        showUses,
+        showQuantity
     );
 </script>
 
@@ -113,13 +112,13 @@
                 {/if}
             </h3>
 
-            {#if quantityRequired}
+            {#if showQuantity}
                 <h3 class="category-heading category-heading--quantity">
                     Quantity
                 </h3>
             {/if}
 
-            {#if usesRequired}
+            {#if showUses}
                 <h3 class="category-heading category-heading--uses">Uses</h3>
             {/if}
         </header>
