@@ -4,7 +4,7 @@ import getMaterialProperties from './getMaterialProperties';
 import getShieldProperties from './getShieldProperties';
 import getWeaponProperties from './getWeaponProperties';
 
-export default function getObjectSummaryData(item) {
+export default function getObjectSummaryData(item, options) {
   const summaryData = {};
   const { objectType } = item.system;
 
@@ -17,7 +17,10 @@ export default function getObjectSummaryData(item) {
   objectProperties.sort((a, b) => a.localeCompare(b));
 
   summaryData.objectProperties = objectProperties.join(', ');
-  summaryData.craftingComponents = getCraftingComponentsLabel(item);
+
+  if (!options?.hideCraftingComponents) {
+    summaryData.craftingComponents = getCraftingComponentsLabel(item);
+  }
 
   return summaryData;
 }

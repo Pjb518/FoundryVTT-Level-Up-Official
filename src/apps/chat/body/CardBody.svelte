@@ -13,6 +13,7 @@
     import prepareRolls from "../../dataPreparationHelpers/cardRolls/prepareRolls";
     import prepareSelectedTokenActors from "../../dataPreparationHelpers/prepareSelectedTokenActors";
     import pressedKeysStore from "../../../stores/pressedKeysStore";
+    import ItemSummary from "../../components/itemSummaries/ItemSummary.svelte";
 
     export let message;
     export let hideDescription = false;
@@ -317,9 +318,16 @@
     const item = fromUuidSync($message?.flags?.a5e?.itemId ?? "");
 
     $: hoverColor = getHoverColor($pressedKeysStore);
+    $: summaryData = $message?.flags?.a5e?.summaryData;
 </script>
 
 <article>
+    {#if Object.values(summaryData ?? {}).some(Boolean)}
+        <hr class="a5e-rule a5e-rule--card" />
+
+        <ItemSummary {summaryData} />
+    {/if}
+
     {#if (itemDescription || unidentifiedDescription || actionDescription) && !hideDescription}
         <section
             class="description-block"
@@ -327,7 +335,7 @@
             out:slide={{ duration: 150 }}
         >
             {#if itemDescription || unidentifiedDescription}
-                <hr class="a5e-rule" />
+                <hr class="a5e-rule a5e-rule--card" />
 
                 <div>
                     <!-- svelte-ignore missing-declaration -->

@@ -1,6 +1,6 @@
 import { localize } from '#runtime/svelte/helper';
 
-export default function getManeuverSummaryData(item) {
+export default function getManeuverSummaryData(item, options) {
   const maneuverDegree = CONFIG.A5E.maneuverDegrees[parseInt(item.system.degree, 10)];
   const tradition = CONFIG.A5E.maneuverTraditions[item.system.tradition] ?? '';
   const stance = item.system.isStance ? 'Stance' : '';

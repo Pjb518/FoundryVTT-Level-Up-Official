@@ -170,7 +170,7 @@
             {@html item.system.unidentifiedDescription ??
                 localize("A5E.NoUnidentifiedDescription")}
         {:else}
-            <ItemSummary {summaryData} />
+            <ItemSummary {summaryData} --margin-bottom="0.5rem" />
 
             <!-- svelte-ignore missing-declaration -->
             {@html description}

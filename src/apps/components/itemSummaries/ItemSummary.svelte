@@ -48,31 +48,26 @@
     <p class="item-properties">{summaryData.spellProperties}</p>
 {/if}
 
-{#if Object.values(summaryData).some(Boolean)}
-    <dl
+{#if fields.some(({ field }) => summaryData[field])}
+    <ul
         bind:clientHeight={listHeight}
         class="summary-list"
         class:hide={listHeight === 0}
     >
         {#each fields as { field, label }}
             {#if summaryData[field]}
-                <div class="summary-group">
-                    <dt>{localize(label)}:</dt>
-                    <dd>{summaryData[field]}</dd>
-                </div>
+                <li>
+                    <span class="field-header">{localize(label)}:</span>
+                    {summaryData[field]}
+                </li>
             {/if}
         {/each}
-    </dl>
+    </ul>
 {/if}
 
 <style lang="scss">
-    dt {
-        white-space: nowrap;
-    }
-
-    dd {
-        margin: 0;
-        padding: 0;
+    .field-header {
+        font-weight: bold;
     }
 
     .item-properties {
@@ -84,12 +79,9 @@
         display: flex;
         flex-direction: column;
         gap: 0.25rem;
-        margin: 0 0 0.5rem 0;
-    }
-
-    .summary-group {
-        display: flex;
-        align-items: flex-start;
-        gap: 0.25rem;
+        list-style: none;
+        margin: 0;
+        margin-bottom: var(--margin-bottom, 0);
+        padding: 0;
     }
 </style>

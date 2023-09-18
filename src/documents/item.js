@@ -23,6 +23,7 @@ import RollPreparationManager from '../managers/RollPreparationManager';
 import TemplatePreparationManager from '../managers/TemplatePreparationManager';
 
 import MigrationRunnerBase from '../migration/MigrationRunnerBase';
+import getSummaryData from '../utils/summaries/getSummaryData';
 
 /**
  * Override and extend the basic Item implementation.
@@ -248,7 +249,12 @@ export default class ItemA5e extends Item {
             })
             : null,
           prompts: activationData.prompts,
-          rollData: rolls.map(({ roll, ...rollData }) => rollData)
+          rollData: rolls.map(({ roll, ...rollData }) => rollData),
+          summaryData: getSummaryData(this, action, {
+            hideCraftingComponents: true,
+            hideSpellComponents: true,
+            hideSpellLevel: true
+          })
         }
       },
       content: '<article></article>'
@@ -299,7 +305,11 @@ export default class ItemA5e extends Item {
             })
             : null,
           img: action?.img ?? this.img,
-          name: this.name
+          name: this.name,
+          summaryData: getSummaryData(this, action, {
+            hideSpellComponents: true,
+            hideSpellLevel: true
+          })
         }
       },
       content: '<article></article>'
