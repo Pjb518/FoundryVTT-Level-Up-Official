@@ -71,8 +71,14 @@
     }
 
     .item-properties {
+        display: block;
         font-style: italic;
-        margin-bottom: 0.5rem;
+        margin-bottom: 0.25rem;
+        padding-inline: var(--inline-padding, 0);
+
+        &:last-child {
+            margin-bottom: 0;
+        }
     }
 
     .summary-list {
@@ -80,8 +86,7 @@
         flex-direction: column;
         gap: 0.25rem;
         list-style: none;
-        margin: 0;
-        margin-bottom: var(--margin-bottom, 0);
-        padding: 0;
+        margin: 0 0 var(--margin-bottom, 0) 0;
+        padding: 0 var(--inline-padding, 0);
     }
 </style>

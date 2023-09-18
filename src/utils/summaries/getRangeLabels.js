@@ -1,17 +1,16 @@
-import { localize } from '#runtime/svelte/helper';
-
 export default function getRangeLabels(action) {
   const ranges = action?.ranges;
+  const { distanceAbbreviations, rangeValues, rangeDescriptors } = CONFIG.A5E;
 
-  if (!Array.isArray(ranges)) return null;
+  if (foundry.utils.isEmpty(ranges)) return null;
 
   return Object.values(ranges).map(({ range, unit }) => {
     if (['short', 'medium', 'long'].includes(range)) {
-      return `${CONFIG.A5E.rangeDescriptors[range]} (${localize(CONFIG.A5E.rangeValues[range])} ${CONFIG.A5E.distanceAbbreviations.feet})`;
+      return `${rangeDescriptors[range]} (${rangeValues[range]} ${distanceAbbreviations.feet})`;
     }
 
-    if (['fiveFeet', 'self', 'touch'].includes(range)) return CONFIG.A5E.rangeDescriptors[range];
+    if (['fiveFeet', 'self', 'touch'].includes(range)) return rangeDescriptors[range];
 
-    return `${range} ${CONFIG.A5E.distanceAbbreviations[unit]}`;
+    return `${range} ${distanceAbbreviations[unit]}`;
   }).join(', ');
 }

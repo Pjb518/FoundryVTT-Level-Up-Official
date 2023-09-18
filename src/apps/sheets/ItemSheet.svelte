@@ -13,6 +13,7 @@
     import ItemUnidentifiedDescriptionTab from "../components/pages/ItemUnidentifiedDescriptionTab.svelte";
     import ItemEffectsTab from "../components/pages/ItemEffectsTab.svelte";
     import ItemEquipmentTab from "../components/pages/ItemEquipmentTab.svelte";
+    import getSummaryData from "../../utils/summaries/getSummaryData";
 
     export let { appId, document, sheet } = getContext("#external").application;
     export let elementRoot;
@@ -88,6 +89,8 @@
 
     setContext("item", item);
     setContext("appId", appId);
+
+    $: summaryData = getSummaryData($item);
 </script>
 
 <ApplicationShell bind:elementRoot>
@@ -96,7 +99,7 @@
 
         <NavigationBar {currentTab} {tabs} on:tab-change={updateCurrentTab} />
 
-        <svelte:component this={currentTab.component} />
+        <svelte:component this={currentTab.component} {summaryData} />
     </main>
 </ApplicationShell>
 
