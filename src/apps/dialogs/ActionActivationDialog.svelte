@@ -175,7 +175,7 @@
         <AttackRollSection {attackRoll} {options} bind:attackRollData />
     {/if}
 
-    {#if validateTemplateData($item, actionId)}
+    {#if validateTemplateData($item.actions.get(actionId)?.area)}
         <FormSection>
             <Checkbox
                 label="A5E.ItemPlaceTemplate"

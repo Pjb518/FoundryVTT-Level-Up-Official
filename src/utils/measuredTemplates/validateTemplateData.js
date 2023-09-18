@@ -4,9 +4,7 @@
  * @param {String} actionId
  * @returns {Boolean} isValid
  */
-export default function validateTemplateData(item, actionId) {
-  const { area } = item.actions[actionId] ?? {};
-
+export default function validateTemplateData(area) {
   if (foundry.utils.isEmpty(area)) return false;
 
   area.quantity ??= 1;

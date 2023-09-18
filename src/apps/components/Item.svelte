@@ -5,13 +5,11 @@
 
     import pressedKeysStore from "../../stores/pressedKeysStore";
     import getKeyPressAsOptions from "../handlers/getKeyPressAsOptions";
+    import getSummaryData from "../../utils/summaries/getSummaryData";
 
     import ItemActionButtons from "./ItemActionButtons.svelte";
-    import FeatureSummary from "./itemSummaries/FeatureSummary.svelte";
-    import ManeuverSummary from "./itemSummaries/ManeuverSummary.svelte";
-    import ObjectSummary from "./itemSummaries/ObjectSummary.svelte";
-    import SpellSummary from "./itemSummaries/SpellSummary.svelte";
     import ItemInnerWrapper from "./ItemInnerWrapper.svelte";
+    import ItemSummary from "./itemSummaries/ItemSummary.svelte";
 
     export let item;
     export let action = null;
@@ -40,19 +38,6 @@
             return false;
 
         return true;
-    }
-
-    function getSummaryComponent(item) {
-        switch (item?.type) {
-            case "feature":
-                return FeatureSummary;
-            case "maneuver":
-                return ManeuverSummary;
-            case "object":
-                return ObjectSummary;
-            case "spell":
-                return SpellSummary;
-        }
     }
 
     function onItemActivate() {
@@ -130,6 +115,8 @@
         item,
         sheetIsLocked
     );
+
+    $: summaryData = getSummaryData(item, action);
 </script>
 
 <!-- svelte-ignore a11y-click-events-have-key-events -->
@@ -183,11 +170,7 @@
             {@html item.system.unidentifiedDescription ??
                 localize("A5E.NoUnidentifiedDescription")}
         {:else}
-            <svelte:component
-                this={getSummaryComponent(item)}
-                {actionId}
-                {item}
-            />
+            <ItemSummary {summaryData} />
 
             <!-- svelte-ignore missing-declaration -->
             {@html description}

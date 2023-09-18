@@ -1,0 +1,25 @@
+import getBaseActionSummaryData from './getBaseActionSummaryData';
+import getFeatureSummaryData from './getFeatureSummaryData';
+import getManeuverSummaryData from './getManeuverSummaryData';
+import getObjectSummaryData from './getObjectSummaryData';
+import getSpellSummaryData from './getSpellSummaryData';
+
+export default function getSummaryData(item, action) {
+  const summaryData = {};
+
+  if (!foundry.utils.isEmpty(action) || item.actions.count === 1) {
+    foundry.utils.mergeObject(
+      summaryData,
+      getBaseActionSummaryData(item, action ?? item.actions.values()[0])
+    );
+  }
+
+  if (foundry.utils.isEmpty(action)) {
+    if (item.type === 'feature') mergeObject(summaryData, getFeatureSummaryData(item, action));
+    else if (item.type === 'maneuver') mergeObject(summaryData, getManeuverSummaryData(item, action));
+    else if (item.type === 'object') mergeObject(summaryData, getObjectSummaryData(item, action));
+    else if (item.type === 'spell') mergeObject(summaryData, getSpellSummaryData(item));
+  }
+
+  return summaryData;
+}
