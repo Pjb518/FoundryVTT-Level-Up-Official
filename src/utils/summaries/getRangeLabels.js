@@ -11,6 +11,8 @@ export default function getRangeLabels(action) {
 
     if (['fiveFeet', 'self', 'touch'].includes(range)) return rangeDescriptors[range];
 
+    if (!unit) return range;
+
     return `${range} ${distanceAbbreviations[unit]}`;
   }).join(', ');
 }
