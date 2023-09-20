@@ -1,0 +1,74 @@
+{
+	"name": "Necrotic Grip",
+	"type": "maneuver",
+	"img": "icons/magic/unholy/hand-claw-glow-orange.webp",
+	"system": {
+		"actions": {
+			"QJkutSDrVXULhBly": {
+				"name": "Necrotic Grip",
+				"activation": {
+					"type": "reaction",
+					"cost": 1,
+					"reactionTrigger": "When you are grappling an opponent"
+				},
+				"consumers": {
+					"x2rMaVJPADyNod54": {
+						"type": "resource",
+						"default": true,
+						"resource": "exertion",
+						"quantity": 2
+					}
+				},
+				"rolls": {
+					"ZeXc297c1OKs44jv": {
+						"type": "damage",
+						"default": true,
+						"damageType": "necrotic",
+						"formula": "1d8 + @cha.mod"
+					}
+				},
+				"prompts": {},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"threshold": 6
+					}
+				},
+				"ranges": {}
+			}
+		},
+		"description": "<p>Your grip can wither flesh from bone. When you are&nbsp;<span class=\"freelinking-link\">grappling</span>&nbsp;an opponent, you can use your reaction to deal necrotic damage equal to 1d8 + your Charisma modifier in place of basic melee damage.</p>",
+		"favorite": false,
+		"secretDescription": "",
+		"source": {
+			"name": "",
+			"link": "",
+			"publisher": ""
+		},
+		"uses": {
+			"value": null,
+			"max": "",
+			"per": null,
+			"recharge": {
+				"formula": "1d6",
+				"threshold": "6"
+			}
+		},
+		"schema": {
+			"version": 0.001,
+			"lastMigration": null
+		},
+		"degree": 2,
+		"exertionCost": 2,
+		"isStance": false,
+		"prerequisite": "",
+		"tradition": "eldritchBlackguard"
+	},
+	"effects": [],
+	"folder": null,
+	"flags": {},
+	"_id": "nuo0pwy265i4v1p5"
+}
