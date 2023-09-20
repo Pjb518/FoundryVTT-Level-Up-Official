@@ -5,7 +5,7 @@ export default function getAttunementLabel(item) {
 
   if (!requiresAttunement) return null;
   if (attuned) return localize('A5E.Attuned');
-  if (!item.actor) return localize('A5E.AttunementRequired');
+  if (!item.actor) return localize('A5E.AttunementRequiredPrompt');
 
-  return `${localize('A5E.AttunementRequired')} - ${localize('A5E.AttunedNot')}`;
+  return `${localize('A5E.AttunementRequiredPrompt')} - ${localize('A5E.AttunedNot')}`;
 }

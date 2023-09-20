@@ -19,7 +19,7 @@ export default function getObjectMechanicsLabel(item, options) {
   }
 
   if (includePrice && includeAttunement) return `${attunement}; Cost ${price}`;
-  if (includePrice) return price;
+  if (includePrice) return `Cost ${price}`;
   if (includeAttunement) return attunement;
 
   return null;

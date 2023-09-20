@@ -1,7 +1,11 @@
 <script>
     import { localize } from "#runtime/svelte/helper";
 
-    const generalFields = [
+    const fields = [
+        {
+            field: "craftingComponents",
+            label: "A5E.CraftingComponents",
+        },
         {
             field: "activationCost",
             label: "A5E.ActionActivationCost",
@@ -28,25 +32,6 @@
         },
     ];
 
-    const objectFields = [
-        {
-            field: "attunement",
-            label: "A5E.Attunement",
-        },
-        {
-            field: "rarity",
-            label: "A5E.ItemRarity",
-        },
-        {
-            field: "craftingComponents",
-            label: "A5E.CraftingComponents",
-        },
-        {
-            field: "price",
-            label: "A5E.ItemPrice",
-        },
-    ];
-
     export let summaryData = {};
     let listHeight;
 </script>
@@ -54,10 +39,6 @@
 <div class="summary-wrapper">
     {#if summaryData.objectMechanics}
         <p class="item-properties">{summaryData.objectMechanics}</p>
-    {/if}
-
-    {#if summaryData.craftingComponents}
-        <p class="crafting-components">{summaryData.craftingComponents}</p>
     {/if}
 
     {#if summaryData.objectProperties}
@@ -72,24 +53,22 @@
         <p class="item-properties">{summaryData.spellProperties}</p>
     {/if}
 
-    {#each [objectFields, generalFields] as fieldGroup}
-        {#if fieldGroup.some(({ field }) => summaryData[field])}
-            <ul
-                bind:clientHeight={listHeight}
-                class="summary-list"
-                class:hide={listHeight === 0}
-            >
-                {#each fieldGroup as { field, label }}
-                    {#if summaryData[field]}
-                        <li>
-                            <span class="field-header">{localize(label)}:</span>
-                            {summaryData[field]}
-                        </li>
-                    {/if}
-                {/each}
-            </ul>
-        {/if}
-    {/each}
+    {#if fields.some(({ field }) => summaryData[field])}
+        <ul
+            bind:clientHeight={listHeight}
+            class="summary-list"
+            class:hide={listHeight === 0}
+        >
+            {#each fields as { field, label }}
+                {#if summaryData[field]}
+                    <li>
+                        <span class="field-header">{localize(label)}:</span>
+                        {summaryData[field]}
+                    </li>
+                {/if}
+            {/each}
+        </ul>
+    {/if}
 </div>
 
 <style lang="scss">
@@ -99,13 +78,9 @@
 
     .summary-wrapper .item-properties {
         display: block;
-        font-style: italic;
         margin-bottom: 0;
         padding-inline: var(--inline-padding, 0);
-
-        &:last-child {
-            margin-bottom: 0;
-        }
+        font-style: italic;
     }
 
     .summary-list {
