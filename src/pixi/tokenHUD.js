@@ -59,20 +59,19 @@ export default class TokenHUDA5e extends TokenHUD {
     event.preventDefault();
     event.stopPropagation();
 
-    const choices = this._getStatusEffectChoices();
-    const conditions = CONFIG.statusEffects
-      .sort((a, b) => (b?.statuses?.length ?? 0) - (a?.statuses?.length ?? 0));
+    const removals = [];
+    const conditions = CONFIG.statusEffects;
 
-    const skipConditions = new Set();
     for (const condition of conditions) {
-      if (skipConditions.has(condition.id)) continue;
+      const existing = this.object.actor.effects.reduce((arr, e) => {
+        if ((e.statuses.size === 1) && e.statuses.has(condition.id)) arr.push(e.id);
+        return arr;
+      }, []);
 
-      const key = condition.icon;
-      if (!(choices[key]?.isActive)) continue;
-      if (condition?.statuses?.length) skipConditions.add(condition.statuses[0]);
-
-      await this.object.document.toggleActiveEffect(condition, { active: false });
+      if (existing.length) removals.push(...existing);
     }
+
+    this.object.actor.deleteEmbeddedDocuments('ActiveEffect', removals);
   }
 
   /**

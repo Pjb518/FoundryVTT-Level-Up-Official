@@ -12,6 +12,26 @@
                 ? CONFIG.statusEffects.find((e) => e.id === id)
                 : src;
 
+        if (typeof effect === "object" && effect?.statuses?.length) {
+            const existing = HUD.object.actor.effects.reduce((arr, e) => {
+                if (e.statuses.size === 1 && e.statuses.has(id)) arr.push(e.id);
+
+                effect?.statuses?.forEach((s) => {
+                    if (e.statuses.size === 1 && e.statuses.has(s))
+                        arr.push(e.id);
+                });
+
+                return arr;
+            }, []);
+
+            if (existing.length) {
+                return HUD.object.actor.deleteEmbeddedDocuments(
+                    "ActiveEffect",
+                    existing
+                );
+            }
+        }
+
         return HUD?.object?.toggleEffect(effect, { overlay });
     }
 

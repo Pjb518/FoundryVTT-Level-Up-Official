@@ -345,7 +345,6 @@ export default class ActiveEffectA5e extends ActiveEffect {
     this.#updateCanvas();
 
     if (this.parent?.documentName !== 'Actor') return;
-    this.#deleteSubConditions();
 
     this.parent.effectPhases = null;
     this.parent.reset();
@@ -374,28 +373,6 @@ export default class ActiveEffectA5e extends ActiveEffect {
         foundry.utils.setProperty(effect, 'flags.a5e.source', data.statuses[0]);
       }
       token.document.toggleActiveEffect(effect, { active: true });
-    });
-  }
-
-  #deleteSubConditions() {
-    const statuses = this.statuses ?? [];
-    const subConditions = new Set();
-    statuses.forEach((statusId) => {
-      const statusEffect = CONFIG.statusEffects.find((e) => e.id === statusId);
-      if (!statusEffect) return;
-
-      subConditions.add(...statusEffect?.statuses ?? []);
-    });
-
-    if (!subConditions.size) return;
-    const token = this.parent?.getActiveTokens()?.[0];
-    if (!token) return;
-
-    subConditions.forEach((c) => {
-      const effect = CONFIG.statusEffects.find((e) => e.id === c);
-      if (!effect) return;
-
-      token.document.toggleActiveEffect(effect, { active: false });
     });
   }
 
