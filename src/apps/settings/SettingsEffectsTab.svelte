@@ -33,6 +33,7 @@
 
     const automatedConditions = settings.getStore("automatedConditions");
     const automateBloodied = settings.getStore("automateBloodiedApplication");
+    const radialEffects = settings.getStore("enableRadialEffects");
     const removeEffects = settings.getStore("removeActiveEffectsOnLongRest");
 
     const automateUnconscious = settings.getStore(
@@ -96,6 +97,20 @@
                     false}
                 on:updateSelection={({ detail }) => {
                     updates.set("automateUnconsciousApplication", detail);
+                    reload = true;
+                }}
+            />
+        </FormSection>
+
+        <FormSection
+            hint="A5E.settings.hints.enableRadialEffects"
+            --gap="0.25rem"
+        >
+            <Checkbox
+                label="A5E.settings.enableRadialEffects"
+                checked={updates.get("enableRadialEffects") ?? $radialEffects}
+                on:updateSelection={({ detail }) => {
+                    updates.set("enableRadialEffects", detail);
                     reload = true;
                 }}
             />
