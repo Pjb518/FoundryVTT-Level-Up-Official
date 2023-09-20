@@ -251,7 +251,10 @@ export default class ItemA5e extends Item {
           prompts: activationData.prompts,
           rollData: rolls.map(({ roll, ...rollData }) => rollData),
           summaryData: getSummaryData(this, action, {
+            hideAttunementData: true,
             hideCraftingComponents: true,
+            hidePrice: true,
+            hideRarity: true,
             hideSpellComponents: true,
             hideSpellLevel: true
           })
