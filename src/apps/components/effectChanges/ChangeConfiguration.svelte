@@ -8,12 +8,10 @@
 
     export let idx;
     export let key;
+    export let optionsList;
 
     const dispatch = createEventDispatcher();
     const effect = getContext("effect");
-    const sheet = getContext("sheet");
-
-    const optionsList = sheet.optionsList;
 
     const effectKeyLocalizations = CONFIG.A5E.effectsKeyLocalizations;
     const MODES = CONFIG.A5E.ACTIVE_EFFECT_MODES;

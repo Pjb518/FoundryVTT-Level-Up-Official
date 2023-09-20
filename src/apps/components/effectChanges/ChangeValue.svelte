@@ -7,9 +7,9 @@
 
     export let key;
     export let mode;
+    export let optionsList;
     export let value;
 
-    const sheet = getContext("sheet");
     const dispatch = createEventDispatcher();
 
     // Convert value to array if possible
@@ -50,7 +50,6 @@
     let conditionalObj = convertToObject(value);
 
     const MODES = CONFIG.A5E.ACTIVE_EFFECT_MODES;
-    const optionsList = sheet.optionsList;
     $: componentType = optionsList[key]?.type ?? "DEFAULT";
 </script>
 

@@ -64,6 +64,7 @@
                     <ChangeConfiguration
                         {idx}
                         {key}
+                        {optionsList}
                         on:changeKey={({ detail }) =>
                             updateChange(idx, "key", detail)}
                         on:changePriority={({ detail }) =>
@@ -77,6 +78,7 @@
                     {key}
                     {value}
                     {mode}
+                    {optionsList}
                     on:change={({ detail }) =>
                         updateChange(idx, "value", detail)}
                 />
