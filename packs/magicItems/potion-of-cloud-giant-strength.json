@@ -1,0 +1,137 @@
+{
+	"name": "Potion of Cloud Giant Strength",
+	"type": "object",
+	"img": "icons/consumables/potions/potion-bottle-corked-white.webp",
+	"system": {
+		"ac": {
+			"baseFormula": "",
+			"formula": "",
+			"maxDex": 0,
+			"minStr": 0,
+			"mode": 1,
+			"requiresNoShield": false,
+			"requiresUnarmored": false
+		},
+		"actions": {
+			"n9Q2Qouem5tP22tj": {
+				"name": "Drink Potion",
+				"activation": {
+					"type": "action",
+					"cost": 1
+				},
+				"consumers": {},
+				"rolls": {},
+				"prompts": {
+					"2Jahfqa6g2I2qfJw": {
+						"type": "effect",
+						"default": true,
+						"effectId": "XLlSFdtETTS1R91h",
+						"label": "Potion of Cloud Giant Strength"
+					}
+				},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"threshold": 6
+					}
+				},
+				"duration": {
+					"unit": "hour",
+					"value": 1
+				}
+			}
+		},
+		"description": "<p>After you drink this opaque white potion, for the next hour your Strength score increases to 27.</p>\n<p>The potion has no effect if your Strength is equal to or greater than the giant&rsquo;s Strength score.</p>",
+		"favorite": false,
+		"secretDescription": "",
+		"source": "",
+		"uses": {
+			"value": null,
+			"max": "",
+			"per": null,
+			"recharge": {
+				"formula": "1d6",
+				"threshold": 6
+			}
+		},
+		"schema": {
+			"version": 0.006,
+			"lastMigration": {
+				"version": {
+					"schema": 0.004,
+					"foundry": "11.305",
+					"system": "0.13.3"
+				}
+			}
+		},
+		"ammunitionProperties": [],
+		"armorCategory": "",
+		"armorProperties": [],
+		"attuned": false,
+		"bulky": false,
+		"craftingComponents": "A body part from a cloud giant and a vial of mimic essence",
+		"containerId": "",
+		"damagedState": 0,
+		"equippedState": 0,
+		"items": {},
+		"materialProperties": [],
+		"objectType": "consumable",
+		"plotItem": false,
+		"price": "5,000 gp",
+		"proficient": true,
+		"quantity": 1,
+		"rarity": "veryRare",
+		"requiresAttunement": false,
+		"shieldCategory": "",
+		"shieldProperties": [],
+		"unidentified": false,
+		"unidentifiedDescription": "",
+		"unidentifiedName": "",
+		"weaponProperties": [],
+		"weight": 0
+	},
+	"effects": [
+		{
+			"icon": "icons/magic/control/buff-strength-muscle-damage-orange.webp",
+			"origin": "Item.sv03N0XRkxvTL2ek",
+			"flags": {
+				"a5e": {
+					"sort": 0,
+					"transferType": "onUse",
+					"duration": {
+						"unit": "hours"
+					}
+				}
+			},
+			"transfer": false,
+			"name": "Potion of Cloud Giant Strength",
+			"_id": "XLlSFdtETTS1R91h",
+			"changes": [
+				{
+					"key": "system.abilities.str.value",
+					"mode": 4,
+					"value": "27",
+					"priority": null
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": 3600,
+				"combat": null,
+				"rounds": null,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "",
+			"statuses": []
+		}
+	],
+	"flags": {},
+	"folder": "UZpOnU4Egi62h2Py",
+	"_id": "hzrg91rtlqvsw9od"
+}
