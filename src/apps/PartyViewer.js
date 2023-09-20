@@ -27,4 +27,9 @@ export default class PartyViewer extends TJSDialog {
 
     this.data.content.props.sheet = this;
   }
+
+  close() {
+    game.dialogs.partyViewer = null;
+    super.close();
+  }
 }

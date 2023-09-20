@@ -18,6 +18,8 @@ import HeritageDataModel from '../dataModels/item/HeritageDataModel';
 
 import EffectOptions from '../activeEffects/EffectOptions';
 
+import registerKeybindings from '../keybindings';
+
 import _onCombatControl from '../combat/_onCombatControl';
 import _onCombatantControl from '../combat/_onCombatantControl';
 import getInitiativeFormula from '../combat/getInitiativeFormula';
@@ -145,6 +147,8 @@ export default function init() {
     performPreLocalization(CONFIG.A5E);
     game.a5e.activeEffects.EffectOptions.createOptions();
   });
+
+  registerKeybindings();
 
   return preloadHandlebarsTemplates();
 }
