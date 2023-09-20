@@ -462,12 +462,13 @@ A5E.healingTypes = {
  * @enum {string}
  */
 A5E.itemRarity = {
-  common: 'A5E.ItemRarityCommon',
-  uncommon: 'A5E.ItemRarityUncommon',
-  rare: 'A5E.ItemRarityRare',
-  veryRare: 'A5E.ItemRarityVeryRare',
-  legendary: 'A5E.ItemRarityLegendary',
-  artifact: 'A5E.ItemRarityArtifact'
+  mundane: 'A5E.itemRarities.mundane',
+  common: 'A5E.itemRarities.common',
+  uncommon: 'A5E.itemRarities.uncommon',
+  rare: 'A5E.itemRarities.rare',
+  veryRare: 'A5E.itemRarities.veryRare',
+  legendary: 'A5E.itemRarities.legendary',
+  artifact: 'A5E.itemRarities.artifact'
 };
 
 /**
