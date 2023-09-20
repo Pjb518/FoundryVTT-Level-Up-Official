@@ -1,0 +1,161 @@
+{
+	"name": "Rod of Entropy",
+	"type": "object",
+	"img": "icons/weapons/staves/staff-animal-skull.webp",
+	"effects": [],
+	"flags": {},
+	"system": {
+		"ac": {
+			"baseFormula": "",
+			"formula": "",
+			"maxDex": 0,
+			"minStr": 0,
+			"mode": 1,
+			"requiresNoShield": false,
+			"requiresUnarmored": false
+		},
+		"actions": {
+			"ZdX1rqHn29jj57xS": {
+				"name": "Rod of Entropy",
+				"activation": {
+					"cost": "",
+					"type": "",
+					"reactionTrigger": ""
+				},
+				"duration": {
+					"unit": "",
+					"value": ""
+				},
+				"area": {
+					"shape": "",
+					"size": "",
+					"placeTemplate": false,
+					"quantity": 1
+				},
+				"target": {
+					"quantity": 1,
+					"type": "creatureObject"
+				},
+				"rolls": {
+					"4loQUAEZaCc8RC8h": {
+						"bonus": "1",
+						"critThreshold": "20",
+						"type": "attack",
+						"attackType": "meleeWeaponAttack",
+						"ability": "default"
+					},
+					"3DTZ2lWFlQONwpTn": {
+						"canCrit": true,
+						"damageType": "bludgeoning",
+						"formula": "1d4 + @str.mod + 1",
+						"name": "Club",
+						"type": "damage"
+					},
+					"5tU8gPNMYNdvmipl": {
+						"type": "damage",
+						"default": true,
+						"damageType": "necrotic",
+						"formula": "1d6"
+					}
+				},
+				"consumers": {}
+			},
+			"d9o9XDuOXRkR4FsM": {
+				"name": "Entropy Cone",
+				"activation": {},
+				"consumers": {},
+				"rolls": {
+					"CGW2AXOOAZQCF1Ya": {
+						"type": "damage",
+						"default": true,
+						"scaling": {
+							"mode": "itemUses",
+							"formula": "3d8"
+						},
+						"formula": "3d8",
+						"damageType": "necrotic"
+					}
+				},
+				"prompts": {
+					"9p7XrnXZdeeB1bCx": {
+						"type": "savingThrow",
+						"default": true,
+						"ability": "con",
+						"saveDC": {
+							"type": "custom",
+							"bonus": "15"
+						},
+						"onSave": "halves damage"
+					}
+				},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"threshold": 6
+					}
+				},
+				"area": {
+					"shape": "cone",
+					"quantity": 1,
+					"length": 15,
+					"placeTemplate": true
+				}
+			}
+		},
+		"description": "<p>This skull-topped rod can be used as a club that grants a +1 bonus to&nbsp;<span class=\"freelinking-link\">attack and damage rolls</span>&nbsp;and deals an extra 1d6 necrotic damage.</p>\n<p>The rod has 3 charges and regains 1d3 expended charges at dawn. As an action, you can expend the rod&rsquo;s charges, increasing entropy in a 15-foot cone. Each creature in the area makes a DC 15 Constitution&nbsp;<span class=\"freelinking-link\">saving throw</span>&nbsp;. On a failure, the target takes 3d8 necrotic damage per charge expended, or half the damage on a success. A creature killed by this damage decays and becomes an inanimate skeleton. In addition, nonmagical objects in the area that are not being carried or worn experience rapid aging. If you expended 1 charge, soft materials like leather and cloth rot away, and liquid evaporates. If you expended 2 charges, hard organic materials like wood and bone crumble, and iron and steel rust away. Expending 3 charges causes Medium or smaller stone objects to crumble to dust.</p>",
+		"favorite": false,
+		"secretDescription": "",
+		"source": "",
+		"uses": {
+			"value": 3,
+			"max": "3",
+			"per": "day",
+			"recharge": {
+				"formula": "1d6",
+				"threshold": 6
+			}
+		},
+		"schema": {
+			"version": 0.006,
+			"lastMigration": {
+				"version": {
+					"schema": 0.004,
+					"foundry": "11.305",
+					"system": "0.13.3"
+				}
+			}
+		},
+		"ammunitionProperties": [],
+		"armorCategory": "",
+		"armorProperties": [],
+		"attuned": false,
+		"bulky": false,
+		"craftingComponents": "Demilich’s skull",
+		"containerId": "",
+		"damagedState": 0,
+		"equippedState": 0,
+		"items": {},
+		"materialProperties": [],
+		"objectType": "weapon",
+		"plotItem": false,
+		"price": "15000 gp",
+		"proficient": true,
+		"quantity": 1,
+		"rarity": "veryRare",
+		"requiresAttunement": true,
+		"shieldCategory": "",
+		"shieldProperties": [],
+		"unidentified": false,
+		"unidentifiedDescription": "",
+		"unidentifiedName": "",
+		"weaponProperties": [
+			"simple"
+		],
+		"weight": 2
+	},
+	"folder": null,
+	"_id": "9api580uj836ddey"
+}
