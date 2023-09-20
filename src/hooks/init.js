@@ -7,7 +7,7 @@ import ActiveEffectA5e from '../documents/activeEffect/activeEffect';
 import ActorA5e from '../documents/actor/actor';
 import D20Roll from '../dice/d20Roll';
 import ItemA5e from '../documents/item';
-import TokenA5e from '../documents/token';
+import TokenA5e from '../documents/token/token';
 import TokenDocumentA5e from '../documents/tokenDocument';
 
 // DataModels

@@ -3,19 +3,6 @@ import handleMigration from '../migration/handleMigration';
 
 import KeyPressHandler from '../apps/KeyPressHandler.svelte';
 
-async function addKeyPressLogger() {
-  // eslint-disable-next-line no-new
-  new KeyPressHandler({ target: document.body });
-}
-
-export default async function ready() {
-  Hooks.on('hotbarDrop', hotbarDrop);
-
-  handleMigration();
-  // handleAnnouncement();
-  addKeyPressLogger();
-}
-
 // eslint-disable-next-line no-unused-vars
 async function handleAnnouncement() {
   const LATEST_ANNOUNCEMENT_VERSION = '0.8.0';
@@ -35,4 +22,17 @@ async function handleAnnouncement() {
   announcementWindow.render(true);
 
   game.user.setFlag('a5e', 'latestAnnouncement', game.system.version);
+}
+
+async function addKeyPressLogger() {
+  // eslint-disable-next-line no-new
+  new KeyPressHandler({ target: document.body });
+}
+
+export default async function ready() {
+  Hooks.on('hotbarDrop', hotbarDrop);
+
+  handleMigration();
+  // handleAnnouncement();
+  addKeyPressLogger();
 }
