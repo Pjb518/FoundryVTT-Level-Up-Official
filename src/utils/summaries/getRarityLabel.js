@@ -1,6 +1,8 @@
 export default function getRarityLabel(item) {
-  if (!game.user.isGM && item.system.unidentified) return null;
-  if (!item.system.rarity) return null;
+  const { unidentified, rarity } = item?.system ?? {};
 
-  return CONFIG.A5E.itemRarity[item.system.rarity] ?? item.system.rarity;
+  if (!game.user.isGM && unidentified) return null;
+  if (!rarity || rarity === 'mundane') return null;
+
+  return CONFIG.A5E.itemRarity[rarity] ?? rarity;
 }

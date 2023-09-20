@@ -1,8 +1,7 @@
 import getArmorProperties from './getArmorProperties';
-import getAttunementLabel from './getAttunementLabel';
 import getCraftingComponentsLabel from './getCraftingComponentsLabel';
 import getMaterialProperties from './getMaterialProperties';
-import getRarityLabel from './getRarityLabel';
+import getObjectMechanicsLabel from './getObjectMechanicsLabel';
 import getShieldProperties from './getShieldProperties';
 import getWeaponProperties from './getWeaponProperties';
 
@@ -24,9 +23,7 @@ export default function getObjectSummaryData(item, options) {
     summaryData.craftingComponents = getCraftingComponentsLabel(item);
   }
 
-  if (!options?.hideAttunementData) summaryData.attunement = getAttunementLabel(item);
-  if (!options?.hidePrice) summaryData.price = item.system.price;
-  if (!options?.hideRarity) summaryData.rarity = getRarityLabel(item);
+  summaryData.objectMechanics = getObjectMechanicsLabel(item, options);
 
   return summaryData;
 }

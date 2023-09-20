@@ -52,6 +52,14 @@
 </script>
 
 <div class="summary-wrapper">
+    {#if summaryData.objectMechanics}
+        <p class="item-properties">{summaryData.objectMechanics}</p>
+    {/if}
+
+    {#if summaryData.craftingComponents}
+        <p class="crafting-components">{summaryData.craftingComponents}</p>
+    {/if}
+
     {#if summaryData.objectProperties}
         <p class="item-properties">{summaryData.objectProperties}</p>
     {/if}
