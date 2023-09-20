@@ -21,6 +21,6 @@ export default function preventIfSourceActivated(conditionData, options, userId)
   const hasEffect = token.hasStatusEffect(sourceId);
   if (!hasEffect) return true;
 
-  ui.notifications.error(`This condition cannot be removed as long as ${sourceId} is active.`);
+  ui.notifications.warn(`This condition cannot be removed as long as ${sourceId} is active.`);
   return false;
 }
