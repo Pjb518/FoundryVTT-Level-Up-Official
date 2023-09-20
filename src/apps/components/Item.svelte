@@ -170,10 +170,12 @@
             {@html item.system.unidentifiedDescription ??
                 localize("A5E.NoUnidentifiedDescription")}
         {:else}
-            <ItemSummary {summaryData} --margin-bottom="0.375rem" />
+            {#if Object.values(summaryData).some(Boolean)}
+                <ItemSummary {summaryData} --margin-bottom="0.375rem" />
 
-            {#if description}
-                <hr class="a5e-rule" style="margin-block: 0.5rem;" />
+                {#if description}
+                    <hr class="a5e-rule" style="margin-block: 0.5rem;" />
+                {/if}
             {/if}
 
             <!-- svelte-ignore missing-declaration -->
