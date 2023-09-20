@@ -19,6 +19,25 @@
     const statusEffects = Object.values(data.statusEffects);
     const genericEffects = Object.values(data.genericConditions);
 
+    const activeConditions = Object.values(data.statusEffects).reduce(
+        (acc, e) => {
+            if (!e.isActive) return acc;
+            acc.push(e.id);
+            return acc;
+        },
+        []
+    );
+
+    const subConditions = CONFIG.statusEffects.reduce((acc, c) => {
+        if (!c?.statuses?.length) return acc;
+
+        c.statuses.forEach((s) => {
+            acc[s] ??= [];
+            acc[s].push(c.id);
+        });
+        return acc;
+    }, {});
+
     $: conditionImmunities =
         HUD?.object?.actor?.system?.traits?.conditionImmunities ?? [];
 </script>
@@ -27,9 +46,15 @@
     {#each statusEffects as effect}
         <button
             class="condition-container {effect.cssClass}"
+            class:linked={subConditions[effect.id]?.some((c) =>
+                activeConditions.includes(c)
+            )}
             title={effect.title ?? ""}
             data-status-id={effect.id}
-            disabled={conditionImmunities.includes(effect.id)}
+            disabled={conditionImmunities.includes(effect.id) ||
+                subConditions[effect.id]?.some((c) =>
+                    activeConditions.includes(c)
+                )}
             on:click|preventDefault|stopPropagation={() =>
                 handleStatusEffectClick(effect)}
             on:auxclick|preventDefault|stopPropagation={() =>
@@ -97,8 +122,9 @@
             img,
             h3 {
                 font-weight: bold;
-                filter: invert(62%) sepia(32%) saturate(6599%)
-                    hue-rotate(110deg) brightness(96%) contrast(83%);
+                color: $color-primary-light;
+                // filter: invert(62%) sepia(32%) saturate(6599%)
+                //     hue-rotate(110deg) brightness(96%) contrast(83%);
             }
         }
     }
@@ -106,6 +132,7 @@
     .condition-container {
         display: flex;
         position: relative;
+        background-color: transparent;
         gap: 0.5rem;
         font-size: 1rem;
         align-items: center;
@@ -127,12 +154,36 @@
             h3 {
                 cursor: not-allowed;
                 font-weight: bold;
-                filter: invert(11%) sepia(42%) saturate(7092%)
-                    hue-rotate(352deg) brightness(94%) contrast(81%);
+                color: lighten($color: $color-warning, $amount: 15);
+                // filter: invert(11%) sepia(42%) saturate(7092%)
+                //     hue-rotate(352deg) brightness(94%) contrast(81%);
             }
 
             &:hover {
                 color: rgb(204 204 204);
+            }
+        }
+
+        &.linked {
+            h3::before {
+                content: "\f0c1";
+                font: var(--fa-font-solid);
+
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                padding: 1px;
+
+                background-color: rgba(0 0 0 / 0.45);
+                border-radius: 50%;
+                width: 1.25rem;
+                aspect-ratio: 1/1;
+                color: white;
+                font-size: 0.833rem;
+
+                position: absolute;
+                top: -0.75rem;
+                left: 1.65rem;
             }
         }
 
