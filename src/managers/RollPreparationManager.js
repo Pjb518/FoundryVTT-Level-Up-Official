@@ -214,7 +214,7 @@ export default class RollPreparationManager {
 
     return {
       baseRoll,
-      canCrit,
+      canCrit: canCrit ?? true,
       critRoll,
       damageType,
       label,

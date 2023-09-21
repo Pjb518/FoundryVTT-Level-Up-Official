@@ -15,7 +15,7 @@
     $: showCritDamageToggle = ($message?.flags?.a5e?.rollData ?? []).some(
         (roll) =>
             roll.type === "damage" &&
-            roll.canCrit &&
+            (roll.canCrit ?? true) &&
             roll.critRoll &&
             roll.baseRoll
     );
@@ -25,7 +25,7 @@
         $message?.flags?.a5e?.rollData ?? []
     ).some(([roll, rollData]) => {
         if (rollData.type !== "damage") return false;
-        if (!rollData.canCrit) return false;
+        if (!rollData.canCrit ?? true) return false;
         if (!rollData.critRoll || !rollData.baseRoll) return false;
 
         if (rollData.baseRoll.formula === roll.formula) return false;

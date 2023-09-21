@@ -48,7 +48,7 @@
         const rolls = zip($message.rolls, $message?.flags?.a5e?.rollData).map(
             ([roll, rollData]) => {
                 if (rollData.type !== "damage") return roll;
-                if (!rollData.canCrit) return roll;
+                if (!rollData.canCrit ?? true) return roll;
                 if (!rollData.critRoll || !rollData.baseRoll) return roll;
 
                 if (newCritMode === 1) return Roll.fromData(rollData.critRoll);
