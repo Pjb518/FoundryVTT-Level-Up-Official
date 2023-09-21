@@ -238,7 +238,8 @@
             "flags.a5e.rollData": $message.flags.a5e.rollData,
         });
 
-        dispatch("reevaluateCritMode");
+        // Use the new attack roll information to determine whether to display crit damage
+        if (originalRollData.type === "attack") dispatch("reevaluateCritMode");
     }
 
     async function triggerPrompt(prompt) {
