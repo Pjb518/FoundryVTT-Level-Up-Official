@@ -1,26 +1,14 @@
-/* eslint-disable no-continue */
-/* eslint-disable no-await-in-loop */
-/* eslint-disable no-restricted-syntax */
-
 export default async function doubleDiceQuantity(baseRoll) {
-  const preProcessedRoll = baseRoll.clone();
-  const terms = [];
-  for (const term of preProcessedRoll.terms) {
-    if (!(term instanceof MathTerm)) {
-      terms.push(term);
-      continue;
-    }
+  return [
+    ...baseRoll.terms,
+    ...baseRoll.dice.flatMap((die) => {
+      const operator = new OperatorTerm({ operator: '+' }).evaluate();
 
-    await term.evaluate({ async: true });
-    const newTerm = new NumericTerm({ number: term.total ?? 0, options: term.options });
-    terms.push(newTerm);
-  }
+      const newDie = new Die({
+        faces: die.faces, number: die.number, modifiers: die.modifiers, options: die.options
+      }).evaluate();
 
-  const parsedFormula = Roll.getFormula(terms);
-  const roll = new Roll(parsedFormula, baseRoll.data);
-
-  roll.alter(2, 0, { multiplyNumeric: false });
-  await roll.evaluate({ async: true });
-
-  return roll.terms;
+      return [operator, newDie];
+    })
+  ];
 }

@@ -1,8 +1,18 @@
 export default async function doubleDiceQuantityAndMods(baseRoll) {
-  const roll = baseRoll.clone();
+  return [
+    ...baseRoll.terms.map((term) => {
+      if (!(term instanceof MathTerm || term instanceof NumericTerm)) return term;
 
-  roll.alter(2, 0, { multiplyNumeric: true });
-  await roll.evaluate({ async: true });
+      return new NumericTerm({ number: term.total * 2, options: term.options }).evaluate();
+    }),
+    ...baseRoll.dice.flatMap((die) => {
+      const operator = new OperatorTerm({ operator: '+' }).evaluate();
 
-  return roll.terms;
+      const newDie = new Die({
+        faces: die.faces, number: die.number, modifiers: die.modifiers, options: die.options
+      }).evaluate();
+
+      return [operator, newDie];
+    })
+  ];
 }
