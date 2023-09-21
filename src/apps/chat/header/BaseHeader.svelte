@@ -1,5 +1,5 @@
 <script>
-    import { createEventDispatcher } from "svelte";
+    import { createEventDispatcher, getContext } from "svelte";
 
     export let altText;
     export let clickableHeader;
@@ -8,6 +8,15 @@
     export let subtitle = null;
 
     const dispatch = createEventDispatcher();
+    const message = getContext("message");
+
+    $: showCritDamageToggle = ($message?.flags?.a5e?.rollData ?? []).some(
+        (roll) =>
+            roll.type === "damage" &&
+            roll.canCrit &&
+            roll.critRoll &&
+            roll.baseRoll
+    );
 </script>
 
 <!-- svelte-ignore a11y-click-events-have-key-events -->
@@ -28,15 +37,17 @@
         {/if}
     </div>
 
-    <button
-        class="crit-toggle-button"
-        data-tooltip="Toggle Critical Damage"
-        data-tooltip-direction="LEFT"
-        on:click|stopPropagation|preventDefault={() =>
-            dispatch("toggleCriticalDamage")}
-    >
-        <i class="fa-solid fa-bullseye" />
-    </button>
+    {#if showCritDamageToggle}
+        <button
+            class="crit-toggle-button"
+            data-tooltip="Toggle Critical Damage"
+            data-tooltip-direction="LEFT"
+            on:click|stopPropagation|preventDefault={() =>
+                dispatch("toggleCriticalDamage")}
+        >
+            <i class="fa-solid fa-bullseye" />
+        </button>
+    {/if}
 </header>
 
 <style lang="scss">
