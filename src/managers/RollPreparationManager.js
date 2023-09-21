@@ -201,18 +201,21 @@ export default class RollPreparationManager {
 
     if (!rollFormula) return null;
 
-    let roll = await new Roll(rollFormula).evaluate({ async: true });
+    const baseRoll = await new Roll(rollFormula).evaluate({ async: true });
+    let roll = baseRoll;
+    let critRoll = baseRoll;
 
-    if ((canCrit ?? true) && isCrit) {
-      roll = await constructCritDamageRoll(roll, critBonus);
-    }
+    if (canCrit ?? true) critRoll = await constructCritDamageRoll(roll, critBonus);
+    if (isCrit) roll = critRoll;
 
     const label = damageType
       ? localize('A5E.DamageSpecific', { damageType: localize(CONFIG.A5E.damageTypes[damageType]) })
       : localize('A5E.Damage');
 
     return {
+      baseRoll,
       canCrit,
+      critRoll,
       damageType,
       label,
       userLabel: _roll.label,

@@ -32,7 +32,8 @@
         class="crit-toggle-button"
         data-tooltip="Toggle Critical Damage"
         data-tooltip-direction="LEFT"
-        on:click|stopPropagation|preventDefault={() => console.log("CLICKED!!")}
+        on:click|stopPropagation|preventDefault={() =>
+            dispatch("toggleCriticalDamage")}
     >
         <i class="fa-solid fa-bullseye" />
     </button>

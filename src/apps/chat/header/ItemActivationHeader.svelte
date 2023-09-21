@@ -15,6 +15,6 @@
     clickableHeader={true}
     subtitle={actionName}
     title={name}
-    on:repeatCard={() => dispatch("repeatCard")}
+    on:toggleCriticalDamage
     on:toggleDescription
 />
