@@ -28,15 +28,14 @@
         {/if}
     </div>
 
-    <!-- <div class="u-flex u-flex-col">
-            <button on:click={() => dispatch("repeatCard")}>
-                <i class="fa-solid fa-repeat" />
-            </button>
-
-            <button>
-                <i class="fa-solid fa-dice" />
-            </button>
-        </div> -->
+    <button
+        class="crit-toggle-button"
+        data-tooltip="Toggle Critical Damage"
+        data-tooltip-direction="LEFT"
+        on:click|stopPropagation|preventDefault={() => console.log("CLICKED!!")}
+    >
+        <i class="fa-solid fa-bullseye" />
+    </button>
 </header>
 
 <style lang="scss">
@@ -80,5 +79,29 @@
     .card-title-wrapper {
         display: flex;
         flex-direction: column;
+    }
+
+    .crit-toggle-button {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 2rem;
+        width: 2rem;
+        margin-left: auto;
+        font-size: 1rem;
+        color: #7e7960;
+        background: rgba(0, 0, 0, 0.05);
+        border: 1px solid #ccc;
+        border-radius: 3px;
+        transition: all 0.15s ease-in-out;
+
+        &:hover {
+            color: #191813;
+            box-shadow: none;
+        }
+
+        i {
+            margin: 0;
+        }
     }
 </style>
