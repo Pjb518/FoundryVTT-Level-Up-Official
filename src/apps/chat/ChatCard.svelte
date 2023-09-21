@@ -10,7 +10,6 @@
     import CardBody from "./body/CardBody.svelte";
     import ItemActivationFooter from "./footer/ItemActivationFooter.svelte";
     import ItemActivationHeader from "./header/ItemActivationHeader.svelte";
-    import RollConfigurationOptions from "./body/RollConfigurationOptions.svelte";
 
     function getHeaderComponent() {
         switch ($message?.flags?.a5e?.cardType) {
@@ -24,12 +23,36 @@
         }
     }
 
-    function toggleCriticalDamage() {
+    function reevaluateCritMode() {
+        const isCrit = zip($message.rolls, $message?.flags?.a5e?.rollData).some(
+            ([roll, rollData]) => {
+                if (rollData.type !== "attack") return false;
+
+                const d20Roll = roll.terms.find((term) => term.faces === 20);
+
+                if (!d20Roll) return false;
+
+                return d20Roll.results.some(
+                    ({ result, active }) =>
+                        active && result >= (rollData.critThreshold ?? 20)
+                );
+            }
+        );
+
+        if (isCrit === undefined || isCrit === null) return;
+
+        toggleCriticalDamage(isCrit ? 1 : 0);
+    }
+
+    function toggleCriticalDamage(newCritMode) {
         const rolls = zip($message.rolls, $message?.flags?.a5e?.rollData).map(
             ([roll, rollData]) => {
                 if (rollData.type !== "damage") return roll;
                 if (!rollData.canCrit) return roll;
                 if (!rollData.critRoll || !rollData.baseRoll) return roll;
+
+                if (newCritMode === 1) return Roll.fromData(rollData.critRoll);
+                if (newCritMode === 0) return Roll.fromData(rollData.baseRoll);
 
                 if (rollData.baseRoll.formula === roll.formula) {
                     return Roll.fromData(rollData.critRoll);
@@ -63,6 +86,7 @@
     {message}
     hideDescription={hideDescription ||
         $message?.flags?.a5e?.cardType !== "item"}
+    on:reevaluateCritMode={reevaluateCritMode}
 />
 
 {#if $message?.flags?.a5e?.cardType === "item"}

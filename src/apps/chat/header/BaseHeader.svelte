@@ -1,6 +1,8 @@
 <script>
     import { createEventDispatcher, getContext } from "svelte";
 
+    import zip from "../../../utils/zip";
+
     export let altText;
     export let clickableHeader;
     export let img;
@@ -17,6 +19,19 @@
             roll.critRoll &&
             roll.baseRoll
     );
+
+    $: critDamageEnabled = zip(
+        $message.rolls ?? [],
+        $message?.flags?.a5e?.rollData ?? []
+    ).some(([roll, rollData]) => {
+        if (rollData.type !== "damage") return false;
+        if (!rollData.canCrit) return false;
+        if (!rollData.critRoll || !rollData.baseRoll) return false;
+
+        if (rollData.baseRoll.formula === roll.formula) return false;
+
+        return true;
+    });
 </script>
 
 <!-- svelte-ignore a11y-click-events-have-key-events -->
@@ -40,10 +55,10 @@
     {#if showCritDamageToggle}
         <button
             class="crit-toggle-button"
+            class:crit-toggle-button--crit={critDamageEnabled}
             data-tooltip="Toggle Critical Damage"
             data-tooltip-direction="LEFT"
-            on:click|stopPropagation|preventDefault={() =>
-                dispatch("toggleCriticalDamage")}
+            on:click|stopPropagation={() => dispatch("toggleCriticalDamage")}
         >
             <i class="fa-solid fa-bullseye" />
         </button>
@@ -110,6 +125,16 @@
         &:hover {
             color: #191813;
             box-shadow: none;
+        }
+
+        &--crit {
+            border-color: darken($color-secondary, 5%);
+            background: $color-secondary;
+            color: lighten($color-secondary, 95%);
+
+            &:hover {
+                color: #fedd9e;
+            }
         }
 
         i {

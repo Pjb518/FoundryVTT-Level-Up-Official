@@ -1,4 +1,5 @@
 <script>
+    import { createEventDispatcher } from "svelte";
     import { slide } from "svelte/transition";
 
     import PromptButton from "./PromptButton.svelte";
@@ -236,6 +237,8 @@
             rolls: $message.rolls,
             "flags.a5e.rollData": $message.flags.a5e.rollData,
         });
+
+        dispatch("reevaluateCritMode");
     }
 
     async function triggerPrompt(prompt) {
@@ -316,6 +319,7 @@
     const rolls = prepareRolls($message);
     const hasRolls = rolls.length;
     const item = fromUuidSync($message?.flags?.a5e?.itemId ?? "");
+    const dispatch = createEventDispatcher();
 
     $: hoverColor = getHoverColor($pressedKeysStore);
     $: summaryData = $message?.flags?.a5e?.summaryData;
