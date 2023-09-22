@@ -9,6 +9,7 @@
     export let idx;
     export let key;
     export let optionsList;
+    export let clearable = true;
 
     const dispatch = createEventDispatcher();
     const effect = getContext("effect");
@@ -26,12 +27,12 @@
     </h3>
 
     <Select
+        {clearable}
         {items}
         value={effectKeyLocalizations[key]}
         {groupBy}
         on:change={({ detail }) => dispatch("changeKey", detail.key)}
         on:clear={() => dispatch("changeKey", "")}
-        --box-sizing="border-box"
         --background="rgba(0, 0, 0, 0.05)"
         --height="calc(var(--form-field-height) + 1px)"
         --padding="0 3px"

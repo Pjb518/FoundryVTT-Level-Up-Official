@@ -12,22 +12,34 @@
     import updateDocumentDataFromField from "../../../utils/updateDocumentDataFromField";
 
     const item = getContext("item");
+    const MODES = CONFIG.A5E.ACTIVE_EFFECT_MODES;
     const allOptions = game.a5e.activeEffects.options.all.allOptions;
-    const optionsList = {};
+    const movementOptionsList = {};
+    const sensesOptionsList = {};
+
     Object.entries(allOptions ?? {}).forEach(([key, value]) => {
-        if (
-            key.startsWith("system.attributes.movement") ||
-            key.startsWith("system.attributes.senses")
-        ) {
-            optionsList[key] = value;
+        if (key.startsWith("system.attributes.movement")) {
+            movementOptionsList[key] = value;
+            return;
+        }
+
+        if (key.startsWith("system.attributes.senses")) {
+            sensesOptionsList[key] = value;
             return;
         }
     });
 
-    function addChange() {
+    function addChange(type) {
+        let key;
+        if (type === "movement")
+            key = "system.attributes.movement.walk.distance";
+        else if (type === "senses")
+            key = "system.attributes.senses.darkvision.distance";
+        else return;
+
         const change = {
-            key: "",
-            mode: null,
+            key,
+            mode: MODES[movementOptionsList[key]?.modes?.[0]] ?? null,
             value: "",
             priority: null,
         };
@@ -50,7 +62,8 @@
         if (key === "key") {
             changes[idx]["value"] = "";
             changes[idx]["mode"] =
-                MODES[optionsList[changes[idx]?.key]?.modes?.[0]] ?? null;
+                MODES[movementOptionsList[changes[idx]?.key]?.modes?.[0]] ??
+                null;
         }
 
         // Update Document
@@ -69,7 +82,6 @@
     /** @type {Array<Object>}*/
     $: changes = traitEffect?.changes ?? [];
     setContext("effect", new TJSDocument(traitEffect));
-    console.log(traitEffect.changes);
 </script>
 
 <article>
@@ -121,49 +133,100 @@
     {#if typeof traitEffect === "string"}
         {traitEffect}
     {:else}
-        <FormSection
-            heading="Movement & Senses Configuration"
-            --direction="column"
-        >
+        <!-- Movement Configuration -->
+        <FormSection heading="Movement Configuration" --direction="column">
             <button
                 class="a5e-button a5e-button--add add-button fas fa-plus"
-                on:click|preventDefault|stopPropagation={addChange}
+                on:click|preventDefault|stopPropagation={() =>
+                    addChange("movement")}
             />
 
             <section class="changes-list">
                 {#each changes as { key, value, mode }, idx (idx)}
-                    <div class="change-container">
-                        <div class="button-wrapper">
-                            <button
-                                class="a5e-button a5e-button--delete fas fa-trash"
-                                style="font-size: $font-size-md;"
-                                on:click={() => deleteChange(idx)}
-                            />
-                        </div>
+                    {#if key.startsWith("system.attributes.movement")}
+                        <div class="change-container">
+                            <div class="button-wrapper">
+                                <button
+                                    class="a5e-button a5e-button--delete fas fa-trash"
+                                    style="font-size: $font-size-md;"
+                                    on:click={() => deleteChange(idx)}
+                                />
+                            </div>
 
-                        <div class="row" style="padding-right: 2rem;">
-                            <ChangeConfiguration
-                                {idx}
+                            <div class="row" style="padding-right: 2rem;">
+                                <ChangeConfiguration
+                                    {idx}
+                                    {key}
+                                    clearable={false}
+                                    optionsList={movementOptionsList}
+                                    on:changeKey={({ detail }) =>
+                                        updateChange(idx, "key", detail)}
+                                    on:changePriority={({ detail }) =>
+                                        updateChange(idx, "priority", detail)}
+                                    on:changeMode={({ detail }) =>
+                                        updateChange(idx, "mode", detail)}
+                                />
+                            </div>
+
+                            <ChangeValue
                                 {key}
-                                {optionsList}
-                                on:changeKey={({ detail }) =>
-                                    updateChange(idx, "key", detail)}
-                                on:changePriority={({ detail }) =>
-                                    updateChange(idx, "priority", detail)}
-                                on:changeMode={({ detail }) =>
-                                    updateChange(idx, "mode", detail)}
+                                {value}
+                                {mode}
+                                optionsList={movementOptionsList}
+                                on:change={({ detail }) =>
+                                    updateChange(idx, "value", detail)}
                             />
                         </div>
+                    {/if}
+                {/each}
+            </section>
+        </FormSection>
 
-                        <ChangeValue
-                            {key}
-                            {value}
-                            {mode}
-                            {optionsList}
-                            on:change={({ detail }) =>
-                                updateChange(idx, "value", detail)}
-                        />
-                    </div>
+        <!-- Senses Configuration -->
+        <FormSection heading="Senses Configuration" --direction="column">
+            <button
+                class="a5e-button a5e-button--add add-button fas fa-plus"
+                on:click|preventDefault|stopPropagation={() =>
+                    addChange("senses")}
+            />
+
+            <section class="changes-list">
+                {#each changes as { key, value, mode }, idx (idx)}
+                    {#if key.startsWith("system.attributes.senses")}
+                        <div class="change-container">
+                            <div class="button-wrapper">
+                                <button
+                                    class="a5e-button a5e-button--delete fas fa-trash"
+                                    style="font-size: $font-size-md;"
+                                    on:click={() => deleteChange(idx)}
+                                />
+                            </div>
+
+                            <div class="row" style="padding-right: 2rem;">
+                                <ChangeConfiguration
+                                    {idx}
+                                    {key}
+                                    clearable={false}
+                                    optionsList={sensesOptionsList}
+                                    on:changeKey={({ detail }) =>
+                                        updateChange(idx, "key", detail)}
+                                    on:changePriority={({ detail }) =>
+                                        updateChange(idx, "priority", detail)}
+                                    on:changeMode={({ detail }) =>
+                                        updateChange(idx, "mode", detail)}
+                                />
+                            </div>
+
+                            <ChangeValue
+                                {key}
+                                {value}
+                                {mode}
+                                optionsList={sensesOptionsList}
+                                on:change={({ detail }) =>
+                                    updateChange(idx, "value", detail)}
+                            />
+                        </div>
+                    {/if}
                 {/each}
             </section>
         </FormSection>
@@ -221,7 +284,7 @@
     .add-button {
         position: absolute;
         right: 0.75rem;
-        top: 0.75rem;
+        top: 0.6rem;
         color: #999;
         transition: $standard-transition;
 
