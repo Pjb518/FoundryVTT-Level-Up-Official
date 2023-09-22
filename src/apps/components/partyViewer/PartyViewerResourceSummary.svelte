@@ -87,6 +87,7 @@
                         {#if max && max > 0}
                             {current}
                         {:else}
+                            <!-- svelte-ignore missing-declaration -->
                             <i
                                 class="cross fa-solid fa-xmark"
                                 data-tooltip="{$actor.name} has no spell slots of {localize(

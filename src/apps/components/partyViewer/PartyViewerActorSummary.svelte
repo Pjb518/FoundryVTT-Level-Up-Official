@@ -61,6 +61,7 @@
         }}
     />
 
+    <!-- svelte-ignore missing-declaration -->
     {#if game.user.isGM && !partyIsLocked}
         <span class="delete-wrapper">
             <button

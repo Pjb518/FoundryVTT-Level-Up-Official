@@ -453,6 +453,7 @@
                 on:updateSelection={(event) => (currentViewMode = event.detail)}
             />
 
+            <!-- svelte-ignore missing-declaration -->
             {#if game.user.isGM}
                 <button
                     class="sheet-lock fas {partyIsLocked

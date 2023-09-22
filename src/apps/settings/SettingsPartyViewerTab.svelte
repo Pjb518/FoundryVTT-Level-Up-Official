@@ -9,13 +9,10 @@
     const settings = getContext("settings");
     const updates = getContext("updates");
 
-    const playersCanAccessPartyViewer = settings.getStore(
-        "playersCanAccessPartyViewer"
-    );
+    const isGM = game.user.isGM;
 
-    const showActorImagesInPartyViewer = settings.getStore(
-        "showActorImagesInPartyViewer"
-    );
+    let playersCanAccess = settings.getStore("playersCanAccessPartyViewer");
+    let showActorImages = settings.getStore("showActorImagesInPartyViewer");
 </script>
 
 <section
@@ -30,7 +27,7 @@
             <Checkbox
                 label="Show character images in the party viewer"
                 checked={updates.get("showActorImagesInPartyViewer") ??
-                    $showActorImagesInPartyViewer ??
+                    $showActorImages ??
                     true}
                 on:updateSelection={({ detail }) => {
                     updates.set("showActorImagesInPartyViewer", detail);
@@ -40,7 +37,7 @@
         </FormSection>
     </section>
 
-    {#if game.user.isGM}
+    {#if isGM}
         <section class="setting-group">
             <header class="setting-header">
                 <h3 class="setting-heading">Player Access</h3>
@@ -53,7 +50,7 @@
                 <Checkbox
                     label="Players can access the Party Viewer"
                     checked={updates.get("playersCanAccessPartyViewer") ??
-                        $playersCanAccessPartyViewer ??
+                        $playersCanAccess ??
                         false}
                     on:updateSelection={({ detail }) => {
                         updates.set("playersCanAccessPartyViewer", detail);
