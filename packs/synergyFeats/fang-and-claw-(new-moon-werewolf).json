@@ -1,100 +1,106 @@
 {
-  "name": "Fang and Claw (New Moon Werewolf)",
-  "type": "feature",
-  "img": "icons/creatures/mammals/wolf-howl-moon-black.webp",
-  "effects": [],
-  "flags": {
-    "core": {
-      "sourceId": "Compendium.a5e.a5e-synergy-feats.xbh7ye1eito4vpg9"
-    }
-  },
-  "system": {
-    "actions": {
-      "KgFOncmcSsY539aF": {
-        "name": "Fang and Claw (New Moon Werewolf)",
-        "activation": {
-          "cost": 1,
-          "type": "action",
-          "reactionTrigger": ""
-        },
-        "duration": {
-          "unit": "",
-          "value": ""
-        },
-        "ranges": {
-          "ERa4yIFV6wSzHdMT": {
-            "range": "fiveFeet"
-          }
-        },
-        "area": {
-          "shape": "",
-          "placeTemplate": false
-        },
-        "target": {
-          "quantity": 1,
-          "type": "creature"
-        },
-        "rolls": {
-          "OPazNz3GQNkWwWh6": {
-            "bonus": "",
-            "critThreshold": "20",
-            "type": "attack",
-            "ability": "str"
-          },
-          "xwZAvj45Yi4wMBCd": {
-            "canCrit": true,
-            "damageType": "piercing",
-            "defaultSelection": true,
-            "formula": "1d6 + @@str.mod",
-            "name": "Fang and Claw",
-            "type": "damage"
-          },
-          "X81hR6V5lmfzQjC3": {
-            "canCrit": true,
-            "damageType": "piercing",
-            "defaultSelection": false,
-            "formula": "1d8 + @@str.mod",
-            "name": "Deadly Implements",
-            "type": "damage"
-          },
-          "RMluQQdZOE845sTX": {
-            "canCrit": true,
-            "damageType": "necrotic",
-            "defaultSelection": false,
-            "formula": "1d6",
-            "name": "Cursed Wounds",
-            "type": "damage"
-          }
-        },
-        "consumers": {}
-      }
-    },
-    "description": "<p>You gain a bite natural weapon and claw natural weapons which you are proficient with. You can use Dexterity instead of Strength for the attack rolls of your bite or claw. On a hit your bite or claw deals piercing damage equal to 1d6 plus your Strength modifier or Dexterity modifier (whichever is highest).</p>",
-    "favorite": false,
-    "secretDescription": "",
-    "source": "",
-    "uses": {
-      "value": null,
-      "max": "",
-      "per": null,
-      "recharge": {
-        "formula": "1d6",
-        "threshold": 6
-      }
-    },
-    "schema": {
-      "version": 0.003,
-      "lastMigration": {
-        "version": {
-          "schema": null,
-          "foundry": "10.291",
-          "system": "0.10.7"
-        }
-      }
-    },
-    "concentration": false,
-    "featureType": "naturalWeapon",
-    "prerequisite": ""
-  },
-  "_id": "xbh7ye1eito4vpg9"
+	"name": "Fang and Claw (New Moon Werewolf)",
+	"type": "feature",
+	"img": "icons/creatures/mammals/wolf-howl-moon-black.webp",
+	"effects": [],
+	"flags": {},
+	"system": {
+		"ac": {
+			"baseFormula": "",
+			"formula": "",
+			"maxDex": 0,
+			"minStr": 0,
+			"mode": 2,
+			"requiresNoShield": false,
+			"requiresUnarmored": false
+		},
+		"actions": {
+			"KgFOncmcSsY539aF": {
+				"name": "Fang and Claw (New Moon Werewolf)",
+				"activation": {
+					"cost": 1,
+					"type": "action",
+					"reactionTrigger": ""
+				},
+				"duration": {
+					"unit": "",
+					"value": ""
+				},
+				"ranges": {
+					"ERa4yIFV6wSzHdMT": {
+						"range": "fiveFeet"
+					}
+				},
+				"area": {
+					"shape": "",
+					"placeTemplate": false
+				},
+				"target": {
+					"quantity": 1,
+					"type": "creature"
+				},
+				"rolls": {
+					"OPazNz3GQNkWwWh6": {
+						"bonus": "",
+						"critThreshold": "20",
+						"type": "attack",
+						"ability": "str"
+					},
+					"xwZAvj45Yi4wMBCd": {
+						"canCrit": true,
+						"damageType": "piercing",
+						"defaultSelection": true,
+						"formula": "1d6 + @@str.mod",
+						"name": "Fang and Claw",
+						"type": "damage"
+					},
+					"X81hR6V5lmfzQjC3": {
+						"canCrit": true,
+						"damageType": "piercing",
+						"defaultSelection": false,
+						"formula": "1d8 + @@str.mod",
+						"name": "Deadly Implements",
+						"type": "damage"
+					},
+					"RMluQQdZOE845sTX": {
+						"canCrit": true,
+						"damageType": "necrotic",
+						"defaultSelection": false,
+						"formula": "1d6",
+						"name": "Cursed Wounds",
+						"type": "damage"
+					}
+				},
+				"consumers": {}
+			}
+		},
+		"description": "<p>You gain a bite natural weapon and claw natural weapons which you are proficient with. You can use Dexterity instead of Strength for the attack rolls of your bite or claw. On a hit your bite or claw deals piercing damage equal to 1d6 plus your Strength modifier or Dexterity modifier (whichever is highest).</p>",
+		"favorite": false,
+		"secretDescription": "",
+		"source": "",
+		"uses": {
+			"value": null,
+			"max": "",
+			"per": null,
+			"recharge": {
+				"formula": "1d6",
+				"threshold": 6
+			}
+		},
+		"schema": {
+			"version": 0.007,
+			"lastMigration": {
+				"version": {
+					"schema": 0.003,
+					"foundry": "11.307",
+					"system": "0.15.0"
+				}
+			}
+		},
+		"concentration": false,
+		"featureType": "naturalWeapon",
+		"prerequisite": ""
+	},
+	"folder": "zlLxP6syB0XqHYgA",
+	"_id": "xbh7ye1eito4vpg9"
 }

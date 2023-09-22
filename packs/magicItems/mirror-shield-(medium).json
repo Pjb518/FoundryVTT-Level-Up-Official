@@ -1,127 +1,130 @@
 {
-  "name": "Mirror Shield (Medium)",
-  "type": "object",
-  "img": "icons/equipment/shield/heater-embossed-gold.webp",
-  "effects": [
-    {
-      "icon": "icons/svg/aura.svg",
-      "origin": "Item.zs3oe309uhexmiws",
-      "flags": {
-        "a5e": {
-          "sort": 0,
-          "transferType": "onUse"
-        }
-      },
-      "transfer": false,
-      "name": "Mirror Shield",
-      "_id": "4OZVMsZIy0Fa9ZhV",
-      "changes": [
-        {
-          "key": "system.traits.damageResistances",
-          "mode": 2,
-          "value": "radiant",
-          "priority": 100
-        }
-      ],
-      "disabled": false,
-      "duration": {
-        "startTime": null,
-        "seconds": null,
-        "combat": null,
-        "rounds": null,
-        "turns": null,
-        "startRound": null,
-        "startTurn": null
-      },
-      "description": "",
-      "statuses": []
-    }
-  ],
-  "flags": {},
-  "system": {
-    "ac": {
-      "baseFormula": "2",
-      "formula": "",
-      "maxDex": 0,
-      "minStr": 0,
-      "mode": 1,
-      "requiresNoShield": false,
-      "requiresUnarmored": false
-    },
-    "actions": {
-      "sZ5ecITTg5oQOux8": {
-        "name": "Mirror Shield",
-        "activation": {
-          "cost": 1,
-          "type": "reaction",
-          "reactionTrigger": "When you are the only target of a spell being cast by a creature you can see within 60 feet"
-        },
-        "duration": {
-          "unit": "instantaneous",
-          "value": ""
-        },
-        "area": {
-          "shape": "",
-          "size": "",
-          "placeTemplate": false
-        },
-        "target": {
-          "quantity": 1,
-          "type": ""
-        },
-        "consumers": {
-          "EPQfNkBb9t7yJs12": {
-            "type": "itemUses"
-          }
-        }
-      }
-    },
-    "description": "<p>While you are attuned to this reflective shield and have it donned, you gain resistance to radiant damage. When you are the only target of a spell being cast by a creature you can see within 60 feet, you can use your reaction to cast @Compendium[a5e.a5e-spells.zi56ti8zfkqojtyu]{Counterspell} at a level equal to your proficiency bonus (minimum 3rd-level). On a success, instead of causing the spell to fail you can redirect it back at the caster at its original spell level, using the same spell attack bonus or spell save DC. The shield has 3 charges and regains [[/r 1d3 #charges]] charges each dawn. <br><br></p>",
-    "favorite": false,
-    "secretDescription": "",
-    "source": "",
-    "uses": {
-      "value": 3,
-      "max": 3,
-      "per": "",
-      "recharge": {
-        "formula": "1d6",
-        "threshold": 6
-      }
-    },
-    "schema": {
-      "version": 0.006,
-      "lastMigration": {
-        "version": {
-          "schema": 0.005,
-          "foundry": "11.305",
-          "system": "0.13.3"
-        }
-      }
-    },
-    "ammunitionProperties": [],
-    "armorCategory": "",
-    "armorProperties": [],
-    "attuned": false,
-    "bulky": false,
-    "craftingComponents": "Mirror made from raw elemental silver from the Plane of Earth, forged on the Plane of Fire, polished in the radiance of the Upper Planes",
-    "damagedState": 0,
-    "equippedState": 0,
-    "materialProperties": [],
-    "objectType": "shield",
-    "plotItem": false,
-    "price": "50,000 gp",
-    "proficient": true,
-    "quantity": 1,
-    "rarity": "veryRare",
-    "requiresAttunement": true,
-    "shieldCategory": "",
-    "unidentified": false,
-    "unidentifiedDescription": "",
-    "unidentifiedName": "",
-    "weaponProperties": [],
-    "weight": 8
-  },
-  "folder": "UZpOnU4Egi62h2Py",
-  "_id": "zs3oe309uhexmiws"
+	"name": "Mirror Shield (Medium)",
+	"type": "object",
+	"img": "icons/equipment/shield/heater-embossed-gold.webp",
+	"effects": [
+		{
+			"icon": "icons/svg/aura.svg",
+			"origin": "Item.zs3oe309uhexmiws",
+			"flags": {
+				"a5e": {
+					"sort": 0,
+					"transferType": "onUse"
+				}
+			},
+			"transfer": false,
+			"name": "Mirror Shield",
+			"_id": "4OZVMsZIy0Fa9ZhV",
+			"changes": [
+				{
+					"key": "system.traits.damageResistances",
+					"mode": 2,
+					"value": "radiant",
+					"priority": 100
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": null,
+				"combat": null,
+				"rounds": null,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "",
+			"statuses": []
+		}
+	],
+	"flags": {},
+	"system": {
+		"ac": {
+			"baseFormula": "2",
+			"formula": "",
+			"maxDex": 0,
+			"minStr": 0,
+			"mode": 1,
+			"requiresNoShield": false,
+			"requiresUnarmored": false
+		},
+		"actions": {
+			"sZ5ecITTg5oQOux8": {
+				"name": "Mirror Shield",
+				"activation": {
+					"cost": 1,
+					"type": "reaction",
+					"reactionTrigger": "When you are the only target of a spell being cast by a creature you can see within 60 feet"
+				},
+				"duration": {
+					"unit": "instantaneous",
+					"value": ""
+				},
+				"area": {
+					"shape": "",
+					"size": "",
+					"placeTemplate": false
+				},
+				"target": {
+					"quantity": 1,
+					"type": ""
+				},
+				"consumers": {
+					"EPQfNkBb9t7yJs12": {
+						"type": "itemUses"
+					}
+				}
+			}
+		},
+		"description": "<p>While you are attuned to this reflective shield and have it donned, you gain resistance to radiant damage. When you are the only target of a spell being cast by a creature you can see within 60 feet, you can use your reaction to cast @Compendium[a5e.a5e-spells.zi56ti8zfkqojtyu]{Counterspell} at a level equal to your proficiency bonus (minimum 3rd-level). On a success, instead of causing the spell to fail you can redirect it back at the caster at its original spell level, using the same spell attack bonus or spell save DC. The shield has 3 charges and regains [[/r 1d3 #charges]] charges each dawn. <br><br></p>",
+		"favorite": false,
+		"secretDescription": "",
+		"source": "",
+		"uses": {
+			"value": 3,
+			"max": 3,
+			"per": "",
+			"recharge": {
+				"formula": "1d6",
+				"threshold": 6
+			}
+		},
+		"schema": {
+			"version": 0.007,
+			"lastMigration": {
+				"version": {
+					"schema": 0.006,
+					"foundry": "11.307",
+					"system": "0.15.0"
+				}
+			}
+		},
+		"ammunitionProperties": [],
+		"armorCategory": "",
+		"armorProperties": [],
+		"attuned": false,
+		"bulky": false,
+		"craftingComponents": "Mirror made from raw elemental silver from the Plane of Earth, forged on the Plane of Fire, polished in the radiance of the Upper Planes",
+		"containerId": "",
+		"damagedState": 0,
+		"equippedState": 0,
+		"items": {},
+		"materialProperties": [],
+		"objectType": "shield",
+		"plotItem": false,
+		"price": "50,000 gp",
+		"proficient": true,
+		"quantity": 1,
+		"rarity": "veryRare",
+		"requiresAttunement": true,
+		"shieldCategory": "",
+		"shieldProperties": [],
+		"unidentified": false,
+		"unidentifiedDescription": "",
+		"unidentifiedName": "",
+		"weaponProperties": [],
+		"weight": 8
+	},
+	"folder": "OJbZxalVVb0AFeMg",
+	"_id": "zs3oe309uhexmiws"
 }

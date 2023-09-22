@@ -1,84 +1,90 @@
 {
-  "name": "Bite (New Moon Wererat)",
-  "type": "feature",
-  "img": "icons/creatures/mammals/rodent-rat-green.webp",
-  "effects": [],
-  "flags": {
-    "core": {
-      "sourceId": "Compendium.a5e.a5e-synergy-feats.leljh52su3s9ekvv"
-    }
-  },
-  "system": {
-    "actions": {
-      "RHURQ0KZl3YZHZBj": {
-        "name": "Bite (New Moon Wererat)",
-        "activation": {
-          "cost": 1,
-          "type": "action",
-          "reactionTrigger": ""
-        },
-        "duration": {
-          "unit": "",
-          "value": ""
-        },
-        "ranges": {
-          "OIKYQwHo8Z8lEByF": {
-            "range": "fiveFeet"
-          }
-        },
-        "area": {
-          "shape": "",
-          "placeTemplate": false
-        },
-        "target": {
-          "quantity": 1,
-          "type": "creature"
-        },
-        "rolls": {
-          "gnSxSHosxZcXEtqZ": {
-            "bonus": "",
-            "critThreshold": "20",
-            "type": "attack",
-            "ability": "str"
-          },
-          "SWG620vTgLNEymHl": {
-            "canCrit": true,
-            "damageType": "piercing",
-            "defaultSelection": true,
-            "formula": "1d4 + @@str.mod",
-            "name": "",
-            "type": "damage"
-          }
-        },
-        "consumers": {}
-      }
-    },
-    "description": "<p>You gain a bite natural weapon you are proficient with. You can use Dexterity instead of Strength for the attack rolls of your bite. On a hit your bite deals piercing damage equal to 1d4 plus your Strength modifier or Dexterity modifier (whichever is highest).</p>",
-    "favorite": false,
-    "secretDescription": "",
-    "source": "",
-    "uses": {
-      "value": null,
-      "max": "",
-      "per": null,
-      "recharge": {
-        "formula": "1d6",
-        "threshold": 6
-      }
-    },
-    "schema": {
-      "version": 0.003,
-      "lastMigration": {
-        "version": {
-          "schema": null,
-          "foundry": "10.291",
-          "system": "0.10.7"
-        }
-      }
-    },
-    "concentration": false,
-    "featureType": "naturalWeapon",
-    "prerequisite": ""
-  },
-  "_id": "leljh52su3s9ekvv"
+	"name": "Bite (New Moon Wererat)",
+	"type": "feature",
+	"img": "icons/creatures/mammals/rodent-rat-green.webp",
+	"effects": [],
+	"flags": {},
+	"system": {
+		"ac": {
+			"baseFormula": "",
+			"formula": "",
+			"maxDex": 0,
+			"minStr": 0,
+			"mode": 2,
+			"requiresNoShield": false,
+			"requiresUnarmored": false
+		},
+		"actions": {
+			"RHURQ0KZl3YZHZBj": {
+				"name": "Bite (New Moon Wererat)",
+				"activation": {
+					"cost": 1,
+					"type": "action",
+					"reactionTrigger": ""
+				},
+				"duration": {
+					"unit": "",
+					"value": ""
+				},
+				"ranges": {
+					"OIKYQwHo8Z8lEByF": {
+						"range": "fiveFeet"
+					}
+				},
+				"area": {
+					"shape": "",
+					"placeTemplate": false
+				},
+				"target": {
+					"quantity": 1,
+					"type": "creature"
+				},
+				"rolls": {
+					"gnSxSHosxZcXEtqZ": {
+						"bonus": "",
+						"critThreshold": "20",
+						"type": "attack",
+						"ability": "str"
+					},
+					"SWG620vTgLNEymHl": {
+						"canCrit": true,
+						"damageType": "piercing",
+						"defaultSelection": true,
+						"formula": "1d4 + @@str.mod",
+						"name": "",
+						"type": "damage"
+					}
+				},
+				"consumers": {}
+			}
+		},
+		"description": "<p>You gain a bite natural weapon you are proficient with. You can use Dexterity instead of Strength for the attack rolls of your bite. On a hit your bite deals piercing damage equal to 1d4 plus your Strength modifier or Dexterity modifier (whichever is highest).</p>",
+		"favorite": false,
+		"secretDescription": "",
+		"source": "",
+		"uses": {
+			"value": null,
+			"max": "",
+			"per": null,
+			"recharge": {
+				"formula": "1d6",
+				"threshold": 6
+			}
+		},
+		"schema": {
+			"version": 0.007,
+			"lastMigration": {
+				"version": {
+					"schema": 0.003,
+					"foundry": "11.307",
+					"system": "0.15.0"
+				}
+			}
+		},
+		"concentration": false,
+		"featureType": "naturalWeapon",
+		"prerequisite": ""
+	},
+	"folder": "zlLxP6syB0XqHYgA",
+	"_id": "leljh52su3s9ekvv"
 }

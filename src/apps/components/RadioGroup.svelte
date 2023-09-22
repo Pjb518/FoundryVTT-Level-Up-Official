@@ -19,10 +19,6 @@
             dispatch("updateSelection", value);
         }
     }
-
-    // Cast string to boolean
-
-    console.log(selected);
 </script>
 
 <ul

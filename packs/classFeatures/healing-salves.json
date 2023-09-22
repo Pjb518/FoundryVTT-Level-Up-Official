@@ -1,0 +1,108 @@
+{
+	"name": "Healing Salves",
+	"type": "feature",
+	"img": "icons/commodities/materials/bowl-liquid-white.webp",
+	"effects": [],
+	"flags": {},
+	"system": {
+		"ac": {
+			"baseFormula": "",
+			"formula": "",
+			"maxDex": 0,
+			"minStr": 0,
+			"mode": 2,
+			"requiresNoShield": false,
+			"requiresUnarmored": false
+		},
+		"actions": {
+			"45pg7ILkAbvzwvee": {
+				"name": "Create Salves",
+				"activation": {
+					"type": "hour",
+					"cost": 1
+				},
+				"consumers": {},
+				"rolls": {},
+				"prompts": {},
+				"uses": {
+					"value": 1,
+					"max": "1",
+					"per": "longRest",
+					"recharge": {
+						"formula": "1d6",
+						"threshold": 6
+					}
+				},
+				"duration": {
+					"unit": "hour",
+					"value": 24
+				}
+			},
+			"S5MoWbyyOiebOFrI": {
+				"name": "Use Salve",
+				"activation": {
+					"type": "action",
+					"cost": 1
+				},
+				"consumers": {},
+				"rolls": {
+					"3fOZnCipuHZkYuYY": {
+						"type": "healing",
+						"default": true,
+						"formula": "1d4"
+					}
+				},
+				"prompts": {},
+				"uses": {
+					"value": 0,
+					"max": "@wis.mod",
+					"per": "longRest",
+					"recharge": {
+						"formula": "1d6",
+						"threshold": 6
+					}
+				},
+				"duration": {
+					"unit": "instantaneous"
+				},
+				"ranges": {
+					"K9tEF3cnou5S5q3l": {
+						"range": "fiveFeet"
+					}
+				},
+				"target": {
+					"type": "creature",
+					"quantity": 1
+				}
+			}
+		},
+		"description": "<p>Once between long rests you can spend an hour to collect natural ingredients and concoct an ointment that speeds healing. This salve is potent for 24 hours and has a number of uses equal to 1 + your Wisdom modifier. As an action, you can use the salve to restore 1d4 hit points to a creature within reach.</p>",
+		"favorite": false,
+		"secretDescription": "",
+		"source": "",
+		"uses": {
+			"value": 0,
+			"max": "",
+			"per": null,
+			"recharge": {
+				"formula": "1d6",
+				"threshold": 6
+			}
+		},
+		"schema": {
+			"version": 0.007,
+			"lastMigration": {
+				"version": {
+					"schema": 0.003,
+					"foundry": "11.307",
+					"system": "0.15.0"
+				}
+			}
+		},
+		"concentration": false,
+		"featureType": "knack",
+		"prerequisite": ""
+	},
+	"folder": "wZfnvEMSVYtwFN8L",
+	"_id": "p17o9b1auacmmkt7"
+}
