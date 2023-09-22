@@ -2,16 +2,42 @@
 	"name": "Blur",
 	"type": "spell",
 	"img": "icons/magic/defensive/illusion-evasion-echo-purple.webp",
-	"effects": [],
-	"flags": {
-		"core": {
-			"sourceId": "Compendium.a5e.a5e-spells.250c4t64865s83si"
+	"effects": [
+		{
+			"icon": "icons/magic/defensive/illusion-evasion-echo-purple.webp",
+			"origin": "Item.250c4t64865s83si",
+			"flags": {
+				"a5e": {
+					"sort": 0,
+					"transferType": "onUse",
+					"duration": {
+						"unit": "minutes"
+					}
+				}
+			},
+			"transfer": false,
+			"name": "Blur",
+			"_id": "WRbkreWcyxoYrIGy",
+			"changes": [],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": 60,
+				"combat": null,
+				"rounds": null,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "",
+			"statuses": []
 		}
-	},
+	],
+	"flags": {},
 	"system": {
 		"actions": {
 			"tGuKAxs5LfW4JsEB": {
-				"name": "Blur",
+				"name": "Cast Spell",
 				"activation": {
 					"cost": 1,
 					"type": "action",
@@ -21,11 +47,7 @@
 					"unit": "minute",
 					"value": "1"
 				},
-				"ranges": {
-					"47W8udZcaT7BWOMt": {
-						"range": "self"
-					}
-				},
+				"ranges": {},
 				"area": {
 					"shape": "",
 					"size": "",
@@ -41,6 +63,14 @@
 						"spellLevel": 2,
 						"points": 3,
 						"type": "spell"
+					}
+				},
+				"prompts": {
+					"buIBuFeuQRwHM5mK": {
+						"type": "effect",
+						"default": true,
+						"effectId": "WRbkreWcyxoYrIGy",
+						"label": "Blur"
 					}
 				}
 			}
@@ -78,6 +108,7 @@
 		"materials": "",
 		"materialsConsumed": false,
 		"prepared": false,
+		"prerequisite": "",
 		"ritual": false,
 		"schools": {
 			"primary": "illusion",
@@ -88,5 +119,6 @@
 			]
 		}
 	},
+	"folder": "k0Hut63mKZUjn3gj",
 	"_id": "250c4t64865s83si"
 }

@@ -20,7 +20,14 @@
 					}
 				},
 				"rolls": {},
-				"prompts": {},
+				"prompts": {
+					"NUCDCQhcGzQDR3Ue": {
+						"type": "effect",
+						"default": true,
+						"effectId": "XHqm9rAaTyAgfWo1",
+						"label": "Beautify Creature"
+					}
+				},
 				"uses": {
 					"value": 0,
 					"max": "",
@@ -58,7 +65,7 @@
 			}
 		},
 		"schema": {
-			"version": null,
+			"version": 0.001,
 			"lastMigration": null
 		},
 		"components": {
@@ -71,6 +78,7 @@
 		"materials": "A brush",
 		"materialsConsumed": false,
 		"prepared": false,
+		"prerequisite": "",
 		"ritual": false,
 		"schools": {
 			"primary": "transmutation",
@@ -82,7 +90,51 @@
 			]
 		}
 	},
-	"effects": [],
+	"effects": [
+		{
+			"icon": "icons/magic/life/heart-glowing-red.webp",
+			"origin": "Item.8pje7s5trrbm3f24",
+			"flags": {
+				"a5e": {
+					"sort": 0,
+					"transferType": "onUse",
+					"duration": {
+						"unit": "hours"
+					}
+				}
+			},
+			"transfer": false,
+			"name": "Beautify Creature",
+			"_id": "XHqm9rAaTyAgfWo1",
+			"changes": [
+				{
+					"key": "system.skills.per.expertiseDice",
+					"value": "1",
+					"mode": 2,
+					"priority": null
+				},
+				{
+					"key": "system.skills.prf.expertiseDice",
+					"value": "1",
+					"mode": 2,
+					"priority": null
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": 28800,
+				"combat": null,
+				"rounds": null,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "",
+			"statuses": []
+		}
+	],
 	"flags": {},
+	"folder": "k0Hut63mKZUjn3gj",
 	"_id": "8pje7s5trrbm3f24"
 }

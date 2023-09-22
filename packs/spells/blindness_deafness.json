@@ -2,16 +2,87 @@
 	"name": "Blindness/Deafness",
 	"type": "spell",
 	"img": "icons/magic/perception/eye-ringed-glow-angry-teal.webp",
-	"effects": [],
-	"flags": {
-		"core": {
-			"sourceId": "Compendium.a5e.a5e-spells.6q34ttse78toj5x0"
+	"effects": [
+		{
+			"icon": "icons/magic/perception/eye-ringed-glow-angry-teal.webp",
+			"origin": "Item.6q34ttse78toj5x0",
+			"flags": {
+				"a5e": {
+					"sort": 0,
+					"transferType": "onUse",
+					"duration": {
+						"unit": "minutes"
+					}
+				}
+			},
+			"transfer": false,
+			"name": "Blindness",
+			"_id": "tey9cUNf8o3CHPA6",
+			"changes": [
+				{
+					"key": "flags.a5e.effects.statusConditions",
+					"value": "[\"blinded\"]",
+					"mode": 0,
+					"priority": null
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": 60,
+				"combat": null,
+				"rounds": null,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "",
+			"statuses": [
+				"blinded"
+			]
+		},
+		{
+			"icon": "icons/magic/sonic/explosion-shock-sound-wave.webp",
+			"origin": "Item.6q34ttse78toj5x0",
+			"flags": {
+				"a5e": {
+					"sort": 0,
+					"transferType": "onUse",
+					"duration": {
+						"unit": "minutes"
+					}
+				}
+			},
+			"transfer": false,
+			"name": "Deafness",
+			"_id": "0lA7vqfoDvlNfBe1",
+			"changes": [
+				{
+					"key": "flags.a5e.effects.statusConditions",
+					"value": "[\"deafened\"]",
+					"mode": 0,
+					"priority": null
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": 60,
+				"combat": null,
+				"rounds": null,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "",
+			"statuses": []
 		}
-	},
+	],
+	"flags": {},
 	"system": {
 		"actions": {
 			"k3OmeV0X53SUgbLi": {
-				"name": "Blindness/Deafness",
+				"name": "Cast Spell",
 				"activation": {
 					"cost": 1,
 					"type": "action",
@@ -44,6 +115,16 @@
 							"bonus": ""
 						},
 						"type": "savingThrow"
+					},
+					"jfilEvms77itvFx1": {
+						"type": "effect",
+						"default": true,
+						"effectId": "tey9cUNf8o3CHPA6"
+					},
+					"qfwfaqBjsdJhptG8": {
+						"type": "effect",
+						"default": true,
+						"effectId": "0lA7vqfoDvlNfBe1"
 					}
 				},
 				"consumers": {
@@ -89,6 +170,7 @@
 		"materials": "",
 		"materialsConsumed": false,
 		"prepared": false,
+		"prerequisite": "",
 		"ritual": false,
 		"schools": {
 			"primary": "necromancy",
@@ -100,5 +182,6 @@
 			]
 		}
 	},
+	"folder": "k0Hut63mKZUjn3gj",
 	"_id": "6q34ttse78toj5x0"
 }
