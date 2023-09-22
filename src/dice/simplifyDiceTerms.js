@@ -1,18 +1,13 @@
 import simplifyOperatorTerms from './simplifyOperatorTerms';
 
 export default function simplifyDiceTerms(terms) {
-  const termCategories = terms.reduce((newTerms, term, index) => {
-    // The first element can be pushed directly to the newTerms object without further processing
-    if (index === 0) {
-      if (term instanceof NumericTerm || term instanceof PoolTerm) {
-        newTerms.other.push(term);
-        return newTerms;
-      }
+  // Do not attempt to simplify terms for rolls that feature muliplication or division
+  if (terms.some((term) => term.operator === '*' || term.operator === '/')) return terms;
 
-      if (term instanceof DiceTerm) {
-        newTerms[term.faces] = term;
-        return newTerms;
-      }
+  const updatedTerms = simplifyOperatorTerms(terms).reduce((newTerms, term, index) => {
+    if (index === 0) {
+      newTerms.push(term);
+      return newTerms;
     }
 
     const previousTerm = terms[index - 1];
@@ -20,17 +15,25 @@ export default function simplifyDiceTerms(terms) {
     // Ignore OperatorTerms, as we'll be grabbing these alongside loose dice terms
     if (term instanceof OperatorTerm) return newTerms;
 
+    // If the term is preceded by a subtraction operator, or the term is not a die, do not attempt
+    // any further simplification. Simply return the term and the preceding operator.
     if (!(term instanceof DiceTerm) || previousTerm.operator === '-') {
-      newTerms.other.push(previousTerm, term);
+      newTerms.push(previousTerm, term);
       return newTerms;
     }
 
     if (term.flavor) {
-      if (newTerms[`${term.faces}-${term.flavor}`]) {
-        const combinedCount = newTerms[`${term.faces}-${term.flavor}`].number + term.number;
-        const combinedResults = [...newTerms[`${term.faces}-${term.flavor}`].results, ...term.results];
+      const i = newTerms.findIndex(
+        ({ faces, flavor }) => faces === term.faces && flavor === term.flavor
+      );
 
-        newTerms[`${term.faces}-${term.flavor}`] = new Die({
+      // If this term is not the first with this die size and flavor, merge its results into
+      // the existing term.
+      if (i !== -1) {
+        const combinedCount = newTerms[i].number + term.number;
+        const combinedResults = [...newTerms[i].results, ...term.results];
+
+        const newTerm = new Die({
           faces: term.faces,
           number: combinedCount,
           results: combinedResults,
@@ -38,39 +41,36 @@ export default function simplifyDiceTerms(terms) {
             flavor: term.flavor
           }
         });
+
+        newTerms.splice(i, 1, newTerm);
       } else {
-        newTerms[`${term.faces}-${term.flavor}`] = term;
+        newTerms.push(previousTerm, term);
       }
 
       return newTerms;
     }
 
-    if (newTerms[term.faces]) {
-      const combinedCount = newTerms[term.faces].number + term.number;
-      const combinedResults = [...newTerms[term.faces].results, ...term.results];
+    const similarDieIndex = newTerms.findIndex(
+      ({ faces, flavor }) => faces === term.faces && !flavor
+    );
 
-      newTerms[term.faces] = new Die({
+    if (similarDieIndex !== -1) {
+      const combinedCount = newTerms[similarDieIndex].number + term.number;
+      const combinedResults = [...newTerms[similarDieIndex].results, ...term.results];
+
+      const newTerm = new Die({
         faces: term.faces,
         number: combinedCount,
         results: combinedResults
       });
 
-      return newTerms;
+      newTerms.splice(similarDieIndex, 1, newTerm);
+    } else {
+      newTerms.push(previousTerm, term);
     }
 
-    newTerms[term.faces] = term;
-
     return newTerms;
-  }, { other: [] });
+  }, []);
 
-  const operator = new OperatorTerm({ operator: '+' }).evaluate({ async: false });
-
-  const combinedTerms = Object.entries(termCategories)
-    .filter(([category]) => category !== 'other')
-    .sort(([a], [b]) => b - a)
-    .flatMap(([, term]) => ([term, operator]));
-
-  combinedTerms.push(...termCategories.other, operator);
-
-  return simplifyOperatorTerms(combinedTerms);
+  return updatedTerms;
 }
