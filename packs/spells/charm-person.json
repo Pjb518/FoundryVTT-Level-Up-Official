@@ -2,12 +2,49 @@
 	"name": "Charm Person",
 	"type": "spell",
 	"img": "icons/magic/control/control-influence-puppet.webp",
-	"effects": [],
+	"effects": [
+		{
+			"icon": "icons/magic/control/control-influence-puppet.webp",
+			"origin": "Item.zf1kpjwhg9fabe01",
+			"flags": {
+				"a5e": {
+					"sort": 0,
+					"transferType": "onUse",
+					"duration": {
+						"unit": "hours"
+					}
+				}
+			},
+			"transfer": false,
+			"name": "Charm Person",
+			"_id": "m8ZI2ALQ9jH4sptL",
+			"changes": [
+				{
+					"key": "flags.a5e.effects.statusConditions",
+					"value": "[\"charmed\"]",
+					"mode": 0,
+					"priority": null
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": 3600,
+				"combat": null,
+				"rounds": null,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "",
+			"statuses": []
+		}
+	],
 	"flags": {},
 	"system": {
 		"actions": {
 			"F8BStUMZ0QkuHIWs": {
-				"name": "Charm Person",
+				"name": "Cast Spell",
 				"activation": {
 					"cost": 1,
 					"type": "action",
@@ -40,6 +77,12 @@
 							"bonus": ""
 						},
 						"type": "savingThrow"
+					},
+					"QThaA0QZtap4PR4N": {
+						"type": "effect",
+						"default": true,
+						"effectId": "m8ZI2ALQ9jH4sptL",
+						"label": "Charm Person"
 					}
 				},
 				"consumers": {

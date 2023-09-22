@@ -2,12 +2,49 @@
 	"name": "Calculate",
 	"type": "spell",
 	"img": "icons/skills/trades/academics-astronomy-navigation-purple.webp",
-	"effects": [],
+	"effects": [
+		{
+			"icon": "icons/skills/trades/academics-astronomy-navigation-purple.webp",
+			"origin": "Item.u0ez2czg763i77kl",
+			"flags": {
+				"a5e": {
+					"sort": 0,
+					"transferType": "onUse",
+					"duration": {
+						"unit": "hours"
+					}
+				}
+			},
+			"transfer": false,
+			"name": "Calculate",
+			"_id": "U7YjG5GGAFTAZQNt",
+			"changes": [
+				{
+					"key": "system.skills.eng.expertiseDice",
+					"value": "1",
+					"mode": 2,
+					"priority": null
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": 3600,
+				"combat": null,
+				"rounds": null,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "",
+			"statuses": []
+		}
+	],
 	"flags": {},
 	"system": {
 		"actions": {
 			"7W8939UwmTFQjejV": {
-				"name": "Calculate",
+				"name": "Cast Spell",
 				"activation": {
 					"cost": 1,
 					"type": "action",
@@ -31,10 +68,18 @@
 					"quantity": "",
 					"type": "self"
 				},
-				"consumers": {}
+				"consumers": {},
+				"prompts": {
+					"ROah3cpzWELI3UhV": {
+						"type": "effect",
+						"default": true,
+						"effectId": "U7YjG5GGAFTAZQNt",
+						"label": "Calculate"
+					}
+				}
 			}
 		},
-		"description": "<p>You instantly know the answer to any mathematical equation that you speak aloud. The equation must be a problem that a creature with Intelligence 20 could solve using nonmagical tools with 1 hour of calculation. Additionally, you gain an expertise die on Engineering checks made during the duration of the spell.</p><p>Note: Using the <em>calculate</em> cantrip allows a player to make use of a calculator at the table in order to rapidly answer mathematical equations.</p>",
+		"description": "<p>You instantly know the answer to any mathematical equation that you speak aloud. The equation must be a problem that a creature with Intelligence 20 could solve using nonmagical tools with 1 hour of calculation. Additionally, you gain an expertise die on Engineering checks made during the duration of the spell.</p>\n<p><strong>Note:</strong> Using the <em>calculate</em> cantrip allows a player to make use of a calculator at the table in order to rapidly answer mathematical equations.</p>",
 		"favorite": false,
 		"secretDescription": "",
 		"source": "",

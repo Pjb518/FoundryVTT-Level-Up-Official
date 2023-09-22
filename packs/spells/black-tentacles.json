@@ -2,12 +2,48 @@
 	"name": "Black Tentacles",
 	"type": "spell",
 	"img": "icons/creatures/tentacles/tentacles-octopus-black-pink.webp",
-	"effects": [],
+	"effects": [
+		{
+			"icon": "icons/creatures/tentacles/tentacles-octopus-black-pink.webp",
+			"origin": "Item.67ex7mn5kkutvnqn",
+			"flags": {
+				"a5e": {
+					"sort": 0,
+					"transferType": "onUse"
+				}
+			},
+			"transfer": false,
+			"name": "Black Tentacles",
+			"_id": "jtHRTP4hsdLzVW3U",
+			"changes": [
+				{
+					"key": "flags.a5e.effects.statusConditions",
+					"value": "[\"restrained\"]",
+					"mode": 0,
+					"priority": null
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": null,
+				"combat": null,
+				"rounds": null,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "",
+			"statuses": [
+				"restrained"
+			]
+		}
+	],
 	"flags": {},
 	"system": {
 		"actions": {
 			"qsqOvrmUHti1p6VS": {
-				"name": "Black Tentacles",
+				"name": "Cast Spell",
 				"activation": {
 					"cost": 1,
 					"type": "action",
@@ -25,26 +61,14 @@
 				"area": {
 					"shape": "cube",
 					"width": "20",
-					"placeTemplate": false
+					"placeTemplate": false,
+					"quantity": 1
 				},
 				"target": {
 					"quantity": "",
 					"type": ""
 				},
-				"rolls": {
-					"kmPkIq4Ir4IWJ3ZU": {
-						"canCrit": false,
-						"damageType": "bludgeoning",
-						"formula": "3d6",
-						"name": "",
-						"type": "damage",
-						"scaling": {
-							"mode": "spellLevel",
-							"formula": "1d6",
-							"step": 2
-						}
-					}
-				},
+				"rolls": {},
 				"prompts": {
 					"T9VFB4CcJ122hbCi": {
 						"ability": "dex",
@@ -63,6 +87,101 @@
 						"points": 6,
 						"type": "spell"
 					}
+				}
+			},
+			"kIMKWG6qL4Rf5W7V": {
+				"name": "Deal Damage",
+				"activation": {},
+				"consumers": {},
+				"rolls": {
+					"XTGaMWZxzQyUMicw": {
+						"type": "damage",
+						"default": true,
+						"canCrit": false,
+						"formula": "3d6",
+						"damageType": "bludgeoning",
+						"label": "",
+						"scaling": {
+							"mode": "spellLevel",
+							"formula": "1d6",
+							"step": 2
+						}
+					}
+				},
+				"prompts": {
+					"KcIlKeyKyeZ6hud9": {
+						"type": "effect",
+						"default": true,
+						"label": "Black Tentacles",
+						"effectId": "jtHRTP4hsdLzVW3U"
+					},
+					"7ghwBedcIUTwtt2E": {
+						"type": "savingThrow",
+						"default": true,
+						"ability": "dex",
+						"saveDC": {
+							"type": "spellcasting"
+						},
+						"onSave": "On a save, the target takes no damage and is not restrained"
+					}
+				},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"threshold": 6
+					}
+				},
+				"target": {
+					"type": "creature",
+					"quantity": 1
+				},
+				"duration": {
+					"unit": "",
+					"value": 1
+				},
+				"descriptionOutputs": [
+					"action"
+				],
+				"description": "<p>When a creature starts its turn in the area or enters the area for the first time on its turn, it takes 3d6 bludgeoning damage and is restrained by the tentacles unless it succeeds on a Dexterity saving throw.</p>\n<p><strong><em>Cast at Higher Levels.</em></strong>&nbsp;The damage increases by 1d6 for every 2 slot levels above 4th.</p>"
+			},
+			"poSukV5A9kfNQpki": {
+				"name": "Deal Additional Damage to Restrained Targets",
+				"activation": {},
+				"consumers": {},
+				"rolls": {
+					"PcQuzJ2DKDlp4FmA": {
+						"type": "damage",
+						"default": true,
+						"formula": "3d6",
+						"canCrit": false,
+						"damageType": "bludgeoning",
+						"scaling": {
+							"mode": "spellLevel",
+							"formula": "1d6",
+							"step": 2
+						}
+					}
+				},
+				"prompts": {},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"threshold": 6
+					}
+				},
+				"descriptionOutputs": [
+					"action"
+				],
+				"description": "<p>A creature that starts its turn restrained by the tentacles takes 3d6 bludgeoning damage.</p>\n<p><strong><em>Cast at Higher Levels.</em></strong>&nbsp;The damage increases by 1d6 for every 2 slot levels above 4th.</p>",
+				"target": {
+					"type": "creature",
+					"quantity": 1
 				}
 			}
 		},
