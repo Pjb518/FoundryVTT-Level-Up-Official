@@ -261,8 +261,6 @@ export default class ActiveEffectA5e extends ActiveEffect {
 
     // Update status effects
     this._preUpdateStatusEffects(data, options, userId);
-
-    return super._preUpdate(data, options, userId);
   }
 
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
