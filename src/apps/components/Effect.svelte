@@ -127,6 +127,7 @@
                         effect.isSuppressed}
                     class:fa-toggle-on={!effect.isDisabled &&
                         !effect.isSuppressed}
+                    class:active={!effect.isDisabled && !effect.isSuppressed}
                     data-tooltip="A5E.effects.toggleActiveState"
                     data-tooltip-direction="UP"
                     on:click={() => effect.toggleActiveState()}
@@ -303,6 +304,10 @@
         &:focus {
             box-shadow: none;
         }
+    }
+
+    .active {
+        color: $color-primary;
     }
 
     .action-button {

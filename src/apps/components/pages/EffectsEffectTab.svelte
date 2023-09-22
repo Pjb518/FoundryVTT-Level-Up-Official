@@ -1,11 +1,9 @@
 <script>
     import { getContext } from "svelte";
-    import { localize } from "#runtime/svelte/helper";
     import { TJSIconButton } from "#standard/component";
 
-    import getEffectOptionGroups from "../../handlers/getEffectOptionGroups";
-
-    import RadioGroup from "../RadioGroup.svelte";
+    import ChangeConfiguration from "../effectChanges/ChangeConfiguration.svelte";
+    import ChangeValue from "../effectChanges/ChangeValue.svelte";
 
     const effect = getContext("effect");
     const sheet = getContext("sheet");
@@ -43,25 +41,16 @@
         $effect.update({ changes });
     }
 
-    const MODES = CONST.ACTIVE_EFFECT_MODES;
+    const MODES = CONFIG.A5E.ACTIVE_EFFECT_MODES;
     const optionsList = sheet.optionsList;
-    const optionGroups = getEffectOptionGroups(sheet.optionsList);
-
-    const groupLabels = Object.entries(CONFIG.A5E.effectKeyGroups).reduce(
-        (acc, [group, { label }]) => {
-            acc[group] = localize(label);
-            return acc;
-        },
-        {}
-    );
 
     /** @type {Array<Object>}*/
-    let changes = $effect.changes;
+    $: changes = $effect.changes;
 </script>
 
 <article>
     <section class="changes-list">
-        {#each changes as { key, value }, idx (idx)}
+        {#each changes as { key, value, mode }, idx (idx)}
             <div class="change-container">
                 <div class="button-wrapper">
                     <button
@@ -72,132 +61,27 @@
                 </div>
 
                 <div class="row" style="padding-right: 2rem;">
-                    <!-- Key Section -->
-                    <div class="change-section u-flex-grow">
-                        <h3 class="u-text-sm u-text-bold">
-                            {localize("A5E.effects.key")}
-                        </h3>
-                        <select
-                            name=""
-                            id=""
-                            value={$effect.changes[idx]?.key}
-                            on:change={({ target }) =>
-                                updateChange(idx, "key", target.value)}
-                        >
-                            {#each optionGroups as [groupLabel, items]}
-                                <optgroup
-                                    label={groupLabels[groupLabel] ??
-                                        groupLabel}
-                                >
-                                    {#each items as { fieldOption, label }}
-                                        <option value={fieldOption}>
-                                            {label}
-                                        </option>
-                                    {/each}
-                                </optgroup>
-                            {/each}
-                        </select>
-                    </div>
-
-                    <!-- Priority -->
-                    <div class="change-section">
-                        <h3 class="u-text-sm u-text-bold">
-                            {localize("A5E.effects.priority")}
-                        </h3>
-
-                        <input
-                            class="small-input"
-                            type="number"
-                            name=""
-                            value={$effect.changes[idx]?.priority ?? 0}
-                            on:change={({ target }) =>
-                                updateChange(
-                                    idx,
-                                    "priority",
-                                    Number(target.value)
-                                )}
-                        />
-                    </div>
-
-                    <!-- Mode - Show if available -->
-                    {#if optionsList[key]?.modes?.length > 1}
-                        <div class="change-section">
-                            <h3 class="u-text-sm u-text-bold">
-                                {localize("A5E.effects.mode")}
-                            </h3>
-
-                            <select
-                                id=""
-                                value={$effect.changes[idx]?.mode}
-                                on:change={({ target }) =>
-                                    updateChange(idx, "mode", target.value)}
-                            >
-                                {#each optionsList[key]?.modes ?? [] as label}
-                                    <option value={MODES[label]}>
-                                        {label.toLowerCase().capitalize()}
-                                    </option>
-                                {/each}
-                            </select>
-                        </div>
-                    {/if}
+                    <ChangeConfiguration
+                        {idx}
+                        {key}
+                        {optionsList}
+                        on:changeKey={({ detail }) =>
+                            updateChange(idx, "key", detail)}
+                        on:changePriority={({ detail }) =>
+                            updateChange(idx, "priority", detail)}
+                        on:changeMode={({ detail }) =>
+                            updateChange(idx, "mode", detail)}
+                    />
                 </div>
 
-                <!-- TODO: Add Components Based on value type -->
-                <!--  -->
-                {#if typeof optionsList[key]?.sampleValue === "boolean"}
-                    <div class="change-section">
-                        <h3 class="u-text-sm u-text-bold">
-                            {localize("A5E.effects.options")}
-                        </h3>
-                        <RadioGroup
-                            allowDeselect={false}
-                            options={optionsList[key].options ?? [[null, null]]}
-                            selected={changes[idx].value}
-                            on:updateSelection={({ detail }) =>
-                                updateChange(idx, "value", detail)}
-                        />
-                    </div>
-                {:else}
-                    <!-- Show either options or value field -->
-                    {#if optionsList[key]?.options?.length}
-                        <div class="change-section">
-                            <h3 class="u-text-sm u-text-bold">
-                                {localize("A5E.effects.options")}
-                            </h3>
-                            <RadioGroup
-                                allowDeselect={false}
-                                options={optionsList[key].options ?? [
-                                    [null, null],
-                                ]}
-                                selected={changes[idx].value}
-                                on:updateSelection={({ detail }) =>
-                                    updateChange(idx, "value", detail)}
-                            />
-                        </div>
-                    {:else if optionsList[key]?.modes?.[0] === "CUSTOM"}
-                        <!-- Hide value field if mode is CUSTOM -->
-                    {:else}
-                        <div class="row">
-                            <div class="change-section u-w-full">
-                                <h3 class="u-text-sm u-text-bold">
-                                    {localize("A5E.effects.value")}
-                                </h3>
-
-                                <input
-                                    type="text"
-                                    name=""
-                                    {value}
-                                    on:change={({ target }) =>
-                                        updateChange(
-                                            idx,
-                                            "value",
-                                            target.value
-                                        )}
-                                />
-                            </div>
-                        </div>
-                    {/if}
-                {/if}
+                <ChangeValue
+                    {key}
+                    {value}
+                    {mode}
+                    {optionsList}
+                    on:change={({ detail }) =>
+                        updateChange(idx, "value", detail)}
+                />
             </div>
         {/each}
     </section>
@@ -265,20 +149,10 @@
         border-radius: 4px;
     }
 
-    .change-section {
-        display: flex;
-        flex-direction: column;
-        gap: 0.275rem;
-    }
-
     .row {
         display: flex;
         gap: 0.75rem;
         width: 100%;
-    }
-
-    .small-input {
-        width: 5rem;
     }
 
     .sticky-add-button {

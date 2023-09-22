@@ -26,6 +26,7 @@ export default class ActiveEffectConfigA5e extends SvelteApplication {
           }
         },
         resizable: true,
+        focusAuto: false,
         width: 505,
         height: 500
       }
@@ -51,11 +52,10 @@ export default class ActiveEffectConfigA5e extends SvelteApplication {
     });
 
     const usableOptions = activeEffect.parent?.documentName === 'Actor'
-      ? game.a5e.activeEffects.EffectOptions
-        .options[this.activeEffect.parent.type]
-      : game.a5e.activeEffects.EffectOptions.options.all;
+      ? game.a5e.activeEffects.options[this.activeEffect.parent.type]
+      : game.a5e.activeEffects.options.all;
 
-    this.optionsList = usableOptions.allOptionsObj;
+    this.optionsList = usableOptions.allOptions;
   }
 
   /**

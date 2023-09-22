@@ -1,8 +1,9 @@
 import { localize } from '#runtime/svelte/helper';
 
-import getCorrectedTypeValueFromKey from './getCorrectedTypeValueFromKey';
-import getDeterministicBonus from '../../dice/getDeterministicBonus';
 import castType from '../../utils/castType';
+import evaluateConditional from './utils/evaluateConditional';
+import getCorrectedTypeValueFromKey from './utils/getCorrectedTypeValueFromKey';
+import getDeterministicBonus from '../../dice/getDeterministicBonus';
 
 /**
  * Add system-specific logic to the base ActiveEffect Class
@@ -81,7 +82,7 @@ export default class ActiveEffectA5e extends ActiveEffect {
       targetType
     );
 
-    const newValue = this.#getNewValue(current, change, delta);
+    const newValue = this.#getNewValue(document, current, change, delta);
     const changes = { [change.key]: newValue };
 
     // Apply all changes to the Actor data
@@ -94,8 +95,8 @@ export default class ActiveEffectA5e extends ActiveEffect {
    * @param {*} current
    * @param {*} change
    */
-  #getNewValue(current, change, delta) {
-    const MODES = CONST.ACTIVE_EFFECT_MODES;
+  #getNewValue(document, current, change, delta) {
+    const MODES = CONFIG.A5E.ACTIVE_EFFECT_MODES;
     const { mode } = change;
 
     if (mode === MODES.ADD) return this.#addOrSubtractValues(current, delta);
@@ -110,7 +111,7 @@ export default class ActiveEffectA5e extends ActiveEffect {
         ? -1 * delta
         : delta;
 
-      return this.#addOrSubtractValues(current, addedChange);
+      return this.#addOrSubtractValues(current, addedChange, true);
     }
 
     if (mode === MODES.DOWNGRADE) {
@@ -132,6 +133,10 @@ export default class ActiveEffectA5e extends ActiveEffect {
       return this.#applyCustom(change);
     }
 
+    if (mode === MODES.CONDITIONAL) {
+      return this.#applyConditional(document, current, change);
+    }
+
     return current;
   }
 
@@ -142,12 +147,11 @@ export default class ActiveEffectA5e extends ActiveEffect {
     const isSetAdd = current instanceof Set && delta instanceof Set;
 
     if (isNumericAddition) {
-      if (isSubtract) return (current ?? 0) - delta;
       return (current ?? 0) + delta;
     }
 
     if (isArrayAdd) {
-      if (isSubtract) return current.filter((e) => e !== delta.includes(e));
+      if (isSubtract) return current.filter((e) => !delta.includes(e));
       return [...new Set([...current, ...delta])];
     }
 
@@ -187,6 +191,23 @@ export default class ActiveEffectA5e extends ActiveEffect {
     return delta;
   }
 
+  #applyConditional(document, current, change) {
+    let obj;
+    try {
+      obj = JSON.parse(change.value);
+      if (typeof obj !== 'object') return current;
+    } catch (e) {
+      return current;
+    }
+
+    const compareValue = getDeterministicBonus(obj.comparisonValue ?? '0', document.getRollData());
+    const operator = obj.comparisonOperator ?? '==';
+    const positiveValue = getDeterministicBonus(obj.positiveValue ?? '0', document.getRollData());
+    const negativeValue = getDeterministicBonus(obj.negativeValue ?? '0', document.getRollData());
+
+    return evaluateConditional(current, operator, compareValue, positiveValue, negativeValue);
+  }
+
   /**
    *
    * @param {import("../actor/actor").default| import("../item").default} document
@@ -199,8 +220,7 @@ export default class ActiveEffectA5e extends ActiveEffect {
 
     try {
       if (isActor) {
-        const targetField = game.a5e.activeEffects
-          .EffectOptions.options[document.type].allOptionsObj[change.key];
+        const targetField = game.a5e.activeEffects.options[document.type].allOptions[change.key];
         if (typeof targetField.sampleValue !== 'number') return change.value;
 
         return getDeterministicBonus(
@@ -224,24 +244,62 @@ export default class ActiveEffectA5e extends ActiveEffect {
     return change.value;
   }
 
+  // -------------------------------------------------------
+  //  CRUD Methods
+  // -------------------------------------------------------
   _onCreate(data, options, userId) {
     super._onCreate(data, options, userId);
     this.#updateCanvas();
+    if (this.parent?.documentName === 'Item') return;
+
+    this.#addSubConditions(data);
   }
 
   _preUpdate(data, options, userId) {
     // Update parent effect
-    if (!(this.parent?.parent instanceof Actor)) return super._preUpdate(data, options, userId);
+    this._preUpdateParentEffect(data, options, userId);
+
+    // Update status effects
+    this._preUpdateStatusEffects(data, options, userId);
+
+    return super._preUpdate(data, options, userId);
+  }
+
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
+  _preUpdateParentEffect(data, options, userId) {
+    if (!(this.parent?.parent instanceof Actor)) return;
     const actor = this.parent.parent;
 
-    if (this.flags?.a5e?.transferType !== 'passive') return super._preUpdate(data, options, userId);
+    if (this.flags?.a5e?.transferType !== 'passive') return;
     const parentEffect = actor.effects.contents.find((e) => this.equals(e));
-    if (!parentEffect) return super._preUpdate(data, options, userId);
+    if (!parentEffect) return;
     const parentUpdateData = foundry.utils.deepClone(data);
     delete parentUpdateData._id;
     parentEffect.update(parentUpdateData);
+  }
 
-    return super._preUpdate(data, options, userId);
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
+  _preUpdateStatusEffects(data, options, userId) {
+    const changes = data.changes ?? [];
+    const statuses = new Set();
+    changes.forEach((change) => {
+      if (change.key !== 'flags.a5e.effects.statusConditions') return;
+      let values;
+      try {
+        values = JSON.parse(change.value);
+        if (!Array.isArray(values)) return;
+      } catch (e) {
+        return;
+      }
+
+      values.forEach((value) => {
+        const statusEffect = CONFIG.statusEffects.find((e) => e.id === value);
+        if (!statusEffect) return;
+        statuses.add(statusEffect.id);
+      });
+    });
+
+    data.statuses = Array.from(statuses);
   }
 
   _onUpdate(data, options, userId) {
@@ -287,8 +345,58 @@ export default class ActiveEffectA5e extends ActiveEffect {
     this.#updateCanvas();
 
     if (this.parent?.documentName !== 'Actor') return;
+    this.#deleteSubConditions();
+
     this.parent.effectPhases = null;
     this.parent.reset();
+  }
+
+  #addSubConditions(data) {
+    const statuses = data.statuses ?? [];
+    const subConditions = new Set();
+    statuses.forEach((statusId) => {
+      const statusEffect = CONFIG.statusEffects.find((e) => e.id === statusId);
+      if (!statusEffect) return;
+
+      subConditions.add(...statusEffect?.statuses ?? []);
+    });
+
+    if (!subConditions.size) return;
+    const token = this.parent?.getActiveTokens()?.[0];
+    if (!token) return;
+
+    subConditions.forEach((c) => {
+      if (this.parent?.statuses?.has(c)) return;
+      const effect = CONFIG.statusEffects.find((e) => e.id === c);
+      if (!effect) return;
+
+      if (data.statuses?.[0]) {
+        foundry.utils.setProperty(effect, 'flags.a5e.source', data.statuses[0]);
+      }
+      token.document.toggleActiveEffect(effect, { active: true });
+    });
+  }
+
+  #deleteSubConditions() {
+    const statuses = this.statuses ?? [];
+    const subConditions = new Set();
+    statuses.forEach((statusId) => {
+      const statusEffect = CONFIG.statusEffects.find((e) => e.id === statusId);
+      if (!statusEffect) return;
+
+      subConditions.add(...statusEffect?.statuses ?? []);
+    });
+
+    if (!subConditions.size) return;
+    const token = this.parent?.getActiveTokens()?.[0];
+    if (!token) return;
+
+    subConditions.forEach((c) => {
+      const effect = CONFIG.statusEffects.find((e) => e.id === c);
+      if (!effect) return;
+
+      token.document.toggleActiveEffect(effect, { active: false });
+    });
   }
 
   async duplicateEffect() {
@@ -299,6 +407,9 @@ export default class ActiveEffectA5e extends ActiveEffect {
     if (owningDocument) owningDocument.createEmbeddedDocuments('ActiveEffect', [newEffect]);
   }
 
+  // -------------------------------------------------------
+  //  Custom API
+  // -------------------------------------------------------
   async toggleActiveState() {
     await this.update({ disabled: !this.disabled });
   }

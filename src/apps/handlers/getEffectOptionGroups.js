@@ -1,3 +1,5 @@
+import { localize } from '#runtime/svelte/helper';
+
 export default function getEffectOptionGroups(optionsList) {
   const options = Object.values(optionsList);
 
@@ -14,29 +16,15 @@ export default function getEffectOptionGroups(optionsList) {
     {}
   );
 
-  // Use the currently valid keys to construct groups from the groupMap. If a key does not
-  // have a group defined, put it in the "other" category.
-  const groups = Object.entries(
-    options.reduce((acc, curr) => {
-      const group = groupMap[curr.fieldOption] ?? 'other';
+  const groups = options.map((option) => ({
+    label: option.label,
+    key: option.effectKey,
+    group: localize(
+      CONFIG.A5E.effectKeyGroups[groupMap[option.effectKey] ?? 'other']?.label ?? 'Other'
+    )
+  }));
 
-      acc[group] ??= [];
-      acc[group].push(curr);
-
-      return acc;
-    }, {})
-  );
-
-  // Sort the groups alphabetically
-  groups.sort((a, b) => a[0].localeCompare(b[0]));
-
-  // Shunt the "other" category to the end.
-  groups.push(
-    groups.splice(
-      groups.findIndex((item) => item[0] === 'other'),
-      1
-    )[0]
-  );
+  groups.sort((a, b) => a.group.localeCompare(b.group));
 
   return groups;
 }

@@ -16,7 +16,8 @@ import CultureDataModel from '../dataModels/item/CultureDataModel';
 import DestinyDataModel from '../dataModels/item/DestinyDataModel';
 import HeritageDataModel from '../dataModels/item/HeritageDataModel';
 
-import EffectOptions from '../activeEffects/EffectOptions';
+import constructEffectOptions from '../documents/activeEffect/utils/constructEffectOptions';
+import EffectOption from '../documents/activeEffect/EffectOption';
 
 import registerKeybindings from '../keybindings';
 
@@ -48,13 +49,35 @@ import handleMigration from '../migration/handleMigration';
 import handlePackMigration from '../migration/handlePackMigration';
 
 export default function init() {
+  CONFIG.A5E = A5E;
+  CONFIG.ActiveEffect.documentClass = ActiveEffectA5e;
+  CONFIG.Actor.documentClass = ActorA5e;
+  CONFIG.Actor.trackableAttributes = trackableAttributes;
+  CONFIG.Item.documentClass = ItemA5e;
+  CONFIG.Token.documentClass = TokenDocumentA5e;
+  CONFIG.Token.objectClass = TokenA5e;
+
+  CONFIG.Dice.D20Roll = D20Roll;
+
+  CONFIG.Dice.rolls.push(D20Roll);
+
+  CONFIG.MeasuredTemplate.defaults.angle = 60;
+
+  // DataModels
+  CONFIG.Item.dataModels.background = BackgroundDataModel;
+  CONFIG.Item.dataModels.culture = CultureDataModel;
+  CONFIG.Item.dataModels.destiny = DestinyDataModel;
+  CONFIG.Item.dataModels.heritage = HeritageDataModel;
+
+  // Initialize the game's A5E namespace
   game.a5e = {
     applications: {
       ActorSheetA5e,
       ItemSheetA5e
     },
     activeEffects: {
-      EffectOptions
+      EffectOption,
+      options: {}
     },
     config: A5E,
     dice: {
@@ -85,26 +108,7 @@ export default function init() {
     }
   };
 
-  CONFIG.A5E = A5E;
-  CONFIG.ActiveEffect.documentClass = ActiveEffectA5e;
-  CONFIG.Actor.documentClass = ActorA5e;
-  CONFIG.Actor.trackableAttributes = trackableAttributes;
-  CONFIG.Item.documentClass = ItemA5e;
-  CONFIG.Token.documentClass = TokenDocumentA5e;
-  CONFIG.Token.objectClass = TokenA5e;
-
-  CONFIG.Dice.D20Roll = D20Roll;
-
-  CONFIG.Dice.rolls.push(D20Roll);
-
-  CONFIG.MeasuredTemplate.defaults.angle = 60;
-
-  // DataModels
-  CONFIG.Item.dataModels.background = BackgroundDataModel;
-  CONFIG.Item.dataModels.culture = CultureDataModel;
-  CONFIG.Item.dataModels.destiny = DestinyDataModel;
-  CONFIG.Item.dataModels.heritage = HeritageDataModel;
-
+  // Register sheet application classes
   Actors.unregisterSheet('core', ActorSheet);
   Actors.registerSheet('a5e', ActorSheetA5e, {
     types: ['character'],
@@ -145,7 +149,7 @@ export default function init() {
   // Prelocalize any static strings once localization files become available.
   Hooks.once('i18nInit', () => {
     performPreLocalization(CONFIG.A5E);
-    game.a5e.activeEffects.EffectOptions.createOptions();
+    game.a5e.activeEffects.options = constructEffectOptions();
   });
 
   registerKeybindings();

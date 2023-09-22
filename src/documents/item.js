@@ -727,6 +727,26 @@ export default class ItemA5e extends Item {
   async _onCreate(data, options, user) {
     super._onCreate(data, options, user);
 
+    // Create Movement / Senses Effects for heritages
+    if (this.type === 'heritage') {
+      const effectData = {
+        name: 'Movement & Senses Configuration',
+        icon: this.img,
+        changes: [
+          {
+            key: 'system.attributes.movement.walk.distance',
+            value: 30,
+            mode: CONFIG.A5E.ACTIVE_EFFECT_MODES.OVERRIDE
+          }
+        ]
+      };
+
+      effectData.transfer = false;
+      foundry.utils.setProperty(effectData, 'flags.a5e.transferType', 'permanent');
+
+      await this.createEmbeddedDocuments('ActiveEffect', [effectData]);
+    }
+
     // Update effect origins
     const effects = this.effects.contents;
     const updateArr = effects.map((effect) => ({ _id: effect._id, origin: this.uuid }));

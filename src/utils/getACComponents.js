@@ -13,6 +13,8 @@ export default function getACComponents(actor) {
 
   // Get ac base effects
   const effectChanges = actor.effects.reduce((acc, effect) => {
+    if (effect.isSuppressed) return acc;
+
     const changes = effect.changes
       .reduce((changesAcc, change) => {
         if (change.key !== 'system.attributes.ac.changes.bonuses.value') return changesAcc;
@@ -32,7 +34,7 @@ export default function getACComponents(actor) {
    * We don't need to worry about base ac overrides here because the property is changed by effects.
    */
   let changes;
-  if (effectChanges.find(({ mode }) => mode === CONST.ACTIVE_EFFECT_MODES.OVERRIDE)) {
+  if (effectChanges.find(({ mode }) => mode === CONFIG.A5E.ACTIVE_EFFECT_MODES.OVERRIDE)) {
     changes = effectChanges;
   } else changes = (baseChanges.bonuses.components ?? []).concat(effectChanges);
 

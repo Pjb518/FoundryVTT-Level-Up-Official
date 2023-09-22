@@ -39,6 +39,7 @@ export default class ItemSheet extends SvelteApplication {
         id: `item-sheet-${item.id}`,
         classes: ['a5e-sheet', 'a5e-sheet--item'],
         title: item.name,
+        focusAuto: item.type !== 'heritage',
         svelte: {
           props: {}
         }

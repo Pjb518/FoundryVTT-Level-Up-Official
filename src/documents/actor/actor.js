@@ -33,7 +33,7 @@ import HealingBonusConfigDialog from '../../apps/dialogs/initializers/HealingBon
 import SavingThrowRollDialog from '../../apps/dialogs/initializers/SavingThrowRollDialog';
 import SkillCheckRollDialog from '../../apps/dialogs/initializers/SkillCheckRollDialog';
 
-import automateHpConditions from '../../activeEffects/utils/automateHpConditions';
+import automateHpConditions from '../activeEffect/utils/automateHpConditions';
 import getDeterministicBonus from '../../dice/getDeterministicBonus';
 import getRollFormula from '../../utils/getRollFormula';
 import overrideRollMode from '../../utils/overrideRollMode';
@@ -184,8 +184,8 @@ export default class ActorA5e extends Actor {
       this.actorEffects,
       'applyAEs',
       'afterDerived',
-      (change) => game.a5e.activeEffects.EffectOptions.options[this.type]
-        .allOptionsObj[change.key]?.phase === 'applyAEs'
+      (change) => game.a5e.activeEffects.options[this.type]
+        .allOptions[change.key]?.phase === 'applyAEs'
     );
 
     // Apply special statuses that changed to active tokens
@@ -295,7 +295,7 @@ export default class ActorA5e extends Actor {
     const overrideProperty = foundry.utils.getProperty(this.overrides, 'system.attributes.ac.baseFormula');
     if (overrideProperty) {
       const effectOverride = this.actorEffects
-        .find((effect) => effect.changes.some((change) => change.key.includes('ac.baseFormula')));
+        .findLast((effect) => effect.changes.some((change) => change.key.includes('ac.baseFormula')) && !effect.isSuppressed);
 
       name = effectOverride?.name ?? name;
       changes.override = { name, mode: CONFIG.A5E.ARMOR_MODES.OVERRIDE, value: baseAC };
@@ -430,8 +430,8 @@ export default class ActorA5e extends Actor {
       this.actorEffects,
       'afterDerived',
       null,
-      (change) => game.a5e.activeEffects.EffectOptions.options[this.type]
-        .allOptionsObj[change.key]?.phase === 'afterDerived'
+      (change) => game.a5e.activeEffects.options[this.type]
+        .allOptions[change.key]?.phase === 'afterDerived'
     );
   }
 
