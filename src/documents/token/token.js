@@ -92,8 +92,14 @@ export default class TokenA5e extends Token {
     const tokenSize = this?.actor?.system?.traits?.size ?? 'med';
     const gridSize = this?.scene?.grid?.size ?? 100;
 
+    let max = 20;
+    if (tokenSize === 'tiny') max = 10;
+    else if (tokenSize === 'sm') max = 14;
+    else if (tokenSize === 'med') max = 16;
+
     icons.forEach((icon, idx) => {
       if (!(icon instanceof PIXI.Sprite)) return;
+      // if (idx >= max) return;
 
       icon.anchor.set(0.5);
 
@@ -106,11 +112,6 @@ export default class TokenA5e extends Token {
       icon.height = scaledSize;
 
       // Update icon position
-      let max = 20;
-      if (tokenSize === 'tiny') max = 10;
-      else if (tokenSize === 'sm') max = 14;
-      else if (tokenSize === 'med') max = 16;
-
       const ratio = idx / max;
       const tokenTileFactor = this?.document?.width ?? 1;
       const sizeOffset = sizeScales.sizeOffset[tokenSize] ?? 1.0;
