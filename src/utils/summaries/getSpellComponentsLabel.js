@@ -8,7 +8,7 @@ export default function getSpellComponentsLabel(item) {
     []
   ).join(', ');
 
-  if (item.system.materials.trim()) return `${components} (${item.system.materials})`;
+  if (item?.system?.materials?.trim()) return `${components} (${item?.system?.materials})`;
 
   return components;
 }
