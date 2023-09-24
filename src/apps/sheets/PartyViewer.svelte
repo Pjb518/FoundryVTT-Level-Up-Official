@@ -120,6 +120,12 @@
         }
     }
 
+    function getIsLocked(partyMembers, currentParty) {
+        if (!partyMembers.length) return false;
+
+        return currentParty.isLocked ?? false;
+    }
+
     function getResourcePanelGridSizeDefinition() {
         // Initialize the elements array with cells for the image and name.
         const tableElements = [];
@@ -373,7 +379,7 @@
     let totalPartyWealth = getTotalPartyWealth();
 
     $: currentViewMode = viewModes[0][0];
-    $: partyIsLocked = $currentParty.isLocked ?? false;
+    $: partyIsLocked = getIsLocked($partyMembers, $currentParty);
 
     $: gridAreaDefinition = getGridAreaDefinition(
         currentViewMode,
