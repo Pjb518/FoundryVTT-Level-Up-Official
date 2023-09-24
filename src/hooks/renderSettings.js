@@ -1,3 +1,6 @@
+import HelpAndSupportDialog from '../apps/dialogs/initializers/HelpAndSupportDialog';
+import PremiumContentListDialog from '../apps/dialogs/initializers/PremiumContentListDialog';
+
 export default function renderSettings(_app, _html) {
   const html = _html[0];
 
@@ -41,21 +44,45 @@ export default function renderSettings(_app, _html) {
   systemInfo.append(...links);
   systemRow?.after(systemInfo);
 
-  // // Add new A5e section with helpful info and links to our licenses
-  // const header = document.createElement('h2');
-  // header.innerText = 'Level Up: Advanced 5th Edition';
+  // Add new A5e section with helpful info and links to our licenses
+  const header = document.createElement('h2');
+  header.innerText = 'Level Up: Advanced 5th Edition';
 
-  // const a5eSettings = document.createElement('div');
-  // html.querySelector('#settings-game')?.after(header, a5eSettings);
+  const a5eSettings = document.createElement('div');
+  html.querySelector('#settings-game')?.after(header, a5eSettings);
 
-  // const supportButton = document.createElement('button');
-  // supportButton.type = 'button';
+  const buttons = [
+    {
+      DialogApplication: HelpAndSupportDialog,
+      dialogName: 'helpAndSupport',
+      iconClasses: ['fa-solid', 'fa-life-ring'],
+      label: 'Help and Support'
+    }
+    // {
+    //   DialogApplication: PremiumContentListDialog,
+    //   dialogName: 'premiumContentList',
+    //   iconClasses: ['fa-solid', 'fa-wallet'],
+    //   label: 'Premium Content'
+    // }
+  ].map(({
+    DialogApplication, dialogName, iconClasses, label
+  }) => {
+    const button = document.createElement('button');
+    button.type = 'button';
 
-  // const supportIcon = document.createElement('i');
-  // supportIcon.classList.add('fa-solid', 'fa-life-ring');
+    const icon = document.createElement('i');
+    icon.classList.add(...iconClasses);
 
-  // supportButton.append(supportIcon, 'Help and Support');
-  // // supportButton.addEventListener('click', () => { console.log('Working!'); });
+    button.append(icon, label);
 
-  // a5eSettings.append(supportButton);
+    button.addEventListener('click', () => {
+      game.dialogs ??= {};
+      game.dialogs[dialogName] ??= new DialogApplication();
+      game.dialogs[dialogName].render(true);
+    });
+
+    return button;
+  });
+
+  a5eSettings.append(...buttons);
 }
