@@ -5,6 +5,7 @@ import doubleDiceQuantityAndMods from './doubleDiceQuantityAndMods';
 import getBonusCritDamage from './getBonusCritDamage';
 import maxDamage from './maxDamage';
 import maxDamagePlusRoll from './maxDamagePlusRoll';
+import simplifyDiceTerms from '../simplifyDiceTerms';
 
 const CRIT_CALCULATION_FUNCTION_MAP = {
   doubleAllDamage,
@@ -21,5 +22,5 @@ export default async function constructCritDamageRoll(baseRoll, critBonus) {
 
   if (critBonus) terms.push(...(await getBonusCritDamage(critBonus)));
 
-  return Roll.fromTerms(terms);
+  return Roll.fromTerms(simplifyDiceTerms(terms));
 }

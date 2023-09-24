@@ -3,6 +3,7 @@ import { localize } from '#runtime/svelte/helper';
 import constructCritDamageRoll from '../dice/damage/constructCritDamageRoll';
 import constructD20RollFormula from '../dice/constructD20RollFormula';
 import constructRollFormula from '../dice/constructRollFormula';
+import simplifyDiceTerms from '../dice/simplifyDiceTerms';
 
 export default class RollPreparationManager {
   #actor;
@@ -201,7 +202,8 @@ export default class RollPreparationManager {
 
     if (!rollFormula) return null;
 
-    const baseRoll = await new Roll(rollFormula).evaluate({ async: true });
+    const r = await new Roll(rollFormula).evaluate({ async: true });
+    const baseRoll = Roll.fromTerms(simplifyDiceTerms(r.terms));
     let roll = baseRoll;
     let critRoll = baseRoll;
 
@@ -259,7 +261,8 @@ export default class RollPreparationManager {
 
     if (!rollFormula) return null;
 
-    const roll = await new Roll(rollFormula).evaluate({ async: true });
+    const r = await new Roll(rollFormula).evaluate({ async: true });
+    const roll = Roll.fromTerms(simplifyDiceTerms(r.terms));
     const healingType = CONFIG.A5E.healingTypes[_roll.healingType ?? 'healing'];
     const label = localize(healingType);
 
