@@ -121,7 +121,9 @@
     }
 
     function getIsLocked(partyMembers, currentParty) {
-        if (!partyMembers.length) return false;
+        if (!partyMembers.length) {
+            return false;
+        }
 
         return currentParty.isLocked ?? false;
     }
@@ -275,7 +277,7 @@
         }
     }
 
-    async function removeActorFromParty({ detail: uuid }) {
+    async function removeActorFromParty(uuid) {
         const { actors } = $currentParty;
         const targetIndex = actors.indexOf(uuid);
 
@@ -303,7 +305,10 @@
         }
     }
 
-    function updatePartyData() {
+    function updatePartyData(updatedActor) {
+        const actor = fromUuidSync(updatedActor);
+        if (!actor) removeActorFromParty(updatedActor);
+
         highestPassiveScores = getHighestPassiveScoresForParty();
         highestSpellSlotLevel = getHighestSpellSlotLevel();
         partyHasExertionPool = getAnyMemberHasExertionPool();
@@ -502,8 +507,9 @@
                     {showActorImagesInPartyViewer}
                     --grid-areas={gridAreaDefinition}
                     --grid-template={gridSizeDefinition}
-                    on:actor-updated={updatePartyData}
-                    on:remove-actor={removeActorFromParty}
+                    on:actor-updated={({ detail }) => updatePartyData(detail)}
+                    on:remove-actor={({ detail }) =>
+                        removeActorFromParty(detail)}
                 />
             {/each}
         </ul>

@@ -31,9 +31,12 @@
         }
     }
 
+    const actorId = $actor.uuid;
     const dispatch = createEventDispatcher();
 
-    const unsubscribe = actor.subscribe((_) => dispatch("actor-updated"));
+    const unsubscribe = actor.subscribe((_) =>
+        dispatch("actor-updated", actorId)
+    );
 
     $: viewComponent = getViewModeComponent(currentViewMode);
 
