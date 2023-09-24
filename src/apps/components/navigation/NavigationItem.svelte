@@ -31,10 +31,11 @@
         &-item {
             margin: 0;
             font-family: inherit;
-            background: transparent;
             color: inherit;
             font-size: $font-size-sm;
             line-height: unset;
+            background: transparent;
+            border: none;
 
             transition: $standard-transition;
 

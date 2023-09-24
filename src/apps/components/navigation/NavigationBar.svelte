@@ -35,6 +35,7 @@
 
 <style lang="scss">
     .nav-wrapper {
+        flex-grow: 0;
         margin: 0.25rem 0;
         padding: 0.375rem 0.75rem;
         background: $color-primary;

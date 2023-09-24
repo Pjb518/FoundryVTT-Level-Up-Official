@@ -57,13 +57,13 @@ export default function renderSettings(_app, _html) {
       dialogName: 'helpAndSupport',
       iconClasses: ['fa-solid', 'fa-life-ring'],
       label: 'Help and Support'
+    },
+    {
+      DialogApplication: PremiumContentListDialog,
+      dialogName: 'premiumContentList',
+      iconClasses: ['fa-solid', 'fa-wallet'],
+      label: 'Premium Content'
     }
-    // {
-    //   DialogApplication: PremiumContentListDialog,
-    //   dialogName: 'premiumContentList',
-    //   iconClasses: ['fa-solid', 'fa-wallet'],
-    //   label: 'Premium Content'
-    // }
   ].map(({
     DialogApplication, dialogName, iconClasses, label
   }) => {
