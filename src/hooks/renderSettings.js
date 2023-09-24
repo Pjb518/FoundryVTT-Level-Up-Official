@@ -29,17 +29,33 @@ export default function renderSettings(_app, _html) {
     classes, icon, label, tooltip, url
   }) => {
     const anchor = document.createElement('a');
-    anchor.append(icon);
     anchor.href = url;
     anchor.innerHTML = `${icon} ${label}`;
     anchor.target = '_blank';
     anchor.setAttribute('data-tooltip', tooltip);
-
-    classes.forEach((_class) => anchor.classList.add(_class));
+    anchor.classList.add(...classes);
 
     return anchor;
   });
 
   systemInfo.append(...links);
   systemRow?.after(systemInfo);
+
+  // // Add new A5e section with helpful info and links to our licenses
+  // const header = document.createElement('h2');
+  // header.innerText = 'Level Up: Advanced 5th Edition';
+
+  // const a5eSettings = document.createElement('div');
+  // html.querySelector('#settings-game')?.after(header, a5eSettings);
+
+  // const supportButton = document.createElement('button');
+  // supportButton.type = 'button';
+
+  // const supportIcon = document.createElement('i');
+  // supportIcon.classList.add('fa-solid', 'fa-life-ring');
+
+  // supportButton.append(supportIcon, 'Help and Support');
+  // // supportButton.addEventListener('click', () => { console.log('Working!'); });
+
+  // a5eSettings.append(supportButton);
 }
