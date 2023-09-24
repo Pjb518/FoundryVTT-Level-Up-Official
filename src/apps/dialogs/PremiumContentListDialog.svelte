@@ -61,6 +61,7 @@
 
     article {
         height: 100%;
+        padding-inline: 0.25rem;
         overflow: auto;
     }
 </style>
