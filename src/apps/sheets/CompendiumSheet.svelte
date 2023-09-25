@@ -40,6 +40,12 @@
     <main>
         <CompendiumFilters {compendiumType} />
 
+        <input
+            class="search-field"
+            type="text"
+            placeholder="Definitely a search field"
+        />
+
         {#await documents}
             <div class="spinner-wrapper">
                 <Spinner />
@@ -60,20 +66,34 @@
     }
 
     :global(.a5e-compendium-sheet .window-content) {
-        padding: 0.5rem;
+        padding: 0 !important;
     }
 
     .spinner-wrapper {
         display: flex;
         align-items: center;
         justify-content: center;
+        grid-area: list;
         height: 100%;
         width: 100%;
     }
 
+    .search-field {
+        grid-area: search;
+    }
+
     main {
         display: grid;
+        grid-template-areas:
+            "filters search"
+            "filters list";
+        grid-template-rows: 2rem 1fr;
         grid-template-columns: 15rem 1fr;
+        column-gap: 0.5rem;
         height: 100%;
+        padding: 0.5rem;
+        padding-right: 0.25rem;
+        background: rgba(246, 242, 235, 0.5);
+        overflow: hidden;
     }
 </style>

@@ -23,8 +23,11 @@
         display: flex;
         flex-direction: column;
         gap: 0.25rem;
+        grid-area: list;
         margin: 0;
         padding: 0;
         list-style: none;
+        overflow-y: auto;
+        padding-right: 0.5rem;
     }
 </style>
