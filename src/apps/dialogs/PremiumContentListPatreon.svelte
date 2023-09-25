@@ -15,10 +15,16 @@
 </p>
 
 <h3>
-    <i
-        class="tier-indicator tier-indicator--bronze fa-solid fa-circle"
-        data-tooltip="This tool is available to bronze tier patrons"
-    /> 5e → A5e Converter
+    <a
+        class="patreon-link"
+        href="https://www.patreon.com/posts/5e-a5e-tools-89802245"
+        target="_blank"
+    >
+        <i
+            class="tier-indicator tier-indicator--bronze fa-solid fa-circle"
+            data-tooltip="This tool is available to bronze tier patrons"
+        /> 5e → A5e Converter
+    </a>
 </h3>
 
 <p>
@@ -26,6 +32,13 @@
     content for the 5e Foundry system and makes it usable in an A5e world. The
     application contains a number of handy instructions pages to help you
     prepare your 5e content for conversion.
+</p>
+
+<p>
+    You can see the conversion tools in action <a
+        href="https://www.patreon.com/posts/5e-a5e-tools-89802245"
+        target="_blank">here</a
+    >.
 </p>
 
 <style lang="scss">
@@ -57,6 +70,16 @@
         &--silver {
             --background-color: #bbc2cc;
             --border-color: #828fa1;
+        }
+    }
+
+    .patreon-link {
+        text-decoration: none;
+        color: black;
+
+        &:focus,
+        &:hover {
+            text-shadow: none;
         }
     }
 
