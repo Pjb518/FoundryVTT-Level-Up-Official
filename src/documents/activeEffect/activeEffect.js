@@ -252,7 +252,7 @@ export default class ActiveEffectA5e extends ActiveEffect {
     this.#updateCanvas();
     if (this.parent?.documentName === 'Item') return;
 
-    this.#addSubConditions(data);
+    this.#addSubConditions(data, userId);
   }
 
   _preUpdate(data, options, userId) {
@@ -348,7 +348,8 @@ export default class ActiveEffectA5e extends ActiveEffect {
     this.parent.reset();
   }
 
-  #addSubConditions(data) {
+  #addSubConditions(data, userId) {
+    if (game.user.id !== userId) return;
     const statuses = data.statuses ?? [];
     const subConditions = new Set();
     statuses.forEach((statusId) => {
