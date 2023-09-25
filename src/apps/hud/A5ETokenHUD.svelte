@@ -69,6 +69,7 @@
             class:linked={subConditions[effect.id]?.some((c) =>
                 activeConditions.includes(c)
             )}
+            class:locked={conditionImmunities.includes(effect.id)}
             title={effect.title ?? ""}
             data-status-id={effect.id}
             disabled={conditionImmunities.includes(effect.id) ||
@@ -184,7 +185,8 @@
             }
         }
 
-        &.linked {
+        &.linked,
+        &.locked {
             h3::before {
                 content: "\f0c1";
                 font: var(--fa-font-solid);
@@ -204,6 +206,12 @@
                 position: absolute;
                 top: -0.75rem;
                 left: 1.65rem;
+            }
+        }
+
+        &.locked {
+            h3::before {
+                content: "\f023";
             }
         }
 
