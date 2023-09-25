@@ -22,7 +22,12 @@ export default async function createMacro(data, slot) {
     command = `game.a5e.macros.activateItemMacro("${item.name}");`;
   }
 
-  let macro = game.macros.find((m) => (m.name === item.name) && (m.command === command));
+  let macro = game.macros.find((m) => {
+    const sameCommand = (m.name === item.name) && (m.command === command);
+    const perms = m.ownership?.default === 3 || m.ownership?.[game.user.id] === 3;
+
+    return sameCommand && perms;
+  });
 
   if (!macro) {
     macro = await Macro.create({
