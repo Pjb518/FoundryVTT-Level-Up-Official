@@ -2,7 +2,44 @@
 	"name": "Any Weapon Stance",
 	"type": "maneuver",
 	"img": "icons/magic/perception/eye-ringed-green.webp",
-	"effects": [],
+	"effects": [
+		{
+			"icon": "icons/magic/perception/eye-ringed-green.webp",
+			"origin": "Item.8einmj5zb79taq2b",
+			"flags": {
+				"a5e": {
+					"sort": 0,
+					"transferType": "onUse",
+					"duration": {
+						"unit": "hours"
+					}
+				}
+			},
+			"transfer": false,
+			"name": "Any Weapon Stance",
+			"_id": "fQMDYldQYlWA3eYE",
+			"changes": [
+				{
+					"key": "system.proficiencies.weapons",
+					"value": "[\"blowgun\",\"club\",\"dagger\",\"handaxe\",\"heavyCrossbow\",\"greatclub\",\"lightCrossbow\",\"mace\",\"quarterstaff\",\"sickle\",\"sling\",\"spear\",\"bastardSword\",\"battleaxe\",\"brassKnuckles\",\"compositeBow\",\"dart\",\"duelingDagger\",\"flail\",\"garotte\",\"glaive\",\"greataxe\",\"greatsword\",\"halberd\",\"handCrossbow\",\"javelin\",\"lance\",\"lightHammer\",\"longbow\",\"longsword\",\"maul\",\"morningstar\",\"net\",\"pike\",\"punchingDagger\",\"rapier\",\"saber\",\"scimitar\",\"scythe\",\"shortbow\",\"shortsword\",\"spearThrower\",\"throwingDagger\",\"trident\",\"warhammer\",\"warPick\",\"whip\",\"assassinsGauntlet\",\"bootDagger\",\"carbine\",\"doubleWeapon\",\"gearedSlingshot\",\"mercurialMaul\",\"musket\",\"pistol\",\"ratchetingCrossbow\",\"revolver\",\"ringBlade\",\"shotgun\",\"spikedChain\",\"swordPistol\"]",
+					"mode": 2,
+					"priority": null
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": 86400,
+				"combat": null,
+				"rounds": null,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "",
+			"statuses": []
+		}
+	],
 	"flags": {},
 	"system": {
 		"actions": {
@@ -14,7 +51,7 @@
 					"reactionTrigger": ""
 				},
 				"duration": {
-					"unit": "permanent",
+					"unit": "special",
 					"value": ""
 				},
 				"ranges": {
@@ -38,6 +75,14 @@
 						"quantity": 1,
 						"resource": "exertion",
 						"type": "resource"
+					}
+				},
+				"prompts": {
+					"5tzSJP5K49vJtmRZ": {
+						"type": "effect",
+						"default": true,
+						"label": "Any Weapon Stance",
+						"effectId": "fQMDYldQYlWA3eYE"
 					}
 				}
 			}
@@ -67,7 +112,7 @@
 		},
 		"degree": 4,
 		"exertionCost": 1,
-		"isStance": false,
+		"isStance": true,
 		"prerequisite": "",
 		"tradition": "unendingWheel"
 	},

@@ -2,7 +2,50 @@
 	"name": "Perceptive Stance",
 	"type": "maneuver",
 	"img": "icons/skills/melee/strike-sword-blood-red.webp",
-	"effects": [],
+	"effects": [
+		{
+			"icon": "icons/skills/melee/strike-sword-blood-red.webp",
+			"origin": "Item.do1d1mvugso3nac3",
+			"flags": {
+				"a5e": {
+					"sort": 0,
+					"transferType": "onUse",
+					"duration": {
+						"unit": "hours"
+					}
+				}
+			},
+			"transfer": false,
+			"name": "Perceptive Stance",
+			"_id": "7CBN6oimrItxwMk2",
+			"changes": [
+				{
+					"key": "system.skills.prc.expertiseDice",
+					"value": "1",
+					"mode": 2,
+					"priority": null
+				},
+				{
+					"key": "system.skills.prc.bonuses.passive",
+					"value": "3",
+					"mode": 2,
+					"priority": null
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": 86400,
+				"combat": null,
+				"rounds": null,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "",
+			"statuses": []
+		}
+	],
 	"flags": {},
 	"system": {
 		"actions": {
@@ -14,7 +57,7 @@
 					"reactionTrigger": ""
 				},
 				"duration": {
-					"unit": "permanent",
+					"unit": "special",
 					"value": ""
 				},
 				"area": {
@@ -33,6 +76,14 @@
 						"quantity": 1,
 						"resource": "exertion",
 						"type": "resource"
+					}
+				},
+				"prompts": {
+					"CcNwZUr5wj3SDdfA": {
+						"type": "effect",
+						"default": true,
+						"effectId": "7CBN6oimrItxwMk2",
+						"label": "Perceptive Stance"
 					}
 				}
 			}
@@ -62,7 +113,7 @@
 		},
 		"degree": 1,
 		"exertionCost": 1,
-		"isStance": false,
+		"isStance": true,
 		"prerequisite": "",
 		"tradition": "razorsEdge"
 	},

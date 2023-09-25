@@ -2,7 +2,37 @@
 	"name": "Viper Stance",
 	"type": "maneuver",
 	"img": "icons/skills/melee/blade-tip-smoke-green.webp",
-	"effects": [],
+	"effects": [
+		{
+			"icon": "icons/skills/melee/blade-tip-smoke-green.webp",
+			"origin": "Item.yttf8z7cg2yqoqbm",
+			"flags": {
+				"a5e": {
+					"sort": 0,
+					"transferType": "onUse",
+					"duration": {
+						"unit": "hours"
+					}
+				}
+			},
+			"transfer": false,
+			"name": "Viper Stance",
+			"_id": "Phb7XeHLi4mFaynb",
+			"changes": [],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": 86400,
+				"combat": null,
+				"rounds": null,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "",
+			"statuses": []
+		}
+	],
 	"flags": {},
 	"system": {
 		"actions": {
@@ -14,7 +44,7 @@
 					"reactionTrigger": "If you could use a reaction but do not have your reaction available."
 				},
 				"duration": {
-					"unit": "round",
+					"unit": "special",
 					"value": 1
 				},
 				"ranges": {
@@ -24,7 +54,8 @@
 				},
 				"area": {
 					"shape": "",
-					"placeTemplate": false
+					"placeTemplate": false,
+					"quantity": 1
 				},
 				"target": {
 					"quantity": "",
@@ -36,6 +67,43 @@
 						"resource": "exertion",
 						"type": "resource"
 					}
+				},
+				"prompts": {
+					"GBgQ5x2MfhAJUaIQ": {
+						"type": "effect",
+						"default": true,
+						"label": "Viper Stance",
+						"effectId": "Phb7XeHLi4mFaynb"
+					}
+				}
+			},
+			"9xCHfHvOigFVeI76": {
+				"name": "Take Bonus Reaction",
+				"activation": {
+					"type": "none",
+					"cost": 1
+				},
+				"consumers": {
+					"0tv78cACMIoFgMo3": {
+						"type": "resource",
+						"default": true,
+						"resource": "exertion",
+						"quantity": 1
+					}
+				},
+				"rolls": {},
+				"prompts": {},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"threshold": 6
+					}
+				},
+				"duration": {
+					"unit": "instantaneous"
 				}
 			}
 		},
@@ -68,7 +136,7 @@
 		},
 		"degree": 4,
 		"exertionCost": 1,
-		"isStance": false,
+		"isStance": true,
 		"prerequisite": "",
 		"tradition": "vipersFangs"
 	},

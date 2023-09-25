@@ -2,7 +2,37 @@
 	"name": "Blinding Blow Stance",
 	"type": "maneuver",
 	"img": "icons/magic/control/mouth-smile-deception-purple.webp",
-	"effects": [],
+	"effects": [
+		{
+			"icon": "icons/magic/control/mouth-smile-deception-purple.webp",
+			"origin": "Item.smw2itvpdd2ciavo",
+			"flags": {
+				"a5e": {
+					"sort": 0,
+					"transferType": "onUse",
+					"duration": {
+						"unit": "hours"
+					}
+				}
+			},
+			"transfer": false,
+			"name": "Blinding Blow Stance",
+			"_id": "C7STh18yoXIvT8CP",
+			"changes": [],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": 86400,
+				"combat": null,
+				"rounds": null,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "",
+			"statuses": []
+		}
+	],
 	"flags": {},
 	"system": {
 		"actions": {
@@ -29,14 +59,11 @@
 					"size": ""
 				},
 				"prompts": {
-					"uaaZrRZSUKy3O8Py": {
-						"ability": "wis",
-						"onSave": "Recover from Blindness.",
-						"saveDC": {
-							"type": "custom",
-							"bonus": "@maneuverDC"
-						},
-						"type": "savingThrow"
+					"2Fc5YYkVhZhvYSNR": {
+						"type": "effect",
+						"default": true,
+						"effectId": "C7STh18yoXIvT8CP",
+						"label": "Blinding Blow Stance"
 					}
 				},
 				"consumers": {
@@ -73,7 +100,7 @@
 		},
 		"degree": 4,
 		"exertionCost": 2,
-		"isStance": false,
+		"isStance": true,
 		"prerequisite": "",
 		"tradition": "mistAndShade"
 	},

@@ -2,7 +2,37 @@
 	"name": "Legion Stance",
 	"type": "maneuver",
 	"img": "icons/skills/social/diplomacy-unity-alliance.webp",
-	"effects": [],
+	"effects": [
+		{
+			"icon": "icons/skills/social/diplomacy-unity-alliance.webp",
+			"origin": "Item.nvsdrpz8miqeqf3e",
+			"flags": {
+				"a5e": {
+					"sort": 0,
+					"transferType": "onUse",
+					"duration": {
+						"unit": "hours"
+					}
+				}
+			},
+			"transfer": false,
+			"name": "Legion Stance",
+			"_id": "1HMYdCVyQYYFgD5k",
+			"changes": [],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": 86400,
+				"combat": null,
+				"rounds": null,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "",
+			"statuses": []
+		}
+	],
 	"flags": {},
 	"system": {
 		"actions": {
@@ -14,7 +44,7 @@
 					"reactionTrigger": ""
 				},
 				"duration": {
-					"unit": "permanent",
+					"unit": "special",
 					"value": ""
 				},
 				"ranges": {
@@ -38,6 +68,14 @@
 						"quantity": 1,
 						"resource": "exertion",
 						"type": "resource"
+					}
+				},
+				"prompts": {
+					"SXVcdPwxIJ3cGo5q": {
+						"type": "effect",
+						"default": true,
+						"label": "Legion Stance",
+						"effectId": "1HMYdCVyQYYFgD5k"
 					}
 				}
 			}
@@ -67,7 +105,7 @@
 		},
 		"degree": 1,
 		"exertionCost": 1,
-		"isStance": false,
+		"isStance": true,
 		"prerequisite": "",
 		"tradition": "sanguineKnot"
 	},

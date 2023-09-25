@@ -2,7 +2,45 @@
 	"name": "Swift Stance",
 	"type": "maneuver",
 	"img": "icons/magic/movement/trail-streak-zigzag-yellow.webp",
-	"effects": [],
+	"effects": [
+		{
+			"icon": "icons/magic/movement/trail-streak-zigzag-yellow.webp",
+			"origin": "Item.vf6r6bishk345i31",
+			"flags": {
+				"a5e": {
+					"sort": 0,
+					"transferType": "onUse",
+					"duration": {
+						"type": "seconds",
+						"unit": "hours"
+					}
+				}
+			},
+			"transfer": false,
+			"name": "Swift Stance",
+			"_id": "8zrgJ9OqC73lxdBG",
+			"changes": [
+				{
+					"key": "system.attributes.movement.walk.distance",
+					"value": "5",
+					"mode": 2,
+					"priority": null
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": 86400,
+				"combat": null,
+				"rounds": null,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "",
+			"statuses": []
+		}
+	],
 	"flags": {},
 	"system": {
 		"actions": {
@@ -34,6 +72,14 @@
 						"resource": "exertion",
 						"type": "resource"
 					}
+				},
+				"prompts": {
+					"g2JkETqjxZXd5Its": {
+						"type": "effect",
+						"default": true,
+						"effectId": "8zrgJ9OqC73lxdBG",
+						"label": "Swift Stance"
+					}
 				}
 			}
 		},
@@ -62,7 +108,7 @@
 		},
 		"degree": 1,
 		"exertionCost": 1,
-		"isStance": false,
+		"isStance": true,
 		"prerequisite": "",
 		"tradition": "rapidCurrent"
 	},

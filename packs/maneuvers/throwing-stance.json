@@ -2,7 +2,37 @@
 	"name": "Throwing Stance",
 	"type": "maneuver",
 	"img": "icons/magic/perception/eye-ringed-green.webp",
-	"effects": [],
+	"effects": [
+		{
+			"icon": "icons/magic/perception/eye-ringed-green.webp",
+			"origin": "Item.q0yobkb6cor5gnz9",
+			"flags": {
+				"a5e": {
+					"sort": 0,
+					"transferType": "onUse",
+					"duration": {
+						"unit": "hours"
+					}
+				}
+			},
+			"transfer": false,
+			"name": "Throwing Stance",
+			"_id": "lu44gFUy8R4A4ggX",
+			"changes": [],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": 86400,
+				"combat": null,
+				"rounds": null,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "",
+			"statuses": []
+		}
+	],
 	"flags": {},
 	"system": {
 		"actions": {
@@ -14,7 +44,7 @@
 					"reactionTrigger": ""
 				},
 				"duration": {
-					"unit": "permanent",
+					"unit": "special",
 					"value": ""
 				},
 				"ranges": {
@@ -38,6 +68,14 @@
 						"quantity": 1,
 						"resource": "exertion",
 						"type": "resource"
+					}
+				},
+				"prompts": {
+					"R3JLPvnyXjJSpThb": {
+						"type": "effect",
+						"default": true,
+						"effectId": "lu44gFUy8R4A4ggX",
+						"label": "Throwing Stance"
 					}
 				}
 			}
@@ -67,7 +105,7 @@
 		},
 		"degree": 1,
 		"exertionCost": 1,
-		"isStance": false,
+		"isStance": true,
 		"prerequisite": "",
 		"tradition": "unendingWheel"
 	},

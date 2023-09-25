@@ -2,7 +2,37 @@
 	"name": "Virulent Stance",
 	"type": "maneuver",
 	"img": "icons/skills/melee/blade-tip-smoke-green.webp",
-	"effects": [],
+	"effects": [
+		{
+			"icon": "icons/skills/melee/blade-tip-smoke-green.webp",
+			"origin": "Item.tav9hsqxp6lxbkre",
+			"flags": {
+				"a5e": {
+					"sort": 0,
+					"transferType": "onUse",
+					"duration": {
+						"unit": "hours"
+					}
+				}
+			},
+			"transfer": false,
+			"name": "Virulent Stance",
+			"_id": "tRimZGCSQY409UsT",
+			"changes": [],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": 86400,
+				"combat": null,
+				"rounds": null,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "",
+			"statuses": []
+		}
+	],
 	"flags": {},
 	"system": {
 		"actions": {
@@ -36,6 +66,14 @@
 						"resource": "exertion",
 						"type": "resource"
 					}
+				},
+				"prompts": {
+					"P5XfF3Z4D00csgnQ": {
+						"type": "effect",
+						"default": true,
+						"label": "Virulent Stance",
+						"effectId": "tRimZGCSQY409UsT"
+					}
 				}
 			}
 		},
@@ -68,7 +106,7 @@
 		},
 		"degree": 1,
 		"exertionCost": 1,
-		"isStance": false,
+		"isStance": true,
 		"prerequisite": "",
 		"tradition": "vipersFangs"
 	},

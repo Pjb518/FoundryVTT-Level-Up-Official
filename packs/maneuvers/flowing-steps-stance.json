@@ -2,7 +2,37 @@
 	"name": "Flowing Steps Stance",
 	"type": "maneuver",
 	"img": "icons/magic/movement/trail-streak-zigzag-yellow.webp",
-	"effects": [],
+	"effects": [
+		{
+			"icon": "icons/magic/movement/trail-streak-zigzag-yellow.webp",
+			"origin": "Item.uuiil45vxubuw5w7",
+			"flags": {
+				"a5e": {
+					"sort": 0,
+					"transferType": "onUse",
+					"duration": {
+						"unit": "hours"
+					}
+				}
+			},
+			"transfer": false,
+			"name": "Flowing Steps Stance",
+			"_id": "G5WvwmpHaLnXAzS0",
+			"changes": [],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": 86400,
+				"combat": null,
+				"rounds": null,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "",
+			"statuses": []
+		}
+	],
 	"flags": {},
 	"system": {
 		"actions": {
@@ -34,6 +64,14 @@
 						"resource": "exertion",
 						"type": "resource"
 					}
+				},
+				"prompts": {
+					"VZhCkIZGTsxDIayY": {
+						"type": "effect",
+						"default": true,
+						"label": "Flowing Steps Stance",
+						"effectId": "G5WvwmpHaLnXAzS0"
+					}
 				}
 			}
 		},
@@ -62,7 +100,7 @@
 		},
 		"degree": 4,
 		"exertionCost": 3,
-		"isStance": false,
+		"isStance": true,
 		"prerequisite": "",
 		"tradition": "rapidCurrent"
 	},

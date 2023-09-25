@@ -2,7 +2,37 @@
 	"name": "Perfect Edge Stance",
 	"type": "maneuver",
 	"img": "icons/skills/melee/strike-sword-blood-red.webp",
-	"effects": [],
+	"effects": [
+		{
+			"icon": "icons/skills/melee/strike-sword-blood-red.webp",
+			"origin": "Item.eofu107bciwqtrk6",
+			"flags": {
+				"a5e": {
+					"sort": 0,
+					"transferType": "onUse",
+					"duration": {
+						"unit": "hours"
+					}
+				}
+			},
+			"transfer": false,
+			"name": "Perfect Edge Stance",
+			"_id": "Jo3QCWcp6e0nvmLn",
+			"changes": [],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": 86400,
+				"combat": null,
+				"rounds": null,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "",
+			"statuses": []
+		}
+	],
 	"flags": {},
 	"system": {
 		"actions": {
@@ -14,7 +44,7 @@
 					"reactionTrigger": ""
 				},
 				"duration": {
-					"unit": "permanent",
+					"unit": "special",
 					"value": ""
 				},
 				"area": {
@@ -33,6 +63,14 @@
 						"quantity": 2,
 						"resource": "exertion",
 						"type": "resource"
+					}
+				},
+				"prompts": {
+					"kRlntZuFYdFzY6Dm": {
+						"type": "effect",
+						"default": true,
+						"label": "Perfect Edge Stance",
+						"effectId": "Jo3QCWcp6e0nvmLn"
 					}
 				}
 			}

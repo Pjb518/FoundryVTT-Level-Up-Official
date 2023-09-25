@@ -2,7 +2,50 @@
 	"name": "Wary Stance",
 	"type": "maneuver",
 	"img": "icons/skills/melee/spear-tips-quintuple-orange.webp",
-	"effects": [],
+	"effects": [
+		{
+			"icon": "icons/skills/melee/spear-tips-quintuple-orange.webp",
+			"origin": "Item.0pkeozsrblwtwmhy",
+			"flags": {
+				"a5e": {
+					"sort": 0,
+					"transferType": "onUse",
+					"duration": {
+						"unit": "hours"
+					}
+				}
+			},
+			"transfer": false,
+			"name": "Wary Stance",
+			"_id": "aWUsAdJfGddmvwQD",
+			"changes": [
+				{
+					"key": "system.skills.ins.expertiseDice",
+					"value": "1",
+					"mode": 2,
+					"priority": null
+				},
+				{
+					"key": "system.skills.ins.bonuses.passive",
+					"value": "3",
+					"mode": 2,
+					"priority": null
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": 86400,
+				"combat": null,
+				"rounds": null,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "",
+			"statuses": []
+		}
+	],
 	"flags": {},
 	"system": {
 		"actions": {
@@ -34,6 +77,14 @@
 						"resource": "exertion",
 						"type": "resource"
 					}
+				},
+				"prompts": {
+					"JwdPPIznhJl1Fau6": {
+						"type": "effect",
+						"default": true,
+						"label": "Wary Stance",
+						"effectId": "aWUsAdJfGddmvwQD"
+					}
 				}
 			}
 		},
@@ -62,7 +113,7 @@
 		},
 		"degree": 1,
 		"exertionCost": 1,
-		"isStance": false,
+		"isStance": true,
 		"prerequisite": "",
 		"tradition": "mirrorsGlint"
 	},

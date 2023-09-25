@@ -2,7 +2,44 @@
 	"name": "Springing Stance",
 	"type": "maneuver",
 	"img": "icons/creatures/abilities/cougar-pounce-stalk-black.webp",
-	"effects": [],
+	"effects": [
+		{
+			"icon": "icons/creatures/abilities/cougar-pounce-stalk-black.webp",
+			"origin": "Item.i0zwll1k5vjftcce",
+			"flags": {
+				"a5e": {
+					"sort": 0,
+					"transferType": "onUse",
+					"duration": {
+						"unit": "hours"
+					}
+				}
+			},
+			"transfer": false,
+			"name": "Springing Stance",
+			"_id": "JYAsP3AverE3Tjqe",
+			"changes": [
+				{
+					"key": "system.skills.acr.expertiseDice",
+					"value": "1",
+					"mode": 2,
+					"priority": null
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": 86400,
+				"combat": null,
+				"rounds": null,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "",
+			"statuses": []
+		}
+	],
 	"flags": {},
 	"system": {
 		"actions": {
@@ -14,7 +51,7 @@
 					"reactionTrigger": ""
 				},
 				"duration": {
-					"unit": "permanent",
+					"unit": "special",
 					"value": ""
 				},
 				"ranges": {
@@ -38,6 +75,14 @@
 						"quantity": 1,
 						"resource": "exertion",
 						"type": "resource"
+					}
+				},
+				"prompts": {
+					"6wY8fvsDWtWRjMMq": {
+						"type": "effect",
+						"default": true,
+						"label": "Springing Stance",
+						"effectId": "JYAsP3AverE3Tjqe"
 					}
 				}
 			}
@@ -67,7 +112,7 @@
 		},
 		"degree": 1,
 		"exertionCost": 1,
-		"isStance": false,
+		"isStance": true,
 		"prerequisite": "",
 		"tradition": "toothAndClaw"
 	},

@@ -2,7 +2,37 @@
 	"name": "Zealous Stance",
 	"type": "maneuver",
 	"img": "icons/skills/melee/sword-winged-holy-orange.webp",
-	"effects": [],
+	"effects": [
+		{
+			"icon": "icons/skills/melee/sword-winged-holy-orange.webp",
+			"origin": "Item.g9dr4irh8rpioplt",
+			"flags": {
+				"a5e": {
+					"sort": 0,
+					"transferType": "onUse",
+					"duration": {
+						"unit": "hours"
+					}
+				}
+			},
+			"transfer": false,
+			"name": "Zealous Stance",
+			"_id": "BGE42mK2JWDXknsu",
+			"changes": [],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": 86400,
+				"combat": null,
+				"rounds": null,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "",
+			"statuses": []
+		}
+	],
 	"flags": {},
 	"system": {
 		"actions": {
@@ -14,7 +44,7 @@
 					"reactionTrigger": ""
 				},
 				"duration": {
-					"unit": "permanent",
+					"unit": "special",
 					"value": ""
 				},
 				"ranges": {
@@ -38,6 +68,14 @@
 						"quantity": 1,
 						"resource": "exertion",
 						"type": "resource"
+					}
+				},
+				"prompts": {
+					"RUZCZPLeBJgVc2Mx": {
+						"type": "effect",
+						"default": true,
+						"effectId": "BGE42mK2JWDXknsu",
+						"label": "Zealous Stance"
 					}
 				}
 			}
@@ -67,7 +105,7 @@
 		},
 		"degree": 1,
 		"exertionCost": 1,
-		"isStance": false,
+		"isStance": true,
 		"prerequisite": "",
 		"tradition": "temperedIron"
 	},

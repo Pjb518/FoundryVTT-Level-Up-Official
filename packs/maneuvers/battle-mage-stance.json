@@ -12,7 +12,7 @@
 					"reactionTrigger": ""
 				},
 				"duration": {
-					"unit": "",
+					"unit": "special",
 					"value": ""
 				},
 				"area": {
@@ -28,6 +28,14 @@
 						"quantity": 1,
 						"resource": "exertion",
 						"type": "resource"
+					}
+				},
+				"prompts": {
+					"4LooN7DBkVAi4ipa": {
+						"type": "effect",
+						"default": true,
+						"effectId": "VDbtb9Pop1s10luL",
+						"label": "Battle Mage Stance"
 					}
 				}
 			}
@@ -61,11 +69,41 @@
 		},
 		"degree": "4",
 		"exertionCost": 1,
-		"isStance": false,
+		"isStance": true,
 		"prerequisite": "Extra Attack",
 		"tradition": "cuttingOmen"
 	},
-	"effects": [],
+	"effects": [
+		{
+			"icon": "icons/magic/fire/dagger-rune-enchant-flame-strong-purple.webp",
+			"origin": "Item.H8iz6NOnENGvzods",
+			"flags": {
+				"a5e": {
+					"sort": 0,
+					"transferType": "onUse",
+					"duration": {
+						"unit": "hours"
+					}
+				}
+			},
+			"transfer": false,
+			"name": "Battle Mage Stance",
+			"_id": "VDbtb9Pop1s10luL",
+			"changes": [],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": 86400,
+				"combat": null,
+				"rounds": null,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "",
+			"statuses": []
+		}
+	],
 	"flags": {},
 	"folder": "7dmqjD5z0RYoiery",
 	"_id": "H8iz6NOnENGvzods"

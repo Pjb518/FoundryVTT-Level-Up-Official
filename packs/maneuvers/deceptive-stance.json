@@ -2,7 +2,50 @@
 	"name": "Deceptive Stance",
 	"type": "maneuver",
 	"img": "icons/magic/control/mouth-smile-deception-purple.webp",
-	"effects": [],
+	"effects": [
+		{
+			"icon": "icons/magic/control/mouth-smile-deception-purple.webp",
+			"origin": "Item.qpzwnm59j2f7820e",
+			"flags": {
+				"a5e": {
+					"sort": 0,
+					"transferType": "onUse",
+					"duration": {
+						"unit": "hours"
+					}
+				}
+			},
+			"transfer": false,
+			"name": "Deceptive Stance",
+			"_id": "90zJehW2Xnuy13y3",
+			"changes": [
+				{
+					"key": "system.skills.dec.expertiseDice",
+					"value": "1",
+					"mode": 2,
+					"priority": null
+				},
+				{
+					"key": "system.skills.slt.expertiseDice",
+					"value": "1",
+					"mode": 2,
+					"priority": null
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": 86400,
+				"combat": null,
+				"rounds": null,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "",
+			"statuses": []
+		}
+	],
 	"flags": {},
 	"system": {
 		"actions": {
@@ -39,6 +82,14 @@
 						"resource": "exertion",
 						"type": "resource"
 					}
+				},
+				"prompts": {
+					"PELpvwKKpDwQGheq": {
+						"type": "effect",
+						"default": true,
+						"effectId": "90zJehW2Xnuy13y3",
+						"label": "Deceptive Stance"
+					}
 				}
 			}
 		},
@@ -67,7 +118,7 @@
 		},
 		"degree": 1,
 		"exertionCost": 1,
-		"isStance": false,
+		"isStance": true,
 		"prerequisite": "",
 		"tradition": "mistAndShade"
 	},

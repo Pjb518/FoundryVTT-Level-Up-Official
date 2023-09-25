@@ -2,7 +2,37 @@
 	"name": "Stand Tall Stance",
 	"type": "maneuver",
 	"img": "icons/skills/melee/shield-damaged-broken-gold.webp",
-	"effects": [],
+	"effects": [
+		{
+			"icon": "icons/skills/melee/shield-damaged-broken-gold.webp",
+			"origin": "Item.4jg345juuotx02qe",
+			"flags": {
+				"a5e": {
+					"sort": 0,
+					"transferType": "onUse",
+					"duration": {
+						"unit": "hours"
+					}
+				}
+			},
+			"transfer": false,
+			"name": "Stand Tall Stance",
+			"_id": "R7gC55rSjQJ8Purw",
+			"changes": [],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": 86400,
+				"combat": null,
+				"rounds": null,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "",
+			"statuses": []
+		}
+	],
 	"flags": {},
 	"system": {
 		"actions": {
@@ -14,7 +44,7 @@
 					"reactionTrigger": ""
 				},
 				"duration": {
-					"unit": "instantaneous",
+					"unit": "special",
 					"value": ""
 				},
 				"area": {
@@ -33,6 +63,14 @@
 						"quantity": 1,
 						"resource": "exertion",
 						"type": "resource"
+					}
+				},
+				"prompts": {
+					"FvUEBCTxWszk6flX": {
+						"type": "effect",
+						"default": true,
+						"label": "Stand Tall Stance",
+						"effectId": "R7gC55rSjQJ8Purw"
 					}
 				}
 			}
@@ -62,7 +100,7 @@
 		},
 		"degree": 4,
 		"exertionCost": 1,
-		"isStance": false,
+		"isStance": true,
 		"prerequisite": "",
 		"tradition": "adamantMountain"
 	},

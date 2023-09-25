@@ -2,7 +2,37 @@
 	"name": "Brotherhood Stance",
 	"type": "maneuver",
 	"img": "icons/skills/social/diplomacy-unity-alliance.webp",
-	"effects": [],
+	"effects": [
+		{
+			"icon": "icons/skills/social/diplomacy-unity-alliance.webp",
+			"origin": "Item.jb6o4f8umbhjnvcm",
+			"flags": {
+				"a5e": {
+					"sort": 0,
+					"transferType": "onUse",
+					"duration": {
+						"unit": "hours"
+					}
+				}
+			},
+			"transfer": false,
+			"name": "Brotherhood Stance",
+			"_id": "0PXptsNPLGubb6gI",
+			"changes": [],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": 86400,
+				"combat": null,
+				"rounds": null,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "",
+			"statuses": []
+		}
+	],
 	"flags": {},
 	"system": {
 		"actions": {
@@ -14,7 +44,7 @@
 					"reactionTrigger": ""
 				},
 				"duration": {
-					"unit": "permanent",
+					"unit": "special",
 					"value": ""
 				},
 				"ranges": {
@@ -38,6 +68,14 @@
 						"quantity": 3,
 						"resource": "exertion",
 						"type": "resource"
+					}
+				},
+				"prompts": {
+					"MZnfsfo7DDkpp2pE": {
+						"type": "effect",
+						"default": true,
+						"effectId": "0PXptsNPLGubb6gI",
+						"label": "Brotherhood Stance"
 					}
 				}
 			}
@@ -67,7 +105,7 @@
 		},
 		"degree": 4,
 		"exertionCost": 3,
-		"isStance": false,
+		"isStance": true,
 		"prerequisite": "",
 		"tradition": "sanguineKnot"
 	},

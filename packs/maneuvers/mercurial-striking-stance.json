@@ -2,7 +2,37 @@
 	"name": "Mercurial Striking Stance",
 	"type": "maneuver",
 	"img": "icons/creatures/abilities/cougar-pounce-stalk-black.webp",
-	"effects": [],
+	"effects": [
+		{
+			"icon": "icons/creatures/abilities/cougar-pounce-stalk-black.webp",
+			"origin": "Item.c7pqnymnth7m6vcd",
+			"flags": {
+				"a5e": {
+					"sort": 0,
+					"transferType": "onUse",
+					"duration": {
+						"unit": "hours"
+					}
+				}
+			},
+			"transfer": false,
+			"name": "Mercurial Striking Stance",
+			"_id": "cejtautBzll7fh8v",
+			"changes": [],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": 86400,
+				"combat": null,
+				"rounds": null,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "",
+			"statuses": []
+		}
+	],
 	"flags": {},
 	"system": {
 		"actions": {
@@ -14,7 +44,7 @@
 					"reactionTrigger": ""
 				},
 				"duration": {
-					"unit": "permanent",
+					"unit": "special",
 					"value": ""
 				},
 				"ranges": {
@@ -38,6 +68,14 @@
 						"quantity": 1,
 						"resource": "exertion",
 						"type": "resource"
+					}
+				},
+				"prompts": {
+					"ymoZuB7JyBCjAIe6": {
+						"type": "effect",
+						"default": true,
+						"label": "Mercurial Striking Stance",
+						"effectId": "cejtautBzll7fh8v"
 					}
 				}
 			}
@@ -67,7 +105,7 @@
 		},
 		"degree": 4,
 		"exertionCost": 1,
-		"isStance": false,
+		"isStance": true,
 		"prerequisite": "",
 		"tradition": "toothAndClaw"
 	},

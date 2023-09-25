@@ -2,7 +2,37 @@
 	"name": "Steely Steed Stance",
 	"type": "maneuver",
 	"img": "icons/creatures/mammals/spirit-deer-herd-blue.webp",
-	"effects": [],
+	"effects": [
+		{
+			"icon": "icons/creatures/mammals/spirit-deer-herd-blue.webp",
+			"origin": "Item.1czofxkv45a581i7",
+			"flags": {
+				"a5e": {
+					"sort": 0,
+					"transferType": "onUse",
+					"duration": {
+						"unit": "hours"
+					}
+				}
+			},
+			"transfer": false,
+			"name": "Steely Steed Stance",
+			"_id": "cdJsnIeObWfhXIEt",
+			"changes": [],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": 86400,
+				"combat": null,
+				"rounds": null,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "",
+			"statuses": []
+		}
+	],
 	"flags": {},
 	"system": {
 		"actions": {
@@ -39,6 +69,14 @@
 						"resource": "exertion",
 						"type": "resource"
 					}
+				},
+				"prompts": {
+					"PFDuoMJzRYbJFIEz": {
+						"type": "effect",
+						"default": true,
+						"label": "Steely Steed Stance",
+						"effectId": "cdJsnIeObWfhXIEt"
+					}
 				}
 			}
 		},
@@ -67,7 +105,7 @@
 		},
 		"degree": 4,
 		"exertionCost": 3,
-		"isStance": false,
+		"isStance": true,
 		"prerequisite": "",
 		"tradition": "spiritedSteed"
 	},
