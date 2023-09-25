@@ -1,16 +1,13 @@
 <script>
-    import { TJSDocument } from "#runtime/svelte/store/fvtt/document";
-
-    export let uuid = null;
-
-    const spell = new TJSDocument();
-    spell.setFromUUID(uuid);
+    export let document;
 </script>
 
 <li class="spell">
-    <img class="spell__image" src={$spell?.img} alt={$spell?.name} />
+    <img class="spell__image" src={$document.img} alt={$document.name} />
 
-    {$spell?.name}
+    <span>
+        {$document.name}
+    </span>
 </li>
 
 <style lang="scss">

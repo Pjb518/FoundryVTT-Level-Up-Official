@@ -10,10 +10,10 @@
 </script>
 
 <ul class="document-list">
-    {#each documents as uuid}
+    {#each documents as document}
         <svelte:component
             this={compendiumItemComponents[compendiumType]}
-            {uuid}
+            {document}
         />
     {/each}
 </ul>

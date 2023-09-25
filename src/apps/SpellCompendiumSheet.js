@@ -1,20 +1,21 @@
 import { SvelteApplication } from '#runtime/svelte/application';
 
-import SpellCompendiumSheetComponent from './sheets/SpellCompendiumSheet.svelte';
+import CompendiumSheetComponent from './sheets/CompendiumSheet.svelte';
 
-export default class SpecialCompendiumSheet extends SvelteApplication {
+export default class SpellCompendiumSheet extends SvelteApplication {
   constructor(compendiumCollection, options = {}) {
     const { collection } = compendiumCollection;
 
     super(foundry.utils.mergeObject(options, {
       id: collection.metadata.package,
       title: collection.metadata.label,
-      width: 755,
-      height: 706,
+      width: 720,
+      height: 'auto',
       resizable: true,
       svelte: {
-        class: SpellCompendiumSheetComponent,
+        class: CompendiumSheetComponent,
         props: {
+          compendiumType: 'spell',
           document: null
         }
       }
@@ -34,8 +35,7 @@ export default class SpecialCompendiumSheet extends SvelteApplication {
  */
   static get defaultOptions() {
     return foundry.utils.mergeObject(super.defaultOptions, {
-      // baseApplication: 'ActorSheet',
-      // classes: ['a5e-sheet', 'a5e-actor-sheet'],
+      classes: ['a5e-compendium-sheet'],
       minimizable: true,
       svelte: {
         target: document.body
