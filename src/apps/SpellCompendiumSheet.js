@@ -1,8 +1,8 @@
 import { SvelteApplication } from '#runtime/svelte/application';
 
-import SpellCompendia from './compendia/SpellCompendia.svelte';
+import SpellCompendiumSheetComponent from './sheets/SpellCompendiumSheet.svelte';
 
-export default class SpecialCompendium extends SvelteApplication {
+export default class SpecialCompendiumSheet extends SvelteApplication {
   constructor(compendiumCollection, options = {}) {
     const { collection } = compendiumCollection;
 
@@ -13,7 +13,7 @@ export default class SpecialCompendium extends SvelteApplication {
       height: 706,
       resizable: true,
       svelte: {
-        class: SpellCompendia,
+        class: SpellCompendiumSheetComponent,
         props: {
           document: null
         }

@@ -1,7 +1,7 @@
 import registerSystemSettings from '../settings';
 import setupConditions from '../documents/activeEffect/conditions';
 
-import SpecialCompendium from '../apps/Compendium';
+import SpellCompendiumSheet from '../apps/SpellCompendiumSheet';
 
 export default function setup() {
   registerSystemSettings();
@@ -9,5 +9,5 @@ export default function setup() {
 
   // Apply custom compendium styles to the SRD rules compendium.
   const spells = game.packs.get('a5e.a5e-spells');
-  spells.applicationClass = SpecialCompendium;
+  spells.applicationClass = SpellCompendiumSheet;
 }

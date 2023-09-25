@@ -4,6 +4,8 @@
     import { ApplicationShell } from "#runtime/svelte/component/core";
     import { getContext, setContext } from "svelte";
 
+    import CompendiumItemList from "../components/CompendiumItemList.svelte";
+
     export let { document, sheet } = getContext("#external").application;
     export let elementRoot;
 
@@ -11,8 +13,10 @@
 </script>
 
 <ApplicationShell bind:elementRoot>
-    {#each document.index as { name }}
-        {name}
-        <br />
-    {/each}
+    <CompendiumItemList
+        documents={[...document.index]
+            .sort((a, b) => a.name.localeCompare(b.name))
+            .map((document) => document.uuid)}
+        compendiumType="spell"
+    />
 </ApplicationShell>
