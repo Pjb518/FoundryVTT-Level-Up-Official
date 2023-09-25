@@ -6,6 +6,14 @@
 
     export let { document, sheet } = getContext("#external").application;
     export let elementRoot;
+
+    const description = $document.system.unidentified
+        ? $document.system.unidentifiedDescription
+        : $document.system.description;
+
+    const showDescription = description?.length
+        ? game.settings.get("a5e", "showDescriptionOnLimitedPerms") ?? false
+        : false;
 </script>
 
 <ApplicationShell bind:elementRoot>
@@ -20,6 +28,13 @@
         </div>
 
         <h1 class="document-name">{$document.name}</h1>
+
+        {#if showDescription}
+            <hr class="a5e-rule u-ml-xl u-mr-xl" />
+            <div class="description-wrapper">
+                {@html description}
+            </div>
+        {/if}
     </main>
 </ApplicationShell>
 
@@ -28,6 +43,12 @@
         min-width: 32rem;
         min-height: 37.5rem;
         height: 37.5rem !important;
+    }
+
+    .description-wrapper {
+        margin-inline: 1rem;
+        margin-block: 0.75rem;
+        padding-bottom: 0.5rem;
     }
 
     .image-wrapper {
@@ -56,5 +77,6 @@
         display: flex;
         flex-direction: column;
         gap: 0.25rem;
+        overflow-y: scroll;
     }
 </style>
