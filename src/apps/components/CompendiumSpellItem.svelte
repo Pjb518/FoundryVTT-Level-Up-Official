@@ -4,7 +4,7 @@
     export let document;
 </script>
 
-<li class="spell">
+<li class="spell" on:dblclick={() => $document.sheet?.render(true)}>
     <img class="spell__image" src={$document.img} alt={$document.name} />
 
     <span class="spell__name">
