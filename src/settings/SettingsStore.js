@@ -285,6 +285,42 @@ class A5eGameSettings extends TJSGameSettings {
           type: Boolean
         }
       },
+      // Party Viewer Settings
+      {
+        namespace,
+        key: 'playersCanAccessPartyViewer',
+        options: {
+          name: 'A5E.settings.playersCanAccessPartyViewer',
+          scope: scope.world,
+          config: true,
+          default: false,
+          type: Boolean
+        }
+      },
+      {
+        namespace,
+        key: 'showActorImagesInPartyViewer',
+        options: {
+          name: 'A5E.settings.showActorImagesInPartyViewer',
+          scope: scope.client,
+          config: true,
+          default: true,
+          type: Boolean
+        }
+      },
+      // Misc Settings
+      {
+        namespace,
+        key: 'showDescriptionOnLimitedPerms',
+        options: {
+          name: 'A5E.settings.showDescriptionOnLimitedPerms',
+          hint: 'A5E.settings.hints.showDescriptionOnLimitedPerms',
+          scope: scope.world,
+          config: true,
+          default: false,
+          type: Boolean
+        }
+      },
       // Hidden system settings
       {
         namespace,
@@ -324,29 +360,8 @@ class A5eGameSettings extends TJSGameSettings {
           },
           type: Object
         }
-      },
-      {
-        namespace,
-        key: 'playersCanAccessPartyViewer',
-        options: {
-          name: 'A5E.settings.playersCanAccessPartyViewer',
-          scope: scope.world,
-          config: true,
-          default: false,
-          type: Boolean
-        }
-      },
-      {
-        namespace,
-        key: 'showActorImagesInPartyViewer',
-        options: {
-          name: 'A5E.settings.showActorImagesInPartyViewer',
-          scope: scope.client,
-          config: true,
-          default: true,
-          type: Boolean
-        }
       }
+
     ];
 
     this.registerAll(settings, false);

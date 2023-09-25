@@ -11,6 +11,7 @@
     import SettingsCanvasTab from "./SettingsCanvasTab.svelte";
     import SettingsChatCardTab from "./SettingsChatCardTab.svelte";
     import SettingsEffectsTab from "./SettingsEffectsTab.svelte";
+    import SettingsMiscTab from "./SettingsMiscTab.svelte";
     import SettingsPartyViewerTab from "./SettingsPartyViewerTab.svelte";
     import SettingsRollTab from "./SettingsRollTab.svelte";
 
@@ -72,6 +73,12 @@
             name: "5eSettings",
             label: "A5E.settings.navigation.5eSettings",
             component: Settings5eTab,
+            display: game.user.isGM,
+        },
+        {
+            name: "misc",
+            label: "A5E.settings.navigation.misc",
+            component: SettingsMiscTab,
             display: game.user.isGM,
         },
     ];

@@ -7,8 +7,6 @@
 
     // export let reload;
 
-    const appId = getContext("appId");
-    const gmSettings = getContext("gmSettings");
     const settings = getContext("settings");
     const updates = getContext("updates");
 
