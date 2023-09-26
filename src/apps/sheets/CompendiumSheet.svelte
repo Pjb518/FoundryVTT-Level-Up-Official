@@ -1,15 +1,21 @@
 <svelte:options accessors={true} />
 
 <script>
-    import { getContext } from "svelte";
+    import { getContext, onDestroy } from "svelte";
 
     import { ApplicationShell } from "#runtime/svelte/component/core";
     import { TJSDocument } from "#runtime/svelte/store/fvtt/document";
     import { DynMapReducer } from "#runtime/svelte/store/reducer";
+    import { TJSInput } from "#standard/component";
 
     import CompendiumFilters from "../components/CompendiumFilters.svelte";
     import CompendiumItemList from "../components/CompendiumItemList.svelte";
     import Spinner from "../components/Spinner.svelte";
+
+    import {
+        addTJSDocumentSearchFilter,
+        removeSearchFilter,
+    } from "../handlers/handleSearchFilter";
 
     async function getDocuments(docList) {
         // Sort the documents into alphabetical order
@@ -38,9 +44,13 @@
     let reducer = new DynMapReducer();
     let loading = true;
 
+    const searchInput = addTJSDocumentSearchFilter(reducer);
+    onDestroy(() => removeSearchFilter(reducer));
+
     // Fake an async operation in svelte to get around the fact that we can't await in the script tag
     Promise.resolve(getDocuments([...document.index])).then((docs) => {
-        reducer.setData(docs);
+        reducer.setData(docs, true);
+        reducer.index.update();
         loading = false;
     });
 </script>
@@ -49,22 +59,14 @@
     <main>
         <CompendiumFilters {compendiumType} />
 
-        <input
-            class="search-field"
-            type="text"
-            placeholder="Definitely a search field"
-        />
-
-        <!-- {#await documents}
-            <div class="spinner-wrapper">
-                <Spinner />
-            </div>
-        {:then reactiveDocuments}
-            <CompendiumItemList
-                documents={reactiveDocuments}
-                {compendiumType}
+        <div class="search-field">
+            <TJSInput
+                input={searchInput}
+                --tjs-input-placeholder-color="#555"
+                --tjs-input-text-margin="0"
+                --tjs-input-text-width="100%"
             />
-        {/await} -->
+        </div>
 
         {#if loading}
             <div class="spinner-wrapper">
