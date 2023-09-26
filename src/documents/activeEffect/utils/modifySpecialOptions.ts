@@ -43,6 +43,9 @@ export default function modifySpecialOptions(options: Object) {
   const statusConditions = Object.entries(CONFIG.A5E.conditions);
   options['flags.a5e.effects.statusConditions'] = [[], MODES.CUSTOM_ONLY, statusConditions, 'CHECKBOX'];
 
+  options['flags.a5e.effects.bonuses.damage'] = [{}, MODES.CUSTOM_ONLY, null, 'DAMAGE_BONUS'];
+  options['flags.a5e.effects.bonuses.healing'] = [{}, MODES.CUSTOM_ONLY, null, 'HEALING_BONUS'];
+
   // TODO: Maybe add something to automatically fail?
 
   // Token Effects

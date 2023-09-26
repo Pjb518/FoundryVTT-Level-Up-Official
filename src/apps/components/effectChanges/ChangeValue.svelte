@@ -135,6 +135,8 @@
 {:else if componentType === "DAMAGE_BONUS"}
     <DamageBonusConfigDialog
         jsonValue={value}
+        --padding="0"
+        --background="none"
         on:change={({ detail }) => dispatch("change", detail)}
     />
 {:else if componentType === "HEALING_BONUS"}

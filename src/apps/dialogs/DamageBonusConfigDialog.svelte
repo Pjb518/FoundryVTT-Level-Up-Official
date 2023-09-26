@@ -144,9 +144,9 @@
         display: flex;
         flex-direction: column;
         height: 100%;
-        padding: 0.75rem;
+        padding: var(--padding, 0.75rem);
         gap: 0.5rem;
         overflow: auto;
-        background: $color-sheet-background;
+        background: var(--background, $color-sheet-background);
     }
 </style>
