@@ -1,10 +1,24 @@
 <script>
     import { localize } from "#runtime/svelte/helper";
 
+    function onDragStart(event) {
+        const dragData = $document.toDragData();
+
+        return event.dataTransfer.setData(
+            "text/plain",
+            JSON.stringify(dragData)
+        );
+    }
+
     export let document;
 </script>
 
-<li class="spell" on:dblclick={() => $document.sheet?.render(true)}>
+<li
+    class="spell"
+    draggable="true"
+    on:dblclick={() => $document.sheet?.render(true)}
+    on:dragstart={onDragStart}
+>
     <img class="spell__image" src={$document.img} alt={$document.name} />
 
     <span class="spell__name">
@@ -88,7 +102,7 @@
     .spell {
         display: grid;
         grid-template-areas: "img name components";
-        grid-template-columns: 1.5rem 1fr min-content;
+        grid-template-columns: 1.5rem 1fr 6rem;
         align-items: center;
         gap: 0.5rem;
         width: 100%;
