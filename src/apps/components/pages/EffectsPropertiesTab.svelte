@@ -23,8 +23,16 @@
         };
 
         if (key === "seconds") {
-            // TODO: Think about what we should do when we switch units.
-            const newValue = Math.max(0, value * durationMap[unit]);
+            let newValue;
+
+            if (changedUnit && unit !== changedUnit) {
+                updates["flags.a5e.duration.unit"] = changedUnit;
+                newValue = Math.max(
+                    0,
+                    parsedSecondsValue * durationMap[changedUnit]
+                );
+            } else newValue = Math.max(0, value * durationMap[unit]);
+
             updates["duration.seconds"] = newValue;
         } else if (["rounds, turns"].includes(key)) {
             updates[`duration.${key}`] = Math.max(0, value);
@@ -82,7 +90,7 @@
                         class="u-w-fit"
                         on:change={({ target }) =>
                             updateEffectDuration(
-                                null,
+                                "seconds",
                                 parsedSecondsValue,
                                 target.value
                             )}
