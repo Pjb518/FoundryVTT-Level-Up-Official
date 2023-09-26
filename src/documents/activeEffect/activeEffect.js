@@ -1,3 +1,4 @@
+/* eslint-disable no-param-reassign */
 import { localize } from '#runtime/svelte/helper';
 
 import castType from '../../utils/castType';
@@ -130,7 +131,7 @@ export default class ActiveEffectA5e extends ActiveEffect {
     }
 
     if (mode === MODES.CUSTOM) {
-      return this.#applyCustom(change);
+      return this.#applyCustom(current, delta, change);
     }
 
     if (mode === MODES.CONDITIONAL) {
@@ -165,14 +166,20 @@ export default class ActiveEffectA5e extends ActiveEffect {
     return `${current} + ${delta}`;
   }
 
-  #applyCustom(change) {
+  #applyCustom(current, delta, change) {
     if (!change.key.startsWith('flags.a5e.effects')) return null;
 
     let newKey = '';
-    let delta = '';
+    delta = delta || '';
 
     // TODO: Move to own utility function
     switch (change.key) {
+      case 'flags.a5e.effects.bonuses.damage':
+        newKey = `system.bonuses.damage.${foundry.utils.randomID()}`;
+        break;
+      case 'flags.a5e.effects.bonuses.healing':
+        newKey = `system.bonuses.healing.${foundry.utils.randomID()}`;
+        break;
       case 'flags.a5e.effects.damageResistances.all':
       case 'flags.a5e.effects.damageVulnerabilities.all':
       case 'flags.a5e.effects.damageImmunities.all':
