@@ -61,8 +61,7 @@ export default function registerActiveEffectConfig(A5E) {
 
   A5E.effectDurationTypes = {
     seconds: 'A5E.effects.durationTypes.plural.seconds',
-    rounds: 'A5E.effects.durationTypes.plural.rounds',
-    turns: 'A5E.effects.durationTypes.plural.turns'
+    rounds: 'A5E.effects.durationTypes.plural.roundsAndTurns'
   };
 
   A5E.effectDurationUnits = {

@@ -17,16 +17,18 @@
         const updates = {
             "flags.a5e.duration.unit": changedUnit ?? unit,
             "duration.seconds": null,
-            "duration.rounds": null,
-            "duration.turns": null,
+            "duration.rounds":
+                key === "seconds" ? null : $effect.duration.rounds,
+            "duration.turns": key === "seconds" ? null : $effect.duration.turns,
         };
 
         if (key === "seconds") {
             // TODO: Think about what we should do when we switch units.
             const newValue = Math.max(0, value * durationMap[unit]);
             updates["duration.seconds"] = newValue;
-        } else if (key === "rounds") updates["duration.rounds"] = value;
-        else if (key === "turns") updates["duration.turns"] = value;
+        } else if (["rounds, turns"].includes(key)) {
+            updates[`duration.${key}`] = Math.max(0, value);
+        }
 
         $effect.update(updates);
     }
@@ -96,27 +98,52 @@
                     </select>
                 </div>
             {:else if durationType === "rounds"}
-                <input
-                    type="number"
-                    name=""
-                    value={$effect.duration.rounds ?? 0}
-                    on:change={({ target }) =>
-                        updateEffectDuration(
-                            durationType,
-                            Number(target.value)
-                        )}
-                />
-            {:else if durationType === "turns"}
-                <input
-                    type="number"
-                    name=""
-                    value={$effect.duration.turns ?? 0}
-                    on:change={({ target }) =>
-                        updateEffectDuration(
-                            durationType,
-                            Number(target.value)
-                        )}
-                />
+                <div class="u-flex u-gap-xl">
+                    <div class="u-flex u-flex-col u-gap-md">
+                        <label
+                            for="{$effect.id}-rounds"
+                            class="u-pointer u-text-bold"
+                        >
+                            {localize(
+                                "A5E.effects.durationTypes.plural.rounds"
+                            )}
+                        </label>
+
+                        <input
+                            type="number"
+                            class="a5e-input a5e-input--small a5e-input--slim"
+                            id="{$effect.id}-rounds"
+                            value={$effect.duration.rounds ?? 0}
+                            on:change={({ target }) =>
+                                updateEffectDuration(
+                                    "rounds",
+                                    Number(target.value)
+                                )}
+                        />
+                    </div>
+
+                    <div class="u-flex u-flex-col u-gap-md">
+                        <label
+                            for="{$effect.id}-turns"
+                            class="u-pointer u-text-bold"
+                        >
+                            {localize("A5E.effects.durationTypes.plural.turns")}
+                        </label>
+
+                        <input
+                            type="number"
+                            class="a5e-input a5e-input--small a5e-input--slim"
+                            name=""
+                            id="{$effect.id}-turns"
+                            value={$effect.duration.turns ?? 0}
+                            on:change={({ target }) =>
+                                updateEffectDuration(
+                                    "turns",
+                                    Number(target.value)
+                                )}
+                        />
+                    </div>
+                </div>
             {/if}
         </FormSection>
     {/if}
