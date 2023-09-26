@@ -5,10 +5,9 @@ import CompendiumSheetComponent from './sheets/CompendiumSheet.svelte';
 export default class SpellCompendiumSheet extends SvelteApplication {
   constructor(compendiumCollection, options = {}) {
     const { collection } = compendiumCollection;
-
     super(foundry.utils.mergeObject(options, {
-      id: collection.metadata.package,
-      title: collection.metadata.label,
+      id: 'collection.metadata.package',
+      title: `${collection.metadata.label} ${collection.locked ? '[LOCKED]' : ''}`,
       width: 720,
       height: 'auto',
       resizable: true,
