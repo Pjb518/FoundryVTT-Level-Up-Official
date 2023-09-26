@@ -16,13 +16,19 @@
 
         const validDocs = [];
 
+        const start = performance.now();
         // Create a TJSDocument for each document in the compendium. Filter out invalid docs.
-        for (const { uuid } of docList) {
-            const doc = new TJSDocument();
-            const setSuccessfully = await doc.setFromUUID(uuid);
+        await Promise.all(
+            docList.map(async ({ uuid }) => {
+                const doc = new TJSDocument();
+                const setSuccessfully = await doc.setFromUUID(uuid);
 
-            if (setSuccessfully) validDocs.push(doc);
-        }
+                if (setSuccessfully) validDocs.push(doc);
+            })
+        );
+
+        const end = performance.now();
+        console.log(`Execution time: ${end - start} ms`);
 
         return validDocs;
     }
@@ -32,7 +38,7 @@
 
     export let elementRoot;
 
-    // TODO: Rreplace with a fancy reducer
+    // TODO: Replace with a fancy reducer
     const documents = getDocuments([...document.index]);
 </script>
 
