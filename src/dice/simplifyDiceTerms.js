@@ -72,5 +72,6 @@ export default function simplifyDiceTerms(terms) {
     return newTerms;
   }, []);
 
+  updatedTerms.forEach((term) => { term._evaluated = true; });
   return updatedTerms;
 }
