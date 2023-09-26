@@ -21,9 +21,7 @@
 >
     <img class="spell__image" src={$document.img} alt={$document.name} />
 
-    <span class="spell__name">
-        {$document.name}
-    </span>
+    <span class="spell__name">{$document.name}</span>
 
     <ul class="component-wrapper">
         {#if $document.system.components.vocalized}

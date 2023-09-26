@@ -1,9 +1,15 @@
 <script>
+    import CompendiumSpellFilters from "./CompendiumSpellFilters.svelte";
+
     export let compendiumType;
+
+    const compendiumItemComponents = {
+        spell: CompendiumSpellFilters,
+    };
 </script>
 
 <section class="filter-sidebar">
-    Better believe there will be filters over here
+    <svelte:component this={compendiumItemComponents[compendiumType]} />
 </section>
 
 <style lang="scss">
