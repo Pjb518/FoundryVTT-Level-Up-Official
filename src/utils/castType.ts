@@ -18,6 +18,18 @@ function castArray(value: any): Array<any> {
   return delta;
 }
 
+function castObject(value: any): Record<string, any> {
+  let delta: Record<string, any>;
+  try {
+    delta = JSON.parse(value);
+    delta = delta instanceof Object ? delta : {};
+  } catch (err) {
+    delta = {};
+  }
+
+  return delta;
+}
+
 function castSet(value: any): Set<any> {
   let delta: Set<any>;
   try {
@@ -31,9 +43,8 @@ function castSet(value: any): Set<any> {
 
 export default function castType(value: any, targetType: any): any {
   if (targetType === 'Array') return castArray(value);
+  if (targetType === 'Object') return castObject(value);
   if (targetType === 'Set') return castSet(value);
-
-  // TODO: Case to Object
 
   if (targetType === 'boolean') return Boolean(parseOrString(value));
 
