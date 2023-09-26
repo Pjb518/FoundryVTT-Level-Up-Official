@@ -5,6 +5,7 @@
 
     import { ApplicationShell } from "#runtime/svelte/component/core";
     import { TJSDocument } from "#runtime/svelte/store/fvtt/document";
+    import { DynMapReducer } from "#runtime/svelte/store/reducer";
 
     import CompendiumFilters from "../components/CompendiumFilters.svelte";
     import CompendiumItemList from "../components/CompendiumItemList.svelte";
@@ -14,21 +15,17 @@
         // Sort the documents into alphabetical order
         docList.sort((a, b) => a.name.localeCompare(b.name));
 
-        const validDocs = [];
+        const validDocs = new Map();
 
-        const start = performance.now();
         // Create a TJSDocument for each document in the compendium. Filter out invalid docs.
         await Promise.all(
-            docList.map(async ({ uuid }) => {
+            docList.map(async ({ _id, uuid }) => {
                 const doc = new TJSDocument();
                 const setSuccessfully = await doc.setFromUUID(uuid);
 
-                if (setSuccessfully) validDocs.push(doc);
+                if (setSuccessfully) validDocs.set(_id, doc);
             })
         );
-
-        const end = performance.now();
-        console.log(`Execution time: ${end - start} ms`);
 
         return validDocs;
     }
@@ -38,8 +35,14 @@
 
     export let elementRoot;
 
-    // TODO: Replace with a fancy reducer
-    const documents = getDocuments([...document.index]);
+    let reducer = new DynMapReducer();
+    let loading = true;
+
+    // Fake an async operation in svelte to get around the fact that we can't await in the script tag
+    Promise.resolve(getDocuments([...document.index])).then((docs) => {
+        reducer.setData(docs);
+        loading = false;
+    });
 </script>
 
 <ApplicationShell bind:elementRoot>
@@ -52,7 +55,7 @@
             placeholder="Definitely a search field"
         />
 
-        {#await documents}
+        <!-- {#await documents}
             <div class="spinner-wrapper">
                 <Spinner />
             </div>
@@ -61,7 +64,15 @@
                 documents={reactiveDocuments}
                 {compendiumType}
             />
-        {/await}
+        {/await} -->
+
+        {#if loading}
+            <div class="spinner-wrapper">
+                <Spinner />
+            </div>
+        {:else}
+            <CompendiumItemList documents={[...$reducer]} {compendiumType} />
+        {/if}
     </main>
 </ApplicationShell>
 
