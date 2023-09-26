@@ -4,6 +4,8 @@
  */
 export default function registerEffectLocalizationConfig(A5E) {
   A5E.effectsKeyLocalizations = {
+    'flags.a5e.effects.bonuses.damage': 'A5E.effects.keys.bonuses.damage',
+    'flags.a5e.effects.bonuses.healing': 'A5E.effects.keys.bonuses.healing',
     'flags.a5e.effects.conditionImmunities.all': 'A5E.effects.keys.flags.conditionImmunities.all',
     'flags.a5e.effects.damageImmunities.all': 'A5E.effects.keys.flags.damageImmunities.all',
     'flags.a5e.effects.damageResistances.all': 'A5E.effects.keys.flags.damageResistances.all',

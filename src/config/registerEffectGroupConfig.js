@@ -57,6 +57,8 @@ export default function registerEffectGroupConfig(A5E) {
     bonuses: {
       label: 'A5E.effects.groups.bonuses',
       items: [
+        'flags.a5e.effects.bonuses.damage',
+        'flags.a5e.effects.bonuses.healing',
         'system.bonuses.abilities.check',
         'system.bonuses.abilities.save',
         'system.bonuses.abilities.skill',
