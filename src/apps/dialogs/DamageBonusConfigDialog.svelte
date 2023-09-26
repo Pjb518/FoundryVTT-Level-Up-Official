@@ -1,5 +1,5 @@
 <script>
-    import { getContext } from "svelte";
+    import { getContext, createEventDispatcher } from "svelte";
     import { localize } from "#runtime/svelte/helper";
 
     import updateDocumentDataFromField from "../../utils/updateDocumentDataFromField";
@@ -9,10 +9,49 @@
     import FormSection from "../components/FormSection.svelte";
 
     export let { actor, damageBonusId } = getContext("#external").application;
+    export let jsonValue = null;
+
+    const dispatch = createEventDispatcher();
+
+    function onUpdateValue(key, value) {
+        if (jsonValue === null) {
+            key = `system.bonuses.damage.${damageBonusId}.${key}`;
+            updateDocumentDataFromField($actor, key, value);
+            return;
+        }
+
+        // TODO: Dispatch update object
+        const newObj = { ...damageBonus, [key]: value };
+        dispatch("change", JSON.stringify(newObj));
+    }
+
+    function getDamageBonus() {
+        if (jsonValue === null)
+            return $actor.system.bonuses.damage[damageBonusId];
+
+        try {
+            const obj = JSON.parse(jsonValue || '""') ?? {};
+            if (typeof obj !== "object") throw new Error();
+            obj.label = obj.label ?? "";
+            obj.formula = obj.formula ?? "";
+            obj.damageType = obj.damageType ?? "";
+            obj.context = obj.context ?? "all";
+            obj.default = obj.default ?? true;
+            return obj;
+        } catch (error) {
+            return {
+                label: "",
+                formula: "",
+                damageType: "",
+                context: "all",
+                default: true,
+            };
+        }
+    }
 
     const { damageBonusContexts, damageTypes } = CONFIG.A5E;
 
-    $: damageBonus = $actor.system.bonuses.damage[damageBonusId];
+    $: damageBonus = getDamageBonus($actor, jsonValue) ?? {};
 </script>
 
 <form>
@@ -25,12 +64,7 @@
         <input
             type="text"
             value={damageBonus.label ?? ""}
-            on:change={({ target }) =>
-                updateDocumentDataFromField(
-                    $actor,
-                    `system.bonuses.damage.${damageBonusId}.label`,
-                    target.value
-                )}
+            on:change={({ target }) => onUpdateValue("label", target.value)}
         />
     </FormSection>
 
@@ -46,11 +80,7 @@
                 type="text"
                 value={damageBonus.formula ?? ""}
                 on:change={({ target }) =>
-                    updateDocumentDataFromField(
-                        $actor,
-                        `system.bonuses.damage.${damageBonusId}.formula`,
-                        target.value
-                    )}
+                    onUpdateValue("formula", target.value)}
             />
         </FormSection>
 
@@ -63,11 +93,7 @@
             <select
                 class="u-w-fit damage-type-select"
                 on:change={({ target }) =>
-                    updateDocumentDataFromField(
-                        $actor,
-                        `system.bonuses.damage.${damageBonusId}.damageType`,
-                        target.value
-                    )}
+                    onUpdateValue("damageType", target.value)}
             >
                 <option
                     value={null}
@@ -98,11 +124,7 @@
             selected={damageBonus.context}
             allowDeselect={false}
             on:updateSelection={({ detail }) =>
-                updateDocumentDataFromField(
-                    $actor,
-                    `system.bonuses.damage.${damageBonusId}.context`,
-                    detail
-                )}
+                onUpdateValue("context", detail)}
         />
     </FormSection>
 
@@ -111,11 +133,7 @@
             label="Select Damage Bonus Automatically in Roll Prompt"
             checked={damageBonus.default ?? true}
             on:updateSelection={({ detail }) => {
-                updateDocumentDataFromField(
-                    $actor,
-                    `system.bonuses.damage.${damageBonusId}.default`,
-                    detail
-                );
+                onUpdateValue("default", detail);
             }}
         />
     </FormSection>
