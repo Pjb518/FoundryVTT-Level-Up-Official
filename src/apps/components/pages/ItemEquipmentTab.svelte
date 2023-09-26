@@ -4,7 +4,6 @@
     import DropArea from "../dropAreas/OriginDropArea.svelte";
 
     const item = getContext("item");
-    const actor = getContext("actor");
 
     async function updateEquipment(event) {
         const [dragEvent] = event.detail;
@@ -16,8 +15,10 @@
             if (!child) return;
             await $item.items.add(uuid, { optional: true });
 
+            const actor =
+                $item?.parent?.documentName === "Actor" ? $item.parent : null;
             if (!actor) return;
-            if ($actor.uuid !== $item.parent?.uuid) return;
+            if (actor.uuid !== $item.parent?.uuid) return;
             await child.update({ "system.containerId": $item.uuid });
         } catch (err) {
             console.error(err);
@@ -29,8 +30,11 @@
         const child = await fromUuid(uuid);
         await $item.items.delete(uuid);
 
+        const actor =
+            $item?.parent?.documentName === "Actor" ? $item.parent : null;
+
         if (!actor || !child) return;
-        if ($actor.uuid !== $item.parent?.uuid) return;
+        if (actor.uuid !== $item.parent?.uuid) return;
         await child.update({ "system.containerId": "" });
     }
 
