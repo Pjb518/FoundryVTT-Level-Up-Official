@@ -19,10 +19,17 @@ export default function getACComponents(actor) {
       .reduce((changesAcc, change) => {
         if (change.key !== 'system.attributes.ac.changes.bonuses.value') return changesAcc;
 
+        let value = 0;
+        try {
+          value = getDeterministicBonus(change.value, actor.getRollData());
+        } catch (e) {
+          console.error(e);
+        }
+
         changesAcc.push({
           name: effect.name,
           mode: change.mode,
-          value: getDeterministicBonus(change.value, actor.getRollData()) ?? 0
+          value
         });
         return changesAcc;
       }, []);
