@@ -5,6 +5,7 @@
     import CheckboxGroup from "../CheckboxGroup.svelte";
     import CustomTagGroup from "../CustomTagGroup.svelte";
     import DamageBonusConfigDialog from "../../dialogs/DamageBonusConfigDialog.svelte";
+    import HealingBonusConfigDialog from "../../dialogs/HealingBonusConfigDialog.svelte";
 
     export let key;
     export let mode;
@@ -140,7 +141,12 @@
         on:change={({ detail }) => dispatch("change", detail)}
     />
 {:else if componentType === "HEALING_BONUS"}
-    <!--  -->
+    <HealingBonusConfigDialog
+        jsonValue={value}
+        --padding="0"
+        --background="none"
+        on:change={({ detail }) => dispatch("change", detail)}
+    />
 {:else if componentType === "NONE"}
     <!--  -->
 {:else}

@@ -1,5 +1,5 @@
 <script>
-    import { getContext } from "svelte";
+    import { getContext, createEventDispatcher } from "svelte";
     import { localize } from "#runtime/svelte/helper";
 
     import updateDocumentDataFromField from "../../utils/updateDocumentDataFromField";
@@ -9,10 +9,48 @@
     import FormSection from "../components/FormSection.svelte";
 
     export let { actor, healingBonusId } = getContext("#external").application;
+    export let jsonValue = null;
+
+    const dispatch = createEventDispatcher();
+
+    function onUpdateValue(key, value) {
+        if (jsonValue === null) {
+            key = `system.bonuses.healing.${healingBonusId}.${key}`;
+            updateDocumentDataFromField($actor, key, value);
+            return;
+        }
+
+        const newObj = { ...healingBonus, [key]: value };
+        dispatch("change", JSON.stringify(newObj));
+    }
+
+    function getHealingBonus() {
+        if (jsonValue === null)
+            return $actor.system.bonuses.healing[healingBonusId];
+
+        try {
+            const obj = JSON.parse(jsonValue || '""') ?? {};
+            if (typeof obj !== "object") throw new Error();
+            obj.label = obj.label ?? "";
+            obj.formula = obj.formula ?? "";
+            obj.healingType = obj.healingType ?? "";
+            obj.context = obj.context ?? "all";
+            obj.default = obj.default ?? true;
+            return obj;
+        } catch (error) {
+            return {
+                label: "",
+                formula: "",
+                healingType: "",
+                context: "all",
+                default: true,
+            };
+        }
+    }
 
     const { healingBonusContexts, healingTypes } = CONFIG.A5E;
 
-    $: healingBonus = $actor.system.bonuses.healing[healingBonusId];
+    $: healingBonus = getHealingBonus($actor, jsonValue) ?? {};
 </script>
 
 <form>
@@ -25,12 +63,7 @@
         <input
             type="text"
             value={healingBonus.label ?? ""}
-            on:change={({ target }) =>
-                updateDocumentDataFromField(
-                    $actor,
-                    `system.bonuses.healing.${healingBonusId}.label`,
-                    target.value
-                )}
+            on:change={({ target }) => onUpdateValue("label", target.value)}
         />
     </FormSection>
 
@@ -46,11 +79,7 @@
                 type="text"
                 value={healingBonus.formula ?? ""}
                 on:change={({ target }) =>
-                    updateDocumentDataFromField(
-                        $actor,
-                        `system.bonuses.healing.${healingBonusId}.formula`,
-                        target.value
-                    )}
+                    onUpdateValue("formula", target.value)}
             />
         </FormSection>
 
@@ -63,11 +92,7 @@
             <select
                 class="u-w-fit healing-type-select"
                 on:change={({ target }) =>
-                    updateDocumentDataFromField(
-                        $actor,
-                        `system.bonuses.healing.${healingBonusId}.healingType`,
-                        target.value
-                    )}
+                    onUpdateValue("healingType", target.value)}
             >
                 <option
                     value={null}
@@ -98,11 +123,7 @@
             selected={healingBonus.context}
             allowDeselect={false}
             on:updateSelection={({ detail }) =>
-                updateDocumentDataFromField(
-                    $actor,
-                    `system.bonuses.healing.${healingBonusId}.context`,
-                    detail
-                )}
+                onUpdateValue("context", detail)}
         />
     </FormSection>
 
@@ -111,11 +132,7 @@
             label="Select Healing Bonus Automatically in Roll Prompt"
             checked={healingBonus.default ?? true}
             on:updateSelection={({ detail }) => {
-                updateDocumentDataFromField(
-                    $actor,
-                    `system.bonuses.healing.${healingBonusId}.default`,
-                    detail
-                );
+                onUpdateValue("default", detail);
             }}
         />
     </FormSection>
@@ -126,9 +143,9 @@
         display: flex;
         flex-direction: column;
         height: 100%;
-        padding: 0.75rem;
+        padding: var(--padding, 0.75rem);
         gap: 0.5rem;
         overflow: auto;
-        background: $color-sheet-background;
+        background: var(--background, $color-sheet-background);
     }
 </style>

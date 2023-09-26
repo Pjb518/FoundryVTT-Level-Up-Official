@@ -20,7 +20,6 @@
             return;
         }
 
-        // TODO: Dispatch update object
         const newObj = { ...damageBonus, [key]: value };
         dispatch("change", JSON.stringify(newObj));
     }
