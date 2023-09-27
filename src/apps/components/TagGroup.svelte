@@ -66,3 +66,9 @@
         {/each}
     </ul>
 </section>
+
+<style lang="scss">
+    h3 {
+        border-bottom: 0;
+    }
+</style>

@@ -82,6 +82,7 @@
     :global(.a5e-compendium-sheet) {
         min-height: 80vh;
         max-height: 80vh;
+        min-width: 40rem;
     }
 
     :global(.a5e-compendium-sheet .window-content) {

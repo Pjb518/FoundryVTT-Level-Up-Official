@@ -14,7 +14,11 @@
 
 <style lang="scss">
     .filter-sidebar {
+        display: flex;
+        flex-direction: column;
+        gap: 0.75rem;
         grid-area: filters;
         border-right: 1px solid #ccc;
+        overflow-y: auto;
     }
 </style>

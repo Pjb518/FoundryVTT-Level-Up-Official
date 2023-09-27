@@ -1,8 +1,8 @@
 <script>
-    import Checkbox from "./Checkbox.svelte";
+    import CheckboxGroup from "./CheckboxGroup.svelte";
     import FormSection from "./FormSection.svelte";
 
-    const { spellLevels } = CONFIG.A5E;
+    const { spellLevels, spellSchools } = CONFIG.A5E;
 </script>
 
 <FormSection
@@ -11,13 +11,25 @@
     --direction="column"
     --padding="0"
 >
-    <ul class="filter-option-list">
-        {#each Object.entries(spellLevels) as [level, label]}
-            <li>
-                <Checkbox {label} />
-            </li>
-        {/each}
-    </ul>
+    <CheckboxGroup options={Object.entries(spellLevels)} />
+</FormSection>
+
+<FormSection
+    heading="Primary Spell Schools"
+    --background="transparent"
+    --direction="column"
+    --padding="0"
+>
+    <CheckboxGroup options={Object.entries(spellSchools.primary)} />
+</FormSection>
+
+<FormSection
+    heading="Secondary Spell Schools"
+    --background="transparent"
+    --direction="column"
+    --padding="0"
+>
+    <CheckboxGroup options={Object.entries(spellSchools.secondary)} />
 </FormSection>
 
 <style lang="scss">
