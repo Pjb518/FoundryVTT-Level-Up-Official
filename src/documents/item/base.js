@@ -63,6 +63,7 @@ export default class BaseItemA5e extends Item {
           img: action?.img ?? this.img,
           name: this.name,
           summaryData: getSummaryData(this, action, {
+            hideSpellClasses: true,
             hideSpellComponents: true,
             hideSpellLevel: true
           })

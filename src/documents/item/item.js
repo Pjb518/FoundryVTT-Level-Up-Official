@@ -226,6 +226,7 @@ export default class ItemA5e extends BaseItemA5e {
             hideCraftingComponents: true,
             hidePrice: true,
             hideRarity: true,
+            hideSpellClasses: true,
             hideSpellComponents: true,
             hideSpellLevel: true
           })

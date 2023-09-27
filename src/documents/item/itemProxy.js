@@ -5,7 +5,6 @@ import ItemA5e from './item';
 export default new Proxy(BaseItemA5e, {
   construct(_target, args) {
     const ItemClass = CONFIG.A5E.Item.documentClasses[args[0]?.type] ?? ItemA5e;
-    console.log(ItemClass);
     return new ItemClass(...args);
   }
 });
