@@ -1,187 +1,193 @@
 {
-	"name": "Blindness/Deafness",
-	"type": "spell",
-	"img": "icons/magic/perception/eye-ringed-glow-angry-teal.webp",
-	"effects": [
-		{
-			"icon": "icons/magic/perception/eye-ringed-glow-angry-teal.webp",
-			"origin": "Item.6q34ttse78toj5x0",
-			"flags": {
-				"a5e": {
-					"sort": 0,
-					"transferType": "onUse",
-					"duration": {
-						"unit": "minutes"
-					}
-				}
-			},
-			"transfer": false,
-			"name": "Blindness",
-			"_id": "tey9cUNf8o3CHPA6",
-			"changes": [
-				{
-					"key": "flags.a5e.effects.statusConditions",
-					"value": "[\"blinded\"]",
-					"mode": 0,
-					"priority": null
-				}
-			],
-			"disabled": false,
-			"duration": {
-				"startTime": null,
-				"seconds": 60,
-				"combat": null,
-				"rounds": null,
-				"turns": null,
-				"startRound": null,
-				"startTurn": null
-			},
-			"description": "",
-			"statuses": [
-				"blinded"
-			]
-		},
-		{
-			"icon": "icons/magic/sonic/explosion-shock-sound-wave.webp",
-			"origin": "Item.6q34ttse78toj5x0",
-			"flags": {
-				"a5e": {
-					"sort": 0,
-					"transferType": "onUse",
-					"duration": {
-						"unit": "minutes"
-					}
-				}
-			},
-			"transfer": false,
-			"name": "Deafness",
-			"_id": "0lA7vqfoDvlNfBe1",
-			"changes": [
-				{
-					"key": "flags.a5e.effects.statusConditions",
-					"value": "[\"deafened\"]",
-					"mode": 0,
-					"priority": null
-				}
-			],
-			"disabled": false,
-			"duration": {
-				"startTime": null,
-				"seconds": 60,
-				"combat": null,
-				"rounds": null,
-				"turns": null,
-				"startRound": null,
-				"startTurn": null
-			},
-			"description": "",
-			"statuses": []
-		}
-	],
-	"flags": {},
-	"system": {
-		"actions": {
-			"k3OmeV0X53SUgbLi": {
-				"name": "Cast Spell",
-				"activation": {
-					"cost": 1,
-					"type": "action",
-					"reactionTrigger": ""
-				},
-				"duration": {
-					"unit": "minute",
-					"value": "1"
-				},
-				"ranges": {
-					"0ED6qw7JTnK0eUXP": {
-						"range": "short"
-					}
-				},
-				"area": {
-					"shape": "",
-					"size": "",
-					"placeTemplate": false
-				},
-				"target": {
-					"quantity": "",
-					"type": "creature"
-				},
-				"prompts": {
-					"2Uy4qFMQYTPJeGXX": {
-						"ability": "con",
-						"onSave": "Negates effect",
-						"saveDC": {
-							"type": "spellcasting",
-							"bonus": ""
-						},
-						"type": "savingThrow"
-					},
-					"jfilEvms77itvFx1": {
-						"type": "effect",
-						"default": true,
-						"effectId": "tey9cUNf8o3CHPA6"
-					},
-					"qfwfaqBjsdJhptG8": {
-						"type": "effect",
-						"default": true,
-						"effectId": "0lA7vqfoDvlNfBe1"
-					}
-				},
-				"consumers": {
-					"v1gAF2Lvooen337m": {
-						"mode": "variable",
-						"spellLevel": 2,
-						"points": 3,
-						"type": "spell"
-					}
-				}
-			}
-		},
-		"description": "<p>Until the spell ends, the target is blinded or deafened (your choice). At the end of each of its turns the target can repeat its saving throw, ending the spell on a success.</p><p><strong><em>Cast at Higher Levels.</em></strong> You target one additional creature for each slot level above 2nd.</p>",
-		"favorite": false,
-		"secretDescription": "",
-		"source": "",
-		"uses": {
-			"value": null,
-			"max": "",
-			"per": null,
-			"recharge": {
-				"formula": "",
-				"threshold": ""
-			}
-		},
-		"schema": {
-			"version": 0.007,
-			"lastMigration": {
-				"version": {
-					"schema": 0.003,
-					"foundry": "11.307",
-					"system": "0.15.0"
-				}
-			}
-		},
-		"components": {
-			"vocalized": true,
-			"seen": false,
-			"material": false
-		},
-		"concentration": false,
-		"level": 2,
-		"materials": "",
-		"materialsConsumed": false,
-		"prepared": false,
-		"prerequisite": "",
-		"ritual": false,
-		"schools": {
-			"primary": "necromancy",
-			"secondary": [
-				"affliction",
-				"arcane",
-				"divine",
-				"senses"
-			]
-		}
-	},
-	"folder": "XXlxppJh0OdnJaQQ",
-	"_id": "6q34ttse78toj5x0"
+  "name": "Blindness/Deafness",
+  "type": "spell",
+  "img": "icons/magic/perception/eye-ringed-glow-angry-teal.webp",
+  "effects": [
+    {
+      "icon": "icons/magic/perception/eye-ringed-glow-angry-teal.webp",
+      "origin": "Item.6q34ttse78toj5x0",
+      "flags": {
+        "a5e": {
+          "sort": 0,
+          "transferType": "onUse",
+          "duration": {
+            "unit": "minutes"
+          }
+        }
+      },
+      "transfer": false,
+      "name": "Blindness",
+      "_id": "tey9cUNf8o3CHPA6",
+      "changes": [
+        {
+          "key": "flags.a5e.effects.statusConditions",
+          "value": "[\"blinded\"]",
+          "mode": 0,
+          "priority": null
+        }
+      ],
+      "disabled": false,
+      "duration": {
+        "startTime": null,
+        "seconds": 60,
+        "combat": null,
+        "rounds": null,
+        "turns": null,
+        "startRound": null,
+        "startTurn": null
+      },
+      "description": "",
+      "statuses": [
+        "blinded"
+      ]
+    },
+    {
+      "icon": "icons/magic/sonic/explosion-shock-sound-wave.webp",
+      "origin": "Item.6q34ttse78toj5x0",
+      "flags": {
+        "a5e": {
+          "sort": 0,
+          "transferType": "onUse",
+          "duration": {
+            "unit": "minutes"
+          }
+        }
+      },
+      "transfer": false,
+      "name": "Deafness",
+      "_id": "0lA7vqfoDvlNfBe1",
+      "changes": [
+        {
+          "key": "flags.a5e.effects.statusConditions",
+          "value": "[\"deafened\"]",
+          "mode": 0,
+          "priority": null
+        }
+      ],
+      "disabled": false,
+      "duration": {
+        "startTime": null,
+        "seconds": 60,
+        "combat": null,
+        "rounds": null,
+        "turns": null,
+        "startRound": null,
+        "startTurn": null
+      },
+      "description": "",
+      "statuses": []
+    }
+  ],
+  "flags": {},
+  "system": {
+    "actions": {
+      "k3OmeV0X53SUgbLi": {
+        "name": "Cast Spell",
+        "activation": {
+          "cost": 1,
+          "type": "action",
+          "reactionTrigger": ""
+        },
+        "duration": {
+          "unit": "minute",
+          "value": "1"
+        },
+        "ranges": {
+          "0ED6qw7JTnK0eUXP": {
+            "range": "short"
+          }
+        },
+        "area": {
+          "shape": "",
+          "size": "",
+          "placeTemplate": false
+        },
+        "target": {
+          "quantity": "",
+          "type": "creature"
+        },
+        "prompts": {
+          "2Uy4qFMQYTPJeGXX": {
+            "ability": "con",
+            "onSave": "Negates effect",
+            "saveDC": {
+              "type": "spellcasting",
+              "bonus": ""
+            },
+            "type": "savingThrow"
+          },
+          "jfilEvms77itvFx1": {
+            "type": "effect",
+            "default": true,
+            "effectId": "tey9cUNf8o3CHPA6"
+          },
+          "qfwfaqBjsdJhptG8": {
+            "type": "effect",
+            "default": true,
+            "effectId": "0lA7vqfoDvlNfBe1"
+          }
+        },
+        "consumers": {
+          "v1gAF2Lvooen337m": {
+            "mode": "variable",
+            "spellLevel": 2,
+            "points": 3,
+            "type": "spell"
+          }
+        }
+      }
+    },
+    "description": "<p>Until the spell ends, the target is blinded or deafened (your choice). At the end of each of its turns the target can repeat its saving throw, ending the spell on a success.</p><p><strong><em>Cast at Higher Levels.</em></strong> You target one additional creature for each slot level above 2nd.</p>",
+    "favorite": false,
+    "secretDescription": "",
+    "source": "",
+    "uses": {
+      "value": null,
+      "max": "",
+      "per": null,
+      "recharge": {
+        "formula": "",
+        "threshold": ""
+      }
+    },
+    "schema": {
+      "version": 0.007,
+      "lastMigration": {
+        "version": {
+          "schema": 0.003,
+          "foundry": "11.307",
+          "system": "0.15.0"
+        }
+      }
+    },
+    "classes": [
+      "bard",
+      "cleric",
+      "sorcerer",
+      "wizard"
+    ],
+    "components": {
+      "vocalized": true,
+      "seen": false,
+      "material": false
+    },
+    "concentration": false,
+    "level": 2,
+    "materials": "",
+    "materialsConsumed": false,
+    "prepared": false,
+    "prerequisite": "",
+    "ritual": false,
+    "schools": {
+      "primary": "necromancy",
+      "secondary": [
+        "affliction",
+        "arcane",
+        "divine",
+        "senses"
+      ]
+    }
+  },
+  "folder": "XXlxppJh0OdnJaQQ",
+  "_id": "6q34ttse78toj5x0"
 }

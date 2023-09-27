@@ -1,113 +1,118 @@
 {
-	"name": "Burning Hands",
-	"type": "spell",
-	"img": "icons/magic/fire/blast-jet-stream-embers-red.webp",
-	"effects": [],
-	"flags": {},
-	"system": {
-		"actions": {
-			"SjiYPG0X0ERQac0r": {
-				"name": "Cast Spell",
-				"activation": {
-					"cost": 1,
-					"type": "action",
-					"reactionTrigger": ""
-				},
-				"duration": {
-					"unit": "instantaneous",
-					"value": ""
-				},
-				"ranges": {
-					"Z7f8aeFVZFoYaQM4": {
-						"range": "self"
-					}
-				},
-				"area": {
-					"shape": "cone",
-					"length": "15",
-					"placeTemplate": false
-				},
-				"target": {
-					"quantity": "",
-					"type": ""
-				},
-				"rolls": {
-					"unsR1rjY4mpqI7TB": {
-						"canCrit": false,
-						"damageType": "fire",
-						"formula": "3d6",
-						"name": "",
-						"type": "damage",
-						"scaling": {
-							"mode": "spellLevel",
-							"formula": "1d6"
-						}
-					}
-				},
-				"prompts": {
-					"rdGYF9zI83Xqelou": {
-						"ability": "dex",
-						"onSave": "Half damage",
-						"saveDC": {
-							"type": "spellcasting",
-							"bonus": ""
-						},
-						"type": "savingThrow"
-					}
-				},
-				"consumers": {
-					"Xlu0D0ThDnWXJx9H": {
-						"mode": "variable",
-						"spellLevel": 1,
-						"points": 2,
-						"type": "spell"
-					}
-				}
-			}
-		},
-		"description": "<p>A thin sheet of flames shoots forth from your outstretched hands. Each creature in the area takes 3d6 fire damage. The fire ignites any flammable unattended objects in the area.</p><p><strong><em>Cast at Higher Levels.</em></strong> The damage increases by 1d6 for each slot level above 1st.</p>",
-		"favorite": false,
-		"secretDescription": "",
-		"source": "",
-		"uses": {
-			"value": null,
-			"max": "",
-			"per": null,
-			"recharge": {
-				"formula": "",
-				"threshold": ""
-			}
-		},
-		"schema": {
-			"version": 0.007,
-			"lastMigration": {
-				"version": {
-					"schema": 0.003,
-					"foundry": "11.307",
-					"system": "0.15.0"
-				}
-			}
-		},
-		"components": {
-			"vocalized": true,
-			"seen": true,
-			"material": false
-		},
-		"concentration": false,
-		"level": 1,
-		"materials": "",
-		"materialsConsumed": false,
-		"prepared": false,
-		"prerequisite": "",
-		"ritual": false,
-		"schools": {
-			"primary": "evocation",
-			"secondary": [
-				"arcane",
-				"fire"
-			]
-		}
-	},
-	"folder": "XXlxppJh0OdnJaQQ",
-	"_id": "fdkaoynn8g8aqxdr"
+  "name": "Burning Hands",
+  "type": "spell",
+  "img": "icons/magic/fire/blast-jet-stream-embers-red.webp",
+  "effects": [],
+  "flags": {},
+  "system": {
+    "actions": {
+      "SjiYPG0X0ERQac0r": {
+        "name": "Cast Spell",
+        "activation": {
+          "cost": 1,
+          "type": "action",
+          "reactionTrigger": ""
+        },
+        "duration": {
+          "unit": "instantaneous",
+          "value": ""
+        },
+        "ranges": {
+          "Z7f8aeFVZFoYaQM4": {
+            "range": "self"
+          }
+        },
+        "area": {
+          "shape": "cone",
+          "length": "15",
+          "placeTemplate": false
+        },
+        "target": {
+          "quantity": "",
+          "type": ""
+        },
+        "rolls": {
+          "unsR1rjY4mpqI7TB": {
+            "canCrit": false,
+            "damageType": "fire",
+            "formula": "3d6",
+            "name": "",
+            "type": "damage",
+            "scaling": {
+              "mode": "spellLevel",
+              "formula": "1d6"
+            }
+          }
+        },
+        "prompts": {
+          "rdGYF9zI83Xqelou": {
+            "ability": "dex",
+            "onSave": "Half damage",
+            "saveDC": {
+              "type": "spellcasting",
+              "bonus": ""
+            },
+            "type": "savingThrow"
+          }
+        },
+        "consumers": {
+          "Xlu0D0ThDnWXJx9H": {
+            "mode": "variable",
+            "spellLevel": 1,
+            "points": 2,
+            "type": "spell"
+          }
+        }
+      }
+    },
+    "description": "<p>A thin sheet of flames shoots forth from your outstretched hands. Each creature in the area takes 3d6 fire damage. The fire ignites any flammable unattended objects in the area.</p><p><strong><em>Cast at Higher Levels.</em></strong> The damage increases by 1d6 for each slot level above 1st.</p>",
+    "favorite": false,
+    "secretDescription": "",
+    "source": "",
+    "uses": {
+      "value": null,
+      "max": "",
+      "per": null,
+      "recharge": {
+        "formula": "",
+        "threshold": ""
+      }
+    },
+    "classes": [
+      "artificer",
+      "sorcerer",
+      "wizard"
+    ],
+    "schema": {
+      "version": 0.007,
+      "lastMigration": {
+        "version": {
+          "schema": 0.003,
+          "foundry": "11.307",
+          "system": "0.15.0"
+        }
+      }
+    },
+    "components": {
+      "vocalized": true,
+      "seen": true,
+      "material": false
+    },
+    "concentration": false,
+    "level": 1,
+    "materials": "",
+    "materialsConsumed": false,
+    "prepared": false,
+    "prerequisite": "",
+    "ritual": false,
+    "schools": {
+      "primary": "evocation",
+      "secondary": [
+        "arcane",
+        "fire"
+      ]
+    }
+  },
+  "folder": "XXlxppJh0OdnJaQQ",
+  "_id": "fdkaoynn8g8aqxdr"
 }
