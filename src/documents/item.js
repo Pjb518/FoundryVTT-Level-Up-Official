@@ -255,6 +255,7 @@ export default class ItemA5e extends Item {
             hideCraftingComponents: true,
             hidePrice: true,
             hideRarity: true,
+            hideSpellClasses: true,
             hideSpellComponents: true,
             hideSpellLevel: true
           })
@@ -310,6 +311,7 @@ export default class ItemA5e extends Item {
           img: action?.img ?? this.img,
           name: this.name,
           summaryData: getSummaryData(this, action, {
+            hideSpellClasses: true,
             hideSpellComponents: true,
             hideSpellLevel: true
           })
