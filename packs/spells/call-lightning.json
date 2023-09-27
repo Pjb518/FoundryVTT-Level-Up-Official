@@ -1,156 +1,159 @@
 {
-	"name": "Call Lightning",
-	"type": "spell",
-	"img": "icons/magic/lightning/bolts-forked-large-blue-yellow.webp",
-	"effects": [],
-	"flags": {},
-	"system": {
-		"actions": {
-			"FplErpCwC2AQf4Em": {
-				"name": "Cast Spell",
-				"activation": {
-					"cost": 1,
-					"type": "action",
-					"reactionTrigger": ""
-				},
-				"duration": {
-					"unit": "minute",
-					"value": "10"
-				},
-				"ranges": {
-					"SzndNvd8Vuz2BvPe": {
-						"range": "100 feet above you"
-					}
-				},
-				"area": {
-					"shape": "cylinder",
-					"radius": "60",
-					"placeTemplate": false,
-					"quantity": 1
-				},
-				"target": {
-					"quantity": "",
-					"type": "Area"
-				},
-				"rolls": {},
-				"prompts": {},
-				"consumers": {
-					"V387TjjD3VtKeadw": {
-						"mode": "variable",
-						"spellLevel": 3,
-						"points": 5,
-						"type": "spell"
-					}
-				}
-			},
-			"Vqzv4cc9Svz0V4JK": {
-				"name": "Lightning Bolt",
-				"activation": {
-					"type": "action",
-					"cost": 1
-				},
-				"consumers": {},
-				"rolls": {
-					"evH4bO0I0VcGHYl9": {
-						"type": "damage",
-						"default": true,
-						"formula": "3d10",
-						"scaling": {
-							"mode": "spellLevel",
-							"formula": "1d10"
-						},
-						"damageType": "lightning",
-						"canCrit": false
-					},
-					"N0TK7qm67IRLoTB9": {
-						"type": "damage",
-						"default": false,
-						"label": "Stormy Conditions",
-						"formula": "4d10",
-						"scaling": {
-							"mode": "spellLevel",
-							"formula": "1d10"
-						},
-						"damageType": "lightning",
-						"canCrit": false
-					}
-				},
-				"prompts": {
-					"lw4FLGSFNvmDDj8Z": {
-						"type": "savingThrow",
-						"default": true,
-						"ability": "dex",
-						"saveDC": {
-							"type": "spellcasting"
-						}
-					}
-				},
-				"uses": {
-					"value": 0,
-					"max": "",
-					"per": "",
-					"recharge": {
-						"formula": "1d6",
-						"threshold": 6
-					}
-				},
-				"duration": {
-					"unit": "instantaneous"
-				},
-				"area": {
-					"shape": "circle",
-					"quantity": 1,
-					"radius": 5,
-					"placeTemplate": true
-				},
-				"descriptionOutputs": []
-			}
-		},
-		"description": "<p>A 60-foot radius storm cloud that is 10 feet high appears in a space 100 feet above you. If there is not a point in the air above you that the storm cloud could appear, the spell fails (such as if you are in a small cavern or indoors).</p><p>On the round you cast it, and as an action on subsequent turns until the spell ends, you can call down a bolt of lightning to a point directly beneath the cloud. Each creature within 5 feet of the point makes a Dexterity saving throw, taking 3d10 lightning damage on a failed save or half as much on a successful one.</p><p>If you are outdoors in a storm when you cast this spell, you take control of the storm instead of creating a new cloud and the spell's damage is increased by 1d10.</p><p><strong><em>Cast at Higher Levels.</em></strong> The damage increases by 1d10 for each slot level above 3rd.</p>",
-		"favorite": false,
-		"secretDescription": "",
-		"source": "",
-		"uses": {
-			"value": null,
-			"max": "",
-			"per": null,
-			"recharge": {
-				"formula": "",
-				"threshold": ""
-			}
-		},
-		"schema": {
-			"version": 0.007,
-			"lastMigration": {
-				"version": {
-					"schema": 0.003,
-					"foundry": "11.307",
-					"system": "0.15.0"
-				}
-			}
-		},
-		"components": {
-			"vocalized": true,
-			"seen": true,
-			"material": false
-		},
-		"concentration": true,
-		"level": 3,
-		"materials": "",
-		"materialsConsumed": false,
-		"prepared": false,
-		"prerequisite": "",
-		"ritual": false,
-		"schools": {
-			"primary": "conjuration",
-			"secondary": [
-				"lightning",
-				"nature",
-				"storm",
-				"weather"
-			]
-		}
-	},
-	"folder": "XXlxppJh0OdnJaQQ",
-	"_id": "t9s6kq3pvokx53dk"
+  "name": "Call Lightning",
+  "type": "spell",
+  "img": "icons/magic/lightning/bolts-forked-large-blue-yellow.webp",
+  "effects": [],
+  "flags": {},
+  "system": {
+    "actions": {
+      "FplErpCwC2AQf4Em": {
+        "name": "Cast Spell",
+        "activation": {
+          "cost": 1,
+          "type": "action",
+          "reactionTrigger": ""
+        },
+        "duration": {
+          "unit": "minute",
+          "value": "10"
+        },
+        "ranges": {
+          "SzndNvd8Vuz2BvPe": {
+            "range": "100 feet above you"
+          }
+        },
+        "area": {
+          "shape": "cylinder",
+          "radius": "60",
+          "placeTemplate": false,
+          "quantity": 1
+        },
+        "target": {
+          "quantity": "",
+          "type": "Area"
+        },
+        "rolls": {},
+        "prompts": {},
+        "consumers": {
+          "V387TjjD3VtKeadw": {
+            "mode": "variable",
+            "spellLevel": 3,
+            "points": 5,
+            "type": "spell"
+          }
+        }
+      },
+      "Vqzv4cc9Svz0V4JK": {
+        "name": "Lightning Bolt",
+        "activation": {
+          "type": "action",
+          "cost": 1
+        },
+        "consumers": {},
+        "rolls": {
+          "evH4bO0I0VcGHYl9": {
+            "type": "damage",
+            "default": true,
+            "formula": "3d10",
+            "scaling": {
+              "mode": "spellLevel",
+              "formula": "1d10"
+            },
+            "damageType": "lightning",
+            "canCrit": false
+          },
+          "N0TK7qm67IRLoTB9": {
+            "type": "damage",
+            "default": false,
+            "label": "Stormy Conditions",
+            "formula": "4d10",
+            "scaling": {
+              "mode": "spellLevel",
+              "formula": "1d10"
+            },
+            "damageType": "lightning",
+            "canCrit": false
+          }
+        },
+        "prompts": {
+          "lw4FLGSFNvmDDj8Z": {
+            "type": "savingThrow",
+            "default": true,
+            "ability": "dex",
+            "saveDC": {
+              "type": "spellcasting"
+            }
+          }
+        },
+        "uses": {
+          "value": 0,
+          "max": "",
+          "per": "",
+          "recharge": {
+            "formula": "1d6",
+            "threshold": 6
+          }
+        },
+        "duration": {
+          "unit": "instantaneous"
+        },
+        "area": {
+          "shape": "circle",
+          "quantity": 1,
+          "radius": 5,
+          "placeTemplate": true
+        },
+        "descriptionOutputs": []
+      }
+    },
+    "description": "<p>A 60-foot radius storm cloud that is 10 feet high appears in a space 100 feet above you. If there is not a point in the air above you that the storm cloud could appear, the spell fails (such as if you are in a small cavern or indoors).</p><p>On the round you cast it, and as an action on subsequent turns until the spell ends, you can call down a bolt of lightning to a point directly beneath the cloud. Each creature within 5 feet of the point makes a Dexterity saving throw, taking 3d10 lightning damage on a failed save or half as much on a successful one.</p><p>If you are outdoors in a storm when you cast this spell, you take control of the storm instead of creating a new cloud and the spell's damage is increased by 1d10.</p><p><strong><em>Cast at Higher Levels.</em></strong> The damage increases by 1d10 for each slot level above 3rd.</p>",
+    "favorite": false,
+    "secretDescription": "",
+    "source": "",
+    "uses": {
+      "value": null,
+      "max": "",
+      "per": null,
+      "recharge": {
+        "formula": "",
+        "threshold": ""
+      }
+    },
+    "schema": {
+      "version": 0.007,
+      "lastMigration": {
+        "version": {
+          "schema": 0.003,
+          "foundry": "11.307",
+          "system": "0.15.0"
+        }
+      }
+    },
+    "classes": [
+      "druid"
+    ],
+    "components": {
+      "vocalized": true,
+      "seen": true,
+      "material": false
+    },
+    "concentration": true,
+    "level": 3,
+    "materials": "",
+    "materialsConsumed": false,
+    "prepared": false,
+    "prerequisite": "",
+    "ritual": false,
+    "schools": {
+      "primary": "conjuration",
+      "secondary": [
+        "lightning",
+        "nature",
+        "storm",
+        "weather"
+      ]
+    }
+  },
+  "folder": "XXlxppJh0OdnJaQQ",
+  "_id": "t9s6kq3pvokx53dk"
 }
