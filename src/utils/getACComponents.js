@@ -23,6 +23,7 @@ export default function getACComponents(actor) {
         try {
           value = getDeterministicBonus(change.value, actor.getRollData());
         } catch (e) {
+          // eslint-disable-next-line no-console
           console.error(e);
         }
 

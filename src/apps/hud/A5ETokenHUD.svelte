@@ -13,21 +13,31 @@
                 : src;
 
         if (typeof effect === "object" && effect?.statuses?.length) {
-            const existing = HUD.object.actor.effects.reduce((arr, e) => {
-                if (e.statuses.size === 1 && e.statuses.has(id)) arr.push(e.id);
+            const { existing, associated } = HUD.object.actor.effects.reduce(
+                (arr, e) => {
+                    if (e.statuses.size === 1 && e.statuses.has(id))
+                        arr.existing.push(e.id);
 
-                effect?.statuses?.forEach((s) => {
-                    if (e.statuses.size === 1 && e.statuses.has(s))
-                        arr.push(e.id);
-                });
+                    effect?.statuses?.forEach((s) => {
+                        if (e.statuses.size === 1 && e.statuses.has(s)) {
+                            const difference = subConditions[s]?.filter((c) =>
+                                activeConditions.includes(c)
+                            );
 
-                return arr;
-            }, []);
+                            if (difference?.length > 1) return;
+                            arr.associated.push(e.id);
+                        }
+                    });
+
+                    return arr;
+                },
+                { existing: [], associated: [] }
+            );
 
             if (existing.length) {
                 return HUD.object.actor.deleteEmbeddedDocuments(
                     "ActiveEffect",
-                    existing
+                    [...existing, ...associated]
                 );
             }
         }
