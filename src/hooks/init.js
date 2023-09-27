@@ -10,6 +10,8 @@ import ItemA5e from '../documents/item';
 import TokenA5e from '../documents/token/token';
 import TokenDocumentA5e from '../documents/tokenDocument';
 
+import ItemProxy from '../documents/item/itemProxy';
+
 // DataModels
 import BackgroundDataModel from '../dataModels/item/BackgroundDataModel';
 import CultureDataModel from '../dataModels/item/CultureDataModel';
@@ -73,7 +75,7 @@ export default function init() {
   CONFIG.ActiveEffect.documentClass = ActiveEffectA5e;
   CONFIG.Actor.documentClass = ActorA5e;
   CONFIG.Actor.trackableAttributes = trackableAttributes;
-  CONFIG.Item.documentClass = ItemA5e;
+  CONFIG.Item.documentClass = ItemProxy;
   CONFIG.Token.documentClass = TokenDocumentA5e;
   CONFIG.Token.objectClass = TokenA5e;
 

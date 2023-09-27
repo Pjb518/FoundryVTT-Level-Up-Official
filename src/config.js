@@ -1,6 +1,7 @@
 import registerActiveEffectConfig from './config/registerActiveEffectConfig';
 import registerCharacterClassesConfig from './config/registerCharacterClassesConfig';
 import registerConsumerConfig from './config/registerConsumerConfig';
+import registerDocumentConfig from './config/registerDocumentConfig';
 import registerEffectGroupConfig from './config/registerEffectGroupConfig';
 import registerEffectLocalizationConfig from './config/registerEffectLocalizationConfig';
 import registerFilterConfig from './config/registerFilterConfig';
@@ -1509,6 +1510,7 @@ A5E.weaponProperties = {
 };
 
 // Build Complex Config Parts
+registerDocumentConfig(A5E);
 registerActiveEffectConfig(A5E);
 registerCharacterClassesConfig(A5E);
 registerConsumerConfig(A5E);
