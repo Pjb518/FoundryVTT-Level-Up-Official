@@ -92,6 +92,7 @@
             <RadioGroup
                 options={creatureSizes}
                 selected={$item.system.creatureSize.fixed}
+                disabled={$item.system.creatureSize.options}
                 on:updateSelection={({ detail }) =>
                     updateDocumentDataFromField(
                         $item,
@@ -107,6 +108,7 @@
             <CheckboxGroup
                 options={creatureSizes}
                 selected={$item.system.creatureSize.options}
+                disabledOptions={$item.system.creatureSize.fixed}
                 on:updateSelection={({ detail }) =>
                     updateDocumentDataFromField(
                         $item,
