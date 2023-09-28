@@ -35,6 +35,7 @@
 
     const {
         PREPARED_STATES,
+        characterClasses,
         spellComponents,
         spellComponentAbbreviations,
         spellLevels,
@@ -74,6 +75,22 @@
 
     {#if editMode}
         <div class="u-flex u-flex-col u-gap-md">
+            <FormSection
+                heading="Classes"
+                hint="Select the classes that are eligible to select this spell."
+            >
+                <CheckboxGroup
+                    options={Object.entries(characterClasses)}
+                    selected={$item.system.classes}
+                    on:updateSelection={(event) =>
+                        updateDocumentDataFromField(
+                            $item,
+                            "system.classes",
+                            event.detail
+                        )}
+                />
+            </FormSection>
+
             <FormSection heading="A5E.SpellLevel">
                 <RadioGroup
                     options={objectEntriesNumberKeyConverter(spellLevels)}
