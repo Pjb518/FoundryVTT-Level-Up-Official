@@ -45,6 +45,16 @@
         return HUD?.object?.toggleEffect(effect, { overlay });
     }
 
+    function handleStatusEffectAdd({ id, src }, { overlay = false } = {}) {
+        console.log("Adding Effect");
+        HUD.object._addStatusEffect({ id, src }, { overlay });
+    }
+
+    function handleStatusEffectRemove({ id, src }, { overlay = false } = {}) {
+        console.log("Removing Effect");
+        HUD.object._removeStatusEffect({ id, src }, { overlay });
+    }
+
     const data = HUD.getData();
     const statusEffects = Object.values(data.statusEffects);
     const genericEffects = Object.values(data.genericConditions);
@@ -87,9 +97,9 @@
                     activeConditions.includes(c)
                 )}
             on:click|preventDefault|stopPropagation={() =>
-                handleStatusEffectClick(effect)}
+                handleStatusEffectAdd(effect)}
             on:auxclick|preventDefault|stopPropagation={() =>
-                handleStatusEffectClick(effect, { overlay: true })}
+                handleStatusEffectRemove(effect)}
         >
             <img
                 class={effect.cssClass}

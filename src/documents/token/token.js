@@ -7,6 +7,119 @@ let circularMask = null;
  * @extends {Token}
  */
 export default class TokenA5e extends Token {
+  /**
+   * Get an array of icon paths which represent valid status effect choices
+   * @private
+   */
+  _getStatusEffectChoices() {
+    const token = this;
+    const doc = token.document;
+
+    // Get statuses which are active for the token actor
+    const actor = token.actor || null;
+    const statuses = actor ? actor.effects.reduce((obj, effect) => {
+      // eslint-disable-next-line no-restricted-syntax
+      for (const id of effect.statuses) {
+        obj[id] = { id, overlay: !!effect.getFlag('core', 'overlay') };
+      }
+      return obj;
+    }, {}) : {};
+
+    // Prepare the list of effects from the configured defaults and any additional
+    // effects present on the Token
+    const tokenEffects = foundry.utils.deepClone(doc.effects) || [];
+    if (doc.overlayEffect) tokenEffects.push(doc.overlayEffect);
+    return CONFIG.statusEffects.concat(tokenEffects).reduce((obj, e) => {
+      const src = e.icon ?? e;
+      if (src in obj) return obj;
+      const status = statuses[e.id] || {};
+      const isActive = !!status.id || doc.effects.includes(src);
+      const isOverlay = !!status.overlay || doc.overlayEffect === src;
+      const label = e.name ?? e.label;
+      obj[src] = {
+        id: e.id ?? '',
+        title: label ? game.i18n.localize(label) : null,
+        src,
+        isActive,
+        isOverlay,
+        cssClass: [
+          isActive ? 'active' : null,
+          isOverlay ? 'overlay' : null
+        ].filterJoin(' ')
+      };
+      return obj;
+    }, {});
+  }
+
+  _getActiveConditions() {
+    return Object.values(this._getStatusEffectChoices()).reduce((arr, e) => {
+      if (e.isActive) arr.push(e.id);
+      return arr;
+    }, []);
+  }
+
+  _addStatusEffect({ id, src }, { overlay = false } = {}) {
+    const effect = id && this.actor ? CONFIG.statusEffects.find((e) => e.id === id) : src;
+
+    if (['fatigue', 'exhaustion', 'strife'].includes(id)) {
+      return this._handleMultiLevelEffectsAdd(effect, { overlay });
+    }
+
+    const activeConditions = this._getActiveConditions();
+    if (activeConditions.includes(id)) return null;
+    return this.toggleEffect(effect, { active: true, overlay });
+  }
+
+  _removeStatusEffect({ id, src }, { overlay = false } = {}) {
+    const effect = id && this.actor ? CONFIG.statusEffects.find((e) => e.id === id) : src;
+    if (typeof effect !== 'object') return null;
+
+    if (['fatigue', 'exhaustion', 'strife'].includes(id)) {
+      return this._handleMultiLevelEffectsRemove(id, src, { overlay });
+    }
+
+    const subConditions = CONFIG.statusEffects.reduce((acc, c) => {
+      if (!c?.statuses?.length) return acc;
+
+      c.statuses.forEach((s) => {
+        acc[s] ??= [];
+        acc[s].push(c.id);
+      });
+      return acc;
+    }, {});
+
+    const activeConditions = this._getActiveConditions();
+    const { existing, associated } = this.actor.effects.reduce((arr, e) => {
+      if (e.statuses.size === 1 && e.statuses.has(id)) { arr.existing.push(e.id); }
+
+      effect?.statuses?.forEach((s) => {
+        if (e.statuses.size === 1 && e.statuses.has(s)) {
+          const difference = subConditions[s]?.filter((c) => activeConditions.includes(c));
+
+          if (difference?.length > 1) return;
+          arr.associated.push(e.id);
+        }
+      });
+
+      return arr;
+    }, { existing: [], associated: [] });
+
+    if (!existing.length && !associated.length) return null;
+
+    return this.actor.deleteEmbeddedDocuments(
+      'ActiveEffect',
+      [...existing, ...associated]
+    );
+  }
+
+  _handleMultiLevelEffectsAdd(effect) {
+
+  }
+
+  _handleMultiLevelEffectsRemove(effect) {
+
+  }
+
   /** @inheritdoc */
   _drawBar(number, bar, data) {
     if (data.attribute === 'attributes.hp') return this._drawHPBar(number, bar, data);
