@@ -7,6 +7,10 @@
             label: "A5E.CraftingComponents",
         },
         {
+            field: "spellClasses",
+            label: "Classes",
+        },
+        {
             field: "activationCost",
             label: "A5E.ActionActivationCost",
         },

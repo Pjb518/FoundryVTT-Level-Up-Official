@@ -1,117 +1,123 @@
 {
-	"name": "Cupid's Arrow",
-	"type": "spell",
-	"img": "icons/magic/life/heart-shadow-red.webp",
-	"system": {
-		"actions": {
-			"A3LAY4Xyso7fBlUK": {
-				"name": "Cast Spell",
-				"activation": {
-					"type": "action",
-					"cost": 1
-				},
-				"consumers": {
-					"soisjeH2tjRLnsoE": {
-						"type": "spell",
-						"default": true,
-						"mode": "variable",
-						"spellLevel": 3,
-						"points": 5
-					}
-				},
-				"rolls": {
-					"0s4HG5kuQEy0clwo": {
-						"type": "healing",
-						"default": true,
-						"formula": "1d8"
-					}
-				},
-				"prompts": {
-					"RZ8ZZKKB1XfwCFdY": {
-						"type": "savingThrow",
-						"default": true,
-						"ability": "cha",
-						"saveDC": {
-							"type": "spellcasting"
-						},
-						"onSave": "Charisma negates"
-					}
-				},
-				"uses": {
-					"value": 0,
-					"max": "",
-					"per": "",
-					"recharge": {
-						"formula": "1d6",
-						"threshold": 6
-					}
-				},
-				"target": {
-					"type": "creature",
-					"quantity": 1
-				},
-				"ranges": {
-					"DoahDUgAkLvsh1V7": {
-						"range": "short"
-					}
-				},
-				"duration": {
-					"unit": "instantaneous"
-				}
-			}
-		},
-		"description": "<p>As part of the action used to cast this spell, make a ranged weapon attack against a target within range of the weapon you are wielding. If you hit, the target takes no damage, is instead healed for an amount of hit points equal to the weapon’s normal damage + 1d8, and must make a Charisma saving throw against your spell save DC. A creature that fails its save is charmed by you for one minute. A creature that succeeds on its save is still healed, but is not charmed.</p><p>The spell ends if you or your companions do anything harmful towards the target. The target knows it was charmed by you when the spell ends.&nbsp;</p><p>If the target is already friendly toward you, it is not charmed and instead gains an expertise die on its next saving throw or ability check.</p>",
-		"favorite": false,
-		"secretDescription": "",
-		"source": {
-			"name": "Arcane Sniper",
-			"link": "https://bit.ly/3bHQT5T",
-			"publisher": "purpleMartinGames"
-		},
-		"uses": {
-			"value": null,
-			"max": "",
-			"per": null,
-			"recharge": {
-				"formula": "1d6",
-				"threshold": "6"
-			}
-		},
-		"schema": {
-			"version": 0.007,
-			"lastMigration": {
-				"version": {
-					"schema": 0.001,
-					"foundry": "11.307",
-					"system": "0.15.0"
-				}
-			}
-		},
-		"components": {
-			"vocalized": true,
-			"seen": true,
-			"material": true
-		},
-		"concentration": false,
-		"level": 3,
-		"materials": "A ranged weapon",
-		"materialsConsumed": false,
-		"prepared": false,
-		"prerequisite": "",
-		"ritual": false,
-		"schools": {
-			"primary": "enchantment",
-			"secondary": [
-				"arcane",
-				"divine",
-				"compulsion",
-				"healing",
-				"weaponry"
-			]
-		}
-	},
-	"effects": [],
-	"flags": {},
-	"folder": "XXlxppJh0OdnJaQQ",
-	"_id": "mr3mrx2b8po8bh73"
+  "name": "Cupid's Arrow",
+  "type": "spell",
+  "img": "icons/magic/life/heart-shadow-red.webp",
+  "system": {
+    "actions": {
+      "A3LAY4Xyso7fBlUK": {
+        "name": "Cast Spell",
+        "activation": {
+          "type": "action",
+          "cost": 1
+        },
+        "consumers": {
+          "soisjeH2tjRLnsoE": {
+            "type": "spell",
+            "default": true,
+            "mode": "variable",
+            "spellLevel": 3,
+            "points": 5
+          }
+        },
+        "rolls": {
+          "0s4HG5kuQEy0clwo": {
+            "type": "healing",
+            "default": true,
+            "formula": "1d8"
+          }
+        },
+        "prompts": {
+          "RZ8ZZKKB1XfwCFdY": {
+            "type": "savingThrow",
+            "default": true,
+            "ability": "cha",
+            "saveDC": {
+              "type": "spellcasting"
+            },
+            "onSave": "Charisma negates"
+          }
+        },
+        "uses": {
+          "value": 0,
+          "max": "",
+          "per": "",
+          "recharge": {
+            "formula": "1d6",
+            "threshold": 6
+          }
+        },
+        "target": {
+          "type": "creature",
+          "quantity": 1
+        },
+        "ranges": {
+          "DoahDUgAkLvsh1V7": {
+            "range": "short"
+          }
+        },
+        "duration": {
+          "unit": "instantaneous"
+        }
+      }
+    },
+    "description": "<p>As part of the action used to cast this spell, make a ranged weapon attack against a target within range of the weapon you are wielding. If you hit, the target takes no damage, is instead healed for an amount of hit points equal to the weapon’s normal damage + 1d8, and must make a Charisma saving throw against your spell save DC. A creature that fails its save is charmed by you for one minute. A creature that succeeds on its save is still healed, but is not charmed.</p><p>The spell ends if you or your companions do anything harmful towards the target. The target knows it was charmed by you when the spell ends.&nbsp;</p><p>If the target is already friendly toward you, it is not charmed and instead gains an expertise die on its next saving throw or ability check.</p>",
+    "favorite": false,
+    "secretDescription": "",
+    "source": {
+      "name": "Arcane Sniper",
+      "link": "https://bit.ly/3bHQT5T",
+      "publisher": "purpleMartinGames"
+    },
+    "uses": {
+      "value": null,
+      "max": "",
+      "per": null,
+      "recharge": {
+        "formula": "1d6",
+        "threshold": "6"
+      }
+    },
+    "schema": {
+      "version": 0.007,
+      "lastMigration": {
+        "version": {
+          "schema": 0.001,
+          "foundry": "11.307",
+          "system": "0.15.0"
+        }
+      }
+    },
+    "classes": [
+      "bard",
+      "cleric",
+      "druid",
+      "warlock"
+    ],
+    "components": {
+      "vocalized": true,
+      "seen": true,
+      "material": true
+    },
+    "concentration": false,
+    "level": 3,
+    "materials": "A ranged weapon",
+    "materialsConsumed": false,
+    "prepared": false,
+    "prerequisite": "",
+    "ritual": false,
+    "schools": {
+      "primary": "enchantment",
+      "secondary": [
+        "arcane",
+        "divine",
+        "compulsion",
+        "healing",
+        "weaponry"
+      ]
+    }
+  },
+  "effects": [],
+  "flags": {},
+  "folder": "XXlxppJh0OdnJaQQ",
+  "_id": "mr3mrx2b8po8bh73"
 }

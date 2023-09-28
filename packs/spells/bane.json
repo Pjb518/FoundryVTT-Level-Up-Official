@@ -1,166 +1,170 @@
 {
-	"name": "Bane",
-	"type": "spell",
-	"img": "icons/magic/unholy/hand-light-green.webp",
-	"effects": [
-		{
-			"icon": "icons/magic/unholy/hand-light-green.webp",
-			"origin": "Item.o94b50tj959v55mm",
-			"flags": {
-				"a5e": {
-					"sort": 0,
-					"transferType": "onUse"
-				}
-			},
-			"transfer": false,
-			"name": "Bane",
-			"_id": "10bmEifXE2UZdfFf",
-			"changes": [
-				{
-					"key": "system.bonuses.abilities.save",
-					"mode": 2,
-					"value": "-1d4",
-					"priority": null
-				},
-				{
-					"key": "system.bonuses.meleeSpellAttack",
-					"mode": 2,
-					"value": "-1d4",
-					"priority": null
-				},
-				{
-					"key": "system.bonuses.meleeWeaponAttack",
-					"mode": 2,
-					"value": "-1d4",
-					"priority": null
-				},
-				{
-					"key": "system.bonuses.rangedSpellAttack",
-					"mode": 2,
-					"value": "-1d4",
-					"priority": null
-				},
-				{
-					"key": "system.bonuses.rangedWeaponAttack",
-					"mode": 2,
-					"value": "-1d4",
-					"priority": null
-				}
-			],
-			"disabled": false,
-			"duration": {
-				"startTime": null,
-				"seconds": null,
-				"combat": null,
-				"rounds": null,
-				"turns": null,
-				"startRound": null,
-				"startTurn": null
-			},
-			"description": "",
-			"statuses": []
-		}
-	],
-	"flags": {},
-	"system": {
-		"actions": {
-			"eYoBeDy7qYbkXOil": {
-				"name": "Bane",
-				"activation": {
-					"cost": 1,
-					"type": "action",
-					"reactionTrigger": ""
-				},
-				"duration": {
-					"unit": "minute",
-					"value": "1"
-				},
-				"ranges": {
-					"34d8aJcqBpRTYFSo": {
-						"range": "short"
-					}
-				},
-				"area": {
-					"shape": "",
-					"size": "",
-					"placeTemplate": false
-				},
-				"target": {
-					"quantity": 3,
-					"type": "creature",
-					"scaling": {
-						"mode": "spellLevel",
-						"formula": "1"
-					}
-				},
-				"prompts": {
-					"mxfWYaTGE4nutxoN": {
-						"ability": "cha",
-						"onSave": "Negates effect",
-						"saveDC": {
-							"type": "spellcasting",
-							"bonus": ""
-						},
-						"type": "savingThrow"
-					},
-					"ECjFqWzEWvzmljfy": {
-						"type": "effect",
-						"default": true,
-						"effectId": "10bmEifXE2UZdfFf"
-					}
-				},
-				"consumers": {
-					"mvrdcwfRXiRjR95R": {
-						"mode": "variable",
-						"spellLevel": 1,
-						"points": 2,
-						"type": "spell"
-					}
-				}
-			}
-		},
-		"description": "<p>The senses of the targets are filled with phantom energies that make them more vulnerable and less capable. Until the spell ends, a d4 is subtracted from attack rolls and saving throws made by a target.</p><p><strong><em>Cast at Higher Levels.</em></strong> You target an additional creature for each slot level above 1st.</p>",
-		"favorite": false,
-		"secretDescription": "",
-		"source": "",
-		"uses": {
-			"value": null,
-			"max": "",
-			"per": null,
-			"recharge": {
-				"formula": "",
-				"threshold": ""
-			}
-		},
-		"schema": {
-			"version": 0.007,
-			"lastMigration": {
-				"version": {
-					"schema": 0.003,
-					"foundry": "11.307",
-					"system": "0.15.0"
-				}
-			}
-		},
-		"components": {
-			"vocalized": true,
-			"seen": true,
-			"material": true
-		},
-		"concentration": true,
-		"level": 1,
-		"materials": "a small straw dolly",
-		"materialsConsumed": false,
-		"prepared": false,
-		"prerequisite": "",
-		"ritual": false,
-		"schools": {
-			"primary": "enchantment",
-			"secondary": [
-				"affliction"
-			]
-		}
-	},
-	"folder": "XXlxppJh0OdnJaQQ",
-	"_id": "o94b50tj959v55mm"
+  "name": "Bane",
+  "type": "spell",
+  "img": "icons/magic/unholy/hand-light-green.webp",
+  "effects": [
+    {
+      "icon": "icons/magic/unholy/hand-light-green.webp",
+      "origin": "Item.o94b50tj959v55mm",
+      "flags": {
+        "a5e": {
+          "sort": 0,
+          "transferType": "onUse"
+        }
+      },
+      "transfer": false,
+      "name": "Bane",
+      "_id": "10bmEifXE2UZdfFf",
+      "changes": [
+        {
+          "key": "system.bonuses.abilities.save",
+          "mode": 2,
+          "value": "-1d4",
+          "priority": null
+        },
+        {
+          "key": "system.bonuses.meleeSpellAttack",
+          "mode": 2,
+          "value": "-1d4",
+          "priority": null
+        },
+        {
+          "key": "system.bonuses.meleeWeaponAttack",
+          "mode": 2,
+          "value": "-1d4",
+          "priority": null
+        },
+        {
+          "key": "system.bonuses.rangedSpellAttack",
+          "mode": 2,
+          "value": "-1d4",
+          "priority": null
+        },
+        {
+          "key": "system.bonuses.rangedWeaponAttack",
+          "mode": 2,
+          "value": "-1d4",
+          "priority": null
+        }
+      ],
+      "disabled": false,
+      "duration": {
+        "startTime": null,
+        "seconds": null,
+        "combat": null,
+        "rounds": null,
+        "turns": null,
+        "startRound": null,
+        "startTurn": null
+      },
+      "description": "",
+      "statuses": []
+    }
+  ],
+  "flags": {},
+  "system": {
+    "actions": {
+      "eYoBeDy7qYbkXOil": {
+        "name": "Bane",
+        "activation": {
+          "cost": 1,
+          "type": "action",
+          "reactionTrigger": ""
+        },
+        "duration": {
+          "unit": "minute",
+          "value": "1"
+        },
+        "ranges": {
+          "34d8aJcqBpRTYFSo": {
+            "range": "short"
+          }
+        },
+        "area": {
+          "shape": "",
+          "size": "",
+          "placeTemplate": false
+        },
+        "target": {
+          "quantity": 3,
+          "type": "creature",
+          "scaling": {
+            "mode": "spellLevel",
+            "formula": "1"
+          }
+        },
+        "prompts": {
+          "mxfWYaTGE4nutxoN": {
+            "ability": "cha",
+            "onSave": "Negates effect",
+            "saveDC": {
+              "type": "spellcasting",
+              "bonus": ""
+            },
+            "type": "savingThrow"
+          },
+          "ECjFqWzEWvzmljfy": {
+            "type": "effect",
+            "default": true,
+            "effectId": "10bmEifXE2UZdfFf"
+          }
+        },
+        "consumers": {
+          "mvrdcwfRXiRjR95R": {
+            "mode": "variable",
+            "spellLevel": 1,
+            "points": 2,
+            "type": "spell"
+          }
+        }
+      }
+    },
+    "description": "<p>The senses of the targets are filled with phantom energies that make them more vulnerable and less capable. Until the spell ends, a d4 is subtracted from attack rolls and saving throws made by a target.</p><p><strong><em>Cast at Higher Levels.</em></strong> You target an additional creature for each slot level above 1st.</p>",
+    "favorite": false,
+    "secretDescription": "",
+    "source": "",
+    "uses": {
+      "value": null,
+      "max": "",
+      "per": null,
+      "recharge": {
+        "formula": "",
+        "threshold": ""
+      }
+    },
+    "schema": {
+      "version": 0.007,
+      "lastMigration": {
+        "version": {
+          "schema": 0.003,
+          "foundry": "11.307",
+          "system": "0.15.0"
+        }
+      }
+    },
+    "classes": [
+      "bard",
+      "cleric"
+    ],
+    "components": {
+      "vocalized": true,
+      "seen": true,
+      "material": true
+    },
+    "concentration": true,
+    "level": 1,
+    "materials": "a small straw dolly",
+    "materialsConsumed": false,
+    "prepared": false,
+    "prerequisite": "",
+    "ritual": false,
+    "schools": {
+      "primary": "enchantment",
+      "secondary": [
+        "affliction"
+      ]
+    }
+  },
+  "folder": "XXlxppJh0OdnJaQQ",
+  "_id": "o94b50tj959v55mm"
 }

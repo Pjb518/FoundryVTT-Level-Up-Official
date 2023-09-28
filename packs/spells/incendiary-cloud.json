@@ -1,109 +1,113 @@
 {
-	"name": "Incendiary Cloud",
-	"type": "spell",
-	"img": "icons/magic/air/fog-gas-smoke-swirling-orange.webp",
-	"effects": [],
-	"flags": {},
-	"system": {
-		"actions": {
-			"PEdIHQ14OemqJWHg": {
-				"name": "Incendiary Cloud",
-				"activation": {
-					"cost": 1,
-					"type": "action",
-					"reactionTrigger": ""
-				},
-				"duration": {
-					"unit": "minute",
-					"value": "1"
-				},
-				"ranges": {
-					"Y7R3qOK3bhHEkvK6": {
-						"range": "long"
-					}
-				},
-				"area": {
-					"shape": "sphere",
-					"radius": "20",
-					"placeTemplate": false
-				},
-				"target": {
-					"quantity": "",
-					"type": ""
-				},
-				"rolls": {
-					"D10VzuC72KAK1j1l": {
-						"canCrit": false,
-						"damageType": "fire",
-						"formula": "10d8",
-						"name": "",
-						"type": "damage"
-					}
-				},
-				"prompts": {
-					"hofn0pu7DIBLPCEF": {
-						"ability": "dex",
-						"onSave": "Half damage",
-						"saveDC": {
-							"type": "spellcasting",
-							"bonus": ""
-						},
-						"type": "savingThrow"
-					}
-				},
-				"consumers": {
-					"QUHbC2ajySwUrDBD": {
-						"mode": "variable",
-						"spellLevel": 8,
-						"points": 11,
-						"type": "spell"
-					}
-				}
-			}
-		},
-		"description": "<p>A cloud of burning embers, smoke, and roiling flame appears within range. The cloud heavily obscures its area, spreading around corners and through cracks. When the cloud appears and a creature is in it, when a creature enters the cloud for the first time on a turn, or when a creature ends its turn within the cloud it makes a Dexterity saving throw, taking 10d8 fire damage on a failed save, or half as much on a successful one.</p><p>The cloud can be dispelled by a wind of at least 10 miles per hour. After it is cast, the cloud moves 10 feet away from you in a direction that you choose at the start of each of your turns.</p>",
-		"favorite": false,
-		"secretDescription": "",
-		"source": "",
-		"uses": {
-			"value": null,
-			"max": "",
-			"per": null,
-			"recharge": {
-				"formula": "",
-				"threshold": ""
-			}
-		},
-		"schema": {
-			"version": 0.007,
-			"lastMigration": {
-				"version": {
-					"schema": 0.003,
-					"foundry": "11.307",
-					"system": "0.15.0"
-				}
-			}
-		},
-		"components": {
-			"vocalized": true,
-			"seen": true,
-			"material": false
-		},
-		"concentration": true,
-		"level": 8,
-		"materials": "",
-		"materialsConsumed": false,
-		"prepared": false,
-		"prerequisite": "",
-		"ritual": false,
-		"schools": {
-			"primary": "conjuration",
-			"secondary": [
-				"arcane",
-				"fire"
-			]
-		}
-	},
-	"folder": "XXlxppJh0OdnJaQQ",
-	"_id": "jgf01d6mjuovnsyp"
+  "name": "Incendiary Cloud",
+  "type": "spell",
+  "img": "icons/magic/air/fog-gas-smoke-swirling-orange.webp",
+  "effects": [],
+  "flags": {},
+  "system": {
+    "actions": {
+      "PEdIHQ14OemqJWHg": {
+        "name": "Incendiary Cloud",
+        "activation": {
+          "cost": 1,
+          "type": "action",
+          "reactionTrigger": ""
+        },
+        "duration": {
+          "unit": "minute",
+          "value": "1"
+        },
+        "ranges": {
+          "Y7R3qOK3bhHEkvK6": {
+            "range": "long"
+          }
+        },
+        "area": {
+          "shape": "sphere",
+          "radius": "20",
+          "placeTemplate": false
+        },
+        "target": {
+          "quantity": "",
+          "type": ""
+        },
+        "rolls": {
+          "D10VzuC72KAK1j1l": {
+            "canCrit": false,
+            "damageType": "fire",
+            "formula": "10d8",
+            "name": "",
+            "type": "damage"
+          }
+        },
+        "prompts": {
+          "hofn0pu7DIBLPCEF": {
+            "ability": "dex",
+            "onSave": "Half damage",
+            "saveDC": {
+              "type": "spellcasting",
+              "bonus": ""
+            },
+            "type": "savingThrow"
+          }
+        },
+        "consumers": {
+          "QUHbC2ajySwUrDBD": {
+            "mode": "variable",
+            "spellLevel": 8,
+            "points": 11,
+            "type": "spell"
+          }
+        }
+      }
+    },
+    "description": "<p>A cloud of burning embers, smoke, and roiling flame appears within range. The cloud heavily obscures its area, spreading around corners and through cracks. When the cloud appears and a creature is in it, when a creature enters the cloud for the first time on a turn, or when a creature ends its turn within the cloud it makes a Dexterity saving throw, taking 10d8 fire damage on a failed save, or half as much on a successful one.</p><p>The cloud can be dispelled by a wind of at least 10 miles per hour. After it is cast, the cloud moves 10 feet away from you in a direction that you choose at the start of each of your turns.</p>",
+    "favorite": false,
+    "secretDescription": "",
+    "source": "",
+    "uses": {
+      "value": null,
+      "max": "",
+      "per": null,
+      "recharge": {
+        "formula": "",
+        "threshold": ""
+      }
+    },
+    "schema": {
+      "version": 0.007,
+      "lastMigration": {
+        "version": {
+          "schema": 0.003,
+          "foundry": "11.307",
+          "system": "0.15.0"
+        }
+      }
+    },
+    "classes": [
+      "sorcerer",
+      "wizard"
+    ],
+    "components": {
+      "vocalized": true,
+      "seen": true,
+      "material": false
+    },
+    "concentration": true,
+    "level": 8,
+    "materials": "",
+    "materialsConsumed": false,
+    "prepared": false,
+    "prerequisite": "",
+    "ritual": false,
+    "schools": {
+      "primary": "conjuration",
+      "secondary": [
+        "arcane",
+        "fire"
+      ]
+    }
+  },
+  "folder": "XXlxppJh0OdnJaQQ",
+  "_id": "jgf01d6mjuovnsyp"
 }

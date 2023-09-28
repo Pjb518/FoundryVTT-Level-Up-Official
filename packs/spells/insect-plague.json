@@ -1,114 +1,119 @@
 {
-	"name": "Insect Plague",
-	"type": "spell",
-	"img": "icons/creatures/invertebrates/bee-yellow.webp",
-	"effects": [],
-	"flags": {},
-	"system": {
-		"actions": {
-			"AdeLlTpBDpD8RAHb": {
-				"name": "Insect Plague",
-				"activation": {
-					"cost": 1,
-					"type": "action",
-					"reactionTrigger": ""
-				},
-				"duration": {
-					"unit": "minute",
-					"value": "10"
-				},
-				"ranges": {
-					"sPYumD1fAGfL5EO3": {
-						"range": "300 feet"
-					}
-				},
-				"area": {
-					"shape": "sphere",
-					"radius": "20",
-					"placeTemplate": false
-				},
-				"target": {
-					"quantity": "",
-					"type": ""
-				},
-				"rolls": {
-					"b15kpoYLRpVThV31": {
-						"canCrit": false,
-						"damageType": "piercing",
-						"formula": "4d10",
-						"name": "",
-						"type": "damage",
-						"scaling": {
-							"mode": "spellLevel",
-							"formula": "1d10"
-						}
-					}
-				},
-				"prompts": {
-					"0tA1xbET9kaBGHbs": {
-						"ability": "con",
-						"onSave": "Constitution negates",
-						"saveDC": {
-							"type": "spellcasting",
-							"bonus": ""
-						},
-						"type": "savingThrow"
-					}
-				},
-				"consumers": {
-					"iijRDUEuu3Aj4lEP": {
-						"mode": "variable",
-						"spellLevel": 5,
-						"points": 7,
-						"type": "spell"
-					}
-				}
-			}
-		},
-		"description": "<p>A roiling cloud of insects appears, biting and stinging any creatures it touches. The cloud lightly obscures its area, spreads around corners, and is considered difficult terrain. When the cloud appears and a creature is in it, when a creature enters the cloud for the first time on a turn, or when a creature ends its turn within the cloud it makes a Constitution saving throw, taking 4d10 piercing damage on a failed save, or half as much on a successful one.</p><p><strong><em>Cast at Higher Levels.</em></strong> The damage increases by 1d10 for each slot level above 5th.</p>",
-		"favorite": false,
-		"secretDescription": "",
-		"source": "",
-		"uses": {
-			"value": null,
-			"max": "",
-			"per": null,
-			"recharge": {
-				"formula": "",
-				"threshold": ""
-			}
-		},
-		"schema": {
-			"version": 0.007,
-			"lastMigration": {
-				"version": {
-					"schema": 0.003,
-					"foundry": "11.307",
-					"system": "0.15.0"
-				}
-			}
-		},
-		"components": {
-			"vocalized": true,
-			"seen": true,
-			"material": true
-		},
-		"concentration": true,
-		"level": 5,
-		"materials": "dead insect",
-		"materialsConsumed": false,
-		"prepared": false,
-		"prerequisite": "",
-		"ritual": false,
-		"schools": {
-			"primary": "conjuration",
-			"secondary": [
-				"beasts",
-				"nature",
-				"summoning"
-			]
-		}
-	},
-	"folder": "XXlxppJh0OdnJaQQ",
-	"_id": "spngrj7xkq5ih8yo"
+  "name": "Insect Plague",
+  "type": "spell",
+  "img": "icons/creatures/invertebrates/bee-yellow.webp",
+  "effects": [],
+  "flags": {},
+  "system": {
+    "actions": {
+      "AdeLlTpBDpD8RAHb": {
+        "name": "Insect Plague",
+        "activation": {
+          "cost": 1,
+          "type": "action",
+          "reactionTrigger": ""
+        },
+        "duration": {
+          "unit": "minute",
+          "value": "10"
+        },
+        "ranges": {
+          "sPYumD1fAGfL5EO3": {
+            "range": "300 feet"
+          }
+        },
+        "area": {
+          "shape": "sphere",
+          "radius": "20",
+          "placeTemplate": false
+        },
+        "target": {
+          "quantity": "",
+          "type": ""
+        },
+        "rolls": {
+          "b15kpoYLRpVThV31": {
+            "canCrit": false,
+            "damageType": "piercing",
+            "formula": "4d10",
+            "name": "",
+            "type": "damage",
+            "scaling": {
+              "mode": "spellLevel",
+              "formula": "1d10"
+            }
+          }
+        },
+        "prompts": {
+          "0tA1xbET9kaBGHbs": {
+            "ability": "con",
+            "onSave": "Constitution negates",
+            "saveDC": {
+              "type": "spellcasting",
+              "bonus": ""
+            },
+            "type": "savingThrow"
+          }
+        },
+        "consumers": {
+          "iijRDUEuu3Aj4lEP": {
+            "mode": "variable",
+            "spellLevel": 5,
+            "points": 7,
+            "type": "spell"
+          }
+        }
+      }
+    },
+    "description": "<p>A roiling cloud of insects appears, biting and stinging any creatures it touches. The cloud lightly obscures its area, spreads around corners, and is considered difficult terrain. When the cloud appears and a creature is in it, when a creature enters the cloud for the first time on a turn, or when a creature ends its turn within the cloud it makes a Constitution saving throw, taking 4d10 piercing damage on a failed save, or half as much on a successful one.</p><p><strong><em>Cast at Higher Levels.</em></strong> The damage increases by 1d10 for each slot level above 5th.</p>",
+    "favorite": false,
+    "secretDescription": "",
+    "source": "",
+    "uses": {
+      "value": null,
+      "max": "",
+      "per": null,
+      "recharge": {
+        "formula": "",
+        "threshold": ""
+      }
+    },
+    "schema": {
+      "version": 0.007,
+      "lastMigration": {
+        "version": {
+          "schema": 0.003,
+          "foundry": "11.307",
+          "system": "0.15.0"
+        }
+      }
+    },
+    "classes": [
+      "cleric",
+      "druid",
+      "sorcerer"
+    ],
+    "components": {
+      "vocalized": true,
+      "seen": true,
+      "material": true
+    },
+    "concentration": true,
+    "level": 5,
+    "materials": "dead insect",
+    "materialsConsumed": false,
+    "prepared": false,
+    "prerequisite": "",
+    "ritual": false,
+    "schools": {
+      "primary": "conjuration",
+      "secondary": [
+        "beasts",
+        "nature",
+        "summoning"
+      ]
+    }
+  },
+  "folder": "XXlxppJh0OdnJaQQ",
+  "_id": "spngrj7xkq5ih8yo"
 }
