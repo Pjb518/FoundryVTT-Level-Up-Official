@@ -72,6 +72,7 @@ export default class TokenHUDA5e extends TokenHUD {
     }
 
     this.object.actor.deleteEmbeddedDocuments('ActiveEffect', removals);
+    this.object.actor.update({ 'system.attributes.fatigue': 0, 'system.attributes.strife': 0 });
   }
 
   /**

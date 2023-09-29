@@ -226,7 +226,7 @@ export default function registerConditionsConfig(A5E) {
   const changes = generateChanges(A5E);
 
   A5E.multiLevelConditionsMaxLevel = {
-    fatigue: 6,
+    fatigue: 7,
     strife: 7
   };
 
