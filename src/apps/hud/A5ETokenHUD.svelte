@@ -1,72 +1,24 @@
 <svelte:options accessors={true} />
 
 <script>
-    import { setContext } from "svelte";
     import { localize } from "#runtime/svelte/helper";
 
     export let HUD;
 
-    function handleStatusEffectClick({ id, src }, { overlay = false } = {}) {
-        const effect =
-            id && HUD?.object?.actor
-                ? CONFIG.statusEffects.find((e) => e.id === id)
-                : src;
-
-        if (typeof effect === "object" && effect?.statuses?.length) {
-            const { existing, associated } = HUD.object.actor.effects.reduce(
-                (arr, e) => {
-                    if (e.statuses.size === 1 && e.statuses.has(id))
-                        arr.existing.push(e.id);
-
-                    effect?.statuses?.forEach((s) => {
-                        if (e.statuses.size === 1 && e.statuses.has(s)) {
-                            const difference = subConditions[s]?.filter((c) =>
-                                activeConditions.includes(c)
-                            );
-
-                            if (difference?.length > 1) return;
-                            arr.associated.push(e.id);
-                        }
-                    });
-
-                    return arr;
-                },
-                { existing: [], associated: [] }
-            );
-
-            if (existing.length) {
-                return HUD.object.actor.deleteEmbeddedDocuments(
-                    "ActiveEffect",
-                    [...existing, ...associated]
-                );
-            }
-        }
-
-        return HUD?.object?.toggleEffect(effect, { overlay });
-    }
-
-    function handleStatusEffectAdd({ id, src }, { overlay = false } = {}) {
+    function handleStatusEffectAdd({ id, src }, type = "status") {
         console.log("Adding Effect");
-        HUD.object._addStatusEffect({ id, src }, { overlay });
+        HUD.object._addStatusEffect({ id, src });
     }
 
-    function handleStatusEffectRemove({ id, src }, { overlay = false } = {}) {
+    function handleStatusEffectRemove({ id, src }, type = "status") {
         console.log("Removing Effect");
-        HUD.object._removeStatusEffect({ id, src }, { overlay });
+        HUD.object._removeStatusEffect({ id, src });
     }
 
     const data = HUD.getData();
     const statusEffects = Object.values(data.statusEffects);
     const genericEffects = Object.values(data.genericConditions);
-
-    const activeConditions = Object.values(data.statusEffects).reduce(
-        (acc, e) => {
-            if (!e.isActive) return acc;
-            acc.push(e.id);
-            return acc;
-        },
-        []
-    );
+    const activeConditions = HUD.object._getActiveConditions();
 
     const subConditions = CONFIG.statusEffects.reduce((acc, c) => {
         if (!c?.statuses?.length) return acc;
@@ -124,9 +76,9 @@
             title={effect.title ?? ""}
             data-status-id={effect.id}
             on:click|preventDefault|stopPropagation={() =>
-                handleStatusEffectClick(effect)}
+                handleStatusEffectAdd(effect)}
             on:auxclick|preventDefault|stopPropagation={() =>
-                handleStatusEffectClick(effect, { overlay: true })}
+                handleStatusEffectRemove(effect)}
         >
             <img
                 class={effect.cssClass}

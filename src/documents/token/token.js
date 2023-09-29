@@ -62,7 +62,7 @@ export default class TokenA5e extends Token {
     const effect = id && this.actor ? CONFIG.statusEffects.find((e) => e.id === id) : src;
 
     if (['fatigue', 'exhaustion', 'strife'].includes(id)) {
-      return this._handleMultiLevelEffectsAdd(effect, { overlay });
+      return this._handleMultiLevelEffectsAdd(effect);
     }
 
     const activeConditions = this._getActiveConditions();
@@ -70,12 +70,13 @@ export default class TokenA5e extends Token {
     return this.toggleEffect(effect, { active: true, overlay });
   }
 
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   _removeStatusEffect({ id, src }, { overlay = false } = {}) {
     const effect = id && this.actor ? CONFIG.statusEffects.find((e) => e.id === id) : src;
     if (typeof effect !== 'object') return null;
 
     if (['fatigue', 'exhaustion', 'strife'].includes(id)) {
-      return this._handleMultiLevelEffectsRemove(id, src, { overlay });
+      return this._handleMultiLevelEffectsRemove(effect);
     }
 
     const subConditions = CONFIG.statusEffects.reduce((acc, c) => {
@@ -113,11 +114,66 @@ export default class TokenA5e extends Token {
   }
 
   _handleMultiLevelEffectsAdd(effect) {
+    if (!effect) return;
 
+    const key = ['exhaustion', 'fatigue'].includes(effect.id) ? 'fatigue' : 'strife';
+    const currentLevel = this.actor.system.attributes?.[key];
+    const maxLevel = CONFIG.A5E.multiLevelConditionsMaxLevel[key] ?? 7;
+    if (currentLevel >= maxLevel) return;
+
+    // Find if effect exists
+    const existingEffect = this.actor.effects.reduce((arr, e) => {
+      if (e.statuses.size === 1 && e.statuses.has(effect.id)) arr.push(e);
+      return arr;
+    }, [])?.[0];
+
+    const changes = Object.entries(CONFIG.A5E.multiLevelConditions[effect.id] ?? {})
+      .reduce((arr, [level, c]) => {
+        if (level > currentLevel + 1) return arr;
+        arr.push(...c);
+        return arr;
+      }, []);
+
+    if (!existingEffect) {
+      const newEffect = foundry.utils.deepClone(effect);
+      newEffect.changes = changes;
+      this.toggleEffect(newEffect, { active: true, overlay: false });
+    } else existingEffect.update({ changes });
+
+    // Update actor to reflect new level
+    this.actor.update({
+      [`system.attributes.${key}`]: Math.min(currentLevel + 1, maxLevel)
+    });
   }
 
   _handleMultiLevelEffectsRemove(effect) {
+    if (!effect) return;
 
+    const key = ['exhaustion', 'fatigue'].includes(effect.id) ? 'fatigue' : 'strife';
+    const currentLevel = this.actor.system.attributes?.[key];
+    if (currentLevel <= 0) return;
+
+    // Find if effect exists
+    const existingEffect = this.actor.effects.reduce((arr, e) => {
+      if (e.statuses.size === 1 && e.statuses.has(effect.id)) arr.push(e);
+      return arr;
+    }, [])?.[0];
+
+    const changes = Object.entries(CONFIG.A5E.multiLevelConditions[effect.id] ?? {})
+      .reduce((arr, [level, c]) => {
+        if (level > currentLevel - 1) return arr;
+        arr.push(...c);
+        return arr;
+      }, []);
+
+    if (existingEffect && currentLevel > 1) {
+      existingEffect.update({ changes });
+    } else this.toggleEffect(effect, { active: false, overlay: false });
+
+    // Update actor to reflect new level
+    this.actor.update({
+      [`system.attributes.${key}`]: Math.max(currentLevel - 1, 0)
+    });
   }
 
   /** @inheritdoc */

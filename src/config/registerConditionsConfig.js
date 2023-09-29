@@ -217,10 +217,109 @@ function generateChanges(A5E) {
 }
 
 export default function registerConditionsConfig(A5E) {
+  const MODES = A5E.ACTIVE_EFFECT_MODES;
+
   const enabledConditions = new Set(
     game.settings.storage.get('world').getItem('a5e.automatedConditions')
   );
+
   const changes = generateChanges(A5E);
+
+  A5E.multiLevelConditionsMaxLevel = {
+    fatigue: 6,
+    strife: 7
+  };
+
+  A5E.multiLevelConditions = {
+    fatigue: {
+      1: [],
+      2: [
+        {
+          key: 'flags.a5e.effects.rollMode.abilityCheck.con',
+          value: '-1',
+          mode: MODES.OVERRIDE,
+          priority: MODES.OVERRIDE * 10,
+          label: 'Fatigue 2'
+        },
+        {
+          key: 'flags.a5e.effects.rollMode.abilityCheck.dex',
+          value: '-1',
+          mode: MODES.OVERRIDE,
+          priority: MODES.OVERRIDE * 10,
+          label: 'Fatigue 2'
+        },
+        {
+          key: 'flags.a5e.effects.rollMode.abilityCheck.str',
+          value: '-1',
+          mode: MODES.OVERRIDE,
+          priority: MODES.OVERRIDE * 10,
+          label: 'Fatigue 2'
+        }
+      ],
+      3: [
+        ...Object.keys(A5E.movement).map((movementType) => ({
+          key: `system.attributes.movement.${movementType}.distance`,
+          value: '0.5',
+          mode: MODES.MULTIPLY,
+          priority: MODES.MULTIPLY * 10,
+          label: 'Fatigue 3'
+        }))
+      ],
+      4: [],
+      5: [],
+      6: [
+        ...Object.keys(A5E.movement).map((movementType) => ({
+          key: `system.attributes.movement.${movementType}.distance`,
+          value: '5',
+          mode: MODES.OVERRIDE,
+          priority: MODES.OVERRIDE * 10,
+          label: 'Fatigue 6'
+        }))
+      ]
+    },
+    exhaustion: {
+
+    },
+    strife: {
+      1: [
+        {
+          key: 'flags.a5e.effects.rollMode.abilityCheck.cha',
+          value: '-1',
+          mode: MODES.OVERRIDE,
+          priority: MODES.OVERRIDE * 10,
+          label: 'Strife 1'
+        },
+        {
+          key: 'flags.a5e.effects.rollMode.abilityCheck.int',
+          value: '-1',
+          mode: MODES.OVERRIDE,
+          priority: MODES.OVERRIDE * 10,
+          label: 'Strife 1'
+        },
+        {
+          key: 'flags.a5e.effects.rollMode.abilityCheck.wis',
+          value: '-1',
+          mode: MODES.OVERRIDE,
+          priority: MODES.OVERRIDE * 10,
+          label: 'Strife 1'
+        }
+      ],
+      2: [
+        {
+          key: 'flags.a5e.effects.rollMode.concentration',
+          value: '-1',
+          mode: MODES.OVERRIDE,
+          priority: MODES.OVERRIDE * 10,
+          label: 'Strife 2'
+        }
+      ],
+      3: [],
+      4: [],
+      5: [],
+      6: [],
+      7: []
+    }
+  };
 
   return [
     // Blinded
@@ -431,41 +530,6 @@ export default function registerConditionsConfig(A5E) {
       changes: [],
       duration: {}
     }))
-    // {
-    //   id: 'generic1',
-    //   label: 'A5E.ConditionGeneric1',
-    //   icon: 'icons/magic/light/explosion-star-small-blue.webp',
-    //   changes: [],
-    //   duration: {}
-    // },
-    // {
-    //   id: 'generic2',
-    //   label: 'A5E.ConditionGeneric2',
-    //   icon: 'icons/magic/light/explosion-star-small-orange.webp',
-    //   changes: [],
-    //   duration: {}
-    // },
-    // {
-    //   id: 'generic3',
-    //   label: 'A5E.ConditionGeneric3',
-    //   icon: 'icons/magic/light/explosion-star-small-pink.webp',
-    //   changes: [],
-    //   duration: {}
-    // },
-    // {
-    //   id: 'generic4',
-    //   label: 'A5E.ConditionGeneric4',
-    //   icon: 'icons/magic/light/explosion-star-small-teal.webp',
-    //   changes: [],
-    //   duration: {}
-    // },
-    // {
-    //   id: 'generic5',
-    //   label: 'A5E.ConditionGeneric5',
-    //   icon: 'icons/magic/light/explosion-star-small-teal-purple.webp',
-    //   changes: [],
-    //   duration: {}
-    // }
   ].map((condition) => {
     // Update Icon
     condition.icon = A5E.ConditionIcons[condition.id] ?? condition.icon;

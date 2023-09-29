@@ -304,6 +304,7 @@ export default class ActiveEffectA5e extends ActiveEffect {
       });
     });
 
+    if (!statuses.size) return;
     data.statuses = Array.from(statuses);
   }
 
