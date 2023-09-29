@@ -82,28 +82,6 @@
 
 <section class="setting-group">
     <header class="setting-header">
-        <h3 class="setting-heading">Custom Effect Icons</h3>
-
-        <button class="reset-button" on:click|preventDefault={resetIcons}>
-            Reset Icons to Defaults
-        </button>
-    </header>
-
-    <ul class="condition-grid">
-        {#each Object.entries(selectedConditionIcons) as [conditionKey, icon]}
-            <SettingsCustomIcon
-                {conditionKey}
-                {icon}
-                bind:reload
-                on:updateConditionIcon={({ detail }) =>
-                    updateConditionIcon(...detail)}
-            />
-        {/each}
-    </ul>
-</section>
-
-<section class="setting-group">
-    <header class="setting-header">
         <h3 class="setting-heading">
             {localize("A5E.settings.automateConditions")}
         </h3>
@@ -179,6 +157,28 @@
             }}
         />
     </FormSection>
+</section>
+
+<section class="setting-group">
+    <header class="setting-header">
+        <h3 class="setting-heading">Custom Effect Icons</h3>
+
+        <button class="reset-button" on:click|preventDefault={resetIcons}>
+            Reset Icons to Defaults
+        </button>
+    </header>
+
+    <ul class="condition-grid">
+        {#each Object.entries(selectedConditionIcons) as [conditionKey, icon]}
+            <SettingsCustomIcon
+                {conditionKey}
+                {icon}
+                bind:reload
+                on:updateConditionIcon={({ detail }) =>
+                    updateConditionIcon(...detail)}
+            />
+        {/each}
+    </ul>
 </section>
 
 <style lang="scss">
