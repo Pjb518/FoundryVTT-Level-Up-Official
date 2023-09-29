@@ -9,6 +9,35 @@
     export let options;
     export let selectedOption;
 
+    function handleStatusEffectChange(value) {
+        updateDocumentDataFromField(
+            $actor,
+            `system.attributes.${trackProperty}`,
+            value
+        );
+
+        const tokens = $actor.getActiveTokens();
+        const effect = CONFIG.statusEffects.find((e) => e.id === trackProperty);
+
+        if (!tokens?.length || !effect) return;
+
+        const changes = Object.entries(
+            CONFIG.A5E.multiLevelConditions[effect.id] ?? {}
+        ).reduce((arr, [level, c]) => {
+            if (level > value) return arr;
+            arr.push(...c);
+            return arr;
+        }, []);
+
+        tokens.forEach((token) => {
+            const newEffect = foundry.utils.deepClone(effect);
+            newEffect.changes = changes;
+
+            token.toggleEffect(effect, { active: false });
+            token.toggleEffect(newEffect, { active: true });
+        });
+    }
+
     const actor = getContext("actor");
 </script>
 
@@ -27,12 +56,7 @@
                     class:track-item-selected={value === selectedOption}
                     class:disable-pointer-events={!$actor.isOwner}
                     data-degree={value}
-                    on:click={() =>
-                        updateDocumentDataFromField(
-                            $actor,
-                            `system.attributes.${trackProperty}`,
-                            value
-                        )}
+                    on:click={() => handleStatusEffectChange(value)}
                 >
                     {value}
                 </button>
