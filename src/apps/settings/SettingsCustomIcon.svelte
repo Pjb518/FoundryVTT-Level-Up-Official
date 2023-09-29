@@ -1,9 +1,9 @@
 <script>
-    import { getContext } from "svelte";
+    import { createEventDispatcher, getContext } from "svelte";
     import { localize } from "#runtime/svelte/helper";
 
     export let conditionKey;
-    export let reload;
+    export let icon;
 
     function getConditionName() {
         if (conditionKey === "dead") return localize("A5E.ConditionDead");
@@ -13,42 +13,29 @@
         return conditions[conditionKey] ?? conditionKey;
     }
 
-    function updateConditionIcon() {
-        const current =
-            updates.get(`${conditionKey}ConditionCustomIcon`) ||
-            $iconStore ||
-            conditionIcons[conditionKey];
-
-        const filePicker = new FilePicker({
-            type: "image",
-            current,
-            callback: (path) => {
-                updates.set(`${conditionKey}ConditionCustomIcon`, path);
-                iconSrc = path;
-                reload = true;
-            },
-        });
-
-        filePicker.browse();
-    }
-
     const { conditions, conditionIcons } = CONFIG.A5E;
 
+    const dispatch = createEventDispatcher();
     const settings = getContext("settings");
-    const updates = getContext("updates");
 
     const conditionName = getConditionName();
     const iconStore = settings.getStore(`${conditionKey}ConditionCustomIcon`);
-
-    let iconSrc =
-        updates.get(`${conditionKey}ConditionCustomIcon`) ||
-        $iconStore ||
-        conditionIcons[conditionKey];
 </script>
 
 <!-- svelte-ignore a11y-click-events-have-key-events a11y-no-noninteractive-element-interactions -->
-<li class="condition-grid__item" on:click={updateConditionIcon}>
-    <img class="condition-icon" src={iconSrc} alt={getConditionName()} />
+<li
+    class="condition-grid__item"
+    on:click={() =>
+        dispatch("updateConditionIcon", [
+            conditionKey,
+            icon || $iconStore || conditionIcons[conditionKey],
+        ])}
+>
+    <img
+        class="condition-icon"
+        src={icon || $iconStore || conditionIcons[conditionKey]}
+        alt={getConditionName()}
+    />
 
     {conditionName}
 </li>

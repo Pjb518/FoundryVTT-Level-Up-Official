@@ -14,7 +14,6 @@
 
     // Stores
     let showLimitedDesc = settings.getStore("showDescriptionOnLimitedPerms");
-    console.log($showLimitedDesc);
 </script>
 
 {#if isGM}

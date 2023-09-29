@@ -1,6 +1,5 @@
 <script>
     import { getContext } from "svelte";
-    import { localize } from "#runtime/svelte/helper";
 
     import Checkbox from "../components/Checkbox.svelte";
     import FormSection from "../components/FormSection.svelte";
@@ -14,8 +13,6 @@
     function onCancelDeletion() {
         dialog.submit({ confirmDeletion: false });
     }
-
-    const appId = dialog.id;
 
     let hideDeleteConfirmation = game.settings.get(
         "a5e",
