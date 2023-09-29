@@ -32,6 +32,19 @@
 
     $: conditionImmunities =
         HUD?.object?.actor?.system?.traits?.conditionImmunities ?? [];
+
+    const colors = {
+        1: "#919f00",
+        2: "#a09200",
+        3: "#af8300",
+        4: "#bd7100",
+        5: "#cb5c00",
+        6: "#d63f00",
+        7: "#e00006",
+    };
+
+    $: fatigue = HUD?.object?.actor?.system?.attributes?.fatigue ?? 0;
+    $: strife = HUD?.object?.actor?.system?.attributes?.strife ?? 0;
 </script>
 
 <div class="status-effects-container">
@@ -42,6 +55,8 @@
                 activeConditions.includes(c)
             )}
             class:locked={conditionImmunities.includes(effect.id)}
+            class:fatigue-counter={effect.id === "fatigue" && fatigue > 0}
+            class:strife-counter={effect.id === "strife" && strife > 0}
             title={effect.title ?? ""}
             data-status-id={effect.id}
             disabled={conditionImmunities.includes(effect.id) ||
@@ -60,7 +75,12 @@
                 title={effect.title ?? ""}
                 data-status-id={effect.id}
             />
-            <h3 class="condition-title">
+            <h3
+                class="condition-title"
+                style="--strife: '{strife}'; --fatigue: '{fatigue}'; --fatigue-col: {colors[
+                    fatigue
+                ]}; --strife-col: {colors[strife]}"
+            >
                 {effect.title}
             </h3>
         </button>
@@ -158,7 +178,9 @@
         }
 
         &.linked,
-        &.locked {
+        &.locked,
+        &.fatigue-counter,
+        &.strife-counter {
             h3::before {
                 content: "\f0c1";
                 font: var(--fa-font-solid);
@@ -184,6 +206,24 @@
         &.locked {
             h3::before {
                 content: "\f023";
+            }
+        }
+
+        &.fatigue-counter {
+            h3::before {
+                content: var(--fatigue);
+                font-family: $font-secondary;
+                font-size: 1rem;
+                background-color: var(--fatigue-col);
+            }
+        }
+
+        &.strife-counter {
+            h3::before {
+                content: var(--strife);
+                font-family: $font-secondary;
+                font-size: 1rem;
+                background-color: var(--strife-col);
             }
         }
 
