@@ -23,130 +23,118 @@
     let reverseInitAlt = settings.getStore("reverseInitiativeAltBehavior");
 </script>
 
-<section
-    class="u-flex-grow u-flex u-flex-col u-overflow-y-auto u-gap-md u-px-md u-mt-xl"
->
-    {#if isGM}
-        <section class="setting-group">
-            <header class="setting-header">
-                <h3 class="setting-heading">
-                    {localize("A5E.settings.sectionHeader.actorBehavior")}
-                </h3>
-            </header>
-
-            {#if isGM}
-                <FormSection
-                    hint="A5E.settings.hints.trackCurrencyWeight"
-                    --gap="0.25rem"
-                >
-                    <Checkbox
-                        label="A5E.settings.trackCurrencyWeight"
-                        checked={updates.get("currencyWeight") ??
-                            $trackCurrency ??
-                            false}
-                        on:updateSelection={({ detail }) => {
-                            updates.set("currencyWeight", detail);
-                        }}
-                    />
-                </FormSection>
-            {/if}
-
-            {#if isGM}
-                <FormSection
-                    hint="A5E.settings.hints.randomizeNPCHitPoints"
-                    --gap="0.25rem"
-                >
-                    <Checkbox
-                        label="A5E.settings.randomizeNPCHitPoints"
-                        checked={updates.get("randomizeNPCHitPoints") ??
-                            $randomHP ??
-                            false}
-                        on:updateSelection={({ detail }) => {
-                            updates.set("randomizeNPCHitPoints", detail);
-                        }}
-                    />
-                </FormSection>
-            {/if}
-        </section>
-    {/if}
-
+{#if isGM}
     <section class="setting-group">
         <header class="setting-header">
             <h3 class="setting-heading">
-                {localize("A5E.settings.sectionHeader.sheetSettings")}
+                {localize("A5E.settings.sectionHeader.actorBehavior")}
             </h3>
         </header>
 
-        <FormSection
-            hint="A5E.settings.hints.collapseActionList"
-            --gap="0.25rem"
-        >
-            <Checkbox
-                label="A5E.settings.collapseActionList"
-                checked={updates.get("collapseActionList") ??
-                    $hideActionList ??
-                    false}
-                on:updateSelection={({ detail }) =>
-                    updates.set("collapseActionList", detail)}
-            />
-        </FormSection>
+        {#if isGM}
+            <FormSection
+                hint="A5E.settings.hints.trackCurrencyWeight"
+                --gap="0.25rem"
+            >
+                <Checkbox
+                    label="A5E.settings.trackCurrencyWeight"
+                    checked={updates.get("currencyWeight") ??
+                        $trackCurrency ??
+                        false}
+                    on:updateSelection={({ detail }) => {
+                        updates.set("currencyWeight", detail);
+                    }}
+                />
+            </FormSection>
+        {/if}
 
-        <FormSection
-            hint="A5E.settings.hints.hideDeletionConfirmationDialog"
-            --gap="0.25rem"
-        >
-            <Checkbox
-                label="A5E.settings.hideDeletionConfirmationDialog"
-                checked={updates.get("hideDeleteConfirmation") ??
-                    $hideDeleteDialog ??
-                    false}
-                on:updateSelection={({ detail }) =>
-                    updates.set("hideDeleteConfirmation", detail)}
-            />
-        </FormSection>
-
-        <FormSection
-            hint="A5E.settings.hints.itemRightClickConfigure"
-            --gap="0.25rem"
-        >
-            <Checkbox
-                label="A5E.settings.itemRightClickConfigure"
-                checked={updates.get("itemRightClickConfigure") ??
-                    $rightClickConfig ??
-                    false}
-                on:updateSelection={({ detail }) =>
-                    updates.set("itemRightClickConfigure", detail)}
-            />
-        </FormSection>
-
-        <FormSection
-            hint="A5E.settings.hints.reverseAltBehavior"
-            --gap="0.25rem"
-        >
-            <Checkbox
-                label="A5E.settings.reverseAltBehavior"
-                checked={updates.get("reverseAltBehavior") ??
-                    $reverseAlt ??
-                    false}
-                on:updateSelection={({ detail }) =>
-                    updates.set("reverseAltBehavior", detail)}
-            />
-        </FormSection>
-
-        <FormSection
-            hint="A5E.settings.hints.reverseInitiativeAltBehavior"
-            --gap="0.25rem"
-        >
-            <Checkbox
-                label="A5E.settings.reverseInitiativeAltBehavior"
-                checked={updates.get("reverseInitiativeAltBehavior") ??
-                    $reverseInitAlt ??
-                    false}
-                on:updateSelection={({ detail }) =>
-                    updates.set("reverseInitiativeAltBehavior", detail)}
-            />
-        </FormSection>
+        {#if isGM}
+            <FormSection
+                hint="A5E.settings.hints.randomizeNPCHitPoints"
+                --gap="0.25rem"
+            >
+                <Checkbox
+                    label="A5E.settings.randomizeNPCHitPoints"
+                    checked={updates.get("randomizeNPCHitPoints") ??
+                        $randomHP ??
+                        false}
+                    on:updateSelection={({ detail }) => {
+                        updates.set("randomizeNPCHitPoints", detail);
+                    }}
+                />
+            </FormSection>
+        {/if}
     </section>
+{/if}
+
+<section class="setting-group">
+    <header class="setting-header">
+        <h3 class="setting-heading">
+            {localize("A5E.settings.sectionHeader.sheetSettings")}
+        </h3>
+    </header>
+
+    <FormSection hint="A5E.settings.hints.collapseActionList" --gap="0.25rem">
+        <Checkbox
+            label="A5E.settings.collapseActionList"
+            checked={updates.get("collapseActionList") ??
+                $hideActionList ??
+                false}
+            on:updateSelection={({ detail }) =>
+                updates.set("collapseActionList", detail)}
+        />
+    </FormSection>
+
+    <FormSection
+        hint="A5E.settings.hints.hideDeletionConfirmationDialog"
+        --gap="0.25rem"
+    >
+        <Checkbox
+            label="A5E.settings.hideDeletionConfirmationDialog"
+            checked={updates.get("hideDeleteConfirmation") ??
+                $hideDeleteDialog ??
+                false}
+            on:updateSelection={({ detail }) =>
+                updates.set("hideDeleteConfirmation", detail)}
+        />
+    </FormSection>
+
+    <FormSection
+        hint="A5E.settings.hints.itemRightClickConfigure"
+        --gap="0.25rem"
+    >
+        <Checkbox
+            label="A5E.settings.itemRightClickConfigure"
+            checked={updates.get("itemRightClickConfigure") ??
+                $rightClickConfig ??
+                false}
+            on:updateSelection={({ detail }) =>
+                updates.set("itemRightClickConfigure", detail)}
+        />
+    </FormSection>
+
+    <FormSection hint="A5E.settings.hints.reverseAltBehavior" --gap="0.25rem">
+        <Checkbox
+            label="A5E.settings.reverseAltBehavior"
+            checked={updates.get("reverseAltBehavior") ?? $reverseAlt ?? false}
+            on:updateSelection={({ detail }) =>
+                updates.set("reverseAltBehavior", detail)}
+        />
+    </FormSection>
+
+    <FormSection
+        hint="A5E.settings.hints.reverseInitiativeAltBehavior"
+        --gap="0.25rem"
+    >
+        <Checkbox
+            label="A5E.settings.reverseInitiativeAltBehavior"
+            checked={updates.get("reverseInitiativeAltBehavior") ??
+                $reverseInitAlt ??
+                false}
+            on:updateSelection={({ detail }) =>
+                updates.set("reverseInitiativeAltBehavior", detail)}
+        />
+    </FormSection>
 </section>
 
 <style lang="scss">

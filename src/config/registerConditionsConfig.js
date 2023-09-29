@@ -532,7 +532,11 @@ export default function registerConditionsConfig(A5E) {
     }))
   ].map((condition) => {
     // Update Icon
-    condition.icon = A5E.ConditionIcons[condition.id] ?? condition.icon;
+    if (!condition.id.startsWith('generic')) {
+      condition.icon = game.settings.get('a5e', `${condition.id}ConditionCustomIcon`)
+        || A5E.conditionIcons[condition.id]
+        || condition.icon;
+    }
 
     // Add changes based on settings
     if (!enabledConditions.has(condition.id) && condition.changes.length) {

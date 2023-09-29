@@ -23,43 +23,36 @@
     let preventActivationRoll = settings.getStore("preventActionRollOnWarning");
 </script>
 
-<section
-    class="u-flex-grow u-flex u-flex-col u-overflow-y-auto u-gap-md u-px-md u-mt-xl"
->
-    <section class="setting-group">
-        <header class="setting-header">
-            <h3 class="setting-heading">Generic Roll Settings</h3>
-        </header>
+<section class="setting-group">
+    <header class="setting-header">
+        <h3 class="setting-heading">Generic Roll Settings</h3>
+    </header>
 
-        <FormSection
-            hint="A5E.settings.hints.critCalculationMode"
-            --gap="0.25rem"
-        >
-            <RadioGroup
-                options={Object.entries(critCalculationModeOptions)}
-                selected={selectedCritMode}
-                on:updateSelection={({ detail }) => {
-                    updates.set("critCalculationMode", detail);
-                    selectedCritMode = detail;
-                }}
-            />
-        </FormSection>
+    <FormSection hint="A5E.settings.hints.critCalculationMode" --gap="0.25rem">
+        <RadioGroup
+            options={Object.entries(critCalculationModeOptions)}
+            selected={selectedCritMode}
+            on:updateSelection={({ detail }) => {
+                updates.set("critCalculationMode", detail);
+                selectedCritMode = detail;
+            }}
+        />
+    </FormSection>
 
-        <FormSection
-            hint="A5E.settings.hints.preventActionRollOnWarning"
-            --gap="0.25rem"
-        >
-            <Checkbox
-                label="A5E.settings.preventActionRollOnWarning"
-                checked={updates.get("preventActionRollOnWarning") ??
-                    $preventActivationRoll ??
-                    false}
-                on:updateSelection={({ detail }) => {
-                    updates.set("preventActionRollOnWarning", detail);
-                }}
-            />
-        </FormSection>
-    </section>
+    <FormSection
+        hint="A5E.settings.hints.preventActionRollOnWarning"
+        --gap="0.25rem"
+    >
+        <Checkbox
+            label="A5E.settings.preventActionRollOnWarning"
+            checked={updates.get("preventActionRollOnWarning") ??
+                $preventActivationRoll ??
+                false}
+            on:updateSelection={({ detail }) => {
+                updates.set("preventActionRollOnWarning", detail);
+            }}
+        />
+    </FormSection>
 </section>
 
 <style lang="scss">

@@ -14,31 +14,22 @@
     let deathSaves = settings.getStore("5eStyleDeathSaves");
 </script>
 
-<section
-    class="u-flex-grow u-flex u-flex-col u-overflow-y-auto u-gap-md u-px-md u-mt-xl"
->
-    <section class="setting-group">
-        <header class="setting-header">
-            <h3 class="setting-heading">
-                {localize("A5E.settings.sectionHeader.actorBehavior")}
-            </h3>
-        </header>
+<section class="setting-group">
+    <header class="setting-header">
+        <h3 class="setting-heading">
+            {localize("A5E.settings.sectionHeader.actorBehavior")}
+        </h3>
+    </header>
 
-        <FormSection
-            hint="A5E.settings.hints.5eStyleDeathSaves"
-            --gap="0.25rem"
-        >
-            <Checkbox
-                label="A5E.settings.5eStyleDeathSaves"
-                checked={updates.get("5eStyleDeathSaves") ??
-                    $deathSaves ??
-                    false}
-                on:updateSelection={({ detail }) => {
-                    updates.set("5eStyleDeathSaves", detail);
-                }}
-            />
-        </FormSection>
-    </section>
+    <FormSection hint="A5E.settings.hints.5eStyleDeathSaves" --gap="0.25rem">
+        <Checkbox
+            label="A5E.settings.5eStyleDeathSaves"
+            checked={updates.get("5eStyleDeathSaves") ?? $deathSaves ?? false}
+            on:updateSelection={({ detail }) => {
+                updates.set("5eStyleDeathSaves", detail);
+            }}
+        />
+    </FormSection>
 </section>
 
 <style lang="scss">

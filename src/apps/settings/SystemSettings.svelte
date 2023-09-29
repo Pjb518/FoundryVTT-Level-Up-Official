@@ -106,13 +106,11 @@
 
 <ApplicationShell bind:elementRoot>
     <main>
-        <section>
-            <NavigationBar
-                {currentTab}
-                {tabs}
-                on:tab-change={updateCurrentTab}
-            />
+        <NavigationBar {currentTab} {tabs} on:tab-change={updateCurrentTab} />
 
+        <section
+            class="u-flex-grow u-flex u-flex-col u-overflow-y-auto u-gap-md u-px-md"
+        >
             <svelte:component this={currentTab.component} bind:reload />
         </section>
 
@@ -133,6 +131,10 @@
 </ApplicationShell>
 
 <style lang="scss">
+    :global(.a5e-settings-sheet) {
+        max-height: 85vh;
+    }
+
     main {
         display: flex;
         flex-direction: column;

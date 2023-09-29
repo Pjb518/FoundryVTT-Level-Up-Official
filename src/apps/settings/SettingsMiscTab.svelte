@@ -17,38 +17,31 @@
     console.log($showLimitedDesc);
 </script>
 
-<section
-    class="u-flex-grow u-flex u-flex-col u-overflow-y-auto u-gap-md u-px-md u-mt-xl"
->
-    {#if isGM}
-        <section class="setting-group">
-            <header class="setting-header">
-                <h3 class="setting-heading">Sheet Settings</h3>
-            </header>
+{#if isGM}
+    <section class="setting-group">
+        <header class="setting-header">
+            <h3 class="setting-heading">Sheet Settings</h3>
+        </header>
 
-            {#if isGM}
-                <FormSection
-                    hint="A5E.settings.hints.showDescriptionOnLimitedPerms"
-                    --gap="0.25rem"
-                >
-                    <Checkbox
-                        label="A5E.settings.showDescriptionOnLimitedPerms"
-                        checked={updates.get("showDescriptionOnLimitedPerms") ??
-                            $showLimitedDesc ??
-                            false}
-                        on:updateSelection={({ detail }) => {
-                            updates.set(
-                                "showDescriptionOnLimitedPerms",
-                                detail
-                            );
-                            reload = true;
-                        }}
-                    />
-                </FormSection>
-            {/if}
-        </section>
-    {/if}
-</section>
+        {#if isGM}
+            <FormSection
+                hint="A5E.settings.hints.showDescriptionOnLimitedPerms"
+                --gap="0.25rem"
+            >
+                <Checkbox
+                    label="A5E.settings.showDescriptionOnLimitedPerms"
+                    checked={updates.get("showDescriptionOnLimitedPerms") ??
+                        $showLimitedDesc ??
+                        false}
+                    on:updateSelection={({ detail }) => {
+                        updates.set("showDescriptionOnLimitedPerms", detail);
+                        reload = true;
+                    }}
+                />
+            </FormSection>
+        {/if}
+    </section>
+{/if}
 
 <style lang="scss">
     .setting-group {

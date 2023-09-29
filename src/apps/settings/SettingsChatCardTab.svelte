@@ -18,78 +18,67 @@
     const terseRolls = settings.getStore("terseRollFormulae");
 </script>
 
-<section
-    class="u-flex-grow u-flex u-flex-col u-overflow-y-auto u-gap-md u-px-md u-mt-xl"
->
-    <section class="setting-group">
-        <header class="setting-header">
-            <h3 class="setting-heading">Chat Card Display Settings</h3>
-        </header>
+<section class="setting-group">
+    <header class="setting-header">
+        <h3 class="setting-heading">Chat Card Display Settings</h3>
+    </header>
 
+    <FormSection
+        hint="A5E.settings.hints.hideChatDescriptionsByDefault"
+        --gap="0.25rem"
+    >
+        <Checkbox
+            label="A5E.settings.hideChatDescriptionsByDefault"
+            checked={updates.get("hideChatDescriptionsByDefault") ??
+                $hideDescription ??
+                false}
+            on:updateSelection={({ detail }) => {
+                updates.set("hideChatDescriptionsByDefault", detail);
+                reload = true;
+            }}
+        />
+    </FormSection>
+
+    {#if isGM}
         <FormSection
-            hint="A5E.settings.hints.hideChatDescriptionsByDefault"
+            hint="A5E.settings.hints.hideRandomizedHPRolls"
             --gap="0.25rem"
         >
             <Checkbox
-                label="A5E.settings.hideChatDescriptionsByDefault"
-                checked={updates.get("hideChatDescriptionsByDefault") ??
-                    $hideDescription ??
+                label="A5E.settings.hideRandomizedHPRolls"
+                checked={updates.get("hideRandomizedHPRolls") ??
+                    $hideHpRolls ??
                     false}
                 on:updateSelection={({ detail }) => {
-                    updates.set("hideChatDescriptionsByDefault", detail);
+                    updates.set("hideRandomizedHPRolls", detail);
+                }}
+            />
+        </FormSection>
+    {/if}
+
+    {#if isGM}
+        <FormSection hint="A5E.settings.hints.protectRolls" --gap="0.25rem">
+            <Checkbox
+                label="A5E.settings.protectRolls"
+                checked={updates.get("protectRolls") ?? $protectRolls ?? false}
+                on:updateSelection={({ detail }) => {
+                    updates.set("protectRolls", detail);
                     reload = true;
                 }}
             />
         </FormSection>
+    {/if}
 
-        {#if isGM}
-            <FormSection
-                hint="A5E.settings.hints.hideRandomizedHPRolls"
-                --gap="0.25rem"
-            >
-                <Checkbox
-                    label="A5E.settings.hideRandomizedHPRolls"
-                    checked={updates.get("hideRandomizedHPRolls") ??
-                        $hideHpRolls ??
-                        false}
-                    on:updateSelection={({ detail }) => {
-                        updates.set("hideRandomizedHPRolls", detail);
-                    }}
-                />
-            </FormSection>
-        {/if}
-
-        {#if isGM}
-            <FormSection hint="A5E.settings.hints.protectRolls" --gap="0.25rem">
-                <Checkbox
-                    label="A5E.settings.protectRolls"
-                    checked={updates.get("protectRolls") ??
-                        $protectRolls ??
-                        false}
-                    on:updateSelection={({ detail }) => {
-                        updates.set("protectRolls", detail);
-                        reload = true;
-                    }}
-                />
-            </FormSection>
-        {/if}
-
-        <FormSection
-            hint="A5E.settings.hints.terseRollFormulae"
-            --gap="0.25rem"
-        >
-            <Checkbox
-                label="A5E.settings.terseRollFormulae"
-                checked={updates.get("terseRollFormulae") ??
-                    $terseRolls ??
-                    false}
-                on:updateSelection={({ detail }) => {
-                    updates.set("terseRollFormulae", detail);
-                    reload = true;
-                }}
-            />
-        </FormSection>
-    </section>
+    <FormSection hint="A5E.settings.hints.terseRollFormulae" --gap="0.25rem">
+        <Checkbox
+            label="A5E.settings.terseRollFormulae"
+            checked={updates.get("terseRollFormulae") ?? $terseRolls ?? false}
+            on:updateSelection={({ detail }) => {
+                updates.set("terseRollFormulae", detail);
+                reload = true;
+            }}
+        />
+    </FormSection>
 </section>
 
 <style lang="scss">

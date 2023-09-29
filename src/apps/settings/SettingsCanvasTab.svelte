@@ -19,47 +19,43 @@
     let placeTemplate = settings.getStore("placeItemTemplateDefault");
 </script>
 
-<section
-    class="u-flex-grow u-flex u-flex-col u-overflow-y-auto u-gap-md u-px-md u-mt-xl"
->
-    <section class="setting-group">
-        <header class="setting-header">
-            <h3 class="setting-heading">Grid Settings</h3>
-        </header>
+<section class="setting-group">
+    <header class="setting-header">
+        <h3 class="setting-heading">Grid Settings</h3>
+    </header>
 
-        <FormSection hint="A5E.settings.hints.diagonalRule" --gap="0.25rem">
-            <RadioGroup
-                options={Object.entries(diagonalRuleOptions)}
-                selected={selectedDiagonalRule}
-                on:updateSelection={({ detail }) => {
-                    updates.set("diagonalRule", detail);
-                    selectedDiagonalRule = detail;
-                    reload = true;
-                }}
-            />
-        </FormSection>
-    </section>
+    <FormSection hint="A5E.settings.hints.diagonalRule" --gap="0.25rem">
+        <RadioGroup
+            options={Object.entries(diagonalRuleOptions)}
+            selected={selectedDiagonalRule}
+            on:updateSelection={({ detail }) => {
+                updates.set("diagonalRule", detail);
+                selectedDiagonalRule = detail;
+                reload = true;
+            }}
+        />
+    </FormSection>
+</section>
 
-    <section class="setting-group">
-        <header class="setting-header">
-            <h3 class="setting-heading">Template Settings</h3>
-        </header>
+<section class="setting-group">
+    <header class="setting-header">
+        <h3 class="setting-heading">Template Settings</h3>
+    </header>
 
-        <FormSection
-            hint="A5E.settings.hints.placeItemTemplateDefault"
-            --gap="0.25rem"
-        >
-            <Checkbox
-                label="A5E.settings.placeItemTemplateDefault"
-                checked={updates.get("placeItemTemplateDefault") ??
-                    $placeTemplate ??
-                    false}
-                on:updateSelection={({ detail }) => {
-                    updates.set("placeItemTemplateDefault", detail);
-                }}
-            />
-        </FormSection>
-    </section>
+    <FormSection
+        hint="A5E.settings.hints.placeItemTemplateDefault"
+        --gap="0.25rem"
+    >
+        <Checkbox
+            label="A5E.settings.placeItemTemplateDefault"
+            checked={updates.get("placeItemTemplateDefault") ??
+                $placeTemplate ??
+                false}
+            on:updateSelection={({ detail }) => {
+                updates.set("placeItemTemplateDefault", detail);
+            }}
+        />
+    </FormSection>
 </section>
 
 <style lang="scss">

@@ -20,7 +20,7 @@ export default function registerActiveEffectConfig(A5E) {
   };
 
   // TODO: Allow people to replace these with settings
-  A5E.ConditionIcons = {
+  A5E.conditionIcons = {
     blinded: 'icons/svg/blind.svg',
     bloodied: 'icons/svg/blood.svg',
     charmed: 'systems/a5e/assets/icons/charmed.svg',
