@@ -116,7 +116,7 @@ export default class TokenA5e extends Token {
   _handleMultiLevelEffectsAdd(effect) {
     if (!effect) return;
 
-    const key = ['exhaustion', 'fatigue'].includes(effect.id) ? 'fatigue' : 'strife';
+    const key = effect.id;
     const currentLevel = this.actor.system.attributes?.[key];
     const maxLevel = CONFIG.A5E.multiLevelConditionsMaxLevel[key] ?? 7;
     if (currentLevel >= maxLevel) return;
@@ -127,7 +127,9 @@ export default class TokenA5e extends Token {
       return arr;
     }, [])?.[0];
 
-    const changes = Object.entries(CONFIG.A5E.multiLevelConditions[effect.id] ?? {})
+    const changeKey = key === 'fatigue' && game.settings.get('a5e', 'replaceFatigueAndStrife')
+      ? 'exhaustion' : key;
+    const changes = Object.entries(CONFIG.A5E.multiLevelConditions[changeKey] ?? {})
       .reduce((arr, [level, c]) => {
         if (level > currentLevel + 1) return arr;
         arr.push(...c);
@@ -150,7 +152,7 @@ export default class TokenA5e extends Token {
   _handleMultiLevelEffectsRemove(effect) {
     if (!effect) return;
 
-    const key = ['exhaustion', 'fatigue'].includes(effect.id) ? 'fatigue' : 'strife';
+    const key = effect.id;
     const currentLevel = this.actor.system.attributes?.[key];
     if (currentLevel <= 0) return;
 
@@ -160,7 +162,9 @@ export default class TokenA5e extends Token {
       return arr;
     }, [])?.[0];
 
-    const changes = Object.entries(CONFIG.A5E.multiLevelConditions[effect.id] ?? {})
+    const changeKey = key === 'fatigue' && game.settings.get('a5e', 'replaceFatigueAndStrife')
+      ? 'exhaustion' : key;
+    const changes = Object.entries(CONFIG.A5E.multiLevelConditions[changeKey] ?? {})
       .reduce((arr, [level, c]) => {
         if (level > currentLevel - 1) return arr;
         arr.push(...c);

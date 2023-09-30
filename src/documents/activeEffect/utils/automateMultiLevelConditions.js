@@ -13,7 +13,10 @@ export default async function automateMultiLevelConditions(actor, data, userId) 
 
     if (!tokens?.length || !effect) return;
 
-    const changes = Object.entries(CONFIG.A5E.multiLevelConditions[effect.id] ?? {})
+    const changeKey = property === 'fatigue' && game.settings.get('a5e', 'replaceFatigueAndStrife')
+      ? 'exhaustion'
+      : property;
+    const changes = Object.entries(CONFIG.A5E.multiLevelConditions[changeKey] ?? {})
       .reduce((arr, [level, c]) => {
         if (level > value) return arr;
         arr.push(...c);
