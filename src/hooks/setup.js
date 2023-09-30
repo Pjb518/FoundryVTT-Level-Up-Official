@@ -1,11 +1,11 @@
 import registerSystemSettings from '../settings';
-import setupConditions from '../documents/activeEffect/conditions';
 
 import SpellCompendiumSheet from '../apps/SpellCompendiumSheet';
+import registerConditionsConfig from '../config/registerConditionsConfig';
 
 export default function setup() {
   registerSystemSettings();
-  setupConditions();
+  registerConditionsConfig();
 
   // TODO: REMOVE THIS RETURN ONCE 0.15.3 IS OUT!
   return;

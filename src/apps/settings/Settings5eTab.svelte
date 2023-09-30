@@ -5,13 +5,14 @@
     import FormSection from "../components/FormSection.svelte";
     import Checkbox from "../components/Checkbox.svelte";
 
-    // export let reload;
+    export let reload;
 
     const appId = getContext("appId");
     const settings = getContext("settings");
     const updates = getContext("updates");
 
     let deathSaves = settings.getStore("5eStyleDeathSaves");
+    let exhaustion = settings.getStore("replaceFatigueAndStrife");
 </script>
 
 <section class="setting-group">
@@ -27,6 +28,22 @@
             checked={updates.get("5eStyleDeathSaves") ?? $deathSaves ?? false}
             on:updateSelection={({ detail }) => {
                 updates.set("5eStyleDeathSaves", detail);
+            }}
+        />
+    </FormSection>
+
+    <FormSection
+        hint="A5E.settings.hints.replaceFatigueAndStrife"
+        --gap="0.25rem"
+    >
+        <Checkbox
+            label="A5E.settings.replaceFatigueAndStrife"
+            checked={updates.get("replaceFatigueAndStrife") ??
+                $exhaustion ??
+                false}
+            on:updateSelection={({ detail }) => {
+                updates.set("replaceFatigueAndStrife", detail);
+                reload = true;
             }}
         />
     </FormSection>

@@ -216,17 +216,19 @@ function generateChanges(A5E) {
   };
 }
 
-export default function registerConditionsConfig(A5E) {
+export default function registerConditionsConfig() {
+  const { A5E } = CONFIG;
   const MODES = A5E.ACTIVE_EFFECT_MODES;
 
   const enabledConditions = new Set(
     game.settings.storage.get('world').getItem('a5e.automatedConditions')
   );
 
+  const replaceFatigueAndStrife = game.settings.get('a5e', 'replaceFatigueAndStrife');
   const changes = generateChanges(A5E);
 
   A5E.multiLevelConditionsMaxLevel = {
-    fatigue: 7,
+    fatigue: replaceFatigueAndStrife ? 6 : 7,
     strife: 7
   };
 
@@ -278,7 +280,59 @@ export default function registerConditionsConfig(A5E) {
       ]
     },
     exhaustion: {
-
+      1: [
+        {
+          key: 'flags.a5e.effects.rollMode.abilityCheck.all',
+          value: '-1',
+          mode: MODES.OVERRIDE,
+          priority: MODES.OVERRIDE * 10,
+          label: 'Exhaustion 1'
+        }
+      ],
+      2: [
+        ...Object.keys(A5E.movement).map((movementType) => ({
+          key: `system.attributes.movement.${movementType}.distance`,
+          value: '0.5',
+          mode: MODES.MULTIPLY,
+          priority: MODES.MULTIPLY * 10,
+          label: 'Exhaustion 2'
+        }))
+      ],
+      3: [
+        {
+          key: 'flags.a5e.effects.rollMode.savingThrow.all',
+          value: '-1',
+          mode: MODES.OVERRIDE,
+          priority: MODES.OVERRIDE * 10,
+          label: 'Exhaustion 3'
+        },
+        {
+          key: 'flags.a5e.effects.rollMode.attack.all',
+          value: '-1',
+          mode: MODES.OVERRIDE,
+          priority: MODES.OVERRIDE * 10,
+          label: 'Exhaustion 3'
+        }
+      ],
+      4: [
+        {
+          key: 'system.attributes.hp.max',
+          value: '0.5',
+          mode: MODES.MULTIPLY,
+          priority: MODES.MULTIPLY * 10,
+          label: 'Exhaustion 4'
+        }
+      ],
+      5: [
+        ...Object.keys(A5E.movement).map((movementType) => ({
+          key: `system.attributes.movement.${movementType}.distance`,
+          value: '0',
+          mode: MODES.OVERRIDE,
+          priority: MODES.OVERRIDE * 10,
+          label: 'Exhaustion 5'
+        }))
+      ],
+      6: []
     },
     strife: {
       1: [
@@ -321,7 +375,7 @@ export default function registerConditionsConfig(A5E) {
     }
   };
 
-  return [
+  let conditions = [
     // Blinded
     {
       id: 'blinded',
@@ -530,7 +584,11 @@ export default function registerConditionsConfig(A5E) {
       changes: [],
       duration: {}
     }))
-  ].map((condition) => {
+  ];
+
+  conditions = conditions.reduce((acc, condition) => {
+    if (replaceFatigueAndStrife && condition.id === 'strife') return acc;
+
     // Update Icon
     if (!condition.id.startsWith('generic')) {
       condition.icon = game.settings.get('a5e', `${condition.id}ConditionCustomIcon`)
@@ -543,6 +601,14 @@ export default function registerConditionsConfig(A5E) {
       condition.changes = [];
     }
 
-    return condition;
-  });
+    if (replaceFatigueAndStrife && condition.id === 'fatigue') {
+      condition.changes = A5E.multiLevelConditions?.exhaustion ?? [];
+      condition.label = 'Exhaustion';
+    }
+
+    acc.push(condition);
+    return acc;
+  }, []);
+
+  CONFIG.statusEffects = conditions;
 }

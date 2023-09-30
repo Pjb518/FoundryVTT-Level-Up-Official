@@ -285,6 +285,18 @@ class A5eGameSettings extends TJSGameSettings {
           type: Boolean
         }
       },
+      {
+        namespace,
+        key: 'replaceFatigueAndStrife',
+        options: {
+          name: 'A5E.settings.replaceFatigueAndStrife',
+          hint: 'A5E.settings.hints.replaceFatigueAndStrife',
+          scope: scope.world,
+          config: true,
+          default: false,
+          type: Boolean
+        }
+      },
       // Party Viewer Settings
       {
         namespace,
