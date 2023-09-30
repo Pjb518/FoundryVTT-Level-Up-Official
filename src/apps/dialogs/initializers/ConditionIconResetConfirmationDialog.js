@@ -8,7 +8,7 @@ import ConditionIconResetConfirmationDialogComponent from '../ConditionIconReset
 export default class ConditionIconResetConfirmationDialog extends TJSDialog {
   constructor() {
     super({
-      title: 'Condition Icons Reset Confirm Deletion',
+      title: 'Condition Icons Reset Confirmation',
       content: {
         class: ConditionIconResetConfirmationDialogComponent,
         props: {}
