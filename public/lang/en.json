@@ -867,6 +867,7 @@
       "protectRolls": "When enabled, players will be unable to see roll formulae for any rolls made by actors they do not have at least observer permissions for. The DCs of any saving throws will also be hidden from them",
       "randomizeNPCHitPoints": "When enabled, the hit points of NPCs with be randomly rolled based on their hit point formula when an actor is dragged to a scene.",
       "removeActiveEffectsOnLongRest": "When enabled, all onUse active effects will be removed from the actor when a long rest is taken.",
+      "replaceFatigueAndStrife": "When enabled, the Fatigue and Strife conditions will be replaced with the Exhaustion condition.",
       "reverseAltBehavior": "By default, holding the left alt key will skip the roll dialog for rolls. If this setting is checked, the roll dialog will be skipped unless the alt key is held when clicking the roll button.",
       "reverseInitiativeAltBehavior": "By default, holding the left alt key will skip the roll dialog for initiative rolls. If this setting is checked, the initiative roll dialog will be skipped unless the alt key is held when clicking the roll button.",
       "showDescriptionOnLimitedPerms": "Show description on items when items have limited permissions. This will respected the identified state of the item.",
@@ -918,6 +919,7 @@
     "protectRolls": "Enable protected roll mode",
     "randomizeNPCHitPoints": "Randomize NPC hit points",
     "removeActiveEffectsOnLongRest": "Remove active effects on long rest",
+    "replaceFatigueAndStrife": "Replace Fatigue and Strife with Exhaustion",
     "restoreSpellPointsOnShortRest": "Restore spell points on a short rest",
     "restoreSpellSlotsOnShortRest": "Restore spell slots on a short rest",
     "reverseAltBehavior": "Reverse alt behavior for all rolls",
@@ -947,6 +949,16 @@
         "5": "<ul class='tooltip-list'><li>Cannot Sprint or Dash</li><li>Disadvantage on Strength, Dexterity, and Constitution checks</li><li>Speed halved and unable to maintain a fast travel pace</li><li>Disadvantage on attack rolls and saving throws using Strength, Dexterity, or Constitution, and unable to maintain a normal travel pace</li><li>Hit Dice halved</li></ul>",
         "6": "<ul class='tooltip-list'><li>Cannot Sprint or Dash</li><li>Disadvantage on Strength, Dexterity, and Constitution checks</li><li>Speed halved and unable to maintain a fast travel pace</li><li>Disadvantage on attack rolls and saving throws using Strength, Dexterity, or Constitution, and unable to maintain a normal travel pace</li><li>Hit Dice halved</li><li>Speed reduced to 5 ft. and unable to maintain a slow travel pace</li></ul>",
         "7": "<ul class='tooltip-list'><li>Cannot Sprint or Dash</li><li>Disadvantage on Strength, Dexterity, and Constitution checks</li><li>Speed halved and unable to maintain a fast travel pace</li><li>Disadvantage on attack rolls and saving throws using Strength, Dexterity, or Constitution, and unable to maintain a normal travel pace</li><li>Hit Dice halved</li><li>Speed reduced to 5 ft. and unable to maintain a slow travel pace</li><li>Doomed</li></ul>"
+      }
+    },
+    "exhaustion" : {
+      "hints": {
+        "1": "<ul class='tooltip-list'><li>Disadvantage on ability checks</li></ul>",
+        "2": "<ul class='tooltip-list'><li>Disadvantage on ability checks</li><li>Speed halved</li></ul>",
+        "3": "<ul class='tooltip-list'><li>Disadvantage on ability checks</li><li>Speed halved</li><li>Disadvantage on attack rolls and saving throws</li></ul>",
+        "4": "<ul class='tooltip-list'><li>Disadvantage on ability checks</li><li>Speed halved</li><li>Disadvantage on attack rolls and saving throws</li><li>Hit point maximum halved</li></ul>",
+        "5": "<ul class='tooltip-list'><li>Disadvantage on ability checks</li><li>Speed halved</li><li>Disadvantage on attack rolls and saving throws</li><li>Hit point maximum halved</li><li>Speed reduced to 0</li></ul>",
+        "6": "<ul class='tooltip-list'><li>Disadvantage on ability checks</li><li>Speed halved</li><li>Disadvantage on attack rolls and saving throws</li><li>Hit point maximum halved</li><li>Speed reduced to 0</li><li>Death</li></ul>"
       }
     },
     "strife": {
@@ -1342,6 +1354,7 @@
   "A5E.ExpertiseDie": "Expertise Die",
   "A5E.ExpertiseDieAttackRoll": "Attack Roll Expertise Die",
   "A5E.ExpertiseDieSpecific": "{dieSize} Expertise",
+  "A5E.Exhaustion": "Exhaustion",
   "A5E.Fatigue": "Fatigue",
   "A5E.FavoriteItems": "Favorites",
   "A5E.FeatureAdd": "Add Feature",

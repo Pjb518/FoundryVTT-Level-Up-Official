@@ -18,7 +18,7 @@
 
     const actor = getContext("actor");
 
-    const fatigueOptions = [
+    let fatigueOptions = [
         { value: 0, hint: null },
         { value: 1, hint: "A5E.tracks.fatigue.hints.1" },
         { value: 2, hint: "A5E.tracks.fatigue.hints.2" },
@@ -39,6 +39,23 @@
         { value: 6, hint: "A5E.tracks.strife.hints.6" },
         { value: 7, hint: "A5E.tracks.strife.hints.7" },
     ];
+
+    const replaceFatigueAndStrife = game.settings.get(
+        "a5e",
+        "replaceFatigueAndStrife"
+    );
+
+    if (replaceFatigueAndStrife) {
+        fatigueOptions = [
+            { value: 0, hint: null },
+            { value: 1, hint: "A5E.tracks.exhaustion.hints.1" },
+            { value: 2, hint: "A5E.tracks.exhaustion.hints.2" },
+            { value: 3, hint: "A5E.tracks.exhaustion.hints.3" },
+            { value: 4, hint: "A5E.tracks.exhaustion.hints.4" },
+            { value: 5, hint: "A5E.tracks.exhaustion.hints.5" },
+            { value: 6, hint: "A5E.tracks.exhaustion.hints.6" },
+        ];
+    }
 
     async function onEditImage() {
         await editDocumentImage($actor);
@@ -66,19 +83,23 @@
 
         <StatusTrack
             icon="fa-running"
-            tooltipText="A5E.Fatigue"
+            tooltipText={replaceFatigueAndStrife
+                ? "A5E.Exhaustion"
+                : "A5E.Fatigue"}
             trackProperty="fatigue"
             options={fatigueOptions}
             selectedOption={$actor.system.attributes.fatigue}
         />
 
-        <StatusTrack
-            icon="fa-brain"
-            tooltipText="A5E.Strife"
-            trackProperty="strife"
-            options={strifeOptions}
-            selectedOption={$actor.system.attributes.strife}
-        />
+        {#if !replaceFatigueAndStrife}
+            <StatusTrack
+                icon="fa-brain"
+                tooltipText="A5E.Strife"
+                trackProperty="strife"
+                options={strifeOptions}
+                selectedOption={$actor.system.attributes.strife}
+            />
+        {/if}
 
         <RestTrack />
     </section>
