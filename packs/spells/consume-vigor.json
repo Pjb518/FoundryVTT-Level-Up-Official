@@ -1,0 +1,106 @@
+{
+	"folder": null,
+	"name": "Consume Vigor",
+	"type": "spell",
+	"img": "icons/magic/control/energy-stream-link-large-white.webp",
+	"system": {
+		"actions": {
+			"K4Fqms9ibyZ4Ej0B": {
+				"name": "Consume Vigor",
+				"activation": {
+					"type": "action",
+					"cost": 1
+				},
+				"consumers": {},
+				"rolls": {
+					"W35wwEMNNZYW3oop": {
+						"type": "damage",
+						"default": true,
+						"formula": "6d8",
+						"damageType": "necrotic"
+					}
+				},
+				"prompts": {
+					"BKUTcOA2XcaWzzST": {
+						"type": "savingThrow",
+						"default": true,
+						"ability": "con",
+						"saveDC": {
+							"type": "spellcasting"
+						},
+						"onSave": "half damage"
+					}
+				},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"threshold": 6
+					}
+				},
+				"duration": {
+					"unit": "instantaneous"
+				},
+				"ranges": {
+					"H6x6ZuwcdS0IQBlv": {
+						"range": "medium"
+					}
+				},
+				"target": {
+					"type": "creature",
+					"quantity": 1
+				}
+			}
+		},
+		"description": "<p>You rend the lifeforce from a creature to sustain yourself. The target of this spell takes 6d8 necrotic damage. Undead and constructs are&nbsp;<span class=\"freelinking-link\">immune</span>&nbsp;to this spell. If this damage reduces it to 0 hit points, it is killed and you reduce 1 level of&nbsp;your choice of either&nbsp;<span class=\"freelinking-link\">fatigue</span>&nbsp;or&nbsp;<span class=\"freelinking-link\">strife</span>&nbsp;.</p>",
+		"favorite": false,
+		"secretDescription": "",
+		"source": {
+			"name": "",
+			"link": "",
+			"publisher": ""
+		},
+		"uses": {
+			"value": null,
+			"max": "",
+			"per": null,
+			"recharge": {
+				"formula": "1d6",
+				"threshold": "6"
+			}
+		},
+		"schema": {
+			"version": 0.001,
+			"lastMigration": null
+		},
+		"classes": [
+			"cleric",
+			"warlock"
+		],
+		"components": {
+			"vocalized": true,
+			"seen": true,
+			"material": false
+		},
+		"concentration": false,
+		"level": 4,
+		"materials": "",
+		"materialsConsumed": false,
+		"prepared": false,
+		"prerequisite": "",
+		"rare": false,
+		"ritual": false,
+		"schools": {
+			"primary": "necromancy",
+			"secondary": [
+				"healing",
+				"necrotic"
+			]
+		}
+	},
+	"effects": [],
+	"flags": {},
+	"_id": "sqbxhpfylfpgekzs"
+}
