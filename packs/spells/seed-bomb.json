@@ -1,267 +1,271 @@
 {
-	"name": "Seed Bomb",
-	"type": "spell",
-	"img": "icons/magic/nature/seed-acorn-glowing-green.webp",
-	"effects": [],
-	"flags": {},
-	"system": {
-		"actions": {
-			"0lKb1bI5hyUQ033P": {
-				"name": "Cast Spell",
-				"activation": {
-					"cost": 1,
-					"type": "action",
-					"reactionTrigger": ""
-				},
-				"duration": {
-					"unit": "minute",
-					"value": "1"
-				},
-				"ranges": {
-					"DckBZ63PVJbMTvHm": {
-						"range": "self"
-					}
-				},
-				"area": {
-					"shape": "",
-					"size": "",
-					"placeTemplate": false
-				},
-				"target": {
-					"quantity": "",
-					"type": "self"
-				},
-				"rolls": {},
-				"consumers": {
-					"iHGDy2tFIEJvytGl": {
-						"mode": "variable",
-						"spellLevel": 2,
-						"points": 3,
-						"type": "spell"
-					}
-				}
-			},
-			"tgBRHcGwkcOG5hc3": {
-				"name": "Throw Pinecone",
-				"activation": {
-					"type": "action",
-					"cost": 1
-				},
-				"consumers": {},
-				"rolls": {
-					"6AdXdtnuJqrEH2cF": {
-						"type": "damage",
-						"default": true,
-						"formula": "4d6",
-						"scaling": {
-							"mode": "spellLevel",
-							"formula": "1d6"
-						},
-						"damageType": "piercing",
-						"canCrit": false
-					}
-				},
-				"prompts": {
-					"Tj9MBvU5reNB8P0x": {
-						"type": "savingThrow",
-						"default": true,
-						"ability": "dex",
-						"saveDC": {
-							"type": "spellcasting"
-						},
-						"onSave": "Dexterity negates"
-					}
-				},
-				"uses": {
-					"value": 0,
-					"max": "",
-					"per": "",
-					"recharge": {
-						"formula": "1d6",
-						"threshold": 6
-					}
-				},
-				"duration": {
-					"unit": "minute",
-					"value": 1
-				},
-				"ranges": {
-					"8TqzmrzH2AufJ8PP": {
-						"range": "medium"
-					}
-				},
-				"area": {
-					"shape": "circle",
-					"quantity": 1,
-					"radius": 5,
-					"placeTemplate": true
-				}
-			},
-			"iHIoGobdEnVr5Tyi": {
-				"name": "Throw Sunflower Seed",
-				"activation": {
-					"type": "action",
-					"cost": 1
-				},
-				"consumers": {},
-				"rolls": {
-					"6AdXdtnuJqrEH2cF": {
-						"type": "damage",
-						"default": true,
-						"formula": "4d6",
-						"scaling": {
-							"mode": "spellLevel",
-							"formula": "1d6"
-						},
-						"damageType": "piercing",
-						"canCrit": false
-					}
-				},
-				"prompts": {
-					"Tj9MBvU5reNB8P0x": {
-						"type": "savingThrow",
-						"default": true,
-						"ability": "dex",
-						"saveDC": {
-							"type": "spellcasting"
-						},
-						"onSave": "Dexterity negates"
-					},
-					"hMTgJLOuCY9HRuKI": {
-						"type": "savingThrow",
-						"default": true,
-						"ability": "con",
-						"saveDC": {
-							"type": "spellcasting"
-						},
-						"onSave": "Not blinded"
-					}
-				},
-				"uses": {
-					"value": 0,
-					"max": "",
-					"per": "",
-					"recharge": {
-						"formula": "1d6",
-						"threshold": 6
-					}
-				},
-				"duration": {
-					"unit": "round",
-					"value": 1
-				},
-				"ranges": {
-					"8TqzmrzH2AufJ8PP": {
-						"range": "medium"
-					}
-				},
-				"area": {
-					"shape": "circle",
-					"quantity": 1,
-					"radius": 5,
-					"placeTemplate": true
-				}
-			},
-			"4oA2XXnERNEp2xne": {
-				"name": "Throw Tumbleweed Seed",
-				"activation": {
-					"type": "action",
-					"cost": 1
-				},
-				"consumers": {},
-				"rolls": {
-					"6AdXdtnuJqrEH2cF": {
-						"type": "damage",
-						"default": true,
-						"formula": "4d6",
-						"scaling": {
-							"mode": "spellLevel",
-							"formula": "1d6"
-						},
-						"damageType": "piercing",
-						"canCrit": false
-					}
-				},
-				"prompts": {
-					"Tj9MBvU5reNB8P0x": {
-						"type": "savingThrow",
-						"default": true,
-						"ability": "dex",
-						"saveDC": {
-							"type": "spellcasting"
-						},
-						"onSave": "Dexterity negates"
-					}
-				},
-				"uses": {
-					"value": 0,
-					"max": "",
-					"per": "",
-					"recharge": {
-						"formula": "1d6",
-						"threshold": 6
-					}
-				},
-				"duration": {
-					"unit": "round",
-					"value": 1
-				},
-				"ranges": {
-					"8TqzmrzH2AufJ8PP": {
-						"range": "medium"
-					}
-				},
-				"area": {
-					"shape": "circle",
-					"quantity": 1,
-					"radius": 5,
-					"placeTemplate": true
-				}
-			}
-		},
-		"description": "<p>Up to four seeds appear in your hand and are infused with magic for the duration. As an action, a creature can throw one of these seeds at a point up to 60 feet away. Each creature within 5 feet of that point makes a Dexterity saving throw or takes 4d6 piercing damage. Depending on the material component used, a seed bomb also causes one of the following additional effects:</p>\n<p><strong>Pinecone.</strong> Seeds enlarge into a blanket of pointy needles. The area affected by the exploding seed bomb becomes difficult terrain for the next minute.</p>\n<p><strong>Sunflower. </strong>Seed shrapnel explodes outward. A creature in the area of the exploding seed bomb makes a Constitution saving throw or it is blinded until the end of its next turn.</p>\n<p><strong>Tumbleweed.</strong> The weeds unravel to latch around creatures. A creature in the area of the exploding seed bomb makes a Dexterity saving throw or it becomes grappled until the end of its next turn.</p>\n<p><strong><em>Cast at Higher Levels.</em></strong> The damage increases by 1d6 for each slot level above 2nd.</p>",
-		"favorite": false,
-		"secretDescription": "",
-		"source": "",
-		"uses": {
-			"value": null,
-			"max": "",
-			"per": null,
-			"recharge": {
-				"formula": "",
-				"threshold": ""
-			}
-		},
-		"schema": {
-			"version": 0.007,
-			"lastMigration": {
-				"version": {
-					"schema": 0.003,
-					"foundry": "11.307",
-					"system": "0.15.0"
-				}
-			}
-		},
-		"components": {
-			"vocalized": false,
-			"seen": true,
-			"material": true
-		},
-		"concentration": false,
-		"level": 2,
-		"materials": "tumbleweed, pinecone, or sunflower head",
-		"materialsConsumed": false,
-		"prepared": false,
-		"prerequisite": "",
-		"ritual": false,
-		"schools": {
-			"primary": "conjuration",
-			"secondary": [
-				"nature",
-				"weaponry"
-			]
-		}
-	},
-	"folder": "XXlxppJh0OdnJaQQ",
-	"_id": "vk6a5fupk5x4dz39"
+  "name": "Seed Bomb",
+  "type": "spell",
+  "img": "icons/magic/nature/seed-acorn-glowing-green.webp",
+  "effects": [],
+  "flags": {},
+  "system": {
+    "actions": {
+      "0lKb1bI5hyUQ033P": {
+        "name": "Cast Spell",
+        "activation": {
+          "cost": 1,
+          "type": "action",
+          "reactionTrigger": ""
+        },
+        "duration": {
+          "unit": "minute",
+          "value": "1"
+        },
+        "ranges": {
+          "DckBZ63PVJbMTvHm": {
+            "range": "self"
+          }
+        },
+        "area": {
+          "shape": "",
+          "size": "",
+          "placeTemplate": false
+        },
+        "target": {
+          "quantity": "",
+          "type": "self"
+        },
+        "rolls": {},
+        "consumers": {
+          "iHGDy2tFIEJvytGl": {
+            "mode": "variable",
+            "spellLevel": 2,
+            "points": 3,
+            "type": "spell"
+          }
+        }
+      },
+      "tgBRHcGwkcOG5hc3": {
+        "name": "Throw Pinecone",
+        "activation": {
+          "type": "action",
+          "cost": 1
+        },
+        "consumers": {},
+        "rolls": {
+          "6AdXdtnuJqrEH2cF": {
+            "type": "damage",
+            "default": true,
+            "formula": "4d6",
+            "scaling": {
+              "mode": "spellLevel",
+              "formula": "1d6"
+            },
+            "damageType": "piercing",
+            "canCrit": false
+          }
+        },
+        "prompts": {
+          "Tj9MBvU5reNB8P0x": {
+            "type": "savingThrow",
+            "default": true,
+            "ability": "dex",
+            "saveDC": {
+              "type": "spellcasting"
+            },
+            "onSave": "Dexterity negates"
+          }
+        },
+        "uses": {
+          "value": 0,
+          "max": "",
+          "per": "",
+          "recharge": {
+            "formula": "1d6",
+            "threshold": 6
+          }
+        },
+        "duration": {
+          "unit": "minute",
+          "value": 1
+        },
+        "ranges": {
+          "8TqzmrzH2AufJ8PP": {
+            "range": "medium"
+          }
+        },
+        "area": {
+          "shape": "circle",
+          "quantity": 1,
+          "radius": 5,
+          "placeTemplate": true
+        }
+      },
+      "iHIoGobdEnVr5Tyi": {
+        "name": "Throw Sunflower Seed",
+        "activation": {
+          "type": "action",
+          "cost": 1
+        },
+        "consumers": {},
+        "rolls": {
+          "6AdXdtnuJqrEH2cF": {
+            "type": "damage",
+            "default": true,
+            "formula": "4d6",
+            "scaling": {
+              "mode": "spellLevel",
+              "formula": "1d6"
+            },
+            "damageType": "piercing",
+            "canCrit": false
+          }
+        },
+        "prompts": {
+          "Tj9MBvU5reNB8P0x": {
+            "type": "savingThrow",
+            "default": true,
+            "ability": "dex",
+            "saveDC": {
+              "type": "spellcasting"
+            },
+            "onSave": "Dexterity negates"
+          },
+          "hMTgJLOuCY9HRuKI": {
+            "type": "savingThrow",
+            "default": true,
+            "ability": "con",
+            "saveDC": {
+              "type": "spellcasting"
+            },
+            "onSave": "Not blinded"
+          }
+        },
+        "uses": {
+          "value": 0,
+          "max": "",
+          "per": "",
+          "recharge": {
+            "formula": "1d6",
+            "threshold": 6
+          }
+        },
+        "duration": {
+          "unit": "round",
+          "value": 1
+        },
+        "ranges": {
+          "8TqzmrzH2AufJ8PP": {
+            "range": "medium"
+          }
+        },
+        "area": {
+          "shape": "circle",
+          "quantity": 1,
+          "radius": 5,
+          "placeTemplate": true
+        }
+      },
+      "4oA2XXnERNEp2xne": {
+        "name": "Throw Tumbleweed Seed",
+        "activation": {
+          "type": "action",
+          "cost": 1
+        },
+        "consumers": {},
+        "rolls": {
+          "6AdXdtnuJqrEH2cF": {
+            "type": "damage",
+            "default": true,
+            "formula": "4d6",
+            "scaling": {
+              "mode": "spellLevel",
+              "formula": "1d6"
+            },
+            "damageType": "piercing",
+            "canCrit": false
+          }
+        },
+        "prompts": {
+          "Tj9MBvU5reNB8P0x": {
+            "type": "savingThrow",
+            "default": true,
+            "ability": "dex",
+            "saveDC": {
+              "type": "spellcasting"
+            },
+            "onSave": "Dexterity negates"
+          }
+        },
+        "uses": {
+          "value": 0,
+          "max": "",
+          "per": "",
+          "recharge": {
+            "formula": "1d6",
+            "threshold": 6
+          }
+        },
+        "duration": {
+          "unit": "round",
+          "value": 1
+        },
+        "ranges": {
+          "8TqzmrzH2AufJ8PP": {
+            "range": "medium"
+          }
+        },
+        "area": {
+          "shape": "circle",
+          "quantity": 1,
+          "radius": 5,
+          "placeTemplate": true
+        }
+      }
+    },
+    "description": "<p>Up to four seeds appear in your hand and are infused with magic for the duration. As an action, a creature can throw one of these seeds at a point up to 60 feet away. Each creature within 5 feet of that point makes a Dexterity saving throw or takes 4d6 piercing damage. Depending on the material component used, a seed bomb also causes one of the following additional effects:</p>\n<p><strong>Pinecone.</strong> Seeds enlarge into a blanket of pointy needles. The area affected by the exploding seed bomb becomes difficult terrain for the next minute.</p>\n<p><strong>Sunflower. </strong>Seed shrapnel explodes outward. A creature in the area of the exploding seed bomb makes a Constitution saving throw or it is blinded until the end of its next turn.</p>\n<p><strong>Tumbleweed.</strong> The weeds unravel to latch around creatures. A creature in the area of the exploding seed bomb makes a Dexterity saving throw or it becomes grappled until the end of its next turn.</p>\n<p><strong><em>Cast at Higher Levels.</em></strong> The damage increases by 1d6 for each slot level above 2nd.</p>",
+    "favorite": false,
+    "secretDescription": "",
+    "source": "",
+    "uses": {
+      "value": null,
+      "max": "",
+      "per": null,
+      "recharge": {
+        "formula": "",
+        "threshold": ""
+      }
+    },
+    "schema": {
+      "version": 0.007,
+      "lastMigration": {
+        "version": {
+          "schema": 0.003,
+          "foundry": "11.307",
+          "system": "0.15.0"
+        }
+      }
+    },
+    "classes": [
+      "druid",
+      "wizard"
+    ],
+    "components": {
+      "vocalized": false,
+      "seen": true,
+      "material": true
+    },
+    "concentration": false,
+    "level": 2,
+    "materials": "tumbleweed, pinecone, or sunflower head",
+    "materialsConsumed": false,
+    "prepared": false,
+    "prerequisite": "",
+    "ritual": false,
+    "schools": {
+      "primary": "conjuration",
+      "secondary": [
+        "nature",
+        "weaponry"
+      ]
+    }
+  },
+  "folder": "XXlxppJh0OdnJaQQ",
+  "_id": "vk6a5fupk5x4dz39"
 }

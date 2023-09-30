@@ -1,110 +1,113 @@
 {
-	"name": "Spiritual Weapon",
-	"type": "spell",
-	"img": "icons/weapons/hammers/hammer-double-glowing-yellow.webp",
-	"effects": [],
-	"flags": {},
-	"system": {
-		"actions": {
-			"vkbQdk2lBUnbRZrT": {
-				"name": "Spiritual Weapon",
-				"activation": {
-					"cost": 1,
-					"type": "bonusAction",
-					"reactionTrigger": ""
-				},
-				"duration": {
-					"unit": "minute",
-					"value": "1"
-				},
-				"ranges": {
-					"eQhDWcEVWYo5TkEn": {
-						"range": "medium"
-					}
-				},
-				"area": {
-					"shape": "",
-					"size": "",
-					"placeTemplate": false
-				},
-				"target": {
-					"quantity": "",
-					"type": "none"
-				},
-				"rolls": {
-					"8G7Rl7ypS8R3BNB8": {
-						"bonus": "",
-						"critThreshold": 20,
-						"type": "attack",
-						"attackType": "meleeSpellAttack",
-						"ability": "spellcasting"
-					},
-					"q0j37C12kiVk1nzk": {
-						"type": "damage",
-						"default": true,
-						"formula": "1d8 + @spell.mod",
-						"scaling": {
-							"mode": "spellLevel",
-							"formula": "1d8",
-							"step": 2
-						},
-						"damageType": "force"
-					}
-				},
-				"consumers": {
-					"N3uOhPjYZm30u02f": {
-						"mode": "variable",
-						"spellLevel": 2,
-						"points": 3,
-						"type": "spell"
-					}
-				}
-			}
-		},
-		"description": "<p>You create a floating, incandescent weapon with an appearance of your choosing and use it to attack your enemies. On the round you cast it, you can make a melee spell attack against a creature within 5 feet of the weapon that deals force damage equal to 1d8 + your spellcasting ability modifier.</p><p>As a bonus action on subsequent turns until the spell ends, you can move the weapon up to 20 feet and make another attack against a creature within 5 feet of it.</p><p><strong><em>Cast at Higher Levels.</em></strong> The damage increases by 1d8 for every two slot levels above 2nd.</p>",
-		"favorite": false,
-		"secretDescription": "",
-		"source": "",
-		"uses": {
-			"value": null,
-			"max": "",
-			"per": null,
-			"recharge": {
-				"formula": "",
-				"threshold": ""
-			}
-		},
-		"schema": {
-			"version": 0.007,
-			"lastMigration": {
-				"version": {
-					"schema": 0.003,
-					"foundry": "11.307",
-					"system": "0.15.0"
-				}
-			}
-		},
-		"components": {
-			"vocalized": true,
-			"seen": true,
-			"material": false
-		},
-		"concentration": false,
-		"level": 2,
-		"materials": "",
-		"materialsConsumed": false,
-		"prepared": false,
-		"prerequisite": "",
-		"ritual": false,
-		"schools": {
-			"primary": "evocation",
-			"secondary": [
-				"attack",
-				"divine",
-				"force"
-			]
-		}
-	},
-	"folder": "XXlxppJh0OdnJaQQ",
-	"_id": "jaj686a9y3t0an5y"
+  "name": "Spiritual Weapon",
+  "type": "spell",
+  "img": "icons/weapons/hammers/hammer-double-glowing-yellow.webp",
+  "effects": [],
+  "flags": {},
+  "system": {
+    "actions": {
+      "vkbQdk2lBUnbRZrT": {
+        "name": "Spiritual Weapon",
+        "activation": {
+          "cost": 1,
+          "type": "bonusAction",
+          "reactionTrigger": ""
+        },
+        "duration": {
+          "unit": "minute",
+          "value": "1"
+        },
+        "ranges": {
+          "eQhDWcEVWYo5TkEn": {
+            "range": "medium"
+          }
+        },
+        "area": {
+          "shape": "",
+          "size": "",
+          "placeTemplate": false
+        },
+        "target": {
+          "quantity": "",
+          "type": "none"
+        },
+        "rolls": {
+          "8G7Rl7ypS8R3BNB8": {
+            "bonus": "",
+            "critThreshold": 20,
+            "type": "attack",
+            "attackType": "meleeSpellAttack",
+            "ability": "spellcasting"
+          },
+          "q0j37C12kiVk1nzk": {
+            "type": "damage",
+            "default": true,
+            "formula": "1d8 + @spell.mod",
+            "scaling": {
+              "mode": "spellLevel",
+              "formula": "1d8",
+              "step": 2
+            },
+            "damageType": "force"
+          }
+        },
+        "consumers": {
+          "N3uOhPjYZm30u02f": {
+            "mode": "variable",
+            "spellLevel": 2,
+            "points": 3,
+            "type": "spell"
+          }
+        }
+      }
+    },
+    "description": "<p>You create a floating, incandescent weapon with an appearance of your choosing and use it to attack your enemies. On the round you cast it, you can make a melee spell attack against a creature within 5 feet of the weapon that deals force damage equal to 1d8 + your spellcasting ability modifier.</p><p>As a bonus action on subsequent turns until the spell ends, you can move the weapon up to 20 feet and make another attack against a creature within 5 feet of it.</p><p><strong><em>Cast at Higher Levels.</em></strong> The damage increases by 1d8 for every two slot levels above 2nd.</p>",
+    "favorite": false,
+    "secretDescription": "",
+    "source": "",
+    "uses": {
+      "value": null,
+      "max": "",
+      "per": null,
+      "recharge": {
+        "formula": "",
+        "threshold": ""
+      }
+    },
+    "schema": {
+      "version": 0.007,
+      "lastMigration": {
+        "version": {
+          "schema": 0.003,
+          "foundry": "11.307",
+          "system": "0.15.0"
+        }
+      }
+    },
+    "classes": [
+      "cleric"
+    ],
+    "components": {
+      "vocalized": true,
+      "seen": true,
+      "material": false
+    },
+    "concentration": false,
+    "level": 2,
+    "materials": "",
+    "materialsConsumed": false,
+    "prepared": false,
+    "prerequisite": "",
+    "ritual": false,
+    "schools": {
+      "primary": "evocation",
+      "secondary": [
+        "attack",
+        "divine",
+        "force"
+      ]
+    }
+  },
+  "folder": "XXlxppJh0OdnJaQQ",
+  "_id": "jaj686a9y3t0an5y"
 }
