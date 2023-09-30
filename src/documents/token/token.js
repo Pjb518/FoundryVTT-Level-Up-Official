@@ -299,7 +299,8 @@ export default class TokenA5e extends Token {
       const radius = icon.width / 2;
       background.lineStyle((1 * gridScale) / 2, 0xe9d7a1, 1, 0);
       background.drawCircle(icon.position.x, icon.position.y, radius + 1 * gridScale);
-      background.beginFill(0x425f65);
+      // background.beginFill(0x292929);
+      background.beginFill(0x000000);
       background.drawCircle(icon.position.x, icon.position.y, radius + 1 * gridScale);
       background.endFill();
     });
