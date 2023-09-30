@@ -19,7 +19,7 @@
     const settings = getContext("settings");
 
     const conditionName = getConditionName();
-    const iconStore = settings.getStore(`${conditionKey}ConditionCustomIcon`);
+    const iconStore = settings.getStore("customConditionIcons");
 </script>
 
 <!-- svelte-ignore a11y-click-events-have-key-events a11y-no-noninteractive-element-interactions -->
@@ -28,12 +28,12 @@
     on:click={() =>
         dispatch("updateConditionIcon", [
             conditionKey,
-            icon || $iconStore || conditionIcons[conditionKey],
+            icon || $iconStore[conditionKey] || conditionIcons[conditionKey],
         ])}
 >
     <img
         class="condition-icon"
-        src={icon || $iconStore || conditionIcons[conditionKey]}
+        src={icon || $iconStore[conditionKey] || conditionIcons[conditionKey]}
         alt={getConditionName()}
     />
 

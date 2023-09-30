@@ -10,9 +10,13 @@
 
     export let reload;
 
-    function getSelectedConditionIcons() {
-        return Object.keys(conditionIcons).reduce((acc, curr) => {
-            acc[curr] = updates.get(`${curr}ConditionCustomIcon`) ?? "";
+    function getCustomIcons() {
+        return Object.entries(conditionIcons).reduce((acc, [key, path]) => {
+            acc[key] =
+                updates.get("customConditionIcons")?.[key] ??
+                $storedCustomIcons?.[key] ??
+                path ??
+                "";
             return acc;
         }, {});
     }
@@ -26,22 +30,22 @@
 
         Object.keys(conditionIcons).forEach((conditionKey) => {
             const defaultIcon = conditionIcons[conditionKey];
-            updates.set(`${conditionKey}ConditionCustomIcon`, defaultIcon);
+            customIcons[conditionKey] = defaultIcon;
         });
 
+        updates.set("customConditionIcons", customIcons);
         reload = true;
-        selectedConditionIcons = getSelectedConditionIcons();
+        customIcons = getCustomIcons();
     }
 
     function updateConditionIcon(key, current) {
-        console.log(key, current);
-
         const filePicker = new FilePicker({
             type: "image",
             current,
             callback: (path) => {
-                updates.set(`${key}ConditionCustomIcon`, path);
-                selectedConditionIcons = getSelectedConditionIcons();
+                customIcons[key] = path;
+                updates.set("customConditionIcons", customIcons);
+                customIcons = getCustomIcons();
                 reload = true;
             },
         });
@@ -57,8 +61,7 @@
     // Conditions Automation
     const automatableConditions = Object.entries(conditions).reduce(
         (acc, curr) => {
-            if (!["fatigue", "frightened", "strife"].includes(curr))
-                acc.push(curr);
+            if (!["frightened"].includes(curr)) acc.push(curr);
             return acc;
         },
         []
@@ -71,13 +74,14 @@
         "automateUnconsciousApplication"
     );
 
-    const radialEffects = settings.getStore("enableRadialEffects");
-    const removeEffects = settings.getStore("removeActiveEffectsOnLongRest");
+    let radialEffects = settings.getStore("enableRadialEffects");
+    let removeEffects = settings.getStore("removeActiveEffectsOnLongRest");
+    let storedCustomIcons = settings.getStore("customConditionIcons");
 
     let selectedConditions =
         updates.get("automatedConditions") ?? $automatedConditions;
 
-    let selectedConditionIcons = getSelectedConditionIcons();
+    let customIcons = getCustomIcons();
 </script>
 
 <section class="setting-group">
@@ -169,7 +173,7 @@
     </header>
 
     <ul class="condition-grid">
-        {#each Object.entries(selectedConditionIcons) as [conditionKey, icon]}
+        {#each Object.entries(customIcons) as [conditionKey, icon]}
             <SettingsCustomIcon
                 {conditionKey}
                 {icon}

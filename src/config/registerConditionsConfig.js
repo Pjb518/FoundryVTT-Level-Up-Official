@@ -225,6 +225,7 @@ export default function registerConditionsConfig() {
   );
 
   const replaceFatigueAndStrife = game.settings.get('a5e', 'replaceFatigueAndStrife');
+  const customIcons = game.settings.get('a5e', 'customConditionIcons');
   const changes = generateChanges(A5E);
 
   A5E.multiLevelConditionsMaxLevel = {
@@ -591,9 +592,8 @@ export default function registerConditionsConfig() {
 
     // Update Icon
     if (!condition.id.startsWith('generic')) {
-      condition.icon = game.settings.get('a5e', `${condition.id}ConditionCustomIcon`)
-        || A5E.conditionIcons[condition.id]
-        || condition.icon;
+      condition.icon = customIcons[condition.id]
+        || A5E.conditionIcons[condition.id] || condition.icon;
     }
 
     // Add changes based on settings
