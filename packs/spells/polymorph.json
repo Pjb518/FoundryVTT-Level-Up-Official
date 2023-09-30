@@ -1,104 +1,111 @@
 {
-	"name": "Polymorph",
-	"type": "spell",
-	"img": "icons/magic/nature/symbol-moon-stars-white.webp",
-	"effects": [],
-	"flags": {},
-	"system": {
-		"actions": {
-			"V5f9I7U91YA1L8XU": {
-				"name": "Polymorph",
-				"activation": {
-					"cost": 1,
-					"type": "action",
-					"reactionTrigger": ""
-				},
-				"duration": {
-					"unit": "hour",
-					"value": "1"
-				},
-				"ranges": {
-					"9fpVoXabfdjZD1de": {
-						"range": "medium"
-					}
-				},
-				"area": {
-					"shape": "",
-					"size": "",
-					"placeTemplate": false
-				},
-				"target": {
-					"quantity": "",
-					"type": "creature"
-				},
-				"prompts": {
-					"ja7HMh8mtrZHfQOc": {
-						"ability": "wis",
-						"onSave": "Negates effect",
-						"saveDC": {
-							"type": "spellcasting",
-							"bonus": ""
-						},
-						"type": "savingThrow"
-					}
-				},
-				"consumers": {
-					"l2f9o2i5gW4HgOzo": {
-						"mode": "variable",
-						"spellLevel": 4,
-						"points": 6,
-						"type": "spell"
-					}
-				}
-			}
-		},
-		"description": "<p>The target's body is transformed into a beast with a Challenge Rating equal to or less than its own. If the target doesn't have a Challenge Rating, use its level.</p><p>Until the spell ends or it is dropped to 0 hit points, the target's game statistics (including its hit points and mental ability scores) are replaced by the statistics of the chosen beast. The target is limited to actions that it is physically capable of doing, and it can't speak or cast spells. The target's gear melds into the new form. Equipment that merges with a target's form has no effect until it leaves the form.</p><p>When the target reverts to its normal form, it returns to the number of hit points it had before it transformed. If the spell's effects on the target end early from dropping to 0 hit points, any excess damage carries over to its normal form and knocks it unconscious if the damage reduces it to 0 hit points.</p>",
-		"favorite": false,
-		"secretDescription": "",
-		"source": "",
-		"uses": {
-			"value": null,
-			"max": "",
-			"per": null,
-			"recharge": {
-				"formula": "",
-				"threshold": ""
-			}
-		},
-		"schema": {
-			"version": 0.007,
-			"lastMigration": {
-				"version": {
-					"schema": 0.003,
-					"foundry": "11.307",
-					"system": "0.15.0"
-				}
-			}
-		},
-		"components": {
-			"vocalized": true,
-			"seen": true,
-			"material": true
-		},
-		"concentration": true,
-		"level": 4,
-		"materials": "cocoon",
-		"materialsConsumed": false,
-		"prepared": false,
-		"prerequisite": "",
-		"ritual": false,
-		"schools": {
-			"primary": "transmutation",
-			"secondary": [
-				"affliction",
-				"arcane",
-				"beasts",
-				"nature",
-				"shapechanging",
-				"transformation"
-			]
-		}
-	},
-	"folder": "XXlxppJh0OdnJaQQ",
-	"_id": "95tar7xr3hdp0o92"
+  "name": "Polymorph",
+  "type": "spell",
+  "img": "icons/magic/nature/symbol-moon-stars-white.webp",
+  "effects": [],
+  "flags": {},
+  "system": {
+    "actions": {
+      "V5f9I7U91YA1L8XU": {
+        "name": "Polymorph",
+        "activation": {
+          "cost": 1,
+          "type": "action",
+          "reactionTrigger": ""
+        },
+        "duration": {
+          "unit": "hour",
+          "value": "1"
+        },
+        "ranges": {
+          "9fpVoXabfdjZD1de": {
+            "range": "medium"
+          }
+        },
+        "area": {
+          "shape": "",
+          "size": "",
+          "placeTemplate": false
+        },
+        "target": {
+          "quantity": "",
+          "type": "creature"
+        },
+        "prompts": {
+          "ja7HMh8mtrZHfQOc": {
+            "ability": "wis",
+            "onSave": "Negates effect",
+            "saveDC": {
+              "type": "spellcasting",
+              "bonus": ""
+            },
+            "type": "savingThrow"
+          }
+        },
+        "consumers": {
+          "l2f9o2i5gW4HgOzo": {
+            "mode": "variable",
+            "spellLevel": 4,
+            "points": 6,
+            "type": "spell"
+          }
+        }
+      }
+    },
+    "description": "<p>The target's body is transformed into a beast with a Challenge Rating equal to or less than its own. If the target doesn't have a Challenge Rating, use its level.</p><p>Until the spell ends or it is dropped to 0 hit points, the target's game statistics (including its hit points and mental ability scores) are replaced by the statistics of the chosen beast. The target is limited to actions that it is physically capable of doing, and it can't speak or cast spells. The target's gear melds into the new form. Equipment that merges with a target's form has no effect until it leaves the form.</p><p>When the target reverts to its normal form, it returns to the number of hit points it had before it transformed. If the spell's effects on the target end early from dropping to 0 hit points, any excess damage carries over to its normal form and knocks it unconscious if the damage reduces it to 0 hit points.</p>",
+    "favorite": false,
+    "secretDescription": "",
+    "source": "",
+    "uses": {
+      "value": null,
+      "max": "",
+      "per": null,
+      "recharge": {
+        "formula": "",
+        "threshold": ""
+      }
+    },
+    "schema": {
+      "version": 0.007,
+      "lastMigration": {
+        "version": {
+          "schema": 0.003,
+          "foundry": "11.307",
+          "system": "0.15.0"
+        }
+      }
+    },
+    "classes": [
+      "artificer",
+      "bard",
+      "druid",
+      "sorcerer",
+      "wizard"
+    ],
+    "components": {
+      "vocalized": true,
+      "seen": true,
+      "material": true
+    },
+    "concentration": true,
+    "level": 4,
+    "materials": "cocoon",
+    "materialsConsumed": false,
+    "prepared": false,
+    "prerequisite": "",
+    "ritual": false,
+    "schools": {
+      "primary": "transmutation",
+      "secondary": [
+        "affliction",
+        "arcane",
+        "beasts",
+        "nature",
+        "shapechanging",
+        "transformation"
+      ]
+    }
+  },
+  "folder": "XXlxppJh0OdnJaQQ",
+  "_id": "95tar7xr3hdp0o92"
 }
