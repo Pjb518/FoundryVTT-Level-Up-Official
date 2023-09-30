@@ -66,7 +66,7 @@ export default class TokenA5e extends Token {
     }
 
     const activeConditions = this._getActiveConditions();
-    if (activeConditions.includes(id)) return null;
+    if (activeConditions.includes(id)) return this._removeStatusEffect({ id, src }, { overlay });
     return this.toggleEffect(effect, { active: true, overlay });
   }
 
@@ -142,7 +142,8 @@ export default class TokenA5e extends Token {
 
     // Update actor to reflect new level
     this.actor.update({
-      [`system.attributes.${key}`]: Math.min(currentLevel + 1, maxLevel)
+      [`system.attributes.${key}`]: Math.min(currentLevel + 1, maxLevel),
+      'flags.a5e.autoApplyFSConditions': false
     });
   }
 
@@ -172,7 +173,8 @@ export default class TokenA5e extends Token {
 
     // Update actor to reflect new level
     this.actor.update({
-      [`system.attributes.${key}`]: Math.max(currentLevel - 1, 0)
+      [`system.attributes.${key}`]: Math.max(currentLevel - 1, 0),
+      'flags.a5e.autoApplyFSConditions': false
     });
   }
 

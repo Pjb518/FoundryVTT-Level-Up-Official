@@ -15,27 +15,6 @@
             `system.attributes.${trackProperty}`,
             value
         );
-
-        const tokens = $actor.getActiveTokens();
-        const effect = CONFIG.statusEffects.find((e) => e.id === trackProperty);
-
-        if (!tokens?.length || !effect) return;
-
-        const changes = Object.entries(
-            CONFIG.A5E.multiLevelConditions[effect.id] ?? {}
-        ).reduce((arr, [level, c]) => {
-            if (level > value) return arr;
-            arr.push(...c);
-            return arr;
-        }, []);
-
-        tokens.forEach((token) => {
-            const newEffect = foundry.utils.deepClone(effect);
-            newEffect.changes = changes;
-
-            token.toggleEffect(effect, { active: false });
-            token.toggleEffect(newEffect, { active: true });
-        });
     }
 
     const actor = getContext("actor");

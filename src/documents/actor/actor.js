@@ -37,6 +37,7 @@ import automateHpConditions from '../activeEffect/utils/automateHpConditions';
 import getDeterministicBonus from '../../dice/getDeterministicBonus';
 import getRollFormula from '../../utils/getRollFormula';
 import overrideRollMode from '../../utils/overrideRollMode';
+import automateMultiLevelConditions from '../activeEffect/utils/automateMultiLevelConditions';
 
 export default class ActorA5e extends Actor {
   #configDialogMap;
@@ -476,6 +477,14 @@ export default class ActorA5e extends Actor {
 
   /** @inheritdoc */
   async _preUpdate(changed, options, user) {
+    const autoApplyFSConditions = changed?.flags?.a5e?.autoApplyFSConditions ?? true;
+    if (autoApplyFSConditions) {
+      automateMultiLevelConditions(this, foundry.utils.deepClone(changed), user.id);
+    }
+
+    foundry.utils.setProperty(changed, 'flags.a5e.-=autoApplyFSConditions', null);
+    // delete changed.flags?.a5e?.autoApplyFSConditions;
+
     await super._preUpdate(changed, options, user);
 
     // If hp drops below 0, set the value to 0.
