@@ -17,6 +17,7 @@ export default function registerPreLocalizationProperties(A5E) {
     'armorProperties',
     'attackTypes',
     'characterClasses',
+    'classSpellLists',
     'conditions',
     'creatureTypes',
     'damageTypes',
