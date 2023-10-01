@@ -35,7 +35,7 @@
 
     const {
         PREPARED_STATES,
-        spellcastingCharacterClasses,
+        classSpellLists,
         spellComponents,
         spellComponentAbbreviations,
         spellLevels,
@@ -80,7 +80,7 @@
                 hint="Select the classes that are eligible to select this spell."
             >
                 <CheckboxGroup
-                    options={Object.entries(spellcastingCharacterClasses)}
+                    options={Object.entries(classSpellLists)}
                     selected={$item.system.classes}
                     on:updateSelection={(event) =>
                         updateDocumentDataFromField(
