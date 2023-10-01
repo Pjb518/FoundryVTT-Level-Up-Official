@@ -11,7 +11,7 @@ export default function registerCharacterClassesConfig(A5E) {
     herald: 'A5E.characterClasses.herald',
     sorcerer: 'A5E.characterClasses.sorcerer',
     warlock: 'A5E.characterClasses.warlock',
-    // wielder: 'A5E.characterClasses.wielder',
+    wielder: 'A5E.characterClasses.wielder',
     witch: 'A5E.characterClasses.witch',
     wizard: 'A5E.characterClasses.wizard'
   };
