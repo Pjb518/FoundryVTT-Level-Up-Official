@@ -252,7 +252,8 @@ export default class TokenA5e extends Token {
       if (isActive) return false;
 
       const isTemporary = e.isTemporary ?? false;
-      if (!isTemporary) return false;
+      const isOnUse = e.getFlag('a5e', 'transferType') === 'onUse';
+      if (!isTemporary && !isOnUse) return false;
 
       return true;
     })?.length ?? 0;

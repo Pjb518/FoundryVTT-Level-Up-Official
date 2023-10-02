@@ -1,3 +1,4 @@
+/* eslint-disable no-restricted-syntax */
 import { localize } from '#runtime/svelte/helper';
 
 import ActiveEffectA5e from '../activeEffect/activeEffect';
@@ -100,6 +101,22 @@ export default class ActorA5e extends Actor {
     if (hitDiceCount === 0) return null;
 
     return `${parts.join(' + ')} + ${hitDiceCount * mod}`;
+  }
+
+  /**
+   * @override
+   * An array of ActiveEffect instances which are present on the
+   * Actor which have a limited duration.
+   * @type {ActiveEffect[]}
+   */
+  get temporaryEffects() {
+    const effects = [];
+    for (const effect of this.allApplicableEffects()) {
+      if (effect.active && (effect.isTemporary || effect?.flags?.a5e?.transferType === 'onUse')) {
+        effects.push(effect);
+      }
+    }
+    return effects;
   }
 
   /**
