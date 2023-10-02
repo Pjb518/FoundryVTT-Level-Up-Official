@@ -50,14 +50,17 @@
     <article id="a5e-effects-panel" class="a5e-effects-panel">
         <ul class="a5e-effect-list">
             {#each effects as { description, icon, _id, name } (_id)}
+                <!-- TODO: Add the logic for removing effects on tokens -->
                 <A5EEffectsPanelEffect
                     actor={$actor}
                     {description}
                     {icon}
+                    {_id}
                     {name}
                     --icon-size={effects.length > maxIconsPerColumn
                         ? "2rem"
                         : "2.5rem"}
+                    on:deleteEffect
                 />
             {/each}
         </ul>

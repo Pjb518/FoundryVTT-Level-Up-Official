@@ -1,9 +1,11 @@
 <script>
+    import { createEventDispatcher } from "svelte";
     import { localize } from "#runtime/svelte/helper";
 
     export let actor;
     export let description;
     export let icon;
+    export let _id;
     export let name;
 
     // TODO: Find a way to map the conditions to their descriptions that isn't based on
@@ -41,6 +43,7 @@
     }
 
     const { conditionDescriptions, conditions } = CONFIG.A5E;
+    const dispatch = createEventDispatcher();
 
     $: tooltip = `
     <div class="a5e-effect-item__details">
@@ -54,6 +57,7 @@
     class="a5e-effect-item"
     data-tooltip={tooltip}
     data-tooltip-direction="LEFT"
+    on:auxclick={() => dispatch("deleteEffect", _id)}
 >
     <img class="a5e-effect-item__icon" src={icon} alt={name} />
 </li>
