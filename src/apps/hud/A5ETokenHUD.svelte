@@ -282,10 +282,11 @@
         background-color: black;
         font-size: 1.25rem;
         cursor: pointer;
+        transition: $standard-transition;
 
         &:hover {
-            color: $color-secondary;
-            font-weight: bold;
+            color: lighten($color-secondary, 15);
+            box-shadow: none;
         }
     }
     // Generate filter
