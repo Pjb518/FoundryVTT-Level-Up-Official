@@ -25,6 +25,7 @@
     }
 
     let token = canvas.tokens.controlled.at(0)?.document ?? null;
+
     const maxIconsPerColumn = getMaxEffectIconsPerColumn();
 
     const controlledHook = Hooks.on("controlToken", () => {
@@ -50,6 +51,7 @@
         <ul class="a5e-effect-list">
             {#each effects as { description, icon, _id, name } (_id)}
                 <A5EEffectsPanelEffect
+                    actor={$actor}
                     {description}
                     {icon}
                     {name}
