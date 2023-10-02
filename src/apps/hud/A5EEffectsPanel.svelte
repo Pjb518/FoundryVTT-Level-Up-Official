@@ -1,8 +1,21 @@
 <script>
-    import { getContext, onDestroy } from "svelte";
+    import { onDestroy } from "svelte";
     import { TJSDocument } from "#runtime/svelte/store/fvtt/document";
 
     import A5EEffectsPanelEffect from "./A5EEffectsPanelEffect.svelte";
+
+    // Gets the maximum amount of icons that will fit given the user font size and the default
+    // icon size.
+    function getMaxEffectIconsPerColumn() {
+        const fontSize = parseFloat(
+            document.getElementsByTagName("html").style?.fontSize ?? 16
+        );
+
+        const { clientHeight } = document.documentElement;
+        const availableHeight = clientHeight - 5 - 8 * fontSize;
+
+        return (availableHeight - 2.5 * fontSize) / (3.25 * fontSize);
+    }
 
     // Get current controlled token
     function getReactiveActor() {
@@ -12,7 +25,7 @@
     }
 
     let token = canvas.tokens.controlled.at(0)?.document ?? null;
-    $: actor = getReactiveActor(token);
+    const maxIconsPerColumn = getMaxEffectIconsPerColumn();
 
     const controlledHook = Hooks.on("controlToken", () => {
         token = canvas.tokens.controlled.at(0)?.document ?? null;
@@ -23,13 +36,13 @@
         Hooks.off("controlToken", controlledHook);
     });
 
+    $: actor = getReactiveActor(token);
+
     // Get Panel Data
     $: effects = [
         ...($actor?.temporaryEffects || []),
         ...(token?.effects || []),
     ].sort((a, b) => a.name.localeCompare(b.name));
-
-    console.log($actor?.temporaryEffects);
 </script>
 
 {#if token && $actor && effects.length}
@@ -39,7 +52,9 @@
                 <A5EEffectsPanelEffect
                     {icon}
                     {name}
-                    --icon-size={effects.length > 12 ? "2rem" : "2.5rem"}
+                    --icon-size={effects.length > maxIconsPerColumn
+                        ? "2rem"
+                        : "2.5rem"}
                 />
             {/each}
         </ul>
@@ -50,7 +65,7 @@
     .a5e-effects-panel {
         position: absolute;
         top: 4rem;
-        left: -0.75rem;
+        left: -0.5rem;
         width: fit-content;
         pointer-events: initial;
         transform: translateX(-100%);
