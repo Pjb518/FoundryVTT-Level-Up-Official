@@ -1,213 +1,213 @@
 {
-	"name": "Hungry Ghosts Stance",
-	"type": "maneuver",
-	"img": "icons/magic/unholy/hand-claw-glow-orange.webp",
-	"system": {
-		"actions": {
-			"0SocFpYS6MSgTvqM": {
-				"name": "Activate",
-				"activation": {
-					"type": "bonusAction",
-					"cost": 1
-				},
-				"consumers": {
-					"ssQedqK95YTr8jp9": {
-						"type": "resource",
-						"default": true,
-						"resource": "exertion",
-						"quantity": 3
-					}
-				},
-				"rolls": {},
-				"prompts": {
-					"qzjIpDjH91NWqBra": {
-						"type": "effect",
-						"default": true,
-						"label": "Hungry Ghosts Stance",
-						"effectId": "e9rnJ5EExYIjFM5D"
-					}
-				},
-				"uses": {
-					"value": 0,
-					"max": "",
-					"per": "",
-					"recharge": {
-						"formula": "1d6",
-						"threshold": 6
-					}
-				},
-				"duration": {
-					"unit": "special"
-				}
-			},
-			"5ybRPWe994J77uLE": {
-				"name": "Summon Shadowy Apparation",
-				"activation": {
-					"type": "special"
-				},
-				"consumers": {
-					"kdssNw2aKDaoK7DW": {
-						"type": "actionUses",
-						"default": true,
-						"quantity": 1
-					}
-				},
-				"rolls": {},
-				"prompts": {},
-				"uses": {
-					"value": 0,
-					"max": "@prof",
-					"per": "",
-					"recharge": {
-						"formula": "1d6",
-						"threshold": 6
-					}
-				},
-				"duration": {
-					"unit": "special"
-				},
-				"area": {
-					"shape": "square",
-					"quantity": 1,
-					"width": 1,
-					"placeTemplate": true
-				},
-				"ranges": {
-					"EhDJdb14Qh9xy31z": {
-						"range": "short"
-					}
-				}
-			},
-			"M7f0NFCxuMBQ7Hsh": {
-				"name": "Apparation Attack (Dex)",
-				"activation": {
-					"type": "reaction",
-					"cost": 1
-				},
-				"consumers": {},
-				"rolls": {
-					"woRq9IMVDihEB1XT": {
-						"type": "attack",
-						"default": true,
-						"attackType": "meleeWeaponAttack",
-						"proficient": true,
-						"ability": "dex"
-					},
-					"tEm7SvxRJIEudp0W": {
-						"type": "damage",
-						"default": true,
-						"formula": "@cha.mod"
-					}
-				},
-				"prompts": {},
-				"uses": {
-					"value": 0,
-					"max": "",
-					"per": "",
-					"recharge": {
-						"formula": "1d6",
-						"threshold": 6
-					}
-				}
-			},
-			"lgMis9jptrLsMmJO": {
-				"name": "Apparation Attack (Str)",
-				"activation": {
-					"type": "reaction",
-					"cost": 1
-				},
-				"consumers": {},
-				"rolls": {
-					"woRq9IMVDihEB1XT": {
-						"type": "attack",
-						"default": true,
-						"attackType": "meleeWeaponAttack",
-						"proficient": true,
-						"ability": "str"
-					},
-					"tEm7SvxRJIEudp0W": {
-						"type": "damage",
-						"default": true,
-						"formula": "@cha.mod"
-					}
-				},
-				"prompts": {},
-				"uses": {
-					"value": 0,
-					"max": "",
-					"per": "",
-					"recharge": {
-						"formula": "1d6",
-						"threshold": 6
-					}
-				}
-			}
-		},
-		"description": "<p>You draw up the dead to do your horrible bidding. Choose a number of squares equal to your Charisma modifier within 30 feet. These squares become occupied with shadowy apparitions, which have an AC equal to 10 + your Charisma modifier your Maneuver DC and 10 hit points. Each apparition has its own reaction for the purpose of making opportunity attacks , which it makes using your attack bonus, but cannot help flank. On a hit, the creature takes damage equal to your Charisma modifier and you gain hit points equal to the damage dealt. You can also use your own reaction to direct an apparition to make another opportunity attack if it has already used its own.</p>\n<p>While maintaining this stance, you can forgo your movement to instead move any apparition the same number of squares. This can be split among multiple apparitions, as long as you have the movement available. The apparitions must stay within 30 feet of you or they vanish. This stance ends early if all apparitions are destroyed.</p>",
-		"favorite": false,
-		"secretDescription": "",
-		"source": {
-			"name": "",
-			"link": "",
-			"publisher": ""
-		},
-		"uses": {
-			"value": null,
-			"max": "",
-			"per": null,
-			"recharge": {
-				"formula": "1d6",
-				"threshold": "6"
-			}
-		},
-		"schema": {
-			"version": 0.007,
-			"lastMigration": {
-				"version": {
-					"schema": 0.001,
-					"foundry": "11.307",
-					"system": "0.15.0"
-				}
-			}
-		},
-		"degree": 4,
-		"exertionCost": 3,
-		"isStance": true,
-		"prerequisite": "",
-		"tradition": "eldritchBlackguard"
-	},
-	"effects": [
-		{
-			"icon": "icons/magic/unholy/hand-claw-glow-orange.webp",
-			"origin": "Item.rt6wlk0vfnfnef75",
-			"flags": {
-				"a5e": {
-					"sort": 0,
-					"transferType": "onUse",
-					"duration": {
-						"unit": "hours"
-					}
-				}
-			},
-			"transfer": false,
-			"name": "Hungry Ghosts Stance",
-			"_id": "e9rnJ5EExYIjFM5D",
-			"changes": [],
-			"disabled": false,
-			"duration": {
-				"startTime": null,
-				"seconds": 86400,
-				"combat": null,
-				"rounds": null,
-				"turns": null,
-				"startRound": null,
-				"startTurn": null
-			},
-			"description": "",
-			"statuses": []
-		}
-	],
-	"flags": {},
-	"folder": "7dmqjD5z0RYoiery",
-	"_id": "rt6wlk0vfnfnef75"
+  "name": "Hungry Ghosts Stance",
+  "type": "maneuver",
+  "img": "icons/magic/unholy/hand-claw-glow-orange.webp",
+  "system": {
+    "actions": {
+      "0SocFpYS6MSgTvqM": {
+        "name": "Activate",
+        "activation": {
+          "type": "bonusAction",
+          "cost": 1
+        },
+        "consumers": {
+          "ssQedqK95YTr8jp9": {
+            "type": "resource",
+            "default": true,
+            "resource": "exertion",
+            "quantity": 3
+          }
+        },
+        "rolls": {},
+        "prompts": {
+          "qzjIpDjH91NWqBra": {
+            "type": "effect",
+            "default": true,
+            "label": "Hungry Ghosts Stance",
+            "effectId": "e9rnJ5EExYIjFM5D"
+          }
+        },
+        "uses": {
+          "value": 0,
+          "max": "",
+          "per": "",
+          "recharge": {
+            "formula": "1d6",
+            "threshold": 6
+          }
+        },
+        "duration": {
+          "unit": "special"
+        }
+      },
+      "5ybRPWe994J77uLE": {
+        "name": "Summon Shadowy Apparation",
+        "activation": {
+          "type": "special"
+        },
+        "consumers": {
+          "kdssNw2aKDaoK7DW": {
+            "type": "actionUses",
+            "default": true,
+            "quantity": 1
+          }
+        },
+        "rolls": {},
+        "prompts": {},
+        "uses": {
+          "value": 0,
+          "max": "@prof",
+          "per": "",
+          "recharge": {
+            "formula": "1d6",
+            "threshold": 6
+          }
+        },
+        "duration": {
+          "unit": "special"
+        },
+        "area": {
+          "shape": "square",
+          "quantity": 1,
+          "width": 1,
+          "placeTemplate": true
+        },
+        "ranges": {
+          "EhDJdb14Qh9xy31z": {
+            "range": "short"
+          }
+        }
+      },
+      "M7f0NFCxuMBQ7Hsh": {
+        "name": "Apparation Attack (Dex)",
+        "activation": {
+          "type": "reaction",
+          "cost": 1
+        },
+        "consumers": {},
+        "rolls": {
+          "woRq9IMVDihEB1XT": {
+            "type": "attack",
+            "default": true,
+            "attackType": "meleeWeaponAttack",
+            "proficient": true,
+            "ability": "dex"
+          },
+          "tEm7SvxRJIEudp0W": {
+            "type": "damage",
+            "default": true,
+            "formula": "@cha.mod"
+          }
+        },
+        "prompts": {},
+        "uses": {
+          "value": 0,
+          "max": "",
+          "per": "",
+          "recharge": {
+            "formula": "1d6",
+            "threshold": 6
+          }
+        }
+      },
+      "lgMis9jptrLsMmJO": {
+        "name": "Apparation Attack (Str)",
+        "activation": {
+          "type": "reaction",
+          "cost": 1
+        },
+        "consumers": {},
+        "rolls": {
+          "woRq9IMVDihEB1XT": {
+            "type": "attack",
+            "default": true,
+            "attackType": "meleeWeaponAttack",
+            "proficient": true,
+            "ability": "str"
+          },
+          "tEm7SvxRJIEudp0W": {
+            "type": "damage",
+            "default": true,
+            "formula": "@cha.mod"
+          }
+        },
+        "prompts": {},
+        "uses": {
+          "value": 0,
+          "max": "",
+          "per": "",
+          "recharge": {
+            "formula": "1d6",
+            "threshold": 6
+          }
+        }
+      }
+    },
+    "description": "<p>You draw up the dead to do your horrible bidding. Choose a number of squares equal to your Charisma modifier within 30 feet. These squares become occupied with shadowy apparitions, which have an AC equal to 10 + your Charisma modifier your Maneuver DC and 10 hit points. Each apparition has its own reaction for the purpose of making opportunity attacks , which it makes using your attack bonus, but cannot help flank. On a hit, the creature takes damage equal to your Charisma modifier and you gain hit points equal to the damage dealt. You can also use your own reaction to direct an apparition to make another opportunity attack if it has already used its own.</p>\n<p>While maintaining this stance, you can forgo your movement to instead move any apparition the same number of squares. This can be split among multiple apparitions, as long as you have the movement available. The apparitions must stay within 30 feet of you or they vanish. This stance ends early if all apparitions are destroyed.</p>",
+    "favorite": false,
+    "secretDescription": "",
+    "source": {
+      "name": "",
+      "link": "",
+      "publisher": ""
+    },
+    "uses": {
+      "value": null,
+      "max": "",
+      "per": null,
+      "recharge": {
+        "formula": "1d6",
+        "threshold": "6"
+      }
+    },
+    "schema": {
+      "version": 0.007,
+      "lastMigration": {
+        "version": {
+          "schema": 0.001,
+          "foundry": "11.307",
+          "system": "0.15.0"
+        }
+      }
+    },
+    "degree": 4,
+    "exertionCost": 3,
+    "isStance": true,
+    "prerequisite": "",
+    "tradition": "eldritchBlackguard"
+  },
+  "effects": [
+    {
+      "icon": "icons/magic/unholy/hand-claw-glow-orange.webp",
+      "origin": "Item.rt6wlk0vfnfnef75",
+      "flags": {
+        "a5e": {
+          "sort": 0,
+          "transferType": "onUse",
+          "duration": {
+            "unit": "hours"
+          }
+        }
+      },
+      "transfer": false,
+      "name": "Hungry Ghosts Stance",
+      "_id": "e9rnJ5EExYIjFM5D",
+      "changes": [],
+      "disabled": false,
+      "duration": {
+        "startTime": null,
+        "seconds": null,
+        "combat": null,
+        "rounds": null,
+        "turns": null,
+        "startRound": null,
+        "startTurn": null
+      },
+      "description": "",
+      "statuses": []
+    }
+  ],
+  "flags": {},
+  "folder": "7dmqjD5z0RYoiery",
+  "_id": "rt6wlk0vfnfnef75"
 }
