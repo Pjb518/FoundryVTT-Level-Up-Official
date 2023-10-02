@@ -19,7 +19,6 @@ import HeritageDataModel from '../dataModels/item/HeritageDataModel';
 // Effects
 import constructEffectOptions from '../documents/activeEffect/utils/constructEffectOptions';
 import EffectOption from '../documents/activeEffect/EffectOption';
-import A5EEffectsPanel from '../apps/A5EEffectsPanel';
 
 import registerKeybindings from '../keybindings';
 
@@ -80,7 +79,7 @@ export default function init() {
     activeEffects: {
       EffectOption,
       options: {},
-      effectsPanel: new A5EEffectsPanel()
+      effectsPanel: null
     },
     config: A5E,
     dice: {
