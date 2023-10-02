@@ -2,6 +2,8 @@
     import { getContext, onDestroy } from "svelte";
     import { TJSDocument } from "#runtime/svelte/store/fvtt/document";
 
+    import A5EEffectsPanelEffect from "./A5EEffectsPanelEffect.svelte";
+
     // Get current controlled token
     function getReactiveActor() {
         actor?.destroy();
@@ -33,11 +35,12 @@
 {#if token && $actor && effects.length}
     <article id="a5e-effects-panel" class="a5e-effects-panel">
         <ul class="a5e-effect-list">
-            {#each effects as { name, icon }}
-                <li class="a5e-effect-item">
-                    <img class="a5e-effect-item__icon" src={icon} alt={name} />
-                    <!-- {name} -->
-                </li>
+            {#each effects as { icon, name }}
+                <A5EEffectsPanelEffect
+                    {icon}
+                    {name}
+                    --icon-size={effects.length > 12 ? "2rem" : "2.5rem"}
+                />
             {/each}
         </ul>
     </article>
@@ -47,7 +50,8 @@
     .a5e-effects-panel {
         position: absolute;
         top: 4rem;
-        left: -0.5rem;
+        left: -0.75rem;
+        width: fit-content;
         pointer-events: initial;
         transform: translateX(-100%);
     }
@@ -55,25 +59,12 @@
     .a5e-effect-list {
         display: flex;
         flex-direction: column;
+        flex-wrap: wrap;
         gap: 0.75rem;
+        max-height: calc(100vh - 4rem - 5px);
         margin: 0;
         padding: 0;
         list-style: none;
-    }
-
-    .a5e-effect-item {
-        display: flex;
-        position: relative;
-        border: 1px solid #e9d7a1;
-        border-radius: 50%;
-        cursor: pointer;
-
-        &__icon {
-            height: 2.5rem;
-            width: 2.5rem;
-            border: 1px solid black;
-            border-radius: 50%;
-            background-color: rgba(0, 0, 0, 0.6);
-        }
+        direction: rtl;
     }
 </style>
