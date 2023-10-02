@@ -63,6 +63,7 @@
         height: 2rem;
         object-fit: cover;
         object-position: top;
+        border-radius: 3px;
     }
 
     .save-prompt {
