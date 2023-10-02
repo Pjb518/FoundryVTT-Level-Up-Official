@@ -16,8 +16,10 @@ import CultureDataModel from '../dataModels/item/CultureDataModel';
 import DestinyDataModel from '../dataModels/item/DestinyDataModel';
 import HeritageDataModel from '../dataModels/item/HeritageDataModel';
 
+// Effects
 import constructEffectOptions from '../documents/activeEffect/utils/constructEffectOptions';
 import EffectOption from '../documents/activeEffect/EffectOption';
+import A5EEffectsPanel from '../apps/A5EEffectsPanel';
 
 import registerKeybindings from '../keybindings';
 
@@ -77,7 +79,8 @@ export default function init() {
     },
     activeEffects: {
       EffectOption,
-      options: {}
+      options: {},
+      effectsPanel: new A5EEffectsPanel()
     },
     config: A5E,
     dice: {
