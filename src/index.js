@@ -3,6 +3,7 @@ import './scss/main.scss';
 import '#runtime/tinymce';
 
 import canvasInit from './hooks/canvasInit';
+import canvasReady from './hooks/canvasReady';
 import createActor from './hooks/createActor';
 import createToken from './hooks/createToken';
 import init from './hooks/init';
@@ -22,6 +23,7 @@ Hooks.once('setup', setup);
 Hooks.once('ready', ready);
 
 Hooks.on('canvasInit', canvasInit);
+Hooks.on('canvasReady', canvasReady);
 
 Hooks.on('getActorDirectoryEntryContext', (dialog, html, data) => getDocumentDirectoryContext(dialog, html, data, 'Actor'));
 Hooks.on('getItemDirectoryEntryContext', (dialog, html, data) => getDocumentDirectoryContext(dialog, html, data, 'Item'));
