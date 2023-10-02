@@ -1,10 +1,26 @@
 import { localize } from '#runtime/svelte/helper';
-import { TJSDocument } from '#runtime/svelte/store/fvtt/document';
 import { SvelteApplication } from '#runtime/svelte/application';
 
 import A5EEffectsPanelComponent from './hud/A5EEffectsPanel.svelte';
 
 export default class A5EEffectsPanel extends SvelteApplication {
+  constructor(options = {}) {
+    super(foundry.utils.mergeObject(
+      options,
+      {
+        svelte: {
+          class: A5EEffectsPanelComponent,
+          target: document.body,
+          props: {
+            HUD: null
+          }
+        }
+      }
+    ));
+
+    this.options.svelte.props.HUD = this;
+  }
+
   /**
    * Default Application options
    *
@@ -20,7 +36,8 @@ export default class A5EEffectsPanel extends SvelteApplication {
       svelte: {
         class: A5EEffectsPanelComponent,
         target: document.body
-      }
+      },
+      height: 'auto'
     };
   }
 

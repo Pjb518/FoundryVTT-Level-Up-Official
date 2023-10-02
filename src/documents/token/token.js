@@ -360,18 +360,4 @@ export default class TokenA5e extends Token {
     if (icon) icon.alpha = 0.8;
     return icon;
   }
-
-  /** Refresh vision and the `EffectsPanel` */
-  _onControl(options) {
-    console.log('TokenA5e._onControl');
-    if (game.ready) game.a5e.activeEffects.effectsPanel.refresh();
-    return super._onControl(options);
-  }
-
-  /** Refresh vision and the `EffectsPanel` */
-  _onRelease(options) {
-    console.log('Release TokenA5e._onRelease');
-    game.a5e.activeEffects.effectsPanel.refresh();
-    return super._onRelease(options);
-  }
 }
