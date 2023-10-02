@@ -48,8 +48,9 @@
 {#if token && $actor && effects.length}
     <article id="a5e-effects-panel" class="a5e-effects-panel">
         <ul class="a5e-effect-list">
-            {#each effects as { icon, name }}
+            {#each effects as { description, icon, _id, name } (_id)}
                 <A5EEffectsPanelEffect
+                    {description}
                     {icon}
                     {name}
                     --icon-size={effects.length > maxIconsPerColumn
