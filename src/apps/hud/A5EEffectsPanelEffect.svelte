@@ -55,9 +55,7 @@
     data-tooltip={tooltip}
     data-tooltip-direction="LEFT"
 >
-    <div class="a5e-effect-item__icon-wrapper">
-        <img class="a5e-effect-item__icon" src={icon} alt={name} />
-    </div>
+    <img class="a5e-effect-item__icon" src={icon} alt={name} />
 </li>
 
 <style lang="scss">
@@ -73,22 +71,18 @@
 
     .a5e-effect-item {
         display: flex;
-        position: relative;
+        height: var(--icon-size, 2.5rem);
+        width: var(--icon-size, 2.5rem);
+        border: 1px solid #e9d7a1;
+        border-radius: 50%;
         cursor: pointer;
 
         &__icon {
-            height: var(--icon-size, 2.5rem);
-            width: var(--icon-size, 2.5rem);
+            height: 100%;
+            width: 100%;
             border: 1px solid black;
             border-radius: 50%;
             background-color: rgba(0, 0, 0, 0.6);
-        }
-
-        &__icon-wrapper {
-            height: var(--icon-size, 2.5rem);
-            width: var(--icon-size, 2.5rem);
-            border: 1px solid #e9d7a1;
-            border-radius: 50%;
         }
     }
 </style>
