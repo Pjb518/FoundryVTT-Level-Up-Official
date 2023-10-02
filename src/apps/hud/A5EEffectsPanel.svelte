@@ -7,9 +7,13 @@
 
     const { application } = getContext("#external");
 
+    const HUD = game.a5e.activeEffects.effectsPanel;
+    console.log(HUD.token);
+
     export let elementRoot = void 0;
 
     // Get the right most position of the sidebar
+    console.log("Creating A5EEffectsPanel");
     const sidebarHook = Hooks.on("collapseSidebar", () => {
         sidebarStartPosition = getRightPosition();
     });
@@ -21,6 +25,7 @@
     }
 
     onDestroy(() => {
+        console.log("Destroying A5EEffectsPanel");
         Hooks.off("collapseSidebar", sidebarHook);
     });
 
@@ -31,20 +36,24 @@
     position.stores.top.set(20);
 
     $: position.stores.left.set(sidebarStartPosition - $panelWidth - 5);
+
+    // Get current controlled token
 </script>
 
 <EmptyApplicationShell bind:elementRoot>
     <article id="a5e-effects-panel">
-        <!--  -->
         Effects go here
+        {#each Object.entries(uiRight) as [key, value]}
+            {key} : {value}
+        {/each}
     </article>
 </EmptyApplicationShell>
 
 <style lang="scss">
     #a5e-effects-panel {
         background-color: aliceblue;
-        padding: 0.75rem;
         pointer-events: initial;
+        padding: 0.75rem;
         // display: flex;
         // flex-direction: column;
         // gap: 10px;
