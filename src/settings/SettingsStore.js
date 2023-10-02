@@ -384,6 +384,17 @@ class A5eGameSettings extends TJSGameSettings {
           },
           type: Object
         }
+      },
+      {
+        namespace,
+        key: 'showEffectsPanel',
+        options: {
+          name: 'A5E.settings.showEffectsPanel',
+          scope: scope.client,
+          config: true,
+          default: true,
+          type: Boolean
+        }
       }
     ];
 

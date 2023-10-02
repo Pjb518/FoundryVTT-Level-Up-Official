@@ -67,12 +67,13 @@
         []
     );
 
-    const automatedConditions = settings.getStore("automatedConditions");
-    const automateBloodied = settings.getStore("automateBloodiedApplication");
-
     const automateUnconscious = settings.getStore(
         "automateUnconsciousApplication"
     );
+
+    const automatedConditions = settings.getStore("automatedConditions");
+    const automateBloodied = settings.getStore("automateBloodiedApplication");
+    const showEffectsPanel = settings.getStore("showEffectsPanel");
 
     let radialEffects = settings.getStore("enableRadialEffects");
     let removeEffects = settings.getStore("removeActiveEffectsOnLongRest");
@@ -183,6 +184,25 @@
             />
         {/each}
     </ul>
+</section>
+
+<section class="setting-group">
+    <header class="setting-header">
+        <h3 class="setting-heading">Effects Panel</h3>
+    </header>
+
+    <FormSection hint="A5E.settings.hints.showEffectsPanel" --gap="0.25rem">
+        <Checkbox
+            label="A5E.settings.showEffectsPanel"
+            checked={updates.get("showEffectsPanel") ??
+                $showEffectsPanel ??
+                true}
+            on:updateSelection={({ detail }) => {
+                updates.set("showEffectsPanel", detail);
+                reload = true;
+            }}
+        />
+    </FormSection>
 </section>
 
 <style lang="scss">

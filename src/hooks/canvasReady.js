@@ -11,6 +11,8 @@ function renderEffectsPanel() {
 
 export default function canvasReady() {
   // Render Effects Panel
-  // game.a5e.activeEffects.effectsPanel.render(true);
-  renderEffectsPanel();
+
+  if (game.settings.get('a5e', 'showEffectsPanel') ?? true) {
+    renderEffectsPanel();
+  }
 }
