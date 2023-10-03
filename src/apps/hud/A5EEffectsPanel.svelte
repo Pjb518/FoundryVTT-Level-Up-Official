@@ -24,11 +24,8 @@
     }
 
     function increaseCounter(id) {
-        console.log(id);
         const effect = $actor.effects.get(id);
-        console.log(effect);
         const statuses = effect.statuses;
-        console.log(statuses);
         if (statuses.size === 1) {
             const id = statuses.first();
             const src = effect.icon;
@@ -71,7 +68,7 @@
 
     $: actor = getReactiveActor(token);
 
-    let activeConditions = token?.object?._getActiveConditions();
+    let activeConditions = token?.object?._getActiveConditions() ?? [];
     const subConditions = CONFIG.statusEffects.reduce((acc, c) => {
         if (!c?.statuses?.length) return acc;
 
@@ -92,7 +89,7 @@
 {#if token && $actor && effects.length}
     <article id="a5e-effects-panel" class="a5e-effects-panel">
         <ul class="a5e-effect-list">
-            {#each effects as { description, icon, _id, name, statuses } (_id)}
+            {#each effects as { description, flags, icon, _id, name, statuses } (_id)}
                 <A5EEffectsPanelEffect
                     actor={$actor}
                     {description}
@@ -100,9 +97,7 @@
                     {_id}
                     {name}
                     conditionId={statuses.first()}
-                    linked={subConditions[statuses.first()]?.some((c) =>
-                        activeConditions.includes(c)
-                    )}
+                    linked={flags?.a5e?.source ?? null}
                     --icon-size={effects.length > maxIconsPerColumn
                         ? "2rem"
                         : "2.5rem"}
