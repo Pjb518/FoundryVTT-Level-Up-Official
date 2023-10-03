@@ -2,8 +2,8 @@ import A5eChatCard from '../apps/chat/ChatCard.svelte';
 
 export default function renderChatMessage(message, html) {
   // Add svelte component
-  const target = $(html).find('.message-content article')[0];
-  // const target = html[0];
+  // const target = $(html).find('.chat-message')[0];
+  const target = html[0];
 
   if (!target) return;
 
