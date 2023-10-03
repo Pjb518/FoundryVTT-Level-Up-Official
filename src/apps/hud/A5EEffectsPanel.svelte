@@ -7,10 +7,14 @@
     function removeEffect(id) {
         const effect = $actor.effects.get(id);
         const statuses = effect.statuses;
-        if (
-            statuses.size === 1 &&
-            ["fatigue", "exhaustion", "strife"].includes(statuses.first())
-        ) {
+
+        if (statuses.size === 1) {
+            if (
+                subConditions[statuses.first()]?.some((c) =>
+                    activeConditions.includes(c)
+                )
+            )
+                return;
             const id = statuses.first();
             const src = effect.icon;
             return token?.object?._removeStatusEffect({ id, src });
@@ -25,10 +29,7 @@
         console.log(effect);
         const statuses = effect.statuses;
         console.log(statuses);
-        if (
-            statuses.size === 1 &&
-            ["fatigue", "exhaustion", "strife"].includes(statuses.first())
-        ) {
+        if (statuses.size === 1) {
             const id = statuses.first();
             const src = effect.icon;
             return token?.object?._addStatusEffect({ id, src });
@@ -69,6 +70,17 @@
     });
 
     $: actor = getReactiveActor(token);
+
+    let activeConditions = token?.object?._getActiveConditions();
+    const subConditions = CONFIG.statusEffects.reduce((acc, c) => {
+        if (!c?.statuses?.length) return acc;
+
+        c.statuses.forEach((s) => {
+            acc[s] ??= [];
+            acc[s].push(c.id);
+        });
+        return acc;
+    }, {});
 
     // Get Panel Data
     $: effects = [
