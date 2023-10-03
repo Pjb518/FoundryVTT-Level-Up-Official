@@ -4,9 +4,12 @@
 
     export let actor;
     export let description;
+    export let conditionId;
     export let icon;
     export let _id;
     export let name;
+
+    console.log(conditionId);
 
     // TODO: Find a way to map the conditions to their descriptions that isn't based on
     // name, as this will change with localization.

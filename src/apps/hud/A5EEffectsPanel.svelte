@@ -92,13 +92,17 @@
 {#if token && $actor && effects.length}
     <article id="a5e-effects-panel" class="a5e-effects-panel">
         <ul class="a5e-effect-list">
-            {#each effects as { description, icon, _id, name } (_id)}
+            {#each effects as { description, icon, _id, name, statuses } (_id)}
                 <A5EEffectsPanelEffect
                     actor={$actor}
                     {description}
                     {icon}
                     {_id}
                     {name}
+                    conditionId={statuses.first()}
+                    linked={subConditions[statuses.first()]?.some((c) =>
+                        activeConditions.includes(c)
+                    )}
                     --icon-size={effects.length > maxIconsPerColumn
                         ? "2rem"
                         : "2.5rem"}
