@@ -116,7 +116,7 @@ export default class ActorA5e extends Actor {
         effects.push(effect);
       }
     }
-    return effects;
+    return effects.sort((a, b) => a.name.localeCompare(b.name));
   }
 
   /**

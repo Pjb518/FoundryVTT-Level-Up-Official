@@ -23,14 +23,14 @@ export default async function automateMultiLevelConditions(actor, data, userId) 
         return arr;
       }, []);
 
-    tokens.forEach((token) => {
+    tokens.map(async (token) => {
       const newEffect = foundry.utils.deepClone(effect);
       newEffect.changes = changes;
 
-      token.toggleEffect(effect, { active: false });
+      await token.toggleEffect(effect, { active: false });
 
       if (value === 0) return;
-      token.toggleEffect(newEffect, { active: true });
+      await token.toggleEffect(newEffect, { active: true });
     });
   });
 }
