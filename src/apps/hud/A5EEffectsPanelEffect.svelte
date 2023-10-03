@@ -53,10 +53,13 @@
     `;
 </script>
 
+<!-- svelte-ignore a11y-click-events-have-key-events -->
+<!-- svelte-ignore a11y-no-noninteractive-element-interactions -->
 <li
     class="a5e-effect-item"
     data-tooltip={tooltip}
     data-tooltip-direction="LEFT"
+    on:click={() => dispatch("increaseCounter", _id)}
     on:auxclick={() => dispatch("deleteEffect", _id)}
 >
     <img class="a5e-effect-item__icon" src={icon} alt={name} />

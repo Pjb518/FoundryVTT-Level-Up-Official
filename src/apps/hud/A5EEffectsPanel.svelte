@@ -4,6 +4,37 @@
 
     import A5EEffectsPanelEffect from "./A5EEffectsPanelEffect.svelte";
 
+    function removeEffect(id) {
+        const effect = $actor.effects.get(id);
+        const statuses = effect.statuses;
+        if (
+            statuses.size === 1 &&
+            ["fatigue", "exhaustion", "strife"].includes(statuses.first())
+        ) {
+            const id = statuses.first();
+            const src = effect.icon;
+            return token?.object?._removeStatusEffect({ id, src });
+        }
+
+        effect.delete();
+    }
+
+    function increaseCounter(id) {
+        console.log(id);
+        const effect = $actor.effects.get(id);
+        console.log(effect);
+        const statuses = effect.statuses;
+        console.log(statuses);
+        if (
+            statuses.size === 1 &&
+            ["fatigue", "exhaustion", "strife"].includes(statuses.first())
+        ) {
+            const id = statuses.first();
+            const src = effect.icon;
+            return token?.object?._addStatusEffect({ id, src });
+        }
+    }
+
     // Gets the maximum amount of icons that will fit given the user font size and the default
     // icon size.
     function getMaxEffectIconsPerColumn() {
@@ -50,7 +81,6 @@
     <article id="a5e-effects-panel" class="a5e-effects-panel">
         <ul class="a5e-effect-list">
             {#each effects as { description, icon, _id, name } (_id)}
-                <!-- TODO: Add the logic for removing effects on tokens -->
                 <A5EEffectsPanelEffect
                     actor={$actor}
                     {description}
@@ -60,7 +90,8 @@
                     --icon-size={effects.length > maxIconsPerColumn
                         ? "2rem"
                         : "2.5rem"}
-                    on:deleteEffect
+                    on:deleteEffect={() => removeEffect(_id)}
+                    on:increaseCounter={() => increaseCounter(_id)}
                 />
             {/each}
         </ul>
