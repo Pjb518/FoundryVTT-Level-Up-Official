@@ -10,6 +10,24 @@
     export let _id;
     export let name;
 
+    function getEffectDuration() {}
+
+    function getEffectNotes(actor) {
+        let notes =
+            '<div class="u-flex u-flex-row-reverse u-gap-md u-text-xs">';
+
+        notes += getEffectDuration();
+
+        if (linked) {
+            notes += `<p class="a5e-tag a5e-tag--active a5e-tag--tight">
+                Applied by: ${conditions?.[linked]}
+                </p>`;
+        }
+
+        notes += "</div>";
+        return notes;
+    }
+
     function getEffectDescription(actor) {
         if (description) return description;
 
@@ -51,6 +69,8 @@
         7: "#e00006",
     };
 
+    const { conditions } = CONFIG.A5E;
+
     $: fatigue = actor?.system.attributes.fatigue ?? 0;
     $: strife = actor?.system.attributes.strife ?? 0;
 
@@ -58,6 +78,7 @@
     <div class="a5e-effect-item__details">
     <h3 class="a5e-effect-item__heading">${getEffectName(actor)}</h3>
     ${getEffectDescription(actor)}
+    ${getEffectNotes(actor)}
     </div>
     `;
 </script>
