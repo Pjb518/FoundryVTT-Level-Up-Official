@@ -472,7 +472,8 @@ export default class ActiveEffectA5e extends ActiveEffect {
       }
 
       return effect.changes.filter(predicate).map((change) => {
-        change.priority = change.priority ?? change.mode * 10;
+        const originalPriority = (change.priority ?? 0) * change.mode;
+        change.priority = originalPriority ?? change.mode * 10;
         return { effect, change };
       });
     });
