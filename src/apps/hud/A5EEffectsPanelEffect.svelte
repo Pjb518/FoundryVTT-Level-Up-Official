@@ -1,6 +1,8 @@
 <script>
-    import { createEventDispatcher } from "svelte";
+    import { createEventDispatcher, onDestroy } from "svelte";
     import { localize } from "#runtime/svelte/helper";
+
+    import getFormattedTimeFromSeconds from "../../utils/getFormattedTimeFromSeconds";
 
     export let actor;
     export let description;
@@ -9,41 +11,49 @@
     export let icon;
     export let _id;
     export let name;
-    export let duration;
 
-    function getEffectDuration(duration) {
-        console.log(duration);
+    function getEffectDuration() {
+        const effect = actor?.effects.get(_id);
+        const duration = effect?.duration ?? {};
+
         let notes = '<p class="a5e-tag a5e-tag--active a5e-tag--tight">';
 
-        const { startTime, seconds, remaining, rounds } = duration;
-        if (!seconds && !rounds) {
+        const { startTime, seconds, remaining, rounds, turns } = duration;
+        if (!seconds && !rounds && !turns) {
             notes += "Infinite</p>";
             return notes;
         }
 
-        if (!remaining) return "";
+        let totalDuration = seconds;
+        if (rounds === 1 && turns === 1) {
+            totalDuration = 0;
+        } else if (rounds >= 1) {
+            totalDuration = rounds * 6;
+        }
+        totalDuration ??= 0;
 
-        const totalDuration = seconds ?? rounds * 6;
         const remainingDuration =
-            startTime + totalDuration - game.time.worldTime;
+            startTime + totalDuration - game.time.worldTime ?? 0;
 
-        if (remainingDuration <= 0) {
+        if (remainingDuration <= 0 && !turns) {
             return '<p class="a5e-tag a5e-tag--red a5e-tag--tight">Expired</p>';
         }
 
-        let unit = "seconds";
-
-        notes += `Remaining: ${remainingDuration} ${unit.capitalize()}`;
+        notes += `${seconds ? "Remaining: " : ""} ${getFormattedTimeFromSeconds(
+            remainingDuration,
+            rounds,
+            turns
+        )}`;
         notes += "</p>";
 
         return notes;
     }
 
-    function getEffectNotes(actor, duration) {
+    function getEffectNotes() {
         let notes =
             '<div class="u-flex u-flex-row-reverse u-gap-md u-text-xs">';
 
-        notes += getEffectDuration(duration);
+        notes += duration;
 
         if (linked) {
             notes += `<p class="a5e-tag a5e-tag--active a5e-tag--tight">
@@ -97,6 +107,14 @@
     };
 
     const { conditions } = CONFIG.A5E;
+
+    $: duration = getEffectDuration(actor);
+    const durationHook = Hooks.on(
+        "updateWorldTime",
+        () => (duration = getEffectDuration(actor))
+    );
+
+    onDestroy(() => Hooks.off("updateWorldTime", durationHook));
 
     $: fatigue = actor?.system.attributes.fatigue ?? 0;
     $: strife = actor?.system.attributes.strife ?? 0;
