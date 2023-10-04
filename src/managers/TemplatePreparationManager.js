@@ -38,13 +38,16 @@ export default class TemplatePreparationManager {
 
   async placeActionTemplates() {
     const { area } = this.#action;
-    const quantity = area.quantity ?? 1;
+
+    let scaledArea = foundry.utils.deepClone(area);
+    scaledArea = this.#applyTemplateScaling(scaledArea);
+    const quantity = scaledArea.quantity ?? 1;
 
     await this.#actor?.sheet?.minimize();
 
     try {
       for (let i = 0; i < quantity; i += 1) {
-        const templateDocument = this.#createTemplateDocument(area);
+        const templateDocument = this.#createTemplateDocument(scaledArea);
 
         const template = new ItemMeasuredTemplate(templateDocument);
         if (!template) return;
@@ -162,12 +165,7 @@ export default class TemplatePreparationManager {
     const { shape } = area;
     const templateConfigFunction = this.TEMPLATE_FUNCTION_MAP[shape];
 
-    // Get scaled data
-    // eslint-disable-next-line no-param-reassign
-    let scaledArea = foundry.utils.deepClone(area);
-    scaledArea = this.#applyTemplateScaling(scaledArea);
-
-    const templateData = templateConfigFunction.apply(this, [scaledArea]);
+    const templateData = templateConfigFunction.apply(this, [area]);
     if (!templateData) return null;
 
     const TemplateDocument = CONFIG.MeasuredTemplate.documentClass;
@@ -283,7 +281,10 @@ export default class TemplatePreparationManager {
     const casterLevel = actorData.details.level ?? actorData.attributes.casterLevel;
     if (casterLevel < 5) return area;
 
-    const properties = TemplatePreparationManager.getShapeProperties(area.shape);
+    const properties = [
+      'quantity',
+      ...TemplatePreparationManager.getShapeProperties(area.shape)
+    ];
     let multiplier = 0;
 
     if (casterLevel >= 17) multiplier = 3;
@@ -348,7 +349,10 @@ export default class TemplatePreparationManager {
     const { shape, scaling } = area;
     if (!delta || foundry.utils.isEmpty(scaling)) return area;
 
-    const properties = TemplatePreparationManager.getShapeProperties(shape);
+    const properties = [
+      'quantity',
+      ...TemplatePreparationManager.getShapeProperties(shape)
+    ];
     const step = area.scaling?.step || 1;
     const multiplier = Math.floor(delta / step);
 

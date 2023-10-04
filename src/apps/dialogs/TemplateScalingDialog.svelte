@@ -20,7 +20,10 @@
     $: area = action.area ?? {};
     $: scalingMode = area?.scaling?.mode ?? null;
 
-    $: properties = TemplatePreparationManager.getShapeProperties(area?.shape);
+    $: properties = [
+        "quantity",
+        ...TemplatePreparationManager.getShapeProperties(area?.shape),
+    ];
 </script>
 
 <form>

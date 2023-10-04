@@ -63,7 +63,7 @@
         });
     }
 
-    $: properties = getShapeProperties(action.area?.shape);
+    $: properties = [...getShapeProperties(action.area?.shape)];
 </script>
 
 <section class="action-config__section">
@@ -196,7 +196,7 @@
                         >
                             <i
                                 class="fa-solid fa-arrow-up-right-dots"
-                                data-tooltip="A5E.ConfigureTargetScaling"
+                                data-tooltip="A5E.ConfigureAreaScaling"
                                 data-tooltip-direction="UP"
                             />
                         </button>
