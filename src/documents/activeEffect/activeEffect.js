@@ -79,6 +79,7 @@ export default class ActiveEffectA5e extends ActiveEffect {
 
     // Determine types
     const current = getCorrectedTypeValueFromKey(document, change.key) ?? null;
+    change.value = change.value.replace('@original', current);
     const targetType = foundry.utils.getType(current);
     const delta = castType(
       this.#convertToDeterministicBonus(document, change),
@@ -209,8 +210,8 @@ export default class ActiveEffectA5e extends ActiveEffect {
       return current;
     }
 
-    let positiveValue = `${obj.positiveValue}`.replaceAll('@original', current) || '0';
-    let negativeValue = `${obj.negativeValue}`.replaceAll('@original', current) || '0';
+    let positiveValue = `${obj.positiveValue}`;
+    let negativeValue = `${obj.negativeValue}`;
 
     const compareValue = getDeterministicBonus(obj.comparisonValue ?? '0', document.getRollData());
     const operator = obj.comparisonOperator ?? '==';
