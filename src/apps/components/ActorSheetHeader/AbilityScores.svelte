@@ -7,8 +7,8 @@
 </script>
 
 <ul class="ability-scores">
-    {#each Object.entries($actor.system.abilities) as [abilityLabel, ability]}
-        <AbilityScore {ability} {abilityLabel} />
+    {#each Object.entries($actor.system.abilities) as [abilityLabel, ability], idx}
+        <AbilityScore {ability} {abilityLabel} {idx} />
     {/each}
 </ul>
 

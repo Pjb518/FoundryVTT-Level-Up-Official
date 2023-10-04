@@ -8,6 +8,7 @@
 
     export let ability;
     export let abilityLabel;
+    export let idx;
 
     const actor = getContext("actor");
 
@@ -25,6 +26,7 @@
             name="system.abilities.{abilityLabel}.value"
             type="number"
             value={ability.value}
+            tabindex={idx + 1}
             on:change={({ target }) =>
                 updateDocumentDataFromField(
                     $actor,
