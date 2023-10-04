@@ -24,9 +24,11 @@ export default class TemplatePreparationManager {
       cone: this.#getConeTemplateData,
       cube: this.#getCubeTemplateData,
       cylinder: this.#getCircleTemplateData,
+      emanation: this.#getEmanationTemplateData,
       line: this.#getLineTemplateData,
       sphere: this.#getCircleTemplateData,
-      square: this.#getCubeTemplateData
+      square: this.#getCubeTemplateData,
+      wall: this.#getLineTemplateData
     };
   }
 
@@ -68,6 +70,7 @@ export default class TemplatePreparationManager {
       }
     } catch (err) {
       // Empty Block
+      // console.error(err);
     } finally {
       await this.#actor?.sheet?.maximize();
     }
@@ -90,9 +93,10 @@ export default class TemplatePreparationManager {
     // Validate separately
     if (area.shape === 'cone') return this.#validateCone(area);
     if (['cube', 'square'].includes(area.shape)) return this.#validateQuadrilateral(area);
-    if (['circle', 'sphere'].includes(area.shape)) return this.#validateRadialObject(area);
+    if (['circle', 'emanation', 'sphere'].includes(area.shape)) return this.#validateRadialObject(area);
     if (area.shape === 'cylinder') return this.#validateCylinder(area);
     if (area.shape === 'line') return this.#validateLine(area);
+    if (area.shape === 'wall') return this.#validateWall(area);
     return false;
   }
 
@@ -140,6 +144,17 @@ export default class TemplatePreparationManager {
     return true;
   }
 
+  #validateWall(area) {
+    const length = parseInt(area?.length, 10);
+    const width = parseInt(area?.width, 10);
+    const height = parseInt(area?.height, 10);
+
+    if (!width || !length || !height) return false;
+    if (width <= 0 || length <= 0 || height <= 0) return false;
+
+    return true;
+  }
+
   // --------------------------------------------
   // Internal Functions - Template Creations
   // --------------------------------------------
@@ -152,7 +167,7 @@ export default class TemplatePreparationManager {
     let scaledArea = foundry.utils.deepClone(area);
     scaledArea = this.#applyTemplateScaling(scaledArea);
 
-    const templateData = templateConfigFunction(scaledArea);
+    const templateData = templateConfigFunction.apply(this, [scaledArea]);
     if (!templateData) return null;
 
     const TemplateDocument = CONFIG.MeasuredTemplate.documentClass;
@@ -198,6 +213,34 @@ export default class TemplatePreparationManager {
       t: 'rect',
       user: game.user.id,
       width: size,
+      x: 0,
+      y: 0
+    };
+  }
+
+  #getEmanationTemplateData(area) {
+    let radius = parseInt(area.radius, 10);
+    const creatureSize = this.#actor.system.traits.size ?? 'med';
+    const token = this.#actor.getActiveTokens()?.[0];
+    let newSizeMod;
+
+    if (token) {
+      const tokenWidth = token.document.width;
+      const tokenHeight = token.document.height;
+      const tokenSize = Math.max(tokenWidth, tokenHeight);
+      newSizeMod = tokenSize / 2;
+      radius += (newSizeMod * 5);
+    } else if (creatureSize !== 'tiny') {
+      newSizeMod = CONFIG.A5E.tokenDimensions[creatureSize] / 2;
+      radius += (newSizeMod * 5);
+    }
+
+    return {
+      direction: 0,
+      distance: radius,
+      fillColor: game.user.color,
+      t: 'circle',
+      user: game.user.id,
       x: 0,
       y: 0
     };
@@ -330,6 +373,7 @@ export default class TemplatePreparationManager {
   static getShapeProperties(shape) {
     switch (shape) {
       case 'circle':
+      case 'emanation':
       case 'sphere':
         return ['radius'];
       case 'cone':
@@ -341,6 +385,8 @@ export default class TemplatePreparationManager {
         return ['radius', 'height'];
       case 'line':
         return ['length', 'width'];
+      case 'wall':
+        return ['length', 'height', 'width'];
       default:
         return [];
     }

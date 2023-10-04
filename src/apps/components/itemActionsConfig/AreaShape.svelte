@@ -10,6 +10,17 @@
     export let name;
 
     const A5E = CONFIG.A5E;
+
+    function removeArea() {
+        $item.update({
+            [`system.actions.${actionId}.area`]: {
+                "-=width": null,
+                "-=radius": null,
+                "-=height": null,
+                "-=length": null,
+            },
+        });
+    }
 </script>
 
 <input
@@ -19,13 +30,16 @@
     value={key}
     type="radio"
     checked={action?.area?.shape === key}
-    on:click={({ target }) =>
+    on:click={({ target }) => {
+        removeArea();
+
         updateAssociatedValues(
             $item,
             `system.actions.${actionId}.area.shape`,
             target.value,
             `system.actions.${actionId}.area.quantity`
-        )}
+        );
+    }}
 />
 
 <label class="area-shape__label" for="area-{actionId}-{key}">
