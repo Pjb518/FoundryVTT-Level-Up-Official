@@ -18,7 +18,7 @@
 
         let notes = '<p class="a5e-tag a5e-tag--active a5e-tag--tight">';
 
-        const { startTime, seconds, remaining, rounds, turns } = duration;
+        const { startTime, seconds, rounds, turns } = duration;
         if (!seconds && !rounds && !turns) {
             notes += "Infinite</p>";
             return notes;
@@ -54,6 +54,16 @@
             '<div class="u-flex u-flex-row-reverse u-gap-md u-text-xs">';
 
         notes += duration;
+
+        if (conditionId) {
+            notes += `<p class="a5e-tag a5e-tag--active a5e-tag--tight">
+                Condition
+                </p>`;
+        } else {
+            notes += `<p class="a5e-tag a5e-tag--active a5e-tag--tight">
+                Active Effect
+                </p>`;
+        }
 
         if (linked) {
             notes += `<p class="a5e-tag a5e-tag--active a5e-tag--tight">
