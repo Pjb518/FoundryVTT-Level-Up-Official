@@ -90,9 +90,10 @@ export default class TemplatePreparationManager {
     // Validate separately
     if (area.shape === 'cone') return this.#validateCone(area);
     if (['cube', 'square'].includes(area.shape)) return this.#validateQuadrilateral(area);
-    if (['circle', 'sphere'].includes(area.shape)) return this.#validateRadialObject(area);
+    if (['circle', 'emanation', 'sphere'].includes(area.shape)) return this.#validateRadialObject(area);
     if (area.shape === 'cylinder') return this.#validateCylinder(area);
     if (area.shape === 'line') return this.#validateLine(area);
+    if (area.shape === 'wall') return this.#validateWall(area);
     return false;
   }
 
@@ -136,6 +137,17 @@ export default class TemplatePreparationManager {
 
     if (!width || !length) return false;
     if (width <= 0 || length <= 0) return false;
+
+    return true;
+  }
+
+  #validateWall(area) {
+    const length = parseInt(area?.length, 10);
+    const width = parseInt(area?.width, 10);
+    const height = parseInt(area?.height, 10);
+
+    if (!width || !length || !height) return false;
+    if (width <= 0 || length <= 0 || height <= 0) return false;
 
     return true;
   }
