@@ -271,11 +271,13 @@ export default class TokenA5e extends Token {
     let max = 20;
     if (tokenSize === 'tiny') max = 10;
     else if (tokenSize === 'sm') max = 14;
-    else if (tokenSize === 'med') max = 16;
+    else if (tokenSize === 'med') max = 14;
+
+    let ringCounter = 0;
 
     icons.forEach((icon, idx) => {
       if (!(icon instanceof PIXI.Sprite)) return;
-      // if (idx >= max) return;
+      if (idx !== 0 && idx % max === 0) ringCounter += 1;
 
       icon.anchor.set(0.5);
 
@@ -290,7 +292,9 @@ export default class TokenA5e extends Token {
       // Update icon position
       const ratio = idx / max;
       const tokenTileFactor = this?.document?.width ?? 1;
-      const sizeOffset = sizeScales.sizeOffset[tokenSize] ?? 1.0;
+      // TODO: Change to use token size
+      const ringOffset = 0; // 0.625 * ringCounter;
+      const sizeOffset = (sizeScales.sizeOffset[tokenSize] ?? 1.0) + ringOffset;
       const offset = sizeOffset * tokenTileFactor * gridSize;
       const rotation = (0.5 + (1 / max) * Math.PI) * Math.PI;
       const theta = (ratio + 0) * 2 * Math.PI + rotation;
