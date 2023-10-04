@@ -9,14 +9,41 @@
     export let icon;
     export let _id;
     export let name;
+    export let duration;
 
-    function getEffectDuration() {}
+    function getEffectDuration(duration) {
+        console.log(duration);
+        let notes = '<p class="a5e-tag a5e-tag--active a5e-tag--tight">';
 
-    function getEffectNotes(actor) {
+        const { startTime, seconds, remaining, rounds } = duration;
+        if (!seconds && !rounds) {
+            notes += "Infinite</p>";
+            return notes;
+        }
+
+        if (!remaining) return "";
+
+        const totalDuration = seconds ?? rounds * 6;
+        const remainingDuration =
+            startTime + totalDuration - game.time.worldTime;
+
+        if (remainingDuration <= 0) {
+            return '<p class="a5e-tag a5e-tag--red a5e-tag--tight">Expired</p>';
+        }
+
+        let unit = "seconds";
+
+        notes += `Remaining: ${remainingDuration} ${unit.capitalize()}`;
+        notes += "</p>";
+
+        return notes;
+    }
+
+    function getEffectNotes(actor, duration) {
         let notes =
             '<div class="u-flex u-flex-row-reverse u-gap-md u-text-xs">';
 
-        notes += getEffectDuration();
+        notes += getEffectDuration(duration);
 
         if (linked) {
             notes += `<p class="a5e-tag a5e-tag--active a5e-tag--tight">
@@ -78,7 +105,7 @@
     <div class="a5e-effect-item__details">
     <h3 class="a5e-effect-item__heading">${getEffectName(actor)}</h3>
     ${getEffectDescription(actor)}
-    ${getEffectNotes(actor)}
+    ${getEffectNotes(actor, duration)}
     </div>
     `;
 </script>

@@ -26,7 +26,10 @@
     function increaseCounter(id) {
         const effect = $actor.effects.get(id);
         const statuses = effect.statuses;
-        if (statuses.size === 1) {
+        if (
+            statuses.size === 1 &&
+            ["fatigue, strife"].includes(statuses.first())
+        ) {
             const id = statuses.first();
             const src = effect.icon;
             return token?.object?._addStatusEffect({ id, src });
@@ -89,10 +92,11 @@
 {#if token && $actor && effects.length}
     <article id="a5e-effects-panel" class="a5e-effects-panel">
         <ul class="a5e-effect-list">
-            {#each effects as { description, flags, icon, _id, name, statuses } (_id)}
+            {#each effects as { description, duration, flags, icon, _id, name, statuses } (_id)}
                 <A5EEffectsPanelEffect
                     actor={$actor}
                     {description}
+                    {duration}
                     {icon}
                     {_id}
                     {name}
