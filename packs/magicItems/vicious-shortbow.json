@@ -1,132 +1,134 @@
 {
-	"name": "Vicious Shortbow",
-	"type": "object",
-	"img": "icons/weapons/bows/shortbow-leather.webp",
-	"effects": [],
-	"flags": {},
-	"system": {
-		"ac": {
-			"baseFormula": "",
-			"formula": "",
-			"maxDex": 0,
-			"minStr": 0,
-			"mode": 1,
-			"requiresNoShield": false,
-			"requiresUnarmored": false
-		},
-		"actions": {
-			"F8ZKyFpgFkXYUXli": {
-				"name": "Vicious Shortbow",
-				"activation": {
-					"cost": "",
-					"type": "",
-					"reactionTrigger": ""
-				},
-				"duration": {
-					"unit": "",
-					"value": ""
-				},
-				"ranges": {
-					"Q7PjHv0F3a5SMEY8": {
-						"range": "80 ft"
-					},
-					"aaV9WGGmUbem9spF": {
-						"range": "320 ft"
-					}
-				},
-				"area": {
-					"shape": "",
-					"size": "",
-					"placeTemplate": false
-				},
-				"target": {
-					"quantity": 1,
-					"type": "creatureObject"
-				},
-				"rolls": {
-					"8KTTGvc61YMgfgyS": {
-						"bonus": "",
-						"critThreshold": "20",
-						"type": "attack",
-						"attackType": "rangedWeaponAttack",
-						"ability": "default"
-					},
-					"d2HjFu4doNiLjajE": {
-						"canCrit": true,
-						"damageType": "piercing",
-						"formula": "1d6 + @dex.mod",
-						"name": "Shortbow",
-						"type": "damage"
-					},
-					"NHTQL6gtuwRBYPBc": {
-						"canCrit": false,
-						"damageType": "piercing",
-						"formula": "2d6",
-						"name": "Vicious Damage",
-						"type": "damage"
-					}
-				},
-				"consumers": {
-					"OxKflA1LDFZwCSwU": {
-						"itemid": "",
-						"quantity": 1,
-						"type": "ammunition"
-					}
-				}
-			}
-		},
-		"description": "<p><em>Range (80/320), Two-Handed</em></p><p>When you roll a natural 20 on an attack roll using this weapon it deals an extra 2d6 damage of the weapon's type (this extra damage does not double).</p>",
-		"favorite": false,
-		"secretDescription": "",
-		"source": "",
-		"uses": {
-			"value": null,
-			"max": "",
-			"per": null,
-			"recharge": {
-				"formula": "1d6",
-				"threshold": 6
-			}
-		},
-		"schema": {
-			"version": 0.007,
-			"lastMigration": {
-				"version": {
-					"schema": 0.006,
-					"foundry": "11.307",
-					"system": "0.15.0"
-				}
-			}
-		},
-		"ammunitionProperties": [],
-		"armorCategory": "",
-		"armorProperties": [],
-		"attuned": false,
-		"bulky": false,
-		"craftingComponents": "Fiend’s heart",
-		"containerId": "",
-		"damagedState": 0,
-		"equippedState": 2,
-		"items": {},
-		"materialProperties": [],
-		"objectType": "weapon",
-		"plotItem": false,
-		"price": "25 gp",
-		"proficient": true,
-		"quantity": 1,
-		"rarity": "uncommon",
-		"requiresAttunement": false,
-		"shieldCategory": "",
-		"shieldProperties": [],
-		"unidentified": false,
-		"unidentifiedDescription": "",
-		"unidentifiedName": "",
-		"weaponProperties": [
-			"range",
-			"twoHanded"
-		],
-		"weight": 2
-	},
-	"folder": "OJbZxalVVb0AFeMg",
-	"_id": "xrztqe6pm1ojpo88"
+  "name": "Vicious Shortbow",
+  "type": "object",
+  "img": "icons/weapons/bows/shortbow-leather.webp",
+  "effects": [],
+  "flags": {},
+  "system": {
+    "ac": {
+      "baseFormula": "",
+      "formula": "",
+      "maxDex": 0,
+      "minStr": 0,
+      "mode": 1,
+      "requiresNoShield": false,
+      "requiresUnarmored": false
+    },
+    "actions": {
+      "F8ZKyFpgFkXYUXli": {
+        "name": "Vicious Shortbow",
+        "activation": {
+          "cost": "",
+          "type": "",
+          "reactionTrigger": ""
+        },
+        "duration": {
+          "unit": "",
+          "value": ""
+        },
+        "ranges": {
+          "Q7PjHv0F3a5SMEY8": {
+            "range": 80,
+            "unit": "feet"
+          },
+          "aaV9WGGmUbem9spF": {
+            "range": 320,
+            "unit": "feet"
+          }
+        },
+        "area": {
+          "shape": "",
+          "size": "",
+          "placeTemplate": false
+        },
+        "target": {
+          "quantity": 1,
+          "type": "creatureObject"
+        },
+        "rolls": {
+          "8KTTGvc61YMgfgyS": {
+            "bonus": "",
+            "critThreshold": "20",
+            "type": "attack",
+            "attackType": "rangedWeaponAttack",
+            "ability": "default"
+          },
+          "d2HjFu4doNiLjajE": {
+            "canCrit": true,
+            "damageType": "piercing",
+            "formula": "1d6 + @dex.mod",
+            "name": "Shortbow",
+            "type": "damage"
+          },
+          "NHTQL6gtuwRBYPBc": {
+            "canCrit": false,
+            "damageType": "piercing",
+            "formula": "2d6",
+            "name": "Vicious Damage",
+            "type": "damage"
+          }
+        },
+        "consumers": {
+          "OxKflA1LDFZwCSwU": {
+            "itemid": "",
+            "quantity": 1,
+            "type": "ammunition"
+          }
+        }
+      }
+    },
+    "description": "<p><em>Range (80/320), Two-Handed</em></p><p>When you roll a natural 20 on an attack roll using this weapon it deals an extra 2d6 damage of the weapon's type (this extra damage does not double).</p>",
+    "favorite": false,
+    "secretDescription": "",
+    "source": "",
+    "uses": {
+      "value": null,
+      "max": "",
+      "per": null,
+      "recharge": {
+        "formula": "1d6",
+        "threshold": 6
+      }
+    },
+    "schema": {
+      "version": 0.007,
+      "lastMigration": {
+        "version": {
+          "schema": 0.006,
+          "foundry": "11.307",
+          "system": "0.15.0"
+        }
+      }
+    },
+    "ammunitionProperties": [],
+    "armorCategory": "",
+    "armorProperties": [],
+    "attuned": false,
+    "bulky": false,
+    "craftingComponents": "Fiend’s heart",
+    "containerId": "",
+    "damagedState": 0,
+    "equippedState": 2,
+    "items": {},
+    "materialProperties": [],
+    "objectType": "weapon",
+    "plotItem": false,
+    "price": "25 gp",
+    "proficient": true,
+    "quantity": 1,
+    "rarity": "uncommon",
+    "requiresAttunement": false,
+    "shieldCategory": "",
+    "shieldProperties": [],
+    "unidentified": false,
+    "unidentifiedDescription": "",
+    "unidentifiedName": "",
+    "weaponProperties": [
+      "range",
+      "twoHanded"
+    ],
+    "weight": 2
+  },
+  "folder": "OJbZxalVVb0AFeMg",
+  "_id": "xrztqe6pm1ojpo88"
 }

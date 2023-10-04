@@ -1,133 +1,134 @@
 {
-	"name": "Vicious Dagger, Throwing",
-	"type": "object",
-	"img": "icons/weapons/thrown/daggers-kunai-purple.webp",
-	"effects": [],
-	"flags": {},
-	"system": {
-		"ac": {
-			"baseFormula": "",
-			"formula": "",
-			"maxDex": 0,
-			"minStr": 0,
-			"mode": 1,
-			"requiresNoShield": false,
-			"requiresUnarmored": false
-		},
-		"actions": {
-			"WXv1qR89Cpeov181": {
-				"name": "Vicious Dagger, Throwing",
-				"activation": {
-					"cost": "",
-					"type": "",
-					"reactionTrigger": ""
-				},
-				"duration": {
-					"unit": "",
-					"value": ""
-				},
-				"ranges": {
-					"0sTRz0RgS5SyzNW5": {
-						"range": "short"
-					},
-					"Vi9QVVoegZwZqfpK": {
-						"range": "80 ft"
-					}
-				},
-				"area": {
-					"shape": "",
-					"size": "",
-					"placeTemplate": false
-				},
-				"target": {
-					"quantity": 1,
-					"type": "creatureObject"
-				},
-				"rolls": {
-					"f8JFK8CamxgBFlbR": {
-						"bonus": "",
-						"critThreshold": "20",
-						"type": "attack",
-						"attackType": "rangedWeaponAttack",
-						"ability": "default"
-					},
-					"nIoiWJ8wQFRr2Cy8": {
-						"canCrit": true,
-						"damageType": "piercing",
-						"formula": "1d4 + @finesse.mod",
-						"name": "Throwing Dagger",
-						"type": "damage"
-					},
-					"vSxE5WWEyqvx6Y7h": {
-						"canCrit": false,
-						"damageType": "piercing",
-						"formula": "2d6",
-						"name": "Vicious Damage",
-						"type": "damage"
-					}
-				},
-				"consumers": {
-					"hx6AWSmFId9MsIoa": {
-						"itemid": "",
-						"quantity": 1,
-						"type": "ammunition"
-					}
-				}
-			}
-		},
-		"description": "<p><em>Dual-Wielding, Finesse, Thrown (30/80)</em></p><p>When you roll a natural 20 on an attack roll using this weapon it deals an extra 2d6 damage of the weapon's type (this extra damage does not double).</p>",
-		"favorite": false,
-		"secretDescription": "",
-		"source": "",
-		"uses": {
-			"value": null,
-			"max": "",
-			"per": null,
-			"recharge": {
-				"formula": "1d6",
-				"threshold": 6
-			}
-		},
-		"schema": {
-			"version": 0.007,
-			"lastMigration": {
-				"version": {
-					"schema": 0.006,
-					"foundry": "11.307",
-					"system": "0.15.0"
-				}
-			}
-		},
-		"ammunitionProperties": [],
-		"armorCategory": "",
-		"armorProperties": [],
-		"attuned": false,
-		"bulky": false,
-		"craftingComponents": "Fiend’s heart",
-		"containerId": "",
-		"damagedState": 0,
-		"equippedState": 0,
-		"items": {},
-		"materialProperties": [],
-		"objectType": "weapon",
-		"plotItem": false,
-		"price": "3 gp",
-		"proficient": true,
-		"quantity": 1,
-		"rarity": "uncommon",
-		"requiresAttunement": false,
-		"shieldCategory": "",
-		"shieldProperties": [],
-		"unidentified": false,
-		"unidentifiedDescription": "",
-		"unidentifiedName": "",
-		"weaponProperties": [
-			"dualWielding",
-			"finesse",
-			"thrown"
-		],
-		"weight": 0
-	},
-	"folder": "OJbZxalVVb0AFeMg",
-	"_id": "3dmokoiw5ofk2yv9"
+  "name": "Vicious Dagger, Throwing",
+  "type": "object",
+  "img": "icons/weapons/thrown/daggers-kunai-purple.webp",
+  "effects": [],
+  "flags": {},
+  "system": {
+    "ac": {
+      "baseFormula": "",
+      "formula": "",
+      "maxDex": 0,
+      "minStr": 0,
+      "mode": 1,
+      "requiresNoShield": false,
+      "requiresUnarmored": false
+    },
+    "actions": {
+      "WXv1qR89Cpeov181": {
+        "name": "Vicious Dagger, Throwing",
+        "activation": {
+          "cost": "",
+          "type": "",
+          "reactionTrigger": ""
+        },
+        "duration": {
+          "unit": "",
+          "value": ""
+        },
+        "ranges": {
+          "0sTRz0RgS5SyzNW5": {
+            "range": "short"
+          },
+          "Vi9QVVoegZwZqfpK": {
+            "range": 80,
+            "unit": "feet"
+          }
+        },
+        "area": {
+          "shape": "",
+          "size": "",
+          "placeTemplate": false
+        },
+        "target": {
+          "quantity": 1,
+          "type": "creatureObject"
+        },
+        "rolls": {
+          "f8JFK8CamxgBFlbR": {
+            "bonus": "",
+            "critThreshold": "20",
+            "type": "attack",
+            "attackType": "rangedWeaponAttack",
+            "ability": "default"
+          },
+          "nIoiWJ8wQFRr2Cy8": {
+            "canCrit": true,
+            "damageType": "piercing",
+            "formula": "1d4 + @finesse.mod",
+            "name": "Throwing Dagger",
+            "type": "damage"
+          },
+          "vSxE5WWEyqvx6Y7h": {
+            "canCrit": false,
+            "damageType": "piercing",
+            "formula": "2d6",
+            "name": "Vicious Damage",
+            "type": "damage"
+          }
+        },
+        "consumers": {
+          "hx6AWSmFId9MsIoa": {
+            "itemid": "",
+            "quantity": 1,
+            "type": "ammunition"
+          }
+        }
+      }
+    },
+    "description": "<p><em>Dual-Wielding, Finesse, Thrown (30/80)</em></p><p>When you roll a natural 20 on an attack roll using this weapon it deals an extra 2d6 damage of the weapon's type (this extra damage does not double).</p>",
+    "favorite": false,
+    "secretDescription": "",
+    "source": "",
+    "uses": {
+      "value": null,
+      "max": "",
+      "per": null,
+      "recharge": {
+        "formula": "1d6",
+        "threshold": 6
+      }
+    },
+    "schema": {
+      "version": 0.007,
+      "lastMigration": {
+        "version": {
+          "schema": 0.006,
+          "foundry": "11.307",
+          "system": "0.15.0"
+        }
+      }
+    },
+    "ammunitionProperties": [],
+    "armorCategory": "",
+    "armorProperties": [],
+    "attuned": false,
+    "bulky": false,
+    "craftingComponents": "Fiend’s heart",
+    "containerId": "",
+    "damagedState": 0,
+    "equippedState": 0,
+    "items": {},
+    "materialProperties": [],
+    "objectType": "weapon",
+    "plotItem": false,
+    "price": "3 gp",
+    "proficient": true,
+    "quantity": 1,
+    "rarity": "uncommon",
+    "requiresAttunement": false,
+    "shieldCategory": "",
+    "shieldProperties": [],
+    "unidentified": false,
+    "unidentifiedDescription": "",
+    "unidentifiedName": "",
+    "weaponProperties": [
+      "dualWielding",
+      "finesse",
+      "thrown"
+    ],
+    "weight": 0
+  },
+  "folder": "OJbZxalVVb0AFeMg",
+  "_id": "3dmokoiw5ofk2yv9"
 }
