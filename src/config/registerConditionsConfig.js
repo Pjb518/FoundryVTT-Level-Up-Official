@@ -613,7 +613,7 @@ export default function registerConditionsConfig() {
 
     // Update Icon
     condition.icon = customIcons[condition.id]
-      || A5E.conditionIcons[condition.id] || condition.icon;
+      || A5E.conditionIconsDefault[condition.id] || condition.icon;
 
     // Add changes based on settings
     if (!enabledConditions.has(condition.id) && condition.changes.length) {

@@ -13,7 +13,7 @@
         return conditions[conditionKey] ?? conditionKey;
     }
 
-    const { conditions, conditionIcons } = CONFIG.A5E;
+    const { conditions, conditionIconsDefault } = CONFIG.A5E;
 
     const dispatch = createEventDispatcher();
     const settings = getContext("settings");
@@ -28,12 +28,16 @@
     on:click={() =>
         dispatch("updateConditionIcon", [
             conditionKey,
-            icon || $iconStore[conditionKey] || conditionIcons[conditionKey],
+            icon ||
+                $iconStore[conditionKey] ||
+                conditionIconsDefault[conditionKey],
         ])}
 >
     <img
         class="condition-icon"
-        src={icon || $iconStore[conditionKey] || conditionIcons[conditionKey]}
+        src={icon ||
+            $iconStore[conditionKey] ||
+            conditionIconsDefault[conditionKey]}
         alt={getConditionName()}
     />
 

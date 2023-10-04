@@ -11,14 +11,17 @@
     export let reload;
 
     function getCustomIcons() {
-        return Object.entries(conditionIcons).reduce((acc, [key, path]) => {
-            acc[key] =
-                updates.get("customConditionIcons")?.[key] ??
-                $storedCustomIcons?.[key] ??
-                path ??
-                "";
-            return acc;
-        }, {});
+        return Object.entries(conditionIconsDefault).reduce(
+            (acc, [key, path]) => {
+                acc[key] =
+                    updates.get("customConditionIcons")?.[key] ??
+                    $storedCustomIcons?.[key] ??
+                    path ??
+                    "";
+                return acc;
+            },
+            {}
+        );
     }
 
     async function resetIcons() {
@@ -28,8 +31,8 @@
 
         if (!dialogData || !dialogData.confirmReset) return;
 
-        Object.keys(conditionIcons).forEach((conditionKey) => {
-            const defaultIcon = conditionIcons[conditionKey];
+        Object.keys(conditionIconsDefault).forEach((conditionKey) => {
+            const defaultIcon = conditionIconsDefault[conditionKey];
             customIcons[conditionKey] = defaultIcon;
         });
 
@@ -56,7 +59,7 @@
     const settings = getContext("settings");
     const updates = getContext("updates");
 
-    let { conditions, conditionIcons } = CONFIG.A5E;
+    let { conditions, conditionIconsDefault } = CONFIG.A5E;
 
     // Conditions Automation
     const automatableConditions = Object.entries(conditions).reduce(
