@@ -86,17 +86,18 @@
     $: effects = [
         ...($actor?.temporaryEffects || []),
         ...(token?.effects || []),
-    ].sort((a, b) => a.name.localeCompare(b.name));
+    ]
+        .filter((e) => !e.statuses.first()?.startsWith("generic"))
+        .sort((a, b) => a.name.localeCompare(b.name));
 </script>
 
 {#if token && $actor && effects.length}
     <article id="a5e-effects-panel" class="a5e-effects-panel">
         <ul class="a5e-effect-list">
-            {#each effects as { description, duration, flags, icon, _id, name, statuses } (_id)}
+            {#each effects as { description, flags, icon, _id, name, statuses } (_id)}
                 <A5EEffectsPanelEffect
                     actor={$actor}
                     {description}
-                    {duration}
                     {icon}
                     {_id}
                     {name}
