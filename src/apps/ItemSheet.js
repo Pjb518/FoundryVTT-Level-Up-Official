@@ -161,4 +161,41 @@ export default class ItemSheet extends SvelteApplication {
     if (type === 'heritage') return HeritageSheetComponent;
     return ItemSheetComponent;
   }
+
+  async _render(force = false, options = {}) {
+    await super._render(force, options);
+
+    const sheet = this.element[0];
+    const sheetTitle = sheet.querySelector('.window-header .window-title');
+
+    const documentID = this.item.id;
+    const documentUUID = this.item.uuid;
+
+    const idLink = document.createElement('a');
+    idLink.classList.add('document-id-link');
+    idLink.setAttribute('alt', 'Copy Document ID');
+    idLink.dataset.tooltip = 'Copy Document ID';
+    idLink.dataset.tooltipDirection = 'UP';
+    idLink.innerHTML = '<i class="fa-solid fa-passport"></i>';
+
+    idLink.addEventListener('click', (event) => {
+      event.preventDefault();
+      game.clipboard.copyPlainText(documentID);
+      ui.notifications.info(game.i18n.format(
+        'DOCUMENT.IdCopiedClipboard',
+        { label: 'Item', type: 'id', id: documentID }
+      ));
+    });
+
+    idLink.addEventListener('contextmenu', (event) => {
+      event.preventDefault();
+      game.clipboard.copyPlainText(documentUUID);
+      ui.notifications.info(game.i18n.format(
+        'DOCUMENT.IdCopiedClipboard',
+        { label: 'Item', type: 'uuid', id: documentUUID }
+      ));
+    });
+
+    sheetTitle.append(idLink);
+  }
 }
