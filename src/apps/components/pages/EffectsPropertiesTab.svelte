@@ -34,7 +34,7 @@
             } else newValue = Math.max(0, value * durationMap[unit]);
 
             updates["duration.seconds"] = newValue;
-        } else if (["rounds, turns"].includes(key)) {
+        } else if (["rounds", "turns"].includes(key)) {
             updates[`duration.${key}`] = Math.max(0, value);
         }
 
