@@ -1040,13 +1040,13 @@ export default class ActorA5e extends Actor {
       flags: {
         a5e: {
           actorId: this.uuid,
-          cardType: 'hitDice',
+          // cardType: 'hitDice',
           img: this.token?.img ?? this.img,
           name: this.name,
           title
         }
-      },
-      content: '<article></article>'
+      }
+      // content: '<article></article>'
     };
 
     const hpDelta = Math.max(roll.total, 0);
