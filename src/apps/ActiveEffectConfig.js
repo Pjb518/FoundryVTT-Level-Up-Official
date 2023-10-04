@@ -27,7 +27,7 @@ export default class ActiveEffectConfigA5e extends SvelteApplication {
         },
         resizable: true,
         focusAuto: false,
-        width: 505,
+        width: 555,
         height: 500
       }
     ));
