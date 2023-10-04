@@ -612,10 +612,8 @@ export default function registerConditionsConfig() {
     if (replaceFatigueAndStrife && condition.id === 'strife') return acc;
 
     // Update Icon
-    if (!condition.id.startsWith('generic')) {
-      condition.icon = customIcons[condition.id]
-        || A5E.conditionIcons[condition.id] || condition.icon;
-    }
+    condition.icon = customIcons[condition.id]
+      || A5E.conditionIcons[condition.id] || condition.icon;
 
     // Add changes based on settings
     if (!enabledConditions.has(condition.id) && condition.changes.length) {

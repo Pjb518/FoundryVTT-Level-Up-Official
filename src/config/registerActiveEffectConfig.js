@@ -19,7 +19,6 @@ export default function registerActiveEffectConfig(A5E) {
     temporary: 'A5E.effects.types.plural.temporary'
   };
 
-  // TODO: Allow people to replace these with settings
   A5E.conditionIcons = {
     blinded: 'icons/svg/blind.svg',
     bloodied: 'icons/svg/blood.svg',
@@ -46,6 +45,8 @@ export default function registerActiveEffectConfig(A5E) {
     stunned: 'icons/svg/daze.svg',
     unconscious: 'icons/svg/unconscious.svg'
   };
+  // eslint-disable-next-line no-return-assign
+  Array.from({ length: 10 }, (_, i) => (A5E.conditionIcons[`generic${i + 1}`] = `systems/a5e/assets/icons/circle${i + 1}.svg`));
 
   A5E.itemActiveEffectTypes = {
     onUse: 'A5E.effects.types.singular.onUse',
