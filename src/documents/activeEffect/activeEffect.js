@@ -67,8 +67,10 @@ export default class ActiveEffectA5e extends ActiveEffect {
 
     // Resolve/Validate Data
     if (phase !== 'afterDerived') {
+      const val = foundry.utils.deepClone(change.value).replace('@original', '');
+
       const resValue = Roll.replaceFormulaData(
-        change.value,
+        val,
         document.getRollData(),
         { missing: null }
       );
@@ -207,10 +209,13 @@ export default class ActiveEffectA5e extends ActiveEffect {
       return current;
     }
 
+    let positiveValue = `${obj.positiveValue}`.replaceAll('@original', current) || '0';
+    let negativeValue = `${obj.negativeValue}`.replaceAll('@original', current) || '0';
+
     const compareValue = getDeterministicBonus(obj.comparisonValue ?? '0', document.getRollData());
     const operator = obj.comparisonOperator ?? '==';
-    const positiveValue = getDeterministicBonus(obj.positiveValue ?? '0', document.getRollData());
-    const negativeValue = getDeterministicBonus(obj.negativeValue ?? '0', document.getRollData());
+    positiveValue = getDeterministicBonus(positiveValue ?? '0', document.getRollData());
+    negativeValue = getDeterministicBonus(negativeValue ?? '0', document.getRollData());
 
     return evaluateConditional(current, operator, compareValue, positiveValue, negativeValue);
   }
