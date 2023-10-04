@@ -199,9 +199,11 @@ A5E.areaIcons = {
   cone: '<i class="fa-solid fa-wifi"></i>',
   cube: '<i class="fa-solid fa-cube"></i>',
   cylinder: '<i class="fa-solid fa-circle"></i>',
+  emanation: '<i class="fa-regular fa-circle-dot"></i>',
   line: '<i class="fa-solid fa-grip-lines"></i>',
   sphere: '<i class="fa-solid fa-meteor"></i>',
-  square: '<i class="fa-regular fa-square-full"></i>'
+  square: '<i class="fa-regular fa-square-full"></i>',
+  wall: '<i class="fa-solid fa-road-spikes"></i>'
 };
 
 A5E.areaTypes = {
@@ -209,9 +211,11 @@ A5E.areaTypes = {
   cone: 'A5E.AreaCone',
   cube: 'A5E.AreaCube',
   cylinder: 'A5E.AreaCylinder',
+  emanation: 'A5E.AreaEmanation',
   line: 'A5E.AreaLine',
   sphere: 'A5E.AreaSphere',
-  square: 'A5E.AreaSquare'
+  square: 'A5E.AreaSquare',
+  wall: 'A5E.AreaWall'
 };
 
 /**
