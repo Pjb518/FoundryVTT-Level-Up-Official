@@ -72,11 +72,11 @@
             display: flex;
             align-items: center;
             flex-grow: 1;
-            gap: 0.75rem;
+            gap: 0.5rem;
             border-radius: $border-radius-standard;
             border: 1px solid #bbb;
             font-size: $font-size-sm;
-            padding: 0.375rem 0.75rem;
+            padding: 0.375rem 0.5rem;
             cursor: pointer;
             transition: $standard-transition;
 
