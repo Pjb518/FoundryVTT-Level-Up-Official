@@ -229,14 +229,15 @@
 
             background-color: rgba(0 0 0 / 0.45);
             border-radius: 50%;
-            width: 1.25rem;
+            width: 1rem;
             aspect-ratio: 1/1;
             color: white;
-            font-size: 0.833rem;
+            font-size: $font-size-xs;
+            font-weight: 400;
 
             position: absolute;
-            top: -0.75rem;
-            left: 1.65rem;
+            top: -0.375rem;
+            right: -0.375rem;
         }
     }
 
