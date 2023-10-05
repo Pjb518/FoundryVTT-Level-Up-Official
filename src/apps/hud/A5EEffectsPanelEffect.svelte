@@ -156,7 +156,7 @@
         data-tooltip={tooltip}
         data-tooltip-direction="LEFT"
         on:click={() => dispatch("increaseCounter", _id)}
-        on:auxclick={() => dispatch("deleteEffect", _id)}
+        on:auxclick={() => linked ?? dispatch("deleteEffect", _id)}
     >
         <img class="a5e-effect-item__icon" src={icon} alt={name} />
     </li>
