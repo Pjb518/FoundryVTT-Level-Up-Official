@@ -107,6 +107,14 @@
         return name;
     }
 
+    function getEffectRemovalNote() {
+        if (linked) return "";
+
+        return `<small class="a5e-effect-item__removal-note">Right click the icon to remove this ${
+            conditionId ? "condition" : "effect"
+        }.</small>`;
+    }
+
     const dispatch = createEventDispatcher();
 
     const colors = {
@@ -136,6 +144,7 @@
     <div class="a5e-effect-item__details">
     <h3 class="a5e-effect-item__heading">${getEffectName(actor)}</h3>
     ${getEffectDescription(actor)}
+    ${getEffectRemovalNote()}
     ${getEffectNotes(actor, duration)}
     </div>
     `;
@@ -171,6 +180,12 @@
         margin-bottom: 0;
         border-bottom: 0;
         font-size: 1rem;
+    }
+
+    :global(.a5e-effect-item__removal-note) {
+        display: block;
+        margin-block: 0.25rem 0.125rem;
+        opacity: 0.75;
     }
 
     .a5e-effect-item {
