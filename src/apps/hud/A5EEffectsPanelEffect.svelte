@@ -110,6 +110,14 @@
     function getEffectRemovalNote() {
         if (linked) return "";
 
+        if (conditionId === "fatigue") {
+            return `<small class="a5e-effect-item__removal-note">Right click to remove a level of fatigue.</small>`;
+        }
+
+        if (conditionId === "strife") {
+            return `<small class="a5e-effect-item__removal-note">Right click to remove a level of strife.</small>`;
+        }
+
         return `<small class="a5e-effect-item__removal-note">Right click the icon to remove this ${
             conditionId ? "condition" : "effect"
         }.</small>`;
