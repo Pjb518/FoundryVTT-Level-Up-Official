@@ -16,7 +16,10 @@
         const effect = actor?.effects.get(_id);
         const duration = effect?.duration ?? {};
 
-        let notes = '<p class="a5e-tag a5e-tag--active a5e-tag--tight">';
+        let notes =
+            '<p class="u-flex u-gap-xs u-align-center a5e-tag a5e-tag--active a5e-tag--tight">';
+
+        notes += '<i class="fa-regular fa-clock"></i>';
 
         const { startTime, seconds, rounds, turns } = duration;
         if (!seconds && !rounds && !turns) {
