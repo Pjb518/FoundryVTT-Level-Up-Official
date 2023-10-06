@@ -37,9 +37,9 @@ function generateChanges(A5E) {
       ...Object.keys(A5E.movement).map((type) => (
         {
           key: `system.attributes.movement.${type}.distance`,
-          value: '5',
-          mode: MODES.OVERRIDE,
-          priority: MODES.OVERRIDE * 10,
+          value: '{"comparisonOperator":"==","comparisonValue":"0","positiveValue":"0","negativeValue":"5"}',
+          mode: MODES.CONDITIONAL,
+          priority: MODES.CONDITIONAL * 10,
           label: 'A5E.ConditionGrappled'
         }))
     ],
@@ -273,9 +273,9 @@ export default function registerConditionsConfig() {
       6: [
         ...Object.keys(A5E.movement).map((movementType) => ({
           key: `system.attributes.movement.${movementType}.distance`,
-          value: '5',
-          mode: MODES.OVERRIDE,
-          priority: MODES.OVERRIDE * 10,
+          value: '{"comparisonOperator":"==","comparisonValue":"0","positiveValue":"0","negativeValue":"5"}',
+          mode: MODES.CONDITIONAL,
+          priority: MODES.CONDITIONAL * 10,
           label: 'Fatigue 6'
         }))
       ]
