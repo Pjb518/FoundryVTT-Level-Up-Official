@@ -217,7 +217,7 @@
         />
     </FormSection>
 
-    <FormSection
+    <!-- <FormSection
         heading="A5E.settings.effectsPanelIconSize"
         hint="A5E.settings.hints.effectsPanelIconSize"
         --label-weight="bold"
@@ -290,7 +290,7 @@
                 />
             </FormSection>
         </div>
-    </FormSection>
+    </FormSection> -->
 </section>
 
 <style lang="scss">
