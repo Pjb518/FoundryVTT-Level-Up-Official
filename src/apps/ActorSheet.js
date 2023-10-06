@@ -1,5 +1,6 @@
 /* eslint-disable no-continue */
 import { SvelteApplication } from '#runtime/svelte/application';
+import { localize } from '#runtime/svelte/helper';
 
 import ActorDocument from './ActorDocument';
 
@@ -105,6 +106,54 @@ export default class ActorSheet extends SvelteApplication {
         title: 'Configure Sheet',
         onclick: (event) => this._onConfigureSheet(event)
       });
+    }
+
+    const warpGateActive = game.modules.get('warpgate')?.active;
+
+    if (warpGateActive && !PERMS.isPack && (PERMS.isGM || (PERMS.isOwner && PERMS.canConfigure))) {
+      const shouldAddRevert = (token) => {
+        if (!(token instanceof TokenDocument)) return false;
+        // eslint-disable-next-line no-undef
+        const mutateStack = warpgate.mutationStack(token).stack;
+        if (mutateStack.length === 0) return false;
+        return true;
+      };
+
+      if (shouldAddRevert(this.token)) {
+        buttons.unshift({
+          label: 'Revert',
+          class: 'revert-wrapgate',
+          icon: 'fas fa-undo-alt',
+          title: 'Revert',
+          onclick: async (event) => {
+            const shouldShow = (shiftKey) => {
+              const mode = game.settings.get('warpgate', 'revertButtonBehavior');
+              const show = mode === 'menu' ? !shiftKey : shiftKey;
+              return show;
+            };
+
+            const mutateStack = this.token?.actor?.getFlag('warpgate', 'mutate');
+
+            let name;
+            const showMenu = shouldShow(event.shiftKey);
+
+            if (showMenu) {
+              const warpButtons = mutateStack
+                .map((mutation) => ({ label: mutation.name, value: mutation.name }));
+              // eslint-disable-next-line no-undef
+              name = await warpgate.buttonDialog(
+                { warpButtons, title: localize('warpgate.display.revertDialogTitle') },
+                'column'
+              );
+              if (name === false) return;
+            }
+
+            // eslint-disable-next-line no-undef
+            warpgate.revert(this.token);
+            this?.render(false);
+          }
+        });
+      }
     }
 
     if (PERMS.isPack) {
@@ -544,6 +593,9 @@ export default class ActorSheet extends SvelteApplication {
 
     const sheet = this.element[0];
     const sheetTitle = sheet.querySelector('.window-header .window-title');
+
+    const existingIdLink = sheetTitle.querySelector('.document-id-link');
+    if (existingIdLink) return;
 
     const documentID = this.token?.id ?? this.actor?.id;
     const documentUUID = this.token?.uuid ?? this.actor?.uuid;
