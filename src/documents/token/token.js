@@ -265,14 +265,10 @@ export default class TokenA5e extends Token {
     background.clear();
 
     const icons = this.effects.children.slice(1, 1 + effectsCount);
-    const tokenSize = this?.actor?.system?.traits?.size ?? 'med';
+    const tokenSize = Math.max(this.document.height, this.document.width);
     const gridSize = this?.scene?.grid?.size ?? 100;
 
-    let max = 20;
-    if (tokenSize === 'tiny') max = 10;
-    else if (tokenSize === 'sm') max = 14;
-    else if (tokenSize === 'med') max = 14;
-
+    const max = sizeScales.maxIcons(tokenSize) ?? 10;
     let ringCounter = 0;
 
     icons.forEach((icon, idx) => {
@@ -281,7 +277,7 @@ export default class TokenA5e extends Token {
 
       icon.anchor.set(0.5);
 
-      const iconScale = sizeScales.iconScale[tokenSize] ?? 1.0;
+      const iconScale = sizeScales.iconScale(tokenSize) ?? 1.4;
       const gridScale = gridSize / 100;
       const scaledSize = 12 * iconScale * gridScale;
 
@@ -292,12 +288,12 @@ export default class TokenA5e extends Token {
       // Update icon position
       const ratio = idx / max;
       const tokenTileFactor = this?.document?.width ?? 1;
-      // TODO: Change to use token size
-      const ringOffset = 0; // 0.625 * ringCounter;
-      const sizeOffset = (sizeScales.sizeOffset[tokenSize] ?? 1.0) + ringOffset;
+      const ringOffset = sizeScales.ringOffset(tokenSize) * ringCounter;
+      const sizeOffset = (sizeScales.sizeOffset(tokenSize) ?? 1.4) + ringOffset;
       const offset = sizeOffset * tokenTileFactor * gridSize;
-      const rotation = (0.5 + (1 / max) * Math.PI) * Math.PI;
-      const theta = (ratio + 0) * 2 * Math.PI + rotation;
+      const ringRotation = ringCounter % 2 === 0 ? 0 : sizeScales.ringRotation(tokenSize);
+      const rotation = ((0.5 + (1 / max) * Math.PI) * Math.PI);
+      const theta = (ratio + ringRotation) * 2 * Math.PI + rotation;
       const x = Math.cos(theta) * offset;
       const y = Math.sin(theta) * offset;
 
