@@ -7,6 +7,7 @@
     import FormSection from "../components/FormSection.svelte";
     import SettingsCustomIcon from "./SettingsCustomIcon.svelte";
     import ConditionIconResetConfirmationDialog from "../dialogs/initializers/ConditionIconResetConfirmationDialog";
+    import RadioGroup from "../components/RadioGroup.svelte";
 
     export let reload;
 
@@ -75,8 +76,10 @@
     );
 
     const automatedConditions = settings.getStore("automatedConditions");
-    const automateBloodied = settings.getStore("automateBloodiedApplication");
-    const showEffectsPanel = settings.getStore("showEffectsPanel");
+    let automateBloodied = settings.getStore("automateBloodiedApplication");
+    let showEffectsPanel = settings.getStore("showEffectsPanel");
+    let panelIconSize = settings.getStore("effectsPanelIconSize");
+    let panelOffset = settings.getStore("effectsPanelOffset");
 
     let radialEffects = settings.getStore("enableRadialEffects");
     let removeEffects = settings.getStore("removeActiveEffectsOnLongRest");
@@ -86,6 +89,13 @@
         updates.get("automatedConditions") ?? $automatedConditions;
 
     let customIcons = getCustomIcons();
+
+    const iconSizeChoices = game.settings.settings.get(
+        "a5e.effectsPanelIconSize"
+    ).choices;
+    let selectedIconSize =
+        updates.get("effectsPanelIconSize") ?? $panelIconSize ?? "medium";
+    let selectedOffset = updates.get("effectsPanelOffset") ?? $panelOffset;
 </script>
 
 <section class="setting-group">
@@ -205,6 +215,85 @@
                 reload = true;
             }}
         />
+    </FormSection>
+
+    <FormSection
+        heading="A5E.settings.effectsPanelIconSize"
+        hint="A5E.settings.hints.effectsPanelIconSize"
+        --gap="0.25rem"
+        --label-weight="normal"
+        --label-size="$font-size-md"
+    >
+        <RadioGroup
+            options={Object.entries(iconSizeChoices)}
+            selected={selectedIconSize}
+            on:updateSelection={({ detail }) => {
+                updates.set("effectsPanelIconSize", detail);
+                selectedIconSize = detail;
+            }}
+        />
+    </FormSection>
+
+    <FormSection
+        heading="A5E.settings.effectsPanelOffset"
+        hint="A5E.settings.hints.effectsPanelOffset"
+        --gap="0.5rem"
+        --label-weight="normal"
+        --label-size="$font-size-sm"
+        --direction="column"
+    >
+        <div class="u-flex u-align-center u-gap-md">
+            <input
+                id="top-offset"
+                class="a5e-input a5e-input--slim a5e-input--small"
+                type="number"
+                value={selectedOffset.top}
+                on:change={({ target }) => {
+                    const { value } = target;
+                    selectedOffset.top = value;
+                    updates.set("effectsPanelOffset", selectedOffset);
+                    reload = true;
+                }}
+            />
+
+            <label for="top-offset" class="u-text-center"> Top Offset </label>
+        </div>
+
+        <div class="u-flex u-align-center u-gap-md">
+            <input
+                class="a5e-input a5e-input--slim a5e-input--small"
+                type="number"
+                value={selectedOffset.bottom}
+                on:change={({ target }) => {
+                    const { value } = target;
+                    selectedOffset.bottom = value;
+                    updates.set("effectsPanelOffset", selectedOffset);
+                    reload = true;
+                }}
+            />
+
+            <label for="bottom-offset" class="u-text-center">
+                Bottom Offset
+            </label>
+        </div>
+
+        <div class="u-flex u-align-center u-gap-md">
+            <input
+                class="a5e-input a5e-input--slim a5e-input--small"
+                type="number"
+                value={selectedOffset.right}
+                on:change={({ target }) => {
+                    const { value } = target;
+                    selectedOffset.right = value;
+                    updates.set("effectsPanelOffset", selectedOffset);
+                    reload = true;
+                }}
+            />
+
+            <label for="right-offset" class="u-text-center">
+                Right Offset
+            </label>
+        </div>
     </FormSection>
 </section>
 

@@ -43,8 +43,8 @@
     }
 
     .form-heading {
-        font-size: $font-size-sm;
-        font-weight: bold;
+        font-size: var(--label-size, $font-size-sm);
+        font-weight: var(--label-weight, bold);
         flex-shrink: 1;
         width: var(--label-width, auto);
         border-bottom: 0;

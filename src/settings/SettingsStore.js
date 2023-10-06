@@ -192,6 +192,46 @@ class A5eGameSettings extends TJSGameSettings {
       },
       {
         namespace,
+        key: 'effectsPanelIconSize',
+        options: {
+          name: 'A5E.settings.effectsPanelIconSize',
+          hint: 'A5E.settings.hints.effectsPanelIconSize',
+          scope: scope.client,
+          config: true,
+          type: String,
+          choices: {
+            small: 'A5E.settings.effectsPanelIconSizeSmall',
+            medium: 'A5E.settings.effectsPanelIconSizeMedium',
+            large: 'A5E.settings.effectsPanelIconSizeLarge'
+          },
+          default: 'medium'
+        }
+      },
+      {
+        namespace,
+        key: 'effectsPanelOffset',
+        options: {
+          name: 'A5E.settings.effectsPanelOffset',
+          hint: 'A5E.settings.hints.effectsPanelOffset',
+          scope: scope.client,
+          config: true,
+          type: Object,
+          default: { top: 0, bottom: 0, right: 0 }
+        }
+      },
+      {
+        namespace,
+        key: 'showEffectsPanel',
+        options: {
+          name: 'A5E.settings.showEffectsPanel',
+          scope: scope.client,
+          config: true,
+          default: true,
+          type: Boolean
+        }
+      },
+      {
+        namespace,
         key: 'removeActiveEffectsOnLongRest',
         options: {
           name: 'A5E.settings.removeActiveEffectsOnLongRest',
@@ -384,18 +424,8 @@ class A5eGameSettings extends TJSGameSettings {
           },
           type: Object
         }
-      },
-      {
-        namespace,
-        key: 'showEffectsPanel',
-        options: {
-          name: 'A5E.settings.showEffectsPanel',
-          scope: scope.client,
-          config: true,
-          default: true,
-          type: Boolean
-        }
       }
+
     ];
 
     this.registerAll(settings, false);
