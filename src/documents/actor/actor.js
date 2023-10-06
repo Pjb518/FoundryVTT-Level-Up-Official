@@ -494,13 +494,19 @@ export default class ActorA5e extends Actor {
 
   /** @inheritdoc */
   async _preUpdate(changed, options, user) {
+    const hasRemoveFlag = Object.keys(this.flags?.a5e ?? {}).includes('-=autoApplyFSConditions');
+    const isRemoveFlag = Object.keys(changed?.flags?.a5e ?? {}).includes('-=-=autoApplyFSConditions');
+
+    if (hasRemoveFlag && !isRemoveFlag) {
+      await this.unsetFlag('a5e', '-=autoApplyFSConditions');
+    }
+
     const autoApplyFSConditions = changed?.flags?.a5e?.autoApplyFSConditions ?? true;
     if (autoApplyFSConditions) {
       automateMultiLevelConditions(this, foundry.utils.deepClone(changed), user.id);
     }
 
     foundry.utils.setProperty(changed, 'flags.a5e.-=autoApplyFSConditions', null);
-    // delete changed.flags?.a5e?.autoApplyFSConditions;
 
     await super._preUpdate(changed, options, user);
 

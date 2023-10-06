@@ -6,12 +6,10 @@
     export let HUD;
 
     function handleStatusEffectAdd({ id, src }, type = "status") {
-        console.log("Adding Effect");
         HUD.object._addStatusEffect({ id, src });
     }
 
     function handleStatusEffectRemove({ id, src }, type = "status") {
-        console.log("Removing Effect");
         HUD.object._removeStatusEffect({ id, src });
     }
 

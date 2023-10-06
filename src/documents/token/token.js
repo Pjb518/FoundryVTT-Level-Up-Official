@@ -113,7 +113,7 @@ export default class TokenA5e extends Token {
     );
   }
 
-  _handleMultiLevelEffectsAdd(effect) {
+  async _handleMultiLevelEffectsAdd(effect) {
     if (!effect) return;
 
     const key = effect.id;
@@ -143,13 +143,13 @@ export default class TokenA5e extends Token {
     } else existingEffect.update({ changes });
 
     // Update actor to reflect new level
-    this.actor.update({
+    await this.actor.update({
       [`system.attributes.${key}`]: Math.min(currentLevel + 1, maxLevel),
       'flags.a5e.autoApplyFSConditions': false
     });
   }
 
-  _handleMultiLevelEffectsRemove(effect) {
+  async _handleMultiLevelEffectsRemove(effect) {
     if (!effect) return;
 
     const key = effect.id;
@@ -176,7 +176,7 @@ export default class TokenA5e extends Token {
     } else this.toggleEffect(effect, { active: false, overlay: false });
 
     // Update actor to reflect new level
-    this.actor.update({
+    await this.actor.update({
       [`system.attributes.${key}`]: Math.max(currentLevel - 1, 0),
       'flags.a5e.autoApplyFSConditions': false
     });
