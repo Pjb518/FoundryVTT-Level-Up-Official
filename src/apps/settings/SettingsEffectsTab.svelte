@@ -220,8 +220,7 @@
     <FormSection
         heading="A5E.settings.effectsPanelIconSize"
         hint="A5E.settings.hints.effectsPanelIconSize"
-        --gap="0.25rem"
-        --label-weight="normal"
+        --label-weight="bold"
         --label-size="$font-size-md"
     >
         <RadioGroup
@@ -235,64 +234,61 @@
     </FormSection>
 
     <FormSection
-        heading="A5E.settings.effectsPanelOffset"
-        hint="A5E.settings.hints.effectsPanelOffset"
-        --gap="0.5rem"
-        --label-weight="normal"
+        heading="A5E.settings.effectsPanelPosition"
+        hint="A5E.settings.hints.effectsPanelPosition"
         --label-size="$font-size-sm"
-        --direction="column"
+        --label-weight="bold"
+        --label-width="100%"
     >
-        <div class="u-flex u-align-center u-gap-md">
-            <input
-                id="top-offset"
-                class="a5e-input a5e-input--slim a5e-input--small"
-                type="number"
-                value={selectedOffset.top}
-                on:change={({ target }) => {
-                    const { value } = target;
-                    selectedOffset.top = value;
-                    updates.set("effectsPanelOffset", selectedOffset);
-                    reload = true;
-                }}
-            />
+        <div class="u-flex u-gap-md">
+            <FormSection --padding="0" --background="none">
+                <label for="top-offset">Top Offset</label>
 
-            <label for="top-offset" class="u-text-center"> Top Offset </label>
-        </div>
+                <input
+                    id="top-offset"
+                    class="a5e-input a5e-input--slim"
+                    type="number"
+                    value={selectedOffset.top}
+                    on:change={({ target }) => {
+                        const { value } = target;
+                        selectedOffset.top = value;
+                        updates.set("effectsPanelOffset", selectedOffset);
+                        reload = true;
+                    }}
+                />
+            </FormSection>
 
-        <div class="u-flex u-align-center u-gap-md">
-            <input
-                class="a5e-input a5e-input--slim a5e-input--small"
-                type="number"
-                value={selectedOffset.bottom}
-                on:change={({ target }) => {
-                    const { value } = target;
-                    selectedOffset.bottom = value;
-                    updates.set("effectsPanelOffset", selectedOffset);
-                    reload = true;
-                }}
-            />
+            <FormSection --padding="0" --background="none">
+                <label for="bottom-offset"> Bottom Offset </label>
 
-            <label for="bottom-offset" class="u-text-center">
-                Bottom Offset
-            </label>
-        </div>
+                <input
+                    class="a5e-input a5e-input--slim"
+                    type="number"
+                    value={selectedOffset.bottom}
+                    on:change={({ target }) => {
+                        const { value } = target;
+                        selectedOffset.bottom = value;
+                        updates.set("effectsPanelOffset", selectedOffset);
+                        reload = true;
+                    }}
+                />
+            </FormSection>
 
-        <div class="u-flex u-align-center u-gap-md">
-            <input
-                class="a5e-input a5e-input--slim a5e-input--small"
-                type="number"
-                value={selectedOffset.right}
-                on:change={({ target }) => {
-                    const { value } = target;
-                    selectedOffset.right = value;
-                    updates.set("effectsPanelOffset", selectedOffset);
-                    reload = true;
-                }}
-            />
+            <FormSection --padding="0" --background="none">
+                <label for="right-offset"> Right Offset </label>
 
-            <label for="right-offset" class="u-text-center">
-                Right Offset
-            </label>
+                <input
+                    class="a5e-input a5e-input--slim"
+                    type="number"
+                    value={selectedOffset.right}
+                    on:change={({ target }) => {
+                        const { value } = target;
+                        selectedOffset.right = value;
+                        updates.set("effectsPanelOffset", selectedOffset);
+                        reload = true;
+                    }}
+                />
+            </FormSection>
         </div>
     </FormSection>
 </section>
