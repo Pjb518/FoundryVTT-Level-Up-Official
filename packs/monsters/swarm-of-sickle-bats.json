@@ -1,17 +1,21 @@
 {
-	"name": "Dryad",
+	"name": "Swarm of Sickle Bats",
 	"type": "npc",
-	"img": "systems/a5e/assets/dryad.webp",
+	"img": "icons/svg/mystery-man.svg",
 	"items": [
 		{
-			"_id": "kNarlBMQBZvVxPjE",
-			"name": "Magic Resistance",
+			"_id": "BZrNoMWtoVagDZ06",
+			"name": "Keen Hearing",
 			"type": "feature",
-			"img": "icons/magic/defensive/shield-barrier-glowing-blue.webp",
+			"img": "icons/creatures/mammals/bat-movement-flying-purple.webp",
 			"effects": [],
 			"folder": null,
 			"sort": 0,
-			"flags": {},
+			"flags": {
+				"core": {
+					"sourceId": "Compendium.forge-vtt-shared-compendiums-a5e-creature-features.item-1-monster-features.fWtu5nydK7GTRz8A"
+				}
+			},
 			"system": {
 				"ac": {
 					"baseFormula": "",
@@ -23,7 +27,7 @@
 					"requiresUnarmored": false
 				},
 				"actions": {},
-				"description": "<p>The dryad has advantage on saving throws against spells and magical effects.</p>",
+				"description": "<p>The swarm has advantage on Perception checks that rely on hearing.</p>",
 				"favorite": true,
 				"secretDescription": "",
 				"source": "",
@@ -47,7 +51,7 @@
 					}
 				},
 				"concentration": false,
-				"featureType": "other",
+				"featureType": "",
 				"prerequisite": ""
 			},
 			"ownership": {
@@ -55,14 +59,18 @@
 			}
 		},
 		{
-			"_id": "x6xtb1cAsxZxpQLI",
-			"name": "Speak the Nature",
+			"_id": "vRPh7Sdy4yU5FRmO",
+			"name": "Swarm",
 			"type": "feature",
-			"img": "icons/magic/nature/plant-sprout-hands-vines.webp",
+			"img": "icons/creatures/mammals/bats-movement-flying-purple.webp",
 			"effects": [],
 			"folder": null,
 			"sort": 0,
-			"flags": {},
+			"flags": {
+				"core": {
+					"sourceId": "Item.O4rfmFbmQha1aafV"
+				}
+			},
 			"system": {
 				"ac": {
 					"baseFormula": "",
@@ -74,7 +82,7 @@
 					"requiresUnarmored": false
 				},
 				"actions": {},
-				"description": "<p>The dryad can communicate with beasts and plants.</p>",
+				"description": "<p>The swarm can occupy another creature&rsquo;s space and move through any opening large enough for a Tiny creature. It can&rsquo;t gain hit points or temporary hit points.</p>\n<p>It becomes Medium when blooded</p>",
 				"favorite": true,
 				"secretDescription": "",
 				"source": "",
@@ -98,7 +106,7 @@
 					}
 				},
 				"concentration": false,
-				"featureType": "other",
+				"featureType": "",
 				"prerequisite": ""
 			},
 			"ownership": {
@@ -106,65 +114,18 @@
 			}
 		},
 		{
-			"_id": "L4dTDOgEWccpmcMz",
-			"name": "Tree Stride",
+			"_id": "ni2Oxp0GiZolBB6p",
+			"name": "Bite",
 			"type": "feature",
-			"img": "icons/magic/nature/tree-animated-stump-mushrooms-teal.webp",
+			"img": "icons/creatures/abilities/mouth-teeth-long-red.webp",
 			"effects": [],
-			"folder": null,
+			"folder": "0DbuJNU90FPufmG6",
 			"sort": 0,
-			"flags": {},
-			"system": {
-				"ac": {
-					"baseFormula": "",
-					"formula": "",
-					"maxDex": 0,
-					"minStr": 0,
-					"mode": 1,
-					"requiresNoShield": false,
-					"requiresUnarmored": false
-				},
-				"actions": {},
-				"description": "<p>Once per turn, the dryad can use 10 feet of movement to enter a living tree and emerge from another living tree within 60 feet. Both trees must be at least Large.</p>",
-				"favorite": true,
-				"secretDescription": "",
-				"source": "",
-				"uses": {
-					"value": null,
-					"max": "",
-					"per": null,
-					"recharge": {
-						"formula": "",
-						"threshold": ""
-					}
-				},
-				"schema": {
-					"version": 0.007,
-					"lastMigration": {
-						"version": {
-							"schema": 0.004,
-							"foundry": "11.307",
-							"system": "0.15.0"
-						}
-					}
-				},
-				"concentration": false,
-				"featureType": "other",
-				"prerequisite": ""
+			"flags": {
+				"core": {
+					"sourceId": "Item.6y5L0wnBLYVcFKCn"
+				}
 			},
-			"ownership": {
-				"default": 0
-			}
-		},
-		{
-			"_id": "3ROKDrTd7d9RoBLw",
-			"name": "Entangling Plants",
-			"type": "feature",
-			"img": "icons/magic/nature/root-vine-entangle-foot-green.webp",
-			"effects": [],
-			"folder": null,
-			"sort": 0,
-			"flags": {},
 			"system": {
 				"ac": {
 					"baseFormula": "",
@@ -176,46 +137,58 @@
 					"requiresUnarmored": false
 				},
 				"actions": {
-					"wkMMVtS2deeqCgfM": {
-						"name": "Entangling Plants",
+					"1g0BDRoZ9l6vr813": {
+						"name": "Bite",
 						"activation": {
 							"cost": 1,
 							"type": "action",
 							"reactionTrigger": ""
 						},
 						"duration": {
-							"unit": "minute",
-							"value": 1
+							"unit": "",
+							"value": ""
 						},
 						"ranges": {
-							"h105Ops9b4CIy51h": {
-								"range": "long"
+							"GVklQuzaMygGzNZ8": {
+								"range": "0 ft."
 							}
 						},
 						"area": {
-							"shape": "sphere",
-							"size": "20ft radius.",
+							"shape": "",
+							"size": "",
 							"placeTemplate": false
 						},
 						"target": {
-							"quantity": null,
+							"quantity": 1,
 							"type": "creature"
 						},
-						"prompts": {
-							"XrbiQaQuim2Oxmif": {
-								"ability": "str",
-								"onSave": "Negates effects.",
-								"saveDC": {
-									"type": "custom",
-									"bonus": "13"
-								},
-								"type": "savingThrow"
+						"rolls": {
+							"xeDypN6h7tm3YAs2": {
+								"bonus": "",
+								"critThreshold": "20",
+								"type": "attack",
+								"attackType": "meleeWeaponAttack",
+								"ability": "dex"
+							},
+							"S84X1DlF7VWjCEG0": {
+								"canCrit": true,
+								"damageType": "piercing",
+								"formula": "2d6",
+								"name": "Normal",
+								"type": "damage"
+							},
+							"Z5tWSK6CAPwb7bVr": {
+								"canCrit": true,
+								"damageType": "piercing",
+								"formula": "1d6",
+								"name": "Bloodied",
+								"type": "damage"
 							}
 						},
 						"consumers": {}
 					}
 				},
-				"description": "<p>Plants magically erupt from the ground in a 20-foot radius around a point up to 120 feet from the dryad. Each creature of the dryad’s choice in the area makes a DC 13 Strength saving throw. On a failure, a creature is restrained for 1 minute. A creature can use its action to make a DC 12 Strength check, freeing itself or a creature within 5 feet on a success. Additionally, the area is difficult terrain for 1 minute.</p>",
+				"description": "<p><em>Melee Weapon Attack:</em> +4 to hit, reach 0 ft., one target. <em>Hit:</em> 7 (2d6) piercing damage, or 3 (1d6) piercing damage if the swarm is bloodied.</p>",
 				"favorite": true,
 				"secretDescription": "",
 				"source": "",
@@ -239,7 +212,7 @@
 					}
 				},
 				"concentration": false,
-				"featureType": "other",
+				"featureType": "naturalWeapon",
 				"prerequisite": ""
 			},
 			"ownership": {
@@ -258,7 +231,7 @@
 			},
 			"system": {
 				"actions": {
-					"8TYsQvw7L3R0uoVA": {
+					"i27ZVz0Mj995B2PM": {
 						"name": "Shove",
 						"activation": {
 							"cost": 1,
@@ -270,7 +243,7 @@
 							"value": null
 						},
 						"ranges": {
-							"YPKyZh1XrQ8Sr4mg": {
+							"cbfdFNhHrwitF9Bc": {
 								"range": "fiveFeet"
 							}
 						},
@@ -286,7 +259,7 @@
 							"size": ""
 						},
 						"rolls": {
-							"Yw2pbqsoHF9fhK5c": {
+							"z3zSMwPx25NsiG8I": {
 								"canCrit": false,
 								"damageType": "bludgeoning",
 								"formula": "1 + @str.mod",
@@ -295,7 +268,7 @@
 							}
 						},
 						"prompts": {
-							"untuAEudRv7FdBUA": {
+							"daNejtj0kYpefdmJ": {
 								"ability": "str",
 								"onSave": "",
 								"saveDC": {
@@ -342,7 +315,7 @@
 			},
 			"folder": null,
 			"sort": 0,
-			"_id": "7j80GZoqzYHqcCh3"
+			"_id": "2sxiE5xbBnhXv7y0"
 		},
 		{
 			"name": "Disarm",
@@ -356,7 +329,7 @@
 			},
 			"system": {
 				"actions": {
-					"XIqxAay3rFL5xIiu": {
+					"LRnfbNwsBtbZmOYC": {
 						"name": "Disarm",
 						"activation": {
 							"cost": 1,
@@ -368,7 +341,7 @@
 							"value": null
 						},
 						"ranges": {
-							"oTKDYX4WvMG72g7U": {
+							"JN43vjz7XfqIazmJ": {
 								"range": "touch"
 							}
 						},
@@ -384,7 +357,7 @@
 							"size": ""
 						},
 						"rolls": {
-							"WvGKblKyESkLVW4b": {
+							"xkA2U2Qd5U5lsCaL": {
 								"canCrit": false,
 								"damageType": "",
 								"formula": "1 + @str.mod",
@@ -393,7 +366,7 @@
 							}
 						},
 						"prompts": {
-							"KHVOp4QlDmJHj4y7": {
+							"Vy91D4J1Ou1Y6EmQ": {
 								"ability": "str",
 								"onSave": "",
 								"saveDC": {
@@ -440,7 +413,7 @@
 			},
 			"folder": null,
 			"sort": 0,
-			"_id": "E1cS1mybFvMM7PyD"
+			"_id": "IwVM6f1vbRA5B0Vx"
 		},
 		{
 			"name": "Grab On",
@@ -454,7 +427,7 @@
 			},
 			"system": {
 				"actions": {
-					"s24p9OqK2GsKVbkr": {
+					"5QVNiG6J6iTAir30": {
 						"name": "Grab On",
 						"activation": {
 							"cost": 1,
@@ -466,7 +439,7 @@
 							"value": null
 						},
 						"ranges": {
-							"gE6hergWMz7rrMr1": {
+							"XKHLYTYayBTpUIgi": {
 								"range": "touch"
 							}
 						},
@@ -482,7 +455,7 @@
 							"size": ""
 						},
 						"prompts": {
-							"6fa8mrfwtKbgK9pU": {
+							"4mDxRXF64XKby6z8": {
 								"ability": "str",
 								"onSave": "",
 								"saveDC": {
@@ -529,7 +502,7 @@
 			},
 			"folder": null,
 			"sort": 0,
-			"_id": "Ng0XsCq9jX0iY76c"
+			"_id": "HLILF2lhB9bruwxX"
 		},
 		{
 			"name": "Knockdown",
@@ -543,7 +516,7 @@
 			},
 			"system": {
 				"actions": {
-					"JYtXLkpp9ZEDqWzQ": {
+					"ZGkxkyo9nWKg20ks": {
 						"name": "Knockdown",
 						"activation": {
 							"cost": 1,
@@ -555,7 +528,7 @@
 							"value": null
 						},
 						"ranges": {
-							"1mKYHMkqAcqb9qZ8": {
+							"4Hs826McoHZw5SvT": {
 								"range": "touch"
 							}
 						},
@@ -571,7 +544,7 @@
 							"size": ""
 						},
 						"prompts": {
-							"ikZc1B311YXDe9ku": {
+							"yy3cvIoCxn6EWxyC": {
 								"ability": "str",
 								"onSave": "",
 								"saveDC": {
@@ -618,7 +591,7 @@
 			},
 			"folder": null,
 			"sort": 0,
-			"_id": "sRRn1PXvpodz6P30"
+			"_id": "eRiCxeR664BA1FIK"
 		},
 		{
 			"name": "Grapple",
@@ -632,7 +605,7 @@
 			},
 			"system": {
 				"actions": {
-					"XdEsUdG1Wz6GOB46": {
+					"uR0NzgP9ACDvZeMa": {
 						"name": "Grapple",
 						"activation": {
 							"cost": 1,
@@ -644,7 +617,7 @@
 							"value": null
 						},
 						"ranges": {
-							"ZHaEfYiafd4a8pns": {
+							"t9eODF3fpWNcJqWs": {
 								"range": "touch"
 							}
 						},
@@ -660,7 +633,7 @@
 							"size": ""
 						},
 						"prompts": {
-							"Hx4mgCTTIliGjdAT": {
+							"FAzRq6uhM557U2Io": {
 								"ability": "str",
 								"onSave": "",
 								"saveDC": {
@@ -707,7 +680,7 @@
 			},
 			"folder": null,
 			"sort": 0,
-			"_id": "KpeKuIbaD2s1DkHP"
+			"_id": "SoXcgAQoqDFOzkPM"
 		},
 		{
 			"name": "Overrun",
@@ -721,7 +694,7 @@
 			},
 			"system": {
 				"actions": {
-					"nbxUlDXKUqa8DPXE": {
+					"QDKlbKgAiGpFuAZ5": {
 						"name": "Overrun",
 						"activation": {
 							"cost": 1,
@@ -733,7 +706,7 @@
 							"value": null
 						},
 						"ranges": {
-							"OlLVPqZYHkpjiG2z": {
+							"LsODxl5EDUPXa3no": {
 								"range": "touch"
 							}
 						},
@@ -749,7 +722,7 @@
 							"size": ""
 						},
 						"prompts": {
-							"gxUxha8wAvuzx3SJ": {
+							"HLY7g7OiQEYuHbQi": {
 								"ability": "str",
 								"onSave": "",
 								"saveDC": {
@@ -796,17 +769,112 @@
 			},
 			"folder": null,
 			"sort": 0,
-			"_id": "SZdvpQ4E534SpCKS"
+			"_id": "nYm7BkDQGIEK01WH"
 		},
 		{
-			"_id": "OuLgGdL9PGF19qp6",
-			"name": "Fey Charm",
+			"name": "Slicing Flurry",
 			"type": "feature",
-			"img": "icons/creatures/magical/fae-fairy-winged-glowing-green.webp",
+			"system": {
+				"ac": {
+					"baseFormula": "",
+					"formula": "",
+					"maxDex": 0,
+					"minStr": 0,
+					"mode": 2,
+					"requiresNoShield": false,
+					"requiresUnarmored": false
+				},
+				"actions": {
+					"7gWdMGtM7uR0xfEs": {
+						"name": "Action",
+						"activation": {},
+						"consumers": {},
+						"rolls": {
+							"CfNW0nI0fyBc7LAN": {
+								"type": "damage",
+								"default": true,
+								"formula": "4d4",
+								"label": "Not Bloodied",
+								"damageType": "piercing"
+							},
+							"7ZbElPywEkdHnOkZ": {
+								"type": "damage",
+								"default": true,
+								"label": "Bloodied",
+								"formula": "2d4"
+							}
+						},
+						"prompts": {
+							"zRIpceqOghcoNxm1": {
+								"type": "savingThrow",
+								"default": true,
+								"ability": "dex",
+								"saveDC": {
+									"type": "custom",
+									"bonus": "12"
+								},
+								"onSave": "Half damage"
+							}
+						},
+						"uses": {
+							"value": 0,
+							"max": "",
+							"per": "",
+							"recharge": {
+								"formula": "1d6",
+								"threshold": 6
+							}
+						}
+					}
+				},
+				"description": "<p>Each creature sharing a space with the swarm makes a Dexterity <span class=\"freelinking-link\">saving throw</span>, taking slashing damage (or reduced slashing damage if the swarm is <span class=\"freelinking-link\">bloodied)</span>&nbsp;on a failure, or half as much on a success. Creatures can gain&nbsp;<span class=\"freelinking-link\">advantage</span>&nbsp;on this saving throw by choosing to fall&nbsp;<span class=\"freelinking-link\">prone</span>&nbsp;.</p>",
+				"favorite": true,
+				"secretDescription": "",
+				"source": {
+					"name": "",
+					"link": "",
+					"publisher": ""
+				},
+				"uses": {
+					"value": null,
+					"max": "",
+					"per": null,
+					"recharge": {
+						"formula": "1d6",
+						"threshold": "6"
+					}
+				},
+				"schema": {
+					"version": 0.001,
+					"lastMigration": null
+				},
+				"concentration": false,
+				"featureType": "other",
+				"prerequisite": ""
+			},
+			"_id": "KNHg5OmVanbfn9gj",
+			"img": "icons/weapons/sickles/scythe-bone-green.webp",
 			"effects": [],
 			"folder": null,
 			"sort": 0,
-			"flags": {},
+			"ownership": {
+				"default": 0
+			},
+			"flags": {}
+		},
+		{
+			"_id": "GeAvS7A3lzmohpgl",
+			"name": "Echolocation",
+			"type": "feature",
+			"img": "icons/creatures/mammals/bat-giant-tattered-purple.webp",
+			"effects": [],
+			"folder": null,
+			"sort": 0,
+			"flags": {
+				"core": {
+					"sourceId": "Compendium.forge-vtt-shared-compendiums-a5e-creature-features.item-1-monster-features.L9p1Yf7HKEIBlJvI"
+				}
+			},
 			"system": {
 				"ac": {
 					"baseFormula": "",
@@ -817,58 +885,15 @@
 					"requiresNoShield": false,
 					"requiresUnarmored": false
 				},
-				"actions": {
-					"PCArRF4rQtuAvZHh": {
-						"name": "Fey Charm",
-						"activation": {
-							"cost": 1,
-							"type": "action",
-							"reactionTrigger": ""
-						},
-						"duration": {
-							"unit": "hour",
-							"value": 24
-						},
-						"ranges": {
-							"mV5fK3GCsgoWwqxg": {
-								"range": "short"
-							}
-						},
-						"area": {
-							"shape": "",
-							"size": "",
-							"placeTemplate": false
-						},
-						"target": {
-							"quantity": 1,
-							"type": "creature"
-						},
-						"prompts": {
-							"JbKB8o6v0nBSpMKz": {
-								"ability": "wis",
-								"onSave": "Negates effects and immune to Fey Charm for 24 hours.",
-								"saveDC": {
-									"type": "custom",
-									"bonus": "13"
-								},
-								"type": "savingThrow"
-							}
-						},
-						"consumers": {
-							"6wOciXyzFsTvAPLr": {
-								"type": "itemUses"
-							}
-						}
-					}
-				},
-				"description": "<p>The dryad targets a humanoid or beast within 30 feet, forcing it to make a DC 13 Wisdom saving throw.. On a failure, it is magically charmed. While charmed in this way, the target regards the dryad as a trusted ally and is disposed to interpret the dryad’s requests and actions favorably. The creature can repeat this saving throw if the dryad or the dryad’s allies harm it, ending the effect on a success. Otherwise, the effect lasts 24 hours. If the creature succeeds on a saving throw against Fey Charm or the effect ends for it, it is immune to Fey Charm for 24 hours.</p>",
+				"actions": {},
+				"description": "<p>The swarm can’t use blindsight while deafened.&nbsp;</p>",
 				"favorite": true,
 				"secretDescription": "",
 				"source": "",
 				"uses": {
-					"value": 3,
-					"max": 3,
-					"per": "day",
+					"value": null,
+					"max": "",
+					"per": null,
 					"recharge": {
 						"formula": "",
 						"threshold": ""
@@ -885,123 +910,9 @@
 					}
 				},
 				"concentration": false,
-				"featureType": "other",
+				"featureType": "",
 				"prerequisite": ""
 			},
-			"ownership": {
-				"default": 0
-			}
-		},
-		{
-			"name": "Club",
-			"type": "object",
-			"img": "icons/weapons/clubs/club-simple-black.webp",
-			"effects": [],
-			"flags": {},
-			"system": {
-				"ac": {
-					"baseFormula": "",
-					"formula": "",
-					"maxDex": 0,
-					"minStr": 0,
-					"mode": 1,
-					"requiresNoShield": false,
-					"requiresUnarmored": false
-				},
-				"actions": {
-					"ZdX1rqHn29jj57xS": {
-						"name": "Melee Weapon Attack",
-						"activation": {
-							"cost": "",
-							"type": "",
-							"reactionTrigger": ""
-						},
-						"duration": {
-							"unit": "",
-							"value": ""
-						},
-						"area": {
-							"shape": "",
-							"size": "",
-							"placeTemplate": false
-						},
-						"target": {
-							"quantity": 1,
-							"type": "creatureObject"
-						},
-						"rolls": {
-							"4loQUAEZaCc8RC8h": {
-								"bonus": "",
-								"critThreshold": "20",
-								"type": "attack",
-								"attackType": "meleeWeaponAttack",
-								"ability": "default"
-							},
-							"3DTZ2lWFlQONwpTn": {
-								"canCrit": true,
-								"damageType": "bludgeoning",
-								"formula": "1d8 + @str.mod",
-								"name": "Club",
-								"type": "damage"
-							}
-						},
-						"consumers": {}
-					}
-				},
-				"description": "<p><em>Simple</em></p>",
-				"favorite": true,
-				"secretDescription": "",
-				"source": "",
-				"uses": {
-					"value": null,
-					"max": "",
-					"per": null,
-					"recharge": {
-						"formula": "1d6",
-						"threshold": 6
-					}
-				},
-				"schema": {
-					"version": 0.007,
-					"lastMigration": {
-						"version": {
-							"schema": 0.006,
-							"foundry": "11.307",
-							"system": "0.15.0"
-						}
-					}
-				},
-				"ammunitionProperties": [],
-				"armorCategory": "",
-				"armorProperties": [],
-				"attuned": false,
-				"bulky": false,
-				"craftingComponents": "",
-				"containerId": "",
-				"damagedState": 0,
-				"equippedState": 2,
-				"items": {},
-				"materialProperties": [],
-				"objectType": "weapon",
-				"plotItem": false,
-				"price": "1 sp",
-				"proficient": true,
-				"quantity": 1,
-				"rarity": "mundane",
-				"requiresAttunement": false,
-				"shieldCategory": "",
-				"shieldProperties": [],
-				"unidentified": false,
-				"unidentifiedDescription": "",
-				"unidentifiedName": "",
-				"weaponProperties": [
-					"simple"
-				],
-				"weight": 2
-			},
-			"folder": "f6tPO4aWtcScCrkJ",
-			"_id": "XJbF0rHJWQCcXHuW",
-			"sort": 0,
 			"ownership": {
 				"default": 0
 			}
@@ -1010,6 +921,7 @@
 	"effects": [],
 	"flags": {
 		"a5e": {
+			"availableSpellLevels": [],
 			"sheetIsLocked": true,
 			"currentTab": "core"
 		}
@@ -1017,7 +929,7 @@
 	"system": {
 		"abilities": {
 			"str": {
-				"value": 14,
+				"value": 4,
 				"check": {
 					"expertiseDice": 0,
 					"bonus": ""
@@ -1029,7 +941,7 @@
 				}
 			},
 			"dex": {
-				"value": 12,
+				"value": 14,
 				"check": {
 					"expertiseDice": 0,
 					"bonus": ""
@@ -1054,7 +966,7 @@
 				}
 			},
 			"int": {
-				"value": 12,
+				"value": 2,
 				"check": {
 					"expertiseDice": 0,
 					"bonus": ""
@@ -1066,7 +978,7 @@
 				}
 			},
 			"wis": {
-				"value": 16,
+				"value": 12,
 				"check": {
 					"expertiseDice": 0,
 					"bonus": ""
@@ -1078,7 +990,7 @@
 				}
 			},
 			"cha": {
-				"value": 18,
+				"value": 4,
 				"check": {
 					"expertiseDice": 0,
 					"bonus": ""
@@ -1248,9 +1160,9 @@
 			"nat": {
 				"ability": "int",
 				"value": 0,
-				"proficient": true,
+				"proficient": false,
 				"specialties": [],
-				"expertiseDice": 1,
+				"expertiseDice": 0,
 				"minRoll": 1,
 				"bonuses": {
 					"check": "",
@@ -1260,7 +1172,7 @@
 			"prc": {
 				"ability": "wis",
 				"value": 0,
-				"proficient": true,
+				"proficient": false,
 				"specialties": [],
 				"expertiseDice": 0,
 				"minRoll": 1,
@@ -1320,9 +1232,9 @@
 			"ste": {
 				"ability": "dex",
 				"value": 0,
-				"proficient": true,
+				"proficient": false,
 				"specialties": [],
-				"expertiseDice": 1,
+				"expertiseDice": 0,
 				"minRoll": 1,
 				"bonuses": {
 					"check": "",
@@ -1332,7 +1244,7 @@
 			"sur": {
 				"ability": "wis",
 				"value": 0,
-				"proficient": true,
+				"proficient": false,
 				"specialties": [],
 				"expertiseDice": 0,
 				"minRoll": 1,
@@ -1392,7 +1304,7 @@
 		},
 		"attributes": {
 			"ac": {
-				"baseFormula": "15",
+				"baseFormula": "12",
 				"value": 0
 			},
 			"death": {
@@ -1400,8 +1312,8 @@
 				"failure": 0
 			},
 			"hp": {
-				"value": 22,
-				"baseMax": 22,
+				"value": 18,
+				"baseMax": 18,
 				"temp": 0,
 				"bonus": 0
 			},
@@ -1411,8 +1323,8 @@
 					"total": 0
 				},
 				"d8": {
-					"current": 5,
-					"total": 5
+					"current": 4,
+					"total": 4
 				},
 				"d10": {
 					"current": 0,
@@ -1445,7 +1357,7 @@
 					"unit": "feet"
 				},
 				"fly": {
-					"distance": 0,
+					"distance": 30,
 					"unit": "feet"
 				},
 				"swim": {
@@ -1453,7 +1365,7 @@
 					"unit": "feet"
 				},
 				"walk": {
-					"distance": 30,
+					"distance": 5,
 					"unit": "feet"
 				},
 				"traits": {
@@ -1462,12 +1374,12 @@
 			},
 			"senses": {
 				"blindsight": {
-					"distance": null,
+					"distance": 60,
 					"unit": "feet",
 					"otherwiseBlind": false
 				},
 				"darkvision": {
-					"distance": 60,
+					"distance": null,
 					"unit": "feet"
 				},
 				"tremorsense": {
@@ -1508,21 +1420,19 @@
 			"cp": 0
 		},
 		"details": {
-			"bio": "<h2><strong>COMBAT</strong></h2><p>The dryad avoids combat, using Fey Charm to recruit allies and Entangling Plants to slow enemies. When it must fight, it uses its club.</p><hr class=\"a5e-rule u-my-md\"><h2><strong>LEGENDS AND LORE</strong></h2><p>With an Arcana or Nature check, characters can learn the following:</p><p><strong>DC 10</strong> Dryads are fey creatures, each magically bound to a particular tree called a heart tree.</p><p><strong>DC 15</strong> When threatened, a dryad calls on the beasts and plants of the forest for protection.</p><p><strong>DC 20</strong> Destroying a dryad’s heart tree can drive her mad—or kill her outright.</p><hr class=\"a5e-rule u-my-md\"><h2><strong>DESCRIPTION</strong></h2><p>Deep within the forest, a tree shifts, though there’s no breeze. A moment later, a humanoid figure emerges: a feminine form wrought from wood and bark, with hair of greenery and lips the color of cherry blossoms.</p><p><strong><em>Defender of the Green.</em></strong> Dryads are fey creatures with a particular affinity for trees and forests. They often claim a section of the forest for themselves, cultivating and defending the area. Those who enter a dryad’s grove with respect will receive respect in return. However, those seeking to harm the forest or the creatures within it will face a sharp—and potentially deadly—rebuke.</p><p><strong><em>Heart Tree.</em></strong> No matter how much of a forest a dryad claims, each is bound to a single, central tree some refer to as a heart tree. A dryad can survive the destruction of her grove, so long as her heart tree remains unscathed. If the heart tree is damaged, the dryad suffers in kind. If a dryad’s heart tree is destroyed, the dryad loses all sense of self and descends into madness.&nbsp;</p><p><strong><em>Friend to the Forests.</em></strong> A dryad on her own is not a challenging foe, but rarely does one face a dryad without also facing the wrath of the forest itself. Beasts, other fey creatures, and even the plants themselves will come to a dryad’s aid when she calls.</p><hr class=\"a5e-rule u-my-md\"><h2><strong>BEHAVIOR</strong></h2><p>1 Flitting from tree to tree, ignoring intruders</p><p>2 Visibly weak: its tree is under attack or in danger</p><p>3 Determined to keep intruders away from its tree at all costs</p><p>4 Hostile to axe-wielders</p><hr class=\"a5e-rule u-my-md\"><h2><strong>SIGNS</strong></h2><p>1 The trees here are lush and green</p><p>2 DC 14 Insight check: you feel like the trees are watching you</p><p>3 Trees lift their branches to form a path (to or away from the dryad?)</p><p>4 In the distance, one exceptionally tall tree</p><hr class=\"a5e-rule u-my-md\"><h2><strong>ENCOUNTERS</strong></h2><p>Dryads bond with trees in forests and jungles.</p><p><strong>CR 0–2</strong> 1 to 3 dryads; dryad with 1d4 pixies or sprites; dryad with 1d6 blood hawks</p><p><strong>Treasure</strong> jug of pure water (acts as 3 doses of <em>potion of animal friendship</em>)</p><p><strong>CR 3–4</strong> dryad with awakened tree; 2 dryads with 2 satyrs; dryad with druid</p><p><strong>Treasure</strong> <em>feather token </em>(tree). Once the tree is planted, the dryad can Tree Stride up to 100 miles to this tree</p><hr class=\"a5e-rule u-my-md\"><h2><strong>MONSTER TYPE DESCRIPTION</strong></h2><p>Fey are creatures that are native to Fairyland, also called the Dreaming. These creatures live in a verdant realm of heightened natural beauty and combine grace and danger. Sprites and pixies are fey.</p>",
+			"bio": "",
 			"creatureTypes": [
-				"fey"
+				"beast"
 			],
 			"isSwarm": false,
 			"cr": 0.5,
 			"elite": false,
-			"privateNotes": ""
+			"privateNotes": "",
+			"notes": "<p><strong>Source&nbsp;</strong>Gate Pass Gazette 15</p>\n<p><strong>Terrain </strong>Caverns, Mountains, Underland</p>\n<p><strong>Variant </strong>@UUID[Compendium.a5e.a5e-monsters.Actor.fquj6ouztxpm6oko]{Swarm of Bats}</p>\n<hr>\n<h2>DESCRIPTION</h2>\n<div class=\"field field--name-field-monster-description field--type-text-long field--label-above\">\n<div class=\"field--item\">\n<div class=\"field field--name-field-monster-description field--type-text-long field--label-above\">\n<div class=\"field--item\">\n<p>Sickle bats inhabit dark corners of deep caves, swooping down from their perches to strike from above. The first fingers on a sickle bat&rsquo;s wings are tipped with a small sickle shaped claw that they slice into their prey as they fly by, swarming like aerial piranhas. When one of their targets is bloodied they fall into a frenzy, focusing on that creature to the exclusion of all others.</p>\n<div class=\"field field--name-field-monster-type-description field--type-text-long field--label-above\">\n<h2 class=\"field--label\">MONSTER TYPE DESCRIPTION</h2>\n<div class=\"field--item\">\n<p>Beasts are natural animals whose existence and abilities are nonmagical. A <span class=\"freelinking-link\">bear</span>&nbsp;and a&nbsp;<span class=\"freelinking-link\">tyrannosaurus rex</span>&nbsp;are both beasts.</p>\n</div>\n</div>\n</div>\n</div>\n</div>\n</div>"
 		},
 		"proficiencies": {
 			"armor": [],
-			"languages": [
-				"elvish",
-				"sylvan"
-			],
+			"languages": [],
 			"tools": [],
 			"weapons": []
 		},
@@ -1578,22 +1488,33 @@
 			"publisher": ""
 		},
 		"traits": {
-			"size": "med",
-			"conditionImmunities": [],
+			"size": "lg",
+			"conditionImmunities": [
+				"charmed",
+				"frightened",
+				"grappled",
+				"paralyzed",
+				"petrified",
+				"prone",
+				"restrained",
+				"stunned",
+				"unconscious"
+			],
 			"damageImmunities": [],
-			"damageResistances": [],
-			"damageVulnerabilities": [
-				"fire",
+			"damageResistances": [
+				"bludgeoning",
+				"piercing",
 				"slashing"
-			]
+			],
+			"damageVulnerabilities": []
 		}
 	},
 	"prototypeToken": {
-		"name": "Dryad",
+		"name": "Swarm of Bats",
 		"displayName": 0,
 		"actorLink": false,
-		"width": 1,
-		"height": 1,
+		"width": 2,
+		"height": 2,
 		"lockRotation": false,
 		"rotation": 0,
 		"alpha": 1,
@@ -1620,7 +1541,7 @@
 			"attenuation": 0.5,
 			"color": null
 		},
-		"disposition": -1,
+		"disposition": 0,
 		"displayBars": 0,
 		"bar1": {
 			"attribute": "attributes.hp"
@@ -1631,7 +1552,7 @@
 		"flags": {},
 		"randomImg": false,
 		"texture": {
-			"src": "systems/a5e/assets/dryad.webp",
+			"src": "icons/creatures/mammals/bats-movement-flying-purple.webp",
 			"scaleX": 1,
 			"scaleY": 1,
 			"offsetX": 0,
@@ -1655,5 +1576,5 @@
 		"prependAdjective": false
 	},
 	"folder": "v3kWeCWaVjEUcHff",
-	"_id": "310y8k6ulriin0ci"
+	"_id": "ytfea7s4qnklg8ha"
 }
