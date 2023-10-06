@@ -1,2 +1,15 @@
-Licensed under https://creativecommons.org/licenses/by/3.0/
-Created by https://game-icons.net/
+The following icons are sourced from [game-icons.net](https://game-icons.net/) and are licensed under [CC BY 3.0 DEED](https://creativecommons.org/licenses/by/3.0/). Links have been provided to the original assets.
+
+- [charmed.svg](https://game-icons.net/1x1/lorc/smitten.html) (Created by Lorc)
+- [concentration.svg](https://game-icons.net/1x1/lorc/meditation.html) (Created by Lorc)
+- [confused.svg](https://game-icons.net/1x1/skoll/knockout.html) (Created by Skoll)
+- [d20.svg](https://game-icons.net/1x1/delapouite/dice-twenty-faces-twenty.html) (Created by Delapouite)
+- [doomed.svg](https://game-icons.net/1x1/delapouite/icarus.html) (Created by Delapouite)
+- [encumbered.svg](https://game-icons.net/1x1/delapouite/weight.html) (Created by Delapouite)
+- [fatigue.svg](https://game-icons.net/1x1/lorc/back-pain.html) (Created by Lorc)
+- [grappled.svg](https://game-icons.net/1x1/lorc/grapple.html) (Created by Lorc)
+- [incapacitated.svg](https://game-icons.net/1x1/delapouite/sleeping-bag.html) (Created by Delapouite)
+- [petrified.svg](https://game-icons.net/1x1/cathelineau/medusa-head.html) (Created by Cathelineau)
+- [rattled.svg](https://game-icons.net/1x1/lorc/helmet-head-shot.html) (Created by Lorc)
+- [slowed.svg](https://game-icons.net/1x1/lorc/snail.html) (Created by Lorc)
+- [strife.svg](https://game-icons.net/1x1/lorc/tear-tracks.html) (Created by Lorc)
