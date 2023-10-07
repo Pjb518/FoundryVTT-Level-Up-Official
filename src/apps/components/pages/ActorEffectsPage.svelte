@@ -13,6 +13,10 @@
             return localize("A5E.ToggleGenericStatusCondition");
         }
 
+        if (id === "concentration") {
+            return localize("A5E.ToggleConcentrationStatusCondition");
+        }
+
         if (id === "fatigue" || id === "strife") {
             return localize("A5E.ToggleTrackStatusCondition", {
                 condition: localize(label),
