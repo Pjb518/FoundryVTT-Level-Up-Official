@@ -44,6 +44,6 @@ The system software is distributed under the [MIT License](https://mit-license.o
 
 ---
 
-This system was made with the help of Svelte and TyphonJS.
+This system was made with the help of [Svelte](https://svelte.dev/) and [TyphonJS](https://github.com/typhonjs-fvtt-lib/typhonjs).
 
 [![68747470733a2f2f692e696d6775722e636f6d2f64784c635a724c2e6a7067](https://github.com/Pjb518/FoundryVTT-Level-Up-Official/assets/33249712/32006129-142e-43d1-8b7f-019a8cd1fc43)](https://github.com/typhonjs-fvtt-lib/typhonjs)
