@@ -48,7 +48,7 @@
         {/each}
     </section>
 
-    <section class="conditions-section">
+    <section>
         <ul class="conditions-list">
             {#each Object.values(statusEffects) as { icon, id, label } (id)}
                 <!-- TODO: Adds a real condition for the active modifier class -->
@@ -68,11 +68,6 @@
 </div>
 
 <style lang="scss">
-    .conditions-section {
-        border-top: 1px solid #ccc;
-        padding-top: 0.5rem;
-    }
-
     .conditions-list {
         display: grid;
         grid-template-columns: repeat(17, 1fr);
@@ -80,7 +75,8 @@
         align-items: center;
         justify-content: center;
         margin: 0;
-        padding: 0 0.25rem 0.25rem 0.25rem;
+        padding: 0.75rem 0.25rem 0.25rem 0.25rem;
+        border-top: 1px solid #ccc;
         list-style: none;
 
         &__item {
