@@ -231,7 +231,7 @@
                 selectedIconSize = detail;
             }}
         />
-    </FormSection>
+    </FormSection> -->
 
     <FormSection
         heading="A5E.settings.effectsPanelPosition"
@@ -251,9 +251,8 @@
                     value={selectedOffset.top}
                     on:change={({ target }) => {
                         const { value } = target;
-                        selectedOffset.top = value;
+                        selectedOffset.top = Number(value);
                         updates.set("effectsPanelOffset", selectedOffset);
-                        reload = true;
                     }}
                 />
             </FormSection>
@@ -267,9 +266,8 @@
                     value={selectedOffset.bottom}
                     on:change={({ target }) => {
                         const { value } = target;
-                        selectedOffset.bottom = value;
+                        selectedOffset.bottom = Number(value);
                         updates.set("effectsPanelOffset", selectedOffset);
-                        reload = true;
                     }}
                 />
             </FormSection>
@@ -283,14 +281,13 @@
                     value={selectedOffset.right}
                     on:change={({ target }) => {
                         const { value } = target;
-                        selectedOffset.right = value;
+                        selectedOffset.right = Number(value);
                         updates.set("effectsPanelOffset", selectedOffset);
-                        reload = true;
                     }}
                 />
             </FormSection>
         </div>
-    </FormSection> -->
+    </FormSection>
 </section>
 
 <style lang="scss">

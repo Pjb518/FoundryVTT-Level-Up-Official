@@ -2,6 +2,8 @@
     import { onDestroy } from "svelte";
     import { TJSDocument } from "#runtime/svelte/store/fvtt/document";
 
+    import { gameSettings } from "../../settings/SettingsStore";
+
     import A5EEffectsPanelEffect from "./A5EEffectsPanelEffect.svelte";
 
     function removeEffect(id) {
@@ -57,6 +59,19 @@
         return new TJSDocument(token?.actor ?? game.user?.character ?? null);
     }
 
+    function convertRemToPixels(rem) {
+        return (
+            rem *
+            parseFloat(getComputedStyle(document.documentElement).fontSize)
+        );
+    }
+
+    // Get panel settings
+    $: panelOffset = gameSettings.getStore("effectsPanelOffset");
+    $: panelTop = convertRemToPixels(4) + ($panelOffset.top ?? 0);
+    $: panelLeft = convertRemToPixels(-0.5) - ($panelOffset.right ?? 0);
+    $: panelBottom = convertRemToPixels(4) + 5 + ($panelOffset.bottom ?? 0);
+
     let token = canvas.tokens.controlled.at(0)?.document ?? null;
 
     const maxIconsPerColumn = getMaxEffectIconsPerColumn();
@@ -93,7 +108,11 @@
 </script>
 
 {#if token && $actor && effects.length}
-    <article id="a5e-effects-panel" class="a5e-effects-panel">
+    <article
+        id="a5e-effects-panel"
+        class="a5e-effects-panel"
+        style="--top: {panelTop}px; --left: {panelLeft}px; --bottom: {panelBottom}px;"
+    >
         <ul class="a5e-effect-list">
             {#each effects as { description, flags, icon, _id, name, statuses } (_id)}
                 <A5EEffectsPanelEffect
@@ -118,8 +137,8 @@
 <style lang="scss">
     .a5e-effects-panel {
         position: absolute;
-        top: 4rem;
-        left: -0.5rem;
+        top: var(--top);
+        left: var(--left);
         width: fit-content;
         pointer-events: initial;
         transform: translateX(-100%);
@@ -130,7 +149,7 @@
         flex-direction: column;
         flex-wrap: wrap;
         gap: 0.75rem;
-        max-height: calc(100vh - 4rem - 5px);
+        max-height: calc(100vh - var(--bottom));
         margin: 0;
         padding: 0;
         list-style: none;
