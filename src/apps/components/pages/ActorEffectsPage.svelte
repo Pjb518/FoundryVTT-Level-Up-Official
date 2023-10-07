@@ -52,12 +52,12 @@
         {/each}
     </section>
 
-    <section>
+    <!-- TODO: Adds a real condition for the active modifier class -->
+    <!-- TODO: Adds a click handler to toggle conditions -->
+    <!-- TODO: Adds strife and fatigue counter and colours -->
+    <!-- <section>
         <ul class="conditions-list">
             {#each Object.values(statusEffects) as { icon, id, label } (id)}
-                <!-- TODO: Adds a real condition for the active modifier class -->
-                <!-- TODO: Adds a click handler to toggle conditions -->
-                <!-- TODO: Adds strife and fatigue counter and colours -->
                 <li
                     class="conditions-list__item"
                     class:conditions-list__item--active={false}
@@ -68,94 +68,94 @@
                 </li>
             {/each}
         </ul>
-    </section>
+    </section> -->
 </div>
 
 <style lang="scss">
-    .conditions-list {
-        display: grid;
-        grid-template-columns: repeat(17, 1fr);
-        gap: 0.375rem;
-        align-items: center;
-        justify-content: center;
-        margin: 0;
-        padding: 0.75rem 0.25rem 0.25rem 0.25rem;
-        border-top: 1px solid #ccc;
-        list-style: none;
+    // .conditions-list {
+    //     display: grid;
+    //     grid-template-columns: repeat(17, 1fr);
+    //     gap: 0.375rem;
+    //     align-items: center;
+    //     justify-content: center;
+    //     margin: 0;
+    //     padding: 0.75rem 0.25rem 0.25rem 0.25rem;
+    //     border-top: 1px solid #ccc;
+    //     list-style: none;
 
-        &__item {
-            display: flex;
-            position: relative;
-            height: 1.5rem;
-            width: 1.5rem;
-            border-radius: 50%;
-            cursor: pointer;
+    //     &__item {
+    //         display: flex;
+    //         position: relative;
+    //         height: 1.5rem;
+    //         width: 1.5rem;
+    //         border-radius: 50%;
+    //         cursor: pointer;
 
-            &--active {
-                box-shadow: 0 0 5px var(--color-shadow-primary);
-            }
+    //         &--active {
+    //             box-shadow: 0 0 5px var(--color-shadow-primary);
+    //         }
 
-            &::after {
-                display: flex;
-                align-items: center;
-                justify-content: center;
-                position: absolute;
-                top: -0.375rem;
-                right: -0.375rem;
-                width: 0.75rem;
-                height: 0.75rem;
-                padding: 1px;
-                font-family: $font-secondary;
-                font-size: $font-size-xxs;
-                font-weight: 400;
-                color: white;
-                background-color: rgba(0 0 0 / 0.45);
-                border-radius: 50%;
-            }
+    //         &::after {
+    //             display: flex;
+    //             align-items: center;
+    //             justify-content: center;
+    //             position: absolute;
+    //             top: -0.375rem;
+    //             right: -0.375rem;
+    //             width: 0.75rem;
+    //             height: 0.75rem;
+    //             padding: 1px;
+    //             font-family: $font-secondary;
+    //             font-size: $font-size-xxs;
+    //             font-weight: 400;
+    //             color: white;
+    //             background-color: rgba(0 0 0 / 0.45);
+    //             border-radius: 50%;
+    //         }
 
-            &--locked {
-                cursor: not-allowed;
+    //         &--locked {
+    //             cursor: not-allowed;
 
-                &::after {
-                    content: "\f023";
-                    font: var(--fa-font-solid);
-                    font-size: $font-size-xxs;
-                }
-            }
+    //             &::after {
+    //                 content: "\f023";
+    //                 font: var(--fa-font-solid);
+    //                 font-size: $font-size-xxs;
+    //             }
+    //         }
 
-            &--linked {
-                cursor: not-allowed;
+    //         &--linked {
+    //             cursor: not-allowed;
 
-                & ::after {
-                    content: "\f0c1";
-                    font: var(--fa-font-solid);
-                    font-size: $font-size-xxs;
-                }
-            }
+    //             & ::after {
+    //                 content: "\f0c1";
+    //                 font: var(--fa-font-solid);
+    //                 font-size: $font-size-xxs;
+    //             }
+    //         }
 
-            &--fatigue::after {
-                content: var(--fatigue);
-                background-color: var(--fatigue-col);
-                font-size: $font-size-xxs;
-            }
+    //         &--fatigue::after {
+    //             content: var(--fatigue);
+    //             background-color: var(--fatigue-col);
+    //             font-size: $font-size-xxs;
+    //         }
 
-            &--strife::after {
-                content: var(--strife);
-                background-color: var(--strife-col);
-                font-size: $font-size-xxs;
-            }
-        }
-    }
+    //         &--strife::after {
+    //             content: var(--strife);
+    //             background-color: var(--strife-col);
+    //             font-size: $font-size-xxs;
+    //         }
+    //     }
+    // }
 
-    .condition-icon {
-        height: 100%;
-        width: 100%;
-        object-fit: cover;
-        object-position: top;
-        border: 1px solid black;
-        border-radius: 50%;
-        background-color: rgba(0, 0, 0, 0.6);
-    }
+    // .condition-icon {
+    //     height: 100%;
+    //     width: 100%;
+    //     object-fit: cover;
+    //     object-position: top;
+    //     border: 1px solid black;
+    //     border-radius: 50%;
+    //     background-color: rgba(0, 0, 0, 0.6);
+    // }
 
     .effects-page {
         display: flex;
