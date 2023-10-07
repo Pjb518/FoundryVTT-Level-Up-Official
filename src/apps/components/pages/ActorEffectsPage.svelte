@@ -95,33 +95,54 @@
                 box-shadow: 0 0 5px var(--color-shadow-primary);
             }
 
-            &--fatigue,
-            &--strife {
+            &::after {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                position: absolute;
+                top: -0.375rem;
+                right: -0.375rem;
+                width: 0.75rem;
+                height: 0.75rem;
+                padding: 1px;
+                font-family: $font-secondary;
+                font-size: $font-size-xxs;
+                font-weight: 400;
+                color: white;
+                background-color: rgba(0 0 0 / 0.45);
+                border-radius: 50%;
+            }
+
+            &--locked {
+                cursor: not-allowed;
+
                 &::after {
-                    display: flex;
-                    align-items: center;
-                    justify-content: center;
-                    position: absolute;
-                    top: -0.375rem;
-                    right: -0.375rem;
-                    width: 0.75rem;
-                    height: 0.75rem;
-                    padding: 1px;
-                    font-family: $font-secondary;
-                    font-size: $font-size-xs;
-                    color: white;
-                    border-radius: 50%;
+                    content: "\f023";
+                    font: var(--fa-font-solid);
+                    font-size: $font-size-xxs;
+                }
+            }
+
+            &--linked {
+                cursor: not-allowed;
+
+                & ::after {
+                    content: "\f0c1";
+                    font: var(--fa-font-solid);
+                    font-size: $font-size-xxs;
                 }
             }
 
             &--fatigue::after {
                 content: var(--fatigue);
                 background-color: var(--fatigue-col);
+                font-size: $font-size-xxs;
             }
 
             &--strife::after {
                 content: var(--strife);
                 background-color: var(--strife-col);
+                font-size: $font-size-xxs;
             }
         }
     }

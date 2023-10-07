@@ -244,14 +244,14 @@
     .fatigue-counter::after {
         content: var(--fatigue);
         font-family: $font-secondary;
-        font-size: 1rem;
+        font-size: 0.833rem;
         background-color: var(--fatigue-col);
     }
 
     .strife-counter::after {
         content: var(--strife);
         font-family: $font-secondary;
-        font-size: 1rem;
+        font-size: 0.833rem;
         background-color: var(--strife-col);
     }
 </style>
