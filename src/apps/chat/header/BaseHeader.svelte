@@ -79,6 +79,8 @@
         gap: 0.5rem;
         align-items: center;
         padding-block: 0.25rem var(--bottom-padding, 0.5rem);
+        // TODO: Adds this back in when we change the header color to match user config
+        // background-color: var(--background-color);
 
         &--clickable {
             cursor: pointer;
