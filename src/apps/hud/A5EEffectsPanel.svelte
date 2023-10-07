@@ -66,11 +66,20 @@
         );
     }
 
+    function getIconSize(size) {
+        if (size === "small") return ["2rem", "2rem"];
+        if (size === "medium") return ["2rem", "2.5rem"];
+        if (size === "large") return ["2.5rem", "3rem"];
+    }
+
     // Get panel settings
-    $: panelOffset = gameSettings.getStore("effectsPanelOffset");
+    let panelOffset = gameSettings.getStore("effectsPanelOffset");
     $: panelTop = convertRemToPixels(4) + ($panelOffset.top ?? 0);
     $: panelLeft = convertRemToPixels(-0.5) - ($panelOffset.right ?? 0);
     $: panelBottom = convertRemToPixels(4) + 5 + ($panelOffset.bottom ?? 0);
+
+    let panelIconSize = gameSettings.getStore("effectsPanelIconSize");
+    $: iconSize = getIconSize($panelIconSize);
 
     let token = canvas.tokens.controlled.at(0)?.document ?? null;
 
@@ -124,8 +133,8 @@
                     conditionId={statuses.first()}
                     linked={flags?.a5e?.source ?? null}
                     --icon-size={effects.length > maxIconsPerColumn
-                        ? "2rem"
-                        : "2.5rem"}
+                        ? iconSize[0]
+                        : iconSize[1]}
                     on:deleteEffect={() => removeEffect(_id)}
                     on:increaseCounter={() => increaseCounter(_id)}
                 />

@@ -217,7 +217,7 @@
         />
     </FormSection>
 
-    <!-- <FormSection
+    <FormSection
         heading="A5E.settings.effectsPanelIconSize"
         hint="A5E.settings.hints.effectsPanelIconSize"
         --label-weight="bold"
@@ -231,7 +231,7 @@
                 selectedIconSize = detail;
             }}
         />
-    </FormSection> -->
+    </FormSection>
 
     <FormSection
         heading="A5E.settings.effectsPanelPosition"
