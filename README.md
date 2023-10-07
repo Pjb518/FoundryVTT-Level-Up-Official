@@ -32,8 +32,18 @@ If you've developed a module for the Level Up system and would like it listed he
 This system is offered and may be used under the terms of the Open Gaming License v1.0a and the accompanying
 Level Up: Advanced 5th Edition [Systems Reference Document](https://www.levelup5e.com/system-reference-document).
 
-The content of the `public/packs/` directory is taken from the Level Up: Advanced 5th Edition System Reference Document and used under the terms of the Open Gaming License v1.0a. A copy of the license can be found in the `OGL.md` document.
+The content of the `public/packs/` is used under the terms of the Open Gaming License v1.0a. A copy of the license can be found in the `OGL.md` document.
 
-The images in the `public/assets/` directory are provided for non-commercial use by EN Publishing Inc. and can be found [here](https://www.enworld.org/newsimages/lu_monstrous_menagerie_tokens.zip).
+Various icons are in the `public/assets/icons` directory are sourced from [game-icons.net](https://www.game-icons.net) and are licensed under CC BY 3.0 DEED. Attributions and license details are provided in the `LICENSE.md` file in that directory.
+
+The logos in `public/assets/publisherLogos` are used with permission of the respective publishers.
+
+The remaining images in the `public/assets/` directory are provided for non-commercial use by EN Publishing Inc. and can be found [here](https://www.enworld.org/newsimages/lu_monstrous_menagerie_tokens.zip).
 
 The system software is distributed under the [MIT License](https://mit-license.org/).
+
+---
+
+This system was made with the help of Svelte and TyphonJS.
+
+[![68747470733a2f2f692e696d6775722e636f6d2f64784c635a724c2e6a7067](https://github.com/Pjb518/FoundryVTT-Level-Up-Official/assets/33249712/32006129-142e-43d1-8b7f-019a8cd1fc43)](https://github.com/typhonjs-fvtt-lib/typhonjs)
