@@ -1,16 +1,10 @@
 <script>
-    import { getContext } from "svelte";
-
-    export let primaryBarColor;
     export let hp;
-    export let hpPrimaryPercentage;
-    export let hpTempPercentage;
 
-    const actor = getContext("actor");
+    $: hpPrimaryPercentage = Math.floor(
+        Math.min((hp.value / hp.max) * 100, 100)
+    );
 
-    // TODO: Convert to variables
-    $: primaryBarColor = $actor.isBloodied ? "#8b2525" : "#2b6537";
-    $: hpPrimaryPercentage = Math.min((hp.value / hp.max) * 100, 100);
     $: hpTempPercentage = Math.min(((hp.temp || 0) / hp.max) * 100, 100);
 </script>
 
@@ -19,7 +13,6 @@
     style="
         --primary-hp-percentage: {hpPrimaryPercentage};
         --temp-hp-percentage: {hpTempPercentage};
-        --primary-bar-color: {primaryBarColor};
         --secondary-bar-color: #2FA6B1;
     "
 >
@@ -51,7 +44,7 @@
 
             background: conic-gradient(
                 from 41.5deg,
-                var(--primary-bar-color)
+                hsl(var(--primary-hp-percentage), 50%, 35%)
                     calc(var(--primary-hp-percentage) * 0.775%),
                 rgba(0, 0, 0, 0.08) calc(var(--primary-hp-percentage) * 0.775%),
                 rgba(0, 0, 0, 0.08) 279deg,
