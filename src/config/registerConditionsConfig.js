@@ -630,4 +630,16 @@ export default function registerConditionsConfig() {
   }, []);
 
   CONFIG.statusEffects = conditions;
+
+  // Add a custom getter for linked properties
+  CONFIG.A5E.linkedStatusEffects = conditions.reduce((acc, condition) => {
+    if (!condition.statuses?.length) return acc;
+
+    condition.statuses.forEach((status) => {
+      acc[status] ??= [];
+      acc[status].push(condition.id);
+    });
+
+    return acc;
+  }, {});
 }
