@@ -176,7 +176,12 @@
         on:click={() => dispatch("increaseCounter", _id)}
         on:auxclick={() => linked ?? dispatch("deleteEffect", _id)}
     >
-        <img class="a5e-effect-item__icon" src={icon} alt={name} />
+        <img
+            class="a5e-effect-item__icon"
+            class:a5e-effect-item__icon--svg={icon?.endsWith(".svg")}
+            src={icon}
+            alt={name}
+        />
     </li>
 </div>
 
@@ -216,6 +221,11 @@
             object-fit: cover;
             object-position: top;
             border: none;
+
+            &--svg {
+                height: 75%;
+                width: 75%;
+            }
         }
     }
 
@@ -226,24 +236,23 @@
 
         &::after {
             content: "\f0c1";
-            font: var(--fa-font-solid);
-
+            position: absolute;
+            top: -0.4rem;
+            right: -0.4rem;
             display: flex;
             align-items: center;
             justify-content: center;
-            padding: 1px;
-
-            background-color: rgba(0 0 0 / 0.45);
-            border-radius: 50%;
             width: 1rem;
-            aspect-ratio: 1/1;
-            color: white;
+            padding: 1px;
+            font: var(--fa-font-solid);
             font-size: $font-size-xs;
             font-weight: 400;
-
-            position: absolute;
-            top: -0.375rem;
-            right: -0.375rem;
+            color: white;
+            background-color: rgba(20, 20, 20, 0.6);
+            box-shadow: 0 0 0 1px #e9d7a1, 0 0 0 2px #956d58;
+            backdrop-filter: blur(1px);
+            border-radius: 50%;
+            aspect-ratio: 1/1;
         }
     }
 
