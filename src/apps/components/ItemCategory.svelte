@@ -174,7 +174,7 @@
     .items-container {
         display: flex;
         flex-direction: column;
-        gap: 0.25rem;
+        gap: 0.2rem;
         padding: 0;
         padding-right: 0.375rem;
         margin: 0;

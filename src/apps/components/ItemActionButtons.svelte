@@ -138,8 +138,8 @@
         z-index: 2;
         display: flex;
         align-items: center;
-        width: 1.5rem;
-        height: 1.5rem;
+        width: 1.375rem;
+        height: 1.375rem;
         margin-inline: 0.5rem 0.5rem;
         border-radius: 50%;
         color: #999;
@@ -150,8 +150,8 @@
         &-icon {
             z-index: 1;
             display: flex;
-            width: 1.5rem;
-            height: 1.5rem;
+            width: 1.375rem;
+            height: 1.375rem;
             flex-shrink: 0;
             align-items: center;
             justify-content: center;
@@ -159,7 +159,7 @@
             background: var(--track-background, #ebe9e0);
             border-radius: 50%;
             cursor: pointer;
-            font-size: $font-size-md;
+            font-size: $font-size-sm;
             transform: translateX(-1px);
 
             transition: $standard-transition;
@@ -174,7 +174,7 @@
             display: none;
             align-items: center;
             gap: 0.25rem;
-            height: 1.5rem;
+            height: 1.375rem;
             padding: 0 1rem 0 0.5rem;
             border: 1px solid var(--track-border-color, #ccc);
             border-left: 0;
