@@ -18,39 +18,35 @@
 
 <div class="skill-page-wrapper">
     {#if showSpecialties}
-        <div
-            style="border: 1px solid #ccc; border-radius: $border-radius-standard;"
-        >
-            <FormSection heading="Skill Specialties">
-                <dl class="skill-specialties">
-                    {#each Object.entries(skills) as [key, skill]}
-                        {#if skill.specialties.length}
-                            <dt class="skill-specialties__skill">
-                                {localize(A5E.skills[key])}
-                            </dt>
-                            <dd class="skill-specialties__list">
-                                {skill.specialties
-                                    .sort((a, b) =>
-                                        a
-                                            .toLowerCase()
-                                            .localeCompare(b.toLowerCase())
-                                    )
-                                    .map((specialty) => {
-                                        if (!skillSpecialties[key])
-                                            return specialty;
+        <FormSection heading="Skill Specialties" --border="1px solid #ccc">
+            <dl class="skill-specialties">
+                {#each Object.entries(skills) as [key, skill]}
+                    {#if skill.specialties.length}
+                        <dt class="skill-specialties__skill">
+                            {localize(A5E.skills[key])}
+                        </dt>
+                        <dd class="skill-specialties__list">
+                            {skill.specialties
+                                .sort((a, b) =>
+                                    a
+                                        .toLowerCase()
+                                        .localeCompare(b.toLowerCase())
+                                )
+                                .map((specialty) => {
+                                    if (!skillSpecialties[key])
+                                        return specialty;
 
-                                        return (
-                                            skillSpecialties[key][specialty] ??
-                                            specialty
-                                        );
-                                    })
-                                    .join(", ")}
-                            </dd>
-                        {/if}
-                    {/each}
-                </dl>
-            </FormSection>
-        </div>
+                                    return (
+                                        skillSpecialties[key][specialty] ??
+                                        specialty
+                                    );
+                                })
+                                .join(", ")}
+                        </dd>
+                    {/if}
+                {/each}
+            </dl>
+        </FormSection>
     {/if}
 
     <ul class="skills-container">
