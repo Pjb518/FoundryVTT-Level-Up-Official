@@ -138,6 +138,7 @@
     const { conditions } = CONFIG.A5E;
 
     $: duration = getEffectDuration(actor);
+
     const durationHook = Hooks.on(
         "updateWorldTime",
         () => (duration = getEffectDuration(actor))
@@ -149,12 +150,12 @@
     $: strife = actor?.system.attributes.strife ?? 0;
 
     $: tooltip = `
-    <div class="a5e-effect-item__details">
-    <h3 class="a5e-effect-item__heading">${getEffectName(actor)}</h3>
-    ${getEffectDescription(actor)}
-    ${getEffectRemovalNote()}
-    ${getEffectNotes(actor, duration)}
-    </div>
+        <div class="a5e-effect-item__details">
+            <h3 class="a5e-effect-item__heading">${getEffectName(actor)}</h3>
+            ${getEffectDescription(actor)}
+            ${getEffectRemovalNote()}
+            ${getEffectNotes(actor, duration)}
+        </div>
     `;
 </script>
 
@@ -198,18 +199,23 @@
 
     .a5e-effect-item {
         display: flex;
+        align-items: center;
+        justify-content: center;
         height: var(--icon-size, 2.5rem);
         width: var(--icon-size, 2.5rem);
-        border: 1px solid #e9d7a1;
         border-radius: 50%;
+        background-color: rgba(20, 20, 20, 0.6);
+        backdrop-filter: blur(3px);
+        box-shadow: 0 0 0 1px #e9d7a1, 0 0 0 2px #956d58;
         cursor: pointer;
+        overflow: hidden;
 
         &__icon {
             height: 100%;
             width: 100%;
-            border: 1px solid black;
-            border-radius: 50%;
-            background-color: rgba(0, 0, 0, 0.6);
+            object-fit: cover;
+            object-position: top;
+            border: none;
         }
     }
 
