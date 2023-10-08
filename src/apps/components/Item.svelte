@@ -204,7 +204,7 @@
     .actions-list {
         display: flex;
         flex-direction: column;
-        gap: 0.25rem;
+        gap: 0.175rem;
         margin: 0;
         padding: 0 0 0 1rem;
     }
