@@ -11,7 +11,8 @@
 
 <li>
     <button
-        class="nav-item {tab.name === currentTab.name && 'nav-item-active'}"
+        class="nav-item"
+        class:nav-item-active={tab.name === currentTab.name}
         on:click={() => dispatch("tab-change", index)}
     >
         {#if tab.icon}
