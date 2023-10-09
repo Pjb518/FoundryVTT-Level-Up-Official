@@ -77,13 +77,11 @@
     </section>
 
     <!-- TODO: Adds strife and fatigue counter and colours -->
-    {#if linkedActor || $actor.token}
+    <!-- {#if linkedActor || $actor.token}
         <section>
             <ul class="conditions-list">
-                <!-- {console.log(tokens)} -->
                 {#each Object.values(statusEffects) as { icon, id, label } (id)}
-                    <!-- svelte-ignore a11y-click-events-have-key-events -->
-                    <!-- svelte-ignore a11y-no-noninteractive-element-interactions -->
+                    TODO: Adds the commend back in here svelte-ignore a11y-click-events-have-key-events svelte-ignore a11y-no-noninteractive-element-interactions
                     <li
                         class="conditions-list__item"
                         class:conditions-list__item--active={activeConditions.includes(
@@ -118,7 +116,7 @@
                 {/each}
             </ul>
         </section>
-    {/if}
+    {/if} -->
 </div>
 
 <style lang="scss">
