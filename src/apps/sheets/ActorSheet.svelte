@@ -18,20 +18,21 @@
     import ActorSpellsPage from "../components/pages/ActorSpellsPage.svelte";
     import NavigationBar from "../components/navigation/NavigationBar.svelte";
 
+    import ActorSheetTempSettingsStore from "../../stores/ActorSheetTempSettingsStore";
+
     export let { document, sheet } = getContext("#external").application;
     export let elementRoot;
 
-    const actor = document;
-
     function updateCurrentTab(event) {
+        const { uuid } = $actor;
         currentTab = tabs[event.detail];
 
-        if (
-            !$actor.pack &&
-            $actor.permission !== CONST.DOCUMENT_PERMISSION_LEVELS.OBSERVER
-        ) {
-            $actor.update({ "flags.a5e.currentTab": currentTab.name });
-        }
+        ActorSheetTempSettingsStore.update((currentSettings) => ({
+            ...currentSettings,
+            [uuid]: {
+                currentTab: currentTab.name,
+            },
+        }));
     }
 
     function getTabs(actor) {
@@ -97,13 +98,22 @@
         ];
     }
 
+    let tempSettings = {};
+
+    ActorSheetTempSettingsStore.subscribe((store) => {
+        tempSettings = store;
+    });
+
+    const actor = document;
+
     // Required to get the tabs to update as the actor flags change
     let tabs = getTabs($actor);
     $: tabs = getTabs($actor);
 
     let currentTab =
-        tabs.find((tab) => tab.name === $actor.flags?.a5e?.currentTab) ??
-        tabs[0];
+        tabs.find(
+            (tab) => tab.name === tempSettings[$actor?.uuid]?.currentTab
+        ) ?? tabs[0];
 
     setContext("actor", actor);
     setContext("sheet", sheet);
