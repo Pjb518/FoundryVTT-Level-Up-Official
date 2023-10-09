@@ -211,6 +211,7 @@
         border-radius: 50%;
         background-color: rgba(20, 20, 20, 0.6);
         backdrop-filter: blur(3px);
+        filter: drop-shadow(2px 4px 6px rgba(0, 0, 0, 0.4));
         box-shadow: 0 0 0 1px #e9d7a1, 0 0 0 2px #956d58;
         cursor: pointer;
         overflow: hidden;
