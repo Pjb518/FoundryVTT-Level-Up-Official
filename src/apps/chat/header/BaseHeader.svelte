@@ -67,11 +67,12 @@
 
 <style lang="scss">
     .card-image {
-        border: 0;
         width: 2.5rem;
         height: 2.5rem;
-        border-radius: 4px;
         grid-area: image;
+        border: 0;
+        border-radius: 4px;
+        background: rgba(0, 0, 0, 0.4);
     }
 
     .card-header {
