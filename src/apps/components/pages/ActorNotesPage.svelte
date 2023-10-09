@@ -53,8 +53,6 @@
 </div>
 
 <style lang="scss">
-    @import "../../../scss/base/variables";
-
     .notes-page {
         display: flex;
         flex-direction: column;
