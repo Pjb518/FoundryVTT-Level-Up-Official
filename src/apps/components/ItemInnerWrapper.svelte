@@ -393,9 +393,12 @@
         width: fit-content;
         padding: 0;
         margin: 0;
-        background: none;
         color: var(--icon-color, #999);
         border: 0;
+        background: none;
+
+        // 17.5 pixels: the width of the largest icon we have
+        min-width: 1.09375rem;
 
         transition: $standard-transition;
 

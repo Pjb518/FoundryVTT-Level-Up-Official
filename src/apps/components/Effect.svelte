@@ -312,10 +312,14 @@
 
     .action-button {
         padding: 0.25rem;
-        background: none;
-        border: 0;
-        transition: $standard-transition;
         color: #999;
+        border: 0;
+        background: none;
+
+        // 17.5 pixels: the width of the largest icon we have
+        min-width: 1.09375rem;
+
+        transition: $standard-transition;
 
         &:hover {
             color: #555;
