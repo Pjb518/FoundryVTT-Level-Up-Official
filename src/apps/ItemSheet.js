@@ -32,11 +32,18 @@ export default class ItemSheet extends SvelteApplication {
       options.resizable = true;
     }
 
+    // eslint-disable-next-line no-nested-ternary
+    const parentId = item.parent
+      ? item?.parent?.isToken
+        ? (item?.parent?.parent.id ?? item.parent.id)
+        : item.parent.id
+      : null;
+
     super(foundry.utils.mergeObject(
       options,
       {
         baseApplication: 'ItemSheet',
-        id: `item-sheet-${item.id}`,
+        id: parentId ? `item-sheet-${parentId}-${item.id}` : `item-sheet-${item.id}`,
         classes: ['a5e-sheet', 'a5e-sheet--item'],
         title: item.name,
         focusAuto: item.type !== 'heritage',
