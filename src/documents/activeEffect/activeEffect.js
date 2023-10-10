@@ -52,6 +52,15 @@ export default class ActiveEffectA5e extends ActiveEffect {
     return this.parent.items.get(itemId);
   }
 
+  get isLocked() {
+    if (!(['Actor', 'ActorDelta', 'Token'].includes(this.parent.documentName))) return true;
+
+    const { parentItem } = this;
+    if (!parentItem || parentItem?.type !== 'object') return false;
+
+    return parentItem?.system?.equippedState !== CONFIG.A5E.EQUIPPED_STATES.EQUIPPED;
+  }
+
   // -------------------------------------------------------
   //  Class Methods
   // -------------------------------------------------------

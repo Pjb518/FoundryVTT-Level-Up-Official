@@ -123,12 +123,13 @@
             {#if $doc.documentName === "Actor"}
                 <button
                     class="effect-button effect-button--active-toggle fas"
-                    class:fa-toggle-off={effect.isDisabled ||
-                        effect.isSuppressed}
-                    class:fa-toggle-on={!effect.isDisabled &&
-                        !effect.isSuppressed}
-                    class:active={!effect.isDisabled && !effect.isSuppressed}
-                    data-tooltip="A5E.effects.toggleActiveState"
+                    class:fa-toggle-off={effect.isSuppressed}
+                    class:fa-toggle-on={!effect.isSuppressed}
+                    class:active={!effect.isSuppressed}
+                    class:locked={effect.isLocked}
+                    data-tooltip={effect.isLocked
+                        ? "Originating item is not equipped."
+                        : "A5E.effects.toggleActiveState"}
                     data-tooltip-direction="UP"
                     on:click={() => effect.toggleActiveState()}
                 />
@@ -211,14 +212,6 @@
 
         &:hover {
             box-shadow: none;
-
-            // .effect-image {
-            //     display: none;
-            // }
-
-            // .effect-image--die {
-            //     display: block;
-            // }
         }
     }
 
@@ -308,6 +301,14 @@
 
     .active {
         color: $color-primary;
+    }
+
+    .locked {
+        cursor: not-allowed;
+
+        &:hover {
+            color: #999;
+        }
     }
 
     .action-button {
