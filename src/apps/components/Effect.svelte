@@ -3,6 +3,7 @@
     import { localize } from "#runtime/svelte/helper";
 
     import DeletionConfirmationDialog from "../dialogs/initializers/DeletionConfirmationDialog";
+    import { get } from "svelte/store";
 
     export let effect;
 
@@ -35,7 +36,24 @@
                 game.settings.get("a5e", "hideDeleteConfirmation")
         );
 
+        const effectId = effect.id;
         effect.delete();
+
+        // Remove Prompt config
+        if (!actionId || $doc.documentName !== "Item") return;
+        console.log(actionId);
+
+        const action = $doc.system.actions[actionId];
+        const prompt = Object.entries(action?.prompts ?? {}).find(
+            ([, prompt]) =>
+                prompt.type === "effect" && prompt.effectId === effectId
+        );
+
+        if (!prompt?.[0]) return;
+
+        $doc.update({
+            [`system.actions.${actionId}.prompts.-=${prompt[0]}`]: null,
+        });
     }
 
     function onDragStart(event) {
@@ -51,6 +69,7 @@
     }
 
     const doc = getContext("actor") ?? getContext("item");
+    const actionId = getContext("actionId");
 
     let rightClickConfigure =
         game.settings.get("a5e", "itemRightClickConfigure") ?? false;
