@@ -55,7 +55,6 @@ export default class ModifierManager {
 
   #getSavingThrowModifiers() {
     return [
-      this.#getProficiencyBonus(),
       this.#getAbilitySaveModifier(),
       this.#getConcentrationBonus(),
       this.#getGlobalSavingThrowBonus(),
@@ -109,7 +108,7 @@ export default class ModifierManager {
     if (!ability) return null;
 
     return {
-      label: localize('A5E.AbilityCheckMod', {
+      label: localize('A5E.AbilitySaveMod', {
         ability: CONFIG.A5E.abilities[ability] ?? ability
       }),
       value: this.actor.system.abilities[ability]?.save.mod ?? null

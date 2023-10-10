@@ -1156,7 +1156,6 @@ export default class ActorA5e extends Actor {
     const rollFormula = getRollFormula(this, {
       ability: abilityKey,
       expertiseDie,
-      proficient: ability?.save.proficient ?? false,
       rollMode,
       saveType: options.saveType,
       situationalMods: options.situationalMods,
