@@ -28,7 +28,7 @@
 
     <section class="effects-main-container">
         {#each Object.entries($activeEffects._types) as [label, effects]}
-            {#if effects.length}
+            {#if effects.length && label !== "onUse"}
                 <EffectCategory label={subTypes[label]} {effects} />
             {/if}
         {/each}
