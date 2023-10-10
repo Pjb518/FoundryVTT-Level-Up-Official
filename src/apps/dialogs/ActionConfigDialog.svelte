@@ -6,11 +6,14 @@
 
     import ActionsActivationTab from "../components/pages/ActionsActivationTab.svelte";
     import ActionsDescriptionTab from "../components/pages/ActionsDescriptionTab.svelte";
+    import ActionsEffectsTab from "../components/pages/ActionsEffectsTab.svelte";
     import ActionsPromptsTab from "../components/pages/ActionsPromptsTab.svelte";
     import ActionsRollsTab from "../components/pages/ActionsRollsTab.svelte";
     import ActionsResourceManagementTab from "../components/pages/ActionsResourceManagementTab.svelte";
     import ActionsTargetingTab from "../components/pages/ActionsTargetingTab.svelte";
     import NavigationBar from "../components/navigation/NavigationBar.svelte";
+
+    import ItemDocument from "../ItemDocument";
 
     import editDocumentImage from "../handlers/editDocumentImage";
     import updateDocumentDataFromField from "../../utils/updateDocumentDataFromField";
@@ -18,7 +21,7 @@
     export let { actionId, dialog, itemDocument } =
         getContext("#external").application;
 
-    const item = new TJSDocument(itemDocument);
+    const item = new ItemDocument(itemDocument);
 
     function updateCurrentTab(event) {
         currentTab = tabs[event.detail];
@@ -54,6 +57,11 @@
             name: "consumers",
             label: "A5E.TabResourceManagement",
             component: ActionsResourceManagementTab,
+        },
+        {
+            name: "effects",
+            label: "A5E.TabEffects",
+            component: ActionsEffectsTab,
         },
     ];
 
