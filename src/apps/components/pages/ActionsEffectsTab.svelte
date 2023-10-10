@@ -13,7 +13,7 @@
     const item = getContext("item");
     const actionId = getContext("actionId");
     const { activeEffects } = item;
-    const subTypes = CONFIG.A5E.itemActiveEffectTypesPlural;
+    const subTypes = CONFIG.A5E.actionActiveEffectTypesPlural;
     const reducerType = "activeEffects";
 </script>
 
@@ -25,7 +25,7 @@
             <CreateMenu
                 {reducerType}
                 documentName="ActiveEffect"
-                entityTypeOverride="onUse"
+                options={{ actionId, effectType: "onUse" }}
             />
         </UtilityBar>
     {/if}

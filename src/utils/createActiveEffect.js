@@ -1,6 +1,6 @@
 import { localize } from '#runtime/svelte/helper';
 
-export default async function createEffect(document, effectType) {
+export default async function createEffect(document, { effectType, actionId }) {
   const updateData = {
     label: localize('A5E.effects.new'),
     icon: document.documentName === 'Item' ? document.img : 'icons/svg/aura.svg',
@@ -13,6 +13,9 @@ export default async function createEffect(document, effectType) {
     updateData.transfer = false;
     if (effectType === 'onUse') {
       foundry.utils.setProperty(updateData, 'flags.a5e.transferType', 'onUse');
+      foundry.utils.setProperty(updateData, 'flags.a5e.actionId', actionId);
+
+      // Create prompt on action for effect
     } else {
       foundry.utils.setProperty(updateData, 'flags.a5e.transferType', 'passive');
     }

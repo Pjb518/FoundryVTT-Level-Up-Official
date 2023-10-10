@@ -15,6 +15,7 @@
     export let menuList = [];
     export let offset = null;
     export let reducerType = null;
+    export let options = {};
     export let entityTypeOverride = null;
 
     // Default createDocument
@@ -28,7 +29,7 @@
             return createItem($document, reducerType.slice(0, -1), entityType);
 
         if (documentName === "ActiveEffect")
-            return createEffect($document, entityType);
+            return createEffect($document, options);
     }
 
     const document = getContext("actor") ?? getContext("item");
