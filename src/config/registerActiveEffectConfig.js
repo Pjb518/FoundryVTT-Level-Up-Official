@@ -48,14 +48,20 @@ export default function registerActiveEffectConfig(A5E) {
   // eslint-disable-next-line no-return-assign
   Array.from({ length: 10 }, (_, i) => (A5E.conditionIconsDefault[`generic${i + 1}`] = `systems/a5e/assets/icons/circle${i + 1}.svg`));
 
+  A5E.actionActiveEffectTypes = {
+    onUse: 'A5E.effects.types.singular.onUse'
+  };
+
+  A5E.actionActiveEffectTypesPlural = {
+    onUse: 'A5E.effects.types.plural.onUse'
+  };
+
   A5E.itemActiveEffectTypes = {
-    onUse: 'A5E.effects.types.singular.onUse',
     passive: 'A5E.effects.types.singular.passive',
     permanent: 'A5E.effects.types.singular.permanent'
   };
 
   A5E.itemActiveEffectTypesPlural = {
-    onUse: 'A5E.effects.types.plural.onUse',
     passive: 'A5E.effects.types.plural.passive',
     permanent: 'A5E.effects.types.plural.permanent'
   };
