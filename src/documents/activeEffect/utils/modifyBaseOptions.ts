@@ -103,6 +103,6 @@ export default function modifyBaseOptions(options: Object) {
   delete options['system.bonuses.healing'];
 
   // Delete schema information
-  delete options['system.schema.lastMigration'];
-  delete options['system.schema.version'];
+  delete options['system.schemaVersion.version'];
+  delete options['system.schemaVersion.lastMigration'];
 }
