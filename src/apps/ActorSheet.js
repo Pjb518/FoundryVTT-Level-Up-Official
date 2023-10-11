@@ -4,6 +4,8 @@ import { localize } from '#runtime/svelte/helper';
 
 import ActorDocument from './ActorDocument';
 
+import ActorSheetTempSettingsStore from '../stores/ActorSheetTempSettingsStore';
+
 import ActorSheetComponent from './sheets/ActorSheet.svelte';
 import LimitedSheetComponent from './sheets/LimitedSheet.svelte';
 
@@ -55,6 +57,10 @@ export default class ActorSheet extends SvelteApplication {
     );
 
     this.options.svelte.props.sheet = this;
+    this.tempSettings = {};
+    ActorSheetTempSettingsStore.subscribe((store) => {
+      this.tempSettings = store;
+    });
   }
 
   /**
@@ -225,7 +231,9 @@ export default class ActorSheet extends SvelteApplication {
 
     const dragData = JSON.parse(transferData);
 
-    if (this.actor?.flags?.a5e?.currentTab !== 'inventory') {
+    const currentTab = this.tempSettings[this.actor.uuid]?.currentTab;
+
+    if (currentTab !== 'inventory') {
       if (dragData?.actorId === this.actor?.id) return;
       if (dragData?.parentId === this.actor?.id) return;
     }
@@ -522,7 +530,8 @@ export default class ActorSheet extends SvelteApplication {
   }
 
   #onDropSpell(item) {
-    if (this.actor?.flags?.a5e?.currentTab !== 'inventory') {
+    const currentTab = this.tempSettings[this.actor.uuid]?.currentTab;
+    if (currentTab !== 'inventory') {
       this.actor.createEmbeddedDocuments('Item', [item]);
       return;
     }
