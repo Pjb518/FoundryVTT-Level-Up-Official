@@ -609,6 +609,8 @@ export default class ItemA5e extends BaseItemA5e {
 
   async _onCreate(data, options, user) {
     super._onCreate(data, options, user);
+
+    // TODO: Add support for moved containers
   }
 
   async _onDelete(data, options, user) {
