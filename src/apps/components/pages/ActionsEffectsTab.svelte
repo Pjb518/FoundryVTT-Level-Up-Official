@@ -1,5 +1,5 @@
 <script>
-    import { getContext } from "svelte";
+    import { getContext, onDestroy } from "svelte";
     import { localize } from "#runtime/svelte/helper";
 
     import CreateMenu from "../actorUtilityBar/CreateMenu.svelte";
@@ -15,6 +15,18 @@
     const { activeEffects } = item;
     const subTypes = CONFIG.A5E.actionActiveEffectTypesPlural;
     const reducerType = "activeEffects";
+
+    let actionIds = new Set($item.actions.keys());
+    activeEffects.filters.add({
+        id: "onUse-filter",
+        filter: (effect) =>
+            effect.flags?.a5e?.actionId === actionId ||
+            !actionIds.has(effect.flags?.a5e?.actionId),
+    });
+
+    onDestroy(() => {
+        activeEffects.filters.clear();
+    });
 </script>
 
 <div class="effects-page">
