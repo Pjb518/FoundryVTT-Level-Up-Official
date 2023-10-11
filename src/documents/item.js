@@ -224,7 +224,7 @@ export default class ItemA5e extends Item {
           img: action.img ?? this.img ?? 'icons/svg/item-bag.svg',
           name: this.name,
           actionName: action.name,
-          actionDescription: action?.descriptionOutputs?.includes('action') || game.settings.get('a5e', 'alwaysShowActionDescription')
+          actionDescription: action?.descriptionOutputs?.includes('action')
             ? await TextEditor.enrichHTML(action.description, {
               async: true,
               secrets: this.isOwner,

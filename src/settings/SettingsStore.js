@@ -257,18 +257,6 @@ class A5eGameSettings extends TJSGameSettings {
       // Chat Card Settings
       {
         namespace,
-        key: 'alwaysShowActionDescription',
-        options: {
-          name: 'A5E.settings.alwaysShowActionDescription',
-          hint: 'A5E.settings.hints.alwaysShowActionDescription',
-          scope: scope.world,
-          config: true,
-          default: false,
-          type: Boolean
-        }
-      },
-      {
-        namespace,
         key: 'hideChatDescriptionsByDefault',
         options: {
           name: 'A5E.settings.hideChatDescriptionsByDefault',
