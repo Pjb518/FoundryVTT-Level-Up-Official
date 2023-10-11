@@ -98,6 +98,7 @@ export default function registerEffectLocalizationConfig(A5E) {
     'system.abilities.wis.value': 'A5E.effects.keys.abilities.wisdomValue',
     'system.attributes.ac.baseFormula': 'A5E.effects.keys.armorClass.baseFormula',
     'system.attributes.ac.changes.bonuses.value': 'A5E.effects.keys.armorClass.bonuses',
+    'system.attributes.ac.value': 'A5E.effects.keys.armorClass.value',
     'system.attributes.attunement.current': 'A5E.effects.keys.attunementCurrent',
     'system.attributes.attunement.max': 'A5E.effects.keys.attunementMax',
     'system.attributes.casterLevel': 'A5E.effects.keys.casterLevel',

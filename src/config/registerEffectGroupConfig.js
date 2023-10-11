@@ -34,7 +34,8 @@ export default function registerEffectGroupConfig(A5E) {
       label: 'A5E.effects.groups.ac',
       items: [
         'system.attributes.ac.baseFormula',
-        'system.attributes.ac.changes.bonuses.value'
+        'system.attributes.ac.changes.bonuses.value',
+        'system.attributes.ac.value'
       ]
     },
     attackRollModes: {

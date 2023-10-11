@@ -309,9 +309,23 @@ export default class ActorA5e extends Actor {
       this.getRollData()
     );
 
+    // Check for complete override of AC
+    const valueOverride = foundry.utils.getProperty(this.overrides, 'system.attributes.ac.value');
+    if (valueOverride !== null && valueOverride !== undefined) {
+      const effectOverride = this.actorEffects
+        .findLast((effect) => effect.changes.some((change) => change.key.includes('ac.value')) && !effect.isSuppressed);
+
+      name = effectOverride?.name ?? name;
+      changes.override = { name, mode: CONFIG.A5E.ARMOR_MODES.OVERRIDE, value: valueOverride };
+      changes.bonuses = {
+        components: [],
+        value: 0
+      };
+    }
+
     // Check for baseArmor override
     const overrideProperty = foundry.utils.getProperty(this.overrides, 'system.attributes.ac.baseFormula');
-    if (overrideProperty) {
+    if (overrideProperty && !valueOverride) {
       const effectOverride = this.actorEffects
         .findLast((effect) => effect.changes.some((change) => change.key.includes('ac.baseFormula')) && !effect.isSuppressed);
 

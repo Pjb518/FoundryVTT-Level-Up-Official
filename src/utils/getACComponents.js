@@ -44,7 +44,10 @@ export default function getACComponents(actor) {
   let changes;
   if (effectChanges.find(({ mode }) => mode === CONFIG.A5E.ACTIVE_EFFECT_MODES.OVERRIDE)) {
     changes = effectChanges;
-  } else changes = (baseChanges.bonuses.components ?? []).concat(effectChanges);
+  } else {
+    changes = (baseChanges.bonuses.components ?? [])
+      .concat(baseChanges.bonuses.value ? effectChanges : []);
+  }
 
   const components = changes.map(({ name, value }) => {
     const sign = value >= 0 ? '+' : '-';
