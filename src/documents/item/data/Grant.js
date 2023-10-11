@@ -8,7 +8,8 @@ class BaseGrant extends foundry.abstract.DataModel {
     return {
       _id: new foundry.data.fields.DocumentIdField({ initial: () => foundry.utils.randomID() }),
       type: new foundry.data.fields.StringField({ required: true, initial: '' }),
-      level: new foundry.data.fields.NumberField({ required: true, initial: 0, integer: true })
+      level: new foundry.data.fields.NumberField({ required: true, initial: 0, integer: true }),
+      optional: new foundry.data.fields.BooleanField({ required: true, initial: false })
     };
   }
 }
