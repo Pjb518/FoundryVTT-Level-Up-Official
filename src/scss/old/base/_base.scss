@@ -11,3 +11,46 @@ html {
   scrollbar-color: $color-primary transparent;
   scrollbar-width: thin;
 }
+
+.subdirectory {
+  border-left: 5px solid rgba(255, 255, 255, 0.2);
+}
+
+.compendium-sidebar .directory-item.compendium .compendium-name,
+.compendium-sidebar .directory-item.compendium.locked .compendium-name {
+  background: none;
+  padding: 0.375rem 0.5rem;
+  border: 0;
+}
+
+.compendium-sidebar .directory-item.compendium:hover .compendium-name {
+  background: transparent;
+}
+
+.compendium-sidebar .directory-item.compendium {
+  align-items: flex-start;
+  height: unset;
+  border-bottom: 1px groove #000;
+
+}
+
+.compendium-sidebar .directory-item.compendium .compendium-footer .source {
+  display: none;
+}
+
+.compendium-sidebar .directory-item.compendium.locked .compendium-banner {
+  opacity: 0.1;
+}
+
+li.folder > .folder-header {
+  margin: 0;
+  cursor: pointer;
+}
+
+li.folder > .folder-header h3 {
+  padding-inline: 0.25rem;
+}
+
+.folder .folder .subdirectory {
+  border-bottom: 0;
+}
