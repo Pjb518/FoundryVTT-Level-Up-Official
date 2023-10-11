@@ -1,8 +1,11 @@
-import { MovementGrant, SkillGrant, VisionGrant } from '../documents/item/data/Grant';
+import {
+  MovementGrant, ProficiencyGrant, SkillGrant, VisionGrant
+} from '../documents/item/data/Grant';
 
 export const grantsClassMappings = {
   skill: SkillGrant,
   movement: MovementGrant,
+  proficiency: ProficiencyGrant,
   vision: VisionGrant
 };
 

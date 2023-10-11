@@ -49,6 +49,30 @@ export class MovementGrant extends BaseGrant {
   }
 }
 
+export class ProficiencyGrant extends BaseGrant {
+  #type = 'proficiency';
+
+  static defineSchema() {
+    return foundry.utils.mergeObject(super.defineSchema(), {
+      type: new foundry.data.fields.StringField({ required: true, initial: 'proficiency' }),
+      choices: new foundry.data.fields.SchemaField({
+        base: new foundry.data.fields.ArrayField(
+          new foundry.data.fields.StringField({ nullable: false, initial: '' }),
+          { required: true, initial: [] }
+        ),
+        options: new foundry.data.fields.ArrayField(
+          new foundry.data.fields.StringField({ nullable: false, initial: '' }),
+          { required: true, initial: [] }
+        ),
+        total: new foundry.data.fields.NumberField({ required: true, initial: 0, integer: true })
+      }),
+      proficiencyKey: new foundry.data.fields.StringField({ required: true, initial: '' }),
+      proficiencyType: new foundry.data.fields.StringField({ required: true, initial: '' })
+
+    });
+  }
+}
+
 export class VisionGrant extends BaseGrant {
   #type = 'vision';
 
