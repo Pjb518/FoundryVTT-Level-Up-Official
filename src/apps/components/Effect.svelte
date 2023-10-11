@@ -41,7 +41,6 @@
 
         // Remove Prompt config
         if (!actionId || $doc.documentName !== "Item") return;
-        console.log(actionId);
 
         const action = $doc.system.actions[actionId];
         const prompt = Object.entries(action?.prompts ?? {}).find(

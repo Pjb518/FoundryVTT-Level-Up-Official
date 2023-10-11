@@ -6,3 +6,4 @@ export { default as Migration004EquippedState } from './004-migrate-equipped-sta
 export { default as Migration005MigrateAC } from './005-migrate-ac';
 export { default as Migration006MigrateFormulaACAndBroken } from './006-migrate-formula-ac-and-broken';
 export { default as Migration007MigrateEffectModes } from './007-migrate-effect-modes';
+export { default as Migration008MigrateSpecter } from './008-migrate-specter';
