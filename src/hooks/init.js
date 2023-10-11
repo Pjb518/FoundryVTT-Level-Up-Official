@@ -12,6 +12,9 @@ import TokenDocumentA5e from '../documents/tokenDocument';
 import ItemProxy from '../documents/item/itemProxy';
 
 // DataModels
+import CharacterData from '../documents/actor/data/CharacterData';
+import NPCData from '../documents/actor/data/NPCData';
+
 import BackgroundDataModel from '../dataModels/item/BackgroundDataModel';
 import CultureDataModel from '../dataModels/item/CultureDataModel';
 import DestinyDataModel from '../dataModels/item/DestinyDataModel';
@@ -85,6 +88,13 @@ export default function init() {
   CONFIG.MeasuredTemplate.defaults.angle = 60;
 
   // DataModels
+  const version = game.settings.storage.get('world').getItem('a5e.worldSchemaVersion');
+
+  if (version > 0.008) {
+    CONFIG.Actor.dataModels.character = CharacterData;
+    CONFIG.Actor.dataModels.npc = NPCData;
+  }
+
   CONFIG.Item.dataModels.background = BackgroundDataModel;
   CONFIG.Item.dataModels.culture = CultureDataModel;
   CONFIG.Item.dataModels.destiny = DestinyDataModel;
