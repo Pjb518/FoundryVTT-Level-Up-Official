@@ -1039,6 +1039,10 @@ export default class ActorA5e extends Actor {
     options.expertiseDice ??= 0;
     options.visibilityMode ??= 'gmroll';
 
+    if (game.settings.get('a5e', 'blindDeathSaves')) {
+      options.visibilityMode = 'blindroll';
+    }
+
     this.rollSavingThrow(null, options);
   }
 

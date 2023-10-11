@@ -16,6 +16,18 @@ class A5eGameSettings extends TJSGameSettings {
       // Actor Settings
       {
         namespace,
+        key: 'blindDeathSaves',
+        options: {
+          name: 'A5E.settings.blindDeathSaves',
+          hint: 'A5E.settings.hints.blindDeathSaves',
+          scope: scope.world,
+          config: true,
+          default: false,
+          type: Boolean
+        }
+      },
+      {
+        namespace,
         key: 'collapseActionList',
         options: {
           name: 'A5E.settings.collapseActionList',

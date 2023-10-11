@@ -8,6 +8,7 @@
 
     const actor = getContext("actor");
 
+    let isBlind = game.settings.get("a5e", "blindDeathSaves");
     $: death = $actor.system.attributes.death;
 </script>
 
@@ -24,22 +25,24 @@
         <i class="fas fa-check" />
     </button>
 
-    <input
-        class="death-saves__input"
-        type="number"
-        name="system.attributes.death.success"
-        placeholder="0"
-        min="0"
-        data-tooltip="A5E.DeathSuccess"
-        data-tooltip-direction="UP"
-        value={death.success}
-        on:change={({ target }) =>
-            updateDocumentDataFromField(
-                $actor,
-                target.name,
-                Number(target.value)
-            )}
-    />
+    {#if !isBlind}
+        <input
+            class="death-saves__input"
+            type="number"
+            name="system.attributes.death.success"
+            placeholder="?"
+            min="0"
+            data-tooltip="A5E.DeathSuccess"
+            data-tooltip-direction="UP"
+            value={death.success}
+            on:change={({ target }) =>
+                updateDocumentDataFromField(
+                    $actor,
+                    target.name,
+                    Number(target.value)
+                )}
+        />
+    {/if}
 
     <div
         class="death-saves__icon u-align-center u-flex u-flex-col u-pos-relative"
@@ -56,23 +59,25 @@
         </button>
     </div>
 
-    <input
-        class="death-saves__input"
-        type="number"
-        name="system.attributes.death.failure"
-        data-dtype="Number"
-        placeholder="0"
-        min="0"
-        data-tooltip="A5E.DeathFailure"
-        data-tooltip-direction="UP"
-        value={death.failure}
-        on:change={({ target }) =>
-            updateDocumentDataFromField(
-                $actor,
-                target.name,
-                Number(target.value)
-            )}
-    />
+    {#if !isBlind}
+        <input
+            class="death-saves__input"
+            type="number"
+            name="system.attributes.death.failure"
+            data-dtype="Number"
+            placeholder="0"
+            min="0"
+            data-tooltip="A5E.DeathFailure"
+            data-tooltip-direction="UP"
+            value={isBlind ? "?" : death.failure}
+            on:change={({ target }) =>
+                updateDocumentDataFromField(
+                    $actor,
+                    target.name,
+                    Number(target.value)
+                )}
+        />
+    {/if}
 
     <button
         class="death-saves__button"
@@ -98,6 +103,7 @@
         left: 50%;
         transform: translate(-50%, -50%);
         z-index: 5;
+        min-width: 85%;
 
         border-radius: 5px;
         padding: 0.5rem;

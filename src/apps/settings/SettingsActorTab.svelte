@@ -5,7 +5,7 @@
     import FormSection from "../components/FormSection.svelte";
     import Checkbox from "../components/Checkbox.svelte";
 
-    // export let reload;
+    export let reload;
 
     const settings = getContext("settings");
     const updates = getContext("updates");
@@ -16,6 +16,7 @@
     let trackCurrency = settings.getStore("currencyWeight");
     let randomHP = settings.getStore("randomizeNPCHitPoints");
 
+    let blindDeathSaves = settings.getStore("blindDeathSaves");
     let hideActionList = settings.getStore("collapseActionList");
     let hideDeleteDialog = settings.getStore("hideDeleteConfirmation");
     let rightClickConfig = settings.getStore("itemRightClickConfigure");
@@ -30,6 +31,22 @@
                 {localize("A5E.settings.sectionHeader.actorBehavior")}
             </h3>
         </header>
+
+        {#if isGM}
+            <FormSection
+                hint="A5E.settings.hints.blindDeathSaves"
+                --gap="0.25rem"
+            >
+                <Checkbox
+                    label="A5E.settings.blindDeathSaves"
+                    checked={updates.get("blindDeathSaves") ?? $blindDeathSaves}
+                    on:updateSelection={({ detail }) => {
+                        updates.set("blindDeathSaves", detail);
+                        reload = true;
+                    }}
+                />
+            </FormSection>
+        {/if}
 
         {#if isGM}
             <FormSection
