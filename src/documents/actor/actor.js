@@ -489,7 +489,7 @@ export default class ActorA5e extends Actor {
 
     const items = [...this.items];
     // Add schema version
-    if (!this.system.schemaVersion.version) {
+    if (!this.system.schemaVersion?.version && !this.system.schema.version) {
       let version = null;
       if (['number', 'string'].includes(typeof this.system.ac)) version = 0.004;
       else if (items.some((i) => typeof i.system?.equipped === 'boolean')) version = 0.003;
