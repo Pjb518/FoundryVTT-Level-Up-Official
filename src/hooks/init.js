@@ -12,8 +12,8 @@ import TokenDocumentA5e from '../documents/tokenDocument';
 import ItemProxy from '../documents/item/itemProxy';
 
 // DataModels
-import CharacterData from '../documents/actor/data/CharacterData';
-import NPCData from '../documents/actor/data/NPCData';
+import CharacterData from '../dataModels/actor/CharacterData';
+import NPCData from '../dataModels/actor/NPCData';
 
 import BackgroundDataModel from '../dataModels/item/BackgroundDataModel';
 import CultureDataModel from '../dataModels/item/CultureDataModel';

@@ -10,7 +10,7 @@ export default async function handleDocumentMigration(document) {
 
   const migrationRunner = new MigrationRunner(
     MigrationList.constructFromVersion(
-      document.system.schemaVersion.version ?? document.system.schema.version ?? 0.000
+      document.system.schemaVersion?.version ?? document.system.schema.version ?? 0.000
     )
   );
 
