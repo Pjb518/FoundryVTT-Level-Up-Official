@@ -20,7 +20,7 @@ export default function modifyBaseOptions(options: Object) {
   Object.keys(CONFIG.A5E.skills)
     .forEach((s) => {
       options[`system.skills.${s}.proficient`] = [false, MODES.OVERRIDE_ONLY, [[true, 'Proficient'], [false, 'Not Proficient']], 'RADIO'];
-      options[`system.skills.${s}.ability`] = ['', MODES.OVERRIDE_ONLY, Object.entries(CONFIG.A5E.abilities), 'RADIO'];
+      options[`system.skills.${s}.ability`] = ['', MODES.OVERRIDE_ONLY, [...Object.entries(CONFIG.A5E.abilities), ['@attributes.spellcasting', 'Spellcasting']], 'RADIO'];
     });
 
   // Add options for movement and sense units

@@ -51,8 +51,11 @@
     <FormSection heading="A5E.AbilityScore">
         <RadioGroup
             optionStyles="min-width:2rem; text-align: center;"
-            options={abilityOptions}
-            selected={skill.ability}
+            options={[
+                ...abilityOptions,
+                ["@attributes.spellcasting", "Spellcasting"],
+            ]}
+            selected={$actor._source.system.skills[skillKey].ability}
             allowDeselect={false}
             on:updateSelection={(event) =>
                 updateDocumentDataFromField(

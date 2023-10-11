@@ -49,14 +49,13 @@
     const subTypes = A5E.activeEffectTypes;
     const reducerType = "activeEffects";
 
-    const subConditions = CONFIG.A5E.linkedStatusEffects;
-    let token = $actor.getActiveTokens()?.[0];
-    let linkedActor = $actor.prototypeToken.actorLink;
+    // const subConditions = CONFIG.A5E.linkedStatusEffects;
+    // let token = $actor.getActiveTokens()?.[0];
+    // let linkedActor = $actor.prototypeToken.actorLink;
 
-    console.log(token);
-    $: activeConditions = token?._getActiveConditions($actor) ?? [];
-    let fatigue = $actor.system.attributes.fatigue ?? 0;
-    let strife = $actor.system.attributes.strife ?? 0;
+    // $: activeConditions = token?._getActiveConditions($actor) ?? [];
+    // let fatigue = $actor.system.attributes.fatigue ?? 0;
+    // let strife = $actor.system.attributes.strife ?? 0;
 </script>
 
 <div class="effects-page">

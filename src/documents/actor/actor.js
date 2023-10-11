@@ -418,6 +418,10 @@ export default class ActorA5e extends Actor {
       if (skill.proficient) skill.mod = proficiencyBonus;
       else if (jackOfAllTrades) skill.mod = Math.floor(proficiencyBonus / 2);
       else skill.mod = 0;
+
+      if (skill.ability.startsWith('@attributes.spellcasting')) {
+        skill.ability = actorData.attributes.spellcasting;
+      }
     });
 
     Object.entries(actorData.skills).forEach(([key, skill]) => {
@@ -830,7 +834,7 @@ export default class ActorA5e extends Actor {
     this.#configure('size', title, data, options);
   }
 
-  configureSkill(data = {}, options = {}) {
+  configureSkill(data = {}, options = { width: 440 }) {
     const title = localize(
       'A5E.SkillConfigurationPrompt',
       { name: this.name, skill: localize(CONFIG.A5E.skills[data.skillKey]) }
