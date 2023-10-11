@@ -66,9 +66,31 @@ export class ProficiencyGrant extends BaseGrant {
         ),
         total: new foundry.data.fields.NumberField({ required: true, initial: 0, integer: true })
       }),
-      proficiencyKey: new foundry.data.fields.StringField({ required: true, initial: '' }),
+      proficiencyKey: new foundry.data.fields.StringField({ required: false }),
       proficiencyType: new foundry.data.fields.StringField({ required: true, initial: '' })
 
+    });
+  }
+}
+
+export class TraitGrant extends BaseGrant {
+  #type = 'trait';
+
+  static defineSchema() {
+    return foundry.utils.mergeObject(super.defineSchema(), {
+      type: new foundry.data.fields.StringField({ required: true, initial: 'trait' }),
+      traitType: new foundry.data.fields.StringField({ required: true, initial: '' }),
+      choices: new foundry.data.fields.SchemaField({
+        base: new foundry.data.fields.ArrayField(
+          new foundry.data.fields.StringField({ nullable: false, initial: '' }),
+          { required: true, initial: [] }
+        ),
+        options: new foundry.data.fields.ArrayField(
+          new foundry.data.fields.StringField({ nullable: false, initial: '' }),
+          { required: true, initial: [] }
+        ),
+        total: new foundry.data.fields.NumberField({ required: true, initial: 0, integer: true })
+      })
     });
   }
 }
