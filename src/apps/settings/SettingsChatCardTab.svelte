@@ -12,16 +12,33 @@
 
     const isGM = game.user.isGM;
 
-    const hideDescription = settings.getStore("hideChatDescriptionsByDefault");
-    const hideHpRolls = settings.getStore("hideRandomizedHPRolls");
-    const protectRolls = settings.getStore("protectRolls");
-    const terseRolls = settings.getStore("terseRollFormulae");
+    let actionDescription = settings.getStore("alwaysShowActionDescription");
+    let hideDescription = settings.getStore("hideChatDescriptionsByDefault");
+    let hideHpRolls = settings.getStore("hideRandomizedHPRolls");
+    let protectRolls = settings.getStore("protectRolls");
+    let terseRolls = settings.getStore("terseRollFormulae");
 </script>
 
 <section class="setting-group">
     <header class="setting-header">
         <h3 class="setting-heading">Chat Card Display Settings</h3>
     </header>
+
+    <FormSection
+        hint="A5E.settings.hints.alwaysShowActionDescription"
+        --gap="0.25rem"
+    >
+        <Checkbox
+            label="A5E.settings.alwaysShowActionDescription"
+            checked={updates.get("alwaysShowActionDescription") ??
+                $actionDescription ??
+                false}
+            on:updateSelection={({ detail }) => {
+                updates.set("alwaysShowActionDescription", detail);
+                reload = true;
+            }}
+        />
+    </FormSection>
 
     <FormSection
         hint="A5E.settings.hints.hideChatDescriptionsByDefault"
