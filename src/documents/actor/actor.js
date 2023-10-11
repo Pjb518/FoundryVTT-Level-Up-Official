@@ -129,7 +129,7 @@ export default class ActorA5e extends Actor {
     this.prepareDerivedData();
     this.afterDerivedData();
 
-    if (this.system.schema.version < 0.005) return;
+    if ((this.system.schemaVersion?.version ?? this.system.schema.version) < 0.005) return;
     this.prepareArmorClass();
   }
 
@@ -141,7 +141,7 @@ export default class ActorA5e extends Actor {
     const actorType = this.type;
 
     // Add AC data to the actor.
-    if (this.system.schema.version >= 0.005) {
+    if ((this.system.schemaVersion?.version ?? this.system.schema.version) >= 0.005) {
       if (typeof this.system.attributes.ac !== 'object') {
         this.system.attributes.ac = { baseFormula: `${this.system.attributes.ac}` };
       }
@@ -295,7 +295,7 @@ export default class ActorA5e extends Actor {
     }
 
     this.prepareSkills();
-    if (this.system.schema.version < 0.005) return;
+    if ((this.system.schemaVersion?.version ?? this.system.schema.version) < 0.005) return;
     foundry.utils.setProperty(this, 'system.attributes.ac.changes', this.prepareArmorChanges());
   }
 
@@ -489,7 +489,7 @@ export default class ActorA5e extends Actor {
 
     const items = [...this.items];
     // Add schema version
-    if (!this.system.schema.version) {
+    if (!this.system.schemaVersion.version) {
       let version = null;
       if (['number', 'string'].includes(typeof this.system.ac)) version = 0.004;
       else if (items.some((i) => typeof i.system?.equipped === 'boolean')) version = 0.003;
@@ -499,7 +499,7 @@ export default class ActorA5e extends Actor {
       else version = MigrationRunnerBase.LATEST_SCHEMA_VERSION;
 
       this.updateSource({
-        'system.schema.version': version
+        'system.schemaVersion.version': version
       });
     }
 
