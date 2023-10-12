@@ -1,16 +1,24 @@
 import registerSystemSettings from '../settings';
-
-import SpellCompendiumSheet from '../apps/SpellCompendiumSheet';
 import registerConditionsConfig from '../config/registerConditionsConfig';
+
+async function createSpellIndex() {
+  const spells = game.packs.get('a5e.a5e-spells');
+  spells.getIndex({
+    fields: [
+      'system.concentration',
+      'system.components',
+      'system.classes',
+      'system.description',
+      'system.level',
+      'system.rare',
+      'system.ritual',
+      'system.schools'
+    ]
+  });
+}
 
 export default function setup() {
   registerSystemSettings();
   registerConditionsConfig();
-
-  // TODO: REMOVE THIS RETURN ONCE 0.15.3 IS OUT!
-  return;
-
-  // Apply custom compendium styles to the SRD rules compendium.
-  const spells = game.packs.get('a5e.a5e-spells');
-  spells.applicationClass = SpellCompendiumSheet;
+  createSpellIndex();
 }
