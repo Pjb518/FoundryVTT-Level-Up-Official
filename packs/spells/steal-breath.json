@@ -1,0 +1,111 @@
+{
+	"folder": "SHboWGfKdzqlrWsi",
+	"name": "Steal Breath",
+	"type": "spell",
+	"img": "icons/magic/air/wind-stream-blue-gray.webp",
+	"system": {
+		"actions": {
+			"GukD18uBi6tsnnKs": {
+				"name": "Cast Spell",
+				"activation": {
+					"type": "action",
+					"cost": 1
+				},
+				"consumers": {
+					"bfvBF04szzsheGi8": {
+						"type": "spell",
+						"default": true,
+						"mode": "variable",
+						"spellLevel": 4,
+						"points": 6
+					}
+				},
+				"rolls": {},
+				"prompts": {},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"threshold": 6
+					}
+				},
+				"duration": {
+					"unit": "hour",
+					"value": 1
+				},
+				"ranges": {
+					"PTDAgbTgByeDp3Lh": {
+						"range": "medium"
+					}
+				},
+				"target": {
+					"type": "creature",
+					"quantity": 1,
+					"scaling": {
+						"mode": "spellLevel",
+						"formula": "1"
+					}
+				}
+			}
+		},
+		"description": "<p dir=\"ltr\">As you crush the lung in the palm of your hand, your target feels as if they are drowning on dry land. The target must hold their breath or begin drowning. If they take damage they must make a concentration check to hold their breath. Creatures that do not breathe are immune to this spell.</p>\n<p dir=\"ltr\">Creatures that die from the effects of this spell have water filling their lungs and throat.</p>\n<p dir=\"ltr\"><strong>Cast at Higher Levels.</strong> For every level above 4th, you may choose an additional target.</p>",
+		"favorite": false,
+		"secretDescription": "",
+		"source": {
+			"name": "Spells from the Forgotten Vault",
+			"link": "https://bit.ly/3nyQbOt",
+			"publisher": "purpleMartinGames"
+		},
+		"uses": {
+			"value": null,
+			"max": "",
+			"per": null,
+			"recharge": {
+				"formula": "1d6",
+				"threshold": "6"
+			}
+		},
+		"schema": {
+			"version": 0.008,
+			"lastMigration": {
+				"version": {
+					"schema": 0.007,
+					"foundry": "11.313",
+					"system": "0.15.13"
+				}
+			}
+		},
+		"classes": [
+			"druid",
+			"sorcerer",
+			"warlock",
+			"witch",
+			"wizard"
+		],
+		"components": {
+			"vocalized": true,
+			"seen": false,
+			"material": true
+		},
+		"concentration": true,
+		"level": 4,
+		"materials": "The lungs of a mudskipper or other lungfish",
+		"materialsConsumed": false,
+		"prepared": false,
+		"prerequisite": "",
+		"rare": false,
+		"ritual": false,
+		"schools": {
+			"primary": "enchantment",
+			"secondary": [
+				"affliction",
+				"compulsion"
+			]
+		}
+	},
+	"effects": [],
+	"flags": {},
+	"_id": "n8hfh0nriroypyz0"
+}

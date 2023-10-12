@@ -1,0 +1,131 @@
+{
+	"folder": "SHboWGfKdzqlrWsi",
+	"name": "Hungry Earth",
+	"type": "spell",
+	"img": "icons/magic/earth/barrier-stone-explosion-debris.webp",
+	"system": {
+		"actions": {
+			"It4aiUIJJTWJCVAV": {
+				"name": "Cast Spell",
+				"activation": {
+					"type": "action",
+					"cost": 1
+				},
+				"consumers": {
+					"34NCtg2nzjs2Qpnw": {
+						"type": "spell",
+						"default": true,
+						"mode": "variable",
+						"spellLevel": 1,
+						"points": 2
+					}
+				},
+				"rolls": {
+					"onbTMr2datcHEskt": {
+						"type": "damage",
+						"default": true,
+						"formula": "1d6",
+						"scaling": {
+							"mode": "spellLevel",
+							"step": 2,
+							"formula": "1d6"
+						},
+						"damageType": "bludgeoning"
+					}
+				},
+				"prompts": {
+					"BEULijIblbJYNztJ": {
+						"type": "savingThrow",
+						"default": true,
+						"ability": "dex",
+						"saveDC": {
+							"type": "spellcasting"
+						}
+					}
+				},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"threshold": 6
+					}
+				},
+				"duration": {
+					"unit": "instantaneous"
+				},
+				"ranges": {
+					"g0lPhgFE19rkYijA": {
+						"range": "long"
+					}
+				},
+				"area": {
+					"shape": "square",
+					"quantity": 5,
+					"width": 5,
+					"placeTemplate": true,
+					"scaling": {
+						"mode": "spellLevel"
+					}
+				}
+			}
+		},
+		"description": "<p dir=\"ltr\">You cause the ground itself to yawn wide beneath your targets and drop them into the hungry sand, soil, or stone, then immediately slam the maw shut on your targets, crushing and pinning them within the ground itself.</p>\n<p dir=\"ltr\">Choose up to five 5ft squares within range. Creatures within the affected spaces must make a Dexterity save or take 1d6 bludgeoning damage and have their speed become 0 until they take an action to free themselves. A creature that successfully saves takes half damage and its movement speed is halved until the end of its next turn.</p>\n<p dir=\"ltr\">A creature that takes up multiple squares has advantage on the save unless all squares it occupies are affected by the spell. A creature occupying multiple affected squares still only makes one save per casting of this spell. A creature occupying multiple affected squares only takes the spell&rsquo;s damage for a single square.</p>\n<p dir=\"ltr\"><strong>Cast at Higher Levels.</strong> Choose two additional 5-foot squares for each spell slot level above 1st. The damage done to a creature in an affected square also increases by 1d6 at spell slot levels 3, 5, 7, and 9.</p>",
+		"favorite": false,
+		"secretDescription": "",
+		"source": {
+			"name": "Spells from the Forgotten Vault",
+			"link": "https://bit.ly/3nyQbOt",
+			"publisher": "purpleMartinGames"
+		},
+		"uses": {
+			"value": null,
+			"max": "",
+			"per": null,
+			"recharge": {
+				"formula": "1d6",
+				"threshold": "6"
+			}
+		},
+		"schema": {
+			"version": 0.008,
+			"lastMigration": {
+				"version": {
+					"schema": 0.007,
+					"foundry": "11.313",
+					"system": "0.15.13"
+				}
+			}
+		},
+		"classes": [
+			"druid",
+			"elementalistEarth",
+			"warlock"
+		],
+		"components": {
+			"vocalized": true,
+			"seen": true,
+			"material": false
+		},
+		"concentration": false,
+		"level": 1,
+		"materials": "",
+		"materialsConsumed": false,
+		"prepared": false,
+		"prerequisite": "",
+		"rare": false,
+		"ritual": false,
+		"schools": {
+			"primary": "transmutation",
+			"secondary": [
+				"chaos",
+				"earth",
+				"terrain"
+			]
+		}
+	},
+	"effects": [],
+	"flags": {},
+	"_id": "bjqvv7hrptdf1hwa"
+}

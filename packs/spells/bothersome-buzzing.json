@@ -1,0 +1,111 @@
+{
+	"name": "Bothersome Buzzing",
+	"type": "spell",
+	"img": "icons/creatures/invertebrates/bee-yellow.webp",
+	"system": {
+		"actions": {
+			"GFDQa7iniRKkPf0j": {
+				"name": "Cast Spell",
+				"activation": {
+					"type": "bonusAction",
+					"cost": 1
+				},
+				"consumers": {},
+				"rolls": {},
+				"prompts": {
+					"3rayFZ9EWhJqJe6S": {
+						"type": "savingThrow",
+						"default": true,
+						"ability": "wis",
+						"saveDC": {
+							"type": "spellcasting"
+						},
+						"onSave": "Wisdom negates"
+					}
+				},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"threshold": 6
+					}
+				},
+				"ranges": {
+					"RfD5yze5ajBIkWSm": {
+						"range": "short"
+					}
+				},
+				"target": {
+					"type": "creature",
+					"quantity": 1
+				},
+				"duration": {
+					"unit": "round",
+					"value": 1
+				}
+			}
+		},
+		"description": "<p dir=\"ltr\">You hum, briefly, but the hum persists in your target&rsquo;s ear, driving them to distraction.</p>\n<p dir=\"ltr\">On a failed saving throw, the next attack made against your target gains expertise as if your target were flanked. At levels 5, 11, and 17 you may target an additional creature with this spell. At level 11, the range also increases to 60 feet.</p>\n<p>&nbsp;</p>",
+		"favorite": false,
+		"secretDescription": "",
+		"source": {
+			"name": "Spells from the Forgotten Vault",
+			"link": "https://bit.ly/3nyQbOt",
+			"publisher": "purpleMartinGames"
+		},
+		"uses": {
+			"value": null,
+			"max": "",
+			"per": null,
+			"recharge": {
+				"formula": "1d6",
+				"threshold": "6"
+			}
+		},
+		"schema": {
+			"version": 0.008,
+			"lastMigration": {
+				"version": {
+					"schema": 0.007,
+					"foundry": "11.313",
+					"system": "0.15.13"
+				}
+			}
+		},
+		"classes": [
+			"bard",
+			"cleric",
+			"druid",
+			"sorcerer",
+			"warlock",
+			"witch",
+			"wizard"
+		],
+		"components": {
+			"vocalized": true,
+			"seen": false,
+			"material": false
+		},
+		"concentration": false,
+		"level": 0,
+		"materials": "",
+		"materialsConsumed": false,
+		"prepared": false,
+		"prerequisite": "",
+		"rare": false,
+		"ritual": false,
+		"schools": {
+			"primary": "illusion",
+			"secondary": [
+				"air",
+				"sound"
+			]
+		}
+	},
+	"effects": [],
+	"folder": "SHboWGfKdzqlrWsi",
+	"flags": {},
+	"_id": "b87rq9617y6ysv5l"
+}

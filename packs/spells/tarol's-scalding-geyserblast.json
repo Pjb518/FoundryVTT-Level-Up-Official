@@ -1,0 +1,143 @@
+{
+	"folder": "SHboWGfKdzqlrWsi",
+	"name": "Tarol’s Scalding Geyserblast",
+	"type": "spell",
+	"img": "icons/magic/water/projectile-water-rings.webp",
+	"system": {
+		"actions": {
+			"2X5fR90Gy7jaI6mr": {
+				"name": "Cast Spell",
+				"activation": {
+					"type": "action",
+					"cost": 1
+				},
+				"consumers": {
+					"R30hLT9QU3ka3n6U": {
+						"type": "spell",
+						"default": true,
+						"mode": "variable",
+						"spellLevel": 3,
+						"points": 5
+					}
+				},
+				"rolls": {
+					"BjoxUr2YAEwxFICR": {
+						"type": "damage",
+						"default": true,
+						"formula": "4d6",
+						"scaling": {
+							"mode": "spellLevel",
+							"formula": "1d6"
+						},
+						"damageType": "bludgeoning",
+						"canCrit": false
+					},
+					"PPlupKPqvyP7rKmI": {
+						"type": "damage",
+						"default": true,
+						"formula": "4d6",
+						"scaling": {
+							"mode": null,
+							"formula": "",
+							"step": null
+						},
+						"damageType": "fire",
+						"canCrit": false
+					}
+				},
+				"prompts": {
+					"zW6c7V1smCC0Cbtn": {
+						"type": "savingThrow",
+						"default": true,
+						"ability": "dex",
+						"saveDC": {
+							"type": "spellcasting"
+						},
+						"onSave": "Dexterity halves"
+					}
+				},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"threshold": 6
+					}
+				},
+				"duration": {
+					"unit": "instantaneous"
+				},
+				"ranges": {
+					"DmWmGAhrgz8RIuRm": {
+						"range": "self"
+					}
+				},
+				"area": {
+					"shape": "line",
+					"quantity": 1,
+					"length": 60,
+					"width": 5,
+					"placeTemplate": true
+				}
+			}
+		},
+		"description": "<p dir=\"ltr\">A high-pressure stream of water blasts forth from your outstretched hand. Creatures must make a Strength saving throw or take 6d6 points of bludgeoning damage, be pushed 20 feet away from you and knocked prone. A creature that succeeds takes half damage and is not pushed or knocked prone.</p>\n<p dir=\"ltr\">In addition, the water douses any unattended flames and scours any clinging substances such as slime, oil, or contact poisons from the surface of every creature in the stream.</p>\n<p dir=\"ltr\"><strong>Cast at Higher Levels.</strong> The damage increases by 1d6 for every spell slot level above 3rd. The push distance increases by an additional 5 feet for every two spell slot levels above 3rd.</p>\n<p dir=\"ltr\"><strong id=\"docs-internal-guid-112d6778-7fff-6de7-3c9f-eafd80268f92\">Rare: Tarol&rsquo;s Scalding Geyserblast.</strong> The stream is made of pressurized, superheated steam and deals 4d6 bludgeoning and 4d6 fire damage. It lacks the pushing effect, and creatures in the path make a Dexterity save to take half damage instead of a Strength save.</p>",
+		"favorite": false,
+		"secretDescription": "",
+		"source": {
+			"name": "Spells from the Forgotten Vault",
+			"link": "https://bit.ly/3nyQbOt",
+			"publisher": "purpleMartinGames"
+		},
+		"uses": {
+			"value": null,
+			"max": "",
+			"per": null,
+			"recharge": {
+				"formula": "1d6",
+				"threshold": "6"
+			}
+		},
+		"schema": {
+			"version": 0.008,
+			"lastMigration": {
+				"version": {
+					"schema": 0.007,
+					"foundry": "11.313",
+					"system": "0.15.13"
+				}
+			}
+		},
+		"classes": [
+			"artificer",
+			"druid",
+			"elementalistWater",
+			"sorcerer",
+			"wizard"
+		],
+		"components": {
+			"vocalized": true,
+			"seen": true,
+			"material": true
+		},
+		"concentration": false,
+		"level": 3,
+		"materials": "A small metal valve or nozzle",
+		"materialsConsumed": false,
+		"prepared": false,
+		"prerequisite": "",
+		"rare": true,
+		"ritual": false,
+		"schools": {
+			"primary": "evocation",
+			"secondary": [
+				"nature",
+				"water"
+			]
+		}
+	},
+	"effects": [],
+	"flags": {},
+	"_id": "7pb0iemkpcerseyh"
+}

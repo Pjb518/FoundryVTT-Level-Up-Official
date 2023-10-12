@@ -1,0 +1,145 @@
+{
+	"folder": "SHboWGfKdzqlrWsi",
+	"name": "Reap the Whirlwind",
+	"type": "spell",
+	"img": "icons/magic/air/wind-tornado-cyclone-white.webp",
+	"system": {
+		"actions": {
+			"cutNqHMcjxjirGFN": {
+				"name": "Cast Spell",
+				"activation": {
+					"type": "action",
+					"cost": 1
+				},
+				"consumers": {
+					"HHq1FKAq0xGrkmgM": {
+						"type": "spell",
+						"default": true,
+						"mode": "variable",
+						"spellLevel": 6,
+						"points": 9
+					}
+				},
+				"rolls": {},
+				"prompts": {},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"threshold": 6
+					}
+				},
+				"ranges": {
+					"m0ikP9DVM7I4J3Y7": {
+						"range": "short"
+					}
+				},
+				"target": {
+					"type": "creature",
+					"quantity": 5
+				},
+				"duration": {
+					"unit": "instantaneous"
+				}
+			},
+			"vDv3og99F0DNUl99": {
+				"name": "Attack",
+				"activation": {},
+				"consumers": {},
+				"rolls": {
+					"MUDq7kUUIpglmHHF": {
+						"type": "attack",
+						"default": true,
+						"attackType": "meleeSpellAttack",
+						"proficient": true,
+						"ability": "none"
+					},
+					"wDuvlbcCq4rsZbky": {
+						"type": "damage",
+						"default": true,
+						"formula": "4d10",
+						"damageType": "force"
+					}
+				},
+				"prompts": {
+					"eRq12yp6QCavUVQ8": {
+						"type": "savingThrow",
+						"default": true,
+						"ability": "str",
+						"saveDC": {
+							"type": "spellcasting"
+						}
+					}
+				},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"threshold": 6
+					}
+				},
+				"descriptionOutputs": []
+			}
+		},
+		"description": "<p dir=\"ltr\">Your foes have sown the wind and you will make them reap the whirlwind.</p>\n<p dir=\"ltr\">You brandish your weapon and are carried aloft by powerful winds to strike your foes with terrible force. Make a melee spell attack against each target. On a hit, the target takes 4d10 force damage and must make a Strength save or be flung up to 30 feet in a direction of your choosing (&ldquo;up&rdquo; is a valid choice; a creature flung into the air falls normally). In addition, strong winds blow through the entire area, extinguishing non-magical flames the size of a torch or smaller and flinging papers, leaves and other lightweight debris into the air. After the results of your attacks are determined, the entire area becomes lightly obscured until the beginning of your next turn, and you can teleport to an unoccupied space you can see adjacent to one of the targets (regardless of whether you hit or missed).</p>",
+		"favorite": false,
+		"secretDescription": "",
+		"source": {
+			"name": "Spells from the Forgotten Vault",
+			"link": "https://bit.ly/3nyQbOt",
+			"publisher": "purpleMartinGames"
+		},
+		"uses": {
+			"value": null,
+			"max": "",
+			"per": null,
+			"recharge": {
+				"formula": "1d6",
+				"threshold": "6"
+			}
+		},
+		"schema": {
+			"version": 0.008,
+			"lastMigration": {
+				"version": {
+					"schema": 0.007,
+					"foundry": "11.313",
+					"system": "0.15.13"
+				}
+			}
+		},
+		"classes": [
+			"druid",
+			"wizard"
+		],
+		"components": {
+			"vocalized": true,
+			"seen": true,
+			"material": true
+		},
+		"concentration": false,
+		"level": 6,
+		"materials": "A melee weapon",
+		"materialsConsumed": false,
+		"prepared": false,
+		"prerequisite": "",
+		"rare": false,
+		"ritual": false,
+		"schools": {
+			"primary": "conjuration",
+			"secondary": [
+				"air",
+				"force",
+				"movement",
+				"weaponry"
+			]
+		}
+	},
+	"effects": [],
+	"flags": {},
+	"_id": "ul2dm9mm2d9p7v5t"
+}

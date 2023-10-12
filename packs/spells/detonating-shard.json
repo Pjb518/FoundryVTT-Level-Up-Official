@@ -1,0 +1,158 @@
+{
+	"folder": "SHboWGfKdzqlrWsi",
+	"name": "Detonating Shard",
+	"type": "spell",
+	"img": "icons/magic/earth/explosion-lava-orange.webp",
+	"system": {
+		"actions": {
+			"f8SAjdDPOSHxYjlE": {
+				"name": "Cast Spell",
+				"activation": {
+					"type": "action",
+					"cost": 1
+				},
+				"consumers": {
+					"PzoeL2bdB6PkqHhz": {
+						"type": "spell",
+						"default": true,
+						"mode": "variable",
+						"spellLevel": 1,
+						"points": 2
+					}
+				},
+				"rolls": {
+					"hKJv41Kd9ChzCZck": {
+						"type": "attack",
+						"default": true,
+						"attackType": "rangedSpellAttack",
+						"proficient": true,
+						"ability": "spellcasting"
+					},
+					"7STtzOrgQjKyxt4b": {
+						"type": "damage",
+						"default": true,
+						"formula": "1d10",
+						"damageType": "piercing"
+					},
+					"KXCv1QpOmIeRzcso": {
+						"type": "damage",
+						"default": true,
+						"canCrit": false,
+						"damageType": "piercing",
+						"formula": "1d6",
+						"label": "Explosion Piercing Damage"
+					},
+					"oPRoHpUZUKaif1FM": {
+						"type": "damage",
+						"default": true,
+						"canCrit": false,
+						"formula": "1d6",
+						"damageType": "fire",
+						"label": "Explosion Fire Damage",
+						"scaling": {
+							"mode": "spellLevel",
+							"formula": "1d6"
+						}
+					}
+				},
+				"prompts": {
+					"EQxOZGemRHABxxLE": {
+						"type": "savingThrow",
+						"default": true,
+						"ability": "dex",
+						"saveDC": {
+							"type": "spellcasting"
+						},
+						"onSave": "Dexterity Negates"
+					}
+				},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"threshold": 6
+					}
+				},
+				"area": {
+					"shape": "circle",
+					"quantity": 1,
+					"radius": 5,
+					"placeTemplate": true
+				},
+				"target": {
+					"type": "creature",
+					"quantity": 1
+				},
+				"ranges": {
+					"1Wquxcy3HXWiCnWq": {
+						"range": "medium"
+					}
+				},
+				"duration": {
+					"unit": "instantaneous"
+				}
+			}
+		},
+		"description": "<p dir=\"ltr\">You create a shard of superheated volcanic glass and fire it at your target. On a hit, the target takes 1d10 points of piercing damage. Then, hit or miss, the shard explodes in a blast of razor-sharp, superheated obsidian. The target and all creatures within 5 feet of it must make a Dexterity saving throw or take 1d6 piercing and 1d6 fire damage.</p>\n<p dir=\"ltr\"><strong id=\"docs-internal-guid-e8043721-7fff-d006-7f90-fc5bef90fabe\">Cast At Higher Levels. </strong>The fire damage increases by 1d6 for each spell slot level above 1st. If you cast the spell with at least a 3rd-level spell slot, creatures that succeed on their save take half damage from the blast rather than avoiding it entirely.</p>",
+		"favorite": false,
+		"secretDescription": "",
+		"source": {
+			"name": "Spells from the Forgotten Vault",
+			"link": "https://bit.ly/3nyQbOt",
+			"publisher": "purpleMartinGames"
+		},
+		"uses": {
+			"value": null,
+			"max": "",
+			"per": null,
+			"recharge": {
+				"formula": "1d6",
+				"threshold": "6"
+			}
+		},
+		"schema": {
+			"version": 0.008,
+			"lastMigration": {
+				"version": {
+					"schema": 0.007,
+					"foundry": "11.313",
+					"system": "0.15.13"
+				}
+			}
+		},
+		"classes": [
+			"elementalistEarth",
+			"elementalistFire",
+			"druid",
+			"sorcerer",
+			"wizard"
+		],
+		"components": {
+			"vocalized": true,
+			"seen": true,
+			"material": false
+		},
+		"concentration": false,
+		"level": 1,
+		"materials": "",
+		"materialsConsumed": false,
+		"prepared": false,
+		"prerequisite": "",
+		"rare": false,
+		"ritual": false,
+		"schools": {
+			"primary": "conjuration",
+			"secondary": [
+				"attack",
+				"earth",
+				"fire",
+				"nature"
+			]
+		}
+	},
+	"effects": [],
+	"flags": {},
+	"_id": "da250g3jbz2s1hye"
+}

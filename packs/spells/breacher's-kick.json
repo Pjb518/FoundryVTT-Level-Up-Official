@@ -1,0 +1,162 @@
+{
+	"folder": "SHboWGfKdzqlrWsi",
+	"name": "Breacher's Kick",
+	"type": "spell",
+	"img": "icons/skills/melee/shield-damaged-broken-brown.webp",
+	"system": {
+		"actions": {
+			"D8ky4ufe8ioCA1rv": {
+				"name": "Cast Spell",
+				"activation": {
+					"type": "bonusAction",
+					"cost": 1
+				},
+				"consumers": {
+					"YBw4mN1bS1oOQZZg": {
+						"type": "spell",
+						"default": true,
+						"mode": "variable",
+						"spellLevel": 2,
+						"points": 3
+					}
+				},
+				"rolls": {},
+				"prompts": {},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"threshold": 6
+					}
+				},
+				"duration": {
+					"unit": "minute",
+					"value": 1
+				},
+				"ranges": {
+					"vulOpqxJxg5hPb4q": {
+						"range": "self"
+					}
+				}
+			},
+			"UPcW9KsPoCGDZa11": {
+				"name": "Strike Object",
+				"activation": {},
+				"consumers": {},
+				"rolls": {
+					"nb70MQvnavxAzrBf": {
+						"type": "damage",
+						"default": true,
+						"formula": "6d6",
+						"damageType": "force",
+						"canCrit": true
+					}
+				},
+				"prompts": {},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"threshold": 6
+					}
+				}
+			},
+			"fby2Q2KQs4QhBXAe": {
+				"name": "Shrapnel Explosion",
+				"activation": {},
+				"consumers": {},
+				"rolls": {
+					"7XkoQ73vr4xtISYg": {
+						"type": "damage",
+						"default": true,
+						"formula": "3d8",
+						"damageType": "piercing",
+						"canCrit": false
+					}
+				},
+				"prompts": {
+					"0LR8xUEl0oImU4Gc": {
+						"type": "savingThrow",
+						"default": true,
+						"ability": "dex",
+						"saveDC": {
+							"type": "spellcasting"
+						}
+					}
+				},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"threshold": 6
+					}
+				},
+				"descriptionOutputs": [
+					"item"
+				]
+			}
+		},
+		"description": "<p>You magically bolster your ability to kick through obstacles. The next unarmed strike you make against an inanimate object after casting this spell deals an additional 6d6 points of force damage (this spell has no effect on attacks made against creatures). If this reduces the object to 0 hit points, a blast of shrapnel fills the spell area. Creatures caught in the blast must make a Dexterity saving throw, suffering 3d8 points of piercing damage. A creature that succeeds on its save takes half damage.</p>",
+		"favorite": false,
+		"secretDescription": "",
+		"source": {
+			"name": "Spells from the Forgotten Vault",
+			"link": "https://bit.ly/3nyQbOt",
+			"publisher": "purpleMartinGames"
+		},
+		"uses": {
+			"value": null,
+			"max": "",
+			"per": null,
+			"recharge": {
+				"formula": "1d6",
+				"threshold": "6"
+			}
+		},
+		"schema": {
+			"version": 0.008,
+			"lastMigration": {
+				"version": {
+					"schema": 0.007,
+					"foundry": "11.313",
+					"system": "0.15.13"
+				}
+			}
+		},
+		"classes": [
+			"herald",
+			"sorcerer",
+			"wizard"
+		],
+		"components": {
+			"vocalized": true,
+			"seen": true,
+			"material": false
+		},
+		"concentration": true,
+		"level": 2,
+		"materials": "",
+		"materialsConsumed": false,
+		"prepared": false,
+		"prerequisite": "",
+		"rare": false,
+		"ritual": false,
+		"schools": {
+			"primary": "evocation",
+			"secondary": [
+				"force",
+				"law",
+				"unarmed"
+			]
+		}
+	},
+	"effects": [],
+	"flags": {},
+	"_id": "tccmxfdc7blzz9no"
+}

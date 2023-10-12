@@ -1,0 +1,133 @@
+{
+	"folder": "SHboWGfKdzqlrWsi",
+	"name": "Dawn Bolts",
+	"type": "spell",
+	"img": "icons/magic/light/projectile-beam-yellow.webp",
+	"system": {
+		"actions": {
+			"UNS04Ivmx8usmfdd": {
+				"name": "Cast Spell",
+				"activation": {
+					"type": "bonusAction",
+					"cost": 1
+				},
+				"consumers": {
+					"HW5Ij7T8Ftm8RKf9": {
+						"type": "spell",
+						"default": true,
+						"mode": "variable",
+						"spellLevel": 3,
+						"points": 5
+					}
+				},
+				"rolls": {},
+				"prompts": {},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"threshold": 6
+					}
+				},
+				"duration": {
+					"unit": "hour",
+					"value": 1
+				},
+				"target": {
+					"type": "object",
+					"quantity": 12,
+					"scaling": {
+						"mode": "spellLevel",
+						"formula": "2"
+					}
+				},
+				"ranges": {
+					"B4ACQaaZ67MNX2Nu": {
+						"range": "touch"
+					}
+				}
+			},
+			"fkqA7f7RRfpTmglO": {
+				"name": "Bonus Damage",
+				"activation": {},
+				"consumers": {},
+				"rolls": {
+					"fZdqVHp5FYl4tqNa": {
+						"type": "damage",
+						"default": true,
+						"formula": "1d6",
+						"damageType": "radiant"
+					}
+				},
+				"prompts": {},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"threshold": 6
+					}
+				}
+			}
+		},
+		"description": "<p dir=\"ltr\">You bless the ammunition giving it the power to pierce the darkness. When you make a ranged weapon attack with one of the pieces of ammunition drawn from the container, it deals an additional 1d6 points of radiant damage. Then, hit or miss, the magic on that piece of ammunition dissipates.</p>\n<p dir=\"ltr\"><strong>Cast at Higher Levels.</strong> For each spell level above third, you may bless an additional 2 pieces of ammunition. If you use at least a 5th-level spell slot, all of the damage done by the ammunition is radiant rather than its normal type, and being hit with one of the pieces of ranged ammunition counts as spending a round in natural sunlight.</p>",
+		"favorite": false,
+		"secretDescription": "",
+		"source": {
+			"name": "Spells from the Forgotten Vault",
+			"link": "https://bit.ly/3nyQbOt",
+			"publisher": "purpleMartinGames"
+		},
+		"uses": {
+			"value": null,
+			"max": "",
+			"per": null,
+			"recharge": {
+				"formula": "1d6",
+				"threshold": "6"
+			}
+		},
+		"schema": {
+			"version": 0.008,
+			"lastMigration": {
+				"version": {
+					"schema": 0.007,
+					"foundry": "11.313",
+					"system": "0.15.13"
+				}
+			}
+		},
+		"classes": [
+			"cleric",
+			"druid",
+			"wizard"
+		],
+		"components": {
+			"vocalized": false,
+			"seen": true,
+			"material": true
+		},
+		"concentration": true,
+		"level": 3,
+		"materials": "A scrap of paper from a holy book or with a blessing written on it",
+		"materialsConsumed": false,
+		"prepared": false,
+		"prerequisite": "",
+		"rare": false,
+		"ritual": false,
+		"schools": {
+			"primary": "transmutation",
+			"secondary": [
+				"good",
+				"radiant",
+				"weaponry"
+			]
+		}
+	},
+	"effects": [],
+	"flags": {},
+	"_id": "6ltv1wf3f8t3clqi"
+}

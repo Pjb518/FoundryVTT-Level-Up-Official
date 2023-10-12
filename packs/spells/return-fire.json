@@ -1,0 +1,116 @@
+{
+	"folder": "SHboWGfKdzqlrWsi",
+	"name": "Return Fire",
+	"type": "spell",
+	"img": "icons/skills/ranged/arrow-flying-white-blue.webp",
+	"system": {
+		"actions": {
+			"k9lVkHkZNTF6Au2M": {
+				"name": "Cast Spell",
+				"activation": {
+					"type": "reaction",
+					"cost": 1
+				},
+				"consumers": {
+					"qWooJsA2jqasbleo": {
+						"type": "spell",
+						"default": true,
+						"mode": "variable",
+						"spellLevel": 2,
+						"points": 3
+					}
+				},
+				"rolls": {
+					"A7DShbYoY9tbfzvA": {
+						"type": "damage",
+						"default": true,
+						"formula": "1d8",
+						"scaling": {
+							"mode": "spellLevel",
+							"formula": "1d8"
+						},
+						"damageType": "force",
+						"canCrit": true
+					}
+				},
+				"prompts": {},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"threshold": 6
+					}
+				},
+				"duration": {
+					"unit": "instantaneous"
+				},
+				"ranges": {
+					"YvaTSblShsU2EqpJ": {
+						"range": "self"
+					}
+				}
+			}
+		},
+		"description": "<p dir=\"ltr\">In response to being fired upon, you shoot back&hellip; with a little extra magical &ldquo;oomph.&rdquo;</p>\n<p dir=\"ltr\">When you are attacked with a ranged weapon or spell attack, make a ranged weapon attack against the source of the triggering attack with a ranged weapon you are wielding that is ready to fire. You gain an expertise die on the attack roll. On a hit, the source of the attack takes an additional 1d8 points of force damage.</p>\n<p dir=\"ltr\"><strong>Cast At Higher Levels.</strong> Your weapon attack does an additional 1d8 points of force damage for each spell slot level above 1st.</p>\n<p>&nbsp;</p>",
+		"favorite": false,
+		"secretDescription": "",
+		"source": {
+			"name": "Spells from the Forgotten Vault",
+			"link": "https://bit.ly/3nyQbOt",
+			"publisher": "purpleMartinGames"
+		},
+		"uses": {
+			"value": null,
+			"max": "",
+			"per": null,
+			"recharge": {
+				"formula": "1d6",
+				"threshold": "6"
+			}
+		},
+		"schema": {
+			"version": 0.008,
+			"lastMigration": {
+				"version": {
+					"schema": 0.007,
+					"foundry": "11.313",
+					"system": "0.15.13"
+				}
+			}
+		},
+		"classes": [
+			"bard",
+			"druid",
+			"herald",
+			"warlock",
+			"wielder",
+			"wizard"
+		],
+		"components": {
+			"vocalized": false,
+			"seen": true,
+			"material": true
+		},
+		"concentration": false,
+		"level": 2,
+		"materials": "A ranged weapon",
+		"materialsConsumed": false,
+		"prepared": false,
+		"prerequisite": "",
+		"rare": false,
+		"ritual": false,
+		"schools": {
+			"primary": "transmutation",
+			"secondary": [
+				"attack",
+				"force",
+				"weaponry"
+			]
+		}
+	},
+	"effects": [],
+	"flags": {},
+	"_id": "mavvoxc3tq110344"
+}

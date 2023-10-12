@@ -1,0 +1,122 @@
+{
+	"folder": "SHboWGfKdzqlrWsi",
+	"name": "Sanguine Orb",
+	"type": "spell",
+	"img": "icons/skills/wounds/blood-drip-droplet-red.webp",
+	"system": {
+		"actions": {
+			"vp5mIBWuIUceHHpE": {
+				"name": "Cast Spell",
+				"activation": {
+					"type": "action",
+					"cost": 1
+				},
+				"consumers": {
+					"IIZHneoerT81ACod": {
+						"type": "spell",
+						"default": true,
+						"mode": "variable",
+						"spellLevel": 1,
+						"points": 2
+					}
+				},
+				"rolls": {
+					"B6HuKKlLVPPDrbXH": {
+						"type": "damage",
+						"default": true,
+						"formula": "5",
+						"scaling": {
+							"mode": "spellLevel",
+							"formula": "3"
+						},
+						"damageType": "necrotic",
+						"canCrit": false
+					},
+					"AXWds4LoW01buTVG": {
+						"type": "healing",
+						"default": false,
+						"scaling": {
+							"mode": "spellLevel",
+							"formula": "3"
+						},
+						"formula": "5"
+					}
+				},
+				"prompts": {},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"threshold": 6
+					}
+				},
+				"duration": {
+					"unit": "round",
+					"value": 3
+				},
+				"ranges": {
+					"gPLBnJO1md5ZEVBt": {
+						"range": "self"
+					}
+				}
+			}
+		},
+		"description": "<p dir=\"ltr\">With dark words and a twist of your hands you cast forth an orb of mingled blood and torment which drifts forward, harming those it approaches&hellip; Though with words of sacrifice, the blood may be turned to good.</p>\n<p dir=\"ltr\">You create a floating orb which travels 20ft in a straight line of your choosing. This orb deals 5 points of necrotic damage to any creature whose square it passes through, up to a maximum of 20 damage before it dissipates. If the orb runs into a wall or other large object, it bounces off at a random angle. Roll 1d8 assigning each direction to each number, and if it would travel into the object, it instead rebounds directly on its previous path. The ball moves at the start of each of your turns.</p>\n<p dir=\"ltr\">Alternatively, you may choose to cast this spell as a healing spell. In which case it heals 5 points of damage to creatures whose space it passes through, up to a maximum of 20 points. A creature can only benefit from the healing of a single casting of Sanguine Orb once.</p>\n<p dir=\"ltr\"><strong id=\"docs-internal-guid-80957b55-7fff-b197-4265-fb3396d22ee7\">Cast At Higher Levels. </strong>For each level above 1st, this spell deals or heals an additional 3 points per target, and its maximum value increases by 5.</p>",
+		"favorite": false,
+		"secretDescription": "",
+		"source": {
+			"name": "Spells from the Forgotten Vault",
+			"link": "https://bit.ly/3nyQbOt",
+			"publisher": "purpleMartinGames"
+		},
+		"uses": {
+			"value": null,
+			"max": "",
+			"per": null,
+			"recharge": {
+				"formula": "1d6",
+				"threshold": "6"
+			}
+		},
+		"schema": {
+			"version": 0.008,
+			"lastMigration": {
+				"version": {
+					"schema": 0.007,
+					"foundry": "11.313",
+					"system": "0.15.13"
+				}
+			}
+		},
+		"classes": [
+			"cleric",
+			"warlock",
+			"witch"
+		],
+		"components": {
+			"vocalized": true,
+			"seen": true,
+			"material": false
+		},
+		"concentration": false,
+		"level": 1,
+		"materials": "",
+		"materialsConsumed": false,
+		"prepared": false,
+		"prerequisite": "",
+		"rare": false,
+		"ritual": false,
+		"schools": {
+			"primary": "evocation",
+			"secondary": [
+				"healing",
+				"necrotic"
+			]
+		}
+	},
+	"effects": [],
+	"flags": {},
+	"_id": "to9uka2mbua81y9u"
+}

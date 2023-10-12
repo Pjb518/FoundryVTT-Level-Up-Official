@@ -1,0 +1,132 @@
+{
+	"name": "Shine Down",
+	"type": "spell",
+	"img": "icons/magic/light/explosion-beam-impact-silhouette.webp",
+	"system": {
+		"actions": {
+			"Waet3UJ0idODNs5w": {
+				"name": "Cast Spell",
+				"activation": {
+					"type": "action",
+					"cost": 1
+				},
+				"consumers": {},
+				"rolls": {},
+				"prompts": {},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"threshold": 6
+					}
+				},
+				"duration": {
+					"unit": "round",
+					"value": 1
+				},
+				"ranges": {
+					"WBAKps7tyzs03Eqp": {
+						"range": "self"
+					}
+				}
+			},
+			"KZWU4eU2OOLd7fFZ": {
+				"name": "Aura Damage",
+				"activation": {
+					"type": "none"
+				},
+				"consumers": {},
+				"rolls": {
+					"K5xOkIyrhEIOmLkg": {
+						"type": "damage",
+						"default": true,
+						"formula": "1d6",
+						"scaling": {
+							"mode": "cantrip",
+							"formula": "1d6"
+						},
+						"canCrit": false
+					}
+				},
+				"prompts": {},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"threshold": 6
+					}
+				},
+				"ranges": {
+					"tZK2eRhUa9PstJqz": {
+						"range": "fiveFeet"
+					}
+				},
+				"duration": {
+					"unit": "instantaneous"
+				}
+			}
+		},
+		"description": "<p dir=\"ltr\">Light falls upon you from above, protecting you and lighting your path.</p>\n<p dir=\"ltr\">Until the beginning of your next turn any creature that attempts to harm you takes a 1d4 penalty to the attack roll, and any creature that ends their turn within 5ft of you takes 1d6 cold damage, if you are a warlock, fire damage, if you are a druid, or radiant damage, if you are a cleric. If you are none or more than one of these classes, you choose which type of damage the spell does when you cast it. This damage increases to 2d6 at level 5, 3d6 at level 11, and 4d6 at level 17.</p>\n<p dir=\"ltr\">In addition, you shed bright light to a range of 10 feet and dim light to a range 20 feet until the beginning of your next turn.</p>",
+		"favorite": false,
+		"secretDescription": "",
+		"source": {
+			"name": "Spells from the Forgotten Vault",
+			"link": "https://bit.ly/3nyQbOt",
+			"publisher": "purpleMartinGames"
+		},
+		"uses": {
+			"value": null,
+			"max": "",
+			"per": null,
+			"recharge": {
+				"formula": "1d6",
+				"threshold": "6"
+			}
+		},
+		"schema": {
+			"version": 0.008,
+			"lastMigration": {
+				"version": {
+					"schema": 0.007,
+					"foundry": "11.313",
+					"system": "0.15.13"
+				}
+			}
+		},
+		"classes": [
+			"cleric",
+			"druid",
+			"warlock"
+		],
+		"components": {
+			"vocalized": true,
+			"seen": false,
+			"material": true
+		},
+		"concentration": false,
+		"level": 0,
+		"materials": "Ash, soil, or soot that you use to draw a symbol on your hand, face, or chest",
+		"materialsConsumed": false,
+		"prepared": false,
+		"prerequisite": "",
+		"rare": false,
+		"ritual": false,
+		"schools": {
+			"primary": "evocation",
+			"secondary": [
+				"cold",
+				"divine",
+				"fire",
+				"radiant"
+			]
+		}
+	},
+	"effects": [],
+	"folder": "SHboWGfKdzqlrWsi",
+	"flags": {},
+	"_id": "e9zuvjrdtvppcqan"
+}

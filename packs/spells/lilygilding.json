@@ -1,0 +1,117 @@
+{
+	"folder": "SHboWGfKdzqlrWsi",
+	"name": "Lilygilding",
+	"type": "spell",
+	"img": "icons/commodities/treasure/goblet-coins-gold.webp",
+	"system": {
+		"actions": {
+			"wCACXvKYDQPe4Usg": {
+				"name": "Cast Spell",
+				"activation": {
+					"type": "reaction",
+					"cost": 1
+				},
+				"consumers": {
+					"SXepFqBv8D2gOXkC": {
+						"type": "spell",
+						"default": true,
+						"mode": "variable",
+						"spellLevel": 1,
+						"points": 2
+					}
+				},
+				"rolls": {
+					"WLomQDN3XeegH9vq": {
+						"type": "healing",
+						"default": true,
+						"healingType": "temporaryHealing",
+						"formula": "12",
+						"scaling": {
+							"mode": "spellLevel",
+							"formula": "6"
+						}
+					}
+				},
+				"prompts": {},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"threshold": 6
+					}
+				},
+				"duration": {
+					"unit": "minute",
+					"value": 10
+				},
+				"ranges": {
+					"AlPstEWWwN7fLiNi": {
+						"range": "short"
+					}
+				},
+				"target": {
+					"type": "creature",
+					"quantity": 1
+				}
+			}
+		},
+		"description": "<p dir=\"ltr\">With a whoop and a smile you celebrate overwhelming success!</p>\n<p dir=\"ltr\">When a creature within range succeeds at a skill check or saving throw with a DC of 13 or higher, or critically succeeds on any attack roll, you can cast this spell as a reaction. When you do so, the target gains 12 temporary hit points and advantage on persuasion checks for 10 minutes.</p>\n<p dir=\"ltr\"><strong id=\"docs-internal-guid-32da0f37-7fff-9df5-b562-b5a89a212e4e\">Cast at Higher Levels.</strong> When cast at higher levels, the DC required increases by 1, and the target gains an additional 6 temporary hit points, for each spell slot level above 1st.</p>",
+		"favorite": false,
+		"secretDescription": "",
+		"source": {
+			"name": "Spells from the Forgotten Vault",
+			"link": "https://bit.ly/3nyQbOt",
+			"publisher": "purpleMartinGames"
+		},
+		"uses": {
+			"value": null,
+			"max": "",
+			"per": null,
+			"recharge": {
+				"formula": "1d6",
+				"threshold": "6"
+			}
+		},
+		"schema": {
+			"version": 0.008,
+			"lastMigration": {
+				"version": {
+					"schema": 0.007,
+					"foundry": "11.313",
+					"system": "0.15.13"
+				}
+			}
+		},
+		"classes": [
+			"bard",
+			"herald",
+			"sorcerer",
+			"warlock"
+		],
+		"components": {
+			"vocalized": true,
+			"seen": true,
+			"material": false
+		},
+		"concentration": false,
+		"level": 1,
+		"materials": "",
+		"materialsConsumed": false,
+		"prepared": false,
+		"prerequisite": "",
+		"rare": false,
+		"ritual": false,
+		"schools": {
+			"primary": "enchantment",
+			"secondary": [
+				"communication",
+				"enhancement"
+			]
+		}
+	},
+	"effects": [],
+	"flags": {},
+	"_id": "vkamy2khui3nueze"
+}

@@ -1,0 +1,138 @@
+{
+	"folder": "SHboWGfKdzqlrWsi",
+	"name": "Shroud of Glory",
+	"type": "spell",
+	"img": "icons/magic/light/explosion-star-glow-silhouette.webp",
+	"system": {
+		"actions": {
+			"8QiCJxDRPyebKhv7": {
+				"name": "Cast Spell",
+				"activation": {
+					"type": "action",
+					"cost": 1
+				},
+				"consumers": {
+					"s30kGOeHq9MEwm51": {
+						"type": "spell",
+						"default": true,
+						"mode": "variable",
+						"spellLevel": 2,
+						"points": 3
+					}
+				},
+				"rolls": {},
+				"prompts": {},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"threshold": 6
+					}
+				},
+				"duration": {
+					"unit": "minute",
+					"value": 10
+				},
+				"ranges": {
+					"4Ev8c8o1YbGok0bN": {
+						"range": "self"
+					}
+				}
+			},
+			"eJtIDLqB0StP429S": {
+				"name": "Flare",
+				"activation": {
+					"type": "reaction",
+					"cost": 1
+				},
+				"consumers": {},
+				"rolls": {},
+				"prompts": {
+					"3TEBGkobL5k7SIeO": {
+						"type": "savingThrow",
+						"default": true,
+						"ability": "con",
+						"saveDC": {
+							"type": "spellcasting"
+						}
+					}
+				},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"threshold": 6
+					}
+				},
+				"duration": {
+					"unit": "round",
+					"value": 1
+				},
+				"target": {
+					"type": "creature",
+					"quantity": 1
+				}
+			}
+		},
+		"description": "<p dir=\"ltr\">You glow with brilliant divine light that obscures your features and dazzles your foes.</p>\n<p dir=\"ltr\">When you cast this spell, you begin glowing with brilliant light. Your head appears backlit no matter which angle you are viewed from. You shed bright light to a distance of 30 feet and dim light for an additional 30 feet. When a creature attacks you in melee, you may use your reaction to cause the light to flare, potentially blinding your attacker. The attacking creature must make a Constitution save against your spell save DC. If it fails, it is blinded until the end of its next turn and rolls the triggering attack with disadvantage. Once a creature has had this blinding effect used on it, you cannot use it on that same creature again with the same casting of Shroud of Glory.</p>\n<p dir=\"ltr\">In addition, creatures that see you while this spell&rsquo;s effects are active have disadvantage on checks to remember anything about you except for the brilliant light or to recognize you later if they see you again. This second effect does not affect those who are very familiar with you such as close friends, traveling companions, longtime rivals, or immediate family members.</p>",
+		"favorite": false,
+		"secretDescription": "",
+		"source": {
+			"name": "Spells from the Forgotten Vault",
+			"link": "https://bit.ly/3nyQbOt",
+			"publisher": "purpleMartinGames"
+		},
+		"uses": {
+			"value": null,
+			"max": "",
+			"per": null,
+			"recharge": {
+				"formula": "1d6",
+				"threshold": "6"
+			}
+		},
+		"schema": {
+			"version": 0.008,
+			"lastMigration": {
+				"version": {
+					"schema": 0.007,
+					"foundry": "11.313",
+					"system": "0.15.13"
+				}
+			}
+		},
+		"classes": [
+			"cleric",
+			"herald",
+			"wielder",
+			"witch"
+		],
+		"components": {
+			"vocalized": true,
+			"seen": true,
+			"material": false
+		},
+		"concentration": false,
+		"level": 2,
+		"materials": "",
+		"materialsConsumed": false,
+		"prepared": false,
+		"prerequisite": "",
+		"rare": false,
+		"ritual": false,
+		"schools": {
+			"primary": "illusion",
+			"secondary": [
+				"divine",
+				"obscurement"
+			]
+		}
+	},
+	"effects": [],
+	"flags": {},
+	"_id": "3hh29czo6nwciu2f"
+}

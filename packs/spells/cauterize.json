@@ -1,0 +1,120 @@
+{
+	"folder": "SHboWGfKdzqlrWsi",
+	"name": "Cauterize",
+	"type": "spell",
+	"img": "icons/magic/fire/projectile-embers-orange.webp",
+	"system": {
+		"actions": {
+			"panfUV6TnxvdtTRm": {
+				"name": "Cast Spell",
+				"activation": {
+					"type": "bonusAction",
+					"cost": 1
+				},
+				"consumers": {
+					"3JgZCB5yKETCwNRP": {
+						"type": "spell",
+						"default": true,
+						"mode": "variable",
+						"spellLevel": 2,
+						"points": 3
+					}
+				},
+				"rolls": {
+					"OjwQAvwcHzJGGwya": {
+						"type": "damage",
+						"default": true,
+						"formula": "2d4",
+						"damageType": "fire",
+						"canCrit": false
+					},
+					"rGUCAV4YmicpoXde": {
+						"type": "healing",
+						"default": true,
+						"formula": "2d8"
+					}
+				},
+				"prompts": {},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"threshold": 6
+					}
+				},
+				"duration": {
+					"unit": "instantaneous"
+				},
+				"ranges": {
+					"wWM1VL2vpToncWql": {
+						"range": "short"
+					}
+				},
+				"target": {
+					"type": "creature",
+					"quantity": 1
+				}
+			}
+		},
+		"description": "<p dir=\"ltr\">You sear a creature, scorching it, but closing its wounds. This spell deals 2d4 fire damage (potentially rendering the target unconscious or causing a death save failure), then immediately ends all ongoing damage of types other than fire on the target, and finally heals it for 2d8 hit points.</p>",
+		"favorite": false,
+		"secretDescription": "",
+		"source": {
+			"name": "Spells from the Forgotten Vault",
+			"link": "https://bit.ly/3nyQbOt",
+			"publisher": "purpleMartinGames"
+		},
+		"uses": {
+			"value": null,
+			"max": "",
+			"per": null,
+			"recharge": {
+				"formula": "1d6",
+				"threshold": "6"
+			}
+		},
+		"schema": {
+			"version": 0.008,
+			"lastMigration": {
+				"version": {
+					"schema": 0.007,
+					"foundry": "11.313",
+					"system": "0.15.13"
+				}
+			}
+		},
+		"classes": [
+			"cleric",
+			"druid",
+			"elementalistFire",
+			"herald",
+			"sorcerer",
+			"wielder"
+		],
+		"components": {
+			"vocalized": true,
+			"seen": true,
+			"material": false
+		},
+		"concentration": false,
+		"level": 2,
+		"materials": "",
+		"materialsConsumed": false,
+		"prepared": false,
+		"prerequisite": "",
+		"rare": false,
+		"ritual": false,
+		"schools": {
+			"primary": "evocation",
+			"secondary": [
+				"fire",
+				"healing"
+			]
+		}
+	},
+	"effects": [],
+	"flags": {},
+	"_id": "b139siw9qit8u5wz"
+}

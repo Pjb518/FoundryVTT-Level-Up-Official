@@ -1,0 +1,130 @@
+{
+	"folder": "SHboWGfKdzqlrWsi",
+	"name": "Mudball",
+	"type": "spell",
+	"img": "icons/magic/earth/projectile-orb-asteroid-yellow.webp",
+	"system": {
+		"actions": {
+			"Ec8hmtH11NpMow28": {
+				"name": "Cast Spell",
+				"activation": {
+					"type": "action",
+					"cost": 1
+				},
+				"consumers": {
+					"aiZqkxjPsT5KBAIi": {
+						"type": "spell",
+						"default": true,
+						"mode": "variable",
+						"spellLevel": 2,
+						"points": 3
+					}
+				},
+				"rolls": {
+					"5dxuP6vXncNmUAr0": {
+						"type": "damage",
+						"default": true,
+						"canCrit": false,
+						"formula": "4d4",
+						"damageType": "bludgeoning",
+						"scaling": {
+							"mode": "spellLevel",
+							"formula": "1d4"
+						}
+					}
+				},
+				"prompts": {
+					"UdnaKVcXXlO1w2la": {
+						"type": "savingThrow",
+						"default": true,
+						"ability": "dex",
+						"saveDC": {
+							"type": "spellcasting"
+						},
+						"onSave": "Dexterity Halves"
+					}
+				},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"threshold": 6
+					}
+				},
+				"duration": {
+					"unit": "instantaneous"
+				},
+				"ranges": {
+					"ObnNSj7bY6BVqJaw": {
+						"range": "long"
+					}
+				},
+				"area": {
+					"shape": "circle",
+					"quantity": 1,
+					"radius": 15,
+					"placeTemplate": true
+				}
+			}
+		},
+		"description": "<p dir=\"ltr\">You conjure up a ball of densely-packed, rock-filled mud and sling it at a point within range. The mud explodes, doing 4d4 points of bludgeoning damage, extinguishing unattended non-magical fires, and creating an area of difficult terrain that persists for one minute. Creatures in the area that fail their save are also blinded until the end of their next turn.</p>\n<p dir=\"ltr\"><strong>Cast At Higher Levels.</strong> The damage increases by 1d4 for each slot level above 2nd. In addition, if the spell is cast with a 4th-level or higher slot, the area increases to 20 feet.</p>",
+		"favorite": false,
+		"secretDescription": "",
+		"source": {
+			"name": "Spells from the Forgotten Vault",
+			"link": "https://bit.ly/3nyQbOt",
+			"publisher": "purpleMartinGames"
+		},
+		"uses": {
+			"value": null,
+			"max": "",
+			"per": null,
+			"recharge": {
+				"formula": "1d6",
+				"threshold": "6"
+			}
+		},
+		"schema": {
+			"version": 0.008,
+			"lastMigration": {
+				"version": {
+					"schema": 0.007,
+					"foundry": "11.313",
+					"system": "0.15.13"
+				}
+			}
+		},
+		"classes": [
+			"druid",
+			"elementalistEarth",
+			"sorcerer",
+			"wizard"
+		],
+		"components": {
+			"vocalized": true,
+			"seen": true,
+			"material": false
+		},
+		"concentration": false,
+		"level": 2,
+		"materials": "",
+		"materialsConsumed": false,
+		"prepared": false,
+		"prerequisite": "",
+		"rare": false,
+		"ritual": false,
+		"schools": {
+			"primary": "conjuration",
+			"secondary": [
+				"earth",
+				"nature",
+				"terrain"
+			]
+		}
+	},
+	"effects": [],
+	"flags": {},
+	"_id": "98kyfbi7wevctex2"
+}

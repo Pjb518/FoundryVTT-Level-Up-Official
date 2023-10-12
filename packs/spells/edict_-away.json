@@ -1,0 +1,111 @@
+{
+	"folder": "SHboWGfKdzqlrWsi",
+	"name": "Edict: Away",
+	"type": "spell",
+	"img": "icons/skills/movement/arrow-upward-yellow.webp",
+	"system": {
+		"actions": {
+			"Sm0yB4oZ4sYfkzlN": {
+				"name": "Cast Spell",
+				"activation": {
+					"type": "action",
+					"cost": 1
+				},
+				"consumers": {},
+				"rolls": {
+					"oLqvr3kiMSxbuchC": {
+						"type": "damage",
+						"default": true,
+						"formula": "4d10",
+						"canCrit": false,
+						"scaling": {
+							"mode": "spellLevel",
+							"formula": "2d10"
+						}
+					}
+				},
+				"prompts": {},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"threshold": 6
+					}
+				},
+				"duration": {
+					"unit": "instantaneous"
+				},
+				"ranges": {
+					"aZaFFaQpPajbZoBm": {
+						"range": "self"
+					}
+				},
+				"area": {
+					"shape": "circle",
+					"quantity": 1,
+					"radius": 10,
+					"placeTemplate": true
+				}
+			}
+		},
+		"description": "<p dir=\"ltr\"><strong>Target:</strong> 4d10 hit points worth of creatures</p>\n<p dir=\"ltr\">With a single imperious word you push everything and everyone away, sending them scrambling under the force of your voice.</p>\n<p dir=\"ltr\">Starting with the target with the lowest hit points (ignoring unconscious creatures), targets within the area are pushed 5ft away from you and are knocked prone.</p>\n<p dir=\"ltr\">As each target is shoved, subtract its hit points from the total before moving on to the next target. A target&rsquo;s hit points must be equal to or less than the total remaining for the spell to have any effect.</p>\n<p dir=\"ltr\">If the spell shoves no creatures, the creature in the area with the lowest hit point total is rattled until the beginning of its next turn.</p>\n<p dir=\"ltr\"><strong id=\"docs-internal-guid-9e927747-7fff-9966-6e17-18a2ba1460ef\">Cast at Higher Levels.</strong> The spell affects an additional 2d10 hit points worth of creatures for each slot level above 1st.</p>",
+		"favorite": false,
+		"secretDescription": "",
+		"source": {
+			"name": "Spells from the Forgotten Vault",
+			"link": "https://bit.ly/3nyQbOt",
+			"publisher": "purpleMartinGames"
+		},
+		"uses": {
+			"value": null,
+			"max": "",
+			"per": null,
+			"recharge": {
+				"formula": "1d6",
+				"threshold": "6"
+			}
+		},
+		"schema": {
+			"version": 0.008,
+			"lastMigration": {
+				"version": {
+					"schema": 0.007,
+					"foundry": "11.313",
+					"system": "0.15.13"
+				}
+			}
+		},
+		"classes": [
+			"bard",
+			"cleric",
+			"druid",
+			"warlock",
+			"witch",
+			"wielder"
+		],
+		"components": {
+			"vocalized": true,
+			"seen": false,
+			"material": false
+		},
+		"concentration": false,
+		"level": 1,
+		"materials": "",
+		"materialsConsumed": false,
+		"prepared": false,
+		"prerequisite": "",
+		"rare": false,
+		"ritual": false,
+		"schools": {
+			"primary": "evocation",
+			"secondary": [
+				"movement"
+			]
+		}
+	},
+	"effects": [],
+	"flags": {},
+	"_id": "dbinw3ifb4ldzf2x"
+}

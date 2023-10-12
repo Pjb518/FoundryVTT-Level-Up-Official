@@ -1,0 +1,121 @@
+{
+	"folder": "SHboWGfKdzqlrWsi",
+	"name": "Adhering Blast",
+	"type": "spell",
+	"img": "icons/magic/water/projectile-ice-snowball.webp",
+	"system": {
+		"actions": {
+			"hi2fvvQqf6WMdewP": {
+				"name": "Cast Spell",
+				"activation": {
+					"type": "action",
+					"cost": 1
+				},
+				"consumers": {
+					"ZIoWtDCzn9OXK6GT": {
+						"type": "spell",
+						"default": true,
+						"mode": "variable",
+						"spellLevel": 3,
+						"points": 3
+					}
+				},
+				"rolls": {
+					"xSVLl6AfZBVZjbK2": {
+						"type": "generic",
+						"default": true,
+						"label": "Effect",
+						"formula": "1d8"
+					}
+				},
+				"prompts": {
+					"JyvEqk1VI6isV2Gp": {
+						"type": "savingThrow",
+						"default": true,
+						"ability": "dex",
+						"saveDC": {
+							"type": "spellcasting"
+						}
+					}
+				},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"threshold": 6
+					}
+				},
+				"duration": {
+					"unit": "instantaneous"
+				},
+				"ranges": {},
+				"target": {
+					"type": "self",
+					"quantity": 1
+				},
+				"area": {
+					"shape": "cone",
+					"quantity": 1,
+					"length": 30,
+					"placeTemplate": true
+				}
+			}
+		},
+		"description": "<p dir=\"ltr\">A blast of strong, sticky adhesive shoots from the palm of your outstretched hand, causing chaos on the battlefield.</p>\n<p dir=\"ltr\">The area of the spell becomes difficult terrain for the next 24 hours. In addition, creatures caught in the blast must make a Dexterity save. The creature then rolls on the appropriate table below to determine what happens to it.<strong>&nbsp;</strong></p>\n<p dir=\"ltr\"><strong>Table: Failed Save</strong></p>\n<div dir=\"ltr\" align=\"left\">\n<table><colgroup><col width=\"45\"><col width=\"579\"></colgroup>\n<thead>\n<tr>\n<td style=\"text-align: center;\">1d8</td>\n<td style=\"text-align: center;\">Effect</td>\n</tr>\n</thead>\n<tbody>\n<tr>\n<td style=\"text-align: center;\">1</td>\n<td style=\"text-align: center;\">Glue in eyes. Blinded until an action is spent to clear them.&nbsp;</td>\n</tr>\n<tr>\n<td style=\"text-align: center;\">2</td>\n<td style=\"text-align: center;\">Mouth and nose covered with glue. Begins suffocating. Make a Strength save or Medicine check vs. your spell save DC as an action to open an airway.</td>\n</tr>\n<tr>\n<td style=\"text-align: center;\">3</td>\n<td style=\"text-align: center;\">Stuck fast to the ground and unable to move. Make a Strength save as an action to break free.</td>\n</tr>\n<tr>\n<td style=\"text-align: center;\">4</td>\n<td style=\"text-align: center;\">Covered in glue and Grappled. Make a Strength save as an action to escape.&nbsp;&nbsp;</td>\n</tr>\n<tr>\n<td style=\"text-align: center;\">5</td>\n<td style=\"text-align: center;\">Gummed up with sticky goo. Encumbered until a minute is spent scraping the glue off.</td>\n</tr>\n<tr>\n<td style=\"text-align: center;\">6</td>\n<td style=\"text-align: center;\">Glue on entire head. Blinded, deafened, and suffocating. Each condition requires a separate Strength save or Medicine check vs. your spell save DC as an action to end.&nbsp;</td>\n</tr>\n<tr>\n<td style=\"text-align: center;\">7</td>\n<td style=\"text-align: center;\">Badly disoriented. Confused for one minute; can attempt a Wisdom save at the end of each of its turns to recover.</td>\n</tr>\n<tr>\n<td style=\"text-align: center;\">8</td>\n<td style=\"text-align: center;\">Roll twice and apply both effects.</td>\n</tr>\n</tbody>\n</table>\n</div>\n<p><strong>Table: Successful Save</strong></p>\n<div dir=\"ltr\" align=\"left\">\n<table style=\"width: 100%; height: 235.157px;\"><colgroup><col style=\"width: 8.51064%;\" width=\"44\"><col style=\"width: 112.186%;\" width=\"580\"></colgroup>\n<thead>\n<tr style=\"height: 16.7969px;\">\n<td style=\"text-align: center; height: 16.7969px;\">1d8</td>\n<td style=\"text-align: center; height: 16.7969px;\">Effect</td>\n</tr>\n</thead>\n<tbody>\n<tr style=\"height: 16.7969px;\">\n<td style=\"text-align: center; height: 16.7969px;\">1</td>\n<td style=\"text-align: center; height: 16.7969px;\">Snagged on a sticky patch. The creature is slowed until the end of next turn.</td>\n</tr>\n<tr style=\"height: 33.5938px;\">\n<td style=\"text-align: center; height: 33.5938px;\">2</td>\n<td style=\"text-align: center; height: 33.5938px;\">Stuck, but easily freed. The creature&rsquo;s speed is reduced by half until end of next turn.</td>\n</tr>\n<tr style=\"height: 33.5938px;\">\n<td style=\"text-align: center; height: 33.5938px;\">3</td>\n<td style=\"text-align: center; height: 33.5938px;\">Embarrassing glue placement. Disadvantage on Charisma checks for one hour or until a minute is spent scraping the glue off.</td>\n</tr>\n<tr style=\"height: 33.5938px;\">\n<td style=\"text-align: center; height: 33.5938px;\">4</td>\n<td style=\"text-align: center; height: 33.5938px;\">Blasted with glue, but mostly unaffected; what is there is tactically useful. Has advantage on grapple checks for the next 10 minutes.</td>\n</tr>\n<tr style=\"height: 16.7969px;\">\n<td style=\"text-align: center; height: 16.7969px;\">5</td>\n<td style=\"text-align: center; height: 16.7969px;\">Eww, gross! The creature is rattled until the end of its next turn.</td>\n</tr>\n<tr style=\"height: 33.5938px;\">\n<td style=\"text-align: center; height: 33.5938px;\">6</td>\n<td style=\"text-align: center; height: 33.5938px;\">Glues the creature to whatever it is holding. The creature cannot drop the item until a minute is spent cleaning the glue off.&nbsp;</td>\n</tr>\n<tr style=\"height: 33.5938px;\">\n<td style=\"text-align: center; height: 33.5938px;\">7</td>\n<td style=\"text-align: center; height: 33.5938px;\">Glues pockets and backpack shut. Accessing a stored item takes 1 minute until 10 minutes is spent clearing the glue off.</td>\n</tr>\n<tr style=\"height: 16.7969px;\">\n<td style=\"text-align: center; height: 16.7969px;\">8</td>\n<td style=\"text-align: center; height: 16.7969px;\">Got lucky! No effect.</td>\n</tr>\n</tbody>\n</table>\n</div>",
+		"favorite": false,
+		"secretDescription": "",
+		"source": {
+			"name": "Spells from the Forgotten Vault",
+			"link": "https://bit.ly/3nyQbOt",
+			"publisher": "purpleMartinGames"
+		},
+		"uses": {
+			"value": null,
+			"max": "",
+			"per": null,
+			"recharge": {
+				"formula": "1d6",
+				"threshold": "6"
+			}
+		},
+		"schema": {
+			"version": 0.008,
+			"lastMigration": {
+				"version": {
+					"schema": 0.007,
+					"foundry": "11.313",
+					"system": "0.15.13"
+				}
+			}
+		},
+		"classes": [
+			"sorcerer",
+			"wizard"
+		],
+		"components": {
+			"vocalized": true,
+			"seen": true,
+			"material": true
+		},
+		"concentration": false,
+		"level": 3,
+		"materials": "A pinch of gelatin",
+		"materialsConsumed": false,
+		"prepared": false,
+		"prerequisite": "",
+		"rare": false,
+		"ritual": false,
+		"schools": {
+			"primary": "conjuration",
+			"secondary": [
+				"arcane",
+				"chaos"
+			]
+		}
+	},
+	"effects": [],
+	"flags": {},
+	"_id": "cm1c6skny6i7jv4d"
+}
