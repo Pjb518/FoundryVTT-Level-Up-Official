@@ -8,21 +8,21 @@ export default class A5EDataModel extends foundry.abstract.DataModel {
 
   static _immiscible: Set<string> = new Set(['length', 'mixed', 'name', 'prototype', 'migrateData', 'defineSchema']);
 
-  /**
-   * @override
-   */
-  _cleanType(data, options = {}) {
-    options.source = options.source ?? data;
+  // /**
+  //  * @override
+  //  */
+  // _cleanType(data, options = {}) {
+  //   options.source = options.source ?? data;
 
-    // Clean each field that belongs to the schema
-    for (const [name, field] of this.entries()) {
-      if (!(name in data) && options.partial) continue;
-      data[name] = field.clean(data[name], options);
-      if (data[name] === undefined) delete data[name];
-    }
+  //   // Clean each field that belongs to the schema
+  //   for (const [name, field] of this.entries()) {
+  //     if (!(name in data) && options.partial) continue;
+  //     data[name] = field.clean(data[name], options);
+  //     if (data[name] === undefined) delete data[name];
+  //   }
 
-    return data;
-  }
+  //   return data;
+  // }
 
   static defineSchema(): any {
     const schema = {};
