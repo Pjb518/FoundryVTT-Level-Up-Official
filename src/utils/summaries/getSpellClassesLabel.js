@@ -2,7 +2,7 @@ import { localize } from '#runtime/svelte/helper';
 
 export default function getClassesLabel(item) {
   const { classSpellLists } = CONFIG.A5E;
-  const classes = item.system.classes ?? [];
+  const classes = [...(item.system.classes ?? [])];
   const elements = [];
 
   const elementMap = [
