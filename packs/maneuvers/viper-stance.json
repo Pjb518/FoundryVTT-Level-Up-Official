@@ -1,145 +1,147 @@
 {
-  "name": "Viper Stance",
-  "type": "maneuver",
-  "img": "icons/skills/melee/blade-tip-smoke-green.webp",
-  "effects": [
-    {
-      "icon": "icons/skills/melee/blade-tip-smoke-green.webp",
-      "origin": "Item.yttf8z7cg2yqoqbm",
-      "flags": {
-        "a5e": {
-          "sort": 0,
-          "transferType": "onUse",
-          "duration": {
-            "unit": "hours"
-          }
-        }
-      },
-      "transfer": false,
-      "name": "Viper Stance",
-      "_id": "Phb7XeHLi4mFaynb",
-      "changes": [],
-      "disabled": false,
-      "duration": {
-        "startTime": null,
-        "seconds": null,
-        "combat": null,
-        "rounds": null,
-        "turns": null,
-        "startRound": null,
-        "startTurn": null
-      },
-      "description": "",
-      "statuses": []
-    }
-  ],
-  "flags": {},
-  "system": {
-    "actions": {
-      "007OZqAaRD4KfQqv": {
-        "name": "Viper Stance",
-        "activation": {
-          "cost": 1,
-          "type": "bonusAction",
-          "reactionTrigger": "If you could use a reaction but do not have your reaction available."
-        },
-        "duration": {
-          "unit": "special",
-          "value": 1
-        },
-        "ranges": {
-          "4i1DIdRqeuO4vtDY": {
-            "range": "self"
-          }
-        },
-        "area": {
-          "shape": "",
-          "placeTemplate": false,
-          "quantity": 1
-        },
-        "target": {
-          "quantity": "",
-          "type": ""
-        },
-        "consumers": {
-          "aAg4EAcxxvVMdB4X": {
-            "quantity": 1,
-            "resource": "exertion",
-            "type": "resource"
-          }
-        },
-        "prompts": {
-          "GBgQ5x2MfhAJUaIQ": {
-            "type": "effect",
-            "default": true,
-            "label": "Viper Stance",
-            "effectId": "Phb7XeHLi4mFaynb"
-          }
-        }
-      },
-      "9xCHfHvOigFVeI76": {
-        "name": "Take Bonus Reaction",
-        "activation": {
-          "type": "none",
-          "cost": 1
-        },
-        "consumers": {
-          "0tv78cACMIoFgMo3": {
-            "type": "resource",
-            "default": true,
-            "resource": "exertion",
-            "quantity": 1
-          }
-        },
-        "rolls": {},
-        "prompts": {},
-        "uses": {
-          "value": 0,
-          "max": "",
-          "per": "",
-          "recharge": {
-            "formula": "1d6",
-            "threshold": 6
-          }
-        },
-        "duration": {
-          "unit": "instantaneous"
-        }
-      }
-    },
-    "description": "<p>You focus, granting yourself the split-second reaction speed of a viper. If you could use a reaction but do not have your reaction available, you may spend an exertion point to gain an additional reaction this round. You may only use this ability once per round.</p>",
-    "favorite": false,
-    "secretDescription": "",
-    "source": {
-      "name": "Thematic Toolkit: Venomous Shadow",
-      "link": "https://bit.ly/3xPedWx",
-      "publisher": "purpleMartinGames"
-    },
-    "uses": {
-      "value": null,
-      "max": "",
-      "per": null,
-      "recharge": {
-        "formula": "1d6",
-        "threshold": 6
-      }
-    },
-    "schema": {
-      "version": 0.007,
-      "lastMigration": {
-        "version": {
-          "schema": 0.003,
-          "foundry": "11.307",
-          "system": "0.15.0"
-        }
-      }
-    },
-    "degree": 4,
-    "exertionCost": 1,
-    "isStance": true,
-    "prerequisite": "",
-    "tradition": "vipersFangs"
-  },
-  "folder": "7dmqjD5z0RYoiery",
-  "_id": "yttf8z7cg2yqoqbm"
+	"name": "Viper Stance",
+	"type": "maneuver",
+	"img": "icons/skills/melee/blade-tip-smoke-green.webp",
+	"effects": [
+		{
+			"icon": "icons/skills/melee/blade-tip-smoke-green.webp",
+			"origin": "Item.yttf8z7cg2yqoqbm",
+			"flags": {
+				"a5e": {
+					"sort": 0,
+					"transferType": "onUse",
+					"duration": {
+						"unit": "hours"
+					},
+					"actionId": "007OZqAaRD4KfQqv"
+				}
+			},
+			"transfer": false,
+			"name": "Viper Stance",
+			"_id": "Phb7XeHLi4mFaynb",
+			"changes": [],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": null,
+				"combat": null,
+				"rounds": null,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "",
+			"statuses": [],
+			"folder": null
+		}
+	],
+	"flags": {},
+	"system": {
+		"actions": {
+			"007OZqAaRD4KfQqv": {
+				"name": "Viper Stance",
+				"activation": {
+					"cost": 1,
+					"type": "bonusAction",
+					"reactionTrigger": "If you could use a reaction but do not have your reaction available."
+				},
+				"duration": {
+					"unit": "special",
+					"value": 1
+				},
+				"ranges": {
+					"4i1DIdRqeuO4vtDY": {
+						"range": "self"
+					}
+				},
+				"area": {
+					"shape": "",
+					"placeTemplate": false,
+					"quantity": 1
+				},
+				"target": {
+					"quantity": "",
+					"type": ""
+				},
+				"consumers": {
+					"aAg4EAcxxvVMdB4X": {
+						"quantity": 1,
+						"resource": "exertion",
+						"type": "resource"
+					}
+				},
+				"prompts": {
+					"GBgQ5x2MfhAJUaIQ": {
+						"type": "effect",
+						"default": true,
+						"label": "Viper Stance",
+						"effectId": "Phb7XeHLi4mFaynb"
+					}
+				}
+			},
+			"9xCHfHvOigFVeI76": {
+				"name": "Take Bonus Reaction",
+				"activation": {
+					"type": "none",
+					"cost": 1
+				},
+				"consumers": {
+					"0tv78cACMIoFgMo3": {
+						"type": "resource",
+						"default": true,
+						"resource": "exertion",
+						"quantity": 1
+					}
+				},
+				"rolls": {},
+				"prompts": {},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"threshold": 6
+					}
+				},
+				"duration": {
+					"unit": "instantaneous"
+				}
+			}
+		},
+		"description": "<p>You focus, granting yourself the split-second reaction speed of a viper. If you could use a reaction but do not have your reaction available, you may spend an exertion point to gain an additional reaction this round. You may only use this ability once per round.</p>",
+		"favorite": false,
+		"secretDescription": "",
+		"source": {
+			"name": "Thematic Toolkit: Venomous Shadow",
+			"link": "https://bit.ly/3xPedWx",
+			"publisher": "purpleMartinGames"
+		},
+		"uses": {
+			"value": null,
+			"max": "",
+			"per": null,
+			"recharge": {
+				"formula": "1d6",
+				"threshold": 6
+			}
+		},
+		"degree": 4,
+		"exertionCost": 1,
+		"isStance": true,
+		"prerequisite": "",
+		"tradition": "vipersFangs",
+		"schemaVersion": {
+			"version": 0.009,
+			"lastMigration": {
+				"version": {
+					"schema": 0.007,
+					"foundry": "11.311",
+					"system": "0.15.13"
+				}
+			}
+		}
+	},
+	"folder": null,
+	"_id": "yttf8z7cg2yqoqbm"
 }

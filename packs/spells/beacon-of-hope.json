@@ -1,143 +1,146 @@
 {
-  "name": "Beacon of Hope",
-  "type": "spell",
-  "img": "icons/magic/holy/prayer-hands-glowing-yellow.webp",
-  "effects": [
-    {
-      "icon": "icons/magic/holy/prayer-hands-glowing-yellow.webp",
-      "origin": "Item.j0bnvt8trarh7yi7",
-      "flags": {
-        "a5e": {
-          "sort": 0,
-          "transferType": "onUse",
-          "duration": {
-            "unit": "minutes"
-          }
-        }
-      },
-      "transfer": false,
-      "name": "Beacon of Hope",
-      "_id": "xg8HNqC7uYv33svs",
-      "changes": [
-        {
-          "key": "flags.a5e.effects.rollMode.abilitySave.wis",
-          "value": "1",
-          "mode": 6,
-          "priority": null
-        },
-        {
-          "key": "flags.a5e.effects.rollMode.deathSave",
-          "value": "1",
-          "mode": 6,
-          "priority": null
-        }
-      ],
-      "disabled": false,
-      "duration": {
-        "startTime": null,
-        "seconds": 60,
-        "combat": null,
-        "rounds": null,
-        "turns": null,
-        "startRound": null,
-        "startTurn": null
-      },
-      "description": "",
-      "statuses": []
-    }
-  ],
-  "flags": {},
-  "system": {
-    "actions": {
-      "JIVzmGs42u3D3DRi": {
-        "name": "Cast Spell",
-        "activation": {
-          "cost": 1,
-          "type": "action",
-          "reactionTrigger": ""
-        },
-        "duration": {
-          "unit": "minute",
-          "value": "1"
-        },
-        "ranges": {
-          "99PVYbTnBBqungfF": {
-            "range": "short"
-          }
-        },
-        "area": {
-          "shape": "",
-          "size": "",
-          "placeTemplate": false
-        },
-        "target": {
-          "quantity": "",
-          "type": "creature"
-        },
-        "consumers": {
-          "8cuPhe9Of5zVZfV2": {
-            "mode": "variable",
-            "spellLevel": 3,
-            "points": 5,
-            "type": "spell"
-          }
-        },
-        "prompts": {
-          "MZYOTN7gQbSNOz5T": {
-            "type": "effect",
-            "default": true,
-            "effectId": "xg8HNqC7uYv33svs",
-            "label": "Beacon of Hope"
-          }
-        }
-      }
-    },
-    "description": "<p>The targets are filled with hope and vitality.</p><p>Until the spell ends, each target gains advantage on Wisdom saving throws and death saving throws, and when a target receives healing it regains the maximum number of hit points possible.</p>",
-    "favorite": false,
-    "secretDescription": "",
-    "source": "",
-    "uses": {
-      "value": null,
-      "max": "",
-      "per": null,
-      "recharge": {
-        "formula": "",
-        "threshold": ""
-      }
-    },
-    "schema": {
-      "version": 0.007,
-      "lastMigration": {
-        "version": {
-          "schema": 0.003,
-          "foundry": "11.307",
-          "system": "0.15.0"
-        }
-      }
-    },
-    "classes": [
-      "cleric"
-    ],
-    "components": {
-      "vocalized": true,
-      "seen": true,
-      "material": false
-    },
-    "concentration": true,
-    "level": 3,
-    "materials": "",
-    "materialsConsumed": false,
-    "prepared": false,
-    "prerequisite": "",
-    "ritual": false,
-    "schools": {
-      "primary": "abjuration",
-      "secondary": [
-        "divine",
-        "protection"
-      ]
-    }
-  },
-  "folder": "XXlxppJh0OdnJaQQ",
-  "_id": "j0bnvt8trarh7yi7"
+	"name": "Beacon of Hope",
+	"type": "spell",
+	"img": "icons/magic/holy/prayer-hands-glowing-yellow.webp",
+	"effects": [
+		{
+			"icon": "icons/magic/holy/prayer-hands-glowing-yellow.webp",
+			"origin": "Item.j0bnvt8trarh7yi7",
+			"flags": {
+				"a5e": {
+					"sort": 0,
+					"transferType": "onUse",
+					"duration": {
+						"unit": "minutes"
+					},
+					"actionId": "JIVzmGs42u3D3DRi"
+				}
+			},
+			"transfer": false,
+			"name": "Beacon of Hope",
+			"_id": "xg8HNqC7uYv33svs",
+			"changes": [
+				{
+					"key": "flags.a5e.effects.rollMode.abilitySave.wis",
+					"value": "1",
+					"mode": 6,
+					"priority": null
+				},
+				{
+					"key": "flags.a5e.effects.rollMode.deathSave",
+					"value": "1",
+					"mode": 6,
+					"priority": null
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": 60,
+				"combat": null,
+				"rounds": null,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "",
+			"statuses": [],
+			"folder": null
+		}
+	],
+	"flags": {},
+	"system": {
+		"actions": {
+			"JIVzmGs42u3D3DRi": {
+				"name": "Cast Spell",
+				"activation": {
+					"cost": 1,
+					"type": "action",
+					"reactionTrigger": ""
+				},
+				"duration": {
+					"unit": "minute",
+					"value": "1"
+				},
+				"ranges": {
+					"99PVYbTnBBqungfF": {
+						"range": "short"
+					}
+				},
+				"area": {
+					"shape": "",
+					"size": "",
+					"placeTemplate": false
+				},
+				"target": {
+					"quantity": "",
+					"type": "creature"
+				},
+				"consumers": {
+					"8cuPhe9Of5zVZfV2": {
+						"mode": "variable",
+						"spellLevel": 3,
+						"points": 5,
+						"type": "spell"
+					}
+				},
+				"prompts": {
+					"MZYOTN7gQbSNOz5T": {
+						"type": "effect",
+						"default": true,
+						"effectId": "xg8HNqC7uYv33svs",
+						"label": "Beacon of Hope"
+					}
+				}
+			}
+		},
+		"description": "<p>The targets are filled with hope and vitality.</p><p>Until the spell ends, each target gains advantage on Wisdom saving throws and death saving throws, and when a target receives healing it regains the maximum number of hit points possible.</p>",
+		"favorite": false,
+		"secretDescription": "",
+		"source": "",
+		"uses": {
+			"value": null,
+			"max": "",
+			"per": null,
+			"recharge": {
+				"formula": "",
+				"threshold": ""
+			}
+		},
+		"classes": [
+			"cleric"
+		],
+		"components": {
+			"vocalized": true,
+			"seen": true,
+			"material": false
+		},
+		"concentration": true,
+		"level": 3,
+		"materials": "",
+		"materialsConsumed": false,
+		"prepared": false,
+		"prerequisite": "",
+		"rare": false,
+		"ritual": false,
+		"schools": {
+			"primary": "abjuration",
+			"secondary": [
+				"divine",
+				"protection"
+			]
+		},
+		"schemaVersion": {
+			"version": 0.009,
+			"lastMigration": {
+				"version": {
+					"schema": 0.007,
+					"foundry": "11.311",
+					"system": "0.15.13"
+				}
+			}
+		}
+	},
+	"folder": null,
+	"_id": "j0bnvt8trarh7yi7"
 }

@@ -1,131 +1,134 @@
 {
-  "name": "Blur",
-  "type": "spell",
-  "img": "icons/magic/defensive/illusion-evasion-echo-purple.webp",
-  "effects": [
-    {
-      "icon": "icons/magic/defensive/illusion-evasion-echo-purple.webp",
-      "origin": "Item.250c4t64865s83si",
-      "flags": {
-        "a5e": {
-          "sort": 0,
-          "transferType": "onUse",
-          "duration": {
-            "unit": "minutes"
-          }
-        }
-      },
-      "transfer": false,
-      "name": "Blur",
-      "_id": "WRbkreWcyxoYrIGy",
-      "changes": [],
-      "disabled": false,
-      "duration": {
-        "startTime": null,
-        "seconds": 60,
-        "combat": null,
-        "rounds": null,
-        "turns": null,
-        "startRound": null,
-        "startTurn": null
-      },
-      "description": "",
-      "statuses": []
-    }
-  ],
-  "flags": {},
-  "system": {
-    "actions": {
-      "tGuKAxs5LfW4JsEB": {
-        "name": "Cast Spell",
-        "activation": {
-          "cost": 1,
-          "type": "action",
-          "reactionTrigger": ""
-        },
-        "duration": {
-          "unit": "minute",
-          "value": "1"
-        },
-        "ranges": {},
-        "area": {
-          "shape": "",
-          "size": "",
-          "placeTemplate": false
-        },
-        "target": {
-          "quantity": "",
-          "type": "self"
-        },
-        "consumers": {
-          "2W1rJyjaa8KYdHO3": {
-            "mode": "variable",
-            "spellLevel": 2,
-            "points": 3,
-            "type": "spell"
-          }
-        },
-        "prompts": {
-          "buIBuFeuQRwHM5mK": {
-            "type": "effect",
-            "default": true,
-            "effectId": "WRbkreWcyxoYrIGy",
-            "label": "Blur"
-          }
-        }
-      }
-    },
-    "description": "<p>Until the spell ends, you are shrouded in distortion and your image is blurred. Creatures make attack rolls against you with disadvantage unless they have senses that allow them to perceive without sight or to see through illusions (like blindsight or truesight).</p><p><strong><em>Cast at Higher Levels.</em></strong> You may target an additional willing creature you can see within range for each slot level above 2nd. Whenever an affected creature other than you is hit by an attack, the spell ends for that creature. When using a higher level spell slot, increase the spell's range to 30 feet.</p>",
-    "favorite": false,
-    "secretDescription": "",
-    "source": "",
-    "uses": {
-      "value": null,
-      "max": "",
-      "per": null,
-      "recharge": {
-        "formula": "",
-        "threshold": ""
-      }
-    },
-    "schema": {
-      "version": 0.007,
-      "lastMigration": {
-        "version": {
-          "schema": 0.003,
-          "foundry": "11.307",
-          "system": "0.15.0"
-        }
-      }
-    },
-    "classes": [
-      "artificer",
-      "elementalistFire",
-      "sorcerer",
-      "wielder",
-      "wizard"
-    ],
-    "components": {
-      "vocalized": true,
-      "seen": false,
-      "material": false
-    },
-    "concentration": true,
-    "level": 2,
-    "materials": "",
-    "materialsConsumed": false,
-    "prepared": false,
-    "prerequisite": "",
-    "ritual": false,
-    "schools": {
-      "primary": "illusion",
-      "secondary": [
-        "arcane",
-        "protection",
-        "senses"
-      ]
-    }
-  },
-  "folder": "XXlxppJh0OdnJaQQ",
-  "_id": "250c4t64865s83si"
+	"name": "Blur",
+	"type": "spell",
+	"img": "icons/magic/defensive/illusion-evasion-echo-purple.webp",
+	"effects": [
+		{
+			"icon": "icons/magic/defensive/illusion-evasion-echo-purple.webp",
+			"origin": "Item.250c4t64865s83si",
+			"flags": {
+				"a5e": {
+					"sort": 0,
+					"transferType": "onUse",
+					"duration": {
+						"unit": "minutes"
+					},
+					"actionId": "tGuKAxs5LfW4JsEB"
+				}
+			},
+			"transfer": false,
+			"name": "Blur",
+			"_id": "WRbkreWcyxoYrIGy",
+			"changes": [],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": 60,
+				"combat": null,
+				"rounds": null,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "",
+			"statuses": [],
+			"folder": null
+		}
+	],
+	"flags": {},
+	"system": {
+		"actions": {
+			"tGuKAxs5LfW4JsEB": {
+				"name": "Cast Spell",
+				"activation": {
+					"cost": 1,
+					"type": "action",
+					"reactionTrigger": ""
+				},
+				"duration": {
+					"unit": "minute",
+					"value": "1"
+				},
+				"ranges": {},
+				"area": {
+					"shape": "",
+					"size": "",
+					"placeTemplate": false
+				},
+				"target": {
+					"quantity": "",
+					"type": "self"
+				},
+				"consumers": {
+					"2W1rJyjaa8KYdHO3": {
+						"mode": "variable",
+						"spellLevel": 2,
+						"points": 3,
+						"type": "spell"
+					}
+				},
+				"prompts": {
+					"buIBuFeuQRwHM5mK": {
+						"type": "effect",
+						"default": true,
+						"effectId": "WRbkreWcyxoYrIGy",
+						"label": "Blur"
+					}
+				}
+			}
+		},
+		"description": "<p>Until the spell ends, you are shrouded in distortion and your image is blurred. Creatures make attack rolls against you with disadvantage unless they have senses that allow them to perceive without sight or to see through illusions (like blindsight or truesight).</p><p><strong><em>Cast at Higher Levels.</em></strong> You may target an additional willing creature you can see within range for each slot level above 2nd. Whenever an affected creature other than you is hit by an attack, the spell ends for that creature. When using a higher level spell slot, increase the spell's range to 30 feet.</p>",
+		"favorite": false,
+		"secretDescription": "",
+		"source": "",
+		"uses": {
+			"value": null,
+			"max": "",
+			"per": null,
+			"recharge": {
+				"formula": "",
+				"threshold": ""
+			}
+		},
+		"classes": [
+			"artificer",
+			"elementalistFire",
+			"sorcerer",
+			"wielder",
+			"wizard"
+		],
+		"components": {
+			"vocalized": true,
+			"seen": false,
+			"material": false
+		},
+		"concentration": true,
+		"level": 2,
+		"materials": "",
+		"materialsConsumed": false,
+		"prepared": false,
+		"prerequisite": "",
+		"rare": false,
+		"ritual": false,
+		"schools": {
+			"primary": "illusion",
+			"secondary": [
+				"arcane",
+				"protection",
+				"senses"
+			]
+		},
+		"schemaVersion": {
+			"version": 0.009,
+			"lastMigration": {
+				"version": {
+					"schema": 0.007,
+					"foundry": "11.311",
+					"system": "0.15.13"
+				}
+			}
+		}
+	},
+	"folder": null,
+	"_id": "250c4t64865s83si"
 }

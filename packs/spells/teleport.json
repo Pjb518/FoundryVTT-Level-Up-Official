@@ -1,95 +1,96 @@
 {
-  "name": "Teleport",
-  "type": "spell",
-  "img": "icons/skills/movement/arrow-upward-yellow.webp",
-  "effects": [],
-  "flags": {},
-  "system": {
-    "actions": {
-      "eOObcCvj0D4H3tCD": {
-        "name": "Teleport",
-        "activation": {
-          "cost": 1,
-          "type": "action",
-          "reactionTrigger": ""
-        },
-        "duration": {
-          "unit": "instantaneous",
-          "value": ""
-        },
-        "ranges": {
-          "cFaokRRY6oPKWpPh": {
-            "range": "Same plane"
-          }
-        },
-        "area": {
-          "shape": "",
-          "size": "",
-          "placeTemplate": false
-        },
-        "target": {
-          "quantity": "",
-          "type": "creature"
-        },
-        "consumers": {
-          "cXE8w23rhuwQ2dwB": {
-            "mode": "variable",
-            "spellLevel": 7,
-            "points": 10,
-            "type": "spell"
-          }
-        }
-      }
-    },
-    "description": "<p>You teleport the targets instantly across vast distances. When you cast this spell, choose a destination. You must know the location you're teleporting to, and it must be on the same plane of existence.</p>\n<p>Teleportation is difficult magic and you may arrive off-target or somewhere else entirely depending on how familiar you are with the location you're teleporting to. When you teleport, the Narrator rolls 1d100 and consults Table: Teleport Familiarity.</p>\n<p>Familiarity is determined as follows:</p>\n<p><strong>Permanent Circle:</strong> A permanent teleportation circle whose sigil sequence you know (see teleportation circle).</p>\n<p><strong>Associated Object:</strong> You have an object taken from the target location within the last 6 months, such as a piece of wood from the pew in a grand temple or a pinch of grave dust from a vampire's hidden redoubt.</p>\n<p><strong>Very Familiar:</strong> A place you have frequented, carefully studied, or can see at the time you cast the spell.</p>\n<p><strong>Seen Casually:</strong> A place you have seen more than once but don't know well. This could be a castle you've passed by but never visited, or the farms you look down on from your tower of ivory.</p>\n<p><strong>Viewed Once: </strong>A place you have seen once, either in person or via magic.</p>\n<p><strong>Description:</strong> A place you only know from someone else's description (whether spoken, written, or even marked on a map).</p>\n<p><strong>False Destination:</strong> A place that doesn't actually exist. This typically happens when someone deceives you, either intentionally (like a wizard creating an illusion to hide their actual tower) or unintentionally (such as when the location you attempt to teleport to no longer exists).</p>\n<p>Your arrival is determined as follows:</p>\n<p><strong>On Target: </strong>You and your targets arrive exactly where you mean to.</p>\n<p><strong>Off Target: </strong>You and your targets arrive some distance away from the target in a random direction. The further you travel, the further away you are likely to arrive. You arrive off target by a number of miles equal to 1d10 &times; 1d10 percent of the total distance of your trip.</p>\n<p>If you tried to travel 1, 000 miles and roll a 2 and 4 on the d10s, you land 6 percent off target and arrive 60 miles away from your intended destination in a random direction. Roll [[/r 1d8]] to randomly determine the direction: 1&mdash;north, 2 &mdash;northeast, 3 &mdash;east, 4 &mdash;southeast, 5&mdash;south, 6 &mdash;southwest, 7&mdash;west, 8&mdash;northwest.</p>\n<p><strong>Similar Location: </strong>You and your targets arrive in a different location that somehow resembles the target area. If you tried to teleport to your favorite inn, you might end up at a different inn, or in a room with much of the same decor.</p>\n<p>Typically you appear at the closest similar location, but that is not always the case.</p>\n<p><strong>Mishap:</strong> The spell's magic goes awry, and each teleporting creature or object takes 3d10 force damage. The Narrator rerolls on the table to determine where you arrive. When multiple mishaps occur targets take damage each time.</p>\n<h4><strong>Table: Teleport Familiarity</strong></h4>\n<table style=\"width: 100%; height: 134.375px;\" border=\"1\"><colgroup><col style=\"width: 29.5938%;\"><col style=\"width: 11.9923%;\"><col style=\"width: 26.499%;\"><col style=\"width: 16.0542%;\"><col style=\"width: 15.6673%;\"></colgroup>\n<thead>\n<tr style=\"height: 16.7969px;\">\n<td style=\"height: 16.7969px;\">Familiarity</td>\n<td style=\"text-align: center; height: 16.7969px;\">Mishap</td>\n<td style=\"text-align: center; height: 16.7969px;\">Similar Location</td>\n<td style=\"text-align: center; height: 16.7969px;\">Off Target</td>\n<td style=\"text-align: center; height: 16.7969px;\">On Target</td>\n</tr>\n</thead>\n<tbody>\n<tr style=\"height: 16.7969px;\">\n<td style=\"height: 16.7969px;\">Permanent circle</td>\n<td style=\"text-align: center; height: 16.7969px;\">-</td>\n<td style=\"text-align: center; height: 16.7969px;\">-</td>\n<td style=\"text-align: center; height: 16.7969px;\">-</td>\n<td style=\"text-align: center; height: 16.7969px;\">1-100</td>\n</tr>\n<tr style=\"height: 16.7969px;\">\n<td style=\"height: 16.7969px;\">Associated Object</td>\n<td style=\"text-align: center; height: 16.7969px;\">-</td>\n<td style=\"text-align: center; height: 16.7969px;\">1-5</td>\n<td style=\"text-align: center; height: 16.7969px;\">6-15</td>\n<td style=\"text-align: center; height: 16.7969px;\">16-100</td>\n</tr>\n<tr style=\"height: 16.7969px;\">\n<td style=\"height: 16.7969px;\">Very Familiar</td>\n<td style=\"text-align: center; height: 16.7969px;\">1-5</td>\n<td style=\"text-align: center; height: 16.7969px;\">6-13</td>\n<td style=\"text-align: center; height: 16.7969px;\">14-24</td>\n<td style=\"text-align: center; height: 16.7969px;\">25-100</td>\n</tr>\n<tr style=\"height: 16.7969px;\">\n<td style=\"height: 16.7969px;\">Seen Casually</td>\n<td style=\"text-align: center; height: 16.7969px;\">1-33</td>\n<td style=\"text-align: center; height: 16.7969px;\">34-43</td>\n<td style=\"text-align: center; height: 16.7969px;\">44-53</td>\n<td style=\"text-align: center; height: 16.7969px;\">54-100</td>\n</tr>\n<tr style=\"height: 16.7969px;\">\n<td style=\"height: 16.7969px;\">Viewed Once</td>\n<td style=\"text-align: center; height: 16.7969px;\">1-43</td>\n<td style=\"text-align: center; height: 16.7969px;\">44-53</td>\n<td style=\"text-align: center; height: 16.7969px;\">54-73</td>\n<td style=\"text-align: center; height: 16.7969px;\">74-100</td>\n</tr>\n<tr style=\"height: 16.7969px;\">\n<td style=\"height: 16.7969px;\">Description</td>\n<td style=\"text-align: center; height: 16.7969px;\">1-43</td>\n<td style=\"text-align: center; height: 16.7969px;\">44-53</td>\n<td style=\"text-align: center; height: 16.7969px;\">54-73</td>\n<td style=\"text-align: center; height: 16.7969px;\">74-100</td>\n</tr>\n<tr style=\"height: 16.7969px;\">\n<td style=\"height: 16.7969px;\">False Destination</td>\n<td style=\"text-align: center; height: 16.7969px;\">1-50</td>\n<td style=\"text-align: center; height: 16.7969px;\">51-100</td>\n<td style=\"text-align: center; height: 16.7969px;\">-</td>\n<td style=\"text-align: center; height: 16.7969px;\">-</td>\n</tr>\n</tbody>\n</table>",
-    "favorite": false,
-    "secretDescription": "",
-    "source": "",
-    "uses": {
-      "value": null,
-      "max": "",
-      "per": null,
-      "recharge": {
-        "formula": "",
-        "threshold": ""
-      }
-    },
-    "schema": {
-      "version": 0.007,
-      "lastMigration": {
-        "version": {
-          "schema": 0.003,
-          "foundry": "11.307",
-          "system": "0.15.0"
-        }
-      }
-    },
-    "classes": [
-      "bard",
-      "sorcerer",
-      "witch",
-      "wizard"
-    ],
-    "components": {
-      "vocalized": true,
-      "seen": false,
-      "material": false
-    },
-    "concentration": false,
-    "level": 7,
-    "materials": "",
-    "materialsConsumed": false,
-    "prepared": false,
-    "prerequisite": "",
-    "ritual": true,
-    "schools": {
-      "primary": "conjuration",
-      "secondary": [
-        "arcane",
-        "teleportation"
-      ]
-    }
-  },
-  "folder": "XXlxppJh0OdnJaQQ",
-  "_id": "5ijl5b1goq9774l3"
+	"name": "Teleport",
+	"type": "spell",
+	"img": "icons/skills/movement/arrow-upward-yellow.webp",
+	"effects": [],
+	"flags": {},
+	"system": {
+		"actions": {
+			"eOObcCvj0D4H3tCD": {
+				"name": "Teleport",
+				"activation": {
+					"cost": 1,
+					"type": "action",
+					"reactionTrigger": ""
+				},
+				"duration": {
+					"unit": "instantaneous",
+					"value": ""
+				},
+				"ranges": {
+					"cFaokRRY6oPKWpPh": {
+						"range": "Same plane"
+					}
+				},
+				"area": {
+					"shape": "",
+					"size": "",
+					"placeTemplate": false
+				},
+				"target": {
+					"quantity": "",
+					"type": "creature"
+				},
+				"consumers": {
+					"cXE8w23rhuwQ2dwB": {
+						"mode": "variable",
+						"spellLevel": 7,
+						"points": 10,
+						"type": "spell"
+					}
+				}
+			}
+		},
+		"description": "<p>You teleport the targets instantly across vast distances. When you cast this spell, choose a destination. You must know the location you're teleporting to, and it must be on the same plane of existence.</p>\n<p>Teleportation is difficult magic and you may arrive off-target or somewhere else entirely depending on how familiar you are with the location you're teleporting to. When you teleport, the Narrator rolls 1d100 and consults Table: Teleport Familiarity.</p>\n<p>Familiarity is determined as follows:</p>\n<p><strong>Permanent Circle:</strong> A permanent teleportation circle whose sigil sequence you know (see teleportation circle).</p>\n<p><strong>Associated Object:</strong> You have an object taken from the target location within the last 6 months, such as a piece of wood from the pew in a grand temple or a pinch of grave dust from a vampire's hidden redoubt.</p>\n<p><strong>Very Familiar:</strong> A place you have frequented, carefully studied, or can see at the time you cast the spell.</p>\n<p><strong>Seen Casually:</strong> A place you have seen more than once but don't know well. This could be a castle you've passed by but never visited, or the farms you look down on from your tower of ivory.</p>\n<p><strong>Viewed Once: </strong>A place you have seen once, either in person or via magic.</p>\n<p><strong>Description:</strong> A place you only know from someone else's description (whether spoken, written, or even marked on a map).</p>\n<p><strong>False Destination:</strong> A place that doesn't actually exist. This typically happens when someone deceives you, either intentionally (like a wizard creating an illusion to hide their actual tower) or unintentionally (such as when the location you attempt to teleport to no longer exists).</p>\n<p>Your arrival is determined as follows:</p>\n<p><strong>On Target: </strong>You and your targets arrive exactly where you mean to.</p>\n<p><strong>Off Target: </strong>You and your targets arrive some distance away from the target in a random direction. The further you travel, the further away you are likely to arrive. You arrive off target by a number of miles equal to 1d10 &times; 1d10 percent of the total distance of your trip.</p>\n<p>If you tried to travel 1, 000 miles and roll a 2 and 4 on the d10s, you land 6 percent off target and arrive 60 miles away from your intended destination in a random direction. Roll [[/r 1d8]] to randomly determine the direction: 1&mdash;north, 2 &mdash;northeast, 3 &mdash;east, 4 &mdash;southeast, 5&mdash;south, 6 &mdash;southwest, 7&mdash;west, 8&mdash;northwest.</p>\n<p><strong>Similar Location: </strong>You and your targets arrive in a different location that somehow resembles the target area. If you tried to teleport to your favorite inn, you might end up at a different inn, or in a room with much of the same decor.</p>\n<p>Typically you appear at the closest similar location, but that is not always the case.</p>\n<p><strong>Mishap:</strong> The spell's magic goes awry, and each teleporting creature or object takes 3d10 force damage. The Narrator rerolls on the table to determine where you arrive. When multiple mishaps occur targets take damage each time.</p>\n<h4><strong>Table: Teleport Familiarity</strong></h4>\n<table style=\"width: 100%; height: 134.375px;\" border=\"1\"><colgroup><col style=\"width: 29.5938%;\"><col style=\"width: 11.9923%;\"><col style=\"width: 26.499%;\"><col style=\"width: 16.0542%;\"><col style=\"width: 15.6673%;\"></colgroup>\n<thead>\n<tr style=\"height: 16.7969px;\">\n<td style=\"height: 16.7969px;\">Familiarity</td>\n<td style=\"text-align: center; height: 16.7969px;\">Mishap</td>\n<td style=\"text-align: center; height: 16.7969px;\">Similar Location</td>\n<td style=\"text-align: center; height: 16.7969px;\">Off Target</td>\n<td style=\"text-align: center; height: 16.7969px;\">On Target</td>\n</tr>\n</thead>\n<tbody>\n<tr style=\"height: 16.7969px;\">\n<td style=\"height: 16.7969px;\">Permanent circle</td>\n<td style=\"text-align: center; height: 16.7969px;\">-</td>\n<td style=\"text-align: center; height: 16.7969px;\">-</td>\n<td style=\"text-align: center; height: 16.7969px;\">-</td>\n<td style=\"text-align: center; height: 16.7969px;\">1-100</td>\n</tr>\n<tr style=\"height: 16.7969px;\">\n<td style=\"height: 16.7969px;\">Associated Object</td>\n<td style=\"text-align: center; height: 16.7969px;\">-</td>\n<td style=\"text-align: center; height: 16.7969px;\">1-5</td>\n<td style=\"text-align: center; height: 16.7969px;\">6-15</td>\n<td style=\"text-align: center; height: 16.7969px;\">16-100</td>\n</tr>\n<tr style=\"height: 16.7969px;\">\n<td style=\"height: 16.7969px;\">Very Familiar</td>\n<td style=\"text-align: center; height: 16.7969px;\">1-5</td>\n<td style=\"text-align: center; height: 16.7969px;\">6-13</td>\n<td style=\"text-align: center; height: 16.7969px;\">14-24</td>\n<td style=\"text-align: center; height: 16.7969px;\">25-100</td>\n</tr>\n<tr style=\"height: 16.7969px;\">\n<td style=\"height: 16.7969px;\">Seen Casually</td>\n<td style=\"text-align: center; height: 16.7969px;\">1-33</td>\n<td style=\"text-align: center; height: 16.7969px;\">34-43</td>\n<td style=\"text-align: center; height: 16.7969px;\">44-53</td>\n<td style=\"text-align: center; height: 16.7969px;\">54-100</td>\n</tr>\n<tr style=\"height: 16.7969px;\">\n<td style=\"height: 16.7969px;\">Viewed Once</td>\n<td style=\"text-align: center; height: 16.7969px;\">1-43</td>\n<td style=\"text-align: center; height: 16.7969px;\">44-53</td>\n<td style=\"text-align: center; height: 16.7969px;\">54-73</td>\n<td style=\"text-align: center; height: 16.7969px;\">74-100</td>\n</tr>\n<tr style=\"height: 16.7969px;\">\n<td style=\"height: 16.7969px;\">Description</td>\n<td style=\"text-align: center; height: 16.7969px;\">1-43</td>\n<td style=\"text-align: center; height: 16.7969px;\">44-53</td>\n<td style=\"text-align: center; height: 16.7969px;\">54-73</td>\n<td style=\"text-align: center; height: 16.7969px;\">74-100</td>\n</tr>\n<tr style=\"height: 16.7969px;\">\n<td style=\"height: 16.7969px;\">False Destination</td>\n<td style=\"text-align: center; height: 16.7969px;\">1-50</td>\n<td style=\"text-align: center; height: 16.7969px;\">51-100</td>\n<td style=\"text-align: center; height: 16.7969px;\">-</td>\n<td style=\"text-align: center; height: 16.7969px;\">-</td>\n</tr>\n</tbody>\n</table>",
+		"favorite": false,
+		"secretDescription": "",
+		"source": "",
+		"uses": {
+			"value": null,
+			"max": "",
+			"per": null,
+			"recharge": {
+				"formula": "",
+				"threshold": ""
+			}
+		},
+		"classes": [
+			"bard",
+			"sorcerer",
+			"witch",
+			"wizard"
+		],
+		"components": {
+			"vocalized": true,
+			"seen": false,
+			"material": false
+		},
+		"concentration": false,
+		"level": 7,
+		"materials": "",
+		"materialsConsumed": false,
+		"prepared": false,
+		"prerequisite": "",
+		"rare": false,
+		"ritual": true,
+		"schools": {
+			"primary": "conjuration",
+			"secondary": [
+				"arcane",
+				"teleportation"
+			]
+		},
+		"schemaVersion": {
+			"version": 0.009,
+			"lastMigration": {
+				"version": {
+					"schema": 0.007,
+					"foundry": "11.311",
+					"system": "0.15.13"
+				}
+			}
+		}
+	},
+	"folder": null,
+	"_id": "5ijl5b1goq9774l3"
 }

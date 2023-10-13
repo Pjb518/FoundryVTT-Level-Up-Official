@@ -1,152 +1,155 @@
 {
-  "name": "Charm Monster",
-  "type": "spell",
-  "img": "icons/creatures/abilities/paw-print-yellow.webp",
-  "effects": [
-    {
-      "icon": "icons/creatures/abilities/paw-print-yellow.webp",
-      "origin": "Item.7rvo952czilh307s",
-      "flags": {
-        "a5e": {
-          "sort": 0,
-          "transferType": "onUse",
-          "duration": {
-            "unit": "hours"
-          }
-        }
-      },
-      "transfer": false,
-      "name": "Charm Monster",
-      "_id": "5Vy0nfmHjkiuUhvW",
-      "changes": [
-        {
-          "key": "flags.a5e.effects.statusConditions",
-          "value": "[\"charmed\"]",
-          "mode": 0,
-          "priority": null
-        }
-      ],
-      "disabled": false,
-      "duration": {
-        "startTime": null,
-        "seconds": 3600,
-        "combat": null,
-        "rounds": null,
-        "turns": null,
-        "startRound": null,
-        "startTurn": null
-      },
-      "description": "",
-      "statuses": []
-    }
-  ],
-  "flags": {},
-  "system": {
-    "actions": {
-      "njimzvfaoMCnHUwH": {
-        "name": "Cast Spell",
-        "activation": {
-          "cost": 1,
-          "type": "action",
-          "reactionTrigger": ""
-        },
-        "duration": {
-          "unit": "hour",
-          "value": "1"
-        },
-        "ranges": {
-          "b1PEASTPFe75Dp9o": {
-            "range": "medium"
-          }
-        },
-        "area": {
-          "shape": "",
-          "size": "",
-          "placeTemplate": false
-        },
-        "target": {
-          "quantity": "",
-          "type": "creature"
-        },
-        "prompts": {
-          "BVIugP811RIL35jw": {
-            "ability": "wis",
-            "onSave": "Negates effect",
-            "saveDC": {
-              "type": "custom",
-              "bonus": ""
-            },
-            "type": "savingThrow"
-          },
-          "tp0xJ0zIZX6lfxT3": {
-            "type": "effect",
-            "default": true,
-            "label": "Charm Monster",
-            "effectId": "5Vy0nfmHjkiuUhvW"
-          }
-        },
-        "consumers": {
-          "30iFRan0loub4uBT": {
-            "mode": "variable",
-            "spellLevel": 4,
-            "points": 6,
-            "type": "spell"
-          }
-        }
-      }
-    },
-    "description": "<p>You only require line of sight to the target (not line of effect) and it has advantage on its saving throw to resist the spell if you or your companions are fighting it. Until the spell ends, the target is charmed by you and friendly towards you.</p><p>The spell ends if you or your companions do anything harmful towards the target. The target knows it was charmed by you when the spell ends.</p><p><strong><em>Cast at Higher Levels.</em></strong> For each slot level above 4th, you affect one additional target that is within 30 feet of other targets.</p>",
-    "favorite": false,
-    "secretDescription": "",
-    "source": "",
-    "uses": {
-      "value": null,
-      "max": "",
-      "per": null,
-      "recharge": {
-        "formula": "",
-        "threshold": ""
-      }
-    },
-    "schema": {
-      "version": 0.007,
-      "lastMigration": {
-        "version": {
-          "schema": 0.003,
-          "foundry": "11.307",
-          "system": "0.15.0"
-        }
-      }
-    },
-    "classes": [
-      "bard",
-      "druid",
-      "sorcerer",
-      "warlock",
-      "wielder",
-      "witch",
-      "wizard"
-    ],
-    "components": {
-      "vocalized": true,
-      "seen": true,
-      "material": false
-    },
-    "concentration": false,
-    "level": 4,
-    "materials": "",
-    "materialsConsumed": false,
-    "prepared": false,
-    "prerequisite": "",
-    "ritual": false,
-    "schools": {
-      "primary": "enchantment",
-      "secondary": [
-        "arcane",
-        "compulsion"
-      ]
-    }
-  },
-  "folder": "XXlxppJh0OdnJaQQ",
-  "_id": "7rvo952czilh307s"
+	"name": "Charm Monster",
+	"type": "spell",
+	"img": "icons/creatures/abilities/paw-print-yellow.webp",
+	"effects": [
+		{
+			"icon": "icons/creatures/abilities/paw-print-yellow.webp",
+			"origin": "Item.7rvo952czilh307s",
+			"flags": {
+				"a5e": {
+					"sort": 0,
+					"transferType": "onUse",
+					"duration": {
+						"unit": "hours"
+					},
+					"actionId": "njimzvfaoMCnHUwH"
+				}
+			},
+			"transfer": false,
+			"name": "Charm Monster",
+			"_id": "5Vy0nfmHjkiuUhvW",
+			"changes": [
+				{
+					"key": "flags.a5e.effects.statusConditions",
+					"value": "[\"charmed\"]",
+					"mode": 0,
+					"priority": null
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": 3600,
+				"combat": null,
+				"rounds": null,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "",
+			"statuses": [],
+			"folder": null
+		}
+	],
+	"flags": {},
+	"system": {
+		"actions": {
+			"njimzvfaoMCnHUwH": {
+				"name": "Cast Spell",
+				"activation": {
+					"cost": 1,
+					"type": "action",
+					"reactionTrigger": ""
+				},
+				"duration": {
+					"unit": "hour",
+					"value": "1"
+				},
+				"ranges": {
+					"b1PEASTPFe75Dp9o": {
+						"range": "medium"
+					}
+				},
+				"area": {
+					"shape": "",
+					"size": "",
+					"placeTemplate": false
+				},
+				"target": {
+					"quantity": "",
+					"type": "creature"
+				},
+				"prompts": {
+					"BVIugP811RIL35jw": {
+						"ability": "wis",
+						"onSave": "Negates effect",
+						"saveDC": {
+							"type": "custom",
+							"bonus": ""
+						},
+						"type": "savingThrow"
+					},
+					"tp0xJ0zIZX6lfxT3": {
+						"type": "effect",
+						"default": true,
+						"label": "Charm Monster",
+						"effectId": "5Vy0nfmHjkiuUhvW"
+					}
+				},
+				"consumers": {
+					"30iFRan0loub4uBT": {
+						"mode": "variable",
+						"spellLevel": 4,
+						"points": 6,
+						"type": "spell"
+					}
+				}
+			}
+		},
+		"description": "<p>You only require line of sight to the target (not line of effect) and it has advantage on its saving throw to resist the spell if you or your companions are fighting it. Until the spell ends, the target is charmed by you and friendly towards you.</p><p>The spell ends if you or your companions do anything harmful towards the target. The target knows it was charmed by you when the spell ends.</p><p><strong><em>Cast at Higher Levels.</em></strong> For each slot level above 4th, you affect one additional target that is within 30 feet of other targets.</p>",
+		"favorite": false,
+		"secretDescription": "",
+		"source": "",
+		"uses": {
+			"value": null,
+			"max": "",
+			"per": null,
+			"recharge": {
+				"formula": "",
+				"threshold": ""
+			}
+		},
+		"classes": [
+			"bard",
+			"druid",
+			"sorcerer",
+			"warlock",
+			"wielder",
+			"witch",
+			"wizard"
+		],
+		"components": {
+			"vocalized": true,
+			"seen": true,
+			"material": false
+		},
+		"concentration": false,
+		"level": 4,
+		"materials": "",
+		"materialsConsumed": false,
+		"prepared": false,
+		"prerequisite": "",
+		"rare": false,
+		"ritual": false,
+		"schools": {
+			"primary": "enchantment",
+			"secondary": [
+				"arcane",
+				"compulsion"
+			]
+		},
+		"schemaVersion": {
+			"version": 0.009,
+			"lastMigration": {
+				"version": {
+					"schema": 0.007,
+					"foundry": "11.311",
+					"system": "0.15.13"
+				}
+			}
+		}
+	},
+	"folder": null,
+	"_id": "7rvo952czilh307s"
 }

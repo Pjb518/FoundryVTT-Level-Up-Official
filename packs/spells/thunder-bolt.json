@@ -1,118 +1,119 @@
 {
-  "name": "Thunder Bolt",
-  "type": "spell",
-  "img": "icons/magic/sonic/projectile-shock-wave-blue.webp",
-  "system": {
-    "actions": {
-      "JSgNidgT3n37hph2": {
-        "name": "Cast Spell",
-        "activation": {
-          "type": "action",
-          "cost": 1
-        },
-        "consumers": {},
-        "rolls": {
-          "CO6iRMNogT94mzvB": {
-            "type": "damage",
-            "default": true,
-            "label": "Thunder Bolt",
-            "formula": "8d6",
-            "damageType": "thunder",
-            "scaling": {
-              "mode": "spellLevel",
-              "formula": "1d6"
-            }
-          },
-          "jSIKLAWFkIFvxCIZ": {
-            "type": "damage",
-            "default": false,
-            "label": "Failed Saving Throw",
-            "formula": "2d6",
-            "damageType": "slashing",
-            "canCrit": false
-          }
-        },
-        "prompts": {},
-        "uses": {
-          "value": 0,
-          "max": "",
-          "per": "",
-          "recharge": {
-            "formula": "1d6",
-            "threshold": 6
-          }
-        },
-        "duration": {
-          "unit": "instantaneous"
-        },
-        "ranges": {
-          "nYypOsB6GyOLXC7k": {
-            "range": "long"
-          }
-        },
-        "area": {
-          "shape": "sphere",
-          "quantity": 1,
-          "radius": 20,
-          "placeTemplate": true
-        }
-      }
-    },
-    "description": "<p>A peal of thunder ripples from a point you can see within range. Each creature in the area takes 8d6 thunder damage and is deafened until the end of its next turn. If the area contains Large or larger nonmagical wood or stone objects, the objects take 8d6 thunder damage and creatures in the area that fail their saving throw take an additional 2d6 slashing damage from flying splinters. The thunderclap can be heard from 600 feet away.</p>\n<p><em><strong>Cast at Higher Levels.</strong></em> For every slot level above 3rd, the thunder and slashing damage increase by 1d6, and the thunderclap can be heard from an additional 100 feet away.</p>",
-    "favorite": false,
-    "secretDescription": "",
-    "source": "",
-    "uses": {
-      "value": null,
-      "max": "",
-      "per": null,
-      "recharge": {
-        "formula": "1d6",
-        "threshold": "6"
-      }
-    },
-    "schema": {
-      "version": 0.007,
-      "lastMigration": {
-        "version": {
-          "schema": 0.001,
-          "foundry": "11.307",
-          "system": "0.15.0"
-        }
-      }
-    },
-    "classes": [
-      "bard",
-      "druid",
-      "sorcerer",
-      "wizard"
-    ],
-    "components": {
-      "vocalized": true,
-      "seen": true,
-      "material": true
-    },
-    "concentration": false,
-    "level": 4,
-    "materials": "tiny sheet of metal",
-    "materialsConsumed": false,
-    "prepared": false,
-    "prerequisite": "",
-    "ritual": false,
-    "schools": {
-      "primary": "evocation",
-      "secondary": [
-        "arcane",
-        "attack",
-        "nature",
-        "sound",
-        "storm",
-        "thunder"
-      ]
-    }
-  },
-  "effects": [],
-  "flags": {},
-  "folder": "XXlxppJh0OdnJaQQ",
-  "_id": "4460kc4f8ykeuoxv"
+	"name": "Thunder Bolt",
+	"type": "spell",
+	"img": "icons/magic/sonic/projectile-shock-wave-blue.webp",
+	"system": {
+		"actions": {
+			"JSgNidgT3n37hph2": {
+				"name": "Cast Spell",
+				"activation": {
+					"type": "action",
+					"cost": 1
+				},
+				"consumers": {},
+				"rolls": {
+					"CO6iRMNogT94mzvB": {
+						"type": "damage",
+						"default": true,
+						"label": "Thunder Bolt",
+						"formula": "8d6",
+						"damageType": "thunder",
+						"scaling": {
+							"mode": "spellLevel",
+							"formula": "1d6"
+						}
+					},
+					"jSIKLAWFkIFvxCIZ": {
+						"type": "damage",
+						"default": false,
+						"label": "Failed Saving Throw",
+						"formula": "2d6",
+						"damageType": "slashing",
+						"canCrit": false
+					}
+				},
+				"prompts": {},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"threshold": 6
+					}
+				},
+				"duration": {
+					"unit": "instantaneous"
+				},
+				"ranges": {
+					"nYypOsB6GyOLXC7k": {
+						"range": "long"
+					}
+				},
+				"area": {
+					"shape": "sphere",
+					"quantity": 1,
+					"radius": 20,
+					"placeTemplate": true
+				}
+			}
+		},
+		"description": "<p>A peal of thunder ripples from a point you can see within range. Each creature in the area takes 8d6 thunder damage and is deafened until the end of its next turn. If the area contains Large or larger nonmagical wood or stone objects, the objects take 8d6 thunder damage and creatures in the area that fail their saving throw take an additional 2d6 slashing damage from flying splinters. The thunderclap can be heard from 600 feet away.</p>\n<p><em><strong>Cast at Higher Levels.</strong></em> For every slot level above 3rd, the thunder and slashing damage increase by 1d6, and the thunderclap can be heard from an additional 100 feet away.</p>",
+		"favorite": false,
+		"secretDescription": "",
+		"source": "",
+		"uses": {
+			"value": null,
+			"max": "",
+			"per": null,
+			"recharge": {
+				"formula": "1d6",
+				"threshold": "6"
+			}
+		},
+		"classes": [
+			"bard",
+			"druid",
+			"sorcerer",
+			"wizard"
+		],
+		"components": {
+			"vocalized": true,
+			"seen": true,
+			"material": true
+		},
+		"concentration": false,
+		"level": 4,
+		"materials": "tiny sheet of metal",
+		"materialsConsumed": false,
+		"prepared": false,
+		"prerequisite": "",
+		"rare": false,
+		"ritual": false,
+		"schools": {
+			"primary": "evocation",
+			"secondary": [
+				"arcane",
+				"attack",
+				"nature",
+				"sound",
+				"storm",
+				"thunder"
+			]
+		},
+		"schemaVersion": {
+			"version": 0.009,
+			"lastMigration": {
+				"version": {
+					"schema": 0.007,
+					"foundry": "11.311",
+					"system": "0.15.13"
+				}
+			}
+		}
+	},
+	"effects": [],
+	"flags": {},
+	"folder": null,
+	"_id": "4460kc4f8ykeuoxv"
 }

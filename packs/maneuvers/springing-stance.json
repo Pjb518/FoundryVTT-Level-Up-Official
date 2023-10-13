@@ -1,121 +1,123 @@
 {
-  "name": "Springing Stance",
-  "type": "maneuver",
-  "img": "icons/creatures/abilities/cougar-pounce-stalk-black.webp",
-  "effects": [
-    {
-      "icon": "icons/creatures/abilities/cougar-pounce-stalk-black.webp",
-      "origin": "Item.i0zwll1k5vjftcce",
-      "flags": {
-        "a5e": {
-          "sort": 0,
-          "transferType": "onUse",
-          "duration": {
-            "unit": "hours"
-          }
-        }
-      },
-      "transfer": false,
-      "name": "Springing Stance",
-      "_id": "JYAsP3AverE3Tjqe",
-      "changes": [
-        {
-          "key": "system.skills.acr.expertiseDice",
-          "value": "1",
-          "mode": 2,
-          "priority": null
-        }
-      ],
-      "disabled": false,
-      "duration": {
-        "startTime": null,
-        "seconds": null,
-        "combat": null,
-        "rounds": null,
-        "turns": null,
-        "startRound": null,
-        "startTurn": null
-      },
-      "description": "",
-      "statuses": []
-    }
-  ],
-  "flags": {},
-  "system": {
-    "actions": {
-      "BRjFmfpjPM55F64Y": {
-        "name": "Springing Stance",
-        "activation": {
-          "cost": 1,
-          "type": "bonusAction",
-          "reactionTrigger": ""
-        },
-        "duration": {
-          "unit": "special",
-          "value": ""
-        },
-        "ranges": {
-          "3f6jD12iSYgrFoeA": {
-            "range": "self"
-          }
-        },
-        "area": {
-          "shape": "",
-          "size": "",
-          "placeTemplate": false
-        },
-        "target": {
-          "quantity": "",
-          "type": "self",
-          "shape": "",
-          "size": ""
-        },
-        "consumers": {
-          "1haLHBccCu7PyUGn": {
-            "quantity": 1,
-            "resource": "exertion",
-            "type": "resource"
-          }
-        },
-        "prompts": {
-          "6wY8fvsDWtWRjMMq": {
-            "type": "effect",
-            "default": true,
-            "label": "Springing Stance",
-            "effectId": "JYAsP3AverE3Tjqe"
-          }
-        }
-      }
-    },
-    "description": "<p>Every time you step, slide, or turn you do so more quickly than usual and it becomes much easier to hurl yourself about.</p>\n<p>You increase the distance of your horizontal jumps by a number of feet equal to your proficiency bonus, and the distance of your vertical jumps by a number of feet equal to half your proficiency bonus. In addition, you gain an expertise die on Acrobatics checks and checks made to jump.</p>",
-    "favorite": false,
-    "secretDescription": "",
-    "source": "",
-    "uses": {
-      "value": null,
-      "max": "",
-      "per": null,
-      "recharge": {
-        "formula": "1d6",
-        "threshold": 6
-      }
-    },
-    "schema": {
-      "version": 0.007,
-      "lastMigration": {
-        "version": {
-          "schema": 0.003,
-          "foundry": "11.307",
-          "system": "0.15.0"
-        }
-      }
-    },
-    "degree": 1,
-    "exertionCost": 1,
-    "isStance": true,
-    "prerequisite": "",
-    "tradition": "toothAndClaw"
-  },
-  "folder": "7dmqjD5z0RYoiery",
-  "_id": "i0zwll1k5vjftcce"
+	"name": "Springing Stance",
+	"type": "maneuver",
+	"img": "icons/creatures/abilities/cougar-pounce-stalk-black.webp",
+	"effects": [
+		{
+			"icon": "icons/creatures/abilities/cougar-pounce-stalk-black.webp",
+			"origin": "Item.i0zwll1k5vjftcce",
+			"flags": {
+				"a5e": {
+					"sort": 0,
+					"transferType": "onUse",
+					"duration": {
+						"unit": "hours"
+					},
+					"actionId": "BRjFmfpjPM55F64Y"
+				}
+			},
+			"transfer": false,
+			"name": "Springing Stance",
+			"_id": "JYAsP3AverE3Tjqe",
+			"changes": [
+				{
+					"key": "system.skills.acr.expertiseDice",
+					"value": "1",
+					"mode": 2,
+					"priority": null
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": null,
+				"combat": null,
+				"rounds": null,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "",
+			"statuses": [],
+			"folder": null
+		}
+	],
+	"flags": {},
+	"system": {
+		"actions": {
+			"BRjFmfpjPM55F64Y": {
+				"name": "Springing Stance",
+				"activation": {
+					"cost": 1,
+					"type": "bonusAction",
+					"reactionTrigger": ""
+				},
+				"duration": {
+					"unit": "special",
+					"value": ""
+				},
+				"ranges": {
+					"3f6jD12iSYgrFoeA": {
+						"range": "self"
+					}
+				},
+				"area": {
+					"shape": "",
+					"size": "",
+					"placeTemplate": false
+				},
+				"target": {
+					"quantity": "",
+					"type": "self",
+					"shape": "",
+					"size": ""
+				},
+				"consumers": {
+					"1haLHBccCu7PyUGn": {
+						"quantity": 1,
+						"resource": "exertion",
+						"type": "resource"
+					}
+				},
+				"prompts": {
+					"6wY8fvsDWtWRjMMq": {
+						"type": "effect",
+						"default": true,
+						"label": "Springing Stance",
+						"effectId": "JYAsP3AverE3Tjqe"
+					}
+				}
+			}
+		},
+		"description": "<p>Every time you step, slide, or turn you do so more quickly than usual and it becomes much easier to hurl yourself about.</p>\n<p>You increase the distance of your horizontal jumps by a number of feet equal to your proficiency bonus, and the distance of your vertical jumps by a number of feet equal to half your proficiency bonus. In addition, you gain an expertise die on Acrobatics checks and checks made to jump.</p>",
+		"favorite": false,
+		"secretDescription": "",
+		"source": "",
+		"uses": {
+			"value": null,
+			"max": "",
+			"per": null,
+			"recharge": {
+				"formula": "1d6",
+				"threshold": 6
+			}
+		},
+		"degree": 1,
+		"exertionCost": 1,
+		"isStance": true,
+		"prerequisite": "",
+		"tradition": "toothAndClaw",
+		"schemaVersion": {
+			"version": 0.009,
+			"lastMigration": {
+				"version": {
+					"schema": 0.007,
+					"foundry": "11.311",
+					"system": "0.15.13"
+				}
+			}
+		}
+	},
+	"folder": null,
+	"_id": "i0zwll1k5vjftcce"
 }

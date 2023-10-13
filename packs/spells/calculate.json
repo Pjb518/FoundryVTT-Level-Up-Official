@@ -1,134 +1,137 @@
 {
-  "name": "Calculate",
-  "type": "spell",
-  "img": "icons/skills/trades/academics-astronomy-navigation-purple.webp",
-  "effects": [
-    {
-      "icon": "icons/skills/trades/academics-astronomy-navigation-purple.webp",
-      "origin": "Item.u0ez2czg763i77kl",
-      "flags": {
-        "a5e": {
-          "sort": 0,
-          "transferType": "onUse",
-          "duration": {
-            "unit": "hours"
-          }
-        }
-      },
-      "transfer": false,
-      "name": "Calculate",
-      "_id": "U7YjG5GGAFTAZQNt",
-      "changes": [
-        {
-          "key": "system.skills.eng.expertiseDice",
-          "value": "1",
-          "mode": 2,
-          "priority": null
-        }
-      ],
-      "disabled": false,
-      "duration": {
-        "startTime": null,
-        "seconds": 3600,
-        "combat": null,
-        "rounds": null,
-        "turns": null,
-        "startRound": null,
-        "startTurn": null
-      },
-      "description": "",
-      "statuses": []
-    }
-  ],
-  "flags": {},
-  "system": {
-    "actions": {
-      "7W8939UwmTFQjejV": {
-        "name": "Cast Spell",
-        "activation": {
-          "cost": 1,
-          "type": "action",
-          "reactionTrigger": ""
-        },
-        "duration": {
-          "unit": "hour",
-          "value": "1"
-        },
-        "ranges": {
-          "WqPHld6T12JIi89y": {
-            "range": "self"
-          }
-        },
-        "area": {
-          "shape": "",
-          "size": "",
-          "placeTemplate": false
-        },
-        "target": {
-          "quantity": "",
-          "type": "self"
-        },
-        "consumers": {},
-        "prompts": {
-          "ROah3cpzWELI3UhV": {
-            "type": "effect",
-            "default": true,
-            "effectId": "U7YjG5GGAFTAZQNt",
-            "label": "Calculate"
-          }
-        }
-      }
-    },
-    "description": "<p>You instantly know the answer to any mathematical equation that you speak aloud. The equation must be a problem that a creature with Intelligence 20 could solve using nonmagical tools with 1 hour of calculation. Additionally, you gain an expertise die on Engineering checks made during the duration of the spell.</p>\n<p><strong>Note:</strong> Using the <em>calculate</em> cantrip allows a player to make use of a calculator at the table in order to rapidly answer mathematical equations.</p>",
-    "favorite": false,
-    "secretDescription": "",
-    "source": "",
-    "uses": {
-      "value": null,
-      "max": "",
-      "per": null,
-      "recharge": {
-        "formula": "",
-        "threshold": ""
-      }
-    },
-    "schema": {
-      "version": 0.007,
-      "lastMigration": {
-        "version": {
-          "schema": 0.003,
-          "foundry": "11.307",
-          "system": "0.15.0"
-        }
-      }
-    },
-    "classes": [
-      "artificer",
-      "sorcerer",
-      "warlock",
-      "wizard"
-    ],
-    "components": {
-      "vocalized": true,
-      "seen": true,
-      "material": false
-    },
-    "concentration": true,
-    "level": 0,
-    "materials": "",
-    "materialsConsumed": false,
-    "prepared": false,
-    "prerequisite": "",
-    "ritual": false,
-    "schools": {
-      "primary": "divination",
-      "secondary": [
-        "enhancement",
-        "law",
-        "technological"
-      ]
-    }
-  },
-  "folder": "XXlxppJh0OdnJaQQ",
-  "_id": "u0ez2czg763i77kl"
+	"name": "Calculate",
+	"type": "spell",
+	"img": "icons/skills/trades/academics-astronomy-navigation-purple.webp",
+	"effects": [
+		{
+			"icon": "icons/skills/trades/academics-astronomy-navigation-purple.webp",
+			"origin": "Item.u0ez2czg763i77kl",
+			"flags": {
+				"a5e": {
+					"sort": 0,
+					"transferType": "onUse",
+					"duration": {
+						"unit": "hours"
+					},
+					"actionId": "7W8939UwmTFQjejV"
+				}
+			},
+			"transfer": false,
+			"name": "Calculate",
+			"_id": "U7YjG5GGAFTAZQNt",
+			"changes": [
+				{
+					"key": "system.skills.eng.expertiseDice",
+					"value": "1",
+					"mode": 2,
+					"priority": null
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": 3600,
+				"combat": null,
+				"rounds": null,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "",
+			"statuses": [],
+			"folder": null
+		}
+	],
+	"flags": {},
+	"system": {
+		"actions": {
+			"7W8939UwmTFQjejV": {
+				"name": "Cast Spell",
+				"activation": {
+					"cost": 1,
+					"type": "action",
+					"reactionTrigger": ""
+				},
+				"duration": {
+					"unit": "hour",
+					"value": "1"
+				},
+				"ranges": {
+					"WqPHld6T12JIi89y": {
+						"range": "self"
+					}
+				},
+				"area": {
+					"shape": "",
+					"size": "",
+					"placeTemplate": false
+				},
+				"target": {
+					"quantity": "",
+					"type": "self"
+				},
+				"consumers": {},
+				"prompts": {
+					"ROah3cpzWELI3UhV": {
+						"type": "effect",
+						"default": true,
+						"effectId": "U7YjG5GGAFTAZQNt",
+						"label": "Calculate"
+					}
+				}
+			}
+		},
+		"description": "<p>You instantly know the answer to any mathematical equation that you speak aloud. The equation must be a problem that a creature with Intelligence 20 could solve using nonmagical tools with 1 hour of calculation. Additionally, you gain an expertise die on Engineering checks made during the duration of the spell.</p>\n<p><strong>Note:</strong> Using the <em>calculate</em> cantrip allows a player to make use of a calculator at the table in order to rapidly answer mathematical equations.</p>",
+		"favorite": false,
+		"secretDescription": "",
+		"source": "",
+		"uses": {
+			"value": null,
+			"max": "",
+			"per": null,
+			"recharge": {
+				"formula": "",
+				"threshold": ""
+			}
+		},
+		"classes": [
+			"artificer",
+			"sorcerer",
+			"warlock",
+			"wizard"
+		],
+		"components": {
+			"vocalized": true,
+			"seen": true,
+			"material": false
+		},
+		"concentration": true,
+		"level": 0,
+		"materials": "",
+		"materialsConsumed": false,
+		"prepared": false,
+		"prerequisite": "",
+		"rare": false,
+		"ritual": false,
+		"schools": {
+			"primary": "divination",
+			"secondary": [
+				"enhancement",
+				"law",
+				"technological"
+			]
+		},
+		"schemaVersion": {
+			"version": 0.009,
+			"lastMigration": {
+				"version": {
+					"schema": 0.007,
+					"foundry": "11.311",
+					"system": "0.15.13"
+				}
+			}
+		}
+	},
+	"folder": null,
+	"_id": "u0ez2czg763i77kl"
 }

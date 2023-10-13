@@ -1,1532 +1,1532 @@
 {
-  "name": "Darkmantle",
-  "type": "npc",
-  "img": "systems/a5e/assets/darkmantle.webp",
-  "items": [
-    {
-      "_id": "gpZxdCFRnBOrxMnY",
-      "name": "Echolocation",
-      "type": "feature",
-      "img": "icons/svg/item-bag.svg",
-      "effects": [],
-      "folder": null,
-      "sort": 0,
-      "flags": {},
-      "system": {
-        "ac": {
-          "baseFormula": "",
-          "formula": "",
-          "maxDex": 0,
-          "minStr": 0,
-          "mode": 1,
-          "requiresNoShield": false,
-          "requiresUnarmored": false
-        },
-        "actions": {},
-        "description": "<p>The darkmantle can&rsquo;t use blindsight while deafened.</p>",
-        "favorite": false,
-        "secretDescription": "",
-        "source": "",
-        "uses": {
-          "value": null,
-          "max": "",
-          "per": null,
-          "recharge": {
-            "formula": "",
-            "threshold": ""
-          }
-        },
-        "schema": {
-          "version": 0.007,
-          "lastMigration": {
-            "version": {
-              "schema": 0.004,
-              "foundry": "11.307",
-              "system": "0.15.0"
-            }
-          }
-        },
-        "concentration": false,
-        "featureType": "",
-        "prerequisite": ""
-      },
-      "ownership": {
-        "default": 0
-      }
-    },
-    {
-      "_id": "zxrpLcf4XIhJPQce",
-      "name": "False Appearance",
-      "type": "feature",
-      "img": "icons/magic/nature/stealth-hide-eyes-green.webp",
-      "effects": [],
-      "folder": null,
-      "sort": 0,
-      "flags": {},
-      "system": {
-        "ac": {
-          "baseFormula": "",
-          "formula": "",
-          "maxDex": 0,
-          "minStr": 0,
-          "mode": 1,
-          "requiresNoShield": false,
-          "requiresUnarmored": false
-        },
-        "actions": {},
-        "description": "<p>While motionless, the darkmantle is indistinguishable from rock.</p>",
-        "favorite": false,
-        "secretDescription": "",
-        "source": "",
-        "uses": {
-          "value": null,
-          "max": "",
-          "per": null,
-          "recharge": {
-            "formula": "",
-            "threshold": ""
-          }
-        },
-        "schema": {
-          "version": 0.007,
-          "lastMigration": {
-            "version": {
-              "schema": 0.004,
-              "foundry": "11.307",
-              "system": "0.15.0"
-            }
-          }
-        },
-        "concentration": false,
-        "featureType": "",
-        "prerequisite": ""
-      },
-      "ownership": {
-        "default": 0
-      }
-    },
-    {
-      "_id": "G8n37EbNoXKV1Dao",
-      "name": "Multiattack",
-      "type": "feature",
-      "img": "icons/skills/melee/blade-tips-triple-steel.webp",
-      "effects": [],
-      "folder": null,
-      "sort": 0,
-      "flags": {},
-      "system": {
-        "ac": {
-          "baseFormula": "",
-          "formula": "",
-          "maxDex": 0,
-          "minStr": 0,
-          "mode": 1,
-          "requiresNoShield": false,
-          "requiresUnarmored": false
-        },
-        "actions": {},
-        "description": "<p>The darkmantle uses Darkness Aura and makes a crush attack.</p>",
-        "favorite": false,
-        "secretDescription": "",
-        "source": "",
-        "uses": {
-          "value": null,
-          "max": "",
-          "per": null,
-          "recharge": {
-            "formula": "",
-            "threshold": ""
-          }
-        },
-        "schema": {
-          "version": 0.007,
-          "lastMigration": {
-            "version": {
-              "schema": 0.004,
-              "foundry": "11.307",
-              "system": "0.15.0"
-            }
-          }
-        },
-        "concentration": false,
-        "featureType": "",
-        "prerequisite": ""
-      },
-      "ownership": {
-        "default": 0
-      }
-    },
-    {
-      "_id": "bmHKEk1IEkVgIWNH",
-      "name": "Crush",
-      "type": "feature",
-      "img": "icons/svg/item-bag.svg",
-      "effects": [],
-      "folder": null,
-      "sort": 0,
-      "flags": {},
-      "system": {
-        "ac": {
-          "baseFormula": "",
-          "formula": "",
-          "maxDex": 0,
-          "minStr": 0,
-          "mode": 1,
-          "requiresNoShield": false,
-          "requiresUnarmored": false
-        },
-        "actions": {
-          "5rOsYvCPqhYQ89fW": {
-            "name": "Crush",
-            "activation": {
-              "cost": 1,
-              "type": "action",
-              "reactionTrigger": ""
-            },
-            "duration": {
-              "unit": "instantaneous",
-              "value": ""
-            },
-            "ranges": {
-              "mtwZnI6qapQty2h5": {
-                "range": "fiveFeet"
-              }
-            },
-            "area": {
-              "shape": "",
-              "size": "",
-              "placeTemplate": false
-            },
-            "target": {
-              "quantity": 1,
-              "type": "creature"
-            },
-            "rolls": {
-              "MSQPHcmqQNPq06sh": {
-                "bonus": "",
-                "critThreshold": "20",
-                "type": "attack",
-                "attackType": "meleeWeaponAttack",
-                "ability": "str"
-              },
-              "Ie0eXkmeNUpFRXIb": {
-                "canCrit": true,
-                "damageType": "bludgeoning",
-                "formula": "1d6+@str.mod",
-                "name": "Normal Attack",
-                "type": "damage"
-              }
-            },
-            "consumers": {}
-          }
-        },
-        "description": "<p>On Hit, 6 (1d6 + 3) bludgeoning damage, and the target is grappled (escape DC 13). If the darkmantle made the attack with advantage, it attaches to the target’s head, and the target is blinded and can’t breathe. While grappling, the darkmantle can only attack the grappled creature but has advantage on its attack roll. The darkmantle’s speed becomes 0, and it moves with its target.</p>",
-        "favorite": true,
-        "secretDescription": "",
-        "source": "",
-        "uses": {
-          "value": null,
-          "max": "",
-          "per": null,
-          "recharge": {
-            "formula": "",
-            "threshold": ""
-          }
-        },
-        "schema": {
-          "version": 0.007,
-          "lastMigration": {
-            "version": {
-              "schema": 0.004,
-              "foundry": "11.307",
-              "system": "0.15.0"
-            }
-          }
-        },
-        "concentration": false,
-        "featureType": "",
-        "prerequisite": ""
-      },
-      "ownership": {
-        "default": 0
-      }
-    },
-    {
-      "_id": "nu3GZ3jQZ8ATh2ku",
-      "name": "Darkness Aura",
-      "type": "feature",
-      "img": "icons/svg/item-bag.svg",
-      "effects": [],
-      "folder": null,
-      "sort": 0,
-      "flags": {},
-      "system": {
-        "ac": {
-          "baseFormula": "",
-          "formula": "",
-          "maxDex": 0,
-          "minStr": 0,
-          "mode": 1,
-          "requiresNoShield": false,
-          "requiresUnarmored": false
-        },
-        "actions": {
-          "hapVH29qUyS1HFMd": {
-            "name": "Darkness Aura",
-            "activation": {
-              "cost": 1,
-              "type": "action",
-              "reactionTrigger": ""
-            },
-            "duration": {
-              "unit": "instantaneous",
-              "value": ""
-            },
-            "ranges": {
-              "T9slTyTSdW36Ck5s": {
-                "range": "self"
-              }
-            },
-            "area": {
-              "shape": "sphere",
-              "size": "15-foot-radius",
-              "placeTemplate": false
-            },
-            "target": {
-              "quantity": "",
-              "type": "self"
-            },
-            "consumers": {}
-          }
-        },
-        "description": "<p>A 15-foot-radius area of magical darkness&nbsp;emanates from the darkmantle, spreading around corners and moving with it. Darkvision and natural light can’t penetrate it. If the darkness overlaps with an area of light created by a 2nd-level spell or lower, the spell creating the light is dispelled. The darkness aura lasts for 10 minutes or until the darkmantle takes damage.</p>",
-        "favorite": false,
-        "secretDescription": "",
-        "source": "",
-        "uses": {
-          "value": null,
-          "max": "",
-          "per": null,
-          "recharge": {
-            "formula": "",
-            "threshold": ""
-          }
-        },
-        "schema": {
-          "version": 0.007,
-          "lastMigration": {
-            "version": {
-              "schema": 0.004,
-              "foundry": "11.307",
-              "system": "0.15.0"
-            }
-          }
-        },
-        "concentration": false,
-        "featureType": "",
-        "prerequisite": ""
-      },
-      "ownership": {
-        "default": 0
-      }
-    },
-    {
-      "name": "Shove",
-      "type": "maneuver",
-      "img": "icons/skills/melee/shield-block-bash-yellow.webp",
-      "effects": [],
-      "flags": {
-        "core": {
-          "sourceId": "Compendium.a5e.a5e-maneuvers.md35qozzy2fxy2o6"
-        }
-      },
-      "system": {
-        "actions": {
-          "LxWU5GTbH4uvS2V7": {
-            "name": "Shove",
-            "activation": {
-              "cost": 1,
-              "type": "action",
-              "reactionTrigger": ""
-            },
-            "duration": {
-              "unit": "instantaneous",
-              "value": null
-            },
-            "ranges": {
-              "IyZefn23OKsZyNct": {
-                "range": "fiveFeet"
-              }
-            },
-            "area": {
-              "shape": "",
-              "size": "",
-              "placeTemplate": false
-            },
-            "target": {
-              "quantity": null,
-              "type": "creature",
-              "shape": "",
-              "size": ""
-            },
-            "rolls": {
-              "IO4KH3aL5M4xlu0t": {
-                "canCrit": false,
-                "damageType": "bludgeoning",
-                "formula": "1 + @str.mod",
-                "name": "Default",
-                "type": "damage"
-              }
-            },
-            "prompts": {
-              "8KtMLX2xpPr060C8": {
-                "ability": "str",
-                "onSave": "",
-                "saveDC": {
-                  "type": "custom",
-                  "bonus": "@maneuverDC"
-                },
-                "type": "savingThrow"
-              }
-            },
-            "consumers": {}
-          }
-        },
-        "description": "<p>You can use the Shove maneuver to push a creature away. If you are able to make multiple attacks with the Attack action, this maneuver replaces one of them.</p><p>The target must be within your reach and be no more than one size category larger than you. The target makes a Strength saving throw against your maneuver DC. On a failure, you deal basic melee damage and push the target a number of feet away from you equal to 5 + 5 for every 5 points it failed its saving throw by. You can move the creature in any direction away from you (to the side, forward, or diagonally away).</p><p>A creature that is shoved off of a precipice is propelled off of whatever it is standing on -- it does not receive any saving throw or ability check to grab onto something to avoid falling down below.</p>",
-        "favorite": false,
-        "secretDescription": "",
-        "source": "",
-        "uses": {
-          "value": null,
-          "max": "",
-          "per": null,
-          "recharge": {
-            "formula": "",
-            "threshold": ""
-          }
-        },
-        "schema": {
-          "version": 0.007,
-          "lastMigration": {
-            "version": {
-              "schema": 0.004,
-              "foundry": "11.307",
-              "system": "0.15.0"
-            }
-          }
-        },
-        "degree": 0,
-        "exertionCost": 0,
-        "isStance": false,
-        "prerequisite": "",
-        "tradition": ""
-      },
-      "ownership": {
-        "default": 0
-      },
-      "folder": null,
-      "sort": 0,
-      "_id": "M1nxEvf1On763noO"
-    },
-    {
-      "name": "Disarm",
-      "type": "maneuver",
-      "img": "icons/skills/melee/sword-damaged-broken-glow-red.webp",
-      "effects": [],
-      "flags": {
-        "core": {
-          "sourceId": "Compendium.a5e.a5e-maneuvers.c0bv7fsy2akld5lp"
-        }
-      },
-      "system": {
-        "actions": {
-          "uRcjfqfAw671LqUO": {
-            "name": "Disarm",
-            "activation": {
-              "cost": 1,
-              "type": "action",
-              "reactionTrigger": ""
-            },
-            "duration": {
-              "unit": "instantaneous",
-              "value": null
-            },
-            "ranges": {
-              "tviuCc1kPzbaBVuq": {
-                "range": "touch"
-              }
-            },
-            "area": {
-              "shape": "",
-              "size": "",
-              "placeTemplate": false
-            },
-            "target": {
-              "quantity": "",
-              "type": "creature",
-              "shape": "",
-              "size": ""
-            },
-            "rolls": {
-              "sZsYRxRWLInTu1If": {
-                "canCrit": false,
-                "damageType": "",
-                "formula": "1 + @str.mod",
-                "name": "",
-                "type": "damage"
-              }
-            },
-            "prompts": {
-              "1NEYfSOdTqROQTnu": {
-                "ability": "str",
-                "onSave": "",
-                "saveDC": {
-                  "type": "custom",
-                  "bonus": "@maneuverDC"
-                },
-                "type": "savingThrow"
-              }
-            },
-            "consumers": {}
-          }
-        },
-        "description": "<p>You can use the Disarm maneuver to attempt to knock an item or weapon from a creature's hand. If you are able to make multiple attacks with the Attack action, this maneuver replaces one of them.</p><p>The target must be within your reach and be holding an item (either carried or wielded). The target makes a Strength or Dexterity saving throw against your maneuver DC. On a failure, you deal basic melee damage and the target drops the item in its space. The target has advantage if it is larger than you or holding the item with two or more hands, and a target smaller than you has disadvantage.</p>",
-        "favorite": false,
-        "secretDescription": "",
-        "source": "",
-        "uses": {
-          "value": null,
-          "max": "",
-          "per": null,
-          "recharge": {
-            "formula": "",
-            "threshold": ""
-          }
-        },
-        "schema": {
-          "version": 0.007,
-          "lastMigration": {
-            "version": {
-              "schema": 0.004,
-              "foundry": "11.307",
-              "system": "0.15.0"
-            }
-          }
-        },
-        "degree": 0,
-        "exertionCost": 0,
-        "isStance": false,
-        "prerequisite": "",
-        "tradition": ""
-      },
-      "ownership": {
-        "default": 0
-      },
-      "folder": null,
-      "sort": 0,
-      "_id": "QKEr8qDyIEcEWB6U"
-    },
-    {
-      "name": "Grab On",
-      "type": "maneuver",
-      "img": "icons/skills/melee/hand-grip-staff-teal.webp",
-      "effects": [],
-      "flags": {
-        "core": {
-          "sourceId": "Compendium.a5e.a5e-maneuvers.jewmp4pzrg9cdui9"
-        }
-      },
-      "system": {
-        "actions": {
-          "RBPtyw9ybQpS3NI8": {
-            "name": "Grab On",
-            "activation": {
-              "cost": 1,
-              "type": "action",
-              "reactionTrigger": ""
-            },
-            "duration": {
-              "unit": "instantaneous",
-              "value": null
-            },
-            "ranges": {
-              "V9VsvDvudoO4UrXu": {
-                "range": "touch"
-              }
-            },
-            "area": {
-              "shape": "",
-              "size": "",
-              "placeTemplate": false
-            },
-            "target": {
-              "quantity": "",
-              "type": "creature",
-              "shape": "",
-              "size": ""
-            },
-            "prompts": {
-              "KWzZsVclK26UcgbB": {
-                "ability": "str",
-                "onSave": "",
-                "saveDC": {
-                  "type": "custom",
-                  "bonus": "@maneuverDC"
-                },
-                "type": "savingThrow"
-              }
-            },
-            "consumers": {}
-          }
-        },
-        "description": "<p>While you cannot grapple a creature two or more size categories larger than you, you can grab onto it. By jumping onto its back or climbing up a limb, you can make a Strength or Dexterity saving throw against the creature's maneuver DC to cling to or balance upon its body. On a success, you move into the creature's space and can move upon its body as if it is difficult terrain.</p><p>While grabbing onto a larger creature, you gain advantage on attack rolls against it. The larger creature may be able to attack you as normal, depending on its limbs or attacks. It can also use an action or replace one of its attacks on its turn to try to dislodge you, such as shaking you loose or bashing you against a wall, forcing you to make a Strength or Dexterity saving throw against its maneuver DC or fall prone into the nearest space adjacent to the creature, taking its basic melee damage in the process.</p><p>If the creature chooses to roll over in order to dislodge you, it becomes prone, but you have disadvantage on the saving throw to hang on.</p>",
-        "favorite": false,
-        "secretDescription": "",
-        "source": "",
-        "uses": {
-          "value": null,
-          "max": "",
-          "per": null,
-          "recharge": {
-            "formula": "",
-            "threshold": ""
-          }
-        },
-        "schema": {
-          "version": 0.007,
-          "lastMigration": {
-            "version": {
-              "schema": 0.004,
-              "foundry": "11.307",
-              "system": "0.15.0"
-            }
-          }
-        },
-        "degree": 0,
-        "exertionCost": 0,
-        "isStance": false,
-        "prerequisite": "",
-        "tradition": ""
-      },
-      "ownership": {
-        "default": 0
-      },
-      "folder": null,
-      "sort": 0,
-      "_id": "dUAMyGmhBa1x9SOw"
-    },
-    {
-      "name": "Knockdown",
-      "type": "maneuver",
-      "img": "icons/magic/control/silhouette-fall-slip-prone.webp",
-      "effects": [],
-      "flags": {
-        "core": {
-          "sourceId": "Compendium.a5e.a5e-maneuvers.zzg7j7cb0vkgctwi"
-        }
-      },
-      "system": {
-        "actions": {
-          "jdi8n8Sx6E8iIDzF": {
-            "name": "Knockdown",
-            "activation": {
-              "cost": 1,
-              "type": "action",
-              "reactionTrigger": ""
-            },
-            "duration": {
-              "unit": "instantaneous",
-              "value": null
-            },
-            "ranges": {
-              "2Su4NdinG9pWpwYj": {
-                "range": "touch"
-              }
-            },
-            "area": {
-              "shape": "",
-              "size": "",
-              "placeTemplate": false
-            },
-            "target": {
-              "quantity": "",
-              "type": "creature",
-              "shape": "",
-              "size": ""
-            },
-            "prompts": {
-              "D1jYOSjSBfO3o9ln": {
-                "ability": "str",
-                "onSave": "",
-                "saveDC": {
-                  "type": "custom",
-                  "bonus": "@maneuverDC"
-                },
-                "type": "savingThrow"
-              }
-            },
-            "consumers": {}
-          }
-        },
-        "description": "<p>You can use the Knockdown maneuver to trip or push a creature down. If you are able to make multiple attacks with the Attack action, this maneuver replaces one of them.</p><p>The target must be within your reach and be no more than one size category larger than you. The target makes a Strength saving throw against your maneuver DC. On a failure, you deal basic melee damage and knock the target prone.</p>",
-        "favorite": false,
-        "secretDescription": "",
-        "source": "",
-        "uses": {
-          "value": null,
-          "max": "",
-          "per": null,
-          "recharge": {
-            "formula": "",
-            "threshold": ""
-          }
-        },
-        "schema": {
-          "version": 0.007,
-          "lastMigration": {
-            "version": {
-              "schema": 0.004,
-              "foundry": "11.307",
-              "system": "0.15.0"
-            }
-          }
-        },
-        "degree": 0,
-        "exertionCost": 0,
-        "isStance": false,
-        "prerequisite": "",
-        "tradition": ""
-      },
-      "ownership": {
-        "default": 0
-      },
-      "folder": null,
-      "sort": 0,
-      "_id": "3ZfvmY0sXpSmPNe6"
-    },
-    {
-      "name": "Grapple",
-      "type": "maneuver",
-      "img": "icons/skills/melee/unarmed-punch-fist.webp",
-      "effects": [],
-      "flags": {
-        "core": {
-          "sourceId": "Compendium.a5e.a5e-maneuvers.9umrahwm68f81d7l"
-        }
-      },
-      "system": {
-        "actions": {
-          "T5I4nHhR9GHF8Oa9": {
-            "name": "Grapple",
-            "activation": {
-              "cost": 1,
-              "type": "action",
-              "reactionTrigger": ""
-            },
-            "duration": {
-              "unit": "instantaneous",
-              "value": null
-            },
-            "ranges": {
-              "1GSW7riJ8RaCaify": {
-                "range": "touch"
-              }
-            },
-            "area": {
-              "shape": "",
-              "size": "",
-              "placeTemplate": false
-            },
-            "target": {
-              "quantity": "",
-              "type": "creature",
-              "shape": "",
-              "size": ""
-            },
-            "prompts": {
-              "Bkgeqqr2IVI807R2": {
-                "ability": "str",
-                "onSave": "",
-                "saveDC": {
-                  "type": "custom",
-                  "bonus": "@maneuverDC"
-                },
-                "type": "savingThrow"
-              }
-            },
-            "consumers": {}
-          }
-        },
-        "description": "<p>You can use the Grapple maneuver to grab or wrestle a creature. If you are able to make multiple attacks with the Attack action, this maneuver replaces one of them.</p>\n<p>You must have at least one free hand to attempt a grapple, your target must be within your reach, and the target must be no more than one size category larger than you. The target makes a Strength or Dexterity saving throw against your maneuver DC. On a failure, you deal basic melee damage and the target becomes grappled (see Appendix A: Conditions on page 616). In addition to things that end the condition, you can release the target at any time (no action required).</p>\n<p><em>Escaping a Grapple.</em> While grappled, a creature can use its action to attempt to escape. It must succeed on a Strength or Dexterity saving throw against your maneuver DC.</p>\n<p><em>Moving a Grappled Creature. </em>When you move, you can drag or carry the grappled creature with you. When you do so, your Speed is halved, unless the creature's weight is within your carrying capacity and you are not encumbered by bulky items.</p>\n<p><em>Freeing a Grappled Creature.</em> You can use the Grapple maneuver to try to free another grappled or restrained creature. The creature grappling or restraining the target makes a Strength saving throw against your maneuver DC. If it fails the saving throw, the grappled or restrained creature is freed. Additionally, you may move the freed creature 5 feet in any direction.</p>",
-        "favorite": false,
-        "secretDescription": "",
-        "source": "",
-        "uses": {
-          "value": null,
-          "max": "",
-          "per": null,
-          "recharge": {
-            "formula": "",
-            "threshold": ""
-          }
-        },
-        "schema": {
-          "version": 0.007,
-          "lastMigration": {
-            "version": {
-              "schema": 0.004,
-              "foundry": "11.307",
-              "system": "0.15.0"
-            }
-          }
-        },
-        "degree": 0,
-        "exertionCost": 0,
-        "isStance": false,
-        "prerequisite": "",
-        "tradition": ""
-      },
-      "ownership": {
-        "default": 0
-      },
-      "folder": null,
-      "sort": 0,
-      "_id": "nFURywQrGo0AXEDn"
-    },
-    {
-      "name": "Overrun",
-      "type": "maneuver",
-      "img": "icons/skills/melee/shield-damaged-broken-blue.webp",
-      "effects": [],
-      "flags": {
-        "core": {
-          "sourceId": "Compendium.a5e.a5e-maneuvers.210ihnnejao46r20"
-        }
-      },
-      "system": {
-        "actions": {
-          "YMILeC9OmmswCP1T": {
-            "name": "Overrun",
-            "activation": {
-              "cost": 1,
-              "type": "special",
-              "reactionTrigger": ""
-            },
-            "duration": {
-              "unit": "instantaneous",
-              "value": null
-            },
-            "ranges": {
-              "OZtto5cTJJshSb0g": {
-                "range": "touch"
-              }
-            },
-            "area": {
-              "shape": "",
-              "size": "",
-              "placeTemplate": false
-            },
-            "target": {
-              "quantity": "",
-              "type": "creature",
-              "shape": "",
-              "size": ""
-            },
-            "prompts": {
-              "0YKrLk702PMXVzhD": {
-                "ability": "str",
-                "onSave": "",
-                "saveDC": {
-                  "type": "custom",
-                  "bonus": "@maneuverDC"
-                },
-                "type": "savingThrow"
-              }
-            },
-            "consumers": {}
-          }
-        },
-        "description": "<p>You can use an action or bonus action to make an Overrun maneuver to move through a hostile creature's space by forcing your way past. Make a Strength saving throw against the target's maneuver DC. On a success, you deal basic melee damage and can move through the hostile creature's space once this turn. The creature can choose to just let you pass instead of rolling. You have advantage if you are larger than the target, or disadvantage if you are smaller. If you are two or more sizes smaller than the target, you can move through the hostile creature's space without making a save. You still provoke opportunity attacks if you move beyond a creature's reach.</p>",
-        "favorite": false,
-        "secretDescription": "",
-        "source": "",
-        "uses": {
-          "value": null,
-          "max": "",
-          "per": null,
-          "recharge": {
-            "formula": "",
-            "threshold": ""
-          }
-        },
-        "schema": {
-          "version": 0.007,
-          "lastMigration": {
-            "version": {
-              "schema": 0.004,
-              "foundry": "11.307",
-              "system": "0.15.0"
-            }
-          }
-        },
-        "degree": 0,
-        "exertionCost": 0,
-        "isStance": false,
-        "prerequisite": "",
-        "tradition": ""
-      },
-      "ownership": {
-        "default": 0
-      },
-      "folder": null,
-      "sort": 0,
-      "_id": "iHhWmBcLsEy7UMaT"
-    }
-  ],
-  "effects": [],
-  "flags": {
-    "a5e": {
-      "featureActivationCostFilters": {
-        "inclusive": [],
-        "exclusive": []
-      },
-      "sheetIsLocked": true
-    }
-  },
-  "system": {
-    "abilities": {
-      "str": {
-        "value": 16,
-        "check": {
-          "expertiseDice": 0,
-          "bonus": ""
-        },
-        "save": {
-          "proficient": false,
-          "expertiseDice": 0,
-          "bonus": ""
-        }
-      },
-      "dex": {
-        "value": 12,
-        "check": {
-          "expertiseDice": 0,
-          "bonus": ""
-        },
-        "save": {
-          "proficient": false,
-          "expertiseDice": 0,
-          "bonus": ""
-        }
-      },
-      "con": {
-        "value": 12,
-        "check": {
-          "expertiseDice": 0,
-          "bonus": ""
-        },
-        "save": {
-          "proficient": false,
-          "expertiseDice": 0,
-          "bonus": "",
-          "concentrationBonus": ""
-        }
-      },
-      "int": {
-        "value": 2,
-        "check": {
-          "expertiseDice": 0,
-          "bonus": ""
-        },
-        "save": {
-          "proficient": false,
-          "expertiseDice": 0,
-          "bonus": ""
-        }
-      },
-      "wis": {
-        "value": 10,
-        "check": {
-          "expertiseDice": 0,
-          "bonus": ""
-        },
-        "save": {
-          "proficient": false,
-          "expertiseDice": 0,
-          "bonus": ""
-        }
-      },
-      "cha": {
-        "value": 5,
-        "check": {
-          "expertiseDice": 0,
-          "bonus": ""
-        },
-        "save": {
-          "proficient": false,
-          "expertiseDice": 0,
-          "bonus": ""
-        }
-      }
-    },
-    "schema": {
-      "version": 0.007,
-      "lastMigration": {
-        "version": {
-          "schema": 0.006,
-          "foundry": "11.307",
-          "system": "0.15.0"
-        }
-      }
-    },
-    "skills": {
-      "acr": {
-        "ability": "dex",
-        "value": 0,
-        "proficient": false,
-        "specialties": [],
-        "expertiseDice": 0,
-        "minRoll": 1,
-        "bonuses": {
-          "check": "",
-          "passive": 0
-        }
-      },
-      "ani": {
-        "ability": "wis",
-        "value": 0,
-        "proficient": false,
-        "specialties": [],
-        "expertiseDice": 0,
-        "minRoll": 1,
-        "bonuses": {
-          "check": "",
-          "passive": 0
-        }
-      },
-      "arc": {
-        "ability": "int",
-        "value": 0,
-        "proficient": false,
-        "specialties": [],
-        "expertiseDice": 0,
-        "minRoll": 1,
-        "bonuses": {
-          "check": "",
-          "passive": 0
-        }
-      },
-      "ath": {
-        "ability": "str",
-        "value": 0,
-        "proficient": false,
-        "specialties": [],
-        "expertiseDice": 0,
-        "minRoll": 1,
-        "bonuses": {
-          "check": "",
-          "passive": 0
-        }
-      },
-      "cul": {
-        "ability": "int",
-        "value": 0,
-        "proficient": false,
-        "specialties": [],
-        "expertiseDice": 0,
-        "minRoll": 1,
-        "bonuses": {
-          "check": "",
-          "passive": 0
-        }
-      },
-      "dec": {
-        "ability": "cha",
-        "value": 0,
-        "proficient": false,
-        "specialties": [],
-        "expertiseDice": 0,
-        "minRoll": 1,
-        "bonuses": {
-          "check": "",
-          "passive": 0
-        }
-      },
-      "eng": {
-        "ability": "int",
-        "value": 0,
-        "proficient": false,
-        "specialties": [],
-        "expertiseDice": 0,
-        "minRoll": 1,
-        "bonuses": {
-          "check": "",
-          "passive": 0
-        }
-      },
-      "his": {
-        "ability": "int",
-        "value": 0,
-        "proficient": false,
-        "specialties": [],
-        "expertiseDice": 0,
-        "minRoll": 1,
-        "bonuses": {
-          "check": "",
-          "passive": 0
-        }
-      },
-      "ins": {
-        "ability": "wis",
-        "value": 0,
-        "proficient": false,
-        "specialties": [],
-        "expertiseDice": 0,
-        "minRoll": 1,
-        "bonuses": {
-          "check": "",
-          "passive": 0
-        }
-      },
-      "itm": {
-        "ability": "cha",
-        "value": 0,
-        "proficient": false,
-        "specialties": [],
-        "expertiseDice": 0,
-        "minRoll": 1,
-        "bonuses": {
-          "check": "",
-          "passive": 0
-        }
-      },
-      "inv": {
-        "ability": "int",
-        "value": 0,
-        "proficient": false,
-        "specialties": [],
-        "expertiseDice": 0,
-        "minRoll": 1,
-        "bonuses": {
-          "check": "",
-          "passive": 0
-        }
-      },
-      "med": {
-        "ability": "wis",
-        "value": 0,
-        "proficient": false,
-        "specialties": [],
-        "expertiseDice": 0,
-        "minRoll": 1,
-        "bonuses": {
-          "check": "",
-          "passive": 0
-        }
-      },
-      "nat": {
-        "ability": "int",
-        "value": 0,
-        "proficient": false,
-        "specialties": [],
-        "expertiseDice": 0,
-        "minRoll": 1,
-        "bonuses": {
-          "check": "",
-          "passive": 0
-        }
-      },
-      "prc": {
-        "ability": "wis",
-        "value": 0,
-        "proficient": false,
-        "specialties": [],
-        "expertiseDice": 0,
-        "minRoll": 1,
-        "bonuses": {
-          "check": "",
-          "passive": 0
-        }
-      },
-      "prf": {
-        "ability": "cha",
-        "value": 0,
-        "proficient": false,
-        "specialties": [],
-        "expertiseDice": 0,
-        "minRoll": 1,
-        "bonuses": {
-          "check": "",
-          "passive": 0
-        }
-      },
-      "per": {
-        "ability": "cha",
-        "value": 0,
-        "proficient": false,
-        "specialties": [],
-        "expertiseDice": 0,
-        "minRoll": 1,
-        "bonuses": {
-          "check": "",
-          "passive": 0
-        }
-      },
-      "rel": {
-        "ability": "int",
-        "value": 0,
-        "proficient": false,
-        "specialties": [],
-        "expertiseDice": 0,
-        "minRoll": 1,
-        "bonuses": {
-          "check": "",
-          "passive": 0
-        }
-      },
-      "slt": {
-        "ability": "dex",
-        "value": 0,
-        "proficient": false,
-        "specialties": [],
-        "expertiseDice": 0,
-        "minRoll": 1,
-        "bonuses": {
-          "check": "",
-          "passive": 0
-        }
-      },
-      "ste": {
-        "ability": "dex",
-        "value": 0,
-        "proficient": false,
-        "specialties": [],
-        "expertiseDice": 0,
-        "minRoll": 1,
-        "bonuses": {
-          "check": "",
-          "passive": 0
-        }
-      },
-      "sur": {
-        "ability": "wis",
-        "value": 0,
-        "proficient": false,
-        "specialties": [],
-        "expertiseDice": 0,
-        "minRoll": 1,
-        "bonuses": {
-          "check": "",
-          "passive": 0
-        }
-      }
-    },
-    "spellResources": {
-      "slots": {
-        "0": {
-          "current": 0,
-          "max": 0
-        },
-        "1": {
-          "current": 0,
-          "max": 0
-        },
-        "2": {
-          "current": 0,
-          "max": 0
-        },
-        "3": {
-          "current": 0,
-          "max": 0
-        },
-        "4": {
-          "current": 0,
-          "max": 0
-        },
-        "5": {
-          "current": 0,
-          "max": 0
-        },
-        "6": {
-          "current": 0,
-          "max": 0
-        },
-        "7": {
-          "current": 0,
-          "max": 0
-        },
-        "8": {
-          "current": 0,
-          "max": 0
-        },
-        "9": {
-          "current": 0,
-          "max": 0
-        }
-      },
-      "points": {
-        "current": 0,
-        "max": 0
-      }
-    },
-    "attributes": {
-      "ac": {
-        "baseFormula": "11",
-        "value": 0
-      },
-      "death": {
-        "success": 0,
-        "failure": 0
-      },
-      "hp": {
-        "value": 22,
-        "baseMax": 22,
-        "temp": 0,
-        "bonus": 0
-      },
-      "hitDice": {
-        "d6": {
-          "current": 0,
-          "total": 0
-        },
-        "d8": {
-          "current": 0,
-          "total": 0
-        },
-        "d10": {
-          "current": 0,
-          "total": 0
-        },
-        "d12": {
-          "current": 0,
-          "total": 0
-        },
-        "d4": {
-          "current": 0,
-          "total": 0
-        },
-        "d20": {
-          "current": 0,
-          "total": 0
-        }
-      },
-      "initiative": {
-        "bonus": "",
-        "expertiseDice": 0
-      },
-      "movement": {
-        "burrow": {
-          "distance": 0,
-          "unit": "feet"
-        },
-        "climb": {
-          "distance": 0,
-          "unit": "feet"
-        },
-        "fly": {
-          "distance": 30,
-          "unit": "feet"
-        },
-        "swim": {
-          "distance": 0,
-          "unit": "feet"
-        },
-        "walk": {
-          "distance": 10,
-          "unit": "feet"
-        },
-        "traits": {
-          "hover": false
-        }
-      },
-      "senses": {
-        "blindsight": {
-          "distance": 60,
-          "unit": "feet",
-          "otherwiseBlind": false
-        },
-        "darkvision": {
-          "distance": null,
-          "unit": "feet"
-        },
-        "tremorsense": {
-          "distance": null,
-          "unit": "feet"
-        },
-        "truesight": {
-          "distance": null,
-          "unit": "feet"
-        }
-      },
-      "inspiration": false,
-      "fatigue": 0,
-      "strife": 0,
-      "spellcasting": "int",
-      "casterLevel": 0
-    },
-    "bonuses": {
-      "abilities": {
-        "check": "",
-        "save": "",
-        "skill": ""
-      },
-      "damage": {},
-      "healing": {},
-      "maneuverDC": "",
-      "meleeSpellAttack": "",
-      "meleeWeaponAttack": "",
-      "rangedSpellAttack": "",
-      "rangedWeaponAttack": "",
-      "spellDC": ""
-    },
-    "currency": {
-      "pp": 0,
-      "gp": 0,
-      "ep": 0,
-      "sp": 0,
-      "cp": 0
-    },
-    "details": {
-      "bio": "<h2>Combat</h2><p>The darkmantle lies in ambush on the ceiling, waiting until a creature comes within 10 feet. It then creates its Darkness Aura and flies to attack a victim. It flees if it fails to <a target=\"_blank\" rel=\"noopener noreferrer nofollow\" href=\"https://a5e.tools/node/642\">grapple</a> a creature or if detached.</p><hr class=\"a5e-rule u-my-md\"><h2>Legends and Lore</h2><p>With a History or Nature check, characters can learn the following:</p><p><strong>DC 10</strong> The shape of a darkmantle’s body and the rocky texture of its skin make it indistinguishable from a stalactite, so long as it remains still.</p><p><strong>DC 15</strong> Before it strikes, a darkmantle surrounds itself with an aura of magical darkness. While doing so, the darkmantle relies on echolocation to find its way.</p><p><strong>DC 20</strong> Darkmantles are about as intelligent as dogs. They gather in flocks and can be trained to serve as guardians or hunting animals.</p><p>Description</p><p>Darkmantles billow down from cave ceilings, creating orbs of magical darkness as they envelop and crush passing creatures in their membranous folds.</p><p><strong><em>Ceiling Skulkers</em>.</strong> A darkmantle resembles a squid with flaps of skin connecting its tentacles to form a flowing mantle. It has a conical body and soft, flexible skin that can change both color and texture, allowing it to blend in perfectly with its surroundings. When flocks of darkmantles roost upside down in pitch-black caverns, they resemble stalactites—until they take flight. They use echolocation to navigate the magical darkness they create before wrapping themselves around the heads of their prey.</p><p><strong><em>Hunting Companions</em>.</strong> Intelligent cavern denizens, such as shadow elves and cloakers, sometimes domesticate darkmantles. While a darkmantle can be trained like a falcon or hunting dog, it is not judicious in its choice of target. In settled areas, darkmantles can pose a serious threat to small pets, children, and halflings.</p><p>Behavior</p><p>1–2 Indistinguishable from stalactites unless examined; ambush anything that passes by</p><p>3 Flitting around like big bats</p><p>4 Caring for a clutch of stone-colored eggs</p><p>Signs</p><p>1–3 Stalagmites and stalactites</p><p>4 A distant scream, suddenly cut off; investigation leads to a dead humanoid, such as a shadow elf</p><p>5 DC 14 Perception check: High, barely-audible squeaks&nbsp;</p><p>6 A drop of blood or mucus falls from the ceiling</p><p>Encounters</p><p>Darkmantles lurk in caves and caverns.</p><p><strong>CR 0–2:</strong> 1 or 2 <a target=\"_blank\" rel=\"noopener noreferrer nofollow\" href=\"https://a5e.tools/node/1476\">darkmantles</a> ; <a target=\"_blank\" rel=\"noopener noreferrer nofollow\" href=\"https://a5e.tools/node/1476\">darkmantle</a> and <a target=\"_blank\" rel=\"noopener noreferrer nofollow\" href=\"https://a5e.tools/node/1998\">swarm of bats</a></p><p><strong>CR 3–4:</strong> 3 to 5 <a target=\"_blank\" rel=\"noopener noreferrer nofollow\" href=\"https://a5e.tools/node/1476\">darkmantles</a> ; 2 <a target=\"_blank\" rel=\"noopener noreferrer nofollow\" href=\"https://a5e.tools/node/1476\">darkmantles</a> and 1 to 3 <a target=\"_blank\" rel=\"noopener noreferrer nofollow\" href=\"https://a5e.tools/node/1773\">piercers</a> ; <a target=\"_blank\" rel=\"noopener noreferrer nofollow\" href=\"https://a5e.tools/node/1476\">darkmantle</a> and 1d4 <a target=\"_blank\" rel=\"noopener noreferrer nofollow\" href=\"https://a5e.tools/node/1937\">giant bats</a></p><p><strong>Treasure</strong> 200 gp, 300 sp, blood-spattered map</p><p>Monster Type Description</p><p></p><p>Monstrosities are magical beings usually native to the Material Plane. Some monstrosities combine the features of beasts and humanoids, like <a target=\"_blank\" rel=\"noopener noreferrer nofollow\" href=\"https://a5e.tools/node/1448\">centaurs</a> . Others have bizarre or unnatural appearances, like many-tentacled <a target=\"_blank\" rel=\"noopener noreferrer nofollow\" href=\"https://a5e.tools/node/1774\">ropers</a> . Monstrosities could only arise in a world suffused with magic.</p>",
-      "creatureTypes": [
-        "monstrosity"
-      ],
-      "isSwarm": false,
-      "cr": 0.5,
-      "elite": false,
-      "privateNotes": ""
-    },
-    "proficiencies": {
-      "armor": [],
-      "languages": [],
-      "tools": [],
-      "weapons": []
-    },
-    "resources": {
-      "primary": {
-        "label": "",
-        "value": 0,
-        "max": 0,
-        "per": "",
-        "hideMax": false,
-        "recharge": {
-          "formula": "",
-          "threshold": 6
-        }
-      },
-      "secondary": {
-        "label": "",
-        "value": 0,
-        "max": 0,
-        "per": "",
-        "hideMax": false,
-        "recharge": {
-          "formula": "",
-          "threshold": 6
-        }
-      },
-      "tertiary": {
-        "label": "",
-        "value": 0,
-        "max": 0,
-        "per": "",
-        "hideMax": false,
-        "recharge": {
-          "formula": "",
-          "threshold": 6
-        }
-      },
-      "quaternary": {
-        "label": "",
-        "value": 0,
-        "max": 0,
-        "per": "",
-        "hideMax": false,
-        "recharge": {
-          "formula": "",
-          "threshold": 6
-        }
-      }
-    },
-    "source": {
-      "name": "",
-      "link": "",
-      "publisher": ""
-    },
-    "traits": {
-      "size": "sm",
-      "conditionImmunities": [],
-      "damageImmunities": [],
-      "damageResistances": [],
-      "damageVulnerabilities": []
-    }
-  },
-  "prototypeToken": {
-    "name": "Darkmantle",
-    "displayName": 30,
-    "actorLink": false,
-    "width": 0.5,
-    "height": 0.5,
-    "lockRotation": false,
-    "rotation": 0,
-    "alpha": 1,
-    "light": {
-      "alpha": 0.5,
-      "angle": 360,
-      "bright": 0,
-      "color": null,
-      "coloration": 1,
-      "dim": 0,
-      "luminosity": 0.5,
-      "saturation": 0,
-      "contrast": 0,
-      "shadows": 0,
-      "animation": {
-        "speed": 5,
-        "intensity": 5,
-        "reverse": false,
-        "type": null
-      },
-      "darkness": {
-        "min": 0,
-        "max": 1
-      },
-      "attenuation": 0.5
-    },
-    "disposition": -1,
-    "displayBars": 0,
-    "bar1": {
-      "attribute": "attributes.hp"
-    },
-    "bar2": {
-      "attribute": null
-    },
-    "flags": {},
-    "randomImg": false,
-    "texture": {
-      "src": "systems/a5e/assets/darkmantle.webp",
-      "tint": null,
-      "scaleX": 1,
-      "scaleY": 1,
-      "offsetX": 0,
-      "offsetY": 0,
-      "rotation": 0
-    },
-    "sight": {
-      "angle": 360,
-      "enabled": false,
-      "range": 0,
-      "brightness": 1,
-      "color": null,
-      "attenuation": 0.1,
-      "saturation": 0,
-      "contrast": 0,
-      "visionMode": "basic"
-    },
-    "detectionModes": [],
-    "appendNumber": false,
-    "prependAdjective": false
-  },
-  "folder": "lmZbC4BTRItcgNpI",
-  "_id": "tjd34et6l2rlw8rb"
+	"name": "Darkmantle",
+	"type": "npc",
+	"img": "systems/a5e/assets/darkmantle.webp",
+	"items": [
+		{
+			"_id": "gpZxdCFRnBOrxMnY",
+			"name": "Echolocation",
+			"type": "feature",
+			"img": "icons/svg/item-bag.svg",
+			"effects": [],
+			"folder": null,
+			"sort": 0,
+			"flags": {},
+			"system": {
+				"ac": {
+					"baseFormula": "",
+					"formula": "",
+					"maxDex": 0,
+					"minStr": 0,
+					"mode": 1,
+					"requiresNoShield": false,
+					"requiresUnarmored": false
+				},
+				"actions": {},
+				"description": "<p>The darkmantle can&rsquo;t use blindsight while deafened.</p>",
+				"favorite": false,
+				"secretDescription": "",
+				"source": "",
+				"uses": {
+					"value": null,
+					"max": "",
+					"per": null,
+					"recharge": {
+						"formula": "",
+						"threshold": ""
+					}
+				},
+				"concentration": false,
+				"featureType": "",
+				"prerequisite": "",
+				"schemaVersion": {
+					"version": 0.009,
+					"lastMigration": {
+						"version": {
+							"schema": 0.007,
+							"foundry": "11.311",
+							"system": "0.15.13"
+						}
+					}
+				}
+			},
+			"ownership": {
+				"default": 0
+			}
+		},
+		{
+			"_id": "zxrpLcf4XIhJPQce",
+			"name": "False Appearance",
+			"type": "feature",
+			"img": "icons/magic/nature/stealth-hide-eyes-green.webp",
+			"effects": [],
+			"folder": null,
+			"sort": 0,
+			"flags": {},
+			"system": {
+				"ac": {
+					"baseFormula": "",
+					"formula": "",
+					"maxDex": 0,
+					"minStr": 0,
+					"mode": 1,
+					"requiresNoShield": false,
+					"requiresUnarmored": false
+				},
+				"actions": {},
+				"description": "<p>While motionless, the darkmantle is indistinguishable from rock.</p>",
+				"favorite": false,
+				"secretDescription": "",
+				"source": "",
+				"uses": {
+					"value": null,
+					"max": "",
+					"per": null,
+					"recharge": {
+						"formula": "",
+						"threshold": ""
+					}
+				},
+				"concentration": false,
+				"featureType": "",
+				"prerequisite": "",
+				"schemaVersion": {
+					"version": 0.009,
+					"lastMigration": {
+						"version": {
+							"schema": 0.007,
+							"foundry": "11.311",
+							"system": "0.15.13"
+						}
+					}
+				}
+			},
+			"ownership": {
+				"default": 0
+			}
+		},
+		{
+			"_id": "G8n37EbNoXKV1Dao",
+			"name": "Multiattack",
+			"type": "feature",
+			"img": "icons/skills/melee/blade-tips-triple-steel.webp",
+			"effects": [],
+			"folder": null,
+			"sort": 0,
+			"flags": {},
+			"system": {
+				"ac": {
+					"baseFormula": "",
+					"formula": "",
+					"maxDex": 0,
+					"minStr": 0,
+					"mode": 1,
+					"requiresNoShield": false,
+					"requiresUnarmored": false
+				},
+				"actions": {},
+				"description": "<p>The darkmantle uses Darkness Aura and makes a crush attack.</p>",
+				"favorite": false,
+				"secretDescription": "",
+				"source": "",
+				"uses": {
+					"value": null,
+					"max": "",
+					"per": null,
+					"recharge": {
+						"formula": "",
+						"threshold": ""
+					}
+				},
+				"concentration": false,
+				"featureType": "",
+				"prerequisite": "",
+				"schemaVersion": {
+					"version": 0.009,
+					"lastMigration": {
+						"version": {
+							"schema": 0.007,
+							"foundry": "11.311",
+							"system": "0.15.13"
+						}
+					}
+				}
+			},
+			"ownership": {
+				"default": 0
+			}
+		},
+		{
+			"_id": "bmHKEk1IEkVgIWNH",
+			"name": "Crush",
+			"type": "feature",
+			"img": "icons/svg/item-bag.svg",
+			"effects": [],
+			"folder": null,
+			"sort": 0,
+			"flags": {},
+			"system": {
+				"ac": {
+					"baseFormula": "",
+					"formula": "",
+					"maxDex": 0,
+					"minStr": 0,
+					"mode": 1,
+					"requiresNoShield": false,
+					"requiresUnarmored": false
+				},
+				"actions": {
+					"5rOsYvCPqhYQ89fW": {
+						"name": "Crush",
+						"activation": {
+							"cost": 1,
+							"type": "action",
+							"reactionTrigger": ""
+						},
+						"duration": {
+							"unit": "instantaneous",
+							"value": ""
+						},
+						"ranges": {
+							"mtwZnI6qapQty2h5": {
+								"range": "fiveFeet"
+							}
+						},
+						"area": {
+							"shape": "",
+							"size": "",
+							"placeTemplate": false
+						},
+						"target": {
+							"quantity": 1,
+							"type": "creature"
+						},
+						"rolls": {
+							"MSQPHcmqQNPq06sh": {
+								"bonus": "",
+								"critThreshold": "20",
+								"type": "attack",
+								"attackType": "meleeWeaponAttack",
+								"ability": "str"
+							},
+							"Ie0eXkmeNUpFRXIb": {
+								"canCrit": true,
+								"damageType": "bludgeoning",
+								"formula": "1d6+@str.mod",
+								"name": "Normal Attack",
+								"type": "damage"
+							}
+						},
+						"consumers": {}
+					}
+				},
+				"description": "<p>On Hit, 6 (1d6 + 3) bludgeoning damage, and the target is grappled (escape DC 13). If the darkmantle made the attack with advantage, it attaches to the target’s head, and the target is blinded and can’t breathe. While grappling, the darkmantle can only attack the grappled creature but has advantage on its attack roll. The darkmantle’s speed becomes 0, and it moves with its target.</p>",
+				"favorite": true,
+				"secretDescription": "",
+				"source": "",
+				"uses": {
+					"value": null,
+					"max": "",
+					"per": null,
+					"recharge": {
+						"formula": "",
+						"threshold": ""
+					}
+				},
+				"concentration": false,
+				"featureType": "",
+				"prerequisite": "",
+				"schemaVersion": {
+					"version": 0.009,
+					"lastMigration": {
+						"version": {
+							"schema": 0.007,
+							"foundry": "11.311",
+							"system": "0.15.13"
+						}
+					}
+				}
+			},
+			"ownership": {
+				"default": 0
+			}
+		},
+		{
+			"_id": "nu3GZ3jQZ8ATh2ku",
+			"name": "Darkness Aura",
+			"type": "feature",
+			"img": "icons/svg/item-bag.svg",
+			"effects": [],
+			"folder": null,
+			"sort": 0,
+			"flags": {},
+			"system": {
+				"ac": {
+					"baseFormula": "",
+					"formula": "",
+					"maxDex": 0,
+					"minStr": 0,
+					"mode": 1,
+					"requiresNoShield": false,
+					"requiresUnarmored": false
+				},
+				"actions": {
+					"hapVH29qUyS1HFMd": {
+						"name": "Darkness Aura",
+						"activation": {
+							"cost": 1,
+							"type": "action",
+							"reactionTrigger": ""
+						},
+						"duration": {
+							"unit": "instantaneous",
+							"value": ""
+						},
+						"ranges": {
+							"T9slTyTSdW36Ck5s": {
+								"range": "self"
+							}
+						},
+						"area": {
+							"shape": "sphere",
+							"size": "15-foot-radius",
+							"placeTemplate": false
+						},
+						"target": {
+							"quantity": "",
+							"type": "self"
+						},
+						"consumers": {}
+					}
+				},
+				"description": "<p>A 15-foot-radius area of magical darkness&nbsp;emanates from the darkmantle, spreading around corners and moving with it. Darkvision and natural light can’t penetrate it. If the darkness overlaps with an area of light created by a 2nd-level spell or lower, the spell creating the light is dispelled. The darkness aura lasts for 10 minutes or until the darkmantle takes damage.</p>",
+				"favorite": false,
+				"secretDescription": "",
+				"source": "",
+				"uses": {
+					"value": null,
+					"max": "",
+					"per": null,
+					"recharge": {
+						"formula": "",
+						"threshold": ""
+					}
+				},
+				"concentration": false,
+				"featureType": "",
+				"prerequisite": "",
+				"schemaVersion": {
+					"version": 0.009,
+					"lastMigration": {
+						"version": {
+							"schema": 0.007,
+							"foundry": "11.311",
+							"system": "0.15.13"
+						}
+					}
+				}
+			},
+			"ownership": {
+				"default": 0
+			}
+		},
+		{
+			"name": "Shove",
+			"type": "maneuver",
+			"img": "icons/skills/melee/shield-block-bash-yellow.webp",
+			"effects": [],
+			"flags": {
+				"core": {
+					"sourceId": "Compendium.a5e.a5e-maneuvers.md35qozzy2fxy2o6"
+				}
+			},
+			"system": {
+				"actions": {
+					"LxWU5GTbH4uvS2V7": {
+						"name": "Shove",
+						"activation": {
+							"cost": 1,
+							"type": "action",
+							"reactionTrigger": ""
+						},
+						"duration": {
+							"unit": "instantaneous",
+							"value": null
+						},
+						"ranges": {
+							"IyZefn23OKsZyNct": {
+								"range": "fiveFeet"
+							}
+						},
+						"area": {
+							"shape": "",
+							"size": "",
+							"placeTemplate": false
+						},
+						"target": {
+							"quantity": null,
+							"type": "creature",
+							"shape": "",
+							"size": ""
+						},
+						"rolls": {
+							"IO4KH3aL5M4xlu0t": {
+								"canCrit": false,
+								"damageType": "bludgeoning",
+								"formula": "1 + @str.mod",
+								"name": "Default",
+								"type": "damage"
+							}
+						},
+						"prompts": {
+							"8KtMLX2xpPr060C8": {
+								"ability": "str",
+								"onSave": "",
+								"saveDC": {
+									"type": "custom",
+									"bonus": "@maneuverDC"
+								},
+								"type": "savingThrow"
+							}
+						},
+						"consumers": {}
+					}
+				},
+				"description": "<p>You can use the Shove maneuver to push a creature away. If you are able to make multiple attacks with the Attack action, this maneuver replaces one of them.</p><p>The target must be within your reach and be no more than one size category larger than you. The target makes a Strength saving throw against your maneuver DC. On a failure, you deal basic melee damage and push the target a number of feet away from you equal to 5 + 5 for every 5 points it failed its saving throw by. You can move the creature in any direction away from you (to the side, forward, or diagonally away).</p><p>A creature that is shoved off of a precipice is propelled off of whatever it is standing on -- it does not receive any saving throw or ability check to grab onto something to avoid falling down below.</p>",
+				"favorite": false,
+				"secretDescription": "",
+				"source": "",
+				"uses": {
+					"value": null,
+					"max": "",
+					"per": null,
+					"recharge": {
+						"formula": "",
+						"threshold": ""
+					}
+				},
+				"degree": 0,
+				"exertionCost": 0,
+				"isStance": false,
+				"prerequisite": "",
+				"tradition": "",
+				"schemaVersion": {
+					"version": 0.009,
+					"lastMigration": {
+						"version": {
+							"schema": 0.007,
+							"foundry": "11.311",
+							"system": "0.15.13"
+						}
+					}
+				}
+			},
+			"ownership": {
+				"default": 0
+			},
+			"folder": null,
+			"sort": 0,
+			"_id": "M1nxEvf1On763noO"
+		},
+		{
+			"name": "Disarm",
+			"type": "maneuver",
+			"img": "icons/skills/melee/sword-damaged-broken-glow-red.webp",
+			"effects": [],
+			"flags": {
+				"core": {
+					"sourceId": "Compendium.a5e.a5e-maneuvers.c0bv7fsy2akld5lp"
+				}
+			},
+			"system": {
+				"actions": {
+					"uRcjfqfAw671LqUO": {
+						"name": "Disarm",
+						"activation": {
+							"cost": 1,
+							"type": "action",
+							"reactionTrigger": ""
+						},
+						"duration": {
+							"unit": "instantaneous",
+							"value": null
+						},
+						"ranges": {
+							"tviuCc1kPzbaBVuq": {
+								"range": "touch"
+							}
+						},
+						"area": {
+							"shape": "",
+							"size": "",
+							"placeTemplate": false
+						},
+						"target": {
+							"quantity": "",
+							"type": "creature",
+							"shape": "",
+							"size": ""
+						},
+						"rolls": {
+							"sZsYRxRWLInTu1If": {
+								"canCrit": false,
+								"damageType": "",
+								"formula": "1 + @str.mod",
+								"name": "",
+								"type": "damage"
+							}
+						},
+						"prompts": {
+							"1NEYfSOdTqROQTnu": {
+								"ability": "str",
+								"onSave": "",
+								"saveDC": {
+									"type": "custom",
+									"bonus": "@maneuverDC"
+								},
+								"type": "savingThrow"
+							}
+						},
+						"consumers": {}
+					}
+				},
+				"description": "<p>You can use the Disarm maneuver to attempt to knock an item or weapon from a creature's hand. If you are able to make multiple attacks with the Attack action, this maneuver replaces one of them.</p><p>The target must be within your reach and be holding an item (either carried or wielded). The target makes a Strength or Dexterity saving throw against your maneuver DC. On a failure, you deal basic melee damage and the target drops the item in its space. The target has advantage if it is larger than you or holding the item with two or more hands, and a target smaller than you has disadvantage.</p>",
+				"favorite": false,
+				"secretDescription": "",
+				"source": "",
+				"uses": {
+					"value": null,
+					"max": "",
+					"per": null,
+					"recharge": {
+						"formula": "",
+						"threshold": ""
+					}
+				},
+				"degree": 0,
+				"exertionCost": 0,
+				"isStance": false,
+				"prerequisite": "",
+				"tradition": "",
+				"schemaVersion": {
+					"version": 0.009,
+					"lastMigration": {
+						"version": {
+							"schema": 0.007,
+							"foundry": "11.311",
+							"system": "0.15.13"
+						}
+					}
+				}
+			},
+			"ownership": {
+				"default": 0
+			},
+			"folder": null,
+			"sort": 0,
+			"_id": "QKEr8qDyIEcEWB6U"
+		},
+		{
+			"name": "Grab On",
+			"type": "maneuver",
+			"img": "icons/skills/melee/hand-grip-staff-teal.webp",
+			"effects": [],
+			"flags": {
+				"core": {
+					"sourceId": "Compendium.a5e.a5e-maneuvers.jewmp4pzrg9cdui9"
+				}
+			},
+			"system": {
+				"actions": {
+					"RBPtyw9ybQpS3NI8": {
+						"name": "Grab On",
+						"activation": {
+							"cost": 1,
+							"type": "action",
+							"reactionTrigger": ""
+						},
+						"duration": {
+							"unit": "instantaneous",
+							"value": null
+						},
+						"ranges": {
+							"V9VsvDvudoO4UrXu": {
+								"range": "touch"
+							}
+						},
+						"area": {
+							"shape": "",
+							"size": "",
+							"placeTemplate": false
+						},
+						"target": {
+							"quantity": "",
+							"type": "creature",
+							"shape": "",
+							"size": ""
+						},
+						"prompts": {
+							"KWzZsVclK26UcgbB": {
+								"ability": "str",
+								"onSave": "",
+								"saveDC": {
+									"type": "custom",
+									"bonus": "@maneuverDC"
+								},
+								"type": "savingThrow"
+							}
+						},
+						"consumers": {}
+					}
+				},
+				"description": "<p>While you cannot grapple a creature two or more size categories larger than you, you can grab onto it. By jumping onto its back or climbing up a limb, you can make a Strength or Dexterity saving throw against the creature's maneuver DC to cling to or balance upon its body. On a success, you move into the creature's space and can move upon its body as if it is difficult terrain.</p><p>While grabbing onto a larger creature, you gain advantage on attack rolls against it. The larger creature may be able to attack you as normal, depending on its limbs or attacks. It can also use an action or replace one of its attacks on its turn to try to dislodge you, such as shaking you loose or bashing you against a wall, forcing you to make a Strength or Dexterity saving throw against its maneuver DC or fall prone into the nearest space adjacent to the creature, taking its basic melee damage in the process.</p><p>If the creature chooses to roll over in order to dislodge you, it becomes prone, but you have disadvantage on the saving throw to hang on.</p>",
+				"favorite": false,
+				"secretDescription": "",
+				"source": "",
+				"uses": {
+					"value": null,
+					"max": "",
+					"per": null,
+					"recharge": {
+						"formula": "",
+						"threshold": ""
+					}
+				},
+				"degree": 0,
+				"exertionCost": 0,
+				"isStance": false,
+				"prerequisite": "",
+				"tradition": "",
+				"schemaVersion": {
+					"version": 0.009,
+					"lastMigration": {
+						"version": {
+							"schema": 0.007,
+							"foundry": "11.311",
+							"system": "0.15.13"
+						}
+					}
+				}
+			},
+			"ownership": {
+				"default": 0
+			},
+			"folder": null,
+			"sort": 0,
+			"_id": "dUAMyGmhBa1x9SOw"
+		},
+		{
+			"name": "Knockdown",
+			"type": "maneuver",
+			"img": "icons/magic/control/silhouette-fall-slip-prone.webp",
+			"effects": [],
+			"flags": {
+				"core": {
+					"sourceId": "Compendium.a5e.a5e-maneuvers.zzg7j7cb0vkgctwi"
+				}
+			},
+			"system": {
+				"actions": {
+					"jdi8n8Sx6E8iIDzF": {
+						"name": "Knockdown",
+						"activation": {
+							"cost": 1,
+							"type": "action",
+							"reactionTrigger": ""
+						},
+						"duration": {
+							"unit": "instantaneous",
+							"value": null
+						},
+						"ranges": {
+							"2Su4NdinG9pWpwYj": {
+								"range": "touch"
+							}
+						},
+						"area": {
+							"shape": "",
+							"size": "",
+							"placeTemplate": false
+						},
+						"target": {
+							"quantity": "",
+							"type": "creature",
+							"shape": "",
+							"size": ""
+						},
+						"prompts": {
+							"D1jYOSjSBfO3o9ln": {
+								"ability": "str",
+								"onSave": "",
+								"saveDC": {
+									"type": "custom",
+									"bonus": "@maneuverDC"
+								},
+								"type": "savingThrow"
+							}
+						},
+						"consumers": {}
+					}
+				},
+				"description": "<p>You can use the Knockdown maneuver to trip or push a creature down. If you are able to make multiple attacks with the Attack action, this maneuver replaces one of them.</p><p>The target must be within your reach and be no more than one size category larger than you. The target makes a Strength saving throw against your maneuver DC. On a failure, you deal basic melee damage and knock the target prone.</p>",
+				"favorite": false,
+				"secretDescription": "",
+				"source": "",
+				"uses": {
+					"value": null,
+					"max": "",
+					"per": null,
+					"recharge": {
+						"formula": "",
+						"threshold": ""
+					}
+				},
+				"degree": 0,
+				"exertionCost": 0,
+				"isStance": false,
+				"prerequisite": "",
+				"tradition": "",
+				"schemaVersion": {
+					"version": 0.009,
+					"lastMigration": {
+						"version": {
+							"schema": 0.007,
+							"foundry": "11.311",
+							"system": "0.15.13"
+						}
+					}
+				}
+			},
+			"ownership": {
+				"default": 0
+			},
+			"folder": null,
+			"sort": 0,
+			"_id": "3ZfvmY0sXpSmPNe6"
+		},
+		{
+			"name": "Grapple",
+			"type": "maneuver",
+			"img": "icons/skills/melee/unarmed-punch-fist.webp",
+			"effects": [],
+			"flags": {
+				"core": {
+					"sourceId": "Compendium.a5e.a5e-maneuvers.9umrahwm68f81d7l"
+				}
+			},
+			"system": {
+				"actions": {
+					"T5I4nHhR9GHF8Oa9": {
+						"name": "Grapple",
+						"activation": {
+							"cost": 1,
+							"type": "action",
+							"reactionTrigger": ""
+						},
+						"duration": {
+							"unit": "instantaneous",
+							"value": null
+						},
+						"ranges": {
+							"1GSW7riJ8RaCaify": {
+								"range": "touch"
+							}
+						},
+						"area": {
+							"shape": "",
+							"size": "",
+							"placeTemplate": false
+						},
+						"target": {
+							"quantity": "",
+							"type": "creature",
+							"shape": "",
+							"size": ""
+						},
+						"prompts": {
+							"Bkgeqqr2IVI807R2": {
+								"ability": "str",
+								"onSave": "",
+								"saveDC": {
+									"type": "custom",
+									"bonus": "@maneuverDC"
+								},
+								"type": "savingThrow"
+							}
+						},
+						"consumers": {}
+					}
+				},
+				"description": "<p>You can use the Grapple maneuver to grab or wrestle a creature. If you are able to make multiple attacks with the Attack action, this maneuver replaces one of them.</p>\n<p>You must have at least one free hand to attempt a grapple, your target must be within your reach, and the target must be no more than one size category larger than you. The target makes a Strength or Dexterity saving throw against your maneuver DC. On a failure, you deal basic melee damage and the target becomes grappled (see Appendix A: Conditions on page 616). In addition to things that end the condition, you can release the target at any time (no action required).</p>\n<p><em>Escaping a Grapple.</em> While grappled, a creature can use its action to attempt to escape. It must succeed on a Strength or Dexterity saving throw against your maneuver DC.</p>\n<p><em>Moving a Grappled Creature. </em>When you move, you can drag or carry the grappled creature with you. When you do so, your Speed is halved, unless the creature's weight is within your carrying capacity and you are not encumbered by bulky items.</p>\n<p><em>Freeing a Grappled Creature.</em> You can use the Grapple maneuver to try to free another grappled or restrained creature. The creature grappling or restraining the target makes a Strength saving throw against your maneuver DC. If it fails the saving throw, the grappled or restrained creature is freed. Additionally, you may move the freed creature 5 feet in any direction.</p>",
+				"favorite": false,
+				"secretDescription": "",
+				"source": "",
+				"uses": {
+					"value": null,
+					"max": "",
+					"per": null,
+					"recharge": {
+						"formula": "",
+						"threshold": ""
+					}
+				},
+				"degree": 0,
+				"exertionCost": 0,
+				"isStance": false,
+				"prerequisite": "",
+				"tradition": "",
+				"schemaVersion": {
+					"version": 0.009,
+					"lastMigration": {
+						"version": {
+							"schema": 0.007,
+							"foundry": "11.311",
+							"system": "0.15.13"
+						}
+					}
+				}
+			},
+			"ownership": {
+				"default": 0
+			},
+			"folder": null,
+			"sort": 0,
+			"_id": "nFURywQrGo0AXEDn"
+		},
+		{
+			"name": "Overrun",
+			"type": "maneuver",
+			"img": "icons/skills/melee/shield-damaged-broken-blue.webp",
+			"effects": [],
+			"flags": {
+				"core": {
+					"sourceId": "Compendium.a5e.a5e-maneuvers.210ihnnejao46r20"
+				}
+			},
+			"system": {
+				"actions": {
+					"YMILeC9OmmswCP1T": {
+						"name": "Overrun",
+						"activation": {
+							"cost": 1,
+							"type": "special",
+							"reactionTrigger": ""
+						},
+						"duration": {
+							"unit": "instantaneous",
+							"value": null
+						},
+						"ranges": {
+							"OZtto5cTJJshSb0g": {
+								"range": "touch"
+							}
+						},
+						"area": {
+							"shape": "",
+							"size": "",
+							"placeTemplate": false
+						},
+						"target": {
+							"quantity": "",
+							"type": "creature",
+							"shape": "",
+							"size": ""
+						},
+						"prompts": {
+							"0YKrLk702PMXVzhD": {
+								"ability": "str",
+								"onSave": "",
+								"saveDC": {
+									"type": "custom",
+									"bonus": "@maneuverDC"
+								},
+								"type": "savingThrow"
+							}
+						},
+						"consumers": {}
+					}
+				},
+				"description": "<p>You can use an action or bonus action to make an Overrun maneuver to move through a hostile creature's space by forcing your way past. Make a Strength saving throw against the target's maneuver DC. On a success, you deal basic melee damage and can move through the hostile creature's space once this turn. The creature can choose to just let you pass instead of rolling. You have advantage if you are larger than the target, or disadvantage if you are smaller. If you are two or more sizes smaller than the target, you can move through the hostile creature's space without making a save. You still provoke opportunity attacks if you move beyond a creature's reach.</p>",
+				"favorite": false,
+				"secretDescription": "",
+				"source": "",
+				"uses": {
+					"value": null,
+					"max": "",
+					"per": null,
+					"recharge": {
+						"formula": "",
+						"threshold": ""
+					}
+				},
+				"degree": 0,
+				"exertionCost": 0,
+				"isStance": false,
+				"prerequisite": "",
+				"tradition": "",
+				"schemaVersion": {
+					"version": 0.009,
+					"lastMigration": {
+						"version": {
+							"schema": 0.007,
+							"foundry": "11.311",
+							"system": "0.15.13"
+						}
+					}
+				}
+			},
+			"ownership": {
+				"default": 0
+			},
+			"folder": null,
+			"sort": 0,
+			"_id": "iHhWmBcLsEy7UMaT"
+		}
+	],
+	"effects": [],
+	"flags": {
+		"a5e": {
+			"featureActivationCostFilters": {
+				"inclusive": [],
+				"exclusive": []
+			},
+			"sheetIsLocked": true
+		}
+	},
+	"system": {
+		"abilities": {
+			"str": {
+				"value": 16,
+				"check": {
+					"expertiseDice": 0,
+					"bonus": ""
+				},
+				"save": {
+					"proficient": false,
+					"expertiseDice": 0,
+					"bonus": ""
+				}
+			},
+			"dex": {
+				"value": 12,
+				"check": {
+					"expertiseDice": 0,
+					"bonus": ""
+				},
+				"save": {
+					"proficient": false,
+					"expertiseDice": 0,
+					"bonus": ""
+				}
+			},
+			"con": {
+				"value": 12,
+				"check": {
+					"expertiseDice": 0,
+					"bonus": ""
+				},
+				"save": {
+					"proficient": false,
+					"expertiseDice": 0,
+					"bonus": "",
+					"concentrationBonus": ""
+				}
+			},
+			"int": {
+				"value": 2,
+				"check": {
+					"expertiseDice": 0,
+					"bonus": ""
+				},
+				"save": {
+					"proficient": false,
+					"expertiseDice": 0,
+					"bonus": ""
+				}
+			},
+			"wis": {
+				"value": 10,
+				"check": {
+					"expertiseDice": 0,
+					"bonus": ""
+				},
+				"save": {
+					"proficient": false,
+					"expertiseDice": 0,
+					"bonus": ""
+				}
+			},
+			"cha": {
+				"value": 5,
+				"check": {
+					"expertiseDice": 0,
+					"bonus": ""
+				},
+				"save": {
+					"proficient": false,
+					"expertiseDice": 0,
+					"bonus": ""
+				}
+			}
+		},
+		"schemaVersion": {
+			"version": 0.007,
+			"lastMigration": {
+				"version": {
+					"schema": 0.006,
+					"foundry": "11.307",
+					"system": "0.15.0"
+				}
+			}
+		},
+		"skills": {
+			"acr": {
+				"ability": "dex",
+				"value": 0,
+				"proficient": false,
+				"specialties": [],
+				"expertiseDice": 0,
+				"minRoll": 1,
+				"bonuses": {
+					"check": "",
+					"passive": 0
+				}
+			},
+			"ani": {
+				"ability": "wis",
+				"value": 0,
+				"proficient": false,
+				"specialties": [],
+				"expertiseDice": 0,
+				"minRoll": 1,
+				"bonuses": {
+					"check": "",
+					"passive": 0
+				}
+			},
+			"arc": {
+				"ability": "int",
+				"value": 0,
+				"proficient": false,
+				"specialties": [],
+				"expertiseDice": 0,
+				"minRoll": 1,
+				"bonuses": {
+					"check": "",
+					"passive": 0
+				}
+			},
+			"ath": {
+				"ability": "str",
+				"value": 0,
+				"proficient": false,
+				"specialties": [],
+				"expertiseDice": 0,
+				"minRoll": 1,
+				"bonuses": {
+					"check": "",
+					"passive": 0
+				}
+			},
+			"cul": {
+				"ability": "int",
+				"value": 0,
+				"proficient": false,
+				"specialties": [],
+				"expertiseDice": 0,
+				"minRoll": 1,
+				"bonuses": {
+					"check": "",
+					"passive": 0
+				}
+			},
+			"dec": {
+				"ability": "cha",
+				"value": 0,
+				"proficient": false,
+				"specialties": [],
+				"expertiseDice": 0,
+				"minRoll": 1,
+				"bonuses": {
+					"check": "",
+					"passive": 0
+				}
+			},
+			"eng": {
+				"ability": "int",
+				"value": 0,
+				"proficient": false,
+				"specialties": [],
+				"expertiseDice": 0,
+				"minRoll": 1,
+				"bonuses": {
+					"check": "",
+					"passive": 0
+				}
+			},
+			"his": {
+				"ability": "int",
+				"value": 0,
+				"proficient": false,
+				"specialties": [],
+				"expertiseDice": 0,
+				"minRoll": 1,
+				"bonuses": {
+					"check": "",
+					"passive": 0
+				}
+			},
+			"ins": {
+				"ability": "wis",
+				"value": 0,
+				"proficient": false,
+				"specialties": [],
+				"expertiseDice": 0,
+				"minRoll": 1,
+				"bonuses": {
+					"check": "",
+					"passive": 0
+				}
+			},
+			"itm": {
+				"ability": "cha",
+				"value": 0,
+				"proficient": false,
+				"specialties": [],
+				"expertiseDice": 0,
+				"minRoll": 1,
+				"bonuses": {
+					"check": "",
+					"passive": 0
+				}
+			},
+			"inv": {
+				"ability": "int",
+				"value": 0,
+				"proficient": false,
+				"specialties": [],
+				"expertiseDice": 0,
+				"minRoll": 1,
+				"bonuses": {
+					"check": "",
+					"passive": 0
+				}
+			},
+			"med": {
+				"ability": "wis",
+				"value": 0,
+				"proficient": false,
+				"specialties": [],
+				"expertiseDice": 0,
+				"minRoll": 1,
+				"bonuses": {
+					"check": "",
+					"passive": 0
+				}
+			},
+			"nat": {
+				"ability": "int",
+				"value": 0,
+				"proficient": false,
+				"specialties": [],
+				"expertiseDice": 0,
+				"minRoll": 1,
+				"bonuses": {
+					"check": "",
+					"passive": 0
+				}
+			},
+			"prc": {
+				"ability": "wis",
+				"value": 0,
+				"proficient": false,
+				"specialties": [],
+				"expertiseDice": 0,
+				"minRoll": 1,
+				"bonuses": {
+					"check": "",
+					"passive": 0
+				}
+			},
+			"prf": {
+				"ability": "cha",
+				"value": 0,
+				"proficient": false,
+				"specialties": [],
+				"expertiseDice": 0,
+				"minRoll": 1,
+				"bonuses": {
+					"check": "",
+					"passive": 0
+				}
+			},
+			"per": {
+				"ability": "cha",
+				"value": 0,
+				"proficient": false,
+				"specialties": [],
+				"expertiseDice": 0,
+				"minRoll": 1,
+				"bonuses": {
+					"check": "",
+					"passive": 0
+				}
+			},
+			"rel": {
+				"ability": "int",
+				"value": 0,
+				"proficient": false,
+				"specialties": [],
+				"expertiseDice": 0,
+				"minRoll": 1,
+				"bonuses": {
+					"check": "",
+					"passive": 0
+				}
+			},
+			"slt": {
+				"ability": "dex",
+				"value": 0,
+				"proficient": false,
+				"specialties": [],
+				"expertiseDice": 0,
+				"minRoll": 1,
+				"bonuses": {
+					"check": "",
+					"passive": 0
+				}
+			},
+			"ste": {
+				"ability": "dex",
+				"value": 0,
+				"proficient": false,
+				"specialties": [],
+				"expertiseDice": 0,
+				"minRoll": 1,
+				"bonuses": {
+					"check": "",
+					"passive": 0
+				}
+			},
+			"sur": {
+				"ability": "wis",
+				"value": 0,
+				"proficient": false,
+				"specialties": [],
+				"expertiseDice": 0,
+				"minRoll": 1,
+				"bonuses": {
+					"check": "",
+					"passive": 0
+				}
+			}
+		},
+		"spellResources": {
+			"slots": {
+				"0": {
+					"current": 0,
+					"max": 0
+				},
+				"1": {
+					"current": 0,
+					"max": 0
+				},
+				"2": {
+					"current": 0,
+					"max": 0
+				},
+				"3": {
+					"current": 0,
+					"max": 0
+				},
+				"4": {
+					"current": 0,
+					"max": 0
+				},
+				"5": {
+					"current": 0,
+					"max": 0
+				},
+				"6": {
+					"current": 0,
+					"max": 0
+				},
+				"7": {
+					"current": 0,
+					"max": 0
+				},
+				"8": {
+					"current": 0,
+					"max": 0
+				},
+				"9": {
+					"current": 0,
+					"max": 0
+				}
+			},
+			"points": {
+				"current": 0,
+				"max": 0
+			}
+		},
+		"attributes": {
+			"ac": {
+				"baseFormula": "11",
+				"value": 0
+			},
+			"death": {
+				"success": 0,
+				"failure": 0
+			},
+			"hp": {
+				"value": 22,
+				"baseMax": 22,
+				"temp": 0,
+				"bonus": 0
+			},
+			"hitDice": {
+				"d6": {
+					"current": 0,
+					"total": 0
+				},
+				"d8": {
+					"current": 0,
+					"total": 0
+				},
+				"d10": {
+					"current": 0,
+					"total": 0
+				},
+				"d12": {
+					"current": 0,
+					"total": 0
+				},
+				"d4": {
+					"current": 0,
+					"total": 0
+				},
+				"d20": {
+					"current": 0,
+					"total": 0
+				}
+			},
+			"initiative": {
+				"bonus": "",
+				"expertiseDice": 0
+			},
+			"movement": {
+				"burrow": {
+					"distance": 0,
+					"unit": "feet"
+				},
+				"climb": {
+					"distance": 0,
+					"unit": "feet"
+				},
+				"fly": {
+					"distance": 30,
+					"unit": "feet"
+				},
+				"swim": {
+					"distance": 0,
+					"unit": "feet"
+				},
+				"walk": {
+					"distance": 10,
+					"unit": "feet"
+				},
+				"traits": {
+					"hover": false
+				}
+			},
+			"senses": {
+				"blindsight": {
+					"distance": 60,
+					"unit": "feet",
+					"otherwiseBlind": false
+				},
+				"darkvision": {
+					"distance": null,
+					"unit": "feet"
+				},
+				"tremorsense": {
+					"distance": null,
+					"unit": "feet"
+				},
+				"truesight": {
+					"distance": null,
+					"unit": "feet"
+				}
+			},
+			"inspiration": false,
+			"fatigue": 0,
+			"strife": 0,
+			"spellcasting": "int",
+			"casterLevel": 0
+		},
+		"bonuses": {
+			"abilities": {
+				"check": "",
+				"save": "",
+				"skill": ""
+			},
+			"damage": {},
+			"healing": {},
+			"maneuverDC": "",
+			"meleeSpellAttack": "",
+			"meleeWeaponAttack": "",
+			"rangedSpellAttack": "",
+			"rangedWeaponAttack": "",
+			"spellDC": ""
+		},
+		"currency": {
+			"pp": 0,
+			"gp": 0,
+			"ep": 0,
+			"sp": 0,
+			"cp": 0
+		},
+		"details": {
+			"bio": "<h2>Combat</h2><p>The darkmantle lies in ambush on the ceiling, waiting until a creature comes within 10 feet. It then creates its Darkness Aura and flies to attack a victim. It flees if it fails to <a target=\"_blank\" rel=\"noopener noreferrer nofollow\" href=\"https://a5e.tools/node/642\">grapple</a> a creature or if detached.</p><hr class=\"a5e-rule u-my-md\"><h2>Legends and Lore</h2><p>With a History or Nature check, characters can learn the following:</p><p><strong>DC 10</strong> The shape of a darkmantle’s body and the rocky texture of its skin make it indistinguishable from a stalactite, so long as it remains still.</p><p><strong>DC 15</strong> Before it strikes, a darkmantle surrounds itself with an aura of magical darkness. While doing so, the darkmantle relies on echolocation to find its way.</p><p><strong>DC 20</strong> Darkmantles are about as intelligent as dogs. They gather in flocks and can be trained to serve as guardians or hunting animals.</p><p>Description</p><p>Darkmantles billow down from cave ceilings, creating orbs of magical darkness as they envelop and crush passing creatures in their membranous folds.</p><p><strong><em>Ceiling Skulkers</em>.</strong> A darkmantle resembles a squid with flaps of skin connecting its tentacles to form a flowing mantle. It has a conical body and soft, flexible skin that can change both color and texture, allowing it to blend in perfectly with its surroundings. When flocks of darkmantles roost upside down in pitch-black caverns, they resemble stalactites—until they take flight. They use echolocation to navigate the magical darkness they create before wrapping themselves around the heads of their prey.</p><p><strong><em>Hunting Companions</em>.</strong> Intelligent cavern denizens, such as shadow elves and cloakers, sometimes domesticate darkmantles. While a darkmantle can be trained like a falcon or hunting dog, it is not judicious in its choice of target. In settled areas, darkmantles can pose a serious threat to small pets, children, and halflings.</p><p>Behavior</p><p>1–2 Indistinguishable from stalactites unless examined; ambush anything that passes by</p><p>3 Flitting around like big bats</p><p>4 Caring for a clutch of stone-colored eggs</p><p>Signs</p><p>1–3 Stalagmites and stalactites</p><p>4 A distant scream, suddenly cut off; investigation leads to a dead humanoid, such as a shadow elf</p><p>5 DC 14 Perception check: High, barely-audible squeaks&nbsp;</p><p>6 A drop of blood or mucus falls from the ceiling</p><p>Encounters</p><p>Darkmantles lurk in caves and caverns.</p><p><strong>CR 0–2:</strong> 1 or 2 <a target=\"_blank\" rel=\"noopener noreferrer nofollow\" href=\"https://a5e.tools/node/1476\">darkmantles</a> ; <a target=\"_blank\" rel=\"noopener noreferrer nofollow\" href=\"https://a5e.tools/node/1476\">darkmantle</a> and <a target=\"_blank\" rel=\"noopener noreferrer nofollow\" href=\"https://a5e.tools/node/1998\">swarm of bats</a></p><p><strong>CR 3–4:</strong> 3 to 5 <a target=\"_blank\" rel=\"noopener noreferrer nofollow\" href=\"https://a5e.tools/node/1476\">darkmantles</a> ; 2 <a target=\"_blank\" rel=\"noopener noreferrer nofollow\" href=\"https://a5e.tools/node/1476\">darkmantles</a> and 1 to 3 <a target=\"_blank\" rel=\"noopener noreferrer nofollow\" href=\"https://a5e.tools/node/1773\">piercers</a> ; <a target=\"_blank\" rel=\"noopener noreferrer nofollow\" href=\"https://a5e.tools/node/1476\">darkmantle</a> and 1d4 <a target=\"_blank\" rel=\"noopener noreferrer nofollow\" href=\"https://a5e.tools/node/1937\">giant bats</a></p><p><strong>Treasure</strong> 200 gp, 300 sp, blood-spattered map</p><p>Monster Type Description</p><p></p><p>Monstrosities are magical beings usually native to the Material Plane. Some monstrosities combine the features of beasts and humanoids, like <a target=\"_blank\" rel=\"noopener noreferrer nofollow\" href=\"https://a5e.tools/node/1448\">centaurs</a> . Others have bizarre or unnatural appearances, like many-tentacled <a target=\"_blank\" rel=\"noopener noreferrer nofollow\" href=\"https://a5e.tools/node/1774\">ropers</a> . Monstrosities could only arise in a world suffused with magic.</p>",
+			"creatureTypes": [
+				"monstrosity"
+			],
+			"isSwarm": false,
+			"cr": 0.5,
+			"elite": false,
+			"privateNotes": ""
+		},
+		"proficiencies": {
+			"armor": [],
+			"languages": [],
+			"tools": [],
+			"weapons": []
+		},
+		"resources": {
+			"primary": {
+				"label": "",
+				"value": 0,
+				"max": 0,
+				"per": "",
+				"hideMax": false,
+				"recharge": {
+					"formula": "",
+					"threshold": 6
+				}
+			},
+			"secondary": {
+				"label": "",
+				"value": 0,
+				"max": 0,
+				"per": "",
+				"hideMax": false,
+				"recharge": {
+					"formula": "",
+					"threshold": 6
+				}
+			},
+			"tertiary": {
+				"label": "",
+				"value": 0,
+				"max": 0,
+				"per": "",
+				"hideMax": false,
+				"recharge": {
+					"formula": "",
+					"threshold": 6
+				}
+			},
+			"quaternary": {
+				"label": "",
+				"value": 0,
+				"max": 0,
+				"per": "",
+				"hideMax": false,
+				"recharge": {
+					"formula": "",
+					"threshold": 6
+				}
+			}
+		},
+		"source": {
+			"name": "",
+			"link": "",
+			"publisher": ""
+		},
+		"traits": {
+			"size": "sm",
+			"conditionImmunities": [],
+			"damageImmunities": [],
+			"damageResistances": [],
+			"damageVulnerabilities": []
+		}
+	},
+	"prototypeToken": {
+		"name": "Darkmantle",
+		"displayName": 30,
+		"actorLink": false,
+		"width": 0.5,
+		"height": 0.5,
+		"lockRotation": false,
+		"rotation": 0,
+		"alpha": 1,
+		"light": {
+			"alpha": 0.5,
+			"angle": 360,
+			"bright": 0,
+			"color": null,
+			"coloration": 1,
+			"dim": 0,
+			"luminosity": 0.5,
+			"saturation": 0,
+			"contrast": 0,
+			"shadows": 0,
+			"animation": {
+				"speed": 5,
+				"intensity": 5,
+				"reverse": false,
+				"type": null
+			},
+			"darkness": {
+				"min": 0,
+				"max": 1
+			},
+			"attenuation": 0.5
+		},
+		"disposition": -1,
+		"displayBars": 0,
+		"bar1": {
+			"attribute": "attributes.hp"
+		},
+		"bar2": {
+			"attribute": null
+		},
+		"flags": {},
+		"randomImg": false,
+		"texture": {
+			"src": "systems/a5e/assets/darkmantle.webp",
+			"tint": null,
+			"scaleX": 1,
+			"scaleY": 1,
+			"offsetX": 0,
+			"offsetY": 0,
+			"rotation": 0
+		},
+		"sight": {
+			"angle": 360,
+			"enabled": false,
+			"range": 0,
+			"brightness": 1,
+			"color": null,
+			"attenuation": 0.1,
+			"saturation": 0,
+			"contrast": 0,
+			"visionMode": "basic"
+		},
+		"detectionModes": [],
+		"appendNumber": false,
+		"prependAdjective": false
+	},
+	"folder": null,
+	"_id": "tjd34et6l2rlw8rb"
 }

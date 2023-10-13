@@ -1,109 +1,111 @@
 {
-  "name": "Blinding Blow Stance",
-  "type": "maneuver",
-  "img": "icons/magic/control/mouth-smile-deception-purple.webp",
-  "effects": [
-    {
-      "icon": "icons/magic/control/mouth-smile-deception-purple.webp",
-      "origin": "Item.smw2itvpdd2ciavo",
-      "flags": {
-        "a5e": {
-          "sort": 0,
-          "transferType": "onUse",
-          "duration": {
-            "unit": "hours"
-          }
-        }
-      },
-      "transfer": false,
-      "name": "Blinding Blow Stance",
-      "_id": "C7STh18yoXIvT8CP",
-      "changes": [],
-      "disabled": false,
-      "duration": {
-        "startTime": null,
-        "seconds": null,
-        "combat": null,
-        "rounds": null,
-        "turns": null,
-        "startRound": null,
-        "startTurn": null
-      },
-      "description": "",
-      "statuses": []
-    }
-  ],
-  "flags": {},
-  "system": {
-    "actions": {
-      "aGtbNhnNUvIS29jA": {
-        "name": "Blinding Blow Stance",
-        "activation": {
-          "cost": 1,
-          "type": "bonusAction",
-          "reactionTrigger": ""
-        },
-        "duration": {
-          "unit": "special",
-          "value": ""
-        },
-        "area": {
-          "shape": "",
-          "size": "",
-          "placeTemplate": false
-        },
-        "target": {
-          "quantity": "",
-          "type": "",
-          "shape": "",
-          "size": ""
-        },
-        "prompts": {
-          "2Fc5YYkVhZhvYSNR": {
-            "type": "effect",
-            "default": true,
-            "effectId": "C7STh18yoXIvT8CP",
-            "label": "Blinding Blow Stance"
-          }
-        },
-        "consumers": {
-          "VPzGMygSs8C1cDr6": {
-            "quantity": 2,
-            "resource": "exertion",
-            "type": "resource"
-          }
-        }
-      }
-    },
-    "description": "<p>You pace your attacks in a disruptive flow that makes it easy to follow a strike with maneuvering that temporarily blinds your foes.</p><p>After you hit a creature with a melee weapon attack, you can spend 1 exertion to make a Sleight of Hand check, blinding it if the result is higher than its AC.</p><p>At the beginning of each of its turns, the blinded creature can make a Wisdom saving throw to recover from its blindness.</p>",
-    "favorite": false,
-    "secretDescription": "",
-    "source": "",
-    "uses": {
-      "value": null,
-      "max": "",
-      "per": null,
-      "recharge": {
-        "formula": "1d6",
-        "threshold": 6
-      }
-    },
-    "schema": {
-      "version": 0.007,
-      "lastMigration": {
-        "version": {
-          "schema": 0.003,
-          "foundry": "11.307",
-          "system": "0.15.0"
-        }
-      }
-    },
-    "degree": 4,
-    "exertionCost": 2,
-    "isStance": true,
-    "prerequisite": "",
-    "tradition": "mistAndShade"
-  },
-  "folder": "7dmqjD5z0RYoiery",
-  "_id": "smw2itvpdd2ciavo"
+	"name": "Blinding Blow Stance",
+	"type": "maneuver",
+	"img": "icons/magic/control/mouth-smile-deception-purple.webp",
+	"effects": [
+		{
+			"icon": "icons/magic/control/mouth-smile-deception-purple.webp",
+			"origin": "Item.smw2itvpdd2ciavo",
+			"flags": {
+				"a5e": {
+					"sort": 0,
+					"transferType": "onUse",
+					"duration": {
+						"unit": "hours"
+					},
+					"actionId": "aGtbNhnNUvIS29jA"
+				}
+			},
+			"transfer": false,
+			"name": "Blinding Blow Stance",
+			"_id": "C7STh18yoXIvT8CP",
+			"changes": [],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": null,
+				"combat": null,
+				"rounds": null,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "",
+			"statuses": [],
+			"folder": null
+		}
+	],
+	"flags": {},
+	"system": {
+		"actions": {
+			"aGtbNhnNUvIS29jA": {
+				"name": "Blinding Blow Stance",
+				"activation": {
+					"cost": 1,
+					"type": "bonusAction",
+					"reactionTrigger": ""
+				},
+				"duration": {
+					"unit": "special",
+					"value": ""
+				},
+				"area": {
+					"shape": "",
+					"size": "",
+					"placeTemplate": false
+				},
+				"target": {
+					"quantity": "",
+					"type": "",
+					"shape": "",
+					"size": ""
+				},
+				"prompts": {
+					"2Fc5YYkVhZhvYSNR": {
+						"type": "effect",
+						"default": true,
+						"effectId": "C7STh18yoXIvT8CP",
+						"label": "Blinding Blow Stance"
+					}
+				},
+				"consumers": {
+					"VPzGMygSs8C1cDr6": {
+						"quantity": 2,
+						"resource": "exertion",
+						"type": "resource"
+					}
+				}
+			}
+		},
+		"description": "<p>You pace your attacks in a disruptive flow that makes it easy to follow a strike with maneuvering that temporarily blinds your foes.</p><p>After you hit a creature with a melee weapon attack, you can spend 1 exertion to make a Sleight of Hand check, blinding it if the result is higher than its AC.</p><p>At the beginning of each of its turns, the blinded creature can make a Wisdom saving throw to recover from its blindness.</p>",
+		"favorite": false,
+		"secretDescription": "",
+		"source": "",
+		"uses": {
+			"value": null,
+			"max": "",
+			"per": null,
+			"recharge": {
+				"formula": "1d6",
+				"threshold": 6
+			}
+		},
+		"degree": 4,
+		"exertionCost": 2,
+		"isStance": true,
+		"prerequisite": "",
+		"tradition": "mistAndShade",
+		"schemaVersion": {
+			"version": 0.009,
+			"lastMigration": {
+				"version": {
+					"schema": 0.007,
+					"foundry": "11.311",
+					"system": "0.15.13"
+				}
+			}
+		}
+	},
+	"folder": null,
+	"_id": "smw2itvpdd2ciavo"
 }

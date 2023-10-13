@@ -1,193 +1,194 @@
 {
-  "name": "Ravaging Roots",
-  "type": "spell",
-  "img": "icons/magic/nature/vines-throned-entwined-glow-green.webp",
-  "system": {
-    "actions": {
-      "l4tQWUngdhKK9yOC": {
-        "name": "Creatures",
-        "activation": {
-          "type": "action",
-          "cost": 1
-        },
-        "consumers": {},
-        "rolls": {
-          "X2RbSKYXSniU65p9": {
-            "type": "damage",
-            "default": true,
-            "label": "Roots",
-            "formula": "5d6",
-            "damageType": "bludgeoning",
-            "canCrit": false
-          }
-        },
-        "prompts": {
-          "UyoNZF8p5j5BmHrF": {
-            "type": "savingThrow",
-            "default": true,
-            "ability": "dex",
-            "saveDC": {
-              "type": "spellcasting"
-            },
-            "label": "Initial Roots",
-            "onSave": "not restrained & doesn't take damage"
-          },
-          "8XNtZBI0z2Rk8uFL": {
-            "type": "abilityCheck",
-            "default": false,
-            "ability": "str",
-            "label": "Restraining Roots"
-          }
-        },
-        "uses": {
-          "value": 0,
-          "max": "",
-          "per": "",
-          "recharge": {
-            "formula": "1d6",
-            "threshold": 6
-          }
-        },
-        "duration": {
-          "unit": "minute",
-          "value": 1
-        },
-        "ranges": {
-          "7ZSFI0OTvK9zkJj4": {
-            "range": "long"
-          }
-        },
-        "area": {
-          "shape": "cube",
-          "quantity": 1,
-          "width": 30,
-          "placeTemplate": true
-        }
-      },
-      "fr7xHS7tzHh8zKv5": {
-        "name": "Walls and Ceilings",
-        "activation": {
-          "type": "action",
-          "cost": 1
-        },
-        "consumers": {},
-        "rolls": {
-          "IFkHZ4cp9Z031Pvy": {
-            "type": "damage",
-            "default": false,
-            "label": "Ravaging Roots",
-            "damageType": "bludgeoning",
-            "formula": "5d6",
-            "canCrit": false
-          },
-          "PETVLht9ovGKRpaL": {
-            "type": "damage",
-            "default": false,
-            "label": "Collapsed Rubble",
-            "formula": "5d6",
-            "damageType": "bludgeoning",
-            "canCrit": false
-          }
-        },
-        "prompts": {
-          "FyfNb1PhgeOqIKEO": {
-            "type": "savingThrow",
-            "default": true,
-            "ability": "dex",
-            "saveDC": {
-              "type": "spellcasting"
-            },
-            "label": "Wall or Ceiling Collapse",
-            "onSave": "doesn't take the damage, is not knocked prone, & not buried in the rubble"
-          },
-          "Wz79YUc46bD2crtX": {
-            "type": "abilityCheck",
-            "default": true,
-            "ability": "str",
-            "label": "Freeing Self or Others From Rubble"
-          }
-        },
-        "uses": {
-          "value": 0,
-          "max": "",
-          "per": "",
-          "recharge": {
-            "formula": "1d6",
-            "threshold": 6
-          }
-        },
-        "duration": {
-          "unit": "minute",
-          "value": 1
-        },
-        "ranges": {
-          "FpZW22a1teA9GRTe": {
-            "range": "long"
-          }
-        },
-        "area": {
-          "shape": "cube",
-          "quantity": 1,
-          "width": 30,
-          "placeTemplate": true
-        },
-        "target": {
-          "type": "object",
-          "quantity": 1
-        }
-      }
-    },
-    "description": "<p>Roots erupt out of an earth or stone surface that you can see within range, swelling as they smash stone and displace earth. When the spell ends, the roots wither away, but the damage remains.</p>\n<p><em><strong>Creatures</strong></em>: A creature that starts its turn in the area makes a Dexterity saving throw or is restrained by the roots, taking 5d6 bludgeoning damage. A creature already restrained by the roots automatically fails this saving throw. A creature can use its action to make a Strength check against your spell save DC, freeing itself or another creature on a success.</p>\n<p><em><strong>Ground</strong></em>: Ground and floors in the area (and underneath ceilings in the area, if you cast the spell on a ceiling) become difficult terrain.</p>\n<p><em><strong>Walls and Ceilings</strong></em>: Constructed walls and ceilings in the area take 5d6 bludgeoning damage at the start of each of your turns while the spell lasts. A structure reduced to 0 hit points by this spell collapses. Most structures of worked stone have around 27 (5d10) hit points per 10-foot-square section, while natural walls and ceilings have half as many hit points.</p>\n<p>When a wall or ceiling collapses, the spell ends early. Each creature in or directly beneath the spell&rsquo;s area makes a Dexterity saving throw. On a failure, it takes 5d6 bludgeoning damage, is knocked prone, and is buried by rubble. A creature buried by rubble that is underground is also unable to breathe. A creature can use its action to make a Strength check against your spell save DC, freeing itself or another creature on a success.</p>",
-    "favorite": false,
-    "secretDescription": "",
-    "source": "",
-    "uses": {
-      "value": null,
-      "max": "",
-      "per": null,
-      "recharge": {
-        "formula": "1d6",
-        "threshold": "6"
-      }
-    },
-    "schema": {
-      "version": 0.007,
-      "lastMigration": {
-        "version": {
-          "schema": 0.001,
-          "foundry": "11.307",
-          "system": "0.15.0"
-        }
-      }
-    },
-    "classes": [
-      "druid",
-      "sorcerer"
-    ],
-    "components": {
-      "vocalized": true,
-      "seen": true,
-      "material": true
-    },
-    "concentration": true,
-    "level": 6,
-    "materials": "dried willow tree root",
-    "materialsConsumed": false,
-    "prepared": false,
-    "prerequisite": "",
-    "ritual": false,
-    "schools": {
-      "primary": "evocation",
-      "secondary": [
-        "arcane",
-        "earth",
-        "nature",
-        "plants"
-      ]
-    }
-  },
-  "effects": [],
-  "flags": {},
-  "folder": "XXlxppJh0OdnJaQQ",
-  "_id": "7tdh92wr0hnymgvr"
+	"name": "Ravaging Roots",
+	"type": "spell",
+	"img": "icons/magic/nature/vines-throned-entwined-glow-green.webp",
+	"system": {
+		"actions": {
+			"l4tQWUngdhKK9yOC": {
+				"name": "Creatures",
+				"activation": {
+					"type": "action",
+					"cost": 1
+				},
+				"consumers": {},
+				"rolls": {
+					"X2RbSKYXSniU65p9": {
+						"type": "damage",
+						"default": true,
+						"label": "Roots",
+						"formula": "5d6",
+						"damageType": "bludgeoning",
+						"canCrit": false
+					}
+				},
+				"prompts": {
+					"UyoNZF8p5j5BmHrF": {
+						"type": "savingThrow",
+						"default": true,
+						"ability": "dex",
+						"saveDC": {
+							"type": "spellcasting"
+						},
+						"label": "Initial Roots",
+						"onSave": "not restrained & doesn't take damage"
+					},
+					"8XNtZBI0z2Rk8uFL": {
+						"type": "abilityCheck",
+						"default": false,
+						"ability": "str",
+						"label": "Restraining Roots"
+					}
+				},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"threshold": 6
+					}
+				},
+				"duration": {
+					"unit": "minute",
+					"value": 1
+				},
+				"ranges": {
+					"7ZSFI0OTvK9zkJj4": {
+						"range": "long"
+					}
+				},
+				"area": {
+					"shape": "cube",
+					"quantity": 1,
+					"width": 30,
+					"placeTemplate": true
+				}
+			},
+			"fr7xHS7tzHh8zKv5": {
+				"name": "Walls and Ceilings",
+				"activation": {
+					"type": "action",
+					"cost": 1
+				},
+				"consumers": {},
+				"rolls": {
+					"IFkHZ4cp9Z031Pvy": {
+						"type": "damage",
+						"default": false,
+						"label": "Ravaging Roots",
+						"damageType": "bludgeoning",
+						"formula": "5d6",
+						"canCrit": false
+					},
+					"PETVLht9ovGKRpaL": {
+						"type": "damage",
+						"default": false,
+						"label": "Collapsed Rubble",
+						"formula": "5d6",
+						"damageType": "bludgeoning",
+						"canCrit": false
+					}
+				},
+				"prompts": {
+					"FyfNb1PhgeOqIKEO": {
+						"type": "savingThrow",
+						"default": true,
+						"ability": "dex",
+						"saveDC": {
+							"type": "spellcasting"
+						},
+						"label": "Wall or Ceiling Collapse",
+						"onSave": "doesn't take the damage, is not knocked prone, & not buried in the rubble"
+					},
+					"Wz79YUc46bD2crtX": {
+						"type": "abilityCheck",
+						"default": true,
+						"ability": "str",
+						"label": "Freeing Self or Others From Rubble"
+					}
+				},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"threshold": 6
+					}
+				},
+				"duration": {
+					"unit": "minute",
+					"value": 1
+				},
+				"ranges": {
+					"FpZW22a1teA9GRTe": {
+						"range": "long"
+					}
+				},
+				"area": {
+					"shape": "cube",
+					"quantity": 1,
+					"width": 30,
+					"placeTemplate": true
+				},
+				"target": {
+					"type": "object",
+					"quantity": 1
+				}
+			}
+		},
+		"description": "<p>Roots erupt out of an earth or stone surface that you can see within range, swelling as they smash stone and displace earth. When the spell ends, the roots wither away, but the damage remains.</p>\n<p><em><strong>Creatures</strong></em>: A creature that starts its turn in the area makes a Dexterity saving throw or is restrained by the roots, taking 5d6 bludgeoning damage. A creature already restrained by the roots automatically fails this saving throw. A creature can use its action to make a Strength check against your spell save DC, freeing itself or another creature on a success.</p>\n<p><em><strong>Ground</strong></em>: Ground and floors in the area (and underneath ceilings in the area, if you cast the spell on a ceiling) become difficult terrain.</p>\n<p><em><strong>Walls and Ceilings</strong></em>: Constructed walls and ceilings in the area take 5d6 bludgeoning damage at the start of each of your turns while the spell lasts. A structure reduced to 0 hit points by this spell collapses. Most structures of worked stone have around 27 (5d10) hit points per 10-foot-square section, while natural walls and ceilings have half as many hit points.</p>\n<p>When a wall or ceiling collapses, the spell ends early. Each creature in or directly beneath the spell&rsquo;s area makes a Dexterity saving throw. On a failure, it takes 5d6 bludgeoning damage, is knocked prone, and is buried by rubble. A creature buried by rubble that is underground is also unable to breathe. A creature can use its action to make a Strength check against your spell save DC, freeing itself or another creature on a success.</p>",
+		"favorite": false,
+		"secretDescription": "",
+		"source": "",
+		"uses": {
+			"value": null,
+			"max": "",
+			"per": null,
+			"recharge": {
+				"formula": "1d6",
+				"threshold": "6"
+			}
+		},
+		"classes": [
+			"druid",
+			"sorcerer"
+		],
+		"components": {
+			"vocalized": true,
+			"seen": true,
+			"material": true
+		},
+		"concentration": true,
+		"level": 6,
+		"materials": "dried willow tree root",
+		"materialsConsumed": false,
+		"prepared": false,
+		"prerequisite": "",
+		"rare": false,
+		"ritual": false,
+		"schools": {
+			"primary": "evocation",
+			"secondary": [
+				"arcane",
+				"earth",
+				"nature",
+				"plants"
+			]
+		},
+		"schemaVersion": {
+			"version": 0.009,
+			"lastMigration": {
+				"version": {
+					"schema": 0.007,
+					"foundry": "11.311",
+					"system": "0.15.13"
+				}
+			}
+		}
+	},
+	"effects": [],
+	"flags": {},
+	"folder": null,
+	"_id": "7tdh92wr0hnymgvr"
 }

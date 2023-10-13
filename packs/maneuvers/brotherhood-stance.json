@@ -1,114 +1,116 @@
 {
-  "name": "Brotherhood Stance",
-  "type": "maneuver",
-  "img": "icons/skills/social/diplomacy-unity-alliance.webp",
-  "effects": [
-    {
-      "icon": "icons/skills/social/diplomacy-unity-alliance.webp",
-      "origin": "Item.jb6o4f8umbhjnvcm",
-      "flags": {
-        "a5e": {
-          "sort": 0,
-          "transferType": "onUse",
-          "duration": {
-            "unit": "hours"
-          }
-        }
-      },
-      "transfer": false,
-      "name": "Brotherhood Stance",
-      "_id": "0PXptsNPLGubb6gI",
-      "changes": [],
-      "disabled": false,
-      "duration": {
-        "startTime": null,
-        "seconds": null,
-        "combat": null,
-        "rounds": null,
-        "turns": null,
-        "startRound": null,
-        "startTurn": null
-      },
-      "description": "",
-      "statuses": []
-    }
-  ],
-  "flags": {},
-  "system": {
-    "actions": {
-      "yxhvHDqyuq3303mo": {
-        "name": "Brotherhood Stance",
-        "activation": {
-          "cost": 1,
-          "type": "bonusAction",
-          "reactionTrigger": ""
-        },
-        "duration": {
-          "unit": "special",
-          "value": ""
-        },
-        "ranges": {
-          "f5e9hMDTVKWWGm3X": {
-            "range": "self"
-          }
-        },
-        "area": {
-          "shape": "",
-          "size": "",
-          "placeTemplate": false
-        },
-        "target": {
-          "quantity": "",
-          "type": "self",
-          "shape": "",
-          "size": ""
-        },
-        "consumers": {
-          "1BGcLS65sXLGax00": {
-            "quantity": 3,
-            "resource": "exertion",
-            "type": "resource"
-          }
-        },
-        "prompts": {
-          "MZnfsfo7DDkpp2pE": {
-            "type": "effect",
-            "default": true,
-            "effectId": "0PXptsNPLGubb6gI",
-            "label": "Brotherhood Stance"
-          }
-        }
-      }
-    },
-    "description": "<p>By focusing on keeping enemies off-balance, you help allies attack more effectively.</p><p>Whenever you hit a creature with a melee weapon attack, you can also take the Help action. On a critical hit, the target of your Help action can use their reaction to take the Dodge action.</p>",
-    "favorite": false,
-    "secretDescription": "",
-    "source": "",
-    "uses": {
-      "value": null,
-      "max": "",
-      "per": null,
-      "recharge": {
-        "formula": "1d6",
-        "threshold": 6
-      }
-    },
-    "schema": {
-      "version": 0.007,
-      "lastMigration": {
-        "version": {
-          "schema": 0.003,
-          "foundry": "11.307",
-          "system": "0.15.0"
-        }
-      }
-    },
-    "degree": 4,
-    "exertionCost": 3,
-    "isStance": true,
-    "prerequisite": "",
-    "tradition": "sanguineKnot"
-  },
-  "folder": "7dmqjD5z0RYoiery",
-  "_id": "jb6o4f8umbhjnvcm"
+	"name": "Brotherhood Stance",
+	"type": "maneuver",
+	"img": "icons/skills/social/diplomacy-unity-alliance.webp",
+	"effects": [
+		{
+			"icon": "icons/skills/social/diplomacy-unity-alliance.webp",
+			"origin": "Item.jb6o4f8umbhjnvcm",
+			"flags": {
+				"a5e": {
+					"sort": 0,
+					"transferType": "onUse",
+					"duration": {
+						"unit": "hours"
+					},
+					"actionId": "yxhvHDqyuq3303mo"
+				}
+			},
+			"transfer": false,
+			"name": "Brotherhood Stance",
+			"_id": "0PXptsNPLGubb6gI",
+			"changes": [],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": null,
+				"combat": null,
+				"rounds": null,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "",
+			"statuses": [],
+			"folder": null
+		}
+	],
+	"flags": {},
+	"system": {
+		"actions": {
+			"yxhvHDqyuq3303mo": {
+				"name": "Brotherhood Stance",
+				"activation": {
+					"cost": 1,
+					"type": "bonusAction",
+					"reactionTrigger": ""
+				},
+				"duration": {
+					"unit": "special",
+					"value": ""
+				},
+				"ranges": {
+					"f5e9hMDTVKWWGm3X": {
+						"range": "self"
+					}
+				},
+				"area": {
+					"shape": "",
+					"size": "",
+					"placeTemplate": false
+				},
+				"target": {
+					"quantity": "",
+					"type": "self",
+					"shape": "",
+					"size": ""
+				},
+				"consumers": {
+					"1BGcLS65sXLGax00": {
+						"quantity": 3,
+						"resource": "exertion",
+						"type": "resource"
+					}
+				},
+				"prompts": {
+					"MZnfsfo7DDkpp2pE": {
+						"type": "effect",
+						"default": true,
+						"effectId": "0PXptsNPLGubb6gI",
+						"label": "Brotherhood Stance"
+					}
+				}
+			}
+		},
+		"description": "<p>By focusing on keeping enemies off-balance, you help allies attack more effectively.</p><p>Whenever you hit a creature with a melee weapon attack, you can also take the Help action. On a critical hit, the target of your Help action can use their reaction to take the Dodge action.</p>",
+		"favorite": false,
+		"secretDescription": "",
+		"source": "",
+		"uses": {
+			"value": null,
+			"max": "",
+			"per": null,
+			"recharge": {
+				"formula": "1d6",
+				"threshold": 6
+			}
+		},
+		"degree": 4,
+		"exertionCost": 3,
+		"isStance": true,
+		"prerequisite": "",
+		"tradition": "sanguineKnot",
+		"schemaVersion": {
+			"version": 0.009,
+			"lastMigration": {
+				"version": {
+					"schema": 0.007,
+					"foundry": "11.311",
+					"system": "0.15.13"
+				}
+			}
+		}
+	},
+	"folder": null,
+	"_id": "jb6o4f8umbhjnvcm"
 }

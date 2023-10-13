@@ -1,109 +1,111 @@
 {
-  "name": "Strike the Cracks Stance",
-  "type": "maneuver",
-  "img": "icons/skills/melee/spear-tips-quintuple-orange.webp",
-  "effects": [
-    {
-      "icon": "icons/skills/melee/spear-tips-quintuple-orange.webp",
-      "origin": "Item.yitoxaxjflp63yw9",
-      "flags": {
-        "a5e": {
-          "sort": 0,
-          "transferType": "onUse",
-          "duration": {
-            "unit": "hours"
-          }
-        }
-      },
-      "transfer": false,
-      "name": "Strike the Cracks Stance",
-      "_id": "gbSefg6k1qGLc94F",
-      "changes": [],
-      "disabled": false,
-      "duration": {
-        "startTime": null,
-        "seconds": null,
-        "combat": null,
-        "rounds": null,
-        "turns": null,
-        "startRound": null,
-        "startTurn": null
-      },
-      "description": "",
-      "statuses": []
-    }
-  ],
-  "flags": {},
-  "system": {
-    "actions": {
-      "8wtv9zRVBdX3j6Va": {
-        "name": "Strike the Cracks Stance",
-        "activation": {
-          "cost": 1,
-          "type": "bonusAction",
-          "reactionTrigger": ""
-        },
-        "duration": {
-          "unit": "special",
-          "value": ""
-        },
-        "area": {
-          "shape": "",
-          "size": "",
-          "placeTemplate": false
-        },
-        "target": {
-          "quantity": "",
-          "type": "self",
-          "shape": "",
-          "size": ""
-        },
-        "consumers": {
-          "5xKDQTrGDNJIrBE7": {
-            "quantity": 2,
-            "resource": "exertion",
-            "type": "resource"
-          }
-        },
-        "prompts": {
-          "WHbXH4mMgZUqy7AS": {
-            "type": "effect",
-            "default": true,
-            "label": "Strike the Cracks Stance",
-            "effectId": "gbSefg6k1qGLc94F"
-          }
-        }
-      }
-    },
-    "description": "<p>You focus on targeting your enemy's weakest spots.</p><p>When you make melee weapon attacks, you score critical hits on a roll of 19-20. If you already have a feature that increases the range of your critical hits, your critical hit range increases by 1 (maximum 17-20).</p><p>You deal one additional weapon damage die when determining the extra damage for a critical hit with a melee weapon attack.</p>",
-    "favorite": false,
-    "secretDescription": "",
-    "source": "",
-    "uses": {
-      "value": null,
-      "max": "",
-      "per": null,
-      "recharge": {
-        "formula": "1d6",
-        "threshold": 6
-      }
-    },
-    "schema": {
-      "version": 0.007,
-      "lastMigration": {
-        "version": {
-          "schema": 0.003,
-          "foundry": "11.307",
-          "system": "0.15.0"
-        }
-      }
-    },
-    "degree": 4,
-    "exertionCost": 2,
-    "isStance": true,
-    "prerequisite": "",
-    "tradition": "mirrorsGlint"
-  },
-  "folder": "7dmqjD5z0RYoiery",
-  "_id": "yitoxaxjflp63yw9"
+	"name": "Strike the Cracks Stance",
+	"type": "maneuver",
+	"img": "icons/skills/melee/spear-tips-quintuple-orange.webp",
+	"effects": [
+		{
+			"icon": "icons/skills/melee/spear-tips-quintuple-orange.webp",
+			"origin": "Item.yitoxaxjflp63yw9",
+			"flags": {
+				"a5e": {
+					"sort": 0,
+					"transferType": "onUse",
+					"duration": {
+						"unit": "hours"
+					},
+					"actionId": "8wtv9zRVBdX3j6Va"
+				}
+			},
+			"transfer": false,
+			"name": "Strike the Cracks Stance",
+			"_id": "gbSefg6k1qGLc94F",
+			"changes": [],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": null,
+				"combat": null,
+				"rounds": null,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "",
+			"statuses": [],
+			"folder": null
+		}
+	],
+	"flags": {},
+	"system": {
+		"actions": {
+			"8wtv9zRVBdX3j6Va": {
+				"name": "Strike the Cracks Stance",
+				"activation": {
+					"cost": 1,
+					"type": "bonusAction",
+					"reactionTrigger": ""
+				},
+				"duration": {
+					"unit": "special",
+					"value": ""
+				},
+				"area": {
+					"shape": "",
+					"size": "",
+					"placeTemplate": false
+				},
+				"target": {
+					"quantity": "",
+					"type": "self",
+					"shape": "",
+					"size": ""
+				},
+				"consumers": {
+					"5xKDQTrGDNJIrBE7": {
+						"quantity": 2,
+						"resource": "exertion",
+						"type": "resource"
+					}
+				},
+				"prompts": {
+					"WHbXH4mMgZUqy7AS": {
+						"type": "effect",
+						"default": true,
+						"label": "Strike the Cracks Stance",
+						"effectId": "gbSefg6k1qGLc94F"
+					}
+				}
+			}
+		},
+		"description": "<p>You focus on targeting your enemy's weakest spots.</p><p>When you make melee weapon attacks, you score critical hits on a roll of 19-20. If you already have a feature that increases the range of your critical hits, your critical hit range increases by 1 (maximum 17-20).</p><p>You deal one additional weapon damage die when determining the extra damage for a critical hit with a melee weapon attack.</p>",
+		"favorite": false,
+		"secretDescription": "",
+		"source": "",
+		"uses": {
+			"value": null,
+			"max": "",
+			"per": null,
+			"recharge": {
+				"formula": "1d6",
+				"threshold": 6
+			}
+		},
+		"degree": 4,
+		"exertionCost": 2,
+		"isStance": true,
+		"prerequisite": "",
+		"tradition": "mirrorsGlint",
+		"schemaVersion": {
+			"version": 0.009,
+			"lastMigration": {
+				"version": {
+					"schema": 0.007,
+					"foundry": "11.311",
+					"system": "0.15.13"
+				}
+			}
+		}
+	},
+	"folder": null,
+	"_id": "yitoxaxjflp63yw9"
 }

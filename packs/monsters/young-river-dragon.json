@@ -1,1716 +1,1716 @@
 {
-  "name": "Young River Dragon",
-  "type": "npc",
-  "img": "systems/a5e/assets/river-dragon.webp",
-  "items": [
-    {
-      "_id": "Kc52REtmhngdCxjp",
-      "name": "Bite",
-      "type": "feature",
-      "img": "icons/creatures/abilities/mouth-teeth-long-red.webp",
-      "effects": [],
-      "folder": null,
-      "sort": 0,
-      "flags": {
-        "core": {
-          "sourceId": "Item.ag4fvqlYaTYUmMJq"
-        }
-      },
-      "system": {
-        "ac": {
-          "baseFormula": "",
-          "formula": "",
-          "maxDex": 0,
-          "minStr": 0,
-          "mode": 1,
-          "requiresNoShield": false,
-          "requiresUnarmored": false
-        },
-        "actions": {
-          "3MW9bSaz4Pe6pWpI": {
-            "name": "Bite",
-            "activation": {
-              "cost": 1,
-              "type": "action",
-              "reactionTrigger": ""
-            },
-            "duration": {
-              "unit": "instantaneous",
-              "value": ""
-            },
-            "ranges": {
-              "qMWXlBIRUKCvH0QA": {
-                "range": "10ft"
-              }
-            },
-            "area": {
-              "shape": "",
-              "size": "",
-              "placeTemplate": false
-            },
-            "target": {
-              "quantity": 1,
-              "type": "creature"
-            },
-            "rolls": {
-              "XrSV3dYVAdVImYuS": {
-                "bonus": "",
-                "critThreshold": "20",
-                "type": "attack",
-                "attackType": "meleeWeaponAttack",
-                "ability": "dex"
-              },
-              "cUEdxTxavhuqRDki": {
-                "canCrit": true,
-                "damageType": "piercing",
-                "formula": "3d10 + @dex.mod",
-                "name": "Default",
-                "type": "damage"
-              }
-            },
-            "consumers": {}
-          }
-        },
-        "description": "",
-        "favorite": true,
-        "secretDescription": "",
-        "source": "",
-        "uses": {
-          "value": null,
-          "max": "",
-          "per": null,
-          "recharge": {
-            "formula": "",
-            "threshold": ""
-          }
-        },
-        "schema": {
-          "version": 0.007,
-          "lastMigration": {
-            "version": {
-              "schema": 0.004,
-              "foundry": "11.307",
-              "system": "0.15.0"
-            }
-          }
-        },
-        "concentration": false,
-        "featureType": "naturalWeapon",
-        "prerequisite": ""
-      },
-      "ownership": {
-        "default": 0
-      }
-    },
-    {
-      "_id": "AUkVX63u1F8tH6O9",
-      "name": "Torrential Breath (Recharge 5-6)",
-      "type": "feature",
-      "img": "icons/svg/item-bag.svg",
-      "effects": [],
-      "folder": null,
-      "sort": 0,
-      "flags": {},
-      "system": {
-        "ac": {
-          "baseFormula": "",
-          "formula": "",
-          "maxDex": 0,
-          "minStr": 0,
-          "mode": 1,
-          "requiresNoShield": false,
-          "requiresUnarmored": false
-        },
-        "actions": {
-          "SoWtehe3WwB1k3V1": {
-            "name": "Torrential Breath (Recharge 5-6)",
-            "activation": {
-              "cost": 1,
-              "type": "action",
-              "reactionTrigger": ""
-            },
-            "duration": {
-              "unit": "instantaneous",
-              "value": ""
-            },
-            "ranges": {
-              "F4p2ECo0FJIHyN0e": {
-                "range": "short"
-              }
-            },
-            "area": {
-              "shape": "line",
-              "size": "30ft long, 5ft wide",
-              "placeTemplate": false
-            },
-            "target": {
-              "quantity": null,
-              "type": "creature"
-            },
-            "rolls": {
-              "d0KoQDbsgAsnmCKC": {
-                "canCrit": false,
-                "damageType": "bludgeoning",
-                "formula": "12d6",
-                "name": "Default",
-                "type": "damage"
-              }
-            },
-            "prompts": {
-              "sNXoMfPk5cd625ac": {
-                "ability": "dex",
-                "onSave": "Half damage.",
-                "saveDC": {
-                  "type": "custom",
-                  "bonus": "14"
-                },
-                "type": "savingThrow"
-              }
-            },
-            "consumers": {}
-          }
-        },
-        "description": "<p>The dragon exhales water in a 30-foot-long, 5-foot-wide line. Each creature in the area makes a DC 14 Dexterity saving throw, taking 42 (12d6) bludgeoning damage on a failed save or half damage on a success.</p>",
-        "favorite": true,
-        "secretDescription": "",
-        "source": "",
-        "uses": {
-          "value": null,
-          "max": "",
-          "per": null,
-          "recharge": {
-            "formula": "",
-            "threshold": ""
-          }
-        },
-        "schema": {
-          "version": 0.007,
-          "lastMigration": {
-            "version": {
-              "schema": 0.004,
-              "foundry": "11.307",
-              "system": "0.15.0"
-            }
-          }
-        },
-        "concentration": false,
-        "featureType": "",
-        "prerequisite": ""
-      },
-      "ownership": {
-        "default": 0
-      }
-    },
-    {
-      "_id": "9iic8lMz3aj1SNu6",
-      "name": "Amphibious",
-      "type": "feature",
-      "img": "icons/environment/creatures/frog-spotted-green.webp",
-      "effects": [],
-      "folder": null,
-      "sort": 0,
-      "flags": {},
-      "system": {
-        "ac": {
-          "baseFormula": "",
-          "formula": "",
-          "maxDex": 0,
-          "minStr": 0,
-          "mode": 1,
-          "requiresNoShield": false,
-          "requiresUnarmored": false
-        },
-        "actions": {},
-        "description": "<p>The dragon can breath air and water.</p>",
-        "favorite": false,
-        "secretDescription": "",
-        "source": "",
-        "uses": {
-          "value": null,
-          "max": "",
-          "per": null,
-          "recharge": {
-            "formula": "",
-            "threshold": ""
-          }
-        },
-        "schema": {
-          "version": 0.007,
-          "lastMigration": {
-            "version": {
-              "schema": 0.004,
-              "foundry": "11.307",
-              "system": "0.15.0"
-            }
-          }
-        },
-        "concentration": false,
-        "featureType": "",
-        "prerequisite": ""
-      },
-      "ownership": {
-        "default": 0
-      }
-    },
-    {
-      "_id": "JG2D1Lq3R9TJojY1",
-      "name": "Flowing Grace",
-      "type": "feature",
-      "img": "icons/svg/item-bag.svg",
-      "effects": [],
-      "folder": null,
-      "sort": 0,
-      "flags": {},
-      "system": {
-        "ac": {
-          "baseFormula": "",
-          "formula": "",
-          "maxDex": 0,
-          "minStr": 0,
-          "mode": 1,
-          "requiresNoShield": false,
-          "requiresUnarmored": false
-        },
-        "actions": {},
-        "description": "<p>The dragon doesn't provoke opportunity attacks when it flies or swims out of an enemy's reach.</p>",
-        "favorite": false,
-        "secretDescription": "",
-        "source": "",
-        "uses": {
-          "value": null,
-          "max": "",
-          "per": null,
-          "recharge": {
-            "formula": "",
-            "threshold": ""
-          }
-        },
-        "schema": {
-          "version": 0.007,
-          "lastMigration": {
-            "version": {
-              "schema": 0.004,
-              "foundry": "11.307",
-              "system": "0.15.0"
-            }
-          }
-        },
-        "concentration": false,
-        "featureType": "",
-        "prerequisite": ""
-      },
-      "ownership": {
-        "default": 0
-      }
-    },
-    {
-      "_id": "o2PHke3FsMHlFHlu",
-      "name": "Shimmering Scales",
-      "type": "feature",
-      "img": "icons/svg/item-bag.svg",
-      "effects": [],
-      "folder": null,
-      "sort": 0,
-      "flags": {},
-      "system": {
-        "ac": {
-          "baseFormula": "",
-          "formula": "",
-          "maxDex": 0,
-          "minStr": 0,
-          "mode": 1,
-          "requiresNoShield": false,
-          "requiresUnarmored": false
-        },
-        "actions": {},
-        "description": "<p>While in water, the dragon gains three-quarters cover from attacks made by creatures more than 30 feet away.</p>",
-        "favorite": false,
-        "secretDescription": "",
-        "source": "",
-        "uses": {
-          "value": null,
-          "max": "",
-          "per": null,
-          "recharge": {
-            "formula": "",
-            "threshold": ""
-          }
-        },
-        "schema": {
-          "version": 0.007,
-          "lastMigration": {
-            "version": {
-              "schema": 0.004,
-              "foundry": "11.307",
-              "system": "0.15.0"
-            }
-          }
-        },
-        "concentration": false,
-        "featureType": "",
-        "prerequisite": ""
-      },
-      "ownership": {
-        "default": 0
-      }
-    },
-    {
-      "_id": "jNXFTLIGKc1oC061",
-      "name": "Multiattack",
-      "type": "feature",
-      "img": "icons/skills/melee/blade-tips-triple-steel.webp",
-      "effects": [],
-      "folder": null,
-      "sort": 300000,
-      "flags": {
-        "core": {
-          "sourceId": "Item.xD6jXCrejNh7pOld"
-        }
-      },
-      "system": {
-        "ac": {
-          "baseFormula": "",
-          "formula": "",
-          "maxDex": 0,
-          "minStr": 0,
-          "mode": 1,
-          "requiresNoShield": false,
-          "requiresUnarmored": false
-        },
-        "actions": {},
-        "description": "<p>The dragon attacks once with its bite and twice with its claws.</p>",
-        "favorite": false,
-        "secretDescription": "",
-        "source": "",
-        "uses": {
-          "value": null,
-          "max": "",
-          "per": null,
-          "recharge": {
-            "formula": "",
-            "threshold": ""
-          }
-        },
-        "schema": {
-          "version": 0.007,
-          "lastMigration": {
-            "version": {
-              "schema": 0.004,
-              "foundry": "11.307",
-              "system": "0.15.0"
-            }
-          }
-        },
-        "concentration": false,
-        "featureType": "",
-        "prerequisite": ""
-      },
-      "ownership": {
-        "default": 0
-      }
-    },
-    {
-      "_id": "l3KDoBDb44X8UyUP",
-      "name": "Claws",
-      "type": "feature",
-      "img": "icons/skills/melee/blood-slash-foam-red.webp",
-      "effects": [],
-      "folder": null,
-      "sort": 250000,
-      "flags": {
-        "core": {
-          "sourceId": "Item.FnfGLPPI0HknNig2"
-        }
-      },
-      "system": {
-        "ac": {
-          "baseFormula": "",
-          "formula": "",
-          "maxDex": 0,
-          "minStr": 0,
-          "mode": 1,
-          "requiresNoShield": false,
-          "requiresUnarmored": false
-        },
-        "actions": {
-          "cWoRLMEqPJ0XWmER": {
-            "name": "Claws",
-            "activation": {
-              "cost": 1,
-              "type": "action",
-              "reactionTrigger": ""
-            },
-            "duration": {
-              "unit": "instantaneous",
-              "value": ""
-            },
-            "ranges": {
-              "BNwZvfgpqOrktFDG": {
-                "range": "fiveFeet"
-              }
-            },
-            "area": {
-              "shape": "",
-              "size": "",
-              "placeTemplate": false
-            },
-            "target": {
-              "quantity": 1,
-              "type": "creature"
-            },
-            "rolls": {
-              "3fjTZP8ZaZSdRVAW": {
-                "bonus": "",
-                "critThreshold": "20",
-                "type": "attack",
-                "attackType": "meleeWeaponAttack",
-                "ability": "dex"
-              },
-              "vAXUFosfPWT30BOR": {
-                "canCrit": true,
-                "damageType": "slashing",
-                "formula": "2d8 + @dex.mod",
-                "name": "Default",
-                "type": "damage"
-              }
-            },
-            "consumers": {}
-          }
-        },
-        "description": "",
-        "favorite": true,
-        "secretDescription": "",
-        "source": "",
-        "uses": {
-          "value": null,
-          "max": "",
-          "per": null,
-          "recharge": {
-            "formula": "",
-            "threshold": ""
-          }
-        },
-        "schema": {
-          "version": 0.007,
-          "lastMigration": {
-            "version": {
-              "schema": 0.004,
-              "foundry": "11.307",
-              "system": "0.15.0"
-            }
-          }
-        },
-        "concentration": false,
-        "featureType": "",
-        "prerequisite": ""
-      },
-      "ownership": {
-        "default": 0
-      }
-    },
-    {
-      "name": "Shove",
-      "type": "maneuver",
-      "img": "icons/skills/melee/shield-block-bash-yellow.webp",
-      "effects": [],
-      "flags": {
-        "core": {
-          "sourceId": "Compendium.a5e.a5e-maneuvers.md35qozzy2fxy2o6"
-        }
-      },
-      "system": {
-        "actions": {
-          "oWP7LgXzjyWFoRxd": {
-            "name": "Shove",
-            "activation": {
-              "cost": 1,
-              "type": "action",
-              "reactionTrigger": ""
-            },
-            "duration": {
-              "unit": "instantaneous",
-              "value": null
-            },
-            "ranges": {
-              "FLJongKmqjFuJhso": {
-                "range": "fiveFeet"
-              }
-            },
-            "area": {
-              "shape": "",
-              "size": "",
-              "placeTemplate": false
-            },
-            "target": {
-              "quantity": null,
-              "type": "creature",
-              "shape": "",
-              "size": ""
-            },
-            "rolls": {
-              "ZqxJQyGYcjGf54Ni": {
-                "canCrit": false,
-                "damageType": "bludgeoning",
-                "formula": "1 + @str.mod",
-                "name": "Default",
-                "type": "damage"
-              }
-            },
-            "prompts": {
-              "tvINSjBeGSu7L0b5": {
-                "ability": "str",
-                "onSave": "",
-                "saveDC": {
-                  "type": "custom",
-                  "bonus": "@maneuverDC"
-                },
-                "type": "savingThrow"
-              }
-            },
-            "consumers": {}
-          }
-        },
-        "description": "<p>You can use the Shove maneuver to push a creature away. If you are able to make multiple attacks with the Attack action, this maneuver replaces one of them.</p><p>The target must be within your reach and be no more than one size category larger than you. The target makes a Strength saving throw against your maneuver DC. On a failure, you deal basic melee damage and push the target a number of feet away from you equal to 5 + 5 for every 5 points it failed its saving throw by. You can move the creature in any direction away from you (to the side, forward, or diagonally away).</p><p>A creature that is shoved off of a precipice is propelled off of whatever it is standing on -- it does not receive any saving throw or ability check to grab onto something to avoid falling down below.</p>",
-        "favorite": false,
-        "secretDescription": "",
-        "source": "",
-        "uses": {
-          "value": null,
-          "max": "",
-          "per": null,
-          "recharge": {
-            "formula": "",
-            "threshold": ""
-          }
-        },
-        "schema": {
-          "version": 0.007,
-          "lastMigration": {
-            "version": {
-              "schema": 0.004,
-              "foundry": "11.307",
-              "system": "0.15.0"
-            }
-          }
-        },
-        "degree": 0,
-        "exertionCost": 0,
-        "isStance": false,
-        "prerequisite": "",
-        "tradition": ""
-      },
-      "ownership": {
-        "default": 0
-      },
-      "folder": null,
-      "sort": 0,
-      "_id": "iIZyT3SEghoUNsgl"
-    },
-    {
-      "name": "Disarm",
-      "type": "maneuver",
-      "img": "icons/skills/melee/sword-damaged-broken-glow-red.webp",
-      "effects": [],
-      "flags": {
-        "core": {
-          "sourceId": "Compendium.a5e.a5e-maneuvers.c0bv7fsy2akld5lp"
-        }
-      },
-      "system": {
-        "actions": {
-          "Mc8Lw7TV7h0t908m": {
-            "name": "Disarm",
-            "activation": {
-              "cost": 1,
-              "type": "action",
-              "reactionTrigger": ""
-            },
-            "duration": {
-              "unit": "instantaneous",
-              "value": null
-            },
-            "ranges": {
-              "20aisKvsTM01qHYN": {
-                "range": "touch"
-              }
-            },
-            "area": {
-              "shape": "",
-              "size": "",
-              "placeTemplate": false
-            },
-            "target": {
-              "quantity": "",
-              "type": "creature",
-              "shape": "",
-              "size": ""
-            },
-            "rolls": {
-              "BH9Gnlk5011386LP": {
-                "canCrit": false,
-                "damageType": "",
-                "formula": "1 + @str.mod",
-                "name": "",
-                "type": "damage"
-              }
-            },
-            "prompts": {
-              "Yx49ZLYsAAUX45Up": {
-                "ability": "str",
-                "onSave": "",
-                "saveDC": {
-                  "type": "custom",
-                  "bonus": "@maneuverDC"
-                },
-                "type": "savingThrow"
-              }
-            },
-            "consumers": {}
-          }
-        },
-        "description": "<p>You can use the Disarm maneuver to attempt to knock an item or weapon from a creature's hand. If you are able to make multiple attacks with the Attack action, this maneuver replaces one of them.</p><p>The target must be within your reach and be holding an item (either carried or wielded). The target makes a Strength or Dexterity saving throw against your maneuver DC. On a failure, you deal basic melee damage and the target drops the item in its space. The target has advantage if it is larger than you or holding the item with two or more hands, and a target smaller than you has disadvantage.</p>",
-        "favorite": false,
-        "secretDescription": "",
-        "source": "",
-        "uses": {
-          "value": null,
-          "max": "",
-          "per": null,
-          "recharge": {
-            "formula": "",
-            "threshold": ""
-          }
-        },
-        "schema": {
-          "version": 0.007,
-          "lastMigration": {
-            "version": {
-              "schema": 0.004,
-              "foundry": "11.307",
-              "system": "0.15.0"
-            }
-          }
-        },
-        "degree": 0,
-        "exertionCost": 0,
-        "isStance": false,
-        "prerequisite": "",
-        "tradition": ""
-      },
-      "ownership": {
-        "default": 0
-      },
-      "folder": null,
-      "sort": 0,
-      "_id": "z6Ojna9vNhSXRGMd"
-    },
-    {
-      "name": "Grab On",
-      "type": "maneuver",
-      "img": "icons/skills/melee/hand-grip-staff-teal.webp",
-      "effects": [],
-      "flags": {
-        "core": {
-          "sourceId": "Compendium.a5e.a5e-maneuvers.jewmp4pzrg9cdui9"
-        }
-      },
-      "system": {
-        "actions": {
-          "VM10St42wDxUCeXG": {
-            "name": "Grab On",
-            "activation": {
-              "cost": 1,
-              "type": "action",
-              "reactionTrigger": ""
-            },
-            "duration": {
-              "unit": "instantaneous",
-              "value": null
-            },
-            "ranges": {
-              "JPBmr9N4HWcQttEM": {
-                "range": "touch"
-              }
-            },
-            "area": {
-              "shape": "",
-              "size": "",
-              "placeTemplate": false
-            },
-            "target": {
-              "quantity": "",
-              "type": "creature",
-              "shape": "",
-              "size": ""
-            },
-            "prompts": {
-              "iWRCZHjsK6Ucse7b": {
-                "ability": "str",
-                "onSave": "",
-                "saveDC": {
-                  "type": "custom",
-                  "bonus": "@maneuverDC"
-                },
-                "type": "savingThrow"
-              }
-            },
-            "consumers": {}
-          }
-        },
-        "description": "<p>While you cannot grapple a creature two or more size categories larger than you, you can grab onto it. By jumping onto its back or climbing up a limb, you can make a Strength or Dexterity saving throw against the creature's maneuver DC to cling to or balance upon its body. On a success, you move into the creature's space and can move upon its body as if it is difficult terrain.</p><p>While grabbing onto a larger creature, you gain advantage on attack rolls against it. The larger creature may be able to attack you as normal, depending on its limbs or attacks. It can also use an action or replace one of its attacks on its turn to try to dislodge you, such as shaking you loose or bashing you against a wall, forcing you to make a Strength or Dexterity saving throw against its maneuver DC or fall prone into the nearest space adjacent to the creature, taking its basic melee damage in the process.</p><p>If the creature chooses to roll over in order to dislodge you, it becomes prone, but you have disadvantage on the saving throw to hang on.</p>",
-        "favorite": false,
-        "secretDescription": "",
-        "source": "",
-        "uses": {
-          "value": null,
-          "max": "",
-          "per": null,
-          "recharge": {
-            "formula": "",
-            "threshold": ""
-          }
-        },
-        "schema": {
-          "version": 0.007,
-          "lastMigration": {
-            "version": {
-              "schema": 0.004,
-              "foundry": "11.307",
-              "system": "0.15.0"
-            }
-          }
-        },
-        "degree": 0,
-        "exertionCost": 0,
-        "isStance": false,
-        "prerequisite": "",
-        "tradition": ""
-      },
-      "ownership": {
-        "default": 0
-      },
-      "folder": null,
-      "sort": 0,
-      "_id": "7EDK1ENdTWs04EGQ"
-    },
-    {
-      "name": "Knockdown",
-      "type": "maneuver",
-      "img": "icons/magic/control/silhouette-fall-slip-prone.webp",
-      "effects": [],
-      "flags": {
-        "core": {
-          "sourceId": "Compendium.a5e.a5e-maneuvers.zzg7j7cb0vkgctwi"
-        }
-      },
-      "system": {
-        "actions": {
-          "Yvmegcf4INJLyX6a": {
-            "name": "Knockdown",
-            "activation": {
-              "cost": 1,
-              "type": "action",
-              "reactionTrigger": ""
-            },
-            "duration": {
-              "unit": "instantaneous",
-              "value": null
-            },
-            "ranges": {
-              "C0JZw4hfhxq9W9xt": {
-                "range": "touch"
-              }
-            },
-            "area": {
-              "shape": "",
-              "size": "",
-              "placeTemplate": false
-            },
-            "target": {
-              "quantity": "",
-              "type": "creature",
-              "shape": "",
-              "size": ""
-            },
-            "prompts": {
-              "tMyPrHh4QXaEW8a1": {
-                "ability": "str",
-                "onSave": "",
-                "saveDC": {
-                  "type": "custom",
-                  "bonus": "@maneuverDC"
-                },
-                "type": "savingThrow"
-              }
-            },
-            "consumers": {}
-          }
-        },
-        "description": "<p>You can use the Knockdown maneuver to trip or push a creature down. If you are able to make multiple attacks with the Attack action, this maneuver replaces one of them.</p><p>The target must be within your reach and be no more than one size category larger than you. The target makes a Strength saving throw against your maneuver DC. On a failure, you deal basic melee damage and knock the target prone.</p>",
-        "favorite": false,
-        "secretDescription": "",
-        "source": "",
-        "uses": {
-          "value": null,
-          "max": "",
-          "per": null,
-          "recharge": {
-            "formula": "",
-            "threshold": ""
-          }
-        },
-        "schema": {
-          "version": 0.007,
-          "lastMigration": {
-            "version": {
-              "schema": 0.004,
-              "foundry": "11.307",
-              "system": "0.15.0"
-            }
-          }
-        },
-        "degree": 0,
-        "exertionCost": 0,
-        "isStance": false,
-        "prerequisite": "",
-        "tradition": ""
-      },
-      "ownership": {
-        "default": 0
-      },
-      "folder": null,
-      "sort": 0,
-      "_id": "cFlBy8kuS2Icpy77"
-    },
-    {
-      "name": "Grapple",
-      "type": "maneuver",
-      "img": "icons/skills/melee/unarmed-punch-fist.webp",
-      "effects": [],
-      "flags": {
-        "core": {
-          "sourceId": "Compendium.a5e.a5e-maneuvers.9umrahwm68f81d7l"
-        }
-      },
-      "system": {
-        "actions": {
-          "lt5rophB9uP5sMaZ": {
-            "name": "Grapple",
-            "activation": {
-              "cost": 1,
-              "type": "action",
-              "reactionTrigger": ""
-            },
-            "duration": {
-              "unit": "instantaneous",
-              "value": null
-            },
-            "ranges": {
-              "WngQtFL32n3LTddH": {
-                "range": "touch"
-              }
-            },
-            "area": {
-              "shape": "",
-              "size": "",
-              "placeTemplate": false
-            },
-            "target": {
-              "quantity": "",
-              "type": "creature",
-              "shape": "",
-              "size": ""
-            },
-            "prompts": {
-              "XqUM64fBeAVRX7oI": {
-                "ability": "str",
-                "onSave": "",
-                "saveDC": {
-                  "type": "custom",
-                  "bonus": "@maneuverDC"
-                },
-                "type": "savingThrow"
-              }
-            },
-            "consumers": {}
-          }
-        },
-        "description": "<p>You can use the Grapple maneuver to grab or wrestle a creature. If you are able to make multiple attacks with the Attack action, this maneuver replaces one of them.</p>\n<p>You must have at least one free hand to attempt a grapple, your target must be within your reach, and the target must be no more than one size category larger than you. The target makes a Strength or Dexterity saving throw against your maneuver DC. On a failure, you deal basic melee damage and the target becomes grappled (see Appendix A: Conditions on page 616). In addition to things that end the condition, you can release the target at any time (no action required).</p>\n<p><em>Escaping a Grapple.</em> While grappled, a creature can use its action to attempt to escape. It must succeed on a Strength or Dexterity saving throw against your maneuver DC.</p>\n<p><em>Moving a Grappled Creature. </em>When you move, you can drag or carry the grappled creature with you. When you do so, your Speed is halved, unless the creature's weight is within your carrying capacity and you are not encumbered by bulky items.</p>\n<p><em>Freeing a Grappled Creature.</em> You can use the Grapple maneuver to try to free another grappled or restrained creature. The creature grappling or restraining the target makes a Strength saving throw against your maneuver DC. If it fails the saving throw, the grappled or restrained creature is freed. Additionally, you may move the freed creature 5 feet in any direction.</p>",
-        "favorite": false,
-        "secretDescription": "",
-        "source": "",
-        "uses": {
-          "value": null,
-          "max": "",
-          "per": null,
-          "recharge": {
-            "formula": "",
-            "threshold": ""
-          }
-        },
-        "schema": {
-          "version": 0.007,
-          "lastMigration": {
-            "version": {
-              "schema": 0.004,
-              "foundry": "11.307",
-              "system": "0.15.0"
-            }
-          }
-        },
-        "degree": 0,
-        "exertionCost": 0,
-        "isStance": false,
-        "prerequisite": "",
-        "tradition": ""
-      },
-      "ownership": {
-        "default": 0
-      },
-      "folder": null,
-      "sort": 0,
-      "_id": "IOLRIsXL17Stan76"
-    },
-    {
-      "name": "Overrun",
-      "type": "maneuver",
-      "img": "icons/skills/melee/shield-damaged-broken-blue.webp",
-      "effects": [],
-      "flags": {
-        "core": {
-          "sourceId": "Compendium.a5e.a5e-maneuvers.210ihnnejao46r20"
-        }
-      },
-      "system": {
-        "actions": {
-          "fgpMDj03qyXr1M9P": {
-            "name": "Overrun",
-            "activation": {
-              "cost": 1,
-              "type": "special",
-              "reactionTrigger": ""
-            },
-            "duration": {
-              "unit": "instantaneous",
-              "value": null
-            },
-            "ranges": {
-              "ppXY0dSsfI6Ttv30": {
-                "range": "touch"
-              }
-            },
-            "area": {
-              "shape": "",
-              "size": "",
-              "placeTemplate": false
-            },
-            "target": {
-              "quantity": "",
-              "type": "creature",
-              "shape": "",
-              "size": ""
-            },
-            "prompts": {
-              "HT2MdhiLgpFoigg2": {
-                "ability": "str",
-                "onSave": "",
-                "saveDC": {
-                  "type": "custom",
-                  "bonus": "@maneuverDC"
-                },
-                "type": "savingThrow"
-              }
-            },
-            "consumers": {}
-          }
-        },
-        "description": "<p>You can use an action or bonus action to make an Overrun maneuver to move through a hostile creature's space by forcing your way past. Make a Strength saving throw against the target's maneuver DC. On a success, you deal basic melee damage and can move through the hostile creature's space once this turn. The creature can choose to just let you pass instead of rolling. You have advantage if you are larger than the target, or disadvantage if you are smaller. If you are two or more sizes smaller than the target, you can move through the hostile creature's space without making a save. You still provoke opportunity attacks if you move beyond a creature's reach.</p>",
-        "favorite": false,
-        "secretDescription": "",
-        "source": "",
-        "uses": {
-          "value": null,
-          "max": "",
-          "per": null,
-          "recharge": {
-            "formula": "",
-            "threshold": ""
-          }
-        },
-        "schema": {
-          "version": 0.007,
-          "lastMigration": {
-            "version": {
-              "schema": 0.004,
-              "foundry": "11.307",
-              "system": "0.15.0"
-            }
-          }
-        },
-        "degree": 0,
-        "exertionCost": 0,
-        "isStance": false,
-        "prerequisite": "",
-        "tradition": ""
-      },
-      "ownership": {
-        "default": 0
-      },
-      "folder": null,
-      "sort": 0,
-      "_id": "ByFjfizWP9CiK9L5"
-    }
-  ],
-  "effects": [],
-  "flags": {
-    "a5e": {
-      "availableSpellLevels": [],
-      "showSpellSlots": false,
-      "showSpellPoints": false
-    }
-  },
-  "system": {
-    "abilities": {
-      "str": {
-        "value": 14,
-        "check": {
-          "expertiseDice": 0,
-          "bonus": ""
-        },
-        "save": {
-          "proficient": false,
-          "expertiseDice": 0,
-          "bonus": ""
-        }
-      },
-      "dex": {
-        "value": 16,
-        "check": {
-          "expertiseDice": 0,
-          "bonus": ""
-        },
-        "save": {
-          "proficient": true,
-          "expertiseDice": 0,
-          "bonus": ""
-        }
-      },
-      "con": {
-        "value": 14,
-        "check": {
-          "expertiseDice": 0,
-          "bonus": ""
-        },
-        "save": {
-          "proficient": true,
-          "expertiseDice": 0,
-          "bonus": "",
-          "concentrationBonus": ""
-        }
-      },
-      "int": {
-        "value": 12,
-        "check": {
-          "expertiseDice": 0,
-          "bonus": ""
-        },
-        "save": {
-          "proficient": true,
-          "expertiseDice": 0,
-          "bonus": ""
-        }
-      },
-      "wis": {
-        "value": 16,
-        "check": {
-          "expertiseDice": 0,
-          "bonus": ""
-        },
-        "save": {
-          "proficient": true,
-          "expertiseDice": 0,
-          "bonus": ""
-        }
-      },
-      "cha": {
-        "value": 12,
-        "check": {
-          "expertiseDice": 0,
-          "bonus": ""
-        },
-        "save": {
-          "proficient": true,
-          "expertiseDice": 0,
-          "bonus": ""
-        }
-      }
-    },
-    "schema": {
-      "version": 0.007,
-      "lastMigration": {
-        "version": {
-          "schema": 0.006,
-          "foundry": "11.307",
-          "system": "0.15.0"
-        }
-      }
-    },
-    "skills": {
-      "acr": {
-        "ability": "dex",
-        "value": 0,
-        "proficient": true,
-        "specialties": [],
-        "expertiseDice": 0,
-        "minRoll": 1,
-        "bonuses": {
-          "check": "",
-          "passive": 0
-        }
-      },
-      "ani": {
-        "ability": "wis",
-        "value": 0,
-        "proficient": false,
-        "specialties": [],
-        "expertiseDice": 0,
-        "minRoll": 1,
-        "bonuses": {
-          "check": "",
-          "passive": 0
-        }
-      },
-      "arc": {
-        "ability": "int",
-        "value": 0,
-        "proficient": false,
-        "specialties": [],
-        "expertiseDice": 0,
-        "minRoll": 1,
-        "bonuses": {
-          "check": "",
-          "passive": 0
-        }
-      },
-      "ath": {
-        "ability": "str",
-        "value": 0,
-        "proficient": false,
-        "specialties": [],
-        "expertiseDice": 0,
-        "minRoll": 1,
-        "bonuses": {
-          "check": "",
-          "passive": 0
-        }
-      },
-      "cul": {
-        "ability": "int",
-        "value": 0,
-        "proficient": false,
-        "specialties": [],
-        "expertiseDice": 0,
-        "minRoll": 1,
-        "bonuses": {
-          "check": "",
-          "passive": 0
-        }
-      },
-      "dec": {
-        "ability": "cha",
-        "value": 0,
-        "proficient": true,
-        "specialties": [],
-        "expertiseDice": 0,
-        "minRoll": 1,
-        "bonuses": {
-          "check": "",
-          "passive": 0
-        }
-      },
-      "eng": {
-        "ability": "int",
-        "value": 0,
-        "proficient": false,
-        "specialties": [],
-        "expertiseDice": 0,
-        "minRoll": 1,
-        "bonuses": {
-          "check": "",
-          "passive": 0
-        }
-      },
-      "his": {
-        "ability": "int",
-        "value": 0,
-        "proficient": false,
-        "specialties": [],
-        "expertiseDice": 0,
-        "minRoll": 1,
-        "bonuses": {
-          "check": "",
-          "passive": 0
-        }
-      },
-      "ins": {
-        "ability": "wis",
-        "value": 0,
-        "proficient": true,
-        "specialties": [],
-        "expertiseDice": 0,
-        "minRoll": 1,
-        "bonuses": {
-          "check": "",
-          "passive": 0
-        }
-      },
-      "itm": {
-        "ability": "cha",
-        "value": 0,
-        "proficient": false,
-        "specialties": [],
-        "expertiseDice": 0,
-        "minRoll": 1,
-        "bonuses": {
-          "check": "",
-          "passive": 0
-        }
-      },
-      "inv": {
-        "ability": "int",
-        "value": 0,
-        "proficient": false,
-        "specialties": [],
-        "expertiseDice": 0,
-        "minRoll": 1,
-        "bonuses": {
-          "check": "",
-          "passive": 0
-        }
-      },
-      "med": {
-        "ability": "wis",
-        "value": 0,
-        "proficient": false,
-        "specialties": [],
-        "expertiseDice": 0,
-        "minRoll": 1,
-        "bonuses": {
-          "check": "",
-          "passive": 0
-        }
-      },
-      "nat": {
-        "ability": "int",
-        "value": 0,
-        "proficient": true,
-        "specialties": [],
-        "expertiseDice": 0,
-        "minRoll": 1,
-        "bonuses": {
-          "check": "",
-          "passive": 0
-        }
-      },
-      "prc": {
-        "ability": "wis",
-        "value": 0,
-        "proficient": true,
-        "specialties": [],
-        "expertiseDice": 0,
-        "minRoll": 1,
-        "bonuses": {
-          "check": "",
-          "passive": 0
-        }
-      },
-      "prf": {
-        "ability": "cha",
-        "value": 0,
-        "proficient": false,
-        "specialties": [],
-        "expertiseDice": 0,
-        "minRoll": 1,
-        "bonuses": {
-          "check": "",
-          "passive": 0
-        }
-      },
-      "per": {
-        "ability": "cha",
-        "value": 0,
-        "proficient": false,
-        "specialties": [],
-        "expertiseDice": 0,
-        "minRoll": 1,
-        "bonuses": {
-          "check": "",
-          "passive": 0
-        }
-      },
-      "rel": {
-        "ability": "int",
-        "value": 0,
-        "proficient": false,
-        "specialties": [],
-        "expertiseDice": 0,
-        "minRoll": 1,
-        "bonuses": {
-          "check": "",
-          "passive": 0
-        }
-      },
-      "slt": {
-        "ability": "dex",
-        "value": 0,
-        "proficient": false,
-        "specialties": [],
-        "expertiseDice": 0,
-        "minRoll": 1,
-        "bonuses": {
-          "check": "",
-          "passive": 0
-        }
-      },
-      "ste": {
-        "ability": "dex",
-        "value": 0,
-        "proficient": true,
-        "specialties": [],
-        "expertiseDice": 0,
-        "minRoll": 1,
-        "bonuses": {
-          "check": "",
-          "passive": 0
-        }
-      },
-      "sur": {
-        "ability": "wis",
-        "value": 0,
-        "proficient": false,
-        "specialties": [],
-        "expertiseDice": 0,
-        "minRoll": 1,
-        "bonuses": {
-          "check": "",
-          "passive": 0
-        }
-      }
-    },
-    "spellResources": {
-      "slots": {
-        "0": {
-          "current": 0,
-          "max": 0
-        },
-        "1": {
-          "current": 0,
-          "max": 0
-        },
-        "2": {
-          "current": 0,
-          "max": 0
-        },
-        "3": {
-          "current": 0,
-          "max": 0
-        },
-        "4": {
-          "current": 0,
-          "max": 0
-        },
-        "5": {
-          "current": 0,
-          "max": 0
-        },
-        "6": {
-          "current": 0,
-          "max": 0
-        },
-        "7": {
-          "current": 0,
-          "max": 0
-        },
-        "8": {
-          "current": 0,
-          "max": 0
-        },
-        "9": {
-          "current": 0,
-          "max": 0
-        }
-      },
-      "points": {
-        "current": 0,
-        "max": 0
-      }
-    },
-    "attributes": {
-      "ac": {
-        "baseFormula": "17",
-        "value": 0
-      },
-      "death": {
-        "success": 0,
-        "failure": 0
-      },
-      "hp": {
-        "value": 142,
-        "baseMax": 142,
-        "temp": 0,
-        "bonus": 0
-      },
-      "hitDice": {
-        "d6": {
-          "current": 0,
-          "total": 0
-        },
-        "d8": {
-          "current": 0,
-          "total": 0
-        },
-        "d10": {
-          "current": 19,
-          "total": 19
-        },
-        "d12": {
-          "current": 0,
-          "total": 0
-        },
-        "d4": {
-          "current": 0,
-          "total": 0
-        },
-        "d20": {
-          "current": 0,
-          "total": 0
-        }
-      },
-      "initiative": {
-        "bonus": "",
-        "expertiseDice": 0
-      },
-      "movement": {
-        "burrow": {
-          "distance": 0,
-          "unit": "feet"
-        },
-        "climb": {
-          "distance": 0,
-          "unit": "feet"
-        },
-        "fly": {
-          "distance": 60,
-          "unit": "feet"
-        },
-        "swim": {
-          "distance": 60,
-          "unit": "feet"
-        },
-        "walk": {
-          "distance": 50,
-          "unit": "feet"
-        },
-        "traits": {
-          "hover": false
-        }
-      },
-      "senses": {
-        "blindsight": {
-          "distance": null,
-          "unit": "feet",
-          "otherwiseBlind": false
-        },
-        "darkvision": {
-          "distance": 120,
-          "unit": "feet"
-        },
-        "tremorsense": {
-          "distance": null,
-          "unit": "feet"
-        },
-        "truesight": {
-          "distance": null,
-          "unit": "feet"
-        }
-      },
-      "inspiration": false,
-      "fatigue": 0,
-      "strife": 0,
-      "spellcasting": "cha",
-      "casterLevel": 0
-    },
-    "bonuses": {
-      "abilities": {
-        "check": "",
-        "save": "",
-        "skill": ""
-      },
-      "damage": {},
-      "healing": {},
-      "maneuverDC": "",
-      "meleeSpellAttack": "",
-      "meleeWeaponAttack": "",
-      "rangedSpellAttack": "",
-      "rangedWeaponAttack": "",
-      "spellDC": ""
-    },
-    "currency": {
-      "pp": 0,
-      "gp": 0,
-      "ep": 0,
-      "sp": 0,
-      "cp": 0
-    },
-    "details": {
-      "bio": "<h2><strong>COMBAT</strong></h2><p>While individual dragons have their own personalities and tactics, most rely heavily on their breath weapons. They use them whenever they can, preferably from maximum distance and while flying above their enemies.&nbsp;</p><p>When fighting in the open, dragons often circle above their enemies as they wait for their breath weapons to recharge. They only close to melee if their enemies deal significant damage with ranged attacks, or if they can savage an enemy cut off from its allies. Once bloodied, dragons become more aggressive, attacking with bite and claws when their breath weapons aren’t available.</p><p>If a dragon is protecting its lair, it utilizes lair features, traps, allies, and architecture such as escape tunnels to keep up a hit-and-run fight, reappearing only when it has a fully-recharged breath weapon. If the dragon is forced into melee combat, it uses its bite and claws against a single foe. If it has legendary actions like Roar and Wing Attack, it uses them to disperse its other enemies.</p><p>If reduced to less than one-fourth its hit points while fighting in the open, a dragon flies away. However, it fights to the death to defend its lair, unless it can regain the upper hand through tricks or bargains.</p><hr class=\"a5e-rule u-my-md\"><h2><strong>RIVER DRAGON LAIR FEATURES</strong></h2><p>Choose or roll one or more of the following lair features:</p><p>1 The dragon’s domain is populated with dangerous aquatic creatures. As a bonus action, it may summon its choice of 1d6 crocodiles or 1d4 swarms of quippers as allies. The creatures fight until killed or dismissed by the dragon as a bonus action or until the dragon uses this ability again.&nbsp;</p><p>2 The dragon’s domain supports one or more riverside villages whose livelihoods depend on the dragon’s survival. At the beginning of each round of combat, roll a d6. On a 5–6, 1d4 locals with the statistics of thugs arrive to defend the dragon, acting on the dragon’s initiative. The locals fight until killed or until the dragon instructs them to stop.&nbsp;</p><p>3 The rocks that line the riverbanks are particularly sharp. Whenever one of the dragon’s attacks or abilities causes a creature to impact a solid object, increase the damage that creature takes by 9 (2d8).&nbsp;</p><p>4 The dragon’s river is murky. Visibility beneath the water is reduced to 20 feet.&nbsp;&nbsp;</p><hr class=\"a5e-rule u-my-md\"><h2><strong>NAMES</strong></h2><p>Bol'shaya, Bystraya, Glitterstream, Penzhina, Springtide, Zathernak</p><hr class=\"a5e-rule u-my-md\"><h2><strong>LEGENDS AND LORE</strong></h2><p>With an Arcana or Nature check, characters can learn the following:</p><p><strong>DC 10</strong> Like the waterways they inhabit, river dragons can be slow and lumbering, or fierce and nimble.</p><p><strong>DC 15</strong> River dragons exhale jets of water and create magical whirlpools to bash and scatter their foes.</p><p><strong>DC 20</strong> When angered, the oldest river dragons surround themselves with magical maelstroms that few mortals can withstand.</p><hr class=\"a5e-rule u-my-md\"><h2><strong>DESCRIPTION</strong></h2><p>Linked to great, coursing rivers, these essence dragons embody the reckless, ever-changing power of water itself. Like a streak of quicksilver or a pennant fluttering in the wind, a river dragon is always moving, running an endless circuit from the river’s source to the ocean and back again. Like the rivers they exemplify, these dragons are fickle things. A ship or passerby that catches the attention of a river dragon might find fortune or ruin, depending on the fleeting whims of the river.</p><p><strong><em>The Serpent Eats Its Tail.</em> </strong>While the oldest river dragons have grown complacent in their wide, meandering rivers, most river dragons are on constant watch for competition. River dragon wyrmlings rule over tributaries and must pay proper respect to their source rivers, at least until they grow strong enough to challenge them.</p><p><strong><em>Gods of the Waterway.</em> </strong>Those who fish along the river’s edge sometimes spot disporting river dragons, giving rise to legends of river gods. River dragons treated as gods are usually flattered by such honors, and may take efforts to ensure bountiful catches. Those regarded as monsters are often equally amused, and work to keep their fearsome legend alive by devouring the occasional lone angler.</p><hr class=\"a5e-rule u-my-md\"><h2><strong>BEHAVIOR</strong></h2><p>1 Floating serenely on the river, content to ignore peaceful travelers</p><p>2 Flying overhead, alert for trespassers</p><p>3 Eagerly approaching a boat, looking for fun</p><p>4 Attacks on sight</p><hr class=\"a5e-rule u-my-md\"><h2><strong>SIGNS</strong></h2><p>1 Sparkling mist floating over the river</p><p>2 A loud, distant splash</p><p>3 A whirlpool appears in the river</p><p>4 The banks of the river are lush with plants, and schools of bright fish leap from the water</p><hr class=\"a5e-rule u-my-md\"><h2><strong>ENCOUNTERS</strong></h2><p>River dragons leave their chosen river only in extreme circumstances.</p><p><strong>CR 3–4</strong> river dragon wyrmling with 2 boggards, crocodiles, or steam mephits</p><p><strong>Treasure</strong> 300 gp, 1,000 sp, mithral mirror (75 gp), <em>potion of healing</em>, <em>bag of tricks </em>(tan)</p><p><strong>CR 5–10</strong> young river dragon</p><p><strong>Treasure</strong> 750 gp, 300 ep, 6 pearls (100 gp each), gold ceremonial dagger with mermaid handle (250 gp), 3 <em>potions of healing</em>, <em>staff of swarming insects</em></p><p><strong>CR 11–16</strong> young river dragon with 2 constrictor snakes, hunter sharks, or plesiosauruses; young river dragon with sea hag or water elemental&nbsp;</p><p><strong>Treasure</strong> 100 pp, 2,000 gp, 3 aquamarine gemstones (500 gp each), bottle containing a message, <em>ring of water walking</em>, <em>+2 scimitar</em> (with a blade resembling shimmering water; named <em>Salmon of Wisdom</em>)</p><p><strong>CR 17–22</strong> adult river dragon</p><p><strong>Treasure</strong> 8,000 gp, 10,000 sp, 3 pearl necklaces (2,500 gp each), 4 sapphires (1,000 gp each), metal diving suit (1,000 gp), 2 <em>potions of clairvoyance</em>, <em>spell scroll </em>of <em>control weather</em>, <em>+1 half plate</em>, <em>sun blade</em></p><p><strong>CR 23–30</strong> adult river dragon with giant shark, marid, or merclops (see cyclops); ancient river dragon; ancient river dragon with giant lanternfish (see lamia) or sea chimera (see chimera)</p><p><strong>Treasure</strong> 10,000 gp, black pearl necklace (7,500 gp), 20 1-pound mithral bars (750 gp each), 2 doses of purple worm poison (2,000 gp each), 3 <em>arrows of elemental slaying</em>, <em>ring of free action</em>, <em>periapt of wound closure</em></p><p><strong>CR 31+</strong> ancient river dragon with 2 giant crocodiles, merrow mages (see merrow), or water elementals</p><p><strong>Treasure</strong> 5,000 pp, 40,000 gp, 6 diamonds (5,000 gp each), emerald idol (25,000 gp), fish that grants wishes (as <em>ring of 3 wishes</em>), 3 <em>potions of supreme healing</em>, <em>Ioun stone of absorption</em>, <em>luck blade</em></p><hr class=\"a5e-rule u-my-md\"><h2><strong>MONSTER TYPE DESCRIPTION</strong></h2><p>Dragons include red and gold dragons, which are huge reptilian fire-breathers that number among the world’s most dangerous monsters. This type includes white dragons, which breathe killing frost, as well as smaller reptilian creatures related to true dragons, such as pseudodragons.&nbsp;</p>",
-      "creatureTypes": [
-        "dragon"
-      ],
-      "isSwarm": false,
-      "cr": 9,
-      "elite": false,
-      "privateNotes": ""
-    },
-    "proficiencies": {
-      "armor": [],
-      "languages": [
-        "aquan",
-        "draconic",
-        "common"
-      ],
-      "tools": [],
-      "weapons": []
-    },
-    "resources": {
-      "primary": {
-        "label": "",
-        "value": 0,
-        "max": 0,
-        "per": "",
-        "hideMax": false,
-        "recharge": {
-          "formula": "",
-          "threshold": 6
-        }
-      },
-      "secondary": {
-        "label": "",
-        "value": 0,
-        "max": 0,
-        "per": "",
-        "hideMax": false,
-        "recharge": {
-          "formula": "",
-          "threshold": 6
-        }
-      },
-      "tertiary": {
-        "label": "",
-        "value": 0,
-        "max": 0,
-        "per": "",
-        "hideMax": false,
-        "recharge": {
-          "formula": "",
-          "threshold": 6
-        }
-      },
-      "quaternary": {
-        "label": "",
-        "value": 0,
-        "max": 0,
-        "per": "",
-        "hideMax": false,
-        "recharge": {
-          "formula": "",
-          "threshold": 6
-        }
-      }
-    },
-    "source": {
-      "name": "",
-      "link": "",
-      "publisher": ""
-    },
-    "traits": {
-      "size": "lg",
-      "conditionImmunities": [
-        "fatigue"
-      ],
-      "damageImmunities": [],
-      "damageResistances": [
-        "Nonmagical weapons"
-      ],
-      "damageVulnerabilities": []
-    }
-  },
-  "prototypeToken": {
-    "name": "Young River Dragon",
-    "displayName": 0,
-    "actorLink": false,
-    "width": 2,
-    "height": 2,
-    "lockRotation": false,
-    "rotation": 0,
-    "alpha": 1,
-    "light": {
-      "alpha": 0.5,
-      "angle": 360,
-      "bright": 0,
-      "coloration": 1,
-      "dim": 0,
-      "luminosity": 0.5,
-      "saturation": 0,
-      "contrast": 0,
-      "shadows": 0,
-      "animation": {
-        "speed": 5,
-        "intensity": 5,
-        "reverse": false,
-        "type": null
-      },
-      "darkness": {
-        "min": 0,
-        "max": 1
-      },
-      "color": null,
-      "attenuation": 0.5
-    },
-    "disposition": -1,
-    "displayBars": 0,
-    "bar1": {
-      "attribute": "attributes.hp"
-    },
-    "bar2": {
-      "attribute": null
-    },
-    "flags": {},
-    "randomImg": false,
-    "texture": {
-      "src": "systems/a5e/assets/river-dragon.webp",
-      "tint": null,
-      "scaleX": 1,
-      "scaleY": 1,
-      "offsetX": 0,
-      "offsetY": 0,
-      "rotation": 0
-    },
-    "sight": {
-      "angle": 360,
-      "enabled": false,
-      "range": 0,
-      "brightness": 1,
-      "color": null,
-      "attenuation": 0.1,
-      "saturation": 0,
-      "contrast": 0,
-      "visionMode": "basic"
-    },
-    "detectionModes": [],
-    "appendNumber": false,
-    "prependAdjective": false
-  },
-  "folder": "lmZbC4BTRItcgNpI",
-  "_id": "ev664zs4nll03ybn"
+	"name": "Young River Dragon",
+	"type": "npc",
+	"img": "systems/a5e/assets/river-dragon.webp",
+	"items": [
+		{
+			"_id": "Kc52REtmhngdCxjp",
+			"name": "Bite",
+			"type": "feature",
+			"img": "icons/creatures/abilities/mouth-teeth-long-red.webp",
+			"effects": [],
+			"folder": null,
+			"sort": 0,
+			"flags": {
+				"core": {
+					"sourceId": "Item.ag4fvqlYaTYUmMJq"
+				}
+			},
+			"system": {
+				"ac": {
+					"baseFormula": "",
+					"formula": "",
+					"maxDex": 0,
+					"minStr": 0,
+					"mode": 1,
+					"requiresNoShield": false,
+					"requiresUnarmored": false
+				},
+				"actions": {
+					"3MW9bSaz4Pe6pWpI": {
+						"name": "Bite",
+						"activation": {
+							"cost": 1,
+							"type": "action",
+							"reactionTrigger": ""
+						},
+						"duration": {
+							"unit": "instantaneous",
+							"value": ""
+						},
+						"ranges": {
+							"qMWXlBIRUKCvH0QA": {
+								"range": "10ft"
+							}
+						},
+						"area": {
+							"shape": "",
+							"size": "",
+							"placeTemplate": false
+						},
+						"target": {
+							"quantity": 1,
+							"type": "creature"
+						},
+						"rolls": {
+							"XrSV3dYVAdVImYuS": {
+								"bonus": "",
+								"critThreshold": "20",
+								"type": "attack",
+								"attackType": "meleeWeaponAttack",
+								"ability": "dex"
+							},
+							"cUEdxTxavhuqRDki": {
+								"canCrit": true,
+								"damageType": "piercing",
+								"formula": "3d10 + @dex.mod",
+								"name": "Default",
+								"type": "damage"
+							}
+						},
+						"consumers": {}
+					}
+				},
+				"description": "",
+				"favorite": true,
+				"secretDescription": "",
+				"source": "",
+				"uses": {
+					"value": null,
+					"max": "",
+					"per": null,
+					"recharge": {
+						"formula": "",
+						"threshold": ""
+					}
+				},
+				"concentration": false,
+				"featureType": "naturalWeapon",
+				"prerequisite": "",
+				"schemaVersion": {
+					"version": 0.009,
+					"lastMigration": {
+						"version": {
+							"schema": 0.007,
+							"foundry": "11.311",
+							"system": "0.15.13"
+						}
+					}
+				}
+			},
+			"ownership": {
+				"default": 0
+			}
+		},
+		{
+			"_id": "AUkVX63u1F8tH6O9",
+			"name": "Torrential Breath (Recharge 5-6)",
+			"type": "feature",
+			"img": "icons/svg/item-bag.svg",
+			"effects": [],
+			"folder": null,
+			"sort": 0,
+			"flags": {},
+			"system": {
+				"ac": {
+					"baseFormula": "",
+					"formula": "",
+					"maxDex": 0,
+					"minStr": 0,
+					"mode": 1,
+					"requiresNoShield": false,
+					"requiresUnarmored": false
+				},
+				"actions": {
+					"SoWtehe3WwB1k3V1": {
+						"name": "Torrential Breath (Recharge 5-6)",
+						"activation": {
+							"cost": 1,
+							"type": "action",
+							"reactionTrigger": ""
+						},
+						"duration": {
+							"unit": "instantaneous",
+							"value": ""
+						},
+						"ranges": {
+							"F4p2ECo0FJIHyN0e": {
+								"range": "short"
+							}
+						},
+						"area": {
+							"shape": "line",
+							"size": "30ft long, 5ft wide",
+							"placeTemplate": false
+						},
+						"target": {
+							"quantity": null,
+							"type": "creature"
+						},
+						"rolls": {
+							"d0KoQDbsgAsnmCKC": {
+								"canCrit": false,
+								"damageType": "bludgeoning",
+								"formula": "12d6",
+								"name": "Default",
+								"type": "damage"
+							}
+						},
+						"prompts": {
+							"sNXoMfPk5cd625ac": {
+								"ability": "dex",
+								"onSave": "Half damage.",
+								"saveDC": {
+									"type": "custom",
+									"bonus": "14"
+								},
+								"type": "savingThrow"
+							}
+						},
+						"consumers": {}
+					}
+				},
+				"description": "<p>The dragon exhales water in a 30-foot-long, 5-foot-wide line. Each creature in the area makes a DC 14 Dexterity saving throw, taking 42 (12d6) bludgeoning damage on a failed save or half damage on a success.</p>",
+				"favorite": true,
+				"secretDescription": "",
+				"source": "",
+				"uses": {
+					"value": null,
+					"max": "",
+					"per": null,
+					"recharge": {
+						"formula": "",
+						"threshold": ""
+					}
+				},
+				"concentration": false,
+				"featureType": "",
+				"prerequisite": "",
+				"schemaVersion": {
+					"version": 0.009,
+					"lastMigration": {
+						"version": {
+							"schema": 0.007,
+							"foundry": "11.311",
+							"system": "0.15.13"
+						}
+					}
+				}
+			},
+			"ownership": {
+				"default": 0
+			}
+		},
+		{
+			"_id": "9iic8lMz3aj1SNu6",
+			"name": "Amphibious",
+			"type": "feature",
+			"img": "icons/environment/creatures/frog-spotted-green.webp",
+			"effects": [],
+			"folder": null,
+			"sort": 0,
+			"flags": {},
+			"system": {
+				"ac": {
+					"baseFormula": "",
+					"formula": "",
+					"maxDex": 0,
+					"minStr": 0,
+					"mode": 1,
+					"requiresNoShield": false,
+					"requiresUnarmored": false
+				},
+				"actions": {},
+				"description": "<p>The dragon can breath air and water.</p>",
+				"favorite": false,
+				"secretDescription": "",
+				"source": "",
+				"uses": {
+					"value": null,
+					"max": "",
+					"per": null,
+					"recharge": {
+						"formula": "",
+						"threshold": ""
+					}
+				},
+				"concentration": false,
+				"featureType": "",
+				"prerequisite": "",
+				"schemaVersion": {
+					"version": 0.009,
+					"lastMigration": {
+						"version": {
+							"schema": 0.007,
+							"foundry": "11.311",
+							"system": "0.15.13"
+						}
+					}
+				}
+			},
+			"ownership": {
+				"default": 0
+			}
+		},
+		{
+			"_id": "JG2D1Lq3R9TJojY1",
+			"name": "Flowing Grace",
+			"type": "feature",
+			"img": "icons/svg/item-bag.svg",
+			"effects": [],
+			"folder": null,
+			"sort": 0,
+			"flags": {},
+			"system": {
+				"ac": {
+					"baseFormula": "",
+					"formula": "",
+					"maxDex": 0,
+					"minStr": 0,
+					"mode": 1,
+					"requiresNoShield": false,
+					"requiresUnarmored": false
+				},
+				"actions": {},
+				"description": "<p>The dragon doesn't provoke opportunity attacks when it flies or swims out of an enemy's reach.</p>",
+				"favorite": false,
+				"secretDescription": "",
+				"source": "",
+				"uses": {
+					"value": null,
+					"max": "",
+					"per": null,
+					"recharge": {
+						"formula": "",
+						"threshold": ""
+					}
+				},
+				"concentration": false,
+				"featureType": "",
+				"prerequisite": "",
+				"schemaVersion": {
+					"version": 0.009,
+					"lastMigration": {
+						"version": {
+							"schema": 0.007,
+							"foundry": "11.311",
+							"system": "0.15.13"
+						}
+					}
+				}
+			},
+			"ownership": {
+				"default": 0
+			}
+		},
+		{
+			"_id": "o2PHke3FsMHlFHlu",
+			"name": "Shimmering Scales",
+			"type": "feature",
+			"img": "icons/svg/item-bag.svg",
+			"effects": [],
+			"folder": null,
+			"sort": 0,
+			"flags": {},
+			"system": {
+				"ac": {
+					"baseFormula": "",
+					"formula": "",
+					"maxDex": 0,
+					"minStr": 0,
+					"mode": 1,
+					"requiresNoShield": false,
+					"requiresUnarmored": false
+				},
+				"actions": {},
+				"description": "<p>While in water, the dragon gains three-quarters cover from attacks made by creatures more than 30 feet away.</p>",
+				"favorite": false,
+				"secretDescription": "",
+				"source": "",
+				"uses": {
+					"value": null,
+					"max": "",
+					"per": null,
+					"recharge": {
+						"formula": "",
+						"threshold": ""
+					}
+				},
+				"concentration": false,
+				"featureType": "",
+				"prerequisite": "",
+				"schemaVersion": {
+					"version": 0.009,
+					"lastMigration": {
+						"version": {
+							"schema": 0.007,
+							"foundry": "11.311",
+							"system": "0.15.13"
+						}
+					}
+				}
+			},
+			"ownership": {
+				"default": 0
+			}
+		},
+		{
+			"_id": "jNXFTLIGKc1oC061",
+			"name": "Multiattack",
+			"type": "feature",
+			"img": "icons/skills/melee/blade-tips-triple-steel.webp",
+			"effects": [],
+			"folder": null,
+			"sort": 300000,
+			"flags": {
+				"core": {
+					"sourceId": "Item.xD6jXCrejNh7pOld"
+				}
+			},
+			"system": {
+				"ac": {
+					"baseFormula": "",
+					"formula": "",
+					"maxDex": 0,
+					"minStr": 0,
+					"mode": 1,
+					"requiresNoShield": false,
+					"requiresUnarmored": false
+				},
+				"actions": {},
+				"description": "<p>The dragon attacks once with its bite and twice with its claws.</p>",
+				"favorite": false,
+				"secretDescription": "",
+				"source": "",
+				"uses": {
+					"value": null,
+					"max": "",
+					"per": null,
+					"recharge": {
+						"formula": "",
+						"threshold": ""
+					}
+				},
+				"concentration": false,
+				"featureType": "",
+				"prerequisite": "",
+				"schemaVersion": {
+					"version": 0.009,
+					"lastMigration": {
+						"version": {
+							"schema": 0.007,
+							"foundry": "11.311",
+							"system": "0.15.13"
+						}
+					}
+				}
+			},
+			"ownership": {
+				"default": 0
+			}
+		},
+		{
+			"_id": "l3KDoBDb44X8UyUP",
+			"name": "Claws",
+			"type": "feature",
+			"img": "icons/skills/melee/blood-slash-foam-red.webp",
+			"effects": [],
+			"folder": null,
+			"sort": 250000,
+			"flags": {
+				"core": {
+					"sourceId": "Item.FnfGLPPI0HknNig2"
+				}
+			},
+			"system": {
+				"ac": {
+					"baseFormula": "",
+					"formula": "",
+					"maxDex": 0,
+					"minStr": 0,
+					"mode": 1,
+					"requiresNoShield": false,
+					"requiresUnarmored": false
+				},
+				"actions": {
+					"cWoRLMEqPJ0XWmER": {
+						"name": "Claws",
+						"activation": {
+							"cost": 1,
+							"type": "action",
+							"reactionTrigger": ""
+						},
+						"duration": {
+							"unit": "instantaneous",
+							"value": ""
+						},
+						"ranges": {
+							"BNwZvfgpqOrktFDG": {
+								"range": "fiveFeet"
+							}
+						},
+						"area": {
+							"shape": "",
+							"size": "",
+							"placeTemplate": false
+						},
+						"target": {
+							"quantity": 1,
+							"type": "creature"
+						},
+						"rolls": {
+							"3fjTZP8ZaZSdRVAW": {
+								"bonus": "",
+								"critThreshold": "20",
+								"type": "attack",
+								"attackType": "meleeWeaponAttack",
+								"ability": "dex"
+							},
+							"vAXUFosfPWT30BOR": {
+								"canCrit": true,
+								"damageType": "slashing",
+								"formula": "2d8 + @dex.mod",
+								"name": "Default",
+								"type": "damage"
+							}
+						},
+						"consumers": {}
+					}
+				},
+				"description": "",
+				"favorite": true,
+				"secretDescription": "",
+				"source": "",
+				"uses": {
+					"value": null,
+					"max": "",
+					"per": null,
+					"recharge": {
+						"formula": "",
+						"threshold": ""
+					}
+				},
+				"concentration": false,
+				"featureType": "",
+				"prerequisite": "",
+				"schemaVersion": {
+					"version": 0.009,
+					"lastMigration": {
+						"version": {
+							"schema": 0.007,
+							"foundry": "11.311",
+							"system": "0.15.13"
+						}
+					}
+				}
+			},
+			"ownership": {
+				"default": 0
+			}
+		},
+		{
+			"name": "Shove",
+			"type": "maneuver",
+			"img": "icons/skills/melee/shield-block-bash-yellow.webp",
+			"effects": [],
+			"flags": {
+				"core": {
+					"sourceId": "Compendium.a5e.a5e-maneuvers.md35qozzy2fxy2o6"
+				}
+			},
+			"system": {
+				"actions": {
+					"oWP7LgXzjyWFoRxd": {
+						"name": "Shove",
+						"activation": {
+							"cost": 1,
+							"type": "action",
+							"reactionTrigger": ""
+						},
+						"duration": {
+							"unit": "instantaneous",
+							"value": null
+						},
+						"ranges": {
+							"FLJongKmqjFuJhso": {
+								"range": "fiveFeet"
+							}
+						},
+						"area": {
+							"shape": "",
+							"size": "",
+							"placeTemplate": false
+						},
+						"target": {
+							"quantity": null,
+							"type": "creature",
+							"shape": "",
+							"size": ""
+						},
+						"rolls": {
+							"ZqxJQyGYcjGf54Ni": {
+								"canCrit": false,
+								"damageType": "bludgeoning",
+								"formula": "1 + @str.mod",
+								"name": "Default",
+								"type": "damage"
+							}
+						},
+						"prompts": {
+							"tvINSjBeGSu7L0b5": {
+								"ability": "str",
+								"onSave": "",
+								"saveDC": {
+									"type": "custom",
+									"bonus": "@maneuverDC"
+								},
+								"type": "savingThrow"
+							}
+						},
+						"consumers": {}
+					}
+				},
+				"description": "<p>You can use the Shove maneuver to push a creature away. If you are able to make multiple attacks with the Attack action, this maneuver replaces one of them.</p><p>The target must be within your reach and be no more than one size category larger than you. The target makes a Strength saving throw against your maneuver DC. On a failure, you deal basic melee damage and push the target a number of feet away from you equal to 5 + 5 for every 5 points it failed its saving throw by. You can move the creature in any direction away from you (to the side, forward, or diagonally away).</p><p>A creature that is shoved off of a precipice is propelled off of whatever it is standing on -- it does not receive any saving throw or ability check to grab onto something to avoid falling down below.</p>",
+				"favorite": false,
+				"secretDescription": "",
+				"source": "",
+				"uses": {
+					"value": null,
+					"max": "",
+					"per": null,
+					"recharge": {
+						"formula": "",
+						"threshold": ""
+					}
+				},
+				"degree": 0,
+				"exertionCost": 0,
+				"isStance": false,
+				"prerequisite": "",
+				"tradition": "",
+				"schemaVersion": {
+					"version": 0.009,
+					"lastMigration": {
+						"version": {
+							"schema": 0.007,
+							"foundry": "11.311",
+							"system": "0.15.13"
+						}
+					}
+				}
+			},
+			"ownership": {
+				"default": 0
+			},
+			"folder": null,
+			"sort": 0,
+			"_id": "iIZyT3SEghoUNsgl"
+		},
+		{
+			"name": "Disarm",
+			"type": "maneuver",
+			"img": "icons/skills/melee/sword-damaged-broken-glow-red.webp",
+			"effects": [],
+			"flags": {
+				"core": {
+					"sourceId": "Compendium.a5e.a5e-maneuvers.c0bv7fsy2akld5lp"
+				}
+			},
+			"system": {
+				"actions": {
+					"Mc8Lw7TV7h0t908m": {
+						"name": "Disarm",
+						"activation": {
+							"cost": 1,
+							"type": "action",
+							"reactionTrigger": ""
+						},
+						"duration": {
+							"unit": "instantaneous",
+							"value": null
+						},
+						"ranges": {
+							"20aisKvsTM01qHYN": {
+								"range": "touch"
+							}
+						},
+						"area": {
+							"shape": "",
+							"size": "",
+							"placeTemplate": false
+						},
+						"target": {
+							"quantity": "",
+							"type": "creature",
+							"shape": "",
+							"size": ""
+						},
+						"rolls": {
+							"BH9Gnlk5011386LP": {
+								"canCrit": false,
+								"damageType": "",
+								"formula": "1 + @str.mod",
+								"name": "",
+								"type": "damage"
+							}
+						},
+						"prompts": {
+							"Yx49ZLYsAAUX45Up": {
+								"ability": "str",
+								"onSave": "",
+								"saveDC": {
+									"type": "custom",
+									"bonus": "@maneuverDC"
+								},
+								"type": "savingThrow"
+							}
+						},
+						"consumers": {}
+					}
+				},
+				"description": "<p>You can use the Disarm maneuver to attempt to knock an item or weapon from a creature's hand. If you are able to make multiple attacks with the Attack action, this maneuver replaces one of them.</p><p>The target must be within your reach and be holding an item (either carried or wielded). The target makes a Strength or Dexterity saving throw against your maneuver DC. On a failure, you deal basic melee damage and the target drops the item in its space. The target has advantage if it is larger than you or holding the item with two or more hands, and a target smaller than you has disadvantage.</p>",
+				"favorite": false,
+				"secretDescription": "",
+				"source": "",
+				"uses": {
+					"value": null,
+					"max": "",
+					"per": null,
+					"recharge": {
+						"formula": "",
+						"threshold": ""
+					}
+				},
+				"degree": 0,
+				"exertionCost": 0,
+				"isStance": false,
+				"prerequisite": "",
+				"tradition": "",
+				"schemaVersion": {
+					"version": 0.009,
+					"lastMigration": {
+						"version": {
+							"schema": 0.007,
+							"foundry": "11.311",
+							"system": "0.15.13"
+						}
+					}
+				}
+			},
+			"ownership": {
+				"default": 0
+			},
+			"folder": null,
+			"sort": 0,
+			"_id": "z6Ojna9vNhSXRGMd"
+		},
+		{
+			"name": "Grab On",
+			"type": "maneuver",
+			"img": "icons/skills/melee/hand-grip-staff-teal.webp",
+			"effects": [],
+			"flags": {
+				"core": {
+					"sourceId": "Compendium.a5e.a5e-maneuvers.jewmp4pzrg9cdui9"
+				}
+			},
+			"system": {
+				"actions": {
+					"VM10St42wDxUCeXG": {
+						"name": "Grab On",
+						"activation": {
+							"cost": 1,
+							"type": "action",
+							"reactionTrigger": ""
+						},
+						"duration": {
+							"unit": "instantaneous",
+							"value": null
+						},
+						"ranges": {
+							"JPBmr9N4HWcQttEM": {
+								"range": "touch"
+							}
+						},
+						"area": {
+							"shape": "",
+							"size": "",
+							"placeTemplate": false
+						},
+						"target": {
+							"quantity": "",
+							"type": "creature",
+							"shape": "",
+							"size": ""
+						},
+						"prompts": {
+							"iWRCZHjsK6Ucse7b": {
+								"ability": "str",
+								"onSave": "",
+								"saveDC": {
+									"type": "custom",
+									"bonus": "@maneuverDC"
+								},
+								"type": "savingThrow"
+							}
+						},
+						"consumers": {}
+					}
+				},
+				"description": "<p>While you cannot grapple a creature two or more size categories larger than you, you can grab onto it. By jumping onto its back or climbing up a limb, you can make a Strength or Dexterity saving throw against the creature's maneuver DC to cling to or balance upon its body. On a success, you move into the creature's space and can move upon its body as if it is difficult terrain.</p><p>While grabbing onto a larger creature, you gain advantage on attack rolls against it. The larger creature may be able to attack you as normal, depending on its limbs or attacks. It can also use an action or replace one of its attacks on its turn to try to dislodge you, such as shaking you loose or bashing you against a wall, forcing you to make a Strength or Dexterity saving throw against its maneuver DC or fall prone into the nearest space adjacent to the creature, taking its basic melee damage in the process.</p><p>If the creature chooses to roll over in order to dislodge you, it becomes prone, but you have disadvantage on the saving throw to hang on.</p>",
+				"favorite": false,
+				"secretDescription": "",
+				"source": "",
+				"uses": {
+					"value": null,
+					"max": "",
+					"per": null,
+					"recharge": {
+						"formula": "",
+						"threshold": ""
+					}
+				},
+				"degree": 0,
+				"exertionCost": 0,
+				"isStance": false,
+				"prerequisite": "",
+				"tradition": "",
+				"schemaVersion": {
+					"version": 0.009,
+					"lastMigration": {
+						"version": {
+							"schema": 0.007,
+							"foundry": "11.311",
+							"system": "0.15.13"
+						}
+					}
+				}
+			},
+			"ownership": {
+				"default": 0
+			},
+			"folder": null,
+			"sort": 0,
+			"_id": "7EDK1ENdTWs04EGQ"
+		},
+		{
+			"name": "Knockdown",
+			"type": "maneuver",
+			"img": "icons/magic/control/silhouette-fall-slip-prone.webp",
+			"effects": [],
+			"flags": {
+				"core": {
+					"sourceId": "Compendium.a5e.a5e-maneuvers.zzg7j7cb0vkgctwi"
+				}
+			},
+			"system": {
+				"actions": {
+					"Yvmegcf4INJLyX6a": {
+						"name": "Knockdown",
+						"activation": {
+							"cost": 1,
+							"type": "action",
+							"reactionTrigger": ""
+						},
+						"duration": {
+							"unit": "instantaneous",
+							"value": null
+						},
+						"ranges": {
+							"C0JZw4hfhxq9W9xt": {
+								"range": "touch"
+							}
+						},
+						"area": {
+							"shape": "",
+							"size": "",
+							"placeTemplate": false
+						},
+						"target": {
+							"quantity": "",
+							"type": "creature",
+							"shape": "",
+							"size": ""
+						},
+						"prompts": {
+							"tMyPrHh4QXaEW8a1": {
+								"ability": "str",
+								"onSave": "",
+								"saveDC": {
+									"type": "custom",
+									"bonus": "@maneuverDC"
+								},
+								"type": "savingThrow"
+							}
+						},
+						"consumers": {}
+					}
+				},
+				"description": "<p>You can use the Knockdown maneuver to trip or push a creature down. If you are able to make multiple attacks with the Attack action, this maneuver replaces one of them.</p><p>The target must be within your reach and be no more than one size category larger than you. The target makes a Strength saving throw against your maneuver DC. On a failure, you deal basic melee damage and knock the target prone.</p>",
+				"favorite": false,
+				"secretDescription": "",
+				"source": "",
+				"uses": {
+					"value": null,
+					"max": "",
+					"per": null,
+					"recharge": {
+						"formula": "",
+						"threshold": ""
+					}
+				},
+				"degree": 0,
+				"exertionCost": 0,
+				"isStance": false,
+				"prerequisite": "",
+				"tradition": "",
+				"schemaVersion": {
+					"version": 0.009,
+					"lastMigration": {
+						"version": {
+							"schema": 0.007,
+							"foundry": "11.311",
+							"system": "0.15.13"
+						}
+					}
+				}
+			},
+			"ownership": {
+				"default": 0
+			},
+			"folder": null,
+			"sort": 0,
+			"_id": "cFlBy8kuS2Icpy77"
+		},
+		{
+			"name": "Grapple",
+			"type": "maneuver",
+			"img": "icons/skills/melee/unarmed-punch-fist.webp",
+			"effects": [],
+			"flags": {
+				"core": {
+					"sourceId": "Compendium.a5e.a5e-maneuvers.9umrahwm68f81d7l"
+				}
+			},
+			"system": {
+				"actions": {
+					"lt5rophB9uP5sMaZ": {
+						"name": "Grapple",
+						"activation": {
+							"cost": 1,
+							"type": "action",
+							"reactionTrigger": ""
+						},
+						"duration": {
+							"unit": "instantaneous",
+							"value": null
+						},
+						"ranges": {
+							"WngQtFL32n3LTddH": {
+								"range": "touch"
+							}
+						},
+						"area": {
+							"shape": "",
+							"size": "",
+							"placeTemplate": false
+						},
+						"target": {
+							"quantity": "",
+							"type": "creature",
+							"shape": "",
+							"size": ""
+						},
+						"prompts": {
+							"XqUM64fBeAVRX7oI": {
+								"ability": "str",
+								"onSave": "",
+								"saveDC": {
+									"type": "custom",
+									"bonus": "@maneuverDC"
+								},
+								"type": "savingThrow"
+							}
+						},
+						"consumers": {}
+					}
+				},
+				"description": "<p>You can use the Grapple maneuver to grab or wrestle a creature. If you are able to make multiple attacks with the Attack action, this maneuver replaces one of them.</p>\n<p>You must have at least one free hand to attempt a grapple, your target must be within your reach, and the target must be no more than one size category larger than you. The target makes a Strength or Dexterity saving throw against your maneuver DC. On a failure, you deal basic melee damage and the target becomes grappled (see Appendix A: Conditions on page 616). In addition to things that end the condition, you can release the target at any time (no action required).</p>\n<p><em>Escaping a Grapple.</em> While grappled, a creature can use its action to attempt to escape. It must succeed on a Strength or Dexterity saving throw against your maneuver DC.</p>\n<p><em>Moving a Grappled Creature. </em>When you move, you can drag or carry the grappled creature with you. When you do so, your Speed is halved, unless the creature's weight is within your carrying capacity and you are not encumbered by bulky items.</p>\n<p><em>Freeing a Grappled Creature.</em> You can use the Grapple maneuver to try to free another grappled or restrained creature. The creature grappling or restraining the target makes a Strength saving throw against your maneuver DC. If it fails the saving throw, the grappled or restrained creature is freed. Additionally, you may move the freed creature 5 feet in any direction.</p>",
+				"favorite": false,
+				"secretDescription": "",
+				"source": "",
+				"uses": {
+					"value": null,
+					"max": "",
+					"per": null,
+					"recharge": {
+						"formula": "",
+						"threshold": ""
+					}
+				},
+				"degree": 0,
+				"exertionCost": 0,
+				"isStance": false,
+				"prerequisite": "",
+				"tradition": "",
+				"schemaVersion": {
+					"version": 0.009,
+					"lastMigration": {
+						"version": {
+							"schema": 0.007,
+							"foundry": "11.311",
+							"system": "0.15.13"
+						}
+					}
+				}
+			},
+			"ownership": {
+				"default": 0
+			},
+			"folder": null,
+			"sort": 0,
+			"_id": "IOLRIsXL17Stan76"
+		},
+		{
+			"name": "Overrun",
+			"type": "maneuver",
+			"img": "icons/skills/melee/shield-damaged-broken-blue.webp",
+			"effects": [],
+			"flags": {
+				"core": {
+					"sourceId": "Compendium.a5e.a5e-maneuvers.210ihnnejao46r20"
+				}
+			},
+			"system": {
+				"actions": {
+					"fgpMDj03qyXr1M9P": {
+						"name": "Overrun",
+						"activation": {
+							"cost": 1,
+							"type": "special",
+							"reactionTrigger": ""
+						},
+						"duration": {
+							"unit": "instantaneous",
+							"value": null
+						},
+						"ranges": {
+							"ppXY0dSsfI6Ttv30": {
+								"range": "touch"
+							}
+						},
+						"area": {
+							"shape": "",
+							"size": "",
+							"placeTemplate": false
+						},
+						"target": {
+							"quantity": "",
+							"type": "creature",
+							"shape": "",
+							"size": ""
+						},
+						"prompts": {
+							"HT2MdhiLgpFoigg2": {
+								"ability": "str",
+								"onSave": "",
+								"saveDC": {
+									"type": "custom",
+									"bonus": "@maneuverDC"
+								},
+								"type": "savingThrow"
+							}
+						},
+						"consumers": {}
+					}
+				},
+				"description": "<p>You can use an action or bonus action to make an Overrun maneuver to move through a hostile creature's space by forcing your way past. Make a Strength saving throw against the target's maneuver DC. On a success, you deal basic melee damage and can move through the hostile creature's space once this turn. The creature can choose to just let you pass instead of rolling. You have advantage if you are larger than the target, or disadvantage if you are smaller. If you are two or more sizes smaller than the target, you can move through the hostile creature's space without making a save. You still provoke opportunity attacks if you move beyond a creature's reach.</p>",
+				"favorite": false,
+				"secretDescription": "",
+				"source": "",
+				"uses": {
+					"value": null,
+					"max": "",
+					"per": null,
+					"recharge": {
+						"formula": "",
+						"threshold": ""
+					}
+				},
+				"degree": 0,
+				"exertionCost": 0,
+				"isStance": false,
+				"prerequisite": "",
+				"tradition": "",
+				"schemaVersion": {
+					"version": 0.009,
+					"lastMigration": {
+						"version": {
+							"schema": 0.007,
+							"foundry": "11.311",
+							"system": "0.15.13"
+						}
+					}
+				}
+			},
+			"ownership": {
+				"default": 0
+			},
+			"folder": null,
+			"sort": 0,
+			"_id": "ByFjfizWP9CiK9L5"
+		}
+	],
+	"effects": [],
+	"flags": {
+		"a5e": {
+			"availableSpellLevels": [],
+			"showSpellSlots": false,
+			"showSpellPoints": false
+		}
+	},
+	"system": {
+		"abilities": {
+			"str": {
+				"value": 14,
+				"check": {
+					"expertiseDice": 0,
+					"bonus": ""
+				},
+				"save": {
+					"proficient": false,
+					"expertiseDice": 0,
+					"bonus": ""
+				}
+			},
+			"dex": {
+				"value": 16,
+				"check": {
+					"expertiseDice": 0,
+					"bonus": ""
+				},
+				"save": {
+					"proficient": true,
+					"expertiseDice": 0,
+					"bonus": ""
+				}
+			},
+			"con": {
+				"value": 14,
+				"check": {
+					"expertiseDice": 0,
+					"bonus": ""
+				},
+				"save": {
+					"proficient": true,
+					"expertiseDice": 0,
+					"bonus": "",
+					"concentrationBonus": ""
+				}
+			},
+			"int": {
+				"value": 12,
+				"check": {
+					"expertiseDice": 0,
+					"bonus": ""
+				},
+				"save": {
+					"proficient": true,
+					"expertiseDice": 0,
+					"bonus": ""
+				}
+			},
+			"wis": {
+				"value": 16,
+				"check": {
+					"expertiseDice": 0,
+					"bonus": ""
+				},
+				"save": {
+					"proficient": true,
+					"expertiseDice": 0,
+					"bonus": ""
+				}
+			},
+			"cha": {
+				"value": 12,
+				"check": {
+					"expertiseDice": 0,
+					"bonus": ""
+				},
+				"save": {
+					"proficient": true,
+					"expertiseDice": 0,
+					"bonus": ""
+				}
+			}
+		},
+		"schemaVersion": {
+			"version": 0.007,
+			"lastMigration": {
+				"version": {
+					"schema": 0.006,
+					"foundry": "11.307",
+					"system": "0.15.0"
+				}
+			}
+		},
+		"skills": {
+			"acr": {
+				"ability": "dex",
+				"value": 0,
+				"proficient": true,
+				"specialties": [],
+				"expertiseDice": 0,
+				"minRoll": 1,
+				"bonuses": {
+					"check": "",
+					"passive": 0
+				}
+			},
+			"ani": {
+				"ability": "wis",
+				"value": 0,
+				"proficient": false,
+				"specialties": [],
+				"expertiseDice": 0,
+				"minRoll": 1,
+				"bonuses": {
+					"check": "",
+					"passive": 0
+				}
+			},
+			"arc": {
+				"ability": "int",
+				"value": 0,
+				"proficient": false,
+				"specialties": [],
+				"expertiseDice": 0,
+				"minRoll": 1,
+				"bonuses": {
+					"check": "",
+					"passive": 0
+				}
+			},
+			"ath": {
+				"ability": "str",
+				"value": 0,
+				"proficient": false,
+				"specialties": [],
+				"expertiseDice": 0,
+				"minRoll": 1,
+				"bonuses": {
+					"check": "",
+					"passive": 0
+				}
+			},
+			"cul": {
+				"ability": "int",
+				"value": 0,
+				"proficient": false,
+				"specialties": [],
+				"expertiseDice": 0,
+				"minRoll": 1,
+				"bonuses": {
+					"check": "",
+					"passive": 0
+				}
+			},
+			"dec": {
+				"ability": "cha",
+				"value": 0,
+				"proficient": true,
+				"specialties": [],
+				"expertiseDice": 0,
+				"minRoll": 1,
+				"bonuses": {
+					"check": "",
+					"passive": 0
+				}
+			},
+			"eng": {
+				"ability": "int",
+				"value": 0,
+				"proficient": false,
+				"specialties": [],
+				"expertiseDice": 0,
+				"minRoll": 1,
+				"bonuses": {
+					"check": "",
+					"passive": 0
+				}
+			},
+			"his": {
+				"ability": "int",
+				"value": 0,
+				"proficient": false,
+				"specialties": [],
+				"expertiseDice": 0,
+				"minRoll": 1,
+				"bonuses": {
+					"check": "",
+					"passive": 0
+				}
+			},
+			"ins": {
+				"ability": "wis",
+				"value": 0,
+				"proficient": true,
+				"specialties": [],
+				"expertiseDice": 0,
+				"minRoll": 1,
+				"bonuses": {
+					"check": "",
+					"passive": 0
+				}
+			},
+			"itm": {
+				"ability": "cha",
+				"value": 0,
+				"proficient": false,
+				"specialties": [],
+				"expertiseDice": 0,
+				"minRoll": 1,
+				"bonuses": {
+					"check": "",
+					"passive": 0
+				}
+			},
+			"inv": {
+				"ability": "int",
+				"value": 0,
+				"proficient": false,
+				"specialties": [],
+				"expertiseDice": 0,
+				"minRoll": 1,
+				"bonuses": {
+					"check": "",
+					"passive": 0
+				}
+			},
+			"med": {
+				"ability": "wis",
+				"value": 0,
+				"proficient": false,
+				"specialties": [],
+				"expertiseDice": 0,
+				"minRoll": 1,
+				"bonuses": {
+					"check": "",
+					"passive": 0
+				}
+			},
+			"nat": {
+				"ability": "int",
+				"value": 0,
+				"proficient": true,
+				"specialties": [],
+				"expertiseDice": 0,
+				"minRoll": 1,
+				"bonuses": {
+					"check": "",
+					"passive": 0
+				}
+			},
+			"prc": {
+				"ability": "wis",
+				"value": 0,
+				"proficient": true,
+				"specialties": [],
+				"expertiseDice": 0,
+				"minRoll": 1,
+				"bonuses": {
+					"check": "",
+					"passive": 0
+				}
+			},
+			"prf": {
+				"ability": "cha",
+				"value": 0,
+				"proficient": false,
+				"specialties": [],
+				"expertiseDice": 0,
+				"minRoll": 1,
+				"bonuses": {
+					"check": "",
+					"passive": 0
+				}
+			},
+			"per": {
+				"ability": "cha",
+				"value": 0,
+				"proficient": false,
+				"specialties": [],
+				"expertiseDice": 0,
+				"minRoll": 1,
+				"bonuses": {
+					"check": "",
+					"passive": 0
+				}
+			},
+			"rel": {
+				"ability": "int",
+				"value": 0,
+				"proficient": false,
+				"specialties": [],
+				"expertiseDice": 0,
+				"minRoll": 1,
+				"bonuses": {
+					"check": "",
+					"passive": 0
+				}
+			},
+			"slt": {
+				"ability": "dex",
+				"value": 0,
+				"proficient": false,
+				"specialties": [],
+				"expertiseDice": 0,
+				"minRoll": 1,
+				"bonuses": {
+					"check": "",
+					"passive": 0
+				}
+			},
+			"ste": {
+				"ability": "dex",
+				"value": 0,
+				"proficient": true,
+				"specialties": [],
+				"expertiseDice": 0,
+				"minRoll": 1,
+				"bonuses": {
+					"check": "",
+					"passive": 0
+				}
+			},
+			"sur": {
+				"ability": "wis",
+				"value": 0,
+				"proficient": false,
+				"specialties": [],
+				"expertiseDice": 0,
+				"minRoll": 1,
+				"bonuses": {
+					"check": "",
+					"passive": 0
+				}
+			}
+		},
+		"spellResources": {
+			"slots": {
+				"0": {
+					"current": 0,
+					"max": 0
+				},
+				"1": {
+					"current": 0,
+					"max": 0
+				},
+				"2": {
+					"current": 0,
+					"max": 0
+				},
+				"3": {
+					"current": 0,
+					"max": 0
+				},
+				"4": {
+					"current": 0,
+					"max": 0
+				},
+				"5": {
+					"current": 0,
+					"max": 0
+				},
+				"6": {
+					"current": 0,
+					"max": 0
+				},
+				"7": {
+					"current": 0,
+					"max": 0
+				},
+				"8": {
+					"current": 0,
+					"max": 0
+				},
+				"9": {
+					"current": 0,
+					"max": 0
+				}
+			},
+			"points": {
+				"current": 0,
+				"max": 0
+			}
+		},
+		"attributes": {
+			"ac": {
+				"baseFormula": "17",
+				"value": 0
+			},
+			"death": {
+				"success": 0,
+				"failure": 0
+			},
+			"hp": {
+				"value": 142,
+				"baseMax": 142,
+				"temp": 0,
+				"bonus": 0
+			},
+			"hitDice": {
+				"d6": {
+					"current": 0,
+					"total": 0
+				},
+				"d8": {
+					"current": 0,
+					"total": 0
+				},
+				"d10": {
+					"current": 19,
+					"total": 19
+				},
+				"d12": {
+					"current": 0,
+					"total": 0
+				},
+				"d4": {
+					"current": 0,
+					"total": 0
+				},
+				"d20": {
+					"current": 0,
+					"total": 0
+				}
+			},
+			"initiative": {
+				"bonus": "",
+				"expertiseDice": 0
+			},
+			"movement": {
+				"burrow": {
+					"distance": 0,
+					"unit": "feet"
+				},
+				"climb": {
+					"distance": 0,
+					"unit": "feet"
+				},
+				"fly": {
+					"distance": 60,
+					"unit": "feet"
+				},
+				"swim": {
+					"distance": 60,
+					"unit": "feet"
+				},
+				"walk": {
+					"distance": 50,
+					"unit": "feet"
+				},
+				"traits": {
+					"hover": false
+				}
+			},
+			"senses": {
+				"blindsight": {
+					"distance": null,
+					"unit": "feet",
+					"otherwiseBlind": false
+				},
+				"darkvision": {
+					"distance": 120,
+					"unit": "feet"
+				},
+				"tremorsense": {
+					"distance": null,
+					"unit": "feet"
+				},
+				"truesight": {
+					"distance": null,
+					"unit": "feet"
+				}
+			},
+			"inspiration": false,
+			"fatigue": 0,
+			"strife": 0,
+			"spellcasting": "cha",
+			"casterLevel": 0
+		},
+		"bonuses": {
+			"abilities": {
+				"check": "",
+				"save": "",
+				"skill": ""
+			},
+			"damage": {},
+			"healing": {},
+			"maneuverDC": "",
+			"meleeSpellAttack": "",
+			"meleeWeaponAttack": "",
+			"rangedSpellAttack": "",
+			"rangedWeaponAttack": "",
+			"spellDC": ""
+		},
+		"currency": {
+			"pp": 0,
+			"gp": 0,
+			"ep": 0,
+			"sp": 0,
+			"cp": 0
+		},
+		"details": {
+			"bio": "<h2><strong>COMBAT</strong></h2><p>While individual dragons have their own personalities and tactics, most rely heavily on their breath weapons. They use them whenever they can, preferably from maximum distance and while flying above their enemies.&nbsp;</p><p>When fighting in the open, dragons often circle above their enemies as they wait for their breath weapons to recharge. They only close to melee if their enemies deal significant damage with ranged attacks, or if they can savage an enemy cut off from its allies. Once bloodied, dragons become more aggressive, attacking with bite and claws when their breath weapons aren’t available.</p><p>If a dragon is protecting its lair, it utilizes lair features, traps, allies, and architecture such as escape tunnels to keep up a hit-and-run fight, reappearing only when it has a fully-recharged breath weapon. If the dragon is forced into melee combat, it uses its bite and claws against a single foe. If it has legendary actions like Roar and Wing Attack, it uses them to disperse its other enemies.</p><p>If reduced to less than one-fourth its hit points while fighting in the open, a dragon flies away. However, it fights to the death to defend its lair, unless it can regain the upper hand through tricks or bargains.</p><hr class=\"a5e-rule u-my-md\"><h2><strong>RIVER DRAGON LAIR FEATURES</strong></h2><p>Choose or roll one or more of the following lair features:</p><p>1 The dragon’s domain is populated with dangerous aquatic creatures. As a bonus action, it may summon its choice of 1d6 crocodiles or 1d4 swarms of quippers as allies. The creatures fight until killed or dismissed by the dragon as a bonus action or until the dragon uses this ability again.&nbsp;</p><p>2 The dragon’s domain supports one or more riverside villages whose livelihoods depend on the dragon’s survival. At the beginning of each round of combat, roll a d6. On a 5–6, 1d4 locals with the statistics of thugs arrive to defend the dragon, acting on the dragon’s initiative. The locals fight until killed or until the dragon instructs them to stop.&nbsp;</p><p>3 The rocks that line the riverbanks are particularly sharp. Whenever one of the dragon’s attacks or abilities causes a creature to impact a solid object, increase the damage that creature takes by 9 (2d8).&nbsp;</p><p>4 The dragon’s river is murky. Visibility beneath the water is reduced to 20 feet.&nbsp;&nbsp;</p><hr class=\"a5e-rule u-my-md\"><h2><strong>NAMES</strong></h2><p>Bol'shaya, Bystraya, Glitterstream, Penzhina, Springtide, Zathernak</p><hr class=\"a5e-rule u-my-md\"><h2><strong>LEGENDS AND LORE</strong></h2><p>With an Arcana or Nature check, characters can learn the following:</p><p><strong>DC 10</strong> Like the waterways they inhabit, river dragons can be slow and lumbering, or fierce and nimble.</p><p><strong>DC 15</strong> River dragons exhale jets of water and create magical whirlpools to bash and scatter their foes.</p><p><strong>DC 20</strong> When angered, the oldest river dragons surround themselves with magical maelstroms that few mortals can withstand.</p><hr class=\"a5e-rule u-my-md\"><h2><strong>DESCRIPTION</strong></h2><p>Linked to great, coursing rivers, these essence dragons embody the reckless, ever-changing power of water itself. Like a streak of quicksilver or a pennant fluttering in the wind, a river dragon is always moving, running an endless circuit from the river’s source to the ocean and back again. Like the rivers they exemplify, these dragons are fickle things. A ship or passerby that catches the attention of a river dragon might find fortune or ruin, depending on the fleeting whims of the river.</p><p><strong><em>The Serpent Eats Its Tail.</em> </strong>While the oldest river dragons have grown complacent in their wide, meandering rivers, most river dragons are on constant watch for competition. River dragon wyrmlings rule over tributaries and must pay proper respect to their source rivers, at least until they grow strong enough to challenge them.</p><p><strong><em>Gods of the Waterway.</em> </strong>Those who fish along the river’s edge sometimes spot disporting river dragons, giving rise to legends of river gods. River dragons treated as gods are usually flattered by such honors, and may take efforts to ensure bountiful catches. Those regarded as monsters are often equally amused, and work to keep their fearsome legend alive by devouring the occasional lone angler.</p><hr class=\"a5e-rule u-my-md\"><h2><strong>BEHAVIOR</strong></h2><p>1 Floating serenely on the river, content to ignore peaceful travelers</p><p>2 Flying overhead, alert for trespassers</p><p>3 Eagerly approaching a boat, looking for fun</p><p>4 Attacks on sight</p><hr class=\"a5e-rule u-my-md\"><h2><strong>SIGNS</strong></h2><p>1 Sparkling mist floating over the river</p><p>2 A loud, distant splash</p><p>3 A whirlpool appears in the river</p><p>4 The banks of the river are lush with plants, and schools of bright fish leap from the water</p><hr class=\"a5e-rule u-my-md\"><h2><strong>ENCOUNTERS</strong></h2><p>River dragons leave their chosen river only in extreme circumstances.</p><p><strong>CR 3–4</strong> river dragon wyrmling with 2 boggards, crocodiles, or steam mephits</p><p><strong>Treasure</strong> 300 gp, 1,000 sp, mithral mirror (75 gp), <em>potion of healing</em>, <em>bag of tricks </em>(tan)</p><p><strong>CR 5–10</strong> young river dragon</p><p><strong>Treasure</strong> 750 gp, 300 ep, 6 pearls (100 gp each), gold ceremonial dagger with mermaid handle (250 gp), 3 <em>potions of healing</em>, <em>staff of swarming insects</em></p><p><strong>CR 11–16</strong> young river dragon with 2 constrictor snakes, hunter sharks, or plesiosauruses; young river dragon with sea hag or water elemental&nbsp;</p><p><strong>Treasure</strong> 100 pp, 2,000 gp, 3 aquamarine gemstones (500 gp each), bottle containing a message, <em>ring of water walking</em>, <em>+2 scimitar</em> (with a blade resembling shimmering water; named <em>Salmon of Wisdom</em>)</p><p><strong>CR 17–22</strong> adult river dragon</p><p><strong>Treasure</strong> 8,000 gp, 10,000 sp, 3 pearl necklaces (2,500 gp each), 4 sapphires (1,000 gp each), metal diving suit (1,000 gp), 2 <em>potions of clairvoyance</em>, <em>spell scroll </em>of <em>control weather</em>, <em>+1 half plate</em>, <em>sun blade</em></p><p><strong>CR 23–30</strong> adult river dragon with giant shark, marid, or merclops (see cyclops); ancient river dragon; ancient river dragon with giant lanternfish (see lamia) or sea chimera (see chimera)</p><p><strong>Treasure</strong> 10,000 gp, black pearl necklace (7,500 gp), 20 1-pound mithral bars (750 gp each), 2 doses of purple worm poison (2,000 gp each), 3 <em>arrows of elemental slaying</em>, <em>ring of free action</em>, <em>periapt of wound closure</em></p><p><strong>CR 31+</strong> ancient river dragon with 2 giant crocodiles, merrow mages (see merrow), or water elementals</p><p><strong>Treasure</strong> 5,000 pp, 40,000 gp, 6 diamonds (5,000 gp each), emerald idol (25,000 gp), fish that grants wishes (as <em>ring of 3 wishes</em>), 3 <em>potions of supreme healing</em>, <em>Ioun stone of absorption</em>, <em>luck blade</em></p><hr class=\"a5e-rule u-my-md\"><h2><strong>MONSTER TYPE DESCRIPTION</strong></h2><p>Dragons include red and gold dragons, which are huge reptilian fire-breathers that number among the world’s most dangerous monsters. This type includes white dragons, which breathe killing frost, as well as smaller reptilian creatures related to true dragons, such as pseudodragons.&nbsp;</p>",
+			"creatureTypes": [
+				"dragon"
+			],
+			"isSwarm": false,
+			"cr": 9,
+			"elite": false,
+			"privateNotes": ""
+		},
+		"proficiencies": {
+			"armor": [],
+			"languages": [
+				"aquan",
+				"draconic",
+				"common"
+			],
+			"tools": [],
+			"weapons": []
+		},
+		"resources": {
+			"primary": {
+				"label": "",
+				"value": 0,
+				"max": 0,
+				"per": "",
+				"hideMax": false,
+				"recharge": {
+					"formula": "",
+					"threshold": 6
+				}
+			},
+			"secondary": {
+				"label": "",
+				"value": 0,
+				"max": 0,
+				"per": "",
+				"hideMax": false,
+				"recharge": {
+					"formula": "",
+					"threshold": 6
+				}
+			},
+			"tertiary": {
+				"label": "",
+				"value": 0,
+				"max": 0,
+				"per": "",
+				"hideMax": false,
+				"recharge": {
+					"formula": "",
+					"threshold": 6
+				}
+			},
+			"quaternary": {
+				"label": "",
+				"value": 0,
+				"max": 0,
+				"per": "",
+				"hideMax": false,
+				"recharge": {
+					"formula": "",
+					"threshold": 6
+				}
+			}
+		},
+		"source": {
+			"name": "",
+			"link": "",
+			"publisher": ""
+		},
+		"traits": {
+			"size": "lg",
+			"conditionImmunities": [
+				"fatigue"
+			],
+			"damageImmunities": [],
+			"damageResistances": [
+				"Nonmagical weapons"
+			],
+			"damageVulnerabilities": []
+		}
+	},
+	"prototypeToken": {
+		"name": "Young River Dragon",
+		"displayName": 0,
+		"actorLink": false,
+		"width": 2,
+		"height": 2,
+		"lockRotation": false,
+		"rotation": 0,
+		"alpha": 1,
+		"light": {
+			"alpha": 0.5,
+			"angle": 360,
+			"bright": 0,
+			"coloration": 1,
+			"dim": 0,
+			"luminosity": 0.5,
+			"saturation": 0,
+			"contrast": 0,
+			"shadows": 0,
+			"animation": {
+				"speed": 5,
+				"intensity": 5,
+				"reverse": false,
+				"type": null
+			},
+			"darkness": {
+				"min": 0,
+				"max": 1
+			},
+			"color": null,
+			"attenuation": 0.5
+		},
+		"disposition": -1,
+		"displayBars": 0,
+		"bar1": {
+			"attribute": "attributes.hp"
+		},
+		"bar2": {
+			"attribute": null
+		},
+		"flags": {},
+		"randomImg": false,
+		"texture": {
+			"src": "systems/a5e/assets/river-dragon.webp",
+			"tint": null,
+			"scaleX": 1,
+			"scaleY": 1,
+			"offsetX": 0,
+			"offsetY": 0,
+			"rotation": 0
+		},
+		"sight": {
+			"angle": 360,
+			"enabled": false,
+			"range": 0,
+			"brightness": 1,
+			"color": null,
+			"attenuation": 0.1,
+			"saturation": 0,
+			"contrast": 0,
+			"visionMode": "basic"
+		},
+		"detectionModes": [],
+		"appendNumber": false,
+		"prependAdjective": false
+	},
+	"folder": null,
+	"_id": "ev664zs4nll03ybn"
 }
