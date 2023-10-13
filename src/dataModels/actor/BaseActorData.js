@@ -107,9 +107,36 @@ export default class BaseActorData extends A5EDataModel.mixin(SchemaDataModel) {
         strife: new fields.NumberField({ required: true, initial: 0, integer: true }),
         spellcasting: new fields.StringField({ required: true, initial: 'int' })
       }),
-      bonuses: new fields.ObjectField(),
-      currency: new fields.ObjectField(),
-      details: new fields.ObjectField(),
+      bonuses: new fields.SchemaField({
+        abilities: new fields.SchemaField({
+          check: new fields.StringField({ required: true, initial: '' }),
+          save: new fields.StringField({ required: true, initial: '' }),
+          skill: new fields.StringField({ required: true, initial: '' })
+        }),
+        damage: new fields.ObjectField(),
+        healing: new fields.ObjectField(),
+        maneuverDC: new fields.StringField({ required: true, initial: '' }),
+        meleeSpellAttack: new fields.StringField({ required: true, initial: '' }),
+        meleeWeaponAttack: new fields.StringField({ required: true, initial: '' }),
+        rangedSpellAttack: new fields.StringField({ required: true, initial: '' }),
+        rangedWeaponAttack: new fields.StringField({ required: true, initial: '' }),
+        spellDC: new fields.StringField({ required: true, initial: '' })
+      }),
+      currency: new fields.SchemaField({
+        cp: new fields.NumberField({ required: true, initial: 0, integer: true }),
+        sp: new fields.NumberField({ required: true, initial: 0, integer: true }),
+        ep: new fields.NumberField({ required: true, initial: 0, integer: true }),
+        gp: new fields.NumberField({ required: true, initial: 0, integer: true }),
+        pp: new fields.NumberField({ required: true, initial: 0, integer: true })
+      }),
+      details: new fields.SchemaField({
+        bio: new fields.StringField({ required: true, initial: '' }),
+        creatureTypes: new fields.ArrayField(
+          new fields.StringField({ required: true, initial: '' }),
+          { required: true, initial: [] }
+        ),
+        isSwarm: new fields.BooleanField({ required: true, initial: false })
+      }),
       proficiencies: new fields.ObjectField(),
       resources: new fields.ObjectField(),
       skills: new fields.ObjectField(),
