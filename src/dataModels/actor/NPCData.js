@@ -10,11 +10,11 @@ export default class NPCData extends BaseActorData {
         hitDice: new fields.SchemaField({
           d4: new fields.SchemaField({
             current: new fields.NumberField({ required: true, initial: 0, integer: true }),
-            max: new fields.NumberField({ required: true, initial: 0, integer: true })
+            total: new fields.NumberField({ required: true, initial: 0, integer: true })
           }),
           d20: new fields.SchemaField({
             current: new fields.NumberField({ required: true, initial: 0, integer: true }),
-            max: new fields.NumberField({ required: true, initial: 0, integer: true })
+            total: new fields.NumberField({ required: true, initial: 0, integer: true })
           })
         })
       }),
