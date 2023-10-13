@@ -189,7 +189,428 @@ export default class BaseActorData extends A5EDataModel.mixin(SchemaDataModel) {
           })
         })
       }),
-      skills: new fields.ObjectField(),
+      skills: new fields.SchemaField({
+        acr: new fields.SchemaField({
+          ability: new fields.StringField({ required: true, initial: '' }),
+          value: new fields.NumberField({ required: true, initial: 0, integer: true }),
+          proficient: new fields.BooleanField({ required: true, initial: false }),
+          specialties: new fields.ArrayField(
+            new fields.StringField({ required: true, initial: '' }),
+            { required: true, initial: [] }
+          ),
+          expertiseDie: new fields.NumberField({ required: true, initial: 0, integer: true }),
+          minRoll: new fields.NumberField({
+            required: true,
+            initial: 1,
+            integer: true,
+            min: 1,
+            max: 20
+          }),
+          bonuses: new fields.SchemaField({
+            check: new fields.StringField({ required: true, initial: '' }),
+            passive: new fields.NumberField({ required: true, initial: 0, integer: true })
+          })
+        }),
+        ani: new fields.SchemaField({
+          ability: new fields.StringField({ required: true, initial: '' }),
+          value: new fields.NumberField({ required: true, initial: 0, integer: true }),
+          proficient: new fields.BooleanField({ required: true, initial: false }),
+          specialties: new fields.ArrayField(
+            new fields.StringField({ required: true, initial: '' }),
+            { required: true, initial: [] }
+          ),
+          expertiseDie: new fields.NumberField({ required: true, initial: 0, integer: true }),
+          minRoll: new fields.NumberField({
+            required: true,
+            initial: 1,
+            integer: true,
+            min: 1,
+            max: 20
+          }),
+          bonuses: new fields.SchemaField({
+            check: new fields.StringField({ required: true, initial: '' }),
+            passive: new fields.NumberField({ required: true, initial: 0, integer: true })
+          })
+        }),
+        arc: new fields.SchemaField({
+          ability: new fields.StringField({ required: true, initial: '' }),
+          value: new fields.NumberField({ required: true, initial: 0, integer: true }),
+          proficient: new fields.BooleanField({ required: true, initial: false }),
+          specialties: new fields.ArrayField(
+            new fields.StringField({ required: true, initial: '' }),
+            { required: true, initial: [] }
+          ),
+          expertiseDie: new fields.NumberField({ required: true, initial: 0, integer: true }),
+          minRoll: new fields.NumberField({
+            required: true,
+            initial: 1,
+            integer: true,
+            min: 1,
+            max: 20
+          }),
+          bonuses: new fields.SchemaField({
+            check: new fields.StringField({ required: true, initial: '' }),
+            passive: new fields.NumberField({ required: true, initial: 0, integer: true })
+          })
+        }),
+        ath: new fields.SchemaField({
+          ability: new fields.StringField({ required: true, initial: '' }),
+          value: new fields.NumberField({ required: true, initial: 0, integer: true }),
+          proficient: new fields.BooleanField({ required: true, initial: false }),
+          specialties: new fields.ArrayField(
+            new fields.StringField({ required: true, initial: '' }),
+            { required: true, initial: [] }
+          ),
+          expertiseDie: new fields.NumberField({ required: true, initial: 0, integer: true }),
+          minRoll: new fields.NumberField({
+            required: true,
+            initial: 1,
+            integer: true,
+            min: 1,
+            max: 20
+          }),
+          bonuses: new fields.SchemaField({
+            check: new fields.StringField({ required: true, initial: '' }),
+            passive: new fields.NumberField({ required: true, initial: 0, integer: true })
+          })
+        }),
+        cul: new fields.SchemaField({
+          ability: new fields.StringField({ required: true, initial: '' }),
+          value: new fields.NumberField({ required: true, initial: 0, integer: true }),
+          proficient: new fields.BooleanField({ required: true, initial: false }),
+          specialties: new fields.ArrayField(
+            new fields.StringField({ required: true, initial: '' }),
+            { required: true, initial: [] }
+          ),
+          expertiseDie: new fields.NumberField({ required: true, initial: 0, integer: true }),
+          minRoll: new fields.NumberField({
+            required: true,
+            initial: 1,
+            integer: true,
+            min: 1,
+            max: 20
+          }),
+          bonuses: new fields.SchemaField({
+            check: new fields.StringField({ required: true, initial: '' }),
+            passive: new fields.NumberField({ required: true, initial: 0, integer: true })
+          })
+        }),
+        dec: new fields.SchemaField({
+          ability: new fields.StringField({ required: true, initial: '' }),
+          value: new fields.NumberField({ required: true, initial: 0, integer: true }),
+          proficient: new fields.BooleanField({ required: true, initial: false }),
+          specialties: new fields.ArrayField(
+            new fields.StringField({ required: true, initial: '' }),
+            { required: true, initial: [] }
+          ),
+          expertiseDie: new fields.NumberField({ required: true, initial: 0, integer: true }),
+          minRoll: new fields.NumberField({
+            required: true,
+            initial: 1,
+            integer: true,
+            min: 1,
+            max: 20
+          }),
+          bonuses: new fields.SchemaField({
+            check: new fields.StringField({ required: true, initial: '' }),
+            passive: new fields.NumberField({ required: true, initial: 0, integer: true })
+          })
+        }),
+        eng: new fields.SchemaField({
+          ability: new fields.StringField({ required: true, initial: '' }),
+          value: new fields.NumberField({ required: true, initial: 0, integer: true }),
+          proficient: new fields.BooleanField({ required: true, initial: false }),
+          specialties: new fields.ArrayField(
+            new fields.StringField({ required: true, initial: '' }),
+            { required: true, initial: [] }
+          ),
+          expertiseDie: new fields.NumberField({ required: true, initial: 0, integer: true }),
+          minRoll: new fields.NumberField({
+            required: true,
+            initial: 1,
+            integer: true,
+            min: 1,
+            max: 20
+          }),
+          bonuses: new fields.SchemaField({
+            check: new fields.StringField({ required: true, initial: '' }),
+            passive: new fields.NumberField({ required: true, initial: 0, integer: true })
+          })
+        }),
+        his: new fields.SchemaField({
+          ability: new fields.StringField({ required: true, initial: '' }),
+          value: new fields.NumberField({ required: true, initial: 0, integer: true }),
+          proficient: new fields.BooleanField({ required: true, initial: false }),
+          specialties: new fields.ArrayField(
+            new fields.StringField({ required: true, initial: '' }),
+            { required: true, initial: [] }
+          ),
+          expertiseDie: new fields.NumberField({ required: true, initial: 0, integer: true }),
+          minRoll: new fields.NumberField({
+            required: true,
+            initial: 1,
+            integer: true,
+            min: 1,
+            max: 20
+          }),
+          bonuses: new fields.SchemaField({
+            check: new fields.StringField({ required: true, initial: '' }),
+            passive: new fields.NumberField({ required: true, initial: 0, integer: true })
+          })
+        }),
+        ins: new fields.SchemaField({
+          ability: new fields.StringField({ required: true, initial: '' }),
+          value: new fields.NumberField({ required: true, initial: 0, integer: true }),
+          proficient: new fields.BooleanField({ required: true, initial: false }),
+          specialties: new fields.ArrayField(
+            new fields.StringField({ required: true, initial: '' }),
+            { required: true, initial: [] }
+          ),
+          expertiseDie: new fields.NumberField({ required: true, initial: 0, integer: true }),
+          minRoll: new fields.NumberField({
+            required: true,
+            initial: 1,
+            integer: true,
+            min: 1,
+            max: 20
+          }),
+          bonuses: new fields.SchemaField({
+            check: new fields.StringField({ required: true, initial: '' }),
+            passive: new fields.NumberField({ required: true, initial: 0, integer: true })
+          })
+        }),
+        itm: new fields.SchemaField({
+          ability: new fields.StringField({ required: true, initial: '' }),
+          value: new fields.NumberField({ required: true, initial: 0, integer: true }),
+          proficient: new fields.BooleanField({ required: true, initial: false }),
+          specialties: new fields.ArrayField(
+            new fields.StringField({ required: true, initial: '' }),
+            { required: true, initial: [] }
+          ),
+          expertiseDie: new fields.NumberField({ required: true, initial: 0, integer: true }),
+          minRoll: new fields.NumberField({
+            required: true,
+            initial: 1,
+            integer: true,
+            min: 1,
+            max: 20
+          }),
+          bonuses: new fields.SchemaField({
+            check: new fields.StringField({ required: true, initial: '' }),
+            passive: new fields.NumberField({ required: true, initial: 0, integer: true })
+          })
+        }),
+        inv: new fields.SchemaField({
+          ability: new fields.StringField({ required: true, initial: '' }),
+          value: new fields.NumberField({ required: true, initial: 0, integer: true }),
+          proficient: new fields.BooleanField({ required: true, initial: false }),
+          specialties: new fields.ArrayField(
+            new fields.StringField({ required: true, initial: '' }),
+            { required: true, initial: [] }
+          ),
+          expertiseDie: new fields.NumberField({ required: true, initial: 0, integer: true }),
+          minRoll: new fields.NumberField({
+            required: true,
+            initial: 1,
+            integer: true,
+            min: 1,
+            max: 20
+          }),
+          bonuses: new fields.SchemaField({
+            check: new fields.StringField({ required: true, initial: '' }),
+            passive: new fields.NumberField({ required: true, initial: 0, integer: true })
+          })
+        }),
+        med: new fields.SchemaField({
+          ability: new fields.StringField({ required: true, initial: '' }),
+          value: new fields.NumberField({ required: true, initial: 0, integer: true }),
+          proficient: new fields.BooleanField({ required: true, initial: false }),
+          specialties: new fields.ArrayField(
+            new fields.StringField({ required: true, initial: '' }),
+            { required: true, initial: [] }
+          ),
+          expertiseDie: new fields.NumberField({ required: true, initial: 0, integer: true }),
+          minRoll: new fields.NumberField({
+            required: true,
+            initial: 1,
+            integer: true,
+            min: 1,
+            max: 20
+          }),
+          bonuses: new fields.SchemaField({
+            check: new fields.StringField({ required: true, initial: '' }),
+            passive: new fields.NumberField({ required: true, initial: 0, integer: true })
+          })
+        }),
+        nat: new fields.SchemaField({
+          ability: new fields.StringField({ required: true, initial: '' }),
+          value: new fields.NumberField({ required: true, initial: 0, integer: true }),
+          proficient: new fields.BooleanField({ required: true, initial: false }),
+          specialties: new fields.ArrayField(
+            new fields.StringField({ required: true, initial: '' }),
+            { required: true, initial: [] }
+          ),
+          expertiseDie: new fields.NumberField({ required: true, initial: 0, integer: true }),
+          minRoll: new fields.NumberField({
+            required: true,
+            initial: 1,
+            integer: true,
+            min: 1,
+            max: 20
+          }),
+          bonuses: new fields.SchemaField({
+            check: new fields.StringField({ required: true, initial: '' }),
+            passive: new fields.NumberField({ required: true, initial: 0, integer: true })
+          })
+        }),
+        prc: new fields.SchemaField({
+          ability: new fields.StringField({ required: true, initial: '' }),
+          value: new fields.NumberField({ required: true, initial: 0, integer: true }),
+          proficient: new fields.BooleanField({ required: true, initial: false }),
+          specialties: new fields.ArrayField(
+            new fields.StringField({ required: true, initial: '' }),
+            { required: true, initial: [] }
+          ),
+          expertiseDie: new fields.NumberField({ required: true, initial: 0, integer: true }),
+          minRoll: new fields.NumberField({
+            required: true,
+            initial: 1,
+            integer: true,
+            min: 1,
+            max: 20
+          }),
+          bonuses: new fields.SchemaField({
+            check: new fields.StringField({ required: true, initial: '' }),
+            passive: new fields.NumberField({ required: true, initial: 0, integer: true })
+          })
+        }),
+        prf: new fields.SchemaField({
+          ability: new fields.StringField({ required: true, initial: '' }),
+          value: new fields.NumberField({ required: true, initial: 0, integer: true }),
+          proficient: new fields.BooleanField({ required: true, initial: false }),
+          specialties: new fields.ArrayField(
+            new fields.StringField({ required: true, initial: '' }),
+            { required: true, initial: [] }
+          ),
+          expertiseDie: new fields.NumberField({ required: true, initial: 0, integer: true }),
+          minRoll: new fields.NumberField({
+            required: true,
+            initial: 1,
+            integer: true,
+            min: 1,
+            max: 20
+          }),
+          bonuses: new fields.SchemaField({
+            check: new fields.StringField({ required: true, initial: '' }),
+            passive: new fields.NumberField({ required: true, initial: 0, integer: true })
+          })
+        }),
+        per: new fields.SchemaField({
+          ability: new fields.StringField({ required: true, initial: '' }),
+          value: new fields.NumberField({ required: true, initial: 0, integer: true }),
+          proficient: new fields.BooleanField({ required: true, initial: false }),
+          specialties: new fields.ArrayField(
+            new fields.StringField({ required: true, initial: '' }),
+            { required: true, initial: [] }
+          ),
+          expertiseDie: new fields.NumberField({ required: true, initial: 0, integer: true }),
+          minRoll: new fields.NumberField({
+            required: true,
+            initial: 1,
+            integer: true,
+            min: 1,
+            max: 20
+          }),
+          bonuses: new fields.SchemaField({
+            check: new fields.StringField({ required: true, initial: '' }),
+            passive: new fields.NumberField({ required: true, initial: 0, integer: true })
+          })
+        }),
+        rel: new fields.SchemaField({
+          ability: new fields.StringField({ required: true, initial: '' }),
+          value: new fields.NumberField({ required: true, initial: 0, integer: true }),
+          proficient: new fields.BooleanField({ required: true, initial: false }),
+          specialties: new fields.ArrayField(
+            new fields.StringField({ required: true, initial: '' }),
+            { required: true, initial: [] }
+          ),
+          expertiseDie: new fields.NumberField({ required: true, initial: 0, integer: true }),
+          minRoll: new fields.NumberField({
+            required: true,
+            initial: 1,
+            integer: true,
+            min: 1,
+            max: 20
+          }),
+          bonuses: new fields.SchemaField({
+            check: new fields.StringField({ required: true, initial: '' }),
+            passive: new fields.NumberField({ required: true, initial: 0, integer: true })
+          })
+        }),
+        slt: new fields.SchemaField({
+          ability: new fields.StringField({ required: true, initial: '' }),
+          value: new fields.NumberField({ required: true, initial: 0, integer: true }),
+          proficient: new fields.BooleanField({ required: true, initial: false }),
+          specialties: new fields.ArrayField(
+            new fields.StringField({ required: true, initial: '' }),
+            { required: true, initial: [] }
+          ),
+          expertiseDie: new fields.NumberField({ required: true, initial: 0, integer: true }),
+          minRoll: new fields.NumberField({
+            required: true,
+            initial: 1,
+            integer: true,
+            min: 1,
+            max: 20
+          }),
+          bonuses: new fields.SchemaField({
+            check: new fields.StringField({ required: true, initial: '' }),
+            passive: new fields.NumberField({ required: true, initial: 0, integer: true })
+          })
+        }),
+        ste: new fields.SchemaField({
+          ability: new fields.StringField({ required: true, initial: '' }),
+          value: new fields.NumberField({ required: true, initial: 0, integer: true }),
+          proficient: new fields.BooleanField({ required: true, initial: false }),
+          specialties: new fields.ArrayField(
+            new fields.StringField({ required: true, initial: '' }),
+            { required: true, initial: [] }
+          ),
+          expertiseDie: new fields.NumberField({ required: true, initial: 0, integer: true }),
+          minRoll: new fields.NumberField({
+            required: true,
+            initial: 1,
+            integer: true,
+            min: 1,
+            max: 20
+          }),
+          bonuses: new fields.SchemaField({
+            check: new fields.StringField({ required: true, initial: '' }),
+            passive: new fields.NumberField({ required: true, initial: 0, integer: true })
+          })
+        }),
+        sur: new fields.SchemaField({
+          ability: new fields.StringField({ required: true, initial: '' }),
+          value: new fields.NumberField({ required: true, initial: 0, integer: true }),
+          proficient: new fields.BooleanField({ required: true, initial: false }),
+          specialties: new fields.ArrayField(
+            new fields.StringField({ required: true, initial: '' }),
+            { required: true, initial: [] }
+          ),
+          expertiseDie: new fields.NumberField({ required: true, initial: 0, integer: true }),
+          minRoll: new fields.NumberField({
+            required: true,
+            initial: 1,
+            integer: true,
+            min: 1,
+            max: 20
+          }),
+          bonuses: new fields.SchemaField({
+            check: new fields.StringField({ required: true, initial: '' }),
+            passive: new fields.NumberField({ required: true, initial: 0, integer: true })
+          })
+        })
+      }),
       source: new fields.SchemaField({
         name: new fields.StringField({ required: true, initial: '' }),
         link: new fields.StringField({ required: true, initial: '' }),
