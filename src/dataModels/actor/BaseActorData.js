@@ -6,10 +6,83 @@ export default class BaseActorData extends A5EDataModel.mixin(SchemaDataModel) {
     const { fields } = foundry.data;
 
     return this.mergeSchema(super.defineSchema(), {
-      abilities: new fields.ObjectField(),
+      abilities: new fields.SchemaField({
+        str: new fields.SchemaField({
+          value: new fields.NumberField({ required: true, initial: 10, integer: true }),
+          check: new fields.SchemaField({
+            expertiseDie: new fields.NumberField({ required: true, initial: 0, integer: true }),
+            bonus: new fields.StringField({ required: true, initial: '' })
+          }),
+          save: new fields.SchemaField({
+            proficient: new fields.BooleanField({ required: true, initial: false }),
+            expertiseDie: new fields.NumberField({ required: true, initial: 0, integer: true }),
+            bonus: new fields.StringField({ required: true, initial: '' })
+          })
+        }),
+        dex: new fields.SchemaField({
+          value: new fields.NumberField({ required: true, initial: 10, integer: true }),
+          check: new fields.SchemaField({
+            expertiseDie: new fields.NumberField({ required: true, initial: 0, integer: true }),
+            bonus: new fields.StringField({ required: true, initial: '' })
+          }),
+          save: new fields.SchemaField({
+            proficient: new fields.BooleanField({ required: true, initial: false }),
+            expertiseDie: new fields.NumberField({ required: true, initial: 0, integer: true }),
+            bonus: new fields.StringField({ required: true, initial: '' })
+          })
+        }),
+        con: new fields.SchemaField({
+          value: new fields.NumberField({ required: true, initial: 10, integer: true }),
+          check: new fields.SchemaField({
+            expertiseDie: new fields.NumberField({ required: true, initial: 0, integer: true }),
+            bonus: new fields.StringField({ required: true, initial: '' })
+          }),
+          save: new fields.SchemaField({
+            proficient: new fields.BooleanField({ required: true, initial: false }),
+            expertiseDie: new fields.NumberField({ required: true, initial: 0, integer: true }),
+            bonus: new fields.StringField({ required: true, initial: '' })
+          })
+        }),
+        int: new fields.SchemaField({
+          value: new fields.NumberField({ required: true, initial: 10, integer: true }),
+          check: new fields.SchemaField({
+            expertiseDie: new fields.NumberField({ required: true, initial: 0, integer: true }),
+            bonus: new fields.StringField({ required: true, initial: '' })
+          }),
+          save: new fields.SchemaField({
+            proficient: new fields.BooleanField({ required: true, initial: false }),
+            expertiseDie: new fields.NumberField({ required: true, initial: 0, integer: true }),
+            bonus: new fields.StringField({ required: true, initial: '' })
+          })
+        }),
+        wis: new fields.SchemaField({
+          value: new fields.NumberField({ required: true, initial: 10, integer: true }),
+          check: new fields.SchemaField({
+            expertiseDie: new fields.NumberField({ required: true, initial: 0, integer: true }),
+            bonus: new fields.StringField({ required: true, initial: '' })
+          }),
+          save: new fields.SchemaField({
+            proficient: new fields.BooleanField({ required: true, initial: false }),
+            expertiseDie: new fields.NumberField({ required: true, initial: 0, integer: true }),
+            bonus: new fields.StringField({ required: true, initial: '' })
+          })
+        }),
+        cha: new fields.SchemaField({
+          value: new fields.NumberField({ required: true, initial: 10, integer: true }),
+          check: new fields.SchemaField({
+            expertiseDie: new fields.NumberField({ required: true, initial: 0, integer: true }),
+            bonus: new fields.StringField({ required: true, initial: '' })
+          }),
+          save: new fields.SchemaField({
+            proficient: new fields.BooleanField({ required: true, initial: false }),
+            expertiseDie: new fields.NumberField({ required: true, initial: 0, integer: true }),
+            bonus: new fields.StringField({ required: true, initial: '' })
+          })
+        })
+      }),
       attributes: new fields.SchemaField({
         ac: new fields.SchemaField({
-          baseFormula: new fields.StringField({ required: true, initial: '10 + dex' }),
+          baseFormula: new fields.StringField({ required: true, initial: '10 + @dex.mod' }),
           value: new fields.NumberField({ required: true, initial: 0, integer: true })
         }),
         death: new fields.SchemaField({
