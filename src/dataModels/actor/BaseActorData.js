@@ -190,8 +190,30 @@ export default class BaseActorData extends A5EDataModel.mixin(SchemaDataModel) {
         })
       }),
       skills: new fields.ObjectField(),
-      source: new fields.ObjectField(),
-      traits: new fields.ObjectField(),
+      source: new fields.SchemaField({
+        name: new fields.StringField({ required: true, initial: '' }),
+        link: new fields.StringField({ required: true, initial: '' }),
+        publisher: new fields.StringField({ required: true, initial: '' })
+      }),
+      traits: new fields.SchemaField({
+        size: new fields.StringField({ required: true, initial: '' }),
+        conditionImmunities: new fields.ArrayField(
+          new fields.StringField({ required: true, initial: '' }),
+          { required: true, initial: [] }
+        ),
+        damageImmunities: new fields.ArrayField(
+          new fields.StringField({ required: true, initial: '' }),
+          { required: true, initial: [] }
+        ),
+        damageResistances: new fields.ArrayField(
+          new fields.StringField({ required: true, initial: '' }),
+          { required: true, initial: [] }
+        ),
+        damageVulnerabilities: new fields.ArrayField(
+          new fields.StringField({ required: true, initial: '' }),
+          { required: true, initial: [] }
+        )
+      }),
       spellResources: new fields.ObjectField()
     });
   }
