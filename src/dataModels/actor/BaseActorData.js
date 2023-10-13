@@ -95,13 +95,106 @@ export default class BaseActorData extends A5EDataModel.mixin(SchemaDataModel) {
           temp: new fields.NumberField({ required: true, initial: 0, integer: true }),
           bonus: new fields.NumberField({ required: true, initial: 0, integer: true })
         }),
-        hitDice: new fields.ObjectField(),
+        hitDice: new fields.SchemaField({
+          d6: new fields.SchemaField({
+            current: new fields.NumberField({
+              required: true, initial: 0, integer: true, min: 0
+            }),
+            max: new fields.NumberField({
+              required: true, initial: 0, integer: true, min: 0
+            })
+          }),
+          d8: new fields.SchemaField({
+            current: new fields.NumberField({
+              required: true, initial: 0, integer: true, min: 0
+            }),
+            max: new fields.NumberField({
+              required: true, initial: 0, integer: true, min: 0
+            })
+          }),
+          d10: new fields.SchemaField({
+            current: new fields.NumberField({
+              required: true, initial: 0, integer: true, min: 0
+            }),
+            max: new fields.NumberField({
+              required: true, initial: 0, integer: true, min: 0
+            })
+          }),
+          d12: new fields.SchemaField({
+            current: new fields.NumberField({
+              required: true, initial: 0, integer: true, min: 0
+            }),
+            max: new fields.NumberField({
+              required: true, initial: 0, integer: true, min: 0
+            })
+          })
+        }),
         initiative: new fields.SchemaField({
           bonus: new fields.StringField({ required: true, initial: '' }),
           expertiseDie: new fields.NumberField({ required: true, initial: 0, integer: true })
         }),
-        movement: new fields.ObjectField(),
-        senses: new fields.ObjectField(),
+        movement: new fields.SchemaField({
+          burrow: new fields.SchemaField({
+            distance: new fields.NumberField({
+              required: true, initial: 0, integer: true, min: 0
+            }),
+            unit: new fields.StringField({ required: true, initial: 'feet' })
+          }),
+          climb: new fields.SchemaField({
+            distance: new fields.NumberField({
+              required: true, initial: 0, integer: true, min: 0
+            }),
+            unit: new fields.StringField({ required: true, initial: 'feet' })
+          }),
+          fly: new fields.SchemaField({
+            distance: new fields.NumberField({
+              required: true, initial: 0, integer: true, min: 0
+            }),
+            unit: new fields.StringField({ required: true, initial: 'feet' })
+          }),
+          swim: new fields.SchemaField({
+            distance: new fields.NumberField({
+              required: true, initial: 0, integer: true, min: 0
+            }),
+            unit: new fields.StringField({ required: true, initial: 'feet' })
+          }),
+          walk: new fields.SchemaField({
+            distance: new fields.NumberField({
+              required: true, initial: 0, integer: true, min: 0
+            }),
+            unit: new fields.StringField({ required: true, initial: 'feet' })
+          }),
+          traits: new fields.SchemaField({
+            hover: new fields.BooleanField({ required: true, initial: false })
+          })
+        }),
+        senses: new fields.SchemaField({
+          blindsight: new fields.SchemaField({
+            distance: new fields.NumberField({
+              required: true, initial: 0, integer: true, min: 0
+            }),
+            unit: new fields.StringField({ required: true, initial: 'feet' }),
+            otherwiseBlind: new fields.BooleanField({ required: true, initial: false })
+          }),
+          darkvision: new fields.SchemaField({
+            distance: new fields.NumberField({
+              required: true, initial: 0, integer: true, min: 0
+            }),
+            unit: new fields.StringField({ required: true, initial: 'feet' })
+          }),
+          tremorsense: new fields.SchemaField({
+            distance: new fields.NumberField({
+              required: true, initial: 0, integer: true, min: 0
+            }),
+            unit: new fields.StringField({ required: true, initial: 'feet' })
+          }),
+          truesight: new fields.SchemaField({
+            distance: new fields.NumberField({
+              required: true, initial: 0, integer: true, min: 0
+            }),
+            unit: new fields.StringField({ required: true, initial: 'feet' })
+          })
+        }),
         inspiration: new fields.BooleanField({ required: true, initial: false }),
         fatigue: new fields.NumberField({ required: true, initial: 0, integer: true }),
         strife: new fields.NumberField({ required: true, initial: 0, integer: true }),
