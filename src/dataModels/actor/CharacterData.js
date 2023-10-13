@@ -33,7 +33,7 @@ export default class CharacterData extends BaseActorData {
         prestige: new fields.NumberField({ required: true, initial: 1, integer: true }),
         skinColor: new fields.StringField({ required: true, initial: '' }),
         weight: new fields.StringField({ required: true, initial: '' }),
-        xp: new fields.StringField({ required: true, initial: '' })
+        xp: new fields.NumberField({ required: true, initial: 0, integer: true })
       }),
       supply: new fields.NumberField({ required: true, initial: 0, integer: true })
     });

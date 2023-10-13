@@ -6,7 +6,17 @@ export default class NPCData extends BaseActorData {
 
     return foundry.utils.mergeObject(super.defineSchema(), {
       attributes: new fields.SchemaField({
-        casterLevel: new fields.NumberField({ required: true, initial: 0, integer: true })
+        casterLevel: new fields.NumberField({ required: true, initial: 0, integer: true }),
+        hitDice: new fields.SchemaField({
+          d4: new fields.SchemaField({
+            current: new fields.NumberField({ required: true, initial: 0, integer: true }),
+            max: new fields.NumberField({ required: true, initial: 0, integer: true })
+          }),
+          d20: new fields.SchemaField({
+            current: new fields.NumberField({ required: true, initial: 0, integer: true }),
+            max: new fields.NumberField({ required: true, initial: 0, integer: true })
+          })
+        })
       }),
       details: new fields.SchemaField({
         cr: new fields.NumberField({ required: true, initial: 0, integer: true }),
