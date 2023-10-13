@@ -42,12 +42,16 @@
 </p>
 
 <h3>
-    <span class="patreon-link">
+    <a
+        class="patreon-link"
+        href="https://www.patreon.com/posts/preview-of-our-90869285"
+        target="_blank"
+    >
         <i
             class="tier-indicator tier-indicator--silver fa-solid fa-circle"
             data-tooltip="This tool is available to silver tier patrons"
         /> Fancy Compendium Packs for A5e
-    </span>
+    </a>
 </h3>
 
 <p>
