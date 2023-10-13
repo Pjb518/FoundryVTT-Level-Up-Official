@@ -137,8 +137,58 @@ export default class BaseActorData extends A5EDataModel.mixin(SchemaDataModel) {
         ),
         isSwarm: new fields.BooleanField({ required: true, initial: false })
       }),
-      proficiencies: new fields.ObjectField(),
-      resources: new fields.ObjectField(),
+      proficiencies: new fields.SchemaField({
+        armor: new fields.ArrayField(new fields.StringField({ required: true, initial: '' }), { required: true, initial: [] }),
+        languages: new fields.ArrayField(new fields.StringField({ required: true, initial: '' }), { required: true, initial: [] }),
+        tools: new fields.ArrayField(new fields.StringField({ required: true, initial: '' }), { required: true, initial: [] }),
+        weapons: new fields.ArrayField(new fields.StringField({ required: true, initial: '' }), { required: true, initial: [] })
+      }),
+      resources: new fields.SchemaField({
+        primary: new fields.SchemaField({
+          label: new fields.StringField({ required: true, initial: '' }),
+          value: new fields.NumberField({ required: true, initial: 0, integer: true }),
+          max: new fields.StringField({ required: true, initial: '' }),
+          per: new fields.StringField({ required: true, initial: '' }),
+          hideMax: new fields.BooleanField({ required: true, initial: false }),
+          recharge: new fields.SchemaField({
+            formula: new fields.StringField({ required: true, initial: '' }),
+            threshold: new fields.NumberField({ required: true, initial: 0, integer: true })
+          })
+        }),
+        secondary: new fields.SchemaField({
+          label: new fields.StringField({ required: true, initial: '' }),
+          value: new fields.NumberField({ required: true, initial: 0, integer: true }),
+          max: new fields.StringField({ required: true, initial: '' }),
+          per: new fields.StringField({ required: true, initial: '' }),
+          hideMax: new fields.BooleanField({ required: true, initial: false }),
+          recharge: new fields.SchemaField({
+            formula: new fields.StringField({ required: true, initial: '' }),
+            threshold: new fields.NumberField({ required: true, initial: 0, integer: true })
+          })
+        }),
+        tertiary: new fields.SchemaField({
+          label: new fields.StringField({ required: true, initial: '' }),
+          value: new fields.NumberField({ required: true, initial: 0, integer: true }),
+          max: new fields.StringField({ required: true, initial: '' }),
+          per: new fields.StringField({ required: true, initial: '' }),
+          hideMax: new fields.BooleanField({ required: true, initial: false }),
+          recharge: new fields.SchemaField({
+            formula: new fields.StringField({ required: true, initial: '' }),
+            threshold: new fields.NumberField({ required: true, initial: 0, integer: true })
+          })
+        }),
+        quaternary: new fields.SchemaField({
+          label: new fields.StringField({ required: true, initial: '' }),
+          value: new fields.NumberField({ required: true, initial: 0, integer: true }),
+          max: new fields.StringField({ required: true, initial: '' }),
+          per: new fields.StringField({ required: true, initial: '' }),
+          hideMax: new fields.BooleanField({ required: true, initial: false }),
+          recharge: new fields.SchemaField({
+            formula: new fields.StringField({ required: true, initial: '' }),
+            threshold: new fields.NumberField({ required: true, initial: 0, integer: true })
+          })
+        })
+      }),
       skills: new fields.ObjectField(),
       source: new fields.ObjectField(),
       traits: new fields.ObjectField(),
