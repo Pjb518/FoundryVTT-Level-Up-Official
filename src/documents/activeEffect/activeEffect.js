@@ -36,6 +36,8 @@ export default class ActiveEffectA5e extends ActiveEffect {
   get isSuppressed() {
     if (this.disabled || !(['Actor', 'ActorDelta', 'Token'].includes(this.parent.documentName))) return true;
 
+    if (this.flags?.a5e?.transferType === 'onUse') return false;
+
     const { parentItem } = this;
     if (!parentItem || parentItem?.type !== 'object') return false;
 
@@ -54,6 +56,8 @@ export default class ActiveEffectA5e extends ActiveEffect {
 
   get isLocked() {
     if (!(['Actor', 'ActorDelta', 'Token'].includes(this.parent.documentName))) return true;
+
+    if (this.flags?.a5e?.transferType === 'onUse') return false;
 
     const { parentItem } = this;
     if (!parentItem || parentItem?.type !== 'object') return false;
