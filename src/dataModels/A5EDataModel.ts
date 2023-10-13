@@ -1,3 +1,5 @@
+/* eslint-disable no-case-declarations */
+/* eslint-disable no-continue */
 /* eslint-disable no-restricted-syntax */
 /** @ts-ignore */
 // eslint-disable-next-line max-classes-per-file
@@ -8,21 +10,22 @@ export default class A5EDataModel extends foundry.abstract.DataModel {
 
   static _immiscible: Set<string> = new Set(['length', 'mixed', 'name', 'prototype', 'migrateData', 'defineSchema']);
 
-  // /**
-  //  * @override
-  //  */
-  // _cleanType(data, options = {}) {
-  //   options.source = options.source ?? data;
+  /**
+   * @override
+   */
+  _cleanType(data, options = {}) {
+    // @ts-ignore
+    options.source = options.source ?? data;
 
-  //   // Clean each field that belongs to the schema
-  //   for (const [name, field] of this.entries()) {
-  //     if (!(name in data) && options.partial) continue;
-  //     data[name] = field.clean(data[name], options);
-  //     if (data[name] === undefined) delete data[name];
-  //   }
+    // Clean each field that belongs to the schema
+    for (const [name, field] of this.entries()) {
+      if (!(name in data) && options.partial) continue;
+      data[name] = field.clean(data[name], options);
+      if (data[name] === undefined) delete data[name];
+    }
 
-  //   return data;
-  // }
+    return data;
+  }
 
   static defineSchema(): any {
     const schema = {};
@@ -35,7 +38,40 @@ export default class A5EDataModel extends foundry.abstract.DataModel {
   }
 
   static mergeSchema(schema: any, template: any): any {
-    Object.assign(schema, template);
+    const { fields } = foundry.data;
+
+    for (const key of Object.keys(template)) {
+      if (!(key in schema) || (schema[key].constructor !== template[key].constructor)) {
+        schema[key] = template[key];
+        continue;
+      }
+
+      // @ts-ignore
+      const mergeOptions = foundry.utils.mergeObject(schema[key].options, template[key].options);
+
+      switch (template[key].constructor) {
+        case fields.SchemaField:
+          const mergedFields = this.mergeSchema(schema[key].fields, template[key].fields);
+          Object.values(mergedFields).forEach((field) => { field.parent = undefined; });
+          schema[key] = new fields.SchemaField(mergedFields, mergeOptions);
+          break;
+
+        case fields.ArrayField:
+        case fields.SetField:
+          const elemOptions = foundry.utils.mergeObject(
+            schema[key].element.options,
+            template[key].element.options
+          );
+          const ElemType = (template[key].element || schema[key].element).constructor;
+          schema[key] = new template[key].constructor(new ElemType(elemOptions), mergeOptions);
+          break;
+
+        default:
+          schema[key] = new template[key].constructor(mergeOptions);
+          break;
+      }
+    }
+
     return schema;
   }
 
