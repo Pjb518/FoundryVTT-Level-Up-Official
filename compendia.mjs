@@ -42,6 +42,9 @@ function cleanDocument(document, { clearSourceId = false } = {}) {
   delete document.flags?.importSource;
   delete document._stats;
 
+  // Empty folder data
+  document.folder = null;
+
   if (!document.flags) document.flags = {};
   Object.entries(document.flags).forEach(([flag, flagData]) => {
     if (!['core', 'a5e'].includes(flag)) {
