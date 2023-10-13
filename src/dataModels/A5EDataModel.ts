@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/brace-style */
 /* eslint-disable no-case-declarations */
 /* eslint-disable no-continue */
 /* eslint-disable no-restricted-syntax */
@@ -48,27 +49,30 @@ export default class A5EDataModel extends foundry.abstract.DataModel {
 
       // @ts-ignore
       const mergeOptions = foundry.utils.mergeObject(schema[key].options, template[key].options);
+      const fieldType = template[key].constructor;
 
-      switch (template[key].constructor) {
-        case fields.SchemaField:
-          const mergedFields = this.mergeSchema(schema[key].fields, template[key].fields);
-          Object.values(mergedFields).forEach((field) => { field.parent = undefined; });
-          schema[key] = new fields.SchemaField(mergedFields, mergeOptions);
-          break;
+      if (fieldType === fields.SchemaField) {
+        const mergedFields = this.mergeSchema(schema[key].fields, template[key].fields);
 
-        case fields.ArrayField:
-        case fields.SetField:
-          const elemOptions = foundry.utils.mergeObject(
-            schema[key].element.options,
-            template[key].element.options
-          );
-          const ElemType = (template[key].element || schema[key].element).constructor;
-          schema[key] = new template[key].constructor(new ElemType(elemOptions), mergeOptions);
-          break;
+        Object.values(mergedFields).forEach((field) => { field.parent = undefined; });
+        schema[key] = new fields.SchemaField(mergedFields, mergeOptions);
+      }
 
-        default:
-          schema[key] = new template[key].constructor(mergeOptions);
-          break;
+      //
+      else if (fieldType === fields.ArrayField || fieldType === fields.SetField) {
+        const elemOptions = foundry.utils.mergeObject(
+          schema[key].element.options,
+          template[key].element.options
+        );
+
+        const ElemType = (template[key].element || schema[key].element).constructor;
+
+        schema[key] = new template[key].constructor(new ElemType(elemOptions), mergeOptions);
+      }
+
+      //
+      else {
+        schema[key] = new template[key].constructor(mergeOptions);
       }
     }
 
