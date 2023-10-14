@@ -683,7 +683,7 @@ export default class ItemA5e extends Item {
     await super._preCreate(data, options, user);
 
     // Add schema version
-    if (!this.system.schemaVersion?.version && !this.system.schema.version) {
+    if (!this.system.schemaVersion?.version && !this.system.schema?.version) {
       let version = null;
       if (typeof this.system?.equipped === 'boolean') version = 0.003;
       else if (typeof this.system?.recharge === 'string') version = 0.002;
