@@ -1,35 +1,36 @@
 /* eslint-disable no-continue */
 /* eslint-disable no-unused-vars */
-import computeSaveDC from '../utils/computeSaveDC';
-import getAttackAbility from '../utils/getAttackAbility';
-import getDeterministicBonus from '../dice/getDeterministicBonus';
-import getRollFormula from '../utils/getRollFormula';
-import overrideRollMode from '../utils/overrideRollMode';
-import overrideExpertiseDie from '../utils/overrideExpertiseDie';
-import prepareConsumers from '../apps/dataPreparationHelpers/itemActivationConsumers/prepareConsumers';
-import prepareDamageBonuses from '../apps/dataPreparationHelpers/itemActivationRolls/prepareDamageBonuses';
-import prepareHealingBonuses from '../apps/dataPreparationHelpers/itemActivationRolls/prepareHealingBonuses';
-import prepareHitDice from '../apps/dataPreparationHelpers/prepareHitDice';
-import preparePrompts from '../apps/dataPreparationHelpers/itemActivationPrompts/preparePrompts';
-import prepareRolls from '../apps/dataPreparationHelpers/itemActivationRolls/prepareRolls';
+import BaseItemA5e from './base';
 
-import ActionActivationDialog from '../apps/dialogs/initializers/ActionActivationDialog';
-import ActionSelectionDialog from '../apps/dialogs/initializers/ActionSelectionDialog';
+import computeSaveDC from '../../utils/computeSaveDC';
+import getAttackAbility from '../../utils/getAttackAbility';
+import getDeterministicBonus from '../../dice/getDeterministicBonus';
+import getRollFormula from '../../utils/getRollFormula';
+import overrideRollMode from '../../utils/overrideRollMode';
+import overrideExpertiseDie from '../../utils/overrideExpertiseDie';
+import prepareConsumers from '../../apps/dataPreparationHelpers/itemActivationConsumers/prepareConsumers';
+import prepareDamageBonuses from '../../apps/dataPreparationHelpers/itemActivationRolls/prepareDamageBonuses';
+import prepareHealingBonuses from '../../apps/dataPreparationHelpers/itemActivationRolls/prepareHealingBonuses';
+import prepareHitDice from '../../apps/dataPreparationHelpers/prepareHitDice';
+import preparePrompts from '../../apps/dataPreparationHelpers/itemActivationPrompts/preparePrompts';
+import prepareRolls from '../../apps/dataPreparationHelpers/itemActivationRolls/prepareRolls';
 
-import ActionsManager from '../managers/ActionsManager';
-import ForeignDocumentManager from '../managers/ForeignDocumentManager';
-import ResourceConsumptionManager from '../managers/ResourceConsumptionManager';
-import RollPreparationManager from '../managers/RollPreparationManager';
-import TemplatePreparationManager from '../managers/TemplatePreparationManager';
+import ActionActivationDialog from '../../apps/dialogs/initializers/ActionActivationDialog';
+import ActionSelectionDialog from '../../apps/dialogs/initializers/ActionSelectionDialog';
 
-import MigrationRunnerBase from '../migration/MigrationRunnerBase';
-import getSummaryData from '../utils/summaries/getSummaryData';
+import ActionsManager from '../../managers/ActionsManager';
+import ForeignDocumentManager from '../../managers/ForeignDocumentManager';
+import ResourceConsumptionManager from '../../managers/ResourceConsumptionManager';
+import RollPreparationManager from '../../managers/RollPreparationManager';
+import TemplatePreparationManager from '../../managers/TemplatePreparationManager';
+
+import getSummaryData from '../../utils/summaries/getSummaryData';
 
 /**
  * Override and extend the basic Item implementation.
  * @extends {Item}
  */
-export default class ItemA5e extends Item {
+export default class ItemA5e extends BaseItemA5e {
   get actions() {
     return new ActionsManager(this);
   }
@@ -38,7 +39,6 @@ export default class ItemA5e extends Item {
   prepareDerivedData() {
     if (['object', 'feature'].includes(this.type)) this.prepareArmorData();
     if (this.type === 'object' && this.system.objectType === 'container') this.prepareContainer();
-    if (['culture', 'background', 'heritage'].includes(this.type)) this.prepareForeignDocuments();
   }
 
   prepareArmorData() {
@@ -71,36 +71,6 @@ export default class ItemA5e extends Item {
     ));
   }
 
-  prepareForeignDocuments() {
-    if (this.type === 'culture') {
-      foundry.utils.setProperty(this, 'features', new ForeignDocumentManager(
-        this,
-        'features',
-        { validate: (obj) => obj.type === 'feature' && obj.system?.featureType === 'culture' }
-      ));
-    }
-
-    if (['background', 'culture'].includes(this.type)) {
-      foundry.utils.setProperty(this, 'equipment', new ForeignDocumentManager(
-        this,
-        'equipment',
-        { validate: (obj) => obj.type === 'object' }
-      ));
-    }
-
-    if (this.type === 'heritage') {
-      const types = ['features', 'gifts', 'paragonGifts'];
-
-      types.forEach((type) => {
-        foundry.utils.setProperty(this, type, new ForeignDocumentManager(
-          this,
-          type,
-          { validate: (obj) => obj.type === 'feature' && obj.system?.featureType === 'heritage' }
-        ));
-      });
-    }
-  }
-
   // *****************************************************************************************
 
   /**
@@ -110,6 +80,7 @@ export default class ItemA5e extends Item {
    *
   //  * This method accepts an options object to further customize the activation process.
    *
+   * @override
    * @param {string} actionId
    * @param {object options
    * @returns
@@ -271,59 +242,6 @@ export default class ItemA5e extends Item {
       actionId, action, dialog: activationData, options, rolls, validTemplate
     });
 
-    return chatCard;
-  }
-
-  async shareItemDescription(action) {
-    const chatData = {
-      user: game.user?.id,
-      speaker: ChatMessage.getSpeaker({ actor: this }),
-      flags: {
-        a5e: {
-          actorId: this.actor.uuid,
-          itemId: this.uuid,
-          cardType: 'item',
-          actionName: action?.name,
-          actionDescription: action?.descriptionOutputs?.includes('action')
-            ? await TextEditor.enrichHTML(action.description, {
-              async: true,
-              secrets: this.isOwner,
-              relativeTo: this,
-              rollData: this?.actor?.getRollData() ?? {}
-            })
-            : null,
-          itemDescription: action?.descriptionOutputs?.includes('item') ?? true
-            ? await TextEditor.enrichHTML(this.system.description, {
-              async: true,
-              secrets: this.isOwner,
-              relativeTo: this,
-              rollData: this?.actor?.getRollData() ?? {}
-            })
-            : null,
-          unidentifiedDescription: action?.descriptionOutputs?.includes('item') ?? true
-            ? await TextEditor.enrichHTML(this.system.unidentifiedDescription, {
-              async: true,
-              secrets: this.isOwner,
-              relativeTo: this,
-              rollData: this?.actor?.getRollData() ?? {}
-            })
-            : null,
-          img: action?.img ?? this.img,
-          name: this.name,
-          summaryData: getSummaryData(this, action, {
-            hideSpellClasses: true,
-            hideSpellComponents: true,
-            hideSpellLevel: true
-          })
-        }
-      },
-      content: '<article></article>'
-    };
-
-    ChatMessage.applyRollMode(chatData, game.settings.get('core', 'rollMode'));
-    const chatCard = ChatMessage.create(chatData);
-
-    Hooks.callAll('a5e.itemActivate', this, { action });
     return chatCard;
   }
 
@@ -523,19 +441,6 @@ export default class ItemA5e extends Item {
     return consumer;
   }
 
-  async configureItem() {
-    await this.sheet.render(true);
-  }
-
-  async duplicateItem() {
-    const owningActor = this.actor;
-    const newItem = foundry.utils.duplicate(this);
-    newItem.name = `${newItem.name} (Copy)`;
-
-    if (owningActor) owningActor.createEmbeddedDocuments('Item', [newItem]);
-    else Item.createDocuments([newItem]);
-  }
-
   async toggleAttunement() {
     if (!this.type === 'object') return;
 
@@ -595,14 +500,6 @@ export default class ItemA5e extends Item {
 
     await this.update({
       'system.equippedState': newState
-    });
-  }
-
-  async toggleFavorite() {
-    if (!this.actor) return;
-
-    await this.update({
-      'system.favorite': !this.system.favorite
     });
   }
 
@@ -682,19 +579,7 @@ export default class ItemA5e extends Item {
   async _preCreate(data, options, user) {
     await super._preCreate(data, options, user);
 
-    // Add schema version
-    if (!this.system.schemaVersion?.version && !this.system.schema?.version) {
-      let version = null;
-      if (typeof this.system?.equipped === 'boolean') version = 0.003;
-      else if (typeof this.system?.recharge === 'string') version = 0.002;
-      else if (typeof this.system?.uses?.max === 'string') version = 0.001;
-      else if (this.system?.actionOptions) version = null;
-      else version = MigrationRunnerBase.LATEST_SCHEMA_VERSION;
-
-      this.updateSource({
-        'system.schemaVersion.version': version
-      });
-    }
+    // TODO: Move from Base to Item & Origin
   }
 
   async _preUpdate(data, options, user) {
@@ -725,31 +610,7 @@ export default class ItemA5e extends Item {
   async _onCreate(data, options, user) {
     super._onCreate(data, options, user);
 
-    // Create Movement / Senses Effects for heritages
-    if (this.type === 'heritage') {
-      const effectData = {
-        name: 'Movement & Senses Configuration',
-        icon: this.img,
-        changes: [
-          {
-            key: 'system.attributes.movement.walk.distance',
-            value: 30,
-            mode: CONFIG.A5E.ACTIVE_EFFECT_MODES.OVERRIDE
-          }
-        ]
-      };
-
-      effectData.transfer = false;
-      foundry.utils.setProperty(effectData, 'flags.a5e.transferType', 'permanent');
-
-      await this.createEmbeddedDocuments('ActiveEffect', [effectData]);
-    }
-
-    // Update effect origins
-    const effects = this.effects.contents;
-    const updateArr = effects.map((effect) => ({ _id: effect._id, origin: this.uuid }));
-
-    this.updateEmbeddedDocuments('ActiveEffect', updateArr);
+    // TODO: Add support for moved containers
   }
 
   async _onDelete(data, options, user) {
@@ -768,24 +629,5 @@ export default class ItemA5e extends Item {
     }
 
     super._onDelete(data, options, user);
-  }
-
-  static async _onCreateDocuments(items, context) {
-    if (!(context.parent instanceof Actor)) return undefined;
-    const toCreate = [];
-    items.forEach((item) => {
-      item.effects.forEach((effect) => {
-        const isPassive = effect.flags?.a5e?.transferType === 'passive';
-        if (!isPassive) return;
-
-        const effectData = effect.toJSON();
-        effectData.origin = item.uuid;
-        toCreate.push(effectData);
-      });
-    });
-
-    if (!toCreate.length) return [];
-    const cls = getDocumentClass('ActiveEffect');
-    return cls.createDocuments(toCreate, context);
   }
 }

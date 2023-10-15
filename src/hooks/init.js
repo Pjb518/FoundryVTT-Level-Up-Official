@@ -6,11 +6,15 @@ import A5E from '../config';
 import ActiveEffectA5e from '../documents/activeEffect/activeEffect';
 import ActorA5e from '../documents/actor/actor';
 import D20Roll from '../dice/d20Roll';
-import ItemA5e from '../documents/item';
 import TokenA5e from '../documents/token/token';
 import TokenDocumentA5e from '../documents/tokenDocument';
 
+import ItemProxy from '../documents/item/itemProxy';
+
 // DataModels
+import CharacterData from '../dataModels/actor/CharacterData';
+import NPCData from '../dataModels/actor/NPCData';
+
 import BackgroundDataModel from '../dataModels/item/BackgroundDataModel';
 import CultureDataModel from '../dataModels/item/CultureDataModel';
 import DestinyDataModel from '../dataModels/item/DestinyDataModel';
@@ -73,7 +77,7 @@ export default function init() {
   CONFIG.ActiveEffect.documentClass = ActiveEffectA5e;
   CONFIG.Actor.documentClass = ActorA5e;
   CONFIG.Actor.trackableAttributes = trackableAttributes;
-  CONFIG.Item.documentClass = ItemA5e;
+  CONFIG.Item.documentClass = ItemProxy;
   CONFIG.Token.documentClass = TokenDocumentA5e;
   CONFIG.Token.objectClass = TokenA5e;
 
@@ -84,6 +88,13 @@ export default function init() {
   CONFIG.MeasuredTemplate.defaults.angle = 60;
 
   // DataModels
+  const version = game.settings.storage.get('world').getItem('a5e.worldSchemaVersion');
+
+  if (version > 0.008) {
+    CONFIG.Actor.dataModels.character = CharacterData;
+    CONFIG.Actor.dataModels.npc = NPCData;
+  }
+
   CONFIG.Item.dataModels.background = BackgroundDataModel;
   CONFIG.Item.dataModels.culture = CultureDataModel;
   CONFIG.Item.dataModels.destiny = DestinyDataModel;
@@ -106,7 +117,7 @@ export default function init() {
     },
     documentClasses: {
       ActorA5e,
-      ItemA5e,
+      // TODO: Add item document classes back in
       TokenDocumentA5e,
       TokenA5e
     },
