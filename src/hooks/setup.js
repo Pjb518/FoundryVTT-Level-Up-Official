@@ -1,8 +1,23 @@
 import registerSystemSettings from '../settings';
 import registerConditionsConfig from '../config/registerConditionsConfig';
 
+async function createMonsterIndex() {
+  const monsters = game.packs.get('a5e.a5e-monsters');
+
+  monsters.getIndex({
+    fields: [
+      'system.cr',
+      'system.description',
+      'system.details.creatureTypes',
+      'system.details.isSwarm',
+      'system.elite'
+    ]
+  });
+}
+
 async function createSpellIndex() {
   const spells = game.packs.get('a5e.a5e-spells');
+
   spells.getIndex({
     fields: [
       'system.concentration',
@@ -20,5 +35,6 @@ async function createSpellIndex() {
 export default function setup() {
   registerSystemSettings();
   registerConditionsConfig();
+  createMonsterIndex();
   createSpellIndex();
 }
