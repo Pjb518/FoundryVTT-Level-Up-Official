@@ -4,8 +4,6 @@ The following icons are sourced from [game-icons.net](https://game-icons.net/) a
 - [concentration.svg](https://game-icons.net/1x1/lorc/meditation.html) (Created by Lorc)
 - [confused.svg](https://game-icons.net/1x1/skoll/knockout.html) (Created by Skoll)
 - [d20.svg](https://game-icons.net/1x1/delapouite/dice-twenty-faces-twenty.html) (Created by Delapouite)
-- [daemon-skull.svg](https://game-icons.net/1x1/lorc/daemon-skull.html) (Created by Lorc)
-- [dark-squad.svg](https://game-icons.net/1x1/lorc/dark-squad.html) (Created by Lorc)
 - [doomed.svg](https://game-icons.net/1x1/delapouite/icarus.html) (Created by Delapouite)
 - [encumbered.svg](https://game-icons.net/1x1/delapouite/weight.html) (Created by Delapouite)
 - [fatigue.svg](https://game-icons.net/1x1/lorc/back-pain.html) (Created by Lorc)

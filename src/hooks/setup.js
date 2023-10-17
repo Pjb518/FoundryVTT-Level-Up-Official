@@ -6,11 +6,11 @@ async function createMonsterIndex() {
 
   monsters.getIndex({
     fields: [
-      'system.cr',
       'system.description',
+      'system.details.cr',
       'system.details.creatureTypes',
-      'system.details.isSwarm',
-      'system.elite'
+      'system.details.elite',
+      'system.details.isSwarm'
     ]
   });
 }
