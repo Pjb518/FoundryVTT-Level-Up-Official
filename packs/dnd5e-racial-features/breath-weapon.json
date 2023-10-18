@@ -1,0 +1,91 @@
+{
+	"type": "feature",
+	"img": "icons/magic/acid/projectile-smoke-glowing.webp",
+	"name": "Breath Weapon",
+	"flags": {},
+	"system": {
+		"ac": {
+			"baseFormula": "",
+			"formula": "",
+			"maxDex": 0,
+			"minStr": 0,
+			"mode": 2,
+			"requiresNoShield": false,
+			"requiresUnarmored": false
+		},
+		"actions": {
+			"p2ZUT7nG16BXTmuX": {
+				"activation": {
+					"cost": 1,
+					"type": "action",
+					"reactionTrigger": ""
+				},
+				"duration": {
+					"unit": "instantaneous",
+					"value": ""
+				},
+				"prompts": {
+					"2w22aOtksK8Uuxfp": {
+						"ability": "con",
+						"type": "savingThrow",
+						"saveDC": {
+							"bonus": "",
+							"type": "con"
+						}
+					}
+				},
+				"rolls": {
+					"5dqc2nCUCFf0pR2V": {
+						"canCrit": false,
+						"critBonus": "",
+						"damageType": "cold",
+						"formula": "((ceil((@details.level - 5)/5)) +2)d6",
+						"scaling": {},
+						"name": "",
+						"type": "damage"
+					}
+				},
+				"area": {
+					"length": 15,
+					"placeTemplate": true,
+					"shape": "cone"
+				},
+				"consumers": {
+					"xE9LWRY657jEIHTe": {
+						"type": "itemUses",
+						"quantity": 1
+					}
+				},
+				"name": "Use Breath Weapon"
+			}
+		},
+		"description": "<p>You can use your action to exhale destructive energy. Your draconic ancestry determines the size, shape, and damage type of the exhalation.</p><p>When you use your breath weapon, each creature in the area of the exhalation must make a saving throw, the type of which is determined by your draconic ancestry. The DC for this saving throw equals 8 + your Constitution modifier + your proficiency bonus. A creature takes 2d6 damage on a failed save, and half as much damage on a successful one. The damage increases to 3d6 at 6th level, 4d6 at 11th level, and 5d6 at 16th level.</p><p>After you use your breath weapon, you can't use it again until you complete a short or long rest.</p><section class=\"secret foundry-note\" id=\"secret-bTTAXItqCqmVPlTG\"><p><strong>Foundry Note</strong></p><p>Edit the Details for this feat, so that the damage type, saving throw, and area of effect match those of your Draconic Ancestry.</p></section>",
+		"favorite": false,
+		"secretDescription": "",
+		"source": {
+			"name": "",
+			"link": "",
+			"publisher": ""
+		},
+		"uses": {
+			"value": 1,
+			"max": 1,
+			"per": "shortRest",
+			"recharge": {
+				"formula": "1d6",
+				"threshold": 6
+			}
+		},
+		"schema": {
+			"version": 0.006,
+			"lastMigration": null
+		},
+		"concentration": false,
+		"featureType": "heritage",
+		"grants": {},
+		"prerequisite": ""
+	},
+	"effects": [],
+	"folder": null,
+	"_id": "uvd3hkjeqdrwdbh3"
+}
