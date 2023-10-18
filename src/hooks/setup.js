@@ -32,9 +32,25 @@ async function createSpellIndex() {
   });
 }
 
+async function create5eSpellIndex() {
+  const spells = game.packs.get('a5e.dnd5e-spells');
+
+  spells.getIndex({
+    fields: [
+      'system.concentration',
+      'system.components',
+      'system.description',
+      'system.level',
+      'system.ritual',
+      'system.schools'
+    ]
+  });
+}
+
 export default function setup() {
   registerSystemSettings();
   registerConditionsConfig();
   createMonsterIndex();
   createSpellIndex();
+  create5eSpellIndex();
 }
