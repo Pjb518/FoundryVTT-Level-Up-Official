@@ -1,6 +1,5 @@
 <script>
     import { getContext } from "svelte";
-    import { localize } from "#runtime/svelte/helper";
 
     import FormSection from "../components/FormSection.svelte";
     import Checkbox from "../components/Checkbox.svelte";

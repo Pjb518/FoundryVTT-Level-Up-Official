@@ -76,7 +76,17 @@
     );
 
     const automatedConditions = settings.getStore("automatedConditions");
+
+    const conditionFlowDirectionChoices = game.settings.settings.get(
+        "a5e.conditionFlowDirection"
+    ).choices;
+
+    const iconSizeChoices = game.settings.settings.get(
+        "a5e.effectsPanelIconSize"
+    ).choices;
+
     let automateBloodied = settings.getStore("automateBloodiedApplication");
+    let conditionFlowDirection = settings.getStore("conditionFlowDirection");
     let showEffectsPanel = settings.getStore("showEffectsPanel");
     let panelIconSize = settings.getStore("effectsPanelIconSize");
     let panelOffset = settings.getStore("effectsPanelOffset");
@@ -85,16 +95,17 @@
     let removeEffects = settings.getStore("removeActiveEffectsOnLongRest");
     let storedCustomIcons = settings.getStore("customConditionIcons");
 
+    let selectedConditionFlowDirection =
+        updates.get("conditionFlowDirection") ?? $conditionFlowDirection;
+
     let selectedConditions =
         updates.get("automatedConditions") ?? $automatedConditions;
 
     let customIcons = getCustomIcons();
 
-    const iconSizeChoices = game.settings.settings.get(
-        "a5e.effectsPanelIconSize"
-    ).choices;
     let selectedIconSize =
         updates.get("effectsPanelIconSize") ?? $panelIconSize ?? "medium";
+
     let selectedOffset = updates.get("effectsPanelOffset") ?? $panelOffset;
 </script>
 
@@ -172,6 +183,28 @@
                 false}
             on:updateSelection={({ detail }) => {
                 updates.set("removeActiveEffectsOnLongRest", detail);
+            }}
+        />
+    </FormSection>
+</section>
+
+<section class="setting-group">
+    <header class="setting-header">
+        <h3 class="setting-heading">Condition Interface Layout</h3>
+    </header>
+
+    <FormSection
+        heading="Condition Interface Flow Direction"
+        hint={game.settings.settings.get("a5e.conditionFlowDirection").hint}
+        --gap="0.25rem"
+    >
+        <RadioGroup
+            options={Object.entries(conditionFlowDirectionChoices)}
+            selected={selectedConditionFlowDirection}
+            on:updateSelection={({ detail }) => {
+                updates.set("conditionFlowDirection", detail);
+                selectedConditionFlowDirection = detail;
+                reload = true;
             }}
         />
     </FormSection>

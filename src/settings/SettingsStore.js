@@ -40,6 +40,22 @@ class A5eGameSettings extends TJSGameSettings {
       },
       {
         namespace,
+        key: 'conditionFlowDirection',
+        options: {
+          name: 'Condition Interface Flow Direction',
+          hint: "Setting this option to 'Row' causes the conditions to flow alphabetically left to right, row by row. Setting this option 'Column' causes the conditions to flow alphabetically top to bottom, column by column.",
+          scope: scope.client,
+          config: true,
+          default: 'row',
+          choices: {
+            row: 'Row',
+            column: 'Column'
+          },
+          type: String
+        }
+      },
+      {
+        namespace,
         key: 'currencyWeight',
         options: {
           name: 'A5E.settings.trackCurrencyWeight',

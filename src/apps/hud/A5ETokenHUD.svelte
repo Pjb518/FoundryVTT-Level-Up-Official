@@ -41,11 +41,20 @@
         7: "#e00006",
     };
 
+    $: conditionsFlowDirection = game.settings.get(
+        "a5e",
+        "conditionFlowDirection"
+    );
+
     $: fatigue = HUD?.object?.actor?.system?.attributes?.fatigue ?? 0;
     $: strife = HUD?.object?.actor?.system?.attributes?.strife ?? 0;
 </script>
 
-<div class="status-effects-container">
+<div
+    class="status-effects-container"
+    class:status-effects-container--column-flow={conditionsFlowDirection ===
+        "column"}
+>
     {#each statusEffects as effect}
         <button
             class="condition-container {effect.cssClass}"
@@ -137,6 +146,11 @@
                 // filter: invert(62%) sepia(32%) saturate(6599%)
                 //     hue-rotate(110deg) brightness(96%) contrast(83%);
             }
+        }
+
+        &--column-flow {
+            grid-template-rows: repeat(8, 1fr);
+            grid-auto-flow: column;
         }
     }
 

@@ -7,15 +7,14 @@
 
     export let reload;
 
-    const appId = getContext("appId");
     const settings = getContext("settings");
     const updates = getContext("updates");
 
-    let diagonalRule = settings.getStore("diagonalRule");
-    let selectedDiagonalRule = updates.get("diagonalRule") ?? $diagonalRule;
     const diagonalRuleOptions =
         game.settings.settings.get("a5e.diagonalRule").choices;
 
+    let diagonalRule = settings.getStore("diagonalRule");
+    let selectedDiagonalRule = updates.get("diagonalRule") ?? $diagonalRule;
     let placeTemplate = settings.getStore("placeItemTemplateDefault");
 </script>
 
