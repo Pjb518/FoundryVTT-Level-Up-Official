@@ -1,0 +1,85 @@
+{
+	"type": "feature",
+	"img": "icons/magic/life/heart-glowing-red.webp",
+	"name": "Second Wind",
+	"flags": {},
+	"system": {
+		"ac": {
+			"baseFormula": "",
+			"formula": "",
+			"maxDex": 0,
+			"minStr": 0,
+			"mode": 2,
+			"requiresNoShield": false,
+			"requiresUnarmored": false
+		},
+		"actions": {
+			"aPnvaYIKSWZecfeo": {
+				"activation": {
+					"cost": 1,
+					"type": "bonusAction",
+					"reactionTrigger": ""
+				},
+				"duration": {
+					"unit": "",
+					"value": ""
+				},
+				"rolls": {
+					"R11GKoDtPLvOJlkF": {
+						"canCrit": false,
+						"critBonus": "",
+						"healingType": "healing",
+						"formula": "1d10 + @classes.fighter.levels",
+						"scaling": {},
+						"name": "",
+						"type": "healing"
+					}
+				},
+				"target": {
+					"quantity": null,
+					"type": "self"
+				},
+				"consumers": {
+					"r6yih38jRoTsLsdZ": {
+						"type": "itemUses",
+						"quantity": 1
+					}
+				},
+				"name": "Use Second Wind",
+				"ranges": {
+					"Rlp11BXuJBAC6blx": {
+						"range": "self"
+					}
+				}
+			}
+		},
+		"description": "<p>You have a limited well of stamina that you can draw on to protect yourself from harm. On your turn, you can use a bonus action to regain hit points equal to 1d10 + your fighter level.</p><p>Once you use this feature, you must finish a short or long rest before you can use it again.</p>",
+		"favorite": false,
+		"secretDescription": "",
+		"source": {
+			"name": "",
+			"link": "",
+			"publisher": ""
+		},
+		"uses": {
+			"value": 1,
+			"max": 1,
+			"per": "shortRest",
+			"recharge": {
+				"formula": "1d6",
+				"threshold": 6
+			}
+		},
+		"schema": {
+			"version": 0.006,
+			"lastMigration": null
+		},
+		"concentration": false,
+		"featureType": "class",
+		"grants": {},
+		"prerequisite": ""
+	},
+	"effects": [],
+	"folder": null,
+	"_id": "tkmq5nglrwpdr63f"
+}
