@@ -1,0 +1,119 @@
+{
+	"type": "spell",
+	"img": "icons/magic/light/beam-rays-blue-large.webp",
+	"name": "Wall of Ice",
+	"system": {
+		"actions": {
+			"meIjyay4Z370PkdS": {
+				"activation": {
+					"cost": 1,
+					"type": "action",
+					"reactionTrigger": ""
+				},
+				"duration": {
+					"unit": "minute",
+					"value": "10"
+				},
+				"prompts": {
+					"1RMRRlnvbH5Vkbgl": {
+						"ability": "dex",
+						"type": "savingThrow",
+						"saveDC": {
+							"bonus": "",
+							"type": "spellcasting"
+						}
+					}
+				},
+				"rolls": {
+					"RbCsfK7ABYr5v2GD": {
+						"canCrit": false,
+						"critBonus": "",
+						"damageType": "cold",
+						"formula": "10d6",
+						"scaling": {
+							"mode": "spellLevel",
+							"formula": "2d6"
+						},
+						"name": "",
+						"type": "damage"
+					},
+					"z6pNxHd2McXJUqVG": {
+						"canCrit": false,
+						"critBonus": "",
+						"damageType": "cold",
+						"formula": "5d6",
+						"scaling": {
+							"mode": "spellLevel",
+							"formula": "2d6"
+						},
+						"name": "",
+						"type": "damage"
+					}
+				},
+				"area": {
+					"length": 100,
+					"placeTemplate": true,
+					"shape": "line",
+					"width": 5
+				},
+				"consumers": {
+					"3OI9TPoq7j4azNVR": {
+						"mode": "variable",
+						"spellLevel": 6,
+						"points": 9,
+						"type": "spell"
+					}
+				},
+				"name": "Cast Spell",
+				"ranges": {
+					"Msenh5yU9EdQKWYg": {
+						"range": "long"
+					}
+				}
+			}
+		},
+		"description": "<p>You create a wall of ice on a solid surface within range. You can form it into a hemispherical dome or a sphere with a radius of up to 10 feet, or you can shape a flat surface made up of ten 10-foot-square panels. Each panel must be contiguous with another panel. In any form, the wall is 1 foot thick and lasts for the Duration.</p><p>If the wall cuts through a creature's space when it appears, the creature within its area is pushed to one side of the wall and must make a Dexterity saving throw. On a failed save, the creature takes 10d6 cold damage, or half as much damage on a successful save.</p><p>The wall is an object that can be damaged and thus breached. It has AC 12 and 30 hit points per 10-foot section, and it is vulnerable to fire damage. Reducing a 10-foot section of wall to 0 hit points destroys it and leaves behind a sheet of frigid air in the space the wall occupied. A creature moving through the sheet of frigid air for the first time on a turn must make a Constitution saving throw. That creature takes 5d6 cold damage on a failed save, or half as much damage on a successful one.</p><p>At Higher Levels. When you cast this spell using a spell slot of 7th level or higher, the damage the wall deals when it appears increases by 2d6, and the damage from passing through the sheet of frigid air increases by 1d6, for each slot level above 6th.</p>",
+		"favorite": false,
+		"secretDescription": "",
+		"source": {
+			"name": "",
+			"link": "",
+			"publisher": ""
+		},
+		"uses": {
+			"value": 0,
+			"max": 0,
+			"per": "",
+			"recharge": {
+				"formula": "1d6",
+				"threshold": 6
+			}
+		},
+		"schema": {
+			"version": 0.006,
+			"lastMigration": null
+		},
+		"classes": [],
+		"components": {
+			"vocalized": true,
+			"seen": true,
+			"material": true
+		},
+		"concentration": true,
+		"level": 6,
+		"materials": "A small piece of quartz",
+		"materialsConsumed": false,
+		"prepared": false,
+		"prerequisite": "",
+		"rare": false,
+		"ritual": false,
+		"schools": {
+			"primary": "evocation",
+			"secondary": []
+		}
+	},
+	"effects": [],
+	"folder": null,
+	"flags": {},
+	"_id": "ckwx6trqzjv85f8u"
+}

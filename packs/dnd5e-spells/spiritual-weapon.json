@@ -1,0 +1,102 @@
+{
+	"type": "spell",
+	"img": "icons/magic/fire/dagger-rune-enchant-flame-purple.webp",
+	"name": "Spiritual Weapon",
+	"system": {
+		"actions": {
+			"f7NvJb5HSBp44snR": {
+				"activation": {
+					"cost": 1,
+					"type": "bonusAction",
+					"reactionTrigger": ""
+				},
+				"duration": {
+					"unit": "minute",
+					"value": "1"
+				},
+				"rolls": {
+					"SHLlEUm5cTE0BdKH": {
+						"bonus": "",
+						"critThreshold": 20,
+						"type": "attack",
+						"attackType": "meleeSpellAttack",
+						"ability": "spellcasting"
+					},
+					"V0vBapOLmj2okZNS": {
+						"canCrit": true,
+						"critBonus": "",
+						"damageType": "force",
+						"formula": "floor(@item.level / 2)d8 + @spellcasting.mod",
+						"scaling": {
+							"formula": ""
+						},
+						"name": "",
+						"type": "damage"
+					}
+				},
+				"area": {
+					"placeTemplate": true,
+					"shape": "cube",
+					"width": 5
+				},
+				"consumers": {
+					"tJzcZwgJS6Dqxj5Y": {
+						"mode": "variable",
+						"spellLevel": 2,
+						"points": 3,
+						"type": "spell"
+					}
+				},
+				"name": "Cast Spell",
+				"ranges": {
+					"e8cH5EJuba2Sn4vY": {
+						"range": "medium"
+					}
+				}
+			}
+		},
+		"description": "<p>You create a floating, spectral weapon within range that lasts for the duration or until you cast this spell again. When you cast the spell, you can make a melee spell attack against a creature within 5 feet of the weapon. On a hit, the target takes force damage equal to 1d8 + your spellcasting ability modifier.</p><p>As a bonus action on your turn, you can move the weapon up to 20 feet and repeat the attack against a creature within 5 feet of it.</p><p>The weapon can take whatever form you choose. Clerics of deities who are associated with a particular weapon (as St. Cuthbert is known for his mace and Thor for his hammer) make this spell's effect resemble that weapon.</p><p><strong>Higher Levels.</strong> When you cast this spell using a spell slot of 3rd level or higher, the damage increases by 1d8 for every two slot levels above the 2nd.</p>",
+		"favorite": false,
+		"secretDescription": "",
+		"source": {
+			"name": "",
+			"link": "",
+			"publisher": ""
+		},
+		"uses": {
+			"value": 0,
+			"max": 0,
+			"per": "",
+			"recharge": {
+				"formula": "1d6",
+				"threshold": 6
+			}
+		},
+		"schema": {
+			"version": 0.006,
+			"lastMigration": null
+		},
+		"classes": [],
+		"components": {
+			"vocalized": true,
+			"seen": true,
+			"material": false
+		},
+		"concentration": false,
+		"level": 2,
+		"materials": "",
+		"materialsConsumed": false,
+		"prepared": false,
+		"prerequisite": "",
+		"rare": false,
+		"ritual": false,
+		"schools": {
+			"primary": "evocation",
+			"secondary": []
+		}
+	},
+	"effects": [],
+	"folder": null,
+	"flags": {},
+	"_id": "8xv0fsr8ja5ka2d1"
+}
