@@ -46,7 +46,7 @@ class A5eGameSettings extends TJSGameSettings {
           hint: "Setting this option to 'Row' causes the conditions to flow alphabetically left to right, row by row. Setting this option 'Column' causes the conditions to flow alphabetically top to bottom, column by column.",
           scope: scope.client,
           config: true,
-          default: 'row',
+          default: 'column',
           choices: {
             row: 'Row',
             column: 'Column'
