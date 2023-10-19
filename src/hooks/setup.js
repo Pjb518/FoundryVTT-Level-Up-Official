@@ -32,6 +32,20 @@ async function createSpellIndex() {
   });
 }
 
+async function create5eMonsterIndex() {
+  const monsters = game.packs.get('a5e.dnd5e-monsters');
+
+  monsters.getIndex({
+    fields: [
+      'system.description',
+      'system.details.cr',
+      'system.details.creatureTypes',
+      'system.details.elite',
+      'system.details.isSwarm'
+    ]
+  });
+}
+
 async function create5eSpellIndex() {
   const spells = game.packs.get('a5e.dnd5e-spells');
 
@@ -52,5 +66,6 @@ export default function setup() {
   registerConditionsConfig();
   createMonsterIndex();
   createSpellIndex();
+  create5eMonsterIndex();
   create5eSpellIndex();
 }
