@@ -1,5 +1,4 @@
 export default function calculateCarryCapacity(actorData) {
-  console.log('Here');
   const strengthScore = actorData.system.abilities.str.value;
   const { size } = actorData.system.traits;
   const baseCarryCapacityMultiplier = CONFIG.A5E.carryCapacityMultiplier[size || 'med'];
