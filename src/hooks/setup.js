@@ -1,6 +1,19 @@
 import registerSystemSettings from '../settings';
 import registerConditionsConfig from '../config/registerConditionsConfig';
 
+async function createManeuverIndex() {
+  const maneuvers = game.packs.get('a5e.a5e-maneuvers');
+
+  maneuvers.getIndex({
+    fields: [
+      'system.description',
+      'system.exertionCost',
+      'system.degree',
+      'system.tradition'
+    ]
+  });
+}
+
 async function createMonsterIndex() {
   const monsters = game.packs.get('a5e.a5e-monsters');
 
@@ -64,6 +77,8 @@ async function create5eSpellIndex() {
 export default function setup() {
   registerSystemSettings();
   registerConditionsConfig();
+
+  createManeuverIndex();
   createMonsterIndex();
   createSpellIndex();
   create5eMonsterIndex();
