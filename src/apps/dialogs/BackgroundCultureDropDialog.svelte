@@ -248,7 +248,7 @@
                 heading="A5E.BackgroundDropWeaponsSelect"
                 hint={weapons.options}
                 warning="{weapons.count -
-                    selectedWeapons.length} Tool selections remaining"
+                    selectedWeapons.length} Weapon selections remaining"
                 showWarning={selectedWeapons.length < weapons.count}
             >
                 <button
