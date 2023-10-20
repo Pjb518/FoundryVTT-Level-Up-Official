@@ -290,9 +290,7 @@
 
         <section class="u-flex u-flex-col u-gap-sm">
             <h3 class="u-text-bold u-text-sm">
-                {localize("A5E.advancementSheet.additionalOptions", {
-                    type: localize("A5E.Weapons"),
-                })}
+                {localize("A5E.advancementSheet.count")}
             </h3>
 
             <input
@@ -335,9 +333,7 @@
 
         <section class="u-flex u-flex-col u-gap-sm">
             <h3 class="u-text-bold u-text-sm">
-                {localize("A5E.advancementSheet.additionalOptions", {
-                    type: localize("A5E.ToolPlural"),
-                })}
+                {localize("A5E.advancementSheet.count")}
             </h3>
 
             <input
