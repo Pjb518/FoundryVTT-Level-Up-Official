@@ -175,6 +175,9 @@ export default class ItemSheet extends SvelteApplication {
     const sheet = this.element[0];
     const sheetTitle = sheet.querySelector('.window-header .window-title');
 
+    const existingIdLink = sheetTitle.querySelector('.document-id-link');
+    if (existingIdLink) return;
+
     const documentID = this.item.id;
     const documentUUID = this.item.uuid;
 
