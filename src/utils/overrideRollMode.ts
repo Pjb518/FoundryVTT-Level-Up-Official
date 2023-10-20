@@ -4,7 +4,7 @@ import overrideSave from './overrides/overrideSave';
 import overrideSkill from './overrides/overrideSkill';
 
 export type OverrideRollModeOptions = {
-  type: 'attack' | 'check' | 'save' | 'skill';
+  type: 'attack' | 'check' | 'initiative' | 'save' | 'skill';
   attackType?: AttackTypes;
   ability?: AbilityScoreKey;
   skill?: string;
@@ -15,9 +15,10 @@ export type OverrideRollModeOptions = {
 export type OverrideFlags = {
   abilityCheck?: { [key: string]: number };
   abilitySave?: { [key: string]: number };
+  attack?: { [key: string]: number };
   concentration?: number;
   deathSave?: number;
-  attack?: { [key: string]: number };
+  initiative?: number;
   skillCheck?: { [key: string]: number };
 };
 
@@ -40,7 +41,7 @@ export default function overrideRollMode(
   const { attackType, ability, type } = options;
 
   if (type === 'attack') return overrideAttack(flags, rollMode, attackType);
-  if (type === 'check') return overrideCheck(flags, rollMode, ability);
+  if (['check', 'initiative'].includes(type)) return overrideCheck(flags, rollMode, ability);
   if (type === 'save') return overrideSave(flags, rollMode, options);
   if (type === 'skill') return overrideSkill(flags, rollMode, options);
 

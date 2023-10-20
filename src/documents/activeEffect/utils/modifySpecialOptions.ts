@@ -21,6 +21,7 @@ export default function modifySpecialOptions(options: Object) {
   options['flags.a5e.effects.rollMode.skillCheck.all'] = [0, MODES.OVERRIDE_ONLY, ROLL_MODES, 'RADIO'];
   options['flags.a5e.effects.rollMode.concentration'] = [0, MODES.OVERRIDE_ONLY, ROLL_MODES, 'RADIO'];
   options['flags.a5e.effects.rollMode.deathSave'] = [0, MODES.OVERRIDE_ONLY, ROLL_MODES, 'RADIO'];
+  options['flags.a5e.effects.rollMode.initiative'] = [0, MODES.OVERRIDE_ONLY, ROLL_MODES, 'RADIO'];
 
   Object.keys(CONFIG.A5E.abilities).forEach((a) => {
     options[`flags.a5e.effects.rollMode.abilityCheck.${a}`] = [0, MODES.OVERRIDE_ONLY, ROLL_MODES, 'RADIO'];

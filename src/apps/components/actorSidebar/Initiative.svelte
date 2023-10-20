@@ -15,7 +15,7 @@
 
         options.rollMode = overrideRollMode($actor, options.rollMode, {
             ability: "dex",
-            type: "check",
+            type: "initiative",
         });
 
         return options;

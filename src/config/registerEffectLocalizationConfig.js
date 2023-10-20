@@ -38,6 +38,7 @@ export default function registerEffectLocalizationConfig(A5E) {
     'flags.a5e.effects.rollMode.attack.rangedWeaponAttack': 'A5E.effects.keys.flags.rollMode.attack.rangedWeaponAttack',
     'flags.a5e.effects.rollMode.concentration': 'A5E.effects.keys.flags.rollMode.concentration',
     'flags.a5e.effects.rollMode.deathSave': 'A5E.effects.keys.flags.rollMode.deathSave',
+    'flags.a5e.effects.rollMode.initiative': 'A5E.effects.keys.flags.rollMode.initiative',
     'flags.a5e.effects.rollMode.skillCheck.all': 'A5E.effects.keys.flags.rollMode.skillChecks.all',
     'flags.a5e.effects.rollMode.skillCheck.acr': 'A5E.effects.keys.flags.rollMode.skillChecks.acr',
     'flags.a5e.effects.rollMode.skillCheck.ani': 'A5E.effects.keys.flags.rollMode.skillChecks.ani',
