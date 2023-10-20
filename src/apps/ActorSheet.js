@@ -580,6 +580,10 @@ export default class ActorSheet extends SvelteApplication {
           roll.bonus = attackBonus.toString(10);
         }
 
+        if (roll.scaling) {
+          delete roll.scaling;
+        }
+
         rolls[key] = roll;
 
         return rolls;
