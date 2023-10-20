@@ -529,7 +529,7 @@ export default class ActorSheet extends SvelteApplication {
       ?.updateContainer(options.containerUuid ?? '');
   }
 
-  #onDropSpell(item) {
+  async #onDropSpell(item) {
     const currentTab = this.tempSettings[this.actor.uuid]?.currentTab;
     if (currentTab !== 'inventory') {
       this.actor.createEmbeddedDocuments('Item', [item]);
@@ -584,11 +584,31 @@ export default class ActorSheet extends SvelteApplication {
 
         return rolls;
       }, {});
+
+      action.consumers = {
+        [foundry.utils.randomID()]: {
+          itemId: '',
+          quantity: 1,
+          type: 'quantity'
+        }
+      };
+
       actions[foundry.utils.randomID()] = action;
       return actions;
     }, {});
 
-    this.actor.createEmbeddedDocuments('Item', [scroll]);
+    const createdItem = (await this.actor.createEmbeddedDocuments('Item', [scroll]))?.[0];
+    if (!createdItem) return;
+
+    // Set itemId on consumer
+    const updateData = {};
+    Object.entries(createdItem.system.actions).forEach(([actionId, action]) => {
+      Object.entries(action.consumers ?? {}).forEach(([consumerId]) => {
+        updateData[`system.actions.${actionId}.consumers.${consumerId}.itemId`] = createdItem.id;
+      });
+    });
+
+    createdItem.update(updateData);
   }
 
   /** @inheritdoc */
