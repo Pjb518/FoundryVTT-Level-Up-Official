@@ -12,9 +12,10 @@
     function getSelectedAmmo(item, action) {
         let _action = action;
 
+        if (!item.actions) return "";
         if (item.actions.count === 0) return "";
 
-        if (item.actions.count === 1) {
+        if (item.actions?.count === 1) {
             _action = item.actions.values()[0];
         }
 
@@ -30,6 +31,7 @@
     function hasAmmunition(item, action) {
         let _action = action;
 
+        if (!item.actions) return false;
         if (item.actions.count === 0) return false;
 
         if (item.actions.count === 1) {
@@ -45,6 +47,7 @@
         let _actionId = actionId;
         const selectedOption = event.target?.selectedOptions[0]?.value;
 
+        if (!item.actions) return;
         if (item.actions.count === 0) return;
 
         if (item.actions.count === 1) {

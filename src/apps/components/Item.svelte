@@ -28,7 +28,7 @@
     function determineActionListVisibility(action, item, sheetIsLocked) {
         if (action) return false;
 
-        if (item.actions.count < 2) {
+        if (item.actions?.count < 2) {
             return item.actions
                 ?.values()
                 ?.some((action) => action.uses?.value || action.uses?.max);
@@ -47,7 +47,7 @@
 
     async function onConfigure() {
         if (actionId) {
-            await item.actions.configure(actionId);
+            await item.actions?.configure(actionId);
             return;
         }
 
@@ -186,7 +186,7 @@
 
 {#if showActionList}
     <ul class="actions-list">
-        {#each item?.actions?.entries() as [id, action] (id)}
+        {#each item?.actions?.entries() ?? [] as [id, action] (id)}
             <svelte:self {item} {action} actionId={id} />
         {/each}
     </ul>
