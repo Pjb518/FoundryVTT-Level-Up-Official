@@ -43,34 +43,42 @@
         $actor,
         "system.bonuses.meleeWeaponAttack"
     );
+
     $: disableRangedWeaponAttack = determineIfPropertyModifiedByEffect(
         $actor,
         "system.bonuses.rangedWeaponAttack"
     );
+
     $: disableMeleeSpellAttack = determineIfPropertyModifiedByEffect(
         $actor,
         "system.bonuses.meleeSpellAttack"
     );
+
     $: disableRangedSpellAttack = determineIfPropertyModifiedByEffect(
         $actor,
         "system.bonuses.rangedSpellAttack"
     );
+
     $: disableManeuverDC = determineIfPropertyModifiedByEffect(
         $actor,
         "system.bonuses.maneuverDC"
     );
+
     $: disableSpellDC = determineIfPropertyModifiedByEffect(
         $actor,
         "system.bonuses.spellDC"
     );
+
     $: disableAbilityCheckBonusGlobal = determineIfPropertyModifiedByEffect(
         $actor,
         "system.bonuses.abilities.check"
     );
+
     $: disableSavingThrowBonusGlobal = determineIfPropertyModifiedByEffect(
         $actor,
         "system.bonuses.abilities.save"
     );
+
     $: disableSkillCheckBonusGlobal = determineIfPropertyModifiedByEffect(
         $actor,
         "system.bonuses.abilities.skill"
@@ -526,8 +534,7 @@
         <FormSection>
             <Checkbox
                 label="A5E.settings.includeAbilityModifiersForSkills"
-                checked={flags.a5e?.includeAbilityModifiersForSkills ??
-                    $actor.type === "npc"}
+                checked={flags.a5e?.includeAbilityModifiersForSkills ?? true}
                 on:updateSelection={({ detail }) => {
                     updateDocumentDataFromField(
                         $actor,
