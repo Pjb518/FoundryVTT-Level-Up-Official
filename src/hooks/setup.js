@@ -9,6 +9,7 @@ async function createManeuverIndex() {
       'system.description',
       'system.exertionCost',
       'system.degree',
+      'system.isStance',
       'system.tradition'
     ]
   });
