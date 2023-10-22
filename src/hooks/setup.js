@@ -23,7 +23,8 @@ async function createMonsterIndex() {
       'system.details.cr',
       'system.details.creatureTypes',
       'system.details.elite',
-      'system.details.isSwarm'
+      'system.details.isSwarm',
+      'system.traits.size'
     ]
   });
 }
@@ -54,7 +55,8 @@ async function create5eMonsterIndex() {
       'system.details.cr',
       'system.details.creatureTypes',
       'system.details.elite',
-      'system.details.isSwarm'
+      'system.details.isSwarm',
+      'system.traits.size'
     ]
   });
 }
