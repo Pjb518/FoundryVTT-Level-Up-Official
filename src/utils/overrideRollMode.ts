@@ -41,7 +41,7 @@ export default function overrideRollMode(
   const { attackType, ability, type } = options;
 
   if (type === 'attack') return overrideAttack(flags, rollMode, attackType);
-  if (['check', 'initiative'].includes(type)) return overrideCheck(flags, rollMode, ability);
+  if (['check', 'initiative'].includes(type)) return overrideCheck(flags, rollMode, ability, type === 'initiative');
   if (type === 'save') return overrideSave(flags, rollMode, options);
   if (type === 'skill') return overrideSkill(flags, rollMode, options);
 
