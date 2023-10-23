@@ -21,7 +21,8 @@ async function createMagicItemIndex() {
       'system.requiresAttunement',
       'system.bulky',
       'system.objectType',
-      'system.price'
+      'system.price',
+      'system.rarity'
     ]
   });
 }
