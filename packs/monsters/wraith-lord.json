@@ -70,8 +70,13 @@
 						"threshold": ""
 					}
 				},
+				"schema": {
+					"version": null,
+					"lastMigration": null
+				},
 				"concentration": false,
 				"featureType": "",
+				"grants": {},
 				"prerequisite": "",
 				"schemaVersion": {
 					"version": 0.009,
@@ -121,8 +126,13 @@
 						"threshold": ""
 					}
 				},
+				"schema": {
+					"version": null,
+					"lastMigration": null
+				},
 				"concentration": false,
 				"featureType": "",
+				"grants": {},
 				"prerequisite": "",
 				"schemaVersion": {
 					"version": 0.009,
@@ -204,8 +214,13 @@
 						"threshold": ""
 					}
 				},
+				"schema": {
+					"version": null,
+					"lastMigration": null
+				},
 				"concentration": false,
 				"featureType": "",
+				"grants": {},
 				"prerequisite": "",
 				"schemaVersion": {
 					"version": 0.009,
@@ -255,8 +270,13 @@
 						"threshold": ""
 					}
 				},
+				"schema": {
+					"version": null,
+					"lastMigration": null
+				},
 				"concentration": false,
 				"featureType": "",
+				"grants": {},
 				"prerequisite": "",
 				"schemaVersion": {
 					"version": 0.009,
@@ -306,8 +326,13 @@
 						"threshold": ""
 					}
 				},
+				"schema": {
+					"version": null,
+					"lastMigration": null
+				},
 				"concentration": false,
 				"featureType": "",
+				"grants": {},
 				"prerequisite": "",
 				"schemaVersion": {
 					"version": 0.009,
@@ -365,33 +390,39 @@
 							"placeTemplate": false
 						},
 						"target": {
-							"quantity": "",
-							"type": ""
+							"quantity": 1,
+							"type": "creature"
 						},
 						"rolls": {
-							"cPkwjqaMaOBB83ct": {
-								"bonus": "",
-								"critThreshold": "20",
-								"type": "attack",
-								"attackType": "meleeWeaponAttack",
-								"ability": "con"
-							},
 							"I1memsONKINs3FD4": {
 								"canCrit": true,
 								"damageType": "necrotic",
-								"formula": "4d6",
+								"formula": "5d6",
 								"name": "Normal",
 								"type": "damage"
 							},
 							"dhE1PlTeZDcspDCq": {
 								"canCrit": true,
 								"damageType": "necrotic",
-								"formula": "6d6",
+								"formula": "2d6",
 								"name": "Target is frightened / surprised",
-								"type": "damage"
+								"type": "damage",
+								"default": false,
+								"label": "Additional Damage vs Frightened or Surprised Targets"
 							}
 						},
-						"consumers": {}
+						"consumers": {},
+						"prompts": {
+							"MJRlKLRgywpaQnIv": {
+								"type": "savingThrow",
+								"default": true,
+								"ability": "con",
+								"saveDC": {
+									"type": "maneuver"
+								},
+								"onSave": "No effect"
+							}
+						}
 					}
 				},
 				"description": "<p>The wraith targets a creature within 5 feet, forcing it to make a DC 14 Constitution saving throw. On a failure, the creature takes 14 (4d6) necrotic damage, or 21 (6d6) necrotic damage if it is frightened or surprised, and its hit point maximum is reduced by an amount equal to the damage taken. This reduction lasts until the creature finishes a long rest. It dies if its hit point maximum is reduced to 0.</p>",
@@ -407,8 +438,13 @@
 						"threshold": ""
 					}
 				},
+				"schema": {
+					"version": null,
+					"lastMigration": null
+				},
 				"concentration": false,
 				"featureType": "",
+				"grants": {},
 				"prerequisite": "",
 				"schemaVersion": {
 					"version": 0.009,
@@ -485,8 +521,13 @@
 						"threshold": ""
 					}
 				},
+				"schema": {
+					"version": null,
+					"lastMigration": null
+				},
 				"concentration": false,
 				"featureType": "",
+				"grants": {},
 				"prerequisite": "",
 				"schemaVersion": {
 					"version": 0.009,
@@ -563,8 +604,13 @@
 						"threshold": ""
 					}
 				},
+				"schema": {
+					"version": null,
+					"lastMigration": null
+				},
 				"concentration": false,
 				"featureType": "",
+				"grants": {},
 				"prerequisite": "",
 				"schemaVersion": {
 					"version": 0.009,
@@ -627,12 +673,12 @@
 								"critThreshold": "20",
 								"type": "attack",
 								"attackType": "meleeWeaponAttack",
-								"ability": "str"
+								"ability": "dex"
 							},
 							"VLcDlO4dYWkOe9dD": {
 								"canCrit": true,
 								"damageType": "slashing",
-								"formula": "2d6+@str.mod",
+								"formula": "2d6 + @dex.mod",
 								"name": "Slashing",
 								"type": "damage"
 							},
@@ -649,10 +695,11 @@
 								"ability": "con",
 								"onSave": "",
 								"saveDC": {
-									"type": "custom",
-									"bonus": "18"
+									"type": "maneuver",
+									"bonus": ""
 								},
-								"type": "savingThrow"
+								"type": "savingThrow",
+								"default": true
 							}
 						},
 						"consumers": {}
@@ -670,6 +717,10 @@
 						"formula": "",
 						"threshold": ""
 					}
+				},
+				"schema": {
+					"version": null,
+					"lastMigration": null
 				},
 				"ammunitionProperties": [],
 				"armorCategory": "",
@@ -783,8 +834,13 @@
 						"threshold": ""
 					}
 				},
+				"schema": {
+					"version": null,
+					"lastMigration": null
+				},
 				"concentration": false,
 				"featureType": "",
+				"grants": {},
 				"prerequisite": "",
 				"schemaVersion": {
 					"version": 0.009,
@@ -865,8 +921,13 @@
 						"threshold": ""
 					}
 				},
+				"schema": {
+					"version": null,
+					"lastMigration": null
+				},
 				"concentration": false,
 				"featureType": "",
+				"grants": {},
 				"prerequisite": "",
 				"schemaVersion": {
 					"version": 0.009,
@@ -957,6 +1018,10 @@
 						"formula": "",
 						"threshold": ""
 					}
+				},
+				"schema": {
+					"version": null,
+					"lastMigration": null
 				},
 				"degree": 0,
 				"exertionCost": 0,
@@ -1056,6 +1121,10 @@
 						"threshold": ""
 					}
 				},
+				"schema": {
+					"version": null,
+					"lastMigration": null
+				},
 				"degree": 0,
 				"exertionCost": 0,
 				"isStance": false,
@@ -1144,6 +1213,10 @@
 						"formula": "",
 						"threshold": ""
 					}
+				},
+				"schema": {
+					"version": null,
+					"lastMigration": null
 				},
 				"degree": 0,
 				"exertionCost": 0,
@@ -1234,6 +1307,10 @@
 						"threshold": ""
 					}
 				},
+				"schema": {
+					"version": null,
+					"lastMigration": null
+				},
 				"degree": 0,
 				"exertionCost": 0,
 				"isStance": false,
@@ -1322,6 +1399,10 @@
 						"formula": "",
 						"threshold": ""
 					}
+				},
+				"schema": {
+					"version": null,
+					"lastMigration": null
 				},
 				"degree": 0,
 				"exertionCost": 0,
@@ -1412,6 +1493,10 @@
 						"threshold": ""
 					}
 				},
+				"schema": {
+					"version": null,
+					"lastMigration": null
+				},
 				"degree": 0,
 				"exertionCost": 0,
 				"isStance": false,
@@ -1477,8 +1562,7 @@
 				"save": {
 					"proficient": false,
 					"expertiseDice": 0,
-					"bonus": "",
-					"concentrationBonus": ""
+					"bonus": ""
 				}
 			},
 			"int": {
@@ -1772,10 +1856,6 @@
 		},
 		"spellResources": {
 			"slots": {
-				"0": {
-					"current": 0,
-					"max": 0
-				},
 				"1": {
 					"current": 0,
 					"max": 0
@@ -1957,7 +2037,7 @@
 			"primary": {
 				"label": "",
 				"value": 0,
-				"max": 0,
+				"max": "0",
 				"per": "",
 				"hideMax": false,
 				"recharge": {
@@ -1968,7 +2048,7 @@
 			"secondary": {
 				"label": "",
 				"value": 0,
-				"max": 0,
+				"max": "0",
 				"per": "",
 				"hideMax": false,
 				"recharge": {
@@ -1979,7 +2059,7 @@
 			"tertiary": {
 				"label": "",
 				"value": 0,
-				"max": 0,
+				"max": "0",
 				"per": "",
 				"hideMax": false,
 				"recharge": {
@@ -1990,7 +2070,7 @@
 			"quaternary": {
 				"label": "",
 				"value": 0,
-				"max": 0,
+				"max": "0",
 				"per": "",
 				"hideMax": false,
 				"recharge": {
