@@ -1,6 +1,31 @@
 import registerSystemSettings from '../settings';
 import registerConditionsConfig from '../config/registerConditionsConfig';
 
+async function createAdventuringGearIndex() {
+  const adventuringGear = game.packs.get('a5e.a5e-adventuring-gear');
+
+  adventuringGear.getIndex({
+    fields: [
+      'system.bulky',
+      'system.objectType',
+      'system.price'
+    ]
+  });
+}
+
+async function createMagicItemIndex() {
+  const magicItems = game.packs.get('a5e.a5e-magic-items');
+
+  magicItems.getIndex({
+    fields: [
+      'system.requiresAttunement',
+      'system.bulky',
+      'system.objectType',
+      'system.price'
+    ]
+  });
+}
+
 async function createManeuverIndex() {
   const maneuvers = game.packs.get('a5e.a5e-maneuvers');
 
@@ -81,6 +106,8 @@ export default function setup() {
   registerSystemSettings();
   registerConditionsConfig();
 
+  createAdventuringGearIndex();
+  createMagicItemIndex();
   createManeuverIndex();
   createMonsterIndex();
   createSpellIndex();
