@@ -1,3 +1,4 @@
+import AnnouncementDialog from '../apps/dialogs/initializers/AnnouncementDialog';
 import HelpAndSupportDialog from '../apps/dialogs/initializers/HelpAndSupportDialog';
 import PremiumContentListDialog from '../apps/dialogs/initializers/PremiumContentListDialog';
 
@@ -57,6 +58,12 @@ export default function renderSettings(_app, _html) {
       dialogName: 'helpAndSupport',
       iconClasses: ['fa-solid', 'fa-life-ring'],
       label: 'Help and Support'
+    },
+    {
+      DialogApplication: AnnouncementDialog,
+      dialogName: 'latestAnnouncements',
+      iconClasses: ['fa-solid', 'fa-bullhorn'],
+      label: 'Latest Announcements'
     },
     {
       DialogApplication: PremiumContentListDialog,
