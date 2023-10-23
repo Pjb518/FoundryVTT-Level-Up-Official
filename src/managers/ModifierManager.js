@@ -56,6 +56,7 @@ export default class ModifierManager {
   #getSavingThrowModifiers() {
     return [
       this.#getAbilitySaveModifier(),
+      this.#getAbilitySaveBonus(),
       this.#getConcentrationBonus(),
       this.#getGlobalSavingThrowBonus(),
       this.#getExpertiseDice(),
@@ -99,6 +100,19 @@ export default class ModifierManager {
         ability: CONFIG.A5E.abilities[ability] ?? ability
       }),
       value: this.actor.system.abilities[ability]?.mod ?? null
+    };
+  }
+
+  #getAbilitySaveBonus() {
+    const { ability } = this.rollData;
+
+    if (!ability) return null;
+
+    return {
+      label: localize('A5E.AbilitySaveBonus', {
+        ability: CONFIG.A5E.abilities[ability]
+      }),
+      value: this.actor.system.abilities[ability]?.save.bonus ?? null
     };
   }
 
