@@ -3,6 +3,7 @@
     import { getContext } from "svelte";
     import FormSection from "../FormSection.svelte";
     import RadioGroup from "../RadioGroup.svelte";
+    import Checkbox from "../Checkbox.svelte";
 
     const effect = getContext("effect");
     const { A5E } = CONFIG;
@@ -61,6 +62,15 @@
     {/if}
 
     {#if $effect.flags?.a5e?.transferType === "onUse"}
+        <FormSection>
+            <Checkbox
+                label="A5E.effects.applyToSelf"
+                checked={$effect.flags?.a5e?.applyToSelf ?? false}
+                on:updateSelection={({ detail }) =>
+                    $effect.update({ "flags.a5e.applyToSelf": detail })}
+            />
+        </FormSection>
+
         <FormSection
             heading="Effect Duration"
             --gap="0.75rem"

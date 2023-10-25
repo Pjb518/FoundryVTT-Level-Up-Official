@@ -238,6 +238,20 @@ export default class ItemA5e extends BaseItemA5e {
     ChatMessage.applyRollMode(chatData, activationData.visibilityMode ?? game.settings.get('core', 'rollMode'));
     const chatCard = await ChatMessage.create(chatData);
 
+    // Apply onUse effects to self
+    const effects = activationData.prompts.reduce((acc, { type, effectId }) => {
+      if (type === 'effect') {
+        const effect = this.effects.get(effectId);
+        if (!effect) return acc;
+        if (!effect.flags?.a5e?.applyToSelf) return acc;
+        acc.push(effect);
+      }
+
+      return acc;
+    }, []);
+
+    effects.forEach((effect) => effect.transferEffect(this.actor));
+
     Hooks.callAll('a5e.itemActivate', this, {
       actionId, action, dialog: activationData, options, rolls, validTemplate
     });
