@@ -511,7 +511,7 @@ export default class ActorSheet extends SvelteApplication {
 
   async #onDropObject(item, options) {
     if (item.system.objectType === 'container' && item.parent?.id !== this.actor.id) {
-      await item.items.clean();
+      await item.containerItems.clean();
       this.#onDropContainer(item);
       return;
     }

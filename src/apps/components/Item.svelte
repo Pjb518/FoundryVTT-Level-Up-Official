@@ -90,17 +90,16 @@
         return data;
     }
 
-    $: containerItems = Object.entries(item?.items?.documents ?? {}).reduce(
-        (acc, [k, v]) => {
-            const i = fromUuidSync(v.uuid);
-            if (!i) return acc;
-            if (i.parent?.id !== $actor.id) return acc;
+    $: containerItems = Object.entries(
+        item?.containerItems?.documents ?? {}
+    ).reduce((acc, [k, v]) => {
+        const i = fromUuidSync(v.uuid);
+        if (!i) return acc;
+        if (i.parent?.id !== $actor.id) return acc;
 
-            acc.push([k, i]);
-            return acc;
-        },
-        []
-    );
+        acc.push([k, i]);
+        return acc;
+    }, []);
 
     $: description = getDescription(item)
         .then((data) => (description = data))

@@ -28,7 +28,7 @@
     async function deleteEquipment(event) {
         const [_, uuid] = event.detail;
         const child = await fromUuid(uuid);
-        await $item.items.delete(uuid);
+        await $item.containerItems.delete(uuid);
 
         const actor =
             $item?.parent?.documentName === "Actor" ? $item.parent : null;
