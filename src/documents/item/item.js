@@ -22,6 +22,7 @@ import ActionsManager from '../../managers/ActionsManager';
 import ForeignDocumentManager from '../../managers/ForeignDocumentManager';
 import ResourceConsumptionManager from '../../managers/ResourceConsumptionManager';
 import RollPreparationManager from '../../managers/RollPreparationManager';
+import SubItemManager from '../../managers/subItems/SubItemManager';
 import TemplatePreparationManager from '../../managers/TemplatePreparationManager';
 
 import getSummaryData from '../../utils/summaries/getSummaryData';
@@ -64,7 +65,7 @@ export default class ItemA5e extends BaseItemA5e {
   }
 
   prepareContainer() {
-    foundry.utils.setProperty(this, 'containerItems', new ForeignDocumentManager(
+    foundry.utils.setProperty(this, 'containerItems', new SubItemManager(
       this,
       'items',
       { validate: (obj) => obj.type === 'object' }
