@@ -43,8 +43,13 @@ import createMacro from '../macros/createMacro';
 
 // Managers
 import ActionsManager from '../managers/ActionsManager';
+import ForeignDocumentManager from '../managers/ForeignDocumentManager';
+import ItemGrantsManager from '../managers/ItemGrantsManager';
+import ModifierManager from '../managers/ModifierManager';
 import ResourceConsumptionManager from '../managers/ResourceConsumptionManager';
 import RestManager from '../managers/RestManager';
+import RollPreparationManager from '../managers/RollPreparationManager';
+import SubObjectManager from '../managers/subItems/SubObjectManager';
 import TemplatePreparationManager from '../managers/TemplatePreparationManager';
 
 // Migrations
@@ -128,8 +133,13 @@ export default function init() {
     },
     managers: {
       ActionsManager,
+      ForeignDocumentManager,
+      ItemGrantsManager,
+      ModifierManager,
       ResourceConsumptionManager,
       RestManager,
+      RollPreparationManager,
+      SubObjectManager,
       TemplatePreparationManager
     },
     migrations: {
