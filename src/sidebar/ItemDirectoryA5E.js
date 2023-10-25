@@ -11,7 +11,6 @@ export default class ItemDirectoryA5E extends ItemDirectory {
     if (this._entryAlreadyExists(item)) return super._handleDroppedEntry(target, data);
 
     const folderId = target?.dataset?.folderId ?? null;
-    console.log(folderId);
     await SubObjectManager.createContainerOnSideBar(item, folderId);
   }
 }
