@@ -1,9 +1,5 @@
 import SubItemManager from './SubItemManager';
 
-type ContainerDropOptions = {
-  containerUuid?: string
-};
-
 export default class SubObjectManager extends SubItemManager {
   #duplicateWarning = 'A5E.validations.warnings.duplicateSubObjectDocument';
 
@@ -25,4 +21,43 @@ export default class SubObjectManager extends SubItemManager {
   /** ************************************************
   *               Container methods
   * ************************************************ */
+  static async createContainerOnActor(actor: any, item: any): Promise<any> {
+    await item.containerItems?.clean();
+
+    const emptyContainer = item.toObject();
+    emptyContainer.system.items = {};
+    emptyContainer.system.containerId = null;
+
+    const container = (await actor.createEmbeddedDocuments('Item', [emptyContainer]))?.[0];
+    const containerItems: Array<any> = Object.values(item.system.items);
+
+    // Get all items and subContainers
+    const items = [];
+    const subContainers = [];
+
+    for await (const { quantityOverride, sourceUuid, uuid } of containerItems) {
+      // @ts-ignore
+      let i = (await fromUuid(uuid)) ?? (await fromUuid(sourceUuid));
+      if (!i) continue;
+      if (i.system.objectType === 'container') {
+        subContainers.push(i);
+        continue;
+      }
+
+      i = i.toObject();
+      i.system.containerId = container.uuid;
+      if (quantityOverride) i.system.quantity = quantityOverride ?? i.system.quantityOverride;
+      items.push(i);
+    }
+
+    // Create subContainers
+    const newSubContainers = await Promise.all(
+      subContainers.map((c) => this.createContainerOnActor(actor, c))
+    );
+
+    const newItems = await actor.createEmbeddedDocuments('Item', items);
+    [...newItems, ...newSubContainers].forEach((i) => i.updateContainer(container.uuid));
+
+    return container;
+  }
 }
