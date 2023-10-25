@@ -80,6 +80,17 @@ export default class SubItemManager extends Map {
     await this.#doc.update(updates);
   }
 
+  cleanSync() {
+    const updates = {};
+    for (const [key, value] of Object.entries(this.#doc.system[this.#attribute])) {
+      // @ts-ignore
+      const child = fromUuidSync(value.uuid);
+      if (!child) updates[`system.${this.#attribute}.-=${key}`] = null;
+    }
+
+    this.#doc.update(updates);
+  }
+
   /** ************************************************
   *               External methods
   * ************************************************ */

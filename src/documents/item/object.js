@@ -187,7 +187,9 @@ export default class ObjectItemA5e extends ItemA5e {
   async _onCreate(data, options, user) {
     super._onCreate(data, options, user);
 
-    // TODO: Add support for moved containers
+    // Clean containerId
+    const container = await fromUuid(this.system.containerId);
+    if (!container) await this.update({ 'system.containerId': '' });
   }
 
   async _onDelete(data, options, user) {
