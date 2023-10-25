@@ -42,7 +42,7 @@ export default class SubItemManager extends Map {
 
     // Populate the Map
     Object.entries(doc.system[attribute]).forEach(([key, value]) => {
-      this.set(key, value);
+      super.set(key, value);
     });
   }
 

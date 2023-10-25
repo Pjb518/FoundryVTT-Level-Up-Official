@@ -1,3 +1,4 @@
+// @ts-ignore
 export default class SubObjectField extends foundry.abstract.DataModel {
   static defineSchema() {
     // @ts-ignore

@@ -1,5 +1,9 @@
 import SubItemManager from './SubItemManager';
 
+type ContainerDropOptions = {
+  containerUuid?: string
+};
+
 export default class SubObjectManager extends SubItemManager {
   #duplicateWarning = 'A5E.validations.warnings.duplicateSubObjectDocument';
 
@@ -16,5 +20,9 @@ export default class SubObjectManager extends SubItemManager {
 
   /** ************************************************
   *               External methods
+  * ************************************************ */
+
+  /** ************************************************
+  *               Container methods
   * ************************************************ */
 }
