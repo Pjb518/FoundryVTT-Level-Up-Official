@@ -2,10 +2,22 @@ import ItemA5e from './item';
 
 import SubItemManager from '../../managers/subItems/SubItemManager';
 
+import SubObjectField from '../../dataModels/fields/SubObjectField';
+
 export default class ObjectItemA5e extends ItemA5e {
   get weight() {
     // TODO: Implement weight for containers
     return this.system.weight;
+  }
+
+  prepareBaseData() {
+    if (this.system.objectType === 'container') {
+      // Add Data model for container items
+      this.system.items = Object.entries(this.system.items ?? {}).reduce((acc, [key, data]) => {
+        acc[key] = new SubObjectField(data);
+        return acc;
+      }, {});
+    }
   }
 
   prepareDerivedData() {
