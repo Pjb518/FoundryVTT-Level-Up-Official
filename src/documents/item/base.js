@@ -88,6 +88,10 @@ export default class BaseItemA5e extends Item {
     const newItem = foundry.utils.duplicate(this);
     newItem.name = `${newItem.name} (Copy)`;
 
+    if (newItem.type === 'object') {
+      newItem.system.containerId = null;
+    }
+
     if (owningActor) owningActor.createEmbeddedDocuments('Item', [newItem]);
     else Item.createDocuments([newItem]);
   }

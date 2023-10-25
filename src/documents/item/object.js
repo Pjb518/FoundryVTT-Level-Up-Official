@@ -32,6 +32,18 @@ export default class ObjectItemA5e extends ItemA5e {
     ));
   }
 
+  /**
+   * @override
+   * @returns
+   */
+  async duplicateItem() {
+    if (this.system.objectType !== 'container') return super.duplicateItem();
+
+    if (!this.actor) return null;
+    const container = await SubObjectManager.createContainerOnActor(this.parent, this);
+    return container;
+  }
+
   async toggleAttunement() {
     await this.update({
       'system.attuned': !this.system.attuned
