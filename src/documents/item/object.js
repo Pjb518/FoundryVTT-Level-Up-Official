@@ -1,6 +1,6 @@
 import ItemA5e from './item';
 
-import SubItemManager from '../../managers/subItems/SubItemManager';
+import SubObjectManager from '../../managers/subItems/SubObjectManager';
 
 import SubObjectField from '../../dataModels/fields/SubObjectField';
 
@@ -25,7 +25,7 @@ export default class ObjectItemA5e extends ItemA5e {
   }
 
   prepareContainer() {
-    foundry.utils.setProperty(this, 'containerItems', new SubItemManager(
+    foundry.utils.setProperty(this, 'containerItems', new SubObjectManager(
       this,
       'items',
       { validate: (obj) => obj.type === 'object' }

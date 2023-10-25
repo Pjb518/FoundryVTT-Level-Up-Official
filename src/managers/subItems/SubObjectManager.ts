@@ -61,12 +61,13 @@ export default class SubObjectManager extends SubItemManager {
     return container;
   }
 
-  static async createContainerOnSideBar(item: any): Promise<any> {
+  static async createContainerOnSideBar(item: any, folderId: string | null): Promise<any> {
     await item.containerItems?.clean();
 
     const emptyContainer = item.toObject();
     emptyContainer.system.items = {};
     emptyContainer.system.containerId = null;
+    emptyContainer.folder = folderId;
 
     // @ts-ignore
     const container = (await Item.createDocuments([emptyContainer]))?.[0];
@@ -87,13 +88,14 @@ export default class SubObjectManager extends SubItemManager {
 
       i = i.toObject();
       i.system.containerId = container.uuid;
+      i.folder = folderId;
       if (quantityOverride) i.system.quantity = quantityOverride ?? i.system.quantityOverride;
       items.push(i);
     }
 
     // Create subContainers
     const newSubContainers = await Promise.all(
-      subContainers.map((c) => this.createContainerOnSideBar(c))
+      subContainers.map((c) => this.createContainerOnSideBar(c, folderId))
     );
 
     // @ts-ignore
