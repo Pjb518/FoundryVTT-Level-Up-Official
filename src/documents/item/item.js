@@ -21,7 +21,6 @@ import ActionSelectionDialog from '../../apps/dialogs/initializers/ActionSelecti
 import ActionsManager from '../../managers/ActionsManager';
 import ResourceConsumptionManager from '../../managers/ResourceConsumptionManager';
 import RollPreparationManager from '../../managers/RollPreparationManager';
-import SubItemManager from '../../managers/subItems/SubItemManager';
 import TemplatePreparationManager from '../../managers/TemplatePreparationManager';
 
 import getSummaryData from '../../utils/summaries/getSummaryData';
@@ -38,7 +37,6 @@ export default class ItemA5e extends BaseItemA5e {
   // *****************************************************************************************
   prepareDerivedData() {
     if (['object', 'feature'].includes(this.type)) this.prepareArmorData();
-    if (this.type === 'object' && this.system.objectType === 'container') this.prepareContainer();
   }
 
   prepareArmorData() {
@@ -61,14 +59,6 @@ export default class ItemA5e extends BaseItemA5e {
     }
 
     foundry.utils.setProperty(this, 'system.ac.formula', formula);
-  }
-
-  prepareContainer() {
-    foundry.utils.setProperty(this, 'containerItems', new SubItemManager(
-      this,
-      'items',
-      { validate: (obj) => obj.type === 'object' }
-    ));
   }
 
   // *****************************************************************************************
@@ -459,68 +449,6 @@ export default class ItemA5e extends BaseItemA5e {
     return consumer;
   }
 
-  async toggleAttunement() {
-    if (!this.type === 'object') return;
-
-    await this.update({
-      'system.attuned': !this.system.attuned
-    });
-  }
-
-  async toggleDamagedState() {
-    if (!this.type === 'object') return;
-
-    const currentState = this.system.damagedState;
-    const newState = (currentState + 1) % 3;
-
-    await this.update({
-      'system.damagedState': newState
-    });
-  }
-
-  async toggleEquippedState() {
-    if (!this.type === 'object' || !this.actor) return;
-
-    const currentState = this.system.equippedState;
-    let newState = (currentState + 1) % 3;
-
-    // Check if armor is already equipped
-    if (newState === CONFIG.A5E.EQUIPPED_STATES.EQUIPPED && this.system.objectType === 'armor') {
-      const { hasArmor, hasUnderArmor } = this.parent.items.reduce((acc, item) => {
-        if (item.system.equippedState !== CONFIG.A5E.EQUIPPED_STATES.EQUIPPED
-          || item.system.objectType !== 'armor') return acc;
-        const isUnderarmor = item.system.materialProperties.includes('underarmor');
-        if (isUnderarmor) acc.hasUnderArmor = true;
-        else acc.hasArmor = true;
-        return acc;
-      }, { hasArmor: false, hasUnderArmor: false });
-
-      const isUnderarmor = this.system.materialProperties.includes('underarmor');
-      if (isUnderarmor && hasUnderArmor) newState = 0;
-      else if (!isUnderarmor && hasArmor) newState = 0;
-
-      // Warn user
-      if (newState === 0) {
-        ui.notifications.warn(game.i18n.localize('A5E.armorClass.armorAlreadyEquipped'));
-      }
-    }
-
-    // Check if 2 shields are already equipped
-    if (newState === 2 && this.system.objectType === 'shield') {
-      const shields = this.parent.items.filter((i) => (
-        i.system.equippedState === CONFIG.A5E.EQUIPPED_STATES.EQUIPPED
-        && i.system.objectType === 'shield'));
-      if (shields.length >= 2) newState = 0;
-      if (newState === 0) {
-        ui.notifications.warn(game.i18n.localize('A5E.armorClass.shieldAlreadyEquipped'));
-      }
-    }
-
-    await this.update({
-      'system.equippedState': newState
-    });
-  }
-
   async togglePrepared() {
     if (!this.type === 'spell' || !this.actor) return;
 
@@ -530,40 +458,6 @@ export default class ItemA5e extends BaseItemA5e {
     await this.update({
       'system.prepared': newState
     });
-  }
-
-  async toggleUnidentified() {
-    if (!this.type === 'object') return;
-
-    await this.update({
-      'system.unidentified': !this.system.unidentified
-    });
-  }
-
-  async updateContainer(containerUuid) {
-    if (this.type !== 'object' || containerUuid === this.uuid) return;
-
-    if (!containerUuid) {
-      const container = await fromUuid(this.system.containerId);
-      if (!container) return;
-
-      await this.update({ 'system.containerId': '' });
-      await container.containerItems.delete(this.uuid);
-      return;
-    }
-
-    // Remove from old container
-    const oldContainer = await fromUuid(this.system.containerId);
-    if (oldContainer) await oldContainer.containerItems.delete(this.uuid);
-
-    const container = await fromUuid(containerUuid);
-    if (!container
-      || container?.type !== 'object'
-      || container?.system?.objectType !== 'container'
-      || container?.parent?.id !== this.parent?.id) return;
-
-    await this.update({ 'system.containerId': containerUuid });
-    await container.containerItems.add(this.uuid);
   }
 
   async recharge(actionId, state = false) {
@@ -606,46 +500,11 @@ export default class ItemA5e extends BaseItemA5e {
     super._onUpdate(data, options, user);
   }
 
-  async _preUpdateObjectType() {
-    if (this?.system?.objectType !== 'container') return;
-
-    const updates = {};
-    const children = Object.entries(this.system.items ?? {});
-
-    // eslint-disable-next-line no-restricted-syntax
-    for await (const [key, item] of children) {
-      updates[`system.items.-=${key}`] = null;
-
-      const child = await fromUuid(item.uuid);
-      if (!child) continue;
-
-      await child.update({ 'system.containerId': '' });
-    }
-
-    await this.update(updates);
-  }
-
   async _onCreate(data, options, user) {
     super._onCreate(data, options, user);
-
-    // TODO: Add support for moved containers
   }
 
   async _onDelete(data, options, user) {
-    // Clean up container
-    if (!this.parent) return;
-    if (this.type === 'object') {
-      if (this.system.objectType === 'container') {
-        // eslint-disable-next-line no-undef
-        const items = Object.values(this.system.items).map(({ uuid }) => fromUuidSync(uuid));
-        const updates = items.map((i) => ({ _id: i.id, 'system.containerId': '' }));
-        await this.parent?.updateEmbeddedDocuments('Item', updates);
-      }
-
-      const container = await fromUuid(this.system.containerId);
-      if (container) await container?.containerItems?.delete(this.uuid);
-    }
-
     super._onDelete(data, options, user);
   }
 }
