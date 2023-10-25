@@ -10,6 +10,25 @@ export default class ObjectItemA5e extends ItemA5e {
     return this.system.weight;
   }
 
+  // TODO: Add a solid fix at some point
+  get containerItemNames() {
+    if (!this.containerItems) return '';
+
+    const names = this.containerItems.documents.reduce((acc, [, i]) => {
+      // eslint-disable-next-line no-undef
+      const c = fromUuidSync(i.uuid);
+      if (!c) return acc;
+
+      acc.push(c.name);
+
+      // Recursively add container items
+      const containerNames = c.containerItemNames.split(', ');
+      if (containerNames.length > 0) acc.push(...containerNames);
+      return acc;
+    }, []);
+    return names.join(', ');
+  }
+
   prepareBaseData() {
     if (this.system.objectType === 'container') {
       // Add Data model for container items
