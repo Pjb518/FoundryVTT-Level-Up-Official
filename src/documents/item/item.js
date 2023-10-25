@@ -19,7 +19,6 @@ import ActionActivationDialog from '../../apps/dialogs/initializers/ActionActiva
 import ActionSelectionDialog from '../../apps/dialogs/initializers/ActionSelectionDialog';
 
 import ActionsManager from '../../managers/ActionsManager';
-import ForeignDocumentManager from '../../managers/ForeignDocumentManager';
 import ResourceConsumptionManager from '../../managers/ResourceConsumptionManager';
 import RollPreparationManager from '../../managers/RollPreparationManager';
 import SubItemManager from '../../managers/subItems/SubItemManager';
