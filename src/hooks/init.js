@@ -24,6 +24,9 @@ import HeritageDataModel from '../dataModels/item/HeritageDataModel';
 import constructEffectOptions from '../documents/activeEffect/utils/constructEffectOptions';
 import EffectOption from '../documents/activeEffect/EffectOption';
 
+// Sidebar
+import ItemDirectoryA5E from '../sidebar/ItemDirectoryA5E';
+
 import registerKeybindings from '../keybindings';
 
 import _onCombatControl from '../combat/_onCombatControl';
@@ -85,6 +88,8 @@ export default function init() {
   CONFIG.Item.documentClass = ItemProxy;
   CONFIG.Token.documentClass = TokenDocumentA5e;
   CONFIG.Token.objectClass = TokenA5e;
+
+  CONFIG.ui.items = ItemDirectoryA5E;
 
   CONFIG.Dice.D20Roll = D20Roll;
 
