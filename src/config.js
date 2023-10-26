@@ -484,13 +484,13 @@ A5E.itemRarity = {
  * @enum {string}
  */
 A5E.itemTypes = {
-  background: 'ITEM.TypeBackground',
-  culture: 'ITEM.TypeCulture',
-  destiny: 'ITEM.TypeDestiny',
-  feature: 'ITEM.TypeFeature',
-  maneuver: 'ITEM.TypeManeuver',
-  object: 'ITEM.TypeObject',
-  spell: 'ITEM.TypeSpell'
+  background: 'TYPES.Item.background',
+  culture: 'TYPES.Item.culture',
+  destiny: 'TYPES.Item.destiny',
+  feature: 'TYPES.Item.feature',
+  maneuver: 'TYPES.Item.maneuver',
+  object: 'TYPES.Item.object',
+  spell: 'TYPES.Item.spell'
 };
 
 /**
