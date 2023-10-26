@@ -1,4 +1,5 @@
 import renderPartyViewer from './hooks/renderPartyViewer';
+import SystemSettings from './settings/SystemSettings';
 
 export default function registerKeybindings() {
   game.keybindings.register('a5e', 'party-sheet-open-close', {
@@ -10,6 +11,14 @@ export default function registerKeybindings() {
       }
 
       renderPartyViewer(true);
+    }
+  });
+
+  game.keybindings.register('a5e', 'system-settings-open-close', {
+    name: 'Open/Close System Settings',
+    editable: [{ key: 'KeyS', modifiers: ['Alt'] }],
+    onDown: () => {
+      SystemSettings.show();
     }
   });
 }
