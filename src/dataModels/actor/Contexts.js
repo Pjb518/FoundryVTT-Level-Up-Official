@@ -1,5 +1,7 @@
-export function getAttackBonusContext() {
+import A5E from '../../config';
 
+export function getAttackBonusContext() {
+  // const { fields } = foundry.data;
 }
 
 export function getDamageBonusContext() {
@@ -7,7 +9,7 @@ export function getDamageBonusContext() {
   return {
     attackTypes: new fields.ArrayField(
       new fields.StringField({ required: true, initial: '' }),
-      { initial: ['all'] }
+      { initial: Object.keys(A5E.damageBonusContexts) }
     ),
     damageTypes: new fields.ArrayField(
       new fields.StringField({ required: true, initial: '' }),

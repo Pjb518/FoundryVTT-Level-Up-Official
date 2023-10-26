@@ -7,6 +7,8 @@
     import Checkbox from "../components/Checkbox.svelte";
     import RadioGroup from "../components/RadioGroup.svelte";
     import FormSection from "../components/FormSection.svelte";
+    import CheckboxGroup from "../components/CheckboxGroup.svelte";
+    import TagGroup from "../components/TagGroup.svelte";
 
     export let { actor, damageBonusId } = getContext("#external").application;
     export let jsonValue = null;
@@ -34,7 +36,7 @@
             obj.label = obj.label ?? "";
             obj.formula = obj.formula ?? "";
             obj.damageType = obj.damageType ?? "";
-            obj.context = obj.context ?? "all";
+            obj.context = obj.context ?? {};
             obj.default = obj.default ?? true;
             return obj;
         } catch (error) {
@@ -115,15 +117,18 @@
     </FormSection>
 
     <FormSection
-        heading="Context"
+        heading="Contexts"
         hint="The context determines when the damage bonus applies"
     >
-        <RadioGroup
-            options={Object.entries(damageBonusContexts)}
-            selected={damageBonus.context}
-            allowDeselect={false}
-            on:updateSelection={({ detail }) =>
-                onUpdateValue("context", detail)}
+        <TagGroup
+            heading="A5E.contexts.AttackType"
+            tags={damageBonusContexts}
+            selected={damageBonus.context.attackTypes}
+            updateFunction={() =>
+                onUpdateValue(
+                    "context.attackTypes",
+                    damageBonus.context.attackTypes
+                )}
         />
     </FormSection>
 

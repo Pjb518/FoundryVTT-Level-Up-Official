@@ -1,9 +1,9 @@
-import RecordField from '../fields/RecordField';
+import { getDamageBonusContext } from './Contexts';
 
 export function getDamageBonusData() {
   const { fields } = foundry.data;
   return {
-    context: new fields.StringField(),
+    context: new fields.SchemaField(getDamageBonusContext()),
     damageType: new fields.StringField({ required: true, initial: '' }),
     default: new fields.BooleanField({ required: true, initial: true }),
     formula: new fields.StringField({ required: true, initial: '' }),

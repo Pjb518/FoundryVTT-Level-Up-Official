@@ -406,7 +406,6 @@ A5E.damageTypes = {
 };
 
 A5E.damageBonusContexts = {
-  all: 'A5E.damageBonuses.contexts.all',
   meleeWeaponAttacks: 'A5E.damageBonuses.contexts.meleeWeaponAttacks',
   meleeSpellAttacks: 'A5E.damageBonuses.contexts.meleeSpellAttacks',
   rangedWeaponAttacks: 'A5E.damageBonuses.contexts.rangedWeaponAttacks',

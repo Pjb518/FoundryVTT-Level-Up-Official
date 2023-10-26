@@ -12,24 +12,26 @@
         const { damageBonusSummariesByContext, damageTypes } = CONFIG.A5E;
         const damageType = damageTypes[damageBonus.damageType];
 
-        return localize(damageBonusSummariesByContext[damageBonus.context], {
-            formula: damageBonus.formula,
-            damageType: damageType
-                ? `${damageType.toLowerCase()} damage`
-                : "damage",
-        });
+        return "Fix me";
+        // return localize(damageBonusSummariesByContext[damageBonus.context], {
+        //     formula: damageBonus.formula,
+        //     damageType: damageType
+        //         ? `${damageType.toLowerCase()} damage`
+        //         : "damage",
+        // });
     }
 
     function getHealingBonusSummary(healingBonus) {
         const { healingBonusSummariesByContext, healingTypes } = CONFIG.A5E;
         const healingType = healingTypes[healingBonus.healingType];
 
-        return localize(healingBonusSummariesByContext[healingBonus.context], {
-            formula: healingBonus.formula,
-            healingType: healingType
-                ? `${healingType.toLowerCase()} healing`
-                : "healing",
-        });
+        return "Fix me";
+        // return localize(healingBonusSummariesByContext[healingBonus.context], {
+        //     formula: healingBonus.formula,
+        //     healingType: healingType
+        //         ? `${healingType.toLowerCase()} healing`
+        //         : "healing",
+        // });
     }
 
     const actor = getContext("actor");
