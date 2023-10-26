@@ -142,7 +142,7 @@ export default class ActionsManager extends DataProxy {
    */
   static async addAction(item, data = {}, update = true) {
     const newAction = foundry.utils.mergeObject({
-      name: 'New Action',
+      name: this.getActionName(item) || 'New Action',
       activation: {},
       consumers: {},
       rolls: {},
@@ -299,5 +299,30 @@ export default class ActionsManager extends DataProxy {
 
     if (update) item.update(updateData);
     return updateData;
+  }
+
+  static getActionName(item) {
+    const type = game.settings.get('a5e', 'newActionNameType');
+
+    if (type === 'action') return 'New Action';
+    if (type === 'item') return item.name ?? 'New Action';
+
+    const itemType = item.type;
+
+    if (itemType === 'feature') return 'Use Feature';
+    if (itemType === 'maneuver') return 'Execute';
+    if (itemType === 'spell') return 'Cast Spell';
+
+    if (itemType === 'object') {
+      const { objectType } = item.system;
+
+      if (objectType === 'consumable') return 'Consume';
+      if (objectType === 'tool') return 'Use Tool';
+      if (objectType === 'weapon') return 'Attack';
+
+      return 'Use Object';
+    }
+
+    return 'New Action';
   }
 }

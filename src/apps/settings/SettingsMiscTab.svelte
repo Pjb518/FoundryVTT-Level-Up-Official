@@ -3,6 +3,7 @@
 
     import FormSection from "../components/FormSection.svelte";
     import Checkbox from "../components/Checkbox.svelte";
+    import RadioGroup from "../components/RadioGroup.svelte";
 
     export let reload;
 
@@ -11,7 +12,14 @@
 
     const isGM = game.user.isGM;
 
+    const actionTypeOptions = [
+        ["system", "System Defined"],
+        ["action", "New Action"],
+        ["item", "Item Name"],
+    ];
+
     // Stores
+    let actionNameType = settings.getStore("newActionNameType");
     let showLimitedDesc = settings.getStore("showDescriptionOnLimitedPerms");
 </script>
 
@@ -21,23 +29,36 @@
             <h3 class="setting-heading">Sheet Settings</h3>
         </header>
 
-        {#if isGM}
-            <FormSection
-                hint="A5E.settings.hints.showDescriptionOnLimitedPerms"
-                --gap="0.25rem"
-            >
-                <Checkbox
-                    label="A5E.settings.showDescriptionOnLimitedPerms"
-                    checked={updates.get("showDescriptionOnLimitedPerms") ??
-                        $showLimitedDesc ??
-                        false}
-                    on:updateSelection={({ detail }) => {
-                        updates.set("showDescriptionOnLimitedPerms", detail);
-                        reload = true;
-                    }}
-                />
-            </FormSection>
-        {/if}
+        <FormSection
+            hint="A5E.settings.hints.showDescriptionOnLimitedPerms"
+            --gap="0.25rem"
+        >
+            <Checkbox
+                label="A5E.settings.showDescriptionOnLimitedPerms"
+                checked={updates.get("showDescriptionOnLimitedPerms") ??
+                    $showLimitedDesc ??
+                    false}
+                on:updateSelection={({ detail }) => {
+                    updates.set("showDescriptionOnLimitedPerms", detail);
+                    reload = true;
+                }}
+            />
+        </FormSection>
+
+        <FormSection
+            hint="A5E.settings.hints.newActionNameType"
+            --gap="0.25rem"
+        >
+            <RadioGroup
+                options={actionTypeOptions}
+                selected={updates.get("newActionNameType") ??
+                    $actionNameType ??
+                    "system"}
+                on:updateSelection={({ detail }) => {
+                    updates.set("newActionNameType", detail);
+                }}
+            />
+        </FormSection>
     </section>
 {/if}
 

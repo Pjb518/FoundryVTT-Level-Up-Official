@@ -403,6 +403,18 @@ class A5eGameSettings extends TJSGameSettings {
       // Misc Settings
       {
         namespace,
+        key: 'newActionNameType',
+        options: {
+          name: 'A5E.settings.newActionNameType',
+          hint: 'A5E.settings.hints.newActionNameType',
+          scope: scope.world,
+          config: true,
+          default: 'system',
+          type: String
+        }
+      },
+      {
+        namespace,
         key: 'showDescriptionOnLimitedPerms',
         options: {
           name: 'A5E.settings.showDescriptionOnLimitedPerms',
