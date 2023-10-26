@@ -1,5 +1,8 @@
 /* eslint-disable max-classes-per-file */
-class BaseGrant extends foundry.abstract.DataModel {
+
+import A5EDataModel from '../../../dataModels/A5EDataModel';
+
+export class BaseGrant extends A5EDataModel {
   constructor(data, options = {}) {
     super(data, options);
   }
@@ -7,21 +10,27 @@ class BaseGrant extends foundry.abstract.DataModel {
   static defineSchema() {
     return {
       _id: new foundry.data.fields.DocumentIdField({ initial: () => foundry.utils.randomID() }),
-      type: new foundry.data.fields.StringField({ required: true, initial: '' }),
+      grantType: new foundry.data.fields.StringField({ required: true, initial: '' }),
       level: new foundry.data.fields.NumberField({ required: true, initial: 0, integer: true }),
       optional: new foundry.data.fields.BooleanField({ required: true, initial: false })
     };
   }
+
+  static getApplyData() { return []; }
 }
 
 export class SkillGrant extends BaseGrant {
   #type = 'skill';
 
   static defineSchema() {
-    return foundry.utils.mergeObject(super.defineSchema(), {
-      type: new foundry.data.fields.StringField({ required: true, initial: 'skill' }),
+    return this.mergeSchema(super.defineSchema(), {
+      grantType: new foundry.data.fields.StringField({ required: true, initial: 'skill' }),
       skill: new foundry.data.fields.StringField({ required: true, initial: '' })
     });
+  }
+
+  static getApplyData() {
+
   }
 }
 
@@ -29,8 +38,8 @@ export class MovementGrant extends BaseGrant {
   #type = 'movement';
 
   static defineSchema() {
-    return foundry.utils.mergeObject(super.defineSchema(), {
-      type: new foundry.data.fields.StringField({ required: true, initial: 'movement' }),
+    return this.mergeSchema(super.defineSchema(), {
+      grantType: new foundry.data.fields.StringField({ required: true, initial: 'movement' }),
       movementMode: new foundry.data.fields.StringField({ required: true, initial: 'walk' }),
       ranges: new foundry.data.fields.SchemaField({
         base: new foundry.data.fields.SchemaField({
@@ -54,8 +63,8 @@ export class ProficiencyGrant extends BaseGrant {
   #type = 'proficiency';
 
   static defineSchema() {
-    return foundry.utils.mergeObject(super.defineSchema(), {
-      type: new foundry.data.fields.StringField({ required: true, initial: 'proficiency' }),
+    return this.mergeSchema(super.defineSchema(), {
+      grantType: new foundry.data.fields.StringField({ required: true, initial: 'proficiency' }),
       choices: new foundry.data.fields.SchemaField({
         base: new foundry.data.fields.ArrayField(
           new foundry.data.fields.StringField({ nullable: false, initial: '' }),
@@ -78,8 +87,8 @@ export class TraitGrant extends BaseGrant {
   #type = 'trait';
 
   static defineSchema() {
-    return foundry.utils.mergeObject(super.defineSchema(), {
-      type: new foundry.data.fields.StringField({ required: true, initial: 'trait' }),
+    return this.mergeSchema(super.defineSchema(), {
+      grantType: new foundry.data.fields.StringField({ required: true, initial: 'trait' }),
       traitType: new foundry.data.fields.StringField({ required: true, initial: '' }),
       choices: new foundry.data.fields.SchemaField({
         base: new foundry.data.fields.ArrayField(
@@ -100,8 +109,8 @@ export class VisionGrant extends BaseGrant {
   #type = 'vision';
 
   static defineSchema() {
-    return foundry.utils.mergeObject(super.defineSchema(), {
-      type: new foundry.data.fields.StringField({ required: true, initial: 'vision' }),
+    return this.mergeSchema(super.defineSchema(), {
+      grantType: new foundry.data.fields.StringField({ required: true, initial: 'vision' }),
       visionMode: new foundry.data.fields.StringField({ required: true, initial: 'darkvision' }),
       ranges: new foundry.data.fields.SchemaField({
         base: new foundry.data.fields.SchemaField({

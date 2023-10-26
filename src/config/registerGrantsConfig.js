@@ -1,5 +1,5 @@
 import {
-  MovementGrant, ProficiencyGrant, SkillGrant, TraitGrant, VisionGrant
+  BaseGrant, MovementGrant, ProficiencyGrant, SkillGrant, TraitGrant, VisionGrant
 } from '../documents/item/data/Grant';
 
 export const grantsClassMappings = {
@@ -7,7 +7,8 @@ export const grantsClassMappings = {
   movement: MovementGrant,
   proficiency: ProficiencyGrant,
   trait: TraitGrant,
-  vision: VisionGrant
+  vision: VisionGrant,
+  default: BaseGrant
 };
 
 export default function registerGrantsConfig(A5E) {
