@@ -1,6 +1,6 @@
 /* eslint-disable max-classes-per-file */
 
-import A5EDataModel from '../../../dataModels/A5EDataModel';
+import A5EDataModel from '../A5EDataModel';
 
 export class BaseGrant extends A5EDataModel {
   constructor(data, options = {}) {

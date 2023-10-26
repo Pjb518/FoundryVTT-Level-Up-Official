@@ -1,6 +1,6 @@
 import {
   BaseGrant, MovementGrant, ProficiencyGrant, SkillGrant, TraitGrant, VisionGrant
-} from '../documents/item/data/Grant';
+} from '../dataModels/item/Grant';
 
 export const grantsClassMappings = {
   skill: SkillGrant,
