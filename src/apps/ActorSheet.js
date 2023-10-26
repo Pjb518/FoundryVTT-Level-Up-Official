@@ -458,7 +458,7 @@ export default class ActorSheet extends SvelteApplication {
     );
 
     await this.actor.update({
-      'system.traits.size': selectedCreatureSize ?? item.system.creatureSize.fixed ?? '',
+      'system.traits.size': selectedCreatureSize || item.system.creatureSize.fixed || this.actor.system.traits.size || '',
       'system.details.creatureTypes': item.system.creatureTypes
     });
 
