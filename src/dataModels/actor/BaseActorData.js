@@ -211,11 +211,13 @@ export default class BaseActorData extends A5EDataModel.mixin(SchemaDataModel) {
           skill: new fields.StringField({ initial: '' })
         }),
         damage: new RecordField(
-          new fields.StringField({ required: true, initial: '' }),
+          // new fields.StringField({ required: true, initial: '' }),
+          new fields.DocumentIdField({ required: true, initial: () => foundry.utils.randomID() }),
           new fields.SchemaField(getDamageBonusData())
         ),
         healing: new RecordField(
-          new fields.StringField({ required: true, initial: '' }),
+          // new fields.StringField({ required: true, initial: '' }),
+          new fields.DocumentIdField({ required: true, initial: () => foundry.utils.randomID() }),
           new fields.SchemaField(getHealingBonusData())
         ),
         maneuverDC: new fields.StringField({ initial: '' }),
