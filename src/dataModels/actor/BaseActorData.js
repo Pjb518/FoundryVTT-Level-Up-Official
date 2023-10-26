@@ -202,18 +202,18 @@ export default class BaseActorData extends A5EDataModel.mixin(SchemaDataModel) {
       }),
       bonuses: new fields.SchemaField({
         abilities: new fields.SchemaField({
-          check: new fields.StringField({ required: true, initial: '' }),
-          save: new fields.StringField({ required: true, initial: '' }),
-          skill: new fields.StringField({ required: true, initial: '' })
+          check: new fields.StringField({ initial: '' }),
+          save: new fields.StringField({ initial: '' }),
+          skill: new fields.StringField({ initial: '' })
         }),
         damage: new fields.ObjectField(),
         healing: new fields.ObjectField(),
-        maneuverDC: new fields.StringField({ required: true, initial: '' }),
-        meleeSpellAttack: new fields.StringField({ required: true, initial: '' }),
-        meleeWeaponAttack: new fields.StringField({ required: true, initial: '' }),
-        rangedSpellAttack: new fields.StringField({ required: true, initial: '' }),
-        rangedWeaponAttack: new fields.StringField({ required: true, initial: '' }),
-        spellDC: new fields.StringField({ required: true, initial: '' })
+        maneuverDC: new fields.StringField({ initial: '' }),
+        meleeSpellAttack: new fields.StringField({ initial: '' }),
+        meleeWeaponAttack: new fields.StringField({ initial: '' }),
+        rangedSpellAttack: new fields.StringField({ initial: '' }),
+        rangedWeaponAttack: new fields.StringField({ initial: '' }),
+        spellDC: new fields.StringField({ initial: '' })
       }),
       currency: new fields.SchemaField({
         cp: new fields.NumberField({ required: true, initial: 0, integer: true }),
