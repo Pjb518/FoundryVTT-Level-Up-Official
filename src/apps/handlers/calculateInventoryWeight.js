@@ -1,16 +1,21 @@
 export default function calculateInventoryWeight(actor) {
   const { EQUIPPED_STATES } = CONFIG.A5E;
   const actorData = actor.system;
-  const equippedItems = actor.items.filter(
-    (item) => [EQUIPPED_STATES.EQUIPPED, EQUIPPED_STATES.CARRIED]
-      .includes(item.system.equippedState)
-  );
+  const items = actor.items.map((i) => i);
 
-  const totalItemWeight = equippedItems.reduce((acc, curr) => {
+  const totalItemWeight = items.reduce((acc, curr) => {
+    let container = null;
     if (curr.system.containerId) {
-      const container = equippedItems.find((i) => i.uuid === curr.system.containerId);
+      container = items.find((i) => i.uuid === curr.system.containerId);
       if (!container) return acc;
     }
+
+    const equipped = [EQUIPPED_STATES.EQUIPPED, EQUIPPED_STATES.CARRIED]
+      .includes(curr.system.equippedState);
+
+    if (!equipped && !curr.system.containerId) return acc;
+    if (![EQUIPPED_STATES.EQUIPPED, EQUIPPED_STATES.CARRIED]
+      .includes(container?.system?.equippedState ?? 0)) return acc;
 
     const { quantity } = curr.system;
     const itemWeight = parseFloat(curr.system.weight || 0, 10) ?? 0;
