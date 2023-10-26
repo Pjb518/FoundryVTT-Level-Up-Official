@@ -3,6 +3,8 @@ import SchemaDataModel from '../template/SchemaDataModel';
 
 import RecordField from '../fields/RecordField';
 
+import { getDamageBonusData, getHealingBonusData } from './Bonus';
+
 export default class BaseActorData extends A5EDataModel.mixin(SchemaDataModel) {
   static defineSchema() {
     const { fields } = foundry.data;
@@ -210,23 +212,11 @@ export default class BaseActorData extends A5EDataModel.mixin(SchemaDataModel) {
         }),
         damage: new RecordField(
           new fields.StringField({ required: true, initial: '' }),
-          new fields.SchemaField({
-            context: new fields.ObjectField(),
-            damageType: new fields.StringField({ required: true, initial: '' }),
-            default: new fields.BooleanField({ required: true, initial: true }),
-            formula: new fields.StringField({ required: true, initial: '' }),
-            label: new fields.StringField({ required: true, initial: '' })
-          })
+          new fields.SchemaField(getDamageBonusData())
         ),
         healing: new RecordField(
           new fields.StringField({ required: true, initial: '' }),
-          new fields.SchemaField({
-            context: new fields.ObjectField(),
-            healingType: new fields.StringField({ required: true, initial: 'healing' }),
-            default: new fields.BooleanField({ required: true, initial: true }),
-            formula: new fields.StringField({ required: true, initial: '' }),
-            label: new fields.StringField({ required: true, initial: '' })
-          })
+          new fields.SchemaField(getHealingBonusData())
         ),
         maneuverDC: new fields.StringField({ initial: '' }),
         meleeSpellAttack: new fields.StringField({ initial: '' }),
