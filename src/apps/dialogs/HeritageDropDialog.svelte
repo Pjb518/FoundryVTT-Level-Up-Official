@@ -27,12 +27,21 @@
         });
     }
 
-    let selectedCreatureSize = "";
+    let selectedCreatureSize = $item.system.creatureSize.fixed || "";
     let selectedGiftCategory = "";
     let selectedParagonCategories = "";
     let selectedFeatures =
         Object.values($item.system.features ?? {}).map(({ uuid }) => uuid) ??
         [];
+
+    let sizeOptions = Object.entries(A5E.actorSizes);
+
+    let creatureSize = $item.system.creatureSize;
+    let disabledCreatureSizes = sizeOptions.reduce((acc, [key]) => {
+        if (key !== creatureSize.fixed && !creatureSize.options.includes(key))
+            acc.push(key);
+        return acc;
+    }, []);
 
     $: gifts = Object.values($item.system.gifts).reduce((acc, gift) => {
         if (gift.category === selectedGiftCategory) acc.push(gift.uuid);
@@ -62,23 +71,19 @@
 
 <form>
     <section>
-        {#if $item.system.creatureSize.options.length}
-            <FormSection
-                heading="A5E.CreatureSizeLabel"
-                warning="Creature Size not selected."
-                showWarning={!selectedCreatureSize}
-            >
-                <RadioGroup
-                    options={$item.system.creatureSize.options.map((s) => [
-                        s,
-                        A5E.actorSizes[s],
-                    ])}
-                    selected={selectedCreatureSize}
-                    on:updateSelection={({ detail }) =>
-                        (selectedCreatureSize = detail)}
-                />
-            </FormSection>
-        {/if}
+        <FormSection
+            heading="A5E.CreatureSizeLabel"
+            warning="Creature Size not selected."
+            showWarning={!selectedCreatureSize}
+        >
+            <RadioGroup
+                options={sizeOptions}
+                selected={selectedCreatureSize}
+                disabled={disabledCreatureSizes}
+                on:updateSelection={({ detail }) =>
+                    (selectedCreatureSize = detail)}
+            />
+        </FormSection>
 
         <FormSection heading={localize("A5E.originSheets.heritage.traits")}>
             <CheckboxGroup
