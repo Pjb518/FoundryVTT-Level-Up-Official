@@ -125,7 +125,7 @@
         hint="The context determines when the damage bonus applies"
     >
         <TagGroup
-            heading="A5E.contexts.AttackType"
+            heading="A5E.contexts.attackType"
             tags={damageBonusContexts}
             bind:selected={attackTypesContext}
             updateFunction={() =>
@@ -133,7 +133,7 @@
         />
 
         <TagGroup
-            heading="A5E.contexts.DamageType"
+            heading="A5E.contexts.damageType"
             tags={damageTypes}
             bind:selected={damageTypesContext}
             updateFunction={() =>
@@ -141,7 +141,7 @@
         />
 
         <TagGroup
-            heading="A5E.contexts.SpellLevel"
+            heading="A5E.contexts.spellLevel"
             tags={spellLevels}
             bind:selected={spellLevelsContext}
             updateFunction={() =>

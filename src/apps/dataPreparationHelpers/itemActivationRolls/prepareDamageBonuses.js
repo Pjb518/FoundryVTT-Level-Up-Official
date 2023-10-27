@@ -1,5 +1,4 @@
 export default function prepareDamageBonuses(actor, item, rolls) {
-  console.log(rolls);
   const attackRoll = rolls.attack ?? [];
   const damageRolls = rolls.damage ?? [];
   const spellLevel = item.system.level ?? null;
@@ -18,8 +17,8 @@ export default function prepareDamageBonuses(actor, item, rolls) {
       const damageTypes = new Set(context.damageTypes ?? []);
 
       if (attackTypes && !attackTypes.includes(attackType)) return false;
-      if (spellLevel !== null && !spellLevels.includes(`${spellLevel}`)) return false;
-      if (!damageTypes.intersects(damages)) return false;
+      if (spellLevel !== null && spellLevels.length && !spellLevels.includes(`${spellLevel}`)) return false;
+      if (damageTypes.size && !damageTypes.intersects(damages)) return false;
 
       return true;
     }
