@@ -25,15 +25,15 @@
         <div class="quantity-wrapper">
             <input
                 class="number-input"
-                id="{uuid}-quantity"
+                id="{uuid}-quantityOverride"
                 type="number"
-                value={$originItem.system?.[attribute]?.[docId]?.quantity ??
-                    originalQuantity}
+                value={$originItem.system?.[attribute]?.[docId]
+                    ?.quantityOverride ?? originalQuantity}
                 min="1"
                 on:change={({ target }) =>
                     updateDocumentDataFromField(
                         $originItem,
-                        `system.${attribute}.${docId}.quantity`,
+                        `system.${attribute}.${docId}.quantityOverride`,
                         parseInt(target.value)
                     )}
             />

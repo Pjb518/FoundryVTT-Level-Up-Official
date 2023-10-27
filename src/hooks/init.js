@@ -24,6 +24,9 @@ import HeritageDataModel from '../dataModels/item/HeritageDataModel';
 import constructEffectOptions from '../documents/activeEffect/utils/constructEffectOptions';
 import EffectOption from '../documents/activeEffect/EffectOption';
 
+// Sidebar
+import ItemDirectoryA5E from '../sidebar/ItemDirectoryA5E';
+
 import registerKeybindings from '../keybindings';
 
 import _onCombatControl from '../combat/_onCombatControl';
@@ -43,8 +46,13 @@ import createMacro from '../macros/createMacro';
 
 // Managers
 import ActionsManager from '../managers/ActionsManager';
+import ForeignDocumentManager from '../managers/ForeignDocumentManager';
+import ItemGrantsManager from '../managers/ItemGrantsManager';
+import ModifierManager from '../managers/ModifierManager';
 import ResourceConsumptionManager from '../managers/ResourceConsumptionManager';
 import RestManager from '../managers/RestManager';
+import RollPreparationManager from '../managers/RollPreparationManager';
+import SubObjectManager from '../managers/subItems/SubObjectManager';
 import TemplatePreparationManager from '../managers/TemplatePreparationManager';
 
 // Migrations
@@ -80,6 +88,8 @@ export default function init() {
   CONFIG.Item.documentClass = ItemProxy;
   CONFIG.Token.documentClass = TokenDocumentA5e;
   CONFIG.Token.objectClass = TokenA5e;
+
+  CONFIG.ui.items = ItemDirectoryA5E;
 
   CONFIG.Dice.D20Roll = D20Roll;
 
@@ -128,8 +138,13 @@ export default function init() {
     },
     managers: {
       ActionsManager,
+      ForeignDocumentManager,
+      ItemGrantsManager,
+      ModifierManager,
       ResourceConsumptionManager,
       RestManager,
+      RollPreparationManager,
+      SubObjectManager,
       TemplatePreparationManager
     },
     migrations: {

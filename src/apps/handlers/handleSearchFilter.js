@@ -10,7 +10,7 @@ import regexObjectQuery from './searchUtils';
  * @returns {} searchInput
  */
 export function addSearchFilter(reducer) {
-  const searchFilter = DynReducerHelper.filters.regexObjectQuery('name');
+  const searchFilter = DynReducerHelper.filters.regexObjectQuery(['name', 'containerItemNames']);
   const searchInput = {
     store: searchFilter,
     placeholder: 'Search',

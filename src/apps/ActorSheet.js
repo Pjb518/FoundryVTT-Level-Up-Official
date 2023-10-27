@@ -12,6 +12,8 @@ import LimitedSheetComponent from './sheets/LimitedSheet.svelte';
 import BackgroundCultureDropDialog from './dialogs/initializers/BackgroundCultureDropDialog';
 import HeritageDropDialog from './dialogs/initializers/HeritageDropDialog';
 
+import SubObjectManager from '../managers/subItems/SubObjectManager';
+
 export default class ActorSheet extends SvelteApplication {
   /**
    * @inheritDoc
@@ -471,48 +473,14 @@ export default class ActorSheet extends SvelteApplication {
     this.actor.applyPermanentEffects();
   }
 
-  async #onDropContainer(item) {
-    const emptyContainer = item.toObject();
-    emptyContainer.system.items = {};
-    emptyContainer.system.containerId = null;
-
-    const container = (await this.actor.createEmbeddedDocuments('Item', [emptyContainer]))?.[0];
-    const containerItems = Object.values(item.system.items);
-
-    // Get all items and sub-containers
-    const items = [];
-    const subContainers = [];
-
-    // eslint-disable-next-line no-restricted-syntax
-    for await (const { uuid, quantity } of containerItems) {
-      let i = await fromUuid(uuid);
-      if (!i) continue;
-      if (i.system.objectType === 'container') {
-        subContainers.push(i);
-        continue;
-      }
-
-      i = i.toObject();
-      i.system.containerId = container.uuid;
-      if (quantity) i.system.quantity = quantity ?? i.system.quantity;
-      items.push(i);
-    }
-
-    // Create sub-containers
-    const newSubContainers = await Promise.all(
-      subContainers.map((c) => this.#onDropContainer(c))
-    );
-
-    const newItems = await this.actor.createEmbeddedDocuments('Item', items);
-    [...newItems, ...newSubContainers].forEach((i) => i.updateContainer(container.uuid));
-
-    return container;
-  }
-
   async #onDropObject(item, options) {
     if (item.system.objectType === 'container' && item.parent?.id !== this.actor.id) {
-      await item.items.clean();
-      this.#onDropContainer(item);
+      const container = await SubObjectManager.createContainerOnActor(this.actor, item);
+
+      if (container && options.containerUuid) {
+        container.updateContainer(options.containerUuid ?? '');
+      }
+
       return;
     }
 

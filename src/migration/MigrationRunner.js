@@ -35,7 +35,7 @@ export default class MigrationRunner extends MigrationRunnerBase {
       const source = document._source;
       const updated = await (async () => {
         try {
-          return 'items' in source && ['character', 'npc'].includes(source.type)
+          return 'items' in source
             ? await runner.getUpdatedActor(source, runner.migrations)
             : await runner.getUpdatedItem(source, runner.migrations);
         } catch {
@@ -81,7 +81,7 @@ export default class MigrationRunner extends MigrationRunnerBase {
         }
       }
 
-      const updated = 'items' in document && ['character', 'npc'].includes(document.type)
+      const updated = 'items' in document
         ? await this.#migrateActor(migrations, document, { pack })
         : await this.#migrateItem(migrations, document, { pack });
 
@@ -305,7 +305,7 @@ export default class MigrationRunner extends MigrationRunnerBase {
 
   async runDocumentMigration(document, migrations) {
     if (!['Actor', 'Item'].includes(document.documentName)) return;
-    const updated = 'items' in document && ['character', 'npc'].includes(document.type)
+    const updated = 'items' in document
       ? await this.#migrateActor(migrations, document)
       : await this.#migrateItem(migrations, document);
 

@@ -90,7 +90,7 @@
         return data;
     }
 
-    $: containerItems = Object.entries(item?.items?.documents ?? {}).reduce(
+    $: containerItems = (item?.containerItems?.documents ?? []).reduce(
         (acc, [k, v]) => {
             const i = fromUuidSync(v.uuid);
             if (!i) return acc;
