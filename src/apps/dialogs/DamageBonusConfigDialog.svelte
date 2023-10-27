@@ -18,6 +18,7 @@
     function onUpdateValue(key, value) {
         if (jsonValue === null) {
             key = `system.bonuses.damage.${damageBonusId}.${key}`;
+            console.log(key, value);
             updateDocumentDataFromField($actor, key, value);
             return;
         }
@@ -53,6 +54,7 @@
     const { damageBonusContexts, damageTypes } = CONFIG.A5E;
 
     $: damageBonus = getDamageBonus($actor, jsonValue) ?? {};
+    $: attackTypes = damageBonus.context.attackTypes ?? [];
 </script>
 
 <form>
@@ -123,12 +125,9 @@
         <TagGroup
             heading="A5E.contexts.AttackType"
             tags={damageBonusContexts}
-            selected={damageBonus.context.attackTypes}
+            bind:selected={attackTypes}
             updateFunction={() =>
-                onUpdateValue(
-                    "context.attackTypes",
-                    damageBonus.context.attackTypes
-                )}
+                onUpdateValue("context.attackTypes", attackTypes)}
         />
     </FormSection>
 

@@ -10,25 +10,9 @@ export default function prepareDamageBonuses(actor, rolls) {
   const damageBonuses = Object.entries(bonusDamage).filter(
     ([, { context, formula }]) => {
       if (!formula) return false;
-      const { attackTypes, damageTypes, spellLevels } = context;
+      const { attackTypes } = context;
 
-      if (context === 'all') return true;
-
-      if (attackType === 'meleeWeaponAttack') {
-        return ['meleeWeaponAttacks', 'weaponAttacks'].some((t) => attackTypes.includes(t));
-      }
-
-      if (attackType === 'rangedWeaponAttack') {
-        return ['rangedWeaponAttacks', 'weaponAttacks'].some((t) => attackTypes.includes(t));
-      }
-
-      if (attackType === 'meleeSpellAttack') {
-        return ['meleeSpellAttacks', 'spellAttacks'].some((t) => attackTypes.includes(t));
-      }
-
-      if (attackType === 'rangedSpellAttack') {
-        return ['rangedSpellAttacks', 'spellAttacks'].some((t) => attackTypes.includes(t));
-      }
+      if (attackTypes && attackTypes.includes(attackType)) return true;
 
       return false;
     }
