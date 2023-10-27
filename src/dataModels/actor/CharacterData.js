@@ -19,6 +19,7 @@ export default class CharacterData extends BaseActorData {
       details: new fields.SchemaField({
         age: new fields.StringField({ required: true, initial: '' }),
         appearance: new fields.StringField({ required: true, initial: '' }),
+        archetype: new fields.StringField({ required: true, initial: '' }),
         background: new fields.StringField({ required: true, initial: '' }),
         classes: new fields.StringField({ required: true, initial: '' }),
         culture: new fields.StringField({ required: true, initial: '' }),
