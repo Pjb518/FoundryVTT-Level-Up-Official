@@ -7,6 +7,7 @@ export default function prepareDamageBonuses(actor, item, rolls) {
   if (!Array.isArray(attackRoll[0])) return [];
 
   const { attackType } = attackRoll[0][1] ?? {};
+  const damages = new Set(damageRolls.map(([, { damageType }]) => damageType));
   const bonusDamage = actor.system.bonuses.damage;
   const counts = {};
 
@@ -14,9 +15,11 @@ export default function prepareDamageBonuses(actor, item, rolls) {
     ([, { context, formula }]) => {
       if (!formula) return false;
       const { attackTypes, spellLevels } = context;
+      const damageTypes = new Set(context.damageTypes ?? []);
 
       if (attackTypes && !attackTypes.includes(attackType)) return false;
       if (spellLevel !== null && !spellLevels.includes(`${spellLevel}`)) return false;
+      if (!damageTypes.intersects(damages)) return false;
 
       return true;
     }
