@@ -1,6 +1,7 @@
 import registerActiveEffectConfig from './config/registerActiveEffectConfig';
 import registerCharacterClassesConfig from './config/registerCharacterClassesConfig';
 import registerConsumerConfig from './config/registerConsumerConfig';
+import registerContextsConfig from './config/registerContextsConfig';
 import registerDocumentConfig from './config/registerDocumentConfig';
 import registerEncounterElements from './config/registerEncounterElements';
 import registerEffectGroupConfig from './config/registerEffectGroupConfig';
@@ -403,25 +404,6 @@ A5E.damageTypes = {
   radiant: 'A5E.damageTypes.radiant',
   slashing: 'A5E.damageTypes.slashing',
   thunder: 'A5E.damageTypes.thunder'
-};
-
-A5E.damageBonusContexts = {
-  meleeWeaponAttacks: 'A5E.damageBonuses.contexts.meleeWeaponAttacks',
-  meleeSpellAttacks: 'A5E.damageBonuses.contexts.meleeSpellAttacks',
-  rangedWeaponAttacks: 'A5E.damageBonuses.contexts.rangedWeaponAttacks',
-  rangedSpellAttacks: 'A5E.damageBonuses.contexts.rangedSpellAttacks',
-  spellAttacks: 'A5E.damageBonuses.contexts.spellAttacks',
-  weaponAttacks: 'A5E.damageBonuses.contexts.weaponAttacks'
-};
-
-A5E.damageBonusSummariesByContext = {
-  all: 'A5E.damageBonuses.summaries.contexts.all',
-  meleeWeaponAttacks: 'A5E.damageBonuses.summaries.contexts.meleeWeaponAttacks',
-  meleeSpellAttacks: 'A5E.damageBonuses.summaries.contexts.meleeSpellAttacks',
-  rangedWeaponAttacks: 'A5E.damageBonuses.summaries.contexts.rangedWeaponAttacks',
-  rangedSpellAttacks: 'A5E.damageBonuses.summaries.contexts.rangedSpellAttacks',
-  spellAttacks: 'A5E.damageBonuses.summaries.contexts.spellAttacks',
-  weaponAttacks: 'A5E.damageBonuses.summaries.contexts.weaponAttacks'
 };
 
 A5E.equippedStates = {
@@ -1514,6 +1496,7 @@ A5E.weaponProperties = {
 // Build Complex Config Parts
 // These are purposefully done first
 registerDocumentConfig(A5E);
+registerContextsConfig(A5E);
 registerGrantsConfig(A5E);
 
 registerActiveEffectConfig(A5E);
