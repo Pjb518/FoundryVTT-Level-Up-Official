@@ -51,10 +51,12 @@
         }
     }
 
-    const { damageBonusContexts, damageTypes } = CONFIG.A5E;
+    const { damageBonusContexts, damageTypes, spellLevels } = CONFIG.A5E;
 
     $: damageBonus = getDamageBonus($actor, jsonValue) ?? {};
-    $: attackTypes = damageBonus.context.attackTypes ?? [];
+    $: attackTypesContext = damageBonus.context.attackTypes ?? [];
+    $: damageTypesContext = damageBonus.context.damageTypes ?? [];
+    $: spellLevelsContext = damageBonus.context.spellLevels ?? [];
 </script>
 
 <form>
@@ -125,9 +127,25 @@
         <TagGroup
             heading="A5E.contexts.AttackType"
             tags={damageBonusContexts}
-            bind:selected={attackTypes}
+            bind:selected={attackTypesContext}
             updateFunction={() =>
-                onUpdateValue("context.attackTypes", attackTypes)}
+                onUpdateValue("context.attackTypes", attackTypesContext)}
+        />
+
+        <TagGroup
+            heading="A5E.contexts.DamageType"
+            tags={damageTypes}
+            bind:selected={damageTypesContext}
+            updateFunction={() =>
+                onUpdateValue("context.damageTypes", damageTypesContext)}
+        />
+
+        <TagGroup
+            heading="A5E.contexts.SpellLevel"
+            tags={spellLevels}
+            bind:selected={spellLevelsContext}
+            updateFunction={() =>
+                onUpdateValue("context.spellLevels", spellLevelsContext)}
         />
     </FormSection>
 

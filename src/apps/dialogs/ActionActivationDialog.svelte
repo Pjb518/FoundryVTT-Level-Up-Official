@@ -114,7 +114,7 @@
     const consumers = prepareConsumers(action.consumers);
     const prompts = preparePrompts(action.prompts, $item);
     const rolls = prepareRolls(action.rolls);
-    const damageBonuses = prepareDamageBonuses($actor, rolls);
+    const damageBonuses = prepareDamageBonuses($actor, $item, rolls);
     const healingBonuses = prepareHealingBonuses($actor, rolls);
 
     const attackRoll = rolls?.attack?.length ? rolls.attack[0][1] : {};
