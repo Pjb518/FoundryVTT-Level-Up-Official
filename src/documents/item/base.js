@@ -8,6 +8,12 @@ import getSummaryData from '../../utils/summaries/getSummaryData';
  * @extends {Item}
  */
 export default class BaseItemA5e extends Item {
+  // *****************************************************************************************
+  prepareBaseData() { }
+
+  prepareDerivedData() { }
+
+  // *****************************************************************************************
   /**
    * A handler for activating an item. An actionId can be passed to this method to use a specific
    * action defined on the item. If there are no actions defined, this method defaults to

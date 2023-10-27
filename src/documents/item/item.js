@@ -36,6 +36,7 @@ export default class ItemA5e extends BaseItemA5e {
 
   // *****************************************************************************************
   prepareDerivedData() {
+    super.prepareDerivedData();
     if (['object', 'feature'].includes(this.type)) this.prepareArmorData();
   }
 

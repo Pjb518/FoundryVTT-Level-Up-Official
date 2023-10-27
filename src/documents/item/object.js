@@ -30,6 +30,8 @@ export default class ObjectItemA5e extends ItemA5e {
   }
 
   prepareBaseData() {
+    super.prepareBaseData();
+
     if (this.system.objectType === 'container') {
       // Add Data model for container items
       this.system.items = Object.entries(this.system.items ?? {}).reduce((acc, [key, data]) => {
@@ -40,6 +42,8 @@ export default class ObjectItemA5e extends ItemA5e {
   }
 
   prepareDerivedData() {
+    super.prepareDerivedData();
+
     if (this.system.objectType === 'container') this.prepareContainer();
   }
 

@@ -4,6 +4,8 @@ import ItemGrantsManager from '../../managers/ItemGrantsManager';
 
 export default class FeatureItemA5e extends ItemA5e {
   prepareBaseData() {
+    super.prepareBaseData();
+
     // Setup Grants system
     // this.grants = Object.entries(this.system.grants ?? {}).map(([id, data]) => {
     //   data._id = id;
@@ -11,6 +13,6 @@ export default class FeatureItemA5e extends ItemA5e {
 
     //   return grant;
     // });
-    this.grants = new ItemGrantsManager(this);
+    // this.grants = new ItemGrantsManager(this);
   }
 }
