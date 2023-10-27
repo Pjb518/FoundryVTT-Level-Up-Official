@@ -133,7 +133,44 @@ export default class ItemSheet extends SvelteApplication {
     // Change image
     action.img ??= document.img;
 
-    this.item.actions.add(foundry.utils.duplicate(action));
+    const [newActionId] = await this.item.actions.add(foundry.utils.duplicate(action), true, true);
+    console.log(newActionId);
+    if (!newActionId) return;
+
+    // Copy over effects from old item to new item
+    const effects = Array.from(document.effects)
+      .filter((e) => e.flags?.a5e?.transferType === 'onUse' && e.flags?.a5e?.actionId);
+
+    if (!effects.length) return;
+
+    let newEffects = effects.map((e) => {
+      e.flags.a5e.actionId = newActionId;
+      return e;
+    });
+
+    console.log(newEffects);
+    newEffects = await this.item.createEmbeddedDocuments('ActiveEffect', newEffects);
+
+    const effectPrompts = Object.entries(action.prompts ?? {})
+      .filter(([, prompt]) => prompt.type === 'effect');
+
+    const idMapping = effectPrompts.reduce((acc, [promptId, prompt]) => {
+      const effect = effects.find((e) => e._id === prompt.effectId);
+      if (!effect) return acc;
+
+      const newEffect = newEffects.find((e) => e.equals(effect));
+      if (!newEffect) return acc;
+
+      acc[promptId] = newEffect._id;
+      return acc;
+    }, {});
+
+    const updates = {};
+    effectPrompts.forEach(([promptId]) => {
+      updates[`system.actions.${newActionId}.prompts.${promptId}.effectId`] = idMapping[promptId] ?? '';
+    });
+
+    this.item.update(updates);
   }
 
   async #onDropItem(dragData) {

@@ -7,12 +7,12 @@ export default class ItemGrantsManager extends Map {
     super();
 
     this.#item = item;
-    Object.entries(this.#item.system.grants ?? {}).forEach(([id, data]) => {
-      data._id = id;
-      const grant = new grantsClassMappings[data.type](data, { parent: item });
+    // Object.entries(this.#item.system.grants ?? {}).forEach(([id, data]) => {
+    //   data._id = id;
+    //   const grant = new grantsClassMappings[data.type](data, { parent: item });
 
-      this.set(id, grant);
-    });
+    //   this.set(id, grant);
+    // });
   }
 
   /**

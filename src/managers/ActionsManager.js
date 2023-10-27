@@ -101,8 +101,8 @@ export default class ActionsManager extends DataProxy {
    * Internal methods
    * ************************************************ */
 
-  async add(data = {}) {
-    await ActionsManager.addAction(this.#item, data);
+  async add(data = {}, update = true, returnId = false) {
+    return ActionsManager.addAction(this.#item, data, update, returnId);
   }
 
   configure(id) {
@@ -140,7 +140,7 @@ export default class ActionsManager extends DataProxy {
    * @param {Boolean} update
    * @returns {Action}
    */
-  static async addAction(item, data = {}, update = true) {
+  static async addAction(item, data = {}, update = true, returnId = false) {
     const newAction = foundry.utils.mergeObject({
       name: this.getActionName(item) || 'New Action',
       activation: {},
@@ -158,14 +158,16 @@ export default class ActionsManager extends DataProxy {
       }
     }, data);
 
+    const id = foundry.utils.randomID();
     const updateData = {
       'system.actions': {
         ...item.system.actions,
-        [foundry.utils.randomID()]: newAction
+        [id]: newAction
       }
     };
 
     if (update) await item.update(updateData);
+    if (returnId) return [id, updateData];
     return updateData;
   }
 
