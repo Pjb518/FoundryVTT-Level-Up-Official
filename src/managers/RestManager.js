@@ -153,13 +153,15 @@ export default class RestManager {
       const updates = { _id: item.id };
 
       // Restore action uses
-      item.actions.entries().forEach(([id, action]) => {
-        const actionUses = action.uses ?? {};
+      if (item.actions) {
+        item.actions.entries().forEach(([id, action]) => {
+          const actionUses = action.uses ?? {};
 
         if (!this.restTypes.includes(actionUses?.per) || !actionUses?.max) return;
 
         updates[`system.actions.${id}.uses.value`] = getDeterministicBonus(actionUses.max, rollData);
       });
+    }
 
       // Restore Item uses
       if (!this.restTypes.includes(uses?.per) || !uses?.max) {
