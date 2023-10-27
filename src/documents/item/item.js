@@ -283,12 +283,16 @@ export default class ItemA5e extends BaseItemA5e {
     const { damageBonuses, healingBonuses } = this.#getDefaultBonuses(this.actor, rolls);
     const otherRolls = this.#getDefaultRollData(rolls);
     const prompts = this.#getDefaultPrompts(action.prompts);
+    const placeTemplate = game.settings.get('a5e', 'placeItemTemplateDefault')
+      || action?.area?.placeTemplate
+      || false;
 
     return {
       attack,
       consumers,
       damageBonuses,
       healingBonuses,
+      placeTemplate,
       prompts,
       rolls: otherRolls
     };
