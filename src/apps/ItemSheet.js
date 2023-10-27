@@ -134,7 +134,6 @@ export default class ItemSheet extends SvelteApplication {
     action.img ??= document.img;
 
     const [newActionId] = await this.item.actions.add(foundry.utils.duplicate(action), true, true);
-    console.log(newActionId);
     if (!newActionId) return;
 
     // Copy over effects from old item to new item
@@ -148,7 +147,6 @@ export default class ItemSheet extends SvelteApplication {
       return e;
     });
 
-    console.log(newEffects);
     newEffects = await this.item.createEmbeddedDocuments('ActiveEffect', newEffects);
 
     const effectPrompts = Object.entries(action.prompts ?? {})
