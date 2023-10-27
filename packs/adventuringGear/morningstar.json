@@ -2,7 +2,47 @@
 	"name": "Morningstar",
 	"type": "object",
 	"img": "icons/weapons/maces/mace-round-studded.webp",
-	"effects": [],
+	"effects": [
+		{
+			"icon": "icons/weapons/maces/mace-round-studded.webp",
+			"origin": "Item.Xgk0BmovIYT7iLEz",
+			"flags": {
+				"a5e": {
+					"sort": 0,
+					"transferType": "onUse",
+					"actionId": "LkFlWA6jzeVN2yT6",
+					"duration": {
+						"type": "rounds",
+						"unit": "minutes"
+					}
+				}
+			},
+			"transfer": false,
+			"name": "AC +1",
+			"_id": "uyPf3aBTu6Dbjl7v",
+			"changes": [
+				{
+					"key": "system.attributes.ac.changes.bonuses.value",
+					"value": "1",
+					"mode": 2,
+					"priority": null
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": null,
+				"combat": null,
+				"rounds": null,
+				"turns": 1,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "",
+			"statuses": [],
+			"folder": null
+		}
+	],
 	"flags": {},
 	"system": {
 		"ac": {
@@ -29,7 +69,8 @@
 				"area": {
 					"shape": "",
 					"size": "",
-					"placeTemplate": false
+					"placeTemplate": false,
+					"quantity": 1
 				},
 				"target": {
 					"quantity": 1,
@@ -52,6 +93,86 @@
 					}
 				},
 				"consumers": {}
+			},
+			"ZutXNHsC0WeVz8FQ": {
+				"name": "Attack With Shield",
+				"activation": {
+					"type": "bonusAction",
+					"cost": 1
+				},
+				"consumers": {},
+				"rolls": {
+					"PIrw82rB4OXOwLTp": {
+						"type": "attack",
+						"default": true,
+						"attackType": "meleeWeaponAttack",
+						"proficient": false,
+						"ability": "none",
+						"label": "Improvised Weapon"
+					},
+					"liKyWako9ZBgGHin": {
+						"type": "damage",
+						"default": true,
+						"formula": "1d4",
+						"damageType": "bludgeoning"
+					}
+				},
+				"prompts": {},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"threshold": 6
+					}
+				},
+				"img": "icons/weapons/maces/mace-round-studded.webp"
+			},
+			"LkFlWA6jzeVN2yT6": {
+				"name": "AC +1",
+				"activation": {
+					"type": "bonusAction",
+					"cost": 1
+				},
+				"consumers": {},
+				"rolls": {},
+				"prompts": {
+					"VzXK3rJS1p0jCl6M": {
+						"type": "effect",
+						"default": true,
+						"effectId": "PiHWvQKjPGNpP7A7"
+					},
+					"aihw6klbt8X6LdFS": {
+						"type": "effect",
+						"default": true,
+						"effectId": "o3RplnB3d2bgc5Cs"
+					},
+					"KsLi5Hf2I5z2N7dq": {
+						"type": "effect",
+						"default": true,
+						"effectId": "Llj5xb79gCEj7iz8"
+					},
+					"JaSmK7pyGc0SWrmi": {
+						"type": "effect",
+						"default": true,
+						"effectId": "uyPf3aBTu6Dbjl7v"
+					}
+				},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"threshold": 6
+					}
+				},
+				"duration": {
+					"unit": "turn",
+					"value": 1
+				},
+				"img": "icons/weapons/maces/mace-round-studded.webp"
 			}
 		},
 		"description": "<p><em>Defensive (Medium)</em></p>",
@@ -66,6 +187,10 @@
 				"formula": "1d6",
 				"threshold": 6
 			}
+		},
+		"schema": {
+			"version": null,
+			"lastMigration": null
 		},
 		"ammunitionProperties": [],
 		"armorCategory": "",

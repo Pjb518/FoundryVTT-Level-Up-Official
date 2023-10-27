@@ -29,7 +29,8 @@
 				"area": {
 					"shape": "",
 					"size": "",
-					"placeTemplate": false
+					"placeTemplate": false,
+					"quantity": 1
 				},
 				"target": {
 					"quantity": 1,
@@ -52,6 +53,45 @@
 					}
 				},
 				"consumers": {}
+			},
+			"hYfnUPU4ixtA3Tua": {
+				"name": "Sickle (Off-Hand)",
+				"activation": {
+					"cost": "",
+					"type": "",
+					"reactionTrigger": ""
+				},
+				"duration": {
+					"unit": "",
+					"value": ""
+				},
+				"area": {
+					"shape": "",
+					"size": "",
+					"placeTemplate": false,
+					"quantity": 1
+				},
+				"target": {
+					"quantity": 1,
+					"type": "creatureObject"
+				},
+				"rolls": {
+					"lDNixndY2TBm1HVw": {
+						"bonus": "",
+						"critThreshold": "20",
+						"type": "attack",
+						"attackType": "meleeWeaponAttack",
+						"ability": "default"
+					},
+					"DefL5jpuX2rS93Ku": {
+						"canCrit": true,
+						"damageType": "slashing",
+						"formula": "1d4 + min(@str.mod,0)",
+						"name": "Sickle",
+						"type": "damage"
+					}
+				},
+				"consumers": {}
 			}
 		},
 		"description": "<p><em>Dual-Wielding, Simple</em></p>",
@@ -66,6 +106,10 @@
 				"formula": "1d6",
 				"threshold": 6
 			}
+		},
+		"schema": {
+			"version": null,
+			"lastMigration": null
 		},
 		"ammunitionProperties": [],
 		"armorCategory": "",

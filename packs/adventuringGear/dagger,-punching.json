@@ -29,7 +29,8 @@
 				"area": {
 					"shape": "",
 					"size": "",
-					"placeTemplate": false
+					"placeTemplate": false,
+					"quantity": 1
 				},
 				"target": {
 					"quantity": 1,
@@ -52,6 +53,45 @@
 					}
 				},
 				"consumers": {}
+			},
+			"anDBDTOSmogEY4qE": {
+				"name": "Dagger, Punching (Off-Hand)",
+				"activation": {
+					"cost": "",
+					"type": "",
+					"reactionTrigger": ""
+				},
+				"duration": {
+					"unit": "",
+					"value": ""
+				},
+				"area": {
+					"shape": "",
+					"size": "",
+					"placeTemplate": false,
+					"quantity": 1
+				},
+				"target": {
+					"quantity": 1,
+					"type": "creatureObject"
+				},
+				"rolls": {
+					"UuzQ6EF2bDPRzNXr": {
+						"bonus": "",
+						"critThreshold": "20",
+						"type": "attack",
+						"attackType": "meleeWeaponAttack",
+						"ability": "default"
+					},
+					"0iMR31SZmQcVwAKO": {
+						"canCrit": true,
+						"damageType": "piercing",
+						"formula": "1d4 + min(str.mod,0)",
+						"name": "Punching Dagger",
+						"type": "damage"
+					}
+				},
+				"consumers": {}
 			}
 		},
 		"description": "<p><em>Dual-Wielding, Hand-Mounted</em></p>",
@@ -66,6 +106,10 @@
 				"formula": "1d6",
 				"threshold": 6
 			}
+		},
+		"schema": {
+			"version": null,
+			"lastMigration": null
 		},
 		"ammunitionProperties": [],
 		"armorCategory": "",

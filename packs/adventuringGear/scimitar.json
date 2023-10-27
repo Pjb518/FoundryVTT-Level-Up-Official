@@ -2,7 +2,47 @@
 	"name": "Scimitar",
 	"type": "object",
 	"img": "icons/weapons/swords/scimitar-worn-blue.webp",
-	"effects": [],
+	"effects": [
+		{
+			"icon": "icons/weapons/swords/scimitar-worn-blue.webp",
+			"origin": "Item.E4fGy3dDkPGQbtIw",
+			"flags": {
+				"a5e": {
+					"sort": 0,
+					"transferType": "onUse",
+					"actionId": "1w6mZi0L5dJhv4TU",
+					"duration": {
+						"type": "rounds",
+						"unit": "minutes"
+					}
+				}
+			},
+			"transfer": false,
+			"name": "AC +1",
+			"_id": "PiHWvQKjPGNpP7A7",
+			"changes": [
+				{
+					"key": "system.attributes.ac.changes.bonuses.value",
+					"value": "1",
+					"mode": 2,
+					"priority": null
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": null,
+				"combat": null,
+				"rounds": null,
+				"turns": 1,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "",
+			"statuses": [],
+			"folder": null
+		}
+	],
 	"flags": {},
 	"system": {
 		"ac": {
@@ -29,7 +69,8 @@
 				"area": {
 					"shape": "",
 					"size": "",
-					"placeTemplate": false
+					"placeTemplate": false,
+					"quantity": 1
 				},
 				"target": {
 					"quantity": 1,
@@ -52,6 +93,109 @@
 					}
 				},
 				"consumers": {}
+			},
+			"gS4wMUqm6ItBBj90": {
+				"name": "Scimitar (Off-Hand)",
+				"activation": {
+					"cost": "",
+					"type": "",
+					"reactionTrigger": ""
+				},
+				"duration": {
+					"unit": "",
+					"value": ""
+				},
+				"area": {
+					"shape": "",
+					"size": "",
+					"placeTemplate": false,
+					"quantity": 1
+				},
+				"target": {
+					"quantity": 1,
+					"type": "creatureObject"
+				},
+				"rolls": {
+					"Z80yvTABrbK7jTpF": {
+						"bonus": "",
+						"critThreshold": "20",
+						"type": "attack",
+						"attackType": "meleeWeaponAttack",
+						"ability": "default"
+					},
+					"KJiGUS59j662UbJm": {
+						"canCrit": true,
+						"damageType": "slashing",
+						"formula": "1d6 + min(@finesse.mod,0)",
+						"name": "Scimitar",
+						"type": "damage"
+					}
+				},
+				"consumers": {}
+			},
+			"ex4ZitZTPHlVWQka": {
+				"name": "Attack With Shield",
+				"activation": {
+					"type": "bonusAction",
+					"cost": 1
+				},
+				"consumers": {},
+				"rolls": {
+					"PIrw82rB4OXOwLTp": {
+						"type": "attack",
+						"default": true,
+						"attackType": "meleeWeaponAttack",
+						"proficient": false,
+						"ability": "none",
+						"label": "Improvised Weapon"
+					},
+					"liKyWako9ZBgGHin": {
+						"type": "damage",
+						"default": true,
+						"formula": "1d4",
+						"damageType": "bludgeoning"
+					}
+				},
+				"prompts": {},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"threshold": 6
+					}
+				},
+				"img": "icons/weapons/swords/scimitar-worn-blue.webp"
+			},
+			"1w6mZi0L5dJhv4TU": {
+				"name": "AC +1",
+				"activation": {
+					"type": "bonusAction",
+					"cost": 1
+				},
+				"consumers": {},
+				"rolls": {},
+				"prompts": {
+					"VzXK3rJS1p0jCl6M": {
+						"type": "effect",
+						"default": true,
+						"effectId": "PiHWvQKjPGNpP7A7"
+					}
+				},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"threshold": 6
+					}
+				},
+				"duration": {
+					"unit": "turn",
+					"value": 1
+				}
 			}
 		},
 		"description": "<p><em>Defensive (Light), Dual-Wielding, Finesse</em></p>",
@@ -66,6 +210,10 @@
 				"formula": "1d6",
 				"threshold": 6
 			}
+		},
+		"schema": {
+			"version": null,
+			"lastMigration": null
 		},
 		"ammunitionProperties": [],
 		"armorCategory": "",

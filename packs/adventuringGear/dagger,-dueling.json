@@ -29,7 +29,8 @@
 				"area": {
 					"shape": "",
 					"size": "",
-					"placeTemplate": false
+					"placeTemplate": false,
+					"quantity": 1
 				},
 				"target": {
 					"quantity": 1,
@@ -52,6 +53,68 @@
 					}
 				},
 				"consumers": {}
+			},
+			"RLXw0kj3PLXccUdC": {
+				"name": "Dagger, Dueling (Off-Hand)",
+				"activation": {
+					"cost": "",
+					"type": "",
+					"reactionTrigger": ""
+				},
+				"duration": {
+					"unit": "",
+					"value": ""
+				},
+				"area": {
+					"shape": "",
+					"size": "",
+					"placeTemplate": false,
+					"quantity": 1
+				},
+				"target": {
+					"quantity": 1,
+					"type": "creatureObject"
+				},
+				"rolls": {
+					"jdaHt4a8xrbtD62Y": {
+						"bonus": "",
+						"critThreshold": "20",
+						"type": "attack",
+						"attackType": "meleeWeaponAttack",
+						"ability": "default"
+					},
+					"l36lfdj0Kpt3h9RS": {
+						"canCrit": true,
+						"damageType": "piercing",
+						"formula": "1d4 + min(@finesse.mod,0)",
+						"name": "Dueling Dagger",
+						"type": "damage"
+					}
+				},
+				"consumers": {}
+			},
+			"isbJy97nXH9E6mqm": {
+				"name": "Parry",
+				"activation": {},
+				"consumers": {},
+				"rolls": {
+					"tmuyLFz7KQutuiOG": {
+						"type": "generic",
+						"default": true,
+						"label": "Armor Class",
+						"formula": "1d4"
+					}
+				},
+				"prompts": {},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"threshold": 6
+					}
+				}
 			}
 		},
 		"description": "<p><em>Dual-Wielding, Finesse, Parrying</em></p>",
@@ -66,6 +129,10 @@
 				"formula": "1d6",
 				"threshold": 6
 			}
+		},
+		"schema": {
+			"version": null,
+			"lastMigration": null
 		},
 		"ammunitionProperties": [],
 		"armorCategory": "",

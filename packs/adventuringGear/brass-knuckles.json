@@ -29,7 +29,8 @@
 				"area": {
 					"shape": "",
 					"size": "",
-					"placeTemplate": false
+					"placeTemplate": false,
+					"quantity": 1
 				},
 				"target": {
 					"quantity": 1,
@@ -52,6 +53,45 @@
 					}
 				},
 				"consumers": {}
+			},
+			"799wciEBLoYIdJk5": {
+				"name": "Brass Knuckles (Off-Hand)",
+				"activation": {
+					"cost": "",
+					"type": "",
+					"reactionTrigger": ""
+				},
+				"duration": {
+					"unit": "",
+					"value": ""
+				},
+				"area": {
+					"shape": "",
+					"size": "",
+					"placeTemplate": false,
+					"quantity": 1
+				},
+				"target": {
+					"quantity": 1,
+					"type": "object"
+				},
+				"rolls": {
+					"c5UQdZLyRVwU0s4U": {
+						"bonus": "",
+						"critThreshold": "20",
+						"type": "attack",
+						"attackType": "meleeWeaponAttack",
+						"ability": "default"
+					},
+					"0yrqzlzcEjRpgrUd": {
+						"canCrit": true,
+						"damageType": "bludgeoning",
+						"formula": "1d4 + min(0,@str.mod)",
+						"name": "Brass Knuckles",
+						"type": "damage"
+					}
+				},
+				"consumers": {}
 			}
 		},
 		"description": "<p><em>Dual-Wielding, Hand-Mounted</em></p>",
@@ -66,6 +106,10 @@
 				"formula": "1d6",
 				"threshold": 6
 			}
+		},
+		"schema": {
+			"version": null,
+			"lastMigration": null
 		},
 		"ammunitionProperties": [],
 		"armorCategory": "",

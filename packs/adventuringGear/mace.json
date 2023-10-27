@@ -2,7 +2,47 @@
 	"name": "Mace",
 	"type": "object",
 	"img": "icons/weapons/maces/mace-flanged-steel.webp",
-	"effects": [],
+	"effects": [
+		{
+			"icon": "icons/weapons/maces/mace-flanged-steel.webp",
+			"origin": "Item.Ws4FytDZmXe3sc3x",
+			"flags": {
+				"a5e": {
+					"sort": 0,
+					"transferType": "onUse",
+					"actionId": "jRcKzjkrhyUuwoOx",
+					"duration": {
+						"type": "rounds",
+						"unit": "minutes"
+					}
+				}
+			},
+			"transfer": false,
+			"name": "AC +1",
+			"_id": "0pwVvAOM4PVnslSZ",
+			"changes": [
+				{
+					"key": "system.attributes.ac.changes.bonuses.value",
+					"value": "1",
+					"mode": 2,
+					"priority": null
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": null,
+				"combat": null,
+				"rounds": null,
+				"turns": 1,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "",
+			"statuses": [],
+			"folder": null
+		}
+	],
 	"flags": {},
 	"system": {
 		"ac": {
@@ -29,7 +69,8 @@
 				"area": {
 					"shape": "",
 					"size": "",
-					"placeTemplate": false
+					"placeTemplate": false,
+					"quantity": 1
 				},
 				"target": {
 					"quantity": 1,
@@ -52,6 +93,76 @@
 					}
 				},
 				"consumers": {}
+			},
+			"24rWmaYMvbKAySyC": {
+				"name": "Attack With Shield",
+				"activation": {
+					"type": "bonusAction",
+					"cost": 1
+				},
+				"consumers": {},
+				"rolls": {
+					"PIrw82rB4OXOwLTp": {
+						"type": "attack",
+						"default": true,
+						"attackType": "meleeWeaponAttack",
+						"proficient": false,
+						"ability": "none",
+						"label": "Improvised Weapon"
+					},
+					"liKyWako9ZBgGHin": {
+						"type": "damage",
+						"default": true,
+						"formula": "1d4",
+						"damageType": "bludgeoning"
+					}
+				},
+				"prompts": {},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"threshold": 6
+					}
+				},
+				"img": "icons/weapons/maces/mace-flanged-steel.webp"
+			},
+			"jRcKzjkrhyUuwoOx": {
+				"name": "AC +1",
+				"activation": {
+					"type": "bonusAction",
+					"cost": 1
+				},
+				"consumers": {},
+				"rolls": {},
+				"prompts": {
+					"gzZoa34x7C44v857": {
+						"type": "effect",
+						"default": true,
+						"effectId": "2pzcilmmaypkTG8n"
+					},
+					"bH6UD00JsiTtAIqQ": {
+						"type": "effect",
+						"default": true,
+						"effectId": "0pwVvAOM4PVnslSZ"
+					}
+				},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"threshold": 6
+					}
+				},
+				"duration": {
+					"unit": "turn",
+					"value": 1
+				},
+				"img": "icons/weapons/maces/mace-flanged-steel.webp"
 			}
 		},
 		"description": "<p><em>Defensive (Medium), Simple</em></p>",
@@ -66,6 +177,10 @@
 				"formula": "1d6",
 				"threshold": 6
 			}
+		},
+		"schema": {
+			"version": null,
+			"lastMigration": null
 		},
 		"ammunitionProperties": [],
 		"armorCategory": "",
