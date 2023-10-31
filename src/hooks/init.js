@@ -61,24 +61,8 @@ import MigrationRunner from '../migration/MigrationRunner';
 import handleMigration from '../migration/handleMigration';
 import handlePackMigration from '../migration/handlePackMigration';
 
-// Svelte Components
-import Checkbox from '../apps/components/Checkbox.svelte';
-import CheckboxGroup from '../apps/components/CheckboxGroup.svelte';
-import Editor from '../apps/components/Editor.svelte';
-import FormSection from '../apps/components/FormSection.svelte';
-import InputField from '../apps/components/InputField.svelte';
-import MultiStateCheckBoxGroup from '../apps/components/MultiStateCheckBoxGroup.svelte';
-import RadioGroup from '../apps/components/RadioGroup.svelte';
-import Spinner from '../apps/components/Spinner.svelte';
-import Tag from '../apps/components/Tag.svelte';
-import TagGroup from '../apps/components/TagGroup.svelte';
-
-import CreateMenu from '../apps/components/actorUtilityBar/CreateMenu.svelte';
-import Filter from '../apps/components/actorUtilityBar/Filter.svelte';
-import Search from '../apps/components/actorUtilityBar/Search.svelte';
-import ShowDescription from '../apps/components/actorUtilityBar/ShowDescription.svelte';
-import Sort from '../apps/components/actorUtilityBar/Sort.svelte';
-import UtilityBar from '../apps/components/actorUtilityBar/UtilityBar.svelte';
+// Stores
+import { gameSettings } from '../settings/SettingsStore';
 
 export default function init() {
   CONFIG.A5E = A5E;
@@ -153,24 +137,10 @@ export default function init() {
       handleMigration,
       handlePackMigration
     },
-    svelteComponents: {
-      Checkbox,
-      CheckboxGroup,
-      CreateMenu,
-      Editor,
-      Filter,
-      FormSection,
-      InputField,
-      MultiStateCheckBoxGroup,
-      RadioGroup,
-      Search,
-      ShowDescription,
-      Sort,
-      Spinner,
-      Tag,
-      TagGroup,
-      UtilityBar
+    settings: {
+      store: gameSettings
     }
+
   };
 
   // Register sheet application classes
