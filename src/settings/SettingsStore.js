@@ -448,6 +448,23 @@ class A5eGameSettings extends TJSGameSettings {
           type: Number
         }
       },
+      // Encounter builder settings
+      {
+        namespace,
+        key: 'encounters',
+        options: {
+          name: 'A5e.settings.encounters',
+          scope: scope.world,
+          config: false,
+          type: Object,
+          default: {
+            encounters: {},
+            templates: {}
+          }
+        }
+      },
+
+      // Party Sheet Settings
       {
         namespace,
         key: 'parties',
