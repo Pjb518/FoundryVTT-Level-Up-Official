@@ -40,7 +40,7 @@ interface SavingThrowRoll extends BaseRoll {
 
 interface SkillCheckRoll extends BaseRoll {
   ability?: AbilityScoreKey | 'none';
-  skill: string;
+  skill: SkillKey;
 }
 
 interface ToolCheckRoll extends BaseRoll {
