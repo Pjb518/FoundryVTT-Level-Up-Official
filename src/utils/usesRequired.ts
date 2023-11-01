@@ -1,4 +1,4 @@
-export default function usesRequired(items) {
+export default function usesRequired(items: any[]): boolean {
   // TODO: Add back in conditions for current uses without max when we add an interface for that.
 
   return [...items].some((item) => {
