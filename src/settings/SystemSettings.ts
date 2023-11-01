@@ -6,9 +6,9 @@ import { gameSettings } from './SettingsStore';
 import SystemSettingsComponent from '../apps/settings/SystemSettings.svelte';
 
 export default class SystemSettings extends SvelteApplication {
-  promise = null;
+  public promise = null;
 
-  resolve = null;
+  public resolve = null;
 
   constructor(options = {}, dialogData = {}) {
     super({
@@ -62,7 +62,6 @@ export default class SystemSettings extends SvelteApplication {
     if (app) return app.render(false, { focus: true });
 
     return new Promise((resolve) => {
-      // @ts-ignore
       options.resolve = resolve;
       new this(options, dialogData).render(true, { focus: true });
     });
@@ -70,12 +69,15 @@ export default class SystemSettings extends SvelteApplication {
 
   submit(results) {
     this.#resolvePromise(results);
-    // @ts-ignore
-    if (results.reload) foundry.utils.debounce(() => window.location.reload(), 250)();
+
+    if (results.reload) {
+      foundry.utils.debounce(() => window.location.reload(), 250)();
+    }
+
     return super.close();
   }
 
-  #resolvePromise(data) {
+  #resolvePromise(data): void {
     if (this.resolve) {
       this.resolve(data);
     }

@@ -1,6 +1,5 @@
 import SystemSettings from './SystemSettings';
 
-// @ts-ignore
 export default class SettingsShim extends FormApplication {
   constructor() {
     super({});
@@ -8,12 +7,11 @@ export default class SettingsShim extends FormApplication {
   }
 
   /** @override */
-  async updateObject() {
+  async updateObject(): void {
     //
   }
 
-  render() {
-    // @ts-ignore
+  render(): void {
     this.close();
   }
 }
