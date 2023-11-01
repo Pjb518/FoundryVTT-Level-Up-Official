@@ -1,8 +1,3 @@
-/* eslint-disable @typescript-eslint/brace-style */
-/* eslint-disable no-case-declarations */
-/* eslint-disable no-continue */
-/* eslint-disable no-restricted-syntax */
-/** @ts-ignore */
 // eslint-disable-next-line max-classes-per-file
 export default class A5EDataModel extends foundry.abstract.DataModel {
   static _documentType: string;
@@ -15,7 +10,6 @@ export default class A5EDataModel extends foundry.abstract.DataModel {
    * @override
    */
   _cleanType(data, options = {}) {
-    // @ts-ignore
     options.source = options.source ?? data;
 
     // Clean each field that belongs to the schema
@@ -47,7 +41,6 @@ export default class A5EDataModel extends foundry.abstract.DataModel {
         continue;
       }
 
-      // @ts-ignore
       const mergeOptions = foundry.utils.mergeObject(schema[key].options, template[key].options);
       const fieldType = template[key].constructor;
 
@@ -58,7 +51,6 @@ export default class A5EDataModel extends foundry.abstract.DataModel {
         schema[key] = new fields.SchemaField(mergedFields, mergeOptions);
       }
 
-      //
       else if (fieldType === fields.ArrayField || fieldType === fields.SetField) {
         const elemOptions = foundry.utils.mergeObject(
           schema[key].element.options,
@@ -70,7 +62,6 @@ export default class A5EDataModel extends foundry.abstract.DataModel {
         schema[key] = new template[key].constructor(new ElemType(elemOptions), mergeOptions);
       }
 
-      //
       else {
         schema[key] = new template[key].constructor(mergeOptions);
       }
