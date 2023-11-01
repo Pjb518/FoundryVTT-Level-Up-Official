@@ -1,1 +1,1 @@
-type HealingTypes = 'healing' | 'temporaryHealing';
+type HealingType = 'healing' | 'temporaryHealing';

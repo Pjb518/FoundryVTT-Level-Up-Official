@@ -5,7 +5,7 @@ import type { OverrideFlags } from '../overrideRollMode';
 export default function overrideAttack(
   flags: OverrideFlags,
   rollMode: number,
-  attackType: AttackTypes | undefined
+  attackType: AttackType | undefined
 ) {
   if (typeof flags.attack?.all === 'number') return determineRollMode(rollMode, flags.attack.all);
   if (!attackType) return rollMode;

@@ -12,14 +12,14 @@ interface AbilityCheckRoll extends BaseRoll {
 
 interface AttackRoll extends BaseRoll {
   ability: AbilityScoreKey | 'none';
-  attackType: AttackTypes;
+  attackType: AttackType;
   proficient: boolean;
 }
 
 interface DamageRoll extends BaseRoll {
   canCrit?: boolean;
   critBonus?: string;
-  damageType?: DamageTypes;
+  damageType?: DamageType;
   formula: string;
   scaling?: ScalingProperties;
 }
@@ -30,7 +30,7 @@ interface GenericRoll extends BaseRoll {
 
 interface HealingRoll extends BaseRoll {
   formula: string;
-  healingType?: HealingTypes;
+  healingType?: HealingType;
   scaling?: ScalingProperties;
 }
 

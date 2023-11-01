@@ -5,7 +5,7 @@ import overrideSkill from './overrides/overrideSkill';
 
 export type OverrideRollModeOptions = {
   type: 'attack' | 'check' | 'initiative' | 'save' | 'skill';
-  attackType?: AttackTypes;
+  attackType?: AttackType;
   ability?: AbilityScoreKey;
   skill?: string;
   concentration?: boolean;

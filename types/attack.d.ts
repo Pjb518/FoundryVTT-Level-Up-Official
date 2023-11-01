@@ -1,1 +1,1 @@
-type AttackTypes = 'meleeSpellAttack' | 'meleeWeaponAttack' | 'rangedSpellAttack' | 'rangedWeaponAttack';
+type AttackType = 'meleeSpellAttack' | 'meleeWeaponAttack' | 'rangedSpellAttack' | 'rangedWeaponAttack';
