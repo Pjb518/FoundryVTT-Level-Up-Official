@@ -1,8 +1,9 @@
 <svelte:options accessors={true} />
 
-<script>
+<script lang="ts">
+    import { getContext, setContext, type ComponentType } from "svelte";
     import { ApplicationShell } from "#runtime/svelte/component/core";
-    import { getContext, setContext } from "svelte";
+    import type { TJSDocument } from "@typhonjs-fvtt/runtime/svelte/store/fvtt/document";
 
     import ActorCorePage from "../components/pages/ActorCorePage.svelte";
     import ActorBioPage from "../components/pages/ActorBioPage.svelte";
@@ -35,7 +36,14 @@
         }));
     }
 
-    function getTabs(actor) {
+    type Tab = {
+        name: string;
+        label: string;
+        component: ComponentType;
+        display?: boolean;
+    };
+
+    function getTabs(actor: TJSDocument): Tab[] {
         return [
             {
                 name: "core",
@@ -104,7 +112,7 @@
         tempSettings = store;
     });
 
-    const actor = document;
+    const actor: TJSDocument = document;
 
     // Required to get the tabs to update as the actor flags change
     let tabs = getTabs($actor);
