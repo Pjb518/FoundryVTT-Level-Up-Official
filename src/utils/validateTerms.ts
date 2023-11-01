@@ -7,8 +7,8 @@
  *
  * Returns array of error messages resulting from validating the terms.
  */
-export default function validateTerms(terms: object[]): string[] {
-  return terms.reduce((errors, { value, message }) => {
+export default function validateTerms(terms: any[]): string[] {
+  return terms.reduce((errors: string[], { value, message }: { value: any, message: string }) => {
     try {
       if (value && !Roll.validate(value.toString())) throw Error(message);
     } catch (err) {

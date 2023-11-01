@@ -36,7 +36,6 @@ export default class SubObjectManager extends SubItemManager {
     const subContainers = [];
 
     for await (const { quantityOverride, sourceUuid, uuid } of containerItems) {
-      // @ts-ignore
       let i = (await fromUuid(uuid)) ?? (await fromUuid(sourceUuid));
       if (!i) continue;
       if (i.system.objectType === 'container') {
@@ -69,7 +68,6 @@ export default class SubObjectManager extends SubItemManager {
     emptyContainer.system.containerId = null;
     emptyContainer.folder = folderId;
 
-    // @ts-ignore
     const container = (await Item.createDocuments([emptyContainer]))?.[0];
     const containerItems: Array<any> = Object.values(item.system.items);
 
@@ -78,7 +76,6 @@ export default class SubObjectManager extends SubItemManager {
     const subContainers = [];
 
     for await (const { quantityOverride, sourceUuid, uuid } of containerItems) {
-      // @ts-ignore
       let i = (await fromUuid(uuid)) ?? (await fromUuid(sourceUuid));
       if (!i) continue;
       if (i.system.objectType === 'container') {
@@ -93,12 +90,10 @@ export default class SubObjectManager extends SubItemManager {
       items.push(i);
     }
 
-    // Create subContainers
     const newSubContainers = await Promise.all(
       subContainers.map((c) => this.createContainerOnSideBar(c, folderId))
     );
 
-    // @ts-ignore
     const newItems = await Item.createDocuments(items);
     [...newItems, ...newSubContainers].forEach((i) => i.updateContainer(container.uuid));
 

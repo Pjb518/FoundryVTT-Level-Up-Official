@@ -34,7 +34,6 @@ export default function overrideRollMode(
   rollMode: number,
   options: OverrideRollModeOptions
 ): number {
-  // @ts-ignore
   const flags: OverrideFlags | undefined = actor.getFlag('a5e', 'effects.rollMode');
   if (!flags) return rollMode;
 

@@ -1,6 +1,6 @@
 import TokenDocumentA5e from '../documents/tokenDocument';
 
-export default function getTokenFromActor(actor: ActorA5e): TokenDocumentA5e | null {
+export default function getTokenFromActor(actor: any): TokenDocumentA5e | null {
   // Check parent
   if (actor?.parent instanceof TokenDocumentA5e) {
     return actor.parent;

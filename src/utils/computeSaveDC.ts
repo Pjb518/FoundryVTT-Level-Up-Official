@@ -10,7 +10,6 @@ export default function computeSaveDC(actor: any, saveDC: any): number | null {
     terms.push(actor.system.attributes.spellDC);
   } else if (saveDC?.type === 'maneuver') {
     terms.push(actor.system.attributes.maneuverDC);
-    // @ts-ignore missing CONFIG variable
   } else if (Object.keys(CONFIG.A5E.abilities).includes(saveDC?.type)) {
     terms.push(8, actor.system.attributes.prof, actor.system.abilities[saveDC?.type].check.mod);
   }

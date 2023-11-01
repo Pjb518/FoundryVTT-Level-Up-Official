@@ -1,9 +1,8 @@
 /* eslint-disable max-len */
-// @ts-nocheck
 import MODES from './effectModes';
 
 // const [sampleValue, modes, effectOpts, componentType, phase] = specialOptions[key];
-export default function modifySpecialOptions(options: Object) {
+export default function modifySpecialOptions(options: object) {
   const ROLL_MODES = Object.entries(CONFIG.A5E.ROLL_MODE)
     .map(([k, v]) => [v, k.toLowerCase().capitalize()]);
 

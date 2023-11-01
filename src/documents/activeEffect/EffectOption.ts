@@ -2,13 +2,13 @@ type EffectOptionOptions = {
   modes?: any[];
   options?: any[];
   phase?: 'afterDerived' | 'applyAEs';
-  type?: String;
+  type?: string;
 };
 
 export default class EffectOption {
-  effectKey: String;
+  effectKey: string;
 
-  label: String;
+  label: string;
 
   modes: any[];
 
@@ -18,10 +18,10 @@ export default class EffectOption {
 
   sampleValue: any;
 
-  type: String;
+  type: string;
 
   constructor(
-    effectKey: String,
+    effectKey: string,
     sampleValue: any,
     options: EffectOptionOptions = {
       modes: [],
@@ -31,7 +31,6 @@ export default class EffectOption {
     }
   ) {
     this.effectKey = effectKey;
-    // @ts-ignore
     this.label = CONFIG.A5E.effectsKeyLocalizations?.[effectKey] ?? effectKey;
     this.sampleValue = sampleValue;
 

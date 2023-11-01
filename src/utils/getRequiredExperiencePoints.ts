@@ -1,4 +1,4 @@
-export default function getRequiredExperiencePoints(actor: ActorA5e): number {
+export default function getRequiredExperiencePoints(actor: any): number {
   if (actor.type === 'npc') return null;
 
   let { level } = actor.system.details;

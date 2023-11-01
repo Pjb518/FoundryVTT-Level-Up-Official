@@ -1,12 +1,10 @@
-import type Action from 'types/action';
-
 export default function showActivationDialogSection(
   action: Action,
   consumerTypes = [],
   scalingModes = []
 ) {
   const hasConsumer = Object.values(action.consumers ?? {})
-    .filter((c) => consumerTypes.includes(c.type)).length > 0;
+    .filter((c: any): boolean => consumerTypes.includes(c.type)).length > 0;
 
   const hasDamageScaling = Object.values(action.rolls ?? {})
     ?.filter((r: DamageRoll | HealingRoll) => ['damage', 'healing'].includes(r.type))

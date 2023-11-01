@@ -1,7 +1,5 @@
-// @ts-ignore
 export default class SubObjectField extends foundry.abstract.DataModel {
   static defineSchema() {
-    // @ts-ignore
     const { fields } = foundry.data;
     return {
       isValid: new fields.BooleanField({ initial: true }),

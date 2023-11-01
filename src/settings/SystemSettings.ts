@@ -41,7 +41,6 @@ export default class SystemSettings extends SvelteApplication {
    * @see https://foundryvtt.com/api/interfaces/client.ApplicationOptions.html
    */
   static get defaultOptions() {
-    // @ts-ignore
     return foundry.utils.mergeObject(super.defaultOptions, {
       classes: ['a5e-sheet', 'a5e-settings-sheet'],
       minimizable: true,

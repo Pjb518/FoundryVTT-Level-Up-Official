@@ -1,7 +1,7 @@
-export default function hexToRGB(hex, opacity) {
-  let r = 0;
-  let g = 0;
-  let b = 0;
+export default function hexToRGB(hex: string, opacity: number = 1): string {
+  let r: string;
+  let g: string;
+  let b: string;
 
   if (hex.length === 4) {
     r = `0x${hex[1]}${hex[1]}`;
@@ -13,5 +13,5 @@ export default function hexToRGB(hex, opacity) {
     b = `0x${hex[5]}${hex[6]}`;
   }
 
-  return `rgb(${+r}, ${+g}, ${+b}, ${opacity ?? 1})`;
+  return `rgb(${+r}, ${+g}, ${+b}, ${opacity})`;
 }

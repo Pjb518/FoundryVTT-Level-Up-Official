@@ -18,7 +18,6 @@ export default class SubItemManager extends Map {
   constructor(doc: any, attribute: string, options: SubitemManagerOptions) {
     super();
 
-    // @ts-ignore
     if (!(doc instanceof Item)) {
       throw Error('SubDocumentManager: Document must be an instance of Item!');
     }
@@ -72,7 +71,6 @@ export default class SubItemManager extends Map {
   async clean() {
     const updates = {};
     for await (const [key, value] of Object.entries(this.#doc.system[this.#attribute])) {
-      // @ts-ignore
       const child = await fromUuid(value.uuid);
       if (!child) updates[`system.${this.#attribute}.-=${key}`] = null;
     }
@@ -83,7 +81,6 @@ export default class SubItemManager extends Map {
   cleanSync() {
     const updates = {};
     for (const [key, value] of Object.entries(this.#doc.system[this.#attribute])) {
-      // @ts-ignore
       const child = fromUuidSync(value.uuid);
       if (!child) updates[`system.${this.#attribute}.-=${key}`] = null;
     }
@@ -97,27 +94,22 @@ export default class SubItemManager extends Map {
   async add(uuid: string, updateData = {}): Promise<boolean> {
     const duplicate = this.getIdByUuid(uuid);
     if (duplicate) {
-      // @ts-ignore
       ui.notifications.warn(this.#duplicateWarning);
       return false;
     }
 
-    // @ts-ignore
     const obj = await fromUuid(uuid);
     if (this.#validate) {
       if (!this.#validate(obj)) {
-        // @ts-ignore
         ui.notifications.warn(this.#validateWarning);
         return false;
       }
     }
 
-    // @ts-ignore
     foundry.utils.mergeObject(updateData, { uuid });
     // @ts-ignore
     if (obj?.type === 'object') updateData.quantity = obj?.system?.quantity ?? 1;
 
-    // @ts-ignore
     const key = duplicate || foundry.utils.randomID();
     await this.#doc.update({ [`system.${this.#attribute}.${key}`]: updateData });
     return true;
