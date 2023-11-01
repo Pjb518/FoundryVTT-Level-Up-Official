@@ -6,7 +6,7 @@
  *
  * Returns true is the two arrays are exactly equal, disregarding order.
  */
-export default function arraysAreEqual(_a: array, _b: array): boolean {
+export default function arraysAreEqual(_a: any[], _b: any[]): boolean {
   if (!Array.isArray(_a) || !Array.isArray(_b)) return false;
 
   const a = Array.from(_a).sort();

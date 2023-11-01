@@ -11,7 +11,7 @@ interface AbilityCheckRoll extends BaseRoll {
 }
 
 interface AttackRoll extends BaseRoll {
-  ability: AbilityScoreKey | 'none';
+  ability: AbilityScoreKey | 'spellcasting' | 'default' | 'none';
   attackType: AttackType;
   proficient: boolean;
 }

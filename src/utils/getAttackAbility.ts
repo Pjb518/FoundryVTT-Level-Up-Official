@@ -2,12 +2,12 @@
  * A utility function for determining the correct attribute to use for a given attack roll.
  */
 export default function getAttackAbility(
-  actor: ActorA5e,
-  item: ItemA5e,
+  actor: any,
+  item: any,
   attackData: AttackRoll
 ): string {
-  const actorData: object = actor.system;
-  const itemData: object = item.system;
+  const actorData: any = actor.system;
+  const itemData: any = item.system;
 
   const dexMod: number = actorData.abilities.dex.mod;
   const strMod: number = actorData.abilities.str.mod;

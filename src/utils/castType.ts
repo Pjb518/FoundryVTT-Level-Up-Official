@@ -6,8 +6,9 @@ function parseOrString(raw: string): any {
   }
 }
 
-function castArray(value: any): Array<any> {
-  let delta: Array<any>;
+function castArray(value: any): any[] {
+  let delta: any[];
+
   try {
     delta = JSON.parse(value);
     delta = delta instanceof Array ? delta : [delta];
@@ -20,6 +21,7 @@ function castArray(value: any): Array<any> {
 
 function castObject(value: any): Record<string, any> {
   let delta: Record<string, any>;
+
   try {
     delta = JSON.parse(value);
     delta = delta instanceof Object ? delta : {};
@@ -32,16 +34,18 @@ function castObject(value: any): Record<string, any> {
 
 function castSet(value: any): Set<any> {
   let delta: Set<any>;
+
   try {
     delta = parseOrString(value);
     delta = delta instanceof Set ? delta : new Set(delta);
   } catch (err) {
     delta = new Set([value]);
   }
+
   return delta;
 }
 
-export default function castType(value: any, targetType: any): any {
+export default function castType(value: any, targetType: string): any {
   if (targetType === 'Array') return castArray(value);
   if (targetType === 'Object') return castObject(value);
   if (targetType === 'Set') return castSet(value);
@@ -49,7 +53,6 @@ export default function castType(value: any, targetType: any): any {
   if (targetType === 'boolean') return Boolean(parseOrString(value));
 
   if (targetType === 'number') {
-    // @ts-ignore
     const delta = Number.fromString(value);
     return Number.isNaN(delta) ? 0 : delta;
   }
