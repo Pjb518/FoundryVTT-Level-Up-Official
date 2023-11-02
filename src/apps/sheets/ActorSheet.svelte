@@ -1,9 +1,16 @@
 <svelte:options accessors={true} />
 
 <script lang="ts">
-    import { getContext, setContext, type ComponentType } from "svelte";
+    import {
+        getContext,
+        setContext,
+        type ComponentType,
+        onDestroy,
+    } from "svelte";
+
     import { ApplicationShell } from "#runtime/svelte/component/core";
     import type { TJSDocument } from "@typhonjs-fvtt/runtime/svelte/store/fvtt/document";
+    import type { ActorSheetApplicationProps } from "../../../types/applicationProps";
 
     import ActorCorePage from "../components/pages/ActorCorePage.svelte";
     import ActorBioPage from "../components/pages/ActorBioPage.svelte";
@@ -21,7 +28,10 @@
 
     import ActorSheetTempSettingsStore from "../../stores/ActorSheetTempSettingsStore";
 
-    export let { document, sheet } = getContext("#external").application;
+    export const application: ActorSheetApplicationProps =
+        getContext("#external");
+
+    export let { document, sheet } = application;
     export let elementRoot;
 
     function updateCurrentTab(event) {
@@ -108,7 +118,7 @@
 
     let tempSettings = {};
 
-    ActorSheetTempSettingsStore.subscribe((store) => {
+    const unsubscribe = ActorSheetTempSettingsStore.subscribe((store) => {
         tempSettings = store;
     });
 
@@ -125,6 +135,10 @@
 
     setContext("actor", actor);
     setContext("sheet", sheet);
+
+    onDestroy(() => {
+        unsubscribe();
+    });
 </script>
 
 <ApplicationShell bind:elementRoot>
