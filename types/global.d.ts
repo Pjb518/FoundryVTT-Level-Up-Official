@@ -6,6 +6,7 @@ declare const Item: any;
 declare const Roll: any;
 
 declare const foundry: any;
+declare const game: any;
 declare const ui: any;
 
 declare function fromUuid(uuid: string, options: any = {}): Promise<any>;
