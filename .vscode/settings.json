@@ -1,19 +1,30 @@
 {
-  "editor.defaultFormatter": "dbaeumer.vscode-eslint",
-  "[javascript]": { "editor.defaultFormatter": "vscode.typescript-language-features" },
-  "[scss]": { "editor.defaultFormatter": "stylelint.vscode-stylelint" },
   "[css]": { "editor.defaultFormatter": "stylelint.vscode-stylelint" },
+  "[javascript]": { "editor.defaultFormatter": "vscode.typescript-language-features" },
   "[html]": {
     "editor.defaultFormatter": "vscode.html-language-features"
   },
+  "[scss]": { "editor.defaultFormatter": "stylelint.vscode-stylelint" },
+  "[svelte]": {
+    "editor.defaultFormatter": "svelte.svelte-vscode",
+    "editor.tabSize": 4
+  },
+  "[typescript]": {
+    "editor.defaultFormatter": "vscode.typescript-language-features"
+  },
+  "cSpell.words": [
+    "warpgate"
+  ],
+  "css.validate": false,
   "editor.codeActionsOnSave": {
     "source.fixAll.eslint": true,
     "source.fixAll.stylelint": true
   },
+  "editor.defaultFormatter": "dbaeumer.vscode-eslint",
+  "editor.detectIndentation": false,
   "editor.formatOnSave": true,
   "editor.tabSize": 2,
-  "editor.detectIndentation": false,
-  "eslint.alwaysShowStatus": true,
+  "emmet.triggerExpansionOnTab": true,
   "eslint.enable": true,
   "eslint.options": {
     "extensions": [".html", ".js"]
@@ -41,28 +52,24 @@
   "html.format.maxPreserveNewLines": 1,
   "html.format.wrapAttributes": "force-expand-multiline",
   "html.format.wrapLineLength": 100,
+  "json.format.enable": true,
   "stylelint.enable": true,
   "stylelint.validate": ["css", "scss"],
-  "css.validate": false,
   "scss.validate": false,
-  "json.format.enable": true,
-  "emmet.triggerExpansionOnTab": true,
-  "[typescript]": {
-    "editor.defaultFormatter": "vscode.typescript-language-features"
-  },
-  "typescript.tsserver.log": "terse",
-  "typescript.validate.enable": true,
-  "[svelte]": {
-    "editor.defaultFormatter": "svelte.svelte-vscode",
-    "editor.tabSize": 4
-  },
   "svelte.plugin.svelte.compilerWarnings": {
     "a11y-mouse-events-have-key-events": "ignore",
   },
+  "todohighlight.keywords": [
+    {
+      "text": "NOTE:",
+      "color": "#000",
+      "backgroundColor": "yellow",
+      "overviewRulerColor": "grey",
+    }
+  ],
+  "typescript.tsserver.log": "terse",
+  "typescript.validate.enable": true,
   "vim.handleKeys": {
     "<C-p>": false,
-  },
-  "cSpell.words": [
-    "warpgate"
-  ]
+  }
 }
