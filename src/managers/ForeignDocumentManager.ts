@@ -1,5 +1,4 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
-// @ts-nocheck
 import DataProxy from './DataProxy';
 
 type ForeignDocumentManagerOptions = {
@@ -13,7 +12,7 @@ export default class ForeignDocumentManager extends DataProxy {
 
   #attribute: string;
 
-  #validate: (value: any) => boolean;
+  #validate?: (value: any) => boolean;
 
   #duplicateWarning = 'A5E.validations.warnings.duplicateForeignDocument';
 
@@ -51,19 +50,21 @@ export default class ForeignDocumentManager extends DataProxy {
   }
 
   getUuid(uuid: string): any {
-    const entry = Object.entries(this.documents).find(([_, value]) => value.uuid === uuid);
+    const entry = Object.entries(this.documents)
+      .find(([, value]: [string, any]) => value.uuid === uuid);
     return entry ? entry[1] : undefined;
   }
 
   getIdByUuid(uuid: string): string | undefined {
-    const entry = Object.entries(this.documents).find(([_, value]) => value.uuid === uuid);
+    const entry = Object.entries(this.documents)
+      .find(([, value]: [string, any]) => value.uuid === uuid);
     return entry ? entry[0] : undefined;
   }
 
   /** ************************************************
    * Internal Methods
    * ************************************************ */
-  async add(uuid: string, updateData = {}): boolean {
+  async add(uuid: string, updateData: any = {}): Promise<boolean> {
     const duplicate = this.getIdByUuid(uuid);
     if (duplicate) {
       ui.notifications.warn(this.#duplicateWarning);
@@ -86,7 +87,7 @@ export default class ForeignDocumentManager extends DataProxy {
     return true;
   }
 
-  async delete(uuid: string): boolean {
+  async delete(uuid: string): Promise<boolean> {
     const key = this.getIdByUuid(uuid);
     if (!key) return false;
 
@@ -94,7 +95,7 @@ export default class ForeignDocumentManager extends DataProxy {
     return true;
   }
 
-  async deleteDocuments(uuids: string[]): boolean {
+  async deleteDocuments(uuids: string[]): Promise<boolean> {
     const keys = uuids.map((uuid) => this.getIdByUuid(uuid)).filter((key) => key);
     if (keys.length === 0) return false;
 
@@ -109,8 +110,8 @@ export default class ForeignDocumentManager extends DataProxy {
 
   async clean() {
     const updates = {};
-    // eslint-disable-next-line no-restricted-syntax
     for await (const [key, value] of Object.entries(this.#doc.system[this.#attribute])) {
+      // @ts-ignore
       const child = await fromUuid(value?.uuid);
       if (!child) updates[`system.${this.#attribute}.-=${key}`] = null;
     }
