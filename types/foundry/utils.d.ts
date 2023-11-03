@@ -1,4 +1,3 @@
-/* eslint-disable max-len */
 declare interface Utils {
   Collection: any,
   Color: any,
@@ -33,7 +32,13 @@ declare interface Utils {
   filterObject(
     source: object,
     template: object,
-    { deletionKeys: boolean, templateValues: boolean } = { deletionKeys = false, templateValues = false }
+    {
+      deletionKeys: boolean,
+      templateValues: boolean
+    } = {
+        deletionKeys = false,
+        templateValues = false
+      }
   ): object,
 
   flattenObject(obj: object, _d?: number = 0): any,
@@ -85,9 +90,19 @@ declare interface Utils {
     original: object,
     other: object,
     options?: {
-      insertKeys: boolean, insertValues: boolean, overwrite: boolean, recursive: boolean, inplace: boolean, enforceTypes: boolean
+      insertKeys: boolean,
+      insertValues: boolean,
+      overwrite: boolean,
+      recursive: boolean,
+      inplace: boolean,
+      enforceTypes: boolean
     } = {
-        insertKeys = true, insertValues = true, overwrite = true, recursive = true, inplace = true, enforceTypes = false
+        insertKeys = true,
+        insertValues = true,
+        overwrite = true,
+        recursive = true,
+        inplace = true,
+        enforceTypes = false
       },
     _d?: number = 0
   ): object,

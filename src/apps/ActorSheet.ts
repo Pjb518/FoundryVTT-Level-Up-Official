@@ -15,6 +15,12 @@ import HeritageDropDialog from './dialogs/initializers/HeritageDropDialog';
 import SubObjectManager from '../managers/subItems/SubObjectManager';
 
 export default class ActorSheet extends SvelteApplication {
+  public actor: any;
+
+  public options: any;
+
+  public tempSettings: any;
+
   /**
    * @inheritDoc
    */
@@ -303,7 +309,7 @@ export default class ActorSheet extends SvelteApplication {
     }
 
     const { feature } = item.system;
-    const updates = {};
+    const updates: any = {};
 
     // Setup Ability Scores
     selectedAbilityScores.forEach((abl) => {
@@ -372,7 +378,7 @@ export default class ActorSheet extends SvelteApplication {
     }
 
     const features = Object.keys(item.system.features);
-    const updates = {};
+    const updates: any = {};
 
     // Setup Skills
     selectedSkills.forEach((skill) => {
@@ -527,7 +533,9 @@ export default class ActorSheet extends SvelteApplication {
     scroll.system.actions = item.actions.values().reduce((actions, _action) => {
       const action = { ..._action };
 
-      action.prompts = Object.entries(action?.prompts ?? {}).reduce((prompts, [key, _prompt]) => {
+      action.prompts = Object.entries(
+        action?.prompts ?? {}
+      ).reduce((prompts, [key, _prompt]: [string, any]): object => {
         const prompt = { ..._prompt };
 
         if (prompt.type === 'savingThrow') {
@@ -540,7 +548,9 @@ export default class ActorSheet extends SvelteApplication {
         return prompts;
       }, {});
 
-      action.rolls = Object.entries(action?.rolls ?? {}).reduce((rolls, [key, _roll]) => {
+      action.rolls = Object.entries(
+        action?.rolls ?? {}
+      ).reduce((rolls, [key, _roll]: [string, any]): object => {
         const roll = { ..._roll };
 
         if (roll.type === 'attack') {

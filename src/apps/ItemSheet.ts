@@ -10,6 +10,10 @@ import ItemSheetComponent from './sheets/ItemSheet.svelte';
 import LimitedSheetComponent from './sheets/LimitedSheet.svelte';
 
 export default class ItemSheet extends SvelteApplication {
+  public item: any;
+
+  public options: any;
+
   /**
    * @inheritDoc
    */

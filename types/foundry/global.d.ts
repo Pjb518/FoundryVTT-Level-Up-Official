@@ -1,9 +1,8 @@
-// import { Utils } from './utils';
-
 declare const CONFIG: any;
 declare const CONST: any;
 
 declare const Actor: any;
+declare const ActiveEffect: any;
 declare const Item: any;
 declare const Roll: any;
 

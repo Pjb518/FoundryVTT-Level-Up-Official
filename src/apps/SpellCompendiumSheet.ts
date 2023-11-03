@@ -3,6 +3,10 @@ import { SvelteApplication } from '#runtime/svelte/application';
 import CompendiumSheetComponent from './sheets/CompendiumSheet.svelte';
 
 export default class SpellCompendiumSheet extends SvelteApplication {
+  public compendiumCollection: any;
+
+  public options: any;
+
   constructor(compendiumCollection, options = {}) {
     const { collection } = compendiumCollection;
     super(foundry.utils.mergeObject(options, {

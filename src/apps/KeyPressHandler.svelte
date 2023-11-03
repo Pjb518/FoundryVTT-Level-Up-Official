@@ -1,4 +1,4 @@
-<script>
+<script lang="ts">
     import { onDestroy } from "svelte";
 
     import keyBindingStore from "../stores/pressedKeysStore";
@@ -26,7 +26,7 @@
 </script>
 
 <svelte:window
-    on:keydown={(event) => logKey(event, true)}
-    on:keyup={(event) => logKey(event, false)}
+    on:keydown={(event) => logKey(event)}
+    on:keyup={(event) => logKey(event)}
     on:blur={() => resetKeys()}
 />
