@@ -1,18 +1,20 @@
 // eslint-disable-next-line import/no-unresolved
-import { TJSGameSettings } from '#runtime/svelte/store/fvtt/settings';
+import { TJSGameSettings, type GameSetting } from '#runtime/svelte/store/fvtt/settings';
 
 import MigrationRunner from '../migration/MigrationRunner';
 
 class A5eGameSettings extends TJSGameSettings {
+  public settingsData: any;
+
   constructor() {
     super('a5e');
     this.settingsData = null;
   }
 
-  init() {
+  init(): void {
     const namespace = 'a5e';
-    const scope = { client: 'client', world: 'world' };
-    const settings = [
+    const scope: { client: 'client', world: 'world' } = { client: 'client', world: 'world' };
+    const settings: GameSetting[] = [
       // Actor Settings
       {
         namespace,
@@ -20,7 +22,7 @@ class A5eGameSettings extends TJSGameSettings {
         options: {
           name: 'A5E.settings.blindDeathSaves',
           hint: 'A5E.settings.hints.blindDeathSaves',
-          scope: scope.world,
+          scope: 'world',
           config: true,
           default: false,
           type: Boolean
