@@ -12,12 +12,12 @@ import LimitedSheetComponent from './sheets/LimitedSheet.svelte';
 export default class ItemSheet extends SvelteApplication {
   public item: any;
 
-  public options: any;
+  declare public options: any;
 
   /**
    * @inheritDoc
    */
-  constructor(item, options = {}) {
+  constructor(item, options: any = {}) {
     options.svelte ??= {};
 
     if ([
@@ -73,7 +73,7 @@ export default class ItemSheet extends SvelteApplication {
    * @returns {object} options - Application options.
    * @see https://foundryvtt.com/api/Application.html#options
    */
-  static get defaultOptions() {
+  static get defaultOptions(): any {
     return foundry.utils.mergeObject(super.defaultOptions, {
       baseApplication: 'ItemSheet',
       classes: ['a5e-sheet', 'a5e-item-sheet'],
@@ -126,7 +126,7 @@ export default class ItemSheet extends SvelteApplication {
     if (dragData.type === 'Item') await this.#onDropItem(dragData);
   }
 
-  async #onDropAction(dragData) {
+  async #onDropAction(dragData: any) {
     const { actionId, itemUuid } = dragData;
     if (!actionId || !itemUuid) return;
 
@@ -142,11 +142,11 @@ export default class ItemSheet extends SvelteApplication {
 
     // Copy over effects from old item to new item
     const effects = Array.from(document.effects)
-      .filter((e) => e.flags?.a5e?.transferType === 'onUse' && e.flags?.a5e?.actionId);
+      .filter((e: any) => e.flags?.a5e?.transferType === 'onUse' && e.flags?.a5e?.actionId);
 
     if (!effects.length) return;
 
-    let newEffects = effects.map((e) => {
+    let newEffects = effects.map((e: any) => {
       e.flags.a5e.actionId = newActionId;
       return e;
     });
@@ -154,13 +154,13 @@ export default class ItemSheet extends SvelteApplication {
     newEffects = await this.item.createEmbeddedDocuments('ActiveEffect', newEffects);
 
     const effectPrompts = Object.entries(action.prompts ?? {})
-      .filter(([, prompt]) => prompt.type === 'effect');
+      .filter(([, prompt]: [string, any]) => prompt.type === 'effect');
 
-    const idMapping = effectPrompts.reduce((acc, [promptId, prompt]) => {
-      const effect = effects.find((e) => e._id === prompt.effectId);
+    const idMapping = effectPrompts.reduce((acc, [promptId, prompt]: [string, any]) => {
+      const effect = effects.find((e: any) => e._id === prompt.effectId);
       if (!effect) return acc;
 
-      const newEffect = newEffects.find((e) => e.equals(effect));
+      const newEffect: any = newEffects.find((e) => e.equals(effect));
       if (!newEffect) return acc;
 
       acc[promptId] = newEffect._id;

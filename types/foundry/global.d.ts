@@ -5,6 +5,10 @@ declare const Actor: any;
 declare const ActiveEffect: any;
 declare const Item: any;
 declare const Roll: any;
+declare const Token: any;
+
+declare const DocumentSheetConfig: any;
+declare const TokenDocument: any;
 
 declare const foundry: {
   CONST: any;

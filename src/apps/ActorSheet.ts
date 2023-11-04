@@ -17,14 +17,14 @@ import SubObjectManager from '../managers/subItems/SubObjectManager';
 export default class ActorSheet extends SvelteApplication {
   public actor: any;
 
-  public options: any;
+  declare public options: any;
 
   public tempSettings: any;
 
   /**
    * @inheritDoc
    */
-  constructor(actor, options = {}) {
+  constructor(actor, options: any = {}) {
     options.svelte ??= {};
 
     if ([
@@ -77,7 +77,7 @@ export default class ActorSheet extends SvelteApplication {
    * @returns {object} options - Application options.
    * @see https://foundryvtt.com/api/interfaces/client.ApplicationOptions.html
    */
-  static get defaultOptions() {
+  static get defaultOptions(): any {
     return foundry.utils.mergeObject(super.defaultOptions, {
       baseApplication: 'ActorSheet',
       classes: ['a5e-sheet', 'a5e-actor-sheet'],
