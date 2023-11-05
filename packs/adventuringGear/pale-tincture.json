@@ -1,0 +1,162 @@
+{
+	"folder": null,
+	"name": "Pale Tincture",
+	"type": "object",
+	"img": "icons/consumables/potions/bottle-round-ring-teal.webp",
+	"system": {
+		"ac": {
+			"baseFormula": "",
+			"formula": "",
+			"maxDex": 0,
+			"minStr": 0,
+			"mode": 2,
+			"requiresNoShield": false,
+			"requiresUnarmored": false
+		},
+		"actions": {
+			"xj033Ihp4ERkhV77": {
+				"name": "Consume",
+				"activation": {},
+				"consumers": {
+					"dRDiPugFcGwKKpqy": {
+						"type": "quantity",
+						"default": true,
+						"itemId": "",
+						"quantity": 1
+					}
+				},
+				"rolls": {
+					"bugz2nb3xsanVjSk": {
+						"type": "damage",
+						"default": true,
+						"formula": "1d6",
+						"canCrit": false,
+						"damageType": "poison"
+					}
+				},
+				"prompts": {
+					"gsi2GWen7q9Ir1bw": {
+						"type": "savingThrow",
+						"default": true,
+						"ability": "con",
+						"saveDC": {
+							"type": "custom",
+							"bonus": "16"
+						},
+						"onSave": ""
+					},
+					"AC61vsfVzSYyjLwr": {
+						"type": "effect",
+						"default": true,
+						"effectId": "5UaBqRqzFKFk9i84"
+					}
+				},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"threshold": 6
+					}
+				}
+			}
+		},
+		"description": "<p><em>Rare, Ingested, Onset (24 hours)</em></p>\n<p>This malicious alchemical agent slowly eats away&nbsp;at the internal organs of its victim. A creature makes&nbsp;a DC 16 Constitution saving throw when subjected&nbsp;to this poison, and on a failure it takes 3 (1d6)&nbsp;poison damage, its maximum hit points are reduced&nbsp;by the same amount, and it becomes poisoned. The&nbsp;effects of this poison repeat every 24 hours until&nbsp;cured or until 1 week passes (whichever comes first).&nbsp;This poison and all of its effects can be cured by the&nbsp;greater restoration spell. Any hit point reduction&nbsp;caused by this poison lasts until the poison is cured&nbsp;or 1 week passes.</p>",
+		"favorite": false,
+		"secretDescription": "",
+		"source": {
+			"name": "",
+			"link": "",
+			"publisher": ""
+		},
+		"uses": {
+			"value": null,
+			"max": "",
+			"per": null,
+			"recharge": {
+				"formula": "1d6",
+				"threshold": "6"
+			}
+		},
+		"schema": {
+			"version": null,
+			"lastMigration": null
+		},
+		"ammunitionProperties": [],
+		"armorCategory": "",
+		"armorProperties": [],
+		"attuned": false,
+		"bulky": false,
+		"craftingComponents": "",
+		"containerId": "",
+		"damagedState": 0,
+		"equippedState": 0,
+		"items": {},
+		"materialProperties": [],
+		"objectType": "consumable",
+		"plotItem": false,
+		"price": "650 gp",
+		"proficient": true,
+		"quantity": 1,
+		"rarity": "rare",
+		"requiresAttunement": false,
+		"shieldCategory": "",
+		"shieldProperties": [],
+		"unidentified": false,
+		"unidentifiedDescription": "",
+		"unidentifiedName": "",
+		"weaponProperties": [],
+		"weight": 0
+	},
+	"effects": [
+		{
+			"icon": "icons/consumables/potions/bottle-round-ring-teal.webp",
+			"origin": "Item.r0lrh1zR8yKgPd0s",
+			"flags": {
+				"a5e": {
+					"sort": 0,
+					"transferType": "onUse",
+					"actionId": "xj033Ihp4ERkhV77",
+					"duration": {
+						"unit": "hours"
+					}
+				}
+			},
+			"transfer": false,
+			"name": "Pale Tincture Poisoning",
+			"_id": "5UaBqRqzFKFk9i84",
+			"changes": [
+				{
+					"key": "flags.a5e.effects.statusConditions",
+					"value": "[\"poisoned\"]",
+					"mode": 0,
+					"priority": null
+				},
+				{
+					"key": "system.attributes.hp.max",
+					"value": "",
+					"mode": 3,
+					"priority": null
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": 604800,
+				"combat": null,
+				"rounds": null,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "",
+			"statuses": [
+				"poisoned"
+			],
+			"folder": null
+		}
+	],
+	"flags": {},
+	"_id": "znlvt623b1ndgk64"
+}

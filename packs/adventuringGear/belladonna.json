@@ -1,0 +1,197 @@
+{
+	"folder": null,
+	"name": "Belladonna",
+	"type": "object",
+	"img": "icons/consumables/fruit/black-currant-leaf-purple.webp",
+	"system": {
+		"ac": {
+			"baseFormula": "",
+			"formula": "",
+			"maxDex": 0,
+			"minStr": 0,
+			"mode": 2,
+			"requiresNoShield": false,
+			"requiresUnarmored": false
+		},
+		"actions": {
+			"xj033Ihp4ERkhV77": {
+				"name": "Consume",
+				"activation": {},
+				"consumers": {
+					"dRDiPugFcGwKKpqy": {
+						"type": "quantity",
+						"default": true,
+						"itemId": "",
+						"quantity": 1
+					}
+				},
+				"rolls": {
+					"bugz2nb3xsanVjSk": {
+						"type": "damage",
+						"default": true,
+						"formula": "4d6",
+						"canCrit": false,
+						"damageType": "poison"
+					}
+				},
+				"prompts": {
+					"gsi2GWen7q9Ir1bw": {
+						"type": "savingThrow",
+						"default": true,
+						"ability": "con",
+						"saveDC": {
+							"type": "custom",
+							"bonus": "14"
+						},
+						"onSave": ""
+					},
+					"AC61vsfVzSYyjLwr": {
+						"type": "effect",
+						"default": true,
+						"effectId": "5UaBqRqzFKFk9i84"
+					}
+				},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"threshold": 6
+					}
+				}
+			}
+		},
+		"description": "<p><em>Uncommon, Ingested, Onset (10 minutes)</em></p>\n<p>Commonly known as deadly nightshade. A&nbsp;creature makes a DC 14 Constitution saving throw&nbsp;when subjected to this poison, and on a failure it&nbsp;becomes poisoned for 8 hours and takes 14 (4d6)&nbsp;poison damage. On a failure by 5 or more, the&nbsp;creature is also unconscious while poisoned in this&nbsp;way. The creature wakes up if it takes damage or if&nbsp;another creature uses an action to shake it awake.</p>\n<p>If a creature with lycanthropy consumes this poison before their first transformation, they may make another saving throw against the effect that afflicted them, ending the lycanthropy permanently on a success (in addition to the poison&rsquo;s other effects).</p>",
+		"favorite": false,
+		"secretDescription": "",
+		"source": {
+			"name": "",
+			"link": "",
+			"publisher": ""
+		},
+		"uses": {
+			"value": null,
+			"max": "",
+			"per": null,
+			"recharge": {
+				"formula": "1d6",
+				"threshold": "6"
+			}
+		},
+		"schema": {
+			"version": null,
+			"lastMigration": null
+		},
+		"ammunitionProperties": [],
+		"armorCategory": "",
+		"armorProperties": [],
+		"attuned": false,
+		"bulky": false,
+		"craftingComponents": "",
+		"containerId": "",
+		"damagedState": 0,
+		"equippedState": 0,
+		"items": {},
+		"materialProperties": [],
+		"objectType": "consumable",
+		"plotItem": false,
+		"price": "450 gp",
+		"proficient": true,
+		"quantity": 1,
+		"rarity": "uncommon",
+		"requiresAttunement": false,
+		"shieldCategory": "",
+		"shieldProperties": [],
+		"unidentified": false,
+		"unidentifiedDescription": "",
+		"unidentifiedName": "",
+		"weaponProperties": [],
+		"weight": 0
+	},
+	"effects": [
+		{
+			"icon": "icons/consumables/fruit/black-currant-leaf-purple.webp",
+			"origin": "Item.McpfWAjhA4aoFjz2",
+			"flags": {
+				"a5e": {
+					"sort": 0,
+					"transferType": "onUse",
+					"actionId": "xj033Ihp4ERkhV77",
+					"duration": {
+						"unit": "hours"
+					}
+				}
+			},
+			"transfer": false,
+			"name": "Belladonna Poisoning",
+			"_id": "5UaBqRqzFKFk9i84",
+			"changes": [
+				{
+					"key": "flags.a5e.effects.statusConditions",
+					"value": "[\"poisoned\"]",
+					"mode": 0,
+					"priority": null
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": 28800,
+				"combat": null,
+				"rounds": null,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "",
+			"statuses": [
+				"poisoned"
+			],
+			"folder": null
+		},
+		{
+			"icon": "icons/consumables/fruit/black-currant-leaf-purple.webp",
+			"origin": "Item.McpfWAjhA4aoFjz2",
+			"flags": {
+				"a5e": {
+					"sort": 0,
+					"transferType": "onUse",
+					"actionId": "xj033Ihp4ERkhV77",
+					"duration": {
+						"unit": "hours"
+					}
+				}
+			},
+			"transfer": false,
+			"name": "Belladonna Poisoning (Critical Failure)",
+			"_id": "jcKLKy6c8SiGDnFa",
+			"changes": [
+				{
+					"key": "flags.a5e.effects.statusConditions",
+					"value": "[\"poisoned\",\"unconscious\"]",
+					"mode": 0,
+					"priority": null
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": 28800,
+				"combat": null,
+				"rounds": null,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "",
+			"statuses": [
+				"poisoned",
+				"unconscious"
+			],
+			"folder": null
+		}
+	],
+	"flags": {},
+	"_id": "vffkfhjqdyd718x6"
+}
