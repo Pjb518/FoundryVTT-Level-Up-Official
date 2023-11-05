@@ -1,0 +1,160 @@
+{
+	"folder": null,
+	"name": "Pumpkin Bomb",
+	"type": "object",
+	"img": "icons/consumables/vegetable/squash-pumpkin-glow-orange.webp",
+	"system": {
+		"ac": {
+			"baseFormula": "",
+			"formula": "",
+			"maxDex": 0,
+			"minStr": 0,
+			"mode": 2,
+			"requiresNoShield": false,
+			"requiresUnarmored": false
+		},
+		"actions": {
+			"5EQah7RhqivOI0WO": {
+				"name": "Light Candle",
+				"activation": {},
+				"consumers": {
+					"iRnMaJ1YT12ZX7WY": {
+						"type": "quantity",
+						"default": true,
+						"itemId": "",
+						"quantity": 1
+					}
+				},
+				"rolls": {
+					"alaGEAp8rkRhDzMQ": {
+						"type": "damage",
+						"default": true,
+						"canCrit": false,
+						"formula": "3d6",
+						"damageType": "radiant"
+					}
+				},
+				"prompts": {
+					"wbIeFaU45Jen6bWB": {
+						"type": "effect",
+						"default": true,
+						"effectId": "Q4kBL3tAnfHeG0nF"
+					},
+					"4a6qrhwxniKrPl37": {
+						"type": "savingThrow",
+						"default": true,
+						"ability": "wis",
+						"saveDC": {
+							"type": "custom",
+							"bonus": "12"
+						},
+						"onSave": "half damage"
+					}
+				},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"threshold": 6
+					}
+				}
+			}
+		},
+		"description": "<p>This pale white pumpkin is small enough to fit in the palm of a human hand. A macabre, grinning face is carved into one side, and a candle within burns an eerie purple flame. While its candle is lit, this pumpkin lantern shines dim light in a 10-foot radius. The lantern&rsquo;s candle burns for 1 minute, after which the pumpkin instantly rots and loses its magic.</p>\n<p>Undead must make a DC 12 Wisdom saving throw when entering the radius or when beginning their turn within the pumpkin&rsquo;s light, taking 3d6 radiant damage on a failed save or half as much on a success. Incorporeal undead have disadvantage on this saving throw.</p>",
+		"favorite": false,
+		"secretDescription": "",
+		"source": {
+			"name": "",
+			"link": "",
+			"publisher": ""
+		},
+		"uses": {
+			"value": 0,
+			"max": "",
+			"per": null,
+			"recharge": {
+				"formula": "1d6",
+				"threshold": "6"
+			}
+		},
+		"schema": {
+			"version": null,
+			"lastMigration": null
+		},
+		"ammunitionProperties": [],
+		"armorCategory": "",
+		"armorProperties": [],
+		"attuned": false,
+		"bulky": false,
+		"craftingComponents": "burnt remains of an animated scarecrow",
+		"containerId": "",
+		"damagedState": 0,
+		"equippedState": 0,
+		"items": {},
+		"materialProperties": [],
+		"objectType": "consumable",
+		"plotItem": false,
+		"price": "570 gp",
+		"proficient": true,
+		"quantity": 1,
+		"rarity": "uncommon",
+		"requiresAttunement": false,
+		"shieldCategory": "",
+		"shieldProperties": [],
+		"unidentified": false,
+		"unidentifiedDescription": "",
+		"unidentifiedName": "",
+		"weaponProperties": [],
+		"weight": 0
+	},
+	"effects": [
+		{
+			"icon": "icons/consumables/vegetable/squash-pumpkin-glow-orange.webp",
+			"origin": "Item.MINDMMPdfg36M8nA",
+			"flags": {
+				"a5e": {
+					"sort": 0,
+					"transferType": "onUse",
+					"actionId": "5EQah7RhqivOI0WO",
+					"duration": {
+						"unit": "minutes"
+					}
+				}
+			},
+			"transfer": false,
+			"name": "Emit Light",
+			"_id": "Q4kBL3tAnfHeG0nF",
+			"changes": [
+				{
+					"key": "@token.light.color",
+					"value": "800080",
+					"mode": 6,
+					"priority": null
+				},
+				{
+					"key": "@token.light.dim",
+					"value": "10",
+					"mode": 6,
+					"priority": null
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": 60,
+				"combat": null,
+				"rounds": null,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "",
+			"statuses": [],
+			"folder": null
+		}
+	],
+	"flags": {},
+	"_id": "ems2x317katkyju3"
+}

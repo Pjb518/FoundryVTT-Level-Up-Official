@@ -1,0 +1,322 @@
+{
+	"folder": null,
+	"name": "Perdita Ravenwing’s True Name",
+	"type": "object",
+	"img": "icons/sundries/scrolls/scroll-symbol-eye-brown.webp",
+	"system": {
+		"ac": {
+			"baseFormula": "",
+			"formula": "",
+			"maxDex": 0,
+			"minStr": 0,
+			"mode": 2,
+			"requiresNoShield": false,
+			"requiresUnarmored": false
+		},
+		"actions": {
+			"Mrp6ePqbBpUq4tbB": {
+				"name": "Invoke Name",
+				"activation": {
+					"type": "bonusAction",
+					"cost": 1
+				},
+				"consumers": {
+					"Q6GKIEupVHbYLsTq": {
+						"type": "itemUses",
+						"default": true,
+						"quantity": 1
+					}
+				},
+				"rolls": {},
+				"prompts": {},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"threshold": 6
+					}
+				},
+				"duration": {
+					"unit": "minute",
+					"value": 1
+				}
+			},
+			"xOh7kjZVW0y2CU7y": {
+				"name": "Thaumaturgy",
+				"activation": {
+					"cost": 1,
+					"type": "action",
+					"reactionTrigger": ""
+				},
+				"consumers": {},
+				"rolls": {},
+				"prompts": {},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"threshold": 6
+					}
+				},
+				"duration": {
+					"unit": "minute",
+					"value": "1"
+				},
+				"ranges": {
+					"Qkcopjbm7HCEhXJl": {
+						"range": "short"
+					}
+				},
+				"area": {
+					"shape": "",
+					"size": "",
+					"placeTemplate": false,
+					"quantity": 1
+				},
+				"target": {
+					"quantity": "",
+					"type": ""
+				},
+				"img": "icons/magic/symbols/runes-triangle-magenta.webp"
+			},
+			"V6H2HyB8tTOb1xfc": {
+				"name": "Poison Food",
+				"activation": {
+					"type": "action",
+					"cost": 1
+				},
+				"consumers": {},
+				"rolls": {},
+				"prompts": {
+					"xlYMzLAktLhn9mjZ": {
+						"type": "savingThrow",
+						"default": true,
+						"ability": "con",
+						"saveDC": {
+							"type": "custom",
+							"bonus": "13"
+						}
+					},
+					"HLSd2YnD7eAuCgJT": {
+						"type": "effect",
+						"default": true,
+						"effectId": "nqVL7fUZGbcLnWmj"
+					}
+				},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"threshold": 6
+					}
+				}
+			},
+			"4L00nkqIO4oWRZsh": {
+				"name": "Mimic Sounds",
+				"activation": {
+					"type": "action",
+					"cost": 1
+				},
+				"consumers": {},
+				"rolls": {},
+				"prompts": {
+					"PFLP9zcCJfM3TpCH": {
+						"type": "skillCheck",
+						"default": true,
+						"skill": "ins",
+						"ability": "none"
+					}
+				},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"threshold": 6
+					}
+				}
+			},
+			"S391ml1NGgY8ZWgb": {
+				"name": "Revoke Claim",
+				"activation": {},
+				"consumers": {
+					"A9xIdaZ4LwQ0BsEa": {
+						"type": "quantity",
+						"default": true,
+						"itemId": "",
+						"quantity": 1
+					}
+				},
+				"rolls": {},
+				"prompts": {},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"threshold": 6
+					}
+				}
+			},
+			"cjVSEIrfZ80XcfHj": {
+				"name": "Bestow Curse",
+				"activation": {
+					"cost": 1,
+					"type": "action",
+					"reactionTrigger": ""
+				},
+				"consumers": {
+					"27Bxn54sA3btBvR7": {
+						"mode": "variable",
+						"spellLevel": 3,
+						"points": 5,
+						"type": "spell"
+					}
+				},
+				"rolls": {},
+				"prompts": {
+					"TMF7oR2EHe2nnSU0": {
+						"ability": "wis",
+						"onSave": "Negates effect",
+						"saveDC": {
+							"type": "custom",
+							"bonus": "13"
+						},
+						"type": "savingThrow"
+					}
+				},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"threshold": 6
+					}
+				},
+				"duration": {
+					"unit": "minute",
+					"value": "1"
+				},
+				"ranges": {
+					"7kCGpenqBfTBkHf5": {
+						"range": "touch"
+					}
+				},
+				"area": {
+					"shape": "",
+					"size": "",
+					"placeTemplate": false,
+					"quantity": 1
+				},
+				"target": {
+					"quantity": "",
+					"type": "creature"
+				},
+				"img": "icons/magic/unholy/hand-claw-fire-blue.webp"
+			}
+		},
+		"description": "<p>This slip of parchment contains the magically bound&nbsp;name &ldquo;Agnes Nittworthy&rdquo; surrounded by occult&nbsp;symbols and raven feathers. While you are attuned&nbsp;to it, you can use a bonus action to invoke the name&nbsp;on this parchment to summon a vision of a powerful&nbsp;and ancient hag beside you for 1 minute. Agnes acts&nbsp;aloof and mysterious but becomes oddly motherly&nbsp;around the young or incompetent. Once a vision&nbsp;is summoned in this way, it cannot be summoned&nbsp;again for the next 24 hours.</p>\n<p>You can use an action to verbally direct the vision&nbsp;to do any of the following:</p>\n<ul>\n<li>Create ominous noises or effects (as @UUID[Compendium.a5e.a5e-spells.Item.eiek2vbzwijd0qac]{Thaumaturgy}).</li>\n<li>Magically poison up to a pound of food within 5 feet. Any creature that consumes this poisoned food must make a DC 13 Constitution saving throw or become poisoned for 10 minutes.</li>\n<li>Mimic animal sounds or the voices of specific humanoids. A creature that hears the sounds can tell they are imitations with a successful DC 13 Insight check.</li>\n</ul>\n<p>Alternatively, as an action while the vision is summoned you can agree to revoke your claim on Perdita in exchange for her direct assistance. When you do so the parchment crumbles into dust and for the next minute the vision curses a creature of your choice within 30 feet (as @UUID[Compendium.a5e.a5e-spells.Item.339zx6f5jk81fobw]{Bestow Curse}, save DC 13) after which she disappears. Once you have revoked your claim in this way, you can never invoke Perdita&rsquo;s true name again.</p>",
+		"favorite": false,
+		"secretDescription": "",
+		"source": {
+			"name": "",
+			"link": "",
+			"publisher": ""
+		},
+		"uses": {
+			"value": 1,
+			"max": "1",
+			"per": "day",
+			"recharge": {
+				"formula": "1d6",
+				"threshold": "6"
+			}
+		},
+		"schema": {
+			"version": null,
+			"lastMigration": null
+		},
+		"ammunitionProperties": [],
+		"armorCategory": "",
+		"armorProperties": [],
+		"attuned": false,
+		"bulky": false,
+		"craftingComponents": "parchment cured at The Bleak Gate",
+		"containerId": "",
+		"damagedState": 0,
+		"equippedState": 0,
+		"items": {},
+		"materialProperties": [],
+		"objectType": "miscellaneous",
+		"plotItem": false,
+		"price": "90 gp",
+		"proficient": true,
+		"quantity": 1,
+		"rarity": "common",
+		"requiresAttunement": true,
+		"shieldCategory": "",
+		"shieldProperties": [],
+		"unidentified": false,
+		"unidentifiedDescription": "",
+		"unidentifiedName": "",
+		"weaponProperties": [],
+		"weight": 0
+	},
+	"effects": [
+		{
+			"icon": "icons/sundries/scrolls/scroll-symbol-eye-brown.webp",
+			"origin": "Item.z5yEXjaczZFfzFwI",
+			"flags": {
+				"a5e": {
+					"sort": 0,
+					"transferType": "onUse",
+					"actionId": "V6H2HyB8tTOb1xfc",
+					"duration": {
+						"unit": "minutes"
+					}
+				}
+			},
+			"transfer": false,
+			"name": "Poisoned",
+			"_id": "nqVL7fUZGbcLnWmj",
+			"changes": [
+				{
+					"key": "flags.a5e.effects.rollMode.attack.all",
+					"value": "-1",
+					"mode": 6,
+					"priority": null
+				},
+				{
+					"key": "flags.a5e.effects.rollMode.abilityCheck.all",
+					"value": "-1",
+					"mode": 6,
+					"priority": null
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": 600,
+				"combat": null,
+				"rounds": null,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "",
+			"statuses": [],
+			"folder": null
+		}
+	],
+	"flags": {},
+	"_id": "ss6u12ulvgcpo3or"
+}
