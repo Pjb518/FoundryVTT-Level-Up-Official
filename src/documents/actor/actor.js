@@ -905,7 +905,7 @@ export default class ActorA5e extends Actor {
         return value <= 0 ? this.applyDamage(-1 * value) : this.applyHealing(value);
       }
 
-      return delta <= 0 ? this.applyHealing(-1 * delta) : this.applyHealing(delta);
+      return delta <= 0 ? this.applyHealing(-1 * delta) : this.applyDamage(delta);
     }
 
     return super.modifyTokenAttribute(attribute, value, isDelta, isBar);
