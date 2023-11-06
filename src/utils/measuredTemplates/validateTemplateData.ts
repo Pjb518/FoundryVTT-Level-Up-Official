@@ -6,7 +6,7 @@ export default function validateTemplateData(area: TemplateArea): boolean {
   if (!area?.shape) return false;
   if (area.quantity <= 0) return false;
 
-  if (area.shape === 'cone') {
+  if (area.shape === 'cone' || area.shape === 'wall') {
     const length = parseInt(area?.length, 10);
     if (!length || length <= 0) return false;
   } else if (area.shape === 'cube' || area.shape === 'square') {
@@ -21,10 +21,6 @@ export default function validateTemplateData(area: TemplateArea): boolean {
 
     if (!length || !width) return false;
     if (length <= 0 || width <= 0) return false;
-  } else if (area.shape === 'wall') {
-    const length = parseInt(area?.length, 10);
-
-    if (!length) return false;
   }
 
   return true;
