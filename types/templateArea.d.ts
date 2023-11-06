@@ -14,33 +14,33 @@ interface BaseTemplateArea {
 }
 
 interface CircleArea extends BaseTemplateArea {
-  radius: number
+  radius: number | string
 }
 
 interface ConeArea extends BaseTemplateArea {
-  length: number
+  length: number | string
 }
 
 interface CubeArea extends BaseTemplateArea {
-  width: number
+  width: number | string
 }
 
 interface CylinderArea extends BaseTemplateArea {
-  radius: number
-  height?: number
+  radius: number | string
+  height?: number | string
 }
 
 interface EmanationArea extends BaseTemplateArea {
-  radius: number
+  radius: number | string
 }
 
 interface LineArea extends BaseTemplateArea {
-  length: number
-  width?: number
+  length: number | string
+  width?: number | string
 }
 
 interface SphereArea extends BaseTemplateArea {
-  radius: number
+  radius: number | string
 }
 
 interface SquareArea extends BaseTemplateArea {
@@ -48,9 +48,9 @@ interface SquareArea extends BaseTemplateArea {
 }
 
 interface WallArea extends BaseTemplateArea {
-  height?: number
-  length: number,
-  width?: number
+  height?: number | string
+  length: number | string,
+  width?: number | string
 }
 
 type TemplateArea =
