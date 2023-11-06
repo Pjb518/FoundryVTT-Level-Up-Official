@@ -1,4 +1,4 @@
-type AreaShape = 'circle' | 'cone' | 'cube' | 'cylinder' | 'line' | 'sphere' | 'square';
+type AreaShape = 'circle' | 'cone' | 'cube' | 'cylinder' | 'emanation' | 'line' | 'sphere' | 'square' | 'wall';
 
 interface BaseTemplateArea {
   quantity: number;
@@ -27,12 +27,16 @@ interface CubeArea extends BaseTemplateArea {
 
 interface CylinderArea extends BaseTemplateArea {
   radius: number
-  height: number
+  height?: number
+}
+
+interface EmanationArea extends BaseTemplateArea {
+  radius: number
 }
 
 interface LineArea extends BaseTemplateArea {
   length: number
-  width: number
+  width?: number
 }
 
 interface SphereArea extends BaseTemplateArea {
@@ -42,3 +46,20 @@ interface SphereArea extends BaseTemplateArea {
 interface SquareArea extends BaseTemplateArea {
   width: number
 }
+
+interface WallArea extends BaseTemplateArea {
+  height?: number
+  length: number,
+  width?: number
+}
+
+type TemplateArea =
+  | CircleArea
+  | ConeArea
+  | CubeArea
+  | CylinderArea
+  | EmanationArea
+  | LineArea
+  | SphereArea
+  | SquareArea
+  | WallArea;
