@@ -1,10 +1,4 @@
-/**
- *
- * @param {Object} item
- * @param {String} actionId
- * @returns {Boolean} isValid
- */
-export default function validateTemplateData(area) {
+export default function validateTemplateData(area: TemplateArea): boolean {
   if (foundry.utils.isEmpty(area)) return false;
 
   area.quantity ??= 1;
@@ -13,7 +7,9 @@ export default function validateTemplateData(area) {
   if (area.quantity <= 0) return false;
 
   if (area.shape === 'cone') {
-    const length = parseInt(area?.length, 10);
+    let length: number;
+
+    if ((area as ConeArea).length) length = parseInt((area as ConeArea)?.length, 10);
     if (!length || length <= 0) return false;
   } else if (area.shape === 'cube' || area.shape === 'square') {
     const size = parseInt(area?.width, 10);
