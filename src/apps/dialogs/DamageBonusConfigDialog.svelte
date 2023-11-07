@@ -5,9 +5,7 @@
     import updateDocumentDataFromField from "../../utils/updateDocumentDataFromField";
 
     import Checkbox from "../components/Checkbox.svelte";
-    import RadioGroup from "../components/RadioGroup.svelte";
     import FormSection from "../components/FormSection.svelte";
-    import CheckboxGroup from "../components/CheckboxGroup.svelte";
     import TagGroup from "../components/TagGroup.svelte";
 
     export let { actor, damageBonusId } = getContext("#external").application;
@@ -123,6 +121,7 @@
     <FormSection
         heading="Contexts"
         hint="The context determines when the damage bonus applies"
+        --direction="column"
     >
         <TagGroup
             heading="A5E.contexts.attackType"

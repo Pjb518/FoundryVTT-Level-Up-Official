@@ -1,23 +1,24 @@
-export default function prepareHealingBonuses(actor, rolls) {
+export default function prepareHealingBonuses(actor, item, rolls) {
   const bonusHealing = actor.system.bonuses.healing;
   const counts = {};
   const healingRolls = rolls.healing ?? [];
+  const spellLevel = item.system.level ?? null;
 
   if (!healingRolls.length) return [];
 
-  const hasHealing = healingRolls.some(([, { healingType }]) => healingType === 'healing' || !healingType);
-  const hasTempHealing = healingRolls.some(([, { healingType }]) => healingType === 'temporaryHealing');
+  const heals = new Set(healingRolls.map(([, { healingType }]) => healingType));
 
   const healingBonuses = Object.entries(bonusHealing).filter(
     ([, { context, formula }]) => {
       if (!formula) return false;
 
-      if (context === 'all') return true;
+      const { spellLevels } = context;
+      const healingTypes = new Set(context.healingTypes ?? []);
 
-      if (hasHealing) return context === 'healing';
-      if (hasTempHealing) return context === 'temporaryHealing';
+      if (healingTypes.size && !healingTypes.intersects(heals)) return false;
+      if (spellLevel !== null && spellLevels.length && !spellLevels.includes(`${spellLevel}`)) return false;
 
-      return false;
+      return true;
     }
   );
 

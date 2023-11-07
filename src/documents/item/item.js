@@ -400,7 +400,7 @@ export default class ItemA5e extends BaseItemA5e {
 
   #getDefaultBonuses(actor, rolls) {
     const damageBonuses = prepareDamageBonuses(actor, this, rolls);
-    const healingBonuses = prepareHealingBonuses(actor, rolls);
+    const healingBonuses = prepareHealingBonuses(actor, this, rolls);
 
     const defaultDamageBonuses = damageBonuses.reduce((acc, [, bonus]) => {
       if (bonus.default ?? true) acc.push(bonus);

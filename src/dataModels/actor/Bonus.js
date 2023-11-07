@@ -1,4 +1,4 @@
-import { getDamageBonusContext } from './Contexts';
+import { getDamageBonusContext, getHealingBonusContext } from './Contexts';
 
 export function getDamageBonusData() {
   const { fields } = foundry.data;
@@ -14,7 +14,7 @@ export function getDamageBonusData() {
 export function getHealingBonusData() {
   const { fields } = foundry.data;
   return {
-    context: new fields.StringField(),
+    context: new fields.SchemaField(getHealingBonusContext()),
     healingType: new fields.StringField({ required: true, initial: 'healing' }),
     formula: new fields.StringField({ required: true, initial: '' }),
     label: new fields.StringField({ required: true, initial: '' })

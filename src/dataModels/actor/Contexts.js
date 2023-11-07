@@ -22,7 +22,7 @@ export function getDamageBonusContext() {
   };
 }
 
-export function getHealingBonusData() {
+export function getHealingBonusContext() {
   const { fields } = foundry.data;
   return {
     healingTypes: new fields.ArrayField(
@@ -36,7 +36,7 @@ export function getHealingBonusData() {
   };
 }
 
-export function getSkillContextData() {
+export function getSkillContextContext() {
   const { fields } = foundry.data;
   return {
     ability: new fields.ArrayField(new fields.StringField({ required: true, initial: '' }), { initial: [] }),

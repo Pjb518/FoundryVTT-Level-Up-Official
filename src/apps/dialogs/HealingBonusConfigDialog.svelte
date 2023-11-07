@@ -7,6 +7,7 @@
     import Checkbox from "../components/Checkbox.svelte";
     import RadioGroup from "../components/RadioGroup.svelte";
     import FormSection from "../components/FormSection.svelte";
+    import TagGroup from "../components/TagGroup.svelte";
 
     export let { actor, healingBonusId } = getContext("#external").application;
     export let jsonValue = null;
@@ -48,9 +49,11 @@
         }
     }
 
-    const { healingBonusContexts, healingTypes } = CONFIG.A5E;
+    const { healingBonusContexts, healingTypes, spellLevels } = CONFIG.A5E;
 
     $: healingBonus = getHealingBonus($actor, jsonValue) ?? {};
+    $: healingTypesContext = healingBonus.context.healingTypes ?? [];
+    $: spellLevelsContext = healingBonus.context.spellLevels ?? [];
 </script>
 
 <form>
@@ -115,15 +118,32 @@
     </FormSection>
 
     <FormSection
-        heading="Context"
+        heading="Contexts"
         hint="The context determines when the healing bonus applies"
+        --direction="column"
     >
-        <RadioGroup
+        <!-- <RadioGroup
             options={Object.entries(healingBonusContexts)}
             selected={healingBonus.context}
             allowDeselect={false}
             on:updateSelection={({ detail }) =>
                 onUpdateValue("context", detail)}
+        /> -->
+
+        <TagGroup
+            heading="A5E.contexts.healingType"
+            tags={healingBonusContexts}
+            bind:selected={healingTypesContext}
+            updateFunction={() =>
+                onUpdateValue("context.healingTypes", healingTypesContext)}
+        />
+
+        <TagGroup
+            heading="A5E.contexts.spellLevel"
+            tags={spellLevels}
+            bind:selected={spellLevelsContext}
+            updateFunction={() =>
+                onUpdateValue("context.spellLevels", spellLevelsContext)}
         />
     </FormSection>
 

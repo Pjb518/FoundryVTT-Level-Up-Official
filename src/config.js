@@ -427,13 +427,11 @@ A5E.featureTypes = {
 };
 
 A5E.healingBonusContexts = {
-  all: 'A5E.healingBonuses.contexts.all',
   healing: 'A5E.healingBonuses.contexts.healing',
   temporaryHealing: 'A5E.healingBonuses.contexts.temporaryHealing'
 };
 
 A5E.healingBonusSummariesByContext = {
-  all: 'A5E.healingBonuses.summaries.contexts.all',
   healing: 'A5E.healingBonuses.summaries.contexts.healing',
   temporaryHealing: 'A5E.healingBonuses.summaries.contexts.temporaryHealing'
 };
