@@ -25,7 +25,23 @@ export default class Migration010MigrateContexts extends MigrationBase {
     });
   }
 
-  #updateHealingBonuses(actorData) { }
+  #updateHealingBonuses(actorData) {
+    const bonuses = actorData.system.bonuses.healing;
+    const updates = {};
+
+    Object.entries(bonuses ?? {}).forEach(([id, bonus]) => {
+      const contextValue = bonus.context ?? 'all';
+      let healingTypes = [];
+
+      if (contextValue === 'all') {
+        healingTypes = ['healing', 'temporaryHealing'];
+      } else {
+        healingTypes = [contextValue];
+      }
+
+      updates[`system.bonuses.healing.${id}.context`] = { healingTypes };
+    });
+  }
 
   /**
    *
