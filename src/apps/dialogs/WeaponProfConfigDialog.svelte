@@ -84,7 +84,7 @@
 <form class="a5e-form u-py-lg u-px-xl a5e-form--reactive-dialog u-bg-none">
     <TagGroup
         heading="A5E.WeaponsSimple"
-        tags={simpleWeapons}
+        options={simpleWeapons}
         bind:selected={weaponProficiencies.simple}
         disabled={weapons.length >= max}
         red={submitDialog ? $actor.system.proficiencies.weapons : false}
@@ -93,7 +93,7 @@
 
     <TagGroup
         heading="A5E.WeaponsMartial"
-        tags={martialWeapons}
+        options={martialWeapons}
         bind:selected={weaponProficiencies.martial}
         disabled={weapons.length >= max}
         red={submitDialog ? $actor.system.proficiencies.weapons : false}
@@ -102,7 +102,7 @@
 
     <TagGroup
         heading="A5E.WeaponsRare"
-        tags={rareWeapons}
+        options={rareWeapons}
         bind:selected={weaponProficiencies.rare}
         disabled={weapons.length >= max}
         red={submitDialog ? $actor.system.proficiencies.weapons : false}

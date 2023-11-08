@@ -122,28 +122,20 @@
         hint="The context determines when the healing bonus applies"
         --direction="column"
     >
-        <!-- <RadioGroup
-            options={Object.entries(healingBonusContexts)}
-            selected={healingBonus.context}
-            allowDeselect={false}
-            on:updateSelection={({ detail }) =>
-                onUpdateValue("context", detail)}
-        /> -->
-
         <TagGroup
             heading="A5E.contexts.healingType"
-            tags={healingBonusContexts}
-            bind:selected={healingTypesContext}
-            updateFunction={() =>
-                onUpdateValue("context.healingTypes", healingTypesContext)}
+            options={Object.entries(healingBonusContexts)}
+            selected={healingTypesContext}
+            on:updateSelection={({ detail }) =>
+                onUpdateValue("context.healingTypes", detail)}
         />
 
         <TagGroup
             heading="A5E.contexts.spellLevel"
-            tags={spellLevels}
-            bind:selected={spellLevelsContext}
-            updateFunction={() =>
-                onUpdateValue("context.spellLevels", spellLevelsContext)}
+            options={Object.entries(spellLevels)}
+            selected={spellLevelsContext}
+            on:updateSelection={({ detail }) =>
+                onUpdateValue("context.spellLevels", detail)}
         />
     </FormSection>
 

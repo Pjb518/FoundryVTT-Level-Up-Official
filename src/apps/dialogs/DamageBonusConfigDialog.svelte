@@ -16,7 +16,6 @@
     function onUpdateValue(key, value) {
         if (jsonValue === null) {
             key = `system.bonuses.damage.${damageBonusId}.${key}`;
-            console.log(key, value);
             updateDocumentDataFromField($actor, key, value);
             return;
         }
@@ -125,26 +124,29 @@
     >
         <TagGroup
             heading="A5E.contexts.attackType"
-            tags={damageBonusContexts}
-            bind:selected={attackTypesContext}
-            updateFunction={() =>
-                onUpdateValue("context.attackTypes", attackTypesContext)}
+            options={Object.entries(damageBonusContexts)}
+            selected={attackTypesContext}
+            on:updateSelection={({ detail }) => {
+                onUpdateValue("context.attackTypes", detail);
+            }}
         />
 
         <TagGroup
             heading="A5E.contexts.damageType"
-            tags={damageTypes}
-            bind:selected={damageTypesContext}
-            updateFunction={() =>
-                onUpdateValue("context.damageTypes", damageTypesContext)}
+            options={Object.entries(damageTypes)}
+            selected={damageTypesContext}
+            on:updateSelection={({ detail }) => {
+                onUpdateValue("context.damageTypes", detail);
+            }}
         />
 
         <TagGroup
             heading="A5E.contexts.spellLevel"
-            tags={spellLevels}
-            bind:selected={spellLevelsContext}
-            updateFunction={() =>
-                onUpdateValue("context.spellLevels", spellLevelsContext)}
+            options={Object.entries(spellLevels)}
+            selected={spellLevelsContext}
+            on:updateSelection={({ detail }) => {
+                onUpdateValue("context.spellLevels", detail);
+            }}
         />
     </FormSection>
 

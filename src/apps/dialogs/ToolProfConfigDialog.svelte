@@ -99,7 +99,7 @@
 
     <TagGroup
         heading="A5E.ToolsArtisanTools"
-        tags={artisansTools}
+        options={artisansTools}
         bind:selected={toolProficiencies.artisansTools}
         disabled={tools.length >= max}
         red={submitDialog ? $actor.system.proficiencies.tools : false}
@@ -108,7 +108,7 @@
 
     <TagGroup
         heading="A5E.ToolsGamingSets"
-        tags={gamingSets}
+        options={gamingSets}
         bind:selected={toolProficiencies.gamingSets}
         disabled={tools.length >= max}
         red={submitDialog ? $actor.system.proficiencies.tools : false}
@@ -117,7 +117,7 @@
 
     <TagGroup
         heading="A5E.MusicalInstruments"
-        tags={musicalInstruments}
+        options={musicalInstruments}
         bind:selected={toolProficiencies.musicalInstruments}
         disabled={tools.length >= max}
         red={submitDialog ? $actor.system.proficiencies.tools : false}
@@ -126,7 +126,7 @@
 
     <TagGroup
         heading="A5E.ToolsMiscellaneous"
-        tags={miscellaneous}
+        options={miscellaneous}
         bind:selected={toolProficiencies.miscellaneous}
         disabled={tools.length >= max}
         red={submitDialog ? $actor.system.proficiencies.tools : false}
@@ -135,7 +135,7 @@
 
     <TagGroup
         heading="A5E.ToolsVehicles"
-        tags={vehicles}
+        options={vehicles}
         bind:selected={toolProficiencies.vehicles}
         disabled={tools.length >= max}
         red={submitDialog ? $actor.system.proficiencies.tools : false}
