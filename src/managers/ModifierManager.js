@@ -239,7 +239,7 @@ export default class ModifierManager {
 
     return {
       label: localize('A5E.SkillCheckBonus', { skill: CONFIG.A5E.skills[skill] }),
-      value: this.actor.BonusesManager.getSkillBonusesFormula(skill, ability, false) || null
+      value: this.actor.BonusesManager.getSkillBonusesFormula(skill, ability, 'check', false) || null
     };
   }
 

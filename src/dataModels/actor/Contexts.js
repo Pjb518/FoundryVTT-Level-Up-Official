@@ -49,7 +49,7 @@ export function getHealingBonusContext() {
   };
 }
 
-export function getSkillContext() {
+export function getSkillBonusContext() {
   const { fields } = foundry.data;
   return {
     requiresProficiency: new fields.BooleanField({ required: true, initial: false }),

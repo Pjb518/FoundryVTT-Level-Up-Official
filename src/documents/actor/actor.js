@@ -250,7 +250,7 @@ export default class ActorA5e extends Actor {
           deterministicBonus = getDeterministicBonus(
             [
               ability[key].mod,
-              ability[key].bonus,
+              // ability[key].bonus, TODO: Remove this as part of bonuses refactor
               this.BonusesManager.getAbilityBonusesFormula(abilityKey, key).trim()
             ].filter(Boolean).join(' + '),
             this.getRollData()
@@ -477,6 +477,9 @@ export default class ActorA5e extends Actor {
     );
   }
 
+  /**
+   * {@deprecated}
+   */
   async applyPermanentEffects() {
     const effects = Array.from(this.items).flatMap((i) => i.effects.contents)
       .filter((e) => e.flags?.a5e?.transferType === 'permanent');

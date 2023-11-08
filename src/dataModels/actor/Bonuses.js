@@ -1,5 +1,5 @@
 import {
-  getAbilitiesBonusContext, getDamageBonusContext, getHealingBonusContext, getSkillContext
+  getAbilitiesBonusContext, getDamageBonusContext, getHealingBonusContext, getSkillBonusContext
 } from './Contexts';
 
 export function getAbilitiesBonusData() {
@@ -35,7 +35,8 @@ export function getHealingBonusData() {
 export function getSkillBonusData() {
   const { fields } = foundry.data;
   return {
-    context: new fields.SchemaField(getSkillContext()),
+    context: new fields.SchemaField(getSkillBonusContext()),
+    bonusType: new fields.StringField({ required: true, initial: 'check', choices: ['check', 'passive'] }),
     formula: new fields.StringField({ required: true, initial: '' }),
     label: new fields.StringField({ required: true, initial: '' })
   };
