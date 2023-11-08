@@ -1,7 +1,7 @@
 export interface AbilityBonusContext {
   abilities: string[];
   types: string[];
-  proficient: boolean;
+  requiresProficiency: boolean;
 }
 
 export interface DamageBonusContext {
@@ -17,5 +17,5 @@ export interface HealingBonusContext {
 
 export interface SkillBonusContext {
   skills: string[];
-  proficient: boolean;
+  requiresProficiency: boolean;
 }

@@ -9,7 +9,7 @@ export function getAbilitiesBonusContext() {
     types: new fields.ArrayField(new fields.StringField({ required: true, initial: '' }), {
       initial: ['check', 'save']
     }),
-    proficient: new fields.BooleanField({ required: true, initial: false })
+    requiresProficiency: new fields.BooleanField({ required: true, initial: false })
   };
 }
 
@@ -52,7 +52,7 @@ export function getHealingBonusContext() {
 export function getSkillContext() {
   const { fields } = foundry.data;
   return {
-    proficient: new fields.BooleanField({ required: true, initial: false }),
+    requiresProficiency: new fields.BooleanField({ required: true, initial: false }),
     skills: new fields.ArrayField(new fields.StringField({ required: true, initial: '' }), { initial: [] })
   };
 }

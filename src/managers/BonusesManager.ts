@@ -11,22 +11,45 @@ export default class BonusesManager {
   }
 
   getAbilityBonuses(
-    ability: string,
-    { proficient = false, type = 'check' }: { proficient?: boolean, type?: string } = {}
-  ): string {
+    abilityKey: string,
+    type: string = 'check'
+  ): string[] {
     const bonuses = this.#bonuses.abilities;
+    const ability = this.#actor.system.abilities[abilityKey];
+    const isProficient = ability.save.proficient;
 
-    const formula = Object.values(bonuses).reduce((acc, bonus) => {
-      if (!bonus.context.abilities.includes(ability)) return acc;
+    const parts = Object.values(bonuses).reduce((acc: string[], bonus) => {
+      if (!bonus.context.abilities.includes(abilityKey)) return acc;
       const bonusFormula = bonus.formula.trim();
 
-      if (proficient && !bonus.context.proficient) return acc;
       if (!bonus.context.types.includes(type)) return acc;
+      if (bonus.context.requiresProficiency && !isProficient) return acc;
 
-      if (!acc.length) return `${bonusFormula}`;
-      return `${acc} + ${bonusFormula}`;
-    }, '');
+      acc.push(bonusFormula);
+      return acc;
+    }, []);
 
-    return formula;
+    return parts;
+  }
+
+  getSkillBonuses(skillKey: string, abilityKey: string) {
+    const bonuses = this.#bonuses.skills;
+    const skill = this.#actor.system.skills[skillKey];
+    const defaultAbility = skill.ability;
+    const isProficient = skill.proficient;
+
+    const skillParts = Object.values(bonuses).reduce((acc: string[], bonus) => {
+      if (!bonus.context.skills.includes(skillKey)) return acc;
+      const bonusFormula = bonus.formula.trim();
+
+      if (bonus.context.requiresProficiency && !isProficient) return acc;
+
+      acc.push(bonusFormula);
+      return acc;
+    }, []);
+
+    const abilityParts = this.getAbilityBonuses(abilityKey ?? defaultAbility, 'check');
+
+    return [...abilityParts, ...skillParts];
   }
 }
