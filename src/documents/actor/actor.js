@@ -246,8 +246,8 @@ export default class ActorA5e extends Actor {
           deterministicBonus = getDeterministicBonus(
             [
               ability[key].mod,
-              ability[key].bonus,
-              actorData.bonuses.abilities[key].trim()
+              ability[key].bonus
+              // actorData.bonuses.abilities[key].trim()
             ].filter(Boolean).join(' + '),
             this.getRollData()
           );
@@ -426,7 +426,7 @@ export default class ActorA5e extends Actor {
 
     Object.entries(actorData.skills).forEach(([key, skill]) => {
       const skillName = localize(CONFIG.A5E.skills[key]);
-      const { check: globalCheckBonus, skill: globalSkillBonus } = actorData.bonuses.abilities;
+      // const { check: globalCheckBonus, skill: globalSkillBonus } = actorData.bonuses.abilities;
 
       let deterministicBonus;
 
@@ -434,9 +434,9 @@ export default class ActorA5e extends Actor {
         deterministicBonus = getDeterministicBonus(
           [
             skill.mod,
-            skill.bonuses.check,
-            globalSkillBonus.trim(),
-            globalCheckBonus.trim()
+            skill.bonuses.check
+            // globalSkillBonus.trim(),
+            // globalCheckBonus.trim()
           ].filter(Boolean).join(' + '),
           this.getRollData()
         );
@@ -686,10 +686,10 @@ export default class ActorA5e extends Actor {
       skill.deterministicBonus,
       skill.bonuses.passive,
       rollData.abilities[skill.ability]?.check?.deterministicBonus ?? 0,
-      skill.expertiseDice ? 3 : 0,
+      skill.expertiseDice ? 3 : 0
 
       // Remove the double addition of the global check bonus
-      `- ${getDeterministicBonus(rollData.bonuses.abilities.check.trim(), rollData)}`
+      // `- ${getDeterministicBonus(rollData.bonuses.abilities.check.trim(), rollData)}`
     ].filter(Boolean).join(' + '), rollData);
   }
 

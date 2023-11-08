@@ -1,5 +1,18 @@
 import A5E from '../../config';
 
+export function getAbilitiesBonusContext() {
+  const { fields } = foundry.data;
+  return {
+    abilities: new fields.ArrayField(new fields.StringField({ required: true, initial: '' }), {
+      initial: Object.keys(A5E.abilities)
+    }),
+    types: new fields.ArrayField(new fields.StringField({ required: true, initial: '' }), {
+      initial: ['check', 'save']
+    }),
+    proficient: new fields.BooleanField({ required: true, initial: false })
+  };
+}
+
 export function getAttackBonusContext() {
   // const { fields } = foundry.data;
 }
@@ -36,10 +49,10 @@ export function getHealingBonusContext() {
   };
 }
 
-export function getSkillContextContext() {
+export function getSkillContext() {
   const { fields } = foundry.data;
   return {
-    ability: new fields.ArrayField(new fields.StringField({ required: true, initial: '' }), { initial: [] }),
+    proficient: new fields.BooleanField({ required: true, initial: false }),
     skills: new fields.ArrayField(new fields.StringField({ required: true, initial: '' }), { initial: [] })
   };
 }

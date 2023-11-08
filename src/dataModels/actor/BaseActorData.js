@@ -3,7 +3,9 @@ import SchemaDataModel from '../template/SchemaDataModel';
 
 import RecordField from '../fields/RecordField';
 
-import { getDamageBonusData, getHealingBonusData } from './Bonus';
+import {
+  getAbilitiesBonusData, getDamageBonusData, getHealingBonusData, getSkillBonusData
+} from './Bonuses';
 
 export default class BaseActorData extends A5EDataModel.mixin(SchemaDataModel) {
   static defineSchema() {
@@ -205,20 +207,26 @@ export default class BaseActorData extends A5EDataModel.mixin(SchemaDataModel) {
         spellcasting: new fields.StringField({ required: true, initial: 'int' })
       }),
       bonuses: new fields.SchemaField({
-        abilities: new fields.SchemaField({
-          check: new fields.StringField({ initial: '' }),
-          save: new fields.StringField({ initial: '' }),
-          skill: new fields.StringField({ initial: '' })
-        }),
+        // abilities: new fields.SchemaField({
+        //   check: new fields.StringField({ initial: '' }),
+        //   save: new fields.StringField({ initial: '' }),
+        //   skill: new fields.StringField({ initial: '' })
+        // }),
+        abilities: new RecordField(
+          new fields.DocumentIdField({ required: true, initial: () => foundry.utils.randomID() }),
+          new fields.SchemaField(getAbilitiesBonusData())
+        ),
         damage: new RecordField(
-          // new fields.StringField({ required: true, initial: '' }),
           new fields.DocumentIdField({ required: true, initial: () => foundry.utils.randomID() }),
           new fields.SchemaField(getDamageBonusData())
         ),
         healing: new RecordField(
-          // new fields.StringField({ required: true, initial: '' }),
           new fields.DocumentIdField({ required: true, initial: () => foundry.utils.randomID() }),
           new fields.SchemaField(getHealingBonusData())
+        ),
+        skills: new RecordField(
+          new fields.DocumentIdField({ required: true, initial: () => foundry.utils.randomID() }),
+          new fields.SchemaField(getSkillBonusData())
         ),
         maneuverDC: new fields.StringField({ initial: '' }),
         meleeSpellAttack: new fields.StringField({ initial: '' }),
