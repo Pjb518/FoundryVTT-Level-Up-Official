@@ -2,6 +2,7 @@
 import { localize } from '#runtime/svelte/helper';
 
 import ActiveEffectA5e from '../activeEffect/activeEffect';
+import BonusesManager from '../../managers/BonusesManager';
 import MigrationRunnerBase from '../../migration/MigrationRunnerBase';
 import RestManager from '../../managers/RestManager';
 import RollPreparationManager from '../../managers/RollPreparationManager';
@@ -42,6 +43,8 @@ import automateMultiLevelConditions from '../activeEffect/utils/automateMultiLev
 
 export default class ActorA5e extends Actor {
   #configDialogMap;
+
+  bonusManager;
 
   constructor(...args) {
     super(...args);
@@ -151,10 +154,13 @@ export default class ActorA5e extends Actor {
     }
 
     if (actorType === 'character') {
-      return this.prepareCharacterData();
+      this.prepareCharacterData();
+    } else {
+      this.prepareNPCData();
     }
 
-    return this.prepareNPCData();
+    // Register Managers
+    this.BonusesManager = new BonusesManager(this);
   }
 
   /**

@@ -1,6 +1,6 @@
 export interface AbilityBonusContext {
   abilities: string[];
-  types: Array<'check' | 'save'>;
+  types: string[];
   proficient: boolean;
 }
 
