@@ -44,8 +44,6 @@ import automateMultiLevelConditions from '../activeEffect/utils/automateMultiLev
 export default class ActorA5e extends Actor {
   #configDialogMap;
 
-  bonusManager;
-
   constructor(...args) {
     super(...args);
 
@@ -244,7 +242,7 @@ export default class ActorA5e extends Actor {
      * IMPORTANT: This step cannot be combined into the previous forEach; otherwise, deterministic
      *            bonuses will be unable to refer to modifiers from subsequent ability scores.
      */
-    Object.values(actorData.abilities).forEach((ability) => {
+    Object.entries(actorData.abilities).forEach(([abilityKey, ability]) => {
       ['check', 'save'].forEach((key) => {
         let deterministicBonus;
 
@@ -252,8 +250,8 @@ export default class ActorA5e extends Actor {
           deterministicBonus = getDeterministicBonus(
             [
               ability[key].mod,
-              ability[key].bonus
-              // actorData.bonuses.abilities[key].trim()
+              ability[key].bonus,
+              this.BonusesManager.getAbilityBonusesFormula(abilityKey, key).trim()
             ].filter(Boolean).join(' + '),
             this.getRollData()
           );
@@ -432,6 +430,7 @@ export default class ActorA5e extends Actor {
 
     Object.entries(actorData.skills).forEach(([key, skill]) => {
       const skillName = localize(CONFIG.A5E.skills[key]);
+      const skillBonus = this.BonusesManager.getSkillBonusesFormula(key, skill.ability);
       // const { check: globalCheckBonus, skill: globalSkillBonus } = actorData.bonuses.abilities;
 
       let deterministicBonus;
@@ -440,7 +439,8 @@ export default class ActorA5e extends Actor {
         deterministicBonus = getDeterministicBonus(
           [
             skill.mod,
-            skill.bonuses.check
+            skillBonus.trim()
+            // skill.bonuses.check
             // globalSkillBonus.trim(),
             // globalCheckBonus.trim()
           ].filter(Boolean).join(' + '),

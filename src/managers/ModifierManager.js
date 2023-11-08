@@ -29,7 +29,7 @@ export default class ModifierManager {
     return [
       this.#getAbilityModifier(),
       this.#getAbilityCheckBonus(),
-      this.#getGlobalAbilityCheckBonus(),
+      // this.#getGlobalAbilityCheckBonus(),
       this.#getExpertiseDice(),
       this.#getSituationalModifiers()
     ];
@@ -58,7 +58,7 @@ export default class ModifierManager {
       this.#getAbilitySaveModifier(),
       this.#getAbilitySaveBonus(),
       this.#getConcentrationBonus(),
-      this.#getGlobalSavingThrowBonus(),
+      // this.#getGlobalSavingThrowBonus(),
       this.#getExpertiseDice(),
       this.#getSituationalModifiers()
     ];
@@ -70,8 +70,8 @@ export default class ModifierManager {
       this.#getAbilityModifier(),
       this.#getSkillCheckBonus(),
       this.#getAbilityCheckBonus(),
-      this.#getGlobalSkillCheckBonus(),
-      this.#getGlobalAbilityCheckBonus(),
+      // this.#getGlobalSkillCheckBonus(),
+      // this.#getGlobalAbilityCheckBonus(),
       this.#getExpertiseDice(),
       this.#getSituationalModifiers()
     ];
@@ -86,7 +86,7 @@ export default class ModifierManager {
       label: localize('A5E.AbilityCheckBonus', {
         ability: CONFIG.A5E.abilities[ability]
       }),
-      value: this.actor.system.abilities[ability]?.check.bonus ?? null
+      value: this.actor.BonusesManager.getAbilityBonusesFormula(ability, 'check') || null
     };
   }
 
@@ -112,7 +112,7 @@ export default class ModifierManager {
       label: localize('A5E.AbilitySaveBonus', {
         ability: CONFIG.A5E.abilities[ability]
       }),
-      value: this.actor.system.abilities[ability]?.save.bonus ?? null
+      value: this.actor.BonusesManager.getAbilityBonusesFormula(ability, 'save') || null
     };
   }
 
@@ -233,13 +233,13 @@ export default class ModifierManager {
   }
 
   #getSkillCheckBonus() {
-    const { skill } = this.rollData;
+    const { ability, skill } = this.rollData;
 
     if (!skill) return null;
 
     return {
       label: localize('A5E.SkillCheckBonus', { skill: CONFIG.A5E.skills[skill] }),
-      value: this.actor.system.skills[skill]?.bonuses.check ?? null
+      value: this.actor.BonusesManager.getSkillBonusesFormula(skill, ability) || null
     };
   }
 
