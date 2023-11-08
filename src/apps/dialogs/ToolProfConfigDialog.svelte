@@ -50,11 +50,15 @@
     }
 
     const actor = new TJSDocument(actorDocument);
-    const artisansTools = CONFIG.A5E.toolsPlural.artisansTools;
-    const gamingSets = CONFIG.A5E.toolsPlural.gamingSets;
-    const musicalInstruments = CONFIG.A5E.toolsPlural.musicalInstruments;
-    const miscellaneous = CONFIG.A5E.toolsPlural.miscellaneous;
-    const vehicles = CONFIG.A5E.toolsPlural.vehicles;
+    const { A5E } = CONFIG;
+
+    const {
+        artisansTools,
+        gamingSets,
+        musicalInstruments,
+        miscellaneous,
+        vehicles,
+    } = A5E.toolsPlural;
 
     $: tools = submitDialog ? dialogTools : $actor.system.proficiencies.tools;
 
@@ -99,47 +103,52 @@
 
     <TagGroup
         heading="A5E.ToolsArtisanTools"
-        options={artisansTools}
+        options={Object.entries(artisansTools)}
         bind:selected={toolProficiencies.artisansTools}
         disabled={tools.length >= max}
-        red={submitDialog ? $actor.system.proficiencies.tools : false}
-        {updateFunction}
+        disabledOptions={submitDialog ? $actor.system.proficiencies.tools : []}
+        red={submitDialog ? $actor.system.proficiencies.tools : []}
+        on:updateSelection={() => updateFunction()}
     />
 
     <TagGroup
         heading="A5E.ToolsGamingSets"
-        options={gamingSets}
+        options={Object.entries(gamingSets)}
         bind:selected={toolProficiencies.gamingSets}
         disabled={tools.length >= max}
-        red={submitDialog ? $actor.system.proficiencies.tools : false}
-        {updateFunction}
+        disabledOptions={submitDialog ? $actor.system.proficiencies.tools : []}
+        red={submitDialog ? $actor.system.proficiencies.tools : []}
+        on:updateSelection={() => updateFunction()}
     />
 
     <TagGroup
         heading="A5E.MusicalInstruments"
-        options={musicalInstruments}
+        options={Object.entries(musicalInstruments)}
         bind:selected={toolProficiencies.musicalInstruments}
         disabled={tools.length >= max}
-        red={submitDialog ? $actor.system.proficiencies.tools : false}
-        {updateFunction}
+        disabledOptions={submitDialog ? $actor.system.proficiencies.tools : []}
+        red={submitDialog ? $actor.system.proficiencies.tools : []}
+        on:updateSelection={() => updateFunction()}
     />
 
     <TagGroup
         heading="A5E.ToolsMiscellaneous"
-        options={miscellaneous}
+        options={Object.entries(miscellaneous)}
         bind:selected={toolProficiencies.miscellaneous}
         disabled={tools.length >= max}
-        red={submitDialog ? $actor.system.proficiencies.tools : false}
-        {updateFunction}
+        disabledOptions={submitDialog ? $actor.system.proficiencies.tools : []}
+        red={submitDialog ? $actor.system.proficiencies.tools : []}
+        on:updateSelection={() => updateFunction()}
     />
 
     <TagGroup
         heading="A5E.ToolsVehicles"
-        options={vehicles}
+        options={Object.entries(vehicles)}
         bind:selected={toolProficiencies.vehicles}
         disabled={tools.length >= max}
-        red={submitDialog ? $actor.system.proficiencies.tools : false}
-        {updateFunction}
+        disabledOptions={submitDialog ? $actor.system.proficiencies.tools : []}
+        red={submitDialog ? $actor.system.proficiencies.tools : []}
+        on:updateSelection={() => updateFunction()}
     />
 
     <InputField

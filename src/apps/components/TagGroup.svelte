@@ -20,12 +20,13 @@
     const dispatch = createEventDispatcher();
 
     function toggleTag(tag) {
-        const newSelections = new Set(selected);
+        const tagIndex = selected.indexOf(tag);
 
-        if (newSelections.has(tag)) newSelections.delete(tag);
-        else newSelections.add(tag);
+        if (tagIndex === -1) selected.push(tag);
+        else selected.splice(tagIndex, 1);
 
-        dispatch("updateSelection", [...newSelections]);
+        dispatch("updateSelection", selected);
+        selected = selected;
     }
 
     function toggleAll() {
@@ -39,36 +40,6 @@
     }
 
     options = sort ? options.sort((a, b) => a[1] - b[1]) : options;
-
-    // export let disabled = false;
-    // export let heading = "";
-    // export let selected = [];
-    // export let red = false;
-    // export let sort = true;
-    // export let options = {};
-    // export let updateFunction;
-
-    // function toggleTag(tag) {
-    //     const tagIndex = selected.indexOf(tag);
-
-    //     if (tagIndex === -1) selected.push(tag);
-    //     else selected.splice(tagIndex, 1);
-
-    //     updateFunction();
-    // }
-
-    // function toggleAll() {
-    //     const optionKeys = tags.map(([key, _]) => key);
-    //     const selectedKeys = selected;
-
-    //     if (arraysAreEqual(optionKeys, selectedKeys)) selected = [];
-    //     else selected = optionKeys;
-
-    //     updateFunction();
-    // }
-
-    // tags = Object.entries(tags).map(([key, value]) => [key, localize(value)]);
-    // tags = sort ? tags.sort((a, b) => a[1] - b[1]) : tags;
 </script>
 
 <section class="a5e-form__section">
