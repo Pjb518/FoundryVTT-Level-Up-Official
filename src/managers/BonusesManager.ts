@@ -48,10 +48,15 @@ export default class BonusesManager {
    * Wrapper for {@link getSkillBonuses} that returns a formula string instead of an array.
    * @param skillKey
    * @param abilityKey
+   * @param includeAbilityBonuses
    * @returns
    */
-  getSkillBonusesFormula(skillKey: string, abilityKey: string): string {
-    const parts = this.getSkillBonuses(skillKey, abilityKey);
+  getSkillBonusesFormula(
+    skillKey: string,
+    abilityKey?: string,
+    includeAbilityBonuses: boolean = true
+  ): string {
+    const parts = this.getSkillBonuses(skillKey, abilityKey, includeAbilityBonuses);
     return parts.join(' + ');
   }
 
@@ -137,9 +142,14 @@ export default class BonusesManager {
    *
    * @param skillKey
    * @param abilityKey
+   * @param includeAbilityBonuses
    * @returns
    */
-  getSkillBonuses(skillKey: string, abilityKey?: string) {
+  getSkillBonuses(
+    skillKey: string,
+    abilityKey?: string,
+    includeAbilityBonuses: boolean = true
+  ): string[] {
     const bonuses = this.#bonuses.skills;
     const skill = this.#actor.system.skills[skillKey];
     const defaultAbility = skill.ability;
@@ -155,8 +165,9 @@ export default class BonusesManager {
       return acc;
     }, []);
 
-    const abilityParts = this.getAbilityBonuses(abilityKey ?? defaultAbility, 'check');
+    if (!includeAbilityBonuses) return skillParts;
 
+    const abilityParts = this.getAbilityBonuses(abilityKey ?? defaultAbility, 'check');
     return [...abilityParts, ...skillParts];
   }
 
