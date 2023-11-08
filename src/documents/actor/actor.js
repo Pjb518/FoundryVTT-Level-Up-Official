@@ -454,7 +454,7 @@ export default class ActorA5e extends Actor {
       skill.deterministicBonus = deterministicBonus ?? skill.mod;
 
       try {
-        skill.passive = this._calculatePassiveScore(skill);
+        skill.passive = this._calculatePassiveScore(key, skill);
       } catch {
         // eslint-disable-next-line no-console
         console.error(`Couldn't calculate a ${skillName} passive score for ${this.name}`);
@@ -687,19 +687,20 @@ export default class ActorA5e extends Actor {
     return data;
   }
 
-  _calculatePassiveScore(skill) {
+  _calculatePassiveScore(skillKey, skill) {
     const rollData = this.getRollData();
 
     return getDeterministicBonus([
       10,
       skill.deterministicBonus,
-      skill.bonuses.passive,
+      this.BonusesManager.getSkillBonusesFormula(skillKey, skill.ability, 'passive', false).trim(),
+      // skill.bonuses.passive, TODO: Remove this as part of bonuses refactor
       rollData.abilities[skill.ability]?.check?.deterministicBonus ?? 0,
-      skill.expertiseDice ? 3 : 0
+      skill.expertiseDice ? 3 : 0,
 
       // TODO: Part of Refactor of bonuses touchup
       // Remove the double addition of the global check bonus
-      // `- ${getDeterministicBonus(rollData.bonuses.abilities.check.trim(), rollData)}`
+      `- ${getDeterministicBonus(this.BonusesManager.getGlobalAbilityBonusesFormula('check').trim(), rollData)}`
     ].filter(Boolean).join(' + '), rollData);
   }
 
