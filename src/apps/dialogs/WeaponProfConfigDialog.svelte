@@ -48,9 +48,9 @@
     }
 
     const actor = new TJSDocument(actorDocument);
-    const martialWeapons = CONFIG.A5E.weaponsPlural.martial;
-    const rareWeapons = CONFIG.A5E.weaponsPlural.rare;
-    const simpleWeapons = CONFIG.A5E.weaponsPlural.simple;
+    const { A5E } = CONFIG;
+
+    const { martial, rare, simple } = A5E.weaponsPlural;
 
     $: weapons = submitDialog
         ? dialogWeapons
@@ -58,11 +58,11 @@
 
     $: weaponProficiencies = weapons.reduce(
         (acc, curr) => {
-            if (Object.keys(martialWeapons).includes(curr)) {
+            if (Object.keys(martial).includes(curr)) {
                 acc.martial.push(curr);
-            } else if (Object.keys(simpleWeapons).includes(curr)) {
+            } else if (Object.keys(simple).includes(curr)) {
                 acc.simple.push(curr);
-            } else if (Object.keys(rareWeapons).includes(curr)) {
+            } else if (Object.keys(rare).includes(curr)) {
                 acc.rare.push(curr);
             } else {
                 acc.other.push(curr);
@@ -84,29 +84,38 @@
 <form class="a5e-form u-py-lg u-px-xl a5e-form--reactive-dialog u-bg-none">
     <TagGroup
         heading="A5E.WeaponsSimple"
-        options={simpleWeapons}
+        options={Object.entries(simple)}
         bind:selected={weaponProficiencies.simple}
         disabled={weapons.length >= max}
-        red={submitDialog ? $actor.system.proficiencies.weapons : false}
-        {updateFunction}
+        disabledOptions={submitDialog
+            ? $actor.system.proficiencies.weapons
+            : []}
+        red={submitDialog ? $actor.system.proficiencies.weapons : []}
+        on:updateSelection={() => updateFunction()}
     />
 
     <TagGroup
         heading="A5E.WeaponsMartial"
-        options={martialWeapons}
+        options={Object.entries(martial)}
         bind:selected={weaponProficiencies.martial}
         disabled={weapons.length >= max}
-        red={submitDialog ? $actor.system.proficiencies.weapons : false}
-        {updateFunction}
+        disabledOptions={submitDialog
+            ? $actor.system.proficiencies.weapons
+            : []}
+        red={submitDialog ? $actor.system.proficiencies.weapons : []}
+        on:updateSelection={() => updateFunction()}
     />
 
     <TagGroup
         heading="A5E.WeaponsRare"
-        options={rareWeapons}
+        options={Object.entries(rare)}
         bind:selected={weaponProficiencies.rare}
         disabled={weapons.length >= max}
-        red={submitDialog ? $actor.system.proficiencies.weapons : false}
-        {updateFunction}
+        disabledOptions={submitDialog
+            ? $actor.system.proficiencies.weapons
+            : []}
+        red={submitDialog ? $actor.system.proficiencies.weapons : []}
+        on:updateSelection={() => updateFunction()}
     />
 
     <InputField
