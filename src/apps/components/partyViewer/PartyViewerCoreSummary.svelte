@@ -2,19 +2,47 @@
     export let actor;
     export let propData = {};
 
+    function convertToPercentage(value) {
+        return `${value}%`;
+    }
+
+    function calculatePrimaryHPColor(hp) {
+        const hpPercentage = Math.min((hp.value / hp.max) * 100, 100);
+        return `hsl(${Math.round(hpPercentage)}, 50%, 35%)`;
+    }
+
+    function calculateTotalHPPercentage(hp) {
+        const tempHP = hp.temp || 0;
+
+        return Math.min(
+            ((hp.value + (hp.temp || 0)) / (hp.max + tempHP)) * 100,
+            100
+        );
+    }
+
     $: actorData = $actor?.system;
     $: isBloodied =
         $actor?.system?.attributes.hp.max / 2 >=
         $actor?.system?.attributes.hp.value;
+
+    $: hp = $actor?.system?.attributes.hp;
+    $: totalHPPercentage = convertToPercentage(calculateTotalHPPercentage(hp));
+
+    $: primaryHPColor = calculatePrimaryHPColor(hp);
 </script>
 
 <span
-    class="field field--hp"
-    class:field--highlight-red={isBloodied}
+    class="field field--hp field--highlight-hp"
+    style="
+        --color-primary-hp-bar: {primaryHPColor};
+        --total-hp-percentage: {totalHPPercentage};
+    "
     data-tooltip={isBloodied ? `${$actor.name} is Bloodied` : null}
     data-tooltip-direction="UP"
 >
-    {actorData?.attributes.hp.value} / {actorData?.attributes.hp.max}
+    <span class="color-blend">
+        {actorData?.attributes.hp.value} / {actorData?.attributes.hp.max}
+    </span>
 </span>
 
 <span class="field field--ac">
@@ -94,11 +122,16 @@
             border-radius: 3px;
         }
 
-        &--highlight-red {
-            background: $color-secondary;
-            color: white;
-            border: 1px solid darken($color-secondary, 5%);
+        &--highlight-hp {
             border-radius: 3px;
+            color: white;
+            text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000,
+                1px 1px 0 #000;
+            background: linear-gradient(
+                90deg,
+                var(--color-primary-hp-bar) var(--total-hp-percentage),
+                transparent var(--total-hp-percentage)
+            );
         }
     }
 </style>
