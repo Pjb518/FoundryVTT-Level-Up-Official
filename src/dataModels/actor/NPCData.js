@@ -21,7 +21,8 @@ export default class NPCData extends BaseActorData {
       details: new fields.SchemaField({
         cr: new fields.NumberField({ required: true, initial: 0, integer: true }),
         elite: new fields.BooleanField({ required: true, initial: false }),
-        privateNotes: new fields.StringField({ required: true, initial: '' })
+        notes: new fields.HTMLField({ required: true, initial: '' }),
+        privateNotes: new fields.HTMLField({ required: true, initial: '' })
       })
     });
   }
