@@ -2,18 +2,23 @@
     import { localize } from "#runtime/svelte/helper";
     import { getContext } from "svelte";
 
+    import getActionScalingModes from "../../../utils/getActionScalingModes";
+
     import Checkbox from "../Checkbox.svelte";
     import FormSection from "../FormSection.svelte";
     import RadioGroup from "../RadioGroup.svelte";
-    import { empty } from "svelte/internal";
 
     export let consumers;
     export let spellData;
 
+    console.log(consumers);
+
     const actionId = getContext("actionId");
     const actor = getContext("actor");
     const item = getContext("item");
+
     const { A5E } = CONFIG;
+    const action = $item.actions[actionId];
     const spellLevels = Object.entries(A5E.spellLevels).slice(1);
 
     const consumeOptions = {
@@ -91,12 +96,22 @@
 
     spellData.level = consumer.spellLevel ?? $item.system?.level ?? 1;
     spellData.points =
-        consumer.points ?? A5E.spellLevelCost[$item.system?.level ?? 1] ?? 1;
+        consumer.points ?? A5E.spellLevelCost[$item.system?.level] ?? 1;
     spellData.basePoints = consumer.points ?? 1;
     spellData.baseLevel = consumer.spellLevel ?? 1;
 
     if (foundry.utils.isEmpty(consumer)) {
         spellData.consume = "noConsume";
+
+        // Set up mode based on scaling type if consumer is empty
+        const scalingTypes = getActionScalingModes(action);
+        if (scalingTypes.length) {
+            if (scalingTypes.includes("spellPoints")) mode = "pointsOnly";
+            else if (scalingTypes.includes("spellSlots")) mode = "spellsOnly";
+
+            // Set base points and level to 0 since no consumer data is available
+            spellData.basePoints = 0;
+        }
     } else {
         spellData.consume =
             mode === "pointsOnly"
