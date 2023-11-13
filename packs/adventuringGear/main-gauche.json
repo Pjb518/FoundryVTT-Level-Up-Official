@@ -1,22 +1,22 @@
 {
-	"name": "Crossbow, Hand",
+	"name": "Main-Gauche",
 	"type": "object",
-	"img": "icons/weapons/crossbows/crossbow-simple-red.webp",
+	"img": "icons/weapons/daggers/dagger-double-skull-pink.webp",
 	"effects": [],
 	"flags": {},
 	"system": {
 		"ac": {
-			"baseFormula": "",
+			"baseFormula": "1",
 			"formula": "",
 			"maxDex": 0,
 			"minStr": 0,
 			"mode": 1,
-			"requiresNoShield": false,
+			"requiresNoShield": true,
 			"requiresUnarmored": false
 		},
 		"actions": {
-			"OJ0AdxkpGvLfaD8m": {
-				"name": "Crossbow, Hand",
+			"CYURkv9sK45wkGZn": {
+				"name": "Main-Gauche",
 				"activation": {
 					"cost": "",
 					"type": "",
@@ -26,14 +26,6 @@
 					"unit": "",
 					"value": ""
 				},
-				"ranges": {
-					"jPwREz9dJI2uMLtY": {
-						"range": "short"
-					},
-					"lOTRHbWu3K4Fhy7O": {
-						"range": "long"
-					}
-				},
 				"area": {
 					"shape": "",
 					"size": "",
@@ -42,34 +34,28 @@
 				},
 				"target": {
 					"quantity": 1,
-					"type": "creatureObject"
+					"type": "object"
 				},
 				"rolls": {
-					"t4gqH6KlcO38mSXa": {
+					"gdR2mGnYfGBsk2ZY": {
 						"bonus": "",
 						"critThreshold": "20",
 						"type": "attack",
-						"attackType": "rangedWeaponAttack",
+						"attackType": "meleeWeaponAttack",
 						"ability": "default"
 					},
-					"Ep5w88NM8704kD0S": {
+					"ut4E7BIwVCXdj5oE": {
 						"canCrit": true,
 						"damageType": "piercing",
-						"formula": "1d6 + @dex.mod",
-						"name": "Hand Crossbow",
+						"formula": "1d4 + @finesse.mod",
+						"name": "Dagger",
 						"type": "damage"
 					}
 				},
-				"consumers": {
-					"NUfLuI7GVPvtchwD": {
-						"itemid": "",
-						"quantity": 1,
-						"type": "ammunition"
-					}
-				}
+				"consumers": {}
 			},
-			"NyfoWpnfeGLP10At": {
-				"name": "Crossbow, Hand (Off-Hand)",
+			"911iDf2vrTJjuO4V": {
+				"name": "Main-Gauche (Off-Hand)",
 				"activation": {
 					"cost": "",
 					"type": "",
@@ -79,14 +65,6 @@
 					"unit": "",
 					"value": ""
 				},
-				"ranges": {
-					"jPwREz9dJI2uMLtY": {
-						"range": "short"
-					},
-					"lOTRHbWu3K4Fhy7O": {
-						"range": "long"
-					}
-				},
 				"area": {
 					"shape": "",
 					"size": "",
@@ -95,40 +73,83 @@
 				},
 				"target": {
 					"quantity": 1,
-					"type": "creatureObject"
+					"type": "object"
 				},
 				"rolls": {
-					"t4gqH6KlcO38mSXa": {
+					"gdR2mGnYfGBsk2ZY": {
 						"bonus": "",
 						"critThreshold": "20",
 						"type": "attack",
-						"attackType": "rangedWeaponAttack",
+						"attackType": "meleeWeaponAttack",
 						"ability": "default"
 					},
-					"Ep5w88NM8704kD0S": {
+					"ut4E7BIwVCXdj5oE": {
 						"canCrit": true,
 						"damageType": "piercing",
-						"formula": "1d6 + min(@dex.mod,0)",
-						"name": "Hand Crossbow",
+						"formula": "1d4 + min(@finesse.mod,0)",
+						"name": "Dagger",
 						"type": "damage"
 					}
 				},
+				"consumers": {}
+			},
+			"gaa5lYCeSG7GqNX9": {
+				"name": "Throw",
+				"activation": {
+					"type": "action",
+					"cost": 1
+				},
 				"consumers": {
-					"NUfLuI7GVPvtchwD": {
-						"itemid": "",
-						"quantity": 1,
-						"type": "ammunition"
+					"zFE9UqEOv0UBCD6r": {
+						"type": "itemUses",
+						"default": true,
+						"quantity": 1
+					}
+				},
+				"rolls": {
+					"zewrmShN8LS3AwEi": {
+						"type": "attack",
+						"default": true,
+						"attackType": "rangedWeaponAttack",
+						"proficient": false,
+						"ability": "default",
+						"label": "Improvised Weapon"
+					},
+					"XTo4JXjGiVnWggpB": {
+						"type": "damage",
+						"default": true,
+						"formula": "1d6",
+						"damageType": "bludgeoning"
+					}
+				},
+				"prompts": {},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"threshold": 6
+					}
+				},
+				"ranges": {
+					"zeWTAVnYDXqQSyWI": {
+						"range": 20,
+						"unit": "feet"
+					},
+					"bZ6p1htVyAXwDkJx": {
+						"range": "medium"
 					}
 				}
 			}
 		},
-		"description": "<p><em>Dual-Wielding, Loading, Range (30/120)</em></p>",
+		"description": "<p><em>Dual-Wielding, Finesse, Simple, Thrown</em></p>\n<p>&nbsp;</p>\n<p>This&nbsp;parrying dagger may be used as a @UUID[Compendium.a5e.a5e-adventuring-gear.Item.vzmgutyegssa2akj]{Dagger} or as&nbsp;a @UUID[Compendium.a5e.a5e-adventuring-gear.Item.xy2bn4687azmkadw]{Shield, Light}.</p>",
 		"favorite": false,
 		"secretDescription": "",
 		"source": "",
 		"uses": {
-			"value": null,
-			"max": "",
+			"value": 1,
+			"max": "1",
 			"per": null,
 			"recharge": {
 				"formula": "1d6",
@@ -152,7 +173,7 @@
 		"materialProperties": [],
 		"objectType": "weapon",
 		"plotItem": false,
-		"price": "60 gp",
+		"price": "4 gp",
 		"proficient": true,
 		"quantity": 1,
 		"rarity": "mundane",
@@ -164,10 +185,11 @@
 		"unidentifiedName": "",
 		"weaponProperties": [
 			"dualWielding",
-			"loading",
-			"range"
+			"finesse",
+			"simple",
+			"thrown"
 		],
-		"weight": 3,
+		"weight": 1,
 		"schemaVersion": {
 			"version": 0.009,
 			"lastMigration": {
@@ -180,5 +202,5 @@
 		}
 	},
 	"folder": null,
-	"_id": "y5b8gyl8oekwj44y"
+	"_id": "m0t3mayanyjg1kgq"
 }

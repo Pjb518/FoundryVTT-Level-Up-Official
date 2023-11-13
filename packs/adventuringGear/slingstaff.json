@@ -1,48 +1,8 @@
 {
-	"name": "Pike",
+	"name": "Slingstaff",
 	"type": "object",
-	"img": "icons/weapons/polearms/spear-hooked-spike.webp",
-	"effects": [
-		{
-			"icon": "icons/weapons/polearms/spear-hooked-spike.webp",
-			"origin": "Item.BQNrq9waSlRDgnoj",
-			"flags": {
-				"a5e": {
-					"sort": 0,
-					"transferType": "onUse",
-					"actionId": "v3bptQ9yjfEMnfwo",
-					"duration": {
-						"type": "rounds",
-						"unit": "minutes"
-					}
-				}
-			},
-			"transfer": false,
-			"name": "AC +1",
-			"_id": "Lfgy559EtlC4KF80",
-			"changes": [
-				{
-					"key": "system.attributes.ac.changes.bonuses.value",
-					"value": "1",
-					"mode": 2,
-					"priority": null
-				}
-			],
-			"disabled": false,
-			"duration": {
-				"startTime": null,
-				"seconds": null,
-				"combat": null,
-				"rounds": null,
-				"turns": 1,
-				"startRound": null,
-				"startTurn": null
-			},
-			"description": "",
-			"statuses": [],
-			"folder": null
-		}
-	],
+	"img": "icons/weapons/staves/staff-forked-wood.webp",
+	"effects": [],
 	"flags": {},
 	"system": {
 		"ac": {
@@ -55,8 +15,8 @@
 			"requiresUnarmored": false
 		},
 		"actions": {
-			"4XhyMau1otApbBAy": {
-				"name": "Pike",
+			"kCg6rq5fMTR4DASN": {
+				"name": "Quarterstaff",
 				"activation": {
 					"cost": "",
 					"type": "",
@@ -77,44 +37,74 @@
 					"type": "creatureObject"
 				},
 				"rolls": {
-					"c8fg8myLZcaf3swR": {
+					"kIPu7GmdIzAicMJ7": {
 						"bonus": "",
 						"critThreshold": "20",
 						"type": "attack",
 						"attackType": "meleeWeaponAttack",
 						"ability": "default"
 					},
-					"t4JpiB3Z2pg2qMtp": {
+					"pkL2dfIfjmcWiwlT": {
 						"canCrit": true,
-						"damageType": "piercing",
-						"formula": "1d10 + @str.mod",
-						"name": "",
+						"damageType": "bludgeoning",
+						"formula": "1d6 + @str.mod",
+						"name": "Quarterstaff",
 						"type": "damage"
 					}
 				},
 				"consumers": {}
 			},
-			"LqC6wcB4ABQAyWQU": {
-				"name": "Attack With Shield",
-				"activation": {
-					"type": "bonusAction",
-					"cost": 1
-				},
+			"FOj2ScsPwVxtedNv": {
+				"name": "Parry",
+				"activation": {},
 				"consumers": {},
 				"rolls": {
-					"PIrw82rB4OXOwLTp": {
+					"Wr28F3fXpV7iLaWM": {
+						"type": "generic",
+						"default": true,
+						"label": "Armor Class",
+						"formula": "1d4"
+					}
+				},
+				"prompts": {},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"threshold": 6
+					}
+				}
+			},
+			"Gv3I8On3XkJSQkBR": {
+				"name": "Sling",
+				"activation": {
+					"cost": "",
+					"type": "",
+					"reactionTrigger": ""
+				},
+				"consumers": {
+					"GLKHGKOE3LEORmdg": {
+						"itemid": "",
+						"quantity": 1,
+						"type": "ammunition"
+					}
+				},
+				"rolls": {
+					"UyDl6IOvRDvCNDz4": {
+						"bonus": "",
+						"critThreshold": "20",
 						"type": "attack",
-						"default": true,
-						"attackType": "meleeWeaponAttack",
-						"proficient": false,
-						"ability": "none",
-						"label": "Improvised Weapon"
+						"attackType": "rangedWeaponAttack",
+						"ability": "default"
 					},
-					"liKyWako9ZBgGHin": {
-						"type": "damage",
-						"default": true,
-						"formula": "1d4",
-						"damageType": "bludgeoning"
+					"fekJy8k9ck3TCDqg": {
+						"canCrit": true,
+						"damageType": "bludgeoning",
+						"formula": "1d4 + @dex.mod",
+						"name": "Sling Bullet",
+						"type": "damage"
 					}
 				},
 				"prompts": {},
@@ -127,45 +117,32 @@
 						"threshold": 6
 					}
 				},
-				"img": "icons/weapons/polearms/spear-hooked-spike.webp"
-			},
-			"T7HPduDsUq3Ct6pe": {
-				"name": "AC +1",
-				"activation": {
-					"type": "bonusAction",
-					"cost": 1
-				},
-				"consumers": {},
-				"rolls": {},
-				"prompts": {
-					"VzXK3rJS1p0jCl6M": {
-						"type": "effect",
-						"default": true,
-						"effectId": ""
-					},
-					"aihw6klbt8X6LdFS": {
-						"type": "effect",
-						"default": true,
-						"effectId": ""
-					}
-				},
-				"uses": {
-					"value": 0,
-					"max": "",
-					"per": "",
-					"recharge": {
-						"formula": "1d6",
-						"threshold": 6
-					}
-				},
 				"duration": {
-					"unit": "turn",
-					"value": 1
+					"unit": "",
+					"value": ""
 				},
-				"img": "icons/weapons/polearms/spear-hooked-spike.webp"
+				"ranges": {
+					"mPGaFLcdTyW77t9m": {
+						"range": "short"
+					},
+					"lG4GqH7d8ubYfjJY": {
+						"range": "long"
+					}
+				},
+				"area": {
+					"shape": "",
+					"size": "",
+					"placeTemplate": false,
+					"quantity": 1
+				},
+				"target": {
+					"quantity": 1,
+					"type": "creatureObject"
+				},
+				"img": "icons/weapons/staves/staff-forked-wood.webp"
 			}
 		},
-		"description": "<p><em>Defensive (Heavy), Heavy, Reach (Disadvantage when attacking a target within 5 ft of you)</em></p>",
+		"description": "<p><em>Parrying, Range, Simple, Two-Handed</em></p>\n<p>&nbsp;</p>\n<p>This weapon can&nbsp;be used as a @UUID[Compendium.a5e.a5e-adventuring-gear.Item.h2g2hdq2i3uqbhvh]{Quarterstaff} or as a @UUID[Compendium.a5e.a5e-adventuring-gear.Item.ar70p2c2w6lkwsh2]{Sling}.</p>",
 		"favorite": false,
 		"secretDescription": "",
 		"source": "",
@@ -195,7 +172,7 @@
 		"materialProperties": [],
 		"objectType": "weapon",
 		"plotItem": false,
-		"price": "5 gp",
+		"price": "1 gp",
 		"proficient": true,
 		"quantity": 1,
 		"rarity": "mundane",
@@ -206,11 +183,12 @@
 		"unidentifiedDescription": "",
 		"unidentifiedName": "",
 		"weaponProperties": [
-			"defensive",
-			"heavy",
-			"reach"
+			"parrying",
+			"simple",
+			"twoHanded",
+			"range"
 		],
-		"weight": 13,
+		"weight": 4,
 		"schemaVersion": {
 			"version": 0.009,
 			"lastMigration": {
@@ -223,5 +201,5 @@
 		}
 	},
 	"folder": null,
-	"_id": "u10xjhy1oqp26jmt"
+	"_id": "xci4f3anqcby2sau"
 }

@@ -1,7 +1,7 @@
 {
-	"name": "Mercurial Maul",
+	"name": "Hooked Hammer",
 	"type": "object",
-	"img": "icons/weapons/hammers/hammer-double-bronze.webp",
+	"img": "icons/tools/hand/pickaxe-worn-steel-grey.webp",
 	"effects": [],
 	"flags": {},
 	"system": {
@@ -15,8 +15,8 @@
 			"requiresUnarmored": false
 		},
 		"actions": {
-			"JsoTGtmjLpgR2WRO": {
-				"name": "Mercurial Maul",
+			"vyRQ7uPQugLDVOn6": {
+				"name": "Hooked Hammer",
 				"activation": {
 					"cost": "",
 					"type": "",
@@ -36,25 +36,36 @@
 					"type": "creatureObject"
 				},
 				"rolls": {
-					"j7IQFdPLo8uVl0Gy": {
+					"sz34o0lZChAfzq92": {
 						"bonus": "",
 						"critThreshold": "20",
 						"type": "attack",
 						"attackType": "meleeWeaponAttack",
 						"ability": "default"
 					},
-					"tlHdp4Dy9TvnOfJx": {
+					"avEzM2ldJEDhQEPF": {
 						"canCrit": true,
-						"damageType": "bludgeoning",
-						"formula": "max(2d6,4) + @str.mod",
-						"name": "",
-						"type": "damage"
+						"damageType": "",
+						"formula": "1d6 + @str.mod",
+						"name": "Warhammer 1H",
+						"type": "damage",
+						"label": "One-Handed",
+						"default": false
+					},
+					"I2YLTXoFuKJbZoVE": {
+						"canCrit": true,
+						"damageType": "",
+						"formula": "1d8 + @str.mod",
+						"name": "Warhammer 2H",
+						"type": "damage",
+						"label": "Two-Handed",
+						"default": false
 					}
 				},
 				"consumers": {}
 			}
 		},
-		"description": "<p><em>Breaker, Heavy, Two-Handed</em></p>",
+		"description": "<p><em>Breaker, Trip, Versatile (1d8)</em></p>\n<p>&nbsp;</p>\n<p>This&nbsp;uses the statistics of a small @UUID[Compendium.a5e.a5e-adventuring-gear.Item.7zqufxbzhih9yfsw]{Warhammer} which&nbsp;does 1d6 bludgeoning or piercing damage and&nbsp;has the trip property.</p>",
 		"favorite": false,
 		"secretDescription": "",
 		"source": "",
@@ -84,10 +95,10 @@
 		"materialProperties": [],
 		"objectType": "weapon",
 		"plotItem": false,
-		"price": "150 gp",
+		"price": "15 gp",
 		"proficient": true,
 		"quantity": 1,
-		"rarity": "rare",
+		"rarity": "mundane",
 		"requiresAttunement": false,
 		"shieldCategory": "",
 		"shieldProperties": [],
@@ -95,11 +106,11 @@
 		"unidentifiedDescription": "",
 		"unidentifiedName": "",
 		"weaponProperties": [
-			"twoHanded",
-			"heavy",
-			"breaker"
+			"versatile",
+			"breaker",
+			"trip"
 		],
-		"weight": 15,
+		"weight": 3,
 		"schemaVersion": {
 			"version": 0.009,
 			"lastMigration": {
@@ -112,5 +123,5 @@
 		}
 	},
 	"folder": null,
-	"_id": "ky37gm57e3li890a"
+	"_id": "tn39538y9wdu353r"
 }

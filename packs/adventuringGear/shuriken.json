@@ -1,7 +1,7 @@
 {
-	"name": "Sword Pistol",
+	"name": "Shuriken",
 	"type": "object",
-	"img": "icons/weapons/guns/rifle-bayonet.webp",
+	"img": "icons/weapons/thrown/shuriken-blue.webp",
 	"effects": [],
 	"flags": {},
 	"system": {
@@ -15,11 +15,11 @@
 			"requiresUnarmored": false
 		},
 		"actions": {
-			"pHSY0daEcSVr3fVt": {
-				"name": "Melee",
+			"JTO3hGtAyZssEli0": {
+				"name": "Shuriken",
 				"activation": {
-					"cost": 1,
-					"type": "action",
+					"cost": "",
+					"type": "",
 					"reactionTrigger": ""
 				},
 				"duration": {
@@ -27,8 +27,12 @@
 					"value": ""
 				},
 				"ranges": {
-					"LlIvTiQyFM3eYkHB": {
-						"range": "fiveFeet"
+					"ZuUYJLAhjiO1GOiW": {
+						"range": "short"
+					},
+					"DJyRaY8KxorZKyHx": {
+						"range": 80,
+						"unit": "feet"
 					}
 				},
 				"area": {
@@ -42,28 +46,28 @@
 					"type": "creatureObject"
 				},
 				"rolls": {
-					"rXQCoFzTnaePHn9X": {
+					"lyAyT0URSjDZIBiq": {
 						"bonus": "",
 						"critThreshold": "20",
 						"type": "attack",
-						"attackType": "",
+						"attackType": "rangedWeaponAttack",
 						"ability": "default"
 					},
-					"lkcXyE2EtrFzRLYa": {
+					"NhOLH98GeEo8NO8M": {
 						"canCrit": true,
 						"damageType": "piercing",
-						"formula": "1d8 + @finesse.mod",
-						"name": "Sword Pistol",
+						"formula": "1",
+						"name": "Throwing Dagger",
 						"type": "damage"
 					}
 				},
 				"consumers": {}
 			},
-			"TVASPj7igVktVFkg": {
-				"name": "Fire",
+			"cyEACYubaiB6MNna": {
+				"name": "Shuriken (Off-Hand)",
 				"activation": {
-					"cost": 1,
-					"type": "action",
+					"cost": "",
+					"type": "",
 					"reactionTrigger": ""
 				},
 				"duration": {
@@ -71,63 +75,12 @@
 					"value": ""
 				},
 				"ranges": {
-					"LlIvTiQyFM3eYkHB": {
-						"range": 10,
-						"unit": "feet"
-					},
-					"CaVQ2Jfh3jhOVVWy": {
+					"ZuUYJLAhjiO1GOiW": {
 						"range": "short"
-					}
-				},
-				"area": {
-					"shape": "",
-					"size": "",
-					"placeTemplate": false,
-					"quantity": 1
-				},
-				"target": {
-					"quantity": 1,
-					"type": "creatureObject"
-				},
-				"rolls": {
-					"rXQCoFzTnaePHn9X": {
-						"bonus": "",
-						"critThreshold": "20",
-						"type": "attack",
-						"attackType": "rangedWeaponAttack",
-						"ability": "dex"
 					},
-					"lkcXyE2EtrFzRLYa": {
-						"canCrit": true,
-						"damageType": "piercing",
-						"formula": "1d8 + @dex.mod",
-						"name": "Sword Pistol",
-						"type": "damage"
-					}
-				},
-				"consumers": {
-					"DAclG0Jr8A4bHkPE": {
-						"type": "ammunition",
-						"default": true,
-						"itemId": "",
-						"quantity": 1
-					}
-				}
-			},
-			"EHCpC0Fl8n4MB25f": {
-				"name": "Melee Fire",
-				"activation": {
-					"cost": 1,
-					"type": "reaction",
-					"reactionTrigger": ""
-				},
-				"duration": {
-					"unit": "",
-					"value": ""
-				},
-				"ranges": {
-					"LlIvTiQyFM3eYkHB": {
-						"range": "fiveFeet"
+					"DJyRaY8KxorZKyHx": {
+						"range": 80,
+						"unit": "feet"
 					}
 				},
 				"area": {
@@ -141,37 +94,138 @@
 					"type": "creatureObject"
 				},
 				"rolls": {
-					"rXQCoFzTnaePHn9X": {
-						"bonus": "1d6",
+					"lyAyT0URSjDZIBiq": {
+						"bonus": "",
 						"critThreshold": "20",
 						"type": "attack",
 						"attackType": "rangedWeaponAttack",
 						"ability": "default"
 					},
-					"lkcXyE2EtrFzRLYa": {
+					"NhOLH98GeEo8NO8M": {
 						"canCrit": true,
 						"damageType": "piercing",
-						"formula": "1d8 + @finesse.mod",
-						"name": "Sword Pistol",
+						"formula": "1",
+						"name": "Throwing Dagger",
+						"type": "damage"
+					}
+				},
+				"consumers": {}
+			},
+			"3CJJdYZhYYyzUr4E": {
+				"name": "Shuriken (Throw)",
+				"activation": {
+					"cost": "",
+					"type": "",
+					"reactionTrigger": ""
+				},
+				"duration": {
+					"unit": "",
+					"value": ""
+				},
+				"ranges": {
+					"ZuUYJLAhjiO1GOiW": {
+						"range": "short"
+					},
+					"DJyRaY8KxorZKyHx": {
+						"range": 80,
+						"unit": "feet"
+					}
+				},
+				"area": {
+					"shape": "",
+					"size": "",
+					"placeTemplate": false,
+					"quantity": 1
+				},
+				"target": {
+					"quantity": 1,
+					"type": "creatureObject"
+				},
+				"rolls": {
+					"lyAyT0URSjDZIBiq": {
+						"bonus": "",
+						"critThreshold": "20",
+						"type": "attack",
+						"attackType": "rangedWeaponAttack",
+						"ability": "default"
+					},
+					"NhOLH98GeEo8NO8M": {
+						"canCrit": true,
+						"damageType": "piercing",
+						"formula": "1d4 + @finesse.mod",
+						"name": "Throwing Dagger",
 						"type": "damage"
 					}
 				},
 				"consumers": {
-					"JO4YYgJ5U3UdGnn9": {
-						"type": "ammunition",
+					"oOSgg4oiwIzpTiZg": {
+						"type": "itemUses",
 						"default": true,
-						"itemId": "",
+						"quantity": 1
+					}
+				}
+			},
+			"8QCI204NBeNVt4OW": {
+				"name": "Shuriken (Throw, Off-Hand)",
+				"activation": {
+					"cost": "",
+					"type": "",
+					"reactionTrigger": ""
+				},
+				"duration": {
+					"unit": "",
+					"value": ""
+				},
+				"ranges": {
+					"ZuUYJLAhjiO1GOiW": {
+						"range": "short"
+					},
+					"DJyRaY8KxorZKyHx": {
+						"range": 80,
+						"unit": "feet"
+					}
+				},
+				"area": {
+					"shape": "",
+					"size": "",
+					"placeTemplate": false,
+					"quantity": 1
+				},
+				"target": {
+					"quantity": 1,
+					"type": "creatureObject"
+				},
+				"rolls": {
+					"lyAyT0URSjDZIBiq": {
+						"bonus": "",
+						"critThreshold": "20",
+						"type": "attack",
+						"attackType": "rangedWeaponAttack",
+						"ability": "default"
+					},
+					"NhOLH98GeEo8NO8M": {
+						"canCrit": true,
+						"damageType": "piercing",
+						"formula": "1d4 + min(@finesse.mod,0)",
+						"name": "Throwing Dagger",
+						"type": "damage"
+					}
+				},
+				"consumers": {
+					"JWCCBfKjm0d9Mpbp": {
+						"type": "itemUses",
+						"default": true,
 						"quantity": 1
 					}
 				}
 			}
 		},
-		"description": "<p><em>Finesse, Loading, Range (10/30)</em></p><hr class=\"a5e-rule u-my-md\"><p>When this weapon is used to hit a target with a melee weapon attack, you can use your reaction to fire the gun in the handle, gaining a <strong>1d6</strong> expertise die on an immediate ranged weapon attack against the same target.</p>",
+		"description": "<p><em>Dual-Wielding, Finesse, Quickdraw, Thrown (30/80)</em></p>\n<p>&nbsp;</p>\n<p>This weapon&nbsp;uses the statistics of a @UUID[Compendium.a5e.a5e-adventuring-gear.Item.waqd98z0mqohxxz2]{Dagger, Throwing}. It can only do 1 damage in melee. It has the quickdraw&nbsp;property.</p>",
 		"favorite": false,
 		"secretDescription": "",
 		"source": "",
 		"uses": {
-			"value": null,
+			"value": 1,
 			"max": "",
 			"per": null,
 			"recharge": {
@@ -196,10 +250,10 @@
 		"materialProperties": [],
 		"objectType": "weapon",
 		"plotItem": false,
-		"price": "200 gp",
+		"price": "3 sp",
 		"proficient": true,
 		"quantity": 1,
-		"rarity": "rare",
+		"rarity": "mundane",
 		"requiresAttunement": false,
 		"shieldCategory": "",
 		"shieldProperties": [],
@@ -207,11 +261,12 @@
 		"unidentifiedDescription": "",
 		"unidentifiedName": "",
 		"weaponProperties": [
+			"dualWielding",
 			"finesse",
-			"range",
-			"loading"
+			"thrown",
+			"quickdraw"
 		],
-		"weight": 5,
+		"weight": 0,
 		"schemaVersion": {
 			"version": 0.009,
 			"lastMigration": {
@@ -224,5 +279,5 @@
 		}
 	},
 	"folder": null,
-	"_id": "mv682vbjut9nizx1"
+	"_id": "o367l2gwehbzwt95"
 }

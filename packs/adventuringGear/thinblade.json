@@ -1,16 +1,16 @@
 {
-	"name": "Pike",
+	"name": "Thinblade",
 	"type": "object",
-	"img": "icons/weapons/polearms/spear-hooked-spike.webp",
+	"img": "icons/weapons/swords/greatsword-crossguard-flanged.webp",
 	"effects": [
 		{
-			"icon": "icons/weapons/polearms/spear-hooked-spike.webp",
-			"origin": "Item.BQNrq9waSlRDgnoj",
+			"icon": "icons/weapons/swords/greatsword-crossguard-flanged.webp",
+			"origin": "Item.7Hf80Dz7QOcWb9RT",
 			"flags": {
 				"a5e": {
 					"sort": 0,
 					"transferType": "onUse",
-					"actionId": "v3bptQ9yjfEMnfwo",
+					"actionId": "jE0oGbW4c91H4L9s",
 					"duration": {
 						"type": "rounds",
 						"unit": "minutes"
@@ -19,7 +19,7 @@
 			},
 			"transfer": false,
 			"name": "AC +1",
-			"_id": "Lfgy559EtlC4KF80",
+			"_id": "fNsg1fB0AQvNW0yM",
 			"changes": [
 				{
 					"key": "system.attributes.ac.changes.bonuses.value",
@@ -55,8 +55,8 @@
 			"requiresUnarmored": false
 		},
 		"actions": {
-			"4XhyMau1otApbBAy": {
-				"name": "Pike",
+			"4hUX21XJHYN8ppgn": {
+				"name": "Thinblade",
 				"activation": {
 					"cost": "",
 					"type": "",
@@ -77,24 +77,24 @@
 					"type": "creatureObject"
 				},
 				"rolls": {
-					"c8fg8myLZcaf3swR": {
+					"r9swSspq97S1RfWR": {
 						"bonus": "",
-						"critThreshold": "20",
+						"critThreshold": 19,
 						"type": "attack",
 						"attackType": "meleeWeaponAttack",
 						"ability": "default"
 					},
-					"t4JpiB3Z2pg2qMtp": {
+					"uJI9p3ltabvV4LYr": {
 						"canCrit": true,
 						"damageType": "piercing",
-						"formula": "1d10 + @str.mod",
-						"name": "",
+						"formula": "1d8 + @finesse.mod",
+						"name": "Rapier",
 						"type": "damage"
 					}
 				},
 				"consumers": {}
 			},
-			"LqC6wcB4ABQAyWQU": {
+			"CwpJ5mBJWGPki1I7": {
 				"name": "Attack With Shield",
 				"activation": {
 					"type": "bonusAction",
@@ -127,9 +127,9 @@
 						"threshold": 6
 					}
 				},
-				"img": "icons/weapons/polearms/spear-hooked-spike.webp"
+				"img": "icons/weapons/swords/greatsword-crossguard-flanged.webp"
 			},
-			"T7HPduDsUq3Ct6pe": {
+			"jE0oGbW4c91H4L9s": {
 				"name": "AC +1",
 				"activation": {
 					"type": "bonusAction",
@@ -141,12 +141,27 @@
 					"VzXK3rJS1p0jCl6M": {
 						"type": "effect",
 						"default": true,
-						"effectId": ""
+						"effectId": "PiHWvQKjPGNpP7A7"
 					},
 					"aihw6klbt8X6LdFS": {
 						"type": "effect",
 						"default": true,
-						"effectId": ""
+						"effectId": "o3RplnB3d2bgc5Cs"
+					},
+					"KsLi5Hf2I5z2N7dq": {
+						"type": "effect",
+						"default": true,
+						"effectId": "Llj5xb79gCEj7iz8"
+					},
+					"JaSmK7pyGc0SWrmi": {
+						"type": "effect",
+						"default": true,
+						"effectId": "uyPf3aBTu6Dbjl7v"
+					},
+					"8KMwTeQKuqHx3rho": {
+						"type": "effect",
+						"default": true,
+						"effectId": "fNsg1fB0AQvNW0yM"
 					}
 				},
 				"uses": {
@@ -162,10 +177,10 @@
 					"unit": "turn",
 					"value": 1
 				},
-				"img": "icons/weapons/polearms/spear-hooked-spike.webp"
+				"img": "icons/weapons/swords/greatsword-crossguard-flanged.webp"
 			}
 		},
-		"description": "<p><em>Defensive (Heavy), Heavy, Reach (Disadvantage when attacking a target within 5 ft of you)</em></p>",
+		"description": "<p><em>Defensive (Light), Finesse, Vicious</em></p>\n<p>&nbsp;</p>\n<p>This weapon&nbsp;uses the statistics of a @UUID[Compendium.a5e.a5e-adventuring-gear.Item.l6qdjqzvk3sddr2i]{Rapier} but is so sharp&nbsp;that it has the vicious property.</p>",
 		"favorite": false,
 		"secretDescription": "",
 		"source": "",
@@ -195,7 +210,7 @@
 		"materialProperties": [],
 		"objectType": "weapon",
 		"plotItem": false,
-		"price": "5 gp",
+		"price": "50 gp",
 		"proficient": true,
 		"quantity": 1,
 		"rarity": "mundane",
@@ -207,10 +222,10 @@
 		"unidentifiedName": "",
 		"weaponProperties": [
 			"defensive",
-			"heavy",
-			"reach"
+			"finesse",
+			"vicious"
 		],
-		"weight": 13,
+		"weight": 2,
 		"schemaVersion": {
 			"version": 0.009,
 			"lastMigration": {
@@ -223,5 +238,5 @@
 		}
 	},
 	"folder": null,
-	"_id": "u10xjhy1oqp26jmt"
+	"_id": "zq4a3c2e8tl327o5"
 }

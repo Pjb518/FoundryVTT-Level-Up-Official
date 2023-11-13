@@ -37,7 +37,8 @@
 				"area": {
 					"shape": "",
 					"size": "",
-					"placeTemplate": false
+					"placeTemplate": false,
+					"quantity": 1
 				},
 				"target": {
 					"quantity": 1,
@@ -59,11 +60,36 @@
 						"type": "damage"
 					}
 				},
+				"consumers": {}
+			},
+			"ELpn1fi1sm0yv0oc": {
+				"name": "Load",
+				"activation": {
+					"type": "action",
+					"cost": 1
+				},
 				"consumers": {
-					"aO1wf63Cdt6qsTdB": {
-						"itemid": "",
-						"quantity": 1,
-						"type": "ammunition"
+					"piLi0Au7eNENjgFV": {
+						"type": "itemUses",
+						"default": true,
+						"quantity": -1
+					},
+					"kLGDbr5UwkB7GsaH": {
+						"type": "ammunition",
+						"default": true,
+						"itemId": "",
+						"quantity": 1
+					}
+				},
+				"rolls": {},
+				"prompts": {},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"threshold": 6
 					}
 				}
 			}
@@ -74,12 +100,16 @@
 		"source": "",
 		"uses": {
 			"value": null,
-			"max": "",
+			"max": "6",
 			"per": null,
 			"recharge": {
 				"formula": "1d6",
 				"threshold": 6
 			}
+		},
+		"schema": {
+			"version": null,
+			"lastMigration": null
 		},
 		"ammunitionProperties": [],
 		"armorCategory": "",

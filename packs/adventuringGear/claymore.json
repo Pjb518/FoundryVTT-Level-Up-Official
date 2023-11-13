@@ -1,7 +1,7 @@
 {
-	"name": "Mercurial Maul",
+	"name": "Claymore",
 	"type": "object",
-	"img": "icons/weapons/hammers/hammer-double-bronze.webp",
+	"img": "icons/weapons/swords/greatsword-crossguard-silver.webp",
 	"effects": [],
 	"flags": {},
 	"system": {
@@ -15,8 +15,8 @@
 			"requiresUnarmored": false
 		},
 		"actions": {
-			"JsoTGtmjLpgR2WRO": {
-				"name": "Mercurial Maul",
+			"gN1VnpQWmko9P0l8": {
+				"name": "Claymore",
 				"activation": {
 					"cost": "",
 					"type": "",
@@ -29,32 +29,57 @@
 				"area": {
 					"shape": "",
 					"size": "",
-					"placeTemplate": false
+					"placeTemplate": false,
+					"quantity": 1
 				},
 				"target": {
 					"quantity": 1,
 					"type": "creatureObject"
 				},
 				"rolls": {
-					"j7IQFdPLo8uVl0Gy": {
+					"dSqwxwRNQwjvOq43": {
 						"bonus": "",
 						"critThreshold": "20",
 						"type": "attack",
 						"attackType": "meleeWeaponAttack",
 						"ability": "default"
 					},
-					"tlHdp4Dy9TvnOfJx": {
+					"vlUtyqLFnTkfBE3F": {
 						"canCrit": true,
-						"damageType": "bludgeoning",
-						"formula": "max(2d6,4) + @str.mod",
-						"name": "",
+						"damageType": "slashing",
+						"formula": "2d6 + @str.mod",
+						"name": "Greatsword",
 						"type": "damage"
 					}
 				},
 				"consumers": {}
+			},
+			"tWq3CWyPcjDp7rNd": {
+				"name": "Parry",
+				"activation": {},
+				"consumers": {},
+				"rolls": {
+					"Wr28F3fXpV7iLaWM": {
+						"type": "generic",
+						"default": true,
+						"label": "Armor Class",
+						"formula": "1d4"
+					}
+				},
+				"prompts": {},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"threshold": 6
+					}
+				},
+				"img": "icons/weapons/swords/greatsword-crossguard-silver.webp"
 			}
 		},
-		"description": "<p><em>Breaker, Heavy, Two-Handed</em></p>",
+		"description": "<p><em>Heavy, Parrying, Two-Handed</em></p>\n<p>&nbsp;</p>\n<p>This cross-hilted&nbsp;weapon uses the statistics of a @UUID[Compendium.a5e.a5e-adventuring-gear.Item.gq6lfesjrd75se7u]{Greatsword}.</p>",
 		"favorite": false,
 		"secretDescription": "",
 		"source": "",
@@ -84,10 +109,10 @@
 		"materialProperties": [],
 		"objectType": "weapon",
 		"plotItem": false,
-		"price": "150 gp",
+		"price": "50 gp",
 		"proficient": true,
 		"quantity": 1,
-		"rarity": "rare",
+		"rarity": "mundane",
 		"requiresAttunement": false,
 		"shieldCategory": "",
 		"shieldProperties": [],
@@ -95,11 +120,11 @@
 		"unidentifiedDescription": "",
 		"unidentifiedName": "",
 		"weaponProperties": [
-			"twoHanded",
+			"parrying",
 			"heavy",
-			"breaker"
+			"twoHanded"
 		],
-		"weight": 15,
+		"weight": 7,
 		"schemaVersion": {
 			"version": 0.009,
 			"lastMigration": {
@@ -112,5 +137,5 @@
 		}
 	},
 	"folder": null,
-	"_id": "ky37gm57e3li890a"
+	"_id": "rsfsf8ab7lezg4ml"
 }

@@ -1,7 +1,7 @@
 {
-	"name": "Mercurial Maul",
+	"name": "Stonebow",
 	"type": "object",
-	"img": "icons/weapons/hammers/hammer-double-bronze.webp",
+	"img": "icons/weapons/bows/shortbow-recurve-blue.webp",
 	"effects": [],
 	"flags": {},
 	"system": {
@@ -15,8 +15,8 @@
 			"requiresUnarmored": false
 		},
 		"actions": {
-			"JsoTGtmjLpgR2WRO": {
-				"name": "Mercurial Maul",
+			"2nctVK3kkML8yfWB": {
+				"name": "Stonebow",
 				"activation": {
 					"cost": "",
 					"type": "",
@@ -25,6 +25,16 @@
 				"duration": {
 					"unit": "",
 					"value": ""
+				},
+				"ranges": {
+					"GVdvN8UyT9bL5UjR": {
+						"range": 80,
+						"unit": "feet"
+					},
+					"bEU92hC6IHHfygyk": {
+						"range": 320,
+						"unit": "feet"
+					}
 				},
 				"area": {
 					"shape": "",
@@ -36,25 +46,31 @@
 					"type": "creatureObject"
 				},
 				"rolls": {
-					"j7IQFdPLo8uVl0Gy": {
+					"efzlfELOnZjHcFjj": {
 						"bonus": "",
 						"critThreshold": "20",
 						"type": "attack",
-						"attackType": "meleeWeaponAttack",
+						"attackType": "rangedWeaponAttack",
 						"ability": "default"
 					},
-					"tlHdp4Dy9TvnOfJx": {
+					"IcYizCBbaVoMZEf9": {
 						"canCrit": true,
 						"damageType": "bludgeoning",
-						"formula": "max(2d6,4) + @str.mod",
-						"name": "",
+						"formula": "1d6 + @dex.mod",
+						"name": "Shortbow",
 						"type": "damage"
 					}
 				},
-				"consumers": {}
+				"consumers": {
+					"VvUkewf6axXeUfV2": {
+						"itemid": "",
+						"quantity": 1,
+						"type": "ammunition"
+					}
+				}
 			}
 		},
-		"description": "<p><em>Breaker, Heavy, Two-Handed</em></p>",
+		"description": "<p><em>Range (80/320), Two-Handed</em></p>\n<p>&nbsp;</p>\n<p>This weapon&nbsp;functions as a @UUID[Compendium.a5e.a5e-adventuring-gear.Item.ch3xxcc7yimo0ktm]{Shortbow}, but fires sling bullets which inflict bludgeoning damage.</p>",
 		"favorite": false,
 		"secretDescription": "",
 		"source": "",
@@ -79,15 +95,15 @@
 		"craftingComponents": "",
 		"containerId": "",
 		"damagedState": 0,
-		"equippedState": 0,
+		"equippedState": 2,
 		"items": {},
 		"materialProperties": [],
 		"objectType": "weapon",
 		"plotItem": false,
-		"price": "150 gp",
+		"price": "25 gp",
 		"proficient": true,
 		"quantity": 1,
-		"rarity": "rare",
+		"rarity": "mundane",
 		"requiresAttunement": false,
 		"shieldCategory": "",
 		"shieldProperties": [],
@@ -95,11 +111,10 @@
 		"unidentifiedDescription": "",
 		"unidentifiedName": "",
 		"weaponProperties": [
-			"twoHanded",
-			"heavy",
-			"breaker"
+			"range",
+			"twoHanded"
 		],
-		"weight": 15,
+		"weight": 2,
 		"schemaVersion": {
 			"version": 0.009,
 			"lastMigration": {
@@ -112,5 +127,5 @@
 		}
 	},
 	"folder": null,
-	"_id": "ky37gm57e3li890a"
+	"_id": "i59ribi6lky28jhq"
 }

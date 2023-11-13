@@ -1,7 +1,7 @@
 {
-	"name": "Mercurial Maul",
+	"name": "Spiked Gauntlets",
 	"type": "object",
-	"img": "icons/weapons/hammers/hammer-double-bronze.webp",
+	"img": "icons/equipment/hand/glove-spiked-leather-grey.webp",
 	"effects": [],
 	"flags": {},
 	"system": {
@@ -15,8 +15,8 @@
 			"requiresUnarmored": false
 		},
 		"actions": {
-			"JsoTGtmjLpgR2WRO": {
-				"name": "Mercurial Maul",
+			"n8WlpSHTwlQGZIpo": {
+				"name": "Spiked Gauntlets",
 				"activation": {
 					"cost": "",
 					"type": "",
@@ -29,32 +29,72 @@
 				"area": {
 					"shape": "",
 					"size": "",
-					"placeTemplate": false
+					"placeTemplate": false,
+					"quantity": 1
 				},
 				"target": {
 					"quantity": 1,
-					"type": "creatureObject"
+					"type": "object"
 				},
 				"rolls": {
-					"j7IQFdPLo8uVl0Gy": {
+					"c5UQdZLyRVwU0s4U": {
 						"bonus": "",
 						"critThreshold": "20",
 						"type": "attack",
 						"attackType": "meleeWeaponAttack",
 						"ability": "default"
 					},
-					"tlHdp4Dy9TvnOfJx": {
+					"0yrqzlzcEjRpgrUd": {
 						"canCrit": true,
-						"damageType": "bludgeoning",
-						"formula": "max(2d6,4) + @str.mod",
-						"name": "",
+						"damageType": "piercing",
+						"formula": "1d4 + @str.mod",
+						"name": "Brass Knuckles",
+						"type": "damage"
+					}
+				},
+				"consumers": {}
+			},
+			"799wciEBLoYIdJk5": {
+				"name": "Spiked Gauntlets (Off-Hand)",
+				"activation": {
+					"cost": "",
+					"type": "",
+					"reactionTrigger": ""
+				},
+				"duration": {
+					"unit": "",
+					"value": ""
+				},
+				"area": {
+					"shape": "",
+					"size": "",
+					"placeTemplate": false,
+					"quantity": 1
+				},
+				"target": {
+					"quantity": 1,
+					"type": "object"
+				},
+				"rolls": {
+					"c5UQdZLyRVwU0s4U": {
+						"bonus": "",
+						"critThreshold": "20",
+						"type": "attack",
+						"attackType": "meleeWeaponAttack",
+						"ability": "default"
+					},
+					"0yrqzlzcEjRpgrUd": {
+						"canCrit": true,
+						"damageType": "piercing",
+						"formula": "1d4 + min(0,@str.mod)",
+						"name": "Brass Knuckles",
 						"type": "damage"
 					}
 				},
 				"consumers": {}
 			}
 		},
-		"description": "<p><em>Breaker, Heavy, Two-Handed</em></p>",
+		"description": "<p><em>Dual-Wielding, Hand-Mounted</em></p>\n<p>&nbsp;</p>\n<p>Spiked&nbsp;gauntlets function as @UUID[Compendium.a5e.a5e-adventuring-gear.Item.mr4mo0pjube2aes9]{Brass Knuckles}, but do piercing damage.</p>",
 		"favorite": false,
 		"secretDescription": "",
 		"source": "",
@@ -84,10 +124,10 @@
 		"materialProperties": [],
 		"objectType": "weapon",
 		"plotItem": false,
-		"price": "150 gp",
+		"price": "8 gp",
 		"proficient": true,
 		"quantity": 1,
-		"rarity": "rare",
+		"rarity": "mundane",
 		"requiresAttunement": false,
 		"shieldCategory": "",
 		"shieldProperties": [],
@@ -95,11 +135,10 @@
 		"unidentifiedDescription": "",
 		"unidentifiedName": "",
 		"weaponProperties": [
-			"twoHanded",
-			"heavy",
-			"breaker"
+			"dualWielding",
+			"handMounted"
 		],
-		"weight": 15,
+		"weight": 0,
 		"schemaVersion": {
 			"version": 0.009,
 			"lastMigration": {
@@ -112,5 +151,5 @@
 		}
 	},
 	"folder": null,
-	"_id": "ky37gm57e3li890a"
+	"_id": "eh5u7q3msyti10vw"
 }

@@ -1,7 +1,7 @@
 {
-	"name": "Mercurial Maul",
+	"name": "Boomerang (Short)",
 	"type": "object",
-	"img": "icons/weapons/hammers/hammer-double-bronze.webp",
+	"img": "icons/weapons/thrown/shuriken-double-red.webp",
 	"effects": [],
 	"flags": {},
 	"system": {
@@ -15,11 +15,11 @@
 			"requiresUnarmored": false
 		},
 		"actions": {
-			"JsoTGtmjLpgR2WRO": {
-				"name": "Mercurial Maul",
+			"ZdX1rqHn29jj57xS": {
+				"name": "Throw",
 				"activation": {
-					"cost": "",
-					"type": "",
+					"cost": 1,
+					"type": "action",
 					"reactionTrigger": ""
 				},
 				"duration": {
@@ -36,31 +36,47 @@
 					"type": "creatureObject"
 				},
 				"rolls": {
-					"j7IQFdPLo8uVl0Gy": {
+					"4loQUAEZaCc8RC8h": {
 						"bonus": "",
 						"critThreshold": "20",
 						"type": "attack",
-						"attackType": "meleeWeaponAttack",
+						"attackType": "rangedWeaponAttack",
 						"ability": "default"
 					},
-					"tlHdp4Dy9TvnOfJx": {
+					"3DTZ2lWFlQONwpTn": {
 						"canCrit": true,
 						"damageType": "bludgeoning",
-						"formula": "max(2d6,4) + @str.mod",
-						"name": "",
+						"formula": "1d4 + @finesse.mod",
+						"name": "Club",
 						"type": "damage"
 					}
 				},
-				"consumers": {}
+				"consumers": {
+					"zkijTovTvlWQzkbU": {
+						"type": "itemUses",
+						"default": true,
+						"quantity": 1
+					}
+				},
+				"ranges": {
+					"4yjwaql4iA7SIMx9": {
+						"range": 60,
+						"unit": "feet"
+					},
+					"k3ASuaJhbtvCuRoQ": {
+						"range": 150,
+						"unit": "feet"
+					}
+				}
 			}
 		},
-		"description": "<p><em>Breaker, Heavy, Two-Handed</em></p>",
+		"description": "<p><em>Simple</em></p>\n<p>&nbsp;</p>\n<p>There are many forms of boomerang. This @UUID[Compendium.a5e.a5e-adventuring-gear.Item.8u3v0q3jr3ov8u6l]{Club} has the thrown property (range 100/300), and cannot be used as a melee weapon. A boomerang designed to flush out or distract prey goes a shorter distance (range 50/150), but on a miss it returns to the location it was thrown from at the end of the turn.</p>",
 		"favorite": false,
 		"secretDescription": "",
 		"source": "",
 		"uses": {
-			"value": null,
-			"max": "",
+			"value": 1,
+			"max": "1",
 			"per": null,
 			"recharge": {
 				"formula": "1d6",
@@ -84,10 +100,10 @@
 		"materialProperties": [],
 		"objectType": "weapon",
 		"plotItem": false,
-		"price": "150 gp",
+		"price": "5 sp",
 		"proficient": true,
 		"quantity": 1,
-		"rarity": "rare",
+		"rarity": "mundane",
 		"requiresAttunement": false,
 		"shieldCategory": "",
 		"shieldProperties": [],
@@ -95,11 +111,10 @@
 		"unidentifiedDescription": "",
 		"unidentifiedName": "",
 		"weaponProperties": [
-			"twoHanded",
-			"heavy",
-			"breaker"
+			"simple",
+			"thrown"
 		],
-		"weight": 15,
+		"weight": 2,
 		"schemaVersion": {
 			"version": 0.009,
 			"lastMigration": {
@@ -112,5 +127,5 @@
 		}
 	},
 	"folder": null,
-	"_id": "ky37gm57e3li890a"
+	"_id": "vyqlv9q8zs9m0fzq"
 }

@@ -1,16 +1,16 @@
 {
-	"name": "Pike",
+	"name": "Ninjato",
 	"type": "object",
-	"img": "icons/weapons/polearms/spear-hooked-spike.webp",
+	"img": "icons/weapons/swords/shortsword-guard-worn.webp",
 	"effects": [
 		{
-			"icon": "icons/weapons/polearms/spear-hooked-spike.webp",
-			"origin": "Item.BQNrq9waSlRDgnoj",
+			"icon": "icons/weapons/swords/shortsword-guard-worn.webp",
+			"origin": "Item.yRwHLEx7tZNZvGMQ",
 			"flags": {
 				"a5e": {
 					"sort": 0,
 					"transferType": "onUse",
-					"actionId": "v3bptQ9yjfEMnfwo",
+					"actionId": "LfiU8RBp5laBi6jt",
 					"duration": {
 						"type": "rounds",
 						"unit": "minutes"
@@ -19,7 +19,7 @@
 			},
 			"transfer": false,
 			"name": "AC +1",
-			"_id": "Lfgy559EtlC4KF80",
+			"_id": "o3RplnB3d2bgc5Cs",
 			"changes": [
 				{
 					"key": "system.attributes.ac.changes.bonuses.value",
@@ -43,7 +43,11 @@
 			"folder": null
 		}
 	],
-	"flags": {},
+	"flags": {
+		"core": {
+			"sheetClass": "a5e.ItemSheet5e"
+		}
+	},
 	"system": {
 		"ac": {
 			"baseFormula": "",
@@ -55,8 +59,8 @@
 			"requiresUnarmored": false
 		},
 		"actions": {
-			"4XhyMau1otApbBAy": {
-				"name": "Pike",
+			"s8ufuOSoG0jsuNjg": {
+				"name": "Ninjato",
 				"activation": {
 					"cost": "",
 					"type": "",
@@ -77,24 +81,24 @@
 					"type": "creatureObject"
 				},
 				"rolls": {
-					"c8fg8myLZcaf3swR": {
+					"P7UeMDVPmv9D9fqE": {
 						"bonus": "",
 						"critThreshold": "20",
 						"type": "attack",
 						"attackType": "meleeWeaponAttack",
 						"ability": "default"
 					},
-					"t4JpiB3Z2pg2qMtp": {
+					"HUbaIlANmQsN4fYO": {
 						"canCrit": true,
-						"damageType": "piercing",
-						"formula": "1d10 + @str.mod",
-						"name": "",
+						"damageType": "slashing",
+						"formula": "1d6 + @finesse.mod",
+						"name": "Shortsword",
 						"type": "damage"
 					}
 				},
 				"consumers": {}
 			},
-			"LqC6wcB4ABQAyWQU": {
+			"9V7RfsLXfxK1rV7d": {
 				"name": "Attack With Shield",
 				"activation": {
 					"type": "bonusAction",
@@ -127,9 +131,9 @@
 						"threshold": 6
 					}
 				},
-				"img": "icons/weapons/polearms/spear-hooked-spike.webp"
+				"img": "icons/weapons/swords/shortsword-guard-worn.webp"
 			},
-			"T7HPduDsUq3Ct6pe": {
+			"LfiU8RBp5laBi6jt": {
 				"name": "AC +1",
 				"activation": {
 					"type": "bonusAction",
@@ -141,12 +145,12 @@
 					"VzXK3rJS1p0jCl6M": {
 						"type": "effect",
 						"default": true,
-						"effectId": ""
+						"effectId": "PiHWvQKjPGNpP7A7"
 					},
 					"aihw6klbt8X6LdFS": {
 						"type": "effect",
 						"default": true,
-						"effectId": ""
+						"effectId": "o3RplnB3d2bgc5Cs"
 					}
 				},
 				"uses": {
@@ -162,16 +166,65 @@
 					"unit": "turn",
 					"value": 1
 				},
-				"img": "icons/weapons/polearms/spear-hooked-spike.webp"
+				"img": "icons/weapons/swords/shortsword-guard-worn.webp"
+			},
+			"vQTQD7tzjEVIJLR0": {
+				"name": "Parry",
+				"activation": {},
+				"consumers": {},
+				"rolls": {
+					"tmuyLFz7KQutuiOG": {
+						"type": "generic",
+						"default": true,
+						"label": "Armor Class",
+						"formula": "1d4"
+					}
+				},
+				"prompts": {},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"threshold": 6
+					}
+				},
+				"img": "icons/weapons/swords/shortsword-guard-worn.webp"
+			},
+			"4WJ0cq0CCzfbxuyo": {
+				"name": "Release Liquid",
+				"activation": {
+					"type": "bonusAction",
+					"cost": 1
+				},
+				"consumers": {
+					"pmpCkHhS6k24C2iE": {
+						"type": "itemUses",
+						"default": true,
+						"quantity": 1
+					}
+				},
+				"rolls": {},
+				"prompts": {},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"threshold": 6
+					}
+				}
 			}
 		},
-		"description": "<p><em>Defensive (Heavy), Heavy, Reach (Disadvantage when attacking a target within 5 ft of you)</em></p>",
+		"description": "<p><em>Defensive (Medium), Finesse, Parrying, Storage</em></p>\n<p>&nbsp;</p>\n<p>This uses the&nbsp;statistics of a straight-bladed @UUID[Compendium.a5e.a5e-adventuring-gear.Item.36k2tx29firrtrgl]{Shortsword} with the&nbsp;storage property (often used to contain poison).</p>",
 		"favorite": false,
 		"secretDescription": "",
 		"source": "",
 		"uses": {
-			"value": null,
-			"max": "",
+			"value": 1,
+			"max": "1",
 			"per": null,
 			"recharge": {
 				"formula": "1d6",
@@ -195,7 +248,7 @@
 		"materialProperties": [],
 		"objectType": "weapon",
 		"plotItem": false,
-		"price": "5 gp",
+		"price": "20 gp",
 		"proficient": true,
 		"quantity": 1,
 		"rarity": "mundane",
@@ -207,10 +260,11 @@
 		"unidentifiedName": "",
 		"weaponProperties": [
 			"defensive",
-			"heavy",
-			"reach"
+			"parrying",
+			"finesse",
+			"storage"
 		],
-		"weight": 13,
+		"weight": 2,
 		"schemaVersion": {
 			"version": 0.009,
 			"lastMigration": {
@@ -223,5 +277,5 @@
 		}
 	},
 	"folder": null,
-	"_id": "u10xjhy1oqp26jmt"
+	"_id": "p4wky1vpoop0wax3"
 }

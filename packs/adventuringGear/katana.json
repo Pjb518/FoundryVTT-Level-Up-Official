@@ -1,7 +1,7 @@
 {
-	"name": "Mercurial Maul",
+	"name": "Katana",
 	"type": "object",
-	"img": "icons/weapons/hammers/hammer-double-bronze.webp",
+	"img": "icons/weapons/swords/sword-katana-purple.webp",
 	"effects": [],
 	"flags": {},
 	"system": {
@@ -15,8 +15,8 @@
 			"requiresUnarmored": false
 		},
 		"actions": {
-			"JsoTGtmjLpgR2WRO": {
-				"name": "Mercurial Maul",
+			"I0obTn3GBYxTo1B8": {
+				"name": "Katana",
 				"activation": {
 					"cost": "",
 					"type": "",
@@ -29,32 +29,68 @@
 				"area": {
 					"shape": "",
 					"size": "",
-					"placeTemplate": false
+					"placeTemplate": false,
+					"quantity": 1
 				},
 				"target": {
 					"quantity": 1,
 					"type": "creatureObject"
 				},
 				"rolls": {
-					"j7IQFdPLo8uVl0Gy": {
+					"W8sCmPdMQFBSLrgC": {
 						"bonus": "",
 						"critThreshold": "20",
 						"type": "attack",
 						"attackType": "meleeWeaponAttack",
 						"ability": "default"
 					},
-					"tlHdp4Dy9TvnOfJx": {
+					"a3x1moN5q67g6Qjs": {
 						"canCrit": true,
-						"damageType": "bludgeoning",
-						"formula": "max(2d6,4) + @str.mod",
-						"name": "",
-						"type": "damage"
+						"damageType": "slashing",
+						"formula": "1d8 + @str.mod",
+						"name": "Bastard Sword 1H",
+						"type": "damage",
+						"label": "One-Handed",
+						"default": false
+					},
+					"azmNkJojkfPr1ROr": {
+						"canCrit": true,
+						"damageType": "slashing",
+						"formula": "1d10 + @str.mod",
+						"name": "Bastard Sword 2H",
+						"type": "damage",
+						"label": "Two-Handed",
+						"default": false
 					}
 				},
 				"consumers": {}
+			},
+			"Nngwhz1gd18jLFKE": {
+				"name": "Parry",
+				"activation": {},
+				"consumers": {},
+				"rolls": {
+					"tmuyLFz7KQutuiOG": {
+						"type": "generic",
+						"default": true,
+						"label": "Armor Class",
+						"formula": "1d4"
+					}
+				},
+				"prompts": {},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"threshold": 6
+					}
+				},
+				"img": "icons/weapons/swords/sword-katana-purple.webp"
 			}
 		},
-		"description": "<p><em>Breaker, Heavy, Two-Handed</em></p>",
+		"description": "<p><em>Parrying, Versatile (1d10)</em></p>\n<p>&nbsp;</p>\n<p>This weapon uses&nbsp;the statistics of a fine @UUID[Compendium.a5e.a5e-adventuring-gear.Item.njbevv8xrgswtyue]{Bastard Sword}.</p>",
 		"favorite": false,
 		"secretDescription": "",
 		"source": "",
@@ -84,10 +120,10 @@
 		"materialProperties": [],
 		"objectType": "weapon",
 		"plotItem": false,
-		"price": "150 gp",
+		"price": "60 gp",
 		"proficient": true,
 		"quantity": 1,
-		"rarity": "rare",
+		"rarity": "mundane",
 		"requiresAttunement": false,
 		"shieldCategory": "",
 		"shieldProperties": [],
@@ -95,11 +131,10 @@
 		"unidentifiedDescription": "",
 		"unidentifiedName": "",
 		"weaponProperties": [
-			"twoHanded",
-			"heavy",
-			"breaker"
+			"parrying",
+			"versatile"
 		],
-		"weight": 15,
+		"weight": 5,
 		"schemaVersion": {
 			"version": 0.009,
 			"lastMigration": {
@@ -112,5 +147,5 @@
 		}
 	},
 	"folder": null,
-	"_id": "ky37gm57e3li890a"
+	"_id": "yhyixdxyrcfm8os2"
 }

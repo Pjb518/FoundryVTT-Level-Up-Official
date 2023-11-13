@@ -1,16 +1,16 @@
 {
-	"name": "Pike",
+	"name": "Khopesh",
 	"type": "object",
-	"img": "icons/weapons/polearms/spear-hooked-spike.webp",
+	"img": "icons/weapons/sickles/sickle-wrapped-engraved-green.webp",
 	"effects": [
 		{
-			"icon": "icons/weapons/polearms/spear-hooked-spike.webp",
-			"origin": "Item.BQNrq9waSlRDgnoj",
+			"icon": "icons/weapons/sickles/sickle-wrapped-engraved-green.webp",
+			"origin": "Item.kR4Jz6eTruflLto5",
 			"flags": {
 				"a5e": {
 					"sort": 0,
 					"transferType": "onUse",
-					"actionId": "v3bptQ9yjfEMnfwo",
+					"actionId": "1w6mZi0L5dJhv4TU",
 					"duration": {
 						"type": "rounds",
 						"unit": "minutes"
@@ -19,7 +19,7 @@
 			},
 			"transfer": false,
 			"name": "AC +1",
-			"_id": "Lfgy559EtlC4KF80",
+			"_id": "PiHWvQKjPGNpP7A7",
 			"changes": [
 				{
 					"key": "system.attributes.ac.changes.bonuses.value",
@@ -55,8 +55,8 @@
 			"requiresUnarmored": false
 		},
 		"actions": {
-			"4XhyMau1otApbBAy": {
-				"name": "Pike",
+			"6obCuJYfNHC8IPSR": {
+				"name": "Khopesh",
 				"activation": {
 					"cost": "",
 					"type": "",
@@ -77,24 +77,63 @@
 					"type": "creatureObject"
 				},
 				"rolls": {
-					"c8fg8myLZcaf3swR": {
+					"Z80yvTABrbK7jTpF": {
 						"bonus": "",
 						"critThreshold": "20",
 						"type": "attack",
 						"attackType": "meleeWeaponAttack",
 						"ability": "default"
 					},
-					"t4JpiB3Z2pg2qMtp": {
+					"KJiGUS59j662UbJm": {
 						"canCrit": true,
-						"damageType": "piercing",
-						"formula": "1d10 + @str.mod",
-						"name": "",
+						"damageType": "slashing",
+						"formula": "1d6 + @finesse.mod",
+						"name": "Scimitar",
 						"type": "damage"
 					}
 				},
 				"consumers": {}
 			},
-			"LqC6wcB4ABQAyWQU": {
+			"gS4wMUqm6ItBBj90": {
+				"name": "Khopesh (Off-Hand)",
+				"activation": {
+					"cost": "",
+					"type": "",
+					"reactionTrigger": ""
+				},
+				"duration": {
+					"unit": "",
+					"value": ""
+				},
+				"area": {
+					"shape": "",
+					"size": "",
+					"placeTemplate": false,
+					"quantity": 1
+				},
+				"target": {
+					"quantity": 1,
+					"type": "creatureObject"
+				},
+				"rolls": {
+					"Z80yvTABrbK7jTpF": {
+						"bonus": "",
+						"critThreshold": "20",
+						"type": "attack",
+						"attackType": "meleeWeaponAttack",
+						"ability": "default"
+					},
+					"KJiGUS59j662UbJm": {
+						"canCrit": true,
+						"damageType": "slashing",
+						"formula": "1d6 + min(@finesse.mod,0)",
+						"name": "Scimitar",
+						"type": "damage"
+					}
+				},
+				"consumers": {}
+			},
+			"ex4ZitZTPHlVWQka": {
 				"name": "Attack With Shield",
 				"activation": {
 					"type": "bonusAction",
@@ -127,9 +166,9 @@
 						"threshold": 6
 					}
 				},
-				"img": "icons/weapons/polearms/spear-hooked-spike.webp"
+				"img": "icons/weapons/sickles/sickle-wrapped-engraved-green.webp"
 			},
-			"T7HPduDsUq3Ct6pe": {
+			"1w6mZi0L5dJhv4TU": {
 				"name": "AC +1",
 				"activation": {
 					"type": "bonusAction",
@@ -141,12 +180,7 @@
 					"VzXK3rJS1p0jCl6M": {
 						"type": "effect",
 						"default": true,
-						"effectId": ""
-					},
-					"aihw6klbt8X6LdFS": {
-						"type": "effect",
-						"default": true,
-						"effectId": ""
+						"effectId": "PiHWvQKjPGNpP7A7"
 					}
 				},
 				"uses": {
@@ -161,11 +195,10 @@
 				"duration": {
 					"unit": "turn",
 					"value": 1
-				},
-				"img": "icons/weapons/polearms/spear-hooked-spike.webp"
+				}
 			}
 		},
-		"description": "<p><em>Defensive (Heavy), Heavy, Reach (Disadvantage when attacking a target within 5 ft of you)</em></p>",
+		"description": "<p><em>Defensive (Light), Dual-Wielding, Finesse</em></p>\n<p>&nbsp;</p>\n<p>This sickleshaped sword uses the statistics of a @UUID[Compendium.a5e.a5e-adventuring-gear.Item.4wvjchmo31jngkyk]{Scimitar}.</p>",
 		"favorite": false,
 		"secretDescription": "",
 		"source": "",
@@ -195,7 +228,7 @@
 		"materialProperties": [],
 		"objectType": "weapon",
 		"plotItem": false,
-		"price": "5 gp",
+		"price": "1 gp",
 		"proficient": true,
 		"quantity": 1,
 		"rarity": "mundane",
@@ -206,11 +239,11 @@
 		"unidentifiedDescription": "",
 		"unidentifiedName": "",
 		"weaponProperties": [
+			"finesse",
 			"defensive",
-			"heavy",
-			"reach"
+			"dualWielding"
 		],
-		"weight": 13,
+		"weight": 3,
 		"schemaVersion": {
 			"version": 0.009,
 			"lastMigration": {
@@ -223,5 +256,5 @@
 		}
 	},
 	"folder": null,
-	"_id": "u10xjhy1oqp26jmt"
+	"_id": "dwoyrs0jlz71xxkx"
 }

@@ -15,43 +15,90 @@
 			"requiresUnarmored": false
 		},
 		"actions": {
-			"qAhexPhA9vt4qMQY": {
-				"name": "Shield, Light",
+			"i4lMACo58uj5uDHr": {
+				"name": "Attack",
 				"activation": {
-					"cost": "",
-					"type": "",
-					"reactionTrigger": ""
+					"type": "action",
+					"cost": 1
 				},
-				"duration": {
-					"unit": "",
-					"value": ""
-				},
-				"area": {
-					"shape": "",
-					"size": "",
-					"placeTemplate": false
-				},
-				"target": {
-					"quantity": 1,
-					"type": "creatureObject"
-				},
+				"consumers": {},
 				"rolls": {
-					"JvQ0YKQ5qp6OSWY9": {
-						"bonus": "",
-						"critThreshold": "20",
+					"tFenoUYFUlCECoM8": {
 						"type": "attack",
-						"attackType": "rangedWeaponAttack",
-						"ability": "default"
+						"default": true,
+						"attackType": "meleeWeaponAttack",
+						"proficient": false,
+						"ability": "str",
+						"label": "Improvised Weapon"
 					},
-					"o8MCTNwk4YIAv0fd": {
-						"canCrit": true,
-						"damageType": "bludgeoning",
-						"formula": "1d6 + @@str.mod",
-						"name": "Shield Throw (Improvised Weapon)",
-						"type": "damage"
+					"wxWij6knaFs6y2gk": {
+						"type": "damage",
+						"default": true,
+						"formula": "1d4 + @str.mod",
+						"damageType": "bludgeoning"
 					}
 				},
-				"consumers": {}
+				"prompts": {},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"threshold": 6
+					}
+				},
+				"target": {
+					"type": "creatureObject",
+					"quantity": 1
+				}
+			},
+			"oOoI6D81EaROGZKz": {
+				"name": "Throw",
+				"activation": {
+					"type": "action",
+					"cost": 1
+				},
+				"consumers": {},
+				"rolls": {
+					"tFenoUYFUlCECoM8": {
+						"type": "attack",
+						"default": true,
+						"attackType": "rangedWeaponAttack",
+						"proficient": false,
+						"ability": "default",
+						"label": "Improvised Weapon"
+					},
+					"wxWij6knaFs6y2gk": {
+						"type": "damage",
+						"default": true,
+						"formula": "1d6 + @finesse.mod",
+						"damageType": "bludgeoning"
+					}
+				},
+				"prompts": {},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"threshold": 6
+					}
+				},
+				"target": {
+					"type": "creatureObject",
+					"quantity": 1
+				},
+				"ranges": {
+					"i0lPCxDpIBuasMGz": {
+						"range": 20,
+						"unit": "feet"
+					},
+					"89mEG6ZMHApxBoon": {
+						"range": "medium"
+					}
+				}
 			}
 		},
 		"description": "<p>You may throw this shield, treating it as an improvised weapon that deals 1d6 bludgeoning damage.</p>\n<p>When you take a critical hit, you can use your reaction to block it and sacrifice your shield, turning the critical hit into a regular hit. Afterwards your shield is broken, or if your shield is magical it instead becomes mundane for 1 hour.</p>",
@@ -66,6 +113,10 @@
 				"formula": "1d6",
 				"threshold": 6
 			}
+		},
+		"schema": {
+			"version": null,
+			"lastMigration": null
 		},
 		"ammunitionProperties": [],
 		"armorCategory": "",
