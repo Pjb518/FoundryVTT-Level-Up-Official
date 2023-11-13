@@ -8,40 +8,40 @@
     import Sort from "../actorUtilityBar/Sort.svelte";
     import UtilityBar from "../actorUtilityBar/UtilityBar.svelte";
 
-    function getConditionTooltip(id, label) {
-        if (id?.startsWith("generic")) {
-            return localize("A5E.ToggleGenericStatusCondition");
-        }
+    // function getConditionTooltip(id, label) {
+    //     if (id?.startsWith("generic")) {
+    //         return localize("A5E.ToggleGenericStatusCondition");
+    //     }
 
-        if (id === "concentration") {
-            return localize("A5E.ToggleConcentrationStatusCondition");
-        }
+    //     if (id === "concentration") {
+    //         return localize("A5E.ToggleConcentrationStatusCondition");
+    //     }
 
-        if (id === "fatigue" || id === "strife") {
-            return localize("A5E.ToggleTrackStatusCondition", {
-                condition: localize(label),
-            });
-        }
+    //     if (id === "fatigue" || id === "strife") {
+    //         return localize("A5E.ToggleTrackStatusCondition", {
+    //             condition: localize(label),
+    //         });
+    //     }
 
-        return localize("A5E.ToggleStatusCondition", {
-            condition: localize(label),
-        });
-    }
+    //     return localize("A5E.ToggleStatusCondition", {
+    //         condition: localize(label),
+    //     });
+    // }
 
-    const tokenCreateHook = Hooks.on(
-        "createToken",
-        () => (token = $actor.getActiveTokens()?.[0])
-    );
+    // const tokenCreateHook = Hooks.on(
+    //     "createToken",
+    //     () => (token = $actor.getActiveTokens()?.[0])
+    // );
 
-    const tokenDeleteHook = Hooks.on(
-        "deleteToken",
-        () => (token = $actor.getActiveTokens()?.[0])
-    );
+    // const tokenDeleteHook = Hooks.on(
+    //     "deleteToken",
+    //     () => (token = $actor.getActiveTokens()?.[0])
+    // );
 
-    onDestroy(() => {
-        Hooks.off("createToken", tokenCreateHook);
-        Hooks.off("deleteToken", tokenDeleteHook);
-    });
+    // onDestroy(() => {
+    //     Hooks.off("createToken", tokenCreateHook);
+    //     Hooks.off("deleteToken", tokenDeleteHook);
+    // });
 
     const actor = getContext("actor");
     const { activeEffects } = actor;
@@ -119,90 +119,90 @@
 </div>
 
 <style lang="scss">
-    .conditions-list {
-        display: grid;
-        grid-template-columns: repeat(17, 1fr);
-        gap: 0.375rem;
-        align-items: center;
-        justify-content: center;
-        margin: 0;
-        padding: 0.75rem 0.25rem 0.25rem 0.25rem;
-        border-top: 1px solid #ccc;
-        list-style: none;
+    // .conditions-list {
+    //     display: grid;
+    //     grid-template-columns: repeat(17, 1fr);
+    //     gap: 0.375rem;
+    //     align-items: center;
+    //     justify-content: center;
+    //     margin: 0;
+    //     padding: 0.75rem 0.25rem 0.25rem 0.25rem;
+    //     border-top: 1px solid #ccc;
+    //     list-style: none;
 
-        &__item {
-            display: flex;
-            position: relative;
-            height: 1.5rem;
-            width: 1.5rem;
-            border-radius: 50%;
-            cursor: pointer;
+    //     &__item {
+    //         display: flex;
+    //         position: relative;
+    //         height: 1.5rem;
+    //         width: 1.5rem;
+    //         border-radius: 50%;
+    //         cursor: pointer;
 
-            &--active {
-                box-shadow: 0 0 5px var(--color-shadow-primary);
-            }
+    //         &--active {
+    //             box-shadow: 0 0 5px var(--color-shadow-primary);
+    //         }
 
-            &::after {
-                display: flex;
-                align-items: center;
-                justify-content: center;
-                position: absolute;
-                top: -0.375rem;
-                right: -0.375rem;
-                width: 0.75rem;
-                height: 0.75rem;
-                padding: 1px;
-                font-family: $font-secondary;
-                font-size: $font-size-xxs;
-                font-weight: 400;
-                color: white;
-                background-color: rgba(0 0 0 / 0.45);
-                border-radius: 50%;
-            }
+    //         &::after {
+    //             display: flex;
+    //             align-items: center;
+    //             justify-content: center;
+    //             position: absolute;
+    //             top: -0.375rem;
+    //             right: -0.375rem;
+    //             width: 0.75rem;
+    //             height: 0.75rem;
+    //             padding: 1px;
+    //             font-family: $font-secondary;
+    //             font-size: $font-size-xxs;
+    //             font-weight: 400;
+    //             color: white;
+    //             background-color: rgba(0 0 0 / 0.45);
+    //             border-radius: 50%;
+    //         }
 
-            &--locked {
-                cursor: not-allowed;
+    //         &--locked {
+    //             cursor: not-allowed;
 
-                &::after {
-                    content: "\f023";
-                    font: var(--fa-font-solid);
-                    font-size: $font-size-xxs;
-                }
-            }
+    //             &::after {
+    //                 content: "\f023";
+    //                 font: var(--fa-font-solid);
+    //                 font-size: $font-size-xxs;
+    //             }
+    //         }
 
-            &--linked {
-                cursor: not-allowed;
+    //         &--linked {
+    //             cursor: not-allowed;
 
-                & ::after {
-                    content: "\f0c1";
-                    font: var(--fa-font-solid);
-                    font-size: $font-size-xxs;
-                }
-            }
+    //             & ::after {
+    //                 content: "\f0c1";
+    //                 font: var(--fa-font-solid);
+    //                 font-size: $font-size-xxs;
+    //             }
+    //         }
 
-            &--fatigue::after {
-                content: var(--fatigue);
-                background-color: var(--fatigue-col);
-                font-size: $font-size-xxs;
-            }
+    //         &--fatigue::after {
+    //             content: var(--fatigue);
+    //             background-color: var(--fatigue-col);
+    //             font-size: $font-size-xxs;
+    //         }
 
-            &--strife::after {
-                content: var(--strife);
-                background-color: var(--strife-col);
-                font-size: $font-size-xxs;
-            }
-        }
-    }
+    //         &--strife::after {
+    //             content: var(--strife);
+    //             background-color: var(--strife-col);
+    //             font-size: $font-size-xxs;
+    //         }
+    //     }
+    // }
 
-    .condition-icon {
-        height: 100%;
-        width: 100%;
-        object-fit: cover;
-        object-position: top;
-        border: 1px solid black;
-        border-radius: 50%;
-        background-color: rgba(0, 0, 0, 0.6);
-    }
+    // .condition-icon {
+    //     height: 100%;
+    //     width: 100%;
+    //     object-fit: cover;
+    //     object-position: top;
+    //     border: 1px solid black;
+    //     border-radius: 50%;
+    //     background-color: rgba(0, 0, 0, 0.6);
+    // }
 
     .effects-page {
         display: flex;
