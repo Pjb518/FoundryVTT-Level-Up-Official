@@ -11,8 +11,6 @@
     export let consumers;
     export let spellData;
 
-    console.log(consumers);
-
     const actionId = getContext("actionId");
     const actor = getContext("actor");
     const item = getContext("item");
@@ -105,9 +103,9 @@
 
         // Set up mode based on scaling type if consumer is empty
         const scalingTypes = getActionScalingModes(action);
-        if (scalingTypes.length) {
-            if (scalingTypes.includes("spellPoints")) mode = "pointsOnly";
-            else if (scalingTypes.includes("spellSlots")) mode = "spellsOnly";
+        if (scalingTypes.size) {
+            if (scalingTypes.has("spellPoints")) mode = "pointsOnly";
+            else if (scalingTypes.has("spellSlots")) mode = "spellsOnly";
 
             // Set base points and level to 0 since no consumer data is available
             spellData.basePoints = 0;
