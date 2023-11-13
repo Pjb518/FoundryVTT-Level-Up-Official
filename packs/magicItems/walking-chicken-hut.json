@@ -1,392 +1,381 @@
 {
-  "folder": "77SxzqATwv908d2H",
-  "name": "Walking Chicken Hut",
-  "type": "object",
-  "img": "icons/creatures/birds/corvid-call-sound-blue.webp",
-  "system": {
-    "ac": {
-      "baseFormula": "",
-      "formula": "",
-      "maxDex": 0,
-      "minStr": 0,
-      "mode": 2,
-      "requiresNoShield": false,
-      "requiresUnarmored": false
-    },
-    "actions": {
-      "yFnxWvCMm2Q0TnQK": {
-        "name": "Long Rest",
-        "activation": {},
-        "consumers": {},
-        "rolls": {},
-        "prompts": {
-          "1Ri9qxhPlY47PQU5": {
-            "type": "skillCheck",
-            "default": true,
-            "skill": "prc",
-            "ability": "int"
-          }
-        },
-        "uses": {
-          "value": 0,
-          "max": "",
-          "per": "",
-          "recharge": {
-            "formula": "1d6",
-            "threshold": 6
-          }
-        }
-      },
-      "MmUuzL4jFUPw8tSN": {
-        "name": "Control Two Runes",
-        "activation": {
-          "type": "action",
-          "cost": 1
-        },
-        "consumers": {},
-        "rolls": {},
-        "prompts": {},
-        "uses": {
-          "value": 0,
-          "max": "",
-          "per": "",
-          "recharge": {
-            "formula": "1d6",
-            "threshold": 6
-          }
-        }
-      },
-      "BOKQiOa95dSc7aVv": {
-        "name": "Control Third Rune",
-        "activation": {
-          "type": "bonusAction",
-          "cost": 1
-        },
-        "consumers": {},
-        "rolls": {},
-        "prompts": {},
-        "uses": {
-          "value": 0,
-          "max": "",
-          "per": "",
-          "recharge": {
-            "formula": "1d6",
-            "threshold": 6
-          }
-        }
-      },
-      "Tyacf6smYz6xBgoL": {
-        "name": "Control Three Runes (Attuned)",
-        "activation": {
-          "type": "bonusAction",
-          "cost": 1
-        },
-        "consumers": {},
-        "rolls": {},
-        "prompts": {},
-        "uses": {
-          "value": 0,
-          "max": "",
-          "per": "",
-          "recharge": {
-            "formula": "1d6",
-            "threshold": 6
-          }
-        }
-      },
-      "ciDBoPUyYuAJ1JbF": {
-        "name": "Leg Attack",
-        "activation": {},
-        "consumers": {},
-        "rolls": {
-          "cNtd08rdzbXsT1m1": {
-            "type": "attack",
-            "default": true,
-            "attackType": "meleeWeaponAttack",
-            "proficient": false,
-            "ability": "none",
-            "bonus": "10",
-            "label": ""
-          },
-          "DAaiqHESfAc0OgPi": {
-            "type": "damage",
-            "default": true,
-            "formula": "2d8",
-            "damageType": "slashing"
-          }
-        },
-        "prompts": {},
-        "uses": {
-          "value": 0,
-          "max": "",
-          "per": "",
-          "recharge": {
-            "formula": "1d6",
-            "threshold": 6
-          }
-        },
-        "descriptionOutputs": [
-          "action"
-        ],
-        "target": {
-          "type": "creatureObject",
-          "quantity": 1
-        },
-        "ranges": {
-          "kOF6EBZTfUAmkWA9": {
-            "range": "fiveFeet"
-          }
-        }
-      },
-      "Kpl0z3B8EXorqgMR": {
-        "name": "Miasma",
-        "activation": {},
-        "consumers": {},
-        "rolls": {},
-        "prompts": {
-          "vdoJOKNv0nQy8CN9": {
-            "type": "savingThrow",
-            "default": true,
-            "ability": "con",
-            "saveDC": {
-              "type": "custom",
-              "bonus": "18"
-            }
-          },
-          "z2XP65xj3tbervVg": {
-            "type": "effect",
-            "default": true,
-            "effectId": "rGrVRN2PqFeJ8Og5"
-          }
-        },
-        "uses": {
-          "value": 0,
-          "max": "",
-          "per": "",
-          "recharge": {
-            "formula": "1d6",
-            "threshold": 6
-          }
-        },
-        "descriptionOutputs": [
-          "action"
-        ],
-        "ranges": {
-          "qAwY7hv9HNGLToRe": {
-            "range": "self"
-          }
-        },
-        "area": {
-          "shape": "emanation",
-          "quantity": 1,
-          "radius": 60,
-          "placeTemplate": true
-        },
-        "target": {
-          "type": "",
-          "quantity": 1
-        }
-      },
-      "Y8mDqHxK9QsgdqaU": {
-        "name": "Lanterns",
-        "activation": {},
-        "consumers": {},
-        "rolls": {},
-        "prompts": {
-          "t8TA4cx4dXutk2o6": {
-            "type": "effect",
-            "default": true,
-            "effectId": "3lZo2JyVkVmzqZ90"
-          }
-        },
-        "uses": {
-          "value": 0,
-          "max": "",
-          "per": "",
-          "recharge": {
-            "formula": "1d6",
-            "threshold": 6
-          }
-        }
-      }
-    },
-    "description": "<p>Rumored to appear in bogs and swamps where&nbsp;amidst the fog it is often mistaken for a gigantic&nbsp;predatory bird, this ramshackle hut has been known&nbsp;to convey many an influential spellcaster. Arcane&nbsp;societies tend to look down upon the people that&nbsp;deign to use this artifact and refuse to recognize&nbsp;it for what it truly is, perpetuating the belief that it&nbsp;is a cursed relic best left alone. Any knowledgeable&nbsp;scholar knows there is good reason for the practice &mdash; sometimes when left idle for too long without&nbsp;a master the hut walks of its own accord directly&nbsp;towards the nearest planar portal, and all those&nbsp;known to have claimed ownership have disappeared&nbsp;under mysterious circumstances.</p>\n<p>A simple bed and table permanently affixed to the floor in this shuttered wooden hut, and it is able to fit up to 12 Medium or smaller creatures inside. After taking a long rest inside of the hut, you make a DC 21 Perception check, seeing through the veil and revealing its true nature on a success &mdash;strange markings and other signs of witchcraft cover nearly&nbsp;every surface of the interior and it reeks of chicken&nbsp;effluent. Once the veil is seen through, there are 8&nbsp;glowing runes on the table, each only half-illuminated.&nbsp;When you pass your hand over a rune, the&nbsp;energies inside respond and you can fully illuminate&nbsp;it or remove its glow entirely. When certain runes&nbsp;are illuminated, enormous chicken legs beneath the&nbsp;hut rise it up off of the ground. The Chicken Hut is&nbsp;a Gargantuan object with an Armor Class of 21, a&nbsp;total of 320 hit points, Speed 50 ft. or swim 10 ft. (0&nbsp;ft. if the legs aren&rsquo;t extended), and immunity to cold,&nbsp;poison, and psychic damage.</p>\n<p>The hut floats on water. While the hut&rsquo;s door and window shutters are closed, the interior is airtight and watertight. The interior holds enough air for 60 hours of breathing, divided by the number of breathing creatures inside.</p>\n<p>You can use an action to control the illumination of as many as two of the hut&rsquo;s runes, and a bonus action to control a third. After each use, a rune goes back to its neutral position. Each rune, from left to right, functions as shown in the Walking Chicken Hut Runes table.</p>\n<p>If you are not attuned to any magic items and spend a week inside of the Walking Chicken Hut, you can attune to it. The hut uses 2 of your attunement slots. Once attuned, as long as you can see it you can use your bonus action to manipulate as many as 3 of its runes.</p>\n<p>&nbsp;</p>\n<h2>Legends and Lore</h2>\n<p>Success on an Arcana or History check reveals the&nbsp;following:</p>\n<p><strong>DC 15</strong> This is the Walking Chicken Hut, home to many wielders of magic throughout the ages.</p>\n<p><strong>DC 18</strong> The hut is known to move and act of its own accord.</p>\n<p><strong>DC 21</strong> The hut can be controlled using the runes on the table within.</p>\n<p>&nbsp;</p>\n<h2>Artifact Properties</h2>\n<p>The Walking Chicken Hut has one lesser artifact&nbsp;detriment and one greater artifact detriment.</p>\n<p>&nbsp;</p>\n<p><strong>Walking Chicken Hut Runes Table</strong></p>\n<table style=\"width: 100%; height: 251.953px;\" border=\"1\"><colgroup><col style=\"width: 6.09464%;\"><col style=\"width: 55.4948%;\"><col style=\"width: 38.4106%;\"></colgroup>\n<tbody>\n<tr style=\"height: 16.7969px;\">\n<td style=\"height: 16.7969px;\"><strong>RUNE</strong></td>\n<td style=\"height: 16.7969px;\"><strong>LIT</strong></td>\n<td style=\"height: 16.7969px;\"><strong>DARK</strong></td>\n</tr>\n<tr style=\"height: 33.5938px;\">\n<td style=\"height: 33.5938px;\">1</td>\n<td style=\"height: 33.5938px;\">An enormous pair of&nbsp;chicken legs extend,&nbsp;allowing the hut to&nbsp;walk and swim.</td>\n<td style=\"height: 33.5938px;\">The chicken legs&nbsp;retract, reducing the&nbsp;hut&rsquo;s Speed to 0 feet&nbsp;and making it unable&nbsp;to benefit from&nbsp;bonuses to speed.</td>\n</tr>\n<tr style=\"height: 16.7969px;\">\n<td style=\"height: 16.7969px;\">2</td>\n<td style=\"height: 16.7969px;\">Forward window&nbsp;shutter opens.</td>\n<td style=\"height: 16.7969px;\">Forward window&nbsp;shutter closes.</td>\n</tr>\n<tr style=\"height: 16.7969px;\">\n<td style=\"height: 16.7969px;\">3</td>\n<td style=\"height: 16.7969px;\">Side window shutters&nbsp;open (two per side).</td>\n<td style=\"height: 16.7969px;\">Side window shutters&nbsp;close (two per side).</td>\n</tr>\n<tr style=\"height: 83.9844px;\">\n<td style=\"height: 83.9844px;\">4</td>\n<td style=\"height: 83.9844px;\">Each extended&nbsp;chicken leg makes&nbsp;the following melee&nbsp;weapon attack: +10&nbsp;to hit, reach 5 ft., one&nbsp;target. Hit: 9 (2d8)&nbsp;slashing damage.</td>\n<td style=\"height: 83.9844px;\">The hut releases&nbsp;a disgusting and&nbsp;offensive miasma.&nbsp;All creatures in a&nbsp;60-foot radius of the&nbsp;hut make a DC 18&nbsp;Constitution saving&nbsp;throw or are poisoned&nbsp;until the end&nbsp;of the pilot&rsquo;s next&nbsp;turn. If the interior&nbsp;is not sealed, this includes&nbsp;any creatures&nbsp;inside the hut.</td>\n</tr>\n<tr style=\"height: 16.7969px;\">\n<td style=\"height: 16.7969px;\">5</td>\n<td style=\"height: 16.7969px;\">The hut walks or&nbsp;swims forward.</td>\n<td style=\"height: 16.7969px;\">The hut walks or&nbsp;swims backward.</td>\n</tr>\n<tr style=\"height: 16.7969px;\">\n<td style=\"height: 16.7969px;\">6</td>\n<td style=\"height: 16.7969px;\">The hut turns up to&nbsp;180 degrees left.</td>\n<td style=\"height: 16.7969px;\">The hut turns up to&nbsp;180 degrees right.</td>\n</tr>\n<tr style=\"height: 33.5938px;\">\n<td style=\"height: 33.5938px;\">7</td>\n<td style=\"height: 33.5938px;\">Lanterns appear on&nbsp;the front of the hut,&nbsp;emitting bright light&nbsp;in a 30-foot radius&nbsp;and dim light for an&nbsp;additional 30 feet.</td>\n<td style=\"height: 33.5938px;\">If there are lanterns&nbsp;conjured on the&nbsp;front of the hut,&nbsp;they disappear.</td>\n</tr>\n<tr style=\"height: 16.7969px;\">\n<td style=\"height: 16.7969px;\">8</td>\n<td style=\"height: 16.7969px;\">The front door&nbsp;unseals and opens.</td>\n<td style=\"height: 16.7969px;\">The front door closes&nbsp;and seals.</td>\n</tr>\n</tbody>\n</table>\n<p>&nbsp;</p>",
-    "favorite": false,
-    "secretDescription": "",
-    "source": {
-      "name": "",
-      "link": "",
-      "publisher": ""
-    },
-    "uses": {
-      "value": null,
-      "max": "",
-      "per": null,
-      "recharge": {
-        "formula": "1d6",
-        "threshold": "6"
-      }
-    },
-    "schema": {
-      "version": null,
-      "lastMigration": null
-    },
-    "ammunitionProperties": [],
-    "armorCategory": "",
-    "armorProperties": [],
-    "attuned": false,
-    "bulky": false,
-    "craftingComponents": "Unique (uncraftable)",
-    "containerId": "",
-    "damagedState": 0,
-    "equippedState": 0,
-    "items": {},
-    "materialProperties": [],
-    "objectType": "miscellaneous",
-    "plotItem": false,
-    "price": 0,
-    "proficient": true,
-    "quantity": 1,
-    "rarity": "artifact",
-    "requiresAttunement": true,
-    "shieldCategory": "",
-    "shieldProperties": [],
-    "unidentified": false,
-    "unidentifiedDescription": "",
-    "unidentifiedName": "",
-    "weaponProperties": [],
-    "weight": 0
-  },
-  "effects": [
-    {
-      "icon": "icons/creatures/birds/corvid-call-sound-blue.webp",
-      "origin": "Item.6b8NVJSCQjV5A1Uk",
-      "flags": {
-        "a5e": {
-          "sort": 0,
-          "transferType": "permanent"
-        }
-      },
-      "transfer": false,
-      "name": "Additional Attunement",
-      "_id": "fajFaYvVpOS59orv",
-      "changes": [
-        {
-          "key": "system.attributes.attunement.current",
-          "value": "1",
-          "mode": 2,
-          "priority": null
-        }
-      ],
-      "disabled": false,
-      "duration": {
-        "startTime": null,
-        "seconds": null,
-        "combat": null,
-        "rounds": null,
-        "turns": null,
-        "startRound": null,
-        "startTurn": null
-      },
-      "description": "",
-      "statuses": []
-    },
-    {
-      "icon": "icons/creatures/birds/corvid-call-sound-blue.webp",
-      "origin": "Item.6b8NVJSCQjV5A1Uk",
-      "flags": {
-        "a5e": {
-          "sort": 0,
-          "transferType": "onUse",
-          "actionId": "Kpl0z3B8EXorqgMR",
-          "duration": {
-            "type": "rounds",
-            "unit": "minutes"
-          }
-        }
-      },
-      "transfer": false,
-      "name": "Poisoned",
-      "_id": "rGrVRN2PqFeJ8Og5",
-      "changes": [
-        {
-          "key": "flags.a5e.effects.statusConditions",
-          "value": "[\"poisoned\"]",
-          "mode": 0,
-          "priority": null
-        }
-      ],
-      "disabled": false,
-      "duration": {
-        "startTime": null,
-        "seconds": null,
-        "combat": null,
-        "rounds": null,
-        "turns": 1,
-        "startRound": null,
-        "startTurn": null
-      },
-      "description": "",
-      "statuses": [
-        "poisoned"
-      ]
-    },
-    {
-      "icon": "icons/creatures/birds/corvid-call-sound-blue.webp",
-      "origin": "Item.6b8NVJSCQjV5A1Uk",
-      "flags": {
-        "a5e": {
-          "sort": 0,
-          "transferType": "onUse",
-          "actionId": "Y8mDqHxK9QsgdqaU",
-          "applyToSelf": true
-        }
-      },
-      "transfer": false,
-      "name": "Lanterns",
-      "_id": "3lZo2JyVkVmzqZ90",
-      "changes": [
-        {
-          "key": "@token.light.dim",
-          "value": "60",
-          "mode": 6,
-          "priority": null
-        },
-        {
-          "key": "@token.light.bright",
-          "value": "30",
-          "mode": 6,
-          "priority": null
-        }
-      ],
-      "disabled": false,
-      "duration": {
-        "startTime": null,
-        "seconds": null,
-        "combat": null,
-        "rounds": null,
-        "turns": null,
-        "startRound": null,
-        "startTurn": null
-      },
-      "description": "",
-      "statuses": []
-    }
-  ],
-  "flags": {
-    "exportSource": {
-      "world": "clean-test",
-      "system": "a5e",
-      "coreVersion": "11.313",
-      "systemVersion": "0.16.7"
-    }
-  },
-  "_stats": {
-    "systemId": "a5e",
-    "systemVersion": "0.16.7",
-    "coreVersion": "11.313",
-    "createdTime": 1699726240167,
-    "modifiedTime": 1699733870883,
-    "lastModifiedBy": "BDqRFxyWZFKs757e"
-  }
+	"folder": null,
+	"name": "Walking Chicken Hut",
+	"type": "object",
+	"img": "icons/creatures/birds/corvid-call-sound-blue.webp",
+	"system": {
+		"ac": {
+			"baseFormula": "",
+			"formula": "",
+			"maxDex": 0,
+			"minStr": 0,
+			"mode": 2,
+			"requiresNoShield": false,
+			"requiresUnarmored": false
+		},
+		"actions": {
+			"yFnxWvCMm2Q0TnQK": {
+				"name": "Long Rest",
+				"activation": {},
+				"consumers": {},
+				"rolls": {},
+				"prompts": {
+					"1Ri9qxhPlY47PQU5": {
+						"type": "skillCheck",
+						"default": true,
+						"skill": "prc",
+						"ability": "int"
+					}
+				},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"threshold": 6
+					}
+				}
+			},
+			"MmUuzL4jFUPw8tSN": {
+				"name": "Control Two Runes",
+				"activation": {
+					"type": "action",
+					"cost": 1
+				},
+				"consumers": {},
+				"rolls": {},
+				"prompts": {},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"threshold": 6
+					}
+				}
+			},
+			"BOKQiOa95dSc7aVv": {
+				"name": "Control Third Rune",
+				"activation": {
+					"type": "bonusAction",
+					"cost": 1
+				},
+				"consumers": {},
+				"rolls": {},
+				"prompts": {},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"threshold": 6
+					}
+				}
+			},
+			"Tyacf6smYz6xBgoL": {
+				"name": "Control Three Runes (Attuned)",
+				"activation": {
+					"type": "bonusAction",
+					"cost": 1
+				},
+				"consumers": {},
+				"rolls": {},
+				"prompts": {},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"threshold": 6
+					}
+				}
+			},
+			"ciDBoPUyYuAJ1JbF": {
+				"name": "Leg Attack",
+				"activation": {},
+				"consumers": {},
+				"rolls": {
+					"cNtd08rdzbXsT1m1": {
+						"type": "attack",
+						"default": true,
+						"attackType": "meleeWeaponAttack",
+						"proficient": false,
+						"ability": "none",
+						"bonus": "10",
+						"label": ""
+					},
+					"DAaiqHESfAc0OgPi": {
+						"type": "damage",
+						"default": true,
+						"formula": "2d8",
+						"damageType": "slashing"
+					}
+				},
+				"prompts": {},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"threshold": 6
+					}
+				},
+				"descriptionOutputs": [
+					"action"
+				],
+				"target": {
+					"type": "creatureObject",
+					"quantity": 1
+				},
+				"ranges": {
+					"kOF6EBZTfUAmkWA9": {
+						"range": "fiveFeet"
+					}
+				}
+			},
+			"Kpl0z3B8EXorqgMR": {
+				"name": "Miasma",
+				"activation": {},
+				"consumers": {},
+				"rolls": {},
+				"prompts": {
+					"vdoJOKNv0nQy8CN9": {
+						"type": "savingThrow",
+						"default": true,
+						"ability": "con",
+						"saveDC": {
+							"type": "custom",
+							"bonus": "18"
+						}
+					},
+					"z2XP65xj3tbervVg": {
+						"type": "effect",
+						"default": true,
+						"effectId": "rGrVRN2PqFeJ8Og5"
+					}
+				},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"threshold": 6
+					}
+				},
+				"descriptionOutputs": [
+					"action"
+				],
+				"ranges": {
+					"qAwY7hv9HNGLToRe": {
+						"range": "self"
+					}
+				},
+				"area": {
+					"shape": "emanation",
+					"quantity": 1,
+					"radius": 60,
+					"placeTemplate": true
+				},
+				"target": {
+					"type": "",
+					"quantity": 1
+				}
+			},
+			"Y8mDqHxK9QsgdqaU": {
+				"name": "Lanterns",
+				"activation": {},
+				"consumers": {},
+				"rolls": {},
+				"prompts": {
+					"t8TA4cx4dXutk2o6": {
+						"type": "effect",
+						"default": true,
+						"effectId": "3lZo2JyVkVmzqZ90"
+					}
+				},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"threshold": 6
+					}
+				}
+			}
+		},
+		"description": "<p>Rumored to appear in bogs and swamps where&nbsp;amidst the fog it is often mistaken for a gigantic&nbsp;predatory bird, this ramshackle hut has been known&nbsp;to convey many an influential spellcaster. Arcane&nbsp;societies tend to look down upon the people that&nbsp;deign to use this artifact and refuse to recognize&nbsp;it for what it truly is, perpetuating the belief that it&nbsp;is a cursed relic best left alone. Any knowledgeable&nbsp;scholar knows there is good reason for the practice &mdash; sometimes when left idle for too long without&nbsp;a master the hut walks of its own accord directly&nbsp;towards the nearest planar portal, and all those&nbsp;known to have claimed ownership have disappeared&nbsp;under mysterious circumstances.</p>\n<p>A simple bed and table permanently affixed to the floor in this shuttered wooden hut, and it is able to fit up to 12 Medium or smaller creatures inside. After taking a long rest inside of the hut, you make a DC 21 Perception check, seeing through the veil and revealing its true nature on a success &mdash;strange markings and other signs of witchcraft cover nearly&nbsp;every surface of the interior and it reeks of chicken&nbsp;effluent. Once the veil is seen through, there are 8&nbsp;glowing runes on the table, each only half-illuminated.&nbsp;When you pass your hand over a rune, the&nbsp;energies inside respond and you can fully illuminate&nbsp;it or remove its glow entirely. When certain runes&nbsp;are illuminated, enormous chicken legs beneath the&nbsp;hut rise it up off of the ground. The Chicken Hut is&nbsp;a Gargantuan object with an Armor Class of 21, a&nbsp;total of 320 hit points, Speed 50 ft. or swim 10 ft. (0&nbsp;ft. if the legs aren&rsquo;t extended), and immunity to cold,&nbsp;poison, and psychic damage.</p>\n<p>The hut floats on water. While the hut&rsquo;s door and window shutters are closed, the interior is airtight and watertight. The interior holds enough air for 60 hours of breathing, divided by the number of breathing creatures inside.</p>\n<p>You can use an action to control the illumination of as many as two of the hut&rsquo;s runes, and a bonus action to control a third. After each use, a rune goes back to its neutral position. Each rune, from left to right, functions as shown in the Walking Chicken Hut Runes table.</p>\n<p>If you are not attuned to any magic items and spend a week inside of the Walking Chicken Hut, you can attune to it. The hut uses 2 of your attunement slots. Once attuned, as long as you can see it you can use your bonus action to manipulate as many as 3 of its runes.</p>\n<p>&nbsp;</p>\n<h2>Legends and Lore</h2>\n<p>Success on an Arcana or History check reveals the&nbsp;following:</p>\n<p><strong>DC 15</strong> This is the Walking Chicken Hut, home to many wielders of magic throughout the ages.</p>\n<p><strong>DC 18</strong> The hut is known to move and act of its own accord.</p>\n<p><strong>DC 21</strong> The hut can be controlled using the runes on the table within.</p>\n<p>&nbsp;</p>\n<h2>Artifact Properties</h2>\n<p>The Walking Chicken Hut has one lesser artifact&nbsp;detriment and one greater artifact detriment.</p>\n<p>&nbsp;</p>\n<p><strong>Walking Chicken Hut Runes Table</strong></p>\n<table style=\"width: 100%; height: 251.953px;\" border=\"1\"><colgroup><col style=\"width: 6.09464%;\"><col style=\"width: 55.4948%;\"><col style=\"width: 38.4106%;\"></colgroup>\n<tbody>\n<tr style=\"height: 16.7969px;\">\n<td style=\"height: 16.7969px;\"><strong>RUNE</strong></td>\n<td style=\"height: 16.7969px;\"><strong>LIT</strong></td>\n<td style=\"height: 16.7969px;\"><strong>DARK</strong></td>\n</tr>\n<tr style=\"height: 33.5938px;\">\n<td style=\"height: 33.5938px;\">1</td>\n<td style=\"height: 33.5938px;\">An enormous pair of&nbsp;chicken legs extend,&nbsp;allowing the hut to&nbsp;walk and swim.</td>\n<td style=\"height: 33.5938px;\">The chicken legs&nbsp;retract, reducing the&nbsp;hut&rsquo;s Speed to 0 feet&nbsp;and making it unable&nbsp;to benefit from&nbsp;bonuses to speed.</td>\n</tr>\n<tr style=\"height: 16.7969px;\">\n<td style=\"height: 16.7969px;\">2</td>\n<td style=\"height: 16.7969px;\">Forward window&nbsp;shutter opens.</td>\n<td style=\"height: 16.7969px;\">Forward window&nbsp;shutter closes.</td>\n</tr>\n<tr style=\"height: 16.7969px;\">\n<td style=\"height: 16.7969px;\">3</td>\n<td style=\"height: 16.7969px;\">Side window shutters&nbsp;open (two per side).</td>\n<td style=\"height: 16.7969px;\">Side window shutters&nbsp;close (two per side).</td>\n</tr>\n<tr style=\"height: 83.9844px;\">\n<td style=\"height: 83.9844px;\">4</td>\n<td style=\"height: 83.9844px;\">Each extended&nbsp;chicken leg makes&nbsp;the following melee&nbsp;weapon attack: +10&nbsp;to hit, reach 5 ft., one&nbsp;target. Hit: 9 (2d8)&nbsp;slashing damage.</td>\n<td style=\"height: 83.9844px;\">The hut releases&nbsp;a disgusting and&nbsp;offensive miasma.&nbsp;All creatures in a&nbsp;60-foot radius of the&nbsp;hut make a DC 18&nbsp;Constitution saving&nbsp;throw or are poisoned&nbsp;until the end&nbsp;of the pilot&rsquo;s next&nbsp;turn. If the interior&nbsp;is not sealed, this includes&nbsp;any creatures&nbsp;inside the hut.</td>\n</tr>\n<tr style=\"height: 16.7969px;\">\n<td style=\"height: 16.7969px;\">5</td>\n<td style=\"height: 16.7969px;\">The hut walks or&nbsp;swims forward.</td>\n<td style=\"height: 16.7969px;\">The hut walks or&nbsp;swims backward.</td>\n</tr>\n<tr style=\"height: 16.7969px;\">\n<td style=\"height: 16.7969px;\">6</td>\n<td style=\"height: 16.7969px;\">The hut turns up to&nbsp;180 degrees left.</td>\n<td style=\"height: 16.7969px;\">The hut turns up to&nbsp;180 degrees right.</td>\n</tr>\n<tr style=\"height: 33.5938px;\">\n<td style=\"height: 33.5938px;\">7</td>\n<td style=\"height: 33.5938px;\">Lanterns appear on&nbsp;the front of the hut,&nbsp;emitting bright light&nbsp;in a 30-foot radius&nbsp;and dim light for an&nbsp;additional 30 feet.</td>\n<td style=\"height: 33.5938px;\">If there are lanterns&nbsp;conjured on the&nbsp;front of the hut,&nbsp;they disappear.</td>\n</tr>\n<tr style=\"height: 16.7969px;\">\n<td style=\"height: 16.7969px;\">8</td>\n<td style=\"height: 16.7969px;\">The front door&nbsp;unseals and opens.</td>\n<td style=\"height: 16.7969px;\">The front door closes&nbsp;and seals.</td>\n</tr>\n</tbody>\n</table>\n<p>&nbsp;</p>",
+		"favorite": false,
+		"secretDescription": "",
+		"source": {
+			"name": "",
+			"link": "",
+			"publisher": ""
+		},
+		"uses": {
+			"value": null,
+			"max": "",
+			"per": null,
+			"recharge": {
+				"formula": "1d6",
+				"threshold": "6"
+			}
+		},
+		"schema": {
+			"version": null,
+			"lastMigration": null
+		},
+		"ammunitionProperties": [],
+		"armorCategory": "",
+		"armorProperties": [],
+		"attuned": false,
+		"bulky": false,
+		"craftingComponents": "Unique (uncraftable)",
+		"containerId": "",
+		"damagedState": 0,
+		"equippedState": 0,
+		"items": {},
+		"materialProperties": [],
+		"objectType": "miscellaneous",
+		"plotItem": false,
+		"price": 0,
+		"proficient": true,
+		"quantity": 1,
+		"rarity": "artifact",
+		"requiresAttunement": true,
+		"shieldCategory": "",
+		"shieldProperties": [],
+		"unidentified": false,
+		"unidentifiedDescription": "",
+		"unidentifiedName": "",
+		"weaponProperties": [],
+		"weight": 0
+	},
+	"effects": [
+		{
+			"icon": "icons/creatures/birds/corvid-call-sound-blue.webp",
+			"origin": "Item.6b8NVJSCQjV5A1Uk",
+			"flags": {
+				"a5e": {
+					"sort": 0,
+					"transferType": "permanent"
+				}
+			},
+			"transfer": false,
+			"name": "Additional Attunement",
+			"_id": "fajFaYvVpOS59orv",
+			"changes": [
+				{
+					"key": "system.attributes.attunement.current",
+					"value": "1",
+					"mode": 2,
+					"priority": null
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": null,
+				"combat": null,
+				"rounds": null,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "",
+			"statuses": [],
+			"folder": null
+		},
+		{
+			"icon": "icons/creatures/birds/corvid-call-sound-blue.webp",
+			"origin": "Item.6b8NVJSCQjV5A1Uk",
+			"flags": {
+				"a5e": {
+					"sort": 0,
+					"transferType": "onUse",
+					"actionId": "Kpl0z3B8EXorqgMR",
+					"duration": {
+						"type": "rounds",
+						"unit": "minutes"
+					}
+				}
+			},
+			"transfer": false,
+			"name": "Poisoned",
+			"_id": "rGrVRN2PqFeJ8Og5",
+			"changes": [
+				{
+					"key": "flags.a5e.effects.statusConditions",
+					"value": "[\"poisoned\"]",
+					"mode": 0,
+					"priority": null
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": null,
+				"combat": null,
+				"rounds": null,
+				"turns": 1,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "",
+			"statuses": [
+				"poisoned"
+			],
+			"folder": null
+		},
+		{
+			"icon": "icons/creatures/birds/corvid-call-sound-blue.webp",
+			"origin": "Item.6b8NVJSCQjV5A1Uk",
+			"flags": {
+				"a5e": {
+					"sort": 0,
+					"transferType": "onUse",
+					"actionId": "Y8mDqHxK9QsgdqaU",
+					"applyToSelf": true
+				}
+			},
+			"transfer": false,
+			"name": "Lanterns",
+			"_id": "3lZo2JyVkVmzqZ90",
+			"changes": [
+				{
+					"key": "@token.light.dim",
+					"value": "60",
+					"mode": 6,
+					"priority": null
+				},
+				{
+					"key": "@token.light.bright",
+					"value": "30",
+					"mode": 6,
+					"priority": null
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": null,
+				"combat": null,
+				"rounds": null,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "",
+			"statuses": [],
+			"folder": null
+		}
+	],
+	"flags": {},
+	"_id": "r1529s2re3b4q3c1"
 }
