@@ -9,10 +9,16 @@ export default function registerPremiumContentConfig(A5E) {
     },
     anthonyAlipio: {
       name: 'Anthony Alipio',
-      releases: [{
-        title: 'The Sugar Crumb Fairy',
-        url: 'https://bit.ly/3Zs8nI4'
-      }]
+      releases: [
+        {
+          title: 'The Sugar Crumb Fairy',
+          url: 'https://bit.ly/3Zs8nI4'
+        },
+        {
+          title: 'Til Undeath Do Us Part',
+          url: 'https://bit.ly/3SBRDwn'
+        }
+      ]
     },
     dmSarah: {
       name: 'DM Sarah',
@@ -52,6 +58,10 @@ export default function registerPremiumContentConfig(A5E) {
         {
           title: 'MoAR: Battlemages',
           url: 'https://bit.ly/41HQd4G'
+        },
+        {
+          title: 'MoAR: Complete',
+          url: 'https://bit.ly/3spFznx'
         },
         {
           title: 'MoAR: Elements',
