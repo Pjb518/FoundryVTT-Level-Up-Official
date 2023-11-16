@@ -1,0 +1,384 @@
+{
+	"folder": null,
+	"name": "Orb of Dragonkind",
+	"type": "object",
+	"img": "icons/commodities/materials/glass-orb-teal.webp",
+	"system": {
+		"ac": {
+			"baseFormula": "",
+			"formula": "",
+			"maxDex": 0,
+			"minStr": 0,
+			"mode": 2,
+			"requiresNoShield": false,
+			"requiresUnarmored": false
+		},
+		"actions": {
+			"jjtzuOsVT6o0G2q9": {
+				"name": "Detect Magic",
+				"activation": {
+					"cost": 1,
+					"type": "action",
+					"reactionTrigger": ""
+				},
+				"consumers": {},
+				"rolls": {},
+				"prompts": {},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"threshold": 6
+					}
+				},
+				"duration": {
+					"unit": "minute",
+					"value": "10"
+				},
+				"ranges": {
+					"nGx2plWAcoII9obA": {
+						"range": "30-foot radius"
+					}
+				},
+				"area": {
+					"shape": "",
+					"size": "",
+					"placeTemplate": false,
+					"quantity": 1
+				},
+				"target": {
+					"quantity": "",
+					"type": "self"
+				},
+				"img": "icons/magic/perception/orb-crystal-ball-scrying-blue.webp",
+				"description": "<p>Until the spell ends, you automatically sense the presence of magic within range, and you can use an action to study the aura of a magic effect to learn its schools of magic (if any).</p><p>The spell penetrates most barriers but is blocked by 3 feet of wood or dirt, 1 foot of stone, 1 inch of common metal, or a thin sheet of lead.</p><p><strong><em>Cast at Higher Levels.</em></strong> When using a 2nd-level spell slot or higher, the spell no longer requires your concentration. When using a 3rd-level spell slot or higher, the duration increases to 1 hour. When using a 4th-level spell slot or higher, the duration increases to 8 hours.</p>",
+				"descriptionOutputs": [
+					"action"
+				]
+			},
+			"PJgBczJvYITylVe1": {
+				"name": "Daylight",
+				"activation": {
+					"cost": 1,
+					"type": "action",
+					"reactionTrigger": ""
+				},
+				"consumers": {
+					"G2lpFEZu7Dlq3MIk": {
+						"type": "itemUses",
+						"default": true,
+						"quantity": 1
+					}
+				},
+				"rolls": {},
+				"prompts": {},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"threshold": 6
+					}
+				},
+				"duration": {
+					"unit": "hour",
+					"value": "1"
+				},
+				"ranges": {
+					"kwYKtO7uzyc2k5SQ": {
+						"range": "medium"
+					}
+				},
+				"area": {
+					"shape": "sphere",
+					"radius": "60",
+					"placeTemplate": false
+				},
+				"target": {
+					"quantity": "",
+					"type": ""
+				},
+				"img": "icons/magic/light/beam-strike-orange-gold.webp",
+				"description": "<p>Magical light fills the area. The area is brightly lit and sheds dim light for an additional 60 feet. If any of the area overlaps with magical darkness created by a spell of 3rd-level or lower, the spell that created the darkness is dispelled.</p><p>When cast on an object that is in your possession or unattended, the light shines from it and moves with it. Completely covering the object with something that is not transparent blocks the light.</p>",
+				"descriptionOutputs": [
+					"action"
+				]
+			},
+			"kZZQMIMo51VstMJj": {
+				"name": "Death Ward",
+				"activation": {
+					"cost": 1,
+					"type": "action",
+					"reactionTrigger": ""
+				},
+				"consumers": {
+					"I5VylDIP5hrPOKAv": {
+						"type": "itemUses",
+						"default": true,
+						"quantity": 2
+					}
+				},
+				"rolls": {},
+				"prompts": {},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"threshold": 6
+					}
+				},
+				"duration": {
+					"unit": "hour",
+					"value": "8"
+				},
+				"ranges": {
+					"z6gD4vGNNtBfC6Jd": {
+						"range": "touch"
+					}
+				},
+				"area": {
+					"shape": "",
+					"size": "",
+					"placeTemplate": false
+				},
+				"target": {
+					"quantity": "",
+					"type": "creature"
+				},
+				"img": "icons/magic/life/heart-cross-strong-flame-blue.webp",
+				"description": "<p>The first time damage would reduce the target to 0 hit points, it instead drops to 1 hit point. If the target is subjected to an effect that would kill it instantaneously without dealing damage, that effect is negated. The spell ends immediately after either of these conditions occur.</p>",
+				"descriptionOutputs": [
+					"action"
+				]
+			},
+			"FxycmQJvA1JWg2Cf": {
+				"name": "Cure Wounds",
+				"activation": {
+					"cost": 1,
+					"type": "action",
+					"reactionTrigger": ""
+				},
+				"consumers": {
+					"MrZmTR2I90R1La91": {
+						"type": "itemUses",
+						"default": true,
+						"quantity": 3
+					}
+				},
+				"rolls": {
+					"mvdI9zz1HD9ZzY8X": {
+						"defaultSelection": true,
+						"formula": "5d8 + @spellcasting.mod",
+						"healingType": "healing",
+						"name": "",
+						"type": "healing",
+						"scaling": {
+							"mode": "spellLevel",
+							"formula": "1d8"
+						}
+					}
+				},
+				"prompts": {},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"threshold": 6
+					}
+				},
+				"duration": {
+					"unit": "instantaneous",
+					"value": ""
+				},
+				"ranges": {
+					"lTgbcksyaGxsyLxV": {
+						"range": "touch"
+					}
+				},
+				"area": {
+					"shape": "",
+					"size": "",
+					"placeTemplate": false
+				},
+				"target": {
+					"quantity": "",
+					"type": "creature"
+				},
+				"img": "icons/magic/life/heart-area-circle-red-green.webp",
+				"description": "<p>The target regains hit points equal to 1d8 + your spellcasting ability modifier.</p><p><strong><em>Cast at Higher Levels.</em></strong> The hit points regained increase by 1d8 for each slot level above 1st.</p>",
+				"descriptionOutputs": [
+					"action"
+				]
+			},
+			"aUUfDsmhIqNPaGtl": {
+				"name": "Scrying",
+				"activation": {
+					"cost": 10,
+					"type": "minute",
+					"reactionTrigger": ""
+				},
+				"consumers": {
+					"GTFpOUwP7xn78EOM": {
+						"type": "itemUses",
+						"default": true,
+						"quantity": 3
+					}
+				},
+				"rolls": {},
+				"prompts": {
+					"EPTW9bO0k35sFNNt": {
+						"ability": "wis",
+						"onSave": "Negates effect for 24 hours",
+						"saveDC": {
+							"type": "custom",
+							"bonus": "18"
+						},
+						"type": "savingThrow"
+					}
+				},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"threshold": 6
+					}
+				},
+				"duration": {
+					"unit": "minute",
+					"value": "10"
+				},
+				"ranges": {
+					"qOCRptUDIby1Pqv6": {
+						"range": "self"
+					}
+				},
+				"area": {
+					"shape": "",
+					"size": "",
+					"placeTemplate": false
+				},
+				"target": {
+					"quantity": "",
+					"type": "creature"
+				},
+				"img": "icons/magic/perception/orb-crystal-ball-scrying-blue.webp",
+				"description": "<p>You can see and hear a specific creature that you choose. The difficulty of the saving throw for this spell is modified by your knowledge of the target and whether you possess a physical item with a connection to the target.</p><p>On a failed save, you can see and hear the target through an invisible sensor that appears within 10 feet of it and moves with the target. Any creature who can see invisibility or rolls a critical success on its saving throw perceives the sensor as a fist-sized glowing orb hovering in the air. Creatures cannot see or hear you through the sensor.</p><p>If you choose to target a location, the sensor appears at that location and is immobile.</p>",
+				"descriptionOutputs": [
+					"action"
+				]
+			},
+			"kHMaAyVB5Ftc0GQ0": {
+				"name": "Recharge",
+				"activation": {
+					"type": "day",
+					"cost": 1
+				},
+				"consumers": {},
+				"rolls": {
+					"7lvIyDJCdFQOWLbd": {
+						"type": "generic",
+						"default": true,
+						"formula": "1d4 + 3"
+					}
+				},
+				"prompts": {},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"threshold": 6
+					}
+				}
+			},
+			"RJFBNcRS5gIlA0S0": {
+				"name": "Send Telepathic Message",
+				"activation": {
+					"type": "action",
+					"cost": 1
+				},
+				"consumers": {},
+				"rolls": {},
+				"prompts": {},
+				"uses": {
+					"value": 1,
+					"max": "1",
+					"per": "hour",
+					"recharge": {
+						"formula": "1d6",
+						"threshold": 6
+					}
+				},
+				"duration": {
+					"unit": "",
+					"value": 1
+				},
+				"ranges": {
+					"46s4P6L8D5vJmwcw": {
+						"range": 40,
+						"unit": "miles"
+					}
+				}
+			}
+		},
+		"description": "<p>Long ago the souls of five evil dragons were ripped from their corporeal bodies and captured with arcana by mages that sought to end the tyranny of wicked winged serpents. Each is contained within an intricately inscribed crystal globe 10 inches across&mdash;though when the magic within is called upon, an orb swells to double its size and glows with a faint light revealing the color of the scales&nbsp;that once belonged to what little remains of the&nbsp;creature that now resides in it.</p>\n<p>While you are attuned to and holding an Orb of Dragonkind, you can use an action and speak a command word to attempt to control the draconic soul within by making a DC 15 Charisma check. On a success, you can control the Orb of Dragonkind, or on a failure you are charmed by it. Both effects last until you are no longer attuned to the orb.</p>\n<p>While you are charmed by the orb, you cannot choose to end your attunement to it. In addition, the orb can innately cast @UUID[Compendium.a5e.a5e-spells.Item.ml9ls27u9ncms8ko]{Suggestion} on you at will (save DC 18) to compel you to commit evil acts that serve its purposes&mdash;exacting revenge, attaining its freedom, spread suffering and ruin, encourage the worship of foul draconic deities, collect the other orbs of dragonkind, or whatever else the Narrator deems fit.</p>\n<p>&nbsp;</p>\n<h2>Legends and Lore</h2>\n<p>Success on an Arcana or History check reveals&nbsp;the following:</p>\n<p><strong>DC 15</strong> This is an Orb of Dragonkind, an artifact with the power to control dragons.</p>\n<p><strong>DC 20</strong> Five orbs were made, each containing the soul of an evil dragon.</p>\n<p><strong>DC 25</strong> The orb can summon evil dragons, but does not actually control them.</p>\n<p>&nbsp;</p>\n<h2>Artifact Properties</h2>\n<p>An Orb of Dragonkind has two lesser artifact&nbsp;benefits, one lesser artifact detriment, and one&nbsp;greater artifact detriment.</p>\n<p>&nbsp;</p>\n<h2>Magic</h2>\n<p>While you are controlling an Orb of Dragonkind,&nbsp;you can use an action to cast @UUID[Compendium.a5e.a5e-spells.Item.kaye34nheyrit487]{Detect Magic} at will. You can also expend 1 or more charges to cast @UUID[Compendium.a5e.a5e-spells.Item.kaye34nheyrit487]{Detect Magic} (no charge), @UUID[Compendium.a5e.a5e-spells.Item.ew3qtw0gvzelrmgg]{Daylight} (1 charge), @UUID[Compendium.a5e.a5e-spells.Item.3zt20n8mf29x3eju]{Death Ward} (2 charges), @UUID[Compendium.a5e.a5e-spells.Item.1vo427vjnzgzb5z2]{Cure Wounds} (5th-level version, 3 charges), or @UUID[Compendium.a5e.a5e-spells.Item.ppht0do531mq84uw]{Scrying} (save DC 18; 3 charges).</p>\n<p>The orb has 7 charges and regains 1d4 + 3 expended charges each dawn.</p>\n<p>&nbsp;</p>\n<h2>Call Dragons</h2>\n<p>While you are controlling an Orb of Dragonkind,&nbsp;you can use an action to send a telepathic message&nbsp;in a 40-mile radius. Evil dragons that are mortal&nbsp;and in the area are compelled to take the quickest&nbsp;and most direct route to the orb, though they may&nbsp;not be friendly or pleased with being forced to&nbsp;answer the call. Once this property has been used,&nbsp;you cannot use it again for 1 hour.</p>\n<p>&nbsp;</p>\n<h2>Destroying an Orb</h2>\n<p>Despite its glass appearance, an Orb of Dragonkind&nbsp;is immune to most types of damage (including&nbsp;draconic breath weapons and natural attacks), but&nbsp;they can be destroyed by the @UUID[Compendium.a5e.a5e-spells.Item.suktewdv0zo7rgd0]{Disintegrate} spell or&nbsp;a single strike from a weapon with a +3 magical&nbsp;bonus to attack and damage rolls.</p>",
+		"favorite": false,
+		"secretDescription": "",
+		"source": {
+			"name": "",
+			"link": "",
+			"publisher": ""
+		},
+		"uses": {
+			"value": 7,
+			"max": "7",
+			"per": null,
+			"recharge": {
+				"formula": "1d6",
+				"threshold": "6"
+			}
+		},
+		"schema": {
+			"version": null,
+			"lastMigration": null
+		},
+		"ammunitionProperties": [],
+		"armorCategory": "",
+		"armorProperties": [],
+		"attuned": false,
+		"bulky": false,
+		"craftingComponents": "Unique (uncraftable)",
+		"containerId": "",
+		"damagedState": 0,
+		"equippedState": 0,
+		"items": {},
+		"materialProperties": [],
+		"objectType": "miscellaneous",
+		"plotItem": false,
+		"price": 0,
+		"proficient": true,
+		"quantity": 1,
+		"rarity": "artifact",
+		"requiresAttunement": true,
+		"shieldCategory": "",
+		"shieldProperties": [],
+		"unidentified": false,
+		"unidentifiedDescription": "",
+		"unidentifiedName": "",
+		"weaponProperties": [],
+		"weight": 0
+	},
+	"effects": [],
+	"flags": {},
+	"_id": "k9fd3oe7ou0yen0s"
+}
