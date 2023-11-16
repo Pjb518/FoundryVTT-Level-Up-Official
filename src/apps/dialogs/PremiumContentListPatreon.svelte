@@ -66,6 +66,32 @@
     documents in a just a few clicks.
 </p>
 
+<h3>
+    <a
+        class="patreon-link"
+        href="https://www.patreon.com/posts/preview-builder-92995236"
+        target="_blank"
+    >
+        <i
+            class="tier-indicator tier-indicator--silver fa-solid fa-circle"
+            data-tooltip="This tool is available to silver tier patrons"
+        /> Encounter Builder
+    </a>
+</h3>
+
+<p>
+    The encounter builder is an combat encounter planning utility that allows
+    you to quickly an easily evaluate the difficulty of a combat encounter
+    against your current party.
+</p>
+
+<p>
+    Future versions of this tool will see it transform into a full encounter
+    management suite, with helpful summaries for tracking combats, handy
+    import/export functionality, xp management, and module integration to
+    automatically set up encounters for published adventures.
+</p>
+
 <style lang="scss">
     .tier-indicator {
         position: relative;
