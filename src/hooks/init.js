@@ -61,6 +61,9 @@ import MigrationRunner from '../migration/MigrationRunner';
 import handleMigration from '../migration/handleMigration';
 import handlePackMigration from '../migration/handlePackMigration';
 
+// Utility functions
+import getDeterministicBonus from '../dice/getDeterministicBonus';
+
 // Stores
 import { gameSettings } from '../settings/SettingsStore';
 
@@ -139,8 +142,10 @@ export default function init() {
     },
     settings: {
       store: gameSettings
+    },
+    utils: {
+      getDeterministicBonus
     }
-
   };
 
   // Register sheet application classes
