@@ -8,6 +8,7 @@
     import getExpertiseDieSize from "../../utils/getExpertiseDieSize";
     import updateDocumentDataFromField from "../../utils/updateDocumentDataFromField";
 
+    export let columnFlow;
     export let key;
     export let skill;
 
@@ -28,7 +29,7 @@
         : $actor.flags?.a5e?.sheetIsLocked ?? true;
 </script>
 
-<li class="skill">
+<li class="skill" class:skill--column-flow={columnFlow}>
     <input
         style="display: none;"
         type="checkbox"
@@ -155,6 +156,30 @@
         &:nth-child(4n + 1),
         &:nth-child(4n + 2) {
             background: rgba(0, 0, 0, 0.05);
+        }
+
+        &--column-flow {
+            &:nth-child(even) {
+                background: rgba(0, 0, 0, 0.05);
+                border-left: none;
+            }
+
+            &:nth-child(odd) {
+                background: transparent;
+                border-right: none;
+            }
+
+            &:nth-child(-n + 10) {
+                border-right: 1px solid #ccc;
+            }
+
+            &:nth-child(10) {
+                border-bottom: none;
+            }
+
+            &:nth-child(19) {
+                border-bottom: 1px solid #ccc;
+            }
         }
 
         &__config-button {

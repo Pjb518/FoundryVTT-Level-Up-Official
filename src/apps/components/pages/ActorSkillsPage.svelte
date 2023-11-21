@@ -49,9 +49,9 @@
         </FormSection>
     {/if}
 
-    <ul class="skills-container">
+    <ul class="skills-container" class:skills-container--column-flow={false}>
         {#each Object.entries(skills) as [key, skill], i}
-            <Skill {key} {skill} />
+            <Skill {key} {skill} columnFlow={false} />
         {/each}
     </ul>
 </div>
@@ -66,6 +66,11 @@
         list-style: none;
         border: 1px solid #ccc;
         border-radius: $border-radius-standard;
+
+        &--column-flow {
+            grid-template-rows: repeat(10, 1.5rem);
+            grid-auto-flow: column;
+        }
     }
 
     .skill-page-wrapper {
