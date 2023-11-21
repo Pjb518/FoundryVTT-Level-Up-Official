@@ -2,8 +2,9 @@
     import { getContext } from "svelte";
     import { localize } from "#runtime/svelte/helper";
 
-    import FormSection from "../components/FormSection.svelte";
     import Checkbox from "../components/Checkbox.svelte";
+    import FormSection from "../components/FormSection.svelte";
+    import RadioGroup from "../components/RadioGroup.svelte";
 
     export let reload;
 
@@ -11,6 +12,10 @@
     const updates = getContext("updates");
 
     const isGM = game.user.isGM;
+
+    const skillListFlowDirectionChoices = game.settings.settings.get(
+        "a5e.skillListFlowDirection"
+    ).choices;
 
     // Stores
     let trackCurrency = settings.getStore("currencyWeight");
@@ -22,6 +27,10 @@
     let rightClickConfig = settings.getStore("itemRightClickConfigure");
     let reverseAlt = settings.getStore("reverseAltBehavior");
     let reverseInitAlt = settings.getStore("reverseInitiativeAltBehavior");
+    let skillListFlowDirection = settings.getStore("skillListFlowDirection");
+
+    let selectedSkillListFlowDirection =
+        updates.get("skillListFlowDirection") ?? $skillListFlowDirection;
 </script>
 
 {#if isGM}
@@ -150,6 +159,22 @@
                 false}
             on:updateSelection={({ detail }) =>
                 updates.set("reverseInitiativeAltBehavior", detail)}
+        />
+    </FormSection>
+
+    <FormSection
+        heading="Skill List Flow Direction"
+        hint={game.settings.settings.get("a5e.skillListFlowDirection").hint}
+        --gap="0.25rem"
+    >
+        <RadioGroup
+            options={Object.entries(skillListFlowDirectionChoices)}
+            selected={selectedSkillListFlowDirection}
+            on:updateSelection={({ detail }) => {
+                updates.set("skillListFlowDirection", detail);
+                selectedSkillListFlowDirection = detail;
+                reload = true;
+            }}
         />
     </FormSection>
 </section>

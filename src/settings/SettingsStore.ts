@@ -427,6 +427,22 @@ class A5eGameSettings extends TJSGameSettings {
           type: Boolean
         }
       },
+      {
+        namespace,
+        key: 'skillListFlowDirection',
+        options: {
+          name: 'Skill List Flow Direction',
+          hint: "Setting this option to 'Row' causes the skills to flow alphabetically left to right, row by row. Setting this option 'Column' causes the skills to flow alphabetically top to bottom, column by column.",
+          scope: scope.client,
+          config: true,
+          default: 'row',
+          choices: {
+            row: 'Row',
+            column: 'Column'
+          },
+          type: String
+        }
+      },
       // Hidden system settings
       {
         namespace,

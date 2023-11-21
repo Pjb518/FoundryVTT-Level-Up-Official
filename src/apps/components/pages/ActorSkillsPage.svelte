@@ -14,6 +14,11 @@
     $: showSpecialties = Object.values(skills).some(
         (skill) => skill.specialties.length
     );
+
+    $: skillListFlowDirection = game.settings.get(
+        "a5e",
+        "skillListFlowDirection"
+    );
 </script>
 
 <div class="skill-page-wrapper">
@@ -49,9 +54,17 @@
         </FormSection>
     {/if}
 
-    <ul class="skills-container" class:skills-container--column-flow={false}>
+    <ul
+        class="skills-container"
+        class:skills-container--column-flow={skillListFlowDirection ===
+            "column"}
+    >
         {#each Object.entries(skills) as [key, skill], i}
-            <Skill {key} {skill} columnFlow={false} />
+            <Skill
+                {key}
+                {skill}
+                columnFlow={skillListFlowDirection === "column"}
+            />
         {/each}
     </ul>
 </div>
