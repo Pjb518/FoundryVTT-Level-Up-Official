@@ -13,6 +13,7 @@
     let deathSaves = settings.getStore("5eStyleDeathSaves");
     let exhaustion = settings.getStore("replaceFatigueAndStrife");
     let hideA5eSkills = settings.getStore("hideA5eSkills");
+    let hideSkillSpecialties = settings.getStore("hideSkillSpecialties");
 </script>
 
 <section class="setting-group">
@@ -38,6 +39,19 @@
             checked={updates.get("hideA5eSkills") ?? $hideA5eSkills ?? false}
             on:updateSelection={({ detail }) => {
                 updates.set("hideA5eSkills", detail);
+                reload = true;
+            }}
+        />
+    </FormSection>
+
+    <FormSection hint="A5E.settings.hints.hideSkillSpecialties" --gap="0.25rem">
+        <Checkbox
+            label="A5E.settings.hideSkillSpecialties"
+            checked={updates.get("hideSkillSpecialties") ??
+                $hideSkillSpecialties ??
+                false}
+            on:updateSelection={({ detail }) => {
+                updates.set("hideSkillSpecialties", detail);
                 reload = true;
             }}
         />

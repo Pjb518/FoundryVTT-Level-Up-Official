@@ -66,19 +66,21 @@
         />
     </FormSection>
 
-    <FormSection>
-        <CustomTagGroup
-            heading="A5E.SkillSpecialties"
-            options={specialtyOptions}
-            selected={skill.specialties}
-            on:updateSelection={(event) =>
-                updateDocumentDataFromField(
-                    $actor,
-                    `system.skills.${skillKey}.specialties`,
-                    event.detail
-                )}
-        />
-    </FormSection>
+    {#if !game.settings.get("a5e", "hideSkillSpecialties")}
+        <FormSection>
+            <CustomTagGroup
+                heading="A5E.SkillSpecialties"
+                options={specialtyOptions}
+                selected={skill.specialties}
+                on:updateSelection={(event) =>
+                    updateDocumentDataFromField(
+                        $actor,
+                        `system.skills.${skillKey}.specialties`,
+                        event.detail
+                    )}
+            />
+        </FormSection>
+    {/if}
 
     <FormSection heading="A5E.ExpertiseDie">
         <ExpertiseDiePicker

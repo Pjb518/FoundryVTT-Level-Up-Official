@@ -1,6 +1,5 @@
 <script>
-    import { getContext, onDestroy } from "svelte";
-    import { localize } from "#runtime/svelte/helper";
+    import { getContext } from "svelte";
 
     import CreateMenu from "../actorUtilityBar/CreateMenu.svelte";
     import EffectCategory from "../EffectCategory.svelte";

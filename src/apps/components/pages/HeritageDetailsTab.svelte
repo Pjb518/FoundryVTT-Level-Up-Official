@@ -1,6 +1,5 @@
 <script>
     import { getContext, setContext } from "svelte";
-    import { localize } from "#runtime/svelte/helper";
     import { TJSDocument } from "#runtime/svelte/store/fvtt/document";
 
     import FormSection from "../FormSection.svelte";

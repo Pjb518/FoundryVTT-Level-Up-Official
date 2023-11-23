@@ -16,15 +16,19 @@
         return skills;
     }
 
+    function determineWhetherToShowSkillSpecialties(skills) {
+        if (game.settings.get("a5e", "hideSkillSpecialties")) return false;
+
+        return Object.values(skills).some((skill) => skill.specialties.length);
+    }
+
     const actor = getContext("actor");
     const { A5E } = CONFIG;
     const { skillSpecialties } = A5E;
 
     $: skills = getSkills($actor.system.skills);
 
-    $: showSpecialties = Object.values(skills).some(
-        (skill) => skill.specialties.length
-    );
+    $: showSpecialties = determineWhetherToShowSkillSpecialties(skills);
 
     $: skillListFlowDirection = game.settings.get(
         "a5e",
