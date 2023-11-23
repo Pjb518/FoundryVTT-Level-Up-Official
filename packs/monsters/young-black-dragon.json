@@ -59,8 +59,13 @@
 						"threshold": ""
 					}
 				},
+				"schema": {
+					"version": null,
+					"lastMigration": null
+				},
 				"concentration": false,
 				"featureType": "other",
+				"grants": {},
 				"prerequisite": "",
 				"schemaVersion": {
 					"version": 0.009,
@@ -110,8 +115,13 @@
 						"threshold": ""
 					}
 				},
+				"schema": {
+					"version": null,
+					"lastMigration": null
+				},
 				"concentration": false,
 				"featureType": "other",
+				"grants": {},
 				"prerequisite": "",
 				"schemaVersion": {
 					"version": 0.009,
@@ -165,8 +175,13 @@
 						"threshold": ""
 					}
 				},
+				"schema": {
+					"version": null,
+					"lastMigration": null
+				},
 				"concentration": false,
 				"featureType": "",
+				"grants": {},
 				"prerequisite": "",
 				"schemaVersion": {
 					"version": 0.009,
@@ -271,8 +286,13 @@
 						"threshold": ""
 					}
 				},
+				"schema": {
+					"version": null,
+					"lastMigration": null
+				},
 				"concentration": false,
 				"featureType": "naturalWeapon",
+				"grants": {},
 				"prerequisite": "",
 				"schemaVersion": {
 					"version": 0.009,
@@ -366,8 +386,13 @@
 						"threshold": ""
 					}
 				},
+				"schema": {
+					"version": null,
+					"lastMigration": null
+				},
 				"concentration": false,
 				"featureType": "naturalWeapon",
+				"grants": {},
 				"prerequisite": "",
 				"schemaVersion": {
 					"version": 0.009,
@@ -415,19 +440,17 @@
 							"unit": "instantaneous",
 							"value": ""
 						},
-						"ranges": {
-							"1MbEu5T5G2zx6whZ": {
-								"range": "medium"
-							}
-						},
+						"ranges": {},
 						"area": {
 							"shape": "line",
 							"size": "40",
-							"placeTemplate": false
+							"placeTemplate": false,
+							"length": 40,
+							"width": 5
 						},
 						"target": {
-							"quantity": null,
-							"type": "creature"
+							"quantity": 1,
+							"type": ""
 						},
 						"rolls": {
 							"IBug5yp3vSlKKGxL": {
@@ -465,196 +488,13 @@
 						"threshold": ""
 					}
 				},
-				"concentration": false,
-				"featureType": "naturalWeapon",
-				"prerequisite": "",
-				"schemaVersion": {
-					"version": 0.009,
-					"lastMigration": {
-						"version": {
-							"schema": 0.007,
-							"foundry": "11.311",
-							"system": "0.15.13"
-						}
-					}
-				}
-			},
-			"ownership": {
-				"default": 0
-			}
-		},
-		{
-			"_id": "LcsncSG0v72AnXoV",
-			"name": "Tail Attack",
-			"type": "feature",
-			"img": "icons/skills/wounds/injury-pain-impaled-hand-blood.webp",
-			"effects": [],
-			"folder": null,
-			"sort": 1300000,
-			"flags": {
-				"core": {
-					"sourceId": "Item.M84U0XSfmXtWa9e1"
-				}
-			},
-			"system": {
-				"ac": {
-					"baseFormula": "",
-					"formula": "",
-					"maxDex": 0,
-					"minStr": 0,
-					"mode": 1,
-					"requiresNoShield": false,
-					"requiresUnarmored": false
-				},
-				"actions": {
-					"9Nlhg5NQol1KZfRN": {
-						"name": "Tail Attack",
-						"activation": {
-							"cost": 1,
-							"type": "reaction",
-							"reactionTrigger": "When a creature the dragon can see within 10 feet hits the dragon with a melee attack, the dragon makes a tail attack against it."
-						},
-						"duration": {
-							"unit": "instantaneous",
-							"value": ""
-						},
-						"ranges": {
-							"3uSEmL7CUqICUhcr": {
-								"range": "Reach: 10ft."
-							}
-						},
-						"area": {
-							"shape": "",
-							"size": "",
-							"placeTemplate": false
-						},
-						"target": {
-							"quantity": 1,
-							"type": "creature"
-						},
-						"rolls": {
-							"AYM7iENzgq5vAOZw": {
-								"bonus": "",
-								"critThreshold": "20",
-								"type": "attack",
-								"attackType": "meleeWeaponAttack",
-								"ability": "default"
-							},
-							"KdVVhQHZQItheyyo": {
-								"canCrit": true,
-								"damageType": "bludgeoning",
-								"formula": "2d8 + @@str.mod",
-								"name": "",
-								"type": "damage"
-							}
-						},
-						"consumers": {}
-					}
-				},
-				"description": "<p>When a creature the dragon can see within 10 feet hits the dragon with a melee attack, the dragon makes a tail attack against it.</p>",
-				"favorite": true,
-				"secretDescription": "",
-				"source": "",
-				"uses": {
-					"value": null,
-					"max": "",
-					"per": null,
-					"recharge": {
-						"formula": "",
-						"threshold": ""
-					}
+				"schema": {
+					"version": null,
+					"lastMigration": null
 				},
 				"concentration": false,
 				"featureType": "naturalWeapon",
-				"prerequisite": "",
-				"schemaVersion": {
-					"version": 0.009,
-					"lastMigration": {
-						"version": {
-							"schema": 0.007,
-							"foundry": "11.311",
-							"system": "0.15.13"
-						}
-					}
-				}
-			},
-			"ownership": {
-				"default": 0
-			}
-		},
-		{
-			"_id": "RpRgB5ysCIyLJQgK",
-			"name": "Wing Attack",
-			"type": "feature",
-			"img": "icons/svg/item-bag.svg",
-			"effects": [],
-			"folder": null,
-			"sort": 1200000,
-			"flags": {
-				"core": {
-					"sourceId": "Item.kscfGEevngAze5kQ"
-				}
-			},
-			"system": {
-				"ac": {
-					"baseFormula": "",
-					"formula": "",
-					"maxDex": 0,
-					"minStr": 0,
-					"mode": 1,
-					"requiresNoShield": false,
-					"requiresUnarmored": false
-				},
-				"actions": {
-					"JUam3nN5FCwQj0xb": {
-						"name": "Wing Attack",
-						"activation": {
-							"cost": 1,
-							"type": "legendaryAction",
-							"reactionTrigger": ""
-						},
-						"duration": {
-							"unit": "instantaneous",
-							"value": ""
-						},
-						"area": {
-							"shape": "sphere",
-							"size": "15",
-							"placeTemplate": false
-						},
-						"target": {
-							"quantity": null,
-							"type": "creature"
-						},
-						"prompts": {
-							"LYq296huqJQ5p97I": {
-								"ability": "dex",
-								"onSave": "Not knocked prone.",
-								"saveDC": {
-									"type": "custom",
-									"bonus": "20"
-								},
-								"type": "savingThrow"
-							}
-						},
-						"consumers": {}
-					}
-				},
-				"description": "<p>The dragon beats its wings. Each creature within 15 feet makes a DC 20 Dexterity saving throw. On a failure, it is pushed 10 feet away and knocked prone. The dragon can then fly up to half its fly speed.</p>",
-				"favorite": true,
-				"secretDescription": "",
-				"source": "",
-				"uses": {
-					"value": null,
-					"max": "",
-					"per": null,
-					"recharge": {
-						"formula": "",
-						"threshold": ""
-					}
-				},
-				"concentration": false,
-				"featureType": "other",
+				"grants": {},
 				"prerequisite": "",
 				"schemaVersion": {
 					"version": 0.009,
@@ -708,8 +548,13 @@
 						"threshold": ""
 					}
 				},
+				"schema": {
+					"version": null,
+					"lastMigration": null
+				},
 				"concentration": false,
 				"featureType": "",
+				"grants": {},
 				"prerequisite": "",
 				"schemaVersion": {
 					"version": 0.009,
@@ -800,6 +645,10 @@
 						"formula": "",
 						"threshold": ""
 					}
+				},
+				"schema": {
+					"version": null,
+					"lastMigration": null
 				},
 				"degree": 0,
 				"exertionCost": 0,
@@ -899,6 +748,10 @@
 						"threshold": ""
 					}
 				},
+				"schema": {
+					"version": null,
+					"lastMigration": null
+				},
 				"degree": 0,
 				"exertionCost": 0,
 				"isStance": false,
@@ -987,6 +840,10 @@
 						"formula": "",
 						"threshold": ""
 					}
+				},
+				"schema": {
+					"version": null,
+					"lastMigration": null
 				},
 				"degree": 0,
 				"exertionCost": 0,
@@ -1077,6 +934,10 @@
 						"threshold": ""
 					}
 				},
+				"schema": {
+					"version": null,
+					"lastMigration": null
+				},
 				"degree": 0,
 				"exertionCost": 0,
 				"isStance": false,
@@ -1165,6 +1026,10 @@
 						"formula": "",
 						"threshold": ""
 					}
+				},
+				"schema": {
+					"version": null,
+					"lastMigration": null
 				},
 				"degree": 0,
 				"exertionCost": 0,
@@ -1255,6 +1120,10 @@
 						"threshold": ""
 					}
 				},
+				"schema": {
+					"version": null,
+					"lastMigration": null
+				},
 				"degree": 0,
 				"exertionCost": 0,
 				"isStance": false,
@@ -1280,7 +1149,11 @@
 		}
 	],
 	"effects": [],
-	"flags": {},
+	"flags": {
+		"a5e": {
+			"sheetIsLocked": true
+		}
+	},
 	"system": {
 		"abilities": {
 			"str": {
@@ -1316,8 +1189,7 @@
 				"save": {
 					"proficient": true,
 					"expertiseDice": 0,
-					"bonus": "",
-					"concentrationBonus": ""
+					"bonus": ""
 				}
 			},
 			"int": {
@@ -1611,10 +1483,6 @@
 		},
 		"spellResources": {
 			"slots": {
-				"0": {
-					"current": 0,
-					"max": 0
-				},
 				"1": {
 					"current": 0,
 					"max": 0
@@ -1782,7 +1650,8 @@
 			"isSwarm": false,
 			"cr": 9,
 			"elite": false,
-			"privateNotes": ""
+			"privateNotes": "",
+			"notes": ""
 		},
 		"proficiencies": {
 			"armor": [],
@@ -1797,7 +1666,7 @@
 			"primary": {
 				"label": "",
 				"value": 0,
-				"max": 0,
+				"max": "0",
 				"per": "",
 				"hideMax": false,
 				"recharge": {
@@ -1808,7 +1677,7 @@
 			"secondary": {
 				"label": "",
 				"value": 0,
-				"max": 0,
+				"max": "0",
 				"per": "",
 				"hideMax": false,
 				"recharge": {
@@ -1819,7 +1688,7 @@
 			"tertiary": {
 				"label": "",
 				"value": 0,
-				"max": 0,
+				"max": "0",
 				"per": "",
 				"hideMax": false,
 				"recharge": {
@@ -1830,7 +1699,7 @@
 			"quaternary": {
 				"label": "",
 				"value": 0,
-				"max": 0,
+				"max": "0",
 				"per": "",
 				"hideMax": false,
 				"recharge": {

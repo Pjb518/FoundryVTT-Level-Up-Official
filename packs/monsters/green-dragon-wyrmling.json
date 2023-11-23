@@ -84,103 +84,13 @@
 						"threshold": ""
 					}
 				},
-				"concentration": false,
-				"featureType": "naturalWeapon",
-				"prerequisite": "",
-				"schemaVersion": {
-					"version": 0.009,
-					"lastMigration": {
-						"version": {
-							"schema": 0.007,
-							"foundry": "11.311",
-							"system": "0.15.13"
-						}
-					}
-				}
-			},
-			"ownership": {
-				"default": 0
-			}
-		},
-		{
-			"_id": "KYmTKwO01H01LCIu",
-			"name": "Claw",
-			"type": "feature",
-			"img": "icons/skills/melee/blood-slash-foam-red.webp",
-			"effects": [],
-			"folder": null,
-			"sort": 500000,
-			"flags": {},
-			"system": {
-				"ac": {
-					"baseFormula": "",
-					"formula": "",
-					"maxDex": 0,
-					"minStr": 0,
-					"mode": 1,
-					"requiresNoShield": false,
-					"requiresUnarmored": false
-				},
-				"actions": {
-					"kSHujwJsZVJfZGA5": {
-						"name": "Claw",
-						"activation": {
-							"cost": 1,
-							"type": "action",
-							"reactionTrigger": ""
-						},
-						"duration": {
-							"unit": "instantaneous",
-							"value": ""
-						},
-						"ranges": {
-							"6NBSN3j72p0eHQXy": {
-								"range": "fiveFeet"
-							}
-						},
-						"area": {
-							"shape": "",
-							"size": "",
-							"placeTemplate": false
-						},
-						"target": {
-							"quantity": 1,
-							"type": "creature"
-						},
-						"rolls": {
-							"cUwt7HTFijb9ZUti": {
-								"bonus": "",
-								"critThreshold": "20",
-								"type": "attack",
-								"attackType": "meleeWeaponAttack",
-								"ability": "default"
-							},
-							"hKFTemqN59Yy5CLW": {
-								"canCrit": true,
-								"damageType": "slashing",
-								"formula": "2d8 + @@str.mod",
-								"name": "",
-								"type": "damage"
-							}
-						},
-						"consumers": {}
-					}
-				},
-				"description": "<p>The Dragon makes a claw attack.</p>",
-				"favorite": true,
-				"secretDescription": "",
-				"source": "",
-				"uses": {
-					"value": null,
-					"max": "",
-					"per": null,
-					"recharge": {
-						"formula": "",
-						"threshold": ""
-					}
+				"schema": {
+					"version": null,
+					"lastMigration": null
 				},
 				"concentration": false,
 				"featureType": "naturalWeapon",
+				"grants": {},
 				"prerequisite": "",
 				"schemaVersion": {
 					"version": 0.009,
@@ -235,11 +145,12 @@
 						"area": {
 							"shape": "cone",
 							"size": "15",
-							"placeTemplate": false
+							"placeTemplate": false,
+							"length": 15
 						},
 						"target": {
-							"quantity": null,
-							"type": "creature"
+							"quantity": 1,
+							"type": ""
 						},
 						"rolls": {
 							"OLRakZhqKSBBZ4qV": {
@@ -277,8 +188,13 @@
 						"threshold": ""
 					}
 				},
+				"schema": {
+					"version": null,
+					"lastMigration": null
+				},
 				"concentration": false,
 				"featureType": "naturalWeapon",
+				"grants": {},
 				"prerequisite": "",
 				"schemaVersion": {
 					"version": 0.009,
@@ -328,8 +244,13 @@
 						"threshold": ""
 					}
 				},
+				"schema": {
+					"version": null,
+					"lastMigration": null
+				},
 				"concentration": false,
 				"featureType": "",
+				"grants": {},
 				"prerequisite": "",
 				"schemaVersion": {
 					"version": 0.009,
@@ -379,8 +300,13 @@
 						"threshold": ""
 					}
 				},
+				"schema": {
+					"version": null,
+					"lastMigration": null
+				},
 				"concentration": false,
 				"featureType": "",
+				"grants": {},
 				"prerequisite": "",
 				"schemaVersion": {
 					"version": 0.009,
@@ -471,6 +397,10 @@
 						"formula": "",
 						"threshold": ""
 					}
+				},
+				"schema": {
+					"version": null,
+					"lastMigration": null
 				},
 				"degree": 0,
 				"exertionCost": 0,
@@ -570,6 +500,10 @@
 						"threshold": ""
 					}
 				},
+				"schema": {
+					"version": null,
+					"lastMigration": null
+				},
 				"degree": 0,
 				"exertionCost": 0,
 				"isStance": false,
@@ -658,6 +592,10 @@
 						"formula": "",
 						"threshold": ""
 					}
+				},
+				"schema": {
+					"version": null,
+					"lastMigration": null
 				},
 				"degree": 0,
 				"exertionCost": 0,
@@ -748,6 +686,10 @@
 						"threshold": ""
 					}
 				},
+				"schema": {
+					"version": null,
+					"lastMigration": null
+				},
 				"degree": 0,
 				"exertionCost": 0,
 				"isStance": false,
@@ -836,6 +778,10 @@
 						"formula": "",
 						"threshold": ""
 					}
+				},
+				"schema": {
+					"version": null,
+					"lastMigration": null
 				},
 				"degree": 0,
 				"exertionCost": 0,
@@ -926,6 +872,10 @@
 						"threshold": ""
 					}
 				},
+				"schema": {
+					"version": null,
+					"lastMigration": null
+				},
 				"degree": 0,
 				"exertionCost": 0,
 				"isStance": false,
@@ -966,7 +916,8 @@
 				"9"
 			],
 			"showSpellSlots": false,
-			"showSpellPoints": false
+			"showSpellPoints": false,
+			"sheetIsLocked": true
 		}
 	},
 	"system": {
@@ -1004,8 +955,7 @@
 				"save": {
 					"proficient": true,
 					"expertiseDice": 0,
-					"bonus": "",
-					"concentrationBonus": ""
+					"bonus": ""
 				}
 			},
 			"int": {
@@ -1299,10 +1249,6 @@
 		},
 		"spellResources": {
 			"slots": {
-				"0": {
-					"current": 0,
-					"max": 0
-				},
 				"1": {
 					"current": 0,
 					"max": 0
@@ -1470,7 +1416,8 @@
 			"isSwarm": false,
 			"cr": 3,
 			"elite": false,
-			"privateNotes": ""
+			"privateNotes": "",
+			"notes": ""
 		},
 		"proficiencies": {
 			"armor": [],
@@ -1484,7 +1431,7 @@
 			"primary": {
 				"label": "",
 				"value": 0,
-				"max": 0,
+				"max": "0",
 				"per": "",
 				"hideMax": false,
 				"recharge": {
@@ -1495,7 +1442,7 @@
 			"secondary": {
 				"label": "",
 				"value": 0,
-				"max": 0,
+				"max": "0",
 				"per": "",
 				"hideMax": false,
 				"recharge": {
@@ -1506,7 +1453,7 @@
 			"tertiary": {
 				"label": "",
 				"value": 0,
-				"max": 0,
+				"max": "0",
 				"per": "",
 				"hideMax": false,
 				"recharge": {
@@ -1517,7 +1464,7 @@
 			"quaternary": {
 				"label": "",
 				"value": 0,
-				"max": 0,
+				"max": "0",
 				"per": "",
 				"hideMax": false,
 				"recharge": {

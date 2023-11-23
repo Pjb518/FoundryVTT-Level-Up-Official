@@ -1,0 +1,392 @@
+{
+	"name": "Ancient Broom",
+	"type": "object",
+	"img": "icons/weapons/clubs/club-simple-black.webp",
+	"effects": [
+		{
+			"icon": "icons/weapons/clubs/club-simple-black.webp",
+			"origin": "Item.3UK4vViXTFemg1V1",
+			"flags": {
+				"a5e": {
+					"sort": 0,
+					"transferType": "onUse",
+					"actionId": "ZdX1rqHn29jj57xS",
+					"duration": {
+						"type": "rounds",
+						"unit": "minutes"
+					}
+				}
+			},
+			"transfer": false,
+			"name": "Critical Hit",
+			"_id": "meovN7b3LuJzCOR6",
+			"changes": [
+				{
+					"key": "flags.a5e.effects.statusConditions",
+					"value": "[\"blinded\"]",
+					"mode": 0,
+					"priority": null
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": null,
+				"combat": null,
+				"rounds": null,
+				"turns": 1,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "",
+			"statuses": [
+				"blinded"
+			],
+			"folder": null
+		},
+		{
+			"icon": "icons/weapons/clubs/club-simple-black.webp",
+			"origin": "Item.3UK4vViXTFemg1V1",
+			"flags": {
+				"a5e": {
+					"sort": 0,
+					"transferType": "passive"
+				}
+			},
+			"transfer": false,
+			"name": "Attuned",
+			"_id": "IeV31WTlOtKG6Kdf",
+			"changes": [
+				{
+					"key": "system.skills.arc.expertiseDice",
+					"value": "1",
+					"mode": 2,
+					"priority": null
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": null,
+				"combat": null,
+				"rounds": null,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "",
+			"statuses": [],
+			"folder": null
+		}
+	],
+	"flags": {},
+	"system": {
+		"ac": {
+			"baseFormula": "",
+			"formula": "",
+			"maxDex": 0,
+			"minStr": 0,
+			"mode": 1,
+			"requiresNoShield": false,
+			"requiresUnarmored": false
+		},
+		"actions": {
+			"ZdX1rqHn29jj57xS": {
+				"name": "Club",
+				"activation": {
+					"cost": "",
+					"type": "",
+					"reactionTrigger": ""
+				},
+				"duration": {
+					"unit": "",
+					"value": ""
+				},
+				"area": {
+					"shape": "",
+					"size": "",
+					"placeTemplate": false,
+					"quantity": 1
+				},
+				"target": {
+					"quantity": 1,
+					"type": "creatureObject"
+				},
+				"rolls": {
+					"4loQUAEZaCc8RC8h": {
+						"bonus": "3",
+						"critThreshold": "20",
+						"type": "attack",
+						"attackType": "meleeWeaponAttack",
+						"ability": "default"
+					},
+					"3DTZ2lWFlQONwpTn": {
+						"canCrit": true,
+						"damageType": "bludgeoning",
+						"formula": "1d4 + @str.mod + 3",
+						"name": "Club",
+						"type": "damage"
+					}
+				},
+				"consumers": {},
+				"prompts": {
+					"ClZDtbTuOxofRYzi": {
+						"type": "effect",
+						"default": true,
+						"effectId": "meovN7b3LuJzCOR6"
+					}
+				}
+			},
+			"VTK2FgZ7IdcdCwuO": {
+				"name": "Nondetection",
+				"activation": {
+					"cost": 1,
+					"type": "action",
+					"reactionTrigger": ""
+				},
+				"consumers": {},
+				"rolls": {},
+				"prompts": {},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"threshold": 6
+					}
+				},
+				"duration": {
+					"unit": "hour",
+					"value": "8"
+				},
+				"ranges": {
+					"xW5mxvlv4kk8P8cm": {
+						"range": "touch"
+					}
+				},
+				"area": {
+					"shape": "",
+					"size": "",
+					"placeTemplate": false,
+					"quantity": 1
+				},
+				"target": {
+					"quantity": "",
+					"type": "creatureObject"
+				},
+				"img": "icons/magic/symbols/runes-star-magenta.webp",
+				"description": "<p>The target is hidden from divination magic and cannot be perceived by magical scrying sensors.</p><p>When used on a place or object, the spell only works if the target is no larger than 10 feet in any given dimension.</p>",
+				"descriptionOutputs": [
+					"action"
+				]
+			},
+			"wzYwGCR24BXGUChp": {
+				"name": "Pass Without Trace",
+				"activation": {
+					"cost": 1,
+					"type": "action",
+					"reactionTrigger": ""
+				},
+				"consumers": {},
+				"rolls": {},
+				"prompts": {},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"threshold": 6
+					}
+				},
+				"duration": {
+					"unit": "hour",
+					"value": "1"
+				},
+				"ranges": {
+					"z8bfEhVThx0okE3H": {
+						"range": "self"
+					}
+				},
+				"area": {
+					"shape": "sphere",
+					"radius": "30",
+					"placeTemplate": false,
+					"quantity": 1
+				},
+				"target": {
+					"quantity": "",
+					"type": ""
+				},
+				"img": "icons/magic/nature/wolf-paw-glow-orange.webp"
+			},
+			"EY2Ycj9XSVEdCofP": {
+				"name": "Knock",
+				"activation": {},
+				"consumers": {
+					"oL2ugC3JnJNktVEW": {
+						"type": "itemUses",
+						"default": true,
+						"quantity": 1
+					}
+				},
+				"rolls": {},
+				"prompts": {},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"threshold": 6
+					}
+				}
+			},
+			"OMm94i0jvJs5uQof": {
+				"name": "Cackle",
+				"activation": {
+					"type": "bonusAction",
+					"cost": 1
+				},
+				"consumers": {},
+				"rolls": {
+					"MyfEMXtxRLEBf8LB": {
+						"type": "attack",
+						"default": true,
+						"attackType": "meleeWeaponAttack",
+						"proficient": true,
+						"ability": "default",
+						"bonus": "3",
+						"label": "With Advantage Unless Target Hidden"
+					},
+					"P9iDiZNxmB8K0zZn": {
+						"type": "damage",
+						"default": true,
+						"formula": "1d4 + @str.mod + 3",
+						"damageType": "bludgeoning"
+					}
+				},
+				"prompts": {},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"threshold": 6
+					}
+				},
+				"ranges": {
+					"YBZwOUdkBxkVClaT": {
+						"range": "medium"
+					}
+				},
+				"target": {
+					"type": "creature",
+					"quantity": 1
+				}
+			},
+			"7H095HjqXpeCjjLX": {
+				"name": "Second Hover Attack",
+				"activation": {
+					"type": "bonusAction",
+					"cost": 1
+				},
+				"consumers": {},
+				"rolls": {
+					"MyfEMXtxRLEBf8LB": {
+						"type": "attack",
+						"default": true,
+						"attackType": "meleeWeaponAttack",
+						"proficient": true,
+						"ability": "default",
+						"bonus": "3",
+						"label": "With Advantage Unless Target Hidden"
+					},
+					"P9iDiZNxmB8K0zZn": {
+						"type": "damage",
+						"default": true,
+						"formula": "1d4 + @str.mod + 3",
+						"damageType": "bludgeoning"
+					}
+				},
+				"prompts": {},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"threshold": 6
+					}
+				},
+				"ranges": {
+					"YBZwOUdkBxkVClaT": {
+						"range": "short"
+					}
+				},
+				"target": {
+					"type": "creature",
+					"quantity": 1
+				}
+			}
+		},
+		"description": "<p><em>Simple</em></p>\n<p>Subtle power is contained within this ancient oak staff and its coarse bristles, and though it appears as if any amount of rough handling will break this broom only the most potent blades have any chance of harming it. The broom&rsquo;s handle is said to have come from the first tree and the bristles stolen from a god, but its beginnings are far more humble&mdash; just a simple mundane object that accrued its first enchantment by chance after years of exposure to countless rituals. Since then its attraction to magic has grown, and so too has its admiration for the arcane. The broom has been in the hands of countless spellcasters, many of them unlikely candidates to pursue magic, though it cannot remember their names. Only the feats of magic they achieved are of any worth to the broom.</p>\n<p><em><strong>Sentience. </strong></em>The broom is a sentient construct&nbsp;with Intelligence 19, Wisdom 15, and Charisma&nbsp;17. It has hearing and darkvision to a range of&nbsp;120 feet. The broom communicates with you&nbsp;telepathically and can speak and understand&nbsp;Common, Draconic, Dwarvish, Elvish, Sylvan,&nbsp;and Undercommon.</p>\n<p><em><strong>Personality.</strong></em> The broom&rsquo;s purpose is to encourage the use of magic&mdash;the more powerful the better&mdash;regardless of any consequences. It is unconcerned with the goings on of mortals or anyone not engaged with magic, and it demands a certain amount of respect and appreciation for its service.</p>\n<p><em><strong>Demands.</strong></em> If you are unable to cast spells and attune to the broom, it relentlessly argues for you to pursue magical training and if none is achieved within a month it goes dormant in your hands (becoming a very durable stick). In addition, the broom is a repository of magic over the ages and it strongly encourages you to seek out monsters to harvest powerful reagents, explore cursed ruins in search of forbidden knowledge, and undertake precarious rituals.</p>\n<p>You have a +3 bonus to attack and damage rolls&nbsp;made with the magic broom, and when the broom&nbsp;deals damage with a critical hit the target is blinded&nbsp;until the end of your next turn.</p>\n<p>&nbsp;</p>\n<h2>Legends and Lore</h2>\n<p>Success on an Arcana or History check reveals the&nbsp;following:</p>\n<p><strong>DC 15</strong> This is the Ancient Broom, used by spellcasters since the dawn of time.</p>\n<p><strong>DC 18</strong> The broom is able to animate itself and attack your enemies, it has the power to open locks and break shackles, and it enables you to move without leaving a trace of your passing.</p>\n<p><strong>DC 21</strong> Many of those who have wielded the Ancient Broom came from humble and unlikely backgrounds.</p>\n<p>&nbsp;</p>\n<h2>Artifact Properties</h2>\n<p>The Ancient Broom has one lesser artifact detriment&nbsp;and one greater artifact detriment.</p>\n<p>&nbsp;</p>\n<h2>Magic</h2>\n<p>While you are attuned to the broom you gain an expertise die on checks made with Arcana, and while holding it you can innately cast @UUID[Compendium.a5e.a5e-spells.Item.zlsdqrnf2t9thns7]{Pass Without Trace} (no concentration required) and @UUID[Compendium.a5e.a5e-spells.Item.yaoaihxyt4dlsysw]{Nondetection} at will.</p>\n<p>In addition, you can use a bonus action to knock the broom against a lock, door, lid, chains, shackles, or the like to open them. Once you have done so 3 times, you cannot do so again until you have finished a long rest. You can speak with the broom over the course of a short rest, learning one ritual spell. The next time you use this feature, you forget the last spell learned from it.</p>\n<p>&nbsp;</p>\n<h2>Dancing Broom</h2>\n<p>In addition, you can use a bonus action to toss this&nbsp;broom into the air and cackle. When you do so, the&nbsp;broom begins to hover, flies up to 60 feet, and attacks&nbsp;one creature of your choice within 5 feet of it. The&nbsp;broom uses your attack roll and ability score modifier&nbsp;to damage rolls, and unless a target is hidden&nbsp;or invisible it has advantage on its attack roll.</p>\n<p>While the broom hovers, you can use a bonus action to cause it to fly up to 30 feet to another spot within 30 feet of you. As part of the same bonus action, you can cause the broom to attack one creature within 5 feet of it.</p>\n<p>The broom ceases to hover if you grasp it or move more than 30 feet away from it.</p>\n<p>&nbsp;</p>\n<p><strong>RITUAL SPELLS</strong></p>\n<table style=\"width: 100%; height: 235.156px;\" border=\"1\"><colgroup><col style=\"width: 13.1124%;\"><col style=\"width: 86.8876%;\"></colgroup>\n<tbody>\n<tr style=\"height: 16.7969px;\">\n<td style=\"height: 16.7969px;\"><strong>SPELL LEVEL</strong></td>\n<td style=\"height: 16.7969px;\"><strong>SPELLS</strong></td>\n</tr>\n<tr style=\"height: 50.3906px;\">\n<td style=\"height: 50.3906px;\">1st</td>\n<td style=\"height: 50.3906px;\">@UUID[Compendium.a5e.a5e-spells.Item.begb5jdvo5i1zjtu]{Alarm}, @UUID[Compendium.a5e.a5e-spells.Item.bq5bki8n1gfhrqz1]{Ceremony}, @UUID[Compendium.a5e.a5e-spells.Item.my7wwb844zvxcv4o]{Comprehend Languages}, @UUID[Compendium.a5e.a5e-spells.Item.kaye34nheyrit487]{Detect Magic}, @UUID[Compendium.a5e.a5e-spells.Item.4colmy0s3zjs0hy8]{Detect Poison and Disease}, @UUID[Compendium.a5e.a5e-spells.Item.6l4bmc7ovgcn2c9k]{Find Familiar}, @UUID[Compendium.a5e.a5e-spells.Item.43j7hjc2dqqlluoj]{Floating Disk}, @UUID[Compendium.a5e.a5e-spells.Item.dgms08g84zdlbr81]{Identify}, @UUID[Compendium.a5e.a5e-spells.Item.fe2d3gkhdwtibizq]{Purify Food and Drink}, @UUID[Compendium.a5e.a5e-spells.Item.z5a26lxyh3esw2rl]{Speak with Animals}, @UUID[Compendium.a5e.a5e-spells.Item.m5qeipj9umbg8fv0]{Unseen Servant}</td>\n</tr>\n<tr style=\"height: 16.7969px;\">\n<td style=\"height: 16.7969px;\">2nd</td>\n<td style=\"height: 16.7969px;\">@UUID[Compendium.a5e.a5e-spells.Item.mjrci30v32fs6hwc]{Animal Messenger}, @UUID[Compendium.a5e.a5e-spells.Item.724qyfqw7qcpe1ol]{Gentle Repose}, @UUID[Compendium.a5e.a5e-spells.Item.3fqncxt9imp9n4zc]{Locate Animals or Plants}, @UUID[Compendium.a5e.a5e-spells.Item.pzn6tyro9kivey8y]{Magic Mouth}, @UUID[Compendium.a5e.a5e-spells.Item.ne8hcbhbymfcrlar]{Silence}</td>\n</tr>\n<tr style=\"height: 16.7969px;\">\n<td style=\"height: 16.7969px;\">3rd</td>\n<td style=\"height: 16.7969px;\">@UUID[Compendium.a5e.a5e-spells.Item.daixbjks37bikvvo]{Blood-Writ Bargain}, @UUID[Compendium.a5e.a5e-spells.Item.l08wnki0f8mr24qd]{Tiny Hut}, @UUID[Compendium.a5e.a5e-spells.Item.ug1c28d5upbq19x4]{Water Breathing}, @UUID[Compendium.a5e.a5e-spells.Item.qmz47cw7wmy78gyc]{Water Walk}</td>\n</tr>\n<tr style=\"height: 16.7969px;\">\n<td style=\"height: 16.7969px;\">4th</td>\n<td style=\"height: 16.7969px;\">@UUID[Compendium.a5e.a5e-spells.Item.bs3wnsid88tbup6c]{Divination}</td>\n</tr>\n<tr style=\"height: 50.3906px;\">\n<td style=\"height: 50.3906px;\">5th</td>\n<td style=\"height: 50.3906px;\">@UUID[Compendium.a5e.a5e-spells.Item.h5ssew7apf5ofbhc]{Commune}, @UUID[Compendium.a5e.a5e-spells.Item.pdwrag8eq7r0ldcp]{Commune with Nature}, @UUID[Compendium.a5e.a5e-spells.Item.59she20yqbp2giqq]{Contact Other Plane}, @UUID[Compendium.a5e.a5e-spells.Item.158awzfd5ctjae15]{Telepathic Bond}</td>\n</tr>\n<tr style=\"height: 16.7969px;\">\n<td style=\"height: 16.7969px;\">6th</td>\n<td style=\"height: 16.7969px;\">@UUID[Compendium.a5e.a5e-spells.Item.j6k8ct3ih2drnfqg]{Forbiddance}, @UUID[Compendium.a5e.a5e-spells.Item.ppaw0igs6tyaq3pj]{Instant Summons}, @UUID[Compendium.a5e.a5e-spells.Item.lg7k8spte9d7dq1r]{Wormway}</td>\n</tr>\n<tr style=\"height: 16.7969px;\">\n<td style=\"height: 16.7969px;\">7th</td>\n<td style=\"height: 16.7969px;\">@UUID[Compendium.a5e.a5e-spells.Item.5ijl5b1goq9774l3]{Teleport}</td>\n</tr>\n<tr style=\"height: 16.7969px;\">\n<td style=\"height: 16.7969px;\">9th</td>\n<td style=\"height: 16.7969px;\">@UUID[Compendium.a5e.a5e-spells.Item.sfzcv3r802ifug25]{Writhing Transformation}</td>\n</tr>\n</tbody>\n</table>\n<p>&nbsp;</p>",
+		"favorite": false,
+		"secretDescription": "",
+		"source": "",
+		"uses": {
+			"value": 3,
+			"max": "3",
+			"per": "longRest",
+			"recharge": {
+				"formula": "1d6",
+				"threshold": 6
+			}
+		},
+		"schema": {
+			"version": null,
+			"lastMigration": null
+		},
+		"ammunitionProperties": [],
+		"armorCategory": "",
+		"armorProperties": [],
+		"attuned": false,
+		"bulky": false,
+		"craftingComponents": "Unique (uncraftable)",
+		"containerId": "",
+		"damagedState": 0,
+		"equippedState": 0,
+		"items": {},
+		"materialProperties": [],
+		"objectType": "weapon",
+		"plotItem": false,
+		"price": "",
+		"proficient": true,
+		"quantity": 1,
+		"rarity": "artifact",
+		"requiresAttunement": true,
+		"shieldCategory": "",
+		"shieldProperties": [],
+		"unidentified": false,
+		"unidentifiedDescription": "",
+		"unidentifiedName": "",
+		"weaponProperties": [
+			"simple"
+		],
+		"weight": 2,
+		"schemaVersion": {
+			"version": 0.009,
+			"lastMigration": {
+				"version": {
+					"schema": 0.007,
+					"foundry": "11.311",
+					"system": "0.15.13"
+				}
+			}
+		}
+	},
+	"folder": null,
+	"_id": "124tqzpi0mnia76r"
+}

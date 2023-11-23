@@ -1,8 +1,88 @@
 {
 	"name": "Skrivena Moc, Whispering Blade",
 	"type": "object",
-	"img": "icons/weapons/swords/greatsword-blue.webp",
-	"effects": [],
+	"img": "icons/weapons/swords/greatsword-crossguard-flanged-red.webp",
+	"effects": [
+		{
+			"icon": "icons/weapons/swords/greatsword-blue.webp",
+			"origin": "Item.a2m7eNYFqE1GHsrg",
+			"flags": {
+				"a5e": {
+					"sort": 0,
+					"transferType": "onUse",
+					"actionId": "v3bptQ9yjfEMnfwo",
+					"duration": {
+						"type": "rounds",
+						"unit": "minutes"
+					}
+				}
+			},
+			"transfer": false,
+			"name": "AC +1",
+			"_id": "Llj5xb79gCEj7iz8",
+			"changes": [
+				{
+					"key": "system.attributes.ac.changes.bonuses.value",
+					"value": "1",
+					"mode": 2,
+					"priority": null
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": null,
+				"combat": null,
+				"rounds": null,
+				"turns": 1,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "",
+			"statuses": [],
+			"folder": null
+		},
+		{
+			"icon": "icons/weapons/swords/greatsword-crossguard-flanged-red.webp",
+			"origin": "Item.a2m7eNYFqE1GHsrg",
+			"flags": {
+				"a5e": {
+					"sort": 0,
+					"transferType": "passive"
+				}
+			},
+			"transfer": false,
+			"name": "Attached",
+			"_id": "FsVHl5QDQEXtvIcU",
+			"changes": [
+				{
+					"key": "system.traits.damageResistances",
+					"value": "[\"fire\"]",
+					"mode": 2,
+					"priority": null
+				},
+				{
+					"key": "system.proficiencies.weapons",
+					"value": "[\"longsword\"]",
+					"mode": 2,
+					"priority": null
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": null,
+				"combat": null,
+				"rounds": null,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "",
+			"statuses": [],
+			"folder": null
+		}
+	],
 	"flags": {},
 	"system": {
 		"ac": {
@@ -15,11 +95,11 @@
 			"requiresUnarmored": false
 		},
 		"actions": {
-			"8lTqXwnalKEoH5GT": {
-				"name": "Skrivena Moc, Whispering Blade",
+			"rPaMSExLpHCaYkH9": {
+				"name": "Longsword",
 				"activation": {
-					"cost": "",
-					"type": "",
+					"cost": 1,
+					"type": "action",
 					"reactionTrigger": ""
 				},
 				"duration": {
@@ -29,32 +109,185 @@
 				"area": {
 					"shape": "",
 					"size": "",
-					"placeTemplate": false
+					"placeTemplate": false,
+					"quantity": 1
 				},
 				"target": {
 					"quantity": 1,
 					"type": "creatureObject"
 				},
 				"rolls": {
-					"TrmxJnk6vwETuflg": {
-						"bonus": "",
+					"UEwQqL1vKVE291PA": {
+						"bonus": "3",
 						"critThreshold": "20",
 						"type": "attack",
 						"attackType": "meleeWeaponAttack",
 						"ability": "default"
 					},
-					"jpxvSh0SOCOWuick": {
+					"x4uy5CMwLzIKdqmH": {
 						"canCrit": true,
 						"damageType": "slashing",
-						"formula": "1d8 + @str.mod",
+						"formula": "1d8 + @str.mod + 3",
 						"name": "Longsword",
 						"type": "damage"
+					},
+					"kkwTpxmsbgS5Zgg9": {
+						"type": "damage",
+						"default": true,
+						"formula": "3d6",
+						"damageType": "fire"
 					}
 				},
 				"consumers": {}
+			},
+			"zEtTCdT03tYo2eUn": {
+				"name": "Attack With Shield",
+				"activation": {
+					"type": "bonusAction",
+					"cost": 1
+				},
+				"consumers": {},
+				"rolls": {
+					"PIrw82rB4OXOwLTp": {
+						"type": "attack",
+						"default": true,
+						"attackType": "meleeWeaponAttack",
+						"proficient": false,
+						"ability": "none",
+						"label": "Improvised Weapon"
+					},
+					"liKyWako9ZBgGHin": {
+						"type": "damage",
+						"default": true,
+						"formula": "1d4",
+						"damageType": "bludgeoning"
+					}
+				},
+				"prompts": {},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"threshold": 6
+					}
+				},
+				"img": "icons/weapons/swords/greatsword-crossguard-flanged-red.webp"
+			},
+			"v3bptQ9yjfEMnfwo": {
+				"name": "AC +1",
+				"activation": {
+					"type": "bonusAction",
+					"cost": 1
+				},
+				"consumers": {},
+				"rolls": {},
+				"prompts": {
+					"VzXK3rJS1p0jCl6M": {
+						"type": "effect",
+						"default": true,
+						"effectId": "PiHWvQKjPGNpP7A7"
+					},
+					"aihw6klbt8X6LdFS": {
+						"type": "effect",
+						"default": true,
+						"effectId": "o3RplnB3d2bgc5Cs"
+					},
+					"KsLi5Hf2I5z2N7dq": {
+						"type": "effect",
+						"default": true,
+						"effectId": "Llj5xb79gCEj7iz8"
+					}
+				},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"threshold": 6
+					}
+				},
+				"duration": {
+					"unit": "turn",
+					"value": 1
+				},
+				"img": "icons/weapons/swords/greatsword-crossguard-flanged-red.webp"
+			},
+			"OYExmPbuqqWZpBmL": {
+				"name": "Longsword (Reaction)",
+				"activation": {
+					"cost": 1,
+					"type": "reaction",
+					"reactionTrigger": "Attack action"
+				},
+				"duration": {
+					"unit": "",
+					"value": ""
+				},
+				"area": {
+					"shape": "",
+					"size": "",
+					"placeTemplate": false,
+					"quantity": 1
+				},
+				"target": {
+					"quantity": 1,
+					"type": "creatureObject"
+				},
+				"rolls": {
+					"UEwQqL1vKVE291PA": {
+						"bonus": "3",
+						"critThreshold": "20",
+						"type": "attack",
+						"attackType": "meleeWeaponAttack",
+						"ability": "default"
+					},
+					"x4uy5CMwLzIKdqmH": {
+						"canCrit": true,
+						"damageType": "slashing",
+						"formula": "1d8 + @str.mod + 3",
+						"name": "Longsword",
+						"type": "damage"
+					},
+					"kkwTpxmsbgS5Zgg9": {
+						"type": "damage",
+						"default": true,
+						"formula": "3d6",
+						"damageType": "fire"
+					}
+				},
+				"consumers": {}
+			},
+			"VYITLvtCyduVLcCg": {
+				"name": "Corruption",
+				"activation": {
+					"type": "",
+					"cost": 1
+				},
+				"consumers": {},
+				"rolls": {
+					"PKA5O5dZXR7Cde3c": {
+						"type": "generic",
+						"default": true,
+						"label": "Lose Charisma points",
+						"formula": "1d4"
+					}
+				},
+				"prompts": {},
+				"uses": {
+					"value": 1,
+					"max": "1",
+					"per": "week",
+					"recharge": {
+						"formula": "1d6",
+						"threshold": 6
+					}
+				}
 			}
 		},
-		"description": "<p><em>Defensive (Medium)</em></p>",
+		"description": "<p><em>Defensive (Medium)</em></p>\n<p>A huge red ruby is set into the pommel of this&nbsp;intricately filigreed golden longsword. The jewel&nbsp;shimmers and shines as the blade speaks in a voice&nbsp;that resonates with a deep and distant baritone.&nbsp;Without this illusion, a twisted demonic form is&nbsp;revealed: the blade is composed of a single sharpened&nbsp;tooth, what appears to be the hilt is instead a&nbsp;grotesque sucker-like mouth, and the ruby pommel&nbsp;is a figment covering a single great crimson eye&nbsp;that stares with fiendish intelligence.</p>\n<p>You have a +3 bonus to attack and damage rolls made with this magic longsword. An intense burning heat radiates from the blade and it deals an extra 3d6 fire damage on a successful hit.</p>\n<p><em><strong>Attached Properties.</strong></em> While attached to&nbsp;Skrivena Moc, you gain resistance to fire, proficiency&nbsp;with longswords, and after taking the&nbsp;Attack action on your turn you can use your&nbsp;reaction to make a melee weapon attack using&nbsp;it. However, the weapon forms a permanent&nbsp;bond with its wielder and cannot be put down&nbsp;or removed once wielded.</p>\n<p><em><strong>Corruption.</strong></em> At the end of each week that&nbsp;Skrivena Moc is attached to you, your Charisma&nbsp;score is decreased by 1d4. When you have lost 6&nbsp;or more Charisma in this way, raised black veins&nbsp;radiate out from the point of Skrivena Moc&rsquo;s&nbsp;attachment. This Charisma loss cannot be healed&nbsp;until Skrivena Moc is no longer attached to you,&nbsp;at which point you recover 1 Charisma at the&nbsp;end of each long rest.</p>\n<p><em><strong>Fiend Transformed.</strong></em> This elegantly crafted longsword of filigreed gold whispers promises of greater treasures to come&mdash;yet those who wield it are doomed. In truth it is an imprisoned @UUID[Compendium.a5e.a5e-monsters.Actor.f153j1z5tupupxpg]{Balor} reduced in power by potent enchantments, the elegant blade only an illusion. Any that dare grasp the infernal hilt know not their peril, unaware they are actually plunging their hand into a fiendish maw.</p>\n<p><em><strong>Sentience.</strong></em> Skrivena Moc is a sentient construct&nbsp;with Intelligence 20, Wisdom 16, and Charisma&nbsp;22. It has hearing and truesight to a range of 120&nbsp;feet. The longsword communicates with you telepathically&nbsp;and can speak and understand Abyssal,&nbsp;Common, and up to 3 other languages of the&nbsp;Narrator&rsquo;s choice.</p>\n<p><em><strong>Personality.</strong></em> Skrivena Moc needs a wielder to&nbsp;accomplish much of anything and it is a peerless&nbsp;manipulator. Wrathful and vindictive, the fiend&nbsp;blade sees those who carry it as insignificant and&nbsp;a means to an end. However it has been stuck in&nbsp;this form for centuries and has learned to maintain&nbsp;a helpful and subservient fa&ccedil;ade to better&nbsp;facilitate the careful orchestration of events whenever&nbsp;possible, only revealing its true intentions as&nbsp;a last resort. Once wielded, the fiend blade grabs&nbsp;hold and cannot be dropped. The demon makes&nbsp;hasty apologies for its &ldquo;curse&rdquo;, manipulating its&nbsp;wielder into serving its will&mdash;it acts as a powerful&nbsp;weapon but slowly drains away their vital essences&nbsp;until they die, all the while using them to track&nbsp;down potential cures for its transformation.</p>",
 		"favorite": false,
 		"secretDescription": "",
 		"source": "",
@@ -67,12 +300,16 @@
 				"threshold": 6
 			}
 		},
+		"schema": {
+			"version": null,
+			"lastMigration": null
+		},
 		"ammunitionProperties": [],
 		"armorCategory": "",
 		"armorProperties": [],
 		"attuned": false,
 		"bulky": false,
-		"craftingComponents": "",
+		"craftingComponents": "Unique (uncraftable)",
 		"containerId": "",
 		"damagedState": 0,
 		"equippedState": 0,
@@ -80,10 +317,10 @@
 		"materialProperties": [],
 		"objectType": "weapon",
 		"plotItem": false,
-		"price": "20 gp",
+		"price": "80,000 gp",
 		"proficient": true,
 		"quantity": 1,
-		"rarity": "common",
+		"rarity": "legendary",
 		"requiresAttunement": false,
 		"shieldCategory": "",
 		"shieldProperties": [],

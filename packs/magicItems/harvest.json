@@ -1,8 +1,47 @@
 {
 	"name": "Harvest",
 	"type": "object",
-	"img": "icons/weapons/sickles/sickle-curved.webp",
-	"effects": [],
+	"img": "icons/weapons/sickles/sickle-hooked-silver.webp",
+	"effects": [
+		{
+			"icon": "icons/weapons/sickles/sickle-hooked-silver.webp",
+			"origin": "Item.wFUIj088Qi39Hyk9",
+			"flags": {
+				"a5e": {
+					"sort": 0,
+					"transferType": "onUse",
+					"actionId": "1DVsW2OycIXTM6HU",
+					"duration": {
+						"unit": "minutes"
+					}
+				}
+			},
+			"transfer": false,
+			"name": "Blood Clone",
+			"_id": "gIqzuUJfbEMGmYbF",
+			"changes": [
+				{
+					"key": "system.details.creatureTypes",
+					"value": "[\"ooze\",\"undead\"]",
+					"mode": 2,
+					"priority": null
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": 600,
+				"combat": null,
+				"rounds": null,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "",
+			"statuses": [],
+			"folder": null
+		}
+	],
 	"flags": {},
 	"system": {
 		"ac": {
@@ -15,8 +54,8 @@
 			"requiresUnarmored": false
 		},
 		"actions": {
-			"RIJR4YLDHdyEr5kZ": {
-				"name": "Harvest",
+			"vA60yd69SFQnrYMj": {
+				"name": "Sickle",
 				"activation": {
 					"cost": "",
 					"type": "",
@@ -29,32 +68,101 @@
 				"area": {
 					"shape": "",
 					"size": "",
-					"placeTemplate": false
+					"placeTemplate": false,
+					"quantity": 1
 				},
 				"target": {
 					"quantity": 1,
 					"type": "creatureObject"
 				},
 				"rolls": {
-					"MA4GBqQBDqEceIg7": {
-						"bonus": "",
+					"lDNixndY2TBm1HVw": {
+						"bonus": "3",
 						"critThreshold": "20",
 						"type": "attack",
 						"attackType": "meleeWeaponAttack",
 						"ability": "default"
 					},
-					"digHzsrLOtt8zGY0": {
+					"DefL5jpuX2rS93Ku": {
 						"canCrit": true,
 						"damageType": "slashing",
-						"formula": "1d4 + @str.mod",
+						"formula": "1d4 + @str.mod + 3",
 						"name": "Sickle",
 						"type": "damage"
 					}
 				},
 				"consumers": {}
+			},
+			"hYfnUPU4ixtA3Tua": {
+				"name": "Sickle (Off-Hand)",
+				"activation": {
+					"cost": "",
+					"type": "",
+					"reactionTrigger": ""
+				},
+				"duration": {
+					"unit": "",
+					"value": ""
+				},
+				"area": {
+					"shape": "",
+					"size": "",
+					"placeTemplate": false,
+					"quantity": 1
+				},
+				"target": {
+					"quantity": 1,
+					"type": "creatureObject"
+				},
+				"rolls": {
+					"lDNixndY2TBm1HVw": {
+						"bonus": "3",
+						"critThreshold": "20",
+						"type": "attack",
+						"attackType": "meleeWeaponAttack",
+						"ability": "default"
+					},
+					"DefL5jpuX2rS93Ku": {
+						"canCrit": true,
+						"damageType": "slashing",
+						"formula": "1d4 + min(@str.mod,0) + 3",
+						"name": "Sickle",
+						"type": "damage"
+					}
+				},
+				"consumers": {}
+			},
+			"1DVsW2OycIXTM6HU": {
+				"name": "Strike Ground",
+				"activation": {
+					"type": "action",
+					"cost": 1
+				},
+				"consumers": {},
+				"rolls": {},
+				"prompts": {
+					"hPgFx2M8xZwo4gfx": {
+						"type": "effect",
+						"default": true,
+						"effectId": "gIqzuUJfbEMGmYbF"
+					}
+				},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"threshold": 6
+					}
+				},
+				"duration": {
+					"unit": "minute",
+					"value": 10
+				}
 			}
 		},
-		"description": "<p><em>Dual-Wielding, Simple</em></p>",
+		"description": "<p><em>Dual-Wielding, Simple, Requires Attunement by a Druid or Ranger</em></p>\n<p>This seems like nothing more than a simple tool at first, rough at the handle and rusted at the edges,&nbsp;but the sickle&rsquo;s impossibly sharp and shining crescent&nbsp;blade reveals its true nature.</p>\n<p>You gain a +3 bonus to attack and damage rolls made with this magic sickle. It has the following additional properties.</p>\n<p><em><strong>Red Reaping.</strong></em> Whenever you use Harvest to&nbsp;reduce a living creature to 0 hit points, it absorbs&nbsp;that creature&rsquo;s soul and stores it within. Harvest&nbsp;cannot store more than one soul in this way and&nbsp;the souls of any creatures you reduce to 0 hit&nbsp;points while a creature&rsquo;s soul is already contained&nbsp;within it are not affected by this property.</p>\n<p><em><strong>Sow the Reaped.</strong></em> You can use an action to strike&nbsp;the ground with the sickle and produce a blood&nbsp;clone using a creature&rsquo;s soul stored within Harvest.&nbsp;This blood clone appears in an unoccupied space&nbsp;adjacent to you and uses the statistics the creature&nbsp;had when it was alive, except it is both ooze and&nbsp;undead in addition to its other types. Blood clones&nbsp;formed in this way act immediately after you in&nbsp;initiative, and they obey your verbal commands to&nbsp;the best of their ability. Without such commands,&nbsp;the blood clone only defends itself. Once formed,&nbsp;a blood clone remains until destroyed or until 10&nbsp;minutes pass, after which it dissolves into rotten&nbsp;offal and the trapped soul travels to whatever&nbsp;afterlife was intended for it.</p>\n<p><em><strong>Only Life May Die.</strong></em> Harvest has no effect&nbsp;on unliving creatures, and passes harmlessly&nbsp;through constructs and undead when it is used&nbsp;to attack them.</p>\n<p><em><strong>Sentience.</strong></em> Harvest is a sentient weapon with&nbsp;Intelligence 14, Wisdom 18, and Charisma 17. It&nbsp;sees and hears using your senses. Harvest communicates&nbsp;with only you telepathically and can read,&nbsp;speak, and understand Common, Halfling, and&nbsp;Orc. It cannot communicate with a creature it is&nbsp;not attuned to.</p>\n<p><em><strong>Personality.</strong></em> This sickle originally had a much&nbsp;more benign purpose, created by a halfling&nbsp;archdruid to bring forth a new plant for each&nbsp;one harvested. When its creator was killed by an orcish warchief it became a weapon, and&nbsp;in her hands it grew to find a new purpose. It&nbsp;eventually convinced its bearer to sow what&nbsp;she reaped, and caused the very spirit and&nbsp;blood of those she had cut down to slaughter&nbsp;its orcish captors. Harvest has come to believe&nbsp;that all people are inherently wicked and deserve&nbsp;death. It believes that real peace can only be&nbsp;achieved when the last mind capable of war&nbsp;and cruelty goes silent, leaving nothing but&nbsp;the plants and beasts. Harvest tolerates people&nbsp;with a connection to nature but only if they&nbsp;are regularly giving it a chance to continue its&nbsp;&ldquo;culling&rdquo;. It whispers often of its great work, and&nbsp;begs you to enrich the earth&rsquo;s soil with blood&nbsp;that it spills. If you go more than 3 days without&nbsp;using Harvest to slay a sentient creature, you&rsquo;ll&nbsp;be in conflict with Harvest. When in conflict,&nbsp;any time you use the Sow the Reaped property&nbsp;the resulting blood clone ignores your verbal&nbsp;orders and attacks you to the best of its ability.&nbsp;If you are killed by the blood clone in this way,&nbsp;your soul is absorbed into Harvest.</p>\n<p><em><strong>Destroying Harvest.</strong></em> Harvest is unbreakable but&nbsp;a person that has mastered nature can unmake&nbsp;it. With 24 hours worth of ritual work, any 20th&nbsp;level druid can deconstruct the weapon and return&nbsp;its tortured mind to the earth it was formed from,&nbsp;rendering Harvest an inert mundane sickle made&nbsp;with a moonstone blade.</p>",
 		"favorite": false,
 		"secretDescription": "",
 		"source": "",
@@ -67,12 +175,16 @@
 				"threshold": 6
 			}
 		},
+		"schema": {
+			"version": null,
+			"lastMigration": null
+		},
 		"ammunitionProperties": [],
 		"armorCategory": "",
 		"armorProperties": [],
 		"attuned": false,
 		"bulky": false,
-		"craftingComponents": "",
+		"craftingComponents": "Unique (uncraftable)",
 		"containerId": "",
 		"damagedState": 0,
 		"equippedState": 0,
@@ -80,11 +192,11 @@
 		"materialProperties": [],
 		"objectType": "weapon",
 		"plotItem": false,
-		"price": "1 gp",
+		"price": "60,000 gp",
 		"proficient": true,
 		"quantity": 1,
-		"rarity": "common",
-		"requiresAttunement": false,
+		"rarity": "legendary",
+		"requiresAttunement": true,
 		"shieldCategory": "",
 		"shieldProperties": [],
 		"unidentified": false,
