@@ -24,6 +24,11 @@
     const abilities = CONFIG.A5E.abilities;
     const skills = { none: "None", ...CONFIG.A5E.skills };
 
+    if (game.settings.get("a5e", "hideA5eSkills")) {
+        delete skills.cul;
+        delete skills.eng;
+    }
+
     function onSubmit() {
         dialog.submit({ rollFormula });
     }

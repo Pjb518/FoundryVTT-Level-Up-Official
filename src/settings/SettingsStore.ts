@@ -369,6 +369,18 @@ class A5eGameSettings extends TJSGameSettings {
       },
       {
         namespace,
+        key: 'hideA5eSkills',
+        options: {
+          name: 'A5E.settings.hideA5eSkills',
+          hint: 'A5E.settings.hints.hideA5eSkills',
+          scope: scope.world,
+          config: true,
+          default: false,
+          type: Boolean
+        }
+      },
+      {
+        namespace,
         key: 'replaceFatigueAndStrife',
         options: {
           name: 'A5E.settings.replaceFatigueAndStrife',

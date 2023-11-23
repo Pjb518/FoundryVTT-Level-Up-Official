@@ -7,12 +7,12 @@
 
     export let reload;
 
-    const appId = getContext("appId");
     const settings = getContext("settings");
     const updates = getContext("updates");
 
     let deathSaves = settings.getStore("5eStyleDeathSaves");
     let exhaustion = settings.getStore("replaceFatigueAndStrife");
+    let hideA5eSkills = settings.getStore("hideA5eSkills");
 </script>
 
 <section class="setting-group">
@@ -28,6 +28,16 @@
             checked={updates.get("5eStyleDeathSaves") ?? $deathSaves ?? false}
             on:updateSelection={({ detail }) => {
                 updates.set("5eStyleDeathSaves", detail);
+            }}
+        />
+    </FormSection>
+
+    <FormSection hint="A5E.settings.hints.hideA5eSkills" --gap="0.25rem">
+        <Checkbox
+            label="A5E.settings.hideA5eSkills"
+            checked={updates.get("hideA5eSkills") ?? $hideA5eSkills ?? false}
+            on:updateSelection={({ detail }) => {
+                updates.set("hideA5eSkills", detail);
             }}
         />
     </FormSection>
