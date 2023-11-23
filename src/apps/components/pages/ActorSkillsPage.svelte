@@ -5,11 +5,22 @@
     import FormSection from "../FormSection.svelte";
     import Skill from "../Skill.svelte";
 
+    function getSkills(baseSkills) {
+        const skills = { ...baseSkills };
+
+        if (game.settings.get("a5e", "hideA5eSkills")) {
+            delete skills.cul;
+            delete skills.eng;
+        }
+
+        return skills;
+    }
+
     const actor = getContext("actor");
     const { A5E } = CONFIG;
     const { skillSpecialties } = A5E;
 
-    $: skills = $actor.system.skills;
+    $: skills = getSkills($actor.system.skills);
 
     $: showSpecialties = Object.values(skills).some(
         (skill) => skill.specialties.length

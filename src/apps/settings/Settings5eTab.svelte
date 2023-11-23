@@ -38,6 +38,7 @@
             checked={updates.get("hideA5eSkills") ?? $hideA5eSkills ?? false}
             on:updateSelection={({ detail }) => {
                 updates.set("hideA5eSkills", detail);
+                reload = true;
             }}
         />
     </FormSection>

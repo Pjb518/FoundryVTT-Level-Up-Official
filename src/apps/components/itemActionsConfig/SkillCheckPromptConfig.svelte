@@ -15,7 +15,12 @@
     const item = getContext("item");
     const actionId = getContext("actionId");
 
-    const { skills } = CONFIG.A5E;
+    const skills = { ...CONFIG.A5E.skills };
+
+    if (game.settings.get("a5e", "hideA5eSkills")) {
+        delete skills.cul;
+        delete skills.eng;
+    }
 
     function updateAbility() {
         updateDocumentDataFromField(
