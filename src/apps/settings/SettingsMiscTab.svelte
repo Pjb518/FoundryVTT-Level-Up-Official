@@ -21,6 +21,9 @@
     // Stores
     let actionNameType = settings.getStore("newActionNameType");
     let showLimitedDesc = settings.getStore("showDescriptionOnLimitedPerms");
+
+    let selectedNamingMode =
+        updates.get("newActionNameType") ?? $actionNameType ?? "system";
 </script>
 
 {#if isGM}
@@ -51,11 +54,10 @@
         >
             <RadioGroup
                 options={actionTypeOptions}
-                selected={updates.get("newActionNameType") ??
-                    $actionNameType ??
-                    "system"}
+                selected={selectedNamingMode}
                 on:updateSelection={({ detail }) => {
                     updates.set("newActionNameType", detail);
+                    selectedNamingMode = detail;
                 }}
             />
         </FormSection>

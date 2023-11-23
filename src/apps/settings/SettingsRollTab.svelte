@@ -8,7 +8,6 @@
 
     // export let reload;
 
-    const appId = getContext("appId");
     const settings = getContext("settings");
     const updates = getContext("updates");
 
@@ -17,7 +16,7 @@
     let selectedCritMode =
         updates.get("critCalculationMode") ?? $critCalculationMode;
     const critCalculationModeOptions = game.settings.settings.get(
-        "a5e.critCalculationMode"
+        "a5e.critCalculationMode",
     ).choices;
 
     let preventActivationRoll = settings.getStore("preventActionRollOnWarning");
