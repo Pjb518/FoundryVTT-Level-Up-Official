@@ -6,6 +6,7 @@
     import FormSection from "../components/FormSection.svelte";
     // import NavigationBar from "../components/navigation/NavigationBar.svelte";
     import PartyViewerActorSummary from "../components/partyViewer/PartyViewerActorSummary.svelte";
+    import PartyViewerAttributesHeader from "../components/partyViewer/PartyViewerAttributesHeader.svelte";
     import PartyViewerCoreHeader from "../components/partyViewer/PartyViewerCoreHeader.svelte";
     import PartyViewerLanguagesHeader from "../components/partyViewer/PartyViewerLanguagesHeader.svelte";
     import PartyViewerResourceHeader from "../components/partyViewer/PartyViewerResourceHeader.svelte";
@@ -57,6 +58,8 @@
         const end = game.user.isGM && !partyIsLocked ? "delete" : "";
 
         switch (viewMode) {
+            case "attributes":
+                return `"${base} str dex con int wis cha ${end}"`;
             case "core":
                 return `"${base} hp ac maneuverDC spellDC perception insight investigation ${end}"`;
             case "languages":
@@ -107,6 +110,8 @@
         const end = game.user.isGM && !partyIsLocked ? "2rem" : "";
 
         switch (viewMode) {
+            case "attributes":
+                return `${base} repeat(6, 0.5fr) ${end}`;
             case "core":
                 return `${base} 4rem repeat(6, 3rem) ${end}`;
             case "languages":
@@ -167,6 +172,8 @@
 
     function getViewModeComponent(viewMode) {
         switch (viewMode) {
+            case "attributes":
+                return PartyViewerAttributesHeader;
             case "core":
                 return PartyViewerCoreHeader;
             case "languages":
@@ -191,7 +198,7 @@
                     if (passive > passiveScores[skillKey]) {
                         passiveScores[skillKey] = passive;
                     }
-                }
+                },
             );
 
             return passiveScores;
@@ -203,7 +210,7 @@
             const actorData = get(actor);
 
             Object.entries(
-                actorData?.system?.spellResources?.slots ?? {}
+                actorData?.system?.spellResources?.slots ?? {},
             ).forEach(([slotLevel, { max }]) => {
                 if (slotLevel > highestSlotLevel && max && max > 0) {
                     highestSlotLevel = slotLevel;
@@ -228,14 +235,14 @@
 
                 return wealthData;
             },
-            { cp: 0, sp: 0, ep: 0, gp: 0, pp: 0 }
+            { cp: 0, sp: 0, ep: 0, gp: 0, pp: 0 },
         );
     }
 
     async function onDropDocument(event) {
         if (!game.user.isGM) {
             ui.notifications.warn(
-                "You do not have permission to edit this party."
+                "You do not have permission to edit this party.",
             );
 
             return;
@@ -243,7 +250,7 @@
 
         try {
             const { uuid } = JSON.parse(
-                event.dataTransfer.getData("text/plain")
+                event.dataTransfer.getData("text/plain"),
             );
 
             const document = await fromUuid(uuid);
@@ -295,7 +302,7 @@
                 label: partyData.name || "New Party",
                 actors: partyData.actors ?? [],
                 isLocked: partyData.isLocked ?? false,
-            })
+            }),
         );
 
         if (parties.length) {
@@ -318,12 +325,12 @@
 
         gridAreaDefinition = getGridAreaDefinition(
             currentViewMode,
-            partyIsLocked
+            partyIsLocked,
         );
 
         gridSizeDefinition = getGridSizeDefinition(
             currentViewMode,
-            partyIsLocked
+            partyIsLocked,
         );
     }
 
@@ -339,6 +346,7 @@
 
     const viewModes = [
         ["core", "Core"],
+        ["attributes", "Attributes"],
         ["resources", "Resources"],
         ["languages", "Languages"],
         ["wealth", "Wealth"],
@@ -353,7 +361,7 @@
                 label: partyData.name || "New Party",
                 actors: partyData.actors ?? [],
                 isLocked: partyData.isLocked ?? false,
-            })
+            }),
         );
 
         if (parties.length) {
@@ -388,16 +396,16 @@
 
     $: gridAreaDefinition = getGridAreaDefinition(
         currentViewMode,
-        partyIsLocked
+        partyIsLocked,
     );
 
     $: gridSizeDefinition = getGridSizeDefinition(
         currentViewMode,
-        partyIsLocked
+        partyIsLocked,
     );
 
     const showActorImagesInPartyViewer = settings.getStore(
-        "showActorImagesInPartyViewer"
+        "showActorImagesInPartyViewer",
     );
 
     const unsubscribe = partyMembers.subscribe((_) => {
@@ -410,12 +418,12 @@
 
         gridAreaDefinition = getGridAreaDefinition(
             currentViewMode,
-            partyIsLocked
+            partyIsLocked,
         );
 
         gridSizeDefinition = getGridSizeDefinition(
             currentViewMode,
-            partyIsLocked
+            partyIsLocked,
         );
     });
 

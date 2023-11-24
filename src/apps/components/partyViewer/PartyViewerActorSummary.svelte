@@ -1,6 +1,7 @@
 <script>
     import { createEventDispatcher, onDestroy } from "svelte";
 
+    import PartyViewerAttributesSummary from "./PartyViewerAttributesSummary.svelte";
     import PartyViewerCoreSummary from "./PartyViewerCoreSummary.svelte";
     import PartyViewerLanguagesSummary from "./PartyViewerLanguagesSummary.svelte";
     import PartyViewerResourceSummary from "./PartyViewerResourceSummary.svelte";
@@ -18,6 +19,8 @@
 
     function getViewModeComponent(viewMode) {
         switch (viewMode) {
+            case "attributes":
+                return PartyViewerAttributesSummary;
             case "core":
                 return PartyViewerCoreSummary;
             case "languages":
@@ -35,7 +38,7 @@
     const dispatch = createEventDispatcher();
 
     const unsubscribe = actor.subscribe((_) =>
-        dispatch("actor-updated", actorId)
+        dispatch("actor-updated", actorId),
     );
 
     $: viewComponent = getViewModeComponent(currentViewMode);
