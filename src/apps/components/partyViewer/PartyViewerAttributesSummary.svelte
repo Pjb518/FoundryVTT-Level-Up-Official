@@ -6,11 +6,14 @@
     const abilities = CONFIG.A5E.abilities;
 </script>
 
-{#each Object.entries(actorData.abilities ?? {}) as [label, attribute]}
-    <div class="attribute-wrapper attribute-wrapper--{label}">
+{#each Object.entries(actorData.abilities ?? {}) as [key, attribute]}
+    {@const proficient = attribute.save.proficient}
+    {@const abilityLabel = abilities[key]}
+
+    <div class="attribute-wrapper attribute-wrapper--{key}">
         <div
             class="attribute-wrapper__check"
-            data-tooltip="{abilities[label]} Check Modifier"
+            data-tooltip="{abilityLabel} Check Modifier"
             data-tooltip-direction="UP"
         >
             <span>{attribute?.check?.mod}</span>
@@ -18,9 +21,10 @@
 
         <div
             class="attribute-wrapper__save"
-            class:attribute-wrapper__save--proficient={attribute.save
-                .proficient}
-            data-tooltip="{abilities[label]} Saving Throw Modifier"
+            class:attribute-wrapper__save--proficient={proficient}
+            data-tooltip={proficient
+                ? `${abilityLabel} Saving Throw Modifier (Proficient)`
+                : `${abilityLabel} Saving Throw Modifier`}
             data-tooltip-direction="UP"
         >
             <span>{attribute?.save?.mod}</span>
