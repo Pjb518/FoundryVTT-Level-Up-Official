@@ -52,6 +52,7 @@
 
     $: damageBonus = getDamageBonus($actor, jsonValue) ?? {};
     $: attackTypesContext = damageBonus.context.attackTypes ?? [];
+    $: bonusCritDamage = damageBonus.context.bonusCritDamage ?? "";
     $: damageTypesContext = damageBonus.context.damageTypes ?? [];
     $: spellLevelsContext = damageBonus.context.spellLevels ?? [];
 </script>
@@ -148,6 +149,18 @@
                 onUpdateValue("context.spellLevels", detail);
             }}
         />
+
+        <div class="u-flex u-flex-col u-gap-md">
+            <h3 class="u-text-sm u-text-bold">Critical Bonus Formula</h3>
+            <input
+                class="a5e-input a5e-input--slim"
+                type="text"
+                value={bonusCritDamage}
+                on:change={({ target }) => {
+                    onUpdateValue("context.bonusCritDamage", target.value);
+                }}
+            />
+        </div>
     </FormSection>
 
     <FormSection>

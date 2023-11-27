@@ -24,6 +24,7 @@ export function getDamageBonusContext() {
       new fields.StringField({ required: true, initial: '' }),
       { initial: Object.keys(A5E.damageBonusContexts) }
     ),
+    bonusCritDamage: new fields.StringField({ required: true, initial: '' }),
     damageTypes: new fields.ArrayField(
       new fields.StringField({ required: true, initial: '' }),
       { initial: [] }
