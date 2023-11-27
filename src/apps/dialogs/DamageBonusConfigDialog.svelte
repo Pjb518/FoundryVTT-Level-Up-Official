@@ -52,8 +52,8 @@
 
     $: damageBonus = getDamageBonus($actor, jsonValue) ?? {};
     $: attackTypesContext = damageBonus.context.attackTypes ?? [];
-    $: bonusCritDamage = damageBonus.context.bonusCritDamage ?? "";
     $: damageTypesContext = damageBonus.context.damageTypes ?? [];
+    $: isCritBonus = damageBonus.context.isCritBonus ?? false;
     $: spellLevelsContext = damageBonus.context.spellLevels ?? [];
 </script>
 
@@ -150,17 +150,13 @@
             }}
         />
 
-        <div class="u-flex u-flex-col u-gap-md">
-            <h3 class="u-text-sm u-text-bold">Critical Bonus Formula</h3>
-            <input
-                class="a5e-input a5e-input--slim"
-                type="text"
-                value={bonusCritDamage}
-                on:change={({ target }) => {
-                    onUpdateValue("context.bonusCritDamage", target.value);
-                }}
-            />
-        </div>
+        <Checkbox
+            label="This bonus only applies to critical hits."
+            checked={isCritBonus}
+            on:updateSelection={({ detail }) => {
+                onUpdateValue("context.isCritBonus", detail);
+            }}
+        />
     </FormSection>
 
     <FormSection>
