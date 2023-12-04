@@ -234,7 +234,7 @@
 
         <hr class="divider" />
 
-        <div class="global-bonus-container">
+        <!-- <div class="global-bonus-container">
             <FormSection
                 heading="A5E.AbilityCheckBonusGlobal"
                 showWarning={disableAbilityCheckBonusGlobal}
@@ -294,7 +294,7 @@
                         )}
                 />
             </FormSection>
-        </div>
+        </div> -->
     </section>
 
     <section class="setting-group">
