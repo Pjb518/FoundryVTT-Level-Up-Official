@@ -119,7 +119,7 @@ export default class MigrationRunnerBase {
     }
 
     if (migrations.length > 0) {
-      this.#updateSchemaRecord(itemData.system.schemaVersion, migrations.slice(-1)[0]);
+      this.#updateSchemaRecord(itemData.system?.schemaVersion, migrations.slice(-1)[0]);
     }
     return itemData;
   }
@@ -207,10 +207,10 @@ export default class MigrationRunnerBase {
    * @param {Object} schema
    * @param {MigrationBase} latestMigration
    */
-  #updateSchemaRecord(schema, latestMigration) {
+  #updateSchemaRecord(schema = {}, latestMigration = null) {
     if (!('game' in globalThis && latestMigration)) return;
 
-    const fromVersion = typeof schema.version === 'number' ? schema.version : null;
+    const fromVersion = typeof schema?.version === 'number' ? schema.version : null;
     schema.version = latestMigration.version;
     schema.lastMigration = {
       version: {
