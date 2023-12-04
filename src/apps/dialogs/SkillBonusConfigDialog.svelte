@@ -50,8 +50,8 @@
     const { skills, skillBonusContexts } = CONFIG.A5E;
 
     $: skillBonus = getAbilityBonus($actor, jsonValue) ?? {};
+    $: bonusType = skillBonus.bonusType ?? "check";
     $: skillsContext = skillBonus.context.skills ?? [];
-    $: skillTypeContext = skillBonus.context.types ?? [];
     $: requiresProficiency = skillBonus.context.requiresProficiency ?? false;
 </script>
 
@@ -84,6 +84,25 @@
                     onUpdateValue("formula", target.value)}
             />
         </FormSection>
+
+        <FormSection
+            heading="A5E.BonusType"
+            --background="none"
+            --direction="column"
+            --padding="0"
+        >
+            <select
+                class="u-w-fit damage-type-select"
+                on:change={({ target }) =>
+                    onUpdateValue("bonusType", target.value)}
+            >
+                {#each Object.entries(skillBonusContexts) as [key, name] (key)}
+                    <option value={key} selected={bonusType === key}>
+                        {localize(name)}
+                    </option>
+                {/each}
+            </select>
+        </FormSection>
     </FormSection>
 
     <FormSection
@@ -97,15 +116,6 @@
             selected={skillsContext}
             on:updateSelection={({ detail }) => {
                 onUpdateValue("context.skills", detail);
-            }}
-        />
-
-        <TagGroup
-            heading="A5E.contexts.checkTypes"
-            options={Object.entries(skillBonusContexts)}
-            selected={skillTypeContext}
-            on:updateSelection={({ detail }) => {
-                onUpdateValue("context.types", detail);
             }}
         />
 

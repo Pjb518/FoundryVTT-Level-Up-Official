@@ -101,7 +101,7 @@
         />
 
         <TagGroup
-            heading="A5E.contexts.checkTypes"
+            heading="A5E.contexts.bonusTypes"
             options={Object.entries(abilityBonusContexts)}
             selected={abilityTypeContext}
             on:updateSelection={({ detail }) => {

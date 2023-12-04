@@ -7,7 +7,7 @@ export function getAbilitiesBonusContext() {
       initial: Object.keys(A5E.abilities)
     }),
     types: new fields.ArrayField(new fields.StringField({ required: true, initial: '' }), {
-      initial: ['check', 'save', 'passive']
+      initial: ['check', 'save']
     }),
     requiresProficiency: new fields.BooleanField({ required: true, initial: false })
   };
@@ -54,9 +54,6 @@ export function getSkillBonusContext() {
   const { fields } = foundry.data;
   return {
     requiresProficiency: new fields.BooleanField({ required: true, initial: false }),
-    skills: new fields.ArrayField(new fields.StringField({ required: true, initial: '' }), { initial: [] }),
-    types: new fields.ArrayField(new fields.StringField({ required: true, initial: '' }), {
-      initial: ['check', 'passive']
-    })
+    skills: new fields.ArrayField(new fields.StringField({ required: true, initial: '' }), { initial: [] })
   };
 }
