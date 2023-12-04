@@ -31,6 +31,7 @@ export default class BonusesManager {
    */
   getAbilityBonusesFormula(abilityKey: string, type: 'check' | 'save' = 'check'): string {
     const parts = this.getAbilityBonuses(abilityKey, type);
+    console.log(parts);
     return parts.join(' + ');
   }
 
@@ -98,6 +99,8 @@ export default class BonusesManager {
 
       if (!bonus.context.types.includes(type)) return acc;
       if (bonus.context.requiresProficiency && !isProficient) return acc;
+
+      if (!bonusFormula) return acc;
 
       acc.push(bonusFormula);
       return acc;
@@ -169,6 +172,7 @@ export default class BonusesManager {
       const bonusFormula = bonus.formula.trim();
 
       if (bonus.context.requiresProficiency && !isProficient) return acc;
+      if (!bonusFormula) return acc;
 
       acc.push(bonusFormula);
       return acc;
