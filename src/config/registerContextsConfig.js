@@ -1,8 +1,8 @@
 export default function registerContextsConfig(A5E) {
   A5E.abilityBonusContexts = {
-    check: 'A5E.abilityBonuses.contexts.check',
-    passive: 'A5E.abilityBonuses.contexts.passive',
-    save: 'A5E.abilityBonuses.contexts.save'
+    check: 'A5E.contexts.check',
+    passive: 'A5E.contexts.passive',
+    save: 'A5E.contexts.save'
   };
 
   A5E.damageBonusContexts = {
@@ -30,5 +30,10 @@ export default function registerContextsConfig(A5E) {
   A5E.healingBonusSummariesByContext = {
     healing: 'A5E.healingBonuses.summaries.contexts.healing',
     temporaryHealing: 'A5E.healingBonuses.summaries.contexts.temporaryHealing'
+  };
+
+  A5E.skillBonusContexts = {
+    check: 'A5E.contexts.check',
+    passive: 'A5E.contexts.passive'
   };
 }

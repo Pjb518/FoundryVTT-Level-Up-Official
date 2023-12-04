@@ -34,6 +34,7 @@ import DamageBonusConfigDialog from '../../apps/dialogs/initializers/DamageBonus
 import GenericConfigDialog from '../../apps/dialogs/initializers/GenericConfigDialog';
 import HealingBonusConfigDialog from '../../apps/dialogs/initializers/HealingBonusConfigDialog';
 import SavingThrowRollDialog from '../../apps/dialogs/initializers/SavingThrowRollDialog';
+import SkillBonusConfigDialog from '../../apps/dialogs/initializers/SkillBonusConfigDialog';
 import SkillCheckRollDialog from '../../apps/dialogs/initializers/SkillCheckRollDialog';
 
 import automateHpConditions from '../activeEffect/utils/automateHpConditions';
@@ -714,7 +715,6 @@ export default class ActorA5e extends Actor {
 
   addBonus(type = 'damage') {
     const bonuses = foundry.utils.duplicate(this.system.bonuses[type] ?? {});
-    console.log(type);
 
     // const newBonus = {
     //   context: 'all',
@@ -788,7 +788,7 @@ export default class ActorA5e extends Actor {
     if (type === 'abilities') DialogComponent = AbilityBonusConfigDialog;
     else if (type === 'damage') DialogComponent = DamageBonusConfigDialog;
     else if (type === 'healing') DialogComponent = HealingBonusConfigDialog;
-    // else if (type === 'skills') DialogComponent = SkillBonusConfigDialog;
+    else if (type === 'skills') DialogComponent = SkillBonusConfigDialog;
     else return;
 
     const dialog = new DialogComponent(this, id);

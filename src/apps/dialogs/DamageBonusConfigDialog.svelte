@@ -42,7 +42,7 @@
                 label: "",
                 formula: "",
                 damageType: "",
-                context: "all",
+                context: {},
                 default: true,
             };
         }

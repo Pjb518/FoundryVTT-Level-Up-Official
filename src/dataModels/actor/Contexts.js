@@ -54,6 +54,9 @@ export function getSkillBonusContext() {
   const { fields } = foundry.data;
   return {
     requiresProficiency: new fields.BooleanField({ required: true, initial: false }),
-    skills: new fields.ArrayField(new fields.StringField({ required: true, initial: '' }), { initial: [] })
+    skills: new fields.ArrayField(new fields.StringField({ required: true, initial: '' }), { initial: [] }),
+    types: new fields.ArrayField(new fields.StringField({ required: true, initial: '' }), {
+      initial: ['check', 'passive']
+    })
   };
 }

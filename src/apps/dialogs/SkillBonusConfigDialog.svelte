@@ -8,25 +8,25 @@
     import FormSection from "../components/FormSection.svelte";
     import TagGroup from "../components/TagGroup.svelte";
 
-    export let { actor, abilityBonusId } = getContext("#external").application;
+    export let { actor, skillBonusId } = getContext("#external").application;
     export let jsonValue = null;
 
     const dispatch = createEventDispatcher();
 
     function onUpdateValue(key, value) {
         if (jsonValue === null) {
-            key = `system.bonuses.abilities.${abilityBonusId}.${key}`;
+            key = `system.bonuses.skills.${skillBonusId}.${key}`;
             updateDocumentDataFromField($actor, key, value);
             return;
         }
 
-        const newObj = { ...abilityBonus, [key]: value };
+        const newObj = { ...skillBonus, [key]: value };
         dispatch("change", JSON.stringify(newObj));
     }
 
     function getAbilityBonus() {
         if (jsonValue === null)
-            return $actor.system.bonuses.abilities[abilityBonusId];
+            return $actor.system.bonuses.skills[skillBonusId];
 
         try {
             const obj = JSON.parse(jsonValue || '""') ?? {};
@@ -47,12 +47,12 @@
         }
     }
 
-    const { abilities, abilityBonusContexts } = CONFIG.A5E;
+    const { skills, skillBonusContexts } = CONFIG.A5E;
 
-    $: abilityBonus = getAbilityBonus($actor, jsonValue) ?? {};
-    $: abilitiesContext = abilityBonus.context.abilities ?? [];
-    $: abilityTypeContext = abilityBonus.context.types ?? [];
-    $: requiresProficiency = abilityBonus.context.requiresProficiency ?? false;
+    $: skillBonus = getAbilityBonus($actor, jsonValue) ?? {};
+    $: skillsContext = skillBonus.context.skills ?? [];
+    $: skillTypeContext = skillBonus.context.types ?? [];
+    $: requiresProficiency = skillBonus.context.requiresProficiency ?? false;
 </script>
 
 <form>
@@ -64,7 +64,7 @@
     >
         <input
             type="text"
-            value={abilityBonus.label ?? ""}
+            value={skillBonus.label ?? ""}
             on:change={({ target }) => onUpdateValue("label", target.value)}
         />
     </FormSection>
@@ -79,7 +79,7 @@
         >
             <input
                 type="text"
-                value={abilityBonus.formula ?? ""}
+                value={skillBonus.formula ?? ""}
                 on:change={({ target }) =>
                     onUpdateValue("formula", target.value)}
             />
@@ -92,18 +92,18 @@
         --direction="column"
     >
         <TagGroup
-            heading="A5E.contexts.abilities"
-            options={Object.entries(abilities)}
-            selected={abilitiesContext}
+            heading="A5E.contexts.skills"
+            options={Object.entries(skills)}
+            selected={skillsContext}
             on:updateSelection={({ detail }) => {
-                onUpdateValue("context.abilities", detail);
+                onUpdateValue("context.skills", detail);
             }}
         />
 
         <TagGroup
             heading="A5E.contexts.checkTypes"
-            options={Object.entries(abilityBonusContexts)}
-            selected={abilityTypeContext}
+            options={Object.entries(skillBonusContexts)}
+            selected={skillTypeContext}
             on:updateSelection={({ detail }) => {
                 onUpdateValue("context.types", detail);
             }}
@@ -120,8 +120,8 @@
 
     <FormSection>
         <Checkbox
-            label="Select Ability Bonus Automatically in Roll Prompt"
-            checked={abilityBonus.default ?? true}
+            label="Select Skill Bonus Automatically in Roll Prompt"
+            checked={skillBonus.default ?? true}
             on:updateSelection={({ detail }) => {
                 onUpdateValue("default", detail);
             }}

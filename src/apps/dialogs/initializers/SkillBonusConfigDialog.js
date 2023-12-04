@@ -1,18 +1,18 @@
 import { TJSDocument } from '#runtime/svelte/store/fvtt/document';
 import { TJSDialog } from '#runtime/svelte/application';
 
-import AbilityBonusDialog from '../AbilityBonusConfigDialog.svelte';
+import SkillBonusDialog from '../SkillBonusConfigDialog.svelte';
 
 /**
  * Provides a dialog for creating documents that by default is modal and not draggable.
  */
-export default class AbilityBonusConfigDialog extends TJSDialog {
-  constructor(actor, abilityBonusId, options = {}) {
+export default class SkillBonusConfigDialog extends TJSDialog {
+  constructor(actor, skillBonusId, options = {}) {
     super({
-      title: `${actor.name} Ability Bonus Configuration`,
+      title: `${actor.name} Skill Bonus Configuration`,
       content: {
-        class: AbilityBonusDialog,
-        props: { actor: new TJSDocument(actor), abilityBonusId }
+        class: SkillBonusDialog,
+        props: { actor: new TJSDocument(actor), skillBonusId }
       }
     }, {
       classes: ['a5e-sheet'],

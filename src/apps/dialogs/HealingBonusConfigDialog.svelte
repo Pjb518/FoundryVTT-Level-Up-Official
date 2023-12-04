@@ -35,7 +35,7 @@
             obj.label = obj.label ?? "";
             obj.formula = obj.formula ?? "";
             obj.healingType = obj.healingType ?? "";
-            obj.context = obj.context ?? "all";
+            obj.context = obj.context ?? {};
             obj.default = obj.default ?? true;
             return obj;
         } catch (error) {
@@ -43,7 +43,7 @@
                 label: "",
                 formula: "",
                 healingType: "",
-                context: "all",
+                context: {},
                 default: true,
             };
         }
