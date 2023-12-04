@@ -28,6 +28,7 @@ import SkillConfigDialog from '../../apps/dialogs/SkillConfigDialog.svelte';
 import ToolProfConfigDialog from '../../apps/dialogs/ToolProfConfigDialog.svelte';
 import WeaponProfConfigDialog from '../../apps/dialogs/WeaponProfConfigDialog.svelte';
 
+import AbilityBonusConfigDialog from '../../apps/dialogs/initializers/AbilityBonusConfigDialog';
 import AbilityCheckRollDialog from '../../apps/dialogs/initializers/AbilityCheckRollDialog';
 import DamageBonusConfigDialog from '../../apps/dialogs/initializers/DamageBonusConfigDialog';
 import GenericConfigDialog from '../../apps/dialogs/initializers/GenericConfigDialog';
@@ -713,22 +714,25 @@ export default class ActorA5e extends Actor {
 
   addBonus(type = 'damage') {
     const bonuses = foundry.utils.duplicate(this.system.bonuses[type] ?? {});
+    console.log(type);
 
-    const newBonus = {
-      context: 'all',
-      default: true,
-      formula: '',
-      label: ''
-    };
+    // const newBonus = {
+    //   context: 'all',
+    //   default: true,
+    //   formula: '',
+    //   label: ''
+    // };
 
-    if (type === 'damage') newBonus.damageType = null;
-    else if (type === 'healing') newBonus.healingType = null;
-    else return;
+    // if (type === 'damage') newBonus.damageType = null;
+    // else if (type === 'healing') newBonus.healingType = null;
+    // else return;
+
+    if (!['abilities', 'skills', 'damage', 'healing'].includes(type)) return;
 
     this.update({
       [`system.bonuses.${type}`]: {
         ...bonuses,
-        [foundry.utils.randomID()]: newBonus
+        [foundry.utils.randomID()]: {}
       }
     });
   }
@@ -781,8 +785,10 @@ export default class ActorA5e extends Actor {
   configureBonus(id, type = 'damage') {
     let DialogComponent;
 
-    if (type === 'damage') DialogComponent = DamageBonusConfigDialog;
+    if (type === 'abilities') DialogComponent = AbilityBonusConfigDialog;
+    else if (type === 'damage') DialogComponent = DamageBonusConfigDialog;
     else if (type === 'healing') DialogComponent = HealingBonusConfigDialog;
+    // else if (type === 'skills') DialogComponent = SkillBonusConfigDialog;
     else return;
 
     const dialog = new DialogComponent(this, id);

@@ -6,6 +6,7 @@ export function getAbilitiesBonusData() {
   const { fields } = foundry.data;
   return {
     context: new fields.SchemaField(getAbilitiesBonusContext()),
+    default: new fields.BooleanField({ required: true, initial: true }),
     formula: new fields.StringField({ required: true, initial: '' }),
     label: new fields.StringField({ required: true, initial: '' })
   };

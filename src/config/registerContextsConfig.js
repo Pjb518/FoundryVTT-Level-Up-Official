@@ -1,4 +1,10 @@
 export default function registerContextsConfig(A5E) {
+  A5E.abilityBonusContexts = {
+    check: 'A5E.abilityBonuses.contexts.check',
+    passive: 'A5E.abilityBonuses.contexts.passive',
+    save: 'A5E.abilityBonuses.contexts.save'
+  };
+
   A5E.damageBonusContexts = {
     meleeWeaponAttack: 'A5E.damageBonuses.contexts.meleeWeaponAttacks',
     meleeSpellAttack: 'A5E.damageBonuses.contexts.meleeSpellAttacks',

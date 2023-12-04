@@ -24,7 +24,6 @@
     function getHealingBonusSummary(healingBonus) {
         const { healingBonusSummariesByContext, healingTypes } = CONFIG.A5E;
         const healingType = healingTypes[healingBonus.healingType];
-        console.log(healingType);
 
         // TODO: Granular-ize this in the future
         return localize(
@@ -300,6 +299,69 @@
 
     <section class="setting-group">
         <header class="setting-header">
+            <h3 class="setting-heading">Ability Bonuses</h3>
+
+            <button
+                class="setting-header-button"
+                on:click={() => $actor.addBonus("abilities")}
+            >
+                + Add Ability Bonus
+            </button>
+        </header>
+
+        <ul class="bonus-list">
+            {#each Object.entries($actor.system.bonuses.abilities ?? {}) as [id, abilityBonus] (id)}
+                <li class="bonus">
+                    <header class="bonus__header">
+                        <h3 class="bonus__heading">
+                            {abilityBonus.label || "New Ability Bonus"}
+                        </h3>
+
+                        <ul class="bonus-buttons">
+                            <li>
+                                <button
+                                    class="action-button fas fa-cog"
+                                    data-tooltip="A5E.ButtonToolTipConfigure"
+                                    data-tooltip-direction="UP"
+                                    on:click|stopPropagation={() =>
+                                        $actor.configureBonus(id, "abilities")}
+                                />
+                            </li>
+
+                            <li>
+                                <button
+                                    class="action-button fa-solid fa-clone"
+                                    data-tooltip="A5E.ButtonToolTipDuplicate"
+                                    data-tooltip-direction="UP"
+                                    on:click|stopPropagation={() =>
+                                        $actor.duplicateBonus(id, "abilities")}
+                                />
+                            </li>
+
+                            <li>
+                                <button
+                                    class="action-button delete-button fas fa-trash"
+                                    data-tooltip="A5E.ButtonToolTipDelete"
+                                    data-tooltip-direction="UP"
+                                    on:click|stopPropagation={() =>
+                                        $actor.deleteBonus(id, "abilities")}
+                                />
+                            </li>
+                        </ul>
+                    </header>
+
+                    <!-- {#if abilityBonus.formula}
+                        <p class="bonus__summary">
+                            {getDamageBonusSummary(abilityBonus)}
+                        </p>
+                    {/if} -->
+                </li>
+            {/each}
+        </ul>
+    </section>
+
+    <section class="setting-group">
+        <header class="setting-header">
             <h3 class="setting-heading">Damage Bonuses</h3>
 
             <button
@@ -419,6 +481,69 @@
                             {getHealingBonusSummary(healingBonus)}
                         </p>
                     {/if}
+                </li>
+            {/each}
+        </ul>
+    </section>
+
+    <section class="setting-group">
+        <header class="setting-header">
+            <h3 class="setting-heading">Skill Bonuses</h3>
+
+            <button
+                class="setting-header-button"
+                on:click={() => $actor.addBonus("skills")}
+            >
+                + Add Skill Bonus
+            </button>
+        </header>
+
+        <ul class="bonus-list">
+            {#each Object.entries($actor.system.bonuses.skills ?? {}) as [id, skillBonus] (id)}
+                <li class="bonus">
+                    <header class="bonus__header">
+                        <h3 class="bonus__heading">
+                            {skillBonus.label || "New Skill Bonus"}
+                        </h3>
+
+                        <ul class="bonus-buttons">
+                            <li>
+                                <button
+                                    class="action-button fas fa-cog"
+                                    data-tooltip="A5E.ButtonToolTipConfigure"
+                                    data-tooltip-direction="UP"
+                                    on:click|stopPropagation={() =>
+                                        $actor.configureBonus(id, "skills")}
+                                />
+                            </li>
+
+                            <li>
+                                <button
+                                    class="action-button fa-solid fa-clone"
+                                    data-tooltip="A5E.ButtonToolTipDuplicate"
+                                    data-tooltip-direction="UP"
+                                    on:click|stopPropagation={() =>
+                                        $actor.duplicateBonus(id, "skills")}
+                                />
+                            </li>
+
+                            <li>
+                                <button
+                                    class="action-button delete-button fas fa-trash"
+                                    data-tooltip="A5E.ButtonToolTipDelete"
+                                    data-tooltip-direction="UP"
+                                    on:click|stopPropagation={() =>
+                                        $actor.deleteBonus(id, "skills")}
+                                />
+                            </li>
+                        </ul>
+                    </header>
+
+                    <!-- {#if skillBonus.formula}
+                        <p class="bonus__summary">
+                            {getDamageBonusSummary(skillBonus)}
+                        </p>
+                    {/if} -->
                 </li>
             {/each}
         </ul>

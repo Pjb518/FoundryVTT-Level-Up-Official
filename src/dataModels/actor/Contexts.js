@@ -7,7 +7,7 @@ export function getAbilitiesBonusContext() {
       initial: Object.keys(A5E.abilities)
     }),
     types: new fields.ArrayField(new fields.StringField({ required: true, initial: '' }), {
-      initial: ['check', 'save']
+      initial: ['check', 'save', 'passive']
     }),
     requiresProficiency: new fields.BooleanField({ required: true, initial: false })
   };
