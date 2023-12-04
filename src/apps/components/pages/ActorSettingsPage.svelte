@@ -12,78 +12,82 @@
         const { damageBonusSummariesByContext, damageTypes } = CONFIG.A5E;
         const damageType = damageTypes[damageBonus.damageType];
 
-        return "Fix me";
-        // return localize(damageBonusSummariesByContext[damageBonus.context], {
-        //     formula: damageBonus.formula,
-        //     damageType: damageType
-        //         ? `${damageType.toLowerCase()} damage`
-        //         : "damage",
-        // });
+        // TODO: Granular-ize this in the future
+        return localize(damageBonusSummariesByContext["all"], {
+            formula: damageBonus.formula,
+            damageType: damageType
+                ? `${damageType.toLowerCase()} damage`
+                : "damage",
+        });
     }
 
     function getHealingBonusSummary(healingBonus) {
         const { healingBonusSummariesByContext, healingTypes } = CONFIG.A5E;
         const healingType = healingTypes[healingBonus.healingType];
+        console.log(healingType);
 
-        return "Fix me";
-        // return localize(healingBonusSummariesByContext[healingBonus.context], {
-        //     formula: healingBonus.formula,
-        //     healingType: healingType
-        //         ? `${healingType.toLowerCase()} healing`
-        //         : "healing",
-        // });
+        // TODO: Granular-ize this in the future
+        return localize(
+            healingBonusSummariesByContext[healingBonus.healingType],
+            {
+                formula: healingBonus.formula,
+                healingType: healingType
+                    ? `${healingType.toLowerCase()} healing`
+                    : "healing",
+            },
+        );
     }
 
     const actor = getContext("actor");
 
     const globalCurrencyWeightTrackingSelection = game.settings.get(
         "a5e",
-        "currencyWeight"
+        "currencyWeight",
     );
 
     $: disableMeleeWeaponAttack = determineIfPropertyModifiedByEffect(
         $actor,
-        "system.bonuses.meleeWeaponAttack"
+        "system.bonuses.meleeWeaponAttack",
     );
 
     $: disableRangedWeaponAttack = determineIfPropertyModifiedByEffect(
         $actor,
-        "system.bonuses.rangedWeaponAttack"
+        "system.bonuses.rangedWeaponAttack",
     );
 
     $: disableMeleeSpellAttack = determineIfPropertyModifiedByEffect(
         $actor,
-        "system.bonuses.meleeSpellAttack"
+        "system.bonuses.meleeSpellAttack",
     );
 
     $: disableRangedSpellAttack = determineIfPropertyModifiedByEffect(
         $actor,
-        "system.bonuses.rangedSpellAttack"
+        "system.bonuses.rangedSpellAttack",
     );
 
     $: disableManeuverDC = determineIfPropertyModifiedByEffect(
         $actor,
-        "system.bonuses.maneuverDC"
+        "system.bonuses.maneuverDC",
     );
 
     $: disableSpellDC = determineIfPropertyModifiedByEffect(
         $actor,
-        "system.bonuses.spellDC"
+        "system.bonuses.spellDC",
     );
 
     $: disableAbilityCheckBonusGlobal = determineIfPropertyModifiedByEffect(
         $actor,
-        "system.bonuses.abilities.check"
+        "system.bonuses.abilities.check",
     );
 
     $: disableSavingThrowBonusGlobal = determineIfPropertyModifiedByEffect(
         $actor,
-        "system.bonuses.abilities.save"
+        "system.bonuses.abilities.save",
     );
 
     $: disableSkillCheckBonusGlobal = determineIfPropertyModifiedByEffect(
         $actor,
-        "system.bonuses.abilities.skill"
+        "system.bonuses.abilities.skill",
     );
 
     $: flags = $actor.flags;
@@ -119,7 +123,7 @@
                         updateDocumentDataFromField(
                             $actor,
                             target.name,
-                            target.value
+                            target.value,
                         )}
                 />
             </FormSection>
@@ -139,7 +143,7 @@
                         updateDocumentDataFromField(
                             $actor,
                             target.name,
-                            target.value
+                            target.value,
                         )}
                 />
             </FormSection>
@@ -159,7 +163,7 @@
                         updateDocumentDataFromField(
                             $actor,
                             target.name,
-                            target.value
+                            target.value,
                         )}
                 />
             </FormSection>
@@ -179,7 +183,7 @@
                         updateDocumentDataFromField(
                             $actor,
                             target.name,
-                            target.value
+                            target.value,
                         )}
                 />
             </FormSection>
@@ -203,7 +207,7 @@
                         updateDocumentDataFromField(
                             $actor,
                             target.name,
-                            target.value
+                            target.value,
                         )}
                 />
             </FormSection>
@@ -223,7 +227,7 @@
                         updateDocumentDataFromField(
                             $actor,
                             target.name,
-                            target.value
+                            target.value,
                         )}
                 />
             </FormSection>
@@ -247,7 +251,7 @@
                         updateDocumentDataFromField(
                             $actor,
                             target.name,
-                            target.value
+                            target.value,
                         )}
                 />
             </FormSection>
@@ -267,7 +271,7 @@
                         updateDocumentDataFromField(
                             $actor,
                             target.name,
-                            target.value
+                            target.value,
                         )}
                 />
             </FormSection>
@@ -287,7 +291,7 @@
                         updateDocumentDataFromField(
                             $actor,
                             target.name,
-                            target.value
+                            target.value,
                         )}
                 />
             </FormSection>
@@ -433,7 +437,7 @@
                     updateDocumentDataFromField(
                         $actor,
                         "flags.a5e.trackInventoryWeight",
-                        detail
+                        detail,
                     );
                 }}
             />
@@ -448,7 +452,7 @@
                         updateDocumentDataFromField(
                             $actor,
                             "flags.a5e.doubleCarryCapacity",
-                            detail
+                            detail,
                         );
                     }}
                 />
@@ -466,7 +470,7 @@
                         updateDocumentDataFromField(
                             $actor,
                             "flags.a5e.trackCurrencyWeight",
-                            detail
+                            detail,
                         );
                     }}
                 />
@@ -488,7 +492,7 @@
                         updateDocumentDataFromField(
                             $actor,
                             "flags.a5e.halflingLuck",
-                            detail
+                            detail,
                         );
                     }}
                 />
@@ -505,7 +509,7 @@
                         updateDocumentDataFromField(
                             $actor,
                             "flags.a5e.jackOfAllTrades",
-                            detail
+                            detail,
                         );
                     }}
                 />
@@ -527,7 +531,7 @@
                     updateDocumentDataFromField(
                         $actor,
                         "flags.a5e.hideGenericResources",
-                        detail
+                        detail,
                     );
                 }}
             />
@@ -541,7 +545,7 @@
                     updateDocumentDataFromField(
                         $actor,
                         "flags.a5e.includeAbilityModifiersForSkills",
-                        detail
+                        detail,
                     );
                 }}
             />
@@ -555,7 +559,7 @@
                     updateDocumentDataFromField(
                         $actor,
                         "flags.a5e.showFavoritesSection",
-                        detail
+                        detail,
                     );
                 }}
             />
@@ -569,7 +573,7 @@
                     updateDocumentDataFromField(
                         $actor,
                         "flags.a5e.showManeuverTab",
-                        detail
+                        detail,
                     );
                 }}
             />
@@ -583,7 +587,7 @@
                     updateDocumentDataFromField(
                         $actor,
                         "flags.a5e.showPassiveScores",
-                        detail
+                        detail,
                     );
                 }}
             />
@@ -597,7 +601,7 @@
                     updateDocumentDataFromField(
                         $actor,
                         "flags.a5e.showSpellTab",
-                        detail
+                        detail,
                     );
                 }}
             />
@@ -612,7 +616,7 @@
                         updateDocumentDataFromField(
                             $actor,
                             "flags.a5e.showXP",
-                            detail
+                            detail,
                         );
                     }}
                 />
@@ -635,7 +639,7 @@
                         updateDocumentDataFromField(
                             $actor,
                             "flags.a5e.disableRandomizedHP",
-                            detail
+                            detail,
                         );
                     }}
                 />

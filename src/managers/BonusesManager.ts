@@ -31,8 +31,7 @@ export default class BonusesManager {
    */
   getAbilityBonusesFormula(abilityKey: string, type: 'check' | 'save' = 'check'): string {
     const parts = this.getAbilityBonuses(abilityKey, type);
-    console.log(parts);
-    return parts.join(' + ');
+    return parts.join(' + ').trim();
   }
 
   /**
@@ -42,7 +41,7 @@ export default class BonusesManager {
    */
   getGlobalAbilityBonusesFormula(type: 'check' | 'save' = 'check'): string {
     const parts = this.getGlobalAbilityBonuses(type);
-    return parts.join(' + ');
+    return parts.join(' + ').trim();
   }
 
   /**
@@ -60,7 +59,7 @@ export default class BonusesManager {
     includeAbilityBonuses: boolean = true
   ): string {
     const parts = this.getSkillBonuses(skillKey, abilityKey, type, includeAbilityBonuses);
-    return parts.join(' + ');
+    return parts.join(' + ').trim();
   }
 
   /**
@@ -71,7 +70,7 @@ export default class BonusesManager {
    */
   getGlobalSkillBonusesFormula(type: 'check' | 'passive' = 'check'): string {
     const parts = this.getGlobalSkillBonuses(type);
-    return parts.join(' + ');
+    return parts.join(' + ').trim();
   }
 
   // ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++

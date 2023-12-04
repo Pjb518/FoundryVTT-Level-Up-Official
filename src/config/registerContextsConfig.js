@@ -15,4 +15,14 @@ export default function registerContextsConfig(A5E) {
     spellAttacks: 'A5E.damageBonuses.summaries.contexts.spellAttacks',
     weaponAttacks: 'A5E.damageBonuses.summaries.contexts.weaponAttacks'
   };
+
+  A5E.healingBonusContexts = {
+    healing: 'A5E.healingBonuses.contexts.healing',
+    temporaryHealing: 'A5E.healingBonuses.contexts.temporaryHealing'
+  };
+
+  A5E.healingBonusSummariesByContext = {
+    healing: 'A5E.healingBonuses.summaries.contexts.healing',
+    temporaryHealing: 'A5E.healingBonuses.summaries.contexts.temporaryHealing'
+  };
 }

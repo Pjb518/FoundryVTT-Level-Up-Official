@@ -429,9 +429,6 @@ export default class ActorA5e extends Actor {
     });
 
     Object.entries(actorData.skills).forEach(([key, skill]) => {
-      console.log(key, skill);
-      console.log(this.BonusesManager.getSkillBonusesFormula(key, skill.ability));
-
       const skillName = localize(CONFIG.A5E.skills[key]);
       const skillBonus = this.BonusesManager.getSkillBonusesFormula(key, skill.ability).trim();
       // const { check: globalCheckBonus, skill: globalSkillBonus } = actorData.bonuses.abilities;
