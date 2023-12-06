@@ -5,7 +5,7 @@
 	"effects": [
 		{
 			"icon": "icons/equipment/shield/heater-wooden-sword-green.webp",
-			"origin": "Item.oUM9Me96huKCee8A",
+			"origin": "Item.SKGrEagaARPo84x5",
 			"flags": {
 				"a5e": {
 					"sort": 0,
@@ -57,7 +57,7 @@
 		},
 		{
 			"icon": "icons/equipment/shield/heater-wooden-sword-green.webp",
-			"origin": "Item.oUM9Me96huKCee8A",
+			"origin": "Item.SKGrEagaARPo84x5",
 			"flags": {
 				"a5e": {
 					"sort": 0,
@@ -95,6 +95,46 @@
 				"combat": null,
 				"rounds": null,
 				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "",
+			"statuses": [],
+			"folder": null
+		},
+		{
+			"icon": "icons/equipment/shield/heater-wooden-sword-green.webp",
+			"origin": "Item.SKGrEagaARPo84x5",
+			"flags": {
+				"a5e": {
+					"sort": 0,
+					"transferType": "onUse",
+					"actionId": "3uhy6ONQQnTzwmYM",
+					"applyToSelf": true,
+					"duration": {
+						"type": "rounds",
+						"unit": "minutes"
+					}
+				}
+			},
+			"transfer": false,
+			"name": "Defensive AC",
+			"_id": "NWAnbLxHgxeEiMS3",
+			"changes": [
+				{
+					"key": "system.attributes.ac.changes.bonuses.value",
+					"value": "1",
+					"mode": 2,
+					"priority": null
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": null,
+				"combat": null,
+				"rounds": null,
+				"turns": 1,
 				"startRound": null,
 				"startTurn": null
 			},
@@ -152,7 +192,12 @@
 					"type": "creatureObject",
 					"quantity": 1
 				},
-				"img": "icons/equipment/shield/heater-wooden-sword-green.webp"
+				"img": "icons/equipment/shield/heater-wooden-sword-green.webp",
+				"ranges": {
+					"TDxq9KZYHsgJBcBh": {
+						"range": "fiveFeet"
+					}
+				}
 			},
 			"nZgXF2r8tain41RZ": {
 				"name": "Dodge",
@@ -219,6 +264,85 @@
 					"recharge": {
 						"formula": "1d6",
 						"threshold": 6
+					}
+				}
+			},
+			"lcfdAChNN8Klbw0D": {
+				"name": "Attack (Defensive)",
+				"activation": {
+					"type": "bonusAction",
+					"cost": 1
+				},
+				"consumers": {},
+				"rolls": {
+					"tFenoUYFUlCECoM8": {
+						"type": "attack",
+						"default": true,
+						"attackType": "meleeWeaponAttack",
+						"proficient": false,
+						"ability": "str",
+						"label": "Improvised Weapon"
+					},
+					"wxWij6knaFs6y2gk": {
+						"type": "damage",
+						"default": true,
+						"formula": "1d4 + @str.mod",
+						"damageType": "bludgeoning"
+					}
+				},
+				"prompts": {},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"threshold": 6
+					}
+				},
+				"target": {
+					"type": "creatureObject",
+					"quantity": 1
+				},
+				"img": "icons/equipment/shield/heater-wooden-sword-green.webp",
+				"ranges": {
+					"EfMMyZTD32hz3WC7": {
+						"range": "fiveFeet"
+					}
+				}
+			},
+			"3uhy6ONQQnTzwmYM": {
+				"name": "Increase Armor Class (Defensive)",
+				"activation": {
+					"type": "bonusAction",
+					"cost": 1
+				},
+				"consumers": {},
+				"rolls": {},
+				"prompts": {
+					"1RmCVO4QKQ9DZpDM": {
+						"type": "effect",
+						"default": true,
+						"effectId": "o481jOizHTJLpIFf"
+					},
+					"RvVjyIUUJe9pPIQ1": {
+						"type": "effect",
+						"default": true,
+						"effectId": "NWAnbLxHgxeEiMS3"
+					}
+				},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"threshold": 6
+					}
+				},
+				"ranges": {
+					"bZ9qqcaxSNoGUVmk": {
+						"range": "self"
 					}
 				}
 			}

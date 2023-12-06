@@ -2,7 +2,48 @@
 	"name": "Shield, Light",
 	"type": "object",
 	"img": "icons/equipment/shield/buckler-wooden-round-hole.webp",
-	"effects": [],
+	"effects": [
+		{
+			"icon": "icons/equipment/shield/buckler-wooden-round-hole.webp",
+			"origin": "Item.haGh8KYhdUpDstYD",
+			"flags": {
+				"a5e": {
+					"sort": 0,
+					"transferType": "onUse",
+					"actionId": "AOJzRldBZFJqSsnD",
+					"applyToSelf": true,
+					"duration": {
+						"type": "rounds",
+						"unit": "minutes"
+					}
+				}
+			},
+			"transfer": false,
+			"name": "Defensive AC",
+			"_id": "5AgG4EcAjssWedF2",
+			"changes": [
+				{
+					"key": "system.attributes.ac.changes.bonuses.value",
+					"value": "1",
+					"mode": 2,
+					"priority": null
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": null,
+				"combat": null,
+				"rounds": null,
+				"turns": 1,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "",
+			"statuses": [],
+			"folder": null
+		}
+	],
 	"flags": {},
 	"system": {
 		"ac": {
@@ -99,6 +140,96 @@
 						"range": "medium"
 					}
 				}
+			},
+			"kn1maAlgG7oWw9JY": {
+				"name": "Attack (Defensive)",
+				"activation": {
+					"type": "bonusAction",
+					"cost": 1
+				},
+				"consumers": {},
+				"rolls": {
+					"tFenoUYFUlCECoM8": {
+						"type": "attack",
+						"default": true,
+						"attackType": "meleeWeaponAttack",
+						"proficient": false,
+						"ability": "str",
+						"label": "Improvised Weapon"
+					},
+					"wxWij6knaFs6y2gk": {
+						"type": "damage",
+						"default": true,
+						"formula": "1d4 + @str.mod",
+						"damageType": "bludgeoning"
+					}
+				},
+				"prompts": {},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"threshold": 6
+					}
+				},
+				"target": {
+					"type": "creatureObject",
+					"quantity": 1
+				},
+				"img": "icons/equipment/shield/buckler-wooden-round-hole.webp",
+				"ranges": {
+					"EfMMyZTD32hz3WC7": {
+						"range": "fiveFeet"
+					}
+				}
+			},
+			"AOJzRldBZFJqSsnD": {
+				"name": "Increase Armor Class (Defensive)",
+				"activation": {
+					"type": "bonusAction",
+					"cost": 1
+				},
+				"consumers": {},
+				"rolls": {},
+				"prompts": {
+					"1RmCVO4QKQ9DZpDM": {
+						"type": "effect",
+						"default": true,
+						"effectId": ""
+					},
+					"hhUcyCDWAO7SCqQg": {
+						"type": "effect",
+						"default": true,
+						"effectId": "coU7q0AVHPnylR39"
+					},
+					"uoPg8EUOGKhSBNjo": {
+						"type": "effect",
+						"default": true,
+						"effectId": "6kRlwrLhyZIeoGFg"
+					},
+					"mMMkXo28jayZyoba": {
+						"type": "effect",
+						"default": true,
+						"effectId": "5AgG4EcAjssWedF2"
+					}
+				},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"threshold": 6
+					}
+				},
+				"ranges": {
+					"bZ9qqcaxSNoGUVmk": {
+						"range": "self"
+					}
+				},
+				"img": "icons/equipment/shield/buckler-wooden-round-hole.webp"
 			}
 		},
 		"description": "<p>You may throw this shield, treating it as an improvised weapon that deals 1d6 bludgeoning damage.</p>\n<p>When you take a critical hit, you can use your reaction to block it and sacrifice your shield, turning the critical hit into a regular hit. Afterwards your shield is broken, or if your shield is magical it instead becomes mundane for 1 hour.</p>",

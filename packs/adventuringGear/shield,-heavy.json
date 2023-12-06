@@ -5,7 +5,7 @@
 	"effects": [
 		{
 			"icon": "icons/equipment/shield/heater-steel-gold.webp",
-			"origin": "Item.qqUkiSBotmxnXfgI",
+			"origin": "Item.zzeXQA2sop838EaO",
 			"flags": {
 				"a5e": {
 					"sort": 0,
@@ -42,6 +42,46 @@
 				"combat": null,
 				"rounds": null,
 				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "",
+			"statuses": [],
+			"folder": null
+		},
+		{
+			"icon": "icons/equipment/shield/heater-steel-gold.webp",
+			"origin": "Item.zzeXQA2sop838EaO",
+			"flags": {
+				"a5e": {
+					"sort": 0,
+					"transferType": "onUse",
+					"actionId": "F3TTzlAfNwLEaLFb",
+					"applyToSelf": true,
+					"duration": {
+						"type": "rounds",
+						"unit": "minutes"
+					}
+				}
+			},
+			"transfer": false,
+			"name": "Defensive AC",
+			"_id": "rws7wAPvY6mq40Bt",
+			"changes": [
+				{
+					"key": "system.attributes.ac.changes.bonuses.value",
+					"value": "1",
+					"mode": 2,
+					"priority": null
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": null,
+				"combat": null,
+				"rounds": null,
+				"turns": 1,
 				"startRound": null,
 				"startTurn": null
 			},
@@ -126,6 +166,91 @@
 						"threshold": 6
 					}
 				}
+			},
+			"vHb6gatyfurbkNL1": {
+				"name": "Attack (Defensive)",
+				"activation": {
+					"type": "bonusAction",
+					"cost": 1
+				},
+				"consumers": {},
+				"rolls": {
+					"tFenoUYFUlCECoM8": {
+						"type": "attack",
+						"default": true,
+						"attackType": "meleeWeaponAttack",
+						"proficient": false,
+						"ability": "str",
+						"label": "Improvised Weapon"
+					},
+					"wxWij6knaFs6y2gk": {
+						"type": "damage",
+						"default": true,
+						"formula": "1d4 + @str.mod",
+						"damageType": "bludgeoning"
+					}
+				},
+				"prompts": {},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"threshold": 6
+					}
+				},
+				"target": {
+					"type": "creatureObject",
+					"quantity": 1
+				},
+				"img": "icons/equipment/shield/heater-steel-gold.webp",
+				"ranges": {
+					"EfMMyZTD32hz3WC7": {
+						"range": "fiveFeet"
+					}
+				}
+			},
+			"F3TTzlAfNwLEaLFb": {
+				"name": "Increase Armor Class (Defensive)",
+				"activation": {
+					"type": "bonusAction",
+					"cost": 1
+				},
+				"consumers": {},
+				"rolls": {},
+				"prompts": {
+					"1RmCVO4QKQ9DZpDM": {
+						"type": "effect",
+						"default": true,
+						"effectId": "WHMM0rfkKVvzUNeB"
+					},
+					"hhUcyCDWAO7SCqQg": {
+						"type": "effect",
+						"default": true,
+						"effectId": "3kBjNxOtHfOn47oz"
+					},
+					"aFgjMlp3cCdGnxEr": {
+						"type": "effect",
+						"default": true,
+						"effectId": "rws7wAPvY6mq40Bt"
+					}
+				},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"threshold": 6
+					}
+				},
+				"ranges": {
+					"bZ9qqcaxSNoGUVmk": {
+						"range": "self"
+					}
+				},
+				"img": "icons/equipment/shield/heater-steel-gold.webp"
 			}
 		},
 		"description": "<p>You gain an expertise die on Dexterity saving throws. When you take the Dodge action while wielding a heavy shield, you may instead take cover behind your shield, gaining an expertise die to your Armor Class until the start of your turn.</p>\n<p>You cannot squeeze through spaces smaller than your size category.</p>\n<p>When you take a critical hit, you can use your reaction to block it and sacrifice your shield, turning the critical hit into a regular hit. Afterwards your shield is broken, or if your shield is magical it instead becomes mundane for 1 hour.</p>",

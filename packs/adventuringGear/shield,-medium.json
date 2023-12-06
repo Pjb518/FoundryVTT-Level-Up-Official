@@ -2,7 +2,48 @@
 	"name": "Shield, Medium",
 	"type": "object",
 	"img": "icons/equipment/shield/heater-steel-worn.webp",
-	"effects": [],
+	"effects": [
+		{
+			"icon": "icons/equipment/shield/heater-steel-worn.webp",
+			"origin": "Item.mNHxnuaHjkr1dNAc",
+			"flags": {
+				"a5e": {
+					"sort": 0,
+					"transferType": "onUse",
+					"actionId": "PwrEe2BhzH8Ia3ZA",
+					"applyToSelf": true,
+					"duration": {
+						"type": "rounds",
+						"unit": "minutes"
+					}
+				}
+			},
+			"transfer": false,
+			"name": "Defensive AC",
+			"_id": "R4H9hwQqrcReSUg6",
+			"changes": [
+				{
+					"key": "system.attributes.ac.changes.bonuses.value",
+					"value": "1",
+					"mode": 2,
+					"priority": null
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": null,
+				"combat": null,
+				"rounds": null,
+				"turns": 1,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "",
+			"statuses": [],
+			"folder": null
+		}
+	],
 	"flags": {},
 	"system": {
 		"ac": {
@@ -51,6 +92,96 @@
 				"target": {
 					"type": "creatureObject",
 					"quantity": 1
+				},
+				"img": "icons/equipment/shield/heater-steel-worn.webp"
+			},
+			"JEahSlMI4KFp4o3L": {
+				"name": "Attack (Defensive)",
+				"activation": {
+					"type": "bonusAction",
+					"cost": 1
+				},
+				"consumers": {},
+				"rolls": {
+					"tFenoUYFUlCECoM8": {
+						"type": "attack",
+						"default": true,
+						"attackType": "meleeWeaponAttack",
+						"proficient": false,
+						"ability": "str",
+						"label": "Improvised Weapon"
+					},
+					"wxWij6knaFs6y2gk": {
+						"type": "damage",
+						"default": true,
+						"formula": "1d4 + @str.mod",
+						"damageType": "bludgeoning"
+					}
+				},
+				"prompts": {},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"threshold": 6
+					}
+				},
+				"target": {
+					"type": "creatureObject",
+					"quantity": 1
+				},
+				"img": "icons/equipment/shield/heater-steel-worn.webp",
+				"ranges": {
+					"EfMMyZTD32hz3WC7": {
+						"range": "fiveFeet"
+					}
+				}
+			},
+			"PwrEe2BhzH8Ia3ZA": {
+				"name": "Increase Armor Class (Defensive)",
+				"activation": {
+					"type": "bonusAction",
+					"cost": 1
+				},
+				"consumers": {},
+				"rolls": {},
+				"prompts": {
+					"1RmCVO4QKQ9DZpDM": {
+						"type": "effect",
+						"default": true,
+						"effectId": ""
+					},
+					"hhUcyCDWAO7SCqQg": {
+						"type": "effect",
+						"default": true,
+						"effectId": ""
+					},
+					"uoPg8EUOGKhSBNjo": {
+						"type": "effect",
+						"default": true,
+						"effectId": "ee5CTKqflPMaNhE9"
+					},
+					"rBVLiQalkwbq3POK": {
+						"type": "effect",
+						"default": true,
+						"effectId": "R4H9hwQqrcReSUg6"
+					}
+				},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"threshold": 6
+					}
+				},
+				"ranges": {
+					"bZ9qqcaxSNoGUVmk": {
+						"range": "self"
+					}
 				},
 				"img": "icons/equipment/shield/heater-steel-worn.webp"
 			}

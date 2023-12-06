@@ -1,171 +1,157 @@
 {
-  "name": "Mage Armor",
-  "type": "spell",
-  "img": "icons/magic/defensive/shield-barrier-glowing-triangle-blue.webp",
-  "effects": [
-    {
-      "icon": "icons/magic/defensive/shield-barrier-glowing-triangle-blue.webp",
-      "origin": "Item.SuliYE30hjLYPMUt",
-      "flags": {
-        "a5e": {
-          "sort": 0,
-          "transferType": "onUse",
-          "actionId": "p54IchHbLju7Y4vP",
-          "duration": {
-            "unit": "hours"
-          }
-        }
-      },
-      "transfer": false,
-      "name": "Mage Armor",
-      "_id": "xILhsp6xwaUWS7YT",
-      "changes": [
-        {
-          "key": "system.attributes.ac.value",
-          "value": "13 + @dex.mod",
-          "mode": 6,
-          "priority": null
-        }
-      ],
-      "disabled": false,
-      "duration": {
-        "startTime": null,
-        "seconds": 28800,
-        "combat": null,
-        "rounds": null,
-        "turns": null,
-        "startRound": null,
-        "startTurn": null
-      },
-      "description": "",
-      "statuses": []
-    }
-  ],
-  "flags": {
-    "core": {},
-    "exportSource": {
-      "world": "clean-test",
-      "system": "a5e",
-      "coreVersion": "11.315",
-      "systemVersion": "0.16.9"
-    }
-  },
-  "system": {
-    "actions": {
-      "p54IchHbLju7Y4vP": {
-        "name": "Mage Armor",
-        "activation": {
-          "cost": 1,
-          "type": "action",
-          "reactionTrigger": ""
-        },
-        "duration": {
-          "unit": "hour",
-          "value": "8"
-        },
-        "ranges": {
-          "Xz9MmMUurHP9TxbZ": {
-            "range": "touch"
-          }
-        },
-        "area": {
-          "shape": "",
-          "size": "",
-          "placeTemplate": false
-        },
-        "target": {
-          "quantity": "",
-          "type": "creature"
-        },
-        "consumers": {
-          "yFLNi2hzqu5g49ul": {
-            "mode": "variable",
-            "spellLevel": 1,
-            "points": 2,
-            "type": "spell"
-          }
-        },
-        "prompts": {
-          "MQ1SDdXebc3wsNbs": {
-            "type": "effect",
-            "default": true,
-            "effectId": "xILhsp6xwaUWS7YT"
-          }
-        },
-        "rolls": {
-          "qNZuHQR7kv2EL80j": {
-            "type": "healing",
-            "default": true,
-            "scaling": {
-              "mode": "spellLevel",
-              "formula": "5"
-            },
-            "healingType": "temporaryHealing",
-            "formula": "0"
-          }
-        }
-      }
-    },
-    "description": "<p>Until the spell ends, the target is protected by a shimmering magical force. Its AC becomes 13 + its Dexterity modifier. The spell ends if the target dons armor, or if you use an action to dismiss it.</p><p><strong><em>Cast at Higher Levels.</em></strong> The target gains 5 temporary hit points for each slot level above 1st. The temporary hit points last for the spell's duration.</p>",
-    "favorite": false,
-    "secretDescription": "",
-    "source": "",
-    "uses": {
-      "value": null,
-      "max": "",
-      "per": null,
-      "recharge": {
-        "formula": "",
-        "threshold": ""
-      }
-    },
-    "schema": {
-      "version": null,
-      "lastMigration": null
-    },
-    "classes": [
-      "sorcerer",
-      "wielder",
-      "wizard"
-    ],
-    "components": {
-      "vocalized": true,
-      "seen": true,
-      "material": true
-    },
-    "concentration": false,
-    "level": 1,
-    "materials": "metal stud",
-    "materialsConsumed": false,
-    "prepared": false,
-    "prerequisite": "",
-    "rare": false,
-    "ritual": false,
-    "schools": {
-      "primary": "abjuration",
-      "secondary": [
-        "arcane",
-        "protection"
-      ]
-    },
-    "schemaVersion": {
-      "version": 0.009,
-      "lastMigration": {
-        "version": {
-          "schema": 0.007,
-          "foundry": "11.311",
-          "system": "0.15.13"
-        }
-      }
-    }
-  },
-  "folder": null,
-  "_stats": {
-    "systemId": "a5e",
-    "systemVersion": "0.16.9",
-    "coreVersion": "11.315",
-    "createdTime": 1701789504538,
-    "modifiedTime": 1701789636250,
-    "lastModifiedBy": "BDqRFxyWZFKs757e"
-  }
+	"name": "Mage Armor",
+	"type": "spell",
+	"img": "icons/magic/defensive/shield-barrier-glowing-triangle-blue.webp",
+	"effects": [
+		{
+			"icon": "icons/magic/defensive/shield-barrier-glowing-triangle-blue.webp",
+			"origin": "Item.SuliYE30hjLYPMUt",
+			"flags": {
+				"a5e": {
+					"sort": 0,
+					"transferType": "onUse",
+					"actionId": "p54IchHbLju7Y4vP",
+					"duration": {
+						"unit": "hours"
+					}
+				}
+			},
+			"transfer": false,
+			"name": "Mage Armor",
+			"_id": "xILhsp6xwaUWS7YT",
+			"changes": [
+				{
+					"key": "system.attributes.ac.value",
+					"value": "13 + @dex.mod",
+					"mode": 6,
+					"priority": null
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": 28800,
+				"combat": null,
+				"rounds": null,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "",
+			"statuses": [],
+			"folder": null
+		}
+	],
+	"flags": {},
+	"system": {
+		"actions": {
+			"p54IchHbLju7Y4vP": {
+				"name": "Mage Armor",
+				"activation": {
+					"cost": 1,
+					"type": "action",
+					"reactionTrigger": ""
+				},
+				"duration": {
+					"unit": "hour",
+					"value": "8"
+				},
+				"ranges": {
+					"Xz9MmMUurHP9TxbZ": {
+						"range": "touch"
+					}
+				},
+				"area": {
+					"shape": "",
+					"size": "",
+					"placeTemplate": false
+				},
+				"target": {
+					"quantity": "",
+					"type": "creature"
+				},
+				"consumers": {
+					"yFLNi2hzqu5g49ul": {
+						"mode": "variable",
+						"spellLevel": 1,
+						"points": 2,
+						"type": "spell"
+					}
+				},
+				"prompts": {
+					"MQ1SDdXebc3wsNbs": {
+						"type": "effect",
+						"default": true,
+						"effectId": "xILhsp6xwaUWS7YT"
+					}
+				},
+				"rolls": {
+					"qNZuHQR7kv2EL80j": {
+						"type": "healing",
+						"default": true,
+						"scaling": {
+							"mode": "spellLevel",
+							"formula": "5"
+						},
+						"healingType": "temporaryHealing",
+						"formula": "0"
+					}
+				}
+			}
+		},
+		"description": "<p>Until the spell ends, the target is protected by a shimmering magical force. Its AC becomes 13 + its Dexterity modifier. The spell ends if the target dons armor, or if you use an action to dismiss it.</p><p><strong><em>Cast at Higher Levels.</em></strong> The target gains 5 temporary hit points for each slot level above 1st. The temporary hit points last for the spell's duration.</p>",
+		"favorite": false,
+		"secretDescription": "",
+		"source": "",
+		"uses": {
+			"value": null,
+			"max": "",
+			"per": null,
+			"recharge": {
+				"formula": "",
+				"threshold": ""
+			}
+		},
+		"schema": {
+			"version": null,
+			"lastMigration": null
+		},
+		"classes": [
+			"sorcerer",
+			"wielder",
+			"wizard"
+		],
+		"components": {
+			"vocalized": true,
+			"seen": true,
+			"material": true
+		},
+		"concentration": false,
+		"level": 1,
+		"materials": "metal stud",
+		"materialsConsumed": false,
+		"prepared": false,
+		"prerequisite": "",
+		"rare": false,
+		"ritual": false,
+		"schools": {
+			"primary": "abjuration",
+			"secondary": [
+				"arcane",
+				"protection"
+			]
+		},
+		"schemaVersion": {
+			"version": 0.009,
+			"lastMigration": {
+				"version": {
+					"schema": 0.007,
+					"foundry": "11.311",
+					"system": "0.15.13"
+				}
+			}
+		}
+	},
+	"folder": null,
+	"_id": "ip8c3zrbrngrx1oe"
 }

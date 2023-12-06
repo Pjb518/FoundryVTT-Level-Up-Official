@@ -2,7 +2,59 @@
 	"name": "Torch",
 	"type": "object",
 	"img": "icons/sundries/lights/torch-brown-lit.webp",
-	"effects": [],
+	"effects": [
+		{
+			"icon": "icons/sundries/lights/torch-brown-lit.webp",
+			"origin": "Item.CtaidtxbWkNdzGbR",
+			"flags": {
+				"a5e": {
+					"sort": 0,
+					"transferType": "onUse",
+					"actionId": "WubkgIWC5d19zUDb",
+					"applyToSelf": true,
+					"duration": {
+						"unit": "hours"
+					}
+				}
+			},
+			"transfer": false,
+			"name": "Light",
+			"_id": "iswsGw5aTV3nSNGd",
+			"changes": [
+				{
+					"key": "@token.light.bright",
+					"value": "20",
+					"mode": 6,
+					"priority": null
+				},
+				{
+					"key": "@token.light.dim",
+					"value": "40",
+					"mode": 6,
+					"priority": null
+				},
+				{
+					"key": "@token.light.animation.type",
+					"value": "Torch",
+					"mode": 6,
+					"priority": null
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": 3600,
+				"combat": null,
+				"rounds": null,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "",
+			"statuses": [],
+			"folder": null
+		}
+	],
 	"flags": {},
 	"system": {
 		"ac": {
@@ -14,7 +66,102 @@
 			"requiresNoShield": false,
 			"requiresUnarmored": false
 		},
-		"actions": {},
+		"actions": {
+			"WubkgIWC5d19zUDb": {
+				"name": "Light Torch",
+				"activation": {
+					"type": "objectInteraction",
+					"cost": 1
+				},
+				"consumers": {
+					"DJvbbIhwN6sJzpar": {
+						"type": "quantity",
+						"default": true,
+						"itemId": "",
+						"quantity": 1
+					}
+				},
+				"rolls": {},
+				"prompts": {
+					"O0J1ig5IuDwcXP6o": {
+						"type": "effect",
+						"default": true,
+						"effectId": "iswsGw5aTV3nSNGd"
+					}
+				},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"threshold": 6
+					}
+				}
+			},
+			"EzcV7dhxP2t5HUCh": {
+				"name": "Attack",
+				"activation": {
+					"cost": 1,
+					"type": "action",
+					"reactionTrigger": ""
+				},
+				"consumers": {},
+				"rolls": {
+					"4loQUAEZaCc8RC8h": {
+						"bonus": "",
+						"critThreshold": "20",
+						"type": "attack",
+						"attackType": "meleeWeaponAttack",
+						"ability": "default",
+						"label": "Club"
+					},
+					"3DTZ2lWFlQONwpTn": {
+						"canCrit": true,
+						"damageType": "bludgeoning",
+						"formula": "1d4 + @str.mod",
+						"name": "Club",
+						"type": "damage"
+					},
+					"X2ifvBL1zBwVqirL": {
+						"type": "damage",
+						"default": true,
+						"formula": "1",
+						"damageType": "fire"
+					}
+				},
+				"prompts": {},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"threshold": 6
+					}
+				},
+				"duration": {
+					"unit": "",
+					"value": ""
+				},
+				"area": {
+					"shape": "",
+					"size": "",
+					"placeTemplate": false,
+					"quantity": 1
+				},
+				"target": {
+					"quantity": 1,
+					"type": "creatureObject"
+				},
+				"img": "icons/sundries/lights/torch-brown-lit.webp",
+				"ranges": {
+					"KrdoHY56z9Tl1dHJ": {
+						"range": "fiveFeet"
+					}
+				}
+			}
+		},
 		"description": "<p>A torch burns for 1 hour, providing bright light in a 20-foot radius and dim light for an additional 20 feet. When you use a burning torch as a club to make a melee attack, it deals an extra 1 fire damage on a hit.</p>",
 		"favorite": false,
 		"secretDescription": "",
@@ -27,6 +174,10 @@
 				"formula": "1d6",
 				"threshold": 6
 			}
+		},
+		"schema": {
+			"version": null,
+			"lastMigration": null
 		},
 		"ammunitionProperties": [],
 		"armorCategory": "",
