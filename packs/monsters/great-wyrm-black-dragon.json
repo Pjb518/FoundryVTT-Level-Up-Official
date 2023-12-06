@@ -59,8 +59,13 @@
 						"threshold": ""
 					}
 				},
+				"schema": {
+					"version": null,
+					"lastMigration": null
+				},
 				"concentration": false,
 				"featureType": "other",
+				"grants": {},
 				"prerequisite": "",
 				"schemaVersion": {
 					"version": 0.009,
@@ -110,8 +115,13 @@
 						"threshold": ""
 					}
 				},
+				"schema": {
+					"version": null,
+					"lastMigration": null
+				},
 				"concentration": false,
 				"featureType": "",
+				"grants": {},
 				"prerequisite": "",
 				"schemaVersion": {
 					"version": 0.009,
@@ -161,8 +171,13 @@
 						"threshold": ""
 					}
 				},
+				"schema": {
+					"version": null,
+					"lastMigration": null
+				},
 				"concentration": false,
 				"featureType": "other",
+				"grants": {},
 				"prerequisite": "",
 				"schemaVersion": {
 					"version": 0.009,
@@ -216,8 +231,13 @@
 						"threshold": ""
 					}
 				},
+				"schema": {
+					"version": null,
+					"lastMigration": null
+				},
 				"concentration": false,
 				"featureType": "",
+				"grants": {},
 				"prerequisite": "",
 				"schemaVersion": {
 					"version": 0.009,
@@ -333,8 +353,13 @@
 						"threshold": ""
 					}
 				},
+				"schema": {
+					"version": null,
+					"lastMigration": null
+				},
 				"concentration": false,
 				"featureType": "naturalWeapon",
+				"grants": {},
 				"prerequisite": "",
 				"schemaVersion": {
 					"version": 0.009,
@@ -428,8 +453,13 @@
 						"threshold": ""
 					}
 				},
+				"schema": {
+					"version": null,
+					"lastMigration": null
+				},
 				"concentration": false,
 				"featureType": "naturalWeapon",
+				"grants": {},
 				"prerequisite": "",
 				"schemaVersion": {
 					"version": 0.009,
@@ -523,8 +553,13 @@
 						"threshold": ""
 					}
 				},
+				"schema": {
+					"version": null,
+					"lastMigration": null
+				},
 				"concentration": false,
 				"featureType": "naturalWeapon",
+				"grants": {},
 				"prerequisite": "",
 				"schemaVersion": {
 					"version": 0.009,
@@ -629,8 +664,13 @@
 						"threshold": ""
 					}
 				},
+				"schema": {
+					"version": null,
+					"lastMigration": null
+				},
 				"concentration": false,
 				"featureType": "naturalWeapon",
+				"grants": {},
 				"prerequisite": "",
 				"schemaVersion": {
 					"version": 0.009,
@@ -678,19 +718,17 @@
 							"unit": "instantaneous",
 							"value": ""
 						},
-						"ranges": {
-							"SeEijgk4GXzkIpTn": {
-								"range": "medium"
-							}
-						},
+						"ranges": {},
 						"area": {
 							"shape": "line",
 							"size": "90",
-							"placeTemplate": false
+							"placeTemplate": false,
+							"length": 90,
+							"width": 10
 						},
 						"target": {
-							"quantity": null,
-							"type": "creature"
+							"quantity": 1,
+							"type": ""
 						},
 						"rolls": {
 							"m0Tn3cgxayJbRaCs": {
@@ -715,7 +753,7 @@
 						"consumers": {}
 					}
 				},
-				"description": "<p>The dragon exhales sizzling acid and necrotic energy in a 90-foot-long, 5-foot-wide line. Each creature in that area makes a DC 22 Dexterity saving throw, taking 85 (19d8) acid damage on a failed save or half damage on a success. A creature that fails the save is blinded until the end of its next turn.</p>",
+				"description": "<p>The dragon exhales sizzling acid and necrotic energy in a 90-foot-long, 10-foot-wide line. Each creature in that area makes a DC 22 Dexterity saving throw, taking 85 (19d8) acid damage on a failed save or half damage on a success. A creature that fails the save is blinded until the end of its next turn.</p>",
 				"favorite": true,
 				"secretDescription": "",
 				"source": "",
@@ -728,8 +766,13 @@
 						"threshold": ""
 					}
 				},
+				"schema": {
+					"version": null,
+					"lastMigration": null
+				},
 				"concentration": false,
 				"featureType": "naturalWeapon",
+				"grants": {},
 				"prerequisite": "",
 				"schemaVersion": {
 					"version": 0.009,
@@ -827,8 +870,13 @@
 						"threshold": ""
 					}
 				},
+				"schema": {
+					"version": null,
+					"lastMigration": null
+				},
 				"concentration": false,
 				"featureType": "naturalWeapon",
+				"grants": {},
 				"prerequisite": "",
 				"schemaVersion": {
 					"version": 0.009,
@@ -901,8 +949,13 @@
 						"threshold": ""
 					}
 				},
+				"schema": {
+					"version": null,
+					"lastMigration": null
+				},
 				"concentration": false,
 				"featureType": "",
+				"grants": {},
 				"prerequisite": "",
 				"schemaVersion": {
 					"version": 0.009,
@@ -955,13 +1008,15 @@
 							"value": 1
 						},
 						"area": {
-							"shape": "sphere",
+							"shape": "emanation",
 							"size": "120",
-							"placeTemplate": false
+							"placeTemplate": false,
+							"quantity": 1,
+							"radius": 120
 						},
 						"target": {
-							"quantity": null,
-							"type": "creature"
+							"quantity": 1,
+							"type": ""
 						},
 						"prompts": {
 							"E33WVaTMmqguAfCW": {
@@ -977,7 +1032,7 @@
 						"consumers": {}
 					}
 				},
-				"description": "<p>Each creature of the dragon’s choice within 120 feet that can hear it makes a DC 17 Charisma saving throw. On a failure, it is frightened for 1 minute. A creature repeats the saving throw at the end of its turns, ending the effect on itself on a success. When it succeeds on a saving throw or the effect ends for it, it is immune to Roar for 24 hours.</p>",
+				"description": "<p>Each creature of the dragon&rsquo;s choice within 120 feet that can hear it makes a DC 19 Charisma saving throw. On a failure, it is frightened for 1 minute. A creature repeats the saving throw at the end of its turns, ending the effect on itself on a success. When it succeeds on a saving throw or the effect ends for it, it is immune to Roar for 24 hours.</p>",
 				"favorite": true,
 				"secretDescription": "",
 				"source": "",
@@ -990,8 +1045,13 @@
 						"threshold": ""
 					}
 				},
+				"schema": {
+					"version": null,
+					"lastMigration": null
+				},
 				"concentration": false,
 				"featureType": "other",
+				"grants": {},
 				"prerequisite": "",
 				"schemaVersion": {
 					"version": 0.009,
@@ -1041,8 +1101,13 @@
 						"threshold": ""
 					}
 				},
+				"schema": {
+					"version": null,
+					"lastMigration": null
+				},
 				"concentration": false,
 				"featureType": "",
+				"grants": {},
 				"prerequisite": "",
 				"schemaVersion": {
 					"version": 0.009,
@@ -1095,13 +1160,15 @@
 							"value": ""
 						},
 						"area": {
-							"shape": "sphere",
+							"shape": "emanation",
 							"size": "15",
-							"placeTemplate": false
+							"placeTemplate": false,
+							"quantity": 1,
+							"radius": 15
 						},
 						"target": {
-							"quantity": null,
-							"type": "creature"
+							"quantity": 1,
+							"type": ""
 						},
 						"prompts": {
 							"u93gelqqhdwbYLps": {
@@ -1130,8 +1197,13 @@
 						"threshold": ""
 					}
 				},
+				"schema": {
+					"version": null,
+					"lastMigration": null
+				},
 				"concentration": false,
 				"featureType": "other",
+				"grants": {},
 				"prerequisite": "",
 				"schemaVersion": {
 					"version": 0.009,
@@ -1181,8 +1253,13 @@
 						"threshold": ""
 					}
 				},
+				"schema": {
+					"version": null,
+					"lastMigration": null
+				},
 				"concentration": false,
 				"featureType": "other",
+				"grants": {},
 				"prerequisite": "",
 				"schemaVersion": {
 					"version": 0.009,
@@ -1232,8 +1309,13 @@
 						"threshold": ""
 					}
 				},
+				"schema": {
+					"version": null,
+					"lastMigration": null
+				},
 				"concentration": false,
 				"featureType": "",
+				"grants": {},
 				"prerequisite": "",
 				"schemaVersion": {
 					"version": 0.009,
@@ -1287,8 +1369,13 @@
 						"threshold": ""
 					}
 				},
+				"schema": {
+					"version": null,
+					"lastMigration": null
+				},
 				"concentration": false,
 				"featureType": "",
+				"grants": {},
 				"prerequisite": "",
 				"schemaVersion": {
 					"version": 0.009,
@@ -1361,8 +1448,13 @@
 						"threshold": ""
 					}
 				},
+				"schema": {
+					"version": null,
+					"lastMigration": null
+				},
 				"concentration": false,
 				"featureType": "",
+				"grants": {},
 				"prerequisite": "",
 				"schemaVersion": {
 					"version": 0.009,
@@ -1446,8 +1538,13 @@
 						"threshold": ""
 					}
 				},
+				"schema": {
+					"version": null,
+					"lastMigration": null
+				},
 				"concentration": false,
 				"featureType": "",
+				"grants": {},
 				"prerequisite": "",
 				"schemaVersion": {
 					"version": 0.009,
@@ -1497,8 +1594,13 @@
 						"threshold": ""
 					}
 				},
+				"schema": {
+					"version": null,
+					"lastMigration": null
+				},
 				"concentration": false,
 				"featureType": "",
+				"grants": {},
 				"prerequisite": "",
 				"schemaVersion": {
 					"version": 0.009,
@@ -1548,8 +1650,13 @@
 						"threshold": ""
 					}
 				},
+				"schema": {
+					"version": null,
+					"lastMigration": null
+				},
 				"concentration": false,
 				"featureType": "",
+				"grants": {},
 				"prerequisite": "",
 				"schemaVersion": {
 					"version": 0.009,
@@ -1640,6 +1747,10 @@
 						"formula": "",
 						"threshold": ""
 					}
+				},
+				"schema": {
+					"version": null,
+					"lastMigration": null
 				},
 				"degree": 0,
 				"exertionCost": 0,
@@ -1739,6 +1850,10 @@
 						"threshold": ""
 					}
 				},
+				"schema": {
+					"version": null,
+					"lastMigration": null
+				},
 				"degree": 0,
 				"exertionCost": 0,
 				"isStance": false,
@@ -1827,6 +1942,10 @@
 						"formula": "",
 						"threshold": ""
 					}
+				},
+				"schema": {
+					"version": null,
+					"lastMigration": null
 				},
 				"degree": 0,
 				"exertionCost": 0,
@@ -1917,6 +2036,10 @@
 						"threshold": ""
 					}
 				},
+				"schema": {
+					"version": null,
+					"lastMigration": null
+				},
 				"degree": 0,
 				"exertionCost": 0,
 				"isStance": false,
@@ -2005,6 +2128,10 @@
 						"formula": "",
 						"threshold": ""
 					}
+				},
+				"schema": {
+					"version": null,
+					"lastMigration": null
 				},
 				"degree": 0,
 				"exertionCost": 0,
@@ -2095,6 +2222,10 @@
 						"threshold": ""
 					}
 				},
+				"schema": {
+					"version": null,
+					"lastMigration": null
+				},
 				"degree": 0,
 				"exertionCost": 0,
 				"isStance": false,
@@ -2177,6 +2308,10 @@
 						"formula": "",
 						"threshold": ""
 					}
+				},
+				"schema": {
+					"version": null,
+					"lastMigration": null
 				},
 				"classes": [],
 				"components": {
@@ -2278,6 +2413,10 @@
 						"threshold": ""
 					}
 				},
+				"schema": {
+					"version": null,
+					"lastMigration": null
+				},
 				"classes": [],
 				"components": {
 					"vocalized": true,
@@ -2377,6 +2516,10 @@
 						"formula": "",
 						"threshold": ""
 					}
+				},
+				"schema": {
+					"version": null,
+					"lastMigration": null
 				},
 				"classes": [],
 				"components": {
@@ -2478,6 +2621,10 @@
 						"threshold": ""
 					}
 				},
+				"schema": {
+					"version": null,
+					"lastMigration": null
+				},
 				"classes": [],
 				"components": {
 					"vocalized": true,
@@ -2578,6 +2725,10 @@
 						"formula": "",
 						"threshold": ""
 					}
+				},
+				"schema": {
+					"version": null,
+					"lastMigration": null
 				},
 				"classes": [],
 				"components": {
@@ -2703,6 +2854,10 @@
 						"threshold": ""
 					}
 				},
+				"schema": {
+					"version": null,
+					"lastMigration": null
+				},
 				"classes": [],
 				"components": {
 					"vocalized": true,
@@ -2803,6 +2958,10 @@
 						"threshold": ""
 					}
 				},
+				"schema": {
+					"version": null,
+					"lastMigration": null
+				},
 				"classes": [],
 				"components": {
 					"vocalized": true,
@@ -2880,8 +3039,7 @@
 				"save": {
 					"proficient": true,
 					"expertiseDice": 0,
-					"bonus": "",
-					"concentrationBonus": ""
+					"bonus": ""
 				}
 			},
 			"int": {
@@ -3175,10 +3333,6 @@
 		},
 		"spellResources": {
 			"slots": {
-				"0": {
-					"current": 0,
-					"max": 0
-				},
 				"1": {
 					"current": 0,
 					"max": 0
@@ -3346,7 +3500,8 @@
 			"isSwarm": false,
 			"cr": 23,
 			"elite": true,
-			"privateNotes": ""
+			"privateNotes": "",
+			"notes": ""
 		},
 		"proficiencies": {
 			"armor": [],
@@ -3362,7 +3517,7 @@
 			"primary": {
 				"label": "",
 				"value": 0,
-				"max": 0,
+				"max": "0",
 				"per": "",
 				"hideMax": false,
 				"recharge": {
@@ -3373,7 +3528,7 @@
 			"secondary": {
 				"label": "",
 				"value": 0,
-				"max": 0,
+				"max": "0",
 				"per": "",
 				"hideMax": false,
 				"recharge": {
@@ -3384,7 +3539,7 @@
 			"tertiary": {
 				"label": "",
 				"value": 0,
-				"max": 0,
+				"max": "0",
 				"per": "",
 				"hideMax": false,
 				"recharge": {
@@ -3395,7 +3550,7 @@
 			"quaternary": {
 				"label": "",
 				"value": 0,
-				"max": 0,
+				"max": "0",
 				"per": "",
 				"hideMax": false,
 				"recharge": {
