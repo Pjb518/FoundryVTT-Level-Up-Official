@@ -1,0 +1,144 @@
+{
+  "name": "Shaking Thunderwave",
+  "type": "spell",
+  "img": "icons/magic/sonic/explosion-shock-wave-teal.webp",
+  "effects": [],
+  "flags": {
+    "core": {},
+    "exportSource": {
+      "world": "clean-test",
+      "system": "a5e",
+      "coreVersion": "11.315",
+      "systemVersion": "0.16.9"
+    }
+  },
+  "system": {
+    "actions": {
+      "eYPaFwD8qJKgP4F9": {
+        "name": "Thunderwave",
+        "activation": {
+          "cost": 1,
+          "type": "action",
+          "reactionTrigger": ""
+        },
+        "duration": {
+          "unit": "instantaneous",
+          "value": ""
+        },
+        "ranges": {
+          "071AJ8wHawS0KVfl": {
+            "range": "self"
+          }
+        },
+        "area": {
+          "shape": "cube",
+          "placeTemplate": true,
+          "quantity": 1,
+          "width": 15
+        },
+        "target": {
+          "quantity": "",
+          "type": ""
+        },
+        "rolls": {
+          "YTGdpIjQaVqA1JqS": {
+            "canCrit": false,
+            "damageType": "thunder",
+            "formula": "2d8",
+            "name": "",
+            "type": "damage",
+            "scaling": {
+              "mode": "spellLevel",
+              "formula": "1d8"
+            }
+          }
+        },
+        "prompts": {
+          "pmWVvarbBoH64W7f": {
+            "ability": "con",
+            "onSave": "Half damage and negates push",
+            "saveDC": {
+              "type": "spellcasting",
+              "bonus": ""
+            },
+            "type": "savingThrow"
+          }
+        },
+        "consumers": {
+          "CUZYsaSoCGkaBzi2": {
+            "mode": "variable",
+            "spellLevel": 1,
+            "points": 2,
+            "type": "spell"
+          }
+        }
+      }
+    },
+    "description": "<p>You create a wave of thunderous force, damaging creatures and pushing them back. Creatures in the area take 2d8 thunder damage and are pushed 10 feet away from you.</p>\n<p>Unsecured objects completely within the area are also pushed 10 feet away from you. The thunderous boom of the spell is audible out to 300 feet.</p>\n<p><strong><em>Cast at Higher Levels.</em></strong> The damage increases by 1d8 for each slot level above 1st.</p>\n<p><strong><em>Rare:</em> Shaking Thunderwave.</strong> A creature&nbsp;that takes 10 or more damage from this&nbsp;spell is knocked prone.</p>",
+    "favorite": false,
+    "secretDescription": "",
+    "source": "",
+    "uses": {
+      "value": null,
+      "max": "",
+      "per": null,
+      "recharge": {
+        "formula": "",
+        "threshold": ""
+      }
+    },
+    "schema": {
+      "version": null,
+      "lastMigration": null
+    },
+    "classes": [
+      "artificer",
+      "bard",
+      "druid",
+      "elementalistAir",
+      "sorcerer",
+      "wielder",
+      "wizard"
+    ],
+    "components": {
+      "vocalized": true,
+      "seen": true,
+      "material": false
+    },
+    "concentration": false,
+    "level": 1,
+    "materials": "",
+    "materialsConsumed": false,
+    "prepared": false,
+    "prerequisite": "",
+    "rare": false,
+    "ritual": false,
+    "schools": {
+      "primary": "evocation",
+      "secondary": [
+        "arcane",
+        "nature",
+        "thunder"
+      ]
+    },
+    "schemaVersion": {
+      "version": 0.009,
+      "lastMigration": {
+        "version": {
+          "schema": 0.007,
+          "foundry": "11.311",
+          "system": "0.15.13"
+        }
+      }
+    }
+  },
+  "folder": null,
+  "_stats": {
+    "systemId": "a5e",
+    "systemVersion": "0.16.9",
+    "coreVersion": "11.315",
+    "createdTime": 1701788971324,
+    "modifiedTime": 1701789213903,
+    "lastModifiedBy": "BDqRFxyWZFKs757e"
+  }
+}

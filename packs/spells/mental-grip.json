@@ -1,98 +1,141 @@
 {
-	"name": "Mental Grip",
-	"type": "spell",
-	"img": "icons/skills/wounds/anatomy-organ-brain-pink-red.webp",
-	"effects": [],
-	"flags": {},
-	"system": {
-		"actions": {
-			"qdEkqFKLvIpT98JY": {
-				"name": "Mental Grip",
-				"activation": {
-					"cost": 1,
-					"type": "bonusAction",
-					"reactionTrigger": ""
-				},
-				"duration": {
-					"unit": "minute",
-					"value": "1"
-				},
-				"ranges": {
-					"RK1OhRZaGEm2Ecly": {
-						"range": "medium"
-					}
-				},
-				"area": {
-					"shape": "",
-					"size": "",
-					"placeTemplate": false
-				},
-				"target": {
-					"quantity": "",
-					"type": "Creature"
-				},
-				"consumers": {
-					"R9uunQ63kqPIhUjV": {
-						"mode": "variable",
-						"spellLevel": 2,
-						"points": 3,
-						"type": "spell"
-					}
-				}
-			}
-		},
-		"description": "<p>You conjure extensions of your own mental fortitude to keep your foes at bay. For the spell's duration, you can use an action to attempt to grapple a creature within range by making a concentration check against its maneuver DC.</p><p>On its turn, a target grappled in this way can use an action to attempt to escape the grapple, using your spell save DC instead of your maneuver DC.</p><p>Successful escape attempts do not break your concentration on the spell.</p>",
-		"favorite": false,
-		"secretDescription": "",
-		"source": "",
-		"uses": {
-			"value": null,
-			"max": "",
-			"per": null,
-			"recharge": {
-				"formula": "",
-				"threshold": ""
-			}
-		},
-		"classes": [
-			"cleric",
-			"herald",
-			"sorcerer",
-			"warlock",
-			"wielder",
-			"witch",
-			"wizard"
-		],
-		"components": {
-			"vocalized": true,
-			"seen": true,
-			"material": true
-		},
-		"concentration": true,
-		"level": 2,
-		"materials": "rusted manacle",
-		"materialsConsumed": false,
-		"prepared": false,
-		"prerequisite": "",
-		"rare": false,
-		"ritual": false,
-		"schools": {
-			"primary": "conjuration",
-			"secondary": [
-				"affliction"
-			]
-		},
-		"schemaVersion": {
-			"version": 0.009,
-			"lastMigration": {
-				"version": {
-					"schema": 0.007,
-					"foundry": "11.311",
-					"system": "0.15.13"
-				}
-			}
-		}
-	},
-	"folder": null,
-	"_id": "zse6t0dtr3hwfy9m"
+  "name": "Mental Grip",
+  "type": "spell",
+  "img": "icons/skills/wounds/anatomy-organ-brain-pink-red.webp",
+  "effects": [],
+  "flags": {
+    "core": {},
+    "exportSource": {
+      "world": "clean-test",
+      "system": "a5e",
+      "coreVersion": "11.315",
+      "systemVersion": "0.16.9"
+    }
+  },
+  "system": {
+    "actions": {
+      "qdEkqFKLvIpT98JY": {
+        "name": "Mental Grip",
+        "activation": {
+          "cost": 1,
+          "type": "bonusAction",
+          "reactionTrigger": ""
+        },
+        "duration": {
+          "unit": "minute",
+          "value": "1"
+        },
+        "ranges": {
+          "RK1OhRZaGEm2Ecly": {
+            "range": "medium"
+          }
+        },
+        "area": {
+          "shape": "",
+          "size": "",
+          "placeTemplate": false
+        },
+        "target": {
+          "quantity": "",
+          "type": "Creature"
+        },
+        "consumers": {
+          "R9uunQ63kqPIhUjV": {
+            "mode": "variable",
+            "spellLevel": 2,
+            "points": 3,
+            "type": "spell"
+          }
+        },
+        "rolls": {
+          "FGcjyMb1LOLAuyfx": {
+            "type": "abilityCheck",
+            "default": true,
+            "ability": "con",
+            "label": "Concentration"
+          }
+        },
+        "prompts": {
+          "JbSeqIGMbQNckW2Q": {
+            "type": "skillCheck",
+            "default": true,
+            "skill": "acr",
+            "ability": "dex",
+            "label": "Escape Grapple (Acrobatics)"
+          },
+          "vbU0ohN3qn5QVflf": {
+            "type": "skillCheck",
+            "default": true,
+            "skill": "ath",
+            "ability": "str",
+            "label": "Escape Grapple (Athletics)"
+          }
+        }
+      }
+    },
+    "description": "<p>You conjure extensions of your own mental fortitude to keep your foes at bay. For the spell's duration, you can use an action to attempt to grapple a creature within range by making a concentration check against its maneuver DC.</p><p>On its turn, a target grappled in this way can use an action to attempt to escape the grapple, using your spell save DC instead of your maneuver DC.</p><p>Successful escape attempts do not break your concentration on the spell.</p>",
+    "favorite": false,
+    "secretDescription": "",
+    "source": "",
+    "uses": {
+      "value": null,
+      "max": "",
+      "per": null,
+      "recharge": {
+        "formula": "",
+        "threshold": ""
+      }
+    },
+    "schema": {
+      "version": null,
+      "lastMigration": null
+    },
+    "classes": [
+      "cleric",
+      "herald",
+      "sorcerer",
+      "warlock",
+      "wielder",
+      "witch",
+      "wizard"
+    ],
+    "components": {
+      "vocalized": true,
+      "seen": true,
+      "material": true
+    },
+    "concentration": true,
+    "level": 2,
+    "materials": "rusted manacle",
+    "materialsConsumed": false,
+    "prepared": false,
+    "prerequisite": "",
+    "rare": false,
+    "ritual": false,
+    "schools": {
+      "primary": "conjuration",
+      "secondary": [
+        "affliction"
+      ]
+    },
+    "schemaVersion": {
+      "version": 0.009,
+      "lastMigration": {
+        "version": {
+          "schema": 0.007,
+          "foundry": "11.311",
+          "system": "0.15.13"
+        }
+      }
+    }
+  },
+  "folder": null,
+  "_stats": {
+    "systemId": "a5e",
+    "systemVersion": "0.16.9",
+    "coreVersion": "11.315",
+    "createdTime": 1701789851507,
+    "modifiedTime": 1701789970164,
+    "lastModifiedBy": "BDqRFxyWZFKs757e"
+  }
 }
