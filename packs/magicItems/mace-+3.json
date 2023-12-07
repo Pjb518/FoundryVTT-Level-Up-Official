@@ -2,7 +2,47 @@
 	"name": "Mace +3",
 	"type": "object",
 	"img": "icons/weapons/maces/mace-flanged-steel.webp",
-	"effects": [],
+	"effects": [
+		{
+			"icon": "icons/weapons/maces/mace-flanged-steel.webp",
+			"origin": "Item.a5ZvUA37PydrLyr8",
+			"flags": {
+				"a5e": {
+					"sort": 0,
+					"transferType": "onUse",
+					"actionId": "jRcKzjkrhyUuwoOx",
+					"duration": {
+						"type": "rounds",
+						"unit": "minutes"
+					}
+				}
+			},
+			"transfer": false,
+			"name": "AC +1",
+			"_id": "0pwVvAOM4PVnslSZ",
+			"changes": [
+				{
+					"key": "system.attributes.ac.changes.bonuses.value",
+					"value": "1",
+					"mode": 2,
+					"priority": null
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": null,
+				"combat": null,
+				"rounds": null,
+				"turns": 1,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "",
+			"statuses": [],
+			"folder": null
+		}
+	],
 	"flags": {},
 	"system": {
 		"ac": {
@@ -15,8 +55,8 @@
 			"requiresUnarmored": false
 		},
 		"actions": {
-			"yhC5mAWJZkzymkXW": {
-				"name": "Mace +3",
+			"YeZOqEZhVhLNNGCB": {
+				"name": "Mace",
 				"activation": {
 					"cost": "",
 					"type": "",
@@ -29,21 +69,22 @@
 				"area": {
 					"shape": "",
 					"size": "",
-					"placeTemplate": false
+					"placeTemplate": false,
+					"quantity": 1
 				},
 				"target": {
 					"quantity": 1,
 					"type": "creatureObject"
 				},
 				"rolls": {
-					"GkzrauaGTFIY34qi": {
+					"OV48OUNKf4JsgEMd": {
 						"bonus": "3",
 						"critThreshold": "20",
 						"type": "attack",
 						"attackType": "meleeWeaponAttack",
 						"ability": "default"
 					},
-					"h5DPIDl9nByj4g1K": {
+					"OFHd1XToouoFNOEW": {
 						"canCrit": true,
 						"damageType": "bludgeoning",
 						"formula": "1d6 + @str.mod + 3",
@@ -67,12 +108,16 @@
 				"threshold": 6
 			}
 		},
+		"schema": {
+			"version": null,
+			"lastMigration": null
+		},
 		"ammunitionProperties": [],
 		"armorCategory": "",
 		"armorProperties": [],
 		"attuned": false,
 		"bulky": false,
-		"craftingComponents": "A +2 weapon that has hit a monster of CR 15 or higher",
+		"craftingComponents": "+2 weapon that has hit a monster of CR 15 or higher",
 		"containerId": "",
 		"damagedState": 0,
 		"equippedState": 0,
@@ -80,7 +125,7 @@
 		"materialProperties": [],
 		"objectType": "weapon",
 		"plotItem": false,
-		"price": "5 gp",
+		"price": "8,000 gp",
 		"proficient": true,
 		"quantity": 1,
 		"rarity": "veryRare",

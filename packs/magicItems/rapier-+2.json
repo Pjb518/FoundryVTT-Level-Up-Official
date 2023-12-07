@@ -2,7 +2,47 @@
 	"name": "Rapier +2",
 	"type": "object",
 	"img": "icons/weapons/swords/swords-sharp-worn.webp",
-	"effects": [],
+	"effects": [
+		{
+			"icon": "icons/weapons/swords/swords-sharp-worn.webp",
+			"origin": "Item.qK3ct7anlGT6Gk0l",
+			"flags": {
+				"a5e": {
+					"sort": 0,
+					"transferType": "onUse",
+					"actionId": "jE0oGbW4c91H4L9s",
+					"duration": {
+						"type": "rounds",
+						"unit": "minutes"
+					}
+				}
+			},
+			"transfer": false,
+			"name": "AC +1",
+			"_id": "fNsg1fB0AQvNW0yM",
+			"changes": [
+				{
+					"key": "system.attributes.ac.changes.bonuses.value",
+					"value": "1",
+					"mode": 2,
+					"priority": null
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": null,
+				"combat": null,
+				"rounds": null,
+				"turns": 1,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "",
+			"statuses": [],
+			"folder": null
+		}
+	],
 	"flags": {},
 	"system": {
 		"ac": {
@@ -15,8 +55,8 @@
 			"requiresUnarmored": false
 		},
 		"actions": {
-			"RKsnDwSJs85Eq5yv": {
-				"name": "Rapier +2",
+			"4hUX21XJHYN8ppgn": {
+				"name": "Rapier",
 				"activation": {
 					"cost": "",
 					"type": "",
@@ -29,21 +69,22 @@
 				"area": {
 					"shape": "",
 					"size": "",
-					"placeTemplate": false
+					"placeTemplate": false,
+					"quantity": 1
 				},
 				"target": {
 					"quantity": 1,
 					"type": "creatureObject"
 				},
 				"rolls": {
-					"9n5xsBWMi0Jx02dk": {
+					"r9swSspq97S1RfWR": {
 						"bonus": "2",
 						"critThreshold": "20",
 						"type": "attack",
 						"attackType": "meleeWeaponAttack",
 						"ability": "default"
 					},
-					"lNGRtJwtV0WpwD8t": {
+					"uJI9p3ltabvV4LYr": {
 						"canCrit": true,
 						"damageType": "piercing",
 						"formula": "1d8 + @finesse.mod + 2",
@@ -67,12 +108,16 @@
 				"threshold": 6
 			}
 		},
+		"schema": {
+			"version": null,
+			"lastMigration": null
+		},
 		"ammunitionProperties": [],
 		"armorCategory": "",
 		"armorProperties": [],
 		"attuned": false,
 		"bulky": false,
-		"craftingComponents": "A +1 weapon",
+		"craftingComponents": "+1 weapon",
 		"containerId": "",
 		"damagedState": 0,
 		"equippedState": 0,
@@ -80,7 +125,7 @@
 		"materialProperties": [],
 		"objectType": "weapon",
 		"plotItem": false,
-		"price": "25 gp",
+		"price": "3,500 gp",
 		"proficient": true,
 		"quantity": 1,
 		"rarity": "rare",

@@ -2,7 +2,47 @@
 	"name": "Saber +2",
 	"type": "object",
 	"img": "icons/weapons/swords/scimitar-guard.webp",
-	"effects": [],
+	"effects": [
+		{
+			"icon": "icons/weapons/swords/scimitar-guard.webp",
+			"origin": "Item.LIbQ30YSCSI7gHxs",
+			"flags": {
+				"a5e": {
+					"sort": 0,
+					"transferType": "onUse",
+					"actionId": "3Olf8LpZb1butJkC",
+					"duration": {
+						"type": "rounds",
+						"unit": "minutes"
+					}
+				}
+			},
+			"transfer": false,
+			"name": "AC +1",
+			"_id": "xN74vJXEPsfOB6YU",
+			"changes": [
+				{
+					"key": "system.attributes.ac.changes.bonuses.value",
+					"value": "1",
+					"mode": 2,
+					"priority": null
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": null,
+				"combat": null,
+				"rounds": null,
+				"turns": 1,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "",
+			"statuses": [],
+			"folder": null
+		}
+	],
 	"flags": {},
 	"system": {
 		"ac": {
@@ -15,8 +55,8 @@
 			"requiresUnarmored": false
 		},
 		"actions": {
-			"OeP0ZfovwxW4plgm": {
-				"name": "Saber +2",
+			"914oL0fKXqu37lb1": {
+				"name": "Saber",
 				"activation": {
 					"cost": "",
 					"type": "",
@@ -29,33 +69,37 @@
 				"area": {
 					"shape": "",
 					"size": "",
-					"placeTemplate": false
+					"placeTemplate": false,
+					"quantity": 1
 				},
 				"target": {
 					"quantity": 1,
 					"type": "creatureObject"
 				},
 				"rolls": {
-					"fHmCUlivoMoQtdzo": {
+					"qqcS3IGZHOsRpkbP": {
 						"bonus": "2",
 						"critThreshold": "20",
 						"type": "attack",
 						"attackType": "meleeWeaponAttack",
 						"ability": "default"
 					},
-					"OYdX5Sx81tci8WjA": {
+					"LHzRRA6tNqeJ8lkM": {
 						"canCrit": true,
 						"damageType": "slashing",
 						"formula": "1d8 + @finesse.mod + 2",
 						"name": "Saber Melee",
-						"type": "damage"
+						"type": "damage",
+						"label": "Unmounted"
 					},
-					"1cxyipwKHqCUA7Jq": {
+					"EYsUPDxaSTNCJAD3": {
 						"canCrit": true,
 						"damageType": "slashing",
 						"formula": "1d10 + @finesse.mod + 2",
 						"name": "Saber Mounted",
-						"type": "damage"
+						"type": "damage",
+						"label": "Mounted",
+						"default": false
 					}
 				},
 				"consumers": {}
@@ -74,12 +118,16 @@
 				"threshold": 6
 			}
 		},
+		"schema": {
+			"version": null,
+			"lastMigration": null
+		},
 		"ammunitionProperties": [],
 		"armorCategory": "",
 		"armorProperties": [],
 		"attuned": false,
 		"bulky": false,
-		"craftingComponents": "A +1 weapon",
+		"craftingComponents": "+1 weapon",
 		"containerId": "",
 		"damagedState": 0,
 		"equippedState": 0,
@@ -87,7 +135,7 @@
 		"materialProperties": [],
 		"objectType": "weapon",
 		"plotItem": false,
-		"price": "30 gp",
+		"price": "3,500 gp",
 		"proficient": true,
 		"quantity": 1,
 		"rarity": "rare",

@@ -2,7 +2,47 @@
 	"name": "Lance +3",
 	"type": "object",
 	"img": "icons/weapons/polearms/spear-flared-gold.webp",
-	"effects": [],
+	"effects": [
+		{
+			"icon": "icons/weapons/polearms/spear-flared-gold.webp",
+			"origin": "Item.qP9XgbGiAiTktJ9y",
+			"flags": {
+				"a5e": {
+					"sort": 0,
+					"transferType": "onUse",
+					"actionId": "v3bptQ9yjfEMnfwo",
+					"duration": {
+						"type": "rounds",
+						"unit": "minutes"
+					}
+				}
+			},
+			"transfer": false,
+			"name": "AC +1",
+			"_id": "Yw7Mh6TxboywP22H",
+			"changes": [
+				{
+					"key": "system.attributes.ac.changes.bonuses.value",
+					"value": "1",
+					"mode": 2,
+					"priority": null
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": null,
+				"combat": null,
+				"rounds": null,
+				"turns": 1,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "",
+			"statuses": [],
+			"folder": null
+		}
+	],
 	"flags": {},
 	"system": {
 		"ac": {
@@ -15,8 +55,8 @@
 			"requiresUnarmored": false
 		},
 		"actions": {
-			"Mn2Dp9vu58QRvnQR": {
-				"name": "Lance +3",
+			"RDDSOGA3Vg3oiv4H": {
+				"name": "Lance",
 				"activation": {
 					"cost": "",
 					"type": "",
@@ -29,21 +69,22 @@
 				"area": {
 					"shape": "",
 					"size": "",
-					"placeTemplate": false
+					"placeTemplate": false,
+					"quantity": 1
 				},
 				"target": {
 					"quantity": 1,
 					"type": "creatureObject"
 				},
 				"rolls": {
-					"vj6t182SVO4UOdlD": {
+					"07dac3JLXg0cm1bW": {
 						"bonus": "3",
 						"critThreshold": "20",
 						"type": "attack",
 						"attackType": "meleeWeaponAttack",
 						"ability": "default"
 					},
-					"BvazMdtGakkWWtFu": {
+					"L5OMEhyYe5Yt5m37": {
 						"canCrit": true,
 						"damageType": "piercing",
 						"formula": "1d12 + @str.mod + 3",
@@ -67,12 +108,16 @@
 				"threshold": 6
 			}
 		},
+		"schema": {
+			"version": null,
+			"lastMigration": null
+		},
 		"ammunitionProperties": [],
 		"armorCategory": "",
 		"armorProperties": [],
 		"attuned": false,
 		"bulky": false,
-		"craftingComponents": "A +2 weapon that has hit a monster of CR 15 or higher",
+		"craftingComponents": "+2 weapon that has hit a monster of CR 15 or higher",
 		"containerId": "",
 		"damagedState": 0,
 		"equippedState": 0,
@@ -80,7 +125,7 @@
 		"materialProperties": [],
 		"objectType": "weapon",
 		"plotItem": false,
-		"price": "10 gp",
+		"price": "8,000 gp",
 		"proficient": true,
 		"quantity": 1,
 		"rarity": "veryRare",

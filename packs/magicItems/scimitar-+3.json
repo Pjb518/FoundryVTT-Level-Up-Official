@@ -2,7 +2,47 @@
 	"name": "Scimitar +3",
 	"type": "object",
 	"img": "icons/weapons/swords/scimitar-worn-blue.webp",
-	"effects": [],
+	"effects": [
+		{
+			"icon": "icons/weapons/swords/scimitar-worn-blue.webp",
+			"origin": "Item.31XR8BWkqgiOZNf3",
+			"flags": {
+				"a5e": {
+					"sort": 0,
+					"transferType": "onUse",
+					"actionId": "1w6mZi0L5dJhv4TU",
+					"duration": {
+						"type": "rounds",
+						"unit": "minutes"
+					}
+				}
+			},
+			"transfer": false,
+			"name": "AC +1",
+			"_id": "PiHWvQKjPGNpP7A7",
+			"changes": [
+				{
+					"key": "system.attributes.ac.changes.bonuses.value",
+					"value": "1",
+					"mode": 2,
+					"priority": null
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": null,
+				"combat": null,
+				"rounds": null,
+				"turns": 1,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "",
+			"statuses": [],
+			"folder": null
+		}
+	],
 	"flags": {},
 	"system": {
 		"ac": {
@@ -15,8 +55,8 @@
 			"requiresUnarmored": false
 		},
 		"actions": {
-			"IDd444oGGmNes7YM": {
-				"name": "Scimitar +3",
+			"6obCuJYfNHC8IPSR": {
+				"name": "Scimitar",
 				"activation": {
 					"cost": "",
 					"type": "",
@@ -29,25 +69,65 @@
 				"area": {
 					"shape": "",
 					"size": "",
-					"placeTemplate": false
+					"placeTemplate": false,
+					"quantity": 1
 				},
 				"target": {
 					"quantity": 1,
 					"type": "creatureObject"
 				},
 				"rolls": {
-					"XzXW9XiY54NESOqB": {
+					"Z80yvTABrbK7jTpF": {
 						"bonus": "3",
 						"critThreshold": "20",
 						"type": "attack",
 						"attackType": "meleeWeaponAttack",
 						"ability": "default"
 					},
-					"t1Z8iRtgSr4uR0IO": {
+					"KJiGUS59j662UbJm": {
 						"canCrit": true,
 						"damageType": "slashing",
 						"formula": "1d6 + @finesse.mod + 3",
-						"name": "SCimitar",
+						"name": "Scimitar",
+						"type": "damage"
+					}
+				},
+				"consumers": {}
+			},
+			"gS4wMUqm6ItBBj90": {
+				"name": "Scimitar (Off-Hand)",
+				"activation": {
+					"cost": "",
+					"type": "",
+					"reactionTrigger": ""
+				},
+				"duration": {
+					"unit": "",
+					"value": ""
+				},
+				"area": {
+					"shape": "",
+					"size": "",
+					"placeTemplate": false,
+					"quantity": 1
+				},
+				"target": {
+					"quantity": 1,
+					"type": "creatureObject"
+				},
+				"rolls": {
+					"Z80yvTABrbK7jTpF": {
+						"bonus": "3",
+						"critThreshold": "20",
+						"type": "attack",
+						"attackType": "meleeWeaponAttack",
+						"ability": "default"
+					},
+					"KJiGUS59j662UbJm": {
+						"canCrit": true,
+						"damageType": "slashing",
+						"formula": "1d6 + min(@finesse.mod,0) + 3",
+						"name": "Scimitar",
 						"type": "damage"
 					}
 				},
@@ -67,12 +147,16 @@
 				"threshold": 6
 			}
 		},
+		"schema": {
+			"version": null,
+			"lastMigration": null
+		},
 		"ammunitionProperties": [],
 		"armorCategory": "",
 		"armorProperties": [],
 		"attuned": false,
 		"bulky": false,
-		"craftingComponents": "A +2 weapon that has hit a monster of CR 15 or higher",
+		"craftingComponents": "+2 weapon that has hit a monster of CR 15 or higher",
 		"containerId": "",
 		"damagedState": 0,
 		"equippedState": 0,
@@ -80,7 +164,7 @@
 		"materialProperties": [],
 		"objectType": "weapon",
 		"plotItem": false,
-		"price": "20 gp",
+		"price": "8,000 gp",
 		"proficient": true,
 		"quantity": 1,
 		"rarity": "veryRare",

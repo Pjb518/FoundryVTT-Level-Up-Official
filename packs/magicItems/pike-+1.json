@@ -2,7 +2,47 @@
 	"name": "Pike +1",
 	"type": "object",
 	"img": "icons/weapons/polearms/spear-hooked-spike.webp",
-	"effects": [],
+	"effects": [
+		{
+			"icon": "icons/weapons/polearms/spear-hooked-spike.webp",
+			"origin": "Item.NJ4aFpWhK4fKnhnt",
+			"flags": {
+				"a5e": {
+					"sort": 0,
+					"transferType": "onUse",
+					"actionId": "v3bptQ9yjfEMnfwo",
+					"duration": {
+						"type": "rounds",
+						"unit": "minutes"
+					}
+				}
+			},
+			"transfer": false,
+			"name": "AC +1",
+			"_id": "Lfgy559EtlC4KF80",
+			"changes": [
+				{
+					"key": "system.attributes.ac.changes.bonuses.value",
+					"value": "1",
+					"mode": 2,
+					"priority": null
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": null,
+				"combat": null,
+				"rounds": null,
+				"turns": 1,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "",
+			"statuses": [],
+			"folder": null
+		}
+	],
 	"flags": {},
 	"system": {
 		"ac": {
@@ -15,8 +55,8 @@
 			"requiresUnarmored": false
 		},
 		"actions": {
-			"yLN5BgJk5GilBgDQ": {
-				"name": "Pike +1",
+			"4XhyMau1otApbBAy": {
+				"name": "Pike",
 				"activation": {
 					"cost": "",
 					"type": "",
@@ -29,24 +69,25 @@
 				"area": {
 					"shape": "",
 					"size": "",
-					"placeTemplate": false
+					"placeTemplate": false,
+					"quantity": 1
 				},
 				"target": {
 					"quantity": 1,
 					"type": "creatureObject"
 				},
 				"rolls": {
-					"O7jcpHbZAnUpbknA": {
+					"c8fg8myLZcaf3swR": {
 						"bonus": "1",
 						"critThreshold": "20",
 						"type": "attack",
 						"attackType": "meleeWeaponAttack",
 						"ability": "default"
 					},
-					"Fq8jhxTKHOg3d7XS": {
+					"t4JpiB3Z2pg2qMtp": {
 						"canCrit": true,
-						"damageType": "",
-						"formula": " + 1",
+						"damageType": "piercing",
+						"formula": "1d10 + @str.mod + 1",
 						"name": "",
 						"type": "damage"
 					}
@@ -67,6 +108,10 @@
 				"threshold": 6
 			}
 		},
+		"schema": {
+			"version": null,
+			"lastMigration": null
+		},
 		"ammunitionProperties": [],
 		"armorCategory": "",
 		"armorProperties": [],
@@ -80,7 +125,7 @@
 		"materialProperties": [],
 		"objectType": "weapon",
 		"plotItem": false,
-		"price": "5 gp",
+		"price": "500 gp",
 		"proficient": true,
 		"quantity": 1,
 		"rarity": "uncommon",

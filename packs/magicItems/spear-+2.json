@@ -2,7 +2,47 @@
 	"name": "Spear +2",
 	"type": "object",
 	"img": "icons/weapons/polearms/spear-flared-wrapped.webp",
-	"effects": [],
+	"effects": [
+		{
+			"icon": "icons/weapons/polearms/spear-flared-wrapped.webp",
+			"origin": "Item.FwbvmnFgZZT4LKQp",
+			"flags": {
+				"a5e": {
+					"sort": 0,
+					"transferType": "onUse",
+					"actionId": "JtplYF8JKilBpP4f",
+					"duration": {
+						"type": "rounds",
+						"unit": "minutes"
+					}
+				}
+			},
+			"transfer": false,
+			"name": "AC +1",
+			"_id": "CzoRKz1aFF2zbPZy",
+			"changes": [
+				{
+					"key": "system.attributes.ac.changes.bonuses.value",
+					"value": "1",
+					"mode": 2,
+					"priority": null
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": null,
+				"combat": null,
+				"rounds": null,
+				"turns": 1,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "",
+			"statuses": [],
+			"folder": null
+		}
+	],
 	"flags": {},
 	"system": {
 		"ac": {
@@ -15,8 +55,8 @@
 			"requiresUnarmored": false
 		},
 		"actions": {
-			"BrJaiQbVz6krkLbc": {
-				"name": "Spear +2",
+			"kWsss8bI70rtpUV6": {
+				"name": "Spear",
 				"activation": {
 					"cost": "",
 					"type": "",
@@ -27,47 +67,106 @@
 					"value": ""
 				},
 				"ranges": {
-					"IEpFOARqH63XW37r": {
+					"GLFs1wAhfJxSfSPp": {
 						"range": 20,
 						"unit": "feet"
 					},
-					"XZRixhlNHevFrhlN": {
+					"Cmac44PO3vBMH47C": {
 						"range": "medium"
 					}
 				},
 				"area": {
 					"shape": "",
 					"size": "",
-					"placeTemplate": false
+					"placeTemplate": false,
+					"quantity": 1
 				},
 				"target": {
 					"quantity": 1,
 					"type": "creatureObject"
 				},
 				"rolls": {
-					"Iyyf5o1MaQZWsTKM": {
+					"bgXGyMGdFJjCkrXA": {
 						"bonus": "2",
 						"critThreshold": "20",
 						"type": "attack",
 						"attackType": "meleeWeaponAttack",
 						"ability": "default"
 					},
-					"KNnZ9qvzmiDNKEEd": {
+					"EH41F8oxdy5FXyOT": {
 						"canCrit": true,
 						"damageType": "piercing",
 						"formula": "1d6 + @str.mod + 2",
 						"name": "Spear - 1H",
-						"type": "damage"
+						"type": "damage",
+						"label": "One-Handed",
+						"default": false
 					},
-					"UDZzkVtptbIgHsVM": {
+					"panx4AGUiOcDxR6b": {
 						"canCrit": true,
 						"damageType": "piercing",
 						"formula": "1d8 + @str.mod + 2",
 						"name": "Spear - 2H",
-						"type": "damage"
+						"type": "damage",
+						"label": "Two-Handed",
+						"default": false
 					}
 				},
 				"consumers": {}
+			},
+			"MrV3YZriaZmI1ygT": {
+				"name": "Spear (Throw)",
+				"activation": {
+					"cost": "",
+					"type": "",
+					"reactionTrigger": ""
+				},
+				"duration": {
+					"unit": "",
+					"value": ""
+				},
+				"ranges": {
+					"GLFs1wAhfJxSfSPp": {
+						"range": 20,
+						"unit": "feet"
+					},
+					"Cmac44PO3vBMH47C": {
+						"range": "medium"
+					}
+				},
+				"area": {
+					"shape": "",
+					"size": "",
+					"placeTemplate": false,
+					"quantity": 1
+				},
+				"target": {
+					"quantity": 1,
+					"type": "creatureObject"
+				},
+				"rolls": {
+					"bgXGyMGdFJjCkrXA": {
+						"bonus": "2",
+						"critThreshold": "20",
+						"type": "attack",
+						"attackType": "rangedWeaponAttack",
+						"ability": "default"
+					},
+					"EH41F8oxdy5FXyOT": {
+						"canCrit": true,
+						"damageType": "piercing",
+						"formula": "1d6 + @finesse.mod + 2",
+						"name": "Spear - 1H",
+						"type": "damage"
+					}
+				},
+				"consumers": {
+					"HxaaV7J2JDjit1gC": {
+						"type": "itemUses",
+						"default": true,
+						"quantity": 1
+					}
+				}
 			}
 		},
 		"description": "<p><em>Defensive (Heavy), Simple, Thrown (20/60), Versatile (1d8)</em></p>",
@@ -75,20 +174,24 @@
 		"secretDescription": "",
 		"source": "",
 		"uses": {
-			"value": null,
-			"max": "",
+			"value": 1,
+			"max": "1",
 			"per": null,
 			"recharge": {
 				"formula": "1d6",
 				"threshold": 6
 			}
 		},
+		"schema": {
+			"version": null,
+			"lastMigration": null
+		},
 		"ammunitionProperties": [],
 		"armorCategory": "",
 		"armorProperties": [],
 		"attuned": false,
 		"bulky": false,
-		"craftingComponents": "A +1 weapon",
+		"craftingComponents": "+1 weapon",
 		"containerId": "",
 		"damagedState": 0,
 		"equippedState": 0,
@@ -96,7 +199,7 @@
 		"materialProperties": [],
 		"objectType": "weapon",
 		"plotItem": false,
-		"price": "1 gp",
+		"price": "3,500 gp",
 		"proficient": true,
 		"quantity": 1,
 		"rarity": "rare",

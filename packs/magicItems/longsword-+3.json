@@ -2,7 +2,47 @@
 	"name": "Longsword +3",
 	"type": "object",
 	"img": "icons/weapons/swords/greatsword-blue.webp",
-	"effects": [],
+	"effects": [
+		{
+			"icon": "icons/weapons/swords/greatsword-blue.webp",
+			"origin": "Item.gxmxLCXfmiIFNt59",
+			"flags": {
+				"a5e": {
+					"sort": 0,
+					"transferType": "onUse",
+					"actionId": "v3bptQ9yjfEMnfwo",
+					"duration": {
+						"type": "rounds",
+						"unit": "minutes"
+					}
+				}
+			},
+			"transfer": false,
+			"name": "AC +1",
+			"_id": "Llj5xb79gCEj7iz8",
+			"changes": [
+				{
+					"key": "system.attributes.ac.changes.bonuses.value",
+					"value": "1",
+					"mode": 2,
+					"priority": null
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": null,
+				"combat": null,
+				"rounds": null,
+				"turns": 1,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "",
+			"statuses": [],
+			"folder": null
+		}
+	],
 	"flags": {},
 	"system": {
 		"ac": {
@@ -15,8 +55,8 @@
 			"requiresUnarmored": false
 		},
 		"actions": {
-			"Or0iDhjdMe5SGhFo": {
-				"name": "Longsword +3",
+			"rPaMSExLpHCaYkH9": {
+				"name": "Longsword",
 				"activation": {
 					"cost": "",
 					"type": "",
@@ -29,21 +69,22 @@
 				"area": {
 					"shape": "",
 					"size": "",
-					"placeTemplate": false
+					"placeTemplate": false,
+					"quantity": 1
 				},
 				"target": {
 					"quantity": 1,
 					"type": "creatureObject"
 				},
 				"rolls": {
-					"B2a4yjnHMQk3zcL8": {
+					"UEwQqL1vKVE291PA": {
 						"bonus": "3",
 						"critThreshold": "20",
 						"type": "attack",
 						"attackType": "meleeWeaponAttack",
 						"ability": "default"
 					},
-					"NKLQoUrrBGQlFMBS": {
+					"x4uy5CMwLzIKdqmH": {
 						"canCrit": true,
 						"damageType": "slashing",
 						"formula": "1d8 + @str.mod + 3",
@@ -67,12 +108,16 @@
 				"threshold": 6
 			}
 		},
+		"schema": {
+			"version": null,
+			"lastMigration": null
+		},
 		"ammunitionProperties": [],
 		"armorCategory": "",
 		"armorProperties": [],
 		"attuned": false,
 		"bulky": false,
-		"craftingComponents": "A +2 weapon that has hit a monster of CR 15 or higher",
+		"craftingComponents": "+2 weapon that has hit a monster of CR 15 or higher",
 		"containerId": "",
 		"damagedState": 0,
 		"equippedState": 0,
@@ -80,7 +125,7 @@
 		"materialProperties": [],
 		"objectType": "weapon",
 		"plotItem": false,
-		"price": "20 gp",
+		"price": "8,000 gp",
 		"proficient": true,
 		"quantity": 1,
 		"rarity": "veryRare",

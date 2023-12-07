@@ -2,7 +2,47 @@
 	"name": "Handaxe +3",
 	"type": "object",
 	"img": "icons/weapons/axes/shortaxe-engraved-green.webp",
-	"effects": [],
+	"effects": [
+		{
+			"icon": "icons/weapons/axes/shortaxe-engraved-green.webp",
+			"origin": "Item.IHkNSK8SXa4Y50Fj",
+			"flags": {
+				"a5e": {
+					"sort": 0,
+					"transferType": "onUse",
+					"actionId": "Wj2wEtEOK3ej6uIH",
+					"duration": {
+						"type": "rounds",
+						"unit": "minutes"
+					}
+				}
+			},
+			"transfer": false,
+			"name": "AC +1",
+			"_id": "2pzcilmmaypkTG8n",
+			"changes": [
+				{
+					"key": "system.attributes.ac.changes.bonuses.value",
+					"value": "1",
+					"mode": 2,
+					"priority": null
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": null,
+				"combat": null,
+				"rounds": 0,
+				"turns": 1,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "",
+			"statuses": [],
+			"folder": null
+		}
+	],
 	"flags": {},
 	"system": {
 		"ac": {
@@ -15,8 +55,8 @@
 			"requiresUnarmored": false
 		},
 		"actions": {
-			"YhLyJh2tPGpbI0Ly": {
-				"name": "Handaxe +3",
+			"joThqvUsJpDSiFKZ": {
+				"name": "Handaxe",
 				"activation": {
 					"cost": "",
 					"type": "",
@@ -27,32 +67,33 @@
 					"value": ""
 				},
 				"ranges": {
-					"Tv2YseGXfMUUZZx3": {
+					"A2NRN93ZMOCh6amA": {
 						"range": 20,
 						"unit": "feet"
 					},
-					"tyhCUujAsmbpctnT": {
+					"rHv8SNI20s02tH56": {
 						"range": "medium"
 					}
 				},
 				"area": {
 					"shape": "",
 					"size": "",
-					"placeTemplate": false
+					"placeTemplate": false,
+					"quantity": 1
 				},
 				"target": {
 					"quantity": 1,
 					"type": "creatureObject"
 				},
 				"rolls": {
-					"VlCf5z3LL6sYsipX": {
+					"AHgql9Eprarcv5iv": {
 						"bonus": "3",
 						"critThreshold": "20",
 						"type": "attack",
 						"attackType": "meleeWeaponAttack",
 						"ability": "default"
 					},
-					"0uesLFOGMyI6r1Fr": {
+					"tNiSjwKpw3E4GHWd": {
 						"canCrit": true,
 						"damageType": "slashing",
 						"formula": "1d6 + @str.mod + 3",
@@ -61,6 +102,162 @@
 					}
 				},
 				"consumers": {}
+			},
+			"BzvjZocpxxPNJ6G1": {
+				"name": "Handaxe (Off-Hand)",
+				"activation": {
+					"cost": "",
+					"type": "",
+					"reactionTrigger": ""
+				},
+				"duration": {
+					"unit": "",
+					"value": ""
+				},
+				"ranges": {
+					"A2NRN93ZMOCh6amA": {
+						"range": 20,
+						"unit": "feet"
+					},
+					"rHv8SNI20s02tH56": {
+						"range": "medium"
+					}
+				},
+				"area": {
+					"shape": "",
+					"size": "",
+					"placeTemplate": false,
+					"quantity": 1
+				},
+				"target": {
+					"quantity": 1,
+					"type": "creatureObject"
+				},
+				"rolls": {
+					"AHgql9Eprarcv5iv": {
+						"bonus": "3",
+						"critThreshold": "20",
+						"type": "attack",
+						"attackType": "meleeWeaponAttack",
+						"ability": "default"
+					},
+					"tNiSjwKpw3E4GHWd": {
+						"canCrit": true,
+						"damageType": "slashing",
+						"formula": "1d6 + min(@str.mod,0) + 3",
+						"name": "Handaxe",
+						"type": "damage"
+					}
+				},
+				"consumers": {}
+			},
+			"Hc25AqQi6G8oKSRs": {
+				"name": "Handaxe (Throw)",
+				"activation": {
+					"cost": "",
+					"type": "",
+					"reactionTrigger": ""
+				},
+				"duration": {
+					"unit": "",
+					"value": ""
+				},
+				"ranges": {
+					"A2NRN93ZMOCh6amA": {
+						"range": 20,
+						"unit": "feet"
+					},
+					"rHv8SNI20s02tH56": {
+						"range": "medium"
+					}
+				},
+				"area": {
+					"shape": "",
+					"size": "",
+					"placeTemplate": false,
+					"quantity": 1
+				},
+				"target": {
+					"quantity": 1,
+					"type": "creatureObject"
+				},
+				"rolls": {
+					"AHgql9Eprarcv5iv": {
+						"bonus": "3",
+						"critThreshold": "20",
+						"type": "attack",
+						"attackType": "rangedWeaponAttack",
+						"ability": "default"
+					},
+					"tNiSjwKpw3E4GHWd": {
+						"canCrit": true,
+						"damageType": "slashing",
+						"formula": "1d6 + @finesse.mod + 3",
+						"name": "Handaxe",
+						"type": "damage"
+					}
+				},
+				"consumers": {
+					"Xq7rRGAnf4LdaXK6": {
+						"type": "itemUses",
+						"default": true,
+						"quantity": 1
+					}
+				}
+			},
+			"UgW3vG1tEMnlllRe": {
+				"name": "Handaxe (Throw, Off-Hand)",
+				"activation": {
+					"cost": "",
+					"type": "",
+					"reactionTrigger": ""
+				},
+				"duration": {
+					"unit": "",
+					"value": ""
+				},
+				"ranges": {
+					"A2NRN93ZMOCh6amA": {
+						"range": 20,
+						"unit": "feet"
+					},
+					"rHv8SNI20s02tH56": {
+						"range": "medium"
+					}
+				},
+				"area": {
+					"shape": "",
+					"size": "",
+					"placeTemplate": false,
+					"quantity": 1
+				},
+				"target": {
+					"quantity": 1,
+					"type": "creatureObject"
+				},
+				"rolls": {
+					"AHgql9Eprarcv5iv": {
+						"bonus": "3",
+						"critThreshold": "20",
+						"type": "attack",
+						"attackType": "rangedWeaponAttack",
+						"ability": "default"
+					},
+					"tNiSjwKpw3E4GHWd": {
+						"canCrit": true,
+						"damageType": "slashing",
+						"formula": "1d6 + min(@finesse.mod,0) + 3",
+						"name": "Handaxe",
+						"type": "damage"
+					}
+				},
+				"consumers": {
+					"Xslo7NxF0MI3XDiG": {
+						"type": "itemUses",
+						"default": true,
+						"quantity": 1
+					}
+				}
 			}
 		},
 		"description": "<p><em>Breaker (Wood), Defensive (Light), Dual-Wielding, Simple, Thrown (20/60)</em></p>",
@@ -68,20 +265,24 @@
 		"secretDescription": "",
 		"source": "",
 		"uses": {
-			"value": null,
-			"max": "",
+			"value": 1,
+			"max": "1",
 			"per": null,
 			"recharge": {
 				"formula": "1d6",
 				"threshold": 6
 			}
 		},
+		"schema": {
+			"version": null,
+			"lastMigration": null
+		},
 		"ammunitionProperties": [],
 		"armorCategory": "",
 		"armorProperties": [],
 		"attuned": false,
 		"bulky": false,
-		"craftingComponents": "A +2 weapon that has hit a monster of CR 15 or higher",
+		"craftingComponents": "+2 weapon that has hit a monster of CR 15 or higher",
 		"containerId": "",
 		"damagedState": 0,
 		"equippedState": 0,
@@ -89,7 +290,7 @@
 		"materialProperties": [],
 		"objectType": "weapon",
 		"plotItem": false,
-		"price": "5 gp",
+		"price": "8,000 gp",
 		"proficient": true,
 		"quantity": 1,
 		"rarity": "veryRare",

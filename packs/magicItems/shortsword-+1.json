@@ -2,7 +2,47 @@
 	"name": "Shortsword +1",
 	"type": "object",
 	"img": "icons/weapons/swords/shortsword-guard-brass.webp",
-	"effects": [],
+	"effects": [
+		{
+			"icon": "icons/weapons/swords/shortsword-guard-brass.webp",
+			"origin": "Item.4h1D831nY3obZOlf",
+			"flags": {
+				"a5e": {
+					"sort": 0,
+					"transferType": "onUse",
+					"actionId": "LfiU8RBp5laBi6jt",
+					"duration": {
+						"type": "rounds",
+						"unit": "minutes"
+					}
+				}
+			},
+			"transfer": false,
+			"name": "AC +1",
+			"_id": "o3RplnB3d2bgc5Cs",
+			"changes": [
+				{
+					"key": "system.attributes.ac.changes.bonuses.value",
+					"value": "1",
+					"mode": 2,
+					"priority": null
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": null,
+				"combat": null,
+				"rounds": null,
+				"turns": 1,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "",
+			"statuses": [],
+			"folder": null
+		}
+	],
 	"flags": {
 		"core": {
 			"sheetClass": "a5e.ItemSheet5e"
@@ -19,8 +59,8 @@
 			"requiresUnarmored": false
 		},
 		"actions": {
-			"E6MoGsDPQ3ftGN3N": {
-				"name": "Shortsword +1",
+			"s8ufuOSoG0jsuNjg": {
+				"name": "Shortsword",
 				"activation": {
 					"cost": "",
 					"type": "",
@@ -33,21 +73,22 @@
 				"area": {
 					"shape": "",
 					"size": "",
-					"placeTemplate": false
+					"placeTemplate": false,
+					"quantity": 1
 				},
 				"target": {
 					"quantity": 1,
 					"type": "creatureObject"
 				},
 				"rolls": {
-					"RWKVOeKYckejI3F8": {
+					"P7UeMDVPmv9D9fqE": {
 						"bonus": "1",
 						"critThreshold": "20",
 						"type": "attack",
 						"attackType": "meleeWeaponAttack",
 						"ability": "default"
 					},
-					"8DAEN4zIXqkRD7xJ": {
+					"HUbaIlANmQsN4fYO": {
 						"canCrit": true,
 						"damageType": "slashing",
 						"formula": "1d6 + @finesse.mod + 1",
@@ -56,6 +97,30 @@
 					}
 				},
 				"consumers": {}
+			},
+			"vQTQD7tzjEVIJLR0": {
+				"name": "Parry",
+				"activation": {},
+				"consumers": {},
+				"rolls": {
+					"tmuyLFz7KQutuiOG": {
+						"type": "generic",
+						"default": true,
+						"label": "Armor Class",
+						"formula": "1d4"
+					}
+				},
+				"prompts": {},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"threshold": 6
+					}
+				},
+				"img": "icons/weapons/swords/shortsword-guard-brass.webp"
 			}
 		},
 		"description": "<p><em>Defensive (Medium), Finesse, Parrying</em></p>",
@@ -71,6 +136,10 @@
 				"threshold": 6
 			}
 		},
+		"schema": {
+			"version": null,
+			"lastMigration": null
+		},
 		"ammunitionProperties": [],
 		"armorCategory": "",
 		"armorProperties": [],
@@ -84,7 +153,7 @@
 		"materialProperties": [],
 		"objectType": "weapon",
 		"plotItem": false,
-		"price": "10 gp",
+		"price": "500 gp",
 		"proficient": true,
 		"quantity": 1,
 		"rarity": "uncommon",
