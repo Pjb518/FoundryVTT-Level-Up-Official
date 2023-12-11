@@ -190,11 +190,17 @@ export default class ActiveEffectA5e extends ActiveEffect {
 
     // TODO: Move to own utility function
     switch (change.key) {
+      case 'flags.a5e.effects.bonuses.abilities':
+        newKey = `system.bonuses.abilities.${foundry.utils.randomID()}`;
+        break;
       case 'flags.a5e.effects.bonuses.damage':
         newKey = `system.bonuses.damage.${foundry.utils.randomID()}`;
         break;
       case 'flags.a5e.effects.bonuses.healing':
         newKey = `system.bonuses.healing.${foundry.utils.randomID()}`;
+        break;
+      case 'flags.a5e.effects.bonuses.skills':
+        newKey = `system.bonuses.skills.${foundry.utils.randomID()}`;
         break;
       case 'flags.a5e.effects.damageResistances.all':
       case 'flags.a5e.effects.damageVulnerabilities.all':

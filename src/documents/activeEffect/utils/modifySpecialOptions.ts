@@ -43,8 +43,10 @@ export default function modifySpecialOptions(options: object) {
   const statusConditions = Object.entries(CONFIG.A5E.conditions);
   options['flags.a5e.effects.statusConditions'] = [[], MODES.CUSTOM_ONLY, statusConditions, 'CHECKBOX'];
 
+  options['flags.a5e.effects.bonuses.abilities'] = [{}, MODES.CUSTOM_ONLY, null, 'ABILITY_BONUS'];
   options['flags.a5e.effects.bonuses.damage'] = [{}, MODES.CUSTOM_ONLY, null, 'DAMAGE_BONUS'];
   options['flags.a5e.effects.bonuses.healing'] = [{}, MODES.CUSTOM_ONLY, null, 'HEALING_BONUS'];
+  options['flags.a5e.effects.bonuses.skills'] = [{}, MODES.CUSTOM_ONLY, null, 'SKILL_BONUS'];
 
   // TODO: Maybe add something to automatically fail?
 

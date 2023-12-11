@@ -1,11 +1,15 @@
 <script>
     import { createEventDispatcher, getContext } from "svelte";
     import { localize } from "#runtime/svelte/helper";
-    import RadioGroup from "../RadioGroup.svelte";
-    import CheckboxGroup from "../CheckboxGroup.svelte";
-    import CustomTagGroup from "../CustomTagGroup.svelte";
+
+    import AbilityBonusConfigDialog from "../../dialogs/AbilityBonusConfigDialog.svelte";
     import DamageBonusConfigDialog from "../../dialogs/DamageBonusConfigDialog.svelte";
     import HealingBonusConfigDialog from "../../dialogs/HealingBonusConfigDialog.svelte";
+
+    import CustomTagGroup from "../CustomTagGroup.svelte";
+    import CheckboxGroup from "../CheckboxGroup.svelte";
+    import RadioGroup from "../RadioGroup.svelte";
+    import SkillBonusConfigDialog from "../../dialogs/SkillBonusConfigDialog.svelte";
 
     export let key;
     export let mode;
@@ -133,6 +137,13 @@
             }}
         />
     </div>
+{:else if componentType === "ABILITY_BONUS"}
+    <AbilityBonusConfigDialog
+        jsonValue={value}
+        --padding="0"
+        --background="none"
+        on:change={({ detail }) => dispatch("change", detail)}
+    />
 {:else if componentType === "DAMAGE_BONUS"}
     <DamageBonusConfigDialog
         jsonValue={value}
@@ -142,6 +153,13 @@
     />
 {:else if componentType === "HEALING_BONUS"}
     <HealingBonusConfigDialog
+        jsonValue={value}
+        --padding="0"
+        --background="none"
+        on:change={({ detail }) => dispatch("change", detail)}
+    />
+{:else if componentType === "SKILL_BONUS"}
+    <SkillBonusConfigDialog
         jsonValue={value}
         --padding="0"
         --background="none"

@@ -98,9 +98,11 @@ export default function modifyBaseOptions(options: Object) {
   delete options['system.resources.tertiary.hideMax'];
   delete options['system.resources.quaternary.hideMax'];
 
-  // Temporarily delete the damage and healing bonus fields
+  // Temporarily delete bonus fields
+  delete options['system.bonuses.abilities'];
   delete options['system.bonuses.damage'];
   delete options['system.bonuses.healing'];
+  delete options['system.bonuses.skills'];
 
   // Delete schema information
   delete options['system.schemaVersion.version'];
