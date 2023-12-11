@@ -432,8 +432,6 @@ export default class ActorA5e extends Actor {
 
     Object.entries(actorData.skills).forEach(([key, skill]) => {
       const skillName = localize(CONFIG.A5E.skills[key]);
-      const skillBonus = this.BonusesManager.getSkillBonusesFormula(key, skill.ability).trim();
-      // const { check: globalCheckBonus, skill: globalSkillBonus } = actorData.bonuses.abilities;
 
       let deterministicBonus;
 
@@ -441,10 +439,7 @@ export default class ActorA5e extends Actor {
         deterministicBonus = getDeterministicBonus(
           [
             skill.mod,
-            skillBonus.trim()
-            // skill.bonuses.check
-            // globalSkillBonus.trim(),
-            // globalCheckBonus.trim()
+            this.BonusesManager.getSkillBonusesFormula(key, skill.ability).trim()
           ].filter(Boolean).join(' + '),
           this.getRollData()
         );
@@ -463,6 +458,22 @@ export default class ActorA5e extends Actor {
         skill.passive = null;
       }
     });
+  }
+
+  _calculatePassiveScore(skillKey, skill) {
+    const rollData = this.getRollData();
+
+    return getDeterministicBonus([
+      10,
+      skill.deterministicBonus,
+      this.BonusesManager.getSkillBonusesFormula(skillKey, skill.ability, 'passive', false).trim(),
+      rollData.abilities[skill.ability]?.check?.deterministicBonus ?? 0,
+      skill.expertiseDice ? 3 : 0,
+
+      // TODO: Part of Refactor of bonuses touchup
+      // Remove the double addition of the global check bonus
+      `- ${getDeterministicBonus(this.BonusesManager.getGlobalAbilityBonusesFormula('check').trim(), rollData)}`
+    ].filter(Boolean).join(' + '), rollData);
   }
 
   /**
@@ -687,23 +698,6 @@ export default class ActorA5e extends Actor {
     data.maneuverDC = this.system.attributes.maneuverDC;
 
     return data;
-  }
-
-  _calculatePassiveScore(skillKey, skill) {
-    const rollData = this.getRollData();
-
-    return getDeterministicBonus([
-      10,
-      skill.deterministicBonus,
-      this.BonusesManager.getSkillBonusesFormula(skillKey, skill.ability, 'passive', false).trim(),
-      // skill.bonuses.passive, TODO: Remove this as part of bonuses refactor
-      rollData.abilities[skill.ability]?.check?.deterministicBonus ?? 0,
-      skill.expertiseDice ? 3 : 0,
-
-      // TODO: Part of Refactor of bonuses touchup
-      // Remove the double addition of the global check bonus
-      `- ${getDeterministicBonus(this.BonusesManager.getGlobalAbilityBonusesFormula('check').trim(), rollData)}`
-    ].filter(Boolean).join(' + '), rollData);
   }
 
   _calculateSpellcastingMod() {

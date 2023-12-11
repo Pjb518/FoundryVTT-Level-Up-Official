@@ -167,6 +167,7 @@ export default class BonusesManager {
     const skillParts = Object.values(bonuses).reduce((acc: string[], bonus) => {
       if (!bonus.context.skills.includes(skillKey)) return acc;
       if (type !== 'passive' && bonus.context.passiveOnly) return acc;
+      if (type === 'passive' && !bonus.context.passiveOnly) return acc;
 
       const bonusFormula = bonus.formula.trim();
 
@@ -200,6 +201,7 @@ export default class BonusesManager {
       const bonusFormula = bonus.formula.trim();
       if (bonus.context.requiresProficiency) return acc;
       if (type !== 'passive' && bonus.context.passiveOnly) return acc;
+      if (type === 'passive' && !bonus.context.passiveOnly) return acc;
 
       const isGlobalBonus = arraysAreEqual(bonus.context.skills, this.#skills);
       if (!isGlobalBonus) return acc;
