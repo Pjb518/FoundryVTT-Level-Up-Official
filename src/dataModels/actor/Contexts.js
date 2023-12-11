@@ -53,6 +53,7 @@ export function getHealingBonusContext() {
 export function getSkillBonusContext() {
   const { fields } = foundry.data;
   return {
+    passiveOnly: new fields.BooleanField({ required: true, initial: false }),
     requiresProficiency: new fields.BooleanField({ required: true, initial: false }),
     skills: new fields.ArrayField(new fields.StringField({ required: true, initial: '' }), { initial: [] })
   };

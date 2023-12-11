@@ -25,7 +25,6 @@ export interface HealingBonus {
 
 export interface SkillBonus {
   context: SkillBonusContext;
-  bonusType: 'check' | 'passive';
   formula: string;
   label: string;
 }

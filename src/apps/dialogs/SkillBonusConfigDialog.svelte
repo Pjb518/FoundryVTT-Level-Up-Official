@@ -47,10 +47,10 @@
         }
     }
 
-    const { skills, skillBonusContexts } = CONFIG.A5E;
+    const { skills } = CONFIG.A5E;
 
     $: skillBonus = getAbilityBonus($actor, jsonValue) ?? {};
-    $: bonusType = skillBonus.bonusType ?? "check";
+    $: passiveOnly = skillBonus.context.passiveOnly ?? false;
     $: skillsContext = skillBonus.context.skills ?? [];
     $: requiresProficiency = skillBonus.context.requiresProficiency ?? false;
 </script>
@@ -84,25 +84,6 @@
                     onUpdateValue("formula", target.value)}
             />
         </FormSection>
-
-        <FormSection
-            heading="A5E.BonusType"
-            --background="none"
-            --direction="column"
-            --padding="0"
-        >
-            <select
-                class="u-w-fit damage-type-select"
-                on:change={({ target }) =>
-                    onUpdateValue("bonusType", target.value)}
-            >
-                {#each Object.entries(skillBonusContexts) as [key, name] (key)}
-                    <option value={key} selected={bonusType === key}>
-                        {localize(name)}
-                    </option>
-                {/each}
-            </select>
-        </FormSection>
     </FormSection>
 
     <FormSection
@@ -124,6 +105,14 @@
             checked={requiresProficiency}
             on:updateSelection={({ detail }) => {
                 onUpdateValue("context.requiresProficiency", detail);
+            }}
+        />
+
+        <Checkbox
+            label="A5E.contexts.passiveOnly"
+            checked={passiveOnly}
+            on:updateSelection={({ detail }) => {
+                onUpdateValue("context.passiveOnly", detail);
             }}
         />
     </FormSection>

@@ -17,5 +17,6 @@ export interface HealingBonusContext {
 
 export interface SkillBonusContext {
   skills: string[];
+  passiveOnly: boolean;
   requiresProficiency: boolean;
 }
