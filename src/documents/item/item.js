@@ -53,9 +53,9 @@ export default class ItemA5e extends BaseItemA5e {
         .replaceAll(/@dex\.mod|@abilities\.dex\.mod/gm, `min(@dex.mod, ${maxDex})`);
     }
 
-    if (itemData.damagedState === CONFIG.A5E.DAMAGED_STATES.BROKEN) {
+    if (itemData?.damagedState === CONFIG.A5E.DAMAGED_STATES.BROKEN) {
       if (itemData.objectType === 'armor') {
-        formula = `10 + max(floor((${formula}) / 2), 1)`;
+        formula = `10 + max(floor((${formula} - 10) / 2), 1)`;
       } else formula = `max(floor((${formula}) / 2), 1)`;
     }
 
