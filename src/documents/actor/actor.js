@@ -439,7 +439,7 @@ export default class ActorA5e extends Actor {
         deterministicBonus = getDeterministicBonus(
           [
             skill.mod,
-            this.BonusesManager.getSkillBonusesFormula(key, skill.ability).trim()
+            this.BonusesManager.getSkillBonusesFormula(key, skill.ability, 'check').trim()
           ].filter(Boolean).join(' + '),
           this.getRollData()
         );
@@ -465,14 +465,7 @@ export default class ActorA5e extends Actor {
 
     return getDeterministicBonus([
       10,
-      skill.deterministicBonus,
-      this.BonusesManager.getSkillBonusesFormula(skillKey, skill.ability, 'passive', false).trim(),
-      rollData.abilities[skill.ability]?.check?.deterministicBonus ?? 0,
-      skill.expertiseDice ? 3 : 0,
-
-      // TODO: Part of Refactor of bonuses touchup
-      // Remove the double addition of the global check bonus
-      `- ${getDeterministicBonus(this.BonusesManager.getGlobalAbilityBonusesFormula('check').trim(), rollData)}`
+      this.BonusesManager.getSkillBonusesFormula(skillKey, skill.ability, 'passive').trim()
     ].filter(Boolean).join(' + '), rollData);
   }
 
