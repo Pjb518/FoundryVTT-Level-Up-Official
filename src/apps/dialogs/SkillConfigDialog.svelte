@@ -23,12 +23,8 @@
     });
 
     const specialtyOptions = Object.entries(
-        CONFIG.A5E.skillSpecialties[skillKey]
+        CONFIG.A5E.skillSpecialties[skillKey],
     );
-
-    const passiveBonusHeading = localize("A5E.SkillCheckBonusPassive", {
-        skill: localize(CONFIG.A5E.skills[skillKey]),
-    });
 
     $: skill = $actor.system.skills[skillKey];
 </script>
@@ -42,7 +38,7 @@
                 updateDocumentDataFromField(
                     $actor,
                     `system.skills.${skillKey}.proficient`,
-                    detail
+                    detail,
                 );
             }}
         />
@@ -61,7 +57,7 @@
                 updateDocumentDataFromField(
                     $actor,
                     `system.skills.${skillKey}.ability`,
-                    event.detail
+                    event.detail,
                 )}
         />
     </FormSection>
@@ -76,7 +72,7 @@
                     updateDocumentDataFromField(
                         $actor,
                         `system.skills.${skillKey}.specialties`,
-                        event.detail
+                        event.detail,
                     )}
             />
         </FormSection>
@@ -89,7 +85,7 @@
                 updateDocumentDataFromField(
                     $actor,
                     `system.skills.${skillKey}.expertiseDice`,
-                    detail
+                    detail,
                 )}
         />
     </FormSection>
@@ -109,62 +105,6 @@
         />
     </FormSection>
 
-    <FormSection
-        heading={passiveBonusHeading}
-        --direction="column"
-        warning="The +3 bonus for your expertise die has been included in your passive score automatically. You do not need to add it again here."
-        showWarning={skill.expertiseDice}
-    >
-        <input
-            class="a5e-input"
-            type="number"
-            data-dtype="Number"
-            value={skill.bonuses.passive}
-            on:change={({ target }) =>
-                updateDocumentDataFromField(
-                    $actor,
-                    `system.skills.${skillKey}.bonuses.passive`,
-                    Number(target.value)
-                )}
-        />
-    </FormSection>
-
-    <FormSection
-        heading="A5E.SkillCheckBonusGlobal"
-        hint="This bonus is added to all skill modifiers. This field accepts any values valid in roll formulae."
-        --direction="column"
-    >
-        <input
-            class="a5e-input"
-            type="text"
-            value={$actor.system.bonuses.abilities.skill}
-            on:change={({ target }) =>
-                updateDocumentDataFromField(
-                    $actor,
-                    "system.bonuses.abilities.skill",
-                    target.value
-                )}
-        />
-    </FormSection>
-
-    <FormSection
-        heading="A5E.AbilityCheckBonusGlobal"
-        hint="This bonus is added to all ability check modifiers, including skill modifiers. This field accepts any values valid in roll formulae."
-        --direction="column"
-    >
-        <input
-            class="a5e-input"
-            type="text"
-            value={$actor.system.bonuses.abilities.check}
-            on:change={({ target }) =>
-                updateDocumentDataFromField(
-                    $actor,
-                    "system.bonuses.abilities.check",
-                    target.value
-                )}
-        />
-    </FormSection>
-
     <FormSection heading="A5E.MinimumD20Roll" --direction="column">
         <div class="u-w-20">
             <input
@@ -176,7 +116,7 @@
                     updateDocumentDataFromField(
                         $actor,
                         `system.skills.${skillKey}.minRoll`,
-                        Number(target.value)
+                        Number(target.value),
                     )}
             />
         </div>
@@ -187,7 +127,6 @@
     article {
         display: flex;
         flex-direction: column;
-        height: min(90vh, 52rem);
         padding: 0.75rem;
         gap: 0.5rem;
         overflow: auto;

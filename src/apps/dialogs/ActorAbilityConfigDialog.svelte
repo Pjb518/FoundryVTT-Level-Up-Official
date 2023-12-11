@@ -56,7 +56,7 @@
                         updateDocumentDataFromField(
                             $actor,
                             `system.abilities.${abilityKey}.check.expertiseDice`,
-                            detail
+                            detail,
                         )}
                 />
             </FormSection>
@@ -75,25 +75,7 @@
                         updateDocumentDataFromField(
                             $actor,
                             target.name,
-                            target.value
-                        )}
-                />
-            </FormSection>
-
-            <FormSection
-                heading="A5E.AbilityCheckBonusGlobal"
-                hint="This bonus is added to all ability check modifiers, including skill modifiers. This field accepts any values valid in roll formulae."
-                --direction="column"
-            >
-                <input
-                    class="a5e-input"
-                    type="text"
-                    value={$actor.system.bonuses.abilities.check}
-                    on:change={({ target }) =>
-                        updateDocumentDataFromField(
-                            $actor,
-                            "system.bonuses.abilities.check",
-                            target.value
+                            target.value,
                         )}
                 />
             </FormSection>
@@ -110,7 +92,7 @@
                         updateDocumentDataFromField(
                             $actor,
                             `system.abilities.${abilityKey}.save.proficient`,
-                            detail
+                            detail,
                         );
                     }}
                 />
@@ -123,7 +105,7 @@
                         updateDocumentDataFromField(
                             $actor,
                             `system.abilities.${abilityKey}.save.expertiseDice`,
-                            detail
+                            detail,
                         )}
                 />
             </FormSection>
@@ -141,7 +123,7 @@
                         updateDocumentDataFromField(
                             $actor,
                             `system.abilities.${abilityKey}.save.bonus`,
-                            target.value
+                            target.value,
                         )}
                 />
             </FormSection>
@@ -160,29 +142,11 @@
                             updateDocumentDataFromField(
                                 $actor,
                                 "system.abilities.con.save.concentrationBonus",
-                                target.value
+                                target.value,
                             )}
                     />
                 </FormSection>
             {/if}
-
-            <FormSection
-                heading="A5E.SavingThrowBonusGlobal"
-                hint="This bonus is added to all saving throw modifiers. This field accepts any values valid in roll formulae."
-                --direction="column"
-            >
-                <input
-                    class="a5e-input"
-                    type="text"
-                    value={$actor.system.bonuses.abilities.save}
-                    on:change={({ target }) =>
-                        updateDocumentDataFromField(
-                            $actor,
-                            "system.bonuses.abilities.save",
-                            target.value
-                        )}
-                />
-            </FormSection>
         </div>
     {/if}
 </article>
