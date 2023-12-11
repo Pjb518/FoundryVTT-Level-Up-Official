@@ -93,6 +93,7 @@ export default class BonusesManager {
     const isProficient = ability.save.proficient;
 
     const parts = Object.values(bonuses).reduce((acc: string[], bonus) => {
+      if (!bonus.default) return acc;
       if (!bonus.context.abilities.includes(abilityKey)) return acc;
       const bonusFormula = bonus.formula.trim();
 
@@ -124,6 +125,7 @@ export default class BonusesManager {
     const bonuses = this.#bonuses.abilities;
     const parts = Object.values(bonuses).reduce((acc: string[], bonus) => {
       const bonusFormula = bonus.formula.trim();
+      if (!bonus.default) return acc;
       if (!bonus.context.types.includes(type)) return acc;
       if (bonus.context.requiresProficiency) return acc;
 
@@ -165,6 +167,7 @@ export default class BonusesManager {
     const isProficient = skill.proficient;
 
     const skillParts = Object.values(bonuses).reduce((acc: string[], bonus) => {
+      if (!bonus.default) return acc;
       if (!bonus.context.skills.includes(skillKey)) return acc;
       if (type !== 'passive' && bonus.context.passiveOnly) return acc;
 
@@ -200,6 +203,7 @@ export default class BonusesManager {
   getGlobalSkillBonuses(type: 'check' | 'passive' = 'check'): string[] {
     const bonuses = this.#bonuses.skills;
     const parts = Object.values(bonuses).reduce((acc: string[], bonus) => {
+      if (!bonus.default) return acc;
       const bonusFormula = bonus.formula.trim();
       if (bonus.context.requiresProficiency) return acc;
       if (type !== 'passive' && bonus.context.passiveOnly) return acc;

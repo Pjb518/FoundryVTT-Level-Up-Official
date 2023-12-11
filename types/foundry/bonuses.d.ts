@@ -6,6 +6,7 @@ export interface AbilityBonus {
   context: AbilityBonusContext;
   formula: string;
   label: string;
+  default: boolean;
 }
 
 export interface DamageBonus {
@@ -21,12 +22,14 @@ export interface HealingBonus {
   healingType: string;
   formula: string;
   label: string;
+  default: boolean;
 }
 
 export interface SkillBonus {
   context: SkillBonusContext;
   formula: string;
   label: string;
+  default: boolean;
 }
 
 export interface Bonuses {

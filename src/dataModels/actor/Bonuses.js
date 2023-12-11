@@ -27,6 +27,7 @@ export function getHealingBonusData() {
   const { fields } = foundry.data;
   return {
     context: new fields.SchemaField(getHealingBonusContext()),
+    default: new fields.BooleanField({ required: true, initial: true }),
     healingType: new fields.StringField({ required: true, initial: 'healing' }),
     formula: new fields.StringField({ required: true, initial: '' }),
     label: new fields.StringField({ required: true, initial: '' })
@@ -37,6 +38,7 @@ export function getSkillBonusData() {
   const { fields } = foundry.data;
   return {
     context: new fields.SchemaField(getSkillBonusContext()),
+    default: new fields.BooleanField({ required: true, initial: true }),
     formula: new fields.StringField({ required: true, initial: '' }),
     label: new fields.StringField({ required: true, initial: '' })
   };

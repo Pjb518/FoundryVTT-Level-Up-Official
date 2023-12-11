@@ -3,6 +3,10 @@ import MigrationBase from '../MigrationBase';
 export default class Migration010MigrateContexts extends MigrationBase {
   static version = 0.010;
 
+  #updateAbilityBonuses(actorData) {
+
+  }
+
   #updateDamageBonuses(actorData) {
     const bonuses = actorData.system.bonuses.damage;
     const updates = {};
@@ -43,14 +47,30 @@ export default class Migration010MigrateContexts extends MigrationBase {
     });
   }
 
+  #updateSkillBonuses(actorData) {
+
+  }
+
   /**
    *
    * @param {Object} actorData
    * @returns {Promise<void>}
    */
   async updateActor(actorData) {
-    // Update damage and healing bonuses
+    // Update actor bonus data
+    this.#updateAbilityBonuses(actorData);
     this.#updateDamageBonuses(actorData);
     this.#updateHealingBonuses(actorData);
+    this.#updateSkillBonuses(actorData);
+
+    // Update effects data
+  }
+
+  /**
+   * @param {Object} itemData
+   * @returns {Promise<void>}
+   */
+  async updateItem(itemData) {
+    // Update effects data
   }
 }
