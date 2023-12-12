@@ -3,6 +3,7 @@
     import { localize } from "#runtime/svelte/helper";
     import { TJSDocument } from "#runtime/svelte/store/fvtt/document";
 
+    import CheckboxGroup from "../components/CheckboxGroup.svelte";
     import ExpertiseDiePicker from "../components/ExpertiseDiePicker.svelte";
     import FormSection from "../components/FormSection.svelte";
     import OutputVisibilitySection from "../components/activationDialog/OutputVisibilitySection.svelte";
@@ -10,6 +11,7 @@
 
     import getRollFormula from "../../utils/getRollFormula";
     import overrideRollMode from "../../utils/overrideRollMode";
+    import prepareAbilityBonuses from "../dataPreparationHelpers/prepareAbilityBonuses";
 
     export let { actorDocument, abilityKey, dialog, options } =
         getContext("#external").application;
@@ -31,11 +33,20 @@
         }
     }
 
+    function getDefaultSelections(property) {
+        return Object.values(property ?? {})
+            .flat()
+            .reduce((acc, [key, value]) => {
+                if (value.default ?? true) acc.push(key);
+                return acc;
+            }, []);
+    }
+
     const rollModeOptions = Object.entries(CONFIG.A5E.rollModes).map(
         ([key, value]) => [
             CONFIG.A5E.ROLL_MODE[key.toUpperCase()],
             localize(value),
-        ]
+        ],
     );
 
     const saveTypes = [
@@ -46,6 +57,7 @@
     const actor = new TJSDocument(actorDocument);
     const appId = dialog.id;
     const localizeSave = localize(CONFIG.A5E.abilities[abilityKey]);
+    const abilityBonuses = prepareAbilityBonuses($actor, abilityKey, "save");
 
     function onSubmit() {
         dialog.submit({
@@ -68,6 +80,7 @@
     let selectedRollMode = options.rollMode ?? CONFIG.A5E.ROLL_MODE.NORMAL;
     let rollFormula;
     let situationalMods = options.situationalMods ?? "";
+    let selectedAbilityBonuses = getDefaultSelections({ abilityBonuses });
 
     $: rollMode = overrideRollMode($actor, selectedRollMode, {
         ability: abilityKey,
@@ -84,6 +97,7 @@
         rollMode,
         saveType,
         situationalMods,
+        selectedAbilityBonuses,
         type: "savingThrow",
     });
 </script>
@@ -112,6 +126,20 @@
                 options={saveTypes}
                 selected={saveType}
                 on:updateSelection={(event) => (saveType = event.detail)}
+            />
+        </FormSection>
+    {/if}
+
+    {#if Object.values(abilityBonuses).flat().length}
+        <FormSection heading="Ability Bonuses">
+            <CheckboxGroup
+                options={abilityBonuses.map(([key, abilityBonus]) => [
+                    key,
+                    abilityBonus.label || abilityBonus.defaultLabel,
+                ])}
+                selected={selectedAbilityBonuses}
+                on:updateSelection={({ detail }) =>
+                    (selectedAbilityBonuses = detail)}
             />
         </FormSection>
     {/if}

@@ -3,6 +3,7 @@
     import { localize } from "#runtime/svelte/helper";
     import { TJSDocument } from "#runtime/svelte/store/fvtt/document";
 
+    import CheckboxGroup from "../components/CheckboxGroup.svelte";
     import ExpertiseDiePicker from "../components/ExpertiseDiePicker.svelte";
     import FormSection from "../components/FormSection.svelte";
     import OutputVisibilitySection from "../components/activationDialog/OutputVisibilitySection.svelte";
@@ -12,7 +13,6 @@
     import overrideRollMode from "../../utils/overrideRollMode";
     import prepareAbilityBonuses from "../dataPreparationHelpers/prepareAbilityBonuses";
     import prepareSkillBonuses from "../dataPreparationHelpers/prepareSkillBonuses";
-    import CheckboxGroup from "../components/CheckboxGroup.svelte";
 
     export let { actorDocument, dialog, skillKey, options } =
         getContext("#external").application;

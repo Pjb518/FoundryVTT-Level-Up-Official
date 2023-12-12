@@ -3,6 +3,7 @@
     import { localize } from "#runtime/svelte/helper";
     import { TJSDocument } from "#runtime/svelte/store/fvtt/document";
 
+    import CheckboxGroup from "../components/CheckboxGroup.svelte";
     import ExpertiseDiePicker from "../components/ExpertiseDiePicker.svelte";
     import FormSection from "../components/FormSection.svelte";
     import OutputVisibilitySection from "../components/activationDialog/OutputVisibilitySection.svelte";
@@ -10,6 +11,7 @@
 
     import getRollFormula from "../../utils/getRollFormula";
     import overrideRollMode from "../../utils/overrideRollMode";
+    import prepareAbilityBonuses from "../dataPreparationHelpers/prepareAbilityBonuses";
 
     export let { actorDocument, abilityKey, dialog, options } =
         getContext("#external").application;
@@ -18,16 +20,26 @@
         ([key, value]) => [
             CONFIG.A5E.ROLL_MODE[key.toUpperCase()],
             localize(value),
-        ]
+        ],
     );
 
     const actor = new TJSDocument(actorDocument);
     const appId = dialog.id;
+    const abilityBonuses = prepareAbilityBonuses($actor, abilityKey, "check");
 
     const localizedAbility = localize(CONFIG.A5E.abilities[abilityKey]);
     const buttonText = localize("A5E.RollPromptAbilityCheck", {
         ability: localizedAbility,
     });
+
+    function getDefaultSelections(property) {
+        return Object.values(property ?? {})
+            .flat()
+            .reduce((acc, [key, value]) => {
+                if (value.default ?? true) acc.push(key);
+                return acc;
+            }, []);
+    }
 
     function onSubmit() {
         dialog.submit({ expertiseDie, rollFormula, rollMode, visibilityMode });
@@ -49,12 +61,14 @@
 
     let rollFormula;
     let situationalMods = options.situationalMods ?? "";
+    let selectedAbilityBonuses = getDefaultSelections({ abilityBonuses });
 
     $: rollFormula = getRollFormula($actor, {
         ability: abilityKey,
         expertiseDie,
         rollMode,
         situationalMods,
+        selectedAbilityBonuses,
         type: "abilityCheck",
     });
 </script>
@@ -76,6 +90,20 @@
             on:updateSelection={({ detail }) => (expertiseDie = detail)}
         />
     </FormSection>
+
+    {#if Object.values(abilityBonuses).flat().length}
+        <FormSection heading="Ability Bonuses">
+            <CheckboxGroup
+                options={abilityBonuses.map(([key, abilityBonus]) => [
+                    key,
+                    abilityBonus.label || abilityBonus.defaultLabel,
+                ])}
+                selected={selectedAbilityBonuses}
+                on:updateSelection={({ detail }) =>
+                    (selectedAbilityBonuses = detail)}
+            />
+        </FormSection>
+    {/if}
 
     <FormSection heading="A5E.SituationalMods">
         <input
