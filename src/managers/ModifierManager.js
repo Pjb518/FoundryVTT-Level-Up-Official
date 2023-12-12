@@ -117,11 +117,20 @@ export default class ModifierManager {
 
     if (!ability) return null;
 
+    let { selectedAbilityBonuses } = this.rollData;
+    if (selectedAbilityBonuses) {
+      selectedAbilityBonuses = { enabled: true, ids: selectedAbilityBonuses };
+    } else selectedAbilityBonuses = { enabled: false, ids: [] };
+
     return {
       label: localize('A5E.AbilitySaveBonus', {
         ability: CONFIG.A5E.abilities[ability]
       }),
-      value: this.actor.BonusesManager.getAbilityBonusesFormula(ability, 'save') || null
+      value: this.actor.BonusesManager.getAbilityBonusesFormula(
+        ability,
+        'save',
+        selectedAbilityBonuses
+      ) || null
     };
   }
 

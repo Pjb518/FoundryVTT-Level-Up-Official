@@ -10,7 +10,7 @@ export default function prepareAbilityBonuses(actor, abilityKey, type) {
       const { abilities, requiresProficiency, types } = context;
       if (!abilities.includes(abilityKey)) return false;
 
-      // Remove passive bonuses
+      console.log(type);
       if (!types.includes(type)) return false;
       if (requiresProficiency && !ability[type].proficient) return false;
 
@@ -23,7 +23,7 @@ export default function prepareAbilityBonuses(actor, abilityKey, type) {
   return abilityBonuses.map(([key, abilityBonus]) => {
     if (!abilityBonus.label) {
       const label = game.i18n.format('A5E.AbilityBonusSpecific', {
-        skill: game.i18n.localize(CONFIG.A5E.abilities[abilityKey] ?? '')
+        ability: game.i18n.localize(CONFIG.A5E.abilities[abilityKey] ?? '')
       });
 
       counts[abilityKey] ??= 0;
