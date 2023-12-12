@@ -29,8 +29,12 @@ export default class BonusesManager {
    * @param type
    * @returns
    */
-  getAbilityBonusesFormula(abilityKey: string, type: 'check' | 'save' = 'check'): string {
-    const parts = this.getAbilityBonuses(abilityKey, type);
+  getAbilityBonusesFormula(
+    abilityKey: string,
+    type: 'check' | 'save' = 'check',
+    selectedBonuses: { enabled: boolean, ids: string[] } = { enabled: false, ids: [] }
+  ): string {
+    const parts = this.getAbilityBonuses(abilityKey, type, selectedBonuses);
     return parts.join(' + ').trim();
   }
 
@@ -56,9 +60,16 @@ export default class BonusesManager {
     skillKey: string,
     abilityKey?: string,
     type: 'check' | 'passive' = 'check',
-    includeAbilityBonuses: boolean = true
+    includeAbilityBonuses: boolean = true,
+    selectedBonuses: { enabled: boolean, ids: string[] } = { enabled: false, ids: [] }
   ): string {
-    const parts = this.getSkillBonuses(skillKey, abilityKey, type, includeAbilityBonuses);
+    const parts = this.getSkillBonuses(
+      skillKey,
+      abilityKey,
+      type,
+      includeAbilityBonuses,
+      selectedBonuses
+    );
     return parts.join(' + ').trim();
   }
 
@@ -87,13 +98,20 @@ export default class BonusesManager {
    * @param type
    * @returns
    */
-  getAbilityBonuses(abilityKey: string, type: 'check' | 'save' = 'check'): string[] {
+  getAbilityBonuses(
+    abilityKey: string,
+    type: 'check' | 'save' = 'check',
+    selectedBonuses: { enabled: boolean, ids: string[] } = { enabled: false, ids: [] }
+  ): string[] {
     const bonuses = this.#bonuses.abilities;
     const ability = this.#actor.system.abilities[abilityKey];
     const isProficient = ability.save.proficient;
 
-    const parts = Object.values(bonuses).reduce((acc: string[], bonus) => {
-      if (!bonus.default) return acc;
+    const parts = Object.entries(bonuses).reduce((acc: string[], [id, bonus]) => {
+      if (selectedBonuses.enabled) {
+        if (!selectedBonuses.ids.includes(id)) return acc;
+      } else if (!bonus.default) return acc;
+
       if (!bonus.context.abilities.includes(abilityKey)) return acc;
       const bonusFormula = bonus.formula.trim();
 
@@ -159,15 +177,19 @@ export default class BonusesManager {
     skillKey: string,
     abilityKey?: string,
     type: 'check' | 'passive' = 'check',
-    includeAbilityBonuses: boolean = true
+    includeAbilityBonuses: boolean = true,
+    selectedBonuses: { enabled: boolean, ids: string[] } = { enabled: false, ids: [] }
   ): string[] {
     const bonuses = this.#bonuses.skills;
     const skill = this.#actor.system.skills[skillKey];
     const defaultAbility = skill.ability;
     const isProficient = skill.proficient;
 
-    const skillParts = Object.values(bonuses).reduce((acc: string[], bonus) => {
-      if (!bonus.default) return acc;
+    const skillParts = Object.entries(bonuses).reduce((acc: string[], [id, bonus]) => {
+      if (selectedBonuses.enabled) {
+        if (!selectedBonuses.ids.includes(id)) return acc;
+      } else if (!bonus.default) return acc;
+
       if (!bonus.context.skills.includes(skillKey)) return acc;
       if (type !== 'passive' && bonus.context.passiveOnly) return acc;
 

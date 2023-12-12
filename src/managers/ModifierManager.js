@@ -82,11 +82,20 @@ export default class ModifierManager {
 
     if (!ability) return null;
 
+    let { selectedAbilityBonuses } = this.rollData;
+    if (selectedAbilityBonuses) {
+      selectedAbilityBonuses = { enabled: true, ids: selectedAbilityBonuses };
+    } else selectedAbilityBonuses = { enabled: false, ids: [] };
+
     return {
       label: localize('A5E.AbilityCheckBonus', {
         ability: CONFIG.A5E.abilities[ability]
       }),
-      value: this.actor.BonusesManager.getAbilityBonusesFormula(ability, 'check') || null
+      value: this.actor.BonusesManager.getAbilityBonusesFormula(
+        ability,
+        'check',
+        selectedAbilityBonuses
+      ) || null
     };
   }
 
@@ -236,10 +245,19 @@ export default class ModifierManager {
     const { ability, skill } = this.rollData;
 
     if (!skill) return null;
+    let { selectedSkillBonuses } = this.rollData;
+    if (selectedSkillBonuses) selectedSkillBonuses = { enabled: true, ids: selectedSkillBonuses };
+    else selectedSkillBonuses = { enabled: false, ids: [] };
 
     return {
       label: localize('A5E.SkillCheckBonus', { skill: CONFIG.A5E.skills[skill] }),
-      value: this.actor.BonusesManager.getSkillBonusesFormula(skill, ability, 'check', false) || null
+      value: this.actor.BonusesManager.getSkillBonusesFormula(
+        skill,
+        ability,
+        'check',
+        false,
+        selectedSkillBonuses
+      ) || null
     };
   }
 

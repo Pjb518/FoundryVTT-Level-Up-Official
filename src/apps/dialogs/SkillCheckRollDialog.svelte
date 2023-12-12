@@ -10,6 +10,9 @@
 
     import getRollFormula from "../../utils/getRollFormula";
     import overrideRollMode from "../../utils/overrideRollMode";
+    import prepareAbilityBonuses from "../dataPreparationHelpers/prepareAbilityBonuses";
+    import prepareSkillBonuses from "../dataPreparationHelpers/prepareSkillBonuses";
+    import CheckboxGroup from "../components/CheckboxGroup.svelte";
 
     export let { actorDocument, dialog, skillKey, options } =
         getContext("#external").application;
@@ -18,7 +21,7 @@
         ([key, value]) => [
             CONFIG.A5E.ROLL_MODE[key.toUpperCase()],
             localize(value),
-        ]
+        ],
     );
 
     const actor = new TJSDocument(actorDocument);
@@ -30,6 +33,15 @@
     const buttonText = localize("A5E.RollPromptAbilityCheck", {
         ability: localizedSkill,
     });
+
+    function getDefaultSelections(property) {
+        return Object.values(property ?? {})
+            .flat()
+            .reduce((acc, [key, value]) => {
+                if (value.default ?? true) acc.push(key);
+                return acc;
+            }, []);
+    }
 
     function onSubmit() {
         dialog.submit({
@@ -55,6 +67,11 @@
     let selectedRollMode = options.rollMode ?? CONFIG.A5E.ROLL_MODE.NORMAL;
     let situationalMods = options.situationalMods ?? "";
 
+    const abilityBonuses = prepareAbilityBonuses($actor, abilityKey, "check");
+    const skillBonuses = prepareSkillBonuses($actor, skillKey);
+    let selectedAbilityBonuses = getDefaultSelections({ abilityBonuses });
+    let selectedSkillBonuses = getDefaultSelections({ skillBonuses });
+
     let rollMode = overrideRollMode($actor, selectedRollMode, {
         ability: abilityKey,
         skill: skillKey,
@@ -68,6 +85,8 @@
         rollMode,
         situationalMods,
         skill: skillKey,
+        selectedAbilityBonuses,
+        selectedSkillBonuses,
         type: "skillCheck",
     });
 </script>
@@ -97,6 +116,34 @@
             on:updateSelection={({ detail }) => (expertiseDie = detail)}
         />
     </FormSection>
+
+    {#if Object.values(abilityBonuses).flat().length}
+        <FormSection heading="Ability Bonuses">
+            <CheckboxGroup
+                options={abilityBonuses.map(([key, abilityBonus]) => [
+                    key,
+                    abilityBonus.label || abilityBonus.defaultLabel,
+                ])}
+                selected={selectedAbilityBonuses}
+                on:updateSelection={({ detail }) =>
+                    (selectedAbilityBonuses = detail)}
+            />
+        </FormSection>
+    {/if}
+
+    {#if Object.values(skillBonuses).flat().length}
+        <FormSection heading="Skill Bonuses">
+            <CheckboxGroup
+                options={skillBonuses.map(([key, skillBonus]) => [
+                    key,
+                    skillBonus.label || skillBonus.defaultLabel,
+                ])}
+                selected={selectedSkillBonuses}
+                on:updateSelection={({ detail }) =>
+                    (selectedSkillBonuses = detail)}
+            />
+        </FormSection>
+    {/if}
 
     <FormSection heading="A5E.SituationalMods">
         <input
