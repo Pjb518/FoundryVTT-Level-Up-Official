@@ -10,7 +10,6 @@ export default function prepareAbilityBonuses(actor, abilityKey, type) {
       const { abilities, requiresProficiency, types } = context;
       if (!abilities.includes(abilityKey)) return false;
 
-      console.log(type);
       if (!types.includes(type)) return false;
       if (requiresProficiency && !ability[type].proficient) return false;
 
