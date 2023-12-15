@@ -16,14 +16,14 @@
             .filter(([_, state]) => state)
             .map(
                 ([component]) =>
-                    spellComponentAbbreviations[component] ?? component
+                    spellComponentAbbreviations[component] ?? component,
             )
             .join(", ");
     }
 
     function prepareSecondarySpellSchools(item) {
         const schools = item.system.schools.secondary.map(
-            (school) => spellSchools.secondary[school] ?? school
+            (school) => spellSchools.secondary[school] ?? school,
         );
 
         schools.sort((a, b) => a.localeCompare(b));
@@ -86,7 +86,7 @@
                         updateDocumentDataFromField(
                             $item,
                             "system.classes",
-                            event.detail
+                            event.detail,
                         )}
                 />
             </FormSection>
@@ -99,7 +99,7 @@
                         updateDocumentDataFromField(
                             $item,
                             "system.level",
-                            event.detail
+                            event.detail,
                         )}
                 />
             </FormSection>
@@ -112,7 +112,7 @@
                         updateDocumentDataFromField(
                             $item,
                             "system.schools.primary",
-                            event.detail
+                            event.detail,
                         )}
                 />
             </FormSection>
@@ -125,7 +125,7 @@
                         updateDocumentDataFromField(
                             $item,
                             "system.schools.secondary",
-                            event.detail
+                            event.detail,
                         )}
                 />
             </FormSection>
@@ -143,7 +143,7 @@
                                 updateDocumentDataFromField(
                                     $item,
                                     `system.components.${value}`,
-                                    !$item.system.components[value]
+                                    !$item.system.components[value],
                                 )}
                         />
                     {/each}
@@ -162,7 +162,7 @@
                                 updateDocumentDataFromField(
                                     $item,
                                     target.name,
-                                    target.value
+                                    target.value,
                                 )}
                         />
                     </div>
@@ -177,7 +177,7 @@
                         updateDocumentDataFromField(
                             $item,
                             "system.concentration",
-                            detail
+                            detail,
                         );
                     }}
                 />
@@ -189,7 +189,7 @@
                         updateDocumentDataFromField(
                             $item,
                             "system.prepared",
-                            detail
+                            detail,
                         );
                     }}
                 />
@@ -203,7 +203,7 @@
                             updateDocumentDataFromField(
                                 $item,
                                 "system.prepared",
-                                detail ? 2 : 1
+                                detail ? 2 : 1,
                             );
                         }}
                     />
@@ -217,11 +217,23 @@
                             updateDocumentDataFromField(
                                 $item,
                                 "system.ritual",
-                                detail
+                                detail,
                             );
                         }}
                     />
                 {/if}
+
+                <Checkbox
+                    label="A5E.SpellRare"
+                    checked={$item.system.rare}
+                    on:updateSelection={({ detail }) => {
+                        updateDocumentDataFromField(
+                            $item,
+                            "system.rare",
+                            detail,
+                        );
+                    }}
+                />
             </FormSection>
         </div>
     {:else}
