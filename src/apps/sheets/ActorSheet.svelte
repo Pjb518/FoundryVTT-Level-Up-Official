@@ -111,7 +111,7 @@
                 display:
                     !actor.pack &&
                     actor.permission !==
-                        CONST.DOCUMENT_PERMISSION_LEVELS.OBSERVER,
+                        CONST.DOCUMENT_OWNERSHIP_LEVELS.OBSERVER.OBSERVER,
             },
         ];
     }
