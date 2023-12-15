@@ -16,7 +16,7 @@
 		},
 		"actions": {
 			"Q1ttcqrmFw0ZO3Gy": {
-				"name": "Vicious Shotgun",
+				"name": "Shotgun",
 				"activation": {
 					"cost": 1,
 					"type": "action",
@@ -58,20 +58,14 @@
 						"formula": "1d10 + @dex.mod",
 						"name": "Pistol",
 						"type": "damage",
-						"critBonus": ""
+						"critBonus": "2d6"
 					},
-					"yjnyFcbNEfIGfanS": {
+					"NxdKX7elFzUa7YmS": {
 						"type": "damage",
 						"default": true,
-						"canCrit": true,
+						"formula": "1d4",
 						"damageType": "piercing",
-						"formula": "1d4"
-					},
-					"5sus8zgSmhyFbgUs": {
-						"type": "damage",
-						"default": true,
-						"damageType": "piercing",
-						"formula": "2d6"
+						"label": "Disadvantage Single Die Hit"
 					}
 				},
 				"consumers": {
@@ -83,7 +77,7 @@
 				}
 			}
 		},
-		"description": "<p>When this weapon is used to make an attack roll with&nbsp;<span class=\"freelinking-link\">advantage</span>&nbsp;, the attack becomes a critical hit if both d20 rolls would result in a hit. When this weapon is used to make an attack roll with&nbsp;<span class=\"freelinking-link\">disadvantage</span>&nbsp;and only one attack roll would result in a hit, you instead deal 1d4 piercing damage (adding no bonuses to damage from ability score modifiers or enchantments)</p>\n<p>When you roll a natural 20 on an attack roll using this weapon it deals an extra 2d6 damage of the weapon's type (this extra damage does not double).</p>",
+		"description": "<p>When this weapon is used to make an attack roll with&nbsp;<span class=\"freelinking-link\">advantage</span>&nbsp;, the attack becomes a critical hit if both d20 rolls would result in a hit. When this weapon is used to make an attack roll with&nbsp;<span class=\"freelinking-link\">disadvantage</span>&nbsp;and only one attack roll would result in a hit, you instead deal 1d4 piercing damage (adding no bonuses to damage from ability score modifiers or enchantments)</p>\n<p><strong>Vicious Weapon:&nbsp;</strong>When you roll a natural 20 on an attack roll using this weapon it deals an extra 2d6 damage of the weapon&rsquo;s type (this extra damage does not double).</p>",
 		"favorite": false,
 		"secretDescription": "",
 		"source": "",
@@ -96,12 +90,16 @@
 				"threshold": 6
 			}
 		},
+		"schema": {
+			"version": null,
+			"lastMigration": null
+		},
 		"ammunitionProperties": [],
 		"armorCategory": "",
 		"armorProperties": [],
 		"attuned": false,
 		"bulky": false,
-		"craftingComponents": "Fiend’s heart",
+		"craftingComponents": "Fiend's heart",
 		"containerId": "",
 		"damagedState": 0,
 		"equippedState": 0,
@@ -109,7 +107,7 @@
 		"materialProperties": [],
 		"objectType": "weapon",
 		"plotItem": false,
-		"price": "150 gp",
+		"price": "400 gp",
 		"proficient": true,
 		"quantity": 1,
 		"rarity": "uncommon",
@@ -120,7 +118,8 @@
 		"unidentifiedDescription": "",
 		"unidentifiedName": "",
 		"weaponProperties": [
-			"loading"
+			"loading",
+			"vicious"
 		],
 		"weight": 6,
 		"schemaVersion": {

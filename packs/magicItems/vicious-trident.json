@@ -15,8 +15,8 @@
 			"requiresUnarmored": false
 		},
 		"actions": {
-			"6KJBQNf5LySWD4hx": {
-				"name": "Vicious Trident",
+			"jmhv8DatShUbKS2b": {
+				"name": "Trident",
 				"activation": {
 					"cost": "",
 					"type": "",
@@ -27,75 +27,207 @@
 					"value": ""
 				},
 				"ranges": {
-					"m6HRN0Wrcwmc1w9v": {
+					"kqB84gFUFuX4c5VX": {
 						"range": 20,
 						"unit": "feet"
 					},
-					"zWTNgN55VUOFbvMi": {
+					"kwnjxkDQXbGIe6M9": {
 						"range": "medium"
 					}
 				},
 				"area": {
 					"shape": "",
 					"size": "",
-					"placeTemplate": false
+					"placeTemplate": false,
+					"quantity": 1
 				},
 				"target": {
 					"quantity": 1,
 					"type": "creatureObject"
 				},
 				"rolls": {
-					"OZG09cNED6GdcrLa": {
+					"DIWavj0St2cyMBAy": {
 						"bonus": "",
 						"critThreshold": "20",
 						"type": "attack",
 						"attackType": "meleeWeaponAttack",
 						"ability": "default"
 					},
-					"MQeLMQHiu0lslVP3": {
+					"5ZU8ZjzJ6cAdaCWi": {
 						"canCrit": true,
 						"damageType": "piercing",
 						"formula": "1d6 + @str.mod",
 						"name": "Trident - 1H",
-						"type": "damage"
+						"type": "damage",
+						"label": "One-Handed",
+						"default": false,
+						"critBonus": "2d6"
 					},
-					"5pKldKrj9avJ4Zcs": {
+					"QaYeFljDmoLPxuEC": {
 						"canCrit": true,
 						"damageType": "piercing",
 						"formula": "1d8 + @str.mod",
 						"name": "Trident - 2H",
-						"type": "damage"
-					},
-					"ZdIWSPP1uyC36Gu1": {
-						"canCrit": false,
-						"damageType": "piercing",
-						"formula": "2d6",
-						"name": "Vicious Damage",
-						"type": "damage"
+						"type": "damage",
+						"label": "Two-Handed",
+						"default": false,
+						"critBonus": "2d6"
 					}
 				},
 				"consumers": {}
+			},
+			"MeeBvXQWljl0flxq": {
+				"name": "Trident (Mounted)",
+				"activation": {
+					"cost": "",
+					"type": "",
+					"reactionTrigger": ""
+				},
+				"duration": {
+					"unit": "",
+					"value": ""
+				},
+				"ranges": {
+					"kqB84gFUFuX4c5VX": {
+						"range": 20,
+						"unit": "feet"
+					},
+					"kwnjxkDQXbGIe6M9": {
+						"range": "medium"
+					}
+				},
+				"area": {
+					"shape": "",
+					"size": "",
+					"placeTemplate": false,
+					"quantity": 1
+				},
+				"target": {
+					"quantity": 1,
+					"type": "creatureObject"
+				},
+				"rolls": {
+					"DIWavj0St2cyMBAy": {
+						"bonus": "",
+						"critThreshold": "20",
+						"type": "attack",
+						"attackType": "meleeWeaponAttack",
+						"ability": "default"
+					},
+					"5ZU8ZjzJ6cAdaCWi": {
+						"canCrit": true,
+						"damageType": "piercing",
+						"formula": "1d8 + @str.mod",
+						"name": "Trident - 1H",
+						"type": "damage",
+						"label": "One-Handed",
+						"default": false,
+						"critBonus": "2d6"
+					},
+					"QaYeFljDmoLPxuEC": {
+						"canCrit": true,
+						"damageType": "piercing",
+						"formula": "1d10 + @str.mod",
+						"name": "Trident - 2H",
+						"type": "damage",
+						"label": "Two-Handed",
+						"default": false,
+						"critBonus": "2d6"
+					}
+				},
+				"consumers": {}
+			},
+			"77jqe1SdsKOkHt0L": {
+				"name": "Trident (Throw)",
+				"activation": {
+					"cost": "",
+					"type": "",
+					"reactionTrigger": ""
+				},
+				"duration": {
+					"unit": "",
+					"value": ""
+				},
+				"ranges": {
+					"kqB84gFUFuX4c5VX": {
+						"range": 20,
+						"unit": "feet"
+					},
+					"kwnjxkDQXbGIe6M9": {
+						"range": "medium"
+					}
+				},
+				"area": {
+					"shape": "",
+					"size": "",
+					"placeTemplate": false,
+					"quantity": 1
+				},
+				"target": {
+					"quantity": 1,
+					"type": "creatureObject"
+				},
+				"rolls": {
+					"DIWavj0St2cyMBAy": {
+						"bonus": "",
+						"critThreshold": "20",
+						"type": "attack",
+						"attackType": "rangedWeaponAttack",
+						"ability": "default"
+					},
+					"5ZU8ZjzJ6cAdaCWi": {
+						"canCrit": true,
+						"damageType": "piercing",
+						"formula": "1d6 + @finesse.mod",
+						"name": "Trident - 1H",
+						"type": "damage",
+						"label": "Unmounted",
+						"default": false,
+						"critBonus": "2d6"
+					},
+					"t9g5bCInZSbI0jFI": {
+						"canCrit": true,
+						"damageType": "piercing",
+						"formula": "1d8 + @finesse.mod",
+						"name": "Trident - 1H",
+						"type": "damage",
+						"label": "Mounted",
+						"default": false,
+						"critBonus": "2d6"
+					}
+				},
+				"consumers": {
+					"mWt7duYvBxZIUG8F": {
+						"type": "itemUses",
+						"default": true,
+						"quantity": 1
+					}
+				}
 			}
 		},
-		"description": "<p><em>Mounted (1d8/1d10), Thrown (20/60), Versatile (1d8)</em></p><p>When you roll a natural 20 on an attack roll using this weapon it deals an extra 2d6 damage of the weapon's type (this extra damage does not double).</p>",
+		"description": "<p><em>Mounted (1d8/1d10), Thrown (20/60), Versatile (1d8)</em></p>\n<p><strong>Vicious Weapon:&nbsp;</strong>When you roll a natural 20 on an attack roll using this weapon it deals an extra 2d6 damage of the weapon&rsquo;s type (this extra damage does not double).</p>",
 		"favorite": false,
 		"secretDescription": "",
 		"source": "",
 		"uses": {
-			"value": null,
-			"max": "",
+			"value": 1,
+			"max": "1",
 			"per": null,
 			"recharge": {
 				"formula": "1d6",
 				"threshold": 6
 			}
 		},
+		"schema": {
+			"version": null,
+			"lastMigration": null
+		},
 		"ammunitionProperties": [],
 		"armorCategory": "",
 		"armorProperties": [],
 		"attuned": false,
 		"bulky": false,
-		"craftingComponents": "Fiend’s heart",
+		"craftingComponents": "Fiend's heart",
 		"containerId": "",
 		"damagedState": 0,
 		"equippedState": 0,
@@ -103,7 +235,7 @@
 		"materialProperties": [],
 		"objectType": "weapon",
 		"plotItem": false,
-		"price": "10 gp",
+		"price": "400 gp",
 		"proficient": true,
 		"quantity": 1,
 		"rarity": "uncommon",
@@ -116,7 +248,8 @@
 		"weaponProperties": [
 			"versatile",
 			"thrown",
-			"mounted"
+			"mounted",
+			"vicious"
 		],
 		"weight": 3,
 		"schemaVersion": {

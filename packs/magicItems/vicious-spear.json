@@ -2,7 +2,47 @@
 	"name": "Vicious Spear",
 	"type": "object",
 	"img": "icons/weapons/polearms/spear-flared-wrapped.webp",
-	"effects": [],
+	"effects": [
+		{
+			"icon": "icons/weapons/polearms/spear-flared-wrapped.webp",
+			"origin": "Item.RDe9sT0kKKR2ZC7k",
+			"flags": {
+				"a5e": {
+					"sort": 0,
+					"transferType": "onUse",
+					"actionId": "JtplYF8JKilBpP4f",
+					"duration": {
+						"type": "rounds",
+						"unit": "minutes"
+					}
+				}
+			},
+			"transfer": false,
+			"name": "AC +1",
+			"_id": "CzoRKz1aFF2zbPZy",
+			"changes": [
+				{
+					"key": "system.attributes.ac.changes.bonuses.value",
+					"value": "1",
+					"mode": 2,
+					"priority": null
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": null,
+				"combat": null,
+				"rounds": null,
+				"turns": 1,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "",
+			"statuses": [],
+			"folder": null
+		}
+	],
 	"flags": {},
 	"system": {
 		"ac": {
@@ -15,8 +55,8 @@
 			"requiresUnarmored": false
 		},
 		"actions": {
-			"7nxTWamCq12DpGrg": {
-				"name": "Vicious Spear",
+			"kWsss8bI70rtpUV6": {
+				"name": "Spear",
 				"activation": {
 					"cost": "",
 					"type": "",
@@ -27,75 +67,134 @@
 					"value": ""
 				},
 				"ranges": {
-					"QDwYA00IQ2cUHK4f": {
+					"GLFs1wAhfJxSfSPp": {
 						"range": 20,
 						"unit": "feet"
 					},
-					"OM3tEwpjtTOl5Yz8": {
+					"Cmac44PO3vBMH47C": {
 						"range": "medium"
 					}
 				},
 				"area": {
 					"shape": "",
 					"size": "",
-					"placeTemplate": false
+					"placeTemplate": false,
+					"quantity": 1
 				},
 				"target": {
 					"quantity": 1,
 					"type": "creatureObject"
 				},
 				"rolls": {
-					"23ibOBE57XzBxYzF": {
+					"bgXGyMGdFJjCkrXA": {
 						"bonus": "",
 						"critThreshold": "20",
 						"type": "attack",
 						"attackType": "meleeWeaponAttack",
 						"ability": "default"
 					},
-					"XbSoiIbKSq23pNcI": {
+					"EH41F8oxdy5FXyOT": {
 						"canCrit": true,
 						"damageType": "piercing",
 						"formula": "1d6 + @str.mod",
 						"name": "Spear - 1H",
-						"type": "damage"
+						"type": "damage",
+						"label": "One-Handed",
+						"default": false,
+						"critBonus": "2d6"
 					},
-					"qHra3uvUeYROG27M": {
+					"panx4AGUiOcDxR6b": {
 						"canCrit": true,
 						"damageType": "piercing",
 						"formula": "1d8 + @str.mod",
 						"name": "Spear - 2H",
-						"type": "damage"
-					},
-					"wX5ZzBNHq5cSgruG": {
-						"canCrit": false,
-						"damageType": "piercing",
-						"formula": "2d6",
-						"name": "Vicious Damage",
-						"type": "damage"
+						"type": "damage",
+						"label": "Two-Handed",
+						"default": false,
+						"critBonus": "2d6"
 					}
 				},
 				"consumers": {}
+			},
+			"MrV3YZriaZmI1ygT": {
+				"name": "Spear (Throw)",
+				"activation": {
+					"cost": "",
+					"type": "",
+					"reactionTrigger": ""
+				},
+				"duration": {
+					"unit": "",
+					"value": ""
+				},
+				"ranges": {
+					"GLFs1wAhfJxSfSPp": {
+						"range": 20,
+						"unit": "feet"
+					},
+					"Cmac44PO3vBMH47C": {
+						"range": "medium"
+					}
+				},
+				"area": {
+					"shape": "",
+					"size": "",
+					"placeTemplate": false,
+					"quantity": 1
+				},
+				"target": {
+					"quantity": 1,
+					"type": "creatureObject"
+				},
+				"rolls": {
+					"bgXGyMGdFJjCkrXA": {
+						"bonus": "",
+						"critThreshold": "20",
+						"type": "attack",
+						"attackType": "rangedWeaponAttack",
+						"ability": "default"
+					},
+					"EH41F8oxdy5FXyOT": {
+						"canCrit": true,
+						"damageType": "piercing",
+						"formula": "1d6 + @finesse.mod",
+						"name": "Spear - 1H",
+						"type": "damage",
+						"critBonus": "2d6"
+					}
+				},
+				"consumers": {
+					"HxaaV7J2JDjit1gC": {
+						"type": "itemUses",
+						"default": true,
+						"quantity": 1
+					}
+				}
 			}
 		},
-		"description": "<p><em>Defensive (Heavy), Simple, Thrown (20/60), Versatile (1d8)</em></p><p>When you roll a natural 20 on an attack roll using this weapon it deals an extra 2d6 damage of the weapon's type (this extra damage does not double).</p>",
+		"description": "<p><em>Defensive (Heavy), Simple, Thrown (20/60), Versatile (1d8)</em></p>\n<p><strong>Vicious Weapon:&nbsp;</strong>When you roll a natural 20 on an attack roll using this weapon it deals an extra 2d6 damage of the weapon&rsquo;s type (this extra damage does not double).</p>",
 		"favorite": false,
 		"secretDescription": "",
 		"source": "",
 		"uses": {
-			"value": null,
-			"max": "",
+			"value": 1,
+			"max": "1",
 			"per": null,
 			"recharge": {
 				"formula": "1d6",
 				"threshold": 6
 			}
 		},
+		"schema": {
+			"version": null,
+			"lastMigration": null
+		},
 		"ammunitionProperties": [],
 		"armorCategory": "",
 		"armorProperties": [],
 		"attuned": false,
 		"bulky": false,
-		"craftingComponents": "Fiend’s heart",
+		"craftingComponents": "Fiend's heart",
 		"containerId": "",
 		"damagedState": 0,
 		"equippedState": 0,
@@ -103,7 +202,7 @@
 		"materialProperties": [],
 		"objectType": "weapon",
 		"plotItem": false,
-		"price": "1 gp",
+		"price": "400 gp",
 		"proficient": true,
 		"quantity": 1,
 		"rarity": "uncommon",
@@ -117,7 +216,8 @@
 			"thrown",
 			"simple",
 			"versatile",
-			"defensive"
+			"defensive",
+			"vicious"
 		],
 		"weight": 3,
 		"schemaVersion": {

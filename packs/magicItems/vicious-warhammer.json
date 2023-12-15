@@ -15,8 +15,8 @@
 			"requiresUnarmored": false
 		},
 		"actions": {
-			"xSKwtkxjf43RYFFz": {
-				"name": "Vicious Warhammer",
+			"vyRQ7uPQugLDVOn6": {
+				"name": "Warhammer",
 				"activation": {
 					"cost": "",
 					"type": "",
@@ -36,39 +36,38 @@
 					"type": "creatureObject"
 				},
 				"rolls": {
-					"R6ggP2c5VdTMisl7": {
+					"sz34o0lZChAfzq92": {
 						"bonus": "",
 						"critThreshold": "20",
 						"type": "attack",
 						"attackType": "meleeWeaponAttack",
 						"ability": "default"
 					},
-					"xd5F5pBpDONLvM8S": {
+					"avEzM2ldJEDhQEPF": {
 						"canCrit": true,
 						"damageType": "bludgeoning",
 						"formula": "1d8 + @str.mod",
 						"name": "Warhammer 1H",
-						"type": "damage"
+						"type": "damage",
+						"label": "One-Handed",
+						"default": false,
+						"critBonus": "2d6"
 					},
-					"he10lQewi48rLH0a": {
+					"I2YLTXoFuKJbZoVE": {
 						"canCrit": true,
 						"damageType": "bludgeoning",
 						"formula": "1d10 + @str.mod",
 						"name": "Warhammer 2H",
-						"type": "damage"
-					},
-					"1LM2a4OhJgkXjqBi": {
-						"canCrit": false,
-						"damageType": "bludgeoning",
-						"formula": "2d6",
-						"name": "Vicious Damage",
-						"type": "damage"
+						"type": "damage",
+						"label": "Two-Handed",
+						"default": false,
+						"critBonus": "2d6"
 					}
 				},
 				"consumers": {}
 			}
 		},
-		"description": "<p><em>Breaker, Versatile (1d10)</em></p><p>When you roll a natural 20 on an attack roll using this weapon it deals an extra 2d6 damage of the weapon's type (this extra damage does not double).</p>",
+		"description": "<p><em>Breaker, Versatile (1d10)</em></p>\n<p><strong>Vicious Weapon:&nbsp;</strong>When you roll a natural 20 on an attack roll using this weapon it deals an extra 2d6 damage of the weapon&rsquo;s type (this extra damage does not double).</p>",
 		"favorite": false,
 		"secretDescription": "",
 		"source": "",
@@ -81,12 +80,16 @@
 				"threshold": 6
 			}
 		},
+		"schema": {
+			"version": null,
+			"lastMigration": null
+		},
 		"ammunitionProperties": [],
 		"armorCategory": "",
 		"armorProperties": [],
 		"attuned": false,
 		"bulky": false,
-		"craftingComponents": "Fiend’s heart",
+		"craftingComponents": "Fiend's heart",
 		"containerId": "",
 		"damagedState": 0,
 		"equippedState": 0,
@@ -94,7 +97,7 @@
 		"materialProperties": [],
 		"objectType": "weapon",
 		"plotItem": false,
-		"price": "15 gp",
+		"price": "400 gp",
 		"proficient": true,
 		"quantity": 1,
 		"rarity": "uncommon",
@@ -106,7 +109,8 @@
 		"unidentifiedName": "",
 		"weaponProperties": [
 			"versatile",
-			"breaker"
+			"breaker",
+			"vicious"
 		],
 		"weight": 3,
 		"schemaVersion": {

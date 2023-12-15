@@ -15,11 +15,11 @@
 			"requiresUnarmored": false
 		},
 		"actions": {
-			"wAa0tjaBB8BqBuPQ": {
-				"name": "Vicious Sword Pistol",
+			"pHSY0daEcSVr3fVt": {
+				"name": "Melee",
 				"activation": {
-					"cost": "",
-					"type": "",
+					"cost": 1,
+					"type": "action",
 					"reactionTrigger": ""
 				},
 				"duration": {
@@ -27,50 +27,149 @@
 					"value": ""
 				},
 				"ranges": {
-					"RyjSpH2ckwZ0kBSy": {
-						"range": 10,
-						"unit": "feet"
-					},
-					"qnbLLkUfThCIEvvF": {
-						"range": "short"
+					"LlIvTiQyFM3eYkHB": {
+						"range": "fiveFeet"
 					}
 				},
 				"area": {
 					"shape": "",
 					"size": "",
-					"placeTemplate": false
+					"placeTemplate": false,
+					"quantity": 1
 				},
 				"target": {
 					"quantity": 1,
 					"type": "creatureObject"
 				},
 				"rolls": {
-					"8L76blR2XtFkoz7K": {
+					"rXQCoFzTnaePHn9X": {
 						"bonus": "",
 						"critThreshold": "20",
 						"type": "attack",
 						"attackType": "",
 						"ability": "default"
 					},
-					"bARmJ08aTIWaiTDM": {
+					"lkcXyE2EtrFzRLYa": {
 						"canCrit": true,
 						"damageType": "piercing",
-						"formula": "1d8 + @@str.mod",
+						"formula": "1d8 + @finesse.mod",
 						"name": "Sword Pistol",
-						"type": "damage"
-					},
-					"sWAkE3eggRL3t5uS": {
-						"canCrit": false,
-						"damageType": "piercing",
-						"formula": "2d6",
-						"name": "Vicious Damage",
-						"type": "damage"
+						"type": "damage",
+						"critBonus": "2d6"
 					}
 				},
 				"consumers": {}
+			},
+			"TVASPj7igVktVFkg": {
+				"name": "Fire",
+				"activation": {
+					"cost": 1,
+					"type": "action",
+					"reactionTrigger": ""
+				},
+				"duration": {
+					"unit": "",
+					"value": ""
+				},
+				"ranges": {
+					"LlIvTiQyFM3eYkHB": {
+						"range": 10,
+						"unit": "feet"
+					},
+					"CaVQ2Jfh3jhOVVWy": {
+						"range": "short"
+					}
+				},
+				"area": {
+					"shape": "",
+					"size": "",
+					"placeTemplate": false,
+					"quantity": 1
+				},
+				"target": {
+					"quantity": 1,
+					"type": "creatureObject"
+				},
+				"rolls": {
+					"rXQCoFzTnaePHn9X": {
+						"bonus": "",
+						"critThreshold": "20",
+						"type": "attack",
+						"attackType": "rangedWeaponAttack",
+						"ability": "dex"
+					},
+					"lkcXyE2EtrFzRLYa": {
+						"canCrit": true,
+						"damageType": "piercing",
+						"formula": "1d8 + @dex.mod",
+						"name": "Sword Pistol",
+						"type": "damage",
+						"critBonus": "2d6"
+					}
+				},
+				"consumers": {
+					"DAclG0Jr8A4bHkPE": {
+						"type": "ammunition",
+						"default": true,
+						"itemId": "",
+						"quantity": 1
+					}
+				}
+			},
+			"EHCpC0Fl8n4MB25f": {
+				"name": "Melee Fire",
+				"activation": {
+					"cost": 1,
+					"type": "reaction",
+					"reactionTrigger": ""
+				},
+				"duration": {
+					"unit": "",
+					"value": ""
+				},
+				"ranges": {
+					"LlIvTiQyFM3eYkHB": {
+						"range": "fiveFeet"
+					}
+				},
+				"area": {
+					"shape": "",
+					"size": "",
+					"placeTemplate": false,
+					"quantity": 1
+				},
+				"target": {
+					"quantity": 1,
+					"type": "creatureObject"
+				},
+				"rolls": {
+					"rXQCoFzTnaePHn9X": {
+						"bonus": "1d6",
+						"critThreshold": "20",
+						"type": "attack",
+						"attackType": "rangedWeaponAttack",
+						"ability": "default"
+					},
+					"lkcXyE2EtrFzRLYa": {
+						"canCrit": true,
+						"damageType": "piercing",
+						"formula": "1d8 + @finesse.mod",
+						"name": "Sword Pistol",
+						"type": "damage",
+						"critBonus": "2d6"
+					}
+				},
+				"consumers": {
+					"JO4YYgJ5U3UdGnn9": {
+						"type": "ammunition",
+						"default": true,
+						"itemId": "",
+						"quantity": 1
+					}
+				}
 			}
 		},
-		"description": "<p><em>Finesse, Loading, Range (10/30)</em></p><hr class=\"a5e-rule u-my-md\"><p>When this weapon is used to hit a target with a melee weapon attack, you can use your reaction to fire the gun in the handle, gaining a <strong>1d6</strong> expertise die on an immediate ranged weapon attack against the same target.</p><p></p><p>When you roll a natural 20 on an attack roll using this weapon it deals an extra 2d6 damage of the weapon's type (this extra damage does not double).</p>",
+		"description": "<p><em>Finesse, Loading, Range (10/30)</em></p>\n<hr class=\"a5e-rule u-my-md\">\n<p>When this weapon is used to hit a target with a melee weapon attack, you can use your reaction to fire the gun in the handle, gaining a <strong>1d6</strong> expertise die on an immediate ranged weapon attack against the same target.</p>\n<p><strong>Vicious Weapon:&nbsp;</strong>When you roll a natural 20 on an attack roll using this weapon it deals an extra 2d6 damage of the weapon&rsquo;s type (this extra damage does not double).</p>",
 		"favorite": false,
 		"secretDescription": "",
 		"source": "",
@@ -83,12 +182,16 @@
 				"threshold": 6
 			}
 		},
+		"schema": {
+			"version": null,
+			"lastMigration": null
+		},
 		"ammunitionProperties": [],
 		"armorCategory": "",
 		"armorProperties": [],
 		"attuned": false,
 		"bulky": false,
-		"craftingComponents": "Fiend’s heart",
+		"craftingComponents": "Fiend's heart",
 		"containerId": "",
 		"damagedState": 0,
 		"equippedState": 0,
@@ -96,7 +199,7 @@
 		"materialProperties": [],
 		"objectType": "weapon",
 		"plotItem": false,
-		"price": "200 gp",
+		"price": "400 gp",
 		"proficient": true,
 		"quantity": 1,
 		"rarity": "uncommon",
@@ -106,7 +209,12 @@
 		"unidentified": false,
 		"unidentifiedDescription": "",
 		"unidentifiedName": "",
-		"weaponProperties": [],
+		"weaponProperties": [
+			"finesse",
+			"range",
+			"loading",
+			"vicious"
+		],
 		"weight": 5,
 		"schemaVersion": {
 			"version": 0.009,

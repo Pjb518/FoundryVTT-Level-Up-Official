@@ -15,8 +15,8 @@
 			"requiresUnarmored": false
 		},
 		"actions": {
-			"5VoZwhoZmoauaj7o": {
-				"name": "Trident +3",
+			"jmhv8DatShUbKS2b": {
+				"name": "Trident",
 				"activation": {
 					"cost": "",
 					"type": "",
@@ -27,47 +27,176 @@
 					"value": ""
 				},
 				"ranges": {
-					"w0Auer4yjqrOkLwo": {
+					"kqB84gFUFuX4c5VX": {
 						"range": 20,
 						"unit": "feet"
 					},
-					"Yms3rcLEv1eijndw": {
+					"kwnjxkDQXbGIe6M9": {
 						"range": "medium"
 					}
 				},
 				"area": {
 					"shape": "",
 					"size": "",
-					"placeTemplate": false
+					"placeTemplate": false,
+					"quantity": 1
 				},
 				"target": {
 					"quantity": 1,
 					"type": "creatureObject"
 				},
 				"rolls": {
-					"gQZGDPP51xUKtNSe": {
+					"DIWavj0St2cyMBAy": {
 						"bonus": "3",
 						"critThreshold": "20",
 						"type": "attack",
 						"attackType": "meleeWeaponAttack",
 						"ability": "default"
 					},
-					"51RQn9oa27wFZvnw": {
+					"5ZU8ZjzJ6cAdaCWi": {
 						"canCrit": true,
 						"damageType": "piercing",
 						"formula": "1d6 + @str.mod + 3",
 						"name": "Trident - 1H",
-						"type": "damage"
+						"type": "damage",
+						"label": "One-Handed",
+						"default": false
 					},
-					"xucBGR1TxPaViRcO": {
+					"QaYeFljDmoLPxuEC": {
 						"canCrit": true,
 						"damageType": "piercing",
 						"formula": "1d8 + @str.mod + 3",
 						"name": "Trident - 2H",
-						"type": "damage"
+						"type": "damage",
+						"label": "Two-Handed",
+						"default": false
 					}
 				},
 				"consumers": {}
+			},
+			"MeeBvXQWljl0flxq": {
+				"name": "Trident (Mounted)",
+				"activation": {
+					"cost": "",
+					"type": "",
+					"reactionTrigger": ""
+				},
+				"duration": {
+					"unit": "",
+					"value": ""
+				},
+				"ranges": {
+					"kqB84gFUFuX4c5VX": {
+						"range": 20,
+						"unit": "feet"
+					},
+					"kwnjxkDQXbGIe6M9": {
+						"range": "medium"
+					}
+				},
+				"area": {
+					"shape": "",
+					"size": "",
+					"placeTemplate": false,
+					"quantity": 1
+				},
+				"target": {
+					"quantity": 1,
+					"type": "creatureObject"
+				},
+				"rolls": {
+					"DIWavj0St2cyMBAy": {
+						"bonus": "3",
+						"critThreshold": "20",
+						"type": "attack",
+						"attackType": "meleeWeaponAttack",
+						"ability": "default"
+					},
+					"5ZU8ZjzJ6cAdaCWi": {
+						"canCrit": true,
+						"damageType": "piercing",
+						"formula": "1d8 + @str.mod + 3",
+						"name": "Trident - 1H",
+						"type": "damage",
+						"label": "One-Handed",
+						"default": false
+					},
+					"QaYeFljDmoLPxuEC": {
+						"canCrit": true,
+						"damageType": "piercing",
+						"formula": "1d10 + @str.mod + 3",
+						"name": "Trident - 2H",
+						"type": "damage",
+						"label": "Two-Handed",
+						"default": false
+					}
+				},
+				"consumers": {}
+			},
+			"77jqe1SdsKOkHt0L": {
+				"name": "Trident (Throw)",
+				"activation": {
+					"cost": "",
+					"type": "",
+					"reactionTrigger": ""
+				},
+				"duration": {
+					"unit": "",
+					"value": ""
+				},
+				"ranges": {
+					"kqB84gFUFuX4c5VX": {
+						"range": 20,
+						"unit": "feet"
+					},
+					"kwnjxkDQXbGIe6M9": {
+						"range": "medium"
+					}
+				},
+				"area": {
+					"shape": "",
+					"size": "",
+					"placeTemplate": false,
+					"quantity": 1
+				},
+				"target": {
+					"quantity": 1,
+					"type": "creatureObject"
+				},
+				"rolls": {
+					"DIWavj0St2cyMBAy": {
+						"bonus": "3",
+						"critThreshold": "20",
+						"type": "attack",
+						"attackType": "rangedWeaponAttack",
+						"ability": "default"
+					},
+					"5ZU8ZjzJ6cAdaCWi": {
+						"canCrit": true,
+						"damageType": "piercing",
+						"formula": "1d6 + @finesse.mod + 3",
+						"name": "Trident - 1H",
+						"type": "damage",
+						"label": "Unmounted",
+						"default": false
+					},
+					"t9g5bCInZSbI0jFI": {
+						"canCrit": true,
+						"damageType": "piercing",
+						"formula": "1d8 + @finesse.mod + 3",
+						"name": "Trident - 1H",
+						"type": "damage",
+						"label": "Mounted",
+						"default": false
+					}
+				},
+				"consumers": {
+					"mWt7duYvBxZIUG8F": {
+						"type": "itemUses",
+						"default": true,
+						"quantity": 1
+					}
+				}
 			}
 		},
 		"description": "<p><em>Mounted (1d8/1d10), Thrown (20/60), Versatile (1d8)</em></p>",
@@ -75,20 +204,24 @@
 		"secretDescription": "",
 		"source": "",
 		"uses": {
-			"value": null,
-			"max": "",
+			"value": 1,
+			"max": "1",
 			"per": null,
 			"recharge": {
 				"formula": "1d6",
 				"threshold": 6
 			}
 		},
+		"schema": {
+			"version": null,
+			"lastMigration": null
+		},
 		"ammunitionProperties": [],
 		"armorCategory": "",
 		"armorProperties": [],
 		"attuned": false,
 		"bulky": false,
-		"craftingComponents": "A +2 weapon that has hit a monster of CR 15 or higher",
+		"craftingComponents": "+2 weapon that has hit a monster of CR 15 or higher",
 		"containerId": "",
 		"damagedState": 0,
 		"equippedState": 0,
@@ -96,7 +229,7 @@
 		"materialProperties": [],
 		"objectType": "weapon",
 		"plotItem": false,
-		"price": "10 gp",
+		"price": "8,000 gp",
 		"proficient": true,
 		"quantity": 1,
 		"rarity": "veryRare",

@@ -2,7 +2,47 @@
 	"name": "Vicious Shortsword",
 	"type": "object",
 	"img": "icons/weapons/swords/shortsword-guard-brass.webp",
-	"effects": [],
+	"effects": [
+		{
+			"icon": "icons/weapons/swords/shortsword-guard-brass.webp",
+			"origin": "Item.s7jeCDrtdWssgoDw",
+			"flags": {
+				"a5e": {
+					"sort": 0,
+					"transferType": "onUse",
+					"actionId": "LfiU8RBp5laBi6jt",
+					"duration": {
+						"type": "rounds",
+						"unit": "minutes"
+					}
+				}
+			},
+			"transfer": false,
+			"name": "AC +1",
+			"_id": "o3RplnB3d2bgc5Cs",
+			"changes": [
+				{
+					"key": "system.attributes.ac.changes.bonuses.value",
+					"value": "1",
+					"mode": 2,
+					"priority": null
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": null,
+				"combat": null,
+				"rounds": null,
+				"turns": 1,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "",
+			"statuses": [],
+			"folder": null
+		}
+	],
 	"flags": {
 		"core": {
 			"sheetClass": "a5e.ItemSheet5e"
@@ -19,8 +59,8 @@
 			"requiresUnarmored": false
 		},
 		"actions": {
-			"FBfwsg8chhBLTkAw": {
-				"name": "Vicious Shortsword",
+			"s8ufuOSoG0jsuNjg": {
+				"name": "Shortsword",
 				"activation": {
 					"cost": "",
 					"type": "",
@@ -33,39 +73,58 @@
 				"area": {
 					"shape": "",
 					"size": "",
-					"placeTemplate": false
+					"placeTemplate": false,
+					"quantity": 1
 				},
 				"target": {
 					"quantity": 1,
 					"type": "creatureObject"
 				},
 				"rolls": {
-					"vzrMLCiuwqqHLzem": {
+					"P7UeMDVPmv9D9fqE": {
 						"bonus": "",
 						"critThreshold": "20",
 						"type": "attack",
 						"attackType": "meleeWeaponAttack",
 						"ability": "default"
 					},
-					"y3ti4F3KVvGCsXFO": {
+					"HUbaIlANmQsN4fYO": {
 						"canCrit": true,
 						"damageType": "slashing",
 						"formula": "1d6 + @finesse.mod",
 						"name": "Shortsword",
-						"type": "damage"
-					},
-					"6iddlYdzw6ZWnlyK": {
-						"canCrit": false,
-						"damageType": "slashing",
-						"formula": "2d6",
-						"name": "Vicious Damage",
-						"type": "damage"
+						"type": "damage",
+						"critBonus": "2d6"
 					}
 				},
 				"consumers": {}
+			},
+			"vQTQD7tzjEVIJLR0": {
+				"name": "Parry",
+				"activation": {},
+				"consumers": {},
+				"rolls": {
+					"tmuyLFz7KQutuiOG": {
+						"type": "generic",
+						"default": true,
+						"label": "Armor Class",
+						"formula": "1d4"
+					}
+				},
+				"prompts": {},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"threshold": 6
+					}
+				},
+				"img": "icons/weapons/swords/shortsword-guard-brass.webp"
 			}
 		},
-		"description": "<p><em>Defensive (Medium), Finesse, Parrying</em></p><p>When you roll a natural 20 on an attack roll using this weapon it deals an extra 2d6 damage of the weapon's type (this extra damage does not double).</p>",
+		"description": "<p><em>Defensive (Medium), Finesse, Parrying</em></p>\n<p><strong>Vicious Weapon:&nbsp;</strong>When you roll a natural 20 on an attack roll using this weapon it deals an extra 2d6 damage of the weapon&rsquo;s type (this extra damage does not double).</p>",
 		"favorite": false,
 		"secretDescription": "",
 		"source": "",
@@ -78,12 +137,16 @@
 				"threshold": 6
 			}
 		},
+		"schema": {
+			"version": null,
+			"lastMigration": null
+		},
 		"ammunitionProperties": [],
 		"armorCategory": "",
 		"armorProperties": [],
 		"attuned": false,
 		"bulky": false,
-		"craftingComponents": "Fiend’s heart",
+		"craftingComponents": "Fiend's heart",
 		"containerId": "",
 		"damagedState": 0,
 		"equippedState": 0,
@@ -91,7 +154,7 @@
 		"materialProperties": [],
 		"objectType": "weapon",
 		"plotItem": false,
-		"price": "10 gp",
+		"price": "400 gp",
 		"proficient": true,
 		"quantity": 1,
 		"rarity": "uncommon",
@@ -104,7 +167,8 @@
 		"weaponProperties": [
 			"defensive",
 			"parrying",
-			"finesse"
+			"finesse",
+			"vicious"
 		],
 		"weight": 2,
 		"schemaVersion": {
