@@ -15,8 +15,8 @@
 			"requiresUnarmored": false
 		},
 		"actions": {
-			"PvPBAsraR3sf8t82": {
-				"name": "Vicious Dagger, Dueling",
+			"RuQWcxfqAkwnU5iV": {
+				"name": "Dagger, Dueling",
 				"activation": {
 					"cost": "",
 					"type": "",
@@ -29,39 +29,97 @@
 				"area": {
 					"shape": "",
 					"size": "",
-					"placeTemplate": false
+					"placeTemplate": false,
+					"quantity": 1
 				},
 				"target": {
 					"quantity": 1,
 					"type": "creatureObject"
 				},
 				"rolls": {
-					"8Ku3pG2cT8pXmpxD": {
+					"jdaHt4a8xrbtD62Y": {
 						"bonus": "",
 						"critThreshold": "20",
 						"type": "attack",
 						"attackType": "meleeWeaponAttack",
 						"ability": "default"
 					},
-					"k2j0zje6UTZgkwKA": {
+					"l36lfdj0Kpt3h9RS": {
 						"canCrit": true,
 						"damageType": "piercing",
 						"formula": "1d4 + @finesse.mod",
 						"name": "Dueling Dagger",
-						"type": "damage"
-					},
-					"qWN07gpZT9WX06C4": {
-						"canCrit": false,
-						"damageType": "piercing",
-						"formula": "2d6",
-						"name": "Vicious Damage",
-						"type": "damage"
+						"type": "damage",
+						"critBonus": "2d6"
 					}
 				},
 				"consumers": {}
+			},
+			"RLXw0kj3PLXccUdC": {
+				"name": "Dagger, Dueling (Off-Hand)",
+				"activation": {
+					"cost": "",
+					"type": "",
+					"reactionTrigger": ""
+				},
+				"duration": {
+					"unit": "",
+					"value": ""
+				},
+				"area": {
+					"shape": "",
+					"size": "",
+					"placeTemplate": false,
+					"quantity": 1
+				},
+				"target": {
+					"quantity": 1,
+					"type": "creatureObject"
+				},
+				"rolls": {
+					"jdaHt4a8xrbtD62Y": {
+						"bonus": "",
+						"critThreshold": "20",
+						"type": "attack",
+						"attackType": "meleeWeaponAttack",
+						"ability": "default"
+					},
+					"l36lfdj0Kpt3h9RS": {
+						"canCrit": true,
+						"damageType": "piercing",
+						"formula": "1d4 + min(@finesse.mod,0)",
+						"name": "Dueling Dagger",
+						"type": "damage",
+						"critBonus": "2d6"
+					}
+				},
+				"consumers": {}
+			},
+			"isbJy97nXH9E6mqm": {
+				"name": "Parry",
+				"activation": {},
+				"consumers": {},
+				"rolls": {
+					"tmuyLFz7KQutuiOG": {
+						"type": "generic",
+						"default": true,
+						"label": "Armor Class",
+						"formula": "1d4"
+					}
+				},
+				"prompts": {},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"threshold": 6
+					}
+				}
 			}
 		},
-		"description": "<p><em>Dual-Wielding, Finesse, Parrying</em></p><p>When you roll a natural 20 on an attack roll using this weapon it deals an extra 2d6 damage of the weapon's type (this extra damage does not double).</p>",
+		"description": "<p><em>Dual-Wielding, Finesse, Parrying</em></p>\n<p><strong>Vicious Weapon:&nbsp;</strong>When you roll a natural 20 on an attack roll using this weapon it deals an extra 2d6 damage of the weapon&rsquo;s type (this extra damage does not double).</p>",
 		"favorite": false,
 		"secretDescription": "",
 		"source": "",
@@ -74,12 +132,16 @@
 				"threshold": 6
 			}
 		},
+		"schema": {
+			"version": null,
+			"lastMigration": null
+		},
 		"ammunitionProperties": [],
 		"armorCategory": "",
 		"armorProperties": [],
 		"attuned": false,
 		"bulky": false,
-		"craftingComponents": "Fiend’s heart",
+		"craftingComponents": "Fiend's heart",
 		"containerId": "",
 		"damagedState": 0,
 		"equippedState": 0,
@@ -87,7 +149,7 @@
 		"materialProperties": [],
 		"objectType": "weapon",
 		"plotItem": false,
-		"price": "6 gp",
+		"price": "400 gp",
 		"proficient": true,
 		"quantity": 1,
 		"rarity": "uncommon",
@@ -100,7 +162,8 @@
 		"weaponProperties": [
 			"dualWielding",
 			"finesse",
-			"parrying"
+			"parrying",
+			"vicious"
 		],
 		"weight": 1,
 		"schemaVersion": {

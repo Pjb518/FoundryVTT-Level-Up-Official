@@ -15,8 +15,8 @@
 			"requiresUnarmored": false
 		},
 		"actions": {
-			"3LBgF79hne88IWif": {
-				"name": "Vicious Dart",
+			"fqfxzHf8lib7V1zd": {
+				"name": "Dart",
 				"activation": {
 					"cost": "",
 					"type": "",
@@ -27,11 +27,11 @@
 					"value": ""
 				},
 				"ranges": {
-					"DI2cj7lYhhpXsDY2": {
+					"mOpy0YG8Bwk6hc2R": {
 						"range": 20,
 						"unit": "feet"
 					},
-					"ZHj77jpFz3O5bTLL": {
+					"UyYzJeQeCzDu4wyg": {
 						"range": "medium"
 					}
 				},
@@ -45,30 +45,24 @@
 					"type": "creatureObject"
 				},
 				"rolls": {
-					"NyVp3aL2nRdHvJyT": {
+					"WWSZqt63sCs8Xyxf": {
 						"bonus": "",
 						"critThreshold": "20",
 						"type": "attack",
 						"attackType": "rangedWeaponAttack",
 						"ability": "default"
 					},
-					"xKhqLlr61L0Mwd54": {
+					"xTCcFWQnKw9yT9bw": {
 						"canCrit": true,
 						"damageType": "piercing",
 						"formula": "1d4 + @dex.mod",
 						"name": "Thrown Dart",
-						"type": "damage"
-					},
-					"IHNQxtl75zODqqd5": {
-						"canCrit": false,
-						"damageType": "piercing",
-						"formula": "2d6",
-						"name": "Vicious Damage",
-						"type": "damage"
+						"type": "damage",
+						"critBonus": "2d6"
 					}
 				},
 				"consumers": {
-					"U8AJPgtGMgvD1dl4": {
+					"PmJ8Z2kRCAfUJZ35": {
 						"itemid": "",
 						"quantity": 1,
 						"type": "ammunition"
@@ -76,7 +70,7 @@
 				}
 			}
 		},
-		"description": "<p><em>Range (20/60)</em></p><p>When you roll a natural 20 on an attack roll using this weapon it deals an extra 2d6 damage of the weapon's type (this extra damage does not double).</p>",
+		"description": "<p><em>Range (20/60)</em></p>\n<p><strong>Vicious Weapon:&nbsp;</strong>When you roll a natural 20 on an attack roll using this weapon it deals an extra 2d6 damage of the weapon&rsquo;s type (this extra damage does not double).</p>",
 		"favorite": false,
 		"secretDescription": "",
 		"source": "",
@@ -89,12 +83,16 @@
 				"threshold": 6
 			}
 		},
+		"schema": {
+			"version": null,
+			"lastMigration": null
+		},
 		"ammunitionProperties": [],
 		"armorCategory": "",
 		"armorProperties": [],
 		"attuned": false,
 		"bulky": false,
-		"craftingComponents": "Fiend’s heart",
+		"craftingComponents": "Fiend's heart",
 		"containerId": "",
 		"damagedState": 0,
 		"equippedState": 0,
@@ -102,7 +100,7 @@
 		"materialProperties": [],
 		"objectType": "weapon",
 		"plotItem": false,
-		"price": "5 sp",
+		"price": "400 gp",
 		"proficient": true,
 		"quantity": 1,
 		"rarity": "uncommon",
@@ -113,9 +111,10 @@
 		"unidentifiedDescription": "",
 		"unidentifiedName": "",
 		"weaponProperties": [
-			"range"
+			"range",
+			"vicious"
 		],
-		"weight": 25,
+		"weight": 0.25,
 		"schemaVersion": {
 			"version": 0.009,
 			"lastMigration": {

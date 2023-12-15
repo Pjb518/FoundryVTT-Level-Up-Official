@@ -15,8 +15,8 @@
 			"requiresUnarmored": false
 		},
 		"actions": {
-			"8C1KRcnGV88D7d9m": {
-				"name": "Dagger, Dueling +1",
+			"RuQWcxfqAkwnU5iV": {
+				"name": "Dagger, Dueling",
 				"activation": {
 					"cost": "",
 					"type": "",
@@ -29,21 +29,22 @@
 				"area": {
 					"shape": "",
 					"size": "",
-					"placeTemplate": false
+					"placeTemplate": false,
+					"quantity": 1
 				},
 				"target": {
 					"quantity": 1,
 					"type": "creatureObject"
 				},
 				"rolls": {
-					"VbGA9TI3AVrBdhEm": {
+					"jdaHt4a8xrbtD62Y": {
 						"bonus": "1",
 						"critThreshold": "20",
 						"type": "attack",
 						"attackType": "meleeWeaponAttack",
 						"ability": "default"
 					},
-					"EnKkGlZYFWqu3fRA": {
+					"l36lfdj0Kpt3h9RS": {
 						"canCrit": true,
 						"damageType": "piercing",
 						"formula": "1d4 + @finesse.mod + 1",
@@ -52,6 +53,68 @@
 					}
 				},
 				"consumers": {}
+			},
+			"RLXw0kj3PLXccUdC": {
+				"name": "Dagger, Dueling (Off-Hand)",
+				"activation": {
+					"cost": "",
+					"type": "",
+					"reactionTrigger": ""
+				},
+				"duration": {
+					"unit": "",
+					"value": ""
+				},
+				"area": {
+					"shape": "",
+					"size": "",
+					"placeTemplate": false,
+					"quantity": 1
+				},
+				"target": {
+					"quantity": 1,
+					"type": "creatureObject"
+				},
+				"rolls": {
+					"jdaHt4a8xrbtD62Y": {
+						"bonus": "1",
+						"critThreshold": "20",
+						"type": "attack",
+						"attackType": "meleeWeaponAttack",
+						"ability": "default"
+					},
+					"l36lfdj0Kpt3h9RS": {
+						"canCrit": true,
+						"damageType": "piercing",
+						"formula": "1d4 + min(@finesse.mod,0) + 1",
+						"name": "Dueling Dagger",
+						"type": "damage"
+					}
+				},
+				"consumers": {}
+			},
+			"isbJy97nXH9E6mqm": {
+				"name": "Parry",
+				"activation": {},
+				"consumers": {},
+				"rolls": {
+					"tmuyLFz7KQutuiOG": {
+						"type": "generic",
+						"default": true,
+						"label": "Armor Class",
+						"formula": "1d4"
+					}
+				},
+				"prompts": {},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"threshold": 6
+					}
+				}
 			}
 		},
 		"description": "<p><em>Dual-Wielding, Finesse, Parrying</em></p>",
@@ -67,6 +130,10 @@
 				"threshold": 6
 			}
 		},
+		"schema": {
+			"version": null,
+			"lastMigration": null
+		},
 		"ammunitionProperties": [],
 		"armorCategory": "",
 		"armorProperties": [],
@@ -80,7 +147,7 @@
 		"materialProperties": [],
 		"objectType": "weapon",
 		"plotItem": false,
-		"price": "6 gp",
+		"price": "500 gp",
 		"proficient": true,
 		"quantity": 1,
 		"rarity": "uncommon",

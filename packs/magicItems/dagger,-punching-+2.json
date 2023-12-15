@@ -15,8 +15,8 @@
 			"requiresUnarmored": false
 		},
 		"actions": {
-			"2M4QnjPgl46judZH": {
-				"name": "Dagger, Punching +2",
+			"gapgngkvu4NJ5ngS": {
+				"name": "Dagger, Punching",
 				"activation": {
 					"cost": "",
 					"type": "",
@@ -29,24 +29,64 @@
 				"area": {
 					"shape": "",
 					"size": "",
-					"placeTemplate": false
+					"placeTemplate": false,
+					"quantity": 1
 				},
 				"target": {
 					"quantity": 1,
 					"type": "creatureObject"
 				},
 				"rolls": {
-					"Cegx8Gx13AzbbfWI": {
+					"UuzQ6EF2bDPRzNXr": {
 						"bonus": "2",
 						"critThreshold": "20",
 						"type": "attack",
 						"attackType": "meleeWeaponAttack",
 						"ability": "default"
 					},
-					"diOIKJGOKST2rPGH": {
+					"0iMR31SZmQcVwAKO": {
 						"canCrit": true,
 						"damageType": "piercing",
 						"formula": "1d4 + @str.mod + 2",
+						"name": "Punching Dagger",
+						"type": "damage"
+					}
+				},
+				"consumers": {}
+			},
+			"anDBDTOSmogEY4qE": {
+				"name": "Dagger, Punching (Off-Hand)",
+				"activation": {
+					"cost": "",
+					"type": "",
+					"reactionTrigger": ""
+				},
+				"duration": {
+					"unit": "",
+					"value": ""
+				},
+				"area": {
+					"shape": "",
+					"size": "",
+					"placeTemplate": false,
+					"quantity": 1
+				},
+				"target": {
+					"quantity": 1,
+					"type": "creatureObject"
+				},
+				"rolls": {
+					"UuzQ6EF2bDPRzNXr": {
+						"bonus": "2",
+						"critThreshold": "20",
+						"type": "attack",
+						"attackType": "meleeWeaponAttack",
+						"ability": "default"
+					},
+					"0iMR31SZmQcVwAKO": {
+						"canCrit": true,
+						"damageType": "piercing",
+						"formula": "1d4 + min(str.mod,0) + 2",
 						"name": "Punching Dagger",
 						"type": "damage"
 					}
@@ -67,12 +107,16 @@
 				"threshold": 6
 			}
 		},
+		"schema": {
+			"version": null,
+			"lastMigration": null
+		},
 		"ammunitionProperties": [],
 		"armorCategory": "",
 		"armorProperties": [],
 		"attuned": false,
 		"bulky": false,
-		"craftingComponents": "A +1 weapon",
+		"craftingComponents": "+1 weapon",
 		"containerId": "",
 		"damagedState": 0,
 		"equippedState": 0,
@@ -80,7 +124,7 @@
 		"materialProperties": [],
 		"objectType": "weapon",
 		"plotItem": false,
-		"price": "4 gp",
+		"price": "3,500 gp",
 		"proficient": true,
 		"quantity": 1,
 		"rarity": "rare",

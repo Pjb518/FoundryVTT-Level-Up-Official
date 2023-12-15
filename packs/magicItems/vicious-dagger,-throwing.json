@@ -15,8 +15,8 @@
 			"requiresUnarmored": false
 		},
 		"actions": {
-			"WXv1qR89Cpeov181": {
-				"name": "Vicious Dagger, Throwing",
+			"JTO3hGtAyZssEli0": {
+				"name": "Dagger, Throwing",
 				"activation": {
 					"cost": "",
 					"type": "",
@@ -27,10 +27,10 @@
 					"value": ""
 				},
 				"ranges": {
-					"0sTRz0RgS5SyzNW5": {
+					"ZuUYJLAhjiO1GOiW": {
 						"range": "short"
 					},
-					"Vi9QVVoegZwZqfpK": {
+					"DJyRaY8KxorZKyHx": {
 						"range": 80,
 						"unit": "feet"
 					}
@@ -38,50 +38,198 @@
 				"area": {
 					"shape": "",
 					"size": "",
-					"placeTemplate": false
+					"placeTemplate": false,
+					"quantity": 1
 				},
 				"target": {
 					"quantity": 1,
 					"type": "creatureObject"
 				},
 				"rolls": {
-					"f8JFK8CamxgBFlbR": {
+					"lyAyT0URSjDZIBiq": {
 						"bonus": "",
 						"critThreshold": "20",
 						"type": "attack",
 						"attackType": "rangedWeaponAttack",
 						"ability": "default"
 					},
-					"nIoiWJ8wQFRr2Cy8": {
+					"NhOLH98GeEo8NO8M": {
 						"canCrit": true,
 						"damageType": "piercing",
 						"formula": "1d4 + @finesse.mod",
 						"name": "Throwing Dagger",
-						"type": "damage"
+						"type": "damage",
+						"critBonus": "2d6"
+					}
+				},
+				"consumers": {}
+			},
+			"cyEACYubaiB6MNna": {
+				"name": "Dagger, Throwing (Off-Hand)",
+				"activation": {
+					"cost": "",
+					"type": "",
+					"reactionTrigger": ""
+				},
+				"duration": {
+					"unit": "",
+					"value": ""
+				},
+				"ranges": {
+					"ZuUYJLAhjiO1GOiW": {
+						"range": "short"
 					},
-					"vSxE5WWEyqvx6Y7h": {
-						"canCrit": false,
+					"DJyRaY8KxorZKyHx": {
+						"range": 80,
+						"unit": "feet"
+					}
+				},
+				"area": {
+					"shape": "",
+					"size": "",
+					"placeTemplate": false,
+					"quantity": 1
+				},
+				"target": {
+					"quantity": 1,
+					"type": "creatureObject"
+				},
+				"rolls": {
+					"lyAyT0URSjDZIBiq": {
+						"bonus": "",
+						"critThreshold": "20",
+						"type": "attack",
+						"attackType": "rangedWeaponAttack",
+						"ability": "default"
+					},
+					"NhOLH98GeEo8NO8M": {
+						"canCrit": true,
 						"damageType": "piercing",
-						"formula": "2d6",
-						"name": "Vicious Damage",
-						"type": "damage"
+						"formula": "1d4 + min(@finesse.mod,0)",
+						"name": "Throwing Dagger",
+						"type": "damage",
+						"critBonus": "2d6"
+					}
+				},
+				"consumers": {}
+			},
+			"3CJJdYZhYYyzUr4E": {
+				"name": "Dagger, Throwing (Throw)",
+				"activation": {
+					"cost": "",
+					"type": "",
+					"reactionTrigger": ""
+				},
+				"duration": {
+					"unit": "",
+					"value": ""
+				},
+				"ranges": {
+					"ZuUYJLAhjiO1GOiW": {
+						"range": "short"
+					},
+					"DJyRaY8KxorZKyHx": {
+						"range": 80,
+						"unit": "feet"
+					}
+				},
+				"area": {
+					"shape": "",
+					"size": "",
+					"placeTemplate": false,
+					"quantity": 1
+				},
+				"target": {
+					"quantity": 1,
+					"type": "creatureObject"
+				},
+				"rolls": {
+					"lyAyT0URSjDZIBiq": {
+						"bonus": "",
+						"critThreshold": "20",
+						"type": "attack",
+						"attackType": "rangedWeaponAttack",
+						"ability": "default"
+					},
+					"NhOLH98GeEo8NO8M": {
+						"canCrit": true,
+						"damageType": "piercing",
+						"formula": "1d4 + @finesse.mod",
+						"name": "Throwing Dagger",
+						"type": "damage",
+						"critBonus": "2d6"
 					}
 				},
 				"consumers": {
-					"hx6AWSmFId9MsIoa": {
-						"itemid": "",
-						"quantity": 1,
-						"type": "ammunition"
+					"oOSgg4oiwIzpTiZg": {
+						"type": "itemUses",
+						"default": true,
+						"quantity": 1
+					}
+				}
+			},
+			"8QCI204NBeNVt4OW": {
+				"name": "Dagger, Throwing (Throw, Off-Hand)",
+				"activation": {
+					"cost": "",
+					"type": "",
+					"reactionTrigger": ""
+				},
+				"duration": {
+					"unit": "",
+					"value": ""
+				},
+				"ranges": {
+					"ZuUYJLAhjiO1GOiW": {
+						"range": "short"
+					},
+					"DJyRaY8KxorZKyHx": {
+						"range": 80,
+						"unit": "feet"
+					}
+				},
+				"area": {
+					"shape": "",
+					"size": "",
+					"placeTemplate": false,
+					"quantity": 1
+				},
+				"target": {
+					"quantity": 1,
+					"type": "creatureObject"
+				},
+				"rolls": {
+					"lyAyT0URSjDZIBiq": {
+						"bonus": "",
+						"critThreshold": "20",
+						"type": "attack",
+						"attackType": "rangedWeaponAttack",
+						"ability": "default"
+					},
+					"NhOLH98GeEo8NO8M": {
+						"canCrit": true,
+						"damageType": "piercing",
+						"formula": "1d4 + min(@finesse.mod,0)",
+						"name": "Throwing Dagger",
+						"type": "damage",
+						"critBonus": "2d6"
+					}
+				},
+				"consumers": {
+					"JWCCBfKjm0d9Mpbp": {
+						"type": "itemUses",
+						"default": true,
+						"quantity": 1
 					}
 				}
 			}
 		},
-		"description": "<p><em>Dual-Wielding, Finesse, Thrown (30/80)</em></p><p>When you roll a natural 20 on an attack roll using this weapon it deals an extra 2d6 damage of the weapon's type (this extra damage does not double).</p>",
+		"description": "<p><em>Dual-Wielding, Finesse, Thrown (30/80)</em></p>\n<p><strong>Vicious Weapon:&nbsp;</strong>When you roll a natural 20 on an attack roll using this weapon it deals an extra 2d6 damage of the weapon&rsquo;s type (this extra damage does not double).</p>",
 		"favorite": false,
 		"secretDescription": "",
 		"source": "",
 		"uses": {
-			"value": null,
+			"value": 1,
 			"max": "",
 			"per": null,
 			"recharge": {
@@ -89,12 +237,16 @@
 				"threshold": 6
 			}
 		},
+		"schema": {
+			"version": null,
+			"lastMigration": null
+		},
 		"ammunitionProperties": [],
 		"armorCategory": "",
 		"armorProperties": [],
 		"attuned": false,
 		"bulky": false,
-		"craftingComponents": "Fiend’s heart",
+		"craftingComponents": "Fiend's heart",
 		"containerId": "",
 		"damagedState": 0,
 		"equippedState": 0,
@@ -102,7 +254,7 @@
 		"materialProperties": [],
 		"objectType": "weapon",
 		"plotItem": false,
-		"price": "3 gp",
+		"price": "400 gp",
 		"proficient": true,
 		"quantity": 1,
 		"rarity": "uncommon",
@@ -115,7 +267,8 @@
 		"weaponProperties": [
 			"dualWielding",
 			"finesse",
-			"thrown"
+			"thrown",
+			"vicious"
 		],
 		"weight": 0,
 		"schemaVersion": {

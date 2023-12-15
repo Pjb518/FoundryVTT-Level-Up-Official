@@ -15,8 +15,8 @@
 			"requiresUnarmored": false
 		},
 		"actions": {
-			"FoxCALVZCswCsw9i": {
-				"name": "Dagger, Throwing +3",
+			"JTO3hGtAyZssEli0": {
+				"name": "Dagger, Throwing",
 				"activation": {
 					"cost": "",
 					"type": "",
@@ -27,10 +27,10 @@
 					"value": ""
 				},
 				"ranges": {
-					"z17IXB4PNke7tbdT": {
+					"ZuUYJLAhjiO1GOiW": {
 						"range": "short"
 					},
-					"dZbZG7KlHRYz0z2B": {
+					"DJyRaY8KxorZKyHx": {
 						"range": 80,
 						"unit": "feet"
 					}
@@ -38,21 +38,118 @@
 				"area": {
 					"shape": "",
 					"size": "",
-					"placeTemplate": false
+					"placeTemplate": false,
+					"quantity": 1
 				},
 				"target": {
 					"quantity": 1,
 					"type": "creatureObject"
 				},
 				"rolls": {
-					"yWHYiN9iBRnspbgp": {
+					"lyAyT0URSjDZIBiq": {
 						"bonus": "3",
 						"critThreshold": "20",
 						"type": "attack",
 						"attackType": "rangedWeaponAttack",
 						"ability": "default"
 					},
-					"u8pBlejUvEdCMhn7": {
+					"NhOLH98GeEo8NO8M": {
+						"canCrit": true,
+						"damageType": "piercing",
+						"formula": "1d4 + @finesse.mod + 3",
+						"name": "Throwing Dagger",
+						"type": "damage"
+					}
+				},
+				"consumers": {}
+			},
+			"cyEACYubaiB6MNna": {
+				"name": "Dagger, Throwing (Off-Hand)",
+				"activation": {
+					"cost": "",
+					"type": "",
+					"reactionTrigger": ""
+				},
+				"duration": {
+					"unit": "",
+					"value": ""
+				},
+				"ranges": {
+					"ZuUYJLAhjiO1GOiW": {
+						"range": "short"
+					},
+					"DJyRaY8KxorZKyHx": {
+						"range": 80,
+						"unit": "feet"
+					}
+				},
+				"area": {
+					"shape": "",
+					"size": "",
+					"placeTemplate": false,
+					"quantity": 1
+				},
+				"target": {
+					"quantity": 1,
+					"type": "creatureObject"
+				},
+				"rolls": {
+					"lyAyT0URSjDZIBiq": {
+						"bonus": "3",
+						"critThreshold": "20",
+						"type": "attack",
+						"attackType": "rangedWeaponAttack",
+						"ability": "default"
+					},
+					"NhOLH98GeEo8NO8M": {
+						"canCrit": true,
+						"damageType": "piercing",
+						"formula": "1d4 + min(@finesse.mod,0) + 3",
+						"name": "Throwing Dagger",
+						"type": "damage"
+					}
+				},
+				"consumers": {}
+			},
+			"3CJJdYZhYYyzUr4E": {
+				"name": "Dagger, Throwing (Throw)",
+				"activation": {
+					"cost": "",
+					"type": "",
+					"reactionTrigger": ""
+				},
+				"duration": {
+					"unit": "",
+					"value": ""
+				},
+				"ranges": {
+					"ZuUYJLAhjiO1GOiW": {
+						"range": "short"
+					},
+					"DJyRaY8KxorZKyHx": {
+						"range": 80,
+						"unit": "feet"
+					}
+				},
+				"area": {
+					"shape": "",
+					"size": "",
+					"placeTemplate": false,
+					"quantity": 1
+				},
+				"target": {
+					"quantity": 1,
+					"type": "creatureObject"
+				},
+				"rolls": {
+					"lyAyT0URSjDZIBiq": {
+						"bonus": "3",
+						"critThreshold": "20",
+						"type": "attack",
+						"attackType": "rangedWeaponAttack",
+						"ability": "default"
+					},
+					"NhOLH98GeEo8NO8M": {
 						"canCrit": true,
 						"damageType": "piercing",
 						"formula": "1d4 + @finesse.mod + 3",
@@ -61,10 +158,64 @@
 					}
 				},
 				"consumers": {
-					"KH61d4Qh9NOQP8Vb": {
-						"itemid": "",
-						"quantity": 1,
-						"type": "ammunition"
+					"oOSgg4oiwIzpTiZg": {
+						"type": "itemUses",
+						"default": true,
+						"quantity": 1
+					}
+				}
+			},
+			"8QCI204NBeNVt4OW": {
+				"name": "Dagger, Throwing (Throw, Off-Hand)",
+				"activation": {
+					"cost": "",
+					"type": "",
+					"reactionTrigger": ""
+				},
+				"duration": {
+					"unit": "",
+					"value": ""
+				},
+				"ranges": {
+					"ZuUYJLAhjiO1GOiW": {
+						"range": "short"
+					},
+					"DJyRaY8KxorZKyHx": {
+						"range": 80,
+						"unit": "feet"
+					}
+				},
+				"area": {
+					"shape": "",
+					"size": "",
+					"placeTemplate": false,
+					"quantity": 1
+				},
+				"target": {
+					"quantity": 1,
+					"type": "creatureObject"
+				},
+				"rolls": {
+					"lyAyT0URSjDZIBiq": {
+						"bonus": "3",
+						"critThreshold": "20",
+						"type": "attack",
+						"attackType": "rangedWeaponAttack",
+						"ability": "default"
+					},
+					"NhOLH98GeEo8NO8M": {
+						"canCrit": true,
+						"damageType": "piercing",
+						"formula": "1d4 + min(@finesse.mod,0) + 3",
+						"name": "Throwing Dagger",
+						"type": "damage"
+					}
+				},
+				"consumers": {
+					"JWCCBfKjm0d9Mpbp": {
+						"type": "itemUses",
+						"default": true,
+						"quantity": 1
 					}
 				}
 			}
@@ -74,7 +225,7 @@
 		"secretDescription": "",
 		"source": "",
 		"uses": {
-			"value": null,
+			"value": 1,
 			"max": "",
 			"per": null,
 			"recharge": {
@@ -82,12 +233,16 @@
 				"threshold": 6
 			}
 		},
+		"schema": {
+			"version": null,
+			"lastMigration": null
+		},
 		"ammunitionProperties": [],
 		"armorCategory": "",
 		"armorProperties": [],
 		"attuned": false,
 		"bulky": false,
-		"craftingComponents": "A +2 weapon that has hit a monster of CR 15 or higher",
+		"craftingComponents": "+2 weapon that has hit a monster of CR 15 or higher",
 		"containerId": "",
 		"damagedState": 0,
 		"equippedState": 0,
@@ -95,7 +250,7 @@
 		"materialProperties": [],
 		"objectType": "weapon",
 		"plotItem": false,
-		"price": "3 gp",
+		"price": "8,000 gp",
 		"proficient": true,
 		"quantity": 1,
 		"rarity": "veryRare",

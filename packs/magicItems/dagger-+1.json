@@ -15,8 +15,8 @@
 			"requiresUnarmored": false
 		},
 		"actions": {
-			"AIjuPaG4o7vQ40OI": {
-				"name": "Dagger +1",
+			"CYURkv9sK45wkGZn": {
+				"name": "Dagger",
 				"activation": {
 					"cost": "",
 					"type": "",
@@ -29,24 +29,64 @@
 				"area": {
 					"shape": "",
 					"size": "",
-					"placeTemplate": false
+					"placeTemplate": false,
+					"quantity": 1
 				},
 				"target": {
 					"quantity": 1,
 					"type": "object"
 				},
 				"rolls": {
-					"PDv3Cbh7lOomf8G2": {
+					"gdR2mGnYfGBsk2ZY": {
 						"bonus": "1",
 						"critThreshold": "20",
 						"type": "attack",
 						"attackType": "meleeWeaponAttack",
 						"ability": "default"
 					},
-					"bUYkoGyThRbLfspc": {
+					"ut4E7BIwVCXdj5oE": {
 						"canCrit": true,
 						"damageType": "piercing",
 						"formula": "1d4 + @finesse.mod + 1",
+						"name": "Dagger",
+						"type": "damage"
+					}
+				},
+				"consumers": {}
+			},
+			"911iDf2vrTJjuO4V": {
+				"name": "Dagger (Off-Hand)",
+				"activation": {
+					"cost": "",
+					"type": "",
+					"reactionTrigger": ""
+				},
+				"duration": {
+					"unit": "",
+					"value": ""
+				},
+				"area": {
+					"shape": "",
+					"size": "",
+					"placeTemplate": false,
+					"quantity": 1
+				},
+				"target": {
+					"quantity": 1,
+					"type": "object"
+				},
+				"rolls": {
+					"gdR2mGnYfGBsk2ZY": {
+						"bonus": "",
+						"critThreshold": "20",
+						"type": "attack",
+						"attackType": "meleeWeaponAttack",
+						"ability": "default"
+					},
+					"ut4E7BIwVCXdj5oE": {
+						"canCrit": true,
+						"damageType": "piercing",
+						"formula": "1d4 + min(@finesse.mod,0)",
 						"name": "Dagger",
 						"type": "damage"
 					}
@@ -67,6 +107,10 @@
 				"threshold": 6
 			}
 		},
+		"schema": {
+			"version": null,
+			"lastMigration": null
+		},
 		"ammunitionProperties": [],
 		"armorCategory": "",
 		"armorProperties": [],
@@ -80,7 +124,7 @@
 		"materialProperties": [],
 		"objectType": "weapon",
 		"plotItem": false,
-		"price": "2 gp",
+		"price": "500 gp",
 		"proficient": true,
 		"quantity": 1,
 		"rarity": "uncommon",
