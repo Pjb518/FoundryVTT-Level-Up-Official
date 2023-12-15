@@ -76,7 +76,7 @@
                     updateDocumentDataFromField(
                         $actor,
                         target.name,
-                        Number(target.value)
+                        Number(target.value),
                     )}
             />
         </div>
@@ -103,26 +103,26 @@
                     updateDocumentDataFromField(
                         $actor,
                         target.name,
-                        Number(target.value)
+                        Number(target.value),
                     )}
             />
         </div>
-
-        <!-- Bulky Items -->
-        <div class="shield">
-            <h3
-                class="footer-shield-header"
-                data-tooltip={bulkyTooltip}
-                data-tooltip-direction="UP"
-            >
-                {localize("Bulky Items")}
-            </h3>
-
-            <span class="a5e-footer-group__value">
-                {bulkyItems}
-            </span>
-        </div>
     {/if}
+
+    <!-- Bulky Items -->
+    <div class="shield">
+        <h3
+            class="footer-shield-header"
+            data-tooltip={bulkyTooltip}
+            data-tooltip-direction="UP"
+        >
+            {localize("Bulky Items")}
+        </h3>
+
+        <span class="a5e-footer-group__value">
+            {bulkyItems}
+        </span>
+    </div>
 
     <!-- Currencies -->
     <div
@@ -157,7 +157,7 @@
                             updateDocumentDataFromField(
                                 $actor,
                                 target.name,
-                                Number(target.value)
+                                Number(target.value),
                             )}
                     />
                 </li>
