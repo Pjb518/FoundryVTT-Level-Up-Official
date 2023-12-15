@@ -15,8 +15,8 @@
 			"requiresUnarmored": false
 		},
 		"actions": {
-			"GaTJ9GP6qzV8KwnT": {
-				"name": "Vicious Light Hammer",
+			"vZoAxXkMkuSyXdTv": {
+				"name": "Light Hammer",
 				"activation": {
 					"cost": "",
 					"type": "",
@@ -27,68 +27,227 @@
 					"value": ""
 				},
 				"ranges": {
-					"pnJnOvAy9zIxcQET": {
+					"5MHR2TsspRR8RqVj": {
 						"range": 20,
 						"unit": "feet"
 					},
-					"MOOxIV9lGJySrX8C": {
+					"XVpImbd3WXXMXu2s": {
 						"range": "medium"
 					}
 				},
 				"area": {
 					"shape": "",
 					"size": "",
-					"placeTemplate": false
+					"placeTemplate": false,
+					"quantity": 1
 				},
 				"target": {
 					"quantity": 1,
 					"type": "creatureObject"
 				},
 				"rolls": {
-					"XY0FCnqSdt8mmuBD": {
+					"dolOD9Td7hWI8mGW": {
 						"bonus": "",
 						"critThreshold": "20",
 						"type": "attack",
 						"attackType": "meleeWeaponAttack",
 						"ability": "default"
 					},
-					"Xnea3qd6AOOTFDvQ": {
+					"Cnh8JmtCweZToRok": {
 						"canCrit": true,
 						"damageType": "bludgeoning",
 						"formula": "1d4 + @str.mod",
 						"name": "Light Hammer",
-						"type": "damage"
-					},
-					"kQ5txl2CXCLry69e": {
-						"canCrit": false,
-						"damageType": "bludgeoning",
-						"formula": "2d6",
-						"name": "Vicious Damage",
-						"type": "damage"
+						"type": "damage",
+						"critBonus": "2d6"
 					}
 				},
 				"consumers": {}
+			},
+			"2LWUZU002vgkJR7F": {
+				"name": "Light Hammer (Throw)",
+				"activation": {
+					"cost": "",
+					"type": "",
+					"reactionTrigger": ""
+				},
+				"duration": {
+					"unit": "",
+					"value": ""
+				},
+				"ranges": {
+					"5MHR2TsspRR8RqVj": {
+						"range": 20,
+						"unit": "feet"
+					},
+					"XVpImbd3WXXMXu2s": {
+						"range": "medium"
+					}
+				},
+				"area": {
+					"shape": "",
+					"size": "",
+					"placeTemplate": false,
+					"quantity": 1
+				},
+				"target": {
+					"quantity": 1,
+					"type": "creatureObject"
+				},
+				"rolls": {
+					"dolOD9Td7hWI8mGW": {
+						"bonus": "",
+						"critThreshold": "20",
+						"type": "attack",
+						"attackType": "rangedWeaponAttack",
+						"ability": "default"
+					},
+					"Cnh8JmtCweZToRok": {
+						"canCrit": true,
+						"damageType": "bludgeoning",
+						"formula": "1d4 + @finesse.mod",
+						"name": "Light Hammer",
+						"type": "damage",
+						"critBonus": "2d6"
+					}
+				},
+				"consumers": {
+					"2upWauBivIw1uSCg": {
+						"type": "itemUses",
+						"default": true,
+						"quantity": 1
+					}
+				}
+			},
+			"pjYdxB3JwuneLSCU": {
+				"name": "Light Hammer (Off-Hand)",
+				"activation": {
+					"cost": "",
+					"type": "",
+					"reactionTrigger": ""
+				},
+				"duration": {
+					"unit": "",
+					"value": ""
+				},
+				"ranges": {
+					"5MHR2TsspRR8RqVj": {
+						"range": 20,
+						"unit": "feet"
+					},
+					"XVpImbd3WXXMXu2s": {
+						"range": "medium"
+					}
+				},
+				"area": {
+					"shape": "",
+					"size": "",
+					"placeTemplate": false,
+					"quantity": 1
+				},
+				"target": {
+					"quantity": 1,
+					"type": "creatureObject"
+				},
+				"rolls": {
+					"dolOD9Td7hWI8mGW": {
+						"bonus": "",
+						"critThreshold": "20",
+						"type": "attack",
+						"attackType": "meleeWeaponAttack",
+						"ability": "default"
+					},
+					"Cnh8JmtCweZToRok": {
+						"canCrit": true,
+						"damageType": "bludgeoning",
+						"formula": "1d4 + min(@str.mod,0)",
+						"name": "Light Hammer",
+						"type": "damage",
+						"critBonus": "2d6"
+					}
+				},
+				"consumers": {},
+				"img": "icons/weapons/hammers/hammer-war-spiked.webp"
+			},
+			"d3ezGOmihneRpKGy": {
+				"name": "Light Hammer (Throw, Off-Hand)",
+				"activation": {
+					"cost": "",
+					"type": "",
+					"reactionTrigger": ""
+				},
+				"duration": {
+					"unit": "",
+					"value": ""
+				},
+				"ranges": {
+					"5MHR2TsspRR8RqVj": {
+						"range": 20,
+						"unit": "feet"
+					},
+					"XVpImbd3WXXMXu2s": {
+						"range": "medium"
+					}
+				},
+				"area": {
+					"shape": "",
+					"size": "",
+					"placeTemplate": false,
+					"quantity": 1
+				},
+				"target": {
+					"quantity": 1,
+					"type": "creatureObject"
+				},
+				"rolls": {
+					"dolOD9Td7hWI8mGW": {
+						"bonus": "",
+						"critThreshold": "20",
+						"type": "attack",
+						"attackType": "rangedWeaponAttack",
+						"ability": "default"
+					},
+					"Cnh8JmtCweZToRok": {
+						"canCrit": true,
+						"damageType": "bludgeoning",
+						"formula": "1d4 + min(@finesse.mod,0)",
+						"name": "Light Hammer",
+						"type": "damage",
+						"critBonus": "2d6"
+					}
+				},
+				"consumers": {
+					"2upWauBivIw1uSCg": {
+						"type": "itemUses",
+						"default": true,
+						"quantity": 1
+					}
+				}
 			}
 		},
-		"description": "<p><em>Dual-Wielding, Thrown (20/60)</em></p><p>When you roll a natural 20 on an attack roll using this weapon it deals an extra 2d6 damage of the weapon's type (this extra damage does not double).</p>",
+		"description": "<p><em>Dual-Wielding, Thrown (20/60)</em></p>\n<p><strong>Vicious Weapon:&nbsp;</strong>When you roll a natural 20 on an attack roll using this weapon it deals an extra 2d6 damage of the weapon&rsquo;s type (this extra damage does not double).</p>",
 		"favorite": false,
 		"secretDescription": "",
 		"source": "",
 		"uses": {
-			"value": null,
-			"max": "",
+			"value": 1,
+			"max": "1",
 			"per": null,
 			"recharge": {
 				"formula": "1d6",
 				"threshold": 6
 			}
 		},
+		"schema": {
+			"version": null,
+			"lastMigration": null
+		},
 		"ammunitionProperties": [],
 		"armorCategory": "",
 		"armorProperties": [],
 		"attuned": false,
 		"bulky": false,
-		"craftingComponents": "Fiend’s heart",
+		"craftingComponents": "Fiend's heart",
 		"containerId": "",
 		"damagedState": 0,
 		"equippedState": 0,
@@ -96,7 +255,7 @@
 		"materialProperties": [],
 		"objectType": "weapon",
 		"plotItem": false,
-		"price": "2 gp",
+		"price": "400 gp",
 		"proficient": true,
 		"quantity": 1,
 		"rarity": "uncommon",
@@ -108,7 +267,8 @@
 		"unidentifiedName": "",
 		"weaponProperties": [
 			"dualWielding",
-			"thrown"
+			"thrown",
+			"vicious"
 		],
 		"weight": 2,
 		"schemaVersion": {

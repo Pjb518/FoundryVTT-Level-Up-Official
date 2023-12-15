@@ -2,7 +2,47 @@
 	"name": "Vicious Rapier",
 	"type": "object",
 	"img": "icons/weapons/swords/swords-sharp-worn.webp",
-	"effects": [],
+	"effects": [
+		{
+			"icon": "icons/weapons/swords/swords-sharp-worn.webp",
+			"origin": "Item.JtQioQXPY7NbPd0P",
+			"flags": {
+				"a5e": {
+					"sort": 0,
+					"transferType": "onUse",
+					"actionId": "jE0oGbW4c91H4L9s",
+					"duration": {
+						"type": "rounds",
+						"unit": "minutes"
+					}
+				}
+			},
+			"transfer": false,
+			"name": "AC +1",
+			"_id": "fNsg1fB0AQvNW0yM",
+			"changes": [
+				{
+					"key": "system.attributes.ac.changes.bonuses.value",
+					"value": "1",
+					"mode": 2,
+					"priority": null
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": null,
+				"combat": null,
+				"rounds": null,
+				"turns": 1,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "",
+			"statuses": [],
+			"folder": null
+		}
+	],
 	"flags": {},
 	"system": {
 		"ac": {
@@ -15,8 +55,8 @@
 			"requiresUnarmored": false
 		},
 		"actions": {
-			"mQM2bvODBH5KZkES": {
-				"name": "Vicious Rapier",
+			"4hUX21XJHYN8ppgn": {
+				"name": "Rapier",
 				"activation": {
 					"cost": "",
 					"type": "",
@@ -29,39 +69,34 @@
 				"area": {
 					"shape": "",
 					"size": "",
-					"placeTemplate": false
+					"placeTemplate": false,
+					"quantity": 1
 				},
 				"target": {
 					"quantity": 1,
 					"type": "creatureObject"
 				},
 				"rolls": {
-					"VFTytoHoutCJ3ZAq": {
+					"r9swSspq97S1RfWR": {
 						"bonus": "",
 						"critThreshold": "20",
 						"type": "attack",
 						"attackType": "meleeWeaponAttack",
 						"ability": "default"
 					},
-					"AIMwkF3MUsSmgjPP": {
+					"uJI9p3ltabvV4LYr": {
 						"canCrit": true,
 						"damageType": "piercing",
 						"formula": "1d8 + @finesse.mod",
 						"name": "Rapier",
-						"type": "damage"
-					},
-					"u2gdPxE7rz1by3gx": {
-						"canCrit": false,
-						"damageType": "piercing",
-						"formula": "2d6",
-						"name": "Vicious Damage",
-						"type": "damage"
+						"type": "damage",
+						"critBonus": "2d6"
 					}
 				},
 				"consumers": {}
 			}
 		},
-		"description": "<p><em>Defensive (Light), Finesse</em></p><p>When you roll a natural 20 on an attack roll using this weapon it deals an extra 2d6 damage of the weapon's type (this extra damage does not double).</p>",
+		"description": "<p><em>Defensive (Light), Finesse</em></p>\n<p><strong>Vicious Weapon:&nbsp;</strong>When you roll a natural 20 on an attack roll using this weapon it deals an extra 2d6 damage of the weapon&rsquo;s type (this extra damage does not double).</p>",
 		"favorite": false,
 		"secretDescription": "",
 		"source": "",
@@ -74,12 +109,16 @@
 				"threshold": 6
 			}
 		},
+		"schema": {
+			"version": null,
+			"lastMigration": null
+		},
 		"ammunitionProperties": [],
 		"armorCategory": "",
 		"armorProperties": [],
 		"attuned": false,
 		"bulky": false,
-		"craftingComponents": "Fiend’s heart",
+		"craftingComponents": "Fiend's heart",
 		"containerId": "",
 		"damagedState": 0,
 		"equippedState": 0,
@@ -87,7 +126,7 @@
 		"materialProperties": [],
 		"objectType": "weapon",
 		"plotItem": false,
-		"price": "25 gp",
+		"price": "400 gp",
 		"proficient": true,
 		"quantity": 1,
 		"rarity": "uncommon",
@@ -99,7 +138,8 @@
 		"unidentifiedName": "",
 		"weaponProperties": [
 			"defensive",
-			"finesse"
+			"finesse",
+			"vicious"
 		],
 		"weight": 2,
 		"schemaVersion": {

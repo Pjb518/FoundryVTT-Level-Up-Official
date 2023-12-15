@@ -2,7 +2,47 @@
 	"name": "Vicious Saber",
 	"type": "object",
 	"img": "icons/weapons/swords/scimitar-guard.webp",
-	"effects": [],
+	"effects": [
+		{
+			"icon": "icons/weapons/swords/scimitar-guard.webp",
+			"origin": "Item.zGuaDh8lSskJ4iBa",
+			"flags": {
+				"a5e": {
+					"sort": 0,
+					"transferType": "onUse",
+					"actionId": "3Olf8LpZb1butJkC",
+					"duration": {
+						"type": "rounds",
+						"unit": "minutes"
+					}
+				}
+			},
+			"transfer": false,
+			"name": "AC +1",
+			"_id": "xN74vJXEPsfOB6YU",
+			"changes": [
+				{
+					"key": "system.attributes.ac.changes.bonuses.value",
+					"value": "1",
+					"mode": 2,
+					"priority": null
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": null,
+				"combat": null,
+				"rounds": null,
+				"turns": 1,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "",
+			"statuses": [],
+			"folder": null
+		}
+	],
 	"flags": {},
 	"system": {
 		"ac": {
@@ -15,8 +55,8 @@
 			"requiresUnarmored": false
 		},
 		"actions": {
-			"D9JRb8bFDoeEEE7B": {
-				"name": "Vicious Saber",
+			"914oL0fKXqu37lb1": {
+				"name": "Saber",
 				"activation": {
 					"cost": "",
 					"type": "",
@@ -29,46 +69,46 @@
 				"area": {
 					"shape": "",
 					"size": "",
-					"placeTemplate": false
+					"placeTemplate": false,
+					"quantity": 1
 				},
 				"target": {
 					"quantity": 1,
 					"type": "creatureObject"
 				},
 				"rolls": {
-					"5R59KYRfBrWFewXg": {
+					"qqcS3IGZHOsRpkbP": {
 						"bonus": "",
 						"critThreshold": "20",
 						"type": "attack",
 						"attackType": "meleeWeaponAttack",
 						"ability": "default"
 					},
-					"2I1FqtCLkGxx7iiN": {
+					"LHzRRA6tNqeJ8lkM": {
 						"canCrit": true,
 						"damageType": "slashing",
 						"formula": "1d8 + @finesse.mod",
 						"name": "Saber Melee",
-						"type": "damage"
+						"type": "damage",
+						"label": "Unmounted",
+						"default": true,
+						"critBonus": "2d6"
 					},
-					"e9oEowZz1zG1WlaL": {
+					"EYsUPDxaSTNCJAD3": {
 						"canCrit": true,
 						"damageType": "slashing",
 						"formula": "1d10 + @finesse.mod",
 						"name": "Saber Mounted",
-						"type": "damage"
-					},
-					"3uYhTX67y8andUhU": {
-						"canCrit": false,
-						"damageType": "slashing",
-						"formula": "2d6",
-						"name": "Vicious Damage",
-						"type": "damage"
+						"type": "damage",
+						"label": "Mounted",
+						"default": false,
+						"critBonus": "2d6"
 					}
 				},
 				"consumers": {}
 			}
 		},
-		"description": "<p><em>Defensive (Light), Finesse, Mounted (1d10)</em></p><p>When you roll a natural 20 on an attack roll using this weapon it deals an extra 2d6 damage of the weapon's type (this extra damage does not double).</p>",
+		"description": "<p><em>Defensive (Light), Finesse, Mounted (1d10)</em></p>\n<p><strong>Vicious Weapon:&nbsp;</strong>When you roll a natural 20 on an attack roll using this weapon it deals an extra 2d6 damage of the weapon&rsquo;s type (this extra damage does not double).</p>",
 		"favorite": false,
 		"secretDescription": "",
 		"source": "",
@@ -81,12 +121,16 @@
 				"threshold": 6
 			}
 		},
+		"schema": {
+			"version": null,
+			"lastMigration": null
+		},
 		"ammunitionProperties": [],
 		"armorCategory": "",
 		"armorProperties": [],
 		"attuned": false,
 		"bulky": false,
-		"craftingComponents": "Fiend’s heart",
+		"craftingComponents": "Fiend's heart",
 		"containerId": "",
 		"damagedState": 0,
 		"equippedState": 0,
@@ -94,7 +138,7 @@
 		"materialProperties": [],
 		"objectType": "weapon",
 		"plotItem": false,
-		"price": "30 gp",
+		"price": "400 gp",
 		"proficient": true,
 		"quantity": 1,
 		"rarity": "uncommon",
@@ -107,7 +151,8 @@
 		"weaponProperties": [
 			"defensive",
 			"finesse",
-			"mounted"
+			"mounted",
+			"vicious"
 		],
 		"weight": 3,
 		"schemaVersion": {

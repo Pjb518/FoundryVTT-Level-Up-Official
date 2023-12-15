@@ -15,8 +15,8 @@
 			"requiresUnarmored": false
 		},
 		"actions": {
-			"ELHADWZ5ybjfFP2T": {
-				"name": "Vicious Mercurial Maul",
+			"JsoTGtmjLpgR2WRO": {
+				"name": "Mercurial Maul",
 				"activation": {
 					"cost": "",
 					"type": "",
@@ -36,32 +36,26 @@
 					"type": "creatureObject"
 				},
 				"rolls": {
-					"xlK1dakXZC76hvGy": {
+					"j7IQFdPLo8uVl0Gy": {
 						"bonus": "",
 						"critThreshold": "20",
 						"type": "attack",
 						"attackType": "meleeWeaponAttack",
 						"ability": "default"
 					},
-					"MjRQ3tHdnIK7ByBq": {
+					"tlHdp4Dy9TvnOfJx": {
 						"canCrit": true,
 						"damageType": "bludgeoning",
-						"formula": "2d6 + @str.mod",
+						"formula": "max(2d6,4) + @str.mod",
 						"name": "",
-						"type": "damage"
-					},
-					"1GHmuvokUnnJJ9YN": {
-						"canCrit": false,
-						"damageType": "bludgeoning",
-						"formula": "2d6",
-						"name": "Vicious Damage",
-						"type": "damage"
+						"type": "damage",
+						"critBonus": "2d6"
 					}
 				},
 				"consumers": {}
 			}
 		},
-		"description": "<p><em>Breaker, Heavy, Two-Handed</em></p><p>When you roll a natural 20 on an attack roll using this weapon it deals an extra 2d6 damage of the weapon's type (this extra damage does not double).</p>",
+		"description": "<p><em>Breaker, Heavy, Two-Handed</em></p>\n<p><strong>Vicious Weapon:&nbsp;</strong>When you roll a natural 20 on an attack roll using this weapon it deals an extra 2d6 damage of the weapon&rsquo;s type (this extra damage does not double).</p>",
 		"favorite": false,
 		"secretDescription": "",
 		"source": "",
@@ -74,12 +68,16 @@
 				"threshold": 6
 			}
 		},
+		"schema": {
+			"version": null,
+			"lastMigration": null
+		},
 		"ammunitionProperties": [],
 		"armorCategory": "",
 		"armorProperties": [],
 		"attuned": false,
 		"bulky": false,
-		"craftingComponents": "Fiend’s heart",
+		"craftingComponents": "Fiend's heart",
 		"containerId": "",
 		"damagedState": 0,
 		"equippedState": 0,
@@ -87,7 +85,7 @@
 		"materialProperties": [],
 		"objectType": "weapon",
 		"plotItem": false,
-		"price": "150 gp",
+		"price": "400 gp",
 		"proficient": true,
 		"quantity": 1,
 		"rarity": "uncommon",
@@ -100,7 +98,8 @@
 		"weaponProperties": [
 			"twoHanded",
 			"heavy",
-			"breaker"
+			"breaker",
+			"vicious"
 		],
 		"weight": 15,
 		"schemaVersion": {

@@ -15,8 +15,8 @@
 			"requiresUnarmored": false
 		},
 		"actions": {
-			"6rr5Ii0nCAjyAtxs": {
-				"name": "Vicious Greatclub",
+			"TZ68p8QOlBxq5nAp": {
+				"name": "Greatclub",
 				"activation": {
 					"cost": "",
 					"type": "",
@@ -36,39 +36,38 @@
 					"type": "creatureObject"
 				},
 				"rolls": {
-					"o2NTG6xTsXdsPq4T": {
+					"iCfqnFJbiMWsO2fo": {
 						"bonus": "",
 						"critThreshold": "20",
 						"type": "attack",
 						"attackType": "meleeWeaponAttack",
 						"ability": "default"
 					},
-					"m7qbiaPTbyRZEvhw": {
+					"hlVu0grEO6zrkk7w": {
 						"canCrit": true,
 						"damageType": "bludgeoning",
 						"formula": "1d8 + @str.mod",
 						"name": "Greatclub 1H",
-						"type": "damage"
+						"type": "damage",
+						"label": "One-Handed",
+						"default": false,
+						"critBonus": "2d6"
 					},
-					"avCtv2mnHjziFO82": {
+					"En5kAommJfkAY9gy": {
 						"canCrit": true,
 						"damageType": "bludgeoning",
 						"formula": "1d10 + @str.mod",
 						"name": "Greatclub 2H",
-						"type": "damage"
-					},
-					"bC7rqXrU9ifMzMrx": {
-						"canCrit": false,
-						"damageType": "bludgeoning",
-						"formula": "2d6",
-						"name": "Vicious Damage",
-						"type": "damage"
+						"type": "damage",
+						"label": "Two-Handed",
+						"default": false,
+						"critBonus": "2d6"
 					}
 				},
 				"consumers": {}
 			}
 		},
-		"description": "<p><em>Simple, Versatile (1d10)</em></p><p>When you roll a natural 20 on an attack roll using this weapon it deals an extra 2d6 damage of the weapon's type (this extra damage does not double).</p>",
+		"description": "<p><em>Simple, Versatile (1d10)</em></p>\n<p><strong>Vicious Weapon:&nbsp;</strong>When you roll a natural 20 on an attack roll using this weapon it deals an extra 2d6 damage of the weapon&rsquo;s type (this extra damage does not double).</p>",
 		"favorite": false,
 		"secretDescription": "",
 		"source": "",
@@ -81,12 +80,16 @@
 				"threshold": 6
 			}
 		},
+		"schema": {
+			"version": null,
+			"lastMigration": null
+		},
 		"ammunitionProperties": [],
 		"armorCategory": "",
 		"armorProperties": [],
 		"attuned": false,
 		"bulky": false,
-		"craftingComponents": "Fiend’s heart",
+		"craftingComponents": "Fiend's heart",
 		"containerId": "",
 		"damagedState": 0,
 		"equippedState": 0,
@@ -94,7 +97,7 @@
 		"materialProperties": [],
 		"objectType": "weapon",
 		"plotItem": false,
-		"price": "5 sp",
+		"price": "400 gp",
 		"proficient": true,
 		"quantity": 1,
 		"rarity": "uncommon",
@@ -106,7 +109,8 @@
 		"unidentifiedName": "",
 		"weaponProperties": [
 			"versatile",
-			"simple"
+			"simple",
+			"vicious"
 		],
 		"weight": 10,
 		"schemaVersion": {

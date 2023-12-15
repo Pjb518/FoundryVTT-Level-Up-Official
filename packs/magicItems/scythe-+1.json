@@ -15,8 +15,8 @@
 			"requiresUnarmored": false
 		},
 		"actions": {
-			"DTLRzvV0hrGjguOY": {
-				"name": "Scythe +1",
+			"iBYZBs6IL4tFYqkk": {
+				"name": "Scythe",
 				"activation": {
 					"cost": "",
 					"type": "",
@@ -29,21 +29,22 @@
 				"area": {
 					"shape": "",
 					"size": "",
-					"placeTemplate": false
+					"placeTemplate": false,
+					"quantity": 1
 				},
 				"target": {
 					"quantity": 1,
 					"type": "creatureObject"
 				},
 				"rolls": {
-					"S5cU7kd5Pkc7HQri": {
+					"Zws2RnV5vIxJtlvC": {
 						"bonus": "1",
 						"critThreshold": "20",
 						"type": "attack",
 						"attackType": "meleeWeaponAttack",
 						"ability": "default"
 					},
-					"6aKpAFzg9nXYR9kr": {
+					"8MZQRY5aLgGGY7Cy": {
 						"canCrit": true,
 						"damageType": "slashing",
 						"formula": "1d10 + @str.mod + 1",
@@ -52,6 +53,30 @@
 					}
 				},
 				"consumers": {}
+			},
+			"fZ7UZCuUcGQ3UKdU": {
+				"name": "Parry",
+				"activation": {},
+				"consumers": {},
+				"rolls": {
+					"Wr28F3fXpV7iLaWM": {
+						"type": "generic",
+						"default": true,
+						"label": "Armor Class",
+						"formula": "1d4"
+					}
+				},
+				"prompts": {},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"threshold": 6
+					}
+				},
+				"img": "icons/weapons/sickles/scythe-curved-steel.webp"
 			}
 		},
 		"description": "<p><em>Heavy, Parrying, Two-Handed</em></p>",
@@ -67,6 +92,10 @@
 				"threshold": 6
 			}
 		},
+		"schema": {
+			"version": null,
+			"lastMigration": null
+		},
 		"ammunitionProperties": [],
 		"armorCategory": "",
 		"armorProperties": [],
@@ -80,7 +109,7 @@
 		"materialProperties": [],
 		"objectType": "weapon",
 		"plotItem": false,
-		"price": "1 gp",
+		"price": "500 gp",
 		"proficient": true,
 		"quantity": 1,
 		"rarity": "uncommon",

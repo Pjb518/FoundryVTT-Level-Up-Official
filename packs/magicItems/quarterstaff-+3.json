@@ -15,8 +15,8 @@
 			"requiresUnarmored": false
 		},
 		"actions": {
-			"eHdcU1zxWUtLyX27": {
-				"name": "Quarterstaff +3",
+			"kCg6rq5fMTR4DASN": {
+				"name": "Quarterstaff",
 				"activation": {
 					"cost": "",
 					"type": "",
@@ -29,21 +29,22 @@
 				"area": {
 					"shape": "",
 					"size": "",
-					"placeTemplate": false
+					"placeTemplate": false,
+					"quantity": 1
 				},
 				"target": {
 					"quantity": 1,
 					"type": "creatureObject"
 				},
 				"rolls": {
-					"SeK16XUrWxNZBJQm": {
+					"kIPu7GmdIzAicMJ7": {
 						"bonus": "3",
 						"critThreshold": "20",
 						"type": "attack",
 						"attackType": "meleeWeaponAttack",
 						"ability": "default"
 					},
-					"aG7VLTa5WHH3p5w8": {
+					"pkL2dfIfjmcWiwlT": {
 						"canCrit": true,
 						"damageType": "bludgeoning",
 						"formula": "1d6 + @str.mod + 3",
@@ -52,6 +53,29 @@
 					}
 				},
 				"consumers": {}
+			},
+			"FOj2ScsPwVxtedNv": {
+				"name": "Parry",
+				"activation": {},
+				"consumers": {},
+				"rolls": {
+					"Wr28F3fXpV7iLaWM": {
+						"type": "generic",
+						"default": true,
+						"label": "Armor Class",
+						"formula": "1d4"
+					}
+				},
+				"prompts": {},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"threshold": 6
+					}
+				}
 			}
 		},
 		"description": "<p><em>Parrying, Simple, Two-Handed</em></p>",
@@ -67,12 +91,16 @@
 				"threshold": 6
 			}
 		},
+		"schema": {
+			"version": null,
+			"lastMigration": null
+		},
 		"ammunitionProperties": [],
 		"armorCategory": "",
 		"armorProperties": [],
 		"attuned": false,
 		"bulky": false,
-		"craftingComponents": "A +2 weapon that has hit a monster of CR 15 or higher",
+		"craftingComponents": "+2 weapon that has hit a monster of CR 15 or higher",
 		"containerId": "",
 		"damagedState": 0,
 		"equippedState": 0,
@@ -80,7 +108,7 @@
 		"materialProperties": [],
 		"objectType": "weapon",
 		"plotItem": false,
-		"price": "2 sp",
+		"price": "8,000 gp",
 		"proficient": true,
 		"quantity": 1,
 		"rarity": "veryRare",

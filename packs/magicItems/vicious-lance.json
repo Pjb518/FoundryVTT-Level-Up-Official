@@ -2,7 +2,47 @@
 	"name": "Vicious Lance",
 	"type": "object",
 	"img": "icons/weapons/polearms/spear-flared-gold.webp",
-	"effects": [],
+	"effects": [
+		{
+			"icon": "icons/weapons/polearms/spear-flared-gold.webp",
+			"origin": "Item.omv7mL32j5EGA89P",
+			"flags": {
+				"a5e": {
+					"sort": 0,
+					"transferType": "onUse",
+					"actionId": "v3bptQ9yjfEMnfwo",
+					"duration": {
+						"type": "rounds",
+						"unit": "minutes"
+					}
+				}
+			},
+			"transfer": false,
+			"name": "AC +1",
+			"_id": "Yw7Mh6TxboywP22H",
+			"changes": [
+				{
+					"key": "system.attributes.ac.changes.bonuses.value",
+					"value": "1",
+					"mode": 2,
+					"priority": null
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": null,
+				"combat": null,
+				"rounds": null,
+				"turns": 1,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "",
+			"statuses": [],
+			"folder": null
+		}
+	],
 	"flags": {},
 	"system": {
 		"ac": {
@@ -15,8 +55,8 @@
 			"requiresUnarmored": false
 		},
 		"actions": {
-			"sNJ9xn8FSbrcqD8E": {
-				"name": "Vicious Lance",
+			"RDDSOGA3Vg3oiv4H": {
+				"name": "Lance",
 				"activation": {
 					"cost": "",
 					"type": "",
@@ -29,39 +69,34 @@
 				"area": {
 					"shape": "",
 					"size": "",
-					"placeTemplate": false
+					"placeTemplate": false,
+					"quantity": 1
 				},
 				"target": {
 					"quantity": 1,
 					"type": "creatureObject"
 				},
 				"rolls": {
-					"c4hp8SiDOBAkg90R": {
+					"07dac3JLXg0cm1bW": {
 						"bonus": "",
 						"critThreshold": "20",
 						"type": "attack",
 						"attackType": "meleeWeaponAttack",
 						"ability": "default"
 					},
-					"waZtv096qpJy0lp2": {
+					"L5OMEhyYe5Yt5m37": {
 						"canCrit": true,
 						"damageType": "piercing",
 						"formula": "1d12 + @str.mod",
 						"name": "Lance",
-						"type": "damage"
-					},
-					"1mIauj0mVkKIxYVA": {
-						"canCrit": false,
-						"damageType": "piercing",
-						"formula": "2d6",
-						"name": "Vicious Damage",
-						"type": "damage"
+						"type": "damage",
+						"critBonus": "2d6"
 					}
 				},
 				"consumers": {}
 			}
 		},
-		"description": "<p><em>Defensive (Medium), Reach</em></p><hr class=\"a5e-rule u-my-md\"><p>You have disadvantage when you use a lance to attack a target within 5 feet of you. If you are not mounted, you must use two hands to wield the lance.</p><p></p><p>When you roll a natural 20 on an attack roll using this weapon it deals an extra 2d6 damage of the weapon's type (this extra damage does not double).</p>",
+		"description": "<p><em>Defensive (Medium), Reach</em></p>\n<hr class=\"a5e-rule u-my-md\">\n<p>You have disadvantage when you use a lance to attack a target within 5 feet of you. If you are not mounted, you must use two hands to wield the lance.</p>\n<p><strong>Vicious Weapon:&nbsp;</strong>When you roll a natural 20 on an attack roll using this weapon it deals an extra 2d6 damage of the weapon&rsquo;s type (this extra damage does not double).</p>",
 		"favorite": false,
 		"secretDescription": "",
 		"source": "",
@@ -74,12 +109,16 @@
 				"threshold": 6
 			}
 		},
+		"schema": {
+			"version": null,
+			"lastMigration": null
+		},
 		"ammunitionProperties": [],
 		"armorCategory": "",
 		"armorProperties": [],
 		"attuned": false,
 		"bulky": false,
-		"craftingComponents": "Fiend’s heart",
+		"craftingComponents": "Fiend's heart",
 		"containerId": "",
 		"damagedState": 0,
 		"equippedState": 0,
@@ -87,7 +126,7 @@
 		"materialProperties": [],
 		"objectType": "weapon",
 		"plotItem": false,
-		"price": "10 gp",
+		"price": "400 gp",
 		"proficient": true,
 		"quantity": 1,
 		"rarity": "uncommon",
@@ -99,7 +138,8 @@
 		"unidentifiedName": "",
 		"weaponProperties": [
 			"defensive",
-			"reach"
+			"reach",
+			"vicious"
 		],
 		"weight": 6,
 		"schemaVersion": {

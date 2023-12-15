@@ -15,8 +15,8 @@
 			"requiresUnarmored": false
 		},
 		"actions": {
-			"jdlx0QrMypWHK9Dk": {
-				"name": "Ring Blade +2",
+			"Mzm9DgmW2gpDowOv": {
+				"name": "Ring Blade",
 				"activation": {
 					"cost": "",
 					"type": "",
@@ -27,10 +27,10 @@
 					"value": ""
 				},
 				"ranges": {
-					"GITyqzhS7lsj8viB": {
+					"CCLcY8u42Ydn55ye": {
 						"range": "short"
 					},
-					"RafSIvhb6Y2qy9Vk": {
+					"hs5jF5w7ffXtPsbk": {
 						"range": 90,
 						"unit": "feet"
 					}
@@ -38,56 +38,109 @@
 				"area": {
 					"shape": "",
 					"size": "",
-					"placeTemplate": false
+					"placeTemplate": false,
+					"quantity": 1
 				},
 				"target": {
 					"quantity": 1,
 					"type": "creatureObject"
 				},
 				"rolls": {
-					"Mp22AfF5fbvnIEYg": {
+					"YwBrnTBJBZiZq1DU": {
+						"bonus": "2",
+						"critThreshold": "20",
+						"type": "attack",
+						"attackType": "meleeWeaponAttack",
+						"ability": "default"
+					},
+					"OEr0rG2TPsk4DDWD": {
+						"canCrit": true,
+						"damageType": "slashing",
+						"formula": "1d6 + @str.mod + 2",
+						"name": "Ring Blade",
+						"type": "damage"
+					}
+				},
+				"consumers": {}
+			},
+			"KEfcwnuVgPpfQZil": {
+				"name": "Throw",
+				"activation": {
+					"cost": "",
+					"type": "",
+					"reactionTrigger": ""
+				},
+				"duration": {
+					"unit": "",
+					"value": ""
+				},
+				"ranges": {
+					"CCLcY8u42Ydn55ye": {
+						"range": "short"
+					},
+					"hs5jF5w7ffXtPsbk": {
+						"range": 90,
+						"unit": "feet"
+					}
+				},
+				"area": {
+					"shape": "",
+					"size": "",
+					"placeTemplate": false,
+					"quantity": 1
+				},
+				"target": {
+					"quantity": 1,
+					"type": "creatureObject"
+				},
+				"rolls": {
+					"YwBrnTBJBZiZq1DU": {
 						"bonus": "2",
 						"critThreshold": "20",
 						"type": "attack",
 						"attackType": "rangedWeaponAttack",
 						"ability": "default"
 					},
-					"0OARNmfk3mS0nUq7": {
+					"OEr0rG2TPsk4DDWD": {
 						"canCrit": true,
 						"damageType": "slashing",
-						"formula": "1d6 + @dex.mod + 2",
+						"formula": "1d6 + @finesse.mod + 2",
 						"name": "Ring Blade",
 						"type": "damage"
 					}
 				},
 				"consumers": {
-					"ZsiC1xTEIpiNYI3U": {
-						"itemid": "",
-						"quantity": 1,
-						"type": "ammunition"
+					"8mqXLoj9l6XWVTM1": {
+						"type": "itemUses",
+						"default": true,
+						"quantity": 1
 					}
 				}
 			}
 		},
-		"description": "<p><em>Thrown (30/90)</em></p><hr class=\"a5e-rule u-my-md\"><p>This metal hoop has sharpened edges that make it deadly whether thrown or used in hand.</p><p>It costs only 1 exertion point to use the <strong><em>Ricochet</em></strong><em> </em><strong><em>combat maneuver</em></strong> with this weapon. In addition, when you throw this weapon, you may make the attack with disadvantage, and on a hit it returns to your hand.</p>",
+		"description": "<p><em>Thrown (30/90)</em></p>\n<hr class=\"a5e-rule u-my-md\">\n<p>This metal hoop has sharpened edges that make it deadly whether thrown or used in hand.</p>\n<p>It costs only 1 exertion point to use @UUID[Compendium.a5e.a5e-maneuvers.Item.wgqhr8fisrynnnvl]{Ricochet}&nbsp;with this weapon. In addition, when you throw this weapon, you may make the attack with disadvantage, and on a hit it returns to your hand.</p>",
 		"favorite": false,
 		"secretDescription": "",
 		"source": "",
 		"uses": {
-			"value": null,
-			"max": "",
+			"value": 1,
+			"max": "1",
 			"per": null,
 			"recharge": {
 				"formula": "1d6",
 				"threshold": 6
 			}
 		},
+		"schema": {
+			"version": null,
+			"lastMigration": null
+		},
 		"ammunitionProperties": [],
 		"armorCategory": "",
 		"armorProperties": [],
 		"attuned": false,
 		"bulky": false,
-		"craftingComponents": "A +1 weapon",
+		"craftingComponents": "+1 weapon",
 		"containerId": "",
 		"damagedState": 0,
 		"equippedState": 0,
@@ -95,7 +148,7 @@
 		"materialProperties": [],
 		"objectType": "weapon",
 		"plotItem": false,
-		"price": "10 gp",
+		"price": "3,500 gp",
 		"proficient": true,
 		"quantity": 1,
 		"rarity": "rare",

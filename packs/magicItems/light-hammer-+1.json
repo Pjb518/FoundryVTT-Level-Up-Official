@@ -15,8 +15,8 @@
 			"requiresUnarmored": false
 		},
 		"actions": {
-			"GNaDAiwEfrBR7thG": {
-				"name": "Light Hammer +1",
+			"vZoAxXkMkuSyXdTv": {
+				"name": "Light Hammer",
 				"activation": {
 					"cost": "",
 					"type": "",
@@ -27,32 +27,33 @@
 					"value": ""
 				},
 				"ranges": {
-					"80dWu2Yja0suP1s5": {
+					"5MHR2TsspRR8RqVj": {
 						"range": 20,
 						"unit": "feet"
 					},
-					"KJGyXiMkZnJIYOV8": {
+					"XVpImbd3WXXMXu2s": {
 						"range": "medium"
 					}
 				},
 				"area": {
 					"shape": "",
 					"size": "",
-					"placeTemplate": false
+					"placeTemplate": false,
+					"quantity": 1
 				},
 				"target": {
 					"quantity": 1,
 					"type": "creatureObject"
 				},
 				"rolls": {
-					"lEdvflQW9q56s0b2": {
+					"dolOD9Td7hWI8mGW": {
 						"bonus": "1",
 						"critThreshold": "20",
 						"type": "attack",
 						"attackType": "meleeWeaponAttack",
 						"ability": "default"
 					},
-					"bNaGmgtyl8Waqrxa": {
+					"Cnh8JmtCweZToRok": {
 						"canCrit": true,
 						"damageType": "bludgeoning",
 						"formula": "1d4 + @str.mod + 1",
@@ -61,6 +62,163 @@
 					}
 				},
 				"consumers": {}
+			},
+			"2LWUZU002vgkJR7F": {
+				"name": "Light Hammer (Throw)",
+				"activation": {
+					"cost": "",
+					"type": "",
+					"reactionTrigger": ""
+				},
+				"duration": {
+					"unit": "",
+					"value": ""
+				},
+				"ranges": {
+					"5MHR2TsspRR8RqVj": {
+						"range": 20,
+						"unit": "feet"
+					},
+					"XVpImbd3WXXMXu2s": {
+						"range": "medium"
+					}
+				},
+				"area": {
+					"shape": "",
+					"size": "",
+					"placeTemplate": false,
+					"quantity": 1
+				},
+				"target": {
+					"quantity": 1,
+					"type": "creatureObject"
+				},
+				"rolls": {
+					"dolOD9Td7hWI8mGW": {
+						"bonus": "1",
+						"critThreshold": "20",
+						"type": "attack",
+						"attackType": "rangedWeaponAttack",
+						"ability": "default"
+					},
+					"Cnh8JmtCweZToRok": {
+						"canCrit": true,
+						"damageType": "bludgeoning",
+						"formula": "1d4 + @finesse.mod + 1",
+						"name": "Light Hammer",
+						"type": "damage"
+					}
+				},
+				"consumers": {
+					"2upWauBivIw1uSCg": {
+						"type": "itemUses",
+						"default": true,
+						"quantity": 1
+					}
+				}
+			},
+			"pjYdxB3JwuneLSCU": {
+				"name": "Light Hammer (Off-Hand)",
+				"activation": {
+					"cost": "",
+					"type": "",
+					"reactionTrigger": ""
+				},
+				"duration": {
+					"unit": "",
+					"value": ""
+				},
+				"ranges": {
+					"5MHR2TsspRR8RqVj": {
+						"range": 20,
+						"unit": "feet"
+					},
+					"XVpImbd3WXXMXu2s": {
+						"range": "medium"
+					}
+				},
+				"area": {
+					"shape": "",
+					"size": "",
+					"placeTemplate": false,
+					"quantity": 1
+				},
+				"target": {
+					"quantity": 1,
+					"type": "creatureObject"
+				},
+				"rolls": {
+					"dolOD9Td7hWI8mGW": {
+						"bonus": "1",
+						"critThreshold": "20",
+						"type": "attack",
+						"attackType": "meleeWeaponAttack",
+						"ability": "default"
+					},
+					"Cnh8JmtCweZToRok": {
+						"canCrit": true,
+						"damageType": "bludgeoning",
+						"formula": "1d4 + min(@str.mod,0) + 1",
+						"name": "Light Hammer",
+						"type": "damage"
+					}
+				},
+				"consumers": {},
+				"img": "icons/weapons/hammers/hammer-war-spiked.webp"
+			},
+			"d3ezGOmihneRpKGy": {
+				"name": "Light Hammer (Throw, Off-Hand)",
+				"activation": {
+					"cost": "",
+					"type": "",
+					"reactionTrigger": ""
+				},
+				"duration": {
+					"unit": "",
+					"value": ""
+				},
+				"ranges": {
+					"5MHR2TsspRR8RqVj": {
+						"range": 20,
+						"unit": "feet"
+					},
+					"XVpImbd3WXXMXu2s": {
+						"range": "medium"
+					}
+				},
+				"area": {
+					"shape": "",
+					"size": "",
+					"placeTemplate": false,
+					"quantity": 1
+				},
+				"target": {
+					"quantity": 1,
+					"type": "creatureObject"
+				},
+				"rolls": {
+					"dolOD9Td7hWI8mGW": {
+						"bonus": "1",
+						"critThreshold": "20",
+						"type": "attack",
+						"attackType": "rangedWeaponAttack",
+						"ability": "default"
+					},
+					"Cnh8JmtCweZToRok": {
+						"canCrit": true,
+						"damageType": "bludgeoning",
+						"formula": "1d4 + min(@finesse.mod,0) + 1",
+						"name": "Light Hammer",
+						"type": "damage"
+					}
+				},
+				"consumers": {
+					"2upWauBivIw1uSCg": {
+						"type": "itemUses",
+						"default": true,
+						"quantity": 1
+					}
+				}
 			}
 		},
 		"description": "<p><em>Dual-Wielding, Thrown (20/60)</em></p>",
@@ -68,13 +226,17 @@
 		"secretDescription": "",
 		"source": "",
 		"uses": {
-			"value": null,
-			"max": "",
+			"value": 1,
+			"max": "1",
 			"per": null,
 			"recharge": {
 				"formula": "1d6",
 				"threshold": 6
 			}
+		},
+		"schema": {
+			"version": null,
+			"lastMigration": null
 		},
 		"ammunitionProperties": [],
 		"armorCategory": "",
@@ -89,7 +251,7 @@
 		"materialProperties": [],
 		"objectType": "weapon",
 		"plotItem": false,
-		"price": "2 gp",
+		"price": "500 gp",
 		"proficient": true,
 		"quantity": 1,
 		"rarity": "uncommon",

@@ -15,8 +15,8 @@
 			"requiresUnarmored": false
 		},
 		"actions": {
-			"TQsJXEPYh09bMu0m": {
-				"name": "Quarterstaff +1",
+			"kCg6rq5fMTR4DASN": {
+				"name": "Quarterstaff",
 				"activation": {
 					"cost": "",
 					"type": "",
@@ -29,21 +29,22 @@
 				"area": {
 					"shape": "",
 					"size": "",
-					"placeTemplate": false
+					"placeTemplate": false,
+					"quantity": 1
 				},
 				"target": {
 					"quantity": 1,
 					"type": "creatureObject"
 				},
 				"rolls": {
-					"ahD33qeoDXnTBDlj": {
+					"kIPu7GmdIzAicMJ7": {
 						"bonus": "1",
 						"critThreshold": "20",
 						"type": "attack",
 						"attackType": "meleeWeaponAttack",
 						"ability": "default"
 					},
-					"clfUtPz18gTQJ0Kg": {
+					"pkL2dfIfjmcWiwlT": {
 						"canCrit": true,
 						"damageType": "bludgeoning",
 						"formula": "1d6 + @str.mod + 1",
@@ -52,6 +53,29 @@
 					}
 				},
 				"consumers": {}
+			},
+			"FOj2ScsPwVxtedNv": {
+				"name": "Parry",
+				"activation": {},
+				"consumers": {},
+				"rolls": {
+					"Wr28F3fXpV7iLaWM": {
+						"type": "generic",
+						"default": true,
+						"label": "Armor Class",
+						"formula": "1d4"
+					}
+				},
+				"prompts": {},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"threshold": 6
+					}
+				}
 			}
 		},
 		"description": "<p><em>Parrying, Simple, Two-Handed</em></p>",
@@ -67,6 +91,10 @@
 				"threshold": 6
 			}
 		},
+		"schema": {
+			"version": null,
+			"lastMigration": null
+		},
 		"ammunitionProperties": [],
 		"armorCategory": "",
 		"armorProperties": [],
@@ -80,7 +108,7 @@
 		"materialProperties": [],
 		"objectType": "weapon",
 		"plotItem": false,
-		"price": "2 sp",
+		"price": "500 gp",
 		"proficient": true,
 		"quantity": 1,
 		"rarity": "uncommon",

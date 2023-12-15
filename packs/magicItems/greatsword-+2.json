@@ -15,8 +15,8 @@
 			"requiresUnarmored": false
 		},
 		"actions": {
-			"plHtgtc7MmFgDRb8": {
-				"name": "Greatsword +2",
+			"gN1VnpQWmko9P0l8": {
+				"name": "Greatsword",
 				"activation": {
 					"cost": "",
 					"type": "",
@@ -29,21 +29,22 @@
 				"area": {
 					"shape": "",
 					"size": "",
-					"placeTemplate": false
+					"placeTemplate": false,
+					"quantity": 1
 				},
 				"target": {
 					"quantity": 1,
 					"type": "creatureObject"
 				},
 				"rolls": {
-					"uxD4IEgK8xZn7GKQ": {
+					"dSqwxwRNQwjvOq43": {
 						"bonus": "2",
 						"critThreshold": "20",
 						"type": "attack",
 						"attackType": "meleeWeaponAttack",
 						"ability": "default"
 					},
-					"JKgWVdOtfbqbNi1H": {
+					"vlUtyqLFnTkfBE3F": {
 						"canCrit": true,
 						"damageType": "slashing",
 						"formula": "2d6 + @str.mod + 2",
@@ -52,6 +53,30 @@
 					}
 				},
 				"consumers": {}
+			},
+			"tWq3CWyPcjDp7rNd": {
+				"name": "Parry",
+				"activation": {},
+				"consumers": {},
+				"rolls": {
+					"Wr28F3fXpV7iLaWM": {
+						"type": "generic",
+						"default": true,
+						"label": "Armor Class",
+						"formula": "1d4"
+					}
+				},
+				"prompts": {},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"threshold": 6
+					}
+				},
+				"img": "icons/weapons/swords/greatsword-guard-gem-blue.webp"
 			}
 		},
 		"description": "<p><em>Heavy, Parrying, Two-Handed</em></p>",
@@ -67,12 +92,16 @@
 				"threshold": 6
 			}
 		},
+		"schema": {
+			"version": null,
+			"lastMigration": null
+		},
 		"ammunitionProperties": [],
 		"armorCategory": "",
 		"armorProperties": [],
 		"attuned": false,
 		"bulky": false,
-		"craftingComponents": "A +1 weapon",
+		"craftingComponents": "+1 weapon",
 		"containerId": "",
 		"damagedState": 0,
 		"equippedState": 0,
@@ -80,7 +109,7 @@
 		"materialProperties": [],
 		"objectType": "weapon",
 		"plotItem": false,
-		"price": "50 gp",
+		"price": "3,500 gp",
 		"proficient": true,
 		"quantity": 1,
 		"rarity": "rare",

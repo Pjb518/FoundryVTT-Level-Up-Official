@@ -15,8 +15,8 @@
 			"requiresUnarmored": false
 		},
 		"actions": {
-			"4kJhuYQq69vYCSB2": {
-				"name": "Vicious Halberd",
+			"r4P0pFXflvosbwaX": {
+				"name": "Halberd",
 				"activation": {
 					"cost": "",
 					"type": "",
@@ -36,39 +36,38 @@
 					"type": "creatureObject"
 				},
 				"rolls": {
-					"dX5oPvvpwuy5NXy4": {
+					"UbfOMKqsAgxfQsz2": {
 						"bonus": "",
 						"critThreshold": "20",
 						"type": "attack",
 						"attackType": "meleeWeaponAttack",
 						"ability": "default"
 					},
-					"ZLjcmUxHzUSZksYd": {
+					"L7fynaSTVl5lka6L": {
 						"canCrit": true,
 						"damageType": "piercing",
 						"formula": "1d10 + @str.mod",
 						"name": "Halberd Pierce",
-						"type": "damage"
+						"type": "damage",
+						"label": "Piercing",
+						"default": false,
+						"critBonus": "2d6"
 					},
-					"lcSkE8HCaJcQUK3r": {
+					"2QOqNnGMpWYcRlfM": {
 						"canCrit": true,
 						"damageType": "slashing",
 						"formula": "1d10 + @str.mod",
 						"name": "Halberd Slash",
-						"type": "damage"
-					},
-					"PixW2UUbT994kMxR": {
-						"canCrit": false,
-						"damageType": "piercing",
-						"formula": "2d6",
-						"name": "Vicious Damage",
-						"type": "damage"
+						"type": "damage",
+						"label": "Slashing",
+						"default": false,
+						"critBonus": "2d6"
 					}
 				},
 				"consumers": {}
 			}
 		},
-		"description": "<p><em>Heavy, Reach, Trip, Two-Handed</em></p><p>When you roll a natural 20 on an attack roll using this weapon it deals an extra 2d6 damage of the weapon's type (this extra damage does not double).</p>",
+		"description": "<p><em>Heavy, Reach, Trip, Two-Handed</em></p>\n<p><strong>Vicious Weapon:&nbsp;</strong>When you roll a natural 20 on an attack roll using this weapon it deals an extra 2d6 damage of the weapon&rsquo;s type (this extra damage does not double).</p>",
 		"favorite": false,
 		"secretDescription": "",
 		"source": "",
@@ -81,12 +80,16 @@
 				"threshold": 6
 			}
 		},
+		"schema": {
+			"version": null,
+			"lastMigration": null
+		},
 		"ammunitionProperties": [],
 		"armorCategory": "",
 		"armorProperties": [],
 		"attuned": false,
 		"bulky": false,
-		"craftingComponents": "Fiend’s heart",
+		"craftingComponents": "Fiend's heart",
 		"containerId": "",
 		"damagedState": 0,
 		"equippedState": 0,
@@ -94,7 +97,7 @@
 		"materialProperties": [],
 		"objectType": "weapon",
 		"plotItem": false,
-		"price": "25 gp",
+		"price": "400 gp",
 		"proficient": true,
 		"quantity": 1,
 		"rarity": "uncommon",
@@ -108,7 +111,8 @@
 			"heavy",
 			"reach",
 			"trip",
-			"twoHanded"
+			"twoHanded",
+			"vicious"
 		],
 		"weight": 7,
 		"schemaVersion": {

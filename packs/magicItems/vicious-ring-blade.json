@@ -15,8 +15,8 @@
 			"requiresUnarmored": false
 		},
 		"actions": {
-			"9udFb0XT9XySkIIN": {
-				"name": "Vicious Ring Blade",
+			"Mzm9DgmW2gpDowOv": {
+				"name": "Ring Blade",
 				"activation": {
 					"cost": "",
 					"type": "",
@@ -27,10 +27,10 @@
 					"value": ""
 				},
 				"ranges": {
-					"LnqEMnJbBwRxTT9b": {
+					"CCLcY8u42Ydn55ye": {
 						"range": "short"
 					},
-					"5jS5mE4MjWJmovXC": {
+					"hs5jF5w7ffXtPsbk": {
 						"range": 90,
 						"unit": "feet"
 					}
@@ -38,63 +38,111 @@
 				"area": {
 					"shape": "",
 					"size": "",
-					"placeTemplate": false
+					"placeTemplate": false,
+					"quantity": 1
 				},
 				"target": {
 					"quantity": 1,
 					"type": "creatureObject"
 				},
 				"rolls": {
-					"vVPL7YxZm9oJih6J": {
+					"YwBrnTBJBZiZq1DU": {
+						"bonus": "",
+						"critThreshold": "20",
+						"type": "attack",
+						"attackType": "meleeWeaponAttack",
+						"ability": "default"
+					},
+					"OEr0rG2TPsk4DDWD": {
+						"canCrit": true,
+						"damageType": "slashing",
+						"formula": "1d6 + @str.mod",
+						"name": "Ring Blade",
+						"type": "damage",
+						"critBonus": "2d6"
+					}
+				},
+				"consumers": {}
+			},
+			"KEfcwnuVgPpfQZil": {
+				"name": "Throw",
+				"activation": {
+					"cost": "",
+					"type": "",
+					"reactionTrigger": ""
+				},
+				"duration": {
+					"unit": "",
+					"value": ""
+				},
+				"ranges": {
+					"CCLcY8u42Ydn55ye": {
+						"range": "short"
+					},
+					"hs5jF5w7ffXtPsbk": {
+						"range": 90,
+						"unit": "feet"
+					}
+				},
+				"area": {
+					"shape": "",
+					"size": "",
+					"placeTemplate": false,
+					"quantity": 1
+				},
+				"target": {
+					"quantity": 1,
+					"type": "creatureObject"
+				},
+				"rolls": {
+					"YwBrnTBJBZiZq1DU": {
 						"bonus": "",
 						"critThreshold": "20",
 						"type": "attack",
 						"attackType": "rangedWeaponAttack",
 						"ability": "default"
 					},
-					"lnQewTlidnXWfCZx": {
+					"OEr0rG2TPsk4DDWD": {
 						"canCrit": true,
 						"damageType": "slashing",
-						"formula": "1d6 + @dex.mod",
+						"formula": "1d6 + @finesse.mod",
 						"name": "Ring Blade",
-						"type": "damage"
-					},
-					"fm0cljGfqnalF9Es": {
-						"canCrit": false,
-						"damageType": "slashing",
-						"formula": "2d6",
-						"name": "Vicious Damage",
-						"type": "damage"
+						"type": "damage",
+						"critBonus": "2d6"
 					}
 				},
 				"consumers": {
-					"itSIF2HWpxGu0XK6": {
-						"itemid": "",
-						"quantity": 1,
-						"type": "ammunition"
+					"8mqXLoj9l6XWVTM1": {
+						"type": "itemUses",
+						"default": true,
+						"quantity": 1
 					}
 				}
 			}
 		},
-		"description": "<p><em>Thrown (30/90)</em></p><hr class=\"a5e-rule u-my-md\"><p>This metal hoop has sharpened edges that make it deadly whether thrown or used in hand.</p><p>It costs only 1 exertion point to use the <strong><em>Ricochet</em></strong><em> </em><strong><em>combat maneuver</em></strong> with this weapon. In addition, when you throw this weapon, you may make the attack with disadvantage, and on a hit it returns to your hand.</p><p>When you roll a natural 20 on an attack roll using this weapon it deals an extra 2d6 damage of the weapon's type (this extra damage does not double).</p>",
+		"description": "<p><em>Thrown (30/90)</em></p>\n<hr class=\"a5e-rule u-my-md\">\n<p>This metal hoop has sharpened edges that make it deadly whether thrown or used in hand.</p>\n<p>It costs only 1 exertion point to use @UUID[Compendium.a5e.a5e-maneuvers.Item.wgqhr8fisrynnnvl]{Ricochet}&nbsp;with this weapon. In addition, when you throw this weapon, you may make the attack with disadvantage, and on a hit it returns to your hand.</p>\n<p><strong>Vicious Weapon:&nbsp;</strong>When you roll a natural 20 on an attack roll using this weapon it deals an extra 2d6 damage of the weapon&rsquo;s type (this extra damage does not double).</p>",
 		"favorite": false,
 		"secretDescription": "",
 		"source": "",
 		"uses": {
-			"value": null,
-			"max": "",
+			"value": 1,
+			"max": "1",
 			"per": null,
 			"recharge": {
 				"formula": "1d6",
 				"threshold": 6
 			}
 		},
+		"schema": {
+			"version": null,
+			"lastMigration": null
+		},
 		"ammunitionProperties": [],
 		"armorCategory": "",
 		"armorProperties": [],
 		"attuned": false,
 		"bulky": false,
-		"craftingComponents": "Fiend’s heart",
+		"craftingComponents": "Fiend's heart",
 		"containerId": "",
 		"damagedState": 0,
 		"equippedState": 0,
@@ -102,7 +150,7 @@
 		"materialProperties": [],
 		"objectType": "weapon",
 		"plotItem": false,
-		"price": "10 gp",
+		"price": "400 gp",
 		"proficient": true,
 		"quantity": 1,
 		"rarity": "uncommon",
@@ -113,7 +161,8 @@
 		"unidentifiedDescription": "",
 		"unidentifiedName": "",
 		"weaponProperties": [
-			"thrown"
+			"thrown",
+			"vicious"
 		],
 		"weight": 6,
 		"schemaVersion": {

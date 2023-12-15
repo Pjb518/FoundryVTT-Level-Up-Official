@@ -15,8 +15,8 @@
 			"requiresUnarmored": false
 		},
 		"actions": {
-			"qxWudOlxRtFaPdy0": {
-				"name": "Vicious Greatsword",
+			"gN1VnpQWmko9P0l8": {
+				"name": "Greatsword",
 				"activation": {
 					"cost": "",
 					"type": "",
@@ -29,39 +29,58 @@
 				"area": {
 					"shape": "",
 					"size": "",
-					"placeTemplate": false
+					"placeTemplate": false,
+					"quantity": 1
 				},
 				"target": {
 					"quantity": 1,
 					"type": "creatureObject"
 				},
 				"rolls": {
-					"hIUYZ9AJxwArX0aH": {
+					"dSqwxwRNQwjvOq43": {
 						"bonus": "",
 						"critThreshold": "20",
 						"type": "attack",
 						"attackType": "meleeWeaponAttack",
 						"ability": "default"
 					},
-					"I1alKuokc7ZkZgC7": {
+					"vlUtyqLFnTkfBE3F": {
 						"canCrit": true,
 						"damageType": "slashing",
 						"formula": "2d6 + @str.mod",
 						"name": "Greatsword",
-						"type": "damage"
-					},
-					"oMhsSfPc92el4Zjl": {
-						"canCrit": false,
-						"damageType": "slashing",
-						"formula": "2d6",
-						"name": "Vicious Damage",
-						"type": "damage"
+						"type": "damage",
+						"critBonus": "2d6"
 					}
 				},
 				"consumers": {}
+			},
+			"tWq3CWyPcjDp7rNd": {
+				"name": "Parry",
+				"activation": {},
+				"consumers": {},
+				"rolls": {
+					"Wr28F3fXpV7iLaWM": {
+						"type": "generic",
+						"default": true,
+						"label": "Armor Class",
+						"formula": "1d4"
+					}
+				},
+				"prompts": {},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"threshold": 6
+					}
+				},
+				"img": "icons/weapons/swords/greatsword-guard-gem-blue.webp"
 			}
 		},
-		"description": "<p><em>Heavy, Parrying, Two-Handed</em></p><p>When you roll a natural 20 on an attack roll using this weapon it deals an extra 2d6 damage of the weapon's type (this extra damage does not double).</p>",
+		"description": "<p><em>Heavy, Parrying, Two-Handed</em></p>\n<p><strong>Vicious Weapon:&nbsp;</strong>When you roll a natural 20 on an attack roll using this weapon it deals an extra 2d6 damage of the weapon&rsquo;s type (this extra damage does not double).</p>",
 		"favorite": false,
 		"secretDescription": "",
 		"source": "",
@@ -74,12 +93,16 @@
 				"threshold": 6
 			}
 		},
+		"schema": {
+			"version": null,
+			"lastMigration": null
+		},
 		"ammunitionProperties": [],
 		"armorCategory": "",
 		"armorProperties": [],
 		"attuned": false,
 		"bulky": false,
-		"craftingComponents": "Fiend’s heart",
+		"craftingComponents": "Fiend's heart",
 		"containerId": "",
 		"damagedState": 0,
 		"equippedState": 0,
@@ -87,7 +110,7 @@
 		"materialProperties": [],
 		"objectType": "weapon",
 		"plotItem": false,
-		"price": "50 gp",
+		"price": "400 gp",
 		"proficient": true,
 		"quantity": 1,
 		"rarity": "uncommon",
@@ -100,7 +123,8 @@
 		"weaponProperties": [
 			"parrying",
 			"heavy",
-			"twoHanded"
+			"twoHanded",
+			"vicious"
 		],
 		"weight": 7,
 		"schemaVersion": {

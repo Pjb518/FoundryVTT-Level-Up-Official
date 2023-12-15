@@ -15,8 +15,8 @@
 			"requiresUnarmored": false
 		},
 		"actions": {
-			"bB3zU9nSkXOeYB3s": {
-				"name": "Greatsword +1",
+			"gN1VnpQWmko9P0l8": {
+				"name": "Greatsword",
 				"activation": {
 					"cost": "",
 					"type": "",
@@ -29,21 +29,22 @@
 				"area": {
 					"shape": "",
 					"size": "",
-					"placeTemplate": false
+					"placeTemplate": false,
+					"quantity": 1
 				},
 				"target": {
 					"quantity": 1,
 					"type": "creatureObject"
 				},
 				"rolls": {
-					"fguf5QMUkBVWZQWl": {
+					"dSqwxwRNQwjvOq43": {
 						"bonus": "1",
 						"critThreshold": "20",
 						"type": "attack",
 						"attackType": "meleeWeaponAttack",
 						"ability": "default"
 					},
-					"fjDFZgPe2d9Ghqak": {
+					"vlUtyqLFnTkfBE3F": {
 						"canCrit": true,
 						"damageType": "slashing",
 						"formula": "2d6 + @str.mod + 1",
@@ -52,6 +53,30 @@
 					}
 				},
 				"consumers": {}
+			},
+			"tWq3CWyPcjDp7rNd": {
+				"name": "Parry",
+				"activation": {},
+				"consumers": {},
+				"rolls": {
+					"Wr28F3fXpV7iLaWM": {
+						"type": "generic",
+						"default": true,
+						"label": "Armor Class",
+						"formula": "1d4"
+					}
+				},
+				"prompts": {},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"threshold": 6
+					}
+				},
+				"img": "icons/weapons/swords/greatsword-guard-gem-blue.webp"
 			}
 		},
 		"description": "<p><em>Heavy, Parrying, Two-Handed</em></p>",
@@ -67,6 +92,10 @@
 				"threshold": 6
 			}
 		},
+		"schema": {
+			"version": null,
+			"lastMigration": null
+		},
 		"ammunitionProperties": [],
 		"armorCategory": "",
 		"armorProperties": [],
@@ -80,7 +109,7 @@
 		"materialProperties": [],
 		"objectType": "weapon",
 		"plotItem": false,
-		"price": "50 gp",
+		"price": "500 gp",
 		"proficient": true,
 		"quantity": 1,
 		"rarity": "uncommon",

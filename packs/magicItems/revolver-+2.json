@@ -15,8 +15,8 @@
 			"requiresUnarmored": false
 		},
 		"actions": {
-			"VpMHUgfggayXKV2d": {
-				"name": "Revolver +2",
+			"oJrLBxGLO93a9rTa": {
+				"name": "Revolver",
 				"activation": {
 					"cost": "",
 					"type": "",
@@ -27,31 +27,32 @@
 					"value": ""
 				},
 				"ranges": {
-					"8rR0VD0OhwGT2O5P": {
+					"TZcUA0bYm0lu02Qu": {
 						"range": "medium"
 					},
-					"tHlu19jIcbZT6rCf": {
+					"CJceNCcLl1OS3RD7": {
 						"range": "180"
 					}
 				},
 				"area": {
 					"shape": "",
 					"size": "",
-					"placeTemplate": false
+					"placeTemplate": false,
+					"quantity": 1
 				},
 				"target": {
 					"quantity": 1,
 					"type": "creature"
 				},
 				"rolls": {
-					"WoOoRI2Z653Ff4sN": {
+					"sXtxXjG70zP6diEk": {
 						"bonus": "2",
 						"critThreshold": "20",
 						"type": "attack",
 						"attackType": "rangedWeaponAttack",
 						"ability": "dex"
 					},
-					"F6q2tPfrI4ADGhx0": {
+					"p51OHG44FGRi3OGR": {
 						"canCrit": true,
 						"damageType": "piercing",
 						"formula": "2d6 + @dex.mod + 2",
@@ -60,10 +61,36 @@
 					}
 				},
 				"consumers": {
-					"ZUuNtmDJrlBs2r6W": {
-						"itemid": "",
-						"quantity": 1,
-						"type": "ammunition"
+					"IhFkOUPgfms9JI1c": {
+						"type": "ammunition",
+						"default": true,
+						"itemId": "",
+						"quantity": 1
+					}
+				}
+			},
+			"ELpn1fi1sm0yv0oc": {
+				"name": "Load",
+				"activation": {
+					"type": "action",
+					"cost": 1
+				},
+				"consumers": {
+					"piLi0Au7eNENjgFV": {
+						"type": "itemUses",
+						"default": true,
+						"quantity": -1
+					}
+				},
+				"rolls": {},
+				"prompts": {},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"threshold": 6
 					}
 				}
 			}
@@ -74,19 +101,23 @@
 		"source": "",
 		"uses": {
 			"value": null,
-			"max": "",
+			"max": "6",
 			"per": null,
 			"recharge": {
 				"formula": "1d6",
 				"threshold": 6
 			}
 		},
+		"schema": {
+			"version": null,
+			"lastMigration": null
+		},
 		"ammunitionProperties": [],
 		"armorCategory": "",
 		"armorProperties": [],
 		"attuned": false,
 		"bulky": false,
-		"craftingComponents": "A +1 weapon",
+		"craftingComponents": "+1 weapon",
 		"containerId": "",
 		"damagedState": 0,
 		"equippedState": 0,
@@ -94,7 +125,7 @@
 		"materialProperties": [],
 		"objectType": "weapon",
 		"plotItem": false,
-		"price": "300 gp",
+		"price": "3,500 gp",
 		"proficient": true,
 		"quantity": 1,
 		"rarity": "rare",
