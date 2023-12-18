@@ -1,29 +1,29 @@
 {
-	"name": "Longstrider",
+	"name": "Imparted Invisibility",
 	"type": "spell",
-	"img": "icons/skills/movement/feet-winged-boots-brown.webp",
+	"img": "icons/magic/light/explosion-star-glow-silhouette.webp",
 	"effects": [
 		{
-			"icon": "icons/skills/movement/feet-winged-boots-brown.webp",
-			"origin": "Item.sgkxow4TysGsQMpG",
+			"icon": "icons/magic/light/explosion-star-glow-silhouette.webp",
+			"origin": "Item.U5NOKzOF8ILeso0v",
 			"flags": {
 				"a5e": {
 					"sort": 0,
 					"transferType": "onUse",
-					"actionId": "v558t7RWdhjXf55R",
+					"actionId": "JmYFAmw4m4fpTJH3",
 					"duration": {
 						"unit": "hours"
 					}
 				}
 			},
 			"transfer": false,
-			"name": "Longstrider",
-			"_id": "0ujFa6ADV3fSQSN3",
+			"name": "Invisible",
+			"_id": "o1qvWrwid36w8yeW",
 			"changes": [
 				{
-					"key": "system.attributes.movement.walk.distance",
-					"value": "10",
-					"mode": 2,
+					"key": "flags.a5e.effects.statusConditions",
+					"value": "[\"invisible\"]",
+					"mode": 0,
 					"priority": null
 				}
 			],
@@ -38,15 +38,17 @@
 				"startTurn": null
 			},
 			"description": "",
-			"statuses": [],
+			"statuses": [
+				"invisible"
+			],
 			"folder": null
 		}
 	],
 	"flags": {},
 	"system": {
 		"actions": {
-			"v558t7RWdhjXf55R": {
-				"name": "Longstrider",
+			"JmYFAmw4m4fpTJH3": {
+				"name": "Invisibility",
 				"activation": {
 					"cost": 1,
 					"type": "action",
@@ -57,7 +59,7 @@
 					"value": "1"
 				},
 				"ranges": {
-					"nYjn46r5DTMtZtXt": {
+					"njg9gnRa30ArNRv0": {
 						"range": "touch"
 					}
 				},
@@ -75,23 +77,23 @@
 					}
 				},
 				"consumers": {
-					"Mny4lecXTmqnauWX": {
+					"DRrTTB0zIu3uhw9q": {
 						"mode": "variable",
-						"spellLevel": 1,
-						"points": 2,
+						"spellLevel": 2,
+						"points": 3,
 						"type": "spell"
 					}
 				},
 				"prompts": {
-					"Qt9YjbkewROemVno": {
+					"G31vUlozIW3a3sPx": {
 						"type": "effect",
 						"default": true,
-						"effectId": "0ujFa6ADV3fSQSN3"
+						"effectId": "o1qvWrwid36w8yeW"
 					}
 				}
 			}
 		},
-		"description": "<p>Until the spell ends, the target's Speed increases by 10 feet.</p><p><strong><em>Cast at Higher Levels.</em></strong> Target one additional creature for each slot level above 1st.</p>",
+		"description": "<p>You wreathe a creature in an illusory veil, making it invisible. Anything the target is carrying or wearing is also invisible as long as it remains in the target's possession. The spell's effects end for a target that attacks or casts a spell.</p>\n<p><strong><em>Cast at Higher Levels.</em></strong> Target one additional creature for each slot level above 2nd.</p>\n<p><strong>Rare:&nbsp;<em>Imparted Invisibility.&nbsp;</em></strong>Until the&nbsp;spell ends, any object that the target picks up&nbsp;becomes invisible even after it is dropped.</p>",
 		"favorite": false,
 		"secretDescription": "",
 		"source": "",
@@ -110,8 +112,9 @@
 		},
 		"classes": [
 			"artificer",
-			"druid",
-			"elementalistAir",
+			"bard",
+			"sorcerer",
+			"warlock",
 			"witch",
 			"wizard"
 		],
@@ -120,19 +123,20 @@
 			"seen": true,
 			"material": true
 		},
-		"concentration": false,
-		"level": 1,
-		"materials": "coiled wire and the sole of a shoe",
+		"concentration": true,
+		"level": 2,
+		"materials": "piece of a veil",
 		"materialsConsumed": false,
 		"prepared": false,
 		"prerequisite": "",
-		"rare": false,
+		"rare": true,
 		"ritual": false,
 		"schools": {
-			"primary": "transmutation",
+			"primary": "illusion",
 			"secondary": [
-				"movement",
-				"utility"
+				"arcane",
+				"obscurement",
+				"shadow"
 			]
 		},
 		"schemaVersion": {
@@ -147,5 +151,5 @@
 		}
 	},
 	"folder": null,
-	"_id": "bhi0hmhoopnxs91y"
+	"_id": "5vn1rl59pxadpk97"
 }

@@ -2,7 +2,48 @@
 	"name": "Invisibility",
 	"type": "spell",
 	"img": "icons/magic/light/explosion-star-glow-silhouette.webp",
-	"effects": [],
+	"effects": [
+		{
+			"icon": "icons/magic/light/explosion-star-glow-silhouette.webp",
+			"origin": "Item.VQC3VQsrJwKNKUVm",
+			"flags": {
+				"a5e": {
+					"sort": 0,
+					"transferType": "onUse",
+					"actionId": "JmYFAmw4m4fpTJH3",
+					"duration": {
+						"unit": "hours"
+					}
+				}
+			},
+			"transfer": false,
+			"name": "Invisible",
+			"_id": "o1qvWrwid36w8yeW",
+			"changes": [
+				{
+					"key": "flags.a5e.effects.statusConditions",
+					"value": "[\"invisible\"]",
+					"mode": 0,
+					"priority": null
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": 3600,
+				"combat": null,
+				"rounds": null,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "",
+			"statuses": [
+				"invisible"
+			],
+			"folder": null
+		}
+	],
 	"flags": {},
 	"system": {
 		"actions": {
@@ -28,8 +69,12 @@
 					"placeTemplate": false
 				},
 				"target": {
-					"quantity": "",
-					"type": "creature"
+					"quantity": 1,
+					"type": "creature",
+					"scaling": {
+						"mode": "spellLevel",
+						"formula": "1"
+					}
 				},
 				"consumers": {
 					"DRrTTB0zIu3uhw9q": {
@@ -37,6 +82,13 @@
 						"spellLevel": 2,
 						"points": 3,
 						"type": "spell"
+					}
+				},
+				"prompts": {
+					"G31vUlozIW3a3sPx": {
+						"type": "effect",
+						"default": true,
+						"effectId": "o1qvWrwid36w8yeW"
 					}
 				}
 			}
@@ -53,6 +105,10 @@
 				"formula": "",
 				"threshold": ""
 			}
+		},
+		"schema": {
+			"version": null,
+			"lastMigration": null
 		},
 		"classes": [
 			"artificer",
