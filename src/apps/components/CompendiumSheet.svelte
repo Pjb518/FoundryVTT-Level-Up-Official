@@ -7,16 +7,16 @@
     import { DynMapReducer } from "#runtime/svelte/store/reducer";
     import { TJSInput } from "#standard/component";
 
-    import GenericDialog from "../dialogs/initializers/GenericDialog";
+    import GenericDialog from "../dialogs/GenericDialog";
 
-    import CompendiumFilters from "../components/pages/CompendiumFilters.svelte";
-    import CompendiumItemList from "../components/pages/CompendiumItemList.svelte";
+    import CompendiumFilters from "./CompendiumFilters.svelte";
+    import CompendiumItemList from "./CompendiumItemList.svelte";
     import ExportToRollTableDialog from "../dialogs/ExportToRollTableDialog.svelte";
 
     import {
         addSearchFilter,
         removeSearchFilter,
-    } from "../handlers/handleSearchFilter";
+    } from "../handlers/handleCompendiumSearchFilter";
 
     export let { compendiumType, document, filterStore, sheet } =
         getContext("#external").application;

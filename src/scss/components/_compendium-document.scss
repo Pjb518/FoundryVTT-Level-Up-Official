@@ -1,0 +1,73 @@
+.a5efc-document {
+  display: grid;
+  grid-template-areas:
+    "img name import"
+    "img details import";
+  grid-template-columns: max-content 1fr min-content;
+  align-items: center;
+  column-gap: 0.5rem;
+  width: 100%;
+  padding: 0.125rem;
+  padding-right: 0.5rem;
+  border: 1px solid #ccc;
+  border-radius: 3px;
+  background: var(--item-background, rgba(0, 0, 0, 0.05));
+  cursor: pointer;
+
+  &--spell {
+    grid-template-areas: "img name components import"
+      "img details components import";
+    grid-template-columns: max-content 1fr max-content min-content;
+  }
+
+  &__icon {
+    color: #888;
+    font-size: 0.833rem;
+  }
+
+  &__image {
+    height: 2.25rem;
+    width: 2.25rem;
+    aspect-ratio: 1/1;
+    grid-area: img;
+    border: 0;
+  }
+
+  &__import-button {
+    grid-area: import;
+    margin: 0;
+    padding: 0.25rem;
+    color: #888;
+    background: transparent;
+    border: 0;
+    transition: all 0.15s ease-in-out;
+
+    &:hover {
+      color: #191813;
+      transform: scale(1.2);
+      box-shadow: none;
+    }
+  }
+
+  &__name {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    grid-area: name;
+    margin: 0;
+    border: 0;
+    font-size: inherit;
+    font-weight: bold;
+    line-height: 1;
+  }
+
+  &__details {
+    grid-area: details;
+    line-height: 1;
+    color: #666;
+    font-size: 0.694rem;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+}

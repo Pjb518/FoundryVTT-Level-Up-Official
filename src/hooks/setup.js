@@ -1,3 +1,9 @@
+import DND5ESpellCompendiumSheet from '../apps/DND5ESpellCompendiumSheet';
+import ItemCompendiumSheet from '../apps/ItemCompendiumSheet';
+import ManeuverCompendiumSheet from '../apps/ManeuverCompendiumSheet';
+import MonsterCompendiumSheet from '../apps/MonsterCompendiumSheet';
+import SpellCompendiumSheet from '../apps/SpellCompendiumSheet';
+
 import registerSystemSettings from '../settings';
 import registerConditionsConfig from '../config/registerConditionsConfig';
 
@@ -101,4 +107,21 @@ export default function setup() {
   createSpellIndex();
   create5eMonsterIndex();
   create5eSpellIndex();
+
+  const adventuringGear = game.packs.get('a5e.a5e-adventuring-gear');
+  const dnd5eItems = game.packs.get('a5e.dnd5e-items');
+  const dnd5eMonsters = game.packs.get('a5e.dnd5e-monsters');
+  const dnd5eSpells = game.packs.get('a5e.dnd5e-spells');
+  const maneuvers = game.packs.get('a5e.a5e-maneuvers');
+  const monsters = game.packs.get('a5e.a5e-monsters');
+  const spells = game.packs.get('a5e.a5e-spells');
+
+  adventuringGear.applicationClass = ItemCompendiumSheet;
+  maneuvers.applicationClass = ManeuverCompendiumSheet;
+  monsters.applicationClass = MonsterCompendiumSheet;
+  spells.applicationClass = SpellCompendiumSheet;
+
+  dnd5eItems.applicationClass = ItemCompendiumSheet;
+  dnd5eMonsters.applicationClass = MonsterCompendiumSheet;
+  dnd5eSpells.applicationClass = DND5ESpellCompendiumSheet;
 }

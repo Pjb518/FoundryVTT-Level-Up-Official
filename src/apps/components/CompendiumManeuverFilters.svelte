@@ -2,14 +2,31 @@
     import { getContext } from "svelte";
 
     import CompendiumFilterCategory from "./CompendiumFilterCategory.svelte";
+    import FormSection from "./FormSection.svelte";
+    import RangeSlider from "svelte-range-slider-pips";
 
     import constructReducerFilters from "../handlers/constructReducerFilters";
 
-    export let compendiumType = "spell";
+    // export let compendiumType = "maneuver";
 
     const filterStore = getContext("filterStore");
     const reducer = getContext("reducer");
-    const { classSpellLists, spellLevels, spellSchools } = CONFIG.A5E;
+    const { maneuverDegrees, maneuverTraditions } = CONFIG.A5E;
+
+    function getExertionCostLabel({ exertion }) {
+        const { min, max } = exertion;
+
+        if (min === max) return min;
+
+        return `${min}–${max}`;
+    }
+
+    function updateExertionRange([min, max]) {
+        filterStore.update((currentFilterSelections) => ({
+            ...currentFilterSelections,
+            exertion: { min, max },
+        }));
+    }
 
     let filterSelections = {};
 
@@ -19,47 +36,56 @@
 
     const formSectionMap = [
         {
-            filterKey: "spellLists",
-            heading: "Spell Lists",
-            options: classSpellLists,
-            display: compendiumType === "spell",
+            filterKey: "maneuverDegrees",
+            heading: "Maneuver Degrees",
+            options: maneuverDegrees,
         },
         {
-            filterKey: "spellLevels",
-            heading: "Spell Levels",
-            options: spellLevels,
-        },
-        {
-            filterKey: "primarySpellSchools",
-            heading:
-                compendiumType === "spell"
-                    ? "Primary Spell Schools"
-                    : "Spell Schools",
-            options: spellSchools.primary,
-        },
-        {
-            filterKey: "secondarySpellSchools",
-            heading: "Secondary Spell Schools",
-            options: spellSchools.secondary,
-            display: compendiumType === "spell",
+            filterKey: "maneuverTraditions",
+            heading: "Maneuver Traditions",
+            options: maneuverTraditions,
         },
         {
             filterKey: "miscellaneous",
             heading: "Miscellaneous",
             options: {
-                concentration: "Concentration",
-                rare: "Rare",
-                ritual: "Ritual",
+                stance: "Stance",
             },
         },
     ];
 
+    $: exertionCostLabel = getExertionCostLabel(filterSelections);
+
     $: filterCount = constructReducerFilters(
         reducer,
         filterSelections,
-        "spells"
+        "maneuvers"
     );
 </script>
+
+<FormSection
+    heading="Exertion Cost Range ({exertionCostLabel})"
+    --label-width="100%"
+>
+    <RangeSlider
+        --range-handle="#425f65"
+        --range-handle-focus="#425f65"
+        --range-handle-inactive="#425f65"
+        --range-pip="#7e7960"
+        --range-slider="#c8c6be"
+        first={"label"}
+        last={"label"}
+        min={0}
+        max={3}
+        pips={true}
+        pipstep={1}
+        range={true}
+        springValues={{ stiffness: 1, damping: 1 }}
+        step={1}
+        values={[filterSelections.exertion.min, filterSelections.exertion.max]}
+        on:change={({ detail }) => updateExertionRange(detail.values)}
+    />
+</FormSection>
 
 {#each formSectionMap as { display, heading, filterKey, options }}
     {#if display ?? true}
