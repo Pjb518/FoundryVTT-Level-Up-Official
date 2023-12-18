@@ -4,6 +4,8 @@ import SchemaDataModel from '../template/SchemaDataModel';
 import RecordField from '../fields/RecordField';
 import UnchasteSchemaField from '../fields/UnchasteSchemaField';
 
+import getCheckNotesData from './CheckNotes';
+
 import {
   getAbilitiesBonusData, getDamageBonusData, getHealingBonusData, getSkillBonusData
 } from './Bonuses';
@@ -18,72 +20,144 @@ export default class BaseActorData extends A5EDataModel.mixin(SchemaDataModel) {
           value: new fields.NumberField({ required: true, initial: 10, integer: true }),
           check: new fields.SchemaField({
             expertiseDice: new fields.NumberField({ required: true, initial: 0, integer: true }),
-            bonus: new fields.StringField({ required: true, initial: '' })
+            bonus: new fields.StringField({ required: true, initial: '' }),
+            notes: new RecordField(
+              new fields.DocumentIdField({
+                required: true, initial: () => foundry.utils.randomID()
+              }),
+              new fields.SchemaField(getCheckNotesData())
+            )
           }),
           save: new fields.SchemaField({
             proficient: new fields.BooleanField({ required: true, initial: false }),
             expertiseDice: new fields.NumberField({ required: true, initial: 0, integer: true }),
-            bonus: new fields.StringField({ required: true, initial: '' })
+            bonus: new fields.StringField({ required: true, initial: '' }),
+            notes: new RecordField(
+              new fields.DocumentIdField({
+                required: true, initial: () => foundry.utils.randomID()
+              }),
+              new fields.SchemaField(getCheckNotesData())
+            )
           })
         }),
         dex: new fields.SchemaField({
           value: new fields.NumberField({ required: true, initial: 10, integer: true }),
           check: new fields.SchemaField({
             expertiseDice: new fields.NumberField({ required: true, initial: 0, integer: true }),
-            bonus: new fields.StringField({ required: true, initial: '' })
+            bonus: new fields.StringField({ required: true, initial: '' }),
+            notes: new RecordField(
+              new fields.DocumentIdField({
+                required: true, initial: () => foundry.utils.randomID()
+              }),
+              new fields.SchemaField(getCheckNotesData())
+            )
           }),
           save: new fields.SchemaField({
             proficient: new fields.BooleanField({ required: true, initial: false }),
             expertiseDice: new fields.NumberField({ required: true, initial: 0, integer: true }),
-            bonus: new fields.StringField({ required: true, initial: '' })
+            bonus: new fields.StringField({ required: true, initial: '' }),
+            notes: new RecordField(
+              new fields.DocumentIdField({
+                required: true, initial: () => foundry.utils.randomID()
+              }),
+              new fields.SchemaField(getCheckNotesData())
+            )
           })
         }),
         con: new fields.SchemaField({
           value: new fields.NumberField({ required: true, initial: 10, integer: true }),
           check: new fields.SchemaField({
             expertiseDice: new fields.NumberField({ required: true, initial: 0, integer: true }),
-            bonus: new fields.StringField({ required: true, initial: '' })
+            bonus: new fields.StringField({ required: true, initial: '' }),
+            notes: new RecordField(
+              new fields.DocumentIdField({
+                required: true, initial: () => foundry.utils.randomID()
+              }),
+              new fields.SchemaField(getCheckNotesData())
+            )
           }),
           save: new fields.SchemaField({
             proficient: new fields.BooleanField({ required: true, initial: false }),
             expertiseDice: new fields.NumberField({ required: true, initial: 0, integer: true }),
-            bonus: new fields.StringField({ required: true, initial: '' })
+            bonus: new fields.StringField({ required: true, initial: '' }),
+            notes: new RecordField(
+              new fields.DocumentIdField({
+                required: true, initial: () => foundry.utils.randomID()
+              }),
+              new fields.SchemaField(getCheckNotesData())
+            )
           })
         }),
         int: new fields.SchemaField({
           value: new fields.NumberField({ required: true, initial: 10, integer: true }),
           check: new fields.SchemaField({
             expertiseDice: new fields.NumberField({ required: true, initial: 0, integer: true }),
-            bonus: new fields.StringField({ required: true, initial: '' })
+            bonus: new fields.StringField({ required: true, initial: '' }),
+            notes: new RecordField(
+              new fields.DocumentIdField({
+                required: true, initial: () => foundry.utils.randomID()
+              }),
+              new fields.SchemaField(getCheckNotesData())
+            )
           }),
           save: new fields.SchemaField({
             proficient: new fields.BooleanField({ required: true, initial: false }),
             expertiseDice: new fields.NumberField({ required: true, initial: 0, integer: true }),
-            bonus: new fields.StringField({ required: true, initial: '' })
+            bonus: new fields.StringField({ required: true, initial: '' }),
+            notes: new RecordField(
+              new fields.DocumentIdField({
+                required: true, initial: () => foundry.utils.randomID()
+              }),
+              new fields.SchemaField(getCheckNotesData())
+            )
           })
         }),
         wis: new fields.SchemaField({
           value: new fields.NumberField({ required: true, initial: 10, integer: true }),
           check: new fields.SchemaField({
             expertiseDice: new fields.NumberField({ required: true, initial: 0, integer: true }),
-            bonus: new fields.StringField({ required: true, initial: '' })
+            bonus: new fields.StringField({ required: true, initial: '' }),
+            notes: new RecordField(
+              new fields.DocumentIdField({
+                required: true, initial: () => foundry.utils.randomID()
+              }),
+              new fields.SchemaField(getCheckNotesData())
+            )
           }),
           save: new fields.SchemaField({
             proficient: new fields.BooleanField({ required: true, initial: false }),
             expertiseDice: new fields.NumberField({ required: true, initial: 0, integer: true }),
-            bonus: new fields.StringField({ required: true, initial: '' })
+            bonus: new fields.StringField({ required: true, initial: '' }),
+            notes: new RecordField(
+              new fields.DocumentIdField({
+                required: true, initial: () => foundry.utils.randomID()
+              }),
+              new fields.SchemaField(getCheckNotesData())
+            )
           })
         }),
         cha: new fields.SchemaField({
           value: new fields.NumberField({ required: true, initial: 10, integer: true }),
           check: new fields.SchemaField({
             expertiseDice: new fields.NumberField({ required: true, initial: 0, integer: true }),
-            bonus: new fields.StringField({ required: true, initial: '' })
+            bonus: new fields.StringField({ required: true, initial: '' }),
+            notes: new RecordField(
+              new fields.DocumentIdField({
+                required: true, initial: () => foundry.utils.randomID()
+              }),
+              new fields.SchemaField(getCheckNotesData())
+            )
           }),
           save: new fields.SchemaField({
             proficient: new fields.BooleanField({ required: true, initial: false }),
             expertiseDice: new fields.NumberField({ required: true, initial: 0, integer: true }),
-            bonus: new fields.StringField({ required: true, initial: '' })
+            bonus: new fields.StringField({ required: true, initial: '' }),
+            notes: new RecordField(
+              new fields.DocumentIdField({
+                required: true, initial: () => foundry.utils.randomID()
+              }),
+              new fields.SchemaField(getCheckNotesData())
+            )
           })
         })
       }),
