@@ -1,8 +1,41 @@
 {
-	"name": "Power Word Kill",
+	"name": "Sacrificial Power Word Kill",
 	"type": "spell",
 	"img": "icons/magic/death/skeleton-skull-soul-blue.webp",
-	"effects": [],
+	"effects": [
+		{
+			"icon": "icons/magic/death/skeleton-skull-soul-blue.webp",
+			"origin": "Item.7p5eXQQE6IgwWMuU",
+			"flags": {
+				"a5e": {
+					"sort": 0,
+					"transferType": "onUse",
+					"actionId": "c92x5399YcCZ5tZd",
+					"applyToSelf": true,
+					"duration": {
+						"unit": "hours"
+					}
+				}
+			},
+			"transfer": false,
+			"name": "Sacrificial Power Word Kill",
+			"_id": "Rxm7KqQEsByqGDQ0",
+			"changes": [],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": 28800,
+				"combat": null,
+				"rounds": null,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "<p>For the next 8 hours, the first time you would drop to 0 hit points or be outright killed, you instead drop to 1 hit point.</p>",
+			"statuses": [],
+			"folder": null
+		}
+	],
 	"flags": {},
 	"system": {
 		"actions": {
@@ -47,10 +80,17 @@
 						"formula": "50",
 						"label": "More Than 100 HP"
 					}
+				},
+				"prompts": {
+					"2cm9sjS15EjJjuyR": {
+						"type": "effect",
+						"default": true,
+						"effectId": "Rxm7KqQEsByqGDQ0"
+					}
 				}
 			}
 		},
-		"description": "<p>With but a word you snuff out the target's life and it immediately dies. If you cast this on a creature with more than 100 hit points, it takes 50 hit points of damage.</p>",
+		"description": "<p>With but a word you snuff out the target's life and it immediately dies. If you cast this on a creature with more than 100 hit points, it takes 50 hit points of damage.</p>\n<p><em><strong>Rare:&nbsp;</strong></em><strong>Sacrificial Power Word Kill.&nbsp;</strong>When a&nbsp;target dies from the effects of this spell, you may&nbsp;use its life force to save yourself. For the next&nbsp;8 hours, the first time you would drop to 0 hit&nbsp;points or be outright killed, you instead drop to&nbsp;1 hit point. Once this effect is used, the life force&nbsp;is expended and the effect ends.</p>",
 		"favorite": false,
 		"secretDescription": "",
 		"source": "",
@@ -85,7 +125,7 @@
 		"materialsConsumed": false,
 		"prepared": false,
 		"prerequisite": "",
-		"rare": false,
+		"rare": true,
 		"ritual": false,
 		"schools": {
 			"primary": "enchantment",
@@ -106,5 +146,5 @@
 		}
 	},
 	"folder": null,
-	"_id": "77amz0lv01jzpzsg"
+	"_id": "7gzv54jnj0x55xyh"
 }

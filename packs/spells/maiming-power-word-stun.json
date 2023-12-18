@@ -1,11 +1,11 @@
 {
-	"name": "Power Word Stun",
+	"name": "Maiming Power Word Stun",
 	"type": "spell",
 	"img": "icons/magic/control/hypnosis-mesmerism-swirl.webp",
 	"effects": [
 		{
 			"icon": "icons/magic/control/hypnosis-mesmerism-swirl.webp",
-			"origin": "Item.MxDKjt4SzKIVovhJ",
+			"origin": "Item.xinpQpcw7Ubg7RBh",
 			"flags": {
 				"a5e": {
 					"sort": 0,
@@ -42,7 +42,7 @@
 		},
 		{
 			"icon": "icons/magic/control/hypnosis-mesmerism-swirl.webp",
-			"origin": "Item.MxDKjt4SzKIVovhJ",
+			"origin": "Item.xinpQpcw7Ubg7RBh",
 			"flags": {
 				"a5e": {
 					"sort": 0,
@@ -78,6 +78,100 @@
 			"description": "",
 			"statuses": [
 				"rattled"
+			],
+			"folder": null
+		},
+		{
+			"icon": "icons/magic/control/hypnosis-mesmerism-swirl.webp",
+			"origin": "Item.xinpQpcw7Ubg7RBh",
+			"flags": {
+				"a5e": {
+					"sort": 0,
+					"transferType": "onUse",
+					"actionId": "eAwDRDxpIDZxroZQ",
+					"duration": {
+						"type": "rounds",
+						"unit": "minutes"
+					}
+				}
+			},
+			"transfer": false,
+			"name": "Blinded",
+			"_id": "wIrEeKizn1i910qR",
+			"changes": [
+				{
+					"key": "system.attributes.movement.walk.distance",
+					"value": "0.5",
+					"mode": 1,
+					"priority": null
+				},
+				{
+					"key": "flags.a5e.effects.statusConditions",
+					"value": "[\"blinded\"]",
+					"mode": 0,
+					"priority": null
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": null,
+				"combat": null,
+				"rounds": null,
+				"turns": 1,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "",
+			"statuses": [
+				"blinded"
+			],
+			"folder": null
+		},
+		{
+			"icon": "icons/magic/control/hypnosis-mesmerism-swirl.webp",
+			"origin": "Item.xinpQpcw7Ubg7RBh",
+			"flags": {
+				"a5e": {
+					"sort": 0,
+					"transferType": "onUse",
+					"actionId": "eAwDRDxpIDZxroZQ",
+					"duration": {
+						"type": "rounds",
+						"unit": "minutes"
+					}
+				}
+			},
+			"transfer": false,
+			"name": "Deafened",
+			"_id": "8vWJ5oGL42EGzvLe",
+			"changes": [
+				{
+					"key": "system.attributes.movement.walk.distance",
+					"value": "0.5",
+					"mode": 1,
+					"priority": null
+				},
+				{
+					"key": "flags.a5e.effects.statusConditions",
+					"value": "[\"deafened\"]",
+					"mode": 0,
+					"priority": null
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": null,
+				"combat": null,
+				"rounds": null,
+				"turns": 1,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "",
+			"statuses": [
+				"deafened"
 			],
 			"folder": null
 		}
@@ -131,6 +225,18 @@
 						"default": true,
 						"effectId": "3RDhoMrcJ50CBCD3",
 						"label": "More Than 150 HP"
+					},
+					"nvMgf8deFC9KvW4G": {
+						"type": "effect",
+						"default": true,
+						"effectId": "wIrEeKizn1i910qR",
+						"label": "Succeeded Saving Throw"
+					},
+					"l6a4zKQOVGX8zMKi": {
+						"type": "effect",
+						"default": true,
+						"effectId": "8vWJ5oGL42EGzvLe",
+						"label": "Succeeded Saving Throw"
 					}
 				},
 				"consumers": {
@@ -143,7 +249,7 @@
 				}
 			}
 		},
-		"description": "<p>You utter a powerful word that stuns a target with 150 hit points or less. At the end of the target's turn, it makes a Constitution saving throw to end the effect. If the target has more than 150 hit points, it is instead rattled until the end of its next turn.</p>",
+		"description": "<p>You utter a powerful word that stuns a target with 150 hit points or less. At the end of the target's turn, it makes a Constitution saving throw to end the effect. If the target has more than 150 hit points, it is instead rattled until the end of its next turn.</p>\n<p><em><strong>Rare:&nbsp;</strong></em><strong>Maiming Power Word Stun.&nbsp; </strong>When a&nbsp;target succeeds on its saving throw, its movement&nbsp;is halved and it is either blinded or deafened (your&nbsp;choice) until the end of its next turn.</p>",
 		"favorite": false,
 		"secretDescription": "",
 		"source": "",
@@ -178,7 +284,7 @@
 		"materialsConsumed": false,
 		"prepared": false,
 		"prerequisite": "",
-		"rare": false,
+		"rare": true,
 		"ritual": false,
 		"schools": {
 			"primary": "enchantment",
@@ -199,5 +305,5 @@
 		}
 	},
 	"folder": null,
-	"_id": "742mibetr67php5i"
+	"_id": "glwtxuy2d9lv118h"
 }

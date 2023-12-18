@@ -1,11 +1,11 @@
 {
-	"name": "Ray of Frost",
+	"name": "Frigid Ray of Frost",
 	"type": "spell",
 	"img": "icons/magic/water/projectile-icecicle-glowing.webp",
 	"effects": [
 		{
 			"icon": "icons/magic/water/projectile-icecicle-glowing.webp",
-			"origin": "Item.x8A8vnh5w0omdNQy",
+			"origin": "Item.Wcham6hxLhEIP8Kv",
 			"flags": {
 				"a5e": {
 					"sort": 0,
@@ -40,6 +40,53 @@
 			},
 			"description": "",
 			"statuses": [],
+			"folder": null
+		},
+		{
+			"icon": "icons/magic/water/projectile-icecicle-glowing.webp",
+			"origin": "Item.Wcham6hxLhEIP8Kv",
+			"flags": {
+				"a5e": {
+					"sort": 0,
+					"transferType": "onUse",
+					"actionId": "rjaz6n2uCMQHcsGc",
+					"duration": {
+						"type": "rounds",
+						"unit": "minutes"
+					}
+				}
+			},
+			"transfer": false,
+			"name": "Frigid Frost",
+			"_id": "AL14b1NHwiT31LRk",
+			"changes": [
+				{
+					"key": "system.attributes.movement.walk.distance",
+					"value": "0",
+					"mode": 6,
+					"priority": null
+				},
+				{
+					"key": "flags.a5e.effects.statusConditions",
+					"value": "[\"rattled\"]",
+					"mode": 0,
+					"priority": null
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": null,
+				"combat": null,
+				"rounds": null,
+				"turns": 1,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "",
+			"statuses": [
+				"rattled"
+			],
 			"folder": null
 		}
 	],
@@ -97,11 +144,17 @@
 						"type": "effect",
 						"default": true,
 						"effectId": "i4bWmHzg2OE6Ddvk"
+					},
+					"LyetZDoNkRzDZFgI": {
+						"type": "effect",
+						"default": true,
+						"effectId": "AL14b1NHwiT31LRk",
+						"label": "20 or More Damage"
 					}
 				}
 			}
 		},
-		"description": "<p>An icy beam shoots from your outstretched fingers.</p>\n<p>Make a ranged spell attack. On a hit, you deal 1d8 cold damage and reduce the target's Speed by 10 feet until the start of your next turn.</p>\n<p>This spell's damage increases by 1d8 when you reach 5th level (2d8), 11th level (3d8), and 17th level (4d8).</p>",
+		"description": "<p>An icy beam shoots from your outstretched fingers.</p>\n<p>Make a ranged spell attack. On a hit, you deal 1d8 cold damage and reduce the target's Speed by 10 feet until the start of your next turn.</p>\n<p>This spell's damage increases by 1d8 when you reach 5th level (2d8), 11th level (3d8), and 17th level (4d8).</p>\n<p><strong><em>Rare:&nbsp;</em>Frigid Ray of Frost.&nbsp;</strong>A target that takes&nbsp;20 or more damage from this spell reduces its&nbsp;Speed to 0 and becomes rattled until the beginning&nbsp;of your next turn as the cold penetrates to&nbsp;its very core.</p>",
 		"favorite": false,
 		"secretDescription": "",
 		"source": "",
@@ -135,7 +188,7 @@
 		"materialsConsumed": false,
 		"prepared": false,
 		"prerequisite": "",
-		"rare": false,
+		"rare": true,
 		"ritual": false,
 		"schools": {
 			"primary": "evocation",
@@ -157,5 +210,5 @@
 		}
 	},
 	"folder": null,
-	"_id": "9ot2c39ypiu4l8ws"
+	"_id": "2w71asjan334iteo"
 }
