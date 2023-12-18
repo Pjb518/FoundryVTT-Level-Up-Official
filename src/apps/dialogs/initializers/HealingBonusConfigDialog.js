@@ -13,7 +13,8 @@ export default class HealingBonusConfigDialog extends TJSDialog {
       content: {
         class: HealingBonusDialog,
         props: { actor: new TJSDocument(actor), healingBonusId }
-      }
+      },
+      zIndex: null
     }, {
       classes: ['a5e-sheet'],
       width: options.width ?? 432

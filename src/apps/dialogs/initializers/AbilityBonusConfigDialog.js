@@ -13,7 +13,8 @@ export default class AbilityBonusConfigDialog extends TJSDialog {
       content: {
         class: AbilityBonusDialog,
         props: { actor: new TJSDocument(actor), abilityBonusId }
-      }
+      },
+      zIndex: null
     }, {
       classes: ['a5e-sheet'],
       width: options.width ?? 432

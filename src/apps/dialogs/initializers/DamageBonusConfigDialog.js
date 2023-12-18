@@ -13,7 +13,8 @@ export default class DamageBonusConfigDialog extends TJSDialog {
       content: {
         class: DamageBonusDialog,
         props: { actor: new TJSDocument(actor), damageBonusId }
-      }
+      },
+      zIndex: null
     }, {
       classes: ['a5e-sheet'],
       width: options.width ?? 432
