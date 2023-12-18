@@ -6,18 +6,6 @@ async function createAdventuringGearIndex() {
 
   adventuringGear.getIndex({
     fields: [
-      'system.bulky',
-      'system.objectType',
-      'system.price'
-    ]
-  });
-}
-
-async function createMagicItemIndex() {
-  const magicItems = game.packs.get('a5e.a5e-magic-items');
-
-  magicItems.getIndex({
-    fields: [
       'system.requiresAttunement',
       'system.bulky',
       'system.objectType',
@@ -108,7 +96,6 @@ export default function setup() {
   registerConditionsConfig();
 
   createAdventuringGearIndex();
-  createMagicItemIndex();
   createManeuverIndex();
   createMonsterIndex();
   createSpellIndex();
