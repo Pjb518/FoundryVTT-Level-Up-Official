@@ -5,7 +5,6 @@
     import updateDocumentDataFromField from "../../utils/updateDocumentDataFromField";
 
     import Checkbox from "../components/Checkbox.svelte";
-    import RadioGroup from "../components/RadioGroup.svelte";
     import FormSection from "../components/FormSection.svelte";
     import TagGroup from "../components/TagGroup.svelte";
 
@@ -13,6 +12,20 @@
     export let jsonValue = null;
 
     const dispatch = createEventDispatcher();
+
+    function updateImage() {
+        const current = abilityBonus?.img;
+
+        const filePicker = new FilePicker({
+            type: "image",
+            current,
+            callback: (path) => {
+                onUpdateValue("img", path);
+            },
+        });
+
+        return filePicker.browse();
+    }
 
     function onUpdateValue(key, value) {
         if (jsonValue === null) {
@@ -60,18 +73,27 @@
 </script>
 
 <form>
-    <FormSection
-        heading="A5E.Label"
-        --direction="column"
-        --grow="1"
-        --margin="0"
-    >
-        <input
-            type="text"
-            value={healingBonus.label ?? ""}
-            on:change={({ target }) => onUpdateValue("label", target.value)}
+    <header class="sheet-header">
+        <!-- svelte-ignore a11y-click-events-have-key-events -->
+        <!-- svelte-ignore a11y-no-noninteractive-element-interactions -->
+        <img
+            class="bonus-image"
+            src={healingBonus.img}
+            alt={healingBonus.label}
+            on:click={() => updateImage()}
         />
-    </FormSection>
+
+        <div class="name-wrapper">
+            <input
+                type="text"
+                name="name"
+                value={healingBonus.label ?? ""}
+                class="bonus-name"
+                placeholder="Bonus Name"
+                on:change={({ target }) => onUpdateValue("label", target.value)}
+            />
+        </div>
+    </header>
 
     <FormSection>
         <FormSection
@@ -162,5 +184,35 @@
         gap: 0.5rem;
         overflow: auto;
         background: var(--background, $color-sheet-background);
+    }
+
+    .bonus-name,
+    .bonus-name[type="text"] {
+        font-family: $font-primary;
+        font-size: $font-size-xxl;
+        border: 0;
+        background: transparent;
+        text-overflow: ellipsis;
+
+        &:active,
+        &:focus {
+            box-shadow: none;
+        }
+    }
+
+    .bonus-image {
+        width: 2rem;
+        height: 2rem;
+        border-radius: 4px;
+        cursor: pointer;
+    }
+
+    .name-wrapper {
+        width: 100%;
+    }
+
+    .sheet-header {
+        display: flex;
+        align-items: center;
     }
 </style>

@@ -8,7 +8,8 @@ export function getAbilitiesBonusData() {
     context: new fields.SchemaField(getAbilitiesBonusContext()),
     default: new fields.BooleanField({ required: true, initial: true }),
     formula: new fields.StringField({ required: true, initial: '' }),
-    label: new fields.StringField({ required: true, initial: '' })
+    label: new fields.StringField({ required: true, initial: '' }),
+    img: new fields.StringField({ required: true, initial: 'icons/svg/upgrade.svg' })
   };
 }
 
@@ -19,7 +20,8 @@ export function getDamageBonusData() {
     damageType: new fields.StringField({ required: true, initial: '' }),
     default: new fields.BooleanField({ required: true, initial: true }),
     formula: new fields.StringField({ required: true, initial: '' }),
-    label: new fields.StringField({ required: true, initial: '' })
+    label: new fields.StringField({ required: true, initial: '' }),
+    img: new fields.StringField({ required: true, initial: 'icons/svg/upgrade.svg' })
   };
 }
 
@@ -30,7 +32,8 @@ export function getHealingBonusData() {
     default: new fields.BooleanField({ required: true, initial: true }),
     healingType: new fields.StringField({ required: true, initial: 'healing' }),
     formula: new fields.StringField({ required: true, initial: '' }),
-    label: new fields.StringField({ required: true, initial: '' })
+    label: new fields.StringField({ required: true, initial: '' }),
+    img: new fields.StringField({ required: true, initial: 'icons/svg/upgrade.svg' })
   };
 }
 
@@ -40,6 +43,7 @@ export function getSkillBonusData() {
     context: new fields.SchemaField(getSkillBonusContext()),
     default: new fields.BooleanField({ required: true, initial: true }),
     formula: new fields.StringField({ required: true, initial: '' }),
-    label: new fields.StringField({ required: true, initial: '' })
+    label: new fields.StringField({ required: true, initial: '' }),
+    img: new fields.StringField({ required: true, initial: 'icons/svg/upgrade.svg' })
   };
 }

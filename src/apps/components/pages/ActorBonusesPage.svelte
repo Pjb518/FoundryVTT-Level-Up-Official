@@ -1,40 +1,40 @@
 <script>
     import { getContext } from "svelte";
-    import { localize } from "#runtime/svelte/helper";
+    // import { localize } from "#runtime/svelte/helper";
 
     import FormSection from "../FormSection.svelte";
 
     import determineIfPropertyModifiedByEffect from "../../../utils/determineIfPropertyModifiedByEffect ";
     import updateDocumentDataFromField from "../../../utils/updateDocumentDataFromField";
 
-    function getDamageBonusSummary(damageBonus) {
-        const { damageBonusSummariesByContext, damageTypes } = CONFIG.A5E;
-        const damageType = damageTypes[damageBonus.damageType];
+    // function getDamageBonusSummary(damageBonus) {
+    //     const { damageBonusSummariesByContext, damageTypes } = CONFIG.A5E;
+    //     const damageType = damageTypes[damageBonus.damageType];
 
-        // TODO: Granular-ize this in the future
-        return localize(damageBonusSummariesByContext["all"], {
-            formula: damageBonus.formula,
-            damageType: damageType
-                ? `${damageType.toLowerCase()} damage`
-                : "damage",
-        });
-    }
+    //     // TODO: Granular-ize this in the future
+    //     return localize(damageBonusSummariesByContext["all"], {
+    //         formula: damageBonus.formula,
+    //         damageType: damageType
+    //             ? `${damageType.toLowerCase()} damage`
+    //             : "damage",
+    //     });
+    // }
 
-    function getHealingBonusSummary(healingBonus) {
-        const { healingBonusSummariesByContext, healingTypes } = CONFIG.A5E;
-        const healingType = healingTypes[healingBonus.healingType];
+    // function getHealingBonusSummary(healingBonus) {
+    //     const { healingBonusSummariesByContext, healingTypes } = CONFIG.A5E;
+    //     const healingType = healingTypes[healingBonus.healingType];
 
-        // TODO: Granular-ize this in the future
-        return localize(
-            healingBonusSummariesByContext[healingBonus.healingType],
-            {
-                formula: healingBonus.formula,
-                healingType: healingType
-                    ? `${healingType.toLowerCase()} healing`
-                    : "healing",
-            },
-        );
-    }
+    //     // TODO: Granular-ize this in the future
+    //     return localize(
+    //         healingBonusSummariesByContext[healingBonus.healingType],
+    //         {
+    //             formula: healingBonus.formula,
+    //             healingType: healingType
+    //                 ? `${healingType.toLowerCase()} healing`
+    //                 : "healing",
+    //         },
+    //     );
+    // }
 
     const actor = getContext("actor");
 
@@ -225,49 +225,43 @@
         <ul class="bonus-list">
             {#each Object.entries($actor.system.bonuses.abilities ?? {}) as [id, abilityBonus] (id)}
                 <li class="bonus">
-                    <header class="bonus__header">
-                        <h3 class="bonus__heading">
-                            {abilityBonus.label || "New Ability Bonus"}
-                        </h3>
+                    <img class="bonus__img" src={abilityBonus.img} alt="" />
 
-                        <ul class="bonus-buttons">
-                            <li>
-                                <button
-                                    class="action-button fas fa-cog"
-                                    data-tooltip="A5E.ButtonToolTipConfigure"
-                                    data-tooltip-direction="UP"
-                                    on:click|stopPropagation={() =>
-                                        $actor.configureBonus(id, "abilities")}
-                                />
-                            </li>
+                    <h3 class="bonus__heading">
+                        {abilityBonus.label || "New Ability Bonus"}
+                    </h3>
 
-                            <li>
-                                <button
-                                    class="action-button fa-solid fa-clone"
-                                    data-tooltip="A5E.ButtonToolTipDuplicate"
-                                    data-tooltip-direction="UP"
-                                    on:click|stopPropagation={() =>
-                                        $actor.duplicateBonus(id, "abilities")}
-                                />
-                            </li>
+                    <ul class="bonus-buttons">
+                        <li>
+                            <button
+                                class="action-button fas fa-cog"
+                                data-tooltip="A5E.ButtonToolTipConfigure"
+                                data-tooltip-direction="UP"
+                                on:click|stopPropagation={() =>
+                                    $actor.configureBonus(id, "abilities")}
+                            />
+                        </li>
 
-                            <li>
-                                <button
-                                    class="action-button delete-button fas fa-trash"
-                                    data-tooltip="A5E.ButtonToolTipDelete"
-                                    data-tooltip-direction="UP"
-                                    on:click|stopPropagation={() =>
-                                        $actor.deleteBonus(id, "abilities")}
-                                />
-                            </li>
-                        </ul>
-                    </header>
+                        <li>
+                            <button
+                                class="action-button fa-solid fa-clone"
+                                data-tooltip="A5E.ButtonToolTipDuplicate"
+                                data-tooltip-direction="UP"
+                                on:click|stopPropagation={() =>
+                                    $actor.duplicateBonus(id, "abilities")}
+                            />
+                        </li>
 
-                    <!-- {#if abilityBonus.formula}
-                        <p class="bonus__summary">
-                            {getDamageBonusSummary(abilityBonus)}
-                        </p>
-                    {/if} -->
+                        <li>
+                            <button
+                                class="action-button delete-button fas fa-trash"
+                                data-tooltip="A5E.ButtonToolTipDelete"
+                                data-tooltip-direction="UP"
+                                on:click|stopPropagation={() =>
+                                    $actor.deleteBonus(id, "abilities")}
+                            />
+                        </li>
+                    </ul>
                 </li>
             {/each}
         </ul>
@@ -288,49 +282,43 @@
         <ul class="bonus-list">
             {#each Object.entries($actor.system.bonuses.damage ?? {}) as [id, damageBonus] (id)}
                 <li class="bonus">
-                    <header class="bonus__header">
-                        <h3 class="bonus__heading">
-                            {damageBonus.label || "New Damage Bonus"}
-                        </h3>
+                    <img class="bonus__img" src={damageBonus.img} alt="" />
 
-                        <ul class="bonus-buttons">
-                            <li>
-                                <button
-                                    class="action-button fas fa-cog"
-                                    data-tooltip="A5E.ButtonToolTipConfigure"
-                                    data-tooltip-direction="UP"
-                                    on:click|stopPropagation={() =>
-                                        $actor.configureBonus(id, "damage")}
-                                />
-                            </li>
+                    <h3 class="bonus__heading">
+                        {damageBonus.label || "New Damage Bonus"}
+                    </h3>
 
-                            <li>
-                                <button
-                                    class="action-button fa-solid fa-clone"
-                                    data-tooltip="A5E.ButtonToolTipDuplicate"
-                                    data-tooltip-direction="UP"
-                                    on:click|stopPropagation={() =>
-                                        $actor.duplicateBonus(id, "damage")}
-                                />
-                            </li>
+                    <ul class="bonus-buttons">
+                        <li>
+                            <button
+                                class="action-button fas fa-cog"
+                                data-tooltip="A5E.ButtonToolTipConfigure"
+                                data-tooltip-direction="UP"
+                                on:click|stopPropagation={() =>
+                                    $actor.configureBonus(id, "damage")}
+                            />
+                        </li>
 
-                            <li>
-                                <button
-                                    class="action-button delete-button fas fa-trash"
-                                    data-tooltip="A5E.ButtonToolTipDelete"
-                                    data-tooltip-direction="UP"
-                                    on:click|stopPropagation={() =>
-                                        $actor.deleteBonus(id, "damage")}
-                                />
-                            </li>
-                        </ul>
-                    </header>
+                        <li>
+                            <button
+                                class="action-button fa-solid fa-clone"
+                                data-tooltip="A5E.ButtonToolTipDuplicate"
+                                data-tooltip-direction="UP"
+                                on:click|stopPropagation={() =>
+                                    $actor.duplicateBonus(id, "damage")}
+                            />
+                        </li>
 
-                    {#if damageBonus.formula}
-                        <p class="bonus__summary">
-                            {getDamageBonusSummary(damageBonus)}
-                        </p>
-                    {/if}
+                        <li>
+                            <button
+                                class="action-button delete-button fas fa-trash"
+                                data-tooltip="A5E.ButtonToolTipDelete"
+                                data-tooltip-direction="UP"
+                                on:click|stopPropagation={() =>
+                                    $actor.deleteBonus(id, "damage")}
+                            />
+                        </li>
+                    </ul>
                 </li>
             {/each}
         </ul>
@@ -351,49 +339,43 @@
         <ul class="bonus-list">
             {#each Object.entries($actor.system.bonuses.healing ?? {}) as [id, healingBonus] (id)}
                 <li class="bonus">
-                    <header class="bonus__header">
-                        <h3 class="bonus__heading">
-                            {healingBonus.label || "New Healing Bonus"}
-                        </h3>
+                    <img class="bonus__img" src={healingBonus.img} alt="" />
 
-                        <ul class="bonus-buttons">
-                            <li>
-                                <button
-                                    class="action-button fas fa-cog"
-                                    data-tooltip="A5E.ButtonToolTipConfigure"
-                                    data-tooltip-direction="UP"
-                                    on:click|stopPropagation={() =>
-                                        $actor.configureBonus(id, "healing")}
-                                />
-                            </li>
+                    <h3 class="bonus__heading">
+                        {healingBonus.label || "New Healing Bonus"}
+                    </h3>
 
-                            <li>
-                                <button
-                                    class="action-button fa-solid fa-clone"
-                                    data-tooltip="A5E.ButtonToolTipDuplicate"
-                                    data-tooltip-direction="UP"
-                                    on:click|stopPropagation={() =>
-                                        $actor.duplicateBonus(id, "healing")}
-                                />
-                            </li>
+                    <ul class="bonus-buttons">
+                        <li>
+                            <button
+                                class="action-button fas fa-cog"
+                                data-tooltip="A5E.ButtonToolTipConfigure"
+                                data-tooltip-direction="UP"
+                                on:click|stopPropagation={() =>
+                                    $actor.configureBonus(id, "healing")}
+                            />
+                        </li>
 
-                            <li>
-                                <button
-                                    class="action-button delete-button fas fa-trash"
-                                    data-tooltip="A5E.ButtonToolTipDelete"
-                                    data-tooltip-direction="UP"
-                                    on:click|stopPropagation={() =>
-                                        $actor.deleteBonus(id, "healing")}
-                                />
-                            </li>
-                        </ul>
-                    </header>
+                        <li>
+                            <button
+                                class="action-button fa-solid fa-clone"
+                                data-tooltip="A5E.ButtonToolTipDuplicate"
+                                data-tooltip-direction="UP"
+                                on:click|stopPropagation={() =>
+                                    $actor.duplicateBonus(id, "healing")}
+                            />
+                        </li>
 
-                    {#if healingBonus.formula}
-                        <p class="bonus__summary">
-                            {getHealingBonusSummary(healingBonus)}
-                        </p>
-                    {/if}
+                        <li>
+                            <button
+                                class="action-button delete-button fas fa-trash"
+                                data-tooltip="A5E.ButtonToolTipDelete"
+                                data-tooltip-direction="UP"
+                                on:click|stopPropagation={() =>
+                                    $actor.deleteBonus(id, "healing")}
+                            />
+                        </li>
+                    </ul>
                 </li>
             {/each}
         </ul>
@@ -414,49 +396,43 @@
         <ul class="bonus-list">
             {#each Object.entries($actor.system.bonuses.skills ?? {}) as [id, skillBonus] (id)}
                 <li class="bonus">
-                    <header class="bonus__header">
-                        <h3 class="bonus__heading">
-                            {skillBonus.label || "New Skill Bonus"}
-                        </h3>
+                    <img class="bonus__img" src={skillBonus.img} alt="" />
 
-                        <ul class="bonus-buttons">
-                            <li>
-                                <button
-                                    class="action-button fas fa-cog"
-                                    data-tooltip="A5E.ButtonToolTipConfigure"
-                                    data-tooltip-direction="UP"
-                                    on:click|stopPropagation={() =>
-                                        $actor.configureBonus(id, "skills")}
-                                />
-                            </li>
+                    <h3 class="bonus__heading">
+                        {skillBonus.label || "New Skill Bonus"}
+                    </h3>
 
-                            <li>
-                                <button
-                                    class="action-button fa-solid fa-clone"
-                                    data-tooltip="A5E.ButtonToolTipDuplicate"
-                                    data-tooltip-direction="UP"
-                                    on:click|stopPropagation={() =>
-                                        $actor.duplicateBonus(id, "skills")}
-                                />
-                            </li>
+                    <ul class="bonus-buttons">
+                        <li>
+                            <button
+                                class="action-button fas fa-cog"
+                                data-tooltip="A5E.ButtonToolTipConfigure"
+                                data-tooltip-direction="UP"
+                                on:click|stopPropagation={() =>
+                                    $actor.configureBonus(id, "skills")}
+                            />
+                        </li>
 
-                            <li>
-                                <button
-                                    class="action-button delete-button fas fa-trash"
-                                    data-tooltip="A5E.ButtonToolTipDelete"
-                                    data-tooltip-direction="UP"
-                                    on:click|stopPropagation={() =>
-                                        $actor.deleteBonus(id, "skills")}
-                                />
-                            </li>
-                        </ul>
-                    </header>
+                        <li>
+                            <button
+                                class="action-button fa-solid fa-clone"
+                                data-tooltip="A5E.ButtonToolTipDuplicate"
+                                data-tooltip-direction="UP"
+                                on:click|stopPropagation={() =>
+                                    $actor.duplicateBonus(id, "skills")}
+                            />
+                        </li>
 
-                    <!-- {#if skillBonus.formula}
-                        <p class="bonus__summary">
-                            {getDamageBonusSummary(skillBonus)}
-                        </p>
-                    {/if} -->
+                        <li>
+                            <button
+                                class="action-button delete-button fas fa-trash"
+                                data-tooltip="A5E.ButtonToolTipDelete"
+                                data-tooltip-direction="UP"
+                                on:click|stopPropagation={() =>
+                                    $actor.deleteBonus(id, "skills")}
+                            />
+                        </li>
+                    </ul>
                 </li>
             {/each}
         </ul>
@@ -504,17 +480,20 @@
     }
 
     .bonus {
-        display: flex;
-        flex-direction: column;
-        gap: 0.25rem;
-        padding: 0.5rem;
+        display: grid;
+        grid-template-columns: 1.375rem 1fr min-content;
+        gap: 0.125rem 0.5rem;
+        align-items: center;
+        padding: 0.125rem;
+        padding-right: 0.5rem;
         background: rgba(0, 0, 0, 0.05);
+        border: 1px solid #ccc;
         border-radius: $border-radius-standard;
 
-        &__header {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
+        &__img {
+            height: 100%;
+            width: auto;
+            object-fit: cover;
         }
 
         &__heading {
@@ -522,7 +501,9 @@
         }
 
         &__summary {
+            grid-column: 1 / -1;
             font-size: $font-size-xs;
+            padding: 0.25rem;
         }
     }
 
