@@ -2,6 +2,7 @@ import A5EDataModel from '../A5EDataModel';
 import SchemaDataModel from '../template/SchemaDataModel';
 
 import RecordField from '../fields/RecordField';
+import UnchasteSchemaField from '../fields/UnchasteSchemaField';
 
 import {
   getAbilitiesBonusData, getDamageBonusData, getHealingBonusData, getSkillBonusData
@@ -214,7 +215,7 @@ export default class BaseActorData extends A5EDataModel.mixin(SchemaDataModel) {
         // }),
         abilities: new RecordField(
           new fields.DocumentIdField({ required: true, initial: () => foundry.utils.randomID() }),
-          new fields.SchemaField(getAbilitiesBonusData())
+          new UnchasteSchemaField(getAbilitiesBonusData())
         ),
         damage: new RecordField(
           new fields.DocumentIdField({ required: true, initial: () => foundry.utils.randomID() }),
@@ -793,5 +794,10 @@ export default class BaseActorData extends A5EDataModel.mixin(SchemaDataModel) {
         })
       })
     });
+  }
+
+  static migrateData(source) {
+    const bonuses = source.bonuses.abilities;
+    console.log(bonuses);
   }
 }
