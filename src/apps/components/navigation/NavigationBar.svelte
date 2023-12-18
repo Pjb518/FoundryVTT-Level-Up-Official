@@ -49,7 +49,7 @@
 
     .nav-list {
         display: flex;
-        gap: 0.5rem;
+        gap: 0.375rem;
         margin: 0;
         padding: 0;
         list-style: none;

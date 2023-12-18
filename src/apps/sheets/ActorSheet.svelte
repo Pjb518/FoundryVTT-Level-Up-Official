@@ -12,15 +12,16 @@
     import type { TJSDocument } from "@typhonjs-fvtt/runtime/svelte/store/fvtt/document";
     import type { ActorSheetApplicationProps } from "../../../types/applicationProps";
 
-    import ActorCorePage from "../components/pages/ActorCorePage.svelte";
     import ActorBioPage from "../components/pages/ActorBioPage.svelte";
+    import ActorBonusesPage from "../components/pages/ActorBonusesPage.svelte";
+    import ActorCorePage from "../components/pages/ActorCorePage.svelte";
     import ActorEffectsPage from "../components/pages/ActorEffectsPage.svelte";
     import ActorFeaturesPage from "../components/pages/ActorFeaturesPage.svelte";
     import ActorInventoryPage from "../components/pages/ActorInventoryPage.svelte";
     import ActorManeuversPage from "../components/pages/ActorManueversPage.svelte";
     import ActorNotesPage from "../components/pages/ActorNotesPage.svelte";
-    import ActorSheetHeader from "../components/ActorSheetHeader/ActorSheetHeader.svelte";
     import ActorSettingsPage from "../components/pages/ActorSettingsPage.svelte";
+    import ActorSheetHeader from "../components/ActorSheetHeader/ActorSheetHeader.svelte";
     import ActorSidebar from "../components/actorSidebar/ActorSidebar.svelte";
     import ActorSkillsPage from "../components/pages/ActorSkillsPage.svelte";
     import ActorSpellsPage from "../components/pages/ActorSpellsPage.svelte";
@@ -48,7 +49,8 @@
 
     type Tab = {
         name: string;
-        label: string;
+        label?: string;
+        icon?: string;
         component: ComponentType;
         display?: boolean;
     };
@@ -100,13 +102,19 @@
                 component: ActorNotesPage,
             },
             {
+                name: "bonuses",
+                label: "Bonuses",
+                component: ActorBonusesPage,
+            },
+            {
                 name: "effects",
                 label: "A5E.TabEffects",
                 component: ActorEffectsPage,
             },
             {
                 name: "settings",
-                label: "A5E.TabSettings",
+                // label: "A5E.TabSettings",
+                icon: "fas fa-gear",
                 component: ActorSettingsPage,
                 display:
                     !actor.pack &&
@@ -130,7 +138,7 @@
 
     let currentTab =
         tabs.find(
-            (tab) => tab.name === tempSettings[$actor?.uuid]?.currentTab
+            (tab) => tab.name === tempSettings[$actor?.uuid]?.currentTab,
         ) ?? tabs[0];
 
     setContext("actor", actor);
