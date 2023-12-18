@@ -7,34 +7,44 @@ export default class Migration010MigrateContexts extends MigrationBase {
     const { abilities } = actorData.system;
     const bonuses = {};
 
-    // Individual ability check bonuses and saves
-    const { checks, saves } = Object.entries(abilities).reduce((acc, [abilityId, ability]) => {
-      const check = ability.check.bonus ?? '';
-      const save = ability.save.bonus ?? '';
+    const { checks, saves } = Object.entries(abilities).reduce(
+      (acc, [abilityId, ability]) => {
+        const check = (ability.check.bonus ?? '').replaceAll(/\s/g, '');
+        const save = (ability.save.bonus ?? '').replaceAll(/\s/g, '');
 
-      acc.checks.push({ ability: abilityId, bonus: check });
-      acc.saves.push({ ability: abilityId, bonus: save });
-      return acc;
-    }, { checks: [], saves: [] });
+        if (check) {
+          acc.checks[check] ??= [];
+          acc.checks[check].push(abilityId);
+        }
 
-    checks.forEach(({ ability, bonus }) => {
+        if (save) {
+          acc.saves[save] ??= [];
+          acc.saves[save].push(abilityId);
+        }
+
+        return acc;
+      },
+      { checks: {}, saves: {} }
+    );
+
+    Object.entries(checks).forEach(([bonus, abilityIds]) => {
       bonuses[foundry.utils.randomID()] = {
         context: {
-          abilities: [ability]
+          abilities: abilityIds
         },
         formula: bonus,
-        label: `${ability} Check Bonus`,
+        label: 'Check Bonus',
         default: true
       };
     });
 
-    saves.forEach(({ ability, bonus }) => {
+    Object.entries(saves).forEach(([bonus, abilityIds]) => {
       bonuses[foundry.utils.randomID()] = {
         context: {
-          abilities: [ability]
+          abilities: abilityIds
         },
         formula: bonus,
-        label: `${ability} Save Bonus`,
+        label: 'Save Bonus',
         default: true
       };
     });
@@ -43,21 +53,30 @@ export default class Migration010MigrateContexts extends MigrationBase {
     const globalCheckBonus = actorData.system.bonuses.abilities.check;
     const globalSaveBonus = actorData.system.bonuses.abilities.save;
 
-    bonuses[foundry.utils.randomID()] = {
-      context: {},
-      formula: globalCheckBonus,
-      label: 'Global Check Bonus',
-      default: true
-    };
+    if (globalCheckBonus) {
+      bonuses[foundry.utils.randomID()] = {
+        context: {},
+        formula: globalCheckBonus,
+        label: 'Global Check Bonus',
+        default: true
+      };
+    }
 
-    bonuses[foundry.utils.randomID()] = {
-      context: {},
-      formula: globalSaveBonus,
-      label: 'Global Save Bonus',
-      default: true
-    };
+    if (globalSaveBonus) {
+      bonuses[foundry.utils.randomID()] = {
+        context: {},
+        formula: globalSaveBonus,
+        label: 'Global Save Bonus',
+        default: true
+      };
+    }
 
-    actorData.system.bonuses.abilities = bonuses;
+    actorData.system.bonuses.abilities = {
+      ...bonuses,
+      '-=check': null,
+      '-=save': null,
+      '-=skill': null
+    };
   }
 
   #updateDamageBonuses(actorData) {
@@ -101,51 +120,62 @@ export default class Migration010MigrateContexts extends MigrationBase {
   }
 
   #updateSkillBonuses(actorData) {
+    // TODO: Group Bonuses where possible
     const { skills } = actorData.system;
     const bonuses = {};
 
     // Global Skill Bonus
-    const globalSkillBonus = actorData.system.bonuses.skills || '';
+    const globalSkillBonus = actorData.system.bonuses?.abilities?.skill || '';
 
     // Passive and Individual Bonuses
     const { passives, checks } = Object.entries(skills).reduce((acc, [skillId, skill]) => {
-      const passive = skill.bonuses.passive || 0;
-      const check = skill.bonuses.check || '';
+      const passive = (`${skill.bonuses.passive}` || '').replaceAll(/\s/g, '');
+      const check = (skill.bonuses.check || '').replaceAll(/\s/g, '');
 
-      acc.passives.push({ skill: skillId, bonus: passive });
-      acc.checks.push({ skill: skillId, bonus: check });
+      if (passive) {
+        acc.passives[passive] ??= [];
+        acc.passives[passive].push(skillId);
+      }
+
+      if (check) {
+        acc.checks[check] ??= [];
+        acc.checks[check].push(skillId);
+      }
+
       return acc;
-    }, { passives: [], checks: [] });
+    }, { passives: {}, checks: {} });
 
-    passives.forEach(({ skill, bonus }) => {
+    Object.entries(passives).forEach(([bonus, skillIds]) => {
       bonuses[foundry.utils.randomID()] = {
         context: {
-          skills: [skill],
+          skills: skillIds,
           passiveOnly: true
         },
         formula: bonus,
-        label: `${skill} Passive Bonus`,
+        label: 'Passive Bonus',
         default: true
       };
     });
 
-    checks.forEach(({ skill, bonus }) => {
+    Object.entries(checks).forEach(([bonus, skillIds]) => {
       bonuses[foundry.utils.randomID()] = {
         context: {
-          skills: [skill]
+          skills: skillIds
         },
         formula: bonus,
-        label: `${skill} Check Bonus`,
+        label: 'Check Bonus',
         default: true
       };
     });
 
-    bonuses[foundry.utils.randomID()] = {
-      context: {},
-      formula: globalSkillBonus,
-      label: 'Global Skill Bonus',
-      default: true
-    };
+    if (globalSkillBonus) {
+      bonuses[foundry.utils.randomID()] = {
+        context: {},
+        formula: globalSkillBonus,
+        label: 'Global Skill Bonus',
+        default: true
+      };
+    }
 
     actorData.system.bonuses.skills = bonuses;
   }
@@ -156,11 +186,13 @@ export default class Migration010MigrateContexts extends MigrationBase {
    * @returns {Promise<void>}
    */
   async updateActor(actorData) {
+    // Note: Skills are being done first on purpose
+    this.#updateSkillBonuses(actorData);
+
     // Update actor bonus data
     this.#updateAbilityBonuses(actorData);
     this.#updateDamageBonuses(actorData);
     this.#updateHealingBonuses(actorData);
-    this.#updateSkillBonuses(actorData);
 
     // Update effects data
   }
@@ -171,5 +203,6 @@ export default class Migration010MigrateContexts extends MigrationBase {
    */
   async updateItem(itemData) {
     // Update effects data
+    console.log('Migrating Item', itemData);
   }
 }

@@ -10,7 +10,7 @@ async function handleAnnouncement() {
   const lastAnnouncementShown = game.user.getFlag('a5e', 'latestAnnouncement');
 
   const showAnnouncement = !lastAnnouncementShown
-    || isNewerVersion(LATEST_ANNOUNCEMENT_VERSION, lastAnnouncementShown);
+    || foundry.utils.isNewerVersion(LATEST_ANNOUNCEMENT_VERSION, lastAnnouncementShown);
 
   if (!showAnnouncement) return;
 

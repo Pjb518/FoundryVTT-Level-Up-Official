@@ -795,9 +795,4 @@ export default class BaseActorData extends A5EDataModel.mixin(SchemaDataModel) {
       })
     });
   }
-
-  static migrateData(source) {
-    const bonuses = source.bonuses.abilities;
-    console.log(bonuses);
-  }
 }
