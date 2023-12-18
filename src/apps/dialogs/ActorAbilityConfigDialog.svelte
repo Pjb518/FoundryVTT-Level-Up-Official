@@ -63,25 +63,6 @@
                 />
             </FormSection>
 
-            <FormSection
-                heading={checkBonusHeading}
-                hint="This field accepts any values valid in roll formulae."
-                --direction="column"
-            >
-                <input
-                    class="a5e-input"
-                    type="text"
-                    name="system.abilities.{abilityKey}.check.bonus"
-                    value={ability.check.bonus}
-                    on:change={({ target }) =>
-                        updateDocumentDataFromField(
-                            $actor,
-                            target.name,
-                            target.value,
-                        )}
-                />
-            </FormSection>
-
             <header class="notes-header">
                 <h3 class="notes-heading">Notes</h3>
 
@@ -139,24 +120,6 @@
                             $actor,
                             `system.abilities.${abilityKey}.save.expertiseDice`,
                             detail,
-                        )}
-                />
-            </FormSection>
-
-            <FormSection
-                heading={saveBonusHeading}
-                hint="This field accepts any values valid in roll formulae."
-                --direction="column"
-            >
-                <input
-                    class="a5e-input"
-                    type="text"
-                    value={ability.save.bonus}
-                    on:change={({ target }) =>
-                        updateDocumentDataFromField(
-                            $actor,
-                            `system.abilities.${abilityKey}.save.bonus`,
-                            target.value,
                         )}
                 />
             </FormSection>

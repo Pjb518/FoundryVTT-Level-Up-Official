@@ -90,21 +90,6 @@
         />
     </FormSection>
 
-    <FormSection
-        heading={checkBonusHeading}
-        hint="This field accepts any values in roll formulae."
-        --direction="column"
-    >
-        <input
-            class="a5e-input"
-            type="text"
-            name="system.skills.{skillKey}.bonuses.check"
-            value={skill.bonuses.check}
-            on:change={({ target }) =>
-                updateDocumentDataFromField($actor, target.name, target.value)}
-        />
-    </FormSection>
-
     <FormSection heading="A5E.MinimumD20Roll" --direction="column">
         <div class="u-w-20">
             <input
