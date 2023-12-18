@@ -1,8 +1,50 @@
 {
-	"name": "Magic Missile",
+	"name": "Ruinous Magic Missile",
 	"type": "spell",
 	"img": "icons/magic/light/projectiles-salvo-blue.webp",
-	"effects": [],
+	"effects": [
+		{
+			"icon": "icons/magic/light/projectiles-salvo-blue.webp",
+			"origin": "Item.0XDbTP9MDnAaMlRu",
+			"flags": {
+				"a5e": {
+					"sort": 0,
+					"transferType": "onUse",
+					"actionId": "n8F6YqWaiqIIzNR0",
+					"duration": {
+						"type": "rounds",
+						"unit": "minutes"
+					}
+				}
+			},
+			"transfer": false,
+			"name": "Rattled",
+			"_id": "AvxBDnOpmW0KMKtC",
+			"changes": [
+				{
+					"key": "flags.a5e.effects.statusConditions",
+					"value": "[\"rattled\"]",
+					"mode": 0,
+					"priority": null
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": null,
+				"combat": null,
+				"rounds": null,
+				"turns": 1,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "",
+			"statuses": [
+				"rattled"
+			],
+			"folder": null
+		}
+	],
 	"flags": {},
 	"system": {
 		"actions": {
@@ -69,10 +111,25 @@
 						"points": 2,
 						"type": "spell"
 					}
+				},
+				"prompts": {
+					"CLnkJ8KINUc4MoMX": {
+						"type": "savingThrow",
+						"default": true,
+						"ability": "str",
+						"saveDC": {
+							"type": "spellcasting"
+						}
+					},
+					"8XafJ28HsOYTFZj3": {
+						"type": "effect",
+						"default": true,
+						"effectId": "AvxBDnOpmW0KMKtC"
+					}
 				}
 			}
 		},
-		"description": "<p>A trio of glowing darts of magical force unerringly and simultaneously strike the targets, each dealing 1d4+1 force damage.</p><p><strong><em>Cast at Higher Levels.</em></strong> Evoke one additional dart and target up to one additional creature for each slot level above 1st.</p>",
+		"description": "<p>A trio of glowing darts of magical force unerringly and simultaneously strike the targets, each dealing 1d4+1 force damage.</p>\n<p><strong><em>Cast at Higher Levels.</em></strong> Evoke one additional dart and target up to one additional creature for each slot level above 1st.</p>\n<p><em><strong>Rare:&nbsp;</strong></em><strong>Ruinous Magic Missile.&nbsp;</strong>Creatures&nbsp;damaged by this spell make a Strength saving&nbsp;throw or are rattled until the end of your next turn.</p>",
 		"favorite": false,
 		"secretDescription": "",
 		"source": "",
@@ -105,7 +162,7 @@
 		"materialsConsumed": false,
 		"prepared": false,
 		"prerequisite": "",
-		"rare": false,
+		"rare": true,
 		"ritual": false,
 		"schools": {
 			"primary": "evocation",
@@ -127,5 +184,5 @@
 		}
 	},
 	"folder": null,
-	"_id": "4tslywqpami9q4pj"
+	"_id": "g4nsm0iua8nzhrl8"
 }

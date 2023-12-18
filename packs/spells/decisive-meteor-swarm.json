@@ -1,0 +1,218 @@
+{
+	"name": "Decisive Meteor Swarm",
+	"type": "spell",
+	"img": "icons/magic/earth/projectiles-magma-stone-orange.webp",
+	"effects": [
+		{
+			"icon": "icons/magic/earth/projectiles-magma-stone-orange.webp",
+			"origin": "Item.7UNiY148JsOpih1p",
+			"flags": {
+				"a5e": {
+					"sort": 0,
+					"transferType": "onUse",
+					"actionId": "umjpQX84g8z5fEHE",
+					"duration": {
+						"type": "rounds",
+						"unit": "minutes"
+					}
+				}
+			},
+			"transfer": false,
+			"name": "Meteor Swarm (50 or More Damage)",
+			"_id": "Dg1eJ0V2SR2fQNtz",
+			"changes": [
+				{
+					"key": "flags.a5e.effects.statusConditions",
+					"value": "[\"prone\"]",
+					"mode": 0,
+					"priority": null
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": null,
+				"combat": null,
+				"rounds": null,
+				"turns": 1,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "",
+			"statuses": [
+				"prone"
+			],
+			"folder": null
+		},
+		{
+			"icon": "icons/magic/earth/projectiles-magma-stone-orange.webp",
+			"origin": "Item.7UNiY148JsOpih1p",
+			"flags": {
+				"a5e": {
+					"sort": 0,
+					"transferType": "onUse",
+					"actionId": "umjpQX84g8z5fEHE",
+					"duration": {
+						"type": "rounds",
+						"unit": "minutes"
+					}
+				}
+			},
+			"transfer": false,
+			"name": "Meteor Swarm (100 or More Damage)",
+			"_id": "n2mrbhqhIjS9GS7M",
+			"changes": [
+				{
+					"key": "flags.a5e.effects.statusConditions",
+					"value": "[\"prone\",\"stunned\"]",
+					"mode": 0,
+					"priority": null
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": null,
+				"combat": null,
+				"rounds": null,
+				"turns": 1,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "",
+			"statuses": [
+				"prone",
+				"stunned"
+			],
+			"folder": null
+		}
+	],
+	"flags": {},
+	"system": {
+		"actions": {
+			"umjpQX84g8z5fEHE": {
+				"name": "Meteor Swarm",
+				"activation": {
+					"cost": 1,
+					"type": "action",
+					"reactionTrigger": ""
+				},
+				"duration": {
+					"unit": "instantaneous",
+					"value": ""
+				},
+				"ranges": {
+					"d24iekjAAKpv7P7O": {
+						"range": "1 mile"
+					}
+				},
+				"area": {
+					"shape": "sphere",
+					"radius": "40",
+					"placeTemplate": true,
+					"quantity": 4
+				},
+				"target": {
+					"quantity": "",
+					"type": ""
+				},
+				"rolls": {
+					"oHQx1MsZEyxeVKft": {
+						"canCrit": false,
+						"damageType": "bludgeoning",
+						"formula": "1d46",
+						"name": "",
+						"type": "damage"
+					},
+					"6s3BC1BuL09Mslyj": {
+						"canCrit": false,
+						"damageType": "fire",
+						"formula": "14d6",
+						"name": "",
+						"type": "damage"
+					}
+				},
+				"prompts": {
+					"rOnOpUFsmzP2TEtB": {
+						"ability": "dex",
+						"onSave": "Half damage",
+						"saveDC": {
+							"type": "spellcasting",
+							"bonus": ""
+						},
+						"type": "savingThrow"
+					},
+					"ioTEnrjI9LvvmX6y": {
+						"type": "effect",
+						"default": true,
+						"effectId": "Dg1eJ0V2SR2fQNtz"
+					}
+				},
+				"consumers": {
+					"ySZm9vCtr9V5DeZY": {
+						"mode": "variable",
+						"spellLevel": 9,
+						"points": 13,
+						"type": "spell"
+					}
+				}
+			}
+		},
+		"description": "<p>Scorching spheres of flame strike the ground at 4 different points within range. The effects of a sphere reach around corners. Creatures and objects in the area take 14d6 fire damage and 14d6 bludgeoning damage, and flammable unattended objects catch on fire. If a creature is in the area of more than one sphere, it is affected only once.</p>\n<p><em><strong>Rare:&nbsp;</strong></em><strong>Decisive Meteor Swarm. </strong>A creature&nbsp;that takes 50 or more damage is knocked prone. A&nbsp;creature that takes 100 or more damage is stunned&nbsp;until the end of its next turn and knocked prone.</p>",
+		"favorite": false,
+		"secretDescription": "",
+		"source": "",
+		"uses": {
+			"value": null,
+			"max": "",
+			"per": null,
+			"recharge": {
+				"formula": "",
+				"threshold": ""
+			}
+		},
+		"schema": {
+			"version": null,
+			"lastMigration": null
+		},
+		"classes": [
+			"sorcerer",
+			"wizard"
+		],
+		"components": {
+			"vocalized": true,
+			"seen": true,
+			"material": false
+		},
+		"concentration": false,
+		"level": 9,
+		"materials": "",
+		"materialsConsumed": false,
+		"prepared": false,
+		"prerequisite": "",
+		"rare": false,
+		"ritual": false,
+		"schools": {
+			"primary": "evocation",
+			"secondary": [
+				"affliction",
+				"arcane",
+				"attack",
+				"fire",
+				"storm"
+			]
+		},
+		"schemaVersion": {
+			"version": 0.009,
+			"lastMigration": {
+				"version": {
+					"schema": 0.007,
+					"foundry": "11.311",
+					"system": "0.15.13"
+				}
+			}
+		}
+	},
+	"folder": null,
+	"_id": "q9g3cgy4dd8i4b1h"
+}
