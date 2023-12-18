@@ -61,7 +61,6 @@
 </script>
 
 <form>
-    {console.log(damageBonus)}
     <FormSection
         heading="A5E.Label"
         --direction="column"
