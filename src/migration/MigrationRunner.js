@@ -163,7 +163,7 @@ export default class MigrationRunner extends MigrationRunnerBase {
 
     if ((!updateData)) return null;
 
-    // Update items. TODO: Update Effects in the future
+    // Update items.
     const baseItems = [...actorData.items];
     const updatedItems = [...updateData.items];
 
@@ -187,6 +187,31 @@ export default class MigrationRunner extends MigrationRunnerBase {
     }
 
     updateData.items = actor.isToken || isAdventure ? updatedItems : itemDiff.updated;
+
+    // Update Effects
+    const baseEffects = [...actorData.effects];
+    const updatedEffects = [...updateData.effects];
+
+    const effectDiff = this.diffCollection(baseEffects, updatedEffects);
+    if (effectDiff.deleted.length > 0) {
+      try {
+        const finalDeleted = effectDiff.deleted
+          .filter((deleteId) => actor.effects.some((effect) => effect.id === deleteId));
+        await actor.deleteEmbeddedDocuments('ActiveEffect', finalDeleted, { noHook: true, pack });
+      } catch (e) {
+        console.warn(e);
+      }
+    }
+
+    if (effectDiff.inserted.length > 0) {
+      try {
+        await actor.createEmbeddedDocuments('ActiveEffect', effectDiff.inserted, { noHook: true, pack });
+      } catch (e) {
+        console.warn(e);
+      }
+    }
+
+    updateData.effects = actor.isToken || isAdventure ? updatedEffects : effectDiff.updated;
     return updateData;
   }
 
@@ -198,6 +223,7 @@ export default class MigrationRunner extends MigrationRunnerBase {
    */
   // eslint-disable-next-line no-unused-vars, @typescript-eslint/no-unused-vars
   async #migrateItem(migrations, item, options = {}) {
+    const { isAdventure, pack } = options;
     const baseData = item.toObject();
     const updateData = await (() => {
       try {
@@ -212,8 +238,30 @@ export default class MigrationRunner extends MigrationRunnerBase {
 
     if (!updateData) return null;
 
-    // TODO: Add active effects in the future
+    // Update Effects
+    const baseEffects = [...baseData.effects];
+    const updatedEffects = [...updateData.effects];
 
+    const effectDiff = this.diffCollection(baseEffects, updatedEffects);
+    if (effectDiff.deleted.length > 0) {
+      try {
+        const finalDeleted = effectDiff.deleted
+          .filter((deleteId) => item.effects.some((effect) => effect.id === deleteId));
+        await item.deleteEmbeddedDocuments('ActiveEffect', finalDeleted, { noHook: true, pack });
+      } catch (e) {
+        console.warn(e);
+      }
+    }
+
+    if (effectDiff.inserted.length > 0) {
+      try {
+        await item.createEmbeddedDocuments('ActiveEffect', effectDiff.inserted, { noHook: true, pack });
+      } catch (e) {
+        console.warn(e);
+      }
+    }
+
+    updateData.effects = isAdventure ? updatedEffects : effectDiff.updated;
     return updateData;
   }
 
