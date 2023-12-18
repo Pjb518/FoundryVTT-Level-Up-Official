@@ -139,7 +139,7 @@ export default class Migration010MigrateContexts extends MigrationBase {
 
     // Passive and Individual Bonuses
     const { passives, checks } = Object.entries(skills).reduce((acc, [skillId, skill]) => {
-      const passive = (`${skill.bonuses.passive}` || '').replaceAll(/\s/g, '');
+      const passive = skill.bonuses.passive || '';
       const check = (skill.bonuses.check || '').replaceAll(/\s/g, '');
 
       if (passive) {
@@ -376,11 +376,3 @@ export default class Migration010MigrateContexts extends MigrationBase {
     });
   }
 }
-
-window.testMigration = async function testMigration(actor) {
-  const migration = new Migration010MigrateContexts();
-  const actorData = actor.toObject();
-  await migration.updateEffect(actorData);
-
-  await actor.update(actorData);
-};

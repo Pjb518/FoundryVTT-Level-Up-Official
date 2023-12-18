@@ -5,7 +5,7 @@
 import MigrationBase from './MigrationBase';
 
 export default class MigrationRunnerBase {
-  static LATEST_SCHEMA_VERSION = 0.009;
+  static LATEST_SCHEMA_VERSION = 0.010;
 
   static MIN_SAFE_VERSION = 0;
 
@@ -227,7 +227,7 @@ export default class MigrationRunnerBase {
     if (!('game' in globalThis && latestMigration)) return;
 
     const fromVersion = typeof schema?.version === 'number' ? schema.version : null;
-    schema.version = latestMigration.version;
+    schema.version = latestMigration?.version;
     schema.lastMigration = {
       version: {
         schema: fromVersion,
