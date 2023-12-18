@@ -82,6 +82,14 @@ export default class MigrationRunnerBase {
             console.error(e);
           }
         }
+
+        for (const currentEffect of actorData.effects) {
+          try {
+            await migration?.updateEffect?.(currentEffect, actorData);
+          } catch (e) {
+            console.error(e);
+          }
+        }
       } catch (e) {
         console.error(e);
       }
@@ -113,6 +121,14 @@ export default class MigrationRunnerBase {
       for (const migration of migrations) {
         await migration?.preUpdateItem?.(itemData);
         await migration?.updateItem?.(itemData);
+
+        for (const currentEffect of itemData.effects) {
+          try {
+            await migration?.updateEffect?.(currentEffect, itemData);
+          } catch (e) {
+            console.error(e);
+          }
+        }
       }
     } catch (e) {
       console.error(e);
