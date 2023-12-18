@@ -1,6 +1,5 @@
 <script>
     import { getContext, createEventDispatcher } from "svelte";
-    import { localize } from "#runtime/svelte/helper";
 
     import updateDocumentDataFromField from "../../utils/updateDocumentDataFromField";
 
@@ -53,9 +52,9 @@
     const { abilities, abilityBonusContexts } = CONFIG.A5E;
 
     $: abilityBonus = getAbilityBonus($actor, jsonValue) ?? {};
-    $: abilitiesContext = abilityBonus.context.abilities ?? [];
-    $: abilityTypeContext = abilityBonus.context.types ?? [];
-    $: requiresProficiency = abilityBonus.context.requiresProficiency ?? false;
+    $: abilitiesContext = abilityBonus.context?.abilities ?? [];
+    $: abilityTypeContext = abilityBonus.context?.types ?? [];
+    $: requiresProficiency = abilityBonus.context?.requiresProficiency ?? false;
 </script>
 
 <form>
