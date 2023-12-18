@@ -51,7 +51,8 @@ export default class ActorA5e extends Actor {
 
     this.dialogs ??= {
       abilities: {},
-      skills: {}
+      skills: {},
+      notes: {}
     };
 
     this.#configDialogMap = {
