@@ -63,7 +63,7 @@
                 />
             </FormSection>
 
-            <header class="notes-header">
+            <!-- <header class="notes-header">
                 <h3 class="notes-heading">Notes</h3>
 
                 <button
@@ -92,7 +92,7 @@
                 {:else}
                     <p>None</p>
                 {/each}
-            </ul>
+            </ul> -->
         </div>
 
         <!-- Saving Throw Config  -->
@@ -144,7 +144,7 @@
                 </FormSection>
             {/if}
 
-            <header class="notes-header">
+            <!-- <header class="notes-header">
                 <h3 class="notes-heading">Notes</h3>
 
                 <button
@@ -168,7 +168,7 @@
                 {:else}
                     <p>None</p>
                 {/each}
-            </ul>
+            </ul> -->
         </div>
     {/if}
 </article>
