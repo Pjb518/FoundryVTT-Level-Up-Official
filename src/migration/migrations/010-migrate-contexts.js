@@ -1,7 +1,17 @@
 import MigrationBase from '../MigrationBase';
 
+import CONFIG from '../../config';
+
 export default class Migration010MigrateContexts extends MigrationBase {
   static version = 0.010;
+
+  #effectKeys = new Set([
+    'system.bonuses.abilities.check',
+    'system.bonuses.abilities.save',
+    'system.bonuses.abilities.skill',
+    'flags.a5e.effects.bonuses.damage',
+    'flags.a5e.effects.bonuses.healing'
+  ]);
 
   #updateAbilityBonuses(actorData) {
     const { abilities } = actorData.system;
@@ -88,11 +98,11 @@ export default class Migration010MigrateContexts extends MigrationBase {
       let attackTypes = [];
 
       if (contextValue === 'all') {
-        attackTypes = ['meleeWeaponAttacks', 'rangedWeaponAttacks', 'meleeSpellAttacks', 'rangedSpellAttacks'];
+        attackTypes = ['meleeWeaponAttack', 'rangedWeaponAttack', 'meleeSpellAttack', 'rangedSpellAttack'];
       } else if (contextValue === 'weaponAttacks') {
-        attackTypes = ['meleeWeaponAttacks', 'rangedWeaponAttacks'];
+        attackTypes = ['meleeWeaponAttack', 'rangedWeaponAttack'];
       } else if (contextValue === 'spellAttacks') {
-        attackTypes = ['meleeSpellAttacks', 'rangedSpellAttacks'];
+        attackTypes = ['meleeSpellAttack', 'rangedSpellAttack'];
       } else {
         attackTypes = [contextValue];
       }
@@ -180,6 +190,145 @@ export default class Migration010MigrateContexts extends MigrationBase {
     actorData.system.bonuses.skills = bonuses;
   }
 
+  #getEffectDamageChange(change) {
+    let value = null;
+    try {
+      value = JSON.parse(change.value);
+    } catch (e) {
+      value = change.value;
+    }
+
+    if (!value) return change;
+
+    // Update contexts
+    const { context } = value;
+    if (!context) value.context = {};
+    let attackTypes = [];
+
+    if (context === 'all') {
+      attackTypes = ['meleeWeaponAttack', 'rangedWeaponAttack', 'meleeSpellAttack', 'rangedSpellAttack'];
+    } else if (context === 'weaponAttacks') {
+      attackTypes = ['meleeWeaponAttack', 'rangedWeaponAttack'];
+    } else if (context === 'spellAttacks') {
+      attackTypes = ['meleeSpellAttack', 'rangedSpellAttack'];
+    } else {
+      attackTypes = [context];
+    }
+
+    value.context = {
+      attackTypes,
+      damageTypes: [],
+      isCritBonus: false,
+      spellLevels: []
+    };
+
+    const newChange = foundry.utils.deepClone(change);
+    newChange.value = JSON.stringify(value);
+    return newChange;
+  }
+
+  #getEffectHealingChange(change) {
+    let value = null;
+    try {
+      value = JSON.parse(change.value);
+    } catch (e) {
+      value = change.value;
+    }
+
+    if (!value) return change;
+
+    // Update contexts
+    const { context } = value;
+    if (!context) value.context = {};
+    let healingTypes = [];
+
+    if (context === 'all') {
+      healingTypes = ['healing', 'temporaryHealing'];
+    } else {
+      healingTypes = [context];
+    }
+
+    value.context = {
+      healingTypes,
+      spellLevels: []
+    };
+
+    const newChange = foundry.utils.deepClone(change);
+    newChange.value = JSON.stringify(value);
+    return newChange;
+  }
+
+  #getEffectAbilityChange(change) {
+    const isGlobalCheck = change.key === 'system.bonuses.abilities.check';
+    const isGlobalSave = change.key === 'system.bonuses.abilities.save';
+    const isIndividualCheck = change.key.startsWith('system.abilities.') && change.key.endsWith('.check');
+    const isIndividualSave = change.key.startsWith('system.abilities.') && change.key.endsWith('.save');
+    const formula = change.value;
+
+    // Construct abilities array
+    let abilities = [];
+    if (isGlobalCheck || isGlobalSave) {
+      abilities = Object.keys(CONFIG.abilities);
+    } else {
+      const parts = change.key.split('.');
+      const abilityId = parts?.[2] ?? null;
+      abilities = abilityId ? [abilityId] : [];
+    }
+
+    const types = [];
+    if (isGlobalCheck || isIndividualCheck) types.push('check');
+    else if (isGlobalSave || isIndividualSave) types.push('save');
+
+    // Construct the new bonus object
+    const bonus = {
+      context: {
+        abilities,
+        types,
+        requiresProficiency: false
+      },
+      formula,
+      label: 'Ability Bonus',
+      default: true
+    };
+
+    const newChange = foundry.utils.deepClone(change);
+    newChange.key = 'flags.a5e.effects.bonuses.abilities';
+    newChange.value = JSON.stringify(bonus);
+    return newChange;
+  }
+
+  #getEffectSkillChange(change) {
+    const isGlobal = change.key === 'system.bonuses.abilities.skill';
+    const isIndividualPassive = change.key.startsWith('system.skills.') && change.key.endsWith('.passive');
+    const formula = change.value;
+
+    // Construct skills array
+    let skills = [];
+    if (isGlobal) skills = Object.keys(CONFIG.skills);
+    else {
+      const parts = change.key.split('.');
+      const skillId = parts?.[2] ?? null;
+      skills = skillId ? [skillId] : [];
+    }
+
+    // Construct the new bonus object
+    const bonus = {
+      context: {
+        skills,
+        passiveOnly: isIndividualPassive,
+        requiresProficiency: false
+      },
+      formula,
+      label: 'Skill Bonus',
+      default: true
+    };
+
+    const newChange = foundry.utils.deepClone(change);
+    newChange.key = 'flags.a5e.effects.bonuses.skills';
+    newChange.value = JSON.stringify(bonus);
+    return newChange;
+  }
+
   /**
    *
    * @param {Object} actorData
@@ -193,16 +342,45 @@ export default class Migration010MigrateContexts extends MigrationBase {
     this.#updateAbilityBonuses(actorData);
     this.#updateDamageBonuses(actorData);
     this.#updateHealingBonuses(actorData);
-
-    // Update effects data
   }
 
-  /**
-   * @param {Object} itemData
-   * @returns {Promise<void>}
-   */
-  async updateItem(itemData) {
-    // Update effects data
-    console.log('Migrating Item', itemData);
+  async updateEffect(effectData) {
+    const changes = effectData.changes ?? [];
+    if (!changes.length) return;
+
+    changes.forEach((change, idx) => {
+      const { key } = change;
+
+      const globalKey = this.#effectKeys.has(key);
+
+      const parts = key.split('.');
+      const isAbilityBonus = parts?.[1] === 'abilities' && parts.at(-1) === 'bonus';
+      const isSkillBonus = parts?.[1] === 'skills' && parts.at(-2) === 'bonuses';
+
+      if (!globalKey && !isAbilityBonus && !isSkillBonus) return;
+
+      // Update the change based on the key
+      if (key === 'flags.a5e.effects.bonuses.damage') {
+        const damageChange = this.#getEffectDamageChange(change);
+        changes[idx] = damageChange;
+      } else if (key === 'flags.a5e.effects.bonuses.healing') {
+        const healingChange = this.#getEffectHealingChange(change);
+        changes[idx] = healingChange;
+      } else if (isAbilityBonus || (parts.length !== 5 && ['check', 'save'].includes(parts.at(-1)))) {
+        const abilityChange = this.#getEffectAbilityChange(change);
+        changes[idx] = abilityChange;
+      } else if (isSkillBonus || parts.at(-1) === 'skill') {
+        const skillChange = this.#getEffectSkillChange(change);
+        changes[idx] = skillChange;
+      }
+    });
   }
 }
+
+window.testMigration = async function testMigration(actor) {
+  const migration = new Migration010MigrateContexts();
+  const actorData = actor.toObject();
+  await migration.updateEffect(actorData);
+
+  await actor.update(actorData);
+};
