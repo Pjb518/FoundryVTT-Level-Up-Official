@@ -20,7 +20,10 @@
             return;
         }
 
-        const newObj = { ...abilityBonus, [key]: value };
+        const newObj = foundry.utils.expandObject({
+            ...abilityBonus,
+            [key]: value,
+        });
         dispatch("change", JSON.stringify(newObj));
     }
 

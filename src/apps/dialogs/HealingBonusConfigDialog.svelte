@@ -21,7 +21,10 @@
             return;
         }
 
-        const newObj = { ...healingBonus, [key]: value };
+        const newObj = foundry.utils.expandObject({
+            ...healingBonus,
+            [key]: value,
+        });
         dispatch("change", JSON.stringify(newObj));
     }
 

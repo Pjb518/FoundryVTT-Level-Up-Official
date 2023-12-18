@@ -20,7 +20,10 @@
             return;
         }
 
-        const newObj = { ...damageBonus, [key]: value };
+        const newObj = foundry.utils.expandObject({
+            ...damageBonus,
+            [key]: value,
+        });
         dispatch("change", JSON.stringify(newObj));
     }
 
@@ -58,6 +61,7 @@
 </script>
 
 <form>
+    {console.log(damageBonus)}
     <FormSection
         heading="A5E.Label"
         --direction="column"
