@@ -253,7 +253,6 @@ export default class ActorA5e extends Actor {
           deterministicBonus = getDeterministicBonus(
             [
               ability[key].mod,
-              // ability[key].bonus, TODO: Remove this as part of bonuses refactor
               this.BonusesManager.getAbilityBonusesFormula(abilityKey, key).trim()
             ].filter(Boolean).join(' + '),
             this.getRollData()
@@ -466,6 +465,8 @@ export default class ActorA5e extends Actor {
 
     return getDeterministicBonus([
       10,
+      skill.deterministicBonus,
+      rollData.abilities[skill.ability]?.check?.deterministicBonus ?? 0,
       this.BonusesManager.getSkillBonusesFormula(skillKey, skill.ability, 'passive').trim()
     ].filter(Boolean).join(' + '), rollData);
   }
