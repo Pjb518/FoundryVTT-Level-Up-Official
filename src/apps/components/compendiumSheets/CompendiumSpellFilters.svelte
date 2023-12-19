@@ -3,12 +3,9 @@
 
     import CompendiumFilterCategory from "./CompendiumFilterCategory.svelte";
 
-    import constructReducerFilters from "../../handlers/constructReducerFilters";
-
     export let compendiumType = "spell";
 
     const filterStore = getContext("filterStore");
-    const reducer = getContext("reducer");
     const { classSpellLists, spellLevels, spellSchools } = CONFIG.A5E;
 
     let filterSelections = {};
@@ -53,12 +50,6 @@
             },
         },
     ];
-
-    $: filterCount = constructReducerFilters(
-        reducer,
-        filterSelections,
-        "spells",
-    );
 </script>
 
 {#each formSectionMap as { display, heading, filterKey, options }}

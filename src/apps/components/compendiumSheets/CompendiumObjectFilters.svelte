@@ -3,12 +3,9 @@
 
     import CompendiumFilterCategory from "./CompendiumFilterCategory.svelte";
 
-    import constructReducerFilters from "../../handlers/constructReducerFilters";
-
     export let compendiumType = "magicItem";
 
     const filterStore = getContext("filterStore");
-    const reducer = getContext("reducer");
     const { itemRarity, objectTypes } = CONFIG.A5E;
 
     function getFormSections() {
@@ -50,12 +47,6 @@
     filterStore.subscribe((store) => {
         filterSelections = store;
     });
-
-    $: filterCount = constructReducerFilters(
-        reducer,
-        filterSelections,
-        compendiumType,
-    );
 </script>
 
 {#each getFormSections() as { display, heading, filterKey, options }}

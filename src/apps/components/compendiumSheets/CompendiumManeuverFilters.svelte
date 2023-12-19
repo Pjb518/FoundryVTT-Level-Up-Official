@@ -5,12 +5,9 @@
     import FormSection from "../FormSection.svelte";
     import RangeSlider from "svelte-range-slider-pips";
 
-    import constructReducerFilters from "../../handlers/constructReducerFilters";
-
     // export let compendiumType = "maneuver";
 
     const filterStore = getContext("filterStore");
-    const reducer = getContext("reducer");
     const { maneuverDegrees, maneuverTraditions } = CONFIG.A5E;
 
     function getExertionCostLabel({ exertion }) {
@@ -55,12 +52,6 @@
     ];
 
     $: exertionCostLabel = getExertionCostLabel(filterSelections);
-
-    $: filterCount = constructReducerFilters(
-        reducer,
-        filterSelections,
-        "maneuvers",
-    );
 </script>
 
 <FormSection

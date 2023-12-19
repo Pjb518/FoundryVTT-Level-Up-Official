@@ -1,3 +1,4 @@
+/* eslint-disable eqeqeq */
 const spellsFilterConfig = {
   spellLists: {
     key: 'system.classes',
@@ -107,11 +108,12 @@ const objectFilterConfig = {
 };
 
 const typeMap = {
-  spells: spellsFilterConfig,
+  '5eSpell': spellsFilterConfig,
+  object: objectFilterConfig,
   magicItem: objectFilterConfig,
-  maneuvers: maneuverFilterConfig,
-  monsters: monstersFilterConfig,
-  object: objectFilterConfig
+  maneuver: maneuverFilterConfig,
+  monster: monstersFilterConfig,
+  spell: spellsFilterConfig
 };
 
 function arrayFilter(key, value, mode) {
@@ -147,11 +149,11 @@ function valueFilter(key, value, mode) {
   return (doc) => foundry.utils.getProperty(doc, key) != value;
 }
 
-export default function constructReducerFilters(reducer, filtersSelections, type) {
+export default function constructReducerFilters(reducer, filtersSelections, compendiumType) {
   const prevFilters = [...reducer.filters].filter((f) => f.id !== 'searchFilter');
   reducer.filters.remove(...prevFilters);
 
-  const filterConfig = typeMap[type];
+  const filterConfig = typeMap[compendiumType];
   const filterCount = { and: 0, or: 0 };
 
   for (const [filterKey, filterData] of Object.entries(filtersSelections)) {

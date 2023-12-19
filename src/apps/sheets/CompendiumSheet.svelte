@@ -17,6 +17,7 @@
         addSearchFilter,
         removeSearchFilter,
     } from "../handlers/handleSearchFilter";
+    import constructReducerFilters from "../handlers/constructReducerFilters";
 
     export let { compendiumType, document, filterStore, sheet } =
         getContext("#external").application;
@@ -71,19 +72,33 @@
     let reducer = new DynMapReducer();
     let visibleDocumentCount = 100;
 
-    onDestroy(() => removeSearchFilter(reducer));
-
     reducer.setData(getDocuments([...document.index]), true);
 
     $: searchInput = addSearchFilter(reducer, includeDescriptions);
 
+    // Set contexts and unsubscribes
     setContext("collection", document);
     setContext("filterStore", filterStore);
     setContext("reducer", reducer);
 
-    const unsubscribe = reducer.subscribe(() => (visibleDocumentCount = 100));
+    const reducerUnsubscribe = reducer.subscribe(
+        () => (visibleDocumentCount = 100),
+    );
 
-    onDestroy(unsubscribe);
+    // Construct filters for the reducer
+    let filterSelections = {};
+    const filterStoreUnsubscribe = filterStore.subscribe((store) => {
+        filterSelections = store;
+    });
+
+    $: constructReducerFilters(reducer, filterSelections, compendiumType);
+
+    // On Destroy
+    onDestroy(() => {
+        removeSearchFilter(reducer);
+        reducerUnsubscribe();
+        filterStoreUnsubscribe();
+    });
 
     $: enableGrouping = false;
 </script>

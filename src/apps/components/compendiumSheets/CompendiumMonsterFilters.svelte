@@ -5,12 +5,9 @@
     import FormSection from "../FormSection.svelte";
     import RangeSlider from "svelte-range-slider-pips";
 
-    import constructReducerFilters from "../../handlers/constructReducerFilters";
-
     export const compendiumType = "maneuver";
 
     const filterStore = getContext("filterStore");
-    const reducer = getContext("reducer");
     const { actorSizes, creatureTypes } = CONFIG.A5E;
 
     function getChallengeRatingRangeLabel({ cr }) {
@@ -56,12 +53,6 @@
     });
 
     $: crRangeLabel = getChallengeRatingRangeLabel(filterSelections);
-
-    $: filterCount = constructReducerFilters(
-        reducer,
-        filterSelections,
-        "monsters",
-    );
 </script>
 
 <FormSection heading={`CR Range (${crRangeLabel})`} --label-width="100%">
