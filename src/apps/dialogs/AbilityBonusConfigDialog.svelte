@@ -51,6 +51,7 @@
             obj.formula = obj.formula ?? "";
             obj.context = obj.context ?? {};
             obj.default = obj.default ?? true;
+            obj.img = obj.img ?? "icons/svg/upgrade.svg";
             return obj;
         } catch (error) {
             return {
@@ -59,6 +60,7 @@
                 damageType: "",
                 context: {},
                 default: true,
+                img: "icons/svg/upgrade.svg",
             };
         }
     }
