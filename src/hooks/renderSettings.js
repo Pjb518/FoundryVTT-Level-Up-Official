@@ -83,9 +83,8 @@ export default function renderSettings(_app, _html) {
     button.append(icon, label);
 
     button.addEventListener('click', () => {
-      game.dialogs ??= {};
-      game.dialogs[dialogName] ??= new DialogApplication();
-      game.dialogs[dialogName].render(true);
+      game.a5e.dialogs[dialogName] ??= new DialogApplication();
+      game.a5e.dialogs[dialogName].render(true);
     });
 
     return button;

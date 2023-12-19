@@ -118,6 +118,14 @@ export default function init() {
       TokenDocumentA5e,
       TokenA5e
     },
+    dialogs: {
+      bonuses: {
+        abilities: {},
+        damage: {},
+        healing: {},
+        skills: {}
+      }
+    },
     macros: {
       activateActionMacro,
       activateItemMacro,
