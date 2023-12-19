@@ -16,8 +16,12 @@ export default class DamageBonusConfigDialog extends TJSDialog {
       },
       zIndex: null
     }, {
+      id: `${actor.uuid}-damage-bonus-config-dialog-${damageBonusId}`,
       classes: ['a5e-sheet'],
       width: options.width ?? 432
     });
+
+    // Add to dialogs
+    game.a5e.dialogs.bonuses.damage[damageBonusId] = this;
   }
 }

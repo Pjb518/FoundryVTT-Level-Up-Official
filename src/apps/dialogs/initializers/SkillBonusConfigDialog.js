@@ -16,8 +16,12 @@ export default class SkillBonusConfigDialog extends TJSDialog {
       },
       zIndex: null
     }, {
+      id: `${actor.uuid}-skills-bonus-config-dialog-${skillBonusId}`,
       classes: ['a5e-sheet'],
       width: options.width ?? 432
     });
+
+    // Add to dialogs
+    game.a5e.dialogs.bonuses.skills[skillBonusId] = this;
   }
 }

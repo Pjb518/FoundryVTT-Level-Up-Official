@@ -853,8 +853,13 @@ export default class ActorA5e extends Actor {
     this.#configure('weapons', title, data, options);
   }
 
-  deleteBonus(id, type = 'damage') {
-    this.update({
+  async deleteBonus(id, type = 'damage') {
+    // Close dialog
+    const dialog = game.a5e.dialogs.bonuses?.[type]?.[id];
+    await dialog?.close();
+    delete game.a5e.dialogs.bonuses?.[type]?.[id];
+
+    await this.update({
       [`system.bonuses.${type}`]: {
         [`-=${id}`]: null
       }

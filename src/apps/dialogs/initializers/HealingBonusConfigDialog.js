@@ -16,8 +16,12 @@ export default class HealingBonusConfigDialog extends TJSDialog {
       },
       zIndex: null
     }, {
+      id: `${actor.uuid}-healing-bonus-config-dialog-${healingBonusId}`,
       classes: ['a5e-sheet'],
       width: options.width ?? 432
     });
+
+    // Add to dialogs
+    game.a5e.dialogs.bonuses.healing[healingBonusId] = this;
   }
 }

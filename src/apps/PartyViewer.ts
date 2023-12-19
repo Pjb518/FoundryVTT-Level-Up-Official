@@ -29,7 +29,7 @@ export default class PartyViewer extends TJSDialog {
   }
 
   close() {
-    game.dialogs.partyViewer = null;
+    game.a5e.dialogs.partyViewer = null;
     super.close();
   }
 }
