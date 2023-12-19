@@ -8,6 +8,7 @@
     import CompendiumMonsterItem from "./CompendiumMonsterItem.svelte";
     import CompendiumObjectItem from "./CompendiumObjectItem.svelte";
     import CompendiumSpellItem from "./CompendiumSpellItem.svelte";
+    import CompendiumSubItemList from "./CompendiumSubItemList.svelte";
 
     export let documents = [];
     export let compendiumType;
@@ -112,16 +113,11 @@
     {#if derived.length}
         {#each derived as { name, derivedReducer }}
             {#if [...derivedReducer].length !== 0}
-                <h3 class="a5efc-category-heading">
+                <CompendiumSubItemList
                     {name}
-                </h3>
-
-                {#each [...derivedReducer] as document}
-                    <svelte:component
-                        this={compendiumItemComponents[compendiumType]}
-                        {document}
-                    />
-                {/each}
+                    ItemComponent={compendiumItemComponents[compendiumType]}
+                    reducer={derivedReducer}
+                />
             {/if}
         {/each}
     {:else}
@@ -133,20 +129,3 @@
         {/each}
     {/if}
 </ul>
-
-<style>
-    .a5efc-category-heading {
-        display: flex;
-        align-items: center;
-        margin-block: 0;
-        padding: 0.25rem 0.5rem;
-        font-family: Signika, sans-serif;
-        font-size: 0.833rem;
-        line-height: 1;
-        color: #f6f2eb;
-        background: #425f65;
-        border-bottom: none;
-        border-radius: 3px;
-        box-shadow: inset 0 0 10px #2e4246;
-    }
-</style>
