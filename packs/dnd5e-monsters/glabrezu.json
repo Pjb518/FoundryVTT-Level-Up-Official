@@ -44,12 +44,16 @@
 		},
 		"texture": {
 			"src": "systems/a5e/assets/glabrezu.webp",
-			"tint": null,
+			"tint": "#ffffff",
 			"scaleX": 1,
 			"scaleY": 1,
 			"offsetX": 0,
 			"offsetY": 0,
-			"rotation": 0
+			"rotation": 0,
+			"anchorX": 0.5,
+			"anchorY": 0.5,
+			"fit": "contain",
+			"alphaThreshold": 0.75
 		},
 		"width": 2,
 		"displayName": 0,
@@ -67,7 +71,12 @@
 			"attribute": null
 		},
 		"flags": {},
-		"randomImg": false
+		"randomImg": false,
+		"hexagonalShape": 0,
+		"locked": false,
+		"occludable": {
+			"radius": 0
+		}
 	},
 	"system": {
 		"abilities": {
@@ -75,72 +84,84 @@
 				"value": 20,
 				"check": {
 					"expertiseDice": 0,
-					"bonus": ""
+					"bonus": "",
+					"notes": {}
 				},
 				"save": {
 					"proficient": true,
 					"expertiseDice": 0,
-					"bonus": ""
+					"bonus": "",
+					"notes": {}
 				}
 			},
 			"dex": {
 				"value": 15,
 				"check": {
 					"expertiseDice": 0,
-					"bonus": ""
+					"bonus": "",
+					"notes": {}
 				},
 				"save": {
 					"proficient": false,
 					"expertiseDice": 0,
-					"bonus": ""
+					"bonus": "",
+					"notes": {}
 				}
 			},
 			"con": {
 				"value": 21,
 				"check": {
 					"expertiseDice": 0,
-					"bonus": ""
+					"bonus": "",
+					"notes": {}
 				},
 				"save": {
 					"proficient": true,
 					"expertiseDice": 0,
-					"bonus": ""
+					"bonus": "",
+					"notes": {}
 				}
 			},
 			"int": {
 				"value": 19,
 				"check": {
 					"expertiseDice": 0,
-					"bonus": ""
+					"bonus": "",
+					"notes": {}
 				},
 				"save": {
 					"proficient": false,
 					"expertiseDice": 0,
-					"bonus": ""
+					"bonus": "",
+					"notes": {}
 				}
 			},
 			"wis": {
 				"value": 17,
 				"check": {
 					"expertiseDice": 0,
-					"bonus": ""
+					"bonus": "",
+					"notes": {}
 				},
 				"save": {
 					"proficient": true,
 					"expertiseDice": 0,
-					"bonus": ""
+					"bonus": "",
+					"notes": {}
 				}
 			},
 			"cha": {
 				"value": 16,
 				"check": {
 					"expertiseDice": 0,
-					"bonus": ""
+					"bonus": "",
+					"notes": {}
 				},
 				"save": {
 					"proficient": true,
 					"expertiseDice": 0,
-					"bonus": ""
+					"bonus": "",
+					"notes": {}
 				}
 			}
 		},
@@ -446,7 +467,7 @@
 			"hp": {
 				"value": 157,
 				"baseMax": 157,
-				"temp": null,
+				"temp": 0,
 				"bonus": 0
 			},
 			"hitDice": {
@@ -530,11 +551,7 @@
 			"casterLevel": 0
 		},
 		"bonuses": {
-			"abilities": {
-				"check": "",
-				"save": "",
-				"skill": ""
-			},
+			"abilities": {},
 			"damage": {},
 			"healing": {},
 			"maneuverDC": "",
@@ -542,7 +559,8 @@
 			"meleeWeaponAttack": "",
 			"rangedSpellAttack": "",
 			"rangedWeaponAttack": "",
-			"spellDC": ""
+			"spellDC": "",
+			"skills": {}
 		},
 		"currency": {
 			"pp": 0,
@@ -559,7 +577,8 @@
 			"isSwarm": false,
 			"cr": 9,
 			"elite": false,
-			"privateNotes": ""
+			"privateNotes": "",
+			"notes": ""
 		},
 		"proficiencies": {
 			"armor": [],
@@ -678,7 +697,17 @@
 				"concentration": false,
 				"featureType": "",
 				"grants": {},
-				"prerequisite": ""
+				"prerequisite": "",
+				"schemaVersion": {
+					"version": 0.01,
+					"lastMigration": {
+						"version": {
+							"schema": null,
+							"foundry": "12.316",
+							"system": "0.16.12"
+						}
+					}
+				}
 			},
 			"_id": "aj0nlDioBYMCvsPl",
 			"effects": [],
@@ -728,7 +757,17 @@
 				"concentration": false,
 				"featureType": "",
 				"grants": {},
-				"prerequisite": ""
+				"prerequisite": "",
+				"schemaVersion": {
+					"version": 0.01,
+					"lastMigration": {
+						"version": {
+							"schema": null,
+							"foundry": "12.316",
+							"system": "0.16.12"
+						}
+					}
+				}
 			},
 			"_id": "KuD423b6gFYLUxbM",
 			"effects": [],
@@ -791,7 +830,17 @@
 				"concentration": false,
 				"featureType": "",
 				"grants": {},
-				"prerequisite": ""
+				"prerequisite": "",
+				"schemaVersion": {
+					"version": 0.01,
+					"lastMigration": {
+						"version": {
+							"schema": null,
+							"foundry": "12.316",
+							"system": "0.16.12"
+						}
+					}
+				}
 			},
 			"_id": "skFI2YY4uRVxirOz",
 			"effects": [],
@@ -878,7 +927,17 @@
 				"concentration": false,
 				"featureType": "naturalWeapon",
 				"grants": {},
-				"prerequisite": ""
+				"prerequisite": "",
+				"schemaVersion": {
+					"version": 0.01,
+					"lastMigration": {
+						"version": {
+							"schema": null,
+							"foundry": "12.316",
+							"system": "0.16.12"
+						}
+					}
+				}
 			},
 			"_id": "0MuPzt5EV3ApSLH8",
 			"effects": [],
@@ -964,7 +1023,17 @@
 				"concentration": false,
 				"featureType": "naturalWeapon",
 				"grants": {},
-				"prerequisite": ""
+				"prerequisite": "",
+				"schemaVersion": {
+					"version": 0.01,
+					"lastMigration": {
+						"version": {
+							"schema": null,
+							"foundry": "12.316",
+							"system": "0.16.12"
+						}
+					}
+				}
 			},
 			"_id": "YovqyHNpnCIE6XCq",
 			"effects": [],
@@ -1049,6 +1118,16 @@
 				"schools": {
 					"primary": "evocation",
 					"secondary": []
+				},
+				"schemaVersion": {
+					"version": 0.01,
+					"lastMigration": {
+						"version": {
+							"schema": null,
+							"foundry": "12.316",
+							"system": "0.16.12"
+						}
+					}
 				}
 			},
 			"_id": "MWhSEbQsy8mneNa5",
@@ -1135,6 +1214,16 @@
 				"schools": {
 					"primary": "divination",
 					"secondary": []
+				},
+				"schemaVersion": {
+					"version": 0.01,
+					"lastMigration": {
+						"version": {
+							"schema": null,
+							"foundry": "12.316",
+							"system": "0.16.12"
+						}
+					}
 				}
 			},
 			"_id": "o9k8zGS7NfosLPU5",
@@ -1220,6 +1309,16 @@
 				"schools": {
 					"primary": "abjuration",
 					"secondary": []
+				},
+				"schemaVersion": {
+					"version": 0.01,
+					"lastMigration": {
+						"version": {
+							"schema": null,
+							"foundry": "12.316",
+							"system": "0.16.12"
+						}
+					}
 				}
 			},
 			"_id": "OHp6n7eQcKLzSnrs",
@@ -1321,6 +1420,16 @@
 				"schools": {
 					"primary": "enchantment",
 					"secondary": []
+				},
+				"schemaVersion": {
+					"version": 0.01,
+					"lastMigration": {
+						"version": {
+							"schema": null,
+							"foundry": "12.316",
+							"system": "0.16.12"
+						}
+					}
 				}
 			},
 			"_id": "jcHj5WoQ8quEJya5",
@@ -1410,6 +1519,16 @@
 				"schools": {
 					"primary": "transmutation",
 					"secondary": []
+				},
+				"schemaVersion": {
+					"version": 0.01,
+					"lastMigration": {
+						"version": {
+							"schema": null,
+							"foundry": "12.316",
+							"system": "0.16.12"
+						}
+					}
 				}
 			},
 			"_id": "e2AzcPS0oVhYeAJ3",
@@ -1509,6 +1628,16 @@
 				"schools": {
 					"primary": "enchantment",
 					"secondary": []
+				},
+				"schemaVersion": {
+					"version": 0.01,
+					"lastMigration": {
+						"version": {
+							"schema": null,
+							"foundry": "12.316",
+							"system": "0.16.12"
+						}
+					}
 				}
 			},
 			"_id": "5ainknjb6SImUEQc",
@@ -1602,12 +1731,12 @@
 				"tradition": "",
 				"equippedState": 0,
 				"schemaVersion": {
-					"version": 0.009,
+					"version": 0.01,
 					"lastMigration": {
 						"version": {
-							"schema": 0.007,
-							"foundry": "11.311",
-							"system": "0.15.13"
+							"schema": 0.009,
+							"foundry": "12.316",
+							"system": "0.16.12"
 						}
 					}
 				}
@@ -1701,12 +1830,12 @@
 				"tradition": "",
 				"equippedState": 0,
 				"schemaVersion": {
-					"version": 0.009,
+					"version": 0.01,
 					"lastMigration": {
 						"version": {
-							"schema": 0.007,
-							"foundry": "11.311",
-							"system": "0.15.13"
+							"schema": 0.009,
+							"foundry": "12.316",
+							"system": "0.16.12"
 						}
 					}
 				}
@@ -1800,12 +1929,12 @@
 				"tradition": "",
 				"equippedState": 0,
 				"schemaVersion": {
-					"version": 0.009,
+					"version": 0.01,
 					"lastMigration": {
 						"version": {
-							"schema": 0.007,
-							"foundry": "11.311",
-							"system": "0.15.13"
+							"schema": 0.009,
+							"foundry": "12.316",
+							"system": "0.16.12"
 						}
 					}
 				}
@@ -1899,12 +2028,12 @@
 				"tradition": "",
 				"equippedState": 0,
 				"schemaVersion": {
-					"version": 0.009,
+					"version": 0.01,
 					"lastMigration": {
 						"version": {
-							"schema": 0.007,
-							"foundry": "11.311",
-							"system": "0.15.13"
+							"schema": 0.009,
+							"foundry": "12.316",
+							"system": "0.16.12"
 						}
 					}
 				}
@@ -1998,12 +2127,12 @@
 				"tradition": "",
 				"equippedState": 0,
 				"schemaVersion": {
-					"version": 0.009,
+					"version": 0.01,
 					"lastMigration": {
 						"version": {
-							"schema": 0.007,
-							"foundry": "11.311",
-							"system": "0.15.13"
+							"schema": 0.009,
+							"foundry": "12.316",
+							"system": "0.16.12"
 						}
 					}
 				}
@@ -2097,12 +2226,12 @@
 				"tradition": "",
 				"equippedState": 0,
 				"schemaVersion": {
-					"version": 0.009,
+					"version": 0.01,
 					"lastMigration": {
 						"version": {
-							"schema": 0.007,
-							"foundry": "11.311",
-							"system": "0.15.13"
+							"schema": 0.009,
+							"foundry": "12.316",
+							"system": "0.16.12"
 						}
 					}
 				}

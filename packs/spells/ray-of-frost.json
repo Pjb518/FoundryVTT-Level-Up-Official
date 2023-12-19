@@ -2,47 +2,7 @@
 	"name": "Ray of Frost",
 	"type": "spell",
 	"img": "icons/magic/water/projectile-icecicle-glowing.webp",
-	"effects": [
-		{
-			"icon": "icons/magic/water/projectile-icecicle-glowing.webp",
-			"origin": "Item.x8A8vnh5w0omdNQy",
-			"flags": {
-				"a5e": {
-					"sort": 0,
-					"transferType": "onUse",
-					"actionId": "rjaz6n2uCMQHcsGc",
-					"duration": {
-						"type": "rounds",
-						"unit": "minutes"
-					}
-				}
-			},
-			"transfer": false,
-			"name": "Frost",
-			"_id": "i4bWmHzg2OE6Ddvk",
-			"changes": [
-				{
-					"key": "system.attributes.movement.walk.distance",
-					"value": "-10",
-					"mode": 3,
-					"priority": null
-				}
-			],
-			"disabled": false,
-			"duration": {
-				"startTime": null,
-				"seconds": null,
-				"combat": null,
-				"rounds": null,
-				"turns": 1,
-				"startRound": null,
-				"startTurn": null
-			},
-			"description": "",
-			"statuses": [],
-			"folder": null
-		}
-	],
+	"effects": [],
 	"flags": {},
 	"system": {
 		"actions": {
@@ -68,8 +28,8 @@
 					"placeTemplate": false
 				},
 				"target": {
-					"quantity": 1,
-					"type": "creatureObject"
+					"quantity": "",
+					"type": "creature"
 				},
 				"rolls": {
 					"9Edhi5INnPDZEEz3": {
@@ -91,17 +51,10 @@
 						}
 					}
 				},
-				"consumers": {},
-				"prompts": {
-					"HGuOKcydeWzumGYE": {
-						"type": "effect",
-						"default": true,
-						"effectId": "i4bWmHzg2OE6Ddvk"
-					}
-				}
+				"consumers": {}
 			}
 		},
-		"description": "<p>An icy beam shoots from your outstretched fingers.</p>\n<p>Make a ranged spell attack. On a hit, you deal 1d8 cold damage and reduce the target's Speed by 10 feet until the start of your next turn.</p>\n<p>This spell's damage increases by 1d8 when you reach 5th level (2d8), 11th level (3d8), and 17th level (4d8).</p>",
+		"description": "<p>An icy beam shoots from your outstretched fingers.</p><p>Make a ranged spell attack. On a hit, you deal 1d8 cold damage and reduce the target's Speed by 10 feet until the start of your next turn.</p><p>This spell's damage increases by 1d8 when you reach 5th level (2d8), 11th level (3d8), and 17th level (4d8).</p>",
 		"favorite": false,
 		"secretDescription": "",
 		"source": "",
@@ -146,12 +99,12 @@
 			]
 		},
 		"schemaVersion": {
-			"version": 0.009,
+			"version": 0.01,
 			"lastMigration": {
 				"version": {
-					"schema": 0.007,
-					"foundry": "11.311",
-					"system": "0.15.13"
+					"schema": 0.009,
+					"foundry": "12.316",
+					"system": "0.16.12"
 				}
 			}
 		}

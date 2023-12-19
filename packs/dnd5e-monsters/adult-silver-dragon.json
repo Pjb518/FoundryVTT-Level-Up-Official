@@ -44,12 +44,16 @@
 		},
 		"texture": {
 			"src": "systems/a5e/assets/silver-dragon.webp",
-			"tint": null,
+			"tint": "#ffffff",
 			"scaleX": 2.3,
 			"scaleY": 2.3,
 			"offsetX": 0,
 			"offsetY": 0,
-			"rotation": 0
+			"rotation": 0,
+			"anchorX": 0.5,
+			"anchorY": 0.5,
+			"fit": "contain",
+			"alphaThreshold": 0.75
 		},
 		"width": 3,
 		"displayName": 0,
@@ -67,7 +71,12 @@
 			"attribute": null
 		},
 		"flags": {},
-		"randomImg": false
+		"randomImg": false,
+		"hexagonalShape": 0,
+		"locked": false,
+		"occludable": {
+			"radius": 0
+		}
 	},
 	"system": {
 		"abilities": {
@@ -75,72 +84,84 @@
 				"value": 27,
 				"check": {
 					"expertiseDice": 0,
-					"bonus": ""
+					"bonus": "",
+					"notes": {}
 				},
 				"save": {
 					"proficient": false,
 					"expertiseDice": 0,
-					"bonus": ""
+					"bonus": "",
+					"notes": {}
 				}
 			},
 			"dex": {
 				"value": 10,
 				"check": {
 					"expertiseDice": 0,
-					"bonus": ""
+					"bonus": "",
+					"notes": {}
 				},
 				"save": {
 					"proficient": true,
 					"expertiseDice": 0,
-					"bonus": ""
+					"bonus": "",
+					"notes": {}
 				}
 			},
 			"con": {
 				"value": 25,
 				"check": {
 					"expertiseDice": 0,
-					"bonus": ""
+					"bonus": "",
+					"notes": {}
 				},
 				"save": {
 					"proficient": true,
 					"expertiseDice": 0,
-					"bonus": ""
+					"bonus": "",
+					"notes": {}
 				}
 			},
 			"int": {
 				"value": 16,
 				"check": {
 					"expertiseDice": 0,
-					"bonus": ""
+					"bonus": "",
+					"notes": {}
 				},
 				"save": {
 					"proficient": false,
 					"expertiseDice": 0,
-					"bonus": ""
+					"bonus": "",
+					"notes": {}
 				}
 			},
 			"wis": {
 				"value": 13,
 				"check": {
 					"expertiseDice": 0,
-					"bonus": ""
+					"bonus": "",
+					"notes": {}
 				},
 				"save": {
 					"proficient": true,
 					"expertiseDice": 0,
-					"bonus": ""
+					"bonus": "",
+					"notes": {}
 				}
 			},
 			"cha": {
 				"value": 21,
 				"check": {
 					"expertiseDice": 0,
-					"bonus": ""
+					"bonus": "",
+					"notes": {}
 				},
 				"save": {
 					"proficient": true,
 					"expertiseDice": 0,
-					"bonus": ""
+					"bonus": "",
+					"notes": {}
 				}
 			}
 		},
@@ -530,11 +551,7 @@
 			"casterLevel": 0
 		},
 		"bonuses": {
-			"abilities": {
-				"check": "",
-				"save": "",
-				"skill": ""
-			},
+			"abilities": {},
 			"damage": {},
 			"healing": {},
 			"maneuverDC": "",
@@ -542,7 +559,22 @@
 			"meleeWeaponAttack": "",
 			"rangedSpellAttack": "",
 			"rangedWeaponAttack": "",
-			"spellDC": ""
+			"spellDC": "",
+			"skills": {
+				"xWOxoUnm82PW7hQ2": {
+					"context": {
+						"skills": [
+							"prc"
+						],
+						"passiveOnly": false,
+						"requiresProficiency": false
+					},
+					"formula": "@prof[Expertise]",
+					"label": "Check Bonus",
+					"default": true,
+					"img": "icons/svg/upgrade.svg"
+				}
+			}
 		},
 		"currency": {
 			"pp": 0,
@@ -559,7 +591,8 @@
 			"isSwarm": false,
 			"cr": 16,
 			"elite": false,
-			"privateNotes": ""
+			"privateNotes": "",
+			"notes": ""
 		},
 		"proficiencies": {
 			"armor": [],
@@ -682,7 +715,17 @@
 				"concentration": false,
 				"featureType": "",
 				"grants": {},
-				"prerequisite": ""
+				"prerequisite": "",
+				"schemaVersion": {
+					"version": 0.01,
+					"lastMigration": {
+						"version": {
+							"schema": null,
+							"foundry": "12.316",
+							"system": "0.16.12"
+						}
+					}
+				}
 			},
 			"_id": "x1PlQlqPFlOiL7Bi",
 			"effects": [],
@@ -745,7 +788,17 @@
 				"concentration": false,
 				"featureType": "",
 				"grants": {},
-				"prerequisite": ""
+				"prerequisite": "",
+				"schemaVersion": {
+					"version": 0.01,
+					"lastMigration": {
+						"version": {
+							"schema": null,
+							"foundry": "12.316",
+							"system": "0.16.12"
+						}
+					}
+				}
 			},
 			"_id": "16a5lEt3oheQsG6J",
 			"effects": [],
@@ -827,7 +880,17 @@
 				"concentration": false,
 				"featureType": "",
 				"grants": {},
-				"prerequisite": ""
+				"prerequisite": "",
+				"schemaVersion": {
+					"version": 0.01,
+					"lastMigration": {
+						"version": {
+							"schema": null,
+							"foundry": "12.316",
+							"system": "0.16.12"
+						}
+					}
+				}
 			},
 			"_id": "3CWGipr40j94CKo4",
 			"effects": [],
@@ -896,7 +959,17 @@
 				"concentration": false,
 				"featureType": "",
 				"grants": {},
-				"prerequisite": ""
+				"prerequisite": "",
+				"schemaVersion": {
+					"version": 0.01,
+					"lastMigration": {
+						"version": {
+							"schema": null,
+							"foundry": "12.316",
+							"system": "0.16.12"
+						}
+					}
+				}
 			},
 			"_id": "QlxGf5g5KfkNaswg",
 			"effects": [],
@@ -990,7 +1063,17 @@
 				"concentration": false,
 				"featureType": "",
 				"grants": {},
-				"prerequisite": ""
+				"prerequisite": "",
+				"schemaVersion": {
+					"version": 0.01,
+					"lastMigration": {
+						"version": {
+							"schema": null,
+							"foundry": "12.316",
+							"system": "0.16.12"
+						}
+					}
+				}
 			},
 			"_id": "gJcVlqbBOWMHvkka",
 			"effects": [],
@@ -1073,7 +1156,17 @@
 				"concentration": false,
 				"featureType": "",
 				"grants": {},
-				"prerequisite": ""
+				"prerequisite": "",
+				"schemaVersion": {
+					"version": 0.01,
+					"lastMigration": {
+						"version": {
+							"schema": null,
+							"foundry": "12.316",
+							"system": "0.16.12"
+						}
+					}
+				}
 			},
 			"_id": "RBOdJXzzPbt8b5OP",
 			"effects": [],
@@ -1136,7 +1229,17 @@
 				"concentration": false,
 				"featureType": "",
 				"grants": {},
-				"prerequisite": ""
+				"prerequisite": "",
+				"schemaVersion": {
+					"version": 0.01,
+					"lastMigration": {
+						"version": {
+							"schema": null,
+							"foundry": "12.316",
+							"system": "0.16.12"
+						}
+					}
+				}
 			},
 			"_id": "54lRmJrOsT84c33o",
 			"effects": [],
@@ -1186,7 +1289,17 @@
 				"concentration": false,
 				"featureType": "",
 				"grants": {},
-				"prerequisite": ""
+				"prerequisite": "",
+				"schemaVersion": {
+					"version": 0.01,
+					"lastMigration": {
+						"version": {
+							"schema": null,
+							"foundry": "12.316",
+							"system": "0.16.12"
+						}
+					}
+				}
 			},
 			"_id": "5PvgL2o3WXLCMkrM",
 			"effects": [],
@@ -1249,7 +1362,17 @@
 				"concentration": false,
 				"featureType": "",
 				"grants": {},
-				"prerequisite": ""
+				"prerequisite": "",
+				"schemaVersion": {
+					"version": 0.01,
+					"lastMigration": {
+						"version": {
+							"schema": null,
+							"foundry": "12.316",
+							"system": "0.16.12"
+						}
+					}
+				}
 			},
 			"_id": "nNtRViiU6abvYDBB",
 			"effects": [],
@@ -1299,7 +1422,17 @@
 				"concentration": false,
 				"featureType": "",
 				"grants": {},
-				"prerequisite": ""
+				"prerequisite": "",
+				"schemaVersion": {
+					"version": 0.01,
+					"lastMigration": {
+						"version": {
+							"schema": null,
+							"foundry": "12.316",
+							"system": "0.16.12"
+						}
+					}
+				}
 			},
 			"_id": "7Wq49cP1lczxnFuS",
 			"effects": [],
@@ -1349,7 +1482,17 @@
 				"concentration": false,
 				"featureType": "",
 				"grants": {},
-				"prerequisite": ""
+				"prerequisite": "",
+				"schemaVersion": {
+					"version": 0.01,
+					"lastMigration": {
+						"version": {
+							"schema": null,
+							"foundry": "12.316",
+							"system": "0.16.12"
+						}
+					}
+				}
 			},
 			"_id": "i9Xaz2JuCQw01OTB",
 			"effects": [],
@@ -1435,7 +1578,17 @@
 				"concentration": false,
 				"featureType": "naturalWeapon",
 				"grants": {},
-				"prerequisite": ""
+				"prerequisite": "",
+				"schemaVersion": {
+					"version": 0.01,
+					"lastMigration": {
+						"version": {
+							"schema": null,
+							"foundry": "12.316",
+							"system": "0.16.12"
+						}
+					}
+				}
 			},
 			"_id": "Rw7ab4ItssGcCPVD",
 			"effects": [],
@@ -1521,7 +1674,17 @@
 				"concentration": false,
 				"featureType": "naturalWeapon",
 				"grants": {},
-				"prerequisite": ""
+				"prerequisite": "",
+				"schemaVersion": {
+					"version": 0.01,
+					"lastMigration": {
+						"version": {
+							"schema": null,
+							"foundry": "12.316",
+							"system": "0.16.12"
+						}
+					}
+				}
 			},
 			"_id": "qsR9GEEVeVWAIX0a",
 			"effects": [],
@@ -1608,7 +1771,17 @@
 				"concentration": false,
 				"featureType": "naturalWeapon",
 				"grants": {},
-				"prerequisite": ""
+				"prerequisite": "",
+				"schemaVersion": {
+					"version": 0.01,
+					"lastMigration": {
+						"version": {
+							"schema": null,
+							"foundry": "12.316",
+							"system": "0.16.12"
+						}
+					}
+				}
 			},
 			"_id": "iFRrT6XUEVzmlGXJ",
 			"effects": [],
@@ -1671,7 +1844,17 @@
 				"concentration": false,
 				"featureType": "naturalWeapon",
 				"grants": {},
-				"prerequisite": ""
+				"prerequisite": "",
+				"schemaVersion": {
+					"version": 0.01,
+					"lastMigration": {
+						"version": {
+							"schema": null,
+							"foundry": "12.316",
+							"system": "0.16.12"
+						}
+					}
+				}
 			},
 			"_id": "q3iHp93ET3D7ennf",
 			"effects": [],
@@ -1786,7 +1969,17 @@
 				"unidentifiedDescription": "",
 				"unidentifiedName": "",
 				"weaponProperties": [],
-				"weight": 0
+				"weight": 0,
+				"schemaVersion": {
+					"version": 0.01,
+					"lastMigration": {
+						"version": {
+							"schema": null,
+							"foundry": "12.316",
+							"system": "0.16.12"
+						}
+					}
+				}
 			},
 			"_id": "NlTKlAHPsnOfkJYA",
 			"effects": [],
@@ -1878,12 +2071,12 @@
 				"tradition": "",
 				"equippedState": 0,
 				"schemaVersion": {
-					"version": 0.009,
+					"version": 0.01,
 					"lastMigration": {
 						"version": {
-							"schema": 0.007,
-							"foundry": "11.311",
-							"system": "0.15.13"
+							"schema": 0.009,
+							"foundry": "12.316",
+							"system": "0.16.12"
 						}
 					}
 				}
@@ -1977,12 +2170,12 @@
 				"tradition": "",
 				"equippedState": 0,
 				"schemaVersion": {
-					"version": 0.009,
+					"version": 0.01,
 					"lastMigration": {
 						"version": {
-							"schema": 0.007,
-							"foundry": "11.311",
-							"system": "0.15.13"
+							"schema": 0.009,
+							"foundry": "12.316",
+							"system": "0.16.12"
 						}
 					}
 				}
@@ -2076,12 +2269,12 @@
 				"tradition": "",
 				"equippedState": 0,
 				"schemaVersion": {
-					"version": 0.009,
+					"version": 0.01,
 					"lastMigration": {
 						"version": {
-							"schema": 0.007,
-							"foundry": "11.311",
-							"system": "0.15.13"
+							"schema": 0.009,
+							"foundry": "12.316",
+							"system": "0.16.12"
 						}
 					}
 				}
@@ -2175,12 +2368,12 @@
 				"tradition": "",
 				"equippedState": 0,
 				"schemaVersion": {
-					"version": 0.009,
+					"version": 0.01,
 					"lastMigration": {
 						"version": {
-							"schema": 0.007,
-							"foundry": "11.311",
-							"system": "0.15.13"
+							"schema": 0.009,
+							"foundry": "12.316",
+							"system": "0.16.12"
 						}
 					}
 				}
@@ -2274,12 +2467,12 @@
 				"tradition": "",
 				"equippedState": 0,
 				"schemaVersion": {
-					"version": 0.009,
+					"version": 0.01,
 					"lastMigration": {
 						"version": {
-							"schema": 0.007,
-							"foundry": "11.311",
-							"system": "0.15.13"
+							"schema": 0.009,
+							"foundry": "12.316",
+							"system": "0.16.12"
 						}
 					}
 				}
@@ -2373,12 +2566,12 @@
 				"tradition": "",
 				"equippedState": 0,
 				"schemaVersion": {
-					"version": 0.009,
+					"version": 0.01,
 					"lastMigration": {
 						"version": {
-							"schema": 0.007,
-							"foundry": "11.311",
-							"system": "0.15.13"
+							"schema": 0.009,
+							"foundry": "12.316",
+							"system": "0.16.12"
 						}
 					}
 				}

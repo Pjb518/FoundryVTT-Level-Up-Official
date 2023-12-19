@@ -18,9 +18,9 @@
 			"_id": "BVzQZTrd5DWfDSRB",
 			"changes": [
 				{
-					"key": "system.bonuses.abilities.save",
+					"key": "flags.a5e.effects.bonuses.abilities",
 					"mode": 2,
-					"value": "1d4",
+					"value": "{\"context\":{\"abilities\":[\"str\",\"dex\",\"con\",\"int\",\"wis\",\"cha\"],\"types\":[\"save\"],\"requiresProficiency\":false},\"formula\":\"1d4\",\"label\":\"Ability Bonus\",\"default\":true}",
 					"priority": null
 				},
 				{
@@ -60,6 +60,7 @@
 			},
 			"description": "<p>The blessing you bestow upon the targets makes them more durable and competent. Until the spell ends, a d4 is added to attack rolls and saving throws made by a target.</p>",
 			"statuses": [],
+			"tint": "#ffffff",
 			"folder": null
 		}
 	],
@@ -125,6 +126,10 @@
 				"threshold": ""
 			}
 		},
+		"schema": {
+			"version": null,
+			"lastMigration": null
+		},
 		"classes": [
 			"cleric",
 			"herald",
@@ -151,12 +156,12 @@
 			]
 		},
 		"schemaVersion": {
-			"version": 0.009,
+			"version": 0.01,
 			"lastMigration": {
 				"version": {
-					"schema": 0.007,
-					"foundry": "11.311",
-					"system": "0.15.13"
+					"schema": 0.009,
+					"foundry": "12.316",
+					"system": "0.16.12"
 				}
 			}
 		}

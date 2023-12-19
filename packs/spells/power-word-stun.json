@@ -2,86 +2,7 @@
 	"name": "Power Word Stun",
 	"type": "spell",
 	"img": "icons/magic/control/hypnosis-mesmerism-swirl.webp",
-	"effects": [
-		{
-			"icon": "icons/magic/control/hypnosis-mesmerism-swirl.webp",
-			"origin": "Item.MxDKjt4SzKIVovhJ",
-			"flags": {
-				"a5e": {
-					"sort": 0,
-					"transferType": "onUse",
-					"actionId": "eAwDRDxpIDZxroZQ"
-				}
-			},
-			"transfer": false,
-			"name": "Stunned",
-			"_id": "XmnbNrYSr8Cs83YZ",
-			"changes": [
-				{
-					"key": "flags.a5e.effects.statusConditions",
-					"value": "[\"stunned\"]",
-					"mode": 0,
-					"priority": null
-				}
-			],
-			"disabled": false,
-			"duration": {
-				"startTime": null,
-				"seconds": null,
-				"combat": null,
-				"rounds": null,
-				"turns": null,
-				"startRound": null,
-				"startTurn": null
-			},
-			"description": "",
-			"statuses": [
-				"stunned"
-			],
-			"folder": null
-		},
-		{
-			"icon": "icons/magic/control/hypnosis-mesmerism-swirl.webp",
-			"origin": "Item.MxDKjt4SzKIVovhJ",
-			"flags": {
-				"a5e": {
-					"sort": 0,
-					"transferType": "onUse",
-					"actionId": "eAwDRDxpIDZxroZQ",
-					"duration": {
-						"type": "rounds",
-						"unit": "minutes"
-					}
-				}
-			},
-			"transfer": false,
-			"name": "Rattled",
-			"_id": "3RDhoMrcJ50CBCD3",
-			"changes": [
-				{
-					"key": "flags.a5e.effects.statusConditions",
-					"value": "[\"rattled\"]",
-					"mode": 0,
-					"priority": null
-				}
-			],
-			"disabled": false,
-			"duration": {
-				"startTime": null,
-				"seconds": null,
-				"combat": null,
-				"rounds": null,
-				"turns": 1,
-				"startRound": null,
-				"startTurn": null
-			},
-			"description": "",
-			"statuses": [
-				"rattled"
-			],
-			"folder": null
-		}
-	],
+	"effects": [],
 	"flags": {},
 	"system": {
 		"actions": {
@@ -113,24 +34,12 @@
 				"prompts": {
 					"J8g1bt6u4ULWfpzv": {
 						"ability": "con",
-						"onSave": "End effect",
+						"onSave": "Special",
 						"saveDC": {
 							"type": "custom",
 							"bonus": ""
 						},
 						"type": "savingThrow"
-					},
-					"dZZVpTYOulvIgxCJ": {
-						"type": "effect",
-						"default": true,
-						"effectId": "XmnbNrYSr8Cs83YZ",
-						"label": "150 HP or Less"
-					},
-					"40OmF1o9bBOpcKWJ": {
-						"type": "effect",
-						"default": true,
-						"effectId": "3RDhoMrcJ50CBCD3",
-						"label": "More Than 150 HP"
 					}
 				},
 				"consumers": {
@@ -188,12 +97,12 @@
 			]
 		},
 		"schemaVersion": {
-			"version": 0.009,
+			"version": 0.01,
 			"lastMigration": {
 				"version": {
-					"schema": 0.007,
-					"foundry": "11.311",
-					"system": "0.15.13"
+					"schema": 0.009,
+					"foundry": "12.316",
+					"system": "0.16.12"
 				}
 			}
 		}
