@@ -703,18 +703,7 @@ export default class ActorA5e extends Actor {
   }
 
   addBonus(type = 'damage') {
-    const bonuses = foundry.utils.duplicate(this.system.bonuses[type] ?? {});
-
-    // const newBonus = {
-    //   context: 'all',
-    //   default: true,
-    //   formula: '',
-    //   label: ''
-    // };
-
-    // if (type === 'damage') newBonus.damageType = null;
-    // else if (type === 'healing') newBonus.healingType = null;
-    // else return;
+    const bonuses = foundry.utils.duplicate(this._source.system.bonuses[type] ?? {});
 
     if (!['abilities', 'skills', 'damage', 'healing'].includes(type)) return;
 
@@ -874,7 +863,7 @@ export default class ActorA5e extends Actor {
 
   duplicateBonus(id, type = 'damage') {
     let defaultLabel;
-    const bonuses = foundry.utils.duplicate(this.system.bonuses[type] ?? {});
+    const bonuses = foundry.utils.duplicate(this._source.system.bonuses[type] ?? {});
 
     if (foundry.utils.isEmpty(bonuses)) return;
 
