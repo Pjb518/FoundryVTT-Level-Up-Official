@@ -1,56 +1,56 @@
 const spellsFilterConfig = {
   spellLists: {
     key: 'system.classes',
-    type: 'array',
+    type: 'array'
   },
   spellLevels: {
     key: 'system.level',
-    type: 'value',
+    type: 'value'
   },
   primarySpellSchools: {
     key: 'system.schools.primary',
-    type: 'value',
+    type: 'value'
   },
   secondarySpellSchools: {
     key: 'system.schools.secondary',
-    type: 'array',
+    type: 'array'
   },
   miscellaneous: {
     subFilters: {
       concentration: {
         key: 'system.concentration',
-        type: 'boolean',
+        type: 'boolean'
       },
       ritual: {
         key: 'system.ritual',
-        type: 'boolean',
+        type: 'boolean'
       },
       rare: {
         key: 'system.rare',
-        type: 'boolean',
-      },
+        type: 'boolean'
+      }
     }
-  },
+  }
 };
 
 const maneuverFilterConfig = {
   exertion: {
     key: 'system.exertionCost',
-    type: 'range',
+    type: 'range'
   },
   maneuverDegrees: {
     key: 'system.degree',
-    type: 'value',
+    type: 'value'
   },
   maneuverTraditions: {
     key: 'system.tradition',
-    type: 'value',
+    type: 'value'
   },
   miscellaneous: {
     subFilters: {
       stance: {
         key: 'system.isStance',
-        type: 'boolean',
+        type: 'boolean'
       }
     }
   }
@@ -59,7 +59,7 @@ const maneuverFilterConfig = {
 const monstersFilterConfig = {
   cr: {
     key: 'system.details.cr',
-    type: 'range',
+    type: 'range'
   },
   creatureSize: {
     key: 'system.traits.size',
@@ -67,17 +67,17 @@ const monstersFilterConfig = {
   },
   creatureTypes: {
     key: 'system.details.creatureTypes',
-    type: 'array',
+    type: 'array'
   },
   miscellaneous: {
     subFilters: {
       elite: {
         key: 'system.details.elite',
-        type: 'boolean',
+        type: 'boolean'
       },
       swarm: {
         key: 'system.details.isSwarm',
-        type: 'boolean',
+        type: 'boolean'
       }
     }
   }
@@ -86,24 +86,24 @@ const monstersFilterConfig = {
 const objectFilterConfig = {
   objectType: {
     key: 'system.objectType',
-    type: 'value',
+    type: 'value'
   },
   rarity: {
     key: 'system.rarity',
-    type: 'value',
+    type: 'value'
   },
   miscellaneous: {
     subFilters: {
       bulky: {
         key: 'system.bulky',
-        type: 'boolean',
+        type: 'boolean'
       },
       requiresAttunement: {
         key: 'system.requiresAttunement',
-        type: 'boolean',
-      },
+        type: 'boolean'
+      }
     }
-  },
+  }
 };
 
 const typeMap = {
@@ -111,7 +111,7 @@ const typeMap = {
   magicItem: objectFilterConfig,
   maneuvers: maneuverFilterConfig,
   monsters: monstersFilterConfig,
-  object: objectFilterConfig,
+  object: objectFilterConfig
 };
 
 function arrayFilter(key, value, mode) {
@@ -134,7 +134,7 @@ function rangeFilter(key, { min, max }) {
   return (doc) => {
     const value = foundry.utils.getProperty(doc, key);
     return value >= min && value <= max;
-  }
+  };
 }
 
 function valueFilter(key, value, mode) {
@@ -168,16 +168,18 @@ export default function constructReducerFilters(reducer, filtersSelections, type
       andFilters.push({ filter });
       filterCount.and += 1;
     } else {
-      const { inclusive, inclusiveMode, exclusive, exclusiveMode } = filterData;
+      const {
+        inclusive, inclusiveMode, exclusive, exclusiveMode
+      } = filterData;
       // Start with the inclusive filters
       inclusive.forEach((value) => {
         let filter;
 
-        if (type === 'array') filter = arrayFilter(key, value, true)
+        if (type === 'array') filter = arrayFilter(key, value, true);
         else if (subFilters?.[value]?.type === 'boolean') {
-          filter = booleanFilter(subFilters[value].key, true)
-        } else if (type === 'boolean') filter = booleanFilter(key, true)
-        else if (type === 'value') filter = valueFilter(key, value, true)
+          filter = booleanFilter(subFilters[value].key, true);
+        } else if (type === 'boolean') filter = booleanFilter(key, true);
+        else if (type === 'value') filter = valueFilter(key, value, true);
         else return;
 
         if (inclusiveMode) andFilters.push({ filter });
@@ -188,11 +190,11 @@ export default function constructReducerFilters(reducer, filtersSelections, type
       exclusive.forEach((value) => {
         let filter;
 
-        if (type === 'array') filter = arrayFilter(key, value, false)
+        if (type === 'array') filter = arrayFilter(key, value, false);
         else if (subFilters?.[value]?.type === 'boolean') {
-          filter = booleanFilter(subFilters[value].key, false)
-        } else if (type === 'boolean') filter = booleanFilter(key, false)
-        else if (type === 'value') filter = valueFilter(key, value, false)
+          filter = booleanFilter(subFilters[value].key, false);
+        } else if (type === 'boolean') filter = booleanFilter(key, false);
+        else if (type === 'value') filter = valueFilter(key, value, false);
         else return;
 
         if (exclusiveMode) andFilters.push({ filter });

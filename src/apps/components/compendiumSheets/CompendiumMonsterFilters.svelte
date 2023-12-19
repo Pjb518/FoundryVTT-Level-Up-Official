@@ -2,10 +2,10 @@
     import { getContext } from "svelte";
 
     import CompendiumFilterCategory from "./CompendiumFilterCategory.svelte";
-    import FormSection from "./FormSection.svelte";
+    import FormSection from "../FormSection.svelte";
     import RangeSlider from "svelte-range-slider-pips";
 
-    import constructReducerFilters from "../handlers/constructReducerFilters";
+    import constructReducerFilters from "../../handlers/constructReducerFilters";
 
     export const compendiumType = "maneuver";
 

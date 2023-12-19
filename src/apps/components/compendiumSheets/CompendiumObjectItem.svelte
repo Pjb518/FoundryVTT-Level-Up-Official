@@ -2,7 +2,7 @@
     import { getContext } from "svelte";
     import { localize } from "#runtime/svelte/helper";
 
-    import ImportButton from "./ImportButton.svelte";
+    import ImportButton from "../ImportButton.svelte";
 
     export let document;
 

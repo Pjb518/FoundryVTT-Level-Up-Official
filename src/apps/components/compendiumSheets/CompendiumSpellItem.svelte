@@ -2,7 +2,7 @@
     import { getContext } from "svelte";
     import { localize } from "#runtime/svelte/helper";
 
-    import ImportButton from "./ImportButton.svelte";
+    import ImportButton from "../ImportButton.svelte";
 
     export let document;
 
@@ -14,13 +14,13 @@
             spellSchools.primary[schools.primary] ?? schools.primary;
 
         const secondarySchools = schools.secondary.map(
-            (school) => spellSchools.secondary[school] ?? school
+            (school) => spellSchools.secondary[school] ?? school,
         );
 
         secondarySchools.sort((a, b) => a.localeCompare(b));
 
         const spellSchoolsLabel = [primarySchool, ...secondarySchools].join(
-            ", "
+            ", ",
         );
 
         if (spellSchoolsLabel) return `${spellLevel} (${spellSchoolsLabel})`;

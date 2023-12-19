@@ -1,10 +1,10 @@
 <script>
     import { fade } from "svelte/transition";
 
-    import CompendiumManeuverFilters from "../CompendiumManeuverFilters.svelte";
-    import CompendiumMonsterFilters from "../CompendiumMonsterFilters.svelte";
-    import CompendiumObjectFilters from "../CompendiumObjectFilters.svelte";
-    import CompendiumSpellFilters from "../CompendiumSpellFilters.svelte";
+    import CompendiumManeuverFilters from "./CompendiumManeuverFilters.svelte";
+    import CompendiumMonsterFilters from "./CompendiumMonsterFilters.svelte";
+    import CompendiumObjectFilters from "./CompendiumObjectFilters.svelte";
+    import CompendiumSpellFilters from "./CompendiumSpellFilters.svelte";
 
     export let compendiumType;
 

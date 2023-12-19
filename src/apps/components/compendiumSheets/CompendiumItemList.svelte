@@ -4,10 +4,10 @@
 
     import getCategoryName from "../../handlers/getCategoryName";
 
-    import CompendiumManeuverItem from "../CompendiumManeuverItem.svelte";
-    import CompendiumMonsterItem from "../CompendiumMonsterItem.svelte";
-    import CompendiumObjectItem from "../CompendiumObjectItem.svelte";
-    import CompendiumSpellItem from "../CompendiumSpellItem.svelte";
+    import CompendiumManeuverItem from "./CompendiumManeuverItem.svelte";
+    import CompendiumMonsterItem from "./CompendiumMonsterItem.svelte";
+    import CompendiumObjectItem from "./CompendiumObjectItem.svelte";
+    import CompendiumSpellItem from "./CompendiumSpellItem.svelte";
 
     export let documents = [];
     export let compendiumType;

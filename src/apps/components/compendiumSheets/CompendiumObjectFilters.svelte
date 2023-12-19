@@ -3,13 +3,47 @@
 
     import CompendiumFilterCategory from "./CompendiumFilterCategory.svelte";
 
-    import constructReducerFilters from "../handlers/constructReducerFilters";
+    import constructReducerFilters from "../../handlers/constructReducerFilters";
 
-    export let compendiumType = "spell";
+    export let compendiumType = "magicItem";
 
     const filterStore = getContext("filterStore");
     const reducer = getContext("reducer");
-    const { classSpellLists, spellLevels, spellSchools } = CONFIG.A5E;
+    const { itemRarity, objectTypes } = CONFIG.A5E;
+
+    function getFormSections() {
+        const formSectionMap = [
+            {
+                filterKey: "objectType",
+                heading: "Object Type",
+                options: objectTypes,
+            },
+            {
+                filterKey: "rarity",
+                heading: "Item Rarity",
+                options: itemRarity,
+                display: compendiumType === "magicItem",
+            },
+            {
+                filterKey: "miscellaneous",
+                heading: "Miscellaneous",
+                options: {
+                    bulky: "Bulky",
+                },
+            },
+        ];
+
+        if (compendiumType === "magicItem") {
+            const miscellaneousSection = formSectionMap.find(
+                (filterSection) => filterSection.filterKey === "miscellaneous",
+            );
+
+            miscellaneousSection.options.requiresAttunement =
+                "Requires Attunement";
+        }
+
+        return formSectionMap;
+    }
 
     let filterSelections = {};
 
@@ -17,51 +51,14 @@
         filterSelections = store;
     });
 
-    const formSectionMap = [
-        {
-            filterKey: "spellLists",
-            heading: "Spell Lists",
-            options: classSpellLists,
-            display: compendiumType === "spell",
-        },
-        {
-            filterKey: "spellLevels",
-            heading: "Spell Levels",
-            options: spellLevels,
-        },
-        {
-            filterKey: "primarySpellSchools",
-            heading:
-                compendiumType === "spell"
-                    ? "Primary Spell Schools"
-                    : "Spell Schools",
-            options: spellSchools.primary,
-        },
-        {
-            filterKey: "secondarySpellSchools",
-            heading: "Secondary Spell Schools",
-            options: spellSchools.secondary,
-            display: compendiumType === "spell",
-        },
-        {
-            filterKey: "miscellaneous",
-            heading: "Miscellaneous",
-            options: {
-                concentration: "Concentration",
-                rare: "Rare",
-                ritual: "Ritual",
-            },
-        },
-    ];
-
     $: filterCount = constructReducerFilters(
         reducer,
         filterSelections,
-        "spells"
+        compendiumType,
     );
 </script>
 
-{#each formSectionMap as { display, heading, filterKey, options }}
+{#each getFormSections() as { display, heading, filterKey, options }}
     {#if display ?? true}
         <CompendiumFilterCategory
             {filterKey}

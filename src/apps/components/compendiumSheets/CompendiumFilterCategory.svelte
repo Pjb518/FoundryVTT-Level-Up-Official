@@ -1,8 +1,8 @@
 <script>
     import { createEventDispatcher } from "svelte";
 
-    import FormSection from "./FormSection.svelte";
-    import MultiStateCheckBoxGroup from "./MultiStateCheckBoxGroup.svelte";
+    import FormSection from "../FormSection.svelte";
+    import MultiStateCheckBoxGroup from "../MultiStateCheckBoxGroup.svelte";
 
     export let filterKey;
     export let filterSelections;
@@ -24,7 +24,7 @@
                 on:click={() =>
                     dispatch(
                         "updateInclusiveMode",
-                        !filterSelections[filterKey].inclusiveMode == 1
+                        !filterSelections[filterKey].inclusiveMode == 1,
                     )}
             >
                 {filterSelections[filterKey].inclusiveMode == 1 ? "AND" : "OR"}
@@ -37,7 +37,7 @@
                 on:click={() =>
                     dispatch(
                         "updateExclusiveMode",
-                        !filterSelections[filterKey].exclusiveMode == 1
+                        !filterSelections[filterKey].exclusiveMode == 1,
                     )}
             >
                 {filterSelections[filterKey].exclusiveMode == 1 ? "AND" : "OR"}

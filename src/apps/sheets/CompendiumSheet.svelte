@@ -9,8 +9,8 @@
 
     import GenericDialog from "../dialogs/initializers/GenericDialog";
 
-    import CompendiumFilters from "../components/pages/CompendiumFilters.svelte";
-    import CompendiumItemList from "../components/pages/CompendiumItemList.svelte";
+    import CompendiumFilters from "../components/compendiumSheets/CompendiumFilters.svelte";
+    import CompendiumItemList from "../components/compendiumSheets/CompendiumItemList.svelte";
     import ExportToRollTableDialog from "../dialogs/ExportToRollTableDialog.svelte";
 
     import {
