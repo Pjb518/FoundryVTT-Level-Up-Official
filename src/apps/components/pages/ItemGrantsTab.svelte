@@ -5,17 +5,21 @@
     import ItemGrantManager from "../../../managers/ItemGrantsManager";
 
     import CreateMenu from "../actorUtilityBar/CreateMenu.svelte";
+    import ItemGrantListComponent from "../grants/ItemGrantListComponent.svelte";
 
     const item = getContext("item");
 
     function addGrant(detail) {
-        console.log(detail);
-        ItemGrantManager.createGrant($item);
+        const data = {
+            grantType: detail,
+            level: 1,
+            optional: false,
+        };
+
+        ItemGrantManager.addGrant($item, data);
     }
 
     let grants = $item.grants;
-    console.log(grants);
-    console.log(grantTypes);
 
     $: menuList = Object.entries(grantTypes).reduce(
         (acc, [grantType, { singleLabel }]) => {
@@ -29,7 +33,7 @@
 <article>
     <ul class="grant-list">
         {#each grants.entries() as [id, grant] (id)}
-            <!--  -->
+            <ItemGrantListComponent {grant} />
         {/each}
     </ul>
 

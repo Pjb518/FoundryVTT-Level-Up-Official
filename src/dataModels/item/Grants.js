@@ -3,6 +3,8 @@
 import A5EDataModel from '../A5EDataModel';
 
 export class BaseGrant extends A5EDataModel {
+  #component = null;
+
   constructor(data, options = {}) {
     super(data, options);
   }
@@ -12,6 +14,7 @@ export class BaseGrant extends A5EDataModel {
 
     return {
       _id: new fields.DocumentIdField({ initial: () => foundry.utils.randomID() }),
+      img: new fields.StringField({ required: true, initial: 'icons/svg/upgrade.svg' }),
       grantType: new fields.StringField({ required: true, initial: '' }),
       level: new fields.NumberField({ required: true, initial: 0, integer: true }),
       optional: new fields.BooleanField({ required: true, initial: false })
@@ -29,11 +32,18 @@ export class AbilityGrant extends BaseGrant {
 
     return this.mergeSchema(super.defineSchema(), {
       grantType: new fields.StringField({ required: true, initial: 'ability' }),
-      abilities: new fields.ArrayField(
-        fields.StringField({ required: true, initial: '' }),
-        { required: true, initial: [] }
-      ),
-      bonus: new fields.NumberField({ required: true, initial: 0, integer: true })
+      abilities: new fields.SchemaField({
+        base: new fields.ArrayField(
+          new fields.StringField({ required: true, initial: '' }),
+          { required: true, initial: [] }
+        ),
+        options: new fields.ArrayField(
+          new fields.StringField({ required: true, initial: '' }),
+          { required: true, initial: [] }
+        ),
+        total: new fields.NumberField({ required: true, initial: 0, integer: true })
+      }),
+      bonus: new fields.StringField({ required: true, initial: '' })
     });
   }
 }
@@ -99,10 +109,18 @@ export class SkillGrant extends BaseGrant {
 
     return this.mergeSchema(super.defineSchema(), {
       grantType: new fields.StringField({ required: true, initial: 'skill' }),
-      skills: new fields.ArrayField(
-        new fields.StringField({ required: true, initial: '' }),
-        { required: true, initial: [] }
-      )
+      skills: new fields.SchemaField({
+        base: new fields.ArrayField(
+          new fields.StringField({ required: true, initial: '' }),
+          { required: true, initial: [] }
+        ),
+        options: new fields.ArrayField(
+          new fields.StringField({ required: true, initial: '' }),
+          { required: true, initial: [] }
+        ),
+        total: new fields.NumberField({ required: true, initial: 0, integer: true })
+      }),
+      bonus: new fields.StringField({ required: true, initial: 0 })
     });
   }
 
