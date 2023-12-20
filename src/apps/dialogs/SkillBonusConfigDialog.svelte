@@ -118,6 +118,7 @@
         heading="Contexts"
         hint="The context determines when the ability bonus applies"
         --direction="column"
+        --wrap="nowrap"
     >
         <TagGroup
             heading="A5E.contexts.skills"
@@ -163,7 +164,6 @@
         height: 100%;
         padding: var(--padding, 0.75rem);
         gap: 0.5rem;
-        overflow: auto;
         background: var(--background, $color-sheet-background);
     }
 

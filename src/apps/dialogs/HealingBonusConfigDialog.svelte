@@ -149,6 +149,7 @@
         heading="Contexts"
         hint="The context determines when the healing bonus applies"
         --direction="column"
+        --wrap="nowrap"
     >
         <TagGroup
             heading="A5E.contexts.healingType"
@@ -185,7 +186,6 @@
         height: 100%;
         padding: var(--padding, 0.75rem);
         gap: 0.5rem;
-        overflow: auto;
         background: var(--background, $color-sheet-background);
     }
 
