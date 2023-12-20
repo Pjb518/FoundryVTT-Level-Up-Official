@@ -7,7 +7,7 @@
     import prepareHitDice from "../dataPreparationHelpers/prepareHitDice";
     import updateDocumentDataFromField from "../../utils/updateDocumentDataFromField";
 
-    export let { actorDocument, appId } = getContext("#external").application;
+    export let { document, appId } = getContext("#external").application;
 
     const hpFields = [
         { label: "A5E.HitPointsCurrent", updateAttribute: "value" },
@@ -16,7 +16,7 @@
         { label: "A5E.HitPointsMaxModifier", updateAttribute: "bonus" },
     ];
 
-    const actor = new TJSDocument(actorDocument);
+    const actor = new TJSDocument(document);
     const hitDice = prepareHitDice($actor);
 
     $: hitDieClasses =
@@ -46,7 +46,7 @@
                             updateDocumentDataFromField(
                                 $actor,
                                 target.name,
-                                Number(target.value)
+                                Number(target.value),
                             )}
                     />
                 </div>
@@ -74,7 +74,7 @@
                                 updateDocumentDataFromField(
                                     $actor,
                                     target.name,
-                                    Number(target.value)
+                                    Number(target.value),
                                 )}
                         />
                         /
@@ -89,7 +89,7 @@
                                 updateDocumentDataFromField(
                                     $actor,
                                     target.name,
-                                    Number(target.value)
+                                    Number(target.value),
                                 )}
                         />
                     </div>

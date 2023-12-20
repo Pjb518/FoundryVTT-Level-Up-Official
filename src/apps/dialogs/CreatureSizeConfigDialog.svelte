@@ -7,9 +7,9 @@
     import FormSection from "../components/FormSection.svelte";
     import RadioGroup from "../components/RadioGroup.svelte";
 
-    export let { actorDocument, appId } = getContext("#external").application;
+    export let { document, appId } = getContext("#external").application;
 
-    const actor = new TJSDocument(actorDocument);
+    const actor = new TJSDocument(document);
     const creatureSizes = Object.entries(CONFIG.A5E.actorSizes);
 </script>
 
@@ -22,7 +22,7 @@
                 updateDocumentDataFromField(
                     $actor,
                     "system.traits.size",
-                    event.detail
+                    event.detail,
                 )}
         />
     </FormSection>

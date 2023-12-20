@@ -8,10 +8,10 @@
     import FormSection from "../components/FormSection.svelte";
     import TagGroup from "../components/TagGroup.svelte";
 
-    export let { actorDocument, bonusID } = getContext("#external").application;
+    export let { document, bonusID } = getContext("#external").application;
     export let jsonValue = null;
 
-    const actor = new TJSDocument(actorDocument);
+    const actor = new TJSDocument(document);
     const dispatch = createEventDispatcher();
 
     function updateImage() {

@@ -10,7 +10,7 @@
 
     export let { application } = getContext("#external");
     export let {
-        actorDocument,
+        document,
         appId,
         max,
         submitDialog,
@@ -37,7 +37,7 @@
         updateDocumentDataFromField(
             $actor,
             "system.proficiencies.weapons",
-            proficiencies
+            proficiencies,
         );
     }
 
@@ -47,7 +47,7 @@
         });
     }
 
-    const actor = new TJSDocument(actorDocument);
+    const actor = new TJSDocument(document);
     const { A5E } = CONFIG;
 
     const { martial, rare, simple } = A5E.weaponsPlural;
@@ -75,7 +75,7 @@
             martial: [],
             rare: [],
             other: [],
-        }
+        },
     );
 
     $: otherProficiencies = weaponProficiencies.other.join("; ");

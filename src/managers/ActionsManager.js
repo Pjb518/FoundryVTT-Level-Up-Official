@@ -1,6 +1,8 @@
 import DataProxy from './DataProxy';
 
-import ActionConfigDialog from '../apps/dialogs/initializers/ActionConfigDialog';
+import GenericConfigDialog from '../apps/dialogs/initializers/GenericConfigDialog';
+
+import ActionConfigDialog from '../apps/dialogs/ActionConfigDialog.svelte';
 
 export default class ActionsManager extends DataProxy {
   #item;
@@ -105,9 +107,24 @@ export default class ActionsManager extends DataProxy {
     return ActionsManager.addAction(this.#item, data, update, returnId);
   }
 
-  configure(id) {
-    const actionName = this.#item.system.actions[id].name;
-    new ActionConfigDialog(this.#item, id, actionName).render(true);
+  configure(actionId) {
+    const actionName = this.#item.system.actions[actionId].name;
+
+    let dialog = this.#item.dialogs[actionId];
+
+    if (!dialog) {
+      this.#item.dialogs[actionId] ??= new GenericConfigDialog(
+        this.#item,
+        actionName,
+        ActionConfigDialog,
+        { actionId, actionName },
+        { width: 555, height: 592, resizable: true }
+      );
+
+      dialog = this.#item.dialogs[actionId];
+    }
+
+    dialog.render(true);
   }
 
   async duplicate(id) {

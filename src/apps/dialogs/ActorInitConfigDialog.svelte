@@ -7,9 +7,9 @@
 
     import updateDocumentDataFromField from "../../utils/updateDocumentDataFromField";
 
-    export let { actorDocument, appId } = getContext("#external").application;
+    export let { document, appId } = getContext("#external").application;
 
-    const actor = new TJSDocument(actorDocument);
+    const actor = new TJSDocument(document);
 
     $: initiative = $actor.system.attributes.initiative;
 </script>

@@ -6,9 +6,9 @@
 
     import CustomTagGroup from "../components/CustomTagGroup.svelte";
 
-    export let { actorDocument, appId } = getContext("#external").application;
+    export let { document, appId } = getContext("#external").application;
 
-    const actor = new TJSDocument(actorDocument);
+    const actor = new TJSDocument(document);
     const systemDamageTypes = Object.entries(CONFIG.A5E.damageTypes);
 </script>
 
@@ -21,7 +21,7 @@
             updateDocumentDataFromField(
                 $actor,
                 "system.traits.damageVulnerabilities",
-                event.detail
+                event.detail,
             )}
     />
 </article>
