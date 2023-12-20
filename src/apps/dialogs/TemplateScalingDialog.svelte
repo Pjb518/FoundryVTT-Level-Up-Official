@@ -1,10 +1,15 @@
 <script>
+    import { getContext } from "svelte";
+    import { TJSDocument } from "@typhonjs-fvtt/runtime/svelte/store/fvtt/document";
+
     import FormSection from "../components/FormSection.svelte";
     import RadioGroup from "../components/RadioGroup.svelte";
 
     import TemplatePreparationManager from "../../managers/TemplatePreparationManager";
 
     import updateDocumentDataFromField from "../../utils/updateDocumentDataFromField";
+
+    export let { document, actionId } = getContext("#external").application;
 
     function getScalingOptions() {
         return [
@@ -13,8 +18,7 @@
         ];
     }
 
-    export let actionId;
-    export let item;
+    const item = new TJSDocument(document);
 
     $: action = $item.actions[actionId];
     $: area = action.area ?? {};
@@ -36,7 +40,7 @@
                 updateDocumentDataFromField(
                     $item,
                     `system.actions.${actionId}.area.scaling.mode`,
-                    event.detail
+                    event.detail,
                 );
             }}
         />
@@ -65,7 +69,7 @@
                                 updateDocumentDataFromField(
                                     $item,
                                     target.name,
-                                    target.value
+                                    target.value,
                                 )}
                         />
                     </div>
@@ -92,7 +96,7 @@
                                 updateDocumentDataFromField(
                                     $item,
                                     target.name,
-                                    target.value
+                                    target.value,
                                 )}
                         />
                     </div>
@@ -111,7 +115,7 @@
                             updateDocumentDataFromField(
                                 $item,
                                 target.name,
-                                parseInt(target.value, 10)
+                                parseInt(target.value, 10),
                             )}
                     />
                 </div>
@@ -141,7 +145,7 @@
                                 updateDocumentDataFromField(
                                     $item,
                                     target.name,
-                                    target.value
+                                    target.value,
                                 )}
                         />
                     </div>
@@ -159,7 +163,7 @@
                             updateDocumentDataFromField(
                                 $item,
                                 target.name,
-                                parseInt(target.value, 10)
+                                parseInt(target.value, 10),
                             )}
                     />
                 </div>

@@ -6,10 +6,11 @@
     import getOrdinalNumber from "../../../utils/getOrdinalNumber";
     import updateDocumentDataFromField from "../../../utils/updateDocumentDataFromField";
 
+    import GenericConfigDialog from "../../dialogs/initializers/GenericConfigDialog";
+
     import AreaShape from "./AreaShape.svelte";
     import Checkbox from "../Checkbox.svelte";
     import FormSection from "../FormSection.svelte";
-    import GenericScalingConfigDialog from "../../dialogs/initializers/GenericScalingConfigDialog";
     import TemplateScalingDialog from "../../dialogs/TemplateScalingDialog.svelte";
 
     export let action;
@@ -20,14 +21,18 @@
     const getShapeProperties = TemplatePreparationManager.getShapeProperties;
 
     function onClickScalingButton() {
-        const title = `${$item.name} Target Scaling Configuration`;
+        let dialog = $item.dialogs.areaScaling[actionId];
 
-        const dialog = new GenericScalingConfigDialog(
-            $item,
-            actionId,
-            title,
-            TemplateScalingDialog,
-        );
+        if (!dialog) {
+            $item.dialogs.areaScaling[actionId] = new GenericConfigDialog(
+                $item,
+                `${$item.name} Target Scaling Configuration`,
+                TemplateScalingDialog,
+                { actionId },
+            );
+
+            dialog = $item.dialogs.areaScaling[actionId];
+        }
 
         dialog.render(true);
     }
