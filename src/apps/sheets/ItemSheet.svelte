@@ -14,6 +14,7 @@
     import ItemEffectsTab from "../components/pages/ItemEffectsTab.svelte";
     import ItemEquipmentTab from "../components/pages/ItemEquipmentTab.svelte";
     import getSummaryData from "../../utils/summaries/getSummaryData";
+    import ItemGrantsTab from "../components/pages/ItemGrantsTab.svelte";
 
     export let { appId, document, sheet } = getContext("#external").application;
     export let elementRoot;
@@ -80,6 +81,12 @@
             name: "effects",
             label: "A5E.TabEffects",
             component: ItemEffectsTab,
+            display: !$item.system.unidentified || game.user.isGM,
+        },
+        {
+            name: "grants",
+            label: "A5E.TabGrants",
+            component: ItemGrantsTab,
             display: !$item.system.unidentified || game.user.isGM,
         },
     ];
