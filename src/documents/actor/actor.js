@@ -728,10 +728,9 @@ export default class ActorA5e extends Actor {
 
     if (key === 'ability') dialog = this.dialogs.abilities[data.abilityKey];
     else if (key === 'skill') dialog = this.dialogs.skills[data.skillKey];
-    else if (key === 'abilityBonus') dialog = this.dialogs.bonuses[data.bonusID];
-    else if (key === 'damageBonus') dialog = this.dialogs.bonuses[data.bonusID];
-    else if (key === 'healingBonus') dialog = this.dialogs.bonuses[data.bonusID];
-    else if (key === 'skillBonus') dialog = this.dialogs.bonuses[data.bonusID];
+    else if (['abilityBonus', 'damageBonus', 'healingBonus', 'skillBonus'].includes(key)) {
+      dialog = this.dialogs.bonuses[data.bonusID];
+    }
     else dialog = this.dialogs[key];
 
     if (!dialog) {
@@ -739,6 +738,9 @@ export default class ActorA5e extends Actor {
 
       if (key === 'ability') this.dialogs.abilities[data.abilityKey] = dialog;
       else if (key === 'skill') this.dialogs.skills[data.skillKey] = dialog;
+      else if (['abilityBonus', 'damageBonus', 'healingBonus', 'skillBonus'].includes(key)) {
+        this.dialogs.bonuses[data.bonusID] = dialog;
+      }
       else this.dialogs[key] = dialog;
     }
 
@@ -865,9 +867,9 @@ export default class ActorA5e extends Actor {
 
   async deleteBonus(id, type = 'damage') {
     // Close dialog
-    const dialog = game.a5e.dialogs.bonuses?.[type]?.[id];
+    const dialog = this.dialogs.bonuses[id];
     await dialog?.close();
-    delete game.a5e.dialogs.bonuses?.[type]?.[id];
+    delete this.dialogs.bonuses[id];
 
     await this.update({
       [`system.bonuses.${type}`]: {
