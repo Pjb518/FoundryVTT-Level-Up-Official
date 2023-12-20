@@ -2,13 +2,20 @@ export interface BaseGrant {
   _id: string;
   img: string;
   grantType: string;
-  level: number;
   optional: boolean;
+
+  applyGrant(applyData?: any): void;
+
+  parent: any;
 }
 
 export interface AbilityGrant extends BaseGrant {
   grantType: 'ability';
-  abilities: string[];
+  abilities: {
+    base: string[],
+    options: string[],
+    total: number,
+  };
   bonus: string;
 }
 
