@@ -13,7 +13,7 @@ export default class BaseItemA5e extends Item {
 
     this.dialogs ??= {
       actions: {},
-      scaling: {}
+      damageScaling: {}
     };
   }
 

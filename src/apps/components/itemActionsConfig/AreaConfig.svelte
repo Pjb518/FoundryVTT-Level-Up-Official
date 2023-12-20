@@ -26,7 +26,7 @@
             $item,
             actionId,
             title,
-            TemplateScalingDialog
+            TemplateScalingDialog,
         );
 
         dialog.render(true);
@@ -114,7 +114,7 @@
                             updateDocumentDataFromField(
                                 $item,
                                 `system.actions.${actionId}.area.quantity`,
-                                Number(target.value)
+                                Number(target.value),
                             )}
                     />
                 </div>
@@ -130,7 +130,7 @@
                                 updateDocumentDataFromField(
                                     $item,
                                     `system.actions.${actionId}.area.radius`,
-                                    Number(target.value)
+                                    Number(target.value),
                                 )}
                         />
                     </div>
@@ -147,7 +147,7 @@
                                 updateDocumentDataFromField(
                                     $item,
                                     `system.actions.${actionId}.area.length`,
-                                    Number(target.value)
+                                    Number(target.value),
                                 )}
                         />
                     </div>
@@ -164,7 +164,7 @@
                                 updateDocumentDataFromField(
                                     $item,
                                     `system.actions.${actionId}.area.width`,
-                                    Number(target.value)
+                                    Number(target.value),
                                 )}
                         />
                     </div>
@@ -181,7 +181,7 @@
                                 updateDocumentDataFromField(
                                     $item,
                                     `system.actions.${actionId}.area.height`,
-                                    Number(target.value)
+                                    Number(target.value),
                                 )}
                         />
                     </div>
@@ -245,7 +245,7 @@
                     updateDocumentDataFromField(
                         $item,
                         `system.actions.${actionId}.area.placeTemplate`,
-                        detail
+                        detail,
                     );
                 }}
             />

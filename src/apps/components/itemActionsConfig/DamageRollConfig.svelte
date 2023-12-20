@@ -72,10 +72,10 @@
     }
 
     function onClickScalingButton() {
-        let dialog = $item.dialogs.scaling[rollId];
+        let dialog = $item.dialogs.damageScaling[rollId];
 
         if (!dialog) {
-            $item.dialogs.scaling[rollId] = new GenericConfigDialog(
+            $item.dialogs.damageScaling[rollId] = new GenericConfigDialog(
                 $item,
                 `${$item.name} Damage Scaling Configuration`,
                 DamageScalingDialog,
@@ -83,7 +83,7 @@
                 { width: 432 },
             );
 
-            dialog = $item.dialogs.scaling[rollId];
+            dialog = $item.dialogs.damageScaling[rollId];
         }
 
         dialog.render(true);
