@@ -4,10 +4,11 @@
 
     import Checkbox from "../Checkbox.svelte";
     import FormSection from "../FormSection.svelte";
-    import ScalingConfigDialog from "../../dialogs/initializers/HealingScalingConfigDialog";
+    import HealingScalingDialog from "../../dialogs/HealingScalingDialog.svelte";
 
     import getOrdinalNumber from "../../../utils/getOrdinalNumber";
     import updateDocumentDataFromField from "../../../utils/updateDocumentDataFromField";
+    import GenericConfigDialog from "../../dialogs/initializers/GenericConfigDialog";
 
     function getScalingSummary(roll) {
         const mode = roll.scaling?.mode;
@@ -38,7 +39,7 @@
             } else {
                 return localize(
                     "A5E.scaling.summaries.steppedSpellLevel.healing",
-                    { formula, step, level, healingType }
+                    { formula, step, level, healingType },
                 );
             }
         }
@@ -52,7 +53,7 @@
             } else {
                 return localize(
                     "A5E.scaling.summaries.steppedSpellPoint.healing",
-                    { formula, step, healingType }
+                    { formula, step, healingType },
                 );
             }
         }
@@ -76,7 +77,20 @@
     }
 
     function onClickScalingButton() {
-        const dialog = new ScalingConfigDialog($item, actionId, rollId);
+        let dialog = $item.dialogs.rollScaling[rollId];
+
+        if (!dialog) {
+            $item.dialogs.rollScaling[rollId] = new GenericConfigDialog(
+                $item,
+                `${$item.name} Healing Scaling Configuration`,
+                HealingScalingDialog,
+                { actionId, rollId },
+                { width: 432 },
+            );
+
+            dialog = $item.dialogs.rollScaling[rollId];
+        }
+
         dialog.render(true);
     }
 
@@ -106,7 +120,7 @@
             updateDocumentDataFromField(
                 $item,
                 `system.actions.${actionId}.rolls.${rollId}.label`,
-                target.value
+                target.value,
             )}
     />
 </FormSection>
@@ -127,7 +141,7 @@
                     updateDocumentDataFromField(
                         $item,
                         `system.actions.${actionId}.rolls.${rollId}.formula`,
-                        target.value
+                        target.value,
                     )}
             />
 
@@ -157,7 +171,7 @@
                 updateDocumentDataFromField(
                     $item,
                     `system.actions.${actionId}.rolls.${rollId}.healingType`,
-                    target.value
+                    target.value,
                 )}
         >
             {#each Object.entries(healingTypes) as [key, name] (key)}
@@ -176,7 +190,7 @@
         updateDocumentDataFromField(
             $item,
             `system.actions.${actionId}.rolls.${rollId}.default`,
-            detail
+            detail,
         );
     }}
 />

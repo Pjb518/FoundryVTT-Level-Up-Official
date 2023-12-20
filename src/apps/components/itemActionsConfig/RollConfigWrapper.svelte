@@ -10,9 +10,9 @@
         const { rollId } = event.target.closest(".roll").dataset;
 
         // Close dialog
-        const dialog = $item.dialogs.damageScaling[rollId];
+        const dialog = $item.dialogs.rollScaling[rollId];
         await dialog?.close();
-        delete $item.dialogs.damageScaling[rollId];
+        delete $item.dialogs.rollScaling[rollId];
 
         $item.update({
             [`system.actions.${actionId}.rolls`]: {
