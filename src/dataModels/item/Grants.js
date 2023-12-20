@@ -16,12 +16,11 @@ export class BaseGrant extends A5EDataModel {
       _id: new fields.DocumentIdField({ initial: () => foundry.utils.randomID() }),
       img: new fields.StringField({ required: true, initial: 'icons/svg/upgrade.svg' }),
       grantType: new fields.StringField({ required: true, initial: '' }),
-      level: new fields.NumberField({ required: true, initial: 0, integer: true }),
       optional: new fields.BooleanField({ required: true, initial: false })
     };
   }
 
-  static getApplyData() { return []; }
+  async applyGrant() { }
 }
 
 export class AbilityGrant extends BaseGrant {
@@ -44,6 +43,39 @@ export class AbilityGrant extends BaseGrant {
         total: new fields.NumberField({ required: true, initial: 0, integer: true })
       }),
       bonus: new fields.StringField({ required: true, initial: '' })
+    });
+  }
+
+  async applyGrant(applyData = {}) {
+    // Construct bonus
+    const bonus = {
+      context: {
+        abilities: [...this.abilities.base, ...[]] // TODO: Add options
+      },
+      formula: this.bonus,
+      label: this.parent?.name ?? 'Ability Grant',
+      default: true
+    };
+
+    const bonusId = foundry.utils.randomID();
+
+    // Apply bonus
+    const actor = this.parent?.parent;
+    if (!actor) return;
+
+    const grantData = {
+      itemUuid: this.parent.uuid,
+      grantId: this._id,
+      bonusId,
+      type: 'ability'
+    };
+
+    await actor.update({
+      [`system.bonuses.abilities.${bonusId}`]: bonus,
+      'system.grants': {
+        ...actor.system.grants,
+        [foundry.utils.randomID()]: grantData
+      }
     });
   }
 }
