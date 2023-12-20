@@ -31,7 +31,7 @@ export default class BonusesManager {
    */
   getAbilityBonusesFormula(
     abilityKey: string,
-    type: 'check' | 'save' = 'check',
+    type: 'base' | 'check' | 'save' = 'check',
     selectedBonuses: { enabled: boolean, ids: string[] } = { enabled: false, ids: [] }
   ): string {
     const parts = this.getAbilityBonuses(abilityKey, type, selectedBonuses);
@@ -43,7 +43,7 @@ export default class BonusesManager {
    * @param type
    * @returns
    */
-  getGlobalAbilityBonusesFormula(type: 'check' | 'save' = 'check'): string {
+  getGlobalAbilityBonusesFormula(type: 'base' | 'check' | 'save' = 'check'): string {
     const parts = this.getGlobalAbilityBonuses(type);
     return parts.join(' + ').trim();
   }
@@ -100,7 +100,7 @@ export default class BonusesManager {
    */
   getAbilityBonuses(
     abilityKey: string,
-    type: 'check' | 'save' = 'check',
+    type: 'base' | 'check' | 'save' = 'check',
     selectedBonuses: { enabled: boolean, ids: string[] } = { enabled: false, ids: [] }
   ): string[] {
     const bonuses = this.#bonuses.abilities;
@@ -139,7 +139,7 @@ export default class BonusesManager {
    * @param type
    * @returns
    */
-  getGlobalAbilityBonuses(type: 'check' | 'save' = 'check'): string[] {
+  getGlobalAbilityBonuses(type: 'base' | 'check' | 'save' = 'check'): string[] {
     const bonuses = this.#bonuses.abilities;
     const parts = Object.values(bonuses).reduce((acc: string[], bonus) => {
       const bonusFormula = bonus.formula.trim();

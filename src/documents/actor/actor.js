@@ -144,7 +144,9 @@ export default class ActorA5e extends Actor {
    * @override
    */
   prepareBaseData() {
-    const actorType = this.type;
+    // Register Managers
+    this.BonusesManager = new BonusesManager(this);
+    this.GrantsManager = new ActorGrantsManager(this);
 
     // Add AC data to the actor.
     if ((this.system.schemaVersion?.version ?? this.system.schema?.version) >= 0.005) {
@@ -156,15 +158,24 @@ export default class ActorA5e extends Actor {
       };
     }
 
+    // Add base bonuses for abilities
+    Object.entries(this.system.abilities).forEach(([abilityKey, ability]) => {
+      const value = getDeterministicBonus(
+        [
+          ability.value,
+          this.BonusesManager.getAbilityBonusesFormula(abilityKey, 'base').trim()
+        ].filter(Boolean).join(' + ')
+      );
+
+      ability.value = value ?? ability.value;
+    });
+
+    const actorType = this.type;
     if (actorType === 'character') {
       this.prepareCharacterData();
     } else {
       this.prepareNPCData();
     }
-
-    // Register Managers
-    this.BonusesManager = new BonusesManager(this);
-    this.GrantsManager = new ActorGrantsManager(this);
   }
 
   /**

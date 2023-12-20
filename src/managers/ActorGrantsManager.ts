@@ -24,16 +24,12 @@ export default class ActorGrantsManger extends Map<string, ActorGrantData> {
 
   async applyGrants(): Promise<void> {
     const appliedGrants = [...this.values()].map(({ itemUuid, grantId }) => `${itemUuid}.${grantId}`);
-    console.log(appliedGrants);
-
     const applicableGrants: Grant[] = [];
 
     for await (const item of this.actor.items) {
       if (item.type !== 'feature') continue;
 
-      console.log(item);
       const grantsManager: ItemGrantsManager = item.grants;
-      console.log(grantsManager);
       const grants = [...grantsManager.values()].reduce((acc: Grant[], grant) => {
         const id = `${item.uuid}.${grant._id}`;
         if (appliedGrants.includes(id)) return acc;
@@ -43,8 +39,6 @@ export default class ActorGrantsManger extends Map<string, ActorGrantData> {
 
       applicableGrants.push(...grants);
     }
-
-    console.log(applicableGrants);
 
     for await (const grant of applicableGrants) {
       await grant.applyGrant();
