@@ -1,6 +1,7 @@
+import type { Grant } from 'types/grants';
 import { grantsClassMappings } from '../config/registerGrantsConfig';
 
-export default class ItemGrantsManager extends Map {
+export default class ItemGrantsManager extends Map<string, Grant> {
   #item: any;
 
   constructor(item: any) {
@@ -27,7 +28,7 @@ export default class ItemGrantsManager extends Map {
    * @returns
    */
   byType(type: string): Array<any> {
-    return [...this.values()].filter((grant) => grant.type === type);
+    return [...this.values()].filter((grant) => grant.grantType === type);
   }
 
   /** ************************************************
@@ -36,6 +37,13 @@ export default class ItemGrantsManager extends Map {
   async add(data = {}) {
     await ItemGrantsManager.addGrant(this.#item, data);
   }
+
+  // configure(id: string): void {
+  //   const grant = this.get(id);
+  //   if (!grant) return;
+
+  //   grant.configureDialog();
+  // }
 
   async clear() {
     await this.#item.update({
