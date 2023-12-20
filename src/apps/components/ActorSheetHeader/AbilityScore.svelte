@@ -12,6 +12,7 @@
 
     const actor = getContext("actor");
 
+    $: sourceValue = $actor._source.system.abilities[abilityLabel].value;
     $: sheetIsLocked = !$actor.isOwner
         ? true
         : $actor.flags?.a5e?.sheetIsLocked ?? true;
@@ -25,13 +26,13 @@
             class="ability-score__value"
             name="system.abilities.{abilityLabel}.value"
             type="number"
-            value={ability.value}
+            value={sheetIsLocked ? ability.value : sourceValue}
             tabindex={idx + 1}
             on:change={({ target }) =>
                 updateDocumentDataFromField(
                     $actor,
                     target.name,
-                    Number(target.value)
+                    Number(target.value),
                 )}
             placeholder="10"
             disabled={sheetIsLocked}
@@ -45,7 +46,7 @@
         on:click={() =>
             $actor.rollAbilityCheck(
                 abilityLabel,
-                getKeyPressAsOptions($pressedKeysStore)
+                getKeyPressAsOptions($pressedKeysStore),
             )}
     >
         <h4 class="roll-button__label">Check</h4>
@@ -62,7 +63,7 @@
         on:click={() =>
             $actor.rollSavingThrow(
                 abilityLabel,
-                getKeyPressAsOptions($pressedKeysStore)
+                getKeyPressAsOptions($pressedKeysStore),
             )}
     >
         <h4 class="roll-button__label">Save</h4>
