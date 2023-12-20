@@ -6,8 +6,13 @@
     const item = getContext("item");
     const actionId = getContext("actionId");
 
-    function deleteRoll(event) {
+    async function deleteRoll(event) {
         const { rollId } = event.target.closest(".roll").dataset;
+
+        // Close dialog
+        const dialog = $item.dialogs.scaling[rollId];
+        await dialog?.close();
+        delete $item.dialogs.scaling[rollId];
 
         $item.update({
             [`system.actions.${actionId}.rolls`]: {

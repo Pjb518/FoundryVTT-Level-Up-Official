@@ -1,7 +1,13 @@
 <script>
+    import { getContext } from "svelte";
+    import { TJSDocument } from "@typhonjs-fvtt/runtime/svelte/store/fvtt/document";
+
     import FormSection from "../components/FormSection.svelte";
     import RadioGroup from "../components/RadioGroup.svelte";
     import updateDocumentDataFromField from "../../utils/updateDocumentDataFromField";
+
+    export let { document, actionId, rollId } =
+        getContext("#external").application;
 
     function getDamageScalingOptions() {
         return [
@@ -10,9 +16,7 @@
         ];
     }
 
-    export let actionId;
-    export let item;
-    export let rollId;
+    const item = new TJSDocument(document);
 
     $: roll = $item.actions[actionId].rolls[rollId];
     $: scalingMode = roll.scaling?.mode ?? null;
@@ -28,7 +32,7 @@
                 updateDocumentDataFromField(
                     $item,
                     `system.actions.${actionId}.rolls.${rollId}.scaling.mode`,
-                    event.detail
+                    event.detail,
                 );
             }}
         />
@@ -48,7 +52,7 @@
                     updateDocumentDataFromField(
                         $item,
                         target.name,
-                        target.value
+                        target.value,
                     )}
             />
         </FormSection>
@@ -71,7 +75,7 @@
                             updateDocumentDataFromField(
                                 $item,
                                 target.name,
-                                target.value
+                                target.value,
                             )}
                     />
                 </div>
@@ -92,7 +96,7 @@
                             updateDocumentDataFromField(
                                 $item,
                                 target.name,
-                                parseInt(target.value, 10)
+                                parseInt(target.value, 10),
                             )}
                     />
                 </div>
@@ -124,7 +128,7 @@
                             updateDocumentDataFromField(
                                 $item,
                                 target.name,
-                                target.value
+                                target.value,
                             )}
                     />
                 </div>
@@ -144,7 +148,7 @@
                             updateDocumentDataFromField(
                                 $item,
                                 target.name,
-                                parseInt(target.value, 10)
+                                parseInt(target.value, 10),
                             )}
                     />
                 </div>

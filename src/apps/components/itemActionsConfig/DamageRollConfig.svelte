@@ -2,9 +2,11 @@
     import { getContext } from "svelte";
     import { localize } from "#runtime/svelte/helper";
 
+    import GenericConfigDialog from "../../dialogs/initializers/GenericConfigDialog";
+
     import Checkbox from "../Checkbox.svelte";
     import FormSection from "../FormSection.svelte";
-    import ScalingConfigDialog from "../../dialogs/initializers/DamageScalingConfigDialog";
+    import DamageScalingDialog from "../../dialogs/DamageScalingDialog.svelte";
 
     import getOrdinalNumber from "../../../utils/getOrdinalNumber";
     import updateDocumentDataFromField from "../../../utils/updateDocumentDataFromField";
@@ -35,7 +37,7 @@
             } else {
                 return localize(
                     "A5E.scaling.summaries.steppedSpellLevel.damage",
-                    { formula, step, level, damageType }
+                    { formula, step, level, damageType },
                 );
             }
         }
@@ -48,7 +50,7 @@
             } else {
                 return localize(
                     "A5E.scaling.summaries.steppedSpellPoint.damage",
-                    { formula, step }
+                    { formula, step },
                 );
             }
         }
@@ -70,7 +72,20 @@
     }
 
     function onClickScalingButton() {
-        const dialog = new ScalingConfigDialog($item, actionId, rollId);
+        let dialog = $item.dialogs.scaling[rollId];
+
+        if (!dialog) {
+            $item.dialogs.scaling[rollId] = new GenericConfigDialog(
+                $item,
+                `${$item.name} Damage Scaling Configuration`,
+                DamageScalingDialog,
+                { actionId, rollId },
+                { width: 432 },
+            );
+
+            dialog = $item.dialogs.scaling[rollId];
+        }
+
         dialog.render(true);
     }
 
@@ -99,7 +114,7 @@
             updateDocumentDataFromField(
                 $item,
                 `system.actions.${actionId}.rolls.${rollId}.label`,
-                target.value
+                target.value,
             )}
     />
 </FormSection>
@@ -121,7 +136,7 @@
                     updateDocumentDataFromField(
                         $item,
                         `system.actions.${actionId}.rolls.${rollId}.formula`,
-                        target.value
+                        target.value,
                     )}
             />
 
@@ -151,7 +166,7 @@
                 updateDocumentDataFromField(
                     $item,
                     `system.actions.${actionId}.rolls.${rollId}.damageType`,
-                    target.value
+                    target.value,
                 )}
         >
             <option value={null} selected={roll.damageType === "null"}>
@@ -174,7 +189,7 @@
         updateDocumentDataFromField(
             $item,
             `system.actions.${actionId}.rolls.${rollId}.canCrit`,
-            detail
+            detail,
         );
     }}
 />
@@ -196,7 +211,7 @@
                 updateDocumentDataFromField(
                     $item,
                     `system.actions.${actionId}.rolls.${rollId}.critBonus`,
-                    target.value
+                    target.value,
                 )}
         />
     </FormSection>
@@ -209,7 +224,7 @@
         updateDocumentDataFromField(
             $item,
             `system.actions.${actionId}.rolls.${rollId}.default`,
-            detail
+            detail,
         );
     }}
 />

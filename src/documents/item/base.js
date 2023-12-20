@@ -12,7 +12,8 @@ export default class BaseItemA5e extends Item {
     super(...args);
 
     this.dialogs ??= {
-      actions: {}
+      actions: {},
+      scaling: {}
     };
   }
 
