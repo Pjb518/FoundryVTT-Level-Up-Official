@@ -2,10 +2,12 @@
     import { getContext } from "svelte";
     import { localize } from "#runtime/svelte/helper";
 
+    import GenericConfigDialog from "../dialogs/initializers/GenericConfigDialog";
+
     import getDeterministicBonus from "../../dice/getDeterministicBonus";
     import updateDocumentDataFromField from "../../utils/updateDocumentDataFromField";
 
-    import GenericActorResourceConfigDialog from "../dialogs/initializers/GenericActorResourceConfigDialog";
+    import GenericActorResourceConfigDialog from "../dialogs/GenericActorResourceConfigDialog.svelte";
 
     export let resource;
     export let source;
@@ -13,7 +15,19 @@
     const actor = getContext("actor");
 
     function configureResource() {
-        const dialog = new GenericActorResourceConfigDialog(actor, source);
+        let dialog = $actor.dialogs.genericResources[source];
+
+        if (!dialog) {
+            $actor.dialogs.genericResources[source] = new GenericConfigDialog(
+                $actor,
+                `${$actor.name}: Generic Resource Dialog`,
+                GenericActorResourceConfigDialog,
+                { source },
+            );
+
+            dialog = $actor.dialogs.genericResources[source];
+        }
+
         dialog.render(true);
     }
 
@@ -22,7 +36,7 @@
         updateDocumentDataFromField(
             $actor,
             `system.resources.${source}.value`,
-            Number(resource.value)
+            Number(resource.value),
         );
     }
 
@@ -31,7 +45,7 @@
         updateDocumentDataFromField(
             $actor,
             `system.resources.${source}.value`,
-            Number(resource.value)
+            Number(resource.value),
         );
     }
 
@@ -108,7 +122,7 @@
                 updateDocumentDataFromField(
                     $actor,
                     target.name,
-                    Number(target.value)
+                    Number(target.value),
                 )}
         />
 
@@ -126,7 +140,7 @@
                 name="system.resources.{source}.max"
                 value={getDeterministicBonus(
                     resource.max ?? 0,
-                    $actor.getRollData()
+                    $actor.getRollData(),
                 )}
                 class="a5e-input a5e-input--inline-item a5e-input--small resource-number-input"
                 placeholder="0"

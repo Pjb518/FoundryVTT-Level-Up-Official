@@ -52,6 +52,7 @@ export default class ActorA5e extends Actor {
     this.dialogs ??= {
       abilities: {},
       bonuses: {},
+      genericResources: {},
       skills: {},
       notes: {}
     };
