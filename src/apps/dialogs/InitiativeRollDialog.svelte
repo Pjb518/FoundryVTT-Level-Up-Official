@@ -8,15 +8,26 @@
     import ExpertiseDiePicker from "../components/ExpertiseDiePicker.svelte";
     import FormSection from "../components/FormSection.svelte";
     import RadioGroup from "../components/RadioGroup.svelte";
+    import prepareAbilityBonuses from "../dataPreparationHelpers/prepareAbilityBonuses";
+    import prepareSkillBonuses from "../dataPreparationHelpers/prepareSkillBonuses";
 
     export let { combatant, dialog, options } =
         getContext("#external").application;
+
+    function getDefaultSelections(property) {
+        return Object.values(property ?? {})
+            .flat()
+            .reduce((acc, [key, value]) => {
+                if (value.default ?? true) acc.push(key);
+                return acc;
+            }, []);
+    }
 
     const rollModeOptions = Object.entries(CONFIG.A5E.rollModes).map(
         ([key, value]) => [
             CONFIG.A5E.ROLL_MODE[key.toUpperCase()],
             localize(value),
-        ]
+        ],
     );
 
     const actor = new TJSDocument(combatant.actor);
@@ -43,12 +54,19 @@
     let rollFormula;
     let situationalMods = options.situationalMods ?? "";
 
+    $: abilityBonuses = prepareAbilityBonuses($actor, abilityKey, "check");
+    $: skillBonuses = prepareSkillBonuses($actor, skillKey, "check");
+    $: selectedAbilityBonuses = getDefaultSelections({ abilityBonuses });
+    $: selectedSkillBonuses = getDefaultSelections({ skillBonuses });
+
     $: rollFormula = getRollFormula($actor, {
         ability: abilityKey,
         expertiseDie,
         rollMode,
         situationalMods,
         skill: skillKey,
+        selectedAbilityBonuses,
+        selectedAbilityBonuses,
         type: "initiative",
     });
 </script>

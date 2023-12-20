@@ -23,7 +23,7 @@
                     updateDocumentDataFromField(
                         $actor,
                         `system.attributes.initiative.expertiseDice`,
-                        event.detail
+                        event.detail,
                     )}
             />
         </FormSection>
@@ -42,27 +42,7 @@
                         updateDocumentDataFromField(
                             $actor,
                             target.name,
-                            target.value
-                        )}
-                />
-            </div>
-        </FormSection>
-
-        <FormSection
-            heading="A5E.AbilityCheckBonusGlobal"
-            hint="This bonus is added to all ability check modifiers, including skill modifiers. This field accepts any values valid in roll formulae."
-        >
-            <div class="u-w-full">
-                <input
-                    class="a5e-input"
-                    type="text"
-                    name="system.bonuses.abilities.check"
-                    value={$actor.system.bonuses.abilities.check}
-                    on:change={({ target }) =>
-                        updateDocumentDataFromField(
-                            $actor,
-                            target.name,
-                            target.value
+                            target.value,
                         )}
                 />
             </div>
