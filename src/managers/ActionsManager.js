@@ -110,10 +110,10 @@ export default class ActionsManager extends DataProxy {
   configure(actionId) {
     const actionName = this.#item.system.actions[actionId].name;
 
-    let dialog = this.#item.dialogs[actionId];
+    let dialog = this.#item.dialogs.actions[actionId];
 
     if (!dialog) {
-      this.#item.dialogs[actionId] ??= new GenericConfigDialog(
+      this.#item.dialogs.actions[actionId] ??= new GenericConfigDialog(
         this.#item,
         actionName,
         ActionConfigDialog,
@@ -121,7 +121,7 @@ export default class ActionsManager extends DataProxy {
         { width: 555, height: 592, resizable: true }
       );
 
-      dialog = this.#item.dialogs[actionId];
+      dialog = this.#item.dialogs.actions[actionId];
     }
 
     dialog.render(true);
@@ -139,10 +139,15 @@ export default class ActionsManager extends DataProxy {
     });
   }
 
-  async remove(id) {
+  async remove(actionId) {
+    // Close dialog
+    const dialog = this.#item.dialogs.actions[actionId];
+    await dialog?.close();
+    delete this.#item.dialogs.actions[actionId];
+
     await this.#item.update({
       'system.actions': {
-        [`-=${id}`]: null
+        [`-=${actionId}`]: null
       }
     });
   }
