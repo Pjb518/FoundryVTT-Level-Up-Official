@@ -182,6 +182,8 @@ export default class BonusesManager {
   ): string[] {
     const bonuses = this.#bonuses.skills;
     const skill = this.#actor.system.skills[skillKey];
+    if (!skill) return [];
+
     const defaultAbility = skill.ability;
     const isProficient = skill.proficient;
 
