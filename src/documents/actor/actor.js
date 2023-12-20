@@ -2,6 +2,8 @@
 import { localize } from '#runtime/svelte/helper';
 
 import ActiveEffectA5e from '../activeEffect/activeEffect';
+
+import ActorGrantsManager from '../../managers/ActorGrantsManager';
 import BonusesManager from '../../managers/BonusesManager';
 import MigrationRunnerBase from '../../migration/MigrationRunnerBase';
 import RestManager from '../../managers/RestManager';
@@ -162,6 +164,7 @@ export default class ActorA5e extends Actor {
 
     // Register Managers
     this.BonusesManager = new BonusesManager(this);
+    this.GrantsManager = new ActorGrantsManager(this);
   }
 
   /**
