@@ -13,7 +13,7 @@
     import overrideRollMode from "../../utils/overrideRollMode";
     import prepareAbilityBonuses from "../dataPreparationHelpers/prepareAbilityBonuses";
 
-    export let { actorDocument, abilityKey, dialog, options } =
+    export let { document, abilityKey, dialog, options } =
         getContext("#external").application;
 
     function getSubmitButtonText(saveType, abilityKey) {
@@ -54,7 +54,7 @@
         ["concentration", "A5E.ConcentrationCheck"],
     ];
 
-    const actor = new TJSDocument(actorDocument);
+    const actor = new TJSDocument(document);
     const appId = dialog.id;
     const localizeSave = localize(CONFIG.A5E.abilities[abilityKey]);
     const abilityBonuses = prepareAbilityBonuses($actor, abilityKey, "save");

@@ -27,6 +27,7 @@ import HealingBonusConfigDialog from '../../apps/dialogs/HealingBonusConfigDialo
 import LanguagesConfigDialog from '../../apps/dialogs/LanguagesConfigDialog.svelte';
 import MovementConfigDialog from '../../apps/dialogs/MovementConfigDialog.svelte';
 import RestDialog from '../../apps/dialogs/RestDialog.svelte';
+import SavingThrowRollDialog from '../../apps/dialogs/SavingThrowRollDialog.svelte';
 import SensesConfigDialog from '../../apps/dialogs/SensesConfigDialog.svelte';
 import SkillBonusConfigDialog from '../../apps/dialogs/SkillBonusConfigDialog.svelte';
 import SkillConfigDialog from '../../apps/dialogs/SkillConfigDialog.svelte';
@@ -35,7 +36,6 @@ import WeaponProfConfigDialog from '../../apps/dialogs/WeaponProfConfigDialog.sv
 
 import GenericConfigDialog from '../../apps/dialogs/initializers/GenericConfigDialog';
 import GenericRollDialog from '../../apps/dialogs/initializers/GenericRollDialog';
-import SavingThrowRollDialog from '../../apps/dialogs/initializers/SavingThrowRollDialog';
 import SkillCheckRollDialog from '../../apps/dialogs/initializers/SkillCheckRollDialog';
 
 import automateHpConditions from '../activeEffect/utils/automateHpConditions';
@@ -1214,8 +1214,30 @@ export default class ActorA5e extends Actor {
     return { expertiseDie, rollFormula, visibilityMode: options.visibilityMode ?? null };
   }
 
-  async #showSavingThrowPrompt(abilityKey, options) {
-    const dialog = new SavingThrowRollDialog(this, abilityKey, options);
+  async #showSavingThrowPrompt(abilityKey, rollOptions = {}, dialogOptions = {}) {
+    let title;
+
+    if (rollOptions.saveType === 'death') {
+      title = localize(
+        'A5E.DeathSavingThrowPromptTitle',
+        { name: this.name }
+      );
+    } else {
+      title = localize(
+        'A5E.SavingThrowPromptTitle',
+        { name: this.name, ability: localize(CONFIG.A5E.abilities[abilityKey]) }
+      );
+    }
+
+    const dialog = new GenericRollDialog(
+      this,
+      title,
+      SavingThrowRollDialog,
+      { abilityKey },
+      rollOptions,
+      dialogOptions
+    );
+
     await dialog.render(true);
     const dialogData = await dialog.promise;
 
