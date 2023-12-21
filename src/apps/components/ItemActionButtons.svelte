@@ -2,7 +2,6 @@
     import { getContext } from "svelte";
 
     import DeletionConfirmationDialog from "../dialogs/initializers/DeletionConfirmationDialog";
-    import ShowDescription from "./actorUtilityBar/ShowDescription.svelte";
 
     export let item;
     export let action = null;
@@ -36,7 +35,7 @@
             "a5e",
             "hideDeleteConfirmation",
             dialogData?.hideDeleteConfirmation ??
-                game.settings.get("a5e", "hideDeleteConfirmation")
+                game.settings.get("a5e", "hideDeleteConfirmation"),
         );
 
         item.delete();

@@ -9,18 +9,54 @@
     export let action;
     export let actionId;
 
+    function getActivationCost(item, action) {
+        let _action = action;
+
+        if (!item.actions) return "";
+        if (item.actions?.count === 0) return "";
+
+        if (item.actions?.count === 1) {
+            _action = item.actions.values()[0];
+        }
+
+        switch (_action?.activation?.type) {
+            case "action":
+                return "A";
+            case "bonusAction":
+                return "B";
+            case "reaction":
+                return "R";
+            default:
+                return "";
+        }
+    }
+
+    // TODO: Fix up this gross mess
+    function getActivationCostLabel(cost) {
+        switch (cost) {
+            case "A":
+                return "Action";
+            case "B":
+                return "Bonus Action";
+            case "R":
+                return "Reaction";
+            default:
+                return "";
+        }
+    }
+
     function getSelectedAmmo(item, action) {
         let _action = action;
 
         if (!item.actions) return "";
-        if (item.actions.count === 0) return "";
+        if (item.actions?.count === 0) return "";
 
         if (item.actions?.count === 1) {
             _action = item.actions.values()[0];
         }
 
         const ammoConsumer = Object.entries(_action?.consumers ?? {}).find(
-            ([_, consumer]) => consumer?.type === "ammunition"
+            ([_, consumer]) => consumer?.type === "ammunition",
         );
 
         if (!ammoConsumer) return "";
@@ -39,7 +75,7 @@
         }
 
         return Object.entries(_action?.consumers ?? {}).filter(
-            ([_, consumer]) => consumer?.type === "ammunition"
+            ([_, consumer]) => consumer?.type === "ammunition",
         ).length;
     }
 
@@ -55,7 +91,7 @@
         }
 
         const [consumerId] = Object.entries(
-            item.actions[_actionId]?.consumers ?? {}
+            item.actions[_actionId]?.consumers ?? {},
         ).find(([_, consumer]) => consumer?.type === "ammunition");
 
         if (!consumerId) return;
@@ -63,7 +99,7 @@
         updateDocumentDataFromField(
             item,
             `system.actions.${_actionId}.consumers.${consumerId}.itemId`,
-            selectedOption
+            selectedOption,
         );
     }
 
@@ -92,7 +128,7 @@
             max: action
                 ? getDeterministicBonus(
                       action.uses?.max ?? 0,
-                      $actor.getRollData()
+                      $actor.getRollData(),
                   )
                 : 0,
             updatePath: `system.actions.${actionId}.uses`,
@@ -101,7 +137,7 @@
             value: item.system?.uses?.value ?? 0,
             max: getDeterministicBonus(
                 item.system?.uses?.max ?? 0,
-                $actor.getRollData()
+                $actor.getRollData(),
             ),
             updatePath: "system.uses",
         },
@@ -109,23 +145,35 @@
 
     $: ammunitionItems = $actor.items
         .filter(
-            (i) => i.type === "object" && i.system.objectType === "ammunition"
+            (i) => i.type === "object" && i.system.objectType === "ammunition",
         )
         .map((i) => ({ name: i.name, id: i.id }))
         .sort((a, b) =>
-            a.name.toLowerCase().localeCompare(b.name.toLowerCase())
+            a.name.toLowerCase().localeCompare(b.name.toLowerCase()),
         );
 
     $: rechargeState = actionId
         ? action.uses?.max == action.uses?.value
         : item.system?.uses?.max == item.system?.uses?.value;
 
+    $: activationCost = getActivationCost(item, action);
+    $: activationCostLabel = getActivationCostLabel(activationCost);
     $: selectedAmmo = getSelectedAmmo(item, action);
 </script>
 
 <div class="name-wrapper">
     <div class="name">
         {action?.name ?? item.name}
+
+        {#if activationCost}
+            <button
+                class="action-button action-button--activation-cost"
+                data-tooltip={activationCostLabel}
+                data-tooltip-direction="UP"
+            >
+                {activationCost}
+            </button>
+        {/if}
     </div>
 
     {#if hasAmmunition(item, action)}
@@ -301,7 +349,7 @@
                         PREPARED_STATES.PREPARED,
                     ].includes(Number(item.system.prepared ?? 0))}
                     class:fa-book-sparkles={Number(
-                        item.system.prepared ?? 0
+                        item.system.prepared ?? 0,
                     ) === PREPARED_STATES.ALWAYS_PREPARED}
                     class:active={[
                         PREPARED_STATES.PREPARED,
@@ -414,6 +462,23 @@
         &:focus {
             box-shadow: none;
         }
+
+        &--activation-cost {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 1rem;
+            width: 1rem;
+            font-size: $font-size-xxs;
+            color: var(--indicator-text-color, inherit);
+            border-radius: $border-radius-standard;
+            background: var(--indicator-background, #c6c5bc);
+
+            &:hover {
+                color: var(--indicator-text-color, inherit);
+                transform: scale(1);
+            }
+        }
     }
 
     .active {
@@ -473,6 +538,9 @@
     }
 
     .name {
+        display: flex;
+        align-items: center;
+        gap: 0.375rem;
         font-size: $font-size-sm;
         overflow: hidden;
         text-overflow: ellipsis;
