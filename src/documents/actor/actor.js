@@ -30,13 +30,13 @@ import RestDialog from '../../apps/dialogs/RestDialog.svelte';
 import SavingThrowRollDialog from '../../apps/dialogs/SavingThrowRollDialog.svelte';
 import SensesConfigDialog from '../../apps/dialogs/SensesConfigDialog.svelte';
 import SkillBonusConfigDialog from '../../apps/dialogs/SkillBonusConfigDialog.svelte';
+import SkillCheckRollDialog from '../../apps/dialogs/SkillCheckRollDialog.svelte';
 import SkillConfigDialog from '../../apps/dialogs/SkillConfigDialog.svelte';
 import ToolProfConfigDialog from '../../apps/dialogs/ToolProfConfigDialog.svelte';
 import WeaponProfConfigDialog from '../../apps/dialogs/WeaponProfConfigDialog.svelte';
 
 import GenericConfigDialog from '../../apps/dialogs/initializers/GenericConfigDialog';
 import GenericRollDialog from '../../apps/dialogs/initializers/GenericRollDialog';
-import SkillCheckRollDialog from '../../apps/dialogs/initializers/SkillCheckRollDialog';
 
 import automateHpConditions from '../activeEffect/utils/automateHpConditions';
 import getDeterministicBonus from '../../dice/getDeterministicBonus';
@@ -1340,8 +1340,21 @@ export default class ActorA5e extends Actor {
     };
   }
 
-  async #showSkillCheckPrompt(skillKey, options) {
-    const dialog = new SkillCheckRollDialog(this, skillKey, options);
+  async #showSkillCheckPrompt(skillKey, rollOptions = {}, dialogOptions = {}) {
+    const title = localize(
+      'A5E.SkillPromptTitle',
+      { name: this.name, skill: localize(CONFIG.A5E.skills[skillKey]) }
+    );
+
+    const dialog = new GenericRollDialog(
+      this,
+      title,
+      SkillCheckRollDialog,
+      { skillKey },
+      rollOptions,
+      dialogOptions
+    );
+
     await dialog.render(true);
     const dialogData = await dialog.promise;
 
