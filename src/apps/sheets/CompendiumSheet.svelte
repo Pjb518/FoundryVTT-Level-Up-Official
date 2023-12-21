@@ -19,10 +19,25 @@
     } from "../handlers/handleSearchFilter";
     import constructReducerFilters from "../handlers/constructReducerFilters";
 
-    export let { compendiumType, document, filterStore, sheet } =
-        getContext("#external").application;
+    export let {
+        compendiumType,
+        customImporter,
+        document,
+        filterStore,
+        sheet,
+    } = getContext("#external").application;
 
     export let elementRoot;
+
+    async function exportToActor() {
+        const collection = document;
+
+        const documents = await Promise.all(
+            [...$reducer].map(async (doc) => collection.getDocument(doc._id)),
+        );
+
+        customImporter(documents);
+    }
 
     async function exportToRollTable() {
         // Create a dialog to fetch the name of the roll table
@@ -78,6 +93,7 @@
 
     // Set contexts and unsubscribes
     setContext("collection", document);
+    setContext("customImporter", customImporter);
     setContext("filterStore", filterStore);
     setContext("reducer", reducer);
 
@@ -133,6 +149,7 @@
                     data-tooltip={enableGrouping
                         ? "Disable grouping of documents"
                         : "Enable grouping of documents"}
+                    data-tooltip-direction="UP"
                     on:click={() => (enableGrouping = !enableGrouping)}
                 >
                     <i
@@ -140,17 +157,31 @@
                     />
                 </button>
 
-                <button
-                    class="a5efc-filter-button"
-                    data-tooltip="Export {[...$reducer]
-                        .length} Documents to Rolltable"
-                    data-tooltip-direction="UP"
-                    on:click={() => exportToRollTable()}
-                >
-                    <i
-                        class="a5efc-filter-button__icon fa-solid fa-table-list"
-                    />
-                </button>
+                {#if !customImporter}
+                    <button
+                        class="a5efc-filter-button"
+                        data-tooltip="Export {[...$reducer]
+                            .length} Documents to Rolltable"
+                        data-tooltip-direction="UP"
+                        on:click={() => exportToRollTable()}
+                    >
+                        <i
+                            class="a5efc-filter-button__icon fa-solid fa-table-list"
+                        />
+                    </button>
+                {:else if compendiumType === "spell" || compendiumType === "maneuver"}
+                    <button
+                        class="a5efc-filter-button"
+                        data-tooltip="Export {[...$reducer]
+                            .length} Documents to Actor"
+                        data-tooltip-direction="UP"
+                        on:click={() => exportToActor()}
+                    >
+                        <i
+                            class="a5efc-filter-button__icon fa-solid fa-download"
+                        />
+                    </button>
+                {/if}
             {/if}
 
             <button
