@@ -5,6 +5,8 @@
     import updateDocumentDataFromField from "../../../utils/updateDocumentDataFromField";
     import usesRequired from "../../../utils/usesRequired";
 
+    import ManeuverCompendiumSheet from "../../ManeuverCompendiumSheet";
+
     import CreateMenu from "../actorUtilityBar/CreateMenu.svelte";
     import Filter from "../actorUtilityBar/Filter.svelte";
     import ItemCategory from "../ItemCategory.svelte";
@@ -13,6 +15,19 @@
     import Sort from "../actorUtilityBar/Sort.svelte";
     import TabFooter from "../TabFooter.svelte";
     import UtilityBar from "../actorUtilityBar/UtilityBar.svelte";
+
+    function openCompendium() {
+        const pack = new ManeuverCompendiumSheet(
+            { collection: game.packs.get("a5e.a5e-maneuvers") },
+            {
+                importer: (doc) => {
+                    $actor.createEmbeddedDocuments("Item", [doc]);
+                },
+            },
+        );
+
+        pack.render(true);
+    }
 
     const actor = getContext("actor");
     const { maneuvers } = actor;
@@ -48,6 +63,11 @@
             <Sort {reducerType} />
             <Filter {reducerType} />
             <CreateMenu {reducerType} {menuList} />
+
+            <button
+                class="import-button fa-solid fa-download"
+                on:click={openCompendium}
+            ></button>
         </UtilityBar>
     {/if}
 
@@ -84,7 +104,7 @@
                         updateDocumentDataFromField(
                             $actor,
                             target.name,
-                            Number(target.value)
+                            Number(target.value),
                         )}
                 />
                 /
@@ -99,7 +119,7 @@
                         updateDocumentDataFromField(
                             $actor,
                             target.name,
-                            Number(target.value)
+                            Number(target.value),
                         )}
                 />
 
@@ -138,6 +158,26 @@
         pointer-events: none;
     }
 
+    .import-button {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: auto;
+        width: 1.1rem;
+        font-size: inherit;
+        color: #bbbab2;
+        border: 0;
+        border-radius: 0;
+        background: transparent;
+        transition: all 0.15s ease-in-out;
+
+        &:hover {
+            box-shadow: none;
+            color: #555555;
+            transform: scale(1.2);
+        }
+    }
+
     .maneuvers-page {
         display: flex;
         flex-direction: column;
@@ -145,6 +185,7 @@
         gap: 0.5rem;
         overflow: hidden;
     }
+
     .maneuvers-main-container {
         display: flex;
         flex-grow: 1;

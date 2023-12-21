@@ -16,6 +16,7 @@ export default class ManeuverCompendiumSheet extends SvelteApplication {
         class: CompendiumSheetComponent,
         props: {
           compendiumType: 'maneuver',
+          customImporter: options.importer ?? null,
           document: null,
           filterStore: ManeuverFilterStore
         }
