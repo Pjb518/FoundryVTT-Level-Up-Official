@@ -24,12 +24,12 @@
 
     const weaponKeys = Object.values(A5E.weapons).reduce(
         (acc, curr) => ({ ...acc, ...curr }),
-        {}
+        {},
     );
 
     const toolKeys = Object.values(A5E.tools).reduce(
         (acc, curr) => ({ ...acc, ...curr }),
-        {}
+        {},
     );
 
     async function updateWeapons() {
@@ -46,7 +46,7 @@
                 submitDialog: true,
                 dialogWeapons: selectedWeapons,
                 dialogHint: weapons.options,
-            }
+            },
         ).render(true);
 
         const dialogData = await dialog?.promise;
@@ -69,7 +69,7 @@
                 submitDialog: true,
                 dialogTools: selectedTools,
                 dialogHint: tools.options,
-            }
+            },
         ).render(true);
 
         const dialogData = await dialog?.promise;
@@ -97,8 +97,8 @@
     let weapons = $item.system.proficiencies.weapons;
 
     let numArmor = armor.count + armor.fixed.length;
-    let numLanguages = languages.count + languages.fixed.length;
-    let numSkills = skills.count + skills.fixed.length;
+    let numLanguages = languages.count;
+    let numSkills = skills.count;
 
     const languageOptions = [
         ...new Set([
@@ -154,7 +154,7 @@
                     options={languageOptions}
                     selected={languages.fixed.filter(
                         (l) =>
-                            !$actor.system.proficiencies.languages.includes(l)
+                            !$actor.system.proficiencies.languages.includes(l),
                     )}
                     orange={languages.options}
                     disabled={selectedLanguages.length >= numLanguages}
@@ -179,7 +179,7 @@
                     orange={skills.options}
                     disabled={selectedSkills.length >= numSkills}
                     disabledOptions={Object.entries(
-                        $actor.system.skills
+                        $actor.system.skills,
                     ).reduce((proficientSkills, [skillKey, skill]) => {
                         if (skill.proficient) proficientSkills.push(skillKey);
                         return proficientSkills;
@@ -202,7 +202,7 @@
                 <CustomTagGroup
                     options={Object.entries(A5E.armor)}
                     selected={armor.fixed.filter(
-                        (a) => !$actor.system.proficiencies.armor.includes(a)
+                        (a) => !$actor.system.proficiencies.armor.includes(a),
                     )}
                     orange={armor.options}
                     disabled={selectedArmor.length >= numArmor}
@@ -234,7 +234,7 @@
                 {#if selectedTools.length}
                     <CheckboxGroup
                         options={Object.entries(toolKeys).filter(([toolKey]) =>
-                            selectedTools.includes(toolKey)
+                            selectedTools.includes(toolKey),
                         )}
                         optionStyles="cursor: auto;"
                         selected={selectedTools}
@@ -263,7 +263,8 @@
                 {#if selectedWeapons.length}
                     <CheckboxGroup
                         options={Object.entries(weaponKeys).filter(
-                            ([weaponKey]) => selectedWeapons.includes(weaponKey)
+                            ([weaponKey]) =>
+                                selectedWeapons.includes(weaponKey),
                         )}
                         optionStyles="cursor: auto;"
                         selected={selectedWeapons}
@@ -277,7 +278,7 @@
                 <!-- svelte-ignore missing-declaration -->
                 <CheckboxGroup
                     options={Object.entries($item.system.equipment).map(
-                        ([key, e]) => [key, fromUuidSync(e.uuid)?.name]
+                        ([key, e]) => [key, fromUuidSync(e.uuid)?.name],
                     )}
                     selected={selectedEquipment}
                     on:updateSelection={({ detail }) => {
