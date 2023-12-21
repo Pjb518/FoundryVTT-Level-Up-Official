@@ -5,6 +5,8 @@
     import updateDocumentDataFromField from "../../../utils/updateDocumentDataFromField";
     import usesRequired from "../../../utils/usesRequired";
 
+    import SpellCompendiumSheet from "../../SpellCompendiumSheet";
+
     import CreateMenu from "../actorUtilityBar/CreateMenu.svelte";
     import Filter from "../actorUtilityBar/Filter.svelte";
     import ItemCategory from "../ItemCategory.svelte";
@@ -13,6 +15,19 @@
     import TabFooter from "../TabFooter.svelte";
     import UtilityBar from "../actorUtilityBar/UtilityBar.svelte";
     import ShowDescription from "../actorUtilityBar/ShowDescription.svelte";
+
+    function openCompendium() {
+        const pack = new SpellCompendiumSheet(
+            { collection: game.packs.get("a5e.a5e-spells") },
+            {
+                importer: (doc) => {
+                    $actor.createEmbeddedDocuments("Item", [doc]);
+                },
+            },
+        );
+
+        pack.render(true);
+    }
 
     const actor = getContext("actor");
     const { spells } = actor;
@@ -72,6 +87,11 @@
             <Sort {reducerType} />
             <Filter {reducerType} />
             <CreateMenu {reducerType} {menuList} />
+
+            <button
+                class="import-button fa-solid fa-download"
+                on:click={openCompendium}
+            ></button>
         </UtilityBar>
     {/if}
 
@@ -126,7 +146,7 @@
                         updateDocumentDataFromField(
                             $actor,
                             target.name,
-                            Number(target.value)
+                            Number(target.value),
                         )}
                 />
                 /
@@ -141,7 +161,7 @@
                         updateDocumentDataFromField(
                             $actor,
                             target.name,
-                            Number(target.value)
+                            Number(target.value),
                         )}
                 />
             </div>
@@ -167,7 +187,7 @@
                         updateDocumentDataFromField(
                             $actor,
                             target.name,
-                            Number(target.value)
+                            Number(target.value),
                         )}
                 />
             </div>
@@ -196,6 +216,26 @@
 <style lang="scss">
     .disable-pointer-events {
         pointer-events: none;
+    }
+
+    .import-button {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: auto;
+        width: 1.1rem;
+        font-size: inherit;
+        color: #bbbab2;
+        border: 0;
+        border-radius: 0;
+        background: transparent;
+        transition: all 0.15s ease-in-out;
+
+        &:hover {
+            box-shadow: none;
+            color: #555555;
+            transform: scale(1.2);
+        }
     }
 
     .spells-page {

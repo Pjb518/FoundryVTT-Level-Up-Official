@@ -19,8 +19,13 @@
     } from "../handlers/handleSearchFilter";
     import constructReducerFilters from "../handlers/constructReducerFilters";
 
-    export let { compendiumType, document, filterStore, sheet } =
-        getContext("#external").application;
+    export let {
+        compendiumType,
+        customImporter,
+        document,
+        filterStore,
+        sheet,
+    } = getContext("#external").application;
 
     export let elementRoot;
 
@@ -78,6 +83,7 @@
 
     // Set contexts and unsubscribes
     setContext("collection", document);
+    setContext("customImporter", customImporter);
     setContext("filterStore", filterStore);
     setContext("reducer", reducer);
 
