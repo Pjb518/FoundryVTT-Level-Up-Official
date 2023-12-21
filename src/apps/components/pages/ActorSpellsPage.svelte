@@ -20,8 +20,8 @@
         const pack = new SpellCompendiumSheet(
             { collection: game.packs.get("a5e.a5e-spells") },
             {
-                importer: (doc) => {
-                    $actor.createEmbeddedDocuments("Item", [doc]);
+                importer: (docs) => {
+                    $actor.createEmbeddedDocuments("Item", docs);
                 },
             },
         );
