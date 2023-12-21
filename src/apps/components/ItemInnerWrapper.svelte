@@ -165,7 +165,7 @@
     <div class="name">
         {action?.name ?? item.name}
 
-        {#if activationCost}
+        {#if activationCost && (item.actions?.count === 1 || action)}
             <button
                 class="action-button action-button--activation-cost"
                 data-tooltip={activationCostLabel}
