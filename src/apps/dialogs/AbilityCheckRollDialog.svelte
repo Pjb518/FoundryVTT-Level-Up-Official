@@ -13,7 +13,7 @@
     import overrideRollMode from "../../utils/overrideRollMode";
     import prepareAbilityBonuses from "../dataPreparationHelpers/prepareAbilityBonuses";
 
-    export let { actorDocument, abilityKey, dialog, options } =
+    export let { document, abilityKey, dialog, options } =
         getContext("#external").application;
 
     const rollModeOptions = Object.entries(CONFIG.A5E.rollModes).map(
@@ -23,7 +23,7 @@
         ],
     );
 
-    const actor = new TJSDocument(actorDocument);
+    const actor = new TJSDocument(document);
     const appId = dialog.id;
     const abilityBonuses = prepareAbilityBonuses($actor, abilityKey, "check");
 

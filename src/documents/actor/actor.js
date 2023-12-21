@@ -9,6 +9,7 @@ import RollPreparationManager from '../../managers/RollPreparationManager';
 
 import AbilityBonusConfigDialog from '../../apps/dialogs/AbilityBonusConfigDialog.svelte';
 import AbilityCheckConfigDialog from '../../apps/dialogs/ActorAbilityConfigDialog.svelte';
+import AbilityCheckRollDialog from '../../apps/dialogs/AbilityCheckRollDialog.svelte';
 import ActorHpConfigDialog from '../../apps/dialogs/ActorHpConfigDialog.svelte';
 import ActorInitConfigDialog from '../../apps/dialogs/ActorInitConfigDialog.svelte';
 import ActorManueverConfigDialog from '../../apps/dialogs/ActorManueverConfigDialog.svelte';
@@ -32,8 +33,8 @@ import SkillConfigDialog from '../../apps/dialogs/SkillConfigDialog.svelte';
 import ToolProfConfigDialog from '../../apps/dialogs/ToolProfConfigDialog.svelte';
 import WeaponProfConfigDialog from '../../apps/dialogs/WeaponProfConfigDialog.svelte';
 
-import AbilityCheckRollDialog from '../../apps/dialogs/initializers/AbilityCheckRollDialog';
 import GenericConfigDialog from '../../apps/dialogs/initializers/GenericConfigDialog';
+import GenericRollDialog from '../../apps/dialogs/initializers/GenericRollDialog';
 import SavingThrowRollDialog from '../../apps/dialogs/initializers/SavingThrowRollDialog';
 import SkillCheckRollDialog from '../../apps/dialogs/initializers/SkillCheckRollDialog';
 
@@ -1039,8 +1040,21 @@ export default class ActorA5e extends Actor {
     return { expertiseDie, rollFormula, visibilityMode: options.visibilityMode ?? null };
   }
 
-  async #showAbilityCheckPrompt(abilityKey, options) {
-    const dialog = new AbilityCheckRollDialog(this, abilityKey, options);
+  async #showAbilityCheckPrompt(abilityKey, rollOptions = {}, dialogOptions = {}) {
+    const title = localize(
+      'A5E.AbilityCheckPromptTitle',
+      { name: this.name, ability: localize(CONFIG.A5E.abilities[abilityKey]) }
+    );
+
+    const dialog = new GenericRollDialog(
+      this,
+      title,
+      AbilityCheckRollDialog,
+      { abilityKey },
+      rollOptions,
+      dialogOptions
+    );
+
     await dialog.render(true);
     const dialogData = await dialog.promise;
 

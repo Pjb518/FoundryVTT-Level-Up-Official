@@ -4,7 +4,7 @@ import { TJSDialog } from '#runtime/svelte/application';
  * Provides a dialog for creating documents that by default is modal and not draggable.
  */
 export default class GenericRollDialog extends TJSDialog {
-  constructor(document, title, component, data = {}, rollOptions = {}, windowOptions = {}) {
+  constructor(document, title, component, data = {}, rollOptions = {}, dialogOptions = {}) {
     super({
       title,
       content: {
@@ -13,9 +13,9 @@ export default class GenericRollDialog extends TJSDialog {
       }
     }, {
       classes: ['a5e-sheet'],
-      height: windowOptions.height ?? 'auto',
-      width: windowOptions.width ?? 420,
-      resizable: windowOptions.resizable ?? false
+      height: dialogOptions.height ?? 'auto',
+      width: dialogOptions.width ?? 420,
+      resizable: dialogOptions.resizable ?? false
     });
 
     this.data.content.props.dialog = this;
