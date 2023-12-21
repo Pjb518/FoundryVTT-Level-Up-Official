@@ -11,7 +11,7 @@
     import prepareAbilityBonuses from "../dataPreparationHelpers/prepareAbilityBonuses";
     import prepareSkillBonuses from "../dataPreparationHelpers/prepareSkillBonuses";
 
-    export let { combatant, dialog, options } =
+    export let { document, dialog, options } =
         getContext("#external").application;
 
     function getDefaultSelections(property) {
@@ -30,7 +30,7 @@
         ],
     );
 
-    const actor = new TJSDocument(combatant.actor);
+    const actor = new TJSDocument(document.actor);
     const appId = dialog.id;
     const abilities = CONFIG.A5E.abilities;
     const skills = { none: "None", ...CONFIG.A5E.skills };
