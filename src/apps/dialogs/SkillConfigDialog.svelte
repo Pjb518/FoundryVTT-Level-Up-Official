@@ -1,6 +1,5 @@
 <script>
     import { getContext } from "svelte";
-    import { localize } from "#runtime/svelte/helper";
     import { TJSDocument } from "#runtime/svelte/store/fvtt/document";
 
     import Checkbox from "../components/Checkbox.svelte";
@@ -17,10 +16,6 @@
 
     const actor = new TJSDocument(document);
     const abilityOptions = prepareAbilityOptions();
-
-    const checkBonusHeading = localize("A5E.SkillCheckBonus", {
-        skill: localize(CONFIG.A5E.skills[skillKey]),
-    });
 
     const specialtyOptions = Object.entries(
         CONFIG.A5E.skillSpecialties[skillKey],

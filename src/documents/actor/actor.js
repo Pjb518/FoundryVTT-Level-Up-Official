@@ -814,7 +814,7 @@ export default class ActorA5e extends Actor {
 
   configureInitiative(data = {}, options = {}) {
     const title = localize('A5E.InitiativeConfigurationPrompt', { name: this.name });
-    this.#configure('initiative', title, data, options);
+    this.#configure('initiative', title, data, { ...options, width: options.width ?? 432 });
   }
 
   configureLanguages(data = {}, options = {}) {

@@ -48,8 +48,12 @@
         options.expertiseDice ??
         $actor.system.attributes.initiative.expertiseDice;
 
+    let abilityKey =
+        options.abilityKey ??
+        $actor.system.attributes.initiative.ability ??
+        "dex";
+
     let rollMode = options.rollMode ?? CONFIG.A5E.ROLL_MODE.NORMAL;
-    let abilityKey = options.abilityKey ?? "dex";
     let skillKey = options.skillKey ?? "none";
     let rollFormula;
     let situationalMods = options.situationalMods ?? "";
