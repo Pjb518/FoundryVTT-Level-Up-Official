@@ -8,9 +8,9 @@
     import RadioGroup from "../components/RadioGroup.svelte";
 
     export let { application } = getContext("#external");
-    export let { actorDocument, appId } = getContext("#external").application;
+    export let { document, appId } = getContext("#external").application;
 
-    const actor = new TJSDocument(actorDocument);
+    const actor = new TJSDocument(document);
 
     const restTypeOptions = {
         short: "A5E.RestShort",
