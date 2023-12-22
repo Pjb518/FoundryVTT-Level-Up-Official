@@ -1,36 +1,36 @@
 {
-	"name": "Spider Climb",
+	"name": "Costly Spare the Dying",
 	"type": "spell",
-	"img": "icons/creatures/webs/web-spider-glowing-purple.webp",
+	"img": "icons/magic/life/heart-cross-green.webp",
 	"effects": [
 		{
-			"icon": "icons/creatures/webs/web-spider-glowing-purple.webp",
-			"origin": "Item.w0qia9XhWOV0U9Yn",
+			"icon": "icons/magic/life/heart-cross-green.webp",
+			"origin": "Item.LyufFQv414Fwkaev",
 			"flags": {
 				"a5e": {
 					"sort": 0,
 					"transferType": "onUse",
-					"actionId": "GWa9uJi4MquZXIi6",
+					"actionId": "M096lNDqettqPs4l",
 					"duration": {
 						"unit": "hours"
 					}
 				}
 			},
 			"transfer": false,
-			"name": "Spider Climb",
-			"_id": "sQU8HDpxkEceCdQe",
+			"name": "Rattled",
+			"_id": "l0pWhtSp1kS8lQq9",
 			"changes": [
 				{
-					"key": "system.attributes.movement.climb.distance",
-					"value": "@attributes.movement.walk.distance",
-					"mode": 6,
+					"key": "flags.a5e.effects.statusConditions",
+					"value": "[\"rattled\"]",
+					"mode": 0,
 					"priority": null
 				}
 			],
 			"disabled": false,
 			"duration": {
 				"startTime": null,
-				"seconds": 3600,
+				"seconds": 86400,
 				"combat": null,
 				"rounds": null,
 				"turns": null,
@@ -38,26 +38,28 @@
 				"startTurn": null
 			},
 			"description": "",
-			"statuses": [],
+			"statuses": [
+				"rattled"
+			],
 			"folder": null
 		}
 	],
 	"flags": {},
 	"system": {
 		"actions": {
-			"GWa9uJi4MquZXIi6": {
-				"name": "Spider Climb",
+			"M096lNDqettqPs4l": {
+				"name": "Spare the Dying",
 				"activation": {
 					"cost": 1,
 					"type": "action",
 					"reactionTrigger": ""
 				},
 				"duration": {
-					"unit": "hour",
-					"value": "1"
+					"unit": "instantaneous",
+					"value": ""
 				},
 				"ranges": {
-					"6SPhi6tPm46eeoCR": {
+					"sALHEG0ktMEBuOJH": {
 						"range": "touch"
 					}
 				},
@@ -67,31 +69,33 @@
 					"placeTemplate": false
 				},
 				"target": {
-					"quantity": 1,
-					"type": "creature",
-					"scaling": {
-						"mode": "spellLevel",
+					"quantity": "",
+					"type": "creature"
+				},
+				"consumers": {},
+				"rolls": {
+					"Ly0GwAyN2QkV5dBf": {
+						"type": "healing",
+						"default": true,
 						"formula": "1"
 					}
 				},
-				"consumers": {
-					"ebhYxR9NKxUdqid3": {
-						"mode": "variable",
-						"spellLevel": 2,
-						"points": 3,
-						"type": "spell"
-					}
-				},
 				"prompts": {
-					"5OwxYgyKaebM74dU": {
+					"2LQVT7iasECwDqj3": {
+						"type": "generic",
+						"default": true,
+						"label": "Next 3 Rounds",
+						"formula": "1d20"
+					},
+					"luApVv19efqKvjL2": {
 						"type": "effect",
 						"default": true,
-						"effectId": "sQU8HDpxkEceCdQe"
+						"effectId": "l0pWhtSp1kS8lQq9"
 					}
 				}
 			}
 		},
-		"description": "<p>The target gains the ability to walk on walls and upside down on ceilings, as well as a climbing speed equal to its base Speed.</p><p><strong><em>Cast at Higher Levels.</em></strong> You can affect one additional target for each slot level above 2nd.</p>",
+		"description": "<p>A jolt of healing energy flows through the target and it becomes stable.</p>\n<p><em><strong>Rare:&nbsp;</strong></em><strong>Costly Spare the Dying.&nbsp;</strong>For the&nbsp;next 3 rounds, at the start of its turn the target&nbsp;rolls 1d20, regaining 1 hit point on a result of 20.&nbsp;Whether or not it regains any hit points, for the&nbsp;next 24 hours the target is rattled.</p>",
 		"favorite": false,
 		"secretDescription": "",
 		"source": "",
@@ -110,30 +114,27 @@
 		},
 		"classes": [
 			"artificer",
-			"sorcerer",
-			"warlock",
-			"wielder",
-			"wizard"
+			"cleric",
+			"witch"
 		],
 		"components": {
 			"vocalized": true,
 			"seen": true,
-			"material": true
+			"material": false
 		},
-		"concentration": true,
-		"level": 2,
-		"materials": "cobweb and small wooden shoe",
+		"concentration": false,
+		"level": 0,
+		"materials": "",
 		"materialsConsumed": false,
 		"prepared": false,
 		"prerequisite": "",
-		"rare": false,
+		"rare": true,
 		"ritual": false,
 		"schools": {
-			"primary": "transmutation",
+			"primary": "necromancy",
 			"secondary": [
-				"arcane",
-				"movement",
-				"utility"
+				"divine",
+				"healing"
 			]
 		},
 		"schemaVersion": {
@@ -148,5 +149,5 @@
 		}
 	},
 	"folder": null,
-	"_id": "kz3xe6ems34f2ubo"
+	"_id": "3b5jvxp0kdcpfa97"
 }
