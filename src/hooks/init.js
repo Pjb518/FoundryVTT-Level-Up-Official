@@ -63,16 +63,10 @@ import handlePackMigration from '../migration/handlePackMigration';
 
 // Utility functions
 import getDeterministicBonus from '../dice/getDeterministicBonus';
+import * as compendiaIndexFunctions from '../utils/createIndexes';
 
 // Stores
 import { gameSettings } from '../settings/SettingsStore';
-
-// Compendium Sheets
-import DND5ESpellCompendiumSheet from '../apps/DND5ESpellCompendiumSheet';
-import ItemCompendiumSheet from '../apps/ItemCompendiumSheet';
-import ManeuverCompendiumSheet from '../apps/ManeuverCompendiumSheet';
-import MonsterCompendiumSheet from '../apps/MonsterCompendiumSheet';
-import SpellCompendiumSheet from '../apps/SpellCompendiumSheet';
 
 export default function init() {
   CONFIG.A5E = A5E;
@@ -158,15 +152,9 @@ export default function init() {
     settings: {
       store: gameSettings
     },
-    sheetComponents: {
-      DND5ESpellCompendiumSheet,
-      ItemCompendiumSheet,
-      ManeuverCompendiumSheet,
-      MonsterCompendiumSheet,
-      SpellCompendiumSheet
-    },
     utils: {
-      getDeterministicBonus
+      getDeterministicBonus,
+      compendiaIndexFunctions
     }
   };
 
