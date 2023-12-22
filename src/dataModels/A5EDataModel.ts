@@ -9,7 +9,7 @@ export default class A5EDataModel extends foundry.abstract.DataModel {
   /**
    * @override
    */
-  _cleanType(data, options = {}) {
+  _cleanType(data, options: any = {}) {
     options.source = options.source ?? data;
 
     // Clean each field that belongs to the schema
@@ -47,7 +47,7 @@ export default class A5EDataModel extends foundry.abstract.DataModel {
       if (fieldType === fields.SchemaField) {
         const mergedFields = this.mergeSchema(schema[key].fields, template[key].fields);
 
-        Object.values(mergedFields).forEach((field) => { field.parent = undefined; });
+        Object.values(mergedFields).forEach((field: any) => { field.parent = undefined; });
         schema[key] = new fields.SchemaField(mergedFields, mergeOptions);
       }
 

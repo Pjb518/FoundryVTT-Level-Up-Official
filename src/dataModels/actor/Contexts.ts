@@ -1,16 +1,21 @@
-import A5E from '../../config';
-
-export function getAbilitiesBonusContext() {
+export function getAbilitiesBonusContext(type: 'grant' | 'bonus' = 'bonus') {
   const { fields } = foundry.data;
-  return {
-    abilities: new fields.ArrayField(new fields.StringField({ required: true, initial: '' }), {
-      initial: Object.keys(A5E.abilities)
-    }),
+
+  const schema: any = {
     types: new fields.ArrayField(new fields.StringField({ required: true, initial: '' }), {
       initial: ['check', 'save']
     }),
     requiresProficiency: new fields.BooleanField({ required: true, initial: false })
   };
+
+  if (type === 'bonus') {
+    schema.abilities = new fields.ArrayField(
+      new fields.StringField({ required: true, initial: '' }),
+      { initial: [] }
+    );
+  }
+
+  return schema;
 }
 
 export function getAttackBonusContext() {
@@ -22,7 +27,7 @@ export function getDamageBonusContext() {
   return {
     attackTypes: new fields.ArrayField(
       new fields.StringField({ required: true, initial: '' }),
-      { initial: Object.keys(A5E.damageBonusContexts) }
+      { initial: [] }
     ),
     damageTypes: new fields.ArrayField(
       new fields.StringField({ required: true, initial: '' }),
@@ -50,11 +55,20 @@ export function getHealingBonusContext() {
   };
 }
 
-export function getSkillBonusContext() {
+export function getSkillBonusContext(type: 'grant' | 'bonus' = 'bonus') {
   const { fields } = foundry.data;
-  return {
+
+  const schema: any = {
     passiveOnly: new fields.BooleanField({ required: true, initial: false }),
-    requiresProficiency: new fields.BooleanField({ required: true, initial: false }),
-    skills: new fields.ArrayField(new fields.StringField({ required: true, initial: '' }), { initial: [] })
+    requiresProficiency: new fields.BooleanField({ required: true, initial: false })
   };
+
+  if (type === 'bonus') {
+    schema.skills = new fields.ArrayField(
+      new fields.StringField({ required: true, initial: '' }),
+      { initial: [] }
+    );
+  }
+
+  return schema;
 }
