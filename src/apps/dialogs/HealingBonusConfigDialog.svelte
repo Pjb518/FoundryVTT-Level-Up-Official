@@ -1,5 +1,6 @@
 <script>
     import { getContext, createEventDispatcher } from "svelte";
+    import { TJSDocument } from "@typhonjs-fvtt/runtime/svelte/store/fvtt/document";
     import { localize } from "#runtime/svelte/helper";
 
     import updateDocumentDataFromField from "../../utils/updateDocumentDataFromField";
@@ -8,9 +9,10 @@
     import FormSection from "../components/FormSection.svelte";
     import TagGroup from "../components/TagGroup.svelte";
 
-    export let { actor, healingBonusId } = getContext("#external").application;
+    export let { document, bonusID } = getContext("#external").application;
     export let jsonValue = null;
 
+    const actor = new TJSDocument(document);
     const dispatch = createEventDispatcher();
 
     function updateImage() {
@@ -29,7 +31,7 @@
 
     function onUpdateValue(key, value) {
         if (jsonValue === null) {
-            key = `system.bonuses.healing.${healingBonusId}.${key}`;
+            key = `system.bonuses.healing.${bonusID}.${key}`;
             updateDocumentDataFromField($actor, key, value);
             return;
         }
@@ -42,8 +44,7 @@
     }
 
     function getHealingBonus() {
-        if (jsonValue === null)
-            return $actor.system.bonuses.healing[healingBonusId];
+        if (jsonValue === null) return $actor.system.bonuses.healing[bonusID];
 
         try {
             const obj = JSON.parse(jsonValue || '""') ?? {};
@@ -148,6 +149,7 @@
         heading="Contexts"
         hint="The context determines when the healing bonus applies"
         --direction="column"
+        --wrap="nowrap"
     >
         <TagGroup
             heading="A5E.contexts.healingType"
@@ -184,7 +186,6 @@
         height: 100%;
         padding: var(--padding, 0.75rem);
         gap: 0.5rem;
-        overflow: auto;
         background: var(--background, $color-sheet-background);
     }
 

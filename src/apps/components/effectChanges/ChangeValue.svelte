@@ -5,11 +5,11 @@
     import AbilityBonusConfigDialog from "../../dialogs/AbilityBonusConfigDialog.svelte";
     import DamageBonusConfigDialog from "../../dialogs/DamageBonusConfigDialog.svelte";
     import HealingBonusConfigDialog from "../../dialogs/HealingBonusConfigDialog.svelte";
+    import SkillBonusConfigDialog from "../../dialogs/SkillBonusConfigDialog.svelte";
 
     import CustomTagGroup from "../CustomTagGroup.svelte";
     import CheckboxGroup from "../CheckboxGroup.svelte";
     import RadioGroup from "../RadioGroup.svelte";
-    import SkillBonusConfigDialog from "../../dialogs/SkillBonusConfigDialog.svelte";
 
     export let key;
     export let mode;

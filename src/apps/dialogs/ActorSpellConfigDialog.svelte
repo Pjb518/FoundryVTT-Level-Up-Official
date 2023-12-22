@@ -9,9 +9,9 @@
     import FormSection from "../components/FormSection.svelte";
     import RadioGroup from "../components/RadioGroup.svelte";
 
-    export let { actorDocument, appId } = getContext("#external").application;
+    export let { document, appId } = getContext("#external").application;
 
-    const actor = new TJSDocument(actorDocument);
+    const actor = new TJSDocument(document);
     const { abilityAbbreviations, spellLevels } = CONFIG.A5E;
 
     $: flags = $actor.flags.a5e;
@@ -27,7 +27,7 @@
                 updateDocumentDataFromField(
                     $actor,
                     "system.attributes.spellcasting",
-                    event.detail
+                    event.detail,
                 )}
         />
     </FormSection>
@@ -43,7 +43,7 @@
                     updateDocumentDataFromField(
                         $actor,
                         target.name,
-                        target.value
+                        target.value,
                     )}
             />
         </div>
@@ -57,7 +57,7 @@
                 updateDocumentDataFromField(
                     $actor,
                     "flags.a5e.showSpellSlots",
-                    detail
+                    detail,
                 );
             }}
         />
@@ -69,7 +69,7 @@
                 updateDocumentDataFromField(
                     $actor,
                     "flags.a5e.showSpellPoints",
-                    detail
+                    detail,
                 );
             }}
         />
@@ -84,7 +84,7 @@
                     updateDocumentDataFromField(
                         $actor,
                         "flags.a5e.restoreSpellPointsOnShortRest",
-                        detail
+                        detail,
                     );
                 }}
             />
@@ -99,7 +99,7 @@
                 updateDocumentDataFromField(
                     $actor,
                     "flags.a5e.restoreSpellSlotsOnShortRest",
-                    detail
+                    detail,
                 );
             }}
         />

@@ -9,14 +9,8 @@
     import updateDocumentDataFromField from "../../utils/updateDocumentDataFromField";
 
     export let { application } = getContext("#external");
-    export let {
-        actorDocument,
-        appId,
-        max,
-        submitDialog,
-        dialogTools,
-        dialogHint,
-    } = getContext("#external").application;
+    export let { document, appId, max, submitDialog, dialogTools, dialogHint } =
+        getContext("#external").application;
 
     function updateFunction() {
         const proficiencies = [
@@ -39,7 +33,7 @@
         updateDocumentDataFromField(
             $actor,
             "system.proficiencies.tools",
-            proficiencies
+            proficiencies,
         );
     }
 
@@ -49,7 +43,7 @@
         });
     }
 
-    const actor = new TJSDocument(actorDocument);
+    const actor = new TJSDocument(document);
     const { A5E } = CONFIG;
 
     const {
@@ -87,7 +81,7 @@
             miscellaneous: [],
             vehicles: [],
             other: [],
-        }
+        },
     );
 
     $: otherProficiencies = toolProficiencies.other.join("; ");

@@ -14,7 +14,7 @@
     import prepareAbilityBonuses from "../dataPreparationHelpers/prepareAbilityBonuses";
     import prepareSkillBonuses from "../dataPreparationHelpers/prepareSkillBonuses";
 
-    export let { actorDocument, dialog, skillKey, options } =
+    export let { document, dialog, skillKey, options } =
         getContext("#external").application;
 
     const rollModeOptions = Object.entries(CONFIG.A5E.rollModes).map(
@@ -24,7 +24,7 @@
         ],
     );
 
-    const actor = new TJSDocument(actorDocument);
+    const actor = new TJSDocument(document);
     const appId = dialog.id;
 
     const localizedSkill = localize(CONFIG.A5E.skills[skillKey]);

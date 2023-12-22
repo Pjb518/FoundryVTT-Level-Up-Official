@@ -1,35 +1,21 @@
-import { localize } from '#runtime/svelte/helper';
 import { TJSDialog } from '#runtime/svelte/application';
-
-import SavingThrowRollDialogComponent from '../SavingThrowRollDialog.svelte';
 
 /**
  * Provides a dialog for creating documents that by default is modal and not draggable.
  */
-export default class SavingThrowRollDialog extends TJSDialog {
-  constructor(actorDocument, abilityKey, options) {
-    function setTitle() {
-      if (options?.saveType === 'death') {
-        return localize(
-          'A5E.DeathSavingThrowPromptTitle',
-          { name: actorDocument.name }
-        );
-      }
-      return localize(
-        'A5E.SavingThrowPromptTitle',
-        { name: actorDocument.name, ability: localize(CONFIG.A5E.abilities[abilityKey]) }
-      );
-    }
-
+export default class GenericRollDialog extends TJSDialog {
+  constructor(document, title, component, data = {}, rollOptions = {}, dialogOptions = {}) {
     super({
-      title: setTitle(),
+      title,
       content: {
-        class: SavingThrowRollDialogComponent,
-        props: { actorDocument, abilityKey, options }
+        class: component,
+        props: { document, ...data, options: rollOptions }
       }
     }, {
       classes: ['a5e-sheet'],
-      width: 420
+      height: dialogOptions.height ?? 'auto',
+      width: dialogOptions.width ?? 420,
+      resizable: dialogOptions.resizable ?? false
     });
 
     this.data.content.props.dialog = this;

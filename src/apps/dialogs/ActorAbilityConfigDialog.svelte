@@ -12,14 +12,14 @@
     import editNote from "../handlers/editNote";
     import updateDocumentDataFromField from "../../utils/updateDocumentDataFromField";
 
-    export let { actorDocument, appId, abilityKey } =
+    export let { document, appId, abilityKey } =
         getContext("#external").application;
 
     function updateCurrentTab(event) {
         currentTab = tabs[event.detail];
     }
 
-    const actor = new TJSDocument(actorDocument);
+    const actor = new TJSDocument(document);
 
     const tabs = [
         {

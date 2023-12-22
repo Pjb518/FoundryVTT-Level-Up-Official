@@ -1,5 +1,6 @@
 <script>
     import { getContext } from "svelte";
+    import { TJSDocument } from "@typhonjs-fvtt/runtime/svelte/store/fvtt/document";
 
     import Checkbox from "../components/Checkbox.svelte";
     import FormSection from "../components/FormSection.svelte";
@@ -8,9 +9,11 @@
     import updateDocumentDataFromField from "../../utils/updateDocumentDataFromField";
     import handleDeterministicInput from "../../utils/handleDeterministicInput";
 
-    export let { actor, source, appId } = getContext("#external").application;
+    export let { document, source } = getContext("#external").application;
 
+    const actor = new TJSDocument(document);
     const recoveryOptions = Object.entries(CONFIG.A5E.resourceRecoveryOptions);
+
     $: resource = $actor.system.resources[source];
 </script>
 
@@ -24,7 +27,7 @@
                 updateDocumentDataFromField(
                     $actor,
                     `system.resources.${source}.label`,
-                    target.value
+                    target.value,
                 )}
         />
     </FormSection>
@@ -40,7 +43,7 @@
                     updateDocumentDataFromField(
                         $actor,
                         `system.resources.${source}.max`,
-                        target.value
+                        target.value,
                     );
                 }}
             />
@@ -55,7 +58,7 @@
                 updateDocumentDataFromField(
                     $actor,
                     `system.resources.${source}.hideMax`,
-                    detail
+                    detail,
                 );
             }}
         />
@@ -69,7 +72,7 @@
                 updateDocumentDataFromField(
                     $actor,
                     `system.resources.${source}.per`,
-                    event.detail
+                    event.detail,
                 )}
         />
     </FormSection>
@@ -93,7 +96,7 @@
                         updateDocumentDataFromField(
                             $actor,
                             `system.resources.${source}.recharge.formula`,
-                            target.value
+                            target.value,
                         );
                     }}
                 />
@@ -113,7 +116,7 @@
                         updateDocumentDataFromField(
                             $actor,
                             `system.resources.${source}.recharge.threshold`,
-                            Number(target.value)
+                            Number(target.value),
                         )}
                 />
             </FormSection>

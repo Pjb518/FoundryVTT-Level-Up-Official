@@ -8,9 +8,9 @@
 
     import updateDocumentDataFromField from "../../utils/updateDocumentDataFromField";
 
-    export let { actorDocument, appId } = getContext("#external").application;
+    export let { document, appId } = getContext("#external").application;
 
-    const actor = new TJSDocument(actorDocument);
+    const actor = new TJSDocument(document);
     const { A5E } = CONFIG;
 
     const headings = {
@@ -41,7 +41,7 @@
                             updateDocumentDataFromField(
                                 $actor,
                                 target.name,
-                                Math.max(Number(target.value), 0)
+                                Math.max(Number(target.value), 0),
                             );
                         }}
                     />
@@ -54,7 +54,7 @@
                         updateDocumentDataFromField(
                             $actor,
                             target.name,
-                            target.value
+                            target.value,
                         )}
                 >
                     {#each Object.entries(A5E.distanceUnits) as [key, name]}
@@ -76,7 +76,7 @@
                             updateDocumentDataFromField(
                                 $actor,
                                 "system.attributes.movement.traits.hover",
-                                detail
+                                detail,
                             );
                         }}
                     />

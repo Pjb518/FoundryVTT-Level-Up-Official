@@ -1,7 +1,7 @@
 import { SvelteApplication } from '#runtime/svelte/application';
 
 import CompendiumSheetComponent from './sheets/CompendiumSheet.svelte';
-import SpellFilterStore from "../stores/SpellFilterStore";
+import SpellFilterStore from '../stores/SpellFilterStore';
 
 export default class SpellCompendiumSheet extends SvelteApplication {
   constructor(compendiumCollection, options = {}) {
@@ -16,6 +16,7 @@ export default class SpellCompendiumSheet extends SvelteApplication {
         class: CompendiumSheetComponent,
         props: {
           compendiumType: 'spell',
+          customImporter: options.importer ?? null,
           document: null,
           filterStore: SpellFilterStore
         }

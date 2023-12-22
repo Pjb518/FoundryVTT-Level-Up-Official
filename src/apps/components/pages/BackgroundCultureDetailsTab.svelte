@@ -46,7 +46,7 @@
                     updateDocumentDataFromField(
                         $item,
                         "system.includesASI",
-                        detail
+                        detail,
                     );
                 }}
             />
@@ -65,7 +65,7 @@
                         updateDocumentDataFromField(
                             $item,
                             "system.defaultASI",
-                            detail
+                            detail,
                         );
                     }}
                 />
@@ -90,7 +90,7 @@
                     updateDocumentDataFromField(
                         $item,
                         "system.proficiencies.languages.fixed",
-                        detail
+                        detail,
                     )}
             />
         </section>
@@ -110,16 +110,14 @@
                     updateDocumentDataFromField(
                         $item,
                         "system.proficiencies.languages.options",
-                        detail
+                        detail,
                     )}
             />
         </section>
 
         <section class="u-flex u-flex-col u-gap-sm">
             <h3 class="u-text-bold u-text-sm">
-                {localize("A5E.advancementSheet.additionalOptions", {
-                    type: localize("A5E.Languages"),
-                })}
+                {localize("A5E.advancementSheet.count")}
             </h3>
 
             <input
@@ -131,7 +129,7 @@
                     updateDocumentDataFromField(
                         $item,
                         target.name,
-                        parseInt(target.value, 10) ?? 0
+                        parseInt(target.value, 10) ?? 0,
                     )}
             />
         </section>
@@ -154,7 +152,7 @@
                     updateDocumentDataFromField(
                         $item,
                         "system.proficiencies.skills.fixed",
-                        detail
+                        detail,
                     )}
             />
         </section>
@@ -174,16 +172,14 @@
                     updateDocumentDataFromField(
                         $item,
                         "system.proficiencies.skills.options",
-                        detail
+                        detail,
                     )}
             />
         </section>
 
         <section class="u-flex u-flex-col u-gap-sm">
             <h3 class="u-text-bold u-text-sm">
-                {localize("A5E.advancementSheet.additionalOptions", {
-                    type: localize("A5E.SkillPlural"),
-                })}
+                {localize("A5E.advancementSheet.count")}
             </h3>
 
             <input
@@ -195,7 +191,7 @@
                     updateDocumentDataFromField(
                         $item,
                         target.name,
-                        parseInt(target.value, 10) ?? 0
+                        parseInt(target.value, 10) ?? 0,
                     )}
             />
         </section>
@@ -218,7 +214,7 @@
                     updateDocumentDataFromField(
                         $item,
                         "system.proficiencies.armor.fixed",
-                        detail
+                        detail,
                     )}
             />
         </section>
@@ -238,16 +234,14 @@
                     updateDocumentDataFromField(
                         $item,
                         "system.proficiencies.armor.options",
-                        detail
+                        detail,
                     )}
             />
         </section>
 
         <section class="u-flex u-flex-col u-gap-sm">
             <h3 class="u-text-bold u-text-sm">
-                {localize("A5E.advancementSheet.additionalOptions", {
-                    type: localize("A5E.ArmorPlural"),
-                })}
+                {localize("A5E.advancementSheet.count")}
             </h3>
 
             <input
@@ -259,7 +253,7 @@
                     updateDocumentDataFromField(
                         $item,
                         target.name,
-                        parseInt(target.value, 10) ?? 0
+                        parseInt(target.value, 10) ?? 0,
                     )}
             />
         </section>
@@ -283,7 +277,7 @@
                     updateDocumentDataFromField(
                         $item,
                         target.name,
-                        target.value
+                        target.value,
                     )}
             />
         </section>
@@ -302,7 +296,7 @@
                     updateDocumentDataFromField(
                         $item,
                         target.name,
-                        parseInt(target.value, 10) ?? 0
+                        parseInt(target.value, 10) ?? 0,
                     )}
             />
         </section>
@@ -326,7 +320,7 @@
                     updateDocumentDataFromField(
                         $item,
                         target.name,
-                        target.value
+                        target.value,
                     )}
             />
         </section>
@@ -345,7 +339,7 @@
                     updateDocumentDataFromField(
                         $item,
                         target.name,
-                        parseInt(target.value, 10) ?? 0
+                        parseInt(target.value, 10) ?? 0,
                     )}
             />
         </section>

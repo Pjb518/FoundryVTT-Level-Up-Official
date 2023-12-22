@@ -1,5 +1,6 @@
 <script>
     import { getContext, createEventDispatcher } from "svelte";
+    import { TJSDocument } from "@typhonjs-fvtt/runtime/svelte/store/fvtt/document";
 
     import updateDocumentDataFromField from "../../utils/updateDocumentDataFromField";
 
@@ -7,9 +8,10 @@
     import FormSection from "../components/FormSection.svelte";
     import TagGroup from "../components/TagGroup.svelte";
 
-    export let { actor, abilityBonusId } = getContext("#external").application;
+    export let { document, bonusID } = getContext("#external").application;
     export let jsonValue = null;
 
+    const actor = new TJSDocument(document);
     const dispatch = createEventDispatcher();
 
     function updateImage() {
@@ -28,7 +30,7 @@
 
     function onUpdateValue(key, value) {
         if (jsonValue === null) {
-            key = `system.bonuses.abilities.${abilityBonusId}.${key}`;
+            key = `system.bonuses.abilities.${bonusID}.${key}`;
             updateDocumentDataFromField($actor, key, value);
             return;
         }
@@ -41,8 +43,7 @@
     }
 
     function getAbilityBonus() {
-        if (jsonValue === null)
-            return $actor.system.bonuses.abilities[abilityBonusId];
+        if (jsonValue === null) return $actor.system.bonuses.abilities[bonusID];
 
         try {
             const obj = JSON.parse(jsonValue || '""') ?? {};
@@ -117,6 +118,7 @@
         heading="Contexts"
         hint="The context determines when the ability bonus applies"
         --direction="column"
+        --wrap="nowrap"
     >
         <TagGroup
             heading="A5E.contexts.abilities"
@@ -163,7 +165,6 @@
         height: 100%;
         padding: var(--padding, 0.75rem);
         gap: 0.5rem;
-        overflow: auto;
         background: var(--background, $color-sheet-background);
     }
 

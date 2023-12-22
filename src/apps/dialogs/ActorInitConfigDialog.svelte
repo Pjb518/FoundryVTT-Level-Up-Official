@@ -4,18 +4,36 @@
 
     import ExpertiseDiePicker from "../components/ExpertiseDiePicker.svelte";
     import FormSection from "../components/FormSection.svelte";
+    import RadioGroup from "../components/RadioGroup.svelte";
 
+    import prepareAbilityOptions from "../dataPreparationHelpers/prepareAbilityOptions";
     import updateDocumentDataFromField from "../../utils/updateDocumentDataFromField";
 
-    export let { actorDocument, appId } = getContext("#external").application;
+    export let { document, appId } = getContext("#external").application;
 
-    const actor = new TJSDocument(actorDocument);
+    const actor = new TJSDocument(document);
+    const abilityOptions = prepareAbilityOptions();
 
     $: initiative = $actor.system.attributes.initiative;
 </script>
 
 <article>
     <div class="u-flex u-flex-col u-gap-md">
+        <FormSection heading="A5E.AbilityScore">
+            <RadioGroup
+                optionStyles="min-width:2rem; text-align: center;"
+                options={abilityOptions}
+                selected={$actor.system.attributes.initiative.ability}
+                allowDeselect={false}
+                on:updateSelection={(event) =>
+                    updateDocumentDataFromField(
+                        $actor,
+                        "system.attributes.initiative.ability",
+                        event.detail,
+                    )}
+            />
+        </FormSection>
+
         <FormSection heading="A5E.ExpertiseDie">
             <ExpertiseDiePicker
                 selected={initiative.expertiseDice}

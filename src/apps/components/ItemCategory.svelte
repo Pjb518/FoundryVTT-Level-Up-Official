@@ -69,12 +69,12 @@
 
     $: headingTemplateConfiguration = getHeadingTemplateConfiguration(
         showUses,
-        showQuantity
+        showQuantity,
     );
 
     $: itemTemplateConfiguration = getItemTemplateConfiguration(
         showUses,
-        showQuantity
+        showQuantity,
     );
 </script>
 

@@ -8,6 +8,17 @@ import getSummaryData from '../../utils/summaries/getSummaryData';
  * @extends {Item}
  */
 export default class BaseItemA5e extends Item {
+  constructor(...args) {
+    super(...args);
+
+    this.dialogs ??= {
+      actions: {},
+      areaScaling: {},
+      rollScaling: {},
+      targetScaling: {}
+    };
+  }
+
   // *****************************************************************************************
   prepareBaseData() { }
 

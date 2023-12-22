@@ -63,7 +63,7 @@
 
         return event.dataTransfer.setData(
             "text/plain",
-            JSON.stringify(dragData)
+            JSON.stringify(dragData),
         );
     }
 
@@ -84,7 +84,7 @@
                     secrets: item.isOwner,
                     relativeTo: item,
                     rollData: $actor?.getRollData() ?? {},
-                }
+                },
             )) ?? localize("A5E.NoDescription");
 
         return data;
@@ -99,7 +99,7 @@
             acc.push([k, i]);
             return acc;
         },
-        []
+        [],
     );
 
     $: description = getDescription(item)
@@ -113,7 +113,7 @@
     $: showActionList = determineActionListVisibility(
         action,
         item,
-        sheetIsLocked
+        sheetIsLocked,
     );
 
     $: summaryData = getSummaryData(item, action);

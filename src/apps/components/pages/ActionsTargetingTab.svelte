@@ -2,7 +2,7 @@
     import { getContext } from "svelte";
     import { localize } from "#runtime/svelte/helper";
 
-    import GenericScalingConfigDialog from "../../dialogs/initializers/GenericScalingConfigDialog";
+    import GenericConfigDialog from "../../dialogs/initializers/GenericConfigDialog";
 
     import getOrdinalNumber from "../../../utils/getOrdinalNumber";
     import updateAssociatedValues from "../../handlers/updateAssociatedValues";
@@ -18,13 +18,19 @@
     const { A5E } = CONFIG;
 
     function onClickTargetScalingButton() {
-        const title = `${$item.name} Target Scaling Configuration`;
-        const dialog = new GenericScalingConfigDialog(
-            $item,
-            actionId,
-            title,
-            TargetScalingDialog
-        );
+        let dialog = $item.dialogs.targetScaling[actionId];
+
+        if (!dialog) {
+            $item.dialogs.targetScaling[actionId] = new GenericConfigDialog(
+                $item,
+                `${$item.name} Target Scaling Configuration`,
+                TargetScalingDialog,
+                { actionId },
+            );
+
+            dialog = $item.dialogs.targetScaling[actionId];
+        }
+
         dialog.render(true);
     }
 
@@ -54,7 +60,7 @@
                 $item,
                 `system.actions.${actionId}.target.type`,
                 selectedOption,
-                `system.actions.${actionId}.target.quantity`
+                `system.actions.${actionId}.target.quantity`,
             );
         }
     }
@@ -104,7 +110,7 @@
                             updateDocumentDataFromField(
                                 $item,
                                 `system.actions.${actionId}.target.quantity`,
-                                Number(target.value || 0)
+                                Number(target.value || 0),
                             )}
                         on:click={({ target }) => target.select()}
                     />
@@ -165,7 +171,7 @@
                                         A5E.targetTypesPlural[
                                             action?.target?.type
                                         ],
-                                }
+                                },
                             )}
                         {:else}
                             {localize(
@@ -179,7 +185,7 @@
                                         A5E.targetTypesPlural[
                                             action?.target?.type
                                         ],
-                                }
+                                },
                             )}
                         {/if}
                     </small>
@@ -195,7 +201,7 @@
                                         A5E.targetTypesPlural[
                                             action?.target?.type
                                         ],
-                                }
+                                },
                             )}
                         {:else}
                             {localize(
@@ -208,7 +214,7 @@
                                         A5E.targetTypesPlural[
                                             action?.target?.type
                                         ],
-                                }
+                                },
                             )}
                         {/if}
                     </small>
@@ -231,7 +237,7 @@
                                         A5E.targetTypesPlural[
                                             action?.target?.type
                                         ],
-                                }
+                                },
                             )}
                         {/if}
                     </small>

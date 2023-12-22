@@ -9,7 +9,9 @@ import MigrationRunnerBase from '../../migration/MigrationRunnerBase';
 import RestManager from '../../managers/RestManager';
 import RollPreparationManager from '../../managers/RollPreparationManager';
 
+import AbilityBonusConfigDialog from '../../apps/dialogs/AbilityBonusConfigDialog.svelte';
 import AbilityCheckConfigDialog from '../../apps/dialogs/ActorAbilityConfigDialog.svelte';
+import AbilityCheckRollDialog from '../../apps/dialogs/AbilityCheckRollDialog.svelte';
 import ActorHpConfigDialog from '../../apps/dialogs/ActorHpConfigDialog.svelte';
 import ActorInitConfigDialog from '../../apps/dialogs/ActorInitConfigDialog.svelte';
 import ActorManueverConfigDialog from '../../apps/dialogs/ActorManueverConfigDialog.svelte';
@@ -19,25 +21,24 @@ import ArmorClassConfigDialog from '../../apps/dialogs/ArmorClassConfigDialog.sv
 import ConditionImmunitiesConfigDialog from '../../apps/dialogs/ConditionImmunitiesConfigDialog.svelte';
 import CreatureSizeConfigDialog from '../../apps/dialogs/CreatureSizeConfigDialog.svelte';
 import CreatureTypeConfigDialog from '../../apps/dialogs/CreatureTypeConfigDialog.svelte';
+import DamageBonusConfigDialog from '../../apps/dialogs/DamageBonusConfigDialog.svelte';
 import DamageImmunitiesConfigDialog from '../../apps/dialogs/DamageImmunitiesConfigDialog.svelte';
 import DamageResistancesConfigDialog from '../../apps/dialogs/DamageResistancesConfigDialog.svelte';
 import DamageVulnerabilitiesConfigDialog from '../../apps/dialogs/DamageVulnerabilitiesConfigDialog.svelte';
+import HealingBonusConfigDialog from '../../apps/dialogs/HealingBonusConfigDialog.svelte';
 import LanguagesConfigDialog from '../../apps/dialogs/LanguagesConfigDialog.svelte';
 import MovementConfigDialog from '../../apps/dialogs/MovementConfigDialog.svelte';
 import RestDialog from '../../apps/dialogs/RestDialog.svelte';
+import SavingThrowRollDialog from '../../apps/dialogs/SavingThrowRollDialog.svelte';
 import SensesConfigDialog from '../../apps/dialogs/SensesConfigDialog.svelte';
+import SkillBonusConfigDialog from '../../apps/dialogs/SkillBonusConfigDialog.svelte';
+import SkillCheckRollDialog from '../../apps/dialogs/SkillCheckRollDialog.svelte';
 import SkillConfigDialog from '../../apps/dialogs/SkillConfigDialog.svelte';
 import ToolProfConfigDialog from '../../apps/dialogs/ToolProfConfigDialog.svelte';
 import WeaponProfConfigDialog from '../../apps/dialogs/WeaponProfConfigDialog.svelte';
 
-import AbilityBonusConfigDialog from '../../apps/dialogs/initializers/AbilityBonusConfigDialog';
-import AbilityCheckRollDialog from '../../apps/dialogs/initializers/AbilityCheckRollDialog';
-import DamageBonusConfigDialog from '../../apps/dialogs/initializers/DamageBonusConfigDialog';
 import GenericConfigDialog from '../../apps/dialogs/initializers/GenericConfigDialog';
-import HealingBonusConfigDialog from '../../apps/dialogs/initializers/HealingBonusConfigDialog';
-import SavingThrowRollDialog from '../../apps/dialogs/initializers/SavingThrowRollDialog';
-import SkillBonusConfigDialog from '../../apps/dialogs/initializers/SkillBonusConfigDialog';
-import SkillCheckRollDialog from '../../apps/dialogs/initializers/SkillCheckRollDialog';
+import GenericRollDialog from '../../apps/dialogs/initializers/GenericRollDialog';
 
 import automateHpConditions from '../activeEffect/utils/automateHpConditions';
 import getDeterministicBonus from '../../dice/getDeterministicBonus';
@@ -53,18 +54,23 @@ export default class ActorA5e extends Actor {
 
     this.dialogs ??= {
       abilities: {},
+      bonuses: {},
+      genericResources: {},
       skills: {},
       notes: {}
     };
 
     this.#configDialogMap = {
       ability: AbilityCheckConfigDialog,
+      abilityBonus: AbilityBonusConfigDialog,
       armor: ArmorProfConfigDialog,
       armorClass: ArmorClassConfigDialog,
       conditionImmunities: ConditionImmunitiesConfigDialog,
+      damageBonus: DamageBonusConfigDialog,
       damageImmunities: DamageImmunitiesConfigDialog,
       damageResistances: DamageResistancesConfigDialog,
       damageVulnerabilities: DamageVulnerabilitiesConfigDialog,
+      healingBonus: HealingBonusConfigDialog,
       health: ActorHpConfigDialog,
       initiative: ActorInitConfigDialog,
       languages: LanguagesConfigDialog,
@@ -73,6 +79,7 @@ export default class ActorA5e extends Actor {
       senses: SensesConfigDialog,
       size: CreatureSizeConfigDialog,
       skill: SkillConfigDialog,
+      skillBonus: SkillBonusConfigDialog,
       spells: ActorSpellConfigDialog,
       tools: ToolProfConfigDialog,
       types: CreatureTypeConfigDialog,
@@ -737,6 +744,9 @@ export default class ActorA5e extends Actor {
 
     if (key === 'ability') dialog = this.dialogs.abilities[data.abilityKey];
     else if (key === 'skill') dialog = this.dialogs.skills[data.skillKey];
+    else if (['abilityBonus', 'damageBonus', 'healingBonus', 'skillBonus'].includes(key)) {
+      dialog = this.dialogs.bonuses[data.bonusID];
+    }
     else dialog = this.dialogs[key];
 
     if (!dialog) {
@@ -744,6 +754,9 @@ export default class ActorA5e extends Actor {
 
       if (key === 'ability') this.dialogs.abilities[data.abilityKey] = dialog;
       else if (key === 'skill') this.dialogs.skills[data.skillKey] = dialog;
+      else if (['abilityBonus', 'damageBonus', 'healingBonus', 'skillBonus'].includes(key)) {
+        this.dialogs.bonuses[data.bonusID] = dialog;
+      }
       else this.dialogs[key] = dialog;
     }
 
@@ -774,17 +787,18 @@ export default class ActorA5e extends Actor {
     this.#configure('types', title, data, options);
   }
 
-  configureBonus(id, type = 'damage') {
-    let DialogComponent;
-
-    if (type === 'abilities') DialogComponent = AbilityBonusConfigDialog;
-    else if (type === 'damage') DialogComponent = DamageBonusConfigDialog;
-    else if (type === 'healing') DialogComponent = HealingBonusConfigDialog;
-    else if (type === 'skills') DialogComponent = SkillBonusConfigDialog;
-    else return;
-
-    const dialog = new DialogComponent(this, id);
-    dialog.render(true);
+  configureBonus(bonusID, type = 'damage') {
+    if (type === 'abilities') {
+      this.#configure('abilityBonus', `${this.name} Ability Bonus Configuration`, { bonusID });
+    } else if (type === 'damage') {
+      this.#configure('damageBonus', `${this.name} Damage Bonus Configuration`, { bonusID });
+    }
+    else if (type === 'healing') {
+      this.#configure('healingBonus', `${this.name} Healing Bonus Configuration`, { bonusID });
+    }
+    else if (type === 'skills') {
+      this.#configure('skillBonus', `${this.name} Skill Bonus Configuration`, { bonusID });
+    }
   }
 
   configureArmorClass(data = {}, options = {}) {
@@ -815,7 +829,7 @@ export default class ActorA5e extends Actor {
 
   configureInitiative(data = {}, options = {}) {
     const title = localize('A5E.InitiativeConfigurationPrompt', { name: this.name });
-    this.#configure('initiative', title, data, options);
+    this.#configure('initiative', title, data, { ...options, width: options.width ?? 432 });
   }
 
   configureLanguages(data = {}, options = {}) {
@@ -869,9 +883,9 @@ export default class ActorA5e extends Actor {
 
   async deleteBonus(id, type = 'damage') {
     // Close dialog
-    const dialog = game.a5e.dialogs.bonuses?.[type]?.[id];
+    const dialog = this.dialogs.bonuses[id];
     await dialog?.close();
-    delete game.a5e.dialogs.bonuses?.[type]?.[id];
+    delete this.dialogs.bonuses[id];
 
     await this.update({
       [`system.bonuses.${type}`]: {
@@ -1040,8 +1054,21 @@ export default class ActorA5e extends Actor {
     return { expertiseDie, rollFormula, visibilityMode: options.visibilityMode ?? null };
   }
 
-  async #showAbilityCheckPrompt(abilityKey, options) {
-    const dialog = new AbilityCheckRollDialog(this, abilityKey, options);
+  async #showAbilityCheckPrompt(abilityKey, rollOptions = {}, dialogOptions = {}) {
+    const title = localize(
+      'A5E.AbilityCheckPromptTitle',
+      { name: this.name, ability: localize(CONFIG.A5E.abilities[abilityKey]) }
+    );
+
+    const dialog = new GenericRollDialog(
+      this,
+      title,
+      AbilityCheckRollDialog,
+      { abilityKey },
+      rollOptions,
+      dialogOptions
+    );
+
     await dialog.render(true);
     const dialogData = await dialog.promise;
 
@@ -1201,8 +1228,30 @@ export default class ActorA5e extends Actor {
     return { expertiseDie, rollFormula, visibilityMode: options.visibilityMode ?? null };
   }
 
-  async #showSavingThrowPrompt(abilityKey, options) {
-    const dialog = new SavingThrowRollDialog(this, abilityKey, options);
+  async #showSavingThrowPrompt(abilityKey, rollOptions = {}, dialogOptions = {}) {
+    let title;
+
+    if (rollOptions.saveType === 'death') {
+      title = localize(
+        'A5E.DeathSavingThrowPromptTitle',
+        { name: this.name }
+      );
+    } else {
+      title = localize(
+        'A5E.SavingThrowPromptTitle',
+        { name: this.name, ability: localize(CONFIG.A5E.abilities[abilityKey]) }
+      );
+    }
+
+    const dialog = new GenericRollDialog(
+      this,
+      title,
+      SavingThrowRollDialog,
+      { abilityKey },
+      rollOptions,
+      dialogOptions
+    );
+
     await dialog.render(true);
     const dialogData = await dialog.promise;
 
@@ -1305,8 +1354,21 @@ export default class ActorA5e extends Actor {
     };
   }
 
-  async #showSkillCheckPrompt(skillKey, options) {
-    const dialog = new SkillCheckRollDialog(this, skillKey, options);
+  async #showSkillCheckPrompt(skillKey, rollOptions = {}, dialogOptions = {}) {
+    const title = localize(
+      'A5E.SkillPromptTitle',
+      { name: this.name, skill: localize(CONFIG.A5E.skills[skillKey]) }
+    );
+
+    const dialog = new GenericRollDialog(
+      this,
+      title,
+      SkillCheckRollDialog,
+      { skillKey },
+      rollOptions,
+      dialogOptions
+    );
+
     await dialog.render(true);
     const dialogData = await dialog.promise;
 

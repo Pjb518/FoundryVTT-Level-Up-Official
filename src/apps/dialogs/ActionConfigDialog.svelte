@@ -1,7 +1,6 @@
 <svelte:options accessors={true} />
 
 <script>
-    import { TJSDocument } from "#runtime/svelte/store/fvtt/document";
     import { getContext, setContext } from "svelte";
 
     import ActionsActivationTab from "../components/pages/ActionsActivationTab.svelte";
@@ -18,10 +17,10 @@
     import editDocumentImage from "../handlers/editDocumentImage";
     import updateDocumentDataFromField from "../../utils/updateDocumentDataFromField";
 
-    export let { actionId, dialog, itemDocument } =
+    export let { document, actionId, dialog } =
         getContext("#external").application;
 
-    const item = new ItemDocument(itemDocument);
+    const item = new ItemDocument(document);
 
     function updateCurrentTab(event) {
         currentTab = tabs[event.detail];
@@ -91,7 +90,7 @@
                 updateDocumentDataFromField(
                     $item,
                     `system.actions.${actionId}.name`,
-                    target.value
+                    target.value,
                 )}
         />
     </header>

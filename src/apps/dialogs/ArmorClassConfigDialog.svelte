@@ -8,9 +8,9 @@
     import getACComponents from "../../utils/getACComponents";
     import updateDocumentDataFromField from "../../utils/updateDocumentDataFromField";
 
-    export let { actorDocument, appId } = getContext("#external").application;
+    export let { document, appId } = getContext("#external").application;
 
-    const actor = new TJSDocument(actorDocument);
+    const actor = new TJSDocument(document);
 
     $: acFormula = getACComponents($actor);
 </script>
@@ -31,7 +31,7 @@
                         updateDocumentDataFromField(
                             $actor,
                             target.name,
-                            target.value
+                            target.value,
                         )}
                 />
             </div>
