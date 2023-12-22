@@ -1,15 +1,3 @@
-import * as GrantCls from '../dataModels/item/Grants';
-
-export const grantsClassMappings = {
-  ability: GrantCls.AbilityGrant,
-  movement: GrantCls.MovementGrant,
-  proficiency: GrantCls.ProficiencyGrant,
-  skill: GrantCls.SkillGrant,
-  trait: GrantCls.TraitGrant,
-  vision: GrantCls.VisionGrant,
-  default: GrantCls.BaseGrant
-};
-
 export const grantTypes = {
   ability: {
     heading: 'A5E.grants.ability',
@@ -44,8 +32,6 @@ export const grantTypes = {
 };
 
 export default function registerGrantsConfig(A5E) {
-  A5E.grantsClassMappings = grantsClassMappings;
-
   A5E.itemGrants = {
     ability: 'A5E.Ability',
     movement: 'A5E.Movement',

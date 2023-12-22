@@ -1,6 +1,8 @@
 /* eslint-disable max-classes-per-file */
 
 import A5EDataModel from '../A5EDataModel';
+// eslint-disable-next-line import/no-cycle
+import { getAbilitiesBonusContext, getSkillBonusContext } from '../actor/Contexts';
 
 export class BaseGrant extends A5EDataModel {
   #component = null;
@@ -42,7 +44,8 @@ export class AbilityGrant extends BaseGrant {
         ),
         total: new fields.NumberField({ required: true, initial: 0, integer: true })
       }),
-      bonus: new fields.StringField({ required: true, initial: '' })
+      bonus: new fields.StringField({ required: true, initial: '' }),
+      context: new fields.SchemaField(getAbilitiesBonusContext())
     });
   }
 
@@ -152,7 +155,8 @@ export class SkillGrant extends BaseGrant {
         ),
         total: new fields.NumberField({ required: true, initial: 0, integer: true })
       }),
-      bonus: new fields.StringField({ required: true, initial: 0 })
+      bonus: new fields.StringField({ required: true, initial: 0 }),
+      context: new fields.SchemaField(getSkillBonusContext())
     });
   }
 

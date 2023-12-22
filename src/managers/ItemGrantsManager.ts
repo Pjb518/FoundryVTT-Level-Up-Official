@@ -1,8 +1,18 @@
 import type { Grant } from 'types/grants';
-import { grantsClassMappings } from '../config/registerGrantsConfig';
+import * as GrantCls from '../dataModels/item/Grants';
 
 export default class ItemGrantsManager extends Map<string, Grant> {
   #item: any;
+
+  #grantsClassMappings = {
+    ability: GrantCls.AbilityGrant,
+    movement: GrantCls.MovementGrant,
+    proficiency: GrantCls.ProficiencyGrant,
+    skill: GrantCls.SkillGrant,
+    trait: GrantCls.TraitGrant,
+    vision: GrantCls.VisionGrant,
+    default: GrantCls.BaseGrant
+  };
 
   constructor(item: any) {
     super();
@@ -11,12 +21,12 @@ export default class ItemGrantsManager extends Map<string, Grant> {
     Object.entries(this.#item.system.grants ?? {}).forEach(([id, data]: Array<any>) => {
       data._id = id;
 
-      let Cls = grantsClassMappings[data.grantType];
+      let Cls = this.#grantsClassMappings[data.grantType];
 
       // eslint-disable-next-line no-console
       if (!Cls) console.warn(`Grant ${id} has no class mapping.`);
 
-      Cls ??= grantsClassMappings.default;
+      Cls ??= this.#grantsClassMappings.default;
       const grant = new Cls(data, { parent: item });
 
       this.set(id, grant);
