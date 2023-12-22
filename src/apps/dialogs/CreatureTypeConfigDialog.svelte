@@ -8,9 +8,9 @@
     import CustomTagGroup from "../components/CustomTagGroup.svelte";
     import FormSection from "../components/FormSection.svelte";
 
-    export let { actorDocument, appId } = getContext("#external").application;
+    export let { document, appId } = getContext("#external").application;
 
-    const actor = new TJSDocument(actorDocument);
+    const actor = new TJSDocument(document);
     const systemTypes = Object.entries(CONFIG.A5E.creatureTypes);
 </script>
 
@@ -24,7 +24,7 @@
                 updateDocumentDataFromField(
                     $actor,
                     "system.details.creatureTypes",
-                    event.detail
+                    event.detail,
                 )}
         />
     </FormSection>
@@ -37,7 +37,7 @@
                 updateDocumentDataFromField(
                     $actor,
                     "system.details.isSwarm",
-                    detail
+                    detail,
                 );
             }}
         />
