@@ -1,0 +1,93 @@
+{
+	"folder": null,
+	"name": "Natural Weapons",
+	"type": "feature",
+	"img": "icons/skills/melee/strike-blade-claw-red.webp",
+	"system": {
+		"ac": {
+			"baseFormula": "",
+			"formula": "",
+			"maxDex": 0,
+			"minStr": 0,
+			"mode": 2,
+			"requiresNoShield": false,
+			"requiresUnarmored": false
+		},
+		"actions": {
+			"bsTxFIpHziYSIdYL": {
+				"name": "Natural Weapon",
+				"activation": {},
+				"consumers": {},
+				"rolls": {
+					"odvmQFg5lqSUrvah": {
+						"type": "attack",
+						"default": true,
+						"attackType": "meleeWeaponAttack",
+						"proficient": true,
+						"ability": "str"
+					},
+					"vI97MyIwD0FZxN4s": {
+						"type": "damage",
+						"default": true,
+						"label": "Blugeoning NW",
+						"formula": "1d6 + @str.mod",
+						"damageType": "bludgeoning"
+					},
+					"FFrN25CefZgwI9Jk": {
+						"type": "damage",
+						"default": false,
+						"label": "Piercing NW",
+						"formula": "1d6 + @str.mod",
+						"damageType": "piercing"
+					},
+					"BpRvQ1MGFpifz9SP": {
+						"type": "damage",
+						"default": false,
+						"label": "Slashing NW",
+						"formula": "1d6 + @str.mod",
+						"damageType": "slashing"
+					}
+				},
+				"prompts": {},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"threshold": 6
+					}
+				},
+				"ranges": {}
+			}
+		},
+		"description": "<p>You gain a natural weapon, such as claws, horns, or teeth. Choose slashing, piercing, or bludgeoning damage. Your unarmed strikes deal 1d6 + Strength modifier damage of that type.</p>",
+		"favorite": false,
+		"secretDescription": "",
+		"source": {
+			"name": "",
+			"link": "",
+			"publisher": ""
+		},
+		"uses": {
+			"value": null,
+			"max": "",
+			"per": null,
+			"recharge": {
+				"formula": "1d6",
+				"threshold": "6"
+			}
+		},
+		"schema": {
+			"version": null,
+			"lastMigration": null
+		},
+		"concentration": false,
+		"featureType": "heritage",
+		"grants": {},
+		"prerequisite": ""
+	},
+	"effects": [],
+	"flags": {},
+	"_id": "933p9dh8a85jq46x"
+}

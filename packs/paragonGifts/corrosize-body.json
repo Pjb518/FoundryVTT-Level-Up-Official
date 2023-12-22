@@ -1,0 +1,81 @@
+{
+	"folder": null,
+	"name": "Corrosize Body",
+	"type": "feature",
+	"img": "icons/creatures/slimes/slime-movement-splashing-red.webp",
+	"system": {
+		"ac": {
+			"baseFormula": "",
+			"formula": "",
+			"maxDex": 0,
+			"minStr": 0,
+			"mode": 2,
+			"requiresNoShield": false,
+			"requiresUnarmored": false
+		},
+		"actions": {
+			"PWHi4D4J3H9iJI7u": {
+				"name": "Use Feature",
+				"activation": {
+					"type": "bonusAction",
+					"cost": 1
+				},
+				"consumers": {},
+				"rolls": {
+					"MqNTFlQcSvKEBEPQ": {
+						"type": "damage",
+						"default": true,
+						"label": "reactive damage",
+						"damageType": "acid",
+						"formula": "@prof"
+					},
+					"S6wbryoSIJmYZSnf": {
+						"type": "damage",
+						"default": true,
+						"label": "bonus to natural weapons and unarmed strikes",
+						"damageType": "acid",
+						"formula": "1d4"
+					}
+				},
+				"prompts": {},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"threshold": 6
+					}
+				}
+			}
+		},
+		"description": "<p>You can use a bonus action to bubble corrosive liquids to the surface of your body or to draw them back in. While corrosive, a creature that touches you or hits you with a melee attack while within 5 feet of you takes acid damage equal to your proficiency bonus. In addition, your natural weapons and unarmed strikes deal an extra 1d4 acid damage.</p>",
+		"favorite": false,
+		"secretDescription": "",
+		"source": {
+			"name": "",
+			"link": "",
+			"publisher": ""
+		},
+		"uses": {
+			"value": null,
+			"max": "",
+			"per": null,
+			"recharge": {
+				"formula": "1d6",
+				"threshold": "6"
+			}
+		},
+		"schema": {
+			"version": null,
+			"lastMigration": null
+		},
+		"concentration": false,
+		"featureType": "heritage",
+		"grants": {},
+		"prerequisite": ""
+	},
+	"effects": [],
+	"flags": {},
+	"_id": "4grlmezudnaq4x84"
+}

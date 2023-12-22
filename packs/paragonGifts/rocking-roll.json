@@ -1,0 +1,84 @@
+{
+	"folder": null,
+	"name": "Rocking Roll",
+	"type": "feature",
+	"img": "icons/magic/earth/construct-stone.webp",
+	"system": {
+		"ac": {
+			"baseFormula": "",
+			"formula": "",
+			"maxDex": 0,
+			"minStr": 0,
+			"mode": 2,
+			"requiresNoShield": false,
+			"requiresUnarmored": false
+		},
+		"actions": {
+			"10UVtWduljhhf4fT": {
+				"name": "Rocking Roll",
+				"activation": {
+					"type": "",
+					"cost": 1
+				},
+				"consumers": {},
+				"rolls": {
+					"jVTBJB96rPpQlvKN": {
+						"type": "damage",
+						"default": true,
+						"formula": "1d12 +@str.mod",
+						"damageType": "bludgeoning",
+						"critBonus": ""
+					}
+				},
+				"prompts": {
+					"Iti68cOcw8TYW4Mn": {
+						"type": "savingThrow",
+						"default": true,
+						"ability": "dex",
+						"saveDC": {
+							"type": "maneuver"
+						},
+						"onSave": "not take damage and not have the rockborn take your place"
+					}
+				},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"threshold": 6
+					}
+				}
+			}
+		},
+		"description": "<p class=\"Indent1\">The damage dealt by your Roll trait increases to 1d12 + your Strength modifier. Objects take double damage from your Roll, and a creature that fails its&nbsp;<span class=\"freelinking-link\">saving throw</span>&nbsp;is also knocked&nbsp;<span class=\"freelinking-link\">prone</span>. In addition, once on your turn while rolling you can make a DC 15 Acrobatics or Athletics check, changing the direction of the rest of your movement up to 180 degrees.</p>",
+		"favorite": false,
+		"secretDescription": "",
+		"source": {
+			"name": "",
+			"link": "",
+			"publisher": ""
+		},
+		"uses": {
+			"value": null,
+			"max": "",
+			"per": null,
+			"recharge": {
+				"formula": "1d6",
+				"threshold": "6"
+			}
+		},
+		"schema": {
+			"version": null,
+			"lastMigration": null
+		},
+		"concentration": false,
+		"featureType": "heritage",
+		"grants": {},
+		"prerequisite": ""
+	},
+	"effects": [],
+	"flags": {},
+	"_id": "89w19utnbs9ez3da"
+}
