@@ -13,7 +13,9 @@ export default class GenericDialog extends TJSDialog {
       }
     }, {
       classes: ['a5e-sheet'],
-      width: options.width ?? 420
+      width: options.width ?? 420,
+      height: options.height ?? 'auto',
+      resizable: options.resizable ?? false
     });
 
     this.data.content.props.dialog = this;

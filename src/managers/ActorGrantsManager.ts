@@ -41,7 +41,7 @@ export default class ActorGrantsManger extends Map<string, ActorGrantData> {
     }
 
     for await (const grant of applicableGrants) {
-      await grant.applyGrant();
+      await grant.applyGrant(this.actor);
     }
   }
 }

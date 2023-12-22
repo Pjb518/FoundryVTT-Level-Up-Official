@@ -5,7 +5,7 @@ import {
 export function getAbilitiesBonusData() {
   const { fields } = foundry.data;
   return {
-    context: new fields.SchemaField(getAbilitiesBonusContext()),
+    context: new fields.SchemaField(getAbilitiesBonusContext('bonus')),
     default: new fields.BooleanField({ required: true, initial: true }),
     formula: new fields.StringField({ required: true, initial: '' }),
     label: new fields.StringField({ required: true, initial: '' }),
@@ -16,7 +16,7 @@ export function getAbilitiesBonusData() {
 export function getDamageBonusData() {
   const { fields } = foundry.data;
   return {
-    context: new fields.SchemaField(getDamageBonusContext()),
+    context: new fields.SchemaField(getDamageBonusContext('bonus')),
     damageType: new fields.StringField({ required: true, initial: '' }),
     default: new fields.BooleanField({ required: true, initial: true }),
     formula: new fields.StringField({ required: true, initial: '' }),
@@ -28,7 +28,7 @@ export function getDamageBonusData() {
 export function getHealingBonusData() {
   const { fields } = foundry.data;
   return {
-    context: new fields.SchemaField(getHealingBonusContext()),
+    context: new fields.SchemaField(getHealingBonusContext('bonus')),
     default: new fields.BooleanField({ required: true, initial: true }),
     healingType: new fields.StringField({ required: true, initial: 'healing' }),
     formula: new fields.StringField({ required: true, initial: '' }),
@@ -40,7 +40,7 @@ export function getHealingBonusData() {
 export function getSkillBonusData() {
   const { fields } = foundry.data;
   return {
-    context: new fields.SchemaField(getSkillBonusContext()),
+    context: new fields.SchemaField(getSkillBonusContext('bonus')),
     default: new fields.BooleanField({ required: true, initial: true }),
     formula: new fields.StringField({ required: true, initial: '' }),
     label: new fields.StringField({ required: true, initial: '' }),

@@ -1,6 +1,10 @@
 /* eslint-disable max-classes-per-file */
 
 import A5EDataModel from '../A5EDataModel';
+import GenericDialog from '../../apps/dialogs/initializers/GenericDialog';
+
+import NumericalGrantSelectionDialog from '../../apps/components/grants/NumericalGrantSelectionDialog.svelte';
+
 import { getAbilitiesBonusContext, getSkillBonusContext } from '../actor/Contexts';
 
 export class BaseGrant extends A5EDataModel {
@@ -22,12 +26,26 @@ export class BaseGrant extends A5EDataModel {
     };
   }
 
-  async applyGrant() {
-    // Do nothing
+  async applyGrant(data: any, component: any, options: any = {}): Promise<any> {
+    // Open Dialog and get choices
+    const dialog = new GenericDialog(
+      'Ability Grant Selection',
+      component,
+      data,
+      options
+    );
+
+    await dialog.render(true);
+    const promise = await dialog.promise;
+
+    if (!promise) return {};
+    return promise;
   }
 }
 
 export class AbilityGrant extends BaseGrant {
+  #component = NumericalGrantSelectionDialog;
+
   #type = 'ability';
 
   static defineSchema() {
@@ -51,11 +69,30 @@ export class AbilityGrant extends BaseGrant {
     });
   }
 
-  async applyGrant() {
+  override async applyGrant(actor: typeof Actor): Promise<void> {
+    if (!actor) return;
+
+    const dialogData = {
+      document: actor,
+      base: this.abilities.base,
+      bonus: this.bonus,
+      choices: this.abilities.options,
+      configObject: CONFIG.A5E.abilities,
+      count: this.abilities.total,
+      heading: 'Ability Grant Selection'
+    };
+
+    const promise = await super.applyGrant(dialogData, this.#component, { width: 400 });
+    console.log(promise);
+    if (!promise.selected) {
+      throw new Error('No ability selected');
+    }
+
     // Construct bonus
     const bonus = {
       context: {
-        abilities: [...this.abilities.base, ...[]] // TODO: Add options
+        abilities: promise.selected,
+        ...this.context
       },
       formula: this.bonus,
       label: this.parent?.name ?? 'Ability Grant',
@@ -63,11 +100,6 @@ export class AbilityGrant extends BaseGrant {
     };
 
     const bonusId = foundry.utils.randomID();
-
-    // Apply bonus
-    const actor = this.parent?.parent;
-    if (!actor) return;
-
     const grantData = {
       itemUuid: this.parent.uuid,
       grantId: this._id,

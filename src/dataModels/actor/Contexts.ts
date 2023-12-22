@@ -1,4 +1,4 @@
-export function getAbilitiesBonusContext(type: 'grant' | 'bonus' = 'bonus') {
+export function getAbilitiesBonusContext(type: 'grant' | 'bonus') {
   const { fields } = foundry.data;
 
   const schema: any = {
@@ -55,7 +55,7 @@ export function getHealingBonusContext() {
   };
 }
 
-export function getSkillBonusContext(type: 'grant' | 'bonus' = 'bonus') {
+export function getSkillBonusContext(type: 'grant' | 'bonus') {
   const { fields } = foundry.data;
 
   const schema: any = {
