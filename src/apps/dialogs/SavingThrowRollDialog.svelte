@@ -113,12 +113,10 @@
         />
     </FormSection>
 
-    <FormSection heading="A5E.ExpertiseDie">
-        <ExpertiseDiePicker
-            selected={expertiseDie}
-            on:updateSelection={({ detail }) => (expertiseDie = detail)}
-        />
-    </FormSection>
+    <ExpertiseDiePicker
+        selected={expertiseDie}
+        on:updateSelection={({ detail }) => (expertiseDie = detail)}
+    />
 
     {#if abilityKey === "con" && saveType !== "death"}
         <FormSection heading="A5E.ItemSavingThrowType">

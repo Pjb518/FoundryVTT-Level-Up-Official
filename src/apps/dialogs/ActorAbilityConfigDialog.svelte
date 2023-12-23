@@ -50,20 +50,17 @@
 
     <!-- Ability Check Config -->
     {#if currentTab.name === "abilityCheck"}
-        <div class="u-flex u-flex-col u-gap-md">
-            <FormSection heading="A5E.ExpertiseDie">
-                <ExpertiseDiePicker
-                    selected={ability?.check.expertiseDice}
-                    on:updateSelection={({ detail }) =>
-                        updateDocumentDataFromField(
-                            $actor,
-                            `system.abilities.${abilityKey}.check.expertiseDice`,
-                            detail,
-                        )}
-                />
-            </FormSection>
+        <ExpertiseDiePicker
+            selected={ability?.check.expertiseDice}
+            on:updateSelection={({ detail }) =>
+                updateDocumentDataFromField(
+                    $actor,
+                    `system.abilities.${abilityKey}.check.expertiseDice`,
+                    detail,
+                )}
+        />
 
-            <!-- <header class="notes-header">
+        <!-- <header class="notes-header">
                 <h3 class="notes-heading">Notes</h3>
 
                 <button
@@ -93,7 +90,6 @@
                     <p>None</p>
                 {/each}
             </ul> -->
-        </div>
 
         <!-- Saving Throw Config  -->
     {:else if currentTab.name === "savingThrow"}
@@ -112,17 +108,15 @@
                 />
             </FormSection>
 
-            <FormSection heading="A5E.ExpertiseDie">
-                <ExpertiseDiePicker
-                    selected={ability?.save.expertiseDice}
-                    on:updateSelection={({ detail }) =>
-                        updateDocumentDataFromField(
-                            $actor,
-                            `system.abilities.${abilityKey}.save.expertiseDice`,
-                            detail,
-                        )}
-                />
-            </FormSection>
+            <ExpertiseDiePicker
+                selected={ability?.save.expertiseDice}
+                on:updateSelection={({ detail }) =>
+                    updateDocumentDataFromField(
+                        $actor,
+                        `system.abilities.${abilityKey}.save.expertiseDice`,
+                        detail,
+                    )}
+            />
 
             {#if abilityKey === "con"}
                 <FormSection

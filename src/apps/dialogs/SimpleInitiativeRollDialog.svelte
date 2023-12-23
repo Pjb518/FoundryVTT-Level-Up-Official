@@ -95,14 +95,12 @@
         />
     </section>
 
-    <FormSection heading="A5E.ExpertiseDie">
-        <ExpertiseDiePicker
-            selected={expertiseDie}
-            on:updateSelection={(event) => {
-                expertiseDie = event.detail;
-            }}
-        />
-    </FormSection>
+    <ExpertiseDiePicker
+        selected={expertiseDie}
+        on:updateSelection={(event) => {
+            expertiseDie = event.detail;
+        }}
+    />
 
     {#if Object.values(abilityBonuses).flat().length}
         <FormSection heading="Ability Bonuses">

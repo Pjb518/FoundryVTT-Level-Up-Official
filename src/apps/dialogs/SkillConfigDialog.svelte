@@ -73,17 +73,15 @@
         </FormSection>
     {/if}
 
-    <FormSection heading="A5E.ExpertiseDie">
-        <ExpertiseDiePicker
-            selected={skill.expertiseDice}
-            on:updateSelection={({ detail }) =>
-                updateDocumentDataFromField(
-                    $actor,
-                    `system.skills.${skillKey}.expertiseDice`,
-                    detail,
-                )}
-        />
-    </FormSection>
+    <ExpertiseDiePicker
+        selected={skill.expertiseDice}
+        on:updateSelection={({ detail }) =>
+            updateDocumentDataFromField(
+                $actor,
+                `system.skills.${skillKey}.expertiseDice`,
+                detail,
+            )}
+    />
 
     <FormSection heading="A5E.MinimumD20Roll" --direction="column">
         <div class="u-w-20">

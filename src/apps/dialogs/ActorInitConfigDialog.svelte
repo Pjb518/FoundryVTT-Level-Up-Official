@@ -34,17 +34,15 @@
             />
         </FormSection>
 
-        <FormSection heading="A5E.ExpertiseDie">
-            <ExpertiseDiePicker
-                selected={initiative.expertiseDice}
-                on:updateSelection={(event) =>
-                    updateDocumentDataFromField(
-                        $actor,
-                        `system.attributes.initiative.expertiseDice`,
-                        event.detail,
-                    )}
-            />
-        </FormSection>
+        <ExpertiseDiePicker
+            selected={initiative.expertiseDice}
+            on:updateSelection={(event) =>
+                updateDocumentDataFromField(
+                    $actor,
+                    `system.attributes.initiative.expertiseDice`,
+                    event.detail,
+                )}
+        />
 
         <FormSection
             heading="A5E.InitiativeBonus"
