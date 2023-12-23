@@ -122,6 +122,20 @@
         />
     </FormSection>
 
+    {#if Object.values(abilityBonuses).flat().length}
+        <FormSection heading="Ability Bonuses">
+            <CheckboxGroup
+                options={abilityBonuses.map(([key, abilityBonus]) => [
+                    key,
+                    abilityBonus.label || abilityBonus.defaultLabel,
+                ])}
+                selected={selectedAbilityBonuses}
+                on:updateSelection={({ detail }) =>
+                    (selectedAbilityBonuses = detail)}
+            />
+        </FormSection>
+    {/if}
+
     {#if Object.values(skillBonuses).flat().length}
         <FormSection heading="Skill Bonuses">
             <CheckboxGroup
