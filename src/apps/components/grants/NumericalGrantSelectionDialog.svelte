@@ -1,22 +1,13 @@
 <svelte:options accessors={true} />
 
 <script>
-    import { getContext, onDestroy } from "svelte";
+    import { getContext } from "svelte";
     import { localize } from "#runtime/svelte/helper";
 
     import FormSection from "../FormSection.svelte";
     import CheckboxGroup from "../CheckboxGroup.svelte";
 
-    export let {
-        document,
-        dialog,
-        heading,
-        base,
-        choices,
-        configObject,
-        count,
-        bonus,
-    } =
+    export let { dialog, heading, base, choices, configObject, count, bonus } =
         // @ts-ignore
         getContext("#external").application;
 

@@ -3,10 +3,14 @@
 
     import { getContext } from "svelte";
 
+    import GenericConfigDialog from "../../dialogs/initializers/GenericConfigDialog";
+
     function onDragStart() {}
-    function onAuxClick() {}
+
+    async function onAuxClick() {}
 
     export let grant: Grant;
+    export let component: any;
 </script>
 
 <li

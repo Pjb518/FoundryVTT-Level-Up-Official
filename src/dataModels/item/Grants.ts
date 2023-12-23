@@ -83,7 +83,6 @@ export class AbilityGrant extends BaseGrant {
     };
 
     const promise = await super.applyGrant(dialogData, this.#component, { width: 400 });
-    console.log(promise);
     if (!promise.selected) {
       throw new Error('No ability selected');
     }
@@ -171,6 +170,8 @@ export class ProficiencyGrant extends BaseGrant {
 }
 
 export class SkillGrant extends BaseGrant {
+  #component = NumericalGrantSelectionDialog;
+
   #type = 'skill';
 
   static defineSchema() {
@@ -194,8 +195,50 @@ export class SkillGrant extends BaseGrant {
     });
   }
 
-  static getApplyData() {
+  override async applyGrant(actor: typeof Actor): Promise<void> {
+    if (!actor) return;
 
+    const dialogData = {
+      document: actor,
+      base: this.skills.base,
+      bonus: this.bonus,
+      choices: this.skills.options,
+      configObject: CONFIG.A5E.skills,
+      count: this.skills.total,
+      heading: 'Skill Grant Selection'
+    };
+
+    const promise = await super.applyGrant(dialogData, this.#component, { width: 400 });
+    if (!promise.selected) {
+      throw new Error('No skill selected');
+    }
+
+    // Construct bonus
+    const bonus = {
+      context: {
+        skills: promise.selected,
+        ...this.context
+      },
+      formula: this.bonus,
+      label: this.parent?.name ?? 'Skill Grant',
+      default: true
+    };
+
+    const bonusId = foundry.utils.randomID();
+    const grantData = {
+      itemUuid: this.parent.uuid,
+      grantId: this._id,
+      bonusId,
+      type: 'skill'
+    };
+
+    await actor.update({
+      [`system.bonuses.skills.${bonusId}`]: bonus,
+      'system.grants': {
+        ...actor.system.grants,
+        [foundry.utils.randomID()]: grantData
+      }
+    });
   }
 }
 

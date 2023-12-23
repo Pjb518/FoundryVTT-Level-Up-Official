@@ -1,13 +1,47 @@
-<script>
+<script lang="ts">
     import { getContext } from "svelte";
+    import type { TJSDocument } from "@typhonjs-fvtt/runtime/svelte/store/fvtt/document";
 
-    import { grantTypes } from "../../../config/registerGrantsConfig";
     import ItemGrantManager from "../../../managers/ItemGrantsManager";
 
     import CreateMenu from "../actorUtilityBar/CreateMenu.svelte";
     import ItemGrantListComponent from "../grants/ItemGrantListComponent.svelte";
+    import NumericalGrantConfigDialog from "../grants/NumericalGrantConfigDialog.svelte";
 
-    const item = getContext("item");
+    const item: TJSDocument = getContext("item");
+
+    export const grantTypes = {
+        ability: {
+            heading: "A5E.grants.ability",
+            singleLabel: "A5E.Ability",
+            component: NumericalGrantConfigDialog,
+        },
+        skill: {
+            heading: "A5E.grants.skill",
+            singleLabel: "A5E.Skill",
+            component: NumericalGrantConfigDialog,
+        },
+        movement: {
+            heading: "A5E.grants.movement",
+            singleLabel: "A5E.Movement",
+            component: null,
+        },
+        proficiency: {
+            heading: "A5E.grants.proficiency",
+            singleLabel: "A5E.Proficiency",
+            component: null,
+        },
+        trait: {
+            heading: "A5E.grants.trait",
+            singleLabel: "A5E.Trait",
+            component: null,
+        },
+        vision: {
+            heading: "A5E.grants.vision",
+            singleLabel: "A5E.Vision",
+            component: null,
+        },
+    };
 
     function addGrant(detail) {
         const data = {
@@ -19,10 +53,10 @@
         ItemGrantManager.addGrant($item, data);
     }
 
-    let grants = $item.grants;
+    let grants: ItemGrantManager = $item.grants;
 
     $: menuList = Object.entries(grantTypes).reduce(
-        (acc, [grantType, { singleLabel }]) => {
+        (acc: any[], [grantType, { singleLabel }]) => {
             acc.push([grantType, singleLabel]);
             return acc;
         },
@@ -33,7 +67,10 @@
 <article>
     <ul class="grant-list">
         {#each grants.entries() as [id, grant] (id)}
-            <ItemGrantListComponent {grant} />
+            <ItemGrantListComponent
+                {grant}
+                component={grantTypes[grant.grantType].component}
+            />
         {/each}
     </ul>
 
