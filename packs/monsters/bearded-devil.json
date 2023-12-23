@@ -103,7 +103,7 @@
 					}
 				},
 				"description": "<p>The devil attacks once with its beard and once with its glaive.</p>",
-				"favorite": false,
+				"favorite": true,
 				"secretDescription": "",
 				"source": "",
 				"uses": {
@@ -143,7 +143,49 @@
 			"name": "Beard",
 			"type": "feature",
 			"img": "icons/commodities/biological/tentacle-yellow.webp",
-			"effects": [],
+			"effects": [
+				{
+					"icon": "icons/commodities/biological/tentacle-yellow.webp",
+					"origin": "Actor.dHBVwugIXnKQuN3t.Item.hDRhr5EzyGCnU3ut",
+					"flags": {
+						"a5e": {
+							"sort": 0,
+							"transferType": "onUse",
+							"actionId": "iPuWdwp1ztqe7zBX",
+							"duration": {
+								"type": "rounds",
+								"unit": "minutes"
+							}
+						}
+					},
+					"transfer": false,
+					"name": "Poisoned",
+					"_id": "evTFjlU494Gcpiam",
+					"changes": [
+						{
+							"key": "flags.a5e.effects.statusConditions",
+							"value": "[\"poisoned\"]",
+							"mode": 0,
+							"priority": null
+						}
+					],
+					"disabled": false,
+					"duration": {
+						"startTime": null,
+						"seconds": null,
+						"combat": null,
+						"rounds": null,
+						"turns": 1,
+						"startRound": null,
+						"startTurn": null
+					},
+					"description": "<p>While poisoned in this way, the target can’t regain hit points.</p>",
+					"statuses": [
+						"poisoned"
+					],
+					"folder": null
+				}
+			],
 			"folder": null,
 			"sort": 0,
 			"flags": {},
@@ -175,8 +217,8 @@
 							"placeTemplate": false
 						},
 						"target": {
-							"quantity": "",
-							"type": ""
+							"quantity": 1,
+							"type": "creature"
 						},
 						"rolls": {
 							"wfdsBS1ajs76YObW": {
@@ -184,17 +226,24 @@
 								"critThreshold": "20",
 								"type": "attack",
 								"attackType": "meleeWeaponAttack",
-								"ability": "dex"
+								"ability": "str"
 							},
 							"mThSTIxbPEhL4MVk": {
 								"canCrit": true,
 								"damageType": "piercing",
-								"formula": "1d8+3",
+								"formula": "1d8 + @dex.mod",
 								"name": "Beard",
 								"type": "damage"
 							}
 						},
-						"consumers": {}
+						"consumers": {},
+						"prompts": {
+							"Kd5QoEenr9iTH8YT": {
+								"type": "effect",
+								"default": true,
+								"effectId": "evTFjlU494Gcpiam"
+							}
+						}
 					}
 				},
 				"description": "<p>If it takes damage, the target is Poisoned until the end of the devil’s next turn. While poisoned in this way, the target can’t regain hit points.</p>",
@@ -270,8 +319,8 @@
 							"placeTemplate": false
 						},
 						"target": {
-							"quantity": "",
-							"type": ""
+							"quantity": 1,
+							"type": "creature"
 						},
 						"rolls": {
 							"tRSc5dnrVvIOexp8": {
@@ -279,12 +328,12 @@
 								"critThreshold": "20",
 								"type": "attack",
 								"attackType": "meleeWeaponAttack",
-								"ability": "dex"
+								"ability": "str"
 							},
 							"Z5V3CLI2xHwFh9Vu": {
 								"canCrit": true,
 								"damageType": "slashing",
-								"formula": "1d10+@str.mod",
+								"formula": "1d10 + @str.mod",
 								"name": "Glaive",
 								"type": "damage"
 							}
@@ -298,9 +347,27 @@
 									"bonus": "12"
 								},
 								"type": "savingThrow"
+							},
+							"n0w5ZGp8iLrsQduF": {
+								"type": "generic",
+								"default": true,
+								"label": "Infernal Wound Damage",
+								"formula": "1d10"
+							},
+							"Plthz9mOEMjAjfmE": {
+								"type": "skillCheck",
+								"default": true,
+								"skill": "med",
+								"ability": "none"
 							}
 						},
-						"consumers": {}
+						"consumers": {},
+						"ranges": {
+							"mVRPIqjd50QUHm61": {
+								"range": 10,
+								"unit": "feet"
+							}
+						}
 					}
 				},
 				"description": "<p>If the target is a creature other than an undead or construct, it makes a DC 12 Constitution saving throw. On a failure, it receives an infernal wound and takes 5 (1d10) ongoing slashing damage. Each time the devil hits the wounded target with this attack, the ongoing damage increases by 5 (1d10). A creature can spend an action to make a DC 12 Medicine check, ending the ongoing damage on a success. At least 1 hit point of magical healing also ends the ongoing damage.</p>",
@@ -1067,7 +1134,7 @@
 					"notes": {}
 				},
 				"save": {
-					"proficient": false,
+					"proficient": true,
 					"expertiseDice": 0,
 					"bonus": "2",
 					"notes": {}
@@ -1095,7 +1162,7 @@
 					"notes": {}
 				},
 				"save": {
-					"proficient": false,
+					"proficient": true,
 					"expertiseDice": 0,
 					"bonus": "2",
 					"notes": {}
@@ -1123,7 +1190,7 @@
 					"notes": {}
 				},
 				"save": {
-					"proficient": false,
+					"proficient": true,
 					"expertiseDice": 0,
 					"bonus": "2",
 					"notes": {}
@@ -1194,7 +1261,7 @@
 			"ath": {
 				"ability": "str",
 				"value": 0,
-				"proficient": true,
+				"proficient": false,
 				"specialties": [],
 				"expertiseDice": 0,
 				"minRoll": 1,
@@ -1218,7 +1285,7 @@
 			"dec": {
 				"ability": "cha",
 				"value": 0,
-				"proficient": true,
+				"proficient": false,
 				"specialties": [],
 				"expertiseDice": 0,
 				"minRoll": 1,
@@ -1254,7 +1321,7 @@
 			"ins": {
 				"ability": "wis",
 				"value": 0,
-				"proficient": true,
+				"proficient": false,
 				"specialties": [],
 				"expertiseDice": 0,
 				"minRoll": 1,
@@ -1314,9 +1381,9 @@
 			"prc": {
 				"ability": "wis",
 				"value": 0,
-				"proficient": true,
+				"proficient": false,
 				"specialties": [],
-				"expertiseDice": 1,
+				"expertiseDice": 0,
 				"minRoll": 1,
 				"bonuses": {
 					"check": "2",
@@ -1442,7 +1509,7 @@
 		},
 		"attributes": {
 			"ac": {
-				"baseFormula": "15",
+				"baseFormula": "13",
 				"value": 0
 			},
 			"death": {
@@ -1482,6 +1549,7 @@
 				}
 			},
 			"initiative": {
+				"ability": "dex",
 				"bonus": "",
 				"expertiseDice": 0
 			},
@@ -1536,64 +1604,16 @@
 			"casterLevel": 0
 		},
 		"bonuses": {
-			"abilities": {
-				"zuXe115SaEf8TPSV": {
-					"context": {
-						"abilities": [
-							"str",
-							"con",
-							"wis"
-						],
-						"types": [
-							"check",
-							"save"
-						],
-						"requiresProficiency": false
-					},
-					"formula": "2",
-					"label": "Save Bonus",
-					"default": true,
-					"img": "icons/svg/upgrade.svg"
-				}
-			},
-			"damage": {},
-			"healing": {},
 			"maneuverDC": "",
 			"meleeSpellAttack": "",
 			"meleeWeaponAttack": "",
 			"rangedSpellAttack": "",
 			"rangedWeaponAttack": "",
 			"spellDC": "",
-			"skills": {
-				"p3Wu03CYf3oUiLrj": {
-					"context": {
-						"skills": [
-							"dec",
-							"ins",
-							"prc"
-						],
-						"passiveOnly": false,
-						"requiresProficiency": false
-					},
-					"formula": "2",
-					"label": "Check Bonus",
-					"default": true,
-					"img": "icons/svg/upgrade.svg"
-				},
-				"j4948ERhOXYbbIKS": {
-					"context": {
-						"skills": [
-							"ath"
-						],
-						"passiveOnly": false,
-						"requiresProficiency": false
-					},
-					"formula": "4",
-					"label": "Check Bonus",
-					"default": true,
-					"img": "icons/svg/upgrade.svg"
-				}
-			}
+			"abilities": {},
+			"damage": {},
+			"healing": {},
+			"skills": {}
 		},
 		"currency": {
 			"pp": 0,
@@ -1608,7 +1628,7 @@
 				"fiend"
 			],
 			"isSwarm": false,
-			"cr": 5,
+			"cr": 3,
 			"elite": false,
 			"privateNotes": "",
 			"notes": ""
@@ -1676,7 +1696,8 @@
 		"traits": {
 			"size": "med",
 			"conditionImmunities": [
-				"poisoned"
+				"poisoned",
+				"frightened"
 			],
 			"damageImmunities": [
 				"fire",
@@ -1691,7 +1712,7 @@
 	},
 	"prototypeToken": {
 		"name": "Bearded Devil",
-		"displayName": 0,
+		"displayName": 30,
 		"actorLink": false,
 		"width": 1,
 		"height": 1,
@@ -1722,7 +1743,7 @@
 			"color": null
 		},
 		"disposition": -1,
-		"displayBars": 0,
+		"displayBars": 30,
 		"bar1": {
 			"attribute": "attributes.hp"
 		},
@@ -1738,15 +1759,11 @@
 			"offsetX": 0,
 			"offsetY": 0,
 			"rotation": 0,
-			"tint": "#ffffff",
-			"anchorX": 0.5,
-			"anchorY": 0.5,
-			"fit": "contain",
-			"alphaThreshold": 0.75
+			"tint": "#ffffff"
 		},
 		"sight": {
 			"angle": 360,
-			"enabled": false,
+			"enabled": true,
 			"range": 0,
 			"brightness": 1,
 			"color": null,
@@ -1757,12 +1774,7 @@
 		},
 		"detectionModes": [],
 		"appendNumber": false,
-		"prependAdjective": false,
-		"hexagonalShape": 0,
-		"locked": false,
-		"occludable": {
-			"radius": 0
-		}
+		"prependAdjective": false
 	},
 	"folder": null,
 	"_id": "c8z24fqopks1ejg9"
