@@ -3,12 +3,13 @@
     import { localize } from "#runtime/svelte/helper";
     import { TJSDocument } from "#runtime/svelte/store/fvtt/document";
 
-    import getRollFormula from "../../utils/getRollFormula";
-
     import CheckboxGroup from "../components/CheckboxGroup.svelte";
     import ExpertiseDiePicker from "../components/ExpertiseDiePicker.svelte";
     import FormSection from "../components/FormSection.svelte";
     import RadioGroup from "../components/RadioGroup.svelte";
+
+    import getRollFormula from "../../utils/getRollFormula";
+    import overrideRollMode from "../../utils/overrideRollMode";
     import prepareAbilityBonuses from "../dataPreparationHelpers/prepareAbilityBonuses";
 
     export let { document, dialog, options } =
@@ -47,9 +48,14 @@
         $actor.system.attributes.initiative.ability ??
         "dex";
 
-    let rollMode = options.rollMode ?? CONFIG.A5E.ROLL_MODE.NORMAL;
     let rollFormula;
+    let selectedRollMode = options.rollMode ?? CONFIG.A5E.ROLL_MODE.NORMAL;
     let situationalMods = options.situationalMods ?? "";
+
+    let rollMode = overrideRollMode($actor, selectedRollMode, {
+        ability: abilityKey,
+        type: "initiative",
+    });
 
     $: abilityBonuses = prepareAbilityBonuses($actor, abilityKey, "check");
     $: selectedAbilityBonuses = getDefaultSelections({ abilityBonuses });
