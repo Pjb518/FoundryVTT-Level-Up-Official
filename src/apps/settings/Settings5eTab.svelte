@@ -14,6 +14,7 @@
     let exhaustion = settings.getStore("replaceFatigueAndStrife");
     let hideA5eSkills = settings.getStore("hideA5eSkills");
     let hideSkillSpecialties = settings.getStore("hideSkillSpecialties");
+    let simpleInitiative = settings.getStore("simpleInitiative");
 </script>
 
 <section class="setting-group">
@@ -68,6 +69,19 @@
                 false}
             on:updateSelection={({ detail }) => {
                 updates.set("replaceFatigueAndStrife", detail);
+                reload = true;
+            }}
+        />
+    </FormSection>
+
+    <FormSection hint="A5E.settings.hints.simpleInitiative" --gap="0.25rem">
+        <Checkbox
+            label="A5E.settings.simpleInitiative"
+            checked={updates.get("simpleInitiative") ??
+                $simpleInitiative ??
+                false}
+            on:updateSelection={({ detail }) => {
+                updates.set("simpleInitiative", detail);
                 reload = true;
             }}
         />

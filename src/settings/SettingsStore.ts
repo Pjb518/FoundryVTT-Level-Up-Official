@@ -403,6 +403,18 @@ class A5eGameSettings extends TJSGameSettings {
           type: Boolean
         }
       },
+      {
+        namespace,
+        key: 'simpleInitiative',
+        options: {
+          name: 'A5E.settings.simpleInitiative',
+          hint: 'A5E.settings.hints.simpleInitiative',
+          scope: scope.world,
+          config: true,
+          default: false,
+          type: Boolean
+        }
+      },
       // Party Viewer Settings
       {
         namespace,
