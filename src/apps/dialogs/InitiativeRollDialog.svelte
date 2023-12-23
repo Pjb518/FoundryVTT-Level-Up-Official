@@ -28,7 +28,10 @@
     function getInitialExpertiseDieSelection() {
         if (hideExpertiseDice) return 0;
 
-        return options.expertiseDice ?? $actor.system.initiative.expertiseDice;
+        return (
+            options.expertiseDice ??
+            $actor.system.attributes.initiative.expertiseDice
+        );
     }
 
     const rollModeOptions = Object.entries(CONFIG.A5E.rollModes).map(
