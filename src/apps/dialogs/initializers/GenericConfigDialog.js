@@ -10,7 +10,8 @@ export default class GenericConfigDialog extends TJSDialog {
       content: {
         class: component,
         props: { document, ...data }
-      }
+      },
+      zIndex: null
     }, {
       classes: ['a5e-sheet'],
       width: options.width ?? 420,
