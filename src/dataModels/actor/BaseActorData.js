@@ -329,7 +329,9 @@ export default class BaseActorData extends A5EDataModel.mixin(SchemaDataModel) {
       grants: new RecordField(
         new fields.DocumentIdField({ required: true, initial: () => foundry.utils.randomID() }),
         new fields.SchemaField({
-          itemUuid: new fields.DocumentUUIDField({ required: true, initial: '' }),
+          // TODO: Update to UUIDField in v12
+          itemUuid: new fields.StringField({ required: true, initial: '' }),
+          // itemUuid: new fields.DocumentUUIDField({ required: true, initial: '' }),
           grantId: new fields.DocumentIdField({ required: true, initial: '' }),
           bonusId: new fields.DocumentIdField({ required: false, initial: '' }),
           type: new fields.StringField({ required: true, initial: '' })
