@@ -2,7 +2,7 @@ import type { Grant } from 'types/grants';
 import type ItemGrantsManager from './ItemGrantsManager';
 
 type ActorGrantData = {
-  bonusId: string,
+  bonusId?: string,
   grantId: string,
   itemUuid: string,
   type: string,
@@ -43,5 +43,18 @@ export default class ActorGrantsManger extends Map<string, ActorGrantData> {
     for await (const grant of applicableGrants) {
       await grant.applyGrant(this.actor);
     }
+  }
+
+  removeGrants(itemUuid: string): void {
+    const updates: Record<string, null> = {};
+
+    for (const [grantId, data] of this) {
+      if (data.itemUuid !== itemUuid) continue;
+
+      updates[`system.grants.-=${grantId}`] = null;
+      if (data.bonusId) updates[`system.bonuses.${data.type}.-=${data.bonusId}`] = null;
+    }
+
+    this.actor.update(updates);
   }
 }

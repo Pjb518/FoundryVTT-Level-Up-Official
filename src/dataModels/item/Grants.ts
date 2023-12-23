@@ -26,10 +26,10 @@ export class BaseGrant extends A5EDataModel {
     };
   }
 
-  async applyGrant(data: any, component: any, options: any = {}): Promise<any> {
+  async applyGrant(title: string, data: any, component: any, options: any = {}): Promise<any> {
     // Open Dialog and get choices
     const dialog = new GenericDialog(
-      'Ability Grant Selection',
+      title,
       component,
       data,
       options
@@ -82,7 +82,7 @@ export class AbilityGrant extends BaseGrant {
       heading: 'Ability Grant Selection'
     };
 
-    const promise = await super.applyGrant(dialogData, this.#component, { width: 400 });
+    const promise = await super.applyGrant('Ability Grant Selection', dialogData, this.#component, { width: 400 });
     if (!promise.selected) {
       throw new Error('No ability selected');
     }
@@ -103,7 +103,7 @@ export class AbilityGrant extends BaseGrant {
       itemUuid: this.parent.uuid,
       grantId: this._id,
       bonusId,
-      type: 'ability'
+      type: 'abilities'
     };
 
     await actor.update({
@@ -208,7 +208,7 @@ export class SkillGrant extends BaseGrant {
       heading: 'Skill Grant Selection'
     };
 
-    const promise = await super.applyGrant(dialogData, this.#component, { width: 400 });
+    const promise = await super.applyGrant('Skill Grant Selection', dialogData, this.#component, { width: 400 });
     if (!promise.selected) {
       throw new Error('No skill selected');
     }
@@ -229,7 +229,7 @@ export class SkillGrant extends BaseGrant {
       itemUuid: this.parent.uuid,
       grantId: this._id,
       bonusId,
-      type: 'skill'
+      type: 'skills'
     };
 
     await actor.update({
