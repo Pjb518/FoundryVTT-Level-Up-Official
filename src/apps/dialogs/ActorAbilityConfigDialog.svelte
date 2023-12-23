@@ -20,6 +20,7 @@
     }
 
     const actor = new TJSDocument(document);
+    const hideExpertiseDice = game.settings.get("a5e", "hideExpertiseDice");
 
     const tabs = [
         {
@@ -40,13 +41,15 @@
         ability: localize(CONFIG.A5E.abilities[abilityKey]),
     });
 
-    let currentTab = tabs[0];
+    let currentTab = hideExpertiseDice ? tabs[1] : tabs[0];
 
     $: ability = $actor.system.abilities[abilityKey];
 </script>
 
 <article>
-    <NavigationBar {currentTab} {tabs} on:tab-change={updateCurrentTab} />
+    {#if !hideExpertiseDice}
+        <NavigationBar {currentTab} {tabs} on:tab-change={updateCurrentTab} />
+    {/if}
 
     <!-- Ability Check Config -->
     {#if currentTab.name === "abilityCheck"}
@@ -94,7 +97,9 @@
         <!-- Saving Throw Config  -->
     {:else if currentTab.name === "savingThrow"}
         <div class="u-flex u-flex-col u-gap-md">
-            <FormSection>
+            <FormSection
+                hint="Determines whether to add this actor's proficiency bonus to its saving throws"
+            >
                 <Checkbox
                     label="A5E.ProficiencyProficient"
                     checked={ability.save.proficient}

@@ -24,6 +24,12 @@
             }, []);
     }
 
+    function getInitialExpertiseDieSelection() {
+        if (hideExpertiseDice) return 0;
+
+        return options.expertiseDice ?? $actor.system.initiative.expertiseDice;
+    }
+
     const rollModeOptions = Object.entries(CONFIG.A5E.rollModes).map(
         ([key, value]) => [
             CONFIG.A5E.ROLL_MODE[key.toUpperCase()],
@@ -34,20 +40,18 @@
     const actor = new TJSDocument(document.actor);
     const appId = dialog.id;
     const abilities = CONFIG.A5E.abilities;
+    const hideExpertiseDice = game.settings.get("a5e", "hideExpertiseDice");
 
     function onSubmit() {
         dialog.submit({ rollFormula });
     }
-
-    let expertiseDie =
-        options.expertiseDice ??
-        $actor.system.attributes.initiative.expertiseDice;
 
     let abilityKey =
         options.abilityKey ??
         $actor.system.attributes.initiative.ability ??
         "dex";
 
+    let expertiseDie = getInitialExpertiseDieSelection();
     let rollFormula;
     let selectedRollMode = options.rollMode ?? CONFIG.A5E.ROLL_MODE.NORMAL;
     let situationalMods = options.situationalMods ?? "";

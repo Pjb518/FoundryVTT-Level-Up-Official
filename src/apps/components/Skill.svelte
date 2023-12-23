@@ -13,6 +13,7 @@
     export let skill;
 
     const actor = getContext("actor");
+    const hideExpertiseDice = game.settings.get("a5e", "hideExpertiseDice");
     const { skills } = CONFIG.A5E;
 
     let showDeterministicBonus =
@@ -78,12 +79,12 @@
         class:disable-pointer-events={!$actor.isOwner}
         on:click={$actor.rollSkillCheck(
             key,
-            getKeyPressAsOptions($pressedKeysStore)
+            getKeyPressAsOptions($pressedKeysStore),
         )}
     >
         {skills[key]}
 
-        {#if skill.expertiseDice}
+        {#if skill.expertiseDice && !hideExpertiseDice}
             <span class="u-text-xs">
                 ({getExpertiseDieSize(skill.expertiseDice, false)})
             </span>

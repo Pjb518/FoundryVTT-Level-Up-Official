@@ -99,12 +99,12 @@
             id="{$actor.id}-{dialog.id}-situational-mod"
             bind:value={situationalMods}
         />
-
-        <div class="roll-formula-preview">
-            {rollFormula}
-        </div>
     </FormSection>
 </FormSection>
+
+<section class="roll-formula-preview">
+    {rollFormula}
+</section>
 
 <style lang="scss">
     .roll-formula-preview {

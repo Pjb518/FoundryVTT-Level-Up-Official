@@ -16,6 +16,24 @@
     export let { document, abilityKey, dialog, options } =
         getContext("#external").application;
 
+    function getDefaultSelections(property) {
+        return Object.values(property ?? {})
+            .flat()
+            .reduce((acc, [key, value]) => {
+                if (value.default ?? true) acc.push(key);
+                return acc;
+            }, []);
+    }
+
+    function getInitialExpertiseDieSelection() {
+        if (hideExpertiseDice) return 0;
+
+        return (
+            options.expertiseDice ??
+            $actor.system.abilities[abilityKey]?.save.expertiseDice
+        );
+    }
+
     function getSubmitButtonText(saveType, abilityKey) {
         if (saveType === "death") return "Roll Death Saving Throw";
         else if (abilityKey === "con" && saveType === "concentration") {
@@ -33,15 +51,6 @@
         }
     }
 
-    function getDefaultSelections(property) {
-        return Object.values(property ?? {})
-            .flat()
-            .reduce((acc, [key, value]) => {
-                if (value.default ?? true) acc.push(key);
-                return acc;
-            }, []);
-    }
-
     const rollModeOptions = Object.entries(CONFIG.A5E.rollModes).map(
         ([key, value]) => [
             CONFIG.A5E.ROLL_MODE[key.toUpperCase()],
@@ -55,9 +64,10 @@
     ];
 
     const actor = new TJSDocument(document);
-    const appId = dialog.id;
-    const localizeSave = localize(CONFIG.A5E.abilities[abilityKey]);
     const abilityBonuses = prepareAbilityBonuses($actor, abilityKey, "save");
+    const appId = dialog.id;
+    const hideExpertiseDice = game.settings.get("a5e", "hideExpertiseDice");
+    const localizeSave = localize(CONFIG.A5E.abilities[abilityKey]);
 
     function onSubmit() {
         dialog.submit({
@@ -69,13 +79,10 @@
         });
     }
 
-    let expertiseDie =
-        options.expertiseDice ??
-        $actor.system.abilities[abilityKey]?.save.expertiseDice;
-
     let visibilityMode =
         options.visibilityMode ?? game.settings.get("core", "rollMode");
 
+    let expertiseDie = getInitialExpertiseDieSelection();
     let saveType = options.saveType ?? "standard";
     let selectedRollMode = options.rollMode ?? CONFIG.A5E.ROLL_MODE.NORMAL;
     let rollFormula;

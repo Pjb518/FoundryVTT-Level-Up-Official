@@ -7,14 +7,17 @@
     export let selected;
 
     const options = prepareExpertiseDiceOptions();
+    const hideExpertiseDice = game.settings.get("a5e", "hideExpertiseDice");
 </script>
 
-<FormSection heading="A5E.ExpertiseDie">
-    <RadioGroup
-        {options}
-        {selected}
-        allowDeselect={false}
-        optionStyles="min-width: 1.75rem; text-align: center;"
-        on:updateSelection
-    />
-</FormSection>
+{#if !hideExpertiseDice}
+    <FormSection heading="A5E.ExpertiseDie">
+        <RadioGroup
+            {options}
+            {selected}
+            allowDeselect={false}
+            optionStyles="min-width: 1.75rem; text-align: center;"
+            on:updateSelection
+        />
+    </FormSection>
+{/if}

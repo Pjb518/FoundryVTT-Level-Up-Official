@@ -16,6 +16,28 @@
     export let { document, abilityKey, dialog, options } =
         getContext("#external").application;
 
+    function getDefaultSelections(property) {
+        return Object.values(property ?? {})
+            .flat()
+            .reduce((acc, [key, value]) => {
+                if (value.default ?? true) acc.push(key);
+                return acc;
+            }, []);
+    }
+
+    function getInitialExpertiseDieSelection() {
+        if (hideExpertiseDice) return 0;
+
+        return (
+            options.expertiseDice ??
+            $actor.system.abilities[abilityKey]?.check.expertiseDice
+        );
+    }
+
+    function onSubmit() {
+        dialog.submit({ expertiseDie, rollFormula, rollMode, visibilityMode });
+    }
+
     const rollModeOptions = Object.entries(CONFIG.A5E.rollModes).map(
         ([key, value]) => [
             CONFIG.A5E.ROLL_MODE[key.toUpperCase()],
@@ -26,29 +48,14 @@
     const actor = new TJSDocument(document);
     const appId = dialog.id;
     const abilityBonuses = prepareAbilityBonuses($actor, abilityKey, "check");
+    const hideExpertiseDice = game.settings.get("a5e", "hideExpertiseDice");
 
     const localizedAbility = localize(CONFIG.A5E.abilities[abilityKey]);
     const buttonText = localize("A5E.RollPromptAbilityCheck", {
         ability: localizedAbility,
     });
 
-    function getDefaultSelections(property) {
-        return Object.values(property ?? {})
-            .flat()
-            .reduce((acc, [key, value]) => {
-                if (value.default ?? true) acc.push(key);
-                return acc;
-            }, []);
-    }
-
-    function onSubmit() {
-        dialog.submit({ expertiseDie, rollFormula, rollMode, visibilityMode });
-    }
-
-    let expertiseDie =
-        options.expertiseDice ??
-        $actor.system.abilities[abilityKey]?.check.expertiseDice;
-
+    let expertiseDie = getInitialExpertiseDieSelection();
     let selectedRollMode = options.rollMode ?? CONFIG.A5E.ROLL_MODE.NORMAL;
 
     let rollMode = overrideRollMode($actor, selectedRollMode, {

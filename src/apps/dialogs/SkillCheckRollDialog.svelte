@@ -17,23 +17,6 @@
     export let { document, dialog, skillKey, options } =
         getContext("#external").application;
 
-    const rollModeOptions = Object.entries(CONFIG.A5E.rollModes).map(
-        ([key, value]) => [
-            CONFIG.A5E.ROLL_MODE[key.toUpperCase()],
-            localize(value),
-        ],
-    );
-
-    const actor = new TJSDocument(document);
-    const appId = dialog.id;
-
-    const localizedSkill = localize(CONFIG.A5E.skills[skillKey]);
-    const abilities = { none: "A5E.None", ...CONFIG.A5E.abilities };
-
-    const buttonText = localize("A5E.RollPromptAbilityCheck", {
-        ability: localizedSkill,
-    });
-
     function getDefaultSelections(property) {
         return Object.values(property ?? {})
             .flat()
@@ -41,6 +24,15 @@
                 if (value.default ?? true) acc.push(key);
                 return acc;
             }, []);
+    }
+
+    function getInitialExpertiseDieSelection() {
+        if (hideExpertiseDice) return 0;
+
+        return (
+            options.expertiseDice ??
+            $actor.system.skills[skillKey].expertiseDice
+        );
     }
 
     function onSubmit() {
@@ -53,15 +45,31 @@
         });
     }
 
+    const rollModeOptions = Object.entries(CONFIG.A5E.rollModes).map(
+        ([key, value]) => [
+            CONFIG.A5E.ROLL_MODE[key.toUpperCase()],
+            localize(value),
+        ],
+    );
+
+    const actor = new TJSDocument(document);
+    const appId = dialog.id;
+
+    const localizedSkill = localize(CONFIG.A5E.skills[skillKey]);
+    const abilities = { none: "A5E.None", ...CONFIG.A5E.abilities };
+    const hideExpertiseDice = game.settings.get("a5e", "hideExpertiseDice");
+
+    const buttonText = localize("A5E.RollPromptAbilityCheck", {
+        ability: localizedSkill,
+    });
+
     let abilityKey =
         options.abilityKey ?? $actor.system.skills[skillKey].ability;
-
-    let expertiseDie =
-        options.expertiseDice ?? $actor.system.skills[skillKey].expertiseDice;
 
     let visibilityMode =
         options.visibilityMode ?? game.settings.get("core", "rollMode");
 
+    let expertiseDie = getInitialExpertiseDieSelection();
     let { minRoll } = options.minRoll ?? $actor.system.skills[skillKey];
     let rollFormula;
     let selectedRollMode = options.rollMode ?? CONFIG.A5E.ROLL_MODE.NORMAL;

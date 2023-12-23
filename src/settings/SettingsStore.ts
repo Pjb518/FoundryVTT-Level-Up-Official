@@ -381,6 +381,18 @@ class A5eGameSettings extends TJSGameSettings {
       },
       {
         namespace,
+        key: 'hideExpertiseDice',
+        options: {
+          name: 'A5E.settings.hideExpertiseDice',
+          hint: 'A5E.settings.hints.hideExpertiseDice',
+          scope: scope.world,
+          config: true,
+          default: false,
+          type: Boolean
+        }
+      },
+      {
+        namespace,
         key: 'hideSkillSpecialties',
         options: {
           name: 'A5E.settings.hideSkillSpecialties',
