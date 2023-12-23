@@ -5,6 +5,7 @@
 
     import getRollFormula from "../../utils/getRollFormula";
 
+    import CheckboxGroup from "../components/CheckboxGroup.svelte";
     import ExpertiseDiePicker from "../components/ExpertiseDiePicker.svelte";
     import FormSection from "../components/FormSection.svelte";
     import RadioGroup from "../components/RadioGroup.svelte";
@@ -70,7 +71,7 @@
         situationalMods,
         skill: skillKey,
         selectedAbilityBonuses,
-        selectedAbilityBonuses,
+        selectedSkillBonuses,
         type: "initiative",
     });
 </script>
@@ -120,6 +121,20 @@
             }}
         />
     </FormSection>
+
+    {#if Object.values(skillBonuses).flat().length}
+        <FormSection heading="Skill Bonuses">
+            <CheckboxGroup
+                options={skillBonuses.map(([key, skillBonus]) => [
+                    key,
+                    skillBonus.label || skillBonus.defaultLabel,
+                ])}
+                selected={selectedSkillBonuses}
+                on:updateSelection={({ detail }) =>
+                    (selectedSkillBonuses = detail)}
+            />
+        </FormSection>
+    {/if}
 
     <section class="a5e-box u-flex u-flex-wrap u-gap-sm u-p-md u-pos-relative">
         <label class="heading" for="{$actor.id}-{appId}-situational-mods">
