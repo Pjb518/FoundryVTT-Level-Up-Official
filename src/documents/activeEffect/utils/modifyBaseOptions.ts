@@ -56,7 +56,11 @@ export default function modifyBaseOptions(options: Object) {
   // Adds options for spell casting ability
   options['system.attributes.spellcasting'] = ['', MODES.OVERRIDE_ONLY, Object.entries(CONFIG.A5E.abilities), 'RADIO'];
 
-  // TODO: Possibly need to add something for bonus to damage
+  // Bonuses
+  options['flags.a5e.effects.bonuses.abilities'] = [{}, MODES.CUSTOM_ONLY, null, 'ABILITY_BONUS'];
+  options['flags.a5e.effects.bonuses.damage'] = [{}, MODES.CUSTOM_ONLY, null, 'DAMAGE_BONUS'];
+  options['flags.a5e.effects.bonuses.healing'] = [{}, MODES.CUSTOM_ONLY, null, 'HEALING_BONUS'];
+  options['flags.a5e.effects.bonuses.skills'] = [{}, MODES.CUSTOM_ONLY, null, 'SKILL_BONUS'];
 
   // Delete derived values
   Object.keys(CONFIG.A5E.abilities).forEach((a) => {
