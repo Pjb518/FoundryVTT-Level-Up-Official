@@ -16,6 +16,7 @@ export default class DND5ESpellCompendiumSheet extends SvelteApplication {
         class: CompendiumSheetComponent,
         props: {
           compendiumType: '5eSpell',
+          customImporter: options.importer ?? null,
           document: null,
           filterStore: DND5ESpellFilterStore
         }

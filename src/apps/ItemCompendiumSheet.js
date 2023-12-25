@@ -3,7 +3,7 @@ import { SvelteApplication } from '#runtime/svelte/application';
 import CompendiumSheetComponent from './sheets/CompendiumSheet.svelte';
 import ItemCompendiumFilterStore from '../stores/ItemCompendiumFilterStore';
 
-export default class MagicItemCompendiumSheet extends SvelteApplication {
+export default class ItemCompendiumSheet extends SvelteApplication {
   constructor(compendiumCollection, options = {}) {
     const { collection } = compendiumCollection;
     super(foundry.utils.mergeObject(options, {
@@ -16,6 +16,7 @@ export default class MagicItemCompendiumSheet extends SvelteApplication {
         class: CompendiumSheetComponent,
         props: {
           compendiumType: 'magicItem',
+          customImporter: options.importer ?? null,
           document: null,
           filterStore: ItemCompendiumFilterStore
         }

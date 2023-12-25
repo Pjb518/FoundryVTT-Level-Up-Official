@@ -11,6 +11,13 @@ import TokenDocumentA5e from '../documents/tokenDocument';
 
 import ItemProxy from '../documents/item/itemProxy';
 
+// CompendiumSheets
+import DND5ESpellCompendiumSheet from '../apps/DND5ESpellCompendiumSheet';
+import ItemCompendiumSheet from '../apps/ItemCompendiumSheet';
+import ManeuverCompendiumSheet from '../apps/ManeuverCompendiumSheet';
+import MonsterCompendiumSheet from '../apps/MonsterCompendiumSheet';
+import SpellCompendiumSheet from '../apps/SpellCompendiumSheet';
+
 // DataModels
 import CharacterData from '../dataModels/actor/CharacterData';
 import NPCData from '../dataModels/actor/NPCData';
@@ -108,6 +115,13 @@ export default function init() {
       EffectOption,
       options: {},
       effectsPanel: null
+    },
+    compendiumSheets: {
+      DND5ESpellCompendiumSheet,
+      ItemCompendiumSheet,
+      ManeuverCompendiumSheet,
+      MonsterCompendiumSheet,
+      SpellCompendiumSheet
     },
     config: A5E,
     dice: {
