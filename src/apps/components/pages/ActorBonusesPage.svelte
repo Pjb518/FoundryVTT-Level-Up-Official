@@ -36,6 +36,20 @@
     //     );
     // }
 
+    function disableConfig(key) {
+        const modifiedByEffect = determineIfPropertyModifiedByEffect(
+            $actor,
+            key,
+        );
+        if (modifiedByEffect) return true;
+
+        // Check if granted by an effect
+        const grantKey = key.split(".").slice(-2).join(".");
+        if (grants.includes(grantKey)) return true;
+
+        return false;
+    }
+
     const actor = getContext("actor");
 
     $: disableMeleeWeaponAttack = determineIfPropertyModifiedByEffect(
@@ -66,6 +80,10 @@
     $: disableSpellDC = determineIfPropertyModifiedByEffect(
         $actor,
         "system.bonuses.spellDC",
+    );
+
+    $: grants = [...$actor.GrantsManager.values()].map(
+        (g) => `${g.type}.${g.bonusId}`,
     );
 </script>
 
@@ -231,7 +249,7 @@
                         {abilityBonus.label || "New Ability Bonus"}
                     </h3>
 
-                    {#if !determineIfPropertyModifiedByEffect($actor, `system.bonuses.abilities.${id}`)}
+                    {#if !disableConfig(`system.bonuses.abilities.${id}`)}
                         <ul class="bonus-buttons">
                             <li>
                                 <button
@@ -290,7 +308,7 @@
                         {damageBonus.label || "New Damage Bonus"}
                     </h3>
 
-                    {#if !determineIfPropertyModifiedByEffect($actor, `system.bonuses.damage.${id}`)}
+                    {#if !disableConfig(`system.bonuses.abilities.${id}`)}
                         <ul class="bonus-buttons">
                             <li>
                                 <button
@@ -349,7 +367,7 @@
                         {healingBonus.label || "New Healing Bonus"}
                     </h3>
 
-                    {#if !determineIfPropertyModifiedByEffect($actor, `system.healing.damage.${id}`)}
+                    {#if !disableConfig(`system.bonuses.abilities.${id}`)}
                         <ul class="bonus-buttons">
                             <li>
                                 <button
@@ -408,7 +426,7 @@
                         {skillBonus.label || "New Skill Bonus"}
                     </h3>
 
-                    {#if !determineIfPropertyModifiedByEffect($actor, `system.bonuses.skills.${id}`)}
+                    {#if !disableConfig(`system.bonuses.abilities.${id}`)}
                         <ul class="bonus-buttons">
                             <li>
                                 <button
