@@ -15,8 +15,6 @@
     const getProperty = foundry.utils.getProperty;
     const contextMap = getContextsMap("grant", grantType);
 
-    console.log(contextMap);
-
     function onUpdateValue(key, value) {
         console.log(key, value);
         key = `system.grants.${grantId}.${key}`;
