@@ -22,6 +22,8 @@ async function handleAnnouncement() {
 }
 
 async function handleIncompatibilityWarning() {
+  if (!game.user.isGM) return;
+
   const activeIncompatibleModules = Object.entries(CONFIG.A5E.moduleIncompatibilities)
     .filter(([module]) => game.modules.get(module)?.active);
 
