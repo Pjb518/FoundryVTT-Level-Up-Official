@@ -3,6 +3,26 @@
 <script>
     import { getContext } from "svelte";
 
+    async function deactivateIncompatibleModules() {
+        const modules = game.settings.get("core", "moduleConfiguration");
+
+        const moduleUpdates = activeIncompatibleModules.reduce(
+            (updates, [key]) => {
+                updates[key] = false;
+                return updates;
+            },
+            {},
+        );
+
+        await game.settings.set(
+            "core",
+            "moduleConfiguration",
+            foundry.utils.mergeObject(modules, moduleUpdates),
+        );
+
+        window.location.reload();
+    }
+
     function getPriorityColor(priorityLevel) {
         switch (priorityLevel) {
             case "low":
@@ -49,6 +69,10 @@
             </li>
         {/each}
     </ul>
+
+    <button on:click={() => deactivateIncompatibleModules()}>
+        Deactivate All
+    </button>
 </article>
 
 <style lang="scss">
@@ -63,6 +87,9 @@
     }
 
     .main-announcement-container {
+        display: flex;
+        flex-direction: column;
+        gap: 0.75rem;
         padding: 0.5rem;
     }
 
