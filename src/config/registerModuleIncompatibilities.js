@@ -4,6 +4,10 @@ export default function registerModuleIncompatibilities(A5E) {
       reason: 'The content from this module is included in the core system packs, and the module is no longer necessary.',
       priority: 'low'
     },
+    'a5e-concentrator': {
+      reason: 'The A5e concentrator module is no longer working correctly, and its functionality will soon be part of the core system.',
+      priority: 'medium'
+    },
     'a5e-confidence-mage': {
       reason: 'The content from this module is included in the core system packs, and the module is no longer necessary.',
       priority: 'low'
