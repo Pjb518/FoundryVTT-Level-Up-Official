@@ -65,7 +65,8 @@ export class AbilityGrant extends BaseGrant {
         total: new fields.NumberField({ required: true, initial: 0, integer: true })
       }),
       bonus: new fields.StringField({ required: true, initial: '' }),
-      context: new fields.SchemaField(getAbilitiesBonusContext('grant'))
+      context: new fields.SchemaField(getAbilitiesBonusContext('grant')),
+      default: new fields.BooleanField({ required: true, initial: true })
     });
   }
 
@@ -82,7 +83,12 @@ export class AbilityGrant extends BaseGrant {
       heading: 'Ability Grant Selection'
     };
 
-    const promise = await super.applyGrant('Ability Grant Selection', dialogData, this.#component, { width: 400 });
+    const promise = await super.applyGrant(
+      'Ability Grant Selection',
+      dialogData,
+      this.#component,
+      { width: 400 }
+    );
     if (!promise.selected) {
       throw new Error('No ability selected');
     }
@@ -95,7 +101,8 @@ export class AbilityGrant extends BaseGrant {
       },
       formula: this.bonus,
       label: this.parent?.name ?? 'Ability Grant',
-      default: true
+      default: this.default ?? true,
+      img: this.parent?.img ?? 'icons/svg/upgrade.svg'
     };
 
     const bonusId = foundry.utils.randomID();
@@ -126,11 +133,38 @@ export class DamageGrant extends BaseGrant {
       grantType: new fields.StringField({ required: true, initial: 'damage' }),
       bonus: new fields.StringField({ required: true, initial: '' }),
       damageType: new fields.StringField({ required: true, initial: '' }),
-      context: new fields.SchemaField(getDamageBonusContext())
+      context: new fields.SchemaField(getDamageBonusContext()),
+      default: new fields.BooleanField({ required: true, initial: true })
     });
   }
 
-  override async applyGrant(actor: typeof Actor): Promise<void> { }
+  override async applyGrant(actor: typeof Actor): Promise<void> {
+    if (!actor) return;
+
+    const bonusId = foundry.utils.randomID();
+    const bonus = {
+      context: this.context,
+      formula: this.bonus,
+      label: this.parent?.name ?? 'Damage Grant',
+      default: this.default ?? true,
+      img: this.parent?.img ?? 'icons/svg/upgrade.svg'
+    };
+
+    const grantData = {
+      itemUuid: this.parent.uuid,
+      grantId: this._id,
+      bonusId,
+      type: 'damage'
+    };
+
+    await actor.update({
+      [`system.bonuses.damage.${bonusId}`]: bonus,
+      'system.grants': {
+        ...actor.system.grants,
+        [foundry.utils.randomID()]: grantData
+      }
+    });
+  }
 }
 
 export class HealingGrant extends BaseGrant {
