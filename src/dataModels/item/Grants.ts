@@ -5,7 +5,7 @@ import GenericDialog from '../../apps/dialogs/initializers/GenericDialog';
 
 import NumericalGrantSelectionDialog from '../../apps/components/grants/NumericalGrantSelectionDialog.svelte';
 
-import { getAbilitiesBonusContext, getSkillBonusContext } from '../actor/Contexts';
+import { getAbilitiesBonusContext, getDamageBonusContext, getSkillBonusContext } from '../actor/Contexts';
 
 export class BaseGrant extends A5EDataModel {
   #component = null;
@@ -114,6 +114,40 @@ export class AbilityGrant extends BaseGrant {
       }
     });
   }
+}
+
+export class DamageGrant extends BaseGrant {
+  #type = 'damage';
+
+  static defineSchema() {
+    const { fields } = foundry.data;
+
+    return this.mergeSchema(super.defineSchema(), {
+      grantType: new fields.StringField({ required: true, initial: 'damage' }),
+      bonus: new fields.StringField({ required: true, initial: '' }),
+      damageType: new fields.StringField({ required: true, initial: '' }),
+      context: new fields.SchemaField(getDamageBonusContext())
+    });
+  }
+
+  override async applyGrant(actor: typeof Actor): Promise<void> { }
+}
+
+export class HealingGrant extends BaseGrant {
+  #type = 'healing';
+
+  static defineSchema() {
+    const { fields } = foundry.data;
+
+    return this.mergeSchema(super.defineSchema(), {
+      grantType: new fields.StringField({ required: true, initial: 'healing' }),
+      bonus: new fields.StringField({ required: true, initial: '' }),
+      context: new fields.SchemaField(getDamageBonusContext()),
+      healingType: new fields.StringField({ required: true, initial: 'healing' })
+    });
+  }
+
+  override async applyGrant(actor: typeof Actor): Promise<void> { }
 }
 
 export class MovementGrant extends BaseGrant {
