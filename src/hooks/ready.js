@@ -3,6 +3,7 @@ import handleMigration from '../migration/handleMigration';
 
 import AnnouncementDialog from '../apps/dialogs/initializers/AnnouncementDialog';
 import KeyPressHandler from '../apps/KeyPressHandler.svelte';
+import ModuleIncompatibilityDialog from '../apps/dialogs/initializers/ModuleIncompatibilityDialog';
 
 // eslint-disable-next-line no-unused-vars
 async function handleAnnouncement() {
@@ -20,6 +21,16 @@ async function handleAnnouncement() {
   game.user.setFlag('a5e', 'latestAnnouncement', game.system.version);
 }
 
+async function handleIncompatibilityWarning() {
+  const activeIncompatibleModules = Object.entries(CONFIG.A5E.moduleIncompatibilities)
+    .filter(([module]) => game.modules.get(module)?.active);
+
+  if (!activeIncompatibleModules.length) return;
+
+  const dialog = new ModuleIncompatibilityDialog(activeIncompatibleModules);
+  dialog.render(true);
+}
+
 async function addKeyPressLogger() {
   // eslint-disable-next-line no-new
   new KeyPressHandler({ target: document.body });
@@ -30,5 +41,6 @@ export default async function ready() {
 
   handleMigration();
   handleAnnouncement();
+  handleIncompatibilityWarning();
   addKeyPressLogger();
 }
