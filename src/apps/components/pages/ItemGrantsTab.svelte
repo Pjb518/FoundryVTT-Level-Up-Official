@@ -6,7 +6,6 @@
 
     import CreateMenu from "../actorUtilityBar/CreateMenu.svelte";
     import ItemGrantListComponent from "../grants/ItemGrantListComponent.svelte";
-    import NumericalGrantConfigDialog from "../grants/NumericalGrantConfigDialog.svelte";
 
     const item: TJSDocument = getContext("item");
 
@@ -14,12 +13,12 @@
         ability: {
             heading: "A5E.grants.ability",
             singleLabel: "A5E.Ability",
-            component: NumericalGrantConfigDialog,
+            component: null,
         },
         skill: {
             heading: "A5E.grants.skill",
             singleLabel: "A5E.Skill",
-            component: NumericalGrantConfigDialog,
+            component: null,
         },
         movement: {
             heading: "A5E.grants.movement",

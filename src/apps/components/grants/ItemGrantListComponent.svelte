@@ -5,12 +5,16 @@
 
     import GenericConfigDialog from "../../dialogs/initializers/GenericConfigDialog";
 
-    function onDragStart() {}
-
-    async function onAuxClick() {}
-
     export let grant: Grant;
     export let component: any;
+
+    function onDragStart() {}
+
+    async function onAuxClick() {
+        grant.configureGrant("Some Title", { grantId: grant._id }, {});
+    }
+
+    console.log(grant);
 </script>
 
 <li

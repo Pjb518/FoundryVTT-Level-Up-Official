@@ -3,6 +3,7 @@
 import A5EDataModel from '../A5EDataModel';
 import GenericDialog from '../../apps/dialogs/initializers/GenericDialog';
 
+import NumericalGrantConfig from '../../apps/components/grants/NumericalGrantConfig.svelte';
 import NumericalGrantSelectionDialog from '../../apps/components/grants/NumericalGrantSelectionDialog.svelte';
 
 import { getAbilitiesBonusContext, getDamageBonusContext, getSkillBonusContext } from '../actor/Contexts';
@@ -20,8 +21,10 @@ export class BaseGrant extends A5EDataModel {
 
     return {
       _id: new fields.DocumentIdField({ initial: () => foundry.utils.randomID() }),
+      default: new fields.BooleanField({ required: true, initial: true }),
       img: new fields.StringField({ required: true, initial: 'icons/svg/upgrade.svg' }),
       grantType: new fields.StringField({ required: true, initial: '' }),
+      label: new fields.StringField({ required: true, initial: '' }),
       optional: new fields.BooleanField({ required: true, initial: false })
     };
   }
@@ -41,10 +44,27 @@ export class BaseGrant extends A5EDataModel {
     if (!promise) return {};
     return promise;
   }
+
+  async configureGrant(title: string, data: any, component: any, options: any = {}): Promise<any> {
+    const dialog = new GenericDialog(
+      title,
+      component,
+      data,
+      options
+    );
+
+    await dialog.render(true);
+    const promise = await dialog.promise;
+
+    if (!promise) return {};
+    return promise;
+  }
 }
 
 export class AbilityGrant extends BaseGrant {
   #component = NumericalGrantSelectionDialog;
+
+  #configComponent = NumericalGrantConfig;
 
   #type = 'ability';
 
@@ -65,8 +85,7 @@ export class AbilityGrant extends BaseGrant {
         total: new fields.NumberField({ required: true, initial: 0, integer: true })
       }),
       bonus: new fields.StringField({ required: true, initial: '' }),
-      context: new fields.SchemaField(getAbilitiesBonusContext('grant')),
-      default: new fields.BooleanField({ required: true, initial: true })
+      context: new fields.SchemaField(getAbilitiesBonusContext('grant'))
     });
   }
 
@@ -121,9 +140,26 @@ export class AbilityGrant extends BaseGrant {
       }
     });
   }
+
+  override async configureGrant() {
+    const dialogData = {
+      document: this?.parent,
+      grantId: this._id,
+      grantType: 'abilities'
+    };
+
+    super.configureGrant(
+      'Configure Ability Grant',
+      dialogData,
+      this.#configComponent,
+      { width: 400 }
+    );
+  }
 }
 
 export class DamageGrant extends BaseGrant {
+  #configComponent = NumericalGrantConfig;
+
   #type = 'damage';
 
   static defineSchema() {
@@ -165,9 +201,15 @@ export class DamageGrant extends BaseGrant {
       }
     });
   }
+
+  // override async configureGrant() {
+
+  // }
 }
 
 export class HealingGrant extends BaseGrant {
+  #configComponent = NumericalGrantConfig;
+
   #type = 'healing';
 
   static defineSchema() {
@@ -265,6 +307,8 @@ export class ProficiencyGrant extends BaseGrant {
 
 export class SkillGrant extends BaseGrant {
   #component = NumericalGrantSelectionDialog;
+
+  #configComponent = NumericalGrantConfig;
 
   #type = 'skill';
 

@@ -1,10 +1,13 @@
 export interface BaseGrant {
   _id: string;
+  default: boolean;
   img: string;
   grantType: string;
+  label: string;
   optional: boolean;
 
   applyGrant(applyData?: any): void;
+  configureGrant(title: string, data?: any, options?: any): void;
 
   parent: any;
 }
