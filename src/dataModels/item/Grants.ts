@@ -181,7 +181,33 @@ export class HealingGrant extends BaseGrant {
     });
   }
 
-  override async applyGrant(actor: typeof Actor): Promise<void> { }
+  override async applyGrant(actor: typeof Actor): Promise<void> {
+    if (!actor) return;
+
+    const bonusId = foundry.utils.randomID();
+    const bonus = {
+      context: this.context,
+      formula: this.bonus,
+      label: this.parent?.name ?? 'Healing Grant',
+      default: this.default ?? true,
+      img: this.parent?.img ?? 'icons/svg/upgrade.svg'
+    };
+
+    const grantData = {
+      itemUuid: this.parent.uuid,
+      grantId: this._id,
+      bonusId,
+      type: 'healing'
+    };
+
+    await actor.update({
+      [`system.bonuses.healing.${bonusId}`]: bonus,
+      'system.grants': {
+        ...actor.system.grants,
+        [foundry.utils.randomID()]: grantData
+      }
+    });
+  }
 }
 
 export class MovementGrant extends BaseGrant {
