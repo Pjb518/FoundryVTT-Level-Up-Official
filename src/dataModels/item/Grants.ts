@@ -285,7 +285,8 @@ export class SkillGrant extends BaseGrant {
         total: new fields.NumberField({ required: true, initial: 0, integer: true })
       }),
       bonus: new fields.StringField({ required: true, initial: 0 }),
-      context: new fields.SchemaField(getSkillBonusContext('grant'))
+      context: new fields.SchemaField(getSkillBonusContext('grant')),
+      default: new fields.BooleanField({ required: true, initial: true })
     });
   }
 
@@ -315,7 +316,8 @@ export class SkillGrant extends BaseGrant {
       },
       formula: this.bonus,
       label: this.parent?.name ?? 'Skill Grant',
-      default: true
+      default: this.default ?? true,
+      img: this.parent?.img ?? 'icons/svg/upgrade.svg'
     };
 
     const bonusId = foundry.utils.randomID();
