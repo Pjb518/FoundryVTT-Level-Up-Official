@@ -9,54 +9,21 @@
 
     const item: TJSDocument = getContext("item");
 
-    export const grantTypes = {
-        ability: {
-            heading: "A5E.grants.ability",
-            singleLabel: "A5E.Ability",
-            component: null,
-        },
-        skill: {
-            heading: "A5E.grants.skill",
-            singleLabel: "A5E.Skill",
-            component: null,
-        },
-        movement: {
-            heading: "A5E.grants.movement",
-            singleLabel: "A5E.Movement",
-            component: null,
-        },
-        proficiency: {
-            heading: "A5E.grants.proficiency",
-            singleLabel: "A5E.Proficiency",
-            component: null,
-        },
-        trait: {
-            heading: "A5E.grants.trait",
-            singleLabel: "A5E.Trait",
-            component: null,
-        },
-        vision: {
-            heading: "A5E.grants.vision",
-            singleLabel: "A5E.Vision",
-            component: null,
-        },
-    };
-
-    function addGrant(detail) {
+    function addGrant(detail: string) {
         const data = {
             grantType: detail,
-            level: 1,
             optional: false,
         };
 
         ItemGrantManager.addGrant($item, data);
     }
 
-    let grants: ItemGrantManager = $item.grants;
+    $: grants = $item.grants as ItemGrantManager;
 
-    $: menuList = Object.entries(grantTypes).reduce(
-        (acc: any[], [grantType, { singleLabel }]) => {
-            acc.push([grantType, singleLabel]);
+    // @ts-ignore
+    $: menuList = Object.entries(CONFIG.A5E.itemGrants).reduce(
+        (acc: any[], [grantType, label]) => {
+            acc.push([grantType, label]);
             return acc;
         },
         [],
@@ -66,10 +33,7 @@
 <article>
     <ul class="grant-list">
         {#each grants.entries() as [id, grant] (id)}
-            <ItemGrantListComponent
-                {grant}
-                component={grantTypes[grant.grantType].component}
-            />
+            <ItemGrantListComponent {grant} />
         {/each}
     </ul>
 

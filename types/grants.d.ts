@@ -7,7 +7,7 @@ export interface BaseGrant {
   optional: boolean;
 
   applyGrant(applyData?: any): void;
-  configureGrant(title: string, data?: any, options?: any): void;
+  configureGrant(): void;
 
   parent: any;
 }

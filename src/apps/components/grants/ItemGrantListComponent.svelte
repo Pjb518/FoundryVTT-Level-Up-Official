@@ -3,18 +3,13 @@
 
     import { getContext } from "svelte";
 
-    import GenericConfigDialog from "../../dialogs/initializers/GenericConfigDialog";
-
     export let grant: Grant;
-    export let component: any;
 
     function onDragStart() {}
 
     async function onAuxClick() {
         grant.configureGrant("Some Title", { grantId: grant._id }, {});
     }
-
-    console.log(grant);
 </script>
 
 <li
@@ -30,6 +25,8 @@
             alt="{grant.grantType} Grant"
         />
     </div>
+
+    {grant.grantType}
 </li>
 
 <style lang="scss">
