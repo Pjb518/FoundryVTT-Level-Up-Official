@@ -46,6 +46,13 @@ export default function modifySpecialOptions(options: object) {
   // TODO: Maybe add something to automatically fail?
 
   // Token Effects
+  options['@token.width'] = [1, MODES.OVERRIDE_ONLY];
+  options['@token.height'] = [1, MODES.OVERRIDE_ONLY];
+
+  options['@token.texture.src'] = ['', MODES.OVERRIDE_ONLY];
+  options['@token.texture.scaleX'] = [1, MODES.OVERRIDE_ONLY];
+  options['@token.texture.scaleY'] = [1, MODES.OVERRIDE_ONLY];
+
   options['@token.light.alpha'] = [0.5, MODES.OVERRIDE_ONLY];
   options['@token.light.angle'] = [360, MODES.OVERRIDE_ONLY];
   options['@token.light.animation.intensity'] = [5, MODES.OVERRIDE_ONLY];

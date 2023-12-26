@@ -408,6 +408,12 @@ export default function registerEffectLocalizationConfig(A5E) {
     '@token.light.dim': 'A5E.effects.keys.token.light.dim',
     '@token.light.luminosity': 'A5E.effects.keys.token.light.luminosity',
     '@token.light.saturation': 'A5E.effects.keys.token.light.saturation',
-    '@token.light.shadows': 'A5E.effects.keys.token.light.shadows'
+    '@token.light.shadows': 'A5E.effects.keys.token.light.shadows',
+
+    '@token.texture.src': 'A5E.effects.keys.token.texture.src',
+    '@token.texture.scaleX': 'A5E.effects.keys.token.texture.scaleX',
+    '@token.texture.scaleY': 'A5E.effects.keys.token.texture.scaleY',
+    '@token.width': 'A5E.effects.keys.token.width',
+    '@token.height': 'A5E.effects.keys.token.height'
   };
 }
