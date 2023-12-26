@@ -85,7 +85,7 @@ export default class SkillGrant extends BaseGrant {
     const dialogData = {
       document: this.parent,
       grantId: this._id,
-      grantType: this.#type
+      grantType: 'skills'
     };
 
     super.configureGrant('Configure Skill Grant', dialogData, this.#configComponent, { width: 400 });

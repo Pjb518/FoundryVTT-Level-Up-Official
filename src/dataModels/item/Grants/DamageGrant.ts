@@ -60,7 +60,7 @@ export default class DamageGrant extends BaseGrant {
       'Configure Damage Grant',
       dialogData,
       this.#configComponent,
-      { width: 400 }
+      { width: 500 }
     );
   }
 }

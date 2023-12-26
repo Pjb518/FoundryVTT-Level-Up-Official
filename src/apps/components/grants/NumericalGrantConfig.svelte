@@ -59,7 +59,8 @@
     };
 
     $: grant = $item.system.grants[grantId];
-    $: selectProperty = configObject[grantType].selectProperty;
+    $: selectProperty = configObject[grantType]?.selectProperty;
+    console.log(grantType);
 
     setContext("item", item);
     setContext("grantId", grantId);
@@ -106,7 +107,7 @@
 
         {#if grantType === "damage" || grantType === "healing"}
             <FormSection
-                heading={getTypeHeading}
+                heading={getTypeHeading()}
                 --background="none"
                 --direction="column"
                 --padding="0"

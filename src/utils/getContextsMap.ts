@@ -60,13 +60,13 @@ export default function getContextsMap(type: 'bonus' | 'grant', contextType: str
       {
         heading: 'A5E.contexts.attackType',
         options: Object.entries(CONFIG.A5E.damageBonusContexts),
-        selectedProperty: 'context.attackType',
+        selectedProperty: 'context.attackTypes',
         component: 'TagGroup'
       },
       {
         heading: 'A5E.contexts.damageType',
         options: Object.entries(CONFIG.A5E.damageTypes),
-        selectedProperty: 'context.damageType',
+        selectedProperty: 'context.damageTypes',
         component: 'TagGroup'
       },
       {

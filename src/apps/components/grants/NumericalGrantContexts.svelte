@@ -18,6 +18,7 @@
     console.log(contextMap);
 
     function onUpdateValue(key, value) {
+        console.log(key, value);
         key = `system.grants.${grantId}.${key}`;
         updateDocumentDataFromField($item, key, value);
     }
