@@ -52,6 +52,26 @@ export default function registerModuleIncompatibilities(A5E) {
       reason: 'The content from this module is included in the core system packs, and the module is no longer necessary.',
       priority: 'low'
     },
+    'a5e-thematic-toolkit-hazardous-knowledge': {
+      reason: 'The content from this module is included in the core system packs, and the module is no longer necessary.',
+      priority: 'low'
+    },
+    'a5e-thematic-toolkit-judge-jury-and-executioner': {
+      reason: 'The content from this module is included in the core system packs, and the module is no longer necessary.',
+      priority: 'low'
+    },
+    'a5e-thematic-toolkit-master-of-ceremonies': {
+      reason: 'The content from this module is included in the core system packs, and the module is no longer necessary.',
+      priority: 'low'
+    },
+    'a5e-thematic-toolkit-scrapper': {
+      reason: 'The content from this module is included in the core system packs, and the module is no longer necessary.',
+      priority: 'low'
+    },
+    'a5e-thematic-toolkit-storyteller': {
+      reason: 'The content from this module is included in the core system packs, and the module is no longer necessary.',
+      priority: 'low'
+    },
     'a5e-thematic-toolkit-thunder-of-war': {
       reason: 'The content from this module is included in the core system packs, and the module is no longer necessary.',
       priority: 'low'
@@ -60,22 +80,7 @@ export default function registerModuleIncompatibilities(A5E) {
       reason: 'The content from this module is included in the core system packs, and the module is no longer necessary.',
       priority: 'low'
     },
-    'a5e-thematic-toolkit-storyteller': {
-      reason: 'The content from this module is included in the core system packs, and the module is no longer necessary.',
-      priority: 'low'
-    },
-    'a5e-thematic-toolkit-scrapper': {
-      reason: 'The content from this module is included in the core system packs, and the module is no longer necessary.',
-      priority: 'low'
-    },
-    'a5e-thematic-toolkit-judge-jury-and-executioner': {
-      reason: 'The content from this module is included in the core system packs, and the module is no longer necessary.',
-      priority: 'low'
-    },
-    'a5e-thematic-toolkit-hazardous-knowledge': {
-      reason: 'The content from this module is included in the core system packs, and the module is no longer necessary.',
-      priority: 'low'
-    },
+
     dae: {
       reason: "All of DAE's features are already part of the A5e system's Active Effects implementation. Using DAE will give you a worse experience than having it turned off.",
       priority: 'high'
