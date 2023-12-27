@@ -68,7 +68,7 @@ export default class ItemGrantsManager extends Map<string, Grant> {
   }
 
   // @ts-ignore
-  async delete(id: string) {
+  override async delete(id: string): Promise<void> {
     super.delete(id);
 
     await this.#item.update({
@@ -76,6 +76,11 @@ export default class ItemGrantsManager extends Map<string, Grant> {
         [`-=${id}`]: null
       }
     });
+
+    const actor = this.#item.parent;
+    if (!actor || actor.documentName !== 'Actor') return;
+
+    actor.grants.removeGrant(id);
   }
 
   /** ************************************************

@@ -45,7 +45,7 @@ export default class ActorGrantsManger extends Map<string, ActorGrantData> {
     }
   }
 
-  removeGrants(itemUuid: string): void {
+  removeGrantsByItem(itemUuid: string): void {
     const updates: Record<string, null> = {};
 
     for (const [grantId, data] of this) {
@@ -54,6 +54,19 @@ export default class ActorGrantsManger extends Map<string, ActorGrantData> {
       updates[`system.grants.-=${grantId}`] = null;
       if (data.bonusId) updates[`system.bonuses.${data.type}.-=${data.bonusId}`] = null;
     }
+
+    this.actor.update(updates);
+  }
+
+  removeGrant(grantId: string): void {
+    const data = this.get(grantId);
+    if (!data) return;
+
+    const updates: Record<string, null> = {
+      [`system.grants.-=${grantId}`]: null
+    };
+
+    if (data.bonusId) updates[`system.bonuses.${data.type}.-=${data.bonusId}`] = null;
 
     this.actor.update(updates);
   }

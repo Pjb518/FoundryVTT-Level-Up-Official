@@ -64,9 +64,9 @@ export default class AbilityGrant extends BaseGrant {
         ...this.context
       },
       formula: this.bonus,
-      label: this.label ?? this.parent?.name ?? 'Ability Grant',
+      label: this.label || this.parent?.name || 'Ability Grant',
       default: this.default ?? true,
-      img: this.img ?? this?.parent?.img
+      img: this.img || this?.parent?.img
     };
 
     const grantData = {
@@ -80,7 +80,7 @@ export default class AbilityGrant extends BaseGrant {
       [`system.bonuses.abilities.${bonusId}`]: bonus,
       'system.grants': {
         ...actor.system.grants,
-        [foundry.utils.randomID()]: grantData
+        [this._id]: grantData
       }
     });
   }

@@ -27,9 +27,9 @@ export default class HealingGrant extends BaseGrant {
     const bonus = {
       context: this.context,
       formula: this.bonus,
-      label: this.label ?? this.parent?.name ?? 'Healing Grant',
+      label: this.label || this.parent?.name || 'Healing Grant',
       default: this.default ?? true,
-      img: this.img ?? this?.parent?.img
+      img: this.img || this?.parent?.img
     };
 
     const grantData = {
@@ -43,7 +43,7 @@ export default class HealingGrant extends BaseGrant {
       [`system.bonuses.healing.${bonusId}`]: bonus,
       'system.grants': {
         ...actor.system.grants,
-        [foundry.utils.randomID()]: grantData
+        [this._id]: grantData
       }
     });
   }

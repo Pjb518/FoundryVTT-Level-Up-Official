@@ -1,14 +1,16 @@
 <script lang="ts">
+    import type { TJSDocument } from "@typhonjs-fvtt/runtime/svelte/store/fvtt/document";
     import type { Grant } from "../../../../types/grants";
 
     import { getContext } from "svelte";
 
     export let grant: Grant;
+    const item: TJSDocument = getContext("item");
 
     function onDragStart() {}
 
     async function onAuxClick() {
-        grant.configureGrant("Some Title", { grantId: grant._id }, {});
+        grant.configureGrant();
     }
 </script>
 
@@ -21,7 +23,7 @@
     <div class="grant-information-wrapper">
         <img
             class="grant-image"
-            src={grant.img ?? "icons/svg/upgrade.svg"}
+            src={grant.img || $item.img || "icons/svg/upgrade.svg"}
             alt="{grant.grantType} Grant"
         />
     </div>

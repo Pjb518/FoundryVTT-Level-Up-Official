@@ -59,9 +59,9 @@ export default class SkillGrant extends BaseGrant {
         ...this.context
       },
       formula: this.bonus,
-      label: this.label ?? this.parent?.name ?? 'Skill Grant',
+      label: this.label || this.parent?.name || 'Skill Grant',
       default: this.default ?? true,
-      img: this.img ?? this?.parent?.img
+      img: this.img || this?.parent?.img
     };
 
     const bonusId = foundry.utils.randomID();
@@ -76,7 +76,7 @@ export default class SkillGrant extends BaseGrant {
       [`system.bonuses.skills.${bonusId}`]: bonus,
       'system.grants': {
         ...actor.system.grants,
-        [foundry.utils.randomID()]: grantData
+        [this._id]: grantData
       }
     });
   }

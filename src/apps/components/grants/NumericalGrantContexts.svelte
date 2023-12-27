@@ -53,6 +53,7 @@
                 heading={context.heading}
                 --background="none"
                 --padding="0"
+                --margin="0 0 0.5rem 0 "
             >
                 <input
                     type="number"

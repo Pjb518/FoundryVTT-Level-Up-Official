@@ -15,7 +15,7 @@ export default class BaseGrant extends A5EDataModel {
     return {
       _id: new fields.DocumentIdField({ initial: () => foundry.utils.randomID() }),
       default: new fields.BooleanField({ required: true, initial: true }),
-      img: new fields.StringField({ required: true, initial: 'icons/svg/upgrade.svg' }),
+      img: new fields.StringField({ required: true, initial: '' }),
       grantType: new fields.StringField({ required: true, initial: '' }),
       label: new fields.StringField({ required: true, initial: '' }),
       optional: new fields.BooleanField({ required: true, initial: false })
@@ -51,5 +51,16 @@ export default class BaseGrant extends A5EDataModel {
 
     if (!promise) return {};
     return promise;
+  }
+
+  async deleteGrant(): Promise<void> {
+    const item = this.parent;
+    await item.update({
+      [`system.grants.-=${this._id}`]: null
+    });
+
+    const document = this.parent?.parent;
+    if (!document || document.documentName !== 'Actor') return;
+    document.grants.removeGrant(this._id);
   }
 }

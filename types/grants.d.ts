@@ -8,6 +8,7 @@ export interface BaseGrant {
 
   applyGrant(applyData?: any): void;
   configureGrant(): void;
+  deleteGrant(): void;
 
   parent: any;
 }

@@ -5,9 +5,7 @@
 
     import updateDocumentDataFromField from "../../../utils/updateDocumentDataFromField";
 
-    import Checkbox from "../Checkbox.svelte";
     import FormSection from "../FormSection.svelte";
-    import TagGroup from "../TagGroup.svelte";
     import NumericalGrantContexts from "./NumericalGrantContexts.svelte";
 
     export let { document, grantId, grantType } =
@@ -73,7 +71,7 @@
         <!-- svelte-ignore a11y-click-events-have-key-events -->
         <img
             class="grant-image"
-            src={grant.img ?? $item.img}
+            src={grant.img || $item.img || "icons/svg/upgrade.svg"}
             alt={grant.label}
             on:click={updateImage}
         />

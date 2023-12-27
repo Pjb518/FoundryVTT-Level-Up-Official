@@ -28,9 +28,9 @@ export default class DamageGrant extends BaseGrant {
     const bonus = {
       context: this.context,
       formula: this.bonus,
-      label: this.label ?? this.parent?.name ?? 'Damage Grant',
+      label: this.label || this.parent?.name || 'Damage Grant',
       default: this.default ?? true,
-      img: this.img ?? this?.parent?.img
+      img: this.img || this?.parent?.img
     };
 
     const grantData = {
@@ -44,7 +44,7 @@ export default class DamageGrant extends BaseGrant {
       [`system.bonuses.damage.${bonusId}`]: bonus,
       'system.grants': {
         ...actor.system.grants,
-        [foundry.utils.randomID()]: grantData
+        [this._id]: grantData
       }
     });
   }
