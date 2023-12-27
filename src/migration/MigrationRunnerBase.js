@@ -98,6 +98,7 @@ export default class MigrationRunnerBase {
     if ('game' in globalThis) {
       const latestMigration = migrations.slice(-1)[0];
       actorData.system.schemaVersion ??= { version: null, lastMigration: null };
+      this.#updateSchemaRecord(actorData.system.schemaVersion, latestMigration);
 
       for (const itemData of actorData.items) {
         itemData.system.schemaVersion ??= { version: null, lastMigration: null };
