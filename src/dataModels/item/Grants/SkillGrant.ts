@@ -38,7 +38,6 @@ export default class SkillGrant extends BaseGrant {
     if (!actor) return;
 
     const dialogData = {
-      document: actor,
       base: this.skills.base,
       bonus: this.bonus,
       choices: this.skills.options,

@@ -308,7 +308,7 @@
                         {damageBonus.label || "New Damage Bonus"}
                     </h3>
 
-                    {#if !disableConfig(`system.bonuses.abilities.${id}`)}
+                    {#if !disableConfig(`system.bonuses.damage.${id}`)}
                         <ul class="bonus-buttons">
                             <li>
                                 <button
@@ -367,7 +367,7 @@
                         {healingBonus.label || "New Healing Bonus"}
                     </h3>
 
-                    {#if !disableConfig(`system.bonuses.abilities.${id}`)}
+                    {#if !disableConfig(`system.bonuses.healing.${id}`)}
                         <ul class="bonus-buttons">
                             <li>
                                 <button
@@ -426,7 +426,7 @@
                         {skillBonus.label || "New Skill Bonus"}
                     </h3>
 
-                    {#if !disableConfig(`system.bonuses.abilities.${id}`)}
+                    {#if !disableConfig(`system.bonuses.skills.${id}`)}
                         <ul class="bonus-buttons">
                             <li>
                                 <button
