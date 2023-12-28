@@ -16,7 +16,7 @@
     const dispatch = createEventDispatcher();
 
     function updateImage() {
-        const current = abilityBonus?.img;
+        const current = damageBonus?.img;
 
         const filePicker = new FilePicker({
             type: "image",

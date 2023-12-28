@@ -15,7 +15,7 @@
     const dispatch = createEventDispatcher();
 
     function updateImage() {
-        const current = abilityBonus?.img;
+        const current = skillBonus?.img;
 
         const filePicker = new FilePicker({
             type: "image",
@@ -42,7 +42,7 @@
         dispatch("change", JSON.stringify(newObj));
     }
 
-    function getAbilityBonus() {
+    function getSKillBonus() {
         if (jsonValue === null) return $actor.system.bonuses.skills[bonusID];
 
         try {
@@ -68,7 +68,7 @@
 
     const { skills } = CONFIG.A5E;
 
-    $: skillBonus = getAbilityBonus($actor, jsonValue) ?? {};
+    $: skillBonus = getSKillBonus($actor, jsonValue) ?? {};
     $: passiveOnly = skillBonus.context.passiveOnly ?? false;
     $: skillsContext = skillBonus.context.skills ?? [];
     $: requiresProficiency = skillBonus.context.requiresProficiency ?? false;
