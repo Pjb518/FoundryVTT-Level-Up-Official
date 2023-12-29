@@ -26,6 +26,17 @@ export default function registerFilterConfig(A5E) {
       traditions: {
         label: 'A5E.FilterLabelManueverTraditions',
         filters: {}
+      },
+      miscellaneous: {
+        label: 'A5E.FilterLabelMiscellaneous',
+        filters: {
+          concentration: {
+            label: 'A5E.ConditionConcentration', key: 'system.concentration', type: 'boolean'
+          },
+          stance: {
+            label: 'Stance', key: 'system.isStance', type: 'boolean'
+          }
+        }
       }
     },
     objects: {
