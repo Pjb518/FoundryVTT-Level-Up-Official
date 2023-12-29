@@ -261,7 +261,7 @@
             --icon-color-active: hsla(0, 35%, 30%, 0.75);
             --indicator-background: hsla(0, 55%, 50%, 0.302);
             --indicator-text-color: black;
-            --input-border-color: hsla(0, 75%, 60%, 0.302);
+            --input-border-color: hsla(0, 50%, 35%, 0.17);
             --item-background: hsla(0, 55%, 55%, 0.4);
             --track-background: hsl(0, 30%, 90%);
             --track-border-color: hsla(0, 40%, 50%, 0.302);
