@@ -49,6 +49,10 @@ const maneuverFilterConfig = {
   },
   miscellaneous: {
     subFilters: {
+      concentration: {
+        key: 'system.concentration',
+        type: 'boolean'
+      },
       stance: {
         key: 'system.isStance',
         type: 'boolean'
