@@ -67,6 +67,7 @@
 				"featureType": "",
 				"grants": {},
 				"prerequisite": "",
+				"requiresBloodied": false,
 				"schemaVersion": {
 					"version": 0.01,
 					"lastMigration": {
@@ -167,6 +168,7 @@
 				"featureType": "naturalWeapon",
 				"grants": {},
 				"prerequisite": "",
+				"requiresBloodied": false,
 				"schemaVersion": {
 					"version": 0.01,
 					"lastMigration": {
@@ -267,6 +269,7 @@
 				"featureType": "",
 				"grants": {},
 				"prerequisite": "",
+				"requiresBloodied": false,
 				"schemaVersion": {
 					"version": 0.01,
 					"lastMigration": {
@@ -284,7 +287,7 @@
 		},
 		{
 			"_id": "eQbRMzlsng2U7sr8",
-			"name": "Elite Recovery (While Bloodied)",
+			"name": "Elite Recovery",
 			"type": "feature",
 			"img": "icons/svg/item-bag.svg",
 			"effects": [],
@@ -303,7 +306,7 @@
 				},
 				"actions": {
 					"atyPv7gCEYci6cy7": {
-						"name": "Elite Recovery (While Bloodied)",
+						"name": "Elite Recovery",
 						"activation": {
 							"cost": 1,
 							"type": "bonusAction",
@@ -346,6 +349,7 @@
 				"featureType": "",
 				"grants": {},
 				"prerequisite": "",
+				"requiresBloodied": true,
 				"schemaVersion": {
 					"version": 0.01,
 					"lastMigration": {
@@ -363,7 +367,7 @@
 		},
 		{
 			"_id": "j8L59uAFBq6SrlbA",
-			"name": "Trample (While Bloodied)",
+			"name": "Trample",
 			"type": "feature",
 			"img": "icons/svg/item-bag.svg",
 			"effects": [],
@@ -386,7 +390,7 @@
 				},
 				"actions": {
 					"qLfvkHHknrWvAYqN": {
-						"name": "Trample (While Bloodied)",
+						"name": "Trample",
 						"activation": {
 							"cost": 1,
 							"type": "bonusAction",
@@ -461,6 +465,7 @@
 				"featureType": "",
 				"grants": {},
 				"prerequisite": "",
+				"requiresBloodied": true,
 				"schemaVersion": {
 					"version": 0.01,
 					"lastMigration": {
@@ -478,7 +483,7 @@
 		},
 		{
 			"_id": "O0CpwV1fuDqiJ7db",
-			"name": "Tail Sweep (While Bloodied)",
+			"name": "Tail Sweep",
 			"type": "feature",
 			"img": "icons/skills/wounds/injury-pain-impaled-hand-blood.webp",
 			"effects": [],
@@ -497,7 +502,7 @@
 				},
 				"actions": {
 					"HGYrzHaydF6Qp85m": {
-						"name": "Tail Sweep (While Bloodied)",
+						"name": "Tail Sweep",
 						"activation": {
 							"cost": 1,
 							"type": "bonusAction",
@@ -507,19 +512,16 @@
 							"unit": "",
 							"value": ""
 						},
-						"ranges": {
-							"v7ZD0xD6TkU5Axlr": {
-								"range": "10 ft."
-							}
-						},
+						"ranges": {},
 						"area": {
 							"shape": "sphere",
 							"size": "10 ft. radius",
-							"placeTemplate": false
+							"placeTemplate": false,
+							"radius": 10
 						},
 						"target": {
-							"quantity": "",
-							"type": "self"
+							"quantity": 1,
+							"type": ""
 						},
 						"rolls": {
 							"VbDnnUnwErZakd9m": {
@@ -572,6 +574,7 @@
 				"featureType": "",
 				"grants": {},
 				"prerequisite": "",
+				"requiresBloodied": true,
 				"schemaVersion": {
 					"version": 0.01,
 					"lastMigration": {
@@ -589,7 +592,7 @@
 		},
 		{
 			"_id": "BLrHyZpLxGLAFD1h",
-			"name": "Roar (While Bloodied)",
+			"name": "Roar",
 			"type": "feature",
 			"img": "icons/magic/sonic/scream-wail-shout-teal.webp",
 			"effects": [],
@@ -608,7 +611,7 @@
 				},
 				"actions": {
 					"mgL4MQdHd4Ntz7e4": {
-						"name": "Roar (While Bloodied)",
+						"name": "Roar",
 						"activation": {
 							"cost": 1,
 							"type": "bonusAction",
@@ -618,19 +621,17 @@
 							"unit": "",
 							"value": ""
 						},
-						"ranges": {
-							"A4XsqZZvbnChUhoL": {
-								"range": "long"
-							}
-						},
+						"ranges": {},
 						"area": {
-							"shape": "sphere",
+							"shape": "emanation",
 							"size": "120 ft. Radius",
-							"placeTemplate": false
+							"placeTemplate": false,
+							"quantity": 1,
+							"radius": 120
 						},
 						"target": {
-							"quantity": "",
-							"type": "self"
+							"quantity": 1,
+							"type": ""
 						},
 						"prompts": {
 							"3ZRn2y3bWWSEOQcM": {
@@ -671,6 +672,7 @@
 				"featureType": "",
 				"grants": {},
 				"prerequisite": "",
+				"requiresBloodied": true,
 				"schemaVersion": {
 					"version": 0.01,
 					"lastMigration": {
@@ -765,6 +767,7 @@
 					"version": null,
 					"lastMigration": null
 				},
+				"concentration": false,
 				"degree": 0,
 				"exertionCost": 0,
 				"isStance": false,
@@ -867,6 +870,7 @@
 					"version": null,
 					"lastMigration": null
 				},
+				"concentration": false,
 				"degree": 0,
 				"exertionCost": 0,
 				"isStance": false,
@@ -960,6 +964,7 @@
 					"version": null,
 					"lastMigration": null
 				},
+				"concentration": false,
 				"degree": 0,
 				"exertionCost": 0,
 				"isStance": false,
@@ -1053,6 +1058,7 @@
 					"version": null,
 					"lastMigration": null
 				},
+				"concentration": false,
 				"degree": 0,
 				"exertionCost": 0,
 				"isStance": false,
@@ -1146,6 +1152,7 @@
 					"version": null,
 					"lastMigration": null
 				},
+				"concentration": false,
 				"degree": 0,
 				"exertionCost": 0,
 				"isStance": false,
@@ -1239,6 +1246,7 @@
 					"version": null,
 					"lastMigration": null
 				},
+				"concentration": false,
 				"degree": 0,
 				"exertionCost": 0,
 				"isStance": false,
@@ -1690,6 +1698,7 @@
 				}
 			},
 			"initiative": {
+				"ability": "dex",
 				"bonus": "",
 				"expertiseDice": 0
 			},
@@ -1744,15 +1753,15 @@
 			"casterLevel": 0
 		},
 		"bonuses": {
-			"abilities": {},
-			"damage": {},
-			"healing": {},
 			"maneuverDC": "",
 			"meleeSpellAttack": "",
 			"meleeWeaponAttack": "",
 			"rangedSpellAttack": "",
 			"rangedWeaponAttack": "",
 			"spellDC": "",
+			"abilities": {},
+			"damage": {},
+			"healing": {},
 			"skills": {}
 		},
 		"currency": {
@@ -1887,11 +1896,7 @@
 			"offsetX": 0,
 			"offsetY": 0,
 			"rotation": 0,
-			"tint": "#ffffff",
-			"anchorX": 0.5,
-			"anchorY": 0.5,
-			"fit": "contain",
-			"alphaThreshold": 0.75
+			"tint": "#ffffff"
 		},
 		"sight": {
 			"angle": 360,
@@ -1906,12 +1911,7 @@
 		},
 		"detectionModes": [],
 		"appendNumber": false,
-		"prependAdjective": false,
-		"hexagonalShape": 0,
-		"locked": false,
-		"occludable": {
-			"radius": 0
-		}
+		"prependAdjective": false
 	},
 	"folder": null,
 	"_id": "elq36cvf91123zpx"

@@ -44,6 +44,7 @@
 				"featureType": "",
 				"grants": {},
 				"prerequisite": "",
+				"requiresBloodied": false,
 				"schemaVersion": {
 					"version": 0.01,
 					"lastMigration": {
@@ -100,6 +101,7 @@
 				"featureType": "",
 				"grants": {},
 				"prerequisite": "",
+				"requiresBloodied": false,
 				"schemaVersion": {
 					"version": 0.01,
 					"lastMigration": {
@@ -156,6 +158,7 @@
 				"featureType": "",
 				"grants": {},
 				"prerequisite": "",
+				"requiresBloodied": false,
 				"schemaVersion": {
 					"version": 0.01,
 					"lastMigration": {
@@ -212,6 +215,7 @@
 				"featureType": "",
 				"grants": {},
 				"prerequisite": "",
+				"requiresBloodied": false,
 				"schemaVersion": {
 					"version": 0.01,
 					"lastMigration": {
@@ -295,6 +299,7 @@
 				"featureType": "",
 				"grants": {},
 				"prerequisite": "",
+				"requiresBloodied": false,
 				"schemaVersion": {
 					"version": 0.01,
 					"lastMigration": {
@@ -524,6 +529,7 @@
 				"featureType": "",
 				"grants": {},
 				"prerequisite": "",
+				"requiresBloodied": false,
 				"schemaVersion": {
 					"version": 0.01,
 					"lastMigration": {
@@ -577,7 +583,8 @@
 						"area": {
 							"shape": "sphere",
 							"size": "10",
-							"placeTemplate": false
+							"placeTemplate": false,
+							"radius": 10
 						},
 						"target": {
 							"quantity": "",
@@ -603,7 +610,13 @@
 								"type": "savingThrow"
 							}
 						},
-						"consumers": {}
+						"consumers": {},
+						"ranges": {
+							"XnBbpVR2WbzAqKdj": {
+								"range": 90,
+								"unit": "feet"
+							}
+						}
 					}
 				},
 				"description": "<p>Amid deafening rumbling, the ground shakes in a 10-foot radius around a point on an earth or stone surface within 90 feet. The area becomes difficult terrain. Each non-elemental creature in the area makes a DC 18 Constitution saving throw, taking 24 (7d6) thunder damage and falling prone on a failure or taking half damage on a success.&nbsp;</p>",
@@ -627,6 +640,7 @@
 				"featureType": "",
 				"grants": {},
 				"prerequisite": "",
+				"requiresBloodied": false,
 				"schemaVersion": {
 					"version": 0.01,
 					"lastMigration": {
@@ -683,6 +697,7 @@
 				"featureType": "",
 				"grants": {},
 				"prerequisite": "",
+				"requiresBloodied": true,
 				"schemaVersion": {
 					"version": 0.01,
 					"lastMigration": {
@@ -700,7 +715,7 @@
 		},
 		{
 			"_id": "UXWoAa0VJQYEUcIh",
-			"name": "Magic Resistance (Bloodied)",
+			"name": "Magic Resistance",
 			"type": "feature",
 			"img": "icons/magic/defensive/shield-barrier-glowing-blue.webp",
 			"effects": [],
@@ -739,6 +754,7 @@
 				"featureType": "",
 				"grants": {},
 				"prerequisite": "",
+				"requiresBloodied": true,
 				"schemaVersion": {
 					"version": 0.01,
 					"lastMigration": {
@@ -795,6 +811,7 @@
 				"featureType": "",
 				"grants": {},
 				"prerequisite": "",
+				"requiresBloodied": false,
 				"schemaVersion": {
 					"version": 0.01,
 					"lastMigration": {
@@ -846,15 +863,23 @@
 							"value": ""
 						},
 						"area": {
-							"shape": "",
+							"shape": "sphere",
 							"size": "",
-							"placeTemplate": false
+							"placeTemplate": false,
+							"quantity": 1,
+							"radius": 10
 						},
 						"target": {
 							"quantity": "",
 							"type": ""
 						},
-						"consumers": {}
+						"consumers": {},
+						"ranges": {
+							"iWQitl2p3x1I0Sjn": {
+								"range": 90,
+								"unit": "feet"
+							}
+						}
 					}
 				},
 				"description": "<p>The divi uses Quake.</p>",
@@ -878,6 +903,7 @@
 				"featureType": "",
 				"grants": {},
 				"prerequisite": "",
+				"requiresBloodied": false,
 				"schemaVersion": {
 					"version": 0.01,
 					"lastMigration": {
@@ -929,9 +955,11 @@
 							"value": ""
 						},
 						"area": {
-							"shape": "",
+							"shape": "emanation",
 							"size": "",
-							"placeTemplate": false
+							"placeTemplate": false,
+							"quantity": 1,
+							"radius": 120
 						},
 						"target": {
 							"quantity": "",
@@ -985,6 +1013,7 @@
 				"featureType": "",
 				"grants": {},
 				"prerequisite": "",
+				"requiresBloodied": false,
 				"schemaVersion": {
 					"version": 0.01,
 					"lastMigration": {
@@ -1036,9 +1065,13 @@
 							"value": ""
 						},
 						"area": {
-							"shape": "",
+							"shape": "wall",
 							"size": "",
-							"placeTemplate": false
+							"placeTemplate": false,
+							"quantity": 1,
+							"length": 30,
+							"width": 0.5,
+							"height": 20
 						},
 						"target": {
 							"quantity": "",
@@ -1047,6 +1080,11 @@
 						"consumers": {
 							"WeCo0j4n0INUlqwy": {
 								"type": "itemUses"
+							}
+						},
+						"ranges": {
+							"LmrVYHJUsLKsqvl0": {
+								"range": "medium"
 							}
 						}
 					}
@@ -1072,6 +1110,7 @@
 				"featureType": "",
 				"grants": {},
 				"prerequisite": "",
+				"requiresBloodied": false,
 				"schemaVersion": {
 					"version": 0.01,
 					"lastMigration": {
@@ -1166,6 +1205,7 @@
 					"version": null,
 					"lastMigration": null
 				},
+				"concentration": false,
 				"degree": 0,
 				"exertionCost": 0,
 				"isStance": false,
@@ -1268,6 +1308,7 @@
 					"version": null,
 					"lastMigration": null
 				},
+				"concentration": false,
 				"degree": 0,
 				"exertionCost": 0,
 				"isStance": false,
@@ -1361,6 +1402,7 @@
 					"version": null,
 					"lastMigration": null
 				},
+				"concentration": false,
 				"degree": 0,
 				"exertionCost": 0,
 				"isStance": false,
@@ -1454,6 +1496,7 @@
 					"version": null,
 					"lastMigration": null
 				},
+				"concentration": false,
 				"degree": 0,
 				"exertionCost": 0,
 				"isStance": false,
@@ -1547,6 +1590,7 @@
 					"version": null,
 					"lastMigration": null
 				},
+				"concentration": false,
 				"degree": 0,
 				"exertionCost": 0,
 				"isStance": false,
@@ -1640,6 +1684,7 @@
 					"version": null,
 					"lastMigration": null
 				},
+				"concentration": false,
 				"degree": 0,
 				"exertionCost": 0,
 				"isStance": false,
@@ -2091,6 +2136,7 @@
 				}
 			},
 			"initiative": {
+				"ability": "dex",
 				"bonus": "",
 				"expertiseDice": 0
 			},
@@ -2145,6 +2191,12 @@
 			"casterLevel": 0
 		},
 		"bonuses": {
+			"maneuverDC": "",
+			"meleeSpellAttack": "",
+			"meleeWeaponAttack": "",
+			"rangedSpellAttack": "",
+			"rangedWeaponAttack": "",
+			"spellDC": "",
 			"abilities": {
 				"JltXl2ZzrFhNBVwn": {
 					"context": {
@@ -2165,12 +2217,6 @@
 			},
 			"damage": {},
 			"healing": {},
-			"maneuverDC": "",
-			"meleeSpellAttack": "",
-			"meleeWeaponAttack": "",
-			"rangedSpellAttack": "",
-			"rangedWeaponAttack": "",
-			"spellDC": "",
 			"skills": {}
 		},
 		"currency": {
@@ -2311,11 +2357,7 @@
 			"offsetX": 0,
 			"offsetY": 0,
 			"rotation": 0,
-			"tint": "#ffffff",
-			"anchorX": 0.5,
-			"anchorY": 0.5,
-			"fit": "contain",
-			"alphaThreshold": 0.75
+			"tint": "#ffffff"
 		},
 		"sight": {
 			"angle": 360,
@@ -2330,12 +2372,7 @@
 		},
 		"detectionModes": [],
 		"appendNumber": false,
-		"prependAdjective": false,
-		"hexagonalShape": 0,
-		"locked": false,
-		"occludable": {
-			"radius": 0
-		}
+		"prependAdjective": false
 	},
 	"folder": null,
 	"_id": "3hiuum6r7cakhjlb"
