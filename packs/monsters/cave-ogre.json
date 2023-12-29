@@ -417,140 +417,7 @@
 				"featureType": "",
 				"grants": {},
 				"prerequisite": "",
-				"schemaVersion": {
-					"version": 0.01,
-					"lastMigration": {
-						"version": {
-							"schema": 0.009,
-							"foundry": "12.316",
-							"system": "0.16.12"
-						}
-					}
-				}
-			},
-			"ownership": {
-				"default": 0
-			}
-		},
-		{
-			"_id": "oxGU0LTrrspTAlaG",
-			"name": "Rock",
-			"type": "object",
-			"img": "icons/svg/item-bag.svg",
-			"effects": [],
-			"folder": null,
-			"sort": 0,
-			"flags": {},
-			"system": {
-				"ac": {
-					"baseFormula": "",
-					"formula": "",
-					"maxDex": 0,
-					"minStr": 0,
-					"mode": 1,
-					"requiresNoShield": false,
-					"requiresUnarmored": false
-				},
-				"actions": {
-					"trFbryHLp3fFRoxU": {
-						"name": "Rock",
-						"activation": {
-							"cost": "",
-							"type": "special",
-							"reactionTrigger": ""
-						},
-						"duration": {
-							"unit": "",
-							"value": ""
-						},
-						"area": {
-							"shape": "",
-							"size": "",
-							"placeTemplate": false
-						},
-						"target": {
-							"quantity": "",
-							"type": ""
-						},
-						"rolls": {
-							"lfUoius7AXwDICA4": {
-								"bonus": "",
-								"critThreshold": "20",
-								"type": "attack",
-								"attackType": "rangedWeaponAttack",
-								"ability": "str"
-							},
-							"27yjWFzTU9kTpEIm": {
-								"canCrit": true,
-								"damageType": "bludgeoning",
-								"formula": "3d6+@dex.mod",
-								"name": "Ranged Weapon Attack (30/120 ft)",
-								"type": "damage"
-							}
-						},
-						"prompts": {
-							"R4Nelxx1NrVmC6mz": {
-								"ability": "str",
-								"onSave": "Not prone",
-								"saveDC": {
-									"type": "custom",
-									"bonus": "14"
-								},
-								"type": "savingThrow"
-							}
-						},
-						"consumers": {
-							"rJc8drdI0Ld8msaR": {
-								"itemid": "",
-								"quantity": 1,
-								"type": "ammunition"
-							}
-						}
-					}
-				},
-				"description": "<p>Can only use while <strong>Bloodied</strong>. If the target is a Medium or smaller creature, it makes a DC 14 Strength saving throw, falling prone on a failure.</p>",
-				"favorite": true,
-				"secretDescription": "",
-				"source": "",
-				"uses": {
-					"value": null,
-					"max": "",
-					"per": null,
-					"recharge": {
-						"formula": "",
-						"threshold": ""
-					}
-				},
-				"schema": {
-					"version": null,
-					"lastMigration": null
-				},
-				"ammunitionProperties": [],
-				"armorCategory": "",
-				"armorProperties": [],
-				"attuned": false,
-				"bulky": false,
-				"craftingComponents": "",
-				"containerId": "",
-				"damagedState": 0,
-				"equippedState": 0,
-				"items": {},
-				"materialProperties": [],
-				"objectType": "weapon",
-				"plotItem": false,
-				"price": 0,
-				"proficient": true,
-				"quantity": 1,
-				"rarity": "common",
-				"requiresAttunement": false,
-				"shieldCategory": "",
-				"shieldProperties": [],
-				"unidentified": false,
-				"unidentifiedDescription": "",
-				"unidentifiedName": "",
-				"weaponProperties": [],
-				"weight": 0,
-				"broken": false,
+				"requiresBloodied": false,
 				"schemaVersion": {
 					"version": 0.01,
 					"lastMigration": {
@@ -568,7 +435,7 @@
 		},
 		{
 			"_id": "1gQ64mZJMz7FqJYk",
-			"name": "Reflexive Swat (Reaction)",
+			"name": "Reflexive Swat",
 			"type": "feature",
 			"img": "icons/svg/item-bag.svg",
 			"effects": [],
@@ -630,6 +497,7 @@
 				"featureType": "",
 				"grants": {},
 				"prerequisite": "",
+				"requiresBloodied": false,
 				"schemaVersion": {
 					"version": 0.01,
 					"lastMigration": {
@@ -724,6 +592,7 @@
 				"featureType": "",
 				"grants": {},
 				"prerequisite": "",
+				"requiresBloodied": false,
 				"schemaVersion": {
 					"version": 0.01,
 					"lastMigration": {
@@ -818,6 +687,7 @@
 					"version": null,
 					"lastMigration": null
 				},
+				"concentration": false,
 				"degree": 0,
 				"exertionCost": 0,
 				"isStance": false,
@@ -920,6 +790,7 @@
 					"version": null,
 					"lastMigration": null
 				},
+				"concentration": false,
 				"degree": 0,
 				"exertionCost": 0,
 				"isStance": false,
@@ -1013,6 +884,7 @@
 					"version": null,
 					"lastMigration": null
 				},
+				"concentration": false,
 				"degree": 0,
 				"exertionCost": 0,
 				"isStance": false,
@@ -1106,6 +978,7 @@
 					"version": null,
 					"lastMigration": null
 				},
+				"concentration": false,
 				"degree": 0,
 				"exertionCost": 0,
 				"isStance": false,
@@ -1199,6 +1072,7 @@
 					"version": null,
 					"lastMigration": null
 				},
+				"concentration": false,
 				"degree": 0,
 				"exertionCost": 0,
 				"isStance": false,
@@ -1292,6 +1166,7 @@
 					"version": null,
 					"lastMigration": null
 				},
+				"concentration": false,
 				"degree": 0,
 				"exertionCost": 0,
 				"isStance": false,
@@ -1314,6 +1189,123 @@
 			"folder": null,
 			"sort": 0,
 			"_id": "7JY6IouOpgxVJXXY"
+		},
+		{
+			"name": "Rock",
+			"type": "feature",
+			"system": {
+				"ac": {
+					"baseFormula": "",
+					"formula": "",
+					"maxDex": 0,
+					"minStr": 0,
+					"mode": 2,
+					"requiresNoShield": false,
+					"requiresUnarmored": false
+				},
+				"actions": {
+					"2ppbGmwQgfVG4z40": {
+						"name": "Rock",
+						"activation": {
+							"cost": "",
+							"type": "special",
+							"reactionTrigger": ""
+						},
+						"consumers": {
+							"rJc8drdI0Ld8msaR": {
+								"itemid": "",
+								"quantity": 1,
+								"type": "ammunition"
+							}
+						},
+						"rolls": {
+							"lfUoius7AXwDICA4": {
+								"bonus": "",
+								"critThreshold": "20",
+								"type": "attack",
+								"attackType": "rangedWeaponAttack",
+								"ability": "str"
+							},
+							"27yjWFzTU9kTpEIm": {
+								"canCrit": true,
+								"damageType": "bludgeoning",
+								"formula": "3d6+@dex.mod",
+								"name": "Ranged Weapon Attack (30/120 ft)",
+								"type": "damage"
+							}
+						},
+						"prompts": {
+							"R4Nelxx1NrVmC6mz": {
+								"ability": "str",
+								"onSave": "Not prone",
+								"saveDC": {
+									"type": "custom",
+									"bonus": "14"
+								},
+								"type": "savingThrow"
+							}
+						},
+						"uses": {
+							"value": 0,
+							"max": "",
+							"per": "",
+							"recharge": {
+								"formula": "1d6",
+								"threshold": 6
+							}
+						},
+						"duration": {
+							"unit": "",
+							"value": ""
+						},
+						"area": {
+							"shape": "",
+							"size": "",
+							"placeTemplate": false
+						},
+						"target": {
+							"quantity": "",
+							"type": ""
+						},
+						"img": "icons/svg/item-bag.svg"
+					}
+				},
+				"description": "<p>If the target is a Medium or smaller creature, it makes a DC 14 Strength saving throw, falling prone on a failure.</p>",
+				"favorite": false,
+				"secretDescription": "",
+				"source": {
+					"name": "",
+					"link": "",
+					"publisher": ""
+				},
+				"uses": {
+					"value": null,
+					"max": "",
+					"per": null,
+					"recharge": {
+						"formula": "1d6",
+						"threshold": "6"
+					}
+				},
+				"schema": {
+					"version": null,
+					"lastMigration": null
+				},
+				"concentration": false,
+				"featureType": "naturalWeapon",
+				"grants": {},
+				"prerequisite": "",
+				"requiresBloodied": true
+			},
+			"_id": "mcedBe4wc6InPhCs",
+			"img": "icons/magic/earth/projectile-boulder-yellow.webp",
+			"effects": [],
+			"folder": null,
+			"sort": 0,
+			"ownership": {
+				"default": 0
+			},
+			"flags": {}
 		}
 	],
 	"effects": [],
@@ -1747,6 +1739,7 @@
 				}
 			},
 			"initiative": {
+				"ability": "dex",
 				"bonus": "",
 				"expertiseDice": 0
 			},
@@ -1801,15 +1794,15 @@
 			"casterLevel": 0
 		},
 		"bonuses": {
-			"abilities": {},
-			"damage": {},
-			"healing": {},
 			"maneuverDC": "",
 			"meleeSpellAttack": "",
 			"meleeWeaponAttack": "",
 			"rangedSpellAttack": "",
 			"rangedWeaponAttack": "",
 			"spellDC": "",
+			"abilities": {},
+			"damage": {},
+			"healing": {},
 			"skills": {}
 		},
 		"currency": {
@@ -1947,11 +1940,7 @@
 			"offsetX": 0,
 			"offsetY": 0,
 			"rotation": 0,
-			"tint": "#ffffff",
-			"anchorX": 0.5,
-			"anchorY": 0.5,
-			"fit": "contain",
-			"alphaThreshold": 0.75
+			"tint": "#ffffff"
 		},
 		"sight": {
 			"angle": 360,
@@ -1966,12 +1955,7 @@
 		},
 		"detectionModes": [],
 		"appendNumber": false,
-		"prependAdjective": false,
-		"hexagonalShape": 0,
-		"locked": false,
-		"occludable": {
-			"radius": 0
-		}
+		"prependAdjective": false
 	},
 	"folder": null,
 	"_id": "8fwbea34di5t020f"
