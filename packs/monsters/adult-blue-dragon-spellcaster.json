@@ -1,5 +1,5 @@
 {
-	"name": "Adult Blue Dragon",
+	"name": "Adult Blue Dragon Spellcaster",
 	"type": "npc",
 	"img": "systems/a5e/assets/blue-dragon.webp",
 	"items": [
@@ -869,6 +869,63 @@
 				},
 				"actions": {},
 				"description": "<p>The dragon can remain submerged in sand and gravel for up to 4 hours. It has advantage on Stealth checks made to hide in this way.</p>",
+				"favorite": false,
+				"secretDescription": "",
+				"source": "",
+				"uses": {
+					"value": null,
+					"max": "",
+					"per": null,
+					"recharge": {
+						"formula": "",
+						"threshold": ""
+					}
+				},
+				"schema": {
+					"version": null,
+					"lastMigration": null
+				},
+				"concentration": false,
+				"featureType": "",
+				"grants": {},
+				"prerequisite": "",
+				"requiresBloodied": false,
+				"schemaVersion": {
+					"version": 0.01,
+					"lastMigration": {
+						"version": {
+							"schema": 0.009,
+							"foundry": "12.316",
+							"system": "0.16.12"
+						}
+					}
+				}
+			},
+			"ownership": {
+				"default": 0
+			}
+		},
+		{
+			"_id": "pg44xsEBEAskdco7",
+			"name": "Innate Spellcasting",
+			"type": "feature",
+			"img": "icons/svg/item-bag.svg",
+			"effects": [],
+			"folder": null,
+			"sort": 300000,
+			"flags": {},
+			"system": {
+				"ac": {
+					"baseFormula": "",
+					"formula": "",
+					"maxDex": 0,
+					"minStr": 0,
+					"mode": 1,
+					"requiresNoShield": false,
+					"requiresUnarmored": false
+				},
+				"actions": {},
+				"description": "<p>The dragon’s spellcasting ability is Charisma (save <strong>DC 18</strong>). It can innately cast the following spells, requiring no material components.&nbsp;</p><p><strong>3/day each</strong>: <em>blur, silent image, blight, hypnotic pattern</em></p>",
 				"favorite": false,
 				"secretDescription": "",
 				"source": "",
@@ -1906,6 +1963,581 @@
 			"folder": null,
 			"sort": 0,
 			"_id": "zaqAevs2MfACQUIH"
+		},
+		{
+			"name": "Blight",
+			"type": "spell",
+			"img": "icons/magic/unholy/hand-claw-fog-green.webp",
+			"effects": [],
+			"flags": {
+				"core": {
+					"sourceId": "Compendium.a5e.a5e-spells.2q65v0xklhfx73to"
+				}
+			},
+			"system": {
+				"actions": {
+					"3SWqcoeljlBPXRWy": {
+						"name": "Blight",
+						"activation": {
+							"cost": 1,
+							"type": "action",
+							"reactionTrigger": ""
+						},
+						"duration": {
+							"unit": "instantaneous",
+							"value": ""
+						},
+						"ranges": {
+							"6HAOKpIlAMsRjDXw": {
+								"range": "short"
+							}
+						},
+						"area": {
+							"shape": "",
+							"size": "",
+							"placeTemplate": false
+						},
+						"target": {
+							"quantity": "",
+							"type": "creatureObject"
+						},
+						"rolls": {
+							"eN14St3CqorpVRgb": {
+								"canCrit": false,
+								"damageType": "necrotic",
+								"formula": "8d8",
+								"name": "",
+								"type": "damage",
+								"scaling": {
+									"mode": "spellLevel",
+									"formula": "1d8"
+								}
+							}
+						},
+						"prompts": {
+							"vygV6F61Xin5y5D9": {
+								"ability": "con",
+								"onSave": "Half damage",
+								"saveDC": {
+									"type": "spellcasting",
+									"bonus": ""
+								},
+								"type": "savingThrow"
+							}
+						},
+						"consumers": {
+							"cZVkDmblblACJKTc": {
+								"type": "itemUses",
+								"default": true,
+								"quantity": 1
+							}
+						}
+					}
+				},
+				"description": "<p>Necrotic energies drain moisture and vitality from the target, dealing 8d8 necrotic damage. Undead and constructs are immune to this spell.</p><p>A plant creature or magical plant has disadvantage on its saving throw and takes the maximum damage possible from this spell. A nonmagical plant that isn't a creature receives no saving throw and instead withers until dead.</p><p><strong><em>Cast at Higher Levels.</em></strong> The damage increases by 1d8 for each slot level above 4th.</p>",
+				"favorite": false,
+				"secretDescription": "",
+				"source": "",
+				"uses": {
+					"value": 3,
+					"max": "3",
+					"per": "day",
+					"recharge": {
+						"formula": "",
+						"threshold": ""
+					}
+				},
+				"schema": {
+					"version": null,
+					"lastMigration": null
+				},
+				"classes": [],
+				"components": {
+					"vocalized": true,
+					"seen": true,
+					"material": false
+				},
+				"concentration": false,
+				"level": 4,
+				"materials": "",
+				"materialsConsumed": false,
+				"prepared": false,
+				"prerequisite": "",
+				"rare": false,
+				"ritual": false,
+				"schools": {
+					"primary": "necromancy",
+					"secondary": [
+						"arcane",
+						"nature",
+						"necrotic",
+						"plants"
+					]
+				},
+				"schemaVersion": {
+					"version": 0.01,
+					"lastMigration": {
+						"version": {
+							"schema": 0.009,
+							"foundry": "12.316",
+							"system": "0.16.12"
+						}
+					}
+				}
+			},
+			"_id": "NwU5qsP1drgJEze6",
+			"ownership": {
+				"default": 0
+			},
+			"folder": null,
+			"sort": 0
+		},
+		{
+			"name": "Silent Image",
+			"type": "spell",
+			"img": "icons/magic/symbols/runes-star-blue.webp",
+			"effects": [],
+			"flags": {
+				"core": {
+					"sourceId": "Compendium.a5e.a5e-spells.Item.1046kzuqvlnjtk0x"
+				}
+			},
+			"system": {
+				"actions": {
+					"s4syUToWJJmTeqcC": {
+						"name": "Silent Image",
+						"activation": {
+							"cost": 1,
+							"type": "action",
+							"reactionTrigger": ""
+						},
+						"duration": {
+							"unit": "minute",
+							"value": "10"
+						},
+						"ranges": {
+							"FOSqUw3ZRtXoneGl": {
+								"range": "medium"
+							}
+						},
+						"area": {
+							"shape": "cube",
+							"width": "15",
+							"placeTemplate": false
+						},
+						"target": {
+							"quantity": "",
+							"type": ""
+						},
+						"rolls": {},
+						"consumers": {
+							"KlcfsVxEsHEu3mYg": {
+								"type": "itemUses",
+								"default": true,
+								"quantity": 1
+							}
+						},
+						"prompts": {
+							"zY0RLqyQcoL97rIq": {
+								"type": "skillCheck",
+								"default": true,
+								"skill": "inv",
+								"ability": "none"
+							}
+						}
+					}
+				},
+				"description": "<p>You create an illusory image of a creature, object, or other visible effect within the area. The illusion is purely visual, it cannot produce sound or smell, and items and other creatures pass through it.</p><p>As an action, you can move the image to any point within range. The image's movement can be natural and lifelike (for example, a ball will roll and a bird will fly).</p><p>A creature can spend an action to make an Investigation check against your spell save DC to determine if the image is an illusion. On a success, it is able to see through the image.</p>",
+				"favorite": false,
+				"secretDescription": "",
+				"source": "",
+				"uses": {
+					"value": 3,
+					"max": "3",
+					"per": "day",
+					"recharge": {
+						"formula": "",
+						"threshold": ""
+					}
+				},
+				"schema": {
+					"version": null,
+					"lastMigration": null
+				},
+				"classes": [
+					"bard",
+					"elementalistAir",
+					"sorcerer",
+					"witch",
+					"wizard"
+				],
+				"components": {
+					"vocalized": true,
+					"seen": true,
+					"material": true
+				},
+				"concentration": true,
+				"level": 1,
+				"materials": "bit of wool",
+				"materialsConsumed": false,
+				"prepared": false,
+				"prerequisite": "",
+				"rare": false,
+				"ritual": false,
+				"schools": {
+					"primary": "illusion",
+					"secondary": [
+						"arcane",
+						"senses"
+					]
+				},
+				"schemaVersion": {
+					"version": 0.01,
+					"lastMigration": {
+						"version": {
+							"schema": 0.009,
+							"foundry": "12.316",
+							"system": "0.16.12"
+						}
+					}
+				}
+			},
+			"folder": null,
+			"_id": "NlbfN8cFuk9K9VUq",
+			"sort": 100000,
+			"ownership": {
+				"default": 0
+			}
+		},
+		{
+			"name": "Blur",
+			"type": "spell",
+			"img": "icons/magic/defensive/illusion-evasion-echo-purple.webp",
+			"effects": [
+				{
+					"icon": "icons/magic/defensive/illusion-evasion-echo-purple.webp",
+					"origin": "Actor.9tN39vZTGIQaQp5Q.Item.64nBjgR7QdJBpIF1",
+					"flags": {
+						"a5e": {
+							"sort": 0,
+							"transferType": "onUse",
+							"duration": {
+								"unit": "minutes"
+							},
+							"actionId": "tGuKAxs5LfW4JsEB"
+						}
+					},
+					"transfer": false,
+					"name": "Blur",
+					"_id": "WRbkreWcyxoYrIGy",
+					"changes": [],
+					"disabled": false,
+					"duration": {
+						"startTime": null,
+						"seconds": 60,
+						"combat": null,
+						"rounds": null,
+						"turns": null,
+						"startRound": null,
+						"startTurn": null
+					},
+					"description": "",
+					"statuses": [],
+					"tint": "#ffffff",
+					"folder": null
+				}
+			],
+			"flags": {
+				"core": {
+					"sourceId": "Compendium.a5e.a5e-spells.Item.250c4t64865s83si"
+				}
+			},
+			"system": {
+				"actions": {
+					"tGuKAxs5LfW4JsEB": {
+						"name": "Cast Spell",
+						"activation": {
+							"cost": 1,
+							"type": "action",
+							"reactionTrigger": ""
+						},
+						"duration": {
+							"unit": "minute",
+							"value": "1"
+						},
+						"ranges": {
+							"tdvoxrqSPnY525hl": {
+								"range": "self"
+							},
+							"i9QET8w4LdmdxJyT": {
+								"range": "short"
+							}
+						},
+						"area": {
+							"shape": "",
+							"size": "",
+							"placeTemplate": false
+						},
+						"target": {
+							"quantity": 1,
+							"type": "creature",
+							"scaling": {
+								"mode": "spellLevel",
+								"formula": "1"
+							}
+						},
+						"consumers": {
+							"YFhkHG0CwQpl4QD4": {
+								"type": "itemUses",
+								"default": true,
+								"quantity": 1
+							}
+						},
+						"prompts": {
+							"buIBuFeuQRwHM5mK": {
+								"type": "effect",
+								"default": true,
+								"effectId": "WRbkreWcyxoYrIGy",
+								"label": "Blur"
+							}
+						}
+					}
+				},
+				"description": "<p>Until the spell ends, you are shrouded in distortion and your image is blurred. Creatures make attack rolls against you with disadvantage unless they have senses that allow them to perceive without sight or to see through illusions (like blindsight or truesight).</p><p><strong><em>Cast at Higher Levels.</em></strong> You may target an additional willing creature you can see within range for each slot level above 2nd. Whenever an affected creature other than you is hit by an attack, the spell ends for that creature. When using a higher level spell slot, increase the spell's range to 30 feet.</p>",
+				"favorite": false,
+				"secretDescription": "",
+				"source": "",
+				"uses": {
+					"value": 3,
+					"max": "3",
+					"per": "day",
+					"recharge": {
+						"formula": "",
+						"threshold": ""
+					}
+				},
+				"schema": {
+					"version": null,
+					"lastMigration": null
+				},
+				"classes": [
+					"artificer",
+					"elementalistFire",
+					"sorcerer",
+					"wielder",
+					"wizard"
+				],
+				"components": {
+					"vocalized": true,
+					"seen": false,
+					"material": false
+				},
+				"concentration": true,
+				"level": 2,
+				"materials": "",
+				"materialsConsumed": false,
+				"prepared": false,
+				"prerequisite": "",
+				"rare": false,
+				"ritual": false,
+				"schools": {
+					"primary": "illusion",
+					"secondary": [
+						"arcane",
+						"protection",
+						"senses"
+					]
+				},
+				"schemaVersion": {
+					"version": 0.01,
+					"lastMigration": {
+						"version": {
+							"schema": 0.009,
+							"foundry": "12.316",
+							"system": "0.16.12"
+						}
+					}
+				}
+			},
+			"folder": null,
+			"_id": "64nBjgR7QdJBpIF1",
+			"sort": 200000,
+			"ownership": {
+				"default": 0
+			}
+		},
+		{
+			"name": "Hypnotic Pattern",
+			"type": "spell",
+			"img": "icons/magic/control/hypnosis-mesmerism-pendulum.webp",
+			"effects": [
+				{
+					"icon": "icons/magic/control/hypnosis-mesmerism-pendulum.webp",
+					"origin": "Actor.9tN39vZTGIQaQp5Q.Item.ZZRQD1NUV7k9SmDw",
+					"flags": {
+						"a5e": {
+							"sort": 0,
+							"transferType": "onUse",
+							"actionId": "rYoExGuzHseFHdlD",
+							"duration": {
+								"unit": "minutes"
+							}
+						}
+					},
+					"transfer": false,
+					"name": "Charmed",
+					"_id": "TMK1Tbwva04SwRyb",
+					"changes": [
+						{
+							"key": "flags.a5e.effects.statusConditions",
+							"value": "[\"charmed\",\"incapacitated\"]",
+							"mode": 0,
+							"priority": null
+						},
+						{
+							"key": "system.attributes.movement.walk.distance",
+							"value": "0",
+							"mode": 6,
+							"priority": null
+						}
+					],
+					"disabled": false,
+					"duration": {
+						"startTime": null,
+						"seconds": 60,
+						"combat": null,
+						"rounds": null,
+						"turns": null,
+						"startRound": null,
+						"startTurn": null
+					},
+					"description": "",
+					"statuses": [
+						"charmed",
+						"incapacitated"
+					],
+					"folder": null
+				}
+			],
+			"flags": {
+				"core": {
+					"sourceId": "Compendium.a5e.a5e-spells.Item.6yuzn2ix28wkvduc"
+				}
+			},
+			"system": {
+				"actions": {
+					"rYoExGuzHseFHdlD": {
+						"name": "Hypnotic Pattern",
+						"activation": {
+							"cost": 1,
+							"type": "action",
+							"reactionTrigger": ""
+						},
+						"duration": {
+							"unit": "minute",
+							"value": "1"
+						},
+						"ranges": {
+							"slSBW5Z5wDTTBgIR": {
+								"range": "long"
+							}
+						},
+						"area": {
+							"shape": "cube",
+							"width": "20",
+							"placeTemplate": false
+						},
+						"target": {
+							"quantity": "",
+							"type": ""
+						},
+						"prompts": {
+							"c5peqj5FrWISkKBr": {
+								"ability": "wis",
+								"onSave": "Charm negated",
+								"saveDC": {
+									"type": "spellcasting",
+									"bonus": ""
+								},
+								"type": "savingThrow"
+							},
+							"BcMyt41d3VLdIKtS": {
+								"type": "effect",
+								"default": true,
+								"effectId": "TMK1Tbwva04SwRyb"
+							}
+						},
+						"consumers": {
+							"fQ63ZmTrD2d03w4f": {
+								"type": "itemUses",
+								"default": true,
+								"quantity": 1
+							}
+						}
+					}
+				},
+				"description": "<p>You conjure a swirling pattern of twisting hues that roils through the air, appearing for a moment and then vanishing. Creatures in the area that can perceive the pattern make a Wisdom saving throw or become charmed. A creature charmed by this spell becomes incapacitated and its Speed is reduced to 0.</p><p>The effect ends on a creature when it takes damage or when another creature uses an action to shake it out of its daze.</p>",
+				"favorite": false,
+				"secretDescription": "",
+				"source": "",
+				"uses": {
+					"value": 3,
+					"max": "3",
+					"per": "day",
+					"recharge": {
+						"formula": "",
+						"threshold": ""
+					}
+				},
+				"schema": {
+					"version": null,
+					"lastMigration": null
+				},
+				"classes": [
+					"bard",
+					"elementalistFire",
+					"sorcerer",
+					"warlock",
+					"witch",
+					"wizard"
+				],
+				"components": {
+					"vocalized": false,
+					"seen": true,
+					"material": true
+				},
+				"concentration": true,
+				"level": 3,
+				"materials": "piece of crystal",
+				"materialsConsumed": false,
+				"prepared": false,
+				"prerequisite": "",
+				"rare": false,
+				"ritual": false,
+				"schools": {
+					"primary": "illusion",
+					"secondary": [
+						"arcane",
+						"prismatic"
+					]
+				},
+				"schemaVersion": {
+					"version": 0.01,
+					"lastMigration": {
+						"version": {
+							"schema": 0.009,
+							"foundry": "12.316",
+							"system": "0.16.12"
+						}
+					}
+				}
+			},
+			"folder": null,
+			"_id": "ZZRQD1NUV7k9SmDw",
+			"sort": 150000,
+			"ownership": {
+				"default": 0
+			}
 		}
 	],
 	"effects": [],
@@ -1918,8 +2550,7 @@
 				"4",
 				"7"
 			],
-			"sheetIsLocked": true,
-			"showSpellTab": false
+			"sheetIsLocked": true
 		}
 	},
 	"system": {
@@ -2569,5 +3200,5 @@
 		"prependAdjective": false
 	},
 	"folder": null,
-	"_id": "c6ta65tqey9vepf9"
+	"_id": "1o22v5g9sfmqwmki"
 }
