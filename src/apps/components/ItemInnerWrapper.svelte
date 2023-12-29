@@ -174,6 +174,15 @@
                 {activationCost}
             </button>
         {/if}
+
+        {#if !action && item.system.requiresBloodied}
+            <button
+                class="action-button action-button--bloodied fa-solid fa-droplet"
+                data-tooltip={"A5E.RequiresBloodied"}
+                data-tooltip-direction="UP"
+            >
+            </button>
+        {/if}
     </div>
 
     {#if hasAmmunition(item, action)}
@@ -474,6 +483,13 @@
             border-radius: $border-radius-standard;
             background: var(--indicator-background, #c6c5bc);
 
+            &:hover {
+                color: var(--indicator-text-color, inherit);
+                transform: scale(1);
+            }
+        }
+
+        &--bloodied {
             &:hover {
                 color: var(--indicator-text-color, inherit);
                 transform: scale(1);

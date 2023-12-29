@@ -50,7 +50,7 @@
                         updateDocumentDataFromField(
                             $item,
                             "system.featureType",
-                            event.detail
+                            event.detail,
                         )}
                 />
             </FormSection>
@@ -63,7 +63,21 @@
                         updateDocumentDataFromField(
                             $item,
                             "system.concentration",
-                            detail
+                            detail,
+                        );
+                    }}
+                />
+            </FormSection>
+
+            <FormSection --gap="0.5rem 1.25rem">
+                <Checkbox
+                    label="A5E.RequiresBloodied"
+                    checked={$item.system.requiresBloodied}
+                    on:updateSelection={({ detail }) => {
+                        updateDocumentDataFromField(
+                            $item,
+                            "system.requiresBloodied",
+                            detail,
                         );
                     }}
                 />
