@@ -129,6 +129,7 @@
             !item.system?.containerId)}
     class:item-wrapper--purple-highlight={Number(item.system.prepared ?? 0) ===
         A5E.PREPARED_STATES.ALWAYS_PREPARED}
+    class:item-wrapper--red-highlight={item.system.requiresBloodied}
     draggable="true"
     on:dragstart={onDragStart}
     on:drop|preventDefault|stopPropagation={(e) => onDropObject(e)}
@@ -253,6 +254,17 @@
             --item-background: hsla(280, 75%, 60%, 0.22);
             --track-background: hsl(280, 30%, 90%);
             --track-border-color: hsla(280, 30%, 40%, 0.302);
+        }
+
+        &--red-highlight {
+            --icon-color: hsla(0, 65%, 35%, 0.5);
+            --icon-color-active: hsla(0, 35%, 30%, 0.75);
+            --indicator-background: hsla(0, 55%, 50%, 0.302);
+            --indicator-text-color: black;
+            --input-border-color: hsla(0, 75%, 60%, 0.302);
+            --item-background: hsla(0, 55%, 55%, 0.4);
+            --track-background: hsl(0, 30%, 90%);
+            --track-border-color: hsla(0, 40%, 50%, 0.302);
         }
     }
 

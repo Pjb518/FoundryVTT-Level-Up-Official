@@ -490,8 +490,10 @@
         }
 
         &--bloodied {
+            color: var(--icon-color-active);
+
             &:hover {
-                color: var(--indicator-text-color, inherit);
+                color: var(--icon-color-active, inherit);
                 transform: scale(1);
             }
         }
