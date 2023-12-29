@@ -472,7 +472,7 @@ export default class ActorA5e extends Actor {
 
     return getDeterministicBonus([
       10,
-      skill.deterministicBonus,
+      skill.mod,
       rollData.abilities[skill.ability]?.check?.deterministicBonus ?? 0,
       this.BonusesManager.getSkillBonusesFormula(skillKey, skill.ability, 'passive').trim()
     ].filter(Boolean).join(' + '), rollData);
