@@ -1,65 +1,8 @@
 {
-	"name": "Ancient Green Dragon",
+	"name": "Young Green Dragon Spellcaster",
 	"type": "npc",
 	"img": "systems/a5e/assets/green-dragon.webp",
 	"items": [
-		{
-			"_id": "6Y1N4HAnCmpDkl3K",
-			"name": "Legendary Resistance (3/Day)",
-			"type": "feature",
-			"img": "icons/svg/item-bag.svg",
-			"effects": [],
-			"folder": null,
-			"sort": 100000,
-			"flags": {},
-			"system": {
-				"ac": {
-					"baseFormula": "",
-					"formula": "",
-					"maxDex": 0,
-					"minStr": 0,
-					"mode": 1,
-					"requiresNoShield": false,
-					"requiresUnarmored": false
-				},
-				"actions": {},
-				"description": "<p>When the dragon fails a saving throw, it can choose to succeed instead. When it does, it sheds some of its scales, which turn into dry leaves and blow away. If it has no more uses of this ability, its Armor Class is reduced to <strong>19</strong> until it finishes a long rest.</p>",
-				"favorite": false,
-				"secretDescription": "",
-				"source": "",
-				"uses": {
-					"value": null,
-					"max": "",
-					"per": null,
-					"recharge": {
-						"formula": "",
-						"threshold": ""
-					}
-				},
-				"schema": {
-					"version": null,
-					"lastMigration": null
-				},
-				"concentration": false,
-				"featureType": "",
-				"grants": {},
-				"prerequisite": "",
-				"requiresBloodied": false,
-				"schemaVersion": {
-					"version": 0.01,
-					"lastMigration": {
-						"version": {
-							"schema": 0.009,
-							"foundry": "12.316",
-							"system": "0.16.12"
-						}
-					}
-				}
-			},
-			"ownership": {
-				"default": 0
-			}
-		},
 		{
 			"_id": "4ZXiupEvOZClTDj1",
 			"name": "Multiattack",
@@ -84,7 +27,7 @@
 					"requiresUnarmored": false
 				},
 				"actions": {},
-				"description": "<p>The dragon attacks once with its bite and twice with its claws. In place of its bite attack, it can Spit Poison.</p>",
+				"description": "<p>The dragon attacks once with its bite and twice with its claws.</p>",
 				"favorite": false,
 				"secretDescription": "",
 				"source": "",
@@ -145,7 +88,7 @@
 					"requiresUnarmored": false
 				},
 				"actions": {
-					"yKnMm507FW1fJjb2": {
+					"aEvana8dROoWArqQ": {
 						"name": "Bite",
 						"activation": {
 							"cost": 1,
@@ -157,8 +100,8 @@
 							"value": ""
 						},
 						"ranges": {
-							"7ajefKAglCzBjhiZ": {
-								"range": "Reach: 15ft."
+							"xhXo8K7HliCc1UV1": {
+								"range": "Reach: 10ft."
 							}
 						},
 						"area": {
@@ -171,24 +114,24 @@
 							"type": "creature"
 						},
 						"rolls": {
-							"FKZRYBzlPAfeqroZ": {
+							"1zMOD8FaNgZeJRX1": {
 								"bonus": "",
 								"critThreshold": "20",
 								"type": "attack",
 								"attackType": "meleeWeaponAttack",
 								"ability": "default"
 							},
-							"eMaKt3sxKpHy33Q2": {
+							"HWaLEGU5eqevbHHj": {
 								"canCrit": true,
 								"damageType": "piercing",
-								"formula": "4d8 + @@str.mod",
+								"formula": "3d10 + @@str.mod",
 								"name": "",
 								"type": "damage"
 							},
-							"n1tm3hWpFE2zlWYK": {
+							"LHv7JA9sDLEqkUxZ": {
 								"canCrit": true,
 								"damageType": "poison",
-								"formula": "2d8",
+								"formula": "1d8",
 								"name": "",
 								"type": "damage"
 							}
@@ -253,7 +196,7 @@
 					"requiresUnarmored": false
 				},
 				"actions": {
-					"9cmAu0GUbSoBZFYI": {
+					"koiu9Y6T9MS7OGzp": {
 						"name": "Claw",
 						"activation": {
 							"cost": 1,
@@ -265,8 +208,8 @@
 							"value": ""
 						},
 						"ranges": {
-							"TPTMB9QMEc1FDMhK": {
-								"range": "Reach: 10ft"
+							"ZttNHxAOJg3O9l0g": {
+								"range": "fiveFeet"
 							}
 						},
 						"area": {
@@ -279,17 +222,17 @@
 							"type": "creature"
 						},
 						"rolls": {
-							"sz0SdK5QrdwS6k64": {
+							"5joEfE3EiWy97r9y": {
 								"bonus": "",
 								"critThreshold": "20",
 								"type": "attack",
 								"attackType": "meleeWeaponAttack",
 								"ability": "default"
 							},
-							"FAMlvCSQFFMaN0s1": {
+							"qaGdPnb348r3Vk1g": {
 								"canCrit": true,
 								"damageType": "slashing",
-								"formula": "3d8 + @@str.mod",
+								"formula": "2d8 + @@str.mod",
 								"name": "",
 								"type": "damage"
 							}
@@ -335,413 +278,13 @@
 			}
 		},
 		{
-			"_id": "M84U0XSfmXtWa9e1",
-			"name": "Tail",
-			"type": "feature",
-			"img": "icons/skills/wounds/injury-pain-impaled-hand-blood.webp",
-			"effects": [],
-			"folder": null,
-			"sort": 525000,
-			"flags": {},
-			"system": {
-				"ac": {
-					"baseFormula": "",
-					"formula": "",
-					"maxDex": 0,
-					"minStr": 0,
-					"mode": 1,
-					"requiresNoShield": false,
-					"requiresUnarmored": false
-				},
-				"actions": {
-					"0uK8VaKfcETdRSaT": {
-						"name": "Tail",
-						"activation": {
-							"cost": 1,
-							"type": "action",
-							"reactionTrigger": ""
-						},
-						"duration": {
-							"unit": "instantaneous",
-							"value": ""
-						},
-						"ranges": {
-							"Xofc8y2VozTNyPm2": {
-								"range": "Reach: 20ft."
-							}
-						},
-						"area": {
-							"shape": "",
-							"size": "",
-							"placeTemplate": false
-						},
-						"target": {
-							"quantity": 1,
-							"type": "creature"
-						},
-						"rolls": {
-							"0fvhLbHTAmmp4rpK": {
-								"bonus": "",
-								"critThreshold": "20",
-								"type": "attack",
-								"attackType": "meleeWeaponAttack",
-								"ability": "default"
-							},
-							"BGOrBgjbVnsGxgWj": {
-								"canCrit": true,
-								"damageType": "bludgeoning",
-								"formula": "3d8 + @@str.mod",
-								"name": "",
-								"type": "damage"
-							}
-						},
-						"consumers": {}
-					}
-				},
-				"description": "<p>The dragon makes a tail attack. On a successful hit, the target is pushed 10 feet away.</p>",
-				"favorite": true,
-				"secretDescription": "",
-				"source": "",
-				"uses": {
-					"value": null,
-					"max": "",
-					"per": null,
-					"recharge": {
-						"formula": "",
-						"threshold": ""
-					}
-				},
-				"schema": {
-					"version": null,
-					"lastMigration": null
-				},
-				"concentration": false,
-				"featureType": "naturalWeapon",
-				"grants": {},
-				"prerequisite": "",
-				"requiresBloodied": false,
-				"schemaVersion": {
-					"version": 0.01,
-					"lastMigration": {
-						"version": {
-							"schema": 0.009,
-							"foundry": "12.316",
-							"system": "0.16.12"
-						}
-					}
-				}
-			},
-			"ownership": {
-				"default": 0
-			}
-		},
-		{
-			"_id": "LcsncSG0v72AnXoV",
-			"name": "Tail Attack (Reaction)",
-			"type": "feature",
-			"img": "icons/skills/wounds/injury-pain-impaled-hand-blood.webp",
-			"effects": [],
-			"folder": null,
-			"sort": 587500,
-			"flags": {
-				"core": {
-					"sourceId": "Item.M84U0XSfmXtWa9e1"
-				}
-			},
-			"system": {
-				"ac": {
-					"baseFormula": "",
-					"formula": "",
-					"maxDex": 0,
-					"minStr": 0,
-					"mode": 1,
-					"requiresNoShield": false,
-					"requiresUnarmored": false
-				},
-				"actions": {
-					"y2yOsFdovSW8W72j": {
-						"name": "Tail Attack (Reaction)",
-						"activation": {
-							"cost": 1,
-							"type": "reaction",
-							"reactionTrigger": "When a creature the dragon can see within 10 feet hits the dragon with a melee attack, the dragon makes a tail attack against it."
-						},
-						"duration": {
-							"unit": "instantaneous",
-							"value": ""
-						},
-						"ranges": {
-							"e10zFTnUgcFUCsIG": {
-								"range": "Reach: 10ft."
-							}
-						},
-						"area": {
-							"shape": "",
-							"size": "",
-							"placeTemplate": false
-						},
-						"target": {
-							"quantity": 1,
-							"type": "creature"
-						},
-						"rolls": {
-							"N1JDqdDAMa9Tciuq": {
-								"bonus": "",
-								"critThreshold": "20",
-								"type": "attack",
-								"attackType": "meleeWeaponAttack",
-								"ability": "default"
-							},
-							"mzYJ31bSLSyzn3cS": {
-								"canCrit": true,
-								"damageType": "bludgeoning",
-								"formula": "2d8 + @@str.mod",
-								"name": "",
-								"type": "damage"
-							}
-						},
-						"consumers": {}
-					}
-				},
-				"description": "<p>When a creature the dragon can see within 10 feet hits the dragon with a melee attack, the dragon makes a tail attack against it.</p>",
-				"favorite": true,
-				"secretDescription": "",
-				"source": "",
-				"uses": {
-					"value": null,
-					"max": "",
-					"per": null,
-					"recharge": {
-						"formula": "",
-						"threshold": ""
-					}
-				},
-				"schema": {
-					"version": null,
-					"lastMigration": null
-				},
-				"concentration": false,
-				"featureType": "naturalWeapon",
-				"grants": {},
-				"prerequisite": "",
-				"requiresBloodied": false,
-				"schemaVersion": {
-					"version": 0.01,
-					"lastMigration": {
-						"version": {
-							"schema": 0.009,
-							"foundry": "12.316",
-							"system": "0.16.12"
-						}
-					}
-				}
-			},
-			"ownership": {
-				"default": 0
-			}
-		},
-		{
-			"_id": "9Rq4BiK8eMSDGF34",
-			"name": "Roar (Legendary Action)",
-			"type": "feature",
-			"img": "icons/magic/sonic/scream-wail-shout-teal.webp",
-			"effects": [],
-			"folder": null,
-			"sort": 1000000,
-			"flags": {
-				"core": {
-					"sourceId": "Item.91ojLlYW012QzL2y"
-				}
-			},
-			"system": {
-				"ac": {
-					"baseFormula": "",
-					"formula": "",
-					"maxDex": 0,
-					"minStr": 0,
-					"mode": 1,
-					"requiresNoShield": false,
-					"requiresUnarmored": false
-				},
-				"actions": {
-					"O2omT2nqSdpGkVS4": {
-						"name": "Roar (Legendary Action)",
-						"activation": {
-							"cost": 1,
-							"type": "legendaryAction",
-							"reactionTrigger": ""
-						},
-						"duration": {
-							"unit": "minute",
-							"value": 1
-						},
-						"area": {
-							"shape": "emanation",
-							"size": "120",
-							"placeTemplate": false,
-							"quantity": 1,
-							"radius": 120
-						},
-						"target": {
-							"quantity": 1,
-							"type": ""
-						},
-						"prompts": {
-							"Nh84Z0OnNCRtEoe4": {
-								"ability": "cha",
-								"onSave": "Not frightened.",
-								"saveDC": {
-									"type": "custom",
-									"bonus": "19"
-								},
-								"type": "savingThrow"
-							}
-						},
-						"consumers": {}
-					}
-				},
-				"description": "<p>Each creature of the dragon’s choice within 120 feet that can hear it makes a DC 19 Charisma saving throw. On a failure, it is frightened for 1 minute. A creature repeats the saving throw at the end of its turns, ending the effect on itself on a success. When it succeeds on a saving throw or the effect ends for it, it is immune to Roar for 24 hours.</p>",
-				"favorite": true,
-				"secretDescription": "",
-				"source": "",
-				"uses": {
-					"value": null,
-					"max": "",
-					"per": null,
-					"recharge": {
-						"formula": "",
-						"threshold": ""
-					}
-				},
-				"schema": {
-					"version": null,
-					"lastMigration": null
-				},
-				"concentration": false,
-				"featureType": "other",
-				"grants": {},
-				"prerequisite": "",
-				"requiresBloodied": false,
-				"schemaVersion": {
-					"version": 0.01,
-					"lastMigration": {
-						"version": {
-							"schema": 0.009,
-							"foundry": "12.316",
-							"system": "0.16.12"
-						}
-					}
-				}
-			},
-			"ownership": {
-				"default": 0
-			}
-		},
-		{
-			"_id": "f2FrNF7toyEqWdgY",
-			"name": "Wing Attack (Legendary Action)",
+			"_id": "pg44xsEBEAskdco7",
+			"name": "Innate Spellcasting",
 			"type": "feature",
 			"img": "icons/svg/item-bag.svg",
 			"effects": [],
 			"folder": null,
-			"sort": 1025000,
-			"flags": {
-				"core": {
-					"sourceId": "Item.kscfGEevngAze5kQ"
-				}
-			},
-			"system": {
-				"ac": {
-					"baseFormula": "",
-					"formula": "",
-					"maxDex": 0,
-					"minStr": 0,
-					"mode": 1,
-					"requiresNoShield": false,
-					"requiresUnarmored": false
-				},
-				"actions": {
-					"uu0I6jANeKVqQRcr": {
-						"name": "Wing Attack (Legendary Action)",
-						"activation": {
-							"cost": 1,
-							"type": "legendaryAction",
-							"reactionTrigger": ""
-						},
-						"duration": {
-							"unit": "instantaneous",
-							"value": ""
-						},
-						"area": {
-							"shape": "emanation",
-							"size": "15",
-							"placeTemplate": false,
-							"quantity": 1,
-							"radius": 15
-						},
-						"target": {
-							"quantity": 1,
-							"type": ""
-						},
-						"prompts": {
-							"1A6jkxaJxw2bcTg4": {
-								"ability": "dex",
-								"onSave": "Not knocked prone.",
-								"saveDC": {
-									"type": "custom",
-									"bonus": "22"
-								},
-								"type": "savingThrow"
-							}
-						},
-						"consumers": {}
-					}
-				},
-				"description": "<p>The dragon beats its wings. Each creature within 15 feet makes a DC 22 Dexterity saving throw. On a failure, it is pushed 10 feet away and knocked prone. The dragon can then fly up to half its fly speed.</p>",
-				"favorite": true,
-				"secretDescription": "",
-				"source": "",
-				"uses": {
-					"value": null,
-					"max": "",
-					"per": null,
-					"recharge": {
-						"formula": "",
-						"threshold": ""
-					}
-				},
-				"schema": {
-					"version": null,
-					"lastMigration": null
-				},
-				"concentration": false,
-				"featureType": "other",
-				"grants": {},
-				"prerequisite": "",
-				"requiresBloodied": false,
-				"schemaVersion": {
-					"version": 0.01,
-					"lastMigration": {
-						"version": {
-							"schema": 0.009,
-							"foundry": "12.316",
-							"system": "0.16.12"
-						}
-					}
-				}
-			},
-			"ownership": {
-				"default": 0
-			}
-		},
-		{
-			"_id": "eKQSxsTMkr5kZQKQ",
-			"name": "Legendary Actions",
-			"type": "feature",
-			"img": "icons/svg/item-bag.svg",
-			"effects": [],
-			"folder": null,
-			"sort": 581250,
+			"sort": 0,
 			"flags": {},
 			"system": {
 				"ac": {
@@ -754,7 +297,7 @@
 					"requiresUnarmored": false
 				},
 				"actions": {},
-				"description": "<p>The dragon can take 3 legendary actions, choosing from the options below. Only one legendary action can be used at a time and only at the end of another creature's turn. It regains spent legendary actions at the start of its turn.</p><p><strong><em>Honeyed Words.</em></strong> The dragon uses Honeyed Words.</p><p><strong><em>Roar.</em></strong> Each creature of the dragon’s choice within 120 feet that can hear it makes a DC 19 Charisma saving throw. On a failure, it is frightened for 1 minute. A creature repeats the saving throw at the end of its turns, ending the effect on itself on a success. When it succeeds on a saving throw or the effect ends for it, it is immune to Roar for 24 hours.</p><p><strong><em>Wing Attack.</em> </strong>The dragon beats its wings. Each creature within 15 feet makes a DC 22 Dexterity saving throw. On a failure, it is pushed 10 feet away and knocked prone. The dragon can then fly up to half its fly speed.</p>",
+				"description": "<p>The dragon&rsquo;s spellcasting ability is Charisma (save <strong>DC 14</strong>). It can innately cast the following spells, requiring no material components.&nbsp;</p>\n<p><strong>3/day each:</strong> <em>animal messenger</em>, <em>tongues</em></p>",
 				"favorite": false,
 				"secretDescription": "",
 				"source": "",
@@ -772,210 +315,7 @@
 					"lastMigration": null
 				},
 				"concentration": false,
-				"featureType": "other",
-				"grants": {},
-				"prerequisite": "",
-				"requiresBloodied": false,
-				"schemaVersion": {
-					"version": 0.01,
-					"lastMigration": {
-						"version": {
-							"schema": 0.009,
-							"foundry": "12.316",
-							"system": "0.16.12"
-						}
-					}
-				}
-			},
-			"ownership": {
-				"default": 0
-			}
-		},
-		{
-			"_id": "IhOZBFdxBtGZUkSe",
-			"name": "Spit Poison",
-			"type": "feature",
-			"img": "icons/svg/item-bag.svg",
-			"effects": [],
-			"folder": null,
-			"sort": 550000,
-			"flags": {},
-			"system": {
-				"ac": {
-					"baseFormula": "",
-					"formula": "",
-					"maxDex": 0,
-					"minStr": 0,
-					"mode": 1,
-					"requiresNoShield": false,
-					"requiresUnarmored": false
-				},
-				"actions": {
-					"H5gbUYUOUKgp10nt": {
-						"name": "Spit Poison",
-						"activation": {
-							"cost": 1,
-							"type": "action",
-							"reactionTrigger": ""
-						},
-						"duration": {
-							"unit": "instantaneous",
-							"value": ""
-						},
-						"ranges": {
-							"Lupy6OaIMRAbxfe7": {
-								"range": "medium"
-							}
-						},
-						"area": {
-							"shape": "",
-							"size": "",
-							"placeTemplate": false
-						},
-						"target": {
-							"quantity": 1,
-							"type": "creature"
-						},
-						"rolls": {
-							"FkvrLI4MFv1RVO3A": {
-								"canCrit": false,
-								"damageType": "poison",
-								"formula": "4d10",
-								"name": "",
-								"type": "damage"
-							},
-							"rKFNq9U7mozFXQWs": {
-								"canCrit": false,
-								"damageType": "poison",
-								"formula": "2d10",
-								"name": "Ongoing",
-								"type": "damage"
-							}
-						},
-						"prompts": {
-							"r99IDfSI4WytFveJ": {
-								"ability": "dex",
-								"onSave": "Half damage and not poisioned.",
-								"saveDC": {
-									"type": "custom",
-									"bonus": "22"
-								},
-								"type": "savingThrow"
-							}
-						},
-						"consumers": {}
-					}
-				},
-				"description": "<p>The dragon targets a creature within 60 feet, forcing it to make a DC 22 Dexterity saving throw. The creature takes 22 (4d10) poison damage on a failure or half damage on a success. A creature that fails the save is also poisoned for 1 minute. The creature repeats the saving throw at the end of each of its turns, taking 11 (2d10) poison damage on a failure and ending the effect on a success.</p>",
-				"favorite": true,
-				"secretDescription": "",
-				"source": "",
-				"uses": {
-					"value": null,
-					"max": "",
-					"per": null,
-					"recharge": {
-						"formula": "",
-						"threshold": ""
-					}
-				},
-				"schema": {
-					"version": null,
-					"lastMigration": null
-				},
-				"concentration": false,
-				"featureType": "naturalWeapon",
-				"grants": {},
-				"prerequisite": "",
-				"requiresBloodied": false,
-				"schemaVersion": {
-					"version": 0.01,
-					"lastMigration": {
-						"version": {
-							"schema": 0.009,
-							"foundry": "12.316",
-							"system": "0.16.12"
-						}
-					}
-				}
-			},
-			"ownership": {
-				"default": 0
-			}
-		},
-		{
-			"_id": "TlNdc1pqCOl7xdHS",
-			"name": "Honeyed Words",
-			"type": "feature",
-			"img": "icons/svg/item-bag.svg",
-			"effects": [],
-			"folder": null,
-			"sort": 575000,
-			"flags": {},
-			"system": {
-				"ac": {
-					"baseFormula": "",
-					"formula": "",
-					"maxDex": 0,
-					"minStr": 0,
-					"mode": 1,
-					"requiresNoShield": false,
-					"requiresUnarmored": false
-				},
-				"actions": {
-					"0doLqBe1dssuSRU6": {
-						"name": "Honeyed Words",
-						"activation": {
-							"cost": 1,
-							"type": "action",
-							"reactionTrigger": ""
-						},
-						"duration": {
-							"unit": "instantaneous",
-							"value": ""
-						},
-						"area": {
-							"shape": "sphere",
-							"size": "60",
-							"placeTemplate": false
-						},
-						"target": {
-							"quantity": 1,
-							"type": "creature"
-						},
-						"prompts": {
-							"TcbGDYCpl8urOIPJ": {
-								"ability": "wis",
-								"onSave": "Nothing Happens.",
-								"saveDC": {
-									"type": "custom",
-									"bonus": "19"
-								},
-								"type": "savingThrow"
-							}
-						},
-						"consumers": {}
-					}
-				},
-				"description": "<p>The dragon’s words sow doubt in the minds of those who hear them. One creature within 60 feet who can hear and understand the dragon makes a DC 19 Wisdom saving throw. On a failure, the creature must use its reaction, if available, to make one attack against a creature of the dragon’s choice with whatever weapon it has to do so, moving up to its speed as part of the reaction if necessary. It need not use any special class features (such as Sneak Attack or Divine Smite) when making this attack. If it can’t get in a position to attack the creature, it moves as far as it can toward the target before regaining its senses. A creature immune to being charmed is immune to this ability.</p>",
-				"favorite": true,
-				"secretDescription": "",
-				"source": "",
-				"uses": {
-					"value": null,
-					"max": "",
-					"per": null,
-					"recharge": {
-						"formula": "",
-						"threshold": ""
-					}
-				},
-				"schema": {
-					"version": null,
-					"lastMigration": null
-				},
-				"concentration": false,
-				"featureType": "other",
+				"featureType": "",
 				"grants": {},
 				"prerequisite": "",
 				"requiresBloodied": false,
@@ -1018,7 +358,7 @@
 					"requiresUnarmored": false
 				},
 				"actions": {
-					"K2CpiWwUzo5yLjUb": {
+					"abfKHdJi1MSxDh5u": {
 						"name": "Poison Breath (Recharge 5-6)",
 						"activation": {
 							"cost": 1,
@@ -1029,33 +369,32 @@
 							"unit": "instantaneous",
 							"value": ""
 						},
-						"ranges": {},
 						"area": {
 							"shape": "cone",
-							"size": "90",
+							"size": "30",
 							"placeTemplate": false,
-							"length": 90
+							"length": 30
 						},
 						"target": {
 							"quantity": 1,
 							"type": ""
 						},
 						"rolls": {
-							"iGnJGvghMovGzzEK": {
+							"pQzgNOZ4aSysvSd8": {
 								"canCrit": false,
 								"damageType": "poison",
-								"formula": "23d6",
+								"formula": "12d6",
 								"name": "",
 								"type": "damage"
 							}
 						},
 						"prompts": {
-							"54DKvSjO20GkkqgK": {
+							"g3aiVOguUYWnzPb7": {
 								"ability": "con",
 								"onSave": "Half damage.",
 								"saveDC": {
 									"type": "custom",
-									"bonus": "22"
+									"bonus": "15"
 								},
 								"type": "savingThrow"
 							}
@@ -1063,7 +402,7 @@
 						"consumers": {}
 					}
 				},
-				"description": "<p>The dragon exhales poisonous gas in a 90-foot cone. Each creature in that area makes a DC 22 Constitution saving throw, taking 80 (23d6) poison damage on a failed save or half damage on a success. A creature with immunity to poison damage that fails the save takes no damage, but its poison immunity is reduced to resistance for the next hour.</p>",
+				"description": "<p>The dragon exhales poisonous gas in a 30-foot cone. Each creature in that area makes a DC 15 Constitution saving throw, taking 42 (12d6) poison damage on a failed save or half damage on a success.</p>",
 				"favorite": true,
 				"secretDescription": "",
 				"source": "",
@@ -1101,93 +440,13 @@
 			}
 		},
 		{
-			"_id": "HcudkJ6gE27GSpKV",
-			"name": "Honeyed Words (Legendary Action)",
-			"type": "feature",
-			"img": "icons/svg/item-bag.svg",
-			"effects": [],
-			"folder": null,
-			"sort": 1050000,
-			"flags": {},
-			"system": {
-				"ac": {
-					"baseFormula": "",
-					"formula": "",
-					"maxDex": 0,
-					"minStr": 0,
-					"mode": 1,
-					"requiresNoShield": false,
-					"requiresUnarmored": false
-				},
-				"actions": {
-					"eIenx8Dy50kC6mIe": {
-						"name": "Honeyed Words (Legendary Action)",
-						"activation": {
-							"cost": 1,
-							"type": "legendaryAction",
-							"reactionTrigger": ""
-						},
-						"duration": {
-							"unit": "instantaneous",
-							"value": ""
-						},
-						"area": {
-							"shape": "",
-							"size": "",
-							"placeTemplate": false
-						},
-						"target": {
-							"quantity": "",
-							"type": ""
-						},
-						"consumers": {}
-					}
-				},
-				"description": "<p>The dragon uses Honeyed Words.</p>",
-				"favorite": false,
-				"secretDescription": "",
-				"source": "",
-				"uses": {
-					"value": null,
-					"max": "",
-					"per": null,
-					"recharge": {
-						"formula": "",
-						"threshold": ""
-					}
-				},
-				"schema": {
-					"version": null,
-					"lastMigration": null
-				},
-				"concentration": false,
-				"featureType": "",
-				"grants": {},
-				"prerequisite": "",
-				"requiresBloodied": false,
-				"schemaVersion": {
-					"version": 0.01,
-					"lastMigration": {
-						"version": {
-							"schema": 0.009,
-							"foundry": "12.316",
-							"system": "0.16.12"
-						}
-					}
-				}
-			},
-			"ownership": {
-				"default": 0
-			}
-		},
-		{
 			"_id": "gd7tO43sm5vdwndy",
 			"name": "Amphibious",
 			"type": "feature",
 			"img": "icons/environment/creatures/frog-spotted-green.webp",
 			"effects": [],
 			"folder": null,
-			"sort": 0,
+			"sort": -100000,
 			"flags": {},
 			"system": {
 				"ac": {
@@ -1295,106 +554,6 @@
 			}
 		},
 		{
-			"_id": "7QLcjJ321qTRS0UL",
-			"name": "Blood Toxicity (While Bloodied)",
-			"type": "feature",
-			"img": "icons/svg/item-bag.svg",
-			"effects": [],
-			"folder": null,
-			"sort": 0,
-			"flags": {},
-			"system": {
-				"ac": {
-					"baseFormula": "",
-					"formula": "",
-					"maxDex": 0,
-					"minStr": 0,
-					"mode": 1,
-					"requiresNoShield": false,
-					"requiresUnarmored": false
-				},
-				"actions": {
-					"om5xxzoKWmXQJFXF": {
-						"name": "Blood Toxicity (While Bloodied)",
-						"activation": {
-							"cost": "",
-							"type": "special",
-							"reactionTrigger": ""
-						},
-						"duration": {
-							"unit": "permanent",
-							"value": ""
-						},
-						"area": {
-							"shape": "sphere",
-							"size": "10",
-							"placeTemplate": false
-						},
-						"target": {
-							"quantity": 1,
-							"type": "creature"
-						},
-						"rolls": {
-							"N4tOvg2jfdjvh1Yg": {
-								"canCrit": false,
-								"damageType": "poison",
-								"formula": "3d6",
-								"name": "",
-								"type": "damage"
-							}
-						},
-						"prompts": {
-							"Y8Z8RpT2Og6IlE7P": {
-								"ability": "dex",
-								"onSave": "No damange.",
-								"saveDC": {
-									"type": "custom",
-									"bonus": "22"
-								},
-								"type": "savingThrow"
-							}
-						},
-						"consumers": {}
-					}
-				},
-				"description": "<p>The first time each turn a creature hits the dragon with a melee attack while within 10 feet of it, that creature makes a DC 22 Dexterity saving throw, taking 10 (3d6) poison damage on a failure.</p>",
-				"favorite": true,
-				"secretDescription": "",
-				"source": "",
-				"uses": {
-					"value": null,
-					"max": "",
-					"per": null,
-					"recharge": {
-						"formula": "",
-						"threshold": ""
-					}
-				},
-				"schema": {
-					"version": null,
-					"lastMigration": null
-				},
-				"concentration": false,
-				"featureType": "other",
-				"grants": {},
-				"prerequisite": "",
-				"requiresBloodied": false,
-				"schemaVersion": {
-					"version": 0.01,
-					"lastMigration": {
-						"version": {
-							"schema": 0.009,
-							"foundry": "12.316",
-							"system": "0.16.12"
-						}
-					}
-				}
-			},
-			"ownership": {
-				"default": 0
-			}
-		},
-		{
 			"name": "Shove",
 			"type": "maneuver",
 			"img": "icons/skills/melee/shield-block-bash-yellow.webp",
@@ -1406,7 +565,7 @@
 			},
 			"system": {
 				"actions": {
-					"JszepZ9WrHKxvbqJ": {
+					"N5QQgqkv5JxWGq4q": {
 						"name": "Shove",
 						"activation": {
 							"cost": 1,
@@ -1418,7 +577,7 @@
 							"value": null
 						},
 						"ranges": {
-							"dhOvYNd6tjR0awKk": {
+							"gsiSheLy60CTOEk1": {
 								"range": "fiveFeet"
 							}
 						},
@@ -1434,7 +593,7 @@
 							"size": ""
 						},
 						"rolls": {
-							"OpEW8jXBkhTo5XxR": {
+							"grQvHzy3ZGAvFBVt": {
 								"canCrit": false,
 								"damageType": "bludgeoning",
 								"formula": "1 + @str.mod",
@@ -1443,7 +602,7 @@
 							}
 						},
 						"prompts": {
-							"CFcZrmET6DiNRdbr": {
+							"nObOv4MIpfExMsNb": {
 								"ability": "str",
 								"onSave": "",
 								"saveDC": {
@@ -1495,7 +654,7 @@
 			},
 			"folder": null,
 			"sort": 0,
-			"_id": "QrHvizL0jeErerCC"
+			"_id": "5LgjT8EL1Pf76NTH"
 		},
 		{
 			"name": "Disarm",
@@ -1509,7 +668,7 @@
 			},
 			"system": {
 				"actions": {
-					"Rv0lYKVIhYmNJInt": {
+					"pm6VJwRWCgMYj5Wz": {
 						"name": "Disarm",
 						"activation": {
 							"cost": 1,
@@ -1521,7 +680,7 @@
 							"value": null
 						},
 						"ranges": {
-							"Civpv2gfT2mrXcp4": {
+							"y5qf3al96xdjCpYH": {
 								"range": "touch"
 							}
 						},
@@ -1537,7 +696,7 @@
 							"size": ""
 						},
 						"rolls": {
-							"NiMV6kmadPgk66M9": {
+							"NJN7vMKLLMfKMsaX": {
 								"canCrit": false,
 								"damageType": "",
 								"formula": "1 + @str.mod",
@@ -1546,7 +705,7 @@
 							}
 						},
 						"prompts": {
-							"BnNHnW5AplkIgZBJ": {
+							"zgXn2HnyPzC55Q6I": {
 								"ability": "str",
 								"onSave": "",
 								"saveDC": {
@@ -1598,7 +757,7 @@
 			},
 			"folder": null,
 			"sort": 0,
-			"_id": "EC5NqzKLFYMYxNNo"
+			"_id": "UHeGa6wImgVDFvHf"
 		},
 		{
 			"name": "Grab On",
@@ -1612,7 +771,7 @@
 			},
 			"system": {
 				"actions": {
-					"AhKwxNvz4B2tvIYf": {
+					"BuduPFfMKgoQWZfI": {
 						"name": "Grab On",
 						"activation": {
 							"cost": 1,
@@ -1624,7 +783,7 @@
 							"value": null
 						},
 						"ranges": {
-							"FPF3BjGspPcSDb6C": {
+							"s4v0kVCTDazu1RtI": {
 								"range": "touch"
 							}
 						},
@@ -1640,7 +799,7 @@
 							"size": ""
 						},
 						"prompts": {
-							"LJSgHnl5BGr3HK2y": {
+							"qexMWOTLzljMVSuW": {
 								"ability": "str",
 								"onSave": "",
 								"saveDC": {
@@ -1692,7 +851,7 @@
 			},
 			"folder": null,
 			"sort": 0,
-			"_id": "9FyVEPNHNcsPL5Xg"
+			"_id": "GcAz4FrMg4YIs5nR"
 		},
 		{
 			"name": "Knockdown",
@@ -1706,7 +865,7 @@
 			},
 			"system": {
 				"actions": {
-					"GcH6yrQIDbRXZpUU": {
+					"3Q9Q6bQRizrOsFTT": {
 						"name": "Knockdown",
 						"activation": {
 							"cost": 1,
@@ -1718,7 +877,7 @@
 							"value": null
 						},
 						"ranges": {
-							"5vUWxrNOe79ekGlU": {
+							"klRNnrRqgphzxeVR": {
 								"range": "touch"
 							}
 						},
@@ -1734,7 +893,7 @@
 							"size": ""
 						},
 						"prompts": {
-							"lKDzf9MKimIbK7ys": {
+							"VFXBQnOmfnjkmUUy": {
 								"ability": "str",
 								"onSave": "",
 								"saveDC": {
@@ -1786,7 +945,7 @@
 			},
 			"folder": null,
 			"sort": 0,
-			"_id": "nNdgdSyNxlwcCTkd"
+			"_id": "1BSjBMXg01VTrO6I"
 		},
 		{
 			"name": "Grapple",
@@ -1800,7 +959,7 @@
 			},
 			"system": {
 				"actions": {
-					"gSnwYoeSQ8TTxQtF": {
+					"ThIqILY43mZ7HrS9": {
 						"name": "Grapple",
 						"activation": {
 							"cost": 1,
@@ -1812,7 +971,7 @@
 							"value": null
 						},
 						"ranges": {
-							"mxgaVf3VGrRdTzmf": {
+							"yoXtARXsAVq8rV60": {
 								"range": "touch"
 							}
 						},
@@ -1828,7 +987,7 @@
 							"size": ""
 						},
 						"prompts": {
-							"VStgKwzdngoIQYKj": {
+							"P98UxIdTYiunoRvq": {
 								"ability": "str",
 								"onSave": "",
 								"saveDC": {
@@ -1880,7 +1039,7 @@
 			},
 			"folder": null,
 			"sort": 0,
-			"_id": "grE1qrrAXSanCrPb"
+			"_id": "sKWauVAYqjbRwdcs"
 		},
 		{
 			"name": "Overrun",
@@ -1894,7 +1053,7 @@
 			},
 			"system": {
 				"actions": {
-					"WJh7cSl7InilELw9": {
+					"1m8KW120CuQPBPja": {
 						"name": "Overrun",
 						"activation": {
 							"cost": 1,
@@ -1906,7 +1065,7 @@
 							"value": null
 						},
 						"ranges": {
-							"a63v1FDMz3ILECZM": {
+							"HJVp6gge4AoktKza": {
 								"range": "touch"
 							}
 						},
@@ -1922,7 +1081,7 @@
 							"size": ""
 						},
 						"prompts": {
-							"K0t35en6EG5CpoZB": {
+							"yZsQuqugCMU0Qw99": {
 								"ability": "str",
 								"onSave": "",
 								"saveDC": {
@@ -1974,7 +1133,223 @@
 			},
 			"folder": null,
 			"sort": 0,
-			"_id": "xvandDl7KIsSDQUY"
+			"_id": "DGEJbymfI7ctbWGv"
+		},
+		{
+			"name": "Animal Messenger",
+			"type": "spell",
+			"img": "icons/creatures/birds/raptor-owl-flying-moon.webp",
+			"effects": [],
+			"flags": {
+				"core": {
+					"sourceId": "Compendium.a5e.a5e-spells.Item.mjrci30v32fs6hwc"
+				}
+			},
+			"system": {
+				"actions": {
+					"JbOGZNgzGY6n8Ee6": {
+						"name": "Animal Messenger",
+						"activation": {
+							"cost": 1,
+							"type": "action",
+							"reactionTrigger": ""
+						},
+						"duration": {
+							"unit": "hour",
+							"value": "24"
+						},
+						"ranges": {
+							"0IfrIHxv6qvdqo0c": {
+								"range": "short"
+							}
+						},
+						"area": {
+							"shape": "",
+							"size": "",
+							"placeTemplate": false
+						},
+						"target": {
+							"quantity": "",
+							"type": "creature"
+						},
+						"consumers": {
+							"V3AmzUT3j3b0QSis": {
+								"type": "itemUses",
+								"default": true,
+								"quantity": 1
+							}
+						}
+					}
+				},
+				"description": "<p>You call a Tiny beast to you, whisper a message to it, and then give it directions to the message's recipient. It is now your messenger.</p><p>Specify a location you have previously visited and a recipient who matches a general description, such as &quot;a person wearing a pointed red hat in Barter Town&quot; or &quot;a half-orc in a wheelchair at the Striped Lion Inn.&quot; Speak a message of up to 25 words. For the duration of the spell, the messenger travels towards the location at a rate of 50 miles per day for a messenger with a flying speed, or else 25 miles without.</p><p>When the messenger arrives, it delivers your message to the first creature matching your description, replicating the sound of your voice exactly. If the messenger can't find the recipient or reach its destination before the spell ends, the message is lost, and the beast makes its way back to where you cast this spell.</p><p><strong><em>Cast at Higher Levels.</em></strong> The duration of the spell increases by 48 hours for each slot level above 2nd.</p>",
+				"favorite": false,
+				"secretDescription": "",
+				"source": "",
+				"uses": {
+					"value": 3,
+					"max": "3",
+					"per": "day",
+					"recharge": {
+						"formula": "",
+						"threshold": ""
+					}
+				},
+				"schema": {
+					"version": null,
+					"lastMigration": null
+				},
+				"classes": [
+					"bard",
+					"druid"
+				],
+				"components": {
+					"vocalized": true,
+					"seen": true,
+					"material": true
+				},
+				"concentration": false,
+				"level": 2,
+				"materials": "tightly rolled strip of paper",
+				"materialsConsumed": false,
+				"prepared": false,
+				"prerequisite": "",
+				"rare": false,
+				"ritual": true,
+				"schools": {
+					"primary": "enchantment",
+					"secondary": [
+						"beasts",
+						"communication",
+						"nature"
+					]
+				},
+				"schemaVersion": {
+					"version": 0.01,
+					"lastMigration": {
+						"version": {
+							"schema": 0.009,
+							"foundry": "12.316",
+							"system": "0.16.12"
+						}
+					}
+				}
+			},
+			"folder": null,
+			"ownership": {
+				"default": 0
+			},
+			"_id": "djBfhmZ1MwgwsPBJ",
+			"sort": 0
+		},
+		{
+			"name": "Tongues",
+			"type": "spell",
+			"img": "icons/magic/symbols/runes-star-magenta.webp",
+			"effects": [],
+			"flags": {
+				"core": {
+					"sourceId": "Compendium.a5e.a5e-spells.Item.ef9fuzf8xcja2p7c"
+				}
+			},
+			"system": {
+				"actions": {
+					"XNq5DzLC3Jxo8bzu": {
+						"name": "Tongues",
+						"activation": {
+							"cost": 1,
+							"type": "action",
+							"reactionTrigger": ""
+						},
+						"duration": {
+							"unit": "hour",
+							"value": "1"
+						},
+						"ranges": {
+							"X063myeBU3khMzsY": {
+								"range": "touch"
+							}
+						},
+						"area": {
+							"shape": "",
+							"size": "",
+							"placeTemplate": false
+						},
+						"target": {
+							"quantity": "",
+							"type": "creature"
+						},
+						"consumers": {
+							"Dn1OEDtqsxc5LygB": {
+								"type": "itemUses",
+								"default": true,
+								"quantity": 1
+							}
+						}
+					}
+				},
+				"description": "<p>The target understands any words it hears, and when the target speaks its words are understood by creatures that know at least one language.</p>",
+				"favorite": false,
+				"secretDescription": "",
+				"source": "",
+				"uses": {
+					"value": 3,
+					"max": "3",
+					"per": "day",
+					"recharge": {
+						"formula": "",
+						"threshold": ""
+					}
+				},
+				"schema": {
+					"version": null,
+					"lastMigration": null
+				},
+				"classes": [
+					"bard",
+					"cleric",
+					"sorcerer",
+					"warlock",
+					"witch",
+					"wizard"
+				],
+				"components": {
+					"vocalized": true,
+					"seen": false,
+					"material": true
+				},
+				"concentration": false,
+				"level": 3,
+				"materials": "clay model of a ziggurat",
+				"materialsConsumed": false,
+				"prepared": false,
+				"prerequisite": "",
+				"rare": false,
+				"ritual": false,
+				"schools": {
+					"primary": "divination",
+					"secondary": [
+						"arcane",
+						"communication",
+						"divine"
+					]
+				},
+				"schemaVersion": {
+					"version": 0.01,
+					"lastMigration": {
+						"version": {
+							"schema": 0.009,
+							"foundry": "12.316",
+							"system": "0.16.12"
+						}
+					}
+				}
+			},
+			"folder": null,
+			"ownership": {
+				"default": 0
+			},
+			"_id": "8VmAT5z7lzuY0tLE",
+			"sort": 0
 		}
 	],
 	"effects": [],
@@ -1994,13 +1369,13 @@
 			],
 			"showSpellSlots": false,
 			"showSpellPoints": false,
-			"sheetIsLocked": false
+			"sheetIsLocked": true
 		}
 	},
 	"system": {
 		"abilities": {
 			"str": {
-				"value": 26,
+				"value": 18,
 				"check": {
 					"expertiseDice": 0,
 					"bonus": "",
@@ -2028,34 +1403,6 @@
 				}
 			},
 			"con": {
-				"value": 24,
-				"check": {
-					"expertiseDice": 0,
-					"bonus": "",
-					"notes": {}
-				},
-				"save": {
-					"proficient": true,
-					"expertiseDice": 0,
-					"bonus": "",
-					"notes": {}
-				}
-			},
-			"int": {
-				"value": 20,
-				"check": {
-					"expertiseDice": 0,
-					"bonus": "",
-					"notes": {}
-				},
-				"save": {
-					"proficient": false,
-					"expertiseDice": 0,
-					"bonus": "",
-					"notes": {}
-				}
-			},
-			"wis": {
 				"value": 16,
 				"check": {
 					"expertiseDice": 0,
@@ -2069,8 +1416,36 @@
 					"notes": {}
 				}
 			},
+			"int": {
+				"value": 16,
+				"check": {
+					"expertiseDice": 0,
+					"bonus": "",
+					"notes": {}
+				},
+				"save": {
+					"proficient": false,
+					"expertiseDice": 0,
+					"bonus": "",
+					"notes": {}
+				}
+			},
+			"wis": {
+				"value": 12,
+				"check": {
+					"expertiseDice": 0,
+					"bonus": "",
+					"notes": {}
+				},
+				"save": {
+					"proficient": true,
+					"expertiseDice": 0,
+					"bonus": "",
+					"notes": {}
+				}
+			},
 			"cha": {
-				"value": 18,
+				"value": 14,
 				"check": {
 					"expertiseDice": 0,
 					"bonus": "",
@@ -2382,7 +1757,7 @@
 		},
 		"attributes": {
 			"ac": {
-				"baseFormula": "21",
+				"baseFormula": "17",
 				"value": 0
 			},
 			"death": {
@@ -2390,8 +1765,8 @@
 				"failure": 0
 			},
 			"hp": {
-				"value": 420,
-				"baseMax": 420,
+				"value": 161,
+				"baseMax": 161,
 				"temp": 0,
 				"bonus": 0
 			},
@@ -2405,8 +1780,8 @@
 					"total": 0
 				},
 				"d10": {
-					"current": 0,
-					"total": 0
+					"current": 19,
+					"total": 19
 				},
 				"d12": {
 					"current": 0,
@@ -2453,7 +1828,7 @@
 			},
 			"senses": {
 				"blindsight": {
-					"distance": 60,
+					"distance": 30,
 					"unit": "feet",
 					"otherwiseBlind": false
 				},
@@ -2501,7 +1876,7 @@
 				"dragon"
 			],
 			"isSwarm": false,
-			"cr": 24,
+			"cr": 10,
 			"elite": false,
 			"privateNotes": "",
 			"notes": ""
@@ -2511,7 +1886,7 @@
 			"languages": [
 				"common",
 				"draconic",
-				"three more"
+				"one more"
 			],
 			"tools": [],
 			"weapons": []
@@ -2568,7 +1943,7 @@
 			"publisher": ""
 		},
 		"traits": {
-			"size": "grg",
+			"size": "lg",
 			"conditionImmunities": [
 				"poisoned"
 			],
@@ -2580,11 +1955,11 @@
 		}
 	},
 	"prototypeToken": {
-		"name": "Ancient Green Dragon",
+		"name": "Young Green Dragon",
 		"displayName": 0,
 		"actorLink": false,
-		"width": 4,
-		"height": 4,
+		"width": 2,
+		"height": 2,
 		"lockRotation": false,
 		"rotation": 0,
 		"alpha": 1,
@@ -2646,5 +2021,5 @@
 		"prependAdjective": false
 	},
 	"folder": null,
-	"_id": "jguwyf387ksigiz1"
+	"_id": "5l11yldpfqxekow2"
 }

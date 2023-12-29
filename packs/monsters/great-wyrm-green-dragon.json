@@ -792,63 +792,6 @@
 			}
 		},
 		{
-			"_id": "pg44xsEBEAskdco7",
-			"name": "Innate Spellcasting",
-			"type": "feature",
-			"img": "icons/svg/item-bag.svg",
-			"effects": [],
-			"folder": null,
-			"sort": 0,
-			"flags": {},
-			"system": {
-				"ac": {
-					"baseFormula": "",
-					"formula": "",
-					"maxDex": 0,
-					"minStr": 0,
-					"mode": 1,
-					"requiresNoShield": false,
-					"requiresUnarmored": false
-				},
-				"actions": {},
-				"description": "<p>The dragon’s spellcasting ability is Charisma (save <strong>DC 19</strong>). It can innately cast the following spells, requiring no material components.&nbsp;</p><p><strong>3/day each:</strong> <em>animal messenger</em>, <em>tongues, modify memory</em>, <em>scrying</em></p><p><strong>1/day</strong>: glibness, <em>mass suggestion</em>,<em> telepathic bond</em></p>",
-				"favorite": false,
-				"secretDescription": "",
-				"source": "",
-				"uses": {
-					"value": null,
-					"max": "",
-					"per": null,
-					"recharge": {
-						"formula": "",
-						"threshold": ""
-					}
-				},
-				"schema": {
-					"version": null,
-					"lastMigration": null
-				},
-				"concentration": false,
-				"featureType": "",
-				"grants": {},
-				"prerequisite": "",
-				"requiresBloodied": false,
-				"schemaVersion": {
-					"version": 0.01,
-					"lastMigration": {
-						"version": {
-							"schema": 0.009,
-							"foundry": "12.316",
-							"system": "0.16.12"
-						}
-					}
-				}
-			},
-			"ownership": {
-				"default": 0
-			}
-		},
-		{
 			"_id": "IhOZBFdxBtGZUkSe",
 			"name": "Spit Poison",
 			"type": "feature",
@@ -1353,7 +1296,7 @@
 		},
 		{
 			"_id": "7QLcjJ321qTRS0UL",
-			"name": "Blood Toxicity",
+			"name": "Blood Toxicity (While Bloodied)",
 			"type": "feature",
 			"img": "icons/svg/item-bag.svg",
 			"effects": [],
@@ -1372,7 +1315,7 @@
 				},
 				"actions": {
 					"3TyHD13ZcR0zbQX1": {
-						"name": "Blood Toxicity",
+						"name": "Blood Toxicity (While Bloodied)",
 						"activation": {
 							"cost": "",
 							"type": "special",
@@ -1435,7 +1378,7 @@
 				"featureType": "other",
 				"grants": {},
 				"prerequisite": "",
-				"requiresBloodied": true,
+				"requiresBloodied": false,
 				"schemaVersion": {
 					"version": 0.01,
 					"lastMigration": {
@@ -1492,7 +1435,7 @@
 				"featureType": "",
 				"grants": {},
 				"prerequisite": "",
-				"requiresBloodied": true,
+				"requiresBloodied": false,
 				"schemaVersion": {
 					"version": 0.01,
 					"lastMigration": {
@@ -1576,7 +1519,7 @@
 				"featureType": "",
 				"grants": {},
 				"prerequisite": "",
-				"requiresBloodied": true,
+				"requiresBloodied": false,
 				"schemaVersion": {
 					"version": 0.01,
 					"lastMigration": {
@@ -1671,7 +1614,7 @@
 				"featureType": "",
 				"grants": {},
 				"prerequisite": "",
-				"requiresBloodied": true,
+				"requiresBloodied": false,
 				"schemaVersion": {
 					"version": 0.01,
 					"lastMigration": {
@@ -1732,7 +1675,7 @@
 				"featureType": "",
 				"grants": {},
 				"prerequisite": "",
-				"requiresBloodied": true,
+				"requiresBloodied": false,
 				"schemaVersion": {
 					"version": 0.01,
 					"lastMigration": {
@@ -1789,7 +1732,7 @@
 				"featureType": "",
 				"grants": {},
 				"prerequisite": "",
-				"requiresBloodied": true,
+				"requiresBloodied": false,
 				"schemaVersion": {
 					"version": 0.01,
 					"lastMigration": {
@@ -2386,768 +2329,6 @@
 			"folder": null,
 			"sort": 0,
 			"_id": "3iXTnqLNIGl9PXJk"
-		},
-		{
-			"name": "Animal Messenger",
-			"type": "spell",
-			"img": "icons/creatures/birds/raptor-owl-flying-moon.webp",
-			"effects": [],
-			"flags": {
-				"core": {
-					"sourceId": "Compendium.a5e.a5e-spells.mjrci30v32fs6hwc"
-				}
-			},
-			"system": {
-				"actions": {
-					"JbOGZNgzGY6n8Ee6": {
-						"name": "Animal Messenger",
-						"activation": {
-							"cost": 1,
-							"type": "action",
-							"reactionTrigger": ""
-						},
-						"duration": {
-							"unit": "hour",
-							"value": "24"
-						},
-						"ranges": {
-							"0IfrIHxv6qvdqo0c": {
-								"range": "short"
-							}
-						},
-						"area": {
-							"shape": "",
-							"size": "",
-							"placeTemplate": false
-						},
-						"target": {
-							"quantity": "",
-							"type": "creature"
-						},
-						"consumers": {
-							"hNhOfRvZXvbx1iYY": {
-								"mode": "variable",
-								"spellLevel": 2,
-								"points": 3,
-								"type": "spell"
-							}
-						}
-					}
-				},
-				"description": "<p>You call a Tiny beast to you, whisper a message to it, and then give it directions to the message's recipient. It is now your messenger.</p><p>Specify a location you have previously visited and a recipient who matches a general description, such as &quot;a person wearing a pointed red hat in Barter Town&quot; or &quot;a half-orc in a wheelchair at the Striped Lion Inn.&quot; Speak a message of up to 25 words. For the duration of the spell, the messenger travels towards the location at a rate of 50 miles per day for a messenger with a flying speed, or else 25 miles without.</p><p>When the messenger arrives, it delivers your message to the first creature matching your description, replicating the sound of your voice exactly. If the messenger can't find the recipient or reach its destination before the spell ends, the message is lost, and the beast makes its way back to where you cast this spell.</p><p><strong><em>Cast at Higher Levels.</em></strong> The duration of the spell increases by 48 hours for each slot level above 2nd.</p>",
-				"favorite": false,
-				"secretDescription": "",
-				"source": "",
-				"uses": {
-					"value": null,
-					"max": "",
-					"per": null,
-					"recharge": {
-						"formula": "",
-						"threshold": ""
-					}
-				},
-				"schema": {
-					"version": null,
-					"lastMigration": null
-				},
-				"classes": [],
-				"components": {
-					"vocalized": true,
-					"seen": true,
-					"material": true
-				},
-				"concentration": false,
-				"level": 2,
-				"materials": "tightly rolled strip of paper",
-				"materialsConsumed": false,
-				"prepared": false,
-				"prerequisite": "",
-				"rare": false,
-				"ritual": true,
-				"schools": {
-					"primary": "enchantment",
-					"secondary": [
-						"beasts",
-						"communication",
-						"nature"
-					]
-				},
-				"schemaVersion": {
-					"version": 0.01,
-					"lastMigration": {
-						"version": {
-							"schema": 0.009,
-							"foundry": "12.316",
-							"system": "0.16.12"
-						}
-					}
-				}
-			},
-			"_id": "pzRjOeUVyvShiqZ4",
-			"ownership": {
-				"default": 0
-			},
-			"folder": null,
-			"sort": 0
-		},
-		{
-			"name": "Tongues",
-			"type": "spell",
-			"img": "icons/magic/symbols/runes-star-magenta.webp",
-			"effects": [],
-			"flags": {
-				"core": {
-					"sourceId": "Compendium.a5e.a5e-spells.ef9fuzf8xcja2p7c"
-				}
-			},
-			"system": {
-				"actions": {
-					"XNq5DzLC3Jxo8bzu": {
-						"name": "Tongues",
-						"activation": {
-							"cost": 1,
-							"type": "action",
-							"reactionTrigger": ""
-						},
-						"duration": {
-							"unit": "hour",
-							"value": "1"
-						},
-						"ranges": {
-							"X063myeBU3khMzsY": {
-								"range": "touch"
-							}
-						},
-						"area": {
-							"shape": "",
-							"size": "",
-							"placeTemplate": false
-						},
-						"target": {
-							"quantity": "",
-							"type": "creature"
-						},
-						"consumers": {
-							"XZ38VC02bPoG568l": {
-								"mode": "variable",
-								"spellLevel": 3,
-								"points": 5,
-								"type": "spell"
-							}
-						}
-					}
-				},
-				"description": "<p>The target understands any words it hears, and when the target speaks its words are understood by creatures that know at least one language.</p>",
-				"favorite": false,
-				"secretDescription": "",
-				"source": "",
-				"uses": {
-					"value": null,
-					"max": "",
-					"per": null,
-					"recharge": {
-						"formula": "",
-						"threshold": ""
-					}
-				},
-				"schema": {
-					"version": null,
-					"lastMigration": null
-				},
-				"classes": [],
-				"components": {
-					"vocalized": true,
-					"seen": false,
-					"material": true
-				},
-				"concentration": false,
-				"level": 3,
-				"materials": "clay model of a ziggurat",
-				"materialsConsumed": false,
-				"prepared": false,
-				"prerequisite": "",
-				"rare": false,
-				"ritual": false,
-				"schools": {
-					"primary": "divination",
-					"secondary": [
-						"arcane",
-						"communication",
-						"divine"
-					]
-				},
-				"schemaVersion": {
-					"version": 0.01,
-					"lastMigration": {
-						"version": {
-							"schema": 0.009,
-							"foundry": "12.316",
-							"system": "0.16.12"
-						}
-					}
-				}
-			},
-			"_id": "NvmCiQV06R5ceDQl",
-			"ownership": {
-				"default": 0
-			},
-			"folder": null,
-			"sort": 0
-		},
-		{
-			"name": "Modify Memory",
-			"type": "spell",
-			"img": "icons/magic/control/hypnosis-mesmerism-eye.webp",
-			"effects": [],
-			"flags": {
-				"core": {
-					"sourceId": "Compendium.a5e.a5e-spells.ptdq0aw2indq5e6w"
-				}
-			},
-			"system": {
-				"actions": {
-					"8yqyNTnpdeZiuY1k": {
-						"name": "Modify Memory",
-						"activation": {
-							"cost": 1,
-							"type": "action",
-							"reactionTrigger": ""
-						},
-						"duration": {
-							"unit": "minute",
-							"value": "1"
-						},
-						"ranges": {
-							"CSMTD2gCclivsY3r": {
-								"range": "short"
-							}
-						},
-						"area": {
-							"shape": "",
-							"size": "",
-							"placeTemplate": false
-						},
-						"target": {
-							"quantity": "",
-							"type": "creature"
-						},
-						"prompts": {
-							"zUgDyuMHX5zrbG9F": {
-								"ability": "wis",
-								"onSave": "Negates effect",
-								"saveDC": {
-									"type": "spellcasting",
-									"bonus": ""
-								},
-								"type": "savingThrow"
-							}
-						},
-						"consumers": {
-							"J6ZZBDtFfcDZXcKU": {
-								"mode": "variable",
-								"spellLevel": 5,
-								"points": 7,
-								"type": "spell"
-							}
-						}
-					}
-				},
-				"description": "<p>The target has advantage on its saving throw if you are in combat with it. The target becomes charmed and incapacitated, though it can still hear you. Until the spell ends, any memories of an event that took place within the last 24 hours and lasted 10 minutes or less may be altered.</p><p>You may destroy the memory, have the target recall the event with perfect clarity, change the details, or create a new memory entirely with the same restrictions in time frame and length.</p><p>You must speak to the target in a language you both know to modify its memories and describe how the memory is changed. The target fills in the gaps in details based on your description.</p><p>The spell automatically ends if the target takes any damage or if it is targeted by another spell. If the spell ends before you have finished modifying its memories, the alteration fails. Otherwise, the alteration is complete when the spell ends and only greater restoration or remove curse can restore the memory.</p><p>The Narrator may deem a modified memory too illogical or nonsensical to affect a creature, in which case the modified memory is simply dismissed by the target. In addition, a modified memory doesn't specifically change the behavior of a creature, especially if the memory conflicts with the creature's personality, beliefs, or innate tendencies.</p><p>There may also be events that are practically unforgettable and after being modified can be remembered correctly when another creature succeeds on a Persuasion check to stir the target's memories. This check is made with disadvantage if the creature does not have indisputable proof on hand that is relevant to the altered memory.</p><p><strong><em>Cast at Higher Levels.</em></strong> When using a 6th-level spell slot, the event can be from as far as 7 days ago. When using a 7th-level spell slot, the event can be from as far as 30 days ago. When using an 8th-level spell slot, the event can be from as far as 1 year ago. When using a 9th-level spell slot, any event can be altered.</p>",
-				"favorite": false,
-				"secretDescription": "",
-				"source": "",
-				"uses": {
-					"value": null,
-					"max": "",
-					"per": null,
-					"recharge": {
-						"formula": "",
-						"threshold": ""
-					}
-				},
-				"schema": {
-					"version": null,
-					"lastMigration": null
-				},
-				"classes": [],
-				"components": {
-					"vocalized": true,
-					"seen": true,
-					"material": false
-				},
-				"concentration": true,
-				"level": 5,
-				"materials": "",
-				"materialsConsumed": false,
-				"prepared": false,
-				"prerequisite": "",
-				"rare": false,
-				"ritual": false,
-				"schools": {
-					"primary": "enchantment",
-					"secondary": [
-						"communication",
-						"compulsion",
-						"utility"
-					]
-				},
-				"schemaVersion": {
-					"version": 0.01,
-					"lastMigration": {
-						"version": {
-							"schema": 0.009,
-							"foundry": "12.316",
-							"system": "0.16.12"
-						}
-					}
-				}
-			},
-			"_id": "TV7Kl4mVYIowEJsj",
-			"ownership": {
-				"default": 0
-			},
-			"folder": null,
-			"sort": 0
-		},
-		{
-			"name": "Scrying",
-			"type": "spell",
-			"img": "icons/magic/perception/orb-crystal-ball-scrying-blue.webp",
-			"effects": [],
-			"flags": {
-				"core": {
-					"sourceId": "Compendium.a5e.a5e-spells.ppht0do531mq84uw"
-				}
-			},
-			"system": {
-				"actions": {
-					"peJQ1fHIjg99kKDX": {
-						"name": "Scrying",
-						"activation": {
-							"cost": 10,
-							"type": "minute",
-							"reactionTrigger": ""
-						},
-						"duration": {
-							"unit": "minute",
-							"value": "10"
-						},
-						"ranges": {
-							"qOCRptUDIby1Pqv6": {
-								"range": "self"
-							}
-						},
-						"area": {
-							"shape": "",
-							"size": "",
-							"placeTemplate": false
-						},
-						"target": {
-							"quantity": "",
-							"type": "creature"
-						},
-						"prompts": {
-							"EPTW9bO0k35sFNNt": {
-								"ability": "wis",
-								"onSave": "Negates effect for 24 hours",
-								"saveDC": {
-									"type": "custom",
-									"bonus": ""
-								},
-								"type": "savingThrow"
-							}
-						},
-						"consumers": {
-							"RxEb7wIpo6uNME7e": {
-								"mode": "variable",
-								"spellLevel": 5,
-								"points": 7,
-								"type": "spell"
-							}
-						}
-					}
-				},
-				"description": "<p>You can see and hear a specific creature that you choose. The difficulty of the saving throw for this spell is modified by your knowledge of the target and whether you possess a physical item with a connection to the target.</p><p>On a failed save, you can see and hear the target through an invisible sensor that appears within 10 feet of it and moves with the target. Any creature who can see invisibility or rolls a critical success on its saving throw perceives the sensor as a fist-sized glowing orb hovering in the air. Creatures cannot see or hear you through the sensor.</p><p>If you choose to target a location, the sensor appears at that location and is immobile.</p>",
-				"favorite": false,
-				"secretDescription": "",
-				"source": "",
-				"uses": {
-					"value": null,
-					"max": "",
-					"per": null,
-					"recharge": {
-						"formula": "",
-						"threshold": ""
-					}
-				},
-				"schema": {
-					"version": null,
-					"lastMigration": null
-				},
-				"classes": [],
-				"components": {
-					"vocalized": true,
-					"seen": true,
-					"material": true
-				},
-				"concentration": true,
-				"level": 5,
-				"materials": "focus worth at least 1, 000 gold",
-				"materialsConsumed": false,
-				"prepared": false,
-				"prerequisite": "",
-				"rare": false,
-				"ritual": false,
-				"schools": {
-					"primary": "divination",
-					"secondary": [
-						"arcane",
-						"divine",
-						"nature",
-						"scrying"
-					]
-				},
-				"schemaVersion": {
-					"version": 0.01,
-					"lastMigration": {
-						"version": {
-							"schema": 0.009,
-							"foundry": "12.316",
-							"system": "0.16.12"
-						}
-					}
-				}
-			},
-			"_id": "kS0542Nb4HSFQ5XV",
-			"ownership": {
-				"default": 0
-			},
-			"folder": null,
-			"sort": 0
-		},
-		{
-			"name": "Mass Suggestion",
-			"type": "spell",
-			"img": "icons/magic/control/hypnosis-mesmerism-eye.webp",
-			"effects": [],
-			"flags": {
-				"core": {
-					"sourceId": "Compendium.a5e.a5e-spells.kk4zbky96t1rhkl1"
-				}
-			},
-			"system": {
-				"actions": {
-					"BhayaPzBIsRNZ7xY": {
-						"name": "Mass Suggestion",
-						"activation": {
-							"cost": 1,
-							"type": "action",
-							"reactionTrigger": ""
-						},
-						"duration": {
-							"unit": "hour",
-							"value": "24"
-						},
-						"ranges": {
-							"zoFV80PTj3vJHoK5": {
-								"range": "medium"
-							}
-						},
-						"area": {
-							"shape": "",
-							"size": "",
-							"placeTemplate": false
-						},
-						"target": {
-							"quantity": "",
-							"type": "creature"
-						},
-						"prompts": {
-							"p3dXxpsmMDZNfcz1": {
-								"ability": "wis",
-								"onSave": "Negates effect",
-								"saveDC": {
-									"type": "spellcasting",
-									"bonus": ""
-								},
-								"type": "savingThrow"
-							}
-						},
-						"consumers": {
-							"v2Nzm3qWDwkzR3sJ": {
-								"mode": "variable",
-								"spellLevel": 6,
-								"points": 9,
-								"type": "spell"
-							}
-						}
-					}
-				},
-				"description": "<p>Creatures that cannot be charmed are immune to this spell. Suggest an activity phrased in a sentence or two. The targets are magically influenced to follow that course of activity. The suggestion must be worded to sound reasonable. Asking the targets to perform an action that is obviously harmful to them ends the spell.</p><p>A target carries out the activity suggested by you as well as it can. The activity can last for the duration of the spell, and if it requires less time the spell ends after a target has carried out the activity.</p><p>You may specify trigger conditions that cause a target to perform a specific activity while the spell lasts. For example, you may suggest that the target takes off its clothes and dives the next time it sees a body of water. If the target does not see a body of water before the spell ends, the specific activity isn't performed.</p><p>Any damage done to a target by you or an ally ends the spell for that creature.</p><p><strong><em>Cast at Higher Levels.</em></strong> When cast using a 7th-level spell slot, the duration of the spell increases to 10 days. When cast using an 8th-level spell slot, the duration increases to 30 days. When cast using a 9th-level spell slot, the duration increases to a year and a day.</p>",
-				"favorite": false,
-				"secretDescription": "",
-				"source": "",
-				"uses": {
-					"value": null,
-					"max": "",
-					"per": null,
-					"recharge": {
-						"formula": "",
-						"threshold": ""
-					}
-				},
-				"schema": {
-					"version": null,
-					"lastMigration": null
-				},
-				"classes": [],
-				"components": {
-					"vocalized": true,
-					"seen": false,
-					"material": true
-				},
-				"concentration": false,
-				"level": 6,
-				"materials": "miniature bottle of wine and some soap",
-				"materialsConsumed": false,
-				"prepared": false,
-				"prerequisite": "",
-				"rare": false,
-				"ritual": false,
-				"schools": {
-					"primary": "enchantment",
-					"secondary": [
-						"arcane",
-						"chaos",
-						"compulsion"
-					]
-				},
-				"schemaVersion": {
-					"version": 0.01,
-					"lastMigration": {
-						"version": {
-							"schema": 0.009,
-							"foundry": "12.316",
-							"system": "0.16.12"
-						}
-					}
-				}
-			},
-			"_id": "5qVKUqK7ri8u6Vqm",
-			"ownership": {
-				"default": 0
-			},
-			"folder": null,
-			"sort": 0
-		},
-		{
-			"name": "Telepathic Bond",
-			"type": "spell",
-			"img": "icons/magic/perception/third-eye-blue-red.webp",
-			"effects": [],
-			"flags": {
-				"core": {
-					"sourceId": "Compendium.a5e.a5e-spells.158awzfd5ctjae15"
-				}
-			},
-			"system": {
-				"actions": {
-					"M2hWX387tiMLTQNn": {
-						"name": "Telepathic Bond",
-						"activation": {
-							"cost": 1,
-							"type": "action",
-							"reactionTrigger": ""
-						},
-						"duration": {
-							"unit": "hour",
-							"value": "1"
-						},
-						"ranges": {
-							"qzInLvsV0R8OImFH": {
-								"range": "short"
-							}
-						},
-						"area": {
-							"shape": "",
-							"size": "",
-							"placeTemplate": false
-						},
-						"target": {
-							"quantity": "",
-							"type": "creature"
-						},
-						"consumers": {
-							"1Pm91BvudMBh1iXB": {
-								"mode": "variable",
-								"spellLevel": 5,
-								"points": 7,
-								"type": "spell"
-							}
-						}
-					}
-				},
-				"description": "<p>Until the spell ends, a telepathic link connects the minds of the targets. So long as they remain on the same plane of existence, targets may communicate telepathically with each other regardless of language and across any distance.</p><p><strong><em>Cast at Higher Levels.</em></strong> The spell's duration increases by 1d4 hours for each slot level above 5th.</p>",
-				"favorite": false,
-				"secretDescription": "",
-				"source": "",
-				"uses": {
-					"value": null,
-					"max": "",
-					"per": null,
-					"recharge": {
-						"formula": "",
-						"threshold": ""
-					}
-				},
-				"schema": {
-					"version": null,
-					"lastMigration": null
-				},
-				"classes": [],
-				"components": {
-					"vocalized": true,
-					"seen": true,
-					"material": true
-				},
-				"concentration": false,
-				"level": 5,
-				"materials": "two matching cards from different decks",
-				"materialsConsumed": false,
-				"prepared": false,
-				"prerequisite": "",
-				"rare": false,
-				"ritual": true,
-				"schools": {
-					"primary": "evocation",
-					"secondary": [
-						"arcane",
-						"communication",
-						"telepathy"
-					]
-				},
-				"schemaVersion": {
-					"version": 0.01,
-					"lastMigration": {
-						"version": {
-							"schema": 0.009,
-							"foundry": "12.316",
-							"system": "0.16.12"
-						}
-					}
-				}
-			},
-			"_id": "NPfYhIdL1mIqyayg",
-			"ownership": {
-				"default": 0
-			},
-			"folder": null,
-			"sort": 0
-		},
-		{
-			"name": "Glibness",
-			"type": "spell",
-			"img": "icons/skills/social/diplomacy-handshake-yellow.webp",
-			"effects": [],
-			"flags": {
-				"core": {
-					"sourceId": "Compendium.a5e.a5e-spells.oun2pu512l5eegvg"
-				}
-			},
-			"system": {
-				"actions": {
-					"4oulHVwocZT4xujY": {
-						"name": "Glibness",
-						"activation": {
-							"cost": 1,
-							"type": "action",
-							"reactionTrigger": ""
-						},
-						"duration": {
-							"unit": "hour",
-							"value": "1"
-						},
-						"ranges": {
-							"NOVu5URhpoP5biQ9": {
-								"range": "self"
-							}
-						},
-						"area": {
-							"shape": "",
-							"size": "",
-							"placeTemplate": false
-						},
-						"target": {
-							"quantity": "",
-							"type": "self"
-						},
-						"consumers": {
-							"2X0MnTlvKxU0ibG4": {
-								"mode": "variable",
-								"spellLevel": 8,
-								"points": 11,
-								"type": "spell"
-							}
-						}
-					}
-				},
-				"description": "<p>When you make a Charisma check, you can replace the number you rolled with 15. Also, magic that prevents lying has no effect on you, and magic cannot determine that you are lying.</p>",
-				"favorite": false,
-				"secretDescription": "",
-				"source": "",
-				"uses": {
-					"value": null,
-					"max": "",
-					"per": null,
-					"recharge": {
-						"formula": "",
-						"threshold": ""
-					}
-				},
-				"schema": {
-					"version": null,
-					"lastMigration": null
-				},
-				"classes": [],
-				"components": {
-					"vocalized": true,
-					"seen": false,
-					"material": false
-				},
-				"concentration": false,
-				"level": 8,
-				"materials": "",
-				"materialsConsumed": false,
-				"prepared": false,
-				"prerequisite": "",
-				"rare": false,
-				"ritual": false,
-				"schools": {
-					"primary": "transmutation",
-					"secondary": [
-						"communication",
-						"enhancement",
-						"obscurement"
-					]
-				},
-				"schemaVersion": {
-					"version": 0.01,
-					"lastMigration": {
-						"version": {
-							"schema": 0.009,
-							"foundry": "12.316",
-							"system": "0.16.12"
-						}
-					}
-				}
-			},
-			"_id": "Ph3FtQidvXlV4hA1",
-			"ownership": {
-				"default": 0
-			},
-			"folder": null,
-			"sort": 0
 		}
 	],
 	"effects": [],
@@ -3166,7 +2347,9 @@
 				"9"
 			],
 			"showSpellSlots": false,
-			"showSpellPoints": false
+			"showSpellPoints": false,
+			"sheetIsLocked": true,
+			"showSpellTab": false
 		}
 	},
 	"system": {
@@ -3242,7 +2425,7 @@
 				}
 			},
 			"cha": {
-				"value": 28,
+				"value": 18,
 				"check": {
 					"expertiseDice": 0,
 					"bonus": "",
@@ -3645,7 +2828,7 @@
 			"inspiration": false,
 			"fatigue": 0,
 			"strife": 0,
-			"spellcasting": "int",
+			"spellcasting": "cha",
 			"casterLevel": 0
 		},
 		"bonuses": {
@@ -3654,7 +2837,7 @@
 			"meleeWeaponAttack": "",
 			"rangedSpellAttack": "",
 			"rangedWeaponAttack": "",
-			"spellDC": "1",
+			"spellDC": "",
 			"abilities": {},
 			"damage": {},
 			"healing": {},
