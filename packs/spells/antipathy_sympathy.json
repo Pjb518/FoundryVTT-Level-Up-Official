@@ -2,12 +2,53 @@
 	"name": "Antipathy/Sympathy",
 	"type": "spell",
 	"img": "icons/magic/symbols/star-rising-purple.webp",
-	"effects": [],
+	"effects": [
+		{
+			"icon": "icons/magic/symbols/star-rising-purple.webp",
+			"origin": "Item.roJVps9QLbGfMyPG",
+			"flags": {
+				"a5e": {
+					"sort": 0,
+					"transferType": "onUse",
+					"actionId": "sz6nX4CaI00ngM1V",
+					"duration": {
+						"unit": "hours"
+					}
+				}
+			},
+			"transfer": false,
+			"name": "Frightened",
+			"_id": "IO58N7q33Tfx2zQ9",
+			"changes": [
+				{
+					"key": "flags.a5e.effects.statusConditions",
+					"value": "[\"frightened\"]",
+					"mode": 0,
+					"priority": null
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": 864000,
+				"combat": null,
+				"rounds": null,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "",
+			"statuses": [
+				"frightened"
+			],
+			"folder": null
+		}
+	],
 	"flags": {},
 	"system": {
 		"actions": {
 			"sz6nX4CaI00ngM1V": {
-				"name": "Antipathy/Sympathy",
+				"name": "Antipathy",
 				"activation": {
 					"cost": 1,
 					"type": "hour",
@@ -25,7 +66,59 @@
 				"area": {
 					"shape": "",
 					"size": "",
-					"placeTemplate": false
+					"placeTemplate": false,
+					"quantity": 1
+				},
+				"target": {
+					"quantity": "",
+					"type": "creatureObject"
+				},
+				"prompts": {
+					"j8U2eXFdJjZ0TJhp": {
+						"ability": "wis",
+						"onSave": "Special",
+						"saveDC": {
+							"type": "spellcasting",
+							"bonus": ""
+						},
+						"type": "savingThrow"
+					},
+					"3YxPOP891nIKJYJh": {
+						"type": "effect",
+						"default": true,
+						"effectId": "IO58N7q33Tfx2zQ9"
+					}
+				},
+				"consumers": {
+					"6U0FdVbTu5KvLXwg": {
+						"mode": "variable",
+						"spellLevel": 8,
+						"points": 11,
+						"type": "spell"
+					}
+				}
+			},
+			"IFV5APTOF9gzOo9V": {
+				"name": "Sympathy",
+				"activation": {
+					"cost": 1,
+					"type": "hour",
+					"reactionTrigger": ""
+				},
+				"duration": {
+					"unit": "day",
+					"value": "10"
+				},
+				"ranges": {
+					"eZ2LZ6UuNbJOJnxt": {
+						"range": "medium"
+					}
+				},
+				"area": {
+					"shape": "",
+					"size": "",
+					"placeTemplate": false,
+					"quantity": 1
 				},
 				"target": {
 					"quantity": "",
