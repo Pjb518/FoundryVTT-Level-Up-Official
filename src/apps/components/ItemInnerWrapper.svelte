@@ -266,7 +266,7 @@
             </div>
         {/if}
 
-        {#if item.type === "feature"}
+        {#if item.type === "feature" || item.type === "maneuver"}
             <div class="component-wrapper">
                 {#if item.system.concentration}
                     <span

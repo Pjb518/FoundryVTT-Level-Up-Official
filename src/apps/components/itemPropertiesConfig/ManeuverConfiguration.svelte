@@ -51,7 +51,7 @@
                         updateDocumentDataFromField(
                             $item,
                             "system.degree",
-                            event.detail
+                            event.detail,
                         )}
                 />
             </FormSection>
@@ -65,7 +65,7 @@
                             updateDocumentDataFromField(
                                 $item,
                                 "system.tradition",
-                                event.detail
+                                event.detail,
                             )}
                     />
                 </FormSection>
@@ -78,7 +78,21 @@
                             updateDocumentDataFromField(
                                 $item,
                                 "system.isStance",
-                                detail
+                                detail,
+                            );
+                        }}
+                    />
+                </FormSection>
+
+                <FormSection --gap="0.5rem 1.25rem">
+                    <Checkbox
+                        label="A5E.SpellConcentration"
+                        checked={$item.system.concentration}
+                        on:updateSelection={({ detail }) => {
+                            updateDocumentDataFromField(
+                                $item,
+                                "system.concentration",
+                                detail,
                             );
                         }}
                     />
@@ -99,7 +113,7 @@
                                 updateDocumentDataFromField(
                                     $item,
                                     target.name,
-                                    Number(target.value)
+                                    Number(target.value),
                                 )}
                         />
                     </div>
