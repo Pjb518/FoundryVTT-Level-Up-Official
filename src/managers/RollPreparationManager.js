@@ -368,7 +368,7 @@ export default class RollPreparationManager {
     // Add Global Ability bonus
     modifiers.push({
       label: localize('A5E.AbilityCheckBonusGlobal'),
-      value: this.#actor.BonusesManger.getGlobalAbilityBonusesFormula('check')
+      value: this.#actor.BonusesManager.getGlobalAbilityBonusesFormula('check')
     });
 
     // Add Custom Bonus to Roll
