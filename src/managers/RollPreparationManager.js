@@ -244,7 +244,7 @@ export default class RollPreparationManager {
     if (!rollFormula) return null;
 
     const roll = await new Roll(rollFormula).evaluate({ async: true });
-    const label = _roll.label ?? localize('A5E.GenericRoll');
+    const label = _roll.label || localize('A5E.GenericRoll');
 
     return {
       label,
