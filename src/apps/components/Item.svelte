@@ -122,14 +122,14 @@
 <!-- svelte-ignore a11y-click-events-have-key-events -->
 <!-- svelte-ignore a11y-no-noninteractive-element-interactions -->
 <li
-    class="item-wrapper"
-    class:item-wrapper--highlight={Number(item.system.prepared ?? 0) ===
+    class="a5e-item"
+    class:a5e-item--highlight={Number(item.system.prepared ?? 0) ===
         A5E.PREPARED_STATES.PREPARED ||
         (item.system.equippedState === A5E.EQUIPPED_STATES.EQUIPPED &&
             !item.system?.containerId)}
-    class:item-wrapper--purple-highlight={Number(item.system.prepared ?? 0) ===
+    class:a5e-item--purple-highlight={Number(item.system.prepared ?? 0) ===
         A5E.PREPARED_STATES.ALWAYS_PREPARED}
-    class:item-wrapper--red-highlight={item.system.requiresBloodied}
+    class:a5e-item--red-highlight={item.system.requiresBloodied}
     draggable="true"
     on:dragstart={onDragStart}
     on:drop|preventDefault|stopPropagation={(e) => onDropObject(e)}
@@ -141,9 +141,9 @@
     }}
 >
     <button
-        class="item-roll-button"
-        class:item-roll-button--shift={$pressedKeysStore.Shift}
-        class:item-roll-button--ctrl={$pressedKeysStore.Control}
+        class="a5e-item__roll-button"
+        class:a5e-item__roll-button--shift={$pressedKeysStore.Shift}
+        class:a5e-item__roll-button--ctrl={$pressedKeysStore.Control}
         class:disable-pointer-events={!$actor.isOwner}
         on:click|stopPropagation={({ target }) => {
             target.blur();
@@ -151,11 +151,11 @@
         }}
     >
         <img
-            class="item-image"
+            class="a5e-item__image"
             src={action?.img ?? item.img ?? "icons/svg/item-bag.svg"}
             alt={action?.name ?? item.name}
         />
-        <img class="item-image--die" src="/icons/svg/d20.svg" alt="Roll" />
+        <img class="a5e-item__image--die" src="/icons/svg/d20.svg" alt="Roll" />
     </button>
 
     <ItemInnerWrapper {actionId} {action} {item} />
@@ -216,106 +216,5 @@
 
     .disable-pointer-events {
         pointer-events: none;
-    }
-
-    .item-wrapper {
-        position: relative;
-        display: grid;
-        grid-template-areas: var(--itemTemplateAreas);
-        grid-template-columns: var(--itemTemplateColumns);
-        column-gap: 0.5rem;
-        row-gap: 0;
-        align-items: center;
-        width: 100%;
-        padding: 0.125rem;
-        padding-right: 0.5rem;
-        border: 1px solid #ccc;
-        border-radius: $border-radius-standard;
-        background: var(--item-background, rgba(0, 0, 0, 0.05));
-        cursor: pointer;
-
-        &--highlight {
-            --icon-color: hsla(145, 100%, 15%, 0.302);
-            --icon-color-active: hsla(145, 100%, 15%, 0.75);
-            --indicator-background: hsla(145, 100%, 32%, 0.302);
-            --indicator-text-color: black;
-            --input-border-color: hsla(145, 100%, 15%, 0.302);
-            --item-background: hsla(145, 100%, 42%, 0.302);
-            --track-background: hsl(120, 43%, 87%);
-            --track-border-color: hsla(145, 100%, 25%, 0.302);
-        }
-
-        &--purple-highlight {
-            --icon-color: hsla(260, 50%, 40%, 0.302);
-            --icon-color-active: hsla(280, 35%, 30%, 0.75);
-            --indicator-background: hsla(280, 55%, 50%, 0.302);
-            --indicator-text-color: black;
-            --input-border-color: hsla(280, 75%, 60%, 0.302);
-            --item-background: hsla(280, 75%, 60%, 0.22);
-            --track-background: hsl(280, 30%, 90%);
-            --track-border-color: hsla(280, 30%, 40%, 0.302);
-        }
-
-        &--red-highlight {
-            --icon-color: hsla(0, 65%, 35%, 0.5);
-            --icon-color-active: hsla(0, 35%, 30%, 0.75);
-            --indicator-background: hsla(0, 55%, 50%, 0.302);
-            --indicator-text-color: black;
-            --input-border-color: hsla(0, 50%, 35%, 0.17);
-            --item-background: hsla(0, 55%, 55%, 0.4);
-            --track-background: hsl(0, 30%, 90%);
-            --track-border-color: hsla(0, 40%, 50%, 0.302);
-        }
-    }
-
-    .item-image {
-        display: block;
-        height: 100%;
-        width: auto;
-        object-fit: cover;
-
-        &--die {
-            display: none;
-            padding: 0;
-            margin: 0;
-        }
-    }
-
-    .item-roll-button {
-        width: 1.375rem;
-        height: 1.375rem;
-        padding: 0;
-        margin: 0;
-        background: transparent;
-        border-radius: $border-radius-standard;
-        grid-area: icon;
-
-        &:hover {
-            box-shadow: none;
-
-            .item-image {
-                display: none;
-            }
-
-            .item-image--die {
-                display: block;
-            }
-        }
-
-        &--shift:hover {
-            filter: brightness(0) saturate(100%) invert(58%) sepia(10%)
-                saturate(2832%) hue-rotate(73deg) brightness(88%) contrast(76%);
-
-            // filter: invert(34%) sepia(4%) saturate(4360%) hue-rotate(143deg)
-            //     brightness(78%) contrast(65%);
-        }
-
-        &--ctrl:hover {
-            filter: brightness(0) saturate(100%) invert(18%) sepia(80%)
-                saturate(5142%) hue-rotate(348deg) brightness(74%) contrast(94%);
-
-            // filter: invert(15%) sepia(27%) saturate(4731%) hue-rotate(338deg)
-            //     brightness(101%) contrast(95%);
-        }
     }
 </style>
