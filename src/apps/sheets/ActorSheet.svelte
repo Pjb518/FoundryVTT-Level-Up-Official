@@ -170,13 +170,6 @@
         <section class="main-container">
             <ActorSheetHeader />
 
-            <!-- <NavigationBar
-                {currentTab}
-                {tabs}
-                showLock={true}
-                on:tab-change={updateCurrentTab}
-            /> -->
-
             <NewNavigationBar
                 {currentTab}
                 {tabs}
@@ -190,17 +183,6 @@
 </ApplicationShell>
 
 <style lang="scss">
-    :global {
-        .a5e-actor-sheet {
-            min-width: 47.1875rem;
-        }
-
-        .a5e-sheet .window-content {
-            padding: 0;
-            overflow-y: hidden;
-        }
-    }
-
     main {
         display: flex;
         height: 100%;
