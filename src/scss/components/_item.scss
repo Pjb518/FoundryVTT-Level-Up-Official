@@ -9,9 +9,15 @@
   width: 100%;
   padding: 0.125rem;
   padding-right: 0.5rem;
-  border: 1px solid #ccc;
-  border-radius: $border-radius-standard;
-  background: var(--item-background, rgba(0, 0, 0, 0.05));
+  border: solid transparent;
+  border-width: 0 0 1px;
+  border-image: linear-gradient(
+    90deg,
+    var(--item-border-color-start, #f1edea),
+    var(--item-border-color-end, #d5cac1)
+  )
+    1 repeat;
+  background: var(--item-background, transparent);
   cursor: pointer;
 
   &--highlight {
@@ -21,6 +27,8 @@
     --indicator-text-color: #000;
     --input-border-color: hsla(145, 100%, 15%, 0.302);
     --item-background: hsla(145, 100%, 42%, 0.302);
+    --item-border-color-end: hsla(145, 100%, 25%, 0.302);
+    --item-border-color-start: hsla(145, 100%, 42%, 0);
     --track-background: hsl(120, 43%, 87%);
     --track-border-color: hsla(145, 100%, 25%, 0.302);
   }
@@ -32,6 +40,8 @@
     --indicator-text-color: #000;
     --input-border-color: hsla(280, 75%, 60%, 0.302);
     --item-background: hsla(280, 75%, 60%, 0.22);
+    --item-border-color-end: hsla(280, 30%, 40%, 0.302);
+    --item-border-color-start: hsla(280, 75%, 60%, 0);
     --track-background: hsl(280, 30%, 90%);
     --track-border-color: hsla(280, 30%, 40%, 0.302);
   }
@@ -43,6 +53,8 @@
     --indicator-text-color: #000;
     --input-border-color: hsla(0, 50%, 35%, 0.17);
     --item-background: hsla(0, 55%, 55%, 0.4);
+    --item-border-color-end: hsla(0, 40%, 50%, 0.302);
+    --item-border-color-start: hsla(0, 55%, 55%, 0);
     --track-background: hsl(0, 30%, 90%);
     --track-border-color: hsla(0, 40%, 50%, 0.302);
   }
