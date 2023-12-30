@@ -67,6 +67,8 @@
             <button
                 class="import-button fa-solid fa-download"
                 on:click={openCompendium}
+                data-tooltip="Import Maneuvers from Compendium"
+                data-tooltip-direction="UP"
             ></button>
         </UtilityBar>
     {/if}

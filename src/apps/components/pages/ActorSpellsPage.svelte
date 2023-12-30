@@ -91,6 +91,8 @@
             <button
                 class="import-button fa-solid fa-download"
                 on:click={openCompendium}
+                data-tooltip="Import Spells from Compendium"
+                data-tooltip-direction="UP"
             ></button>
         </UtilityBar>
     {/if}
