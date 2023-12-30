@@ -12,7 +12,6 @@
     import type { TJSDocument } from "@typhonjs-fvtt/runtime/svelte/store/fvtt/document";
     import type { ActorSheetApplicationProps } from "../../../types/applicationProps";
 
-    import ActorBioPage from "../components/pages/ActorBioPage.svelte";
     import ActorBonusesPage from "../components/pages/ActorBonusesPage.svelte";
     import ActorCorePage from "../components/pages/ActorCorePage.svelte";
     import ActorEffectsPage from "../components/pages/ActorEffectsPage.svelte";
@@ -25,7 +24,6 @@
     import ActorSidebar from "../components/actorSidebar/ActorSidebar.svelte";
     import ActorSkillsPage from "../components/pages/ActorSkillsPage.svelte";
     import ActorSpellsPage from "../components/pages/ActorSpellsPage.svelte";
-    import NavigationBar from "../components/navigation/NavigationBar.svelte";
     import NewNavigationBar from "../components/navigation/NewNavigationBar.svelte";
 
     import ActorSheetTempSettingsStore from "../../stores/ActorSheetTempSettingsStore";

@@ -823,11 +823,6 @@ export default class ActorA5e extends Actor {
     this.#configure('languages', title, data, options);
   }
 
-  configureManeuvers(data = {}, options = {}) {
-    const title = localize('A5E.ManeuverConfigurationPrompt', { name: this.name });
-    this.#configure('maneuvers', title, data, options);
-  }
-
   configureMovement(data = {}, options = {}) {
     const title = localize('A5E.MovementConfigurationPrompt', { name: this.name });
     this.#configure('movement', title, data, options);
@@ -850,11 +845,6 @@ export default class ActorA5e extends Actor {
     );
 
     this.#configure('skill', title, data, options);
-  }
-
-  configureSpellTab(data = {}, options = {}) {
-    const title = localize('A5E.SpellTabConfigurationPrompt', { name: this.name });
-    this.#configure('spells', title, data, options);
   }
 
   configureToolProficiencies(data = {}, options = {}) {

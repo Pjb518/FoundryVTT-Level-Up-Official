@@ -13,7 +13,7 @@
         "currencyWeight",
     );
 
-    $: flags = $actor.flags;
+    $: flags = $actor.flags?.a5e ?? {};
 </script>
 
 <section class="a5e-page-wrapper a5e-page-wrapper--settings">
@@ -25,7 +25,7 @@
         <FormSection --background="transparent" --padding="0.25rem">
             <Checkbox
                 label="A5E.settings.trackInventoryWeight"
-                checked={flags?.a5e?.trackInventoryWeight ?? true}
+                checked={flags?.trackInventoryWeight ?? true}
                 on:updateSelection={({ detail }) => {
                     updateDocumentDataFromField(
                         $actor,
@@ -36,11 +36,11 @@
             />
         </FormSection>
 
-        {#if flags?.a5e?.trackInventoryWeight ?? true}
+        {#if flags?.trackInventoryWeight ?? true}
             <FormSection --background="transparent" --padding="0.25rem">
                 <Checkbox
                     label="A5E.settings.doubleCarryingCapacity"
-                    checked={flags.a5e?.doubleCarryCapacity ?? false}
+                    checked={flags?.doubleCarryCapacity ?? false}
                     on:updateSelection={({ detail }) => {
                         updateDocumentDataFromField(
                             $actor,
@@ -59,7 +59,7 @@
             >
                 <Checkbox
                     label="A5E.settings.trackCurrencyWeight"
-                    checked={flags.a5e?.trackCurrencyWeight ??
+                    checked={flags?.trackCurrencyWeight ??
                         globalCurrencyWeightTrackingSelection}
                     on:updateSelection={({ detail }) => {
                         updateDocumentDataFromField(

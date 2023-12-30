@@ -5,18 +5,12 @@
     import FormSection from "../FormSection.svelte";
     import RadioGroup from "../RadioGroup.svelte";
 
-    import determineIfPropertyModifiedByEffect from "../../../utils/determineIfPropertyModifiedByEffect ";
     import updateDocumentDataFromField from "../../../utils/updateDocumentDataFromField";
 
     const actor = getContext("actor");
     const { abilityAbbreviations } = CONFIG.A5E;
 
-    $: flags = $actor.flags?.a5e;
-
-    $: disableSpellDC = determineIfPropertyModifiedByEffect(
-        $actor,
-        "system.bonuses.spellDC",
-    );
+    $: flags = $actor.flags?.a5e ?? {};
 </script>
 
 <section class="a5e-page-wrapper a5e-page-wrapper--settings">
@@ -28,7 +22,7 @@
         <FormSection --background="transparent" --padding="0.25rem">
             <Checkbox
                 label="A5E.SpellShowSpellSlots"
-                checked={flags.showSpellSlots ?? true}
+                checked={flags?.showSpellSlots ?? true}
                 on:updateSelection={({ detail }) => {
                     updateDocumentDataFromField(
                         $actor,
@@ -39,11 +33,11 @@
             />
         </FormSection>
 
-        {#if flags.showSpellSlots ?? true}
+        {#if flags?.showSpellSlots ?? true}
             <FormSection --background="transparent" --padding="0.25rem">
                 <Checkbox
                     label="A5E.settings.restoreSpellSlotsOnShortRest"
-                    checked={flags.restoreSpellSlotsOnShortRest ?? false}
+                    checked={flags?.restoreSpellSlotsOnShortRest ?? false}
                     on:updateSelection={({ detail }) => {
                         updateDocumentDataFromField(
                             $actor,
@@ -58,7 +52,7 @@
         <FormSection --background="transparent" --padding="0.25rem">
             <Checkbox
                 label="A5E.SpellShowSpellPoints"
-                checked={flags.showSpellPoints ?? false}
+                checked={flags?.showSpellPoints ?? false}
                 on:updateSelection={({ detail }) => {
                     updateDocumentDataFromField(
                         $actor,
@@ -69,11 +63,11 @@
             />
         </FormSection>
 
-        {#if flags.showSpellPoints ?? false}
+        {#if flags?.showSpellPoints ?? false}
             <FormSection --background="transparent" --padding="0.25rem">
                 <Checkbox
                     label="A5E.settings.restoreSpellPointsOnShortRest"
-                    checked={flags.restoreSpellPointsOnShortRest ?? true}
+                    checked={flags?.restoreSpellPointsOnShortRest ?? true}
                     on:updateSelection={({ detail }) => {
                         updateDocumentDataFromField(
                             $actor,
@@ -109,31 +103,6 @@
                         event.detail,
                     )}
             />
-        </FormSection>
-
-        <FormSection
-            heading="A5E.SpellDCBonus"
-            hint="This field accepts any values valid in roll formulae."
-            showWarning={disableSpellDC}
-            warning="A5E.validations.warnings.modifiedByEffect"
-            --background="transparent"
-            --padding="0.25rem"
-        >
-            <div class="u-w-full">
-                <input
-                    class="a5e-input"
-                    type="text"
-                    name="system.bonuses.spellDC"
-                    value={$actor.system.bonuses.spellDC}
-                    disabled={disableSpellDC}
-                    on:change={({ target }) =>
-                        updateDocumentDataFromField(
-                            $actor,
-                            target.name,
-                            target.value,
-                        )}
-                />
-            </div>
         </FormSection>
     </div>
 </section>

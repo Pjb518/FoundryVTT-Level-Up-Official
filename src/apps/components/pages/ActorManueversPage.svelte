@@ -40,9 +40,6 @@
 
     $: exertion = $actor.system.attributes.exertion;
     $: menuList = Object.entries(subTypes);
-    $: sheetIsLocked = !$actor.isOwner
-        ? true
-        : $actor.flags?.a5e?.sheetIsLocked ?? true;
 
     const unsubscribe = maneuvers.subscribe((_) => {
         showUses = usesRequired(maneuvers);
@@ -135,21 +132,6 @@
                         <i class="fa-solid fa-bolt" />
                     </button>
                 {/if}
-            </div>
-        {/if}
-
-        {#if !sheetIsLocked}
-            <div class="u-flex u-align-center u-gap-md u-ml-auto">
-                <h3 class="u-mb-0 u-text-sm u-text-bold">
-                    {localize("A5E.ConfigureManeuvers")}
-                </h3>
-
-                <!-- svelte-ignore a11y-click-events-have-key-events -->
-                <!-- svelte-ignore a11y-no-static-element-interactions -->
-                <i
-                    class="fas fa-gear a5e-config-button"
-                    on:click={() => $actor.configureManeuvers()}
-                />
             </div>
         {/if}
     </TabFooter>

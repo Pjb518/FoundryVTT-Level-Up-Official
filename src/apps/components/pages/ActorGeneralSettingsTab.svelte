@@ -4,12 +4,11 @@
     import Checkbox from "../Checkbox.svelte";
     import FormSection from "../FormSection.svelte";
 
-    import determineIfPropertyModifiedByEffect from "../../../utils/determineIfPropertyModifiedByEffect ";
     import updateDocumentDataFromField from "../../../utils/updateDocumentDataFromField";
 
     const actor = getContext("actor");
 
-    $: flags = $actor.flags?.a5e;
+    $: flags = $actor.flags?.a5e ?? {};
 </script>
 
 <section class="a5e-page-wrapper a5e-page-wrapper--settings">
@@ -21,8 +20,7 @@
         <FormSection --background="transparent" --padding="0.25rem">
             <Checkbox
                 label="A5E.HideGenericResources"
-                checked={flags.a5e?.hideGenericResources ??
-                    $actor.type === "npc"}
+                checked={flags?.hideGenericResources ?? $actor.type === "npc"}
                 on:updateSelection={({ detail }) => {
                     updateDocumentDataFromField(
                         $actor,
@@ -36,7 +34,7 @@
         <FormSection --background="transparent" --padding="0.25rem">
             <Checkbox
                 label="A5E.settings.includeAbilityModifiersForSkills"
-                checked={flags.a5e?.includeAbilityModifiersForSkills ??
+                checked={flags?.includeAbilityModifiersForSkills ??
                     $actor.type === "npc"}
                 on:updateSelection={({ detail }) => {
                     updateDocumentDataFromField(
@@ -51,7 +49,7 @@
         <FormSection --background="transparent" --padding="0.25rem">
             <Checkbox
                 label="A5E.settings.showFavoritesSection"
-                checked={flags.a5e?.showFavoritesSection ?? true}
+                checked={flags?.showFavoritesSection ?? true}
                 on:updateSelection={({ detail }) => {
                     updateDocumentDataFromField(
                         $actor,
@@ -65,7 +63,7 @@
         <FormSection --background="transparent" --padding="0.25rem">
             <Checkbox
                 label="A5E.settings.showManeuverTab"
-                checked={flags.a5e?.showManeuverTab ?? true}
+                checked={flags?.showManeuverTab ?? true}
                 on:updateSelection={({ detail }) => {
                     updateDocumentDataFromField(
                         $actor,
@@ -79,7 +77,7 @@
         <FormSection --background="transparent" --padding="0.25rem">
             <Checkbox
                 label="A5E.settings.showPassiveScores"
-                checked={flags.a5e?.showPassiveScores ?? true}
+                checked={flags?.showPassiveScores ?? true}
                 on:updateSelection={({ detail }) => {
                     updateDocumentDataFromField(
                         $actor,
@@ -93,7 +91,7 @@
         <FormSection --background="transparent" --padding="0.25rem">
             <Checkbox
                 label="A5E.settings.showSpellTab"
-                checked={flags.a5e?.showSpellTab ?? true}
+                checked={flags?.showSpellTab ?? true}
                 on:updateSelection={({ detail }) => {
                     updateDocumentDataFromField(
                         $actor,
@@ -108,7 +106,7 @@
             <FormSection --background="transparent" --padding="0.25rem">
                 <Checkbox
                     label="A5E.settings.showXP"
-                    checked={flags.a5e?.showXP ?? true}
+                    checked={flags?.showXP ?? true}
                     on:updateSelection={({ detail }) => {
                         updateDocumentDataFromField(
                             $actor,

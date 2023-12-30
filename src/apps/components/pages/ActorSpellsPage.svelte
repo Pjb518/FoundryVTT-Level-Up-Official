@@ -124,8 +124,9 @@
                     Spells Prepared:
                 </h3>
 
-                <span class="a5e-footer-group__input">{preparedSpellCount}</span
-                >
+                <span class="a5e-footer-group__input">
+                    {preparedSpellCount}
+                </span>
             </div>
         {/if}
 
@@ -191,24 +192,6 @@
                             target.name,
                             Number(target.value),
                         )}
-                />
-            </div>
-        {/if}
-
-        {#if !sheetIsLocked}
-            <div
-                class="u-align-center u-flex u-gap-md u-h-6"
-                class:u-ml-auto={!$actor.flags.a5e?.showSpellPoints ?? true}
-            >
-                <h3 class="u-mb-0 u-text-bold u-text-sm">
-                    {localize("A5E.ConfigureSpells")}
-                </h3>
-
-                <!-- svelte-ignore a11y-click-events-have-key-events -->
-                <!-- svelte-ignore a11y-no-static-element-interactions -->
-                <i
-                    class="fas fa-gear a5e-config-button u-text-sm"
-                    on:click={() => $actor.configureSpellTab()}
                 />
             </div>
         {/if}
