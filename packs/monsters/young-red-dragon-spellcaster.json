@@ -1,65 +1,8 @@
 {
-	"name": "Ancient Red Dragon",
+	"name": "Young Red Dragon Spellcaster",
 	"type": "npc",
 	"img": "systems/a5e/assets/fire-dragon.webp",
 	"items": [
-		{
-			"_id": "6Y1N4HAnCmpDkl3K",
-			"name": "Legendary Resistance (3/Day)",
-			"type": "feature",
-			"img": "icons/svg/item-bag.svg",
-			"effects": [],
-			"folder": null,
-			"sort": -100000,
-			"flags": {},
-			"system": {
-				"ac": {
-					"baseFormula": "",
-					"formula": "",
-					"maxDex": 0,
-					"minStr": 0,
-					"mode": 1,
-					"requiresNoShield": false,
-					"requiresUnarmored": false
-				},
-				"actions": {},
-				"description": "<p>When the dragon fails a saving throw, it can choose to succeed instead. When it does, it sheds some of its scales, which turn to charcoal. If it has no more uses of this ability, its Armor Class is reduced to <strong>20</strong> until it finishes a long rest.</p>",
-				"favorite": false,
-				"secretDescription": "",
-				"source": "",
-				"uses": {
-					"value": null,
-					"max": "",
-					"per": null,
-					"recharge": {
-						"formula": "",
-						"threshold": ""
-					}
-				},
-				"schema": {
-					"version": null,
-					"lastMigration": null
-				},
-				"concentration": false,
-				"featureType": "",
-				"grants": {},
-				"prerequisite": "",
-				"requiresBloodied": false,
-				"schemaVersion": {
-					"version": 0.01,
-					"lastMigration": {
-						"version": {
-							"schema": 0.009,
-							"foundry": "12.316",
-							"system": "0.16.12"
-						}
-					}
-				}
-			},
-			"ownership": {
-				"default": 0
-			}
-		},
 		{
 			"_id": "4ZXiupEvOZClTDj1",
 			"name": "Multiattack",
@@ -84,7 +27,7 @@
 					"requiresUnarmored": false
 				},
 				"actions": {},
-				"description": "<p>The dragon attacks once with its bite and twice with its claws. In place of its bite attack, it can Spit Fire.</p>",
+				"description": "<p>The dragon attacks once with its bite and twice with its claws.</p>",
 				"favorite": false,
 				"secretDescription": "",
 				"source": "",
@@ -145,7 +88,7 @@
 					"requiresUnarmored": false
 				},
 				"actions": {
-					"VQrUUDxE7jJXyfQG": {
+					"pdHpdUHr6awqhWV9": {
 						"name": "Bite",
 						"activation": {
 							"cost": 1,
@@ -157,8 +100,8 @@
 							"value": ""
 						},
 						"ranges": {
-							"5eXcx7smnUzYLRqS": {
-								"range": "Reach: 15ft."
+							"rem2kDqGujTnpOYH": {
+								"range": "Reach: 10ft."
 							}
 						},
 						"area": {
@@ -171,24 +114,24 @@
 							"type": "creature"
 						},
 						"rolls": {
-							"9vQZN6wcfbCVvixZ": {
+							"wajJ1SI7Ya6zTdil": {
 								"bonus": "",
 								"critThreshold": "20",
 								"type": "attack",
 								"attackType": "meleeWeaponAttack",
 								"ability": "default"
 							},
-							"H8g5DcbCD0Re6tYQ": {
+							"wpCs9mg9TXg9G57b": {
 								"canCrit": true,
 								"damageType": "piercing",
-								"formula": "4d10 + @@str.mod",
+								"formula": "3d10 + @@str.mod",
 								"name": "",
 								"type": "damage"
 							},
-							"CvJV32nrBYBkxS3z": {
+							"KFSHiyIwjOHeLtDY": {
 								"canCrit": true,
 								"damageType": "fire",
-								"formula": "2d8",
+								"formula": "1d8",
 								"name": "",
 								"type": "damage"
 							}
@@ -253,7 +196,7 @@
 					"requiresUnarmored": false
 				},
 				"actions": {
-					"yOi6GsAnq3qXCNuX": {
+					"GCTaUzNGp5x2tdK1": {
 						"name": "Claw",
 						"activation": {
 							"cost": 1,
@@ -265,8 +208,8 @@
 							"value": ""
 						},
 						"ranges": {
-							"aj4B7NG8x1yqRSvr": {
-								"range": "Reach: 10ft"
+							"qgEzmaHjmTqSluwg": {
+								"range": "fiveFeet"
 							}
 						},
 						"area": {
@@ -279,17 +222,17 @@
 							"type": "creature"
 						},
 						"rolls": {
-							"pJBel05XIVdGiiYc": {
+							"0ZM7ACg1DrDvqClu": {
 								"bonus": "",
 								"critThreshold": "20",
 								"type": "attack",
 								"attackType": "meleeWeaponAttack",
 								"ability": "default"
 							},
-							"qG79yKFFp21ZR7KB": {
+							"WEkEWzBZ7GolryVl": {
 								"canCrit": true,
 								"damageType": "slashing",
-								"formula": "4d8 + @@str.mod",
+								"formula": "2d8 + @@str.mod",
 								"name": "",
 								"type": "damage"
 							}
@@ -335,413 +278,13 @@
 			}
 		},
 		{
-			"_id": "M84U0XSfmXtWa9e1",
-			"name": "Tail",
-			"type": "feature",
-			"img": "icons/skills/wounds/injury-pain-impaled-hand-blood.webp",
-			"effects": [],
-			"folder": null,
-			"sort": 525000,
-			"flags": {},
-			"system": {
-				"ac": {
-					"baseFormula": "",
-					"formula": "",
-					"maxDex": 0,
-					"minStr": 0,
-					"mode": 1,
-					"requiresNoShield": false,
-					"requiresUnarmored": false
-				},
-				"actions": {
-					"vnvWjKbE705o80wF": {
-						"name": "Tail",
-						"activation": {
-							"cost": 1,
-							"type": "action",
-							"reactionTrigger": ""
-						},
-						"duration": {
-							"unit": "instantaneous",
-							"value": ""
-						},
-						"ranges": {
-							"Bn12hUUfhhhTEf16": {
-								"range": "Reach: 20ft."
-							}
-						},
-						"area": {
-							"shape": "",
-							"size": "",
-							"placeTemplate": false
-						},
-						"target": {
-							"quantity": 1,
-							"type": "creature"
-						},
-						"rolls": {
-							"13MkGGNaclymBB4O": {
-								"bonus": "",
-								"critThreshold": "20",
-								"type": "attack",
-								"attackType": "meleeWeaponAttack",
-								"ability": "default"
-							},
-							"aMuwljA53iY82Uez": {
-								"canCrit": true,
-								"damageType": "bludgeoning",
-								"formula": "3d8 + @@str.mod",
-								"name": "",
-								"type": "damage"
-							}
-						},
-						"consumers": {}
-					}
-				},
-				"description": "<p>The dragon makes a tail attack. On a successful hit, the target is pushed 10 feet away.</p>",
-				"favorite": true,
-				"secretDescription": "",
-				"source": "",
-				"uses": {
-					"value": null,
-					"max": "",
-					"per": null,
-					"recharge": {
-						"formula": "",
-						"threshold": ""
-					}
-				},
-				"schema": {
-					"version": null,
-					"lastMigration": null
-				},
-				"concentration": false,
-				"featureType": "naturalWeapon",
-				"grants": {},
-				"prerequisite": "",
-				"requiresBloodied": false,
-				"schemaVersion": {
-					"version": 0.01,
-					"lastMigration": {
-						"version": {
-							"schema": 0.009,
-							"foundry": "12.316",
-							"system": "0.16.12"
-						}
-					}
-				}
-			},
-			"ownership": {
-				"default": 0
-			}
-		},
-		{
-			"_id": "LcsncSG0v72AnXoV",
-			"name": "Tail Attack (Reaction)",
-			"type": "feature",
-			"img": "icons/skills/wounds/injury-pain-impaled-hand-blood.webp",
-			"effects": [],
-			"folder": null,
-			"sort": 564844,
-			"flags": {
-				"core": {
-					"sourceId": "Item.M84U0XSfmXtWa9e1"
-				}
-			},
-			"system": {
-				"ac": {
-					"baseFormula": "",
-					"formula": "",
-					"maxDex": 0,
-					"minStr": 0,
-					"mode": 1,
-					"requiresNoShield": false,
-					"requiresUnarmored": false
-				},
-				"actions": {
-					"dnwfydHWturboQKs": {
-						"name": "Tail Attack (Reaction)",
-						"activation": {
-							"cost": 1,
-							"type": "reaction",
-							"reactionTrigger": "When a creature the dragon can see within 10 feet hits the dragon with a melee attack, the dragon makes a tail attack against it."
-						},
-						"duration": {
-							"unit": "instantaneous",
-							"value": ""
-						},
-						"ranges": {
-							"nvChusCcuzez4dMD": {
-								"range": "Reach: 10ft."
-							}
-						},
-						"area": {
-							"shape": "",
-							"size": "",
-							"placeTemplate": false
-						},
-						"target": {
-							"quantity": 1,
-							"type": "creature"
-						},
-						"rolls": {
-							"QQHBPNU5S96SEYyP": {
-								"bonus": "",
-								"critThreshold": "20",
-								"type": "attack",
-								"attackType": "meleeWeaponAttack",
-								"ability": "default"
-							},
-							"dEBXWAWMUaSlsnh7": {
-								"canCrit": true,
-								"damageType": "bludgeoning",
-								"formula": "2d8 + @@str.mod",
-								"name": "",
-								"type": "damage"
-							}
-						},
-						"consumers": {}
-					}
-				},
-				"description": "<p>When a creature the dragon can see within 10 feet hits the dragon with a melee attack, the dragon makes a tail attack against it.</p>",
-				"favorite": true,
-				"secretDescription": "",
-				"source": "",
-				"uses": {
-					"value": null,
-					"max": "",
-					"per": null,
-					"recharge": {
-						"formula": "",
-						"threshold": ""
-					}
-				},
-				"schema": {
-					"version": null,
-					"lastMigration": null
-				},
-				"concentration": false,
-				"featureType": "naturalWeapon",
-				"grants": {},
-				"prerequisite": "",
-				"requiresBloodied": false,
-				"schemaVersion": {
-					"version": 0.01,
-					"lastMigration": {
-						"version": {
-							"schema": 0.009,
-							"foundry": "12.316",
-							"system": "0.16.12"
-						}
-					}
-				}
-			},
-			"ownership": {
-				"default": 0
-			}
-		},
-		{
-			"_id": "9Rq4BiK8eMSDGF34",
-			"name": "Roar (Legendary Action)",
-			"type": "feature",
-			"img": "icons/magic/sonic/scream-wail-shout-teal.webp",
-			"effects": [],
-			"folder": null,
-			"sort": 1000000,
-			"flags": {
-				"core": {
-					"sourceId": "Item.91ojLlYW012QzL2y"
-				}
-			},
-			"system": {
-				"ac": {
-					"baseFormula": "",
-					"formula": "",
-					"maxDex": 0,
-					"minStr": 0,
-					"mode": 1,
-					"requiresNoShield": false,
-					"requiresUnarmored": false
-				},
-				"actions": {
-					"1LF10MGCqxPl4H81": {
-						"name": "Roar (Legendary Action)",
-						"activation": {
-							"cost": 1,
-							"type": "legendaryAction",
-							"reactionTrigger": ""
-						},
-						"duration": {
-							"unit": "minute",
-							"value": 1
-						},
-						"area": {
-							"shape": "emanation",
-							"size": "120",
-							"placeTemplate": false,
-							"quantity": 1,
-							"radius": 120
-						},
-						"target": {
-							"quantity": 1,
-							"type": ""
-						},
-						"prompts": {
-							"DMqqH7XkQx8kmGA3": {
-								"ability": "cha",
-								"onSave": "Not frightened.",
-								"saveDC": {
-									"type": "custom",
-									"bonus": "22"
-								},
-								"type": "savingThrow"
-							}
-						},
-						"consumers": {}
-					}
-				},
-				"description": "<p>Each creature of the dragon’s choice within 120 feet that can hear it makes a DC 22 Charisma saving throw. On a failure, it is frightened for 1 minute. A creature repeats the saving throw at the end of its turns, ending the effect on itself on a success. When it succeeds on a saving throw or the effect ends for it, it is immune to Roar for 24 hours.</p>",
-				"favorite": true,
-				"secretDescription": "",
-				"source": "",
-				"uses": {
-					"value": null,
-					"max": "",
-					"per": null,
-					"recharge": {
-						"formula": "",
-						"threshold": ""
-					}
-				},
-				"schema": {
-					"version": null,
-					"lastMigration": null
-				},
-				"concentration": false,
-				"featureType": "other",
-				"grants": {},
-				"prerequisite": "",
-				"requiresBloodied": false,
-				"schemaVersion": {
-					"version": 0.01,
-					"lastMigration": {
-						"version": {
-							"schema": 0.009,
-							"foundry": "12.316",
-							"system": "0.16.12"
-						}
-					}
-				}
-			},
-			"ownership": {
-				"default": 0
-			}
-		},
-		{
-			"_id": "f2FrNF7toyEqWdgY",
-			"name": "Wing Attack (Legendary Action)",
+			"_id": "pg44xsEBEAskdco7",
+			"name": "Innate Spellcasting",
 			"type": "feature",
 			"img": "icons/svg/item-bag.svg",
 			"effects": [],
 			"folder": null,
-			"sort": 1025000,
-			"flags": {
-				"core": {
-					"sourceId": "Item.kscfGEevngAze5kQ"
-				}
-			},
-			"system": {
-				"ac": {
-					"baseFormula": "",
-					"formula": "",
-					"maxDex": 0,
-					"minStr": 0,
-					"mode": 1,
-					"requiresNoShield": false,
-					"requiresUnarmored": false
-				},
-				"actions": {
-					"pvcK4w67VInachk9": {
-						"name": "Wing Attack (Legendary Action)",
-						"activation": {
-							"cost": 1,
-							"type": "legendaryAction",
-							"reactionTrigger": ""
-						},
-						"duration": {
-							"unit": "instantaneous",
-							"value": ""
-						},
-						"area": {
-							"shape": "emanation",
-							"size": "15",
-							"placeTemplate": false,
-							"quantity": 1,
-							"radius": 15
-						},
-						"target": {
-							"quantity": 1,
-							"type": ""
-						},
-						"prompts": {
-							"AbbSQEQ5iSWWcZRM": {
-								"ability": "dex",
-								"onSave": "Not knocked prone.",
-								"saveDC": {
-									"type": "custom",
-									"bonus": "25"
-								},
-								"type": "savingThrow"
-							}
-						},
-						"consumers": {}
-					}
-				},
-				"description": "<p>The dragon beats its wings. Each creature within 15 feet makes a DC 25 Dexterity saving throw. On a failure, it is pushed 10 feet away and knocked prone. The dragon can then fly up to half its fly speed.</p>",
-				"favorite": true,
-				"secretDescription": "",
-				"source": "",
-				"uses": {
-					"value": null,
-					"max": "",
-					"per": null,
-					"recharge": {
-						"formula": "",
-						"threshold": ""
-					}
-				},
-				"schema": {
-					"version": null,
-					"lastMigration": null
-				},
-				"concentration": false,
-				"featureType": "other",
-				"grants": {},
-				"prerequisite": "",
-				"requiresBloodied": false,
-				"schemaVersion": {
-					"version": 0.01,
-					"lastMigration": {
-						"version": {
-							"schema": 0.009,
-							"foundry": "12.316",
-							"system": "0.16.12"
-						}
-					}
-				}
-			},
-			"ownership": {
-				"default": 0
-			}
-		},
-		{
-			"_id": "eKQSxsTMkr5kZQKQ",
-			"name": "Legendary Actions",
-			"type": "feature",
-			"img": "icons/svg/item-bag.svg",
-			"effects": [],
-			"folder": null,
-			"sort": 581250,
+			"sort": 100000,
 			"flags": {},
 			"system": {
 				"ac": {
@@ -754,7 +297,7 @@
 					"requiresUnarmored": false
 				},
 				"actions": {},
-				"description": "<p>The dragon can take 3 legendary actions, choosing from the options below. Only one legendary action can be used at a time and only at the end of another creature's turn. It regains spent legendary actions at the start of its turn.</p><p><strong><em>Cruel Tyranny.</em></strong> The dragon uses its Cruel Tyranny action.</p><p><strong><em>Roar.</em></strong> Each creature of the dragon’s choice within 120 feet that can hear it makes a DC 22 Charisma saving throw. On a failure, it is frightened for 1 minute. A creature repeats the saving throw at the end of its turns, ending the effect on itself on a success. When it succeeds on a saving throw or the effect ends for it, it is immune to Roar for 24 hours.</p><p><strong><em>Wing Attack.</em> </strong>The dragon beats its wings. Each creature within 15 feet makes a DC 25 Dexterity saving throw. On a failure, it is pushed 10 feet away and knocked prone. The dragon can then fly up to half its fly speed.</p>",
+				"description": "<p>The dragon&rsquo;s spellcasting ability is Charisma (save <strong>DC 16</strong>). It can innately cast the following spells, requiring no material components.&nbsp;</p>\n<p><strong>3/day each</strong>:&nbsp;<em>command, hold person</em></p>",
 				"favorite": false,
 				"secretDescription": "",
 				"source": "",
@@ -772,119 +315,7 @@
 					"lastMigration": null
 				},
 				"concentration": false,
-				"featureType": "other",
-				"grants": {},
-				"prerequisite": "",
-				"requiresBloodied": false,
-				"schemaVersion": {
-					"version": 0.01,
-					"lastMigration": {
-						"version": {
-							"schema": 0.009,
-							"foundry": "12.316",
-							"system": "0.16.12"
-						}
-					}
-				}
-			},
-			"ownership": {
-				"default": 0
-			}
-		},
-		{
-			"_id": "IhOZBFdxBtGZUkSe",
-			"name": "Spit Fire",
-			"type": "feature",
-			"img": "icons/svg/item-bag.svg",
-			"effects": [],
-			"folder": null,
-			"sort": 550000,
-			"flags": {},
-			"system": {
-				"ac": {
-					"baseFormula": "",
-					"formula": "",
-					"maxDex": 0,
-					"minStr": 0,
-					"mode": 1,
-					"requiresNoShield": false,
-					"requiresUnarmored": false
-				},
-				"actions": {
-					"PIfyN2IiCljmxRbu": {
-						"name": "Spit Fire",
-						"activation": {
-							"cost": 1,
-							"type": "action",
-							"reactionTrigger": ""
-						},
-						"duration": {
-							"unit": "instantaneous",
-							"value": ""
-						},
-						"ranges": {
-							"9gLZ0uB4fJn5fmTU": {
-								"range": "medium"
-							}
-						},
-						"area": {
-							"shape": "",
-							"size": "",
-							"placeTemplate": false
-						},
-						"target": {
-							"quantity": 1,
-							"type": "creature"
-						},
-						"rolls": {
-							"mc4fvUBbfnasZ9Tu": {
-								"canCrit": false,
-								"damageType": "fire",
-								"formula": "4d10",
-								"name": "",
-								"type": "damage"
-							},
-							"gsNN5AQ7CLs2iOtX": {
-								"canCrit": false,
-								"damageType": "fire",
-								"formula": "2d10",
-								"name": "Ongoing",
-								"type": "damage"
-							}
-						},
-						"prompts": {
-							"XQse2BsMIdSdkE8T": {
-								"ability": "dex",
-								"onSave": "Half damage and no ongoing damage.",
-								"saveDC": {
-									"type": "custom",
-									"bonus": "22"
-								},
-								"type": "savingThrow"
-							}
-						},
-						"consumers": {}
-					}
-				},
-				"description": "<p>The dragon targets a creature within 60 feet, forcing it to make a DC 22 Dexterity saving throw. The creature takes 22 (4d10) fire damage on a failure or half damage on a success. A creature that fails the save also takes 11 (2d10) ongoing fire damage. A creature can use an action to end the ongoing damage.</p>",
-				"favorite": true,
-				"secretDescription": "",
-				"source": "",
-				"uses": {
-					"value": null,
-					"max": "",
-					"per": null,
-					"recharge": {
-						"formula": "",
-						"threshold": ""
-					}
-				},
-				"schema": {
-					"version": null,
-					"lastMigration": null
-				},
-				"concentration": false,
-				"featureType": "naturalWeapon",
+				"featureType": "",
 				"grants": {},
 				"prerequisite": "",
 				"requiresBloodied": false,
@@ -927,7 +358,7 @@
 					"requiresUnarmored": false
 				},
 				"actions": {
-					"cvBAzJ00kq6dqlB1": {
+					"5lwPSseMeLmatD3K": {
 						"name": "Fire Breath (Recharge 5-6)",
 						"activation": {
 							"cost": 1,
@@ -940,37 +371,37 @@
 						},
 						"area": {
 							"shape": "cone",
-							"size": "90",
+							"size": "30",
 							"placeTemplate": false,
-							"length": 90
+							"length": 30
 						},
 						"target": {
 							"quantity": 1,
 							"type": ""
 						},
 						"rolls": {
-							"Iz0twFLBawvSOLoN": {
+							"fcnvtbcV9hyI7pe0": {
 								"canCrit": false,
 								"damageType": "fire",
-								"formula": "28d6",
+								"formula": "15d6",
 								"name": "",
 								"type": "damage"
 							},
-							"MrdcMJvyanyDIbHw": {
+							"67sBSKR1MqdjDWqJ": {
 								"canCrit": false,
 								"damageType": "fire",
-								"formula": "2d10",
+								"formula": "1d10",
 								"name": "Ongoing",
 								"type": "damage"
 							}
 						},
 						"prompts": {
-							"3CTmvSKst6A47F1k": {
+							"WVBx8FQu7MtZAv5b": {
 								"ability": "dex",
 								"onSave": "Half damage, no ongoing damage and not frightened.",
 								"saveDC": {
 									"type": "custom",
-									"bonus": "25"
+									"bonus": "17"
 								},
 								"type": "savingThrow"
 							}
@@ -978,7 +409,7 @@
 						"consumers": {}
 					}
 				},
-				"description": "<p>The dragon exhales a blast of fire in a 90-foot cone. Each creature in that area makes a DC 25 Dexterity saving throw, taking 98 (28d6) fire damage on a failed save or half damage on a success. A creature that fails the saving throw also takes 11 (2d10) ongoing fire damage. While affected by this ongoing damage, it is frightened of the dragon. A creature can use an action to end the ongoing damage.</p>",
+				"description": "<p>The dragon exhales a blast of fire that fills a 30-foot cone. Each creature in that area makes a DC 17 Dexterity saving throw, taking 52 (15d6) fire damage on a failed save or half damage on a success. A creature that fails the saving throw also takes 5 (1d10) ongoing fire damage. While affected by this ongoing damage, it is frightened of the dragon. A creature can use an action to end the ongoing damage.</p>",
 				"favorite": true,
 				"secretDescription": "",
 				"source": "",
@@ -997,86 +428,6 @@
 				},
 				"concentration": false,
 				"featureType": "naturalWeapon",
-				"grants": {},
-				"prerequisite": "",
-				"requiresBloodied": false,
-				"schemaVersion": {
-					"version": 0.01,
-					"lastMigration": {
-						"version": {
-							"schema": 0.009,
-							"foundry": "12.316",
-							"system": "0.16.12"
-						}
-					}
-				}
-			},
-			"ownership": {
-				"default": 0
-			}
-		},
-		{
-			"_id": "HcudkJ6gE27GSpKV",
-			"name": "Cruel Tyranny (Legendary Action)",
-			"type": "feature",
-			"img": "icons/svg/item-bag.svg",
-			"effects": [],
-			"folder": null,
-			"sort": 1050000,
-			"flags": {},
-			"system": {
-				"ac": {
-					"baseFormula": "",
-					"formula": "",
-					"maxDex": 0,
-					"minStr": 0,
-					"mode": 1,
-					"requiresNoShield": false,
-					"requiresUnarmored": false
-				},
-				"actions": {
-					"ApoM9Ii1DIcGp514": {
-						"name": "Cruel Tyranny (Legendary Action)",
-						"activation": {
-							"cost": 1,
-							"type": "legendaryAction",
-							"reactionTrigger": ""
-						},
-						"duration": {
-							"unit": "instantaneous",
-							"value": ""
-						},
-						"area": {
-							"shape": "",
-							"size": "",
-							"placeTemplate": false
-						},
-						"target": {
-							"quantity": "",
-							"type": ""
-						},
-						"consumers": {}
-					}
-				},
-				"description": "<p>The dragon uses its Cruel Tyranny action.</p>",
-				"favorite": false,
-				"secretDescription": "",
-				"source": "",
-				"uses": {
-					"value": null,
-					"max": "",
-					"per": null,
-					"recharge": {
-						"formula": "",
-						"threshold": ""
-					}
-				},
-				"schema": {
-					"version": null,
-					"lastMigration": null
-				},
-				"concentration": false,
-				"featureType": "",
 				"grants": {},
 				"prerequisite": "",
 				"requiresBloodied": false,
@@ -1115,7 +466,7 @@
 					"requiresUnarmored": false
 				},
 				"actions": {
-					"kEfIIbiTyzuOHlvB": {
+					"gmicG244N6a9oClL": {
 						"name": "Searing Heat",
 						"activation": {
 							"cost": "",
@@ -1127,7 +478,7 @@
 							"value": ""
 						},
 						"ranges": {
-							"UistENm07iUXGh6c": {
+							"cdgDnhr58SvVvdrp": {
 								"range": "touch"
 							}
 						},
@@ -1141,10 +492,10 @@
 							"type": "creature"
 						},
 						"rolls": {
-							"3qZqczPKJgsit1L8": {
+							"hNRaBCCS3yyDxrPb": {
 								"canCrit": false,
 								"damageType": "fire",
-								"formula": "4d6",
+								"formula": "1d6",
 								"name": "",
 								"type": "damage"
 							}
@@ -1152,7 +503,7 @@
 						"consumers": {}
 					}
 				},
-				"description": "<p>A creature that touches the dragon or hits it with a melee attack for the first time on a turn takes 14 (4d6) fire damage.&nbsp;</p>",
+				"description": "<p>A creature that touches the dragon or hits it with a melee attack for the first time on a turn takes 3 (1d6) fire damage.&nbsp;</p>",
 				"favorite": true,
 				"secretDescription": "",
 				"source": "",
@@ -1247,120 +598,6 @@
 			}
 		},
 		{
-			"_id": "6J7kT1qdde5wh0h9",
-			"name": "Cruel Tyranny",
-			"type": "feature",
-			"img": "icons/svg/item-bag.svg",
-			"effects": [],
-			"folder": null,
-			"sort": 556250,
-			"flags": {},
-			"system": {
-				"ac": {
-					"baseFormula": "",
-					"formula": "",
-					"maxDex": 0,
-					"minStr": 0,
-					"mode": 1,
-					"requiresNoShield": false,
-					"requiresUnarmored": false
-				},
-				"actions": {},
-				"description": "<p>The dragon snarls and threatens its minions, driving them to immediate action. The dragon chooses one creature it can see and that can hear the dragon. The creature uses its reaction to make one weapon attack with advantage. If the dragon is bloodied, it can use this ability on three minions at once.</p>",
-				"favorite": false,
-				"secretDescription": "",
-				"source": "",
-				"uses": {
-					"value": null,
-					"max": "",
-					"per": null,
-					"recharge": {
-						"formula": "",
-						"threshold": ""
-					}
-				},
-				"schema": {
-					"version": null,
-					"lastMigration": null
-				},
-				"concentration": false,
-				"featureType": "",
-				"grants": {},
-				"prerequisite": "",
-				"requiresBloodied": false,
-				"schemaVersion": {
-					"version": 0.01,
-					"lastMigration": {
-						"version": {
-							"schema": 0.009,
-							"foundry": "12.316",
-							"system": "0.16.12"
-						}
-					}
-				}
-			},
-			"ownership": {
-				"default": 0
-			}
-		},
-		{
-			"_id": "kOrxmPvhulX1F2CP",
-			"name": "Taskmaster (Reaction)",
-			"type": "feature",
-			"img": "icons/svg/item-bag.svg",
-			"effects": [],
-			"folder": null,
-			"sort": 567188,
-			"flags": {},
-			"system": {
-				"ac": {
-					"baseFormula": "",
-					"formula": "",
-					"maxDex": 0,
-					"minStr": 0,
-					"mode": 1,
-					"requiresNoShield": false,
-					"requiresUnarmored": false
-				},
-				"actions": {},
-				"description": "<p>When a creature within 60 feet fails an ability check or saving throw, the dragon roars a command to it. The creature can roll a d10 and add it to the result of the roll, possibly turning the failure into a success.</p>",
-				"favorite": false,
-				"secretDescription": "",
-				"source": "",
-				"uses": {
-					"value": null,
-					"max": "",
-					"per": null,
-					"recharge": {
-						"formula": "",
-						"threshold": ""
-					}
-				},
-				"schema": {
-					"version": null,
-					"lastMigration": null
-				},
-				"concentration": false,
-				"featureType": "",
-				"grants": {},
-				"prerequisite": "",
-				"requiresBloodied": false,
-				"schemaVersion": {
-					"version": 0.01,
-					"lastMigration": {
-						"version": {
-							"schema": 0.009,
-							"foundry": "12.316",
-							"system": "0.16.12"
-						}
-					}
-				}
-			},
-			"ownership": {
-				"default": 0
-			}
-		},
-		{
 			"name": "Shove",
 			"type": "maneuver",
 			"img": "icons/skills/melee/shield-block-bash-yellow.webp",
@@ -1372,7 +609,7 @@
 			},
 			"system": {
 				"actions": {
-					"2XaORqOIAbXbYLRc": {
+					"O8OnFTBbCl8H7APB": {
 						"name": "Shove",
 						"activation": {
 							"cost": 1,
@@ -1384,7 +621,7 @@
 							"value": null
 						},
 						"ranges": {
-							"66P7ACVniTpdLGOA": {
+							"814nionmoUHB7tyI": {
 								"range": "fiveFeet"
 							}
 						},
@@ -1400,7 +637,7 @@
 							"size": ""
 						},
 						"rolls": {
-							"djSjVg1EcmztE0mI": {
+							"lBxXD8ar1RSaVaZV": {
 								"canCrit": false,
 								"damageType": "bludgeoning",
 								"formula": "1 + @str.mod",
@@ -1409,7 +646,7 @@
 							}
 						},
 						"prompts": {
-							"LGOrxsVhSSKz2mcV": {
+							"v0WtXxSblX6Fq0Id": {
 								"ability": "str",
 								"onSave": "",
 								"saveDC": {
@@ -1461,7 +698,7 @@
 			},
 			"folder": null,
 			"sort": 0,
-			"_id": "92futYtUu37ZImjv"
+			"_id": "ogvJsweg7me2FE7P"
 		},
 		{
 			"name": "Disarm",
@@ -1475,7 +712,7 @@
 			},
 			"system": {
 				"actions": {
-					"mzvXPHk1es1c5FsA": {
+					"Cy0dlaHf0QfYm6rd": {
 						"name": "Disarm",
 						"activation": {
 							"cost": 1,
@@ -1487,7 +724,7 @@
 							"value": null
 						},
 						"ranges": {
-							"f0uabe4OwBBrEGVq": {
+							"cpM7MvHD8tFM6MeE": {
 								"range": "touch"
 							}
 						},
@@ -1503,7 +740,7 @@
 							"size": ""
 						},
 						"rolls": {
-							"Fp2SmXhexyEUUANc": {
+							"wPkHMB3b1O3j5IQk": {
 								"canCrit": false,
 								"damageType": "",
 								"formula": "1 + @str.mod",
@@ -1512,7 +749,7 @@
 							}
 						},
 						"prompts": {
-							"GarAbXLLOSsqNfhj": {
+							"lUHyriG6zl6Ejsds": {
 								"ability": "str",
 								"onSave": "",
 								"saveDC": {
@@ -1564,7 +801,7 @@
 			},
 			"folder": null,
 			"sort": 0,
-			"_id": "VoXvVdi4aTQrZf9H"
+			"_id": "zkpfmSkGbf5hZUdp"
 		},
 		{
 			"name": "Grab On",
@@ -1578,7 +815,7 @@
 			},
 			"system": {
 				"actions": {
-					"8jK6cWUSZhcrkrnS": {
+					"haYrjh1CGyq5w7S1": {
 						"name": "Grab On",
 						"activation": {
 							"cost": 1,
@@ -1590,7 +827,7 @@
 							"value": null
 						},
 						"ranges": {
-							"S5P3tKVInZerUtzV": {
+							"IxvKzFbkFWaVHMXr": {
 								"range": "touch"
 							}
 						},
@@ -1606,7 +843,7 @@
 							"size": ""
 						},
 						"prompts": {
-							"dcyJYp4WZxSasX2e": {
+							"PGprwzIOAXlJY64R": {
 								"ability": "str",
 								"onSave": "",
 								"saveDC": {
@@ -1658,7 +895,7 @@
 			},
 			"folder": null,
 			"sort": 0,
-			"_id": "ZYSnHbMXjyxZxIYC"
+			"_id": "3rhA60p51E8LJIiO"
 		},
 		{
 			"name": "Knockdown",
@@ -1672,7 +909,7 @@
 			},
 			"system": {
 				"actions": {
-					"JqeM3VP8p4NVEcpp": {
+					"mzg988PPXG23JbjD": {
 						"name": "Knockdown",
 						"activation": {
 							"cost": 1,
@@ -1684,7 +921,7 @@
 							"value": null
 						},
 						"ranges": {
-							"ScWeUtZz2T4LuV8L": {
+							"Mzb2rNtRPPwUFNdI": {
 								"range": "touch"
 							}
 						},
@@ -1700,7 +937,7 @@
 							"size": ""
 						},
 						"prompts": {
-							"Y5MYt2BXrA0m5Q50": {
+							"xjMQGDcYcxB4IOMl": {
 								"ability": "str",
 								"onSave": "",
 								"saveDC": {
@@ -1752,7 +989,7 @@
 			},
 			"folder": null,
 			"sort": 0,
-			"_id": "aPFc5iYJkV6bvnsP"
+			"_id": "dIW5GSCx4hDqlVdo"
 		},
 		{
 			"name": "Grapple",
@@ -1766,7 +1003,7 @@
 			},
 			"system": {
 				"actions": {
-					"jQDlw2MjrrbSxgOF": {
+					"6TQbKth0oDInNhS5": {
 						"name": "Grapple",
 						"activation": {
 							"cost": 1,
@@ -1778,7 +1015,7 @@
 							"value": null
 						},
 						"ranges": {
-							"F11wTVjWtnbOB1eg": {
+							"FcN6VcqBpDnBCErg": {
 								"range": "touch"
 							}
 						},
@@ -1794,7 +1031,7 @@
 							"size": ""
 						},
 						"prompts": {
-							"MkmEUrtjIRjcOZFi": {
+							"QaWJeSNsB6vRYcdj": {
 								"ability": "str",
 								"onSave": "",
 								"saveDC": {
@@ -1846,7 +1083,7 @@
 			},
 			"folder": null,
 			"sort": 0,
-			"_id": "9UgfQPgIOqNNeHh5"
+			"_id": "s09K2zPdt3SO6tkZ"
 		},
 		{
 			"name": "Overrun",
@@ -1860,7 +1097,7 @@
 			},
 			"system": {
 				"actions": {
-					"Yg1jy0VLIdbLJDCl": {
+					"fZ00xOoAyqqGIQgA": {
 						"name": "Overrun",
 						"activation": {
 							"cost": 1,
@@ -1872,7 +1109,7 @@
 							"value": null
 						},
 						"ranges": {
-							"u1TeDTuFkL6miMkt": {
+							"e0v4usRFiXO2I8Fi": {
 								"range": "touch"
 							}
 						},
@@ -1888,7 +1125,7 @@
 							"size": ""
 						},
 						"prompts": {
-							"Mslq8VU9yYtUdcc7": {
+							"h1PuDpriAWlt1o5N": {
 								"ability": "str",
 								"onSave": "",
 								"saveDC": {
@@ -1940,7 +1177,247 @@
 			},
 			"folder": null,
 			"sort": 0,
-			"_id": "9gQ3DKo7tFPL2i4j"
+			"_id": "r9HJXtQTRQCUZWbO"
+		},
+		{
+			"name": "Command",
+			"type": "spell",
+			"img": "icons/magic/sonic/scream-wail-shout-teal.webp",
+			"effects": [],
+			"flags": {
+				"core": {
+					"sourceId": "Compendium.a5e.a5e-spells.Item.bs1zn1s8ewwa4tfx"
+				}
+			},
+			"system": {
+				"actions": {
+					"jAz65L99peGqsyYX": {
+						"name": "Command",
+						"activation": {
+							"cost": 1,
+							"type": "action",
+							"reactionTrigger": ""
+						},
+						"duration": {
+							"unit": "round",
+							"value": "1"
+						},
+						"ranges": {
+							"7cVr07oXBPGezgEm": {
+								"range": "medium"
+							}
+						},
+						"area": {
+							"shape": "",
+							"size": "",
+							"placeTemplate": false
+						},
+						"target": {
+							"quantity": "",
+							"type": "creature"
+						},
+						"prompts": {
+							"rlR7cPe1Cj7JIdip": {
+								"ability": "wis",
+								"onSave": "Negates effect",
+								"saveDC": {
+									"type": "spellcasting",
+									"bonus": ""
+								},
+								"type": "savingThrow"
+							}
+						},
+						"consumers": {
+							"9UxBBIoO3OG3VcDv": {
+								"type": "itemUses",
+								"default": true,
+								"quantity": 1
+							}
+						}
+					}
+				},
+				"description": "<p>You only require line of sight to the target (not line of effect). On its next turn the target follows a one-word command of your choosing. The spell fails if the target is undead, if it does not understand your command, or if the command is immediately harmful to it.</p><p>Below are example commands, but at the Narrator's discretion you may give any one-word command.</p><ul><li><p><strong>Approach/Come/Here:</strong> The target uses its action to take the Dash action and move toward you by the shortest route, ending its turn if it reaches within 5 feet of you.</p></li><li><p><strong>Bow/Grovel/Kneel:</strong> The target falls prone and ends its turn.</p></li><li><p><strong>Drop:</strong> The target drops anything it is holding and ends its turn.</p></li><li><p><strong>Flee/Run:</strong> The target uses its action to Dash and moves away from you as far as it can.</p></li><li><p><strong>Halt:</strong> The target remains where it is and takes no actions. A flying creature that cannot hover moves the minimum distance needed to remain aloft.</p></li></ul><p><strong><em>Cast at Higher Levels.</em></strong> For each slot level above 1st, you affect one additional target that is within 30 feet of other targets.</p>",
+				"favorite": false,
+				"secretDescription": "",
+				"source": "",
+				"uses": {
+					"value": 3,
+					"max": "3",
+					"per": "day",
+					"recharge": {
+						"formula": "",
+						"threshold": ""
+					}
+				},
+				"schema": {
+					"version": null,
+					"lastMigration": null
+				},
+				"classes": [
+					"cleric",
+					"herald",
+					"wielder"
+				],
+				"components": {
+					"vocalized": true,
+					"seen": false,
+					"material": false
+				},
+				"concentration": false,
+				"level": 1,
+				"materials": "",
+				"materialsConsumed": false,
+				"prepared": false,
+				"prerequisite": "",
+				"rare": false,
+				"ritual": false,
+				"schools": {
+					"primary": "enchantment",
+					"secondary": [
+						"compulsion",
+						"divine"
+					]
+				},
+				"schemaVersion": {
+					"version": 0.01,
+					"lastMigration": {
+						"version": {
+							"schema": 0.009,
+							"foundry": "12.316",
+							"system": "0.16.12"
+						}
+					}
+				}
+			},
+			"folder": null,
+			"ownership": {
+				"default": 0
+			},
+			"_id": "zZDdY4WXNUaeRJU1",
+			"sort": 200000
+		},
+		{
+			"name": "Hold Person",
+			"type": "spell",
+			"img": "icons/magic/control/debuff-chains-blue.webp",
+			"effects": [],
+			"flags": {
+				"core": {
+					"sourceId": "Compendium.a5e.a5e-spells.Item.ztgij3hd5gktogqt"
+				}
+			},
+			"system": {
+				"actions": {
+					"D4D1cBdgTkodRK1D": {
+						"name": "Hold Person",
+						"activation": {
+							"cost": 1,
+							"type": "action",
+							"reactionTrigger": ""
+						},
+						"duration": {
+							"unit": "minute",
+							"value": "1"
+						},
+						"ranges": {
+							"rmPJFnEeukXjCUNG": {
+								"range": "medium"
+							}
+						},
+						"area": {
+							"shape": "",
+							"size": "",
+							"placeTemplate": false
+						},
+						"target": {
+							"quantity": "",
+							"type": "creature"
+						},
+						"prompts": {
+							"Npdatp8WDrXifPQc": {
+								"ability": "wis",
+								"onSave": "Negates effect",
+								"saveDC": {
+									"type": "spellcasting",
+									"bonus": ""
+								},
+								"type": "savingThrow"
+							}
+						},
+						"consumers": {
+							"jubRBMFKX7CBrV0k": {
+								"type": "itemUses",
+								"default": true,
+								"quantity": 1
+							}
+						}
+					}
+				},
+				"description": "<p>The target is paralyzed. At the end of each of its turns, the target makes another saving throw, ending the spell's effects on it on a successful save.</p><p><strong><em>Cast at Higher Levels.</em></strong> Target an additional creature within 30 feet of the first target for each slot level above 2nd.</p>",
+				"favorite": false,
+				"secretDescription": "",
+				"source": "",
+				"uses": {
+					"value": 3,
+					"max": "3",
+					"per": "day",
+					"recharge": {
+						"formula": "",
+						"threshold": ""
+					}
+				},
+				"schema": {
+					"version": null,
+					"lastMigration": null
+				},
+				"classes": [
+					"artificer",
+					"bard",
+					"cleric",
+					"druid",
+					"elementalistAir",
+					"sorcerer",
+					"warlock",
+					"witch",
+					"wizard"
+				],
+				"components": {
+					"vocalized": true,
+					"seen": true,
+					"material": true
+				},
+				"concentration": true,
+				"level": 2,
+				"materials": "piece of iron",
+				"materialsConsumed": false,
+				"prepared": false,
+				"prerequisite": "",
+				"rare": false,
+				"ritual": false,
+				"schools": {
+					"primary": "enchantment",
+					"secondary": [
+						"affliction",
+						"arcane"
+					]
+				},
+				"schemaVersion": {
+					"version": 0.01,
+					"lastMigration": {
+						"version": {
+							"schema": 0.009,
+							"foundry": "12.316",
+							"system": "0.16.12"
+						}
+					}
+				}
+			},
+			"folder": null,
+			"ownership": {
+				"default": 0
+			},
+			"_id": "luDntPRL4wIUh1XS",
+			"sort": 300000
 		}
 	],
 	"effects": [],
@@ -1960,14 +1437,13 @@
 			],
 			"showSpellSlots": false,
 			"showSpellPoints": false,
-			"sheetIsLocked": true,
-			"showSpellTab": false
+			"sheetIsLocked": true
 		}
 	},
 	"system": {
 		"abilities": {
 			"str": {
-				"value": 30,
+				"value": 22,
 				"check": {
 					"expertiseDice": 0,
 					"bonus": "",
@@ -1995,7 +1471,7 @@
 				}
 			},
 			"con": {
-				"value": 28,
+				"value": 20,
 				"check": {
 					"expertiseDice": 0,
 					"bonus": "",
@@ -2009,7 +1485,7 @@
 				}
 			},
 			"int": {
-				"value": 18,
+				"value": 14,
 				"check": {
 					"expertiseDice": 0,
 					"bonus": "",
@@ -2023,7 +1499,7 @@
 				}
 			},
 			"wis": {
-				"value": 16,
+				"value": 12,
 				"check": {
 					"expertiseDice": 0,
 					"bonus": "",
@@ -2037,7 +1513,7 @@
 				}
 			},
 			"cha": {
-				"value": 22,
+				"value": 18,
 				"check": {
 					"expertiseDice": 0,
 					"bonus": "",
@@ -2349,7 +1825,7 @@
 		},
 		"attributes": {
 			"ac": {
-				"baseFormula": "22",
+				"baseFormula": "18",
 				"value": 0
 			},
 			"death": {
@@ -2357,8 +1833,8 @@
 				"failure": 0
 			},
 			"hp": {
-				"value": 448,
-				"baseMax": 448,
+				"value": 178,
+				"baseMax": 178,
 				"temp": 0,
 				"bonus": 0
 			},
@@ -2372,8 +1848,8 @@
 					"total": 0
 				},
 				"d10": {
-					"current": 0,
-					"total": 0
+					"current": 17,
+					"total": 17
 				},
 				"d12": {
 					"current": 0,
@@ -2420,7 +1896,7 @@
 			},
 			"senses": {
 				"blindsight": {
-					"distance": 60,
+					"distance": 30,
 					"unit": "feet",
 					"otherwiseBlind": false
 				},
@@ -2468,7 +1944,7 @@
 				"dragon"
 			],
 			"isSwarm": false,
-			"cr": 26,
+			"cr": 11,
 			"elite": false,
 			"privateNotes": "",
 			"notes": ""
@@ -2477,8 +1953,7 @@
 			"armor": [],
 			"languages": [
 				"common",
-				"draconic",
-				"two more"
+				"draconic"
 			],
 			"tools": [],
 			"weapons": []
@@ -2535,7 +2010,7 @@
 			"publisher": ""
 		},
 		"traits": {
-			"size": "grg",
+			"size": "lg",
 			"conditionImmunities": [],
 			"damageImmunities": [
 				"fire"
@@ -2545,11 +2020,11 @@
 		}
 	},
 	"prototypeToken": {
-		"name": "Ancient Red Dragon",
+		"name": "Young Red Dragon",
 		"displayName": 0,
 		"actorLink": false,
-		"width": 4,
-		"height": 4,
+		"width": 2,
+		"height": 2,
 		"lockRotation": false,
 		"rotation": 0,
 		"alpha": 1,
@@ -2611,5 +2086,5 @@
 		"prependAdjective": false
 	},
 	"folder": null,
-	"_id": "d9xj12rvmbfj248b"
+	"_id": "nlsud1vs0vkqsnux"
 }
