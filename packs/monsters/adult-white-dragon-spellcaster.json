@@ -1,5 +1,5 @@
 {
-	"name": "Adult White Dragon",
+	"name": "Adult White Dragon Spellcaster",
 	"type": "npc",
 	"img": "systems/a5e/assets/ice-dragon.webp",
 	"items": [
@@ -1731,7 +1731,7 @@
 							"shape": "cone",
 							"size": "30",
 							"placeTemplate": true,
-							"length": 30
+							"length": 60
 						},
 						"target": {
 							"quantity": 1,
@@ -1741,7 +1741,7 @@
 							"O024RV9M0rAlxFac": {
 								"canCrit": false,
 								"damageType": "cold",
-								"formula": "10d6",
+								"formula": "15d6",
 								"name": "",
 								"type": "damage"
 							}
@@ -1760,7 +1760,7 @@
 						"consumers": {}
 					}
 				},
-				"description": "<p>The dragon exhales a 30-foot cone of frost. Each creature in that area makes a DC 15 Constitution saving throw, taking 35 (10d6) cold damage on a failed save or half damage on a success.&nbsp;</p>",
+				"description": "<p>The dragon exhales a 60-foot&nbsp;cone of frost. Each creature in the area makes a DC 19&nbsp;Constitution saving throw. On a failure, it takes 52 (15d6)&nbsp;cold damage, and its speed is reduced to 0 until the end&nbsp;of its next turn. On a success, it takes half damage.</p>",
 				"favorite": true,
 				"secretDescription": "",
 				"source": "",
@@ -1796,6 +1796,871 @@
 			"ownership": {
 				"default": 0
 			}
+		},
+		{
+			"name": "Animal Friendship",
+			"type": "spell",
+			"img": "icons/creatures/mammals/elk-moose-marked-green.webp",
+			"effects": [
+				{
+					"icon": "icons/creatures/mammals/elk-moose-marked-green.webp",
+					"origin": "Actor.jsPk3p9Kum010Ag4.Item.gTsFIZHLN3hwUvz9",
+					"flags": {
+						"a5e": {
+							"sort": 0,
+							"transferType": "onUse",
+							"actionId": "IV3HIuyqtazSa3SL",
+							"duration": {
+								"unit": "hours"
+							}
+						}
+					},
+					"transfer": false,
+					"name": "Charmed",
+					"_id": "V3v15wAVtuObQUMj",
+					"changes": [
+						{
+							"key": "flags.a5e.effects.statusConditions",
+							"value": "[\"charmed\"]",
+							"mode": 0,
+							"priority": null
+						}
+					],
+					"disabled": false,
+					"duration": {
+						"startTime": null,
+						"seconds": 86400,
+						"combat": null,
+						"rounds": null,
+						"turns": null,
+						"startRound": null,
+						"startTurn": null
+					},
+					"description": "",
+					"statuses": [
+						"charmed"
+					],
+					"folder": null
+				}
+			],
+			"flags": {
+				"core": {
+					"sourceId": "Compendium.a5e.a5e-spells.Item.1laktjzxk5nh1x1r"
+				}
+			},
+			"system": {
+				"actions": {
+					"IV3HIuyqtazSa3SL": {
+						"name": "Animal Friendship",
+						"activation": {
+							"cost": 1,
+							"type": "action",
+							"reactionTrigger": ""
+						},
+						"duration": {
+							"unit": "hour",
+							"value": "24"
+						},
+						"ranges": {
+							"Sq7GpokSS170wv8L": {
+								"range": "short"
+							}
+						},
+						"area": {
+							"shape": "",
+							"size": "",
+							"placeTemplate": false
+						},
+						"target": {
+							"quantity": 1,
+							"type": "creature",
+							"scaling": {
+								"mode": "spellLevel",
+								"formula": "1"
+							}
+						},
+						"prompts": {
+							"PwcoRftiVfDdbbMn": {
+								"ability": "wis",
+								"onSave": "",
+								"saveDC": {
+									"type": "spellcasting",
+									"bonus": ""
+								},
+								"type": "savingThrow"
+							},
+							"iAOo77hey4Ti5huA": {
+								"type": "effect",
+								"default": true,
+								"effectId": "V3v15wAVtuObQUMj"
+							}
+						},
+						"consumers": {
+							"PFcYOAHOHeSUxRa2": {
+								"type": "itemUses",
+								"default": true,
+								"quantity": 1
+							}
+						}
+					}
+				},
+				"description": "<p>You allow your inner beauty to shine through in song and dance whether to call a bird from its tree or a badger from its sett. Until the spell ends or one of your companions harms it (whichever is sooner), the target is charmed by you.</p><p><strong><em>Cast at Higher Levels.</em></strong> Choose one additional target for each slot level above 1st.</p>",
+				"favorite": false,
+				"secretDescription": "",
+				"source": "",
+				"uses": {
+					"value": 3,
+					"max": "3",
+					"per": "day",
+					"recharge": {
+						"formula": "",
+						"threshold": ""
+					}
+				},
+				"schema": {
+					"version": null,
+					"lastMigration": null
+				},
+				"classes": [
+					"bard",
+					"druid"
+				],
+				"components": {
+					"vocalized": true,
+					"seen": true,
+					"material": true
+				},
+				"concentration": false,
+				"level": 1,
+				"materials": "red ribbon",
+				"materialsConsumed": false,
+				"prepared": false,
+				"prerequisite": "",
+				"rare": false,
+				"ritual": false,
+				"schools": {
+					"primary": "enchantment",
+					"secondary": [
+						"beasts",
+						"compulsion",
+						"nature"
+					]
+				},
+				"schemaVersion": {
+					"version": 0.01,
+					"lastMigration": {
+						"version": {
+							"schema": 0.009,
+							"foundry": "12.316",
+							"system": "0.16.12"
+						}
+					}
+				}
+			},
+			"folder": null,
+			"ownership": {
+				"default": 0
+			},
+			"_id": "gTsFIZHLN3hwUvz9",
+			"sort": 100000
+		},
+		{
+			"name": "Sleet Storm",
+			"type": "spell",
+			"img": "icons/magic/water/snowflake-ice-blue.webp",
+			"effects": [],
+			"flags": {
+				"core": {
+					"sourceId": "Compendium.a5e.a5e-spells.Item.qvi9ra3gzxi3sd28"
+				}
+			},
+			"system": {
+				"actions": {
+					"PhZr5CfeJzmgecHb": {
+						"name": "Sleet Storm",
+						"activation": {
+							"cost": 1,
+							"type": "action",
+							"reactionTrigger": ""
+						},
+						"duration": {
+							"unit": "minute",
+							"value": "1"
+						},
+						"ranges": {
+							"YJ2U9vqdjAGyIUzn": {
+								"range": "long"
+							}
+						},
+						"area": {
+							"shape": "cylinder",
+							"radius": "40",
+							"height": "20",
+							"placeTemplate": true
+						},
+						"target": {
+							"quantity": "",
+							"type": ""
+						},
+						"prompts": {
+							"qGvNczTba0I7MNTK": {
+								"ability": "dex",
+								"onSave": "",
+								"saveDC": {
+									"type": "spellcasting",
+									"bonus": ""
+								},
+								"type": "savingThrow"
+							},
+							"LpaYLUIHdbJ5lIC5": {
+								"type": "savingThrow",
+								"default": true,
+								"ability": "con",
+								"saveDC": {
+									"type": "spellcasting"
+								},
+								"label": "Concentration"
+							}
+						},
+						"consumers": {
+							"ZgHZyRxp1x2hSLUW": {
+								"type": "itemUses",
+								"default": true,
+								"quantity": 1
+							}
+						}
+					}
+				},
+				"description": "<p>You conjure a storm of freezing rain and sleet in the area. The ground in the area is covered with slick ice that makes it difficult terrain, exposed flames in the area are doused, and the area is heavily obscured.&nbsp;When a creature enters the area for the first time on a turn or starts its turn there, it makes a Dexterity saving throw or falls prone.</p>\n<p>When a creature concentrating on a spell starts its turn in the area or first enters into the area on a turn, it makes a Constitution saving throw or loses concentration.</p>",
+				"favorite": false,
+				"secretDescription": "",
+				"source": "",
+				"uses": {
+					"value": 3,
+					"max": "3",
+					"per": "day",
+					"recharge": {
+						"formula": "",
+						"threshold": ""
+					}
+				},
+				"schema": {
+					"version": null,
+					"lastMigration": null
+				},
+				"classes": [
+					"druid",
+					"elementalistWater",
+					"sorcerer",
+					"witch",
+					"wizard"
+				],
+				"components": {
+					"vocalized": true,
+					"seen": true,
+					"material": true
+				},
+				"concentration": true,
+				"level": 2,
+				"materials": "few drops of melted snow",
+				"materialsConsumed": false,
+				"prepared": false,
+				"prerequisite": "",
+				"rare": false,
+				"ritual": false,
+				"schools": {
+					"primary": "conjuration",
+					"secondary": [
+						"cold",
+						"nature",
+						"terrain",
+						"weather"
+					]
+				},
+				"schemaVersion": {
+					"version": 0.01,
+					"lastMigration": {
+						"version": {
+							"schema": 0.009,
+							"foundry": "12.316",
+							"system": "0.16.12"
+						}
+					}
+				}
+			},
+			"folder": null,
+			"ownership": {
+				"default": 0
+			},
+			"_id": "WvXm8gknoCazxOf5",
+			"sort": 200000
+		},
+		{
+			"name": "Dominate Beast",
+			"type": "spell",
+			"img": "icons/creatures/abilities/bull-head-horns-glowing.webp",
+			"effects": [
+				{
+					"icon": "icons/creatures/abilities/bull-head-horns-glowing.webp",
+					"origin": "Actor.jsPk3p9Kum010Ag4.Item.aHXPnjrT5bBXssot",
+					"flags": {
+						"a5e": {
+							"sort": 0,
+							"transferType": "onUse",
+							"actionId": "rhpBwsEIHRb7RSL9",
+							"duration": {
+								"unit": "minutes"
+							}
+						}
+					},
+					"transfer": false,
+					"name": "Charmed",
+					"_id": "kz08GwrHdeazSDPY",
+					"changes": [
+						{
+							"key": "flags.a5e.effects.statusConditions",
+							"value": "[\"charmed\"]",
+							"mode": 0,
+							"priority": null
+						}
+					],
+					"disabled": false,
+					"duration": {
+						"startTime": null,
+						"seconds": 60,
+						"combat": null,
+						"rounds": null,
+						"turns": null,
+						"startRound": null,
+						"startTurn": null
+					},
+					"description": "",
+					"statuses": [
+						"charmed"
+					],
+					"folder": null
+				},
+				{
+					"icon": "icons/creatures/abilities/bull-head-horns-glowing.webp",
+					"origin": "Actor.jsPk3p9Kum010Ag4.Item.aHXPnjrT5bBXssot",
+					"flags": {
+						"a5e": {
+							"sort": 0,
+							"transferType": "onUse",
+							"actionId": "coQFvp6Ufv9slOaq",
+							"duration": {
+								"unit": "minutes"
+							}
+						}
+					},
+					"transfer": false,
+					"name": "Charmed",
+					"_id": "4ab3QK7o48R6LsYe",
+					"changes": [
+						{
+							"key": "flags.a5e.effects.statusConditions",
+							"value": "[\"charmed\"]",
+							"mode": 0,
+							"priority": null
+						}
+					],
+					"disabled": false,
+					"duration": {
+						"startTime": null,
+						"seconds": 600,
+						"combat": null,
+						"rounds": null,
+						"turns": null,
+						"startRound": null,
+						"startTurn": null
+					},
+					"description": "",
+					"statuses": [
+						"charmed"
+					],
+					"folder": null
+				},
+				{
+					"icon": "icons/creatures/abilities/bull-head-horns-glowing.webp",
+					"origin": "Actor.jsPk3p9Kum010Ag4.Item.aHXPnjrT5bBXssot",
+					"flags": {
+						"a5e": {
+							"sort": 0,
+							"transferType": "onUse",
+							"actionId": "0EAgulYlFzPzXch0",
+							"duration": {
+								"unit": "hours"
+							}
+						}
+					},
+					"transfer": false,
+					"name": "Charmed",
+					"_id": "Jt4trSkATcduXBVA",
+					"changes": [
+						{
+							"key": "flags.a5e.effects.statusConditions",
+							"value": "[\"charmed\"]",
+							"mode": 0,
+							"priority": null
+						}
+					],
+					"disabled": false,
+					"duration": {
+						"startTime": null,
+						"seconds": 3600,
+						"combat": null,
+						"rounds": null,
+						"turns": null,
+						"startRound": null,
+						"startTurn": null
+					},
+					"description": "",
+					"statuses": [
+						"charmed"
+					],
+					"folder": null
+				},
+				{
+					"icon": "icons/creatures/abilities/bull-head-horns-glowing.webp",
+					"origin": "Actor.jsPk3p9Kum010Ag4.Item.aHXPnjrT5bBXssot",
+					"flags": {
+						"a5e": {
+							"sort": 0,
+							"transferType": "onUse",
+							"actionId": "fRfgyY0HyDdWoP41",
+							"duration": {
+								"unit": "hours"
+							}
+						}
+					},
+					"transfer": false,
+					"name": "Charmed",
+					"_id": "PTGTdno9NcNHDtQc",
+					"changes": [
+						{
+							"key": "flags.a5e.effects.statusConditions",
+							"value": "[\"charmed\"]",
+							"mode": 0,
+							"priority": null
+						}
+					],
+					"disabled": false,
+					"duration": {
+						"startTime": null,
+						"seconds": 28800,
+						"combat": null,
+						"rounds": null,
+						"turns": null,
+						"startRound": null,
+						"startTurn": null
+					},
+					"description": "",
+					"statuses": [
+						"charmed"
+					],
+					"folder": null
+				}
+			],
+			"flags": {
+				"core": {
+					"sourceId": "Compendium.a5e.a5e-spells.Item.ma5iq3qjh0fa7ezb"
+				}
+			},
+			"system": {
+				"actions": {
+					"rhpBwsEIHRb7RSL9": {
+						"name": "Dominate Beast (4th-Level)",
+						"activation": {
+							"cost": 1,
+							"type": "action",
+							"reactionTrigger": ""
+						},
+						"duration": {
+							"unit": "minute",
+							"value": "1"
+						},
+						"ranges": {
+							"nEGLXoVdcsRW9pen": {
+								"range": "medium"
+							}
+						},
+						"area": {
+							"shape": "",
+							"size": "",
+							"placeTemplate": false,
+							"quantity": 1
+						},
+						"target": {
+							"quantity": "",
+							"type": "creature"
+						},
+						"prompts": {
+							"Yoz9P6uijiXstwcK": {
+								"ability": "wis",
+								"onSave": "Negates effect",
+								"saveDC": {
+									"type": "spellcasting",
+									"bonus": ""
+								},
+								"type": "savingThrow"
+							},
+							"gWxjrLUzeFPCtpuy": {
+								"type": "effect",
+								"default": true,
+								"effectId": "kz08GwrHdeazSDPY"
+							}
+						},
+						"consumers": {
+							"8OKwCITdI6PsuSrp": {
+								"type": "itemUses",
+								"default": true,
+								"quantity": 1
+							}
+						}
+					}
+				},
+				"description": "<p>You assert control over the target beast's mind and it is charmed for the duration. If it is engaged in combat with you or creatures friendly to you, it has advantage on its saving throw.</p><p>Until the charmed condition ends, you establish a telepathic link with it while you are on the same plane. You may issue commands through this link and the target does its best to obey. No action is required to issue commands, which can be a simple and general course of action such as &quot;Attack that target, &quot; &quot;Go over there, &quot; or &quot;Bring me that object.&quot; Without commands the target only defends itself. The target continues to follow a command until its task is complete.</p><p>You can use your action to assume direct control of the target. Until the end of your next turn, you decide all of the target's actions and it does nothing you do not allow it to. While a target is directly controlled in this way, you can also cause it to use a reaction, but this requires you to use your own reaction as well.</p><p>Each time the target takes damage, it makes a new saving throw against the spell, ending the spell on a success.</p><p><strong><em>Cast at Higher Levels.</em></strong> The spell's duration is extended: 5th-level&mdash;Concentration (10 minutes), 6th-level&mdash;Concentration (1 hour), 7th-level&mdash;Concentration (8 hours).</p>",
+				"favorite": false,
+				"secretDescription": "",
+				"source": "",
+				"uses": {
+					"value": 3,
+					"max": "3",
+					"per": "day",
+					"recharge": {
+						"formula": "",
+						"threshold": ""
+					}
+				},
+				"schema": {
+					"version": null,
+					"lastMigration": null
+				},
+				"classes": [
+					"druid",
+					"sorcerer"
+				],
+				"components": {
+					"vocalized": true,
+					"seen": true,
+					"material": false
+				},
+				"concentration": true,
+				"level": 4,
+				"materials": "",
+				"materialsConsumed": false,
+				"prepared": false,
+				"prerequisite": "",
+				"rare": false,
+				"ritual": false,
+				"schools": {
+					"primary": "enchantment",
+					"secondary": [
+						"beasts",
+						"compulsion",
+						"nature"
+					]
+				},
+				"schemaVersion": {
+					"version": 0.01,
+					"lastMigration": {
+						"version": {
+							"schema": 0.009,
+							"foundry": "12.316",
+							"system": "0.16.12"
+						}
+					}
+				}
+			},
+			"folder": null,
+			"ownership": {
+				"default": 0
+			},
+			"_id": "aHXPnjrT5bBXssot",
+			"sort": 150000
+		},
+		{
+			"name": "Fire Shield",
+			"type": "spell",
+			"img": "icons/magic/fire/blast-jet-stream-embers-yellow.webp",
+			"effects": [
+				{
+					"icon": "icons/magic/fire/blast-jet-stream-embers-yellow.webp",
+					"origin": "Actor.jsPk3p9Kum010Ag4.Item.1KSQhJYmO4IBVRsa",
+					"flags": {
+						"a5e": {
+							"sort": 0,
+							"transferType": "onUse",
+							"actionId": "OrpIOwi4mJB0dRUp",
+							"applyToSelf": true,
+							"duration": {
+								"unit": "minutes"
+							}
+						}
+					},
+					"transfer": false,
+					"name": "Chill Shield",
+					"_id": "L1PFIRvBuubE1ulz",
+					"changes": [
+						{
+							"key": "@token.light.bright",
+							"value": "10",
+							"mode": 6,
+							"priority": null
+						},
+						{
+							"key": "@token.light.dim",
+							"value": "20",
+							"mode": 6,
+							"priority": null
+						},
+						{
+							"key": "system.traits.damageResistances",
+							"value": "[\"fire\"]",
+							"mode": 2,
+							"priority": null
+						}
+					],
+					"disabled": false,
+					"duration": {
+						"startTime": null,
+						"seconds": 600,
+						"combat": null,
+						"rounds": null,
+						"turns": null,
+						"startRound": null,
+						"startTurn": null
+					},
+					"description": "",
+					"statuses": [],
+					"folder": null
+				},
+				{
+					"icon": "icons/magic/fire/blast-jet-stream-embers-yellow.webp",
+					"origin": "Actor.jsPk3p9Kum010Ag4.Item.1KSQhJYmO4IBVRsa",
+					"flags": {
+						"a5e": {
+							"sort": 0,
+							"transferType": "onUse",
+							"actionId": "k6N2ivKWMzmRBBfA",
+							"applyToSelf": true,
+							"duration": {
+								"unit": "minutes"
+							}
+						}
+					},
+					"transfer": false,
+					"name": "Warm Shield",
+					"_id": "D1ImlLOyr9nE9nHx",
+					"changes": [
+						{
+							"key": "@token.light.bright",
+							"value": "10",
+							"mode": 6,
+							"priority": null
+						},
+						{
+							"key": "@token.light.dim",
+							"value": "20",
+							"mode": 6,
+							"priority": null
+						},
+						{
+							"key": "system.traits.damageResistances",
+							"value": "[\"cold\"]",
+							"mode": 2,
+							"priority": null
+						}
+					],
+					"disabled": false,
+					"duration": {
+						"startTime": null,
+						"seconds": 600,
+						"combat": null,
+						"rounds": null,
+						"turns": null,
+						"startRound": null,
+						"startTurn": null
+					},
+					"description": "",
+					"statuses": [],
+					"folder": null
+				}
+			],
+			"flags": {
+				"core": {
+					"sourceId": "Compendium.a5e.a5e-spells.Item.lnbcwy44k19g4bbu"
+				}
+			},
+			"system": {
+				"actions": {
+					"OrpIOwi4mJB0dRUp": {
+						"name": "Chill Shield",
+						"activation": {
+							"cost": 1,
+							"type": "action",
+							"reactionTrigger": ""
+						},
+						"duration": {
+							"unit": "minute",
+							"value": "10"
+						},
+						"ranges": {
+							"LMb8BXQ8GDu03Ucx": {
+								"range": "self"
+							}
+						},
+						"area": {
+							"shape": "",
+							"size": "",
+							"placeTemplate": false,
+							"quantity": 1
+						},
+						"target": {
+							"quantity": "",
+							"type": "self"
+						},
+						"rolls": {
+							"ekC3Ly6r1OqDLPaV": {
+								"canCrit": false,
+								"damageType": "cold",
+								"formula": "2d8",
+								"name": "Chill Shield",
+								"type": "damage"
+							}
+						},
+						"consumers": {
+							"synb5w3wbvihPias": {
+								"type": "itemUses",
+								"default": true,
+								"quantity": 1
+							}
+						},
+						"prompts": {
+							"8A7bCLYWUKn8XIzK": {
+								"type": "effect",
+								"default": true,
+								"effectId": "L1PFIRvBuubE1ulz"
+							}
+						}
+					},
+					"k6N2ivKWMzmRBBfA": {
+						"name": "Warm Shield",
+						"activation": {
+							"cost": 1,
+							"type": "action",
+							"reactionTrigger": ""
+						},
+						"duration": {
+							"unit": "minute",
+							"value": "10"
+						},
+						"ranges": {
+							"LMb8BXQ8GDu03Ucx": {
+								"range": "self"
+							}
+						},
+						"area": {
+							"shape": "",
+							"size": "",
+							"placeTemplate": false,
+							"quantity": 1
+						},
+						"target": {
+							"quantity": "",
+							"type": "self"
+						},
+						"rolls": {
+							"ekC3Ly6r1OqDLPaV": {
+								"canCrit": false,
+								"damageType": "fire",
+								"formula": "2d8",
+								"name": "Chill Shield",
+								"type": "damage"
+							}
+						},
+						"consumers": {
+							"m05n9EV56EuZuJWM": {
+								"type": "itemUses",
+								"default": true,
+								"quantity": 1
+							}
+						},
+						"prompts": {
+							"8A7bCLYWUKn8XIzK": {
+								"type": "effect",
+								"default": true,
+								"effectId": "L1PFIRvBuubE1ulz"
+							},
+							"7xVXxUziNFOgbF9J": {
+								"type": "effect",
+								"default": true,
+								"effectId": "D1ImlLOyr9nE9nHx"
+							}
+						}
+					}
+				},
+				"description": "<p>Until the spell ends, flames envelop your body, casting bright light in a 10-foot radius and dim light for an additional 10 feet. You can use an action to end the spell early. Choose one of the following options:</p><ul><li><p><strong>Chill Shield:</strong> You have resistance to fire damage. A creature within 5 feet of you takes 2d8 cold damage when it hits you with a melee attack.</p></li><li><p><strong>Warm Shield:</strong> You have resistance to cold damage. A creature within 5 feet of you takes 2d8 fire damage when it hits you with a melee attack.</p></li></ul><p><strong><em>Cast at Higher Levels.</em></strong> The duration increases to 1 hour when using a 6th-level spell slot, or 8 hours when using an 8th-level spell slot.</p>",
+				"favorite": false,
+				"secretDescription": "",
+				"source": "",
+				"uses": {
+					"value": 3,
+					"max": "3",
+					"per": "day",
+					"recharge": {
+						"formula": "",
+						"threshold": ""
+					}
+				},
+				"schema": {
+					"version": null,
+					"lastMigration": null
+				},
+				"classes": [
+					"elementalistFire",
+					"elementalistWater",
+					"wizard"
+				],
+				"components": {
+					"vocalized": true,
+					"seen": true,
+					"material": true
+				},
+				"concentration": false,
+				"level": 4,
+				"materials": "phosphorus",
+				"materialsConsumed": false,
+				"prepared": false,
+				"prerequisite": "",
+				"rare": false,
+				"ritual": false,
+				"schools": {
+					"primary": "evocation",
+					"secondary": [
+						"arcane",
+						"cold",
+						"fire",
+						"protection"
+					]
+				},
+				"schemaVersion": {
+					"version": 0.01,
+					"lastMigration": {
+						"version": {
+							"schema": 0.009,
+							"foundry": "12.316",
+							"system": "0.16.12"
+						}
+					}
+				}
+			},
+			"folder": null,
+			"ownership": {
+				"default": 0
+			},
+			"_id": "1KSQhJYmO4IBVRsa",
+			"sort": 175000
 		}
 	],
 	"effects": [],
@@ -1815,8 +2680,7 @@
 			],
 			"showSpellSlots": false,
 			"showSpellPoints": false,
-			"sheetIsLocked": false,
-			"showSpellTab": false
+			"sheetIsLocked": true
 		}
 	},
 	"system": {
@@ -2295,7 +3159,7 @@
 			"inspiration": false,
 			"fatigue": 0,
 			"strife": 0,
-			"spellcasting": "int",
+			"spellcasting": "cha",
 			"casterLevel": 0
 		},
 		"bonuses": {
@@ -2465,5 +3329,5 @@
 		"prependAdjective": false
 	},
 	"folder": null,
-	"_id": "v93pwp05o9mfe947"
+	"_id": "52n1gops1pxvlnxn"
 }
