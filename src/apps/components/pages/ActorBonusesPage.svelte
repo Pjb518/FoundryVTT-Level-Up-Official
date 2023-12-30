@@ -38,6 +38,9 @@
 
     const actor = getContext("actor");
 
+    let rightClickConfigure =
+        game.settings.get("a5e", "itemRightClickConfigure") ?? false;
+
     $: disableMeleeWeaponAttack = determineIfPropertyModifiedByEffect(
         $actor,
         "system.bonuses.meleeWeaponAttack",
@@ -224,7 +227,13 @@
 
         <ul class="bonus-list">
             {#each Object.entries($actor.system.bonuses.abilities ?? {}) as [id, abilityBonus] (id)}
-                <li class="bonus">
+                <li
+                    class="bonus"
+                    on:auxclick={() => {
+                        if (rightClickConfigure)
+                            $actor.configureBonus(id, "abilities");
+                    }}
+                >
                     <img class="bonus__img" src={abilityBonus.img} alt="" />
 
                     <h3 class="bonus__heading">
@@ -283,7 +292,13 @@
 
         <ul class="bonus-list">
             {#each Object.entries($actor.system.bonuses.damage ?? {}) as [id, damageBonus] (id)}
-                <li class="bonus">
+                <li
+                    class="bonus"
+                    on:auxclick={() => {
+                        if (rightClickConfigure)
+                            $actor.configureBonus(id, "damage");
+                    }}
+                >
                     <img class="bonus__img" src={damageBonus.img} alt="" />
 
                     <h3 class="bonus__heading">
@@ -342,7 +357,13 @@
 
         <ul class="bonus-list">
             {#each Object.entries($actor.system.bonuses.healing ?? {}) as [id, healingBonus] (id)}
-                <li class="bonus">
+                <li
+                    class="bonus"
+                    on:auxclick={() => {
+                        if (rightClickConfigure)
+                            $actor.configureBonus(id, "healing");
+                    }}
+                >
                     <img class="bonus__img" src={healingBonus.img} alt="" />
 
                     <h3 class="bonus__heading">
@@ -401,7 +422,13 @@
 
         <ul class="bonus-list">
             {#each Object.entries($actor.system.bonuses.skills ?? {}) as [id, skillBonus] (id)}
-                <li class="bonus">
+                <li
+                    class="bonus"
+                    on:auxclick={() => {
+                        if (rightClickConfigure)
+                            $actor.configureBonus(id, "skills");
+                    }}
+                >
                     <img class="bonus__img" src={skillBonus.img} alt="" />
 
                     <h3 class="bonus__heading">
