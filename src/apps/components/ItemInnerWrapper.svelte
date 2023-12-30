@@ -24,6 +24,8 @@
                 return "A";
             case "bonusAction":
                 return "B";
+            case "legendaryAction":
+                return "L";
             case "reaction":
                 return "R";
             default:
@@ -38,6 +40,8 @@
                 return "Action";
             case "B":
                 return "Bonus Action";
+            case "L":
+                return "Legendary Action";
             case "R":
                 return "Reaction";
             default:
