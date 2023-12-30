@@ -186,7 +186,7 @@
     main {
         display: flex;
         height: 100%;
-        background: $color-sheet-background;
+        background-color: rgba(246, 242, 235, 0.15);
     }
 
     .main-container {
