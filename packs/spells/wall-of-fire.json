@@ -7,7 +7,7 @@
 	"system": {
 		"actions": {
 			"gl56mC2LfN1dlbaC": {
-				"name": "Wall of Fire",
+				"name": "Wall",
 				"activation": {
 					"cost": 1,
 					"type": "action",
@@ -23,8 +23,60 @@
 					}
 				},
 				"area": {
-					"shape": "",
-					"placeTemplate": false
+					"shape": "wall",
+					"placeTemplate": false,
+					"quantity": 6,
+					"length": 10,
+					"width": 1,
+					"height": 20
+				},
+				"target": {
+					"quantity": "",
+					"type": ""
+				},
+				"rolls": {
+					"JkefHMRJo7Iwy9xB": {
+						"canCrit": false,
+						"damageType": "fire",
+						"formula": "5d8",
+						"name": "",
+						"type": "damage",
+						"scaling": {
+							"mode": "spellLevel",
+							"formula": "1d8"
+						}
+					}
+				},
+				"consumers": {
+					"bEyknYhJjozU7VCr": {
+						"mode": "variable",
+						"spellLevel": 4,
+						"points": 6,
+						"type": "spell"
+					}
+				}
+			},
+			"0qCuCu0e8ZyHHjpO": {
+				"name": "Ring",
+				"activation": {
+					"cost": 1,
+					"type": "action",
+					"reactionTrigger": ""
+				},
+				"duration": {
+					"unit": "minute",
+					"value": "1"
+				},
+				"ranges": {
+					"3HzYqcZsgM7RKCUM": {
+						"range": "long"
+					}
+				},
+				"area": {
+					"shape": "circle",
+					"placeTemplate": true,
+					"quantity": 1,
+					"radius": 10
 				},
 				"target": {
 					"quantity": "",
@@ -53,14 +105,14 @@
 				}
 			}
 		},
-		"description": "<p>You create a wall of fire on a solid surface. The wall can be up to 60 feet long (it does not have to be a straight line; sections of the wall can angle as long as they are contiguous), 20 feet high, and 1 foot thick, or a ringed wall up to 20 feet in diameter, 20 feet high, and 1 foot thick. The wall blocks sight.</p><p>When the wall appears, each creature within its area makes a Dexterity saving throw, taking 5d8 fire damage on a failed save, or half as much damage on a successful save.</p><p>One side of the wall (chosen when the spell is cast) deals 5d8 fire damage to each creature that ends its turn within 10 feet of that side or inside the wall. A creature takes the same damage when it enters the wall itself for the first time on a turn or ends its turn there. The other side of the wall deals no damage.</p><p><strong><em>Cast at Higher Levels.</em></strong> The damage increases by 1d8 for each slot level above 4th.</p>",
+		"description": "<p>You create a wall of fire on a solid surface. The wall can be up to 60 feet long (it does not have to be a straight line; sections of the wall can angle as long as they are contiguous), 20 feet high, and 1 foot thick, or a ringed wall up to 20 feet in diameter, 20 feet high, and 1 foot thick. The wall blocks sight.</p>\n<p>When the wall appears, each creature within its area makes a Dexterity saving throw, taking 5d8 fire damage on a failed save, or half as much damage on a successful save.</p>\n<p>One side of the wall (chosen when the spell is cast) deals 5d8 fire damage to each creature that ends its turn within 10 feet of that side or inside the wall. A creature takes the same damage when it enters the wall itself for the first time on a turn or ends its turn there. The other side of the wall deals no damage.</p>\n<p><strong><em>Cast at Higher Levels.</em></strong> The damage increases by 1d8 for each slot level above 4th.</p>",
 		"favorite": false,
 		"secretDescription": "",
 		"source": "",
 		"uses": {
-			"value": null,
+			"value": 0,
 			"max": "",
-			"per": null,
+			"per": "",
 			"recharge": {
 				"formula": "",
 				"threshold": ""

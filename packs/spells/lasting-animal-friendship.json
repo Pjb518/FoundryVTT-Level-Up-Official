@@ -2,23 +2,65 @@
 	"name": "Lasting Animal Friendship",
 	"type": "spell",
 	"img": "icons/creatures/mammals/elk-moose-marked-green.webp",
-	"effects": [],
+	"effects": [
+		{
+			"icon": "icons/creatures/mammals/elk-moose-marked-green.webp",
+			"origin": "Item.Ko3PcAv8wcoymKt5",
+			"flags": {
+				"a5e": {
+					"sort": 0,
+					"transferType": "onUse",
+					"actionId": "IV3HIuyqtazSa3SL",
+					"duration": {
+						"unit": "seconds",
+						"type": "seconds"
+					}
+				}
+			},
+			"transfer": false,
+			"name": "Charmed",
+			"_id": "V3v15wAVtuObQUMj",
+			"changes": [
+				{
+					"key": "flags.a5e.effects.statusConditions",
+					"value": "[\"charmed\"]",
+					"mode": 0,
+					"priority": null
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": 0,
+				"combat": null,
+				"rounds": null,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "",
+			"statuses": [
+				"charmed"
+			],
+			"folder": null
+		}
+	],
 	"flags": {},
 	"system": {
 		"actions": {
-			"9Ar5RRvVRWe3egpS": {
-				"name": "Lasting Animal Friendship",
+			"IV3HIuyqtazSa3SL": {
+				"name": "Animal Friendship",
 				"activation": {
 					"cost": 1,
 					"type": "action",
 					"reactionTrigger": ""
 				},
 				"duration": {
-					"unit": "hour",
-					"value": "24"
+					"unit": "",
+					"value": 1
 				},
 				"ranges": {
-					"ySMEMo9Dv7t5uhYn": {
+					"Sq7GpokSS170wv8L": {
 						"range": "short"
 					}
 				},
@@ -28,22 +70,31 @@
 					"placeTemplate": false
 				},
 				"target": {
-					"quantity": "",
-					"type": "creature"
+					"quantity": 1,
+					"type": "creature",
+					"scaling": {
+						"mode": "spellLevel",
+						"formula": "1"
+					}
 				},
 				"prompts": {
-					"h2NPOpY5Q6FUSfIS": {
+					"PwcoRftiVfDdbbMn": {
 						"ability": "wis",
-						"onSave": "Negates effect",
+						"onSave": "",
 						"saveDC": {
-							"type": "custom",
+							"type": "spellcasting",
 							"bonus": ""
 						},
 						"type": "savingThrow"
+					},
+					"iAOo77hey4Ti5huA": {
+						"type": "effect",
+						"default": true,
+						"effectId": "V3v15wAVtuObQUMj"
 					}
 				},
 				"consumers": {
-					"iObESjaWWx69XdqO": {
+					"REreIaie5jZUD7V8": {
 						"mode": "variable",
 						"spellLevel": 1,
 						"points": 2,
@@ -52,7 +103,7 @@
 				}
 			}
 		},
-		"description": "<p>You allow your inner beauty to shine through in song and dance whether to call a bird from its tree or a badger from its sett. Until the spell ends or one of your companions harms it (whichever is sooner), the target is charmed by you.</p><p><strong><em>Cast at Higher Levels.</em></strong> Choose one additional target for each slot level above 1st.</p><hr class=\"a5e-rule u-my-md\"><p><strong>Rare: Lasting Animal Friendship.</strong> So long as the target has a CR equal to or less than half your proficiency bonus, the spell’s duration becomes permanent until it is dispelled or you cast this spell again. </p>",
+		"description": "<p>You allow your inner beauty to shine through in song and dance whether to call a bird from its tree or a badger from its sett. Until the spell ends or one of your companions harms it (whichever is sooner), the target is charmed by you.</p>\n<p><strong><em>Cast at Higher Levels.</em></strong> Choose one additional target for each slot level above 1st.</p>\n<p><em><strong>Rare:&nbsp;</strong></em><strong>Lasting Animal Friendship.&nbsp;</strong>So&nbsp;long as the target has a CR equal to or less than&nbsp;half your proficiency bonus, the spell&rsquo;s duration&nbsp;becomes permanent until it is dispelled or you&nbsp;cast this spell again.</p>",
 		"favorite": false,
 		"secretDescription": "",
 		"source": "",
@@ -69,7 +120,10 @@
 			"version": null,
 			"lastMigration": null
 		},
-		"classes": [],
+		"classes": [
+			"bard",
+			"druid"
+		],
 		"components": {
 			"vocalized": true,
 			"seen": true,

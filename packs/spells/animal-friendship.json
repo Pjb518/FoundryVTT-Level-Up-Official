@@ -2,7 +2,48 @@
 	"name": "Animal Friendship",
 	"type": "spell",
 	"img": "icons/creatures/mammals/elk-moose-marked-green.webp",
-	"effects": [],
+	"effects": [
+		{
+			"icon": "icons/creatures/mammals/elk-moose-marked-green.webp",
+			"origin": "Item.FVrVPXrotSsTtPGy",
+			"flags": {
+				"a5e": {
+					"sort": 0,
+					"transferType": "onUse",
+					"actionId": "IV3HIuyqtazSa3SL",
+					"duration": {
+						"unit": "hours"
+					}
+				}
+			},
+			"transfer": false,
+			"name": "Charmed",
+			"_id": "V3v15wAVtuObQUMj",
+			"changes": [
+				{
+					"key": "flags.a5e.effects.statusConditions",
+					"value": "[\"charmed\"]",
+					"mode": 0,
+					"priority": null
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": 86400,
+				"combat": null,
+				"rounds": null,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "",
+			"statuses": [
+				"charmed"
+			],
+			"folder": null
+		}
+	],
 	"flags": {},
 	"system": {
 		"actions": {
@@ -28,18 +69,27 @@
 					"placeTemplate": false
 				},
 				"target": {
-					"quantity": "",
-					"type": "creature"
+					"quantity": 1,
+					"type": "creature",
+					"scaling": {
+						"mode": "spellLevel",
+						"formula": "1"
+					}
 				},
 				"prompts": {
 					"PwcoRftiVfDdbbMn": {
 						"ability": "wis",
-						"onSave": "Negates effect",
+						"onSave": "",
 						"saveDC": {
-							"type": "custom",
+							"type": "spellcasting",
 							"bonus": ""
 						},
 						"type": "savingThrow"
+					},
+					"iAOo77hey4Ti5huA": {
+						"type": "effect",
+						"default": true,
+						"effectId": "V3v15wAVtuObQUMj"
 					}
 				},
 				"consumers": {
