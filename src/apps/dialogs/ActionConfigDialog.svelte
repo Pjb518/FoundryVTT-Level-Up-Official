@@ -20,7 +20,7 @@
     export let { document, actionId, dialog } =
         getContext("#external").application;
 
-    const item = new ItemDocument(document);
+    const item = document;
 
     function updateCurrentTab(event) {
         currentTab = tabs[event.detail];

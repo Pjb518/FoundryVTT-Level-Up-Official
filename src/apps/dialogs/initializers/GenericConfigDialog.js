@@ -1,4 +1,5 @@
 import { TJSDialog } from '#runtime/svelte/application';
+import { TJSDocument } from '#runtime/svelte/store/fvtt/document';
 
 /**
  * Provides a dialog for creating documents that by default is modal and not resizable.
@@ -9,7 +10,7 @@ export default class GenericConfigDialog extends TJSDialog {
       title,
       content: {
         class: component,
-        props: { document, ...data }
+        props: { document: new TJSDocument(document), ...data }
       },
       zIndex: null
     }, {
@@ -29,6 +30,8 @@ export default class GenericConfigDialog extends TJSDialog {
   /** @inheritdoc */
   close(options) {
     this.#resolvePromise(null);
+    this.document?.destroy();
+
     return super.close(options);
   }
 
@@ -40,6 +43,8 @@ export default class GenericConfigDialog extends TJSDialog {
    */
   submit(results) {
     this.#resolvePromise(results);
+    this.document?.destroy();
+
     return super.close();
   }
 

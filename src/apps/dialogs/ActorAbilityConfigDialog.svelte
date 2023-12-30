@@ -1,7 +1,6 @@
 <script>
     import { getContext } from "svelte";
     import { localize } from "#runtime/svelte/helper";
-    import { TJSDocument } from "#runtime/svelte/store/fvtt/document";
 
     import Checkbox from "../components/Checkbox.svelte";
     import ExpertiseDiePicker from "../components/ExpertiseDiePicker.svelte";
@@ -19,7 +18,7 @@
         currentTab = tabs[event.detail];
     }
 
-    const actor = new TJSDocument(document);
+    const actor = document;
     const hideExpertiseDice = game.settings.get("a5e", "hideExpertiseDice");
 
     const tabs = [
@@ -181,42 +180,5 @@
         gap: 0.5rem;
         overflow: auto;
         background: $color-sheet-background;
-    }
-
-    .add-button,
-    .edit-button {
-        width: fit-content;
-        min-width: 1.5rem;
-        padding: 0.25rem;
-        line-height: 1;
-        background: transparent;
-        text-align: center;
-    }
-
-    .notes-header {
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        padding-bottom: 0.125rem;
-        border-bottom: 1px solid #ccc;
-    }
-
-    .notes-heading {
-        font-size: 1rem;
-        font-weight: bold;
-    }
-
-    .notes-list {
-        display: flex;
-        flex-direction: column;
-        gap: 0.25rem;
-        margin: 0;
-        padding: 0;
-        list-style: none;
-
-        &__note {
-            display: flex;
-            justify-content: space-between;
-        }
     }
 </style>

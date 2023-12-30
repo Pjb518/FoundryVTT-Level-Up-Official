@@ -1,7 +1,5 @@
 <script>
-    import { localize } from "#runtime/svelte/helper";
     import { getContext } from "svelte";
-    import { TJSDocument } from "#runtime/svelte/store/fvtt/document";
 
     import updateDocumentDataFromField from "../../utils/updateDocumentDataFromField";
 
@@ -11,7 +9,7 @@
 
     export let { document, appId } = getContext("#external").application;
 
-    const actor = new TJSDocument(document);
+    const actor = document;
     const { abilityAbbreviations, spellLevels } = CONFIG.A5E;
 
     $: flags = $actor.flags.a5e;

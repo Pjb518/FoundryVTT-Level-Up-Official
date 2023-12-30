@@ -16,7 +16,7 @@
         ];
     }
 
-    const item = new TJSDocument(document);
+    const item = document;
 
     $: roll = $item.actions[actionId].rolls[rollId];
     $: scalingMode = roll.scaling?.mode ?? null;

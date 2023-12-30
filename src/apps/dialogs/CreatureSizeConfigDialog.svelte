@@ -1,6 +1,5 @@
 <script>
     import { getContext } from "svelte";
-    import { TJSDocument } from "#runtime/svelte/store/fvtt/document";
 
     import updateDocumentDataFromField from "../../utils/updateDocumentDataFromField";
 
@@ -9,7 +8,7 @@
 
     export let { document, appId } = getContext("#external").application;
 
-    const actor = new TJSDocument(document);
+    const actor = document;
     const creatureSizes = Object.entries(CONFIG.A5E.actorSizes);
 </script>
 

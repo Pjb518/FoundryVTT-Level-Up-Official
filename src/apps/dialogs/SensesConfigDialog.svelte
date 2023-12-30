@@ -1,6 +1,5 @@
 <script>
     import { getContext } from "svelte";
-    import { TJSDocument } from "#runtime/svelte/store/fvtt/document";
     import { localize } from "#runtime/svelte/helper";
 
     import Checkbox from "../components/Checkbox.svelte";
@@ -10,7 +9,7 @@
 
     export let { document, appId } = getContext("#external").application;
 
-    const actor = new TJSDocument(document);
+    const actor = document;
     const { A5E } = CONFIG;
 
     const headings = {

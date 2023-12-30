@@ -1,7 +1,6 @@
 <script>
     import { getContext } from "svelte";
     import { localize } from "#runtime/svelte/helper";
-    import { TJSDocument } from "#runtime/svelte/store/fvtt/document";
 
     import TagGroup from "../components/TagGroup.svelte";
     import InputField from "../components/InputField.svelte";
@@ -43,7 +42,7 @@
         });
     }
 
-    const actor = new TJSDocument(document);
+    const actor = document;
     const { A5E } = CONFIG;
 
     const {

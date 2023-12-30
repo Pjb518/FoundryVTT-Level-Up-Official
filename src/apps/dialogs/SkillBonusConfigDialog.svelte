@@ -1,6 +1,5 @@
 <script>
     import { getContext, createEventDispatcher } from "svelte";
-    import { TJSDocument } from "@typhonjs-fvtt/runtime/svelte/store/fvtt/document";
 
     import updateDocumentDataFromField from "../../utils/updateDocumentDataFromField";
 
@@ -11,7 +10,7 @@
     export let { document, bonusID } = getContext("#external").application;
     export let jsonValue = null;
 
-    const actor = new TJSDocument(document);
+    const actor = document;
     const dispatch = createEventDispatcher();
 
     function updateImage() {

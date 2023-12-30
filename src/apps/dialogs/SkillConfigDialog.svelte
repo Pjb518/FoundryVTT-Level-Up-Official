@@ -1,6 +1,5 @@
 <script>
     import { getContext } from "svelte";
-    import { TJSDocument } from "#runtime/svelte/store/fvtt/document";
 
     import Checkbox from "../components/Checkbox.svelte";
     import CustomTagGroup from "../components/CustomTagGroup.svelte";
@@ -14,7 +13,7 @@
     export let { document, appId, skillKey } =
         getContext("#external").application;
 
-    const actor = new TJSDocument(document);
+    const actor = document;
     const abilityOptions = prepareAbilityOptions();
 
     const specialtyOptions = Object.entries(

@@ -1,6 +1,5 @@
 <script>
     import { getContext } from "svelte";
-    import { TJSDocument } from "@typhonjs-fvtt/runtime/svelte/store/fvtt/document";
 
     import FormSection from "../components/FormSection.svelte";
     import RadioGroup from "../components/RadioGroup.svelte";
@@ -16,7 +15,7 @@
         ];
     }
 
-    const item = new TJSDocument(document);
+    const item = document;
 
     $: roll = $item.actions[actionId].rolls[rollId];
     $: scalingMode = roll.scaling?.mode ?? null;

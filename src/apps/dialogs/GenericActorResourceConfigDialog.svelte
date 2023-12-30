@@ -1,6 +1,5 @@
 <script>
     import { getContext } from "svelte";
-    import { TJSDocument } from "@typhonjs-fvtt/runtime/svelte/store/fvtt/document";
 
     import Checkbox from "../components/Checkbox.svelte";
     import FormSection from "../components/FormSection.svelte";
@@ -11,7 +10,7 @@
 
     export let { document, source } = getContext("#external").application;
 
-    const actor = new TJSDocument(document);
+    const actor = document;
     const recoveryOptions = Object.entries(CONFIG.A5E.resourceRecoveryOptions);
 
     $: resource = $actor.system.resources[source];

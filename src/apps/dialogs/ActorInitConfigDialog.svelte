@@ -1,6 +1,5 @@
 <script>
     import { getContext } from "svelte";
-    import { TJSDocument } from "#runtime/svelte/store/fvtt/document";
 
     import ExpertiseDiePicker from "../components/ExpertiseDiePicker.svelte";
     import FormSection from "../components/FormSection.svelte";
@@ -11,7 +10,7 @@
 
     export let { document, appId } = getContext("#external").application;
 
-    const actor = new TJSDocument(document);
+    const actor = document;
     const abilityOptions = prepareAbilityOptions();
 
     $: initiative = $actor.system.attributes.initiative;

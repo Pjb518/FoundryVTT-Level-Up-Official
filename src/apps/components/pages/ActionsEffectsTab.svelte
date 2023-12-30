@@ -1,14 +1,11 @@
 <script>
     import { getContext, onDestroy } from "svelte";
-    import { localize } from "#runtime/svelte/helper";
 
     import CreateMenu from "../actorUtilityBar/CreateMenu.svelte";
     import EffectCategory from "../EffectCategory.svelte";
     import Search from "../actorUtilityBar/Search.svelte";
     import Sort from "../actorUtilityBar/Sort.svelte";
     import UtilityBar from "../actorUtilityBar/UtilityBar.svelte";
-
-    import ActionsManager from "../../../managers/ActionsManager";
 
     const item = getContext("item");
     const actionId = getContext("actionId");
@@ -17,7 +14,7 @@
     const reducerType = "activeEffects";
 
     let actionIds = new Set($item.actions.keys());
-    activeEffects.filters.add({
+    activeEffects?.filters.add({
         id: "onUse-filter",
         filter: (effect) =>
             effect.flags?.a5e?.actionId === actionId ||
@@ -25,7 +22,7 @@
     });
 
     onDestroy(() => {
-        activeEffects.filters.clear();
+        activeEffects?.filters.clear();
     });
 </script>
 
