@@ -1,0 +1,111 @@
+.a5e-nav {
+  display: grid;
+  grid-template-areas: "current list";
+  grid-template-columns: min-content 1fr;
+  grid-template-rows: 100%;
+  column-gap: 1rem;
+  align-items: center;
+  flex-grow: 0;
+  grid-area: primaryNavigation;
+  height: 1.25rem;
+  margin-block: 0.5rem;
+  padding-inline: 1rem;
+  color: #f6f2eb;
+  font-family: var(--a5e-font-serif);
+  font-size: 1rem;
+  background: #425f65;
+  border-bottom: 1px solid #3e4240;
+  border-top: 1px solid #3e4240;
+  box-shadow: 0 0 10px #2e4246 inset, 0 3px 5px rgba(0, 0, 0, 0.4);
+  border-radius: 3px;
+
+  &__current-tab-label {
+    grid-area: current;
+    opacity: 0;
+    font-size: 0.833rem;
+    text-align: center;
+
+    &--active {
+      opacity: 1;
+    }
+  }
+}
+
+.a5e-nav-list {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  grid-area: list;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.a5e-nav-item {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 1.5rem;
+  width: 1.5rem;
+  font-size: 0.833rem;
+  background: hsl(150, 3%, 25%);
+  border-radius: 50%;
+  box-shadow: 0 0 0 1px #e9d7a1, 0 0 0 2px #956d58, 0 3px 5px rgba(0, 0, 0, 0.4);
+  backdrop-filter: blur(5px);
+  cursor: pointer;
+
+  transition: transform 0.15s ease-in-out;
+
+  &--active {
+    background-color: #842c2b;
+    transform: scale(1.2);
+  }
+
+  &--lock {
+    margin-left: auto;
+    transform: scale(1);
+  }
+
+  &:hover {
+    transform: scale(1.2);
+  }
+}
+
+.a5e-secondary-nav-wrapper {
+  grid-area: secondaryNavigation;
+  margin-top: -0.5rem;
+  padding-inline: 1rem;
+  font-family: var(--a5e-font-serif);
+  color: var(--color-heading-2);
+  border-bottom: 1px solid #ccc;
+  background: rgba(255, 255, 255, 0.1);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.a5e-secondary-nav-list {
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.a5e-secondary-nav-item {
+  width: 100%;
+  margin-block: 0.65rem 0.55rem;
+  padding: 0 1rem;
+  text-align: center;
+  cursor: pointer;
+
+  transition: all 0.15s ease-in-out;
+
+  &--active {
+    font-weight: bold;
+    color: var(--color-primary);
+  }
+
+  &:not(:last-of-type) {
+    border-right: 1px solid rgba(120, 100, 82, 0.5);
+  }
+}

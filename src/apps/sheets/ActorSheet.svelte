@@ -26,6 +26,7 @@
     import ActorSkillsPage from "../components/pages/ActorSkillsPage.svelte";
     import ActorSpellsPage from "../components/pages/ActorSpellsPage.svelte";
     import NavigationBar from "../components/navigation/NavigationBar.svelte";
+    import NewNavigationBar from "../components/navigation/NewNavigationBar.svelte";
 
     import ActorSheetTempSettingsStore from "../../stores/ActorSheetTempSettingsStore";
 
@@ -37,12 +38,14 @@
 
     function updateCurrentTab(event) {
         const { uuid } = $actor;
-        currentTab = tabs[event.detail];
+        const newTabName = event?.detail ?? "core";
+
+        currentTab = tabs.find((tab) => tab.name === newTabName) ?? tabs[0];
 
         ActorSheetTempSettingsStore.update((currentSettings) => ({
             ...currentSettings,
             [uuid]: {
-                currentTab: currentTab.name,
+                currentTab: event?.detail ?? "core",
             },
         }));
     }
@@ -60,60 +63,69 @@
             {
                 name: "core",
                 label: "A5E.TabCore",
+                icon: "fa-solid fa-home",
                 component: ActorCorePage,
             },
             {
                 name: "skills",
                 label: "A5E.TabSkills",
+                icon: "fa-solid fa-graduation-cap",
                 component: ActorSkillsPage,
                 display: actor.flags?.a5e?.showFavoritesSection ?? true,
             },
             {
                 name: "inventory",
                 label: "A5E.TabInventory",
+                icon: "fa-solid fa-box-open",
                 component: ActorInventoryPage,
             },
             {
                 name: "features",
                 label: "A5E.TabFeatures",
+                icon: "fa-solid fa-table-list",
                 component: ActorFeaturesPage,
             },
             {
                 name: "maneuvers",
                 label: "A5E.TabManeuvers",
+                icon: "fa-solid fa-hand-fist",
                 component: ActorManeuversPage,
                 display: actor.flags?.a5e?.showManeuverTab,
             },
             {
                 name: "spells",
                 label: "A5E.TabSpells",
+                icon: "fa-solid fa-wand-sparkles",
                 component: ActorSpellsPage,
                 display: actor.flags?.a5e?.showSpellTab,
             },
-            {
-                name: "biography",
-                label: "A5E.TabBiography",
-                component: ActorBioPage,
-                display: actor.type === "character",
-            },
+            // {
+            //     name: "biography",
+            //     label: "A5E.TabBiography",
+            //     component: ActorBioPage,
+            //     display: actor.type === "character",
+            // },
             {
                 name: "notes",
                 label: "A5E.TabNotes",
+                icon: "fa-solid fa-file-lines",
                 component: ActorNotesPage,
             },
             {
                 name: "bonuses",
                 label: "Bonuses",
+                icon: "fa-solid fa-angles-up",
                 component: ActorBonusesPage,
             },
             {
                 name: "effects",
                 label: "A5E.TabEffects",
+                icon: "fa-solid fa-person-rays",
                 component: ActorEffectsPage,
             },
             {
                 name: "settings",
-                // label: "A5E.TabSettings",
+                label: "A5E.TabSettings",
                 icon: "fas fa-gear",
                 component: ActorSettingsPage,
                 display:
@@ -158,7 +170,14 @@
         <section class="main-container">
             <ActorSheetHeader />
 
-            <NavigationBar
+            <!-- <NavigationBar
+                {currentTab}
+                {tabs}
+                showLock={true}
+                on:tab-change={updateCurrentTab}
+            /> -->
+
+            <NewNavigationBar
                 {currentTab}
                 {tabs}
                 showLock={true}
