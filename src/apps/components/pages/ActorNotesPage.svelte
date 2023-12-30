@@ -3,19 +3,41 @@
     import { localize } from "#runtime/svelte/helper";
 
     import Editor from "../Editor.svelte";
+    import FormSection from "../FormSection.svelte";
+    import SecondaryNavigationBar from "../navigation/SecondaryNavigationBar.svelte";
+
+    import ActorSheetTempSettingsStore from "../../../stores/ActorSheetTempSettingsStore";
+
+    import updateDocumentDataFromField from "../../../utils/updateDocumentDataFromField";
+
+    function updateCurrentTab({ detail: name }) {
+        const { uuid } = $actor;
+        currentTab = name;
+
+        ActorSheetTempSettingsStore.update((currentSettings) => ({
+            ...currentSettings,
+            [uuid]: {
+                ...(currentSettings[uuid] ?? {}),
+                currentNotesTab: name,
+            },
+        }));
+    }
 
     const actor = getContext("actor");
-
     let isGM = game.user.isGM;
 
     const tabs = {
-        notes: {
-            label: "A5E.TabNotes",
-            display: !isGM,
+        appearance: {
+            label: "Character Details",
+            display: $actor.type === "character",
         },
         bio: {
-            label: "A5E.TabBiography",
-            display: isGM && $actor.type === "npc",
+            label: $actor.type === "npc" ? "A5E.TabBiography" : "Backstory",
+            display:
+                $actor.type === "character" || (isGM && $actor.type === "npc"),
+        },
+        notes: {
+            label: "A5E.TabNotes",
         },
         privateNotes: {
             label: "A5E.DetailsNotesPrivate",
@@ -23,33 +45,109 @@
         },
     };
 
-    let currentEditor = "notes";
+    const charChoicesLabel = {
+        classes: "A5E.ClassPlural",
+        archetype: "A5E.Archetype",
+        // background: "A5E.Background",
+        // culture: "A5E.Culture",
+        // destiny: "A5E.Destiny",
+        // heritage: "A5E.Heritage",
+        prestige: "A5E.Prestige",
+    };
+
+    const traitsLabel = {
+        age: "A5E.DetailsAge",
+        eyeColor: "A5E.DetailsEyeColor",
+        hairColor: "A5E.DetailsHairColor",
+        skinColor: "A5E.DetailsSkinColor",
+        height: "A5E.DetailsHeight",
+        weight: "A5E.DetailsWeight",
+        gender: "A5E.DetailsGender",
+    };
+
+    let tempSettings = {};
+
+    ActorSheetTempSettingsStore.subscribe((store) => {
+        tempSettings = store;
+    });
+
+    let currentTab =
+        tempSettings[$actor?.uuid]?.currentNotesTab ??
+        ($actor.type === "npc" ? "bio" : "appearance");
 </script>
 
-<div class="notes-page">
-    <section class="notes__container">
-        {#if $actor.type === "npc"}
-            <div class="notes__tabs">
-                {#each Object.entries(tabs) as [name, { label, display }]}
-                    {#if display || isGM}
-                        <button
-                            class="a5e-button"
-                            class:active={currentEditor === name}
-                            on:click={() => (currentEditor = name)}
-                        >
-                            {localize(label)}
-                        </button>
-                    {/if}
-                {/each}
-            </div>
-        {/if}
+<SecondaryNavigationBar {currentTab} {tabs} on:tab-change={updateCurrentTab} />
 
-        <Editor
-            document={actor}
-            content={$actor.system.details[currentEditor]}
-            updatePath="system.details.{currentEditor}"
-        />
-    </section>
+<div class="notes-page">
+    {#if currentTab === "appearance"}
+        <section class="a5e-box u-p-md a5e-form__section--bio-wrapper">
+            {#each Object.entries(charChoicesLabel) as [key, label]}
+                <FormSection
+                    heading={label}
+                    --background="none"
+                    --direction="column"
+                    --gap="0.25rem"
+                    --padding="0"
+                >
+                    <input
+                        class="a5e-input a5e-input--slim u-w-full"
+                        class:disable-pointer-events={!$actor.isOwner}
+                        id="{actor.id}-details-{key}"
+                        type="text"
+                        name="system.details.{key}"
+                        value={$actor.system.details[key] ?? ""}
+                        on:change={({ target }) => {
+                            updateDocumentDataFromField(
+                                $actor,
+                                target.name,
+                                key === "prestige"
+                                    ? Number(target.value)
+                                    : target.value,
+                            );
+                        }}
+                    />
+                </FormSection>
+            {/each}
+        </section>
+
+        <section class="a5e-box u-p-md a5e-form__section--bio-wrapper">
+            {#each Object.entries(traitsLabel) as [key, label]}
+                <FormSection
+                    heading={label}
+                    --background="none"
+                    --direction="column"
+                    --gap="0.25rem"
+                    --padding="0"
+                >
+                    <input
+                        class="a5e-input a5e-input--slim"
+                        class:disable-pointer-events={!$actor.isOwner}
+                        id="{actor.id}-details-{key}"
+                        type="text"
+                        name="system.details.{key}"
+                        value={$actor.system.details[key]}
+                        on:change={({ target }) => {
+                            updateDocumentDataFromField(
+                                $actor,
+                                target.name,
+                                target.value,
+                            );
+                        }}
+                    />
+                </FormSection>
+            {/each}
+        </section>
+
+        <heading class="a5e-section-header a5e-section-header--rounded">
+            <h3 class="a5e-section-header__heading">Appearance</h3>
+        </heading>
+    {/if}
+
+    <Editor
+        document={actor}
+        content={$actor.system.details[currentTab]}
+        updatePath="system.details.{currentTab}"
+    />
 </div>
 
 <style lang="scss">

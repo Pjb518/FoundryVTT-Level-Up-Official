@@ -17,7 +17,7 @@
         : $actor.flags?.a5e?.sheetIsLocked ?? true;
 </script>
 
-<nav class="a5e-nav">
+<nav class="a5e-nav" class:a5e-nav--flat-bottom={currentTab.hasSubNavigation}>
     <!-- This allows us to reserve enough space for the largest tab name -->
     {#each tabs as { name, label }}
         <span

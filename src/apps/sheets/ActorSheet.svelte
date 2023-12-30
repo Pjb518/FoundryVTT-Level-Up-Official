@@ -56,6 +56,7 @@
         icon?: string;
         component: ComponentType;
         display?: boolean;
+        hasSubNavigation?: boolean;
     };
 
     function getTabs(actor: TJSDocument): Tab[] {
@@ -110,6 +111,7 @@
                 label: "A5E.TabNotes",
                 icon: "fa-solid fa-file-lines",
                 component: ActorNotesPage,
+                hasSubNavigation: true,
             },
             {
                 name: "bonuses",
