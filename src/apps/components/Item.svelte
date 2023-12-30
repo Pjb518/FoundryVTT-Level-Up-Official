@@ -186,7 +186,7 @@
 {/if}
 
 {#if showActionList}
-    <ul class="actions-list">
+    <ul class="a5e-item-list a5e-item-list--sub-items">
         {#each item?.actions?.entries() ?? [] as [id, action] (id)}
             <svelte:self {item} {action} actionId={id} />
         {/each}
@@ -194,7 +194,7 @@
 {/if}
 
 {#if containerItems.length}
-    <ul class="actions-list">
+    <ul class="a5e-item-list a5e-item-list--sub-items">
         {#each containerItems as [id, child] (id)}
             <svelte:self item={child} />
         {/each}
@@ -202,14 +202,6 @@
 {/if}
 
 <style lang="scss">
-    .actions-list {
-        display: flex;
-        flex-direction: column;
-        gap: 0.175rem;
-        margin: 0;
-        padding: 0 0 0 1rem;
-    }
-
     .description-wrapper {
         padding: 0.125rem 0.25rem;
     }
