@@ -1,5 +1,5 @@
 {
-	"name": "Ancient Earth Dragon",
+	"name": "Adult Earth Dragon Spellcaster",
 	"type": "npc",
 	"img": "systems/a5e/assets/earth-dragon.webp",
 	"items": [
@@ -23,7 +23,7 @@
 					"requiresUnarmored": false
 				},
 				"actions": {
-					"hmgvSPtSTXCDfL6C": {
+					"n7iWDhqmcAEAREnc": {
 						"name": "Earth Glibe",
 						"activation": {
 							"cost": "",
@@ -103,7 +103,7 @@
 					"requiresUnarmored": false
 				},
 				"actions": {
-					"rFCfxOcPK3CkanPe": {
+					"ojfOCb7sZTEz6lK9": {
 						"name": "False Appearance",
 						"activation": {
 							"cost": "",
@@ -183,7 +183,7 @@
 					"requiresUnarmored": false
 				},
 				"actions": {
-					"qdpYY6BhRXEytA60": {
+					"bvS8vfokATf4uCxj": {
 						"name": "Bite",
 						"activation": {
 							"cost": 1,
@@ -195,8 +195,9 @@
 							"value": ""
 						},
 						"ranges": {
-							"ixaP9wDMpffAnIC4": {
-								"range": "10ft"
+							"nkpoJ6zdAPQT2AIS": {
+								"range": 10,
+								"unit": "feet"
 							}
 						},
 						"area": {
@@ -209,17 +210,17 @@
 							"type": "creature"
 						},
 						"rolls": {
-							"HJHuAFYKVOomNjyb": {
+							"iDHD8nqUn8IDeekt": {
 								"bonus": "",
 								"critThreshold": "20",
 								"type": "attack",
 								"attackType": "meleeWeaponAttack",
 								"ability": "default"
 							},
-							"WKXC4iTt1yetXBZU": {
+							"r59LZnhCbabvhs9G": {
 								"canCrit": true,
 								"damageType": "piercing",
-								"formula": "5d10 + @@str.mod",
+								"formula": "4d10 + @@str.mod",
 								"name": "Default",
 								"type": "damage"
 							}
@@ -227,7 +228,7 @@
 						"consumers": {}
 					}
 				},
-				"description": "<p>Instead of dealing piercing damage, the dragon can grapple the target (escape DC 23), and a Large or smaller creature grappled in this way is restrained. While grappling a creature, the dragon can’t bite another target.</p>",
+				"description": "<p>Instead of dealing piercing damage, the dragon can grapple the target (escape DC 20), and a Large or smaller creature grappled in this way is restrained. While grappling a creature, the dragon can’t bite another target.</p>",
 				"favorite": true,
 				"secretDescription": "",
 				"source": "",
@@ -284,7 +285,7 @@
 					"requiresUnarmored": false
 				},
 				"actions": {
-					"EXNrsynyVejqVzol": {
+					"4cPAONcemaRTOCJg": {
 						"name": "Scouring Breath",
 						"activation": {
 							"cost": 1,
@@ -298,36 +299,36 @@
 						"ranges": {},
 						"area": {
 							"shape": "cone",
-							"size": "60ft",
+							"size": "90ft",
 							"placeTemplate": false,
-							"length": 90
+							"length": 60
 						},
 						"target": {
 							"quantity": 1,
 							"type": ""
 						},
 						"rolls": {
-							"vd8QUCg4yQZGfVox": {
+							"U8theKJyWse8Xupf": {
 								"canCrit": false,
 								"damageType": "slashing",
-								"formula": "20d6",
+								"formula": "15d6",
 								"name": "Default",
 								"type": "damage"
 							}
 						},
 						"prompts": {
-							"3h54G2j69yQA4Azj": {
+							"oTgXkt3qAREfsnJC": {
 								"ability": "dex",
 								"onSave": "Half damage and avoids effect.",
 								"saveDC": {
 									"type": "custom",
-									"bonus": "23"
+									"bonus": "20"
 								},
 								"type": "savingThrow"
 							}
 						},
 						"consumers": {
-							"DPuyl6m0HNYHDI52": {
+							"neay8YyDk02f9IHv": {
 								"type": "itemUses",
 								"default": true,
 								"quantity": 1
@@ -335,7 +336,7 @@
 						}
 					}
 				},
-				"description": "<p>The dragon exhales scouring sand and stones in a 90-foot cone. Each creature in that area makes a DC 23 Dexterity saving throw, taking 70 (20d6) slashing damage on a failed save or half damage on a success. A creature that fails the save is also blinded until the end of its next turn.</p>",
+				"description": "<p>The dragon exhales scouring sand and stones in a 60-foot cone. Each creature in that area makes a DC 20 Dexterity saving throw, taking 56 (16d6) slashing damage on a failed save or half damage on a success. A creature that fails the save is also blinded until the end of its next turn.</p>",
 				"favorite": true,
 				"secretDescription": "",
 				"source": "",
@@ -449,7 +450,7 @@
 					"requiresUnarmored": false
 				},
 				"actions": {
-					"7wRj8Vf1s2uffG4k": {
+					"DPionPDFXJaPI8EX": {
 						"name": "Slam",
 						"activation": {
 							"cost": 1,
@@ -461,7 +462,7 @@
 							"value": ""
 						},
 						"ranges": {
-							"vYr8QXdWWTlIfPhz": {
+							"TEYnCT32XaPqb3V2": {
 								"range": "fiveFeet"
 							}
 						},
@@ -475,25 +476,32 @@
 							"type": "creature"
 						},
 						"rolls": {
-							"4yvZtOWceIxsDI7a": {
+							"UMBxRQJ25Vh3oeV4": {
 								"bonus": "",
 								"critThreshold": "20",
 								"type": "attack",
 								"attackType": "meleeWeaponAttack",
 								"ability": "default"
 							},
-							"d8HoZfQ39gXjb320": {
+							"hHOiD8de7A2dDYUl": {
 								"canCrit": true,
 								"damageType": "bludgeoning",
 								"formula": "3d8 + @@str.mod",
 								"name": "Default",
+								"type": "damage"
+							},
+							"0e2VRv9SFBCKOG6J": {
+								"canCrit": true,
+								"damageType": "bludgeoning",
+								"formula": "3d8",
+								"name": "Extra damage if target is prone.",
 								"type": "damage"
 							}
 						},
 						"consumers": {}
 					}
 				},
-				"description": "",
+				"description": "<p>On hit the target is pushed up to 10 feet away, falling prone if it impacts a wall or other solid object.</p>",
 				"favorite": true,
 				"secretDescription": "",
 				"source": "",
@@ -554,7 +562,7 @@
 					"requiresUnarmored": false
 				},
 				"actions": {
-					"PDBUTYFC0p4mPpWn": {
+					"AJt1bjppysz7qmsK": {
 						"name": "Legendary Resistance (3/Day)",
 						"activation": {
 							"cost": "",
@@ -575,13 +583,13 @@
 							"type": ""
 						},
 						"consumers": {
-							"6vqotQYsXzTAfowH": {
+							"kpWhHC9y5bbCTEsv": {
 								"type": "itemUses"
 							}
 						}
 					}
 				},
-				"description": "<p>When the dragon fails a saving throw, it can choose to succeed instead. When it does, it becomes more like rock. Its Speed, burrow speed, and flying speed are halved until the end of its next turn.</p>",
+				"description": "<p>When the dragon fails a saving throw, it can choose to succeed instead. When it does, it becomes more like rock. Its movement is halved until the end of its next turn.</p>",
 				"favorite": false,
 				"secretDescription": "",
 				"source": "",
@@ -638,7 +646,7 @@
 					"requiresUnarmored": false
 				},
 				"actions": {
-					"SJgWKw0qOjafgZOO": {
+					"7rp2IOBYUhkN9gc0": {
 						"name": "Rock Spire",
 						"activation": {
 							"cost": 1,
@@ -650,7 +658,7 @@
 							"value": ""
 						},
 						"ranges": {
-							"2neHLSiNVoWL4BwB": {
+							"JyyUPS6TZOrGqSm6": {
 								"range": "medium"
 							}
 						},
@@ -666,7 +674,7 @@
 							"type": "other"
 						},
 						"rolls": {
-							"KFut2mtYSwcbFUyV": {
+							"tEsjQwpS4LWvVLiY": {
 								"canCrit": false,
 								"damageType": "piercing",
 								"formula": "3d8",
@@ -675,12 +683,12 @@
 							}
 						},
 						"prompts": {
-							"MVCelCs8wFUEyvwU": {
+							"9uqoSxdDqrF1NUsx": {
 								"ability": "dex",
 								"onSave": "Half damage.",
 								"saveDC": {
 									"type": "custom",
-									"bonus": "19"
+									"bonus": "21"
 								},
 								"type": "savingThrow"
 							}
@@ -688,7 +696,7 @@
 						"consumers": {}
 					}
 				},
-				"description": "<p>A permanent, 25-foot-tall, 5-foot-radius spire of rock magically rises from a point on the ground within 60 feet. A creature in the spire’s area when it appears makes a DC 21 Dexterity saving throw, taking 18 (4d8) piercing damage on a failure or half damage on a success. A creature that fails this saving throw by 10 or more is impaled and restrained at the top of the spire. A creature can use an action to make a DC 13 Strength check, freeing the impaled creature on a success. The impaled creature is also freed if the spire is destroyed. The spire is an object with AC 16, 30 hit points, and immunity to poison and psychic damage.</p>",
+				"description": "<p>A permanent, 25-foot-tall, 5-foot-radius spire of rock magically rises from a point on the ground within 60 feet. A creature in the spire’s area when it appears makes a DC 19 Dexterity saving throw, taking 13 (3d8) piercing damage on a failure or half damage on a success. A creature that fails this saving throw by 10 or more is impaled at the top of the spire. A creature can use an action to make a DC 12 Strength check, freeing the impaled creature on a success. The impaled creature is also freed if the spire is destroyed. The spire is an object with AC 16, 30 hit points and immunity to poison and psychic damage.</p>",
 				"favorite": true,
 				"secretDescription": "",
 				"source": "",
@@ -749,7 +757,7 @@
 					"requiresUnarmored": false
 				},
 				"actions": {},
-				"description": "<p>The dragon can take 3 legendary actions, choosing from the options below. Only one legendary action can be used at a time and only at the end of another creature’s turn. It regains spent legendary actions at the start of its turn.</p><p><strong><em>Shake the Foundation.</em></strong> The dragon causes the ground to roil, creating a permanent, 40-foot-radius area of difficult terrain centered on a point the dragon can see. If the dragon is bloodied, creatures in the area make a DC 23 Dexterity saving throw. On a failure, the creature takes 21 (6d6) slashing damage and falls prone. On a success, the creature takes half damage. </p><p><strong><em>Slam Attack (Costs 2 Actions).</em></strong> The dragon makes a slam attack. </p><p><strong><em>Entomb (While Bloodied, Costs 3 Actions).</em></strong> The dragon targets a creature on the ground within 60 feet, forcing it to make a DC 17 Dexterity saving throw. On a failure, the creature is magically entombed 5 feet under the earth. While entombed, the target is blinded, restrained, and can’t breathe. A creature can use an action to make a DC 17 Strength check, freeing an entombed creature on a success.</p>",
+				"description": "<p>The dragon can take 3 legendary actions, choosing from the options below. Only one legendary action can be used at a time and only at the end of another creature’s turn. It regains spent legendary actions at the start of its turn.</p><p><strong><em>Shake the Foundation.</em></strong> The dragon causes the ground to roil, creating a permanent, 40-foot-radius area of difficult terrain centered on a point the dragon can see. If the dragon is bloodied, creatures in the area make a DC 20 Dexterity saving throw, falling prone on a failure. </p><p><strong><em>Slam Attack (Costs 2 Actions).</em></strong> The dragon makes a slam attack.</p><p><strong><em>Entomb (While Bloodied, Costs 3 Actions).</em></strong> The dragon targets a creature on the ground within 60 feet, forcing it to make a DC 15 Dexterity saving throw. On a failure, the creature is magically entombed 5 feet under the earth. While entombed, the target is blinded, restrained, and can’t breathe. A creature can use an action to make a DC 15 Strength check, freeing an entombed creature on a success.</p>",
 				"favorite": false,
 				"secretDescription": "",
 				"source": "",
@@ -806,7 +814,7 @@
 					"requiresUnarmored": false
 				},
 				"actions": {
-					"KQxbTQUDDrPkue4b": {
+					"YWa52IGGpuDxcmMS": {
 						"name": "Legendary Action: Shake the Foundation",
 						"activation": {
 							"cost": 1,
@@ -818,32 +826,23 @@
 							"value": ""
 						},
 						"area": {
-							"shape": "sphere",
+							"shape": "circle",
 							"size": "",
 							"placeTemplate": false,
 							"quantity": 1,
 							"radius": 40
 						},
 						"target": {
-							"quantity": 1,
+							"quantity": "",
 							"type": "other"
 						},
-						"rolls": {
-							"XkGbee9i2bSpsq75": {
-								"canCrit": false,
-								"damageType": "slashing",
-								"formula": "6d6",
-								"name": "Default",
-								"type": "damage"
-							}
-						},
 						"prompts": {
-							"4dma9u0uTBO1T9gN": {
+							"oqP2eaFhQweEJiz3": {
 								"ability": "dex",
-								"onSave": "Avoids effects and half damage.",
+								"onSave": "Avoids effects.",
 								"saveDC": {
 									"type": "custom",
-									"bonus": "23"
+									"bonus": "20"
 								},
 								"type": "savingThrow"
 							}
@@ -851,7 +850,7 @@
 						"consumers": {}
 					}
 				},
-				"description": "<p>The dragon causes the ground to roil, creating a permanent, 40-foot-radius area of difficult terrain centered on a point the dragon can see. If the dragon is bloodied, creatures in the area make a DC 23 Dexterity saving throw. On a failure, the creature takes 21 (6d6) slashing damage and falls prone. On a success, the creature takes half damage.</p>",
+				"description": "<p> The dragon causes the ground to roil, creating a permanent, 40-foot-radius area of difficult terrain centered on a point the dragon can see. If the dragon is bloodied, creatures in the area make a DC 20 Dexterity saving throw, falling prone on a failure. </p>",
 				"favorite": true,
 				"secretDescription": "",
 				"source": "",
@@ -908,7 +907,7 @@
 					"requiresUnarmored": false
 				},
 				"actions": {
-					"3VXfsFotJdUnKi5l": {
+					"NQzFW5rnZEvpuO2F": {
 						"name": "Legendary Action: Slam Attack (Costs 2 Actions)",
 						"activation": {
 							"cost": 2,
@@ -988,7 +987,7 @@
 					"requiresUnarmored": false
 				},
 				"actions": {
-					"MovVKReDmDFvAfUW": {
+					"Y885z8k0EobOgNXW": {
 						"name": "Legendary Action: Entomb (Costs 3 Actions)",
 						"activation": {
 							"cost": 3,
@@ -1000,7 +999,7 @@
 							"value": ""
 						},
 						"ranges": {
-							"sAZeRFSl1AkNCPIq": {
+							"kyfNs7iROO1EEnYC": {
 								"range": "medium"
 							}
 						},
@@ -1014,12 +1013,12 @@
 							"type": "creature"
 						},
 						"prompts": {
-							"slRwZ1OkxuWAYIja": {
+							"mufsLonRdUIK9I3A": {
 								"ability": "dex",
 								"onSave": "Avoids effects.",
 								"saveDC": {
 									"type": "custom",
-									"bonus": "17"
+									"bonus": "15"
 								},
 								"type": "savingThrow"
 							}
@@ -1027,7 +1026,7 @@
 						"consumers": {}
 					}
 				},
-				"description": "<p>Can only be used while Bloodied.</p><p>The dragon targets a creature on the ground within 60 feet, forcing it to make a DC 17 Dexterity saving throw. On a failure, the creature is magically entombed 5 feet under the earth. While entombed, the target is blinded, restrained, and can’t breathe. A creature can use an action to make a DC 17 Strength check, freeing an entombed creature on a success.</p>",
+				"description": "<p>Can only be used while Bloodied.</p><p>The dragon targets a creature on the ground within 60 feet, forcing it to make a DC 15 Dexterity saving throw. On a failure, the creature is magically entombed 5 feet under the earth. While entombed, the target is blinded, restrained, and can’t breathe. A creature can use an action to make a DC 15 Strength check, freeing an entombed creature on a success.</p>",
 				"favorite": true,
 				"secretDescription": "",
 				"source": "",
@@ -1076,7 +1075,7 @@
 			},
 			"system": {
 				"actions": {
-					"tfCxZg00JmdTEYGe": {
+					"42SuNBCcp6DH1QlI": {
 						"name": "Shove",
 						"activation": {
 							"cost": 1,
@@ -1088,7 +1087,7 @@
 							"value": null
 						},
 						"ranges": {
-							"D2A5YYcAkTktX9Kg": {
+							"FShW5yedla3wHmJs": {
 								"range": "fiveFeet"
 							}
 						},
@@ -1104,7 +1103,7 @@
 							"size": ""
 						},
 						"rolls": {
-							"ltwmCwGY6UAH9RSi": {
+							"mhrJbhayekzucmQn": {
 								"canCrit": false,
 								"damageType": "bludgeoning",
 								"formula": "1 + @str.mod",
@@ -1113,7 +1112,7 @@
 							}
 						},
 						"prompts": {
-							"8NKq6ea6fycrJ5UP": {
+							"bejya4HPfw3sxXC8": {
 								"ability": "str",
 								"onSave": "",
 								"saveDC": {
@@ -1165,7 +1164,7 @@
 			},
 			"folder": null,
 			"sort": 0,
-			"_id": "OfGuvgQ4RiR0ZvKz"
+			"_id": "qZwiMCWnuO0vlyUB"
 		},
 		{
 			"name": "Disarm",
@@ -1179,7 +1178,7 @@
 			},
 			"system": {
 				"actions": {
-					"IKGFzVzmw2WLKDnb": {
+					"bzCHgNcHOeT8PaMX": {
 						"name": "Disarm",
 						"activation": {
 							"cost": 1,
@@ -1191,7 +1190,7 @@
 							"value": null
 						},
 						"ranges": {
-							"oZOLgCFx41aJp5Aq": {
+							"RplSTJX1m8tljXMD": {
 								"range": "touch"
 							}
 						},
@@ -1207,7 +1206,7 @@
 							"size": ""
 						},
 						"rolls": {
-							"kOH7yTG3FaejzB98": {
+							"80F6qiY7r8Rdu9qx": {
 								"canCrit": false,
 								"damageType": "",
 								"formula": "1 + @str.mod",
@@ -1216,7 +1215,7 @@
 							}
 						},
 						"prompts": {
-							"KhZvJ5jCaog4mXti": {
+							"SCwREEIo3NKrU7h2": {
 								"ability": "str",
 								"onSave": "",
 								"saveDC": {
@@ -1268,7 +1267,7 @@
 			},
 			"folder": null,
 			"sort": 0,
-			"_id": "xQQ815J78CzWfzWo"
+			"_id": "aM6Q5UBpczalnwEN"
 		},
 		{
 			"name": "Grab On",
@@ -1282,7 +1281,7 @@
 			},
 			"system": {
 				"actions": {
-					"B5BtGbY9mWMO3ovX": {
+					"J8KABowHU1XIo9qQ": {
 						"name": "Grab On",
 						"activation": {
 							"cost": 1,
@@ -1294,7 +1293,7 @@
 							"value": null
 						},
 						"ranges": {
-							"73sK7k7QfGh4d4iO": {
+							"lC2obLuydA15lGnE": {
 								"range": "touch"
 							}
 						},
@@ -1310,7 +1309,7 @@
 							"size": ""
 						},
 						"prompts": {
-							"D3ldbfOnsPLG1ukD": {
+							"cKjcNvu3CcGRxiuZ": {
 								"ability": "str",
 								"onSave": "",
 								"saveDC": {
@@ -1362,7 +1361,7 @@
 			},
 			"folder": null,
 			"sort": 0,
-			"_id": "u3iyIOaLIn0ttvwi"
+			"_id": "ShUfFr2XyqPpYJMp"
 		},
 		{
 			"name": "Knockdown",
@@ -1376,7 +1375,7 @@
 			},
 			"system": {
 				"actions": {
-					"n8nJy8cm7AJYDAj3": {
+					"rUCNWmuQcyN2w8uv": {
 						"name": "Knockdown",
 						"activation": {
 							"cost": 1,
@@ -1388,7 +1387,7 @@
 							"value": null
 						},
 						"ranges": {
-							"BWcWREDmM2ygo6xG": {
+							"k32lBCqDhxyOY5QB": {
 								"range": "touch"
 							}
 						},
@@ -1404,7 +1403,7 @@
 							"size": ""
 						},
 						"prompts": {
-							"4xke9kRsrNnEc3zk": {
+							"i6IK7xeg45Bf9i2N": {
 								"ability": "str",
 								"onSave": "",
 								"saveDC": {
@@ -1456,7 +1455,7 @@
 			},
 			"folder": null,
 			"sort": 0,
-			"_id": "WzbCzS8dWKtQZYQ5"
+			"_id": "ezkHVDWPKyBcpnW1"
 		},
 		{
 			"name": "Grapple",
@@ -1470,7 +1469,7 @@
 			},
 			"system": {
 				"actions": {
-					"VvWENMQPv3FLr3WK": {
+					"hnlbdCfQnHBB5KFZ": {
 						"name": "Grapple",
 						"activation": {
 							"cost": 1,
@@ -1482,7 +1481,7 @@
 							"value": null
 						},
 						"ranges": {
-							"JRgbur1wTzBKTqdL": {
+							"owOF0pCOXN3pwViH": {
 								"range": "touch"
 							}
 						},
@@ -1498,7 +1497,7 @@
 							"size": ""
 						},
 						"prompts": {
-							"i7AWXeeDCLT687E3": {
+							"YylJnF3PwnuCUbCP": {
 								"ability": "str",
 								"onSave": "",
 								"saveDC": {
@@ -1550,7 +1549,7 @@
 			},
 			"folder": null,
 			"sort": 0,
-			"_id": "YJfyCTUh6kMN5ZWB"
+			"_id": "MbKnuAbDiG38qTHL"
 		},
 		{
 			"name": "Overrun",
@@ -1564,7 +1563,7 @@
 			},
 			"system": {
 				"actions": {
-					"vBTfBUmaBFp6OcRC": {
+					"hBeYLQWXvFs3AEBf": {
 						"name": "Overrun",
 						"activation": {
 							"cost": 1,
@@ -1576,7 +1575,7 @@
 							"value": null
 						},
 						"ranges": {
-							"eznEv89yGhDBYHc0": {
+							"L9pD6WFussqoXggr": {
 								"range": "touch"
 							}
 						},
@@ -1592,7 +1591,7 @@
 							"size": ""
 						},
 						"prompts": {
-							"hTaLPTKLZPPnucOu": {
+							"waVljYwuo7G569mY": {
 								"ability": "str",
 								"onSave": "",
 								"saveDC": {
@@ -1644,7 +1643,503 @@
 			},
 			"folder": null,
 			"sort": 0,
-			"_id": "OAtWT06dqtPTCa9s"
+			"_id": "zh4x6fo10uiwa9Jm"
+		},
+		{
+			"name": "Locate Animals or Plants",
+			"type": "spell",
+			"img": "icons/magic/nature/leaf-rune-glow-green.webp",
+			"effects": [],
+			"flags": {},
+			"system": {
+				"actions": {
+					"mJE9aA1VrgfWUGYn": {
+						"name": "Locate Animals or Plants",
+						"activation": {
+							"cost": 1,
+							"type": "action",
+							"reactionTrigger": ""
+						},
+						"duration": {
+							"unit": "instantaneous",
+							"value": ""
+						},
+						"ranges": {
+							"SreVgsDC8kqmgbF4": {
+								"range": "5-mile radius"
+							}
+						},
+						"area": {
+							"shape": "",
+							"size": "",
+							"placeTemplate": false
+						},
+						"target": {
+							"quantity": "",
+							"type": "self"
+						},
+						"consumers": {
+							"4NGu2wTEec3SQezY": {
+								"type": "itemUses",
+								"default": true,
+								"quantity": 1
+							}
+						}
+					}
+				},
+				"description": "<p>Name or describe in detail a specific kind of beast or plant. The natural magics in range reveal the closest example of the target within 5 miles, including its general direction (north, west, southeast, and so on) and how many miles away it currently is.</p>",
+				"favorite": false,
+				"secretDescription": "",
+				"source": "",
+				"uses": {
+					"value": 3,
+					"max": "3",
+					"per": "day",
+					"recharge": {
+						"formula": "",
+						"threshold": ""
+					}
+				},
+				"schema": {
+					"version": null,
+					"lastMigration": null
+				},
+				"classes": [
+					"bard",
+					"druid",
+					"elementalistEarth",
+					"witch"
+				],
+				"components": {
+					"vocalized": true,
+					"seen": true,
+					"material": true
+				},
+				"concentration": false,
+				"level": 2,
+				"materials": "two L-shaped metal rods",
+				"materialsConsumed": false,
+				"prepared": false,
+				"prerequisite": "",
+				"rare": false,
+				"ritual": true,
+				"schools": {
+					"primary": "divination",
+					"secondary": [
+						"arcane",
+						"beasts",
+						"knowledge",
+						"nature",
+						"plants",
+						"utility"
+					]
+				},
+				"schemaVersion": {
+					"version": 0.01,
+					"lastMigration": {
+						"version": {
+							"schema": 0.009,
+							"foundry": "12.316",
+							"system": "0.16.12"
+						}
+					}
+				}
+			},
+			"folder": null,
+			"_id": "WBOPecfNnass2lWM",
+			"sort": 0,
+			"ownership": {
+				"default": 0
+			}
+		},
+		{
+			"name": "Spike Growth",
+			"type": "spell",
+			"img": "icons/magic/nature/root-vine-spiral-thorns-teal.webp",
+			"effects": [],
+			"flags": {},
+			"system": {
+				"actions": {
+					"YhSdGtKOP675kH3X": {
+						"name": "Spike Growth",
+						"activation": {
+							"cost": 1,
+							"type": "action",
+							"reactionTrigger": ""
+						},
+						"duration": {
+							"unit": "minute",
+							"value": "10"
+						},
+						"ranges": {
+							"l5q9V3eYA6gNZntD": {
+								"range": "long"
+							}
+						},
+						"area": {
+							"shape": "sphere",
+							"radius": "20",
+							"placeTemplate": true
+						},
+						"target": {
+							"quantity": "",
+							"type": ""
+						},
+						"rolls": {},
+						"consumers": {
+							"YdQBpMztxMcRjpmP": {
+								"type": "itemUses",
+								"default": true,
+								"quantity": 1
+							}
+						},
+						"prompts": {
+							"uKEppBu4oGsK2nkp": {
+								"type": "generic",
+								"default": true,
+								"label": "Piercing Damage for Every 5 Feet of Travel",
+								"formula": "2d4"
+							}
+						}
+					}
+				},
+				"description": "<p>You cause sharp spikes and thorns to sprout in the area, making it difficult terrain. When a creature enters or moves within the area, it takes 2d4 piercing damage for every 5 feet it travels.</p><p>Your magic causes the ground to look natural. A creature that can't see the area when the spell is cast can spot the hazardous terrain just before entering it by making a Perception check against your spell save DC.</p>",
+				"favorite": false,
+				"secretDescription": "",
+				"source": "",
+				"uses": {
+					"value": 3,
+					"max": "3",
+					"per": "day",
+					"recharge": {
+						"formula": "",
+						"threshold": ""
+					}
+				},
+				"schema": {
+					"version": null,
+					"lastMigration": null
+				},
+				"classes": [
+					"druid",
+					"elementalistEarth"
+				],
+				"components": {
+					"vocalized": true,
+					"seen": true,
+					"material": true
+				},
+				"concentration": true,
+				"level": 2,
+				"materials": "seven sharp thorns, or small, sharpened twigs",
+				"materialsConsumed": false,
+				"prepared": false,
+				"prerequisite": "",
+				"rare": false,
+				"ritual": false,
+				"schools": {
+					"primary": "transmutation",
+					"secondary": [
+						"nature",
+						"terrain"
+					]
+				},
+				"schemaVersion": {
+					"version": 0.01,
+					"lastMigration": {
+						"version": {
+							"schema": 0.009,
+							"foundry": "12.316",
+							"system": "0.16.12"
+						}
+					}
+				}
+			},
+			"folder": null,
+			"_id": "IH6cST2259Zgw8Cw",
+			"sort": 0,
+			"ownership": {
+				"default": 0
+			}
+		},
+		{
+			"name": "Innate Spellcasting",
+			"type": "feature",
+			"system": {
+				"ac": {
+					"baseFormula": "",
+					"formula": "",
+					"maxDex": 0,
+					"minStr": 0,
+					"mode": 2,
+					"requiresNoShield": false,
+					"requiresUnarmored": false
+				},
+				"actions": {},
+				"description": "<p>The dragon&rsquo;s spellcasting ability is Charisma (save DC 15). It can innately cast the following spells, requiring no material components.&nbsp;</p>\n<p><strong>3/day each:</strong> <em>locate animals or plants, spike growth, stone shape,&nbsp;wall of stone</em></p>",
+				"favorite": false,
+				"secretDescription": "",
+				"source": {
+					"name": "",
+					"link": "",
+					"publisher": ""
+				},
+				"uses": {
+					"value": null,
+					"max": "",
+					"per": null,
+					"recharge": {
+						"formula": "1d6",
+						"threshold": "6"
+					}
+				},
+				"schema": {
+					"version": null,
+					"lastMigration": null
+				},
+				"concentration": false,
+				"featureType": "other",
+				"grants": {},
+				"prerequisite": "",
+				"requiresBloodied": false
+			},
+			"_id": "QUA8guqPqoO9XxHL",
+			"img": "icons/svg/item-bag.svg",
+			"effects": [],
+			"folder": null,
+			"sort": 0,
+			"ownership": {
+				"default": 0
+			},
+			"flags": {}
+		},
+		{
+			"name": "Stone Shape",
+			"type": "spell",
+			"img": "icons/magic/earth/barrier-stone-pillar-purple.webp",
+			"effects": [],
+			"flags": {
+				"core": {
+					"sourceId": "Compendium.a5e.a5e-spells.Item.ble3ggi0tc4u550j"
+				}
+			},
+			"system": {
+				"actions": {
+					"7XaWZy7TmceBTR0m": {
+						"name": "Stone Shape",
+						"activation": {
+							"cost": 1,
+							"type": "action",
+							"reactionTrigger": ""
+						},
+						"duration": {
+							"unit": "instantaneous",
+							"value": ""
+						},
+						"ranges": {
+							"W0c9B2YACazo7EyJ": {
+								"range": "touch"
+							}
+						},
+						"area": {
+							"shape": "",
+							"size": "",
+							"placeTemplate": false
+						},
+						"target": {
+							"quantity": null,
+							"type": "object",
+							"scaling": {
+								"mode": "spellLevel",
+								"formula": "1"
+							}
+						},
+						"consumers": {
+							"GgLR5kCecWeHHViz": {
+								"type": "itemUses",
+								"default": true,
+								"quantity": 1
+							}
+						}
+					}
+				},
+				"description": "<p>You reshape the target into any form you choose.</p><p>For example, you could shape a large rock into a weapon, statue, or chest, make a small passage through a wall (as long as it isn't more than 5 feet thick), seal a stone door shut, or create a hiding place. The target can have up to two hinges and a latch, but finer mechanical detail isn't possible.</p><p><strong><em>Cast at Higher Levels.</em></strong> You may select one additional target for every slot level above 4th.</p>",
+				"favorite": false,
+				"secretDescription": "",
+				"source": "",
+				"uses": {
+					"value": 3,
+					"max": "3",
+					"per": "day",
+					"recharge": {
+						"formula": "",
+						"threshold": ""
+					}
+				},
+				"schema": {
+					"version": null,
+					"lastMigration": null
+				},
+				"classes": [
+					"artificer",
+					"cleric",
+					"druid",
+					"elementalistEarth",
+					"wizard"
+				],
+				"components": {
+					"vocalized": true,
+					"seen": true,
+					"material": true
+				},
+				"concentration": false,
+				"level": 4,
+				"materials": "soft clay shaped as part of the spell",
+				"materialsConsumed": false,
+				"prepared": false,
+				"prerequisite": "",
+				"rare": false,
+				"ritual": false,
+				"schools": {
+					"primary": "transmutation",
+					"secondary": [
+						"nature",
+						"transformation"
+					]
+				},
+				"schemaVersion": {
+					"version": 0.01,
+					"lastMigration": {
+						"version": {
+							"schema": 0.009,
+							"foundry": "12.316",
+							"system": "0.16.12"
+						}
+					}
+				}
+			},
+			"folder": null,
+			"_id": "dgrkucpCWx6aEUBv",
+			"sort": 100000,
+			"ownership": {
+				"default": 0
+			}
+		},
+		{
+			"name": "Wall of Stone",
+			"type": "spell",
+			"img": "icons/magic/earth/barrier-stone-brown-green.webp",
+			"effects": [],
+			"flags": {},
+			"system": {
+				"actions": {
+					"vXBuwzrc4rNEal9w": {
+						"name": "Wall of Stone",
+						"activation": {
+							"cost": 1,
+							"type": "action",
+							"reactionTrigger": ""
+						},
+						"duration": {
+							"unit": "minute",
+							"value": "10"
+						},
+						"ranges": {
+							"MfQ9eNpxFmQNqSCJ": {
+								"range": "long"
+							}
+						},
+						"target": {
+							"quantity": "",
+							"type": ""
+						},
+						"consumers": {
+							"EOmWDESn0o57otN9": {
+								"type": "itemUses",
+								"default": true,
+								"quantity": 1
+							}
+						},
+						"prompts": {
+							"fGilpqlqhNjz2yK0": {
+								"type": "savingThrow",
+								"default": true,
+								"ability": "dex",
+								"saveDC": {
+									"type": "spellcasting"
+								},
+								"onSave": "Move up to Speed"
+							}
+						}
+					}
+				},
+				"description": "<p>A nonmagical wall of solid stone appears at a point you choose. The wall is 6 inches thick and is made up of a contiguous group of ten 10-foot square sections. Alternatively, you can create 10-foot-by-20- foot sections that are only 3 inches thick.</p>\n<p>The wall can have any shape you desire, though it can't occupy the same space as a creature or object.&nbsp;The wall doesn't need to be vertical or rest on any firm foundation but must merge with and be solidly supported by existing stone. Thus, you can use this spell to bridge a chasm or create a ramp.</p>\n<p>If the wall enters a creature's space when it appears, the creature is pushed to one side of the wall (your choice), but when a creature would be surrounded on all sides by the wall (or the wall and another solid surface), it can use its reaction to make a Dexterity saving throw to move up to its Speed to escape.</p>\n<p>If you create a span greater than 20 feet in length, you must halve the size of each panel to create supports. You can crudely shape the wall to create crenelations, battlements, and so on.</p>\n<p>The wall is an object made of stone. Each panel has AC 15 and 30 hit points per inch of thickness.&nbsp;Reducing a panel to 0 hit points destroys it and at the Narrator's discretion might cause connected panels to collapse.</p>\n<p>You can make the wall permanent by concentrating on the spell for the full duration.</p>",
+				"favorite": false,
+				"secretDescription": "",
+				"source": "",
+				"uses": {
+					"value": 3,
+					"max": "3",
+					"per": "day",
+					"recharge": {
+						"formula": "",
+						"threshold": ""
+					}
+				},
+				"schema": {
+					"version": null,
+					"lastMigration": null
+				},
+				"classes": [
+					"artificer",
+					"druid",
+					"elementalistEarth",
+					"sorcerer",
+					"witch",
+					"wizard"
+				],
+				"components": {
+					"vocalized": true,
+					"seen": true,
+					"material": true
+				},
+				"concentration": true,
+				"level": 5,
+				"materials": "block of granite",
+				"materialsConsumed": false,
+				"prepared": false,
+				"prerequisite": "",
+				"rare": false,
+				"ritual": false,
+				"schools": {
+					"primary": "evocation",
+					"secondary": [
+						"arcane",
+						"divine",
+						"earth",
+						"obscurement",
+						"protection",
+						"terrain",
+						"utility"
+					]
+				},
+				"schemaVersion": {
+					"version": 0.01,
+					"lastMigration": {
+						"version": {
+							"schema": 0.009,
+							"foundry": "12.316",
+							"system": "0.16.12"
+						}
+					}
+				}
+			},
+			"folder": null,
+			"_id": "HtVoxex7wa9HDL90",
+			"sort": 0,
+			"ownership": {
+				"default": 0
+			}
 		}
 	],
 	"effects": [],
@@ -1655,14 +2150,13 @@
 				"inclusive": [],
 				"exclusive": []
 			},
-			"showSpellSlots": false,
-			"showSpellTab": false
+			"showSpellSlots": false
 		}
 	},
 	"system": {
 		"abilities": {
 			"str": {
-				"value": 26,
+				"value": 22,
 				"check": {
 					"expertiseDice": 0,
 					"bonus": "",
@@ -1690,34 +2184,6 @@
 				}
 			},
 			"con": {
-				"value": 26,
-				"check": {
-					"expertiseDice": 0,
-					"bonus": "",
-					"notes": {}
-				},
-				"save": {
-					"proficient": true,
-					"expertiseDice": 0,
-					"bonus": "",
-					"notes": {}
-				}
-			},
-			"int": {
-				"value": 16,
-				"check": {
-					"expertiseDice": 0,
-					"bonus": "",
-					"notes": {}
-				},
-				"save": {
-					"proficient": true,
-					"expertiseDice": 0,
-					"bonus": "",
-					"notes": {}
-				}
-			},
-			"wis": {
 				"value": 22,
 				"check": {
 					"expertiseDice": 0,
@@ -1731,8 +2197,36 @@
 					"notes": {}
 				}
 			},
-			"cha": {
+			"int": {
 				"value": 14,
+				"check": {
+					"expertiseDice": 0,
+					"bonus": "",
+					"notes": {}
+				},
+				"save": {
+					"proficient": true,
+					"expertiseDice": 0,
+					"bonus": "",
+					"notes": {}
+				}
+			},
+			"wis": {
+				"value": 20,
+				"check": {
+					"expertiseDice": 0,
+					"bonus": "",
+					"notes": {}
+				},
+				"save": {
+					"proficient": true,
+					"expertiseDice": 0,
+					"bonus": "",
+					"notes": {}
+				}
+			},
+			"cha": {
+				"value": 12,
 				"check": {
 					"expertiseDice": 0,
 					"bonus": "",
@@ -2044,7 +2538,7 @@
 		},
 		"attributes": {
 			"ac": {
-				"baseFormula": "22",
+				"baseFormula": "19",
 				"value": 0
 			},
 			"death": {
@@ -2052,8 +2546,8 @@
 				"failure": 0
 			},
 			"hp": {
-				"value": 425,
-				"baseMax": 425,
+				"value": 287,
+				"baseMax": 287,
 				"temp": 0,
 				"bonus": 0
 			},
@@ -2071,16 +2565,16 @@
 					"total": 0
 				},
 				"d12": {
-					"current": 0,
-					"total": 0
+					"current": 23,
+					"total": 23
 				},
 				"d4": {
 					"current": 0,
 					"total": 0
 				},
 				"d20": {
-					"current": 23,
-					"total": 23
+					"current": 0,
+					"total": 0
 				}
 			},
 			"initiative": {
@@ -2124,7 +2618,7 @@
 					"unit": "feet"
 				},
 				"tremorsense": {
-					"distance": 120,
+					"distance": 90,
 					"unit": "feet"
 				},
 				"truesight": {
@@ -2163,7 +2657,7 @@
 				"dragon"
 			],
 			"isSwarm": false,
-			"cr": 24,
+			"cr": 18,
 			"elite": false,
 			"privateNotes": "",
 			"notes": ""
@@ -2230,7 +2724,7 @@
 			"publisher": ""
 		},
 		"traits": {
-			"size": "grg",
+			"size": "huge",
 			"conditionImmunities": [
 				"petrified"
 			],
@@ -2242,11 +2736,11 @@
 		}
 	},
 	"prototypeToken": {
-		"name": "Ancient Earth Dragon",
+		"name": "Adult Earth Dragon",
 		"displayName": 30,
 		"actorLink": false,
-		"width": 4,
-		"height": 4,
+		"width": 3,
+		"height": 3,
 		"lockRotation": false,
 		"rotation": 0,
 		"alpha": 1,
@@ -2308,5 +2802,5 @@
 		"prependAdjective": false
 	},
 	"folder": null,
-	"_id": "bvjrfo2d5fw8k4o1"
+	"_id": "rkuth6otcabk0dwb"
 }

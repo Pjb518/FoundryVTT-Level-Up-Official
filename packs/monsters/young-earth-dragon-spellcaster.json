@@ -1,5 +1,5 @@
 {
-	"name": "Young Earth Dragon",
+	"name": "Young Earth Dragon Spellcaster",
 	"type": "npc",
 	"img": "systems/a5e/assets/earth-dragon.webp",
 	"items": [
@@ -327,7 +327,7 @@
 							}
 						},
 						"consumers": {
-							"UMaPsAcZAS2Gza6D": {
+							"TdoYjfafp9lmHGY0": {
 								"type": "itemUses",
 								"default": true,
 								"quantity": 1
@@ -345,7 +345,7 @@
 					"per": "recharge",
 					"recharge": {
 						"formula": "",
-						"threshold": ""
+						"threshold": 5
 					}
 				},
 				"schema": {
@@ -1111,13 +1111,282 @@
 			"folder": null,
 			"sort": 0,
 			"_id": "VuJpx9Pc1eeKbXyw"
+		},
+		{
+			"name": "Innate Spellcasting",
+			"type": "feature",
+			"system": {
+				"ac": {
+					"baseFormula": "",
+					"formula": "",
+					"maxDex": 0,
+					"minStr": 0,
+					"mode": 2,
+					"requiresNoShield": false,
+					"requiresUnarmored": false
+				},
+				"actions": {},
+				"description": "<p>The dragon&rsquo;s spellcasting ability is Charisma (save DC 12). It can innately cast the following spells, requiring no material components.&nbsp;</p>\n<p><strong>3/day each:</strong> <em>locate animals or plants,&nbsp;spike growth</em></p>",
+				"favorite": false,
+				"secretDescription": "",
+				"source": {
+					"name": "",
+					"link": "",
+					"publisher": ""
+				},
+				"uses": {
+					"value": null,
+					"max": "",
+					"per": null,
+					"recharge": {
+						"formula": "1d6",
+						"threshold": "6"
+					}
+				},
+				"schema": {
+					"version": null,
+					"lastMigration": null
+				},
+				"concentration": false,
+				"featureType": "other",
+				"grants": {},
+				"prerequisite": "",
+				"requiresBloodied": false
+			},
+			"_id": "iSF5O69eH7ohmue9",
+			"img": "icons/svg/item-bag.svg",
+			"effects": [],
+			"folder": null,
+			"sort": 0,
+			"ownership": {
+				"default": 0
+			},
+			"flags": {}
+		},
+		{
+			"name": "Locate Animals or Plants",
+			"type": "spell",
+			"img": "icons/magic/nature/leaf-rune-glow-green.webp",
+			"effects": [],
+			"flags": {},
+			"system": {
+				"actions": {
+					"mJE9aA1VrgfWUGYn": {
+						"name": "Locate Animals or Plants",
+						"activation": {
+							"cost": 1,
+							"type": "action",
+							"reactionTrigger": ""
+						},
+						"duration": {
+							"unit": "instantaneous",
+							"value": ""
+						},
+						"ranges": {
+							"SreVgsDC8kqmgbF4": {
+								"range": "5-mile radius"
+							}
+						},
+						"area": {
+							"shape": "",
+							"size": "",
+							"placeTemplate": false
+						},
+						"target": {
+							"quantity": "",
+							"type": "self"
+						},
+						"consumers": {
+							"4NGu2wTEec3SQezY": {
+								"type": "itemUses",
+								"default": true,
+								"quantity": 1
+							}
+						}
+					}
+				},
+				"description": "<p>Name or describe in detail a specific kind of beast or plant. The natural magics in range reveal the closest example of the target within 5 miles, including its general direction (north, west, southeast, and so on) and how many miles away it currently is.</p>",
+				"favorite": false,
+				"secretDescription": "",
+				"source": "",
+				"uses": {
+					"value": 3,
+					"max": "3",
+					"per": "day",
+					"recharge": {
+						"formula": "",
+						"threshold": ""
+					}
+				},
+				"schema": {
+					"version": null,
+					"lastMigration": null
+				},
+				"classes": [
+					"bard",
+					"druid",
+					"elementalistEarth",
+					"witch"
+				],
+				"components": {
+					"vocalized": true,
+					"seen": true,
+					"material": true
+				},
+				"concentration": false,
+				"level": 2,
+				"materials": "two L-shaped metal rods",
+				"materialsConsumed": false,
+				"prepared": false,
+				"prerequisite": "",
+				"rare": false,
+				"ritual": true,
+				"schools": {
+					"primary": "divination",
+					"secondary": [
+						"arcane",
+						"beasts",
+						"knowledge",
+						"nature",
+						"plants",
+						"utility"
+					]
+				},
+				"schemaVersion": {
+					"version": 0.01,
+					"lastMigration": {
+						"version": {
+							"schema": 0.009,
+							"foundry": "12.316",
+							"system": "0.16.12"
+						}
+					}
+				}
+			},
+			"folder": null,
+			"_id": "MBI1BJltf0oZbyQS",
+			"sort": 0,
+			"ownership": {
+				"default": 0
+			}
+		},
+		{
+			"name": "Spike Growth",
+			"type": "spell",
+			"img": "icons/magic/nature/root-vine-spiral-thorns-teal.webp",
+			"effects": [],
+			"flags": {},
+			"system": {
+				"actions": {
+					"YhSdGtKOP675kH3X": {
+						"name": "Spike Growth",
+						"activation": {
+							"cost": 1,
+							"type": "action",
+							"reactionTrigger": ""
+						},
+						"duration": {
+							"unit": "minute",
+							"value": "10"
+						},
+						"ranges": {
+							"l5q9V3eYA6gNZntD": {
+								"range": "long"
+							}
+						},
+						"area": {
+							"shape": "sphere",
+							"radius": "20",
+							"placeTemplate": true
+						},
+						"target": {
+							"quantity": "",
+							"type": ""
+						},
+						"rolls": {},
+						"consumers": {
+							"YdQBpMztxMcRjpmP": {
+								"type": "itemUses",
+								"default": true,
+								"quantity": 1
+							}
+						},
+						"prompts": {
+							"uKEppBu4oGsK2nkp": {
+								"type": "generic",
+								"default": true,
+								"label": "Piercing Damage for Every 5 Feet of Travel",
+								"formula": "2d4"
+							}
+						}
+					}
+				},
+				"description": "<p>You cause sharp spikes and thorns to sprout in the area, making it difficult terrain. When a creature enters or moves within the area, it takes 2d4 piercing damage for every 5 feet it travels.</p><p>Your magic causes the ground to look natural. A creature that can't see the area when the spell is cast can spot the hazardous terrain just before entering it by making a Perception check against your spell save DC.</p>",
+				"favorite": false,
+				"secretDescription": "",
+				"source": "",
+				"uses": {
+					"value": 3,
+					"max": "3",
+					"per": "day",
+					"recharge": {
+						"formula": "",
+						"threshold": ""
+					}
+				},
+				"schema": {
+					"version": null,
+					"lastMigration": null
+				},
+				"classes": [
+					"druid",
+					"elementalistEarth"
+				],
+				"components": {
+					"vocalized": true,
+					"seen": true,
+					"material": true
+				},
+				"concentration": true,
+				"level": 2,
+				"materials": "seven sharp thorns, or small, sharpened twigs",
+				"materialsConsumed": false,
+				"prepared": false,
+				"prerequisite": "",
+				"rare": false,
+				"ritual": false,
+				"schools": {
+					"primary": "transmutation",
+					"secondary": [
+						"nature",
+						"terrain"
+					]
+				},
+				"schemaVersion": {
+					"version": 0.01,
+					"lastMigration": {
+						"version": {
+							"schema": 0.009,
+							"foundry": "12.316",
+							"system": "0.16.12"
+						}
+					}
+				}
+			},
+			"folder": null,
+			"_id": "7dterMkGOMrNyZer",
+			"sort": 0,
+			"ownership": {
+				"default": 0
+			}
 		}
 	],
 	"effects": [],
 	"flags": {
 		"a5e": {
-			"sheetIsLocked": false,
-			"showSpellTab": false
+			"sheetIsLocked": true,
+			"showSpellTab": true,
+			"showSpellSlots": false
 		}
 	},
 	"system": {
@@ -1769,5 +2038,5 @@
 		"prependAdjective": false
 	},
 	"folder": null,
-	"_id": "df1r9ckincpviaf9"
+	"_id": "f65bmdqpjotwapej"
 }

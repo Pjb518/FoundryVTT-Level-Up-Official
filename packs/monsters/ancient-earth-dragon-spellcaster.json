@@ -1,5 +1,5 @@
 {
-	"name": "Ancient Earth Dragon",
+	"name": "Ancient Earth Dragon Spellcaster",
 	"type": "npc",
 	"img": "systems/a5e/assets/earth-dragon.webp",
 	"items": [
@@ -1645,6 +1645,859 @@
 			"folder": null,
 			"sort": 0,
 			"_id": "OAtWT06dqtPTCa9s"
+		},
+		{
+			"name": "Locate Animals or Plants",
+			"type": "spell",
+			"img": "icons/magic/nature/leaf-rune-glow-green.webp",
+			"effects": [],
+			"flags": {},
+			"system": {
+				"actions": {
+					"mJE9aA1VrgfWUGYn": {
+						"name": "Locate Animals or Plants",
+						"activation": {
+							"cost": 1,
+							"type": "action",
+							"reactionTrigger": ""
+						},
+						"duration": {
+							"unit": "instantaneous",
+							"value": ""
+						},
+						"ranges": {
+							"SreVgsDC8kqmgbF4": {
+								"range": "5-mile radius"
+							}
+						},
+						"area": {
+							"shape": "",
+							"size": "",
+							"placeTemplate": false
+						},
+						"target": {
+							"quantity": "",
+							"type": "self"
+						},
+						"consumers": {
+							"4NGu2wTEec3SQezY": {
+								"type": "itemUses",
+								"default": true,
+								"quantity": 1
+							}
+						}
+					}
+				},
+				"description": "<p>Name or describe in detail a specific kind of beast or plant. The natural magics in range reveal the closest example of the target within 5 miles, including its general direction (north, west, southeast, and so on) and how many miles away it currently is.</p>",
+				"favorite": false,
+				"secretDescription": "",
+				"source": "",
+				"uses": {
+					"value": 3,
+					"max": "3",
+					"per": "day",
+					"recharge": {
+						"formula": "",
+						"threshold": ""
+					}
+				},
+				"schema": {
+					"version": null,
+					"lastMigration": null
+				},
+				"classes": [
+					"bard",
+					"druid",
+					"elementalistEarth",
+					"witch"
+				],
+				"components": {
+					"vocalized": true,
+					"seen": true,
+					"material": true
+				},
+				"concentration": false,
+				"level": 2,
+				"materials": "two L-shaped metal rods",
+				"materialsConsumed": false,
+				"prepared": false,
+				"prerequisite": "",
+				"rare": false,
+				"ritual": true,
+				"schools": {
+					"primary": "divination",
+					"secondary": [
+						"arcane",
+						"beasts",
+						"knowledge",
+						"nature",
+						"plants",
+						"utility"
+					]
+				},
+				"schemaVersion": {
+					"version": 0.01,
+					"lastMigration": {
+						"version": {
+							"schema": 0.009,
+							"foundry": "12.316",
+							"system": "0.16.12"
+						}
+					}
+				}
+			},
+			"folder": null,
+			"_id": "qmUJt41MVjKqMN8p",
+			"sort": 0,
+			"ownership": {
+				"default": 0
+			}
+		},
+		{
+			"name": "Spike Growth",
+			"type": "spell",
+			"img": "icons/magic/nature/root-vine-spiral-thorns-teal.webp",
+			"effects": [],
+			"flags": {},
+			"system": {
+				"actions": {
+					"YhSdGtKOP675kH3X": {
+						"name": "Spike Growth",
+						"activation": {
+							"cost": 1,
+							"type": "action",
+							"reactionTrigger": ""
+						},
+						"duration": {
+							"unit": "minute",
+							"value": "10"
+						},
+						"ranges": {
+							"l5q9V3eYA6gNZntD": {
+								"range": "long"
+							}
+						},
+						"area": {
+							"shape": "sphere",
+							"radius": "20",
+							"placeTemplate": true
+						},
+						"target": {
+							"quantity": "",
+							"type": ""
+						},
+						"rolls": {},
+						"consumers": {
+							"YdQBpMztxMcRjpmP": {
+								"type": "itemUses",
+								"default": true,
+								"quantity": 1
+							}
+						},
+						"prompts": {
+							"uKEppBu4oGsK2nkp": {
+								"type": "generic",
+								"default": true,
+								"label": "Piercing Damage for Every 5 Feet of Travel",
+								"formula": "2d4"
+							}
+						}
+					}
+				},
+				"description": "<p>You cause sharp spikes and thorns to sprout in the area, making it difficult terrain. When a creature enters or moves within the area, it takes 2d4 piercing damage for every 5 feet it travels.</p><p>Your magic causes the ground to look natural. A creature that can't see the area when the spell is cast can spot the hazardous terrain just before entering it by making a Perception check against your spell save DC.</p>",
+				"favorite": false,
+				"secretDescription": "",
+				"source": "",
+				"uses": {
+					"value": 3,
+					"max": "3",
+					"per": "day",
+					"recharge": {
+						"formula": "",
+						"threshold": ""
+					}
+				},
+				"schema": {
+					"version": null,
+					"lastMigration": null
+				},
+				"classes": [
+					"druid",
+					"elementalistEarth"
+				],
+				"components": {
+					"vocalized": true,
+					"seen": true,
+					"material": true
+				},
+				"concentration": true,
+				"level": 2,
+				"materials": "seven sharp thorns, or small, sharpened twigs",
+				"materialsConsumed": false,
+				"prepared": false,
+				"prerequisite": "",
+				"rare": false,
+				"ritual": false,
+				"schools": {
+					"primary": "transmutation",
+					"secondary": [
+						"nature",
+						"terrain"
+					]
+				},
+				"schemaVersion": {
+					"version": 0.01,
+					"lastMigration": {
+						"version": {
+							"schema": 0.009,
+							"foundry": "12.316",
+							"system": "0.16.12"
+						}
+					}
+				}
+			},
+			"folder": null,
+			"_id": "FFpTfzoEtLOEh0fF",
+			"sort": 0,
+			"ownership": {
+				"default": 0
+			}
+		},
+		{
+			"name": "Stone Shape",
+			"type": "spell",
+			"img": "icons/magic/earth/barrier-stone-pillar-purple.webp",
+			"effects": [],
+			"flags": {
+				"core": {
+					"sourceId": "Compendium.a5e.a5e-spells.Item.ble3ggi0tc4u550j"
+				}
+			},
+			"system": {
+				"actions": {
+					"7XaWZy7TmceBTR0m": {
+						"name": "Stone Shape",
+						"activation": {
+							"cost": 1,
+							"type": "action",
+							"reactionTrigger": ""
+						},
+						"duration": {
+							"unit": "instantaneous",
+							"value": ""
+						},
+						"ranges": {
+							"W0c9B2YACazo7EyJ": {
+								"range": "touch"
+							}
+						},
+						"area": {
+							"shape": "",
+							"size": "",
+							"placeTemplate": false
+						},
+						"target": {
+							"quantity": null,
+							"type": "object",
+							"scaling": {
+								"mode": "spellLevel",
+								"formula": "1"
+							}
+						},
+						"consumers": {
+							"GgLR5kCecWeHHViz": {
+								"type": "itemUses",
+								"default": true,
+								"quantity": 1
+							}
+						}
+					}
+				},
+				"description": "<p>You reshape the target into any form you choose.</p><p>For example, you could shape a large rock into a weapon, statue, or chest, make a small passage through a wall (as long as it isn't more than 5 feet thick), seal a stone door shut, or create a hiding place. The target can have up to two hinges and a latch, but finer mechanical detail isn't possible.</p><p><strong><em>Cast at Higher Levels.</em></strong> You may select one additional target for every slot level above 4th.</p>",
+				"favorite": false,
+				"secretDescription": "",
+				"source": "",
+				"uses": {
+					"value": 3,
+					"max": "3",
+					"per": "day",
+					"recharge": {
+						"formula": "",
+						"threshold": ""
+					}
+				},
+				"schema": {
+					"version": null,
+					"lastMigration": null
+				},
+				"classes": [
+					"artificer",
+					"cleric",
+					"druid",
+					"elementalistEarth",
+					"wizard"
+				],
+				"components": {
+					"vocalized": true,
+					"seen": true,
+					"material": true
+				},
+				"concentration": false,
+				"level": 4,
+				"materials": "soft clay shaped as part of the spell",
+				"materialsConsumed": false,
+				"prepared": false,
+				"prerequisite": "",
+				"rare": false,
+				"ritual": false,
+				"schools": {
+					"primary": "transmutation",
+					"secondary": [
+						"nature",
+						"transformation"
+					]
+				},
+				"schemaVersion": {
+					"version": 0.01,
+					"lastMigration": {
+						"version": {
+							"schema": 0.009,
+							"foundry": "12.316",
+							"system": "0.16.12"
+						}
+					}
+				}
+			},
+			"folder": null,
+			"_id": "XniPunuzf33i2XZC",
+			"sort": 100000,
+			"ownership": {
+				"default": 0
+			}
+		},
+		{
+			"name": "Wall of Stone",
+			"type": "spell",
+			"img": "icons/magic/earth/barrier-stone-brown-green.webp",
+			"effects": [],
+			"flags": {},
+			"system": {
+				"actions": {
+					"vXBuwzrc4rNEal9w": {
+						"name": "Wall of Stone",
+						"activation": {
+							"cost": 1,
+							"type": "action",
+							"reactionTrigger": ""
+						},
+						"duration": {
+							"unit": "minute",
+							"value": "10"
+						},
+						"ranges": {
+							"MfQ9eNpxFmQNqSCJ": {
+								"range": "long"
+							}
+						},
+						"target": {
+							"quantity": "",
+							"type": ""
+						},
+						"consumers": {
+							"EOmWDESn0o57otN9": {
+								"type": "itemUses",
+								"default": true,
+								"quantity": 1
+							}
+						},
+						"prompts": {
+							"fGilpqlqhNjz2yK0": {
+								"type": "savingThrow",
+								"default": true,
+								"ability": "dex",
+								"saveDC": {
+									"type": "spellcasting"
+								},
+								"onSave": "Move up to Speed"
+							}
+						}
+					}
+				},
+				"description": "<p>A nonmagical wall of solid stone appears at a point you choose. The wall is 6 inches thick and is made up of a contiguous group of ten 10-foot square sections. Alternatively, you can create 10-foot-by-20- foot sections that are only 3 inches thick.</p>\n<p>The wall can have any shape you desire, though it can't occupy the same space as a creature or object.&nbsp;The wall doesn't need to be vertical or rest on any firm foundation but must merge with and be solidly supported by existing stone. Thus, you can use this spell to bridge a chasm or create a ramp.</p>\n<p>If the wall enters a creature's space when it appears, the creature is pushed to one side of the wall (your choice), but when a creature would be surrounded on all sides by the wall (or the wall and another solid surface), it can use its reaction to make a Dexterity saving throw to move up to its Speed to escape.</p>\n<p>If you create a span greater than 20 feet in length, you must halve the size of each panel to create supports. You can crudely shape the wall to create crenelations, battlements, and so on.</p>\n<p>The wall is an object made of stone. Each panel has AC 15 and 30 hit points per inch of thickness.&nbsp;Reducing a panel to 0 hit points destroys it and at the Narrator's discretion might cause connected panels to collapse.</p>\n<p>You can make the wall permanent by concentrating on the spell for the full duration.</p>",
+				"favorite": false,
+				"secretDescription": "",
+				"source": "",
+				"uses": {
+					"value": 3,
+					"max": "3",
+					"per": "day",
+					"recharge": {
+						"formula": "",
+						"threshold": ""
+					}
+				},
+				"schema": {
+					"version": null,
+					"lastMigration": null
+				},
+				"classes": [
+					"artificer",
+					"druid",
+					"elementalistEarth",
+					"sorcerer",
+					"witch",
+					"wizard"
+				],
+				"components": {
+					"vocalized": true,
+					"seen": true,
+					"material": true
+				},
+				"concentration": true,
+				"level": 5,
+				"materials": "block of granite",
+				"materialsConsumed": false,
+				"prepared": false,
+				"prerequisite": "",
+				"rare": false,
+				"ritual": false,
+				"schools": {
+					"primary": "evocation",
+					"secondary": [
+						"arcane",
+						"divine",
+						"earth",
+						"obscurement",
+						"protection",
+						"terrain",
+						"utility"
+					]
+				},
+				"schemaVersion": {
+					"version": 0.01,
+					"lastMigration": {
+						"version": {
+							"schema": 0.009,
+							"foundry": "12.316",
+							"system": "0.16.12"
+						}
+					}
+				}
+			},
+			"folder": null,
+			"_id": "XofLxX8BpX11qKZk",
+			"sort": 0,
+			"ownership": {
+				"default": 0
+			}
+		},
+		{
+			"name": "Innate Spellcasting",
+			"type": "feature",
+			"system": {
+				"ac": {
+					"baseFormula": "",
+					"formula": "",
+					"maxDex": 0,
+					"minStr": 0,
+					"mode": 2,
+					"requiresNoShield": false,
+					"requiresUnarmored": false
+				},
+				"actions": {},
+				"description": "<p>The dragon&rsquo;s spellcasting ability is Charisma (save DC 17). It can innately cast the following spells, requiring no material components.&nbsp;</p>\n<p><strong>3/day each:</strong> <em>locate animals or plants, spike growth, stone shape,&nbsp;wall of stone</em></p>\n<p><strong>1/day:</strong><em> earthquake, move earth</em></p>",
+				"favorite": false,
+				"secretDescription": "",
+				"source": {
+					"name": "",
+					"link": "",
+					"publisher": ""
+				},
+				"uses": {
+					"value": null,
+					"max": "",
+					"per": null,
+					"recharge": {
+						"formula": "1d6",
+						"threshold": "6"
+					}
+				},
+				"schema": {
+					"version": null,
+					"lastMigration": null
+				},
+				"concentration": false,
+				"featureType": "other",
+				"grants": {},
+				"prerequisite": "",
+				"requiresBloodied": false
+			},
+			"_id": "DNKPlMpk62iUS0pA",
+			"img": "icons/svg/item-bag.svg",
+			"effects": [],
+			"folder": null,
+			"sort": 0,
+			"ownership": {
+				"default": 0
+			},
+			"flags": {}
+		},
+		{
+			"name": "Earthquake",
+			"type": "spell",
+			"img": "icons/magic/earth/projectile-stone-landslide.webp",
+			"effects": [
+				{
+					"icon": "icons/magic/earth/projectile-stone-landslide.webp",
+					"origin": "Actor.KGmWz76VTH8YigqB.Item.2kxanNcG7UkzTGxK",
+					"flags": {
+						"a5e": {
+							"sort": 0,
+							"transferType": "onUse",
+							"actionId": "d3aEhMxm4ue7TyTG",
+							"duration": {
+								"unit": "minutes"
+							}
+						}
+					},
+					"transfer": false,
+					"name": "Buried",
+					"_id": "2NEiVNCJmfDVkvjN",
+					"changes": [
+						{
+							"key": "flags.a5e.effects.statusConditions",
+							"value": "[\"prone\"]",
+							"mode": 0,
+							"priority": null
+						}
+					],
+					"disabled": false,
+					"duration": {
+						"startTime": null,
+						"seconds": 60,
+						"combat": null,
+						"rounds": null,
+						"turns": null,
+						"startRound": null,
+						"startTurn": null
+					},
+					"description": "",
+					"statuses": [
+						"prone"
+					],
+					"folder": null
+				}
+			],
+			"flags": {
+				"core": {
+					"sourceId": "Compendium.a5e.a5e-spells.Item.lekm98iu8ilkj7wl"
+				}
+			},
+			"system": {
+				"actions": {
+					"pbwd2e6R5Bze0ezo": {
+						"name": "Earthquake",
+						"activation": {
+							"cost": 1,
+							"type": "action",
+							"reactionTrigger": ""
+						},
+						"duration": {
+							"unit": "minute",
+							"value": "1"
+						},
+						"ranges": {
+							"HbiOtt5iDXBRCK0s": {
+								"range": "500 feet"
+							}
+						},
+						"area": {
+							"shape": "cylinder",
+							"radius": "100",
+							"placeTemplate": false,
+							"quantity": 1
+						},
+						"target": {
+							"quantity": null,
+							"type": "other"
+						},
+						"prompts": {
+							"3AcwQxvHTKqFFzds": {
+								"ability": "dex",
+								"onSave": "Not knocked prone",
+								"saveDC": {
+									"type": "spellcasting",
+									"bonus": ""
+								},
+								"type": "savingThrow"
+							}
+						},
+						"consumers": {
+							"POAlAmyks1K8swtU": {
+								"type": "itemUses",
+								"default": true,
+								"quantity": 1
+							}
+						}
+					},
+					"RDPfvBUQ2DdOpH3r": {
+						"name": "Fissures",
+						"activation": {},
+						"consumers": {},
+						"rolls": {
+							"dNfo1hrSzOqadQgh": {
+								"type": "generic",
+								"default": true,
+								"label": "Number of Fissures",
+								"formula": "1d6"
+							}
+						},
+						"prompts": {
+							"ezpZx655JS9aHykw": {
+								"type": "savingThrow",
+								"default": true,
+								"ability": "dex",
+								"saveDC": {
+									"type": "spellcasting"
+								},
+								"onSave": "Moves with fissure edge"
+							}
+						},
+						"uses": {
+							"value": 0,
+							"max": "",
+							"per": "",
+							"recharge": {
+								"formula": "1d6",
+								"threshold": 6
+							}
+						},
+						"area": {
+							"shape": "line",
+							"quantity": 1,
+							"length": 200,
+							"width": 10,
+							"placeTemplate": true
+						}
+					},
+					"d3aEhMxm4ue7TyTG": {
+						"name": "Structures",
+						"activation": {},
+						"consumers": {},
+						"rolls": {
+							"vhDrfZhWDjzFOW5f": {
+								"type": "damage",
+								"default": true,
+								"canCrit": false,
+								"formula": "5d6",
+								"damageType": "bludgeoning"
+							}
+						},
+						"prompts": {
+							"Kkh8BPpCpGKPrG3b": {
+								"type": "savingThrow",
+								"default": true,
+								"ability": "dex",
+								"saveDC": {
+									"type": "spellcasting"
+								},
+								"onSave": "Half damage, not prone or buried"
+							},
+							"sxBOWgAdikAkXRGz": {
+								"type": "skillCheck",
+								"default": true,
+								"skill": "acr",
+								"ability": "none",
+								"label": "Buried In Rubble"
+							},
+							"PEtHeEO0wuWKJ5HZ": {
+								"type": "skillCheck",
+								"default": true,
+								"skill": "ath",
+								"ability": "none",
+								"label": "Buried In Rubble"
+							},
+							"Ubxcz0OYGPFTjXj2": {
+								"type": "effect",
+								"default": true,
+								"effectId": "2NEiVNCJmfDVkvjN"
+							}
+						},
+						"uses": {
+							"value": 0,
+							"max": "",
+							"per": "",
+							"recharge": {
+								"formula": "1d6",
+								"threshold": 6
+							}
+						}
+					}
+				},
+				"description": "<p>You create a seismic disturbance in the spell's area. Until the spell ends, an intense tremor rips through the ground and shakes anything in contact with it.</p>\n<p>The ground in the spell's area becomes difficult terrain as it warps and cracks.</p>\n<p>When you cast this spell and at the end of each turn you spend concentrating on it, each creature in contact with the ground in the spell's area must make a Dexterity saving throw or be knocked prone.</p>\n<p>Additionally, any creature that is concentrating on a spell while in contact with the ground in the spell's area must make a Constitution saving throw or lose concentration.</p>\n<p>At the Narrator's discretion, this spell may have additional effects depending on the terrain in the area.</p>\n<p>&nbsp;</p>\n<p><strong>Fissures:</strong> Fissures open within the spell's area at the start of your next turn after you cast the spell. A total of 1d6 such fissures open in locations you choose. Each is [[1d10]] &times; 10 feet deep, 10 feet wide, and extends from one edge of the spell's area to the opposite side. A creature standing on a spot where a fissure opens makes a Dexterity saving throw or falls in. On a successful save, a creature moves with the fissure's edge as it opens.</p>\n<p>A structure automatically collapses if a fissure opens beneath it (see below).</p>\n<p>&nbsp;</p>\n<p><strong>Structures:</strong> A structure in contact with the ground in the spell's area takes 50 bludgeoning damage when you cast the spell and again at the start of each of your turns while the spell is active. A structure reduced to 0 hit points this way collapses.</p>\n<p>Creatures within half the distance of a collapsing structure's height make a Dexterity saving throw or take 5d6 bludgeoning damage, are knocked prone, and are buried in the rubble, requiring a DC 20 Acrobatics or Athletics check as an action to escape. A creature inside (instead of near) a collapsing structure has disadvantage on its saving throw. The Narrator can adjust the DC higher or lower depending on the composition of the rubble. On a successful save, the creature takes half as much damage and doesn't fall prone or become buried.</p>",
+				"favorite": false,
+				"secretDescription": "",
+				"source": "",
+				"uses": {
+					"value": 1,
+					"max": "1",
+					"per": "day",
+					"recharge": {
+						"formula": "",
+						"threshold": ""
+					}
+				},
+				"schema": {
+					"version": null,
+					"lastMigration": null
+				},
+				"classes": [
+					"cleric",
+					"druid",
+					"sorcerer",
+					"witch"
+				],
+				"components": {
+					"vocalized": true,
+					"seen": true,
+					"material": true
+				},
+				"concentration": true,
+				"level": 8,
+				"materials": "dirt, rock, and clay",
+				"materialsConsumed": false,
+				"prepared": false,
+				"prerequisite": "",
+				"rare": false,
+				"ritual": false,
+				"schools": {
+					"primary": "evocation",
+					"secondary": [
+						"earth",
+						"terrain"
+					]
+				},
+				"schemaVersion": {
+					"version": 0.01,
+					"lastMigration": {
+						"version": {
+							"schema": 0.009,
+							"foundry": "12.316",
+							"system": "0.16.12"
+						}
+					}
+				}
+			},
+			"folder": null,
+			"_id": "2kxanNcG7UkzTGxK",
+			"sort": 200000,
+			"ownership": {
+				"default": 0
+			}
+		},
+		{
+			"name": "Move Earth",
+			"type": "spell",
+			"img": "icons/magic/earth/barrier-stone-explosion-debris.webp",
+			"effects": [],
+			"flags": {},
+			"system": {
+				"actions": {
+					"2y1AtgU3EEEHalC5": {
+						"name": "Move Earth",
+						"activation": {
+							"cost": 1,
+							"type": "action",
+							"reactionTrigger": ""
+						},
+						"duration": {
+							"unit": "hour",
+							"value": "2"
+						},
+						"ranges": {
+							"ETHtyGIPziuNvo3C": {
+								"range": "long"
+							}
+						},
+						"area": {
+							"shape": "cube",
+							"width": null,
+							"placeTemplate": false
+						},
+						"target": {
+							"quantity": "",
+							"type": "Area"
+						},
+						"consumers": {
+							"A6TMvvpKNuxmDRYI": {
+								"type": "itemUses",
+								"default": true,
+								"quantity": 1
+							}
+						}
+					}
+				},
+				"description": "<p>You reshape the area, changing its elevation or creating and eliminating holes, walls, and pillars.</p><p>The only limitation is that the elevation change may not exceed half the area's horizontal dimensions.</p><p>For example, affecting a 40-by-40 area allows you to include 20 foot high pillars, holes 20 feet deep, and changes in terrain elevation of 20 feet or less.</p><p>Changes that result in unstable terrain are subject to collapse.</p><p>Changes take 10 minutes to complete, after which you can choose another area to affect. Due to the slow speed of transformation, it is nearly impossible for creatures to be hurt or captured by the spell.</p><p>This spell has no effect on stone, objects crafted from stone, or plants, though these objects will shift based on changes in the area.</p>",
+				"favorite": false,
+				"secretDescription": "",
+				"source": "",
+				"uses": {
+					"value": null,
+					"max": "",
+					"per": null,
+					"recharge": {
+						"formula": "",
+						"threshold": ""
+					}
+				},
+				"schema": {
+					"version": null,
+					"lastMigration": null
+				},
+				"classes": [
+					"druid",
+					"sorcerer",
+					"wizard"
+				],
+				"components": {
+					"vocalized": true,
+					"seen": true,
+					"material": true
+				},
+				"concentration": true,
+				"level": 6,
+				"materials": "iron blade and a bag of mixed soils",
+				"materialsConsumed": false,
+				"prepared": false,
+				"prerequisite": "",
+				"rare": false,
+				"ritual": false,
+				"schools": {
+					"primary": "transmutation",
+					"secondary": [
+						"earth",
+						"nature",
+						"terrain",
+						"utility"
+					]
+				},
+				"schemaVersion": {
+					"version": 0.01,
+					"lastMigration": {
+						"version": {
+							"schema": 0.009,
+							"foundry": "12.316",
+							"system": "0.16.12"
+						}
+					}
+				}
+			},
+			"folder": null,
+			"_id": "rkAUaGmtxwmZrPAS",
+			"sort": 0,
+			"ownership": {
+				"default": 0
+			}
 		}
 	],
 	"effects": [],
@@ -1656,7 +2509,7 @@
 				"exclusive": []
 			},
 			"showSpellSlots": false,
-			"showSpellTab": false
+			"showSpellTab": true
 		}
 	},
 	"system": {
@@ -2308,5 +3161,5 @@
 		"prependAdjective": false
 	},
 	"folder": null,
-	"_id": "bvjrfo2d5fw8k4o1"
+	"_id": "yhtkwh5q969rlj1u"
 }
