@@ -31,7 +31,7 @@
 
         return event.dataTransfer.setData(
             "text/plain",
-            JSON.stringify(dragData)
+            JSON.stringify(dragData),
         );
     }
 </script>
@@ -47,7 +47,7 @@
         </button>
     </header>
 
-    <ul class="action-list">
+    <ul class="a5e-item-list">
         {#each Object.entries($item.system.actions ?? {}) as [id, action] (id)}
             <li
                 class="action"
@@ -130,16 +130,6 @@
             gap: 0.5rem;
             color: #999;
             margin-left: auto;
-        }
-
-        &-list {
-            display: flex;
-            flex-direction: column;
-            gap: 0.25rem;
-            padding: 0;
-            margin: 0;
-            list-style: none;
-            font-family: $font-secondary;
         }
     }
 

@@ -23,8 +23,8 @@
     $: sheetIsLocked = !$doc.isOwner
         ? true
         : $doc.documentName === "Item"
-        ? false
-        : $doc.flags?.a5e?.sheetIsLocked ?? true;
+          ? false
+          : $doc.flags?.a5e?.sheetIsLocked ?? true;
     $: effectTemplateConfiguration =
         getEffectTemplateConfiguration(sheetIsLocked);
 </script>
@@ -36,7 +36,7 @@
         </h3>
     </header>
 
-    <ul class="effects-container">
+    <ul class="a5e-item-list a5e-item-list--effects">
         {#each [...effects] as effect (effect.id)}
             <Effect
                 {effect}
@@ -60,17 +60,5 @@
 
     .category-heading {
         font-size: $font-size-sm;
-    }
-
-    .effects-container {
-        display: flex;
-        flex-direction: column;
-        gap: 0.25rem;
-        padding: 0;
-        padding-right: 0.375rem;
-        margin: 0;
-        margin-right: -0.375rem;
-        list-style: none;
-        overflow-y: auto;
     }
 </style>
