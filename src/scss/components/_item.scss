@@ -7,8 +7,7 @@
   row-gap: 0;
   align-items: center;
   width: 100%;
-  padding: 0.125rem;
-  padding-right: 0.5rem;
+  padding: 0.15rem 0.5rem;
   border: solid transparent;
   border-width: 0 0 1px;
   border-image: linear-gradient(
@@ -17,7 +16,8 @@
     var(--item-border-color-end, #d5cac1)
   )
     1 repeat;
-  background: var(--item-background, transparent);
+  border-radius: 0;
+  background: linear-gradient(90deg, transparent, var(--item-background, transparent));
   cursor: pointer;
 
   &--highlight {
@@ -52,7 +52,7 @@
     --indicator-background: hsla(0, 55%, 50%, 0.302);
     --indicator-text-color: #000;
     --input-border-color: hsla(0, 50%, 35%, 0.17);
-    --item-background: hsla(0, 55%, 55%, 0.4);
+    --item-background: hsla(0, 55%, 55%, 0.3);
     --item-border-color-end: hsla(0, 40%, 50%, 0.302);
     --item-border-color-start: hsla(0, 55%, 55%, 0);
     --track-background: hsl(0, 30%, 90%);
@@ -77,9 +77,7 @@
     height: 1.375rem;
     padding: 0;
     margin: 0;
-    background: transparent;
     border-radius: $border-radius-standard;
-    grid-area: icon;
 
     &:hover {
       box-shadow: none;
