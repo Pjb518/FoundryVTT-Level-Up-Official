@@ -32,25 +32,27 @@
 
     $: skillListFlowDirection = game.settings.get(
         "a5e",
-        "skillListFlowDirection"
+        "skillListFlowDirection",
     );
 </script>
 
 <div class="skill-page-wrapper">
     {#if showSpecialties}
-        <FormSection heading="Skill Specialties" --border="1px solid #ccc">
-            <dl class="skill-specialties">
+        <FormSection --border="1px solid #ccc">
+            <h3 class="a5e-skill-specialties-heading">Skill Specialties</h3>
+
+            <dl class="a5e-skill-specialties">
                 {#each Object.entries(skills) as [key, skill]}
                     {#if skill.specialties.length}
-                        <dt class="skill-specialties__skill">
+                        <dt class="a5e-skill-specialties__skill">
                             {localize(A5E.skills[key])}
                         </dt>
-                        <dd class="skill-specialties__list">
+                        <dd class="a5e-skill-specialties__list">
                             {skill.specialties
                                 .sort((a, b) =>
                                     a
                                         .toLowerCase()
-                                        .localeCompare(b.toLowerCase())
+                                        .localeCompare(b.toLowerCase()),
                                 )
                                 .map((specialty) => {
                                     if (!skillSpecialties[key])
@@ -85,6 +87,12 @@
 </div>
 
 <style lang="scss">
+    .a5e-skill-specialties-heading {
+        font-family: var(--a5e-font-serif);
+        font-size: var(--a5e-text-size-md);
+        font-weight: 700;
+    }
+
     .skills-container {
         display: grid;
         grid-template-columns: repeat(2, 1fr);
@@ -107,24 +115,5 @@
         flex-grow: 1;
         gap: 0.5rem;
         overflow-x: hidden;
-    }
-
-    .skill-specialties {
-        display: grid;
-        align-items: center;
-        grid-template-columns: min-content 1fr;
-        width: 100%;
-        gap: 0.25rem 0.5rem;
-        margin: 0;
-        font-size: $font-size-sm;
-
-        &__list {
-            margin: 0;
-            padding: 0;
-        }
-
-        &__skill {
-            white-space: nowrap;
-        }
     }
 </style>
