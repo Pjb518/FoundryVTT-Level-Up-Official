@@ -2,6 +2,7 @@
 import { TJSGameSettings, type GameSetting } from '#runtime/svelte/store/fvtt/settings';
 
 import MigrationRunner from '../migration/MigrationRunner';
+import CONFIG from '../config';
 
 class A5eGameSettings extends TJSGameSettings {
   public settingsData: any;
@@ -88,7 +89,7 @@ class A5eGameSettings extends TJSGameSettings {
           hint: 'A5E.settings.hints.itemRightClickConfigure',
           scope: scope.client,
           config: true,
-          default: false,
+          default: true,
           type: Boolean
         }
       },
@@ -169,7 +170,7 @@ class A5eGameSettings extends TJSGameSettings {
           scope: scope.world,
           config: true,
           type: Array,
-          default: []
+          default: Object.keys(CONFIG.conditions)
         }
       },
       {
