@@ -1,14 +1,27 @@
 .a5e-section-header {
-  padding: 0.25rem 0.5rem;
+  padding: 0.125rem 0.5rem;
   font-family: var(--a5e-font-serif);
   font-size: var(--a5e-text-size-sm);
   color: #f6f2eb;
   background: #425f65;
-  border-bottom: 1px solid #3e4240;
+  border: 1px solid #3e4240;
   box-shadow: 0 0 10px #2e4246 inset;
   border-radius: 3px;
 
+  &--category {
+    display: grid;
+    align-items: center;
+    gap: 0.5rem;
+    grid-template-areas: var(--a5e-section-heading-template-areas);
+    grid-template-columns: var(--a5e-section-heading-template-columns);
+  }
+
   &__heading {
     font-size: inherit;
+  }
+
+  &__icon {
+    font-size: var(--a5e-text-size-xs);
+    margin-right: 0.125rem;
   }
 }

@@ -41,7 +41,7 @@
     <section class="core-page">
         <ItemCategory
             label="A5E.FavoriteItems"
-            icon="fas fa-star heading-icon"
+            icon="fas fa-star a5e-section-header__icon"
             items={[...$favorites]}
             type="favorites"
             {showQuantity}
