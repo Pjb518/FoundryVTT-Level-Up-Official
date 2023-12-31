@@ -146,6 +146,7 @@ export default function registerEffectGroupConfig(A5E) {
       label: 'A5E.effects.groups.initiative',
       items: [
         'flags.a5e.effects.rollMode.initiative',
+        'system.attributes.initiative.ability',
         'system.attributes.initiative.bonus',
         'system.attributes.initiative.expertiseDice'
       ]

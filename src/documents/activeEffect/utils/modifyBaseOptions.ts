@@ -34,6 +34,8 @@ export default function modifyBaseOptions(options: Object) {
       options[`system.attributes.senses.${s}.unit`] = ['', MODES.OVERRIDE_ONLY, Object.entries(CONFIG.A5E.visionUnits), 'RADIO'];
     });
 
+  options['system.attributes.initiative.ability'] = ['', MODES.OVERRIDE_ONLY, Object.entries(CONFIG.A5E.abilities), 'RADIO'];
+
   // Add options for details
   options['system.details.creatureTypes'] = ['', MODES.DEFAULT_MODES, Object.entries(CONFIG.A5E.creatureTypes), 'TAG_GROUP'];
 
