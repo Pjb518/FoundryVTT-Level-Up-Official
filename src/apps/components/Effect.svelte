@@ -198,23 +198,6 @@
 </li>
 
 <style lang="scss">
-    .effect-wrapper {
-        position: relative;
-        display: grid;
-        grid-template-areas: var(--effectTemplateAreas);
-        grid-template-columns: var(--effectTemplateColumns);
-        column-gap: 0.5rem;
-        row-gap: 0;
-        align-items: center;
-        width: 100%;
-        padding: 0.125rem;
-        padding-right: 0.5rem;
-        border: 1px solid #ccc;
-        border-radius: $border-radius-standard;
-        background: rgba(0, 0, 0, 0.05);
-        cursor: pointer;
-    }
-
     .disable-pointer-events {
         pointer-events: none;
     }
