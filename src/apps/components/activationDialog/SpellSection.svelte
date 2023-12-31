@@ -65,7 +65,7 @@
                 if (Number(cost) <= availablePoints) acc = Number(level);
                 return acc;
             },
-            0
+            0,
         );
 
         disabled = [
@@ -84,7 +84,7 @@
             if (slot.max > 0 && slot.current > 0) acc.push(level);
             return acc;
         },
-        []
+        [],
     );
 
     // =======================================================
@@ -96,7 +96,7 @@
     spellData.points =
         consumer.points ?? A5E.spellLevelCost[$item.system?.level] ?? 1;
     spellData.basePoints = consumer.points ?? 1;
-    spellData.baseLevel = consumer.spellLevel ?? 1;
+    spellData.baseLevel = consumer.spellLevel ?? $item.system.level ?? 1;
 
     if (foundry.utils.isEmpty(consumer)) {
         spellData.consume = "noConsume";
@@ -115,8 +115,8 @@
             mode === "pointsOnly"
                 ? "spellPoint"
                 : availableSpellSlots.length > 0
-                ? "spellSlot"
-                : "spellPoint";
+                  ? "spellSlot"
+                  : "spellPoint";
     }
 
     if (spellData.consume === "spellSlot") disableSpellSlotOptions();
