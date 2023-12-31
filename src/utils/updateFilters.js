@@ -1,3 +1,4 @@
+/* eslint-disable eqeqeq */
 /**
  *
  * @param {String} key
@@ -21,10 +22,10 @@ function booleanFilter(key, type = 'inclusive') {
  */
 function valueBasedFilter(key, value, type = 'inclusive') {
   if (type === 'exclusive') {
-    return (item) => foundry.utils.getProperty(item, key) !== value;
+    return (item) => foundry.utils.getProperty(item, key) != value;
   }
 
-  return (item) => foundry.utils.getProperty(item, key) === value;
+  return (item) => foundry.utils.getProperty(item, key) == value;
 }
 
 function actionBasedFilter(key, value, type = 'inclusive') {
@@ -33,10 +34,10 @@ function actionBasedFilter(key, value, type = 'inclusive') {
     if (!actionKeys) return false;
 
     if (type === 'exclusive') {
-      return actionKeys.some((actionValue) => value !== actionValue);
+      return actionKeys.some((actionValue) => value != actionValue);
     }
 
-    return actionKeys.some((actionValue) => value === actionValue);
+    return actionKeys.some((actionValue) => value == actionValue);
   };
 
   return filter;
