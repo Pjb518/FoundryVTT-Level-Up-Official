@@ -29,9 +29,9 @@
         getEffectTemplateConfiguration(sheetIsLocked);
 </script>
 
-<section class="category-container">
-    <header class="category-header">
-        <h3 class="category-heading category-heading--name">
+<section>
+    <header class="a5e-section-header a5e-section-header--item-list">
+        <h3 class="a5e-section-header__heading">
             {localize(label)}
         </h3>
     </header>
@@ -46,19 +46,3 @@
         {/each}
     </ul>
 </section>
-
-<style lang="scss">
-    .category-header {
-        display: flex;
-
-        align-items: center;
-        gap: 0.5rem;
-        margin-bottom: 0.25rem;
-        padding: 0 0.5rem 0.25rem 0.125rem;
-        border-bottom: 1px solid #ccc;
-    }
-
-    .category-heading {
-        font-size: $font-size-sm;
-    }
-</style>
