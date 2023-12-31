@@ -15,7 +15,7 @@
 
 <section class="a5e-page-wrapper a5e-page-wrapper--settings">
     <div class="a5e-section a5e-section--settings">
-        <header class="a5e-section-header a5e-section-header--rounded">
+        <header class="a5e-section-header">
             <h3 class="a5e-section-header__heading">Spell Resource Settings</h3>
         </header>
 
@@ -81,7 +81,7 @@
     </div>
 
     <div class="a5e-section a5e-section--settings">
-        <header class="a5e-section-header a5e-section-header--rounded">
+        <header class="a5e-section-header">
             <h3 class="a5e-section-header__heading">
                 Miscellaneous Spell Settings
             </h3>

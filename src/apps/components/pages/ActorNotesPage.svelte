@@ -138,7 +138,7 @@
             {/each}
         </section>
 
-        <heading class="a5e-section-header a5e-section-header--rounded">
+        <heading class="a5e-section-header">
             <h3 class="a5e-section-header__heading">Appearance</h3>
         </heading>
     {/if}
