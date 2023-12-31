@@ -116,7 +116,7 @@
 
             {#if showQuantity}
                 <h3
-                    class="a5e-section-header__heading a5e-section-header__heading--quantity"
+                    class="a5e-section-header__heading a5e-section-header__heading--center a5e-section-header__heading--quantity"
                 >
                     Quantity
                 </h3>
@@ -124,7 +124,7 @@
 
             {#if showUses}
                 <h3
-                    class="a5e-section-header__heading a5e-section-header__heading--uses"
+                    class="a5e-section-header__heading a5e-section-header__heading--center a5e-section-header__heading--uses"
                 >
                     Uses
                 </h3>
