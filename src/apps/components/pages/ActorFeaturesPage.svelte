@@ -24,7 +24,7 @@
 
     $: menuList = Object.entries(subTypes);
     $: sortedFeatures = Object.entries($features._types).sort(
-        (a, b) => sortMap[a[0]] - sortMap[b[0]]
+        (a, b) => sortMap[a[0]] - sortMap[b[0]],
     );
 
     const unsubscribe = features.subscribe((_) => {
@@ -89,7 +89,7 @@
         display: flex;
         flex-grow: 1;
         flex-direction: column;
-        gap: 0.75rem;
+        gap: 0.5rem;
         overflow-y: auto;
         overflow-x: hidden;
     }
