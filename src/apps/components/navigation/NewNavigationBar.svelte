@@ -42,7 +42,7 @@
         {/each}
 
         <!-- svelte-ignore missing-declaration -->
-        {#if showLock && $actor.permission !== CONST.DOCUMENT_PERMISSION_LEVELS.OBSERVER}
+        {#if showLock && $actor.permission !== CONST.DOCUMENT_OWNERSHIP_LEVELS.OBSERVER}
             <!-- svelte-ignore a11y-click-events-have-key-events a11y-no-noninteractive-element-interactions -->
             <li
                 class="a5e-nav-item a5e-nav-item--lock fa-solid {sheetIsLocked
