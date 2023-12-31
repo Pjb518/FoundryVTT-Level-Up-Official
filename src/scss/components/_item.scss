@@ -12,12 +12,12 @@
   border-width: 0 0 1px;
   border-image: linear-gradient(
     90deg,
-    var(--item-border-color-start, #f1edea),
-    var(--item-border-color-end, #d5cac1)
+    var(--item-border-color-start, transparent) 0%,
+    var(--item-border-color-end, #d5cac1) 60%
   )
     1 repeat;
   border-radius: 0;
-  background: linear-gradient(90deg, transparent, var(--item-background, transparent));
+  background: linear-gradient(90deg, transparent, var(--item-background, transparent) 60%);
   cursor: pointer;
 
   &--highlight {
