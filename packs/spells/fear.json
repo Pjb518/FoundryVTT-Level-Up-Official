@@ -2,7 +2,48 @@
 	"name": "Fear",
 	"type": "spell",
 	"img": "icons/magic/death/projectile-skull-fire-purple.webp",
-	"effects": [],
+	"effects": [
+		{
+			"icon": "icons/magic/death/projectile-skull-fire-purple.webp",
+			"origin": "Item.1VJPiZi8Xv4fGKz8",
+			"flags": {
+				"a5e": {
+					"sort": 0,
+					"transferType": "onUse",
+					"actionId": "NBdwiwQpwKU830P5",
+					"duration": {
+						"unit": "minutes"
+					}
+				}
+			},
+			"transfer": false,
+			"name": "Frightened",
+			"_id": "91XW2pNOHPU4ym4P",
+			"changes": [
+				{
+					"key": "flags.a5e.effects.statusConditions",
+					"value": "[\"frightened\"]",
+					"mode": 0,
+					"priority": null
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": 60,
+				"combat": null,
+				"rounds": null,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "<p>On each of its turns, a creature frightened by this spell uses its action to take the Dash action and move away from you by the safest available route. If there is nowhere it can move, it remains stationary. When the creature ends its turn in a location where it doesn't have line of sight to you, the creature can repeat the saving throw, ending the spell's effects on it on a successful save.</p>",
+			"statuses": [
+				"frightened"
+			],
+			"folder": null
+		}
+	],
 	"flags": {},
 	"system": {
 		"actions": {
@@ -40,6 +81,11 @@
 							"bonus": ""
 						},
 						"type": "savingThrow"
+					},
+					"T7cYGFpUAGxLg8kZ": {
+						"type": "effect",
+						"default": true,
+						"effectId": "91XW2pNOHPU4ym4P"
 					}
 				},
 				"consumers": {
@@ -109,5 +155,5 @@
 		}
 	},
 	"folder": null,
-	"_id": "crjcunjc1r21w2mv"
+	"_id": "e9yk9e793io0bboq"
 }

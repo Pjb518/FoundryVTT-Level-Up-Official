@@ -2,7 +2,202 @@
 	"name": "Devious Eyebite",
 	"type": "spell",
 	"img": "icons/magic/perception/hand-eye-pink.webp",
-	"effects": [],
+	"effects": [
+		{
+			"icon": "icons/magic/perception/hand-eye-pink.webp",
+			"origin": "Item.MIoSgtngdsgAUDsq",
+			"flags": {
+				"a5e": {
+					"sort": 0,
+					"transferType": "onUse",
+					"actionId": "LaDYbbzBJNKgg5LZ",
+					"duration": {
+						"unit": "minutes"
+					}
+				}
+			},
+			"transfer": false,
+			"name": "Asleep",
+			"_id": "z3YHDb2NjO2ii9dx",
+			"changes": [
+				{
+					"key": "flags.a5e.effects.statusConditions",
+					"value": "[\"unconscious\"]",
+					"mode": 0,
+					"priority": null
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": 60,
+				"combat": null,
+				"rounds": null,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "<p>The target falls unconscious, waking if it takes any damage or another creature uses an action to rouse it.</p>",
+			"statuses": [
+				"unconscious"
+			],
+			"folder": null
+		},
+		{
+			"icon": "icons/magic/perception/hand-eye-pink.webp",
+			"origin": "Item.MIoSgtngdsgAUDsq",
+			"flags": {
+				"a5e": {
+					"sort": 0,
+					"transferType": "onUse",
+					"actionId": "LaDYbbzBJNKgg5LZ",
+					"duration": {
+						"unit": "minutes"
+					}
+				}
+			},
+			"transfer": false,
+			"name": "Panicked",
+			"_id": "qni12sawICz1WxAc",
+			"changes": [
+				{
+					"key": "flags.a5e.effects.statusConditions",
+					"value": "[\"frightened\"]",
+					"mode": 0,
+					"priority": null
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": 60,
+				"combat": null,
+				"rounds": null,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "<p>The target is frightened of you. On each of its turns, the frightened creature uses its action to take the Dash action and move away from you by the safest and shortest available route unless there is nowhere for it to move. If the target moves to a place at least 60 feet away from you where it can no longer see you, this effect ends.</p>",
+			"statuses": [
+				"frightened"
+			],
+			"folder": null
+		},
+		{
+			"icon": "icons/magic/perception/hand-eye-pink.webp",
+			"origin": "Item.MIoSgtngdsgAUDsq",
+			"flags": {
+				"a5e": {
+					"sort": 0,
+					"transferType": "onUse",
+					"actionId": "LaDYbbzBJNKgg5LZ",
+					"duration": {
+						"unit": "minutes"
+					}
+				}
+			},
+			"transfer": false,
+			"name": "Sickened",
+			"_id": "TjsMlR3myXC3paqN",
+			"changes": [
+				{
+					"key": "flags.a5e.effects.rollMode.attack.all",
+					"value": "-1",
+					"mode": 6,
+					"priority": null
+				},
+				{
+					"key": "flags.a5e.effects.rollMode.abilityCheck.str",
+					"value": "-1",
+					"mode": 6,
+					"priority": null
+				},
+				{
+					"key": "flags.a5e.effects.rollMode.abilityCheck.dex",
+					"value": "-1",
+					"mode": 6,
+					"priority": null
+				},
+				{
+					"key": "flags.a5e.effects.rollMode.abilityCheck.con",
+					"value": "-1",
+					"mode": 6,
+					"priority": null
+				},
+				{
+					"key": "flags.a5e.effects.rollMode.abilityCheck.int",
+					"value": "-1",
+					"mode": 6,
+					"priority": null
+				},
+				{
+					"key": "flags.a5e.effects.rollMode.abilityCheck.wis",
+					"value": "-1",
+					"mode": 6,
+					"priority": null
+				},
+				{
+					"key": "flags.a5e.effects.rollMode.abilityCheck.cha",
+					"value": "-1",
+					"mode": 6,
+					"priority": null
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": 60,
+				"combat": null,
+				"rounds": null,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "<p>The target has disadvantage on attack rolls and ability checks. At the end of each of its turns, it can make another Wisdom saving throw, ending this effect on a successful save.</p>",
+			"statuses": [],
+			"folder": null
+		},
+		{
+			"icon": "icons/magic/perception/hand-eye-pink.webp",
+			"origin": "Item.MIoSgtngdsgAUDsq",
+			"flags": {
+				"a5e": {
+					"sort": 0,
+					"transferType": "onUse",
+					"actionId": "LaDYbbzBJNKgg5LZ",
+					"duration": {
+						"unit": "minutes"
+					}
+				}
+			},
+			"transfer": false,
+			"name": "Charmed",
+			"_id": "n0c6OrGKLm1JqHgV",
+			"changes": [
+				{
+					"key": "flags.a5e.effects.statusConditions",
+					"value": "[\"charmed\"]",
+					"mode": 0,
+					"priority": null
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": 60,
+				"combat": null,
+				"rounds": null,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "<p>The target is charmed by you. On each of its turns while it is charmed, you may beckon it (no action required) to force the target to move closer to you by the shortest, safest route.</p>",
+			"statuses": [
+				"charmed"
+			],
+			"folder": null
+		}
+	],
 	"flags": {},
 	"system": {
 		"actions": {
@@ -40,6 +235,26 @@
 							"bonus": ""
 						},
 						"type": "savingThrow"
+					},
+					"USefBWgX0RLEGS05": {
+						"type": "effect",
+						"default": true,
+						"effectId": "z3YHDb2NjO2ii9dx"
+					},
+					"dVBsYairRIFWQryb": {
+						"type": "effect",
+						"default": true,
+						"effectId": "qni12sawICz1WxAc"
+					},
+					"mqRydc3nwBUnSsFZ": {
+						"type": "effect",
+						"default": true,
+						"effectId": "TjsMlR3myXC3paqN"
+					},
+					"ViTzhoUuq4oQBKWP": {
+						"type": "effect",
+						"default": true,
+						"effectId": "n0c6OrGKLm1JqHgV"
 					}
 				},
 				"consumers": {
@@ -103,5 +318,5 @@
 		}
 	},
 	"folder": null,
-	"_id": "s4uyrpzug69opmv5"
+	"_id": "ze24fo48splwcmyr"
 }

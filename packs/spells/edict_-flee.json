@@ -32,7 +32,13 @@
 						"canCrit": false
 					}
 				},
-				"prompts": {},
+				"prompts": {
+					"3nqfY8uVIh5cSKMF": {
+						"type": "effect",
+						"default": true,
+						"effectId": "2di5gGXvhhBstcOq"
+					}
+				},
 				"uses": {
 					"value": 0,
 					"max": "",
@@ -119,7 +125,48 @@
 			}
 		}
 	},
-	"effects": [],
+	"effects": [
+		{
+			"icon": "icons/skills/movement/figure-running-gray.webp",
+			"origin": "Item.4XoSaRNq4LwbRtIv",
+			"flags": {
+				"a5e": {
+					"sort": 0,
+					"transferType": "onUse",
+					"actionId": "pby9X2yqn7j9hXhj",
+					"duration": {
+						"unit": "minutes"
+					}
+				}
+			},
+			"transfer": false,
+			"name": "Fleeing",
+			"_id": "2di5gGXvhhBstcOq",
+			"changes": [
+				{
+					"key": "flags.a5e.effects.statusConditions",
+					"value": "[\"frightened\"]",
+					"mode": 0,
+					"priority": null
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": 60,
+				"combat": null,
+				"rounds": null,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "<p>Target becomes frightened of you, and must spend its action to dash away from you as well as their normal movement. At the end of an affected creature’s turns, it may make a charisma saving throw to end the effect, but whether it can see you or not is irrelevant and they continue to flee on each subsequent turn, expending their movement and taking the dash action, until they succeed at the saving throw or the spell ends.</p>",
+			"statuses": [
+				"frightened"
+			],
+			"folder": null
+		}
+	],
 	"flags": {},
-	"_id": "6nkv4f8e2vqu5xtr"
+	"_id": "utx8m0nihgndgvat"
 }

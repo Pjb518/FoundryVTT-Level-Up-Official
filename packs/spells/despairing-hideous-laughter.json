@@ -2,7 +2,49 @@
 	"name": "Despairing Hideous Laughter",
 	"type": "spell",
 	"img": "icons/skills/wounds/injury-face-impact-orange.webp",
-	"effects": [],
+	"effects": [
+		{
+			"icon": "icons/skills/wounds/injury-face-impact-orange.webp",
+			"origin": "Item.glu0Pd6LarlyLkic",
+			"flags": {
+				"a5e": {
+					"sort": 0,
+					"transferType": "onUse",
+					"actionId": "gyuVRNWMEwQ66QfP",
+					"duration": {
+						"unit": "minutes"
+					}
+				}
+			},
+			"transfer": false,
+			"name": "Despairing Hideous Laughter",
+			"_id": "udhKD8kjWEN7AULj",
+			"changes": [
+				{
+					"key": "flags.a5e.effects.statusConditions",
+					"value": "[\"prone\",\"incapacitated\"]",
+					"mode": 0,
+					"priority": null
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": 60,
+				"combat": null,
+				"rounds": null,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "<p>The target is overwhelmed by the absurdity of the world and is crippled by paroxysms of laughter. The target falls prone, becomes incapacitated, and cannot stand.</p>\n<p>Until the spell ends, at the end of each of the target's turns and when it suffers damage, the target may attempt another saving throw (with advantage if triggered by damage). On a successful save, the spell ends.</p>\n<p>When the mirth fades the target is affected with crushing grief, sadness, and despair, causing it to sob uncontrollably. The emotional toll of the spell causes the target to have disadvantage on the first ability check, attack roll, or saving throw it makes after the spell ends.</p>",
+			"statuses": [
+				"prone",
+				"incapacitated"
+			],
+			"folder": null
+		}
+	],
 	"flags": {},
 	"system": {
 		"actions": {
@@ -40,6 +82,11 @@
 							"bonus": ""
 						},
 						"type": "savingThrow"
+					},
+					"QJXxvLJSB6HzHfpO": {
+						"type": "effect",
+						"default": true,
+						"effectId": "udhKD8kjWEN7AULj"
 					}
 				},
 				"consumers": {
@@ -103,5 +150,5 @@
 		}
 	},
 	"folder": null,
-	"_id": "4tn3jxhf3pqv5o1l"
+	"_id": "prd2aai12hk7rdjg"
 }

@@ -2,7 +2,96 @@
 	"name": "Enlarge/Reduce",
 	"type": "spell",
 	"img": "icons/magic/control/debuff-energy-hold-blue-yellow.webp",
-	"effects": [],
+	"effects": [
+		{
+			"icon": "icons/magic/control/debuff-energy-hold-blue-yellow.webp",
+			"origin": "Item.PP6TdJIovVprxhjH",
+			"flags": {
+				"a5e": {
+					"sort": 0,
+					"transferType": "onUse",
+					"actionId": "jZPEQ1RNMefqKO0d",
+					"duration": {
+						"unit": "minutes"
+					}
+				}
+			},
+			"transfer": false,
+			"name": "Enlarged",
+			"_id": "fB0ob8QMcMyug2fP",
+			"changes": [
+				{
+					"key": "flags.a5e.effects.rollMode.abilityCheck.str",
+					"value": "1",
+					"mode": 6,
+					"priority": null
+				},
+				{
+					"key": "flags.a5e.effects.rollMode.abilitySave.str",
+					"value": "1",
+					"mode": 6,
+					"priority": null
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": 60,
+				"combat": null,
+				"rounds": null,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "<p>Until the spell ends, the target's size increases by one size category. Its size doubles in all dimensions and its weight increases eightfold. The target also has advantage on Strength checks and Strength saving throws. Its weapons also enlarge, dealing an extra 1d4 damage.</p>",
+			"statuses": [],
+			"folder": null
+		},
+		{
+			"icon": "icons/magic/control/debuff-energy-hold-blue-yellow.webp",
+			"origin": "Item.PP6TdJIovVprxhjH",
+			"flags": {
+				"a5e": {
+					"sort": 0,
+					"transferType": "onUse",
+					"actionId": "jZPEQ1RNMefqKO0d",
+					"duration": {
+						"unit": "minutes"
+					}
+				}
+			},
+			"transfer": false,
+			"name": "Reduced",
+			"_id": "6tEfvkxFPUZJ1Uwx",
+			"changes": [
+				{
+					"key": "flags.a5e.effects.rollMode.abilityCheck.str",
+					"value": "-1",
+					"mode": 6,
+					"priority": null
+				},
+				{
+					"key": "flags.a5e.effects.rollMode.abilitySave.str",
+					"value": "-1",
+					"mode": 6,
+					"priority": null
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": 60,
+				"combat": null,
+				"rounds": null,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "<p>Until the spell ends, the target's size decreases one size category. Its size is halved in all dimensions and its weight decreases to one-eighth of its normal value. The target has disadvantage on Strength checks and Strength saving throws and its weapons shrink, dealing 1d4 less damage (its attacks deal a minimum of 1 damage).</p>",
+			"statuses": [],
+			"folder": null
+		}
+	],
 	"flags": {},
 	"system": {
 		"actions": {
@@ -40,6 +129,16 @@
 							"bonus": ""
 						},
 						"type": "savingThrow"
+					},
+					"ihoRmBLotqfboXIo": {
+						"type": "effect",
+						"default": true,
+						"effectId": "fB0ob8QMcMyug2fP"
+					},
+					"VrklmmY8yOHCxBRO": {
+						"type": "effect",
+						"default": true,
+						"effectId": "6tEfvkxFPUZJ1Uwx"
 					}
 				},
 				"consumers": {
@@ -109,5 +208,5 @@
 		}
 	},
 	"folder": null,
-	"_id": "ap6klied8mqbclvn"
+	"_id": "lci1r9u6ulsk6haq"
 }

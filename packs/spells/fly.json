@@ -2,7 +2,46 @@
 	"name": "Fly",
 	"type": "spell",
 	"img": "icons/magic/fire/projectile-feathers-embers-gold.webp",
-	"effects": [],
+	"effects": [
+		{
+			"icon": "icons/magic/fire/projectile-feathers-embers-gold.webp",
+			"origin": "Item.FPOnexTkgwIGHMw8",
+			"flags": {
+				"a5e": {
+					"sort": 0,
+					"transferType": "onUse",
+					"actionId": "aB9z7esCzyo9VKxX",
+					"duration": {
+						"unit": "minutes"
+					}
+				}
+			},
+			"transfer": false,
+			"name": "Flying",
+			"_id": "f7HJasNajZGyTMya",
+			"changes": [
+				{
+					"key": "system.attributes.movement.fly.distance",
+					"value": "60",
+					"mode": 6,
+					"priority": null
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": 600,
+				"combat": null,
+				"rounds": null,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "<p>The target gains a flying speed of 60 feet. When the spell ends, the target falls if it is off the ground.</p>",
+			"statuses": [],
+			"folder": null
+		}
+	],
 	"flags": {},
 	"system": {
 		"actions": {
@@ -37,6 +76,13 @@
 						"spellLevel": 3,
 						"points": 5,
 						"type": "spell"
+					}
+				},
+				"prompts": {
+					"R63Yzmz9Y3qZ0mPg": {
+						"type": "effect",
+						"default": true,
+						"effectId": "f7HJasNajZGyTMya"
 					}
 				}
 			}
@@ -98,5 +144,5 @@
 		}
 	},
 	"folder": null,
-	"_id": "aedq05b8pz7t02wd"
+	"_id": "bj7an4mq9ftng7g8"
 }

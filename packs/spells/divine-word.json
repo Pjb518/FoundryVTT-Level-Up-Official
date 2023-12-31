@@ -2,7 +2,131 @@
 	"name": "Divine Word",
 	"type": "spell",
 	"img": "icons/magic/holy/prayer-hands-glowing-yellow.webp",
-	"effects": [],
+	"effects": [
+		{
+			"icon": "icons/magic/holy/prayer-hands-glowing-yellow.webp",
+			"origin": "Item.cFmp87zMgrQKWQVj",
+			"flags": {
+				"a5e": {
+					"sort": 0,
+					"transferType": "onUse",
+					"actionId": "ZgiPqNgJaxd2EUuZ",
+					"duration": {
+						"unit": "minutes"
+					}
+				}
+			},
+			"transfer": false,
+			"name": "Divine Word (<50 HP)",
+			"_id": "kvlEdUTPhgvoRJy0",
+			"changes": [
+				{
+					"key": "flags.a5e.effects.statusConditions",
+					"value": "[\"deafened\"]",
+					"mode": 0,
+					"priority": null
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": 60,
+				"combat": null,
+				"rounds": null,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "",
+			"statuses": [
+				"deafened"
+			],
+			"folder": null
+		},
+		{
+			"icon": "icons/magic/holy/prayer-hands-glowing-yellow.webp",
+			"origin": "Item.cFmp87zMgrQKWQVj",
+			"flags": {
+				"a5e": {
+					"sort": 0,
+					"transferType": "onUse",
+					"actionId": "ZgiPqNgJaxd2EUuZ",
+					"duration": {
+						"unit": "minutes"
+					}
+				}
+			},
+			"transfer": false,
+			"name": "Divine Word (<40 HP)",
+			"_id": "FJXudOhA1dpskJgF",
+			"changes": [
+				{
+					"key": "flags.a5e.effects.statusConditions",
+					"value": "[\"blinded\",\"deafened\"]",
+					"mode": 0,
+					"priority": null
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": 600,
+				"combat": null,
+				"rounds": null,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "",
+			"statuses": [
+				"blinded",
+				"deafened"
+			],
+			"folder": null
+		},
+		{
+			"icon": "icons/magic/holy/prayer-hands-glowing-yellow.webp",
+			"origin": "Item.cFmp87zMgrQKWQVj",
+			"flags": {
+				"a5e": {
+					"sort": 0,
+					"transferType": "onUse",
+					"actionId": "ZgiPqNgJaxd2EUuZ",
+					"duration": {
+						"unit": "hours"
+					}
+				}
+			},
+			"transfer": false,
+			"name": "Divine Word (<30 HP)",
+			"_id": "3koR4uBhHwVE1Ks6",
+			"changes": [
+				{
+					"key": "flags.a5e.effects.statusConditions",
+					"value": "[\"stunned\",\"blinded\",\"deafened\"]",
+					"mode": 0,
+					"priority": null
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": 3600,
+				"combat": null,
+				"rounds": null,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "",
+			"statuses": [
+				"stunned",
+				"blinded",
+				"deafened"
+			],
+			"folder": null
+		}
+	],
 	"flags": {},
 	"system": {
 		"actions": {
@@ -37,6 +161,23 @@
 						"spellLevel": 7,
 						"points": 10,
 						"type": "spell"
+					}
+				},
+				"prompts": {
+					"Tu2wmGxoUATVrQeh": {
+						"type": "effect",
+						"default": true,
+						"effectId": "kvlEdUTPhgvoRJy0"
+					},
+					"uMe4yIRCaQTc1twL": {
+						"type": "effect",
+						"default": true,
+						"effectId": "FJXudOhA1dpskJgF"
+					},
+					"sS2yReaGN3sz6R39": {
+						"type": "effect",
+						"default": true,
+						"effectId": "3koR4uBhHwVE1Ks6"
 					}
 				}
 			}
@@ -94,5 +235,5 @@
 		}
 	},
 	"folder": null,
-	"_id": "k4uhl7j9mypwmny2"
+	"_id": "rne8k03yoqfjogba"
 }

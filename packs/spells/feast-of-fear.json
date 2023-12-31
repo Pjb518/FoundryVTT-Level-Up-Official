@@ -2,7 +2,45 @@
 	"name": "Feast of Fear",
 	"type": "spell",
 	"img": "icons/magic/death/projectile-skull-fire-purple.webp",
-	"effects": [],
+	"effects": [
+		{
+			"icon": "icons/magic/death/projectile-skull-fire-purple.webp",
+			"origin": "Item.pXhRypuGsgNqgzoL",
+			"flags": {
+				"a5e": {
+					"sort": 0,
+					"transferType": "onUse",
+					"actionId": "idNDcEb2UFcKmTUQ"
+				}
+			},
+			"transfer": false,
+			"name": "Frightened",
+			"_id": "cpYeQVGvYaRnkBUg",
+			"changes": [
+				{
+					"key": "flags.a5e.effects.statusConditions",
+					"value": "[\"frightened\"]",
+					"mode": 0,
+					"priority": null
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": null,
+				"combat": null,
+				"rounds": null,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "<p>On each of its turns, a creature frightened by this spell uses its action to take the Dash action and move away from you by the safest available route. If there is nowhere it can move, it remains stationary. When the creature ends its turn in a location where it doesn't have line of sight to you, the creature can repeat the saving throw, ending the spell's effects on it on a successful save.</p>",
+			"statuses": [
+				"frightened"
+			],
+			"folder": null
+		}
+	],
 	"flags": {},
 	"system": {
 		"actions": {
@@ -23,9 +61,10 @@
 					}
 				},
 				"area": {
-					"shape": "sphere",
-					"radius": 30,
-					"placeTemplate": false
+					"shape": "emanation",
+					"placeTemplate": false,
+					"quantity": 1,
+					"radius": 30
 				},
 				"target": {
 					"quantity": null,
@@ -40,6 +79,11 @@
 							"bonus": ""
 						},
 						"type": "savingThrow"
+					},
+					"aO38SyeTisSWCJE0": {
+						"type": "effect",
+						"default": true,
+						"effectId": "cpYeQVGvYaRnkBUg"
 					}
 				},
 				"consumers": {
@@ -102,5 +146,5 @@
 		}
 	},
 	"folder": null,
-	"_id": "oolbfrl44li4elvw"
+	"_id": "35ot66cglqxj2apr"
 }

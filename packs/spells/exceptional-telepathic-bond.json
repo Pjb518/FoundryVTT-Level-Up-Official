@@ -2,7 +2,39 @@
 	"name": "Exceptional Telepathic Bond",
 	"type": "spell",
 	"img": "icons/magic/perception/third-eye-blue-red.webp",
-	"effects": [],
+	"effects": [
+		{
+			"icon": "icons/magic/perception/third-eye-blue-red.webp",
+			"origin": "Item.ynqBSBGzpAsVEbQq",
+			"flags": {
+				"a5e": {
+					"sort": 0,
+					"transferType": "onUse",
+					"actionId": "M2hWX387tiMLTQNn",
+					"duration": {
+						"unit": "hours"
+					}
+				}
+			},
+			"transfer": false,
+			"name": "Telepathic Bond",
+			"_id": "8dbLNsrJKPSlRDEp",
+			"changes": [],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": 3600,
+				"combat": null,
+				"rounds": null,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "<p>Targets may communicate telepathically with each other regardless of language and across any distance. This spell functions even when targets are on different planes of existence.</p>",
+			"statuses": [],
+			"folder": null
+		}
+	],
 	"flags": {},
 	"system": {
 		"actions": {
@@ -45,6 +77,11 @@
 						"default": true,
 						"label": "Increased Duration per Spell Slot",
 						"formula": "1d4"
+					},
+					"Az8ahYM42QJ40PAr": {
+						"type": "effect",
+						"default": true,
+						"effectId": "8dbLNsrJKPSlRDEp"
 					}
 				}
 			}
@@ -103,5 +140,5 @@
 		}
 	},
 	"folder": null,
-	"_id": "ubxkke98il8p1gut"
+	"_id": "yrrj8gx0rmnfawqs"
 }

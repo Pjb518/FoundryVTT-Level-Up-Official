@@ -32,7 +32,13 @@
 						}
 					}
 				},
-				"prompts": {},
+				"prompts": {
+					"XE9A6gvTZdiZowa2": {
+						"type": "effect",
+						"default": true,
+						"effectId": "yvSeO92FhPkXVkc7"
+					}
+				},
 				"uses": {
 					"value": 0,
 					"max": "",
@@ -119,7 +125,48 @@
 			}
 		}
 	},
-	"effects": [],
+	"effects": [
+		{
+			"icon": "icons/magic/nature/root-vine-entangled-humanoid.webp",
+			"origin": "Item.8xNuvBCSZJPl7P0V",
+			"flags": {
+				"a5e": {
+					"sort": 0,
+					"transferType": "onUse",
+					"actionId": "uC5K33n9m9jBM9fM",
+					"duration": {
+						"unit": "minutes"
+					}
+				}
+			},
+			"transfer": false,
+			"name": "Arrested",
+			"_id": "yvSeO92FhPkXVkc7",
+			"changes": [
+				{
+					"key": "flags.a5e.effects.statusConditions",
+					"value": "[\"grappled\"]",
+					"mode": 0,
+					"priority": null
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": 60,
+				"combat": null,
+				"rounds": null,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "<p>Targets are grappled by these bindings, and make a Charisma save at the end of their turn to end the grappled state. In addition, as an action, they may make a charisma saving throw to attempt to break the grapple to break the bindings.</p>",
+			"statuses": [
+				"grappled"
+			],
+			"folder": null
+		}
+	],
 	"flags": {},
-	"_id": "3zreysrwj27cqq1y"
+	"_id": "ndz62cmml0ix6wd9"
 }

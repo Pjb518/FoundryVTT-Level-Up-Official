@@ -2,7 +2,162 @@
 	"name": "Eyebite",
 	"type": "spell",
 	"img": "icons/magic/perception/hand-eye-pink.webp",
-	"effects": [],
+	"effects": [
+		{
+			"icon": "icons/magic/perception/hand-eye-pink.webp",
+			"origin": "Item.oNcnkjze1to44ddJ",
+			"flags": {
+				"a5e": {
+					"sort": 0,
+					"transferType": "onUse",
+					"actionId": "CKcAWvWaf1OWxzLl",
+					"duration": {
+						"unit": "minutes"
+					}
+				}
+			},
+			"transfer": false,
+			"name": "Asleep",
+			"_id": "pSOsbe7N57UPfaq7",
+			"changes": [
+				{
+					"key": "flags.a5e.effects.statusConditions",
+					"value": "[\"unconscious\"]",
+					"mode": 0,
+					"priority": null
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": 60,
+				"combat": null,
+				"rounds": null,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "<p>The target falls unconscious, waking if it takes any damage or another creature uses an action to rouse it.</p>",
+			"statuses": [
+				"unconscious"
+			],
+			"folder": null
+		},
+		{
+			"icon": "icons/magic/perception/hand-eye-pink.webp",
+			"origin": "Item.oNcnkjze1to44ddJ",
+			"flags": {
+				"a5e": {
+					"sort": 0,
+					"transferType": "onUse",
+					"actionId": "CKcAWvWaf1OWxzLl",
+					"duration": {
+						"unit": "minutes"
+					}
+				}
+			},
+			"transfer": false,
+			"name": "Panicked",
+			"_id": "IJtyuBJKo12gnBV7",
+			"changes": [
+				{
+					"key": "flags.a5e.effects.statusConditions",
+					"value": "[\"frightened\"]",
+					"mode": 0,
+					"priority": null
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": 60,
+				"combat": null,
+				"rounds": null,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "<p>The target is frightened of you. On each of its turns, the frightened creature uses its action to take the Dash action and move away from you by the safest and shortest available route unless there is nowhere for it to move. If the target moves to a place at least 60 feet away from you where it can no longer see you, this effect ends.</p>",
+			"statuses": [
+				"frightened"
+			],
+			"folder": null
+		},
+		{
+			"icon": "icons/magic/perception/hand-eye-pink.webp",
+			"origin": "Item.oNcnkjze1to44ddJ",
+			"flags": {
+				"a5e": {
+					"sort": 0,
+					"transferType": "onUse",
+					"actionId": "CKcAWvWaf1OWxzLl",
+					"duration": {
+						"unit": "minutes"
+					}
+				}
+			},
+			"transfer": false,
+			"name": "Sickened",
+			"_id": "Kh147bSZyAEvkvRY",
+			"changes": [
+				{
+					"key": "flags.a5e.effects.rollMode.attack.all",
+					"value": "-1",
+					"mode": 6,
+					"priority": null
+				},
+				{
+					"key": "flags.a5e.effects.rollMode.abilityCheck.str",
+					"value": "-1",
+					"mode": 6,
+					"priority": null
+				},
+				{
+					"key": "flags.a5e.effects.rollMode.abilityCheck.dex",
+					"value": "-1",
+					"mode": 6,
+					"priority": null
+				},
+				{
+					"key": "flags.a5e.effects.rollMode.abilityCheck.con",
+					"value": "-1",
+					"mode": 6,
+					"priority": null
+				},
+				{
+					"key": "flags.a5e.effects.rollMode.abilityCheck.int",
+					"value": "-1",
+					"mode": 6,
+					"priority": null
+				},
+				{
+					"key": "flags.a5e.effects.rollMode.abilityCheck.wis",
+					"value": "-1",
+					"mode": 6,
+					"priority": null
+				},
+				{
+					"key": "flags.a5e.effects.rollMode.abilityCheck.cha",
+					"value": "-1",
+					"mode": 6,
+					"priority": null
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": 60,
+				"combat": null,
+				"rounds": null,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "<p>The target has disadvantage on attack rolls and ability checks. At the end of each of its turns, it can make another Wisdom saving throw, ending this effect on a successful save.</p>",
+			"statuses": [],
+			"folder": null
+		}
+	],
 	"flags": {},
 	"system": {
 		"actions": {
@@ -40,6 +195,21 @@
 							"bonus": ""
 						},
 						"type": "savingThrow"
+					},
+					"FFajMm8EEiLkmpdH": {
+						"type": "effect",
+						"default": true,
+						"effectId": "pSOsbe7N57UPfaq7"
+					},
+					"Sus6ihPLKdahjKyR": {
+						"type": "effect",
+						"default": true,
+						"effectId": "IJtyuBJKo12gnBV7"
+					},
+					"59K1ZSh6mLAYziP4": {
+						"type": "effect",
+						"default": true,
+						"effectId": "Kh147bSZyAEvkvRY"
 					}
 				},
 				"consumers": {
@@ -109,5 +279,5 @@
 		}
 	},
 	"folder": null,
-	"_id": "uroaodb26zqe1qbh"
+	"_id": "mmrpq78iwair0jn9"
 }

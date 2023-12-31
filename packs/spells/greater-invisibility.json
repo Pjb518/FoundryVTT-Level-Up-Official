@@ -2,7 +2,48 @@
 	"name": "Greater Invisibility",
 	"type": "spell",
 	"img": "icons/magic/light/explosion-star-glow-silhouette.webp",
-	"effects": [],
+	"effects": [
+		{
+			"icon": "icons/magic/light/explosion-star-glow-silhouette.webp",
+			"origin": "Item.KNppTOiJa6mHwD2h",
+			"flags": {
+				"a5e": {
+					"sort": 0,
+					"transferType": "onUse",
+					"actionId": "1dVOQi2bOLxhT0C6",
+					"duration": {
+						"unit": "minutes"
+					}
+				}
+			},
+			"transfer": false,
+			"name": "Greater Invisibility",
+			"_id": "jyK6dZmZykERNKlw",
+			"changes": [
+				{
+					"key": "flags.a5e.effects.statusConditions",
+					"value": "[\"invisible\"]",
+					"mode": 0,
+					"priority": null
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": 60,
+				"combat": null,
+				"rounds": null,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "<p>The target is invisible. Anything the target is carrying or wearing is also invisible as long as it remains in the target's possession.</p>",
+			"statuses": [
+				"invisible"
+			],
+			"folder": null
+		}
+	],
 	"flags": {},
 	"system": {
 		"actions": {
@@ -37,6 +78,13 @@
 						"spellLevel": 4,
 						"points": 6,
 						"type": "spell"
+					}
+				},
+				"prompts": {
+					"8vugqrvZ9zTJvpZK": {
+						"type": "effect",
+						"default": true,
+						"effectId": "jyK6dZmZykERNKlw"
 					}
 				}
 			}
@@ -97,5 +145,5 @@
 		}
 	},
 	"folder": null,
-	"_id": "0cdtrkihoe9jdon1"
+	"_id": "ios34bih5vfnto2e"
 }

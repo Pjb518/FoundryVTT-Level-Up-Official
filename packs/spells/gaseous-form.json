@@ -2,7 +2,76 @@
 	"name": "Gaseous Form",
 	"type": "spell",
 	"img": "icons/magic/air/fog-gas-smoke-dense-white.webp",
-	"effects": [],
+	"effects": [
+		{
+			"icon": "icons/magic/air/fog-gas-smoke-dense-white.webp",
+			"origin": "Item.4hoIs9YGbfhboZ2z",
+			"flags": {
+				"a5e": {
+					"sort": 0,
+					"transferType": "onUse",
+					"actionId": "wbGAWVjb3DLDiioc",
+					"duration": {
+						"unit": "hours"
+					}
+				}
+			},
+			"transfer": false,
+			"name": "Gaseous Form",
+			"_id": "d7zjOFHwtMtfNE8u",
+			"changes": [
+				{
+					"key": "system.attributes.movement.walk.distance",
+					"value": "1",
+					"mode": 6,
+					"priority": null
+				},
+				{
+					"key": "system.attributes.movement.fly.distance",
+					"value": "10",
+					"mode": 6,
+					"priority": null
+				},
+				{
+					"key": "system.traits.damageResistances",
+					"value": "[\"Nonmagical damage\"]",
+					"mode": 2,
+					"priority": null
+				},
+				{
+					"key": "flags.a5e.effects.rollMode.abilitySave.str",
+					"value": "1",
+					"mode": 6,
+					"priority": null
+				},
+				{
+					"key": "flags.a5e.effects.rollMode.abilitySave.dex",
+					"value": "1",
+					"mode": 6,
+					"priority": null
+				},
+				{
+					"key": "flags.a5e.effects.rollMode.abilitySave.con",
+					"value": "1",
+					"mode": 6,
+					"priority": null
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": 3600,
+				"combat": null,
+				"rounds": null,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "<p>The target, along with anything it's wearing and carrying, becomes a hovering, wispy cloud. In this form, it can't attack, use or drop objects, talk, or cast spells.</p>\n<p>As a cloud, the target's base Speed is 0 and it gains a flying speed of 10 feet. It can enter another creature's space, and can pass through small holes and cracks, but not through liquid. It is resistant to nonmagical damage, has advantage on Strength, Dexterity, and Constitution saving throws, and can't fall.</p>\n<p>The spell ends if the creature drops to 0 hit points.</p>",
+			"statuses": [],
+			"folder": null
+		}
+	],
 	"flags": {},
 	"system": {
 		"actions": {
@@ -37,6 +106,13 @@
 						"spellLevel": 3,
 						"points": 5,
 						"type": "spell"
+					}
+				},
+				"prompts": {
+					"cUwxwLn3ofc4pDkE": {
+						"type": "effect",
+						"default": true,
+						"effectId": "d7zjOFHwtMtfNE8u"
 					}
 				}
 			}
@@ -100,5 +176,5 @@
 		}
 	},
 	"folder": null,
-	"_id": "y4vmyqfeede94imc"
+	"_id": "epz7gnnzd9h9p7jy"
 }
