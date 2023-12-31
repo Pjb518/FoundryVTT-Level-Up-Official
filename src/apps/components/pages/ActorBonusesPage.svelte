@@ -271,15 +271,15 @@
             <ul class="a5e-item-list a5e-item-list--bonuses">
                 {#each Object.entries($actor.system.bonuses[bonusType] ?? {}) as [id, bonus] (id)}
                     <li
-                        class="bonus"
+                        class="a5e-item a5e-item--bonus"
                         on:auxclick={() => {
                             if (rightClickConfigure)
                                 $actor.configureBonus(id, bonusType);
                         }}
                     >
-                        <img class="bonus__img" src={bonus.img} alt="" />
+                        <img class="a5e-item__img" src={bonus.img} alt="" />
 
-                        <h3 class="bonus__heading">
+                        <h3 class="a5e-item__name">
                             {bonus.label || getDefaultBonusName(bonusType)}
                         </h3>
 
@@ -358,34 +358,6 @@
 
     .delete-button:hover {
         color: $color-secondary;
-    }
-
-    .bonus {
-        display: grid;
-        grid-template-columns: 1.375rem 1fr min-content;
-        gap: 0.125rem 0.5rem;
-        align-items: center;
-        padding: 0.125rem;
-        padding-right: 0.5rem;
-        background: rgba(0, 0, 0, 0.05);
-        border: 1px solid #ccc;
-        border-radius: $border-radius-standard;
-
-        &__img {
-            height: 100%;
-            width: auto;
-            object-fit: cover;
-        }
-
-        &__heading {
-            font-size: $font-size-sm;
-        }
-
-        // &__summary {
-        //     grid-column: 1 / -1;
-        //     font-size: $font-size-xs;
-        //     padding: 0.25rem;
-        // }
     }
 
     .bonus-buttons {
