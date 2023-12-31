@@ -118,7 +118,9 @@ export default class ActionsManager extends DataProxy {
         actionName,
         ActionConfigDialog,
         { actionId, actionName },
-        { width: 555, height: 592, resizable: true }
+        {
+          width: 555, height: 592, resizable: true, isItemDocument: true
+        }
       );
 
       dialog = this.#item.dialogs.actions[actionId];
