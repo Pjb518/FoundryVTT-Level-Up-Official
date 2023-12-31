@@ -144,12 +144,15 @@ export default class RollPreparationManager {
     );
 
     return Promise.all(
-      bonusDamage.map(({ label, formula, damageType }) => this.#prepareDamageRoll({
+      bonusDamage.map(({
+        label, formula, damageType, context
+      }) => this.#prepareDamageRoll({
         label,
         formula,
         canCrit: true,
         critBonus: 0,
-        damageType
+        damageType,
+        context
       }, attackRoll))
     );
   }
@@ -188,9 +191,22 @@ export default class RollPreparationManager {
     const { isCrit } = attackRoll ?? {};
     const { canCrit, critBonus, damageType } = _roll;
 
+    const { context } = _roll;
+    let genericCritBonusDamage = '';
+
     if (index === 0) {
-      const genericBonusDamage = this.#prepareGenericBonusDamage();
-      formula = [this.#applyDamageOrHealingScaling(_roll), ...genericBonusDamage].join(' + ');
+      const genericBonusDamage = this.#prepareGenericBonusDamage(isCrit);
+
+      const { nonCritBonuses, critBonuses } = genericBonusDamage.reduce((acc, curr) => {
+        if (curr.context?.isCritBonus) acc.critBonuses.push(curr.formula);
+        else acc.nonCritBonuses.push(curr.formula);
+
+        return acc;
+      }, { nonCritBonuses: [], critBonuses: [] });
+
+      if (critBonuses.length) genericCritBonusDamage = critBonuses.join(' + ');
+
+      formula = [this.#applyDamageOrHealingScaling(_roll), ...nonCritBonuses].join(' + ');
     } else {
       formula = this.#applyDamageOrHealingScaling(_roll);
     }
@@ -207,7 +223,19 @@ export default class RollPreparationManager {
     let roll = baseRoll;
     let critRoll = baseRoll;
 
-    if (canCrit ?? true) critRoll = await constructCritDamageRoll(roll, critBonus);
+    if (canCrit ?? true) {
+      if (context && context.isCritBonus) {
+        roll = await new Roll('0').evaluate({ async: true });
+        critRoll = roll;
+      } else if (context && !context.isCritBonus) {
+        roll = await new Roll('0').evaluate({ async: true });
+      } else if (!context) {
+        let bonus = critBonus || '';
+        bonus += genericCritBonusDamage ? ` + ${genericCritBonusDamage}` : '';
+        critRoll = await constructCritDamageRoll(roll, bonus);
+      }
+    }
+
     if (isCrit) roll = critRoll;
 
     const label = damageType
@@ -235,7 +263,7 @@ export default class RollPreparationManager {
       ({ damageType }) => !damageType || damageType === 'null'
     );
 
-    return genericBonusDamage.map(({ formula }) => formula);
+    return genericBonusDamage.map(({ formula, context }) => ({ formula, context }));
   }
 
   async #prepareGenericRoll(_roll) {
