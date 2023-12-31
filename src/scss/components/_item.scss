@@ -7,18 +7,23 @@
   row-gap: 0;
   align-items: center;
   width: 100%;
-  padding: 0.15rem 0.5rem;
+  padding: 0.125rem 0.5rem;
   border: solid transparent;
   border-width: 0 0 1px;
   border-image: linear-gradient(
     90deg,
     var(--item-border-color-start, transparent) 0%,
-    var(--item-border-color-end, #d5cac1) 60%
+    var(--item-border-color-end, #d5cac1) 55%
   )
     1 repeat;
   border-radius: 0;
-  background: linear-gradient(90deg, transparent, var(--item-background, transparent) 60%);
+  background: linear-gradient(90deg, transparent, var(--item-background, transparent) 70%);
   cursor: pointer;
+
+  &--effect {
+    grid-template-areas: var(--effectTemplateAreas);
+    grid-template-columns: var(--effectTemplateColumns);
+  }
 
   &--highlight {
     --icon-color: hsla(145, 100%, 15%, 0.302);

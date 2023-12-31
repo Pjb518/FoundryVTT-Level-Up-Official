@@ -33,7 +33,7 @@
             "a5e",
             "hideDeleteConfirmation",
             dialogData?.hideDeleteConfirmation ??
-                game.settings.get("a5e", "hideDeleteConfirmation")
+                game.settings.get("a5e", "hideDeleteConfirmation"),
         );
 
         const effectId = effect.id;
@@ -45,7 +45,7 @@
         const action = $doc.system.actions[actionId];
         const prompt = Object.entries(action?.prompts ?? {}).find(
             ([, prompt]) =>
-                prompt.type === "effect" && prompt.effectId === effectId
+                prompt.type === "effect" && prompt.effectId === effectId,
         );
 
         if (!prompt?.[0]) return;
@@ -63,7 +63,7 @@
 
         return event.dataTransfer.setData(
             "text/plain",
-            JSON.stringify(dragData)
+            JSON.stringify(dragData),
         );
     }
 
@@ -81,12 +81,12 @@
     $: sheetIsLocked = !$doc.isOwner
         ? true
         : $doc.documentName === "Item"
-        ? false
-        : $doc.flags?.a5e?.sheetIsLocked ?? true;
+          ? false
+          : $doc.flags?.a5e?.sheetIsLocked ?? true;
 </script>
 
 <li
-    class="effect-wrapper"
+    class="a5e-item a5e-item--effect"
     draggable="true"
     on:dragstart={onDragStart}
     on:auxclick|preventDefault={() => {
