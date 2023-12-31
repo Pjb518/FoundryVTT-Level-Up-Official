@@ -29,6 +29,16 @@
 						"saveDC": {
 							"type": "spellcasting"
 						}
+					},
+					"ncqeLn7AzuhAzIbh": {
+						"type": "effect",
+						"default": true,
+						"effectId": "vCfVmnmtpPyDol2P"
+					},
+					"tevQwpazkU6dkNZQ": {
+						"type": "effect",
+						"default": true,
+						"effectId": "7yD1AjSAxgxFqV2x"
 					}
 				},
 				"uses": {
@@ -115,7 +125,83 @@
 			}
 		}
 	},
-	"effects": [],
+	"effects": [
+		{
+			"icon": "icons/magic/control/hypnosis-mesmerism-swirl.webp",
+			"origin": "Item.GcKi64plIz0wO1Ck",
+			"flags": {
+				"a5e": {
+					"sort": 0,
+					"transferType": "onUse",
+					"actionId": "jj4DmR3LgAvFTLwg",
+					"duration": {
+						"unit": "hours"
+					}
+				}
+			},
+			"transfer": false,
+			"name": "Babel Tongue",
+			"_id": "vCfVmnmtpPyDol2P",
+			"changes": [],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": 28800,
+				"combat": null,
+				"rounds": null,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "<p>The creature perceives itself as speaking the language it has always spoken, but in reality is instead speaking an entirely new tongue with its own vocabulary and grammar. This extends even to writing and sign language. The only way to communicate with affected creatures is via the tongues spell (or a comprehend languages spell for writing) or telepathy. An affected creature can repeat the saving throw every hour, ending the effect for itself on a success.</p>",
+			"statuses": [],
+			"folder": null
+		},
+		{
+			"icon": "icons/magic/control/hypnosis-mesmerism-swirl.webp",
+			"origin": "Item.GcKi64plIz0wO1Ck",
+			"flags": {
+				"a5e": {
+					"sort": 0,
+					"transferType": "onUse",
+					"actionId": "jj4DmR3LgAvFTLwg",
+					"duration": {
+						"unit": "minutes"
+					}
+				}
+			},
+			"transfer": false,
+			"name": "Babel Tongue (Saved)",
+			"_id": "7yD1AjSAxgxFqV2x",
+			"changes": [
+				{
+					"key": "flags.a5e.effects.rollMode.abilityCheck.int",
+					"value": "-1",
+					"mode": 6,
+					"priority": null
+				},
+				{
+					"key": "flags.a5e.effects.rollMode.abilitySave.int",
+					"value": "-1",
+					"mode": 6,
+					"priority": null
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": 60,
+				"combat": null,
+				"rounds": null,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "<p>A creature that succeeds on its saving throw has disadvantage on all Intelligence ability checks and saves for one minute instead.</p>",
+			"statuses": [],
+			"folder": null
+		}
+	],
 	"flags": {},
 	"_id": "d22ucrzshn77xlv2"
 }

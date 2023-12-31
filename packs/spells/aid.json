@@ -2,7 +2,52 @@
 	"name": "Aid",
 	"type": "spell",
 	"img": "icons/magic/life/heart-cross-strong-flame-green.webp",
-	"effects": [],
+	"effects": [
+		{
+			"icon": "icons/magic/life/heart-cross-strong-flame-green.webp",
+			"origin": "Item.3XWR8dnBzx5PwJ6L",
+			"flags": {
+				"a5e": {
+					"sort": 0,
+					"transferType": "onUse",
+					"actionId": "noIfYYiQD8Y8MqI6",
+					"duration": {
+						"unit": "hours"
+					}
+				}
+			},
+			"transfer": false,
+			"name": "Aided",
+			"_id": "xccUhaWkw1iMsUuU",
+			"changes": [
+				{
+					"key": "system.attributes.hp.max",
+					"value": "5",
+					"mode": 2,
+					"priority": null
+				},
+				{
+					"key": "system.attributes.hp.value",
+					"value": "5",
+					"mode": 2,
+					"priority": null
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": 28800,
+				"combat": null,
+				"rounds": null,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "<p>Until the spell ends, each target increases its hit point maximum and current hit points by 5.</p>",
+			"statuses": [],
+			"folder": null
+		}
+	],
 	"flags": {},
 	"system": {
 		"actions": {
@@ -37,6 +82,13 @@
 						"spellLevel": 2,
 						"points": 3,
 						"type": "spell"
+					}
+				},
+				"prompts": {
+					"yAaQvaVVrjAcgqd2": {
+						"type": "effect",
+						"default": true,
+						"effectId": "xccUhaWkw1iMsUuU"
 					}
 				}
 			}

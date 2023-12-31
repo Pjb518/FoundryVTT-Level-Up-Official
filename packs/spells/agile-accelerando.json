@@ -2,7 +2,149 @@
 	"name": "Agile Accelerando",
 	"type": "spell",
 	"img": "icons/magic/movement/trail-streak-zigzag-yellow.webp",
-	"effects": [],
+	"effects": [
+		{
+			"icon": "icons/magic/movement/trail-streak-zigzag-yellow.webp",
+			"origin": "Item.fSIsd92rdFTwzjy0",
+			"flags": {
+				"a5e": {
+					"sort": 0,
+					"transferType": "onUse",
+					"actionId": "1T2g8Ks8t177ge59",
+					"duration": {
+						"type": "rounds",
+						"unit": "minutes"
+					}
+				}
+			},
+			"transfer": false,
+			"name": "Agile Accelerando (Round 1)",
+			"_id": "6jr6X6lQo0sFcCtI",
+			"changes": [
+				{
+					"key": "system.attributes.movement.burrow.distance",
+					"value": "2",
+					"mode": 1,
+					"priority": null
+				},
+				{
+					"key": "system.attributes.movement.climb.distance",
+					"value": "2",
+					"mode": 1,
+					"priority": null
+				},
+				{
+					"key": "system.attributes.movement.fly.distance",
+					"value": "2",
+					"mode": 1,
+					"priority": null
+				},
+				{
+					"key": "system.attributes.movement.swim.distance",
+					"value": "2",
+					"mode": 1,
+					"priority": null
+				},
+				{
+					"key": "system.attributes.movement.walk.distance",
+					"value": "2",
+					"mode": 1,
+					"priority": null
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": null,
+				"combat": null,
+				"rounds": 6,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "<p>Until the spell ends, targets gain cumulative benefits the longer you maintain concentration on this spell (including the turn you cast it).</p>\n<ul>\n<li>\n<p><strong>1 Round:</strong> Double Speed.</p>\n</li>\n</ul>",
+			"statuses": [],
+			"folder": null
+		},
+		{
+			"icon": "icons/magic/movement/trail-streak-zigzag-yellow.webp",
+			"origin": "Item.fSIsd92rdFTwzjy0",
+			"flags": {
+				"a5e": {
+					"sort": 0,
+					"transferType": "onUse",
+					"actionId": "1T2g8Ks8t177ge59",
+					"duration": {
+						"type": "rounds",
+						"unit": "minutes"
+					}
+				}
+			},
+			"transfer": false,
+			"name": "Agile Accelerando (Round 2)",
+			"_id": "Ce7zognDwdNqLCou",
+			"changes": [
+				{
+					"key": "system.attributes.ac.changes.bonuses.value",
+					"value": "2",
+					"mode": 2,
+					"priority": null
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": null,
+				"combat": null,
+				"rounds": 5,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "<p>Until the spell ends, targets gain cumulative benefits the longer you maintain concentration on this spell (including the turn you cast it).</p>\n<ul>\n<li>\n<p><strong>2 Rounds:</strong> +2 bonus to AC.</p>\n</li>\n</ul>",
+			"statuses": [],
+			"folder": null
+		},
+		{
+			"icon": "icons/magic/movement/trail-streak-zigzag-yellow.webp",
+			"origin": "Item.fSIsd92rdFTwzjy0",
+			"flags": {
+				"a5e": {
+					"sort": 0,
+					"transferType": "onUse",
+					"actionId": "1T2g8Ks8t177ge59",
+					"duration": {
+						"type": "rounds",
+						"unit": "minutes"
+					}
+				}
+			},
+			"transfer": false,
+			"name": "Agile Accelerando (Round 3)",
+			"_id": "nvN2hEedEMhnSPx3",
+			"changes": [
+				{
+					"key": "flags.a5e.effects.rollMode.abilitySave.dex",
+					"value": "1",
+					"mode": 6,
+					"priority": null
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": null,
+				"combat": null,
+				"rounds": 4,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "<p>Until the spell ends, targets gain cumulative benefits the longer you maintain concentration on this spell (including the turn you cast it).</p>\n<ul>\n<li>\n<p><strong>3 Rounds:</strong> Advantage on Dexterity saving throws.</p>\n</li>\n</ul>",
+			"statuses": [],
+			"folder": null
+		}
+	],
 	"flags": {},
 	"system": {
 		"actions": {
@@ -37,6 +179,23 @@
 						"spellLevel": 4,
 						"points": 6,
 						"type": "spell"
+					}
+				},
+				"prompts": {
+					"YNksuaTUvcAShxgd": {
+						"type": "effect",
+						"default": true,
+						"effectId": "6jr6X6lQo0sFcCtI"
+					},
+					"7fXwAQwmlzngeMWd": {
+						"type": "effect",
+						"default": true,
+						"effectId": "Ce7zognDwdNqLCou"
+					},
+					"cEamudWi4A7db4hT": {
+						"type": "effect",
+						"default": true,
+						"effectId": "nvN2hEedEMhnSPx3"
 					}
 				}
 			}
