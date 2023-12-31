@@ -328,8 +328,22 @@ export default class ActorA5e extends Actor {
       const effectOverride = this.actorEffects
         .findLast((effect) => effect.changes.some((change) => change.key.includes('ac.value')) && !effect.isSuppressed);
 
+      const tempFinalAC = (changes.override?.value ?? baseAC) + changes.bonuses.value;
+      foundry.utils.mergeObject(this.system.attributes.ac, {
+        changes,
+        value: parseInt(tempFinalAC, 10) || 10
+      });
+
+      const overrideChange = effectOverride.apply(
+        this,
+        effectOverride.changes.find((change) => change.key.includes('ac.value')),
+        'afterDerived'
+      );
+
+      const overrideValue = Object.values(overrideChange)?.[0] ?? valueOverride;
+
       name = effectOverride?.name ?? name;
-      changes.override = { name, mode: CONFIG.A5E.ARMOR_MODES.OVERRIDE, value: valueOverride };
+      changes.override = { name, mode: CONFIG.A5E.ARMOR_MODES.OVERRIDE, value: overrideValue };
       changes.bonuses = {
         components: [],
         value: 0
