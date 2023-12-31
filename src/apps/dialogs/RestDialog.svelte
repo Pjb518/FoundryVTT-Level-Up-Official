@@ -10,7 +10,7 @@
     export let { application } = getContext("#external");
     export let { document, appId } = getContext("#external").application;
 
-    const actor = new TJSDocument(document);
+    const actor = document;
 
     const restTypeOptions = {
         short: "A5E.RestShort",
