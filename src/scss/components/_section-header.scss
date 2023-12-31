@@ -8,13 +8,37 @@
   box-shadow: 0 0 10px #2e4246 inset;
   border-radius: 3px;
 
-  &--category {
+  &--bonus-list,
+  &--item-list {
     display: grid;
     align-items: center;
     gap: 0.5rem;
     grid-template-areas: var(--a5e-section-heading-template-areas);
     grid-template-columns: var(--a5e-section-heading-template-columns);
     margin-bottom: 0.125rem;
+  }
+
+  &--bonus-list {
+    grid-template-areas: heading button;
+    grid-template-columns: 1fr max-content;
+  }
+
+  &__button {
+    width: fit-content;
+    padding: 0;
+    margin: 0;
+    background: transparent;
+    line-height: 1;
+    font-size: $font-size-sm;
+    color: #f6f2eb;
+
+    transition: $standard-transition;
+
+    &:focus,
+    &:hover {
+      box-shadow: none;
+      color: #fff;
+    }
   }
 
   &__heading {

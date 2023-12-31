@@ -82,7 +82,7 @@
     <!-- svelte-ignore missing-declaration -->
     {#if !(type === "featureTypes" && $actor.type === "npc")}
         <header
-            class="a5e-section-header a5e-section-header--category"
+            class="a5e-section-header a5e-section-header--item-list"
             style="
                 --a5e-section-heading-template-areas: {headingTemplateConfiguration.areas};
                 --a5e-section-heading-template-columns: {headingTemplateConfiguration.columns};

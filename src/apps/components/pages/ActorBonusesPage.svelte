@@ -117,8 +117,8 @@
     style="grid-auto-rows: min-content;"
 >
     <section class="setting-group">
-        <header class="setting-header">
-            <h3 class="setting-heading">Global Bonuses</h3>
+        <header class="a5e-section-header">
+            <h3 class="a5e-section-header__heading">Global Bonuses</h3>
         </header>
 
         <small class="hint">
@@ -254,14 +254,14 @@
     </section>
 
     {#each bonusCategories as bonusType}
-        <section class="setting-group">
-            <header class="setting-header">
-                <h3 class="setting-heading">
+        <section>
+            <header class="a5e-section-header a5e-section-header--bonus-list">
+                <h3 class="a5e-section-header__heading">
                     {getBonusSectionHeader(bonusType)}
                 </h3>
 
                 <button
-                    class="setting-header-button"
+                    class="a5e-section-header__button"
                     on:click={() => $actor.addBonus(bonusType)}
                 >
                     {getAddButtonLabelForBonus(bonusType)}
