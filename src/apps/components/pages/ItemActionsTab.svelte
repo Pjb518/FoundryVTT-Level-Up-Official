@@ -50,14 +50,14 @@
     <ul class="a5e-item-list">
         {#each Object.entries($item.system.actions ?? {}) as [id, action] (id)}
             <li
-                class="action"
+                class="a5e-item a5e-item--action"
                 data-action-id={id}
                 draggable="true"
                 on:dragstart={(event) => _onDragStart(event, id)}
                 on:auxclick={() => configureAction(id)}
             >
                 <img
-                    class="action__image"
+                    class="a5e-item__image a5e-item__image--action"
                     src={action?.img ?? $item.img ?? "icons/svg/item-bag.svg"}
                     alt=""
                 />
@@ -92,45 +92,27 @@
 </section>
 
 <style lang="scss">
-    .action {
+    .action-button {
+        padding: 0.25rem;
+        background: none;
+        border: 0;
+        transition: $standard-transition;
+        color: #999;
+
+        &:hover,
+        &:focus {
+            color: #555;
+            transform: scale(1.2);
+            box-shadow: none;
+        }
+    }
+
+    .action-buttons {
         display: flex;
         align-items: center;
         gap: 0.5rem;
-        padding: 0.125rem;
-        padding-right: 0.5rem;
-        background: rgba(0, 0, 0, 0.05);
-        border: 1px solid #ccc;
-        border-radius: $border-radius-standard;
-        font-size: $font-size-sm;
-
-        &__image {
-            display: block;
-            width: 1.5rem;
-            height: 1.5rem;
-        }
-
-        &-button {
-            padding: 0.25rem;
-            background: none;
-            border: 0;
-            transition: $standard-transition;
-            color: #999;
-
-            &:hover,
-            &:focus {
-                color: #555;
-                transform: scale(1.2);
-                box-shadow: none;
-            }
-        }
-
-        &-buttons {
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-            color: #999;
-            margin-left: auto;
-        }
+        color: #999;
+        margin-left: auto;
     }
 
     .delete-button:hover {

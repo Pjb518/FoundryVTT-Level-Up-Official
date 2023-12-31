@@ -7,6 +7,7 @@
   align-items: center;
   width: 100%;
   padding: 0.125rem 0.5rem 0.125rem 0.125rem;
+  font-size: var(--a5e-text-size-sm);
   border: solid transparent;
   border-width: 0 0 1px;
   border-image: linear-gradient(
@@ -19,6 +20,7 @@
   background: linear-gradient(90deg, transparent, var(--item-background, transparent) 70%);
   cursor: pointer;
 
+  &--action,
   &--bonus {
     grid-template-columns: 1.375rem 1fr min-content;
   }
@@ -72,6 +74,11 @@
     height: 100%;
     width: auto;
     object-fit: cover;
+
+    &--action {
+      width: 1.375rem;
+      height: 1.375rem;
+    }
 
     &--die {
       display: none;
