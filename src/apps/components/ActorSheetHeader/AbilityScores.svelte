@@ -6,20 +6,8 @@
     const actor = getContext("actor");
 </script>
 
-<ul class="ability-scores">
+<ul class="a5e-ability-scores">
     {#each Object.entries($actor.system.abilities) as [abilityLabel, ability], idx}
         <AbilityScore {ability} {abilityLabel} {idx} />
     {/each}
 </ul>
-
-<style lang="scss">
-    .ability-scores {
-        display: flex;
-        position: relative;
-        gap: 0.5rem;
-        margin: 0;
-        padding: 0;
-        list-style: none;
-        font-family: $font-primary;
-    }
-</style>
