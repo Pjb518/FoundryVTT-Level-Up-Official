@@ -7,6 +7,7 @@
     import getKeyPressAsOptions from "../handlers/getKeyPressAsOptions";
     import getExpertiseDieSize from "../../utils/getExpertiseDieSize";
     import updateDocumentDataFromField from "../../utils/updateDocumentDataFromField";
+    import replaceHyphenWithMinusSign from "../../utils/replaceHyphenWithMinusSign";
 
     export let columnFlow;
     export let key;
@@ -93,7 +94,9 @@
 
     <div class="skill__mod-wrapper">
         <span>
-            {showDeterministicBonus ? skillBonus + abilityBonus : skillBonus}
+            {replaceHyphenWithMinusSign(
+                showDeterministicBonus ? skillBonus + abilityBonus : skillBonus,
+            )}
         </span>
 
         {#if $actor.flags.a5e?.showPassiveScores ?? true}
