@@ -5,6 +5,7 @@
 
     import getKeyPressAsOptions from "../../handlers/getKeyPressAsOptions";
     import updateDocumentDataFromField from "../../../utils/updateDocumentDataFromField";
+    import replaceHyphenWithMinusSign from "../../../utils/replaceHyphenWithMinusSign";
 
     export let ability;
     export let abilityLabel;
@@ -31,7 +32,7 @@
                 updateDocumentDataFromField(
                     $actor,
                     target.name,
-                    Number(target.value)
+                    Number(target.value),
                 )}
             placeholder="10"
             disabled={sheetIsLocked}
@@ -45,13 +46,13 @@
         on:click={() =>
             $actor.rollAbilityCheck(
                 abilityLabel,
-                getKeyPressAsOptions($pressedKeysStore)
+                getKeyPressAsOptions($pressedKeysStore),
             )}
     >
         <h4 class="roll-button__label">Check</h4>
 
         <div class="roll-button__value">
-            {ability.check.deterministicBonus}
+            {replaceHyphenWithMinusSign(ability.check.deterministicBonus)}
         </div>
     </button>
 
@@ -62,13 +63,13 @@
         on:click={() =>
             $actor.rollSavingThrow(
                 abilityLabel,
-                getKeyPressAsOptions($pressedKeysStore)
+                getKeyPressAsOptions($pressedKeysStore),
             )}
     >
         <h4 class="roll-button__label">Save</h4>
 
         <div class="roll-button__value">
-            {ability.save.deterministicBonus}
+            {replaceHyphenWithMinusSign(ability.save.deterministicBonus)}
         </div>
     </button>
 
