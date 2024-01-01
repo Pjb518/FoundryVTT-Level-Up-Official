@@ -101,7 +101,7 @@
 </script>
 
 <ul
-    class="a5efc-document-list"
+    class="a5e-item-list a5e-item-list--compendium"
     transition:fade
     on:scroll={({ target }) =>
         dispatch(
