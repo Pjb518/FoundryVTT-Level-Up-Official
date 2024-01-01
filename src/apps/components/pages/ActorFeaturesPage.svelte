@@ -36,60 +36,52 @@
     });
 </script>
 
-<div class="features-page">
-    {#if $actor.isOwner}
-        <UtilityBar>
-            <Search {reducerType} />
-            <ShowDescription
-                on:updateSelection={() => (showDescription = !showDescription)}
-            />
-            <Sort {reducerType} />
-            <Filter {reducerType} />
-            <CreateMenu {reducerType} {menuList} />
-        </UtilityBar>
+{#if $actor.isOwner}
+    <UtilityBar>
+        <Search {reducerType} />
+        <ShowDescription
+            on:updateSelection={() => (showDescription = !showDescription)}
+        />
+        <Sort {reducerType} />
+        <Filter {reducerType} />
+        <CreateMenu {reducerType} {menuList} />
+    </UtilityBar>
+{/if}
+
+<section class="features-main-container">
+    {#if $actor.type === "npc"}
+        <ItemCategory
+            {showDescription}
+            label=""
+            items={$features}
+            {showUses}
+            type="featureTypes"
+        />
+    {:else}
+        {#each sortedFeatures as [label, items]}
+            {#if items.length}
+                <ItemCategory
+                    {label}
+                    {items}
+                    {showDescription}
+                    {showUses}
+                    type="featureTypes"
+                />
+            {/if}
+        {/each}
     {/if}
+</section>
 
-    <section class="features-main-container">
-        {#if $actor.type === "npc"}
-            <ItemCategory
-                {showDescription}
-                label=""
-                items={$features}
-                {showUses}
-                type="featureTypes"
-            />
-        {:else}
-            {#each sortedFeatures as [label, items]}
-                {#if items.length}
-                    <ItemCategory
-                        {label}
-                        {items}
-                        {showDescription}
-                        {showUses}
-                        type="featureTypes"
-                    />
-                {/if}
-            {/each}
-        {/if}
-    </section>
-
-    <footer class="features-footer" />
-</div>
+<footer class="features-footer" />
 
 <style lang="scss">
-    .features-page {
-        display: flex;
-        flex-direction: column;
-        flex: 1;
-        gap: 0.5rem;
-        overflow: hidden;
-    }
-
     .features-main-container {
         display: flex;
         flex-grow: 1;
         flex-direction: column;
         gap: 0.5rem;
+        margin-right: -0.375rem;
+        padding-right: 0.375rem;
         overflow-y: auto;
         overflow-x: hidden;
     }
