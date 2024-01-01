@@ -50,104 +50,94 @@
     });
 </script>
 
-<div class="maneuvers-page">
-    {#if $actor.isOwner}
-        <UtilityBar>
-            <Search {reducerType} />
-            <ShowDescription
-                on:updateSelection={() => (showDescription = !showDescription)}
+{#if $actor.isOwner}
+    <UtilityBar>
+        <Search {reducerType} />
+        <ShowDescription
+            on:updateSelection={() => (showDescription = !showDescription)}
+        />
+        <Sort {reducerType} />
+        <Filter {reducerType} />
+        <CreateMenu {reducerType} {menuList} />
+
+        <button
+            class="a5e-import-from-compendium-button fa-solid fa-download"
+            on:click={openCompendium}
+            data-tooltip="Import Maneuvers from Compendium"
+            data-tooltip-direction="UP"
+        ></button>
+    </UtilityBar>
+{/if}
+
+<section class="maneuvers-main-container">
+    {#each Object.entries($maneuvers._degrees) as [label, items]}
+        {#if items.length}
+            <ItemCategory
+                {label}
+                {items}
+                {showDescription}
+                {showUses}
+                type="maneuverDegrees"
             />
-            <Sort {reducerType} />
-            <Filter {reducerType} />
-            <CreateMenu {reducerType} {menuList} />
-
-            <button
-                class="a5e-import-from-compendium-button fa-solid fa-download"
-                on:click={openCompendium}
-                data-tooltip="Import Maneuvers from Compendium"
-                data-tooltip-direction="UP"
-            ></button>
-        </UtilityBar>
-    {/if}
-
-    <section class="maneuvers-main-container">
-        {#each Object.entries($maneuvers._degrees) as [label, items]}
-            {#if items.length}
-                <ItemCategory
-                    {label}
-                    {items}
-                    {showDescription}
-                    {showUses}
-                    type="maneuverDegrees"
-                />
-            {/if}
-        {/each}
-    </section>
-
-    <TabFooter --padding-right="1rem">
-        {#if $actor.type === "character"}
-            <div class="u-flex u-align-center u-gap-md">
-                <h3 class="u-mb-0 u-text-sm u-text-bold">
-                    {localize("A5E.ExertionPool")}
-                </h3>
-
-                <input
-                    class="a5e-footer-group__input"
-                    class:disable-pointer-events={!$actor.isOwner}
-                    type="number"
-                    name="system.attributes.exertion.current"
-                    value={exertion.current}
-                    placeholder="0"
-                    min="0"
-                    on:change={({ target }) =>
-                        updateDocumentDataFromField(
-                            $actor,
-                            target.name,
-                            Number(target.value),
-                        )}
-                />
-                /
-                <input
-                    class="a5e-footer-group__input"
-                    type="number"
-                    name="system.attributes.exertion.max"
-                    value={exertion.max}
-                    placeholder="0"
-                    min="0"
-                    on:change={({ target }) =>
-                        updateDocumentDataFromField(
-                            $actor,
-                            target.name,
-                            Number(target.value),
-                        )}
-                />
-
-                {#if exertion.current < exertion.max && exertion.max}
-                    <button
-                        class="recharge-button"
-                        data-tooltip="A5E.ExertionRechargeFromHitDice"
-                        data-tooltip-direction="UP"
-                        on:click={() => $actor.recoverExertionUsingHitDice()}
-                    >
-                        <i class="fa-solid fa-bolt" />
-                    </button>
-                {/if}
-            </div>
         {/if}
-    </TabFooter>
-</div>
+    {/each}
+</section>
+
+<TabFooter --padding-right="1rem">
+    {#if $actor.type === "character"}
+        <div class="u-flex u-align-center u-gap-md">
+            <h3 class="u-mb-0 u-text-sm u-text-bold">
+                {localize("A5E.ExertionPool")}
+            </h3>
+
+            <input
+                class="a5e-footer-group__input"
+                class:disable-pointer-events={!$actor.isOwner}
+                type="number"
+                name="system.attributes.exertion.current"
+                value={exertion.current}
+                placeholder="0"
+                min="0"
+                on:change={({ target }) =>
+                    updateDocumentDataFromField(
+                        $actor,
+                        target.name,
+                        Number(target.value),
+                    )}
+            />
+            /
+            <input
+                class="a5e-footer-group__input"
+                type="number"
+                name="system.attributes.exertion.max"
+                value={exertion.max}
+                placeholder="0"
+                min="0"
+                on:change={({ target }) =>
+                    updateDocumentDataFromField(
+                        $actor,
+                        target.name,
+                        Number(target.value),
+                    )}
+            />
+
+            {#if exertion.current < exertion.max && exertion.max}
+                <button
+                    class="recharge-button"
+                    data-tooltip="A5E.ExertionRechargeFromHitDice"
+                    data-tooltip-direction="UP"
+                    on:click={() => $actor.recoverExertionUsingHitDice()}
+                >
+                    <i class="fa-solid fa-bolt" />
+                </button>
+            {/if}
+        </div>
+    {/if}
+</TabFooter>
 
 <style lang="scss">
     .disable-pointer-events {
         pointer-events: none;
-    }
-
-    .maneuvers-page {
-        display: flex;
-        flex-direction: column;
-        flex: 1;
-        gap: 0.5rem;
-        overflow: hidden;
     }
 
     .maneuvers-main-container {
@@ -155,6 +145,8 @@
         flex-grow: 1;
         flex-direction: column;
         gap: 0.5rem;
+        margin-right: -0.375rem;
+        padding-right: 0.375rem;
         overflow-y: auto;
         overflow-x: hidden;
     }
