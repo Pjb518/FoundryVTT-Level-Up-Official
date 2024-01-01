@@ -49,7 +49,7 @@
 
 <!-- svelte-ignore a11y-click-events-have-key-events a11y-no-noninteractive-element-interactions -->
 <li
-    class="a5efc-document"
+    class="a5e-item a5e-item--compendium-spell-document"
     draggable="true"
     on:click={async () => {
         const doc =
@@ -59,21 +59,25 @@
     }}
     on:dragstart={onDragStart}
 >
-    <img class="a5efc-document__image" src={document.img} alt={document.name} />
+    <img
+        class="a5e-item__image a5e-item__image--compendium-document"
+        src={document.img}
+        alt={document.name}
+    />
 
-    <h3 class="a5efc-document__name">
+    <h3 class="a5e-item__name a5e-item__name--compendium-document">
         {document.name}
 
         {#if document.system.isStance}
             <i
-                class="a5efc-document__icon fa-solid fa-street-view"
+                class="a5e-item__icon fa-solid fa-street-view"
                 data-tooltip="Stance"
                 data-tooltip-direction="UP"
             />
         {/if}
     </h3>
 
-    <span class="a5efc-document__details">
+    <span class="a5e-item__details">
         {maneuverDetails}
     </span>
 

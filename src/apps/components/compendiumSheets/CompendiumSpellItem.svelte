@@ -43,7 +43,7 @@
 
 <!-- svelte-ignore a11y-click-events-have-key-events a11y-no-noninteractive-element-interactions -->
 <li
-    class="a5efc-document a5efc-document--spell"
+    class="a5e-item a5e-item--compendium-spell-document"
     draggable="true"
     on:click={async () => {
         const doc =
@@ -53,21 +53,25 @@
     }}
     on:dragstart={onDragStart}
 >
-    <img class="a5efc-document__image" src={document.img} alt={document.name} />
+    <img
+        class="a5e-item__image a5e-item__image--compendium-document"
+        src={document.img}
+        alt={document.name}
+    />
 
-    <span class="a5efc-document__name">
+    <span class="a5e-item__name--compendium-document">
         {document.name}
 
         {#if document.system.rare}
             <i
-                class="a5efc-document__icon fa-solid fa-sun"
+                class="a5e-item__icon fa-solid fa-sun"
                 data-tooltip="Rare Spell Variant"
                 data-tooltip-direction="UP"
             />
         {/if}
     </span>
 
-    <span class="a5efc-document__details">
+    <span class="a5e-item__details">
         {spellDetails}
     </span>
 
@@ -134,7 +138,7 @@
         height: 1rem;
         width: 1rem;
         border-radius: 3px;
-        font-size: 0.694rem;
+        font-size: var(--a5e-text-size-xxs);
         background: #c6c5bc;
     }
 
@@ -145,6 +149,7 @@
         grid-area: components;
         margin: 0 0.25rem;
         padding: 0;
+        font-family: var(--a5e-font-sans-serif);
         list-style: none;
     }
 </style>

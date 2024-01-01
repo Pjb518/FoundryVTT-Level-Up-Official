@@ -26,6 +26,19 @@
     grid-template-columns: 1.375rem 1fr min-content;
   }
 
+  &--compendium-document {
+    grid-template-areas:
+      "img name import"
+      "img details import";
+    grid-template-columns: max-content 1fr min-content;
+  }
+
+  &--compendium-spell-document {
+    grid-template-areas: "img name components import"
+      "img details components import";
+    grid-template-columns: max-content 1fr max-content min-content;
+  }
+
   &--effect {
     grid-template-areas: var(--effectTemplateAreas);
     grid-template-columns: var(--effectTemplateColumns);
@@ -70,6 +83,22 @@
     --track-border-color: hsla(0, 40%, 50%, 0.302);
   }
 
+  &__details {
+    font-family: var(--a5e-font-sans-serif);
+    grid-area: details;
+    line-height: 1;
+    color: #666;
+    font-size: 0.694rem;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  &__icon {
+    color: #888;
+    font-size: var(--a5e-text-size-sm);
+  }
+
   &__image {
     display: block;
     height: 100%;
@@ -81,6 +110,13 @@
       height: 1.375rem;
     }
 
+    &--compendium-document {
+      height: 2.25rem;
+      width: 2.25rem;
+      grid-area: img;
+      border: 0;
+    }
+
     &--die {
       display: none;
       padding: 0;
@@ -90,6 +126,18 @@
 
   &__name {
     font-size: var(--a5e-text-size-sm);
+
+    &--compendium-document {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      grid-area: name;
+      margin: 0;
+      border: 0;
+      font-size: inherit;
+      font-weight: bold;
+      line-height: 1;
+    }
   }
 
   &__roll-button {
