@@ -55,7 +55,7 @@
     }
 
     .number-input {
-        height: 1.125rem;
+        height: 1rem;
         width: 5ch;
         color: inherit;
         background: rgba(255, 255, 255, 0.15);
