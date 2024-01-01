@@ -33,7 +33,7 @@
         color: #888;
         background: transparent;
         border: 0;
-        transition: all 0.15s ease-in-out;
+        transition: var(--a5e-transition-standard);
 
         &:hover {
             color: #191813;

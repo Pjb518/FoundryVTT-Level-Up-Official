@@ -90,11 +90,11 @@
         height: 1rem;
         width: 1rem;
         border-radius: $border-radius-standard;
-        font-size: $font-size-xxs;
+        font-size: var(--a5e-text-size-xxs);
         background: var(--indicator-background, #c6c5bc);
     }
 
     .spell-level {
-        font-size: $font-size-xs;
+        font-size: var(--a5e-text-size-xs);
     }
 </style>

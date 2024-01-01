@@ -577,7 +577,7 @@
         width: fit-content;
         padding: 0 0.125rem;
         margin-right: auto;
-        font-size: $font-size-md;
+        font-size: var(--a5e-text-size-md);
         color: #999;
         opacity: 0.85;
         background: transparent;
@@ -586,7 +586,7 @@
         // Nudge the button down 1px so that it _looks_ centred
         top: 1px;
 
-        transition: $standard-transition;
+        transition: var(--a5e-transition-standard);
 
         &--locked {
             color: $color-primary;

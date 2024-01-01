@@ -21,7 +21,7 @@
                     "";
                 return acc;
             },
-            {}
+            {},
         );
     }
 
@@ -68,21 +68,21 @@
             if (!["frightened"].includes(curr)) acc.push(curr);
             return acc;
         },
-        []
+        [],
     );
 
     const automateUnconscious = settings.getStore(
-        "automateUnconsciousApplication"
+        "automateUnconsciousApplication",
     );
 
     const automatedConditions = settings.getStore("automatedConditions");
 
     const conditionFlowDirectionChoices = game.settings.settings.get(
-        "a5e.conditionFlowDirection"
+        "a5e.conditionFlowDirection",
     ).choices;
 
     const iconSizeChoices = game.settings.settings.get(
-        "a5e.effectsPanelIconSize"
+        "a5e.effectsPanelIconSize",
     ).choices;
 
     let automateBloodied = settings.getStore("automateBloodiedApplication");
@@ -345,7 +345,7 @@
         white-space: normal;
         font-size: $font-size-xs;
 
-        transition: all 0.15s ease-in-out;
+        transition: var(--a5e-transition-standard);
         cursor: pointer;
 
         &:hover,
