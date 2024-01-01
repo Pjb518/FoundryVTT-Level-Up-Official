@@ -57,85 +57,57 @@
     });
 </script>
 
-<div class="inventory-page">
-    {#if $actor.isOwner}
-        <UtilityBar>
-            <Search {reducerType} />
-            <ShowDescription
-                on:updateSelection={() => (showDescription = !showDescription)}
-            />
-            <Sort {reducerType} />
-            <Filter {reducerType} />
-            <CreateMenu {reducerType} {menuList} />
+{#if $actor.isOwner}
+    <UtilityBar>
+        <Search {reducerType} />
+        <ShowDescription
+            on:updateSelection={() => (showDescription = !showDescription)}
+        />
+        <Sort {reducerType} />
+        <Filter {reducerType} />
+        <CreateMenu {reducerType} {menuList} />
 
-            <button
-                class="import-button fa-solid fa-download"
-                on:click={openCompendium}
-                data-tooltip="Import Items from Compendium"
-                data-tooltip-direction="UP"
-            ></button>
-        </UtilityBar>
+        <button
+            class="a5e-import-from-compendium-button fa-solid fa-download"
+            on:click={openCompendium}
+            data-tooltip="Import Items from Compendium"
+            data-tooltip-direction="UP"
+        ></button>
+    </UtilityBar>
+{/if}
+
+<section class="inventory-main-container">
+    {#each sortedObjects as [label, items]}
+        {#if items.length}
+            <ItemCategory
+                {label}
+                {items}
+                {showDescription}
+                {showQuantity}
+                {showUses}
+                type="objectTypesPlural"
+            />
+        {/if}
+    {/each}
+</section>
+
+<TabFooter>
+    {#if $actor.flags?.a5e?.trackInventoryWeight ?? true}
+        <ItemWeightTrack />
     {/if}
 
-    <section class="inventory-main-container">
-        {#each sortedObjects as [label, items]}
-            {#if items.length}
-                <ItemCategory
-                    {label}
-                    {items}
-                    {showDescription}
-                    {showQuantity}
-                    {showUses}
-                    type="objectTypesPlural"
-                />
-            {/if}
-        {/each}
-    </section>
-
-    <TabFooter>
-        {#if $actor.flags?.a5e?.trackInventoryWeight ?? true}
-            <ItemWeightTrack />
-        {/if}
-
-        <ActorInventoryShields />
-    </TabFooter>
-</div>
+    <ActorInventoryShields />
+</TabFooter>
 
 <style lang="scss">
-    .inventory-page {
-        display: flex;
-        flex-direction: column;
-        flex: 1;
-        gap: 0.5rem;
-        overflow: hidden;
-    }
-
     .inventory-main-container {
         display: flex;
         flex-grow: 1;
         flex-direction: column;
         gap: 0.5rem;
+        margin-right: -0.375rem;
+        padding-right: 0.375rem;
         overflow-y: auto;
         overflow-x: hidden;
-    }
-
-    .import-button {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        height: auto;
-        width: 1.1rem;
-        font-size: inherit;
-        color: #bbbab2;
-        border: 0;
-        border-radius: 0;
-        background: transparent;
-        transition: all 0.15s ease-in-out;
-
-        &:hover {
-            box-shadow: none;
-            color: #555555;
-            transform: scale(1.2);
-        }
     }
 </style>
