@@ -394,35 +394,4 @@
             margin-bottom: 0.25rem;
         }
     }
-
-    .setting-header {
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        padding: 0 0.5rem 0.25rem 0.125rem;
-        border-bottom: 1px solid #ccc;
-    }
-
-    .setting-header-button {
-        width: fit-content;
-        padding: 0;
-        margin: 0;
-        background: transparent;
-        line-height: 1;
-        font-size: var(a5e-text-size-sm);
-        color: #7e7960;
-
-        transition: var(--a5e-transition-standard);
-
-        &:focus,
-        &:hover {
-            box-shadow: none;
-            color: rgb(25, 24, 19);
-        }
-    }
-
-    .setting-heading {
-        font-size: var(--a5e-text-size-sm);
-        white-space: nowrap;
-    }
 </style>
