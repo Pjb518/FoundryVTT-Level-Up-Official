@@ -89,7 +89,7 @@
             <CreateMenu {reducerType} {menuList} />
 
             <button
-                class="import-button fa-solid fa-download"
+                class="a5e-import-from-compendium-button fa-solid fa-download"
                 on:click={openCompendium}
                 data-tooltip="Import Spells from Compendium"
                 data-tooltip-direction="UP"
@@ -201,26 +201,6 @@
 <style lang="scss">
     .disable-pointer-events {
         pointer-events: none;
-    }
-
-    .import-button {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        height: auto;
-        width: 1.1rem;
-        font-size: inherit;
-        color: #bbbab2;
-        border: 0;
-        border-radius: 0;
-        background: transparent;
-        transition: all 0.15s ease-in-out;
-
-        &:hover {
-            box-shadow: none;
-            color: #555555;
-            transform: scale(1.2);
-        }
     }
 
     .spells-page {
