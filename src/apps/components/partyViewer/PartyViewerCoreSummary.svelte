@@ -16,7 +16,7 @@
 
         return Math.min(
             ((hp.value + (hp.temp || 0)) / (hp.max + tempHP)) * 100,
-            100
+            100,
         );
     }
 
@@ -124,9 +124,13 @@
 
         &--highlight-hp {
             border-radius: 3px;
+            padding-block: 1px;
             color: white;
-            text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000,
-                1px 1px 0 #000;
+            text-shadow:
+                -1px -1px 0 rgba(34, 34, 34, 0.5),
+                1px -1px 0 rgba(34, 34, 34, 0.5),
+                -1px 1px 0 rgba(34, 34, 34, 0.5),
+                1px 1px 0 rgba(34, 34, 34, 0.5);
             background: linear-gradient(
                 90deg,
                 var(--color-primary-hp-bar) var(--total-hp-percentage),

@@ -23,11 +23,19 @@
         display: grid;
         grid-template-areas: var(--grid-areas);
         grid-template-columns: var(--grid-template);
+        align-items: center;
         gap: 0.5rem;
-        min-height: 1.75rem;
-        padding: 0.375rem 0.125rem;
-        border-bottom: 1px solid #ccc;
-        border-top: 1px solid #ccc;
+        height: 2rem;
+        padding: 0 0.125rem;
+        border: solid transparent;
+        border-width: 0 0 1px;
+        border-image: linear-gradient(
+                90deg,
+                var(--item-border-color-start, transparent) 0%,
+                var(--item-border-color-end, #d5cac1) 55%
+            )
+            1 repeat;
+        border-radius: 0;
     }
 
     .heading {
@@ -38,6 +46,7 @@
         font-weight: bold;
         text-align: right;
         line-height: 1;
+        font-family: var(--a5e-font-serif);
 
         &--no-actor-image {
             grid-area: name;

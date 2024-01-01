@@ -48,7 +48,10 @@
     });
 </script>
 
-<li class="party-member" on:dblclick={() => $actor?.sheet.render(true)}>
+<li
+    class="a5e-item a5e-item--party-member"
+    on:dblclick={() => $actor?.sheet.render(true)}
+>
     {#if $showActorImagesInPartyViewer}
         <img class="actor-image" src={$actor?.img} alt={$actor?.name} />
     {/if}
@@ -104,18 +107,5 @@
 
     .delete-wrapper {
         text-align: center;
-    }
-
-    .party-member {
-        display: grid;
-        grid-template-areas: var((--grid-areas));
-        grid-template-columns: var(--grid-template);
-        align-items: center;
-        gap: 0.5rem;
-        padding: 0.125rem;
-        border: 1px solid #ccc;
-        border-radius: $border-radius-standard;
-        background: var(--item-background, rgba(0, 0, 0, 0.05));
-        cursor: pointer;
     }
 </style>

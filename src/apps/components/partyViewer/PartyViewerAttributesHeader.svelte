@@ -18,6 +18,7 @@
         gap: 0.5rem;
         min-height: 1.75rem;
         padding: 0.375rem 0.125rem;
+        font-family: var(--a5e-font-serif);
         border-bottom: 1px solid #ccc;
         border-top: 1px solid #ccc;
     }

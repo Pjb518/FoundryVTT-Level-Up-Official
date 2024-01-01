@@ -6,12 +6,12 @@
             ([spellLevel]) =>
                 spellLevel &&
                 spellLevel !== "0" &&
-                spellLevel <= highestSpellSlotLevel
+                spellLevel <= highestSpellSlotLevel,
         );
     }
 </script>
 
-<header class="core-header">
+<header class="resources-header">
     {#if propData.partyHasInspiration}
         <i
             class="heading heading--inspiration fa-solid fa-dice-d20"
@@ -58,7 +58,7 @@
 </header>
 
 <style lang="scss">
-    .core-header {
+    .resources-header {
         display: grid;
         grid-template-areas: var(--grid-areas);
         grid-template-columns: var(--grid-template);
@@ -66,6 +66,7 @@
         gap: 0.5rem;
         min-height: 1.75rem;
         padding: 0.375rem 0.125rem;
+        font-family: var(--a5e-font-serif);
         border-bottom: 1px solid #ccc;
         border-top: 1px solid #ccc;
     }

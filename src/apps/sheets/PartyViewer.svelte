@@ -501,7 +501,7 @@
             --grid-template={gridSizeDefinition}
         />
 
-        <ul class="party-member-list">
+        <ul class="a5e-item-list a5e-item-list--party">
             {#each $partyMembers ?? [] as actor}
                 <PartyViewerActorSummary
                     {actor}
@@ -545,16 +545,6 @@
         min-height: 14rem;
         min-width: 40rem;
         padding: 0.25rem 0.5rem;
-    }
-
-    .party-member-list {
-        display: grid;
-        gap: 0.25rem;
-        max-height: 30rem;
-        padding: 0;
-        margin: 0.25rem 0;
-        list-style: none;
-        overflow-y: auto;
     }
 
     .instructions {
