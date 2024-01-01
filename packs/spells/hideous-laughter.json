@@ -1,172 +1,158 @@
 {
-  "name": "Hideous Laughter",
-  "type": "spell",
-  "img": "icons/skills/wounds/injury-face-impact-orange.webp",
-  "effects": [
-    {
-      "icon": "icons/skills/wounds/injury-face-impact-orange.webp",
-      "origin": "Item.zvhVPcOWZOlRrtS9",
-      "flags": {
-        "a5e": {
-          "sort": 0,
-          "transferType": "onUse",
-          "actionId": "EnM94wEvCpTZmMnQ",
-          "duration": {
-            "unit": "minutes"
-          }
-        }
-      },
-      "transfer": false,
-      "name": "Hideous Laughter",
-      "_id": "sEzBFpSnqGKITqF4",
-      "changes": [
-        {
-          "key": "flags.a5e.effects.statusConditions",
-          "value": "[\"prone\",\"incapacitated\"]",
-          "mode": 0,
-          "priority": null
-        }
-      ],
-      "disabled": false,
-      "duration": {
-        "startTime": null,
-        "seconds": 60,
-        "combat": null,
-        "rounds": null,
-        "turns": null,
-        "startRound": null,
-        "startTurn": null
-      },
-      "description": "<p>The target is overwhelmed by the absurdity of the world and is crippled by paroxysms of laughter. The target falls prone, becomes incapacitated, and cannot stand.</p>\n<p>Until the spell ends, at the end of each of the target's turns and when it suffers damage, the target may attempt another saving throw (with advantage if triggered by damage). On a successful save, the spell ends.</p>",
-      "statuses": [
-        "prone",
-        "incapacitated"
-      ]
-    }
-  ],
-  "flags": {
-    "core": {},
-    "exportSource": {
-      "world": "level-up",
-      "system": "a5e",
-      "coreVersion": "11.315",
-      "systemVersion": "0.16.28"
-    }
-  },
-  "system": {
-    "actions": {
-      "EnM94wEvCpTZmMnQ": {
-        "name": "Hideous Laughter",
-        "activation": {
-          "cost": 1,
-          "type": "action",
-          "reactionTrigger": ""
-        },
-        "duration": {
-          "unit": "minute",
-          "value": "1"
-        },
-        "ranges": {
-          "ugxA7hBRUYvuksdr": {
-            "range": "short"
-          }
-        },
-        "area": {
-          "shape": "",
-          "size": "",
-          "placeTemplate": false
-        },
-        "target": {
-          "quantity": "",
-          "type": "creature"
-        },
-        "prompts": {
-          "plcXxhiZ6YSjHGFQ": {
-            "ability": "wis",
-            "onSave": "Negates effect",
-            "saveDC": {
-              "type": "spellcasting",
-              "bonus": ""
-            },
-            "type": "savingThrow"
-          },
-          "xFVLHsLZbeDVBmtj": {
-            "type": "effect",
-            "default": true,
-            "effectId": "sEzBFpSnqGKITqF4"
-          }
-        },
-        "consumers": {
-          "spIysnAx1vgWobyW": {
-            "mode": "variable",
-            "spellLevel": 1,
-            "points": 2,
-            "type": "spell"
-          }
-        }
-      }
-    },
-    "description": "<p>The target is overwhelmed by the absurdity of the world and is crippled by paroxysms of laughter. The target falls prone, becomes incapacitated, and cannot stand.</p><p>Until the spell ends, at the end of each of the target's turns and when it suffers damage, the target may attempt another saving throw (with advantage if triggered by damage). On a successful save, the spell ends.</p><p><strong><em>Cast at Higher Levels.</em></strong> Target an additional creature within 30 feet of the original for each slot level above 1st.</p>",
-    "favorite": false,
-    "secretDescription": "",
-    "source": "",
-    "uses": {
-      "value": null,
-      "max": "",
-      "per": null,
-      "recharge": {
-        "formula": "",
-        "threshold": ""
-      }
-    },
-    "schema": {
-      "version": null,
-      "lastMigration": null
-    },
-    "classes": [
-      "bard",
-      "witch",
-      "wizard"
-    ],
-    "components": {
-      "vocalized": true,
-      "seen": true,
-      "material": true
-    },
-    "concentration": true,
-    "level": 1,
-    "materials": "poppy seed",
-    "materialsConsumed": false,
-    "prepared": false,
-    "prerequisite": "",
-    "rare": false,
-    "ritual": false,
-    "schools": {
-      "primary": "enchantment",
-      "secondary": [
-        "affliction",
-        "arcane",
-        "compulsion"
-      ]
-    },
-    "schemaVersion": {
-      "version": 0.01,
-      "lastMigration": {
-        "version": {
-          "schema": 0.009,
-          "foundry": "12.316",
-          "system": "0.16.12"
-        }
-      }
-    }
-  },
-  "folder": "yECjlq6ZLl9owWbb",
-  "_stats": {
-    "systemId": "a5e",
-    "systemVersion": "0.16.26",
-    "coreVersion": "11.315",
-    "createdTime": 1704027142498,
-    "modifiedTime": 1704120657330,
-    "lastModifiedBy": "LP1qW4KtlZ3Zp5g1"
-  }
+	"name": "Hideous Laughter",
+	"type": "spell",
+	"img": "icons/skills/wounds/injury-face-impact-orange.webp",
+	"effects": [
+		{
+			"icon": "icons/skills/wounds/injury-face-impact-orange.webp",
+			"origin": "Item.zvhVPcOWZOlRrtS9",
+			"flags": {
+				"a5e": {
+					"sort": 0,
+					"transferType": "onUse",
+					"actionId": "EnM94wEvCpTZmMnQ",
+					"duration": {
+						"unit": "minutes"
+					}
+				}
+			},
+			"transfer": false,
+			"name": "Hideous Laughter",
+			"_id": "sEzBFpSnqGKITqF4",
+			"changes": [
+				{
+					"key": "flags.a5e.effects.statusConditions",
+					"value": "[\"prone\",\"incapacitated\"]",
+					"mode": 0,
+					"priority": null
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": 60,
+				"combat": null,
+				"rounds": null,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "<p>The target is overwhelmed by the absurdity of the world and is crippled by paroxysms of laughter. The target falls prone, becomes incapacitated, and cannot stand.</p>\n<p>Until the spell ends, at the end of each of the target's turns and when it suffers damage, the target may attempt another saving throw (with advantage if triggered by damage). On a successful save, the spell ends.</p>",
+			"statuses": [
+				"prone",
+				"incapacitated"
+			],
+			"folder": null
+		}
+	],
+	"flags": {},
+	"system": {
+		"actions": {
+			"EnM94wEvCpTZmMnQ": {
+				"name": "Hideous Laughter",
+				"activation": {
+					"cost": 1,
+					"type": "action",
+					"reactionTrigger": ""
+				},
+				"duration": {
+					"unit": "minute",
+					"value": "1"
+				},
+				"ranges": {
+					"ugxA7hBRUYvuksdr": {
+						"range": "short"
+					}
+				},
+				"area": {
+					"shape": "",
+					"size": "",
+					"placeTemplate": false
+				},
+				"target": {
+					"quantity": "",
+					"type": "creature"
+				},
+				"prompts": {
+					"plcXxhiZ6YSjHGFQ": {
+						"ability": "wis",
+						"onSave": "Negates effect",
+						"saveDC": {
+							"type": "spellcasting",
+							"bonus": ""
+						},
+						"type": "savingThrow"
+					},
+					"xFVLHsLZbeDVBmtj": {
+						"type": "effect",
+						"default": true,
+						"effectId": "sEzBFpSnqGKITqF4"
+					}
+				},
+				"consumers": {
+					"spIysnAx1vgWobyW": {
+						"mode": "variable",
+						"spellLevel": 1,
+						"points": 2,
+						"type": "spell"
+					}
+				}
+			}
+		},
+		"description": "<p>The target is overwhelmed by the absurdity of the world and is crippled by paroxysms of laughter. The target falls prone, becomes incapacitated, and cannot stand.</p><p>Until the spell ends, at the end of each of the target's turns and when it suffers damage, the target may attempt another saving throw (with advantage if triggered by damage). On a successful save, the spell ends.</p><p><strong><em>Cast at Higher Levels.</em></strong> Target an additional creature within 30 feet of the original for each slot level above 1st.</p>",
+		"favorite": false,
+		"secretDescription": "",
+		"source": "",
+		"uses": {
+			"value": null,
+			"max": "",
+			"per": null,
+			"recharge": {
+				"formula": "",
+				"threshold": ""
+			}
+		},
+		"schema": {
+			"version": null,
+			"lastMigration": null
+		},
+		"classes": [
+			"bard",
+			"witch",
+			"wizard"
+		],
+		"components": {
+			"vocalized": true,
+			"seen": true,
+			"material": true
+		},
+		"concentration": true,
+		"level": 1,
+		"materials": "poppy seed",
+		"materialsConsumed": false,
+		"prepared": false,
+		"prerequisite": "",
+		"rare": false,
+		"ritual": false,
+		"schools": {
+			"primary": "enchantment",
+			"secondary": [
+				"affliction",
+				"arcane",
+				"compulsion"
+			]
+		},
+		"schemaVersion": {
+			"version": 0.01,
+			"lastMigration": {
+				"version": {
+					"schema": 0.009,
+					"foundry": "12.316",
+					"system": "0.16.12"
+				}
+			}
+		}
+	},
+	"folder": null,
+	"_id": "rlumouhgdekvvcxn"
 }

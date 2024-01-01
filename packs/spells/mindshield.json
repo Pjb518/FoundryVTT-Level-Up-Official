@@ -1,161 +1,147 @@
 {
-  "name": "Mindshield",
-  "type": "spell",
-  "img": "icons/magic/symbols/runes-star-magenta.webp",
-  "effects": [
-    {
-      "icon": "icons/magic/symbols/runes-star-magenta.webp",
-      "origin": "Item.CEzlH08b5i09D1Hj",
-      "flags": {
-        "a5e": {
-          "sort": 0,
-          "transferType": "onUse",
-          "actionId": "iDCtzR27wRAeIiZa",
-          "duration": {
-            "unit": "minutes"
-          }
-        }
-      },
-      "transfer": false,
-      "name": "Mindshield",
-      "_id": "QwxVLuOkkUcHrb7o",
-      "changes": [
-        {
-          "key": "system.traits.damageResistances",
-          "value": "[\"psychic\"]",
-          "mode": 2,
-          "priority": null
-        }
-      ],
-      "disabled": false,
-      "duration": {
-        "startTime": null,
-        "seconds": 600,
-        "combat": null,
-        "rounds": null,
-        "turns": null,
-        "startRound": null,
-        "startTurn": null
-      },
-      "description": "<p>The target has resistance to psychic damage and advantage on saving throws made to resist being charmed or frightened.</p>",
-      "statuses": []
-    }
-  ],
-  "flags": {
-    "core": {},
-    "exportSource": {
-      "world": "level-up",
-      "system": "a5e",
-      "coreVersion": "11.315",
-      "systemVersion": "0.16.28"
-    }
-  },
-  "system": {
-    "actions": {
-      "iDCtzR27wRAeIiZa": {
-        "name": "Mindshield",
-        "activation": {
-          "cost": 1,
-          "type": "minute",
-          "reactionTrigger": ""
-        },
-        "duration": {
-          "unit": "minute",
-          "value": "10"
-        },
-        "ranges": {
-          "0vGhxWFz1sB8iMaJ": {
-            "range": "touch"
-          }
-        },
-        "area": {
-          "shape": "",
-          "size": "",
-          "placeTemplate": false
-        },
-        "target": {
-          "quantity": "",
-          "type": "creature"
-        },
-        "consumers": {
-          "YhhXVlZXVCO652nN": {
-            "mode": "variable",
-            "spellLevel": 4,
-            "points": 6,
-            "type": "spell"
-          }
-        },
-        "prompts": {
-          "f8i1gttsuMxEcm0R": {
-            "type": "effect",
-            "default": true,
-            "effectId": "QwxVLuOkkUcHrb7o"
-          }
-        }
-      }
-    },
-    "description": "<p>The target has resistance to psychic damage and advantage on saving throws made to resist being charmed or frightened.</p>",
-    "favorite": false,
-    "secretDescription": "",
-    "source": "",
-    "uses": {
-      "value": null,
-      "max": "",
-      "per": null,
-      "recharge": {
-        "formula": "",
-        "threshold": ""
-      }
-    },
-    "schema": {
-      "version": null,
-      "lastMigration": null
-    },
-    "classes": [
-      "artificer",
-      "druid",
-      "sorcerer",
-      "wielder",
-      "wizard"
-    ],
-    "components": {
-      "vocalized": true,
-      "seen": true,
-      "material": false
-    },
-    "concentration": true,
-    "level": 4,
-    "materials": "",
-    "materialsConsumed": false,
-    "prepared": false,
-    "prerequisite": "",
-    "rare": false,
-    "ritual": false,
-    "schools": {
-      "primary": "abjuration",
-      "secondary": [
-        "protection",
-        "psychic"
-      ]
-    },
-    "schemaVersion": {
-      "version": 0.01,
-      "lastMigration": {
-        "version": {
-          "schema": 0.009,
-          "foundry": "12.316",
-          "system": "0.16.12"
-        }
-      }
-    }
-  },
-  "folder": "yECjlq6ZLl9owWbb",
-  "_stats": {
-    "systemId": "a5e",
-    "systemVersion": "0.16.26",
-    "coreVersion": "11.315",
-    "createdTime": 1704027141361,
-    "modifiedTime": 1704122140801,
-    "lastModifiedBy": "LP1qW4KtlZ3Zp5g1"
-  }
+	"name": "Mindshield",
+	"type": "spell",
+	"img": "icons/magic/symbols/runes-star-magenta.webp",
+	"effects": [
+		{
+			"icon": "icons/magic/symbols/runes-star-magenta.webp",
+			"origin": "Item.CEzlH08b5i09D1Hj",
+			"flags": {
+				"a5e": {
+					"sort": 0,
+					"transferType": "onUse",
+					"actionId": "iDCtzR27wRAeIiZa",
+					"duration": {
+						"unit": "minutes"
+					}
+				}
+			},
+			"transfer": false,
+			"name": "Mindshield",
+			"_id": "QwxVLuOkkUcHrb7o",
+			"changes": [
+				{
+					"key": "system.traits.damageResistances",
+					"value": "[\"psychic\"]",
+					"mode": 2,
+					"priority": null
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": 600,
+				"combat": null,
+				"rounds": null,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "<p>The target has resistance to psychic damage and advantage on saving throws made to resist being charmed or frightened.</p>",
+			"statuses": [],
+			"folder": null
+		}
+	],
+	"flags": {},
+	"system": {
+		"actions": {
+			"iDCtzR27wRAeIiZa": {
+				"name": "Mindshield",
+				"activation": {
+					"cost": 1,
+					"type": "minute",
+					"reactionTrigger": ""
+				},
+				"duration": {
+					"unit": "minute",
+					"value": "10"
+				},
+				"ranges": {
+					"0vGhxWFz1sB8iMaJ": {
+						"range": "touch"
+					}
+				},
+				"area": {
+					"shape": "",
+					"size": "",
+					"placeTemplate": false
+				},
+				"target": {
+					"quantity": "",
+					"type": "creature"
+				},
+				"consumers": {
+					"YhhXVlZXVCO652nN": {
+						"mode": "variable",
+						"spellLevel": 4,
+						"points": 6,
+						"type": "spell"
+					}
+				},
+				"prompts": {
+					"f8i1gttsuMxEcm0R": {
+						"type": "effect",
+						"default": true,
+						"effectId": "QwxVLuOkkUcHrb7o"
+					}
+				}
+			}
+		},
+		"description": "<p>The target has resistance to psychic damage and advantage on saving throws made to resist being charmed or frightened.</p>",
+		"favorite": false,
+		"secretDescription": "",
+		"source": "",
+		"uses": {
+			"value": null,
+			"max": "",
+			"per": null,
+			"recharge": {
+				"formula": "",
+				"threshold": ""
+			}
+		},
+		"schema": {
+			"version": null,
+			"lastMigration": null
+		},
+		"classes": [
+			"artificer",
+			"druid",
+			"sorcerer",
+			"wielder",
+			"wizard"
+		],
+		"components": {
+			"vocalized": true,
+			"seen": true,
+			"material": false
+		},
+		"concentration": true,
+		"level": 4,
+		"materials": "",
+		"materialsConsumed": false,
+		"prepared": false,
+		"prerequisite": "",
+		"rare": false,
+		"ritual": false,
+		"schools": {
+			"primary": "abjuration",
+			"secondary": [
+				"protection",
+				"psychic"
+			]
+		},
+		"schemaVersion": {
+			"version": 0.01,
+			"lastMigration": {
+				"version": {
+					"schema": 0.009,
+					"foundry": "12.316",
+					"system": "0.16.12"
+				}
+			}
+		}
+	},
+	"folder": null,
+	"_id": "eut9ps902to4nd1u"
 }

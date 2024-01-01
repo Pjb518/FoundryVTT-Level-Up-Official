@@ -1,181 +1,167 @@
 {
-  "folder": "yECjlq6ZLl9owWbb",
-  "name": "Mark of Puissance",
-  "type": "spell",
-  "img": "icons/magic/symbols/runes-etched-steel-blade.webp",
-  "system": {
-    "actions": {
-      "lObt3tuWsie2pxsp": {
-        "name": "Cast Spell",
-        "activation": {
-          "type": "action",
-          "cost": 1
-        },
-        "consumers": {
-          "W09rt9yXgoWFi3gd": {
-            "type": "spell",
-            "default": true,
-            "mode": "variable",
-            "spellLevel": 5,
-            "points": 7
-          }
-        },
-        "rolls": {},
-        "prompts": {
-          "f98N9EIXHl5JzYho": {
-            "type": "effect",
-            "default": true,
-            "effectId": "T1g2kNYMcFwQdzSA"
-          }
-        },
-        "uses": {
-          "value": 0,
-          "max": "",
-          "per": "",
-          "recharge": {
-            "formula": "1d6",
-            "threshold": 6
-          }
-        },
-        "duration": {
-          "unit": "hour",
-          "value": 1
-        },
-        "target": {
-          "type": "creature",
-          "quantity": 1
-        },
-        "ranges": {
-          "aQQHCN8mEkp185ZL": {
-            "range": "touch"
-          }
-        }
-      }
-    },
-    "description": "<p>You place a magical mark on a creature or yourself granting&nbsp;power to fight and win against your foes.</p>\n<p>When you cast this spell, the target gains 4 points or exertion, may remove a level of fatigue or strife, and gains 20 temporary hit points.</p>\n<p>In addition, while the mark remains visible, the target sheds dim light in a 5-foot area, gains a +2 bonus to AC, has an expertise die on Intimidation checks, and their weapon attacks deal an additional 1d4 points of radiant damage.</p>",
-    "favorite": false,
-    "secretDescription": "",
-    "source": {
-      "name": "Spells from the Forgotten Vault",
-      "link": "https://bit.ly/3nyQbOt",
-      "publisher": "purpleMartinGames"
-    },
-    "uses": {
-      "value": null,
-      "max": "",
-      "per": null,
-      "recharge": {
-        "formula": "1d6",
-        "threshold": "6"
-      }
-    },
-    "schema": {
-      "version": null,
-      "lastMigration": null
-    },
-    "classes": [
-      "herald",
-      "wielder",
-      "witch"
-    ],
-    "components": {
-      "vocalized": true,
-      "seen": true,
-      "material": false
-    },
-    "concentration": false,
-    "level": 5,
-    "materials": "",
-    "materialsConsumed": false,
-    "prepared": false,
-    "prerequisite": "",
-    "rare": false,
-    "ritual": false,
-    "schools": {
-      "primary": "abjuration",
-      "secondary": [
-        "divine",
-        "enhancement",
-        "protection"
-      ]
-    },
-    "schemaVersion": {
-      "version": 0.01,
-      "lastMigration": {
-        "version": {
-          "schema": 0.009,
-          "foundry": "12.316",
-          "system": "0.16.12"
-        }
-      }
-    }
-  },
-  "effects": [
-    {
-      "icon": "icons/magic/symbols/runes-etched-steel-blade.webp",
-      "origin": "Item.itATB7BHErJ66rSg",
-      "flags": {
-        "a5e": {
-          "sort": 0,
-          "transferType": "onUse",
-          "actionId": "lObt3tuWsie2pxsp",
-          "duration": {
-            "unit": "hours"
-          }
-        }
-      },
-      "transfer": false,
-      "name": "Mark of Puissance",
-      "_id": "T1g2kNYMcFwQdzSA",
-      "changes": [
-        {
-          "key": "@token.light.dim",
-          "value": "5",
-          "mode": 6,
-          "priority": null
-        },
-        {
-          "key": "system.attributes.ac.changes.bonuses.value",
-          "value": "2",
-          "mode": 2,
-          "priority": null
-        },
-        {
-          "key": "system.skills.itm.expertiseDice",
-          "value": "1",
-          "mode": 2,
-          "priority": null
-        }
-      ],
-      "disabled": false,
-      "duration": {
-        "startTime": null,
-        "seconds": 3600,
-        "combat": null,
-        "rounds": null,
-        "turns": null,
-        "startRound": null,
-        "startTurn": null
-      },
-      "description": "<p>The target gains 4 points or exertion, may remove a level of fatigue or strife, and gains 20 temporary hit points.</p>\n<p>In addition, while the mark remains visible, the target sheds dim light in a 5-foot area, gains a +2 bonus to AC, has an expertise die on Intimidation checks, and their weapon attacks deal an additional 1d4 points of radiant damage.</p>",
-      "statuses": []
-    }
-  ],
-  "flags": {
-    "core": {},
-    "exportSource": {
-      "world": "level-up",
-      "system": "a5e",
-      "coreVersion": "11.315",
-      "systemVersion": "0.16.28"
-    }
-  },
-  "_stats": {
-    "systemId": "a5e",
-    "systemVersion": "0.16.26",
-    "coreVersion": "11.315",
-    "createdTime": 1704027141549,
-    "modifiedTime": 1704121481449,
-    "lastModifiedBy": "LP1qW4KtlZ3Zp5g1"
-  }
+	"folder": null,
+	"name": "Mark of Puissance",
+	"type": "spell",
+	"img": "icons/magic/symbols/runes-etched-steel-blade.webp",
+	"system": {
+		"actions": {
+			"lObt3tuWsie2pxsp": {
+				"name": "Cast Spell",
+				"activation": {
+					"type": "action",
+					"cost": 1
+				},
+				"consumers": {
+					"W09rt9yXgoWFi3gd": {
+						"type": "spell",
+						"default": true,
+						"mode": "variable",
+						"spellLevel": 5,
+						"points": 7
+					}
+				},
+				"rolls": {},
+				"prompts": {
+					"f98N9EIXHl5JzYho": {
+						"type": "effect",
+						"default": true,
+						"effectId": "T1g2kNYMcFwQdzSA"
+					}
+				},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"threshold": 6
+					}
+				},
+				"duration": {
+					"unit": "hour",
+					"value": 1
+				},
+				"target": {
+					"type": "creature",
+					"quantity": 1
+				},
+				"ranges": {
+					"aQQHCN8mEkp185ZL": {
+						"range": "touch"
+					}
+				}
+			}
+		},
+		"description": "<p>You place a magical mark on a creature or yourself granting&nbsp;power to fight and win against your foes.</p>\n<p>When you cast this spell, the target gains 4 points or exertion, may remove a level of fatigue or strife, and gains 20 temporary hit points.</p>\n<p>In addition, while the mark remains visible, the target sheds dim light in a 5-foot area, gains a +2 bonus to AC, has an expertise die on Intimidation checks, and their weapon attacks deal an additional 1d4 points of radiant damage.</p>",
+		"favorite": false,
+		"secretDescription": "",
+		"source": {
+			"name": "Spells from the Forgotten Vault",
+			"link": "https://bit.ly/3nyQbOt",
+			"publisher": "purpleMartinGames"
+		},
+		"uses": {
+			"value": null,
+			"max": "",
+			"per": null,
+			"recharge": {
+				"formula": "1d6",
+				"threshold": "6"
+			}
+		},
+		"schema": {
+			"version": null,
+			"lastMigration": null
+		},
+		"classes": [
+			"herald",
+			"wielder",
+			"witch"
+		],
+		"components": {
+			"vocalized": true,
+			"seen": true,
+			"material": false
+		},
+		"concentration": false,
+		"level": 5,
+		"materials": "",
+		"materialsConsumed": false,
+		"prepared": false,
+		"prerequisite": "",
+		"rare": false,
+		"ritual": false,
+		"schools": {
+			"primary": "abjuration",
+			"secondary": [
+				"divine",
+				"enhancement",
+				"protection"
+			]
+		},
+		"schemaVersion": {
+			"version": 0.01,
+			"lastMigration": {
+				"version": {
+					"schema": 0.009,
+					"foundry": "12.316",
+					"system": "0.16.12"
+				}
+			}
+		}
+	},
+	"effects": [
+		{
+			"icon": "icons/magic/symbols/runes-etched-steel-blade.webp",
+			"origin": "Item.itATB7BHErJ66rSg",
+			"flags": {
+				"a5e": {
+					"sort": 0,
+					"transferType": "onUse",
+					"actionId": "lObt3tuWsie2pxsp",
+					"duration": {
+						"unit": "hours"
+					}
+				}
+			},
+			"transfer": false,
+			"name": "Mark of Puissance",
+			"_id": "T1g2kNYMcFwQdzSA",
+			"changes": [
+				{
+					"key": "@token.light.dim",
+					"value": "5",
+					"mode": 6,
+					"priority": null
+				},
+				{
+					"key": "system.attributes.ac.changes.bonuses.value",
+					"value": "2",
+					"mode": 2,
+					"priority": null
+				},
+				{
+					"key": "system.skills.itm.expertiseDice",
+					"value": "1",
+					"mode": 2,
+					"priority": null
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": 3600,
+				"combat": null,
+				"rounds": null,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "<p>The target gains 4 points or exertion, may remove a level of fatigue or strife, and gains 20 temporary hit points.</p>\n<p>In addition, while the mark remains visible, the target sheds dim light in a 5-foot area, gains a +2 bonus to AC, has an expertise die on Intimidation checks, and their weapon attacks deal an additional 1d4 points of radiant damage.</p>",
+			"statuses": [],
+			"folder": null
+		}
+	],
+	"flags": {},
+	"_id": "f8x3ftioys7nruz9"
 }

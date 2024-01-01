@@ -1,175 +1,161 @@
 {
-  "name": "Heart of Dis",
-  "type": "spell",
-  "img": "icons/magic/unholy/orb-contained-pink.webp",
-  "effects": [
-    {
-      "icon": "icons/magic/unholy/orb-contained-pink.webp",
-      "origin": "Item.t63rLyyXkI2Pxhll",
-      "flags": {
-        "a5e": {
-          "sort": 0,
-          "transferType": "onUse",
-          "actionId": "WPce8t18F5FDiPcJ",
-          "duration": {
-            "unit": "hours"
-          },
-          "applyToSelf": true
-        }
-      },
-      "transfer": false,
-      "name": "Heart of Dis",
-      "_id": "8RMEOvbdw1PZafUw",
-      "changes": [
-        {
-          "key": "system.traits.conditionImmunities",
-          "value": "[\"frightened\",\"poisoned\"]",
-          "mode": 2,
-          "priority": null
-        },
-        {
-          "key": "system.traits.damageImmunities",
-          "value": "[\"fire\",\"poison\"]",
-          "mode": 2,
-          "priority": null
-        },
-        {
-          "key": "system.traits.damageResistances",
-          "value": "[\"cold\",\"bludgeoning, piercing, and slashing damage from nonmagical weapons that aren't silvered\"]",
-          "mode": 2,
-          "priority": null
-        }
-      ],
-      "disabled": false,
-      "duration": {
-        "startTime": null,
-        "seconds": 86400,
-        "combat": null,
-        "rounds": null,
-        "turns": null,
-        "startRound": null,
-        "startTurn": null
-      },
-      "description": "<p>You magically replace your heart with one forged on the second layer of Hell. While the spell lasts, you are immune to fear and can't be poisoned, and you are immune to fire and poison damage. You gain resistance to cold damage, as well as to bludgeoning, piercing, and slashing damage from nonmagical weapons that aren't silvered. You have advantage on saving throws against spells and other magical effects. Finally, while you are conscious, any creature hostile to you that starts its turn within 20 feet of you must make a Wisdom saving throw. On a failed save, the creature is frightened of you until the start of your next turn. On a success, the creature is immune to the effect for 24 hours.</p>\n<p>Casting this spell magically transports your mortal heart to the lair of one of the lords of Hell. The heart returns to your body when the spell ends. If you die while under the effects of this spell, you can't be brought back to life until your original heart is retrieved.</p>",
-      "statuses": []
-    }
-  ],
-  "flags": {
-    "core": {},
-    "exportSource": {
-      "world": "level-up",
-      "system": "a5e",
-      "coreVersion": "11.315",
-      "systemVersion": "0.16.28"
-    }
-  },
-  "system": {
-    "actions": {
-      "WPce8t18F5FDiPcJ": {
-        "name": "Heart of Dis",
-        "activation": {
-          "cost": 10,
-          "type": "minute",
-          "reactionTrigger": ""
-        },
-        "duration": {
-          "unit": "hour",
-          "value": "24"
-        },
-        "ranges": {
-          "ba8bMcRTDXbFbqpk": {
-            "range": "self"
-          }
-        },
-        "area": {
-          "shape": "",
-          "size": "",
-          "placeTemplate": false
-        },
-        "target": {
-          "quantity": "",
-          "type": "self"
-        },
-        "consumers": {
-          "rcL9ruvNvkseZsN9": {
-            "mode": "variable",
-            "spellLevel": 8,
-            "points": 11,
-            "type": "spell"
-          }
-        },
-        "prompts": {
-          "roqgugUNtR0GEf2t": {
-            "type": "effect",
-            "default": true,
-            "effectId": "8RMEOvbdw1PZafUw"
-          }
-        }
-      }
-    },
-    "description": "<p>You magically replace your heart with one forged on the second layer of Hell. While the spell lasts, you are immune to fear and can't be poisoned, and you are immune to fire and poison damage. You gain resistance to cold damage, as well as to bludgeoning, piercing, and slashing damage from nonmagical weapons that aren't silvered. You have advantage on saving throws against spells and other magical effects. Finally, while you are conscious, any creature hostile to you that starts its turn within 20 feet of you must make a Wisdom saving throw. On a failed save, the creature is frightened of you until the start of your next turn. On a success, the creature is immune to the effect for 24 hours.</p><p>Casting this spell magically transports your mortal heart to the lair of one of the lords of Hell. The heart returns to your body when the spell ends. If you die while under the effects of this spell, you can't be brought back to life until your original heart is retrieved.</p>",
-    "favorite": false,
-    "secretDescription": "",
-    "source": "",
-    "uses": {
-      "value": null,
-      "max": "",
-      "per": null,
-      "recharge": {
-        "formula": "",
-        "threshold": ""
-      }
-    },
-    "schema": {
-      "version": null,
-      "lastMigration": null
-    },
-    "classes": [
-      "warlock",
-      "wizard"
-    ],
-    "components": {
-      "vocalized": true,
-      "seen": true,
-      "material": true
-    },
-    "concentration": false,
-    "level": 8,
-    "materials": "replica iron heart worth at least 1, 000 gold",
-    "materialsConsumed": false,
-    "prepared": false,
-    "prerequisite": "",
-    "rare": false,
-    "ritual": false,
-    "schools": {
-      "primary": "necromancy",
-      "secondary": [
-        "enhancement",
-        "evil",
-        "fear",
-        "planar",
-        "protection",
-        "law"
-      ]
-    },
-    "schemaVersion": {
-      "version": 0.01,
-      "lastMigration": {
-        "version": {
-          "schema": 0.009,
-          "foundry": "12.316",
-          "system": "0.16.12"
-        }
-      }
-    }
-  },
-  "folder": "yECjlq6ZLl9owWbb",
-  "_stats": {
-    "systemId": "a5e",
-    "systemVersion": "0.16.26",
-    "coreVersion": "11.315",
-    "createdTime": 1704027141757,
-    "modifiedTime": 1704120657330,
-    "lastModifiedBy": "LP1qW4KtlZ3Zp5g1"
-  }
+	"name": "Heart of Dis",
+	"type": "spell",
+	"img": "icons/magic/unholy/orb-contained-pink.webp",
+	"effects": [
+		{
+			"icon": "icons/magic/unholy/orb-contained-pink.webp",
+			"origin": "Item.t63rLyyXkI2Pxhll",
+			"flags": {
+				"a5e": {
+					"sort": 0,
+					"transferType": "onUse",
+					"actionId": "WPce8t18F5FDiPcJ",
+					"duration": {
+						"unit": "hours"
+					},
+					"applyToSelf": true
+				}
+			},
+			"transfer": false,
+			"name": "Heart of Dis",
+			"_id": "8RMEOvbdw1PZafUw",
+			"changes": [
+				{
+					"key": "system.traits.conditionImmunities",
+					"value": "[\"frightened\",\"poisoned\"]",
+					"mode": 2,
+					"priority": null
+				},
+				{
+					"key": "system.traits.damageImmunities",
+					"value": "[\"fire\",\"poison\"]",
+					"mode": 2,
+					"priority": null
+				},
+				{
+					"key": "system.traits.damageResistances",
+					"value": "[\"cold\",\"bludgeoning, piercing, and slashing damage from nonmagical weapons that aren't silvered\"]",
+					"mode": 2,
+					"priority": null
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": 86400,
+				"combat": null,
+				"rounds": null,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "<p>You magically replace your heart with one forged on the second layer of Hell. While the spell lasts, you are immune to fear and can't be poisoned, and you are immune to fire and poison damage. You gain resistance to cold damage, as well as to bludgeoning, piercing, and slashing damage from nonmagical weapons that aren't silvered. You have advantage on saving throws against spells and other magical effects. Finally, while you are conscious, any creature hostile to you that starts its turn within 20 feet of you must make a Wisdom saving throw. On a failed save, the creature is frightened of you until the start of your next turn. On a success, the creature is immune to the effect for 24 hours.</p>\n<p>Casting this spell magically transports your mortal heart to the lair of one of the lords of Hell. The heart returns to your body when the spell ends. If you die while under the effects of this spell, you can't be brought back to life until your original heart is retrieved.</p>",
+			"statuses": [],
+			"folder": null
+		}
+	],
+	"flags": {},
+	"system": {
+		"actions": {
+			"WPce8t18F5FDiPcJ": {
+				"name": "Heart of Dis",
+				"activation": {
+					"cost": 10,
+					"type": "minute",
+					"reactionTrigger": ""
+				},
+				"duration": {
+					"unit": "hour",
+					"value": "24"
+				},
+				"ranges": {
+					"ba8bMcRTDXbFbqpk": {
+						"range": "self"
+					}
+				},
+				"area": {
+					"shape": "",
+					"size": "",
+					"placeTemplate": false
+				},
+				"target": {
+					"quantity": "",
+					"type": "self"
+				},
+				"consumers": {
+					"rcL9ruvNvkseZsN9": {
+						"mode": "variable",
+						"spellLevel": 8,
+						"points": 11,
+						"type": "spell"
+					}
+				},
+				"prompts": {
+					"roqgugUNtR0GEf2t": {
+						"type": "effect",
+						"default": true,
+						"effectId": "8RMEOvbdw1PZafUw"
+					}
+				}
+			}
+		},
+		"description": "<p>You magically replace your heart with one forged on the second layer of Hell. While the spell lasts, you are immune to fear and can't be poisoned, and you are immune to fire and poison damage. You gain resistance to cold damage, as well as to bludgeoning, piercing, and slashing damage from nonmagical weapons that aren't silvered. You have advantage on saving throws against spells and other magical effects. Finally, while you are conscious, any creature hostile to you that starts its turn within 20 feet of you must make a Wisdom saving throw. On a failed save, the creature is frightened of you until the start of your next turn. On a success, the creature is immune to the effect for 24 hours.</p><p>Casting this spell magically transports your mortal heart to the lair of one of the lords of Hell. The heart returns to your body when the spell ends. If you die while under the effects of this spell, you can't be brought back to life until your original heart is retrieved.</p>",
+		"favorite": false,
+		"secretDescription": "",
+		"source": "",
+		"uses": {
+			"value": null,
+			"max": "",
+			"per": null,
+			"recharge": {
+				"formula": "",
+				"threshold": ""
+			}
+		},
+		"schema": {
+			"version": null,
+			"lastMigration": null
+		},
+		"classes": [
+			"warlock",
+			"wizard"
+		],
+		"components": {
+			"vocalized": true,
+			"seen": true,
+			"material": true
+		},
+		"concentration": false,
+		"level": 8,
+		"materials": "replica iron heart worth at least 1, 000 gold",
+		"materialsConsumed": false,
+		"prepared": false,
+		"prerequisite": "",
+		"rare": false,
+		"ritual": false,
+		"schools": {
+			"primary": "necromancy",
+			"secondary": [
+				"enhancement",
+				"evil",
+				"fear",
+				"planar",
+				"protection",
+				"law"
+			]
+		},
+		"schemaVersion": {
+			"version": 0.01,
+			"lastMigration": {
+				"version": {
+					"schema": 0.009,
+					"foundry": "12.316",
+					"system": "0.16.12"
+				}
+			}
+		}
+	},
+	"folder": null,
+	"_id": "m9gqrt6cl7ch144c"
 }

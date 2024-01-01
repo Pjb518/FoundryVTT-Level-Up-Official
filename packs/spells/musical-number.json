@@ -1,198 +1,184 @@
 {
-  "folder": "yECjlq6ZLl9owWbb",
-  "name": "Musical Number",
-  "type": "spell",
-  "img": "icons/skills/trades/music-notes-sound-blue.webp",
-  "system": {
-    "actions": {
-      "qOlnEggeEhhNVR6S": {
-        "name": "Cast Spell",
-        "activation": {
-          "type": "action",
-          "cost": 1
-        },
-        "consumers": {
-          "qCtlk97KWW2qgVMK": {
-            "type": "spell",
-            "default": true,
-            "mode": "variable",
-            "spellLevel": 3,
-            "points": 5
-          }
-        },
-        "rolls": {},
-        "prompts": {
-          "IjhTp0puYgYl79xf": {
-            "type": "savingThrow",
-            "default": true,
-            "ability": "cha",
-            "saveDC": {
-              "type": "spellcasting"
-            }
-          },
-          "QaXvcqVRov2oKXB0": {
-            "type": "effect",
-            "default": true,
-            "effectId": "awsofniPhAVMl1Qm"
-          }
-        },
-        "uses": {
-          "value": 0,
-          "max": "",
-          "per": "",
-          "recharge": {
-            "formula": "1d6",
-            "threshold": 6
-          }
-        },
-        "img": "icons/skills/trades/music-notes-sound-blue.webp",
-        "duration": {
-          "unit": "minute",
-          "value": 3
-        },
-        "ranges": {},
-        "target": {
-          "type": "self",
-          "quantity": 1
-        },
-        "area": {
-          "shape": "sphere",
-          "quantity": 1,
-          "radius": 20,
-          "placeTemplate": true
-        }
-      }
-    },
-    "description": "<p dir=\"ltr\">With snapping fingers, a song, and a few dance moves, you trigger a musical number. Music in a style of your choosing plays from an invisible source around you, and creatures within 20ft feel the need to join the dance routine and to sing along with the song, occasionally taking on brief communicative solos in the piece.</p>\n<p dir=\"ltr\">Creatures in the area may attempt a charisma save at the start of their turn to avoid being afflicted. If a creature has succeeded on the save, you may spend your action to try and draw them into the song on your turn, forcing an additional charisma save. The 20ft radius area remains centered on your square.</p>\n<p dir=\"ltr\">Affected creatures lose half their movement speed and cannot take a bonus action. All speech and spellcasting inside the area becomes song lyrics, which grants disadvantage to any attempt to identify a spell being cast in the area or counter a spell cast by a singer.</p>\n<p dir=\"ltr\">A number of creatures up to your charisma modifier may choose to intentionally fail the saving throw. These creatures still lose half of their movement to dance, but can take bonus actions normally and gain advantage on attacks against creatures that have failed their saving throw.</p>",
-    "favorite": false,
-    "secretDescription": "",
-    "source": {
-      "name": "Spells from the Forgotten Vault",
-      "link": "https://bit.ly/3nyQbOt",
-      "publisher": "purpleMartinGames"
-    },
-    "uses": {
-      "value": null,
-      "max": "",
-      "per": null,
-      "recharge": {
-        "formula": "1d6",
-        "threshold": "6"
-      }
-    },
-    "schema": {
-      "version": null,
-      "lastMigration": null
-    },
-    "classes": [
-      "bard"
-    ],
-    "components": {
-      "vocalized": true,
-      "seen": true,
-      "material": false
-    },
-    "concentration": true,
-    "level": 3,
-    "materials": "",
-    "materialsConsumed": false,
-    "prepared": false,
-    "prerequisite": "",
-    "rare": false,
-    "ritual": false,
-    "schools": {
-      "primary": "enchantment",
-      "secondary": [
-        "affliction",
-        "compulsion"
-      ]
-    },
-    "schemaVersion": {
-      "version": 0.01,
-      "lastMigration": {
-        "version": {
-          "schema": 0.009,
-          "foundry": "12.316",
-          "system": "0.16.12"
-        }
-      }
-    }
-  },
-  "effects": [
-    {
-      "icon": "icons/skills/trades/music-notes-sound-blue.webp",
-      "origin": "Item.XoFyhHss5K3TFw4U",
-      "flags": {
-        "a5e": {
-          "sort": 0,
-          "transferType": "onUse",
-          "actionId": "qOlnEggeEhhNVR6S"
-        }
-      },
-      "transfer": false,
-      "name": "Dancing",
-      "_id": "awsofniPhAVMl1Qm",
-      "changes": [
-        {
-          "key": "system.attributes.movement.burrow.distance",
-          "value": "0.5",
-          "mode": 1,
-          "priority": null
-        },
-        {
-          "key": "system.attributes.movement.climb.distance",
-          "value": "0.5",
-          "mode": 1,
-          "priority": null
-        },
-        {
-          "key": "system.attributes.movement.fly.distance",
-          "value": "0.5",
-          "mode": 1,
-          "priority": null
-        },
-        {
-          "key": "system.attributes.movement.swim.distance",
-          "value": "0.5",
-          "mode": 1,
-          "priority": null
-        },
-        {
-          "key": "system.attributes.movement.walk.distance",
-          "value": "0.5",
-          "mode": 1,
-          "priority": null
-        }
-      ],
-      "disabled": false,
-      "duration": {
-        "startTime": null,
-        "seconds": null,
-        "combat": null,
-        "rounds": null,
-        "turns": null,
-        "startRound": null,
-        "startTurn": null
-      },
-      "description": "<p dir=\"ltr\">With snapping fingers, a song, and a few dance moves, you trigger a musical number. Music in a style of your choosing plays from an invisible source around you, and creatures within 20ft feel the need to join the dance routine and to sing along with the song, occasionally taking on brief communicative solos in the piece.</p>\n<p dir=\"ltr\">Creatures in the area may attempt a charisma save at the start of their turn to avoid being afflicted. If a creature has succeeded on the save, you may spend your action to try and draw them into the song on your turn, forcing an additional charisma save. The 20ft radius area remains centered on your square.</p>\n<p dir=\"ltr\">Affected creatures lose half their movement speed and cannot take a bonus action. All speech and spellcasting inside the area becomes song lyrics, which grants disadvantage to any attempt to identify a spell being cast in the area or counter a spell cast by a singer.</p>\n<p dir=\"ltr\">A number of creatures up to your charisma modifier may choose to intentionally fail the saving throw. These creatures still lose half of their movement to dance, but can take bonus actions normally and gain advantage on attacks against creatures that have failed their saving throw.</p>",
-      "statuses": []
-    }
-  ],
-  "flags": {
-    "core": {},
-    "exportSource": {
-      "world": "level-up",
-      "system": "a5e",
-      "coreVersion": "11.315",
-      "systemVersion": "0.16.28"
-    }
-  },
-  "_stats": {
-    "systemId": "a5e",
-    "systemVersion": "0.16.26",
-    "coreVersion": "11.315",
-    "createdTime": 1704027141168,
-    "modifiedTime": 1704122935993,
-    "lastModifiedBy": "LP1qW4KtlZ3Zp5g1"
-  }
+	"folder": null,
+	"name": "Musical Number",
+	"type": "spell",
+	"img": "icons/skills/trades/music-notes-sound-blue.webp",
+	"system": {
+		"actions": {
+			"qOlnEggeEhhNVR6S": {
+				"name": "Cast Spell",
+				"activation": {
+					"type": "action",
+					"cost": 1
+				},
+				"consumers": {
+					"qCtlk97KWW2qgVMK": {
+						"type": "spell",
+						"default": true,
+						"mode": "variable",
+						"spellLevel": 3,
+						"points": 5
+					}
+				},
+				"rolls": {},
+				"prompts": {
+					"IjhTp0puYgYl79xf": {
+						"type": "savingThrow",
+						"default": true,
+						"ability": "cha",
+						"saveDC": {
+							"type": "spellcasting"
+						}
+					},
+					"QaXvcqVRov2oKXB0": {
+						"type": "effect",
+						"default": true,
+						"effectId": "awsofniPhAVMl1Qm"
+					}
+				},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"threshold": 6
+					}
+				},
+				"img": "icons/skills/trades/music-notes-sound-blue.webp",
+				"duration": {
+					"unit": "minute",
+					"value": 3
+				},
+				"ranges": {},
+				"target": {
+					"type": "self",
+					"quantity": 1
+				},
+				"area": {
+					"shape": "sphere",
+					"quantity": 1,
+					"radius": 20,
+					"placeTemplate": true
+				}
+			}
+		},
+		"description": "<p dir=\"ltr\">With snapping fingers, a song, and a few dance moves, you trigger a musical number. Music in a style of your choosing plays from an invisible source around you, and creatures within 20ft feel the need to join the dance routine and to sing along with the song, occasionally taking on brief communicative solos in the piece.</p>\n<p dir=\"ltr\">Creatures in the area may attempt a charisma save at the start of their turn to avoid being afflicted. If a creature has succeeded on the save, you may spend your action to try and draw them into the song on your turn, forcing an additional charisma save. The 20ft radius area remains centered on your square.</p>\n<p dir=\"ltr\">Affected creatures lose half their movement speed and cannot take a bonus action. All speech and spellcasting inside the area becomes song lyrics, which grants disadvantage to any attempt to identify a spell being cast in the area or counter a spell cast by a singer.</p>\n<p dir=\"ltr\">A number of creatures up to your charisma modifier may choose to intentionally fail the saving throw. These creatures still lose half of their movement to dance, but can take bonus actions normally and gain advantage on attacks against creatures that have failed their saving throw.</p>",
+		"favorite": false,
+		"secretDescription": "",
+		"source": {
+			"name": "Spells from the Forgotten Vault",
+			"link": "https://bit.ly/3nyQbOt",
+			"publisher": "purpleMartinGames"
+		},
+		"uses": {
+			"value": null,
+			"max": "",
+			"per": null,
+			"recharge": {
+				"formula": "1d6",
+				"threshold": "6"
+			}
+		},
+		"schema": {
+			"version": null,
+			"lastMigration": null
+		},
+		"classes": [
+			"bard"
+		],
+		"components": {
+			"vocalized": true,
+			"seen": true,
+			"material": false
+		},
+		"concentration": true,
+		"level": 3,
+		"materials": "",
+		"materialsConsumed": false,
+		"prepared": false,
+		"prerequisite": "",
+		"rare": false,
+		"ritual": false,
+		"schools": {
+			"primary": "enchantment",
+			"secondary": [
+				"affliction",
+				"compulsion"
+			]
+		},
+		"schemaVersion": {
+			"version": 0.01,
+			"lastMigration": {
+				"version": {
+					"schema": 0.009,
+					"foundry": "12.316",
+					"system": "0.16.12"
+				}
+			}
+		}
+	},
+	"effects": [
+		{
+			"icon": "icons/skills/trades/music-notes-sound-blue.webp",
+			"origin": "Item.XoFyhHss5K3TFw4U",
+			"flags": {
+				"a5e": {
+					"sort": 0,
+					"transferType": "onUse",
+					"actionId": "qOlnEggeEhhNVR6S"
+				}
+			},
+			"transfer": false,
+			"name": "Dancing",
+			"_id": "awsofniPhAVMl1Qm",
+			"changes": [
+				{
+					"key": "system.attributes.movement.burrow.distance",
+					"value": "0.5",
+					"mode": 1,
+					"priority": null
+				},
+				{
+					"key": "system.attributes.movement.climb.distance",
+					"value": "0.5",
+					"mode": 1,
+					"priority": null
+				},
+				{
+					"key": "system.attributes.movement.fly.distance",
+					"value": "0.5",
+					"mode": 1,
+					"priority": null
+				},
+				{
+					"key": "system.attributes.movement.swim.distance",
+					"value": "0.5",
+					"mode": 1,
+					"priority": null
+				},
+				{
+					"key": "system.attributes.movement.walk.distance",
+					"value": "0.5",
+					"mode": 1,
+					"priority": null
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": null,
+				"combat": null,
+				"rounds": null,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "<p dir=\"ltr\">With snapping fingers, a song, and a few dance moves, you trigger a musical number. Music in a style of your choosing plays from an invisible source around you, and creatures within 20ft feel the need to join the dance routine and to sing along with the song, occasionally taking on brief communicative solos in the piece.</p>\n<p dir=\"ltr\">Creatures in the area may attempt a charisma save at the start of their turn to avoid being afflicted. If a creature has succeeded on the save, you may spend your action to try and draw them into the song on your turn, forcing an additional charisma save. The 20ft radius area remains centered on your square.</p>\n<p dir=\"ltr\">Affected creatures lose half their movement speed and cannot take a bonus action. All speech and spellcasting inside the area becomes song lyrics, which grants disadvantage to any attempt to identify a spell being cast in the area or counter a spell cast by a singer.</p>\n<p dir=\"ltr\">A number of creatures up to your charisma modifier may choose to intentionally fail the saving throw. These creatures still lose half of their movement to dance, but can take bonus actions normally and gain advantage on attacks against creatures that have failed their saving throw.</p>",
+			"statuses": [],
+			"folder": null
+		}
+	],
+	"flags": {},
+	"_id": "681zbr67slk1h7k5"
 }

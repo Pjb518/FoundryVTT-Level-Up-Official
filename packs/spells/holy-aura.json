@@ -1,173 +1,159 @@
 {
-  "name": "Holy Aura",
-  "type": "spell",
-  "img": "icons/magic/light/explosion-beam-impact-silhouette.webp",
-  "effects": [
-    {
-      "icon": "icons/magic/light/explosion-beam-impact-silhouette.webp",
-      "origin": "Item.25BsDCCRsuFRuLcK",
-      "flags": {
-        "a5e": {
-          "sort": 0,
-          "transferType": "onUse",
-          "actionId": "OaCzA0ewDpS9v01w",
-          "duration": {
-            "unit": "minutes"
-          }
-        }
-      },
-      "transfer": false,
-      "name": "Holy Aura",
-      "_id": "FtdsJCGGLpJKoYQ5",
-      "changes": [
-        {
-          "key": "@token.light.dim",
-          "value": "5",
-          "mode": 6,
-          "priority": null
-        },
-        {
-          "key": "flags.a5e.effects.rollMode.abilitySave.all",
-          "value": "1",
-          "mode": 6,
-          "priority": null
-        }
-      ],
-      "disabled": false,
-      "duration": {
-        "startTime": null,
-        "seconds": 60,
-        "combat": null,
-        "rounds": null,
-        "turns": null,
-        "startRound": null,
-        "startTurn": null
-      },
-      "description": "<p>Targets shed dim light in a 5-foot radius and have advantage on saving throws. Attacks made against a target have disadvantage. When a fiend or undead hits a target, the aura erupts into blinding light, forcing the attacker to make a Constitution saving throw or be blinded until the spell ends.</p>",
-      "statuses": []
-    }
-  ],
-  "flags": {
-    "core": {},
-    "exportSource": {
-      "world": "level-up",
-      "system": "a5e",
-      "coreVersion": "11.315",
-      "systemVersion": "0.16.28"
-    }
-  },
-  "system": {
-    "actions": {
-      "OaCzA0ewDpS9v01w": {
-        "name": "Holy Aura",
-        "activation": {
-          "cost": 1,
-          "type": "action",
-          "reactionTrigger": ""
-        },
-        "duration": {
-          "unit": "minute",
-          "value": "1"
-        },
-        "ranges": {
-          "QznLLWf1l5URqWqN": {
-            "range": "self"
-          }
-        },
-        "area": {
-          "shape": "sphere",
-          "radius": "30",
-          "placeTemplate": false
-        },
-        "target": {
-          "quantity": 1,
-          "type": "other"
-        },
-        "prompts": {
-          "lPepVTrLgaHVg7IW": {
-            "ability": "con",
-            "onSave": "Constitution negates.",
-            "saveDC": {
-              "type": "spellcasting",
-              "bonus": ""
-            },
-            "type": "savingThrow"
-          },
-          "j2YO2km7o2HtGQrt": {
-            "type": "effect",
-            "default": true,
-            "effectId": "FtdsJCGGLpJKoYQ5"
-          }
-        },
-        "consumers": {
-          "PZcSIavaRmJ4taDs": {
-            "mode": "variable",
-            "spellLevel": 8,
-            "points": 11,
-            "type": "spell"
-          }
-        }
-      }
-    },
-    "description": "<p><span class=\"fontstyle0\"><strong>Target:</strong> </span><span class=\"fontstyle2\">Creatures you choose that are&nbsp;within the area</span></p>\n<p>Holy radiance emanates from you and fills the area. Targets shed dim light in a 5-foot radius and have advantage on saving throws. Attacks made against a target have disadvantage. When a fiend or undead hits a target, the aura erupts into blinding light, forcing the attacker to make a Constitution saving throw or be blinded until the spell ends.</p>",
-    "favorite": false,
-    "secretDescription": "",
-    "source": "",
-    "uses": {
-      "value": null,
-      "max": "",
-      "per": null,
-      "recharge": {
-        "formula": "",
-        "threshold": ""
-      }
-    },
-    "schema": {
-      "version": null,
-      "lastMigration": null
-    },
-    "classes": [
-      "cleric"
-    ],
-    "components": {
-      "vocalized": true,
-      "seen": true,
-      "material": true
-    },
-    "concentration": true,
-    "level": 8,
-    "materials": "sacred reliquary worth at least 1, 000 gold",
-    "materialsConsumed": false,
-    "prepared": false,
-    "prerequisite": "",
-    "rare": false,
-    "ritual": false,
-    "schools": {
-      "primary": "abjuration",
-      "secondary": [
-        "divine",
-        "enhancement",
-        "protection"
-      ]
-    },
-    "schemaVersion": {
-      "version": 0.01,
-      "lastMigration": {
-        "version": {
-          "schema": 0.009,
-          "foundry": "12.316",
-          "system": "0.16.12"
-        }
-      }
-    }
-  },
-  "folder": "yECjlq6ZLl9owWbb",
-  "_stats": {
-    "systemId": "a5e",
-    "systemVersion": "0.16.28",
-    "coreVersion": "11.315",
-    "createdTime": 1704027141361,
-    "modifiedTime": 1704120657330,
-    "lastModifiedBy": "LP1qW4KtlZ3Zp5g1"
-  }
+	"name": "Holy Aura",
+	"type": "spell",
+	"img": "icons/magic/light/explosion-beam-impact-silhouette.webp",
+	"effects": [
+		{
+			"icon": "icons/magic/light/explosion-beam-impact-silhouette.webp",
+			"origin": "Item.25BsDCCRsuFRuLcK",
+			"flags": {
+				"a5e": {
+					"sort": 0,
+					"transferType": "onUse",
+					"actionId": "OaCzA0ewDpS9v01w",
+					"duration": {
+						"unit": "minutes"
+					}
+				}
+			},
+			"transfer": false,
+			"name": "Holy Aura",
+			"_id": "FtdsJCGGLpJKoYQ5",
+			"changes": [
+				{
+					"key": "@token.light.dim",
+					"value": "5",
+					"mode": 6,
+					"priority": null
+				},
+				{
+					"key": "flags.a5e.effects.rollMode.abilitySave.all",
+					"value": "1",
+					"mode": 6,
+					"priority": null
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": 60,
+				"combat": null,
+				"rounds": null,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "<p>Targets shed dim light in a 5-foot radius and have advantage on saving throws. Attacks made against a target have disadvantage. When a fiend or undead hits a target, the aura erupts into blinding light, forcing the attacker to make a Constitution saving throw or be blinded until the spell ends.</p>",
+			"statuses": [],
+			"folder": null
+		}
+	],
+	"flags": {},
+	"system": {
+		"actions": {
+			"OaCzA0ewDpS9v01w": {
+				"name": "Holy Aura",
+				"activation": {
+					"cost": 1,
+					"type": "action",
+					"reactionTrigger": ""
+				},
+				"duration": {
+					"unit": "minute",
+					"value": "1"
+				},
+				"ranges": {
+					"QznLLWf1l5URqWqN": {
+						"range": "self"
+					}
+				},
+				"area": {
+					"shape": "sphere",
+					"radius": "30",
+					"placeTemplate": false
+				},
+				"target": {
+					"quantity": 1,
+					"type": "other"
+				},
+				"prompts": {
+					"lPepVTrLgaHVg7IW": {
+						"ability": "con",
+						"onSave": "Constitution negates.",
+						"saveDC": {
+							"type": "spellcasting",
+							"bonus": ""
+						},
+						"type": "savingThrow"
+					},
+					"j2YO2km7o2HtGQrt": {
+						"type": "effect",
+						"default": true,
+						"effectId": "FtdsJCGGLpJKoYQ5"
+					}
+				},
+				"consumers": {
+					"PZcSIavaRmJ4taDs": {
+						"mode": "variable",
+						"spellLevel": 8,
+						"points": 11,
+						"type": "spell"
+					}
+				}
+			}
+		},
+		"description": "<p><span class=\"fontstyle0\"><strong>Target:</strong> </span><span class=\"fontstyle2\">Creatures you choose that are&nbsp;within the area</span></p>\n<p>Holy radiance emanates from you and fills the area. Targets shed dim light in a 5-foot radius and have advantage on saving throws. Attacks made against a target have disadvantage. When a fiend or undead hits a target, the aura erupts into blinding light, forcing the attacker to make a Constitution saving throw or be blinded until the spell ends.</p>",
+		"favorite": false,
+		"secretDescription": "",
+		"source": "",
+		"uses": {
+			"value": null,
+			"max": "",
+			"per": null,
+			"recharge": {
+				"formula": "",
+				"threshold": ""
+			}
+		},
+		"schema": {
+			"version": null,
+			"lastMigration": null
+		},
+		"classes": [
+			"cleric"
+		],
+		"components": {
+			"vocalized": true,
+			"seen": true,
+			"material": true
+		},
+		"concentration": true,
+		"level": 8,
+		"materials": "sacred reliquary worth at least 1, 000 gold",
+		"materialsConsumed": false,
+		"prepared": false,
+		"prerequisite": "",
+		"rare": false,
+		"ritual": false,
+		"schools": {
+			"primary": "abjuration",
+			"secondary": [
+				"divine",
+				"enhancement",
+				"protection"
+			]
+		},
+		"schemaVersion": {
+			"version": 0.01,
+			"lastMigration": {
+				"version": {
+					"schema": 0.009,
+					"foundry": "12.316",
+					"system": "0.16.12"
+				}
+			}
+		}
+	},
+	"folder": null,
+	"_id": "ego4vzicfhlcqdcu"
 }

@@ -1,156 +1,142 @@
 {
-  "name": "Jump",
-  "type": "spell",
-  "img": "icons/skills/movement/feet-winged-sandals-tan.webp",
-  "effects": [
-    {
-      "icon": "icons/skills/movement/feet-winged-sandals-tan.webp",
-      "origin": "Item.sexIvPfT4QW7DgG9",
-      "flags": {
-        "a5e": {
-          "sort": 0,
-          "transferType": "onUse",
-          "actionId": "PK9Z0dfQT6Rsg0Bh",
-          "duration": {
-            "unit": "minutes"
-          }
-        }
-      },
-      "transfer": false,
-      "name": "Jumping",
-      "_id": "2W9PQWxEgXjiODIn",
-      "changes": [],
-      "disabled": false,
-      "duration": {
-        "startTime": null,
-        "seconds": 60,
-        "combat": null,
-        "rounds": null,
-        "turns": null,
-        "startRound": null,
-        "startTurn": null
-      },
-      "description": "<p>You imbue a target with the ability to make impossible leaps. The target's jump distances increase 15 feet vertically and 30 feet horizontally.</p>\n<p><strong><em>Cast at Higher Levels.</em></strong> Each of the target's jump distances increase by 5 feet for each slot level above 1st.</p>",
-      "statuses": []
-    }
-  ],
-  "flags": {
-    "core": {},
-    "exportSource": {
-      "world": "level-up",
-      "system": "a5e",
-      "coreVersion": "11.315",
-      "systemVersion": "0.16.28"
-    }
-  },
-  "system": {
-    "actions": {
-      "PK9Z0dfQT6Rsg0Bh": {
-        "name": "Jump",
-        "activation": {
-          "cost": 1,
-          "type": "bonusAction",
-          "reactionTrigger": ""
-        },
-        "duration": {
-          "unit": "minute",
-          "value": "1"
-        },
-        "ranges": {
-          "rqpKjJHeJXipDb7C": {
-            "range": "touch"
-          }
-        },
-        "area": {
-          "shape": "",
-          "size": "",
-          "placeTemplate": false
-        },
-        "target": {
-          "quantity": "",
-          "type": "creature"
-        },
-        "consumers": {
-          "hpVicSvwzR3DJIh0": {
-            "mode": "variable",
-            "spellLevel": 1,
-            "points": 2,
-            "type": "spell"
-          }
-        },
-        "prompts": {
-          "izcFVfRqJDQMFcUC": {
-            "type": "effect",
-            "default": true,
-            "effectId": "2W9PQWxEgXjiODIn"
-          }
-        }
-      }
-    },
-    "description": "<p>You imbue a target with the ability to make impossible leaps. The target's jump distances increase 15 feet vertically and 30 feet horizontally.</p><p><strong><em>Cast at Higher Levels.</em></strong> Each of the target's jump distances increase by 5 feet for each slot level above 1st.</p>",
-    "favorite": false,
-    "secretDescription": "",
-    "source": "",
-    "uses": {
-      "value": null,
-      "max": "",
-      "per": null,
-      "recharge": {
-        "formula": "",
-        "threshold": ""
-      }
-    },
-    "schema": {
-      "version": null,
-      "lastMigration": null
-    },
-    "classes": [
-      "artificer",
-      "druid",
-      "elementalistAir",
-      "sorcerer",
-      "wielder",
-      "witch",
-      "wizard"
-    ],
-    "components": {
-      "vocalized": true,
-      "seen": true,
-      "material": true
-    },
-    "concentration": false,
-    "level": 1,
-    "materials": "grasshopper's leg",
-    "materialsConsumed": false,
-    "prepared": false,
-    "prerequisite": "",
-    "rare": false,
-    "ritual": false,
-    "schools": {
-      "primary": "transmutation",
-      "secondary": [
-        "enhancement",
-        "movement"
-      ]
-    },
-    "schemaVersion": {
-      "version": 0.01,
-      "lastMigration": {
-        "version": {
-          "schema": 0.009,
-          "foundry": "12.316",
-          "system": "0.16.12"
-        }
-      }
-    }
-  },
-  "folder": "yECjlq6ZLl9owWbb",
-  "_stats": {
-    "systemId": "a5e",
-    "systemVersion": "0.16.26",
-    "coreVersion": "11.315",
-    "createdTime": 1704027141549,
-    "modifiedTime": 1704120736913,
-    "lastModifiedBy": "LP1qW4KtlZ3Zp5g1"
-  }
+	"name": "Jump",
+	"type": "spell",
+	"img": "icons/skills/movement/feet-winged-sandals-tan.webp",
+	"effects": [
+		{
+			"icon": "icons/skills/movement/feet-winged-sandals-tan.webp",
+			"origin": "Item.sexIvPfT4QW7DgG9",
+			"flags": {
+				"a5e": {
+					"sort": 0,
+					"transferType": "onUse",
+					"actionId": "PK9Z0dfQT6Rsg0Bh",
+					"duration": {
+						"unit": "minutes"
+					}
+				}
+			},
+			"transfer": false,
+			"name": "Jumping",
+			"_id": "2W9PQWxEgXjiODIn",
+			"changes": [],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": 60,
+				"combat": null,
+				"rounds": null,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "<p>You imbue a target with the ability to make impossible leaps. The target's jump distances increase 15 feet vertically and 30 feet horizontally.</p>\n<p><strong><em>Cast at Higher Levels.</em></strong> Each of the target's jump distances increase by 5 feet for each slot level above 1st.</p>",
+			"statuses": [],
+			"folder": null
+		}
+	],
+	"flags": {},
+	"system": {
+		"actions": {
+			"PK9Z0dfQT6Rsg0Bh": {
+				"name": "Jump",
+				"activation": {
+					"cost": 1,
+					"type": "bonusAction",
+					"reactionTrigger": ""
+				},
+				"duration": {
+					"unit": "minute",
+					"value": "1"
+				},
+				"ranges": {
+					"rqpKjJHeJXipDb7C": {
+						"range": "touch"
+					}
+				},
+				"area": {
+					"shape": "",
+					"size": "",
+					"placeTemplate": false
+				},
+				"target": {
+					"quantity": "",
+					"type": "creature"
+				},
+				"consumers": {
+					"hpVicSvwzR3DJIh0": {
+						"mode": "variable",
+						"spellLevel": 1,
+						"points": 2,
+						"type": "spell"
+					}
+				},
+				"prompts": {
+					"izcFVfRqJDQMFcUC": {
+						"type": "effect",
+						"default": true,
+						"effectId": "2W9PQWxEgXjiODIn"
+					}
+				}
+			}
+		},
+		"description": "<p>You imbue a target with the ability to make impossible leaps. The target's jump distances increase 15 feet vertically and 30 feet horizontally.</p><p><strong><em>Cast at Higher Levels.</em></strong> Each of the target's jump distances increase by 5 feet for each slot level above 1st.</p>",
+		"favorite": false,
+		"secretDescription": "",
+		"source": "",
+		"uses": {
+			"value": null,
+			"max": "",
+			"per": null,
+			"recharge": {
+				"formula": "",
+				"threshold": ""
+			}
+		},
+		"schema": {
+			"version": null,
+			"lastMigration": null
+		},
+		"classes": [
+			"artificer",
+			"druid",
+			"elementalistAir",
+			"sorcerer",
+			"wielder",
+			"witch",
+			"wizard"
+		],
+		"components": {
+			"vocalized": true,
+			"seen": true,
+			"material": true
+		},
+		"concentration": false,
+		"level": 1,
+		"materials": "grasshopper's leg",
+		"materialsConsumed": false,
+		"prepared": false,
+		"prerequisite": "",
+		"rare": false,
+		"ritual": false,
+		"schools": {
+			"primary": "transmutation",
+			"secondary": [
+				"enhancement",
+				"movement"
+			]
+		},
+		"schemaVersion": {
+			"version": 0.01,
+			"lastMigration": {
+				"version": {
+					"schema": 0.009,
+					"foundry": "12.316",
+					"system": "0.16.12"
+				}
+			}
+		}
+	},
+	"folder": null,
+	"_id": "ieyjztbqemom7ups"
 }
