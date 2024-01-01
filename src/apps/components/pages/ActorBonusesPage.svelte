@@ -113,7 +113,7 @@
 </script>
 
 <section
-    class="u-flex-grow u-flex u-flex-col u-overflow-y-auto u-gap-md u-px-md"
+    class="u-flex-grow u-flex u-flex-col u-overflow-y-auto u-gap-md"
     style="grid-auto-rows: min-content;"
 >
     <section class="setting-group">
