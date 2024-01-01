@@ -42,7 +42,7 @@
 
     const replaceFatigueAndStrife = game.settings.get(
         "a5e",
-        "replaceFatigueAndStrife"
+        "replaceFatigueAndStrife",
     );
 
     if (replaceFatigueAndStrife) {

@@ -343,7 +343,7 @@
         // 17.5 pixels: the width of the largest icon we have
         min-width: 1.09375rem;
 
-        transition: $standard-transition;
+        transition: var(--a5e-transition-standard);
 
         &:hover {
             color: #555;
@@ -409,10 +409,10 @@
         margin: 0;
         background: transparent;
         line-height: 1;
-        font-size: $font-size-sm;
+        font-size: var(a5e-text-size-sm);
         color: #7e7960;
 
-        transition: $standard-transition;
+        transition: var(--a5e-transition-standard);
 
         &:focus,
         &:hover {
@@ -422,7 +422,7 @@
     }
 
     .setting-heading {
-        font-size: $font-size-sm;
+        font-size: var(--a5e-text-size-sm);
         white-space: nowrap;
     }
 </style>

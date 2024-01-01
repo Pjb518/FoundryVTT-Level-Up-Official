@@ -464,7 +464,7 @@
         // 17.5 pixels: the width of the largest icon we have
         min-width: 1.09375rem;
 
-        transition: $standard-transition;
+        transition: var(--a5e-transition-standard);
 
         &:hover {
             color: var(--icon-color-active, #555);
@@ -482,9 +482,9 @@
             justify-content: center;
             height: 1rem;
             width: 1rem;
-            font-size: $font-size-xxs;
+            font-size: var(--a5e-text-size-xxs);
             color: var(--indicator-text-color, inherit);
-            border-radius: $border-radius-standard;
+            border-radius: var(--a5e-border-radius-standard);
             background: var(--indicator-background, #c6c5bc);
 
             &:hover {
@@ -515,7 +515,7 @@
     .ammunition-selector {
         height: 1.25rem;
         width: fit-content;
-        font-size: $font-size-xs;
+        font-size: var(--a5e-text-size-xs);
 
         &:focus {
             box-shadow: none;
@@ -531,6 +531,7 @@
 
     .component-wrapper {
         gap: 0.25rem;
+        font-family: var(--a5e-font-sans-serif);
     }
 
     .button-wrapper {
@@ -544,8 +545,8 @@
         justify-content: center;
         height: 1rem;
         width: 1rem;
-        border-radius: $border-radius-standard;
-        font-size: $font-size-xxs;
+        border-radius: var(--a5e-border-radius-standard);
+        font-size: var(--a5e-text-size-xxs);
         background: var(--indicator-background, #c6c5bc);
     }
 
@@ -563,7 +564,7 @@
         display: flex;
         align-items: center;
         gap: 0.375rem;
-        font-size: $font-size-sm;
+        font-size: var(a5e-text-size-sm);
         overflow: hidden;
         text-overflow: ellipsis;
         white-space: nowrap;
@@ -590,7 +591,7 @@
     }
 
     .number-input {
-        font-size: $font-size-xs;
+        font-size: var(--a5e-text-size-xs);
         text-align: center;
     }
 
