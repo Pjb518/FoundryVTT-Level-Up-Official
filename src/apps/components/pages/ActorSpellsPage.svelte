@@ -77,138 +77,127 @@
     });
 </script>
 
-<div class="spells-page">
-    {#if $actor.isOwner}
-        <UtilityBar>
-            <Search {reducerType} />
-            <ShowDescription
-                on:updateSelection={() => (showDescription = !showDescription)}
-            />
-            <Sort {reducerType} />
-            <Filter {reducerType} />
-            <CreateMenu {reducerType} {menuList} />
+{#if $actor.isOwner}
+    <UtilityBar>
+        <Search {reducerType} />
+        <ShowDescription
+            on:updateSelection={() => (showDescription = !showDescription)}
+        />
+        <Sort {reducerType} />
+        <Filter {reducerType} />
+        <CreateMenu {reducerType} {menuList} />
 
-            <button
-                class="a5e-import-from-compendium-button fa-solid fa-download"
-                on:click={openCompendium}
-                data-tooltip="Import Spells from Compendium"
-                data-tooltip-direction="UP"
-            ></button>
-        </UtilityBar>
+        <button
+            class="a5e-import-from-compendium-button fa-solid fa-download"
+            on:click={openCompendium}
+            data-tooltip="Import Spells from Compendium"
+            data-tooltip-direction="UP"
+        ></button>
+    </UtilityBar>
+{/if}
+
+<section class="spells-main-container">
+    {#each Object.entries(spellLevels) as [level, label]}
+        {#if isSpellLevelVisible(level)}
+            <ItemCategory
+                {level}
+                {label}
+                {showDescription}
+                {showUses}
+                items={$spells._levels[level]}
+                type="spellLevels"
+            />
+        {/if}
+    {/each}
+</section>
+
+<TabFooter --padding-right="1rem">
+    <!-- Prepared Spells Count -->
+    {#if preparedSpellCount}
+        <div
+            class="u-flex u-flex-wrap u-align-center u-gap-md"
+            data-tooltip="This number does not include spells which are marked as always prepared."
+            data-tooltip-direction="UP"
+        >
+            <h3 class="u-mb-0 u-text-bold u-text-sm u-flex-grow-1">
+                Spells Prepared:
+            </h3>
+
+            <span class="a5e-footer-group__input">
+                {preparedSpellCount}
+            </span>
+        </div>
     {/if}
 
-    <section class="spells-main-container">
-        {#each Object.entries(spellLevels) as [level, label]}
-            {#if isSpellLevelVisible(level)}
-                <ItemCategory
-                    {level}
-                    {label}
-                    {showDescription}
-                    {showUses}
-                    items={$spells._levels[level]}
-                    type="spellLevels"
-                />
-            {/if}
-        {/each}
-    </section>
+    <!-- Spell Points -->
+    {#if $actor.flags.a5e?.showSpellPoints ?? false}
+        <div class="u-flex u-flex-wrap u-align-center u-gap-md">
+            <h3 class="u-mb-0 u-text-bold u-text-sm u-flex-grow-1">
+                {localize("A5E.SpellPoints")}
+            </h3>
 
-    <TabFooter --padding-right="1rem">
-        <!-- Prepared Spells Count -->
-        {#if preparedSpellCount}
-            <div
-                class="u-flex u-flex-wrap u-align-center u-gap-md"
-                data-tooltip="This number does not include spells which are marked as always prepared."
-                data-tooltip-direction="UP"
-            >
-                <h3 class="u-mb-0 u-text-bold u-text-sm u-flex-grow-1">
-                    Spells Prepared:
-                </h3>
+            <input
+                class="a5e-footer-group__input"
+                class:disable-pointer-events={!$actor.isOwner}
+                type="number"
+                name="system.spellResources.points.current"
+                value={spellResources.points.current}
+                placeholder="0"
+                min="0"
+                on:change={({ target }) =>
+                    updateDocumentDataFromField(
+                        $actor,
+                        target.name,
+                        Number(target.value),
+                    )}
+            />
+            /
+            <input
+                class="a5e-footer-group__input"
+                type="number"
+                name="system.spellResources.points.max"
+                value={spellResources.points.max}
+                placeholder="0"
+                min="0"
+                on:change={({ target }) =>
+                    updateDocumentDataFromField(
+                        $actor,
+                        target.name,
+                        Number(target.value),
+                    )}
+            />
+        </div>
+    {/if}
 
-                <span class="a5e-footer-group__input">
-                    {preparedSpellCount}
-                </span>
-            </div>
-        {/if}
+    <!-- NPC Caster Level Configuration -->
+    {#if $actor.type === "npc"}
+        <div class="u-flex u-flex-wrap u-align-center u-gap-md">
+            <h3 class="u-mb-0 u-text-bold u-text-sm u-flex-grow-1">
+                {localize("A5E.CasterLevel")}
+            </h3>
 
-        <!-- Spell Points -->
-        {#if $actor.flags.a5e?.showSpellPoints ?? false}
-            <div class="u-flex u-flex-wrap u-align-center u-gap-md">
-                <h3 class="u-mb-0 u-text-bold u-text-sm u-flex-grow-1">
-                    {localize("A5E.SpellPoints")}
-                </h3>
-
-                <input
-                    class="a5e-footer-group__input"
-                    class:disable-pointer-events={!$actor.isOwner}
-                    type="number"
-                    name="system.spellResources.points.current"
-                    value={spellResources.points.current}
-                    placeholder="0"
-                    min="0"
-                    on:change={({ target }) =>
-                        updateDocumentDataFromField(
-                            $actor,
-                            target.name,
-                            Number(target.value),
-                        )}
-                />
-                /
-                <input
-                    class="a5e-footer-group__input"
-                    type="number"
-                    name="system.spellResources.points.max"
-                    value={spellResources.points.max}
-                    placeholder="0"
-                    min="0"
-                    on:change={({ target }) =>
-                        updateDocumentDataFromField(
-                            $actor,
-                            target.name,
-                            Number(target.value),
-                        )}
-                />
-            </div>
-        {/if}
-
-        <!-- NPC Caster Level Configuration -->
-        {#if $actor.type === "npc"}
-            <div class="u-flex u-flex-wrap u-align-center u-gap-md">
-                <h3 class="u-mb-0 u-text-bold u-text-sm u-flex-grow-1">
-                    {localize("A5E.CasterLevel")}
-                </h3>
-
-                <input
-                    class="a5e-footer-group__input"
-                    class:disable-pointer-events={!$actor.isOwner ||
-                        sheetIsLocked}
-                    type="number"
-                    name="system.attributes.casterLevel"
-                    value={$actor.system.attributes.casterLevel}
-                    placeholder="0"
-                    min="0"
-                    on:change={({ target }) =>
-                        updateDocumentDataFromField(
-                            $actor,
-                            target.name,
-                            Number(target.value),
-                        )}
-                />
-            </div>
-        {/if}
-    </TabFooter>
-</div>
+            <input
+                class="a5e-footer-group__input"
+                class:disable-pointer-events={!$actor.isOwner || sheetIsLocked}
+                type="number"
+                name="system.attributes.casterLevel"
+                value={$actor.system.attributes.casterLevel}
+                placeholder="0"
+                min="0"
+                on:change={({ target }) =>
+                    updateDocumentDataFromField(
+                        $actor,
+                        target.name,
+                        Number(target.value),
+                    )}
+            />
+        </div>
+    {/if}
+</TabFooter>
 
 <style lang="scss">
     .disable-pointer-events {
         pointer-events: none;
-    }
-
-    .spells-page {
-        display: flex;
-        flex-direction: column;
-        flex: 1;
-        gap: 0.5rem;
-        overflow: hidden;
     }
 
     .spells-main-container {
@@ -216,6 +205,8 @@
         flex-grow: 1;
         flex-direction: column;
         gap: 0.5rem;
+        margin-right: -0.375rem;
+        padding-right: 0.375rem;
         overflow-y: auto;
         overflow-x: hidden;
     }
