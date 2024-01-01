@@ -36,7 +36,7 @@
         </h3>
     </header>
 
-    <ul class="a5e-item-list a5e-item-list--effects">
+    <ul class="a5e-item-list">
         {#each [...effects] as effect (effect.id)}
             <Effect
                 {effect}

@@ -268,7 +268,7 @@
                 </button>
             </header>
 
-            <ul class="a5e-item-list a5e-item-list--bonuses">
+            <ul class="a5e-item-list">
                 {#each Object.entries($actor.system.bonuses[bonusType] ?? {}) as [id, bonus] (id)}
                     <li
                         class="a5e-item a5e-item--bonus"
