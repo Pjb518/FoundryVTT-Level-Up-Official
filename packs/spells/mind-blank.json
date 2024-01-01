@@ -1,99 +1,165 @@
 {
-	"name": "Mind Blank",
-	"type": "spell",
-	"img": "icons/magic/control/hypnosis-mesmerism-eye.webp",
-	"effects": [],
-	"flags": {},
-	"system": {
-		"actions": {
-			"7cg8bU39fEtHwRmN": {
-				"name": "Mind Blank",
-				"activation": {
-					"cost": 1,
-					"type": "action",
-					"reactionTrigger": ""
-				},
-				"duration": {
-					"unit": "hour",
-					"value": "24"
-				},
-				"ranges": {
-					"EhhrE1CQ0JqWIGYG": {
-						"range": "touch"
-					}
-				},
-				"area": {
-					"shape": "",
-					"size": "",
-					"placeTemplate": false
-				},
-				"target": {
-					"quantity": "",
-					"type": "creature"
-				},
-				"consumers": {
-					"dAxt5lp4vi7NwWLs": {
-						"mode": "variable",
-						"spellLevel": 8,
-						"points": 11,
-						"type": "spell"
-					}
-				}
-			}
-		},
-		"description": "<p>The target is immune to psychic damage, any effect that would read its emotions or thoughts, divination spells, and the charmed condition.</p><p>This immunity extends even to the wish spell, and magical effects or spells of similar power that would affect the target's mind or gain information about it.</p>",
-		"favorite": false,
-		"secretDescription": "",
-		"source": "",
-		"uses": {
-			"value": null,
-			"max": "",
-			"per": null,
-			"recharge": {
-				"formula": "",
-				"threshold": ""
-			}
-		},
-		"schema": {
-			"version": null,
-			"lastMigration": null
-		},
-		"classes": [
-			"bard",
-			"witch",
-			"wizard"
-		],
-		"components": {
-			"vocalized": true,
-			"seen": true,
-			"material": false
-		},
-		"concentration": false,
-		"level": 8,
-		"materials": "",
-		"materialsConsumed": false,
-		"prepared": false,
-		"prerequisite": "",
-		"rare": false,
-		"ritual": false,
-		"schools": {
-			"primary": "abjuration",
-			"secondary": [
-				"arcane",
-				"negation"
-			]
-		},
-		"schemaVersion": {
-			"version": 0.01,
-			"lastMigration": {
-				"version": {
-					"schema": 0.009,
-					"foundry": "12.316",
-					"system": "0.16.12"
-				}
-			}
-		}
-	},
-	"folder": null,
-	"_id": "wad0cgw4tcdbuvbr"
+  "name": "Mind Blank",
+  "type": "spell",
+  "img": "icons/magic/control/hypnosis-mesmerism-eye.webp",
+  "effects": [
+    {
+      "icon": "icons/magic/control/hypnosis-mesmerism-eye.webp",
+      "origin": "Item.V38HnpkMpyyw3cot",
+      "flags": {
+        "a5e": {
+          "sort": 0,
+          "transferType": "onUse",
+          "actionId": "7cg8bU39fEtHwRmN",
+          "duration": {
+            "unit": "hours"
+          }
+        }
+      },
+      "transfer": false,
+      "name": "Mind Blank",
+      "_id": "RBAh2Q7IrMLfxazw",
+      "changes": [
+        {
+          "key": "system.traits.damageImmunities",
+          "value": "[\"psychic\"]",
+          "mode": 2,
+          "priority": null
+        },
+        {
+          "key": "system.traits.conditionImmunities",
+          "value": "[\"charmed\"]",
+          "mode": 2,
+          "priority": null
+        }
+      ],
+      "disabled": false,
+      "duration": {
+        "startTime": null,
+        "seconds": 86400,
+        "combat": null,
+        "rounds": null,
+        "turns": null,
+        "startRound": null,
+        "startTurn": null
+      },
+      "description": "<p>The target is immune to psychic damage, any effect that would read its emotions or thoughts, divination spells, and the charmed condition.</p>\n<p>This immunity extends even to the wish spell, and magical effects or spells of similar power that would affect the target's mind or gain information about it.</p>",
+      "statuses": []
+    }
+  ],
+  "flags": {
+    "core": {},
+    "exportSource": {
+      "world": "level-up",
+      "system": "a5e",
+      "coreVersion": "11.315",
+      "systemVersion": "0.16.28"
+    }
+  },
+  "system": {
+    "actions": {
+      "7cg8bU39fEtHwRmN": {
+        "name": "Mind Blank",
+        "activation": {
+          "cost": 1,
+          "type": "action",
+          "reactionTrigger": ""
+        },
+        "duration": {
+          "unit": "hour",
+          "value": "24"
+        },
+        "ranges": {
+          "EhhrE1CQ0JqWIGYG": {
+            "range": "touch"
+          }
+        },
+        "area": {
+          "shape": "",
+          "size": "",
+          "placeTemplate": false
+        },
+        "target": {
+          "quantity": "",
+          "type": "creature"
+        },
+        "consumers": {
+          "dAxt5lp4vi7NwWLs": {
+            "mode": "variable",
+            "spellLevel": 8,
+            "points": 11,
+            "type": "spell"
+          }
+        },
+        "prompts": {
+          "MdTJMP3LIOxH575d": {
+            "type": "effect",
+            "default": true,
+            "effectId": "RBAh2Q7IrMLfxazw"
+          }
+        }
+      }
+    },
+    "description": "<p>The target is immune to psychic damage, any effect that would read its emotions or thoughts, divination spells, and the charmed condition.</p><p>This immunity extends even to the wish spell, and magical effects or spells of similar power that would affect the target's mind or gain information about it.</p>",
+    "favorite": false,
+    "secretDescription": "",
+    "source": "",
+    "uses": {
+      "value": null,
+      "max": "",
+      "per": null,
+      "recharge": {
+        "formula": "",
+        "threshold": ""
+      }
+    },
+    "schema": {
+      "version": null,
+      "lastMigration": null
+    },
+    "classes": [
+      "bard",
+      "witch",
+      "wizard"
+    ],
+    "components": {
+      "vocalized": true,
+      "seen": true,
+      "material": false
+    },
+    "concentration": false,
+    "level": 8,
+    "materials": "",
+    "materialsConsumed": false,
+    "prepared": false,
+    "prerequisite": "",
+    "rare": false,
+    "ritual": false,
+    "schools": {
+      "primary": "abjuration",
+      "secondary": [
+        "arcane",
+        "negation"
+      ]
+    },
+    "schemaVersion": {
+      "version": 0.01,
+      "lastMigration": {
+        "version": {
+          "schema": 0.009,
+          "foundry": "12.316",
+          "system": "0.16.12"
+        }
+      }
+    }
+  },
+  "folder": "yECjlq6ZLl9owWbb",
+  "_stats": {
+    "systemId": "a5e",
+    "systemVersion": "0.16.26",
+    "coreVersion": "11.315",
+    "createdTime": 1704027142853,
+    "modifiedTime": 1704122052242,
+    "lastModifiedBy": "LP1qW4KtlZ3Zp5g1"
+  }
 }

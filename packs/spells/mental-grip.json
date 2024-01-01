@@ -1,126 +1,177 @@
 {
-	"name": "Mental Grip",
-	"type": "spell",
-	"img": "icons/skills/wounds/anatomy-organ-brain-pink-red.webp",
-	"effects": [],
-	"flags": {},
-	"system": {
-		"actions": {
-			"qdEkqFKLvIpT98JY": {
-				"name": "Mental Grip",
-				"activation": {
-					"cost": 1,
-					"type": "bonusAction",
-					"reactionTrigger": ""
-				},
-				"duration": {
-					"unit": "minute",
-					"value": "1"
-				},
-				"ranges": {
-					"RK1OhRZaGEm2Ecly": {
-						"range": "medium"
-					}
-				},
-				"area": {
-					"shape": "",
-					"size": "",
-					"placeTemplate": false
-				},
-				"target": {
-					"quantity": "",
-					"type": "Creature"
-				},
-				"consumers": {
-					"R9uunQ63kqPIhUjV": {
-						"mode": "variable",
-						"spellLevel": 2,
-						"points": 3,
-						"type": "spell"
-					}
-				},
-				"rolls": {
-					"FGcjyMb1LOLAuyfx": {
-						"type": "abilityCheck",
-						"default": true,
-						"ability": "con",
-						"label": "Concentration"
-					}
-				},
-				"prompts": {
-					"JbSeqIGMbQNckW2Q": {
-						"type": "skillCheck",
-						"default": true,
-						"skill": "acr",
-						"ability": "dex",
-						"label": "Escape Grapple (Acrobatics)"
-					},
-					"vbU0ohN3qn5QVflf": {
-						"type": "skillCheck",
-						"default": true,
-						"skill": "ath",
-						"ability": "str",
-						"label": "Escape Grapple (Athletics)"
-					}
-				}
-			}
-		},
-		"description": "<p>You conjure extensions of your own mental fortitude to keep your foes at bay. For the spell's duration, you can use an action to attempt to grapple a creature within range by making a concentration check against its maneuver DC.</p><p>On its turn, a target grappled in this way can use an action to attempt to escape the grapple, using your spell save DC instead of your maneuver DC.</p><p>Successful escape attempts do not break your concentration on the spell.</p>",
-		"favorite": false,
-		"secretDescription": "",
-		"source": "",
-		"uses": {
-			"value": null,
-			"max": "",
-			"per": null,
-			"recharge": {
-				"formula": "",
-				"threshold": ""
-			}
-		},
-		"schema": {
-			"version": null,
-			"lastMigration": null
-		},
-		"classes": [
-			"cleric",
-			"herald",
-			"sorcerer",
-			"warlock",
-			"wielder",
-			"witch",
-			"wizard"
-		],
-		"components": {
-			"vocalized": true,
-			"seen": true,
-			"material": true
-		},
-		"concentration": true,
-		"level": 2,
-		"materials": "rusted manacle",
-		"materialsConsumed": false,
-		"prepared": false,
-		"prerequisite": "",
-		"rare": false,
-		"ritual": false,
-		"schools": {
-			"primary": "conjuration",
-			"secondary": [
-				"affliction"
-			]
-		},
-		"schemaVersion": {
-			"version": 0.01,
-			"lastMigration": {
-				"version": {
-					"schema": 0.009,
-					"foundry": "12.316",
-					"system": "0.16.12"
-				}
-			}
-		}
-	},
-	"folder": null,
-	"_id": "zse6t0dtr3hwfy9m"
+  "name": "Mental Grip",
+  "type": "spell",
+  "img": "icons/skills/wounds/anatomy-organ-brain-pink-red.webp",
+  "effects": [
+    {
+      "icon": "icons/skills/wounds/anatomy-organ-brain-pink-red.webp",
+      "origin": "Item.xGL5NIGN09cE21Oe",
+      "flags": {
+        "a5e": {
+          "sort": 0,
+          "transferType": "onUse",
+          "actionId": "qdEkqFKLvIpT98JY",
+          "duration": {
+            "unit": "minutes"
+          }
+        }
+      },
+      "transfer": false,
+      "name": "Mental Grip",
+      "_id": "0r7ccDYzFKObB1ev",
+      "changes": [],
+      "disabled": false,
+      "duration": {
+        "startTime": null,
+        "seconds": 60,
+        "combat": null,
+        "rounds": null,
+        "turns": null,
+        "startRound": null,
+        "startTurn": null
+      },
+      "description": "<p>A bolt of light erupts from your hand. Make a ranged spell attack against the target. On a hit, you deal 4d6 radiant damage and the next attack roll made against the target before the end of your next turn has advantage.</p>\n<p><strong><em>Cast at Higher Levels.</em></strong> The damage increases by 1d6 for each slot level above 1st.</p>\n<hr class=\"a5e-rule u-my-md\" />\n<p><strong>Rare: Marked Guiding Bolt.</strong> On a hit, until the end of your next turn the target glows with bright light in a 20-foot radius and dim light an additional 10 feet.</p>",
+      "statuses": []
+    }
+  ],
+  "flags": {
+    "core": {},
+    "exportSource": {
+      "world": "level-up",
+      "system": "a5e",
+      "coreVersion": "11.315",
+      "systemVersion": "0.16.28"
+    }
+  },
+  "system": {
+    "actions": {
+      "qdEkqFKLvIpT98JY": {
+        "name": "Mental Grip",
+        "activation": {
+          "cost": 1,
+          "type": "bonusAction",
+          "reactionTrigger": ""
+        },
+        "duration": {
+          "unit": "minute",
+          "value": "1"
+        },
+        "ranges": {
+          "RK1OhRZaGEm2Ecly": {
+            "range": "medium"
+          }
+        },
+        "area": {
+          "shape": "",
+          "size": "",
+          "placeTemplate": false
+        },
+        "target": {
+          "quantity": "",
+          "type": "Creature"
+        },
+        "consumers": {
+          "R9uunQ63kqPIhUjV": {
+            "mode": "variable",
+            "spellLevel": 2,
+            "points": 3,
+            "type": "spell"
+          }
+        },
+        "rolls": {
+          "FGcjyMb1LOLAuyfx": {
+            "type": "abilityCheck",
+            "default": true,
+            "ability": "con",
+            "label": "Concentration"
+          }
+        },
+        "prompts": {
+          "JbSeqIGMbQNckW2Q": {
+            "type": "skillCheck",
+            "default": true,
+            "skill": "acr",
+            "ability": "dex",
+            "label": "Escape Grapple (Acrobatics)"
+          },
+          "vbU0ohN3qn5QVflf": {
+            "type": "skillCheck",
+            "default": true,
+            "skill": "ath",
+            "ability": "str",
+            "label": "Escape Grapple (Athletics)"
+          },
+          "Fn9CJgwvaH6lBMXb": {
+            "type": "effect",
+            "default": true,
+            "effectId": "0r7ccDYzFKObB1ev"
+          }
+        }
+      }
+    },
+    "description": "<p>You conjure extensions of your own mental fortitude to keep your foes at bay. For the spell's duration, you can use an action to attempt to grapple a creature within range by making a concentration check against its maneuver DC.</p><p>On its turn, a target grappled in this way can use an action to attempt to escape the grapple, using your spell save DC instead of your maneuver DC.</p><p>Successful escape attempts do not break your concentration on the spell.</p>",
+    "favorite": false,
+    "secretDescription": "",
+    "source": "",
+    "uses": {
+      "value": null,
+      "max": "",
+      "per": null,
+      "recharge": {
+        "formula": "",
+        "threshold": ""
+      }
+    },
+    "schema": {
+      "version": null,
+      "lastMigration": null
+    },
+    "classes": [
+      "cleric",
+      "herald",
+      "sorcerer",
+      "warlock",
+      "wielder",
+      "witch",
+      "wizard"
+    ],
+    "components": {
+      "vocalized": true,
+      "seen": true,
+      "material": true
+    },
+    "concentration": true,
+    "level": 2,
+    "materials": "rusted manacle",
+    "materialsConsumed": false,
+    "prepared": false,
+    "prerequisite": "",
+    "rare": false,
+    "ritual": false,
+    "schools": {
+      "primary": "conjuration",
+      "secondary": [
+        "affliction"
+      ]
+    },
+    "schemaVersion": {
+      "version": 0.01,
+      "lastMigration": {
+        "version": {
+          "schema": 0.009,
+          "foundry": "12.316",
+          "system": "0.16.12"
+        }
+      }
+    }
+  },
+  "folder": "yECjlq6ZLl9owWbb",
+  "_stats": {
+    "systemId": "a5e",
+    "systemVersion": "0.16.26",
+    "coreVersion": "11.315",
+    "createdTime": 1704027143042,
+    "modifiedTime": 1704121838969,
+    "lastModifiedBy": "LP1qW4KtlZ3Zp5g1"
+  }
 }

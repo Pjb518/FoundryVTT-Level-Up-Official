@@ -1,119 +1,136 @@
 {
-	"name": "Improved Fireball",
-	"type": "spell",
-	"img": "icons/magic/fire/explosion-fireball-large-red-orange.webp",
-	"effects": [],
-	"flags": {},
-	"system": {
-		"actions": {
-			"EFCAi63HeCwiEjAb": {
-				"name": "Improved Fireball",
-				"activation": {
-					"cost": 1,
-					"type": "action",
-					"reactionTrigger": ""
-				},
-				"duration": {
-					"unit": "instantaneous",
-					"value": ""
-				},
-				"ranges": {
-					"21eXto1HhnvLAPSJ": {
-						"range": "long"
-					}
-				},
-				"area": {
-					"shape": "",
-					"size": "",
-					"placeTemplate": false
-				},
-				"target": {
-					"quantity": "",
-					"type": ""
-				},
-				"rolls": {
-					"zfRdJ9otK1AzOjHs": {
-						"canCrit": false,
-						"damageType": "fire",
-						"formula": "8d6",
-						"name": "",
-						"type": "damage",
-						"scaling": {
-							"mode": "spellLevel",
-							"formula": "1d6"
-						}
-					}
-				},
-				"prompts": {
-					"MyQEeyCSZaFAtZXh": {
-						"ability": "dex",
-						"onSave": "Half damage",
-						"saveDC": {
-							"type": "spellcasting",
-							"bonus": ""
-						},
-						"type": "savingThrow"
-					}
-				},
-				"consumers": {
-					"2EJtc3NpChj19bRZ": {
-						"mode": "variable",
-						"spellLevel": 3,
-						"points": 5,
-						"type": "spell"
-					}
-				}
-			}
-		},
-		"description": "<p>A fiery mote streaks to a point within range and explodes in a burst of flame. The fire spreads around corners and ignites unattended flammable objects. Each creature in the area takes 6d6 fire damage.</p><p><strong><em>Cast at Higher Levels.</em></strong> The damage increases by 1d6 for each slot level above 3rd.</p><hr class=\"a5e-rule u-my-md\"><p><strong>Rare: Improved Fireball.</strong> The fireball deals 8d6 fire damage. </p>",
-		"favorite": false,
-		"secretDescription": "",
-		"source": "",
-		"uses": {
-			"value": null,
-			"max": "",
-			"per": null,
-			"recharge": {
-				"formula": "",
-				"threshold": ""
-			}
-		},
-		"schema": {
-			"version": null,
-			"lastMigration": null
-		},
-		"classes": [],
-		"components": {
-			"vocalized": true,
-			"seen": true,
-			"material": true
-		},
-		"concentration": false,
-		"level": 3,
-		"materials": "bat guano and sulfur",
-		"materialsConsumed": false,
-		"prepared": false,
-		"prerequisite": "",
-		"rare": true,
-		"ritual": false,
-		"schools": {
-			"primary": "evocation",
-			"secondary": [
-				"arcane",
-				"fire"
-			]
-		},
-		"schemaVersion": {
-			"version": 0.01,
-			"lastMigration": {
-				"version": {
-					"schema": 0.009,
-					"foundry": "12.316",
-					"system": "0.16.12"
-				}
-			}
-		}
-	},
-	"folder": null,
-	"_id": "vprehe0j0795d32v"
+  "name": "Improved Fireball",
+  "type": "spell",
+  "img": "icons/magic/fire/explosion-fireball-large-red-orange.webp",
+  "effects": [],
+  "flags": {
+    "core": {},
+    "exportSource": {
+      "world": "level-up",
+      "system": "a5e",
+      "coreVersion": "11.315",
+      "systemVersion": "0.16.28"
+    }
+  },
+  "system": {
+    "actions": {
+      "EFCAi63HeCwiEjAb": {
+        "name": "Improved Fireball",
+        "activation": {
+          "cost": 1,
+          "type": "action",
+          "reactionTrigger": ""
+        },
+        "duration": {
+          "unit": "instantaneous",
+          "value": ""
+        },
+        "ranges": {
+          "21eXto1HhnvLAPSJ": {
+            "range": "long"
+          }
+        },
+        "area": {
+          "shape": "sphere",
+          "size": "",
+          "placeTemplate": false,
+          "quantity": 1,
+          "radius": 20
+        },
+        "target": {
+          "quantity": "",
+          "type": ""
+        },
+        "rolls": {
+          "zfRdJ9otK1AzOjHs": {
+            "canCrit": false,
+            "damageType": "fire",
+            "formula": "8d6",
+            "name": "",
+            "type": "damage",
+            "scaling": {
+              "mode": "spellLevel",
+              "formula": "1d6"
+            }
+          }
+        },
+        "prompts": {
+          "MyQEeyCSZaFAtZXh": {
+            "ability": "dex",
+            "onSave": "Half damage",
+            "saveDC": {
+              "type": "spellcasting",
+              "bonus": ""
+            },
+            "type": "savingThrow"
+          }
+        },
+        "consumers": {
+          "2EJtc3NpChj19bRZ": {
+            "mode": "variable",
+            "spellLevel": 3,
+            "points": 5,
+            "type": "spell"
+          }
+        }
+      }
+    },
+    "description": "<p>A fiery mote streaks to a point within range and explodes in a burst of flame. The fire spreads around corners and ignites unattended flammable objects. Each creature in the area takes 6d6 fire damage.</p><p><strong><em>Cast at Higher Levels.</em></strong> The damage increases by 1d6 for each slot level above 3rd.</p><hr class=\"a5e-rule u-my-md\"><p><strong>Rare: Improved Fireball.</strong> The fireball deals 8d6 fire damage. </p>",
+    "favorite": false,
+    "secretDescription": "",
+    "source": "",
+    "uses": {
+      "value": null,
+      "max": "",
+      "per": null,
+      "recharge": {
+        "formula": "",
+        "threshold": ""
+      }
+    },
+    "schema": {
+      "version": null,
+      "lastMigration": null
+    },
+    "classes": [],
+    "components": {
+      "vocalized": true,
+      "seen": true,
+      "material": true
+    },
+    "concentration": false,
+    "level": 3,
+    "materials": "bat guano and sulfur",
+    "materialsConsumed": false,
+    "prepared": false,
+    "prerequisite": "",
+    "rare": true,
+    "ritual": false,
+    "schools": {
+      "primary": "evocation",
+      "secondary": [
+        "arcane",
+        "fire"
+      ]
+    },
+    "schemaVersion": {
+      "version": 0.01,
+      "lastMigration": {
+        "version": {
+          "schema": 0.009,
+          "foundry": "12.316",
+          "system": "0.16.12"
+        }
+      }
+    }
+  },
+  "folder": "yECjlq6ZLl9owWbb",
+  "_stats": {
+    "systemId": "a5e",
+    "systemVersion": "0.16.28",
+    "coreVersion": "11.315",
+    "createdTime": 1704027142853,
+    "modifiedTime": 1704120657330,
+    "lastModifiedBy": "LP1qW4KtlZ3Zp5g1"
+  }
 }
