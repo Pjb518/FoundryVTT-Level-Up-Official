@@ -16,7 +16,11 @@
 
 <section>
     <div>
-        <FormSection heading="Rolltable Name">
+        <FormSection
+            heading="Rolltable Name"
+            --background="transparent"
+            --padding="0"
+        >
             <input
                 type="text"
                 bind:value={rollTableName}
