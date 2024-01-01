@@ -454,6 +454,18 @@ class A5eGameSettings extends TJSGameSettings {
       // Misc Settings
       {
         namespace,
+        key: 'autoApplyFancySheets',
+        options: {
+          name: 'A5E.settings.autoApplyFancySheets',
+          hint: 'A5E.settings.hints.autoApplyFancySheets',
+          scope: scope.world,
+          config: true,
+          default: false,
+          type: Boolean
+        }
+      },
+      {
+        namespace,
         key: 'newActionNameType',
         options: {
           name: 'A5E.settings.newActionNameType',

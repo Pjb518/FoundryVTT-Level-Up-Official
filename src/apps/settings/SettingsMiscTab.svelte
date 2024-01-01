@@ -21,6 +21,7 @@
     // Stores
     let actionNameType = settings.getStore("newActionNameType");
     let showLimitedDesc = settings.getStore("showDescriptionOnLimitedPerms");
+    let fancySheetsAutoApply = settings.getStore("autoApplyFancySheets");
 
     let selectedNamingMode =
         updates.get("newActionNameType") ?? $actionNameType ?? "system";
@@ -58,6 +59,22 @@
                 on:updateSelection={({ detail }) => {
                     updates.set("newActionNameType", detail);
                     selectedNamingMode = detail;
+                }}
+            />
+        </FormSection>
+
+        <FormSection
+            hint="A5E.settings.hints.autoApplyFancySheets"
+            --gap="0.25rem"
+        >
+            <Checkbox
+                label="A5E.settings.autoApplyFancySheets"
+                checked={updates.get("autoApplyFancySheets") ??
+                    $fancySheetsAutoApply ??
+                    false}
+                on:updateSelection={({ detail }) => {
+                    updates.set("autoApplyFancySheets", detail);
+                    reload = true;
                 }}
             />
         </FormSection>
