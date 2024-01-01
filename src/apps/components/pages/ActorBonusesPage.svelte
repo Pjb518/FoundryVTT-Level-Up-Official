@@ -114,7 +114,7 @@
 
 <section
     class="u-flex-grow u-flex u-flex-col u-overflow-y-auto u-gap-md"
-    style="grid-auto-rows: min-content;"
+    style="grid-auto-rows: min-content; margin-right: -0.375rem; padding-right: 0.375rem;"
 >
     <section class="setting-group">
         <header class="a5e-section-header">
