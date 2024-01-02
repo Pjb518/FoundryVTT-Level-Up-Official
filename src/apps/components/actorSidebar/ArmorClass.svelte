@@ -63,7 +63,7 @@
         background: none;
         font-weight: inherit;
         text-align: center;
-        font-size: $font-size-xl;
+        font-size: var(--a5e-text-size-xl);
         z-index: 1;
 
         &:disabled {
@@ -72,13 +72,15 @@
     }
 
     .ac-label {
-        font-size: $font-size-md;
-        text-align: center;
         padding-bottom: 0.125rem;
+        font-size: var(--a5e-text-size-sm);
+        font-weight: 700;
+        text-align: center;
     }
 
     .ac-wrapper {
         position: relative;
+        font-family: var(--a5e-font-serif);
     }
 
     .ac-background {
@@ -102,7 +104,7 @@
         top: 0.175rem;
         right: -0.25rem;
 
-        transition: $standard-transition;
+        transition: var(--a5e-transition-standard);
 
         &:focus,
         &:hover {
