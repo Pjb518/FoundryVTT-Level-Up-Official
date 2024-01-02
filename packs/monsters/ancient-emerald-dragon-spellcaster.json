@@ -2201,223 +2201,6 @@
 			}
 		},
 		{
-			"name": "Confusion",
-			"type": "spell",
-			"img": "icons/magic/sonic/projectile-sound-rings-wave.webp",
-			"effects": [
-				{
-					"icon": "icons/magic/sonic/projectile-sound-rings-wave.webp",
-					"origin": "Actor.HnrkWEVEHyPUC1m3.Item.La74UTZBAmChtUeh",
-					"flags": {
-						"a5e": {
-							"sort": 0,
-							"transferType": "onUse",
-							"actionId": "jqb7BKBuOfS5Z1n8",
-							"duration": {
-								"unit": "minutes"
-							}
-						}
-					},
-					"transfer": false,
-					"name": "Confused",
-					"_id": "2wGiliUjJKlBJYp3",
-					"changes": [
-						{
-							"key": "flags.a5e.effects.statusConditions",
-							"value": "[\"confused\"]",
-							"mode": 0,
-							"priority": null
-						}
-					],
-					"disabled": false,
-					"duration": {
-						"startTime": null,
-						"seconds": 60,
-						"combat": null,
-						"rounds": null,
-						"turns": null,
-						"startRound": null,
-						"startTurn": null
-					},
-					"description": "<p>At the end of each of its turns, a confused target makes a Wisdom saving throw to end the spell's effects on it.</p>",
-					"statuses": [
-						"confused"
-					],
-					"folder": null
-				},
-				{
-					"icon": "icons/magic/sonic/projectile-sound-rings-wave.webp",
-					"origin": "Actor.HnrkWEVEHyPUC1m3.Item.La74UTZBAmChtUeh",
-					"flags": {
-						"a5e": {
-							"sort": 0,
-							"transferType": "onUse",
-							"actionId": "jqb7BKBuOfS5Z1n8",
-							"duration": {
-								"type": "rounds",
-								"unit": "minutes"
-							}
-						}
-					},
-					"transfer": false,
-					"name": "Rattled",
-					"_id": "gJe691nLuizKcGEa",
-					"changes": [
-						{
-							"key": "flags.a5e.effects.statusConditions",
-							"value": "[\"rattled\"]",
-							"mode": 0,
-							"priority": null
-						}
-					],
-					"disabled": false,
-					"duration": {
-						"startTime": null,
-						"seconds": null,
-						"combat": null,
-						"rounds": 1,
-						"turns": null,
-						"startRound": null,
-						"startTurn": null
-					},
-					"description": "",
-					"statuses": [
-						"rattled"
-					],
-					"folder": null
-				}
-			],
-			"flags": {
-				"core": {
-					"sourceId": "Compendium.a5e.a5e-spells.Item.pdvg7c9emjgnib07"
-				}
-			},
-			"system": {
-				"actions": {
-					"jqb7BKBuOfS5Z1n8": {
-						"name": "Confusion",
-						"activation": {
-							"cost": 1,
-							"type": "action",
-							"reactionTrigger": ""
-						},
-						"duration": {
-							"unit": "minute",
-							"value": "1"
-						},
-						"ranges": {
-							"w8MGoR07H5rLDR2t": {
-								"range": "long"
-							}
-						},
-						"area": {
-							"shape": "sphere",
-							"radius": "10",
-							"placeTemplate": true,
-							"scaling": {
-								"mode": "spellLevel",
-								"formula": {
-									"quantity": "5"
-								}
-							}
-						},
-						"target": {
-							"quantity": "",
-							"type": ""
-						},
-						"prompts": {
-							"1Zi60xIIA6CmYRCQ": {
-								"ability": "wis",
-								"onSave": "Negates effect",
-								"saveDC": {
-									"type": "spellcasting",
-									"bonus": ""
-								},
-								"type": "savingThrow"
-							},
-							"ocpTg4Xds9x5O9f3": {
-								"type": "effect",
-								"default": true,
-								"effectId": "2wGiliUjJKlBJYp3"
-							},
-							"BqXUbid7ECMSCHWT": {
-								"type": "effect",
-								"default": true,
-								"effectId": "gJe691nLuizKcGEa"
-							}
-						},
-						"consumers": {
-							"jbSVXskhZTP3bCez": {
-								"type": "itemUses",
-								"default": true,
-								"quantity": 1
-							}
-						}
-					}
-				},
-				"description": "<p>You assault the minds of your targets, filling them with delusions and making them confused until the spell ends. On a successful saving throw, a target is rattled for 1 round. At the end of each of its turns, a confused target makes a Wisdom saving throw to end the spell's effects on it.</p><p><strong><em>Cast at Higher Levels.</em></strong> The spell's area increases by 5 feet for each slot level above 4th.</p>",
-				"favorite": false,
-				"secretDescription": "",
-				"source": "",
-				"uses": {
-					"value": 3,
-					"max": "3",
-					"per": "day",
-					"recharge": {
-						"formula": "",
-						"threshold": ""
-					}
-				},
-				"schema": {
-					"version": null,
-					"lastMigration": null
-				},
-				"classes": [
-					"bard",
-					"druid",
-					"sorcerer",
-					"wizard"
-				],
-				"components": {
-					"vocalized": true,
-					"seen": true,
-					"material": true
-				},
-				"concentration": true,
-				"level": 4,
-				"materials": "a tangled string",
-				"materialsConsumed": false,
-				"prepared": false,
-				"prerequisite": "",
-				"rare": false,
-				"ritual": false,
-				"schools": {
-					"primary": "enchantment",
-					"secondary": [
-						"affliction",
-						"chaos",
-						"compulsion"
-					]
-				},
-				"schemaVersion": {
-					"version": 0.01,
-					"lastMigration": {
-						"version": {
-							"schema": 0.009,
-							"foundry": "12.316",
-							"system": "0.16.12"
-						}
-					}
-				}
-			},
-			"folder": null,
-			"_id": "La74UTZBAmChtUeh",
-			"sort": 300000,
-			"ownership": {
-				"default": 0
-			}
-		},
-		{
 			"name": "Dominate Person",
 			"type": "spell",
 			"img": "icons/magic/control/control-influence-puppet.webp",
@@ -3498,6 +3281,220 @@
 			"folder": null,
 			"_id": "g3UsyFqwuuP8swiJ",
 			"sort": 250000,
+			"ownership": {
+				"default": 0
+			}
+		},
+		{
+			"name": "Confusion",
+			"type": "spell",
+			"img": "icons/magic/sonic/projectile-sound-rings-wave.webp",
+			"effects": [
+				{
+					"icon": "icons/magic/sonic/projectile-sound-rings-wave.webp",
+					"origin": "Actor.L7ykgedeG2GxhWlf.Item.Z54BM0NbRIggaljx",
+					"flags": {
+						"a5e": {
+							"sort": 0,
+							"transferType": "onUse",
+							"actionId": "jqb7BKBuOfS5Z1n8",
+							"duration": {
+								"unit": "minutes"
+							}
+						}
+					},
+					"transfer": false,
+					"name": "Confused",
+					"_id": "2wGiliUjJKlBJYp3",
+					"changes": [
+						{
+							"key": "flags.a5e.effects.statusConditions",
+							"value": "[\"confused\"]",
+							"mode": 0,
+							"priority": null
+						}
+					],
+					"disabled": false,
+					"duration": {
+						"startTime": null,
+						"seconds": 60,
+						"combat": null,
+						"rounds": null,
+						"turns": null,
+						"startRound": null,
+						"startTurn": null
+					},
+					"description": "<p>At the end of each of its turns, a confused target makes a Wisdom saving throw to end the spell's effects on it.</p>",
+					"statuses": [
+						"confused"
+					],
+					"folder": null
+				},
+				{
+					"icon": "icons/magic/sonic/projectile-sound-rings-wave.webp",
+					"origin": "Actor.L7ykgedeG2GxhWlf.Item.Z54BM0NbRIggaljx",
+					"flags": {
+						"a5e": {
+							"sort": 0,
+							"transferType": "onUse",
+							"actionId": "jqb7BKBuOfS5Z1n8",
+							"duration": {
+								"type": "rounds",
+								"unit": "minutes"
+							}
+						}
+					},
+					"transfer": false,
+					"name": "Rattled",
+					"_id": "gJe691nLuizKcGEa",
+					"changes": [
+						{
+							"key": "flags.a5e.effects.statusConditions",
+							"value": "[\"rattled\"]",
+							"mode": 0,
+							"priority": null
+						}
+					],
+					"disabled": false,
+					"duration": {
+						"startTime": null,
+						"seconds": null,
+						"combat": null,
+						"rounds": 1,
+						"turns": null,
+						"startRound": null,
+						"startTurn": null
+					},
+					"description": "",
+					"statuses": [
+						"rattled"
+					],
+					"folder": null
+				}
+			],
+			"flags": {},
+			"system": {
+				"actions": {
+					"jqb7BKBuOfS5Z1n8": {
+						"name": "Confusion",
+						"activation": {
+							"cost": 1,
+							"type": "action",
+							"reactionTrigger": ""
+						},
+						"duration": {
+							"unit": "minute",
+							"value": "1"
+						},
+						"ranges": {
+							"w8MGoR07H5rLDR2t": {
+								"range": "long"
+							}
+						},
+						"area": {
+							"shape": "sphere",
+							"radius": "10",
+							"placeTemplate": true,
+							"scaling": {
+								"mode": "spellLevel",
+								"formula": {
+									"quantity": "1",
+									"radius": "5"
+								}
+							}
+						},
+						"target": {
+							"quantity": "",
+							"type": ""
+						},
+						"prompts": {
+							"1Zi60xIIA6CmYRCQ": {
+								"ability": "wis",
+								"onSave": "Negates effect",
+								"saveDC": {
+									"type": "spellcasting",
+									"bonus": ""
+								},
+								"type": "savingThrow"
+							},
+							"ocpTg4Xds9x5O9f3": {
+								"type": "effect",
+								"default": true,
+								"effectId": "2wGiliUjJKlBJYp3"
+							},
+							"BqXUbid7ECMSCHWT": {
+								"type": "effect",
+								"default": true,
+								"effectId": "gJe691nLuizKcGEa"
+							}
+						},
+						"consumers": {
+							"1OxAgJbswqXRKiDZ": {
+								"type": "itemUses",
+								"default": true,
+								"quantity": 1
+							}
+						}
+					}
+				},
+				"description": "<p>You assault the minds of your targets, filling them with delusions and making them confused until the spell ends. On a successful saving throw, a target is rattled for 1 round. At the end of each of its turns, a confused target makes a Wisdom saving throw to end the spell's effects on it.</p><p><strong><em>Cast at Higher Levels.</em></strong> The spell's area increases by 5 feet for each slot level above 4th.</p>",
+				"favorite": false,
+				"secretDescription": "",
+				"source": "",
+				"uses": {
+					"value": 3,
+					"max": "3",
+					"per": "day",
+					"recharge": {
+						"formula": "",
+						"threshold": ""
+					}
+				},
+				"schema": {
+					"version": null,
+					"lastMigration": null
+				},
+				"classes": [
+					"bard",
+					"druid",
+					"sorcerer",
+					"wizard"
+				],
+				"components": {
+					"vocalized": true,
+					"seen": true,
+					"material": true
+				},
+				"concentration": true,
+				"level": 4,
+				"materials": "a tangled string",
+				"materialsConsumed": false,
+				"prepared": false,
+				"prerequisite": "",
+				"rare": false,
+				"ritual": false,
+				"schools": {
+					"primary": "enchantment",
+					"secondary": [
+						"affliction",
+						"chaos",
+						"compulsion"
+					]
+				},
+				"schemaVersion": {
+					"version": 0.01,
+					"lastMigration": {
+						"version": {
+							"schema": 0.009,
+							"foundry": "12.316",
+							"system": "0.16.12"
+						}
+					}
+				}
+			},
+			"folder": null,
+			"_id": "Z54BM0NbRIggaljx",
+			"sort": 0,
 			"ownership": {
 				"default": 0
 			}
