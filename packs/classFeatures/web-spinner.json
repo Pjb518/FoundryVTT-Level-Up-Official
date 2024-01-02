@@ -1,0 +1,156 @@
+{
+	"folder": null,
+	"name": "Web Spinner",
+	"type": "feature",
+	"img": "icons/creatures/invertebrates/spider-dotted-green.webp",
+	"system": {
+		"ac": {
+			"baseFormula": "",
+			"formula": "",
+			"maxDex": 0,
+			"minStr": 0,
+			"mode": 2,
+			"requiresNoShield": false,
+			"requiresUnarmored": false
+		},
+		"actions": {
+			"JJ0il4IFXnX6biLK": {
+				"name": "Whip",
+				"activation": {
+					"cost": "",
+					"type": "",
+					"reactionTrigger": ""
+				},
+				"consumers": {},
+				"rolls": {
+					"dqwXV8Eg5rHjgTM3": {
+						"bonus": "1",
+						"critThreshold": "20",
+						"type": "attack",
+						"attackType": "meleeWeaponAttack",
+						"ability": "default"
+					},
+					"Cl2HHvKcBod31odr": {
+						"canCrit": true,
+						"damageType": "slashing",
+						"formula": "1d4 + @finesse.mod + 1",
+						"name": "Whip",
+						"type": "damage"
+					}
+				},
+				"prompts": {},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"threshold": 6
+					}
+				},
+				"duration": {
+					"unit": "",
+					"value": ""
+				},
+				"ranges": {
+					"wn7gBoJxmiHSJUQ2": {
+						"range": 15,
+						"unit": "feet"
+					}
+				},
+				"area": {
+					"shape": "",
+					"size": "",
+					"placeTemplate": false,
+					"quantity": 1
+				},
+				"target": {
+					"quantity": 1,
+					"type": "creatureObject"
+				},
+				"img": "icons/weapons/misc/whip-red-yellow.webp"
+			},
+			"9S3rtCSZSiIrWLhc": {
+				"name": "Throw",
+				"activation": {
+					"type": "action",
+					"cost": 1
+				},
+				"consumers": {
+					"Pi2ozi1rQ61nor3f": {
+						"type": "itemUses",
+						"default": true,
+						"quantity": 1
+					}
+				},
+				"rolls": {
+					"XBc2UukLX0CWjDY0": {
+						"type": "attack",
+						"default": true,
+						"attackType": "rangedWeaponAttack",
+						"proficient": true,
+						"ability": "default"
+					}
+				},
+				"prompts": {
+					"SyNnmVjFsaA9txWI": {
+						"type": "abilityCheck",
+						"default": true,
+						"ability": "str"
+					}
+				},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"threshold": 6
+					}
+				},
+				"ranges": {
+					"uFGV1gFhD6CnYYCf": {
+						"range": 20,
+						"unit": "feet"
+					},
+					"mF3cX9qyx9NtSbz0": {
+						"range": "medium"
+					}
+				},
+				"target": {
+					"type": "creature",
+					"quantity": 1
+				},
+				"img": "icons/tools/fishing/net-simple-tan.webp"
+			}
+		},
+		"description": "<p>At 11th level, you gain the ability to spin ropes and nets from magical spider silk. As a bonus action, you can spend 1 exertion point to conjure one of the following magical webs:</p>\n<ul>\n<li><strong>Rope:</strong>&nbsp;You conjure a 50-foot-long rope made of magical spider silk. The rope weighs 1 pound but can support up to 8,000 pounds. It has an AC of 14, 10 hit points, and can be burst with a Strength check equal to 10 + your proficiency bonus.</li>\n<li><strong>Net:&nbsp;</strong>You conjure a net made of webs. It weighs 1 pound and functions as a normal net weapon, with the following modifications: It has a range of 20/60, can trap creatures of up to Huge size, and has an AC of 14 and 20 hit points. The DC of the Strength check to escape the net is equal to 10 + your proficiency bonus. You can create a stronger net by spending more exertion; for every additional point you spend, the net&rsquo;s hit points increase by 10.</li>\n<li><strong>Whip:</strong>&nbsp;You conjure a whip made of spider silk. The whip functions as a +1 whip.</li>\n</ul>\n<p>Regardless of what form your webs take, they dissolve after 1 hour.</p>",
+		"favorite": false,
+		"secretDescription": "",
+		"source": {
+			"name": "",
+			"link": "",
+			"publisher": ""
+		},
+		"uses": {
+			"value": null,
+			"max": "",
+			"per": null,
+			"recharge": {
+				"formula": "1d6",
+				"threshold": "6"
+			}
+		},
+		"schema": {
+			"version": null,
+			"lastMigration": null
+		},
+		"concentration": false,
+		"featureType": "class",
+		"grants": {},
+		"prerequisite": ""
+	},
+	"effects": [],
+	"flags": {},
+	"_id": "fh3onsi6x0rtu9y2"
+}

@@ -1,0 +1,129 @@
+{
+	"folder": null,
+	"name": "Pluck the Strands",
+	"type": "feature",
+	"img": "icons/magic/time/hourglass-tilted-glowing-gold.webp",
+	"system": {
+		"ac": {
+			"baseFormula": "",
+			"formula": "",
+			"maxDex": 0,
+			"minStr": 0,
+			"mode": 2,
+			"requiresNoShield": false,
+			"requiresUnarmored": false
+		},
+		"actions": {
+			"TN81c4rqAZ0JALU2": {
+				"name": "Use Feature",
+				"activation": {},
+				"consumers": {},
+				"rolls": {},
+				"prompts": {
+					"SW1Fag8O4nud3qtb": {
+						"type": "effect",
+						"default": true
+					},
+					"dfucaTTg1Pc7Q0Sz": {
+						"type": "effect",
+						"default": true,
+						"effectId": "BDm5xeBkuJ4wTjEe"
+					}
+				},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"threshold": 6
+					}
+				},
+				"target": {
+					"type": "",
+					"quantity": 1
+				}
+			}
+		},
+		"description": "<p>At 14th level, you gain the ability to influence fate directly. As a bonus action, you can select a number of creatures that you can see up to your&nbsp;<span class=\"freelinking-link\">spellcasting</span>&nbsp;modifier. Until the start of your next turn, the creatures you choose have&nbsp;<span class=\"freelinking-link\">advantage</span>&nbsp;on&nbsp;<span class=\"freelinking-link\">attack rolls</span>&nbsp;,&nbsp;<span class=\"freelinking-link\">ability checks</span>&nbsp;, and&nbsp;<span class=\"freelinking-link\">saving throws</span>&nbsp;. Once you have used this ability, you must finish a&nbsp;<span class=\"freelinking-link\">long rest</span> before you can do so again.</p>",
+		"favorite": false,
+		"secretDescription": "",
+		"source": {
+			"name": "",
+			"link": "",
+			"publisher": ""
+		},
+		"uses": {
+			"value": 1,
+			"max": "1",
+			"per": "longRest",
+			"recharge": {
+				"formula": "1d6",
+				"threshold": "6"
+			}
+		},
+		"schema": {
+			"version": null,
+			"lastMigration": null
+		},
+		"concentration": false,
+		"featureType": "class",
+		"grants": {},
+		"prerequisite": ""
+	},
+	"effects": [
+		{
+			"icon": "icons/magic/time/hourglass-tilted-glowing-gold.webp",
+			"origin": "Item.j9QFMqEbarVy0kEs",
+			"flags": {
+				"a5e": {
+					"sort": 0,
+					"transferType": "onUse",
+					"actionId": "TN81c4rqAZ0JALU2",
+					"duration": {
+						"type": "rounds",
+						"unit": "minutes"
+					}
+				}
+			},
+			"transfer": false,
+			"name": "Plucked Strands",
+			"_id": "BDm5xeBkuJ4wTjEe",
+			"changes": [
+				{
+					"key": "flags.a5e.effects.rollMode.abilityCheck.all",
+					"value": "1",
+					"mode": 6,
+					"priority": null
+				},
+				{
+					"key": "flags.a5e.effects.rollMode.abilitySave.all",
+					"value": "1",
+					"mode": 6,
+					"priority": null
+				},
+				{
+					"key": "flags.a5e.effects.rollMode.attack.all",
+					"value": "1",
+					"mode": 6,
+					"priority": null
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": null,
+				"combat": null,
+				"rounds": 1,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "",
+			"statuses": [],
+			"folder": null
+		}
+	],
+	"flags": {},
+	"_id": "eequri51l0vxt4lp"
+}

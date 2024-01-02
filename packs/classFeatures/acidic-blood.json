@@ -1,0 +1,105 @@
+{
+	"folder": null,
+	"name": "Acidic Blood",
+	"type": "feature",
+	"img": "icons/skills/wounds/anatomy-organ-heart-red.webp",
+	"system": {
+		"ac": {
+			"baseFormula": "",
+			"formula": "",
+			"maxDex": 0,
+			"minStr": 0,
+			"mode": 2,
+			"requiresNoShield": false,
+			"requiresUnarmored": false
+		},
+		"actions": {
+			"dxaJ1nJv05oiwhXh": {
+				"name": "Acid Damage",
+				"activation": {},
+				"consumers": {},
+				"rolls": {
+					"zJXcLwegxOk9bYkG": {
+						"type": "damage",
+						"default": true,
+						"damageType": "acid",
+						"formula": "3d6"
+					}
+				},
+				"prompts": {},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"threshold": 6
+					}
+				}
+			}
+		},
+		"description": "<p>At 6th level, your very blood becomes anathema to the regenerative abilities of trolls. You gain&nbsp;<span class=\"freelinking-link\">immunity</span> to acid damage. In addition, whenever a creature damages you with a bite attack, it takes 3d6 acid damage from your acidic blood.</p>",
+		"favorite": false,
+		"secretDescription": "",
+		"source": {
+			"name": "",
+			"link": "",
+			"publisher": ""
+		},
+		"uses": {
+			"value": null,
+			"max": "",
+			"per": null,
+			"recharge": {
+				"formula": "1d6",
+				"threshold": "6"
+			}
+		},
+		"schema": {
+			"version": null,
+			"lastMigration": null
+		},
+		"concentration": false,
+		"featureType": "class",
+		"grants": {},
+		"prerequisite": ""
+	},
+	"effects": [
+		{
+			"icon": "icons/skills/wounds/anatomy-organ-heart-red.webp",
+			"origin": "Item.3hydCamOfv3isuWw",
+			"flags": {
+				"a5e": {
+					"sort": 0,
+					"transferType": "passive"
+				}
+			},
+			"transfer": false,
+			"name": "Acid immunity",
+			"_id": "IjqbgZpj9nozsK7F",
+			"changes": [
+				{
+					"key": "system.traits.damageImmunities",
+					"value": "[\"acid\"]",
+					"mode": 2,
+					"priority": null
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": null,
+				"combat": null,
+				"rounds": null,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "",
+			"statuses": [],
+			"folder": null
+		}
+	],
+	"flags": {},
+	"_id": "98cfy8w4lmi24hd0"
+}

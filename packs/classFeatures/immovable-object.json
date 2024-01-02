@@ -1,0 +1,121 @@
+{
+	"folder": null,
+	"name": "Immovable Object",
+	"type": "feature",
+	"img": "icons/magic/earth/barrier-stone-pillar-purple.webp",
+	"system": {
+		"ac": {
+			"baseFormula": "",
+			"formula": "",
+			"maxDex": 0,
+			"minStr": 0,
+			"mode": 2,
+			"requiresNoShield": false,
+			"requiresUnarmored": false
+		},
+		"actions": {
+			"6zZqN4cphsplVapo": {
+				"name": "Use Feature",
+				"activation": {
+					"type": "bonusAction",
+					"cost": 1
+				},
+				"consumers": {},
+				"rolls": {},
+				"prompts": {
+					"YafXWPsgI338Foy6": {
+						"type": "effect",
+						"default": true,
+						"effectId": "C8tDPgRTkNwQKWUG"
+					}
+				},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"threshold": 6
+					}
+				},
+				"ranges": {
+					"7ANt4VugjDHn2nAF": {
+						"range": "self"
+					}
+				},
+				"target": {
+					"type": "self",
+					"quantity": 1
+				}
+			}
+		},
+		"description": "<p>At 20th level, you can become a living fortification&mdash;immovable and unbreakable. You can use a bonus action to become an immovable object, gaining the following benefits for the next minute:</p>\n<ul>\n<li>You gain&nbsp;<span class=\"freelinking-link\">resistance</span>&nbsp;to all damage.</li>\n<li>You can&rsquo;t be moved unless you choose to be, even if targeted by an effect that would teleport you or if the surface you are standing on gives way. If this results in you standing in midair, you gain a fly speed of 5 feet until the effect ends. If you are still in the air when the effect ends, you fall normally.</li>\n</ul>",
+		"favorite": false,
+		"secretDescription": "",
+		"source": {
+			"name": "",
+			"link": "",
+			"publisher": ""
+		},
+		"uses": {
+			"value": null,
+			"max": "",
+			"per": null,
+			"recharge": {
+				"formula": "1d6",
+				"threshold": "6"
+			}
+		},
+		"schema": {
+			"version": null,
+			"lastMigration": null
+		},
+		"concentration": false,
+		"featureType": "class",
+		"grants": {},
+		"prerequisite": ""
+	},
+	"effects": [
+		{
+			"icon": "icons/magic/earth/barrier-stone-pillar-purple.webp",
+			"origin": "Item.kKF0rzfhuIIv5nVS",
+			"flags": {
+				"a5e": {
+					"sort": 0,
+					"transferType": "onUse",
+					"actionId": "6zZqN4cphsplVapo",
+					"applyToSelf": true,
+					"duration": {
+						"unit": "minutes"
+					}
+				}
+			},
+			"transfer": false,
+			"name": "Immovable",
+			"_id": "C8tDPgRTkNwQKWUG",
+			"changes": [
+				{
+					"key": "flags.a5e.effects.damageResistances.all",
+					"value": "",
+					"mode": 0,
+					"priority": null
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": 60,
+				"combat": null,
+				"rounds": null,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "",
+			"statuses": [],
+			"folder": null
+		}
+	],
+	"flags": {},
+	"_id": "m5uws9i6fxiq9b8f"
+}
