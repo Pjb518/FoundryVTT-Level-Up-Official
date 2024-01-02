@@ -1,5 +1,5 @@
 {
-	"name": "Adult Brass Dragon",
+	"name": "Young Brass Dragon Spellcaster",
 	"type": "npc",
 	"img": "systems/a5e/assets/brass-dragon.webp",
 	"items": [
@@ -10,7 +10,7 @@
 			"img": "icons/svg/item-bag.svg",
 			"effects": [],
 			"folder": null,
-			"sort": 100000,
+			"sort": 175000,
 			"flags": {},
 			"system": {
 				"ac": {
@@ -67,7 +67,7 @@
 			"img": "icons/creatures/abilities/mouth-teeth-long-red.webp",
 			"effects": [],
 			"folder": null,
-			"sort": 1400000,
+			"sort": 200000,
 			"flags": {},
 			"system": {
 				"ac": {
@@ -80,7 +80,7 @@
 					"requiresUnarmored": false
 				},
 				"actions": {
-					"nJTUigiscaoUJ6In": {
+					"AbrGrnJrndVDg3vP": {
 						"name": "Bite",
 						"activation": {
 							"cost": 1,
@@ -92,7 +92,7 @@
 							"value": ""
 						},
 						"ranges": {
-							"3XkQM2WIlxdMcimJ": {
+							"5gW215pOUupV8Mjc": {
 								"range": "10ft"
 							}
 						},
@@ -106,21 +106,21 @@
 							"type": "creature"
 						},
 						"rolls": {
-							"p2zEK9noaNnpURTB": {
+							"gzx0LnhQmGSjh4Lj": {
 								"bonus": "",
 								"critThreshold": "20",
 								"type": "attack",
 								"attackType": "meleeWeaponAttack",
 								"ability": "str"
 							},
-							"fD7OIdnM1mbFVXLm": {
+							"SaNmjGMRu2RWvQhN": {
 								"canCrit": true,
 								"damageType": "piercing",
-								"formula": "3d10 + @str.mod",
+								"formula": "2d10 + @str.mod",
 								"name": "Default",
 								"type": "damage"
 							},
-							"AeCk8SVwC4Y2IRsZ": {
+							"b5AEB2Oqg8HiiCGo": {
 								"canCrit": true,
 								"damageType": "fire",
 								"formula": "1d8",
@@ -173,9 +173,50 @@
 			"name": "Breath Weapons",
 			"type": "feature",
 			"img": "icons/svg/item-bag.svg",
-			"effects": [],
+			"effects": [
+				{
+					"icon": "icons/svg/item-bag.svg",
+					"origin": "Actor.rc7lHjdmPVMDE5C8.Item.UsGt8K5pNhFpsTVU",
+					"flags": {
+						"a5e": {
+							"sort": 0,
+							"transferType": "onUse",
+							"actionId": "ZN77FJQQV6ciY7g5",
+							"duration": {
+								"unit": "minutes"
+							}
+						}
+					},
+					"transfer": false,
+					"name": "Asleep",
+					"_id": "NfQ1aOqSbFIcYUTB",
+					"changes": [
+						{
+							"key": "flags.a5e.effects.statusConditions",
+							"value": "[\"unconscious\"]",
+							"mode": 0,
+							"priority": null
+						}
+					],
+					"disabled": false,
+					"duration": {
+						"startTime": null,
+						"seconds": 600,
+						"combat": null,
+						"rounds": null,
+						"turns": null,
+						"startRound": null,
+						"startTurn": null
+					},
+					"description": "",
+					"statuses": [
+						"unconscious"
+					],
+					"folder": null
+				}
+			],
 			"folder": null,
-			"sort": 1600000,
+			"sort": 300000,
 			"flags": {},
 			"system": {
 				"ac": {
@@ -188,38 +229,38 @@
 					"requiresUnarmored": false
 				},
 				"actions": {
-					"dMp8apA6bf4lV5fy": {
+					"5RDIHwO2l3YE2cv0": {
 						"name": "Molten Breath",
 						"activation": {
-							"cost": 1,
 							"type": "action",
-							"reactionTrigger": ""
+							"cost": 1
 						},
 						"consumers": {
-							"4GMeJVpp8kCs0dR3": {
+							"iHJggVSz80lYYf8y": {
 								"type": "itemUses",
 								"default": true,
 								"quantity": 1
 							}
 						},
 						"rolls": {
-							"FzPe2CWDinmPDRVN": {
+							"tP4jwvzPT1WueLnI": {
+								"type": "damage",
+								"default": true,
 								"canCrit": false,
-								"damageType": "fire",
-								"formula": "16d6",
-								"name": "Default",
-								"type": "damage"
+								"formula": "11d6",
+								"damageType": "fire"
 							}
 						},
 						"prompts": {
-							"LcOkFKnwpRD1qe5I": {
+							"ntHBXLcWCQRSeoIc": {
+								"type": "savingThrow",
+								"default": true,
 								"ability": "dex",
-								"onSave": "Half damage and effects.",
 								"saveDC": {
 									"type": "custom",
-									"bonus": "18"
+									"bonus": "15"
 								},
-								"type": "savingThrow"
+								"onSave": "Half damage"
 							}
 						},
 						"uses": {
@@ -231,34 +272,31 @@
 								"threshold": 6
 							}
 						},
+						"description": "<p>No description available.</p>",
 						"duration": {
-							"unit": "instantaneous",
-							"value": ""
+							"unit": "instantaneous"
 						},
-						"ranges": {},
+						"ranges": {
+							"EApO56Nozlzvav92": {
+								"range": "self"
+							}
+						},
 						"area": {
 							"shape": "line",
-							"size": "60ft long, 5ft wide",
-							"placeTemplate": false,
-							"length": 60,
-							"width": 5,
-							"quantity": 1
-						},
-						"target": {
 							"quantity": 1,
-							"type": ""
-						},
-						"img": "icons/svg/item-bag.svg"
+							"placeTemplate": true,
+							"length": 40,
+							"width": 5
+						}
 					},
-					"LRlGyEE2IYN7umiT": {
+					"ZN77FJQQV6ciY7g5": {
 						"name": "Sleep Breath",
 						"activation": {
-							"cost": 1,
 							"type": "action",
-							"reactionTrigger": ""
+							"cost": 1
 						},
 						"consumers": {
-							"7wgBJL0iOvwM7dIb": {
+							"Mcyzwj1x9gz3l0eR": {
 								"type": "itemUses",
 								"default": true,
 								"quantity": 1
@@ -266,14 +304,19 @@
 						},
 						"rolls": {},
 						"prompts": {
-							"W3ddgGSdMv94JqZI": {
+							"89MogS4YAiHZymeq": {
+								"type": "savingThrow",
+								"default": true,
 								"ability": "con",
-								"onSave": "Avoids effects.",
 								"saveDC": {
 									"type": "custom",
-									"bonus": "18"
-								},
-								"type": "savingThrow"
+									"bonus": "15"
+								}
+							},
+							"rNuBSqPQMCvWtVR8": {
+								"type": "effect",
+								"default": true,
+								"effectId": "NfQ1aOqSbFIcYUTB"
 							}
 						},
 						"uses": {
@@ -286,25 +329,22 @@
 							}
 						},
 						"duration": {
-							"unit": "minute",
-							"value": 10
+							"unit": "instantaneous"
 						},
-						"ranges": {},
+						"ranges": {
+							"QzMWcOSu9izeslw7": {
+								"range": "self"
+							}
+						},
 						"area": {
 							"shape": "cone",
-							"size": "60",
-							"placeTemplate": false,
-							"length": 60,
-							"quantity": 1
-						},
-						"target": {
 							"quantity": 1,
-							"type": ""
-						},
-						"img": "icons/svg/item-bag.svg"
+							"placeTemplate": true,
+							"length": 30
+						}
 					}
 				},
-				"description": "<p>The dragon uses one of the following breath weapons:</p><p><strong>Molten Breath.</strong> The dragon exhales molten glass in a 60-foot-long, 5-foot-wide line. Each creature in the area makes a DC 18 Dexterity saving throw, taking 56 (16d6) fire damage on a failed save or half damage on a success. A creature that fails the save is also blinded until the end of its next turn.</p><p><strong>Sleep Breath.</strong> The dragon exhales sleep gas in a 60-foot cone. Each creature in the area makes a DC 18 Constitution saving throw. On a failure, a creature falls unconscious for 10 minutes or until it takes damage or someone uses an action to wake it.</p>",
+				"description": "<p>The dragon uses one of the following breath weapons:</p><p><strong>Molten Breath.</strong> The dragon exhales molten glass in a 40-foot-long, 5-foot-wide line. Each creature in the area makes a DC 15 Dexterity saving throw, taking 38 (11d6) fire damage on a failed save or half damage on a success.&nbsp;</p><p><strong>Sleep Breath.</strong> The dragon exhales sleep gas in a 30-foot cone. Each creature in the area makes a DC 15 Constitution saving throw. On a failure, a creature falls unconscious for 10 minutes or until it takes damage or someone uses an action to wake it.</p>",
 				"favorite": true,
 				"secretDescription": "",
 				"source": "",
@@ -348,7 +388,7 @@
 			"img": "icons/skills/melee/blade-tips-triple-steel.webp",
 			"effects": [],
 			"folder": null,
-			"sort": 1300000,
+			"sort": 187500,
 			"flags": {},
 			"system": {
 				"ac": {
@@ -361,7 +401,7 @@
 					"requiresUnarmored": false
 				},
 				"actions": {},
-				"description": "<p>The dragon attacks with its bite and twice with its claws. In place of its bite, it can use Molten Spit.</p>",
+				"description": "<p>The dragon attacks with its bite and twice with its claws.</p>",
 				"favorite": false,
 				"secretDescription": "",
 				"source": "",
@@ -405,7 +445,7 @@
 			"img": "icons/skills/melee/blood-slash-foam-red.webp",
 			"effects": [],
 			"folder": null,
-			"sort": 1500000,
+			"sort": 250000,
 			"flags": {},
 			"system": {
 				"ac": {
@@ -418,7 +458,7 @@
 					"requiresUnarmored": false
 				},
 				"actions": {
-					"WdrRBMa1Cc81YQbM": {
+					"kK5Xnmf9VWxP811e": {
 						"name": "Claws",
 						"activation": {
 							"cost": 1,
@@ -430,7 +470,7 @@
 							"value": ""
 						},
 						"ranges": {
-							"Cmtrq4QagnIjIOur": {
+							"FgYdgaWPF2lVGZnI": {
 								"range": "fiveFeet"
 							}
 						},
@@ -444,263 +484,16 @@
 							"type": "creature"
 						},
 						"rolls": {
-							"2DC0KdD4eXIEjT24": {
+							"SM6jW89GRQwI5CeW": {
 								"bonus": "",
 								"critThreshold": "20",
 								"type": "attack",
 								"attackType": "meleeWeaponAttack",
 								"ability": "str"
 							},
-							"wRYqxrwVtGVDWMcY": {
+							"gH53E11z2mdtqIDm": {
 								"canCrit": true,
 								"damageType": "slashing",
-								"formula": "3d8 + @str.mod",
-								"name": "Default",
-								"type": "damage"
-							}
-						},
-						"consumers": {}
-					}
-				},
-				"description": "",
-				"favorite": true,
-				"secretDescription": "",
-				"source": "",
-				"uses": {
-					"value": null,
-					"max": "",
-					"per": null,
-					"recharge": {
-						"formula": "",
-						"threshold": ""
-					}
-				},
-				"schema": {
-					"version": null,
-					"lastMigration": null
-				},
-				"concentration": false,
-				"featureType": "",
-				"grants": {},
-				"prerequisite": "",
-				"requiresBloodied": false,
-				"schemaVersion": {
-					"version": 0.01,
-					"lastMigration": {
-						"version": {
-							"schema": 0.009,
-							"foundry": "12.316",
-							"system": "0.16.12"
-						}
-					}
-				}
-			},
-			"ownership": {
-				"default": 0
-			}
-		},
-		{
-			"_id": "hGkcWcts7jJzPaY3",
-			"name": "Legendary Resistance (3/Day)",
-			"type": "feature",
-			"img": "icons/svg/item-bag.svg",
-			"effects": [],
-			"folder": null,
-			"sort": 800000,
-			"flags": {
-				"core": {
-					"sourceId": "Item.6Y1N4HAnCmpDkl3K"
-				}
-			},
-			"system": {
-				"ac": {
-					"baseFormula": "",
-					"formula": "",
-					"maxDex": 0,
-					"minStr": 0,
-					"mode": 1,
-					"requiresNoShield": false,
-					"requiresUnarmored": false
-				},
-				"actions": {
-					"MuyDhNzGMXWhBJAm": {
-						"name": "Legendary Resistance (3/Day)",
-						"activation": {
-							"cost": "",
-							"type": "special",
-							"reactionTrigger": ""
-						},
-						"duration": {
-							"unit": "instantaneous",
-							"value": ""
-						},
-						"area": {
-							"shape": "",
-							"size": "",
-							"placeTemplate": false
-						},
-						"target": {
-							"quantity": "",
-							"type": ""
-						},
-						"consumers": {
-							"d6PyVNwhGAaR9vfY": {
-								"type": "itemUses"
-							}
-						}
-					}
-				},
-				"description": "<p>When the dragon fails a saving throw, it can choose to succeed instead. When it does, it sheds some of its scales, which turn to sand. If it has no more uses of this ability, its Armor Class is reduced to 16 until it finishes a long rest.</p>",
-				"favorite": false,
-				"secretDescription": "",
-				"source": "",
-				"uses": {
-					"value": 3,
-					"max": 3,
-					"per": "day",
-					"recharge": {
-						"formula": "",
-						"threshold": ""
-					}
-				},
-				"schema": {
-					"version": null,
-					"lastMigration": null
-				},
-				"concentration": false,
-				"featureType": "",
-				"grants": {},
-				"prerequisite": "",
-				"requiresBloodied": false,
-				"schemaVersion": {
-					"version": 0.01,
-					"lastMigration": {
-						"version": {
-							"schema": 0.009,
-							"foundry": "12.316",
-							"system": "0.16.12"
-						}
-					}
-				}
-			},
-			"ownership": {
-				"default": 0
-			}
-		},
-		{
-			"_id": "VcRGXZB97vqN4bsj",
-			"name": "Scholar of the Ages",
-			"type": "feature",
-			"img": "icons/svg/item-bag.svg",
-			"effects": [],
-			"folder": null,
-			"sort": 200000,
-			"flags": {},
-			"system": {
-				"ac": {
-					"baseFormula": "",
-					"formula": "",
-					"maxDex": 0,
-					"minStr": 0,
-					"mode": 1,
-					"requiresNoShield": false,
-					"requiresUnarmored": false
-				},
-				"actions": {},
-				"description": "<p>The brass dragon gains a d4 expertise die on Intelligence checks made to recall lore. If it fails such a roll, it can use a Legendary Resistance to treat the roll as a 20.</p>",
-				"favorite": false,
-				"secretDescription": "",
-				"source": "",
-				"uses": {
-					"value": null,
-					"max": "",
-					"per": null,
-					"recharge": {
-						"formula": "",
-						"threshold": ""
-					}
-				},
-				"schema": {
-					"version": null,
-					"lastMigration": null
-				},
-				"concentration": false,
-				"featureType": "",
-				"grants": {},
-				"prerequisite": "",
-				"requiresBloodied": false,
-				"schemaVersion": {
-					"version": 0.01,
-					"lastMigration": {
-						"version": {
-							"schema": 0.009,
-							"foundry": "12.316",
-							"system": "0.16.12"
-						}
-					}
-				}
-			},
-			"ownership": {
-				"default": 0
-			}
-		},
-		{
-			"_id": "JkgM4AlcoV28haBv",
-			"name": "Tail",
-			"type": "feature",
-			"img": "icons/skills/wounds/injury-pain-impaled-hand-blood.webp",
-			"effects": [],
-			"folder": null,
-			"sort": 1475000,
-			"flags": {},
-			"system": {
-				"ac": {
-					"baseFormula": "",
-					"formula": "",
-					"maxDex": 0,
-					"minStr": 0,
-					"mode": 1,
-					"requiresNoShield": false,
-					"requiresUnarmored": false
-				},
-				"actions": {
-					"HkYj5IiJYtJv0F8j": {
-						"name": "Tail",
-						"activation": {
-							"cost": 1,
-							"type": "action",
-							"reactionTrigger": ""
-						},
-						"duration": {
-							"unit": "instantaneous",
-							"value": ""
-						},
-						"ranges": {
-							"ybeeJ5W3xm3GsHB2": {
-								"range": 15,
-								"unit": "feet"
-							}
-						},
-						"area": {
-							"shape": "",
-							"size": "",
-							"placeTemplate": false
-						},
-						"target": {
-							"quantity": 1,
-							"type": "creature"
-						},
-						"rolls": {
-							"Uhdp4einAJ43gZPO": {
-								"bonus": "",
-								"critThreshold": "20",
-								"type": "attack",
-								"attackType": "meleeWeaponAttack",
-								"ability": "str"
-							},
-							"xlkt4VEiAmT1qgqZ": {
-								"canCrit": true,
-								"damageType": "bludgeoning",
 								"formula": "2d8 + @str.mod",
 								"name": "Default",
 								"type": "damage"
@@ -709,686 +502,6 @@
 						"consumers": {}
 					}
 				},
-				"description": "<p>On hit, the dragon pushes the target 10 feet away.</p>",
-				"favorite": true,
-				"secretDescription": "",
-				"source": "",
-				"uses": {
-					"value": null,
-					"max": "",
-					"per": null,
-					"recharge": {
-						"formula": "",
-						"threshold": ""
-					}
-				},
-				"schema": {
-					"version": null,
-					"lastMigration": null
-				},
-				"concentration": false,
-				"featureType": "",
-				"grants": {},
-				"prerequisite": "",
-				"requiresBloodied": false,
-				"schemaVersion": {
-					"version": 0.01,
-					"lastMigration": {
-						"version": {
-							"schema": 0.009,
-							"foundry": "12.316",
-							"system": "0.16.12"
-						}
-					}
-				}
-			},
-			"ownership": {
-				"default": 0
-			}
-		},
-		{
-			"_id": "ho7JDmKl3jMLfZ7K",
-			"name": "Molten Spit",
-			"type": "feature",
-			"img": "icons/svg/item-bag.svg",
-			"effects": [],
-			"folder": null,
-			"sort": 1487500,
-			"flags": {},
-			"system": {
-				"ac": {
-					"baseFormula": "",
-					"formula": "",
-					"maxDex": 0,
-					"minStr": 0,
-					"mode": 1,
-					"requiresNoShield": false,
-					"requiresUnarmored": false
-				},
-				"actions": {
-					"gXibSiry23I7dtTz": {
-						"name": "Molten Spit",
-						"activation": {
-							"cost": 1,
-							"type": "action",
-							"reactionTrigger": ""
-						},
-						"duration": {
-							"unit": "special",
-							"value": ""
-						},
-						"ranges": {
-							"4ERa7Qsu3L2NOjLS": {
-								"range": "medium"
-							}
-						},
-						"area": {
-							"shape": "",
-							"size": "",
-							"placeTemplate": false
-						},
-						"target": {
-							"quantity": 1,
-							"type": "creature"
-						},
-						"rolls": {
-							"bAOsRhw0aYCKjrCz": {
-								"canCrit": false,
-								"damageType": "fire",
-								"formula": "2d10",
-								"name": "Default",
-								"type": "damage"
-							},
-							"7NjVnfs2S7b3PJQw": {
-								"canCrit": false,
-								"damageType": "fire",
-								"formula": "1d10",
-								"name": "Ongoing damage",
-								"type": "damage"
-							}
-						},
-						"prompts": {
-							"6iWTFg0Ml5XCpE7W": {
-								"ability": "dex",
-								"onSave": "Half damage on success.",
-								"saveDC": {
-									"type": "custom",
-									"bonus": "18"
-								},
-								"type": "savingThrow"
-							}
-						},
-						"consumers": {}
-					}
-				},
-				"description": "<p>The dragon targets a creature within 60 feet, forcing it to make a DC 18 Dexterity saving throw. The creature takes 11 (2d10) fire damage on a failure or half damage on a success. A creature that fails the saving throw also takes 5 (1d10) ongoing fire damage. A creature can use an action to end the ongoing damage.</p>",
-				"favorite": true,
-				"secretDescription": "",
-				"source": "",
-				"uses": {
-					"value": null,
-					"max": "",
-					"per": null,
-					"recharge": {
-						"formula": "",
-						"threshold": ""
-					}
-				},
-				"schema": {
-					"version": null,
-					"lastMigration": null
-				},
-				"concentration": false,
-				"featureType": "",
-				"grants": {},
-				"prerequisite": "",
-				"requiresBloodied": false,
-				"schemaVersion": {
-					"version": 0.01,
-					"lastMigration": {
-						"version": {
-							"schema": 0.009,
-							"foundry": "12.316",
-							"system": "0.16.12"
-						}
-					}
-				}
-			},
-			"ownership": {
-				"default": 0
-			}
-		},
-		{
-			"_id": "l8KMAvsd6OiGV2bk",
-			"name": "Change Shape",
-			"type": "feature",
-			"img": "icons/svg/item-bag.svg",
-			"effects": [],
-			"folder": null,
-			"sort": 600000,
-			"flags": {},
-			"system": {
-				"ac": {
-					"baseFormula": "",
-					"formula": "",
-					"maxDex": 0,
-					"minStr": 0,
-					"mode": 1,
-					"requiresNoShield": false,
-					"requiresUnarmored": false
-				},
-				"actions": {},
-				"description": "<p>The dragon magically takes the shape of a humanoid or beast or changes back into its true form. It reverts to its true form if it dies. Any equipment it is wearing or carrying is absorbed or borne by the new form (dragon’s choice). In the new form, the dragon’s stats are unchanged except for its size. It can’t use Molten Spit, Breath Weapons, Tail Attack, or Wing Attack except in dragon form. In beast form, it can attack only with its bite and claws, if appropriate to its form. If the beast form is Large or smaller, the reach of these attacks is reduced to 5 feet. In humanoid form, it can attack only with its staff.</p>",
-				"favorite": false,
-				"secretDescription": "",
-				"source": "",
-				"uses": {
-					"value": null,
-					"max": "",
-					"per": null,
-					"recharge": {
-						"formula": "",
-						"threshold": ""
-					}
-				},
-				"schema": {
-					"version": null,
-					"lastMigration": null
-				},
-				"concentration": false,
-				"featureType": "",
-				"grants": {},
-				"prerequisite": "",
-				"requiresBloodied": false,
-				"schemaVersion": {
-					"version": 0.01,
-					"lastMigration": {
-						"version": {
-							"schema": 0.009,
-							"foundry": "12.316",
-							"system": "0.16.12"
-						}
-					}
-				}
-			},
-			"ownership": {
-				"default": 0
-			}
-		},
-		{
-			"_id": "BbwO898juO9K0uH9",
-			"name": "Tail Attack",
-			"type": "feature",
-			"img": "icons/skills/wounds/injury-pain-impaled-hand-blood.webp",
-			"effects": [],
-			"folder": null,
-			"sort": 1550000,
-			"flags": {},
-			"system": {
-				"ac": {
-					"baseFormula": "",
-					"formula": "",
-					"maxDex": 0,
-					"minStr": 0,
-					"mode": 1,
-					"requiresNoShield": false,
-					"requiresUnarmored": false
-				},
-				"actions": {
-					"hP6T9JXm4zVwzWw3": {
-						"name": "Tail Attack",
-						"activation": {
-							"cost": 1,
-							"type": "reaction",
-							"reactionTrigger": "When a creature the dragon can see within 10 feet hits the dragon with a melee attack."
-						},
-						"duration": {
-							"unit": "instantaneous",
-							"value": ""
-						},
-						"ranges": {
-							"lUXDT28cdFkpjjGc": {
-								"range": "10ft"
-							}
-						},
-						"area": {
-							"shape": "",
-							"size": "",
-							"placeTemplate": false
-						},
-						"target": {
-							"quantity": 1,
-							"type": "creature"
-						},
-						"consumers": {}
-					}
-				},
-				"description": "<p>When a creature the dragon can see within 10 feet hits the dragon with a melee attack, the dragon&nbsp; makes a tail attack against it.</p>",
-				"favorite": true,
-				"secretDescription": "",
-				"source": "",
-				"uses": {
-					"value": null,
-					"max": "",
-					"per": null,
-					"recharge": {
-						"formula": "",
-						"threshold": ""
-					}
-				},
-				"schema": {
-					"version": null,
-					"lastMigration": null
-				},
-				"concentration": false,
-				"featureType": "",
-				"grants": {},
-				"prerequisite": "",
-				"requiresBloodied": false,
-				"schemaVersion": {
-					"version": 0.01,
-					"lastMigration": {
-						"version": {
-							"schema": 0.009,
-							"foundry": "12.316",
-							"system": "0.16.12"
-						}
-					}
-				}
-			},
-			"ownership": {
-				"default": 0
-			}
-		},
-		{
-			"_id": "gaIR6sn0ay3vMJfh",
-			"name": "Legendary Actions",
-			"type": "feature",
-			"img": "icons/svg/item-bag.svg",
-			"effects": [],
-			"folder": null,
-			"sort": 900000,
-			"flags": {},
-			"system": {
-				"ac": {
-					"baseFormula": "",
-					"formula": "",
-					"maxDex": 0,
-					"minStr": 0,
-					"mode": 1,
-					"requiresNoShield": false,
-					"requiresUnarmored": false
-				},
-				"actions": {},
-				"description": "<p>The dragon can take 3 legendary actions, choosing from the options below. Only one legendary action can be used at a time and only at the end of another creature's turn. It regains spent legendary actions at the start of its turn.</p><p><strong><em>Analyze.</em> </strong>The dragon evaluates one creature it can see within 60 feet. It learns the creature’s resistances, immunities, vulnerabilities, and current and maximum hit points. That creature’s next attack roll against the dragon before the start of the dragon’s next turn is made with disadvantage.</p><p><strong><em>Roar.</em></strong> Each creature of the dragon’s choice within 120 feet that can hear it makes a DC 16 Charisma saving throw. On a failure, it is frightened for 1 minute. A creature repeats the saving throw at the end of its turns, ending the effect on itself on a success. When it succeeds on a saving throw or the effect ends for it, it is immune to Roar for 24 hours.</p><p><strong><em>Wing Attack.</em> </strong>The dragon beats its wings. Each creature within 15 feet makes a DC 19 Dexterity saving throw. On a failure, it is pushed 10 feet away and knocked prone. The dragon can then fly up to half its fly speed.</p>",
-				"favorite": false,
-				"secretDescription": "",
-				"source": "",
-				"uses": {
-					"value": null,
-					"max": "",
-					"per": null,
-					"recharge": {
-						"formula": "",
-						"threshold": ""
-					}
-				},
-				"schema": {
-					"version": null,
-					"lastMigration": null
-				},
-				"concentration": false,
-				"featureType": "",
-				"grants": {},
-				"prerequisite": "",
-				"requiresBloodied": false,
-				"schemaVersion": {
-					"version": 0.01,
-					"lastMigration": {
-						"version": {
-							"schema": 0.009,
-							"foundry": "12.316",
-							"system": "0.16.12"
-						}
-					}
-				}
-			},
-			"ownership": {
-				"default": 0
-			}
-		},
-		{
-			"_id": "lFeGAeyfmxTuFBOA",
-			"name": "Analyze",
-			"type": "feature",
-			"img": "icons/svg/item-bag.svg",
-			"effects": [],
-			"folder": null,
-			"sort": 1000000,
-			"flags": {},
-			"system": {
-				"ac": {
-					"baseFormula": "",
-					"formula": "",
-					"maxDex": 0,
-					"minStr": 0,
-					"mode": 1,
-					"requiresNoShield": false,
-					"requiresUnarmored": false
-				},
-				"actions": {
-					"NuwZ7P0Ayg9fOQLH": {
-						"name": "Legendary Action: Analyze",
-						"activation": {
-							"cost": 1,
-							"type": "legendaryAction",
-							"reactionTrigger": ""
-						},
-						"duration": {
-							"unit": "round",
-							"value": 1
-						},
-						"ranges": {
-							"pQM3OC0Wp6NomKCo": {
-								"range": "medium"
-							}
-						},
-						"area": {
-							"shape": "",
-							"size": "",
-							"placeTemplate": false
-						},
-						"target": {
-							"quantity": "",
-							"type": ""
-						},
-						"consumers": {}
-					}
-				},
-				"description": "<p>The dragon evaluates one creature it can see within 60 feet. It learns the creature’s resistances, immunities, vulnerabilities, and current and maximum hit points. That creature’s next attack roll against the dragon before the start of the dragon’s next turn is made with disadvantage.</p>",
-				"favorite": false,
-				"secretDescription": "",
-				"source": "",
-				"uses": {
-					"value": null,
-					"max": "",
-					"per": null,
-					"recharge": {
-						"formula": "",
-						"threshold": ""
-					}
-				},
-				"schema": {
-					"version": null,
-					"lastMigration": null
-				},
-				"concentration": false,
-				"featureType": "",
-				"grants": {},
-				"prerequisite": "",
-				"requiresBloodied": false,
-				"schemaVersion": {
-					"version": 0.01,
-					"lastMigration": {
-						"version": {
-							"schema": 0.009,
-							"foundry": "12.316",
-							"system": "0.16.12"
-						}
-					}
-				}
-			},
-			"ownership": {
-				"default": 0
-			}
-		},
-		{
-			"_id": "6v8c8DKoYycvN8xM",
-			"name": "Roar",
-			"type": "feature",
-			"img": "icons/magic/sonic/scream-wail-shout-teal.webp",
-			"effects": [],
-			"folder": null,
-			"sort": 1100000,
-			"flags": {},
-			"system": {
-				"ac": {
-					"baseFormula": "",
-					"formula": "",
-					"maxDex": 0,
-					"minStr": 0,
-					"mode": 1,
-					"requiresNoShield": false,
-					"requiresUnarmored": false
-				},
-				"actions": {
-					"ojVaQTA1P1Pm7VM0": {
-						"name": "Legendary Action: Roar",
-						"activation": {
-							"cost": 1,
-							"type": "legendaryAction",
-							"reactionTrigger": ""
-						},
-						"duration": {
-							"unit": "minute",
-							"value": 1
-						},
-						"ranges": {},
-						"area": {
-							"shape": "emanation",
-							"size": "",
-							"placeTemplate": false,
-							"quantity": 1,
-							"radius": 120
-						},
-						"target": {
-							"quantity": 1,
-							"type": ""
-						},
-						"prompts": {
-							"BBOmdIRpMCfqyTuX": {
-								"ability": "cha",
-								"onSave": "Avoids effects.",
-								"saveDC": {
-									"type": "custom",
-									"bonus": "16"
-								},
-								"type": "savingThrow"
-							}
-						},
-						"consumers": {}
-					}
-				},
-				"description": "<p>Each creature of the dragon’s choice within 120 feet that can hear it makes a DC 16 Charisma saving throw. On a failure, it is frightened for 1 minute. A creature repeats the saving throw at the end of its turns, ending the effect on itself on a success. When it succeeds on a saving throw or the effect ends for it, it is immune to Roar for 24 hours.</p>",
-				"favorite": true,
-				"secretDescription": "",
-				"source": "",
-				"uses": {
-					"value": null,
-					"max": "",
-					"per": null,
-					"recharge": {
-						"formula": "",
-						"threshold": ""
-					}
-				},
-				"schema": {
-					"version": null,
-					"lastMigration": null
-				},
-				"concentration": false,
-				"featureType": "",
-				"grants": {},
-				"prerequisite": "",
-				"requiresBloodied": false,
-				"schemaVersion": {
-					"version": 0.01,
-					"lastMigration": {
-						"version": {
-							"schema": 0.009,
-							"foundry": "12.316",
-							"system": "0.16.12"
-						}
-					}
-				}
-			},
-			"ownership": {
-				"default": 0
-			}
-		},
-		{
-			"_id": "XYx5J3mwcYPwfL3m",
-			"name": "Wing Attack",
-			"type": "feature",
-			"img": "icons/svg/item-bag.svg",
-			"effects": [],
-			"folder": null,
-			"sort": 1200000,
-			"flags": {},
-			"system": {
-				"ac": {
-					"baseFormula": "",
-					"formula": "",
-					"maxDex": 0,
-					"minStr": 0,
-					"mode": 1,
-					"requiresNoShield": false,
-					"requiresUnarmored": false
-				},
-				"actions": {
-					"cgnEpEzEyt5y9esU": {
-						"name": "Legendary Action: Wing Attack",
-						"activation": {
-							"cost": 1,
-							"type": "legendaryAction",
-							"reactionTrigger": ""
-						},
-						"duration": {
-							"unit": "instantaneous",
-							"value": ""
-						},
-						"ranges": {},
-						"area": {
-							"shape": "emanation",
-							"size": "",
-							"placeTemplate": false,
-							"quantity": 1,
-							"radius": 15
-						},
-						"target": {
-							"quantity": 1,
-							"type": ""
-						},
-						"prompts": {
-							"qGfn0VZTutpaGfKw": {
-								"ability": "dex",
-								"onSave": "Avoids effects.",
-								"saveDC": {
-									"type": "custom",
-									"bonus": "19"
-								},
-								"type": "savingThrow"
-							}
-						},
-						"consumers": {}
-					}
-				},
-				"description": "<p>The dragon beats its wings. Each creature within 15 feet makes a DC 19 Dexterity saving throw. On a failure, it is pushed 10 feet away and knocked prone. The dragon can then fly up to half its fly speed.</p>",
-				"favorite": true,
-				"secretDescription": "",
-				"source": "",
-				"uses": {
-					"value": null,
-					"max": "",
-					"per": null,
-					"recharge": {
-						"formula": "",
-						"threshold": ""
-					}
-				},
-				"schema": {
-					"version": null,
-					"lastMigration": null
-				},
-				"concentration": false,
-				"featureType": "",
-				"grants": {},
-				"prerequisite": "",
-				"requiresBloodied": false,
-				"schemaVersion": {
-					"version": 0.01,
-					"lastMigration": {
-						"version": {
-							"schema": 0.009,
-							"foundry": "12.316",
-							"system": "0.16.12"
-						}
-					}
-				}
-			},
-			"ownership": {
-				"default": 0
-			}
-		},
-		{
-			"_id": "fKc0Qme9oPpDOEwE",
-			"name": "Staff (Humanoid Form Only)",
-			"type": "object",
-			"img": "icons/svg/item-bag.svg",
-			"effects": [],
-			"folder": null,
-			"sort": 0,
-			"flags": {},
-			"system": {
-				"ac": {
-					"baseFormula": "",
-					"formula": "",
-					"maxDex": 0,
-					"minStr": 0,
-					"mode": 1,
-					"requiresNoShield": false,
-					"requiresUnarmored": false
-				},
-				"actions": {
-					"tv8z0zE1SonJvbUn": {
-						"name": "Staff (Humanoid Form Only)",
-						"activation": {
-							"cost": 1,
-							"type": "action",
-							"reactionTrigger": ""
-						},
-						"duration": {
-							"unit": "instantaneous",
-							"value": ""
-						},
-						"area": {
-							"shape": "",
-							"size": "",
-							"placeTemplate": false
-						},
-						"target": {
-							"quantity": "",
-							"type": ""
-						},
-						"rolls": {
-							"jNByFbeZmWmeKCw2": {
-								"bonus": "",
-								"critThreshold": "20",
-								"type": "attack",
-								"attackType": "meleeWeaponAttack",
-								"ability": "default"
-							},
-							"06cz2hmsqH5Mzfmp": {
-								"canCrit": true,
-								"damageType": "bludgeoning",
-								"formula": "1d8 + @str.mod",
-								"name": "Default",
-								"type": "damage"
-							}
-						},
-						"consumers": {}
-					}
-				},
 				"description": "",
 				"favorite": true,
 				"secretDescription": "",
@@ -1406,36 +519,11 @@
 					"version": null,
 					"lastMigration": null
 				},
-				"ammunitionProperties": [],
-				"armorCategory": "",
-				"armorProperties": [],
-				"attuned": false,
-				"bulky": false,
-				"craftingComponents": "",
-				"containerId": "",
-				"damagedState": 0,
-				"equippedState": 0,
-				"items": {},
-				"materialProperties": [],
-				"objectType": "weapon",
-				"plotItem": false,
-				"price": "2 sp",
-				"proficient": true,
-				"quantity": 1,
-				"rarity": "common",
-				"requiresAttunement": false,
-				"shieldCategory": "",
-				"shieldProperties": [],
-				"unidentified": false,
-				"unidentifiedDescription": "",
-				"unidentifiedName": "",
-				"weaponProperties": [
-					"parrying",
-					"simple",
-					"twoHanded"
-				],
-				"weight": 4,
-				"broken": false,
+				"concentration": false,
+				"featureType": "",
+				"grants": {},
+				"prerequisite": "",
+				"requiresBloodied": false,
 				"schemaVersion": {
 					"version": 0.01,
 					"lastMigration": {
@@ -1463,7 +551,7 @@
 			},
 			"system": {
 				"actions": {
-					"pTTmWDZndsHSTRq8": {
+					"8cBH7T309ZvpwqzB": {
 						"name": "Shove",
 						"activation": {
 							"cost": 1,
@@ -1475,7 +563,7 @@
 							"value": null
 						},
 						"ranges": {
-							"ng5x5j7knnsj4txn": {
+							"F3aoQFs5xW3w2NIT": {
 								"range": "fiveFeet"
 							}
 						},
@@ -1491,7 +579,7 @@
 							"size": ""
 						},
 						"rolls": {
-							"191nbULyQzCMAoHy": {
+							"jdxEGfLQwRAwaDX7": {
 								"canCrit": false,
 								"damageType": "bludgeoning",
 								"formula": "1 + @str.mod",
@@ -1500,7 +588,7 @@
 							}
 						},
 						"prompts": {
-							"XIk13OKHWtFyrN3X": {
+							"NqVFMszyfYsD5qlz": {
 								"ability": "str",
 								"onSave": "",
 								"saveDC": {
@@ -1552,7 +640,7 @@
 			},
 			"folder": null,
 			"sort": 0,
-			"_id": "Z2pTJKBR1W5dR6Ja"
+			"_id": "syO5tpK0aDm2vSok"
 		},
 		{
 			"name": "Disarm",
@@ -1566,7 +654,7 @@
 			},
 			"system": {
 				"actions": {
-					"3le9oB7eJRASgFM8": {
+					"EgV6PvEJ4NwYvXC2": {
 						"name": "Disarm",
 						"activation": {
 							"cost": 1,
@@ -1578,7 +666,7 @@
 							"value": null
 						},
 						"ranges": {
-							"4UIBkLgNrMo75Nfs": {
+							"KLwzjTI6r9dMB1H7": {
 								"range": "touch"
 							}
 						},
@@ -1594,7 +682,7 @@
 							"size": ""
 						},
 						"rolls": {
-							"pqCfKgmNwZrqV87N": {
+							"qPV1gKlBnd2fozD6": {
 								"canCrit": false,
 								"damageType": "",
 								"formula": "1 + @str.mod",
@@ -1603,7 +691,7 @@
 							}
 						},
 						"prompts": {
-							"6rX8xVTjVzk9DycU": {
+							"sCiALNTgiQscuFZp": {
 								"ability": "str",
 								"onSave": "",
 								"saveDC": {
@@ -1655,7 +743,7 @@
 			},
 			"folder": null,
 			"sort": 0,
-			"_id": "esUM9TDj1D4Go39m"
+			"_id": "QBqdql47AQquHVk8"
 		},
 		{
 			"name": "Grab On",
@@ -1669,7 +757,7 @@
 			},
 			"system": {
 				"actions": {
-					"qnGbj6GFvH1uRntI": {
+					"kYfQdvMcNkTyFerI": {
 						"name": "Grab On",
 						"activation": {
 							"cost": 1,
@@ -1681,7 +769,7 @@
 							"value": null
 						},
 						"ranges": {
-							"yfEP71M0DWQWSbmH": {
+							"mhOITBJUjbelvQJx": {
 								"range": "touch"
 							}
 						},
@@ -1697,7 +785,7 @@
 							"size": ""
 						},
 						"prompts": {
-							"PBpiq90TsKXVQgVD": {
+							"rieDeqqQrX8HJVEy": {
 								"ability": "str",
 								"onSave": "",
 								"saveDC": {
@@ -1749,7 +837,7 @@
 			},
 			"folder": null,
 			"sort": 0,
-			"_id": "r3K1xdQJLwJynWLk"
+			"_id": "KmtsV5f1JIKkIoUT"
 		},
 		{
 			"name": "Knockdown",
@@ -1763,7 +851,7 @@
 			},
 			"system": {
 				"actions": {
-					"3V1brWdEkjTOOzYe": {
+					"NjLEhJucErzQA9Y6": {
 						"name": "Knockdown",
 						"activation": {
 							"cost": 1,
@@ -1775,7 +863,7 @@
 							"value": null
 						},
 						"ranges": {
-							"JKBMpqD90RQvQpSY": {
+							"JZFeMOAfeSQKftEJ": {
 								"range": "touch"
 							}
 						},
@@ -1791,7 +879,7 @@
 							"size": ""
 						},
 						"prompts": {
-							"cdJP9gmZx0KKZiid": {
+							"Z8Zdt6iXnNsjoh0O": {
 								"ability": "str",
 								"onSave": "",
 								"saveDC": {
@@ -1843,7 +931,7 @@
 			},
 			"folder": null,
 			"sort": 0,
-			"_id": "caATQRYyTJxm1s4Z"
+			"_id": "6fzjx4qIEW2Dsgrg"
 		},
 		{
 			"name": "Grapple",
@@ -1857,7 +945,7 @@
 			},
 			"system": {
 				"actions": {
-					"1dfG5GJ6Vo4PqOBy": {
+					"S75S6MeUKlALQ8Mm": {
 						"name": "Grapple",
 						"activation": {
 							"cost": 1,
@@ -1869,7 +957,7 @@
 							"value": null
 						},
 						"ranges": {
-							"7QxfXIhyhHH0SzFz": {
+							"BC2GeqkFiecQ7H76": {
 								"range": "touch"
 							}
 						},
@@ -1885,7 +973,7 @@
 							"size": ""
 						},
 						"prompts": {
-							"Yv95rlOpHSohKhz1": {
+							"AolAnymnDS0tbEgt": {
 								"ability": "str",
 								"onSave": "",
 								"saveDC": {
@@ -1937,7 +1025,7 @@
 			},
 			"folder": null,
 			"sort": 0,
-			"_id": "drgVpzE00TgQpfko"
+			"_id": "G4Z3vfm4kDZfO8Rv"
 		},
 		{
 			"name": "Overrun",
@@ -1951,7 +1039,7 @@
 			},
 			"system": {
 				"actions": {
-					"8qBaNJ0rTQ7XVuCG": {
+					"LOK7kgAr3AGhP7FQ": {
 						"name": "Overrun",
 						"activation": {
 							"cost": 1,
@@ -1963,7 +1051,7 @@
 							"value": null
 						},
 						"ranges": {
-							"whaq2UuLmCVmUIr9": {
+							"TGKD74RD5ypg4UZZ": {
 								"range": "touch"
 							}
 						},
@@ -1979,7 +1067,7 @@
 							"size": ""
 						},
 						"prompts": {
-							"adFBVGpqbzGqkMUG": {
+							"4M22FNXfjmXpFMdJ": {
 								"ability": "str",
 								"onSave": "",
 								"saveDC": {
@@ -2031,30 +1119,287 @@
 			},
 			"folder": null,
 			"sort": 0,
-			"_id": "uuk3X2DIWBdBUTxA"
+			"_id": "vpBYD42ceqRGI560"
+		},
+		{
+			"name": "Innate Spellcasting",
+			"type": "feature",
+			"system": {
+				"ac": {
+					"baseFormula": "",
+					"formula": "",
+					"maxDex": 0,
+					"minStr": 0,
+					"mode": 2,
+					"requiresNoShield": false,
+					"requiresUnarmored": false
+				},
+				"actions": {},
+				"description": "<p>The dragon&rsquo;s spellcasting ability is Charisma (save DC 14). It can innately cast the following spells, requiring no material components.&nbsp;</p>\n<p><strong>3/day each:</strong> <em>comprehend languages, identify</em></p>",
+				"favorite": false,
+				"secretDescription": "",
+				"source": {
+					"name": "",
+					"link": "",
+					"publisher": ""
+				},
+				"uses": {
+					"value": null,
+					"max": "",
+					"per": null,
+					"recharge": {
+						"formula": "1d6",
+						"threshold": "6"
+					}
+				},
+				"schema": {
+					"version": null,
+					"lastMigration": null
+				},
+				"concentration": false,
+				"featureType": "other",
+				"grants": {},
+				"prerequisite": "",
+				"requiresBloodied": false
+			},
+			"_id": "yxYXlBtsXmngJJuB",
+			"img": "icons/svg/item-bag.svg",
+			"effects": [],
+			"folder": null,
+			"sort": 0,
+			"ownership": {
+				"default": 0
+			},
+			"flags": {}
+		},
+		{
+			"name": "Comprehend Languages",
+			"type": "spell",
+			"img": "icons/magic/symbols/runes-carved-stone-green.webp",
+			"effects": [],
+			"flags": {
+				"core": {
+					"sourceId": "Compendium.a5e.a5e-spells.Item.my7wwb844zvxcv4o"
+				}
+			},
+			"system": {
+				"actions": {
+					"1sR1uQ5fpV7M8q9P": {
+						"name": "Comprehend Languages",
+						"activation": {
+							"cost": 1,
+							"type": "action",
+							"reactionTrigger": ""
+						},
+						"duration": {
+							"unit": "hour",
+							"value": "1"
+						},
+						"ranges": {
+							"RHiGxMdZr88oKoJD": {
+								"range": "self"
+							}
+						},
+						"area": {
+							"shape": "",
+							"size": "",
+							"placeTemplate": false
+						},
+						"target": {
+							"quantity": "",
+							"type": "self"
+						},
+						"consumers": {
+							"IbJhraBBrMZlDY2I": {
+								"type": "itemUses",
+								"default": true,
+								"quantity": 1
+							}
+						}
+					}
+				},
+				"description": "<p>You gain a +10 bonus on Insight checks made to understand the meaning of any spoken language that you hear, or any written language that you can touch. Typically interpreting an unknown language is a DC 20 check, but the Narrator may use DC 15 for a language closely related to one you know, DC 25 for a language that is particularly unfamiliar or ancient, or DC 30 for a lost or dead language. This spell doesn't uncover secret messages or decode cyphers, and it does not assist in uncovering lies.</p><p><strong><em>Cast at Higher Levels.</em></strong> The bonus increases by +5 for each slot level above 1st.</p>",
+				"favorite": false,
+				"secretDescription": "",
+				"source": "",
+				"uses": {
+					"value": 3,
+					"max": "3",
+					"per": "day",
+					"recharge": {
+						"formula": "",
+						"threshold": ""
+					}
+				},
+				"schema": {
+					"version": null,
+					"lastMigration": null
+				},
+				"classes": [
+					"artificer",
+					"bard",
+					"sorcerer",
+					"warlock",
+					"wielder",
+					"witch",
+					"wizard"
+				],
+				"components": {
+					"vocalized": true,
+					"seen": true,
+					"material": true
+				},
+				"concentration": false,
+				"level": 1,
+				"materials": "ribbon with symbols of different languages written upon it",
+				"materialsConsumed": false,
+				"prepared": false,
+				"prerequisite": "",
+				"rare": false,
+				"ritual": true,
+				"schools": {
+					"primary": "divination",
+					"secondary": [
+						"communication",
+						"knowledge"
+					]
+				},
+				"schemaVersion": {
+					"version": 0.01,
+					"lastMigration": {
+						"version": {
+							"schema": 0.009,
+							"foundry": "12.316",
+							"system": "0.16.12"
+						}
+					}
+				}
+			},
+			"folder": null,
+			"_id": "IaJc3GvZycT8nwoh",
+			"sort": 0,
+			"ownership": {
+				"default": 0
+			}
+		},
+		{
+			"name": "Identify",
+			"type": "spell",
+			"img": "icons/magic/perception/orb-eye-scrying.webp",
+			"effects": [],
+			"flags": {},
+			"system": {
+				"actions": {
+					"4XhYModUQGm7pzgi": {
+						"name": "Identify",
+						"activation": {
+							"cost": 1,
+							"type": "minute",
+							"reactionTrigger": ""
+						},
+						"duration": {
+							"unit": "instantaneous",
+							"value": ""
+						},
+						"ranges": {
+							"ap8M047nihNpOLsX": {
+								"range": "touch"
+							}
+						},
+						"area": {
+							"shape": "",
+							"size": "",
+							"placeTemplate": false
+						},
+						"target": {
+							"quantity": "",
+							"type": "creatureObject"
+						},
+						"consumers": {
+							"FR2lBBQKGOA2Wccz": {
+								"type": "itemUses",
+								"default": true,
+								"quantity": 1
+							}
+						}
+					}
+				},
+				"description": "<p>You learn the target item's magical properties along with how to use them. This spell also reveals whether or not a targeted item requires attunement and how many charges it has. You learn what spells are affecting the targeted item (if any) along with what spells were used to create it.</p><p>Alternatively, you learn any spells that are currently affecting a targeted creature.</p><p>What this spell can reveal is at the Narrator's discretion, and some powerful and rare magics are immune to identify.</p>",
+				"favorite": false,
+				"secretDescription": "",
+				"source": "",
+				"uses": {
+					"value": 3,
+					"max": "3",
+					"per": "day",
+					"recharge": {
+						"formula": "",
+						"threshold": ""
+					}
+				},
+				"schema": {
+					"version": null,
+					"lastMigration": null
+				},
+				"classes": [
+					"artificer",
+					"bard",
+					"witch",
+					"wizard"
+				],
+				"components": {
+					"vocalized": true,
+					"seen": true,
+					"material": true
+				},
+				"concentration": false,
+				"level": 1,
+				"materials": "pearl worth at least 100 gold and a feather",
+				"materialsConsumed": false,
+				"prepared": false,
+				"prerequisite": "",
+				"rare": false,
+				"ritual": true,
+				"schools": {
+					"primary": "divination",
+					"secondary": [
+						"arcane",
+						"knowledge"
+					]
+				},
+				"schemaVersion": {
+					"version": 0.01,
+					"lastMigration": {
+						"version": {
+							"schema": 0.009,
+							"foundry": "12.316",
+							"system": "0.16.12"
+						}
+					}
+				}
+			},
+			"folder": null,
+			"_id": "mnSVewfnAxaxOixR",
+			"sort": 0,
+			"ownership": {
+				"default": 0
+			}
 		}
 	],
 	"effects": [],
 	"flags": {
 		"a5e": {
-			"availableSpellLevels": [
-				"1",
-				"0"
-			],
+			"availableSpellLevels": [],
 			"showSpellSlots": false,
 			"showSpellPoints": false,
-			"featureActivationCostFilters": {
-				"inclusive": [],
-				"exclusive": []
-			},
-			"sheetIsLocked": true,
-			"showSpellTab": false
+			"showSpellTab": true,
+			"sheetIsLocked": true
 		}
 	},
 	"system": {
 		"abilities": {
 			"str": {
-				"value": 22,
+				"value": 18,
 				"check": {
 					"expertiseDice": 0,
 					"bonus": "",
@@ -2082,7 +1427,7 @@
 				}
 			},
 			"con": {
-				"value": 20,
+				"value": 16,
 				"check": {
 					"expertiseDice": 0,
 					"bonus": "",
@@ -2096,7 +1441,7 @@
 				}
 			},
 			"int": {
-				"value": 18,
+				"value": 16,
 				"check": {
 					"expertiseDice": 0,
 					"bonus": "",
@@ -2110,7 +1455,7 @@
 				}
 			},
 			"wis": {
-				"value": 14,
+				"value": 12,
 				"check": {
 					"expertiseDice": 0,
 					"bonus": "",
@@ -2124,7 +1469,7 @@
 				}
 			},
 			"cha": {
-				"value": 16,
+				"value": 14,
 				"check": {
 					"expertiseDice": 0,
 					"bonus": "",
@@ -2436,7 +1781,7 @@
 		},
 		"attributes": {
 			"ac": {
-				"baseFormula": "18",
+				"baseFormula": "17",
 				"value": 0
 			},
 			"death": {
@@ -2444,8 +1789,8 @@
 				"failure": 0
 			},
 			"hp": {
-				"value": 161,
-				"baseMax": 161,
+				"value": 153,
+				"baseMax": 153,
 				"temp": 0,
 				"bonus": 0
 			},
@@ -2459,12 +1804,12 @@
 					"total": 0
 				},
 				"d10": {
-					"current": 0,
-					"total": 0
+					"current": 18,
+					"total": 18
 				},
 				"d12": {
-					"current": 14,
-					"total": 14
+					"current": 0,
+					"total": 0
 				},
 				"d4": {
 					"current": 0,
@@ -2482,7 +1827,7 @@
 			},
 			"movement": {
 				"burrow": {
-					"distance": 30,
+					"distance": 20,
 					"unit": "feet"
 				},
 				"climb": {
@@ -2507,7 +1852,7 @@
 			},
 			"senses": {
 				"blindsight": {
-					"distance": 60,
+					"distance": 30,
 					"unit": "feet",
 					"otherwiseBlind": false
 				},
@@ -2555,7 +1900,7 @@
 				"dragon"
 			],
 			"isSwarm": false,
-			"cr": 16,
+			"cr": 9,
 			"elite": false,
 			"privateNotes": "",
 			"notes": ""
@@ -2565,7 +1910,7 @@
 			"languages": [
 				"draconic",
 				"common",
-				"Two more"
+				"One more"
 			],
 			"tools": [],
 			"weapons": []
@@ -2622,7 +1967,7 @@
 			"publisher": ""
 		},
 		"traits": {
-			"size": "huge",
+			"size": "lg",
 			"conditionImmunities": [],
 			"damageImmunities": [
 				"fire"
@@ -2632,11 +1977,11 @@
 		}
 	},
 	"prototypeToken": {
-		"name": "Adult Brass Dragon",
+		"name": "Young Brass Dragon",
 		"displayName": 30,
 		"actorLink": false,
-		"width": 3,
-		"height": 3,
+		"width": 2,
+		"height": 2,
 		"lockRotation": false,
 		"rotation": 0,
 		"alpha": 1,
@@ -2698,5 +2043,5 @@
 		"prependAdjective": false
 	},
 	"folder": null,
-	"_id": "7xzhrt419yfho82n"
+	"_id": "kufizu792ehp6t9i"
 }

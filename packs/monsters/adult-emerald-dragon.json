@@ -230,63 +230,6 @@
 			}
 		},
 		{
-			"_id": "Oj6zxC4tK0dfxzsS",
-			"name": "Innate Spellcasting",
-			"type": "feature",
-			"img": "icons/svg/item-bag.svg",
-			"effects": [],
-			"folder": null,
-			"sort": 0,
-			"flags": {},
-			"system": {
-				"ac": {
-					"baseFormula": "",
-					"formula": "",
-					"maxDex": 0,
-					"minStr": 0,
-					"mode": 1,
-					"requiresNoShield": false,
-					"requiresUnarmored": false
-				},
-				"actions": {},
-				"description": "<p>The dragon’s spellcasting ability is Charisma (save DC 18). It can innately cast the following spells, requiring no material components.&nbsp;</p><p>&nbsp; &nbsp;3/day each:&nbsp;<em>confusion</em>, <em>dominate person, hideous laughter,</em> <em>suggestion</em></p>",
-				"favorite": false,
-				"secretDescription": "",
-				"source": "",
-				"uses": {
-					"value": null,
-					"max": "",
-					"per": null,
-					"recharge": {
-						"formula": "",
-						"threshold": ""
-					}
-				},
-				"schema": {
-					"version": null,
-					"lastMigration": null
-				},
-				"concentration": false,
-				"featureType": "",
-				"grants": {},
-				"prerequisite": "",
-				"requiresBloodied": false,
-				"schemaVersion": {
-					"version": 0.01,
-					"lastMigration": {
-						"version": {
-							"schema": 0.009,
-							"foundry": "12.316",
-							"system": "0.16.12"
-						}
-					}
-				}
-			},
-			"ownership": {
-				"default": 0
-			}
-		},
-		{
 			"_id": "GHtIrR53vfBXo95B",
 			"name": "Multiattack",
 			"type": "feature",
@@ -680,7 +623,7 @@
 		},
 		{
 			"_id": "1St3GwbIaGnvDa6Q",
-			"name": "Maddening Breath (Recharge 5-6)",
+			"name": "Maddening Breath",
 			"type": "feature",
 			"img": "icons/svg/item-bag.svg",
 			"effects": [],
@@ -699,7 +642,7 @@
 				},
 				"actions": {
 					"btqRoW8AnHq8qZw4": {
-						"name": "Maddening Breath (Recharge 5-6)",
+						"name": "Maddening Breath",
 						"activation": {
 							"cost": 1,
 							"type": "action",
@@ -740,7 +683,13 @@
 								"type": "savingThrow"
 							}
 						},
-						"consumers": {}
+						"consumers": {
+							"MaNLc7wqdROyTxco": {
+								"type": "itemUses",
+								"default": true,
+								"quantity": 1
+							}
+						}
 					}
 				},
 				"description": "<p>The dragon screams, stripping flesh from bones and reason from minds in a 60-foot cone. Each creature in that area makes a DC 18 Constitution saving throw, taking 71 (13d10) thunder damage on a failed save or half damage on a success. Creatures that fail this saving throw by 10 or more are also psionically confused until the end of their next turn.</p>",
@@ -748,9 +697,9 @@
 				"secretDescription": "",
 				"source": "",
 				"uses": {
-					"value": null,
-					"max": "",
-					"per": null,
+					"value": 1,
+					"max": "1",
+					"per": "recharge",
 					"recharge": {
 						"formula": "",
 						"threshold": ""
@@ -939,7 +888,7 @@
 		},
 		{
 			"_id": "cYR1G6A2LcyThuwV",
-			"name": "Paranoid Ranting (Legendary)",
+			"name": "Paranoid Ranting",
 			"type": "feature",
 			"img": "icons/svg/item-bag.svg",
 			"effects": [],
@@ -958,7 +907,7 @@
 				},
 				"actions": {
 					"5bYTJhIjMdf5VjwL": {
-						"name": "Paranoid Ranting (Legendary)",
+						"name": "Paranoid Ranting",
 						"activation": {
 							"cost": 1,
 							"type": "legendaryAction",
@@ -1035,7 +984,7 @@
 		},
 		{
 			"_id": "XcGwlqnF3Qay6tTM",
-			"name": "Pandorum (Legendary)",
+			"name": "Pandorum",
 			"type": "feature",
 			"img": "icons/svg/item-bag.svg",
 			"effects": [],
@@ -1054,7 +1003,7 @@
 				},
 				"actions": {
 					"3GQ986o6rj1HbFEw": {
-						"name": "Pandorum (Legendary)",
+						"name": "Pandorum",
 						"activation": {
 							"cost": 2,
 							"type": "legendaryAction",
@@ -1131,7 +1080,7 @@
 		},
 		{
 			"_id": "QOSErrIn4j40d0Qz",
-			"name": "Psionic Wave (Legendary)",
+			"name": "Psionic Wave",
 			"type": "feature",
 			"img": "icons/svg/item-bag.svg",
 			"effects": [],
@@ -1234,7 +1183,7 @@
 		},
 		{
 			"_id": "Qgmm4PfyOt7oKhJc",
-			"name": "Maddening Harmonics (Legendary)",
+			"name": "Maddening Harmonics",
 			"type": "feature",
 			"img": "icons/svg/item-bag.svg",
 			"effects": [],
@@ -1253,7 +1202,7 @@
 				},
 				"actions": {
 					"52DKBsX4WbuDifWX": {
-						"name": "Maddening Harmonics (Legendary)",
+						"name": "Maddening Harmonics",
 						"activation": {
 							"cost": 1,
 							"type": "legendaryAction",
@@ -1914,7 +1863,13 @@
 		}
 	],
 	"effects": [],
-	"flags": {},
+	"flags": {
+		"a5e": {
+			"showSpellTab": false,
+			"showSpellSlots": false,
+			"sheetIsLocked": true
+		}
+	},
 	"system": {
 		"abilities": {
 			"str": {
@@ -2502,7 +2457,7 @@
 	},
 	"prototypeToken": {
 		"name": "Ancient Amethyst Dragon",
-		"displayName": 0,
+		"displayName": 30,
 		"actorLink": false,
 		"width": 3,
 		"height": 3,
@@ -2533,7 +2488,7 @@
 			"color": null
 		},
 		"disposition": -1,
-		"displayBars": 0,
+		"displayBars": 30,
 		"bar1": {
 			"attribute": "attributes.hp"
 		},
@@ -2553,7 +2508,7 @@
 		},
 		"sight": {
 			"angle": 360,
-			"enabled": false,
+			"enabled": true,
 			"range": 0,
 			"brightness": 1,
 			"color": null,

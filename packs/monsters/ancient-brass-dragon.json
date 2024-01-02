@@ -44,6 +44,7 @@
 				"featureType": "",
 				"grants": {},
 				"prerequisite": "",
+				"requiresBloodied": false,
 				"schemaVersion": {
 					"version": 0.01,
 					"lastMigration": {
@@ -152,6 +153,7 @@
 				"featureType": "naturalWeapon",
 				"grants": {},
 				"prerequisite": "",
+				"requiresBloodied": false,
 				"schemaVersion": {
 					"version": 0.01,
 					"lastMigration": {
@@ -168,13 +170,13 @@
 			}
 		},
 		{
-			"_id": "306Vm1DH1Ukw4q3e",
-			"name": "Molten Breath",
+			"_id": "UsGt8K5pNhFpsTVU",
+			"name": "Breath Weapons",
 			"type": "feature",
 			"img": "icons/svg/item-bag.svg",
 			"effects": [],
 			"folder": null,
-			"sort": 1700000,
+			"sort": 1600000,
 			"flags": {},
 			"system": {
 				"ac": {
@@ -187,28 +189,19 @@
 					"requiresUnarmored": false
 				},
 				"actions": {
-					"6z5SzMOIV5XeHu3D": {
+					"esvIeTZ6eIsuGYJk": {
 						"name": "Molten Breath",
 						"activation": {
 							"cost": 1,
 							"type": "action",
 							"reactionTrigger": ""
 						},
-						"duration": {
-							"unit": "instantaneous",
-							"value": ""
-						},
-						"ranges": {},
-						"area": {
-							"shape": "line",
-							"size": "90ft long, 10ft wide",
-							"placeTemplate": false,
-							"length": 90,
-							"width": 10
-						},
-						"target": {
-							"quantity": 1,
-							"type": ""
+						"consumers": {
+							"k4zy6XgZnwbNKsb1": {
+								"type": "itemUses",
+								"default": true,
+								"quantity": 1
+							}
 						},
 						"rolls": {
 							"ayYp3FbLrcaMVY7m": {
@@ -230,87 +223,49 @@
 								"type": "savingThrow"
 							}
 						},
-						"consumers": {}
-					}
-				},
-				"description": "<p>The dragon exhales molten glass in a 90-foot-long, 10-foot-wide line. Each creature in the area makes a DC 22 Dexterity saving throw, taking 70 (20d6) fire damage on a failed save or half damage on a success. A creature that fails the save is also blinded until the end of its next turn.</p>",
-				"favorite": true,
-				"secretDescription": "",
-				"source": "",
-				"uses": {
-					"value": null,
-					"max": "",
-					"per": null,
-					"recharge": {
-						"formula": "",
-						"threshold": ""
-					}
-				},
-				"schema": {
-					"version": null,
-					"lastMigration": null
-				},
-				"concentration": false,
-				"featureType": "",
-				"grants": {},
-				"prerequisite": "",
-				"schemaVersion": {
-					"version": 0.01,
-					"lastMigration": {
-						"version": {
-							"schema": 0.009,
-							"foundry": "12.316",
-							"system": "0.16.12"
-						}
-					}
-				}
-			},
-			"ownership": {
-				"default": 0
-			}
-		},
-		{
-			"_id": "Bim0H8V6HDfKgukk",
-			"name": "Sleep Breath",
-			"type": "feature",
-			"img": "icons/svg/item-bag.svg",
-			"effects": [],
-			"folder": null,
-			"sort": 1800000,
-			"flags": {},
-			"system": {
-				"ac": {
-					"baseFormula": "",
-					"formula": "",
-					"maxDex": 0,
-					"minStr": 0,
-					"mode": 1,
-					"requiresNoShield": false,
-					"requiresUnarmored": false
-				},
-				"actions": {
-					"TfiFZ2tnyFSgvvX4": {
+						"uses": {
+							"value": 0,
+							"max": "",
+							"per": "",
+							"recharge": {
+								"formula": "1d6",
+								"threshold": 6
+							}
+						},
+						"duration": {
+							"unit": "instantaneous",
+							"value": ""
+						},
+						"ranges": {},
+						"area": {
+							"shape": "line",
+							"size": "90ft long, 10ft wide",
+							"placeTemplate": false,
+							"length": 90,
+							"width": 10,
+							"quantity": 1
+						},
+						"target": {
+							"quantity": 1,
+							"type": ""
+						},
+						"img": "icons/svg/item-bag.svg"
+					},
+					"v1h1yYWr5cqLuLgV": {
 						"name": "Sleep Breath",
 						"activation": {
 							"cost": 1,
 							"type": "action",
 							"reactionTrigger": ""
 						},
-						"duration": {
-							"unit": "minute",
-							"value": 10
+						"consumers": {
+							"mdyWr4I0Qg6axOhj": {
+								"type": "itemUses",
+								"default": true,
+								"quantity": 1
+							}
 						},
-						"ranges": {},
-						"area": {
-							"shape": "cone",
-							"size": "60ft",
-							"placeTemplate": false,
-							"length": 90
-						},
-						"target": {
-							"quantity": 1,
-							"type": ""
-						},
+						"rolls": {},
 						"prompts": {
 							"Wb72omeOkImZ4Ym0": {
 								"ability": "con",
@@ -322,76 +277,45 @@
 								"type": "savingThrow"
 							}
 						},
-						"consumers": {}
+						"uses": {
+							"value": 0,
+							"max": "",
+							"per": "",
+							"recharge": {
+								"formula": "1d6",
+								"threshold": 6
+							}
+						},
+						"duration": {
+							"unit": "minute",
+							"value": 10
+						},
+						"ranges": {},
+						"area": {
+							"shape": "cone",
+							"size": "60ft",
+							"placeTemplate": false,
+							"length": 90,
+							"quantity": 1
+						},
+						"target": {
+							"quantity": 1,
+							"type": ""
+						},
+						"img": "icons/svg/item-bag.svg"
 					}
 				},
-				"description": "<p>The dragon exhales sleep gas in a 90-foot cone. Each creature in the area makes a DC 22 Constitution saving throw. On a failure, a creature falls unconscious for 10 minutes or until it takes damage or someone uses an action to wake it.</p>",
-				"favorite": true,
-				"secretDescription": "",
-				"source": "",
-				"uses": {
-					"value": null,
-					"max": "",
-					"per": null,
-					"recharge": {
-						"formula": "",
-						"threshold": ""
-					}
-				},
-				"schema": {
-					"version": null,
-					"lastMigration": null
-				},
-				"concentration": false,
-				"featureType": "",
-				"grants": {},
-				"prerequisite": "",
-				"schemaVersion": {
-					"version": 0.01,
-					"lastMigration": {
-						"version": {
-							"schema": 0.009,
-							"foundry": "12.316",
-							"system": "0.16.12"
-						}
-					}
-				}
-			},
-			"ownership": {
-				"default": 0
-			}
-		},
-		{
-			"_id": "UsGt8K5pNhFpsTVU",
-			"name": "Breath Weapons (Recharge 5–6)",
-			"type": "feature",
-			"img": "icons/svg/item-bag.svg",
-			"effects": [],
-			"folder": null,
-			"sort": 1600000,
-			"flags": {},
-			"system": {
-				"ac": {
-					"baseFormula": "",
-					"formula": "",
-					"maxDex": 0,
-					"minStr": 0,
-					"mode": 1,
-					"requiresNoShield": false,
-					"requiresUnarmored": false
-				},
-				"actions": {},
 				"description": "<p>The dragon uses one of the following breath weapons:</p><p><strong>Molten Breath.</strong> The dragon exhales molten glass in a 90-foot-long, 10-foot-wide line. Each creature in the area makes a DC 22 Dexterity saving throw, taking 70 (20d6) fire damage on a failed save or half damage on a success. A creature that fails the save is also blinded until the end of its next turn.</p><p><strong>Sleep Breath.</strong> The dragon exhales sleep gas in a 90-foot cone. Each creature in the area makes a DC 22 Constitution saving throw. On a failure, a creature falls unconscious for 10 minutes or until it takes damage or someone uses an action to wake it.</p>",
 				"favorite": false,
 				"secretDescription": "",
 				"source": "",
 				"uses": {
-					"value": null,
-					"max": "",
-					"per": null,
+					"value": 1,
+					"max": "1",
+					"per": "recharge",
 					"recharge": {
 						"formula": "",
-						"threshold": ""
+						"threshold": 5
 					}
 				},
 				"schema": {
@@ -402,6 +326,7 @@
 				"featureType": "",
 				"grants": {},
 				"prerequisite": "",
+				"requiresBloodied": false,
 				"schemaVersion": {
 					"version": 0.01,
 					"lastMigration": {
@@ -458,6 +383,7 @@
 				"featureType": "",
 				"grants": {},
 				"prerequisite": "",
+				"requiresBloodied": false,
 				"schemaVersion": {
 					"version": 0.01,
 					"lastMigration": {
@@ -558,6 +484,7 @@
 				"featureType": "",
 				"grants": {},
 				"prerequisite": "",
+				"requiresBloodied": false,
 				"schemaVersion": {
 					"version": 0.01,
 					"lastMigration": {
@@ -645,6 +572,7 @@
 				"featureType": "",
 				"grants": {},
 				"prerequisite": "",
+				"requiresBloodied": false,
 				"schemaVersion": {
 					"version": 0.01,
 					"lastMigration": {
@@ -701,6 +629,7 @@
 				"featureType": "",
 				"grants": {},
 				"prerequisite": "",
+				"requiresBloodied": false,
 				"schemaVersion": {
 					"version": 0.01,
 					"lastMigration": {
@@ -801,6 +730,7 @@
 				"featureType": "",
 				"grants": {},
 				"prerequisite": "",
+				"requiresBloodied": false,
 				"schemaVersion": {
 					"version": 0.01,
 					"lastMigration": {
@@ -912,6 +842,7 @@
 				"featureType": "",
 				"grants": {},
 				"prerequisite": "",
+				"requiresBloodied": false,
 				"schemaVersion": {
 					"version": 0.01,
 					"lastMigration": {
@@ -968,6 +899,7 @@
 				"featureType": "",
 				"grants": {},
 				"prerequisite": "",
+				"requiresBloodied": false,
 				"schemaVersion": {
 					"version": 0.01,
 					"lastMigration": {
@@ -1052,6 +984,7 @@
 				"featureType": "",
 				"grants": {},
 				"prerequisite": "",
+				"requiresBloodied": false,
 				"schemaVersion": {
 					"version": 0.01,
 					"lastMigration": {
@@ -1108,6 +1041,7 @@
 				"featureType": "",
 				"grants": {},
 				"prerequisite": "",
+				"requiresBloodied": false,
 				"schemaVersion": {
 					"version": 0.01,
 					"lastMigration": {
@@ -1125,7 +1059,7 @@
 		},
 		{
 			"_id": "lFeGAeyfmxTuFBOA",
-			"name": "Legendary Action: Analyze",
+			"name": "Analyze",
 			"type": "feature",
 			"img": "icons/svg/item-bag.svg",
 			"effects": [],
@@ -1192,6 +1126,7 @@
 				"featureType": "",
 				"grants": {},
 				"prerequisite": "",
+				"requiresBloodied": false,
 				"schemaVersion": {
 					"version": 0.01,
 					"lastMigration": {
@@ -1209,7 +1144,7 @@
 		},
 		{
 			"_id": "6v8c8DKoYycvN8xM",
-			"name": "Legendary Action: Roar",
+			"name": "Roar",
 			"type": "feature",
 			"img": "icons/magic/sonic/scream-wail-shout-teal.webp",
 			"effects": [],
@@ -1285,6 +1220,7 @@
 				"featureType": "",
 				"grants": {},
 				"prerequisite": "",
+				"requiresBloodied": false,
 				"schemaVersion": {
 					"version": 0.01,
 					"lastMigration": {
@@ -1302,7 +1238,7 @@
 		},
 		{
 			"_id": "XYx5J3mwcYPwfL3m",
-			"name": "Legendary Action: Wing Attack",
+			"name": "Wing Attack",
 			"type": "feature",
 			"img": "icons/svg/item-bag.svg",
 			"effects": [],
@@ -1378,6 +1314,7 @@
 				"featureType": "",
 				"grants": {},
 				"prerequisite": "",
+				"requiresBloodied": false,
 				"schemaVersion": {
 					"version": 0.01,
 					"lastMigration": {
@@ -1597,6 +1534,7 @@
 					"version": null,
 					"lastMigration": null
 				},
+				"concentration": false,
 				"degree": 0,
 				"exertionCost": 0,
 				"isStance": false,
@@ -1699,6 +1637,7 @@
 					"version": null,
 					"lastMigration": null
 				},
+				"concentration": false,
 				"degree": 0,
 				"exertionCost": 0,
 				"isStance": false,
@@ -1792,6 +1731,7 @@
 					"version": null,
 					"lastMigration": null
 				},
+				"concentration": false,
 				"degree": 0,
 				"exertionCost": 0,
 				"isStance": false,
@@ -1885,6 +1825,7 @@
 					"version": null,
 					"lastMigration": null
 				},
+				"concentration": false,
 				"degree": 0,
 				"exertionCost": 0,
 				"isStance": false,
@@ -1978,6 +1919,7 @@
 					"version": null,
 					"lastMigration": null
 				},
+				"concentration": false,
 				"degree": 0,
 				"exertionCost": 0,
 				"isStance": false,
@@ -2071,6 +2013,7 @@
 					"version": null,
 					"lastMigration": null
 				},
+				"concentration": false,
 				"degree": 0,
 				"exertionCost": 0,
 				"isStance": false,
@@ -2104,7 +2047,9 @@
 			"featureActivationCostFilters": {
 				"inclusive": [],
 				"exclusive": []
-			}
+			},
+			"showSpellTab": false,
+			"sheetIsLocked": true
 		}
 	},
 	"system": {
@@ -2532,6 +2477,7 @@
 				}
 			},
 			"initiative": {
+				"ability": "dex",
 				"bonus": "",
 				"expertiseDice": 0
 			},
@@ -2586,15 +2532,15 @@
 			"casterLevel": 0
 		},
 		"bonuses": {
-			"abilities": {},
-			"damage": {},
-			"healing": {},
 			"maneuverDC": "",
 			"meleeSpellAttack": "",
 			"meleeWeaponAttack": "",
 			"rangedSpellAttack": "",
 			"rangedWeaponAttack": "",
 			"spellDC": "",
+			"abilities": {},
+			"damage": {},
+			"healing": {},
 			"skills": {}
 		},
 		"currency": {
@@ -2688,7 +2634,7 @@
 	},
 	"prototypeToken": {
 		"name": "Ancient Brass Dragon",
-		"displayName": 0,
+		"displayName": 30,
 		"actorLink": false,
 		"width": 4,
 		"height": 4,
@@ -2719,7 +2665,7 @@
 			"attenuation": 0.5
 		},
 		"disposition": -1,
-		"displayBars": 0,
+		"displayBars": 30,
 		"bar1": {
 			"attribute": "attributes.hp"
 		},
@@ -2735,15 +2681,11 @@
 			"scaleY": 1,
 			"offsetX": 0,
 			"offsetY": 0,
-			"rotation": 0,
-			"anchorX": 0.5,
-			"anchorY": 0.5,
-			"fit": "contain",
-			"alphaThreshold": 0.75
+			"rotation": 0
 		},
 		"sight": {
 			"angle": 360,
-			"enabled": false,
+			"enabled": true,
 			"range": 0,
 			"brightness": 1,
 			"color": null,
@@ -2754,12 +2696,7 @@
 		},
 		"detectionModes": [],
 		"appendNumber": false,
-		"prependAdjective": false,
-		"hexagonalShape": 0,
-		"locked": false,
-		"occludable": {
-			"radius": 0
-		}
+		"prependAdjective": false
 	},
 	"folder": null,
 	"_id": "kt32g85udcv6f8sw"

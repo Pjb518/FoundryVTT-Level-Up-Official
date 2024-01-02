@@ -1,5 +1,5 @@
 {
-	"name": "Ancient Emerald Dragon",
+	"name": "Ancient Emerald Dragon Spellcaster",
 	"type": "npc",
 	"img": "systems/a5e/assets/emerald-dragon.webp",
 	"items": [
@@ -193,6 +193,63 @@
 					}
 				},
 				"description": "<p>The dragon is aware of any creature that uses a psionic ability or communicates telepathically within 100 miles of it. As an action, the dragon can psionically observe a creature, object, or location it is familiar with within 100 miles. While observing a subject in this way, the dragon can see, hear, and communicate telepathically, but it is blind and deaf in regard to its physical senses and does not require food or water. The dragon can psionically observe a subject indefinitely and can end this effect and return to its own senses as an action.</p>",
+				"favorite": false,
+				"secretDescription": "",
+				"source": "",
+				"uses": {
+					"value": null,
+					"max": "",
+					"per": null,
+					"recharge": {
+						"formula": "",
+						"threshold": ""
+					}
+				},
+				"schema": {
+					"version": null,
+					"lastMigration": null
+				},
+				"concentration": false,
+				"featureType": "",
+				"grants": {},
+				"prerequisite": "",
+				"requiresBloodied": false,
+				"schemaVersion": {
+					"version": 0.01,
+					"lastMigration": {
+						"version": {
+							"schema": 0.009,
+							"foundry": "12.316",
+							"system": "0.16.12"
+						}
+					}
+				}
+			},
+			"ownership": {
+				"default": 0
+			}
+		},
+		{
+			"_id": "Oj6zxC4tK0dfxzsS",
+			"name": "Innate Spellcasting",
+			"type": "feature",
+			"img": "icons/svg/item-bag.svg",
+			"effects": [],
+			"folder": null,
+			"sort": 0,
+			"flags": {},
+			"system": {
+				"ac": {
+					"baseFormula": "",
+					"formula": "",
+					"maxDex": 0,
+					"minStr": 0,
+					"mode": 1,
+					"requiresNoShield": false,
+					"requiresUnarmored": false
+				},
+				"actions": {},
+				"description": "<p>The dragon&rsquo;s spellcasting ability is Charisma (save DC 21). It can innately cast the following spells, requiring no material components.</p>\n<p><strong>3/day each:&nbsp;</strong><em>confusion</em>, <em>dominate person, hideous laughter,</em> <em>suggestion</em></p>\n<p><strong>1/day:</strong><em>&nbsp;irresistible dance</em>,<em> symbol</em></p>",
 				"favorite": false,
 				"secretDescription": "",
 				"source": "",
@@ -1860,12 +1917,1596 @@
 			"folder": null,
 			"sort": 0,
 			"_id": "ZilCtk6wZpWSE3M8"
+		},
+		{
+			"name": "Hideous Laughter",
+			"type": "spell",
+			"img": "icons/skills/wounds/injury-face-impact-orange.webp",
+			"effects": [
+				{
+					"icon": "icons/skills/wounds/injury-face-impact-orange.webp",
+					"origin": "Actor.HnrkWEVEHyPUC1m3.Item.lc9JU9MUdBi2lrzv",
+					"flags": {
+						"a5e": {
+							"sort": 0,
+							"transferType": "onUse",
+							"actionId": "EnM94wEvCpTZmMnQ",
+							"duration": {
+								"unit": "minutes"
+							}
+						}
+					},
+					"transfer": false,
+					"name": "Hideous Laughter",
+					"_id": "sEzBFpSnqGKITqF4",
+					"changes": [
+						{
+							"key": "flags.a5e.effects.statusConditions",
+							"value": "[\"prone\",\"incapacitated\"]",
+							"mode": 0,
+							"priority": null
+						}
+					],
+					"disabled": false,
+					"duration": {
+						"startTime": null,
+						"seconds": 60,
+						"combat": null,
+						"rounds": null,
+						"turns": null,
+						"startRound": null,
+						"startTurn": null
+					},
+					"description": "<p>The target is overwhelmed by the absurdity of the world and is crippled by paroxysms of laughter. The target falls prone, becomes incapacitated, and cannot stand.</p>\n<p>Until the spell ends, at the end of each of the target's turns and when it suffers damage, the target may attempt another saving throw (with advantage if triggered by damage). On a successful save, the spell ends.</p>",
+					"statuses": [
+						"prone",
+						"incapacitated"
+					],
+					"folder": null
+				}
+			],
+			"flags": {},
+			"system": {
+				"actions": {
+					"EnM94wEvCpTZmMnQ": {
+						"name": "Hideous Laughter",
+						"activation": {
+							"cost": 1,
+							"type": "action",
+							"reactionTrigger": ""
+						},
+						"duration": {
+							"unit": "minute",
+							"value": "1"
+						},
+						"ranges": {
+							"ugxA7hBRUYvuksdr": {
+								"range": "short"
+							}
+						},
+						"area": {
+							"shape": "",
+							"size": "",
+							"placeTemplate": false
+						},
+						"target": {
+							"quantity": "",
+							"type": "creature"
+						},
+						"prompts": {
+							"plcXxhiZ6YSjHGFQ": {
+								"ability": "wis",
+								"onSave": "Negates effect",
+								"saveDC": {
+									"type": "spellcasting",
+									"bonus": ""
+								},
+								"type": "savingThrow"
+							},
+							"xFVLHsLZbeDVBmtj": {
+								"type": "effect",
+								"default": true,
+								"effectId": "sEzBFpSnqGKITqF4"
+							}
+						},
+						"consumers": {
+							"u0JakvHN6ui2pfAr": {
+								"type": "itemUses",
+								"default": true,
+								"quantity": 1
+							}
+						}
+					}
+				},
+				"description": "<p>The target is overwhelmed by the absurdity of the world and is crippled by paroxysms of laughter. The target falls prone, becomes incapacitated, and cannot stand.</p><p>Until the spell ends, at the end of each of the target's turns and when it suffers damage, the target may attempt another saving throw (with advantage if triggered by damage). On a successful save, the spell ends.</p><p><strong><em>Cast at Higher Levels.</em></strong> Target an additional creature within 30 feet of the original for each slot level above 1st.</p>",
+				"favorite": false,
+				"secretDescription": "",
+				"source": "",
+				"uses": {
+					"value": 3,
+					"max": "3",
+					"per": "day",
+					"recharge": {
+						"formula": "",
+						"threshold": ""
+					}
+				},
+				"schema": {
+					"version": null,
+					"lastMigration": null
+				},
+				"classes": [
+					"bard",
+					"witch",
+					"wizard"
+				],
+				"components": {
+					"vocalized": true,
+					"seen": true,
+					"material": true
+				},
+				"concentration": true,
+				"level": 1,
+				"materials": "poppy seed",
+				"materialsConsumed": false,
+				"prepared": false,
+				"prerequisite": "",
+				"rare": false,
+				"ritual": false,
+				"schools": {
+					"primary": "enchantment",
+					"secondary": [
+						"affliction",
+						"arcane",
+						"compulsion"
+					]
+				},
+				"schemaVersion": {
+					"version": 0.01,
+					"lastMigration": {
+						"version": {
+							"schema": 0.009,
+							"foundry": "12.316",
+							"system": "0.16.12"
+						}
+					}
+				}
+			},
+			"folder": null,
+			"_id": "lc9JU9MUdBi2lrzv",
+			"sort": 0,
+			"ownership": {
+				"default": 0
+			}
+		},
+		{
+			"name": "Suggestion",
+			"type": "spell",
+			"img": "icons/magic/control/hypnosis-mesmerism-pendulum.webp",
+			"effects": [],
+			"flags": {
+				"core": {
+					"sourceId": "Compendium.a5e.a5e-spells.Item.ml9ls27u9ncms8ko"
+				}
+			},
+			"system": {
+				"actions": {
+					"HAVBAuWUd77vIkT2": {
+						"name": "Suggestion",
+						"activation": {
+							"cost": 1,
+							"type": "action",
+							"reactionTrigger": ""
+						},
+						"duration": {
+							"unit": "hour",
+							"value": "8"
+						},
+						"ranges": {
+							"R8AfmhfWgZcrAOnB": {
+								"range": "short"
+							}
+						},
+						"area": {
+							"shape": "",
+							"size": "",
+							"placeTemplate": false,
+							"quantity": 1
+						},
+						"target": {
+							"quantity": "",
+							"type": "creature"
+						},
+						"prompts": {
+							"iZ04XZe1LejKYG9l": {
+								"ability": "wis",
+								"onSave": "Negates effect",
+								"saveDC": {
+									"type": "spellcasting",
+									"bonus": ""
+								},
+								"type": "savingThrow"
+							}
+						},
+						"consumers": {
+							"0hvJHeq6bwc2DrxG": {
+								"type": "itemUses",
+								"default": true,
+								"quantity": 1
+							}
+						}
+					}
+				},
+				"description": "<p>Creatures that cannot be charmed are immune to this spell. Suggest an activity phrased in a sentence or two. The target is magically influenced to follow that course of activity. The suggestion must be worded to sound reasonable. Asking the target to perform an action that is obviously harmful to it ends the spell.</p><p>The target carries out the activity suggested by you as well as it can. The activity can last for the duration of the spell, and if it requires less time the spell ends after the target has carried out the activity.</p><p>You may specify trigger conditions that cause the target to perform a specific activity while the spell lasts. For example, you may suggest that the target takes off its clothes and dives the next time it sees a body of water. If the target does not see a body of water before the spell ends, the specific activity isn't performed.</p><p>Any damage done to the target by you or an ally ends the spell for that creature.</p><p><strong><em>Cast at Higher Levels.</em></strong> When using a 4th-level spell slot, the duration is concentration, up to 24 hours. When using a 5th-level spell slot, the duration is 7 days. When using a 7th-level spell slot, the duration is 1 year. When using a 9th-level spell slot, the suggestion lasts until it is dispelled.</p><p>Any use of a 5th-level or higher spell slot grants a duration that doesn't require concentration.</p>",
+				"favorite": false,
+				"secretDescription": "",
+				"source": "",
+				"uses": {
+					"value": 3,
+					"max": "3",
+					"per": "day",
+					"recharge": {
+						"formula": "",
+						"threshold": ""
+					}
+				},
+				"schema": {
+					"version": null,
+					"lastMigration": null
+				},
+				"classes": [
+					"bard",
+					"sorcerer",
+					"warlock",
+					"wielder",
+					"witch",
+					"wizard"
+				],
+				"components": {
+					"vocalized": true,
+					"seen": false,
+					"material": true
+				},
+				"concentration": true,
+				"level": 2,
+				"materials": "miniature bottle of red wine and some soap",
+				"materialsConsumed": false,
+				"prepared": false,
+				"prerequisite": "",
+				"rare": false,
+				"ritual": false,
+				"schools": {
+					"primary": "enchantment",
+					"secondary": [
+						"arcane",
+						"compulsion"
+					]
+				},
+				"schemaVersion": {
+					"version": 0.01,
+					"lastMigration": {
+						"version": {
+							"schema": 0.009,
+							"foundry": "12.316",
+							"system": "0.16.12"
+						}
+					}
+				}
+			},
+			"folder": null,
+			"_id": "zeU2zd3bGTBLOxeP",
+			"sort": 125000,
+			"ownership": {
+				"default": 0
+			}
+		},
+		{
+			"name": "Confusion",
+			"type": "spell",
+			"img": "icons/magic/sonic/projectile-sound-rings-wave.webp",
+			"effects": [
+				{
+					"icon": "icons/magic/sonic/projectile-sound-rings-wave.webp",
+					"origin": "Actor.HnrkWEVEHyPUC1m3.Item.La74UTZBAmChtUeh",
+					"flags": {
+						"a5e": {
+							"sort": 0,
+							"transferType": "onUse",
+							"actionId": "jqb7BKBuOfS5Z1n8",
+							"duration": {
+								"unit": "minutes"
+							}
+						}
+					},
+					"transfer": false,
+					"name": "Confused",
+					"_id": "2wGiliUjJKlBJYp3",
+					"changes": [
+						{
+							"key": "flags.a5e.effects.statusConditions",
+							"value": "[\"confused\"]",
+							"mode": 0,
+							"priority": null
+						}
+					],
+					"disabled": false,
+					"duration": {
+						"startTime": null,
+						"seconds": 60,
+						"combat": null,
+						"rounds": null,
+						"turns": null,
+						"startRound": null,
+						"startTurn": null
+					},
+					"description": "<p>At the end of each of its turns, a confused target makes a Wisdom saving throw to end the spell's effects on it.</p>",
+					"statuses": [
+						"confused"
+					],
+					"folder": null
+				},
+				{
+					"icon": "icons/magic/sonic/projectile-sound-rings-wave.webp",
+					"origin": "Actor.HnrkWEVEHyPUC1m3.Item.La74UTZBAmChtUeh",
+					"flags": {
+						"a5e": {
+							"sort": 0,
+							"transferType": "onUse",
+							"actionId": "jqb7BKBuOfS5Z1n8",
+							"duration": {
+								"type": "rounds",
+								"unit": "minutes"
+							}
+						}
+					},
+					"transfer": false,
+					"name": "Rattled",
+					"_id": "gJe691nLuizKcGEa",
+					"changes": [
+						{
+							"key": "flags.a5e.effects.statusConditions",
+							"value": "[\"rattled\"]",
+							"mode": 0,
+							"priority": null
+						}
+					],
+					"disabled": false,
+					"duration": {
+						"startTime": null,
+						"seconds": null,
+						"combat": null,
+						"rounds": 1,
+						"turns": null,
+						"startRound": null,
+						"startTurn": null
+					},
+					"description": "",
+					"statuses": [
+						"rattled"
+					],
+					"folder": null
+				}
+			],
+			"flags": {
+				"core": {
+					"sourceId": "Compendium.a5e.a5e-spells.Item.pdvg7c9emjgnib07"
+				}
+			},
+			"system": {
+				"actions": {
+					"jqb7BKBuOfS5Z1n8": {
+						"name": "Confusion",
+						"activation": {
+							"cost": 1,
+							"type": "action",
+							"reactionTrigger": ""
+						},
+						"duration": {
+							"unit": "minute",
+							"value": "1"
+						},
+						"ranges": {
+							"w8MGoR07H5rLDR2t": {
+								"range": "long"
+							}
+						},
+						"area": {
+							"shape": "sphere",
+							"radius": "10",
+							"placeTemplate": true,
+							"scaling": {
+								"mode": "spellLevel",
+								"formula": {
+									"quantity": "5"
+								}
+							}
+						},
+						"target": {
+							"quantity": "",
+							"type": ""
+						},
+						"prompts": {
+							"1Zi60xIIA6CmYRCQ": {
+								"ability": "wis",
+								"onSave": "Negates effect",
+								"saveDC": {
+									"type": "spellcasting",
+									"bonus": ""
+								},
+								"type": "savingThrow"
+							},
+							"ocpTg4Xds9x5O9f3": {
+								"type": "effect",
+								"default": true,
+								"effectId": "2wGiliUjJKlBJYp3"
+							},
+							"BqXUbid7ECMSCHWT": {
+								"type": "effect",
+								"default": true,
+								"effectId": "gJe691nLuizKcGEa"
+							}
+						},
+						"consumers": {
+							"jbSVXskhZTP3bCez": {
+								"type": "itemUses",
+								"default": true,
+								"quantity": 1
+							}
+						}
+					}
+				},
+				"description": "<p>You assault the minds of your targets, filling them with delusions and making them confused until the spell ends. On a successful saving throw, a target is rattled for 1 round. At the end of each of its turns, a confused target makes a Wisdom saving throw to end the spell's effects on it.</p><p><strong><em>Cast at Higher Levels.</em></strong> The spell's area increases by 5 feet for each slot level above 4th.</p>",
+				"favorite": false,
+				"secretDescription": "",
+				"source": "",
+				"uses": {
+					"value": 3,
+					"max": "3",
+					"per": "day",
+					"recharge": {
+						"formula": "",
+						"threshold": ""
+					}
+				},
+				"schema": {
+					"version": null,
+					"lastMigration": null
+				},
+				"classes": [
+					"bard",
+					"druid",
+					"sorcerer",
+					"wizard"
+				],
+				"components": {
+					"vocalized": true,
+					"seen": true,
+					"material": true
+				},
+				"concentration": true,
+				"level": 4,
+				"materials": "a tangled string",
+				"materialsConsumed": false,
+				"prepared": false,
+				"prerequisite": "",
+				"rare": false,
+				"ritual": false,
+				"schools": {
+					"primary": "enchantment",
+					"secondary": [
+						"affliction",
+						"chaos",
+						"compulsion"
+					]
+				},
+				"schemaVersion": {
+					"version": 0.01,
+					"lastMigration": {
+						"version": {
+							"schema": 0.009,
+							"foundry": "12.316",
+							"system": "0.16.12"
+						}
+					}
+				}
+			},
+			"folder": null,
+			"_id": "La74UTZBAmChtUeh",
+			"sort": 300000,
+			"ownership": {
+				"default": 0
+			}
+		},
+		{
+			"name": "Dominate Person",
+			"type": "spell",
+			"img": "icons/magic/control/control-influence-puppet.webp",
+			"effects": [
+				{
+					"icon": "icons/magic/control/control-influence-puppet.webp",
+					"origin": "Actor.HnrkWEVEHyPUC1m3.Item.jhOg2AgqyATSiZ1W",
+					"flags": {
+						"a5e": {
+							"sort": 0,
+							"transferType": "onUse",
+							"actionId": "aG3wPaoWup4P5GrB",
+							"duration": {
+								"unit": "minutes"
+							}
+						}
+					},
+					"transfer": false,
+					"name": "Dominated",
+					"_id": "1xK38WqshsDZYjPq",
+					"changes": [
+						{
+							"key": "flags.a5e.effects.statusConditions",
+							"value": "[\"charmed\"]",
+							"mode": 0,
+							"priority": null
+						}
+					],
+					"disabled": false,
+					"duration": {
+						"startTime": null,
+						"seconds": 60,
+						"combat": null,
+						"rounds": null,
+						"turns": null,
+						"startRound": null,
+						"startTurn": null
+					},
+					"description": "<p>Until the charmed condition ends, you establish a telepathic link with it while you are on the same plane. You may issue commands through this link and the target does its best to obey. No action is required to issue commands, which can be a simple and general course of action such as \"Attack that target, \" \"Go over there, \" or \"Bring me that object.\" Without commands the target only defends itself. The target continues to follow a command until its task is complete.</p>\n<p>You can use your action to assume direct control of the target. Until the end of your next turn, you decide all of the target's actions and it does nothing you do not allow it to. While a target is directly controlled in this way, you can also cause it to use a reaction, but this requires you to use your own reaction as well.</p>\n<p>Each time the target takes damage, it makes a new saving throw against the spell, ending the spell on a success.</p>",
+					"statuses": [
+						"charmed"
+					],
+					"folder": null
+				}
+			],
+			"flags": {},
+			"system": {
+				"actions": {
+					"aG3wPaoWup4P5GrB": {
+						"name": "Dominate Person",
+						"activation": {
+							"cost": 1,
+							"type": "action",
+							"reactionTrigger": ""
+						},
+						"duration": {
+							"unit": "minute",
+							"value": "1"
+						},
+						"ranges": {
+							"nK90dvgAZna6zDoF": {
+								"range": "medium"
+							}
+						},
+						"area": {
+							"shape": "",
+							"size": "",
+							"placeTemplate": false
+						},
+						"target": {
+							"quantity": "",
+							"type": "creature"
+						},
+						"prompts": {
+							"50CPaZ46sxleO3Ew": {
+								"ability": "wis",
+								"onSave": "Negates effect",
+								"saveDC": {
+									"type": "spellcasting",
+									"bonus": ""
+								},
+								"type": "savingThrow"
+							},
+							"D2NTY223wBKHCp8z": {
+								"type": "effect",
+								"default": true,
+								"effectId": "1xK38WqshsDZYjPq"
+							}
+						},
+						"consumers": {
+							"oMuFD6nvIaV41ulO": {
+								"type": "itemUses",
+								"default": true,
+								"quantity": 1
+							}
+						}
+					}
+				},
+				"description": "<p>You assert control over the target humanoid's mind and it is charmed for the duration. If it is engaged in combat with you or creatures friendly to you, it has advantage on its saving throw.</p><p>Until the charmed condition ends, you establish a telepathic link with it while you are on the same plane. You may issue commands through this link and the target does its best to obey. No action is required to issue commands, which can be a simple and general course of action such as &quot;Attack that target, &quot; &quot;Go over there, &quot; or &quot;Bring me that object.&quot; Without commands the target only defends itself. The target continues to follow a command until its task is complete.</p><p>You can use your action to assume direct control of the target. Until the end of your next turn, you decide all of the target's actions and it does nothing you do not allow it to. While a target is directly controlled in this way, you can also cause it to use a reaction, but this requires you to use your own reaction as well.</p><p>Each time the target takes damage, it makes a new saving throw against the spell, ending the spell on a success.</p><p><strong><em>Cast at Higher Levels.</em></strong> The spell's duration is extended: 6th-level&mdash;Concentration (10 minutes), 7th-level &mdash;Concentration (1 hour), 8th-level &mdash;Concentration (8 hours).</p>",
+				"favorite": false,
+				"secretDescription": "",
+				"source": "",
+				"uses": {
+					"value": 3,
+					"max": "3",
+					"per": "day",
+					"recharge": {
+						"formula": "",
+						"threshold": ""
+					}
+				},
+				"schema": {
+					"version": null,
+					"lastMigration": null
+				},
+				"classes": [
+					"bard",
+					"sorcerer",
+					"wielder",
+					"witch",
+					"wizard"
+				],
+				"components": {
+					"vocalized": true,
+					"seen": true,
+					"material": false
+				},
+				"concentration": true,
+				"level": 5,
+				"materials": "",
+				"materialsConsumed": false,
+				"prepared": false,
+				"prerequisite": "",
+				"rare": false,
+				"ritual": false,
+				"schools": {
+					"primary": "enchantment",
+					"secondary": [
+						"compulsion"
+					]
+				},
+				"schemaVersion": {
+					"version": 0.01,
+					"lastMigration": {
+						"version": {
+							"schema": 0.009,
+							"foundry": "12.316",
+							"system": "0.16.12"
+						}
+					}
+				}
+			},
+			"folder": null,
+			"_id": "jhOg2AgqyATSiZ1W",
+			"sort": 0,
+			"ownership": {
+				"default": 0
+			}
+		},
+		{
+			"name": "Irresistible Dance",
+			"type": "spell",
+			"img": "icons/skills/trades/music-notes-sound-blue.webp",
+			"effects": [
+				{
+					"icon": "icons/skills/trades/music-notes-sound-blue.webp",
+					"origin": "Actor.HnrkWEVEHyPUC1m3.Item.pvkxPO7NdzLZUUr3",
+					"flags": {
+						"a5e": {
+							"sort": 0,
+							"transferType": "onUse",
+							"actionId": "ymYutl44wa5JBERC",
+							"duration": {
+								"unit": "minutes"
+							}
+						}
+					},
+					"transfer": false,
+					"name": "Irresistible Dance",
+					"_id": "T0e2N19TSqmvLOQi",
+					"changes": [
+						{
+							"key": "flags.a5e.effects.rollMode.attack.all",
+							"value": "-1",
+							"mode": 6,
+							"priority": null
+						},
+						{
+							"key": "flags.a5e.effects.rollMode.abilitySave.all",
+							"value": "-1",
+							"mode": 6,
+							"priority": null
+						}
+					],
+					"disabled": false,
+					"duration": {
+						"startTime": null,
+						"seconds": 60,
+						"combat": null,
+						"rounds": null,
+						"turns": null,
+						"startRound": null,
+						"startTurn": null
+					},
+					"description": "<p>At the start of each of its turns, the dancing target must use all of its movement to dance in its space, and it has disadvantage on attack rolls and saving throws. Attacks made against the target have advantage. On each of its turns, the target can use an action to repeat the saving throw, ending the spell on a successful save.</p>",
+					"statuses": [],
+					"tint": "#ffffff",
+					"folder": null
+				}
+			],
+			"flags": {},
+			"system": {
+				"actions": {
+					"ymYutl44wa5JBERC": {
+						"name": "Irresistible Dance",
+						"activation": {
+							"cost": 1,
+							"type": "action",
+							"reactionTrigger": ""
+						},
+						"duration": {
+							"unit": "minute",
+							"value": "1"
+						},
+						"ranges": {
+							"AlpEuWazjYW3uorr": {
+								"range": "short"
+							}
+						},
+						"area": {
+							"shape": "",
+							"size": "",
+							"placeTemplate": false
+						},
+						"target": {
+							"quantity": 1,
+							"type": "creature",
+							"scaling": {
+								"mode": "spellLevel",
+								"formula": "1"
+							}
+						},
+						"prompts": {
+							"Es6RbSo2QvYTdQRU": {
+								"ability": "wis",
+								"onSave": "Negates effect",
+								"saveDC": {
+									"type": "spellcasting",
+									"bonus": ""
+								},
+								"type": "savingThrow"
+							},
+							"9TUCL0ALEGHosxFt": {
+								"type": "effect",
+								"default": true,
+								"effectId": "T0e2N19TSqmvLOQi"
+							}
+						},
+						"consumers": {
+							"Ie54ai42socz3fxw": {
+								"type": "itemUses",
+								"default": true,
+								"quantity": 1
+							}
+						}
+					}
+				},
+				"description": "<p>You murmur a tune that takes root in the target's mind until the spell ends, forcing it to caper, dance, and shuffle. At the start of each of its turns, the dancing target must use all of its movement to dance in its space, and it has disadvantage on attack rolls and saving throws. Attacks made against the target have advantage. On each of its turns, the target can use an action to repeat the saving throw, ending the spell on a successful save.</p><p><strong><em>Cast at Higher Levels.</em></strong> Target one additional creature within 30 feet for each slot level above 6th.</p>",
+				"favorite": false,
+				"secretDescription": "",
+				"source": "",
+				"uses": {
+					"value": 1,
+					"max": "1",
+					"per": "day",
+					"recharge": {
+						"formula": "",
+						"threshold": ""
+					}
+				},
+				"schema": {
+					"version": null,
+					"lastMigration": null
+				},
+				"classes": [
+					"bard",
+					"wizard"
+				],
+				"components": {
+					"vocalized": true,
+					"seen": false,
+					"material": false
+				},
+				"concentration": true,
+				"level": 6,
+				"materials": "",
+				"materialsConsumed": false,
+				"prepared": false,
+				"prerequisite": "",
+				"rare": false,
+				"ritual": false,
+				"schools": {
+					"primary": "enchantment",
+					"secondary": [
+						"arcane",
+						"compulsion"
+					]
+				},
+				"schemaVersion": {
+					"version": 0.01,
+					"lastMigration": {
+						"version": {
+							"schema": 0.009,
+							"foundry": "12.316",
+							"system": "0.16.12"
+						}
+					}
+				}
+			},
+			"folder": null,
+			"_id": "pvkxPO7NdzLZUUr3",
+			"sort": 0,
+			"ownership": {
+				"default": 0
+			}
+		},
+		{
+			"name": "Symbol",
+			"type": "spell",
+			"img": "icons/magic/symbols/rune-sigil-rough-white-teal.webp",
+			"effects": [
+				{
+					"icon": "icons/magic/symbols/rune-sigil-rough-white-teal.webp",
+					"origin": "Actor.HnrkWEVEHyPUC1m3.Item.g3UsyFqwuuP8swiJ",
+					"flags": {
+						"a5e": {
+							"sort": 0,
+							"transferType": "onUse",
+							"actionId": "GKAsxkUb7zAnl3YV",
+							"duration": {
+								"unit": "minutes"
+							}
+						}
+					},
+					"transfer": false,
+					"name": "Bickering",
+					"_id": "FhmCm5plIWOsuM2G",
+					"changes": [
+						{
+							"key": "flags.a5e.effects.rollMode.attack.all",
+							"value": "-1",
+							"mode": 6,
+							"priority": null
+						},
+						{
+							"key": "flags.a5e.effects.rollMode.abilityCheck.all",
+							"value": "-1",
+							"mode": 6,
+							"priority": null
+						}
+					],
+					"disabled": false,
+					"duration": {
+						"startTime": null,
+						"seconds": 60,
+						"combat": null,
+						"rounds": null,
+						"turns": null,
+						"startRound": null,
+						"startTurn": null
+					},
+					"description": "",
+					"statuses": [],
+					"folder": null
+				},
+				{
+					"icon": "icons/magic/symbols/rune-sigil-rough-white-teal.webp",
+					"origin": "Actor.HnrkWEVEHyPUC1m3.Item.g3UsyFqwuuP8swiJ",
+					"flags": {
+						"a5e": {
+							"sort": 0,
+							"transferType": "onUse",
+							"actionId": "icj3CPGghtZr2YEu",
+							"duration": {
+								"unit": "minutes"
+							}
+						}
+					},
+					"transfer": false,
+					"name": "Confused",
+					"_id": "Qwyegf8YgPuFgdhE",
+					"changes": [
+						{
+							"key": "flags.a5e.effects.statusConditions",
+							"value": "[\"confused\"]",
+							"mode": 0,
+							"priority": null
+						}
+					],
+					"disabled": false,
+					"duration": {
+						"startTime": null,
+						"seconds": 60,
+						"combat": null,
+						"rounds": null,
+						"turns": null,
+						"startRound": null,
+						"startTurn": null
+					},
+					"description": "",
+					"statuses": [
+						"confused"
+					],
+					"folder": null
+				},
+				{
+					"icon": "icons/magic/symbols/rune-sigil-rough-white-teal.webp",
+					"origin": "Actor.HnrkWEVEHyPUC1m3.Item.g3UsyFqwuuP8swiJ",
+					"flags": {
+						"a5e": {
+							"sort": 0,
+							"transferType": "onUse",
+							"actionId": "dyvJagBgZrrFkvCH",
+							"duration": {
+								"unit": "minutes"
+							}
+						}
+					},
+					"transfer": false,
+					"name": "Frightened",
+					"_id": "SPbQBUOVc31SWThp",
+					"changes": [
+						{
+							"key": "flags.a5e.effects.statusConditions",
+							"value": "[\"frightened\"]",
+							"mode": 0,
+							"priority": null
+						}
+					],
+					"disabled": false,
+					"duration": {
+						"startTime": null,
+						"seconds": 60,
+						"combat": null,
+						"rounds": null,
+						"turns": null,
+						"startRound": null,
+						"startTurn": null
+					},
+					"description": "<p>While frightened, a creature drops whatever it is holding and must move at least 30 feet away from the glyph on each of its turns.</p>",
+					"statuses": [
+						"frightened"
+					],
+					"folder": null
+				},
+				{
+					"icon": "icons/magic/symbols/rune-sigil-rough-white-teal.webp",
+					"origin": "Actor.HnrkWEVEHyPUC1m3.Item.g3UsyFqwuuP8swiJ",
+					"flags": {
+						"a5e": {
+							"sort": 0,
+							"transferType": "onUse",
+							"actionId": "tPBmIttZwG1vK4sE",
+							"duration": {
+								"unit": "minutes"
+							}
+						}
+					},
+					"transfer": false,
+					"name": "Despair",
+					"_id": "rvRY7MRxgkXiCMdd",
+					"changes": [],
+					"disabled": false,
+					"duration": {
+						"startTime": null,
+						"seconds": 60,
+						"combat": null,
+						"rounds": null,
+						"turns": null,
+						"startRound": null,
+						"startTurn": null
+					},
+					"description": "<p>While despairing, a creature can’t attack or target any creature with harmful features, spells, traits, or other magical effects.</p>",
+					"statuses": [],
+					"folder": null
+				},
+				{
+					"icon": "icons/magic/symbols/rune-sigil-rough-white-teal.webp",
+					"origin": "Actor.HnrkWEVEHyPUC1m3.Item.g3UsyFqwuuP8swiJ",
+					"flags": {
+						"a5e": {
+							"sort": 0,
+							"transferType": "onUse",
+							"actionId": "QyIkGnQdAZtJ4vCu",
+							"duration": {
+								"unit": "minutes"
+							}
+						}
+					},
+					"transfer": false,
+					"name": "Pain",
+					"_id": "LHiujdHARaUna92n",
+					"changes": [
+						{
+							"key": "flags.a5e.effects.statusConditions",
+							"value": "[\"incapacitated\"]",
+							"mode": 0,
+							"priority": null
+						}
+					],
+					"disabled": false,
+					"duration": {
+						"startTime": null,
+						"seconds": 60,
+						"combat": null,
+						"rounds": null,
+						"turns": null,
+						"startRound": null,
+						"startTurn": null
+					},
+					"description": "",
+					"statuses": [
+						"incapacitated"
+					],
+					"folder": null
+				},
+				{
+					"icon": "icons/magic/symbols/rune-sigil-rough-white-teal.webp",
+					"origin": "Actor.HnrkWEVEHyPUC1m3.Item.g3UsyFqwuuP8swiJ",
+					"flags": {
+						"a5e": {
+							"sort": 0,
+							"transferType": "onUse",
+							"actionId": "uni1QPqHl8o1YIms",
+							"duration": {
+								"unit": "minutes"
+							}
+						}
+					},
+					"transfer": false,
+					"name": "Asleep",
+					"_id": "RXej9oPVgCcfdJtG",
+					"changes": [
+						{
+							"key": "flags.a5e.effects.statusConditions",
+							"value": "[\"unconscious\"]",
+							"mode": 0,
+							"priority": null
+						}
+					],
+					"disabled": false,
+					"duration": {
+						"startTime": null,
+						"seconds": 600,
+						"combat": null,
+						"rounds": null,
+						"turns": null,
+						"startRound": null,
+						"startTurn": null
+					},
+					"description": "",
+					"statuses": [
+						"unconscious"
+					],
+					"folder": null
+				},
+				{
+					"icon": "icons/magic/symbols/rune-sigil-rough-white-teal.webp",
+					"origin": "Actor.HnrkWEVEHyPUC1m3.Item.g3UsyFqwuuP8swiJ",
+					"flags": {
+						"a5e": {
+							"sort": 0,
+							"transferType": "onUse",
+							"actionId": "yAQ90ymCfNFAzS6r",
+							"duration": {
+								"unit": "minutes"
+							}
+						}
+					},
+					"transfer": false,
+					"name": "Stunned",
+					"_id": "IJAlwYPT9vkWDRRm",
+					"changes": [
+						{
+							"key": "flags.a5e.effects.statusConditions",
+							"value": "[\"stunned\"]",
+							"mode": 0,
+							"priority": null
+						}
+					],
+					"disabled": false,
+					"duration": {
+						"startTime": null,
+						"seconds": 60,
+						"combat": null,
+						"rounds": null,
+						"turns": null,
+						"startRound": null,
+						"startTurn": null
+					},
+					"description": "",
+					"statuses": [
+						"stunned"
+					],
+					"folder": null
+				}
+			],
+			"flags": {
+				"core": {
+					"sourceId": "Compendium.a5e.a5e-spells.Item.w431uss5pcnropb4"
+				}
+			},
+			"system": {
+				"actions": {
+					"ZIOLDoJKbSNv6DZ2": {
+						"name": "Cast Spell",
+						"activation": {
+							"cost": 1,
+							"type": "minute",
+							"reactionTrigger": ""
+						},
+						"duration": {
+							"unit": "permanent",
+							"value": ""
+						},
+						"ranges": {
+							"wTax0tlchQ6EyNgo": {
+								"range": "touch"
+							}
+						},
+						"area": {
+							"shape": "",
+							"size": "",
+							"placeTemplate": false,
+							"quantity": 1
+						},
+						"target": {
+							"quantity": "",
+							"type": "object"
+						},
+						"rolls": {
+							"Jr0JUXWyxbh3aPXq": {
+								"canCrit": false,
+								"damageType": "necrotic",
+								"formula": "10d10",
+								"name": "",
+								"type": "damage"
+							},
+							"MGZPJvtTEuebaxL9": {
+								"ability": "str",
+								"type": "abilityCheck"
+							}
+						},
+						"consumers": {
+							"SOCbvoJWIlo5gwlQ": {
+								"type": "itemUses",
+								"default": true,
+								"quantity": 1
+							}
+						},
+						"prompts": {
+							"Ww33QkryShqdc3il": {
+								"type": "skillCheck",
+								"default": true,
+								"skill": "inv",
+								"ability": "none",
+								"label": "Find glyph"
+							}
+						}
+					},
+					"1yKoixEbGgZYMHTE": {
+						"name": "Death",
+						"activation": {},
+						"consumers": {},
+						"rolls": {
+							"q3wegyt270nVFlg0": {
+								"type": "damage",
+								"default": true,
+								"canCrit": false,
+								"formula": "10d10",
+								"damageType": "necrotic"
+							}
+						},
+						"prompts": {
+							"Ih64X1uIpFYIa5zO": {
+								"type": "savingThrow",
+								"default": true,
+								"ability": "con",
+								"saveDC": {
+									"type": "spellcasting"
+								},
+								"onSave": "Half damage"
+							}
+						},
+						"uses": {
+							"value": 0,
+							"max": "",
+							"per": "",
+							"recharge": {
+								"formula": "1d6",
+								"threshold": 6
+							}
+						},
+						"duration": {
+							"unit": "minute",
+							"value": 10
+						},
+						"area": {
+							"shape": "circle",
+							"quantity": 1,
+							"radius": 60,
+							"placeTemplate": true
+						}
+					},
+					"GKAsxkUb7zAnl3YV": {
+						"name": "Discord",
+						"activation": {
+							"type": "",
+							"cost": 1
+						},
+						"consumers": {},
+						"rolls": {},
+						"prompts": {
+							"Ih64X1uIpFYIa5zO": {
+								"type": "savingThrow",
+								"default": true,
+								"ability": "con",
+								"saveDC": {
+									"type": "spellcasting"
+								},
+								"onSave": ""
+							},
+							"eNNA6jQQhkljUmAP": {
+								"type": "effect",
+								"default": true,
+								"effectId": "FhmCm5plIWOsuM2G"
+							}
+						},
+						"uses": {
+							"value": 0,
+							"max": "",
+							"per": "",
+							"recharge": {
+								"formula": "1d6",
+								"threshold": 6
+							}
+						},
+						"duration": {
+							"unit": "minute",
+							"value": 10
+						},
+						"area": {
+							"shape": "circle",
+							"quantity": 1,
+							"radius": 60,
+							"placeTemplate": true
+						}
+					},
+					"icj3CPGghtZr2YEu": {
+						"name": "Confused",
+						"activation": {
+							"type": "",
+							"cost": 1
+						},
+						"consumers": {},
+						"rolls": {},
+						"prompts": {
+							"Ih64X1uIpFYIa5zO": {
+								"type": "savingThrow",
+								"default": true,
+								"ability": "int",
+								"saveDC": {
+									"type": "spellcasting"
+								},
+								"onSave": ""
+							},
+							"DxDBFk61rK36eWOz": {
+								"type": "effect",
+								"default": true,
+								"effectId": "Qwyegf8YgPuFgdhE"
+							}
+						},
+						"uses": {
+							"value": 0,
+							"max": "",
+							"per": "",
+							"recharge": {
+								"formula": "1d6",
+								"threshold": 6
+							}
+						},
+						"duration": {
+							"unit": "minute",
+							"value": 10
+						},
+						"area": {
+							"shape": "circle",
+							"quantity": 1,
+							"radius": 60,
+							"placeTemplate": true
+						}
+					},
+					"dyvJagBgZrrFkvCH": {
+						"name": "Fear",
+						"activation": {
+							"type": "",
+							"cost": 1
+						},
+						"consumers": {},
+						"rolls": {},
+						"prompts": {
+							"Ih64X1uIpFYIa5zO": {
+								"type": "savingThrow",
+								"default": true,
+								"ability": "wis",
+								"saveDC": {
+									"type": "spellcasting"
+								},
+								"onSave": ""
+							},
+							"GiuCQOC5IPLxFxOJ": {
+								"type": "effect",
+								"default": true,
+								"effectId": "SPbQBUOVc31SWThp"
+							}
+						},
+						"uses": {
+							"value": 0,
+							"max": "",
+							"per": "",
+							"recharge": {
+								"formula": "1d6",
+								"threshold": 6
+							}
+						},
+						"duration": {
+							"unit": "minute",
+							"value": 10
+						},
+						"area": {
+							"shape": "circle",
+							"quantity": 1,
+							"radius": 60,
+							"placeTemplate": true
+						}
+					},
+					"tPBmIttZwG1vK4sE": {
+						"name": "Hopelessness",
+						"activation": {
+							"type": "",
+							"cost": 1
+						},
+						"consumers": {},
+						"rolls": {},
+						"prompts": {
+							"Ih64X1uIpFYIa5zO": {
+								"type": "savingThrow",
+								"default": true,
+								"ability": "cha",
+								"saveDC": {
+									"type": "spellcasting"
+								},
+								"onSave": ""
+							},
+							"h5zOJLlBNaLhq8ax": {
+								"type": "effect",
+								"default": true,
+								"effectId": "rvRY7MRxgkXiCMdd"
+							}
+						},
+						"uses": {
+							"value": 0,
+							"max": "",
+							"per": "",
+							"recharge": {
+								"formula": "1d6",
+								"threshold": 6
+							}
+						},
+						"duration": {
+							"unit": "minute",
+							"value": 10
+						},
+						"area": {
+							"shape": "circle",
+							"quantity": 1,
+							"radius": 60,
+							"placeTemplate": true
+						}
+					},
+					"QyIkGnQdAZtJ4vCu": {
+						"name": "Pain",
+						"activation": {
+							"type": "",
+							"cost": 1
+						},
+						"consumers": {},
+						"rolls": {},
+						"prompts": {
+							"Ih64X1uIpFYIa5zO": {
+								"type": "savingThrow",
+								"default": true,
+								"ability": "con",
+								"saveDC": {
+									"type": "spellcasting"
+								},
+								"onSave": ""
+							},
+							"Q2tVQc7wnMVcBinK": {
+								"type": "effect",
+								"default": true,
+								"effectId": "LHiujdHARaUna92n"
+							}
+						},
+						"uses": {
+							"value": 0,
+							"max": "",
+							"per": "",
+							"recharge": {
+								"formula": "1d6",
+								"threshold": 6
+							}
+						},
+						"duration": {
+							"unit": "minute",
+							"value": 10
+						},
+						"area": {
+							"shape": "circle",
+							"quantity": 1,
+							"radius": 60,
+							"placeTemplate": true
+						}
+					},
+					"uni1QPqHl8o1YIms": {
+						"name": "Sleep",
+						"activation": {
+							"type": "",
+							"cost": 1
+						},
+						"consumers": {},
+						"rolls": {},
+						"prompts": {
+							"Ih64X1uIpFYIa5zO": {
+								"type": "savingThrow",
+								"default": true,
+								"ability": "wis",
+								"saveDC": {
+									"type": "spellcasting"
+								},
+								"onSave": ""
+							},
+							"tPKEo1TutlTUbXWo": {
+								"type": "effect",
+								"default": true,
+								"effectId": "RXej9oPVgCcfdJtG"
+							}
+						},
+						"uses": {
+							"value": 0,
+							"max": "",
+							"per": "",
+							"recharge": {
+								"formula": "1d6",
+								"threshold": 6
+							}
+						},
+						"duration": {
+							"unit": "minute",
+							"value": 10
+						},
+						"area": {
+							"shape": "circle",
+							"quantity": 1,
+							"radius": 60,
+							"placeTemplate": true
+						}
+					},
+					"yAQ90ymCfNFAzS6r": {
+						"name": "Stunning",
+						"activation": {
+							"type": "",
+							"cost": 1
+						},
+						"consumers": {},
+						"rolls": {},
+						"prompts": {
+							"Ih64X1uIpFYIa5zO": {
+								"type": "savingThrow",
+								"default": true,
+								"ability": "wis",
+								"saveDC": {
+									"type": "spellcasting"
+								},
+								"onSave": ""
+							},
+							"UKuGqofNEAOf20EZ": {
+								"type": "effect",
+								"default": true,
+								"effectId": "IJAlwYPT9vkWDRRm"
+							}
+						},
+						"uses": {
+							"value": 0,
+							"max": "",
+							"per": "",
+							"recharge": {
+								"formula": "1d6",
+								"threshold": 6
+							}
+						},
+						"duration": {
+							"unit": "minute",
+							"value": 10
+						},
+						"area": {
+							"shape": "circle",
+							"quantity": 1,
+							"radius": 60,
+							"placeTemplate": true
+						}
+					}
+				},
+				"description": "<p>You inscribe a potent glyph on the target, setting a magical trap for your enemies. If the glyph is moved more than 10 feet from its original position, or if it comes within 20 feet of another glyph that you have cast, the spell ends. Finding the Tiny glyph requires an Investigation check against your spell save DC.</p>\n<p>Describe the actions a creature must perform to trigger the spell, such as approaching within a certain distance, opening or touching the object the glyph is inscribed on, or seeing or reading the glyph. The creature must have a clear path to the glyph to trigger it. You can specify certain creatures which don't trigger the spell, such as those with a certain appearance or those who speak a certain phrase. Once the glyph is triggered, the spell ends.</p>\n<p>When triggered, the glyph sheds dim light in a 60-foot radius for 10 minutes, after which the spell ends. Each creature within the sphere's area is targeted by the glyph, as are creatures that enter the sphere for the first time on a turn.</p>\n<p>When you cast the spell, choose one of the following effects.</p>\n<p><strong>Death:</strong> Creatures in the area make a Constitution saving throw, taking 10d10 necrotic damage on a failed save, or half as much on a successful save.</p>\n<p><strong>Discord:</strong> Creatures in the area make a Constitution saving throw or bicker and argue with other creatures for 1 minute. While bickering, a creature cannot meaningfully communicate and it has disadvantage on attack rolls and ability checks.</p>\n<p><strong>Confused:</strong> Creatures in the area make an Intelligence saving throw or become confused for 1 minute.</p>\n<p><strong>Fear:</strong> Creatures in the area make a Wisdom saving throw or are frightened for 1 minute.&nbsp;While frightened, a creature drops whatever it is holding and must move at least 30 feet away from the glyph on each of its turns.</p>\n<p><strong>Hopelessness:</strong> Creatures in the area make a Charisma saving throw or become overwhelmed with despair for 1 minute. While despairing, a creature can't attack or target any creature with harmful features, spells, traits, or other magical effects.</p>\n<p><strong>Pain:</strong> Creatures in the area make a Constitution saving throw or become incapacitated for 1 minute.</p>\n<p><strong>Sleep:</strong> Creatures in the area make a Wisdom saving throw or fall unconscious for 10 minutes.&nbsp;A sleeping creature awakens if it takes damage or an action is used to wake it.</p>\n<p><strong>Stunning:</strong> Creatures in the area make a Wisdom saving throw or become stunned for 1 minute.</p>",
+				"favorite": false,
+				"secretDescription": "",
+				"source": "",
+				"uses": {
+					"value": 1,
+					"max": "1",
+					"per": "day",
+					"recharge": {
+						"formula": "",
+						"threshold": ""
+					}
+				},
+				"schema": {
+					"version": null,
+					"lastMigration": null
+				},
+				"classes": [
+					"bard",
+					"cleric",
+					"witch",
+					"wizard"
+				],
+				"components": {
+					"vocalized": true,
+					"seen": true,
+					"material": true
+				},
+				"concentration": false,
+				"level": 7,
+				"materials": "mercury, phosphorous, and powdered diamond and opal with a total value of at least 1, 000 gold, consumed by the spell",
+				"materialsConsumed": false,
+				"prepared": false,
+				"prerequisite": "",
+				"rare": false,
+				"ritual": false,
+				"schools": {
+					"primary": "abjuration",
+					"secondary": [
+						"arcane",
+						"protection"
+					]
+				},
+				"schemaVersion": {
+					"version": 0.01,
+					"lastMigration": {
+						"version": {
+							"schema": 0.009,
+							"foundry": "12.316",
+							"system": "0.16.12"
+						}
+					}
+				}
+			},
+			"folder": null,
+			"_id": "g3UsyFqwuuP8swiJ",
+			"sort": 250000,
+			"ownership": {
+				"default": 0
+			}
 		}
 	],
 	"effects": [],
 	"flags": {
 		"a5e": {
-			"showSpellTab": false,
+			"showSpellTab": true,
 			"showSpellSlots": false,
 			"sheetIsLocked": true
 		}
@@ -2522,5 +4163,5 @@
 		"prependAdjective": false
 	},
 	"folder": null,
-	"_id": "5xe3z141ioudykux"
+	"_id": "wa0ruxaax1737shh"
 }

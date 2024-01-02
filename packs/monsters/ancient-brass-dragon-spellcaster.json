@@ -1,5 +1,5 @@
 {
-	"name": "Adult Brass Dragon",
+	"name": "Ancient Brass Dragon Spellcaster",
 	"type": "npc",
 	"img": "systems/a5e/assets/brass-dragon.webp",
 	"items": [
@@ -80,7 +80,7 @@
 					"requiresUnarmored": false
 				},
 				"actions": {
-					"nJTUigiscaoUJ6In": {
+					"Cwdl9k8Unw0gmN6M": {
 						"name": "Bite",
 						"activation": {
 							"cost": 1,
@@ -92,8 +92,9 @@
 							"value": ""
 						},
 						"ranges": {
-							"3XkQM2WIlxdMcimJ": {
-								"range": "10ft"
+							"PGiCJRqqcRADhGZU": {
+								"range": 15,
+								"unit": "feet"
 							}
 						},
 						"area": {
@@ -106,24 +107,24 @@
 							"type": "creature"
 						},
 						"rolls": {
-							"p2zEK9noaNnpURTB": {
+							"IsWgAkM1cE3sIhQ7": {
 								"bonus": "",
 								"critThreshold": "20",
 								"type": "attack",
 								"attackType": "meleeWeaponAttack",
 								"ability": "str"
 							},
-							"fD7OIdnM1mbFVXLm": {
+							"TJv7oqJPGM3419Wd": {
 								"canCrit": true,
 								"damageType": "piercing",
-								"formula": "3d10 + @str.mod",
+								"formula": "4d10 + @str.mod",
 								"name": "Default",
 								"type": "damage"
 							},
-							"AeCk8SVwC4Y2IRsZ": {
+							"ha5znGatNMCJgxQB": {
 								"canCrit": true,
 								"damageType": "fire",
-								"formula": "1d8",
+								"formula": "2d8",
 								"name": "Fire",
 								"type": "damage"
 							}
@@ -188,7 +189,7 @@
 					"requiresUnarmored": false
 				},
 				"actions": {
-					"dMp8apA6bf4lV5fy": {
+					"esvIeTZ6eIsuGYJk": {
 						"name": "Molten Breath",
 						"activation": {
 							"cost": 1,
@@ -196,28 +197,28 @@
 							"reactionTrigger": ""
 						},
 						"consumers": {
-							"4GMeJVpp8kCs0dR3": {
+							"k4zy6XgZnwbNKsb1": {
 								"type": "itemUses",
 								"default": true,
 								"quantity": 1
 							}
 						},
 						"rolls": {
-							"FzPe2CWDinmPDRVN": {
+							"ayYp3FbLrcaMVY7m": {
 								"canCrit": false,
 								"damageType": "fire",
-								"formula": "16d6",
+								"formula": "20d6",
 								"name": "Default",
 								"type": "damage"
 							}
 						},
 						"prompts": {
-							"LcOkFKnwpRD1qe5I": {
+							"VZaNRQe3I3OCBqUs": {
 								"ability": "dex",
 								"onSave": "Half damage and effects.",
 								"saveDC": {
 									"type": "custom",
-									"bonus": "18"
+									"bonus": "22"
 								},
 								"type": "savingThrow"
 							}
@@ -238,10 +239,10 @@
 						"ranges": {},
 						"area": {
 							"shape": "line",
-							"size": "60ft long, 5ft wide",
+							"size": "90ft long, 10ft wide",
 							"placeTemplate": false,
-							"length": 60,
-							"width": 5,
+							"length": 90,
+							"width": 10,
 							"quantity": 1
 						},
 						"target": {
@@ -250,7 +251,7 @@
 						},
 						"img": "icons/svg/item-bag.svg"
 					},
-					"LRlGyEE2IYN7umiT": {
+					"v1h1yYWr5cqLuLgV": {
 						"name": "Sleep Breath",
 						"activation": {
 							"cost": 1,
@@ -258,7 +259,7 @@
 							"reactionTrigger": ""
 						},
 						"consumers": {
-							"7wgBJL0iOvwM7dIb": {
+							"mdyWr4I0Qg6axOhj": {
 								"type": "itemUses",
 								"default": true,
 								"quantity": 1
@@ -266,12 +267,12 @@
 						},
 						"rolls": {},
 						"prompts": {
-							"W3ddgGSdMv94JqZI": {
+							"Wb72omeOkImZ4Ym0": {
 								"ability": "con",
 								"onSave": "Avoids effects.",
 								"saveDC": {
 									"type": "custom",
-									"bonus": "18"
+									"bonus": "22"
 								},
 								"type": "savingThrow"
 							}
@@ -292,9 +293,9 @@
 						"ranges": {},
 						"area": {
 							"shape": "cone",
-							"size": "60",
+							"size": "60ft",
 							"placeTemplate": false,
-							"length": 60,
+							"length": 90,
 							"quantity": 1
 						},
 						"target": {
@@ -304,8 +305,8 @@
 						"img": "icons/svg/item-bag.svg"
 					}
 				},
-				"description": "<p>The dragon uses one of the following breath weapons:</p><p><strong>Molten Breath.</strong> The dragon exhales molten glass in a 60-foot-long, 5-foot-wide line. Each creature in the area makes a DC 18 Dexterity saving throw, taking 56 (16d6) fire damage on a failed save or half damage on a success. A creature that fails the save is also blinded until the end of its next turn.</p><p><strong>Sleep Breath.</strong> The dragon exhales sleep gas in a 60-foot cone. Each creature in the area makes a DC 18 Constitution saving throw. On a failure, a creature falls unconscious for 10 minutes or until it takes damage or someone uses an action to wake it.</p>",
-				"favorite": true,
+				"description": "<p>The dragon uses one of the following breath weapons:</p><p><strong>Molten Breath.</strong> The dragon exhales molten glass in a 90-foot-long, 10-foot-wide line. Each creature in the area makes a DC 22 Dexterity saving throw, taking 70 (20d6) fire damage on a failed save or half damage on a success. A creature that fails the save is also blinded until the end of its next turn.</p><p><strong>Sleep Breath.</strong> The dragon exhales sleep gas in a 90-foot cone. Each creature in the area makes a DC 22 Constitution saving throw. On a failure, a creature falls unconscious for 10 minutes or until it takes damage or someone uses an action to wake it.</p>",
+				"favorite": false,
 				"secretDescription": "",
 				"source": "",
 				"uses": {
@@ -418,7 +419,7 @@
 					"requiresUnarmored": false
 				},
 				"actions": {
-					"WdrRBMa1Cc81YQbM": {
+					"1hy03hdPmIO9Lmo4": {
 						"name": "Claws",
 						"activation": {
 							"cost": 1,
@@ -430,8 +431,8 @@
 							"value": ""
 						},
 						"ranges": {
-							"Cmtrq4QagnIjIOur": {
-								"range": "fiveFeet"
+							"Q35C0PJvsFfYrBs5": {
+								"range": "10ft"
 							}
 						},
 						"area": {
@@ -444,14 +445,14 @@
 							"type": "creature"
 						},
 						"rolls": {
-							"2DC0KdD4eXIEjT24": {
+							"yGq03rlNoMaHp3Oy": {
 								"bonus": "",
 								"critThreshold": "20",
 								"type": "attack",
 								"attackType": "meleeWeaponAttack",
 								"ability": "str"
 							},
-							"wRYqxrwVtGVDWMcY": {
+							"L4vuFlk9cbMSNFYP": {
 								"canCrit": true,
 								"damageType": "slashing",
 								"formula": "3d8 + @str.mod",
@@ -523,7 +524,7 @@
 					"requiresUnarmored": false
 				},
 				"actions": {
-					"MuyDhNzGMXWhBJAm": {
+					"wFoRf5d6dLfW5YDv": {
 						"name": "Legendary Resistance (3/Day)",
 						"activation": {
 							"cost": "",
@@ -544,13 +545,13 @@
 							"type": ""
 						},
 						"consumers": {
-							"d6PyVNwhGAaR9vfY": {
+							"fKfiK3DYdDjI65gw": {
 								"type": "itemUses"
 							}
 						}
 					}
 				},
-				"description": "<p>When the dragon fails a saving throw, it can choose to succeed instead. When it does, it sheds some of its scales, which turn to sand. If it has no more uses of this ability, its Armor Class is reduced to 16 until it finishes a long rest.</p>",
+				"description": "<p>When the dragon fails a saving throw, it can choose to succeed instead. When it does, it sheds some of its scales, which turn to sand. If it has no more uses of this ability, its Armor Class is reduced to 18 until it finishes a long rest.</p>",
 				"favorite": false,
 				"secretDescription": "",
 				"source": "",
@@ -664,7 +665,7 @@
 					"requiresUnarmored": false
 				},
 				"actions": {
-					"HkYj5IiJYtJv0F8j": {
+					"C1M4XCTdYlbXcO3v": {
 						"name": "Tail",
 						"activation": {
 							"cost": 1,
@@ -676,9 +677,8 @@
 							"value": ""
 						},
 						"ranges": {
-							"ybeeJ5W3xm3GsHB2": {
-								"range": 15,
-								"unit": "feet"
+							"JTqVeEu1nDWMn2k1": {
+								"range": "20ft"
 							}
 						},
 						"area": {
@@ -691,17 +691,17 @@
 							"type": "creature"
 						},
 						"rolls": {
-							"Uhdp4einAJ43gZPO": {
+							"dc9kNje318dpajdf": {
 								"bonus": "",
 								"critThreshold": "20",
 								"type": "attack",
 								"attackType": "meleeWeaponAttack",
 								"ability": "str"
 							},
-							"xlkt4VEiAmT1qgqZ": {
+							"dwaOqwRCaWJZbU0f": {
 								"canCrit": true,
 								"damageType": "bludgeoning",
-								"formula": "2d8 + @str.mod",
+								"formula": "3d8 + @str.mod",
 								"name": "Default",
 								"type": "damage"
 							}
@@ -766,7 +766,7 @@
 					"requiresUnarmored": false
 				},
 				"actions": {
-					"gXibSiry23I7dtTz": {
+					"ilgPi0NKBVIt8ZPi": {
 						"name": "Molten Spit",
 						"activation": {
 							"cost": 1,
@@ -778,7 +778,7 @@
 							"value": ""
 						},
 						"ranges": {
-							"4ERa7Qsu3L2NOjLS": {
+							"TGk14VXkO8NoC6JC": {
 								"range": "medium"
 							}
 						},
@@ -792,28 +792,28 @@
 							"type": "creature"
 						},
 						"rolls": {
-							"bAOsRhw0aYCKjrCz": {
+							"Yzhb9YUdMnc2KiSE": {
 								"canCrit": false,
 								"damageType": "fire",
-								"formula": "2d10",
+								"formula": "4d10",
 								"name": "Default",
 								"type": "damage"
 							},
-							"7NjVnfs2S7b3PJQw": {
+							"hcOf01Anrneu04d4": {
 								"canCrit": false,
 								"damageType": "fire",
-								"formula": "1d10",
+								"formula": "2d10",
 								"name": "Ongoing damage",
 								"type": "damage"
 							}
 						},
 						"prompts": {
-							"6iWTFg0Ml5XCpE7W": {
+							"uGf3hPcuXyhn278N": {
 								"ability": "dex",
 								"onSave": "Half damage on success.",
 								"saveDC": {
 									"type": "custom",
-									"bonus": "18"
+									"bonus": "22"
 								},
 								"type": "savingThrow"
 							}
@@ -821,7 +821,7 @@
 						"consumers": {}
 					}
 				},
-				"description": "<p>The dragon targets a creature within 60 feet, forcing it to make a DC 18 Dexterity saving throw. The creature takes 11 (2d10) fire damage on a failure or half damage on a success. A creature that fails the saving throw also takes 5 (1d10) ongoing fire damage. A creature can use an action to end the ongoing damage.</p>",
+				"description": "<p>The dragon targets a creature within 60 feet, forcing it to make a DC 22 Dexterity saving throw. The creature takes 22 (4d10) fire damage on a failure or half damage on a success. A creature that fails the saving throw also takes 11 (2d10) ongoing fire damage. A creature can use an action to end the ongoing damage.</p>",
 				"favorite": true,
 				"secretDescription": "",
 				"source": "",
@@ -935,7 +935,7 @@
 					"requiresUnarmored": false
 				},
 				"actions": {
-					"hP6T9JXm4zVwzWw3": {
+					"xIAhsyx41g2bsOtd": {
 						"name": "Tail Attack",
 						"activation": {
 							"cost": 1,
@@ -947,7 +947,7 @@
 							"value": ""
 						},
 						"ranges": {
-							"lUXDT28cdFkpjjGc": {
+							"DQL4KTVtfPvrPY5n": {
 								"range": "10ft"
 							}
 						},
@@ -964,7 +964,7 @@
 					}
 				},
 				"description": "<p>When a creature the dragon can see within 10 feet hits the dragon with a melee attack, the dragon&nbsp; makes a tail attack against it.</p>",
-				"favorite": true,
+				"favorite": false,
 				"secretDescription": "",
 				"source": "",
 				"uses": {
@@ -1077,7 +1077,7 @@
 					"requiresUnarmored": false
 				},
 				"actions": {
-					"NuwZ7P0Ayg9fOQLH": {
+					"oQz0vaph6X8qZtLp": {
 						"name": "Legendary Action: Analyze",
 						"activation": {
 							"cost": 1,
@@ -1089,7 +1089,7 @@
 							"value": 1
 						},
 						"ranges": {
-							"pQM3OC0Wp6NomKCo": {
+							"r1VtHsteMOh26AMP": {
 								"range": "medium"
 							}
 						},
@@ -1162,7 +1162,7 @@
 					"requiresUnarmored": false
 				},
 				"actions": {
-					"ojVaQTA1P1Pm7VM0": {
+					"tCYGzDM256RXai3B": {
 						"name": "Legendary Action: Roar",
 						"activation": {
 							"cost": 1,
@@ -1186,12 +1186,12 @@
 							"type": ""
 						},
 						"prompts": {
-							"BBOmdIRpMCfqyTuX": {
+							"2NRL6XaO0TYeduW6": {
 								"ability": "cha",
 								"onSave": "Avoids effects.",
 								"saveDC": {
 									"type": "custom",
-									"bonus": "16"
+									"bonus": "19"
 								},
 								"type": "savingThrow"
 							}
@@ -1199,7 +1199,7 @@
 						"consumers": {}
 					}
 				},
-				"description": "<p>Each creature of the dragon’s choice within 120 feet that can hear it makes a DC 16 Charisma saving throw. On a failure, it is frightened for 1 minute. A creature repeats the saving throw at the end of its turns, ending the effect on itself on a success. When it succeeds on a saving throw or the effect ends for it, it is immune to Roar for 24 hours.</p>",
+				"description": "<p>Each creature of the dragon’s choice within 120 feet that can hear it makes a DC 19 Charisma saving throw. On a failure, it is frightened for 1 minute. A creature repeats the saving throw at the end of its turns, ending the effect on itself on a success. When it succeeds on a saving throw or the effect ends for it, it is immune to Roar for 24 hours.</p>",
 				"favorite": true,
 				"secretDescription": "",
 				"source": "",
@@ -1256,7 +1256,7 @@
 					"requiresUnarmored": false
 				},
 				"actions": {
-					"cgnEpEzEyt5y9esU": {
+					"WMd5VIEqlx7BrEfg": {
 						"name": "Legendary Action: Wing Attack",
 						"activation": {
 							"cost": 1,
@@ -1280,12 +1280,12 @@
 							"type": ""
 						},
 						"prompts": {
-							"qGfn0VZTutpaGfKw": {
+							"AF62JGsmw9ScBm5M": {
 								"ability": "dex",
 								"onSave": "Avoids effects.",
 								"saveDC": {
 									"type": "custom",
-									"bonus": "19"
+									"bonus": "23"
 								},
 								"type": "savingThrow"
 							}
@@ -1293,7 +1293,7 @@
 						"consumers": {}
 					}
 				},
-				"description": "<p>The dragon beats its wings. Each creature within 15 feet makes a DC 19 Dexterity saving throw. On a failure, it is pushed 10 feet away and knocked prone. The dragon can then fly up to half its fly speed.</p>",
+				"description": "<p>The dragon beats its wings. Each creature within 15 feet makes a DC 23 Dexterity saving throw. On a failure, it is pushed 10 feet away and knocked prone. The dragon can then fly up to half its fly speed.</p>",
 				"favorite": true,
 				"secretDescription": "",
 				"source": "",
@@ -1331,14 +1331,18 @@
 			}
 		},
 		{
-			"_id": "fKc0Qme9oPpDOEwE",
+			"_id": "aYKmegAuw0aYOK2S",
 			"name": "Staff (Humanoid Form Only)",
 			"type": "object",
 			"img": "icons/svg/item-bag.svg",
 			"effects": [],
 			"folder": null,
 			"sort": 0,
-			"flags": {},
+			"flags": {
+				"core": {
+					"sourceId": "Item.fKc0Qme9oPpDOEwE"
+				}
+			},
 			"system": {
 				"ac": {
 					"baseFormula": "",
@@ -1350,7 +1354,7 @@
 					"requiresUnarmored": false
 				},
 				"actions": {
-					"tv8z0zE1SonJvbUn": {
+					"16sNhU6jcx0d4v2J": {
 						"name": "Staff (Humanoid Form Only)",
 						"activation": {
 							"cost": 1,
@@ -1371,14 +1375,14 @@
 							"type": ""
 						},
 						"rolls": {
-							"jNByFbeZmWmeKCw2": {
+							"zAAV7LIIM1nOjFwx": {
 								"bonus": "",
 								"critThreshold": "20",
 								"type": "attack",
 								"attackType": "meleeWeaponAttack",
 								"ability": "default"
 							},
-							"06cz2hmsqH5Mzfmp": {
+							"XUesIMuIAOSlALML": {
 								"canCrit": true,
 								"damageType": "bludgeoning",
 								"formula": "1d8 + @str.mod",
@@ -1463,7 +1467,7 @@
 			},
 			"system": {
 				"actions": {
-					"pTTmWDZndsHSTRq8": {
+					"Oul0jrtCcszeQyfN": {
 						"name": "Shove",
 						"activation": {
 							"cost": 1,
@@ -1475,7 +1479,7 @@
 							"value": null
 						},
 						"ranges": {
-							"ng5x5j7knnsj4txn": {
+							"KApcczNQNNwjTAxX": {
 								"range": "fiveFeet"
 							}
 						},
@@ -1491,7 +1495,7 @@
 							"size": ""
 						},
 						"rolls": {
-							"191nbULyQzCMAoHy": {
+							"2HyHQmnNuvMuLC60": {
 								"canCrit": false,
 								"damageType": "bludgeoning",
 								"formula": "1 + @str.mod",
@@ -1500,7 +1504,7 @@
 							}
 						},
 						"prompts": {
-							"XIk13OKHWtFyrN3X": {
+							"ylPCi0QNADceviYP": {
 								"ability": "str",
 								"onSave": "",
 								"saveDC": {
@@ -1552,7 +1556,7 @@
 			},
 			"folder": null,
 			"sort": 0,
-			"_id": "Z2pTJKBR1W5dR6Ja"
+			"_id": "t3ee3ztyFImCNL43"
 		},
 		{
 			"name": "Disarm",
@@ -1566,7 +1570,7 @@
 			},
 			"system": {
 				"actions": {
-					"3le9oB7eJRASgFM8": {
+					"E3oVVyK8Jt1uLOc1": {
 						"name": "Disarm",
 						"activation": {
 							"cost": 1,
@@ -1578,7 +1582,7 @@
 							"value": null
 						},
 						"ranges": {
-							"4UIBkLgNrMo75Nfs": {
+							"IJOVypDRp1gwkgyR": {
 								"range": "touch"
 							}
 						},
@@ -1594,7 +1598,7 @@
 							"size": ""
 						},
 						"rolls": {
-							"pqCfKgmNwZrqV87N": {
+							"RLRm13LjFqianQZh": {
 								"canCrit": false,
 								"damageType": "",
 								"formula": "1 + @str.mod",
@@ -1603,7 +1607,7 @@
 							}
 						},
 						"prompts": {
-							"6rX8xVTjVzk9DycU": {
+							"PzAUIHLNZsoRhKOg": {
 								"ability": "str",
 								"onSave": "",
 								"saveDC": {
@@ -1655,7 +1659,7 @@
 			},
 			"folder": null,
 			"sort": 0,
-			"_id": "esUM9TDj1D4Go39m"
+			"_id": "mIgRWy4QXTc66kmi"
 		},
 		{
 			"name": "Grab On",
@@ -1669,7 +1673,7 @@
 			},
 			"system": {
 				"actions": {
-					"qnGbj6GFvH1uRntI": {
+					"lCXj6xuFoOXSaT0C": {
 						"name": "Grab On",
 						"activation": {
 							"cost": 1,
@@ -1681,7 +1685,7 @@
 							"value": null
 						},
 						"ranges": {
-							"yfEP71M0DWQWSbmH": {
+							"nJbte6DnrWawHsQu": {
 								"range": "touch"
 							}
 						},
@@ -1697,7 +1701,7 @@
 							"size": ""
 						},
 						"prompts": {
-							"PBpiq90TsKXVQgVD": {
+							"ZYi85JJgCKz6rEmX": {
 								"ability": "str",
 								"onSave": "",
 								"saveDC": {
@@ -1749,7 +1753,7 @@
 			},
 			"folder": null,
 			"sort": 0,
-			"_id": "r3K1xdQJLwJynWLk"
+			"_id": "uYAMvo6SWFNvmHQK"
 		},
 		{
 			"name": "Knockdown",
@@ -1763,7 +1767,7 @@
 			},
 			"system": {
 				"actions": {
-					"3V1brWdEkjTOOzYe": {
+					"9RgFxXJPtowiVD6d": {
 						"name": "Knockdown",
 						"activation": {
 							"cost": 1,
@@ -1775,7 +1779,7 @@
 							"value": null
 						},
 						"ranges": {
-							"JKBMpqD90RQvQpSY": {
+							"ojEMfJ35Pp2gdMRk": {
 								"range": "touch"
 							}
 						},
@@ -1791,7 +1795,7 @@
 							"size": ""
 						},
 						"prompts": {
-							"cdJP9gmZx0KKZiid": {
+							"OBRWubXxs8kt02oG": {
 								"ability": "str",
 								"onSave": "",
 								"saveDC": {
@@ -1843,7 +1847,7 @@
 			},
 			"folder": null,
 			"sort": 0,
-			"_id": "caATQRYyTJxm1s4Z"
+			"_id": "bn9zJnErxxvhLTmh"
 		},
 		{
 			"name": "Grapple",
@@ -1857,7 +1861,7 @@
 			},
 			"system": {
 				"actions": {
-					"1dfG5GJ6Vo4PqOBy": {
+					"NOGQtSzgObnEW1gi": {
 						"name": "Grapple",
 						"activation": {
 							"cost": 1,
@@ -1869,7 +1873,7 @@
 							"value": null
 						},
 						"ranges": {
-							"7QxfXIhyhHH0SzFz": {
+							"wDgWaEpVNVJDIgh9": {
 								"range": "touch"
 							}
 						},
@@ -1885,7 +1889,7 @@
 							"size": ""
 						},
 						"prompts": {
-							"Yv95rlOpHSohKhz1": {
+							"UcSqDyot1bUDznUk": {
 								"ability": "str",
 								"onSave": "",
 								"saveDC": {
@@ -1937,7 +1941,7 @@
 			},
 			"folder": null,
 			"sort": 0,
-			"_id": "drgVpzE00TgQpfko"
+			"_id": "FSnfR9keRoUeMytB"
 		},
 		{
 			"name": "Overrun",
@@ -1951,7 +1955,7 @@
 			},
 			"system": {
 				"actions": {
-					"8qBaNJ0rTQ7XVuCG": {
+					"yJYY54qUJV4wDWCq": {
 						"name": "Overrun",
 						"activation": {
 							"cost": 1,
@@ -1963,7 +1967,7 @@
 							"value": null
 						},
 						"ranges": {
-							"whaq2UuLmCVmUIr9": {
+							"IO99P9cAEjE8RagR": {
 								"range": "touch"
 							}
 						},
@@ -1979,7 +1983,7 @@
 							"size": ""
 						},
 						"prompts": {
-							"adFBVGpqbzGqkMUG": {
+							"9EyiGCeN6JAWFclZ": {
 								"ability": "str",
 								"onSave": "",
 								"saveDC": {
@@ -2031,30 +2035,754 @@
 			},
 			"folder": null,
 			"sort": 0,
-			"_id": "uuk3X2DIWBdBUTxA"
+			"_id": "FtK1B5oC00ZEesin"
+		},
+		{
+			"name": "Comprehend Languages",
+			"type": "spell",
+			"img": "icons/magic/symbols/runes-carved-stone-green.webp",
+			"effects": [],
+			"flags": {
+				"core": {
+					"sourceId": "Compendium.a5e.a5e-spells.Item.my7wwb844zvxcv4o"
+				}
+			},
+			"system": {
+				"actions": {
+					"1sR1uQ5fpV7M8q9P": {
+						"name": "Comprehend Languages",
+						"activation": {
+							"cost": 1,
+							"type": "action",
+							"reactionTrigger": ""
+						},
+						"duration": {
+							"unit": "hour",
+							"value": "1"
+						},
+						"ranges": {
+							"RHiGxMdZr88oKoJD": {
+								"range": "self"
+							}
+						},
+						"area": {
+							"shape": "",
+							"size": "",
+							"placeTemplate": false
+						},
+						"target": {
+							"quantity": "",
+							"type": "self"
+						},
+						"consumers": {
+							"IbJhraBBrMZlDY2I": {
+								"type": "itemUses",
+								"default": true,
+								"quantity": 1
+							}
+						}
+					}
+				},
+				"description": "<p>You gain a +10 bonus on Insight checks made to understand the meaning of any spoken language that you hear, or any written language that you can touch. Typically interpreting an unknown language is a DC 20 check, but the Narrator may use DC 15 for a language closely related to one you know, DC 25 for a language that is particularly unfamiliar or ancient, or DC 30 for a lost or dead language. This spell doesn't uncover secret messages or decode cyphers, and it does not assist in uncovering lies.</p><p><strong><em>Cast at Higher Levels.</em></strong> The bonus increases by +5 for each slot level above 1st.</p>",
+				"favorite": false,
+				"secretDescription": "",
+				"source": "",
+				"uses": {
+					"value": 3,
+					"max": "3",
+					"per": "day",
+					"recharge": {
+						"formula": "",
+						"threshold": ""
+					}
+				},
+				"schema": {
+					"version": null,
+					"lastMigration": null
+				},
+				"classes": [
+					"artificer",
+					"bard",
+					"sorcerer",
+					"warlock",
+					"wielder",
+					"witch",
+					"wizard"
+				],
+				"components": {
+					"vocalized": true,
+					"seen": true,
+					"material": true
+				},
+				"concentration": false,
+				"level": 1,
+				"materials": "ribbon with symbols of different languages written upon it",
+				"materialsConsumed": false,
+				"prepared": false,
+				"prerequisite": "",
+				"rare": false,
+				"ritual": true,
+				"schools": {
+					"primary": "divination",
+					"secondary": [
+						"communication",
+						"knowledge"
+					]
+				},
+				"schemaVersion": {
+					"version": 0.01,
+					"lastMigration": {
+						"version": {
+							"schema": 0.009,
+							"foundry": "12.316",
+							"system": "0.16.12"
+						}
+					}
+				}
+			},
+			"folder": null,
+			"_id": "OQi2lVxgrK5z7OYi",
+			"sort": 0,
+			"ownership": {
+				"default": 0
+			}
+		},
+		{
+			"name": "Identify",
+			"type": "spell",
+			"img": "icons/magic/perception/orb-eye-scrying.webp",
+			"effects": [],
+			"flags": {},
+			"system": {
+				"actions": {
+					"4XhYModUQGm7pzgi": {
+						"name": "Identify",
+						"activation": {
+							"cost": 1,
+							"type": "minute",
+							"reactionTrigger": ""
+						},
+						"duration": {
+							"unit": "instantaneous",
+							"value": ""
+						},
+						"ranges": {
+							"ap8M047nihNpOLsX": {
+								"range": "touch"
+							}
+						},
+						"area": {
+							"shape": "",
+							"size": "",
+							"placeTemplate": false
+						},
+						"target": {
+							"quantity": "",
+							"type": "creatureObject"
+						},
+						"consumers": {
+							"FR2lBBQKGOA2Wccz": {
+								"type": "itemUses",
+								"default": true,
+								"quantity": 1
+							}
+						}
+					}
+				},
+				"description": "<p>You learn the target item's magical properties along with how to use them. This spell also reveals whether or not a targeted item requires attunement and how many charges it has. You learn what spells are affecting the targeted item (if any) along with what spells were used to create it.</p><p>Alternatively, you learn any spells that are currently affecting a targeted creature.</p><p>What this spell can reveal is at the Narrator's discretion, and some powerful and rare magics are immune to identify.</p>",
+				"favorite": false,
+				"secretDescription": "",
+				"source": "",
+				"uses": {
+					"value": 3,
+					"max": "3",
+					"per": "day",
+					"recharge": {
+						"formula": "",
+						"threshold": ""
+					}
+				},
+				"schema": {
+					"version": null,
+					"lastMigration": null
+				},
+				"classes": [
+					"artificer",
+					"bard",
+					"witch",
+					"wizard"
+				],
+				"components": {
+					"vocalized": true,
+					"seen": true,
+					"material": true
+				},
+				"concentration": false,
+				"level": 1,
+				"materials": "pearl worth at least 100 gold and a feather",
+				"materialsConsumed": false,
+				"prepared": false,
+				"prerequisite": "",
+				"rare": false,
+				"ritual": true,
+				"schools": {
+					"primary": "divination",
+					"secondary": [
+						"arcane",
+						"knowledge"
+					]
+				},
+				"schemaVersion": {
+					"version": 0.01,
+					"lastMigration": {
+						"version": {
+							"schema": 0.009,
+							"foundry": "12.316",
+							"system": "0.16.12"
+						}
+					}
+				}
+			},
+			"folder": null,
+			"_id": "49kyo0nesTx0ZcJz",
+			"sort": 0,
+			"ownership": {
+				"default": 0
+			}
+		},
+		{
+			"name": "Commune",
+			"type": "spell",
+			"img": "icons/magic/holy/prayer-hands-glowing-yellow-white.webp",
+			"effects": [],
+			"flags": {},
+			"system": {
+				"actions": {
+					"iPIndfM7dVBuPUlg": {
+						"name": "Commune",
+						"activation": {
+							"cost": 1,
+							"type": "minute",
+							"reactionTrigger": ""
+						},
+						"duration": {
+							"unit": "minute",
+							"value": "1"
+						},
+						"ranges": {
+							"xSZThq9Mniv0aIqw": {
+								"range": "self"
+							}
+						},
+						"area": {
+							"shape": "",
+							"size": "",
+							"placeTemplate": false
+						},
+						"target": {
+							"quantity": "",
+							"type": "self"
+						},
+						"consumers": {
+							"Zf4oMIbsRMxEPJEU": {
+								"type": "itemUses",
+								"default": true,
+								"quantity": 1
+							}
+						}
+					}
+				},
+				"description": "<p>You contact your deity, a divine proxy, or a personified source of divine power and ask up to 3 questions that could be answered with a yes or a no. You must complete your questions before the spell ends. You receive a correct answer for each question, unless the being does not know. When the being does not know, you receive &quot;unclear&quot; as an answer. The being does not try to deceive, and the Narrator may offer a short phrase as an answer if necessary.</p><p>When you cast this spell again before finishing a long rest, the chance of getting a no answer increases.</p><p>The Narrator makes the following roll in secret: second casting &mdash;25%, third casting &mdash;50%, fourth casting&mdash;75%, fifth casting&mdash;100%.</p>",
+				"favorite": false,
+				"secretDescription": "",
+				"source": "",
+				"uses": {
+					"value": 3,
+					"max": "3",
+					"per": "day",
+					"recharge": {
+						"formula": "",
+						"threshold": ""
+					}
+				},
+				"schema": {
+					"version": null,
+					"lastMigration": null
+				},
+				"classes": [
+					"cleric",
+					"warlock",
+					"witch"
+				],
+				"components": {
+					"vocalized": true,
+					"seen": true,
+					"material": true
+				},
+				"concentration": false,
+				"level": 5,
+				"materials": "incense and vial of holy or unholy water",
+				"materialsConsumed": false,
+				"prepared": false,
+				"prerequisite": "",
+				"rare": false,
+				"ritual": true,
+				"schools": {
+					"primary": "divination",
+					"secondary": [
+						"divine",
+						"knowledge",
+						"planar"
+					]
+				},
+				"schemaVersion": {
+					"version": 0.01,
+					"lastMigration": {
+						"version": {
+							"schema": 0.009,
+							"foundry": "12.316",
+							"system": "0.16.12"
+						}
+					}
+				}
+			},
+			"folder": null,
+			"_id": "rNeh90SEh5K8uN1f",
+			"sort": 0,
+			"ownership": {
+				"default": 0
+			}
+		},
+		{
+			"name": "Legend Lore",
+			"type": "spell",
+			"img": "icons/sundries/books/book-open-purple.webp",
+			"effects": [],
+			"flags": {},
+			"system": {
+				"actions": {
+					"pHW4kJaXiBunXgHH": {
+						"name": "Legend Lore",
+						"activation": {
+							"cost": 10,
+							"type": "minute",
+							"reactionTrigger": ""
+						},
+						"duration": {
+							"unit": "instantaneous",
+							"value": ""
+						},
+						"ranges": {
+							"MkK8h8GgIqgDLsGJ": {
+								"range": "self"
+							}
+						},
+						"area": {
+							"shape": "",
+							"size": "",
+							"placeTemplate": false
+						},
+						"target": {
+							"quantity": "",
+							"type": "creatureObject"
+						},
+						"consumers": {
+							"u7nTeoPpfJRmwNck": {
+								"type": "itemUses",
+								"default": true,
+								"quantity": 1
+							}
+						}
+					}
+				},
+				"description": "<p>You learn significant information about the target. This could range from the most up-todate research, lore forgotten in old tales, or even previously unknown information. The spell gives you additional, more detailed information if you already have some knowledge of the target. The spell will not return any information for items not of legendary renown.</p><p>The knowledge you gain is always true, but may be obscured by metaphor, poetic language, or verse.</p><p>If you use the spell for a cursed tome, for instance, you may gain knowledge of the dire words spoken by its creator as they brought it into the world.</p><p><strong><em>Cast at Higher Levels.</em></strong> Your intuition surrounding the target is enhanced and you gain advantage on one Investigation check regarding it for each slot level above 6th.</p>",
+				"favorite": false,
+				"secretDescription": "",
+				"source": "",
+				"uses": {
+					"value": 3,
+					"max": "3",
+					"per": "day",
+					"recharge": {
+						"formula": "",
+						"threshold": ""
+					}
+				},
+				"schema": {
+					"version": null,
+					"lastMigration": null
+				},
+				"classes": [
+					"bard",
+					"cleric",
+					"wielder",
+					"witch",
+					"wizard"
+				],
+				"components": {
+					"vocalized": true,
+					"seen": true,
+					"material": true
+				},
+				"concentration": false,
+				"level": 5,
+				"materials": "250 gold of incense consumed by the spell and 4 blank, exquisitely bound books worth at least 50 gold each",
+				"materialsConsumed": false,
+				"prepared": false,
+				"prerequisite": "",
+				"rare": false,
+				"ritual": false,
+				"schools": {
+					"primary": "divination",
+					"secondary": [
+						"arcane",
+						"communication",
+						"knowledge"
+					]
+				},
+				"schemaVersion": {
+					"version": 0.01,
+					"lastMigration": {
+						"version": {
+							"schema": 0.009,
+							"foundry": "12.316",
+							"system": "0.16.12"
+						}
+					}
+				}
+			},
+			"folder": null,
+			"_id": "5P2LBnr9uEu8iaOg",
+			"sort": 0,
+			"ownership": {
+				"default": 0
+			}
+		},
+		{
+			"name": "Innate Spellcasting",
+			"type": "feature",
+			"system": {
+				"ac": {
+					"baseFormula": "",
+					"formula": "",
+					"maxDex": 0,
+					"minStr": 0,
+					"mode": 2,
+					"requiresNoShield": false,
+					"requiresUnarmored": false
+				},
+				"actions": {},
+				"description": "<p>The dragon&rsquo;s spellcasting ability is Charisma (save DC 19). It can innately cast the following spells, requiring no material components.&nbsp;</p>\n<p><strong>3/day each:</strong> <em>commune, </em><em>comprehend languages, identify, legend lore</em></p>\n<p><strong>1/day each:&nbsp;</strong><em>teleport, true seeing</em></p>",
+				"favorite": false,
+				"secretDescription": "",
+				"source": {
+					"name": "",
+					"link": "",
+					"publisher": ""
+				},
+				"uses": {
+					"value": null,
+					"max": "",
+					"per": null,
+					"recharge": {
+						"formula": "1d6",
+						"threshold": "6"
+					}
+				},
+				"schema": {
+					"version": null,
+					"lastMigration": null
+				},
+				"concentration": false,
+				"featureType": "other",
+				"grants": {},
+				"prerequisite": "",
+				"requiresBloodied": false
+			},
+			"_id": "fpx1P7CCzLu5Rpql",
+			"img": "icons/svg/item-bag.svg",
+			"effects": [],
+			"folder": null,
+			"sort": 0,
+			"ownership": {
+				"default": 0
+			},
+			"flags": {}
+		},
+		{
+			"name": "Teleport",
+			"type": "spell",
+			"img": "icons/skills/movement/arrow-upward-yellow.webp",
+			"effects": [],
+			"flags": {},
+			"system": {
+				"actions": {
+					"eOObcCvj0D4H3tCD": {
+						"name": "Teleport",
+						"activation": {
+							"cost": 1,
+							"type": "action",
+							"reactionTrigger": ""
+						},
+						"duration": {
+							"unit": "instantaneous",
+							"value": ""
+						},
+						"ranges": {
+							"cFaokRRY6oPKWpPh": {
+								"range": "Same plane"
+							}
+						},
+						"area": {
+							"shape": "",
+							"size": "",
+							"placeTemplate": false
+						},
+						"target": {
+							"quantity": "",
+							"type": "creature"
+						},
+						"consumers": {
+							"s2OmnPOnrMDW3znf": {
+								"type": "itemUses",
+								"default": true,
+								"quantity": 1
+							}
+						}
+					}
+				},
+				"description": "<p>You teleport the targets instantly across vast distances. When you cast this spell, choose a destination. You must know the location you're teleporting to, and it must be on the same plane of existence.</p>\n<p>Teleportation is difficult magic and you may arrive off-target or somewhere else entirely depending on how familiar you are with the location you're teleporting to. When you teleport, the Narrator rolls 1d100 and consults Table: Teleport Familiarity.</p>\n<p>Familiarity is determined as follows:</p>\n<p><strong>Permanent Circle:</strong> A permanent teleportation circle whose sigil sequence you know (see teleportation circle).</p>\n<p><strong>Associated Object:</strong> You have an object taken from the target location within the last 6 months, such as a piece of wood from the pew in a grand temple or a pinch of grave dust from a vampire's hidden redoubt.</p>\n<p><strong>Very Familiar:</strong> A place you have frequented, carefully studied, or can see at the time you cast the spell.</p>\n<p><strong>Seen Casually:</strong> A place you have seen more than once but don't know well. This could be a castle you've passed by but never visited, or the farms you look down on from your tower of ivory.</p>\n<p><strong>Viewed Once: </strong>A place you have seen once, either in person or via magic.</p>\n<p><strong>Description:</strong> A place you only know from someone else's description (whether spoken, written, or even marked on a map).</p>\n<p><strong>False Destination:</strong> A place that doesn't actually exist. This typically happens when someone deceives you, either intentionally (like a wizard creating an illusion to hide their actual tower) or unintentionally (such as when the location you attempt to teleport to no longer exists).</p>\n<p>Your arrival is determined as follows:</p>\n<p><strong>On Target: </strong>You and your targets arrive exactly where you mean to.</p>\n<p><strong>Off Target: </strong>You and your targets arrive some distance away from the target in a random direction. The further you travel, the further away you are likely to arrive. You arrive off target by a number of miles equal to 1d10 &times; 1d10 percent of the total distance of your trip.</p>\n<p>If you tried to travel 1, 000 miles and roll a 2 and 4 on the d10s, you land 6 percent off target and arrive 60 miles away from your intended destination in a random direction. Roll [[/r 1d8]] to randomly determine the direction: 1&mdash;north, 2 &mdash;northeast, 3 &mdash;east, 4 &mdash;southeast, 5&mdash;south, 6 &mdash;southwest, 7&mdash;west, 8&mdash;northwest.</p>\n<p><strong>Similar Location: </strong>You and your targets arrive in a different location that somehow resembles the target area. If you tried to teleport to your favorite inn, you might end up at a different inn, or in a room with much of the same decor.</p>\n<p>Typically you appear at the closest similar location, but that is not always the case.</p>\n<p><strong>Mishap:</strong> The spell's magic goes awry, and each teleporting creature or object takes 3d10 force damage. The Narrator rerolls on the table to determine where you arrive. When multiple mishaps occur targets take damage each time.</p>\n<h4><strong>Table: Teleport Familiarity</strong></h4>\n<table style=\"width: 100%; height: 134.375px;\" border=\"1\"><colgroup><col style=\"width: 29.5938%;\"><col style=\"width: 11.9923%;\"><col style=\"width: 26.499%;\"><col style=\"width: 16.0542%;\"><col style=\"width: 15.6673%;\"></colgroup>\n<thead>\n<tr style=\"height: 16.7969px;\">\n<td style=\"height: 16.7969px;\">Familiarity</td>\n<td style=\"text-align: center; height: 16.7969px;\">Mishap</td>\n<td style=\"text-align: center; height: 16.7969px;\">Similar Location</td>\n<td style=\"text-align: center; height: 16.7969px;\">Off Target</td>\n<td style=\"text-align: center; height: 16.7969px;\">On Target</td>\n</tr>\n</thead>\n<tbody>\n<tr style=\"height: 16.7969px;\">\n<td style=\"height: 16.7969px;\">Permanent circle</td>\n<td style=\"text-align: center; height: 16.7969px;\">-</td>\n<td style=\"text-align: center; height: 16.7969px;\">-</td>\n<td style=\"text-align: center; height: 16.7969px;\">-</td>\n<td style=\"text-align: center; height: 16.7969px;\">1-100</td>\n</tr>\n<tr style=\"height: 16.7969px;\">\n<td style=\"height: 16.7969px;\">Associated Object</td>\n<td style=\"text-align: center; height: 16.7969px;\">-</td>\n<td style=\"text-align: center; height: 16.7969px;\">1-5</td>\n<td style=\"text-align: center; height: 16.7969px;\">6-15</td>\n<td style=\"text-align: center; height: 16.7969px;\">16-100</td>\n</tr>\n<tr style=\"height: 16.7969px;\">\n<td style=\"height: 16.7969px;\">Very Familiar</td>\n<td style=\"text-align: center; height: 16.7969px;\">1-5</td>\n<td style=\"text-align: center; height: 16.7969px;\">6-13</td>\n<td style=\"text-align: center; height: 16.7969px;\">14-24</td>\n<td style=\"text-align: center; height: 16.7969px;\">25-100</td>\n</tr>\n<tr style=\"height: 16.7969px;\">\n<td style=\"height: 16.7969px;\">Seen Casually</td>\n<td style=\"text-align: center; height: 16.7969px;\">1-33</td>\n<td style=\"text-align: center; height: 16.7969px;\">34-43</td>\n<td style=\"text-align: center; height: 16.7969px;\">44-53</td>\n<td style=\"text-align: center; height: 16.7969px;\">54-100</td>\n</tr>\n<tr style=\"height: 16.7969px;\">\n<td style=\"height: 16.7969px;\">Viewed Once</td>\n<td style=\"text-align: center; height: 16.7969px;\">1-43</td>\n<td style=\"text-align: center; height: 16.7969px;\">44-53</td>\n<td style=\"text-align: center; height: 16.7969px;\">54-73</td>\n<td style=\"text-align: center; height: 16.7969px;\">74-100</td>\n</tr>\n<tr style=\"height: 16.7969px;\">\n<td style=\"height: 16.7969px;\">Description</td>\n<td style=\"text-align: center; height: 16.7969px;\">1-43</td>\n<td style=\"text-align: center; height: 16.7969px;\">44-53</td>\n<td style=\"text-align: center; height: 16.7969px;\">54-73</td>\n<td style=\"text-align: center; height: 16.7969px;\">74-100</td>\n</tr>\n<tr style=\"height: 16.7969px;\">\n<td style=\"height: 16.7969px;\">False Destination</td>\n<td style=\"text-align: center; height: 16.7969px;\">1-50</td>\n<td style=\"text-align: center; height: 16.7969px;\">51-100</td>\n<td style=\"text-align: center; height: 16.7969px;\">-</td>\n<td style=\"text-align: center; height: 16.7969px;\">-</td>\n</tr>\n</tbody>\n</table>",
+				"favorite": false,
+				"secretDescription": "",
+				"source": "",
+				"uses": {
+					"value": 1,
+					"max": "1",
+					"per": "day",
+					"recharge": {
+						"formula": "",
+						"threshold": ""
+					}
+				},
+				"schema": {
+					"version": null,
+					"lastMigration": null
+				},
+				"classes": [
+					"bard",
+					"sorcerer",
+					"witch",
+					"wizard"
+				],
+				"components": {
+					"vocalized": true,
+					"seen": false,
+					"material": false
+				},
+				"concentration": false,
+				"level": 7,
+				"materials": "",
+				"materialsConsumed": false,
+				"prepared": false,
+				"prerequisite": "",
+				"rare": false,
+				"ritual": true,
+				"schools": {
+					"primary": "conjuration",
+					"secondary": [
+						"arcane",
+						"teleportation"
+					]
+				},
+				"schemaVersion": {
+					"version": 0.01,
+					"lastMigration": {
+						"version": {
+							"schema": 0.009,
+							"foundry": "12.316",
+							"system": "0.16.12"
+						}
+					}
+				}
+			},
+			"folder": null,
+			"_id": "DJKVkWkDASrpDe2g",
+			"sort": 0,
+			"ownership": {
+				"default": 0
+			}
+		},
+		{
+			"name": "True Seeing",
+			"type": "spell",
+			"img": "icons/magic/perception/orb-crystal-ball-scrying-blue.webp",
+			"effects": [
+				{
+					"icon": "icons/magic/perception/orb-crystal-ball-scrying-blue.webp",
+					"origin": "Actor.B9U6N01C0PMf2MTW.Item.k9kAGMnjW76Csoem",
+					"flags": {
+						"a5e": {
+							"sort": 0,
+							"transferType": "onUse",
+							"actionId": "kjfGqi9GZMkJrOLT",
+							"duration": {
+								"unit": "hours"
+							}
+						}
+					},
+					"transfer": false,
+					"name": "True Seeing",
+					"_id": "CToxxyRFbSpHQoVY",
+					"changes": [
+						{
+							"key": "system.attributes.senses.truesight.distance",
+							"value": "120",
+							"mode": 6,
+							"priority": null
+						}
+					],
+					"disabled": false,
+					"duration": {
+						"startTime": null,
+						"seconds": 3600,
+						"combat": null,
+						"rounds": null,
+						"turns": null,
+						"startRound": null,
+						"startTurn": null
+					},
+					"description": "<p>Until the spell ends, the target gains truesight to a range of 120 feet. The target also notices secret doors hidden by magic.</p>",
+					"statuses": [],
+					"folder": null
+				}
+			],
+			"flags": {},
+			"system": {
+				"actions": {
+					"kjfGqi9GZMkJrOLT": {
+						"name": "True Seeing",
+						"activation": {
+							"cost": 1,
+							"type": "action",
+							"reactionTrigger": ""
+						},
+						"duration": {
+							"unit": "hour",
+							"value": "1"
+						},
+						"ranges": {
+							"Etf0r00UOAIpbuOu": {
+								"range": "touch"
+							}
+						},
+						"area": {
+							"shape": "",
+							"size": "",
+							"placeTemplate": false
+						},
+						"target": {
+							"quantity": "",
+							"type": "creature"
+						},
+						"consumers": {
+							"qt8lrIYKNqauq03E": {
+								"type": "itemUses",
+								"default": true,
+								"quantity": 1
+							}
+						},
+						"prompts": {
+							"yalKatlt7JEF3Rox": {
+								"type": "effect",
+								"default": true,
+								"effectId": "CToxxyRFbSpHQoVY"
+							}
+						}
+					}
+				},
+				"description": "<p>Until the spell ends, the target gains truesight to a range of 120 feet. The target also notices secret doors hidden by magic.</p>",
+				"favorite": false,
+				"secretDescription": "",
+				"source": "",
+				"uses": {
+					"value": 1,
+					"max": "1",
+					"per": "day",
+					"recharge": {
+						"formula": "",
+						"threshold": ""
+					}
+				},
+				"schema": {
+					"version": null,
+					"lastMigration": null
+				},
+				"classes": [
+					"bard",
+					"cleric",
+					"sorcerer",
+					"warlock",
+					"witch",
+					"wizard"
+				],
+				"components": {
+					"vocalized": true,
+					"seen": true,
+					"material": true
+				},
+				"concentration": false,
+				"level": 6,
+				"materials": "an ointment for the eyes made from mushroom powder, saffron, and fat costing 25 gold, consumed by the spell",
+				"materialsConsumed": false,
+				"prepared": false,
+				"prerequisite": "",
+				"rare": false,
+				"ritual": false,
+				"schools": {
+					"primary": "divination",
+					"secondary": [
+						"arcane",
+						"divine",
+						"senses"
+					]
+				},
+				"schemaVersion": {
+					"version": 0.01,
+					"lastMigration": {
+						"version": {
+							"schema": 0.009,
+							"foundry": "12.316",
+							"system": "0.16.12"
+						}
+					}
+				}
+			},
+			"folder": null,
+			"_id": "k9kAGMnjW76Csoem",
+			"sort": 0,
+			"ownership": {
+				"default": 0
+			}
 		}
 	],
 	"effects": [],
 	"flags": {
 		"a5e": {
-			"availableSpellLevels": [
-				"1",
-				"0"
-			],
+			"availableSpellLevels": [],
 			"showSpellSlots": false,
 			"showSpellPoints": false,
 			"featureActivationCostFilters": {
 				"inclusive": [],
 				"exclusive": []
 			},
-			"sheetIsLocked": true,
-			"showSpellTab": false
+			"showSpellTab": true,
+			"sheetIsLocked": true
 		}
 	},
 	"system": {
 		"abilities": {
 			"str": {
-				"value": 22,
+				"value": 26,
 				"check": {
 					"expertiseDice": 0,
 					"bonus": "",
@@ -2082,7 +2810,7 @@
 				}
 			},
 			"con": {
-				"value": 20,
+				"value": 24,
 				"check": {
 					"expertiseDice": 0,
 					"bonus": "",
@@ -2096,7 +2824,7 @@
 				}
 			},
 			"int": {
-				"value": 18,
+				"value": 20,
 				"check": {
 					"expertiseDice": 0,
 					"bonus": "",
@@ -2110,7 +2838,7 @@
 				}
 			},
 			"wis": {
-				"value": 14,
+				"value": 16,
 				"check": {
 					"expertiseDice": 0,
 					"bonus": "",
@@ -2124,7 +2852,7 @@
 				}
 			},
 			"cha": {
-				"value": 16,
+				"value": 18,
 				"check": {
 					"expertiseDice": 0,
 					"bonus": "",
@@ -2436,7 +3164,7 @@
 		},
 		"attributes": {
 			"ac": {
-				"baseFormula": "18",
+				"baseFormula": "20",
 				"value": 0
 			},
 			"death": {
@@ -2444,8 +3172,8 @@
 				"failure": 0
 			},
 			"hp": {
-				"value": 161,
-				"baseMax": 161,
+				"value": 367,
+				"baseMax": 367,
 				"temp": 0,
 				"bonus": 0
 			},
@@ -2463,8 +3191,8 @@
 					"total": 0
 				},
 				"d12": {
-					"current": 14,
-					"total": 14
+					"current": 0,
+					"total": 0
 				},
 				"d4": {
 					"current": 0,
@@ -2482,7 +3210,7 @@
 			},
 			"movement": {
 				"burrow": {
-					"distance": 30,
+					"distance": 40,
 					"unit": "feet"
 				},
 				"climb": {
@@ -2555,7 +3283,7 @@
 				"dragon"
 			],
 			"isSwarm": false,
-			"cr": 16,
+			"cr": 22,
 			"elite": false,
 			"privateNotes": "",
 			"notes": ""
@@ -2565,7 +3293,7 @@
 			"languages": [
 				"draconic",
 				"common",
-				"Two more"
+				"Three more"
 			],
 			"tools": [],
 			"weapons": []
@@ -2622,7 +3350,7 @@
 			"publisher": ""
 		},
 		"traits": {
-			"size": "huge",
+			"size": "grg",
 			"conditionImmunities": [],
 			"damageImmunities": [
 				"fire"
@@ -2632,11 +3360,11 @@
 		}
 	},
 	"prototypeToken": {
-		"name": "Adult Brass Dragon",
+		"name": "Ancient Brass Dragon",
 		"displayName": 30,
 		"actorLink": false,
-		"width": 3,
-		"height": 3,
+		"width": 4,
+		"height": 4,
 		"lockRotation": false,
 		"rotation": 0,
 		"alpha": 1,
@@ -2698,5 +3426,5 @@
 		"prependAdjective": false
 	},
 	"folder": null,
-	"_id": "7xzhrt419yfho82n"
+	"_id": "n2f8k0968fnq2mx6"
 }

@@ -1,21 +1,17 @@
 {
-	"name": "Adult River Dragon",
+	"name": "Young Emerald Dragon Spellcaster",
 	"type": "npc",
-	"img": "systems/a5e/assets/river-dragon.webp",
+	"img": "systems/a5e/assets/emerald-dragon.webp",
 	"items": [
 		{
-			"_id": "Kc52REtmhngdCxjp",
-			"name": "Bite",
+			"_id": "ChR8vtYO8f8ghXay",
+			"name": "Far Thoughts",
 			"type": "feature",
-			"img": "icons/creatures/abilities/mouth-teeth-long-red.webp",
+			"img": "icons/svg/item-bag.svg",
 			"effects": [],
 			"folder": null,
 			"sort": 0,
-			"flags": {
-				"core": {
-					"sourceId": "Item.ag4fvqlYaTYUmMJq"
-				}
-			},
+			"flags": {},
 			"system": {
 				"ac": {
 					"baseFormula": "",
@@ -27,20 +23,20 @@
 					"requiresUnarmored": false
 				},
 				"actions": {
-					"xQBmVrSwaaO9YC0c": {
-						"name": "Bite",
+					"nqXEZsBFthRjkn0A": {
+						"name": "Far Thoughts",
 						"activation": {
 							"cost": 1,
 							"type": "action",
 							"reactionTrigger": ""
 						},
 						"duration": {
-							"unit": "instantaneous",
+							"unit": "",
 							"value": ""
 						},
 						"ranges": {
-							"GKWruZBoKD9ZlxPA": {
-								"range": "10ft"
+							"WyrXUCPIrHPdN89z": {
+								"range": "100 Miles"
 							}
 						},
 						"area": {
@@ -49,30 +45,14 @@
 							"placeTemplate": false
 						},
 						"target": {
-							"quantity": 1,
-							"type": "creature"
-						},
-						"rolls": {
-							"hfeZXWAri7M4UPPp": {
-								"bonus": "",
-								"critThreshold": "20",
-								"type": "attack",
-								"attackType": "meleeWeaponAttack",
-								"ability": "dex"
-							},
-							"fUNCHWhxkVz2kGqu": {
-								"canCrit": true,
-								"damageType": "piercing",
-								"formula": "3d10 + @dex.mod",
-								"name": "Default",
-								"type": "damage"
-							}
+							"quantity": "",
+							"type": ""
 						},
 						"consumers": {}
 					}
 				},
-				"description": "",
-				"favorite": true,
+				"description": "<p>The dragon is aware of any creature that uses a psionic ability or communicates telepathically within 100 miles of it. As an action, the dragon can psionically observe a creature, object, or location it is familiar with within 100 miles. While observing a subject in this way, the dragon can see, hear, and communicate telepathically, but it is blind and deaf in regard to its physical senses and does not require food or water. The dragon can psionically observe a subject indefinitely and can end this effect and return to its own senses as an action.</p>",
+				"favorite": false,
 				"secretDescription": "",
 				"source": "",
 				"uses": {
@@ -89,7 +69,7 @@
 					"lastMigration": null
 				},
 				"concentration": false,
-				"featureType": "naturalWeapon",
+				"featureType": "",
 				"grants": {},
 				"prerequisite": "",
 				"requiresBloodied": false,
@@ -109,10 +89,67 @@
 			}
 		},
 		{
-			"_id": "AUkVX63u1F8tH6O9",
-			"name": "Torrential Breath",
+			"_id": "Oj6zxC4tK0dfxzsS",
+			"name": "Innate Spellcasting",
 			"type": "feature",
 			"img": "icons/svg/item-bag.svg",
+			"effects": [],
+			"folder": null,
+			"sort": 0,
+			"flags": {},
+			"system": {
+				"ac": {
+					"baseFormula": "",
+					"formula": "",
+					"maxDex": 0,
+					"minStr": 0,
+					"mode": 1,
+					"requiresNoShield": false,
+					"requiresUnarmored": false
+				},
+				"actions": {},
+				"description": "<p>The dragon&rsquo;s spellcasting ability is Charisma (save DC 15). It can innately cast the following spells, requiring no material components.</p>\n<p><strong>3/day each:</strong> <em>hideous laughter,</em> <em>suggestion</em></p>",
+				"favorite": false,
+				"secretDescription": "",
+				"source": "",
+				"uses": {
+					"value": null,
+					"max": "",
+					"per": null,
+					"recharge": {
+						"formula": "",
+						"threshold": ""
+					}
+				},
+				"schema": {
+					"version": null,
+					"lastMigration": null
+				},
+				"concentration": false,
+				"featureType": "",
+				"grants": {},
+				"prerequisite": "",
+				"requiresBloodied": false,
+				"schemaVersion": {
+					"version": 0.01,
+					"lastMigration": {
+						"version": {
+							"schema": 0.009,
+							"foundry": "12.316",
+							"system": "0.16.12"
+						}
+					}
+				}
+			},
+			"ownership": {
+				"default": 0
+			}
+		},
+		{
+			"_id": "GHtIrR53vfBXo95B",
+			"name": "Multiattack",
+			"type": "feature",
+			"img": "icons/skills/melee/blade-tips-triple-steel.webp",
 			"effects": [],
 			"folder": null,
 			"sort": 0,
@@ -128,297 +165,29 @@
 					"requiresUnarmored": false
 				},
 				"actions": {
-					"shEtlJKBdpPUZ5CE": {
-						"name": "Torrential Breath",
+					"0P1UVAhWwNweewCw": {
+						"name": "Multiattack",
 						"activation": {
 							"cost": 1,
 							"type": "action",
 							"reactionTrigger": ""
 						},
 						"duration": {
-							"unit": "instantaneous",
+							"unit": "",
 							"value": ""
 						},
-						"ranges": {},
 						"area": {
-							"shape": "line",
-							"size": "60ft long, 5ft wide",
-							"placeTemplate": false,
-							"length": 60,
-							"width": 5
+							"shape": "",
+							"size": "",
+							"placeTemplate": false
 						},
 						"target": {
-							"quantity": 1,
+							"quantity": "",
 							"type": ""
 						},
-						"rolls": {
-							"DgnKRWmYfZJ8fuG9": {
-								"canCrit": false,
-								"damageType": "bludgeoning",
-								"formula": "16d6",
-								"name": "Default",
-								"type": "damage"
-							},
-							"GzLqmOuXOTai3B4S": {
-								"canCrit": false,
-								"damageType": "bludgeoning",
-								"formula": "3d6",
-								"name": "Creature mpacts a solid object",
-								"type": "damage"
-							}
-						},
-						"prompts": {
-							"AeAxoJNfcQj7SgIO": {
-								"ability": "dex",
-								"onSave": "Avoids effects and half damage.",
-								"saveDC": {
-									"type": "custom",
-									"bonus": "18"
-								},
-								"type": "savingThrow"
-							}
-						},
-						"consumers": {
-							"HphDFe0FgGa0yKTr": {
-								"type": "itemUses",
-								"default": true,
-								"quantity": 1
-							}
-						}
+						"consumers": {}
 					}
 				},
-				"description": "<p>The dragon exhales water in a 60-foot-long, 5-foot-wide line. Each creature in the area makes a DC 18 Dexterity saving throw, taking 56 (16d6) bludgeoning damage on a failed save or half damage on a success. A creature that fails the save is also knocked prone and is pushed up to 30 feet away. A creature that impacts a solid object takes an extra 10 (3d6) bludgeoning damage.</p>",
-				"favorite": true,
-				"secretDescription": "",
-				"source": "",
-				"uses": {
-					"value": 1,
-					"max": "1",
-					"per": "recharge",
-					"recharge": {
-						"formula": "",
-						"threshold": 5
-					}
-				},
-				"schema": {
-					"version": null,
-					"lastMigration": null
-				},
-				"concentration": false,
-				"featureType": "",
-				"grants": {},
-				"prerequisite": "",
-				"requiresBloodied": false,
-				"schemaVersion": {
-					"version": 0.01,
-					"lastMigration": {
-						"version": {
-							"schema": 0.009,
-							"foundry": "12.316",
-							"system": "0.16.12"
-						}
-					}
-				}
-			},
-			"ownership": {
-				"default": 0
-			}
-		},
-		{
-			"_id": "9iic8lMz3aj1SNu6",
-			"name": "Amphibious",
-			"type": "feature",
-			"img": "icons/environment/creatures/frog-spotted-green.webp",
-			"effects": [],
-			"folder": null,
-			"sort": 0,
-			"flags": {},
-			"system": {
-				"ac": {
-					"baseFormula": "",
-					"formula": "",
-					"maxDex": 0,
-					"minStr": 0,
-					"mode": 1,
-					"requiresNoShield": false,
-					"requiresUnarmored": false
-				},
-				"actions": {},
-				"description": "<p>The dragon can breath air and water.</p>",
-				"favorite": false,
-				"secretDescription": "",
-				"source": "",
-				"uses": {
-					"value": null,
-					"max": "",
-					"per": null,
-					"recharge": {
-						"formula": "",
-						"threshold": ""
-					}
-				},
-				"schema": {
-					"version": null,
-					"lastMigration": null
-				},
-				"concentration": false,
-				"featureType": "",
-				"grants": {},
-				"prerequisite": "",
-				"requiresBloodied": false,
-				"schemaVersion": {
-					"version": 0.01,
-					"lastMigration": {
-						"version": {
-							"schema": 0.009,
-							"foundry": "12.316",
-							"system": "0.16.12"
-						}
-					}
-				}
-			},
-			"ownership": {
-				"default": 0
-			}
-		},
-		{
-			"_id": "JG2D1Lq3R9TJojY1",
-			"name": "Flowing Grace",
-			"type": "feature",
-			"img": "icons/svg/item-bag.svg",
-			"effects": [],
-			"folder": null,
-			"sort": 0,
-			"flags": {},
-			"system": {
-				"ac": {
-					"baseFormula": "",
-					"formula": "",
-					"maxDex": 0,
-					"minStr": 0,
-					"mode": 1,
-					"requiresNoShield": false,
-					"requiresUnarmored": false
-				},
-				"actions": {},
-				"description": "<p>The dragon doesn't provoke opportunity attacks when it flies or swims out of an enemy's reach.</p>",
-				"favorite": false,
-				"secretDescription": "",
-				"source": "",
-				"uses": {
-					"value": null,
-					"max": "",
-					"per": null,
-					"recharge": {
-						"formula": "",
-						"threshold": ""
-					}
-				},
-				"schema": {
-					"version": null,
-					"lastMigration": null
-				},
-				"concentration": false,
-				"featureType": "",
-				"grants": {},
-				"prerequisite": "",
-				"requiresBloodied": false,
-				"schemaVersion": {
-					"version": 0.01,
-					"lastMigration": {
-						"version": {
-							"schema": 0.009,
-							"foundry": "12.316",
-							"system": "0.16.12"
-						}
-					}
-				}
-			},
-			"ownership": {
-				"default": 0
-			}
-		},
-		{
-			"_id": "o2PHke3FsMHlFHlu",
-			"name": "Shimmering Scales",
-			"type": "feature",
-			"img": "icons/svg/item-bag.svg",
-			"effects": [],
-			"folder": null,
-			"sort": 0,
-			"flags": {},
-			"system": {
-				"ac": {
-					"baseFormula": "",
-					"formula": "",
-					"maxDex": 0,
-					"minStr": 0,
-					"mode": 1,
-					"requiresNoShield": false,
-					"requiresUnarmored": false
-				},
-				"actions": {},
-				"description": "<p>While in water, the dragon gains three-quarters cover from attacks made by creatures more than 30 feet away.</p>",
-				"favorite": false,
-				"secretDescription": "",
-				"source": "",
-				"uses": {
-					"value": null,
-					"max": "",
-					"per": null,
-					"recharge": {
-						"formula": "",
-						"threshold": ""
-					}
-				},
-				"schema": {
-					"version": null,
-					"lastMigration": null
-				},
-				"concentration": false,
-				"featureType": "",
-				"grants": {},
-				"prerequisite": "",
-				"requiresBloodied": false,
-				"schemaVersion": {
-					"version": 0.01,
-					"lastMigration": {
-						"version": {
-							"schema": 0.009,
-							"foundry": "12.316",
-							"system": "0.16.12"
-						}
-					}
-				}
-			},
-			"ownership": {
-				"default": 0
-			}
-		},
-		{
-			"_id": "jNXFTLIGKc1oC061",
-			"name": "Multiattack",
-			"type": "feature",
-			"img": "icons/skills/melee/blade-tips-triple-steel.webp",
-			"effects": [],
-			"folder": null,
-			"sort": 300000,
-			"flags": {
-				"core": {
-					"sourceId": "Item.xD6jXCrejNh7pOld"
-				}
-			},
-			"system": {
-				"ac": {
-					"baseFormula": "",
-					"formula": "",
-					"maxDex": 0,
-					"minStr": 0,
-					"mode": 1,
-					"requiresNoShield": false,
-					"requiresUnarmored": false
-				},
-				"actions": {},
 				"description": "<p>The dragon attacks once with its bite and twice with its claws.</p>",
 				"favorite": false,
 				"secretDescription": "",
@@ -457,18 +226,14 @@
 			}
 		},
 		{
-			"_id": "l3KDoBDb44X8UyUP",
-			"name": "Claws",
+			"_id": "E1CsDBNfzRSWvEm0",
+			"name": "Bite",
 			"type": "feature",
-			"img": "icons/skills/melee/blood-slash-foam-red.webp",
+			"img": "icons/creatures/abilities/mouth-teeth-long-red.webp",
 			"effects": [],
 			"folder": null,
-			"sort": 250000,
-			"flags": {
-				"core": {
-					"sourceId": "Item.FnfGLPPI0HknNig2"
-				}
-			},
+			"sort": 0,
+			"flags": {},
 			"system": {
 				"ac": {
 					"baseFormula": "",
@@ -480,7 +245,115 @@
 					"requiresUnarmored": false
 				},
 				"actions": {
-					"cz3KNK9XDFh2EpsE": {
+					"gY2RviyALbJudkJj": {
+						"name": "Bite",
+						"activation": {
+							"cost": 1,
+							"type": "action",
+							"reactionTrigger": ""
+						},
+						"duration": {
+							"unit": "",
+							"value": ""
+						},
+						"ranges": {
+							"GCodA5ywPR3vquJP": {
+								"range": "10 ft."
+							}
+						},
+						"area": {
+							"shape": "",
+							"size": "",
+							"placeTemplate": false
+						},
+						"target": {
+							"quantity": "",
+							"type": ""
+						},
+						"rolls": {
+							"EMna7xcE5VLsbjfy": {
+								"bonus": "",
+								"critThreshold": "20",
+								"type": "attack",
+								"attackType": "meleeWeaponAttack",
+								"ability": "str"
+							},
+							"IovVUNhOuyskW0ET": {
+								"canCrit": true,
+								"damageType": "piercing",
+								"formula": "3d10+@str.mod",
+								"name": "Bite Piercing Damage",
+								"type": "damage"
+							},
+							"IdrpYlcLy2YNIHt7": {
+								"canCrit": true,
+								"damageType": "thunder",
+								"formula": "1d8",
+								"name": "Bite Force damage",
+								"type": "damage"
+							}
+						},
+						"consumers": {}
+					}
+				},
+				"description": "<p>On hit, piercing damage and thunder damage.</p>",
+				"favorite": true,
+				"secretDescription": "",
+				"source": "",
+				"uses": {
+					"value": null,
+					"max": "",
+					"per": null,
+					"recharge": {
+						"formula": "",
+						"threshold": ""
+					}
+				},
+				"schema": {
+					"version": null,
+					"lastMigration": null
+				},
+				"concentration": false,
+				"featureType": "naturalWeapon",
+				"grants": {},
+				"prerequisite": "",
+				"requiresBloodied": false,
+				"schemaVersion": {
+					"version": 0.01,
+					"lastMigration": {
+						"version": {
+							"schema": 0.009,
+							"foundry": "12.316",
+							"system": "0.16.12"
+						}
+					}
+				}
+			},
+			"ownership": {
+				"default": 0
+			}
+		},
+		{
+			"_id": "Gp90IZBbDStviMNW",
+			"name": "Claws",
+			"type": "feature",
+			"img": "icons/skills/melee/blood-slash-foam-red.webp",
+			"effects": [],
+			"folder": null,
+			"sort": 0,
+			"flags": {},
+			"system": {
+				"ac": {
+					"baseFormula": "",
+					"formula": "",
+					"maxDex": 0,
+					"minStr": 0,
+					"mode": 1,
+					"requiresNoShield": false,
+					"requiresUnarmored": false
+				},
+				"actions": {
+					"P6hv6ZmEizOzv0JB": {
 						"name": "Claws",
 						"activation": {
 							"cost": 1,
@@ -488,11 +361,11 @@
 							"reactionTrigger": ""
 						},
 						"duration": {
-							"unit": "instantaneous",
+							"unit": "",
 							"value": ""
 						},
 						"ranges": {
-							"GTqTSN31NZ7qe8Hn": {
+							"ZPd6yQW9uAjq5gW0": {
 								"range": "fiveFeet"
 							}
 						},
@@ -502,29 +375,29 @@
 							"placeTemplate": false
 						},
 						"target": {
-							"quantity": 1,
-							"type": "creature"
+							"quantity": "",
+							"type": ""
 						},
 						"rolls": {
-							"v28UAOgELJQrwjUR": {
+							"LrYG423NBMIeIhI2": {
 								"bonus": "",
 								"critThreshold": "20",
 								"type": "attack",
 								"attackType": "meleeWeaponAttack",
-								"ability": "dex"
+								"ability": "str"
 							},
-							"P5R2BfOba9O4CtOG": {
+							"iqAdVsLTClnDDcJl": {
 								"canCrit": true,
 								"damageType": "slashing",
-								"formula": "2d8 + @dex.mod",
-								"name": "Default",
+								"formula": "2d8+@str.mod",
+								"name": "Claw Slashing Damage",
 								"type": "damage"
 							}
 						},
 						"consumers": {}
 					}
 				},
-				"description": "",
+				"description": "<p>On hit, slashing damage</p>",
 				"favorite": true,
 				"secretDescription": "",
 				"source": "",
@@ -562,96 +435,8 @@
 			}
 		},
 		{
-			"_id": "ROTMIzmkzgIv30Zt",
-			"name": "Legendary Resistance (3/Day)",
-			"type": "feature",
-			"img": "icons/svg/item-bag.svg",
-			"effects": [],
-			"folder": null,
-			"sort": 800000,
-			"flags": {
-				"core": {
-					"sourceId": "Item.6Y1N4HAnCmpDkl3K"
-				}
-			},
-			"system": {
-				"ac": {
-					"baseFormula": "",
-					"formula": "",
-					"maxDex": 0,
-					"minStr": 0,
-					"mode": 1,
-					"requiresNoShield": false,
-					"requiresUnarmored": false
-				},
-				"actions": {
-					"abb7FSc3hK1v2fnb": {
-						"name": "Legendary Resistance (3/Day)",
-						"activation": {
-							"cost": "",
-							"type": "special",
-							"reactionTrigger": ""
-						},
-						"duration": {
-							"unit": "instantaneous",
-							"value": ""
-						},
-						"area": {
-							"shape": "",
-							"size": "",
-							"placeTemplate": false
-						},
-						"target": {
-							"quantity": "",
-							"type": ""
-						},
-						"consumers": {
-							"sTutdLWGxQIoDNQk": {
-								"type": "itemUses"
-							}
-						}
-					}
-				},
-				"description": "<p>When the dragon fails a saving throw, it can choose to succeed instead. When it does, it loses coordination as white-crested waves run up and down its body. It loses its Flowing Grace and Shimmering Scales traits until the beginning of its next turn.</p>",
-				"favorite": false,
-				"secretDescription": "",
-				"source": "",
-				"uses": {
-					"value": 3,
-					"max": 3,
-					"per": "day",
-					"recharge": {
-						"formula": "",
-						"threshold": ""
-					}
-				},
-				"schema": {
-					"version": null,
-					"lastMigration": null
-				},
-				"concentration": false,
-				"featureType": "",
-				"grants": {},
-				"prerequisite": "",
-				"requiresBloodied": false,
-				"schemaVersion": {
-					"version": 0.01,
-					"lastMigration": {
-						"version": {
-							"schema": 0.009,
-							"foundry": "12.316",
-							"system": "0.16.12"
-						}
-					}
-				}
-			},
-			"ownership": {
-				"default": 0
-			}
-		},
-		{
-			"_id": "kErR8gOPJZm6nWg8",
-			"name": "Whirlpool",
+			"_id": "1St3GwbIaGnvDa6Q",
+			"name": "Maddening Breath",
 			"type": "feature",
 			"img": "icons/svg/item-bag.svg",
 			"effects": [],
@@ -669,560 +454,68 @@
 					"requiresUnarmored": false
 				},
 				"actions": {
-					"T9xC7M9XAErTJ5KE": {
-						"name": "Whirlpool",
+					"w3FtpOq2P9CKLwQh": {
+						"name": "Maddening Breath",
 						"activation": {
 							"cost": 1,
-							"type": "bonusAction",
+							"type": "action",
 							"reactionTrigger": ""
 						},
 						"duration": {
-							"unit": "instantaneous",
-							"value": ""
-						},
-						"ranges": {
-							"W0XNXeZFYoGEMn7L": {
-								"range": "medium"
-							}
-						},
-						"area": {
-							"shape": "cylinder",
-							"size": "15ft tall, 10ft radius",
-							"placeTemplate": false,
-							"radius": 10,
-							"height": 15
-						},
-						"target": {
-							"quantity": "",
-							"type": "other"
-						},
-						"rolls": {
-							"roiTcip6vHuG92mv": {
-								"canCrit": false,
-								"damageType": "bludgeoning",
-								"formula": "5d6",
-								"name": "Default",
-								"type": "damage"
-							}
-						},
-						"prompts": {
-							"3oVt8Emyyf1oBAnw": {
-								"ability": "str",
-								"onSave": "Avoids effects and half damage.",
-								"saveDC": {
-									"type": "custom",
-									"bonus": "18"
-								},
-								"type": "savingThrow"
-							}
-						},
-						"consumers": {}
-					}
-				},
-				"description": "<p>A cylindrical, 15-foot-tall, 10-foot-radius whirlpool or waterspout magically appears in the water or air, centered on a point within 60 feet. Creatures in the area make a DC 18 Strength saving throw. On a failure, a creature takes 17 (5d6) bludgeoning damage and is knocked prone and pushed up to 15 feet. On a success, a creature takes half damage.</p>",
-				"favorite": true,
-				"secretDescription": "",
-				"source": "",
-				"uses": {
-					"value": null,
-					"max": "",
-					"per": null,
-					"recharge": {
-						"formula": "",
-						"threshold": ""
-					}
-				},
-				"schema": {
-					"version": null,
-					"lastMigration": null
-				},
-				"concentration": false,
-				"featureType": "",
-				"grants": {},
-				"prerequisite": "",
-				"requiresBloodied": false,
-				"schemaVersion": {
-					"version": 0.01,
-					"lastMigration": {
-						"version": {
-							"schema": 0.009,
-							"foundry": "12.316",
-							"system": "0.16.12"
-						}
-					}
-				}
-			},
-			"ownership": {
-				"default": 0
-			}
-		},
-		{
-			"_id": "BGUL90lQSd0u1LjI",
-			"name": "Snap Back",
-			"type": "feature",
-			"img": "icons/svg/item-bag.svg",
-			"effects": [],
-			"folder": null,
-			"sort": 0,
-			"flags": {},
-			"system": {
-				"ac": {
-					"baseFormula": "",
-					"formula": "",
-					"maxDex": 0,
-					"minStr": 0,
-					"mode": 1,
-					"requiresNoShield": false,
-					"requiresUnarmored": false
-				},
-				"actions": {
-					"5QSLOIGwAavLcQmf": {
-						"name": "Snap Back",
-						"activation": {
-							"cost": 1,
-							"type": "reaction",
-							"reactionTrigger": "When a creature the dragon can see hits it with a melee weapon attack."
-						},
-						"duration": {
-							"unit": "instantaneous",
-							"value": ""
-						},
-						"area": {
-							"shape": "",
-							"size": "",
-							"placeTemplate": false
-						},
-						"target": {
-							"quantity": "",
-							"type": ""
-						},
-						"consumers": {}
-					}
-				},
-				"description": "<p>Can be used while bloodied. When a creature the dragon can see hits it with a melee weapon attack, the dragon makes a bite attack against the attacker.</p>",
-				"favorite": false,
-				"secretDescription": "",
-				"source": "",
-				"uses": {
-					"value": null,
-					"max": "",
-					"per": null,
-					"recharge": {
-						"formula": "",
-						"threshold": ""
-					}
-				},
-				"schema": {
-					"version": null,
-					"lastMigration": null
-				},
-				"concentration": false,
-				"featureType": "",
-				"grants": {},
-				"prerequisite": "",
-				"requiresBloodied": true,
-				"schemaVersion": {
-					"version": 0.01,
-					"lastMigration": {
-						"version": {
-							"schema": 0.009,
-							"foundry": "12.316",
-							"system": "0.16.12"
-						}
-					}
-				}
-			},
-			"ownership": {
-				"default": 0
-			}
-		},
-		{
-			"_id": "vP4t0I87DW2X3ysN",
-			"name": "Legendary Actions",
-			"type": "feature",
-			"img": "icons/svg/item-bag.svg",
-			"effects": [],
-			"folder": null,
-			"sort": 900000,
-			"flags": {
-				"core": {
-					"sourceId": "Item.gaIR6sn0ay3vMJfh"
-				}
-			},
-			"system": {
-				"ac": {
-					"baseFormula": "",
-					"formula": "",
-					"maxDex": 0,
-					"minStr": 0,
-					"mode": 1,
-					"requiresNoShield": false,
-					"requiresUnarmored": false
-				},
-				"actions": {},
-				"description": "<p>The dragon can take 3 legendary actions, choosing from the options below. Only one legendary action can be used at a time and only at the end of another creature's turn. It regains spent legendary actions at the start of its turn.</p><p><strong><em>Dart Away.</em></strong> The dragon swims up to half its speed.</p><p><strong><em>Lurk.</em> </strong>The dragon takes the Hide action.</p><p><strong><em>River Surge (Costs 2 Actions).</em></strong> The dragon generates a 20-foot-tall, 100-foot-wide wave on the surface of water within 90 feet. The wave travels up to 45 feet in any direction the dragon chooses and crashes down, carrying Huge or smaller creatures and vehicles with it. Vehicles moved in this way have a 25 percent chance of capsizing and creatures that impact a solid object take 21 (6d6) bludgeoning damage.</p><p><strong><em>Sudden Maelstrom (While Bloodied, 1/Day).</em></strong> The dragon magically surrounds itself with a 60-foot-radius maelstrom of surging wind and rain for 1 minute. A creature other than the dragon that starts its turn in the maelstrom or enters it for the first time on a turn makes a DC 18 Strength saving throw. On a failed save, the creature is knocked prone and pushed 15 feet away from the dragon.</p>",
-				"favorite": false,
-				"secretDescription": "",
-				"source": "",
-				"uses": {
-					"value": 3,
-					"max": 3,
-					"per": "round",
-					"recharge": {
-						"formula": "",
-						"threshold": ""
-					}
-				},
-				"schema": {
-					"version": null,
-					"lastMigration": null
-				},
-				"concentration": false,
-				"featureType": "",
-				"grants": {},
-				"prerequisite": "",
-				"requiresBloodied": false,
-				"schemaVersion": {
-					"version": 0.01,
-					"lastMigration": {
-						"version": {
-							"schema": 0.009,
-							"foundry": "12.316",
-							"system": "0.16.12"
-						}
-					}
-				}
-			},
-			"ownership": {
-				"default": 0
-			}
-		},
-		{
-			"_id": "8AA7yhgxLUL5vAXJ",
-			"name": "Dart Away",
-			"type": "feature",
-			"img": "icons/svg/item-bag.svg",
-			"effects": [],
-			"folder": null,
-			"sort": 0,
-			"flags": {},
-			"system": {
-				"ac": {
-					"baseFormula": "",
-					"formula": "",
-					"maxDex": 0,
-					"minStr": 0,
-					"mode": 1,
-					"requiresNoShield": false,
-					"requiresUnarmored": false
-				},
-				"actions": {
-					"q3Jrw0zwQNG6kqTe": {
-						"name": "Dart Away",
-						"activation": {
-							"cost": 1,
-							"type": "legendaryAction",
-							"reactionTrigger": ""
-						},
-						"duration": {
-							"unit": "instantaneous",
-							"value": ""
-						},
-						"area": {
-							"shape": "",
-							"size": "",
-							"placeTemplate": false
-						},
-						"target": {
-							"quantity": "",
-							"type": ""
-						},
-						"consumers": {}
-					}
-				},
-				"description": "<p>The dragon swims up to half its speed.</p>",
-				"favorite": false,
-				"secretDescription": "",
-				"source": "",
-				"uses": {
-					"value": null,
-					"max": "",
-					"per": null,
-					"recharge": {
-						"formula": "",
-						"threshold": ""
-					}
-				},
-				"schema": {
-					"version": null,
-					"lastMigration": null
-				},
-				"concentration": false,
-				"featureType": "",
-				"grants": {},
-				"prerequisite": "",
-				"requiresBloodied": false,
-				"schemaVersion": {
-					"version": 0.01,
-					"lastMigration": {
-						"version": {
-							"schema": 0.009,
-							"foundry": "12.316",
-							"system": "0.16.12"
-						}
-					}
-				}
-			},
-			"ownership": {
-				"default": 0
-			}
-		},
-		{
-			"_id": "U22zT1fsKMfr8LAS",
-			"name": "Lurk",
-			"type": "feature",
-			"img": "icons/svg/item-bag.svg",
-			"effects": [],
-			"folder": null,
-			"sort": 0,
-			"flags": {},
-			"system": {
-				"ac": {
-					"baseFormula": "",
-					"formula": "",
-					"maxDex": 0,
-					"minStr": 0,
-					"mode": 1,
-					"requiresNoShield": false,
-					"requiresUnarmored": false
-				},
-				"actions": {
-					"dw0SvcrmjcDYkisc": {
-						"name": "Lurk",
-						"activation": {
-							"cost": 1,
-							"type": "legendaryAction",
-							"reactionTrigger": ""
-						},
-						"duration": {
-							"unit": "instantaneous",
-							"value": ""
-						},
-						"area": {
-							"shape": "",
-							"size": "",
-							"placeTemplate": false
-						},
-						"target": {
-							"quantity": "",
-							"type": ""
-						},
-						"consumers": {}
-					}
-				},
-				"description": "<p>The dragon takes the Hide action.</p>",
-				"favorite": false,
-				"secretDescription": "",
-				"source": "",
-				"uses": {
-					"value": null,
-					"max": "",
-					"per": null,
-					"recharge": {
-						"formula": "",
-						"threshold": ""
-					}
-				},
-				"schema": {
-					"version": null,
-					"lastMigration": null
-				},
-				"concentration": false,
-				"featureType": "",
-				"grants": {},
-				"prerequisite": "",
-				"requiresBloodied": false,
-				"schemaVersion": {
-					"version": 0.01,
-					"lastMigration": {
-						"version": {
-							"schema": 0.009,
-							"foundry": "12.316",
-							"system": "0.16.12"
-						}
-					}
-				}
-			},
-			"ownership": {
-				"default": 0
-			}
-		},
-		{
-			"_id": "sjrUexisCYHuXmXr",
-			"name": "River Surge (Costs 2 Actions)",
-			"type": "feature",
-			"img": "icons/svg/item-bag.svg",
-			"effects": [],
-			"folder": null,
-			"sort": 0,
-			"flags": {},
-			"system": {
-				"ac": {
-					"baseFormula": "",
-					"formula": "",
-					"maxDex": 0,
-					"minStr": 0,
-					"mode": 1,
-					"requiresNoShield": false,
-					"requiresUnarmored": false
-				},
-				"actions": {
-					"rslRe8Ft9oCOAGaE": {
-						"name": "River Surge",
-						"activation": {
-							"cost": 1,
-							"type": "legendaryAction",
-							"reactionTrigger": ""
-						},
-						"duration": {
-							"unit": "instantaneous",
-							"value": ""
-						},
-						"ranges": {
-							"5QViZKyKMojngMPW": {
-								"range": "90ft"
-							}
-						},
-						"area": {
-							"shape": "line",
-							"size": "20ft tall, 100ft wide",
-							"placeTemplate": false
-						},
-						"target": {
-							"quantity": "",
-							"type": "other"
-						},
-						"rolls": {
-							"Nh1EjdF8n1kj0v2Q": {
-								"canCrit": false,
-								"damageType": "bludgeoning",
-								"formula": "6d6",
-								"name": "Creatures that impact a solid object",
-								"type": "damage"
-							}
-						},
-						"consumers": {}
-					}
-				},
-				"description": "<p>The dragon generates a 20-foot-tall, 100-foot-wide wave on the surface of water within 90 feet. The wave travels up to 45 feet in any direction the dragon chooses and crashes down, carrying Huge or smaller creatures and vehicles with it. Vehicles moved in this way have a 25 percent chance of capsizing and creatures that impact a solid object take 21 (6d6) bludgeoning damage.</p>",
-				"favorite": true,
-				"secretDescription": "",
-				"source": "",
-				"uses": {
-					"value": null,
-					"max": "",
-					"per": null,
-					"recharge": {
-						"formula": "",
-						"threshold": ""
-					}
-				},
-				"schema": {
-					"version": null,
-					"lastMigration": null
-				},
-				"concentration": false,
-				"featureType": "",
-				"grants": {},
-				"prerequisite": "",
-				"requiresBloodied": false,
-				"schemaVersion": {
-					"version": 0.01,
-					"lastMigration": {
-						"version": {
-							"schema": 0.009,
-							"foundry": "12.316",
-							"system": "0.16.12"
-						}
-					}
-				}
-			},
-			"ownership": {
-				"default": 0
-			}
-		},
-		{
-			"_id": "tuivO1bkex4pDLm0",
-			"name": "Sudden Maelstrom",
-			"type": "feature",
-			"img": "icons/svg/item-bag.svg",
-			"effects": [],
-			"folder": null,
-			"sort": 0,
-			"flags": {},
-			"system": {
-				"ac": {
-					"baseFormula": "",
-					"formula": "",
-					"maxDex": 0,
-					"minStr": 0,
-					"mode": 1,
-					"requiresNoShield": false,
-					"requiresUnarmored": false
-				},
-				"actions": {
-					"vikzSxNPce3YAuRN": {
-						"name": "Sudden Maelstrom",
-						"activation": {
-							"cost": 1,
-							"type": "legendaryAction",
-							"reactionTrigger": ""
-						},
-						"duration": {
-							"unit": "instantaneous",
+							"unit": "",
 							"value": ""
 						},
 						"ranges": {},
 						"area": {
-							"shape": "sphere",
-							"size": "",
+							"shape": "cone",
+							"size": "30 ft.",
 							"placeTemplate": false,
-							"quantity": 1,
-							"radius": 60
+							"length": 30
 						},
 						"target": {
 							"quantity": 1,
 							"type": ""
 						},
+						"rolls": {
+							"0Y3TZdceSiK03ak7": {
+								"canCrit": false,
+								"damageType": "thunder",
+								"formula": "8d10",
+								"name": "Thunder Damage",
+								"type": "damage"
+							}
+						},
 						"prompts": {
-							"aO8JaM685jCnIeSP": {
-								"ability": "",
-								"onSave": "Avoids effects.",
+							"T3iJhoKTKO94JTDg": {
+								"ability": "con",
+								"onSave": "Half Damage",
 								"saveDC": {
 									"type": "custom",
-									"bonus": "18"
+									"bonus": "15"
 								},
 								"type": "savingThrow"
 							}
 						},
 						"consumers": {
-							"XcnSFNPWBofq3P3l": {
-								"type": "itemUses"
+							"nmD1eAHvpquLCIyP": {
+								"type": "itemUses",
+								"default": true,
+								"quantity": 1
 							}
 						}
 					}
 				},
-				"description": "<p>Can be used while bloodied. The dragon magically surrounds itself with a 60-foot-radius maelstrom of surging wind and rain for 1 minute. A creature other than the dragon that starts its turn in the maelstrom or enters it for the first time on a turn makes a DC 18 Strength saving throw. On a failed save, the creature is knocked prone and pushed 15 feet away from the dragon.</p>",
+				"description": "<p>The dragon screams, stripping flesh from bones and reason from minds in a 30-foot cone. Each creature in that area makes a DC 15 Constitution saving throw, taking thunder damage on a failed save or half damage on a success.</p>",
 				"favorite": true,
 				"secretDescription": "",
 				"source": "",
 				"uses": {
 					"value": 1,
-					"max": 1,
-					"per": "day",
+					"max": "1",
+					"per": "recharge",
 					"recharge": {
 						"formula": "",
-						"threshold": ""
+						"threshold": 5
 					}
 				},
 				"schema": {
@@ -1261,7 +554,7 @@
 			},
 			"system": {
 				"actions": {
-					"vdGmyDi7jjvoDNOZ": {
+					"gVFjImZ7lpwmfpLQ": {
 						"name": "Shove",
 						"activation": {
 							"cost": 1,
@@ -1273,7 +566,7 @@
 							"value": null
 						},
 						"ranges": {
-							"6IhffYx5AYa2Zdw3": {
+							"EI6j1gYpUZAd38Ua": {
 								"range": "fiveFeet"
 							}
 						},
@@ -1289,7 +582,7 @@
 							"size": ""
 						},
 						"rolls": {
-							"Wd4AAqlnOEZjxPv0": {
+							"6Ec6RJQE9vulkvOQ": {
 								"canCrit": false,
 								"damageType": "bludgeoning",
 								"formula": "1 + @str.mod",
@@ -1298,7 +591,7 @@
 							}
 						},
 						"prompts": {
-							"ZSmabmCPkitBgcFh": {
+							"rofzU7ZhrjOfrNzK": {
 								"ability": "str",
 								"onSave": "",
 								"saveDC": {
@@ -1350,7 +643,7 @@
 			},
 			"folder": null,
 			"sort": 0,
-			"_id": "pVmylJtINIlAk9ds"
+			"_id": "qID8UtPEuDpArC1M"
 		},
 		{
 			"name": "Disarm",
@@ -1364,7 +657,7 @@
 			},
 			"system": {
 				"actions": {
-					"MT1RuKIeaGrENWh8": {
+					"E6CRwyu7GUCa6KYe": {
 						"name": "Disarm",
 						"activation": {
 							"cost": 1,
@@ -1376,7 +669,7 @@
 							"value": null
 						},
 						"ranges": {
-							"S276alHTNbuir7NN": {
+							"kAPe79w3hdbgyQ2B": {
 								"range": "touch"
 							}
 						},
@@ -1392,7 +685,7 @@
 							"size": ""
 						},
 						"rolls": {
-							"hsaATPnwodOc0pRF": {
+							"Cx39PyEGKhpUTQNi": {
 								"canCrit": false,
 								"damageType": "",
 								"formula": "1 + @str.mod",
@@ -1401,7 +694,7 @@
 							}
 						},
 						"prompts": {
-							"S9SjKWl6WVNGdqCv": {
+							"5aLAzbS3TaZukK5h": {
 								"ability": "str",
 								"onSave": "",
 								"saveDC": {
@@ -1453,7 +746,7 @@
 			},
 			"folder": null,
 			"sort": 0,
-			"_id": "Dc0vNu5uzYcqweEr"
+			"_id": "vecNZmY2L52X8ZX6"
 		},
 		{
 			"name": "Grab On",
@@ -1467,7 +760,7 @@
 			},
 			"system": {
 				"actions": {
-					"kklOybWNhcIuu5Mg": {
+					"2vATYccNdssPW2YW": {
 						"name": "Grab On",
 						"activation": {
 							"cost": 1,
@@ -1479,7 +772,7 @@
 							"value": null
 						},
 						"ranges": {
-							"UQ5lV8LeqdcxdElk": {
+							"ypnhcpL7AWxFPkch": {
 								"range": "touch"
 							}
 						},
@@ -1495,7 +788,7 @@
 							"size": ""
 						},
 						"prompts": {
-							"orP9tl8sB4zwUtAi": {
+							"hJd1Guxbi4pSpmDu": {
 								"ability": "str",
 								"onSave": "",
 								"saveDC": {
@@ -1547,7 +840,7 @@
 			},
 			"folder": null,
 			"sort": 0,
-			"_id": "O1ipx0VmvwivG0Ic"
+			"_id": "sdAi7PbIMnsUuxh6"
 		},
 		{
 			"name": "Knockdown",
@@ -1561,7 +854,7 @@
 			},
 			"system": {
 				"actions": {
-					"pfeJ55n6bg9ne9i4": {
+					"TK4TLzOqCtxJUDMC": {
 						"name": "Knockdown",
 						"activation": {
 							"cost": 1,
@@ -1573,7 +866,7 @@
 							"value": null
 						},
 						"ranges": {
-							"zSDxMBtVJHkbCHtC": {
+							"7FQNnMUISQavviWh": {
 								"range": "touch"
 							}
 						},
@@ -1589,7 +882,7 @@
 							"size": ""
 						},
 						"prompts": {
-							"7PrgBcrmibrxuDIV": {
+							"IIJTW7VTXRLVuuvB": {
 								"ability": "str",
 								"onSave": "",
 								"saveDC": {
@@ -1641,7 +934,7 @@
 			},
 			"folder": null,
 			"sort": 0,
-			"_id": "niYlOWuu57L74XR0"
+			"_id": "roJpFmxXReZqftjm"
 		},
 		{
 			"name": "Grapple",
@@ -1655,7 +948,7 @@
 			},
 			"system": {
 				"actions": {
-					"UrxypAhGJyaaNwXJ": {
+					"1QZZd5YqWJOdFFnC": {
 						"name": "Grapple",
 						"activation": {
 							"cost": 1,
@@ -1667,7 +960,7 @@
 							"value": null
 						},
 						"ranges": {
-							"M01zsWZwBL9RX8Mo": {
+							"ZrKwVfCxeF70BwHE": {
 								"range": "touch"
 							}
 						},
@@ -1683,7 +976,7 @@
 							"size": ""
 						},
 						"prompts": {
-							"szy21vNIA8Wn8BBi": {
+							"GfzrYljithXts7IN": {
 								"ability": "str",
 								"onSave": "",
 								"saveDC": {
@@ -1735,7 +1028,7 @@
 			},
 			"folder": null,
 			"sort": 0,
-			"_id": "WpGtA3eTdEJDq0sz"
+			"_id": "XzxYVF1mZz5hAwou"
 		},
 		{
 			"name": "Overrun",
@@ -1749,7 +1042,7 @@
 			},
 			"system": {
 				"actions": {
-					"MJwAgpnCKeC11ynP": {
+					"SIk90lwSBG38g1OG": {
 						"name": "Overrun",
 						"activation": {
 							"cost": 1,
@@ -1761,7 +1054,7 @@
 							"value": null
 						},
 						"ranges": {
-							"XEwpc6GDWAEiQMXj": {
+							"vbI6blOkacJNMNf0": {
 								"range": "touch"
 							}
 						},
@@ -1777,7 +1070,7 @@
 							"size": ""
 						},
 						"prompts": {
-							"eiL1uVZ3Hp3htel4": {
+							"sEKbtVqmL1vn0Qc8": {
 								"ability": "str",
 								"onSave": "",
 								"saveDC": {
@@ -1829,68 +1122,297 @@
 			},
 			"folder": null,
 			"sort": 0,
-			"_id": "pVNMCOLBQdzfg1N1"
+			"_id": "4IVX1jtPOByuMOhp"
 		},
 		{
-			"name": "Tremorsense",
-			"type": "feature",
+			"name": "Hideous Laughter",
+			"type": "spell",
+			"img": "icons/skills/wounds/injury-face-impact-orange.webp",
+			"effects": [
+				{
+					"icon": "icons/skills/wounds/injury-face-impact-orange.webp",
+					"origin": "Actor.QSChQu3OtoS9f3wS.Item.yH6IAbnj5VQXb8Dw",
+					"flags": {
+						"a5e": {
+							"sort": 0,
+							"transferType": "onUse",
+							"actionId": "EnM94wEvCpTZmMnQ",
+							"duration": {
+								"unit": "minutes"
+							}
+						}
+					},
+					"transfer": false,
+					"name": "Hideous Laughter",
+					"_id": "sEzBFpSnqGKITqF4",
+					"changes": [
+						{
+							"key": "flags.a5e.effects.statusConditions",
+							"value": "[\"prone\",\"incapacitated\"]",
+							"mode": 0,
+							"priority": null
+						}
+					],
+					"disabled": false,
+					"duration": {
+						"startTime": null,
+						"seconds": 60,
+						"combat": null,
+						"rounds": null,
+						"turns": null,
+						"startRound": null,
+						"startTurn": null
+					},
+					"description": "<p>The target is overwhelmed by the absurdity of the world and is crippled by paroxysms of laughter. The target falls prone, becomes incapacitated, and cannot stand.</p>\n<p>Until the spell ends, at the end of each of the target's turns and when it suffers damage, the target may attempt another saving throw (with advantage if triggered by damage). On a successful save, the spell ends.</p>",
+					"statuses": [
+						"prone",
+						"incapacitated"
+					],
+					"folder": null
+				}
+			],
+			"flags": {},
 			"system": {
-				"ac": {
-					"baseFormula": "",
-					"formula": "",
-					"maxDex": 0,
-					"minStr": 0,
-					"mode": 2,
-					"requiresNoShield": false,
-					"requiresUnarmored": false
+				"actions": {
+					"EnM94wEvCpTZmMnQ": {
+						"name": "Hideous Laughter",
+						"activation": {
+							"cost": 1,
+							"type": "action",
+							"reactionTrigger": ""
+						},
+						"duration": {
+							"unit": "minute",
+							"value": "1"
+						},
+						"ranges": {
+							"ugxA7hBRUYvuksdr": {
+								"range": "short"
+							}
+						},
+						"area": {
+							"shape": "",
+							"size": "",
+							"placeTemplate": false
+						},
+						"target": {
+							"quantity": "",
+							"type": "creature"
+						},
+						"prompts": {
+							"plcXxhiZ6YSjHGFQ": {
+								"ability": "wis",
+								"onSave": "Negates effect",
+								"saveDC": {
+									"type": "spellcasting",
+									"bonus": ""
+								},
+								"type": "savingThrow"
+							},
+							"xFVLHsLZbeDVBmtj": {
+								"type": "effect",
+								"default": true,
+								"effectId": "sEzBFpSnqGKITqF4"
+							}
+						},
+						"consumers": {
+							"u0JakvHN6ui2pfAr": {
+								"type": "itemUses",
+								"default": true,
+								"quantity": 1
+							}
+						}
+					}
 				},
-				"actions": {},
-				"description": "<p>Only detects vibrations in water.</p>",
+				"description": "<p>The target is overwhelmed by the absurdity of the world and is crippled by paroxysms of laughter. The target falls prone, becomes incapacitated, and cannot stand.</p><p>Until the spell ends, at the end of each of the target's turns and when it suffers damage, the target may attempt another saving throw (with advantage if triggered by damage). On a successful save, the spell ends.</p><p><strong><em>Cast at Higher Levels.</em></strong> Target an additional creature within 30 feet of the original for each slot level above 1st.</p>",
 				"favorite": false,
 				"secretDescription": "",
-				"source": {
-					"name": "",
-					"link": "",
-					"publisher": ""
-				},
+				"source": "",
 				"uses": {
-					"value": null,
-					"max": "",
-					"per": null,
+					"value": 3,
+					"max": "3",
+					"per": "day",
 					"recharge": {
-						"formula": "1d6",
-						"threshold": "6"
+						"formula": "",
+						"threshold": ""
 					}
 				},
 				"schema": {
 					"version": null,
 					"lastMigration": null
 				},
-				"concentration": false,
-				"featureType": "other",
-				"grants": {},
+				"classes": [
+					"bard",
+					"witch",
+					"wizard"
+				],
+				"components": {
+					"vocalized": true,
+					"seen": true,
+					"material": true
+				},
+				"concentration": true,
+				"level": 1,
+				"materials": "poppy seed",
+				"materialsConsumed": false,
+				"prepared": false,
 				"prerequisite": "",
-				"requiresBloodied": false
+				"rare": false,
+				"ritual": false,
+				"schools": {
+					"primary": "enchantment",
+					"secondary": [
+						"affliction",
+						"arcane",
+						"compulsion"
+					]
+				},
+				"schemaVersion": {
+					"version": 0.01,
+					"lastMigration": {
+						"version": {
+							"schema": 0.009,
+							"foundry": "12.316",
+							"system": "0.16.12"
+						}
+					}
+				}
 			},
-			"_id": "vfH6dRAmYlJHOkUJ",
-			"img": "icons/svg/item-bag.svg",
-			"effects": [],
 			"folder": null,
+			"_id": "yH6IAbnj5VQXb8Dw",
 			"sort": 0,
 			"ownership": {
 				"default": 0
+			}
+		},
+		{
+			"name": "Suggestion",
+			"type": "spell",
+			"img": "icons/magic/control/hypnosis-mesmerism-pendulum.webp",
+			"effects": [],
+			"flags": {
+				"core": {
+					"sourceId": "Compendium.a5e.a5e-spells.Item.ml9ls27u9ncms8ko"
+				}
 			},
-			"flags": {}
+			"system": {
+				"actions": {
+					"HAVBAuWUd77vIkT2": {
+						"name": "Suggestion",
+						"activation": {
+							"cost": 1,
+							"type": "action",
+							"reactionTrigger": ""
+						},
+						"duration": {
+							"unit": "hour",
+							"value": "8"
+						},
+						"ranges": {
+							"R8AfmhfWgZcrAOnB": {
+								"range": "short"
+							}
+						},
+						"area": {
+							"shape": "",
+							"size": "",
+							"placeTemplate": false,
+							"quantity": 1
+						},
+						"target": {
+							"quantity": "",
+							"type": "creature"
+						},
+						"prompts": {
+							"iZ04XZe1LejKYG9l": {
+								"ability": "wis",
+								"onSave": "Negates effect",
+								"saveDC": {
+									"type": "spellcasting",
+									"bonus": ""
+								},
+								"type": "savingThrow"
+							}
+						},
+						"consumers": {
+							"0hvJHeq6bwc2DrxG": {
+								"type": "itemUses",
+								"default": true,
+								"quantity": 1
+							}
+						}
+					}
+				},
+				"description": "<p>Creatures that cannot be charmed are immune to this spell. Suggest an activity phrased in a sentence or two. The target is magically influenced to follow that course of activity. The suggestion must be worded to sound reasonable. Asking the target to perform an action that is obviously harmful to it ends the spell.</p><p>The target carries out the activity suggested by you as well as it can. The activity can last for the duration of the spell, and if it requires less time the spell ends after the target has carried out the activity.</p><p>You may specify trigger conditions that cause the target to perform a specific activity while the spell lasts. For example, you may suggest that the target takes off its clothes and dives the next time it sees a body of water. If the target does not see a body of water before the spell ends, the specific activity isn't performed.</p><p>Any damage done to the target by you or an ally ends the spell for that creature.</p><p><strong><em>Cast at Higher Levels.</em></strong> When using a 4th-level spell slot, the duration is concentration, up to 24 hours. When using a 5th-level spell slot, the duration is 7 days. When using a 7th-level spell slot, the duration is 1 year. When using a 9th-level spell slot, the suggestion lasts until it is dispelled.</p><p>Any use of a 5th-level or higher spell slot grants a duration that doesn't require concentration.</p>",
+				"favorite": false,
+				"secretDescription": "",
+				"source": "",
+				"uses": {
+					"value": 3,
+					"max": "3",
+					"per": "day",
+					"recharge": {
+						"formula": "",
+						"threshold": ""
+					}
+				},
+				"schema": {
+					"version": null,
+					"lastMigration": null
+				},
+				"classes": [
+					"bard",
+					"sorcerer",
+					"warlock",
+					"wielder",
+					"witch",
+					"wizard"
+				],
+				"components": {
+					"vocalized": true,
+					"seen": false,
+					"material": true
+				},
+				"concentration": true,
+				"level": 2,
+				"materials": "miniature bottle of red wine and some soap",
+				"materialsConsumed": false,
+				"prepared": false,
+				"prerequisite": "",
+				"rare": false,
+				"ritual": false,
+				"schools": {
+					"primary": "enchantment",
+					"secondary": [
+						"arcane",
+						"compulsion"
+					]
+				},
+				"schemaVersion": {
+					"version": 0.01,
+					"lastMigration": {
+						"version": {
+							"schema": 0.009,
+							"foundry": "12.316",
+							"system": "0.16.12"
+						}
+					}
+				}
+			},
+			"folder": null,
+			"_id": "qJkvxOxtt2xIuWyE",
+			"sort": 125000,
+			"ownership": {
+				"default": 0
+			}
 		}
 	],
 	"effects": [],
 	"flags": {
 		"a5e": {
-			"availableSpellLevels": [],
+			"showSpellTab": true,
 			"showSpellSlots": false,
-			"showSpellPoints": false,
-			"sheetIsLocked": true,
-			"showSpellTab": false
+			"showSpellPoints": false
 		}
 	},
 	"system": {
@@ -1910,21 +1432,21 @@
 				}
 			},
 			"dex": {
-				"value": 20,
+				"value": 18,
 				"check": {
 					"expertiseDice": 0,
 					"bonus": "",
 					"notes": {}
 				},
 				"save": {
-					"proficient": true,
+					"proficient": false,
 					"expertiseDice": 0,
 					"bonus": "",
 					"notes": {}
 				}
 			},
 			"con": {
-				"value": 18,
+				"value": 16,
 				"check": {
 					"expertiseDice": 0,
 					"bonus": "",
@@ -1938,7 +1460,7 @@
 				}
 			},
 			"int": {
-				"value": 14,
+				"value": 18,
 				"check": {
 					"expertiseDice": 0,
 					"bonus": "",
@@ -1952,7 +1474,7 @@
 				}
 			},
 			"wis": {
-				"value": 20,
+				"value": 12,
 				"check": {
 					"expertiseDice": 0,
 					"bonus": "",
@@ -1994,7 +1516,7 @@
 			"acr": {
 				"ability": "dex",
 				"value": 0,
-				"proficient": true,
+				"proficient": false,
 				"specialties": [],
 				"expertiseDice": 0,
 				"minRoll": 1,
@@ -2078,7 +1600,7 @@
 			"his": {
 				"ability": "int",
 				"value": 0,
-				"proficient": false,
+				"proficient": true,
 				"specialties": [],
 				"expertiseDice": 0,
 				"minRoll": 1,
@@ -2090,7 +1612,7 @@
 			"ins": {
 				"ability": "wis",
 				"value": 0,
-				"proficient": true,
+				"proficient": false,
 				"specialties": [],
 				"expertiseDice": 0,
 				"minRoll": 1,
@@ -2138,7 +1660,7 @@
 			"nat": {
 				"ability": "int",
 				"value": 0,
-				"proficient": true,
+				"proficient": false,
 				"specialties": [],
 				"expertiseDice": 0,
 				"minRoll": 1,
@@ -2278,7 +1800,7 @@
 		},
 		"attributes": {
 			"ac": {
-				"baseFormula": "18",
+				"baseFormula": "17",
 				"value": 0
 			},
 			"death": {
@@ -2286,8 +1808,8 @@
 				"failure": 0
 			},
 			"hp": {
-				"value": 252,
-				"baseMax": 252,
+				"value": 133,
+				"baseMax": 133,
 				"temp": 0,
 				"bonus": 0
 			},
@@ -2305,8 +1827,8 @@
 					"total": 0
 				},
 				"d12": {
-					"current": 24,
-					"total": 24
+					"current": 14,
+					"total": 14
 				},
 				"d4": {
 					"current": 0,
@@ -2324,7 +1846,7 @@
 			},
 			"movement": {
 				"burrow": {
-					"distance": 0,
+					"distance": 20,
 					"unit": "feet"
 				},
 				"climb": {
@@ -2332,15 +1854,15 @@
 					"unit": "feet"
 				},
 				"fly": {
-					"distance": 80,
+					"distance": 60,
 					"unit": "feet"
 				},
 				"swim": {
-					"distance": 90,
+					"distance": 0,
 					"unit": "feet"
 				},
 				"walk": {
-					"distance": 60,
+					"distance": 40,
 					"unit": "feet"
 				},
 				"traits": {
@@ -2358,7 +1880,7 @@
 					"unit": "feet"
 				},
 				"tremorsense": {
-					"distance": 200,
+					"distance": null,
 					"unit": "feet"
 				},
 				"truesight": {
@@ -2392,12 +1914,12 @@
 			"cp": 0
 		},
 		"details": {
-			"bio": "<h2><strong>COMBAT</strong></h2><p>While individual dragons have their own personalities and tactics, most rely heavily on their breath weapons. They use them whenever they can, preferably from maximum distance and while flying above their enemies.&nbsp;</p><p>When fighting in the open, dragons often circle above their enemies as they wait for their breath weapons to recharge. They only close to melee if their enemies deal significant damage with ranged attacks, or if they can savage an enemy cut off from its allies. Once bloodied, dragons become more aggressive, attacking with bite and claws when their breath weapons aren’t available.</p><p>If a dragon is protecting its lair, it utilizes lair features, traps, allies, and architecture such as escape tunnels to keep up a hit-and-run fight, reappearing only when it has a fully-recharged breath weapon. If the dragon is forced into melee combat, it uses its bite and claws against a single foe. If it has legendary actions like Roar and Wing Attack, it uses them to disperse its other enemies.</p><p>If reduced to less than one-fourth its hit points while fighting in the open, a dragon flies away. However, it fights to the death to defend its lair, unless it can regain the upper hand through tricks or bargains.</p><hr class=\"a5e-rule u-my-md\"><h2><strong>RIVER DRAGON LAIR FEATURES</strong></h2><p>Choose or roll one or more of the following lair features:</p><p>1 The dragon’s domain is populated with dangerous aquatic creatures. As a bonus action, it may summon its choice of 1d6 crocodiles or 1d4 swarms of quippers as allies. The creatures fight until killed or dismissed by the dragon as a bonus action or until the dragon uses this ability again.&nbsp;</p><p>2 The dragon’s domain supports one or more riverside villages whose livelihoods depend on the dragon’s survival. At the beginning of each round of combat, roll a d6. On a 5–6, 1d4 locals with the statistics of thugs arrive to defend the dragon, acting on the dragon’s initiative. The locals fight until killed or until the dragon instructs them to stop.&nbsp;</p><p>3 The rocks that line the riverbanks are particularly sharp. Whenever one of the dragon’s attacks or abilities causes a creature to impact a solid object, increase the damage that creature takes by 9 (2d8).&nbsp;</p><p>4 The dragon’s river is murky. Visibility beneath the water is reduced to 20 feet.&nbsp;&nbsp;</p><hr class=\"a5e-rule u-my-md\"><h2><strong>NAMES</strong></h2><p>Bol'shaya, Bystraya, Glitterstream, Penzhina, Springtide, Zathernak</p><hr class=\"a5e-rule u-my-md\"><h2><strong>LEGENDS AND LORE</strong></h2><p>With an Arcana or Nature check, characters can learn the following:</p><p><strong>DC 10</strong> Like the waterways they inhabit, river dragons can be slow and lumbering, or fierce and nimble.</p><p><strong>DC 15</strong> River dragons exhale jets of water and create magical whirlpools to bash and scatter their foes.</p><p><strong>DC 20</strong> When angered, the oldest river dragons surround themselves with magical maelstroms that few mortals can withstand.</p><hr class=\"a5e-rule u-my-md\"><h2><strong>DESCRIPTION</strong></h2><p>Linked to great, coursing rivers, these essence dragons embody the reckless, ever-changing power of water itself. Like a streak of quicksilver or a pennant fluttering in the wind, a river dragon is always moving, running an endless circuit from the river’s source to the ocean and back again. Like the rivers they exemplify, these dragons are fickle things. A ship or passerby that catches the attention of a river dragon might find fortune or ruin, depending on the fleeting whims of the river.</p><p><strong><em>The Serpent Eats Its Tail.</em> </strong>While the oldest river dragons have grown complacent in their wide, meandering rivers, most river dragons are on constant watch for competition. River dragon wyrmlings rule over tributaries and must pay proper respect to their source rivers, at least until they grow strong enough to challenge them.</p><p><strong><em>Gods of the Waterway.</em> </strong>Those who fish along the river’s edge sometimes spot disporting river dragons, giving rise to legends of river gods. River dragons treated as gods are usually flattered by such honors, and may take efforts to ensure bountiful catches. Those regarded as monsters are often equally amused, and work to keep their fearsome legend alive by devouring the occasional lone angler.</p><hr class=\"a5e-rule u-my-md\"><h2><strong>BEHAVIOR</strong></h2><p>1 Floating serenely on the river, content to ignore peaceful travelers</p><p>2 Flying overhead, alert for trespassers</p><p>3 Eagerly approaching a boat, looking for fun</p><p>4 Attacks on sight</p><hr class=\"a5e-rule u-my-md\"><h2><strong>SIGNS</strong></h2><p>1 Sparkling mist floating over the river</p><p>2 A loud, distant splash</p><p>3 A whirlpool appears in the river</p><p>4 The banks of the river are lush with plants, and schools of bright fish leap from the water</p><hr class=\"a5e-rule u-my-md\"><h2><strong>ENCOUNTERS</strong></h2><p>River dragons leave their chosen river only in extreme circumstances.</p><p><strong>CR 3–4</strong> river dragon wyrmling with 2 boggards, crocodiles, or steam mephits</p><p><strong>Treasure</strong> 300 gp, 1,000 sp, mithral mirror (75 gp), <em>potion of healing</em>, <em>bag of tricks </em>(tan)</p><p><strong>CR 5–10</strong> young river dragon</p><p><strong>Treasure</strong> 750 gp, 300 ep, 6 pearls (100 gp each), gold ceremonial dagger with mermaid handle (250 gp), 3 <em>potions of healing</em>, <em>staff of swarming insects</em></p><p><strong>CR 11–16</strong> young river dragon with 2 constrictor snakes, hunter sharks, or plesiosauruses; young river dragon with sea hag or water elemental&nbsp;</p><p><strong>Treasure</strong> 100 pp, 2,000 gp, 3 aquamarine gemstones (500 gp each), bottle containing a message, <em>ring of water walking</em>, <em>+2 scimitar</em> (with a blade resembling shimmering water; named <em>Salmon of Wisdom</em>)</p><p><strong>CR 17–22</strong> adult river dragon</p><p><strong>Treasure</strong> 8,000 gp, 10,000 sp, 3 pearl necklaces (2,500 gp each), 4 sapphires (1,000 gp each), metal diving suit (1,000 gp), 2 <em>potions of clairvoyance</em>, <em>spell scroll </em>of <em>control weather</em>, <em>+1 half plate</em>, <em>sun blade</em></p><p><strong>CR 23–30</strong> adult river dragon with giant shark, marid, or merclops (see cyclops); ancient river dragon; ancient river dragon with giant lanternfish (see lamia) or sea chimera (see chimera)</p><p><strong>Treasure</strong> 10,000 gp, black pearl necklace (7,500 gp), 20 1-pound mithral bars (750 gp each), 2 doses of purple worm poison (2,000 gp each), 3 <em>arrows of elemental slaying</em>, <em>ring of free action</em>, <em>periapt of wound closure</em></p><p><strong>CR 31+</strong> ancient river dragon with 2 giant crocodiles, merrow mages (see merrow), or water elementals</p><p><strong>Treasure</strong> 5,000 pp, 40,000 gp, 6 diamonds (5,000 gp each), emerald idol (25,000 gp), fish that grants wishes (as <em>ring of 3 wishes</em>), 3 <em>potions of supreme healing</em>, <em>Ioun stone of absorption</em>, <em>luck blade</em></p><hr class=\"a5e-rule u-my-md\"><h2><strong>MONSTER TYPE DESCRIPTION</strong></h2><p>Dragons include red and gold dragons, which are huge reptilian fire-breathers that number among the world’s most dangerous monsters. This type includes white dragons, which breathe killing frost, as well as smaller reptilian creatures related to true dragons, such as pseudodragons.&nbsp;</p>",
+			"bio": "<h2><strong>COMBAT</strong></h2><p></p><p>While individual dragons have their own personalities and tactics, most rely heavily on their breath weapons. They use them whenever they can, preferably from maximum distance and while flying above their enemies.&nbsp;</p><p>When fighting in the open, dragons often circle above their enemies as they wait for their breath weapons to recharge. They only close to melee if their enemies deal significant damage with ranged attacks, or if they can savage an enemy cut off from its allies. Once bloodied, dragons become more aggressive, attacking with bite and claws when their breath weapons aren’t available.</p><p>If a dragon is protecting its lair, it utilizes lair features, traps, allies, and architecture such as escape tunnels to keep up a hit-and-run fight, reappearing only when it has a fully-recharged breath weapon. If the dragon is forced into melee combat, it uses its bite and claws against a single foe. If it has legendary actions like Roar and Wing Attack, it uses them to disperse its other enemies.</p><p>If reduced to less than one-fourth its hit points while fighting in the open, a dragon flies away. However, it fights to the death to defend its lair, unless it can regain the upper hand through tricks or bargains.</p><hr class=\"a5e-rule u-my-md\"><h2><strong>EMERALD DRAGON LAIR FEATURES</strong></h2><p>The save DC for the following effects is 13 + the dragon’s proficiency bonus. Choose or roll one or more of the following lair features:</p><p>1 The dragon employs previous interlopers as maddened battle fodder. Once per day when the dragon would use Pandorum, it may summon 3 berserkers instead. Creatures summoned in this way fight until killed or until the dragon dismisses them as a bonus action.&nbsp;</p><p>2 A trick of acoustics allows the dragon’s mad rants to echo endlessly. The first time each day a creature other than the dragon enters the lair, it makes a saving throw against the lair’s DC, gaining a point of Strife on a failure.</p><p>3 The dragon’s lair is a mad, incomprehensible design filled with dead ends, secret passages, and optical illusions. Whenever the dragon ends its turn out of sight of other creatures, it can Hide as a bonus action.</p><p>4 The lair contains 1d4 trapped doors, treasure chests, or levers. A creature that interacts with one is attacked by blades or scythes (the equivalent of the dragon’s claw attack).</p><hr class=\"a5e-rule u-my-md\"><h2><strong>NAMES</strong></h2><p>Clutchheart, Invictus, Kafabu, Smaragdus, Vanadius, Wroth</p><hr class=\"a5e-rule u-my-md\"><h2><strong>LEGENDS AND LORE</strong></h2><p>With an Arcana or History check, characters can learn the following:</p><p><strong>DC 15</strong> Paranoia consumes an emerald dragon’s every waking moment. They view even their closest allies with suspicion. Its breath weapon is composed of both psychic energy and telekinetic force.</p><p><strong>DC 20</strong> An emerald dragon’s mad ravings are enough to weaken the will of even the most steadfast hero.</p><p><strong>DESCRIPTION</strong></p><p>Emerald dragons claim their kind once ruled the world—a loss the dragons still bemoan, despite the fact the claim has no historical merit. The plots of emerald dragons revolve around revenge directed at anyone the dragon believes to have slighted it. Gaining an audience with an emerald dragon is a herculean task, one often rewarded by death from the dragon’s ear-splitting screams.</p><p><strong><em>Revenge Cults. </em></strong>Emerald dragons form alliances based on the principle that the enemy of their enemy is their friend. They seek out those who share their animosity, working from the shadows to undermine their mutual foes. Many tyrants have found themselves undone by sedition and revolt, completely unaware their downfall was caused by an innocuous action decades in the past that drew an emerald dragon’s ire.</p><p><strong><em>Maddening Spite.</em> </strong>Anyone who spends time in an emerald dragon’s lair feels increasingly anxious, and not just because of the many carefully hidden traps. Innocent acts may be perceived as preambles of betrayal, while true offenses are considered declarations of war. This sense of paranoia is not simply imagined. An emerald dragon’s delusions resonate throughout its lair and take root in nearby minds, filling them with a single, persistent thought: they are out to get you, and you should get them first.</p><p><strong>BEHAVIOR</strong></p><p>1 Ranting about those who have done it ill; demands trespassers justify themselves or die</p><p>2 Looking for allies against one of its powerful enemies; will bribe and cajole travelers</p><p>3 In hibernation, spying on its enemies; if disturbed, it wakes up angry</p><p>4 Spies on travelers and communicates with them telepathically, trying to lead them into danger</p><p><strong>SIGNS</strong></p><p>1 A shiny green scale</p><p>2 The air hums with a low, barely-audible tone</p><p>3 Local humanoids are convinced you mean them harm</p><p>4 Local humanoids lead you into danger</p><p><strong>ENCOUNTERS</strong></p><p>Of all the gem dragons, emerald dragons make their lairs the closest to civilization. If they feel the risk is low, they may even take up residence in old dungeons or sewer systems to be close to their “rightful place in the sun.”</p><p><strong>CR 3–4</strong> emerald dragon wyrmling with 3 or 4 cultists, grimlocks, or kobolds</p><p><strong>Treasure</strong> 200 gp, 500 sp, 8 quartz gemstones (10 gp each), machinery that can start an earthquake if misused, <em>potion of healing</em>, <em>adamantine chain mail</em></p><p><strong>CR 5–10</strong> young emerald dragon</p><p><strong>Treasure</strong> 1,000 gp stamped with the dragon’s portrait, 20 pieces of cheap jewelry (25 gp each), 3 <em>potions of clairvoyance</em></p><p><strong>CR 11–16</strong> young emerald dragon with 2 berserkers, cutthroats, or harpies</p><p><strong>Treasure</strong> 3,000 gp, 3 spinel gemstones (500 gp each), amber-studded gold orb (750 gp), letter promising the dragon aid from a powerful source, 2 <em>potions of superior healing</em>, <em>+2 splint mail</em></p><p><strong>CR 17–22</strong> adult emerald dragon</p><p><strong>Treasure</strong> 5,000 gp,10 emeralds (1,000 gp each), purple worm poison (2,000 gp), dozens of vials of blood each marked with a name, 3 <em>potions of speed</em>, <em>bracers of archery</em>, <em>mace of disruption</em></p><p><strong>CR 23–30</strong> ancient emerald dragon; adult emerald dragon with crusher (see clockworks), forest gnome illusionist (see mage), or invisible stalker</p><p><strong>Treasure</strong> 30,000 gp, 30 rare and ancient books (500 gp each), <em>potion of cloud giant strength</em>, <em>vicious weapon</em> (longsword), <em>robe of stars</em></p><p><strong>CR 31+</strong> ancient emerald dragon with 2 clay guardians, ropers, or trolls</p><p><strong>Treasure</strong> 5,000 pp, 30,000 gp, 7 emeralds (1,000 gp each), necklace of emerald dragon scales each adorned with an emerald (25,000 gp), emerald dragon egg (25,000 gp), <em>spell scrolls</em> of <em>gate</em> and <em>storm of vengeance</em>, <em>ring of feather falling</em>, <em>manual of gainful exercise</em></p><p><strong>MONSTER TYPE DESCRIPTION</strong></p><p></p><p>Dragons include red and gold dragons, which are huge reptilian fire-breathers that number among the world’s most dangerous monsters. This type includes white dragons, which breathe killing frost, as well as smaller reptilian creatures related to true dragons, such as pseudodragons.&nbsp;</p>",
 			"creatureTypes": [
 				"dragon"
 			],
 			"isSwarm": false,
-			"cr": 17,
+			"cr": 9,
 			"elite": false,
 			"privateNotes": "",
 			"notes": ""
@@ -2405,9 +1927,11 @@
 		"proficiencies": {
 			"armor": [],
 			"languages": [
-				"aquan",
+				"common",
+				"deep",
 				"draconic",
-				"common"
+				"undercommon",
+				"telepathy 120 ft."
 			],
 			"tools": [],
 			"weapons": []
@@ -2464,23 +1988,24 @@
 			"publisher": ""
 		},
 		"traits": {
-			"size": "huge",
+			"size": "lg",
 			"conditionImmunities": [
 				"fatigue"
 			],
 			"damageImmunities": [],
 			"damageResistances": [
-				"Nonmagical weapons"
+				"psychic",
+				"thunder"
 			],
 			"damageVulnerabilities": []
 		}
 	},
 	"prototypeToken": {
-		"name": "Adult River Dragon",
+		"name": "Ancient Amethyst Dragon",
 		"displayName": 30,
 		"actorLink": false,
-		"width": 3,
-		"height": 3,
+		"width": 2,
+		"height": 2,
 		"lockRotation": false,
 		"rotation": 0,
 		"alpha": 1,
@@ -2504,8 +2029,8 @@
 				"min": 0,
 				"max": 1
 			},
-			"color": null,
-			"attenuation": 0.5
+			"attenuation": 0.5,
+			"color": null
 		},
 		"disposition": -1,
 		"displayBars": 30,
@@ -2518,13 +2043,13 @@
 		"flags": {},
 		"randomImg": false,
 		"texture": {
-			"src": "systems/a5e/assets/river-dragon.webp",
-			"tint": "#ffffff",
+			"src": "systems/a5e/assets/emerald-dragon.webp",
 			"scaleX": 1,
 			"scaleY": 1,
 			"offsetX": 0,
 			"offsetY": 0,
-			"rotation": 0
+			"rotation": 0,
+			"tint": "#ffffff"
 		},
 		"sight": {
 			"angle": 360,
@@ -2542,5 +2067,5 @@
 		"prependAdjective": false
 	},
 	"folder": null,
-	"_id": "89ons9dm94ikkb1l"
+	"_id": "jzmcfzp1dmnx4wrf"
 }
