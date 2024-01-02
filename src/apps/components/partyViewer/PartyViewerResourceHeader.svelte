@@ -37,23 +37,21 @@
     {/if}
 
     {#if propData.highestSpellSlotLevel}
-        <div class="spell-slots">
-            <h3 class="spell-slots__heading">Spell Slots by Level</h3>
-
-            <ol class="spell-levels">
-                {#each getSpellLevels(propData) as [spellLevel, tooltip]}
-                    <li
-                        class="spell-level"
-                        class:spell-level--narrow={propData.highestSpellSlotLevel >=
-                            8}
-                        data-tooltip={tooltip}
-                        data-tooltip-direction="UP"
-                    >
+        <ol class="spell-levels">
+            {#each getSpellLevels(propData) as [spellLevel, tooltip]}
+                <li
+                    class="spell-level"
+                    class:spell-level--narrow={propData.highestSpellSlotLevel >=
+                        8}
+                    data-tooltip={`${tooltip} Spell Slots`}
+                    data-tooltip-direction="UP"
+                >
+                    <span style="position:relative; z-index: 1;">
                         {spellLevel}
-                    </li>
-                {/each}
-            </ol>
-        </div>
+                    </span>
+                </li>
+            {/each}
+        </ol>
     {/if}
 </header>
 
@@ -95,7 +93,6 @@
         gap: 0.5rem;
         width: 100%;
         min-width: 7.5rem;
-        grid-area: spellSlots;
 
         &__heading {
             font-size: 0.833rem;
@@ -106,6 +103,7 @@
     }
 
     .spell-levels {
+        grid-area: spellSlots;
         display: flex;
         gap: 0.5rem;
         padding: 0;
@@ -115,8 +113,21 @@
     }
 
     .spell-level {
+        position: relative;
         width: 1.75rem;
         text-align: center;
+        line-height: 1;
+
+        &:before {
+            content: "\f72b";
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-family: "Font Awesome 6 Pro";
+            font-size: var(--a5e-text-size-md);
+            color: rgba(66, 95, 101, 0.2);
+        }
 
         &--narrow {
             width: 1.5rem;
