@@ -2,7 +2,46 @@
 	"name": "True Seeing",
 	"type": "spell",
 	"img": "icons/magic/perception/orb-crystal-ball-scrying-blue.webp",
-	"effects": [],
+	"effects": [
+		{
+			"icon": "icons/magic/perception/orb-crystal-ball-scrying-blue.webp",
+			"origin": "Item.keuqWYy8svGeMTWA",
+			"flags": {
+				"a5e": {
+					"sort": 0,
+					"transferType": "onUse",
+					"actionId": "kjfGqi9GZMkJrOLT",
+					"duration": {
+						"unit": "hours"
+					}
+				}
+			},
+			"transfer": false,
+			"name": "True Seeing",
+			"_id": "CToxxyRFbSpHQoVY",
+			"changes": [
+				{
+					"key": "system.attributes.senses.truesight.distance",
+					"value": "120",
+					"mode": 6,
+					"priority": null
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": 3600,
+				"combat": null,
+				"rounds": null,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "<p>Until the spell ends, the target gains truesight to a range of 120 feet. The target also notices secret doors hidden by magic.</p>",
+			"statuses": [],
+			"folder": null
+		}
+	],
 	"flags": {},
 	"system": {
 		"actions": {
@@ -37,6 +76,13 @@
 						"spellLevel": 6,
 						"points": 9,
 						"type": "spell"
+					}
+				},
+				"prompts": {
+					"yalKatlt7JEF3Rox": {
+						"type": "effect",
+						"default": true,
+						"effectId": "CToxxyRFbSpHQoVY"
 					}
 				}
 			}

@@ -18,6 +18,11 @@
 						"default": false,
 						"ability": "int",
 						"label": "Stonesense"
+					},
+					"bvIxim6a0CIrB1Bz": {
+						"type": "effect",
+						"default": true,
+						"effectId": "fq3x71S2Kb6t2Fw6"
 					}
 				},
 				"uses": {
@@ -101,7 +106,46 @@
 			}
 		}
 	},
-	"effects": [],
+	"effects": [
+		{
+			"icon": "icons/magic/sonic/explosion-shock-sound-wave.webp",
+			"origin": "Item.Qks8sqIMGEXwejYM",
+			"flags": {
+				"a5e": {
+					"sort": 0,
+					"transferType": "onUse",
+					"actionId": "PPag5fojVmb28Te1",
+					"duration": {
+						"unit": "hours"
+					}
+				}
+			},
+			"transfer": false,
+			"name": "Stonesense",
+			"_id": "fq3x71S2Kb6t2Fw6",
+			"changes": [
+				{
+					"key": "system.attributes.senses.tremorsense.distance",
+					"value": "60",
+					"mode": 6,
+					"priority": null
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": 28800,
+				"combat": null,
+				"rounds": null,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "<p>The target gains tremorsense out to a distance of 60 feet.</p>\n<p>Whenever the target makes a History check related to the origin of stonework, it is considered proficient in the History skill and gains an expertise die on the check. If the target already has the Stonecunning trait, it makes the check with advantage.</p>\n<p>Additionally, if the target is underground, it can make a DC 10 Intelligence check to correctly determine the distance between itself and the surface, or to perfectly recall any path it has traveled in the past week.</p>",
+			"statuses": [],
+			"folder": null
+		}
+	],
 	"flags": {},
 	"folder": null,
 	"_id": "22j2esam1cirwedf"

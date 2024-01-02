@@ -2,7 +2,48 @@
 	"name": "Subtle Dramatic Sting",
 	"type": "spell",
 	"img": "icons/skills/trades/music-notes-sound-blue.webp",
-	"effects": [],
+	"effects": [
+		{
+			"icon": "icons/skills/trades/music-notes-sound-blue.webp",
+			"origin": "Item.jIrHA1AYdCt4RU0T",
+			"flags": {
+				"a5e": {
+					"sort": 0,
+					"transferType": "onUse",
+					"actionId": "yrGtWsGkM2cC1C9s",
+					"duration": {
+						"unit": "minutes"
+					}
+				}
+			},
+			"transfer": false,
+			"name": "Subtle Dramatic Sting",
+			"_id": "OVXcZ4iiAI5urbcr",
+			"changes": [
+				{
+					"key": "flags.a5e.effects.statusConditions",
+					"value": "[\"frightened\"]",
+					"mode": 0,
+					"priority": null
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": 60,
+				"combat": null,
+				"rounds": null,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "<p>At the end of each of the creature's turns, it can make another Wisdom saving throw, ending the effect on itself on a success. On a failed save, the creature takes 1d4 psychic damage.</p>\n<p>You cannot cast another spell through your spellcasting focus while concentrating on this spell.</p>\n<p><strong><em>Cast at Higher Levels.</em></strong> The damage increases by 1d4 for each slot level above 1st.</p>\n<hr class=\"a5e-rule u-my-md\" />\n<p><strong>Rare: Subtle Dramatic Sting.</strong> When you cast this spell, make a Performance check opposed by the target’s Perception check. On a success, the target is affected by the spell but does not realize it is being targeted by a spell. Each round at the start of its turn, the target gains an expertise die on a Perception check made against the result of your Performance check to realize it has been targeted by a spell</p>",
+			"statuses": [
+				"frightened"
+			],
+			"folder": null
+		}
+	],
 	"flags": {},
 	"system": {
 		"actions": {
@@ -53,6 +94,11 @@
 							"bonus": ""
 						},
 						"type": "savingThrow"
+					},
+					"js341jIEGhH5xW30": {
+						"type": "effect",
+						"default": true,
+						"effectId": "OVXcZ4iiAI5urbcr"
 					}
 				},
 				"consumers": {

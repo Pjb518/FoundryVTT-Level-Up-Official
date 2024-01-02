@@ -2,7 +2,46 @@
 	"name": "Swift Fly",
 	"type": "spell",
 	"img": "icons/magic/fire/projectile-feathers-embers-gold.webp",
-	"effects": [],
+	"effects": [
+		{
+			"icon": "icons/magic/fire/projectile-feathers-embers-gold.webp",
+			"origin": "Item.SM9eA8ey0YrWrqhX",
+			"flags": {
+				"a5e": {
+					"sort": 0,
+					"transferType": "onUse",
+					"actionId": "ZxPY0eIIMzSNfXzt",
+					"duration": {
+						"unit": "minutes"
+					}
+				}
+			},
+			"transfer": false,
+			"name": "Flying Swiftly",
+			"_id": "hXdmLCSqaWmEA5Nh",
+			"changes": [
+				{
+					"key": "system.attributes.movement.fly.distance",
+					"value": "90",
+					"mode": 6,
+					"priority": null
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": 600,
+				"combat": null,
+				"rounds": null,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "",
+			"statuses": [],
+			"folder": null
+		}
+	],
 	"flags": {},
 	"system": {
 		"actions": {
@@ -37,6 +76,13 @@
 						"spellLevel": 3,
 						"points": 5,
 						"type": "spell"
+					}
+				},
+				"prompts": {
+					"8tkOoEc2qmXRlfxF": {
+						"type": "effect",
+						"default": true,
+						"effectId": "hXdmLCSqaWmEA5Nh"
 					}
 				}
 			}

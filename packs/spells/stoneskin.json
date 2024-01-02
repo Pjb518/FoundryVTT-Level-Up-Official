@@ -2,7 +2,84 @@
 	"name": "Stoneskin",
 	"type": "spell",
 	"img": "icons/magic/defensive/armor-stone-skin.webp",
-	"effects": [],
+	"effects": [
+		{
+			"icon": "icons/magic/defensive/armor-stone-skin.webp",
+			"origin": "Item.Pp3kR2xV8Cix5cZL",
+			"flags": {
+				"a5e": {
+					"sort": 0,
+					"transferType": "onUse",
+					"actionId": "kwNugBq4WasHI0Qt",
+					"duration": {
+						"unit": "hours"
+					}
+				}
+			},
+			"transfer": false,
+			"name": "Stoneskin",
+			"_id": "shAXrw2SGgzOqgaf",
+			"changes": [
+				{
+					"key": "system.traits.damageResistances",
+					"value": "[\"nonmagical bludgeoning, piercing, and slashing damage\"]",
+					"mode": 2,
+					"priority": null
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": 3600,
+				"combat": null,
+				"rounds": null,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "",
+			"statuses": [],
+			"folder": null
+		},
+		{
+			"icon": "icons/magic/defensive/armor-stone-skin.webp",
+			"origin": "Item.Pp3kR2xV8Cix5cZL",
+			"flags": {
+				"a5e": {
+					"sort": 0,
+					"transferType": "onUse",
+					"actionId": "kwNugBq4WasHI0Qt",
+					"duration": {
+						"unit": "hours"
+					}
+				}
+			},
+			"transfer": false,
+			"name": "Stoneskin (7th-level)",
+			"_id": "aD2cDccPpHVQCDLp",
+			"changes": [
+				{
+					"key": "system.traits.damageResistances",
+					"value": "[\"bludgeoning\",\"piercing\",\"slashing\"]",
+					"mode": 2,
+					"priority": null
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": 3600,
+				"combat": null,
+				"rounds": null,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "",
+			"statuses": [],
+			"folder": null
+		}
+	],
 	"flags": {},
 	"system": {
 		"actions": {
@@ -37,6 +114,18 @@
 						"spellLevel": 4,
 						"points": 6,
 						"type": "spell"
+					}
+				},
+				"prompts": {
+					"vBMw1efaZIYzhomN": {
+						"type": "effect",
+						"default": true,
+						"effectId": "shAXrw2SGgzOqgaf"
+					},
+					"OOFBPhncYc1RJW9m": {
+						"type": "effect",
+						"default": true,
+						"effectId": "aD2cDccPpHVQCDLp"
 					}
 				}
 			}

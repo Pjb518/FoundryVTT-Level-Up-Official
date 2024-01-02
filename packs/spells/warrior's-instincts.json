@@ -2,7 +2,40 @@
 	"name": "Warrior's Instincts",
 	"type": "spell",
 	"img": "icons/magic/control/silhouette-aura-energy.webp",
-	"effects": [],
+	"effects": [
+		{
+			"icon": "icons/magic/control/silhouette-aura-energy.webp",
+			"origin": "Item.xQm9og8pmo9OFHLl",
+			"flags": {
+				"a5e": {
+					"sort": 0,
+					"transferType": "onUse",
+					"actionId": "fTvHcbCoSv2BZyZE",
+					"applyToSelf": true,
+					"duration": {
+						"unit": "minutes"
+					}
+				}
+			},
+			"transfer": false,
+			"name": "Warrior's Instincts",
+			"_id": "Yxl7h8xSsPrTT3fs",
+			"changes": [],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": 60,
+				"combat": null,
+				"rounds": null,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "<p>Until the spell ends, creatures cannot gain bonuses (like those granted by bless or expertise dice) or advantage on attack rolls against you. In addition, none of your movement provokes opportunity attacks, and you ignore nonmagical difficult terrain. Finally, you can end the spell early to treat a single weapon attack roll as though you had rolled a 15 on the d20.</p>",
+			"statuses": [],
+			"folder": null
+		}
+	],
 	"flags": {},
 	"system": {
 		"actions": {
@@ -37,6 +70,13 @@
 						"spellLevel": 5,
 						"points": 7,
 						"type": "spell"
+					}
+				},
+				"prompts": {
+					"SX0hnU6Xq1ju3eK6": {
+						"type": "effect",
+						"default": true,
+						"effectId": "Yxl7h8xSsPrTT3fs"
 					}
 				}
 			}

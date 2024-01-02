@@ -2,7 +2,49 @@
 	"name": "Unsettling Arcane Riposte",
 	"type": "spell",
 	"img": "icons/magic/light/projectile-smoke-blue-light.webp",
-	"effects": [],
+	"effects": [
+		{
+			"icon": "icons/magic/light/projectile-smoke-blue-light.webp",
+			"origin": "Item.dkM3FQA8oa9wf1EY",
+			"flags": {
+				"a5e": {
+					"sort": 0,
+					"transferType": "onUse",
+					"actionId": "Q12HvW4wY0P0GMxE",
+					"duration": {
+						"type": "rounds",
+						"unit": "minutes"
+					}
+				}
+			},
+			"transfer": false,
+			"name": "Unsettled",
+			"_id": "tkHLVHfLBNCK20qO",
+			"changes": [
+				{
+					"key": "flags.a5e.effects.statusConditions",
+					"value": "[\"rattled\"]",
+					"mode": 0,
+					"priority": null
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": null,
+				"combat": null,
+				"rounds": 1,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "",
+			"statuses": [
+				"rattled"
+			],
+			"folder": null
+		}
+	],
 	"flags": {},
 	"system": {
 		"actions": {
@@ -57,6 +99,13 @@
 						"spellLevel": 1,
 						"points": 2,
 						"type": "spell"
+					}
+				},
+				"prompts": {
+					"Pb8OsSuaGCZpZJUd": {
+						"type": "effect",
+						"default": true,
+						"effectId": "tkHLVHfLBNCK20qO"
 					}
 				}
 			}

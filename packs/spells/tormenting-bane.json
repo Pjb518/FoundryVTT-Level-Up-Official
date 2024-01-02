@@ -2,7 +2,70 @@
 	"name": "Tormenting Bane",
 	"type": "spell",
 	"img": "icons/magic/unholy/hand-light-green.webp",
-	"effects": [],
+	"effects": [
+		{
+			"icon": "icons/magic/unholy/hand-light-green.webp",
+			"origin": "Item.4W8uZk1IqiY3VMLA",
+			"flags": {
+				"a5e": {
+					"sort": 0,
+					"transferType": "onUse",
+					"actionId": "5DV904tuT5qFRZ8M",
+					"duration": {
+						"unit": "minutes"
+					}
+				}
+			},
+			"transfer": false,
+			"name": "Tormenting Bane",
+			"_id": "PYw6G65D8qrKd8GH",
+			"changes": [
+				{
+					"key": "flags.a5e.effects.bonuses.abilities",
+					"value": "{\"label\":\"\",\"formula\":\"-1d4\",\"damageType\":\"\",\"context\":{\"abilities\":[\"str\",\"dex\",\"con\",\"int\",\"wis\",\"cha\"],\"types\":[\"save\"]},\"default\":true,\"img\":\"icons/svg/upgrade.svg\"}",
+					"mode": 0,
+					"priority": null
+				},
+				{
+					"key": "system.bonuses.meleeSpellAttack",
+					"value": "-1d4",
+					"mode": 2,
+					"priority": null
+				},
+				{
+					"key": "system.bonuses.meleeWeaponAttack",
+					"value": "-1d4",
+					"mode": 2,
+					"priority": null
+				},
+				{
+					"key": "system.bonuses.rangedSpellAttack",
+					"value": "-1d4",
+					"mode": 2,
+					"priority": null
+				},
+				{
+					"key": "system.bonuses.rangedWeaponAttack",
+					"value": "-1d4",
+					"mode": 2,
+					"priority": null
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": 60,
+				"combat": null,
+				"rounds": null,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "<p>Until the spell ends, a d4 is subtracted from attack rolls and saving throws made by a target.</p>\n<p><strong>Rare: Tormenting Bane.</strong> A target affected by this spell has disadvantage on its next saving throw made against fear.</p>",
+			"statuses": [],
+			"folder": null
+		}
+	],
 	"flags": {},
 	"system": {
 		"actions": {
@@ -40,6 +103,11 @@
 							"bonus": ""
 						},
 						"type": "savingThrow"
+					},
+					"5nMfZxdvmwtFLDNs": {
+						"type": "effect",
+						"default": true,
+						"effectId": "PYw6G65D8qrKd8GH"
 					}
 				},
 				"consumers": {

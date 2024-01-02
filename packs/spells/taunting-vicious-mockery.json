@@ -2,7 +2,47 @@
 	"name": "Taunting Vicious Mockery",
 	"type": "spell",
 	"img": "icons/magic/sonic/scream-wail-shout-teal.webp",
-	"effects": [],
+	"effects": [
+		{
+			"icon": "icons/magic/sonic/scream-wail-shout-teal.webp",
+			"origin": "Item.LG6MajtsrLdRqpSk",
+			"flags": {
+				"a5e": {
+					"sort": 0,
+					"transferType": "onUse",
+					"actionId": "Q3Ts07ycwHan15js",
+					"duration": {
+						"type": "rounds",
+						"unit": "minutes"
+					}
+				}
+			},
+			"transfer": false,
+			"name": "Taunted",
+			"_id": "VZWerjXTPrFvHKDb",
+			"changes": [
+				{
+					"key": "flags.a5e.effects.rollMode.attack.all",
+					"value": "-1",
+					"mode": 6,
+					"priority": null
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": null,
+				"combat": null,
+				"rounds": 1,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "<p>On a failed saving throw the target has disadvantage on all attack rolls next round, and if it makes an attack it can only target you (it can take other actions, but if the target takes the Attack action or casts a spell that includes a spell attack, that attack must be against you). Persuasion checks you make against the target have disadvantage, even after the spell’s duration ends.</p>",
+			"statuses": [],
+			"folder": null
+		}
+	],
 	"flags": {},
 	"system": {
 		"actions": {
@@ -53,6 +93,11 @@
 							"bonus": ""
 						},
 						"type": "savingThrow"
+					},
+					"mdOOlWJRafERBnMC": {
+						"type": "effect",
+						"default": true,
+						"effectId": "VZWerjXTPrFvHKDb"
 					}
 				},
 				"consumers": {}

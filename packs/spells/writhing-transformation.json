@@ -1,106 +1,149 @@
 {
-  "name": "Writhing Transformation",
-  "type": "spell",
-  "img": "icons/magic/death/hand-dirt-undead-zombie.webp",
-  "effects": [],
-  "flags": {},
-  "system": {
-    "actions": {
-      "XFf8IyaMjDf4zZ4p": {
-        "name": "Writhing Transformation",
-        "activation": {
-          "cost": 1,
-          "type": "week",
-          "reactionTrigger": ""
-        },
-        "duration": {
-          "unit": "instantaneous",
-          "value": ""
-        },
-        "ranges": {
-          "bjc4beufbze7WSSd": {
-            "range": "self"
-          }
-        },
-        "area": {
-          "shape": "",
-          "size": "",
-          "placeTemplate": false
-        },
-        "target": {
-          "quantity": "",
-          "type": "self"
-        },
-        "rolls": {
-          "11Ufm4RMt5FMGGcs": {
-            "ability": "str",
-            "type": "abilityCheck"
-          }
-        },
-        "consumers": {
-          "nBGhfm5Xr8ts96VR": {
-            "mode": "variable",
-            "spellLevel": 9,
-            "points": 13,
-            "type": "spell"
-          }
-        }
-      }
-    },
-    "description": "<p>As part of the casting of this spell, you lay down in the coffin on a patch of bare earth and it buries itself. Over the following week, you are incapacitated and do not need air, food, or sleep. Your insides are eaten by worms, but you do not die and your skin remains intact. If you are exhumed during this time, or if the spell is otherwise interrupted, you die.</p><p>At the end of the week, the transformation is complete and your true form is permanently changed. Your appearance is unchanged but underneath your skin is a sentient mass of worms. Any creature that makes a Medicine check against your spell save DC realizes that there is something moving underneath your skin.</p><p>Your statistics change in the following ways:</p><ul><li>Your type changes to aberration, and you do not age or require sleep.</li><li>You cannot be healed by normal means, but you can spend an action or bonus action to consume 2d6 live worms, regaining an equal amount of hit points by adding them to your body.</li><li>You can sense and telepathically control all worms that have the beast type and are within 60 feet of you.</li></ul><p>In addition, you are able to discard your shell of skin and travel as a writhing mass of worms. As an action, you can abandon your skin and pour out onto the ground. In this form you have the statistics of <strong>swarm of insects</strong> with the following exceptions: you keep your hit points, Wisdom, Intelligence, and Charisma scores, and proficiencies. You know but cannot cast spells in this form. You also gain a burrow speed of 10 feet. Any worms touching you instantly join with your swarm, granting you a number of temporary hit points equal to the number of worms that join with your form (maximum 40 temporary hit points). These temporary hit points last until you are no longer in this form.</p><p>If you spend an hour in the same space as a dead creature of your original form's size, you can eat its insides and inhabit its skin in the same way you once inhabited your own. While you are in your swarm form, the most recent skin you inhabited remains intact and you can move back into a previously inhabited skin in 1 minute. You have advantage on checks made to impersonate a creature while wearing its skin.</p>",
-    "favorite": false,
-    "secretDescription": "",
-    "source": "",
-    "uses": {
-      "value": null,
-      "max": "",
-      "per": null,
-      "recharge": {
-        "formula": "",
-        "threshold": ""
-      }
-    },
-    "schema": {
-      "version": null,
-      "lastMigration": null
-    },
-    "classes": [
-      "warlock",
-      "witch",
-      "wizard"
-    ],
-    "components": {
-      "vocalized": true,
-      "seen": true,
-      "material": true
-    },
-    "concentration": false,
-    "level": 9,
-    "materials": "coffin filled with worms, consumed by the spell",
-    "materialsConsumed": false,
-    "prepared": false,
-    "prerequisite": "",
-    "rare": false,
-    "ritual": true,
-    "schools": {
-      "primary": "transmutation",
-      "secondary": [
-        "arcane",
-        "evil",
-        "transformation"
-      ]
-    },
-    "schemaVersion": {
-      "version": 0.01,
-      "lastMigration": {
-        "version": {
-          "schema": 0.009,
-          "foundry": "12.316",
-          "system": "0.16.12"
-        }
-      }
-    }
-  },
-  "folder": null,
-  "_id": "sfzcv3r802ifug25"
+	"name": "Writhing Transformation",
+	"type": "spell",
+	"img": "icons/magic/death/hand-dirt-undead-zombie.webp",
+	"effects": [
+		{
+			"icon": "icons/magic/death/hand-dirt-undead-zombie.webp",
+			"origin": "Item.fuZQyy4R0Rn9zh8e",
+			"flags": {
+				"a5e": {
+					"sort": 0,
+					"transferType": "onUse",
+					"actionId": "XFf8IyaMjDf4zZ4p"
+				}
+			},
+			"transfer": false,
+			"name": "Writhing Transformation",
+			"_id": "BsbrzFhiXLZJPEIv",
+			"changes": [
+				{
+					"key": "system.details.creatureTypes",
+					"value": "[\"aberration\"]",
+					"mode": 6,
+					"priority": null
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": null,
+				"combat": null,
+				"rounds": null,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "<p>Your appearance is unchanged but underneath your skin is a sentient mass of worms. Any creature that makes a Medicine check against your spell save DC realizes that there is something moving underneath your skin.</p>\n<p>Your statistics change in the following ways:</p>\n<ul>\n<li>Your type changes to aberration, and you do not age or require sleep.</li>\n<li>You cannot be healed by normal means, but you can spend an action or bonus action to consume 2d6 live worms, regaining an equal amount of hit points by adding them to your body.</li>\n<li>You can sense and telepathically control all worms that have the beast type and are within 60 feet of you.</li>\n</ul>\n<p>In addition, you are able to discard your shell of skin and travel as a writhing mass of worms. As an action, you can abandon your skin and pour out onto the ground. In this form you have the statistics of <strong>swarm of insects</strong> with the following exceptions: you keep your hit points, Wisdom, Intelligence, and Charisma scores, and proficiencies. You know but cannot cast spells in this form. You also gain a burrow speed of 10 feet. Any worms touching you instantly join with your swarm, granting you a number of temporary hit points equal to the number of worms that join with your form (maximum 40 temporary hit points). These temporary hit points last until you are no longer in this form.</p>\n<p>If you spend an hour in the same space as a dead creature of your original form's size, you can eat its insides and inhabit its skin in the same way you once inhabited your own. While you are in your swarm form, the most recent skin you inhabited remains intact and you can move back into a previously inhabited skin in 1 minute. You have advantage on checks made to impersonate a creature while wearing its skin.</p>",
+			"statuses": [],
+			"folder": null
+		}
+	],
+	"flags": {},
+	"system": {
+		"actions": {
+			"XFf8IyaMjDf4zZ4p": {
+				"name": "Writhing Transformation",
+				"activation": {
+					"cost": 1,
+					"type": "week",
+					"reactionTrigger": ""
+				},
+				"duration": {
+					"unit": "instantaneous",
+					"value": ""
+				},
+				"ranges": {
+					"bjc4beufbze7WSSd": {
+						"range": "self"
+					}
+				},
+				"area": {
+					"shape": "",
+					"size": "",
+					"placeTemplate": false
+				},
+				"target": {
+					"quantity": "",
+					"type": "self"
+				},
+				"rolls": {
+					"11Ufm4RMt5FMGGcs": {
+						"ability": "str",
+						"type": "abilityCheck"
+					}
+				},
+				"consumers": {
+					"nBGhfm5Xr8ts96VR": {
+						"mode": "variable",
+						"spellLevel": 9,
+						"points": 13,
+						"type": "spell"
+					}
+				},
+				"prompts": {
+					"4Z6oiHxeKuu7XPFP": {
+						"type": "effect",
+						"default": true,
+						"effectId": "BsbrzFhiXLZJPEIv"
+					}
+				}
+			}
+		},
+		"description": "<p>As part of the casting of this spell, you lay down in the coffin on a patch of bare earth and it buries itself. Over the following week, you are incapacitated and do not need air, food, or sleep. Your insides are eaten by worms, but you do not die and your skin remains intact. If you are exhumed during this time, or if the spell is otherwise interrupted, you die.</p><p>At the end of the week, the transformation is complete and your true form is permanently changed. Your appearance is unchanged but underneath your skin is a sentient mass of worms. Any creature that makes a Medicine check against your spell save DC realizes that there is something moving underneath your skin.</p><p>Your statistics change in the following ways:</p><ul><li>Your type changes to aberration, and you do not age or require sleep.</li><li>You cannot be healed by normal means, but you can spend an action or bonus action to consume 2d6 live worms, regaining an equal amount of hit points by adding them to your body.</li><li>You can sense and telepathically control all worms that have the beast type and are within 60 feet of you.</li></ul><p>In addition, you are able to discard your shell of skin and travel as a writhing mass of worms. As an action, you can abandon your skin and pour out onto the ground. In this form you have the statistics of <strong>swarm of insects</strong> with the following exceptions: you keep your hit points, Wisdom, Intelligence, and Charisma scores, and proficiencies. You know but cannot cast spells in this form. You also gain a burrow speed of 10 feet. Any worms touching you instantly join with your swarm, granting you a number of temporary hit points equal to the number of worms that join with your form (maximum 40 temporary hit points). These temporary hit points last until you are no longer in this form.</p><p>If you spend an hour in the same space as a dead creature of your original form's size, you can eat its insides and inhabit its skin in the same way you once inhabited your own. While you are in your swarm form, the most recent skin you inhabited remains intact and you can move back into a previously inhabited skin in 1 minute. You have advantage on checks made to impersonate a creature while wearing its skin.</p>",
+		"favorite": false,
+		"secretDescription": "",
+		"source": "",
+		"uses": {
+			"value": null,
+			"max": "",
+			"per": null,
+			"recharge": {
+				"formula": "",
+				"threshold": ""
+			}
+		},
+		"schema": {
+			"version": null,
+			"lastMigration": null
+		},
+		"classes": [
+			"warlock",
+			"witch",
+			"wizard"
+		],
+		"components": {
+			"vocalized": true,
+			"seen": true,
+			"material": true
+		},
+		"concentration": false,
+		"level": 9,
+		"materials": "coffin filled with worms, consumed by the spell",
+		"materialsConsumed": false,
+		"prepared": false,
+		"prerequisite": "",
+		"rare": false,
+		"ritual": true,
+		"schools": {
+			"primary": "transmutation",
+			"secondary": [
+				"arcane",
+				"evil",
+				"transformation"
+			]
+		},
+		"schemaVersion": {
+			"version": 0.01,
+			"lastMigration": {
+				"version": {
+					"schema": 0.009,
+					"foundry": "12.316",
+					"system": "0.16.12"
+				}
+			}
+		}
+	},
+	"folder": null,
+	"_id": "sfzcv3r802ifug25"
 }
