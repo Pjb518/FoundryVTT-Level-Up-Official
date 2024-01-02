@@ -25,7 +25,7 @@
             return $actor[dialogMethod]();
 
         ui.notifications.warn(
-            localize("A5E.validations.warnings.modifiedByEffect")
+            localize("A5E.validations.warnings.modifiedByEffect"),
         );
     }
 
@@ -112,7 +112,7 @@
 {#each details as { label, values, dialogMethod, propertyKey }}
     {#if values.length || !sheetIsLocked}
         <section class="details-section">
-            <h2 class="details-header">
+            <h2 class="a5e-details-heading">
                 {label}
             </h2>
 
@@ -150,14 +150,11 @@
         position: relative;
     }
 
-    .details-header {
-        font-family: $font-secondary;
-        font-size: $font-size-sm;
-        // font-weight: bold;
-        padding-left: 0.125rem;
-        padding-bottom: 0.125rem;
-        margin-bottom: 0.275rem;
-        border-bottom: 1px solid #ccc;
+    .a5e-details-heading {
+        font-family: var(--a5e-font-serif);
+        font-size: var(--a5e-text-size-sm);
+        font-weight: 700;
+        margin-bottom: 0.25rem;
     }
 
     .details-config {
@@ -170,7 +167,7 @@
         display: flex;
         flex-wrap: wrap;
         gap: 0.25rem;
-        font-size: $font-size-xxs;
+        font-size: var(--a5e-text-size-xxs);
         margin: 0;
         padding: 0;
         list-style: none;
