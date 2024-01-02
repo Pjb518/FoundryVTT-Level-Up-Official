@@ -467,6 +467,8 @@ export default class ItemA5e extends BaseItemA5e {
     let current = this.system.uses.value;
     let formula = this.system.uses.recharge.formula || '1d6';
     let threshold = this.system.uses.recharge.threshold ?? 6;
+    let rechargeType = this.system.uses.recharge?.rechargeType || 'custom';
+    let rechargeAmount = this.system.uses.recharge?.rechargeAmount || '1';
     let updatePath = 'system.uses.value';
 
     if (actionId) {
@@ -476,16 +478,32 @@ export default class ItemA5e extends BaseItemA5e {
       current = action.uses?.value ?? 0;
       formula = action.uses?.recharge?.formula || '1d6';
       threshold = action.uses?.recharge?.threshold ?? 6;
+      rechargeType = action.uses?.recharge?.rechargeType || 'custom';
+      rechargeAmount = action.uses?.recharge?.rechargeAmount || '1';
       updatePath = `system.actions.${actionId}.uses.value`;
     }
 
-    // Roll
-    const roll = await new Roll(formula, this.actor.getRollData()).evaluate({ async: true });
+    // Recharge Roll
+    const rechargeRoll = await new Roll(formula, this.getRollData()).evaluate({ async: true });
 
     // TODO: Make the message prettier
-    roll.toMessage();
+    rechargeRoll.toMessage();
 
-    if (roll.total >= threshold) await this.update({ [updatePath]: Math.min(max, current + 1) });
+    if (rechargeRoll.total < threshold) return;
+
+    if (rechargeType === 'min') await this.update({ [updatePath]: 0 });
+    else if (rechargeType === 'max') await this.update({ [updatePath]: max });
+    else {
+      const rechargeAmountRoll = await new Roll(
+        rechargeAmount,
+        this.getRollData()
+      ).evaluate({ async: true });
+
+      // TODO: Add the roll back in when the custom recharge amount config is added.
+      // rechargeAmountRoll.toMessage();
+
+      await this.update({ [updatePath]: Math.min(max, current + rechargeAmountRoll.total) });
+    }
   }
 
   /** @inheritdoc */

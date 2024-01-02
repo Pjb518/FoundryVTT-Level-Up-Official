@@ -177,6 +177,8 @@ export default class ActionsManager extends DataProxy {
         per: '',
         recharge: {
           formula: '1d6',
+          rechargeType: 'custom',
+          rechargeAmount: '1',
           threshold: 6
         }
       }

@@ -1443,14 +1443,30 @@ export default class ActorA5e extends Actor {
     const current = this.system.resources[resource].value;
     const formula = this.system.resources[resource]?.recharge?.formula || '1d6';
     const threshold = this.system.resources[resource]?.recharge?.threshold || 6;
+    const rechargeType = this.system.resources[resource]?.recharge?.rechargeType || 'custom';
+    const rechargeAmount = this.system.resources[resource]?.recharge?.rechargeAmount || '1';
     const updatePath = `system.resources.${resource}.value`;
 
-    // Roll
-    const roll = await new Roll(formula, this.getRollData()).evaluate({ async: true });
+    // Recharge Roll
+    const rechargeRoll = await new Roll(formula, this.getRollData()).evaluate({ async: true });
 
     // TODO: Make the message prettier
-    roll.toMessage();
+    rechargeRoll.toMessage();
 
-    if (roll.total >= threshold) await this.update({ [updatePath]: Math.min(max, current + 1) });
+    if (rechargeRoll.total < threshold) return;
+
+    if (rechargeType === 'min') await this.update({ [updatePath]: 0 });
+    else if (rechargeType === 'max') await this.update({ [updatePath]: max });
+    else {
+      const rechargeAmountRoll = await new Roll(
+        rechargeAmount,
+        this.getRollData()
+      ).evaluate({ async: true });
+
+      // TODO: Add the roll back in when the custom recharge amount config is added.
+      // rechargeAmountRoll.toMessage();
+
+      await this.update({ [updatePath]: Math.min(max, current + rechargeAmountRoll.total) });
+    }
   }
 }
