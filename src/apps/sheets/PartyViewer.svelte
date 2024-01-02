@@ -497,8 +497,8 @@
                 partyIsLocked,
                 showActorImagesInPartyViewer,
             }}
-            --grid-areas={gridAreaDefinition}
-            --grid-template={gridSizeDefinition}
+            --a5e-section-heading-template-areas={gridAreaDefinition}
+            --a5e-section-heading-template-columns={gridSizeDefinition}
         />
 
         <ul class="a5e-item-list a5e-item-list--party">

@@ -1,4 +1,4 @@
-<header class="core-header">
+<header class="a5e-section-header a5e-section-header--party-viewer">
     <i
         class="heading heading--hp fa-solid fa-heart"
         data-tooltip="Hit Points"
@@ -43,17 +43,6 @@
 </header>
 
 <style lang="scss">
-    .core-header {
-        display: grid;
-        grid-template-areas: var(--grid-areas);
-        grid-template-columns: var(--grid-template);
-        gap: 0.5rem;
-        min-height: 1.75rem;
-        padding: 0.375rem 0.125rem;
-        border-bottom: 1px solid #ccc;
-        border-top: 1px solid #ccc;
-    }
-
     .heading {
         font-size: 0.833rem;
         text-align: center;

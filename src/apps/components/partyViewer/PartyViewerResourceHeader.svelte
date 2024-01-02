@@ -11,7 +11,7 @@
     }
 </script>
 
-<header class="resources-header">
+<header class="a5e-section-header a5e-section-header--party-viewer">
     {#if propData.partyHasInspiration}
         <i
             class="heading heading--inspiration fa-solid fa-dice-d20"
@@ -56,19 +56,6 @@
 </header>
 
 <style lang="scss">
-    .resources-header {
-        display: grid;
-        grid-template-areas: var(--grid-areas);
-        grid-template-columns: var(--grid-template);
-        align-items: end;
-        gap: 0.5rem;
-        min-height: 1.75rem;
-        padding: 0.375rem 0.125rem;
-        font-family: var(--a5e-font-serif);
-        border-bottom: 1px solid #ccc;
-        border-top: 1px solid #ccc;
-    }
-
     .heading {
         font-size: 0.833rem;
         text-align: center;
@@ -92,7 +79,6 @@
         gap: 0.5rem;
         padding: 0;
         margin: 0;
-        font-weight: bold;
         list-style: none;
     }
 
@@ -110,7 +96,7 @@
             transform: translate(-50%, -50%);
             font-family: "Font Awesome 6 Pro";
             font-size: var(--a5e-text-size-md);
-            color: rgba(66, 95, 101, 0.2);
+            color: rgba(255, 255, 255, 0.22);
         }
 
         &--narrow {
