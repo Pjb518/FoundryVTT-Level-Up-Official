@@ -20,11 +20,12 @@
                 class="a5e-input a5e-input--character-name"
                 class:disable-pointer-events={!$actor.isOwner}
                 placeholder="Name"
+                spellcheck="false"
                 on:change={({ target }) =>
                     updateDocumentDataFromField(
                         $actor,
                         target.name,
-                        target.value
+                        target.value,
                     )}
             />
         </section>
