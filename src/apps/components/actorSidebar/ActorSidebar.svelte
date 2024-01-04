@@ -176,6 +176,7 @@
         gap: 0.6rem;
         flex-grow: 1;
         overflow-y: auto;
+        overflow-x: clip;
     }
 
     .actor-sidebar-footer {
