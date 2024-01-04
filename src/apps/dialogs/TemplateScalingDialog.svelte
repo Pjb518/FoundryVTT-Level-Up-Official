@@ -1,7 +1,7 @@
 <script>
     import { getContext } from "svelte";
 
-    import FormSection from "../components/FormSection.svelte";
+    import FormSection from "../components/LegacyFormSection.svelte";
     import RadioGroup from "../components/RadioGroup.svelte";
 
     import TemplatePreparationManager from "../../managers/TemplatePreparationManager";

@@ -6,7 +6,7 @@
     import updateDocumentDataFromField from "../../../utils/updateDocumentDataFromField";
 
     import Checkbox from "../Checkbox.svelte";
-    import FormSection from "../FormSection.svelte";
+    import FormSection from "../LegacyFormSection.svelte";
     import RadioGroup from "../RadioGroup.svelte";
 
     export let roll;
@@ -19,7 +19,7 @@
         updateDocumentDataFromField(
             $item,
             `system.actions.${actionId}.rolls.${rollId}.ability`,
-            selectedAbility
+            selectedAbility,
         );
     }
 
@@ -49,7 +49,7 @@
             updateDocumentDataFromField(
                 $item,
                 `system.actions.${actionId}.rolls.${rollId}.label`,
-                target.value
+                target.value,
             )}
     />
 </FormSection>
@@ -83,7 +83,7 @@
                 updateDocumentDataFromField(
                     $item,
                     `system.actions.${actionId}.rolls.${rollId}.attackType`,
-                    target.value
+                    target.value,
                 )}
         >
             {#each Object.entries(A5E.attackTypes) as [key, name] (key)}
@@ -108,7 +108,7 @@
                 updateDocumentDataFromField(
                     $item,
                     `system.actions.${actionId}.rolls.${rollId}.bonus`,
-                    target.value
+                    target.value,
                 )}
         />
     </FormSection>
@@ -127,7 +127,7 @@
                 updateDocumentDataFromField(
                     $item,
                     `system.actions.${actionId}.rolls.${rollId}.critThreshold`,
-                    Number(target.value)
+                    Number(target.value),
                 )}
         />
     </FormSection>
@@ -140,7 +140,7 @@
         updateDocumentDataFromField(
             $item,
             `system.actions.${actionId}.rolls.${rollId}.proficient`,
-            detail
+            detail,
         );
     }}
 />

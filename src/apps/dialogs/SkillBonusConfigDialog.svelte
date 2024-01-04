@@ -4,7 +4,7 @@
     import updateDocumentDataFromField from "../../utils/updateDocumentDataFromField";
 
     import Checkbox from "../components/Checkbox.svelte";
-    import FormSection from "../components/FormSection.svelte";
+    import FormSection from "../components/LegacyFormSection.svelte";
     import TagGroup from "../components/TagGroup.svelte";
 
     export let { document, bonusID } = getContext("#external").application;

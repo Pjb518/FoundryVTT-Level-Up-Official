@@ -9,7 +9,7 @@
     import updateDocumentDataFromField from "../../../utils/updateDocumentDataFromField";
 
     import AreaConfig from "../itemActionsConfig/AreaConfig.svelte";
-    import FormSection from "../FormSection.svelte";
+    import FormSection from "../LegacyFormSection.svelte";
     import TargetRangeIncrement from "../itemActionsConfig/TargetRangeIncrement.svelte";
     import TargetScalingDialog from "../../dialogs/TargetScalingDialog.svelte";
 

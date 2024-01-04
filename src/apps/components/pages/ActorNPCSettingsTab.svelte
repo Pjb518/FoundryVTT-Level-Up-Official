@@ -2,7 +2,7 @@
     import { getContext } from "svelte";
 
     import Checkbox from "../Checkbox.svelte";
-    import FormSection from "../FormSection.svelte";
+    import FormSection from "../LegacyFormSection.svelte";
 
     import updateDocumentDataFromField from "../../../utils/updateDocumentDataFromField";
 
@@ -25,7 +25,7 @@
                     updateDocumentDataFromField(
                         $actor,
                         "flags.a5e.disableRandomizedHP",
-                        detail
+                        detail,
                     );
                 }}
             />

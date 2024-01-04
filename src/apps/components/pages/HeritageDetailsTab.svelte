@@ -2,7 +2,7 @@
     import { getContext, setContext } from "svelte";
     import { TJSDocument } from "#runtime/svelte/store/fvtt/document";
 
-    import FormSection from "../FormSection.svelte";
+    import FormSection from "../LegacyFormSection.svelte";
     import RadioGroup from "../RadioGroup.svelte";
     import CheckboxGroup from "../CheckboxGroup.svelte";
     import ChangeConfiguration from "../effectChanges/ChangeConfiguration.svelte";
@@ -75,7 +75,7 @@
     let effects = $item.effects;
     const traitEffect =
         effects.find(
-            (effect) => effect.name === "Movement & Senses Configuration"
+            (effect) => effect.name === "Movement & Senses Configuration",
         ) ?? "No trait effect found. Please re-create the item.";
 
     /** @type {Array<Object>}*/
@@ -96,7 +96,7 @@
                     updateDocumentDataFromField(
                         $item,
                         "system.creatureSize.fixed",
-                        detail
+                        detail,
                     )}
             />
         </section>
@@ -112,7 +112,7 @@
                     updateDocumentDataFromField(
                         $item,
                         "system.creatureSize.options",
-                        detail
+                        detail,
                     )}
             />
         </section>
@@ -126,7 +126,7 @@
                 updateDocumentDataFromField(
                     $item,
                     "system.creatureTypes",
-                    detail
+                    detail,
                 )}
         />
     </FormSection>

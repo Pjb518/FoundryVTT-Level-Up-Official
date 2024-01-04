@@ -2,7 +2,7 @@
     import { getContext } from "svelte";
 
     import Checkbox from "../Checkbox.svelte";
-    import FormSection from "../FormSection.svelte";
+    import FormSection from "../LegacyFormSection.svelte";
 
     import updateDocumentDataFromField from "../../../utils/updateDocumentDataFromField";
 
@@ -27,7 +27,7 @@
             updateDocumentDataFromField(
                 $item,
                 `system.actions.${actionId}.rolls.${rollId}.label`,
-                target.value
+                target.value,
             )}
     />
 </FormSection>
@@ -45,7 +45,7 @@
             updateDocumentDataFromField(
                 $item,
                 `system.actions.${actionId}.rolls.${rollId}.formula`,
-                target.value
+                target.value,
             )}
     />
 </FormSection>
@@ -57,7 +57,7 @@
         updateDocumentDataFromField(
             $item,
             `system.actions.${actionId}.rolls.${rollId}.default`,
-            detail
+            detail,
         );
     }}
 />

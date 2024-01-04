@@ -4,12 +4,12 @@
 
     import updateDocumentDataFromField from "../../../utils/updateDocumentDataFromField";
 
-    import FormSection from "../FormSection.svelte";
+    import FormSection from "../LegacyFormSection.svelte";
     import CheckboxGroup from "../CheckboxGroup.svelte";
 
     function prepareMaterialProperties(item) {
         const properties = item.system.materialProperties.map(
-            (property) => materialProperties[property] ?? property
+            (property) => materialProperties[property] ?? property,
         );
 
         properties.sort((a, b) => a.localeCompare(b));
@@ -60,7 +60,7 @@
                         updateDocumentDataFromField(
                             $item,
                             "system.materialProperties",
-                            event.detail
+                            event.detail,
                         )}
                 />
             </FormSection>

@@ -6,7 +6,7 @@
     import { TJSDocument } from "#runtime/svelte/store/fvtt/document";
 
     import CheckboxGroup from "../components/CheckboxGroup.svelte";
-    import FormSection from "../components/FormSection.svelte";
+    import FormSection from "../components/LegacyFormSection.svelte";
     import RadioGroup from "../components/RadioGroup.svelte";
 
     export let { application } = getContext("#external");

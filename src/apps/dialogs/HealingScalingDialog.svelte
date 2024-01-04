@@ -2,7 +2,7 @@
     import { getContext } from "svelte";
     import { TJSDocument } from "@typhonjs-fvtt/runtime/svelte/store/fvtt/document";
 
-    import FormSection from "../components/FormSection.svelte";
+    import FormSection from "../components/LegacyFormSection.svelte";
     import RadioGroup from "../components/RadioGroup.svelte";
     import updateDocumentDataFromField from "../../utils/updateDocumentDataFromField";
 

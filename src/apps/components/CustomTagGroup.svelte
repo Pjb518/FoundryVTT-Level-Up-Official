@@ -5,7 +5,7 @@
     import arraysAreEqual from "../../utils/arraysAreEqual";
 
     import CheckboxGroup from "./CheckboxGroup.svelte";
-    import FormSection from "./FormSection.svelte";
+    import FormSection from "./LegacyFormSection.svelte";
 
     export let options = [];
     export let selected = [];
@@ -43,11 +43,11 @@
     const dispatch = createEventDispatcher();
 
     $: selectedCoreOptions = selected.filter((option) =>
-        optionKeys.includes(option)
+        optionKeys.includes(option),
     );
 
     $: selectedCustomOptions = selected.filter(
-        (option) => !optionKeys.includes(option)
+        (option) => !optionKeys.includes(option),
     );
 
     $: selectedCoreOptions, selectedCustomOptions, updateSelections();

@@ -3,7 +3,7 @@
 
     import CreateMenu from "../actorUtilityBar/CreateMenu.svelte";
     import DropArea from "../dropAreas/OriginDropArea.svelte";
-    import FormSection from "../FormSection.svelte";
+    import FormSection from "../LegacyFormSection.svelte";
 
     import updateDocumentDataFromField from "../../../utils/updateDocumentDataFromField";
 
@@ -35,7 +35,7 @@
         const [dragEvent] = event.detail;
         try {
             const { uuid } = JSON.parse(
-                dragEvent.dataTransfer.getData("text/plain")
+                dragEvent.dataTransfer.getData("text/plain"),
             );
             await $item.gifts.add(uuid, { category });
         } catch (err) {
@@ -55,7 +55,7 @@
             acc[category].push(uuid);
             return acc;
         },
-        {}
+        {},
     );
 </script>
 
@@ -73,7 +73,7 @@
                             updateDocumentDataFromField(
                                 $item,
                                 `system.giftCategories.${id}`,
-                                target.value
+                                target.value,
                             )}
                     />
 

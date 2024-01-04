@@ -4,12 +4,12 @@
 
     import updateDocumentDataFromField from "../../../utils/updateDocumentDataFromField";
 
-    import FormSection from "../FormSection.svelte";
+    import FormSection from "../LegacyFormSection.svelte";
     import CheckboxGroup from "../CheckboxGroup.svelte";
 
     function prepareAmmunitionProperties(item) {
         const properties = item.system.ammunitionProperties.map(
-            (property) => ammunitionProperties[property] ?? property
+            (property) => ammunitionProperties[property] ?? property,
         );
 
         properties.sort((a, b) => a.localeCompare(b));
@@ -59,7 +59,7 @@
                         updateDocumentDataFromField(
                             $item,
                             "system.ammunitionProperties",
-                            event.detail
+                            event.detail,
                         )}
                 />
             </FormSection>

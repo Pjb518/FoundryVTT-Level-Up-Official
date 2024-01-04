@@ -2,7 +2,7 @@
     import { getContext } from "svelte";
 
     import CompendiumFilterCategory from "./CompendiumFilterCategory.svelte";
-    import FormSection from "../FormSection.svelte";
+    import FormSection from "../LegacyFormSection.svelte";
     import RangeSlider from "svelte-range-slider-pips";
 
     const filterStore = getContext("filterStore");

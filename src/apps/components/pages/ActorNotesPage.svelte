@@ -3,7 +3,7 @@
     import { localize } from "#runtime/svelte/helper";
 
     import Editor from "../Editor.svelte";
-    import FormSection from "../FormSection.svelte";
+    import FormSection from "../LegacyFormSection.svelte";
     import SecondaryNavigationBar from "../navigation/SecondaryNavigationBar.svelte";
 
     import ActorSheetTempSettingsStore from "../../../stores/ActorSheetTempSettingsStore";

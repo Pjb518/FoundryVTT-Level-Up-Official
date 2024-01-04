@@ -1,7 +1,7 @@
 <script>
     import { getContext } from "svelte";
 
-    import FormSection from "../FormSection.svelte";
+    import FormSection from "../LegacyFormSection.svelte";
 
     const item = getContext("item");
     const actionId = getContext("actionId");

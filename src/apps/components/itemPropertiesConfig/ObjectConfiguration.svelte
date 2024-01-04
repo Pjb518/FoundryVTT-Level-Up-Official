@@ -3,7 +3,7 @@
     import { localize } from "#runtime/svelte/helper";
 
     import Checkbox from "../Checkbox.svelte";
-    import FormSection from "../FormSection.svelte";
+    import FormSection from "../LegacyFormSection.svelte";
     import RadioGroup from "../RadioGroup.svelte";
     import updateDocumentDataFromField from "../../../utils/updateDocumentDataFromField";
 
@@ -49,7 +49,7 @@
                         updateDocumentDataFromField(
                             $item,
                             "system.objectType",
-                            event.detail
+                            event.detail,
                         )}
                 />
             </FormSection>
@@ -62,7 +62,7 @@
                         updateDocumentDataFromField(
                             $item,
                             "system.rarity",
-                            event.detail
+                            event.detail,
                         )}
                 />
             </FormSection>
@@ -75,7 +75,7 @@
                         updateDocumentDataFromField(
                             $item,
                             "system.requiresAttunement",
-                            detail
+                            detail,
                         )}
                 />
 
@@ -87,7 +87,7 @@
                             updateDocumentDataFromField(
                                 $item,
                                 "system.attuned",
-                                detail
+                                detail,
                             )}
                     />
                 {/if}
@@ -99,7 +99,7 @@
                             updateDocumentDataFromField(
                                 $item,
                                 "system.plotItem",
-                                detail
+                                detail,
                             )}
                     />
 
@@ -110,7 +110,7 @@
                             updateDocumentDataFromField(
                                 $item,
                                 "system.unidentified",
-                                detail
+                                detail,
                             )}
                     />
                 {/if}
@@ -132,7 +132,7 @@
                             updateDocumentDataFromField(
                                 $item,
                                 target.name,
-                                Number(target.value)
+                                Number(target.value),
                             )}
                     />
 
@@ -148,7 +148,7 @@
                         updateDocumentDataFromField(
                             $item,
                             "system.bulky",
-                            detail
+                            detail,
                         )}
                 />
             </FormSection>
@@ -161,7 +161,7 @@
                         updateDocumentDataFromField(
                             $item,
                             "system.equippedState",
-                            parseInt(detail, 10)
+                            parseInt(detail, 10),
                         )}
                 />
             </FormSection>
@@ -183,7 +183,7 @@
                                 updateDocumentDataFromField(
                                     $item,
                                     target.name,
-                                    Number(target.value)
+                                    Number(target.value),
                                 )}
                         />
                     </div>
@@ -205,7 +205,7 @@
                                 updateDocumentDataFromField(
                                     $item,
                                     target.name,
-                                    target.value
+                                    target.value,
                                 )}
                         />
                     </div>
@@ -227,7 +227,7 @@
                                 updateDocumentDataFromField(
                                     $item,
                                     target.name,
-                                    target.value
+                                    target.value,
                                 )}
                         />
                     </div>
@@ -242,7 +242,7 @@
                         updateDocumentDataFromField(
                             $item,
                             "system.damagedState",
-                            parseInt(detail, 10)
+                            parseInt(detail, 10),
                         )}
                 />
             </FormSection>
@@ -262,7 +262,7 @@
                 <dd class="u-m-0 u-p-0">
                     {localize(
                         A5E.itemRarity[$item.system.rarity] ??
-                            $item.system.rarity
+                            $item.system.rarity,
                     )}
                 </dd>
             </div>
@@ -276,7 +276,7 @@
                         ({localize(
                             $item.system.attuned
                                 ? "A5E.Attuned"
-                                : "A5E.AttunedNot"
+                                : "A5E.AttunedNot",
                         )})
                     {:else}
                         {localize("A5E.AttunementNotRequired")}

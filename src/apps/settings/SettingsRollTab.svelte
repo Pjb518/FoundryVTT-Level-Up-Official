@@ -2,7 +2,7 @@
     import { getContext } from "svelte";
     import { localize } from "#runtime/svelte/helper";
 
-    import FormSection from "../components/FormSection.svelte";
+    import FormSection from "../components/LegacyFormSection.svelte";
     import Checkbox from "../components/Checkbox.svelte";
     import RadioGroup from "../components/RadioGroup.svelte";
 

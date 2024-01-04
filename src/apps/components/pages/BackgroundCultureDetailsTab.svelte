@@ -5,7 +5,7 @@
     import updateDocumentDataFromField from "../../../utils/updateDocumentDataFromField";
 
     import Checkbox from "../Checkbox.svelte";
-    import FormSection from "../FormSection.svelte";
+    import FormSection from "../LegacyFormSection.svelte";
     import RadioGroup from "../RadioGroup.svelte";
     import CheckboxGroup from "../CheckboxGroup.svelte";
     import CustomTagGroup from "../CustomTagGroup.svelte";

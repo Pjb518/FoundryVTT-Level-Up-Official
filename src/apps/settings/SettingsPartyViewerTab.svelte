@@ -2,7 +2,7 @@
     import { getContext } from "svelte";
 
     import Checkbox from "../components/Checkbox.svelte";
-    import FormSection from "../components/FormSection.svelte";
+    import FormSection from "../components/LegacyFormSection.svelte";
 
     export let reload;
 

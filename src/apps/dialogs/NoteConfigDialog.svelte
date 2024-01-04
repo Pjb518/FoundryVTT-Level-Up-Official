@@ -3,7 +3,7 @@
     import { TJSDocument } from "#runtime/svelte/store/fvtt/document";
 
     import Editor from "../components/Editor.svelte";
-    import FormSection from "../components/FormSection.svelte";
+    import FormSection from "../components/LegacyFormSection.svelte";
 
     import updateDocumentDataFromField from "../../utils/updateDocumentDataFromField";
 

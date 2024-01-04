@@ -10,7 +10,7 @@
 
     import AreaShape from "./AreaShape.svelte";
     import Checkbox from "../Checkbox.svelte";
-    import FormSection from "../FormSection.svelte";
+    import FormSection from "../LegacyFormSection.svelte";
     import TemplateScalingDialog from "../../dialogs/TemplateScalingDialog.svelte";
 
     export let action;

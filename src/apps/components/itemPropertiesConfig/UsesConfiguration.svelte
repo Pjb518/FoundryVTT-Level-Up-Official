@@ -6,7 +6,7 @@
     import handleDeterministicInput from "../../../utils/handleDeterministicInput";
     import updateDocumentDataFromField from "../../../utils/updateDocumentDataFromField";
 
-    import FormSection from "../FormSection.svelte";
+    import FormSection from "../LegacyFormSection.svelte";
 
     function prepareUsesSummary(item) {
         const { uses } = item.system;
@@ -14,7 +14,7 @@
         const maxUses = item.actor
             ? getDeterministicBonus(
                   uses?.max ?? 0,
-                  item.actor?.getRollData() ?? {}
+                  item.actor?.getRollData() ?? {},
               )
             : uses?.max;
 
@@ -84,7 +84,7 @@
                                 updateDocumentDataFromField(
                                     $item,
                                     target.name,
-                                    Number(target.value)
+                                    Number(target.value),
                                 )}
                         />
                     </div>
@@ -102,7 +102,7 @@
                                 updateDocumentDataFromField(
                                     $item,
                                     target.name,
-                                    target.value
+                                    target.value,
                                 );
                             }}
                         />
@@ -118,7 +118,7 @@
                                 updateDocumentDataFromField(
                                     $item,
                                     target.name,
-                                    target.value
+                                    target.value,
                                 )}
                         >
                             <option value="" />
@@ -158,7 +158,7 @@
                                     updateDocumentDataFromField(
                                         $item,
                                         `system.uses.recharge.formula`,
-                                        target.value
+                                        target.value,
                                     );
                                 }}
                             />
@@ -181,7 +181,7 @@
                                     updateDocumentDataFromField(
                                         $item,
                                         `system.uses.recharge.threshold`,
-                                        Number(target.value)
+                                        Number(target.value),
                                     )}
                             />
                         </div>

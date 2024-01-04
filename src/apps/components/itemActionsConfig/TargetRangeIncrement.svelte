@@ -7,7 +7,7 @@
     import updateDocumentDataFromField from "../../../utils/updateDocumentDataFromField";
 
     import Checkbox from "../Checkbox.svelte";
-    import FormSection from "../FormSection.svelte";
+    import FormSection from "../LegacyFormSection.svelte";
     import RadioGroup from "../RadioGroup.svelte";
 
     export let index;
@@ -26,7 +26,7 @@
         updateDocumentDataFromField(
             $item,
             `system.actions.${actionId}.ranges.${id}.range`,
-            range
+            range,
         );
     }
 
@@ -80,7 +80,7 @@
             }
 
             return [value, label];
-        }
+        },
     );
 
     let customValue = isStandardRange(range) ? "" : range;

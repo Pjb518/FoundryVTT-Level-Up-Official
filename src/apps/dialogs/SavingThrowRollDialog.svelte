@@ -6,7 +6,7 @@
     import CheckboxGroup from "../components/CheckboxGroup.svelte";
     import ExpertiseDiePicker from "../components/ExpertiseDiePicker.svelte";
     import FieldWrapper from "../components/FieldWrapper.svelte";
-    import FormSection from "../components/FormSection.svelte";
+    import FormSection from "../components/LegacyFormSection.svelte";
     import OutputVisibilitySection from "../components/activationDialog/OutputVisibilitySection.svelte";
     import RadioGroup from "../components/RadioGroup.svelte";
 

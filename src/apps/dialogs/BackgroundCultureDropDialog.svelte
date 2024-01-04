@@ -7,7 +7,7 @@
 
     import CheckboxGroup from "../components/CheckboxGroup.svelte";
     import CustomTagGroup from "../components/CustomTagGroup.svelte";
-    import FormSection from "../components/FormSection.svelte";
+    import FormSection from "../components/LegacyFormSection.svelte";
     import GenericConfigDialog from "../dialogs/initializers/GenericConfigDialog";
     import WeaponProfConfigDialog from "./WeaponProfConfigDialog.svelte";
     import ToolProfConfigDialog from "./ToolProfConfigDialog.svelte";

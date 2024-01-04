@@ -3,7 +3,7 @@
 
     import CreateMenu from "../actorUtilityBar/CreateMenu.svelte";
     import DropArea from "../dropAreas/OriginDropArea.svelte";
-    import FormSection from "../FormSection.svelte";
+    import FormSection from "../LegacyFormSection.svelte";
 
     import updateDocumentDataFromField from "../../../utils/updateDocumentDataFromField";
 
@@ -25,7 +25,7 @@
                 if (category === id) acc.push(uuid);
                 return acc;
             },
-            []
+            [],
         );
 
         await $item.paragonGifts.deleteDocuments(uuids);
@@ -38,7 +38,7 @@
         const [dragEvent] = event.detail;
         try {
             const { uuid } = JSON.parse(
-                dragEvent.dataTransfer.getData("text/plain")
+                dragEvent.dataTransfer.getData("text/plain"),
             );
             await $item.paragonGifts.add(uuid, { category });
         } catch (err) {
@@ -58,7 +58,7 @@
             acc[category].push(uuid);
             return acc;
         },
-        []
+        [],
     );
 </script>
 
@@ -76,7 +76,7 @@
                             updateDocumentDataFromField(
                                 $item,
                                 `system.paragonCategories.${id}`,
-                                target.value
+                                target.value,
                             )}
                     />
 

@@ -6,7 +6,7 @@
     import updateDocumentDataFromField from "../../../utils/updateDocumentDataFromField";
 
     import Checkbox from "../Checkbox.svelte";
-    import FormSection from "../FormSection.svelte";
+    import FormSection from "../LegacyFormSection.svelte";
     import RadioGroup from "../RadioGroup.svelte";
 
     export let roll;
@@ -24,7 +24,7 @@
         updateDocumentDataFromField(
             $item,
             `system.actions.${actionId}.rolls.${rollId}.ability`,
-            selectedAbility
+            selectedAbility,
         );
     }
 
@@ -47,7 +47,7 @@
             updateDocumentDataFromField(
                 $item,
                 `system.actions.${actionId}.rolls.${rollId}.label`,
-                target.value
+                target.value,
             )}
     />
 </FormSection>
@@ -64,7 +64,7 @@
             updateDocumentDataFromField(
                 $item,
                 `system.actions.${actionId}.rolls.${rollId}.tool`,
-                target.value
+                target.value,
             )}
     >
         {#each tools as [tool, label]}
@@ -103,7 +103,7 @@
             updateDocumentDataFromField(
                 $item,
                 `system.actions.${actionId}.rolls.${rollId}.bonus`,
-                target.value
+                target.value,
             )}
     />
 </FormSection>
@@ -115,7 +115,7 @@
         updateDocumentDataFromField(
             $item,
             `system.actions.${actionId}.rolls.${rollId}.default`,
-            detail
+            detail,
         );
     }}
 />

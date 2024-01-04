@@ -4,7 +4,7 @@
 
     import updateDocumentDataFromField from "../../../utils/updateDocumentDataFromField";
 
-    import FormSection from "../FormSection.svelte";
+    import FormSection from "../LegacyFormSection.svelte";
 
     export let prompt;
     export let promptId;
@@ -33,7 +33,7 @@
             updateDocumentDataFromField(
                 $item,
                 `system.actions.${actionId}.prompts.${promptId}.label`,
-                target.value
+                target.value,
             )}
     />
 </FormSection>
@@ -51,7 +51,7 @@
             updateDocumentDataFromField(
                 $item,
                 `system.actions.${actionId}.prompts.${promptId}.effectId`,
-                target.value
+                target.value,
             )}
     >
         {#each effects as [effectId, effectName]}

@@ -3,7 +3,7 @@
     import { localize } from "#runtime/svelte/helper";
 
     import Checkbox from "../Checkbox.svelte";
-    import FormSection from "../FormSection.svelte";
+    import FormSection from "../LegacyFormSection.svelte";
     import RadioGroup from "../RadioGroup.svelte";
 
     import updateDocumentDataFromField from "../../../utils/updateDocumentDataFromField";

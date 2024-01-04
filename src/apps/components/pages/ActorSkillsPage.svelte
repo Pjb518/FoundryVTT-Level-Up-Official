@@ -2,7 +2,7 @@
     import { getContext } from "svelte";
     import { localize } from "#runtime/svelte/helper";
 
-    import FormSection from "../FormSection.svelte";
+    import FormSection from "../LegacyFormSection.svelte";
     import Skill from "../Skill.svelte";
 
     function getSkills(baseSkills) {

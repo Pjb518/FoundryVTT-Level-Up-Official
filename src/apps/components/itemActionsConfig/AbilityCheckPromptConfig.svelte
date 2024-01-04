@@ -5,7 +5,7 @@
     import updateDocumentDataFromField from "../../../utils/updateDocumentDataFromField";
 
     import Checkbox from "../Checkbox.svelte";
-    import FormSection from "../FormSection.svelte";
+    import FormSection from "../LegacyFormSection.svelte";
     import RadioGroup from "../RadioGroup.svelte";
 
     export let prompt;
@@ -18,7 +18,7 @@
         updateDocumentDataFromField(
             $item,
             `system.actions.${actionId}.prompts.${promptId}.ability`,
-            selectedAbility
+            selectedAbility,
         );
     }
 
@@ -41,7 +41,7 @@
             updateDocumentDataFromField(
                 $item,
                 `system.actions.${actionId}.prompts.${promptId}.label`,
-                target.value
+                target.value,
             )}
     />
 </FormSection>
@@ -68,7 +68,7 @@
         updateDocumentDataFromField(
             $item,
             `system.actions.${actionId}.prompts.${promptId}.default`,
-            detail
+            detail,
         );
     }}
 />

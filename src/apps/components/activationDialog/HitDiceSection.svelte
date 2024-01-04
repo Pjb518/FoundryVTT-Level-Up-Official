@@ -2,7 +2,7 @@
     import { localize } from "#runtime/svelte/helper";
     import { getContext } from "svelte";
 
-    import FormSection from "../FormSection.svelte";
+    import FormSection from "../LegacyFormSection.svelte";
 
     import prepareHitDice from "../../dataPreparationHelpers/prepareHitDice";
     import FieldWrapper from "../FieldWrapper.svelte";

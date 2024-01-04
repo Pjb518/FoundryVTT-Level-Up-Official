@@ -1,7 +1,7 @@
 <script>
     import { getContext } from "svelte";
 
-    import FormSection from "../FormSection.svelte";
+    import FormSection from "../LegacyFormSection.svelte";
 
     import determineIfPropertyModifiedByEffect from "../../../utils/determineIfPropertyModifiedByEffect ";
     import updateDocumentDataFromField from "../../../utils/updateDocumentDataFromField";

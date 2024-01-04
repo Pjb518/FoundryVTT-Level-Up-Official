@@ -3,7 +3,7 @@
 
     import CheckboxGroup from "../CheckboxGroup.svelte";
     import Editor from "../Editor.svelte";
-    import FormSection from "../FormSection.svelte";
+    import FormSection from "../LegacyFormSection.svelte";
     import ItemSummary from "../itemSummaries/ItemSummary.svelte";
 
     import getSummaryData from "../../../utils/summaries/getSummaryData";
@@ -44,7 +44,7 @@
                 updateDocumentDataFromField(
                     $item,
                     `system.actions.${actionId}.descriptionOutputs`,
-                    detail
+                    detail,
                 )}
         />
     </FormSection>

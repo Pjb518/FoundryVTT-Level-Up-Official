@@ -3,7 +3,7 @@
     import { localize } from "#runtime/svelte/helper";
 
     import Checkbox from "../Checkbox.svelte";
-    import FormSection from "../FormSection.svelte";
+    import FormSection from "../LegacyFormSection.svelte";
     import HealingScalingDialog from "../../dialogs/HealingScalingDialog.svelte";
 
     import getOrdinalNumber from "../../../utils/getOrdinalNumber";

@@ -3,7 +3,7 @@
     import { localize } from "#runtime/svelte/helper";
 
     import Checkbox from "../components/Checkbox.svelte";
-    import FormSection from "../components/FormSection.svelte";
+    import FormSection from "../components/LegacyFormSection.svelte";
     import RadioGroup from "../components/RadioGroup.svelte";
 
     export let reload;
@@ -14,7 +14,7 @@
     const isGM = game.user.isGM;
 
     const skillListFlowDirectionChoices = game.settings.settings.get(
-        "a5e.skillListFlowDirection"
+        "a5e.skillListFlowDirection",
     ).choices;
 
     // Stores

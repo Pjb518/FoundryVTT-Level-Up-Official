@@ -1,7 +1,7 @@
 <script>
     import { localize } from "#runtime/svelte/helper";
     import { getContext } from "svelte";
-    import FormSection from "../FormSection.svelte";
+    import FormSection from "../LegacyFormSection.svelte";
     import RadioGroup from "../RadioGroup.svelte";
     import Checkbox from "../Checkbox.svelte";
 
@@ -30,7 +30,7 @@
                 updates["flags.a5e.duration.unit"] = changedUnit;
                 newValue = Math.max(
                     0,
-                    parsedSecondsValue * durationMap[changedUnit]
+                    parsedSecondsValue * durationMap[changedUnit],
                 );
             } else newValue = Math.max(0, value * durationMap[unit]);
 
@@ -43,7 +43,7 @@
     }
 
     $: parsedSecondsValue = Math.floor(
-        ($effect.duration.seconds ?? 0) / durationMap[unit]
+        ($effect.duration.seconds ?? 0) / durationMap[unit],
     );
     $: durationType = $effect.flags?.a5e?.duration?.type ?? "seconds";
     $: unit = $effect.flags?.a5e?.duration?.unit ?? "minutes";
@@ -94,7 +94,7 @@
                         on:change={({ target }) =>
                             updateEffectDuration(
                                 durationType,
-                                Number(target.value)
+                                Number(target.value),
                             )}
                     />
 
@@ -104,7 +104,7 @@
                             updateEffectDuration(
                                 "seconds",
                                 parsedSecondsValue,
-                                target.value
+                                target.value,
                             )}
                     >
                         {#each Object.entries(A5E.effectDurationUnits) as [durationUnit, label]}
@@ -125,7 +125,7 @@
                             class="u-pointer u-text-bold"
                         >
                             {localize(
-                                "A5E.effects.durationTypes.plural.rounds"
+                                "A5E.effects.durationTypes.plural.rounds",
                             )}
                         </label>
 
@@ -137,7 +137,7 @@
                             on:change={({ target }) =>
                                 updateEffectDuration(
                                     "rounds",
-                                    Number(target.value)
+                                    Number(target.value),
                                 )}
                         />
                     </div>
@@ -159,7 +159,7 @@
                             on:change={({ target }) =>
                                 updateEffectDuration(
                                     "turns",
-                                    Number(target.value)
+                                    Number(target.value),
                                 )}
                         />
                     </div>

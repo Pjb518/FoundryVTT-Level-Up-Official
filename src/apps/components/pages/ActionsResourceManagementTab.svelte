@@ -13,7 +13,7 @@
     import SpellConsumer from "../itemActionsConfig/SpellConsumer.svelte";
     import UsesConsumer from "../itemActionsConfig/UsesConsumer.svelte";
 
-    import FormSection from "../FormSection.svelte";
+    import FormSection from "../LegacyFormSection.svelte";
 
     import handleDeterministicInput from "../../../utils/handleDeterministicInput";
     import updateDocumentDataFromField from "../../../utils/updateDocumentDataFromField";
@@ -74,7 +74,7 @@
 
             return acc;
         },
-        []
+        [],
     );
 </script>
 
@@ -96,7 +96,7 @@
                                 updateDocumentDataFromField(
                                     $item,
                                     target.name,
-                                    Number(target.value)
+                                    Number(target.value),
                                 )}
                         />
                     </div>
@@ -113,7 +113,7 @@
                                 updateDocumentDataFromField(
                                     $item,
                                     target.name,
-                                    target.value
+                                    target.value,
                                 );
                             }}
                         />
@@ -128,7 +128,7 @@
                                 updateDocumentDataFromField(
                                     $item,
                                     target.name,
-                                    target.value
+                                    target.value,
                                 )}
                         >
                             <option value="" />
@@ -168,7 +168,7 @@
                                     updateDocumentDataFromField(
                                         $item,
                                         `system.actions.${actionId}.uses.recharge.formula`,
-                                        target.value
+                                        target.value,
                                     );
                                 }}
                             />
@@ -191,7 +191,7 @@
                                     updateDocumentDataFromField(
                                         $item,
                                         `system.actions.${actionId}.uses.recharge.threshold`,
-                                        Number(target.value)
+                                        Number(target.value),
                                     )}
                             />
                         </div>

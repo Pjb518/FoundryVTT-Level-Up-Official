@@ -7,7 +7,7 @@
 
     import Checkbox from "../Checkbox.svelte";
     import CheckboxGroup from "../CheckboxGroup.svelte";
-    import FormSection from "../FormSection.svelte";
+    import FormSection from "../LegacyFormSection.svelte";
     import RadioGroup from "../RadioGroup.svelte";
     import Tag from "../Tag.svelte";
 

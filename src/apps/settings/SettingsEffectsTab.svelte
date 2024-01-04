@@ -4,7 +4,7 @@
 
     import CheckboxGroup from "../components/CheckboxGroup.svelte";
     import Checkbox from "../components/Checkbox.svelte";
-    import FormSection from "../components/FormSection.svelte";
+    import FormSection from "../components/LegacyFormSection.svelte";
     import SettingsCustomIcon from "./SettingsCustomIcon.svelte";
     import ConditionIconResetConfirmationDialog from "../dialogs/initializers/ConditionIconResetConfirmationDialog";
     import RadioGroup from "../components/RadioGroup.svelte";

@@ -3,7 +3,7 @@
     import { derived, get } from "svelte/store";
     import { TJSDocument } from "#runtime/svelte/store/fvtt/document";
 
-    import FormSection from "../components/FormSection.svelte";
+    import FormSection from "../components/LegacyFormSection.svelte";
     // import NavigationBar from "../components/navigation/NavigationBar.svelte";
     import PartyViewerActorSummary from "../components/partyViewer/PartyViewerActorSummary.svelte";
     import PartyViewerAttributesHeader from "../components/partyViewer/PartyViewerAttributesHeader.svelte";

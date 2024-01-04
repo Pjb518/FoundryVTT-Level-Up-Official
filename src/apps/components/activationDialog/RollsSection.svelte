@@ -1,7 +1,7 @@
 <script>
     import CheckboxGroup from "../CheckboxGroup.svelte";
     import FieldWrapper from "../FieldWrapper.svelte";
-    import FormSection from "../FormSection.svelte";
+    import FormSection from "../LegacyFormSection.svelte";
 
     export let selectedRolls;
     export let rolls;

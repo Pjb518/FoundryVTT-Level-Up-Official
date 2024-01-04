@@ -5,7 +5,7 @@
     import updateDocumentDataFromField from "../../../utils/updateDocumentDataFromField";
     import updateAssociatedValues from "../../handlers/updateAssociatedValues";
 
-    import FormSection from "../FormSection.svelte";
+    import FormSection from "../LegacyFormSection.svelte";
 
     const item = getContext("item");
     const actionId = getContext("actionId");
@@ -37,7 +37,7 @@
                             updateDocumentDataFromField(
                                 $item,
                                 `system.actions.${actionId}.activation.cost`,
-                                Number(target.value)
+                                Number(target.value),
                             )}
                     />
                 {/if}
@@ -50,7 +50,7 @@
                             `system.actions.${actionId}.activation.type`,
                             target.value,
                             `system.actions.${actionId}.activation.cost`,
-                            specialActivationTypes
+                            specialActivationTypes,
                         )}
                 >
                     <option value="" />
@@ -78,7 +78,7 @@
                             updateDocumentDataFromField(
                                 $item,
                                 `system.actions.${actionId}.activation.reactionTrigger`,
-                                target.value
+                                target.value,
                             )}
                     />
                 </div>
@@ -97,7 +97,7 @@
                             updateDocumentDataFromField(
                                 $item,
                                 `system.actions.${actionId}.duration.value`,
-                                Number(target.value)
+                                Number(target.value),
                             )}
                     />
                 {/if}
@@ -110,7 +110,7 @@
                             `system.actions.${actionId}.duration.unit`,
                             target.value,
                             `system.actions.${actionId}.duration.value`,
-                            specialTimeTypes
+                            specialTimeTypes,
                         )}
                 >
                     <option value="" />

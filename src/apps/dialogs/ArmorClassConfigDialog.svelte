@@ -2,7 +2,7 @@
     import { getContext } from "svelte";
     import { localize } from "#runtime/svelte/helper";
 
-    import FormSection from "../components/FormSection.svelte";
+    import FormSection from "../components/LegacyFormSection.svelte";
 
     import getACComponents from "../../utils/getACComponents";
     import updateDocumentDataFromField from "../../utils/updateDocumentDataFromField";

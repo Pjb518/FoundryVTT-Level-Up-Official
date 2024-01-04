@@ -6,7 +6,7 @@
     import updateDocumentDataFromField from "../../../utils/updateDocumentDataFromField";
 
     import CheckboxGroup from "../CheckboxGroup.svelte";
-    import FormSection from "../FormSection.svelte";
+    import FormSection from "../LegacyFormSection.svelte";
     import RadioGroup from "../RadioGroup.svelte";
 
     const item = getContext("item");
@@ -55,7 +55,7 @@
                         updateDocumentDataFromField(
                             $item,
                             "system.shieldCategory",
-                            event.detail
+                            event.detail,
                         )}
                 />
             </FormSection>
@@ -68,7 +68,7 @@
                         updateDocumentDataFromField(
                             $item,
                             "system.shieldProperties",
-                            event.detail
+                            event.detail,
                         )}
                 />
             </FormSection>

@@ -4,13 +4,13 @@
 
     import updateDocumentDataFromField from "../../../utils/updateDocumentDataFromField";
 
-    import FormSection from "../FormSection.svelte";
+    import FormSection from "../LegacyFormSection.svelte";
     import CheckboxGroup from "../CheckboxGroup.svelte";
     import RadioGroup from "../RadioGroup.svelte";
 
     function prepareArmorProperties(item) {
         const properties = item.system.armorProperties.map(
-            (property) => armorProperties[property] ?? property
+            (property) => armorProperties[property] ?? property,
         );
 
         properties.sort((a, b) => a.localeCompare(b));
@@ -61,7 +61,7 @@
                         updateDocumentDataFromField(
                             $item,
                             "system.armorCategory",
-                            event.detail
+                            event.detail,
                         )}
                 />
             </FormSection>
@@ -74,7 +74,7 @@
                         updateDocumentDataFromField(
                             $item,
                             "system.armorProperties",
-                            event.detail
+                            event.detail,
                         )}
                 />
             </FormSection>

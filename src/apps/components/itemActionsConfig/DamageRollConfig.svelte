@@ -5,7 +5,7 @@
     import GenericConfigDialog from "../../dialogs/initializers/GenericConfigDialog";
 
     import Checkbox from "../Checkbox.svelte";
-    import FormSection from "../FormSection.svelte";
+    import FormSection from "../LegacyFormSection.svelte";
     import DamageScalingDialog from "../../dialogs/DamageScalingDialog.svelte";
 
     import getOrdinalNumber from "../../../utils/getOrdinalNumber";

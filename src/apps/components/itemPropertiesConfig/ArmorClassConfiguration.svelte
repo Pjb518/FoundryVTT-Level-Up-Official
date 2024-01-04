@@ -3,7 +3,7 @@
     import { localize } from "#runtime/svelte/helper";
 
     import Checkbox from "../Checkbox.svelte";
-    import FormSection from "../FormSection.svelte";
+    import FormSection from "../LegacyFormSection.svelte";
     import updateDocumentDataFromField from "../../../utils/updateDocumentDataFromField";
 
     const item = getContext("item");
@@ -58,7 +58,7 @@
                         updateDocumentDataFromField(
                             $item,
                             target.name,
-                            target.value
+                            target.value,
                         )}
                 />
             </FormSection>
@@ -82,7 +82,7 @@
                             updateDocumentDataFromField(
                                 $item,
                                 target.name,
-                                Number(target.value)
+                                Number(target.value),
                             )}
                     />
                 </div>
@@ -105,7 +105,7 @@
                             updateDocumentDataFromField(
                                 $item,
                                 target.name,
-                                Number(target.value)
+                                Number(target.value),
                             )}
                     />
                 </div>
@@ -123,7 +123,7 @@
                             updateDocumentDataFromField(
                                 $item,
                                 target.name,
-                                Number(target.value)
+                                Number(target.value),
                             )}
                     >
                         {#each modes as [label, mode]}
@@ -144,7 +144,7 @@
                             updateDocumentDataFromField(
                                 $item,
                                 "system.ac.requiresNoShield",
-                                detail
+                                detail,
                             )}
                     />
                 </FormSection>
@@ -157,7 +157,7 @@
                             updateDocumentDataFromField(
                                 $item,
                                 "system.ac.requiresUnarmored",
-                                detail
+                                detail,
                             )}
                     />
                 </FormSection>
