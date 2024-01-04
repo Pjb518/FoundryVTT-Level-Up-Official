@@ -4,7 +4,7 @@
     import Checkbox from "../components/Checkbox.svelte";
     import CustomTagGroup from "../components/CustomTagGroup.svelte";
     import ExpertiseDiePicker from "../components/ExpertiseDiePicker.svelte";
-    import FormSection from "../components/FormSection.svelte";
+    import FieldWrapper from "../components/FieldWrapper.svelte";
     import RadioGroup from "../components/RadioGroup.svelte";
 
     import prepareAbilityOptions from "../dataPreparationHelpers/prepareAbilityOptions";
@@ -24,7 +24,7 @@
 </script>
 
 <article>
-    <FormSection>
+    <FieldWrapper>
         <Checkbox
             label="A5E.ProficiencyProficient"
             checked={skill.proficient}
@@ -36,9 +36,9 @@
                 );
             }}
         />
-    </FormSection>
+    </FieldWrapper>
 
-    <FormSection heading="A5E.AbilityScore">
+    <FieldWrapper heading="A5E.AbilityScore">
         <RadioGroup
             optionStyles="min-width:2rem; text-align: center;"
             options={[
@@ -54,10 +54,10 @@
                     event.detail,
                 )}
         />
-    </FormSection>
+    </FieldWrapper>
 
     {#if !game.settings.get("a5e", "hideSkillSpecialties")}
-        <FormSection>
+        <FieldWrapper>
             <CustomTagGroup
                 heading="A5E.SkillSpecialties"
                 options={specialtyOptions}
@@ -69,7 +69,7 @@
                         event.detail,
                     )}
             />
-        </FormSection>
+        </FieldWrapper>
     {/if}
 
     <ExpertiseDiePicker
@@ -82,7 +82,7 @@
             )}
     />
 
-    <FormSection heading="A5E.MinimumD20Roll" --direction="column">
+    <FieldWrapper heading="A5E.MinimumD20Roll" --direction="column">
         <div class="u-w-20">
             <input
                 class="a5e-input"
@@ -97,7 +97,7 @@
                     )}
             />
         </div>
-    </FormSection>
+    </FieldWrapper>
 </article>
 
 <style lang="scss">

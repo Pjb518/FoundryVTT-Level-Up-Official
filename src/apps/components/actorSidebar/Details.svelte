@@ -122,6 +122,7 @@
                     handler: () => openConfig(dialogMethod, propertyKey),
                 },
             ]}
+            --a5e-field-wrapper-heading-weight="400"
         >
             <ul class="details-list">
                 {#each values as tag}

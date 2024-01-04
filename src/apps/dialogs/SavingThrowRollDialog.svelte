@@ -5,6 +5,7 @@
 
     import CheckboxGroup from "../components/CheckboxGroup.svelte";
     import ExpertiseDiePicker from "../components/ExpertiseDiePicker.svelte";
+    import FieldWrapper from "../components/FieldWrapper.svelte";
     import FormSection from "../components/FormSection.svelte";
     import OutputVisibilitySection from "../components/activationDialog/OutputVisibilitySection.svelte";
     import RadioGroup from "../components/RadioGroup.svelte";
@@ -112,13 +113,13 @@
 <form>
     <OutputVisibilitySection bind:visibilityMode />
 
-    <FormSection heading="A5E.RollModeHeading">
+    <FieldWrapper heading="A5E.RollModeHeading">
         <RadioGroup
             options={rollModeOptions}
             selected={rollMode}
             on:updateSelection={({ detail }) => (rollMode = detail)}
         />
-    </FormSection>
+    </FieldWrapper>
 
     <ExpertiseDiePicker
         selected={expertiseDie}
@@ -126,17 +127,17 @@
     />
 
     {#if abilityKey === "con" && saveType !== "death"}
-        <FormSection heading="A5E.ItemSavingThrowType">
+        <FieldWrapper heading="A5E.ItemSavingThrowType">
             <RadioGroup
                 options={saveTypes}
                 selected={saveType}
                 on:updateSelection={(event) => (saveType = event.detail)}
             />
-        </FormSection>
+        </FieldWrapper>
     {/if}
 
     {#if Object.values(abilityBonuses).flat().length}
-        <FormSection heading="Ability Bonuses">
+        <FieldWrapper heading="Ability Bonuses">
             <CheckboxGroup
                 options={abilityBonuses.map(([key, abilityBonus]) => [
                     key,
@@ -146,17 +147,17 @@
                 on:updateSelection={({ detail }) =>
                     (selectedAbilityBonuses = detail)}
             />
-        </FormSection>
+        </FieldWrapper>
     {/if}
 
-    <FormSection heading="A5E.SituationalMods">
+    <FieldWrapper heading="A5E.SituationalMods">
         <input
             class="a5e-input"
             type="text"
             id="{$actor.id}-{appId}-situational-mods"
             bind:value={situationalMods}
         />
-    </FormSection>
+    </FieldWrapper>
 
     <section class="roll-formula-preview">
         {rollFormula}

@@ -1,7 +1,7 @@
 <script>
     import prepareExpertiseDiceOptions from "../dataPreparationHelpers/prepareExpertiseDiceOptions";
 
-    import FormSection from "./FormSection.svelte";
+    import FieldWrapper from "./FieldWrapper.svelte";
     import RadioGroup from "./RadioGroup.svelte";
 
     export let selected;
@@ -11,7 +11,7 @@
 </script>
 
 {#if !hideExpertiseDice}
-    <FormSection heading="A5E.ExpertiseDie">
+    <FieldWrapper heading="A5E.ExpertiseDie">
         <RadioGroup
             {options}
             {selected}
@@ -19,5 +19,5 @@
             optionStyles="min-width: 1.75rem; text-align: center;"
             on:updateSelection
         />
-    </FormSection>
+    </FieldWrapper>
 {/if}

@@ -5,7 +5,7 @@
     import getActionScalingModes from "../../../utils/getActionScalingModes";
 
     import Checkbox from "../Checkbox.svelte";
-    import FormSection from "../FormSection.svelte";
+    import FieldWrapper from "../FieldWrapper.svelte";
     import RadioGroup from "../RadioGroup.svelte";
 
     export let consumers;
@@ -125,46 +125,36 @@
 </script>
 
 {#if ["variable", "spellsOnly"].includes(mode)}
-    <FormSection>
-        <section>
-            <h3 class="u-text-bold u-text-sm">
-                {localize("A5E.SpellLevel")}
+    <FieldWrapper
+        heading={spellData.consume === "spellPoint"
+            ? `${localize("A5E.SpellLevel")} ($${spellData.points} Points)`
+            : localize("A5E.SpellLevel")}
+    >
+        <!-- Select spell Level -->
+        <RadioGroup
+            selected={spellData.level}
+            options={spellLevels}
+            allowDeselect={false}
+            {disabled}
+            on:updateSelection={({ detail }) =>
+                updateLevelAndPoints(Number(detail))}
+        />
+    </FieldWrapper>
 
-                {#if spellData.consume === "spellPoint"}
-                    ({spellData.points} Points)
-                {/if}
-            </h3>
-
-            <!-- Select spell Level -->
+    <!-- svelte-ignore missing-declaration -->
+    {#if !foundry.utils.isEmpty(consumer)}
+        <FieldWrapper heading="A5E.ConsumeOptions">
             <RadioGroup
-                selected={spellData.level}
-                options={spellLevels}
-                allowDeselect={false}
-                {disabled}
-                on:updateSelection={({ detail }) =>
-                    updateLevelAndPoints(Number(detail))}
+                options={Object.entries(consumeOptions)}
+                selected={spellData.consume}
+                on:updateSelection={({ detail }) => updateConsumeOption(detail)}
             />
-
-            <!-- svelte-ignore missing-declaration -->
-            {#if !foundry.utils.isEmpty(consumer)}
-                <!-- Select Consume Option -->
-                <h3 class="u-text-bold u-text-sm">
-                    {localize("A5E.ConsumeOptions")}
-                </h3>
-
-                <RadioGroup
-                    options={Object.entries(consumeOptions)}
-                    selected={spellData.consume}
-                    on:updateSelection={({ detail }) =>
-                        updateConsumeOption(detail)}
-                />
-            {/if}
-        </section>
-    </FormSection>
+        </FieldWrapper>
+    {/if}
 {/if}
 
 {#if mode === "pointsOnly"}
-    <FormSection heading="A5E.SpellPoints" --direction="column">
+    <FieldWrapper heading="A5E.SpellPoints" --direction="column">
         <div class="u-flex u-gap-md u-align-center">
             <div class="u-flex u-w-10">
                 <input
@@ -185,7 +175,9 @@
                 />
             </div>
         </div>
+    </FieldWrapper>
 
+    <FieldWrapper>
         <!-- svelte-ignore missing-declaration -->
         {#if !foundry.utils.isEmpty(consumer)}
             <Checkbox
@@ -196,17 +188,10 @@
                 }}
             />
         {/if}
-    </FormSection>
+    </FieldWrapper>
 {/if}
 
 <style lang="scss">
-    section {
-        display: flex;
-        flex-direction: column;
-        gap: 0.5rem;
-        width: 100%;
-    }
-
     .number-input {
         background: transparent;
         border: 1px solid #bbb;

@@ -1,5 +1,6 @@
 <script>
     import CheckboxGroup from "../CheckboxGroup.svelte";
+    import FieldWrapper from "../FieldWrapper.svelte";
     import FormSection from "../FormSection.svelte";
 
     export let selectedRolls;
@@ -37,21 +38,17 @@
 
             return acc;
         },
-        {}
+        {},
     );
 
     let disabledRolls = getInvalidSelections(rolls);
 </script>
 
-<FormSection hint="A5E.RollsHint">
+<FormSection hint="A5E.RollsHint" --background="transparent" --padding="0">
     <div class="roll-wrapper">
         {#each Object.entries(otherRolls) as [rollType, _rolls]}
             {#if _rolls.length}
-                <section>
-                    <h3 class="section-subheading">
-                        {rollHeadingMap[rollType]}
-                    </h3>
-
+                <FieldWrapper heading={rollHeadingMap[rollType]}>
                     <CheckboxGroup
                         options={_rolls.map(([key, roll]) => [
                             key,
@@ -62,7 +59,7 @@
                         on:updateSelection={(event) =>
                             (selectedRolls = event.detail)}
                     />
-                </section>
+                </FieldWrapper>
             {/if}
         {/each}
     </div>
@@ -73,12 +70,5 @@
         display: flex;
         flex-direction: column;
         gap: 0.75rem;
-    }
-
-    .section-subheading {
-        width: 100%;
-        font-size: $font-size-sm;
-        font-weight: bold;
-        margin-bottom: 0.25rem;
     }
 </style>

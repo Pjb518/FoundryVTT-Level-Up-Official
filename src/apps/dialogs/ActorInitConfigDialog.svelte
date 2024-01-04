@@ -2,7 +2,7 @@
     import { getContext } from "svelte";
 
     import ExpertiseDiePicker from "../components/ExpertiseDiePicker.svelte";
-    import FormSection from "../components/FormSection.svelte";
+    import FieldWrapper from "../components/FieldWrapper.svelte";
     import RadioGroup from "../components/RadioGroup.svelte";
 
     import prepareAbilityOptions from "../dataPreparationHelpers/prepareAbilityOptions";
@@ -18,7 +18,7 @@
 
 <article>
     <div class="u-flex u-flex-col u-gap-md">
-        <FormSection heading="A5E.AbilityScore">
+        <FieldWrapper heading="A5E.AbilityScore">
             <RadioGroup
                 optionStyles="min-width:2rem; text-align: center;"
                 options={abilityOptions}
@@ -31,7 +31,7 @@
                         event.detail,
                     )}
             />
-        </FormSection>
+        </FieldWrapper>
 
         <ExpertiseDiePicker
             selected={initiative.expertiseDice}
@@ -43,7 +43,7 @@
                 )}
         />
 
-        <FormSection
+        <FieldWrapper
             heading="A5E.InitiativeBonus"
             hint="This field accepts any values valid in roll formulae."
         >
@@ -61,7 +61,7 @@
                         )}
                 />
             </div>
-        </FormSection>
+        </FieldWrapper>
     </div>
 </article>
 

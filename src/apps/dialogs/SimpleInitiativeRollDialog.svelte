@@ -5,7 +5,7 @@
 
     import CheckboxGroup from "../components/CheckboxGroup.svelte";
     import ExpertiseDiePicker from "../components/ExpertiseDiePicker.svelte";
-    import FormSection from "../components/FormSection.svelte";
+    import FieldWrapper from "../components/FieldWrapper.svelte";
     import RadioGroup from "../components/RadioGroup.svelte";
 
     import getRollFormula from "../../utils/getRollFormula";
@@ -78,29 +78,21 @@
 </script>
 
 <form>
-    <section class="a5e-box u-flex u-flex-wrap u-gap-sm u-p-md u-pos-relative">
-        <h3 class="heading">
-            {localize("A5E.RollModeHeading")}
-        </h3>
-
+    <FieldWrapper heading="A5E.RollModeHeading">
         <RadioGroup
             options={rollModeOptions}
             selected={rollMode}
             on:updateSelection={({ detail }) => (rollMode = detail)}
         />
-    </section>
+    </FieldWrapper>
 
-    <section class="a5e-box u-flex u-flex-wrap u-gap-sm u-p-md u-pos-relative">
-        <h3 class="heading">
-            {localize("A5E.AbilityScore")}
-        </h3>
-
+    <FieldWrapper heading="A5E.AbilityScore">
         <RadioGroup
             options={Object.entries(abilities)}
             selected={abilityKey}
             on:updateSelection={({ detail }) => (abilityKey = detail)}
         />
-    </section>
+    </FieldWrapper>
 
     <ExpertiseDiePicker
         selected={expertiseDie}
@@ -110,7 +102,7 @@
     />
 
     {#if Object.values(abilityBonuses).flat().length}
-        <FormSection heading="Ability Bonuses">
+        <FieldWrapper heading="Ability Bonuses">
             <CheckboxGroup
                 options={abilityBonuses.map(([key, abilityBonus]) => [
                     key,
@@ -120,21 +112,12 @@
                 on:updateSelection={({ detail }) =>
                     (selectedAbilityBonuses = detail)}
             />
-        </FormSection>
+        </FieldWrapper>
     {/if}
 
-    <section class="a5e-box u-flex u-flex-wrap u-gap-sm u-p-md u-pos-relative">
-        <label class="heading" for="{$actor.id}-{appId}-situational-mods">
-            {localize("A5E.SituationalMods")}
-        </label>
-
-        <input
-            class="a5e-input"
-            type="text"
-            id="{$actor.id}-{appId}-situational-mods"
-            bind:value={situationalMods}
-        />
-    </section>
+    <FieldWrapper heading="A5E.SituationalMods">
+        <input class="a5e-input" type="text" bind:value={situationalMods} />
+    </FieldWrapper>
 
     <section class="roll-formula-preview">
         {rollFormula}

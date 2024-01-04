@@ -4,7 +4,7 @@
 
     import Checkbox from "../components/Checkbox.svelte";
     import ExpertiseDiePicker from "../components/ExpertiseDiePicker.svelte";
-    import FormSection from "../components/FormSection.svelte";
+    import FieldWrapper from "../components/FieldWrapper.svelte";
     import NavigationBar from "../components/navigation/NavigationBar.svelte";
 
     import createNote from "../handlers/createNote";
@@ -96,7 +96,7 @@
         <!-- Saving Throw Config  -->
     {:else if currentTab.name === "savingThrow"}
         <div class="u-flex u-flex-col u-gap-md">
-            <FormSection
+            <FieldWrapper
                 hint="Determines whether to add this actor's proficiency bonus to its saving throws"
             >
                 <Checkbox
@@ -110,7 +110,7 @@
                         );
                     }}
                 />
-            </FormSection>
+            </FieldWrapper>
 
             <ExpertiseDiePicker
                 selected={ability?.save.expertiseDice}
@@ -123,10 +123,9 @@
             />
 
             {#if abilityKey === "con"}
-                <FormSection
+                <FieldWrapper
                     heading="A5E.ConcentrationCheckBonus"
                     hint="This field accepts any values valid in roll formulae."
-                    --direction="column"
                 >
                     <input
                         class="a5e-input"
@@ -139,7 +138,7 @@
                                 target.value,
                             )}
                     />
-                </FormSection>
+                </FieldWrapper>
             {/if}
 
             <!-- <header class="notes-header">

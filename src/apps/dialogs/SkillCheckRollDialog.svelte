@@ -5,7 +5,7 @@
 
     import CheckboxGroup from "../components/CheckboxGroup.svelte";
     import ExpertiseDiePicker from "../components/ExpertiseDiePicker.svelte";
-    import FormSection from "../components/FormSection.svelte";
+    import FieldWrapper from "../components/FieldWrapper.svelte";
     import OutputVisibilitySection from "../components/activationDialog/OutputVisibilitySection.svelte";
     import RadioGroup from "../components/RadioGroup.svelte";
 
@@ -102,21 +102,21 @@
 <form>
     <OutputVisibilitySection bind:visibilityMode />
 
-    <FormSection heading="A5E.RollModeHeading">
+    <FieldWrapper heading="A5E.RollModeHeading">
         <RadioGroup
             options={rollModeOptions}
             selected={rollMode}
             on:updateSelection={({ detail }) => (rollMode = detail)}
         />
-    </FormSection>
+    </FieldWrapper>
 
-    <FormSection heading="A5E.AbilityScore">
+    <FieldWrapper heading="A5E.AbilityScore">
         <RadioGroup
             options={Object.entries(abilities)}
             selected={abilityKey}
             on:updateSelection={({ detail }) => (abilityKey = detail)}
         />
-    </FormSection>
+    </FieldWrapper>
 
     <ExpertiseDiePicker
         selected={expertiseDie}
@@ -124,7 +124,7 @@
     />
 
     {#if Object.values(abilityBonuses).flat().length}
-        <FormSection heading="Ability Bonuses">
+        <FieldWrapper heading="Ability Bonuses">
             <CheckboxGroup
                 options={abilityBonuses.map(([key, abilityBonus]) => [
                     key,
@@ -134,11 +134,11 @@
                 on:updateSelection={({ detail }) =>
                     (selectedAbilityBonuses = detail)}
             />
-        </FormSection>
+        </FieldWrapper>
     {/if}
 
     {#if Object.values(skillBonuses).flat().length}
-        <FormSection heading="Skill Bonuses">
+        <FieldWrapper heading="Skill Bonuses">
             <CheckboxGroup
                 options={skillBonuses.map(([key, skillBonus]) => [
                     key,
@@ -148,17 +148,17 @@
                 on:updateSelection={({ detail }) =>
                     (selectedSkillBonuses = detail)}
             />
-        </FormSection>
+        </FieldWrapper>
     {/if}
 
-    <FormSection heading="A5E.SituationalMods">
+    <FieldWrapper heading="A5E.SituationalMods">
         <input
             class="a5e-input"
             type="text"
             id="{$actor.id}-{appId}-situational-mods"
             bind:value={situationalMods}
         />
-    </FormSection>
+    </FieldWrapper>
 
     <section class="roll-formula-preview">
         {rollFormula}

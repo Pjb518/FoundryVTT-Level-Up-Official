@@ -1,5 +1,6 @@
 <script>
     import CheckboxGroup from "../CheckboxGroup.svelte";
+    import FieldWrapper from "../FieldWrapper.svelte";
     import FormSection from "../FormSection.svelte";
 
     export let selectedPrompts;
@@ -31,15 +32,11 @@
     let disabledPrompts = getInvalidSelections(prompts);
 </script>
 
-<FormSection hint="A5E.PromptsHint">
+<FormSection hint="A5E.PromptsHint" --background="transparent" --padding="0">
     <div class="prompt-wrapper">
         {#each Object.entries(prompts) as [promptType, _prompts]}
             {#if _prompts.length}
-                <section>
-                    <h3 class="section-subheading">
-                        {promptHeadingMap[promptType]}
-                    </h3>
-
+                <FieldWrapper heading={promptHeadingMap[promptType]}>
                     <CheckboxGroup
                         options={_prompts.map(([key, prompt]) => [
                             key,
@@ -50,7 +47,7 @@
                         on:updateSelection={(event) =>
                             (selectedPrompts = event.detail)}
                     />
-                </section>
+                </FieldWrapper>
             {/if}
         {/each}
     </div>
@@ -61,12 +58,5 @@
         display: flex;
         flex-direction: column;
         gap: 0.75rem;
-    }
-
-    .section-subheading {
-        width: 100%;
-        font-size: $font-size-sm;
-        font-weight: bold;
-        margin-bottom: 0.25rem;
     }
 </style>

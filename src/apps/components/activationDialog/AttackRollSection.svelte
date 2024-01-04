@@ -8,7 +8,7 @@
     import overrideExpertiseDie from "../../../utils/overrideExpertiseDie";
 
     import ExpertiseDiePicker from "../ExpertiseDiePicker.svelte";
-    import FormSection from "../FormSection.svelte";
+    import FieldWrapper from "../FieldWrapper.svelte";
     import RadioGroup from "../RadioGroup.svelte";
 
     export let attackRollData;
@@ -65,42 +65,38 @@
     updateData();
 </script>
 
-<FormSection --direction="column" --gap="0.75rem">
-    <FormSection
-        heading="A5E.AttackRollModeHeading"
-        --background="transparent"
-        --gap="0.25rem"
-        --padding="0"
-    >
-        <RadioGroup
-            options={rollModeOptions}
-            selected={rollMode}
-            on:updateSelection={({ detail }) => (rollMode = detail)}
-        />
-    </FormSection>
-
-    <ExpertiseDiePicker
-        --background="transparent"
-        --gap="0.25rem"
-        --padding="0"
-        selected={expertiseDie}
-        on:updateSelection={({ detail }) => (expertiseDie = detail)}
+<FieldWrapper
+    heading="A5E.AttackRollModeHeading"
+    --background="transparent"
+    --padding="0"
+>
+    <RadioGroup
+        options={rollModeOptions}
+        selected={rollMode}
+        on:updateSelection={({ detail }) => (rollMode = detail)}
     />
+</FieldWrapper>
 
-    <FormSection
-        heading="A5E.SituationalMods"
-        --background="transparent"
-        --gap="0.25rem"
-        --padding="0"
-    >
-        <input
-            class="a5e-input"
-            type="text"
-            id="{$actor.id}-{dialog.id}-situational-mod"
-            bind:value={situationalMods}
-        />
-    </FormSection>
-</FormSection>
+<ExpertiseDiePicker
+    --background="transparent"
+    --padding="0"
+    selected={expertiseDie}
+    on:updateSelection={({ detail }) => (expertiseDie = detail)}
+/>
+
+<FieldWrapper
+    heading="A5E.SituationalMods"
+    --background="transparent"
+    --gap="0.25rem"
+    --padding="0"
+>
+    <input
+        class="a5e-input"
+        type="text"
+        id="{$actor.id}-{dialog.id}-situational-mod"
+        bind:value={situationalMods}
+    />
+</FieldWrapper>
 
 <section class="roll-formula-preview">
     {rollFormula}
