@@ -219,17 +219,16 @@ export default class RollPreparationManager {
     if (!rollFormula) return null;
 
     const r = await new Roll(rollFormula).evaluate({ async: true });
-    const baseRoll = Roll.fromTerms(simplifyDiceTerms(r.terms));
+    let baseRoll = Roll.fromTerms(simplifyDiceTerms(r.terms));
     let roll = baseRoll;
     let critRoll = baseRoll;
 
     if (canCrit ?? true) {
       if (context && context.isCritBonus) {
-        roll = await new Roll('0').evaluate({ async: true });
         critRoll = roll;
-      } else if (context && !context.isCritBonus) {
-        roll = await new Roll('0').evaluate({ async: true });
-      } else if (!context) {
+        baseRoll = await new Roll('0').evaluate({ async: true });
+        roll = baseRoll;
+      } else {
         let bonus = critBonus || '';
         bonus += genericCritBonusDamage ? ` + ${genericCritBonusDamage}` : '';
         critRoll = await constructCritDamageRoll(roll, bonus);
