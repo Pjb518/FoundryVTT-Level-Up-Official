@@ -7,6 +7,6 @@
  * @returns A new string with all instance of '-' replaced with a true minus sign.
  */
 export default function replaceHyphenWithMinusSign(number: (String | Number)) {
-  const stringForm = number.toString();
+  const stringForm = number?.toString() ?? '';
   return stringForm.replaceAll('-', '\u2212');
 }

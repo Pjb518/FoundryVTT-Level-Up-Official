@@ -112,10 +112,10 @@ export default class BonusesManager {
         if (!selectedBonuses.ids.includes(id)) return acc;
       } else if (!bonus.default) return acc;
 
-      if (!bonus.context.abilities.includes(abilityKey)) return acc;
+      if (!bonus.context.abilities?.includes(abilityKey)) return acc;
       const bonusFormula = bonus.formula.trim();
 
-      if (!bonus.context.types.includes(type)) return acc;
+      if (!bonus.context.types?.includes(type)) return acc;
       if (bonus.context.requiresProficiency && !isProficient) return acc;
 
       if (!bonusFormula) return acc;
@@ -144,7 +144,7 @@ export default class BonusesManager {
     const parts = Object.values(bonuses).reduce((acc: string[], bonus) => {
       const bonusFormula = bonus.formula.trim();
       if (!bonus.default) return acc;
-      if (!bonus.context.types.includes(type)) return acc;
+      if (!bonus.context.types?.includes(type)) return acc;
       if (bonus.context.requiresProficiency) return acc;
 
       const isGlobalBonus = arraysAreEqual(bonus.context.abilities, this.#abilities);

@@ -8,6 +8,7 @@ export interface DamageBonusContext {
   attackTypes: string[];
   damageTypes: string[];
   spellLevels: string[];
+  isCritBonus: boolean;
 }
 
 export interface HealingBonusContext {

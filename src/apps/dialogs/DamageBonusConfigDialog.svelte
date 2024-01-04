@@ -51,7 +51,12 @@
             obj.label = obj.label ?? "";
             obj.formula = obj.formula ?? "";
             obj.damageType = obj.damageType ?? "";
-            obj.context = obj.context ?? {};
+            obj.context = obj.context ?? {
+                attackTypes: [],
+                damageTypes: [],
+                spellLevels: [],
+                isCritBonus: false,
+            };
             obj.default = obj.default ?? true;
             obj.img = obj.img ?? "icons/svg/upgrade.svg";
             return obj;
@@ -60,7 +65,12 @@
                 label: "",
                 formula: "",
                 damageType: "",
-                context: {},
+                context: {
+                    attackTypes: [],
+                    damageTypes: [],
+                    spellLevels: [],
+                    isCritBonus: false,
+                },
                 default: true,
                 img: "icons/svg/upgrade.svg",
             };

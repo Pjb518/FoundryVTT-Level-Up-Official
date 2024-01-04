@@ -51,7 +51,10 @@
             obj.label = obj.label ?? "";
             obj.formula = obj.formula ?? "";
             obj.healingType = obj.healingType ?? "";
-            obj.context = obj.context ?? {};
+            obj.context = obj.context ?? {
+                healingTypes: [],
+                spellLevels: [],
+            };
             obj.default = obj.default ?? true;
             obj.img = obj.img ?? "icons/svg/upgrade.svg";
             return obj;
@@ -60,7 +63,10 @@
                 label: "",
                 formula: "",
                 healingType: "",
-                context: {},
+                context: {
+                    healingTypes: [],
+                    spellLevels: [],
+                },
                 default: true,
                 img: "icons/svg/upgrade.svg",
             };

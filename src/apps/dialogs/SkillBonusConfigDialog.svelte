@@ -49,7 +49,11 @@
             if (typeof obj !== "object") throw new Error();
             obj.label = obj.label ?? "";
             obj.formula = obj.formula ?? "";
-            obj.context = obj.context ?? {};
+            obj.context = obj.context ?? {
+                skills: [],
+                requiresProficiency: false,
+                passiveOnly: false,
+            };
             obj.default = obj.default ?? true;
             obj.img = obj.img ?? "icons/svg/upgrade.svg";
             return obj;
@@ -58,7 +62,11 @@
                 label: "",
                 formula: "",
                 damageType: "",
-                context: {},
+                context: {
+                    skills: [],
+                    requiresProficiency: false,
+                    passiveOnly: false,
+                },
                 default: true,
                 img: "icons/svg/upgrade.svg",
             };
