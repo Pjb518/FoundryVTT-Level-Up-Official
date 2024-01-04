@@ -79,7 +79,7 @@
     const bonusCategories = ["abilities", "damage", "healing", "skills"];
 
     let rightClickConfigure =
-        game.settings.get("a5e", "itemRightClickConfigure") ?? false;
+        game.settings.get("a5e", "itemRightClickConfigure") ?? true;
 
     $: disableMeleeWeaponAttack = determineIfPropertyModifiedByEffect(
         $actor,
@@ -273,7 +273,13 @@
                     <li
                         class="a5e-item a5e-item--bonus"
                         on:auxclick={() => {
-                            if (rightClickConfigure)
+                            if (
+                                rightClickConfigure &&
+                                !determineIfPropertyModifiedByEffect(
+                                    $actor,
+                                    `system.bonuses.${bonusType}.${id}`,
+                                )
+                            )
                                 $actor.configureBonus(id, bonusType);
                         }}
                     >
