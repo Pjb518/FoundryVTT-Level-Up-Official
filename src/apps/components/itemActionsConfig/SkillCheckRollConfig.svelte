@@ -6,9 +6,11 @@
     import updateDocumentDataFromField from "../../../utils/updateDocumentDataFromField";
 
     import Checkbox from "../Checkbox.svelte";
-    import FormSection from "../LegacyFormSection.svelte";
+    import FieldWrapper from "../FieldWrapper.svelte";
     import RadioGroup from "../RadioGroup.svelte";
 
+    export let deleteRoll;
+    export let duplicateRoll;
     export let roll;
     export let rollId;
 
@@ -29,21 +31,30 @@
         );
     }
 
-    $: roll = $item.system.actions[actionId]?.rolls[rollId];
-    $: selectedAbility = roll.ability ?? "none";
+    $: selectedAbility = roll?.ability ?? "none";
     $: selectedAbility, updateAbility();
 </script>
 
-<FormSection
+<FieldWrapper
     heading="A5E.Label"
-    --background="none"
-    --direction="column"
-    --padding="0"
-    --margin="0 4.5rem 0 0"
+    buttons={[
+        {
+            classes:
+                "fa-solid fa-clone a5e-field-wrapper__header-button--scale",
+            handler: () => duplicateRoll(actionId, roll),
+        },
+        {
+            classes: "fas fa-trash a5e-field-wrapper__header-button--scale",
+            handler: () => deleteRoll(actionId, rollId),
+        },
+    ]}
+    --a5e-header-button-color="#bebdb5"
+    --a5e-header-button-color-hover="#555"
+    --a5e-field-wrapper-button-wrapper-gap="0.75rem"
 >
     <input
         type="text"
-        value={roll.label ?? ""}
+        value={roll?.label ?? ""}
         on:change={({ target }) =>
             updateDocumentDataFromField(
                 $item,
@@ -51,14 +62,9 @@
                 target.value,
             )}
     />
-</FormSection>
+</FieldWrapper>
 
-<FormSection
-    heading="A5E.Skill"
-    --background="none"
-    --direction="column"
-    --padding="0"
->
+<FieldWrapper heading="A5E.Skill">
     <select
         class="u-w-fit"
         on:change={({ target }) =>
@@ -74,7 +80,7 @@
             </option>
         {/each}
     </select>
-</FormSection>
+</FieldWrapper>
 
 <RadioGroup
     allowDeselect={false}
@@ -85,12 +91,7 @@
     on:updateSelection={({ detail }) => (selectedAbility = detail)}
 />
 
-<FormSection
-    heading="A5E.CheckBonus"
-    --background="none"
-    --direction="column"
-    --padding="0"
->
+<FieldWrapper heading="A5E.CheckBonus">
     <input
         type="text"
         value={roll.bonus ?? ""}
@@ -101,7 +102,7 @@
                 target.value,
             )}
     />
-</FormSection>
+</FieldWrapper>
 
 <Checkbox
     label="A5E.SkillCheckDefaultSelection"

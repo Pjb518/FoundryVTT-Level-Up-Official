@@ -3,8 +3,9 @@
     import { localize } from "#runtime/svelte/helper";
 
     import Checkbox from "../Checkbox.svelte";
-    import FormSection from "../LegacyFormSection.svelte";
+    import FieldWrapper from "../FieldWrapper.svelte";
     import HealingScalingDialog from "../../dialogs/HealingScalingDialog.svelte";
+    import Section from "../Section.svelte";
 
     import getOrdinalNumber from "../../../utils/getOrdinalNumber";
     import updateDocumentDataFromField from "../../../utils/updateDocumentDataFromField";
@@ -100,18 +101,30 @@
     const { A5E } = CONFIG;
     const { healingTypes } = A5E;
 
+    export let deleteRoll;
+    export let duplicateRoll;
     export let roll;
     export let rollId;
 
     $: scalingSummary = getScalingSummary(roll);
 </script>
 
-<FormSection
+<FieldWrapper
     heading="A5E.Label"
-    --background="none"
-    --direction="column"
-    --padding="0"
-    --margin="0 4.5rem 0 0"
+    buttons={[
+        {
+            classes:
+                "fa-solid fa-clone a5e-field-wrapper__header-button--scale",
+            handler: () => duplicateRoll(actionId, roll),
+        },
+        {
+            classes: "fas fa-trash a5e-field-wrapper__header-button--scale",
+            handler: () => deleteRoll(actionId, rollId),
+        },
+    ]}
+    --a5e-header-button-color="#bebdb5"
+    --a5e-header-button-color-hover="#555"
+    --a5e-field-wrapper-button-wrapper-gap="0.75rem"
 >
     <input
         type="text"
@@ -123,16 +136,10 @@
                 target.value,
             )}
     />
-</FormSection>
+</FieldWrapper>
 
-<FormSection --background="none" --padding="0" hint={scalingSummary}>
-    <FormSection
-        heading="A5E.HealingFormula"
-        --background="none"
-        --grow="1"
-        --direction="column"
-        --padding="0"
-    >
+<Section --a5e-section-body-direction="row" --a5e-section-body-wrap="nowrap">
+    <FieldWrapper heading="A5E.HealingFormula" --a5e-field-wrapper-grow="1">
         <div class="u-flex u-gap-sm u-w-full">
             <input
                 type="text"
@@ -156,14 +163,9 @@
                 />
             </button>
         </div>
-    </FormSection>
+    </FieldWrapper>
 
-    <FormSection
-        heading="A5E.HealingType"
-        --background="none"
-        --direction="column"
-        --padding="0"
-    >
+    <FieldWrapper heading="A5E.HealingType">
         <select
             id="{actionId}-{rollId}-healing-type"
             class="u-w-fit"
@@ -180,8 +182,8 @@
                 </option>
             {/each}
         </select>
-    </FormSection>
-</FormSection>
+    </FieldWrapper>
+</Section>
 
 <Checkbox
     label="A5E.HealingDefaultSelection"

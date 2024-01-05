@@ -104,10 +104,6 @@
                                         {duplicatePrompt}
                                     />
                                 </li>
-                            {:else}
-                                <li class="action-config__none">
-                                    {localize("A5E.None")}
-                                </li>
                             {/each}
                         </ul>
                     </Section>
