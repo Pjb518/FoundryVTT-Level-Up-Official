@@ -119,9 +119,4 @@
     .delete-button:hover {
         color: $color-secondary;
     }
-
-    .tab-heading {
-        font-family: $font-primary;
-        font-size: $font-size-xl;
-    }
 </style>
