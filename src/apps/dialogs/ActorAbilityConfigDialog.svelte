@@ -6,6 +6,7 @@
     import ExpertiseDiePicker from "../components/ExpertiseDiePicker.svelte";
     import FieldWrapper from "../components/FieldWrapper.svelte";
     import NavigationBar from "../components/navigation/NavigationBar.svelte";
+    import Section from "../components/Section.svelte";
 
     import createNote from "../handlers/createNote";
     import editNote from "../handlers/editNote";
@@ -52,17 +53,18 @@
 
     <!-- Ability Check Config -->
     {#if currentTab.name === "abilityCheck"}
-        <ExpertiseDiePicker
-            selected={ability?.check.expertiseDice}
-            on:updateSelection={({ detail }) =>
-                updateDocumentDataFromField(
-                    $actor,
-                    `system.abilities.${abilityKey}.check.expertiseDice`,
-                    detail,
-                )}
-        />
+        <Section --a5e-section-body-padding="0 0.25rem">
+            <ExpertiseDiePicker
+                selected={ability?.check.expertiseDice}
+                on:updateSelection={({ detail }) =>
+                    updateDocumentDataFromField(
+                        $actor,
+                        `system.abilities.${abilityKey}.check.expertiseDice`,
+                        detail,
+                    )}
+            />
 
-        <!-- <header class="notes-header">
+            <!-- <header class="notes-header">
                 <h3 class="notes-heading">Notes</h3>
 
                 <button
@@ -92,10 +94,14 @@
                     <p>None</p>
                 {/each}
             </ul> -->
+        </Section>
 
         <!-- Saving Throw Config  -->
     {:else if currentTab.name === "savingThrow"}
-        <div class="u-flex u-flex-col u-gap-md">
+        <Section
+            --a5e-section-body-padding="0 0.25rem"
+            --a5e-section-body-gap="0.75rem"
+        >
             <FieldWrapper
                 hint="Determines whether to add this actor's proficiency bonus to its saving throws"
             >
@@ -166,7 +172,7 @@
                     <p>None</p>
                 {/each}
             </ul> -->
-        </div>
+        </Section>
     {/if}
 </article>
 
