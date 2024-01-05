@@ -5,14 +5,33 @@
     import updateDocumentDataFromField from "../../../utils/updateDocumentDataFromField";
 
     import Checkbox from "../Checkbox.svelte";
-    import FormSection from "../LegacyFormSection.svelte";
+    import FieldWrapper from "../FieldWrapper.svelte";
     import RadioGroup from "../RadioGroup.svelte";
+    import Section from "../Section.svelte";
 
     export let prompt;
     export let promptId;
 
     const item = getContext("item");
     const actionId = getContext("actionId");
+
+    function deletePrompt() {
+        $item.update({
+            [`system.actions.${actionId}.prompts`]: {
+                [`-=${promptId}`]: null,
+            },
+        });
+    }
+
+    function duplicatePrompt() {
+        const newPrompt = foundry.utils.duplicate(prompt);
+
+        $item.update({
+            [`system.actions.${actionId}.prompts`]: {
+                [foundry.utils.randomID()]: newPrompt,
+            },
+        });
+    }
 
     function updateAbility() {
         updateDocumentDataFromField(
@@ -26,13 +45,22 @@
     $: selectedAbility, updateAbility();
 </script>
 
-<FormSection
+<FieldWrapper
     heading="A5E.Label"
-    --background="none"
-    --direction="column"
-    --grow="1"
-    --padding="0"
-    --margin="0 4.5rem 0 0"
+    buttons={[
+        {
+            classes:
+                "fa-solid fa-clone a5e-field-wrapper__header-button--scale",
+            handler: duplicatePrompt,
+        },
+        {
+            classes: "fas fa-trash a5e-field-wrapper__header-button--scale",
+            handler: deletePrompt,
+        },
+    ]}
+    --a5e-header-button-color="#bebdb5"
+    --a5e-header-button-color-hover="#555"
+    --a5e-field-wrapper-button-wrapper-gap="0.75rem"
 >
     <input
         type="text"
@@ -44,7 +72,7 @@
                 target.value,
             )}
     />
-</FormSection>
+</FieldWrapper>
 
 <RadioGroup
     allowDeselect={false}

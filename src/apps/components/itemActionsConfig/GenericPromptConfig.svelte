@@ -2,9 +2,27 @@
     import { getContext } from "svelte";
 
     import Checkbox from "../Checkbox.svelte";
-    import FormSection from "../LegacyFormSection.svelte";
+    import FieldWrapper from "../FieldWrapper.svelte";
 
     import updateDocumentDataFromField from "../../../utils/updateDocumentDataFromField";
+
+    function deletePrompt() {
+        $item.update({
+            [`system.actions.${actionId}.prompts`]: {
+                [`-=${promptId}`]: null,
+            },
+        });
+    }
+
+    function duplicatePrompt() {
+        const newPrompt = foundry.utils.duplicate(prompt);
+
+        $item.update({
+            [`system.actions.${actionId}.prompts`]: {
+                [foundry.utils.randomID()]: newPrompt,
+            },
+        });
+    }
 
     const item = getContext("item");
     const actionId = getContext("actionId");
@@ -13,13 +31,22 @@
     export let promptId;
 </script>
 
-<FormSection
+<FieldWrapper
     heading="A5E.Label"
-    --background="none"
-    --direction="column"
-    --grow="1"
-    --padding="0"
-    --margin="0 4.5rem 0 0"
+    buttons={[
+        {
+            classes:
+                "fa-solid fa-clone a5e-field-wrapper__header-button--scale",
+            handler: duplicatePrompt,
+        },
+        {
+            classes: "fas fa-trash a5e-field-wrapper__header-button--scale",
+            handler: deletePrompt,
+        },
+    ]}
+    --a5e-header-button-color="#bebdb5"
+    --a5e-header-button-color-hover="#555"
+    --a5e-field-wrapper-button-wrapper-gap="0.75rem"
 >
     <input
         type="text"
@@ -31,14 +58,9 @@
                 target.value,
             )}
     />
-</FormSection>
+</FieldWrapper>
 
-<FormSection
-    heading="A5E.RollFormula"
-    --background="none"
-    --direction="column"
-    --padding="0"
->
+<FieldWrapper heading="A5E.RollFormula">
     <input
         id="{actionId}-{promptId}-roll-formula"
         type="text"
@@ -50,7 +72,7 @@
                 target.value,
             )}
     />
-</FormSection>
+</FieldWrapper>
 
 <Checkbox
     label="A5E.PromptDefaultSelection"

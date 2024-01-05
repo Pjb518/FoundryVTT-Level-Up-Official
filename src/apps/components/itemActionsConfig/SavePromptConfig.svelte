@@ -8,8 +8,27 @@
     import updateDocumentDataFromField from "../../../utils/updateDocumentDataFromField";
 
     import Checkbox from "../Checkbox.svelte";
-    import FormSection from "../LegacyFormSection.svelte";
+    import FieldWrapper from "../FieldWrapper.svelte";
     import RadioGroup from "../RadioGroup.svelte";
+    import Section from "../Section.svelte";
+
+    function deletePrompt() {
+        $item.update({
+            [`system.actions.${actionId}.prompts`]: {
+                [`-=${promptId}`]: null,
+            },
+        });
+    }
+
+    function duplicatePrompt() {
+        const newPrompt = foundry.utils.duplicate(prompt);
+
+        $item.update({
+            [`system.actions.${actionId}.prompts`]: {
+                [foundry.utils.randomID()]: newPrompt,
+            },
+        });
+    }
 
     export let prompt;
     export let promptId;
@@ -60,13 +79,22 @@
     $: selectedAbility, updateAbility();
 </script>
 
-<FormSection
+<FieldWrapper
     heading="A5E.Label"
-    --background="none"
-    --direction="column"
-    --grow="1"
-    --padding="0"
-    --margin="0 4.5rem 0 0"
+    buttons={[
+        {
+            classes:
+                "fa-solid fa-clone a5e-field-wrapper__header-button--scale",
+            handler: duplicatePrompt,
+        },
+        {
+            classes: "fas fa-trash a5e-field-wrapper__header-button--scale",
+            handler: deletePrompt,
+        },
+    ]}
+    --a5e-header-button-color="#bebdb5"
+    --a5e-header-button-color-hover="#555"
+    --a5e-field-wrapper-button-wrapper-gap="0.75rem"
 >
     <input
         type="text"
@@ -78,7 +106,7 @@
                 target.value,
             )}
     />
-</FormSection>
+</FieldWrapper>
 
 <RadioGroup
     heading="A5E.ItemSavingThrowType"
@@ -89,13 +117,10 @@
     on:updateSelection={({ detail }) => (selectedAbility = detail)}
 />
 
-<FormSection --background="none" --padding="0">
-    <FormSection
+<Section --a5e-section-body-direction="row" --a5e-section-body-wrap="nowrap">
+    <FieldWrapper
         heading="A5E.ItemSavingThrowDC"
-        --background="none"
-        --direction="column"
-        --label-width="9rem"
-        --padding="0"
+        --a5e-field-wrapper-label-width="9rem"
     >
         <select on:change={selectSaveDCCalculationType}>
             {#each Object.entries(saveDCOptions) as [type, label]}
@@ -104,16 +129,13 @@
                 </option>
             {/each}
         </select>
-    </FormSection>
+    </FieldWrapper>
 
-    <FormSection
+    <FieldWrapper
         heading={prompt?.saveDC?.type === "custom"
             ? "A5E.ItemSavingThrowDCCustom"
             : "A5E.ItemSavingThrowDCBonus"}
-        --background="none"
-        --direction="column"
-        --grow="1"
-        --padding="0"
+        --a5e-field-wrapper-grow="1"
     >
         <div class="u-flex u-gap-sm">
             <input
@@ -142,15 +164,10 @@
                 </span>
             {/if}
         </div>
-    </FormSection>
-</FormSection>
+    </FieldWrapper>
+</Section>
 
-<FormSection
-    heading="A5E.ItemEffectOnSave"
-    --background="none"
-    --direction="column"
-    --padding="0"
->
+<FieldWrapper heading="A5E.ItemEffectOnSave">
     <input
         type="text"
         value={prompt.onSave ?? ""}
@@ -161,7 +178,7 @@
                 target.value,
             )}
     />
-</FormSection>
+</FieldWrapper>
 
 <Checkbox
     label="A5E.PromptDefaultSelection"

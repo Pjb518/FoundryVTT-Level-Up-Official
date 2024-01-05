@@ -1,10 +1,27 @@
 <script>
     import { getContext } from "svelte";
-    import { localize } from "#runtime/svelte/helper";
 
     import updateDocumentDataFromField from "../../../utils/updateDocumentDataFromField";
 
-    import FormSection from "../LegacyFormSection.svelte";
+    import FieldWrapper from "../FieldWrapper.svelte";
+
+    function deletePrompt() {
+        $item.update({
+            [`system.actions.${actionId}.prompts`]: {
+                [`-=${promptId}`]: null,
+            },
+        });
+    }
+
+    function duplicatePrompt() {
+        const newPrompt = foundry.utils.duplicate(prompt);
+
+        $item.update({
+            [`system.actions.${actionId}.prompts`]: {
+                [foundry.utils.randomID()]: newPrompt,
+            },
+        });
+    }
 
     export let prompt;
     export let promptId;
@@ -18,13 +35,22 @@
         .map((e) => [e._id, e.name]);
 </script>
 
-<FormSection
+<FieldWrapper
     heading="A5E.Label"
-    --background="none"
-    --direction="column"
-    --grow="1"
-    --padding="0"
-    --margin="0 4.5rem 0 0"
+    buttons={[
+        {
+            classes:
+                "fa-solid fa-clone a5e-field-wrapper__header-button--scale",
+            handler: duplicatePrompt,
+        },
+        {
+            classes: "fas fa-trash a5e-field-wrapper__header-button--scale",
+            handler: deletePrompt,
+        },
+    ]}
+    --a5e-header-button-color="#bebdb5"
+    --a5e-header-button-color-hover="#555"
+    --a5e-field-wrapper-button-wrapper-gap="0.75rem"
 >
     <input
         type="text"
@@ -36,16 +62,12 @@
                 target.value,
             )}
     />
-</FormSection>
+</FieldWrapper>
 
-<FormSection
-    heading="A5E.Effect"
-    --background="none"
-    --direction="column"
-    --padding="0"
->
+<FieldWrapper heading="A5E.Effect">
     <select
         class="u-w-fit"
+        style="min-width: 9rem;"
         value={prompt.effectId ?? ""}
         on:change={({ target }) =>
             updateDocumentDataFromField(
@@ -60,4 +82,4 @@
             </option>
         {/each}
     </select>
-</FormSection>
+</FieldWrapper>
