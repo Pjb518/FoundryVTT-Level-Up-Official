@@ -5,7 +5,8 @@
     import updateDocumentDataFromField from "../../../utils/updateDocumentDataFromField";
     import updateAssociatedValues from "../../handlers/updateAssociatedValues";
 
-    import FormSection from "../LegacyFormSection.svelte";
+    import FieldWrapper from "../FieldWrapper.svelte";
+    import Section from "../Section.svelte";
 
     const item = getContext("item");
     const actionId = getContext("actionId");
@@ -17,114 +18,114 @@
     $: action = $item.actions[actionId];
 </script>
 
-<section class="action-config action-config__wrapper">
-    <section class="action-config action-config__section">
-        <header class="action-config__section-header">
-            <h2 class="action-config__section-heading">
-                {localize("A5E.ActivationConfiguration")}
-            </h2>
-        </header>
-
-        <FormSection heading="A5E.ItemActivationCost">
-            <div class="action-config__component">
-                {#if action.activation?.type && !specialActivationTypes.includes(action.activation?.type)}
-                    <input
-                        class="small-input"
-                        id={`${actionId}-activation-cost`}
-                        type="number"
-                        value={action.activation?.cost ?? 1}
-                        on:change={({ target }) =>
-                            updateDocumentDataFromField(
-                                $item,
-                                `system.actions.${actionId}.activation.cost`,
-                                Number(target.value),
-                            )}
-                    />
-                {/if}
-
-                <select
-                    class="u-w-fit"
-                    on:change={({ target }) =>
-                        updateAssociatedValues(
-                            $item,
-                            `system.actions.${actionId}.activation.type`,
-                            target.value,
-                            `system.actions.${actionId}.activation.cost`,
-                            specialActivationTypes,
-                        )}
-                >
-                    <option value="" />
-                    {#each Object.entries(A5E.abilityActivationTypes) as [value, label]}
-                        <option
-                            key={value}
-                            {value}
-                            selected={action.activation?.type === value}
-                        >
-                            {localize(label)}
-                        </option>
-                    {/each}
-                </select>
-            </div>
-        </FormSection>
-
-        {#if action.activation?.type === "reaction"}
-            <FormSection heading="A5E.ActionActivationReactionTrigger">
-                <div class="action-config__component">
-                    <input
-                        class="full-size-input"
-                        type="text"
-                        value={action.activation?.reactionTrigger ?? ""}
-                        on:change={({ target }) =>
-                            updateDocumentDataFromField(
-                                $item,
-                                `system.actions.${actionId}.activation.reactionTrigger`,
-                                target.value,
-                            )}
-                    />
-                </div>
-            </FormSection>
+<Section
+    heading="A5E.ActivationConfiguration"
+    --a5e-section-body-padding="0 0.25rem"
+    --a5e-section-body-gap="0.75rem"
+>
+    <FieldWrapper
+        heading="A5E.ItemActivationCost"
+        --a5e-field-wrapper-direction="row"
+        --a5e-field-wrapper-header-width="100%"
+    >
+        {#if action.activation?.type && !specialActivationTypes.includes(action.activation?.type)}
+            <input
+                class="small-input"
+                style="width: 5rem;"
+                id={`${actionId}-activation-cost`}
+                type="number"
+                value={action.activation?.cost ?? 1}
+                on:change={({ target }) =>
+                    updateDocumentDataFromField(
+                        $item,
+                        `system.actions.${actionId}.activation.cost`,
+                        Number(target.value),
+                    )}
+            />
         {/if}
 
-        <FormSection heading="A5E.ItemDuration">
-            <div class="action-config__component">
-                {#if action?.duration?.unit && !specialTimeTypes.includes(action?.duration?.unit)}
-                    <input
-                        class="small-input"
-                        id={`${actionId}-duration-value`}
-                        type="number"
-                        value={action.duration?.value ?? 1}
-                        on:change={({ target }) =>
-                            updateDocumentDataFromField(
-                                $item,
-                                `system.actions.${actionId}.duration.value`,
-                                Number(target.value),
-                            )}
-                    />
-                {/if}
-
-                <select
-                    class="u-w-fit"
-                    on:change={({ target }) =>
-                        updateAssociatedValues(
-                            $item,
-                            `system.actions.${actionId}.duration.unit`,
-                            target.value,
-                            `system.actions.${actionId}.duration.value`,
-                            specialTimeTypes,
-                        )}
+        <select
+            class="u-w-fit"
+            on:change={({ target }) =>
+                updateAssociatedValues(
+                    $item,
+                    `system.actions.${actionId}.activation.type`,
+                    target.value,
+                    `system.actions.${actionId}.activation.cost`,
+                    specialActivationTypes,
+                )}
+        >
+            <option value="" />
+            {#each Object.entries(A5E.abilityActivationTypes) as [value, label]}
+                <option
+                    key={value}
+                    {value}
+                    selected={action.activation?.type === value}
                 >
-                    <option value="" />
-                    {#each Object.entries(A5E.timePeriods) as [value, label]}
-                        <option
-                            key={value}
-                            {value}
-                            selected={action?.duration?.unit === value}
-                        >
-                            {localize(label)}
-                        </option>
-                    {/each}
-                </select>
+                    {localize(label)}
+                </option>
+            {/each}
+        </select>
+    </FieldWrapper>
+
+    {#if action.activation?.type === "reaction"}
+        <FieldWrapper heading="A5E.ActionActivationReactionTrigger">
+            <div class="action-config__component">
+                <input
+                    class="full-size-input"
+                    type="text"
+                    value={action.activation?.reactionTrigger ?? ""}
+                    on:change={({ target }) =>
+                        updateDocumentDataFromField(
+                            $item,
+                            `system.actions.${actionId}.activation.reactionTrigger`,
+                            target.value,
+                        )}
+                />
             </div>
-        </FormSection>
-    </section>
-</section>
+        </FieldWrapper>
+    {/if}
+
+    <FieldWrapper heading="A5E.ItemDuration">
+        <div class="action-config__component">
+            {#if action?.duration?.unit && !specialTimeTypes.includes(action?.duration?.unit)}
+                <input
+                    class="small-input"
+                    style="width: 5rem;"
+                    id={`${actionId}-duration-value`}
+                    type="number"
+                    value={action.duration?.value ?? 1}
+                    on:change={({ target }) =>
+                        updateDocumentDataFromField(
+                            $item,
+                            `system.actions.${actionId}.duration.value`,
+                            Number(target.value),
+                        )}
+                />
+            {/if}
+
+            <select
+                class="u-w-fit"
+                on:change={({ target }) =>
+                    updateAssociatedValues(
+                        $item,
+                        `system.actions.${actionId}.duration.unit`,
+                        target.value,
+                        `system.actions.${actionId}.duration.value`,
+                        specialTimeTypes,
+                    )}
+            >
+                <option value="" />
+                {#each Object.entries(A5E.timePeriods) as [value, label]}
+                    <option
+                        key={value}
+                        {value}
+                        selected={action?.duration?.unit === value}
+                    >
+                        {localize(label)}
+                    </option>
+                {/each}
+            </select>
+        </div>
+    </FieldWrapper>
+</Section>
