@@ -6,7 +6,6 @@
     import Checkbox from "../components/Checkbox.svelte";
     import CustomTagGroup from "../components/CustomTagGroup.svelte";
     import FieldWrapper from "../components/FieldWrapper.svelte";
-    import FormSection from "../components/LegacyFormSection.svelte";
     import Section from "../components/Section.svelte";
 
     export let { document, appId } = getContext("#external").application;
