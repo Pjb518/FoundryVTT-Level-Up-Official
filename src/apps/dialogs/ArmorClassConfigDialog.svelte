@@ -1,9 +1,7 @@
 <script>
     import { getContext } from "svelte";
-    import { localize } from "#runtime/svelte/helper";
 
     import FieldWrapper from "../components/FieldWrapper.svelte";
-    import FormSection from "../components/LegacyFormSection.svelte";
     import Section from "../components/Section.svelte";
 
     import getACComponents from "../../utils/getACComponents";
