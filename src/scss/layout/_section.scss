@@ -1,6 +1,13 @@
 .a5e-section {
   display: flex;
   flex-direction: column;
-  gap: 0.25rem;
+  gap: var(--a5e-section-gap, 0.5rem);
   margin-bottom: 0.75rem;
+
+  &__body {
+    display: flex;
+    flex-direction: column;
+    gap: var(--a5e-section-body-gap, 0.25rem);
+    padding: var(--a5e-section-body-padding, 0);
+  }
 }

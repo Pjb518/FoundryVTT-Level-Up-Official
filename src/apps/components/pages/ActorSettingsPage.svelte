@@ -1,6 +1,5 @@
 <script>
     import { getContext } from "svelte";
-    import { localize } from "#runtime/svelte/helper";
 
     import ActorGeneralSettingsTab from "./ActorGeneralSettingsTab.svelte";
     import ActorInventorySettingsTab from "./ActorInventorySettingsTab.svelte";
@@ -23,30 +22,6 @@
                 currentSettingsTab: name,
             },
         }));
-    }
-
-    function getDamageBonusSummary(damageBonus) {
-        const { damageBonusSummariesByContext, damageTypes } = CONFIG.A5E;
-        const damageType = damageTypes[damageBonus.damageType];
-
-        return localize(damageBonusSummariesByContext[damageBonus.context], {
-            formula: damageBonus.formula,
-            damageType: damageType
-                ? `${damageType.toLowerCase()} damage`
-                : "damage",
-        });
-    }
-
-    function getHealingBonusSummary(healingBonus) {
-        const { healingBonusSummariesByContext, healingTypes } = CONFIG.A5E;
-        const healingType = healingTypes[healingBonus.healingType];
-
-        return localize(healingBonusSummariesByContext[healingBonus.context], {
-            formula: healingBonus.formula,
-            healingType: healingType
-                ? `${healingType.toLowerCase()} healing`
-                : "healing",
-        });
     }
 
     let tempSettings = {};
@@ -95,4 +70,6 @@
 
 <SecondaryNavigationBar {currentTab} {tabs} on:tab-change={updateCurrentTab} />
 
-<svelte:component this={tabs[currentTab]?.component} />
+<section class="a5e-page-wrapper a5e-page-wrapper--settings">
+    <svelte:component this={tabs[currentTab]?.component} />
+</section>

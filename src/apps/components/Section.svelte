@@ -32,7 +32,9 @@
         </header>
     {/if}
 
-    <slot />
+    <div class="a5e-section__body">
+        <slot />
+    </div>
 
     {#if hint}
         <small class="a5e-section__hint">{localize(hint)}</small>
