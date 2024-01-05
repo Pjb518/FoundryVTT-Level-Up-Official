@@ -88,31 +88,29 @@
                     )}
             />
 
-            <FormSection heading="A5E.SpellLevel">
-                <RadioGroup
-                    options={objectEntriesNumberKeyConverter(spellLevels)}
-                    selected={$item.system.level}
-                    on:updateSelection={(event) =>
-                        updateDocumentDataFromField(
-                            $item,
-                            "system.level",
-                            event.detail,
-                        )}
-                />
-            </FormSection>
+            <RadioGroup
+                heading="A5E.SpellLevel"
+                options={objectEntriesNumberKeyConverter(spellLevels)}
+                selected={$item.system.level}
+                on:updateSelection={(event) =>
+                    updateDocumentDataFromField(
+                        $item,
+                        "system.level",
+                        event.detail,
+                    )}
+            />
 
-            <FormSection heading="A5E.SpellSchoolPrimary">
-                <RadioGroup
-                    options={Object.entries(spellSchools.primary)}
-                    selected={$item.system.schools.primary}
-                    on:updateSelection={(event) =>
-                        updateDocumentDataFromField(
-                            $item,
-                            "system.schools.primary",
-                            event.detail,
-                        )}
-                />
-            </FormSection>
+            <RadioGroup
+                heading="A5E.SpellSchoolPrimary"
+                options={Object.entries(spellSchools.primary)}
+                selected={$item.system.schools.primary}
+                on:updateSelection={(event) =>
+                    updateDocumentDataFromField(
+                        $item,
+                        "system.schools.primary",
+                        event.detail,
+                    )}
+            />
 
             <CheckboxGroup
                 heading="A5E.SpellSchoolSecondaryPlural"

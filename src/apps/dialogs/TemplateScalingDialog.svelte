@@ -30,20 +30,19 @@
 </script>
 
 <form>
-    <FormSection heading="Scaling Mode">
-        <RadioGroup
-            options={getScalingOptions()}
-            selected={scalingMode}
-            allowDeselect={false}
-            on:updateSelection={(event) => {
-                updateDocumentDataFromField(
-                    $item,
-                    `system.actions.${actionId}.area.scaling.mode`,
-                    event.detail,
-                );
-            }}
-        />
-    </FormSection>
+    <RadioGroup
+        heading="Scaling Mode"
+        options={getScalingOptions()}
+        selected={scalingMode}
+        allowDeselect={false}
+        on:updateSelection={(event) => {
+            updateDocumentDataFromField(
+                $item,
+                `system.actions.${actionId}.area.scaling.mode`,
+                event.detail,
+            );
+        }}
+    />
 
     {#if scalingMode === "cantrip"}
         <FormSection

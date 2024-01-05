@@ -11,13 +11,12 @@
 </script>
 
 {#if !hideExpertiseDice}
-    <FieldWrapper heading="A5E.ExpertiseDie">
-        <RadioGroup
-            {options}
-            {selected}
-            allowDeselect={false}
-            optionStyles="min-width: 1.75rem; text-align: center;"
-            on:updateSelection
-        />
-    </FieldWrapper>
+    <RadioGroup
+        heading="A5E.ExpertiseDie"
+        {options}
+        {selected}
+        allowDeselect={false}
+        optionStyles="min-width: 1.75rem; text-align: center;"
+        on:updateSelection
+    />
 {/if}

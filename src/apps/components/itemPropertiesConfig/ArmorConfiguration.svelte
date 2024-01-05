@@ -53,18 +53,17 @@
 
     {#if editMode}
         <div class="u-flex u-flex-col u-gap-md">
-            <FormSection heading="A5E.ArmorCategory">
-                <RadioGroup
-                    options={Object.entries(armorTypes)}
-                    selected={$item.system.armorCategory}
-                    on:updateSelection={(event) =>
-                        updateDocumentDataFromField(
-                            $item,
-                            "system.armorCategory",
-                            event.detail,
-                        )}
-                />
-            </FormSection>
+            <RadioGroup
+                heading="A5E.ArmorCategory"
+                options={Object.entries(armorTypes)}
+                selected={$item.system.armorCategory}
+                on:updateSelection={(event) =>
+                    updateDocumentDataFromField(
+                        $item,
+                        "system.armorCategory",
+                        event.detail,
+                    )}
+            />
 
             <CheckboxGroup
                 heading="A5E.ArmorProperties"

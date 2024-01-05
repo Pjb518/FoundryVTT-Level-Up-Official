@@ -125,31 +125,27 @@
 </script>
 
 {#if ["variable", "spellsOnly"].includes(mode)}
-    <FieldWrapper
+    <!-- Select spell Level -->
+    <RadioGroup
         heading={spellData.consume === "spellPoint"
             ? `${localize("A5E.SpellLevel")} ($${spellData.points} Points)`
             : localize("A5E.SpellLevel")}
-    >
-        <!-- Select spell Level -->
-        <RadioGroup
-            selected={spellData.level}
-            options={spellLevels}
-            allowDeselect={false}
-            {disabled}
-            on:updateSelection={({ detail }) =>
-                updateLevelAndPoints(Number(detail))}
-        />
-    </FieldWrapper>
+        selected={spellData.level}
+        options={spellLevels}
+        allowDeselect={false}
+        {disabled}
+        on:updateSelection={({ detail }) =>
+            updateLevelAndPoints(Number(detail))}
+    />
 
     <!-- svelte-ignore missing-declaration -->
     {#if !foundry.utils.isEmpty(consumer)}
-        <FieldWrapper heading="A5E.ConsumeOptions">
-            <RadioGroup
-                options={Object.entries(consumeOptions)}
-                selected={spellData.consume}
-                on:updateSelection={({ detail }) => updateConsumeOption(detail)}
-            />
-        </FieldWrapper>
+        <RadioGroup
+            heading="A5E.ConsumeOptions"
+            options={Object.entries(consumeOptions)}
+            selected={spellData.consume}
+            on:updateSelection={({ detail }) => updateConsumeOption(detail)}
+        />
     {/if}
 {/if}
 

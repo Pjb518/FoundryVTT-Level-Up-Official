@@ -47,18 +47,17 @@
 
     {#if editMode}
         <div class="u-flex u-flex-col u-gap-md">
-            <FormSection heading="A5E.ShieldCategory">
-                <RadioGroup
-                    options={Object.entries(shieldTypes)}
-                    selected={$item.system.shieldCategory}
-                    on:updateSelection={(event) =>
-                        updateDocumentDataFromField(
-                            $item,
-                            "system.shieldCategory",
-                            event.detail,
-                        )}
-                />
-            </FormSection>
+            <RadioGroup
+                heading="A5E.ShieldCategory"
+                options={Object.entries(shieldTypes)}
+                selected={$item.system.shieldCategory}
+                on:updateSelection={(event) =>
+                    updateDocumentDataFromField(
+                        $item,
+                        "system.shieldCategory",
+                        event.detail,
+                    )}
+            />
 
             <CheckboxGroup
                 heading="A5E.ShieldProperties"

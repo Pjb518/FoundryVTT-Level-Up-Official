@@ -42,18 +42,17 @@
 
     {#if editMode}
         <div class="u-flex u-flex-col u-gap-md">
-            <FormSection heading="A5E.FeatureTypePrompt">
-                <RadioGroup
-                    options={Object.entries(featureTypes)}
-                    selected={$item.system.featureType}
-                    on:updateSelection={(event) =>
-                        updateDocumentDataFromField(
-                            $item,
-                            "system.featureType",
-                            event.detail,
-                        )}
-                />
-            </FormSection>
+            <RadioGroup
+                heading="A5E.FeatureTypePrompt"
+                options={Object.entries(featureTypes)}
+                selected={$item.system.featureType}
+                on:updateSelection={(event) =>
+                    updateDocumentDataFromField(
+                        $item,
+                        "system.featureType",
+                        event.detail,
+                    )}
+            />
 
             <FormSection --gap="0.5rem 1.25rem">
                 <Checkbox

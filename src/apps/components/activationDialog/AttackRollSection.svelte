@@ -65,17 +65,12 @@
     updateData();
 </script>
 
-<FieldWrapper
+<RadioGroup
     heading="A5E.AttackRollModeHeading"
-    --background="transparent"
-    --padding="0"
->
-    <RadioGroup
-        options={rollModeOptions}
-        selected={rollMode}
-        on:updateSelection={({ detail }) => (rollMode = detail)}
-    />
-</FieldWrapper>
+    options={rollModeOptions}
+    selected={rollMode}
+    on:updateSelection={({ detail }) => (rollMode = detail)}
+/>
 
 <ExpertiseDiePicker
     --background="transparent"

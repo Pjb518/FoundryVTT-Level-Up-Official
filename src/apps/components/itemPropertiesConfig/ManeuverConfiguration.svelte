@@ -43,32 +43,30 @@
 
     {#if editMode}
         <div class="u-flex u-flex-col u-gap-md">
-            <FormSection heading="A5E.ManeuverDegreePrompt">
+            <RadioGroup
+                heading="A5E.ManeuverDegreePrompt"
+                options={objectEntriesNumberKeyConverter(maneuverDegrees)}
+                selected={parseInt($item.system.degree, 10)}
+                on:updateSelection={(event) =>
+                    updateDocumentDataFromField(
+                        $item,
+                        "system.degree",
+                        event.detail,
+                    )}
+            />
+
+            {#if $item.system.degree > 0}
                 <RadioGroup
-                    options={objectEntriesNumberKeyConverter(maneuverDegrees)}
-                    selected={parseInt($item.system.degree, 10)}
+                    heading="A5E.ManeuverTraditionPrompt"
+                    options={Object.entries(maneuverTraditions)}
+                    selected={$item.system.tradition}
                     on:updateSelection={(event) =>
                         updateDocumentDataFromField(
                             $item,
-                            "system.degree",
+                            "system.tradition",
                             event.detail,
                         )}
                 />
-            </FormSection>
-
-            {#if $item.system.degree > 0}
-                <FormSection heading="A5E.ManeuverTraditionPrompt">
-                    <RadioGroup
-                        options={Object.entries(maneuverTraditions)}
-                        selected={$item.system.tradition}
-                        on:updateSelection={(event) =>
-                            updateDocumentDataFromField(
-                                $item,
-                                "system.tradition",
-                                event.detail,
-                            )}
-                    />
-                </FormSection>
 
                 <FormSection>
                     <Checkbox

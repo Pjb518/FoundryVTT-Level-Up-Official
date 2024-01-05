@@ -85,21 +85,18 @@
 
 <article>
     <FormSection --direction="column" --gap="0.75rem">
-        <section class="u-flex u-flex-col u-gap-sm">
-            <h3 class="u-text-bold u-text-sm">Size Category</h3>
-
-            <RadioGroup
-                options={creatureSizes}
-                selected={$item.system.creatureSize.fixed}
-                disabled={$item.system.creatureSize.options}
-                on:updateSelection={({ detail }) =>
-                    updateDocumentDataFromField(
-                        $item,
-                        "system.creatureSize.fixed",
-                        detail,
-                    )}
-            />
-        </section>
+        <RadioGroup
+            heading="Size Category"
+            options={creatureSizes}
+            selected={$item.system.creatureSize.fixed}
+            disabled={$item.system.creatureSize.options}
+            on:updateSelection={({ detail }) =>
+                updateDocumentDataFromField(
+                    $item,
+                    "system.creatureSize.fixed",
+                    detail,
+                )}
+        />
 
         <section class="u-flex u-flex-col u-gap-sm">
             <CheckboxGroup

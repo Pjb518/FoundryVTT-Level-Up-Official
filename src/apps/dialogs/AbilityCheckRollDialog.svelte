@@ -83,13 +83,12 @@
 <form>
     <OutputVisibilitySection bind:visibilityMode />
 
-    <FieldWrapper heading="A5E.RollModeHeading">
-        <RadioGroup
-            options={rollModeOptions}
-            selected={rollMode}
-            on:updateSelection={({ detail }) => (rollMode = detail)}
-        />
-    </FieldWrapper>
+    <RadioGroup
+        heading="A5E.RollModeHeading"
+        options={rollModeOptions}
+        selected={rollMode}
+        on:updateSelection={({ detail }) => (rollMode = detail)}
+    />
 
     <ExpertiseDiePicker
         selected={expertiseDie}

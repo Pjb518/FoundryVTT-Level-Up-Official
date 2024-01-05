@@ -41,38 +41,35 @@
         </FieldWrapper>
 
         {#if !game.settings.get("a5e", "hideSkillSpecialties")}
-            <FieldWrapper>
-                <CustomTagGroup
-                    heading="A5E.SkillSpecialties"
-                    options={specialtyOptions}
-                    selected={skill.specialties}
-                    on:updateSelection={(event) =>
-                        updateDocumentDataFromField(
-                            $actor,
-                            `system.skills.${skillKey}.specialties`,
-                            event.detail,
-                        )}
-                />
-            </FieldWrapper>
-        {/if}
-
-        <FieldWrapper heading="A5E.AbilityScore">
-            <RadioGroup
-                optionStyles="min-width:2rem; text-align: center;"
-                options={[
-                    ...abilityOptions,
-                    ["@attributes.spellcasting", "Spellcasting"],
-                ]}
-                selected={$actor._source.system.skills[skillKey].ability}
-                allowDeselect={false}
+            <CustomTagGroup
+                heading="A5E.SkillSpecialties"
+                options={specialtyOptions}
+                selected={skill.specialties}
                 on:updateSelection={(event) =>
                     updateDocumentDataFromField(
                         $actor,
-                        `system.skills.${skillKey}.ability`,
+                        `system.skills.${skillKey}.specialties`,
                         event.detail,
                     )}
             />
-        </FieldWrapper>
+        {/if}
+
+        <RadioGroup
+            heading="A5E.AbilityScore"
+            optionStyles="min-width:2rem; text-align: center;"
+            options={[
+                ...abilityOptions,
+                ["@attributes.spellcasting", "Spellcasting"],
+            ]}
+            selected={$actor._source.system.skills[skillKey].ability}
+            allowDeselect={false}
+            on:updateSelection={(event) =>
+                updateDocumentDataFromField(
+                    $actor,
+                    `system.skills.${skillKey}.ability`,
+                    event.detail,
+                )}
+        />
 
         <ExpertiseDiePicker
             selected={skill.expertiseDice}

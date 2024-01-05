@@ -41,31 +41,29 @@
 
     {#if editMode}
         <div class="u-flex u-flex-col u-gap-md">
-            <FormSection heading="A5E.ObjectTypePrompt">
-                <RadioGroup
-                    options={Object.entries(A5E.objectTypes)}
-                    selected={$item.system.objectType}
-                    on:updateSelection={(event) =>
-                        updateDocumentDataFromField(
-                            $item,
-                            "system.objectType",
-                            event.detail,
-                        )}
-                />
-            </FormSection>
+            <RadioGroup
+                heading="A5E.ObjectTypePrompt"
+                options={Object.entries(A5E.objectTypes)}
+                selected={$item.system.objectType}
+                on:updateSelection={(event) =>
+                    updateDocumentDataFromField(
+                        $item,
+                        "system.objectType",
+                        event.detail,
+                    )}
+            />
 
-            <FormSection heading="A5E.ItemRarity">
-                <RadioGroup
-                    options={Object.entries(A5E.itemRarity)}
-                    selected={$item.system.rarity}
-                    on:updateSelection={(event) =>
-                        updateDocumentDataFromField(
-                            $item,
-                            "system.rarity",
-                            event.detail,
-                        )}
-                />
-            </FormSection>
+            <RadioGroup
+                heading="A5E.ItemRarity"
+                options={Object.entries(A5E.itemRarity)}
+                selected={$item.system.rarity}
+                on:updateSelection={(event) =>
+                    updateDocumentDataFromField(
+                        $item,
+                        "system.rarity",
+                        event.detail,
+                    )}
+            />
 
             <FormSection --gap="0.5rem 1.25rem">
                 <Checkbox
@@ -153,18 +151,17 @@
                 />
             </FormSection>
 
-            <FormSection heading="A5E.ItemEquippedState" --label-width="100%">
-                <RadioGroup
-                    options={Object.entries(A5E.equippedStates)}
-                    selected={$item.system.equippedState}
-                    on:updateSelection={({ detail }) =>
-                        updateDocumentDataFromField(
-                            $item,
-                            "system.equippedState",
-                            parseInt(detail, 10),
-                        )}
-                />
-            </FormSection>
+            <RadioGroup
+                heading="A5E.ItemEquippedState"
+                options={Object.entries(A5E.equippedStates)}
+                selected={$item.system.equippedState}
+                on:updateSelection={({ detail }) =>
+                    updateDocumentDataFromField(
+                        $item,
+                        "system.equippedState",
+                        parseInt(detail, 10),
+                    )}
+            />
 
             <FormSection heading="A5E.ItemQuantity">
                 <div
@@ -234,18 +231,17 @@
                 </div>
             </FormSection>
 
-            <FormSection heading="A5E.ItemCondition" --direction="column">
-                <RadioGroup
-                    options={Object.entries(A5E.damagedStates)}
-                    selected={$item.system.damagedState}
-                    on:updateSelection={({ detail }) =>
-                        updateDocumentDataFromField(
-                            $item,
-                            "system.damagedState",
-                            parseInt(detail, 10),
-                        )}
-                />
-            </FormSection>
+            <RadioGroup
+                heading="A5E.ItemCondition"
+                options={Object.entries(A5E.damagedStates)}
+                selected={$item.system.damagedState}
+                on:updateSelection={({ detail }) =>
+                    updateDocumentDataFromField(
+                        $item,
+                        "system.damagedState",
+                        parseInt(detail, 10),
+                    )}
+            />
         </div>
     {:else}
         <dl class="a5e-box u-flex u-flex-col u-gap-sm u-m-0 u-p-md u-text-sm">

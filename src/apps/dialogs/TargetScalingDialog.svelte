@@ -23,20 +23,19 @@
 </script>
 
 <form>
-    <FormSection heading="Scaling Mode">
-        <RadioGroup
-            options={getTargetScalingOptions()}
-            selected={scalingMode}
-            allowDeselect={false}
-            on:updateSelection={(event) => {
-                updateDocumentDataFromField(
-                    $item,
-                    `system.actions.${actionId}.target.scaling.mode`,
-                    event.detail,
-                );
-            }}
-        />
-    </FormSection>
+    <RadioGroup
+        heading="Scaling Mode"
+        options={getTargetScalingOptions()}
+        selected={scalingMode}
+        allowDeselect={false}
+        on:updateSelection={(event) => {
+            updateDocumentDataFromField(
+                $item,
+                `system.actions.${actionId}.target.scaling.mode`,
+                event.detail,
+            );
+        }}
+    />
 
     {#if scalingMode === "cantrip"}
         <FormSection

@@ -90,19 +90,12 @@
 </script>
 
 <FormSection --direction="column" --gap="0.75rem">
-    <FormSection
+    <RadioGroup
         {heading}
-        --background="none"
-        --direction="column"
-        --padding="0"
-        --gap="0.375rem"
-    >
-        <RadioGroup
-            {options}
-            {selected}
-            on:updateSelection={({ detail }) => updateRangeValue(detail)}
-        />
-    </FormSection>
+        {options}
+        {selected}
+        on:updateSelection={({ detail }) => updateRangeValue(detail)}
+    />
 
     {#if selected === "other"}
         <Checkbox

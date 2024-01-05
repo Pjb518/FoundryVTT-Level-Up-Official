@@ -22,20 +22,19 @@
     --a5e-section-margin="0"
     --a5e-section-padding="0.75rem"
 >
-    <FieldWrapper heading="A5E.AbilityScore">
-        <RadioGroup
-            optionStyles="min-width:2rem; text-align: center;"
-            options={abilityOptions}
-            selected={$actor.system.attributes.initiative.ability}
-            allowDeselect={false}
-            on:updateSelection={(event) =>
-                updateDocumentDataFromField(
-                    $actor,
-                    "system.attributes.initiative.ability",
-                    event.detail,
-                )}
-        />
-    </FieldWrapper>
+    <RadioGroup
+        heading="A5E.AbilityScore"
+        optionStyles="min-width:2rem; text-align: center;"
+        options={abilityOptions}
+        selected={$actor.system.attributes.initiative.ability}
+        allowDeselect={false}
+        on:updateSelection={(event) =>
+            updateDocumentDataFromField(
+                $actor,
+                "system.attributes.initiative.ability",
+                event.detail,
+            )}
+    />
 
     <ExpertiseDiePicker
         selected={initiative.expertiseDice}

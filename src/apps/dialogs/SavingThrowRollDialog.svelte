@@ -113,13 +113,12 @@
 <form>
     <OutputVisibilitySection bind:visibilityMode />
 
-    <FieldWrapper heading="A5E.RollModeHeading">
-        <RadioGroup
-            options={rollModeOptions}
-            selected={rollMode}
-            on:updateSelection={({ detail }) => (rollMode = detail)}
-        />
-    </FieldWrapper>
+    <RadioGroup
+        heading="A5E.RollModeHeading"
+        options={rollModeOptions}
+        selected={rollMode}
+        on:updateSelection={({ detail }) => (rollMode = detail)}
+    />
 
     <ExpertiseDiePicker
         selected={expertiseDie}
@@ -127,13 +126,12 @@
     />
 
     {#if abilityKey === "con" && saveType !== "death"}
-        <FieldWrapper heading="A5E.ItemSavingThrowType">
-            <RadioGroup
-                options={saveTypes}
-                selected={saveType}
-                on:updateSelection={(event) => (saveType = event.detail)}
-            />
-        </FieldWrapper>
+        <RadioGroup
+            heading="A5E.ItemSavingThrowType"
+            options={saveTypes}
+            selected={saveType}
+            on:updateSelection={(event) => (saveType = event.detail)}
+        />
     {/if}
 
     {#if Object.values(abilityBonuses).flat().length}

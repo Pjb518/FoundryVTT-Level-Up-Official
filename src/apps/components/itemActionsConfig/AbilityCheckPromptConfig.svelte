@@ -46,20 +46,14 @@
     />
 </FormSection>
 
-<FormSection
+<RadioGroup
+    allowDeselect={false}
     heading="A5E.ItemAbilityCheckType"
-    --background="none"
-    --direction="column"
-    --padding="0"
->
-    <RadioGroup
-        optionStyles="min-width: 2rem; text-align: center;"
-        options={prepareAbilityOptions()}
-        selected={selectedAbility}
-        allowDeselect={false}
-        on:updateSelection={({ detail }) => (selectedAbility = detail)}
-    />
-</FormSection>
+    optionStyles="min-width: 2rem; text-align: center;"
+    options={prepareAbilityOptions()}
+    selected={selectedAbility}
+    on:updateSelection={({ detail }) => (selectedAbility = detail)}
+/>
 
 <Checkbox
     label="A5E.PromptDefaultSelection"

@@ -1,7 +1,6 @@
 <script>
     import { getContext } from "svelte";
     import { localize } from "#runtime/svelte/helper";
-    import { TJSDocument } from "#runtime/svelte/store/fvtt/document";
 
     import Checkbox from "../components/Checkbox.svelte";
     import FormSection from "../components/LegacyFormSection.svelte";
@@ -45,13 +44,12 @@
 </script>
 
 <form class="form">
-    <FormSection heading="A5E.RestType" --direction="column">
-        <RadioGroup
-            options={Object.entries(restTypeOptions)}
-            selected={restType}
-            on:updateSelection={({ detail }) => (restType = detail)}
-        />
-    </FormSection>
+    <RadioGroup
+        heading="A5E.RestType"
+        options={Object.entries(restTypeOptions)}
+        selected={restType}
+        on:updateSelection={({ detail }) => (restType = detail)}
+    />
 
     {#if restType === "long"}
         <FormSection>

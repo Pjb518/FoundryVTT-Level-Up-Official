@@ -192,21 +192,17 @@
         <h3 class="setting-heading">Condition Interface Layout</h3>
     </header>
 
-    <FormSection
+    <RadioGroup
         heading="Condition Interface Flow Direction"
         hint={game.settings.settings.get("a5e.conditionFlowDirection").hint}
-        --gap="0.25rem"
-    >
-        <RadioGroup
-            options={Object.entries(conditionFlowDirectionChoices)}
-            selected={selectedConditionFlowDirection}
-            on:updateSelection={({ detail }) => {
-                updates.set("conditionFlowDirection", detail);
-                selectedConditionFlowDirection = detail;
-                reload = true;
-            }}
-        />
-    </FormSection>
+        options={Object.entries(conditionFlowDirectionChoices)}
+        selected={selectedConditionFlowDirection}
+        on:updateSelection={({ detail }) => {
+            updates.set("conditionFlowDirection", detail);
+            selectedConditionFlowDirection = detail;
+            reload = true;
+        }}
+    />
 </section>
 
 <section class="setting-group">
@@ -249,21 +245,16 @@
         />
     </FormSection>
 
-    <FormSection
+    <RadioGroup
         heading="A5E.settings.effectsPanelIconSize"
         hint="A5E.settings.hints.effectsPanelIconSize"
-        --label-weight="bold"
-        --label-size="$font-size-md"
-    >
-        <RadioGroup
-            options={Object.entries(iconSizeChoices)}
-            selected={selectedIconSize}
-            on:updateSelection={({ detail }) => {
-                updates.set("effectsPanelIconSize", detail);
-                selectedIconSize = detail;
-            }}
-        />
-    </FormSection>
+        options={Object.entries(iconSizeChoices)}
+        selected={selectedIconSize}
+        on:updateSelection={({ detail }) => {
+            updates.set("effectsPanelIconSize", detail);
+            selectedIconSize = detail;
+        }}
+    />
 
     <FormSection
         heading="A5E.settings.effectsPanelPosition"

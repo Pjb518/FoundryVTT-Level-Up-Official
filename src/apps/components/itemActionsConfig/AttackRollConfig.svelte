@@ -54,20 +54,14 @@
     />
 </FormSection>
 
-<FormSection
+<RadioGroup
     heading="A5E.AbilityScore"
     hint="The ability score modifier to add to the attack roll."
-    --background="none"
-    --direction="column"
-    --padding="0"
->
-    <RadioGroup
-        optionStyles="min-width: 2rem; text-align: center;"
-        options={abilityOptions}
-        selected={selectedAbility}
-        on:updateSelection={({ detail }) => (selectedAbility = detail)}
-    />
-</FormSection>
+    optionStyles="min-width: 2rem; text-align: center;"
+    options={abilityOptions}
+    selected={selectedAbility}
+    on:updateSelection={({ detail }) => (selectedAbility = detail)}
+/>
 
 <FormSection --background="none" --padding="0">
     <FormSection

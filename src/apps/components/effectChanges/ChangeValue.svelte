@@ -101,42 +101,30 @@
         />
     </div>
 {:else if componentType === "RADIO"}
-    <div class="change-section">
-        <h3 class="u-text-sm u-text-bold">
-            {localize("A5E.effects.options")}
-        </h3>
-
-        <RadioGroup
-            allowDeselect={false}
-            options={optionsList[key]?.options ?? [[null, null]]}
-            selected={value}
-            on:updateSelection={({ detail }) => dispatch("change", detail)}
-        />
-    </div>
+    <RadioGroup
+        heading="A5E.effects.options"
+        allowDeselect={false}
+        options={optionsList[key]?.options ?? [[null, null]]}
+        selected={value}
+        on:updateSelection={({ detail }) => dispatch("change", detail)}
+    />
 {:else if componentType === "CHECKBOX"}
-    <div class="change-section">
-        <h3 class="u-text-sm u-text-bold">
-            {localize("A5E.effects.options")}
-        </h3>
-
-        <CheckboxGroup
-            options={optionsList[key]?.options ?? [[null, null]]}
-            selected={convertToArray(value)}
-            on:updateSelection={({ detail }) =>
-                dispatch("change", JSON.stringify(detail))}
-        />
-    </div>
+    <CheckboxGroup
+        heading="A5E.effects.options"
+        options={optionsList[key]?.options ?? [[null, null]]}
+        selected={convertToArray(value)}
+        on:updateSelection={({ detail }) =>
+            dispatch("change", JSON.stringify(detail))}
+    />
 {:else if componentType === "TAG_GROUP"}
-    <div class="change-section">
-        <CustomTagGroup
-            heading="A5E.effects.options"
-            options={optionsList[key]?.options ?? [[null, null]]}
-            selected={convertToArray(value)}
-            on:updateSelection={({ detail }) => {
-                dispatch("change", JSON.stringify(detail));
-            }}
-        />
-    </div>
+    <CustomTagGroup
+        heading="A5E.effects.options"
+        options={optionsList[key]?.options ?? [[null, null]]}
+        selected={convertToArray(value)}
+        on:updateSelection={({ detail }) => {
+            dispatch("change", JSON.stringify(detail));
+        }}
+    />
 {:else if componentType === "ABILITY_BONUS"}
     <AbilityBonusConfigDialog
         jsonValue={value}

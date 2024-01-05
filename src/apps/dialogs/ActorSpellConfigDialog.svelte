@@ -16,19 +16,18 @@
 </script>
 
 <article>
-    <FormSection heading="A5E.SpellcastingAbilityScore">
-        <RadioGroup
-            optionStyles="min-width:2rem; text-align: center;"
-            options={Object.entries(abilityAbbreviations)}
-            selected={$actor.system.attributes.spellcasting}
-            on:updateSelection={(event) =>
-                updateDocumentDataFromField(
-                    $actor,
-                    "system.attributes.spellcasting",
-                    event.detail,
-                )}
-        />
-    </FormSection>
+    <RadioGroup
+        heading="A5E.SpellcastingAbilityScore"
+        optionStyles="min-width:2rem; text-align: center;"
+        options={Object.entries(abilityAbbreviations)}
+        selected={$actor.system.attributes.spellcasting}
+        on:updateSelection={(event) =>
+            updateDocumentDataFromField(
+                $actor,
+                "system.attributes.spellcasting",
+                event.detail,
+            )}
+    />
 
     <FormSection heading="A5E.SpellDCBonus">
         <div class="u-w-full">

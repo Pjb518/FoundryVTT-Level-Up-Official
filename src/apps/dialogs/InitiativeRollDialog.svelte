@@ -90,29 +90,26 @@
 </script>
 
 <form>
-    <FieldWrapper heading="A5E.RollModeHeading">
-        <RadioGroup
-            options={rollModeOptions}
-            selected={rollMode}
-            on:updateSelection={({ detail }) => (rollMode = detail)}
-        />
-    </FieldWrapper>
+    <RadioGroup
+        heading="A5E.RollModeHeading"
+        options={rollModeOptions}
+        selected={rollMode}
+        on:updateSelection={({ detail }) => (rollMode = detail)}
+    />
 
-    <FieldWrapper heading="A5E.AbilityScore">
-        <RadioGroup
-            options={Object.entries(abilities)}
-            selected={abilityKey}
-            on:updateSelection={({ detail }) => (abilityKey = detail)}
-        />
-    </FieldWrapper>
+    <RadioGroup
+        heading="A5E.AbilityScore"
+        options={Object.entries(abilities)}
+        selected={abilityKey}
+        on:updateSelection={({ detail }) => (abilityKey = detail)}
+    />
 
-    <FieldWrapper heading="A5E.Skill">
-        <RadioGroup
-            options={Object.entries(skills)}
-            selected={skillKey}
-            on:updateSelection={({ detail }) => (skillKey = detail)}
-        />
-    </FieldWrapper>
+    <RadioGroup
+        heading="A5E.Skill"
+        options={Object.entries(skills)}
+        selected={skillKey}
+        on:updateSelection={({ detail }) => (skillKey = detail)}
+    />
 
     <ExpertiseDiePicker
         selected={expertiseDie}

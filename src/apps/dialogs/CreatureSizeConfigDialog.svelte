@@ -14,16 +14,15 @@
 </script>
 
 <Section --a5e-section-body-padding="0.75rem" --a5e-section-margin="0">
-    <FieldWrapper heading="A5E.SizeCategory">
-        <RadioGroup
-            options={creatureSizes}
-            selected={$actor.system.traits.size}
-            on:updateSelection={(event) =>
-                updateDocumentDataFromField(
-                    $actor,
-                    "system.traits.size",
-                    event.detail,
-                )}
-        />
-    </FieldWrapper>
+    <RadioGroup
+        heading="A5E.SizeCategory"
+        options={creatureSizes}
+        selected={$actor.system.traits.size}
+        on:updateSelection={(event) =>
+            updateDocumentDataFromField(
+                $actor,
+                "system.traits.size",
+                event.detail,
+            )}
+    />
 </Section>

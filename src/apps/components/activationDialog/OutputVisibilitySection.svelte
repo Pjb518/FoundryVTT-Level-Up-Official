@@ -1,5 +1,4 @@
 <script>
-    import FieldWrapper from "../FieldWrapper.svelte";
     import RadioGroup from "../RadioGroup.svelte";
 
     const rollModes = CONST.DICE_ROLL_MODES;
@@ -8,13 +7,12 @@
     export let visibilityMode;
 </script>
 
-<FieldWrapper heading="Visibility Mode">
-    <RadioGroup
-        options={Object.entries(rollModes).map(([_, mode]) => [
-            mode,
-            DICE_ROLL_MODES[mode],
-        ])}
-        selected={visibilityMode}
-        on:updateSelection={({ detail }) => (visibilityMode = detail)}
-    />
-</FieldWrapper>
+<RadioGroup
+    heading="Visibility Mode"
+    options={Object.entries(rollModes).map(([_, mode]) => [
+        mode,
+        DICE_ROLL_MODES[mode],
+    ])}
+    selected={visibilityMode}
+    on:updateSelection={({ detail }) => (visibilityMode = detail)}
+/>

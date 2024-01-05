@@ -22,20 +22,19 @@
 </script>
 
 <form>
-    <FormSection heading="Scaling Mode">
-        <RadioGroup
-            options={getDamageScalingOptions()}
-            selected={scalingMode}
-            allowDeselect={false}
-            on:updateSelection={(event) => {
-                updateDocumentDataFromField(
-                    $item,
-                    `system.actions.${actionId}.rolls.${rollId}.scaling.mode`,
-                    event.detail,
-                );
-            }}
-        />
-    </FormSection>
+    <RadioGroup
+        heading="Scaling Mode"
+        options={getDamageScalingOptions()}
+        selected={scalingMode}
+        allowDeselect={false}
+        on:updateSelection={(event) => {
+            updateDocumentDataFromField(
+                $item,
+                `system.actions.${actionId}.rolls.${rollId}.scaling.mode`,
+                event.detail,
+            );
+        }}
+    />
 
     {#if scalingMode === "cantrip"}
         <FormSection

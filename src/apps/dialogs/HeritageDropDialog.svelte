@@ -6,7 +6,6 @@
     import { TJSDocument } from "#runtime/svelte/store/fvtt/document";
 
     import CheckboxGroup from "../components/CheckboxGroup.svelte";
-    import FormSection from "../components/LegacyFormSection.svelte";
     import RadioGroup from "../components/RadioGroup.svelte";
 
     export let { application } = getContext("#external");
@@ -70,19 +69,15 @@
 
 <form>
     <section>
-        <FormSection
+        <RadioGroup
             heading="A5E.CreatureSizeLabel"
             warning="Creature Size not selected."
             showWarning={!selectedCreatureSize}
-        >
-            <RadioGroup
-                options={sizeOptions}
-                selected={selectedCreatureSize}
-                disabled={disabledCreatureSizes}
-                on:updateSelection={({ detail }) =>
-                    (selectedCreatureSize = detail)}
-            />
-        </FormSection>
+            options={sizeOptions}
+            selected={selectedCreatureSize}
+            disabled={disabledCreatureSizes}
+            on:updateSelection={({ detail }) => (selectedCreatureSize = detail)}
+        />
 
         <CheckboxGroup
             heading="A5E.originSheets.heritage.traits"
@@ -91,26 +86,21 @@
             on:updateSelection={({ detail }) => (selectedFeatures = detail)}
         />
 
-        <FormSection heading={localize("A5E.originSheets.heritage.gifts")}>
-            <RadioGroup
-                options={giftCategories}
-                selected={selectedGiftCategory}
-                on:updateSelection={({ detail }) =>
-                    (selectedGiftCategory = detail)}
-            />
-        </FormSection>
+        <RadioGroup
+            heading="A5E.originSheets.heritage.gifts"
+            options={giftCategories}
+            selected={selectedGiftCategory}
+            on:updateSelection={({ detail }) => (selectedGiftCategory = detail)}
+        />
 
         {#if $actor.system.details.level >= 10}
-            <FormSection
-                heading={localize("A5E.originSheets.heritage.paragonGifts")}
-            >
-                <RadioGroup
-                    options={paragonCategories}
-                    selected={selectedParagonCategories}
-                    on:updateSelection={({ detail }) =>
-                        (selectedParagonCategories = detail)}
-                />
-            </FormSection>
+            <RadioGroup
+                heading="A5E.originSheets.heritage.paragonGifts"
+                options={paragonCategories}
+                selected={selectedParagonCategories}
+                on:updateSelection={({ detail }) =>
+                    (selectedParagonCategories = detail)}
+            />
         {/if}
     </section>
 

@@ -76,18 +76,17 @@
     --a5e-section-body-padding="0 0.25rem"
     --a5e-section-padding="0 0.75rem"
 >
-    <FieldWrapper heading="A5E.RecoverResourceAt">
-        <RadioGroup
-            options={recoveryOptions}
-            selected={resource.per}
-            on:updateSelection={(event) =>
-                updateDocumentDataFromField(
-                    $actor,
-                    `system.resources.${source}.per`,
-                    event.detail,
-                )}
-        />
-    </FieldWrapper>
+    <RadioGroup
+        heading="A5E.RecoverResourceAt"
+        options={recoveryOptions}
+        selected={resource.per}
+        on:updateSelection={(event) =>
+            updateDocumentDataFromField(
+                $actor,
+                `system.resources.${source}.per`,
+                event.detail,
+            )}
+    />
 
     {#if resource.per === "recharge"}
         <FieldWrapper heading="A5E.ItemRechargeFormula">

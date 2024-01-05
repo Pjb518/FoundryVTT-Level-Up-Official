@@ -49,19 +49,15 @@
             />
         </FormSection>
 
-        <FormSection
+        <RadioGroup
             hint="A5E.settings.hints.newActionNameType"
-            --gap="0.25rem"
-        >
-            <RadioGroup
-                options={actionTypeOptions}
-                selected={selectedNamingMode}
-                on:updateSelection={({ detail }) => {
-                    updates.set("newActionNameType", detail);
-                    selectedNamingMode = detail;
-                }}
-            />
-        </FormSection>
+            options={actionTypeOptions}
+            selected={selectedNamingMode}
+            on:updateSelection={({ detail }) => {
+                updates.set("newActionNameType", detail);
+                selectedNamingMode = detail;
+            }}
+        />
 
         <FormSection
             hint="A5E.settings.hints.autoApplyFancySheets"

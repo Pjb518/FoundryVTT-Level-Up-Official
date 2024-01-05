@@ -85,21 +85,16 @@
     --a5e-section-body-gap="0.75rem"
     --a5e-section-body-padding="0 0.25rem"
 >
-    <FieldWrapper
+    <RadioGroup
         heading="A5E.SpellcastingAbilityScore"
-        --background="transparent"
-        --padding="0.25rem"
-    >
-        <RadioGroup
-            optionStyles="min-width:2rem; text-align: center;"
-            options={Object.entries(abilityAbbreviations)}
-            selected={$actor.system.attributes.spellcasting}
-            on:updateSelection={(event) =>
-                updateDocumentDataFromField(
-                    $actor,
-                    "system.attributes.spellcasting",
-                    event.detail,
-                )}
-        />
-    </FieldWrapper>
+        optionStyles="min-width:2rem; text-align: center;"
+        options={Object.entries(abilityAbbreviations)}
+        selected={$actor.system.attributes.spellcasting}
+        on:updateSelection={(event) =>
+            updateDocumentDataFromField(
+                $actor,
+                "system.attributes.spellcasting",
+                event.detail,
+            )}
+    />
 </Section>
