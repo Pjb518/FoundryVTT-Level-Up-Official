@@ -2,7 +2,7 @@
     import { getContext } from "svelte";
     import { localize } from "#runtime/svelte/helper";
 
-    import TagGroup from "../components/TagGroup.svelte";
+    import CheckboxGroup from "../components/CheckboxGroup.svelte";
     import InputField from "../components/InputField.svelte";
     import Section from "../components/Section.svelte";
 
@@ -81,11 +81,12 @@
 </script>
 
 <Section
-    --a5e-section-body-padding="0.75rem"
-    --a5e-section-body-gap="0"
+    hint={dialogHint}
+    --a5e-section-body-gap="0.75rem"
+    --a5e-section-padding="0.75rem"
     --a5e-section-margin="0"
 >
-    <TagGroup
+    <CheckboxGroup
         heading="A5E.WeaponsSimple"
         options={Object.entries(simple)}
         bind:selected={weaponProficiencies.simple}
@@ -94,10 +95,11 @@
             ? $actor.system.proficiencies.weapons
             : []}
         red={submitDialog ? $actor.system.proficiencies.weapons : []}
+        showToggleAllButton={true}
         on:updateSelection={() => updateFunction()}
     />
 
-    <TagGroup
+    <CheckboxGroup
         heading="A5E.WeaponsMartial"
         options={Object.entries(martial)}
         bind:selected={weaponProficiencies.martial}
@@ -106,10 +108,11 @@
             ? $actor.system.proficiencies.weapons
             : []}
         red={submitDialog ? $actor.system.proficiencies.weapons : []}
+        showToggleAllButton={true}
         on:updateSelection={() => updateFunction()}
     />
 
-    <TagGroup
+    <CheckboxGroup
         heading="A5E.WeaponsRare"
         options={Object.entries(rare)}
         bind:selected={weaponProficiencies.rare}
@@ -118,6 +121,7 @@
             ? $actor.system.proficiencies.weapons
             : []}
         red={submitDialog ? $actor.system.proficiencies.weapons : []}
+        showToggleAllButton={true}
         on:updateSelection={() => updateFunction()}
     />
 
