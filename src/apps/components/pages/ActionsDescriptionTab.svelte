@@ -3,7 +3,6 @@
 
     import CheckboxGroup from "../CheckboxGroup.svelte";
     import Editor from "../Editor.svelte";
-    import FormSection from "../LegacyFormSection.svelte";
     import ItemSummary from "../itemSummaries/ItemSummary.svelte";
 
     import getSummaryData from "../../../utils/summaries/getSummaryData";

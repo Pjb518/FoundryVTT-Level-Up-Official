@@ -4,7 +4,6 @@
 
     import updateDocumentDataFromField from "../../../utils/updateDocumentDataFromField";
 
-    import FormSection from "../LegacyFormSection.svelte";
     import CheckboxGroup from "../CheckboxGroup.svelte";
 
     function prepareAmmunitionProperties(item) {
