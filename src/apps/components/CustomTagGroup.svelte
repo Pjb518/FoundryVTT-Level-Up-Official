@@ -5,7 +5,7 @@
     import arraysAreEqual from "../../utils/arraysAreEqual";
 
     import CheckboxGroup from "./CheckboxGroup.svelte";
-    import FormSection from "./LegacyFormSection.svelte";
+    import FieldWrapper from "./FieldWrapper.svelte";
 
     export let options = [];
     export let selected = [];
@@ -53,34 +53,27 @@
     $: selectedCoreOptions, selectedCustomOptions, updateSelections();
 </script>
 
-{#if heading}
-    <header class="u-align-center u-flex u-gap-lg">
-        <h3 class="u-text-bold u-text-sm">{localize(heading)}</h3>
-
-        <!-- svelte-ignore a11y-click-events-have-key-events -->
-        <!-- svelte-ignore a11y-missing-attribute -->
-        <!-- svelte-ignore a11y-no-static-element-interactions -->
-        <a on:click={toggleAll} class="u-text-xs"> + Toggle All</a>
-    </header>
-{/if}
-
-<CheckboxGroup
-    {options}
-    selected={selectedCoreOptions}
-    {disabled}
-    {disabledOptions}
-    {red}
-    {orange}
-    on:updateSelection={(event) => (selectedCoreOptions = event.detail)}
-/>
+<FieldWrapper
+    {heading}
+    buttons={[
+        { classes: "u-text-xs", label: "+ Toggle All", handler: toggleAll },
+    ]}
+    --a5e-field-wrapper-header-item-justification="flex-start"
+    --a5e-field-wrapper-header-gap="0.5rem"
+>
+    <CheckboxGroup
+        {options}
+        selected={selectedCoreOptions}
+        {disabled}
+        {disabledOptions}
+        {red}
+        {orange}
+        on:updateSelection={(event) => (selectedCoreOptions = event.detail)}
+    />
+</FieldWrapper>
 
 {#if showCustomInput}
-    <FormSection
-        hint="A5E.HintSeparateBySemiColon"
-        --background="none"
-        --padding="0"
-        --gap="0.5rem"
-    >
+    <FieldWrapper hint="A5E.HintSeparateBySemiColon">
         <input
             class="a5e-input"
             type="text"
@@ -88,5 +81,5 @@
             on:change={({ target }) =>
                 (selectedCustomOptions = splitCustomSelections(target.value))}
         />
-    </FormSection>
+    </FieldWrapper>
 {/if}

@@ -21,12 +21,7 @@
     }
 </script>
 
-<ul
-    class="
-        radio-group
-        {listClasses}
-    "
->
+<ul class="radio-group {listClasses}">
     {#each options as [value, label]}
         <!-- svelte-ignore a11y-click-events-have-key-events -->
         <Tag

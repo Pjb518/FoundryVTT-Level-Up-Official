@@ -6,6 +6,7 @@
     import ExpertiseDiePicker from "../components/ExpertiseDiePicker.svelte";
     import FieldWrapper from "../components/FieldWrapper.svelte";
     import RadioGroup from "../components/RadioGroup.svelte";
+    import Section from "../components/Section.svelte";
 
     import prepareAbilityOptions from "../dataPreparationHelpers/prepareAbilityOptions";
     import updateDocumentDataFromField from "../../utils/updateDocumentDataFromField";
@@ -24,80 +25,82 @@
 </script>
 
 <article>
-    <FieldWrapper>
-        <Checkbox
-            label="A5E.ProficiencyProficient"
-            checked={skill.proficient}
-            on:updateSelection={({ detail }) => {
-                updateDocumentDataFromField(
-                    $actor,
-                    `system.skills.${skillKey}.proficient`,
-                    detail,
-                );
-            }}
-        />
-    </FieldWrapper>
-
-    <FieldWrapper heading="A5E.AbilityScore">
-        <RadioGroup
-            optionStyles="min-width:2rem; text-align: center;"
-            options={[
-                ...abilityOptions,
-                ["@attributes.spellcasting", "Spellcasting"],
-            ]}
-            selected={$actor._source.system.skills[skillKey].ability}
-            allowDeselect={false}
-            on:updateSelection={(event) =>
-                updateDocumentDataFromField(
-                    $actor,
-                    `system.skills.${skillKey}.ability`,
-                    event.detail,
-                )}
-        />
-    </FieldWrapper>
-
-    {#if !game.settings.get("a5e", "hideSkillSpecialties")}
+    <Section --a5e-section-body-gap="0.75rem" --a5e-section-margin="0">
         <FieldWrapper>
-            <CustomTagGroup
-                heading="A5E.SkillSpecialties"
-                options={specialtyOptions}
-                selected={skill.specialties}
+            <Checkbox
+                label="A5E.ProficiencyProficient"
+                checked={skill.proficient}
+                on:updateSelection={({ detail }) => {
+                    updateDocumentDataFromField(
+                        $actor,
+                        `system.skills.${skillKey}.proficient`,
+                        detail,
+                    );
+                }}
+            />
+        </FieldWrapper>
+
+        {#if !game.settings.get("a5e", "hideSkillSpecialties")}
+            <FieldWrapper>
+                <CustomTagGroup
+                    heading="A5E.SkillSpecialties"
+                    options={specialtyOptions}
+                    selected={skill.specialties}
+                    on:updateSelection={(event) =>
+                        updateDocumentDataFromField(
+                            $actor,
+                            `system.skills.${skillKey}.specialties`,
+                            event.detail,
+                        )}
+                />
+            </FieldWrapper>
+        {/if}
+
+        <FieldWrapper heading="A5E.AbilityScore">
+            <RadioGroup
+                optionStyles="min-width:2rem; text-align: center;"
+                options={[
+                    ...abilityOptions,
+                    ["@attributes.spellcasting", "Spellcasting"],
+                ]}
+                selected={$actor._source.system.skills[skillKey].ability}
+                allowDeselect={false}
                 on:updateSelection={(event) =>
                     updateDocumentDataFromField(
                         $actor,
-                        `system.skills.${skillKey}.specialties`,
+                        `system.skills.${skillKey}.ability`,
                         event.detail,
                     )}
             />
         </FieldWrapper>
-    {/if}
 
-    <ExpertiseDiePicker
-        selected={skill.expertiseDice}
-        on:updateSelection={({ detail }) =>
-            updateDocumentDataFromField(
-                $actor,
-                `system.skills.${skillKey}.expertiseDice`,
-                detail,
-            )}
-    />
+        <ExpertiseDiePicker
+            selected={skill.expertiseDice}
+            on:updateSelection={({ detail }) =>
+                updateDocumentDataFromField(
+                    $actor,
+                    `system.skills.${skillKey}.expertiseDice`,
+                    detail,
+                )}
+        />
 
-    <FieldWrapper heading="A5E.MinimumD20Roll" --direction="column">
-        <div class="u-w-20">
-            <input
-                class="a5e-input"
-                type="number"
-                value={skill.minRoll}
-                min="0"
-                on:change={({ target }) =>
-                    updateDocumentDataFromField(
-                        $actor,
-                        `system.skills.${skillKey}.minRoll`,
-                        Number(target.value),
-                    )}
-            />
-        </div>
-    </FieldWrapper>
+        <FieldWrapper heading="A5E.MinimumD20Roll" --direction="column">
+            <div class="u-w-20">
+                <input
+                    class="a5e-input"
+                    type="number"
+                    value={skill.minRoll}
+                    min="0"
+                    on:change={({ target }) =>
+                        updateDocumentDataFromField(
+                            $actor,
+                            `system.skills.${skillKey}.minRoll`,
+                            Number(target.value),
+                        )}
+                />
+            </div>
+        </FieldWrapper>
+    </Section>
 </article>
 
 <style lang="scss">
