@@ -13,64 +13,47 @@
 
     let editMode = false;
 
-    function toggleEditMode() {
-        editMode = !editMode;
-    }
-
     const { shieldTypes, shieldProperties } = CONFIG.A5E;
 </script>
 
-<section>
-    <!-- svelte-ignore a11y-click-events-have-key-events a11y-no-static-element-interactions -->
-    <header
-        class="
-            u-align-center
-            u-flex
-            u-font-serif
-            u-gap-md
-            u-mb-lg
-            u-ml-xs
-            u-pointer
-            u-text-lg
-            u-w-fit
-        "
-        on:click={toggleEditMode}
-    >
-        <h3>{localize("A5E.ShieldConfiguration")}</h3>
-
-        <i
-            class="u-text-sm fas"
-            class:fa-chevron-up={editMode}
-            class:fa-edit={!editMode}
-        />
-    </header>
-
+<Section
+    heading="A5E.ShieldConfiguration"
+    headerButtons={[
+        {
+            classes: `fa-solid ${editMode ? "fa-chevron-up" : "fa-edit"}`,
+            handler: () => (editMode = !editMode),
+        },
+    ]}
+    --a5e-section-body-gap="0.75rem"
+    --a5e-section-body-padding="0 0.125rem"
+    --a5e-section-margin="0"
+    --a5e-section-heading-gap="0.5rem"
+    --a5e-section-heading-template-columns="max-content max-content"
+>
     {#if editMode}
-        <Section --a5e-section-body-gap="0.75rem" --a5e-section-margin="0">
-            <RadioGroup
-                heading="A5E.ShieldCategory"
-                options={Object.entries(shieldTypes)}
-                selected={$item.system.shieldCategory}
-                on:updateSelection={(event) =>
-                    updateDocumentDataFromField(
-                        $item,
-                        "system.shieldCategory",
-                        event.detail,
-                    )}
-            />
+        <RadioGroup
+            heading="A5E.ShieldCategory"
+            options={Object.entries(shieldTypes)}
+            selected={$item.system.shieldCategory}
+            on:updateSelection={(event) =>
+                updateDocumentDataFromField(
+                    $item,
+                    "system.shieldCategory",
+                    event.detail,
+                )}
+        />
 
-            <CheckboxGroup
-                heading="A5E.ShieldProperties"
-                options={Object.entries(shieldProperties)}
-                selected={$item.system.shieldProperties}
-                on:updateSelection={(event) =>
-                    updateDocumentDataFromField(
-                        $item,
-                        "system.shieldProperties",
-                        event.detail,
-                    )}
-            />
-        </Section>
+        <CheckboxGroup
+            heading="A5E.ShieldProperties"
+            options={Object.entries(shieldProperties)}
+            selected={$item.system.shieldProperties}
+            on:updateSelection={(event) =>
+                updateDocumentDataFromField(
+                    $item,
+                    "system.shieldProperties",
+                    event.detail,
+                )}
+        />
     {:else}
         <dl class="a5e-box u-flex u-flex-col u-gap-sm u-m-0 u-p-md u-text-sm">
             <div class="u-flex u-gap-md">
@@ -114,4 +97,4 @@
             </div>
         </dl>
     {/if}
-</section>
+</Section>

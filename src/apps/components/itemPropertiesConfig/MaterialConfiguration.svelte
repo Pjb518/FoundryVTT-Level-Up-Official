@@ -5,6 +5,7 @@
     import updateDocumentDataFromField from "../../../utils/updateDocumentDataFromField";
 
     import CheckboxGroup from "../CheckboxGroup.svelte";
+    import Section from "../Section.svelte";
 
     function prepareMaterialProperties(item) {
         const properties = item.system.materialProperties.map(
@@ -24,31 +25,20 @@
     $: selectedMaterialProperties = prepareMaterialProperties($item);
 </script>
 
-<section>
-    <!-- svelte-ignore a11y-click-events-have-key-events a11y-no-static-element-interactions -->
-    <header
-        class="
-            u-align-center
-            u-flex
-            u-font-serif
-            u-gap-md
-            u-mb-lg
-            u-ml-xs
-            u-pointer
-            u-text-lg
-            u-w-fit
-        "
-        on:click={() => (editMode = !editMode)}
-    >
-        <h3>{localize("A5E.MaterialProperties")}</h3>
-
-        <i
-            class="u-text-sm fas"
-            class:fa-chevron-up={editMode}
-            class:fa-edit={!editMode}
-        />
-    </header>
-
+<Section
+    heading="A5E.MaterialProperties"
+    headerButtons={[
+        {
+            classes: `fa-solid ${editMode ? "fa-chevron-up" : "fa-edit"}`,
+            handler: () => (editMode = !editMode),
+        },
+    ]}
+    --a5e-section-body-gap="0.75rem"
+    --a5e-section-body-padding="0 0.125rem"
+    --a5e-section-margin="0"
+    --a5e-section-heading-gap="0.5rem"
+    --a5e-section-heading-template-columns="max-content max-content"
+>
     {#if editMode}
         <CheckboxGroup
             heading="A5E.MaterialProperties"
@@ -74,4 +64,4 @@
             </div>
         </dl>
     {/if}
-</section>
+</Section>

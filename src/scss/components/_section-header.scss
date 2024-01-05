@@ -1,4 +1,8 @@
 .a5e-section-header {
+  display: grid;
+  grid-template-areas: heading button;
+  grid-template-columns: var(--a5e-section-heading-template-columns, 1fr max-content);
+  gap: var(--a5e-section-heading-gap, 0);
   padding: 0.125rem 0.5rem;
   font-family: var(--a5e-font-serif);
   font-size: var(--a5e-text-size-sm);
@@ -14,14 +18,14 @@
     display: grid;
     align-items: center;
     gap: 0.5rem;
-    grid-template-areas: var(--a5e-section-heading-template-areas);
-    grid-template-columns: var(--a5e-section-heading-template-columns);
+
     margin-bottom: 0.125rem;
   }
 
-  &--bonus-list {
-    grid-template-areas: heading button;
-    grid-template-columns: 1fr max-content;
+  &--item-list,
+  &--party-viewer {
+    grid-template-areas: var(--a5e-section-heading-template-areas);
+    grid-template-columns: var(--a5e-section-heading-template-columns);
   }
 
   &--party-viewer {
