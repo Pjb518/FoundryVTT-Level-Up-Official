@@ -33,17 +33,17 @@
     {/if}
 
     <div class="a5e-section__body">
+        {#if hint}
+            <small class="a5e-section__hint">{localize(hint)}</small>
+        {/if}
+
+        {#if showWarning}
+            <small class="a5e-section__warning">
+                <i class="fa-solid fa-circle-exclamation" />
+                {localize(warning)}
+            </small>
+        {/if}
+
         <slot />
     </div>
-
-    {#if hint}
-        <small class="a5e-section__hint">{localize(hint)}</small>
-    {/if}
-
-    {#if showWarning}
-        <small class="a5e-section__warning">
-            <i class="fa-solid fa-circle-exclamation" />
-            {localize(warning)}
-        </small>
-    {/if}
 </section>

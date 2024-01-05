@@ -4,8 +4,11 @@
     import updateDocumentDataFromField from "../../utils/updateDocumentDataFromField";
 
     import Checkbox from "../components/Checkbox.svelte";
+    import FieldWrapper from "../components/FieldWrapper.svelte";
     import FormSection from "../components/LegacyFormSection.svelte";
     import TagGroup from "../components/TagGroup.svelte";
+    import Section from "../components/Section.svelte";
+    import CheckboxGroup from "../components/CheckboxGroup.svelte";
 
     export let { document, bonusID } = getContext("#external").application;
     export let jsonValue = null;
@@ -104,65 +107,64 @@
         </div>
     </header>
 
-    <FormSection>
-        <FormSection
-            heading="A5E.Formula"
-            --background="none"
-            --grow="1"
-            --direction="column"
-            --padding="0"
-        >
+    <Section --a5e-section-margin="0.25rem 0">
+        <FieldWrapper heading="A5E.Formula">
             <input
                 type="text"
                 value={abilityBonus.formula ?? ""}
                 on:change={({ target }) =>
                     onUpdateValue("formula", target.value)}
             />
-        </FormSection>
-    </FormSection>
+        </FieldWrapper>
+    </Section>
 
-    <FormSection
+    <Section
         heading="Contexts"
         hint="The context determines when the ability bonus applies"
-        --direction="column"
-        --wrap="nowrap"
+        --a5e-section-body-gap="0.75rem"
+        --a5e-section-body-padding="0 0.25rem"
+        --a5e-section-margin="0"
     >
-        <TagGroup
-            heading="A5E.contexts.abilities"
-            options={Object.entries(abilities)}
-            selected={abilitiesContext}
-            on:updateSelection={({ detail }) => {
-                onUpdateValue("context.abilities", detail);
-            }}
-        />
+        <FieldWrapper heading="A5E.contexts.abilities">
+            <CheckboxGroup
+                options={Object.entries(abilities)}
+                selected={abilitiesContext}
+                on:updateSelection={({ detail }) => {
+                    onUpdateValue("context.abilities", detail);
+                }}
+            />
+        </FieldWrapper>
 
-        <TagGroup
-            heading="A5E.contexts.bonusTypes"
-            options={Object.entries(abilityBonusContexts)}
-            selected={abilityTypeContext}
-            on:updateSelection={({ detail }) => {
-                onUpdateValue("context.types", detail);
-            }}
-        />
+        <FieldWrapper heading="A5E.contexts.bonusTypes">
+            <CheckboxGroup
+                options={Object.entries(abilityBonusContexts)}
+                selected={abilityTypeContext}
+                on:updateSelection={({ detail }) => {
+                    onUpdateValue("context.types", detail);
+                }}
+            />
+        </FieldWrapper>
 
-        <Checkbox
-            label="A5E.contexts.requiresProficiency"
-            checked={requiresProficiency}
-            on:updateSelection={({ detail }) => {
-                onUpdateValue("context.requiresProficiency", detail);
-            }}
-        />
-    </FormSection>
+        <FieldWrapper>
+            <Checkbox
+                label="A5E.contexts.requiresProficiency"
+                checked={requiresProficiency}
+                on:updateSelection={({ detail }) => {
+                    onUpdateValue("context.requiresProficiency", detail);
+                }}
+            />
+        </FieldWrapper>
 
-    <FormSection>
-        <Checkbox
-            label="Select Ability Bonus Automatically in Roll Prompt"
-            checked={abilityBonus.default ?? true}
-            on:updateSelection={({ detail }) => {
-                onUpdateValue("default", detail);
-            }}
-        />
-    </FormSection>
+        <FieldWrapper>
+            <Checkbox
+                label="Select Ability Bonus Automatically in Roll Prompt"
+                checked={abilityBonus.default ?? true}
+                on:updateSelection={({ detail }) => {
+                    onUpdateValue("default", detail);
+                }}
+            />
+        </FieldWrapper>
+    </Section>
 </form>
 
 <style lang="scss">
