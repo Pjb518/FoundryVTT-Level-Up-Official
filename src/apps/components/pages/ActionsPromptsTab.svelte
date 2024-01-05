@@ -12,6 +12,24 @@
     import Section from "../Section.svelte";
     import SkillCheckPromptConfig from "../itemActionsConfig/SkillCheckPromptConfig.svelte";
 
+    function deletePrompt(actionId, promptId) {
+        $item.update({
+            [`system.actions.${actionId}.prompts`]: {
+                [`-=${promptId}`]: null,
+            },
+        });
+    }
+
+    function duplicatePrompt(actionId, prompt) {
+        const newPrompt = foundry.utils.duplicate(prompt);
+
+        $item.update({
+            [`system.actions.${actionId}.prompts`]: {
+                [foundry.utils.randomID()]: newPrompt,
+            },
+        });
+    }
+
     const item = getContext("item");
     const actionId = getContext("actionId");
 
@@ -82,6 +100,8 @@
                                         this={component}
                                         {prompt}
                                         {promptId}
+                                        {deletePrompt}
+                                        {duplicatePrompt}
                                     />
                                 </li>
                             {:else}

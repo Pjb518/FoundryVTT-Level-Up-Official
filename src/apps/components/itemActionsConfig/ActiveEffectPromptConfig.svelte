@@ -5,24 +5,8 @@
 
     import FieldWrapper from "../FieldWrapper.svelte";
 
-    function deletePrompt() {
-        $item.update({
-            [`system.actions.${actionId}.prompts`]: {
-                [`-=${promptId}`]: null,
-            },
-        });
-    }
-
-    function duplicatePrompt() {
-        const newPrompt = foundry.utils.duplicate(prompt);
-
-        $item.update({
-            [`system.actions.${actionId}.prompts`]: {
-                [foundry.utils.randomID()]: newPrompt,
-            },
-        });
-    }
-
+    export let deletePrompt;
+    export let duplicatePrompt;
     export let prompt;
     export let promptId;
 
@@ -41,11 +25,11 @@
         {
             classes:
                 "fa-solid fa-clone a5e-field-wrapper__header-button--scale",
-            handler: duplicatePrompt,
+            handler: () => duplicatePrompt(actionId, prompt),
         },
         {
             classes: "fas fa-trash a5e-field-wrapper__header-button--scale",
-            handler: deletePrompt,
+            handler: () => deletePrompt(actionId, promptId),
         },
     ]}
     --a5e-header-button-color="#bebdb5"
