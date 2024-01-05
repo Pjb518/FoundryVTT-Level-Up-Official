@@ -1,6 +1,5 @@
 <script>
     import { getContext } from "svelte";
-    import { localize } from "#runtime/svelte/helper";
 
     import Checkbox from "../components/Checkbox.svelte";
     import ExpertiseDiePicker from "../components/ExpertiseDiePicker.svelte";
@@ -8,8 +7,6 @@
     import NavigationBar from "../components/navigation/NavigationBar.svelte";
     import Section from "../components/Section.svelte";
 
-    import createNote from "../handlers/createNote";
-    import editNote from "../handlers/editNote";
     import updateDocumentDataFromField from "../../utils/updateDocumentDataFromField";
 
     export let { document, appId, abilityKey } =
@@ -33,14 +30,6 @@
         },
     ];
 
-    const checkBonusHeading = localize("A5E.AbilityCheckBonus", {
-        ability: localize(CONFIG.A5E.abilities[abilityKey]),
-    });
-
-    const saveBonusHeading = localize("A5E.SavingThrowBonus", {
-        ability: localize(CONFIG.A5E.abilities[abilityKey]),
-    });
-
     let currentTab = hideExpertiseDice ? tabs[1] : tabs[0];
 
     $: ability = $actor.system.abilities[abilityKey];
@@ -63,40 +52,7 @@
                         detail,
                     )}
             />
-
-            <!-- <header class="notes-header">
-                <h3 class="notes-heading">Notes</h3>
-
-                <button
-                    class="add-button fa-solid fa-plus"
-                    on:click={() =>
-                        createNote($actor, "abilityCheck", abilityKey)}
-                ></button>
-            </header>
-
-            <ul class="notes-list">
-                {#each Object.entries(ability.check.notes) as [id, note]}
-                    <li class="notes-list__note">
-                        {note.title || "New Note"}
-
-                        <button
-                            class="edit-button fa-solid fa-pen-to-square"
-                            on:click={() =>
-                                editNote(
-                                    $actor,
-                                    "abilityCheck",
-                                    abilityKey,
-                                    id,
-                                )}
-                        ></button>
-                    </li>
-                {:else}
-                    <p>None</p>
-                {/each}
-            </ul> -->
         </Section>
-
-        <!-- Saving Throw Config  -->
     {:else if currentTab.name === "savingThrow"}
         <Section
             --a5e-section-body-padding="0 0.25rem"
@@ -146,32 +102,6 @@
                     />
                 </FieldWrapper>
             {/if}
-
-            <!-- <header class="notes-header">
-                <h3 class="notes-heading">Notes</h3>
-
-                <button
-                    class="add-button fa-solid fa-plus"
-                    on:click={() =>
-                        createNote($actor, "savingThrow", abilityKey)}
-                ></button>
-            </header>
-
-            <ul class="notes-list">
-                {#each Object.entries(ability.save.notes) as [id, note]}
-                    <li class="notes-list__note">
-                        {note.title || "New Note"}
-
-                        <button
-                            class="edit-button fa-solid fa-pen-to-square"
-                            on:click={() =>
-                                editNote($actor, "savingThrow", abilityKey, id)}
-                        ></button>
-                    </li>
-                {:else}
-                    <p>None</p>
-                {/each}
-            </ul> -->
         </Section>
     {/if}
 </article>
