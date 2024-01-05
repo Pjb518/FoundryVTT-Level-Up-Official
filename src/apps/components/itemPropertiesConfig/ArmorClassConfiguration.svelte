@@ -3,7 +3,10 @@
     import { localize } from "#runtime/svelte/helper";
 
     import Checkbox from "../Checkbox.svelte";
+    import FieldWrapper from "../FieldWrapper.svelte";
     import FormSection from "../LegacyFormSection.svelte";
+    import Section from "../Section.svelte";
+
     import updateDocumentDataFromField from "../../../utils/updateDocumentDataFromField";
 
     const item = getContext("item");
@@ -44,11 +47,7 @@
 
     {#if editMode}
         <div class="u-flex u-flex-col u-gap-md">
-            <FormSection
-                heading="A5E.armorClass.formula"
-                --label-width="100%"
-                --gap="0.375rem 1.25rem"
-            >
+            <FieldWrapper heading="A5E.armorClass.formula">
                 <input
                     type="text"
                     name="system.ac.baseFormula"
@@ -61,17 +60,13 @@
                             target.value,
                         )}
                 />
-            </FormSection>
+            </FieldWrapper>
 
-            <FormSection --gap="0.375rem 1.25rem">
-                <div class="u-flex u-flex-col u-gap-md u-w-30">
-                    <label
-                        class="u-pointer u-text-bold"
-                        for="{appId}-ac-max-dex"
-                    >
-                        {localize("A5E.armorClass.maxDex")}
-                    </label>
-
+            <Section
+                --a5e-section-body-direction="row"
+                --a5e-section-margin="0"
+            >
+                <FieldWrapper heading="A5E.armorClass.maxDex">
                     <input
                         type="number"
                         data-dtype="Number"
@@ -85,16 +80,9 @@
                                 Number(target.value),
                             )}
                     />
-                </div>
+                </FieldWrapper>
 
-                <div class="u-flex u-flex-col u-gap-md u-w-30">
-                    <label
-                        class="u-pointer u-text-bold"
-                        for="{appId}-ac-min-str"
-                    >
-                        {localize("A5E.armorClass.minStr")}
-                    </label>
-
+                <FieldWrapper heading="A5E.armorClass.minStr">
                     <input
                         type="number"
                         data-dtype="Number"
@@ -108,13 +96,9 @@
                                 Number(target.value),
                             )}
                     />
-                </div>
+                </FieldWrapper>
 
-                <div class="u-flex u-flex-col u-gap-md u-w-30">
-                    <label class="u-pointer u-text-bold" for="{appId}-ac-mode">
-                        {localize("A5E.armorClass.mode")}
-                    </label>
-
+                <FieldWrapper heading="A5E.armorClass.mode">
                     <select
                         name="system.ac.mode"
                         id="{appId}-ac-mode"
@@ -132,11 +116,11 @@
                             </option>
                         {/each}
                     </select>
-                </div>
-            </FormSection>
+                </FieldWrapper>
+            </Section>
 
             {#if !["armor", "shield"].includes($item.system?.objectType)}
-                <FormSection --gap="0.5rem 1.25rem">
+                <FieldWrapper>
                     <Checkbox
                         label="A5E.armorClass.requiresNoShield"
                         checked={$item.system.ac.requiresNoShield ?? false}
@@ -147,9 +131,9 @@
                                 detail,
                             )}
                     />
-                </FormSection>
+                </FieldWrapper>
 
-                <FormSection --gap="0.5rem 1.25rem">
+                <FieldWrapper>
                     <Checkbox
                         label="A5E.armorClass.requiresUnarmored"
                         checked={$item.system.ac.requiresUnarmored ?? false}
@@ -160,7 +144,7 @@
                                 detail,
                             )}
                     />
-                </FormSection>
+                </FieldWrapper>
             {/if}
         </div>
     {:else}

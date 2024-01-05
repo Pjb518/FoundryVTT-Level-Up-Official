@@ -3,8 +3,10 @@
     import { localize } from "#runtime/svelte/helper";
 
     import Checkbox from "../Checkbox.svelte";
-    import FormSection from "../LegacyFormSection.svelte";
+    import FieldWrapper from "../FieldWrapper.svelte";
     import RadioGroup from "../RadioGroup.svelte";
+    import Section from "../Section.svelte";
+
     import updateDocumentDataFromField from "../../../utils/updateDocumentDataFromField";
 
     const item = getContext("item");
@@ -40,7 +42,7 @@
     </header>
 
     {#if editMode}
-        <div class="u-flex u-flex-col u-gap-md">
+        <Section --a5e-section-body-gap="0.75rem" --a5e-section-margin="0">
             <RadioGroup
                 heading="A5E.ObjectTypePrompt"
                 options={Object.entries(A5E.objectTypes)}
@@ -65,7 +67,11 @@
                     )}
             />
 
-            <FormSection --gap="0.5rem 1.25rem">
+            <Section
+                --a5e-section-body-direction="row"
+                --a5e-section-body-gap="0.75rem"
+                --a5e-section-margin="0"
+            >
                 <Checkbox
                     label="A5E.AttunementRequiredPrompt"
                     checked={$item.system.requiresAttunement}
@@ -89,6 +95,7 @@
                             )}
                     />
                 {/if}
+
                 {#if isGM}
                     <Checkbox
                         label="A5E.PlotItem"
@@ -112,12 +119,13 @@
                             )}
                     />
                 {/if}
-            </FormSection>
+            </Section>
 
-            <FormSection
+            <FieldWrapper
                 heading="A5E.ItemWeight"
-                --label-width="100%"
-                --gap="0.375rem 1.25rem"
+                --a5e-field-wrapper-gap="0.375rem 1rem"
+                --a5e-field-wrapper-direction="row"
+                --a5e-field-wrapper-header-width="100%"
             >
                 <div class="u-align-center u-flex u-gap-md u-w-30">
                     <input
@@ -134,9 +142,7 @@
                             )}
                     />
 
-                    <label class="u-pointer" for="{appId}-weight">
-                        {localize("A5E.DetailsWeightLbs")}
-                    </label>
+                    <span>{localize("A5E.DetailsWeightLbs")}</span>
                 </div>
 
                 <Checkbox
@@ -149,7 +155,7 @@
                             detail,
                         )}
                 />
-            </FormSection>
+            </FieldWrapper>
 
             <RadioGroup
                 heading="A5E.ItemEquippedState"
@@ -163,73 +169,59 @@
                     )}
             />
 
-            <FormSection heading="A5E.ItemQuantity">
-                <div
-                    class="u-align-center u-flex u-flex-wrap u-gap-md u-text-sm u-w-full"
-                >
-                    <div class="u-w-20">
-                        <input
-                            type="number"
-                            data-dtype="Number"
-                            min="0"
-                            max="9999"
-                            name="system.quantity"
-                            id={`${appId}-quantity`}
-                            value={$item.system.quantity}
-                            on:change={({ target }) =>
-                                updateDocumentDataFromField(
-                                    $item,
-                                    target.name,
-                                    Number(target.value),
-                                )}
-                        />
-                    </div>
+            <FieldWrapper heading="A5E.ItemQuantity">
+                <div class="u-w-20">
+                    <input
+                        type="number"
+                        data-dtype="Number"
+                        min="0"
+                        max="9999"
+                        name="system.quantity"
+                        id={`${appId}-quantity`}
+                        value={$item.system.quantity}
+                        on:change={({ target }) =>
+                            updateDocumentDataFromField(
+                                $item,
+                                target.name,
+                                Number(target.value),
+                            )}
+                    />
                 </div>
-            </FormSection>
+            </FieldWrapper>
 
-            <FormSection heading="A5E.ItemPrice">
-                <div
-                    class="u-align-center u-flex u-flex-wrap u-gap-md u-text-sm u-w-full"
-                >
-                    <div class="u-align-center u-flex u-gap-md u-w-30">
-                        <input
-                            class="u-pl-lg"
-                            type="text"
-                            name="system.price"
-                            id={`${appId}-price`}
-                            value={$item.system.price}
-                            on:change={({ target }) =>
-                                updateDocumentDataFromField(
-                                    $item,
-                                    target.name,
-                                    target.value,
-                                )}
-                        />
-                    </div>
+            <FieldWrapper heading="A5E.ItemPrice">
+                <div class="u-align-center u-flex u-gap-md u-w-30">
+                    <input
+                        class="u-pl-lg"
+                        type="text"
+                        name="system.price"
+                        id={`${appId}-price`}
+                        value={$item.system.price}
+                        on:change={({ target }) =>
+                            updateDocumentDataFromField(
+                                $item,
+                                target.name,
+                                target.value,
+                            )}
+                    />
                 </div>
-            </FormSection>
+            </FieldWrapper>
 
-            <FormSection heading="A5E.CraftingComponents">
-                <div
-                    class="u-align-center u-flex u-flex-wrap u-gap-md u-text-sm u-w-full"
-                >
-                    <div class="u-align-center u-flex u-gap-md u-w-full">
-                        <input
-                            class="u-pl-lg"
-                            type="text"
-                            name="system.craftingComponents"
-                            value={$item.system.craftingComponents}
-                            id={`${appId}-craftingComponents`}
-                            on:change={({ target }) =>
-                                updateDocumentDataFromField(
-                                    $item,
-                                    target.name,
-                                    target.value,
-                                )}
-                        />
-                    </div>
-                </div>
-            </FormSection>
+            <FieldWrapper heading="A5E.CraftingComponents">
+                <input
+                    class="u-pl-lg"
+                    type="text"
+                    name="system.craftingComponents"
+                    value={$item.system.craftingComponents}
+                    id={`${appId}-craftingComponents`}
+                    on:change={({ target }) =>
+                        updateDocumentDataFromField(
+                            $item,
+                            target.name,
+                            target.value,
+                        )}
+                />
+            </FieldWrapper>
 
             <RadioGroup
                 heading="A5E.ItemCondition"
@@ -242,7 +234,7 @@
                         parseInt(detail, 10),
                     )}
             />
-        </div>
+        </Section>
     {:else}
         <dl class="a5e-box u-flex u-flex-col u-gap-sm u-m-0 u-p-md u-text-sm">
             <div class="u-flex u-gap-md">

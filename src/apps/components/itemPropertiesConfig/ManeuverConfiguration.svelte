@@ -3,11 +3,12 @@
     import { localize } from "#runtime/svelte/helper";
 
     import Checkbox from "../Checkbox.svelte";
-    import FormSection from "../LegacyFormSection.svelte";
+    import FieldWrapper from "../FieldWrapper.svelte";
     import RadioGroup from "../RadioGroup.svelte";
 
     import updateDocumentDataFromField from "../../../utils/updateDocumentDataFromField";
     import objectEntriesNumberKeyConverter from "../../../utils/objectEntriesNumberKeyConverter";
+    import Section from "../Section.svelte";
 
     const item = getContext("item");
     const appId = getContext("appId");
@@ -42,7 +43,7 @@
     </header>
 
     {#if editMode}
-        <div class="u-flex u-flex-col u-gap-md">
+        <Section --a5e-section-body-gap="0.75rem" --a5e-section-margin="0">
             <RadioGroup
                 heading="A5E.ManeuverDegreePrompt"
                 options={objectEntriesNumberKeyConverter(maneuverDegrees)}
@@ -68,7 +69,7 @@
                         )}
                 />
 
-                <FormSection>
+                <FieldWrapper>
                     <Checkbox
                         label="A5E.ManeuverIsStance"
                         checked={$item.system.isStance}
@@ -80,9 +81,9 @@
                             );
                         }}
                     />
-                </FormSection>
+                </FieldWrapper>
 
-                <FormSection --gap="0.5rem 1.25rem">
+                <FieldWrapper>
                     <Checkbox
                         label="A5E.SpellConcentration"
                         checked={$item.system.concentration}
@@ -94,12 +95,9 @@
                             );
                         }}
                     />
-                </FormSection>
+                </FieldWrapper>
 
-                <FormSection
-                    heading="A5E.ItemExertionCost"
-                    --direction="column"
-                >
+                <FieldWrapper heading="A5E.ItemExertionCost">
                     <div class="u-w-20">
                         <input
                             type="number"
@@ -115,9 +113,9 @@
                                 )}
                         />
                     </div>
-                </FormSection>
+                </FieldWrapper>
             {/if}
-        </div>
+        </Section>
     {:else}
         <dl class="a5e-box u-flex u-flex-col u-gap-sm u-m-0 u-p-md u-text-sm">
             <div class="u-flex u-gap-md">

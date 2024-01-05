@@ -6,7 +6,8 @@
     import handleDeterministicInput from "../../../utils/handleDeterministicInput";
     import updateDocumentDataFromField from "../../../utils/updateDocumentDataFromField";
 
-    import FormSection from "../LegacyFormSection.svelte";
+    import FieldWrapper from "../FieldWrapper.svelte";
+    import Section from "../Section.svelte";
 
     function prepareUsesSummary(item) {
         const { uses } = item.system;
@@ -69,124 +70,112 @@
 
     {#if editMode}
         <div class="u-flex u-flex-col u-gap-md">
-            <FormSection heading="A5E.Uses">
-                <div class="u-flex u-gap-lg u-w-full">
-                    <div class="u-flex u-flex-col u-gap-xs u-w-30">
-                        <h3 class="u-text-sm">{localize("A5E.UsesCurrent")}</h3>
+            <Section
+                heading="A5E.Uses"
+                --a5e-section-body-direction="row"
+                --a5e-section-body-gap="0.5rem"
+                --a5e-section-body-padding="0 0.25rem"
+                --a5e-section-margin="0"
+            >
+                <FieldWrapper heading="A5E.UsesCurrent">
+                    <input
+                        class="a5e-input"
+                        type="number"
+                        d-type="Number"
+                        name="system.uses.value"
+                        value={$item.system.uses.value}
+                        on:change={({ target }) =>
+                            updateDocumentDataFromField(
+                                $item,
+                                target.name,
+                                Number(target.value),
+                            )}
+                    />
+                </FieldWrapper>
 
+                <FieldWrapper heading="A5E.UsesMax">
+                    <input
+                        class="a5e-input"
+                        type="text"
+                        name="system.uses.max"
+                        value={$item.system.uses.max}
+                        on:change={({ target }) => {
+                            handleDeterministicInput(target.value);
+                            updateDocumentDataFromField(
+                                $item,
+                                target.name,
+                                target.value,
+                            );
+                        }}
+                    />
+                </FieldWrapper>
+
+                <FieldWrapper heading="A5E.UsesPer">
+                    <select
+                        class="u-h-8 u-w-40"
+                        name="system.uses.per"
+                        on:change={({ target }) =>
+                            updateDocumentDataFromField(
+                                $item,
+                                target.name,
+                                target.value,
+                            )}
+                    >
+                        <option value="" />
+
+                        {#each Object.entries(resourceRecoveryOptions) as [key, name]}
+                            <option
+                                {key}
+                                value={key}
+                                selected={$item.system.uses.per === key}
+                            >
+                                {localize(name)}
+                            </option>
+                        {/each}
+                    </select>
+                </FieldWrapper>
+            </Section>
+
+            {#if $item.system.uses.per === "recharge"}
+                <Section
+                    heading="A5E.ItemRechargeConfiguration"
+                    --a5e-section-body-direction="row"
+                    --a5e-section-body-gap="0.5rem"
+                    --a5e-section-body-padding="0 0.25rem"
+                    --a5e-section-margin="0"
+                >
+                    <FieldWrapper heading="A5E.ItemRechargeFormula">
                         <input
-                            class="a5e-input"
-                            type="number"
-                            d-type="Number"
-                            name="system.uses.value"
-                            value={$item.system.uses.value}
-                            on:change={({ target }) =>
-                                updateDocumentDataFromField(
-                                    $item,
-                                    target.name,
-                                    Number(target.value),
-                                )}
-                        />
-                    </div>
-
-                    <div class="u-flex u-flex-col u-gap-xs u-w-30">
-                        <h3 class="u-text-sm">{localize("A5E.UsesMax")}</h3>
-
-                        <input
-                            class="a5e-input"
+                            id="{$item.id}-recharge-formula"
                             type="text"
-                            name="system.uses.max"
-                            value={$item.system.uses.max}
+                            value={$item.system.uses.recharge.formula}
+                            placeholder="1d6"
                             on:change={({ target }) => {
                                 handleDeterministicInput(target.value);
                                 updateDocumentDataFromField(
                                     $item,
-                                    target.name,
+                                    `system.uses.recharge.formula`,
                                     target.value,
                                 );
                             }}
                         />
-                    </div>
+                    </FieldWrapper>
 
-                    <div class="u-flex u-flex-col u-gap-xs u-w-fit">
-                        <h3 class="u-text-sm">{localize("A5E.UsesPer")}</h3>
-
-                        <select
-                            class="u-h-8 u-w-40"
-                            name="system.uses.per"
+                    <FieldWrapper heading="A5E.ItemRechargeThreshold">
+                        <input
+                            id="{$item.id}-recharge-threshold"
+                            class="u-text-center"
+                            type="number"
+                            value={$item.system.uses.recharge.threshold}
                             on:change={({ target }) =>
                                 updateDocumentDataFromField(
                                     $item,
-                                    target.name,
-                                    target.value,
+                                    `system.uses.recharge.threshold`,
+                                    Number(target.value),
                                 )}
-                        >
-                            <option value="" />
-
-                            {#each Object.entries(resourceRecoveryOptions) as [key, name]}
-                                <option
-                                    {key}
-                                    value={key}
-                                    selected={$item.system.uses.per === key}
-                                >
-                                    {localize(name)}
-                                </option>
-                            {/each}
-                        </select>
-                    </div>
-                </div>
-            </FormSection>
-
-            {#if $item.system.uses.per === "recharge"}
-                <FormSection heading="A5E.ItemRechargeConfiguration">
-                    <div class="u-flex u-gap-md u-w-full">
-                        <div class="recharge-formula">
-                            <label
-                                class="recharge-formula__label"
-                                for="{$item.id}-recharge-formula"
-                            >
-                                {localize("A5E.ItemRechargeFormula")}
-                            </label>
-
-                            <input
-                                id="{$item.id}-recharge-formula"
-                                type="text"
-                                value={$item.system.uses.recharge.formula}
-                                placeholder="1d6"
-                                on:change={({ target }) => {
-                                    handleDeterministicInput(target.value);
-                                    updateDocumentDataFromField(
-                                        $item,
-                                        `system.uses.recharge.formula`,
-                                        target.value,
-                                    );
-                                }}
-                            />
-                        </div>
-
-                        <div class="recharge-threshold">
-                            <label
-                                class="recharge-threshold__label"
-                                for="{$item.id}-recharge-threshold"
-                            >
-                                {localize("A5E.ItemRechargeThreshold")}
-                            </label>
-
-                            <input
-                                id="{$item.id}-recharge-threshold"
-                                class="u-text-center"
-                                type="number"
-                                value={$item.system.uses.recharge.threshold}
-                                on:change={({ target }) =>
-                                    updateDocumentDataFromField(
-                                        $item,
-                                        `system.uses.recharge.threshold`,
-                                        Number(target.value),
-                                    )}
-                            />
-                        </div>
-                    </div>
-                </FormSection>
+                        />
+                    </FieldWrapper>
+                </Section>
             {/if}
         </div>
     {:else}
@@ -205,28 +194,3 @@
         </dl>
     {/if}
 </section>
-
-<style lang="scss">
-    .recharge-formula,
-    .recharge-threshold {
-        display: flex;
-        flex-direction: column;
-        gap: 0.25rem;
-        white-space: nowrap;
-        font-size: $font-size-sm;
-
-        &__label {
-            display: block;
-            padding-right: 0.75rem;
-        }
-    }
-
-    .recharge-threshold {
-        width: fit-content;
-        flex-shrink: 0;
-    }
-
-    .recharge-formula {
-        width: 100%;
-    }
-</style>

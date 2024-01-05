@@ -9,7 +9,9 @@
     import CheckboxGroup from "../CheckboxGroup.svelte";
     import FormSection from "../LegacyFormSection.svelte";
     import RadioGroup from "../RadioGroup.svelte";
+    import Section from "../Section.svelte";
     import Tag from "../Tag.svelte";
+    import FieldWrapper from "../FieldWrapper.svelte";
 
     function prepareSpellComponents(item) {
         return Object.entries(item.system.components)
@@ -74,7 +76,7 @@
     </header>
 
     {#if editMode}
-        <div class="u-flex u-flex-col u-gap-md">
+        <Section --a5e-section-body-gap="0.75rem" --a5e-section-margin="0">
             <CheckboxGroup
                 heading="Classes"
                 hint="Select the classes that are eligible to select this spell."
@@ -124,7 +126,7 @@
                     )}
             />
 
-            <FormSection heading="A5E.SpellComponents">
+            <FieldWrapper heading="A5E.SpellComponents">
                 <ul
                     class="u-flex u-flex-wrap u-gap-sm u-list-style-none u-m-0 u-p-0 u-text-xs u-w-full"
                 >
@@ -142,28 +144,30 @@
                         />
                     {/each}
                 </ul>
-            </FormSection>
+            </FieldWrapper>
 
             {#if $item.system.components.material}
-                <FormSection heading="A5E.SpellMaterials">
-                    <div class="u-w-full">
-                        <input
-                            class="a5e-input"
-                            type="text"
-                            name="system.materials"
-                            value={$item.system.materials}
-                            on:change={({ target }) =>
-                                updateDocumentDataFromField(
-                                    $item,
-                                    target.name,
-                                    target.value,
-                                )}
-                        />
-                    </div>
-                </FormSection>
+                <FieldWrapper heading="A5E.SpellMaterials">
+                    <input
+                        class="a5e-input"
+                        type="text"
+                        name="system.materials"
+                        value={$item.system.materials}
+                        on:change={({ target }) =>
+                            updateDocumentDataFromField(
+                                $item,
+                                target.name,
+                                target.value,
+                            )}
+                    />
+                </FieldWrapper>
             {/if}
 
-            <FormSection --gap="0.5rem 1.25rem">
+            <Section
+                --a5e-section-body-direction="row"
+                --a5e-section-body-gap="0.75rem"
+                --a5e-section-margin="0"
+            >
                 <Checkbox
                     label="A5E.SpellConcentration"
                     checked={$item.system.concentration}
@@ -228,8 +232,8 @@
                         );
                     }}
                 />
-            </FormSection>
-        </div>
+            </Section>
+        </Section>
     {:else}
         <FormSection>
             <dl class="summary-list">

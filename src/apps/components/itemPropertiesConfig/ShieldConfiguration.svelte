@@ -6,8 +6,8 @@
     import updateDocumentDataFromField from "../../../utils/updateDocumentDataFromField";
 
     import CheckboxGroup from "../CheckboxGroup.svelte";
-    import FormSection from "../LegacyFormSection.svelte";
     import RadioGroup from "../RadioGroup.svelte";
+    import Section from "../Section.svelte";
 
     const item = getContext("item");
 
@@ -46,7 +46,7 @@
     </header>
 
     {#if editMode}
-        <div class="u-flex u-flex-col u-gap-md">
+        <Section --a5e-section-body-gap="0.75rem" --a5e-section-margin="0">
             <RadioGroup
                 heading="A5E.ShieldCategory"
                 options={Object.entries(shieldTypes)}
@@ -70,7 +70,7 @@
                         event.detail,
                     )}
             />
-        </div>
+        </Section>
     {:else}
         <dl class="a5e-box u-flex u-flex-col u-gap-sm u-m-0 u-p-md u-text-sm">
             <div class="u-flex u-gap-md">

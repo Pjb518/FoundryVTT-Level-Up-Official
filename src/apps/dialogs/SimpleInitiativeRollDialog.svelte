@@ -133,12 +133,6 @@
         padding: 0.75rem;
     }
 
-    .heading {
-        display: block;
-        font-weight: bold;
-        font-size: $font-size-sm;
-    }
-
     .roll-formula-preview {
         padding: 0.5rem;
         font-size: $font-size-sm;
