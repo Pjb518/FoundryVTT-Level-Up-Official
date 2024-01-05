@@ -2,8 +2,9 @@
     import { getContext } from "svelte";
     import { localize } from "#runtime/svelte/helper";
 
-    import TagGroup from "../components/TagGroup.svelte";
+    import CheckboxGroup from "../components/CheckboxGroup.svelte";
     import InputField from "../components/InputField.svelte";
+    import Section from "../components/Section.svelte";
 
     import updateDocumentDataFromField from "../../utils/updateDocumentDataFromField";
 
@@ -86,61 +87,64 @@
     $: otherProficiencies = toolProficiencies.other.join("; ");
 </script>
 
-<form class="a5e-form u-py-lg u-px-xl a5e-form--reactive-dialog u-bg-none">
-    {#if dialogHint}
-        <div class="u-mb-md u-text-sm" style="color: $color-warning;">
-            <i class="fa-solid fa-circle-exclamation" />
-            {localize(dialogHint)}
-        </div>
-    {/if}
-
-    <TagGroup
+<Section
+    hint={dialogHint}
+    --a5e-section-body-gap="0.75rem"
+    --a5e-section-padding="0.75rem"
+    --a5e-section-margin="0"
+>
+    <CheckboxGroup
         heading="A5E.ToolsArtisanTools"
         options={Object.entries(artisansTools)}
         bind:selected={toolProficiencies.artisansTools}
         disabled={tools.length >= max}
         disabledOptions={submitDialog ? $actor.system.proficiencies.tools : []}
         red={submitDialog ? $actor.system.proficiencies.tools : []}
+        showToggleAllButton={true}
         on:updateSelection={() => updateFunction()}
     />
 
-    <TagGroup
+    <CheckboxGroup
         heading="A5E.ToolsGamingSets"
         options={Object.entries(gamingSets)}
         bind:selected={toolProficiencies.gamingSets}
         disabled={tools.length >= max}
         disabledOptions={submitDialog ? $actor.system.proficiencies.tools : []}
         red={submitDialog ? $actor.system.proficiencies.tools : []}
+        showToggleAllButton={true}
         on:updateSelection={() => updateFunction()}
     />
 
-    <TagGroup
+    <CheckboxGroup
         heading="A5E.MusicalInstruments"
         options={Object.entries(musicalInstruments)}
         bind:selected={toolProficiencies.musicalInstruments}
         disabled={tools.length >= max}
         disabledOptions={submitDialog ? $actor.system.proficiencies.tools : []}
         red={submitDialog ? $actor.system.proficiencies.tools : []}
+        showToggleAllButton={true}
         on:updateSelection={() => updateFunction()}
     />
 
-    <TagGroup
+    <CheckboxGroup
         heading="A5E.ToolsMiscellaneous"
         options={Object.entries(miscellaneous)}
         bind:selected={toolProficiencies.miscellaneous}
         disabled={tools.length >= max}
         disabledOptions={submitDialog ? $actor.system.proficiencies.tools : []}
         red={submitDialog ? $actor.system.proficiencies.tools : []}
+        showToggleAllButton={true}
         on:updateSelection={() => updateFunction()}
     />
 
-    <TagGroup
+    <CheckboxGroup
         heading="A5E.ToolsVehicles"
         options={Object.entries(vehicles)}
         bind:selected={toolProficiencies.vehicles}
         disabled={tools.length >= max}
         disabledOptions={submitDialog ? $actor.system.proficiencies.tools : []}
         red={submitDialog ? $actor.system.proficiencies.tools : []}
+        showToggleAllButton={true}
         on:updateSelection={() => updateFunction()}
     />
 
@@ -158,4 +162,4 @@
             </button>
         </div>
     {/if}
-</form>
+</Section>
