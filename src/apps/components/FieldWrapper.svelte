@@ -6,6 +6,8 @@
     export let hint = null;
     export let showWarning = false;
     export let warning = null;
+
+    console.log(buttons);
 </script>
 
 <section class="a5e-field-wrapper">
@@ -19,7 +21,7 @@
                         {#if display ?? true}
                             <button
                                 class={`a5e-field-wrapper__header-button ${classes}`}
-                                on:click|stopPropagation={handler}
+                                on:click|preventDefault|stopPropagation={handler}
                                 data-tooltip={tooltip}
                                 data-tooltip-direction="UP"
                             >

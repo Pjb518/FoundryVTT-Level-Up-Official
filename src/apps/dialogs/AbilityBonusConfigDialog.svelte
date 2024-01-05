@@ -125,25 +125,24 @@
         --a5e-section-body-padding="0 0.25rem"
         --a5e-section-margin="0"
     >
-        <FieldWrapper heading="A5E.contexts.abilities">
-            <CheckboxGroup
-                options={Object.entries(abilities)}
-                selected={abilitiesContext}
-                on:updateSelection={({ detail }) => {
-                    onUpdateValue("context.abilities", detail);
-                }}
-            />
-        </FieldWrapper>
+        <CheckboxGroup
+            heading="A5E.contexts.abilities"
+            options={Object.entries(abilities)}
+            selected={abilitiesContext}
+            showToggleAllButton={true}
+            on:updateSelection={({ detail }) => {
+                onUpdateValue("context.abilities", detail);
+            }}
+        />
 
-        <FieldWrapper heading="A5E.contexts.bonusTypes">
-            <CheckboxGroup
-                options={Object.entries(abilityBonusContexts)}
-                selected={abilityTypeContext}
-                on:updateSelection={({ detail }) => {
-                    onUpdateValue("context.types", detail);
-                }}
-            />
-        </FieldWrapper>
+        <CheckboxGroup
+            heading="A5E.contexts.bonusTypes"
+            options={Object.entries(abilityBonusContexts)}
+            selected={abilityTypeContext}
+            on:updateSelection={({ detail }) => {
+                onUpdateValue("context.types", detail);
+            }}
+        />
 
         <FieldWrapper>
             <Checkbox
