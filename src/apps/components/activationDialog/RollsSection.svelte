@@ -48,18 +48,17 @@
     <div class="roll-wrapper">
         {#each Object.entries(otherRolls) as [rollType, _rolls]}
             {#if _rolls.length}
-                <FieldWrapper heading={rollHeadingMap[rollType]}>
-                    <CheckboxGroup
-                        options={_rolls.map(([key, roll]) => [
-                            key,
-                            roll.label || roll.defaultLabel,
-                        ])}
-                        disabledOptions={disabledRolls}
-                        selected={selectedRolls}
-                        on:updateSelection={(event) =>
-                            (selectedRolls = event.detail)}
-                    />
-                </FieldWrapper>
+                <CheckboxGroup
+                    heading={rollHeadingMap[rollType]}
+                    options={_rolls.map(([key, roll]) => [
+                        key,
+                        roll.label || roll.defaultLabel,
+                    ])}
+                    disabledOptions={disabledRolls}
+                    selected={selectedRolls}
+                    on:updateSelection={(event) =>
+                        (selectedRolls = event.detail)}
+                />
             {/if}
         {/each}
     </div>

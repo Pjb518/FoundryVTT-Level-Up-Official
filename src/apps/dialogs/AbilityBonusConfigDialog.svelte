@@ -4,11 +4,9 @@
     import updateDocumentDataFromField from "../../utils/updateDocumentDataFromField";
 
     import Checkbox from "../components/Checkbox.svelte";
-    import FieldWrapper from "../components/FieldWrapper.svelte";
-    import FormSection from "../components/LegacyFormSection.svelte";
-    import TagGroup from "../components/TagGroup.svelte";
-    import Section from "../components/Section.svelte";
     import CheckboxGroup from "../components/CheckboxGroup.svelte";
+    import FieldWrapper from "../components/FieldWrapper.svelte";
+    import Section from "../components/Section.svelte";
 
     export let { document, bonusID } = getContext("#external").application;
     export let jsonValue = null;

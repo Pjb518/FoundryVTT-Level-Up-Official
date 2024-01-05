@@ -5,8 +5,9 @@
     import updateDocumentDataFromField from "../../utils/updateDocumentDataFromField";
 
     import Checkbox from "../components/Checkbox.svelte";
-    import FormSection from "../components/LegacyFormSection.svelte";
-    import TagGroup from "../components/TagGroup.svelte";
+    import CheckboxGroup from "../components/CheckboxGroup.svelte";
+    import FieldWrapper from "../components/FieldWrapper.svelte";
+    import Section from "../components/Section.svelte";
 
     export let { document, bonusID } = getContext("#external").application;
     export let jsonValue = null;
@@ -109,23 +110,20 @@
         </div>
     </header>
 
-    <FormSection>
-        <FormSection
-            heading="A5E.DamageFormula"
-            --background="none"
-            --grow="1"
-            --direction="column"
-            --padding="0"
-        >
+    <Section
+        --a5e-section-body-direction="row"
+        --a5e-section-margin="0.25rem 0"
+    >
+        <FieldWrapper heading="A5E.DamageFormula" --a5e-field-wrapper-grow="1">
             <input
                 type="text"
                 value={damageBonus.formula ?? ""}
                 on:change={({ target }) =>
                     onUpdateValue("formula", target.value)}
             />
-        </FormSection>
+        </FieldWrapper>
 
-        <FormSection
+        <FieldWrapper
             heading="A5E.DamageType"
             --background="none"
             --direction="column"
@@ -153,37 +151,41 @@
                     </option>
                 {/each}
             </select>
-        </FormSection>
-    </FormSection>
+        </FieldWrapper>
+    </Section>
 
-    <FormSection
+    <Section
         heading="Contexts"
         hint="The context determines when the damage bonus applies"
-        --direction="column"
-        --wrap="nowrap"
+        --a5e-section-body-gap="0.75rem"
+        --a5e-section-body-padding="0 0.25rem"
+        --a5e-section-margin="0"
     >
-        <TagGroup
+        <CheckboxGroup
             heading="A5E.contexts.attackType"
             options={Object.entries(damageBonusContexts)}
             selected={attackTypesContext}
+            showToggleAllButton={true}
             on:updateSelection={({ detail }) => {
                 onUpdateValue("context.attackTypes", detail);
             }}
         />
 
-        <TagGroup
+        <CheckboxGroup
             heading="A5E.contexts.damageType"
             options={Object.entries(damageTypes)}
             selected={damageTypesContext}
+            showToggleAllButton={true}
             on:updateSelection={({ detail }) => {
                 onUpdateValue("context.damageTypes", detail);
             }}
         />
 
-        <TagGroup
+        <CheckboxGroup
             heading="A5E.contexts.spellLevel"
             options={Object.entries(spellLevels)}
             selected={spellLevelsContext}
+            showToggleAllButton={true}
             on:updateSelection={({ detail }) => {
                 onUpdateValue("context.spellLevels", detail);
             }}
@@ -196,17 +198,17 @@
                 onUpdateValue("context.isCritBonus", detail);
             }}
         />
-    </FormSection>
 
-    <FormSection>
-        <Checkbox
-            label="Select Damage Bonus Automatically in Roll Prompt"
-            checked={damageBonus.default ?? true}
-            on:updateSelection={({ detail }) => {
-                onUpdateValue("default", detail);
-            }}
-        />
-    </FormSection>
+        <FieldWrapper>
+            <Checkbox
+                label="Select Damage Bonus Automatically in Roll Prompt"
+                checked={damageBonus.default ?? true}
+                on:updateSelection={({ detail }) => {
+                    onUpdateValue("default", detail);
+                }}
+            />
+        </FieldWrapper>
+    </Section>
 </form>
 
 <style lang="scss">

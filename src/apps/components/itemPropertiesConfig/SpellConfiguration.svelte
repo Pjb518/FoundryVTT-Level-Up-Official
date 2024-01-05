@@ -75,21 +75,18 @@
 
     {#if editMode}
         <div class="u-flex u-flex-col u-gap-md">
-            <FormSection
+            <CheckboxGroup
                 heading="Classes"
                 hint="Select the classes that are eligible to select this spell."
-            >
-                <CheckboxGroup
-                    options={Object.entries(classSpellLists)}
-                    selected={$item.system.classes}
-                    on:updateSelection={(event) =>
-                        updateDocumentDataFromField(
-                            $item,
-                            "system.classes",
-                            event.detail,
-                        )}
-                />
-            </FormSection>
+                options={Object.entries(classSpellLists)}
+                selected={$item.system.classes}
+                on:updateSelection={(event) =>
+                    updateDocumentDataFromField(
+                        $item,
+                        "system.classes",
+                        event.detail,
+                    )}
+            />
 
             <FormSection heading="A5E.SpellLevel">
                 <RadioGroup
@@ -117,18 +114,17 @@
                 />
             </FormSection>
 
-            <FormSection heading="A5E.SpellSchoolSecondaryPlural">
-                <CheckboxGroup
-                    options={Object.entries(spellSchools.secondary)}
-                    selected={$item.system.schools.secondary}
-                    on:updateSelection={(event) =>
-                        updateDocumentDataFromField(
-                            $item,
-                            "system.schools.secondary",
-                            event.detail,
-                        )}
-                />
-            </FormSection>
+            <CheckboxGroup
+                heading="A5E.SpellSchoolSecondaryPlural"
+                options={Object.entries(spellSchools.secondary)}
+                selected={$item.system.schools.secondary}
+                on:updateSelection={(event) =>
+                    updateDocumentDataFromField(
+                        $item,
+                        "system.schools.secondary",
+                        event.detail,
+                    )}
+            />
 
             <FormSection heading="A5E.SpellComponents">
                 <ul

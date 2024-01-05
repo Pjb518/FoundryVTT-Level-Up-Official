@@ -6,8 +6,6 @@
     export let hint = null;
     export let showWarning = false;
     export let warning = null;
-
-    console.log(buttons);
 </script>
 
 <section class="a5e-field-wrapper">

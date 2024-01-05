@@ -102,9 +102,8 @@
         </section>
 
         <section class="u-flex u-flex-col u-gap-sm">
-            <h3 class="u-text-bold u-text-sm">Optional Size Choices</h3>
-
             <CheckboxGroup
+                heading="Optional Size Choices"
                 options={creatureSizes}
                 selected={$item.system.creatureSize.options}
                 disabledOptions={$item.system.creatureSize.fixed}
@@ -118,18 +117,13 @@
         </section>
     </FormSection>
 
-    <FormSection heading="A5E.CreatureTypesLabel">
-        <CheckboxGroup
-            options={creatureTypes}
-            selected={$item.system.creatureTypes}
-            on:updateSelection={({ detail }) =>
-                updateDocumentDataFromField(
-                    $item,
-                    "system.creatureTypes",
-                    detail,
-                )}
-        />
-    </FormSection>
+    <CheckboxGroup
+        heading="A5E.CreatureTypesLabel"
+        options={creatureTypes}
+        selected={$item.system.creatureTypes}
+        on:updateSelection={({ detail }) =>
+            updateDocumentDataFromField($item, "system.creatureTypes", detail)}
+    />
 
     {#if typeof traitEffect === "string"}
         {traitEffect}

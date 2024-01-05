@@ -117,17 +117,16 @@
     </header>
 
     <!-- Condition Automation -->
-    <FormSection hint="A5E.settings.hints.automateConditions" --gap="0.25rem">
-        <CheckboxGroup
-            options={automatableConditions}
-            selected={selectedConditions}
-            on:updateSelection={({ detail }) => {
-                updates.set("automatedConditions", detail);
-                selectedConditions = detail;
-                reload = true;
-            }}
-        />
-    </FormSection>
+    <CheckboxGroup
+        hint="A5E.settings.hints.automateConditions"
+        options={automatableConditions}
+        selected={selectedConditions}
+        on:updateSelection={({ detail }) => {
+            updates.set("automatedConditions", detail);
+            selectedConditions = detail;
+            reload = true;
+        }}
+    />
 
     <FormSection
         hint="A5E.settings.hints.automateBloodiedApplication"

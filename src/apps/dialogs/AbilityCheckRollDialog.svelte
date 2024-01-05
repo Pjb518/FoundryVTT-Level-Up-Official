@@ -5,7 +5,6 @@
 
     import CheckboxGroup from "../components/CheckboxGroup.svelte";
     import ExpertiseDiePicker from "../components/ExpertiseDiePicker.svelte";
-    import FormSection from "../components/LegacyFormSection.svelte";
     import FieldWrapper from "../components/FieldWrapper.svelte";
     import OutputVisibilitySection from "../components/activationDialog/OutputVisibilitySection.svelte";
     import RadioGroup from "../components/RadioGroup.svelte";
@@ -98,17 +97,16 @@
     />
 
     {#if Object.values(abilityBonuses).flat().length}
-        <FieldWrapper heading="Ability Bonuses">
-            <CheckboxGroup
-                options={abilityBonuses.map(([key, abilityBonus]) => [
-                    key,
-                    abilityBonus.label || abilityBonus.defaultLabel,
-                ])}
-                selected={selectedAbilityBonuses}
-                on:updateSelection={({ detail }) =>
-                    (selectedAbilityBonuses = detail)}
-            />
-        </FieldWrapper>
+        <CheckboxGroup
+            heading="Ability Bonuses"
+            options={abilityBonuses.map(([key, abilityBonus]) => [
+                key,
+                abilityBonus.label || abilityBonus.defaultLabel,
+            ])}
+            selected={selectedAbilityBonuses}
+            on:updateSelection={({ detail }) =>
+                (selectedAbilityBonuses = detail)}
+        />
     {/if}
 
     <FieldWrapper heading="A5E.SituationalMods">

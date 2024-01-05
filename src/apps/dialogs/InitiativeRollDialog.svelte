@@ -122,31 +122,28 @@
     />
 
     {#if Object.values(abilityBonuses).flat().length}
-        <FieldWrapper heading="Ability Bonuses">
-            <CheckboxGroup
-                options={abilityBonuses.map(([key, abilityBonus]) => [
-                    key,
-                    abilityBonus.label || abilityBonus.defaultLabel,
-                ])}
-                selected={selectedAbilityBonuses}
-                on:updateSelection={({ detail }) =>
-                    (selectedAbilityBonuses = detail)}
-            />
-        </FieldWrapper>
+        <CheckboxGroup
+            heading="Ability Bonuses"
+            options={abilityBonuses.map(([key, abilityBonus]) => [
+                key,
+                abilityBonus.label || abilityBonus.defaultLabel,
+            ])}
+            selected={selectedAbilityBonuses}
+            on:updateSelection={({ detail }) =>
+                (selectedAbilityBonuses = detail)}
+        />
     {/if}
 
     {#if Object.values(skillBonuses).flat().length}
-        <FieldWrapper heading="Skill Bonuses">
-            <CheckboxGroup
-                options={skillBonuses.map(([key, skillBonus]) => [
-                    key,
-                    skillBonus.label || skillBonus.defaultLabel,
-                ])}
-                selected={selectedSkillBonuses}
-                on:updateSelection={({ detail }) =>
-                    (selectedSkillBonuses = detail)}
-            />
-        </FieldWrapper>
+        <CheckboxGroup
+            heading="Skill Bonuses"
+            options={skillBonuses.map(([key, skillBonus]) => [
+                key,
+                skillBonus.label || skillBonus.defaultLabel,
+            ])}
+            selected={selectedSkillBonuses}
+            on:updateSelection={({ detail }) => (selectedSkillBonuses = detail)}
+        />
     {/if}
 
     <FieldWrapper heading="A5E.SituationalMods">

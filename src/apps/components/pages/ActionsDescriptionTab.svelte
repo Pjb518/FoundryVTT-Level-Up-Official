@@ -33,21 +33,18 @@
 {/if}
 
 <section>
-    <FormSection
+    <CheckboxGroup
         heading="A5E.ActionDescriptionOptions"
         hint="A5E.ActionDescriptionOptionsHint"
-    >
-        <CheckboxGroup
-            options={descriptionOutputOptions}
-            selected={descriptionOutputs}
-            on:updateSelection={({ detail }) =>
-                updateDocumentDataFromField(
-                    $item,
-                    `system.actions.${actionId}.descriptionOutputs`,
-                    detail,
-                )}
-        />
-    </FormSection>
+        options={descriptionOutputOptions}
+        selected={descriptionOutputs}
+        on:updateSelection={({ detail }) =>
+            updateDocumentDataFromField(
+                $item,
+                `system.actions.${actionId}.descriptionOutputs`,
+                detail,
+            )}
+    />
 
     <Editor
         document={item}

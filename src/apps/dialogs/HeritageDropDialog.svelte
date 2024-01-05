@@ -84,13 +84,12 @@
             />
         </FormSection>
 
-        <FormSection heading={localize("A5E.originSheets.heritage.traits")}>
-            <CheckboxGroup
-                options={features}
-                selected={selectedFeatures}
-                on:updateSelection={({ detail }) => (selectedFeatures = detail)}
-            />
-        </FormSection>
+        <CheckboxGroup
+            heading="A5E.originSheets.heritage.traits"
+            options={features}
+            selected={selectedFeatures}
+            on:updateSelection={({ detail }) => (selectedFeatures = detail)}
+        />
 
         <FormSection heading={localize("A5E.originSheets.heritage.gifts")}>
             <RadioGroup

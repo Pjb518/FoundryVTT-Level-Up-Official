@@ -4,8 +4,11 @@
     import updateDocumentDataFromField from "../../utils/updateDocumentDataFromField";
 
     import Checkbox from "../components/Checkbox.svelte";
+    import CheckboxGroup from "../components/CheckboxGroup.svelte";
+    import FieldWrapper from "../components/FieldWrapper.svelte";
     import FormSection from "../components/LegacyFormSection.svelte";
     import TagGroup from "../components/TagGroup.svelte";
+    import Section from "../components/Section.svelte";
 
     export let { document, bonusID } = getContext("#external").application;
     export let jsonValue = null;
@@ -104,33 +107,29 @@
         </div>
     </header>
 
-    <FormSection>
-        <FormSection
-            heading="A5E.Formula"
-            --background="none"
-            --grow="1"
-            --direction="column"
-            --padding="0"
-        >
+    <Section --a5e-section-margin="0.25rem 0">
+        <FieldWrapper heading="A5E.Formula">
             <input
                 type="text"
                 value={skillBonus.formula ?? ""}
                 on:change={({ target }) =>
                     onUpdateValue("formula", target.value)}
             />
-        </FormSection>
-    </FormSection>
+        </FieldWrapper>
+    </Section>
 
-    <FormSection
+    <Section
         heading="Contexts"
         hint="The context determines when the ability bonus applies"
-        --direction="column"
-        --wrap="nowrap"
+        --a5e-section-body-gap="0.75rem"
+        --a5e-section-body-padding="0 0.25rem"
+        --a5e-section-margin="0"
     >
-        <TagGroup
+        <CheckboxGroup
             heading="A5E.contexts.skills"
             options={Object.entries(skills)}
             selected={skillsContext}
+            showToggleAllButton={true}
             on:updateSelection={({ detail }) => {
                 onUpdateValue("context.skills", detail);
             }}
@@ -151,17 +150,17 @@
                 onUpdateValue("context.passiveOnly", detail);
             }}
         />
-    </FormSection>
 
-    <FormSection>
-        <Checkbox
-            label="Select Skill Bonus Automatically in Roll Prompt"
-            checked={skillBonus.default ?? true}
-            on:updateSelection={({ detail }) => {
-                onUpdateValue("default", detail);
-            }}
-        />
-    </FormSection>
+        <FieldWrapper>
+            <Checkbox
+                label="Select Skill Bonus Automatically in Roll Prompt"
+                checked={skillBonus.default ?? true}
+                on:updateSelection={({ detail }) => {
+                    onUpdateValue("default", detail);
+                }}
+            />
+        </FieldWrapper>
+    </Section>
 </form>
 
 <style lang="scss">

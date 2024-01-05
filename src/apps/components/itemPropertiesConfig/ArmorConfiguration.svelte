@@ -66,18 +66,17 @@
                 />
             </FormSection>
 
-            <FormSection heading="A5E.ArmorProperties">
-                <CheckboxGroup
-                    options={Object.entries(armorProperties)}
-                    selected={$item.system.armorProperties}
-                    on:updateSelection={(event) =>
-                        updateDocumentDataFromField(
-                            $item,
-                            "system.armorProperties",
-                            event.detail,
-                        )}
-                />
-            </FormSection>
+            <CheckboxGroup
+                heading="A5E.ArmorProperties"
+                options={Object.entries(armorProperties)}
+                selected={$item.system.armorProperties}
+                on:updateSelection={(event) =>
+                    updateDocumentDataFromField(
+                        $item,
+                        "system.armorProperties",
+                        event.detail,
+                    )}
+            />
         </div>
     {:else}
         <dl class="a5e-box u-flex u-flex-col u-gap-sm u-m-0 u-p-md u-text-sm">

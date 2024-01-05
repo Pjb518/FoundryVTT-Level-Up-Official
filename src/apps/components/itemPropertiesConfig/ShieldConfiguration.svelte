@@ -60,18 +60,17 @@
                 />
             </FormSection>
 
-            <FormSection heading="A5E.ShieldProperties">
-                <CheckboxGroup
-                    options={Object.entries(shieldProperties)}
-                    selected={$item.system.shieldProperties}
-                    on:updateSelection={(event) =>
-                        updateDocumentDataFromField(
-                            $item,
-                            "system.shieldProperties",
-                            event.detail,
-                        )}
-                />
-            </FormSection>
+            <CheckboxGroup
+                heading="A5E.ShieldProperties"
+                options={Object.entries(shieldProperties)}
+                selected={$item.system.shieldProperties}
+                on:updateSelection={(event) =>
+                    updateDocumentDataFromField(
+                        $item,
+                        "system.shieldProperties",
+                        event.detail,
+                    )}
+            />
         </div>
     {:else}
         <dl class="a5e-box u-flex u-flex-col u-gap-sm u-m-0 u-p-md u-text-sm">

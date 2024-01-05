@@ -194,32 +194,30 @@
 
     <!-- If there are no rolls, hide this section -->
     {#if Object.values(damageBonuses).flat().length}
-        <FieldWrapper heading="Damage Bonuses">
-            <CheckboxGroup
-                options={damageBonuses.map(([key, damageBonus]) => [
-                    key,
-                    damageBonus.label || damageBonus.defaultLabel,
-                ])}
-                selected={selectedDamageBonuses}
-                on:updateSelection={({ detail }) =>
-                    (selectedDamageBonuses = detail)}
-            />
-        </FieldWrapper>
+        <CheckboxGroup
+            heading="Damage Bonuses"
+            options={damageBonuses.map(([key, damageBonus]) => [
+                key,
+                damageBonus.label || damageBonus.defaultLabel,
+            ])}
+            selected={selectedDamageBonuses}
+            on:updateSelection={({ detail }) =>
+                (selectedDamageBonuses = detail)}
+        />
     {/if}
 
     <!-- If there are no rolls, hide this section -->
     {#if Object.values(healingBonuses).flat().length}
-        <FieldWrapper heading="Healing Bonuses">
-            <CheckboxGroup
-                options={healingBonuses.map(([key, healingBonus]) => [
-                    key,
-                    healingBonus.label || healingBonus.defaultLabel,
-                ])}
-                selected={selectedHealingBonuses}
-                on:updateSelection={({ detail }) =>
-                    (selectedHealingBonuses = detail)}
-            />
-        </FieldWrapper>
+        <CheckboxGroup
+            heading="Healing Bonuses"
+            options={healingBonuses.map(([key, healingBonus]) => [
+                key,
+                healingBonus.label || healingBonus.defaultLabel,
+            ])}
+            selected={selectedHealingBonuses}
+            on:updateSelection={({ detail }) =>
+                (selectedHealingBonuses = detail)}
+        />
     {/if}
 
     <!-- If there are no prompts, hide this section -->

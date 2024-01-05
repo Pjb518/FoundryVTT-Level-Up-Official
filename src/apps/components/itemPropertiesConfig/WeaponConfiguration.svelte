@@ -51,18 +51,17 @@
 
     {#if editMode}
         <div class="u-flex u-flex-col u-gap-md">
-            <FormSection heading="A5E.WeaponProperties">
-                <CheckboxGroup
-                    options={Object.entries(weaponProperties)}
-                    selected={$item.system.weaponProperties}
-                    on:updateSelection={(event) =>
-                        updateDocumentDataFromField(
-                            $item,
-                            "system.weaponProperties",
-                            event.detail,
-                        )}
-                />
-            </FormSection>
+            <CheckboxGroup
+                heading="A5E.WeaponProperties"
+                options={Object.entries(weaponProperties)}
+                selected={$item.system.weaponProperties}
+                on:updateSelection={(event) =>
+                    updateDocumentDataFromField(
+                        $item,
+                        "system.weaponProperties",
+                        event.detail,
+                    )}
+            />
         </div>
     {:else}
         <dl class="a5e-box u-flex u-flex-col u-gap-sm u-m-0 u-p-md u-text-sm">

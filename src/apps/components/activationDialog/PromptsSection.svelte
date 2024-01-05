@@ -36,18 +36,17 @@
     <div class="prompt-wrapper">
         {#each Object.entries(prompts) as [promptType, _prompts]}
             {#if _prompts.length}
-                <FieldWrapper heading={promptHeadingMap[promptType]}>
-                    <CheckboxGroup
-                        options={_prompts.map(([key, prompt]) => [
-                            key,
-                            prompt.label || prompt.defaultLabel,
-                        ])}
-                        disabledOptions={disabledPrompts}
-                        selected={selectedPrompts}
-                        on:updateSelection={(event) =>
-                            (selectedPrompts = event.detail)}
-                    />
-                </FieldWrapper>
+                <CheckboxGroup
+                    heading={promptHeadingMap[promptType]}
+                    options={_prompts.map(([key, prompt]) => [
+                        key,
+                        prompt.label || prompt.defaultLabel,
+                    ])}
+                    disabledOptions={disabledPrompts}
+                    selected={selectedPrompts}
+                    on:updateSelection={(event) =>
+                        (selectedPrompts = event.detail)}
+                />
             {/if}
         {/each}
     </div>

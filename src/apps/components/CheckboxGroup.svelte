@@ -9,13 +9,16 @@
     export let disabled = false;
     export let disabledOptions = [];
     export let heading = "";
+    export let hint = null;
     export let listClasses = "";
     export let options = [];
     export let optionStyles = "";
     export let orange = [];
+    export let red = [];
     export let selected = [];
     export let showToggleAllButton = false;
-    export let red = [];
+    export let showWarning = false;
+    export let warning = null;
 
     function getButtons() {
         if (!showToggleAllButton) return [];
@@ -53,8 +56,11 @@
 </script>
 
 <FieldWrapper
-    {heading}
     {buttons}
+    {heading}
+    {hint}
+    {showWarning}
+    {warning}
     --a5e-field-wrapper-header-item-justification="flex-start"
     --a5e-field-wrapper-header-gap="0.5rem"
 >
