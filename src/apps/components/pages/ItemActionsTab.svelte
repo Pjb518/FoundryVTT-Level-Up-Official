@@ -1,6 +1,7 @@
 <script>
     import { getContext } from "svelte";
-    import { localize } from "#runtime/svelte/helper";
+
+    import Section from "../Section.svelte";
 
     const item = getContext("item");
 
@@ -36,17 +37,17 @@
     }
 </script>
 
-<section class="action-config action-config__wrapper">
-    <header class="action-config__section-header">
-        <h2 class="tab-heading">
-            {localize("A5E.TabActions")}
-        </h2>
-
-        <button class="add-button" on:click={addAction}>
-            {localize("A5E.ButtonAddAction")}
-        </button>
-    </header>
-
+<Section
+    heading="A5E.TabActions"
+    headerButtons={[
+        {
+            classes: "add-button",
+            handler: addAction,
+            label: "A5E.ButtonAddAction",
+        },
+    ]}
+    --a5e-section-gap="0.125rem"
+>
     <ul class="a5e-item-list">
         {#each Object.entries($item.system.actions ?? {}) as [id, action] (id)}
             <li
@@ -89,7 +90,7 @@
             </li>
         {/each}
     </ul>
-</section>
+</Section>
 
 <style lang="scss">
     .action-button {
