@@ -4,6 +4,7 @@
     import ExpertiseDiePicker from "../components/ExpertiseDiePicker.svelte";
     import FieldWrapper from "../components/FieldWrapper.svelte";
     import RadioGroup from "../components/RadioGroup.svelte";
+    import Section from "../components/Section.svelte";
 
     import prepareAbilityOptions from "../dataPreparationHelpers/prepareAbilityOptions";
     import updateDocumentDataFromField from "../../utils/updateDocumentDataFromField";
@@ -16,63 +17,47 @@
     $: initiative = $actor.system.attributes.initiative;
 </script>
 
-<article>
-    <div class="u-flex u-flex-col u-gap-md">
-        <FieldWrapper heading="A5E.AbilityScore">
-            <RadioGroup
-                optionStyles="min-width:2rem; text-align: center;"
-                options={abilityOptions}
-                selected={$actor.system.attributes.initiative.ability}
-                allowDeselect={false}
-                on:updateSelection={(event) =>
-                    updateDocumentDataFromField(
-                        $actor,
-                        "system.attributes.initiative.ability",
-                        event.detail,
-                    )}
-            />
-        </FieldWrapper>
-
-        <ExpertiseDiePicker
-            selected={initiative.expertiseDice}
+<Section
+    --a5e-section-body-gap="0.75rem"
+    --a5e-section-margin="0"
+    --a5e-section-padding="0.75rem"
+>
+    <FieldWrapper heading="A5E.AbilityScore">
+        <RadioGroup
+            optionStyles="min-width:2rem; text-align: center;"
+            options={abilityOptions}
+            selected={$actor.system.attributes.initiative.ability}
+            allowDeselect={false}
             on:updateSelection={(event) =>
                 updateDocumentDataFromField(
                     $actor,
-                    `system.attributes.initiative.expertiseDice`,
+                    "system.attributes.initiative.ability",
                     event.detail,
                 )}
         />
+    </FieldWrapper>
 
-        <FieldWrapper
-            heading="A5E.InitiativeBonus"
-            hint="This field accepts any values valid in roll formulae."
-        >
-            <div class="u-w-full">
-                <input
-                    class="a5e-input"
-                    type="text"
-                    name="system.attributes.initiative.bonus"
-                    value={initiative.bonus}
-                    on:change={({ target }) =>
-                        updateDocumentDataFromField(
-                            $actor,
-                            target.name,
-                            target.value,
-                        )}
-                />
-            </div>
-        </FieldWrapper>
-    </div>
-</article>
+    <ExpertiseDiePicker
+        selected={initiative.expertiseDice}
+        on:updateSelection={(event) =>
+            updateDocumentDataFromField(
+                $actor,
+                `system.attributes.initiative.expertiseDice`,
+                event.detail,
+            )}
+    />
 
-<style lang="scss">
-    article {
-        display: flex;
-        flex-direction: column;
-        height: 100%;
-        padding: 0.75rem;
-        gap: 0.5rem;
-        overflow: auto;
-        background: $color-sheet-background;
-    }
-</style>
+    <FieldWrapper
+        heading="A5E.InitiativeBonus"
+        hint="This field accepts any values valid in roll formulae."
+    >
+        <input
+            class="a5e-input"
+            type="text"
+            name="system.attributes.initiative.bonus"
+            value={initiative.bonus}
+            on:change={({ target }) =>
+                updateDocumentDataFromField($actor, target.name, target.value)}
+        />
+    </FieldWrapper>
+</Section>
