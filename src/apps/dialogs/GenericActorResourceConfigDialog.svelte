@@ -2,8 +2,10 @@
     import { getContext } from "svelte";
 
     import Checkbox from "../components/Checkbox.svelte";
+    import FieldWrapper from "../components/FieldWrapper.svelte";
     import FormSection from "../components/LegacyFormSection.svelte";
     import RadioGroup from "../components/RadioGroup.svelte";
+    import Section from "../components/Section.svelte";
 
     import updateDocumentDataFromField from "../../utils/updateDocumentDataFromField";
     import handleDeterministicInput from "../../utils/handleDeterministicInput";
@@ -16,8 +18,12 @@
     $: resource = $actor.system.resources[source];
 </script>
 
-<article class="u-flex u-flex-col u-gap-md">
-    <FormSection heading="A5E.Label">
+<Section
+    --a5e-section-body-padding="0.75rem"
+    --a5e-section-body-gap="0.75rem"
+    --a5e-section-margin="0 0 0.25rem 0"
+>
+    <FieldWrapper heading="A5E.Label">
         <input
             class="a5e-input"
             type="text"
@@ -29,10 +35,10 @@
                     target.value,
                 )}
         />
-    </FormSection>
+    </FieldWrapper>
 
     {#if !resource.hideMax}
-        <FormSection heading="A5E.GenericResourceMaxFormula">
+        <FieldWrapper heading="A5E.GenericResourceMaxFormula">
             <input
                 class="a5e-input"
                 type="text"
@@ -46,10 +52,10 @@
                     );
                 }}
             />
-        </FormSection>
+        </FieldWrapper>
     {/if}
 
-    <FormSection>
+    <FieldWrapper>
         <Checkbox
             label="A5E.GenericResourceHideMax"
             checked={resource.hideMax ?? false}
@@ -61,9 +67,16 @@
                 );
             }}
         />
-    </FormSection>
+    </FieldWrapper>
+</Section>
 
-    <FormSection heading="A5E.RecoverResourceAt">
+<Section
+    heading="Recovery Configuration"
+    --a5e-section-body-gap="0.75rem"
+    --a5e-section-body-padding="0 0.25rem"
+    --a5e-section-padding="0 0.75rem"
+>
+    <FieldWrapper heading="A5E.RecoverResourceAt">
         <RadioGroup
             options={recoveryOptions}
             selected={resource.per}
@@ -74,63 +87,38 @@
                     event.detail,
                 )}
         />
-    </FormSection>
+    </FieldWrapper>
 
     {#if resource.per === "recharge"}
-        <FormSection>
-            <FormSection
-                heading="A5E.ItemRechargeFormula"
-                --background="none"
-                --direction="column"
-                --grow="1"
-                --padding="0"
-            >
-                <input
-                    class="a5e-input"
-                    type="text"
-                    value={resource.recharge.formula}
-                    placeholder="1d6"
-                    on:change={({ target }) => {
-                        handleDeterministicInput(target.value);
-                        updateDocumentDataFromField(
-                            $actor,
-                            `system.resources.${source}.recharge.formula`,
-                            target.value,
-                        );
-                    }}
-                />
-            </FormSection>
+        <FieldWrapper heading="A5E.ItemRechargeFormula">
+            <input
+                class="a5e-input"
+                type="text"
+                value={resource.recharge.formula}
+                placeholder="1d6"
+                on:change={({ target }) => {
+                    handleDeterministicInput(target.value);
+                    updateDocumentDataFromField(
+                        $actor,
+                        `system.resources.${source}.recharge.formula`,
+                        target.value,
+                    );
+                }}
+            />
+        </FieldWrapper>
 
-            <FormSection
-                heading="A5E.ItemRechargeThreshold"
-                --background="none"
-                --direction="column"
-                --padding="0"
-            >
-                <input
-                    class="a5e-input u-text-center"
-                    type="number"
-                    value={resource.recharge.threshold}
-                    on:change={({ target }) =>
-                        updateDocumentDataFromField(
-                            $actor,
-                            `system.resources.${source}.recharge.threshold`,
-                            Number(target.value),
-                        )}
-                />
-            </FormSection>
-        </FormSection>
+        <FieldWrapper heading="A5E.ItemRechargeThreshold">
+            <input
+                class="a5e-input u-text-center"
+                type="number"
+                value={resource.recharge.threshold}
+                on:change={({ target }) =>
+                    updateDocumentDataFromField(
+                        $actor,
+                        `system.resources.${source}.recharge.threshold`,
+                        Number(target.value),
+                    )}
+            />
+        </FieldWrapper>
     {/if}
-</article>
-
-<style lang="scss">
-    article {
-        display: flex;
-        flex-direction: column;
-        height: 100%;
-        padding: 0.75rem;
-        gap: 0.5rem;
-        overflow: auto;
-        background: $color-sheet-background;
-    }
-</style>
+</Section>

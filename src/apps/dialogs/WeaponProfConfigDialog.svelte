@@ -4,6 +4,7 @@
 
     import TagGroup from "../components/TagGroup.svelte";
     import InputField from "../components/InputField.svelte";
+    import Section from "../components/Section.svelte";
 
     import updateDocumentDataFromField from "../../utils/updateDocumentDataFromField";
 
@@ -79,7 +80,11 @@
     $: otherProficiencies = weaponProficiencies.other.join("; ");
 </script>
 
-<form class="a5e-form u-py-lg u-px-xl a5e-form--reactive-dialog u-bg-none">
+<Section
+    --a5e-section-body-padding="0.75rem"
+    --a5e-section-body-gap="0"
+    --a5e-section-margin="0"
+>
     <TagGroup
         heading="A5E.WeaponsSimple"
         options={Object.entries(simple)}
@@ -130,4 +135,4 @@
             </button>
         </div>
     {/if}
-</form>
+</Section>

@@ -5,7 +5,9 @@
 
     import Checkbox from "../components/Checkbox.svelte";
     import CustomTagGroup from "../components/CustomTagGroup.svelte";
+    import FieldWrapper from "../components/FieldWrapper.svelte";
     import FormSection from "../components/LegacyFormSection.svelte";
+    import Section from "../components/Section.svelte";
 
     export let { document, appId } = getContext("#external").application;
 
@@ -13,8 +15,12 @@
     const systemTypes = Object.entries(CONFIG.A5E.creatureTypes);
 </script>
 
-<article>
-    <FormSection>
+<Section
+    --a5e-section-body-padding="0.75rem"
+    --a5e-section-body-gap="0.75rem"
+    --a5e-section-margin="0"
+>
+    <FieldWrapper>
         <CustomTagGroup
             heading="A5E.CreatureTypePlural"
             options={systemTypes}
@@ -26,9 +32,9 @@
                     event.detail,
                 )}
         />
-    </FormSection>
+    </FieldWrapper>
 
-    <FormSection>
+    <FieldWrapper>
         <Checkbox
             label="A5E.CreatureSwarm"
             checked={$actor.system.details.isSwarm}
@@ -40,8 +46,8 @@
                 );
             }}
         />
-    </FormSection>
-</article>
+    </FieldWrapper>
+</Section>
 
 <style lang="scss">
     article {

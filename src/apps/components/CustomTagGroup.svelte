@@ -1,6 +1,5 @@
 <script>
     import { createEventDispatcher } from "svelte";
-    import { localize } from "#runtime/svelte/helper";
 
     import arraysAreEqual from "../../utils/arraysAreEqual";
 
