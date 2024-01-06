@@ -45,9 +45,9 @@ export default class RollPreparationManager {
 
     const attackRoll = await this.#prepareAttackRoll(attack ?? {});
 
-    const damageRolls = (await Promise.all(
+    const damageRolls = await Promise.all(
       damage.map(async (roll, i) => this.#prepareDamageRoll(roll, attackRoll, i))
-    )).filter(Boolean);
+    );
 
     const healingRolls = (await Promise.all(
       healing.map(async (roll) => this.#prepareHealingRoll(roll))
@@ -68,9 +68,9 @@ export default class RollPreparationManager {
       healingRolls.push(...bonusTempHealingRolls);
     }
 
-    const otherRolls = (await Promise.all(
+    const otherRolls = await Promise.all(
       other.map(async (roll) => this.#prepareItemRoll(roll))
-    )).filter(Boolean);
+    );
 
     return [attackRoll, ...damageRolls, ...healingRolls, ...otherRolls].filter(Boolean);
   }
