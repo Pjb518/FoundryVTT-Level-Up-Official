@@ -117,12 +117,14 @@
             buttons={[
                 {
                     classes:
-                        "fa-solid fa-gear a5e-config-button details-config",
+                        "fa-solid fa-gear a5e-field-wrapper__header-button--scale",
                     display: !sheetIsLocked,
                     handler: () => openConfig(dialogMethod, propertyKey),
                 },
             ]}
             --a5e-field-wrapper-heading-weight="400"
+            --a5e-header-button-color="rgba(0, 0, 0, 0.2)"
+            --a5e-header-button-color-hover="#555"
         >
             <ul class="details-list">
                 {#each values as tag}
