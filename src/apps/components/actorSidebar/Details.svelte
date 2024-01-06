@@ -36,72 +36,84 @@
             values: prepareMovementData($actor),
             dialogMethod: "configureMovement",
             propertyKey: "system.attributes.movement",
+            tooltip: "Configure Movement",
         },
         {
             heading: localize("A5E.SensesSpecial"),
             values: prepareSenses($actor),
             dialogMethod: "configureSenses",
             propertyKey: "system.attributes.senses",
+            tooltip: "Configure Senses",
         },
         {
             heading: localize("A5E.Languages"),
             values: prepareLanguageProficiencies($actor),
             dialogMethod: "configureLanguages",
             propertyKey: "system.proficiencies.languages",
+            tooltip: "Configure Languages",
         },
         {
             heading: localize("A5E.ConditionImmunities"),
             values: prepareConditionImmunities($actor),
             dialogMethod: "configureConditionImmunities",
             propertyKey: "system.traits.conditionImmunities",
+            tooltip: "Configure Condition Immunities",
         },
         {
             heading: localize("A5E.DamageImmunities"),
             values: prepareDamageImmunities($actor),
             dialogMethod: "configureDamageImmunities",
             propertyKey: "system.traits.damageImmunities",
+            tooltip: "Configure Damage Immunities",
         },
         {
             heading: localize("A5E.DamageResistances"),
             values: prepareDamageResistances($actor),
             dialogMethod: "configureDamageResistances",
             propertyKey: "system.traits.damageResistances",
+            tooltip: "Configure Damage Resistances",
         },
         {
             heading: localize("A5E.DamageVulnerabilities"),
             values: prepareDamageVulnerabilities($actor),
             dialogMethod: "configureDamageVulnerabilities",
             propertyKey: "system.traits.damageVulnerabilities",
+            tooltip: "Configure Damage Vulnerabilities",
         },
         {
             heading: localize("A5E.WeaponProficiencies"),
             values: prepareWeaponProficiencies($actor),
             dialogMethod: "configureWeaponProficiencies",
             propertyKey: "system.proficiencies.weapons",
+            tooltip: "Configure Weapon Proficiencies",
         },
         {
             heading: localize("A5E.ArmorProficiencies"),
             values: prepareArmorProficiencies($actor),
             dialogMethod: "configureArmorProficiencies",
             propertyKey: "system.proficiencies.armor",
+            tooltip: "Configure Armor Proficiencies",
         },
         {
             heading: localize("A5E.ToolProficiencies"),
             values: prepareToolProficiencies($actor),
             dialogMethod: "configureToolProficiencies",
             propertyKey: "system.proficiencies.tools",
+            tooltip: "Configure Tool Proficiencies",
         },
         {
             heading: localize("A5E.Size"),
             values: prepareCreatureSize($actor),
             dialogMethod: "configureSizeCategory",
             propertyKey: "system.traits.size",
+            tooltip: "Configure Size Category",
         },
         {
             heading: localize("A5E.CreatureTypesLabel"),
             values: prepareCreatureTypes($actor),
             dialogMethod: "configureCreatureTypes",
             propertyKey: "system.details.creatureTypes",
+            tooltip: "Configure Creature Types",
         },
     ];
 
@@ -110,7 +122,7 @@
         : $actor.flags?.a5e?.sheetIsLocked ?? true;
 </script>
 
-{#each details as { heading, values, dialogMethod, propertyKey }}
+{#each details as { dialogMethod, heading, propertyKey, tooltip, values }}
     {#if values.length || !sheetIsLocked}
         <FieldWrapper
             {heading}
@@ -120,6 +132,7 @@
                         "fa-solid fa-gear a5e-field-wrapper__header-button--scale",
                     display: !sheetIsLocked,
                     handler: () => openConfig(dialogMethod, propertyKey),
+                    tooltip,
                 },
             ]}
             --a5e-field-wrapper-heading-weight="400"
