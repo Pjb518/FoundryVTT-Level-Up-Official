@@ -250,15 +250,6 @@
 </section>
 
 <style lang="scss">
-    .section-list {
-        display: flex;
-        flex-direction: column;
-        margin: 0;
-        padding: 0;
-        gap: 0.25rem;
-        list-style: none;
-    }
-
     .scaling-button {
         display: flex;
         align-items: center;
