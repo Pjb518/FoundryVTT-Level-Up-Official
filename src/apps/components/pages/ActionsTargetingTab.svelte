@@ -9,7 +9,8 @@
     import updateDocumentDataFromField from "../../../utils/updateDocumentDataFromField";
 
     import AreaConfig from "../itemActionsConfig/AreaConfig.svelte";
-    import FormSection from "../LegacyFormSection.svelte";
+    import FieldWrapper from "../FieldWrapper.svelte";
+    import Section from "../Section.svelte";
     import TargetRangeIncrement from "../itemActionsConfig/TargetRangeIncrement.svelte";
     import TargetScalingDialog from "../../dialogs/TargetScalingDialog.svelte";
 
@@ -69,36 +70,37 @@
 </script>
 
 <section class="action-config action-config__wrapper">
-    <section class="action-config__section">
-        <header class="action-config__section-header">
-            <h2 class="action-config__section-heading">
-                {localize("A5E.TabRanges")}
-            </h2>
-
-            <button class="add-button" on:click={addRangeIncrement}>
-                {localize("A5E.ButtonAddRangeIncrement")}
-            </button>
-        </header>
-
-        <ul class="section-list">
+    <Section
+        heading="A5E.TabRanges"
+        headerButtons={[
+            {
+                classes: "add-button",
+                label: "A5E.ButtonAddRangeIncrement",
+                handler: addRangeIncrement,
+            },
+        ]}
+        --a5e-section-gap="0"
+        --a5e-section-margin="0"
+    >
+        <ul class="a5e-item-list">
             {#each Object.entries(action.ranges ?? {}) as [id, range], index (id)}
-                <li class="range-increment" data-range-id={id}>
+                <li class="a5e-item a5e-item--action-config" data-range-id={id}>
                     <TargetRangeIncrement {index} {id} rangeObject={range} />
                 </li>
             {:else}
                 <li class="none">None</li>
             {/each}
         </ul>
-    </section>
+    </Section>
 
     <AreaConfig {action} {actionId} {item} />
 
-    <section class="action-config__section">
-        <header class="action-config__section-header">
-            <h2 class="action-config__section-heading">Target</h2>
-        </header>
-
-        <FormSection>
+    <Section
+        heading="Target"
+        --a5e-section-gap="0.5rem"
+        --a5e-section-margin="0"
+    >
+        <FieldWrapper>
             <div class="action-config__component">
                 {#if ["creature", "object", "creatureObject"].includes(action.target?.type)}
                     <input
@@ -243,8 +245,8 @@
                     </small>
                 {/if}
             </div>
-        </FormSection>
-    </section>
+        </FieldWrapper>
+    </Section>
 </section>
 
 <style lang="scss">

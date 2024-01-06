@@ -7,7 +7,7 @@
     import updateDocumentDataFromField from "../../../utils/updateDocumentDataFromField";
 
     import Checkbox from "../Checkbox.svelte";
-    import FormSection from "../LegacyFormSection.svelte";
+    import FieldWrapper from "../FieldWrapper.svelte";
     import RadioGroup from "../RadioGroup.svelte";
 
     export let index;
@@ -58,12 +58,10 @@
         });
     }
 
-    function deleteRangeIncrement(event) {
-        const { rangeId } = event.target.closest(".range-increment").dataset;
-
+    function deleteRangeIncrement() {
         $item.update({
             [`system.actions.${actionId}.ranges`]: {
-                [`-=${rangeId}`]: null,
+                [`-=${id}`]: null,
             },
         });
     }
@@ -89,87 +87,61 @@
     $: selected = isStandardRange(range) ? range : "other";
 </script>
 
-<FormSection --direction="column" --gap="0.75rem">
-    <RadioGroup
-        {heading}
-        {options}
-        {selected}
-        on:updateSelection={({ detail }) => updateRangeValue(detail)}
+<RadioGroup
+    buttons={[
+        {
+            classes:
+                "fa-solid fa-trash a5e-field-wrapper__header-button--scale",
+            handler: deleteRangeIncrement,
+            tooltip: "Delete Range Increment",
+        },
+    ]}
+    {heading}
+    {options}
+    {selected}
+    on:updateSelection={({ detail }) => updateRangeValue(detail)}
+    --a5e-field-wrapper-header-width="100%"
+    --a5e-field-wrapper-label-width="100%"
+    --a5e-header-button-color="rgba(0, 0, 0, 0.2)"
+    --a5e-header-button-color-hover="#555"
+/>
+
+{#if selected === "other"}
+    <Checkbox
+        label="A5E.IncludeUnit"
+        checked={includeUnit}
+        on:updateSelection={(event) => {
+            includeUnit = event.detail;
+            deleteRangeUnit(event);
+        }}
     />
 
-    {#if selected === "other"}
-        <Checkbox
-            label="A5E.IncludeUnit"
-            checked={includeUnit}
-            on:updateSelection={(event) => {
-                includeUnit = event.detail;
-                deleteRangeUnit(event);
-            }}
+    <FieldWrapper
+        hint={includeUnit
+            ? "When units are selected range must be a number."
+            : null}
+        --a5e-field-wrapper-direction="row"
+    >
+        <input
+            class:small-input={includeUnit}
+            type="text"
+            bind:value={customValue}
+            on:change={() => updateRangeValue(customValue)}
         />
 
-        <FormSection
-            hint={includeUnit
-                ? "When units are selected range must be a number."
-                : null}
-            --background="none"
-            --direction="row"
-            --gap="0.5rem"
-            --padding="0"
-            --item-alignment="center"
-        >
-            <input
-                class:small-input={includeUnit}
-                type="text"
-                bind:value={customValue}
-                on:change={() => updateRangeValue(customValue)}
-            />
-
-            {#if includeUnit}
-                <select
-                    class="u-w-30"
-                    name="system.actions.${actionId}.ranges.{id}.unit"
-                    on:change={selectRangeUnit}
-                >
-                    <option value={null}>{localize("A5E.None")}</option>
-                    {#each Object.entries(A5E.distanceUnits) as [unit, label]}
-                        <option
-                            value={unit}
-                            selected={rangeObject.unit === unit}
-                        >
-                            {localize(label)}
-                        </option>
-                    {/each}
-                </select>
-            {/if}
-        </FormSection>
-    {/if}
-
-    <button
-        class="delete-button fas fa-trash"
-        data-tooltip="Delete Range Increment"
-        data-tooltip-direction="UP"
-        on:click={deleteRangeIncrement}
-    />
-</FormSection>
-
-<style lang="scss">
-    .delete-button {
-        position: absolute;
-        top: 0.75rem;
-        right: 0.75rem;
-        width: fit-content;
-        padding: 0.25rem;
-        font-size: $font-size-md;
-        color: #999;
-        background: none;
-        cursor: pointer;
-
-        transition: $standard-transition;
-
-        &:hover {
-            box-shadow: none;
-            transform: scale(1.2);
-            color: $color-secondary;
-        }
-    }
-</style>
+        {#if includeUnit}
+            <select
+                class="u-w-30"
+                name="system.actions.${actionId}.ranges.{id}.unit"
+                on:change={selectRangeUnit}
+            >
+                <option value={null}>{localize("A5E.None")}</option>
+                {#each Object.entries(A5E.distanceUnits) as [unit, label]}
+                    <option value={unit} selected={rangeObject.unit === unit}>
+                        {localize(label)}
+                    </option>
+                {/each}
+            </select>
+        {/if}
+    </FieldWrapper>
+{/if}
