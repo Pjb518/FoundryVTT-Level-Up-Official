@@ -261,16 +261,6 @@
         margin-right: -0.375rem;
     }
 
-    .consumers-list {
-        display: flex;
-        flex-direction: column;
-        position: relative;
-        margin: 0;
-        padding: 0;
-        gap: 0.25rem;
-        list-style: none;
-    }
-
     .consumers-config-list {
         display: flex;
         flex-direction: column;
@@ -291,28 +281,5 @@
         justify-content: space-around;
         align-items: center;
         color: #999;
-    }
-
-    .recharge-formula,
-    .recharge-threshold {
-        display: flex;
-        flex-direction: column;
-        gap: 0.25rem;
-        white-space: nowrap;
-        font-size: $font-size-sm;
-
-        &__label {
-            display: block;
-            padding-right: 0.75rem;
-        }
-    }
-
-    .recharge-threshold {
-        width: fit-content;
-        flex-shrink: 0;
-    }
-
-    .recharge-formula {
-        width: 100%;
     }
 </style>
