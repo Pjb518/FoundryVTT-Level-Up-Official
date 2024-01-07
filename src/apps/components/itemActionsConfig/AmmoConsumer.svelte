@@ -71,7 +71,6 @@
         heading="A5E.Item"
         warning="Item selection will be available when item is on an actor."
         showWarning={!$item.actor}
-        --a5e-field-wrapper-width={!$item.actor ? "100%" : "fit-content"}
     >
         {#if $item.actor}
             <select
@@ -89,23 +88,22 @@
         {/if}
     </FieldWrapper>
 
-    <!-- {#if $item.actor} -->
-    <div class="u-flex u-flex-col u-gap-sm u-w-30">
-        <h3 class="a5e-field-group__heading">
-            {localize("A5E.ItemQuantity")}
-        </h3>
-
-        <input
-            type="number"
-            d-type="Number"
-            value={consumer.quantity ?? 1}
-            on:change={({ target }) =>
-                updateDocumentDataFromField(
-                    $item,
-                    `system.actions.${actionId}.consumers.${consumerId}.quantity`,
-                    Number(target.value),
-                )}
-        />
-    </div>
-    <!-- {/if} -->
+    {#if $item.actor}
+        <FieldWrapper
+            heading="A5E.ItemQuantity"
+            --a5e-field-wrapper-width="7.5rem"
+        >
+            <input
+                type="number"
+                d-type="Number"
+                value={consumer.quantity ?? 1}
+                on:change={({ target }) =>
+                    updateDocumentDataFromField(
+                        $item,
+                        `system.actions.${actionId}.consumers.${consumerId}.quantity`,
+                        Number(target.value),
+                    )}
+            />
+        </FieldWrapper>
+    {/if}
 </Section>
