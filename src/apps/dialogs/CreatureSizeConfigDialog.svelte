@@ -13,7 +13,7 @@
     const creatureSizes = Object.entries(CONFIG.A5E.actorSizes);
 </script>
 
-<Section --a5e-section-body-padding="0.75rem" --a5e-section-margin="0">
+<Section --a5e-section-body-padding="0.75rem">
     <RadioGroup
         heading="A5E.SizeCategory"
         options={creatureSizes}

@@ -91,7 +91,6 @@
                             },
                         ]}
                         --a5e-section-gap="0"
-                        --a5e-section-margin="0"
                     >
                         <ul class="a5e-item-list">
                             {#each Object.entries(prompts).filter(([_, prompt]) => prompt.type === promptType) as [promptId, prompt] (promptId)}

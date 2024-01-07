@@ -128,7 +128,6 @@
                             },
                         ]}
                         --a5e-section-gap="0"
-                        --a5e-section-margin="0"
                     >
                         <ul class="a5e-item-list">
                             {#each Object.entries(rolls).filter(([_, roll]) => roll.type === rollType) as [rollId, roll] (rollId)}

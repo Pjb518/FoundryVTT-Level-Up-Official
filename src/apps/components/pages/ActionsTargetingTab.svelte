@@ -80,7 +80,6 @@
             },
         ]}
         --a5e-section-gap="0"
-        --a5e-section-margin="0"
     >
         <ul class="a5e-item-list">
             {#each Object.entries(action.ranges ?? {}) as [id, range], index (id)}
@@ -93,11 +92,7 @@
 
     <AreaConfig {action} {actionId} {item} />
 
-    <Section
-        heading="Target"
-        --a5e-section-gap="0.5rem"
-        --a5e-section-margin="0"
-    >
+    <Section heading="Target" --a5e-section-gap="0.5rem">
         <FieldWrapper>
             <div class="action-config__component">
                 {#if ["creature", "object", "creatureObject"].includes(action.target?.type)}

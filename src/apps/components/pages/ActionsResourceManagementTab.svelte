@@ -93,7 +93,6 @@
             heading="A5E.Uses"
             --a5e-section-body-direction="row"
             --a5e-section-body-gap="0.5rem"
-            --a5e-section-margin="0"
         >
             <FieldWrapper
                 heading="A5E.UsesCurrent"
@@ -163,7 +162,6 @@
                 heading="A5E.ItemRechargeConfiguration"
                 --a5e-section-body-direction="row"
                 --a5e-section-body-gap="0.5rem"
-                --a5e-section-margin="0"
             >
                 <FieldWrapper
                     heading="A5E.ItemRechargeFormula"
@@ -206,11 +204,7 @@
             {#each Object.entries(consumerTypes) as [consumerType, { heading, component }] (consumerType)}
                 {#if Object.values(consumers).filter((consumer) => consumer.type === consumerType).length}
                     <li class="consumers-config-list__item">
-                        <Section
-                            {heading}
-                            --a5e-section-gap="0"
-                            --a5e-section-margin="0"
-                        >
+                        <Section {heading} --a5e-section-gap="0">
                             <ul class="a5e-item-list">
                                 {#each Object.entries(consumers).filter(([_, consumer]) => consumer.type === consumerType) as [consumerId, consumer] (consumerId)}
                                     <li

@@ -62,7 +62,6 @@
 </FieldWrapper>
 
 <Section
-    --a5e-section-margin="0"
     --a5e-section-body-direction="row"
     --a5e-section-body-padding="0"
     --a5e-section-body-gap="0.5rem"

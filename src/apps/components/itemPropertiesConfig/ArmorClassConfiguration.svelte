@@ -29,7 +29,6 @@
         },
     ]}
     --a5e-section-body-gap="0.75rem"
-    --a5e-section-margin="0"
     --a5e-section-heading-gap="0.5rem"
     --a5e-section-heading-template-columns="max-content max-content"
 >
@@ -49,7 +48,7 @@
             />
         </FieldWrapper>
 
-        <Section --a5e-section-body-direction="row" --a5e-section-margin="0">
+        <Section --a5e-section-body-direction="row">
             <FieldWrapper heading="A5E.armorClass.maxDex">
                 <input
                     type="number"

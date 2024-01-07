@@ -20,7 +20,7 @@
 <article>
     <!-- Ability Check Config -->
     {#if !hideExpertiseDice}
-        <Section heading="Ability Check Configuration" --a5e-section-margin="0">
+        <Section heading="Ability Check Configuration">
             <ExpertiseDiePicker
                 selected={ability?.check.expertiseDice}
                 on:updateSelection={({ detail }) =>
@@ -36,7 +36,6 @@
     <Section
         heading="Saving Throw Configuration"
         --a5e-section-body-gap="0.75rem"
-        --a5e-section-margin="0"
     >
         <FieldWrapper
             hint="Determines whether to add this actor's proficiency bonus to its saving throws"
