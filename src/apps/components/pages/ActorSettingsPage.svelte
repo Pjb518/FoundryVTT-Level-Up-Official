@@ -70,6 +70,6 @@
 
 <SecondaryNavigationBar {currentTab} {tabs} on:tab-change={updateCurrentTab} />
 
-<section class="a5e-page-wrapper a5e-page-wrapper--settings">
+<section class="a5e-page-wrapper">
     <svelte:component this={tabs[currentTab]?.component} />
 </section>
