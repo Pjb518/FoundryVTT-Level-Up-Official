@@ -17,11 +17,7 @@
     $: flags = $actor.flags?.a5e ?? {};
 </script>
 
-<Section
-    heading="Weight Tracking Options"
-    --a5e-section-body-gap="0.75rem"
-    --a5e-section-body-padding="0 0.25rem"
->
+<Section heading="Weight Tracking Options" --a5e-section-body-gap="0.75rem">
     <FieldWrapper>
         <Checkbox
             label="A5E.settings.trackInventoryWeight"

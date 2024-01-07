@@ -101,7 +101,11 @@
     on:updateSelection={({ detail }) => (selectedAbility = detail)}
 />
 
-<Section --a5e-section-body-direction="row" --a5e-section-body-wrap="nowrap">
+<Section
+    --a5e-section-body-direction="row"
+    --a5e-section-body-wrap="nowrap"
+    --a5e-section-body-padding="0"
+>
     <FieldWrapper
         heading="A5E.ItemSavingThrowDC"
         --a5e-field-wrapper-label-width="9rem"

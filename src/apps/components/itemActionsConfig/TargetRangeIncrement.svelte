@@ -7,8 +7,8 @@
     import updateDocumentDataFromField from "../../../utils/updateDocumentDataFromField";
 
     import Checkbox from "../Checkbox.svelte";
-    import FieldWrapper from "../FieldWrapper.svelte";
     import RadioGroup from "../RadioGroup.svelte";
+    import Section from "../Section.svelte";
 
     export let index;
     export let id;
@@ -116,32 +116,37 @@
         }}
     />
 
-    <FieldWrapper
+    <Section
         hint={includeUnit
             ? "When units are selected range must be a number."
             : null}
-        --a5e-field-wrapper-direction="row"
+        --a5e-section-body-padding="0"
     >
-        <input
-            class:small-input={includeUnit}
-            type="text"
-            bind:value={customValue}
-            on:change={() => updateRangeValue(customValue)}
-        />
+        <div style="display: flex; gap: 0.5rem; flex-wrap: nowrap">
+            <input
+                style="flex-shrink: 1;"
+                type="text"
+                bind:value={customValue}
+                on:change={() => updateRangeValue(customValue)}
+            />
 
-        {#if includeUnit}
-            <select
-                class="u-w-30"
-                name="system.actions.${actionId}.ranges.{id}.unit"
-                on:change={selectRangeUnit}
-            >
-                <option value={null}>{localize("A5E.None")}</option>
-                {#each Object.entries(A5E.distanceUnits) as [unit, label]}
-                    <option value={unit} selected={rangeObject.unit === unit}>
-                        {localize(label)}
-                    </option>
-                {/each}
-            </select>
-        {/if}
-    </FieldWrapper>
+            {#if includeUnit}
+                <select
+                    class="u-w-30"
+                    name="system.actions.${actionId}.ranges.{id}.unit"
+                    on:change={selectRangeUnit}
+                >
+                    <option value={null}>{localize("A5E.None")}</option>
+                    {#each Object.entries(A5E.distanceUnits) as [unit, label]}
+                        <option
+                            value={unit}
+                            selected={rangeObject.unit === unit}
+                        >
+                            {localize(label)}
+                        </option>
+                    {/each}
+                </select>
+            {/if}
+        </div>
+    </Section>
 {/if}

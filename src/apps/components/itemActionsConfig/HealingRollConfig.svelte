@@ -138,7 +138,11 @@
     />
 </FieldWrapper>
 
-<Section --a5e-section-body-direction="row" --a5e-section-body-wrap="nowrap">
+<Section
+    --a5e-section-body-direction="row"
+    --a5e-section-body-wrap="nowrap"
+    --a5e-section-body-padding="0"
+>
     <FieldWrapper heading="A5E.HealingFormula" --a5e-field-wrapper-grow="1">
         <div class="u-flex u-gap-sm u-w-full">
             <input

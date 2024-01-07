@@ -12,11 +12,7 @@
     $: flags = $actor.flags;
 </script>
 
-<Section
-    heading="Token Options"
-    --a5e-section-body-gap="0.75rem"
-    --a5e-section-body-padding="0 0.25rem"
->
+<Section heading="Token Options" --a5e-section-body-gap="0.75rem">
     <FieldWrapper>
         <Checkbox
             label="Disable Randomized HP Rolls"

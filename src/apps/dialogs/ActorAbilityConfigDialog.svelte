@@ -20,11 +20,7 @@
 <article>
     <!-- Ability Check Config -->
     {#if !hideExpertiseDice}
-        <Section
-            heading="Ability Check Configuration"
-            --a5e-section-body-padding="0 0.25rem"
-            --a5e-section-margin="0"
-        >
+        <Section heading="Ability Check Configuration" --a5e-section-margin="0">
             <ExpertiseDiePicker
                 selected={ability?.check.expertiseDice}
                 on:updateSelection={({ detail }) =>
@@ -39,7 +35,6 @@
 
     <Section
         heading="Saving Throw Configuration"
-        --a5e-section-body-padding="0 0.25rem"
         --a5e-section-body-gap="0.75rem"
         --a5e-section-margin="0"
     >
