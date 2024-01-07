@@ -69,7 +69,7 @@
     $: action = $item.actions[actionId];
 </script>
 
-<section class="action-config action-config__wrapper">
+<section class="a5e-page-wrapper">
     <Section
         heading="A5E.TabRanges"
         headerButtons={[
@@ -250,6 +250,15 @@
 </section>
 
 <style lang="scss">
+    .a5e-page-wrapper {
+        display: flex;
+        flex-direction: column;
+        gap: 0.75rem;
+        overflow-y: auto;
+        margin-right: -0.375rem;
+        padding-right: 0.375rem;
+    }
+
     .scaling-button {
         display: flex;
         align-items: center;

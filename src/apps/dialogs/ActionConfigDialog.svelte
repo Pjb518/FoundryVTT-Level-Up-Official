@@ -12,8 +12,6 @@
     import ActionsTargetingTab from "../components/pages/ActionsTargetingTab.svelte";
     import NavigationBar from "../components/navigation/NavigationBar.svelte";
 
-    import ItemDocument from "../ItemDocument";
-
     import editDocumentImage from "../handlers/editDocumentImage";
     import updateDocumentDataFromField from "../../utils/updateDocumentDataFromField";
 
@@ -107,7 +105,6 @@
         height: 100%;
         padding: 0.75rem;
         gap: 0.5rem;
-        overflow: auto;
         background: $color-sheet-background;
     }
 
