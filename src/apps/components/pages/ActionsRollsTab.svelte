@@ -102,7 +102,7 @@
     );
 </script>
 
-<article>
+<div class="a5e-page-wrapper a5e-page-wrapper--scrollable">
     <ul class="roll-config-list">
         {#each Object.entries(rollTypes) as [rollType, { heading, singleLabel, buttonLabel, component }] (rollType)}
             {#if Object.values(rolls).filter((roll) => roll.type === rollType).length}
@@ -147,27 +147,19 @@
             {/if}
         {/each}
     </ul>
+</div>
 
-    <div class="sticky-add-button">
-        <CreateMenu
-            {menuList}
-            offset={{ x: -110, y: -140 }}
-            documentName="Roll"
-            on:press={({ detail }) =>
-                ActionsManager.addRoll($item, [actionId, action], detail)}
-        />
-    </div>
-</article>
+<div class="sticky-add-button">
+    <CreateMenu
+        {menuList}
+        offset={{ x: -110, y: -140 }}
+        documentName="Roll"
+        on:press={({ detail }) =>
+            ActionsManager.addRoll($item, [actionId, action], detail)}
+    />
+</div>
 
 <style lang="scss">
-    article {
-        display: flex;
-        flex-direction: column;
-        flex: 1;
-        gap: 0.75rem;
-        overflow-y: clip;
-    }
-
     .roll-config-list {
         display: flex;
         flex-direction: column;

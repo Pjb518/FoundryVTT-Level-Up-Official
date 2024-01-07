@@ -69,7 +69,7 @@
     );
 </script>
 
-<article>
+<div class="a5e-page-wrapper a5e-page-wrapper--scrollable">
     <ul class="prompts-config-list">
         {#each Object.entries(promptTypes) as [promptType, { heading, singleLabel, component }] (promptType)}
             {#if Object.values(prompts).filter((prompt) => prompt.type === promptType).length}
@@ -110,27 +110,19 @@
             {/if}
         {/each}
     </ul>
+</div>
 
-    <div class="sticky-add-button">
-        <CreateMenu
-            {menuList}
-            offset={{ x: -110, y: -105 }}
-            documentName="Prompt"
-            on:press={({ detail }) =>
-                ActionsManager.addPrompt($item, [actionId, action], detail)}
-        />
-    </div>
-</article>
+<div class="sticky-add-button">
+    <CreateMenu
+        {menuList}
+        offset={{ x: -110, y: -105 }}
+        documentName="Prompt"
+        on:press={({ detail }) =>
+            ActionsManager.addPrompt($item, [actionId, action], detail)}
+    />
+</div>
 
 <style lang="scss">
-    article {
-        display: flex;
-        flex-direction: column;
-        flex: 1;
-        gap: 0.75rem;
-        overflow-y: clip;
-    }
-
     .prompts-config-list {
         display: flex;
         flex-direction: column;
@@ -138,11 +130,7 @@
         gap: 0.75rem;
         list-style: none;
         margin: 0;
-        margin-right: -0.375rem;
         padding: 0;
-        padding-right: 0.375rem;
-        overflow-y: auto;
-        overflow-x: clip;
 
         &__item {
             display: flex;

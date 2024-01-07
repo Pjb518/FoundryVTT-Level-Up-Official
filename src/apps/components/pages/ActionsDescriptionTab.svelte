@@ -31,7 +31,7 @@
     <hr class="a5e-rule a5e-rule--card" />
 {/if}
 
-<section>
+<section class="a5e-page-wrapper a5e-page-wrapper--scrollable">
     <CheckboxGroup
         heading="A5E.ActionDescriptionOptions"
         hint="A5E.ActionDescriptionOptionsHint"
@@ -51,12 +51,3 @@
         updatePath={`system.actions.${actionId}.description`}
     />
 </section>
-
-<style>
-    section {
-        display: flex;
-        flex-direction: column;
-        gap: 1rem;
-        height: 100%;
-    }
-</style>
