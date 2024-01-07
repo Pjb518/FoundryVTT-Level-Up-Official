@@ -76,7 +76,7 @@
     </UtilityBar>
 {/if}
 
-<section class="inventory-main-container">
+<section class="a5e-page-wrapper a5e-page-wrapper--scrollable">
     {#each sortedObjects as [label, items]}
         {#if items.length}
             <ItemCategory
@@ -98,16 +98,3 @@
 
     <ActorInventoryShields />
 </TabFooter>
-
-<style lang="scss">
-    .inventory-main-container {
-        display: flex;
-        flex-grow: 1;
-        flex-direction: column;
-        gap: 0.5rem;
-        margin-right: -0.375rem;
-        padding-right: 0.375rem;
-        overflow-y: auto;
-        overflow-x: hidden;
-    }
-</style>

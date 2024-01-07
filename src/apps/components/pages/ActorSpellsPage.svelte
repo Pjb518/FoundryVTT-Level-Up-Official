@@ -96,7 +96,7 @@
     </UtilityBar>
 {/if}
 
-<section class="spells-main-container">
+<section class="a5e-page-wrapper a5e-page-wrapper--scrollable">
     {#each Object.entries(spellLevels) as [level, label]}
         {#if isSpellLevelVisible(level)}
             <ItemCategory
@@ -198,16 +198,5 @@
 <style lang="scss">
     .disable-pointer-events {
         pointer-events: none;
-    }
-
-    .spells-main-container {
-        display: flex;
-        flex-grow: 1;
-        flex-direction: column;
-        gap: 0.5rem;
-        margin-right: -0.375rem;
-        padding-right: 0.375rem;
-        overflow-y: auto;
-        overflow-x: hidden;
     }
 </style>

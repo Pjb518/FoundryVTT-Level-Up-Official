@@ -38,7 +38,7 @@
 {/if}
 
 {#if flags.a5e?.showFavoritesSection ?? true}
-    <section class="core-page">
+    <section class="a5e-page-wrapper a5e-page-wrapper--scrollable">
         <ItemCategory
             label="A5E.FavoriteItems"
             icon="fas fa-star a5e-section-header__icon"
@@ -53,16 +53,6 @@
 {/if}
 
 <style lang="scss">
-    .core-page {
-        display: flex;
-        flex-grow: 1;
-        flex-direction: column;
-        margin-right: -0.375rem;
-        padding-right: 0.375rem;
-        overflow-y: auto;
-        overflow-x: hidden;
-    }
-
     .resources-container {
         display: grid;
         grid-template-columns: repeat(4, 1fr);

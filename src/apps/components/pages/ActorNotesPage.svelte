@@ -78,7 +78,7 @@
 
 <SecondaryNavigationBar {currentTab} {tabs} on:tab-change={updateCurrentTab} />
 
-<div class="notes-page">
+<div class="a5e-page-wrapper a5e-page-wrapper--scrollable">
     {#if currentTab === "appearance"}
         <section class="a5e-box u-p-md a5e-form__section--bio-wrapper">
             {#each Object.entries(charChoicesLabel) as [key, label]}
@@ -149,50 +149,3 @@
         updatePath="system.details.{currentTab}"
     />
 </div>
-
-<style lang="scss">
-    .notes-page {
-        display: flex;
-        flex-direction: column;
-        flex: 1;
-        gap: 0.5rem;
-        overflow: hidden;
-    }
-
-    .notes {
-        &__container {
-            display: flex;
-            flex-direction: column;
-            flex-grow: 1;
-            gap: 0.5rem;
-            overflow-y: auto;
-        }
-
-        &__tabs {
-            display: flex;
-            align-content: center;
-            gap: 0.75rem;
-            margin-bottom: 0.5rem;
-            padding-bottom: 0.5rem;
-            border-bottom: 1px solid #ccc;
-        }
-    }
-
-    button {
-        background: transparent;
-        border: 1px solid #ccc;
-        width: fit-content;
-        padding-inline: 0.75rem;
-
-        &:focus,
-        &:hover {
-            box-shadow: none;
-        }
-    }
-
-    .active {
-        background: $color-primary;
-        border: 1px solid $color-primary;
-        color: white;
-    }
-</style>

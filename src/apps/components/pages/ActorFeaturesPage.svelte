@@ -48,7 +48,7 @@
     </UtilityBar>
 {/if}
 
-<section class="features-main-container">
+<section class="a5e-page-wrapper a5e-page-wrapper--scrollable">
     {#if $actor.type === "npc"}
         <ItemCategory
             {showDescription}
@@ -73,16 +73,3 @@
 </section>
 
 <footer class="features-footer" />
-
-<style lang="scss">
-    .features-main-container {
-        display: flex;
-        flex-grow: 1;
-        flex-direction: column;
-        gap: 0.5rem;
-        margin-right: -0.375rem;
-        padding-right: 0.375rem;
-        overflow-y: auto;
-        overflow-x: hidden;
-    }
-</style>
