@@ -89,40 +89,49 @@
     <CheckboxGroup
         heading="A5E.WeaponsSimple"
         options={Object.entries(simple)}
-        bind:selected={weaponProficiencies.simple}
+        selected={weaponProficiencies.simple}
         disabled={weapons.length >= max}
         disabledOptions={submitDialog
             ? $actor.system.proficiencies.weapons
             : []}
         red={submitDialog ? $actor.system.proficiencies.weapons : []}
         showToggleAllButton={true}
-        on:updateSelection={() => updateFunction()}
+        on:updateSelection={({ detail }) => {
+            weaponProficiencies.simple = detail;
+            updateFunction();
+        }}
     />
 
     <CheckboxGroup
         heading="A5E.WeaponsMartial"
         options={Object.entries(martial)}
-        bind:selected={weaponProficiencies.martial}
+        selected={weaponProficiencies.martial}
         disabled={weapons.length >= max}
         disabledOptions={submitDialog
             ? $actor.system.proficiencies.weapons
             : []}
         red={submitDialog ? $actor.system.proficiencies.weapons : []}
         showToggleAllButton={true}
-        on:updateSelection={() => updateFunction()}
+        on:updateSelection={({ detail }) => {
+            weaponProficiencies.martial = detail;
+            updateFunction();
+        }}
     />
 
     <CheckboxGroup
         heading="A5E.WeaponsRare"
         options={Object.entries(rare)}
-        bind:selected={weaponProficiencies.rare}
+        selected={weaponProficiencies.rare}
         disabled={weapons.length >= max}
         disabledOptions={submitDialog
             ? $actor.system.proficiencies.weapons
             : []}
         red={submitDialog ? $actor.system.proficiencies.weapons : []}
         showToggleAllButton={true}
-        on:updateSelection={() => updateFunction()}
+        on:updateSelection={({ detail }) => {
+            weaponProficiencies.rare = detail;
+            updateFunction();
+        }}
     />
 
     <InputField

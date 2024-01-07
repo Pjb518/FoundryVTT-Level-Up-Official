@@ -96,56 +96,71 @@
     <CheckboxGroup
         heading="A5E.ToolsArtisanTools"
         options={Object.entries(artisansTools)}
-        bind:selected={toolProficiencies.artisansTools}
+        selected={toolProficiencies.artisansTools}
         disabled={tools.length >= max}
         disabledOptions={submitDialog ? $actor.system.proficiencies.tools : []}
         red={submitDialog ? $actor.system.proficiencies.tools : []}
         showToggleAllButton={true}
-        on:updateSelection={() => updateFunction()}
+        on:updateSelection={({ detail }) => {
+            toolProficiencies.artisansTools = detail;
+            updateFunction();
+        }}
     />
 
     <CheckboxGroup
         heading="A5E.ToolsGamingSets"
         options={Object.entries(gamingSets)}
-        bind:selected={toolProficiencies.gamingSets}
+        selected={toolProficiencies.gamingSets}
         disabled={tools.length >= max}
         disabledOptions={submitDialog ? $actor.system.proficiencies.tools : []}
         red={submitDialog ? $actor.system.proficiencies.tools : []}
         showToggleAllButton={true}
-        on:updateSelection={() => updateFunction()}
+        on:updateSelection={({ detail }) => {
+            toolProficiencies.gamingSets = detail;
+            updateFunction();
+        }}
     />
 
     <CheckboxGroup
         heading="A5E.MusicalInstruments"
         options={Object.entries(musicalInstruments)}
-        bind:selected={toolProficiencies.musicalInstruments}
+        selected={toolProficiencies.musicalInstruments}
         disabled={tools.length >= max}
         disabledOptions={submitDialog ? $actor.system.proficiencies.tools : []}
         red={submitDialog ? $actor.system.proficiencies.tools : []}
         showToggleAllButton={true}
-        on:updateSelection={() => updateFunction()}
+        on:updateSelection={({ detail }) => {
+            toolProficiencies.musicalInstruments = detail;
+            updateFunction();
+        }}
     />
 
     <CheckboxGroup
         heading="A5E.ToolsMiscellaneous"
         options={Object.entries(miscellaneous)}
-        bind:selected={toolProficiencies.miscellaneous}
+        selected={toolProficiencies.miscellaneous}
         disabled={tools.length >= max}
         disabledOptions={submitDialog ? $actor.system.proficiencies.tools : []}
         red={submitDialog ? $actor.system.proficiencies.tools : []}
         showToggleAllButton={true}
-        on:updateSelection={() => updateFunction()}
+        on:updateSelection={({ detail }) => {
+            toolProficiencies.miscellaneous = detail;
+            updateFunction();
+        }}
     />
 
     <CheckboxGroup
         heading="A5E.ToolsVehicles"
         options={Object.entries(vehicles)}
-        bind:selected={toolProficiencies.vehicles}
+        selected={toolProficiencies.vehicles}
         disabled={tools.length >= max}
         disabledOptions={submitDialog ? $actor.system.proficiencies.tools : []}
         red={submitDialog ? $actor.system.proficiencies.tools : []}
         showToggleAllButton={true}
-        on:updateSelection={() => updateFunction()}
+        on:updateSelection={({ detail }) => {
+            toolProficiencies.vehicles = detail;
+            updateFunction();
+        }}
     />
 
     <InputField
