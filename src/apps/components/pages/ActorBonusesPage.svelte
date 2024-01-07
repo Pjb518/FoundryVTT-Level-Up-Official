@@ -1,7 +1,8 @@
 <script>
     import { getContext } from "svelte";
 
-    import FormSection from "../LegacyFormSection.svelte";
+    import FieldWrapper from "../FieldWrapper.svelte";
+    import Section from "../Section.svelte";
 
     import determineIfPropertyModifiedByEffect from "../../../utils/determineIfPropertyModifiedByEffect ";
     import updateDocumentDataFromField from "../../../utils/updateDocumentDataFromField";
@@ -113,18 +114,13 @@
 </script>
 
 <section class="a5e-page-wrapper a5e-page-wrapper--scrollable">
-    <section class="setting-group">
-        <header class="a5e-section-header">
-            <h3 class="a5e-section-header__heading">Global Bonuses</h3>
-        </header>
-
-        <small class="hint">
-            All of the fields in this section accept any values valid in roll
-            formulae.
-        </small>
-
+    <Section
+        heading="Global Bonuses"
+        hint="All of the fields in this section accept any values valid in roll formulae."
+        --a5e-section-body-gap="0.5rem"
+    >
         <div class="global-bonus-container">
-            <FormSection
+            <FieldWrapper
                 heading="Melee Weapon Attack"
                 showWarning={disableMeleeWeaponAttack}
                 warning="A5E.validations.warnings.modifiedByEffect"
@@ -142,9 +138,9 @@
                             target.value,
                         )}
                 />
-            </FormSection>
+            </FieldWrapper>
 
-            <FormSection
+            <FieldWrapper
                 heading="Ranged Weapon Attack"
                 showWarning={disableRangedWeaponAttack}
                 warning="A5E.validations.warnings.modifiedByEffect"
@@ -162,9 +158,9 @@
                             target.value,
                         )}
                 />
-            </FormSection>
+            </FieldWrapper>
 
-            <FormSection
+            <FieldWrapper
                 heading="Melee Spell Attack"
                 showWarning={disableMeleeSpellAttack}
                 warning="A5E.validations.warnings.modifiedByEffect"
@@ -182,9 +178,9 @@
                             target.value,
                         )}
                 />
-            </FormSection>
+            </FieldWrapper>
 
-            <FormSection
+            <FieldWrapper
                 heading="Ranged Spell Attack"
                 showWarning={disableRangedSpellAttack}
                 warning="A5E.validations.warnings.modifiedByEffect"
@@ -202,13 +198,13 @@
                             target.value,
                         )}
                 />
-            </FormSection>
+            </FieldWrapper>
         </div>
 
         <hr class="divider" />
 
         <div class="global-bonus-container">
-            <FormSection
+            <FieldWrapper
                 heading="A5E.ManeuverDCBonus"
                 showWarning={disableManeuverDC}
                 warning="A5E.validations.warnings.modifiedByEffect"
@@ -226,9 +222,9 @@
                             target.value,
                         )}
                 />
-            </FormSection>
+            </FieldWrapper>
 
-            <FormSection
+            <FieldWrapper
                 heading="A5E.SpellDCBonus"
                 showWarning={disableSpellDC}
                 warning="A5E.validations.warnings.modifiedByEffect"
@@ -246,25 +242,21 @@
                             target.value,
                         )}
                 />
-            </FormSection>
+            </FieldWrapper>
         </div>
-    </section>
+    </Section>
 
     {#each bonusCategories as bonusType}
-        <section>
-            <header class="a5e-section-header a5e-section-header--bonus-list">
-                <h3 class="a5e-section-header__heading">
-                    {getBonusSectionHeader(bonusType)}
-                </h3>
-
-                <button
-                    class="a5e-section-header__button"
-                    on:click={() => $actor.addBonus(bonusType)}
-                >
-                    {getAddButtonLabelForBonus(bonusType)}
-                </button>
-            </header>
-
+        <Section
+            heading={getBonusSectionHeader(bonusType)}
+            headerButtons={[
+                {
+                    label: getAddButtonLabelForBonus(bonusType),
+                    handler: () => $actor.addBonus(bonusType),
+                },
+            ]}
+            --a5e-section-gap="0"
+        >
             <ul class="a5e-item-list">
                 {#each Object.entries($actor.system.bonuses[bonusType] ?? {}) as [id, bonus] (id)}
                     <li
@@ -328,7 +320,7 @@
                     </li>
                 {/each}
             </ul>
-        </section>
+        </Section>
     {/each}
 </section>
 
@@ -375,26 +367,12 @@
     .divider {
         border: 0;
         border-bottom: 0.5px solid #ccc;
-        margin: 0.375rem 0;
+        margin: 0;
     }
 
     .global-bonus-container {
         display: grid;
         grid-template-columns: repeat(2, 1fr);
-        gap: 0.25rem;
-    }
-
-    .hint {
-        margin-block: 0.25rem;
-    }
-
-    .setting-group {
-        display: flex;
-        flex-direction: column;
-        gap: 0.25rem;
-
-        &:not(:last-child) {
-            margin-bottom: 0.25rem;
-        }
+        gap: 0.5rem;
     }
 </style>
