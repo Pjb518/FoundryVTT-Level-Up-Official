@@ -79,6 +79,7 @@
                 handler: addRangeIncrement,
             },
         ]}
+        --a5e-section-body-padding="0 0.25rem"
         --a5e-section-gap="0"
         --a5e-section-margin="0"
     >
@@ -87,8 +88,6 @@
                 <li class="a5e-item a5e-item--action-config" data-range-id={id}>
                     <TargetRangeIncrement {index} {id} rangeObject={range} />
                 </li>
-            {:else}
-                <li class="none">None</li>
             {/each}
         </ul>
     </Section>
@@ -97,6 +96,7 @@
 
     <Section
         heading="Target"
+        --a5e-section-body-padding="0 0.25rem"
         --a5e-section-gap="0.5rem"
         --a5e-section-margin="0"
     >
