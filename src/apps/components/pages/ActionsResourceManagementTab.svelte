@@ -5,7 +5,6 @@
     import ActionsManager from "../../../managers/ActionsManager";
 
     import AmmoConsumer from "../itemActionsConfig/AmmoConsumer.svelte";
-    import ConsumerConfigWrapper from "../itemActionsConfig/ConsumerConfigWrapper.svelte";
     import CreateMenu from "../actorUtilityBar/CreateMenu.svelte";
     import HitDiceConsumer from "../itemActionsConfig/HitDiceConsumer.svelte";
     import QuantityConsumer from "../itemActionsConfig/QuantityConsumer.svelte";
@@ -14,11 +13,18 @@
     import UsesConsumer from "../itemActionsConfig/UsesConsumer.svelte";
 
     import FieldWrapper from "../FieldWrapper.svelte";
-    import FormSection from "../LegacyFormSection.svelte";
     import Section from "../Section.svelte";
 
     import handleDeterministicInput from "../../../utils/handleDeterministicInput";
     import updateDocumentDataFromField from "../../../utils/updateDocumentDataFromField";
+
+    function deleteConsumer(actionId, consumerId) {
+        $item.update({
+            [`system.actions.${actionId}.consumers`]: {
+                [`-=${consumerId}`]: null,
+            },
+        });
+    }
 
     const item = getContext("item");
     const actionId = getContext("actionId");
@@ -200,27 +206,26 @@
             {#each Object.entries(consumerTypes) as [consumerType, { heading, component }] (consumerType)}
                 {#if Object.values(consumers).filter((consumer) => consumer.type === consumerType).length}
                     <li class="consumers-config-list__item">
-                        <header class="action-config__section-header">
-                            <h2 class="action-config__section-header">
-                                {localize(heading)}
-                            </h2>
-                        </header>
-
-                        <ul class="consumers-list">
-                            {#each Object.entries(consumers).filter(([_, consumer]) => consumer.type === consumerType) as [consumerId, consumer] (consumerId)}
-                                <ConsumerConfigWrapper {consumer} {consumerId}>
-                                    <svelte:component
-                                        this={component}
-                                        {consumer}
-                                        {consumerId}
-                                    />
-                                </ConsumerConfigWrapper>
-                            {:else}
-                                <li class="action-config__none">
-                                    {localize("A5E.None")}
-                                </li>
-                            {/each}
-                        </ul>
+                        <Section
+                            {heading}
+                            --a5e-section-gap="0"
+                            --a5e-section-margin="0"
+                        >
+                            <ul class="a5e-item-list">
+                                {#each Object.entries(consumers).filter(([_, consumer]) => consumer.type === consumerType) as [consumerId, consumer] (consumerId)}
+                                    <li
+                                        class="a5e-item a5e-item--action-config"
+                                    >
+                                        <svelte:component
+                                            this={component}
+                                            {consumer}
+                                            {consumerId}
+                                            {deleteConsumer}
+                                        />
+                                    </li>
+                                {/each}
+                            </ul>
+                        </Section>
                     </li>
                 {/if}
             {/each}

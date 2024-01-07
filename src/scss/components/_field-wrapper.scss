@@ -58,19 +58,21 @@
   }
 
   &__hint {
-    margin: 0;
+    flex-shrink: var(--a5e-field-wrapper-hint-shrink, 1);
   }
 
   &__hint,
   &__warning {
     display: block;
     width: 100%;
+    margin: 0;
     padding-right: 0.25rem;
     font-family: var(--a5e-field-wrapper-info-font, var(--a5e-font-sans-serif));
     font-size: var(--a5e-field-wrapper-info-text-size, var(--a5e-text-size-xs));
   }
 
   &__warning {
+    flex-shrink: var(--a5e-field-wrapper-warning-shrink, 1);
     color: var(--a5e-field-wrapper-color-warning, var(--a5e-color-warning));
   }
 }
