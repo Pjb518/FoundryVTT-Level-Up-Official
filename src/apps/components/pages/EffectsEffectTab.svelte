@@ -48,10 +48,10 @@
     $: changes = $effect.changes;
 </script>
 
-<article>
-    <section class="changes-list">
+<section class="a5e-page-wrapper a5e-page-wrapper--scrollable">
+    <ul class="a5e-item-list">
         {#each changes as { key, value, mode }, idx (idx)}
-            <div class="change-container">
+            <li class="a5e-item a5e-item--effect-config">
                 <div class="button-wrapper">
                     <button
                         class="a5e-button a5e-button--delete fas fa-trash"
@@ -82,37 +82,29 @@
                     on:change={({ detail }) =>
                         updateChange(idx, "value", detail)}
                 />
-            </div>
+            </li>
         {/each}
-    </section>
+    </ul>
+</section>
 
-    <div class="sticky-add-button">
-        <TJSIconButton
-            title="Add Change"
-            icon="fas fa-plus"
-            onPress={() => addChange()}
-            --tjs-icon-button-background-hover="none"
-            --tjs-icon-button-background-focus="none"
-            --tjs-icon-button-background-focus-visible="none"
-            --tjs-icon-button-background-selected="none"
-            --tjs-icon-button-text-shadow-hover="none"
-            --tjs-icon-button-text-shadow-focus="none"
-            --tjs-icon-button-transition="$standard-transition"
-            --tjs-icon-button-diameter="1rem"
-            --tjs-icon-button-border-radius="0"
-        />
-    </div>
-</article>
+<div class="sticky-add-button">
+    <TJSIconButton
+        title="Add Change"
+        icon="fas fa-plus"
+        onPress={() => addChange()}
+        --tjs-icon-button-background-hover="none"
+        --tjs-icon-button-background-focus="none"
+        --tjs-icon-button-background-focus-visible="none"
+        --tjs-icon-button-background-selected="none"
+        --tjs-icon-button-text-shadow-hover="none"
+        --tjs-icon-button-text-shadow-focus="none"
+        --tjs-icon-button-transition="$standard-transition"
+        --tjs-icon-button-diameter="1rem"
+        --tjs-icon-button-border-radius="0"
+    />
+</div>
 
 <style lang="scss">
-    article {
-        display: flex;
-        flex-direction: column;
-        flex: 1;
-        gap: 0.75rem;
-        overflow: hidden;
-    }
-
     .button-wrapper {
         display: flex;
         align-items: center;
@@ -122,31 +114,6 @@
         right: 0.75rem;
         color: #999;
         font-size: $font-size-md;
-    }
-
-    .changes-list {
-        display: flex;
-        flex-direction: column;
-        flex-grow: 1;
-        gap: 0.75rem;
-
-        position: relative;
-
-        padding: 0;
-        margin: 0;
-        overflow-y: auto;
-    }
-
-    .change-container {
-        display: flex;
-        flex-direction: column;
-        gap: 0.5rem;
-        position: relative;
-        width: 100%;
-        padding: 0.75rem;
-        font-size: $font-size-sm;
-        background-color: rgba(0, 0, 0, 0.05);
-        border-radius: 4px;
     }
 
     .row {
