@@ -247,7 +247,7 @@
         flex-direction: column;
         flex: 1;
         gap: 0.75rem;
-        overflow: hidden;
+        overflow-y: clip;
     }
 
     .main-container {
@@ -256,6 +256,8 @@
         gap: 0.25rem;
         flex-grow: 1;
         overflow: auto;
+        padding-right: 0.375rem;
+        margin-right: -0.375rem;
     }
 
     .consumers-list {

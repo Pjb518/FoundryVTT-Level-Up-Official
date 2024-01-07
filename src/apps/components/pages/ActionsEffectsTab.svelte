@@ -54,7 +54,7 @@
         flex-direction: column;
         flex: 1;
         gap: 0.5rem;
-        overflow: hidden;
+        overflow-y: clip;
     }
 
     .effects-main-container {
@@ -62,7 +62,11 @@
         flex-grow: 1;
         flex-direction: column;
         gap: 0.75rem;
+        margin: 0;
+        margin-right: -0.375rem;
+        padding: 0;
+        padding-right: 0.375rem;
         overflow-y: auto;
-        overflow-x: hidden;
+        overflow-x: clip;
     }
 </style>

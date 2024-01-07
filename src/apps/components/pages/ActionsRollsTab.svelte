@@ -166,7 +166,7 @@
         flex-direction: column;
         flex: 1;
         gap: 0.75rem;
-        overflow: hidden;
+        overflow-y: clip;
     }
 
     .roll-config-list {
@@ -175,8 +175,10 @@
         flex-grow: 1;
         gap: 0.75rem;
         list-style: none;
-        padding: 0;
         margin: 0;
+        margin-right: -0.375rem;
+        padding: 0;
+        padding-right: 0.375rem;
         overflow-y: auto;
 
         &__item {

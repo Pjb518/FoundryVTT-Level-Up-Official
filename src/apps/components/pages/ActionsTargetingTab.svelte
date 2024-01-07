@@ -255,7 +255,9 @@
         flex-direction: column;
         gap: 0.75rem;
         overflow-y: auto;
+        margin: 0;
         margin-right: -0.375rem;
+        padding: 0;
         padding-right: 0.375rem;
     }
 
