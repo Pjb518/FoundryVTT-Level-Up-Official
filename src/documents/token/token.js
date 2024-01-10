@@ -7,6 +7,10 @@ let circularMask = null;
  * @extends {Token}
  */
 export default class TokenA5e extends Token {
+  #previewMoveTime = 0;
+
+  #previewEvents;
+
   /**
    * Get an array of icon paths which represent valid status effect choices
    * @private
@@ -360,5 +364,90 @@ export default class TokenA5e extends Token {
     const icon = await this._drawEffect(src, tint, true);
     if (icon) icon.alpha = 0.8;
     return icon;
+  }
+
+  // ********************************************************************
+  //                         Token Preview Draw
+  // ********************************************************************
+  async drawPreview() {
+    this.draw();
+    this.layer.preview.addChild(this);
+
+    return this.activatePreviewListeners();
+  }
+
+  activatePreviewListeners() {
+    return new Promise((resolve, reject) => {
+      this.#previewEvents = {
+        cancel: this._onPreviewCancel.bind(this),
+        confirm: this._onPreviewConfirm.bind(this),
+        move: this._onPreviewMove.bind(this),
+        rotate: this._onPreviewRotate.bind(this),
+        resolve,
+        reject
+      };
+
+      // Activate listeners
+      canvas.stage.on('mousemove', this.#previewEvents.move);
+      canvas.stage.on('mousedown', this.#previewEvents.confirm);
+      canvas.app.view.oncontextmenu = this.#previewEvents.cancel;
+      canvas.app.view.onwheel = this.#previewEvents.rotate;
+    });
+  }
+
+  async _previewFinishPlacement(e, cancelled = false) {
+    if (cancelled) {
+      this.layer._onDragLeftCancel(e ?? {});
+    }
+    canvas.stage.off('mousemove', this.#previewEvents.move);
+    canvas.stage.off('mousedown', this.#previewEvents.confirm);
+    canvas.app.view.oncontextmenu = null;
+    canvas.app.view.onwheel = null;
+  }
+
+  _onPreviewMove(e) {
+    e.stopPropagation();
+
+    const now = Date.now();
+    if (now - this.#previewMoveTime <= 10) return;
+    const center = e.data.getLocalPosition(this.layer);
+    // const interval = canvas.grid.type === CONST.GRID_TYPES.GRIDLESS ? 0 : 2;
+    const snapped = canvas.grid.getSnappedPosition(center.x, center.y);
+
+    this.document.updateSource({ x: snapped.x, y: snapped.y });
+    this.refresh();
+    this.#previewMoveTime = now;
+  }
+
+  _onPreviewRotate(e) {
+    if (e.ctrlKey) e.preventDefault(); // Avoid zooming the browser window
+    e.stopPropagation();
+
+    const delta = Math.sign(e.deltaY);
+    const rotation = this.rotation + (delta * Math.PI) / 6;
+    const update = {
+      rotation
+    };
+    this.document.updateSource(update);
+    this.refresh();
+  }
+
+  _onPreviewCancel(e) {
+    this._previewFinishPlacement(e, true);
+    this.layer.preview.removeChild(this);
+    this.#previewEvents.reject();
+  }
+
+  _onPreviewConfirm(e) {
+    this._previewFinishPlacement(e);
+    const interval = canvas.grid.type === CONST.GRID_TYPES.GRIDLESS ? 0 : 2;
+    const destination = canvas.grid.getSnappedPosition(this.document.x, this.document.y, interval);
+
+    this.document.updateSource({ x: destination.x, y: destination.y });
+    this.refresh();
+    this.destroy();
+    this.#previewEvents.resolve(
+      canvas.scene.createEmbeddedDocuments('Token', [this.document.toObject()])
+    );
   }
 }
