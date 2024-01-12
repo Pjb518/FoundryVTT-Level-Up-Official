@@ -5,7 +5,7 @@
 	"items": [
 		{
 			"_id": "6Y1N4HAnCmpDkl3K",
-			"name": "Legendary Resistance (3/Day)",
+			"name": "Legendary Resistance",
 			"type": "feature",
 			"img": "icons/svg/item-bag.svg",
 			"effects": [],
@@ -28,9 +28,9 @@
 				"secretDescription": "",
 				"source": "",
 				"uses": {
-					"value": null,
-					"max": "",
-					"per": null,
+					"value": 3,
+					"max": "3",
+					"per": "day",
 					"recharge": {
 						"formula": "",
 						"threshold": ""
@@ -437,7 +437,7 @@
 		},
 		{
 			"_id": "LcsncSG0v72AnXoV",
-			"name": "Tail Attack (Reaction)",
+			"name": "Tail Attack",
 			"type": "feature",
 			"img": "icons/skills/wounds/injury-pain-impaled-hand-blood.webp",
 			"effects": [],
@@ -542,7 +542,7 @@
 		},
 		{
 			"_id": "9Rq4BiK8eMSDGF34",
-			"name": "Roar (Legendary Action)",
+			"name": "Roar",
 			"type": "feature",
 			"img": "icons/magic/sonic/scream-wail-shout-teal.webp",
 			"effects": [],
@@ -565,7 +565,7 @@
 				},
 				"actions": {
 					"vk1DfE14xXnfKivX": {
-						"name": "Roar (Legendary Action)",
+						"name": "Roar",
 						"activation": {
 							"cost": 1,
 							"type": "legendaryAction",
@@ -639,7 +639,7 @@
 		},
 		{
 			"_id": "f2FrNF7toyEqWdgY",
-			"name": "Wing Attack (Legendary Action)",
+			"name": "Wing Attack",
 			"type": "feature",
 			"img": "icons/svg/item-bag.svg",
 			"effects": [],
@@ -662,7 +662,7 @@
 				},
 				"actions": {
 					"0rSb2NWaym3nJLW3": {
-						"name": "Wing Attack (Legendary Action)",
+						"name": "Wing Attack",
 						"activation": {
 							"cost": 1,
 							"type": "legendaryAction",
@@ -759,9 +759,9 @@
 				"secretDescription": "",
 				"source": "",
 				"uses": {
-					"value": null,
-					"max": "",
-					"per": null,
+					"value": 3,
+					"max": "3",
+					"per": "turn",
 					"recharge": {
 						"formula": "",
 						"threshold": ""
@@ -996,7 +996,7 @@
 		},
 		{
 			"_id": "Dlu4XIb9I6hi5K8I",
-			"name": "Poison Breath (Recharge 5-6)",
+			"name": "Poison Breath",
 			"type": "feature",
 			"img": "icons/magic/acid/projectile-smoke-glowing.webp",
 			"effects": [],
@@ -1019,7 +1019,7 @@
 				},
 				"actions": {
 					"ub5nG7Um2naCSYfB": {
-						"name": "Poison Breath (Recharge 5-6)",
+						"name": "Poison Breath",
 						"activation": {
 							"cost": 1,
 							"type": "action",
@@ -1059,7 +1059,13 @@
 								"type": "savingThrow"
 							}
 						},
-						"consumers": {}
+						"consumers": {
+							"VkwCQESDUuN4Lpmi": {
+								"type": "itemUses",
+								"default": true,
+								"quantity": 1
+							}
+						}
 					}
 				},
 				"description": "<p>The dragon exhales poisonous gas in a 60-foot cone. Each creature in that area makes a DC 19 Constitution saving throw, taking 63 (18d6) poison damage on a failed save or half damage on a success. A creature with immunity to poison damage that fails the save takes no damage, but its poison immunity is reduced to resistance for the next hour.</p>",
@@ -1067,12 +1073,12 @@
 				"secretDescription": "",
 				"source": "",
 				"uses": {
-					"value": null,
-					"max": "",
-					"per": null,
+					"value": 1,
+					"max": "1",
+					"per": "recharge",
 					"recharge": {
 						"formula": "",
-						"threshold": ""
+						"threshold": 5
 					}
 				},
 				"schema": {
@@ -1101,7 +1107,7 @@
 		},
 		{
 			"_id": "HcudkJ6gE27GSpKV",
-			"name": "Honeyed Words (Legendary Action)",
+			"name": "Honeyed Words",
 			"type": "feature",
 			"img": "icons/svg/item-bag.svg",
 			"effects": [],
@@ -1120,7 +1126,7 @@
 				},
 				"actions": {
 					"6rgwFGETrnmrg252": {
-						"name": "Honeyed Words (Legendary Action)",
+						"name": "Honeyed Words",
 						"activation": {
 							"cost": 1,
 							"type": "legendaryAction",
@@ -2481,7 +2487,7 @@
 	},
 	"prototypeToken": {
 		"name": "Adult Green Dragon",
-		"displayName": 0,
+		"displayName": 30,
 		"actorLink": false,
 		"width": 3,
 		"height": 3,
@@ -2512,7 +2518,7 @@
 			"attenuation": 0.5
 		},
 		"disposition": -1,
-		"displayBars": 0,
+		"displayBars": 30,
 		"bar1": {
 			"attribute": "attributes.hp"
 		},
@@ -2532,7 +2538,7 @@
 		},
 		"sight": {
 			"angle": 360,
-			"enabled": false,
+			"enabled": true,
 			"range": 0,
 			"brightness": 1,
 			"color": null,

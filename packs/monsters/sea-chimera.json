@@ -5,7 +5,7 @@
 	"items": [
 		{
 			"_id": "ci5gailGif2jacJC",
-			"name": "Reactive Heads.",
+			"name": "Reactive Heads",
 			"type": "feature",
 			"img": "icons/svg/item-bag.svg",
 			"effects": [],
@@ -44,6 +44,7 @@
 				"featureType": "",
 				"grants": {},
 				"prerequisite": "",
+				"requiresBloodied": false,
 				"schemaVersion": {
 					"version": 0.01,
 					"lastMigration": {
@@ -61,7 +62,7 @@
 		},
 		{
 			"_id": "zdSYK0mB11KemDVk",
-			"name": "Three Heads.",
+			"name": "Three Heads",
 			"type": "feature",
 			"img": "icons/svg/item-bag.svg",
 			"effects": [],
@@ -100,6 +101,7 @@
 				"featureType": "",
 				"grants": {},
 				"prerequisite": "",
+				"requiresBloodied": false,
 				"schemaVersion": {
 					"version": 0.01,
 					"lastMigration": {
@@ -117,7 +119,7 @@
 		},
 		{
 			"_id": "BEZneTdp6ROy3psh",
-			"name": "Wakeful.",
+			"name": "Wakeful",
 			"type": "feature",
 			"img": "icons/svg/item-bag.svg",
 			"effects": [],
@@ -156,6 +158,7 @@
 				"featureType": "",
 				"grants": {},
 				"prerequisite": "",
+				"requiresBloodied": false,
 				"schemaVersion": {
 					"version": 0.01,
 					"lastMigration": {
@@ -173,7 +176,7 @@
 		},
 		{
 			"_id": "uFfkCUfnSycJUZ8D",
-			"name": "LEGENDARY ACTIONS",
+			"name": "Legendary Actions",
 			"type": "feature",
 			"img": "icons/svg/item-bag.svg",
 			"effects": [],
@@ -196,9 +199,9 @@
 				"secretDescription": "",
 				"source": "",
 				"uses": {
-					"value": 3,
-					"max": 3,
-					"per": "round",
+					"value": 2,
+					"max": "2",
+					"per": "turn",
 					"recharge": {
 						"formula": "",
 						"threshold": ""
@@ -212,6 +215,7 @@
 				"featureType": "",
 				"grants": {},
 				"prerequisite": "",
+				"requiresBloodied": false,
 				"schemaVersion": {
 					"version": 0.01,
 					"lastMigration": {
@@ -323,6 +327,7 @@
 				"featureType": "",
 				"grants": {},
 				"prerequisite": "",
+				"requiresBloodied": false,
 				"schemaVersion": {
 					"version": 0.01,
 					"lastMigration": {
@@ -423,6 +428,7 @@
 				"featureType": "",
 				"grants": {},
 				"prerequisite": "",
+				"requiresBloodied": false,
 				"schemaVersion": {
 					"version": 0.01,
 					"lastMigration": {
@@ -530,6 +536,7 @@
 				"featureType": "",
 				"grants": {},
 				"prerequisite": "",
+				"requiresBloodied": false,
 				"schemaVersion": {
 					"version": 0.01,
 					"lastMigration": {
@@ -547,7 +554,7 @@
 		},
 		{
 			"_id": "GuE5BpzfG9FSg2ht",
-			"name": "Narhwal's Breath Weapon (Recharge 5-6)",
+			"name": "Narhwal's Breath Weapon",
 			"type": "feature",
 			"img": "icons/svg/item-bag.svg",
 			"effects": [],
@@ -566,7 +573,7 @@
 				},
 				"actions": {
 					"hmeY2zd3dDT3EZSQ": {
-						"name": "Narhwal's Breath Weapon (Recharge 5-6)",
+						"name": "Narhwal's Breath Weapon",
 						"activation": {
 							"cost": 1,
 							"type": "action",
@@ -611,7 +618,13 @@
 								"type": "savingThrow"
 							}
 						},
-						"consumers": {}
+						"consumers": {
+							"jHlZFFNMuVfHfrQw": {
+								"type": "itemUses",
+								"default": true,
+								"quantity": 1
+							}
+						}
 					}
 				},
 				"description": "<p>The Narwhal head makes an ear-splitting cone of whalesong in a 15-foot cone. Creatures in the area make a DC 15 Dexterity saving throw, taking 21 (6d6) thunder damage on a failed save or half damage on a success.</p>",
@@ -619,12 +632,12 @@
 				"secretDescription": "",
 				"source": "",
 				"uses": {
-					"value": null,
-					"max": "",
-					"per": null,
+					"value": 1,
+					"max": "1",
+					"per": "recharge",
 					"recharge": {
 						"formula": "",
-						"threshold": ""
+						"threshold": 5
 					}
 				},
 				"schema": {
@@ -635,6 +648,7 @@
 				"featureType": "",
 				"grants": {},
 				"prerequisite": "",
+				"requiresBloodied": false,
 				"schemaVersion": {
 					"version": 0.01,
 					"lastMigration": {
@@ -743,6 +757,7 @@
 				"featureType": "",
 				"grants": {},
 				"prerequisite": "",
+				"requiresBloodied": false,
 				"schemaVersion": {
 					"version": 0.01,
 					"lastMigration": {
@@ -831,6 +846,7 @@
 				"featureType": "",
 				"grants": {},
 				"prerequisite": "",
+				"requiresBloodied": false,
 				"schemaVersion": {
 					"version": 0.01,
 					"lastMigration": {
@@ -925,6 +941,7 @@
 					"version": null,
 					"lastMigration": null
 				},
+				"concentration": false,
 				"degree": 0,
 				"exertionCost": 0,
 				"isStance": false,
@@ -1027,6 +1044,7 @@
 					"version": null,
 					"lastMigration": null
 				},
+				"concentration": false,
 				"degree": 0,
 				"exertionCost": 0,
 				"isStance": false,
@@ -1120,6 +1138,7 @@
 					"version": null,
 					"lastMigration": null
 				},
+				"concentration": false,
 				"degree": 0,
 				"exertionCost": 0,
 				"isStance": false,
@@ -1213,6 +1232,7 @@
 					"version": null,
 					"lastMigration": null
 				},
+				"concentration": false,
 				"degree": 0,
 				"exertionCost": 0,
 				"isStance": false,
@@ -1306,6 +1326,7 @@
 					"version": null,
 					"lastMigration": null
 				},
+				"concentration": false,
 				"degree": 0,
 				"exertionCost": 0,
 				"isStance": false,
@@ -1399,6 +1420,7 @@
 					"version": null,
 					"lastMigration": null
 				},
+				"concentration": false,
 				"degree": 0,
 				"exertionCost": 0,
 				"isStance": false,
@@ -1428,7 +1450,8 @@
 		"a5e": {
 			"availableSpellLevels": [],
 			"showSpellSlots": false,
-			"showSpellPoints": false
+			"showSpellPoints": false,
+			"showSpellTab": false
 		}
 	},
 	"system": {
@@ -1856,6 +1879,7 @@
 				}
 			},
 			"initiative": {
+				"ability": "dex",
 				"bonus": "",
 				"expertiseDice": 0
 			},
@@ -1910,15 +1934,15 @@
 			"casterLevel": 0
 		},
 		"bonuses": {
-			"abilities": {},
-			"damage": {},
-			"healing": {},
 			"maneuverDC": "",
 			"meleeSpellAttack": "",
 			"meleeWeaponAttack": "",
 			"rangedSpellAttack": "",
 			"rangedWeaponAttack": "",
 			"spellDC": "",
+			"abilities": {},
+			"damage": {},
+			"healing": {},
 			"skills": {}
 		},
 		"currency": {
@@ -2006,7 +2030,7 @@
 	},
 	"prototypeToken": {
 		"name": "Sea Chimera",
-		"displayName": 0,
+		"displayName": 30,
 		"actorLink": false,
 		"width": 2,
 		"height": 2,
@@ -2037,7 +2061,7 @@
 			"attenuation": 0.5
 		},
 		"disposition": -1,
-		"displayBars": 0,
+		"displayBars": 30,
 		"bar1": {
 			"attribute": "attributes.hp"
 		},
@@ -2053,15 +2077,11 @@
 			"scaleY": 1,
 			"offsetX": 0,
 			"offsetY": 0,
-			"rotation": 0,
-			"anchorX": 0.5,
-			"anchorY": 0.5,
-			"fit": "contain",
-			"alphaThreshold": 0.75
+			"rotation": 0
 		},
 		"sight": {
 			"angle": 360,
-			"enabled": false,
+			"enabled": true,
 			"range": 0,
 			"brightness": 1,
 			"color": null,
@@ -2072,12 +2092,7 @@
 		},
 		"detectionModes": [],
 		"appendNumber": false,
-		"prependAdjective": false,
-		"hexagonalShape": 0,
-		"locked": false,
-		"occludable": {
-			"radius": 0
-		}
+		"prependAdjective": false
 	},
 	"folder": null,
 	"_id": "7qgye1al2h5jcq55"

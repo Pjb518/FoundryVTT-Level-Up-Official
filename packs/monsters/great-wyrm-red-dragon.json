@@ -5,7 +5,7 @@
 	"items": [
 		{
 			"_id": "6Y1N4HAnCmpDkl3K",
-			"name": "Legendary Resistance (3/Day)",
+			"name": "Legendary Resistance",
 			"type": "feature",
 			"img": "icons/svg/item-bag.svg",
 			"effects": [],
@@ -28,9 +28,9 @@
 				"secretDescription": "",
 				"source": "",
 				"uses": {
-					"value": null,
-					"max": "",
-					"per": null,
+					"value": 3,
+					"max": "3",
+					"per": "day",
 					"recharge": {
 						"formula": "",
 						"threshold": ""
@@ -437,7 +437,7 @@
 		},
 		{
 			"_id": "LcsncSG0v72AnXoV",
-			"name": "Tail Attack (Reaction)",
+			"name": "Tail Attack",
 			"type": "feature",
 			"img": "icons/skills/wounds/injury-pain-impaled-hand-blood.webp",
 			"effects": [],
@@ -460,7 +460,7 @@
 				},
 				"actions": {
 					"sp1A30Xp24p9cPlI": {
-						"name": "Tail Attack (Reaction)",
+						"name": "Tail Attack",
 						"activation": {
 							"cost": 1,
 							"type": "reaction",
@@ -542,7 +542,7 @@
 		},
 		{
 			"_id": "9Rq4BiK8eMSDGF34",
-			"name": "Roar (Legendary Action)",
+			"name": "Roar",
 			"type": "feature",
 			"img": "icons/magic/sonic/scream-wail-shout-teal.webp",
 			"effects": [],
@@ -565,7 +565,7 @@
 				},
 				"actions": {
 					"LWhdN3wKEuu40d7j": {
-						"name": "Roar (Legendary Action)",
+						"name": "Roar",
 						"activation": {
 							"cost": 1,
 							"type": "legendaryAction",
@@ -639,7 +639,7 @@
 		},
 		{
 			"_id": "f2FrNF7toyEqWdgY",
-			"name": "Wing Attack (Legendary Action)",
+			"name": "Wing Attack",
 			"type": "feature",
 			"img": "icons/svg/item-bag.svg",
 			"effects": [],
@@ -662,7 +662,7 @@
 				},
 				"actions": {
 					"BKxfJP9Rw8HWlydq": {
-						"name": "Wing Attack (Legendary Action)",
+						"name": "Wing Attack",
 						"activation": {
 							"cost": 1,
 							"type": "legendaryAction",
@@ -759,9 +759,9 @@
 				"secretDescription": "",
 				"source": "",
 				"uses": {
-					"value": null,
-					"max": "",
-					"per": null,
+					"value": 3,
+					"max": "3",
+					"per": "turn",
 					"recharge": {
 						"formula": "",
 						"threshold": ""
@@ -905,7 +905,7 @@
 		},
 		{
 			"_id": "Dlu4XIb9I6hi5K8I",
-			"name": "Fire Breath (Recharge 5-6)",
+			"name": "Fire Breath",
 			"type": "feature",
 			"img": "icons/creatures/abilities/dragon-fire-breath-orange.webp",
 			"effects": [],
@@ -928,7 +928,7 @@
 				},
 				"actions": {
 					"W9uKzGIjGRPAr4Bn": {
-						"name": "Fire Breath (Recharge 5-6)",
+						"name": "Fire Breath",
 						"activation": {
 							"cost": 1,
 							"type": "action",
@@ -975,7 +975,13 @@
 								"type": "savingThrow"
 							}
 						},
-						"consumers": {}
+						"consumers": {
+							"XftXxBQttI0YexDi": {
+								"type": "itemUses",
+								"default": true,
+								"quantity": 1
+							}
+						}
 					}
 				},
 				"description": "<p>The dragon exhales a blast of fire in a 90-foot cone. Each creature in that area makes a DC 25 Dexterity saving throw, taking 98 (28d6) fire damage on a failed save or half damage on a success. A creature that fails the saving throw also takes 11 (2d10) ongoing fire damage. While affected by this ongoing damage, it is frightened of the dragon. A creature can use an action to end the ongoing damage.</p>",
@@ -983,12 +989,12 @@
 				"secretDescription": "",
 				"source": "",
 				"uses": {
-					"value": null,
-					"max": "",
-					"per": null,
+					"value": 1,
+					"max": "1",
+					"per": "recharge",
 					"recharge": {
 						"formula": "",
-						"threshold": ""
+						"threshold": 5
 					}
 				},
 				"schema": {
@@ -1017,7 +1023,7 @@
 		},
 		{
 			"_id": "HcudkJ6gE27GSpKV",
-			"name": "Cruel Tyranny (Legendary Action)",
+			"name": "Cruel Tyranny",
 			"type": "feature",
 			"img": "icons/svg/item-bag.svg",
 			"effects": [],
@@ -1036,7 +1042,7 @@
 				},
 				"actions": {
 					"LdeYJUuXhoJyaamU": {
-						"name": "Cruel Tyranny (Legendary Action)",
+						"name": "Cruel Tyranny",
 						"activation": {
 							"cost": 1,
 							"type": "legendaryAction",
@@ -1305,7 +1311,7 @@
 		},
 		{
 			"_id": "kOrxmPvhulX1F2CP",
-			"name": "Taskmaster (Reaction)",
+			"name": "Taskmaster",
 			"type": "feature",
 			"img": "icons/svg/item-bag.svg",
 			"effects": [],
@@ -1322,7 +1328,29 @@
 					"requiresNoShield": false,
 					"requiresUnarmored": false
 				},
-				"actions": {},
+				"actions": {
+					"ktqHmKLVyDzeucMN": {
+						"name": "Taskmaster",
+						"activation": {
+							"type": "reaction",
+							"cost": 1
+						},
+						"consumers": {},
+						"rolls": {},
+						"prompts": {},
+						"uses": {
+							"value": 0,
+							"max": "",
+							"per": "",
+							"recharge": {
+								"formula": "1d6",
+								"rechargeType": "custom",
+								"rechargeAmount": "1",
+								"threshold": 6
+							}
+						}
+					}
+				},
 				"description": "<p>When a creature within 60 feet fails an ability check or saving throw, the dragon roars a command to it. The creature can roll a d10 and add it to the result of the roll, possibly turning the failure into a success.</p>",
 				"favorite": false,
 				"secretDescription": "",
@@ -1419,7 +1447,7 @@
 		},
 		{
 			"_id": "uBsR8vf2pa4NoBW6",
-			"name": "Elite Recovery (Legendary Action)",
+			"name": "Elite Recovery",
 			"type": "feature",
 			"img": "icons/svg/item-bag.svg",
 			"effects": [],
@@ -1442,7 +1470,7 @@
 				},
 				"actions": {
 					"k1o2Y1uBVpPyK0J9": {
-						"name": "Elite Recovery (Legendary Action)",
+						"name": "Elite Recovery",
 						"activation": {
 							"cost": 1,
 							"type": "legendaryAction",
@@ -1503,7 +1531,7 @@
 		},
 		{
 			"_id": "6FDbste3qNtlIeQT",
-			"name": "Mortal Terror (Gaze) (Legendary Action)",
+			"name": "Mortal Terror (Gaze)",
 			"type": "feature",
 			"img": "icons/svg/item-bag.svg",
 			"effects": [],
@@ -1526,7 +1554,7 @@
 				},
 				"actions": {
 					"GXLSpck42x4fSvKk": {
-						"name": "Mortal Terror (Gaze) (Legendary Action)",
+						"name": "Mortal Terror (Gaze)",
 						"activation": {
 							"cost": 1,
 							"type": "legendaryAction",
@@ -1598,7 +1626,7 @@
 		},
 		{
 			"_id": "WVlAzaGhqm6vrhRC",
-			"name": "Backdraft (2 Legendary Actions)",
+			"name": "Backdraft (Costs 2)",
 			"type": "feature",
 			"img": "icons/svg/item-bag.svg",
 			"effects": [],
@@ -1619,7 +1647,29 @@
 					"requiresNoShield": false,
 					"requiresUnarmored": false
 				},
-				"actions": {},
+				"actions": {
+					"tvJVbegNQJkyLOCz": {
+						"name": "Backdraft",
+						"activation": {
+							"type": "legendaryAction",
+							"cost": 2
+						},
+						"consumers": {},
+						"rolls": {},
+						"prompts": {},
+						"uses": {
+							"value": 0,
+							"max": "",
+							"per": "",
+							"recharge": {
+								"formula": "1d6",
+								"rechargeType": "custom",
+								"rechargeAmount": "1",
+								"threshold": 6
+							}
+						}
+					}
+				},
 				"description": "<p>The dragon recharges its breath weapon.</p>",
 				"favorite": false,
 				"secretDescription": "",
@@ -1659,7 +1709,7 @@
 		},
 		{
 			"_id": "VzwZRVFA1C1VI73b",
-			"name": "Plasma Blast (3 Legendary Actions)",
+			"name": "Plasma Blast (Costs 3)",
 			"type": "feature",
 			"img": "icons/svg/item-bag.svg",
 			"effects": [],
@@ -1680,7 +1730,29 @@
 					"requiresNoShield": false,
 					"requiresUnarmored": false
 				},
-				"actions": {},
+				"actions": {
+					"FgG2baxc645OACHb": {
+						"name": "Plasma Blast",
+						"activation": {
+							"type": "legendaryAction",
+							"cost": 3
+						},
+						"consumers": {},
+						"rolls": {},
+						"prompts": {},
+						"uses": {
+							"value": 0,
+							"max": "",
+							"per": "",
+							"recharge": {
+								"formula": "1d6",
+								"rechargeType": "custom",
+								"rechargeAmount": "1",
+								"threshold": 6
+							}
+						}
+					}
+				},
 				"description": "<p>The dragon spits a ball of white-hot fire at a creature it can see within 90 feet. The creature is affected as if caught in the dragon’s breath weapon, rolling to save as usual.</p>",
 				"favorite": false,
 				"secretDescription": "",
@@ -2904,7 +2976,7 @@
 	},
 	"prototypeToken": {
 		"name": "Great Wyrm Red Dragon",
-		"displayName": 0,
+		"displayName": 30,
 		"actorLink": false,
 		"width": 4,
 		"height": 4,
@@ -2935,7 +3007,7 @@
 			"attenuation": 0.5
 		},
 		"disposition": -1,
-		"displayBars": 0,
+		"displayBars": 30,
 		"bar1": {
 			"attribute": "attributes.hp"
 		},
@@ -2955,7 +3027,7 @@
 		},
 		"sight": {
 			"angle": 360,
-			"enabled": false,
+			"enabled": true,
 			"range": 0,
 			"brightness": 1,
 			"color": null,

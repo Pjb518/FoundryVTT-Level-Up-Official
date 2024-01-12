@@ -105,6 +105,7 @@
 				"featureType": "",
 				"grants": {},
 				"prerequisite": "",
+				"requiresBloodied": false,
 				"schemaVersion": {
 					"version": 0.01,
 					"lastMigration": {
@@ -200,6 +201,7 @@
 				"featureType": "",
 				"grants": {},
 				"prerequisite": "",
+				"requiresBloodied": false,
 				"schemaVersion": {
 					"version": 0.01,
 					"lastMigration": {
@@ -217,7 +219,7 @@
 		},
 		{
 			"_id": "HTBYTKqujr71jMFg",
-			"name": "Petrifying Breath (Recharge 5-6)",
+			"name": "Petrifying Breath",
 			"type": "feature",
 			"img": "icons/svg/item-bag.svg",
 			"effects": [],
@@ -240,7 +242,7 @@
 				},
 				"actions": {
 					"mRQYTMBPaLQOom1P": {
-						"name": "Petrifying Breath (Recharge 5-6)",
+						"name": "Petrifying Breath",
 						"activation": {
 							"cost": 1,
 							"type": "action",
@@ -270,7 +272,13 @@
 								"type": "savingThrow"
 							}
 						},
-						"consumers": {}
+						"consumers": {
+							"S3B8fUY4lDDBbOod": {
+								"type": "itemUses",
+								"default": true,
+								"quantity": 1
+							}
+						}
 					}
 				},
 				"description": "<p>The gorgon exhales petrifying gas in a 30-foot cone. Each creature in the area makes a DC 14 Constitution saving throw. On a failure, a creature is restrained as it begins to turn to stone. At the beginning of the gorgon’s next turn, the creature repeats the saving throw. On a success, the effect ends. On a failure, the creature is petrified. This petrification can be removed with <em>greater restoration</em> or similar magic</p>",
@@ -278,12 +286,12 @@
 				"secretDescription": "",
 				"source": "",
 				"uses": {
-					"value": null,
-					"max": "",
-					"per": null,
+					"value": 1,
+					"max": "1",
+					"per": "recharge",
 					"recharge": {
 						"formula": "",
-						"threshold": ""
+						"threshold": 5
 					}
 				},
 				"schema": {
@@ -294,6 +302,7 @@
 				"featureType": "",
 				"grants": {},
 				"prerequisite": "",
+				"requiresBloodied": false,
 				"schemaVersion": {
 					"version": 0.01,
 					"lastMigration": {
@@ -377,6 +386,7 @@
 				"featureType": "",
 				"grants": {},
 				"prerequisite": "",
+				"requiresBloodied": false,
 				"schemaVersion": {
 					"version": 0.01,
 					"lastMigration": {
@@ -471,6 +481,7 @@
 					"version": null,
 					"lastMigration": null
 				},
+				"concentration": false,
 				"degree": 0,
 				"exertionCost": 0,
 				"isStance": false,
@@ -573,6 +584,7 @@
 					"version": null,
 					"lastMigration": null
 				},
+				"concentration": false,
 				"degree": 0,
 				"exertionCost": 0,
 				"isStance": false,
@@ -666,6 +678,7 @@
 					"version": null,
 					"lastMigration": null
 				},
+				"concentration": false,
 				"degree": 0,
 				"exertionCost": 0,
 				"isStance": false,
@@ -759,6 +772,7 @@
 					"version": null,
 					"lastMigration": null
 				},
+				"concentration": false,
 				"degree": 0,
 				"exertionCost": 0,
 				"isStance": false,
@@ -852,6 +866,7 @@
 					"version": null,
 					"lastMigration": null
 				},
+				"concentration": false,
 				"degree": 0,
 				"exertionCost": 0,
 				"isStance": false,
@@ -945,6 +960,7 @@
 					"version": null,
 					"lastMigration": null
 				},
+				"concentration": false,
 				"degree": 0,
 				"exertionCost": 0,
 				"isStance": false,
@@ -972,7 +988,8 @@
 	"effects": [],
 	"flags": {
 		"a5e": {
-			"sheetIsLocked": true
+			"sheetIsLocked": true,
+			"showSpellTab": false
 		}
 	},
 	"system": {
@@ -1400,6 +1417,7 @@
 				}
 			},
 			"initiative": {
+				"ability": "dex",
 				"bonus": "",
 				"expertiseDice": 0
 			},
@@ -1454,15 +1472,15 @@
 			"casterLevel": 0
 		},
 		"bonuses": {
-			"abilities": {},
-			"damage": {},
-			"healing": {},
 			"maneuverDC": "",
 			"meleeSpellAttack": "",
 			"meleeWeaponAttack": "",
 			"rangedSpellAttack": "",
 			"rangedWeaponAttack": "",
 			"spellDC": "",
+			"abilities": {},
+			"damage": {},
+			"healing": {},
 			"skills": {}
 		},
 		"currency": {
@@ -1552,7 +1570,7 @@
 	},
 	"prototypeToken": {
 		"name": "Gorgon",
-		"displayName": 0,
+		"displayName": 30,
 		"actorLink": false,
 		"width": 2,
 		"height": 2,
@@ -1583,7 +1601,7 @@
 			"color": null
 		},
 		"disposition": -1,
-		"displayBars": 0,
+		"displayBars": 30,
 		"bar1": {
 			"attribute": "attributes.hp"
 		},
@@ -1599,15 +1617,11 @@
 			"offsetX": 0,
 			"offsetY": 0,
 			"rotation": 0,
-			"tint": "#ffffff",
-			"anchorX": 0.5,
-			"anchorY": 0.5,
-			"fit": "contain",
-			"alphaThreshold": 0.75
+			"tint": "#ffffff"
 		},
 		"sight": {
 			"angle": 360,
-			"enabled": false,
+			"enabled": true,
 			"range": 0,
 			"brightness": 1,
 			"color": null,
@@ -1618,12 +1632,7 @@
 		},
 		"detectionModes": [],
 		"appendNumber": false,
-		"prependAdjective": false,
-		"hexagonalShape": 0,
-		"locked": false,
-		"occludable": {
-			"radius": 0
-		}
+		"prependAdjective": false
 	},
 	"folder": null,
 	"_id": "tyjjagwbitxxtodj"

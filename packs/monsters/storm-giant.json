@@ -376,7 +376,7 @@
 		},
 		{
 			"_id": "ULZJWEWPb3GVaqMr",
-			"name": "Lightning Strike (Recharge 5-6)",
+			"name": "Lightning Strike",
 			"type": "feature",
 			"img": "icons/svg/item-bag.svg",
 			"effects": [],
@@ -399,7 +399,7 @@
 				},
 				"actions": {
 					"kxaySQ4QSBJ1C36x": {
-						"name": "Lightning Strike (Recharge 5-6)",
+						"name": "Lightning Strike",
 						"activation": {
 							"cost": 1,
 							"type": "action",
@@ -440,7 +440,13 @@
 								"type": "savingThrow"
 							}
 						},
-						"consumers": {},
+						"consumers": {
+							"veWwjuqJGBHhsYtV": {
+								"type": "itemUses",
+								"default": true,
+								"quantity": 1
+							}
+						},
 						"ranges": {
 							"TTM0vP3lghS27Fix": {
 								"range": 500,
@@ -454,12 +460,12 @@
 				"secretDescription": "",
 				"source": "",
 				"uses": {
-					"value": 0,
-					"max": 0,
-					"per": "",
+					"value": 1,
+					"max": "1",
+					"per": "recharge",
 					"recharge": {
 						"formula": "",
-						"threshold": ""
+						"threshold": 5
 					}
 				},
 				"schema": {
@@ -1970,7 +1976,7 @@
 	},
 	"prototypeToken": {
 		"name": "Storm Giant",
-		"displayName": 0,
+		"displayName": 30,
 		"actorLink": false,
 		"width": 3,
 		"height": 3,
@@ -2001,7 +2007,7 @@
 			"color": null
 		},
 		"disposition": -1,
-		"displayBars": 0,
+		"displayBars": 30,
 		"bar1": {
 			"attribute": "attributes.hp"
 		},
@@ -2021,7 +2027,7 @@
 		},
 		"sight": {
 			"angle": 360,
-			"enabled": false,
+			"enabled": true,
 			"range": 0,
 			"brightness": 1,
 			"color": null,

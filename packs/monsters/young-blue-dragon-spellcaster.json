@@ -450,7 +450,7 @@
 		},
 		{
 			"_id": "Dlu4XIb9I6hi5K8I",
-			"name": "Lightning Breath (Recharge 5-6)",
+			"name": "Lightning Breath",
 			"type": "feature",
 			"img": "icons/magic/lightning/bolt-strike-blue.webp",
 			"effects": [],
@@ -473,7 +473,7 @@
 				},
 				"actions": {
 					"OOc1lVnNvaUWxD8R": {
-						"name": "Lightning Breath (Recharge 5-6)",
+						"name": "Lightning Breath",
 						"activation": {
 							"cost": 1,
 							"type": "action",
@@ -515,7 +515,13 @@
 								"type": "savingThrow"
 							}
 						},
-						"consumers": {}
+						"consumers": {
+							"jkGTzYmjt9Aga9ID": {
+								"type": "itemUses",
+								"default": true,
+								"quantity": 1
+							}
+						}
 					}
 				},
 				"description": "<p>The dragon exhales a 60-foot-long, 5-foot-wide line of lightning. Each creature in that area makes a DC 16 Dexterity saving throw, taking 44 (8d10) lightning damage on a failed save or half damage on a success. A creature that fails the save can’t take reactions until the end of its next turn.</p>",
@@ -523,12 +529,12 @@
 				"secretDescription": "",
 				"source": "",
 				"uses": {
-					"value": null,
-					"max": "",
-					"per": null,
+					"value": 1,
+					"max": "1",
+					"per": "recharge",
 					"recharge": {
 						"formula": "",
-						"threshold": ""
+						"threshold": 5
 					}
 				},
 				"schema": {
@@ -634,6 +640,7 @@
 					"version": null,
 					"lastMigration": null
 				},
+				"concentration": false,
 				"degree": 0,
 				"exertionCost": 0,
 				"isStance": false,
@@ -736,6 +743,7 @@
 					"version": null,
 					"lastMigration": null
 				},
+				"concentration": false,
 				"degree": 0,
 				"exertionCost": 0,
 				"isStance": false,
@@ -829,6 +837,7 @@
 					"version": null,
 					"lastMigration": null
 				},
+				"concentration": false,
 				"degree": 0,
 				"exertionCost": 0,
 				"isStance": false,
@@ -922,6 +931,7 @@
 					"version": null,
 					"lastMigration": null
 				},
+				"concentration": false,
 				"degree": 0,
 				"exertionCost": 0,
 				"isStance": false,
@@ -1015,6 +1025,7 @@
 					"version": null,
 					"lastMigration": null
 				},
+				"concentration": false,
 				"degree": 0,
 				"exertionCost": 0,
 				"isStance": false,
@@ -1108,6 +1119,7 @@
 					"version": null,
 					"lastMigration": null
 				},
+				"concentration": false,
 				"degree": 0,
 				"exertionCost": 0,
 				"isStance": false,

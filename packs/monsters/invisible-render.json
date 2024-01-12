@@ -1,16 +1,16 @@
 {
-	"name": "Giant Fire Elemental",
+	"name": "Invisible Render",
 	"type": "npc",
-	"img": "systems/a5e/assets/fire-elemental.webp",
+	"img": "systems/a5e/assets/invisible-stalker.webp",
 	"items": [
 		{
-			"_id": "ceFt1iZF5zzuquM8",
-			"name": "Fire Form",
+			"_id": "mSZ1LuEFKYDVkeC9",
+			"name": "Invisibility",
 			"type": "feature",
-			"img": "icons/svg/item-bag.svg",
+			"img": "icons/creatures/webs/webthin-blue.webp",
 			"effects": [],
 			"folder": null,
-			"sort": 100000,
+			"sort": 0,
 			"flags": {},
 			"system": {
 				"ac": {
@@ -23,7 +23,7 @@
 					"requiresUnarmored": false
 				},
 				"actions": {},
-				"description": "<p>The elemental can move through a space as narrow as 1 inch wide without squeezing. </p>",
+				"description": "<p>The stalker is invisible. Creatures that see invisible creatures see the stalker as a vague humanoid outline.</p>",
 				"favorite": false,
 				"secretDescription": "",
 				"source": "",
@@ -61,13 +61,13 @@
 			}
 		},
 		{
-			"_id": "WSxqI5krb8mwsHku",
-			"name": "Fiery Aura",
+			"_id": "D4GLBJ96gwaiqYN8",
+			"name": "Wind Tracker",
 			"type": "feature",
 			"img": "icons/svg/item-bag.svg",
 			"effects": [],
 			"folder": null,
-			"sort": 200000,
+			"sort": 0,
 			"flags": {},
 			"system": {
 				"ac": {
@@ -79,41 +79,9 @@
 					"requiresNoShield": false,
 					"requiresUnarmored": false
 				},
-				"actions": {
-					"uiXugKiOsn7EjqHU": {
-						"name": "Fiery Aura",
-						"activation": {
-							"cost": "",
-							"type": "none",
-							"reactionTrigger": ""
-						},
-						"duration": {
-							"unit": "permanent",
-							"value": ""
-						},
-						"area": {
-							"shape": "",
-							"size": "",
-							"placeTemplate": false
-						},
-						"target": {
-							"quantity": "",
-							"type": "creature"
-						},
-						"rolls": {
-							"2mkXYDdsL3GvMIMd": {
-								"canCrit": false,
-								"damageType": "fire",
-								"formula": "1d10",
-								"name": "Fiery Aura Damage",
-								"type": "damage"
-							}
-						},
-						"consumers": {}
-					}
-				},
-				"description": "<p>A creature that ends its turn within 5 feet of the fire elemental takes 5 (1d10) fire damage. A creature that touches the elemental or hits it with a melee attack while within 5 feet of it takes 5 (1d10) fire damage. The elemental sheds bright light in a 30-foot radius and dim light for an additional 30 feet.<br></p>",
-				"favorite": true,
+				"actions": {},
+				"description": "<p>If given a quarry by a summoner, the stalker knows the direction and distance to the quarry as long as they are on the same plane of existence and not sealed from each other by a barrier that doesn’t allow air to pass.</p>",
+				"favorite": false,
 				"secretDescription": "",
 				"source": "",
 				"uses": {
@@ -150,13 +118,13 @@
 			}
 		},
 		{
-			"_id": "iZtgrXJJbbJrauB3",
-			"name": "Water Weakness",
+			"_id": "gxi1JrF8f1msNCgh",
+			"name": "Elemental Nature",
 			"type": "feature",
 			"img": "icons/svg/item-bag.svg",
 			"effects": [],
 			"folder": null,
-			"sort": 500000,
+			"sort": 0,
 			"flags": {},
 			"system": {
 				"ac": {
@@ -168,16 +136,77 @@
 					"requiresNoShield": false,
 					"requiresUnarmored": false
 				},
+				"actions": {},
+				"description": "<p>An invisible stalker doesn’t require air, sustenance, or sleep.</p>",
+				"favorite": false,
+				"secretDescription": "",
+				"source": "",
+				"uses": {
+					"value": null,
+					"max": "",
+					"per": null,
+					"recharge": {
+						"formula": "",
+						"threshold": ""
+					}
+				},
+				"schema": {
+					"version": null,
+					"lastMigration": null
+				},
+				"concentration": false,
+				"featureType": "",
+				"grants": {},
+				"prerequisite": "",
+				"requiresBloodied": false,
+				"schemaVersion": {
+					"version": 0.01,
+					"lastMigration": {
+						"version": {
+							"schema": 0.009,
+							"foundry": "12.316",
+							"system": "0.16.12"
+						}
+					}
+				}
+			},
+			"ownership": {
+				"default": 0
+			}
+		},
+		{
+			"_id": "8CTHocnoCeYI1OII",
+			"name": "Multiattack",
+			"type": "feature",
+			"img": "icons/skills/melee/blade-tips-triple-steel.webp",
+			"effects": [],
+			"folder": null,
+			"sort": 100000,
+			"flags": {
+				"core": {
+					"sourceId": "Item.Hcp8zUrtUBaXFT4i"
+				}
+			},
+			"system": {
+				"ac": {
+					"baseFormula": "",
+					"formula": "",
+					"maxDex": 0,
+					"minStr": 0,
+					"mode": 1,
+					"requiresNoShield": false,
+					"requiresUnarmored": false
+				},
 				"actions": {
-					"1nnrcVKXDdxyZ0kE": {
-						"name": "Water Weakness",
+					"tnxL3STYnzRe0Apg": {
+						"name": "Multiattack",
 						"activation": {
-							"cost": null,
-							"type": "none",
+							"cost": 1,
+							"type": "action",
 							"reactionTrigger": ""
 						},
 						"duration": {
-							"unit": "permanent",
+							"unit": "",
 							"value": ""
 						},
 						"area": {
@@ -189,76 +218,10 @@
 							"quantity": "",
 							"type": ""
 						},
-						"rolls": {
-							"CzaZbxxdZFlZDkKH": {
-								"canCrit": false,
-								"damageType": "cold",
-								"formula": "1d12",
-								"name": "Water Weakness Damage",
-								"type": "damage"
-							}
-						},
 						"consumers": {}
 					}
 				},
-				"description": "<p>The elemental takes 6 (1d12) cold damage if it enters a body of water or starts its turn in a body of water, is splashed with at least 5 gallons of water, or is hit by a water elemental’s slam attack.</p>",
-				"favorite": true,
-				"secretDescription": "",
-				"source": "",
-				"uses": {
-					"value": null,
-					"max": "",
-					"per": null,
-					"recharge": {
-						"formula": "",
-						"threshold": ""
-					}
-				},
-				"schema": {
-					"version": null,
-					"lastMigration": null
-				},
-				"concentration": false,
-				"featureType": "",
-				"grants": {},
-				"prerequisite": "",
-				"requiresBloodied": false,
-				"schemaVersion": {
-					"version": 0.01,
-					"lastMigration": {
-						"version": {
-							"schema": 0.009,
-							"foundry": "12.316",
-							"system": "0.16.12"
-						}
-					}
-				}
-			},
-			"ownership": {
-				"default": 0
-			}
-		},
-		{
-			"_id": "oNGtyVZnuyEiZn5f",
-			"name": "Multiattack",
-			"type": "feature",
-			"img": "icons/skills/melee/blade-tips-triple-steel.webp",
-			"effects": [],
-			"folder": null,
-			"sort": 300000,
-			"flags": {},
-			"system": {
-				"ac": {
-					"baseFormula": "",
-					"formula": "",
-					"maxDex": 0,
-					"minStr": 0,
-					"mode": 1,
-					"requiresNoShield": false,
-					"requiresUnarmored": false
-				},
-				"actions": {},
-				"description": "<p>The elemental makes two slam attacks. </p>",
+				"description": "<p>The render makes two melee attacks.</p>",
 				"favorite": false,
 				"secretDescription": "",
 				"source": "",
@@ -296,14 +259,18 @@
 			}
 		},
 		{
-			"_id": "8b0EhSfZ1tyuXu1D",
-			"name": "Wildfire",
+			"_id": "xGII6XW8OnebAkDP",
+			"name": "Gust",
 			"type": "feature",
 			"img": "icons/svg/item-bag.svg",
 			"effects": [],
 			"folder": null,
-			"sort": 600000,
-			"flags": {},
+			"sort": 200000,
+			"flags": {
+				"core": {
+					"sourceId": "Item.i2cfGU9ofnKwr9OF"
+				}
+			},
 			"system": {
 				"ac": {
 					"baseFormula": "",
@@ -315,35 +282,36 @@
 					"requiresUnarmored": false
 				},
 				"actions": {
-					"1alO9FpZN5V9dSi6": {
-						"name": "Wildfire",
+					"IaNOwDngZ5tmEJiZ": {
+						"name": "Gust",
 						"activation": {
-							"type": "action",
-							"cost": 1
+							"cost": 1,
+							"type": "bonusAction",
+							"reactionTrigger": ""
+						},
+						"duration": {
+							"unit": "",
+							"value": ""
+						},
+						"area": {
+							"shape": "",
+							"size": "",
+							"placeTemplate": false
+						},
+						"target": {
+							"quantity": "",
+							"type": ""
 						},
 						"consumers": {
-							"COUNtSzryI9mVsPJ": {
+							"0XOJm3UpNXv4WFT5": {
 								"type": "itemUses",
 								"default": true,
 								"quantity": 1
 							}
-						},
-						"rolls": {},
-						"prompts": {},
-						"uses": {
-							"value": 0,
-							"max": "",
-							"per": "",
-							"recharge": {
-								"formula": "1d6",
-								"rechargeType": "custom",
-								"rechargeAmount": "1",
-								"threshold": 6
-							}
 						}
 					}
 				},
-				"description": "<p>The elemental moves up to half its Speed without provoking opportunity attacks. It can enter the spaces of hostile creatures but not  end this movement there. When a creature shares its space with the elemental for the first time during this movement, the creature is subject to the elemental’s Fiery Aura and the elemental can make a slam attack against that creature.</p>",
+				"description": "<p>The stalker briefly turns into a gust of wind and moves up to its Speed without provoking opportunity attacks. It is able to pass through an opening as narrow as 1 inch wide without squeezing.</p>",
 				"favorite": false,
 				"secretDescription": "",
 				"source": "",
@@ -353,7 +321,7 @@
 					"per": "recharge",
 					"recharge": {
 						"formula": "",
-						"threshold": 4
+						"threshold": 6
 					}
 				},
 				"schema": {
@@ -362,118 +330,6 @@
 				},
 				"concentration": false,
 				"featureType": "",
-				"grants": {},
-				"prerequisite": "",
-				"requiresBloodied": false,
-				"schemaVersion": {
-					"version": 0.01,
-					"lastMigration": {
-						"version": {
-							"schema": 0.009,
-							"foundry": "12.316",
-							"system": "0.16.12"
-						}
-					}
-				}
-			},
-			"ownership": {
-				"default": 0
-			}
-		},
-		{
-			"_id": "k7P42Oi6okRszW30",
-			"name": "Slam",
-			"type": "feature",
-			"img": "icons/svg/item-bag.svg",
-			"effects": [],
-			"folder": null,
-			"sort": 350000,
-			"flags": {
-				"core": {
-					"sourceId": "Item.lG2P5mOltJtz23Yo"
-				}
-			},
-			"system": {
-				"ac": {
-					"baseFormula": "",
-					"formula": "",
-					"maxDex": 0,
-					"minStr": 0,
-					"mode": 1,
-					"requiresNoShield": false,
-					"requiresUnarmored": false
-				},
-				"actions": {
-					"IqIsw4XIFUy9oH1P": {
-						"name": "Slam",
-						"activation": {
-							"cost": 1,
-							"type": "action",
-							"reactionTrigger": ""
-						},
-						"duration": {
-							"unit": "instantaneous",
-							"value": ""
-						},
-						"ranges": {
-							"NYc1Ij80WNEwDMX9": {
-								"range": "fiveFeet"
-							}
-						},
-						"area": {
-							"shape": "",
-							"size": "",
-							"placeTemplate": false
-						},
-						"target": {
-							"quantity": 1,
-							"type": "creatureObject"
-						},
-						"rolls": {
-							"tcWqLyzZGzUB8Njj": {
-								"bonus": "",
-								"critThreshold": "20",
-								"type": "attack",
-								"attackType": "meleeWeaponAttack",
-								"ability": "dex"
-							},
-							"k2a1Xzgw8jSR4Biv": {
-								"canCrit": true,
-								"damageType": "fire",
-								"formula": "4d8 + @dex.mod",
-								"name": "Slam Damage",
-								"type": "damage"
-							},
-							"C3mTZkLzee3o9E7P": {
-								"canCrit": false,
-								"damageType": "fire",
-								"formula": "1d10",
-								"name": "Ongoing Fire Damage",
-								"type": "damage"
-							}
-						},
-						"consumers": {}
-					}
-				},
-				"description": "<p>On a hit, the target suffers 5 (1d10) additional ongoing fire damage. A creature can use an action to end the ongoing damage.</p>",
-				"favorite": true,
-				"secretDescription": "",
-				"source": "",
-				"uses": {
-					"value": null,
-					"max": "",
-					"per": null,
-					"recharge": {
-						"formula": "",
-						"threshold": ""
-					}
-				},
-				"schema": {
-					"version": null,
-					"lastMigration": null
-				},
-				"concentration": false,
-				"featureType": "naturalWeapon",
 				"grants": {},
 				"prerequisite": "",
 				"requiresBloodied": false,
@@ -504,7 +360,7 @@
 			},
 			"system": {
 				"actions": {
-					"dndSBduJNgz5hQ3Z": {
+					"fq4tnXXXhwCI98J6": {
 						"name": "Shove",
 						"activation": {
 							"cost": 1,
@@ -516,7 +372,7 @@
 							"value": null
 						},
 						"ranges": {
-							"f5QAz6iO8JDJfHx9": {
+							"iMdtTbIAoo249HTp": {
 								"range": "fiveFeet"
 							}
 						},
@@ -532,7 +388,7 @@
 							"size": ""
 						},
 						"rolls": {
-							"ewiLjeyx3fsTzkjb": {
+							"dugsomcDvClAZdbS": {
 								"canCrit": false,
 								"damageType": "bludgeoning",
 								"formula": "1 + @str.mod",
@@ -541,7 +397,7 @@
 							}
 						},
 						"prompts": {
-							"A4iu58DsJlll6dFX": {
+							"eI4Q4cuC3P13B4pY": {
 								"ability": "str",
 								"onSave": "",
 								"saveDC": {
@@ -593,7 +449,7 @@
 			},
 			"folder": null,
 			"sort": 0,
-			"_id": "6tVio7VFYUsjC3Eu"
+			"_id": "hQbg9VfaLFfoBRqt"
 		},
 		{
 			"name": "Disarm",
@@ -607,7 +463,7 @@
 			},
 			"system": {
 				"actions": {
-					"Dg0tw2dUaxTgav9e": {
+					"4ivIvTuMlU1H5GMF": {
 						"name": "Disarm",
 						"activation": {
 							"cost": 1,
@@ -619,7 +475,7 @@
 							"value": null
 						},
 						"ranges": {
-							"cw4YZwE82bg0G59j": {
+							"8Gw9G3fLodsuwfTI": {
 								"range": "touch"
 							}
 						},
@@ -635,7 +491,7 @@
 							"size": ""
 						},
 						"rolls": {
-							"EUbsbWP9YUhZVM60": {
+							"4eMRpTYAsh17xhQy": {
 								"canCrit": false,
 								"damageType": "",
 								"formula": "1 + @str.mod",
@@ -644,7 +500,7 @@
 							}
 						},
 						"prompts": {
-							"4ZAyqbO5zvJgDBlL": {
+							"NJB7MzA7eSys9NEL": {
 								"ability": "str",
 								"onSave": "",
 								"saveDC": {
@@ -696,7 +552,7 @@
 			},
 			"folder": null,
 			"sort": 0,
-			"_id": "mf1vdU9uBRvdagtz"
+			"_id": "pHpPboWktdJKLQov"
 		},
 		{
 			"name": "Grab On",
@@ -710,7 +566,7 @@
 			},
 			"system": {
 				"actions": {
-					"K8VVKJtNtSVoq58z": {
+					"IG5uVIMgrBSEzVxo": {
 						"name": "Grab On",
 						"activation": {
 							"cost": 1,
@@ -722,7 +578,7 @@
 							"value": null
 						},
 						"ranges": {
-							"eAv5kDhgcqp94iNk": {
+							"QnTP892XCSuVjpis": {
 								"range": "touch"
 							}
 						},
@@ -738,7 +594,7 @@
 							"size": ""
 						},
 						"prompts": {
-							"X9v7I4qyPbxQG8KZ": {
+							"eiUPN4o5IyO2wyB1": {
 								"ability": "str",
 								"onSave": "",
 								"saveDC": {
@@ -790,7 +646,7 @@
 			},
 			"folder": null,
 			"sort": 0,
-			"_id": "3VpNcXInct0BX8se"
+			"_id": "5bYIyWGHWv6f8NVg"
 		},
 		{
 			"name": "Knockdown",
@@ -804,7 +660,7 @@
 			},
 			"system": {
 				"actions": {
-					"A2mRUwDZWo5KhgXY": {
+					"PweXVLMUtYwofNdP": {
 						"name": "Knockdown",
 						"activation": {
 							"cost": 1,
@@ -816,7 +672,7 @@
 							"value": null
 						},
 						"ranges": {
-							"wiMWfKqTG2HVXVrB": {
+							"V35DRkNsConkVOIM": {
 								"range": "touch"
 							}
 						},
@@ -832,7 +688,7 @@
 							"size": ""
 						},
 						"prompts": {
-							"rAManz9O8IRkVc9L": {
+							"IvLScpUWlIYqhciu": {
 								"ability": "str",
 								"onSave": "",
 								"saveDC": {
@@ -884,7 +740,7 @@
 			},
 			"folder": null,
 			"sort": 0,
-			"_id": "DHPjkIyw0YfFlXtA"
+			"_id": "7C5PEid0wNIUuRf6"
 		},
 		{
 			"name": "Grapple",
@@ -898,7 +754,7 @@
 			},
 			"system": {
 				"actions": {
-					"IVTqiUCLdQAs2jAW": {
+					"KCwmXbFzUWw2DW92": {
 						"name": "Grapple",
 						"activation": {
 							"cost": 1,
@@ -910,7 +766,7 @@
 							"value": null
 						},
 						"ranges": {
-							"UFL5m3fMl9xRdOF5": {
+							"u6WDuJqgem70exxp": {
 								"range": "touch"
 							}
 						},
@@ -926,7 +782,7 @@
 							"size": ""
 						},
 						"prompts": {
-							"SUYsrfQSyiighV6r": {
+							"WUNdMRPE9X2gPnpE": {
 								"ability": "str",
 								"onSave": "",
 								"saveDC": {
@@ -978,7 +834,7 @@
 			},
 			"folder": null,
 			"sort": 0,
-			"_id": "Usp9SXOgEWeGfGcG"
+			"_id": "rYfxbS5ooF3KQ8Yv"
 		},
 		{
 			"name": "Overrun",
@@ -992,7 +848,7 @@
 			},
 			"system": {
 				"actions": {
-					"wIPhSu4dclqq5b8w": {
+					"LUHvRiEEal7CYvHL": {
 						"name": "Overrun",
 						"activation": {
 							"cost": 1,
@@ -1004,7 +860,7 @@
 							"value": null
 						},
 						"ranges": {
-							"LaFJnQvWOlOJ7HYg": {
+							"jbk0UbdS1KVORQ0l": {
 								"range": "touch"
 							}
 						},
@@ -1020,7 +876,7 @@
 							"size": ""
 						},
 						"prompts": {
-							"UWaVdMLyEv67q91V": {
+							"ncSBd33YaJcl9PUm": {
 								"ability": "str",
 								"onSave": "",
 								"saveDC": {
@@ -1072,20 +928,177 @@
 			},
 			"folder": null,
 			"sort": 0,
-			"_id": "9ESKxupEvAmywPDH"
+			"_id": "z6pHaw0v5Bz1k9cA"
+		},
+		{
+			"name": "Pack Tactics",
+			"type": "feature",
+			"system": {
+				"ac": {
+					"baseFormula": "",
+					"formula": "",
+					"maxDex": 0,
+					"minStr": 0,
+					"mode": 2,
+					"requiresNoShield": false,
+					"requiresUnarmored": false
+				},
+				"actions": {},
+				"description": "<p>The render has advantage on attack rolls&nbsp;against a creature if at least one of the render&rsquo;s allies is</p>",
+				"favorite": false,
+				"secretDescription": "",
+				"source": {
+					"name": "",
+					"link": "",
+					"publisher": ""
+				},
+				"uses": {
+					"value": null,
+					"max": "",
+					"per": null,
+					"recharge": {
+						"formula": "1d6",
+						"threshold": "6"
+					}
+				},
+				"schema": {
+					"version": null,
+					"lastMigration": null
+				},
+				"concentration": false,
+				"featureType": "other",
+				"grants": {},
+				"prerequisite": "",
+				"requiresBloodied": false
+			},
+			"_id": "UTVW27pCVRLPplwJ",
+			"img": "icons/svg/item-bag.svg",
+			"effects": [],
+			"folder": null,
+			"sort": 0,
+			"ownership": {
+				"default": 0
+			},
+			"flags": {}
+		},
+		{
+			"name": "Bite",
+			"type": "feature",
+			"system": {
+				"ac": {
+					"baseFormula": "",
+					"formula": "",
+					"maxDex": 0,
+					"minStr": 0,
+					"mode": 2,
+					"requiresNoShield": false,
+					"requiresUnarmored": false
+				},
+				"actions": {
+					"4cNSHBp0GS7q588n": {
+						"name": "Bite",
+						"activation": {
+							"type": "action",
+							"cost": 1
+						},
+						"consumers": {},
+						"rolls": {
+							"ZHKeYp39UfXXGMeM": {
+								"type": "attack",
+								"default": true,
+								"attackType": "meleeWeaponAttack",
+								"proficient": true,
+								"ability": "str"
+							},
+							"k0qYk9AvElZoxHfx": {
+								"type": "damage",
+								"default": true,
+								"formula": "2d12 + @str.mod",
+								"damageType": "piercing"
+							}
+						},
+						"prompts": {
+							"pEaKIEZmXeBTVD9r": {
+								"type": "savingThrow",
+								"default": true,
+								"ability": "str",
+								"saveDC": {
+									"type": "custom",
+									"bonus": "14"
+								}
+							}
+						},
+						"uses": {
+							"value": 0,
+							"max": "",
+							"per": "",
+							"recharge": {
+								"formula": "1d6",
+								"rechargeType": "custom",
+								"rechargeAmount": "1",
+								"threshold": 6
+							}
+						},
+						"ranges": {
+							"sCXaKDVbEQT3vTT2": {
+								"range": "fiveFeet"
+							}
+						},
+						"target": {
+							"type": "creature",
+							"quantity": 1
+						}
+					}
+				},
+				"description": "<p>If the target&nbsp;is a creature, it makes a DC 14 Strength saving throw.&nbsp;On a failure, it is knocked prone.</p>",
+				"favorite": false,
+				"secretDescription": "",
+				"source": {
+					"name": "",
+					"link": "",
+					"publisher": ""
+				},
+				"uses": {
+					"value": null,
+					"max": "",
+					"per": null,
+					"recharge": {
+						"formula": "1d6",
+						"threshold": "6"
+					}
+				},
+				"schema": {
+					"version": null,
+					"lastMigration": null
+				},
+				"concentration": false,
+				"featureType": "other",
+				"grants": {},
+				"prerequisite": "",
+				"requiresBloodied": false
+			},
+			"_id": "vOJ3TgLmGLalPMy6",
+			"img": "icons/svg/item-bag.svg",
+			"effects": [],
+			"folder": null,
+			"sort": 0,
+			"ownership": {
+				"default": 0
+			},
+			"flags": {}
 		}
 	],
 	"effects": [],
 	"flags": {
 		"a5e": {
-			"sheetIsLocked": true,
+			"sheetIsLocked": false,
 			"showSpellTab": false
 		}
 	},
 	"system": {
 		"abilities": {
 			"str": {
-				"value": 10,
+				"value": 16,
 				"check": {
 					"expertiseDice": 0,
 					"bonus": "",
@@ -1127,7 +1140,7 @@
 				}
 			},
 			"int": {
-				"value": 6,
+				"value": 3,
 				"check": {
 					"expertiseDice": 0,
 					"bonus": "",
@@ -1141,7 +1154,7 @@
 				}
 			},
 			"wis": {
-				"value": 10,
+				"value": 14,
 				"check": {
 					"expertiseDice": 0,
 					"bonus": "",
@@ -1155,7 +1168,7 @@
 				}
 			},
 			"cha": {
-				"value": 6,
+				"value": 10,
 				"check": {
 					"expertiseDice": 0,
 					"bonus": "",
@@ -1339,7 +1352,7 @@
 			"prc": {
 				"ability": "wis",
 				"value": 0,
-				"proficient": false,
+				"proficient": true,
 				"specialties": [],
 				"expertiseDice": 0,
 				"minRoll": 1,
@@ -1399,9 +1412,9 @@
 			"ste": {
 				"ability": "dex",
 				"value": 0,
-				"proficient": false,
+				"proficient": true,
 				"specialties": [],
-				"expertiseDice": 0,
+				"expertiseDice": 1,
 				"minRoll": 1,
 				"bonuses": {
 					"check": "",
@@ -1475,8 +1488,8 @@
 				"failure": 0
 			},
 			"hp": {
-				"value": 127,
-				"baseMax": 127,
+				"value": 123,
+				"baseMax": 123,
 				"temp": 0,
 				"bonus": 0
 			},
@@ -1486,16 +1499,16 @@
 					"total": 0
 				},
 				"d8": {
-					"current": 0,
-					"total": 0
+					"current": 19,
+					"total": 19
 				},
 				"d10": {
 					"current": 0,
 					"total": 0
 				},
 				"d12": {
-					"current": 15,
-					"total": 15
+					"current": 0,
+					"total": 0
 				},
 				"d4": {
 					"current": 0,
@@ -1521,7 +1534,7 @@
 					"unit": "feet"
 				},
 				"fly": {
-					"distance": 0,
+					"distance": 50,
 					"unit": "feet"
 				},
 				"swim": {
@@ -1581,21 +1594,19 @@
 			"cp": 0
 		},
 		"details": {
-			"bio": "<h1>Elementals</h1><h4>Spellcasters and other powerful beings draw upon the animating life force of the pure elements—air, earth, fire, and water—to manifest elementals. Just as our world is home to birds, beasts, trees, and flowers, the elemental planes contain shapeless spirits of energy and instinct. These inchoate entities can be exploited with magic to create compliant servants and timeless guardians.</h4><p><strong>Shaped for Service.</strong> A conjurer of sufficient skill can shape an elemental as they please, not just as creatures, but also as weapons or objects of artifice. Elemental power can create stone soldiers, forges of living flame, ships carried on their own currents, and windmills turned by an endless breeze. Elemental servants might resemble large humanoids, primal beasts, or divine avatars. The only limit is the summoner’s imagination and their will to control the elemental.<br><strong>Perilous Conjuration.</strong> A wild spirit of elemental force has little sense of self, content to be one with the element with which it shares an affinity. Should an elemental break free from control, it becomes an animate mass of its native element, wreaking havoc without regard for its surroundings.<br><strong>Elemental Nature.</strong> An elemental doesn’t require air, sustenance, or sleep.</p><p></p><h3>Legends and Lore</h3><p>With an Arcana or Religion check, characters can learn the following:<br><strong>DC 10</strong> Elementals are spirits of fire, earth, air, and water not native to this world. Spellcasters can summon elementals and bend them to their will. An uncontrolled elemental may turn on the creature that summoned it.<br><strong>DC 15</strong> Elementals are resistant to nonmagical weapons and immune to poison. Earth elementals are vulnerable to thunder. Fire elementals take damage from water. Water elementals are slowed by cold damage.</p><p></p><h3>Elemental Encounters</h3><h4>Elementals accompany spellcasters and guard their lairs. They’re native to the Elemental Planes.<br><strong>CR 5–10</strong> 1 or 2 elementals; elemental with 1d4 mephits; giant elemental</h4><hr class=\"a5e-rule u-my-md\"><h2>Fire Elemental<br></h2><h3>Fire Elemental Signs</h3><ol><li><p>Flickering firelight</p></li><li><p>Hot winds</p></li><li><p>Charred footprints</p></li><li><p>The air smells like woodsmoke<br></p></li></ol><h3>Fire Elemental Behavior</h3><ol><li><p>Relaxing in a brazier</p></li><li><p>Setting fires</p></li><li><p>Standing still in a circle of ash</p></li><li><p>Flickering between different fiery forms; takes on the shape of whomever it is speaking to or fighting</p></li></ol><p></p><h3>Fire Elemental Appearance</h3><ol><li><p>Humanoid warrior with bronze armor and flaming sword</p></li><li><p>Humanoid made of lava</p></li><li><p>Fiery bird or lizard</p></li><li><p>Mobile bonfire</p></li></ol><p></p><h3>Combat</h3><p>The elemental uses Wildfire whenever it can move through the spaces of at least two enemies. It prioritizes enemies who are not yet on fire. Elementals,retreat only if ordered to do so.</p><hr class=\"a5e-rule u-my-md\"><h2>Elemental Variants: Giant Elementals</h2><p>Elementals on their native plane come in many sizes, from pinpricks of fire to living oceans. Talented spellcasters can summon larger and more powerful elementals to the Material Plane.</p>",
+			"bio": "<h2><strong>COMBAT</strong></h2><p>The invisible stalker single-mindedly targets its quarry. If it’s getting the worst of combat, it retreats but does not give up. It stalks its target, replacing its direct assaults with hit-and-run raids spread out over days: attacking when its quarry is alone, setting up traps, pushing its enemy off a cliff, and the like.</p><hr class=\"a5e-rule u-my-md\"><h2><strong>NAMES</strong></h2><p>Aloelath, Istreth, Shasalenas, Ussura</p><hr class=\"a5e-rule u-my-md\"><h2><strong>LEGENDS AND LORE</strong></h2><p>With an Arcana or Nature check, characters can learn the following:</p><p><strong>DC 10 </strong>Invisible stalkers are elementals from the Plane of Air. Like most elementals, they don’t need to drink, eat, or sleep.</p><p><strong>DC 15</strong> An invisible stalker encountered on the Material Plane often serves a powerful spellcaster.</p><p><strong>DC 20</strong> Invisible stalkers are incomparable trackers. They know the direction and distance to their quarry so long as they are on the same plane of existence and not separated by an airtight barrier.</p><p><strong>DESCRIPTION</strong></p><p>An invisible stalker is a creature from the Elemental Plane of Air. Powerful spellcasters frequently summon invisible stalkers to hunt or do battle on their behalf.</p><p><strong><em>Wind Listeners</em>.</strong> On their home plane, communities of invisible stalkers follow herds of gigantic cloud beasts. Unparalleled hunters, they pinpoint their quarry by listening to the whispers of the wind. Summoners covet this tracking ability, employing invisible stalkers as bounty hunters and assassins.</p><p><strong><em>Unwilling Servants</em>.</strong> When encountered on the Elemental Plane of Air, most invisible stalkers are hostile to humanoids—especially spellcasters, which they regard as wicked tormentors. Invisible stalkers dislike being wrenched from their lives to do others’ dirty work. While they must obey their summoners’ commands, they try to complete their mission as quickly as possible. If an assignment is long or hazardous, they look for ways to follow the letter of their orders while subverting the meaning.</p><p><strong>BEHAVIOR</strong></p><p>1–2 Summoned to kill or spy on you or an ally</p><p>3 While watching invisibly, develops an attachment to, or dislike of, a party member</p><p>4 Escaped a botched summoning and trying to live peacefully</p><p><strong>SIGNS</strong></p><p><strong>Wilderness and Underground Signs</strong></p><p>1 CR 17 Perception check: naked humanoid footprints</p><p>2 CR 17 Perception check: The stalker's invisible form briefly displaces smoke or fog</p><p>3 CR 17 Perception check: rustling in the grass, underbrush, or dust</p><p>4 A sudden, localized gust of wind</p><hr class=\"a5e-rule u-my-md\"><p><strong>Settlement Signs</strong></p><p>1 Someone complaining that someone bumped into them; there's no one near them</p><p>2 A door opens and closes, but no one is nearby; DC 17 Perception or Investigation check: footprints can be followed</p><p>3 Trader complains that someone keeps stealing from their stall</p><p>4 A tile suddenly slides off a roof</p><p><strong>ENCOUNTERS</strong></p><p>Native to the Elemental Plane of Air, invisible stalkers perform errands for spellcasters.</p><p><strong>CR 5–10</strong> Invisible stalker; invisible stalker with 1d6 flying swords; invisible render</p><p><strong>CR 11–16</strong> 2 invisible stalkers; invisible stalker with invisible render; invisible stalker with 1 or 2 air elementals</p>",
 			"creatureTypes": [
 				"elemental"
 			],
 			"isSwarm": false,
-			"cr": 9,
+			"cr": 8,
 			"elite": false,
 			"privateNotes": "",
 			"notes": ""
 		},
 		"proficiencies": {
 			"armor": [],
-			"languages": [
-				"ignan"
-			],
+			"languages": [],
 			"tools": [],
 			"weapons": []
 		},
@@ -1651,7 +1662,7 @@
 			"publisher": ""
 		},
 		"traits": {
-			"size": "huge",
+			"size": "med",
 			"conditionImmunities": [
 				"fatigue",
 				"grappled",
@@ -1663,21 +1674,20 @@
 				"unconscious"
 			],
 			"damageImmunities": [
-				"fire",
 				"poison"
 			],
 			"damageResistances": [
-				"Damage from nonmagical weapons"
+				"Damage from non-magical weapons"
 			],
 			"damageVulnerabilities": []
 		}
 	},
 	"prototypeToken": {
-		"name": "Giant Fire Elemental",
+		"name": "Invisible Stalker",
 		"displayName": 30,
 		"actorLink": false,
-		"width": 3,
-		"height": 3,
+		"width": 1,
+		"height": 1,
 		"lockRotation": false,
 		"rotation": 0,
 		"alpha": 1,
@@ -1701,8 +1711,8 @@
 				"min": 0,
 				"max": 1
 			},
-			"color": null,
-			"attenuation": 0.5
+			"attenuation": 0.5,
+			"color": null
 		},
 		"disposition": -1,
 		"displayBars": 30,
@@ -1715,13 +1725,13 @@
 		"flags": {},
 		"randomImg": false,
 		"texture": {
-			"src": "systems/a5e/assets/fire-elemental.webp",
-			"tint": "#ffffff",
+			"src": "systems/a5e/assets/invisible-stalker.webp",
 			"scaleX": 1,
 			"scaleY": 1,
 			"offsetX": 0,
 			"offsetY": 0,
-			"rotation": 0
+			"rotation": 0,
+			"tint": "#ffffff"
 		},
 		"sight": {
 			"angle": 360,
@@ -1739,5 +1749,5 @@
 		"prependAdjective": false
 	},
 	"folder": null,
-	"_id": "4hg5v1gv7vshajbu"
+	"_id": "m2xmcpv4q3oizu6v"
 }

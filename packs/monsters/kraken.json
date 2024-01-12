@@ -67,6 +67,7 @@
 				"featureType": "",
 				"grants": {},
 				"prerequisite": "",
+				"requiresBloodied": false,
 				"schemaVersion": {
 					"version": 0.01,
 					"lastMigration": {
@@ -150,6 +151,7 @@
 				"featureType": "",
 				"grants": {},
 				"prerequisite": "",
+				"requiresBloodied": false,
 				"schemaVersion": {
 					"version": 0.01,
 					"lastMigration": {
@@ -229,6 +231,7 @@
 				"featureType": "",
 				"grants": {},
 				"prerequisite": "",
+				"requiresBloodied": false,
 				"schemaVersion": {
 					"version": 0.01,
 					"lastMigration": {
@@ -308,6 +311,7 @@
 				"featureType": "",
 				"grants": {},
 				"prerequisite": "",
+				"requiresBloodied": false,
 				"schemaVersion": {
 					"version": 0.01,
 					"lastMigration": {
@@ -410,6 +414,7 @@
 				"featureType": "naturalWeapon",
 				"grants": {},
 				"prerequisite": "",
+				"requiresBloodied": false,
 				"schemaVersion": {
 					"version": 0.01,
 					"lastMigration": {
@@ -514,6 +519,7 @@
 				"featureType": "",
 				"grants": {},
 				"prerequisite": "",
+				"requiresBloodied": false,
 				"schemaVersion": {
 					"version": 0.01,
 					"lastMigration": {
@@ -602,6 +608,7 @@
 				"featureType": "",
 				"grants": {},
 				"prerequisite": "",
+				"requiresBloodied": false,
 				"schemaVersion": {
 					"version": 0.01,
 					"lastMigration": {
@@ -619,7 +626,7 @@
 		},
 		{
 			"_id": "6p8mTVWWS6WMTevJ",
-			"name": "Lightning (Recharge 5-6)",
+			"name": "Lightning",
 			"type": "feature",
 			"img": "icons/svg/item-bag.svg",
 			"effects": [],
@@ -638,7 +645,7 @@
 				},
 				"actions": {
 					"dsetxsnZd0vaNwRl": {
-						"name": "Lightning (Recharge 5-6)",
+						"name": "Lightning",
 						"activation": {
 							"cost": 1,
 							"type": "action",
@@ -682,7 +689,13 @@
 								"type": "savingThrow"
 							}
 						},
-						"consumers": {}
+						"consumers": {
+							"ZcrTn28PnPldbarJ": {
+								"type": "itemUses",
+								"default": true,
+								"quantity": 1
+							}
+						}
 					}
 				},
 				"description": "<p>If the kraken is outside and the weather is stormy, three lightning bolts crack down from the sky, each of which strikes a different target within 120 feet of the kraken. A target makes a DC 24 Dexterity saving throw, taking 28 (8d6) lightning damage or half damage on a save.</p>",
@@ -690,12 +703,12 @@
 				"secretDescription": "",
 				"source": "",
 				"uses": {
-					"value": null,
-					"max": "",
-					"per": null,
+					"value": 1,
+					"max": "1",
+					"per": "recharge",
 					"recharge": {
 						"formula": "",
-						"threshold": ""
+						"threshold": 5
 					}
 				},
 				"schema": {
@@ -706,6 +719,7 @@
 				"featureType": "",
 				"grants": {},
 				"prerequisite": "",
+				"requiresBloodied": false,
 				"schemaVersion": {
 					"version": 0.01,
 					"lastMigration": {
@@ -806,6 +820,7 @@
 				"featureType": "naturalWeapon",
 				"grants": {},
 				"prerequisite": "",
+				"requiresBloodied": false,
 				"schemaVersion": {
 					"version": 0.01,
 					"lastMigration": {
@@ -910,6 +925,7 @@
 				"featureType": "",
 				"grants": {},
 				"prerequisite": "",
+				"requiresBloodied": false,
 				"schemaVersion": {
 					"version": 0.01,
 					"lastMigration": {
@@ -952,7 +968,7 @@
 				"uses": {
 					"value": 3,
 					"max": 3,
-					"per": "round",
+					"per": "turn",
 					"recharge": {
 						"formula": "",
 						"threshold": ""
@@ -966,6 +982,7 @@
 				"featureType": "",
 				"grants": {},
 				"prerequisite": "",
+				"requiresBloodied": false,
 				"schemaVersion": {
 					"version": 0.01,
 					"lastMigration": {
@@ -983,7 +1000,7 @@
 		},
 		{
 			"_id": "YxZPgbJWUI6iNHZa",
-			"name": "Squeeze (2 Legendary Actions)",
+			"name": "Squeeze (Costs 2)",
 			"type": "feature",
 			"img": "icons/svg/item-bag.svg",
 			"effects": [],
@@ -1002,7 +1019,7 @@
 				},
 				"actions": {
 					"pyxZS46mvJSOVdsz": {
-						"name": "Squeeze (2 Legendary Actions)",
+						"name": "Squeeze",
 						"activation": {
 							"cost": 1,
 							"type": "legendaryAction",
@@ -1045,6 +1062,7 @@
 				"featureType": "",
 				"grants": {},
 				"prerequisite": "",
+				"requiresBloodied": false,
 				"schemaVersion": {
 					"version": 0.01,
 					"lastMigration": {
@@ -1139,6 +1157,7 @@
 					"version": null,
 					"lastMigration": null
 				},
+				"concentration": false,
 				"degree": 0,
 				"exertionCost": 0,
 				"isStance": false,
@@ -1241,6 +1260,7 @@
 					"version": null,
 					"lastMigration": null
 				},
+				"concentration": false,
 				"degree": 0,
 				"exertionCost": 0,
 				"isStance": false,
@@ -1334,6 +1354,7 @@
 					"version": null,
 					"lastMigration": null
 				},
+				"concentration": false,
 				"degree": 0,
 				"exertionCost": 0,
 				"isStance": false,
@@ -1427,6 +1448,7 @@
 					"version": null,
 					"lastMigration": null
 				},
+				"concentration": false,
 				"degree": 0,
 				"exertionCost": 0,
 				"isStance": false,
@@ -1520,6 +1542,7 @@
 					"version": null,
 					"lastMigration": null
 				},
+				"concentration": false,
 				"degree": 0,
 				"exertionCost": 0,
 				"isStance": false,
@@ -1613,6 +1636,7 @@
 					"version": null,
 					"lastMigration": null
 				},
+				"concentration": false,
 				"degree": 0,
 				"exertionCost": 0,
 				"isStance": false,
@@ -1638,7 +1662,11 @@
 		}
 	],
 	"effects": [],
-	"flags": {},
+	"flags": {
+		"a5e": {
+			"showSpellTab": false
+		}
+	},
 	"system": {
 		"abilities": {
 			"str": {
@@ -2064,6 +2092,7 @@
 				}
 			},
 			"initiative": {
+				"ability": "dex",
 				"bonus": "",
 				"expertiseDice": 0
 			},
@@ -2118,15 +2147,15 @@
 			"casterLevel": 0
 		},
 		"bonuses": {
-			"abilities": {},
-			"damage": {},
-			"healing": {},
 			"maneuverDC": "",
 			"meleeSpellAttack": "",
 			"meleeWeaponAttack": "",
 			"rangedSpellAttack": "",
 			"rangedWeaponAttack": "",
 			"spellDC": "",
+			"abilities": {},
+			"damage": {},
+			"healing": {},
 			"skills": {}
 		},
 		"currency": {
@@ -2224,7 +2253,7 @@
 	},
 	"prototypeToken": {
 		"name": "Kraken",
-		"displayName": 0,
+		"displayName": 30,
 		"actorLink": false,
 		"width": 4,
 		"height": 4,
@@ -2255,7 +2284,7 @@
 			"attenuation": 0.5
 		},
 		"disposition": -1,
-		"displayBars": 0,
+		"displayBars": 30,
 		"bar1": {
 			"attribute": "attributes.hp"
 		},
@@ -2271,15 +2300,11 @@
 			"scaleY": 1,
 			"offsetX": 0,
 			"offsetY": 0,
-			"rotation": 0,
-			"anchorX": 0.5,
-			"anchorY": 0.5,
-			"fit": "contain",
-			"alphaThreshold": 0.75
+			"rotation": 0
 		},
 		"sight": {
 			"angle": 360,
-			"enabled": false,
+			"enabled": true,
 			"range": 0,
 			"brightness": 1,
 			"color": null,
@@ -2290,12 +2315,7 @@
 		},
 		"detectionModes": [],
 		"appendNumber": false,
-		"prependAdjective": false,
-		"hexagonalShape": 0,
-		"locked": false,
-		"occludable": {
-			"radius": 0
-		}
+		"prependAdjective": false
 	},
 	"folder": null,
 	"_id": "59cf30r13zmg5b1q"

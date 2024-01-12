@@ -5,7 +5,7 @@
 	"items": [
 		{
 			"_id": "6Y1N4HAnCmpDkl3K",
-			"name": "Legendary Resistance (3/Day)",
+			"name": "Legendary Resistance",
 			"type": "feature",
 			"img": "icons/svg/item-bag.svg",
 			"effects": [],
@@ -28,9 +28,9 @@
 				"secretDescription": "",
 				"source": "",
 				"uses": {
-					"value": null,
-					"max": "",
-					"per": null,
+					"value": 3,
+					"max": "3",
+					"per": "day",
 					"recharge": {
 						"formula": "",
 						"threshold": ""
@@ -437,7 +437,7 @@
 		},
 		{
 			"_id": "LcsncSG0v72AnXoV",
-			"name": "Tail Attack (Reaction)",
+			"name": "Tail Attack",
 			"type": "feature",
 			"img": "icons/skills/wounds/injury-pain-impaled-hand-blood.webp",
 			"effects": [],
@@ -542,7 +542,7 @@
 		},
 		{
 			"_id": "9Rq4BiK8eMSDGF34",
-			"name": "Roar (Legendary Action)",
+			"name": "Roar",
 			"type": "feature",
 			"img": "icons/magic/sonic/scream-wail-shout-teal.webp",
 			"effects": [],
@@ -565,7 +565,7 @@
 				},
 				"actions": {
 					"vR0eaR4AhmiviNSQ": {
-						"name": "Roar (Legendary Action)",
+						"name": "Roar",
 						"activation": {
 							"cost": 1,
 							"type": "legendaryAction",
@@ -639,7 +639,7 @@
 		},
 		{
 			"_id": "f2FrNF7toyEqWdgY",
-			"name": "Wing Attack (Legendary Action)",
+			"name": "Wing Attack",
 			"type": "feature",
 			"img": "icons/svg/item-bag.svg",
 			"effects": [],
@@ -662,7 +662,7 @@
 				},
 				"actions": {
 					"uCqUixGAcwBeHi3v": {
-						"name": "Wing Attack (Legendary Action)",
+						"name": "Wing Attack",
 						"activation": {
 							"cost": 1,
 							"type": "legendaryAction",
@@ -759,9 +759,9 @@
 				"secretDescription": "",
 				"source": "",
 				"uses": {
-					"value": null,
-					"max": "",
-					"per": null,
+					"value": 3,
+					"max": "3",
+					"per": "turn",
 					"recharge": {
 						"formula": "",
 						"threshold": ""
@@ -1114,7 +1114,7 @@
 		},
 		{
 			"_id": "Dlu4XIb9I6hi5K8I",
-			"name": "Lightning Breath (Recharge 5-6)",
+			"name": "Lightning Breath",
 			"type": "feature",
 			"img": "icons/magic/lightning/bolt-strike-blue.webp",
 			"effects": [],
@@ -1137,7 +1137,7 @@
 				},
 				"actions": {
 					"FThhMyPjzkwOhv2E": {
-						"name": "Lightning Breath (Recharge 5-6)",
+						"name": "Lightning Breath",
 						"activation": {
 							"cost": 1,
 							"type": "action",
@@ -1179,7 +1179,13 @@
 								"type": "savingThrow"
 							}
 						},
-						"consumers": {}
+						"consumers": {
+							"lusRVQYixdS0bCi7": {
+								"type": "itemUses",
+								"default": true,
+								"quantity": 1
+							}
+						}
 					}
 				},
 				"description": "<p>The dragon exhales a 90-foot-long, 5-foot-wide line of lightning. Each creature in that area makes a DC 20 Dexterity saving throw, taking 77 (14d10) lightning damage on a failed save or half damage on a success. A creature that fails the save can&rsquo;t take reactions until the end of its next turn.</p>",
@@ -1187,12 +1193,12 @@
 				"secretDescription": "",
 				"source": "",
 				"uses": {
-					"value": null,
-					"max": "",
-					"per": null,
+					"value": 1,
+					"max": "1",
+					"per": "recharge",
 					"recharge": {
 						"formula": "",
-						"threshold": ""
+						"threshold": 5
 					}
 				},
 				"schema": {
@@ -1221,7 +1227,7 @@
 		},
 		{
 			"_id": "HcudkJ6gE27GSpKV",
-			"name": "Quake (2 Legendary Actions)",
+			"name": "Quake (Costs 2)",
 			"type": "feature",
 			"img": "icons/svg/item-bag.svg",
 			"effects": [],
@@ -1242,8 +1248,8 @@
 					"x6LGQXziWqDtimxK": {
 						"name": "Quake",
 						"activation": {
-							"cost": 1,
-							"type": "action",
+							"cost": 2,
+							"type": "legendaryAction",
 							"reactionTrigger": ""
 						},
 						"consumers": {},
@@ -1410,6 +1416,7 @@
 					"version": null,
 					"lastMigration": null
 				},
+				"concentration": false,
 				"degree": 0,
 				"exertionCost": 0,
 				"isStance": false,
@@ -1512,6 +1519,7 @@
 					"version": null,
 					"lastMigration": null
 				},
+				"concentration": false,
 				"degree": 0,
 				"exertionCost": 0,
 				"isStance": false,
@@ -1605,6 +1613,7 @@
 					"version": null,
 					"lastMigration": null
 				},
+				"concentration": false,
 				"degree": 0,
 				"exertionCost": 0,
 				"isStance": false,
@@ -1698,6 +1707,7 @@
 					"version": null,
 					"lastMigration": null
 				},
+				"concentration": false,
 				"degree": 0,
 				"exertionCost": 0,
 				"isStance": false,
@@ -1791,6 +1801,7 @@
 					"version": null,
 					"lastMigration": null
 				},
+				"concentration": false,
 				"degree": 0,
 				"exertionCost": 0,
 				"isStance": false,
@@ -1884,6 +1895,7 @@
 					"version": null,
 					"lastMigration": null
 				},
+				"concentration": false,
 				"degree": 0,
 				"exertionCost": 0,
 				"isStance": false,

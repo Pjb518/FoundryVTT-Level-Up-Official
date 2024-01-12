@@ -48,6 +48,7 @@
 				"featureType": "",
 				"grants": {},
 				"prerequisite": "",
+				"requiresBloodied": false,
 				"schemaVersion": {
 					"version": 0.01,
 					"lastMigration": {
@@ -152,6 +153,7 @@
 				"featureType": "naturalWeapon",
 				"grants": {},
 				"prerequisite": "",
+				"requiresBloodied": false,
 				"schemaVersion": {
 					"version": 0.01,
 					"lastMigration": {
@@ -169,7 +171,7 @@
 		},
 		{
 			"_id": "AXkbgKzx3MXuy3VV",
-			"name": "Teleport (Recharge 4-6)",
+			"name": "Teleport",
 			"type": "feature",
 			"img": "icons/svg/item-bag.svg",
 			"effects": [],
@@ -192,7 +194,7 @@
 				},
 				"actions": {
 					"bvvbVmAAZLPB5x7y": {
-						"name": "Teleport (Recharge 4-6)",
+						"name": "Teleport",
 						"activation": {
 							"cost": 1,
 							"type": "bonusAction",
@@ -211,7 +213,13 @@
 							"quantity": "",
 							"type": ""
 						},
-						"consumers": {}
+						"consumers": {
+							"fVBShkjDZwaCMzwa": {
+								"type": "itemUses",
+								"default": true,
+								"quantity": 1
+							}
+						}
 					}
 				},
 				"description": "<p>The blink dog magically teleports up to 40 feet to an unoccupied space it can see.</p>",
@@ -219,12 +227,12 @@
 				"secretDescription": "",
 				"source": "",
 				"uses": {
-					"value": null,
-					"max": "",
-					"per": null,
+					"value": 1,
+					"max": "1",
+					"per": "recharge",
 					"recharge": {
 						"formula": "",
-						"threshold": ""
+						"threshold": 4
 					}
 				},
 				"schema": {
@@ -235,6 +243,7 @@
 				"featureType": "",
 				"grants": {},
 				"prerequisite": "",
+				"requiresBloodied": false,
 				"schemaVersion": {
 					"version": 0.01,
 					"lastMigration": {
@@ -329,6 +338,7 @@
 					"version": null,
 					"lastMigration": null
 				},
+				"concentration": false,
 				"degree": 0,
 				"exertionCost": 0,
 				"isStance": false,
@@ -431,6 +441,7 @@
 					"version": null,
 					"lastMigration": null
 				},
+				"concentration": false,
 				"degree": 0,
 				"exertionCost": 0,
 				"isStance": false,
@@ -524,6 +535,7 @@
 					"version": null,
 					"lastMigration": null
 				},
+				"concentration": false,
 				"degree": 0,
 				"exertionCost": 0,
 				"isStance": false,
@@ -617,6 +629,7 @@
 					"version": null,
 					"lastMigration": null
 				},
+				"concentration": false,
 				"degree": 0,
 				"exertionCost": 0,
 				"isStance": false,
@@ -710,6 +723,7 @@
 					"version": null,
 					"lastMigration": null
 				},
+				"concentration": false,
 				"degree": 0,
 				"exertionCost": 0,
 				"isStance": false,
@@ -803,6 +817,7 @@
 					"version": null,
 					"lastMigration": null
 				},
+				"concentration": false,
 				"degree": 0,
 				"exertionCost": 0,
 				"isStance": false,
@@ -831,7 +846,8 @@
 	"flags": {
 		"a5e": {
 			"sheetIsLocked": true,
-			"availableSpellLevels": []
+			"availableSpellLevels": [],
+			"showSpellTab": false
 		}
 	},
 	"system": {
@@ -1259,6 +1275,7 @@
 				}
 			},
 			"initiative": {
+				"ability": "dex",
 				"bonus": "",
 				"expertiseDice": 0
 			},
@@ -1313,15 +1330,15 @@
 			"casterLevel": 0
 		},
 		"bonuses": {
-			"abilities": {},
-			"damage": {},
-			"healing": {},
 			"maneuverDC": "",
 			"meleeSpellAttack": "",
 			"meleeWeaponAttack": "",
 			"rangedSpellAttack": "",
 			"rangedWeaponAttack": "",
 			"spellDC": "",
+			"abilities": {},
+			"damage": {},
+			"healing": {},
 			"skills": {}
 		},
 		"currency": {
@@ -1412,7 +1429,7 @@
 	},
 	"prototypeToken": {
 		"name": "Blink Dog",
-		"displayName": 0,
+		"displayName": 30,
 		"actorLink": false,
 		"width": 1,
 		"height": 1,
@@ -1443,9 +1460,9 @@
 			"color": null
 		},
 		"disposition": 0,
-		"displayBars": 0,
+		"displayBars": 30,
 		"bar1": {
-			"attribute": null
+			"attribute": "attributes.hp"
 		},
 		"bar2": {
 			"attribute": null
@@ -1459,15 +1476,11 @@
 			"offsetX": 0,
 			"offsetY": 0,
 			"rotation": 0,
-			"tint": "#ffffff",
-			"anchorX": 0.5,
-			"anchorY": 0.5,
-			"fit": "contain",
-			"alphaThreshold": 0.75
+			"tint": "#ffffff"
 		},
 		"sight": {
 			"angle": 360,
-			"enabled": false,
+			"enabled": true,
 			"range": 0,
 			"brightness": 1,
 			"color": null,
@@ -1478,12 +1491,7 @@
 		},
 		"detectionModes": [],
 		"appendNumber": false,
-		"prependAdjective": false,
-		"hexagonalShape": 0,
-		"locked": false,
-		"occludable": {
-			"radius": 0
-		}
+		"prependAdjective": false
 	},
 	"folder": null,
 	"_id": "0zs5dhpcg0tpvnmm"

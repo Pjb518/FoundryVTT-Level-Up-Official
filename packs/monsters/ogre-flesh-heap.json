@@ -5,7 +5,7 @@
 	"items": [
 		{
 			"_id": "atMg40IDSHC3H8xU",
-			"name": "Undead Fortitude (1/Day)",
+			"name": "Undead Fortitude",
 			"type": "feature",
 			"img": "icons/svg/item-bag.svg",
 			"effects": [],
@@ -24,7 +24,7 @@
 				},
 				"actions": {
 					"cruKtd0Z4geb3Jiq": {
-						"name": "Undead Fortitude (1/Day)",
+						"name": "Undead Fortitude",
 						"activation": {
 							"cost": 1,
 							"type": "special",
@@ -43,7 +43,13 @@
 							"quantity": "",
 							"type": ""
 						},
-						"consumers": {}
+						"consumers": {
+							"2jgqWjRlKvoWfxzS": {
+								"type": "itemUses",
+								"default": true,
+								"quantity": 1
+							}
+						}
 					}
 				},
 				"description": "<p>If the zombie is reduced to 0 hit points by damage that isn’t radiant or from a critical hit, it’s instead reduced to 1 hit point, falls prone, and is stunned until the end of its next turn, appearing to be dead.</p>",
@@ -51,9 +57,9 @@
 				"secretDescription": "",
 				"source": "",
 				"uses": {
-					"value": null,
-					"max": "",
-					"per": null,
+					"value": 1,
+					"max": "1",
+					"per": "day",
 					"recharge": {
 						"formula": "",
 						"threshold": ""
@@ -670,7 +676,7 @@
 		},
 		{
 			"_id": "oxfn1CvpaFAIyiO1",
-			"name": "Corpulent Expulsion (Recharge 6)",
+			"name": "Corpulent Expulsion",
 			"type": "feature",
 			"img": "icons/svg/item-bag.svg",
 			"effects": [],
@@ -689,7 +695,7 @@
 				},
 				"actions": {
 					"BnczpJIps6beHJto": {
-						"name": "Corpulent Expulsion (Recharge 6, Bloodied)",
+						"name": "Corpulent Expulsion",
 						"activation": {
 							"cost": "",
 							"type": "",
@@ -736,7 +742,13 @@
 								"type": "savingThrow"
 							}
 						},
-						"consumers": {}
+						"consumers": {
+							"CpRVdyWn4XTkRc7n": {
+								"type": "itemUses",
+								"default": true,
+								"quantity": 1
+							}
+						}
 					}
 				},
 				"description": "<p>Can only be used while Bloodied.</p><p>When it takes damage, the ogre flesh heap’s belly splits and releases a torrent of caustic gore in a 30-foot cone. Creatures in this area make a DC 14 Dexterity saving throw, taking 14 (4d6) acid damage on a failure and half damage on a success. The flesh heap then takes 10 (3d6) acid damage.</p>",
@@ -744,12 +756,12 @@
 				"secretDescription": "",
 				"source": "",
 				"uses": {
-					"value": null,
-					"max": "",
-					"per": null,
+					"value": 1,
+					"max": "1",
+					"per": "recharge",
 					"recharge": {
 						"formula": "",
-						"threshold": ""
+						"threshold": 6
 					}
 				},
 				"schema": {
@@ -1362,7 +1374,8 @@
 	"effects": [],
 	"flags": {
 		"a5e": {
-			"sheetIsLocked": true
+			"sheetIsLocked": true,
+			"showSpellTab": false
 		}
 	},
 	"system": {
@@ -1948,7 +1961,7 @@
 	},
 	"prototypeToken": {
 		"name": "Ogre Flesh Heap",
-		"displayName": 0,
+		"displayName": 30,
 		"actorLink": false,
 		"width": 2,
 		"height": 2,
@@ -1979,7 +1992,7 @@
 			"color": null
 		},
 		"disposition": -1,
-		"displayBars": 0,
+		"displayBars": 30,
 		"bar1": {
 			"attribute": "attributes.hp"
 		},
@@ -1999,7 +2012,7 @@
 		},
 		"sight": {
 			"angle": 360,
-			"enabled": false,
+			"enabled": true,
 			"range": 0,
 			"brightness": 1,
 			"color": null,

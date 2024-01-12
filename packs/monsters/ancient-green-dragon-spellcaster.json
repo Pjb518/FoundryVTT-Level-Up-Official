@@ -5,7 +5,7 @@
 	"items": [
 		{
 			"_id": "6Y1N4HAnCmpDkl3K",
-			"name": "Legendary Resistance (3/Day)",
+			"name": "Legendary Resistance",
 			"type": "feature",
 			"img": "icons/svg/item-bag.svg",
 			"effects": [],
@@ -28,9 +28,9 @@
 				"secretDescription": "",
 				"source": "",
 				"uses": {
-					"value": null,
-					"max": "",
-					"per": null,
+					"value": 3,
+					"max": "3",
+					"per": "day",
 					"recharge": {
 						"formula": "",
 						"threshold": ""
@@ -437,7 +437,7 @@
 		},
 		{
 			"_id": "LcsncSG0v72AnXoV",
-			"name": "Tail Attack (Reaction)",
+			"name": "Tail Attack",
 			"type": "feature",
 			"img": "icons/skills/wounds/injury-pain-impaled-hand-blood.webp",
 			"effects": [],
@@ -460,7 +460,7 @@
 				},
 				"actions": {
 					"y2yOsFdovSW8W72j": {
-						"name": "Tail Attack (Reaction)",
+						"name": "Tail Attack",
 						"activation": {
 							"cost": 1,
 							"type": "reaction",
@@ -542,7 +542,7 @@
 		},
 		{
 			"_id": "9Rq4BiK8eMSDGF34",
-			"name": "Roar (Legendary Action)",
+			"name": "Roar",
 			"type": "feature",
 			"img": "icons/magic/sonic/scream-wail-shout-teal.webp",
 			"effects": [],
@@ -565,7 +565,7 @@
 				},
 				"actions": {
 					"O2omT2nqSdpGkVS4": {
-						"name": "Roar (Legendary Action)",
+						"name": "Roar",
 						"activation": {
 							"cost": 1,
 							"type": "legendaryAction",
@@ -639,7 +639,7 @@
 		},
 		{
 			"_id": "f2FrNF7toyEqWdgY",
-			"name": "Wing Attack (Legendary Action)",
+			"name": "Wing Attack",
 			"type": "feature",
 			"img": "icons/svg/item-bag.svg",
 			"effects": [],
@@ -662,7 +662,7 @@
 				},
 				"actions": {
 					"uu0I6jANeKVqQRcr": {
-						"name": "Wing Attack (Legendary Action)",
+						"name": "Wing Attack",
 						"activation": {
 							"cost": 1,
 							"type": "legendaryAction",
@@ -759,9 +759,9 @@
 				"secretDescription": "",
 				"source": "",
 				"uses": {
-					"value": null,
-					"max": "",
-					"per": null,
+					"value": 3,
+					"max": "3",
+					"per": "turn",
 					"recharge": {
 						"formula": "",
 						"threshold": ""
@@ -1053,7 +1053,7 @@
 		},
 		{
 			"_id": "Dlu4XIb9I6hi5K8I",
-			"name": "Poison Breath (Recharge 5-6)",
+			"name": "Poison Breath",
 			"type": "feature",
 			"img": "icons/magic/acid/projectile-smoke-glowing.webp",
 			"effects": [],
@@ -1076,7 +1076,7 @@
 				},
 				"actions": {
 					"K2CpiWwUzo5yLjUb": {
-						"name": "Poison Breath (Recharge 5-6)",
+						"name": "Poison Breath",
 						"activation": {
 							"cost": 1,
 							"type": "action",
@@ -1117,7 +1117,13 @@
 								"type": "savingThrow"
 							}
 						},
-						"consumers": {}
+						"consumers": {
+							"QaX8tB23fATpmzlU": {
+								"type": "itemUses",
+								"default": true,
+								"quantity": 1
+							}
+						}
 					}
 				},
 				"description": "<p>The dragon exhales poisonous gas in a 90-foot cone. Each creature in that area makes a DC 22 Constitution saving throw, taking 80 (23d6) poison damage on a failed save or half damage on a success. A creature with immunity to poison damage that fails the save takes no damage, but its poison immunity is reduced to resistance for the next hour.</p>",
@@ -1125,12 +1131,12 @@
 				"secretDescription": "",
 				"source": "",
 				"uses": {
-					"value": null,
-					"max": "",
-					"per": null,
+					"value": 1,
+					"max": "1",
+					"per": "recharge",
 					"recharge": {
 						"formula": "",
-						"threshold": ""
+						"threshold": 5
 					}
 				},
 				"schema": {
@@ -1159,7 +1165,7 @@
 		},
 		{
 			"_id": "HcudkJ6gE27GSpKV",
-			"name": "Honeyed Words (Legendary Action)",
+			"name": "Honeyed Words",
 			"type": "feature",
 			"img": "icons/svg/item-bag.svg",
 			"effects": [],
@@ -1178,7 +1184,7 @@
 				},
 				"actions": {
 					"eIenx8Dy50kC6mIe": {
-						"name": "Honeyed Words (Legendary Action)",
+						"name": "Honeyed Words",
 						"activation": {
 							"cost": 1,
 							"type": "legendaryAction",
@@ -3329,7 +3335,7 @@
 	},
 	"prototypeToken": {
 		"name": "Ancient Green Dragon Spellcaster",
-		"displayName": 0,
+		"displayName": 30,
 		"actorLink": false,
 		"width": 4,
 		"height": 4,
@@ -3360,7 +3366,7 @@
 			"attenuation": 0.5
 		},
 		"disposition": -1,
-		"displayBars": 0,
+		"displayBars": 30,
 		"bar1": {
 			"attribute": "attributes.hp"
 		},
@@ -3380,7 +3386,7 @@
 		},
 		"sight": {
 			"angle": 360,
-			"enabled": false,
+			"enabled": true,
 			"range": 0,
 			"brightness": 1,
 			"color": null,

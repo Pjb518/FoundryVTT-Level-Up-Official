@@ -85,7 +85,7 @@
 		},
 		{
 			"_id": "6Y1N4HAnCmpDkl3K",
-			"name": "Legendary Resistance (3/Day)",
+			"name": "Legendary Resistance",
 			"type": "feature",
 			"img": "icons/svg/item-bag.svg",
 			"effects": [],
@@ -108,9 +108,9 @@
 				"secretDescription": "",
 				"source": "",
 				"uses": {
-					"value": null,
-					"max": "",
-					"per": null,
+					"value": 3,
+					"max": "3",
+					"per": "day",
 					"recharge": {
 						"formula": "",
 						"threshold": ""
@@ -142,7 +142,7 @@
 		},
 		{
 			"_id": "GlOxGW7I7lJRoL9a",
-			"name": "Ruthless (1/Round)",
+			"name": "Ruthless",
 			"type": "feature",
 			"img": "icons/svg/item-bag.svg",
 			"effects": [],
@@ -159,15 +159,40 @@
 					"requiresNoShield": false,
 					"requiresUnarmored": false
 				},
-				"actions": {},
+				"actions": {
+					"WAp1ruvWCPs2DgDU": {
+						"name": "Ruthless",
+						"activation": {},
+						"consumers": {
+							"IMmAnlL6W2bSBFJ1": {
+								"type": "itemUses",
+								"default": true,
+								"quantity": 1
+							}
+						},
+						"rolls": {},
+						"prompts": {},
+						"uses": {
+							"value": 0,
+							"max": "",
+							"per": "",
+							"recharge": {
+								"formula": "1d6",
+								"rechargeType": "custom",
+								"rechargeAmount": "1",
+								"threshold": 6
+							}
+						}
+					}
+				},
 				"description": "<p>After scoring a critical hit on its turn, the dragon can immediately make one claw attack.</p>",
 				"favorite": false,
 				"secretDescription": "",
 				"source": "",
 				"uses": {
-					"value": null,
-					"max": "",
-					"per": null,
+					"value": 1,
+					"max": "1",
+					"per": "round",
 					"recharge": {
 						"formula": "",
 						"threshold": ""
@@ -697,7 +722,7 @@
 		},
 		{
 			"_id": "bb0pkgfCH8Rr8RIc",
-			"name": "Acid Breath (Recharge 5-6)",
+			"name": "Acid Breath",
 			"type": "feature",
 			"img": "icons/magic/acid/projectile-smoke-glowing.webp",
 			"effects": [],
@@ -716,7 +741,7 @@
 				},
 				"actions": {
 					"MrwjTtfReD5MhLMU": {
-						"name": "Acid Breath (Recharge 5-6)",
+						"name": "Acid Breath",
 						"activation": {
 							"cost": 1,
 							"type": "action",
@@ -758,7 +783,13 @@
 								"type": "savingThrow"
 							}
 						},
-						"consumers": {}
+						"consumers": {
+							"jgHhapq3A75vu8uC": {
+								"type": "itemUses",
+								"default": true,
+								"quantity": 1
+							}
+						}
 					}
 				},
 				"description": "<p>The dragon exhales sizzling acid and necrotic energy in a 90-foot-long, 10-foot-wide line. Each creature in that area makes a DC 22 Dexterity saving throw, taking 85 (19d8) acid damage on a failed save or half damage on a success. A creature that fails the save is blinded until the end of its next turn.</p>",
@@ -766,12 +797,12 @@
 				"secretDescription": "",
 				"source": "",
 				"uses": {
-					"value": null,
-					"max": "",
-					"per": null,
+					"value": 1,
+					"max": "1",
+					"per": "recharge",
 					"recharge": {
 						"formula": "",
-						"threshold": ""
+						"threshold": 5
 					}
 				},
 				"schema": {
@@ -905,7 +936,7 @@
 		},
 		{
 			"_id": "hAE1iD5lSh66f4wH",
-			"name": "Darkness (Legendary Action)",
+			"name": "Darkness",
 			"type": "feature",
 			"img": "icons/svg/item-bag.svg",
 			"effects": [],
@@ -924,7 +955,7 @@
 				},
 				"actions": {
 					"j1914BkZwB4NMRyP": {
-						"name": "Darkness (Legendary Action)",
+						"name": "Darkness",
 						"activation": {
 							"cost": 1,
 							"type": "legendaryAction",
@@ -985,7 +1016,7 @@
 		},
 		{
 			"_id": "9Rq4BiK8eMSDGF34",
-			"name": "Roar (Legendary Action)",
+			"name": "Roar",
 			"type": "feature",
 			"img": "icons/magic/sonic/scream-wail-shout-teal.webp",
 			"effects": [],
@@ -1008,7 +1039,7 @@
 				},
 				"actions": {
 					"FC3l4gYnhZ6Myds9": {
-						"name": "Roar (Legendary Action)",
+						"name": "Roar",
 						"activation": {
 							"cost": 1,
 							"type": "legendaryAction",
@@ -1139,7 +1170,7 @@
 		},
 		{
 			"_id": "f2FrNF7toyEqWdgY",
-			"name": "Wing Attack (Legendary Action)",
+			"name": "Wing Attack",
 			"type": "feature",
 			"img": "icons/svg/item-bag.svg",
 			"effects": [],
@@ -1162,7 +1193,7 @@
 				},
 				"actions": {
 					"jRD3iHyVQDfvwyVs": {
-						"name": "Wing Attack (Legendary Action)",
+						"name": "Wing Attack",
 						"activation": {
 							"cost": 1,
 							"type": "legendaryAction",
@@ -1259,9 +1290,9 @@
 				"secretDescription": "",
 				"source": "",
 				"uses": {
-					"value": null,
-					"max": "",
-					"per": null,
+					"value": 3,
+					"max": "3",
+					"per": "turn",
 					"recharge": {
 						"formula": "",
 						"threshold": ""
@@ -1293,7 +1324,7 @@
 		},
 		{
 			"_id": "mkVXPY8fG5iUeyi7",
-			"name": "Concentrated Acid (1/Day)",
+			"name": "Concentrated Acid",
 			"type": "feature",
 			"img": "icons/svg/item-bag.svg",
 			"effects": [],
@@ -1310,15 +1341,40 @@
 					"requiresNoShield": false,
 					"requiresUnarmored": false
 				},
-				"actions": {},
+				"actions": {
+					"LB5NtHzFqCLkAH6g": {
+						"name": "Concentrated Acid",
+						"activation": {},
+						"consumers": {
+							"FzatJ7bJmlv0FevA": {
+								"type": "itemUses",
+								"default": true,
+								"quantity": 1
+							}
+						},
+						"rolls": {},
+						"prompts": {},
+						"uses": {
+							"value": 0,
+							"max": "",
+							"per": "",
+							"recharge": {
+								"formula": "1d6",
+								"rechargeType": "custom",
+								"rechargeAmount": "1",
+								"threshold": 6
+							}
+						}
+					}
+				},
 				"description": "<p>When the dragon is first bloodied, it immediately recharges its breath weapon, if it’s not already available. For the next minute, the dragon’s acid becomes immensely more corrosive, ignoring acid resistance and treating acid immunity as acid resistance.</p>",
 				"favorite": false,
 				"secretDescription": "",
 				"source": "",
 				"uses": {
-					"value": null,
-					"max": "",
-					"per": null,
+					"value": 1,
+					"max": "1",
+					"per": "day",
 					"recharge": {
 						"formula": "",
 						"threshold": ""
@@ -1411,7 +1467,7 @@
 		},
 		{
 			"_id": "qYnNh9xU2dYRYGdY",
-			"name": "Elite Recovery (Legendary Action)",
+			"name": "Elite Recovery",
 			"type": "feature",
 			"img": "icons/svg/item-bag.svg",
 			"effects": [],
@@ -1430,7 +1486,7 @@
 				},
 				"actions": {
 					"pAIZmjJG2QXOokNk": {
-						"name": "Elite Recovery (Legendary Action)",
+						"name": "Elite Recovery",
 						"activation": {
 							"cost": 1,
 							"type": "legendaryAction",
@@ -1582,7 +1638,7 @@
 		},
 		{
 			"_id": "pchj4dY58Yaf4WJk",
-			"name": "Caustic Surge (2 Legendary Actions)",
+			"name": "Caustic Surge (Costs 2)",
 			"type": "feature",
 			"img": "icons/svg/item-bag.svg",
 			"effects": [],
@@ -1599,7 +1655,29 @@
 					"requiresNoShield": false,
 					"requiresUnarmored": false
 				},
-				"actions": {},
+				"actions": {
+					"h2A1T8dsxcecYDox": {
+						"name": "Caustic Surge",
+						"activation": {
+							"type": "legendaryAction",
+							"cost": 2
+						},
+						"consumers": {},
+						"rolls": {},
+						"prompts": {},
+						"uses": {
+							"value": 0,
+							"max": "",
+							"per": "",
+							"recharge": {
+								"formula": "1d6",
+								"rechargeType": "custom",
+								"rechargeAmount": "1",
+								"threshold": 6
+							}
+						}
+					}
+				},
 				"description": "<p>The dragon recharges its breath weapon.</p>",
 				"favorite": false,
 				"secretDescription": "",
@@ -1639,7 +1717,7 @@
 		},
 		{
 			"_id": "XpJYHYckDsQ0aX6c",
-			"name": "Concentrated Decay (3 Legendary Actions)",
+			"name": "Concentrated Decay (Costs 3)",
 			"type": "feature",
 			"img": "icons/svg/item-bag.svg",
 			"effects": [],
@@ -1656,7 +1734,29 @@
 					"requiresNoShield": false,
 					"requiresUnarmored": false
 				},
-				"actions": {},
+				"actions": {
+					"gwkVqeCi7X4B1f9H": {
+						"name": "Concentrated Decay",
+						"activation": {
+							"type": "legendaryAction",
+							"cost": 3
+						},
+						"consumers": {},
+						"rolls": {},
+						"prompts": {},
+						"uses": {
+							"value": 0,
+							"max": "",
+							"per": "",
+							"recharge": {
+								"formula": "1d6",
+								"rechargeType": "custom",
+								"rechargeAmount": "1",
+								"threshold": 6
+							}
+						}
+					}
+				},
 				"description": "<p>The dragon spits a highly concentrated blast of acid at one creature it can see within 90 feet. That creature is affected as if caught in the dragon’s breath weapon, rolling to save as usual.</p>",
 				"favorite": false,
 				"secretDescription": "",
@@ -3613,7 +3713,7 @@
 	},
 	"prototypeToken": {
 		"name": "Great Wyrm Black Dragon",
-		"displayName": 0,
+		"displayName": 30,
 		"actorLink": false,
 		"width": 4,
 		"height": 4,
@@ -3644,7 +3744,7 @@
 			"attenuation": 0.5
 		},
 		"disposition": -1,
-		"displayBars": 0,
+		"displayBars": 30,
 		"bar1": {
 			"attribute": "attributes.hp"
 		},
@@ -3664,7 +3764,7 @@
 		},
 		"sight": {
 			"angle": 360,
-			"enabled": false,
+			"enabled": true,
 			"range": 0,
 			"brightness": 1,
 			"color": null,

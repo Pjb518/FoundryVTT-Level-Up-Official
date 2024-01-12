@@ -410,7 +410,7 @@
 		},
 		{
 			"_id": "Uedw5bJIRCQomPdz",
-			"name": "Attack (Legendary)",
+			"name": "Attack",
 			"type": "feature",
 			"img": "icons/svg/item-bag.svg",
 			"effects": [],
@@ -429,7 +429,7 @@
 				},
 				"actions": {
 					"V7fw1OSnC4kY77es": {
-						"name": "Attack (Legendary)",
+						"name": "Attack",
 						"activation": {
 							"cost": 1,
 							"type": "legendaryAction",
@@ -490,7 +490,7 @@
 		},
 		{
 			"_id": "J1miuWSK6yAsdDBy",
-			"name": "Cast Spell (Legendary)",
+			"name": "Cast Spell",
 			"type": "feature",
 			"img": "icons/svg/item-bag.svg",
 			"effects": [],
@@ -509,7 +509,7 @@
 				},
 				"actions": {
 					"dYFr88PM8wwsyeqa": {
-						"name": "Cast Spell (Legendary)",
+						"name": "Cast Spell",
 						"activation": {
 							"cost": 1,
 							"type": "legendaryAction",
@@ -570,7 +570,7 @@
 		},
 		{
 			"_id": "aaBPFABQKmnR8bVu",
-			"name": "Fly (Legendary)",
+			"name": "Fly",
 			"type": "feature",
 			"img": "icons/svg/item-bag.svg",
 			"effects": [],
@@ -589,7 +589,7 @@
 				},
 				"actions": {
 					"o4ShCP5ZKVL7WGtw": {
-						"name": "Fly (Legendary)",
+						"name": "Fly",
 						"activation": {
 							"cost": 1,
 							"type": "legendaryAction",
@@ -650,7 +650,7 @@
 		},
 		{
 			"_id": "7BofWww6JrM4ENom",
-			"name": "Shout (Recharge 5-6)",
+			"name": "Shout",
 			"type": "feature",
 			"img": "icons/svg/item-bag.svg",
 			"effects": [],
@@ -669,7 +669,7 @@
 				},
 				"actions": {
 					"AxzuVr3mVjxEH7oX": {
-						"name": "Shout (Recharge 5-6)",
+						"name": "Shout",
 						"activation": {
 							"cost": 1,
 							"type": "legendaryAction",
@@ -711,7 +711,13 @@
 								"type": "savingThrow"
 							}
 						},
-						"consumers": {}
+						"consumers": {
+							"nZOXBxAIxL10uAxL": {
+								"type": "itemUses",
+								"default": true,
+								"quantity": 1
+							}
+						}
 					}
 				},
 				"description": "<p>(Recharge 5-6, Legendary Action)</p><p>Each creature within 120 feet that can hear the empyrean makes a DC 25 Constitution saving throw. On a failure, a creature takes 24 (7d6) thunder damage and is stunned until the end of the empyrean’s next turn. On a success, a creature takes half damage.</p>",
@@ -719,12 +725,12 @@
 				"secretDescription": "",
 				"source": "",
 				"uses": {
-					"value": null,
-					"max": null,
-					"per": "",
+					"value": 1,
+					"max": "1",
+					"per": "recharge",
 					"recharge": {
 						"formula": "",
-						"threshold": ""
+						"threshold": 5
 					}
 				},
 				"schema": {
@@ -858,7 +864,7 @@
 				"uses": {
 					"value": 1,
 					"max": 1,
-					"per": "round",
+					"per": "turn",
 					"recharge": {
 						"formula": "",
 						"threshold": ""
@@ -3356,7 +3362,7 @@
 	},
 	"prototypeToken": {
 		"name": "Empyrean",
-		"displayName": 0,
+		"displayName": 30,
 		"actorLink": false,
 		"width": 4,
 		"height": 4,
@@ -3387,7 +3393,7 @@
 			"color": null
 		},
 		"disposition": -1,
-		"displayBars": 0,
+		"displayBars": 30,
 		"bar1": {
 			"attribute": "attributes.hp"
 		},
@@ -3407,7 +3413,7 @@
 		},
 		"sight": {
 			"angle": 360,
-			"enabled": false,
+			"enabled": true,
 			"range": 0,
 			"brightness": 1,
 			"color": null,

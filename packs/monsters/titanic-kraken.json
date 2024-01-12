@@ -623,7 +623,7 @@
 		},
 		{
 			"_id": "6p8mTVWWS6WMTevJ",
-			"name": "Lightning (Recharge 5-6)",
+			"name": "Lightning",
 			"type": "feature",
 			"img": "icons/svg/item-bag.svg",
 			"effects": [],
@@ -642,7 +642,7 @@
 				},
 				"actions": {
 					"eqxseU7ylZNJMc4s": {
-						"name": "Lightning (Recharge 5-6)",
+						"name": "Lightning",
 						"activation": {
 							"cost": 1,
 							"type": "action",
@@ -686,7 +686,13 @@
 								"type": "savingThrow"
 							}
 						},
-						"consumers": {}
+						"consumers": {
+							"XTZJfMLEZwZTq4LE": {
+								"type": "itemUses",
+								"default": true,
+								"quantity": 1
+							}
+						}
 					}
 				},
 				"description": "<p>If the kraken is outside and the weather is stormy, three lightning bolts crack down from the sky, each of which strikes a different target within 120 feet of the kraken. A target makes a DC 24 Dexterity saving throw, taking 28 (8d6) lightning damage or half damage on a save.</p>",
@@ -694,12 +700,12 @@
 				"secretDescription": "",
 				"source": "",
 				"uses": {
-					"value": null,
-					"max": "",
-					"per": null,
+					"value": 1,
+					"max": "1",
+					"per": "recharge",
 					"recharge": {
 						"formula": "",
-						"threshold": ""
+						"threshold": 5
 					}
 				},
 				"schema": {
@@ -959,7 +965,7 @@
 				"uses": {
 					"value": 3,
 					"max": 3,
-					"per": "round",
+					"per": "turn",
 					"recharge": {
 						"formula": "",
 						"threshold": ""
@@ -991,7 +997,7 @@
 		},
 		{
 			"_id": "YxZPgbJWUI6iNHZa",
-			"name": "Squeeze (2 Legendary Actions)",
+			"name": "Squeeze (Costs 2)",
 			"type": "feature",
 			"img": "icons/svg/item-bag.svg",
 			"effects": [],
@@ -1010,7 +1016,7 @@
 				},
 				"actions": {
 					"H7XhF07wIU0Q2jRN": {
-						"name": "Squeeze (2 Legendary Actions)",
+						"name": "Squeeze",
 						"activation": {
 							"cost": 1,
 							"type": "legendaryAction",
@@ -2147,7 +2153,8 @@
 	"effects": [],
 	"flags": {
 		"a5e": {
-			"sheetIsLocked": true
+			"sheetIsLocked": true,
+			"showSpellTab": false
 		}
 	},
 	"system": {
@@ -2736,7 +2743,7 @@
 	},
 	"prototypeToken": {
 		"name": "Titanic Kraken",
-		"displayName": 0,
+		"displayName": 30,
 		"actorLink": false,
 		"width": 5,
 		"height": 5,
@@ -2767,7 +2774,7 @@
 			"attenuation": 0.5
 		},
 		"disposition": -1,
-		"displayBars": 0,
+		"displayBars": 30,
 		"bar1": {
 			"attribute": "attributes.hp"
 		},
@@ -2787,7 +2794,7 @@
 		},
 		"sight": {
 			"angle": 360,
-			"enabled": false,
+			"enabled": true,
 			"range": 0,
 			"brightness": 1,
 			"color": null,

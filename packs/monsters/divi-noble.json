@@ -547,7 +547,7 @@
 		},
 		{
 			"_id": "zUehAJ71xiyFZ9DY",
-			"name": "Quake (Recharge 5-6)",
+			"name": "Quake",
 			"type": "feature",
 			"img": "icons/svg/item-bag.svg",
 			"effects": [],
@@ -570,7 +570,7 @@
 				},
 				"actions": {
 					"JPYUNYJQTwDsVS2n": {
-						"name": "Quake (Recharge 5-6)",
+						"name": "Quake",
 						"activation": {
 							"cost": 1,
 							"type": "action",
@@ -610,7 +610,13 @@
 								"type": "savingThrow"
 							}
 						},
-						"consumers": {},
+						"consumers": {
+							"FEayexIaw9GE82QI": {
+								"type": "itemUses",
+								"default": true,
+								"quantity": 1
+							}
+						},
 						"ranges": {
 							"XnBbpVR2WbzAqKdj": {
 								"range": 90,
@@ -624,12 +630,12 @@
 				"secretDescription": "",
 				"source": "",
 				"uses": {
-					"value": null,
-					"max": "",
-					"per": null,
+					"value": 1,
+					"max": "1",
+					"per": "recharge",
 					"recharge": {
 						"formula": "",
-						"threshold": ""
+						"threshold": 5
 					}
 				},
 				"schema": {
@@ -829,7 +835,7 @@
 		},
 		{
 			"_id": "jELTacwcv4XWA9yu",
-			"name": "Quake (Bonus)",
+			"name": "Quake",
 			"type": "feature",
 			"img": "icons/svg/item-bag.svg",
 			"effects": [],
@@ -903,7 +909,7 @@
 				"featureType": "",
 				"grants": {},
 				"prerequisite": "",
-				"requiresBloodied": false,
+				"requiresBloodied": true,
 				"schemaVersion": {
 					"version": 0.01,
 					"lastMigration": {
@@ -1013,7 +1019,7 @@
 				"featureType": "",
 				"grants": {},
 				"prerequisite": "",
-				"requiresBloodied": false,
+				"requiresBloodied": true,
 				"schemaVersion": {
 					"version": 0.01,
 					"lastMigration": {
@@ -2310,7 +2316,7 @@
 	},
 	"prototypeToken": {
 		"name": "Divi Noble",
-		"displayName": 0,
+		"displayName": 30,
 		"actorLink": false,
 		"width": 2,
 		"height": 2,
@@ -2341,7 +2347,7 @@
 			"color": null
 		},
 		"disposition": -1,
-		"displayBars": 0,
+		"displayBars": 30,
 		"bar1": {
 			"attribute": "attributes.hp"
 		},
@@ -2361,7 +2367,7 @@
 		},
 		"sight": {
 			"angle": 360,
-			"enabled": false,
+			"enabled": true,
 			"range": 0,
 			"brightness": 1,
 			"color": null,

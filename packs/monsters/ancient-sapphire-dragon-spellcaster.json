@@ -680,7 +680,7 @@
 		},
 		{
 			"_id": "1St3GwbIaGnvDa6Q",
-			"name": "Discognitive Breath (Recharge 5-6)",
+			"name": "Discognitive Breath",
 			"type": "feature",
 			"img": "icons/svg/item-bag.svg",
 			"effects": [],
@@ -699,7 +699,7 @@
 				},
 				"actions": {
 					"GZxh5pVZfTRZ752h": {
-						"name": "Discognitive Breath (Recharge 5-6)",
+						"name": "Discognitive Breath",
 						"activation": {
 							"cost": 1,
 							"type": "action",
@@ -747,7 +747,13 @@
 								"type": "savingThrow"
 							}
 						},
-						"consumers": {}
+						"consumers": {
+							"SoToujLBzSW4XcQF": {
+								"type": "itemUses",
+								"default": true,
+								"quantity": 1
+							}
+						}
 					}
 				},
 				"description": "<p>The dragon unleashes psychic energy in a 90-foot cone. Each creature in that area makes a DC 21 Intelligence saving throw, taking  psychic damage and ongoing psychic damage on a failed save or half damage and no ongoing psychic damage on a success. The ongoing damage ends if a creature falls unconscious. A creature can use an action to ground itself in reality, ending the ongoing damage.&nbsp;</p>",
@@ -755,12 +761,12 @@
 				"secretDescription": "",
 				"source": "",
 				"uses": {
-					"value": null,
-					"max": "",
-					"per": null,
+					"value": 1,
+					"max": "1",
+					"per": "recharge",
 					"recharge": {
 						"formula": "",
-						"threshold": ""
+						"threshold": 5
 					}
 				},
 				"schema": {
@@ -1022,7 +1028,7 @@
 		},
 		{
 			"_id": "QOSErrIn4j40d0Qz",
-			"name": "Psionic Wave (Legendary)",
+			"name": "Psionic Wave (Costs 2)",
 			"type": "feature",
 			"img": "icons/svg/item-bag.svg",
 			"effects": [],
@@ -1041,7 +1047,7 @@
 				},
 				"actions": {
 					"l45mVN5MWqAQ0M43": {
-						"name": "Psionic Wave (Legendary)",
+						"name": "Psionic Wave",
 						"activation": {
 							"cost": 2,
 							"type": "legendaryAction",
@@ -3248,7 +3254,7 @@
 	},
 	"prototypeToken": {
 		"name": "Ancient Amethyst Dragon Spellcaster",
-		"displayName": 0,
+		"displayName": 30,
 		"actorLink": false,
 		"width": 4,
 		"height": 4,
@@ -3279,7 +3285,7 @@
 			"attenuation": 0.5
 		},
 		"disposition": -1,
-		"displayBars": 0,
+		"displayBars": 30,
 		"bar1": {
 			"attribute": "attributes.hp"
 		},
@@ -3299,7 +3305,7 @@
 		},
 		"sight": {
 			"angle": 360,
-			"enabled": false,
+			"enabled": true,
 			"range": 0,
 			"brightness": 1,
 			"color": null,

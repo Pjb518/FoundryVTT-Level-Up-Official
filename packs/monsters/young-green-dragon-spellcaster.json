@@ -336,7 +336,7 @@
 		},
 		{
 			"_id": "Dlu4XIb9I6hi5K8I",
-			"name": "Poison Breath (Recharge 5-6)",
+			"name": "Poison Breath",
 			"type": "feature",
 			"img": "icons/magic/acid/projectile-smoke-glowing.webp",
 			"effects": [],
@@ -359,7 +359,7 @@
 				},
 				"actions": {
 					"abfKHdJi1MSxDh5u": {
-						"name": "Poison Breath (Recharge 5-6)",
+						"name": "Poison Breath",
 						"activation": {
 							"cost": 1,
 							"type": "action",
@@ -399,7 +399,13 @@
 								"type": "savingThrow"
 							}
 						},
-						"consumers": {}
+						"consumers": {
+							"EV1jMK0geS44Ksny": {
+								"type": "itemUses",
+								"default": true,
+								"quantity": 1
+							}
+						}
 					}
 				},
 				"description": "<p>The dragon exhales poisonous gas in a 30-foot cone. Each creature in that area makes a DC 15 Constitution saving throw, taking 42 (12d6) poison damage on a failed save or half damage on a success.</p>",
@@ -407,12 +413,12 @@
 				"secretDescription": "",
 				"source": "",
 				"uses": {
-					"value": null,
-					"max": "",
-					"per": null,
+					"value": 1,
+					"max": "1",
+					"per": "recharge",
 					"recharge": {
 						"formula": "",
-						"threshold": ""
+						"threshold": 5
 					}
 				},
 				"schema": {
@@ -1956,7 +1962,7 @@
 	},
 	"prototypeToken": {
 		"name": "Young Green Dragon",
-		"displayName": 0,
+		"displayName": 30,
 		"actorLink": false,
 		"width": 2,
 		"height": 2,
@@ -1987,7 +1993,7 @@
 			"attenuation": 0.5
 		},
 		"disposition": -1,
-		"displayBars": 0,
+		"displayBars": 30,
 		"bar1": {
 			"attribute": "attributes.hp"
 		},
@@ -2007,7 +2013,7 @@
 		},
 		"sight": {
 			"angle": 360,
-			"enabled": false,
+			"enabled": true,
 			"range": 0,
 			"brightness": 1,
 			"color": null,

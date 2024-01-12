@@ -5,7 +5,7 @@
 	"items": [
 		{
 			"_id": "6Y1N4HAnCmpDkl3K",
-			"name": "Legendary Resistance (3/Day)",
+			"name": "Legendary Resistance",
 			"type": "feature",
 			"img": "icons/svg/item-bag.svg",
 			"effects": [],
@@ -28,9 +28,9 @@
 				"secretDescription": "",
 				"source": "",
 				"uses": {
-					"value": null,
-					"max": "",
-					"per": null,
+					"value": 3,
+					"max": "3",
+					"per": "day",
 					"recharge": {
 						"formula": "",
 						"threshold": ""
@@ -542,7 +542,7 @@
 		},
 		{
 			"_id": "9Rq4BiK8eMSDGF34",
-			"name": "Roar (Legendary Action)",
+			"name": "Roar",
 			"type": "feature",
 			"img": "icons/magic/sonic/scream-wail-shout-teal.webp",
 			"effects": [],
@@ -565,7 +565,7 @@
 				},
 				"actions": {
 					"7xRWSAGQc0yk0G9G": {
-						"name": "Roar (Legendary Action)",
+						"name": "Roar",
 						"activation": {
 							"cost": 1,
 							"type": "legendaryAction",
@@ -639,7 +639,7 @@
 		},
 		{
 			"_id": "f2FrNF7toyEqWdgY",
-			"name": "Wing Attack (Legendary Action)",
+			"name": "Wing Attack",
 			"type": "feature",
 			"img": "icons/svg/item-bag.svg",
 			"effects": [],
@@ -662,7 +662,7 @@
 				},
 				"actions": {
 					"ipWu0btDhfgtSscN": {
-						"name": "Wing Attack (Legendary Action)",
+						"name": "Wing Attack",
 						"activation": {
 							"cost": 1,
 							"type": "legendaryAction",
@@ -759,9 +759,9 @@
 				"secretDescription": "",
 				"source": "",
 				"uses": {
-					"value": null,
-					"max": "",
-					"per": null,
+					"value": 3,
+					"max": "3",
+					"per": "turn",
 					"recharge": {
 						"formula": "",
 						"threshold": ""
@@ -962,7 +962,7 @@
 		},
 		{
 			"_id": "Dlu4XIb9I6hi5K8I",
-			"name": "Fire Breath (Recharge 5-6)",
+			"name": "Fire Breath",
 			"type": "feature",
 			"img": "icons/creatures/abilities/dragon-fire-breath-orange.webp",
 			"effects": [],
@@ -985,7 +985,7 @@
 				},
 				"actions": {
 					"mQRBtog1hsKiZOVF": {
-						"name": "Fire Breath (Recharge 5-6)",
+						"name": "Fire Breath",
 						"activation": {
 							"cost": 1,
 							"type": "action",
@@ -1032,7 +1032,13 @@
 								"type": "savingThrow"
 							}
 						},
-						"consumers": {}
+						"consumers": {
+							"YvDfgHPeiB9WJbV6": {
+								"type": "itemUses",
+								"default": true,
+								"quantity": 1
+							}
+						}
 					}
 				},
 				"description": "<p>The dragon exhales a blast of fire in a 60-foot cone. Each creature in that area makes a DC 21 Dexterity saving throw, taking 73 (21d6) fire damage on a failed save or half damage on a success. A creature that fails the saving throw also takes 5 (1d10) ongoing fire damage. While affected by this ongoing damage, it is frightened of the dragon. A creature can use an action to end the ongoing damage.</p>",
@@ -1040,12 +1046,12 @@
 				"secretDescription": "",
 				"source": "",
 				"uses": {
-					"value": null,
-					"max": "",
-					"per": null,
+					"value": 1,
+					"max": "1",
+					"per": "recharge",
 					"recharge": {
 						"formula": "",
-						"threshold": ""
+						"threshold": 5
 					}
 				},
 				"schema": {
@@ -1074,7 +1080,7 @@
 		},
 		{
 			"_id": "HcudkJ6gE27GSpKV",
-			"name": "Cruel Tyranny (Legendary Action)",
+			"name": "Cruel Tyranny",
 			"type": "feature",
 			"img": "icons/svg/item-bag.svg",
 			"effects": [],
@@ -1093,7 +1099,7 @@
 				},
 				"actions": {
 					"pVcmOfVLQ8OtNemQ": {
-						"name": "Cruel Tyranny (Legendary Action)",
+						"name": "Cruel Tyranny",
 						"activation": {
 							"cost": 1,
 							"type": "legendaryAction",
@@ -3083,7 +3089,7 @@
 	},
 	"prototypeToken": {
 		"name": "Adult Red Dragon",
-		"displayName": 0,
+		"displayName": 30,
 		"actorLink": false,
 		"width": 3,
 		"height": 3,
@@ -3114,7 +3120,7 @@
 			"attenuation": 0.5
 		},
 		"disposition": -1,
-		"displayBars": 0,
+		"displayBars": 30,
 		"bar1": {
 			"attribute": "attributes.hp"
 		},
@@ -3134,7 +3140,7 @@
 		},
 		"sight": {
 			"angle": 360,
-			"enabled": false,
+			"enabled": true,
 			"range": 0,
 			"brightness": 1,
 			"color": null,

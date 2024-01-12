@@ -336,7 +336,7 @@
 		},
 		{
 			"_id": "Dlu4XIb9I6hi5K8I",
-			"name": "Fire Breath (Recharge 5-6)",
+			"name": "Fire Breath",
 			"type": "feature",
 			"img": "icons/creatures/abilities/dragon-fire-breath-orange.webp",
 			"effects": [],
@@ -359,7 +359,7 @@
 				},
 				"actions": {
 					"5lwPSseMeLmatD3K": {
-						"name": "Fire Breath (Recharge 5-6)",
+						"name": "Fire Breath",
 						"activation": {
 							"cost": 1,
 							"type": "action",
@@ -406,7 +406,13 @@
 								"type": "savingThrow"
 							}
 						},
-						"consumers": {}
+						"consumers": {
+							"5tSQv01HTqqYU9vk": {
+								"type": "itemUses",
+								"default": true,
+								"quantity": 1
+							}
+						}
 					}
 				},
 				"description": "<p>The dragon exhales a blast of fire that fills a 30-foot cone. Each creature in that area makes a DC 17 Dexterity saving throw, taking 52 (15d6) fire damage on a failed save or half damage on a success. A creature that fails the saving throw also takes 5 (1d10) ongoing fire damage. While affected by this ongoing damage, it is frightened of the dragon. A creature can use an action to end the ongoing damage.</p>",
@@ -414,12 +420,12 @@
 				"secretDescription": "",
 				"source": "",
 				"uses": {
-					"value": null,
-					"max": "",
-					"per": null,
+					"value": 1,
+					"max": "1",
+					"per": "recharge",
 					"recharge": {
 						"formula": "",
-						"threshold": ""
+						"threshold": 5
 					}
 				},
 				"schema": {
@@ -2021,7 +2027,7 @@
 	},
 	"prototypeToken": {
 		"name": "Young Red Dragon",
-		"displayName": 0,
+		"displayName": 30,
 		"actorLink": false,
 		"width": 2,
 		"height": 2,
@@ -2052,7 +2058,7 @@
 			"attenuation": 0.5
 		},
 		"disposition": -1,
-		"displayBars": 0,
+		"displayBars": 30,
 		"bar1": {
 			"attribute": "attributes.hp"
 		},
@@ -2072,7 +2078,7 @@
 		},
 		"sight": {
 			"angle": 360,
-			"enabled": false,
+			"enabled": true,
 			"range": 0,
 			"brightness": 1,
 			"color": null,
