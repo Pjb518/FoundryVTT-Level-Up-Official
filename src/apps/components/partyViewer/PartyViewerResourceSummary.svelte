@@ -91,7 +91,7 @@
                             <i
                                 class="cross fa-solid fa-xmark"
                                 data-tooltip="{$actor.name} has no spell slots of {localize(
-                                    CONFIG.A5E.spellLevels[level]
+                                    CONFIG.A5E.spellLevels[level],
                                 ).toLowerCase()}."
                                 data-tooltip-direction="UP"
                             />
@@ -150,7 +150,7 @@
         display: flex;
         justify-content: center;
         gap: 0.5rem;
-        min-width: 7.5rem;
+        // min-width: 7.5rem;
         padding: 0;
         margin: 0;
         list-style: none;
