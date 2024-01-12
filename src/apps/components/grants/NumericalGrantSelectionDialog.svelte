@@ -3,7 +3,7 @@
 <script>
     import { getContext } from "svelte";
 
-    import FormSection from "../FormSection.svelte";
+    import FieldWrapper from "../FieldWrapper.svelte";
     import CheckboxGroup from "../CheckboxGroup.svelte";
 
     export let { dialog, heading, base, choices, configObject, count, bonus } =
@@ -37,7 +37,7 @@
 </script>
 
 <article>
-    <FormSection
+    <FieldWrapper
         {heading}
         warning="{count - selected.length} choice(s) remaining."
         showWarning={selected.length < count}
@@ -69,13 +69,13 @@
             {disabledOptions}
             on:updateSelection={({ detail }) => (selected = detail)}
         />
-    </FormSection>
+    </FieldWrapper>
 
-    <FormSection>
+    <FieldWrapper>
         This grant provides a bonus of {bonus} to {selected
             .map((s) => configObject[s])
             .join(", ")}.
-    </FormSection>
+    </FieldWrapper>
 
     <button on:click|preventDefault={onSubmit}> Submit </button>
 </article>

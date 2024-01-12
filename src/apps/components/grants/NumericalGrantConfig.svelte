@@ -5,7 +5,8 @@
 
     import updateDocumentDataFromField from "../../../utils/updateDocumentDataFromField";
 
-    import FormSection from "../FormSection.svelte";
+    import FieldWrapper from "../FieldWrapper.svelte";
+    import Section from "../Section.svelte";
     import NumericalGrantContexts from "./NumericalGrantContexts.svelte";
 
     export let { document, grantId, grantType } =
@@ -88,8 +89,8 @@
         </div>
     </header>
 
-    <FormSection>
-        <FormSection
+    <section>
+        <FieldWrapper
             heading="A5E.Formula"
             --background="none"
             --grow="1"
@@ -101,10 +102,10 @@
                 value={grant.bonus ?? ""}
                 on:change={({ target }) => onUpdateValue("bonus", target.value)}
             />
-        </FormSection>
+        </FieldWrapper>
 
         {#if grantType === "damage" || grantType === "healing"}
-            <FormSection
+            <FieldWrapper
                 heading={getTypeHeading()}
                 --background="none"
                 --direction="column"
@@ -132,9 +133,9 @@
                         </option>
                     {/each}
                 </select>
-            </FormSection>
+            </FieldWrapper>
         {/if}
-    </FormSection>
+    </section>
 
     <NumericalGrantContexts />
 </form>
@@ -145,7 +146,7 @@
         flex-direction: column;
         height: 100%;
         padding: var(--padding, 0.75rem);
-        gap: 0.5rem;
+        gap: 0.75rem;
         background: var(--background, $color-sheet-background);
     }
 

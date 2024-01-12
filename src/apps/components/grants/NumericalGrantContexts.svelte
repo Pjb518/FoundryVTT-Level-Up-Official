@@ -6,8 +6,9 @@
     import updateDocumentDataFromField from "../../../utils/updateDocumentDataFromField";
 
     import Checkbox from "../Checkbox.svelte";
-    import FormSection from "../FormSection.svelte";
-    import TagGroup from "../TagGroup.svelte";
+    import CheckBoxGroup from "../CheckboxGroup.svelte";
+    import FieldWrapper from "../FieldWrapper.svelte";
+    import Section from "../Section.svelte";
 
     const item = getContext("item");
     const grantId = getContext("grantId");
@@ -24,18 +25,18 @@
     $: grant = $item.system.grants[grantId];
 </script>
 
-<FormSection
+<Section
     heading="Contexts"
     hint="The context determines when the damage bonus applies"
-    --direction="column"
-    --wrap="nowrap"
+    --a5e-section-body-gap="0.75rem"
 >
     {#each contextMap as context}
         {#if context.component === "TagGroup"}
-            <TagGroup
+            <CheckBoxGroup
                 heading={context.heading}
                 options={context.options}
                 selected={getProperty(grant, context.selectedProperty)}
+                showToggleAllButton={true}
                 on:updateSelection={({ detail }) => {
                     onUpdateValue(context.selectedProperty, detail);
                 }}
@@ -49,7 +50,7 @@
                 }}
             />
         {:else if context.component === "Number"}
-            <FormSection
+            <FieldWrapper
                 heading={context.heading}
                 --background="none"
                 --padding="0"
@@ -65,7 +66,7 @@
                         );
                     }}
                 />
-            </FormSection>
+            </FieldWrapper>
         {/if}
     {/each}
-</FormSection>
+</Section>
