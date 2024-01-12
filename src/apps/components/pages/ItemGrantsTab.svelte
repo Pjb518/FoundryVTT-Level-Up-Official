@@ -9,6 +9,18 @@
 
     const item: TJSDocument = getContext("item");
 
+    function getGrantTemplateConfiguration() {
+        let areas = "icon name indicators";
+        let columns = "min-content 1fr min-content";
+
+        if ($item.documentName === "Item" || !sheetIsLocked) {
+            areas += " menu";
+            columns += " 2rem";
+        }
+
+        return { areas: `"${areas}"`, columns };
+    }
+
     function addGrant(detail: string) {
         const data = {
             grantType: detail,
@@ -28,19 +40,26 @@
         },
         [],
     );
+
+    $: sheetIsLocked = !$item.isOwner ? true : false;
+    $: grantTemplateConfiguration = getGrantTemplateConfiguration();
 </script>
 
 <article>
-    <ul class="grant-list">
+    <ul class="a5e-item-list">
         {#each grants.entries() as [id, grant] (id)}
-            <ItemGrantListComponent {grant} />
+            <ItemGrantListComponent
+                {grant}
+                --grantTemplateAreas={grantTemplateConfiguration.areas}
+                --grantTemplateColumns={grantTemplateConfiguration.columns}
+            />
         {/each}
     </ul>
 
     <div class="sticky-add-button">
         <CreateMenu
             {menuList}
-            offset={{ x: -110, y: +5 }}
+            offset={{ x: -110, y: 115 }}
             documentName="Grant"
             on:press={({ detail }) => addGrant(detail)}
         />
@@ -54,16 +73,6 @@
         flex: 1;
         gap: 0.75rem;
         overflow: hidden;
-    }
-
-    .grant-list {
-        display: flex;
-        flex-direction: column;
-        position: relative;
-        margin: 0;
-        padding: 0;
-        gap: 0.25rem;
-        list-style: none;
     }
 
     .sticky-add-button {
