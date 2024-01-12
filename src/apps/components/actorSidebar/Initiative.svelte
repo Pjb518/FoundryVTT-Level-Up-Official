@@ -30,9 +30,7 @@
     <h4 class="initiative-label">Initiative</h4>
 
     {#if sheetIsLocked}
-        <!-- svelte-ignore a11y-click-events-have-key-events -->
-        <!-- svelte-ignore a11y-no-static-element-interactions -->
-        <i
+        <button
             class="initiative-roll-button fas fa-dice-d20"
             class:initiative-roll-button--shift={$pressedKeysStore.Shift}
             class:initiative-roll-button--ctrl={$pressedKeysStore.Control}
@@ -48,9 +46,7 @@
                 })}
         />
     {:else}
-        <!-- svelte-ignore a11y-click-events-have-key-events -->
-        <!-- svelte-ignore a11y-no-static-element-interactions -->
-        <i
+        <button
             class="initiative-roll-button fas fa-cog"
             data-tooltip="A5E.InitiativeConfigurationTitle"
             data-tooltip-direction="DOWN"
@@ -69,18 +65,21 @@
         align-items: center;
         justify-content: center;
         flex-grow: 1;
-        color: #7e7960;
-        font-size: $font-size-xl;
-        width: 2.5rem;
         height: 2.5rem;
+        width: 2.5rem;
         margin: auto;
+        font-size: var(--a5e-text-size-xl);
+        color: #7e7960;
+        background: transparent;
+        border: 0;
         cursor: pointer;
 
-        transition: $standard-transition;
+        transition: var(--a5e-transition-standard);
 
         &:hover {
             transform: scale(1.2);
             color: #555;
+            box-shadow: none;
         }
 
         &--ctrl:hover {
@@ -93,8 +92,10 @@
     }
 
     .initiative-label {
-        font-size: $font-size-md;
-        text-align: center;
         padding-bottom: 0.125rem;
+        font-family: var(--a5e-font-serif);
+        font-size: var(--a5e-text-size-sm);
+        font-weight: 700;
+        text-align: center;
     }
 </style>

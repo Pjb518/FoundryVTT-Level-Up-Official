@@ -2,7 +2,78 @@
 	"name": "Unnerving Bane",
 	"type": "spell",
 	"img": "icons/magic/unholy/hand-light-green.webp",
-	"effects": [],
+	"effects": [
+		{
+			"icon": "icons/magic/unholy/hand-light-green.webp",
+			"origin": "Item.SETZtx5ZaxDy9cFq",
+			"flags": {
+				"a5e": {
+					"sort": 0,
+					"transferType": "onUse",
+					"actionId": "COq2RAnTSNoBlEn1",
+					"duration": {
+						"unit": "minutes"
+					}
+				}
+			},
+			"transfer": false,
+			"name": "Unnerving Bane",
+			"_id": "uSWdUVo1KS5blnPN",
+			"changes": [
+				{
+					"key": "flags.a5e.effects.bonuses.abilities",
+					"value": "{\"label\":\"\",\"formula\":\"-1d4\",\"damageType\":\"\",\"context\":{\"types\":[\"save\"]},\"default\":true,\"img\":\"icons/svg/upgrade.svg\"}",
+					"mode": 0,
+					"priority": null
+				},
+				{
+					"key": "system.bonuses.meleeSpellAttack",
+					"value": "-1d4",
+					"mode": 2,
+					"priority": null
+				},
+				{
+					"key": "system.bonuses.meleeWeaponAttack",
+					"value": "-1d4",
+					"mode": 2,
+					"priority": null
+				},
+				{
+					"key": "system.bonuses.rangedSpellAttack",
+					"value": "-1d4",
+					"mode": 2,
+					"priority": null
+				},
+				{
+					"key": "system.bonuses.rangedWeaponAttack",
+					"value": "-1d4",
+					"mode": 2,
+					"priority": null
+				},
+				{
+					"key": "flags.a5e.effects.statusConditions",
+					"value": "[\"rattled\"]",
+					"mode": 0,
+					"priority": null
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": 60,
+				"combat": null,
+				"rounds": null,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "<p>Until the spell ends, a d4 is subtracted from attack rolls and saving throws made by a target.</p>\n<p><strong>Rare: Unnerving Bane</strong>. Targets affected by this spell are rattled.</p>",
+			"statuses": [
+				"rattled"
+			],
+			"folder": null
+		}
+	],
 	"flags": {},
 	"system": {
 		"actions": {
@@ -40,6 +111,11 @@
 							"bonus": ""
 						},
 						"type": "savingThrow"
+					},
+					"2w2vB53LSVp60Si5": {
+						"type": "effect",
+						"default": true,
+						"effectId": "uSWdUVo1KS5blnPN"
 					}
 				},
 				"consumers": {

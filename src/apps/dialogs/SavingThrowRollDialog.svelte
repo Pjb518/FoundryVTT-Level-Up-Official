@@ -5,7 +5,8 @@
 
     import CheckboxGroup from "../components/CheckboxGroup.svelte";
     import ExpertiseDiePicker from "../components/ExpertiseDiePicker.svelte";
-    import FormSection from "../components/FormSection.svelte";
+    import FieldWrapper from "../components/FieldWrapper.svelte";
+    import FormSection from "../components/LegacyFormSection.svelte";
     import OutputVisibilitySection from "../components/activationDialog/OutputVisibilitySection.svelte";
     import RadioGroup from "../components/RadioGroup.svelte";
 
@@ -15,6 +16,24 @@
 
     export let { document, abilityKey, dialog, options } =
         getContext("#external").application;
+
+    function getDefaultSelections(property) {
+        return Object.values(property ?? {})
+            .flat()
+            .reduce((acc, [key, value]) => {
+                if (value.default ?? true) acc.push(key);
+                return acc;
+            }, []);
+    }
+
+    function getInitialExpertiseDieSelection() {
+        if (hideExpertiseDice) return 0;
+
+        return (
+            options.expertiseDice ??
+            $actor.system.abilities[abilityKey]?.save.expertiseDice
+        );
+    }
 
     function getSubmitButtonText(saveType, abilityKey) {
         if (saveType === "death") return "Roll Death Saving Throw";
@@ -33,15 +52,6 @@
         }
     }
 
-    function getDefaultSelections(property) {
-        return Object.values(property ?? {})
-            .flat()
-            .reduce((acc, [key, value]) => {
-                if (value.default ?? true) acc.push(key);
-                return acc;
-            }, []);
-    }
-
     const rollModeOptions = Object.entries(CONFIG.A5E.rollModes).map(
         ([key, value]) => [
             CONFIG.A5E.ROLL_MODE[key.toUpperCase()],
@@ -55,9 +65,10 @@
     ];
 
     const actor = new TJSDocument(document);
-    const appId = dialog.id;
-    const localizeSave = localize(CONFIG.A5E.abilities[abilityKey]);
     const abilityBonuses = prepareAbilityBonuses($actor, abilityKey, "save");
+    const appId = dialog.id;
+    const hideExpertiseDice = game.settings.get("a5e", "hideExpertiseDice");
+    const localizeSave = localize(CONFIG.A5E.abilities[abilityKey]);
 
     function onSubmit() {
         dialog.submit({
@@ -69,13 +80,10 @@
         });
     }
 
-    let expertiseDie =
-        options.expertiseDice ??
-        $actor.system.abilities[abilityKey]?.save.expertiseDice;
-
     let visibilityMode =
         options.visibilityMode ?? game.settings.get("core", "rollMode");
 
+    let expertiseDie = getInitialExpertiseDieSelection();
     let saveType = options.saveType ?? "standard";
     let selectedRollMode = options.rollMode ?? CONFIG.A5E.ROLL_MODE.NORMAL;
     let rollFormula;
@@ -105,53 +113,48 @@
 <form>
     <OutputVisibilitySection bind:visibilityMode />
 
-    <FormSection heading="A5E.RollModeHeading">
-        <RadioGroup
-            options={rollModeOptions}
-            selected={rollMode}
-            on:updateSelection={({ detail }) => (rollMode = detail)}
-        />
-    </FormSection>
+    <RadioGroup
+        heading="A5E.RollModeHeading"
+        options={rollModeOptions}
+        selected={rollMode}
+        on:updateSelection={({ detail }) => (rollMode = detail)}
+    />
 
-    <FormSection heading="A5E.ExpertiseDie">
-        <ExpertiseDiePicker
-            selected={expertiseDie}
-            on:updateSelection={({ detail }) => (expertiseDie = detail)}
-        />
-    </FormSection>
+    <ExpertiseDiePicker
+        selected={expertiseDie}
+        on:updateSelection={({ detail }) => (expertiseDie = detail)}
+    />
 
     {#if abilityKey === "con" && saveType !== "death"}
-        <FormSection heading="A5E.ItemSavingThrowType">
-            <RadioGroup
-                options={saveTypes}
-                selected={saveType}
-                on:updateSelection={(event) => (saveType = event.detail)}
-            />
-        </FormSection>
+        <RadioGroup
+            heading="A5E.ItemSavingThrowType"
+            options={saveTypes}
+            selected={saveType}
+            on:updateSelection={(event) => (saveType = event.detail)}
+        />
     {/if}
 
     {#if Object.values(abilityBonuses).flat().length}
-        <FormSection heading="Ability Bonuses">
-            <CheckboxGroup
-                options={abilityBonuses.map(([key, abilityBonus]) => [
-                    key,
-                    abilityBonus.label || abilityBonus.defaultLabel,
-                ])}
-                selected={selectedAbilityBonuses}
-                on:updateSelection={({ detail }) =>
-                    (selectedAbilityBonuses = detail)}
-            />
-        </FormSection>
+        <CheckboxGroup
+            heading="Ability Bonuses"
+            options={abilityBonuses.map(([key, abilityBonus]) => [
+                key,
+                abilityBonus.label || abilityBonus.defaultLabel,
+            ])}
+            selected={selectedAbilityBonuses}
+            on:updateSelection={({ detail }) =>
+                (selectedAbilityBonuses = detail)}
+        />
     {/if}
 
-    <FormSection heading="A5E.SituationalMods">
+    <FieldWrapper heading="A5E.SituationalMods">
         <input
             class="a5e-input"
             type="text"
             id="{$actor.id}-{appId}-situational-mods"
             bind:value={situationalMods}
         />
-    </FormSection>
+    </FieldWrapper>
 
     <section class="roll-formula-preview">
         {rollFormula}

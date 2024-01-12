@@ -2,7 +2,58 @@
 	"name": "Foresight",
 	"type": "spell",
 	"img": "icons/magic/perception/orb-crystal-ball-scrying.webp",
-	"effects": [],
+	"effects": [
+		{
+			"icon": "icons/magic/perception/orb-crystal-ball-scrying.webp",
+			"origin": "Item.Ca0wxFmqTwg7wIc5",
+			"flags": {
+				"a5e": {
+					"sort": 0,
+					"transferType": "onUse",
+					"actionId": "rRK0euajXobIoafl",
+					"duration": {
+						"unit": "hours"
+					}
+				}
+			},
+			"transfer": false,
+			"name": "Foresight",
+			"_id": "6EOKAfKYY4GOTWBP",
+			"changes": [
+				{
+					"key": "flags.a5e.effects.rollMode.abilityCheck.all",
+					"value": "1",
+					"mode": 6,
+					"priority": null
+				},
+				{
+					"key": "flags.a5e.effects.rollMode.attack.all",
+					"value": "1",
+					"mode": 6,
+					"priority": null
+				},
+				{
+					"key": "flags.a5e.effects.rollMode.abilitySave.all",
+					"value": "1",
+					"mode": 6,
+					"priority": null
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": 28800,
+				"combat": null,
+				"rounds": null,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "<p>The target can't be surprised and has advantage on ability checks, attack rolls, and saving throws. Other creatures have disadvantage on attack rolls against the target.</p>",
+			"statuses": [],
+			"folder": null
+		}
+	],
 	"flags": {},
 	"system": {
 		"actions": {
@@ -28,8 +79,8 @@
 					"placeTemplate": false
 				},
 				"target": {
-					"quantity": "",
-					"type": "Creature"
+					"quantity": 1,
+					"type": ""
 				},
 				"consumers": {
 					"kPzrgnRDY668KguW": {
@@ -37,6 +88,13 @@
 						"spellLevel": 9,
 						"points": 13,
 						"type": "spell"
+					}
+				},
+				"prompts": {
+					"bTnKDKV34xqODyyy": {
+						"type": "effect",
+						"default": true,
+						"effectId": "6EOKAfKYY4GOTWBP"
 					}
 				}
 			}

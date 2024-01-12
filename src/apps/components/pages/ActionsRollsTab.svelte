@@ -10,10 +10,33 @@
     import DamageRollConfig from "../itemActionsConfig/DamageRollConfig.svelte";
     import GenericRollConfig from "../itemActionsConfig/GenericRollConfig.svelte";
     import HealingRollConfig from "../itemActionsConfig/HealingRollConfig.svelte";
-    import RollConfigWrapper from "../itemActionsConfig/RollConfigWrapper.svelte";
     import SavingThrowRollConfig from "../itemActionsConfig/SavingThrowRollConfig.svelte";
+    import Section from "../Section.svelte";
     import SkillCheckRollConfig from "../itemActionsConfig/SkillCheckRollConfig.svelte";
     import ToolCheckRollConfig from "../itemActionsConfig/ToolCheckRollConfig.svelte";
+
+    async function deleteRoll(actionId, rollId) {
+        // Close dialog
+        const dialog = $item.dialogs.rollScaling[rollId];
+        await dialog?.close();
+        delete $item.dialogs.rollScaling[rollId];
+
+        $item.update({
+            [`system.actions.${actionId}.rolls`]: {
+                [`-=${rollId}`]: null,
+            },
+        });
+    }
+
+    function duplicateRoll(actionId, roll) {
+        const newRoll = foundry.utils.duplicate(roll);
+
+        $item.update({
+            [`system.actions.${actionId}.rolls`]: {
+                [foundry.utils.randomID()]: newRoll,
+            },
+        });
+    }
 
     const item = getContext("item");
     const actionId = getContext("actionId");
@@ -66,7 +89,7 @@
     $: rolls = action.rolls ?? {};
 
     $: attackRolls = Object.entries(action.rolls ?? {}).filter(
-        ([_, roll]) => roll.type === "attack"
+        ([_, roll]) => roll.type === "attack",
     );
 
     $: menuList = Object.entries(rollTypes).reduce(
@@ -75,99 +98,78 @@
                 acc.push([rollType, singleLabel]);
             return acc;
         },
-        []
+        [],
     );
 </script>
 
-<article>
+<div class="a5e-page-wrapper a5e-page-wrapper--scrollable">
     <ul class="roll-config-list">
         {#each Object.entries(rollTypes) as [rollType, { heading, singleLabel, buttonLabel, component }] (rollType)}
             {#if Object.values(rolls).filter((roll) => roll.type === rollType).length}
                 <li class="roll-config-list__item">
-                    <header class="action-config__section-header">
-                        <h2 class="action-config__section-heading">
-                            {localize(heading)}
-                        </h2>
-
-                        {#if rollType !== "attack"}
-                            <button
-                                class="add-button"
-                                on:click={() =>
+                    <Section
+                        {heading}
+                        headerButtons={[
+                            {
+                                classes: "add-button",
+                                handler: () =>
                                     ActionsManager.addRoll(
                                         $item,
                                         [actionId, action],
-                                        rollType
-                                    )}
-                            >
-                                {localize("A5E.ButtonAddRoll", {
+                                        rollType,
+                                    ),
+                                label: localize("A5E.ButtonAddRoll", {
                                     type: localize(
                                         rollType === "damage"
                                             ? buttonLabel
-                                            : singleLabel
+                                            : singleLabel,
                                     ),
-                                })}
-                            </button>
-                        {/if}
-                    </header>
-
-                    <ul class="roll-list">
-                        {#each Object.entries(rolls).filter(([_, roll]) => roll.type === rollType) as [rollId, roll] (rollId)}
-                            <RollConfigWrapper {roll} {rollId}>
-                                <svelte:component
-                                    this={component}
-                                    {roll}
-                                    {rollId}
-                                />
-                            </RollConfigWrapper>
-                        {:else}
-                            <li class="action-config__none">
-                                {localize("A5E.None")}
-                            </li>
-                        {/each}
-                    </ul>
+                                }),
+                            },
+                        ]}
+                        --a5e-section-gap="0"
+                    >
+                        <ul class="a5e-item-list">
+                            {#each Object.entries(rolls).filter(([_, roll]) => roll.type === rollType) as [rollId, roll] (rollId)}
+                                <li class="a5e-item a5e-item--action-config">
+                                    <svelte:component
+                                        this={component}
+                                        {deleteRoll}
+                                        {duplicateRoll}
+                                        {roll}
+                                        {rollId}
+                                    />
+                                </li>
+                            {/each}
+                        </ul>
+                    </Section>
                 </li>
             {/if}
         {/each}
     </ul>
+</div>
 
-    <div class="sticky-add-button">
-        <CreateMenu
-            {menuList}
-            offset={{ x: -110, y: -140 }}
-            documentName="Roll"
-            on:press={({ detail }) =>
-                ActionsManager.addRoll($item, [actionId, action], detail)}
-        />
-    </div>
-</article>
+<div class="sticky-add-button">
+    <CreateMenu
+        {menuList}
+        offset={{ x: -110, y: -140 }}
+        documentName="Roll"
+        on:press={({ detail }) =>
+            ActionsManager.addRoll($item, [actionId, action], detail)}
+    />
+</div>
 
 <style lang="scss">
-    article {
-        display: flex;
-        flex-direction: column;
-        flex: 1;
-        gap: 0.75rem;
-        overflow: hidden;
-    }
-
-    .roll-list {
-        display: flex;
-        flex-direction: column;
-        position: relative;
-        margin: 0;
-        padding: 0;
-        gap: 0.25rem;
-        list-style: none;
-    }
-
     .roll-config-list {
         display: flex;
         flex-direction: column;
         flex-grow: 1;
         gap: 0.75rem;
         list-style: none;
-        padding: 0;
         margin: 0;
+        margin-right: -0.375rem;
+        padding: 0;
+        padding-right: 0.375rem;
         overflow-y: auto;
 
         &__item {

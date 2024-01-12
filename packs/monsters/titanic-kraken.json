@@ -67,6 +67,7 @@
 				"featureType": "",
 				"grants": {},
 				"prerequisite": "",
+				"requiresBloodied": false,
 				"schemaVersion": {
 					"version": 0.01,
 					"lastMigration": {
@@ -150,6 +151,7 @@
 				"featureType": "",
 				"grants": {},
 				"prerequisite": "",
+				"requiresBloodied": false,
 				"schemaVersion": {
 					"version": 0.01,
 					"lastMigration": {
@@ -229,6 +231,7 @@
 				"featureType": "",
 				"grants": {},
 				"prerequisite": "",
+				"requiresBloodied": false,
 				"schemaVersion": {
 					"version": 0.01,
 					"lastMigration": {
@@ -308,6 +311,7 @@
 				"featureType": "",
 				"grants": {},
 				"prerequisite": "",
+				"requiresBloodied": false,
 				"schemaVersion": {
 					"version": 0.01,
 					"lastMigration": {
@@ -410,6 +414,7 @@
 				"featureType": "naturalWeapon",
 				"grants": {},
 				"prerequisite": "",
+				"requiresBloodied": false,
 				"schemaVersion": {
 					"version": 0.01,
 					"lastMigration": {
@@ -456,19 +461,16 @@
 							"unit": "turn",
 							"value": 1
 						},
-						"ranges": {
-							"4BTAMs2xOG5MGeRn": {
-								"range": "self"
-							}
-						},
+						"ranges": {},
 						"area": {
 							"shape": "sphere",
 							"size": "90 ft radius",
-							"placeTemplate": false
+							"placeTemplate": false,
+							"radius": 30
 						},
 						"target": {
-							"quantity": null,
-							"type": "creature"
+							"quantity": 1,
+							"type": ""
 						},
 						"rolls": {
 							"3STENuqVBmEgsxXN": {
@@ -514,6 +516,7 @@
 				"featureType": "",
 				"grants": {},
 				"prerequisite": "",
+				"requiresBloodied": false,
 				"schemaVersion": {
 					"version": 0.01,
 					"lastMigration": {
@@ -602,6 +605,7 @@
 				"featureType": "",
 				"grants": {},
 				"prerequisite": "",
+				"requiresBloodied": false,
 				"schemaVersion": {
 					"version": 0.01,
 					"lastMigration": {
@@ -619,7 +623,7 @@
 		},
 		{
 			"_id": "6p8mTVWWS6WMTevJ",
-			"name": "Lightning (Recharge 5-6)",
+			"name": "Lightning",
 			"type": "feature",
 			"img": "icons/svg/item-bag.svg",
 			"effects": [],
@@ -638,7 +642,7 @@
 				},
 				"actions": {
 					"eqxseU7ylZNJMc4s": {
-						"name": "Lightning (Recharge 5-6)",
+						"name": "Lightning",
 						"activation": {
 							"cost": 1,
 							"type": "action",
@@ -682,7 +686,13 @@
 								"type": "savingThrow"
 							}
 						},
-						"consumers": {}
+						"consumers": {
+							"XTZJfMLEZwZTq4LE": {
+								"type": "itemUses",
+								"default": true,
+								"quantity": 1
+							}
+						}
 					}
 				},
 				"description": "<p>If the kraken is outside and the weather is stormy, three lightning bolts crack down from the sky, each of which strikes a different target within 120 feet of the kraken. A target makes a DC 24 Dexterity saving throw, taking 28 (8d6) lightning damage or half damage on a save.</p>",
@@ -690,12 +700,12 @@
 				"secretDescription": "",
 				"source": "",
 				"uses": {
-					"value": null,
-					"max": "",
-					"per": null,
+					"value": 1,
+					"max": "1",
+					"per": "recharge",
 					"recharge": {
 						"formula": "",
-						"threshold": ""
+						"threshold": 5
 					}
 				},
 				"schema": {
@@ -706,6 +716,7 @@
 				"featureType": "",
 				"grants": {},
 				"prerequisite": "",
+				"requiresBloodied": false,
 				"schemaVersion": {
 					"version": 0.01,
 					"lastMigration": {
@@ -806,6 +817,7 @@
 				"featureType": "naturalWeapon",
 				"grants": {},
 				"prerequisite": "",
+				"requiresBloodied": false,
 				"schemaVersion": {
 					"version": 0.01,
 					"lastMigration": {
@@ -910,6 +922,7 @@
 				"featureType": "",
 				"grants": {},
 				"prerequisite": "",
+				"requiresBloodied": false,
 				"schemaVersion": {
 					"version": 0.01,
 					"lastMigration": {
@@ -952,7 +965,7 @@
 				"uses": {
 					"value": 3,
 					"max": 3,
-					"per": "round",
+					"per": "turn",
 					"recharge": {
 						"formula": "",
 						"threshold": ""
@@ -966,6 +979,7 @@
 				"featureType": "",
 				"grants": {},
 				"prerequisite": "",
+				"requiresBloodied": false,
 				"schemaVersion": {
 					"version": 0.01,
 					"lastMigration": {
@@ -983,7 +997,7 @@
 		},
 		{
 			"_id": "YxZPgbJWUI6iNHZa",
-			"name": "Squeeze (2 Legendary Actions)",
+			"name": "Squeeze (Costs 2)",
 			"type": "feature",
 			"img": "icons/svg/item-bag.svg",
 			"effects": [],
@@ -1002,7 +1016,7 @@
 				},
 				"actions": {
 					"H7XhF07wIU0Q2jRN": {
-						"name": "Squeeze (2 Legendary Actions)",
+						"name": "Squeeze",
 						"activation": {
 							"cost": 1,
 							"type": "legendaryAction",
@@ -1045,6 +1059,7 @@
 				"featureType": "",
 				"grants": {},
 				"prerequisite": "",
+				"requiresBloodied": false,
 				"schemaVersion": {
 					"version": 0.01,
 					"lastMigration": {
@@ -1062,7 +1077,7 @@
 		},
 		{
 			"_id": "7ZtEh06dCae3nBbG",
-			"name": "Bloodied Ichor (while bloodied)",
+			"name": "Bloodied Ichor",
 			"type": "feature",
 			"img": "icons/svg/item-bag.svg",
 			"effects": [],
@@ -1081,7 +1096,7 @@
 				},
 				"actions": {
 					"CBQRzOXrggdQuzkf": {
-						"name": "Bloodied Ichor (while bloodied)",
+						"name": "Bloodied Ichor",
 						"activation": {
 							"cost": "",
 							"type": "special",
@@ -1091,19 +1106,16 @@
 							"unit": "special",
 							"value": ""
 						},
-						"ranges": {
-							"5Iw8ZMVdzhcXzdHm": {
-								"range": "self"
-							}
-						},
+						"ranges": {},
 						"area": {
 							"shape": "sphere",
 							"size": "60 ft radius",
-							"placeTemplate": false
+							"placeTemplate": false,
+							"radius": 60
 						},
 						"target": {
-							"quantity": null,
-							"type": "creature"
+							"quantity": 1,
+							"type": ""
 						},
 						"rolls": {
 							"ePWJ2AUxsVhWJC8L": {
@@ -1138,6 +1150,7 @@
 				"featureType": "",
 				"grants": {},
 				"prerequisite": "",
+				"requiresBloodied": true,
 				"schemaVersion": {
 					"version": 0.01,
 					"lastMigration": {
@@ -1155,7 +1168,7 @@
 		},
 		{
 			"_id": "iaHYdfD2ieKtzjLO",
-			"name": "Elite Recovery (while bloodied)",
+			"name": "Elite Recovery",
 			"type": "feature",
 			"img": "icons/svg/item-bag.svg",
 			"effects": [],
@@ -1174,7 +1187,7 @@
 				},
 				"actions": {
 					"aQEQrTy0j0383R6H": {
-						"name": "Elite Recovery (while bloodied)",
+						"name": "Elite Recovery",
 						"activation": {
 							"cost": null,
 							"type": "action",
@@ -1222,6 +1235,7 @@
 				"featureType": "",
 				"grants": {},
 				"prerequisite": "",
+				"requiresBloodied": true,
 				"schemaVersion": {
 					"version": 0.01,
 					"lastMigration": {
@@ -1239,7 +1253,7 @@
 		},
 		{
 			"_id": "o5zYqc7K07OdxyWd",
-			"name": "Tentacle Flail (while bloodied)",
+			"name": "Tentacle Flail",
 			"type": "feature",
 			"img": "icons/svg/item-bag.svg",
 			"effects": [],
@@ -1258,7 +1272,7 @@
 				},
 				"actions": {
 					"wSe7F5qMZajxctEG": {
-						"name": "Tentacle Flail (while bloodied)",
+						"name": "Tentacle Flail",
 						"activation": {
 							"cost": "",
 							"type": "action",
@@ -1322,6 +1336,7 @@
 				"featureType": "",
 				"grants": {},
 				"prerequisite": "",
+				"requiresBloodied": true,
 				"schemaVersion": {
 					"version": 0.01,
 					"lastMigration": {
@@ -1339,7 +1354,7 @@
 		},
 		{
 			"_id": "WeudBFoFnDZnA3kg",
-			"name": "Maelstrom (while bloodied)",
+			"name": "Maelstrom",
 			"type": "feature",
 			"img": "icons/svg/item-bag.svg",
 			"effects": [],
@@ -1358,7 +1373,7 @@
 				},
 				"actions": {
 					"oaUM9JyIuUITkMMK": {
-						"name": "Maelstrom (while bloodied)",
+						"name": "Maelstrom",
 						"activation": {
 							"cost": "",
 							"type": "action",
@@ -1368,19 +1383,17 @@
 							"unit": "",
 							"value": ""
 						},
-						"ranges": {
-							"BuALxGb4XJjHuboC": {
-								"range": "self"
-							}
-						},
+						"ranges": {},
 						"area": {
-							"shape": "sphere",
+							"shape": "emanation",
 							"size": "90 ft.",
-							"placeTemplate": false
+							"placeTemplate": false,
+							"quantity": 1,
+							"radius": 90
 						},
 						"target": {
-							"quantity": null,
-							"type": "creatureObject"
+							"quantity": 1,
+							"type": ""
 						},
 						"rolls": {
 							"FUbs2lho8KK55i68": {
@@ -1419,6 +1432,7 @@
 				"featureType": "",
 				"grants": {},
 				"prerequisite": "",
+				"requiresBloodied": true,
 				"schemaVersion": {
 					"version": 0.01,
 					"lastMigration": {
@@ -1436,7 +1450,7 @@
 		},
 		{
 			"_id": "Mba8paBv5o3AdoXP",
-			"name": "Thundercrack (while bloodied)",
+			"name": "Thundercrack",
 			"type": "feature",
 			"img": "icons/svg/item-bag.svg",
 			"effects": [],
@@ -1455,7 +1469,7 @@
 				},
 				"actions": {
 					"Z5Sk1BTugZOTcWn7": {
-						"name": "Thundercrack (while bloodied)",
+						"name": "Thundercrack",
 						"activation": {
 							"cost": 1,
 							"type": "action",
@@ -1471,9 +1485,12 @@
 							}
 						},
 						"area": {
-							"shape": "sphere",
+							"shape": "cylinder",
 							"size": "10 ft radius",
-							"placeTemplate": false
+							"placeTemplate": false,
+							"quantity": 1,
+							"radius": 10,
+							"height": 100
 						},
 						"target": {
 							"quantity": null,
@@ -1534,6 +1551,7 @@
 				"featureType": "",
 				"grants": {},
 				"prerequisite": "",
+				"requiresBloodied": true,
 				"schemaVersion": {
 					"version": 0.01,
 					"lastMigration": {
@@ -1628,6 +1646,7 @@
 					"version": null,
 					"lastMigration": null
 				},
+				"concentration": false,
 				"degree": 0,
 				"exertionCost": 0,
 				"isStance": false,
@@ -1730,6 +1749,7 @@
 					"version": null,
 					"lastMigration": null
 				},
+				"concentration": false,
 				"degree": 0,
 				"exertionCost": 0,
 				"isStance": false,
@@ -1823,6 +1843,7 @@
 					"version": null,
 					"lastMigration": null
 				},
+				"concentration": false,
 				"degree": 0,
 				"exertionCost": 0,
 				"isStance": false,
@@ -1916,6 +1937,7 @@
 					"version": null,
 					"lastMigration": null
 				},
+				"concentration": false,
 				"degree": 0,
 				"exertionCost": 0,
 				"isStance": false,
@@ -2009,6 +2031,7 @@
 					"version": null,
 					"lastMigration": null
 				},
+				"concentration": false,
 				"degree": 0,
 				"exertionCost": 0,
 				"isStance": false,
@@ -2102,6 +2125,7 @@
 					"version": null,
 					"lastMigration": null
 				},
+				"concentration": false,
 				"degree": 0,
 				"exertionCost": 0,
 				"isStance": false,
@@ -2129,7 +2153,8 @@
 	"effects": [],
 	"flags": {
 		"a5e": {
-			"sheetIsLocked": true
+			"sheetIsLocked": true,
+			"showSpellTab": false
 		}
 	},
 	"system": {
@@ -2220,7 +2245,7 @@
 			}
 		},
 		"schemaVersion": {
-			"version": 0.007,
+			"version": 0.01,
 			"lastMigration": {
 				"version": {
 					"schema": 0.006,
@@ -2557,6 +2582,7 @@
 				}
 			},
 			"initiative": {
+				"ability": "dex",
 				"bonus": "",
 				"expertiseDice": 0
 			},
@@ -2611,15 +2637,15 @@
 			"casterLevel": 0
 		},
 		"bonuses": {
-			"abilities": {},
-			"damage": {},
-			"healing": {},
 			"maneuverDC": "",
 			"meleeSpellAttack": "",
 			"meleeWeaponAttack": "",
 			"rangedSpellAttack": "",
 			"rangedWeaponAttack": "",
 			"spellDC": "",
+			"abilities": {},
+			"damage": {},
+			"healing": {},
 			"skills": {}
 		},
 		"currency": {
@@ -2717,7 +2743,7 @@
 	},
 	"prototypeToken": {
 		"name": "Titanic Kraken",
-		"displayName": 0,
+		"displayName": 30,
 		"actorLink": false,
 		"width": 5,
 		"height": 5,
@@ -2748,7 +2774,7 @@
 			"attenuation": 0.5
 		},
 		"disposition": -1,
-		"displayBars": 0,
+		"displayBars": 30,
 		"bar1": {
 			"attribute": "attributes.hp"
 		},
@@ -2764,15 +2790,11 @@
 			"scaleY": 1,
 			"offsetX": 0,
 			"offsetY": 0,
-			"rotation": 0,
-			"anchorX": 0.5,
-			"anchorY": 0.5,
-			"fit": "contain",
-			"alphaThreshold": 0.75
+			"rotation": 0
 		},
 		"sight": {
 			"angle": 360,
-			"enabled": false,
+			"enabled": true,
 			"range": 0,
 			"brightness": 1,
 			"color": null,
@@ -2783,12 +2805,7 @@
 		},
 		"detectionModes": [],
 		"appendNumber": false,
-		"prependAdjective": false,
-		"hexagonalShape": 0,
-		"locked": false,
-		"occludable": {
-			"radius": 0
-		}
+		"prependAdjective": false
 	},
 	"folder": null,
 	"_id": "0cxq9vg8e0657r6i"

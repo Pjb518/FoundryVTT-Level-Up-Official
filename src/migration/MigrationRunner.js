@@ -352,12 +352,22 @@ export default class MigrationRunner extends MigrationRunnerBase {
   }
 
   async runDocumentMigration(document, migrations) {
-    if (!['Actor', 'Item'].includes(document.documentName)) return;
+    const documentVersion = document.system.schemaVersion?.version
+      ?? document.system.schema.version
+      ?? 0.000;
+
+    if (documentVersion >= MigrationRunner.LATEST_SCHEMA_VERSION) {
+      return false;
+    }
+
+    if (!['Actor', 'Item'].includes(document.documentName)) return false;
     const updated = 'items' in document
       ? await this.#migrateActor(migrations, document)
       : await this.#migrateItem(migrations, document);
 
     await document.update(updated);
+
+    return true;
   }
 
   /**

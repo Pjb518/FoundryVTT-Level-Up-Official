@@ -1,7 +1,7 @@
 <script>
     import { getContext } from "svelte";
 
-    import FormSection from "../components/FormSection.svelte";
+    import FormSection from "../components/LegacyFormSection.svelte";
     import Checkbox from "../components/Checkbox.svelte";
     import RadioGroup from "../components/RadioGroup.svelte";
 
@@ -21,6 +21,7 @@
     // Stores
     let actionNameType = settings.getStore("newActionNameType");
     let showLimitedDesc = settings.getStore("showDescriptionOnLimitedPerms");
+    let fancySheetsAutoApply = settings.getStore("autoApplyFancySheets");
 
     let selectedNamingMode =
         updates.get("newActionNameType") ?? $actionNameType ?? "system";
@@ -48,16 +49,28 @@
             />
         </FormSection>
 
-        <FormSection
+        <RadioGroup
             hint="A5E.settings.hints.newActionNameType"
+            options={actionTypeOptions}
+            selected={selectedNamingMode}
+            on:updateSelection={({ detail }) => {
+                updates.set("newActionNameType", detail);
+                selectedNamingMode = detail;
+            }}
+        />
+
+        <FormSection
+            hint="A5E.settings.hints.autoApplyFancySheets"
             --gap="0.25rem"
         >
-            <RadioGroup
-                options={actionTypeOptions}
-                selected={selectedNamingMode}
+            <Checkbox
+                label="A5E.settings.autoApplyFancySheets"
+                checked={updates.get("autoApplyFancySheets") ??
+                    $fancySheetsAutoApply ??
+                    false}
                 on:updateSelection={({ detail }) => {
-                    updates.set("newActionNameType", detail);
-                    selectedNamingMode = detail;
+                    updates.set("autoApplyFancySheets", detail);
+                    reload = true;
                 }}
             />
         </FormSection>

@@ -7,7 +7,7 @@
 	"system": {
 		"actions": {
 			"HOW6923OBLbAM6zW": {
-				"name": "Control Water",
+				"name": "Cast Spell",
 				"activation": {
 					"cost": 1,
 					"type": "action",
@@ -25,16 +25,21 @@
 				"area": {
 					"shape": "cube",
 					"width": "100",
-					"placeTemplate": false
+					"placeTemplate": false,
+					"quantity": 1
 				},
 				"target": {
 					"quantity": "",
 					"type": ""
 				},
 				"rolls": {
-					"4thmuCYduOVdyEsH": {
-						"ability": "str",
-						"type": "abilityCheck"
+					"a5qRWlso77nIsNTS": {
+						"type": "damage",
+						"default": true,
+						"label": "In Whirlpool",
+						"canCrit": false,
+						"formula": "2d8",
+						"damageType": "bludgeoning"
 					}
 				},
 				"consumers": {
@@ -43,6 +48,82 @@
 						"spellLevel": 4,
 						"points": 6,
 						"type": "spell"
+					}
+				},
+				"prompts": {
+					"XZd3lx0yU373nmT2": {
+						"type": "skillCheck",
+						"default": true,
+						"skill": "ath",
+						"ability": "none",
+						"label": "Pulled Towards Whirlpool"
+					},
+					"UBMZZx5HZvdZgy6g": {
+						"type": "savingThrow",
+						"default": true,
+						"ability": "str",
+						"saveDC": {
+							"type": "spellcasting"
+						},
+						"label": "In Whirlpool",
+						"onSave": "Half damage and isn't pulled"
+					}
+				}
+			},
+			"01jBjDRyxOEqo2Y2": {
+				"name": "Subsequent Turns",
+				"activation": {
+					"cost": 1,
+					"type": "action",
+					"reactionTrigger": ""
+				},
+				"duration": {
+					"unit": "minute",
+					"value": "10"
+				},
+				"ranges": {
+					"Cvo60JfsbyQBIYQf": {
+						"range": "long"
+					}
+				},
+				"area": {
+					"shape": "cube",
+					"width": "100",
+					"placeTemplate": false,
+					"quantity": 1
+				},
+				"target": {
+					"quantity": "",
+					"type": ""
+				},
+				"rolls": {
+					"a5qRWlso77nIsNTS": {
+						"type": "damage",
+						"default": true,
+						"label": "In Whirlpool",
+						"canCrit": false,
+						"formula": "2d8",
+						"damageType": "bludgeoning"
+					}
+				},
+				"consumers": {},
+				"prompts": {
+					"XZd3lx0yU373nmT2": {
+						"type": "skillCheck",
+						"default": true,
+						"skill": "ath",
+						"ability": "none",
+						"label": "Pulled Towards Whirlpool"
+					},
+					"UBMZZx5HZvdZgy6g": {
+						"type": "savingThrow",
+						"default": true,
+						"ability": "str",
+						"saveDC": {
+							"type": "spellcasting"
+						},
+						"label": "In Whirlpool",
+						"onSave": "Half damage and isn't pulled"
 					}
 				}
 			}

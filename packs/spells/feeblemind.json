@@ -2,7 +2,49 @@
 	"name": "Feeblemind",
 	"type": "spell",
 	"img": "icons/magic/control/hypnosis-mesmerism-swirl.webp",
-	"effects": [],
+	"effects": [
+		{
+			"icon": "icons/magic/control/hypnosis-mesmerism-swirl.webp",
+			"origin": "Item.ISyeUq2d81yFFipz",
+			"flags": {
+				"a5e": {
+					"sort": 0,
+					"transferType": "onUse",
+					"actionId": "6QyFt4npwuvONqfc"
+				}
+			},
+			"transfer": false,
+			"name": "Feebleminded",
+			"_id": "NrMcf4r6QaZCHLy8",
+			"changes": [
+				{
+					"key": "system.abilities.cha.value",
+					"value": "1",
+					"mode": 6,
+					"priority": null
+				},
+				{
+					"key": "system.abilities.int.value",
+					"value": "1",
+					"mode": 6,
+					"priority": null
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": null,
+				"combat": null,
+				"rounds": null,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "<p>The creature's Intelligence and Charisma scores are both reduced to 1. The creature can't cast spells, activate magic items, understand language, or communicate in any intelligible way, but it is still able to recognize, follow, and even protect its allies.</p>\n<p>At the end of every 30 days, the creature can repeat its saving throw against this spell, ending it on a success.</p>\n<p><em>Greater restoration</em>, <em>heal</em>, or <em>wish</em> can also be used to end the spell.</p>",
+			"statuses": [],
+			"folder": null
+		}
+	],
 	"flags": {},
 	"system": {
 		"actions": {
@@ -40,6 +82,11 @@
 							"bonus": ""
 						},
 						"type": "savingThrow"
+					},
+					"YBN5EYp2b2H16bVm": {
+						"type": "effect",
+						"default": true,
+						"effectId": "NrMcf4r6QaZCHLy8"
 					}
 				},
 				"consumers": {

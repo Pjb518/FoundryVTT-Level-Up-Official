@@ -2,6 +2,7 @@
 import { TJSGameSettings, type GameSetting } from '#runtime/svelte/store/fvtt/settings';
 
 import MigrationRunner from '../migration/MigrationRunner';
+import CONFIG from '../config';
 
 class A5eGameSettings extends TJSGameSettings {
   public settingsData: any;
@@ -88,7 +89,7 @@ class A5eGameSettings extends TJSGameSettings {
           hint: 'A5E.settings.hints.itemRightClickConfigure',
           scope: scope.client,
           config: true,
-          default: false,
+          default: true,
           type: Boolean
         }
       },
@@ -169,7 +170,7 @@ class A5eGameSettings extends TJSGameSettings {
           scope: scope.world,
           config: true,
           type: Array,
-          default: []
+          default: Object.keys(CONFIG.conditions)
         }
       },
       {
@@ -381,6 +382,18 @@ class A5eGameSettings extends TJSGameSettings {
       },
       {
         namespace,
+        key: 'hideExpertiseDice',
+        options: {
+          name: 'A5E.settings.hideExpertiseDice',
+          hint: 'A5E.settings.hints.hideExpertiseDice',
+          scope: scope.world,
+          config: true,
+          default: false,
+          type: Boolean
+        }
+      },
+      {
+        namespace,
         key: 'hideSkillSpecialties',
         options: {
           name: 'A5E.settings.hideSkillSpecialties',
@@ -397,6 +410,18 @@ class A5eGameSettings extends TJSGameSettings {
         options: {
           name: 'A5E.settings.replaceFatigueAndStrife',
           hint: 'A5E.settings.hints.replaceFatigueAndStrife',
+          scope: scope.world,
+          config: true,
+          default: false,
+          type: Boolean
+        }
+      },
+      {
+        namespace,
+        key: 'simpleInitiative',
+        options: {
+          name: 'A5E.settings.simpleInitiative',
+          hint: 'A5E.settings.hints.simpleInitiative',
           scope: scope.world,
           config: true,
           default: false,
@@ -427,6 +452,18 @@ class A5eGameSettings extends TJSGameSettings {
         }
       },
       // Misc Settings
+      {
+        namespace,
+        key: 'autoApplyFancySheets',
+        options: {
+          name: 'A5E.settings.autoApplyFancySheets',
+          hint: 'A5E.settings.hints.autoApplyFancySheets',
+          scope: scope.world,
+          config: true,
+          default: false,
+          type: Boolean
+        }
+      },
       {
         namespace,
         key: 'newActionNameType',

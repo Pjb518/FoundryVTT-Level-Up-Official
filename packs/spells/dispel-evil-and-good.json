@@ -2,7 +2,40 @@
 	"name": "Dispel Evil and Good",
 	"type": "spell",
 	"img": "icons/magic/lightning/bolt-strike-explosion-purple.webp",
-	"effects": [],
+	"effects": [
+		{
+			"icon": "icons/magic/lightning/bolt-strike-explosion-purple.webp",
+			"origin": "Item.5Oe8Wrn2d7tm7Eua",
+			"flags": {
+				"a5e": {
+					"sort": 0,
+					"transferType": "onUse",
+					"actionId": "YpFF7ofsktQkO5nL",
+					"applyToSelf": true,
+					"duration": {
+						"unit": "minutes"
+					}
+				}
+			},
+			"transfer": false,
+			"name": "Dispel Evil and Good",
+			"_id": "I6pMooPwSuSE9EP2",
+			"changes": [],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": 60,
+				"combat": null,
+				"rounds": null,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "<p>Until the spell ends, celestials, elementals, fey, fiends, and undead have disadvantage on attack rolls against you.</p>\n<p>You can end the spell early by using an action to do either of the following.</p>\n<ul>\n<li>\n<p><strong>Mental Resistance:</strong> Choose up to 3 friendly creatures within 60 feet. Each of those creatures that is charmed, frightened, or possessed by a celestial, elemental, fey, fiend, or undead may make an immediate saving throw with advantage against the condition or possession, ending it on a success.</p>\n</li>\n<li>\n<p><strong>Retribution:</strong> Make a melee spell attack against a celestial, elemental, fey, fiend, or undead within reach. On a hit, the creature takes 7d8 radiant or necrotic damage (your choice) and is stunned until the beginning of your next turn.</p>\n</li>\n</ul>",
+			"statuses": [],
+			"folder": null
+		}
+	],
 	"flags": {},
 	"system": {
 		"actions": {
@@ -70,6 +103,13 @@
 						"spellLevel": 5,
 						"points": 7,
 						"type": "spell"
+					}
+				},
+				"prompts": {
+					"XKz1OSMg6Fs8XDP7": {
+						"type": "effect",
+						"default": true,
+						"effectId": "I6pMooPwSuSE9EP2"
 					}
 				}
 			}

@@ -27,7 +27,7 @@
                 updateDocumentDataFromField(
                     $actor,
                     target.name,
-                    Number(target.value)
+                    Number(target.value),
                 )}
         />
         /
@@ -43,7 +43,7 @@
                 updateDocumentDataFromField(
                     $actor,
                     target.name,
-                    Number(target.value)
+                    Number(target.value),
                 )}
         />
     </div>
@@ -55,20 +55,23 @@
     }
 
     .number-input {
-        height: 1.125rem;
+        height: 1rem;
         width: 5ch;
-        background: transparent;
-        border: 1px solid #bbb;
+        color: inherit;
+        background: rgba(255, 255, 255, 0.15);
+        border: 1px solid rgba(255, 255, 255, 0.1);
         text-align: center;
         font-size: $font-size-xs;
 
-        &:hover {
-            border: 1px solid #bbb;
+        &:active,
+        &:focus {
+            box-shadow: none;
         }
     }
 
     .spell-slot-wrapper {
         display: flex;
         gap: 0.25rem;
+        color: #f6f2eb;
     }
 </style>

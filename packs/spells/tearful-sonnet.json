@@ -2,7 +2,49 @@
 	"name": "Tearful Sonnet",
 	"type": "spell",
 	"img": "icons/magic/water/water-drop-swirl-blue.webp",
-	"effects": [],
+	"effects": [
+		{
+			"icon": "icons/magic/water/water-drop-swirl-blue.webp",
+			"origin": "Item.ZFZ7LomVHwH2uemV",
+			"flags": {
+				"a5e": {
+					"sort": 0,
+					"transferType": "onUse",
+					"actionId": "59KPIkIRROal9hhp",
+					"duration": {
+						"type": "rounds",
+						"unit": "minutes"
+					}
+				}
+			},
+			"transfer": false,
+			"name": "Stunned",
+			"_id": "A9cNRDS4laUEpZF9",
+			"changes": [
+				{
+					"key": "flags.a5e.effects.statusConditions",
+					"value": "[\"stunned\"]",
+					"mode": 0,
+					"priority": null
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": null,
+				"combat": null,
+				"rounds": 1,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "",
+			"statuses": [
+				"stunned"
+			],
+			"folder": null
+		}
+	],
 	"flags": {},
 	"system": {
 		"actions": {
@@ -25,7 +67,7 @@
 				"area": {
 					"shape": "sphere",
 					"radius": "20",
-					"placeTemplate": false
+					"placeTemplate": true
 				},
 				"target": {
 					"quantity": "",
@@ -48,6 +90,17 @@
 							"type": "spellcasting"
 						},
 						"onSave": "No damage that round"
+					},
+					"2PP2JdOyxlf6gwtX": {
+						"type": "generic",
+						"default": true,
+						"label": "Stunned Length of Rounds",
+						"formula": "1d4"
+					},
+					"11rdGtCCNvDJsVI8": {
+						"type": "effect",
+						"default": true,
+						"effectId": "A9cNRDS4laUEpZF9"
 					}
 				},
 				"rolls": {

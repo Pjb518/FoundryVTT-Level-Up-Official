@@ -1,3 +1,5 @@
+import TokenPreviewManger from '../../managers/TokenPreviewManager';
+
 import sizeScales from './utils/sizeScales';
 
 let circularMask = null;
@@ -360,5 +362,13 @@ export default class TokenA5e extends Token {
     const icon = await this._drawEffect(src, tint, true);
     if (icon) icon.alpha = 0.8;
     return icon;
+  }
+
+  // ********************************************************************
+  //                         Token Preview Draw
+  // ********************************************************************
+  async drawPreview() {
+    const PreviewManager = new TokenPreviewManger(this);
+    return PreviewManager.preview();
   }
 }

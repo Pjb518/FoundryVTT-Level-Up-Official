@@ -10,7 +10,8 @@
 
     import AreaShape from "./AreaShape.svelte";
     import Checkbox from "../Checkbox.svelte";
-    import FormSection from "../FormSection.svelte";
+    import FieldWrapper from "../FieldWrapper.svelte";
+    import Section from "../Section.svelte";
     import TemplateScalingDialog from "../../dialogs/TemplateScalingDialog.svelte";
 
     export let action;
@@ -71,13 +72,11 @@
     $: properties = [...getShapeProperties(action.area?.shape)];
 </script>
 
-<section class="action-config__section">
-    <header class="action-config__section-header">
-        <h2 class="action-config__section-heading">
-            {localize("A5E.ItemAreaShape")}
-        </h2>
-    </header>
-
+<Section
+    heading="A5E.ItemAreaShape"
+    --a5e-section-body-gap="0.75rem"
+    --a5e-section-gap="0.5rem"
+>
     <div class="area-shape-list">
         <!-- svelte-ignore missing-declaration (foundry)-->
         <input
@@ -104,145 +103,144 @@
     </div>
 
     {#if action.area?.shape}
-        <FormSection>
-            <div class="u-flex u-gap-lg u-w-full">
-                <div class="u-flex u-flex-col u-gap-xs u-w-30">
-                    <label for="{actionId}-area-quantity">
-                        {localize("A5E.ItemQuantity")}
-                    </label>
+        <div class="u-flex u-gap-md u-w-full">
+            <FieldWrapper
+                heading="A5E.ItemQuantity"
+                --a5e-field-wrapper-width="7.5rem"
+            >
+                <input
+                    id="{actionId}-area-quantity"
+                    type="number"
+                    value={action.area?.quantity ?? 1}
+                    on:change={({ target }) =>
+                        updateDocumentDataFromField(
+                            $item,
+                            `system.actions.${actionId}.area.quantity`,
+                            Number(target.value),
+                        )}
+                />
+            </FieldWrapper>
 
+            {#if getShapeProperties(action.area.shape).includes("radius")}
+                <FieldWrapper
+                    heading="Radius"
+                    --a5e-field-wrapper-width="7.5rem"
+                >
                     <input
-                        id="{actionId}-area-quantity"
+                        id="{actionId}-area-radius"
                         type="number"
-                        value={action.area?.quantity ?? 1}
+                        value={action.area?.radius ?? 0}
                         on:change={({ target }) =>
                             updateDocumentDataFromField(
                                 $item,
-                                `system.actions.${actionId}.area.quantity`,
+                                `system.actions.${actionId}.area.radius`,
+                                Number(target.value),
+                            )}
+                    />
+                </FieldWrapper>
+            {/if}
+
+            {#if getShapeProperties(action.area.shape).includes("length")}
+                <div class="u-flex u-flex-col u-gap-xs u-w-30">
+                    <label for="{actionId}-area-length">Length</label>
+                    <input
+                        id="{actionId}-area-length"
+                        type="number"
+                        value={action.area?.length ?? 0}
+                        on:change={({ target }) =>
+                            updateDocumentDataFromField(
+                                $item,
+                                `system.actions.${actionId}.area.length`,
                                 Number(target.value),
                             )}
                     />
                 </div>
-
-                {#if getShapeProperties(action.area.shape).includes("radius")}
-                    <div class="u-flex u-flex-col u-gap-xs u-w-30">
-                        <label for="{actionId}-area-radius">Radius</label>
-                        <input
-                            id="{actionId}-area-radius"
-                            type="number"
-                            value={action.area?.radius ?? 0}
-                            on:change={({ target }) =>
-                                updateDocumentDataFromField(
-                                    $item,
-                                    `system.actions.${actionId}.area.radius`,
-                                    Number(target.value),
-                                )}
-                        />
-                    </div>
-                {/if}
-
-                {#if getShapeProperties(action.area.shape).includes("length")}
-                    <div class="u-flex u-flex-col u-gap-xs u-w-30">
-                        <label for="{actionId}-area-length">Length</label>
-                        <input
-                            id="{actionId}-area-length"
-                            type="number"
-                            value={action.area?.length ?? 0}
-                            on:change={({ target }) =>
-                                updateDocumentDataFromField(
-                                    $item,
-                                    `system.actions.${actionId}.area.length`,
-                                    Number(target.value),
-                                )}
-                        />
-                    </div>
-                {/if}
-
-                {#if getShapeProperties(action.area.shape).includes("width")}
-                    <div class="u-flex u-flex-col u-gap-xs u-w-30">
-                        <label for="{actionId}-area-width">Width</label>
-                        <input
-                            id="{actionId}-area-width"
-                            type="number"
-                            value={action.area?.width ?? 0}
-                            on:change={({ target }) =>
-                                updateDocumentDataFromField(
-                                    $item,
-                                    `system.actions.${actionId}.area.width`,
-                                    Number(target.value),
-                                )}
-                        />
-                    </div>
-                {/if}
-
-                {#if getShapeProperties(action.area.shape).includes("height")}
-                    <div class="u-flex u-flex-col u-gap-xs u-w-30">
-                        <label for="{actionId}-area-height">Height</label>
-                        <input
-                            id="{actionId}-area-height"
-                            type="number"
-                            value={action.area?.height ?? 0}
-                            on:change={({ target }) =>
-                                updateDocumentDataFromField(
-                                    $item,
-                                    `system.actions.${actionId}.area.height`,
-                                    Number(target.value),
-                                )}
-                        />
-                    </div>
-                {/if}
-
-                <!-- Scaling -->
-                {#if action.area.shape}
-                    <div class="a5e-field-group scaling-button-wrapper">
-                        <button
-                            class="scaling-button"
-                            on:click|preventDefault={onClickScalingButton}
-                        >
-                            <i
-                                class="fa-solid fa-arrow-up-right-dots"
-                                data-tooltip="A5E.ConfigureAreaScaling"
-                                data-tooltip-direction="UP"
-                            />
-                        </button>
-                    </div>
-                {/if}
-            </div>
-            {#if action.area?.scaling?.mode === "cantrip"}
-                <small>
-                    {getLocalization("cantrip", action.area)}
-                </small>
-            {:else if action.area?.scaling?.mode === "spellLevel"}
-                <small>
-                    {#if !action.area?.scaling?.step || action.area?.scaling?.step === 1}
-                        {getLocalization("spellLevel", action.area)}
-                    {:else}
-                        {getLocalization("steppedSpellLevel", action.area)}
-                    {/if}
-                </small>
-            {:else if action.area?.scaling?.mode === "spellPoints"}
-                <small>
-                    {#if !action.area?.scaling?.step || action.area?.scaling?.step === 1}
-                        {getLocalization("spellPoint", action.area)}
-                    {:else}
-                        {getLocalization("steppedSpellPoint", action.area)}
-                    {/if}
-                </small>
-            {:else if ["actionUses", "itemUses"].includes(action.area?.scaling?.mode)}
-                <small>
-                    {#if !action.area?.scaling?.step || action.area?.scaling?.step === 1}
-                        {getLocalization("steppedSpellLevel", action.area)}
-                    {:else}
-                        {getLocalization("steppedSpellLevel", action.area)}
-                    {/if}
-                </small>
             {/if}
-        </FormSection>
+
+            {#if getShapeProperties(action.area.shape).includes("width")}
+                <div class="u-flex u-flex-col u-gap-xs u-w-30">
+                    <label for="{actionId}-area-width">Width</label>
+                    <input
+                        id="{actionId}-area-width"
+                        type="number"
+                        value={action.area?.width ?? 0}
+                        on:change={({ target }) =>
+                            updateDocumentDataFromField(
+                                $item,
+                                `system.actions.${actionId}.area.width`,
+                                Number(target.value),
+                            )}
+                    />
+                </div>
+            {/if}
+
+            {#if getShapeProperties(action.area.shape).includes("height")}
+                <div class="u-flex u-flex-col u-gap-xs u-w-30">
+                    <label for="{actionId}-area-height">Height</label>
+                    <input
+                        id="{actionId}-area-height"
+                        type="number"
+                        value={action.area?.height ?? 0}
+                        on:change={({ target }) =>
+                            updateDocumentDataFromField(
+                                $item,
+                                `system.actions.${actionId}.area.height`,
+                                Number(target.value),
+                            )}
+                    />
+                </div>
+            {/if}
+
+            <!-- Scaling -->
+            {#if action.area.shape}
+                <div class="a5e-field-group scaling-button-wrapper">
+                    <button
+                        class="scaling-button"
+                        on:click|preventDefault={onClickScalingButton}
+                    >
+                        <i
+                            class="fa-solid fa-arrow-up-right-dots"
+                            data-tooltip="A5E.ConfigureAreaScaling"
+                            data-tooltip-direction="UP"
+                        />
+                    </button>
+                </div>
+            {/if}
+        </div>
+        {#if action.area?.scaling?.mode === "cantrip"}
+            <small>
+                {getLocalization("cantrip", action.area)}
+            </small>
+        {:else if action.area?.scaling?.mode === "spellLevel"}
+            <small>
+                {#if !action.area?.scaling?.step || action.area?.scaling?.step === 1}
+                    {getLocalization("spellLevel", action.area)}
+                {:else}
+                    {getLocalization("steppedSpellLevel", action.area)}
+                {/if}
+            </small>
+        {:else if action.area?.scaling?.mode === "spellPoints"}
+            <small>
+                {#if !action.area?.scaling?.step || action.area?.scaling?.step === 1}
+                    {getLocalization("spellPoint", action.area)}
+                {:else}
+                    {getLocalization("steppedSpellPoint", action.area)}
+                {/if}
+            </small>
+        {:else if ["actionUses", "itemUses"].includes(action.area?.scaling?.mode)}
+            <small>
+                {#if !action.area?.scaling?.step || action.area?.scaling?.step === 1}
+                    {getLocalization("steppedSpellLevel", action.area)}
+                {:else}
+                    {getLocalization("steppedSpellLevel", action.area)}
+                {/if}
+            </small>
+        {/if}
     {/if}
 
     <!-- Place Template -->
     {#if action.area?.shape}
-        <FormSection>
+        <FieldWrapper>
             <Checkbox
                 label="A5E.ItemPlaceTemplate"
                 checked={action.area?.placeTemplate ?? false}
@@ -254,9 +252,9 @@
                     );
                 }}
             />
-        </FormSection>
+        </FieldWrapper>
     {/if}
-</section>
+</Section>
 
 <style lang="scss">
     .area-shape {

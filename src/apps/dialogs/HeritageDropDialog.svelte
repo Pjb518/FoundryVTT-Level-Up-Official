@@ -6,9 +6,7 @@
     import { TJSDocument } from "#runtime/svelte/store/fvtt/document";
 
     import CheckboxGroup from "../components/CheckboxGroup.svelte";
-    import FormSection from "../components/FormSection.svelte";
     import RadioGroup from "../components/RadioGroup.svelte";
-    import CustomTagGroup from "../components/CustomTagGroup.svelte";
 
     export let { application } = getContext("#external");
     export let { actorDocument, itemDocument } =
@@ -54,7 +52,7 @@
                 acc.push(gift.uuid);
             return acc;
         },
-        []
+        [],
     );
 
     $: features = Object.values($item.system.features).map((f) => {
@@ -62,57 +60,47 @@
         return [f.uuid, data.name];
     });
     $: giftCategories = Object.entries($item.system.giftCategories).map(
-        ([uuid, name]) => [uuid, name || "New Gift Category"]
+        ([uuid, name]) => [uuid, name || "New Gift Category"],
     );
     $: paragonCategories = Object.entries($item.system.paragonCategories).map(
-        ([uuid, name]) => [uuid, name || "New Paragon Category"]
+        ([uuid, name]) => [uuid, name || "New Paragon Category"],
     );
 </script>
 
 <form>
     <section>
-        <FormSection
+        <RadioGroup
             heading="A5E.CreatureSizeLabel"
             warning="Creature Size not selected."
             showWarning={!selectedCreatureSize}
-        >
-            <RadioGroup
-                options={sizeOptions}
-                selected={selectedCreatureSize}
-                disabled={disabledCreatureSizes}
-                on:updateSelection={({ detail }) =>
-                    (selectedCreatureSize = detail)}
-            />
-        </FormSection>
+            options={sizeOptions}
+            selected={selectedCreatureSize}
+            disabled={disabledCreatureSizes}
+            on:updateSelection={({ detail }) => (selectedCreatureSize = detail)}
+        />
 
-        <FormSection heading={localize("A5E.originSheets.heritage.traits")}>
-            <CheckboxGroup
-                options={features}
-                selected={selectedFeatures}
-                on:updateSelection={({ detail }) => (selectedFeatures = detail)}
-            />
-        </FormSection>
+        <CheckboxGroup
+            heading="A5E.originSheets.heritage.traits"
+            options={features}
+            selected={selectedFeatures}
+            on:updateSelection={({ detail }) => (selectedFeatures = detail)}
+        />
 
-        <FormSection heading={localize("A5E.originSheets.heritage.gifts")}>
-            <RadioGroup
-                options={giftCategories}
-                selected={selectedGiftCategory}
-                on:updateSelection={({ detail }) =>
-                    (selectedGiftCategory = detail)}
-            />
-        </FormSection>
+        <RadioGroup
+            heading="A5E.originSheets.heritage.gifts"
+            options={giftCategories}
+            selected={selectedGiftCategory}
+            on:updateSelection={({ detail }) => (selectedGiftCategory = detail)}
+        />
 
         {#if $actor.system.details.level >= 10}
-            <FormSection
-                heading={localize("A5E.originSheets.heritage.paragonGifts")}
-            >
-                <RadioGroup
-                    options={paragonCategories}
-                    selected={selectedParagonCategories}
-                    on:updateSelection={({ detail }) =>
-                        (selectedParagonCategories = detail)}
-                />
-            </FormSection>
+            <RadioGroup
+                heading="A5E.originSheets.heritage.paragonGifts"
+                options={paragonCategories}
+                selected={selectedParagonCategories}
+                on:updateSelection={({ detail }) =>
+                    (selectedParagonCategories = detail)}
+            />
         {/if}
     </section>
 

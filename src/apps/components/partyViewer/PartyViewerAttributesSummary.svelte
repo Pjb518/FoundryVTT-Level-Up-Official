@@ -1,4 +1,6 @@
 <script>
+    import replaceHyphenWithMinusSign from "../../../utils/replaceHyphenWithMinusSign";
+
     export let actor;
     export const propData = {};
 
@@ -16,7 +18,7 @@
             data-tooltip="{abilityLabel} Check Modifier"
             data-tooltip-direction="UP"
         >
-            <span>{attribute?.check?.mod}</span>
+            <span>{replaceHyphenWithMinusSign(attribute?.check?.mod)}</span>
         </div>
 
         <div
@@ -27,7 +29,7 @@
                 : `${abilityLabel} Saving Throw Modifier`}
             data-tooltip-direction="UP"
         >
-            <span>{attribute?.save?.mod}</span>
+            <span>{replaceHyphenWithMinusSign(attribute?.save?.mod)}</span>
         </div>
     </div>
 {/each}

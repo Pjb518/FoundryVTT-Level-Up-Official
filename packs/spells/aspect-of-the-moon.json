@@ -2,7 +2,77 @@
 	"name": "Aspect of the Moon",
 	"type": "spell",
 	"img": "icons/magic/nature/moon-crescent.webp",
-	"effects": [],
+	"effects": [
+		{
+			"icon": "icons/magic/nature/moon-crescent.webp",
+			"origin": "Item.tYgy01g0xRfNWwTp",
+			"flags": {
+				"a5e": {
+					"sort": 0,
+					"transferType": "onUse",
+					"actionId": "EPmcydBzTIy7Jl4g",
+					"duration": {
+						"unit": "minutes"
+					},
+					"applyToSelf": true
+				}
+			},
+			"transfer": false,
+			"name": "Aspect of the Moon",
+			"_id": "6buDRfikvq93hmCD",
+			"changes": [
+				{
+					"key": "system.attributes.ac.changes.bonuses.value",
+					"value": "1",
+					"mode": 2,
+					"priority": null
+				},
+				{
+					"key": "system.attributes.movement.climb.distance",
+					"value": "{\"comparisonOperator\":\"==\",\"comparisonValue\":\"0\",\"positiveValue\":\"0\",\"negativeValue\":\"@original + 10\"}",
+					"mode": 7,
+					"priority": null
+				},
+				{
+					"key": "system.attributes.movement.burrow.distance",
+					"value": "{\"comparisonOperator\":\"==\",\"comparisonValue\":\"0\",\"positiveValue\":\"0\",\"negativeValue\":\"@original + 10\"}",
+					"mode": 7,
+					"priority": null
+				},
+				{
+					"key": "system.attributes.movement.fly.distance",
+					"value": "{\"comparisonOperator\":\"==\",\"comparisonValue\":\"0\",\"positiveValue\":\"0\",\"negativeValue\":\"@original + 10\"}",
+					"mode": 7,
+					"priority": null
+				},
+				{
+					"key": "system.attributes.movement.swim.distance",
+					"value": "{\"comparisonOperator\":\"==\",\"comparisonValue\":\"0\",\"positiveValue\":\"0\",\"negativeValue\":\"@original + 10\"}",
+					"mode": 7,
+					"priority": null
+				},
+				{
+					"key": "system.attributes.movement.walk.distance",
+					"value": "{\"comparisonOperator\":\"==\",\"comparisonValue\":\"0\",\"positiveValue\":\"0\",\"negativeValue\":\"@original + 10\"}",
+					"mode": 7,
+					"priority": null
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": 60,
+				"combat": null,
+				"rounds": null,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "<p>Until the spell ends your hair grows, your features become more feral, and sharp claws grow on your fingers. You gain a +1 bonus to AC, your Speed increases by 10 feet, you have advantage on Perception checks, and your unarmed strikes deal 1d8 slashing damage. You may use your Strength or Dexterity for attack and damage rolls with unarmed strikes, and treat your unarmed strikes as weapons with the finesse property. You gain an additional action on your turn, which may only be used to make a melee attack with your unarmed strike. If you are hit by a silvered weapon, you have disadvantage on your Constitution saving throw to maintain concentration.</p>",
+			"statuses": [],
+			"folder": null
+		}
+	],
 	"flags": {},
 	"system": {
 		"actions": {
@@ -37,6 +107,13 @@
 						"spellLevel": 3,
 						"points": 5,
 						"type": "spell"
+					}
+				},
+				"prompts": {
+					"pEaJBSdcLLIMXMFX": {
+						"type": "effect",
+						"default": true,
+						"effectId": "6buDRfikvq93hmCD"
 					}
 				}
 			}

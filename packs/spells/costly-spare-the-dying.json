@@ -1,0 +1,153 @@
+{
+	"name": "Costly Spare the Dying",
+	"type": "spell",
+	"img": "icons/magic/life/heart-cross-green.webp",
+	"effects": [
+		{
+			"icon": "icons/magic/life/heart-cross-green.webp",
+			"origin": "Item.LyufFQv414Fwkaev",
+			"flags": {
+				"a5e": {
+					"sort": 0,
+					"transferType": "onUse",
+					"actionId": "M096lNDqettqPs4l",
+					"duration": {
+						"unit": "hours"
+					}
+				}
+			},
+			"transfer": false,
+			"name": "Rattled",
+			"_id": "l0pWhtSp1kS8lQq9",
+			"changes": [
+				{
+					"key": "flags.a5e.effects.statusConditions",
+					"value": "[\"rattled\"]",
+					"mode": 0,
+					"priority": null
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": 86400,
+				"combat": null,
+				"rounds": null,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "",
+			"statuses": [
+				"rattled"
+			],
+			"folder": null
+		}
+	],
+	"flags": {},
+	"system": {
+		"actions": {
+			"M096lNDqettqPs4l": {
+				"name": "Spare the Dying",
+				"activation": {
+					"cost": 1,
+					"type": "action",
+					"reactionTrigger": ""
+				},
+				"duration": {
+					"unit": "instantaneous",
+					"value": ""
+				},
+				"ranges": {
+					"sALHEG0ktMEBuOJH": {
+						"range": "touch"
+					}
+				},
+				"area": {
+					"shape": "",
+					"size": "",
+					"placeTemplate": false
+				},
+				"target": {
+					"quantity": "",
+					"type": "creature"
+				},
+				"consumers": {},
+				"rolls": {
+					"Ly0GwAyN2QkV5dBf": {
+						"type": "healing",
+						"default": true,
+						"formula": "1"
+					}
+				},
+				"prompts": {
+					"2LQVT7iasECwDqj3": {
+						"type": "generic",
+						"default": true,
+						"label": "Next 3 Rounds",
+						"formula": "1d20"
+					},
+					"luApVv19efqKvjL2": {
+						"type": "effect",
+						"default": true,
+						"effectId": "l0pWhtSp1kS8lQq9"
+					}
+				}
+			}
+		},
+		"description": "<p>A jolt of healing energy flows through the target and it becomes stable.</p>\n<p><em><strong>Rare:&nbsp;</strong></em><strong>Costly Spare the Dying.&nbsp;</strong>For the&nbsp;next 3 rounds, at the start of its turn the target&nbsp;rolls 1d20, regaining 1 hit point on a result of 20.&nbsp;Whether or not it regains any hit points, for the&nbsp;next 24 hours the target is rattled.</p>",
+		"favorite": false,
+		"secretDescription": "",
+		"source": "",
+		"uses": {
+			"value": null,
+			"max": "",
+			"per": null,
+			"recharge": {
+				"formula": "",
+				"threshold": ""
+			}
+		},
+		"schema": {
+			"version": null,
+			"lastMigration": null
+		},
+		"classes": [
+			"artificer",
+			"cleric",
+			"witch"
+		],
+		"components": {
+			"vocalized": true,
+			"seen": true,
+			"material": false
+		},
+		"concentration": false,
+		"level": 0,
+		"materials": "",
+		"materialsConsumed": false,
+		"prepared": false,
+		"prerequisite": "",
+		"rare": true,
+		"ritual": false,
+		"schools": {
+			"primary": "necromancy",
+			"secondary": [
+				"divine",
+				"healing"
+			]
+		},
+		"schemaVersion": {
+			"version": 0.01,
+			"lastMigration": {
+				"version": {
+					"schema": 0.009,
+					"foundry": "12.316",
+					"system": "0.16.12"
+				}
+			}
+		}
+	},
+	"folder": null,
+	"_id": "3b5jvxp0kdcpfa97"
+}

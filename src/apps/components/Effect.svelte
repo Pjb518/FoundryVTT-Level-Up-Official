@@ -33,7 +33,7 @@
             "a5e",
             "hideDeleteConfirmation",
             dialogData?.hideDeleteConfirmation ??
-                game.settings.get("a5e", "hideDeleteConfirmation")
+                game.settings.get("a5e", "hideDeleteConfirmation"),
         );
 
         const effectId = effect.id;
@@ -45,7 +45,7 @@
         const action = $doc.system.actions[actionId];
         const prompt = Object.entries(action?.prompts ?? {}).find(
             ([, prompt]) =>
-                prompt.type === "effect" && prompt.effectId === effectId
+                prompt.type === "effect" && prompt.effectId === effectId,
         );
 
         if (!prompt?.[0]) return;
@@ -63,7 +63,7 @@
 
         return event.dataTransfer.setData(
             "text/plain",
-            JSON.stringify(dragData)
+            JSON.stringify(dragData),
         );
     }
 
@@ -81,12 +81,12 @@
     $: sheetIsLocked = !$doc.isOwner
         ? true
         : $doc.documentName === "Item"
-        ? false
-        : $doc.flags?.a5e?.sheetIsLocked ?? true;
+          ? false
+          : $doc.flags?.a5e?.sheetIsLocked ?? true;
 </script>
 
 <li
-    class="effect-wrapper"
+    class="a5e-item a5e-item--effect"
     draggable="true"
     on:dragstart={onDragStart}
     on:auxclick|preventDefault={() => {
@@ -198,23 +198,6 @@
 </li>
 
 <style lang="scss">
-    .effect-wrapper {
-        position: relative;
-        display: grid;
-        grid-template-areas: var(--effectTemplateAreas);
-        grid-template-columns: var(--effectTemplateColumns);
-        column-gap: 0.5rem;
-        row-gap: 0;
-        align-items: center;
-        width: 100%;
-        padding: 0.125rem;
-        padding-right: 0.5rem;
-        border: 1px solid #ccc;
-        border-radius: $border-radius-standard;
-        background: rgba(0, 0, 0, 0.05);
-        cursor: pointer;
-    }
-
     .disable-pointer-events {
         pointer-events: none;
     }

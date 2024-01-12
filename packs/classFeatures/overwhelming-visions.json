@@ -1,0 +1,131 @@
+{
+	"folder": null,
+	"name": "Overwhelming Visions",
+	"type": "feature",
+	"img": "icons/magic/time/hourglass-tilted-glowing-gold.webp",
+	"system": {
+		"ac": {
+			"baseFormula": "",
+			"formula": "",
+			"maxDex": 0,
+			"minStr": 0,
+			"mode": 2,
+			"requiresNoShield": false,
+			"requiresUnarmored": false
+		},
+		"actions": {
+			"B7XP1K8e2FzW5rVI": {
+				"name": "Use Feature",
+				"activation": {
+					"type": "action",
+					"cost": 1
+				},
+				"consumers": {},
+				"rolls": {
+					"EiSCODSa8Yc5cyuI": {
+						"type": "damage",
+						"default": true,
+						"damageType": "psychic",
+						"formula": "8d8"
+					}
+				},
+				"prompts": {
+					"tbpx7tGrR5qVoPXV": {
+						"type": "savingThrow",
+						"default": true,
+						"ability": "wis",
+						"saveDC": {
+							"type": "spellcasting"
+						},
+						"onSave": "takes half and isn't stunned"
+					},
+					"c98XqenIk1WriwAi": {
+						"type": "effect",
+						"default": true,
+						"effectId": "xDX1f3GBvG72O3mg"
+					}
+				},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"threshold": 6
+					}
+				},
+				"ranges": {
+					"bdPuAfm6xDKaux2Q": {
+						"range": "medium"
+					}
+				}
+			}
+		},
+		"description": "<p>At 10th level, you can open a creature&rsquo;s senses to the full scope of possibilities before it. As an action, you force vivid visions of discarded pasts and possible futures into the mind of a creature you can see within 60 feet. The target must make a Wisdom&nbsp;<span class=\"freelinking-link\">saving throw</span>&nbsp;against your spell save DC. On a failed save, the target takes 8d8 psychic damage and is&nbsp;<span class=\"freelinking-link\">stunned</span>&nbsp;until the end of your next turn. On a success, the target takes half damage and isn&rsquo;t stunned. Furthermore, a creature that successfully saves against the effect finds the wash of possibility insightful, gaining&nbsp;<span class=\"freelinking-link\">advantage</span>&nbsp;on the next&nbsp;<span class=\"freelinking-link\">ability check</span>&nbsp;or saving throw it makes before the end of your next turn. Once you have used this ability, you must finish a&nbsp;<span class=\"freelinking-link\">long rest</span> before you can do so again.</p>",
+		"favorite": false,
+		"secretDescription": "",
+		"source": {
+			"name": "",
+			"link": "",
+			"publisher": ""
+		},
+		"uses": {
+			"value": null,
+			"max": "",
+			"per": null,
+			"recharge": {
+				"formula": "1d6",
+				"threshold": "6"
+			}
+		},
+		"schema": {
+			"version": null,
+			"lastMigration": null
+		},
+		"concentration": false,
+		"featureType": "class",
+		"grants": {},
+		"prerequisite": ""
+	},
+	"effects": [
+		{
+			"icon": "icons/magic/time/hourglass-tilted-glowing-gold.webp",
+			"origin": "Item.qtKJnQiXFXs0mKKK",
+			"flags": {
+				"a5e": {
+					"sort": 0,
+					"transferType": "onUse",
+					"actionId": "B7XP1K8e2FzW5rVI"
+				}
+			},
+			"transfer": false,
+			"name": "Stun",
+			"_id": "xDX1f3GBvG72O3mg",
+			"changes": [
+				{
+					"key": "flags.a5e.effects.statusConditions",
+					"value": "[\"stunned\"]",
+					"mode": 0,
+					"priority": null
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": null,
+				"combat": null,
+				"rounds": null,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "",
+			"statuses": [
+				"stunned"
+			],
+			"folder": null
+		}
+	],
+	"flags": {},
+	"_id": "nkxu4gid9wknvoyx"
+}

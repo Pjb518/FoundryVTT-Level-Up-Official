@@ -2,7 +2,52 @@
 	"name": "Pass Without Trace",
 	"type": "spell",
 	"img": "icons/magic/nature/wolf-paw-glow-orange.webp",
-	"effects": [],
+	"effects": [
+		{
+			"icon": "icons/magic/nature/wolf-paw-glow-orange.webp",
+			"origin": "Item.GgBIUdjm13OXeUcK",
+			"flags": {
+				"a5e": {
+					"sort": 0,
+					"transferType": "onUse",
+					"actionId": "sJyURZe2UX8d5z5E",
+					"duration": {
+						"unit": "hours"
+					}
+				}
+			},
+			"transfer": false,
+			"name": "Pass Without Trace",
+			"_id": "d6Rax3xoxbujUTgh",
+			"changes": [
+				{
+					"key": "flags.a5e.effects.rollMode.skillCheck.ste",
+					"value": "1",
+					"mode": 6,
+					"priority": null
+				},
+				{
+					"key": "system.skills.ste.expertiseDice",
+					"value": "1",
+					"mode": 2,
+					"priority": null
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": 3600,
+				"combat": null,
+				"rounds": null,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "<p>You and allies within the area gain advantage and an expertise die on Dexterity (Stealth) checks as an aura of secrecy enshrouds you. Creatures in the area leave behind no evidence of their passage.</p>",
+			"statuses": [],
+			"folder": null
+		}
+	],
 	"flags": {},
 	"system": {
 		"actions": {
@@ -37,6 +82,13 @@
 						"spellLevel": 2,
 						"points": 3,
 						"type": "spell"
+					}
+				},
+				"prompts": {
+					"kFxvolcvQtvr71Vp": {
+						"type": "effect",
+						"default": true,
+						"effectId": "d6Rax3xoxbujUTgh"
 					}
 				}
 			}

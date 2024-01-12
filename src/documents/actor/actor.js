@@ -342,8 +342,22 @@ export default class ActorA5e extends Actor {
       const effectOverride = this.actorEffects
         .findLast((effect) => effect.changes.some((change) => change.key.includes('ac.value')) && !effect.isSuppressed);
 
+      const tempFinalAC = (changes.override?.value ?? baseAC) + changes.bonuses.value;
+      foundry.utils.mergeObject(this.system.attributes.ac, {
+        changes,
+        value: parseInt(tempFinalAC, 10) || 10
+      });
+
+      const overrideChange = effectOverride.apply(
+        this,
+        effectOverride.changes.find((change) => change.key.includes('ac.value')),
+        'afterDerived'
+      );
+
+      const overrideValue = Object.values(overrideChange)?.[0] ?? valueOverride;
+
       name = effectOverride?.name ?? name;
-      changes.override = { name, mode: CONFIG.A5E.ARMOR_MODES.OVERRIDE, value: valueOverride };
+      changes.override = { name, mode: CONFIG.A5E.ARMOR_MODES.OVERRIDE, value: overrideValue };
       changes.bonuses = {
         components: [],
         value: 0
@@ -486,7 +500,7 @@ export default class ActorA5e extends Actor {
 
     return getDeterministicBonus([
       10,
-      skill.deterministicBonus,
+      skill.mod,
       rollData.abilities[skill.ability]?.check?.deterministicBonus ?? 0,
       this.BonusesManager.getSkillBonusesFormula(skillKey, skill.ability, 'passive').trim()
     ].filter(Boolean).join(' + '), rollData);
@@ -837,11 +851,6 @@ export default class ActorA5e extends Actor {
     this.#configure('languages', title, data, options);
   }
 
-  configureManeuvers(data = {}, options = {}) {
-    const title = localize('A5E.ManeuverConfigurationPrompt', { name: this.name });
-    this.#configure('maneuvers', title, data, options);
-  }
-
   configureMovement(data = {}, options = {}) {
     const title = localize('A5E.MovementConfigurationPrompt', { name: this.name });
     this.#configure('movement', title, data, options);
@@ -864,11 +873,6 @@ export default class ActorA5e extends Actor {
     );
 
     this.#configure('skill', title, data, options);
-  }
-
-  configureSpellTab(data = {}, options = {}) {
-    const title = localize('A5E.SpellTabConfigurationPrompt', { name: this.name });
-    this.#configure('spells', title, data, options);
   }
 
   configureToolProficiencies(data = {}, options = {}) {
@@ -1453,14 +1457,30 @@ export default class ActorA5e extends Actor {
     const current = this.system.resources[resource].value;
     const formula = this.system.resources[resource]?.recharge?.formula || '1d6';
     const threshold = this.system.resources[resource]?.recharge?.threshold || 6;
+    const rechargeType = this.system.resources[resource]?.recharge?.rechargeType || 'custom';
+    const rechargeAmount = this.system.resources[resource]?.recharge?.rechargeAmount || '1';
     const updatePath = `system.resources.${resource}.value`;
 
-    // Roll
-    const roll = await new Roll(formula, this.getRollData()).evaluate({ async: true });
+    // Recharge Roll
+    const rechargeRoll = await new Roll(formula, this.getRollData()).evaluate({ async: true });
 
     // TODO: Make the message prettier
-    roll.toMessage();
+    rechargeRoll.toMessage();
 
-    if (roll.total >= threshold) await this.update({ [updatePath]: Math.min(max, current + 1) });
+    if (rechargeRoll.total < threshold) return;
+
+    if (rechargeType === 'min') await this.update({ [updatePath]: 0 });
+    else if (rechargeType === 'max') await this.update({ [updatePath]: max });
+    else {
+      const rechargeAmountRoll = await new Roll(
+        rechargeAmount,
+        this.getRollData()
+      ).evaluate({ async: true });
+
+      // TODO: Add the roll back in when the custom recharge amount config is added.
+      // rechargeAmountRoll.toMessage();
+
+      await this.update({ [updatePath]: Math.min(max, current + rechargeAmountRoll.total) });
+    }
   }
 }

@@ -1,17 +1,17 @@
 <script>
     import { getContext, createEventDispatcher } from "svelte";
-    import { TJSDocument } from "@typhonjs-fvtt/runtime/svelte/store/fvtt/document";
 
     import updateDocumentDataFromField from "../../utils/updateDocumentDataFromField";
 
     import Checkbox from "../components/Checkbox.svelte";
-    import FormSection from "../components/FormSection.svelte";
-    import TagGroup from "../components/TagGroup.svelte";
+    import CheckboxGroup from "../components/CheckboxGroup.svelte";
+    import FieldWrapper from "../components/FieldWrapper.svelte";
+    import Section from "../components/Section.svelte";
 
     export let { document, bonusID } = getContext("#external").application;
     export let jsonValue = null;
 
-    const actor = new TJSDocument(document);
+    const actor = document;
     const dispatch = createEventDispatcher();
 
     function updateImage() {
@@ -50,7 +50,11 @@
             if (typeof obj !== "object") throw new Error();
             obj.label = obj.label ?? "";
             obj.formula = obj.formula ?? "";
-            obj.context = obj.context ?? {};
+            obj.context = obj.context ?? {
+                abilities: [],
+                types: [],
+                requiresProficiency: false,
+            };
             obj.default = obj.default ?? true;
             obj.img = obj.img ?? "icons/svg/upgrade.svg";
             return obj;
@@ -59,7 +63,11 @@
                 label: "",
                 formula: "",
                 damageType: "",
-                context: {},
+                context: {
+                    abilities: [],
+                    types: [],
+                    requiresProficiency: false,
+                },
                 default: true,
                 img: "icons/svg/upgrade.svg",
             };
@@ -97,39 +105,33 @@
         </div>
     </header>
 
-    <FormSection>
-        <FormSection
-            heading="A5E.Formula"
-            --background="none"
-            --grow="1"
-            --direction="column"
-            --padding="0"
-        >
+    <Section --a5e-section-margin="0.25rem 0">
+        <FieldWrapper heading="A5E.Formula">
             <input
                 type="text"
                 value={abilityBonus.formula ?? ""}
                 on:change={({ target }) =>
                     onUpdateValue("formula", target.value)}
             />
-        </FormSection>
-    </FormSection>
+        </FieldWrapper>
+    </Section>
 
-    <FormSection
+    <Section
         heading="Contexts"
         hint="The context determines when the ability bonus applies"
-        --direction="column"
-        --wrap="nowrap"
+        --a5e-section-body-gap="0.75rem"
     >
-        <TagGroup
+        <CheckboxGroup
             heading="A5E.contexts.abilities"
             options={Object.entries(abilities)}
             selected={abilitiesContext}
+            showToggleAllButton={true}
             on:updateSelection={({ detail }) => {
                 onUpdateValue("context.abilities", detail);
             }}
         />
 
-        <TagGroup
+        <CheckboxGroup
             heading="A5E.contexts.bonusTypes"
             options={Object.entries(abilityBonusContexts)}
             selected={abilityTypeContext}
@@ -138,24 +140,26 @@
             }}
         />
 
-        <Checkbox
-            label="A5E.contexts.requiresProficiency"
-            checked={requiresProficiency}
-            on:updateSelection={({ detail }) => {
-                onUpdateValue("context.requiresProficiency", detail);
-            }}
-        />
-    </FormSection>
+        <FieldWrapper>
+            <Checkbox
+                label="A5E.contexts.requiresProficiency"
+                checked={requiresProficiency}
+                on:updateSelection={({ detail }) => {
+                    onUpdateValue("context.requiresProficiency", detail);
+                }}
+            />
+        </FieldWrapper>
 
-    <FormSection>
-        <Checkbox
-            label="Select Ability Bonus Automatically in Roll Prompt"
-            checked={abilityBonus.default ?? true}
-            on:updateSelection={({ detail }) => {
-                onUpdateValue("default", detail);
-            }}
-        />
-    </FormSection>
+        <FieldWrapper>
+            <Checkbox
+                label="Select Ability Bonus Automatically in Roll Prompt"
+                checked={abilityBonus.default ?? true}
+                on:updateSelection={({ detail }) => {
+                    onUpdateValue("default", detail);
+                }}
+            />
+        </FieldWrapper>
+    </Section>
 </form>
 
 <style lang="scss">

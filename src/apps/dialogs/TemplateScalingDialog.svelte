@@ -1,8 +1,7 @@
 <script>
     import { getContext } from "svelte";
-    import { TJSDocument } from "@typhonjs-fvtt/runtime/svelte/store/fvtt/document";
 
-    import FormSection from "../components/FormSection.svelte";
+    import FormSection from "../components/LegacyFormSection.svelte";
     import RadioGroup from "../components/RadioGroup.svelte";
 
     import TemplatePreparationManager from "../../managers/TemplatePreparationManager";
@@ -18,7 +17,7 @@
         ];
     }
 
-    const item = new TJSDocument(document);
+    const item = document;
 
     $: action = $item.actions[actionId];
     $: area = action.area ?? {};
@@ -31,20 +30,19 @@
 </script>
 
 <form>
-    <FormSection heading="Scaling Mode">
-        <RadioGroup
-            options={getScalingOptions()}
-            selected={scalingMode}
-            allowDeselect={false}
-            on:updateSelection={(event) => {
-                updateDocumentDataFromField(
-                    $item,
-                    `system.actions.${actionId}.area.scaling.mode`,
-                    event.detail,
-                );
-            }}
-        />
-    </FormSection>
+    <RadioGroup
+        heading="Scaling Mode"
+        options={getScalingOptions()}
+        selected={scalingMode}
+        allowDeselect={false}
+        on:updateSelection={(event) => {
+            updateDocumentDataFromField(
+                $item,
+                `system.actions.${actionId}.area.scaling.mode`,
+                event.detail,
+            );
+        }}
+    />
 
     {#if scalingMode === "cantrip"}
         <FormSection

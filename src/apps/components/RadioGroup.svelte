@@ -1,14 +1,20 @@
 <script>
     import { createEventDispatcher } from "svelte";
 
+    import FieldWrapper from "./FieldWrapper.svelte";
     import Tag from "./Tag.svelte";
 
     export let allowDeselect = true;
+    export let buttons = [];
+    export let disabled = [];
+    export let heading = null;
+    export let hint = null;
     export let listClasses = "";
     export let optionStyles = "";
-    export let disabled = [];
     export let options = [];
     export let selected = "";
+    export let showWarning = false;
+    export let warning = null;
 
     const dispatch = createEventDispatcher();
 
@@ -21,25 +27,30 @@
     }
 </script>
 
-<ul
-    class="
-        radio-group
-        {listClasses}
-    "
+<FieldWrapper
+    {buttons}
+    {heading}
+    {hint}
+    {showWarning}
+    {warning}
+    --a5e-field-wrapper-header-item-justification="flex-start"
+    --a5e-field-wrapper-header-gap="0.5rem"
 >
-    {#each options as [value, label]}
-        <!-- svelte-ignore a11y-click-events-have-key-events -->
-        <Tag
-            active={selected === value ||
-                selected?.toString() === value?.toString()}
-            {label}
-            {optionStyles}
-            {value}
-            disabled={disabled.includes(value)}
-            on:tagToggle={({ detail }) => updateSelection(detail)}
-        />
-    {/each}
-</ul>
+    <ul class="radio-group {listClasses}">
+        {#each options as [value, label]}
+            <!-- svelte-ignore a11y-click-events-have-key-events -->
+            <Tag
+                active={selected === value ||
+                    selected?.toString() === value?.toString()}
+                {label}
+                {optionStyles}
+                {value}
+                disabled={disabled.includes(value)}
+                on:tagToggle={({ detail }) => updateSelection(detail)}
+            />
+        {/each}
+    </ul>
+</FieldWrapper>
 
 <style lang="scss">
     .radio-group {

@@ -48,6 +48,7 @@
 				"featureType": "",
 				"grants": {},
 				"prerequisite": "",
+				"requiresBloodied": false,
 				"schemaVersion": {
 					"version": 0.01,
 					"lastMigration": {
@@ -147,6 +148,7 @@
 				"featureType": "",
 				"grants": {},
 				"prerequisite": "",
+				"requiresBloodied": false,
 				"schemaVersion": {
 					"version": 0.01,
 					"lastMigration": {
@@ -207,6 +209,7 @@
 				"featureType": "",
 				"grants": {},
 				"prerequisite": "",
+				"requiresBloodied": false,
 				"schemaVersion": {
 					"version": 0.01,
 					"lastMigration": {
@@ -267,6 +270,7 @@
 				"featureType": "",
 				"grants": {},
 				"prerequisite": "",
+				"requiresBloodied": false,
 				"schemaVersion": {
 					"version": 0.01,
 					"lastMigration": {
@@ -371,6 +375,7 @@
 				"featureType": "",
 				"grants": {},
 				"prerequisite": "",
+				"requiresBloodied": false,
 				"schemaVersion": {
 					"version": 0.01,
 					"lastMigration": {
@@ -456,6 +461,7 @@
 				"featureType": "",
 				"grants": {},
 				"prerequisite": "",
+				"requiresBloodied": false,
 				"schemaVersion": {
 					"version": 0.01,
 					"lastMigration": {
@@ -557,6 +563,7 @@
 				"featureType": "",
 				"grants": {},
 				"prerequisite": "",
+				"requiresBloodied": false,
 				"schemaVersion": {
 					"version": 0.01,
 					"lastMigration": {
@@ -574,7 +581,7 @@
 		},
 		{
 			"_id": "GK3sFFa23WXsmaGR",
-			"name": "Possession (Recharge 6)",
+			"name": "Possession",
 			"type": "feature",
 			"img": "icons/svg/item-bag.svg",
 			"effects": [],
@@ -597,7 +604,7 @@
 				},
 				"actions": {
 					"YHPH1f4ui30T8oFa": {
-						"name": "Possession (Recharge 6)",
+						"name": "Possession",
 						"activation": {
 							"cost": 1,
 							"type": "action",
@@ -629,7 +636,13 @@
 								"type": "savingThrow"
 							}
 						},
-						"consumers": {}
+						"consumers": {
+							"WU4Fijqw4rPEQvuH": {
+								"type": "itemUses",
+								"default": true,
+								"quantity": 1
+							}
+						}
 					}
 				},
 				"description": "<p><span id=\"page1084R_mcid25100\"><span dir=\"ltr\" role=\"presentation\">One humanoid within 5 feet </span></span><span id=\"page1084R_mcid25101\"><span dir=\"ltr\" role=\"presentation\">makes a DC 13 Charisma saving throw. On a failure, </span></span><span id=\"page1084R_mcid25102\"><span dir=\"ltr\" role=\"presentation\">it is possessed by the ghost. The possessed creature </span></span><span id=\"page1084R_mcid25103\"><span dir=\"ltr\" role=\"presentation\">is unconscious. The ghost enters the creature&rsquo;s body </span></span><span id=\"page1084R_mcid25104\"><span dir=\"ltr\" role=\"presentation\">and takes control of it. The ghost can be targeted </span></span><span id=\"page1084R_mcid25105\"><span dir=\"ltr\" role=\"presentation\">only by effects that turn undead, and it retains its </span></span><span id=\"page1084R_mcid25106\"><span dir=\"ltr\" role=\"presentation\">Intelligence, Wisdom, and Charisma. It grants its host </span></span><span id=\"page1084R_mcid25107\"><span dir=\"ltr\" role=\"presentation\">body immunity to being charmed and frightened. It </span></span><span id=\"page1084R_mcid25108\"><span dir=\"ltr\" role=\"presentation\">otherwise uses the possessed creature&rsquo;s statistics and </span></span><span id=\"page1084R_mcid25109\"><span dir=\"ltr\" role=\"presentation\">actions instead of its own. It doesn&rsquo;t gain access to </span></span><span id=\"page1084R_mcid25110\"><span dir=\"ltr\" role=\"presentation\">the creature&rsquo;s memories but does gain access to profi</span></span><span id=\"page1084R_mcid25112\"><span dir=\"ltr\" role=\"presentation\">ciencies, nonmagical class features and traits, and </span></span><span id=\"page1084R_mcid25113\"><span dir=\"ltr\" role=\"presentation\">nonmagical actions. It can&rsquo;t use limited-used abilities </span></span><span id=\"page1084R_mcid25114\"><span dir=\"ltr\" role=\"presentation\">or class traits that require spending a resource. The </span></span><span id=\"page1084R_mcid25115\"><span dir=\"ltr\" role=\"presentation\">possession ends after 24 hours, when the body drops </span></span><span id=\"page1084R_mcid25116\"><span dir=\"ltr\" role=\"presentation\">to 0 hit points, when the ghost ends it as a bonus action, </span></span><span id=\"page1084R_mcid25117\"><span dir=\"ltr\" role=\"presentation\">or when the ghost is turned or affected by dispel evil </span></span><span id=\"page1084R_mcid25118\"><span dir=\"ltr\" role=\"presentation\">and good or a similar effect. Additionally, the possessed </span></span><span id=\"page1084R_mcid25119\"><span dir=\"ltr\" role=\"presentation\">creature repeats its saving throw whenever it takes </span></span><span id=\"page1084R_mcid25120\"><span dir=\"ltr\" role=\"presentation\">damage. When the possession ends, the ghost reappears </span></span><span id=\"page1084R_mcid25121\"><span dir=\"ltr\" role=\"presentation\">in a space within 5 feet of the body. A creature is immune </span></span><span id=\"page1084R_mcid25122\"><span dir=\"ltr\" role=\"presentation\">to this ghost&rsquo;s Possession for 24 hours after succeeding </span></span><span id=\"page1084R_mcid25123\"><span dir=\"ltr\" role=\"presentation\">on its saving throw or after the possession ends.</span></span></p>",
@@ -637,12 +650,12 @@
 				"secretDescription": "",
 				"source": "",
 				"uses": {
-					"value": null,
-					"max": "",
-					"per": null,
+					"value": 1,
+					"max": "1",
+					"per": "recharge",
 					"recharge": {
 						"formula": "",
-						"threshold": ""
+						"threshold": 6
 					}
 				},
 				"schema": {
@@ -653,6 +666,7 @@
 				"featureType": "",
 				"grants": {},
 				"prerequisite": "",
+				"requiresBloodied": false,
 				"schemaVersion": {
 					"version": 0.01,
 					"lastMigration": {
@@ -738,6 +752,7 @@
 				"featureType": "",
 				"grants": {},
 				"prerequisite": "",
+				"requiresBloodied": false,
 				"schemaVersion": {
 					"version": 0.01,
 					"lastMigration": {
@@ -798,6 +813,7 @@
 				"featureType": "",
 				"grants": {},
 				"prerequisite": "",
+				"requiresBloodied": false,
 				"schemaVersion": {
 					"version": 0.01,
 					"lastMigration": {
@@ -892,6 +908,7 @@
 					"version": null,
 					"lastMigration": null
 				},
+				"concentration": false,
 				"degree": 0,
 				"exertionCost": 0,
 				"isStance": false,
@@ -994,6 +1011,7 @@
 					"version": null,
 					"lastMigration": null
 				},
+				"concentration": false,
 				"degree": 0,
 				"exertionCost": 0,
 				"isStance": false,
@@ -1087,6 +1105,7 @@
 					"version": null,
 					"lastMigration": null
 				},
+				"concentration": false,
 				"degree": 0,
 				"exertionCost": 0,
 				"isStance": false,
@@ -1180,6 +1199,7 @@
 					"version": null,
 					"lastMigration": null
 				},
+				"concentration": false,
 				"degree": 0,
 				"exertionCost": 0,
 				"isStance": false,
@@ -1273,6 +1293,7 @@
 					"version": null,
 					"lastMigration": null
 				},
+				"concentration": false,
 				"degree": 0,
 				"exertionCost": 0,
 				"isStance": false,
@@ -1366,6 +1387,7 @@
 					"version": null,
 					"lastMigration": null
 				},
+				"concentration": false,
 				"degree": 0,
 				"exertionCost": 0,
 				"isStance": false,
@@ -1399,7 +1421,8 @@
 				"inclusive": [],
 				"exclusive": []
 			},
-			"sheetIsLocked": true
+			"sheetIsLocked": true,
+			"showSpellTab": false
 		}
 	},
 	"system": {
@@ -1490,7 +1513,7 @@
 			}
 		},
 		"schemaVersion": {
-			"version": 0.007,
+			"version": 0.01,
 			"lastMigration": {
 				"version": {
 					"schema": 0.006,
@@ -1827,6 +1850,7 @@
 				}
 			},
 			"initiative": {
+				"ability": "dex",
 				"bonus": "",
 				"expertiseDice": 0
 			},
@@ -1881,15 +1905,15 @@
 			"casterLevel": 0
 		},
 		"bonuses": {
-			"abilities": {},
-			"damage": {},
-			"healing": {},
 			"maneuverDC": "",
 			"meleeSpellAttack": "",
 			"meleeWeaponAttack": "",
 			"rangedSpellAttack": "",
 			"rangedWeaponAttack": "",
 			"spellDC": "",
+			"abilities": {},
+			"damage": {},
+			"healing": {},
 			"skills": {}
 		},
 		"currency": {
@@ -1999,7 +2023,7 @@
 	},
 	"prototypeToken": {
 		"name": "Ghost",
-		"displayName": 0,
+		"displayName": 30,
 		"actorLink": false,
 		"width": 1,
 		"height": 1,
@@ -2030,7 +2054,7 @@
 			"attenuation": 0.5
 		},
 		"disposition": 0,
-		"displayBars": 50,
+		"displayBars": 30,
 		"bar1": {
 			"attribute": "attributes.hp"
 		},
@@ -2046,15 +2070,11 @@
 			"scaleY": 1,
 			"offsetX": 0,
 			"offsetY": 0,
-			"rotation": 0,
-			"anchorX": 0.5,
-			"anchorY": 0.5,
-			"fit": "contain",
-			"alphaThreshold": 0.75
+			"rotation": 0
 		},
 		"sight": {
 			"angle": 360,
-			"enabled": false,
+			"enabled": true,
 			"range": 0,
 			"brightness": 1,
 			"color": null,
@@ -2065,12 +2085,7 @@
 		},
 		"detectionModes": [],
 		"appendNumber": false,
-		"prependAdjective": false,
-		"hexagonalShape": 0,
-		"locked": false,
-		"occludable": {
-			"radius": 0
-		}
+		"prependAdjective": false
 	},
 	"folder": null,
 	"_id": "cpgd240vczeujidp"

@@ -19,8 +19,26 @@
 </script>
 
 <button
-    class="a5efc-document__import-button fa-solid fa-download"
+    class="a5e-compendium-import-button fa-solid fa-download"
     data-tooltip={`Import ${document.name}`}
     data-tooltip-direction="UP"
     on:click|stopPropagation={async () => importDocument()}
 />
+
+<style lang="scss">
+    .a5e-compendium-import-button {
+        grid-area: import;
+        margin: 0;
+        padding: 0.25rem;
+        color: #888;
+        background: transparent;
+        border: 0;
+        transition: var(--a5e-transition-standard);
+
+        &:hover {
+            color: #191813;
+            transform: scale(1.2);
+            box-shadow: none;
+        }
+    }
+</style>

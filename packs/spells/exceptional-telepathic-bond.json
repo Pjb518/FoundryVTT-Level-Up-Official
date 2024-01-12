@@ -1,0 +1,144 @@
+{
+	"name": "Exceptional Telepathic Bond",
+	"type": "spell",
+	"img": "icons/magic/perception/third-eye-blue-red.webp",
+	"effects": [
+		{
+			"icon": "icons/magic/perception/third-eye-blue-red.webp",
+			"origin": "Item.ynqBSBGzpAsVEbQq",
+			"flags": {
+				"a5e": {
+					"sort": 0,
+					"transferType": "onUse",
+					"actionId": "M2hWX387tiMLTQNn",
+					"duration": {
+						"unit": "hours"
+					}
+				}
+			},
+			"transfer": false,
+			"name": "Telepathic Bond",
+			"_id": "8dbLNsrJKPSlRDEp",
+			"changes": [],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": 3600,
+				"combat": null,
+				"rounds": null,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "<p>Targets may communicate telepathically with each other regardless of language and across any distance. This spell functions even when targets are on different planes of existence.</p>",
+			"statuses": [],
+			"folder": null
+		}
+	],
+	"flags": {},
+	"system": {
+		"actions": {
+			"M2hWX387tiMLTQNn": {
+				"name": "Telepathic Bond",
+				"activation": {
+					"cost": 1,
+					"type": "action",
+					"reactionTrigger": ""
+				},
+				"duration": {
+					"unit": "hour",
+					"value": "1"
+				},
+				"ranges": {
+					"qzInLvsV0R8OImFH": {
+						"range": "short"
+					}
+				},
+				"area": {
+					"shape": "",
+					"size": "",
+					"placeTemplate": false
+				},
+				"target": {
+					"quantity": 8,
+					"type": "creature"
+				},
+				"consumers": {
+					"1Pm91BvudMBh1iXB": {
+						"mode": "variable",
+						"spellLevel": 5,
+						"points": 7,
+						"type": "spell"
+					}
+				},
+				"prompts": {
+					"8rpjoONCbeng40RI": {
+						"type": "generic",
+						"default": true,
+						"label": "Increased Duration per Spell Slot",
+						"formula": "1d4"
+					},
+					"Az8ahYM42QJ40PAr": {
+						"type": "effect",
+						"default": true,
+						"effectId": "8dbLNsrJKPSlRDEp"
+					}
+				}
+			}
+		},
+		"description": "<p>Until the spell ends, a telepathic link connects the minds of the targets. So long as they remain on the same plane of existence, targets may communicate telepathically with each other regardless of language and across any distance.</p>\n<p><strong><em>Cast at Higher Levels.</em></strong> The spell's duration increases by 1d4 hours for each slot level above 5th.</p>\n<p><em><strong>Rare:&nbsp;</strong></em><strong>Exceptional Telepathic Bond.&nbsp;</strong>This&nbsp;spell functions even when targets are on different&nbsp;planes of existence.</p>",
+		"favorite": false,
+		"secretDescription": "",
+		"source": "",
+		"uses": {
+			"value": null,
+			"max": "",
+			"per": null,
+			"recharge": {
+				"formula": "",
+				"threshold": ""
+			}
+		},
+		"schema": {
+			"version": null,
+			"lastMigration": null
+		},
+		"classes": [
+			"witch",
+			"wizard"
+		],
+		"components": {
+			"vocalized": true,
+			"seen": true,
+			"material": true
+		},
+		"concentration": false,
+		"level": 5,
+		"materials": "two matching cards from different decks",
+		"materialsConsumed": false,
+		"prepared": false,
+		"prerequisite": "",
+		"rare": true,
+		"ritual": true,
+		"schools": {
+			"primary": "evocation",
+			"secondary": [
+				"arcane",
+				"communication",
+				"telepathy"
+			]
+		},
+		"schemaVersion": {
+			"version": 0.01,
+			"lastMigration": {
+				"version": {
+					"schema": 0.009,
+					"foundry": "12.316",
+					"system": "0.16.12"
+				}
+			}
+		}
+	},
+	"folder": null,
+	"_id": "ubxkke98il8p1gut"
+}

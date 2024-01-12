@@ -2,7 +2,46 @@
 	"name": "Barkskin",
 	"type": "spell",
 	"img": "icons/magic/nature/root-vine-hand-strike.webp",
-	"effects": [],
+	"effects": [
+		{
+			"icon": "icons/magic/nature/root-vine-hand-strike.webp",
+			"origin": "Item.4DIB4BiJ6edlxFiD",
+			"flags": {
+				"a5e": {
+					"sort": 0,
+					"transferType": "onUse",
+					"actionId": "CFzdWjIQR8OtkIi0",
+					"duration": {
+						"unit": "hours"
+					}
+				}
+			},
+			"transfer": false,
+			"name": "Barkskin",
+			"_id": "mZPoe5J9Scfw7HYB",
+			"changes": [
+				{
+					"key": "system.attributes.ac.value",
+					"value": "max(16, @original)",
+					"mode": 6,
+					"priority": null
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": 3600,
+				"combat": null,
+				"rounds": null,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "<p>The target's skin takes on the texture and appearance of bark, increasing its AC to 16 (unless its AC is already higher).</p>",
+			"statuses": [],
+			"folder": null
+		}
+	],
 	"flags": {},
 	"system": {
 		"actions": {
@@ -37,6 +76,13 @@
 						"spellLevel": 2,
 						"points": 3,
 						"type": "spell"
+					}
+				},
+				"prompts": {
+					"8Qomqi20aTNdHF2c": {
+						"type": "effect",
+						"default": true,
+						"effectId": "mZPoe5J9Scfw7HYB"
 					}
 				}
 			}

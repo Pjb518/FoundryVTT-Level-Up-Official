@@ -6,9 +6,12 @@
     import updateDocumentDataFromField from "../../../utils/updateDocumentDataFromField";
 
     import Checkbox from "../Checkbox.svelte";
-    import FormSection from "../FormSection.svelte";
+    import FieldWrapper from "../FieldWrapper.svelte";
     import RadioGroup from "../RadioGroup.svelte";
+    import Section from "../Section.svelte";
 
+    export let deleteRoll;
+    export let duplicateRoll;
     export let roll;
     export let rollId;
 
@@ -19,7 +22,7 @@
         updateDocumentDataFromField(
             $item,
             `system.actions.${actionId}.rolls.${rollId}.ability`,
-            selectedAbility
+            selectedAbility,
         );
     }
 
@@ -35,12 +38,22 @@
     $: selectedAbility, updateAbility();
 </script>
 
-<FormSection
+<FieldWrapper
     heading="A5E.Label"
-    --background="none"
-    --direction="column"
-    --padding="0"
-    --margin="0 2.5rem 0 0"
+    buttons={[
+        {
+            classes:
+                "fa-solid fa-clone a5e-field-wrapper__header-button--scale",
+            handler: () => duplicateRoll(actionId, roll),
+        },
+        {
+            classes: "fas fa-trash a5e-field-wrapper__header-button--scale",
+            handler: () => deleteRoll(actionId, rollId),
+        },
+    ]}
+    --a5e-header-button-color="#bebdb5"
+    --a5e-header-button-color-hover="#555"
+    --a5e-field-wrapper-button-wrapper-gap="0.75rem"
 >
     <input
         type="text"
@@ -49,41 +62,33 @@
             updateDocumentDataFromField(
                 $item,
                 `system.actions.${actionId}.rolls.${rollId}.label`,
-                target.value
+                target.value,
             )}
     />
-</FormSection>
+</FieldWrapper>
 
-<FormSection
+<RadioGroup
     heading="A5E.AbilityScore"
     hint="The ability score modifier to add to the attack roll."
-    --background="none"
-    --direction="column"
-    --padding="0"
->
-    <RadioGroup
-        optionStyles="min-width: 2rem; text-align: center;"
-        options={abilityOptions}
-        selected={selectedAbility}
-        on:updateSelection={({ detail }) => (selectedAbility = detail)}
-    />
-</FormSection>
+    optionStyles="min-width: 2rem; text-align: center;"
+    options={abilityOptions}
+    selected={selectedAbility}
+    on:updateSelection={({ detail }) => (selectedAbility = detail)}
+/>
 
-<FormSection --background="none" --padding="0">
-    <FormSection
-        heading="A5E.AttackType"
-        --background="none"
-        --direction="column"
-        --grow="1"
-        --padding="0"
-    >
+<Section
+    --a5e-section-body-direction="row"
+    --a5e-section-body-padding="0"
+    --a5e-section-body-wrap="nowrap"
+>
+    <FieldWrapper heading="A5E.AttackType">
         <select
             class="u-w-full"
             on:change={({ target }) =>
                 updateDocumentDataFromField(
                     $item,
                     `system.actions.${actionId}.rolls.${rollId}.attackType`,
-                    target.value
+                    target.value,
                 )}
         >
             {#each Object.entries(A5E.attackTypes) as [key, name] (key)}
@@ -92,15 +97,9 @@
                 </option>
             {/each}
         </select>
-    </FormSection>
+    </FieldWrapper>
 
-    <FormSection
-        heading="A5E.AttackBonus"
-        --background="none"
-        --direction="column"
-        --grow="1"
-        --padding="0"
-    >
+    <FieldWrapper heading="A5E.AttackBonus" --a5e-field-wrapper-grow="1">
         <input
             type="text"
             value={roll.bonus ?? 0}
@@ -108,18 +107,12 @@
                 updateDocumentDataFromField(
                     $item,
                     `system.actions.${actionId}.rolls.${rollId}.bonus`,
-                    target.value
+                    target.value,
                 )}
         />
-    </FormSection>
+    </FieldWrapper>
 
-    <FormSection
-        heading="A5E.CriticalHitThreshold"
-        --background="none"
-        --direction="column"
-        --padding="0"
-        --grow="1"
-    >
+    <FieldWrapper heading="A5E.CriticalHitThreshold">
         <input
             type="number"
             value={roll.critThreshold ?? 20}
@@ -127,11 +120,11 @@
                 updateDocumentDataFromField(
                     $item,
                     `system.actions.${actionId}.rolls.${rollId}.critThreshold`,
-                    Number(target.value)
+                    Number(target.value),
                 )}
         />
-    </FormSection>
-</FormSection>
+    </FieldWrapper>
+</Section>
 
 <Checkbox
     label="A5E.AddProficiency"
@@ -140,7 +133,7 @@
         updateDocumentDataFromField(
             $item,
             `system.actions.${actionId}.rolls.${rollId}.proficient`,
-            detail
+            detail,
         );
     }}
 />

@@ -1,0 +1,93 @@
+{
+	"folder": null,
+	"name": "Spore Cloud",
+	"type": "feature",
+	"img": "icons/magic/air/fog-gas-smoke-swirling-green.webp",
+	"system": {
+		"ac": {
+			"baseFormula": "",
+			"formula": "",
+			"maxDex": 0,
+			"minStr": 0,
+			"mode": 2,
+			"requiresNoShield": false,
+			"requiresUnarmored": false
+		},
+		"actions": {
+			"YAuhJB6Kb2aIHpZL": {
+				"name": "Use Feature",
+				"activation": {
+					"type": "bonusAction",
+					"cost": 1
+				},
+				"consumers": {},
+				"rolls": {
+					"KGtx7ygg46Wnecig": {
+						"type": "damage",
+						"default": true,
+						"formula": "(1 + floor((@level + 1) / 5))d6",
+						"damageType": "poison"
+					}
+				},
+				"prompts": {
+					"6WDKg0DaaHkd2OVK": {
+						"type": "savingThrow",
+						"default": true,
+						"ability": "con",
+						"saveDC": {
+							"type": "con"
+						},
+						"onSave": "not being posined"
+					}
+				},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"threshold": 6
+					}
+				},
+				"area": {
+					"shape": "circle",
+					"quantity": 1,
+					"radius": 5,
+					"placeTemplate": true
+				},
+				"target": {
+					"type": "self",
+					"quantity": 1
+				}
+			}
+		},
+		"description": "<p class=\"Indent1\">Mycelials naturally produce poisonous spores, which they can use to attack or defend themselves.</p>\n<p class=\"Indent1\">You can use a bonus action to release a puff of poisonous spores in a 5-foot-radius area centered on you. The spores lightly obscure the area and linger in air or water for 1 minute or until dispersed by a strong wind or current. Non-plant creatures that enter the area for the first time on a turn or start their turn there must make a Constitution&nbsp;<span class=\"freelinking-link\">saving throw</span>&nbsp;. On a failure, the creature takes 1d6 poison damage and is&nbsp;<span class=\"freelinking-link\">poisoned</span>&nbsp;until the end of its next turn. The DC for this saving throw equals 8 + your proficiency bonus + your Constitution modifier. The poison damage increases to 2d6 at 4th level, 3d6 at 9th level, 4d6 at 14th level, and 5d6 at 19th level.</p>\n<p class=\"Indent1\">Once a creature has been affected by the spores, it is immune to this effect for 24 hours. You can use this trait a number of times equal to your proficiency bonus. You regain any expended uses when you finish a&nbsp;<span class=\"freelinking-link\">long rest</span> .</p>",
+		"favorite": false,
+		"secretDescription": "",
+		"source": {
+			"name": "",
+			"link": "",
+			"publisher": ""
+		},
+		"uses": {
+			"value": 2,
+			"max": "@prof",
+			"per": "longRest",
+			"recharge": {
+				"formula": "1d6",
+				"threshold": "6"
+			}
+		},
+		"schema": {
+			"version": null,
+			"lastMigration": null
+		},
+		"concentration": false,
+		"featureType": "heritage",
+		"grants": {},
+		"prerequisite": ""
+	},
+	"effects": [],
+	"flags": {},
+	"_id": "ql20ak3gg7sjk6rx"
+}

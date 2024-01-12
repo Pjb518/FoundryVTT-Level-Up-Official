@@ -87,13 +87,13 @@
 
     .subtitle {
         width: 100%;
-        font-size: $font-size-xs;
+        font-size: var(--a5e-text-size-xs);
         line-height: 1;
         color: #7e7960;
     }
 
     .title {
-        font-size: $font-size-sm;
+        font-size: var(--a5e-text-size-sm);
         line-height: 1;
         font-weight: bold;
     }

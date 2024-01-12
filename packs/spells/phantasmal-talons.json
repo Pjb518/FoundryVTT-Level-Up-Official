@@ -2,7 +2,40 @@
 	"name": "Phantasmal Talons",
 	"type": "spell",
 	"img": "icons/creatures/claws/claw-talons-glowing-purple.webp",
-	"effects": [],
+	"effects": [
+		{
+			"icon": "icons/creatures/claws/claw-talons-glowing-purple.webp",
+			"origin": "Item.WZAH4xe1DOTi16A1",
+			"flags": {
+				"a5e": {
+					"sort": 0,
+					"transferType": "onUse",
+					"actionId": "GW2mOcrH3DrZsFas",
+					"duration": {
+						"unit": "minutes"
+					},
+					"applyToSelf": true
+				}
+			},
+			"transfer": false,
+			"name": "Phantasmal Talons",
+			"_id": "tSDGPUyDaTpmtFjM",
+			"changes": [],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": 60,
+				"combat": null,
+				"rounds": null,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "<p>For the duration, your unarmed strikes gain the finesse property and deal psychic damage. In addition, if your unarmed strike normally deals less than 1d4 damage, it instead deals 1d4 damage.</p>",
+			"statuses": [],
+			"folder": null
+		}
+	],
 	"flags": {},
 	"system": {
 		"actions": {
@@ -37,6 +70,13 @@
 						"spellLevel": 1,
 						"points": 2,
 						"type": "spell"
+					}
+				},
+				"prompts": {
+					"JO4C1l3PtZzWLGBo": {
+						"type": "effect",
+						"default": true,
+						"effectId": "tSDGPUyDaTpmtFjM"
 					}
 				}
 			}

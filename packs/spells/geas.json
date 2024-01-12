@@ -2,7 +2,45 @@
 	"name": "Geas",
 	"type": "spell",
 	"img": "icons/magic/control/debuff-chains-shackles-movement-blue.webp",
-	"effects": [],
+	"effects": [
+		{
+			"icon": "icons/magic/control/debuff-chains-shackles-movement-blue.webp",
+			"origin": "Item.lhQlRUS1RoD7ZXJT",
+			"flags": {
+				"a5e": {
+					"sort": 0,
+					"transferType": "onUse",
+					"actionId": "N9xiXIQzTeFTddm4"
+				}
+			},
+			"transfer": false,
+			"name": "Geas",
+			"_id": "5yXypfbHYm721cZf",
+			"changes": [
+				{
+					"key": "flags.a5e.effects.statusConditions",
+					"value": "[\"charmed\"]",
+					"mode": 0,
+					"priority": null
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": null,
+				"combat": null,
+				"rounds": null,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "<p>You give a command to a target which can understand you. It becomes charmed by you.</p>\n<p>While charmed in this way, it takes 5d10 psychic damage the first time each day that it disobeys your command. Your command can be any course of action or inaction that wouldn't result in the target's death. The spell ends if the command is suicidal or you use an action to dismiss the spell. Alternatively, a <em>remove curse</em>, <em>greater restoration</em>, or <em>wish</em> spell cast on the target using a spell slot at least as high as the slot used to cast this spell also ends it.</p>",
+			"statuses": [
+				"charmed"
+			],
+			"folder": null
+		}
+	],
 	"flags": {},
 	"system": {
 		"actions": {
@@ -49,6 +87,11 @@
 							"bonus": ""
 						},
 						"type": "savingThrow"
+					},
+					"HYgPG21jiYdkvGIT": {
+						"type": "effect",
+						"default": true,
+						"effectId": "5yXypfbHYm721cZf"
 					}
 				},
 				"consumers": {

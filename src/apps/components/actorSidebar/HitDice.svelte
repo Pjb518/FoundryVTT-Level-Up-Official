@@ -45,15 +45,15 @@
         position: relative;
         width: 2.5rem;
         height: 2.5rem;
-        font-size: $font-size-xl;
-        font-family: $font-primary;
+        font-size: var(--a5e-text-size-xl);
         margin: auto;
     }
 
     .hit-die-label {
-        font-size: $font-size-md;
-        text-align: center;
         padding-bottom: 0.125rem;
+        font-size: var(--a5e-text-size-sm);
+        font-weight: 700;
+        text-align: center;
     }
 
     .hit-dice-background {
@@ -67,5 +67,6 @@
 
     .hit-dice-wrapper {
         position: relative;
+        font-family: var(--a5e-font-serif);
     }
 </style>

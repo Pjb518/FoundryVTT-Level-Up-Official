@@ -1,22 +1,22 @@
 <script>
     import { getContext, createEventDispatcher } from "svelte";
-    import { TJSDocument } from "@typhonjs-fvtt/runtime/svelte/store/fvtt/document";
     import { localize } from "#runtime/svelte/helper";
 
     import updateDocumentDataFromField from "../../utils/updateDocumentDataFromField";
 
     import Checkbox from "../components/Checkbox.svelte";
-    import FormSection from "../components/FormSection.svelte";
-    import TagGroup from "../components/TagGroup.svelte";
+    import CheckboxGroup from "../components/CheckboxGroup.svelte";
+    import FieldWrapper from "../components/FieldWrapper.svelte";
+    import Section from "../components/Section.svelte";
 
     export let { document, bonusID } = getContext("#external").application;
     export let jsonValue = null;
 
-    const actor = new TJSDocument(document);
+    const actor = document;
     const dispatch = createEventDispatcher();
 
     function updateImage() {
-        const current = abilityBonus?.img;
+        const current = healingBonus?.img;
 
         const filePicker = new FilePicker({
             type: "image",
@@ -52,7 +52,10 @@
             obj.label = obj.label ?? "";
             obj.formula = obj.formula ?? "";
             obj.healingType = obj.healingType ?? "";
-            obj.context = obj.context ?? {};
+            obj.context = obj.context ?? {
+                healingTypes: [],
+                spellLevels: [],
+            };
             obj.default = obj.default ?? true;
             obj.img = obj.img ?? "icons/svg/upgrade.svg";
             return obj;
@@ -61,7 +64,10 @@
                 label: "",
                 formula: "",
                 healingType: "",
-                context: {},
+                context: {
+                    healingTypes: [],
+                    spellLevels: [],
+                },
                 default: true,
                 img: "icons/svg/upgrade.svg",
             };
@@ -98,28 +104,20 @@
         </div>
     </header>
 
-    <FormSection>
-        <FormSection
-            heading="A5E.HealingFormula"
-            --background="none"
-            --grow="1"
-            --direction="column"
-            --padding="0"
-        >
+    <Section
+        --a5e-section-body-direction="row"
+        --a5e-section-margin="0.25rem 0"
+    >
+        <FieldWrapper heading="A5E.HealingFormula" --a5e-field-wrapper-grow="1">
             <input
                 type="text"
                 value={healingBonus.formula ?? ""}
                 on:change={({ target }) =>
                     onUpdateValue("formula", target.value)}
             />
-        </FormSection>
+        </FieldWrapper>
 
-        <FormSection
-            heading="A5E.HealingType"
-            --background="none"
-            --direction="column"
-            --padding="0"
-        >
+        <FieldWrapper heading="A5E.HealingType">
             <select
                 class="u-w-fit healing-type-select"
                 on:change={({ target }) =>
@@ -142,41 +140,42 @@
                     </option>
                 {/each}
             </select>
-        </FormSection>
-    </FormSection>
+        </FieldWrapper>
+    </Section>
 
-    <FormSection
+    <Section
         heading="Contexts"
         hint="The context determines when the healing bonus applies"
-        --direction="column"
-        --wrap="nowrap"
+        --a5e-section-body-gap="0.75rem"
     >
-        <TagGroup
+        <CheckboxGroup
             heading="A5E.contexts.healingType"
             options={Object.entries(healingBonusContexts)}
             selected={healingTypesContext}
+            showToggleAllButton={true}
             on:updateSelection={({ detail }) =>
                 onUpdateValue("context.healingTypes", detail)}
         />
 
-        <TagGroup
+        <CheckboxGroup
             heading="A5E.contexts.spellLevel"
             options={Object.entries(spellLevels)}
             selected={spellLevelsContext}
+            showToggleAllButton={true}
             on:updateSelection={({ detail }) =>
                 onUpdateValue("context.spellLevels", detail)}
         />
-    </FormSection>
 
-    <FormSection>
-        <Checkbox
-            label="Select Healing Bonus Automatically in Roll Prompt"
-            checked={healingBonus.default ?? true}
-            on:updateSelection={({ detail }) => {
-                onUpdateValue("default", detail);
-            }}
-        />
-    </FormSection>
+        <FieldWrapper>
+            <Checkbox
+                label="Select Healing Bonus Automatically in Roll Prompt"
+                checked={healingBonus.default ?? true}
+                on:updateSelection={({ detail }) => {
+                    onUpdateValue("default", detail);
+                }}
+            />
+        </FieldWrapper>
+    </Section>
 </form>
 
 <style lang="scss">

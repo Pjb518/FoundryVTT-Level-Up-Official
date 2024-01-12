@@ -26,6 +26,17 @@ export default function registerFilterConfig(A5E) {
       traditions: {
         label: 'A5E.FilterLabelManueverTraditions',
         filters: {}
+      },
+      miscellaneous: {
+        label: 'A5E.FilterLabelMiscellaneous',
+        filters: {
+          concentration: {
+            label: 'A5E.ConditionConcentration', key: 'system.concentration', type: 'boolean'
+          },
+          stance: {
+            label: 'Stance', key: 'system.isStance', type: 'boolean'
+          }
+        }
       }
     },
     objects: {
@@ -42,7 +53,7 @@ export default function registerFilterConfig(A5E) {
         filters: {
           attuned: { label: 'A5E.Attuned', key: 'system.attuned', type: 'boolean' },
           bulky: { label: 'A5E.ItemBulky', key: 'system.bulky', type: 'boolean' },
-          // equipped: { label: 'A5E.ItemEquipped', key: 'system.equipped', type: 'boolean' },
+          2: { label: 'A5E.ItemEquipped', key: 'system.equippedState', type: 'value' }, // For Equipped State
           plotItem: { label: 'A5E.PlotItem', key: 'system.plotItem', type: 'boolean' },
           requiresAttunement: { label: 'A5E.AttunementRequired', key: 'system.requiredAttunement', type: 'boolean' }
         }

@@ -5,8 +5,9 @@
     import GenericConfigDialog from "../../dialogs/initializers/GenericConfigDialog";
 
     import Checkbox from "../Checkbox.svelte";
-    import FormSection from "../FormSection.svelte";
     import DamageScalingDialog from "../../dialogs/DamageScalingDialog.svelte";
+    import FieldWrapper from "../FieldWrapper.svelte";
+    import Section from "../Section.svelte";
 
     import getOrdinalNumber from "../../../utils/getOrdinalNumber";
     import updateDocumentDataFromField from "../../../utils/updateDocumentDataFromField";
@@ -94,18 +95,30 @@
 
     const { damageTypes } = CONFIG.A5E;
 
+    export let deleteRoll;
+    export let duplicateRoll;
     export let roll;
     export let rollId;
 
     $: scalingSummary = getScalingSummary(roll);
 </script>
 
-<FormSection
+<FieldWrapper
     heading="A5E.Label"
-    --background="none"
-    --direction="column"
-    --padding="0"
-    --margin="0 4.5rem 0 0"
+    buttons={[
+        {
+            classes:
+                "fa-solid fa-clone a5e-field-wrapper__header-button--scale",
+            handler: () => duplicateRoll(actionId, roll),
+        },
+        {
+            classes: "fas fa-trash a5e-field-wrapper__header-button--scale",
+            handler: () => deleteRoll(actionId, rollId),
+        },
+    ]}
+    --a5e-header-button-color="#bebdb5"
+    --a5e-header-button-color-hover="#555"
+    --a5e-field-wrapper-button-wrapper-gap="0.75rem"
 >
     <input
         type="text"
@@ -117,16 +130,14 @@
                 target.value,
             )}
     />
-</FormSection>
+</FieldWrapper>
 
-<FormSection --background="none" --padding="0" hint={scalingSummary}>
-    <FormSection
-        heading="A5E.DamageFormula"
-        --background="none"
-        --grow="1"
-        --direction="column"
-        --padding="0"
-    >
+<Section
+    --a5e-section-body-direction="row"
+    --a5e-section-body-wrap="nowrap"
+    --a5e-section-body-padding="0"
+>
+    <FieldWrapper heading="A5E.DamageFormula" --a5e-field-wrapper-grow="1">
         <div class="u-flex u-gap-sm u-w-full">
             <input
                 id="{actionId}-{rollId}-damage-formula"
@@ -151,14 +162,9 @@
                 />
             </button>
         </div>
-    </FormSection>
+    </FieldWrapper>
 
-    <FormSection
-        heading="A5E.DamageType"
-        --background="none"
-        --direction="column"
-        --padding="0"
-    >
+    <FieldWrapper heading="A5E.DamageType">
         <select
             id="{actionId}-{rollId}-damage-type"
             class="u-w-fit damage-type-select"
@@ -179,8 +185,8 @@
                 </option>
             {/each}
         </select>
-    </FormSection>
-</FormSection>
+    </FieldWrapper>
+</Section>
 
 <Checkbox
     label="A5E.DamageDoubleOnCrit"
@@ -195,13 +201,10 @@
 />
 
 {#if roll.canCrit ?? true}
-    <FormSection
+    <FieldWrapper
         heading="A5E.DamageBonusOnCrit"
         hint="When you score a critical hit, this damage is added after doubling
     the attack's damage."
-        --background="none"
-        --direction="column"
-        --padding="0"
     >
         <input
             id="{actionId}-{rollId}-crit-bonus"
@@ -214,7 +217,7 @@
                     target.value,
                 )}
         />
-    </FormSection>
+    </FieldWrapper>
 {/if}
 
 <Checkbox

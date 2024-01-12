@@ -16,7 +16,7 @@
     const item = getContext("item");
 </script>
 
-<div class="u-flex u-flex-col u-gap-xl properties__container">
+<div class="a5e-page-wrapper a5e-page-wrapper--scrollable">
     {#if $item.type === "feature"}
         <FeatureConfiguration />
         <ArmorClassConfiguration />
@@ -41,9 +41,3 @@
 
     <UsesConfiguration />
 </div>
-
-<style lang="scss">
-    .properties__container {
-        overflow-y: auto;
-    }
-</style>

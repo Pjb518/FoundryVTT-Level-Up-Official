@@ -158,13 +158,13 @@
             flex-shrink: 0;
             align-items: center;
             justify-content: center;
+            font-size: $font-size-sm;
+            color: var(--icon-color, inherit);
             border: 1px solid var(--track-border-color, #ccc);
             background: var(--track-background, #ebe9e0);
             border-radius: 50%;
             cursor: pointer;
-            font-size: $font-size-sm;
             transform: translateX(-1px);
-
             transition: $standard-transition;
 
             &--description-button {
@@ -200,7 +200,7 @@
             }
 
             .track-icon {
-                color: #555;
+                color: var(--icon-color-active, #555);
             }
         }
     }

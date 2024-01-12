@@ -1,8 +1,7 @@
 <script>
     import { getContext } from "svelte";
-    import { TJSDocument } from "#runtime/svelte/store/fvtt/document";
 
-    import FormSection from "../components/FormSection.svelte";
+    import FormSection from "../components/LegacyFormSection.svelte";
 
     import prepareHitDice from "../dataPreparationHelpers/prepareHitDice";
     import updateDocumentDataFromField from "../../utils/updateDocumentDataFromField";
@@ -16,7 +15,7 @@
         { label: "A5E.HitPointsMaxModifier", updateAttribute: "bonus" },
     ];
 
-    const actor = new TJSDocument(document);
+    const actor = document;
     const hitDice = prepareHitDice($actor);
 
     $: hitDieClasses =

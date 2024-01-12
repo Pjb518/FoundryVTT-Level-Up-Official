@@ -2,7 +2,7 @@
     import { getContext } from "svelte";
     import { localize } from "#runtime/svelte/helper";
 
-    import FormSection from "../components/FormSection.svelte";
+    import FormSection from "../components/LegacyFormSection.svelte";
     import Checkbox from "../components/Checkbox.svelte";
 
     export let reload;
@@ -13,7 +13,9 @@
     let deathSaves = settings.getStore("5eStyleDeathSaves");
     let exhaustion = settings.getStore("replaceFatigueAndStrife");
     let hideA5eSkills = settings.getStore("hideA5eSkills");
+    let hideExpertiseDice = settings.getStore("hideExpertiseDice");
     let hideSkillSpecialties = settings.getStore("hideSkillSpecialties");
+    let simpleInitiative = settings.getStore("simpleInitiative");
 </script>
 
 <section class="setting-group">
@@ -44,6 +46,19 @@
         />
     </FormSection>
 
+    <FormSection hint="A5E.settings.hints.hideExpertiseDice" --gap="0.25rem">
+        <Checkbox
+            label="A5E.settings.hideExpertiseDice"
+            checked={updates.get("hideExpertiseDice") ??
+                $hideExpertiseDice ??
+                false}
+            on:updateSelection={({ detail }) => {
+                updates.set("hideExpertiseDice", detail);
+                reload = true;
+            }}
+        />
+    </FormSection>
+
     <FormSection hint="A5E.settings.hints.hideSkillSpecialties" --gap="0.25rem">
         <Checkbox
             label="A5E.settings.hideSkillSpecialties"
@@ -68,6 +83,19 @@
                 false}
             on:updateSelection={({ detail }) => {
                 updates.set("replaceFatigueAndStrife", detail);
+                reload = true;
+            }}
+        />
+    </FormSection>
+
+    <FormSection hint="A5E.settings.hints.simpleInitiative" --gap="0.25rem">
+        <Checkbox
+            label="A5E.settings.simpleInitiative"
+            checked={updates.get("simpleInitiative") ??
+                $simpleInitiative ??
+                false}
+            on:updateSelection={({ detail }) => {
+                updates.set("simpleInitiative", detail);
                 reload = true;
             }}
         />

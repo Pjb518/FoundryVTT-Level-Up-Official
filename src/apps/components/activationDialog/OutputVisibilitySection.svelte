@@ -1,5 +1,4 @@
 <script>
-    import FormSection from "../FormSection.svelte";
     import RadioGroup from "../RadioGroup.svelte";
 
     const rollModes = CONST.DICE_ROLL_MODES;
@@ -8,13 +7,12 @@
     export let visibilityMode;
 </script>
 
-<FormSection heading="Visibility Mode">
-    <RadioGroup
-        options={Object.entries(rollModes).map(([_, mode]) => [
-            mode,
-            DICE_ROLL_MODES[mode],
-        ])}
-        selected={visibilityMode}
-        on:updateSelection={({ detail }) => (visibilityMode = detail)}
-    />
-</FormSection>
+<RadioGroup
+    heading="Visibility Mode"
+    options={Object.entries(rollModes).map(([_, mode]) => [
+        mode,
+        DICE_ROLL_MODES[mode],
+    ])}
+    selected={visibilityMode}
+    on:updateSelection={({ detail }) => (visibilityMode = detail)}
+/>

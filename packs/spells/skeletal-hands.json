@@ -50,6 +50,11 @@
 						},
 						"label": "Restraint Escape",
 						"onSave": "ends spell, don't take additional damage"
+					},
+					"AGmoNOEZyCCbpR4H": {
+						"type": "effect",
+						"default": true,
+						"effectId": "K8UMviZ1LpnOON1P"
 					}
 				},
 				"uses": {
@@ -90,7 +95,7 @@
 			}
 		},
 		"schema": {
-			"version": 0.007,
+			"version": 0.01,
 			"lastMigration": {
 				"version": {
 					"schema": 0.001,
@@ -127,7 +132,48 @@
 			]
 		}
 	},
-	"effects": [],
+	"effects": [
+		{
+			"icon": "icons/magic/death/hand-undead-skeleton-fire-green.webp",
+			"origin": "Item.0Xe40EFdBxsqA6os",
+			"flags": {
+				"a5e": {
+					"sort": 0,
+					"transferType": "onUse",
+					"actionId": "SOCGBfYCGfLYccOY",
+					"duration": {
+						"unit": "minutes"
+					}
+				}
+			},
+			"transfer": false,
+			"name": "Skeletal Hands",
+			"_id": "K8UMviZ1LpnOON1P",
+			"changes": [
+				{
+					"key": "flags.a5e.effects.statusConditions",
+					"value": "[\"restrained\"]",
+					"mode": 0,
+					"priority": null
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": 60,
+				"combat": null,
+				"rounds": null,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "<p> A creature restrained by the hands can use a bonus action to make a Strength saving throw to escape, ending the spell early on a success. On a failure, the target takes 1d8 necrotic damage. When the spell ends, the hands withdraw into the wall.</p>\n<p><em><strong>Cast at Higher Levels.</strong></em> The spell’s initial damage and damage on a failed escape attempt increase by 1d8 per slot level above 1st.</p>",
+			"statuses": [
+				"restrained"
+			],
+			"folder": null
+		}
+	],
 	"flags": {},
 	"folder": null,
 	"_id": "x385rbb1ej38ijjy"

@@ -2,12 +2,115 @@
 	"name": "Fire Shield",
 	"type": "spell",
 	"img": "icons/magic/fire/blast-jet-stream-embers-yellow.webp",
-	"effects": [],
+	"effects": [
+		{
+			"icon": "icons/magic/fire/blast-jet-stream-embers-yellow.webp",
+			"origin": "Item.5a6qZUtN5dB7Bcna",
+			"flags": {
+				"a5e": {
+					"sort": 0,
+					"transferType": "onUse",
+					"actionId": "OrpIOwi4mJB0dRUp",
+					"applyToSelf": true,
+					"duration": {
+						"unit": "minutes"
+					}
+				}
+			},
+			"transfer": false,
+			"name": "Chill Shield",
+			"_id": "L1PFIRvBuubE1ulz",
+			"changes": [
+				{
+					"key": "@token.light.bright",
+					"value": "10",
+					"mode": 6,
+					"priority": null
+				},
+				{
+					"key": "@token.light.dim",
+					"value": "20",
+					"mode": 6,
+					"priority": null
+				},
+				{
+					"key": "system.traits.damageResistances",
+					"value": "[\"fire\"]",
+					"mode": 2,
+					"priority": null
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": 600,
+				"combat": null,
+				"rounds": null,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "",
+			"statuses": [],
+			"folder": null
+		},
+		{
+			"icon": "icons/magic/fire/blast-jet-stream-embers-yellow.webp",
+			"origin": "Item.5a6qZUtN5dB7Bcna",
+			"flags": {
+				"a5e": {
+					"sort": 0,
+					"transferType": "onUse",
+					"actionId": "k6N2ivKWMzmRBBfA",
+					"applyToSelf": true,
+					"duration": {
+						"unit": "minutes"
+					}
+				}
+			},
+			"transfer": false,
+			"name": "Warm Shield",
+			"_id": "D1ImlLOyr9nE9nHx",
+			"changes": [
+				{
+					"key": "@token.light.bright",
+					"value": "10",
+					"mode": 6,
+					"priority": null
+				},
+				{
+					"key": "@token.light.dim",
+					"value": "20",
+					"mode": 6,
+					"priority": null
+				},
+				{
+					"key": "system.traits.damageResistances",
+					"value": "[\"cold\"]",
+					"mode": 2,
+					"priority": null
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": 600,
+				"combat": null,
+				"rounds": null,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "",
+			"statuses": [],
+			"folder": null
+		}
+	],
 	"flags": {},
 	"system": {
 		"actions": {
 			"OrpIOwi4mJB0dRUp": {
-				"name": "Fire Shield",
+				"name": "Chill Shield",
 				"activation": {
 					"cost": 1,
 					"type": "action",
@@ -25,20 +128,14 @@
 				"area": {
 					"shape": "",
 					"size": "",
-					"placeTemplate": false
+					"placeTemplate": false,
+					"quantity": 1
 				},
 				"target": {
 					"quantity": "",
 					"type": "self"
 				},
 				"rolls": {
-					"Fgku7YH33z36JZfu": {
-						"canCrit": false,
-						"damageType": "fire",
-						"formula": "2d8",
-						"name": "Warm Shield",
-						"type": "damage"
-					},
 					"ekC3Ly6r1OqDLPaV": {
 						"canCrit": false,
 						"damageType": "cold",
@@ -53,6 +150,69 @@
 						"spellLevel": 4,
 						"points": 6,
 						"type": "spell"
+					}
+				},
+				"prompts": {
+					"8A7bCLYWUKn8XIzK": {
+						"type": "effect",
+						"default": true,
+						"effectId": "L1PFIRvBuubE1ulz"
+					}
+				}
+			},
+			"k6N2ivKWMzmRBBfA": {
+				"name": "Warm Shield",
+				"activation": {
+					"cost": 1,
+					"type": "action",
+					"reactionTrigger": ""
+				},
+				"duration": {
+					"unit": "minute",
+					"value": "10"
+				},
+				"ranges": {
+					"LMb8BXQ8GDu03Ucx": {
+						"range": "self"
+					}
+				},
+				"area": {
+					"shape": "",
+					"size": "",
+					"placeTemplate": false,
+					"quantity": 1
+				},
+				"target": {
+					"quantity": "",
+					"type": "self"
+				},
+				"rolls": {
+					"ekC3Ly6r1OqDLPaV": {
+						"canCrit": false,
+						"damageType": "fire",
+						"formula": "2d8",
+						"name": "Chill Shield",
+						"type": "damage"
+					}
+				},
+				"consumers": {
+					"zwY9ACZc4feWdphS": {
+						"mode": "variable",
+						"spellLevel": 4,
+						"points": 6,
+						"type": "spell"
+					}
+				},
+				"prompts": {
+					"8A7bCLYWUKn8XIzK": {
+						"type": "effect",
+						"default": true,
+						"effectId": "L1PFIRvBuubE1ulz"
+					},
+					"7xVXxUziNFOgbF9J": {
+						"type": "effect",
+						"default": true,
+						"effectId": "D1ImlLOyr9nE9nHx"
 					}
 				}
 			}

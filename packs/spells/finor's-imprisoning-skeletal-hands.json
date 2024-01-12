@@ -42,6 +42,11 @@
 						},
 						"label": "Restraint Escape",
 						"onSave": "ends spell, don't take additional damage"
+					},
+					"UvUcwXEzewnoWAfn": {
+						"type": "effect",
+						"default": true,
+						"effectId": "njvh58nXvEPb2WYy"
 					}
 				},
 				"uses": {
@@ -118,7 +123,45 @@
 			}
 		}
 	},
-	"effects": [],
+	"effects": [
+		{
+			"icon": "icons/magic/death/hand-undead-skeleton-fire-green.webp",
+			"origin": "Item.Ug9Se5KKEHU59dam",
+			"flags": {
+				"a5e": {
+					"sort": 0,
+					"transferType": "onUse",
+					"actionId": "SOCGBfYCGfLYccOY"
+				}
+			},
+			"transfer": false,
+			"name": "Imprisoned by Skeletal Hands",
+			"_id": "njvh58nXvEPb2WYy",
+			"changes": [
+				{
+					"key": "flags.a5e.effects.statusConditions",
+					"value": "[\"restrained\"]",
+					"mode": 0,
+					"priority": null
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": null,
+				"combat": null,
+				"rounds": null,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "<p>A creature restrained by the hands can use a bonus action to make a Strength saving throw to escape, ending the spell early on a success. On a failure, the target takes 1d8 necrotic damage.</p>\n<p><strong>Rare: Finor’s Imprisoning Skeletal Hands.</strong> If you maintain concentration on the spell for the full duration, the target remains trapped by the hands until the magic is dispelled or you dismiss the spell as an action.</p>",
+			"statuses": [
+				"restrained"
+			],
+			"folder": null
+		}
+	],
 	"flags": {},
 	"folder": null,
 	"_id": "30de7tsm4zwt6wax"

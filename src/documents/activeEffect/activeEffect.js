@@ -358,10 +358,14 @@ export default class ActiveEffectA5e extends ActiveEffect {
     if (foundry.utils.getProperty(this.parent, 'prototypeToken.actorLink') ?? true) {
       const tokens = this.parent.getActiveTokens().map((t) => t.document);
       if (!tokens.length) return;
-      tokens.forEach((t) => t?.reset());
+      tokens.forEach((t) => {
+        t?.reset();
+        t?.object?.draw();
+      });
     } else {
       if (!this.parent.token) return;
       this.parent.token.reset();
+      this.parent.token.object.draw();
     }
 
     const updateLighting = changeKeys.some((k) => k.startsWith('@token.light'));

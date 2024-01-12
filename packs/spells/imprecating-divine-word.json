@@ -2,7 +2,131 @@
 	"name": "Imprecating Divine Word",
 	"type": "spell",
 	"img": "icons/magic/holy/prayer-hands-glowing-yellow.webp",
-	"effects": [],
+	"effects": [
+		{
+			"icon": "icons/magic/holy/prayer-hands-glowing-yellow.webp",
+			"origin": "Item.BPljoRXkKUGFJ0ht",
+			"flags": {
+				"a5e": {
+					"sort": 0,
+					"transferType": "onUse",
+					"actionId": "H50sNnXuavoSjquR",
+					"duration": {
+						"unit": "minutes"
+					}
+				}
+			},
+			"transfer": false,
+			"name": "Imprecating Divine Word (<50 HP)",
+			"_id": "rnztvfPTLtjTp3O8",
+			"changes": [
+				{
+					"key": "flags.a5e.effects.statusConditions",
+					"value": "[\"deafened\"]",
+					"mode": 0,
+					"priority": null
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": 60,
+				"combat": null,
+				"rounds": null,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "",
+			"statuses": [
+				"deafened"
+			],
+			"folder": null
+		},
+		{
+			"icon": "icons/magic/holy/prayer-hands-glowing-yellow.webp",
+			"origin": "Item.BPljoRXkKUGFJ0ht",
+			"flags": {
+				"a5e": {
+					"sort": 0,
+					"transferType": "onUse",
+					"actionId": "H50sNnXuavoSjquR",
+					"duration": {
+						"unit": "minutes"
+					}
+				}
+			},
+			"transfer": false,
+			"name": "Imprecating Divine Word (<40 HP)",
+			"_id": "H4ocizG6o9Ll9ksV",
+			"changes": [
+				{
+					"key": "flags.a5e.effects.statusConditions",
+					"value": "[\"blinded\",\"deafened\"]",
+					"mode": 0,
+					"priority": null
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": 600,
+				"combat": null,
+				"rounds": null,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "",
+			"statuses": [
+				"blinded",
+				"deafened"
+			],
+			"folder": null
+		},
+		{
+			"icon": "icons/magic/holy/prayer-hands-glowing-yellow.webp",
+			"origin": "Item.BPljoRXkKUGFJ0ht",
+			"flags": {
+				"a5e": {
+					"sort": 0,
+					"transferType": "onUse",
+					"actionId": "H50sNnXuavoSjquR",
+					"duration": {
+						"unit": "hours"
+					}
+				}
+			},
+			"transfer": false,
+			"name": "Imprecating Divine Word (<30 HP)",
+			"_id": "eOscshLCLDAt9p3u",
+			"changes": [
+				{
+					"key": "flags.a5e.effects.statusConditions",
+					"value": "[\"blinded\",\"deafened\",\"stunned\"]",
+					"mode": 0,
+					"priority": null
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": 3600,
+				"combat": null,
+				"rounds": null,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "",
+			"statuses": [
+				"blinded",
+				"deafened",
+				"stunned"
+			],
+			"folder": null
+		}
+	],
 	"flags": {},
 	"system": {
 		"actions": {
@@ -37,6 +161,23 @@
 						"spellLevel": 7,
 						"points": 10,
 						"type": "spell"
+					}
+				},
+				"prompts": {
+					"YHlL5vUmAoQn08rk": {
+						"type": "effect",
+						"default": true,
+						"effectId": "rnztvfPTLtjTp3O8"
+					},
+					"z03m2cAw3vJNlI4O": {
+						"type": "effect",
+						"default": true,
+						"effectId": "H4ocizG6o9Ll9ksV"
+					},
+					"PAG212eKL4ARtvx6": {
+						"type": "effect",
+						"default": true,
+						"effectId": "eOscshLCLDAt9p3u"
 					}
 				}
 			}

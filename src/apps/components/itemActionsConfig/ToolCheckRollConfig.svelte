@@ -6,9 +6,19 @@
     import updateDocumentDataFromField from "../../../utils/updateDocumentDataFromField";
 
     import Checkbox from "../Checkbox.svelte";
-    import FormSection from "../FormSection.svelte";
+    import FieldWrapper from "../FieldWrapper.svelte";
     import RadioGroup from "../RadioGroup.svelte";
 
+    function updateAbility() {
+        updateDocumentDataFromField(
+            $item,
+            `system.actions.${actionId}.rolls.${rollId}.ability`,
+            selectedAbility,
+        );
+    }
+
+    export let deleteRoll;
+    export let duplicateRoll;
     export let roll;
     export let rollId;
 
@@ -20,25 +30,26 @@
         .flat()
         .sort((a, b) => a[0].toLowerCase().localeCompare(b[0].toLowerCase()));
 
-    function updateAbility() {
-        updateDocumentDataFromField(
-            $item,
-            `system.actions.${actionId}.rolls.${rollId}.ability`,
-            selectedAbility
-        );
-    }
-
-    $: roll = $item.system.actions[actionId]?.rolls[rollId];
     $: selectedAbility = roll.ability ?? "none";
     $: selectedAbility, updateAbility();
 </script>
 
-<FormSection
+<FieldWrapper
     heading="A5E.Label"
-    --background="none"
-    --direction="column"
-    --padding="0"
-    --margin="0 4.5rem 0 0"
+    buttons={[
+        {
+            classes:
+                "fa-solid fa-clone a5e-field-wrapper__header-button--scale",
+            handler: () => duplicateRoll(actionId, roll),
+        },
+        {
+            classes: "fas fa-trash a5e-field-wrapper__header-button--scale",
+            handler: () => deleteRoll(actionId, rollId),
+        },
+    ]}
+    --a5e-header-button-color="#bebdb5"
+    --a5e-header-button-color-hover="#555"
+    --a5e-field-wrapper-button-wrapper-gap="0.75rem"
 >
     <input
         type="text"
@@ -47,24 +58,19 @@
             updateDocumentDataFromField(
                 $item,
                 `system.actions.${actionId}.rolls.${rollId}.label`,
-                target.value
+                target.value,
             )}
     />
-</FormSection>
+</FieldWrapper>
 
-<FormSection
-    heading="A5E.Tool"
-    --background="none"
-    --direction="column"
-    --padding="0"
->
+<FieldWrapper heading="A5E.Tool">
     <select
         class="u-w-fit"
         on:change={({ target }) =>
             updateDocumentDataFromField(
                 $item,
                 `system.actions.${actionId}.rolls.${rollId}.tool`,
-                target.value
+                target.value,
             )}
     >
         {#each tools as [tool, label]}
@@ -73,29 +79,18 @@
             </option>
         {/each}
     </select>
-</FormSection>
+</FieldWrapper>
 
-<FormSection
+<RadioGroup
     heading="A5E.DefaultAbilityScore"
-    --background="none"
-    --direction="column"
-    --padding="0"
->
-    <RadioGroup
-        optionStyles="min-width: 2rem; text-align: center;"
-        options={prepareAbilityOptions(false, true)}
-        selected={selectedAbility}
-        allowDeselect={false}
-        on:updateSelection={({ detail }) => (selectedAbility = detail)}
-    />
-</FormSection>
+    optionStyles="min-width: 2rem; text-align: center;"
+    options={prepareAbilityOptions(false, true)}
+    selected={selectedAbility}
+    allowDeselect={false}
+    on:updateSelection={({ detail }) => (selectedAbility = detail)}
+/>
 
-<FormSection
-    heading="A5E.CheckBonus"
-    --background="none"
-    --direction="column"
-    --padding="0"
->
+<FieldWrapper heading="A5E.CheckBonus">
     <input
         type="text"
         value={roll.bonus ?? ""}
@@ -103,10 +98,10 @@
             updateDocumentDataFromField(
                 $item,
                 `system.actions.${actionId}.rolls.${rollId}.bonus`,
-                target.value
+                target.value,
             )}
     />
-</FormSection>
+</FieldWrapper>
 
 <Checkbox
     label="A5E.ToolCheckDefaultSelection"
@@ -115,7 +110,7 @@
         updateDocumentDataFromField(
             $item,
             `system.actions.${actionId}.rolls.${rollId}.default`,
-            detail
+            detail,
         );
     }}
 />

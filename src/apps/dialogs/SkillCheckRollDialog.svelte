@@ -5,7 +5,7 @@
 
     import CheckboxGroup from "../components/CheckboxGroup.svelte";
     import ExpertiseDiePicker from "../components/ExpertiseDiePicker.svelte";
-    import FormSection from "../components/FormSection.svelte";
+    import FieldWrapper from "../components/FieldWrapper.svelte";
     import OutputVisibilitySection from "../components/activationDialog/OutputVisibilitySection.svelte";
     import RadioGroup from "../components/RadioGroup.svelte";
 
@@ -16,6 +16,34 @@
 
     export let { document, dialog, skillKey, options } =
         getContext("#external").application;
+
+    function getDefaultSelections(property) {
+        return Object.values(property ?? {})
+            .flat()
+            .reduce((acc, [key, value]) => {
+                if (value.default ?? true) acc.push(key);
+                return acc;
+            }, []);
+    }
+
+    function getInitialExpertiseDieSelection() {
+        if (hideExpertiseDice) return 0;
+
+        return (
+            options.expertiseDice ??
+            $actor.system.skills[skillKey].expertiseDice
+        );
+    }
+
+    function onSubmit() {
+        dialog.submit({
+            expertiseDie,
+            rollFormula,
+            abilityKey,
+            rollMode,
+            visibilityMode,
+        });
+    }
 
     const rollModeOptions = Object.entries(CONFIG.A5E.rollModes).map(
         ([key, value]) => [
@@ -29,39 +57,19 @@
 
     const localizedSkill = localize(CONFIG.A5E.skills[skillKey]);
     const abilities = { none: "A5E.None", ...CONFIG.A5E.abilities };
+    const hideExpertiseDice = game.settings.get("a5e", "hideExpertiseDice");
 
     const buttonText = localize("A5E.RollPromptAbilityCheck", {
         ability: localizedSkill,
     });
 
-    function getDefaultSelections(property) {
-        return Object.values(property ?? {})
-            .flat()
-            .reduce((acc, [key, value]) => {
-                if (value.default ?? true) acc.push(key);
-                return acc;
-            }, []);
-    }
-
-    function onSubmit() {
-        dialog.submit({
-            expertiseDie,
-            rollFormula,
-            abilityKey,
-            rollMode,
-            visibilityMode,
-        });
-    }
-
     let abilityKey =
         options.abilityKey ?? $actor.system.skills[skillKey].ability;
-
-    let expertiseDie =
-        options.expertiseDice ?? $actor.system.skills[skillKey].expertiseDice;
 
     let visibilityMode =
         options.visibilityMode ?? game.settings.get("core", "rollMode");
 
+    let expertiseDie = getInitialExpertiseDieSelection();
     let { minRoll } = options.minRoll ?? $actor.system.skills[skillKey];
     let rollFormula;
     let selectedRollMode = options.rollMode ?? CONFIG.A5E.ROLL_MODE.NORMAL;
@@ -94,65 +102,58 @@
 <form>
     <OutputVisibilitySection bind:visibilityMode />
 
-    <FormSection heading="A5E.RollModeHeading">
-        <RadioGroup
-            options={rollModeOptions}
-            selected={rollMode}
-            on:updateSelection={({ detail }) => (rollMode = detail)}
-        />
-    </FormSection>
+    <RadioGroup
+        heading="A5E.RollModeHeading"
+        options={rollModeOptions}
+        selected={rollMode}
+        on:updateSelection={({ detail }) => (rollMode = detail)}
+    />
 
-    <FormSection heading="A5E.AbilityScore">
-        <RadioGroup
-            options={Object.entries(abilities)}
-            selected={abilityKey}
-            on:updateSelection={({ detail }) => (abilityKey = detail)}
-        />
-    </FormSection>
+    <RadioGroup
+        heading="A5E.AbilityScore"
+        options={Object.entries(abilities)}
+        selected={abilityKey}
+        on:updateSelection={({ detail }) => (abilityKey = detail)}
+    />
 
-    <FormSection heading="A5E.ExpertiseDie">
-        <ExpertiseDiePicker
-            selected={expertiseDie}
-            on:updateSelection={({ detail }) => (expertiseDie = detail)}
-        />
-    </FormSection>
+    <ExpertiseDiePicker
+        selected={expertiseDie}
+        on:updateSelection={({ detail }) => (expertiseDie = detail)}
+    />
 
     {#if Object.values(abilityBonuses).flat().length}
-        <FormSection heading="Ability Bonuses">
-            <CheckboxGroup
-                options={abilityBonuses.map(([key, abilityBonus]) => [
-                    key,
-                    abilityBonus.label || abilityBonus.defaultLabel,
-                ])}
-                selected={selectedAbilityBonuses}
-                on:updateSelection={({ detail }) =>
-                    (selectedAbilityBonuses = detail)}
-            />
-        </FormSection>
+        <CheckboxGroup
+            heading="Ability Bonuses"
+            options={abilityBonuses.map(([key, abilityBonus]) => [
+                key,
+                abilityBonus.label || abilityBonus.defaultLabel,
+            ])}
+            selected={selectedAbilityBonuses}
+            on:updateSelection={({ detail }) =>
+                (selectedAbilityBonuses = detail)}
+        />
     {/if}
 
     {#if Object.values(skillBonuses).flat().length}
-        <FormSection heading="Skill Bonuses">
-            <CheckboxGroup
-                options={skillBonuses.map(([key, skillBonus]) => [
-                    key,
-                    skillBonus.label || skillBonus.defaultLabel,
-                ])}
-                selected={selectedSkillBonuses}
-                on:updateSelection={({ detail }) =>
-                    (selectedSkillBonuses = detail)}
-            />
-        </FormSection>
+        <CheckboxGroup
+            heading="Skill Bonuses"
+            options={skillBonuses.map(([key, skillBonus]) => [
+                key,
+                skillBonus.label || skillBonus.defaultLabel,
+            ])}
+            selected={selectedSkillBonuses}
+            on:updateSelection={({ detail }) => (selectedSkillBonuses = detail)}
+        />
     {/if}
 
-    <FormSection heading="A5E.SituationalMods">
+    <FieldWrapper heading="A5E.SituationalMods">
         <input
             class="a5e-input"
             type="text"
             id="{$actor.id}-{appId}-situational-mods"
             bind:value={situationalMods}
         />
-    </FormSection>
+    </FieldWrapper>
 
     <section class="roll-formula-preview">
         {rollFormula}

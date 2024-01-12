@@ -2,7 +2,53 @@
 	"name": "Darklight",
 	"type": "spell",
 	"img": "icons/magic/unholy/beams-impact-pink.webp",
-	"effects": [],
+	"effects": [
+		{
+			"icon": "icons/magic/unholy/beams-impact-pink.webp",
+			"origin": "Item.3GzJJIfyinQwdzdy",
+			"flags": {
+				"a5e": {
+					"sort": 0,
+					"transferType": "onUse",
+					"actionId": "1L3fvzBAOcbh6NsC",
+					"applyToSelf": true,
+					"duration": {
+						"unit": "hours"
+					}
+				}
+			},
+			"transfer": false,
+			"name": "Darklight",
+			"_id": "H7Pc3OrwPJDaxbOd",
+			"changes": [
+				{
+					"key": "@token.light.bright",
+					"value": "20",
+					"mode": 6,
+					"priority": null
+				},
+				{
+					"key": "@token.light.dim",
+					"value": "40",
+					"mode": 6,
+					"priority": null
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": 28800,
+				"combat": null,
+				"rounds": null,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "<p>You create an enchanted flame that surrounds your hand and produces no heat, but sheds bright light in a 20-foot radius around you and dim light for an additional 20 feet. Only you and up to 6 creatures of your choice can see this light.</p>",
+			"statuses": [],
+			"folder": null
+		}
+	],
 	"flags": {},
 	"system": {
 		"actions": {
@@ -37,6 +83,13 @@
 						"spellLevel": 3,
 						"points": 5,
 						"type": "spell"
+					}
+				},
+				"prompts": {
+					"jGzMXqBZwUWQlVwC": {
+						"type": "effect",
+						"default": true,
+						"effectId": "H7Pc3OrwPJDaxbOd"
 					}
 				}
 			}

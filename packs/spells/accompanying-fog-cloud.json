@@ -6,8 +6,8 @@
 	"flags": {},
 	"system": {
 		"actions": {
-			"RXTmUMid0kQnb6Xs": {
-				"name": "Accompanying Fog Cloud",
+			"tOtnbGOQSzv63BG9": {
+				"name": "Fog Cloud",
 				"activation": {
 					"cost": 1,
 					"type": "action",
@@ -18,32 +18,57 @@
 					"value": "1"
 				},
 				"ranges": {
-					"ErDahqyez9peEdA1": {
+					"iLg07tZsiFF9l4GS": {
 						"range": "long"
 					}
 				},
 				"area": {
-					"shape": "",
-					"size": "",
-					"placeTemplate": false
+					"shape": "sphere",
+					"radius": "20",
+					"placeTemplate": true,
+					"scaling": {
+						"mode": "spellLevel",
+						"formula": {
+							"quantity": "1",
+							"radius": "20"
+						}
+					},
+					"quantity": 1
 				},
 				"target": {
 					"quantity": "",
-					"type": "area",
-					"shape": "sphere",
-					"radius": 20
+					"type": ""
 				},
 				"consumers": {
-					"3jJJJewlfjADXAbM": {
+					"9oTeOQRqA2WSt4nQ": {
 						"mode": "variable",
 						"spellLevel": 1,
 						"points": 2,
 						"type": "spell"
 					}
 				}
+			},
+			"eNmuyZF2mrl33e4q": {
+				"name": "Move Fog",
+				"activation": {
+					"type": "bonusAction",
+					"cost": 1
+				},
+				"consumers": {},
+				"rolls": {},
+				"prompts": {},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"threshold": 6
+					}
+				}
 			}
 		},
-		"description": "<p>You create a heavily obscured area of fog. The fog spreads around corners and can be dispersed by a moderate wind (at least 10 miles per hour).</p><p><strong><em>Cast at Higher Levels.</em></strong> The spell's radius increases by 20 feet for each slot level above 1st.</p><hr class=\"a5e-rule u-my-md\"><p><strong>Rare: Accompanying Fog Cloud.</strong> Until the spell ends, you can use a bonus action to move the area of fog up to 30 feet horizontally and 5 feet vertically. </p>",
+		"description": "<p>You create a heavily obscured area of fog. The fog spreads around corners and can be dispersed by a moderate wind (at least 10 miles per hour).</p>\n<p><strong><em>Cast at Higher Levels.</em></strong> The spell's radius increases by 20 feet for each slot level above 1st.</p>\n<p><em><strong>Rare:&nbsp;</strong></em><strong>Accompanying Fog Cloud.&nbsp;</strong>Until the spell ends, you can use a bonus action to move the area of fog up to 30 feet horizontally and 5 feet vertically.</p>",
 		"favorite": false,
 		"secretDescription": "",
 		"source": "",
@@ -60,7 +85,14 @@
 			"version": null,
 			"lastMigration": null
 		},
-		"classes": [],
+		"classes": [
+			"artificer",
+			"druid",
+			"elementalistWater",
+			"sorcerer",
+			"witch",
+			"wizard"
+		],
 		"components": {
 			"vocalized": true,
 			"seen": true,

@@ -3,7 +3,6 @@
 
     import CheckboxGroup from "../CheckboxGroup.svelte";
     import Editor from "../Editor.svelte";
-    import FormSection from "../FormSection.svelte";
     import ItemSummary from "../itemSummaries/ItemSummary.svelte";
 
     import getSummaryData from "../../../utils/summaries/getSummaryData";
@@ -32,22 +31,19 @@
     <hr class="a5e-rule a5e-rule--card" />
 {/if}
 
-<section>
-    <FormSection
+<section class="a5e-page-wrapper a5e-page-wrapper--scrollable">
+    <CheckboxGroup
         heading="A5E.ActionDescriptionOptions"
         hint="A5E.ActionDescriptionOptionsHint"
-    >
-        <CheckboxGroup
-            options={descriptionOutputOptions}
-            selected={descriptionOutputs}
-            on:updateSelection={({ detail }) =>
-                updateDocumentDataFromField(
-                    $item,
-                    `system.actions.${actionId}.descriptionOutputs`,
-                    detail
-                )}
-        />
-    </FormSection>
+        options={descriptionOutputOptions}
+        selected={descriptionOutputs}
+        on:updateSelection={({ detail }) =>
+            updateDocumentDataFromField(
+                $item,
+                `system.actions.${actionId}.descriptionOutputs`,
+                detail,
+            )}
+    />
 
     <Editor
         document={item}
@@ -55,12 +51,3 @@
         updatePath={`system.actions.${actionId}.description`}
     />
 </section>
-
-<style>
-    section {
-        display: flex;
-        flex-direction: column;
-        gap: 1rem;
-        height: 100%;
-    }
-</style>

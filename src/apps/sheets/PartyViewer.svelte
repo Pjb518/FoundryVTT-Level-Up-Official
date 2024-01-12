@@ -3,7 +3,7 @@
     import { derived, get } from "svelte/store";
     import { TJSDocument } from "#runtime/svelte/store/fvtt/document";
 
-    import FormSection from "../components/FormSection.svelte";
+    import FormSection from "../components/LegacyFormSection.svelte";
     // import NavigationBar from "../components/navigation/NavigationBar.svelte";
     import PartyViewerActorSummary from "../components/partyViewer/PartyViewerActorSummary.svelte";
     import PartyViewerAttributesHeader from "../components/partyViewer/PartyViewerAttributesHeader.svelte";
@@ -497,11 +497,11 @@
                 partyIsLocked,
                 showActorImagesInPartyViewer,
             }}
-            --grid-areas={gridAreaDefinition}
-            --grid-template={gridSizeDefinition}
+            --a5e-section-heading-template-areas={gridAreaDefinition}
+            --a5e-section-heading-template-columns={gridSizeDefinition}
         />
 
-        <ul class="party-member-list">
+        <ul class="a5e-item-list a5e-item-list--party">
             {#each $partyMembers ?? [] as actor}
                 <PartyViewerActorSummary
                     {actor}
@@ -547,16 +547,6 @@
         padding: 0.25rem 0.5rem;
     }
 
-    .party-member-list {
-        display: grid;
-        gap: 0.25rem;
-        max-height: 30rem;
-        padding: 0;
-        margin: 0.25rem 0;
-        list-style: none;
-        overflow-y: auto;
-    }
-
     .instructions {
         display: flex;
         align-items: center;
@@ -577,7 +567,7 @@
         width: fit-content;
         padding: 0 0.125rem;
         margin-right: auto;
-        font-size: $font-size-md;
+        font-size: var(--a5e-text-size-md);
         color: #999;
         opacity: 0.85;
         background: transparent;
@@ -586,7 +576,7 @@
         // Nudge the button down 1px so that it _looks_ centred
         top: 1px;
 
-        transition: $standard-transition;
+        transition: var(--a5e-transition-standard);
 
         &--locked {
             color: $color-primary;

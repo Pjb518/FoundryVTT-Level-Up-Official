@@ -2,7 +2,48 @@
 	"name": "Hold Monster",
 	"type": "spell",
 	"img": "icons/magic/control/debuff-chains-green.webp",
-	"effects": [],
+	"effects": [
+		{
+			"icon": "icons/magic/control/debuff-chains-green.webp",
+			"origin": "Item.LRJh28j521LO45rh",
+			"flags": {
+				"a5e": {
+					"sort": 0,
+					"transferType": "onUse",
+					"actionId": "prfWePmds6xnCq78",
+					"duration": {
+						"unit": "minutes"
+					}
+				}
+			},
+			"transfer": false,
+			"name": "Held",
+			"_id": "NQK3wIAZ9vLb28kh",
+			"changes": [
+				{
+					"key": "flags.a5e.effects.statusConditions",
+					"value": "[\"paralyzed\"]",
+					"mode": 0,
+					"priority": null
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": 60,
+				"combat": null,
+				"rounds": null,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "<p>The target is paralyzed. At the end of each of its turns, the target makes another saving throw, ending the spell's effects on it on a successful save.</p>",
+			"statuses": [
+				"paralyzed"
+			],
+			"folder": null
+		}
+	],
 	"flags": {},
 	"system": {
 		"actions": {
@@ -40,6 +81,11 @@
 							"bonus": ""
 						},
 						"type": "savingThrow"
+					},
+					"y03zGRjSlwc5ygGd": {
+						"type": "effect",
+						"default": true,
+						"effectId": "NQK3wIAZ9vLb28kh"
 					}
 				},
 				"consumers": {

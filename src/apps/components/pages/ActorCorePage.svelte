@@ -38,10 +38,10 @@
 {/if}
 
 {#if flags.a5e?.showFavoritesSection ?? true}
-    <section class="core-page">
+    <section class="a5e-page-wrapper a5e-page-wrapper--scrollable">
         <ItemCategory
             label="A5E.FavoriteItems"
-            icon="fas fa-star heading-icon"
+            icon="fas fa-star a5e-section-header__icon"
             items={[...$favorites]}
             type="favorites"
             {showQuantity}
@@ -53,15 +53,6 @@
 {/if}
 
 <style lang="scss">
-    .core-page {
-        display: flex;
-        flex-grow: 1;
-        flex-direction: column;
-        gap: 0.75rem;
-        overflow-y: auto;
-        overflow-x: hidden;
-    }
-
     .resources-container {
         display: grid;
         grid-template-columns: repeat(4, 1fr);

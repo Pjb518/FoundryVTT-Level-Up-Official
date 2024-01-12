@@ -2,7 +2,52 @@
 	"name": "Mind Blank",
 	"type": "spell",
 	"img": "icons/magic/control/hypnosis-mesmerism-eye.webp",
-	"effects": [],
+	"effects": [
+		{
+			"icon": "icons/magic/control/hypnosis-mesmerism-eye.webp",
+			"origin": "Item.V38HnpkMpyyw3cot",
+			"flags": {
+				"a5e": {
+					"sort": 0,
+					"transferType": "onUse",
+					"actionId": "7cg8bU39fEtHwRmN",
+					"duration": {
+						"unit": "hours"
+					}
+				}
+			},
+			"transfer": false,
+			"name": "Mind Blank",
+			"_id": "RBAh2Q7IrMLfxazw",
+			"changes": [
+				{
+					"key": "system.traits.damageImmunities",
+					"value": "[\"psychic\"]",
+					"mode": 2,
+					"priority": null
+				},
+				{
+					"key": "system.traits.conditionImmunities",
+					"value": "[\"charmed\"]",
+					"mode": 2,
+					"priority": null
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": 86400,
+				"combat": null,
+				"rounds": null,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "<p>The target is immune to psychic damage, any effect that would read its emotions or thoughts, divination spells, and the charmed condition.</p>\n<p>This immunity extends even to the wish spell, and magical effects or spells of similar power that would affect the target's mind or gain information about it.</p>",
+			"statuses": [],
+			"folder": null
+		}
+	],
 	"flags": {},
 	"system": {
 		"actions": {
@@ -37,6 +82,13 @@
 						"spellLevel": 8,
 						"points": 11,
 						"type": "spell"
+					}
+				},
+				"prompts": {
+					"MdTJMP3LIOxH575d": {
+						"type": "effect",
+						"default": true,
+						"effectId": "RBAh2Q7IrMLfxazw"
 					}
 				}
 			}

@@ -95,7 +95,7 @@
     }, new Set());
 
     const playersCanAccessPartyViewer = settings.getStore(
-        "playersCanAccessPartyViewer"
+        "playersCanAccessPartyViewer",
     );
 
     setContext("appId", appId);

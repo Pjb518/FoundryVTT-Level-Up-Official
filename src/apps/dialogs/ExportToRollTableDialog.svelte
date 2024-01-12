@@ -1,7 +1,7 @@
 <script>
     import { getContext } from "svelte";
 
-    import FormSection from "../components/FormSection.svelte";
+    import FieldWrapper from "../components/FieldWrapper.svelte";
 
     let { application } = getContext("#external");
 
@@ -15,15 +15,13 @@
 </script>
 
 <section>
-    <div>
-        <FormSection heading="Rolltable Name">
-            <input
-                type="text"
-                bind:value={rollTableName}
-                placeholder="New Rolltable"
-            />
-        </FormSection>
-    </div>
+    <FieldWrapper heading="Rolltable Name">
+        <input
+            type="text"
+            bind:value={rollTableName}
+            placeholder="New Rolltable"
+        />
+    </FieldWrapper>
 
     <div class="u-flex u-justify-center">
         <button class="submit-button" on:click|preventDefault={onSubmit}>

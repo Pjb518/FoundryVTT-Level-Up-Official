@@ -2,7 +2,40 @@
 	"name": "Glibness",
 	"type": "spell",
 	"img": "icons/skills/social/diplomacy-handshake-yellow.webp",
-	"effects": [],
+	"effects": [
+		{
+			"icon": "icons/skills/social/diplomacy-handshake-yellow.webp",
+			"origin": "Item.Er0SlEneUUlWIhvt",
+			"flags": {
+				"a5e": {
+					"sort": 0,
+					"transferType": "onUse",
+					"actionId": "4oulHVwocZT4xujY",
+					"duration": {
+						"unit": "hours"
+					},
+					"applyToSelf": true
+				}
+			},
+			"transfer": false,
+			"name": "Glib",
+			"_id": "ObXJ4wK04nfBweeq",
+			"changes": [],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": 3600,
+				"combat": null,
+				"rounds": null,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "<p>When you make a Charisma check, you can replace the number you rolled with 15. Also, magic that prevents lying has no effect on you, and magic cannot determine that you are lying.</p>",
+			"statuses": [],
+			"folder": null
+		}
+	],
 	"flags": {},
 	"system": {
 		"actions": {
@@ -37,6 +70,13 @@
 						"spellLevel": 8,
 						"points": 11,
 						"type": "spell"
+					}
+				},
+				"prompts": {
+					"liIRc78G1TDVMoMI": {
+						"type": "effect",
+						"default": true,
+						"effectId": "ObXJ4wK04nfBweeq"
 					}
 				}
 			}

@@ -1,8 +1,8 @@
 <script>
     import { createEventDispatcher } from "svelte";
 
-    import FormSection from "../../components/FormSection.svelte";
     import RadioGroup from "../../components/RadioGroup.svelte";
+    import Section from "../../components/Section.svelte";
 
     export let rollData = {};
 
@@ -24,19 +24,19 @@
     const dispatch = createEventDispatcher();
 </script>
 
-<FormSection heading="Configure Roll Mode">
+<Section --a5e-section-body-gap="0.75rem">
     <RadioGroup
+        heading="Configure Roll Mode"
         options={damageButtons}
         selected={rollData.rollMode ?? 0}
         on:updateSelection={({ detail }) => dispatch("toggleRollMode", detail)}
     />
-</FormSection>
 
-<FormSection heading="Configure Expertise Die">
     <RadioGroup
+        heading="Configure Expertise Die"
         options={expertiseDice}
         selected={rollData.expertiseDice ?? 0}
         on:updateSelection={({ detail }) =>
             dispatch("toggleExpertiseDice", detail)}
     />
-</FormSection>
+</Section>

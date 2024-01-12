@@ -71,6 +71,7 @@
 				"featureType": "",
 				"grants": {},
 				"prerequisite": "",
+				"requiresBloodied": false,
 				"schemaVersion": {
 					"version": 0.01,
 					"lastMigration": {
@@ -127,6 +128,7 @@
 				"featureType": "",
 				"grants": {},
 				"prerequisite": "",
+				"requiresBloodied": false,
 				"schemaVersion": {
 					"version": 0.01,
 					"lastMigration": {
@@ -211,62 +213,7 @@
 				"featureType": "",
 				"grants": {},
 				"prerequisite": "",
-				"schemaVersion": {
-					"version": 0.01,
-					"lastMigration": {
-						"version": {
-							"schema": 0.009,
-							"foundry": "12.316",
-							"system": "0.16.12"
-						}
-					}
-				}
-			},
-			"ownership": {
-				"default": 0
-			}
-		},
-		{
-			"_id": "Oj6zxC4tK0dfxzsS",
-			"name": "Innate Spellcasting",
-			"type": "feature",
-			"img": "icons/svg/item-bag.svg",
-			"effects": [],
-			"folder": null,
-			"sort": 0,
-			"flags": {},
-			"system": {
-				"ac": {
-					"baseFormula": "",
-					"formula": "",
-					"maxDex": 0,
-					"minStr": 0,
-					"mode": 1,
-					"requiresNoShield": false,
-					"requiresUnarmored": false
-				},
-				"actions": {},
-				"description": "<p>The dragon’s spellcasting ability is Charisma (save DC 19). It can innately cast the following spells, requiring no material components.&nbsp;&nbsp;</p><p>&nbsp; &nbsp;3/day each: <em>calm emotions , charm person , mass suggestion , modify memory</em></p>",
-				"favorite": false,
-				"secretDescription": "",
-				"source": "",
-				"uses": {
-					"value": null,
-					"max": "",
-					"per": null,
-					"recharge": {
-						"formula": "",
-						"threshold": ""
-					}
-				},
-				"schema": {
-					"version": null,
-					"lastMigration": null
-				},
-				"concentration": false,
-				"featureType": "",
-				"grants": {},
-				"prerequisite": "",
+				"requiresBloodied": false,
 				"schemaVersion": {
 					"version": 0.01,
 					"lastMigration": {
@@ -346,6 +293,7 @@
 				"featureType": "",
 				"grants": {},
 				"prerequisite": "",
+				"requiresBloodied": false,
 				"schemaVersion": {
 					"version": 0.01,
 					"lastMigration": {
@@ -453,6 +401,7 @@
 				"featureType": "naturalWeapon",
 				"grants": {},
 				"prerequisite": "",
+				"requiresBloodied": false,
 				"schemaVersion": {
 					"version": 0.01,
 					"lastMigration": {
@@ -553,6 +502,7 @@
 				"featureType": "",
 				"grants": {},
 				"prerequisite": "",
+				"requiresBloodied": false,
 				"schemaVersion": {
 					"version": 0.01,
 					"lastMigration": {
@@ -655,6 +605,7 @@
 				"featureType": "",
 				"grants": {},
 				"prerequisite": "",
+				"requiresBloodied": false,
 				"schemaVersion": {
 					"version": 0.01,
 					"lastMigration": {
@@ -672,7 +623,7 @@
 		},
 		{
 			"_id": "1St3GwbIaGnvDa6Q",
-			"name": "Concussive Breath (Recharge 5-6)",
+			"name": "Concussive Breath",
 			"type": "feature",
 			"img": "icons/svg/item-bag.svg",
 			"effects": [],
@@ -691,7 +642,7 @@
 				},
 				"actions": {
 					"mqu6JjEDvKqoPf7c": {
-						"name": "Concussive Breath (Recharge 5-6)",
+						"name": "Concussive Breath",
 						"activation": {
 							"cost": 1,
 							"type": "action",
@@ -732,7 +683,13 @@
 								"type": "savingThrow"
 							}
 						},
-						"consumers": {}
+						"consumers": {
+							"FH7KJhjeuENt71QD": {
+								"type": "itemUses",
+								"default": true,
+								"quantity": 1
+							}
+						}
 					}
 				},
 				"description": "<p>The dragon psionically unleashes telekinetic energy in a 60-foot cone. Each creature in that area makes a DC 18 Constitution saving throw, taking 60 (11d10) force damage on a failed save or half damage on a success.</p>",
@@ -740,12 +697,12 @@
 				"secretDescription": "",
 				"source": "",
 				"uses": {
-					"value": null,
-					"max": "",
-					"per": null,
+					"value": 1,
+					"max": "1",
+					"per": "recharge",
 					"recharge": {
 						"formula": "",
-						"threshold": ""
+						"threshold": 5
 					}
 				},
 				"schema": {
@@ -756,6 +713,7 @@
 				"featureType": "",
 				"grants": {},
 				"prerequisite": "",
+				"requiresBloodied": false,
 				"schemaVersion": {
 					"version": 0.01,
 					"lastMigration": {
@@ -773,7 +731,7 @@
 		},
 		{
 			"_id": "8D8VveDiwKkezQGd",
-			"name": "Assume Control (While Bloodied)",
+			"name": "Assume Control",
 			"type": "feature",
 			"img": "icons/svg/item-bag.svg",
 			"effects": [],
@@ -792,7 +750,7 @@
 				},
 				"actions": {
 					"qrfzdaXPRKfuhjOg": {
-						"name": "Assume Control (While Bloodied)",
+						"name": "Assume Control",
 						"activation": {
 							"cost": 1,
 							"type": "reaction",
@@ -851,6 +809,7 @@
 				"featureType": "",
 				"grants": {},
 				"prerequisite": "",
+				"requiresBloodied": true,
 				"schemaVersion": {
 					"version": 0.01,
 					"lastMigration": {
@@ -907,6 +866,7 @@
 				"featureType": "",
 				"grants": {},
 				"prerequisite": "",
+				"requiresBloodied": false,
 				"schemaVersion": {
 					"version": 0.01,
 					"lastMigration": {
@@ -924,7 +884,7 @@
 		},
 		{
 			"_id": "cYR1G6A2LcyThuwV",
-			"name": "Charm (Legendary)",
+			"name": "Charm",
 			"type": "feature",
 			"img": "icons/svg/item-bag.svg",
 			"effects": [],
@@ -943,7 +903,7 @@
 				},
 				"actions": {
 					"p1FutPdFRio5CAgd": {
-						"name": "Charm (Legendary)",
+						"name": "Charm",
 						"activation": {
 							"cost": 1,
 							"type": "legendaryAction",
@@ -1002,6 +962,7 @@
 				"featureType": "legendaryAction",
 				"grants": {},
 				"prerequisite": "",
+				"requiresBloodied": false,
 				"schemaVersion": {
 					"version": 0.01,
 					"lastMigration": {
@@ -1019,7 +980,7 @@
 		},
 		{
 			"_id": "XcGwlqnF3Qay6tTM",
-			"name": "Stupefy (Legendary)",
+			"name": "Stupefy",
 			"type": "feature",
 			"img": "icons/svg/item-bag.svg",
 			"effects": [],
@@ -1038,7 +999,7 @@
 				},
 				"actions": {
 					"1Odbk35eIPBY6mrg": {
-						"name": "Stupefy (Legendary)",
+						"name": "Stupefy",
 						"activation": {
 							"cost": 1,
 							"type": "legendaryAction",
@@ -1097,6 +1058,7 @@
 				"featureType": "legendaryAction",
 				"grants": {},
 				"prerequisite": "",
+				"requiresBloodied": false,
 				"schemaVersion": {
 					"version": 0.01,
 					"lastMigration": {
@@ -1114,7 +1076,7 @@
 		},
 		{
 			"_id": "QOSErrIn4j40d0Qz",
-			"name": "Psionic Wave (Legendary)",
+			"name": "Psionic Wave",
 			"type": "feature",
 			"img": "icons/svg/item-bag.svg",
 			"effects": [],
@@ -1133,7 +1095,7 @@
 				},
 				"actions": {
 					"ygOIEmZWJe2mLX11": {
-						"name": "Psionic Wave (Legendary)",
+						"name": "Psionic Wave",
 						"activation": {
 							"cost": 2,
 							"type": "legendaryAction",
@@ -1199,6 +1161,7 @@
 				"featureType": "legendaryAction",
 				"grants": {},
 				"prerequisite": "",
+				"requiresBloodied": false,
 				"schemaVersion": {
 					"version": 0.01,
 					"lastMigration": {
@@ -1216,7 +1179,7 @@
 		},
 		{
 			"_id": "Qgmm4PfyOt7oKhJc",
-			"name": "Captivating Harmonics (Legendary)",
+			"name": "Captivating Harmonics",
 			"type": "feature",
 			"img": "icons/svg/item-bag.svg",
 			"effects": [],
@@ -1235,7 +1198,7 @@
 				},
 				"actions": {
 					"iFX6ZX6EhncYGRtB": {
-						"name": "Captivating Harmonics (Legendary)",
+						"name": "Captivating Harmonics",
 						"activation": {
 							"cost": 1,
 							"type": "legendaryAction",
@@ -1296,6 +1259,7 @@
 				"featureType": "legendaryAction",
 				"grants": {},
 				"prerequisite": "",
+				"requiresBloodied": false,
 				"schemaVersion": {
 					"version": 0.01,
 					"lastMigration": {
@@ -1390,6 +1354,7 @@
 					"version": null,
 					"lastMigration": null
 				},
+				"concentration": false,
 				"degree": 0,
 				"exertionCost": 0,
 				"isStance": false,
@@ -1492,6 +1457,7 @@
 					"version": null,
 					"lastMigration": null
 				},
+				"concentration": false,
 				"degree": 0,
 				"exertionCost": 0,
 				"isStance": false,
@@ -1585,6 +1551,7 @@
 					"version": null,
 					"lastMigration": null
 				},
+				"concentration": false,
 				"degree": 0,
 				"exertionCost": 0,
 				"isStance": false,
@@ -1678,6 +1645,7 @@
 					"version": null,
 					"lastMigration": null
 				},
+				"concentration": false,
 				"degree": 0,
 				"exertionCost": 0,
 				"isStance": false,
@@ -1771,6 +1739,7 @@
 					"version": null,
 					"lastMigration": null
 				},
+				"concentration": false,
 				"degree": 0,
 				"exertionCost": 0,
 				"isStance": false,
@@ -1864,6 +1833,7 @@
 					"version": null,
 					"lastMigration": null
 				},
+				"concentration": false,
 				"degree": 0,
 				"exertionCost": 0,
 				"isStance": false,
@@ -1891,7 +1861,9 @@
 	"effects": [],
 	"flags": {
 		"a5e": {
-			"sheetIsLocked": true
+			"sheetIsLocked": true,
+			"showSpellSlots": false,
+			"showSpellTab": false
 		}
 	},
 	"system": {
@@ -1982,7 +1954,7 @@
 			}
 		},
 		"schemaVersion": {
-			"version": 0.007,
+			"version": 0.01,
 			"lastMigration": {
 				"version": {
 					"schema": 0.006,
@@ -2319,6 +2291,7 @@
 				}
 			},
 			"initiative": {
+				"ability": "dex",
 				"bonus": "",
 				"expertiseDice": 0
 			},
@@ -2369,19 +2342,19 @@
 			"inspiration": false,
 			"fatigue": 0,
 			"strife": 0,
-			"spellcasting": "int",
+			"spellcasting": "cha",
 			"casterLevel": 0
 		},
 		"bonuses": {
-			"abilities": {},
-			"damage": {},
-			"healing": {},
 			"maneuverDC": "",
 			"meleeSpellAttack": "",
 			"meleeWeaponAttack": "",
 			"rangedSpellAttack": "",
 			"rangedWeaponAttack": "",
 			"spellDC": "",
+			"abilities": {},
+			"damage": {},
+			"healing": {},
 			"skills": {}
 		},
 		"currency": {
@@ -2480,7 +2453,7 @@
 	},
 	"prototypeToken": {
 		"name": "Ancient Amethyst Dragon",
-		"displayName": 0,
+		"displayName": 30,
 		"actorLink": false,
 		"width": 3,
 		"height": 3,
@@ -2511,7 +2484,7 @@
 			"color": null
 		},
 		"disposition": -1,
-		"displayBars": 0,
+		"displayBars": 30,
 		"bar1": {
 			"attribute": "attributes.hp"
 		},
@@ -2527,15 +2500,11 @@
 			"offsetX": 0,
 			"offsetY": 0,
 			"rotation": 0,
-			"tint": "#ffffff",
-			"anchorX": 0.5,
-			"anchorY": 0.5,
-			"fit": "contain",
-			"alphaThreshold": 0.75
+			"tint": "#ffffff"
 		},
 		"sight": {
 			"angle": 360,
-			"enabled": false,
+			"enabled": true,
 			"range": 0,
 			"brightness": 1,
 			"color": null,
@@ -2546,12 +2515,7 @@
 		},
 		"detectionModes": [],
 		"appendNumber": false,
-		"prependAdjective": false,
-		"hexagonalShape": 0,
-		"locked": false,
-		"occludable": {
-			"radius": 0
-		}
+		"prependAdjective": false
 	},
 	"folder": null,
 	"_id": "wkx4qcv742dcw3si"

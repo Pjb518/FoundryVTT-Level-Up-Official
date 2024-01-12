@@ -82,13 +82,15 @@
     <!-- svelte-ignore missing-declaration -->
     {#if !(type === "featureTypes" && $actor.type === "npc")}
         <header
-            class="category-header"
+            class="a5e-section-header a5e-section-header--item-list"
             style="
-                --headingTemplateAreas: {headingTemplateConfiguration.areas};
-                --headingTemplateColumns: {headingTemplateConfiguration.columns}
+                --a5e-section-heading-template-areas: {headingTemplateConfiguration.areas};
+                --a5e-section-heading-template-columns: {headingTemplateConfiguration.columns};
             "
         >
-            <h3 class="category-heading category-heading--name">
+            <h3
+                class="a5e-section-header__heading a5e-section-header__heading--name"
+            >
                 <div>
                     {#if icon}
                         <i class={icon} />
@@ -101,30 +103,36 @@
                     {/if}
                 </div>
 
-                {#if type === "spellLevels" && !showSpellSlots && showSpellPoints}
+                {#if type === "spellLevels" && showSpellSlots}
+                    <SpellSlots {level} />
+                {/if}
+
+                {#if type === "spellLevels" && showSpellPoints}
                     {localize("A5E.SpellPointsCost", {
                         cost: A5E.spellLevelCost[level],
                     })}
                 {/if}
-
-                {#if type === "spellLevels" && showSpellSlots}
-                    <SpellSlots {level} />
-                {/if}
             </h3>
 
             {#if showQuantity}
-                <h3 class="category-heading category-heading--quantity">
+                <h3
+                    class="a5e-section-header__heading a5e-section-header__heading--center a5e-section-header__heading--quantity"
+                >
                     Quantity
                 </h3>
             {/if}
 
             {#if showUses}
-                <h3 class="category-heading category-heading--uses">Uses</h3>
+                <h3
+                    class="a5e-section-header__heading a5e-section-header__heading--center a5e-section-header__heading--uses"
+                >
+                    Uses
+                </h3>
             {/if}
         </header>
     {/if}
 
-    <ul class="items-container">
+    <ul class="a5e-item-list">
         {#each [...items] as item (item.id)}
             <Item
                 {item}
@@ -137,26 +145,11 @@
 </section>
 
 <style lang="scss">
-    .category-header {
-        display: grid;
-        grid-template-areas: var(--headingTemplateAreas);
-        grid-template-columns: var(--headingTemplateColumns);
-
-        align-items: center;
-        gap: 0.5rem;
-        margin-bottom: 0.25rem;
-        padding: 0 0.5rem 0.25rem 0.125rem;
-        text-align: center;
-        border-bottom: 1px solid #ccc;
-    }
-
-    .category-heading {
-        font-size: $font-size-sm;
-
+    .a5e-section-header__heading {
         &--name {
             display: grid;
             align-items: center;
-            grid-template-columns: minmax(3.5rem, max-content) 1fr;
+            grid-template-columns: minmax(3.5rem, max-content) max-content max-content;
             gap: 0.75rem;
             grid-area: name;
             text-align: left;
@@ -169,17 +162,5 @@
         &--uses {
             grid-area: uses;
         }
-    }
-
-    .items-container {
-        display: flex;
-        flex-direction: column;
-        gap: 0.175rem;
-        padding: 0;
-        padding-right: 0.375rem;
-        margin: 0;
-        margin-right: -0.375rem;
-        list-style: none;
-        overflow-y: auto;
     }
 </style>

@@ -11,6 +11,7 @@ export async function createManeuverLikeIndex(packId: string) {
     fields: [
       'system.description',
       'system.exertionCost',
+      'system.concentration',
       'system.degree',
       'system.isStance',
       'system.tradition'

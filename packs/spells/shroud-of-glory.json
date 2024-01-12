@@ -21,7 +21,13 @@
 					}
 				},
 				"rolls": {},
-				"prompts": {},
+				"prompts": {
+					"N5vFVdWAaMBq8IOD": {
+						"type": "effect",
+						"default": true,
+						"effectId": "dNeNU8Brrn93bpjs"
+					}
+				},
 				"uses": {
 					"value": 0,
 					"max": "",
@@ -136,7 +142,52 @@
 			}
 		}
 	},
-	"effects": [],
+	"effects": [
+		{
+			"icon": "icons/magic/light/explosion-star-glow-silhouette.webp",
+			"origin": "Item.S3bCDf1g2pRxzpZV",
+			"flags": {
+				"a5e": {
+					"sort": 0,
+					"transferType": "onUse",
+					"actionId": "8QiCJxDRPyebKhv7",
+					"duration": {
+						"unit": "minutes"
+					}
+				}
+			},
+			"transfer": false,
+			"name": "Shroud of Glory",
+			"_id": "dNeNU8Brrn93bpjs",
+			"changes": [
+				{
+					"key": "@token.light.bright",
+					"value": "30",
+					"mode": 6,
+					"priority": null
+				},
+				{
+					"key": "@token.light.dim",
+					"value": "30",
+					"mode": 6,
+					"priority": null
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": 600,
+				"combat": null,
+				"rounds": null,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "<p dir=\"ltr\">When you cast this spell, you begin glowing with brilliant light. Your head appears backlit no matter which angle you are viewed from. You shed bright light to a distance of 30 feet and dim light for an additional 30 feet. When a creature attacks you in melee, you may use your reaction to cause the light to flare, potentially blinding your attacker. The attacking creature must make a Constitution save against your spell save DC. If it fails, it is blinded until the end of its next turn and rolls the triggering attack with disadvantage. Once a creature has had this blinding effect used on it, you cannot use it on that same creature again with the same casting of Shroud of Glory.</p>\n<p dir=\"ltr\">In addition, creatures that see you while this spell’s effects are active have disadvantage on checks to remember anything about you except for the brilliant light or to recognize you later if they see you again. This second effect does not affect those who are very familiar with you such as close friends, traveling companions, longtime rivals, or immediate family members.</p>",
+			"statuses": [],
+			"folder": null
+		}
+	],
 	"flags": {},
 	"_id": "3hh29czo6nwciu2f"
 }

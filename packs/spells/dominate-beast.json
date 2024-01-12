@@ -2,12 +2,173 @@
 	"name": "Dominate Beast",
 	"type": "spell",
 	"img": "icons/creatures/abilities/bull-head-horns-glowing.webp",
-	"effects": [],
+	"effects": [
+		{
+			"icon": "icons/creatures/abilities/bull-head-horns-glowing.webp",
+			"origin": "Item.Iy3SbIZxqplnEPgx",
+			"flags": {
+				"a5e": {
+					"sort": 0,
+					"transferType": "onUse",
+					"actionId": "rhpBwsEIHRb7RSL9",
+					"duration": {
+						"unit": "minutes"
+					}
+				}
+			},
+			"transfer": false,
+			"name": "Charmed",
+			"_id": "kz08GwrHdeazSDPY",
+			"changes": [
+				{
+					"key": "flags.a5e.effects.statusConditions",
+					"value": "[\"charmed\"]",
+					"mode": 0,
+					"priority": null
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": 60,
+				"combat": null,
+				"rounds": null,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "",
+			"statuses": [
+				"charmed"
+			],
+			"folder": null
+		},
+		{
+			"icon": "icons/creatures/abilities/bull-head-horns-glowing.webp",
+			"origin": "Item.Iy3SbIZxqplnEPgx",
+			"flags": {
+				"a5e": {
+					"sort": 0,
+					"transferType": "onUse",
+					"actionId": "coQFvp6Ufv9slOaq",
+					"duration": {
+						"unit": "minutes"
+					}
+				}
+			},
+			"transfer": false,
+			"name": "Charmed",
+			"_id": "4ab3QK7o48R6LsYe",
+			"changes": [
+				{
+					"key": "flags.a5e.effects.statusConditions",
+					"value": "[\"charmed\"]",
+					"mode": 0,
+					"priority": null
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": 600,
+				"combat": null,
+				"rounds": null,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "",
+			"statuses": [
+				"charmed"
+			],
+			"folder": null
+		},
+		{
+			"icon": "icons/creatures/abilities/bull-head-horns-glowing.webp",
+			"origin": "Item.Iy3SbIZxqplnEPgx",
+			"flags": {
+				"a5e": {
+					"sort": 0,
+					"transferType": "onUse",
+					"actionId": "0EAgulYlFzPzXch0",
+					"duration": {
+						"unit": "hours"
+					}
+				}
+			},
+			"transfer": false,
+			"name": "Charmed",
+			"_id": "Jt4trSkATcduXBVA",
+			"changes": [
+				{
+					"key": "flags.a5e.effects.statusConditions",
+					"value": "[\"charmed\"]",
+					"mode": 0,
+					"priority": null
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": 3600,
+				"combat": null,
+				"rounds": null,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "",
+			"statuses": [
+				"charmed"
+			],
+			"folder": null
+		},
+		{
+			"icon": "icons/creatures/abilities/bull-head-horns-glowing.webp",
+			"origin": "Item.Iy3SbIZxqplnEPgx",
+			"flags": {
+				"a5e": {
+					"sort": 0,
+					"transferType": "onUse",
+					"actionId": "fRfgyY0HyDdWoP41",
+					"duration": {
+						"unit": "hours"
+					}
+				}
+			},
+			"transfer": false,
+			"name": "Charmed",
+			"_id": "PTGTdno9NcNHDtQc",
+			"changes": [
+				{
+					"key": "flags.a5e.effects.statusConditions",
+					"value": "[\"charmed\"]",
+					"mode": 0,
+					"priority": null
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": 28800,
+				"combat": null,
+				"rounds": null,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "",
+			"statuses": [
+				"charmed"
+			],
+			"folder": null
+		}
+	],
 	"flags": {},
 	"system": {
 		"actions": {
 			"rhpBwsEIHRb7RSL9": {
-				"name": "Dominate Beast",
+				"name": "Dominate Beast (4th-Level)",
 				"activation": {
 					"cost": 1,
 					"type": "action",
@@ -25,7 +186,8 @@
 				"area": {
 					"shape": "",
 					"size": "",
-					"placeTemplate": false
+					"placeTemplate": false,
+					"quantity": 1
 				},
 				"target": {
 					"quantity": "",
@@ -40,12 +202,170 @@
 							"bonus": ""
 						},
 						"type": "savingThrow"
+					},
+					"gWxjrLUzeFPCtpuy": {
+						"type": "effect",
+						"default": true,
+						"effectId": "kz08GwrHdeazSDPY"
 					}
 				},
 				"consumers": {
 					"5VawbZM1ZmAAcP4a": {
 						"mode": "variable",
 						"spellLevel": 4,
+						"points": 6,
+						"type": "spell"
+					}
+				}
+			},
+			"coQFvp6Ufv9slOaq": {
+				"name": "Dominate Beast (5th-Level)",
+				"activation": {
+					"cost": 1,
+					"type": "action",
+					"reactionTrigger": ""
+				},
+				"duration": {
+					"unit": "minute",
+					"value": 10
+				},
+				"ranges": {
+					"nEGLXoVdcsRW9pen": {
+						"range": "medium"
+					}
+				},
+				"area": {
+					"shape": "",
+					"size": "",
+					"placeTemplate": false,
+					"quantity": 1
+				},
+				"target": {
+					"quantity": "",
+					"type": "creature"
+				},
+				"prompts": {
+					"Yoz9P6uijiXstwcK": {
+						"ability": "wis",
+						"onSave": "Negates effect",
+						"saveDC": {
+							"type": "spellcasting",
+							"bonus": ""
+						},
+						"type": "savingThrow"
+					},
+					"xs8rBE1MRgyZHx8f": {
+						"type": "effect",
+						"default": true,
+						"effectId": "4ab3QK7o48R6LsYe"
+					}
+				},
+				"consumers": {
+					"5VawbZM1ZmAAcP4a": {
+						"mode": "variable",
+						"spellLevel": 5,
+						"points": 6,
+						"type": "spell"
+					}
+				}
+			},
+			"0EAgulYlFzPzXch0": {
+				"name": "Dominate Beast (6th-Level)",
+				"activation": {
+					"cost": 1,
+					"type": "action",
+					"reactionTrigger": ""
+				},
+				"duration": {
+					"unit": "hour",
+					"value": 1
+				},
+				"ranges": {
+					"nEGLXoVdcsRW9pen": {
+						"range": "medium"
+					}
+				},
+				"area": {
+					"shape": "",
+					"size": "",
+					"placeTemplate": false,
+					"quantity": 1
+				},
+				"target": {
+					"quantity": "",
+					"type": "creature"
+				},
+				"prompts": {
+					"Yoz9P6uijiXstwcK": {
+						"ability": "wis",
+						"onSave": "Negates effect",
+						"saveDC": {
+							"type": "spellcasting",
+							"bonus": ""
+						},
+						"type": "savingThrow"
+					},
+					"CS8k0RZXxAyYGvFi": {
+						"type": "effect",
+						"default": true,
+						"effectId": "Jt4trSkATcduXBVA"
+					}
+				},
+				"consumers": {
+					"5VawbZM1ZmAAcP4a": {
+						"mode": "variable",
+						"spellLevel": 6,
+						"points": 6,
+						"type": "spell"
+					}
+				}
+			},
+			"fRfgyY0HyDdWoP41": {
+				"name": "Dominate Beast (7th-Level)",
+				"activation": {
+					"cost": 1,
+					"type": "action",
+					"reactionTrigger": ""
+				},
+				"duration": {
+					"unit": "hour",
+					"value": 8
+				},
+				"ranges": {
+					"nEGLXoVdcsRW9pen": {
+						"range": "medium"
+					}
+				},
+				"area": {
+					"shape": "",
+					"size": "",
+					"placeTemplate": false,
+					"quantity": 1
+				},
+				"target": {
+					"quantity": "",
+					"type": "creature"
+				},
+				"prompts": {
+					"Yoz9P6uijiXstwcK": {
+						"ability": "wis",
+						"onSave": "Negates effect",
+						"saveDC": {
+							"type": "spellcasting",
+							"bonus": ""
+						},
+						"type": "savingThrow"
+					},
+					"NNNeRNBff5c4z29y": {
+						"type": "effect",
+						"default": true,
+						"effectId": "PTGTdno9NcNHDtQc"
+					}
+				},
+				"consumers": {
+					"5VawbZM1ZmAAcP4a": {
+						"mode": "variable",
+						"spellLevel": 7,
 						"points": 6,
 						"type": "spell"
 					}

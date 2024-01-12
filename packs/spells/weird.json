@@ -2,7 +2,48 @@
 	"name": "Weird",
 	"type": "spell",
 	"img": "icons/magic/control/fear-fright-white.webp",
-	"effects": [],
+	"effects": [
+		{
+			"icon": "icons/magic/control/fear-fright-white.webp",
+			"origin": "Item.7GZyDYq2ROsuIdBa",
+			"flags": {
+				"a5e": {
+					"sort": 0,
+					"transferType": "onUse",
+					"actionId": "iFSHBbVSomJny5UN",
+					"duration": {
+						"unit": "minutes"
+					}
+				}
+			},
+			"transfer": false,
+			"name": "Weird",
+			"_id": "FVGU72dyj8Kl2JKx",
+			"changes": [
+				{
+					"key": "flags.a5e.effects.statusConditions",
+					"value": "[\"frightened\"]",
+					"mode": 0,
+					"priority": null
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": 60,
+				"combat": null,
+				"rounds": null,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "<p>At the end of each of a frightened creature's turns, it makes a Wisdom saving throw or it takes 4d10 psychic damage. On a successful save, the spell ends for that creature.</p>",
+			"statuses": [
+				"frightened"
+			],
+			"folder": null
+		}
+	],
 	"flags": {},
 	"system": {
 		"actions": {
@@ -46,6 +87,13 @@
 						"spellLevel": 9,
 						"points": 13,
 						"type": "spell"
+					}
+				},
+				"prompts": {
+					"JEAR6nz7mskKMv2U": {
+						"type": "effect",
+						"default": true,
+						"effectId": "FVGU72dyj8Kl2JKx"
 					}
 				}
 			}

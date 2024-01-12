@@ -1,0 +1,105 @@
+{
+	"folder": null,
+	"name": "Close-Quarters Veteran",
+	"type": "feature",
+	"img": "icons/magic/earth/barrier-stone-explosion-spiked.webp",
+	"system": {
+		"ac": {
+			"baseFormula": "",
+			"formula": "",
+			"maxDex": 0,
+			"minStr": 0,
+			"mode": 2,
+			"requiresNoShield": false,
+			"requiresUnarmored": false
+		},
+		"actions": {
+			"aSWYwUxrfaTdE116": {
+				"name": "Use Feature",
+				"activation": {},
+				"consumers": {},
+				"rolls": {
+					"MWzEij4h2WPFIAap": {
+						"type": "damage",
+						"default": true,
+						"formula": "2+@prof"
+					}
+				},
+				"prompts": {},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"threshold": 6
+					}
+				},
+				"img": "icons/magic/earth/barrier-stone-explosion-spiked.webp"
+			}
+		},
+		"description": "<p>Starting at 15th level, you have mastered the art of fighting in cramped environments both offensively and defensively.</p>\n<ul>\n<li>If you selected Back to the Wall as your Close-Quarters Fighting feature, your damage bonus increases to 2 + your proficiency bonus.</li>\n<li>If you selected Tunnel Guardian as your Close-Quarters Fighting feature, your bonus to AC increases to +3.</li>\n<li>You gain the Close-Quarters Fighting feature you did not select at level 3.</li>\n</ul>",
+		"favorite": false,
+		"secretDescription": "",
+		"source": {
+			"name": "",
+			"link": "",
+			"publisher": ""
+		},
+		"uses": {
+			"value": null,
+			"max": "",
+			"per": null,
+			"recharge": {
+				"formula": "1d6",
+				"threshold": "6"
+			}
+		},
+		"schema": {
+			"version": null,
+			"lastMigration": null
+		},
+		"concentration": false,
+		"featureType": "class",
+		"grants": {},
+		"prerequisite": ""
+	},
+	"effects": [
+		{
+			"icon": "icons/magic/earth/barrier-stone-explosion-spiked.webp",
+			"origin": "Item.TKyQS2EGViM76Sb8",
+			"flags": {
+				"a5e": {
+					"sort": 0,
+					"transferType": "passive"
+				}
+			},
+			"transfer": false,
+			"name": "Tunnel AC",
+			"_id": "9JCbOWYhdRotoSnp",
+			"changes": [
+				{
+					"key": "system.attributes.ac.changes.bonuses.value",
+					"value": "3",
+					"mode": 2,
+					"priority": null
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": null,
+				"combat": null,
+				"rounds": null,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "",
+			"statuses": [],
+			"folder": null
+		}
+	],
+	"flags": {},
+	"_id": "s33r69d7vuru4cr6"
+}

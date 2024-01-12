@@ -5,7 +5,6 @@
     import ActionsManager from "../../../managers/ActionsManager";
 
     import AmmoConsumer from "../itemActionsConfig/AmmoConsumer.svelte";
-    import ConsumerConfigWrapper from "../itemActionsConfig/ConsumerConfigWrapper.svelte";
     import CreateMenu from "../actorUtilityBar/CreateMenu.svelte";
     import HitDiceConsumer from "../itemActionsConfig/HitDiceConsumer.svelte";
     import QuantityConsumer from "../itemActionsConfig/QuantityConsumer.svelte";
@@ -13,10 +12,19 @@
     import SpellConsumer from "../itemActionsConfig/SpellConsumer.svelte";
     import UsesConsumer from "../itemActionsConfig/UsesConsumer.svelte";
 
-    import FormSection from "../FormSection.svelte";
+    import FieldWrapper from "../FieldWrapper.svelte";
+    import Section from "../Section.svelte";
 
     import handleDeterministicInput from "../../../utils/handleDeterministicInput";
     import updateDocumentDataFromField from "../../../utils/updateDocumentDataFromField";
+
+    function deleteConsumer(actionId, consumerId) {
+        $item.update({
+            [`system.actions.${actionId}.consumers`]: {
+                [`-=${consumerId}`]: null,
+            },
+        });
+    }
 
     const item = getContext("item");
     const actionId = getContext("actionId");
@@ -74,200 +82,155 @@
 
             return acc;
         },
-        []
+        [],
     );
 </script>
 
-<article>
-    <div class="main-container">
-        <!-- Action Resources Section -->
-        <div class="u-flex u-flex-col u-gap-md u-mb-lg">
-            <FormSection heading="A5E.Uses">
-                <div class="u-flex u-gap-lg u-w-full">
-                    <div class="u-flex u-flex-col u-gap-xs u-w-30">
-                        <h3 class="u-text-sm">{localize("A5E.UsesCurrent")}</h3>
+<div class="a5e-page-wrapper a5e-page-wrapper--scrollable">
+    <!-- Action Resources Section -->
+    <Section
+        heading="A5E.Uses"
+        --a5e-section-body-direction="row"
+        --a5e-section-body-gap="0.5rem"
+    >
+        <FieldWrapper
+            heading="A5E.UsesCurrent"
+            --a5e-field-wrapper-width="7.5rem"
+        >
+            <input
+                type="number"
+                d-type="Number"
+                name="system.actions.{actionId}.uses.value"
+                value={action.uses?.value ?? 0}
+                on:change={({ target }) =>
+                    updateDocumentDataFromField(
+                        $item,
+                        target.name,
+                        Number(target.value),
+                    )}
+            />
+        </FieldWrapper>
 
-                        <input
-                            type="number"
-                            d-type="Number"
-                            name="system.actions.{actionId}.uses.value"
-                            value={action.uses?.value ?? 0}
-                            on:change={({ target }) =>
-                                updateDocumentDataFromField(
-                                    $item,
-                                    target.name,
-                                    Number(target.value)
-                                )}
-                        />
-                    </div>
+        <FieldWrapper heading="A5E.UsesMax" --a5e-field-wrapper-width="7.5rem">
+            <input
+                type="text"
+                name="system.actions.{actionId}.uses.max"
+                value={action.uses?.max ?? ""}
+                on:change={({ target }) => {
+                    handleDeterministicInput(target.value);
+                    updateDocumentDataFromField(
+                        $item,
+                        target.name,
+                        target.value,
+                    );
+                }}
+            />
+        </FieldWrapper>
 
-                    <div class="u-flex u-flex-col u-gap-xs u-w-30">
-                        <h3 class="u-text-sm">{localize("A5E.UsesMax")}</h3>
+        <FieldWrapper heading="A5E.UsesPer">
+            <select
+                class="u-w-40"
+                name="system.actions.{actionId}.uses.per"
+                on:change={({ target }) =>
+                    updateDocumentDataFromField(
+                        $item,
+                        target.name,
+                        target.value,
+                    )}
+            >
+                <option value="" />
 
-                        <input
-                            type="text"
-                            name="system.actions.{actionId}.uses.max"
-                            value={action.uses?.max ?? ""}
-                            on:change={({ target }) => {
-                                handleDeterministicInput(target.value);
-                                updateDocumentDataFromField(
-                                    $item,
-                                    target.name,
-                                    target.value
-                                );
-                            }}
-                        />
-                    </div>
+                {#each Object.entries(A5E.resourceRecoveryOptions) as [key, name]}
+                    <option
+                        {key}
+                        value={key}
+                        selected={action.uses?.per === key}
+                    >
+                        {localize(name)}
+                    </option>
+                {/each}
+            </select>
+        </FieldWrapper>
+    </Section>
 
-                    <div class="u-flex u-flex-col u-gap-xs u-w-fit">
-                        <h3 class="u-text-sm">{localize("A5E.UsesPer")}</h3>
-                        <select
-                            class="u-w-40"
-                            name="system.actions.{actionId}.uses.per"
-                            on:change={({ target }) =>
-                                updateDocumentDataFromField(
-                                    $item,
-                                    target.name,
-                                    target.value
-                                )}
-                        >
-                            <option value="" />
+    {#if action.uses?.per === "recharge"}
+        <Section
+            heading="A5E.ItemRechargeConfiguration"
+            --a5e-section-body-direction="row"
+            --a5e-section-body-gap="0.5rem"
+        >
+            <FieldWrapper
+                heading="A5E.ItemRechargeFormula"
+                --a5e-field-wrapper-grow="1"
+            >
+                <input
+                    id="{actionId}-recharge-formula"
+                    type="text"
+                    value={action.uses?.recharge?.formula ?? "1d6"}
+                    placeholder="1d6"
+                    on:change={({ target }) => {
+                        handleDeterministicInput(target.value);
+                        updateDocumentDataFromField(
+                            $item,
+                            `system.actions.${actionId}.uses.recharge.formula`,
+                            target.value,
+                        );
+                    }}
+                />
+            </FieldWrapper>
 
-                            {#each Object.entries(A5E.resourceRecoveryOptions) as [key, name]}
-                                <option
-                                    {key}
-                                    value={key}
-                                    selected={action.uses?.per === key}
-                                >
-                                    {localize(name)}
-                                </option>
-                            {/each}
-                        </select>
-                    </div>
-                </div>
-            </FormSection>
-
-            {#if action.uses?.per === "recharge"}
-                <FormSection heading="A5E.ItemRechargeConfiguration">
-                    <div class="u-flex u-gap-md u-w-full">
-                        <div class="recharge-formula">
-                            <label
-                                class="recharge-formula__label"
-                                for="{actionId}-recharge-formula"
-                            >
-                                {localize("A5E.ItemRechargeFormula")}
-                            </label>
-
-                            <input
-                                id="{actionId}-recharge-formula"
-                                type="text"
-                                value={action.uses?.recharge?.formula ?? "1d6"}
-                                placeholder="1d6"
-                                on:change={({ target }) => {
-                                    handleDeterministicInput(target.value);
-                                    updateDocumentDataFromField(
-                                        $item,
-                                        `system.actions.${actionId}.uses.recharge.formula`,
-                                        target.value
-                                    );
-                                }}
-                            />
-                        </div>
-
-                        <div class="recharge-threshold">
-                            <label
-                                class="recharge-threshold__label"
-                                for="{actionId}-recharge-threshold"
-                            >
-                                {localize("A5E.ItemRechargeThreshold")}
-                            </label>
-
-                            <input
-                                id="{actionId}-recharge-threshold"
-                                class="u-text-center"
-                                type="number"
-                                value={action.uses?.recharge?.threshold ?? 6}
-                                on:change={({ target }) =>
-                                    updateDocumentDataFromField(
-                                        $item,
-                                        `system.actions.${actionId}.uses.recharge.threshold`,
-                                        Number(target.value)
-                                    )}
-                            />
-                        </div>
-                    </div>
-                </FormSection>
-            {/if}
-        </div>
-        <!-- Consumers Section -->
-        <ul class="consumers-config-list">
-            {#each Object.entries(consumerTypes) as [consumerType, { heading, component }] (consumerType)}
-                {#if Object.values(consumers).filter((consumer) => consumer.type === consumerType).length}
-                    <li class="consumers-config-list__item">
-                        <header class="action-config__section-header">
-                            <h2 class="action-config__section-header">
-                                {localize(heading)}
-                            </h2>
-                        </header>
-
-                        <ul class="consumers-list">
+            <FieldWrapper heading="A5E.ItemRechargeThreshold">
+                <input
+                    id="{actionId}-recharge-threshold"
+                    class="u-text-center"
+                    type="number"
+                    value={action.uses?.recharge?.threshold ?? 6}
+                    on:change={({ target }) =>
+                        updateDocumentDataFromField(
+                            $item,
+                            `system.actions.${actionId}.uses.recharge.threshold`,
+                            Number(target.value),
+                        )}
+                />
+            </FieldWrapper>
+        </Section>
+    {/if}
+    <!-- Consumers Section -->
+    <ul class="consumers-config-list">
+        {#each Object.entries(consumerTypes) as [consumerType, { heading, component }] (consumerType)}
+            {#if Object.values(consumers).filter((consumer) => consumer.type === consumerType).length}
+                <li class="consumers-config-list__item">
+                    <Section {heading} --a5e-section-gap="0">
+                        <ul class="a5e-item-list">
                             {#each Object.entries(consumers).filter(([_, consumer]) => consumer.type === consumerType) as [consumerId, consumer] (consumerId)}
-                                <ConsumerConfigWrapper {consumer} {consumerId}>
+                                <li class="a5e-item a5e-item--action-config">
                                     <svelte:component
                                         this={component}
                                         {consumer}
                                         {consumerId}
+                                        {deleteConsumer}
                                     />
-                                </ConsumerConfigWrapper>
-                            {:else}
-                                <li class="action-config__none">
-                                    {localize("A5E.None")}
                                 </li>
                             {/each}
                         </ul>
-                    </li>
-                {/if}
-            {/each}
-        </ul>
-    </div>
-    <div class="sticky-add-button">
-        <CreateMenu
-            {menuList}
-            offset={{ x: -110, y: -130 }}
-            documentName="Consumer"
-            on:press={({ detail }) =>
-                ActionsManager.addConsumer($item, [actionId, action], detail)}
-        />
-    </div>
-</article>
+                    </Section>
+                </li>
+            {/if}
+        {/each}
+    </ul>
+</div>
+
+<div class="sticky-add-button">
+    <CreateMenu
+        {menuList}
+        offset={{ x: -110, y: -130 }}
+        documentName="Consumer"
+        on:press={({ detail }) =>
+            ActionsManager.addConsumer($item, [actionId, action], detail)}
+    />
+</div>
 
 <style lang="scss">
-    article {
-        display: flex;
-        flex-direction: column;
-        flex: 1;
-        gap: 0.75rem;
-        overflow: hidden;
-    }
-
-    .main-container {
-        display: flex;
-        flex-direction: column;
-        gap: 0.25rem;
-        flex-grow: 1;
-        overflow: auto;
-    }
-
-    .consumers-list {
-        display: flex;
-        flex-direction: column;
-        position: relative;
-        margin: 0;
-        padding: 0;
-        gap: 0.25rem;
-        list-style: none;
-    }
-
     .consumers-config-list {
         display: flex;
         flex-direction: column;
@@ -288,28 +251,5 @@
         justify-content: space-around;
         align-items: center;
         color: #999;
-    }
-
-    .recharge-formula,
-    .recharge-threshold {
-        display: flex;
-        flex-direction: column;
-        gap: 0.25rem;
-        white-space: nowrap;
-        font-size: $font-size-sm;
-
-        &__label {
-            display: block;
-            padding-right: 0.75rem;
-        }
-    }
-
-    .recharge-threshold {
-        width: fit-content;
-        flex-shrink: 0;
-    }
-
-    .recharge-formula {
-        width: 100%;
     }
 </style>

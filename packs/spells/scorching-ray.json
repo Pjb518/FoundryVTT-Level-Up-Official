@@ -7,7 +7,7 @@
 	"system": {
 		"actions": {
 			"EUc1wUziC3n3TMhr": {
-				"name": "Scorching Ray",
+				"name": "Cast Spell (First Ray)",
 				"activation": {
 					"cost": 1,
 					"type": "action",
@@ -25,11 +25,16 @@
 				"area": {
 					"shape": "",
 					"size": "",
-					"placeTemplate": false
+					"placeTemplate": false,
+					"quantity": 1
 				},
 				"target": {
-					"quantity": "",
-					"type": "creatureObject"
+					"quantity": 1,
+					"type": "creatureObject",
+					"scaling": {
+						"mode": "spellLevel",
+						"formula": "1"
+					}
 				},
 				"rolls": {
 					"Vtu6SuU1enUIpsuU": {
@@ -59,9 +64,57 @@
 						"type": "spell"
 					}
 				}
+			},
+			"sawf1qMNGtml3PPR": {
+				"name": "Additional Rays",
+				"activation": {
+					"cost": 1,
+					"type": "action",
+					"reactionTrigger": ""
+				},
+				"duration": {
+					"unit": "instantaneous",
+					"value": ""
+				},
+				"ranges": {
+					"ozG4m8VgsZx6WtwB": {
+						"range": "long"
+					}
+				},
+				"area": {
+					"shape": "",
+					"size": "",
+					"placeTemplate": false,
+					"quantity": 1
+				},
+				"target": {
+					"quantity": "",
+					"type": "creatureObject"
+				},
+				"rolls": {
+					"Vtu6SuU1enUIpsuU": {
+						"bonus": "",
+						"critThreshold": 20,
+						"type": "attack",
+						"attackType": "rangedSpellAttack",
+						"ability": "spellcasting"
+					},
+					"6RcM8oFT6nUnGdXU": {
+						"canCrit": true,
+						"damageType": "fire",
+						"formula": "2d6",
+						"name": "",
+						"type": "damage",
+						"scaling": {
+							"mode": null,
+							"formula": "2d6"
+						}
+					}
+				},
+				"consumers": {}
 			}
 		},
-		"description": "<p>Three rays of blazing orange fire shoot from your fingertips. Make a ranged spell attack for each ray.</p><p>On a hit, the target takes 2d6 fire damage.</p><p><strong><em>Cast at Higher Levels.</em></strong> Create an additional ray for each slot level above 2nd.</p>",
+		"description": "<p>Three rays of blazing orange fire shoot from your fingertips. Make a ranged spell attack for each ray.&nbsp;On a hit, the target takes 2d6 fire damage.</p>\n<p><strong><em>Cast at Higher Levels.</em></strong> Create an additional ray for each slot level above 2nd.</p>",
 		"favorite": false,
 		"secretDescription": "",
 		"source": "",

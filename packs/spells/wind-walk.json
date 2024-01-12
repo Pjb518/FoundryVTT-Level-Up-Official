@@ -2,7 +2,49 @@
 	"name": "Wind Walk",
 	"type": "spell",
 	"img": "icons/skills/movement/feet-winged-boots-glowing-yellow.webp",
-	"effects": [],
+	"effects": [
+		{
+			"icon": "icons/skills/movement/feet-winged-boots-glowing-yellow.webp",
+			"origin": "Item.S1xKC3mPEGtkbtDf",
+			"flags": {
+				"a5e": {
+					"sort": 0,
+					"transferType": "onUse",
+					"actionId": "PFMezRBLItpLdgSO"
+				}
+			},
+			"transfer": false,
+			"name": "Cloud form",
+			"_id": "9HTihRW6cAtGO5Zz",
+			"changes": [
+				{
+					"key": "system.attributes.movement.fly.distance",
+					"value": "300",
+					"mode": 6,
+					"priority": null
+				},
+				{
+					"key": "system.traits.damageResistances",
+					"value": "[\"nonmagical weapons\"]",
+					"mode": 2,
+					"priority": null
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": null,
+				"combat": null,
+				"rounds": null,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "<p>Each target has a flying speed of 300 feet and resistance to damage from nonmagical weapons, but the only action it can take is the Dash action or to revert to its normal form (a process that takes 1 minute during which it is incapacitated and can't move).</p>\n<p>Until the spell ends, a target can change again to cloud form (in an identical transformation process).</p>\n<p>When the effect ends for a target flying in cloud form, it descends 60 feet each round for up to 1 minute or until it safely lands. If the target can't land after 1 minute, the creature falls the rest of the way normally.</p>",
+			"statuses": [],
+			"folder": null
+		}
+	],
 	"flags": {},
 	"system": {
 		"actions": {
@@ -37,6 +79,13 @@
 						"spellLevel": 6,
 						"points": 9,
 						"type": "spell"
+					}
+				},
+				"prompts": {
+					"2RSObxEf1Y17GjAp": {
+						"type": "effect",
+						"default": true,
+						"effectId": "9HTihRW6cAtGO5Zz"
 					}
 				}
 			}

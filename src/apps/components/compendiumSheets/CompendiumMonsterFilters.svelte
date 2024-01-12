@@ -2,10 +2,10 @@
     import { getContext } from "svelte";
 
     import CompendiumFilterCategory from "./CompendiumFilterCategory.svelte";
-    import FormSection from "../FormSection.svelte";
+    import FormSection from "../LegacyFormSection.svelte";
     import RangeSlider from "svelte-range-slider-pips";
 
-    export const compendiumType = "maneuver";
+    export const compendiumType = "monster";
 
     const filterStore = getContext("filterStore");
     const { actorSizes, creatureTypes } = CONFIG.A5E;

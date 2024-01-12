@@ -1,16 +1,15 @@
 <script>
     import { getContext } from "svelte";
     import { localize } from "#runtime/svelte/helper";
-    import { TJSDocument } from "#runtime/svelte/store/fvtt/document";
 
     import Checkbox from "../components/Checkbox.svelte";
-    import FormSection from "../components/FormSection.svelte";
+    import FormSection from "../components/LegacyFormSection.svelte";
     import RadioGroup from "../components/RadioGroup.svelte";
 
     export let { application } = getContext("#external");
     export let { document, appId } = getContext("#external").application;
 
-    const actor = new TJSDocument(document);
+    const actor = document;
 
     const restTypeOptions = {
         short: "A5E.RestShort",
@@ -45,13 +44,12 @@
 </script>
 
 <form class="form">
-    <FormSection heading="A5E.RestType" --direction="column">
-        <RadioGroup
-            options={Object.entries(restTypeOptions)}
-            selected={restType}
-            on:updateSelection={({ detail }) => (restType = detail)}
-        />
-    </FormSection>
+    <RadioGroup
+        heading="A5E.RestType"
+        options={Object.entries(restTypeOptions)}
+        selected={restType}
+        on:updateSelection={({ detail }) => (restType = detail)}
+    />
 
     {#if restType === "long"}
         <FormSection>

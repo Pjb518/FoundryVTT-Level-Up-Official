@@ -8,9 +8,27 @@
     import ActiveEffectPromptConfig from "../itemActionsConfig/ActiveEffectPromptConfig.svelte";
     import CreateMenu from "../actorUtilityBar/CreateMenu.svelte";
     import GenericPromptConfig from "../itemActionsConfig/GenericPromptConfig.svelte";
-    import PromptsConfigWrapper from "../itemActionsConfig/PromptsConfigWrapper.svelte";
     import SavePromptConfig from "../itemActionsConfig/SavePromptConfig.svelte";
+    import Section from "../Section.svelte";
     import SkillCheckPromptConfig from "../itemActionsConfig/SkillCheckPromptConfig.svelte";
+
+    function deletePrompt(actionId, promptId) {
+        $item.update({
+            [`system.actions.${actionId}.prompts`]: {
+                [`-=${promptId}`]: null,
+            },
+        });
+    }
+
+    function duplicatePrompt(actionId, prompt) {
+        const newPrompt = foundry.utils.duplicate(prompt);
+
+        $item.update({
+            [`system.actions.${actionId}.prompts`]: {
+                [foundry.utils.randomID()]: newPrompt,
+            },
+        });
+    }
 
     const item = getContext("item");
     const actionId = getContext("actionId");
@@ -47,99 +65,76 @@
     $: prompts = action.prompts ?? {};
 
     $: menuList = Object.entries(promptTypes).map(
-        ([promptType, { heading }]) => [promptType, heading]
+        ([promptType, { heading }]) => [promptType, heading],
     );
 </script>
 
-<article>
+<div class="a5e-page-wrapper a5e-page-wrapper--scrollable">
     <ul class="prompts-config-list">
         {#each Object.entries(promptTypes) as [promptType, { heading, singleLabel, component }] (promptType)}
             {#if Object.values(prompts).filter((prompt) => prompt.type === promptType).length}
                 <li class="prompts-config-list__item">
-                    <header class="action-config__section-header">
-                        <h2 class="action-config__section-heading">
-                            {localize(heading)}
-                        </h2>
-
-                        <button
-                            class="add-button"
-                            on:click={() =>
-                                ActionsManager.addPrompt(
-                                    $item,
-                                    [actionId, action],
-                                    promptType
-                                )}
-                        >
-                            {localize("A5E.ButtonAddPrompt", {
-                                type: localize(singleLabel),
-                            })}
-                        </button>
-                    </header>
-
-                    <ul class="prompts-list">
-                        {#each Object.entries(prompts).filter(([_, prompt]) => prompt.type === promptType) as [promptId, prompt] (promptId)}
-                            <PromptsConfigWrapper {prompt} {promptId}>
-                                <svelte:component
-                                    this={component}
-                                    {prompt}
-                                    {promptId}
-                                />
-                            </PromptsConfigWrapper>
-                        {:else}
-                            <li class="action-config__none">
-                                {localize("A5E.None")}
-                            </li>
-                        {/each}
-                    </ul>
+                    <Section
+                        {heading}
+                        headerButtons={[
+                            {
+                                classes: "add-button",
+                                handler: () =>
+                                    ActionsManager.addPrompt(
+                                        $item,
+                                        [actionId, action],
+                                        promptType,
+                                    ),
+                                label: localize("A5E.ButtonAddPrompt", {
+                                    type: localize(singleLabel),
+                                }),
+                            },
+                        ]}
+                        --a5e-section-gap="0"
+                    >
+                        <ul class="a5e-item-list">
+                            {#each Object.entries(prompts).filter(([_, prompt]) => prompt.type === promptType) as [promptId, prompt] (promptId)}
+                                <li class="a5e-item a5e-item--action-config">
+                                    <svelte:component
+                                        this={component}
+                                        {prompt}
+                                        {promptId}
+                                        {deletePrompt}
+                                        {duplicatePrompt}
+                                    />
+                                </li>
+                            {/each}
+                        </ul>
+                    </Section>
                 </li>
             {/if}
         {/each}
     </ul>
+</div>
 
-    <div class="sticky-add-button">
-        <CreateMenu
-            {menuList}
-            offset={{ x: -110, y: -105 }}
-            documentName="Prompt"
-            on:press={({ detail }) =>
-                ActionsManager.addPrompt($item, [actionId, action], detail)}
-        />
-    </div>
-</article>
+<div class="sticky-add-button">
+    <CreateMenu
+        {menuList}
+        offset={{ x: -110, y: -105 }}
+        documentName="Prompt"
+        on:press={({ detail }) =>
+            ActionsManager.addPrompt($item, [actionId, action], detail)}
+    />
+</div>
 
 <style lang="scss">
-    article {
-        display: flex;
-        flex-direction: column;
-        flex: 1;
-        gap: 0.75rem;
-        overflow: hidden;
-    }
-
-    .prompts-list {
-        display: flex;
-        flex-direction: column;
-        position: relative;
-        margin: 0;
-        padding: 0;
-        gap: 0.25rem;
-        list-style: none;
-    }
-
     .prompts-config-list {
         display: flex;
         flex-direction: column;
         flex-grow: 1;
         gap: 0.75rem;
         list-style: none;
-        padding: 0;
         margin: 0;
-        overflow-y: auto;
+        padding: 0;
 
         &__item {
             display: flex;
             flex-direction: column;
-            gap: 0.5rem;
         }
     }
 

@@ -1,0 +1,174 @@
+{
+	"name": "Imbued Ray",
+	"type": "spell",
+	"img": "icons/magic/fire/projectile-fireball-sparks-orange.webp",
+	"effects": [],
+	"flags": {},
+	"system": {
+		"actions": {
+			"EUc1wUziC3n3TMhr": {
+				"name": "Cast Spell (First Ray)",
+				"activation": {
+					"cost": 1,
+					"type": "action",
+					"reactionTrigger": ""
+				},
+				"duration": {
+					"unit": "instantaneous",
+					"value": ""
+				},
+				"ranges": {
+					"ozG4m8VgsZx6WtwB": {
+						"range": "long"
+					}
+				},
+				"area": {
+					"shape": "",
+					"size": "",
+					"placeTemplate": false,
+					"quantity": 1
+				},
+				"target": {
+					"quantity": 1,
+					"type": "creatureObject",
+					"scaling": {
+						"mode": "spellLevel",
+						"formula": "1"
+					}
+				},
+				"rolls": {
+					"Vtu6SuU1enUIpsuU": {
+						"bonus": "",
+						"critThreshold": 20,
+						"type": "attack",
+						"attackType": "rangedSpellAttack",
+						"ability": "spellcasting"
+					},
+					"6RcM8oFT6nUnGdXU": {
+						"canCrit": true,
+						"damageType": "",
+						"formula": "2d6",
+						"name": "",
+						"type": "damage",
+						"scaling": {
+							"mode": null,
+							"formula": "2d6"
+						}
+					}
+				},
+				"consumers": {
+					"l2NHcct6MbXMnSDI": {
+						"mode": "variable",
+						"spellLevel": 2,
+						"points": 3,
+						"type": "spell"
+					}
+				}
+			},
+			"sawf1qMNGtml3PPR": {
+				"name": "Additional Rays",
+				"activation": {
+					"cost": 1,
+					"type": "action",
+					"reactionTrigger": ""
+				},
+				"duration": {
+					"unit": "instantaneous",
+					"value": ""
+				},
+				"ranges": {
+					"ozG4m8VgsZx6WtwB": {
+						"range": "long"
+					}
+				},
+				"area": {
+					"shape": "",
+					"size": "",
+					"placeTemplate": false,
+					"quantity": 1
+				},
+				"target": {
+					"quantity": "",
+					"type": "creatureObject"
+				},
+				"rolls": {
+					"Vtu6SuU1enUIpsuU": {
+						"bonus": "",
+						"critThreshold": 20,
+						"type": "attack",
+						"attackType": "rangedSpellAttack",
+						"ability": "spellcasting"
+					},
+					"6RcM8oFT6nUnGdXU": {
+						"canCrit": true,
+						"damageType": "",
+						"formula": "2d6",
+						"name": "",
+						"type": "damage",
+						"scaling": {
+							"mode": null,
+							"formula": "2d6"
+						}
+					}
+				},
+				"consumers": {}
+			}
+		},
+		"description": "<p>Three rays of blazing orange fire shoot from your fingertips. Make a ranged spell attack for each ray.&nbsp;On a hit, the target takes 2d6 fire damage.</p>\n<p><strong><em>Cast at Higher Levels.</em></strong> Create an additional ray for each slot level above 2nd.</p>\n<p><em><strong>Rare:&nbsp;</strong></em><strong>Imbued Ray.&nbsp;</strong>The rays are a&nbsp;different color chosen by you and deal damage&nbsp;of the corresponding type: black (necrotic), blue&nbsp;(cold), green (acid), purple (psychic), white&nbsp;(lightning), yellow (poison).</p>",
+		"favorite": false,
+		"secretDescription": "",
+		"source": "",
+		"uses": {
+			"value": null,
+			"max": "",
+			"per": null,
+			"recharge": {
+				"formula": "",
+				"threshold": ""
+			}
+		},
+		"schema": {
+			"version": null,
+			"lastMigration": null
+		},
+		"classes": [
+			"elementalistFire",
+			"sorcerer",
+			"wielder",
+			"wizard"
+		],
+		"components": {
+			"vocalized": true,
+			"seen": true,
+			"material": false
+		},
+		"concentration": false,
+		"level": 2,
+		"materials": "",
+		"materialsConsumed": false,
+		"prepared": false,
+		"prerequisite": "",
+		"rare": true,
+		"ritual": false,
+		"schools": {
+			"primary": "evocation",
+			"secondary": [
+				"arcane",
+				"attack",
+				"fire"
+			]
+		},
+		"schemaVersion": {
+			"version": 0.01,
+			"lastMigration": {
+				"version": {
+					"schema": 0.009,
+					"foundry": "12.316",
+					"system": "0.16.12"
+				}
+			}
+		}
+	},
+	"folder": null,
+	"_id": "xcn5aazht7blm4jv"
+}

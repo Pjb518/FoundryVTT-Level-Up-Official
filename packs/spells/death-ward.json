@@ -2,7 +2,39 @@
 	"name": "Death Ward",
 	"type": "spell",
 	"img": "icons/magic/life/heart-cross-strong-flame-blue.webp",
-	"effects": [],
+	"effects": [
+		{
+			"icon": "icons/magic/life/heart-cross-strong-flame-blue.webp",
+			"origin": "Item.ws5kqt1VHV55LAf5",
+			"flags": {
+				"a5e": {
+					"sort": 0,
+					"transferType": "onUse",
+					"actionId": "RzbLNTfY5ieVKYGO",
+					"duration": {
+						"unit": "hours"
+					}
+				}
+			},
+			"transfer": false,
+			"name": "Death Ward",
+			"_id": "YBeVjtiZho9RhQBP",
+			"changes": [],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": 28800,
+				"combat": null,
+				"rounds": null,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "<p>The first time damage would reduce the target to 0 hit points, it instead drops to 1 hit point. If the target is subjected to an effect that would kill it instantaneously without dealing damage, that effect is negated. The spell ends immediately after either of these conditions occur.</p>",
+			"statuses": [],
+			"folder": null
+		}
+	],
 	"flags": {},
 	"system": {
 		"actions": {
@@ -37,6 +69,13 @@
 						"spellLevel": 4,
 						"points": 6,
 						"type": "spell"
+					}
+				},
+				"prompts": {
+					"duTGDqDBwcao2Qqa": {
+						"type": "effect",
+						"default": true,
+						"effectId": "YBeVjtiZho9RhQBP"
 					}
 				}
 			}

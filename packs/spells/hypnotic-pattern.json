@@ -2,7 +2,55 @@
 	"name": "Hypnotic Pattern",
 	"type": "spell",
 	"img": "icons/magic/control/hypnosis-mesmerism-pendulum.webp",
-	"effects": [],
+	"effects": [
+		{
+			"icon": "icons/magic/control/hypnosis-mesmerism-pendulum.webp",
+			"origin": "Item.eXfkC5dCbrBUNeUQ",
+			"flags": {
+				"a5e": {
+					"sort": 0,
+					"transferType": "onUse",
+					"actionId": "rYoExGuzHseFHdlD",
+					"duration": {
+						"unit": "minutes"
+					}
+				}
+			},
+			"transfer": false,
+			"name": "Charmed",
+			"_id": "TMK1Tbwva04SwRyb",
+			"changes": [
+				{
+					"key": "flags.a5e.effects.statusConditions",
+					"value": "[\"charmed\",\"incapacitated\"]",
+					"mode": 0,
+					"priority": null
+				},
+				{
+					"key": "system.attributes.movement.walk.distance",
+					"value": "0",
+					"mode": 6,
+					"priority": null
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": 60,
+				"combat": null,
+				"rounds": null,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "",
+			"statuses": [
+				"charmed",
+				"incapacitated"
+			],
+			"folder": null
+		}
+	],
 	"flags": {},
 	"system": {
 		"actions": {
@@ -34,12 +82,17 @@
 				"prompts": {
 					"c5peqj5FrWISkKBr": {
 						"ability": "wis",
-						"onSave": "Wisdom negates.",
+						"onSave": "Charm negated",
 						"saveDC": {
 							"type": "spellcasting",
 							"bonus": ""
 						},
 						"type": "savingThrow"
+					},
+					"BcMyt41d3VLdIKtS": {
+						"type": "effect",
+						"default": true,
+						"effectId": "TMK1Tbwva04SwRyb"
 					}
 				},
 				"consumers": {

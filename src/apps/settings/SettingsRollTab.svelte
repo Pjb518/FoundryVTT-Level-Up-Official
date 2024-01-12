@@ -2,7 +2,7 @@
     import { getContext } from "svelte";
     import { localize } from "#runtime/svelte/helper";
 
-    import FormSection from "../components/FormSection.svelte";
+    import FormSection from "../components/LegacyFormSection.svelte";
     import Checkbox from "../components/Checkbox.svelte";
     import RadioGroup from "../components/RadioGroup.svelte";
 
@@ -27,16 +27,15 @@
         <h3 class="setting-heading">Generic Roll Settings</h3>
     </header>
 
-    <FormSection hint="A5E.settings.hints.critCalculationMode" --gap="0.25rem">
-        <RadioGroup
-            options={Object.entries(critCalculationModeOptions)}
-            selected={selectedCritMode}
-            on:updateSelection={({ detail }) => {
-                updates.set("critCalculationMode", detail);
-                selectedCritMode = detail;
-            }}
-        />
-    </FormSection>
+    <RadioGroup
+        hint="A5E.settings.hints.critCalculationMode"
+        options={Object.entries(critCalculationModeOptions)}
+        selected={selectedCritMode}
+        on:updateSelection={({ detail }) => {
+            updates.set("critCalculationMode", detail);
+            selectedCritMode = detail;
+        }}
+    />
 
     <FormSection
         hint="A5E.settings.hints.preventActionRollOnWarning"

@@ -2,7 +2,45 @@
 	"name": "Shackling Ice Storm",
 	"type": "spell",
 	"img": "icons/magic/water/projectiles-ice-faceted-shard-salvo-blue.webp",
-	"effects": [],
+	"effects": [
+		{
+			"icon": "icons/magic/water/projectiles-ice-faceted-shard-salvo-blue.webp",
+			"origin": "Item.KNUmvETYKXmT3ZYL",
+			"flags": {
+				"a5e": {
+					"sort": 0,
+					"transferType": "onUse",
+					"actionId": "AVf45niNQKdNYdF5"
+				}
+			},
+			"transfer": false,
+			"name": "Shackled",
+			"_id": "0lTcR6PfRToJWpbk",
+			"changes": [
+				{
+					"key": "flags.a5e.effects.statusConditions",
+					"value": "[\"grappled\"]",
+					"mode": 0,
+					"priority": null
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": null,
+				"combat": null,
+				"rounds": null,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "<p>An ensnared creature is grappled and takes 2d6 ongoing cold damage until it uses an action to make a Strength saving throw to end the effect.</p>",
+			"statuses": [
+				"grappled"
+			],
+			"folder": null
+		}
+	],
 	"flags": {},
 	"system": {
 		"actions": {
@@ -70,6 +108,11 @@
 							"bonus": ""
 						},
 						"type": "savingThrow"
+					},
+					"MvOrOAz9AodWXADi": {
+						"type": "effect",
+						"default": true,
+						"effectId": "0lTcR6PfRToJWpbk"
 					}
 				},
 				"consumers": {

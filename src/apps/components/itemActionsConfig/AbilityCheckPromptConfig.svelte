@@ -5,9 +5,11 @@
     import updateDocumentDataFromField from "../../../utils/updateDocumentDataFromField";
 
     import Checkbox from "../Checkbox.svelte";
-    import FormSection from "../FormSection.svelte";
+    import FieldWrapper from "../FieldWrapper.svelte";
     import RadioGroup from "../RadioGroup.svelte";
 
+    export let deletePrompt;
+    export let duplicatePrompt;
     export let prompt;
     export let promptId;
 
@@ -18,7 +20,7 @@
         updateDocumentDataFromField(
             $item,
             `system.actions.${actionId}.prompts.${promptId}.ability`,
-            selectedAbility
+            selectedAbility,
         );
     }
 
@@ -26,13 +28,22 @@
     $: selectedAbility, updateAbility();
 </script>
 
-<FormSection
+<FieldWrapper
     heading="A5E.Label"
-    --background="none"
-    --direction="column"
-    --grow="1"
-    --padding="0"
-    --margin="0 4.5rem 0 0"
+    buttons={[
+        {
+            classes:
+                "fa-solid fa-clone a5e-field-wrapper__header-button--scale",
+            handler: () => duplicatePrompt(actionId, prompt),
+        },
+        {
+            classes: "fas fa-trash a5e-field-wrapper__header-button--scale",
+            handler: () => deletePrompt(actionId, promptId),
+        },
+    ]}
+    --a5e-header-button-color="#bebdb5"
+    --a5e-header-button-color-hover="#555"
+    --a5e-field-wrapper-button-wrapper-gap="0.75rem"
 >
     <input
         type="text"
@@ -41,25 +52,19 @@
             updateDocumentDataFromField(
                 $item,
                 `system.actions.${actionId}.prompts.${promptId}.label`,
-                target.value
+                target.value,
             )}
     />
-</FormSection>
+</FieldWrapper>
 
-<FormSection
+<RadioGroup
+    allowDeselect={false}
     heading="A5E.ItemAbilityCheckType"
-    --background="none"
-    --direction="column"
-    --padding="0"
->
-    <RadioGroup
-        optionStyles="min-width: 2rem; text-align: center;"
-        options={prepareAbilityOptions()}
-        selected={selectedAbility}
-        allowDeselect={false}
-        on:updateSelection={({ detail }) => (selectedAbility = detail)}
-    />
-</FormSection>
+    optionStyles="min-width: 2rem; text-align: center;"
+    options={prepareAbilityOptions()}
+    selected={selectedAbility}
+    on:updateSelection={({ detail }) => (selectedAbility = detail)}
+/>
 
 <Checkbox
     label="A5E.PromptDefaultSelection"
@@ -68,7 +73,7 @@
         updateDocumentDataFromField(
             $item,
             `system.actions.${actionId}.prompts.${promptId}.default`,
-            detail
+            detail,
         );
     }}
 />

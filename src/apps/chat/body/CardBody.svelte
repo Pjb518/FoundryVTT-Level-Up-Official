@@ -44,13 +44,13 @@
         const newRoll = new Roll(
             originalRoll.formula,
             { ...originalRoll.data },
-            { ...originalRoll.options }
+            { ...originalRoll.options },
         );
 
         newRoll.terms = [...originalRoll.terms];
 
         const expertiseDieIndex = newRoll.terms.findIndex(
-            (term) => term.options?.flavor === "Expertise Die"
+            (term) => term.options?.flavor === "Expertise Die",
         );
 
         const expertiseDie =
@@ -79,7 +79,7 @@
                 number: 1,
                 faces: parseInt(
                     getExpertiseDieSize(expertiseDice).slice(2),
-                    10
+                    10,
                 ),
                 options: {
                     flavor: "Expertise Die",
@@ -102,7 +102,7 @@
             if (!originalExpertiseDice) {
                 newRoll.terms.push(
                     new OperatorTerm({ operator: "+" }),
-                    newExpertiseDieRoll
+                    newExpertiseDieRoll,
                 );
             } else {
                 newRoll.terms.splice(expertiseDieIndex, 1, newExpertiseDieRoll);
@@ -116,7 +116,7 @@
                     $message.whisper,
                     $message.blind,
                     null,
-                    $message.speaker
+                    $message.speaker,
                 );
             }
         }
@@ -144,7 +144,7 @@
         const newRoll = new Roll(
             originalRoll.formula,
             { ...originalRoll.data },
-            { ...originalRoll.options }
+            { ...originalRoll.options },
         );
 
         newRoll.terms = [...originalRoll.terms];
@@ -162,7 +162,7 @@
 
         // Remove kh and kl modifiers
         d20Term.modifiers = d20Term.modifiers.filter(
-            (modifier) => !["kh", "kl"].includes(modifier)
+            (modifier) => !["kh", "kl"].includes(modifier),
         );
 
         if (!rollMode) {
@@ -212,7 +212,7 @@
 
             fakeD20Roll.terms[0].number = fakeD20Roll.terms[0].results.length;
             fakeD20Roll.terms[0].results = fakeD20Roll.terms[0].results.filter(
-                (_, index) => index > 0
+                (_, index) => index > 0,
             );
 
             game.dice3d.showForRoll(
@@ -222,7 +222,7 @@
                 $message.whisper,
                 $message.blind,
                 null,
-                $message.speaker
+                $message.speaker,
             );
         }
 
@@ -367,17 +367,21 @@
 
         <section class="rolls">
             {#each rolls ?? [] as [roll, rollData], i}
-                <RollSummary
-                    {roll}
-                    {rollData}
-                    on:toggleRollMode={({ detail }) =>
-                        toggleRollMode(i, detail)}
-                    on:toggleExpertiseDice={({ detail }) =>
-                        toggleExpertiseDice(i, detail)}
-                />
+                {#if rollData?.baseRoll?.formula === "0" && roll._formula === "0"}
+                    <!-- Hide checks with formula of 0 -->
+                {:else}
+                    <RollSummary
+                        {roll}
+                        {rollData}
+                        on:toggleRollMode={({ detail }) =>
+                            toggleRollMode(i, detail)}
+                        on:toggleExpertiseDice={({ detail }) =>
+                            toggleExpertiseDice(i, detail)}
+                    />
 
-                {#if rolls.length > 1 && rollData.type === "attack"}
-                    <hr class="a5e-rule" />
+                    {#if rolls.length > 1 && rollData.type === "attack"}
+                        <hr class="a5e-rule" />
+                    {/if}
                 {/if}
             {/each}
         </section>
@@ -396,7 +400,7 @@
                                 icon={getEffectIcon(prompt)}
                                 title={getPromptTitle(
                                     prompt,
-                                    $message?.flags?.a5e?.actorId
+                                    $message?.flags?.a5e?.actorId,
                                 )}
                                 subtitle={getPromptSubtitle(prompt)}
                                 --hover-color={hoverColor}

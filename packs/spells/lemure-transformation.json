@@ -2,7 +2,47 @@
 	"name": "Lemure Transformation",
 	"type": "spell",
 	"img": "icons/creatures/slimes/slime-giant-face-eyes.webp",
-	"effects": [],
+	"effects": [
+		{
+			"icon": "icons/creatures/slimes/slime-giant-face-eyes.webp",
+			"origin": "Item.neY21s3dfovXWIWE",
+			"flags": {
+				"a5e": {
+					"sort": 0,
+					"transferType": "onUse",
+					"actionId": "zI2h6fCGlLXfmBQu",
+					"duration": {
+						"type": "rounds",
+						"unit": "minutes"
+					}
+				}
+			},
+			"transfer": false,
+			"name": "Lemure",
+			"_id": "McmZcKengokxtFqa",
+			"changes": [
+				{
+					"key": "system.attributes.movement.walk.distance",
+					"value": "20",
+					"mode": 6,
+					"priority": null
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": null,
+				"combat": null,
+				"rounds": null,
+				"turns": 1,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "<p>Your body melts into a humanoid-shaped mass of liquid flesh. Each creature within 5 feet of you that can see the transformation must make a Wisdom saving throw. On a failure, the creature can't take reactions and is frightened of you until the start of its next turn. Until the end of your turn, your Speed becomes 20 feet, you can't speak, and you can move through spaces as narrow as 1 inch wide without squeezing. You revert to your normal form at the end of your turn.</p>",
+			"statuses": [],
+			"folder": null
+		}
+	],
 	"flags": {},
 	"system": {
 		"actions": {
@@ -37,6 +77,13 @@
 						"spellLevel": 2,
 						"points": 3,
 						"type": "spell"
+					}
+				},
+				"prompts": {
+					"r8zrbGbuNHM2fgLC": {
+						"type": "effect",
+						"default": true,
+						"effectId": "McmZcKengokxtFqa"
 					}
 				}
 			}

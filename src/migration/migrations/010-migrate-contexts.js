@@ -224,6 +224,7 @@ export default class Migration010MigrateContexts extends MigrationBase {
 
     const newChange = foundry.utils.deepClone(change);
     newChange.value = JSON.stringify(value);
+    newChange.mode = 0;
     return newChange;
   }
 
@@ -255,6 +256,7 @@ export default class Migration010MigrateContexts extends MigrationBase {
 
     const newChange = foundry.utils.deepClone(change);
     newChange.value = JSON.stringify(value);
+    newChange.mode = 0;
     return newChange;
   }
 
@@ -294,6 +296,7 @@ export default class Migration010MigrateContexts extends MigrationBase {
     const newChange = foundry.utils.deepClone(change);
     newChange.key = 'flags.a5e.effects.bonuses.abilities';
     newChange.value = JSON.stringify(bonus);
+    newChange.mode = 0;
     return newChange;
   }
 
@@ -326,6 +329,7 @@ export default class Migration010MigrateContexts extends MigrationBase {
     const newChange = foundry.utils.deepClone(change);
     newChange.key = 'flags.a5e.effects.bonuses.skills';
     newChange.value = JSON.stringify(bonus);
+    newChange.mode = 0;
     return newChange;
   }
 

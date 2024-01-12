@@ -1,7 +1,7 @@
 <script>
     import { getContext } from "svelte";
 
-    import FormSection from "../components/FormSection.svelte";
+    import FormSection from "../components/LegacyFormSection.svelte";
     import RadioGroup from "../components/RadioGroup.svelte";
 
     export let { dialog, item } = getContext("#external").application;
@@ -14,15 +14,14 @@
 </script>
 
 <form>
-    <FormSection heading="Select an Action">
-        <RadioGroup
-            options={item.actions
-                .entries()
-                .map(([id, action]) => [id, action.name])}
-            selected={selectedAction}
-            on:updateSelection={({ detail }) => (selectedAction = detail)}
-        />
-    </FormSection>
+    <RadioGroup
+        heading="Select an Action"
+        options={item.actions
+            .entries()
+            .map(([id, action]) => [id, action.name])}
+        selected={selectedAction}
+        on:updateSelection={({ detail }) => (selectedAction = detail)}
+    />
 
     <button on:click|preventDefault={onSubmit}>Activate Action</button>
 </form>

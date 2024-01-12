@@ -1,21 +1,21 @@
 <script>
     import { getContext, createEventDispatcher } from "svelte";
-    import { TJSDocument } from "@typhonjs-fvtt/runtime/svelte/store/fvtt/document";
 
     import updateDocumentDataFromField from "../../utils/updateDocumentDataFromField";
 
     import Checkbox from "../components/Checkbox.svelte";
-    import FormSection from "../components/FormSection.svelte";
-    import TagGroup from "../components/TagGroup.svelte";
+    import CheckboxGroup from "../components/CheckboxGroup.svelte";
+    import FieldWrapper from "../components/FieldWrapper.svelte";
+    import Section from "../components/Section.svelte";
 
     export let { document, bonusID } = getContext("#external").application;
     export let jsonValue = null;
 
-    const actor = new TJSDocument(document);
+    const actor = document;
     const dispatch = createEventDispatcher();
 
     function updateImage() {
-        const current = abilityBonus?.img;
+        const current = skillBonus?.img;
 
         const filePicker = new FilePicker({
             type: "image",
@@ -42,7 +42,7 @@
         dispatch("change", JSON.stringify(newObj));
     }
 
-    function getAbilityBonus() {
+    function getSKillBonus() {
         if (jsonValue === null) return $actor.system.bonuses.skills[bonusID];
 
         try {
@@ -50,7 +50,11 @@
             if (typeof obj !== "object") throw new Error();
             obj.label = obj.label ?? "";
             obj.formula = obj.formula ?? "";
-            obj.context = obj.context ?? {};
+            obj.context = obj.context ?? {
+                skills: [],
+                requiresProficiency: false,
+                passiveOnly: false,
+            };
             obj.default = obj.default ?? true;
             obj.img = obj.img ?? "icons/svg/upgrade.svg";
             return obj;
@@ -59,7 +63,11 @@
                 label: "",
                 formula: "",
                 damageType: "",
-                context: {},
+                context: {
+                    skills: [],
+                    requiresProficiency: false,
+                    passiveOnly: false,
+                },
                 default: true,
                 img: "icons/svg/upgrade.svg",
             };
@@ -68,7 +76,7 @@
 
     const { skills } = CONFIG.A5E;
 
-    $: skillBonus = getAbilityBonus($actor, jsonValue) ?? {};
+    $: skillBonus = getSKillBonus($actor, jsonValue) ?? {};
     $: passiveOnly = skillBonus.context.passiveOnly ?? false;
     $: skillsContext = skillBonus.context.skills ?? [];
     $: requiresProficiency = skillBonus.context.requiresProficiency ?? false;
@@ -97,33 +105,27 @@
         </div>
     </header>
 
-    <FormSection>
-        <FormSection
-            heading="A5E.Formula"
-            --background="none"
-            --grow="1"
-            --direction="column"
-            --padding="0"
-        >
+    <Section --a5e-section-margin="0.25rem 0">
+        <FieldWrapper heading="A5E.Formula">
             <input
                 type="text"
                 value={skillBonus.formula ?? ""}
                 on:change={({ target }) =>
                     onUpdateValue("formula", target.value)}
             />
-        </FormSection>
-    </FormSection>
+        </FieldWrapper>
+    </Section>
 
-    <FormSection
+    <Section
         heading="Contexts"
         hint="The context determines when the ability bonus applies"
-        --direction="column"
-        --wrap="nowrap"
+        --a5e-section-body-gap="0.75rem"
     >
-        <TagGroup
+        <CheckboxGroup
             heading="A5E.contexts.skills"
             options={Object.entries(skills)}
             selected={skillsContext}
+            showToggleAllButton={true}
             on:updateSelection={({ detail }) => {
                 onUpdateValue("context.skills", detail);
             }}
@@ -144,17 +146,17 @@
                 onUpdateValue("context.passiveOnly", detail);
             }}
         />
-    </FormSection>
 
-    <FormSection>
-        <Checkbox
-            label="Select Skill Bonus Automatically in Roll Prompt"
-            checked={skillBonus.default ?? true}
-            on:updateSelection={({ detail }) => {
-                onUpdateValue("default", detail);
-            }}
-        />
-    </FormSection>
+        <FieldWrapper>
+            <Checkbox
+                label="Select Skill Bonus Automatically in Roll Prompt"
+                checked={skillBonus.default ?? true}
+                on:updateSelection={({ detail }) => {
+                    onUpdateValue("default", detail);
+                }}
+            />
+        </FieldWrapper>
+    </Section>
 </form>
 
 <style lang="scss">

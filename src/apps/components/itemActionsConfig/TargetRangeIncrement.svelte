@@ -7,8 +7,8 @@
     import updateDocumentDataFromField from "../../../utils/updateDocumentDataFromField";
 
     import Checkbox from "../Checkbox.svelte";
-    import FormSection from "../FormSection.svelte";
     import RadioGroup from "../RadioGroup.svelte";
+    import Section from "../Section.svelte";
 
     export let index;
     export let id;
@@ -26,7 +26,7 @@
         updateDocumentDataFromField(
             $item,
             `system.actions.${actionId}.ranges.${id}.range`,
-            range
+            range,
         );
     }
 
@@ -58,12 +58,10 @@
         });
     }
 
-    function deleteRangeIncrement(event) {
-        const { rangeId } = event.target.closest(".range-increment").dataset;
-
+    function deleteRangeIncrement() {
         $item.update({
             [`system.actions.${actionId}.ranges`]: {
-                [`-=${rangeId}`]: null,
+                [`-=${id}`]: null,
             },
         });
     }
@@ -80,7 +78,7 @@
             }
 
             return [value, label];
-        }
+        },
     );
 
     let customValue = isStandardRange(range) ? "" : range;
@@ -89,43 +87,44 @@
     $: selected = isStandardRange(range) ? range : "other";
 </script>
 
-<FormSection --direction="column" --gap="0.75rem">
-    <FormSection
-        {heading}
-        --background="none"
-        --direction="column"
-        --padding="0"
-        --gap="0.375rem"
+<RadioGroup
+    buttons={[
+        {
+            classes:
+                "fa-solid fa-trash a5e-field-wrapper__header-button--scale",
+            handler: deleteRangeIncrement,
+            tooltip: "Delete Range Increment",
+        },
+    ]}
+    {heading}
+    {options}
+    {selected}
+    on:updateSelection={({ detail }) => updateRangeValue(detail)}
+    --a5e-field-wrapper-header-width="100%"
+    --a5e-field-wrapper-label-width="100%"
+    --a5e-header-button-color="rgba(0, 0, 0, 0.2)"
+    --a5e-header-button-color-hover="#555"
+/>
+
+{#if selected === "other"}
+    <Checkbox
+        label="A5E.IncludeUnit"
+        checked={includeUnit}
+        on:updateSelection={(event) => {
+            includeUnit = event.detail;
+            deleteRangeUnit(event);
+        }}
+    />
+
+    <Section
+        hint={includeUnit
+            ? "When units are selected range must be a number."
+            : null}
+        --a5e-section-body-padding="0"
     >
-        <RadioGroup
-            {options}
-            {selected}
-            on:updateSelection={({ detail }) => updateRangeValue(detail)}
-        />
-    </FormSection>
-
-    {#if selected === "other"}
-        <Checkbox
-            label="A5E.IncludeUnit"
-            checked={includeUnit}
-            on:updateSelection={(event) => {
-                includeUnit = event.detail;
-                deleteRangeUnit(event);
-            }}
-        />
-
-        <FormSection
-            hint={includeUnit
-                ? "When units are selected range must be a number."
-                : null}
-            --background="none"
-            --direction="row"
-            --gap="0.5rem"
-            --padding="0"
-            --item-alignment="center"
-        >
+        <div style="display: flex; gap: 0.5rem; flex-wrap: nowrap">
             <input
-                class:small-input={includeUnit}
+                style="flex-shrink: 1;"
                 type="text"
                 bind:value={customValue}
                 on:change={() => updateRangeValue(customValue)}
@@ -148,35 +147,6 @@
                     {/each}
                 </select>
             {/if}
-        </FormSection>
-    {/if}
-
-    <button
-        class="delete-button fas fa-trash"
-        data-tooltip="Delete Range Increment"
-        data-tooltip-direction="UP"
-        on:click={deleteRangeIncrement}
-    />
-</FormSection>
-
-<style lang="scss">
-    .delete-button {
-        position: absolute;
-        top: 0.75rem;
-        right: 0.75rem;
-        width: fit-content;
-        padding: 0.25rem;
-        font-size: $font-size-md;
-        color: #999;
-        background: none;
-        cursor: pointer;
-
-        transition: $standard-transition;
-
-        &:hover {
-            box-shadow: none;
-            transform: scale(1.2);
-            color: $color-secondary;
-        }
-    }
-</style>
+        </div>
+    </Section>
+{/if}

@@ -273,7 +273,7 @@
 		},
 		{
 			"_id": "WRYhJ4wfulRGiio2",
-			"name": "Wing Flap (Recharge 5-6)",
+			"name": "Wing Flap",
 			"type": "object",
 			"img": "icons/svg/item-bag.svg",
 			"effects": [],
@@ -292,7 +292,7 @@
 				},
 				"actions": {
 					"BIYR25HYilYJefkq": {
-						"name": "Wing Flap (Recharge 5-6)",
+						"name": "Wing Flap",
 						"activation": {
 							"cost": 1,
 							"type": "bonusAction",
@@ -332,7 +332,13 @@
 								"type": "savingThrow"
 							}
 						},
-						"consumers": {}
+						"consumers": {
+							"4EsKn6AI4aYigIeO": {
+								"type": "itemUses",
+								"default": true,
+								"quantity": 1
+							}
+						}
 					}
 				},
 				"description": "<p>Each creature within a 15-foot cone makes a DC 17 Dexterity saving throw, taking 31 (9d6) fire damage and falling prone on a failure or taking half damage on a success.</p>",
@@ -340,12 +346,12 @@
 				"secretDescription": "",
 				"source": "",
 				"uses": {
-					"value": null,
-					"max": "",
-					"per": null,
+					"value": 1,
+					"max": "1",
+					"per": "recharge",
 					"recharge": {
 						"formula": "",
-						"threshold": ""
+						"threshold": 5
 					}
 				},
 				"schema": {
@@ -395,7 +401,7 @@
 		},
 		{
 			"_id": "7rvhqlmPDCEoWctZ",
-			"name": "Stunning Screech (1/Day)",
+			"name": "Stunning Screech",
 			"type": "object",
 			"img": "icons/svg/item-bag.svg",
 			"effects": [],
@@ -414,7 +420,7 @@
 				},
 				"actions": {
 					"pCgASYBtunjpWZOc": {
-						"name": "Stunning Screech (1/Day)",
+						"name": "Stunning Screech",
 						"activation": {
 							"cost": 1,
 							"type": "bonusAction",
@@ -588,6 +594,7 @@
 					"version": null,
 					"lastMigration": null
 				},
+				"concentration": false,
 				"degree": 0,
 				"exertionCost": 0,
 				"isStance": false,
@@ -690,6 +697,7 @@
 					"version": null,
 					"lastMigration": null
 				},
+				"concentration": false,
 				"degree": 0,
 				"exertionCost": 0,
 				"isStance": false,
@@ -783,6 +791,7 @@
 					"version": null,
 					"lastMigration": null
 				},
+				"concentration": false,
 				"degree": 0,
 				"exertionCost": 0,
 				"isStance": false,
@@ -876,6 +885,7 @@
 					"version": null,
 					"lastMigration": null
 				},
+				"concentration": false,
 				"degree": 0,
 				"exertionCost": 0,
 				"isStance": false,
@@ -969,6 +979,7 @@
 					"version": null,
 					"lastMigration": null
 				},
+				"concentration": false,
 				"degree": 0,
 				"exertionCost": 0,
 				"isStance": false,
@@ -1062,6 +1073,7 @@
 					"version": null,
 					"lastMigration": null
 				},
+				"concentration": false,
 				"degree": 0,
 				"exertionCost": 0,
 				"isStance": false,
@@ -1087,7 +1099,11 @@
 		}
 	],
 	"effects": [],
-	"flags": {},
+	"flags": {
+		"a5e": {
+			"showSpellTab": false
+		}
+	},
 	"system": {
 		"abilities": {
 			"str": {
@@ -1176,7 +1192,7 @@
 			}
 		},
 		"schemaVersion": {
-			"version": 0.007,
+			"version": 0.01,
 			"lastMigration": {
 				"version": {
 					"schema": 0.006,
@@ -1513,6 +1529,7 @@
 				}
 			},
 			"initiative": {
+				"ability": "dex",
 				"bonus": "",
 				"expertiseDice": 0
 			},
@@ -1567,15 +1584,15 @@
 			"casterLevel": 0
 		},
 		"bonuses": {
-			"abilities": {},
-			"damage": {},
-			"healing": {},
 			"maneuverDC": "",
 			"meleeSpellAttack": "",
 			"meleeWeaponAttack": "",
 			"rangedSpellAttack": "",
 			"rangedWeaponAttack": "",
 			"spellDC": "",
+			"abilities": {},
+			"damage": {},
+			"healing": {},
 			"skills": {}
 		},
 		"currency": {
@@ -1698,9 +1715,9 @@
 			"attenuation": 0.5
 		},
 		"disposition": 1,
-		"displayBars": 0,
+		"displayBars": 30,
 		"bar1": {
-			"attribute": null
+			"attribute": "attributes.hp"
 		},
 		"bar2": {
 			"attribute": null
@@ -1726,15 +1743,11 @@
 			"offsetX": 0,
 			"offsetY": 0,
 			"rotation": 0,
-			"tint": "#ffffff",
-			"anchorX": 0.5,
-			"anchorY": 0.5,
-			"fit": "contain",
-			"alphaThreshold": 0.75
+			"tint": "#ffffff"
 		},
 		"sight": {
 			"angle": 360,
-			"enabled": false,
+			"enabled": true,
 			"range": 0,
 			"brightness": 1,
 			"visionMode": "basic",
@@ -1745,12 +1758,7 @@
 		},
 		"detectionModes": [],
 		"appendNumber": false,
-		"prependAdjective": false,
-		"hexagonalShape": 0,
-		"locked": false,
-		"occludable": {
-			"radius": 0
-		}
+		"prependAdjective": false
 	},
 	"folder": null,
 	"_id": "13l3zm7eie4y4qt4"

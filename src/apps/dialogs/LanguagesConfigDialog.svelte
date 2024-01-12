@@ -1,14 +1,13 @@
 <script>
     import { getContext } from "svelte";
-    import { TJSDocument } from "#runtime/svelte/store/fvtt/document";
 
     import updateDocumentDataFromField from "../../utils/updateDocumentDataFromField";
 
     import CustomTagGroup from "../components/CustomTagGroup.svelte";
 
-    export let { actorDocument, appId } = getContext("#external").application;
+    export let { document, appId } = getContext("#external").application;
 
-    const actor = new TJSDocument(actorDocument);
+    const actor = document;
     const defaultLanguages = Object.entries(CONFIG.A5E.languages);
 </script>
 
@@ -21,7 +20,7 @@
             updateDocumentDataFromField(
                 $actor,
                 "system.proficiencies.languages",
-                event.detail
+                event.detail,
             )}
     />
 </article>

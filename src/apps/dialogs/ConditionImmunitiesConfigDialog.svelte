@@ -1,14 +1,13 @@
 <script>
     import { getContext } from "svelte";
-    import { TJSDocument } from "#runtime/svelte/store/fvtt/document";
 
     import updateDocumentDataFromField from "../../utils/updateDocumentDataFromField";
 
     import CustomTagGroup from "../components/CustomTagGroup.svelte";
 
-    export let { actorDocument, appId } = getContext("#external").application;
+    export let { document, appId } = getContext("#external").application;
 
-    const actor = new TJSDocument(actorDocument);
+    const actor = document;
     const systemImmunities = Object.entries(CONFIG.A5E.conditions);
 </script>
 
@@ -21,7 +20,7 @@
             updateDocumentDataFromField(
                 $actor,
                 "system.traits.conditionImmunities",
-                event.detail
+                event.detail,
             )}
     />
 </article>

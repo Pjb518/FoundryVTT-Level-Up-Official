@@ -49,9 +49,9 @@ export default class RollPreparationManager {
       damage.map(async (roll, i) => this.#prepareDamageRoll(roll, attackRoll, i))
     );
 
-    const healingRolls = await Promise.all(
+    const healingRolls = (await Promise.all(
       healing.map(async (roll) => this.#prepareHealingRoll(roll))
-    );
+    )).filter(Boolean);
 
     if (damageRolls.length) {
       const bonusDamageRolls = await this.#prepareBonusDamageRolls(attackRoll);
@@ -144,12 +144,15 @@ export default class RollPreparationManager {
     );
 
     return Promise.all(
-      bonusDamage.map(({ label, formula, damageType }) => this.#prepareDamageRoll({
+      bonusDamage.map(({
+        label, formula, damageType, context
+      }) => this.#prepareDamageRoll({
         label,
         formula,
         canCrit: true,
         critBonus: 0,
-        damageType
+        damageType,
+        context
       }, attackRoll))
     );
   }
@@ -188,9 +191,22 @@ export default class RollPreparationManager {
     const { isCrit } = attackRoll ?? {};
     const { canCrit, critBonus, damageType } = _roll;
 
+    const { context } = _roll;
+    let genericCritBonusDamage = '';
+
     if (index === 0) {
-      const genericBonusDamage = this.#prepareGenericBonusDamage();
-      formula = [this.#applyDamageOrHealingScaling(_roll), ...genericBonusDamage].join(' + ');
+      const genericBonusDamage = this.#prepareGenericBonusDamage(isCrit);
+
+      const { nonCritBonuses, critBonuses } = genericBonusDamage.reduce((acc, curr) => {
+        if (curr.context?.isCritBonus) acc.critBonuses.push(curr.formula);
+        else acc.nonCritBonuses.push(curr.formula);
+
+        return acc;
+      }, { nonCritBonuses: [], critBonuses: [] });
+
+      if (critBonuses.length) genericCritBonusDamage = critBonuses.join(' + ');
+
+      formula = [this.#applyDamageOrHealingScaling(_roll), ...nonCritBonuses].join(' + ');
     } else {
       formula = this.#applyDamageOrHealingScaling(_roll);
     }
@@ -203,11 +219,22 @@ export default class RollPreparationManager {
     if (!rollFormula) return null;
 
     const r = await new Roll(rollFormula).evaluate({ async: true });
-    const baseRoll = Roll.fromTerms(simplifyDiceTerms(r.terms));
+    let baseRoll = Roll.fromTerms(simplifyDiceTerms(r.terms));
     let roll = baseRoll;
     let critRoll = baseRoll;
 
-    if (canCrit ?? true) critRoll = await constructCritDamageRoll(roll, critBonus);
+    if (canCrit ?? true) {
+      if (context && context.isCritBonus) {
+        critRoll = roll;
+        baseRoll = await new Roll('0').evaluate({ async: true });
+        roll = baseRoll;
+      } else {
+        let bonus = critBonus || '';
+        bonus += genericCritBonusDamage ? ` + ${genericCritBonusDamage}` : '';
+        critRoll = await constructCritDamageRoll(roll, bonus);
+      }
+    }
+
     if (isCrit) roll = critRoll;
 
     const label = damageType
@@ -235,7 +262,7 @@ export default class RollPreparationManager {
       ({ damageType }) => !damageType || damageType === 'null'
     );
 
-    return genericBonusDamage.map(({ formula }) => formula);
+    return genericBonusDamage.map(({ formula, context }) => ({ formula, context }));
   }
 
   async #prepareGenericRoll(_roll) {
@@ -244,7 +271,7 @@ export default class RollPreparationManager {
     if (!rollFormula) return null;
 
     const roll = await new Roll(rollFormula).evaluate({ async: true });
-    const label = roll.label ?? localize('A5E.GenericRoll');
+    const label = _roll.label || localize('A5E.GenericRoll');
 
     return {
       label,
@@ -368,7 +395,7 @@ export default class RollPreparationManager {
     // Add Global Ability bonus
     modifiers.push({
       label: localize('A5E.AbilityCheckBonusGlobal'),
-      value: this.#actor.BonusesManger.getGlobalAbilityBonusesFormula('check')
+      value: this.#actor.BonusesManager.getGlobalAbilityBonusesFormula('check')
     });
 
     // Add Custom Bonus to Roll

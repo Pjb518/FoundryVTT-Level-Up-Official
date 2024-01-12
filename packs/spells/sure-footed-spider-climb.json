@@ -1,0 +1,152 @@
+{
+	"name": "Sure-Footed Spider Climb",
+	"type": "spell",
+	"img": "icons/creatures/webs/web-spider-glowing-purple.webp",
+	"effects": [
+		{
+			"icon": "icons/creatures/webs/web-spider-glowing-purple.webp",
+			"origin": "Item.hDv4TxQVaI7gmp9K",
+			"flags": {
+				"a5e": {
+					"sort": 0,
+					"transferType": "onUse",
+					"actionId": "GWa9uJi4MquZXIi6",
+					"duration": {
+						"unit": "hours"
+					}
+				}
+			},
+			"transfer": false,
+			"name": "Spider Climb",
+			"_id": "sQU8HDpxkEceCdQe",
+			"changes": [
+				{
+					"key": "system.attributes.movement.climb.distance",
+					"value": "@attributes.movement.walk.distance",
+					"mode": 6,
+					"priority": null
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": 3600,
+				"combat": null,
+				"rounds": null,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "",
+			"statuses": [],
+			"folder": null
+		}
+	],
+	"flags": {},
+	"system": {
+		"actions": {
+			"GWa9uJi4MquZXIi6": {
+				"name": "Spider Climb",
+				"activation": {
+					"cost": 1,
+					"type": "action",
+					"reactionTrigger": ""
+				},
+				"duration": {
+					"unit": "hour",
+					"value": "1"
+				},
+				"ranges": {
+					"6SPhi6tPm46eeoCR": {
+						"range": "touch"
+					}
+				},
+				"area": {
+					"shape": "",
+					"size": "",
+					"placeTemplate": false
+				},
+				"target": {
+					"quantity": 1,
+					"type": "creature",
+					"scaling": {
+						"mode": "spellLevel",
+						"formula": "1"
+					}
+				},
+				"consumers": {
+					"ebhYxR9NKxUdqid3": {
+						"mode": "variable",
+						"spellLevel": 2,
+						"points": 3,
+						"type": "spell"
+					}
+				},
+				"prompts": {
+					"5OwxYgyKaebM74dU": {
+						"type": "effect",
+						"default": true,
+						"effectId": "sQU8HDpxkEceCdQe"
+					}
+				}
+			}
+		},
+		"description": "<p>The target gains the ability to walk on walls and upside down on ceilings, as well as a climbing speed equal to its base Speed.</p>\n<p><strong><em>Cast at Higher Levels.</em></strong> You can affect one additional target for each slot level above 2nd.</p>\n<p><em><strong>Rare:&nbsp;</strong></em><strong>Sure-Footed Spider Climb.&nbsp;</strong>The&nbsp;target automatically succeeds on ability checks&nbsp;and saving throws made to keep its balance.</p>",
+		"favorite": false,
+		"secretDescription": "",
+		"source": "",
+		"uses": {
+			"value": null,
+			"max": "",
+			"per": null,
+			"recharge": {
+				"formula": "",
+				"threshold": ""
+			}
+		},
+		"schema": {
+			"version": null,
+			"lastMigration": null
+		},
+		"classes": [
+			"artificer",
+			"sorcerer",
+			"warlock",
+			"wielder",
+			"wizard"
+		],
+		"components": {
+			"vocalized": true,
+			"seen": true,
+			"material": true
+		},
+		"concentration": true,
+		"level": 2,
+		"materials": "cobweb and small wooden shoe",
+		"materialsConsumed": false,
+		"prepared": false,
+		"prerequisite": "",
+		"rare": true,
+		"ritual": false,
+		"schools": {
+			"primary": "transmutation",
+			"secondary": [
+				"arcane",
+				"movement",
+				"utility"
+			]
+		},
+		"schemaVersion": {
+			"version": 0.01,
+			"lastMigration": {
+				"version": {
+					"schema": 0.009,
+					"foundry": "12.316",
+					"system": "0.16.12"
+				}
+			}
+		}
+	},
+	"folder": null,
+	"_id": "l02fen7m48t2e7wb"
+}

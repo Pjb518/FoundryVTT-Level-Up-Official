@@ -17,12 +17,12 @@
             roll.type === "damage" &&
             (roll.canCrit ?? true) &&
             roll.critRoll &&
-            roll.baseRoll
+            roll.baseRoll,
     );
 
     $: critDamageEnabled = zip(
         $message.rolls ?? [],
-        $message?.flags?.a5e?.rollData ?? []
+        $message?.flags?.a5e?.rollData ?? [],
     ).some(([roll, rollData]) => {
         if (rollData.type !== "damage") return false;
         if (!rollData.canCrit ?? true) return false;
@@ -123,7 +123,7 @@
         background: rgba(0, 0, 0, 0.05);
         border: 1px solid #ccc;
         border-radius: 3px;
-        transition: all 0.15s ease-in-out;
+        transition: var(--a5e-transition-standard);
 
         &:hover {
             color: #191813;

@@ -2,7 +2,46 @@
 	"name": "Mindshield",
 	"type": "spell",
 	"img": "icons/magic/symbols/runes-star-magenta.webp",
-	"effects": [],
+	"effects": [
+		{
+			"icon": "icons/magic/symbols/runes-star-magenta.webp",
+			"origin": "Item.CEzlH08b5i09D1Hj",
+			"flags": {
+				"a5e": {
+					"sort": 0,
+					"transferType": "onUse",
+					"actionId": "iDCtzR27wRAeIiZa",
+					"duration": {
+						"unit": "minutes"
+					}
+				}
+			},
+			"transfer": false,
+			"name": "Mindshield",
+			"_id": "QwxVLuOkkUcHrb7o",
+			"changes": [
+				{
+					"key": "system.traits.damageResistances",
+					"value": "[\"psychic\"]",
+					"mode": 2,
+					"priority": null
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": 600,
+				"combat": null,
+				"rounds": null,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "<p>The target has resistance to psychic damage and advantage on saving throws made to resist being charmed or frightened.</p>",
+			"statuses": [],
+			"folder": null
+		}
+	],
 	"flags": {},
 	"system": {
 		"actions": {
@@ -37,6 +76,13 @@
 						"spellLevel": 4,
 						"points": 6,
 						"type": "spell"
+					}
+				},
+				"prompts": {
+					"f8i1gttsuMxEcm0R": {
+						"type": "effect",
+						"default": true,
+						"effectId": "QwxVLuOkkUcHrb7o"
 					}
 				}
 			}

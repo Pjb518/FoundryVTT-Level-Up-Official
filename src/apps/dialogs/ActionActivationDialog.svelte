@@ -17,7 +17,7 @@
 
     import Checkbox from "../components/Checkbox.svelte";
     import CheckboxGroup from "../components/CheckboxGroup.svelte";
-    import FormSection from "../components/FormSection.svelte";
+    import FieldWrapper from "../components/FieldWrapper.svelte";
 
     import AttackRollSection from "../components/activationDialog/AttackRollSection.svelte";
     import HitDiceSection from "../components/activationDialog/HitDiceSection.svelte";
@@ -59,7 +59,7 @@
                 spell: spellData,
             },
             damageBonuses: Object.entries(
-                $actor.system.bonuses.damage ?? {}
+                $actor.system.bonuses.damage ?? {},
             ).reduce((acc, [key, damageBonus]) => {
                 if (selectedDamageBonuses.includes(key)) {
                     acc.push(damageBonus);
@@ -68,7 +68,7 @@
                 return acc;
             }, []),
             healingBonuses: Object.entries(
-                $actor.system.bonuses.healing ?? {}
+                $actor.system.bonuses.healing ?? {},
             ).reduce((acc, [key, healingBonus]) => {
                 if (selectedHealingBonuses.includes(key)) {
                     acc.push(healingBonus);
@@ -88,7 +88,7 @@
 
                     return acc;
                 },
-                []
+                [],
             ),
             rolls: Object.entries(action.rolls ?? {}).reduce(
                 (acc, [key, roll]) => {
@@ -100,7 +100,7 @@
 
                     return acc;
                 },
-                []
+                [],
             ),
             placeTemplate,
             visibilityMode,
@@ -139,7 +139,7 @@
         $actor,
         $item,
         action,
-        consumers
+        consumers,
     );
 
     setContext("actionId", actionId);
@@ -176,7 +176,7 @@
     {/if}
 
     {#if validateTemplateData($item.actions.get(actionId)?.area)}
-        <FormSection>
+        <FieldWrapper>
             <Checkbox
                 label="A5E.ItemPlaceTemplate"
                 checked={placeTemplate}
@@ -184,7 +184,7 @@
                     placeTemplate = detail;
                 }}
             />
-        </FormSection>
+        </FieldWrapper>
     {/if}
 
     <!-- If there are no rolls, hide this section -->
@@ -194,32 +194,30 @@
 
     <!-- If there are no rolls, hide this section -->
     {#if Object.values(damageBonuses).flat().length}
-        <FormSection heading="Damage Bonuses">
-            <CheckboxGroup
-                options={damageBonuses.map(([key, damageBonus]) => [
-                    key,
-                    damageBonus.label || damageBonus.defaultLabel,
-                ])}
-                selected={selectedDamageBonuses}
-                on:updateSelection={({ detail }) =>
-                    (selectedDamageBonuses = detail)}
-            />
-        </FormSection>
+        <CheckboxGroup
+            heading="Damage Bonuses"
+            options={damageBonuses.map(([key, damageBonus]) => [
+                key,
+                damageBonus.label || damageBonus.defaultLabel,
+            ])}
+            selected={selectedDamageBonuses}
+            on:updateSelection={({ detail }) =>
+                (selectedDamageBonuses = detail)}
+        />
     {/if}
 
     <!-- If there are no rolls, hide this section -->
     {#if Object.values(healingBonuses).flat().length}
-        <FormSection heading="Healing Bonuses">
-            <CheckboxGroup
-                options={healingBonuses.map(([key, healingBonus]) => [
-                    key,
-                    healingBonus.label || healingBonus.defaultLabel,
-                ])}
-                selected={selectedHealingBonuses}
-                on:updateSelection={({ detail }) =>
-                    (selectedHealingBonuses = detail)}
-            />
-        </FormSection>
+        <CheckboxGroup
+            heading="Healing Bonuses"
+            options={healingBonuses.map(([key, healingBonus]) => [
+                key,
+                healingBonus.label || healingBonus.defaultLabel,
+            ])}
+            selected={selectedHealingBonuses}
+            on:updateSelection={({ detail }) =>
+                (selectedHealingBonuses = detail)}
+        />
     {/if}
 
     <!-- If there are no prompts, hide this section -->

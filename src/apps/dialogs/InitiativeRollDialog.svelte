@@ -3,11 +3,13 @@
     import { localize } from "#runtime/svelte/helper";
     import { TJSDocument } from "#runtime/svelte/store/fvtt/document";
 
-    import getRollFormula from "../../utils/getRollFormula";
-
+    import CheckboxGroup from "../components/CheckboxGroup.svelte";
     import ExpertiseDiePicker from "../components/ExpertiseDiePicker.svelte";
-    import FormSection from "../components/FormSection.svelte";
+    import FieldWrapper from "../components/FieldWrapper.svelte";
     import RadioGroup from "../components/RadioGroup.svelte";
+
+    import getRollFormula from "../../utils/getRollFormula";
+    import overrideRollMode from "../../utils/overrideRollMode";
     import prepareAbilityBonuses from "../dataPreparationHelpers/prepareAbilityBonuses";
     import prepareSkillBonuses from "../dataPreparationHelpers/prepareSkillBonuses";
 
@@ -23,6 +25,15 @@
             }, []);
     }
 
+    function getInitialExpertiseDieSelection() {
+        if (hideExpertiseDice) return 0;
+
+        return (
+            options.expertiseDice ??
+            $actor.system.attributes.initiative.expertiseDice
+        );
+    }
+
     const rollModeOptions = Object.entries(CONFIG.A5E.rollModes).map(
         ([key, value]) => [
             CONFIG.A5E.ROLL_MODE[key.toUpperCase()],
@@ -33,6 +44,7 @@
     const actor = new TJSDocument(document.actor);
     const appId = dialog.id;
     const abilities = CONFIG.A5E.abilities;
+    const hideExpertiseDice = game.settings.get("a5e", "hideExpertiseDice");
     const skills = { none: "None", ...CONFIG.A5E.skills };
 
     if (game.settings.get("a5e", "hideA5eSkills")) {
@@ -44,19 +56,21 @@
         dialog.submit({ rollFormula });
     }
 
-    let expertiseDie =
-        options.expertiseDice ??
-        $actor.system.attributes.initiative.expertiseDice;
-
     let abilityKey =
         options.abilityKey ??
         $actor.system.attributes.initiative.ability ??
         "dex";
 
-    let rollMode = options.rollMode ?? CONFIG.A5E.ROLL_MODE.NORMAL;
+    let expertiseDie = getInitialExpertiseDieSelection();
+    let selectedRollMode = options.rollMode ?? CONFIG.A5E.ROLL_MODE.NORMAL;
     let skillKey = options.skillKey ?? "none";
     let rollFormula;
     let situationalMods = options.situationalMods ?? "";
+
+    let rollMode = overrideRollMode($actor, selectedRollMode, {
+        ability: abilityKey,
+        type: "initiative",
+    });
 
     $: abilityBonuses = prepareAbilityBonuses($actor, abilityKey, "check");
     $: skillBonuses = prepareSkillBonuses($actor, skillKey, "check");
@@ -70,69 +84,73 @@
         situationalMods,
         skill: skillKey,
         selectedAbilityBonuses,
-        selectedAbilityBonuses,
+        selectedSkillBonuses,
         type: "initiative",
     });
 </script>
 
 <form>
-    <section class="a5e-box u-flex u-flex-wrap u-gap-sm u-p-md u-pos-relative">
-        <h3 class="heading">
-            {localize("A5E.RollModeHeading")}
-        </h3>
+    <RadioGroup
+        heading="A5E.RollModeHeading"
+        options={rollModeOptions}
+        selected={rollMode}
+        on:updateSelection={({ detail }) => (rollMode = detail)}
+    />
 
-        <RadioGroup
-            options={rollModeOptions}
-            selected={rollMode}
-            on:updateSelection={({ detail }) => (rollMode = detail)}
+    <RadioGroup
+        heading="A5E.AbilityScore"
+        options={Object.entries(abilities)}
+        selected={abilityKey}
+        on:updateSelection={({ detail }) => (abilityKey = detail)}
+    />
+
+    <RadioGroup
+        heading="A5E.Skill"
+        options={Object.entries(skills)}
+        selected={skillKey}
+        on:updateSelection={({ detail }) => (skillKey = detail)}
+    />
+
+    <ExpertiseDiePicker
+        selected={expertiseDie}
+        on:updateSelection={(event) => {
+            expertiseDie = event.detail;
+        }}
+    />
+
+    {#if Object.values(abilityBonuses).flat().length}
+        <CheckboxGroup
+            heading="Ability Bonuses"
+            options={abilityBonuses.map(([key, abilityBonus]) => [
+                key,
+                abilityBonus.label || abilityBonus.defaultLabel,
+            ])}
+            selected={selectedAbilityBonuses}
+            on:updateSelection={({ detail }) =>
+                (selectedAbilityBonuses = detail)}
         />
-    </section>
+    {/if}
 
-    <section class="a5e-box u-flex u-flex-wrap u-gap-sm u-p-md u-pos-relative">
-        <h3 class="heading">
-            {localize("A5E.AbilityScore")}
-        </h3>
-
-        <RadioGroup
-            options={Object.entries(abilities)}
-            selected={abilityKey}
-            on:updateSelection={({ detail }) => (abilityKey = detail)}
+    {#if Object.values(skillBonuses).flat().length}
+        <CheckboxGroup
+            heading="Skill Bonuses"
+            options={skillBonuses.map(([key, skillBonus]) => [
+                key,
+                skillBonus.label || skillBonus.defaultLabel,
+            ])}
+            selected={selectedSkillBonuses}
+            on:updateSelection={({ detail }) => (selectedSkillBonuses = detail)}
         />
-    </section>
+    {/if}
 
-    <section class="a5e-box u-flex u-flex-wrap u-gap-sm u-p-md u-pos-relative">
-        <h3 class="heading">
-            {localize("A5E.Skill")}
-        </h3>
-
-        <RadioGroup
-            options={Object.entries(skills)}
-            selected={skillKey}
-            on:updateSelection={({ detail }) => (skillKey = detail)}
-        />
-    </section>
-
-    <FormSection heading="A5E.ExpertiseDie">
-        <ExpertiseDiePicker
-            selected={expertiseDie}
-            on:updateSelection={(event) => {
-                expertiseDie = event.detail;
-            }}
-        />
-    </FormSection>
-
-    <section class="a5e-box u-flex u-flex-wrap u-gap-sm u-p-md u-pos-relative">
-        <label class="heading" for="{$actor.id}-{appId}-situational-mods">
-            {localize("A5E.SituationalMods")}
-        </label>
-
+    <FieldWrapper heading="A5E.SituationalMods">
         <input
             class="a5e-input"
             type="text"
             id="{$actor.id}-{appId}-situational-mods"
             bind:value={situationalMods}
         />
-    </section>
+    </FieldWrapper>
 
     <section class="roll-formula-preview">
         {rollFormula}
@@ -149,12 +167,6 @@
         flex-direction: column;
         gap: 0.5rem;
         padding: 0.75rem;
-    }
-
-    .heading {
-        display: block;
-        font-weight: bold;
-        font-size: $font-size-sm;
     }
 
     .roll-formula-preview {

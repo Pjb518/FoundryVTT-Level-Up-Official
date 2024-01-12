@@ -4,7 +4,7 @@
 
     import CheckboxGroup from "../components/CheckboxGroup.svelte";
     import Checkbox from "../components/Checkbox.svelte";
-    import FormSection from "../components/FormSection.svelte";
+    import FormSection from "../components/LegacyFormSection.svelte";
     import SettingsCustomIcon from "./SettingsCustomIcon.svelte";
     import ConditionIconResetConfirmationDialog from "../dialogs/initializers/ConditionIconResetConfirmationDialog";
     import RadioGroup from "../components/RadioGroup.svelte";
@@ -21,7 +21,7 @@
                     "";
                 return acc;
             },
-            {}
+            {},
         );
     }
 
@@ -68,21 +68,21 @@
             if (!["frightened"].includes(curr)) acc.push(curr);
             return acc;
         },
-        []
+        [],
     );
 
     const automateUnconscious = settings.getStore(
-        "automateUnconsciousApplication"
+        "automateUnconsciousApplication",
     );
 
     const automatedConditions = settings.getStore("automatedConditions");
 
     const conditionFlowDirectionChoices = game.settings.settings.get(
-        "a5e.conditionFlowDirection"
+        "a5e.conditionFlowDirection",
     ).choices;
 
     const iconSizeChoices = game.settings.settings.get(
-        "a5e.effectsPanelIconSize"
+        "a5e.effectsPanelIconSize",
     ).choices;
 
     let automateBloodied = settings.getStore("automateBloodiedApplication");
@@ -117,17 +117,16 @@
     </header>
 
     <!-- Condition Automation -->
-    <FormSection hint="A5E.settings.hints.automateConditions" --gap="0.25rem">
-        <CheckboxGroup
-            options={automatableConditions}
-            selected={selectedConditions}
-            on:updateSelection={({ detail }) => {
-                updates.set("automatedConditions", detail);
-                selectedConditions = detail;
-                reload = true;
-            }}
-        />
-    </FormSection>
+    <CheckboxGroup
+        hint="A5E.settings.hints.automateConditions"
+        options={automatableConditions}
+        selected={selectedConditions}
+        on:updateSelection={({ detail }) => {
+            updates.set("automatedConditions", detail);
+            selectedConditions = detail;
+            reload = true;
+        }}
+    />
 
     <FormSection
         hint="A5E.settings.hints.automateBloodiedApplication"
@@ -193,21 +192,17 @@
         <h3 class="setting-heading">Condition Interface Layout</h3>
     </header>
 
-    <FormSection
+    <RadioGroup
         heading="Condition Interface Flow Direction"
         hint={game.settings.settings.get("a5e.conditionFlowDirection").hint}
-        --gap="0.25rem"
-    >
-        <RadioGroup
-            options={Object.entries(conditionFlowDirectionChoices)}
-            selected={selectedConditionFlowDirection}
-            on:updateSelection={({ detail }) => {
-                updates.set("conditionFlowDirection", detail);
-                selectedConditionFlowDirection = detail;
-                reload = true;
-            }}
-        />
-    </FormSection>
+        options={Object.entries(conditionFlowDirectionChoices)}
+        selected={selectedConditionFlowDirection}
+        on:updateSelection={({ detail }) => {
+            updates.set("conditionFlowDirection", detail);
+            selectedConditionFlowDirection = detail;
+            reload = true;
+        }}
+    />
 </section>
 
 <section class="setting-group">
@@ -250,21 +245,16 @@
         />
     </FormSection>
 
-    <FormSection
+    <RadioGroup
         heading="A5E.settings.effectsPanelIconSize"
         hint="A5E.settings.hints.effectsPanelIconSize"
-        --label-weight="bold"
-        --label-size="$font-size-md"
-    >
-        <RadioGroup
-            options={Object.entries(iconSizeChoices)}
-            selected={selectedIconSize}
-            on:updateSelection={({ detail }) => {
-                updates.set("effectsPanelIconSize", detail);
-                selectedIconSize = detail;
-            }}
-        />
-    </FormSection>
+        options={Object.entries(iconSizeChoices)}
+        selected={selectedIconSize}
+        on:updateSelection={({ detail }) => {
+            updates.set("effectsPanelIconSize", detail);
+            selectedIconSize = detail;
+        }}
+    />
 
     <FormSection
         heading="A5E.settings.effectsPanelPosition"
@@ -345,7 +335,7 @@
         white-space: normal;
         font-size: $font-size-xs;
 
-        transition: all 0.15s ease-in-out;
+        transition: var(--a5e-transition-standard);
         cursor: pointer;
 
         &:hover,

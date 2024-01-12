@@ -1,11 +1,8 @@
 <script>
     import { createEventDispatcher } from "svelte";
-    import { localize } from "#runtime/svelte/helper";
-
-    import arraysAreEqual from "../../utils/arraysAreEqual";
 
     import CheckboxGroup from "./CheckboxGroup.svelte";
-    import FormSection from "./FormSection.svelte";
+    import FieldWrapper from "./FieldWrapper.svelte";
 
     export let options = [];
     export let selected = [];
@@ -23,16 +20,6 @@
             .filter(Boolean);
     }
 
-    function toggleAll() {
-        if (arraysAreEqual(optionKeys, selectedCoreOptions)) {
-            selectedCoreOptions = [];
-        } else {
-            selectedCoreOptions = optionKeys;
-        }
-
-        updateSelections(selectedCustomOptions);
-    }
-
     function updateSelections() {
         selected = [...selectedCoreOptions, ...selectedCustomOptions];
 
@@ -43,44 +30,30 @@
     const dispatch = createEventDispatcher();
 
     $: selectedCoreOptions = selected.filter((option) =>
-        optionKeys.includes(option)
+        optionKeys.includes(option),
     );
 
     $: selectedCustomOptions = selected.filter(
-        (option) => !optionKeys.includes(option)
+        (option) => !optionKeys.includes(option),
     );
 
     $: selectedCoreOptions, selectedCustomOptions, updateSelections();
 </script>
 
-{#if heading}
-    <header class="u-align-center u-flex u-gap-lg">
-        <h3 class="u-text-bold u-text-sm">{localize(heading)}</h3>
-
-        <!-- svelte-ignore a11y-click-events-have-key-events -->
-        <!-- svelte-ignore a11y-missing-attribute -->
-        <!-- svelte-ignore a11y-no-static-element-interactions -->
-        <a on:click={toggleAll} class="u-text-xs"> + Toggle All</a>
-    </header>
-{/if}
-
 <CheckboxGroup
+    {heading}
     {options}
     selected={selectedCoreOptions}
     {disabled}
     {disabledOptions}
     {red}
     {orange}
+    showToggleAllButton={true}
     on:updateSelection={(event) => (selectedCoreOptions = event.detail)}
 />
 
 {#if showCustomInput}
-    <FormSection
-        hint="A5E.HintSeparateBySemiColon"
-        --background="none"
-        --padding="0"
-        --gap="0.5rem"
-    >
+    <FieldWrapper hint="A5E.HintSeparateBySemiColon">
         <input
             class="a5e-input"
             type="text"
@@ -88,5 +61,5 @@
             on:change={({ target }) =>
                 (selectedCustomOptions = splitCustomSelections(target.value))}
         />
-    </FormSection>
+    </FieldWrapper>
 {/if}

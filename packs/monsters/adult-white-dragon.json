@@ -44,6 +44,7 @@
 				"featureType": "",
 				"grants": {},
 				"prerequisite": "",
+				"requiresBloodied": false,
 				"schemaVersion": {
 					"version": 0.01,
 					"lastMigration": {
@@ -104,6 +105,7 @@
 				"featureType": "",
 				"grants": {},
 				"prerequisite": "",
+				"requiresBloodied": false,
 				"schemaVersion": {
 					"version": 0.01,
 					"lastMigration": {
@@ -215,6 +217,7 @@
 				"featureType": "naturalWeapon",
 				"grants": {},
 				"prerequisite": "",
+				"requiresBloodied": false,
 				"schemaVersion": {
 					"version": 0.01,
 					"lastMigration": {
@@ -315,6 +318,7 @@
 				"featureType": "naturalWeapon",
 				"grants": {},
 				"prerequisite": "",
+				"requiresBloodied": false,
 				"schemaVersion": {
 					"version": 0.01,
 					"lastMigration": {
@@ -415,6 +419,7 @@
 				"featureType": "naturalWeapon",
 				"grants": {},
 				"prerequisite": "",
+				"requiresBloodied": false,
 				"schemaVersion": {
 					"version": 0.01,
 					"lastMigration": {
@@ -432,7 +437,7 @@
 		},
 		{
 			"_id": "LcsncSG0v72AnXoV",
-			"name": "Tail Attack (Reaction)",
+			"name": "Tail Attack",
 			"type": "feature",
 			"img": "icons/skills/wounds/injury-pain-impaled-hand-blood.webp",
 			"effects": [],
@@ -519,6 +524,7 @@
 				"featureType": "naturalWeapon",
 				"grants": {},
 				"prerequisite": "",
+				"requiresBloodied": false,
 				"schemaVersion": {
 					"version": 0.01,
 					"lastMigration": {
@@ -615,6 +621,7 @@
 				"featureType": "other",
 				"grants": {},
 				"prerequisite": "",
+				"requiresBloodied": false,
 				"schemaVersion": {
 					"version": 0.01,
 					"lastMigration": {
@@ -711,6 +718,7 @@
 				"featureType": "other",
 				"grants": {},
 				"prerequisite": "",
+				"requiresBloodied": false,
 				"schemaVersion": {
 					"version": 0.01,
 					"lastMigration": {
@@ -767,6 +775,7 @@
 				"featureType": "other",
 				"grants": {},
 				"prerequisite": "",
+				"requiresBloodied": false,
 				"schemaVersion": {
 					"version": 0.01,
 					"lastMigration": {
@@ -802,7 +811,7 @@
 					"requiresUnarmored": false
 				},
 				"actions": {},
-				"description": "<p>The dragon’s spellcasting ability is Charisma (save DC 18). It can innately cast the following spells, requiring no material components.&nbsp;</p><p><strong>3/day each</strong>:&nbsp;<em>dominate beast</em>,<em> fire shield, animal friendship,</em> <em>sleet storm</em></p>",
+				"description": "<p>The dragon&rsquo;s spellcasting ability is Charisma (save DC 15). It can innately cast the following spells, requiring no material components.&nbsp;</p>\n<p><strong>3/day each</strong>:&nbsp;<em>dominate beast</em>,<em> fire shield, animal friendship,</em> <em>sleet storm</em></p>",
 				"favorite": false,
 				"secretDescription": "",
 				"source": "",
@@ -823,6 +832,7 @@
 				"featureType": "",
 				"grants": {},
 				"prerequisite": "",
+				"requiresBloodied": false,
 				"schemaVersion": {
 					"version": 0.01,
 					"lastMigration": {
@@ -927,110 +937,7 @@
 				"featureType": "naturalWeapon",
 				"grants": {},
 				"prerequisite": "",
-				"schemaVersion": {
-					"version": 0.01,
-					"lastMigration": {
-						"version": {
-							"schema": 0.009,
-							"foundry": "12.316",
-							"system": "0.16.12"
-						}
-					}
-				}
-			},
-			"ownership": {
-				"default": 0
-			}
-		},
-		{
-			"_id": "Dlu4XIb9I6hi5K8I",
-			"name": "Cold Breath (Recharge 5-6)",
-			"type": "feature",
-			"img": "icons/creatures/abilities/dragon-ice-breath-blue.webp",
-			"effects": [],
-			"folder": null,
-			"sort": 562500,
-			"flags": {
-				"core": {
-					"sourceId": "Item.bb0pkgfCH8Rr8RIc"
-				}
-			},
-			"system": {
-				"ac": {
-					"baseFormula": "",
-					"formula": "",
-					"maxDex": 0,
-					"minStr": 0,
-					"mode": 1,
-					"requiresNoShield": false,
-					"requiresUnarmored": false
-				},
-				"actions": {
-					"1Gm1hvzUBAxkTetu": {
-						"name": "Cold Breath (Recharge 5-6)",
-						"activation": {
-							"cost": 1,
-							"type": "action",
-							"reactionTrigger": ""
-						},
-						"duration": {
-							"unit": "instantaneous",
-							"value": ""
-						},
-						"area": {
-							"shape": "cone",
-							"size": "60",
-							"placeTemplate": false,
-							"length": 60
-						},
-						"target": {
-							"quantity": 1,
-							"type": ""
-						},
-						"rolls": {
-							"Ar2exoDdMURsbV9Q": {
-								"canCrit": false,
-								"damageType": "cold",
-								"formula": "15d6",
-								"name": "",
-								"type": "damage"
-							}
-						},
-						"prompts": {
-							"cB6aurXisLdhNtz1": {
-								"ability": "con",
-								"onSave": "Half damage and speed not reduced.",
-								"saveDC": {
-									"type": "custom",
-									"bonus": "19"
-								},
-								"type": "savingThrow"
-							}
-						},
-						"consumers": {}
-					}
-				},
-				"description": "<p>The dragon exhales a 60-foot cone of frost. Each creature in the area makes a DC 19 Constitution saving throw. On a failure, it takes 52 (15d6) cold damage, and its speed is reduced to 0 until the end of its next turn. On a success, it takes half damage.</p>",
-				"favorite": true,
-				"secretDescription": "",
-				"source": "",
-				"uses": {
-					"value": null,
-					"max": "",
-					"per": null,
-					"recharge": {
-						"formula": "",
-						"threshold": ""
-					}
-				},
-				"schema": {
-					"version": null,
-					"lastMigration": null
-				},
-				"concentration": false,
-				"featureType": "naturalWeapon",
-				"grants": {},
-				"prerequisite": "",
+				"requiresBloodied": false,
 				"schemaVersion": {
 					"version": 0.01,
 					"lastMigration": {
@@ -1048,7 +955,7 @@
 		},
 		{
 			"_id": "HcudkJ6gE27GSpKV",
-			"name": "Raging Storm (1/Day, Bloodied Only) (Legendary Action)",
+			"name": "Raging Storm (Legendary Action)",
 			"type": "feature",
 			"img": "icons/svg/item-bag.svg",
 			"effects": [],
@@ -1067,7 +974,7 @@
 				},
 				"actions": {
 					"jFl7xrhcdePF6wFd": {
-						"name": "Raging Storm (1/Day, Bloodied Only) (Legendary Action)",
+						"name": "Raging Storm (Legendary Action)",
 						"activation": {
 							"cost": 1,
 							"type": "legendaryAction",
@@ -1099,7 +1006,13 @@
 								"type": "savingThrow"
 							}
 						},
-						"consumers": {}
+						"consumers": {
+							"WtkZiahQTycgNEy2": {
+								"type": "itemUses",
+								"default": true,
+								"quantity": 1
+							}
+						}
 					}
 				},
 				"description": "<p>For 1 minute, gusts of sleet emanate from the dragon in a 40-foot-radius sphere, spreading around corners. The area is lightly obscured and the ground is difficult terrain The first time a creature moves on its turn while in the area, it must succeed on a DC 15 Dexterity saving throw or fall prone (or fall if it is flying).</p>",
@@ -1107,9 +1020,9 @@
 				"secretDescription": "",
 				"source": "",
 				"uses": {
-					"value": null,
-					"max": "",
-					"per": null,
+					"value": 1,
+					"max": "1",
+					"per": "day",
 					"recharge": {
 						"formula": "",
 						"threshold": ""
@@ -1123,6 +1036,7 @@
 				"featureType": "",
 				"grants": {},
 				"prerequisite": "",
+				"requiresBloodied": true,
 				"schemaVersion": {
 					"version": 0.01,
 					"lastMigration": {
@@ -1179,6 +1093,7 @@
 				"featureType": "",
 				"grants": {},
 				"prerequisite": "",
+				"requiresBloodied": false,
 				"schemaVersion": {
 					"version": 0.01,
 					"lastMigration": {
@@ -1273,6 +1188,7 @@
 					"version": null,
 					"lastMigration": null
 				},
+				"concentration": false,
 				"degree": 0,
 				"exertionCost": 0,
 				"isStance": false,
@@ -1375,6 +1291,7 @@
 					"version": null,
 					"lastMigration": null
 				},
+				"concentration": false,
 				"degree": 0,
 				"exertionCost": 0,
 				"isStance": false,
@@ -1468,6 +1385,7 @@
 					"version": null,
 					"lastMigration": null
 				},
+				"concentration": false,
 				"degree": 0,
 				"exertionCost": 0,
 				"isStance": false,
@@ -1561,6 +1479,7 @@
 					"version": null,
 					"lastMigration": null
 				},
+				"concentration": false,
 				"degree": 0,
 				"exertionCost": 0,
 				"isStance": false,
@@ -1654,6 +1573,7 @@
 					"version": null,
 					"lastMigration": null
 				},
+				"concentration": false,
 				"degree": 0,
 				"exertionCost": 0,
 				"isStance": false,
@@ -1747,6 +1667,7 @@
 					"version": null,
 					"lastMigration": null
 				},
+				"concentration": false,
 				"degree": 0,
 				"exertionCost": 0,
 				"isStance": false,
@@ -1771,455 +1692,96 @@
 			"_id": "3rhYzvL3JMeHj45H"
 		},
 		{
-			"name": "Dominate Beast",
-			"type": "spell",
-			"img": "icons/creatures/abilities/bull-head-horns-glowing.webp",
+			"_id": "yDoxRVNz3W21NYRP",
+			"name": "Cold Breath",
+			"type": "feature",
+			"img": "icons/creatures/abilities/dragon-ice-breath-blue.webp",
 			"effects": [],
-			"flags": {
-				"core": {
-					"sourceId": "Compendium.a5e.a5e-spells.ma5iq3qjh0fa7ezb"
-				}
-			},
-			"system": {
-				"actions": {
-					"rhpBwsEIHRb7RSL9": {
-						"name": "Dominate Beast",
-						"activation": {
-							"cost": 1,
-							"type": "action",
-							"reactionTrigger": ""
-						},
-						"duration": {
-							"unit": "minute",
-							"value": "1"
-						},
-						"ranges": {
-							"nEGLXoVdcsRW9pen": {
-								"range": "medium"
-							}
-						},
-						"area": {
-							"shape": "",
-							"size": "",
-							"placeTemplate": false
-						},
-						"target": {
-							"quantity": "",
-							"type": "creature"
-						},
-						"prompts": {
-							"Yoz9P6uijiXstwcK": {
-								"ability": "wis",
-								"onSave": "Negates effect",
-								"saveDC": {
-									"type": "spellcasting",
-									"bonus": ""
-								},
-								"type": "savingThrow"
-							}
-						},
-						"consumers": {
-							"5VawbZM1ZmAAcP4a": {
-								"mode": "variable",
-								"spellLevel": 4,
-								"points": 6,
-								"type": "spell"
-							}
-						}
-					}
-				},
-				"description": "<p>You assert control over the target beast's mind and it is charmed for the duration. If it is engaged in combat with you or creatures friendly to you, it has advantage on its saving throw.</p><p>Until the charmed condition ends, you establish a telepathic link with it while you are on the same plane. You may issue commands through this link and the target does its best to obey. No action is required to issue commands, which can be a simple and general course of action such as &quot;Attack that target, &quot; &quot;Go over there, &quot; or &quot;Bring me that object.&quot; Without commands the target only defends itself. The target continues to follow a command until its task is complete.</p><p>You can use your action to assume direct control of the target. Until the end of your next turn, you decide all of the target's actions and it does nothing you do not allow it to. While a target is directly controlled in this way, you can also cause it to use a reaction, but this requires you to use your own reaction as well.</p><p>Each time the target takes damage, it makes a new saving throw against the spell, ending the spell on a success.</p><p><strong><em>Cast at Higher Levels.</em></strong> The spell's duration is extended: 5th-level&mdash;Concentration (10 minutes), 6th-level&mdash;Concentration (1 hour), 7th-level&mdash;Concentration (8 hours).</p>",
-				"favorite": false,
-				"secretDescription": "",
-				"source": "",
-				"uses": {
-					"value": null,
-					"max": "",
-					"per": null,
-					"recharge": {
-						"formula": "",
-						"threshold": ""
-					}
-				},
-				"schema": {
-					"version": null,
-					"lastMigration": null
-				},
-				"classes": [],
-				"components": {
-					"vocalized": true,
-					"seen": true,
-					"material": false
-				},
-				"concentration": true,
-				"level": 4,
-				"materials": "",
-				"materialsConsumed": false,
-				"prepared": false,
-				"prerequisite": "",
-				"rare": false,
-				"ritual": false,
-				"schools": {
-					"primary": "enchantment",
-					"secondary": [
-						"beasts",
-						"compulsion",
-						"nature"
-					]
-				},
-				"schemaVersion": {
-					"version": 0.01,
-					"lastMigration": {
-						"version": {
-							"schema": 0.009,
-							"foundry": "12.316",
-							"system": "0.16.12"
-						}
-					}
-				}
-			},
-			"_id": "D9mfACb6iZfeYA5c",
-			"ownership": {
-				"default": 0
-			},
 			"folder": null,
-			"sort": 0
-		},
-		{
-			"name": "Fire Shield",
-			"type": "spell",
-			"img": "icons/magic/fire/blast-jet-stream-embers-yellow.webp",
-			"effects": [],
+			"sort": 562500,
 			"flags": {
 				"core": {
-					"sourceId": "Compendium.a5e.a5e-spells.lnbcwy44k19g4bbu"
+					"sourceId": "Item.bb0pkgfCH8Rr8RIc"
 				}
 			},
 			"system": {
+				"ac": {
+					"baseFormula": "",
+					"formula": "",
+					"maxDex": 0,
+					"minStr": 0,
+					"mode": 1,
+					"requiresNoShield": false,
+					"requiresUnarmored": false
+				},
 				"actions": {
-					"OrpIOwi4mJB0dRUp": {
-						"name": "Fire Shield",
+					"GYUrEO2ZkrX7IwzF": {
+						"name": "Cold Breath",
 						"activation": {
 							"cost": 1,
 							"type": "action",
 							"reactionTrigger": ""
 						},
 						"duration": {
-							"unit": "minute",
-							"value": "10"
+							"unit": "instantaneous",
+							"value": ""
 						},
-						"ranges": {
-							"LMb8BXQ8GDu03Ucx": {
-								"range": "self"
-							}
-						},
+						"ranges": {},
 						"area": {
-							"shape": "",
-							"size": "",
-							"placeTemplate": false
+							"shape": "cone",
+							"size": "30",
+							"placeTemplate": true,
+							"length": 30
 						},
 						"target": {
-							"quantity": "",
-							"type": "self"
-						},
-						"rolls": {
-							"Fgku7YH33z36JZfu": {
-								"canCrit": false,
-								"damageType": "fire",
-								"formula": "2d8",
-								"name": "Warm Shield",
-								"type": "damage"
-							},
-							"ekC3Ly6r1OqDLPaV": {
-								"canCrit": false,
-								"damageType": "cold",
-								"formula": "2d8",
-								"name": "Chill Shield",
-								"type": "damage"
-							}
-						},
-						"consumers": {
-							"zwY9ACZc4feWdphS": {
-								"mode": "variable",
-								"spellLevel": 4,
-								"points": 6,
-								"type": "spell"
-							}
-						}
-					}
-				},
-				"description": "<p>Until the spell ends, flames envelop your body, casting bright light in a 10-foot radius and dim light for an additional 10 feet. You can use an action to end the spell early. Choose one of the following options:</p><ul><li><p><strong>Chill Shield:</strong> You have resistance to fire damage. A creature within 5 feet of you takes 2d8 cold damage when it hits you with a melee attack.</p></li><li><p><strong>Warm Shield:</strong> You have resistance to cold damage. A creature within 5 feet of you takes 2d8 fire damage when it hits you with a melee attack.</p></li></ul><p><strong><em>Cast at Higher Levels.</em></strong> The duration increases to 1 hour when using a 6th-level spell slot, or 8 hours when using an 8th-level spell slot.</p>",
-				"favorite": false,
-				"secretDescription": "",
-				"source": "",
-				"uses": {
-					"value": null,
-					"max": "",
-					"per": null,
-					"recharge": {
-						"formula": "",
-						"threshold": ""
-					}
-				},
-				"schema": {
-					"version": null,
-					"lastMigration": null
-				},
-				"classes": [],
-				"components": {
-					"vocalized": true,
-					"seen": true,
-					"material": true
-				},
-				"concentration": false,
-				"level": 4,
-				"materials": "phosphorus",
-				"materialsConsumed": false,
-				"prepared": false,
-				"prerequisite": "",
-				"rare": false,
-				"ritual": false,
-				"schools": {
-					"primary": "evocation",
-					"secondary": [
-						"arcane",
-						"cold",
-						"fire",
-						"protection"
-					]
-				},
-				"schemaVersion": {
-					"version": 0.01,
-					"lastMigration": {
-						"version": {
-							"schema": 0.009,
-							"foundry": "12.316",
-							"system": "0.16.12"
-						}
-					}
-				}
-			},
-			"_id": "lalLQCSdVlIG9yg5",
-			"ownership": {
-				"default": 0
-			},
-			"folder": null,
-			"sort": 0
-		},
-		{
-			"name": "Animal Friendship",
-			"type": "spell",
-			"img": "icons/creatures/mammals/elk-moose-marked-green.webp",
-			"effects": [],
-			"flags": {
-				"core": {
-					"sourceId": "Compendium.a5e.a5e-spells.1laktjzxk5nh1x1r"
-				}
-			},
-			"system": {
-				"actions": {
-					"IV3HIuyqtazSa3SL": {
-						"name": "Animal Friendship",
-						"activation": {
-							"cost": 1,
-							"type": "action",
-							"reactionTrigger": ""
-						},
-						"duration": {
-							"unit": "hour",
-							"value": "24"
-						},
-						"ranges": {
-							"Sq7GpokSS170wv8L": {
-								"range": "short"
-							}
-						},
-						"area": {
-							"shape": "",
-							"size": "",
-							"placeTemplate": false
-						},
-						"target": {
-							"quantity": "",
-							"type": "creature"
-						},
-						"prompts": {
-							"PwcoRftiVfDdbbMn": {
-								"ability": "wis",
-								"onSave": "Negates effect",
-								"saveDC": {
-									"type": "custom",
-									"bonus": ""
-								},
-								"type": "savingThrow"
-							}
-						},
-						"consumers": {
-							"REreIaie5jZUD7V8": {
-								"mode": "variable",
-								"spellLevel": 1,
-								"points": 2,
-								"type": "spell"
-							}
-						}
-					}
-				},
-				"description": "<p>You allow your inner beauty to shine through in song and dance whether to call a bird from its tree or a badger from its sett. Until the spell ends or one of your companions harms it (whichever is sooner), the target is charmed by you.</p><p><strong><em>Cast at Higher Levels.</em></strong> Choose one additional target for each slot level above 1st.</p>",
-				"favorite": false,
-				"secretDescription": "",
-				"source": "",
-				"uses": {
-					"value": null,
-					"max": "",
-					"per": null,
-					"recharge": {
-						"formula": "",
-						"threshold": ""
-					}
-				},
-				"schema": {
-					"version": null,
-					"lastMigration": null
-				},
-				"classes": [],
-				"components": {
-					"vocalized": true,
-					"seen": true,
-					"material": true
-				},
-				"concentration": false,
-				"level": 1,
-				"materials": "red ribbon",
-				"materialsConsumed": false,
-				"prepared": false,
-				"prerequisite": "",
-				"rare": false,
-				"ritual": false,
-				"schools": {
-					"primary": "enchantment",
-					"secondary": [
-						"beasts",
-						"compulsion",
-						"nature"
-					]
-				},
-				"schemaVersion": {
-					"version": 0.01,
-					"lastMigration": {
-						"version": {
-							"schema": 0.009,
-							"foundry": "12.316",
-							"system": "0.16.12"
-						}
-					}
-				}
-			},
-			"_id": "ZFu8tB9MECTNFgQW",
-			"ownership": {
-				"default": 0
-			},
-			"folder": null,
-			"sort": 0
-		},
-		{
-			"name": "Sleet Storm",
-			"type": "spell",
-			"img": "icons/magic/water/snowflake-ice-blue.webp",
-			"effects": [],
-			"flags": {
-				"core": {
-					"sourceId": "Compendium.a5e.a5e-spells.qvi9ra3gzxi3sd28"
-				}
-			},
-			"system": {
-				"actions": {
-					"PhZr5CfeJzmgecHb": {
-						"name": "Sleet Storm",
-						"activation": {
-							"cost": 1,
-							"type": "action",
-							"reactionTrigger": ""
-						},
-						"duration": {
-							"unit": "minute",
-							"value": "1"
-						},
-						"ranges": {
-							"YJ2U9vqdjAGyIUzn": {
-								"range": "long"
-							}
-						},
-						"area": {
-							"shape": "cylinder",
-							"radius": "40",
-							"height": "20",
-							"placeTemplate": false
-						},
-						"target": {
-							"quantity": "",
+							"quantity": 1,
 							"type": ""
 						},
+						"rolls": {
+							"O024RV9M0rAlxFac": {
+								"canCrit": false,
+								"damageType": "cold",
+								"formula": "10d6",
+								"name": "",
+								"type": "damage"
+							}
+						},
 						"prompts": {
-							"qGvNczTba0I7MNTK": {
-								"ability": "dex",
-								"onSave": "",
+							"d6jY3Hdj1sDuajkK": {
+								"ability": "con",
+								"onSave": "Half damage",
 								"saveDC": {
-									"type": "spellcasting",
-									"bonus": ""
+									"type": "custom",
+									"bonus": "15"
 								},
 								"type": "savingThrow"
 							}
 						},
-						"consumers": {
-							"9f4CcwbCCyFAba1y": {
-								"mode": "variable",
-								"spellLevel": 2,
-								"points": 3,
-								"type": "spell"
-							}
-						}
+						"consumers": {}
 					}
 				},
-				"description": "<p>You conjure a storm of freezing rain and sleet in the area. The ground in the area is covered with slick ice that makes it difficult terrain, exposed flames in the area are doused, and the area is heavily obscured.</p><p>When a creature enters the area for the first time on a turn or starts its turn there, it makes a Dexterity saving throw or falls prone.</p><p>When a creature concentrating on a spell starts its turn in the area or first enters into the area on a turn, it makes a Constitution saving throw or loses concentration.</p>",
-				"favorite": false,
+				"description": "<p>The dragon exhales a 30-foot cone of frost. Each creature in that area makes a DC 15 Constitution saving throw, taking 35 (10d6) cold damage on a failed save or half damage on a success.&nbsp;</p>",
+				"favorite": true,
 				"secretDescription": "",
 				"source": "",
 				"uses": {
-					"value": null,
-					"max": "",
-					"per": null,
+					"value": 1,
+					"max": "1",
+					"per": "recharge",
 					"recharge": {
 						"formula": "",
-						"threshold": ""
+						"threshold": 5
 					}
 				},
 				"schema": {
 					"version": null,
 					"lastMigration": null
 				},
-				"classes": [],
-				"components": {
-					"vocalized": true,
-					"seen": true,
-					"material": true
-				},
-				"concentration": true,
-				"level": 2,
-				"materials": "few drops of melted snow",
-				"materialsConsumed": false,
-				"prepared": false,
+				"concentration": false,
+				"featureType": "naturalWeapon",
+				"grants": {},
 				"prerequisite": "",
-				"rare": false,
-				"ritual": false,
-				"schools": {
-					"primary": "conjuration",
-					"secondary": [
-						"cold",
-						"nature",
-						"terrain",
-						"weather"
-					]
-				},
+				"requiresBloodied": false,
 				"schemaVersion": {
 					"version": 0.01,
 					"lastMigration": {
@@ -2231,12 +1793,9 @@
 					}
 				}
 			},
-			"_id": "jfTVcYVW9ABsts6h",
 			"ownership": {
 				"default": 0
-			},
-			"folder": null,
-			"sort": 0
+			}
 		}
 	],
 	"effects": [],
@@ -2255,7 +1814,9 @@
 				"9"
 			],
 			"showSpellSlots": false,
-			"showSpellPoints": false
+			"showSpellPoints": false,
+			"sheetIsLocked": false,
+			"showSpellTab": false
 		}
 	},
 	"system": {
@@ -2346,7 +1907,7 @@
 			}
 		},
 		"schemaVersion": {
-			"version": 0.007,
+			"version": 0.01,
 			"lastMigration": {
 				"version": {
 					"schema": 0.006,
@@ -2683,6 +2244,7 @@
 				}
 			},
 			"initiative": {
+				"ability": "dex",
 				"bonus": "",
 				"expertiseDice": 0
 			},
@@ -2737,15 +2299,15 @@
 			"casterLevel": 0
 		},
 		"bonuses": {
-			"abilities": {},
-			"damage": {},
-			"healing": {},
 			"maneuverDC": "",
 			"meleeSpellAttack": "",
 			"meleeWeaponAttack": "",
 			"rangedSpellAttack": "",
 			"rangedWeaponAttack": "",
-			"spellDC": "1",
+			"spellDC": "",
+			"abilities": {},
+			"damage": {},
+			"healing": {},
 			"skills": {}
 		},
 		"currency": {
@@ -2838,7 +2400,7 @@
 	},
 	"prototypeToken": {
 		"name": "Adult White Dragon",
-		"displayName": 0,
+		"displayName": 30,
 		"actorLink": false,
 		"width": 3,
 		"height": 3,
@@ -2869,7 +2431,7 @@
 			"attenuation": 0.5
 		},
 		"disposition": -1,
-		"displayBars": 0,
+		"displayBars": 30,
 		"bar1": {
 			"attribute": "attributes.hp"
 		},
@@ -2885,15 +2447,11 @@
 			"scaleY": 1,
 			"offsetX": 0,
 			"offsetY": 0,
-			"rotation": 0,
-			"anchorX": 0.5,
-			"anchorY": 0.5,
-			"fit": "contain",
-			"alphaThreshold": 0.75
+			"rotation": 0
 		},
 		"sight": {
 			"angle": 360,
-			"enabled": false,
+			"enabled": true,
 			"range": 0,
 			"brightness": 1,
 			"color": null,
@@ -2904,12 +2462,7 @@
 		},
 		"detectionModes": [],
 		"appendNumber": false,
-		"prependAdjective": false,
-		"hexagonalShape": 0,
-		"locked": false,
-		"occludable": {
-			"radius": 0
-		}
+		"prependAdjective": false
 	},
 	"folder": null,
 	"_id": "v93pwp05o9mfe947"

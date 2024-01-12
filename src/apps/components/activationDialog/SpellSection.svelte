@@ -5,7 +5,7 @@
     import getActionScalingModes from "../../../utils/getActionScalingModes";
 
     import Checkbox from "../Checkbox.svelte";
-    import FormSection from "../FormSection.svelte";
+    import FieldWrapper from "../FieldWrapper.svelte";
     import RadioGroup from "../RadioGroup.svelte";
 
     export let consumers;
@@ -65,7 +65,7 @@
                 if (Number(cost) <= availablePoints) acc = Number(level);
                 return acc;
             },
-            0
+            0,
         );
 
         disabled = [
@@ -84,7 +84,7 @@
             if (slot.max > 0 && slot.current > 0) acc.push(level);
             return acc;
         },
-        []
+        [],
     );
 
     // =======================================================
@@ -96,7 +96,7 @@
     spellData.points =
         consumer.points ?? A5E.spellLevelCost[$item.system?.level] ?? 1;
     spellData.basePoints = consumer.points ?? 1;
-    spellData.baseLevel = consumer.spellLevel ?? 1;
+    spellData.baseLevel = consumer.spellLevel ?? $item.system.level ?? 1;
 
     if (foundry.utils.isEmpty(consumer)) {
         spellData.consume = "noConsume";
@@ -115,8 +115,8 @@
             mode === "pointsOnly"
                 ? "spellPoint"
                 : availableSpellSlots.length > 0
-                ? "spellSlot"
-                : "spellPoint";
+                  ? "spellSlot"
+                  : "spellPoint";
     }
 
     if (spellData.consume === "spellSlot") disableSpellSlotOptions();
@@ -125,46 +125,32 @@
 </script>
 
 {#if ["variable", "spellsOnly"].includes(mode)}
-    <FormSection>
-        <section>
-            <h3 class="u-text-bold u-text-sm">
-                {localize("A5E.SpellLevel")}
+    <!-- Select spell Level -->
+    <RadioGroup
+        heading={spellData.consume === "spellPoint"
+            ? `${localize("A5E.SpellLevel")} ($${spellData.points} Points)`
+            : localize("A5E.SpellLevel")}
+        selected={spellData.level}
+        options={spellLevels}
+        allowDeselect={false}
+        {disabled}
+        on:updateSelection={({ detail }) =>
+            updateLevelAndPoints(Number(detail))}
+    />
 
-                {#if spellData.consume === "spellPoint"}
-                    ({spellData.points} Points)
-                {/if}
-            </h3>
-
-            <!-- Select spell Level -->
-            <RadioGroup
-                selected={spellData.level}
-                options={spellLevels}
-                allowDeselect={false}
-                {disabled}
-                on:updateSelection={({ detail }) =>
-                    updateLevelAndPoints(Number(detail))}
-            />
-
-            <!-- svelte-ignore missing-declaration -->
-            {#if !foundry.utils.isEmpty(consumer)}
-                <!-- Select Consume Option -->
-                <h3 class="u-text-bold u-text-sm">
-                    {localize("A5E.ConsumeOptions")}
-                </h3>
-
-                <RadioGroup
-                    options={Object.entries(consumeOptions)}
-                    selected={spellData.consume}
-                    on:updateSelection={({ detail }) =>
-                        updateConsumeOption(detail)}
-                />
-            {/if}
-        </section>
-    </FormSection>
+    <!-- svelte-ignore missing-declaration -->
+    {#if !foundry.utils.isEmpty(consumer)}
+        <RadioGroup
+            heading="A5E.ConsumeOptions"
+            options={Object.entries(consumeOptions)}
+            selected={spellData.consume}
+            on:updateSelection={({ detail }) => updateConsumeOption(detail)}
+        />
+    {/if}
 {/if}
 
 {#if mode === "pointsOnly"}
-    <FormSection heading="A5E.SpellPoints" --direction="column">
+    <FieldWrapper heading="A5E.SpellPoints" --direction="column">
         <div class="u-flex u-gap-md u-align-center">
             <div class="u-flex u-w-10">
                 <input
@@ -185,7 +171,9 @@
                 />
             </div>
         </div>
+    </FieldWrapper>
 
+    <FieldWrapper>
         <!-- svelte-ignore missing-declaration -->
         {#if !foundry.utils.isEmpty(consumer)}
             <Checkbox
@@ -196,17 +184,10 @@
                 }}
             />
         {/if}
-    </FormSection>
+    </FieldWrapper>
 {/if}
 
 <style lang="scss">
-    section {
-        display: flex;
-        flex-direction: column;
-        gap: 0.5rem;
-        width: 100%;
-    }
-
     .number-input {
         background: transparent;
         border: 1px solid #bbb;

@@ -1,12 +1,12 @@
 <script>
     import { getContext } from "svelte";
-    import { TJSDocument } from "#runtime/svelte/store/fvtt/document";
 
     import Checkbox from "../components/Checkbox.svelte";
     import CustomTagGroup from "../components/CustomTagGroup.svelte";
     import ExpertiseDiePicker from "../components/ExpertiseDiePicker.svelte";
-    import FormSection from "../components/FormSection.svelte";
+    import FieldWrapper from "../components/FieldWrapper.svelte";
     import RadioGroup from "../components/RadioGroup.svelte";
+    import Section from "../components/Section.svelte";
 
     import prepareAbilityOptions from "../dataPreparationHelpers/prepareAbilityOptions";
     import updateDocumentDataFromField from "../../utils/updateDocumentDataFromField";
@@ -14,7 +14,7 @@
     export let { document, appId, skillKey } =
         getContext("#external").application;
 
-    const actor = new TJSDocument(document);
+    const actor = document;
     const abilityOptions = prepareAbilityOptions();
 
     const specialtyOptions = Object.entries(
@@ -25,22 +25,37 @@
 </script>
 
 <article>
-    <FormSection>
-        <Checkbox
-            label="A5E.ProficiencyProficient"
-            checked={skill.proficient}
-            on:updateSelection={({ detail }) => {
-                updateDocumentDataFromField(
-                    $actor,
-                    `system.skills.${skillKey}.proficient`,
-                    detail,
-                );
-            }}
-        />
-    </FormSection>
+    <Section --a5e-section-body-gap="0.75rem">
+        <FieldWrapper>
+            <Checkbox
+                label="A5E.ProficiencyProficient"
+                checked={skill.proficient}
+                on:updateSelection={({ detail }) => {
+                    updateDocumentDataFromField(
+                        $actor,
+                        `system.skills.${skillKey}.proficient`,
+                        detail,
+                    );
+                }}
+            />
+        </FieldWrapper>
 
-    <FormSection heading="A5E.AbilityScore">
+        {#if !game.settings.get("a5e", "hideSkillSpecialties")}
+            <CustomTagGroup
+                heading="A5E.SkillSpecialties"
+                options={specialtyOptions}
+                selected={skill.specialties}
+                on:updateSelection={(event) =>
+                    updateDocumentDataFromField(
+                        $actor,
+                        `system.skills.${skillKey}.specialties`,
+                        event.detail,
+                    )}
+            />
+        {/if}
+
         <RadioGroup
+            heading="A5E.AbilityScore"
             optionStyles="min-width:2rem; text-align: center;"
             options={[
                 ...abilityOptions,
@@ -55,25 +70,7 @@
                     event.detail,
                 )}
         />
-    </FormSection>
 
-    {#if !game.settings.get("a5e", "hideSkillSpecialties")}
-        <FormSection>
-            <CustomTagGroup
-                heading="A5E.SkillSpecialties"
-                options={specialtyOptions}
-                selected={skill.specialties}
-                on:updateSelection={(event) =>
-                    updateDocumentDataFromField(
-                        $actor,
-                        `system.skills.${skillKey}.specialties`,
-                        event.detail,
-                    )}
-            />
-        </FormSection>
-    {/if}
-
-    <FormSection heading="A5E.ExpertiseDie">
         <ExpertiseDiePicker
             selected={skill.expertiseDice}
             on:updateSelection={({ detail }) =>
@@ -83,24 +80,24 @@
                     detail,
                 )}
         />
-    </FormSection>
 
-    <FormSection heading="A5E.MinimumD20Roll" --direction="column">
-        <div class="u-w-20">
-            <input
-                class="a5e-input"
-                type="number"
-                value={skill.minRoll}
-                min="0"
-                on:change={({ target }) =>
-                    updateDocumentDataFromField(
-                        $actor,
-                        `system.skills.${skillKey}.minRoll`,
-                        Number(target.value),
-                    )}
-            />
-        </div>
-    </FormSection>
+        <FieldWrapper heading="A5E.MinimumD20Roll" --direction="column">
+            <div class="u-w-20">
+                <input
+                    class="a5e-input"
+                    type="number"
+                    value={skill.minRoll}
+                    min="0"
+                    on:change={({ target }) =>
+                        updateDocumentDataFromField(
+                            $actor,
+                            `system.skills.${skillKey}.minRoll`,
+                            Number(target.value),
+                        )}
+                />
+            </div>
+        </FieldWrapper>
+    </Section>
 </article>
 
 <style lang="scss">

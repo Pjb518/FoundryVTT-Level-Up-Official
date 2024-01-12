@@ -16,6 +16,7 @@ export default class MonsterCompendiumSheet extends SvelteApplication {
         class: CompendiumSheetComponent,
         props: {
           compendiumType: 'monster',
+          customImporter: options.importer ?? null,
           document: null,
           filterStore: MonsterFilterStore
         }

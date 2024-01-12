@@ -1,0 +1,160 @@
+{
+	"name": "Taunting Vicious Mockery",
+	"type": "spell",
+	"img": "icons/magic/sonic/scream-wail-shout-teal.webp",
+	"effects": [
+		{
+			"icon": "icons/magic/sonic/scream-wail-shout-teal.webp",
+			"origin": "Item.LG6MajtsrLdRqpSk",
+			"flags": {
+				"a5e": {
+					"sort": 0,
+					"transferType": "onUse",
+					"actionId": "Q3Ts07ycwHan15js",
+					"duration": {
+						"type": "rounds",
+						"unit": "minutes"
+					}
+				}
+			},
+			"transfer": false,
+			"name": "Taunted",
+			"_id": "VZWerjXTPrFvHKDb",
+			"changes": [
+				{
+					"key": "flags.a5e.effects.rollMode.attack.all",
+					"value": "-1",
+					"mode": 6,
+					"priority": null
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": null,
+				"combat": null,
+				"rounds": 1,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "<p>On a failed saving throw the target has disadvantage on all attack rolls next round, and if it makes an attack it can only target you (it can take other actions, but if the target takes the Attack action or casts a spell that includes a spell attack, that attack must be against you). Persuasion checks you make against the target have disadvantage, even after the spell’s duration ends.</p>",
+			"statuses": [],
+			"folder": null
+		}
+	],
+	"flags": {},
+	"system": {
+		"actions": {
+			"Q3Ts07ycwHan15js": {
+				"name": "Cast Spell",
+				"activation": {
+					"cost": 1,
+					"type": "action",
+					"reactionTrigger": ""
+				},
+				"duration": {
+					"unit": "instantaneous",
+					"value": ""
+				},
+				"ranges": {
+					"wovAVIgaqdMIxS71": {
+						"range": "medium"
+					}
+				},
+				"area": {
+					"shape": "",
+					"size": "",
+					"placeTemplate": false
+				},
+				"target": {
+					"quantity": "",
+					"type": "creature"
+				},
+				"rolls": {
+					"3mVtkEN5WEN31cOO": {
+						"canCrit": false,
+						"damageType": "psychic",
+						"formula": "1d6",
+						"name": "",
+						"type": "damage",
+						"scaling": {
+							"mode": "cantrip",
+							"formula": "1d6"
+						}
+					}
+				},
+				"prompts": {
+					"BeJ6xErJLROEWQj1": {
+						"ability": "wis",
+						"onSave": "Targets who pass their save are unaffected",
+						"saveDC": {
+							"type": "spellcasting",
+							"bonus": ""
+						},
+						"type": "savingThrow"
+					},
+					"mdOOlWJRafERBnMC": {
+						"type": "effect",
+						"default": true,
+						"effectId": "VZWerjXTPrFvHKDb"
+					}
+				},
+				"consumers": {}
+			}
+		},
+		"description": "<p>You verbally insult or mock the target so viciously its mind is seared. As long as the target hears you (understanding your words is not required) it takes 1d6 psychic damage and has disadvantage on the first attack roll it makes before the end of its next turn.</p>\n<p>The spell's damage increases by 1d6 when you reach 5th level (2d6), 11th level (3d6), and 17th level (4d6).</p>\n<p><em><strong>Rare:&nbsp;</strong></em><strong>Taunting Vicious Mockery.&nbsp;</strong>Your&nbsp;amazingly effective insults and mockeries also&nbsp;entertain others&mdash;even the target&rsquo;s allies. On a&nbsp;failed saving throw the target has disadvantage&nbsp;on all attack rolls next round, and if it makes an&nbsp;attack it can only target you (it can take other&nbsp;actions, but if the target takes the Attack action&nbsp;or casts a spell that includes a spell attack, that&nbsp;attack must be against you). Persuasion checks&nbsp;you make against the target have disadvantage,&nbsp;even after the spell&rsquo;s duration ends.</p>",
+		"favorite": false,
+		"secretDescription": "",
+		"source": "",
+		"uses": {
+			"value": null,
+			"max": "",
+			"per": null,
+			"recharge": {
+				"formula": "",
+				"threshold": ""
+			}
+		},
+		"schema": {
+			"version": null,
+			"lastMigration": null
+		},
+		"classes": [
+			"bard"
+		],
+		"components": {
+			"vocalized": true,
+			"seen": false,
+			"material": false
+		},
+		"concentration": false,
+		"level": 0,
+		"materials": "",
+		"materialsConsumed": false,
+		"prepared": false,
+		"prerequisite": "",
+		"rare": true,
+		"ritual": false,
+		"schools": {
+			"primary": "enchantment",
+			"secondary": [
+				"arcane",
+				"attack",
+				"psychic"
+			]
+		},
+		"schemaVersion": {
+			"version": 0.01,
+			"lastMigration": {
+				"version": {
+					"schema": 0.009,
+					"foundry": "12.316",
+					"system": "0.16.12"
+				}
+			}
+		}
+	},
+	"folder": null,
+	"_id": "tswykmhxmqgqw0ar"
+}

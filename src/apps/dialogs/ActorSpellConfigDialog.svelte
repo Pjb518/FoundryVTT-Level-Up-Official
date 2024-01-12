@@ -1,36 +1,33 @@
 <script>
-    import { localize } from "#runtime/svelte/helper";
     import { getContext } from "svelte";
-    import { TJSDocument } from "#runtime/svelte/store/fvtt/document";
 
     import updateDocumentDataFromField from "../../utils/updateDocumentDataFromField";
 
     import Checkbox from "../components/Checkbox.svelte";
-    import FormSection from "../components/FormSection.svelte";
+    import FormSection from "../components/LegacyFormSection.svelte";
     import RadioGroup from "../components/RadioGroup.svelte";
 
     export let { document, appId } = getContext("#external").application;
 
-    const actor = new TJSDocument(document);
+    const actor = document;
     const { abilityAbbreviations, spellLevels } = CONFIG.A5E;
 
     $: flags = $actor.flags.a5e;
 </script>
 
 <article>
-    <FormSection heading="A5E.SpellcastingAbilityScore">
-        <RadioGroup
-            optionStyles="min-width:2rem; text-align: center;"
-            options={Object.entries(abilityAbbreviations)}
-            selected={$actor.system.attributes.spellcasting}
-            on:updateSelection={(event) =>
-                updateDocumentDataFromField(
-                    $actor,
-                    "system.attributes.spellcasting",
-                    event.detail,
-                )}
-        />
-    </FormSection>
+    <RadioGroup
+        heading="A5E.SpellcastingAbilityScore"
+        optionStyles="min-width:2rem; text-align: center;"
+        options={Object.entries(abilityAbbreviations)}
+        selected={$actor.system.attributes.spellcasting}
+        on:updateSelection={(event) =>
+            updateDocumentDataFromField(
+                $actor,
+                "system.attributes.spellcasting",
+                event.detail,
+            )}
+    />
 
     <FormSection heading="A5E.SpellDCBonus">
         <div class="u-w-full">

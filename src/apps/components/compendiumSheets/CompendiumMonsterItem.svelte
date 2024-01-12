@@ -82,7 +82,7 @@
 
 <!-- svelte-ignore a11y-click-events-have-key-events a11y-no-noninteractive-element-interactions -->
 <li
-    class="a5efc-document"
+    class="a5e-item a5e-item--compendium-document"
     draggable="true"
     on:click={async () => {
         const doc =
@@ -93,17 +93,17 @@
     on:dragstart={onDragStart}
 >
     <img
-        class="a5efc-document__image"
+        class="a5e-item__image a5e-item__image--compendium-document"
         src={document?.img}
         alt={document?.name}
     />
 
-    <h3 class="a5efc-document__name">
+    <h3 class="a5e-item__name a5e-item__name--compendium-document">
         {document?.name}
 
         {#if document?.system?.details?.elite}
             <i
-                class="a5efc-document__icon fa-solid fa-skull"
+                class="a5e-item__icon fa-solid fa-skull"
                 data-tooltip="Elite Monster"
                 data-tooltip-direction="UP"
             />
@@ -111,14 +111,14 @@
 
         {#if document?.system?.details?.isSwarm}
             <i
-                class="a5efc-document__icon fa-solid fa-people-group"
+                class="a5e-item__icon fa-solid fa-people-group"
                 data-tooltip="Swarm"
                 data-tooltip-direction="UP"
             />
         {/if}
     </h3>
 
-    <span class="a5efc-document__details">
+    <span class="a5e-item__details">
         {monsterDetails}
     </span>
 

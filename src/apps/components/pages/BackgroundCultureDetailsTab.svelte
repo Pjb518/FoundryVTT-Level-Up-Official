@@ -5,7 +5,7 @@
     import updateDocumentDataFromField from "../../../utils/updateDocumentDataFromField";
 
     import Checkbox from "../Checkbox.svelte";
-    import FormSection from "../FormSection.svelte";
+    import FormSection from "../LegacyFormSection.svelte";
     import RadioGroup from "../RadioGroup.svelte";
     import CheckboxGroup from "../CheckboxGroup.svelte";
     import CustomTagGroup from "../CustomTagGroup.svelte";
@@ -53,23 +53,19 @@
         </FormSection>
 
         {#if $item.system.includesASI}
-            <FormSection
+            <RadioGroup
                 heading="A5E.advancementSheet.ASIDefault"
-                --direction="column"
-            >
-                <RadioGroup
-                    optionStyles="min-width:2rem; text-align: center;"
-                    options={abilityOptions}
-                    selected={$item.system.defaultASI}
-                    on:updateSelection={({ detail }) => {
-                        updateDocumentDataFromField(
-                            $item,
-                            "system.defaultASI",
-                            detail,
-                        );
-                    }}
-                />
-            </FormSection>
+                optionStyles="min-width:2rem; text-align: center;"
+                options={abilityOptions}
+                selected={$item.system.defaultASI}
+                on:updateSelection={({ detail }) => {
+                    updateDocumentDataFromField(
+                        $item,
+                        "system.defaultASI",
+                        detail,
+                    );
+                }}
+            />
         {/if}
     {/if}
 

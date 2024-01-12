@@ -7,7 +7,7 @@
 
     import CheckboxGroup from "../components/CheckboxGroup.svelte";
     import CustomTagGroup from "../components/CustomTagGroup.svelte";
-    import FormSection from "../components/FormSection.svelte";
+    import FormSection from "../components/LegacyFormSection.svelte";
     import GenericConfigDialog from "../dialogs/initializers/GenericConfigDialog";
     import WeaponProfConfigDialog from "./WeaponProfConfigDialog.svelte";
     import ToolProfConfigDialog from "./ToolProfConfigDialog.svelte";
@@ -125,21 +125,18 @@
 <form>
     <section>
         {#if $item.type === "background" && $item.system?.includesASI}
-            <FormSection
+            <CheckboxGroup
                 heading="A5E.BackgroundDropAbilitySelect"
                 hint="A5E.BackgroundDropAbilitySelectHint"
                 warning="{2 -
                     selectedAbilityScores.length} Ability Score selections remaining"
                 showWarning={selectedAbilityScores.length < 2}
-            >
-                <CheckboxGroup
-                    options={Object.entries(A5E.abilities)}
-                    selected={selectedAbilityScores}
-                    disabled={selectedAbilityScores.length === 2}
-                    on:updateSelection={({ detail }) =>
-                        (selectedAbilityScores = detail)}
-                />
-            </FormSection>
+                options={Object.entries(A5E.abilities)}
+                selected={selectedAbilityScores}
+                disabled={selectedAbilityScores.length === 2}
+                on:updateSelection={({ detail }) =>
+                    (selectedAbilityScores = detail)}
+            />
         {/if}
 
         {#if languages.count || languages.fixed.length || languages.options.length}
@@ -166,29 +163,27 @@
         {/if}
 
         {#if skills.count || skills.fixed.length || skills.options.length}
-            <FormSection
+            <CheckboxGroup
                 heading="A5E.BackgroundDropSkillsSelect"
+                hint="A5E.originSheets.optionalSelectionHint"
+                options={Object.entries(A5E.skills)}
+                selected={selectedSkills}
+                showWarning={selectedSkills.length < numSkills}
                 warning="{numSkills -
                     selectedSkills.length} skill selections remaining"
-                showWarning={selectedSkills.length < numSkills}
-                hint="A5E.originSheets.optionalSelectionHint"
-            >
-                <CheckboxGroup
-                    options={Object.entries(A5E.skills)}
-                    selected={selectedSkills}
-                    orange={skills.options}
-                    disabled={selectedSkills.length >= numSkills}
-                    disabledOptions={Object.entries(
-                        $actor.system.skills,
-                    ).reduce((proficientSkills, [skillKey, skill]) => {
+                orange={skills.options}
+                disabled={selectedSkills.length >= numSkills}
+                disabledOptions={Object.entries($actor.system.skills).reduce(
+                    (proficientSkills, [skillKey, skill]) => {
                         if (skill.proficient) proficientSkills.push(skillKey);
                         return proficientSkills;
-                    }, [])}
-                    on:updateSelection={({ detail }) => {
-                        selectedSkills = detail;
-                    }}
-                />
-            </FormSection>
+                    },
+                    [],
+                )}
+                on:updateSelection={({ detail }) => {
+                    selectedSkills = detail;
+                }}
+            />
         {/if}
 
         {#if armor.count || armor.fixed.length || armor.options.length}
@@ -274,18 +269,16 @@
         {/if}
 
         {#if equipmentLength}
-            <FormSection heading="A5E.BackgroundDropEquipmentSelect">
-                <!-- svelte-ignore missing-declaration -->
-                <CheckboxGroup
-                    options={Object.entries($item.system.equipment).map(
-                        ([key, e]) => [key, fromUuidSync(e.uuid)?.name],
-                    )}
-                    selected={selectedEquipment}
-                    on:updateSelection={({ detail }) => {
-                        selectedEquipment = detail;
-                    }}
-                />
-            </FormSection>
+            <CheckboxGroup
+                heading="A5E.BackgroundDropEquipmentSelect"
+                options={Object.entries($item.system.equipment).map(
+                    ([key, e]) => [key, fromUuidSync(e.uuid)?.name],
+                )}
+                selected={selectedEquipment}
+                on:updateSelection={({ detail }) => {
+                    selectedEquipment = detail;
+                }}
+            />
         {/if}
     </section>
 

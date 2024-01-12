@@ -2,7 +2,46 @@
 	"name": "Heroes' Feast",
 	"type": "spell",
 	"img": "icons/consumables/food/bowl-stew-tofu-potato-red.webp",
-	"effects": [],
+	"effects": [
+		{
+			"icon": "icons/consumables/food/bowl-stew-tofu-potato-red.webp",
+			"origin": "Item.lWtYa5WJHW6ClqS3",
+			"flags": {
+				"a5e": {
+					"sort": 0,
+					"transferType": "onUse",
+					"actionId": "S0AGYqseMtr3woZ3",
+					"duration": {
+						"unit": "hours"
+					}
+				}
+			},
+			"transfer": false,
+			"name": "Heroically Nourished",
+			"_id": "87TwYN3KnBRKektP",
+			"changes": [
+				{
+					"key": "flags.a5e.effects.rollMode.abilitySave.wis",
+					"value": "1",
+					"mode": 6,
+					"priority": null
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": 86400,
+				"combat": null,
+				"rounds": null,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "<p>For up to 24 hours afterward the feast's participants have advantage on Wisdom saving throws, advantage on saving throws made against disease and poison, resistance against damage from poison and disease, and each increases its hit point maximum by 2d10.</p>",
+			"statuses": [],
+			"folder": null
+		}
+	],
 	"flags": {},
 	"system": {
 		"actions": {
@@ -37,6 +76,13 @@
 						"spellLevel": 6,
 						"points": 9,
 						"type": "spell"
+					}
+				},
+				"prompts": {
+					"mWmnvguv6ur4nAhy": {
+						"type": "effect",
+						"default": true,
+						"effectId": "87TwYN3KnBRKektP"
 					}
 				}
 			}

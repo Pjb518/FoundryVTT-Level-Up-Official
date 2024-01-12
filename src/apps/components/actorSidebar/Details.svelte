@@ -2,6 +2,7 @@
     import { getContext } from "svelte";
     import { localize } from "#runtime/svelte/helper";
 
+    import FieldWrapper from "../FieldWrapper.svelte";
     import Tag from "../Tag.svelte";
 
     import determineIfPropertyModifiedByEffect from "../../../utils/determineIfPropertyModifiedByEffect ";
@@ -25,82 +26,94 @@
             return $actor[dialogMethod]();
 
         ui.notifications.warn(
-            localize("A5E.validations.warnings.modifiedByEffect")
+            localize("A5E.validations.warnings.modifiedByEffect"),
         );
     }
 
     $: details = [
         {
-            label: localize("A5E.Movement"),
+            heading: localize("A5E.Movement"),
             values: prepareMovementData($actor),
             dialogMethod: "configureMovement",
             propertyKey: "system.attributes.movement",
+            tooltip: "Configure Movement",
         },
         {
-            label: localize("A5E.SensesSpecial"),
+            heading: localize("A5E.SensesSpecial"),
             values: prepareSenses($actor),
             dialogMethod: "configureSenses",
             propertyKey: "system.attributes.senses",
+            tooltip: "Configure Senses",
         },
         {
-            label: localize("A5E.Languages"),
+            heading: localize("A5E.Languages"),
             values: prepareLanguageProficiencies($actor),
             dialogMethod: "configureLanguages",
             propertyKey: "system.proficiencies.languages",
+            tooltip: "Configure Languages",
         },
         {
-            label: localize("A5E.ConditionImmunities"),
+            heading: localize("A5E.ConditionImmunities"),
             values: prepareConditionImmunities($actor),
             dialogMethod: "configureConditionImmunities",
             propertyKey: "system.traits.conditionImmunities",
+            tooltip: "Configure Condition Immunities",
         },
         {
-            label: localize("A5E.DamageImmunities"),
+            heading: localize("A5E.DamageImmunities"),
             values: prepareDamageImmunities($actor),
             dialogMethod: "configureDamageImmunities",
             propertyKey: "system.traits.damageImmunities",
+            tooltip: "Configure Damage Immunities",
         },
         {
-            label: localize("A5E.DamageResistances"),
+            heading: localize("A5E.DamageResistances"),
             values: prepareDamageResistances($actor),
             dialogMethod: "configureDamageResistances",
             propertyKey: "system.traits.damageResistances",
+            tooltip: "Configure Damage Resistances",
         },
         {
-            label: localize("A5E.DamageVulnerabilities"),
+            heading: localize("A5E.DamageVulnerabilities"),
             values: prepareDamageVulnerabilities($actor),
             dialogMethod: "configureDamageVulnerabilities",
             propertyKey: "system.traits.damageVulnerabilities",
+            tooltip: "Configure Damage Vulnerabilities",
         },
         {
-            label: localize("A5E.WeaponProficiencies"),
+            heading: localize("A5E.WeaponProficiencies"),
             values: prepareWeaponProficiencies($actor),
             dialogMethod: "configureWeaponProficiencies",
             propertyKey: "system.proficiencies.weapons",
+            tooltip: "Configure Weapon Proficiencies",
         },
         {
-            label: localize("A5E.ArmorProficiencies"),
+            heading: localize("A5E.ArmorProficiencies"),
             values: prepareArmorProficiencies($actor),
             dialogMethod: "configureArmorProficiencies",
             propertyKey: "system.proficiencies.armor",
+            tooltip: "Configure Armor Proficiencies",
         },
         {
-            label: localize("A5E.ToolProficiencies"),
+            heading: localize("A5E.ToolProficiencies"),
             values: prepareToolProficiencies($actor),
             dialogMethod: "configureToolProficiencies",
             propertyKey: "system.proficiencies.tools",
+            tooltip: "Configure Tool Proficiencies",
         },
         {
-            label: localize("A5E.Size"),
+            heading: localize("A5E.Size"),
             values: prepareCreatureSize($actor),
             dialogMethod: "configureSizeCategory",
             propertyKey: "system.traits.size",
+            tooltip: "Configure Size Category",
         },
         {
-            label: localize("A5E.CreatureTypesLabel"),
+            heading: localize("A5E.CreatureTypesLabel"),
             values: prepareCreatureTypes($actor),
             dialogMethod: "configureCreatureTypes",
             propertyKey: "system.details.creatureTypes",
+            tooltip: "Configure Creature Types",
         },
     ];
 
@@ -109,22 +122,23 @@
         : $actor.flags?.a5e?.sheetIsLocked ?? true;
 </script>
 
-{#each details as { label, values, dialogMethod, propertyKey }}
+{#each details as { dialogMethod, heading, propertyKey, tooltip, values }}
     {#if values.length || !sheetIsLocked}
-        <section class="details-section">
-            <h2 class="details-header">
-                {label}
-            </h2>
-
-            {#if !sheetIsLocked}
-                <!-- svelte-ignore a11y-click-events-have-key-events -->
-                <!-- svelte-ignore a11y-no-static-element-interactions -->
-                <i
-                    class="fas fa-gear a5e-config-button details-config"
-                    on:click={() => openConfig(dialogMethod, propertyKey)}
-                />
-            {/if}
-
+        <FieldWrapper
+            {heading}
+            buttons={[
+                {
+                    classes:
+                        "fa-solid fa-gear a5e-field-wrapper__header-button--scale",
+                    display: !sheetIsLocked,
+                    handler: () => openConfig(dialogMethod, propertyKey),
+                    tooltip,
+                },
+            ]}
+            --a5e-field-wrapper-heading-weight="400"
+            --a5e-header-button-color="rgba(0, 0, 0, 0.2)"
+            --a5e-header-button-color-hover="#555"
+        >
             <ul class="details-list">
                 {#each values as tag}
                     <Tag
@@ -141,36 +155,16 @@
                     />
                 {/each}
             </ul>
-        </section>
+        </FieldWrapper>
     {/if}
 {/each}
 
 <style lang="scss">
-    .details-section {
-        position: relative;
-    }
-
-    .details-header {
-        font-family: $font-secondary;
-        font-size: $font-size-sm;
-        // font-weight: bold;
-        padding-left: 0.125rem;
-        padding-bottom: 0.125rem;
-        margin-bottom: 0.275rem;
-        border-bottom: 1px solid #ccc;
-    }
-
-    .details-config {
-        position: absolute;
-        top: 0.125rem;
-        right: 0.125rem;
-    }
-
     .details-list {
         display: flex;
         flex-wrap: wrap;
         gap: 0.25rem;
-        font-size: $font-size-xxs;
+        font-size: var(--a5e-text-size-xxs);
         margin: 0;
         padding: 0;
         list-style: none;

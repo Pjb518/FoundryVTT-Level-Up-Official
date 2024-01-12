@@ -1,0 +1,350 @@
+{
+	"name": "Psionic Seed Bomb",
+	"type": "spell",
+	"img": "https://assets.forge-vtt.com/bazaar/core/icons/magic/nature/seed-acorn-glowing-green.webp",
+	"effects": [
+		{
+			"icon": "https://assets.forge-vtt.com/bazaar/core/icons/magic/nature/seed-acorn-glowing-green.webp",
+			"origin": "Item.19PeHpYJE9TK65f5",
+			"flags": {
+				"a5e": {
+					"sort": 0,
+					"transferType": "onUse",
+					"actionId": "tgBRHcGwkcOG5hc3",
+					"duration": {
+						"type": "rounds",
+						"unit": "minutes"
+					}
+				}
+			},
+			"transfer": false,
+			"name": "Blinded",
+			"_id": "sf5k7sDn5SyctJMh",
+			"changes": [
+				{
+					"key": "flags.a5e.effects.statusConditions",
+					"value": "[\"blinded\"]",
+					"mode": 0,
+					"priority": null
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": null,
+				"combat": null,
+				"rounds": null,
+				"turns": 1,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "",
+			"statuses": [
+				"blinded"
+			],
+			"folder": null
+		},
+		{
+			"icon": "https://assets.forge-vtt.com/bazaar/core/icons/magic/nature/seed-acorn-glowing-green.webp",
+			"origin": "Item.19PeHpYJE9TK65f5",
+			"flags": {
+				"a5e": {
+					"sort": 0,
+					"transferType": "onUse",
+					"actionId": "4oA2XXnERNEp2xne",
+					"duration": {
+						"type": "rounds",
+						"unit": "minutes"
+					}
+				}
+			},
+			"transfer": false,
+			"name": "Grappled",
+			"_id": "L1yFHu1rSRECEVjY",
+			"changes": [
+				{
+					"key": "flags.a5e.effects.statusConditions",
+					"value": "[\"grappled\"]",
+					"mode": 0,
+					"priority": null
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": null,
+				"combat": null,
+				"rounds": null,
+				"turns": 1,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "",
+			"statuses": [
+				"grappled"
+			],
+			"folder": null
+		}
+	],
+	"flags": {},
+	"system": {
+		"actions": {
+			"0lKb1bI5hyUQ033P": {
+				"name": "Cast Spell",
+				"activation": {
+					"cost": 1,
+					"type": "action",
+					"reactionTrigger": ""
+				},
+				"duration": {
+					"unit": "minute",
+					"value": "1"
+				},
+				"ranges": {
+					"DckBZ63PVJbMTvHm": {
+						"range": "self"
+					}
+				},
+				"area": {
+					"shape": "",
+					"size": "",
+					"placeTemplate": false
+				},
+				"target": {
+					"quantity": "",
+					"type": "self"
+				},
+				"rolls": {},
+				"consumers": {
+					"iHGDy2tFIEJvytGl": {
+						"mode": "variable",
+						"spellLevel": 2,
+						"points": 3,
+						"type": "spell"
+					}
+				}
+			},
+			"tgBRHcGwkcOG5hc3": {
+				"name": "Throw Pinecone",
+				"activation": {
+					"type": "action",
+					"cost": 1
+				},
+				"consumers": {},
+				"rolls": {
+					"6AdXdtnuJqrEH2cF": {
+						"type": "damage",
+						"default": true,
+						"formula": "4d6",
+						"scaling": {
+							"mode": "spellLevel",
+							"formula": "1d6"
+						},
+						"damageType": "psychic",
+						"canCrit": false
+					}
+				},
+				"prompts": {
+					"Tj9MBvU5reNB8P0x": {
+						"type": "savingThrow",
+						"default": true,
+						"ability": "con",
+						"saveDC": {
+							"type": "spellcasting"
+						},
+						"onSave": ""
+					},
+					"56isVR2YWyMqxbJT": {
+						"type": "effect",
+						"default": true,
+						"effectId": "sf5k7sDn5SyctJMh"
+					}
+				},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"threshold": 6
+					}
+				},
+				"duration": {
+					"unit": "instantaneous",
+					"value": 1
+				},
+				"ranges": {
+					"8TqzmrzH2AufJ8PP": {
+						"range": "medium"
+					}
+				},
+				"area": {
+					"shape": "circle",
+					"quantity": 1,
+					"radius": 5,
+					"placeTemplate": true
+				}
+			},
+			"iHIoGobdEnVr5Tyi": {
+				"name": "Throw Sunflower Seed",
+				"activation": {
+					"type": "action",
+					"cost": 1
+				},
+				"consumers": {},
+				"rolls": {
+					"6AdXdtnuJqrEH2cF": {
+						"type": "damage",
+						"default": true,
+						"formula": "4d6",
+						"scaling": {
+							"mode": "spellLevel",
+							"formula": "1d6"
+						},
+						"damageType": "psychic",
+						"canCrit": false
+					}
+				},
+				"prompts": {},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"threshold": 6
+					}
+				},
+				"duration": {
+					"unit": "minute",
+					"value": 1
+				},
+				"ranges": {
+					"8TqzmrzH2AufJ8PP": {
+						"range": "medium"
+					}
+				},
+				"area": {
+					"shape": "circle",
+					"quantity": 1,
+					"radius": 5,
+					"placeTemplate": true
+				}
+			},
+			"4oA2XXnERNEp2xne": {
+				"name": "Throw Tumbleweed Seed",
+				"activation": {
+					"type": "action",
+					"cost": 1
+				},
+				"consumers": {},
+				"rolls": {
+					"6AdXdtnuJqrEH2cF": {
+						"type": "damage",
+						"default": true,
+						"formula": "4d6",
+						"scaling": {
+							"mode": "spellLevel",
+							"formula": "1d6"
+						},
+						"damageType": "psychic",
+						"canCrit": false
+					}
+				},
+				"prompts": {
+					"Tj9MBvU5reNB8P0x": {
+						"type": "savingThrow",
+						"default": true,
+						"ability": "dex",
+						"saveDC": {
+							"type": "spellcasting"
+						},
+						"onSave": "Dexterity negates"
+					},
+					"OuoXavBlGNrPcePg": {
+						"type": "effect",
+						"default": true,
+						"effectId": "L1yFHu1rSRECEVjY"
+					}
+				},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"threshold": 6
+					}
+				},
+				"duration": {
+					"unit": "instantaneous",
+					"value": 1
+				},
+				"ranges": {
+					"8TqzmrzH2AufJ8PP": {
+						"range": "medium"
+					}
+				},
+				"area": {
+					"shape": "circle",
+					"quantity": 1,
+					"radius": 5,
+					"placeTemplate": true
+				}
+			}
+		},
+		"description": "<div id=\"spell-body\">\n<div class=\"field field--name-body field--type-text-with-summary field--label-hidden field--item\">\n<p>Up to four seeds appear in your hand and are infused with magic for the duration. As an action, a creature can throw one of these seeds at a point up to 60 feet away. Each creature within 5 feet of that point makes a Dexterity&nbsp;<span class=\"freelinking-link\">saving throw</span>&nbsp;or takes 4d6 piercing damage. Depending on the material component used, a seed bomb also causes one of the following additional effects:</p>\n<p class=\"Indent1\"><em><strong>Pinecone.</strong></em>&nbsp;Seed shrapnel explodes outward. A creature in the area of the exploding seed bomb makes a Constitution&nbsp;<span class=\"freelinking-link\">saving throw</span>&nbsp;or it is&nbsp;<span class=\"freelinking-link\">blinded</span>&nbsp;until the end of its next turn.</p>\n<p class=\"Indent1\"><em><strong>Sunflower.</strong></em>&nbsp;Seeds enlarge into a blanket of pointy needles. The area affected by the exploding seed bomb becomes&nbsp;<span class=\"freelinking-link\">difficult terrain</span>&nbsp;for the next minute.</p>\n<p class=\"Indent1\"><em><strong>Tumbleweed.&nbsp;</strong></em>The weeds unravel to latch around creatures. A creature in the area of the exploding seed bomb makes a Dexterity&nbsp;<span class=\"freelinking-link\">saving throw</span>&nbsp;or it becomes&nbsp;<span class=\"freelinking-link\">grappled</span> until the end of its next turn.</p>\n<p class=\"Indent1\"><em><strong>Cast at Higher Levels.</strong></em> The damage increases by 1d6 for each slot level above 2nd.</p>\n<p class=\"Indent1\"><strong><em>Rare:</em> Psionic Seed Bomb. </strong>The seed bombs&nbsp;created by this spell explode with the cries of dying&nbsp;sproutlings and deal psychic damage instead of&nbsp;piercing damage.</p>\n</div>\n</div>",
+		"favorite": false,
+		"secretDescription": "",
+		"source": "",
+		"uses": {
+			"value": null,
+			"max": "",
+			"per": null,
+			"recharge": {
+				"formula": "",
+				"threshold": ""
+			}
+		},
+		"schema": {
+			"version": null,
+			"lastMigration": null
+		},
+		"classes": [
+			"druid",
+			"wizard"
+		],
+		"components": {
+			"vocalized": false,
+			"seen": true,
+			"material": true
+		},
+		"concentration": false,
+		"level": 2,
+		"materials": "tumbleweed, pinecone, or sunflower head",
+		"materialsConsumed": false,
+		"prepared": false,
+		"prerequisite": "",
+		"rare": true,
+		"ritual": false,
+		"schools": {
+			"primary": "conjuration",
+			"secondary": [
+				"nature",
+				"weaponry"
+			]
+		},
+		"schemaVersion": {
+			"version": 0.01,
+			"lastMigration": {
+				"version": {
+					"schema": 0.009,
+					"foundry": "12.316",
+					"system": "0.16.12"
+				}
+			}
+		}
+	},
+	"folder": null,
+	"_id": "ykptjno4x89n3juz"
+}

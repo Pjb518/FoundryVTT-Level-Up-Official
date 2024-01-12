@@ -3,7 +3,9 @@
     import { localize } from "#runtime/svelte/helper";
 
     import Checkbox from "../Checkbox.svelte";
-    import FormSection from "../FormSection.svelte";
+    import FieldWrapper from "../FieldWrapper.svelte";
+    import Section from "../Section.svelte";
+
     import updateDocumentDataFromField from "../../../utils/updateDocumentDataFromField";
 
     const item = getContext("item");
@@ -18,151 +20,115 @@
     let editMode = false;
 </script>
 
-<section>
-    <!-- svelte-ignore a11y-click-events-have-key-events a11y-no-static-element-interactions -->
-    <header
-        class="
-            u-align-center
-            u-flex
-            u-font-serif
-            u-gap-md
-            u-mb-lg
-            u-ml-xs
-            u-pointer
-            u-text-lg
-            u-w-fit
-        "
-        on:click={() => (editMode = !editMode)}
-    >
-        <h3>{localize("A5E.TabArmorClassProperties")}</h3>
-        <i
-            class="u-text-sm fas"
-            class:fa-chevron-up={editMode}
-            class:fa-edit={!editMode}
-        />
-    </header>
-
+<Section
+    heading="A5E.TabArmorClassProperties"
+    headerButtons={[
+        {
+            classes: `fa-solid ${editMode ? "fa-chevron-up" : "fa-edit"}`,
+            handler: () => (editMode = !editMode),
+        },
+    ]}
+    --a5e-section-body-gap="0.75rem"
+    --a5e-section-heading-gap="0.5rem"
+    --a5e-section-heading-template-columns="max-content max-content"
+>
     {#if editMode}
-        <div class="u-flex u-flex-col u-gap-md">
-            <FormSection
-                heading="A5E.armorClass.formula"
-                --label-width="100%"
-                --gap="0.375rem 1.25rem"
-            >
+        <FieldWrapper heading="A5E.armorClass.formula">
+            <input
+                type="text"
+                name="system.ac.baseFormula"
+                id="{appId}-ac-base-formula"
+                value={$item.system.ac.baseFormula ?? ""}
+                on:change={({ target }) =>
+                    updateDocumentDataFromField(
+                        $item,
+                        target.name,
+                        target.value,
+                    )}
+            />
+        </FieldWrapper>
+
+        <Section --a5e-section-body-direction="row">
+            <FieldWrapper heading="A5E.armorClass.maxDex">
                 <input
-                    type="text"
-                    name="system.ac.baseFormula"
-                    id="{appId}-ac-base-formula"
-                    value={$item.system.ac.baseFormula ?? ""}
+                    type="number"
+                    data-dtype="Number"
+                    name="system.ac.maxDex"
+                    id="{appId}-ac-max-dex"
+                    value={$item.system.ac.maxDex ?? 0}
                     on:change={({ target }) =>
                         updateDocumentDataFromField(
                             $item,
                             target.name,
-                            target.value
+                            Number(target.value),
                         )}
                 />
-            </FormSection>
+            </FieldWrapper>
 
-            <FormSection --gap="0.375rem 1.25rem">
-                <div class="u-flex u-flex-col u-gap-md u-w-30">
-                    <label
-                        class="u-pointer u-text-bold"
-                        for="{appId}-ac-max-dex"
-                    >
-                        {localize("A5E.armorClass.maxDex")}
-                    </label>
+            <FieldWrapper heading="A5E.armorClass.minStr">
+                <input
+                    type="number"
+                    data-dtype="Number"
+                    name="system.ac.minStr"
+                    id="{appId}-ac-min-str"
+                    value={$item.system.ac.minStr ?? 0}
+                    on:change={({ target }) =>
+                        updateDocumentDataFromField(
+                            $item,
+                            target.name,
+                            Number(target.value),
+                        )}
+                />
+            </FieldWrapper>
 
-                    <input
-                        type="number"
-                        data-dtype="Number"
-                        name="system.ac.maxDex"
-                        id="{appId}-ac-max-dex"
-                        value={$item.system.ac.maxDex ?? 0}
-                        on:change={({ target }) =>
-                            updateDocumentDataFromField(
-                                $item,
-                                target.name,
-                                Number(target.value)
-                            )}
-                    />
-                </div>
+            <FieldWrapper heading="A5E.armorClass.mode">
+                <select
+                    name="system.ac.mode"
+                    id="{appId}-ac-mode"
+                    value={$item.system.ac.mode}
+                    on:change={({ target }) =>
+                        updateDocumentDataFromField(
+                            $item,
+                            target.name,
+                            Number(target.value),
+                        )}
+                >
+                    {#each modes as [label, mode]}
+                        <option value={mode}>
+                            {label}
+                        </option>
+                    {/each}
+                </select>
+            </FieldWrapper>
+        </Section>
 
-                <div class="u-flex u-flex-col u-gap-md u-w-30">
-                    <label
-                        class="u-pointer u-text-bold"
-                        for="{appId}-ac-min-str"
-                    >
-                        {localize("A5E.armorClass.minStr")}
-                    </label>
+        {#if !["armor", "shield"].includes($item.system?.objectType)}
+            <FieldWrapper>
+                <Checkbox
+                    label="A5E.armorClass.requiresNoShield"
+                    checked={$item.system.ac.requiresNoShield ?? false}
+                    on:updateSelection={({ detail }) =>
+                        updateDocumentDataFromField(
+                            $item,
+                            "system.ac.requiresNoShield",
+                            detail,
+                        )}
+                />
+            </FieldWrapper>
 
-                    <input
-                        type="number"
-                        data-dtype="Number"
-                        name="system.ac.minStr"
-                        id="{appId}-ac-min-str"
-                        value={$item.system.ac.minStr ?? 0}
-                        on:change={({ target }) =>
-                            updateDocumentDataFromField(
-                                $item,
-                                target.name,
-                                Number(target.value)
-                            )}
-                    />
-                </div>
-
-                <div class="u-flex u-flex-col u-gap-md u-w-30">
-                    <label class="u-pointer u-text-bold" for="{appId}-ac-mode">
-                        {localize("A5E.armorClass.mode")}
-                    </label>
-
-                    <select
-                        name="system.ac.mode"
-                        id="{appId}-ac-mode"
-                        value={$item.system.ac.mode}
-                        on:change={({ target }) =>
-                            updateDocumentDataFromField(
-                                $item,
-                                target.name,
-                                Number(target.value)
-                            )}
-                    >
-                        {#each modes as [label, mode]}
-                            <option value={mode}>
-                                {label}
-                            </option>
-                        {/each}
-                    </select>
-                </div>
-            </FormSection>
-
-            {#if !["armor", "shield"].includes($item.system?.objectType)}
-                <FormSection --gap="0.5rem 1.25rem">
-                    <Checkbox
-                        label="A5E.armorClass.requiresNoShield"
-                        checked={$item.system.ac.requiresNoShield ?? false}
-                        on:updateSelection={({ detail }) =>
-                            updateDocumentDataFromField(
-                                $item,
-                                "system.ac.requiresNoShield",
-                                detail
-                            )}
-                    />
-                </FormSection>
-
-                <FormSection --gap="0.5rem 1.25rem">
-                    <Checkbox
-                        label="A5E.armorClass.requiresUnarmored"
-                        checked={$item.system.ac.requiresUnarmored ?? false}
-                        on:updateSelection={({ detail }) =>
-                            updateDocumentDataFromField(
-                                $item,
-                                "system.ac.requiresUnarmored",
-                                detail
-                            )}
-                    />
-                </FormSection>
-            {/if}
-        </div>
+            <FieldWrapper>
+                <Checkbox
+                    label="A5E.armorClass.requiresUnarmored"
+                    checked={$item.system.ac.requiresUnarmored ?? false}
+                    on:updateSelection={({ detail }) =>
+                        updateDocumentDataFromField(
+                            $item,
+                            "system.ac.requiresUnarmored",
+                            detail,
+                        )}
+                />
+            </FieldWrapper>
+        {/if}
     {:else}
         <dl class="a5e-box u-flex u-flex-col u-gap-sm u-m-0 u-p-md u-text-sm">
             <div class="u-flex u-gap-md">
@@ -228,4 +194,4 @@
             {/if}
         </dl>
     {/if}
-</section>
+</Section>

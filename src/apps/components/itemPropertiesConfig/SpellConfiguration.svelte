@@ -7,9 +7,11 @@
 
     import Checkbox from "../Checkbox.svelte";
     import CheckboxGroup from "../CheckboxGroup.svelte";
-    import FormSection from "../FormSection.svelte";
+    import FormSection from "../LegacyFormSection.svelte";
     import RadioGroup from "../RadioGroup.svelte";
+    import Section from "../Section.svelte";
     import Tag from "../Tag.svelte";
+    import FieldWrapper from "../FieldWrapper.svelte";
 
     function prepareSpellComponents(item) {
         return Object.entries(item.system.components)
@@ -48,194 +50,170 @@
     $: selectedSecondarySpellSchools = prepareSecondarySpellSchools($item);
 </script>
 
-<section>
-    <!-- svelte-ignore a11y-click-events-have-key-events a11y-no-static-element-interactions -->
-    <header
-        class="
-            u-align-center
-            u-flex
-            u-font-serif
-            u-gap-md
-            u-mb-lg
-            u-ml-xs
-            u-pointer
-            u-text-lg
-            u-w-fit
-        "
-        on:click={() => (editMode = !editMode)}
-    >
-        <h3>{localize("A5E.TabSpellConfiguration")}</h3>
-
-        <i
-            class="u-text-sm fas"
-            class:fa-chevron-up={editMode}
-            class:fa-edit={!editMode}
-        />
-    </header>
-
+<Section
+    heading="A5E.TabSpellConfiguration"
+    headerButtons={[
+        {
+            classes: `fa-solid ${editMode ? "fa-chevron-up" : "fa-edit"}`,
+            handler: () => (editMode = !editMode),
+        },
+    ]}
+    --a5e-section-body-gap="0.75rem"
+    --a5e-section-heading-gap="0.5rem"
+    --a5e-section-heading-template-columns="max-content max-content"
+>
     {#if editMode}
-        <div class="u-flex u-flex-col u-gap-md">
-            <FormSection
-                heading="Classes"
-                hint="Select the classes that are eligible to select this spell."
+        <CheckboxGroup
+            heading="Classes"
+            hint="Select the classes that are eligible to select this spell."
+            options={Object.entries(classSpellLists)}
+            selected={$item.system.classes}
+            on:updateSelection={(event) =>
+                updateDocumentDataFromField(
+                    $item,
+                    "system.classes",
+                    event.detail,
+                )}
+        />
+
+        <RadioGroup
+            heading="A5E.SpellLevel"
+            options={objectEntriesNumberKeyConverter(spellLevels)}
+            selected={$item.system.level}
+            on:updateSelection={(event) =>
+                updateDocumentDataFromField(
+                    $item,
+                    "system.level",
+                    event.detail,
+                )}
+        />
+
+        <RadioGroup
+            heading="A5E.SpellSchoolPrimary"
+            options={Object.entries(spellSchools.primary)}
+            selected={$item.system.schools.primary}
+            on:updateSelection={(event) =>
+                updateDocumentDataFromField(
+                    $item,
+                    "system.schools.primary",
+                    event.detail,
+                )}
+        />
+
+        <CheckboxGroup
+            heading="A5E.SpellSchoolSecondaryPlural"
+            options={Object.entries(spellSchools.secondary)}
+            selected={$item.system.schools.secondary}
+            on:updateSelection={(event) =>
+                updateDocumentDataFromField(
+                    $item,
+                    "system.schools.secondary",
+                    event.detail,
+                )}
+        />
+
+        <FieldWrapper heading="A5E.SpellComponents">
+            <ul
+                class="u-flex u-flex-wrap u-gap-sm u-list-style-none u-m-0 u-p-0 u-text-xs u-w-full"
             >
-                <CheckboxGroup
-                    options={Object.entries(classSpellLists)}
-                    selected={$item.system.classes}
-                    on:updateSelection={(event) =>
+                {#each Object.entries(spellComponents) as [value, label]}
+                    <Tag
+                        {label}
+                        {value}
+                        active={$item.system.components[value]}
+                        on:tagToggle={() =>
+                            updateDocumentDataFromField(
+                                $item,
+                                `system.components.${value}`,
+                                !$item.system.components[value],
+                            )}
+                    />
+                {/each}
+            </ul>
+        </FieldWrapper>
+
+        {#if $item.system.components.material}
+            <FieldWrapper heading="A5E.SpellMaterials">
+                <input
+                    class="a5e-input"
+                    type="text"
+                    name="system.materials"
+                    value={$item.system.materials}
+                    on:change={({ target }) =>
                         updateDocumentDataFromField(
                             $item,
-                            "system.classes",
-                            event.detail,
+                            target.name,
+                            target.value,
                         )}
                 />
-            </FormSection>
+            </FieldWrapper>
+        {/if}
 
-            <FormSection heading="A5E.SpellLevel">
-                <RadioGroup
-                    options={objectEntriesNumberKeyConverter(spellLevels)}
-                    selected={$item.system.level}
-                    on:updateSelection={(event) =>
-                        updateDocumentDataFromField(
-                            $item,
-                            "system.level",
-                            event.detail,
-                        )}
-                />
-            </FormSection>
+        <Section
+            --a5e-section-body-direction="row"
+            --a5e-section-body-gap="0.75rem"
+        >
+            <Checkbox
+                label="A5E.SpellConcentration"
+                checked={$item.system.concentration}
+                on:updateSelection={({ detail }) => {
+                    updateDocumentDataFromField(
+                        $item,
+                        "system.concentration",
+                        detail,
+                    );
+                }}
+            />
 
-            <FormSection heading="A5E.SpellSchoolPrimary">
-                <RadioGroup
-                    options={Object.entries(spellSchools.primary)}
-                    selected={$item.system.schools.primary}
-                    on:updateSelection={(event) =>
-                        updateDocumentDataFromField(
-                            $item,
-                            "system.schools.primary",
-                            event.detail,
-                        )}
-                />
-            </FormSection>
+            <Checkbox
+                label="A5E.ItemPrepared"
+                checked={$item.system.prepared}
+                on:updateSelection={({ detail }) => {
+                    updateDocumentDataFromField(
+                        $item,
+                        "system.prepared",
+                        detail,
+                    );
+                }}
+            />
 
-            <FormSection heading="A5E.SpellSchoolSecondaryPlural">
-                <CheckboxGroup
-                    options={Object.entries(spellSchools.secondary)}
-                    selected={$item.system.schools.secondary}
-                    on:updateSelection={(event) =>
-                        updateDocumentDataFromField(
-                            $item,
-                            "system.schools.secondary",
-                            event.detail,
-                        )}
-                />
-            </FormSection>
-
-            <FormSection heading="A5E.SpellComponents">
-                <ul
-                    class="u-flex u-flex-wrap u-gap-sm u-list-style-none u-m-0 u-p-0 u-text-xs u-w-full"
-                >
-                    {#each Object.entries(spellComponents) as [value, label]}
-                        <Tag
-                            {label}
-                            {value}
-                            active={$item.system.components[value]}
-                            on:tagToggle={() =>
-                                updateDocumentDataFromField(
-                                    $item,
-                                    `system.components.${value}`,
-                                    !$item.system.components[value],
-                                )}
-                        />
-                    {/each}
-                </ul>
-            </FormSection>
-
-            {#if $item.system.components.material}
-                <FormSection heading="A5E.SpellMaterials">
-                    <div class="u-w-full">
-                        <input
-                            class="a5e-input"
-                            type="text"
-                            name="system.materials"
-                            value={$item.system.materials}
-                            on:change={({ target }) =>
-                                updateDocumentDataFromField(
-                                    $item,
-                                    target.name,
-                                    target.value,
-                                )}
-                        />
-                    </div>
-                </FormSection>
-            {/if}
-
-            <FormSection --gap="0.5rem 1.25rem">
+            {#if $item.system.prepared}
                 <Checkbox
-                    label="A5E.SpellConcentration"
-                    checked={$item.system.concentration}
-                    on:updateSelection={({ detail }) => {
-                        updateDocumentDataFromField(
-                            $item,
-                            "system.concentration",
-                            detail,
-                        );
-                    }}
-                />
-
-                <Checkbox
-                    label="A5E.ItemPrepared"
-                    checked={$item.system.prepared}
+                    label="Always Prepared"
+                    checked={Number($item.system.prepared ?? 0) ===
+                        PREPARED_STATES.ALWAYS_PREPARED}
                     on:updateSelection={({ detail }) => {
                         updateDocumentDataFromField(
                             $item,
                             "system.prepared",
-                            detail,
+                            detail ? 2 : 1,
                         );
                     }}
                 />
+            {/if}
 
-                {#if $item.system.prepared}
-                    <Checkbox
-                        label="Always Prepared"
-                        checked={Number($item.system.prepared ?? 0) ===
-                            PREPARED_STATES.ALWAYS_PREPARED}
-                        on:updateSelection={({ detail }) => {
-                            updateDocumentDataFromField(
-                                $item,
-                                "system.prepared",
-                                detail ? 2 : 1,
-                            );
-                        }}
-                    />
-                {/if}
-
-                {#if $item.system.level > 0}
-                    <Checkbox
-                        label="A5E.SpellRitual"
-                        checked={$item.system.ritual}
-                        on:updateSelection={({ detail }) => {
-                            updateDocumentDataFromField(
-                                $item,
-                                "system.ritual",
-                                detail,
-                            );
-                        }}
-                    />
-                {/if}
-
+            {#if $item.system.level > 0}
                 <Checkbox
-                    label="A5E.SpellRare"
-                    checked={$item.system.rare}
+                    label="A5E.SpellRitual"
+                    checked={$item.system.ritual}
                     on:updateSelection={({ detail }) => {
                         updateDocumentDataFromField(
                             $item,
-                            "system.rare",
+                            "system.ritual",
                             detail,
                         );
                     }}
                 />
-            </FormSection>
-        </div>
+            {/if}
+
+            <Checkbox
+                label="A5E.SpellRare"
+                checked={$item.system.rare}
+                on:updateSelection={({ detail }) => {
+                    updateDocumentDataFromField($item, "system.rare", detail);
+                }}
+            />
+        </Section>
     {:else}
         <FormSection>
             <dl class="summary-list">
@@ -295,7 +273,7 @@
             </dl>
         </FormSection>
     {/if}
-</section>
+</Section>
 
 <style lang="scss">
     .summary-list {

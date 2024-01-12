@@ -2,7 +2,71 @@
 	"name": "Ray of Frost",
 	"type": "spell",
 	"img": "icons/magic/water/projectile-icecicle-glowing.webp",
-	"effects": [],
+	"effects": [
+		{
+			"icon": "icons/magic/water/projectile-icecicle-glowing.webp",
+			"origin": "Item.EIGzIgiAGtBLqRLY",
+			"flags": {
+				"a5e": {
+					"sort": 0,
+					"transferType": "onUse",
+					"actionId": "rjaz6n2uCMQHcsGc",
+					"duration": {
+						"type": "rounds",
+						"unit": "minutes"
+					}
+				}
+			},
+			"transfer": false,
+			"name": "Ray of Frost",
+			"_id": "6meIM37yip1QShpH",
+			"changes": [
+				{
+					"key": "system.attributes.movement.burrow.distance",
+					"value": "{\"comparisonOperator\":\">\",\"comparisonValue\":\"10\",\"positiveValue\":\"@original - 10\",\"negativeValue\":\"0\"}",
+					"mode": 7,
+					"priority": null
+				},
+				{
+					"key": "system.attributes.movement.climb.distance",
+					"value": "{\"comparisonOperator\":\">\",\"comparisonValue\":\"10\",\"positiveValue\":\"@original - 10\",\"negativeValue\":\"0\"}",
+					"mode": 7,
+					"priority": null
+				},
+				{
+					"key": "system.attributes.movement.fly.distance",
+					"value": "{\"comparisonOperator\":\">\",\"comparisonValue\":\"10\",\"positiveValue\":\"@original - 10\",\"negativeValue\":\"0\"}",
+					"mode": 7,
+					"priority": null
+				},
+				{
+					"key": "system.attributes.movement.swim.distance",
+					"value": "{\"comparisonOperator\":\">\",\"comparisonValue\":\"10\",\"positiveValue\":\"@original - 10\",\"negativeValue\":\"0\"}",
+					"mode": 7,
+					"priority": null
+				},
+				{
+					"key": "system.attributes.movement.walk.distance",
+					"value": "{\"comparisonOperator\":\">\",\"comparisonValue\":\"10\",\"positiveValue\":\"@original - 10\",\"negativeValue\":\"0\"}",
+					"mode": 7,
+					"priority": null
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": null,
+				"combat": null,
+				"rounds": 1,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "<p>The target's Speed by 10 feet until the start of your next turn.</p>",
+			"statuses": [],
+			"folder": null
+		}
+	],
 	"flags": {},
 	"system": {
 		"actions": {
@@ -51,7 +115,14 @@
 						}
 					}
 				},
-				"consumers": {}
+				"consumers": {},
+				"prompts": {
+					"GKzeiAKIE2qf79e8": {
+						"type": "effect",
+						"default": true,
+						"effectId": "6meIM37yip1QShpH"
+					}
+				}
 			}
 		},
 		"description": "<p>An icy beam shoots from your outstretched fingers.</p><p>Make a ranged spell attack. On a hit, you deal 1d8 cold damage and reduce the target's Speed by 10 feet until the start of your next turn.</p><p>This spell's damage increases by 1d8 when you reach 5th level (2d8), 11th level (3d8), and 17th level (4d8).</p>",

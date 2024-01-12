@@ -8,6 +8,7 @@
     import overrideExpertiseDie from "../../../utils/overrideExpertiseDie";
 
     import ExpertiseDiePicker from "../ExpertiseDiePicker.svelte";
+    import FieldWrapper from "../FieldWrapper.svelte";
     import RadioGroup from "../RadioGroup.svelte";
 
     export let attackRollData;
@@ -33,7 +34,7 @@
         ([key, value]) => [
             CONFIG.A5E.ROLL_MODE[key.toUpperCase()],
             localize(value),
-        ]
+        ],
     );
 
     let expertiseDie = overrideExpertiseDie($actor, 0);
@@ -45,7 +46,7 @@
         {
             attackType: attackRoll.attackType,
             type: "attack",
-        }
+        },
     );
 
     $: rollFormula = getRollFormula($actor, {
@@ -64,58 +65,39 @@
     updateData();
 </script>
 
-<section class="a5e-box u-flex u-flex-col u-gap-lg u-p-md">
-    <section>
-        <h3 class="heading">
-            {localize("A5E.AttackRollModeHeading")}
-        </h3>
+<RadioGroup
+    heading="A5E.AttackRollModeHeading"
+    options={rollModeOptions}
+    selected={rollMode}
+    on:updateSelection={({ detail }) => (rollMode = detail)}
+/>
 
-        <RadioGroup
-            options={rollModeOptions}
-            selected={rollMode}
-            on:updateSelection={({ detail }) => (rollMode = detail)}
-        />
-    </section>
+<ExpertiseDiePicker
+    --background="transparent"
+    --padding="0"
+    selected={expertiseDie}
+    on:updateSelection={({ detail }) => (expertiseDie = detail)}
+/>
 
-    <section>
-        <h3 class="heading">
-            {localize("A5E.ExpertiseDie")}
-        </h3>
+<FieldWrapper
+    heading="A5E.SituationalMods"
+    --background="transparent"
+    --gap="0.25rem"
+    --padding="0"
+>
+    <input
+        class="a5e-input"
+        type="text"
+        id="{$actor.id}-{dialog.id}-situational-mod"
+        bind:value={situationalMods}
+    />
+</FieldWrapper>
 
-        <ExpertiseDiePicker
-            selected={expertiseDie}
-            on:updateSelection={({ detail }) => (expertiseDie = detail)}
-        />
-    </section>
-
-    <section>
-        <label class="heading" for="{$actor.id}-{dialog.id}-situational-mods">
-            {localize("A5E.SituationalMods")}
-        </label>
-
-        <div class="u-flex u-flex-col u-gap-sm">
-            <input
-                class="a5e-input"
-                type="text"
-                id="{$actor.id}-{dialog.id}-situational-mod"
-                bind:value={situationalMods}
-            />
-
-            <div class="roll-formula-preview">
-                {rollFormula}
-            </div>
-        </div>
-    </section>
+<section class="roll-formula-preview">
+    {rollFormula}
 </section>
 
 <style lang="scss">
-    .heading {
-        display: block;
-        font-weight: bold;
-        font-size: $font-size-sm;
-        margin-bottom: 0.25rem;
-    }
-
     .roll-formula-preview {
         padding: 0.5rem;
         font-size: $font-size-sm;

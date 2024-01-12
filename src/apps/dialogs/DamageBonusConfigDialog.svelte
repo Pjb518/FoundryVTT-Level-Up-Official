@@ -1,22 +1,22 @@
 <script>
     import { getContext, createEventDispatcher } from "svelte";
-    import { TJSDocument } from "@typhonjs-fvtt/runtime/svelte/store/fvtt/document";
     import { localize } from "#runtime/svelte/helper";
 
     import updateDocumentDataFromField from "../../utils/updateDocumentDataFromField";
 
     import Checkbox from "../components/Checkbox.svelte";
-    import FormSection from "../components/FormSection.svelte";
-    import TagGroup from "../components/TagGroup.svelte";
+    import CheckboxGroup from "../components/CheckboxGroup.svelte";
+    import FieldWrapper from "../components/FieldWrapper.svelte";
+    import Section from "../components/Section.svelte";
 
     export let { document, bonusID } = getContext("#external").application;
     export let jsonValue = null;
 
-    const actor = new TJSDocument(document);
+    const actor = document;
     const dispatch = createEventDispatcher();
 
     function updateImage() {
-        const current = abilityBonus?.img;
+        const current = damageBonus?.img;
 
         const filePicker = new FilePicker({
             type: "image",
@@ -52,7 +52,12 @@
             obj.label = obj.label ?? "";
             obj.formula = obj.formula ?? "";
             obj.damageType = obj.damageType ?? "";
-            obj.context = obj.context ?? {};
+            obj.context = obj.context ?? {
+                attackTypes: [],
+                damageTypes: [],
+                spellLevels: [],
+                isCritBonus: false,
+            };
             obj.default = obj.default ?? true;
             obj.img = obj.img ?? "icons/svg/upgrade.svg";
             return obj;
@@ -61,7 +66,12 @@
                 label: "",
                 formula: "",
                 damageType: "",
-                context: {},
+                context: {
+                    attackTypes: [],
+                    damageTypes: [],
+                    spellLevels: [],
+                    isCritBonus: false,
+                },
                 default: true,
                 img: "icons/svg/upgrade.svg",
             };
@@ -100,23 +110,20 @@
         </div>
     </header>
 
-    <FormSection>
-        <FormSection
-            heading="A5E.DamageFormula"
-            --background="none"
-            --grow="1"
-            --direction="column"
-            --padding="0"
-        >
+    <Section
+        --a5e-section-body-direction="row"
+        --a5e-section-margin="0.25rem 0"
+    >
+        <FieldWrapper heading="A5E.DamageFormula" --a5e-field-wrapper-grow="1">
             <input
                 type="text"
                 value={damageBonus.formula ?? ""}
                 on:change={({ target }) =>
                     onUpdateValue("formula", target.value)}
             />
-        </FormSection>
+        </FieldWrapper>
 
-        <FormSection
+        <FieldWrapper
             heading="A5E.DamageType"
             --background="none"
             --direction="column"
@@ -144,37 +151,39 @@
                     </option>
                 {/each}
             </select>
-        </FormSection>
-    </FormSection>
+        </FieldWrapper>
+    </Section>
 
-    <FormSection
+    <Section
         heading="Contexts"
         hint="The context determines when the damage bonus applies"
-        --direction="column"
-        --wrap="nowrap"
+        --a5e-section-body-gap="0.75rem"
     >
-        <TagGroup
+        <CheckboxGroup
             heading="A5E.contexts.attackType"
             options={Object.entries(damageBonusContexts)}
             selected={attackTypesContext}
+            showToggleAllButton={true}
             on:updateSelection={({ detail }) => {
                 onUpdateValue("context.attackTypes", detail);
             }}
         />
 
-        <TagGroup
+        <CheckboxGroup
             heading="A5E.contexts.damageType"
             options={Object.entries(damageTypes)}
             selected={damageTypesContext}
+            showToggleAllButton={true}
             on:updateSelection={({ detail }) => {
                 onUpdateValue("context.damageTypes", detail);
             }}
         />
 
-        <TagGroup
+        <CheckboxGroup
             heading="A5E.contexts.spellLevel"
             options={Object.entries(spellLevels)}
             selected={spellLevelsContext}
+            showToggleAllButton={true}
             on:updateSelection={({ detail }) => {
                 onUpdateValue("context.spellLevels", detail);
             }}
@@ -187,17 +196,17 @@
                 onUpdateValue("context.isCritBonus", detail);
             }}
         />
-    </FormSection>
 
-    <FormSection>
-        <Checkbox
-            label="Select Damage Bonus Automatically in Roll Prompt"
-            checked={damageBonus.default ?? true}
-            on:updateSelection={({ detail }) => {
-                onUpdateValue("default", detail);
-            }}
-        />
-    </FormSection>
+        <FieldWrapper>
+            <Checkbox
+                label="Select Damage Bonus Automatically in Roll Prompt"
+                checked={damageBonus.default ?? true}
+                on:updateSelection={({ detail }) => {
+                    onUpdateValue("default", detail);
+                }}
+            />
+        </FieldWrapper>
+    </Section>
 </form>
 
 <style lang="scss">

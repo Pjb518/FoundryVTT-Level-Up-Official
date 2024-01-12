@@ -170,7 +170,7 @@ function generateChanges(A5E) {
 
     slowed: [
       {
-        key: 'system.attributes.ac',
+        key: 'system.attributes.ac.changes.bonuses.value',
         value: '-2',
         mode: MODES.ADD,
         priority: MODES.ADD * 10,

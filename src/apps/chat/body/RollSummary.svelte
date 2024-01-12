@@ -19,7 +19,7 @@
 
         return d20Roll.results.some(
             ({ result, active }) =>
-                active && result >= (rollData.critThreshold ?? 20)
+                active && result >= (rollData.critThreshold ?? 20),
         );
     }
 
@@ -29,7 +29,7 @@
         if (!d20Roll) return false;
 
         return d20Roll.results.some(
-            ({ result, active }) => active && result === 1
+            ({ result, active }) => active && result === 1,
         );
     }
 
@@ -39,7 +39,7 @@
         return localize(
             rollMode === 1
                 ? "A5E.RollModeAdvantage"
-                : "A5E.RollModeDisadvantage"
+                : "A5E.RollModeDisadvantage",
         );
     }
 
@@ -161,7 +161,7 @@
         justify-content: center;
         height: 2.25rem;
         width: 2.5rem;
-        font-size: $font-size-lg;
+        font-size: var(--a5e-text-size-lg);
         font-weight: 700;
         background: rgba(0, 0, 0, 0.05);
         border: 1px solid #ccc;
@@ -212,7 +212,7 @@
         align-items: center;
         gap: 0.5rem;
         margin: 0;
-        font-size: $font-size-sm;
+        font-size: var(--a5e-text-size-sm);
         line-height: 1;
         font-weight: bold;
         border: 0;
@@ -223,7 +223,7 @@
         margin: 0;
         margin-left: auto;
         padding: 0.25rem 0.375rem;
-        font-size: $font-size-sm;
+        font-size: var(--a5e-text-size-sm);
         line-height: 1;
         color: #7e7960;
         background: rgba(0, 0, 0, 0.05);
@@ -245,7 +245,7 @@
         flex-shrink: 0;
         width: fit-content;
         padding: 0.075rem 0.3rem;
-        font-size: $font-size-xs;
+        font-size: var(--a5e-text-size-xs);
         line-height: 1;
         color: white;
         background: $color-primary;
@@ -260,7 +260,7 @@
 
     .roll-sublabel {
         width: 100%;
-        font-size: $font-size-xs;
+        font-size: var(--a5e-text-size-xs);
         line-height: 1;
         color: #7e7960;
     }

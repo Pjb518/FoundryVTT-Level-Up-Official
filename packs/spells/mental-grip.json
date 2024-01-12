@@ -2,7 +2,39 @@
 	"name": "Mental Grip",
 	"type": "spell",
 	"img": "icons/skills/wounds/anatomy-organ-brain-pink-red.webp",
-	"effects": [],
+	"effects": [
+		{
+			"icon": "icons/skills/wounds/anatomy-organ-brain-pink-red.webp",
+			"origin": "Item.xGL5NIGN09cE21Oe",
+			"flags": {
+				"a5e": {
+					"sort": 0,
+					"transferType": "onUse",
+					"actionId": "qdEkqFKLvIpT98JY",
+					"duration": {
+						"unit": "minutes"
+					}
+				}
+			},
+			"transfer": false,
+			"name": "Mental Grip",
+			"_id": "0r7ccDYzFKObB1ev",
+			"changes": [],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": 60,
+				"combat": null,
+				"rounds": null,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "<p>A bolt of light erupts from your hand. Make a ranged spell attack against the target. On a hit, you deal 4d6 radiant damage and the next attack roll made against the target before the end of your next turn has advantage.</p>\n<p><strong><em>Cast at Higher Levels.</em></strong> The damage increases by 1d6 for each slot level above 1st.</p>\n<hr class=\"a5e-rule u-my-md\" />\n<p><strong>Rare: Marked Guiding Bolt.</strong> On a hit, until the end of your next turn the target glows with bright light in a 20-foot radius and dim light an additional 10 feet.</p>",
+			"statuses": [],
+			"folder": null
+		}
+	],
 	"flags": {},
 	"system": {
 		"actions": {
@@ -61,6 +93,11 @@
 						"skill": "ath",
 						"ability": "str",
 						"label": "Escape Grapple (Athletics)"
+					},
+					"Fn9CJgwvaH6lBMXb": {
+						"type": "effect",
+						"default": true,
+						"effectId": "0r7ccDYzFKObB1ev"
 					}
 				}
 			}

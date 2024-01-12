@@ -2,7 +2,48 @@
 	"name": "Dominate Monster",
 	"type": "spell",
 	"img": "icons/creatures/mammals/bat-giant-tattered-purple.webp",
-	"effects": [],
+	"effects": [
+		{
+			"icon": "icons/creatures/mammals/bat-giant-tattered-purple.webp",
+			"origin": "Item.lV2CD7wyG5Xpd0sF",
+			"flags": {
+				"a5e": {
+					"sort": 0,
+					"transferType": "onUse",
+					"actionId": "51vOW5drPMkegroj",
+					"duration": {
+						"unit": "hours"
+					}
+				}
+			},
+			"transfer": false,
+			"name": "Dominated",
+			"_id": "joJrCXsFYG1zol0M",
+			"changes": [
+				{
+					"key": "flags.a5e.effects.statusConditions",
+					"value": "[\"charmed\"]",
+					"mode": 0,
+					"priority": null
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": 3600,
+				"combat": null,
+				"rounds": null,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "<p>Until the charmed condition ends, you establish a telepathic link with it while you are on the same plane. You may issue commands through this link and the target does its best to obey. No action is required to issue commands, which can be a simple and general course of action such as \"Attack that target, \" \"Go over there, \" or \"Bring me that object.\" Without commands the target only defends itself. The target continues to follow a command until its task is complete.</p>\n<p>You can use your action to assume direct control of the target. Until the end of your next turn, you decide all of the target's actions and it does nothing you do not allow it to. While a target is directly controlled in this way, you can also cause it to use a reaction, but this requires you to use your own reaction as well.</p>\n<p>Each time the target takes damage, it makes a new saving throw against the spell, ending the spell on a success.</p>",
+			"statuses": [
+				"charmed"
+			],
+			"folder": null
+		}
+	],
 	"flags": {},
 	"system": {
 		"actions": {
@@ -40,6 +81,11 @@
 							"bonus": ""
 						},
 						"type": "savingThrow"
+					},
+					"qPkJcfcxb0GG8ZHM": {
+						"type": "effect",
+						"default": true,
+						"effectId": "joJrCXsFYG1zol0M"
 					}
 				},
 				"consumers": {

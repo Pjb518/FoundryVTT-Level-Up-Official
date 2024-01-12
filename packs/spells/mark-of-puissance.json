@@ -21,7 +21,13 @@
 					}
 				},
 				"rolls": {},
-				"prompts": {},
+				"prompts": {
+					"f98N9EIXHl5JzYho": {
+						"type": "effect",
+						"default": true,
+						"effectId": "T1g2kNYMcFwQdzSA"
+					}
+				},
 				"uses": {
 					"value": 0,
 					"max": "",
@@ -104,7 +110,58 @@
 			}
 		}
 	},
-	"effects": [],
+	"effects": [
+		{
+			"icon": "icons/magic/symbols/runes-etched-steel-blade.webp",
+			"origin": "Item.itATB7BHErJ66rSg",
+			"flags": {
+				"a5e": {
+					"sort": 0,
+					"transferType": "onUse",
+					"actionId": "lObt3tuWsie2pxsp",
+					"duration": {
+						"unit": "hours"
+					}
+				}
+			},
+			"transfer": false,
+			"name": "Mark of Puissance",
+			"_id": "T1g2kNYMcFwQdzSA",
+			"changes": [
+				{
+					"key": "@token.light.dim",
+					"value": "5",
+					"mode": 6,
+					"priority": null
+				},
+				{
+					"key": "system.attributes.ac.changes.bonuses.value",
+					"value": "2",
+					"mode": 2,
+					"priority": null
+				},
+				{
+					"key": "system.skills.itm.expertiseDice",
+					"value": "1",
+					"mode": 2,
+					"priority": null
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": 3600,
+				"combat": null,
+				"rounds": null,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "<p>The target gains 4 points or exertion, may remove a level of fatigue or strife, and gains 20 temporary hit points.</p>\n<p>In addition, while the mark remains visible, the target sheds dim light in a 5-foot area, gains a +2 bonus to AC, has an expertise die on Intimidation checks, and their weapon attacks deal an additional 1d4 points of radiant damage.</p>",
+			"statuses": [],
+			"folder": null
+		}
+	],
 	"flags": {},
 	"_id": "f8x3ftioys7nruz9"
 }

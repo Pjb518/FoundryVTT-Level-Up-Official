@@ -2,12 +2,95 @@
 	"name": "Wall of Flesh",
 	"type": "spell",
 	"img": "icons/magic/unholy/strike-beam-blood-large-red-blue.webp",
-	"effects": [],
+	"effects": [
+		{
+			"icon": "icons/magic/unholy/strike-beam-blood-large-red-blue.webp",
+			"origin": "Item.xcPBnFgX3xxonvej",
+			"flags": {
+				"a5e": {
+					"sort": 0,
+					"transferType": "onUse",
+					"actionId": "aewi1fSHn5VmrlS1",
+					"duration": {
+						"unit": "minutes"
+					}
+				}
+			},
+			"transfer": false,
+			"name": "Grappled",
+			"_id": "X2cwUFdaLApblSHM",
+			"changes": [
+				{
+					"key": "flags.a5e.effects.statusConditions",
+					"value": "[\"grappled\"]",
+					"mode": 0,
+					"priority": null
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": 600,
+				"combat": null,
+				"rounds": null,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "",
+			"statuses": [
+				"grappled"
+			],
+			"folder": null
+		},
+		{
+			"icon": "icons/magic/unholy/strike-beam-blood-large-red-blue.webp",
+			"origin": "Item.xcPBnFgX3xxonvej",
+			"flags": {
+				"a5e": {
+					"sort": 0,
+					"transferType": "onUse",
+					"actionId": "aewi1fSHn5VmrlS1",
+					"duration": {
+						"unit": "minutes"
+					}
+				}
+			},
+			"transfer": false,
+			"name": "Swallowed",
+			"_id": "cALeUw9v4ArkT9Qt",
+			"changes": [
+				{
+					"key": "flags.a5e.effects.statusConditions",
+					"value": "[\"blinded\",\"deafened\",\"restrained\"]",
+					"mode": 0,
+					"priority": null
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": 600,
+				"combat": null,
+				"rounds": null,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "",
+			"statuses": [
+				"blinded",
+				"deafened",
+				"restrained"
+			],
+			"folder": null
+		}
+	],
 	"flags": {},
 	"system": {
 		"actions": {
 			"aewi1fSHn5VmrlS1": {
-				"name": "Wall of Flesh",
+				"name": "Cast Spell",
 				"activation": {
 					"cost": 1,
 					"type": "action",
@@ -23,9 +106,13 @@
 					}
 				},
 				"area": {
-					"shape": "",
+					"shape": "wall",
 					"size": "",
-					"placeTemplate": false
+					"placeTemplate": true,
+					"quantity": 10,
+					"length": 10,
+					"width": 0.5,
+					"height": 10
 				},
 				"target": {
 					"quantity": "",
@@ -50,6 +137,33 @@
 						"spellLevel": 6,
 						"points": 9,
 						"type": "spell"
+					}
+				},
+				"prompts": {
+					"Drnm48vIztd4uk3X": {
+						"type": "savingThrow",
+						"default": true,
+						"ability": "dex",
+						"saveDC": {
+							"type": "spellcasting"
+						},
+						"onSave": "Move up to Speed"
+					},
+					"zH9A5d3Uq3XTukmn": {
+						"type": "generic",
+						"default": true,
+						"label": "Swallow Bludgeoning Damage",
+						"formula": "5d8"
+					},
+					"cOSkoI2pEwhV7oZa": {
+						"type": "effect",
+						"default": true,
+						"effectId": "X2cwUFdaLApblSHM"
+					},
+					"cEOfZURPVAtVGvxD": {
+						"type": "effect",
+						"default": true,
+						"effectId": "cALeUw9v4ArkT9Qt"
 					}
 				}
 			}

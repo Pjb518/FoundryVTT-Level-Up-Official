@@ -2,10 +2,8 @@
     import { getContext } from "svelte";
 
     import CompendiumFilterCategory from "./CompendiumFilterCategory.svelte";
-    import FormSection from "../FormSection.svelte";
+    import FormSection from "../LegacyFormSection.svelte";
     import RangeSlider from "svelte-range-slider-pips";
-
-    // export let compendiumType = "maneuver";
 
     const filterStore = getContext("filterStore");
     const { maneuverDegrees, maneuverTraditions } = CONFIG.A5E;
@@ -46,6 +44,7 @@
             filterKey: "miscellaneous",
             heading: "Miscellaneous",
             options: {
+                concentration: "Concentration",
                 stance: "Stance",
             },
         },

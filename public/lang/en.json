@@ -182,7 +182,8 @@
     "strongWinds": "Strong Winds",
     "underwater": "Underwater",
     "vacuum": "Vacuum",
-    "yellowMold": "Yellow Mold"
+    "yellowMold": "Yellow Mold",
+    "webs": "Webs"
   },
   "A5E.effects": {
     "applyToActor": "Apply effect to actor",
@@ -226,8 +227,10 @@
       "senses": "Senses",
       "skills": "Skills",
       "spellResources": "Spell Resources",
+      "token": "Token",
       "tokenLight": "Token Light",
       "tokenSight": "Token Sight",
+      "tokenTexture": "Token Texture",
       "other": "Other"
     },
     "keys": {
@@ -696,7 +699,14 @@
           "luminosity": "Light Luminosity",
           "saturation": "Light Saturation",
           "shadows": "Light Shadows Coloration"
-        }
+        },
+        "texture": {
+          "src": "Token Image",
+          "scaleX": "Token Image Width Scale Ratio",
+          "scaleY": "Token Image Height Scale Ratio"
+        },
+        "width": "Token Width",
+        "height": "Token Height"
       },
       "traits": {
         "conditionImmunities": "Condition Immunities",
@@ -723,6 +733,7 @@
       "exertionCurrent": "Current Exertion",
       "exertionMax": "Max Exertion",
       "fatigue": "Fatigue",
+      "initiativeAbility": "Initiative Ability",
       "initiativeBonus": "Initiative Bonus",
       "initiativeExpertiseDice": "Initiative Expertise Dice",
       "inspiration": "Inspiration",
@@ -904,11 +915,12 @@
   "A5E.settings": {
     "hints": {
       "5eStyleDeathSaves": "When enabled, rolling a one on a Death Saving Throw incurs two failures. When disabled, the standard A5e rules are used (one failure and one point of Fatigue and Strife).",
-      "blindDeathSaves": "When enabled, death saving rolls in chat cards and results on the actor will be hidden from players.",
       "alwaysShowActionDescription": "Always show the description of an action in the chat card regardless of the setting defined on the action.",
+      "autoApplyFancySheets": "When enabled, the system will automatically apply the fancy sheet to all possible compendiums. This requires all documents in the compendium to be of the same type.",
       "automateConditions": "Automatically apply related effects for the selected conditions.",
       "automateBloodiedApplication": "Enable automated application of the bloodied condition.",
       "automateUnconsciousApplication": "Enable automated application of the unconscious and dead condition.",
+      "blindDeathSaves": "When enabled, death saving rolls in chat cards and results on the actor will be hidden from players.",
       "collapseActionList": "When enabled, the action list will be hidden on locked sheets to reduce clutter. If an item has actions with uses, the actions will remain visible for that item.",
       "critCalculationMode": "Select the method of determining critical damage on a critical hit.",
       "diagonalRule": "Configure the diagonal movement rule used.",
@@ -919,6 +931,7 @@
       "hideA5eSkills": "When enabled, the culture and engineering skills added in Level Up will be hidden on all sheets.",
       "hideDeletionConfirmationDialog": "When this setting is enabled, you can delete items from actor sheets without being presented with a dialog window to confirm the deletion.",
       "hideChatDescriptionsByDefault": "When this setting is enabled, the description sections of Item chat cards will be hidden by default. You can still reveal the description sections by clicking on the header of the chat card.",
+      "hideExpertiseDice": "When enabled, expertise dice will no longer be selectable in configuration windows and roll dialogs, and they will not be included in any roll formulae.",
       "hideRandomizedHPRolls": "Hide the roll chat card for generating random NPC hit points.",
       "hideSkillSpecialties": "When enabled, this will remove the ability to select skill specialties and will hide the skill specialties interface on the Actor skills tab.",
       "itemRightClickConfigure": "Set the right click keybinding to configure an item instead of expanding it. This setting works even when the actor is in locked mode.",
@@ -934,6 +947,7 @@
       "reverseInitiativeAltBehavior": "By default, holding the left alt key will skip the roll dialog for initiative rolls. If this setting is checked, the initiative roll dialog will be skipped unless the alt key is held when clicking the roll button.",
       "showDescriptionOnLimitedPerms": "Show description on items when items have limited permissions. This will respected the identified state of the item.",
       "showEffectsPanel": "The effects panel shows a summary of the conditions and temporary effects for the selected token. You can find these icons on the right side of the screen, left of the chat window.",
+      "simpleInitiative": "When enabled, initiative rolls will take the form of a simple ability check.",
       "terseRollFormulae": "The system provides detailed roll annotations in chat card roll formulae. Enabling this setting removes all roll annotations in this formula display, providing a cleaner aesthetic at the expense of clarity.",
       "trackCurrencyWeight": "Each coin will add 0.02lbs to the weight being carried."
     },
@@ -953,11 +967,12 @@
     "title": "System Settings",
     "reload": "This operation will refresh the page.",
     "5eStyleDeathSaves": "Use 5e-style death saving throws",
-    "blindDeathSaves": "Enable Blind Death Saves",
     "alwaysShowActionDescription": "Always show action description",
+    "autoApplyFancySheets": "Automatically Apply Fancy Sheets to Compendia",
     "automateBloodiedApplication": "Automatically apply Bloodied condition",
     "automateUnconsciousApplication": "Automatically apply Unconscious condition",
     "automateConditions": "Automate Condition Effects",
+    "blindDeathSaves": "Enable Blind Death Saves",
     "collapseActionList": "Hide action list in locked mode",
     "critCalculationMode": "Critical damage calculation mode",
     "critDoubleAllDamage": "Double all damage",
@@ -980,6 +995,7 @@
     "halflingLuck": "Automate Halfling Luck",
     "hideA5eSkills": "Hide A5e-Specific Skills",
     "hideChatDescriptionsByDefault": "Hide descriptions in chat cards",
+    "hideExpertiseDice": "Hide Expertise Dice",
     "hideRandomizedHPRolls": "Hide NPC randomized hit point rolls",
     "hideSkillSpecialties": "Hide Skill Specialties",
     "hideDeletionConfirmationDialog": "Hide deletion confirmation dialog",
@@ -1004,6 +1020,7 @@
     "showSpellTab": "Show spells tab",
     "showPassiveScores": "Show passive skill scores",
     "showXP": "Show XP",
+    "simpleInitiative": "Simple Initiative",
     "terseRollFormulae": "Hide system roll annotations",
     "trackCurrencyWeight": "Track currency weight",
     "trackInventoryWeight": "Track inventory weight"
@@ -1304,8 +1321,6 @@
   "A5E.ConfigureDamageScaling": "Configure Damage Scaling",
   "A5E.ConfigureQuantityScaling": "Configure Quantity Scaling",
   "A5E.ConfigureTargetScaling": "Configure Target Scaling",
-  "A5E.ConfigureManeuvers": "Configure Maneuvers",
-  "A5E.ConfigureSpells": "Configure Spells",
   "A5E.ConsumeOptions": "Resource to Consume",
   "A5E.ConsumeSpellPoints": "Consume Spell Points",
   "A5E.ConsumeSpellSlot": "Spell Slot",
@@ -1764,6 +1779,7 @@
   "A5E.RangeOther": "Other",
   "A5E.Recovery": "Recovery",
   "A5E.RecoverResourceAt": "Recover Every",
+  "A5E.RequiresBloodied": "Can only be used while Bloodied",
   "A5E.Resource": "Resource",
   "A5E.Resources": "Resources",
   "A5E.ResourceConfigurationTitle": "Configure Resource",

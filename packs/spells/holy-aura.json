@@ -2,7 +2,52 @@
 	"name": "Holy Aura",
 	"type": "spell",
 	"img": "icons/magic/light/explosion-beam-impact-silhouette.webp",
-	"effects": [],
+	"effects": [
+		{
+			"icon": "icons/magic/light/explosion-beam-impact-silhouette.webp",
+			"origin": "Item.25BsDCCRsuFRuLcK",
+			"flags": {
+				"a5e": {
+					"sort": 0,
+					"transferType": "onUse",
+					"actionId": "OaCzA0ewDpS9v01w",
+					"duration": {
+						"unit": "minutes"
+					}
+				}
+			},
+			"transfer": false,
+			"name": "Holy Aura",
+			"_id": "FtdsJCGGLpJKoYQ5",
+			"changes": [
+				{
+					"key": "@token.light.dim",
+					"value": "5",
+					"mode": 6,
+					"priority": null
+				},
+				{
+					"key": "flags.a5e.effects.rollMode.abilitySave.all",
+					"value": "1",
+					"mode": 6,
+					"priority": null
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": 60,
+				"combat": null,
+				"rounds": null,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "<p>Targets shed dim light in a 5-foot radius and have advantage on saving throws. Attacks made against a target have disadvantage. When a fiend or undead hits a target, the aura erupts into blinding light, forcing the attacker to make a Constitution saving throw or be blinded until the spell ends.</p>",
+			"statuses": [],
+			"folder": null
+		}
+	],
 	"flags": {},
 	"system": {
 		"actions": {
@@ -28,8 +73,8 @@
 					"placeTemplate": false
 				},
 				"target": {
-					"quantity": null,
-					"type": ""
+					"quantity": 1,
+					"type": "other"
 				},
 				"prompts": {
 					"lPepVTrLgaHVg7IW": {
@@ -40,6 +85,11 @@
 							"bonus": ""
 						},
 						"type": "savingThrow"
+					},
+					"j2YO2km7o2HtGQrt": {
+						"type": "effect",
+						"default": true,
+						"effectId": "FtdsJCGGLpJKoYQ5"
 					}
 				},
 				"consumers": {
@@ -52,7 +102,7 @@
 				}
 			}
 		},
-		"description": "<p>Holy radiance emanates from you and fills the area. Targets shed dim light in a 5-foot radius and have advantage on saving throws. Attacks made against a target have disadvantage. When a fiend or undead hits a target, the aura erupts into blinding light, forcing the attacker to make a Constitution saving throw or be blinded until the spell ends.</p>",
+		"description": "<p><span class=\"fontstyle0\"><strong>Target:</strong> </span><span class=\"fontstyle2\">Creatures you choose that are&nbsp;within the area</span></p>\n<p>Holy radiance emanates from you and fills the area. Targets shed dim light in a 5-foot radius and have advantage on saving throws. Attacks made against a target have disadvantage. When a fiend or undead hits a target, the aura erupts into blinding light, forcing the attacker to make a Constitution saving throw or be blinded until the spell ends.</p>",
 		"favorite": false,
 		"secretDescription": "",
 		"source": "",

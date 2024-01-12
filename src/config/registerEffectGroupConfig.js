@@ -146,6 +146,7 @@ export default function registerEffectGroupConfig(A5E) {
       label: 'A5E.effects.groups.initiative',
       items: [
         'flags.a5e.effects.rollMode.initiative',
+        'system.attributes.initiative.ability',
         'system.attributes.initiative.bonus',
         'system.attributes.initiative.expertiseDice'
       ]
@@ -478,6 +479,13 @@ export default function registerEffectGroupConfig(A5E) {
         'system.spellResources.slots.9.max'
       ]
     },
+    token: {
+      label: 'A5E.effects.groups.token',
+      items: [
+        '@token.width',
+        '@token.height'
+      ]
+    },
     tokenLight: {
       label: 'A5E.effects.groups.tokenLight',
       items: [
@@ -498,6 +506,14 @@ export default function registerEffectGroupConfig(A5E) {
         '@token.light.luminosity',
         '@token.light.saturation',
         '@token.light.shadows'
+      ]
+    },
+    tokenTexture: {
+      label: 'A5E.effects.groups.tokenTexture',
+      items: [
+        '@token.texture.src',
+        '@token.scaleX',
+        '@token.scaleY'
       ]
     },
     other: {

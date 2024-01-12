@@ -1,8 +1,8 @@
 <script>
     import { getContext } from "svelte";
-    // import { localize } from "#runtime/svelte/helper";
 
-    import FormSection from "../FormSection.svelte";
+    import FieldWrapper from "../FieldWrapper.svelte";
+    import Section from "../Section.svelte";
 
     import determineIfPropertyModifiedByEffect from "../../../utils/determineIfPropertyModifiedByEffect ";
     import updateDocumentDataFromField from "../../../utils/updateDocumentDataFromField";
@@ -36,21 +36,51 @@
     //     );
     // }
 
-    function disableConfig(key) {
-        const modifiedByEffect = determineIfPropertyModifiedByEffect(
-            $actor,
-            key,
-        );
-        if (modifiedByEffect) return true;
+    function getBonusSectionHeader(bonusType) {
+        switch (bonusType) {
+            case "abilities":
+                return "Ability Bonuses";
+            case "damage":
+                return "Damage Bonuses";
+            case "healing":
+                return "Healing Bonuses";
+            case "skills":
+                return "Skill Bonuses";
+        }
+    }
 
-        // Check if granted by an effect
-        const grantKey = key.split(".").slice(-2).join(".");
-        if (grants.includes(grantKey)) return true;
+    function getAddButtonLabelForBonus(bonusType) {
+        switch (bonusType) {
+            case "abilities":
+                return "+ Add Ability Bonus";
+            case "damage":
+                return "+ Add Damage Bonus";
+            case "healing":
+                return "+ Add Healing Bonus";
+            case "skills":
+                return "+ Add Skill Bonus";
+        }
+    }
 
-        return false;
+    function getDefaultBonusName(bonusType) {
+        switch (bonusType) {
+            case "abilities":
+                return "New Ability Bonus";
+            case "damage":
+                return "New Damage Bonus";
+            case "healing":
+                return "New Healing Bonus";
+            case "skills":
+                return "New Skill Bonus";
+        }
     }
 
     const actor = getContext("actor");
+
+    const bonusCategories = ["abilities", "damage", "healing", "skills"];
+
+    let rightClickConfigure =
+        game.settings.get("a5e", "itemRightClickConfigure") ?? true;
 
     $: disableMeleeWeaponAttack = determineIfPropertyModifiedByEffect(
         $actor,
@@ -87,22 +117,14 @@
     );
 </script>
 
-<section
-    class="u-flex-grow u-flex u-flex-col u-overflow-y-auto u-gap-md u-px-md"
-    style="grid-auto-rows: min-content;"
->
-    <section class="setting-group">
-        <header class="setting-header">
-            <h3 class="setting-heading">Global Bonuses</h3>
-        </header>
-
-        <small class="hint">
-            All of the fields in this section accept any values valid in roll
-            formulae.
-        </small>
-
+<section class="a5e-page-wrapper a5e-page-wrapper--scrollable">
+    <Section
+        heading="Global Bonuses"
+        hint="All of the fields in this section accept any values valid in roll formulae."
+        --a5e-section-body-gap="0.5rem"
+    >
         <div class="global-bonus-container">
-            <FormSection
+            <FieldWrapper
                 heading="Melee Weapon Attack"
                 showWarning={disableMeleeWeaponAttack}
                 warning="A5E.validations.warnings.modifiedByEffect"
@@ -120,9 +142,9 @@
                             target.value,
                         )}
                 />
-            </FormSection>
+            </FieldWrapper>
 
-            <FormSection
+            <FieldWrapper
                 heading="Ranged Weapon Attack"
                 showWarning={disableRangedWeaponAttack}
                 warning="A5E.validations.warnings.modifiedByEffect"
@@ -140,9 +162,9 @@
                             target.value,
                         )}
                 />
-            </FormSection>
+            </FieldWrapper>
 
-            <FormSection
+            <FieldWrapper
                 heading="Melee Spell Attack"
                 showWarning={disableMeleeSpellAttack}
                 warning="A5E.validations.warnings.modifiedByEffect"
@@ -160,9 +182,9 @@
                             target.value,
                         )}
                 />
-            </FormSection>
+            </FieldWrapper>
 
-            <FormSection
+            <FieldWrapper
                 heading="Ranged Spell Attack"
                 showWarning={disableRangedSpellAttack}
                 warning="A5E.validations.warnings.modifiedByEffect"
@@ -180,13 +202,13 @@
                             target.value,
                         )}
                 />
-            </FormSection>
+            </FieldWrapper>
         </div>
 
         <hr class="divider" />
 
         <div class="global-bonus-container">
-            <FormSection
+            <FieldWrapper
                 heading="A5E.ManeuverDCBonus"
                 showWarning={disableManeuverDC}
                 warning="A5E.validations.warnings.modifiedByEffect"
@@ -204,9 +226,9 @@
                             target.value,
                         )}
                 />
-            </FormSection>
+            </FieldWrapper>
 
-            <FormSection
+            <FieldWrapper
                 heading="A5E.SpellDCBonus"
                 showWarning={disableSpellDC}
                 warning="A5E.validations.warnings.modifiedByEffect"
@@ -224,245 +246,86 @@
                             target.value,
                         )}
                 />
-            </FormSection>
+            </FieldWrapper>
         </div>
-    </section>
+    </Section>
 
-    <section class="setting-group">
-        <header class="setting-header">
-            <h3 class="setting-heading">Ability Bonuses</h3>
+    {#each bonusCategories as bonusType}
+        <Section
+            heading={getBonusSectionHeader(bonusType)}
+            headerButtons={[
+                {
+                    label: getAddButtonLabelForBonus(bonusType),
+                    handler: () => $actor.addBonus(bonusType),
+                },
+            ]}
+            --a5e-section-gap="0"
+        >
+            <ul class="a5e-item-list">
+                {#each Object.entries($actor.system.bonuses[bonusType] ?? {}) as [id, bonus] (id)}
+                    <li
+                        class="a5e-item a5e-item--bonus"
+                        on:auxclick={() => {
+                            if (
+                                rightClickConfigure &&
+                                !determineIfPropertyModifiedByEffect(
+                                    $actor,
+                                    `system.bonuses.${bonusType}.${id}`,
+                                )
+                            )
+                                $actor.configureBonus(id, bonusType);
+                        }}
+                    >
+                        <img class="a5e-item__img" src={bonus.img} alt="" />
 
-            <button
-                class="setting-header-button"
-                on:click={() => $actor.addBonus("abilities")}
-            >
-                + Add Ability Bonus
-            </button>
-        </header>
+                        <h3 class="a5e-item__name">
+                            {bonus.label || getDefaultBonusName(bonusType)}
+                        </h3>
 
-        <ul class="bonus-list">
-            {#each Object.entries($actor.system.bonuses.abilities ?? {}) as [id, abilityBonus] (id)}
-                <li class="bonus">
-                    <img class="bonus__img" src={abilityBonus.img} alt="" />
+                        {#if !determineIfPropertyModifiedByEffect($actor, `system.bonuses.${bonusType}.${id}`)}
+                            <ul class="bonus-buttons">
+                                <li>
+                                    <button
+                                        class="action-button fas fa-cog"
+                                        data-tooltip="A5E.ButtonToolTipConfigure"
+                                        data-tooltip-direction="UP"
+                                        on:click|stopPropagation={() =>
+                                            $actor.configureBonus(
+                                                id,
+                                                bonusType,
+                                            )}
+                                    />
+                                </li>
 
-                    <h3 class="bonus__heading">
-                        {abilityBonus.label || "New Ability Bonus"}
-                    </h3>
+                                <li>
+                                    <button
+                                        class="action-button fa-solid fa-clone"
+                                        data-tooltip="A5E.ButtonToolTipDuplicate"
+                                        data-tooltip-direction="UP"
+                                        on:click|stopPropagation={() =>
+                                            $actor.duplicateBonus(
+                                                id,
+                                                bonusType,
+                                            )}
+                                    />
+                                </li>
 
-                    {#if !disableConfig(`system.bonuses.abilities.${id}`)}
-                        <ul class="bonus-buttons">
-                            <li>
-                                <button
-                                    class="action-button fas fa-cog"
-                                    data-tooltip="A5E.ButtonToolTipConfigure"
-                                    data-tooltip-direction="UP"
-                                    on:click|stopPropagation={() =>
-                                        $actor.configureBonus(id, "abilities")}
-                                />
-                            </li>
-
-                            <li>
-                                <button
-                                    class="action-button fa-solid fa-clone"
-                                    data-tooltip="A5E.ButtonToolTipDuplicate"
-                                    data-tooltip-direction="UP"
-                                    on:click|stopPropagation={() =>
-                                        $actor.duplicateBonus(id, "abilities")}
-                                />
-                            </li>
-
-                            <li>
-                                <button
-                                    class="action-button delete-button fas fa-trash"
-                                    data-tooltip="A5E.ButtonToolTipDelete"
-                                    data-tooltip-direction="UP"
-                                    on:click|stopPropagation={() =>
-                                        $actor.deleteBonus(id, "abilities")}
-                                />
-                            </li>
-                        </ul>
-                    {/if}
-                </li>
-            {/each}
-        </ul>
-    </section>
-
-    <section class="setting-group">
-        <header class="setting-header">
-            <h3 class="setting-heading">Damage Bonuses</h3>
-
-            <button
-                class="setting-header-button"
-                on:click={() => $actor.addBonus("damage")}
-            >
-                + Add Damage Bonus
-            </button>
-        </header>
-
-        <ul class="bonus-list">
-            {#each Object.entries($actor.system.bonuses.damage ?? {}) as [id, damageBonus] (id)}
-                <li class="bonus">
-                    <img class="bonus__img" src={damageBonus.img} alt="" />
-
-                    <h3 class="bonus__heading">
-                        {damageBonus.label || "New Damage Bonus"}
-                    </h3>
-
-                    {#if !disableConfig(`system.bonuses.damage.${id}`)}
-                        <ul class="bonus-buttons">
-                            <li>
-                                <button
-                                    class="action-button fas fa-cog"
-                                    data-tooltip="A5E.ButtonToolTipConfigure"
-                                    data-tooltip-direction="UP"
-                                    on:click|stopPropagation={() =>
-                                        $actor.configureBonus(id, "damage")}
-                                />
-                            </li>
-
-                            <li>
-                                <button
-                                    class="action-button fa-solid fa-clone"
-                                    data-tooltip="A5E.ButtonToolTipDuplicate"
-                                    data-tooltip-direction="UP"
-                                    on:click|stopPropagation={() =>
-                                        $actor.duplicateBonus(id, "damage")}
-                                />
-                            </li>
-
-                            <li>
-                                <button
-                                    class="action-button delete-button fas fa-trash"
-                                    data-tooltip="A5E.ButtonToolTipDelete"
-                                    data-tooltip-direction="UP"
-                                    on:click|stopPropagation={() =>
-                                        $actor.deleteBonus(id, "damage")}
-                                />
-                            </li>
-                        </ul>
-                    {/if}
-                </li>
-            {/each}
-        </ul>
-    </section>
-
-    <section class="setting-group">
-        <header class="setting-header">
-            <h3 class="setting-heading">Healing Bonuses</h3>
-
-            <button
-                class="setting-header-button"
-                on:click={() => $actor.addBonus("healing")}
-            >
-                + Add Healing Bonus
-            </button>
-        </header>
-
-        <ul class="bonus-list">
-            {#each Object.entries($actor.system.bonuses.healing ?? {}) as [id, healingBonus] (id)}
-                <li class="bonus">
-                    <img class="bonus__img" src={healingBonus.img} alt="" />
-
-                    <h3 class="bonus__heading">
-                        {healingBonus.label || "New Healing Bonus"}
-                    </h3>
-
-                    {#if !disableConfig(`system.bonuses.healing.${id}`)}
-                        <ul class="bonus-buttons">
-                            <li>
-                                <button
-                                    class="action-button fas fa-cog"
-                                    data-tooltip="A5E.ButtonToolTipConfigure"
-                                    data-tooltip-direction="UP"
-                                    on:click|stopPropagation={() =>
-                                        $actor.configureBonus(id, "healing")}
-                                />
-                            </li>
-
-                            <li>
-                                <button
-                                    class="action-button fa-solid fa-clone"
-                                    data-tooltip="A5E.ButtonToolTipDuplicate"
-                                    data-tooltip-direction="UP"
-                                    on:click|stopPropagation={() =>
-                                        $actor.duplicateBonus(id, "healing")}
-                                />
-                            </li>
-
-                            <li>
-                                <button
-                                    class="action-button delete-button fas fa-trash"
-                                    data-tooltip="A5E.ButtonToolTipDelete"
-                                    data-tooltip-direction="UP"
-                                    on:click|stopPropagation={() =>
-                                        $actor.deleteBonus(id, "healing")}
-                                />
-                            </li>
-                        </ul>
-                    {/if}
-                </li>
-            {/each}
-        </ul>
-    </section>
-
-    <section class="setting-group">
-        <header class="setting-header">
-            <h3 class="setting-heading">Skill Bonuses</h3>
-
-            <button
-                class="setting-header-button"
-                on:click={() => $actor.addBonus("skills")}
-            >
-                + Add Skill Bonus
-            </button>
-        </header>
-
-        <ul class="bonus-list">
-            {#each Object.entries($actor.system.bonuses.skills ?? {}) as [id, skillBonus] (id)}
-                <li class="bonus">
-                    <img class="bonus__img" src={skillBonus.img} alt="" />
-
-                    <h3 class="bonus__heading">
-                        {skillBonus.label || "New Skill Bonus"}
-                    </h3>
-
-                    {#if !disableConfig(`system.bonuses.skills.${id}`)}
-                        <ul class="bonus-buttons">
-                            <li>
-                                <button
-                                    class="action-button fas fa-cog"
-                                    data-tooltip="A5E.ButtonToolTipConfigure"
-                                    data-tooltip-direction="UP"
-                                    on:click|stopPropagation={() =>
-                                        $actor.configureBonus(id, "skills")}
-                                />
-                            </li>
-
-                            <li>
-                                <button
-                                    class="action-button fa-solid fa-clone"
-                                    data-tooltip="A5E.ButtonToolTipDuplicate"
-                                    data-tooltip-direction="UP"
-                                    on:click|stopPropagation={() =>
-                                        $actor.duplicateBonus(id, "skills")}
-                                />
-                            </li>
-
-                            <li>
-                                <button
-                                    class="action-button delete-button fas fa-trash"
-                                    data-tooltip="A5E.ButtonToolTipDelete"
-                                    data-tooltip-direction="UP"
-                                    on:click|stopPropagation={() =>
-                                        $actor.deleteBonus(id, "skills")}
-                                />
-                            </li>
-                        </ul>
-                    {/if}
-                </li>
-            {/each}
-        </ul>
-    </section>
+                                <li>
+                                    <button
+                                        class="action-button delete-button fas fa-trash"
+                                        data-tooltip="A5E.ButtonToolTipDelete"
+                                        data-tooltip-direction="UP"
+                                        on:click|stopPropagation={() =>
+                                            $actor.deleteBonus(id, bonusType)}
+                                    />
+                                </li>
+                            </ul>
+                        {/if}
+                    </li>
+                {/each}
+            </ul>
+        </Section>
+    {/each}
 </section>
 
 <style lang="scss">
@@ -479,7 +342,7 @@
         // 17.5 pixels: the width of the largest icon we have
         min-width: 1.09375rem;
 
-        transition: $standard-transition;
+        transition: var(--a5e-transition-standard);
 
         &:hover {
             color: #555;
@@ -496,43 +359,6 @@
         color: $color-secondary;
     }
 
-    .bonus-list {
-        display: flex;
-        flex-direction: column;
-        gap: 0.25rem;
-        list-style: none;
-        margin: 0;
-        padding: 0;
-    }
-
-    .bonus {
-        display: grid;
-        grid-template-columns: 1.375rem 1fr min-content;
-        gap: 0.125rem 0.5rem;
-        align-items: center;
-        padding: 0.125rem;
-        padding-right: 0.5rem;
-        background: rgba(0, 0, 0, 0.05);
-        border: 1px solid #ccc;
-        border-radius: $border-radius-standard;
-
-        &__img {
-            height: 100%;
-            width: auto;
-            object-fit: cover;
-        }
-
-        &__heading {
-            font-size: $font-size-sm;
-        }
-
-        // &__summary {
-        //     grid-column: 1 / -1;
-        //     font-size: $font-size-xs;
-        //     padding: 0.25rem;
-        // }
-    }
-
     .bonus-buttons {
         display: flex;
         align-items: center;
@@ -545,57 +371,12 @@
     .divider {
         border: 0;
         border-bottom: 0.5px solid #ccc;
-        margin: 0.375rem 0;
+        margin: 0;
     }
 
     .global-bonus-container {
         display: grid;
         grid-template-columns: repeat(2, 1fr);
-        gap: 0.25rem;
-    }
-
-    .hint {
-        margin-block: 0.25rem;
-    }
-
-    .setting-group {
-        display: flex;
-        flex-direction: column;
-        gap: 0.25rem;
-
-        &:not(:last-child) {
-            margin-bottom: 0.25rem;
-        }
-    }
-
-    .setting-header {
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        padding: 0 0.5rem 0.25rem 0.125rem;
-        border-bottom: 1px solid #ccc;
-    }
-
-    .setting-header-button {
-        width: fit-content;
-        padding: 0;
-        margin: 0;
-        background: transparent;
-        line-height: 1;
-        font-size: $font-size-sm;
-        color: #7e7960;
-
-        transition: $standard-transition;
-
-        &:focus,
-        &:hover {
-            box-shadow: none;
-            color: rgb(25, 24, 19);
-        }
-    }
-
-    .setting-heading {
-        font-size: $font-size-sm;
-        white-space: nowrap;
+        gap: 0.5rem;
     }
 </style>

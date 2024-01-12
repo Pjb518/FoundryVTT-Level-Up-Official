@@ -2,7 +2,45 @@
 	"name": "Power Word Stun",
 	"type": "spell",
 	"img": "icons/magic/control/hypnosis-mesmerism-swirl.webp",
-	"effects": [],
+	"effects": [
+		{
+			"icon": "icons/magic/control/hypnosis-mesmerism-swirl.webp",
+			"origin": "Item.gZ9Cl9ThdsN027iS",
+			"flags": {
+				"a5e": {
+					"sort": 0,
+					"transferType": "onUse",
+					"actionId": "eAwDRDxpIDZxroZQ"
+				}
+			},
+			"transfer": false,
+			"name": "Stunned",
+			"_id": "3dvmq3UzUk7FNxbW",
+			"changes": [
+				{
+					"key": "flags.a5e.effects.statusConditions",
+					"value": "[\"stunned\"]",
+					"mode": 0,
+					"priority": null
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": null,
+				"combat": null,
+				"rounds": null,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "<p>At the end of the target's turn, it makes a Constitution saving throw to end the effect.</p>",
+			"statuses": [
+				"stunned"
+			],
+			"folder": null
+		}
+	],
 	"flags": {},
 	"system": {
 		"actions": {
@@ -40,6 +78,11 @@
 							"bonus": ""
 						},
 						"type": "savingThrow"
+					},
+					"vbSbxZUzZ9uE9XVZ": {
+						"type": "effect",
+						"default": true,
+						"effectId": "3dvmq3UzUk7FNxbW"
 					}
 				},
 				"consumers": {

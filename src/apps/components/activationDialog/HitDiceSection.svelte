@@ -2,9 +2,10 @@
     import { localize } from "#runtime/svelte/helper";
     import { getContext } from "svelte";
 
-    import FormSection from "../FormSection.svelte";
+    import FormSection from "../LegacyFormSection.svelte";
 
     import prepareHitDice from "../../dataPreparationHelpers/prepareHitDice";
+    import FieldWrapper from "../FieldWrapper.svelte";
 
     export let consumers;
     export let hitDiceData;
@@ -29,7 +30,7 @@
             if (total > 0) acc.push(die);
             return acc;
         },
-        []
+        [],
     );
 
     // =======================================================
@@ -37,59 +38,50 @@
     const hitDiceConsumer = getConsumer(consumers);
 
     hitDiceData.selected = Object.fromEntries(
-        availableHitDice.map((hd, idx) => [hd, idx === 0 ? 1 : 0])
+        availableHitDice.map((hd, idx) => [hd, idx === 0 ? 1 : 0]),
     );
     hitDiceData.default = hitDiceConsumer.default;
 
     let hitDice = $actor.system.attributes.hitDice;
 </script>
 
-<FormSection>
-    <section>
-        <h3 class="u-text-bold u-text-sm">
-            {localize("A5E.HitDiceLabel")}
-        </h3>
+<FieldWrapper heading="A5E.HitDiceLabel">
+    <!-- Type -->
+    <div class="u-flex u-gap-lg u-flex-wrap">
+        {#each availableHitDice as die}
+            <div class="hit-die__wrapper">
+                <button
+                    class="hit-die__button"
+                    class:disabled={hitDice[die].current === 0}
+                    disabled={hitDice[die].current === 0}
+                    on:click|preventDefault={() => updateSelected(die)}
+                    on:auxclick|preventDefault={() => updateSelected(die, true)}
+                >
+                    <span class="hit-die__button--label">
+                        {die}
+                    </span>
+                </button>
 
-        <!-- Type -->
-        <div class="u-flex u-gap-lg u-flex-wrap">
-            {#each availableHitDice as die}
-                <div class="hit-die__wrapper">
-                    <button
-                        class="hit-die__button"
-                        class:disabled={hitDice[die].current === 0}
-                        disabled={hitDice[die].current === 0}
-                        on:click|preventDefault={() => updateSelected(die)}
-                        on:auxclick|preventDefault={() =>
-                            updateSelected(die, true)}
-                    >
-                        <span class="hit-die__button--label">
-                            {die}
-                        </span>
-                    </button>
+                <div class="quantity__wrapper">
+                    <input
+                        type="number"
+                        min="0"
+                        max={hitDice[die].current}
+                        bind:value={hitDiceData.selected[die]}
+                    />
 
-                    <div class="quantity__wrapper">
-                        <input
-                            type="number"
-                            min="0"
-                            max={hitDice[die].current}
-                            bind:value={hitDiceData.selected[die]}
-                        />
+                    /
 
-                        /
-
-                        <input
-                            type="number"
-                            value={hitDice[die].current}
-                            disabled
-                        />
-                    </div>
+                    <input
+                        type="number"
+                        value={hitDice[die].current}
+                        disabled
+                    />
                 </div>
-            {/each}
-        </div>
-
-        <!-- Roll? -->
-    </section>
-</FormSection>
+            </div>
+        {/each}
+    </div>
+</FieldWrapper>
 
 <style lang="scss">
     .hit-die__wrapper {

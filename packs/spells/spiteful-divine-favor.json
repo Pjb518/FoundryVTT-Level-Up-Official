@@ -2,7 +2,40 @@
 	"name": "Spiteful Divine Favor",
 	"type": "spell",
 	"img": "icons/skills/melee/strike-sword-dagger-runes-yellow.webp",
-	"effects": [],
+	"effects": [
+		{
+			"icon": "icons/skills/melee/strike-sword-dagger-runes-yellow.webp",
+			"origin": "Item.K6nr1nwEcaXjJfja",
+			"flags": {
+				"a5e": {
+					"sort": 0,
+					"transferType": "onUse",
+					"actionId": "qATnhiGEce8sizWl",
+					"duration": {
+						"unit": "minutes"
+					},
+					"applyToSelf": true
+				}
+			},
+			"transfer": false,
+			"name": "Spiteful Divine Favor",
+			"_id": "YE7PTLhlB2aNEALJ",
+			"changes": [],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": 60,
+				"combat": null,
+				"rounds": null,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "<p>Until the spell ends, you deal an extra 1d4 necrotic damage with your weapon attacks, and when rolling extra damage from this spell you reroll any results of 1 (you must use the new result).</p>",
+			"statuses": [],
+			"folder": null
+		}
+	],
 	"flags": {},
 	"system": {
 		"actions": {
@@ -46,6 +79,13 @@
 						"spellLevel": 1,
 						"points": 2,
 						"type": "spell"
+					}
+				},
+				"prompts": {
+					"5JaHhvykNoPvMd5B": {
+						"type": "effect",
+						"default": true,
+						"effectId": "YE7PTLhlB2aNEALJ"
 					}
 				}
 			}

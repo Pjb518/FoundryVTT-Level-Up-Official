@@ -2,7 +2,40 @@
 	"name": "Elusive Misty Step",
 	"type": "spell",
 	"img": "icons/skills/movement/ball-spinning-blue.webp",
-	"effects": [],
+	"effects": [
+		{
+			"icon": "icons/skills/movement/ball-spinning-blue.webp",
+			"origin": "Item.w7fIFs6Qwf5lIWWj",
+			"flags": {
+				"a5e": {
+					"sort": 0,
+					"transferType": "onUse",
+					"actionId": "vXZn3iWPurUWz9QK",
+					"duration": {
+						"type": "rounds",
+						"unit": "minutes"
+					}
+				}
+			},
+			"transfer": false,
+			"name": "Elusive",
+			"_id": "ArzCD02x2nil24o9",
+			"changes": [],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": null,
+				"combat": null,
+				"rounds": 1,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "<p>Until the start of your next turn, attack rolls against you are made with disadvantage.</p>",
+			"statuses": [],
+			"folder": null
+		}
+	],
 	"flags": {},
 	"system": {
 		"actions": {
@@ -32,6 +65,13 @@
 						"spellLevel": 2,
 						"points": 3,
 						"type": "spell"
+					}
+				},
+				"prompts": {
+					"0M6hGL9sSjRYHa4c": {
+						"type": "effect",
+						"default": true,
+						"effectId": "ArzCD02x2nil24o9"
 					}
 				}
 			}

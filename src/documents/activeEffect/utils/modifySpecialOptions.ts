@@ -43,14 +43,16 @@ export default function modifySpecialOptions(options: object) {
   const statusConditions = Object.entries(CONFIG.A5E.conditions);
   options['flags.a5e.effects.statusConditions'] = [[], MODES.CUSTOM_ONLY, statusConditions, 'CHECKBOX'];
 
-  options['flags.a5e.effects.bonuses.abilities'] = [{}, MODES.CUSTOM_ONLY, null, 'ABILITY_BONUS'];
-  options['flags.a5e.effects.bonuses.damage'] = [{}, MODES.CUSTOM_ONLY, null, 'DAMAGE_BONUS'];
-  options['flags.a5e.effects.bonuses.healing'] = [{}, MODES.CUSTOM_ONLY, null, 'HEALING_BONUS'];
-  options['flags.a5e.effects.bonuses.skills'] = [{}, MODES.CUSTOM_ONLY, null, 'SKILL_BONUS'];
-
   // TODO: Maybe add something to automatically fail?
 
   // Token Effects
+  options['@token.width'] = [1, MODES.OVERRIDE_ONLY];
+  options['@token.height'] = [1, MODES.OVERRIDE_ONLY];
+
+  options['@token.texture.src'] = ['', MODES.OVERRIDE_ONLY];
+  options['@token.texture.scaleX'] = [1, MODES.OVERRIDE_ONLY];
+  options['@token.texture.scaleY'] = [1, MODES.OVERRIDE_ONLY];
+
   options['@token.light.alpha'] = [0.5, MODES.OVERRIDE_ONLY];
   options['@token.light.angle'] = [360, MODES.OVERRIDE_ONLY];
   options['@token.light.animation.intensity'] = [5, MODES.OVERRIDE_ONLY];

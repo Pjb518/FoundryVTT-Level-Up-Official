@@ -6,12 +6,12 @@
             ([spellLevel]) =>
                 spellLevel &&
                 spellLevel !== "0" &&
-                spellLevel <= highestSpellSlotLevel
+                spellLevel <= highestSpellSlotLevel,
         );
     }
 </script>
 
-<header class="core-header">
+<header class="a5e-section-header a5e-section-header--party-viewer">
     {#if propData.partyHasInspiration}
         <i
             class="heading heading--inspiration fa-solid fa-dice-d20"
@@ -37,39 +37,25 @@
     {/if}
 
     {#if propData.highestSpellSlotLevel}
-        <div class="spell-slots">
-            <h3 class="spell-slots__heading">Spell Slots by Level</h3>
-
-            <ol class="spell-levels">
-                {#each getSpellLevels(propData) as [spellLevel, tooltip]}
-                    <li
-                        class="spell-level"
-                        class:spell-level--narrow={propData.highestSpellSlotLevel >=
-                            8}
-                        data-tooltip={tooltip}
-                        data-tooltip-direction="UP"
-                    >
+        <ol class="spell-levels">
+            {#each getSpellLevels(propData) as [spellLevel, tooltip]}
+                <li
+                    class="spell-level"
+                    class:spell-level--narrow={propData.highestSpellSlotLevel >=
+                        8}
+                    data-tooltip={`${tooltip} Spell Slots`}
+                    data-tooltip-direction="UP"
+                >
+                    <span style="position:relative; z-index: 1;">
                         {spellLevel}
-                    </li>
-                {/each}
-            </ol>
-        </div>
+                    </span>
+                </li>
+            {/each}
+        </ol>
     {/if}
 </header>
 
 <style lang="scss">
-    .core-header {
-        display: grid;
-        grid-template-areas: var(--grid-areas);
-        grid-template-columns: var(--grid-template);
-        align-items: end;
-        gap: 0.5rem;
-        min-height: 1.75rem;
-        padding: 0.375rem 0.125rem;
-        border-bottom: 1px solid #ccc;
-        border-top: 1px solid #ccc;
-    }
-
     .heading {
         font-size: 0.833rem;
         text-align: center;
@@ -87,35 +73,31 @@
         }
     }
 
-    .spell-slots {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        gap: 0.5rem;
-        width: 100%;
-        min-width: 7.5rem;
-        grid-area: spellSlots;
-
-        &__heading {
-            font-size: 0.833rem;
-            text-align: center;
-            font-weight: 700;
-            white-space: nowrap;
-        }
-    }
-
     .spell-levels {
+        grid-area: spellSlots;
         display: flex;
         gap: 0.5rem;
         padding: 0;
         margin: 0;
-        font-weight: bold;
         list-style: none;
     }
 
     .spell-level {
+        position: relative;
         width: 1.75rem;
         text-align: center;
+        line-height: 1;
+
+        &:before {
+            content: "\f72b";
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-family: "Font Awesome 6 Pro";
+            font-size: var(--a5e-text-size-md);
+            color: rgba(255, 255, 255, 0.22);
+        }
 
         &--narrow {
             width: 1.5rem;

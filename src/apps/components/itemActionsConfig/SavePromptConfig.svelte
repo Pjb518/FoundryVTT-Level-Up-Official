@@ -8,23 +8,15 @@
     import updateDocumentDataFromField from "../../../utils/updateDocumentDataFromField";
 
     import Checkbox from "../Checkbox.svelte";
-    import FormSection from "../FormSection.svelte";
+    import FieldWrapper from "../FieldWrapper.svelte";
     import RadioGroup from "../RadioGroup.svelte";
-
-    export let prompt;
-    export let promptId;
-
-    const item = getContext("item");
-    const actor = $item.actor && new TJSDocument($item.actor);
-    const actionId = getContext("actionId");
-
-    const { saveDCOptions } = CONFIG.A5E;
+    import Section from "../Section.svelte";
 
     function updateAbility() {
         updateDocumentDataFromField(
             $item,
             `system.actions.${actionId}.prompts.${promptId}.ability`,
-            selectedAbility
+            selectedAbility,
         );
     }
 
@@ -51,6 +43,17 @@
         }
     }
 
+    export let deletePrompt;
+    export let duplicatePrompt;
+    export let prompt;
+    export let promptId;
+
+    const item = getContext("item");
+    const actor = $item.actor && new TJSDocument($item.actor);
+    const actionId = getContext("actionId");
+
+    const { saveDCOptions } = CONFIG.A5E;
+
     let saveDCIsValid = true;
     let saveDCBonus = prompt?.saveDC?.bonus;
 
@@ -60,13 +63,22 @@
     $: selectedAbility, updateAbility();
 </script>
 
-<FormSection
+<FieldWrapper
     heading="A5E.Label"
-    --background="none"
-    --direction="column"
-    --grow="1"
-    --padding="0"
-    --margin="0 4.5rem 0 0"
+    buttons={[
+        {
+            classes:
+                "fa-solid fa-clone a5e-field-wrapper__header-button--scale",
+            handler: () => duplicatePrompt(actionId, prompt),
+        },
+        {
+            classes: "fas fa-trash a5e-field-wrapper__header-button--scale",
+            handler: () => deletePrompt(actionId, promptId),
+        },
+    ]}
+    --a5e-header-button-color="#bebdb5"
+    --a5e-header-button-color-hover="#555"
+    --a5e-field-wrapper-button-wrapper-gap="0.75rem"
 >
     <input
         type="text"
@@ -75,33 +87,28 @@
             updateDocumentDataFromField(
                 $item,
                 `system.actions.${actionId}.prompts.${promptId}.label`,
-                target.value
+                target.value,
             )}
     />
-</FormSection>
+</FieldWrapper>
 
-<FormSection
+<RadioGroup
     heading="A5E.ItemSavingThrowType"
-    --background="none"
-    --direction="column"
-    --padding="0"
->
-    <RadioGroup
-        optionStyles="min-width: 2rem; text-align: center;"
-        options={prepareAbilityOptions()}
-        selected={selectedAbility}
-        allowDeselect={false}
-        on:updateSelection={({ detail }) => (selectedAbility = detail)}
-    />
-</FormSection>
+    optionStyles="min-width: 2rem; text-align: center;"
+    options={prepareAbilityOptions()}
+    selected={selectedAbility}
+    allowDeselect={false}
+    on:updateSelection={({ detail }) => (selectedAbility = detail)}
+/>
 
-<FormSection --background="none" --padding="0">
-    <FormSection
+<Section
+    --a5e-section-body-direction="row"
+    --a5e-section-body-wrap="nowrap"
+    --a5e-section-body-padding="0"
+>
+    <FieldWrapper
         heading="A5E.ItemSavingThrowDC"
-        --background="none"
-        --direction="column"
-        --label-width="9rem"
-        --padding="0"
+        --a5e-field-wrapper-label-width="9rem"
     >
         <select on:change={selectSaveDCCalculationType}>
             {#each Object.entries(saveDCOptions) as [type, label]}
@@ -110,16 +117,13 @@
                 </option>
             {/each}
         </select>
-    </FormSection>
+    </FieldWrapper>
 
-    <FormSection
+    <FieldWrapper
         heading={prompt?.saveDC?.type === "custom"
             ? "A5E.ItemSavingThrowDCCustom"
             : "A5E.ItemSavingThrowDCBonus"}
-        --background="none"
-        --direction="column"
-        --grow="1"
-        --padding="0"
+        --a5e-field-wrapper-grow="1"
     >
         <div class="u-flex u-gap-sm">
             <input
@@ -130,7 +134,7 @@
                     updateDocumentDataFromField(
                         $item,
                         `system.actions.${actionId}.prompts.${promptId}.saveDC.bonus`,
-                        target.value
+                        target.value,
                     )}
             />
 
@@ -148,15 +152,10 @@
                 </span>
             {/if}
         </div>
-    </FormSection>
-</FormSection>
+    </FieldWrapper>
+</Section>
 
-<FormSection
-    heading="A5E.ItemEffectOnSave"
-    --background="none"
-    --direction="column"
-    --padding="0"
->
+<FieldWrapper heading="A5E.ItemEffectOnSave">
     <input
         type="text"
         value={prompt.onSave ?? ""}
@@ -164,10 +163,10 @@
             updateDocumentDataFromField(
                 $item,
                 `system.actions.${actionId}.prompts.${promptId}.onSave`,
-                target.value
+                target.value,
             )}
     />
-</FormSection>
+</FieldWrapper>
 
 <Checkbox
     label="A5E.PromptDefaultSelection"
@@ -176,7 +175,7 @@
         updateDocumentDataFromField(
             $item,
             `system.actions.${actionId}.prompts.${promptId}.default`,
-            detail
+            detail,
         );
     }}
 />

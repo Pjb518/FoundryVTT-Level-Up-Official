@@ -2,7 +2,89 @@
 	"name": "Confusion",
 	"type": "spell",
 	"img": "icons/magic/sonic/projectile-sound-rings-wave.webp",
-	"effects": [],
+	"effects": [
+		{
+			"icon": "icons/magic/sonic/projectile-sound-rings-wave.webp",
+			"origin": "Item.DUmXqsEgJJN5Qnk2",
+			"flags": {
+				"a5e": {
+					"sort": 0,
+					"transferType": "onUse",
+					"actionId": "jqb7BKBuOfS5Z1n8",
+					"duration": {
+						"unit": "minutes"
+					}
+				}
+			},
+			"transfer": false,
+			"name": "Confused",
+			"_id": "2wGiliUjJKlBJYp3",
+			"changes": [
+				{
+					"key": "flags.a5e.effects.statusConditions",
+					"value": "[\"confused\"]",
+					"mode": 0,
+					"priority": null
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": 60,
+				"combat": null,
+				"rounds": null,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "<p>At the end of each of its turns, a confused target makes a Wisdom saving throw to end the spell's effects on it.</p>",
+			"statuses": [
+				"confused"
+			],
+			"folder": null
+		},
+		{
+			"icon": "icons/magic/sonic/projectile-sound-rings-wave.webp",
+			"origin": "Item.DUmXqsEgJJN5Qnk2",
+			"flags": {
+				"a5e": {
+					"sort": 0,
+					"transferType": "onUse",
+					"actionId": "jqb7BKBuOfS5Z1n8",
+					"duration": {
+						"type": "rounds",
+						"unit": "minutes"
+					}
+				}
+			},
+			"transfer": false,
+			"name": "Rattled",
+			"_id": "gJe691nLuizKcGEa",
+			"changes": [
+				{
+					"key": "flags.a5e.effects.statusConditions",
+					"value": "[\"rattled\"]",
+					"mode": 0,
+					"priority": null
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": null,
+				"combat": null,
+				"rounds": 1,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "",
+			"statuses": [
+				"rattled"
+			],
+			"folder": null
+		}
+	],
 	"flags": {},
 	"system": {
 		"actions": {
@@ -25,7 +107,14 @@
 				"area": {
 					"shape": "sphere",
 					"radius": "10",
-					"placeTemplate": false
+					"placeTemplate": true,
+					"scaling": {
+						"mode": "spellLevel",
+						"formula": {
+							"quantity": "1",
+							"radius": "5"
+						}
+					}
 				},
 				"target": {
 					"quantity": "",
@@ -40,6 +129,16 @@
 							"bonus": ""
 						},
 						"type": "savingThrow"
+					},
+					"ocpTg4Xds9x5O9f3": {
+						"type": "effect",
+						"default": true,
+						"effectId": "2wGiliUjJKlBJYp3"
+					},
+					"BqXUbid7ECMSCHWT": {
+						"type": "effect",
+						"default": true,
+						"effectId": "gJe691nLuizKcGEa"
 					}
 				},
 				"consumers": {

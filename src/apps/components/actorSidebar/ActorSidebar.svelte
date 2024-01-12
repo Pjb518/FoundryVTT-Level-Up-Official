@@ -42,7 +42,7 @@
 
     const replaceFatigueAndStrife = game.settings.get(
         "a5e",
-        "replaceFatigueAndStrife"
+        "replaceFatigueAndStrife",
     );
 
     if (replaceFatigueAndStrife) {
@@ -130,7 +130,7 @@
         flex-grow: 0;
         flex-shrink: 0;
         height: 100%;
-        width: 200px;
+        width: 12.5rem;
         padding: 0.5rem;
         border-right: 1px solid #ccc;
     }
@@ -176,6 +176,7 @@
         gap: 0.6rem;
         flex-grow: 1;
         overflow-y: auto;
+        overflow-x: clip;
     }
 
     .actor-sidebar-footer {

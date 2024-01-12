@@ -2,23 +2,35 @@
     import { getContext } from "svelte";
 
     import Checkbox from "../Checkbox.svelte";
-    import FormSection from "../FormSection.svelte";
+    import FieldWrapper from "../FieldWrapper.svelte";
 
     import updateDocumentDataFromField from "../../../utils/updateDocumentDataFromField";
 
     const item = getContext("item");
     const actionId = getContext("actionId");
 
+    export let deleteRoll;
+    export let duplicateRoll;
     export let roll;
     export let rollId;
 </script>
 
-<FormSection
+<FieldWrapper
     heading="A5E.Label"
-    --background="none"
-    --direction="column"
-    --padding="0"
-    --margin="0 4.5rem 0 0"
+    buttons={[
+        {
+            classes:
+                "fa-solid fa-clone a5e-field-wrapper__header-button--scale",
+            handler: () => duplicateRoll(actionId, roll),
+        },
+        {
+            classes: "fas fa-trash a5e-field-wrapper__header-button--scale",
+            handler: () => deleteRoll(actionId, rollId),
+        },
+    ]}
+    --a5e-header-button-color="#bebdb5"
+    --a5e-header-button-color-hover="#555"
+    --a5e-field-wrapper-button-wrapper-gap="0.75rem"
 >
     <input
         type="text"
@@ -27,17 +39,12 @@
             updateDocumentDataFromField(
                 $item,
                 `system.actions.${actionId}.rolls.${rollId}.label`,
-                target.value
+                target.value,
             )}
     />
-</FormSection>
+</FieldWrapper>
 
-<FormSection
-    heading="A5E.RollFormula"
-    --background="none"
-    --direction="column"
-    --padding="0"
->
+<FieldWrapper heading="A5E.RollFormula">
     <input
         type="text"
         value={roll.formula ?? ""}
@@ -45,10 +52,10 @@
             updateDocumentDataFromField(
                 $item,
                 `system.actions.${actionId}.rolls.${rollId}.formula`,
-                target.value
+                target.value,
             )}
     />
-</FormSection>
+</FieldWrapper>
 
 <Checkbox
     label="A5E.GenericDefaultSelection"
@@ -57,7 +64,7 @@
         updateDocumentDataFromField(
             $item,
             `system.actions.${actionId}.rolls.${rollId}.default`,
-            detail
+            detail,
         );
     }}
 />

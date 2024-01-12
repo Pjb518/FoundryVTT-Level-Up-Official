@@ -2,7 +2,7 @@
     import { localize } from "#runtime/svelte/helper";
     import { getContext } from "svelte";
 
-    import FormSection from "../FormSection.svelte";
+    import FieldWrapper from "../FieldWrapper.svelte";
 
     import getDeterministicBonus from "../../../dice/getDeterministicBonus";
     import showActivationDialogSection from "../../../utils/showActivationDialogSection";
@@ -44,74 +44,55 @@
 
     $: actionMaxUses = getDeterministicBonus(
         actionUses?.max ?? 0,
-        $actor.getRollData()
+        $actor.getRollData(),
     );
 </script>
 
 <div class="side-by-side">
     {#if showActivationDialogSection(action, ["actionUses"], ["actionUses"]) && actionUses?.max}
-        <FormSection>
-            <section>
-                <h3 class="u-text-bold u-text-sm">
-                    {localize("A5E.ActionUses")}
-                </h3>
-
-                <div class="u-flex u-gap-md u-align-center">
-                    <div class="u-flex u-w-10">
-                        <input
-                            class="number-input"
-                            type="number"
-                            bind:value={actionUsesData.quantity}
-                            min="0"
-                            max={actionUses.max}
-                        />
-                    </div>
-
-                    <p class="u-text-xs">
-                        ( {actionUses.value} / {actionMaxUses}
-                        {localize("A5E.UsesRemaining")})
-                    </p>
+        <FieldWrapper heading="A5E.ActionUses">
+            <div class="u-flex u-gap-md u-align-center">
+                <div class="u-flex u-w-10">
+                    <input
+                        class="number-input"
+                        type="number"
+                        bind:value={actionUsesData.quantity}
+                        min="0"
+                        max={actionUses.max}
+                    />
                 </div>
-            </section>
-        </FormSection>
+
+                <p class="u-text-xs">
+                    ( {actionUses.value} / {actionMaxUses}
+                    {localize("A5E.UsesRemaining")})
+                </p>
+            </div>
+        </FieldWrapper>
     {/if}
 
     {#if showActivationDialogSection(action, ["itemUses"], ["itemUses"]) && itemUses?.max}
-        <FormSection>
-            <section>
-                <h3 class="u-text-bold u-text-sm">
-                    {localize("A5E.ItemUses")}
-                </h3>
-
-                <div class="u-flex u-gap-md u-align-center">
-                    <div class="u-flex u-w-10">
-                        <input
-                            class="number-input"
-                            type="number"
-                            bind:value={itemUsesData.quantity}
-                            min="0"
-                            max={itemUses.max}
-                        />
-                    </div>
-
-                    <p class="u-text-xs">
-                        ( {itemUses.value} / {itemMaxUses}
-                        {localize("A5E.UsesRemaining")})
-                    </p>
+        <FieldWrapper heading="A5E.ItemUses">
+            <div class="u-flex u-gap-md u-align-center">
+                <div class="u-flex u-w-10">
+                    <input
+                        class="number-input"
+                        type="number"
+                        bind:value={itemUsesData.quantity}
+                        min="0"
+                        max={itemUses.max}
+                    />
                 </div>
-            </section>
-        </FormSection>
+
+                <p class="u-text-xs">
+                    ( {itemUses.value} / {itemMaxUses}
+                    {localize("A5E.UsesRemaining")})
+                </p>
+            </div>
+        </FieldWrapper>
     {/if}
 </div>
 
 <style lang="scss">
-    section {
-        display: flex;
-        flex-direction: column;
-        gap: 0.5rem;
-        width: 100%;
-    }
-
     .side-by-side {
         display: grid;
         grid-template-columns: repeat(auto-fit, minmax(100px, auto));

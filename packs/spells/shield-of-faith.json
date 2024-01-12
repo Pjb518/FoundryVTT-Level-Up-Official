@@ -2,7 +2,122 @@
 	"name": "Shield of Faith",
 	"type": "spell",
 	"img": "icons/magic/defensive/shield-barrier-deflect-gold.webp",
-	"effects": [],
+	"effects": [
+		{
+			"icon": "icons/magic/defensive/shield-barrier-deflect-gold.webp",
+			"origin": "Item.J3Z0YjrEFXThVLc8",
+			"flags": {
+				"a5e": {
+					"sort": 0,
+					"transferType": "onUse",
+					"actionId": "STA5gdxQ2x1OvxUC",
+					"duration": {
+						"unit": "minutes"
+					}
+				}
+			},
+			"transfer": false,
+			"name": "Shield of Faith",
+			"_id": "rn8UmOgiwz7XSl09",
+			"changes": [
+				{
+					"key": "system.attributes.ac.changes.bonuses.value",
+					"value": "2",
+					"mode": 2,
+					"priority": null
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": 600,
+				"combat": null,
+				"rounds": null,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "",
+			"statuses": [],
+			"folder": null
+		},
+		{
+			"icon": "icons/magic/defensive/shield-barrier-deflect-gold.webp",
+			"origin": "Item.J3Z0YjrEFXThVLc8",
+			"flags": {
+				"a5e": {
+					"sort": 0,
+					"transferType": "onUse",
+					"actionId": "O8TjPLApd5D5I4GA",
+					"duration": {
+						"unit": "minutes"
+					}
+				}
+			},
+			"transfer": false,
+			"name": "Shield of Faith",
+			"_id": "8crYdLZe3fSU0G5y",
+			"changes": [
+				{
+					"key": "system.attributes.ac.changes.bonuses.value",
+					"value": "3",
+					"mode": 2,
+					"priority": null
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": 600,
+				"combat": null,
+				"rounds": null,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "",
+			"statuses": [],
+			"folder": null
+		},
+		{
+			"icon": "icons/magic/defensive/shield-barrier-deflect-gold.webp",
+			"origin": "Item.J3Z0YjrEFXThVLc8",
+			"flags": {
+				"a5e": {
+					"sort": 0,
+					"transferType": "onUse",
+					"actionId": "bP2ZRcqyiYJ1JQLD",
+					"duration": {
+						"unit": "minutes"
+					}
+				}
+			},
+			"transfer": false,
+			"name": "Shield of Faith",
+			"_id": "y72YmzRWy8ZdLg9c",
+			"changes": [
+				{
+					"key": "system.attributes.ac.changes.bonuses.value",
+					"value": "4",
+					"mode": 2,
+					"priority": null
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": 600,
+				"combat": null,
+				"rounds": null,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "",
+			"statuses": [],
+			"folder": null
+		}
+	],
 	"flags": {},
 	"system": {
 		"actions": {
@@ -25,10 +140,11 @@
 				"area": {
 					"shape": "",
 					"size": "",
-					"placeTemplate": false
+					"placeTemplate": false,
+					"quantity": 1
 				},
 				"target": {
-					"quantity": "",
+					"quantity": 1,
 					"type": "creature"
 				},
 				"consumers": {
@@ -37,6 +153,112 @@
 						"spellLevel": 1,
 						"points": 2,
 						"type": "spell"
+					}
+				},
+				"prompts": {
+					"RGZdf7o4jGdcMdaj": {
+						"type": "effect",
+						"default": true,
+						"effectId": "rn8UmOgiwz7XSl09"
+					}
+				}
+			},
+			"O8TjPLApd5D5I4GA": {
+				"name": "Shield of Faith (4th-level)",
+				"activation": {
+					"cost": 1,
+					"type": "bonusAction",
+					"reactionTrigger": ""
+				},
+				"duration": {
+					"unit": "minute",
+					"value": "10"
+				},
+				"ranges": {
+					"npVLsMKLvJfyEomd": {
+						"range": "medium"
+					}
+				},
+				"area": {
+					"shape": "",
+					"size": "",
+					"placeTemplate": false,
+					"quantity": 1
+				},
+				"target": {
+					"quantity": 1,
+					"type": "creature"
+				},
+				"consumers": {
+					"mIqWGcePA1OHoyyX": {
+						"mode": "variable",
+						"spellLevel": 4,
+						"points": 2,
+						"type": "spell"
+					}
+				},
+				"prompts": {
+					"RGZdf7o4jGdcMdaj": {
+						"type": "effect",
+						"default": true,
+						"effectId": "rn8UmOgiwz7XSl09"
+					},
+					"UgJJV38EHKjrn4L7": {
+						"type": "effect",
+						"default": true,
+						"effectId": "8crYdLZe3fSU0G5y"
+					}
+				}
+			},
+			"bP2ZRcqyiYJ1JQLD": {
+				"name": "Shield of Faith (7th-level)",
+				"activation": {
+					"cost": 1,
+					"type": "bonusAction",
+					"reactionTrigger": ""
+				},
+				"duration": {
+					"unit": "minute",
+					"value": "10"
+				},
+				"ranges": {
+					"npVLsMKLvJfyEomd": {
+						"range": "medium"
+					}
+				},
+				"area": {
+					"shape": "",
+					"size": "",
+					"placeTemplate": false,
+					"quantity": 1
+				},
+				"target": {
+					"quantity": 1,
+					"type": "creature"
+				},
+				"consumers": {
+					"mIqWGcePA1OHoyyX": {
+						"mode": "variable",
+						"spellLevel": 4,
+						"points": 2,
+						"type": "spell"
+					}
+				},
+				"prompts": {
+					"RGZdf7o4jGdcMdaj": {
+						"type": "effect",
+						"default": true,
+						"effectId": "rn8UmOgiwz7XSl09"
+					},
+					"UgJJV38EHKjrn4L7": {
+						"type": "effect",
+						"default": true,
+						"effectId": "8crYdLZe3fSU0G5y"
+					},
+					"SJJz3I3pAUImJanw": {
+						"type": "effect",
+						"default": true,
+						"effectId": "y72YmzRWy8ZdLg9c"
 					}
 				}
 			}

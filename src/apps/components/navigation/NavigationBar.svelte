@@ -22,7 +22,7 @@
         {/each}
 
         <!-- svelte-ignore missing-declaration -->
-        {#if showLock && $actor.permission !== CONST.DOCUMENT_OWNERSHIP_LEVELS.OBSERVER.OBSERVER}
+        {#if showLock && $actor.permission !== CONST.DOCUMENT_OWNERSHIP_LEVELS.OBSERVER}
             <LockButton />
         {/if}
 

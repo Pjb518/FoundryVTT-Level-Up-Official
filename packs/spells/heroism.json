@@ -2,7 +2,46 @@
 	"name": "Heroism",
 	"type": "spell",
 	"img": "icons/magic/control/buff-flight-wings-runes-purple-orange.webp",
-	"effects": [],
+	"effects": [
+		{
+			"icon": "icons/magic/control/buff-flight-wings-runes-purple-orange.webp",
+			"origin": "Item.i6Hgs9zfHe8eCUXo",
+			"flags": {
+				"a5e": {
+					"sort": 0,
+					"transferType": "onUse",
+					"actionId": "gI1MqbOzlFdBjqDv",
+					"duration": {
+						"unit": "minutes"
+					}
+				}
+			},
+			"transfer": false,
+			"name": "Heroic",
+			"_id": "Na0MpYjm82TpmXwU",
+			"changes": [
+				{
+					"key": "system.traits.conditionImmunities",
+					"value": "[\"frightened\"]",
+					"mode": 2,
+					"priority": null
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": 60,
+				"combat": null,
+				"rounds": null,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "<p>Until the spell ends, the target gains temporary hit points equal to your spellcasting ability modifier at the start of each of its turns and it cannot be frightened. Any temporary hit points remaining are lost when the spell ends.</p>",
+			"statuses": [],
+			"folder": null
+		}
+	],
 	"flags": {},
 	"system": {
 		"actions": {
@@ -37,6 +76,13 @@
 						"spellLevel": 1,
 						"points": 2,
 						"type": "spell"
+					}
+				},
+				"prompts": {
+					"KUYCm8n1VLnHKYDI": {
+						"type": "effect",
+						"default": true,
+						"effectId": "Na0MpYjm82TpmXwU"
 					}
 				}
 			}

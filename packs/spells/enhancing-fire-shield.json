@@ -2,12 +2,115 @@
 	"name": "Enhancing Fire Shield",
 	"type": "spell",
 	"img": "icons/magic/fire/blast-jet-stream-embers-yellow.webp",
-	"effects": [],
+	"effects": [
+		{
+			"icon": "icons/magic/fire/blast-jet-stream-embers-yellow.webp",
+			"origin": "Item.caQ4kZQkccaMoOEC",
+			"flags": {
+				"a5e": {
+					"sort": 0,
+					"transferType": "onUse",
+					"actionId": "OrpIOwi4mJB0dRUp",
+					"applyToSelf": true,
+					"duration": {
+						"unit": "minutes"
+					}
+				}
+			},
+			"transfer": false,
+			"name": "Chill Shield",
+			"_id": "L1PFIRvBuubE1ulz",
+			"changes": [
+				{
+					"key": "@token.light.bright",
+					"value": "10",
+					"mode": 6,
+					"priority": null
+				},
+				{
+					"key": "@token.light.dim",
+					"value": "20",
+					"mode": 6,
+					"priority": null
+				},
+				{
+					"key": "system.traits.damageResistances",
+					"value": "[\"fire\"]",
+					"mode": 2,
+					"priority": null
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": 600,
+				"combat": null,
+				"rounds": null,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "",
+			"statuses": [],
+			"folder": null
+		},
+		{
+			"icon": "icons/magic/fire/blast-jet-stream-embers-yellow.webp",
+			"origin": "Item.caQ4kZQkccaMoOEC",
+			"flags": {
+				"a5e": {
+					"sort": 0,
+					"transferType": "onUse",
+					"actionId": "k6N2ivKWMzmRBBfA",
+					"applyToSelf": true,
+					"duration": {
+						"unit": "minutes"
+					}
+				}
+			},
+			"transfer": false,
+			"name": "Warm Shield",
+			"_id": "D1ImlLOyr9nE9nHx",
+			"changes": [
+				{
+					"key": "@token.light.bright",
+					"value": "10",
+					"mode": 6,
+					"priority": null
+				},
+				{
+					"key": "@token.light.dim",
+					"value": "20",
+					"mode": 6,
+					"priority": null
+				},
+				{
+					"key": "system.traits.damageResistances",
+					"value": "[\"cold\"]",
+					"mode": 2,
+					"priority": null
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": 600,
+				"combat": null,
+				"rounds": null,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "",
+			"statuses": [],
+			"folder": null
+		}
+	],
 	"flags": {},
 	"system": {
 		"actions": {
-			"Xe2xuqw3yFXB4DCJ": {
-				"name": "Enhancing Fire Shield",
+			"OrpIOwi4mJB0dRUp": {
+				"name": "Chill Shield",
 				"activation": {
 					"cost": 1,
 					"type": "action",
@@ -18,28 +121,22 @@
 					"value": "10"
 				},
 				"ranges": {
-					"byceWKOIc1zKpEoI": {
+					"LMb8BXQ8GDu03Ucx": {
 						"range": "self"
 					}
 				},
 				"area": {
 					"shape": "",
 					"size": "",
-					"placeTemplate": false
+					"placeTemplate": false,
+					"quantity": 1
 				},
 				"target": {
 					"quantity": "",
 					"type": "self"
 				},
 				"rolls": {
-					"1MevUKLvwktT1aXf": {
-						"canCrit": false,
-						"damageType": "fire",
-						"formula": "2d8",
-						"name": "Warm Shield",
-						"type": "damage"
-					},
-					"judoxBUZ1kyrQqJC": {
+					"ekC3Ly6r1OqDLPaV": {
 						"canCrit": false,
 						"damageType": "cold",
 						"formula": "2d8",
@@ -48,16 +145,79 @@
 					}
 				},
 				"consumers": {
-					"GkQRH68Ps91SIspX": {
+					"zwY9ACZc4feWdphS": {
 						"mode": "variable",
 						"spellLevel": 4,
 						"points": 6,
 						"type": "spell"
 					}
+				},
+				"prompts": {
+					"8A7bCLYWUKn8XIzK": {
+						"type": "effect",
+						"default": true,
+						"effectId": "L1PFIRvBuubE1ulz"
+					}
+				}
+			},
+			"k6N2ivKWMzmRBBfA": {
+				"name": "Warm Shield",
+				"activation": {
+					"cost": 1,
+					"type": "action",
+					"reactionTrigger": ""
+				},
+				"duration": {
+					"unit": "minute",
+					"value": "10"
+				},
+				"ranges": {
+					"LMb8BXQ8GDu03Ucx": {
+						"range": "self"
+					}
+				},
+				"area": {
+					"shape": "",
+					"size": "",
+					"placeTemplate": false,
+					"quantity": 1
+				},
+				"target": {
+					"quantity": "",
+					"type": "self"
+				},
+				"rolls": {
+					"ekC3Ly6r1OqDLPaV": {
+						"canCrit": false,
+						"damageType": "fire",
+						"formula": "2d8",
+						"name": "Chill Shield",
+						"type": "damage"
+					}
+				},
+				"consumers": {
+					"zwY9ACZc4feWdphS": {
+						"mode": "variable",
+						"spellLevel": 4,
+						"points": 6,
+						"type": "spell"
+					}
+				},
+				"prompts": {
+					"8A7bCLYWUKn8XIzK": {
+						"type": "effect",
+						"default": true,
+						"effectId": "L1PFIRvBuubE1ulz"
+					},
+					"7xVXxUziNFOgbF9J": {
+						"type": "effect",
+						"default": true,
+						"effectId": "D1ImlLOyr9nE9nHx"
+					}
 				}
 			}
 		},
-		"description": "<p>Until the spell ends, flames envelop your body, casting bright light in a 10-foot radius and dim light for an additional 10 feet. You can use an action to end the spell early. Choose one of the following options:</p><ul><li><p><strong>Chill Shield:</strong> You have resistance to fire damage. A creature within 5 feet of you takes 2d8 cold damage when it hits you with a melee attack.</p></li><li><p><strong>Warm Shield:</strong> You have resistance to cold damage. A creature within 5 feet of you takes 2d8 fire damage when it hits you with a melee attack.</p></li></ul><p><strong><em>Cast at Higher Levels.</em></strong> The duration increases to 1 hour when using a 6th-level spell slot, or 8 hours when using an 8th-level spell slot.</p><hr class=\"a5e-rule u-my-md\"><p><strong>Rare: Enhancing Fire Shield.</strong> While this spell is active, any cantrips you cast that deal fire damage deal an extra 1d8 fire damage </p>",
+		"description": "<p>Until the spell ends, flames envelop your body, casting bright light in a 10-foot radius and dim light for an additional 10 feet. You can use an action to end the spell early. Choose one of the following options:</p>\n<ul>\n<li>\n<p><strong>Chill Shield:</strong> You have resistance to fire damage. A creature within 5 feet of you takes 2d8 cold damage when it hits you with a melee attack.</p>\n</li>\n<li>\n<p><strong>Warm Shield:</strong> You have resistance to cold damage. A creature within 5 feet of you takes 2d8 fire damage when it hits you with a melee attack.</p>\n</li>\n</ul>\n<p><strong><em>Cast at Higher Levels.</em></strong> The duration increases to 1 hour when using a 6th-level spell slot, or 8 hours when using an 8th-level spell slot.</p>\n<p><em><strong>Rare:&nbsp;</strong></em><strong>Enhancing Fire Shield.&nbsp;</strong>While this spell is active, any cantrips you cast that deal fire damage deal an extra 1d8 fire damage.</p>",
 		"favorite": false,
 		"secretDescription": "",
 		"source": "",
@@ -74,7 +234,11 @@
 			"version": null,
 			"lastMigration": null
 		},
-		"classes": [],
+		"classes": [
+			"elementalistFire",
+			"elementalistWater",
+			"wizard"
+		],
 		"components": {
 			"vocalized": true,
 			"seen": true,

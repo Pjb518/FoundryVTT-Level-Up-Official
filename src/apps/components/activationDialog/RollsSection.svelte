@@ -1,6 +1,7 @@
 <script>
     import CheckboxGroup from "../CheckboxGroup.svelte";
-    import FormSection from "../FormSection.svelte";
+    import FieldWrapper from "../FieldWrapper.svelte";
+    import FormSection from "../LegacyFormSection.svelte";
 
     export let selectedRolls;
     export let rolls;
@@ -37,32 +38,27 @@
 
             return acc;
         },
-        {}
+        {},
     );
 
     let disabledRolls = getInvalidSelections(rolls);
 </script>
 
-<FormSection hint="A5E.RollsHint">
+<FormSection hint="A5E.RollsHint" --background="transparent" --padding="0">
     <div class="roll-wrapper">
         {#each Object.entries(otherRolls) as [rollType, _rolls]}
             {#if _rolls.length}
-                <section>
-                    <h3 class="section-subheading">
-                        {rollHeadingMap[rollType]}
-                    </h3>
-
-                    <CheckboxGroup
-                        options={_rolls.map(([key, roll]) => [
-                            key,
-                            roll.label || roll.defaultLabel,
-                        ])}
-                        disabledOptions={disabledRolls}
-                        selected={selectedRolls}
-                        on:updateSelection={(event) =>
-                            (selectedRolls = event.detail)}
-                    />
-                </section>
+                <CheckboxGroup
+                    heading={rollHeadingMap[rollType]}
+                    options={_rolls.map(([key, roll]) => [
+                        key,
+                        roll.label || roll.defaultLabel,
+                    ])}
+                    disabledOptions={disabledRolls}
+                    selected={selectedRolls}
+                    on:updateSelection={(event) =>
+                        (selectedRolls = event.detail)}
+                />
             {/if}
         {/each}
     </div>
@@ -73,12 +69,5 @@
         display: flex;
         flex-direction: column;
         gap: 0.75rem;
-    }
-
-    .section-subheading {
-        width: 100%;
-        font-size: $font-size-sm;
-        font-weight: bold;
-        margin-bottom: 0.25rem;
     }
 </style>

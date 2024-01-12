@@ -2,7 +2,46 @@
 	"name": "Spider Climb",
 	"type": "spell",
 	"img": "icons/creatures/webs/web-spider-glowing-purple.webp",
-	"effects": [],
+	"effects": [
+		{
+			"icon": "icons/creatures/webs/web-spider-glowing-purple.webp",
+			"origin": "Item.w0qia9XhWOV0U9Yn",
+			"flags": {
+				"a5e": {
+					"sort": 0,
+					"transferType": "onUse",
+					"actionId": "GWa9uJi4MquZXIi6",
+					"duration": {
+						"unit": "hours"
+					}
+				}
+			},
+			"transfer": false,
+			"name": "Spider Climb",
+			"_id": "sQU8HDpxkEceCdQe",
+			"changes": [
+				{
+					"key": "system.attributes.movement.climb.distance",
+					"value": "@attributes.movement.walk.distance",
+					"mode": 6,
+					"priority": null
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": 3600,
+				"combat": null,
+				"rounds": null,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "",
+			"statuses": [],
+			"folder": null
+		}
+	],
 	"flags": {},
 	"system": {
 		"actions": {
@@ -28,8 +67,12 @@
 					"placeTemplate": false
 				},
 				"target": {
-					"quantity": "",
-					"type": "creature"
+					"quantity": 1,
+					"type": "creature",
+					"scaling": {
+						"mode": "spellLevel",
+						"formula": "1"
+					}
 				},
 				"consumers": {
 					"ebhYxR9NKxUdqid3": {
@@ -37,6 +80,13 @@
 						"spellLevel": 2,
 						"points": 3,
 						"type": "spell"
+					}
+				},
+				"prompts": {
+					"5OwxYgyKaebM74dU": {
+						"type": "effect",
+						"default": true,
+						"effectId": "sQU8HDpxkEceCdQe"
 					}
 				}
 			}

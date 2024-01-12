@@ -2,7 +2,82 @@
 	"name": "Haste",
 	"type": "spell",
 	"img": "icons/magic/movement/trail-streak-zigzag-yellow.webp",
-	"effects": [],
+	"effects": [
+		{
+			"icon": "icons/magic/movement/trail-streak-zigzag-yellow.webp",
+			"origin": "Item.vwPxDtiUBlJjrEQe",
+			"flags": {
+				"a5e": {
+					"sort": 0,
+					"transferType": "onUse",
+					"actionId": "2TanzQRFauPUMAid",
+					"duration": {
+						"unit": "minutes"
+					}
+				}
+			},
+			"transfer": false,
+			"name": "Hasted",
+			"_id": "CtCXh8oEkDvO2sv9",
+			"changes": [
+				{
+					"key": "system.attributes.movement.burrow.distance",
+					"value": "2",
+					"mode": 1,
+					"priority": null
+				},
+				{
+					"key": "system.attributes.movement.climb.distance",
+					"value": "2",
+					"mode": 1,
+					"priority": null
+				},
+				{
+					"key": "system.attributes.movement.fly.distance",
+					"value": "2",
+					"mode": 1,
+					"priority": null
+				},
+				{
+					"key": "system.attributes.movement.swim.distance",
+					"value": "2",
+					"mode": 1,
+					"priority": null
+				},
+				{
+					"key": "system.attributes.movement.walk.distance",
+					"value": "2",
+					"mode": 1,
+					"priority": null
+				},
+				{
+					"key": "system.attributes.ac.changes.bonuses.value",
+					"value": "2",
+					"mode": 2,
+					"priority": null
+				},
+				{
+					"key": "flags.a5e.effects.rollMode.abilitySave.dex",
+					"value": "1",
+					"mode": 6,
+					"priority": null
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": 60,
+				"combat": null,
+				"rounds": null,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "<p>Until the spell ends, the target's Speed is doubled, it gains a +2 bonus to AC, it has advantage on Dexterity saving throws, and it gains one additional action on each of its turns. This action can be used to make a single weapon attack, or to take the Dash, Disengage, Hide, or Use an Object action.</p>\n<p>When the spell ends, the target is tired and cannot move or take actions until after its next turn.</p>",
+			"statuses": [],
+			"folder": null
+		}
+	],
 	"flags": {},
 	"system": {
 		"actions": {
@@ -37,6 +112,13 @@
 						"spellLevel": 3,
 						"points": 5,
 						"type": "spell"
+					}
+				},
+				"prompts": {
+					"1CcA81VtXpaf2G7y": {
+						"type": "effect",
+						"default": true,
+						"effectId": "CtCXh8oEkDvO2sv9"
 					}
 				}
 			}

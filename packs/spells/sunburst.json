@@ -2,7 +2,48 @@
 	"name": "Sunburst",
 	"type": "spell",
 	"img": "icons/magic/light/beams-rays-orange-purple-large.webp",
-	"effects": [],
+	"effects": [
+		{
+			"icon": "icons/magic/light/beams-rays-orange-purple-large.webp",
+			"origin": "Item.AZRz9vTIzuSdib3U",
+			"flags": {
+				"a5e": {
+					"sort": 0,
+					"transferType": "onUse",
+					"actionId": "2AeHwxwNDOL9dtoN",
+					"duration": {
+						"unit": "minutes"
+					}
+				}
+			},
+			"transfer": false,
+			"name": "Blinded",
+			"_id": "yB2ydIrWq5nBr8gO",
+			"changes": [
+				{
+					"key": "flags.a5e.effects.statusConditions",
+					"value": "[\"blinded\"]",
+					"mode": 0,
+					"priority": null
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": 60,
+				"combat": null,
+				"rounds": null,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "",
+			"statuses": [
+				"blinded"
+			],
+			"folder": null
+		}
+	],
 	"flags": {},
 	"system": {
 		"actions": {
@@ -25,7 +66,7 @@
 				"area": {
 					"shape": "sphere",
 					"radius": "60",
-					"placeTemplate": false
+					"placeTemplate": true
 				},
 				"target": {
 					"quantity": "",
@@ -53,6 +94,11 @@
 							"bonus": ""
 						},
 						"type": "savingThrow"
+					},
+					"sFTKN6DXPJqNuLhv": {
+						"type": "effect",
+						"default": true,
+						"effectId": "yB2ydIrWq5nBr8gO"
 					}
 				},
 				"consumers": {

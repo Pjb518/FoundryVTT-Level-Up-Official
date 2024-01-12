@@ -2,7 +2,39 @@
 	"name": "Ray of Enfeeblement",
 	"type": "spell",
 	"img": "icons/magic/unholy/projectile-missile-green.webp",
-	"effects": [],
+	"effects": [
+		{
+			"icon": "icons/magic/unholy/projectile-missile-green.webp",
+			"origin": "Item.RsgSBfy6St3PLId5",
+			"flags": {
+				"a5e": {
+					"sort": 0,
+					"transferType": "onUse",
+					"actionId": "V8Mow1LinKc9f1OC",
+					"duration": {
+						"unit": "minutes"
+					}
+				}
+			},
+			"transfer": false,
+			"name": "Enfeebled",
+			"_id": "9QTmOApfjoZezikh",
+			"changes": [],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": 60,
+				"combat": null,
+				"rounds": null,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "<p>The target is weakened and only deals half damage with weapon attacks that use Strength.</p>\n<p>At the end of each of the target's turns, it can make a Strength saving throw, ending the spell on a success.</p>",
+			"statuses": [],
+			"folder": null
+		}
+	],
 	"flags": {},
 	"system": {
 		"actions": {
@@ -49,6 +81,11 @@
 							"bonus": ""
 						},
 						"type": "savingThrow"
+					},
+					"glKi9aJfjvxGEcHr": {
+						"type": "effect",
+						"default": true,
+						"effectId": "9QTmOApfjoZezikh"
 					}
 				},
 				"consumers": {

@@ -7,12 +7,14 @@
     import getKeyPressAsOptions from "../handlers/getKeyPressAsOptions";
     import getExpertiseDieSize from "../../utils/getExpertiseDieSize";
     import updateDocumentDataFromField from "../../utils/updateDocumentDataFromField";
+    import replaceHyphenWithMinusSign from "../../utils/replaceHyphenWithMinusSign";
 
     export let columnFlow;
     export let key;
     export let skill;
 
     const actor = getContext("actor");
+    const hideExpertiseDice = game.settings.get("a5e", "hideExpertiseDice");
     const { skills } = CONFIG.A5E;
 
     let showDeterministicBonus =
@@ -78,12 +80,12 @@
         class:disable-pointer-events={!$actor.isOwner}
         on:click={$actor.rollSkillCheck(
             key,
-            getKeyPressAsOptions($pressedKeysStore)
+            getKeyPressAsOptions($pressedKeysStore),
         )}
     >
         {skills[key]}
 
-        {#if skill.expertiseDice}
+        {#if skill.expertiseDice && !hideExpertiseDice}
             <span class="u-text-xs">
                 ({getExpertiseDieSize(skill.expertiseDice, false)})
             </span>
@@ -92,7 +94,9 @@
 
     <div class="skill__mod-wrapper">
         <span>
-            {showDeterministicBonus ? skillBonus + abilityBonus : skillBonus}
+            {replaceHyphenWithMinusSign(
+                showDeterministicBonus ? skillBonus + abilityBonus : skillBonus,
+            )}
         </span>
 
         {#if $actor.flags.a5e?.showPassiveScores ?? true}
@@ -132,7 +136,8 @@
         padding-inline: 0.5rem;
         border: 1px solid #ccc;
         border-top: 0;
-        font-size: $font-size-sm;
+        font-family: var(--a5e-font-serif);
+        font-size: var(--a5e-text-size-sm);
 
         &:nth-child(even) {
             border-left: 0;

@@ -2,7 +2,47 @@
 	"name": "Shield",
 	"type": "spell",
 	"img": "icons/magic/defensive/shield-barrier-deflect-teal.webp",
-	"effects": [],
+	"effects": [
+		{
+			"icon": "icons/magic/defensive/shield-barrier-deflect-teal.webp",
+			"origin": "Item.RYx9T4mzh65ycxsr",
+			"flags": {
+				"a5e": {
+					"sort": 0,
+					"transferType": "onUse",
+					"actionId": "DfBODFbe1UYn4vIm",
+					"duration": {
+						"type": "rounds",
+						"unit": "minutes"
+					}
+				}
+			},
+			"transfer": false,
+			"name": "Shield",
+			"_id": "3JSn5GwbNdSgD0oS",
+			"changes": [
+				{
+					"key": "system.attributes.ac.changes.bonuses.value",
+					"value": "5",
+					"mode": 2,
+					"priority": null
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": null,
+				"combat": null,
+				"rounds": 1,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "<p>Until the spell ends, you gain a +5 bonus to your AC (including against the triggering attack) and any magic missile targeting you is harmlessly deflected.</p>",
+			"statuses": [],
+			"folder": null
+		}
+	],
 	"flags": {},
 	"system": {
 		"actions": {
@@ -37,6 +77,13 @@
 						"spellLevel": 1,
 						"points": 2,
 						"type": "spell"
+					}
+				},
+				"prompts": {
+					"Gpw63XYtGOkkZmXp": {
+						"type": "effect",
+						"default": true,
+						"effectId": "3JSn5GwbNdSgD0oS"
 					}
 				}
 			}

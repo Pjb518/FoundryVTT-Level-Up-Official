@@ -1,0 +1,128 @@
+{
+	"folder": null,
+	"name": "Erase from Memory",
+	"type": "feature",
+	"img": "icons/magic/unholy/hand-claw-fire-blue.webp",
+	"system": {
+		"ac": {
+			"baseFormula": "",
+			"formula": "",
+			"maxDex": 0,
+			"minStr": 0,
+			"mode": 2,
+			"requiresNoShield": false,
+			"requiresUnarmored": false
+		},
+		"actions": {
+			"obl0YjykhtDJqJgx": {
+				"name": "Use Feature",
+				"activation": {
+					"type": "bonusAction",
+					"cost": 1
+				},
+				"consumers": {},
+				"rolls": {},
+				"prompts": {
+					"nDnSn15WfGCkzIkJ": {
+						"type": "effect",
+						"default": true,
+						"effectId": "2sFesBz8B5V5MmGH"
+					},
+					"R3RxPi4va6aIaGGL": {
+						"type": "savingThrow",
+						"default": true,
+						"ability": "wis",
+						"saveDC": {
+							"type": "cha"
+						}
+					}
+				},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"threshold": 6
+					}
+				},
+				"area": {
+					"shape": "circle",
+					"quantity": 1,
+					"radius": 60,
+					"placeTemplate": true
+				}
+			}
+		},
+		"description": "<p>Starting at 17th level, you can draw on the power of darkness to literally disappear and make your enemies forget you were ever there. You can use a bonus action to magically become&nbsp;<span class=\"freelinking-link\">invisible</span>&nbsp;for 1 minute. Attacking does not break this invisibility.</p>\n<p>In addition, each creature within 60 feet that sees you use this ability must make a Wisdom&nbsp;<span class=\"freelinking-link\">saving throw</span>. The DC of this saving throw is 8 + you proficiency bonus + your Charisma modifier. On a failed save, the creature&rsquo;s memories of you over the past hour tare erased; while they still remember the basic events of that time, their memories have been altered not to include you. The target&rsquo;s memories of actions you take after you use this ability are not affected.</p>\n<p>Once you&rsquo;ve used this ability, you must finish a&nbsp;<span class=\"freelinking-link\">long rest</span> before you can do so again.</p>",
+		"favorite": false,
+		"secretDescription": "",
+		"source": {
+			"name": "",
+			"link": "",
+			"publisher": ""
+		},
+		"uses": {
+			"value": null,
+			"max": "",
+			"per": null,
+			"recharge": {
+				"formula": "1d6",
+				"threshold": "6"
+			}
+		},
+		"schema": {
+			"version": null,
+			"lastMigration": null
+		},
+		"concentration": false,
+		"featureType": "class",
+		"grants": {},
+		"prerequisite": ""
+	},
+	"effects": [
+		{
+			"icon": "icons/magic/unholy/hand-claw-fire-blue.webp",
+			"origin": "Item.lnAr8dWoiYImVFJN",
+			"flags": {
+				"a5e": {
+					"sort": 0,
+					"transferType": "onUse",
+					"actionId": "obl0YjykhtDJqJgx",
+					"duration": {
+						"unit": "minutes"
+					},
+					"applyToSelf": true
+				}
+			},
+			"transfer": false,
+			"name": "Invisibility",
+			"_id": "2sFesBz8B5V5MmGH",
+			"changes": [
+				{
+					"key": "flags.a5e.effects.statusConditions",
+					"value": "[\"invisible\"]",
+					"mode": 0,
+					"priority": null
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": 60,
+				"combat": null,
+				"rounds": null,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "",
+			"statuses": [
+				"invisible"
+			],
+			"folder": null
+		}
+	],
+	"flags": {},
+	"_id": "jos5ei3iyrai4duv"
+}

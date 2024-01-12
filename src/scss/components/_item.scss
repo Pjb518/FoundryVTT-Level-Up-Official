@@ -1,0 +1,196 @@
+.a5e-item {
+  position: relative;
+  display: grid;
+  grid-template-areas: var(--itemTemplateAreas);
+  grid-template-columns: var(--itemTemplateColumns);
+  gap: 0 0.5rem;
+  align-items: center;
+  width: 100%;
+  padding: 0.125rem 0.5rem 0.125rem 0.125rem;
+  font-family: var(--a5e-font-serif);
+  font-size: var(--a5e-text-size-sm);
+  border: solid transparent;
+  border-width: 0 0 1px;
+  border-image: linear-gradient(
+    90deg,
+    var(--item-border-color-start, transparent) 0%,
+    var(--item-border-color-end, #d5cac1) 55%
+  )
+    1 repeat;
+  border-radius: 0;
+  background: linear-gradient(90deg, transparent, var(--item-background, transparent) 70%);
+  cursor: pointer;
+
+  &--action,
+  &--bonus {
+    grid-template-columns: 1.375rem 1fr min-content;
+  }
+
+  &--action-config,
+  &--effect-config  {
+    display: flex;
+    flex-direction: column;
+    flex-shrink: 0;
+    align-items: stretch;
+    gap: 0.75rem;
+    width: 100%;
+    padding: 0.5rem 0;
+  }
+
+  &--action-config {
+    overflow: clip;
+  }
+
+  &--compendium-document {
+    grid-template-areas:
+      "img name import"
+      "img details import";
+    grid-template-columns: max-content 1fr min-content;
+  }
+
+  &--compendium-spell-document {
+    grid-template-areas: "img name components import"
+      "img details components import";
+    grid-template-columns: max-content 1fr max-content min-content;
+  }
+
+  &--effect {
+    grid-template-areas: var(--effectTemplateAreas);
+    grid-template-columns: var(--effectTemplateColumns);
+  }
+
+  &--party-member {
+    grid-template-areas: var(--grid-areas);
+    grid-template-columns: var(--grid-template);
+    padding: 0.125rem;
+  }
+
+  &--highlight {
+    --icon-color: hsla(145, 100%, 15%, 0.302);
+    --icon-color-active: hsla(145, 100%, 15%, 0.75);
+    --indicator-background: hsla(145, 100%, 32%, 0.302);
+    --indicator-text-color: #000;
+    --input-border-color: hsla(145, 100%, 15%, 0.302);
+    --item-background: hsla(145, 100%, 42%, 0.302);
+    --item-border-color-end: hsla(145, 100%, 25%, 0.302);
+    --item-border-color-start: hsla(145, 100%, 42%, 0);
+    --track-background: hsl(120, 43%, 87%);
+    --track-border-color: hsla(145, 100%, 25%, 0.302);
+  }
+
+  &--purple-highlight {
+    --icon-color: hsla(260, 50%, 40%, 0.302);
+    --icon-color-active: hsla(280, 35%, 30%, 0.75);
+    --indicator-background: hsla(280, 55%, 50%, 0.302);
+    --indicator-text-color: #000;
+    --input-border-color: hsla(280, 75%, 60%, 0.302);
+    --item-background: hsla(280, 75%, 60%, 0.22);
+    --item-border-color-end: hsla(280, 30%, 40%, 0.302);
+    --item-border-color-start: hsla(280, 75%, 60%, 0);
+    --track-background: hsl(280, 30%, 90%);
+    --track-border-color: hsla(280, 30%, 40%, 0.302);
+  }
+
+  &--red-highlight {
+    --icon-color: hsla(0, 65%, 35%, 0.5);
+    --icon-color-active: hsla(0, 35%, 30%, 0.75);
+    --indicator-background: hsla(0, 55%, 50%, 0.302);
+    --indicator-text-color: #000;
+    --input-border-color: hsla(0, 50%, 35%, 0.17);
+    --item-background: hsla(0, 55%, 55%, 0.3);
+    --item-border-color-end: hsla(0, 40%, 50%, 0.302);
+    --item-border-color-start: hsla(0, 55%, 55%, 0);
+    --track-background: hsl(0, 30%, 90%);
+    --track-border-color: hsla(0, 40%, 50%, 0.302);
+  }
+
+  &__details {
+    font-family: var(--a5e-font-sans-serif);
+    grid-area: details;
+    line-height: 1;
+    color: #666;
+    font-size: 0.694rem;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  &__icon {
+    color: #888;
+    font-size: var(--a5e-text-size-sm);
+  }
+
+  &__image {
+    display: block;
+    height: 100%;
+    width: auto;
+    object-fit: cover;
+
+    &--action {
+      width: 1.375rem;
+      height: 1.375rem;
+    }
+
+    &--compendium-document {
+      height: 2.25rem;
+      width: 2.25rem;
+      grid-area: img;
+      border: 0;
+    }
+
+    &--die {
+      display: none;
+      padding: 0;
+      margin: 0;
+    }
+  }
+
+  &__name {
+    font-size: var(--a5e-text-size-sm);
+
+    &--compendium-document {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      grid-area: name;
+      margin: 0;
+      border: 0;
+      font-size: inherit;
+      font-weight: bold;
+      line-height: 1;
+    }
+  }
+
+  &__roll-button {
+    width: 1.375rem;
+    height: 1.375rem;
+    padding: 0;
+    margin: 0;
+    background: transparent;
+    border-radius: $border-radius-standard;
+
+    &:hover {
+      box-shadow: none;
+    }
+
+    /* stylelint-disable-next-line selector-class-pattern */
+    &:hover .a5e-item__image {
+      display: none;
+    }
+
+    /* stylelint-disable-next-line selector-class-pattern  */
+    &:hover .a5e-item__image--die {
+      display: block;
+    }
+
+    &--shift:hover {
+      filter: brightness(0) saturate(100%) invert(58%) sepia(10%)
+        saturate(2832%) hue-rotate(73deg) brightness(88%) contrast(76%);
+    }
+
+    &--ctrl:hover {
+      filter: brightness(0) saturate(100%) invert(18%) sepia(80%)
+        saturate(5142%) hue-rotate(348deg) brightness(74%) contrast(94%);
+    }
+  }
+}

@@ -44,6 +44,7 @@
 				"featureType": "",
 				"grants": {},
 				"prerequisite": "",
+				"requiresBloodied": false,
 				"schemaVersion": {
 					"version": 0.01,
 					"lastMigration": {
@@ -131,6 +132,7 @@
 				"featureType": "",
 				"grants": {},
 				"prerequisite": "",
+				"requiresBloodied": true,
 				"schemaVersion": {
 					"version": 0.01,
 					"lastMigration": {
@@ -187,6 +189,7 @@
 				"featureType": "",
 				"grants": {},
 				"prerequisite": "",
+				"requiresBloodied": false,
 				"schemaVersion": {
 					"version": 0.01,
 					"lastMigration": {
@@ -243,6 +246,7 @@
 				"featureType": "",
 				"grants": {},
 				"prerequisite": "",
+				"requiresBloodied": false,
 				"schemaVersion": {
 					"version": 0.01,
 					"lastMigration": {
@@ -299,6 +303,7 @@
 				"featureType": "",
 				"grants": {},
 				"prerequisite": "",
+				"requiresBloodied": false,
 				"schemaVersion": {
 					"version": 0.01,
 					"lastMigration": {
@@ -355,6 +360,7 @@
 				"featureType": "",
 				"grants": {},
 				"prerequisite": "",
+				"requiresBloodied": false,
 				"schemaVersion": {
 					"version": 0.01,
 					"lastMigration": {
@@ -411,6 +417,7 @@
 				"featureType": "",
 				"grants": {},
 				"prerequisite": "",
+				"requiresBloodied": false,
 				"schemaVersion": {
 					"version": 0.01,
 					"lastMigration": {
@@ -490,6 +497,7 @@
 				"featureType": "",
 				"grants": {},
 				"prerequisite": "",
+				"requiresBloodied": false,
 				"schemaVersion": {
 					"version": 0.01,
 					"lastMigration": {
@@ -601,6 +609,7 @@
 				"featureType": "naturalWeapon",
 				"grants": {},
 				"prerequisite": "",
+				"requiresBloodied": false,
 				"schemaVersion": {
 					"version": 0.01,
 					"lastMigration": {
@@ -701,6 +710,7 @@
 				"featureType": "naturalWeapon",
 				"grants": {},
 				"prerequisite": "",
+				"requiresBloodied": false,
 				"schemaVersion": {
 					"version": 0.01,
 					"lastMigration": {
@@ -801,6 +811,7 @@
 				"featureType": "",
 				"grants": {},
 				"prerequisite": "",
+				"requiresBloodied": false,
 				"schemaVersion": {
 					"version": 0.01,
 					"lastMigration": {
@@ -901,6 +912,7 @@
 				"featureType": "",
 				"grants": {},
 				"prerequisite": "",
+				"requiresBloodied": false,
 				"schemaVersion": {
 					"version": 0.01,
 					"lastMigration": {
@@ -918,7 +930,7 @@
 		},
 		{
 			"_id": "MQLUV4oPejIWuzRB",
-			"name": "Radiant Breath (Recharge 5-6)",
+			"name": "Radiant Breath",
 			"type": "feature",
 			"img": "icons/svg/item-bag.svg",
 			"effects": [],
@@ -937,7 +949,7 @@
 				},
 				"actions": {
 					"sLEta58PRLk3TH4y": {
-						"name": "Radiant Breath (Recharge 5-6)",
+						"name": "Radiant Breath",
 						"activation": {
 							"cost": "",
 							"type": "",
@@ -947,20 +959,16 @@
 							"unit": "",
 							"value": ""
 						},
-						"ranges": {
-							"JvuDVeR5khWbvaWj": {
-								"range": 90,
-								"unit": "feet"
-							}
-						},
+						"ranges": {},
 						"area": {
 							"shape": "cone",
 							"size": "90 ft",
-							"placeTemplate": false
+							"placeTemplate": false,
+							"length": 90
 						},
 						"target": {
-							"quantity": "",
-							"type": "self"
+							"quantity": 1,
+							"type": ""
 						},
 						"rolls": {
 							"RnNltundyhWCQD2G": {
@@ -982,7 +990,13 @@
 								"type": "savingThrow"
 							}
 						},
-						"consumers": {}
+						"consumers": {
+							"k0S4FbVBA6Szk2yW": {
+								"type": "itemUses",
+								"default": true,
+								"quantity": 1
+							}
+						}
 					}
 				},
 				"description": "<p>The tarrasque exhales radiant energy in a 90-foot cone. Each creature in that area makes a DC 27 Constitution saving throw, taking 105 (30d6) radiant damage on a failed save or half damage on a success.&nbsp;</p>",
@@ -990,12 +1004,12 @@
 				"secretDescription": "",
 				"source": "",
 				"uses": {
-					"value": null,
-					"max": "",
-					"per": null,
+					"value": 1,
+					"max": "1",
+					"per": "recharge",
 					"recharge": {
 						"formula": "",
-						"threshold": ""
+						"threshold": 5
 					}
 				},
 				"schema": {
@@ -1006,6 +1020,7 @@
 				"featureType": "",
 				"grants": {},
 				"prerequisite": "",
+				"requiresBloodied": false,
 				"schemaVersion": {
 					"version": 0.01,
 					"lastMigration": {
@@ -1048,7 +1063,7 @@
 				"uses": {
 					"value": 3,
 					"max": 3,
-					"per": "round",
+					"per": "turn",
 					"recharge": {
 						"formula": "",
 						"threshold": ""
@@ -1062,6 +1077,7 @@
 				"featureType": "",
 				"grants": {},
 				"prerequisite": "",
+				"requiresBloodied": false,
 				"schemaVersion": {
 					"version": 0.01,
 					"lastMigration": {
@@ -1079,7 +1095,7 @@
 		},
 		{
 			"_id": "mPsBwtVsDMWrj5iE",
-			"name": "Move (Legendary)",
+			"name": "Move",
 			"type": "feature",
 			"img": "icons/svg/item-bag.svg",
 			"effects": [],
@@ -1098,7 +1114,7 @@
 				},
 				"actions": {
 					"30fe2gu0EQsU8C7p": {
-						"name": "Move (Legendary)",
+						"name": "Move",
 						"activation": {
 							"cost": 1,
 							"type": "legendaryAction",
@@ -1141,6 +1157,7 @@
 				"featureType": "",
 				"grants": {},
 				"prerequisite": "",
+				"requiresBloodied": false,
 				"schemaVersion": {
 					"version": 0.01,
 					"lastMigration": {
@@ -1158,7 +1175,7 @@
 		},
 		{
 			"_id": "m2U6ZtoSgFgJvvx2",
-			"name": "Attack (Legendary)",
+			"name": "Attack",
 			"type": "feature",
 			"img": "icons/svg/item-bag.svg",
 			"effects": [],
@@ -1177,7 +1194,7 @@
 				},
 				"actions": {
 					"fWRRzr5xDWydBS2S": {
-						"name": "Attack (Legendary)",
+						"name": "Attack",
 						"activation": {
 							"cost": 1,
 							"type": "legendaryAction",
@@ -1251,6 +1268,7 @@
 				"featureType": "",
 				"grants": {},
 				"prerequisite": "",
+				"requiresBloodied": false,
 				"schemaVersion": {
 					"version": 0.01,
 					"lastMigration": {
@@ -1268,7 +1286,7 @@
 		},
 		{
 			"_id": "bkTznw63IBOADrBq",
-			"name": "Roar (Legendary)",
+			"name": "Roar",
 			"type": "feature",
 			"img": "icons/magic/sonic/scream-wail-shout-teal.webp",
 			"effects": [],
@@ -1287,7 +1305,7 @@
 				},
 				"actions": {
 					"ep9OLVS00NrF4uiT": {
-						"name": "Roar (Legendary)",
+						"name": "Roar",
 						"activation": {
 							"cost": 1,
 							"type": "legendaryAction",
@@ -1297,19 +1315,17 @@
 							"unit": "",
 							"value": ""
 						},
-						"ranges": {
-							"skaLQTsxGw6OfahU": {
-								"range": "long"
-							}
-						},
+						"ranges": {},
 						"area": {
-							"shape": "sphere",
+							"shape": "emanation",
 							"size": "120 ft. Radius",
-							"placeTemplate": false
+							"placeTemplate": false,
+							"quantity": 1,
+							"radius": 120
 						},
 						"target": {
-							"quantity": "",
-							"type": "self"
+							"quantity": 1,
+							"type": ""
 						},
 						"prompts": {
 							"NHdLQAlJB98hCcdN": {
@@ -1346,6 +1362,7 @@
 				"featureType": "",
 				"grants": {},
 				"prerequisite": "",
+				"requiresBloodied": false,
 				"schemaVersion": {
 					"version": 0.01,
 					"lastMigration": {
@@ -1363,7 +1380,7 @@
 		},
 		{
 			"_id": "SzZk7A9QrauZhHcX",
-			"name": "Elite Recovery (Legendary)",
+			"name": "Elite Recovery",
 			"type": "feature",
 			"img": "icons/svg/item-bag.svg",
 			"effects": [],
@@ -1386,7 +1403,7 @@
 				},
 				"actions": {
 					"0q2qSEm3kcNAIKii": {
-						"name": "Elite Recovery (Legendary)",
+						"name": "Elite Recovery",
 						"activation": {
 							"cost": 1,
 							"type": "legendaryAction",
@@ -1429,6 +1446,7 @@
 				"featureType": "",
 				"grants": {},
 				"prerequisite": "",
+				"requiresBloodied": true,
 				"schemaVersion": {
 					"version": 0.01,
 					"lastMigration": {
@@ -1446,7 +1464,7 @@
 		},
 		{
 			"_id": "w4ErLBLxsyRZ5wSs",
-			"name": "Chomp (Legendary)",
+			"name": "Chomp (Costs 2)",
 			"type": "feature",
 			"img": "icons/svg/item-bag.svg",
 			"effects": [],
@@ -1465,7 +1483,7 @@
 				},
 				"actions": {
 					"6KrMJ6LNLUNCwJLT": {
-						"name": "Chomp (Legendary)",
+						"name": "Chomp",
 						"activation": {
 							"cost": 2,
 							"type": "legendaryAction",
@@ -1543,6 +1561,7 @@
 				"featureType": "",
 				"grants": {},
 				"prerequisite": "",
+				"requiresBloodied": false,
 				"schemaVersion": {
 					"version": 0.01,
 					"lastMigration": {
@@ -1560,7 +1579,7 @@
 		},
 		{
 			"_id": "EkVaEHV7xqhrpB4l",
-			"name": "Inescapable Earth (Legendary)",
+			"name": "Inescapable Earth (Costs 3)",
 			"type": "feature",
 			"img": "icons/svg/item-bag.svg",
 			"effects": [],
@@ -1579,7 +1598,7 @@
 				},
 				"actions": {
 					"QLuK2Ykl1TTOO3PU": {
-						"name": "Inescapable Earth (Legendary)",
+						"name": "Inescapable Earth",
 						"activation": {
 							"cost": 3,
 							"type": "legendaryAction",
@@ -1589,15 +1608,13 @@
 							"unit": "",
 							"value": ""
 						},
-						"ranges": {
-							"Iy0ps3hm3BDo8K7v": {
-								"range": "300 ft."
-							}
-						},
+						"ranges": {},
 						"area": {
-							"shape": "sphere",
+							"shape": "emanation",
 							"size": "300 ft. radius",
-							"placeTemplate": false
+							"placeTemplate": false,
+							"quantity": 1,
+							"radius": 300
 						},
 						"target": {
 							"quantity": "",
@@ -1627,6 +1644,7 @@
 				"featureType": "",
 				"grants": {},
 				"prerequisite": "",
+				"requiresBloodied": false,
 				"schemaVersion": {
 					"version": 0.01,
 					"lastMigration": {
@@ -1699,7 +1717,7 @@
 							},
 							"Q42HFePlEvwZUnol": {
 								"canCrit": false,
-								"damageType": "bludgeoning",
+								"damageType": "acid",
 								"formula": "10d6",
 								"name": "Swallow Bludgeoning Damage",
 								"type": "damage"
@@ -1736,6 +1754,7 @@
 				"featureType": "",
 				"grants": {},
 				"prerequisite": "",
+				"requiresBloodied": false,
 				"schemaVersion": {
 					"version": 0.01,
 					"lastMigration": {
@@ -1830,6 +1849,7 @@
 					"version": null,
 					"lastMigration": null
 				},
+				"concentration": false,
 				"degree": 0,
 				"exertionCost": 0,
 				"isStance": false,
@@ -1932,6 +1952,7 @@
 					"version": null,
 					"lastMigration": null
 				},
+				"concentration": false,
 				"degree": 0,
 				"exertionCost": 0,
 				"isStance": false,
@@ -2025,6 +2046,7 @@
 					"version": null,
 					"lastMigration": null
 				},
+				"concentration": false,
 				"degree": 0,
 				"exertionCost": 0,
 				"isStance": false,
@@ -2118,6 +2140,7 @@
 					"version": null,
 					"lastMigration": null
 				},
+				"concentration": false,
 				"degree": 0,
 				"exertionCost": 0,
 				"isStance": false,
@@ -2211,6 +2234,7 @@
 					"version": null,
 					"lastMigration": null
 				},
+				"concentration": false,
 				"degree": 0,
 				"exertionCost": 0,
 				"isStance": false,
@@ -2304,6 +2328,7 @@
 					"version": null,
 					"lastMigration": null
 				},
+				"concentration": false,
 				"degree": 0,
 				"exertionCost": 0,
 				"isStance": false,
@@ -2329,7 +2354,11 @@
 		}
 	],
 	"effects": [],
-	"flags": {},
+	"flags": {
+		"a5e": {
+			"showSpellTab": false
+		}
+	},
 	"system": {
 		"abilities": {
 			"str": {
@@ -2418,7 +2447,7 @@
 			}
 		},
 		"schemaVersion": {
-			"version": 0.007,
+			"version": 0.01,
 			"lastMigration": {
 				"version": {
 					"schema": 0.006,
@@ -2755,6 +2784,7 @@
 				}
 			},
 			"initiative": {
+				"ability": "dex",
 				"bonus": "",
 				"expertiseDice": 0
 			},
@@ -2809,15 +2839,15 @@
 			"casterLevel": 0
 		},
 		"bonuses": {
-			"abilities": {},
-			"damage": {},
-			"healing": {},
 			"maneuverDC": "",
 			"meleeSpellAttack": "",
 			"meleeWeaponAttack": "",
 			"rangedSpellAttack": "",
 			"rangedWeaponAttack": "",
 			"spellDC": "",
+			"abilities": {},
+			"damage": {},
+			"healing": {},
 			"skills": {}
 		},
 		"currency": {
@@ -2915,7 +2945,7 @@
 	},
 	"prototypeToken": {
 		"name": "Tarrasque",
-		"displayName": 0,
+		"displayName": 30,
 		"actorLink": false,
 		"width": 4,
 		"height": 4,
@@ -2946,7 +2976,7 @@
 			"color": null
 		},
 		"disposition": -1,
-		"displayBars": 0,
+		"displayBars": 30,
 		"bar1": {
 			"attribute": "attributes.hp"
 		},
@@ -2962,15 +2992,11 @@
 			"offsetX": 0,
 			"offsetY": 0,
 			"rotation": 0,
-			"tint": "#ffffff",
-			"anchorX": 0.5,
-			"anchorY": 0.5,
-			"fit": "contain",
-			"alphaThreshold": 0.75
+			"tint": "#ffffff"
 		},
 		"sight": {
 			"angle": 360,
-			"enabled": false,
+			"enabled": true,
 			"range": 0,
 			"brightness": 1,
 			"color": null,
@@ -2981,12 +3007,7 @@
 		},
 		"detectionModes": [],
 		"appendNumber": false,
-		"prependAdjective": false,
-		"hexagonalShape": 0,
-		"locked": false,
-		"occludable": {
-			"radius": 0
-		}
+		"prependAdjective": false
 	},
 	"folder": null,
 	"_id": "nyeg6ukcxkmjemem"

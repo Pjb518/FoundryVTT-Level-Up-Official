@@ -128,6 +128,7 @@ export default function registerEffectLocalizationConfig(A5E) {
     'system.attributes.hp.value': 'A5E.effects.keys.hitPoints.current',
     'system.attributes.hp.max': 'A5E.effects.keys.hitPoints.max',
     'system.attributes.hp.temp': 'A5E.effects.keys.hitPoints.temp',
+    'system.attributes.initiative.ability': 'A5E.effects.keys.initiativeAbility',
     'system.attributes.initiative.bonus': 'A5E.effects.keys.initiativeBonus',
     'system.attributes.initiative.expertiseDice': 'A5E.effects.keys.initiativeExpertiseDice',
     'system.attributes.inspiration': 'A5E.effects.keys.inspiration',
@@ -408,6 +409,12 @@ export default function registerEffectLocalizationConfig(A5E) {
     '@token.light.dim': 'A5E.effects.keys.token.light.dim',
     '@token.light.luminosity': 'A5E.effects.keys.token.light.luminosity',
     '@token.light.saturation': 'A5E.effects.keys.token.light.saturation',
-    '@token.light.shadows': 'A5E.effects.keys.token.light.shadows'
+    '@token.light.shadows': 'A5E.effects.keys.token.light.shadows',
+
+    '@token.texture.src': 'A5E.effects.keys.token.texture.src',
+    '@token.texture.scaleX': 'A5E.effects.keys.token.texture.scaleX',
+    '@token.texture.scaleY': 'A5E.effects.keys.token.texture.scaleY',
+    '@token.width': 'A5E.effects.keys.token.width',
+    '@token.height': 'A5E.effects.keys.token.height'
   };
 }

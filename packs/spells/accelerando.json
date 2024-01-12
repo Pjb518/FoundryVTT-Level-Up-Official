@@ -2,7 +2,149 @@
 	"name": "Accelerando",
 	"type": "spell",
 	"img": "icons/magic/movement/trail-streak-zigzag-yellow.webp",
-	"effects": [],
+	"effects": [
+		{
+			"icon": "icons/magic/movement/trail-streak-zigzag-yellow.webp",
+			"origin": "Item.FPdO63Oo2xV3nQ5Y",
+			"flags": {
+				"a5e": {
+					"sort": 0,
+					"transferType": "onUse",
+					"actionId": "R0NUgfaNMk8GoYXG",
+					"duration": {
+						"type": "rounds",
+						"unit": "minutes"
+					}
+				}
+			},
+			"transfer": false,
+			"name": "Accelerando (Round 1)",
+			"_id": "mCaCh2wfMuOIH8ef",
+			"changes": [
+				{
+					"key": "system.attributes.movement.burrow.distance",
+					"value": "2",
+					"mode": 1,
+					"priority": null
+				},
+				{
+					"key": "system.attributes.movement.fly.distance",
+					"value": "2",
+					"mode": 1,
+					"priority": null
+				},
+				{
+					"key": "system.attributes.movement.climb.distance",
+					"value": "2",
+					"mode": 1,
+					"priority": null
+				},
+				{
+					"key": "system.attributes.movement.swim.distance",
+					"value": "2",
+					"mode": 1,
+					"priority": null
+				},
+				{
+					"key": "system.attributes.movement.walk.distance",
+					"value": "2",
+					"mode": 1,
+					"priority": null
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": null,
+				"combat": null,
+				"rounds": 6,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "<p>Until the spell ends, targets gain cumulative benefits the longer you maintain concentration on this spell (including the turn you cast it).</p>\n<ul class=\"indentedSelection\">\n<li><strong>1 Round:</strong> Double Speed.</li>\n</ul>",
+			"statuses": [],
+			"folder": null
+		},
+		{
+			"icon": "icons/magic/movement/trail-streak-zigzag-yellow.webp",
+			"origin": "Item.FPdO63Oo2xV3nQ5Y",
+			"flags": {
+				"a5e": {
+					"sort": 0,
+					"transferType": "onUse",
+					"actionId": "R0NUgfaNMk8GoYXG",
+					"duration": {
+						"type": "rounds",
+						"unit": "minutes"
+					}
+				}
+			},
+			"transfer": false,
+			"name": "Accelerando (Round 2)",
+			"_id": "i76nfotFPEAPaHzy",
+			"changes": [
+				{
+					"key": "system.attributes.ac.changes.bonuses.value",
+					"value": "2",
+					"mode": 2,
+					"priority": null
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": null,
+				"combat": null,
+				"rounds": 5,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "<p>Until the spell ends, targets gain cumulative benefits the longer you maintain concentration on this spell (including the turn you cast it).</p>\n<ul class=\"indentedSelection\">\n<li><strong>2 Rounds:</strong> +2 bonus to AC.</li>\n</ul>",
+			"statuses": [],
+			"folder": null
+		},
+		{
+			"icon": "icons/magic/movement/trail-streak-zigzag-yellow.webp",
+			"origin": "Item.FPdO63Oo2xV3nQ5Y",
+			"flags": {
+				"a5e": {
+					"sort": 0,
+					"transferType": "onUse",
+					"actionId": "R0NUgfaNMk8GoYXG",
+					"duration": {
+						"type": "rounds",
+						"unit": "minutes"
+					}
+				}
+			},
+			"transfer": false,
+			"name": "Accelerando (Round 3)",
+			"_id": "plJsGVvNkv0f5HYP",
+			"changes": [
+				{
+					"key": "flags.a5e.effects.rollMode.abilitySave.dex",
+					"value": "1",
+					"mode": 6,
+					"priority": null
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": null,
+				"combat": null,
+				"rounds": 4,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "<p>Until the spell ends, targets gain cumulative benefits the longer you maintain concentration on this spell (including the turn you cast it).</p>\n<ul class=\"indentedSelection\">\n<li><strong>3 Rounds:</strong> Advantage on Dexterity saving throws.</li>\n</ul>",
+			"statuses": [],
+			"folder": null
+		}
+	],
 	"flags": {},
 	"system": {
 		"actions": {
@@ -37,6 +179,23 @@
 						"spellLevel": 4,
 						"points": 6,
 						"type": "spell"
+					}
+				},
+				"prompts": {
+					"owdlC3MFKMqMxKtO": {
+						"type": "effect",
+						"default": true,
+						"effectId": "mCaCh2wfMuOIH8ef"
+					},
+					"CIHfpxB47wC5youv": {
+						"type": "effect",
+						"default": true,
+						"effectId": "i76nfotFPEAPaHzy"
+					},
+					"bfZnmtUpFp6w8BuK": {
+						"type": "effect",
+						"default": true,
+						"effectId": "plJsGVvNkv0f5HYP"
 					}
 				}
 			}

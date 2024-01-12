@@ -2,7 +2,7 @@
     import { getContext, setContext } from "svelte";
     import { TJSDocument } from "#runtime/svelte/store/fvtt/document";
 
-    import FormSection from "../FormSection.svelte";
+    import FormSection from "../LegacyFormSection.svelte";
     import RadioGroup from "../RadioGroup.svelte";
     import CheckboxGroup from "../CheckboxGroup.svelte";
     import ChangeConfiguration from "../effectChanges/ChangeConfiguration.svelte";
@@ -75,7 +75,7 @@
     let effects = $item.effects;
     const traitEffect =
         effects.find(
-            (effect) => effect.name === "Movement & Senses Configuration"
+            (effect) => effect.name === "Movement & Senses Configuration",
         ) ?? "No trait effect found. Please re-create the item.";
 
     /** @type {Array<Object>}*/
@@ -85,26 +85,22 @@
 
 <article>
     <FormSection --direction="column" --gap="0.75rem">
-        <section class="u-flex u-flex-col u-gap-sm">
-            <h3 class="u-text-bold u-text-sm">Size Category</h3>
-
-            <RadioGroup
-                options={creatureSizes}
-                selected={$item.system.creatureSize.fixed}
-                disabled={$item.system.creatureSize.options}
-                on:updateSelection={({ detail }) =>
-                    updateDocumentDataFromField(
-                        $item,
-                        "system.creatureSize.fixed",
-                        detail
-                    )}
-            />
-        </section>
+        <RadioGroup
+            heading="Size Category"
+            options={creatureSizes}
+            selected={$item.system.creatureSize.fixed}
+            disabled={$item.system.creatureSize.options}
+            on:updateSelection={({ detail }) =>
+                updateDocumentDataFromField(
+                    $item,
+                    "system.creatureSize.fixed",
+                    detail,
+                )}
+        />
 
         <section class="u-flex u-flex-col u-gap-sm">
-            <h3 class="u-text-bold u-text-sm">Optional Size Choices</h3>
-
             <CheckboxGroup
+                heading="Optional Size Choices"
                 options={creatureSizes}
                 selected={$item.system.creatureSize.options}
                 disabledOptions={$item.system.creatureSize.fixed}
@@ -112,24 +108,19 @@
                     updateDocumentDataFromField(
                         $item,
                         "system.creatureSize.options",
-                        detail
+                        detail,
                     )}
             />
         </section>
     </FormSection>
 
-    <FormSection heading="A5E.CreatureTypesLabel">
-        <CheckboxGroup
-            options={creatureTypes}
-            selected={$item.system.creatureTypes}
-            on:updateSelection={({ detail }) =>
-                updateDocumentDataFromField(
-                    $item,
-                    "system.creatureTypes",
-                    detail
-                )}
-        />
-    </FormSection>
+    <CheckboxGroup
+        heading="A5E.CreatureTypesLabel"
+        options={creatureTypes}
+        selected={$item.system.creatureTypes}
+        on:updateSelection={({ detail }) =>
+            updateDocumentDataFromField($item, "system.creatureTypes", detail)}
+    />
 
     {#if typeof traitEffect === "string"}
         {traitEffect}
