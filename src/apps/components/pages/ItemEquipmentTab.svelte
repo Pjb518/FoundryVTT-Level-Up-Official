@@ -46,6 +46,7 @@
         <DropArea
             {uuids}
             attribute="items"
+            topLevelAttribute="containerItems"
             on:item-dropped={updateEquipment}
             on:item-deleted={deleteEquipment}
         />
