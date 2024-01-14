@@ -887,6 +887,7 @@ A5E.spellSchools = {
     force: 'A5E.SpellSchoolForce',
     good: 'A5E.SpellSchoolGood',
     healing: 'A5E.SpellSchoolHealing',
+    hearth: 'A5E.SpellSchoolHearth',
     knowledge: 'A5E.SpellSchoolKnowledge',
     law: 'A5E.SpellSchoolLaw',
     lightning: 'A5E.SpellSchoolLightning',
