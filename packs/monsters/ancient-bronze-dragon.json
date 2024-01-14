@@ -44,6 +44,7 @@
 				"featureType": "",
 				"grants": {},
 				"prerequisite": "",
+				"requiresBloodied": false,
 				"schemaVersion": {
 					"version": 0.01,
 					"lastMigration": {
@@ -156,6 +157,7 @@
 				"featureType": "naturalWeapon",
 				"grants": {},
 				"prerequisite": "",
+				"requiresBloodied": false,
 				"schemaVersion": {
 					"version": 0.01,
 					"lastMigration": {
@@ -173,7 +175,7 @@
 		},
 		{
 			"_id": "EMlsCNxzsDadNPGj",
-			"name": "Breath Weapons (Recharge 5–6)",
+			"name": "Breath Weapons",
 			"type": "feature",
 			"img": "icons/svg/item-bag.svg",
 			"effects": [],
@@ -194,90 +196,15 @@
 					"requiresNoShield": false,
 					"requiresUnarmored": false
 				},
-				"actions": {},
-				"description": "<p>The dragon uses one of the following breath weapons:</p><p><strong>Lightning Breath.</strong> The dragon exhales lightning in a 120-foot-long, 10-foot-wide line. Each creature in the area makes a DC 23 Dexterity saving throw, taking 93 (16d10) lightning damage on a failed save or half damage on a success. A creature that fails the saving throw can’t take reactions until the end of its next turn.</p><p><strong>Ocean Surge.</strong> The dragon exhales a torrent of seawater in a 30-foot cone. Each creature in the area makes a DC 23 Strength saving throw. A creature that fails is pushed 40 feet away from the dragon and knocked prone, while one that succeeds is pushed only 20 feet away and isn’t knocked prone.</p>",
-				"favorite": false,
-				"secretDescription": "",
-				"source": "",
-				"uses": {
-					"value": null,
-					"max": "",
-					"per": null,
-					"recharge": {
-						"formula": "",
-						"threshold": ""
-					}
-				},
-				"schema": {
-					"version": null,
-					"lastMigration": null
-				},
-				"concentration": false,
-				"featureType": "",
-				"grants": {},
-				"prerequisite": "",
-				"schemaVersion": {
-					"version": 0.01,
-					"lastMigration": {
-						"version": {
-							"schema": 0.009,
-							"foundry": "12.316",
-							"system": "0.16.12"
-						}
-					}
-				}
-			},
-			"ownership": {
-				"default": 0
-			}
-		},
-		{
-			"_id": "M8apS0li8kIUuFUf",
-			"name": "Lightning Breath",
-			"type": "feature",
-			"img": "icons/magic/lightning/bolt-strike-blue.webp",
-			"effects": [],
-			"folder": null,
-			"sort": 400000,
-			"flags": {
-				"core": {
-					"sourceId": "Item.306Vm1DH1Ukw4q3e"
-				}
-			},
-			"system": {
-				"ac": {
-					"baseFormula": "",
-					"formula": "",
-					"maxDex": 0,
-					"minStr": 0,
-					"mode": 1,
-					"requiresNoShield": false,
-					"requiresUnarmored": false
-				},
 				"actions": {
-					"zXRQmr06SGrd8dA3": {
+					"bfw1j60Kv4Jo9ze7": {
 						"name": "Lightning Breath",
 						"activation": {
 							"cost": 1,
 							"type": "action",
 							"reactionTrigger": ""
 						},
-						"duration": {
-							"unit": "instantaneous",
-							"value": ""
-						},
-						"ranges": {},
-						"area": {
-							"shape": "line",
-							"size": "120ft long, 10ft wide",
-							"placeTemplate": false,
-							"length": 120,
-							"width": 10
-						},
-						"target": {
-							"quantity": 1,
-							"type": ""
-						},
+						"consumers": {},
 						"rolls": {
 							"WHytUgWvH3kmX4MF": {
 								"canCrit": false,
@@ -298,20 +225,99 @@
 								"type": "savingThrow"
 							}
 						},
-						"consumers": {}
+						"uses": {
+							"value": 0,
+							"max": "",
+							"per": "",
+							"recharge": {
+								"formula": "1d6",
+								"rechargeType": "custom",
+								"rechargeAmount": "1",
+								"threshold": 6
+							}
+						},
+						"duration": {
+							"unit": "instantaneous",
+							"value": ""
+						},
+						"ranges": {},
+						"area": {
+							"shape": "line",
+							"size": "120ft long, 10ft wide",
+							"placeTemplate": false,
+							"length": 120,
+							"width": 10,
+							"quantity": 1
+						},
+						"target": {
+							"quantity": 1,
+							"type": ""
+						},
+						"img": "icons/magic/lightning/bolt-strike-blue.webp",
+						"description": "<p>The dragon exhales lightning in a 120-foot-long, 10-foot-wide line. Each creature in the area makes a DC 23 Dexterity saving throw, taking 93 (16d10) lightning damage on a failed save or half damage on a success. A creature that fails the saving throw can&rsquo;t take reactions until the end of its next turn.</p>"
+					},
+					"jT65zGSawYMFdEyP": {
+						"name": "Ocean Surge",
+						"activation": {
+							"cost": 1,
+							"type": "action",
+							"reactionTrigger": ""
+						},
+						"consumers": {},
+						"rolls": {},
+						"prompts": {
+							"mMCvvclpmMAbF8Fg": {
+								"ability": "str",
+								"onSave": "Avoids effects and only pushed 20 feet away.",
+								"saveDC": {
+									"type": "custom",
+									"bonus": "23"
+								},
+								"type": "savingThrow"
+							}
+						},
+						"uses": {
+							"value": 0,
+							"max": "",
+							"per": "",
+							"recharge": {
+								"formula": "1d6",
+								"rechargeType": "custom",
+								"rechargeAmount": "1",
+								"threshold": 6
+							}
+						},
+						"duration": {
+							"unit": "instantaneous",
+							"value": 10
+						},
+						"ranges": {},
+						"area": {
+							"shape": "cone",
+							"size": "30ft",
+							"placeTemplate": false,
+							"length": 30,
+							"quantity": 1
+						},
+						"target": {
+							"quantity": 1,
+							"type": ""
+						},
+						"img": "icons/svg/item-bag.svg",
+						"description": "<p>The dragon exhales a torrent of seawater in a 30-foot cone. Each creature in the area makes a DC 23 Strength saving throw. A creature that fails is pushed 40 feet away from the dragon and knocked prone, while one that succeeds is pushed only 20 feet away and isn&rsquo;t knocked prone.</p>"
 					}
 				},
-				"description": "<p>The dragon exhales lightning in a 120-foot-long, 10-foot-wide line. Each creature in the area makes a DC 23 Dexterity saving throw, taking 93 (16d10) lightning damage on a failed save or half damage on a success. A creature that fails the saving throw can’t take reactions until the end of its next turn.</p>",
+				"description": "<p>The dragon uses one of the following breath weapons:</p><p><strong>Lightning Breath.</strong> The dragon exhales lightning in a 120-foot-long, 10-foot-wide line. Each creature in the area makes a DC 23 Dexterity saving throw, taking 93 (16d10) lightning damage on a failed save or half damage on a success. A creature that fails the saving throw can’t take reactions until the end of its next turn.</p><p><strong>Ocean Surge.</strong> The dragon exhales a torrent of seawater in a 30-foot cone. Each creature in the area makes a DC 23 Strength saving throw. A creature that fails is pushed 40 feet away from the dragon and knocked prone, while one that succeeds is pushed only 20 feet away and isn’t knocked prone.</p>",
 				"favorite": true,
 				"secretDescription": "",
 				"source": "",
 				"uses": {
-					"value": null,
+					"value": 0,
 					"max": "",
-					"per": null,
+					"per": "recharge",
 					"recharge": {
 						"formula": "",
-						"threshold": ""
+						"threshold": 5
 					}
 				},
 				"schema": {
@@ -322,6 +328,7 @@
 				"featureType": "",
 				"grants": {},
 				"prerequisite": "",
+				"requiresBloodied": false,
 				"schemaVersion": {
 					"version": 0.01,
 					"lastMigration": {
@@ -397,7 +404,7 @@
 						"consumers": {}
 					}
 				},
-				"description": "<p>The dragon exhales a torrent of seawater in a 30-foot cone. Each creature in the area makes a DC 23 Strength saving throw. A creature that fails is pushed 40 feet away from the dragon and knocked prone, while one that succeeds is pushed only 20 feet away and isn’t knocked prone.</p>",
+				"description": "<p>The dragon exhales a torrent of seawater in a 30-foot cone. Each creature in the area makes a DC 23 Strength saving throw. A creature that fails is pushed 40 feet away from the dragon and knocked prone, while one that succeeds is pushed only 20 feet away and isn&rsquo;t knocked prone.</p>",
 				"favorite": true,
 				"secretDescription": "",
 				"source": "",
@@ -418,6 +425,7 @@
 				"featureType": "",
 				"grants": {},
 				"prerequisite": "",
+				"requiresBloodied": false,
 				"schemaVersion": {
 					"version": 0.01,
 					"lastMigration": {
@@ -474,6 +482,7 @@
 				"featureType": "",
 				"grants": {},
 				"prerequisite": "",
+				"requiresBloodied": false,
 				"schemaVersion": {
 					"version": 0.01,
 					"lastMigration": {
@@ -534,6 +543,7 @@
 				"featureType": "",
 				"grants": {},
 				"prerequisite": "",
+				"requiresBloodied": false,
 				"schemaVersion": {
 					"version": 0.01,
 					"lastMigration": {
@@ -638,6 +648,7 @@
 				"featureType": "",
 				"grants": {},
 				"prerequisite": "",
+				"requiresBloodied": false,
 				"schemaVersion": {
 					"version": 0.01,
 					"lastMigration": {
@@ -738,6 +749,7 @@
 				"featureType": "",
 				"grants": {},
 				"prerequisite": "",
+				"requiresBloodied": false,
 				"schemaVersion": {
 					"version": 0.01,
 					"lastMigration": {
@@ -798,6 +810,7 @@
 				"featureType": "",
 				"grants": {},
 				"prerequisite": "",
+				"requiresBloodied": false,
 				"schemaVersion": {
 					"version": 0.01,
 					"lastMigration": {
@@ -905,6 +918,7 @@
 				"featureType": "",
 				"grants": {},
 				"prerequisite": "",
+				"requiresBloodied": false,
 				"schemaVersion": {
 					"version": 0.01,
 					"lastMigration": {
@@ -992,6 +1006,7 @@
 				"featureType": "",
 				"grants": {},
 				"prerequisite": "",
+				"requiresBloodied": false,
 				"schemaVersion": {
 					"version": 0.01,
 					"lastMigration": {
@@ -1052,6 +1067,7 @@
 				"featureType": "",
 				"grants": {},
 				"prerequisite": "",
+				"requiresBloodied": false,
 				"schemaVersion": {
 					"version": 0.01,
 					"lastMigration": {
@@ -1140,6 +1156,7 @@
 				"featureType": "",
 				"grants": {},
 				"prerequisite": "",
+				"requiresBloodied": false,
 				"schemaVersion": {
 					"version": 0.01,
 					"lastMigration": {
@@ -1237,6 +1254,7 @@
 				"featureType": "",
 				"grants": {},
 				"prerequisite": "",
+				"requiresBloodied": false,
 				"schemaVersion": {
 					"version": 0.01,
 					"lastMigration": {
@@ -1334,6 +1352,7 @@
 				"featureType": "",
 				"grants": {},
 				"prerequisite": "",
+				"requiresBloodied": false,
 				"schemaVersion": {
 					"version": 0.01,
 					"lastMigration": {
@@ -1418,6 +1437,7 @@
 				"featureType": "",
 				"grants": {},
 				"prerequisite": "",
+				"requiresBloodied": false,
 				"schemaVersion": {
 					"version": 0.01,
 					"lastMigration": {
@@ -1513,6 +1533,7 @@
 				"featureType": "",
 				"grants": {},
 				"prerequisite": "",
+				"requiresBloodied": false,
 				"schemaVersion": {
 					"version": 0.01,
 					"lastMigration": {
@@ -1607,6 +1628,7 @@
 					"version": null,
 					"lastMigration": null
 				},
+				"concentration": false,
 				"degree": 0,
 				"exertionCost": 0,
 				"isStance": false,
@@ -1709,6 +1731,7 @@
 					"version": null,
 					"lastMigration": null
 				},
+				"concentration": false,
 				"degree": 0,
 				"exertionCost": 0,
 				"isStance": false,
@@ -1802,6 +1825,7 @@
 					"version": null,
 					"lastMigration": null
 				},
+				"concentration": false,
 				"degree": 0,
 				"exertionCost": 0,
 				"isStance": false,
@@ -1895,6 +1919,7 @@
 					"version": null,
 					"lastMigration": null
 				},
+				"concentration": false,
 				"degree": 0,
 				"exertionCost": 0,
 				"isStance": false,
@@ -1988,6 +2013,7 @@
 					"version": null,
 					"lastMigration": null
 				},
+				"concentration": false,
 				"degree": 0,
 				"exertionCost": 0,
 				"isStance": false,
@@ -2081,6 +2107,7 @@
 					"version": null,
 					"lastMigration": null
 				},
+				"concentration": false,
 				"degree": 0,
 				"exertionCost": 0,
 				"isStance": false,
@@ -2110,7 +2137,8 @@
 		"a5e": {
 			"availableSpellLevels": [],
 			"showSpellSlots": false,
-			"showSpellPoints": false
+			"showSpellPoints": false,
+			"sheetIsLocked": false
 		}
 	},
 	"system": {
@@ -2538,6 +2566,7 @@
 				}
 			},
 			"initiative": {
+				"ability": "dex",
 				"bonus": "",
 				"expertiseDice": 0
 			},
@@ -2592,15 +2621,15 @@
 			"casterLevel": 0
 		},
 		"bonuses": {
-			"abilities": {},
-			"damage": {},
-			"healing": {},
 			"maneuverDC": "",
 			"meleeSpellAttack": "",
 			"meleeWeaponAttack": "",
 			"rangedSpellAttack": "",
 			"rangedWeaponAttack": "",
 			"spellDC": "",
+			"abilities": {},
+			"damage": {},
+			"healing": {},
 			"skills": {}
 		},
 		"currency": {
@@ -2741,11 +2770,7 @@
 			"offsetX": 0,
 			"offsetY": 0,
 			"rotation": 0,
-			"tint": "#ffffff",
-			"anchorX": 0.5,
-			"anchorY": 0.5,
-			"fit": "contain",
-			"alphaThreshold": 0.75
+			"tint": "#ffffff"
 		},
 		"sight": {
 			"angle": 360,
@@ -2760,12 +2785,7 @@
 		},
 		"detectionModes": [],
 		"appendNumber": false,
-		"prependAdjective": false,
-		"hexagonalShape": 0,
-		"locked": false,
-		"occludable": {
-			"radius": 0
-		}
+		"prependAdjective": false
 	},
 	"folder": null,
 	"_id": "m0efu8h6fq7zh2i5"

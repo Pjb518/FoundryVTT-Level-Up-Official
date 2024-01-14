@@ -1,13 +1,13 @@
 {
-	"name": "Bronze Dragon Wyrmling",
+	"name": "Young Copper Dragon Spellcaster",
 	"type": "npc",
-	"img": "systems/a5e/assets/bronze-dragon.webp",
+	"img": "systems/a5e/assets/copper-dragon.webp",
 	"items": [
 		{
-			"_id": "jR6y7SS4KLYKdJDE",
-			"name": "Amphibious",
+			"_id": "QSScRbNjlGMjIrA6",
+			"name": "Flow Within the Mountain",
 			"type": "feature",
-			"img": "icons/environment/creatures/frog-spotted-green.webp",
+			"img": "icons/svg/item-bag.svg",
 			"effects": [],
 			"folder": null,
 			"sort": 0,
@@ -23,7 +23,7 @@
 					"requiresUnarmored": false
 				},
 				"actions": {},
-				"description": "<p>The dragon can breathe air and water.</p>",
+				"description": "<p>The dragon has advantage on Stealth checks made to hide in mountainous regions.</p>",
 				"favorite": false,
 				"secretDescription": "",
 				"source": "",
@@ -61,7 +61,7 @@
 			}
 		},
 		{
-			"_id": "VKw7IKmzxFRKT23s",
+			"_id": "hXTEOhW9Hjh6fIMI",
 			"name": "Bite",
 			"type": "feature",
 			"img": "icons/creatures/abilities/mouth-teeth-long-red.webp",
@@ -84,7 +84,7 @@
 					"requiresUnarmored": false
 				},
 				"actions": {
-					"joG5PYjmXvmLxpsE": {
+					"co941lmS9bM6jT9D": {
 						"name": "Bite",
 						"activation": {
 							"cost": 1,
@@ -96,8 +96,8 @@
 							"value": ""
 						},
 						"ranges": {
-							"hXNdzssW13Uq71U7": {
-								"range": "fiveFeet"
+							"F6KwWt26Zx7wBFZZ": {
+								"range": "10ft"
 							}
 						},
 						"area": {
@@ -110,18 +110,25 @@
 							"type": "creature"
 						},
 						"rolls": {
-							"II0aMfGExHGP9tdr": {
+							"Ex7HQVYbuwYkynwy": {
 								"bonus": "",
 								"critThreshold": "20",
 								"type": "attack",
 								"attackType": "meleeWeaponAttack",
 								"ability": "str"
 							},
-							"ZqU3bDp6sOacQebu": {
+							"bqIyoQUzw6Wd2uJ3": {
 								"canCrit": true,
 								"damageType": "piercing",
-								"formula": "2d10 + @str.mod",
+								"formula": "3d10 + @str.mod",
 								"name": "Default",
+								"type": "damage"
+							},
+							"2LFRKSPxobr2WEUM": {
+								"canCrit": true,
+								"damageType": "acid",
+								"formula": "1d8",
+								"name": "Acid",
 								"type": "damage"
 							}
 						},
@@ -166,7 +173,7 @@
 			}
 		},
 		{
-			"_id": "EMlsCNxzsDadNPGj",
+			"_id": "n9jrpVI8P6cqsEjY",
 			"name": "Breath Weapons (Recharge 5–6)",
 			"type": "feature",
 			"img": "icons/svg/item-bag.svg",
@@ -189,8 +196,8 @@
 					"requiresUnarmored": false
 				},
 				"actions": {
-					"kiAz8uN5UgsY9Sqg": {
-						"name": "Lightning Breath",
+					"9OpZpSKMzrtD3r1n": {
+						"name": "Acid Breath",
 						"activation": {
 							"cost": 1,
 							"type": "action",
@@ -198,21 +205,21 @@
 						},
 						"consumers": {},
 						"rolls": {
-							"1z9idirMqQamwwqO": {
+							"KU54keQJgIqpiAU0": {
 								"canCrit": false,
-								"damageType": "lightning",
-								"formula": "3d10",
+								"damageType": "acid",
+								"formula": "10d8",
 								"name": "Default",
 								"type": "damage"
 							}
 						},
 						"prompts": {
-							"QQP0Z2uNj8oQp9oA": {
+							"KwbqVdAMfzB8Lp0a": {
 								"ability": "dex",
 								"onSave": "Half damage.",
 								"saveDC": {
 									"type": "custom",
-									"bonus": "12"
+									"bonus": "15"
 								},
 								"type": "savingThrow"
 							}
@@ -235,9 +242,9 @@
 						"ranges": {},
 						"area": {
 							"shape": "line",
-							"size": "30ft long, 5ft wide",
+							"size": "40ft long, 5ft wide",
 							"placeTemplate": false,
-							"length": 30,
+							"length": 40,
 							"width": 5,
 							"quantity": 1
 						},
@@ -245,11 +252,11 @@
 							"quantity": 1,
 							"type": ""
 						},
-						"img": "icons/magic/lightning/bolt-strike-blue.webp",
-						"description": "<p>The dragon exhales lightning in a 30-foot-long, 5-foot-wide line. Each creature in the area makes a DC 12 Dexterity saving throw, taking 16 (3d10) lightning damage on a failed save or half damage on a success.</p>"
+						"img": "icons/magic/acid/projectile-smoke-glowing.webp",
+						"description": "<p>The dragon exhales acid in a 40-foot-long, 5-foot wide-line. Each creature in the area makes a DC 15 Dexterity saving throw, taking 45 (10d8) acid damage on a failed save or half damage on a success.&nbsp;</p>"
 					},
-					"sUxlo7kECsxNxBay": {
-						"name": "Ocean Surge",
+					"nSjqC4XuRciNX4hh": {
+						"name": "Slowing Breath",
 						"activation": {
 							"cost": 1,
 							"type": "action",
@@ -258,12 +265,12 @@
 						"consumers": {},
 						"rolls": {},
 						"prompts": {
-							"PsZjpLDf175nzVnk": {
-								"ability": "str",
+							"XGBZsuIlmtF2WVGG": {
+								"ability": "con",
 								"onSave": "Avoids effects.",
 								"saveDC": {
 									"type": "custom",
-									"bonus": "12"
+									"bonus": "15"
 								},
 								"type": "savingThrow"
 							}
@@ -280,13 +287,13 @@
 							}
 						},
 						"duration": {
-							"unit": "instantaneous",
-							"value": 10
+							"unit": "minute",
+							"value": 1
 						},
 						"ranges": {},
 						"area": {
 							"shape": "cone",
-							"size": "30",
+							"size": "30ft",
 							"placeTemplate": false,
 							"length": 30,
 							"quantity": 1
@@ -296,10 +303,172 @@
 							"type": ""
 						},
 						"img": "icons/svg/item-bag.svg",
-						"description": "<p>The dragon exhales a torrent of seawater in a 30-foot cone. Each creature in the area must succeed on a DC 12 Strength saving throw or be pushed 15 feet away from the dragon.</p>"
+						"description": "<p>The dragon exhales toxic gas in a 30-foot cone. Each creature in the area makes a DC 15 Constitution saving throw, becoming slowed for 1 minute on a failure. A creature repeats the saving throw at the end of each of its turns, ending the effect on itself on a success.</p>"
 					}
 				},
-				"description": "<p>The dragon uses one of the following breath weapons:</p><p><strong>Lightning Breath.</strong> The dragon exhales lightning in a 30-foot-long, 5-foot-wide line. Each creature in the area makes a DC 12 Dexterity saving throw, taking 16 (3d10) lightning damage on a failed save or half damage on a success.</p><p><strong>Ocean Surge.</strong> The dragon exhales a torrent of seawater in a 30-foot cone. Each creature in the area must succeed on a DC 12 Strength saving throw or be pushed 15 feet away from the dragon.</p>",
+				"description": "<p>The dragon uses one of the following breath weapons:</p><p><strong>Acid Breath.</strong> The dragon exhales acid in a 40-foot-long, 5-foot wide-line. Each creature in the area makes a DC 15 Dexterity saving throw, taking 45 (10d8) acid damage on a failed save or half damage on a success.&nbsp;</p><p><strong>Slowing Breath.</strong> The dragon exhales toxic gas in a 30-foot cone. Each creature in the area makes a DC 15 Constitution saving throw, becoming slowed for 1 minute on a failure. A creature repeats the saving throw at the end of each of its turns, ending the effect on itself on a success.</p>",
+				"favorite": true,
+				"secretDescription": "",
+				"source": "",
+				"uses": {
+					"value": null,
+					"max": "",
+					"per": null,
+					"recharge": {
+						"formula": "",
+						"threshold": ""
+					}
+				},
+				"schema": {
+					"version": null,
+					"lastMigration": null
+				},
+				"concentration": false,
+				"featureType": "",
+				"grants": {},
+				"prerequisite": "",
+				"requiresBloodied": false,
+				"schemaVersion": {
+					"version": 0.01,
+					"lastMigration": {
+						"version": {
+							"schema": 0.009,
+							"foundry": "12.316",
+							"system": "0.16.12"
+						}
+					}
+				}
+			},
+			"ownership": {
+				"default": 0
+			}
+		},
+		{
+			"_id": "gWHGTTGKBfe9WRTc",
+			"name": "Multiattack",
+			"type": "feature",
+			"img": "icons/skills/melee/blade-tips-triple-steel.webp",
+			"effects": [],
+			"folder": null,
+			"sort": 187500,
+			"flags": {
+				"core": {
+					"sourceId": "Item.oWZFcySGc0jdMBK5"
+				}
+			},
+			"system": {
+				"ac": {
+					"baseFormula": "",
+					"formula": "",
+					"maxDex": 0,
+					"minStr": 0,
+					"mode": 1,
+					"requiresNoShield": false,
+					"requiresUnarmored": false
+				},
+				"actions": {},
+				"description": "<p>The dragon attacks with its bite and twice with its claws.</p>",
+				"favorite": false,
+				"secretDescription": "",
+				"source": "",
+				"uses": {
+					"value": null,
+					"max": "",
+					"per": null,
+					"recharge": {
+						"formula": "",
+						"threshold": ""
+					}
+				},
+				"schema": {
+					"version": null,
+					"lastMigration": null
+				},
+				"concentration": false,
+				"featureType": "",
+				"grants": {},
+				"prerequisite": "",
+				"requiresBloodied": false,
+				"schemaVersion": {
+					"version": 0.01,
+					"lastMigration": {
+						"version": {
+							"schema": 0.009,
+							"foundry": "12.316",
+							"system": "0.16.12"
+						}
+					}
+				}
+			},
+			"ownership": {
+				"default": 0
+			}
+		},
+		{
+			"_id": "GldDPjuQRVoclORU",
+			"name": "Claws",
+			"type": "feature",
+			"img": "icons/skills/melee/blood-slash-foam-red.webp",
+			"effects": [],
+			"folder": null,
+			"sort": 250000,
+			"flags": {},
+			"system": {
+				"ac": {
+					"baseFormula": "",
+					"formula": "",
+					"maxDex": 0,
+					"minStr": 0,
+					"mode": 1,
+					"requiresNoShield": false,
+					"requiresUnarmored": false
+				},
+				"actions": {
+					"hFH5aXZLK5Alcjcg": {
+						"name": "Claws",
+						"activation": {
+							"cost": 1,
+							"type": "action",
+							"reactionTrigger": ""
+						},
+						"duration": {
+							"unit": "instantaneous",
+							"value": ""
+						},
+						"ranges": {
+							"s9Ka4Ibci88rBrnm": {
+								"range": "fiveFeet"
+							}
+						},
+						"area": {
+							"shape": "",
+							"size": "",
+							"placeTemplate": false
+						},
+						"target": {
+							"quantity": 1,
+							"type": "creature"
+						},
+						"rolls": {
+							"Lf7Jc0v9OwYAOZZk": {
+								"bonus": "",
+								"critThreshold": "20",
+								"type": "attack",
+								"attackType": "meleeWeaponAttack",
+								"ability": "default"
+							},
+							"iwrdTOZOaajvzH54": {
+								"canCrit": true,
+								"damageType": "",
+								"formula": "2d8 + @@str.mod",
+								"name": "Default",
+								"type": "damage"
+							}
+						},
+						"consumers": {}
+					}
+				},
+				"description": "",
 				"favorite": true,
 				"secretDescription": "",
 				"source": "",
@@ -348,7 +517,7 @@
 			},
 			"system": {
 				"actions": {
-					"fembbsA48dvgteRu": {
+					"4N3kZssi4195vtX9": {
 						"name": "Shove",
 						"activation": {
 							"cost": 1,
@@ -360,7 +529,7 @@
 							"value": null
 						},
 						"ranges": {
-							"lCybmx0mBi67G7Xs": {
+							"t9VIbEleGReL7ExJ": {
 								"range": "fiveFeet"
 							}
 						},
@@ -376,7 +545,7 @@
 							"size": ""
 						},
 						"rolls": {
-							"79HOrwANJ1ZeRivN": {
+							"SfN236m9TDXNGR3B": {
 								"canCrit": false,
 								"damageType": "bludgeoning",
 								"formula": "1 + @str.mod",
@@ -385,7 +554,7 @@
 							}
 						},
 						"prompts": {
-							"AMJLhOZ08k9Ofkm9": {
+							"gGopAfR60DMiAlkH": {
 								"ability": "str",
 								"onSave": "",
 								"saveDC": {
@@ -437,7 +606,7 @@
 			},
 			"folder": null,
 			"sort": 0,
-			"_id": "TQNXiHvpVW2b1NNC"
+			"_id": "VB7el8fLm6qv8zar"
 		},
 		{
 			"name": "Disarm",
@@ -451,7 +620,7 @@
 			},
 			"system": {
 				"actions": {
-					"V7eSltCs39SxcZi3": {
+					"NEWiW4sndQjadfdc": {
 						"name": "Disarm",
 						"activation": {
 							"cost": 1,
@@ -463,7 +632,7 @@
 							"value": null
 						},
 						"ranges": {
-							"Et5f1Szm7evZbo5h": {
+							"R5GW5BtpURlaSVjV": {
 								"range": "touch"
 							}
 						},
@@ -479,7 +648,7 @@
 							"size": ""
 						},
 						"rolls": {
-							"XoGBmgS7dZI6UI81": {
+							"rNfxKSxib7c4oUkK": {
 								"canCrit": false,
 								"damageType": "",
 								"formula": "1 + @str.mod",
@@ -488,7 +657,7 @@
 							}
 						},
 						"prompts": {
-							"wjftJv8xd8vWoFhg": {
+							"EOtZ2CGBF7Xq6ohE": {
 								"ability": "str",
 								"onSave": "",
 								"saveDC": {
@@ -540,7 +709,7 @@
 			},
 			"folder": null,
 			"sort": 0,
-			"_id": "l7aw7b5ownyp183U"
+			"_id": "5DJ01HqmqUsrhU4i"
 		},
 		{
 			"name": "Grab On",
@@ -554,7 +723,7 @@
 			},
 			"system": {
 				"actions": {
-					"iRSVeHIADm2mdMTA": {
+					"8kAPIvMCyGFNG5gP": {
 						"name": "Grab On",
 						"activation": {
 							"cost": 1,
@@ -566,7 +735,7 @@
 							"value": null
 						},
 						"ranges": {
-							"yIZK58TPn3RQoWkV": {
+							"dO6WYea5xMMmjiL3": {
 								"range": "touch"
 							}
 						},
@@ -582,7 +751,7 @@
 							"size": ""
 						},
 						"prompts": {
-							"asGwZyC29zPNZG7S": {
+							"O3A0eNIlm4l5xOkX": {
 								"ability": "str",
 								"onSave": "",
 								"saveDC": {
@@ -634,7 +803,7 @@
 			},
 			"folder": null,
 			"sort": 0,
-			"_id": "4Txq5hu7OjCXk2tq"
+			"_id": "2cr4OvCrXEVo2Sl0"
 		},
 		{
 			"name": "Knockdown",
@@ -648,7 +817,7 @@
 			},
 			"system": {
 				"actions": {
-					"GUsWrJWzAfbDEMgX": {
+					"9joyv5stgl6LhiK8": {
 						"name": "Knockdown",
 						"activation": {
 							"cost": 1,
@@ -660,7 +829,7 @@
 							"value": null
 						},
 						"ranges": {
-							"TBoeDMKCCTrW26ep": {
+							"0oa5PjdUQ39EX6u5": {
 								"range": "touch"
 							}
 						},
@@ -676,7 +845,7 @@
 							"size": ""
 						},
 						"prompts": {
-							"gxllCYwoNzVR3E4K": {
+							"VaBt7rBSp0VPNiU4": {
 								"ability": "str",
 								"onSave": "",
 								"saveDC": {
@@ -728,7 +897,7 @@
 			},
 			"folder": null,
 			"sort": 0,
-			"_id": "bQmIemDgEePLhp17"
+			"_id": "0yjY77l6Wq6o99y0"
 		},
 		{
 			"name": "Grapple",
@@ -742,7 +911,7 @@
 			},
 			"system": {
 				"actions": {
-					"4WNlzVPweYijSoB3": {
+					"tHYJKu1BuSbam2Bi": {
 						"name": "Grapple",
 						"activation": {
 							"cost": 1,
@@ -754,7 +923,7 @@
 							"value": null
 						},
 						"ranges": {
-							"FWMu9uYhxdEn8TkN": {
+							"6VBewJ7Kbx3uUycc": {
 								"range": "touch"
 							}
 						},
@@ -770,7 +939,7 @@
 							"size": ""
 						},
 						"prompts": {
-							"nrnGq52sMEdxbiHT": {
+							"XFtdqPaA7cu9zBwh": {
 								"ability": "str",
 								"onSave": "",
 								"saveDC": {
@@ -822,7 +991,7 @@
 			},
 			"folder": null,
 			"sort": 0,
-			"_id": "czhhh8SoxNQC4oPH"
+			"_id": "lI7HkCfxRgIDAkOw"
 		},
 		{
 			"name": "Overrun",
@@ -836,7 +1005,7 @@
 			},
 			"system": {
 				"actions": {
-					"p7S5Xafc9WAP0Pp7": {
+					"iK1hbLALYzAa47H4": {
 						"name": "Overrun",
 						"activation": {
 							"cost": 1,
@@ -848,7 +1017,7 @@
 							"value": null
 						},
 						"ranges": {
-							"xHpuES4U47sHpKgv": {
+							"iPuDZLpAH0CMqNOE": {
 								"range": "touch"
 							}
 						},
@@ -864,7 +1033,7 @@
 							"size": ""
 						},
 						"prompts": {
-							"Mg1Mws4JDFhNuqgP": {
+							"4C3YaIFIaSb8jEvf": {
 								"ability": "str",
 								"onSave": "",
 								"saveDC": {
@@ -916,19 +1085,349 @@
 			},
 			"folder": null,
 			"sort": 0,
-			"_id": "s30wXqJkMnCxNltI"
+			"_id": "cGJU4NIkOytyQtOz"
+		},
+		{
+			"name": "Innate Spellcasting",
+			"type": "feature",
+			"system": {
+				"ac": {
+					"baseFormula": "",
+					"formula": "",
+					"maxDex": 0,
+					"minStr": 0,
+					"mode": 2,
+					"requiresNoShield": false,
+					"requiresUnarmored": false
+				},
+				"actions": {},
+				"description": "<p>The dragon&rsquo;s spellcasting ability is Charisma (save DC 14). It can innately cast the following spells, requiring no material components.&nbsp;</p>\n<p><strong>3/day each:</strong>&nbsp;<em>hideous laughter, suggestion</em></p>",
+				"favorite": false,
+				"secretDescription": "",
+				"source": {
+					"name": "",
+					"link": "",
+					"publisher": ""
+				},
+				"uses": {
+					"value": null,
+					"max": "",
+					"per": null,
+					"recharge": {
+						"formula": "1d6",
+						"threshold": "6"
+					}
+				},
+				"schema": {
+					"version": null,
+					"lastMigration": null
+				},
+				"concentration": false,
+				"featureType": "other",
+				"grants": {},
+				"prerequisite": "",
+				"requiresBloodied": false
+			},
+			"_id": "FLSbd2Yw60Ze7NBA",
+			"img": "icons/svg/item-bag.svg",
+			"effects": [],
+			"folder": null,
+			"sort": 0,
+			"ownership": {
+				"default": 0
+			},
+			"flags": {}
+		},
+		{
+			"name": "Suggestion",
+			"type": "spell",
+			"img": "icons/magic/control/hypnosis-mesmerism-pendulum.webp",
+			"effects": [],
+			"flags": {},
+			"system": {
+				"actions": {
+					"HAVBAuWUd77vIkT2": {
+						"name": "Suggestion (2nd-level)",
+						"activation": {
+							"cost": 1,
+							"type": "action",
+							"reactionTrigger": ""
+						},
+						"duration": {
+							"unit": "hour",
+							"value": "8"
+						},
+						"ranges": {
+							"R8AfmhfWgZcrAOnB": {
+								"range": "short"
+							}
+						},
+						"area": {
+							"shape": "",
+							"size": "",
+							"placeTemplate": false,
+							"quantity": 1
+						},
+						"target": {
+							"quantity": "",
+							"type": "creature"
+						},
+						"prompts": {
+							"iZ04XZe1LejKYG9l": {
+								"ability": "wis",
+								"onSave": "Negates effect",
+								"saveDC": {
+									"type": "spellcasting",
+									"bonus": ""
+								},
+								"type": "savingThrow"
+							}
+						},
+						"consumers": {},
+						"uses": {
+							"value": 3,
+							"max": "3",
+							"per": "day"
+						}
+					}
+				},
+				"description": "<p>Creatures that cannot be charmed are immune to this spell. Suggest an activity phrased in a sentence or two. The target is magically influenced to follow that course of activity. The suggestion must be worded to sound reasonable. Asking the target to perform an action that is obviously harmful to it ends the spell.</p><p>The target carries out the activity suggested by you as well as it can. The activity can last for the duration of the spell, and if it requires less time the spell ends after the target has carried out the activity.</p><p>You may specify trigger conditions that cause the target to perform a specific activity while the spell lasts. For example, you may suggest that the target takes off its clothes and dives the next time it sees a body of water. If the target does not see a body of water before the spell ends, the specific activity isn't performed.</p><p>Any damage done to the target by you or an ally ends the spell for that creature.</p><p><strong><em>Cast at Higher Levels.</em></strong> When using a 4th-level spell slot, the duration is concentration, up to 24 hours. When using a 5th-level spell slot, the duration is 7 days. When using a 7th-level spell slot, the duration is 1 year. When using a 9th-level spell slot, the suggestion lasts until it is dispelled.</p><p>Any use of a 5th-level or higher spell slot grants a duration that doesn't require concentration.</p>",
+				"favorite": false,
+				"secretDescription": "",
+				"source": "",
+				"uses": {
+					"value": null,
+					"max": "",
+					"per": null,
+					"recharge": {
+						"formula": "",
+						"threshold": ""
+					}
+				},
+				"schema": {
+					"version": null,
+					"lastMigration": null
+				},
+				"classes": [
+					"bard",
+					"sorcerer",
+					"warlock",
+					"wielder",
+					"witch",
+					"wizard"
+				],
+				"components": {
+					"vocalized": true,
+					"seen": false,
+					"material": true
+				},
+				"concentration": true,
+				"level": 2,
+				"materials": "miniature bottle of red wine and some soap",
+				"materialsConsumed": false,
+				"prepared": 2,
+				"prerequisite": "",
+				"rare": false,
+				"ritual": false,
+				"schools": {
+					"primary": "enchantment",
+					"secondary": [
+						"arcane",
+						"compulsion"
+					]
+				},
+				"schemaVersion": {
+					"version": 0.01,
+					"lastMigration": {
+						"version": {
+							"schema": 0.009,
+							"foundry": "12.316",
+							"system": "0.16.12"
+						}
+					}
+				}
+			},
+			"folder": null,
+			"_id": "FLDjUKvQKZXOZWHx",
+			"sort": 0,
+			"ownership": {
+				"default": 0
+			}
+		},
+		{
+			"name": "Hideous Laughter",
+			"type": "spell",
+			"img": "icons/skills/wounds/injury-face-impact-orange.webp",
+			"effects": [
+				{
+					"icon": "icons/skills/wounds/injury-face-impact-orange.webp",
+					"origin": "Actor.nXMUhxcL18ViaJLI.Item.yX4PXX13upERkGSu",
+					"flags": {
+						"a5e": {
+							"sort": 0,
+							"transferType": "onUse",
+							"actionId": "EnM94wEvCpTZmMnQ",
+							"duration": {
+								"unit": "minutes"
+							}
+						}
+					},
+					"transfer": false,
+					"name": "Hideous Laughter",
+					"_id": "sEzBFpSnqGKITqF4",
+					"changes": [
+						{
+							"key": "flags.a5e.effects.statusConditions",
+							"value": "[\"prone\",\"incapacitated\"]",
+							"mode": 0,
+							"priority": null
+						}
+					],
+					"disabled": false,
+					"duration": {
+						"startTime": null,
+						"seconds": 60,
+						"combat": null,
+						"rounds": null,
+						"turns": null,
+						"startRound": null,
+						"startTurn": null
+					},
+					"description": "<p>The target is overwhelmed by the absurdity of the world and is crippled by paroxysms of laughter. The target falls prone, becomes incapacitated, and cannot stand.</p>\n<p>Until the spell ends, at the end of each of the target's turns and when it suffers damage, the target may attempt another saving throw (with advantage if triggered by damage). On a successful save, the spell ends.</p>",
+					"statuses": [
+						"prone",
+						"incapacitated"
+					],
+					"folder": null
+				}
+			],
+			"flags": {},
+			"system": {
+				"actions": {
+					"EnM94wEvCpTZmMnQ": {
+						"name": "Hideous Laughter",
+						"activation": {
+							"cost": 1,
+							"type": "action",
+							"reactionTrigger": ""
+						},
+						"duration": {
+							"unit": "minute",
+							"value": "1"
+						},
+						"ranges": {
+							"ugxA7hBRUYvuksdr": {
+								"range": "short"
+							}
+						},
+						"area": {
+							"shape": "",
+							"size": "",
+							"placeTemplate": false
+						},
+						"target": {
+							"quantity": "",
+							"type": "creature"
+						},
+						"prompts": {
+							"plcXxhiZ6YSjHGFQ": {
+								"ability": "wis",
+								"onSave": "Negates effect",
+								"saveDC": {
+									"type": "spellcasting",
+									"bonus": ""
+								},
+								"type": "savingThrow"
+							},
+							"xFVLHsLZbeDVBmtj": {
+								"type": "effect",
+								"default": true,
+								"effectId": "sEzBFpSnqGKITqF4"
+							}
+						},
+						"consumers": {},
+						"uses": {
+							"value": 3,
+							"max": "3",
+							"per": "day"
+						}
+					}
+				},
+				"description": "<p>The target is overwhelmed by the absurdity of the world and is crippled by paroxysms of laughter. The target falls prone, becomes incapacitated, and cannot stand.</p><p>Until the spell ends, at the end of each of the target's turns and when it suffers damage, the target may attempt another saving throw (with advantage if triggered by damage). On a successful save, the spell ends.</p><p><strong><em>Cast at Higher Levels.</em></strong> Target an additional creature within 30 feet of the original for each slot level above 1st.</p>",
+				"favorite": false,
+				"secretDescription": "",
+				"source": "",
+				"uses": {
+					"value": null,
+					"max": "",
+					"per": null,
+					"recharge": {
+						"formula": "",
+						"threshold": ""
+					}
+				},
+				"schema": {
+					"version": null,
+					"lastMigration": null
+				},
+				"classes": [
+					"bard",
+					"witch",
+					"wizard"
+				],
+				"components": {
+					"vocalized": true,
+					"seen": true,
+					"material": true
+				},
+				"concentration": true,
+				"level": 1,
+				"materials": "poppy seed",
+				"materialsConsumed": false,
+				"prepared": 2,
+				"prerequisite": "",
+				"rare": false,
+				"ritual": false,
+				"schools": {
+					"primary": "enchantment",
+					"secondary": [
+						"affliction",
+						"arcane",
+						"compulsion"
+					]
+				},
+				"schemaVersion": {
+					"version": 0.01,
+					"lastMigration": {
+						"version": {
+							"schema": 0.009,
+							"foundry": "12.316",
+							"system": "0.16.12"
+						}
+					}
+				}
+			},
+			"folder": null,
+			"_id": "yX4PXX13upERkGSu",
+			"sort": 0,
+			"ownership": {
+				"default": 0
+			}
 		}
 	],
 	"effects": [],
 	"flags": {
 		"a5e": {
-			"sheetIsLocked": false
+			"sheetIsLocked": false,
+			"availableSpellLevels": [],
+			"showSpellSlots": false,
+			"showSpellPoints": false
 		}
 	},
 	"system": {
 		"abilities": {
 			"str": {
-				"value": 16,
+				"value": 18,
 				"check": {
 					"expertiseDice": 0,
 					"bonus": "",
@@ -942,35 +1441,35 @@
 				}
 			},
 			"dex": {
-				"value": 10,
+				"value": 12,
 				"check": {
 					"expertiseDice": 0,
 					"bonus": "",
 					"notes": {}
 				},
 				"save": {
-					"proficient": false,
+					"proficient": true,
 					"expertiseDice": 0,
 					"bonus": "",
 					"notes": {}
 				}
 			},
 			"con": {
-				"value": 14,
+				"value": 16,
 				"check": {
 					"expertiseDice": 0,
 					"bonus": "",
 					"notes": {}
 				},
 				"save": {
-					"proficient": false,
+					"proficient": true,
 					"expertiseDice": 0,
 					"bonus": "",
 					"notes": {}
 				}
 			},
 			"int": {
-				"value": 12,
+				"value": 16,
 				"check": {
 					"expertiseDice": 0,
 					"bonus": "",
@@ -984,14 +1483,14 @@
 				}
 			},
 			"wis": {
-				"value": 10,
+				"value": 12,
 				"check": {
 					"expertiseDice": 0,
 					"bonus": "",
 					"notes": {}
 				},
 				"save": {
-					"proficient": false,
+					"proficient": true,
 					"expertiseDice": 0,
 					"bonus": "",
 					"notes": {}
@@ -1005,7 +1504,7 @@
 					"notes": {}
 				},
 				"save": {
-					"proficient": false,
+					"proficient": true,
 					"expertiseDice": 0,
 					"bonus": "",
 					"notes": {}
@@ -1086,7 +1585,7 @@
 			"dec": {
 				"ability": "cha",
 				"value": 0,
-				"proficient": false,
+				"proficient": true,
 				"specialties": [],
 				"expertiseDice": 0,
 				"minRoll": 1,
@@ -1310,7 +1809,7 @@
 		},
 		"attributes": {
 			"ac": {
-				"baseFormula": "16",
+				"baseFormula": "17",
 				"value": 0
 			},
 			"death": {
@@ -1318,8 +1817,8 @@
 				"failure": 0
 			},
 			"hp": {
-				"value": 39,
-				"baseMax": 39,
+				"value": 144,
+				"baseMax": 144,
 				"temp": 0,
 				"bonus": 0
 			},
@@ -1329,12 +1828,12 @@
 					"total": 0
 				},
 				"d8": {
-					"current": 6,
-					"total": 6
-				},
-				"d10": {
 					"current": 0,
 					"total": 0
+				},
+				"d10": {
+					"current": 17,
+					"total": 17
 				},
 				"d12": {
 					"current": 0,
@@ -1360,19 +1859,19 @@
 					"unit": "feet"
 				},
 				"climb": {
-					"distance": 0,
-					"unit": "feet"
-				},
-				"fly": {
-					"distance": 60,
-					"unit": "feet"
-				},
-				"swim": {
 					"distance": 40,
 					"unit": "feet"
 				},
+				"fly": {
+					"distance": 80,
+					"unit": "feet"
+				},
+				"swim": {
+					"distance": 0,
+					"unit": "feet"
+				},
 				"walk": {
-					"distance": 30,
+					"distance": 40,
 					"unit": "feet"
 				},
 				"traits": {
@@ -1381,12 +1880,12 @@
 			},
 			"senses": {
 				"blindsight": {
-					"distance": 10,
+					"distance": 30,
 					"unit": "feet",
 					"otherwiseBlind": false
 				},
 				"darkvision": {
-					"distance": 60,
+					"distance": 120,
 					"unit": "feet"
 				},
 				"tremorsense": {
@@ -1401,7 +1900,7 @@
 			"inspiration": false,
 			"fatigue": 0,
 			"strife": 0,
-			"spellcasting": "int",
+			"spellcasting": "cha",
 			"casterLevel": 0
 		},
 		"bonuses": {
@@ -1424,12 +1923,12 @@
 			"cp": 0
 		},
 		"details": {
-			"bio": "<h2><strong>COMBAT</strong></h2><p>While individual dragons have their own personalities and tactics, most rely heavily on their breath weapons. They use them whenever they can, preferably from maximum distance and while flying above their enemies.&nbsp;</p><p>When fighting in the open, dragons often circle above their enemies as they wait for their breath weapons to recharge. They only close to melee if their enemies deal significant damage with ranged attacks, or if they can savage an enemy cut off from its allies. Once bloodied, dragons become more aggressive, attacking with bite and claws when their breath weapons aren’t available.</p><p>If a dragon is protecting its lair, it utilizes lair features, traps, allies, and architecture such as escape tunnels to keep up a hit-and-run fight, reappearing only when it has a fully-recharged breath weapon. If the dragon is forced into melee combat, it uses its bite and claws against a single foe. If it has legendary actions like Roar and Wing Attack, it uses them to disperse its other enemies.</p><p>If reduced to less than one-fourth its hit points while fighting in the open, a dragon flies away. However, it fights to the death to defend its lair, unless it can regain the upper hand through tricks or bargains.</p><hr class=\"a5e-rule u-my-md\"><h2><strong>BRONZE DRAGON LAIR FEATURES</strong></h2><p>The save DC for the following effects is 13 + the dragon’s proficiency bonus. Choose or roll one or more of the following lair features:</p><p>1 When a creature first enters the lair, it makes a Wisdom saving throw. On a failure, the dragon is aware of the creature and knows its Destiny (if applicable) as well as its current, most pressing fear.&nbsp;</p><p>2 When a creature draws a metal weapon in the lair, it makes a Constitution saving throw. On a failed save, it takes 7 (2d6) lightning damage from a sudden static jolt and can’t take reactions until the end of its next turn.</p><p>3 Floors throughout the lair are damp and slippery. A creature that takes the Dash action to move along the ground makes a Dexterity saving throw at the end of its movement, falling prone on a failure.</p><p>4 A flooded tunnel leads into a labyrinthine sprawl of underwater passageways. If a creature attempts to navigate these tunnels without the dragon’s invitation, it makes a Wisdom saving throw, becoming lost on a failure.</p><hr class=\"a5e-rule u-my-md\"><h2><strong>NAMES</strong></h2><p>Ahglynypa, Billowmere, Kaviliath, Marianthamir, Nausticalix, Ruddykin</p><hr class=\"a5e-rule u-my-md\"><h2><strong>LEGENDS AND LORE</strong></h2><p>With an Arcana or Nature check, characters can learn the following:</p><p><strong>DC 10</strong> Bronze dragons are fascinated by the sea. They make their lairs in oceanside cliffs or deep beneath the waves.</p><p><strong>DC 15</strong> A bronze dragon’s breath weapon is composed either of lightning or a torrent of seawater.</p><p><strong>DC 20</strong> After centuries spent observing the ebb and flow of nature, ancient bronze dragons gain the ability to scry on far-off locations and predict the future.</p><hr class=\"a5e-rule u-my-md\"><h2><strong>DESCRIPTION</strong></h2><p>Fascinated by the endless rhythms of the sea, bronze dragons spend hours studying their seaside dominions, transfixed by the flight paths of birds, the migrations of fish, or the accumulation of sea foam against a mossy rock. Some bronze dragons even make their lairs near humanoid settlements, so as to more closely watch the ships as they sail in and out of port.</p><p><strong><em>Curious and Mysterious.</em></strong> Though fascinated with the natural world, bronze dragons prefer to make their observations from afar. They avoid influencing the objects of their scrutiny, but on the odd occasion they are exposed, bronze dragons make the best of it, asking intrusive questions and analyzing the answers they receive for days on end.</p><p><strong><em>Tests and Trials.</em></strong> When a creature seeks a bronze dragon’s wisdom, the dragon always knows they’re coming. It sets out a number of trials to test the knowledge-seeker, so as to better gauge their motivations before they arrive. Such ordeals rarely involve the dragon appearing personally, but they can be perilous nonetheless.</p><p><strong><em>Butterflies and Hurricanes. </em></strong>No one knows better than a bronze dragon that a small action can have far-reaching consequences. Bronze dragons sometimes dispatch agents to gather specific information about the world around them. This might mean infiltrating a warlord’s inner circle to discover where her warships will sail this season, or exploring the interior of a long-deserted isle. Though such knowledge might seem irrelevant to adventurers bent on saving the world, the dragon requires it to further its efforts to promote the greater good.</p><hr class=\"a5e-rule u-my-md\"><h2><strong>BEHAVIOR</strong></h2><p>1 Pearl diving or hunting for fish</p><p>2 Watching from a distance, gathering information</p><p>3 In the form of a merfolk paladin, looking for evil to battle</p><p>4 With an unusual request</p><hr class=\"a5e-rule u-my-md\"><h2><strong>SIGNS</strong></h2><p>1 Brilliantly colored plants and seaweed</p><p>2 Rapidly changing weather: sunny one minute, pouring rain the next</p><p>3 Strange echoes of distant music</p><p>4 Pearlescent fog</p><hr class=\"a5e-rule u-my-md\"><h2><strong>ENCOUNTERS</strong></h2><p>Bronze dragons make their lairs in sea caves, sunken ships, coral reefs, and other aquatic environments.</p><p><strong>CR 3–4</strong> bronze dragon wyrmling</p><p><strong>Treasure</strong> 250 gp, 500 sp, coral gemstone (100 gp), <em>potion of greater healing</em></p><p><strong>CR 5–10</strong> young bronze dragon; bronze dragon wyrmling with 1d8 + 4 lizardfolk, merfolk, or sprites</p><p><strong>Treasure</strong> 50 pp, 200 gp, 6 pearls (100 gp), sheaf of spy reports, <em>deck of illusions</em></p><p><strong>CR 11–16</strong> young bronze dragon with 2 sea hags, sirens (see harpy), or spies&nbsp;</p><p><strong>Treasure</strong> 3,000 gp, pearl-embroidered hat (750 gp), fine silk cape (250 gp), 3 <em>potions of healing</em>, <em>armor of invulnerability, +1 longsword</em> (with a coral blade; its wielder can breathe water), <em>feather token</em> (anchor)</p><p><strong>CR 17–22</strong> adult bronze dragon</p><p><strong>Treasure</strong> 12,000 gp, 4,000 ep, 20 pearl and coral gemstones (100 gp each), 30 rare books (125 gp each), 3 <em>spell scrolls </em>of <em>eyebite</em>, <em>flesh to stone</em>, and <em>sunbeam</em>, <em>cloak of protection</em></p><p><strong>CR 23–30</strong> ancient bronze dragon; adult bronze dragon with 2 merfolk knights, merrow mages, or water elementals</p><p><strong>Treasure</strong> 25,000 gp, sailing ship (10,000 gp), trade goods (5,000 gp), 10 pieces of jewelry (750 gp each), 3 <em>arrows of fiend slaying</em>, <em>instant fortress</em>, <em>+3 chain mail</em></p><p><strong>CR 31+</strong> ancient bronze dragon with marid, sea chimera, or spymaster</p><p><strong>Treasure</strong> 10,000 pp, 30,000 gp, 4 diamonds (5,000 gp), <em>potion of storm giant strength</em>, <em>dimensional shackles</em>, <em>rod of alertness</em></p><hr class=\"a5e-rule u-my-md\"><h2><strong>MONSTER TYPE DESCRIPTION</strong></h2><p>Dragons include red and gold dragons, which are huge reptilian fire-breathers that number among the world’s most dangerous monsters. This type includes white dragons, which breathe killing frost, as well as smaller reptilian creatures related to true dragons, such as pseudodragons.&nbsp;</p>",
+			"bio": "<h2><strong>COMBAT</strong></h2><p>While individual dragons have their own personalities and tactics, most rely heavily on their breath weapons. They use them whenever they can, preferably from maximum distance and while flying above their enemies.&nbsp;</p><p>When fighting in the open, dragons often circle above their enemies as they wait for their breath weapons to recharge. They only close to melee if their enemies deal significant damage with ranged attacks, or if they can savage an enemy cut off from its allies. Once bloodied, dragons become more aggressive, attacking with bite and claws when their breath weapons aren’t available.</p><p>If a dragon is protecting its lair, it utilizes lair features, traps, allies, and architecture such as escape tunnels to keep up a hit-and-run fight, reappearing only when it has a fully-recharged breath weapon. If the dragon is forced into melee combat, it uses its bite and claws against a single foe. If it has legendary actions like Roar and Wing Attack, it uses them to disperse its other enemies.</p><p>If reduced to less than one-fourth its hit points while fighting in the open, a dragon flies away. However, it fights to the death to defend its lair, unless it can regain the upper hand through tricks or bargains.</p><hr class=\"a5e-rule u-my-md\"><h2><strong>COPPER DRAGON LAIR FEATURES</strong></h2><p>The save DC for the following effects is 13 + the dragon’s proficiency bonus. Choose or roll one or more of the following lair features:</p><p>1 Those who travel the winding mountain paths to the dragon’s lair feel as though they’re being watched, and the instinct is not unfounded. The animals of the mountain observe travellers and report back to the dragon, ensuring it is never surprised.</p><p>2 The dragon can use a legendary action to stomp the ground, causing a weak point to give way. A 10-foot-wide, 10-foot-deep, acid-filled sinkhole appears in a space within 60 feet. Creatures in the area make a Dexterity saving throw. On a success, they can use their reaction to move up to half their speed. A creature that can’t escape falls into the pit, taking 3 (1d6) bludgeoning damage and 11 (2d10) acid damage.</p><p>3 If the dragon covers the floor of its lair with its Slowing Breath, the affected area turns soft and muddy, becoming difficult terrain until the start of the dragon’s next turn. A creature in the mud when it reverts to stone becomes stuck in the hardening mud. While stuck, the creature’s Speed becomes 0. The creature can use an action to make an Athletics check, freeing itself on a success.</p><p>4 Illusory walls in the lair hide secret escape passages, which the dragon can easily collapse by focusing its Acid Breath.</p><hr class=\"a5e-rule u-my-md\"><h2><strong>NAMES</strong></h2><p>Alabran, Ithris, Millivillix, Quenzitar, Tatynara, Twopenny</p><hr class=\"a5e-rule u-my-md\"><h2><strong>LEGENDS AND LORE</strong></h2><p>With an Arcana or History check, characters can learn the following:</p><p><strong>DC 10</strong> One must take care when dealing with a copper dragon. Though mostly harmless, they sometimes allow their pranks to get out of hand.</p><p><strong>DC 15</strong> Copper dragons live on mountaintops and similar areas. They exhale blasts of acid or clouds of toxic gas to hinder their foes.</p><p><strong>DC 20</strong> A copper dragon’s magical abilities develop as it ages, allowing it to teleport, merge with stone, and create illusory duplicates of itself.</p><hr class=\"a5e-rule u-my-md\"><h2><strong>DESCRIPTION</strong></h2><p>Playful and whimsical, copper dragons often involve themselves in the affairs of short-lived folk, though their contributions to history aren’t always positive. While copper dragons aren’t generally malevolent, they are incorrigible tricksters and rarely understand the difference between a joke and outright cruelty. Of all dragons, copper dragons are the ones most likely to live near humanoids, as they are always searching for new targets for their pranks.</p><p><strong><em>Flighty Urges.</em></strong> As they grow older, copper dragons exhibit all manner of unusual interests. They may yearn for a simpler life and use their shapeshifting to pass themselves off as a farmer or wanderer. They may decide they’re interested in politics and start secretly advising a noble on how best to run a nation. They may tunnel under a wishing well and give life advice to anyone who tosses in a coin. The only consistent feature of these impulses is that they’re short-lived. Inevitably, a copper grows bored of its exploits and abandons them, possibly leaving many people high and dry in the process.</p><p><strong><em>Friendly, If Troublesome.</em></strong> Despite their mischievous natures, copper dragons rarely mean to do harm. If made to understand the trouble they’ve caused, they can usually be counted on to compensate their victims. Convincing a copper dragon to see the error of its ways, however,&nbsp; is rarely a simple task.</p><hr class=\"a5e-rule u-my-md\"><h2><strong>BEHAVIOR</strong></h2><p>1 Listening to a minstrel companion or prisoner</p><p>2 Demands to exchange jokes and riddles</p><p>3 Loves lying and leading travelers astray</p><p>4 Thinks the party’s antics are hilarious</p><hr class=\"a5e-rule u-my-md\"><h2><strong>SIGNS</strong></h2><p>1 Graffiti or caricatures carved into cliffs or monuments</p><p>2 A distant laugh</p><p>3 Sandaled footprints that disappear or turn into draconic prints</p><p>4 An angry local that has been tricked</p><hr class=\"a5e-rule u-my-md\"><h2><strong>ENCOUNTERS</strong></h2><p>Copper dragons make their lairs in high mountains and cliffs, where they can watch the consequences of their mischief play out from an elevated position.&nbsp;</p><p>&nbsp;</p><p><strong>CR 3–4</strong> copper dragon wyrmling</p><p><strong>Treasure</strong> 200 gp, 1,000 sp, loaded dice, deluxe disguise kit (100 gp), 3 <em>potions of healing </em>(turn the drinker green for 6 hours)</p><p><strong>CR 5–10</strong> young copper dragon; copper dragon wyrmling with 1d6 + 2 goblins, pixies, or pseudodragons</p><p><strong>Treasure</strong> 1,000 gp, 6 jade and jet gemstones (100 gp each), <em>potion of greater healing</em>, <em>ring of protection</em> (named <em>Joy Buzzer</em>; if the wearer can cast cantrips, <em>shocking grasp</em> is added to its list of known cantrips)</p><p><strong>CR 11–16</strong> young copper dragon with 1d4 + 1 faerie dragons, magmins, or rust monsters</p><p><strong>Treasure</strong> 1,500 gp, 5 pieces of gold jewelry (250 gp each), 10 rare joke books (125 gp each), 6 <em>potions of superior healing</em> (each also randomly applies the effects of <em>potions of growth</em> or <em>diminution</em>), <em>+3 chain mail</em></p><p><strong>CR 17–22</strong> adult copper dragon; adult copper dragon with fey knight, green hag, or minstrel&nbsp;</p><p><strong>Treasure</strong> 12,000 gp, 6 spinel and peridot gemstones (500 gp each), <em>spell scrolls</em> of <em>irresistible dance</em> and <em>time stop</em>, <em>rod of absorption</em></p><p><strong>CR 23–30</strong> ancient copper dragon; ancient copper dragon with 2 doppelgangers or trickster priests (see priest)</p><p><strong>Treasure</strong> 2,000 pp, 15,000 gp, printing press, 2,000 copies of self-published joke book, 2 <em>potions of supreme healing</em>, <em>mace of smiting</em> (looks like a jester’s staff with a bell-tipped hat; its wielder can use an action to cast <em>disguise self </em>at will)</p><p><strong>CR 31+</strong> ancient copper dragon with archmage, invisible render (see invisible stalker), or young copper dragon</p><p><strong>Treasure</strong> 75,000 gp, 75,000 counterfeit gold-painted copper coins, 5 pieces of gold jewelry (125 gp each), 20 pieces of gold-plated jewelry (25 gp each), contraption that coats things with gold, spell scroll of <em>shapechange</em>, <em>adamantine half plate</em>, <em>iron flask</em></p><hr class=\"a5e-rule u-my-md\"><h2><strong>MONSTER TYPE DESCRIPTION</strong></h2><p>Dragons include red and gold dragons, which are huge reptilian fire-breathers that number among the world’s most dangerous monsters. This type includes white dragons, which breathe killing frost, as well as smaller reptilian creatures related to true dragons, such as pseudodragons.&nbsp;</p>",
 			"creatureTypes": [
 				"dragon"
 			],
 			"isSwarm": false,
-			"cr": 3,
+			"cr": 9,
 			"elite": false,
 			"privateNotes": "",
 			"notes": ""
@@ -1437,7 +1936,8 @@
 		"proficiencies": {
 			"armor": [],
 			"languages": [
-				"draconic"
+				"draconic",
+				"common"
 			],
 			"tools": [],
 			"weapons": []
@@ -1494,21 +1994,21 @@
 			"publisher": ""
 		},
 		"traits": {
-			"size": "med",
+			"size": "lg",
 			"conditionImmunities": [],
 			"damageImmunities": [
-				"lightning"
+				"acid"
 			],
 			"damageResistances": [],
 			"damageVulnerabilities": []
 		}
 	},
 	"prototypeToken": {
-		"name": "Bronze Dragon Wyrmling",
+		"name": "Young Copper Dragon",
 		"displayName": 0,
 		"actorLink": false,
-		"width": 1,
-		"height": 1,
+		"width": 2,
+		"height": 2,
 		"lockRotation": false,
 		"rotation": 0,
 		"alpha": 1,
@@ -1532,8 +2032,8 @@
 				"min": 0,
 				"max": 1
 			},
-			"attenuation": 0.5,
-			"color": null
+			"color": null,
+			"attenuation": 0.5
 		},
 		"disposition": -1,
 		"displayBars": 0,
@@ -1546,13 +2046,13 @@
 		"flags": {},
 		"randomImg": false,
 		"texture": {
-			"src": "systems/a5e/assets/bronze-dragon.webp",
+			"src": "systems/a5e/assets/copper-dragon.webp",
+			"tint": "#ffffff",
 			"scaleX": 1,
 			"scaleY": 1,
 			"offsetX": 0,
 			"offsetY": 0,
-			"rotation": 0,
-			"tint": "#ffffff"
+			"rotation": 0
 		},
 		"sight": {
 			"angle": 360,
@@ -1570,5 +2070,5 @@
 		"prependAdjective": false
 	},
 	"folder": null,
-	"_id": "v76v9yp5u282hoai"
+	"_id": "2evswztktlvtoo4s"
 }

@@ -1,5 +1,5 @@
 {
-	"name": "Ancient Copper Dragon",
+	"name": "Adult Copper Dragon Spellcaster",
 	"type": "npc",
 	"img": "systems/a5e/assets/copper-dragon.webp",
 	"items": [
@@ -84,7 +84,7 @@
 					"requiresUnarmored": false
 				},
 				"actions": {
-					"nvCTUJuNqeG2dKSc": {
+					"WCL6w4erPXdNROQh": {
 						"name": "Bite",
 						"activation": {
 							"cost": 1,
@@ -96,9 +96,8 @@
 							"value": ""
 						},
 						"ranges": {
-							"l6ulgYODAg2R72yn": {
-								"range": 15,
-								"unit": "feet"
+							"IvoW9o3a0VNjbog0": {
+								"range": "10ft"
 							}
 						},
 						"area": {
@@ -111,24 +110,24 @@
 							"type": "creature"
 						},
 						"rolls": {
-							"NRAiSDGpRWDi1B16": {
+							"qeYe0qsrCQuxDj9M": {
 								"bonus": "",
 								"critThreshold": "20",
 								"type": "attack",
 								"attackType": "meleeWeaponAttack",
 								"ability": "str"
 							},
-							"OnpxsrydMbi13AHV": {
+							"xT1rqxh3uO5RuzTh": {
 								"canCrit": true,
 								"damageType": "piercing",
-								"formula": "4d10 + @str.mod",
+								"formula": "3d10 + @str.mod",
 								"name": "Default",
 								"type": "damage"
 							},
-							"qfAyoDeBJcgsuLd5": {
+							"lRTtncgrIb7RYAC8": {
 								"canCrit": true,
 								"damageType": "acid",
-								"formula": "2d8",
+								"formula": "1d8",
 								"name": "Acid",
 								"type": "damage"
 							}
@@ -197,7 +196,7 @@
 					"requiresUnarmored": false
 				},
 				"actions": {
-					"zGdAOnhyzJci1swB": {
+					"wuwVlNVj8ZVdWXou": {
 						"name": "Acid Breath",
 						"activation": {
 							"cost": 1,
@@ -206,21 +205,21 @@
 						},
 						"consumers": {},
 						"rolls": {
-							"JS9bc0nsLcL3gKJb": {
+							"mfwd0inh3f2d23Yx": {
 								"canCrit": false,
 								"damageType": "acid",
-								"formula": "19d8",
+								"formula": "14d8",
 								"name": "Default",
 								"type": "damage"
 							}
 						},
 						"prompts": {
-							"sMLlOHgq5reQmIGX": {
+							"lnzVm5fCTNEueP8J": {
 								"ability": "dex",
 								"onSave": "Half damage.",
 								"saveDC": {
 									"type": "custom",
-									"bonus": "22"
+									"bonus": "19"
 								},
 								"type": "savingThrow"
 							}
@@ -243,19 +242,20 @@
 						"ranges": {},
 						"area": {
 							"shape": "line",
-							"size": "90ft long, 10ft wide",
+							"size": "60ft long, 5ft wide",
 							"placeTemplate": false,
-							"length": 90,
-							"width": 10,
+							"length": 60,
+							"width": 5,
 							"quantity": 1
 						},
 						"target": {
 							"quantity": 1,
 							"type": ""
 						},
-						"img": "icons/magic/acid/projectile-smoke-glowing.webp"
+						"img": "icons/magic/acid/projectile-smoke-glowing.webp",
+						"description": "<p>The dragon exhales acid in a 60-foot-long, 5-foot-wide line. Each creature in the area makes a DC 19 Dexterity saving throw, taking 63 (14d8) acid damage on a failed save or half damage on a success. A creature that fails the save is blinded until the end of its next turn.</p>"
 					},
-					"pMGLhFm7rlNkcXT9": {
+					"3JFCu8nEVseWzYym": {
 						"name": "Slowing Breath",
 						"activation": {
 							"cost": 1,
@@ -265,12 +265,12 @@
 						"consumers": {},
 						"rolls": {},
 						"prompts": {
-							"HLuxV4rOMXfML8xo": {
+							"ydCjzZPcTxy79ikn": {
 								"ability": "con",
 								"onSave": "Avoids effects.",
 								"saveDC": {
 									"type": "custom",
-									"bonus": "22"
+									"bonus": "19"
 								},
 								"type": "savingThrow"
 							}
@@ -293,9 +293,9 @@
 						"ranges": {},
 						"area": {
 							"shape": "cone",
-							"size": "90ft",
+							"size": "60ft",
 							"placeTemplate": false,
-							"length": 90,
+							"length": 60,
 							"quantity": 1
 						},
 						"target": {
@@ -303,10 +303,10 @@
 							"type": ""
 						},
 						"img": "icons/svg/item-bag.svg",
-						"description": "<p>The dragon exhales toxic gas in a 90-foot cone. Each creature in the area makes a DC 22 Constitution saving throw, becoming slowed for 1 minute on a failure. A creature repeats the saving throw at the end of each of its turns, ending the effect on itself on a success.</p>"
+						"description": "<p>The dragon exhales toxic gas in a 60-foot cone. Each creature in the area makes a DC 19 Constitution saving throw, becoming slowed for 1 minute on a failure. A creature repeats the saving throw at the end of each of its turns, ending the effect on itself on a success.</p>"
 					}
 				},
-				"description": "<p>The dragon uses one of the following breath weapons:</p><p><strong>Acid Breath.</strong> The dragon spits acid in a 90-foot-long, 10-foot-wide line. Each creature in the area makes a DC 22 Dexterity saving throw, taking 85 (19d8) acid damage on a failed save or half damage on a success. A creature that fails the save is blinded until the end of its next turn.</p><p><strong>Slowing Breath.</strong> The dragon exhales toxic gas in a 90-foot cone. Each creature in the area makes a DC 22 Constitution saving throw, becoming slowed for 1 minute on a failure. A creature repeats the saving throw at the end of each of its turns, ending the effect on itself on a success.</p>",
+				"description": "<p>The dragon uses one of the following breath weapons:</p><p><strong>Acid Breath.</strong> The dragon exhales acid in a 60-foot-long, 5-foot-wide line. Each creature in the area makes a DC 19 Dexterity saving throw, taking 63 (14d8) acid damage on a failed save or half damage on a success. A creature that fails the save is blinded until the end of its next turn.</p><p><strong>Slowing Breath.</strong> The dragon exhales toxic gas in a 60-foot cone. Each creature in the area makes a DC 19 Constitution saving throw, becoming slowed for 1 minute on a failure. A creature repeats the saving throw at the end of each of its turns, ending the effect on itself on a success.</p>",
 				"favorite": true,
 				"secretDescription": "",
 				"source": "",
@@ -424,7 +424,7 @@
 					"requiresUnarmored": false
 				},
 				"actions": {
-					"3jiMp4jqQT65ec67": {
+					"KcBHWn70ADPJESLI": {
 						"name": "Claws",
 						"activation": {
 							"cost": 1,
@@ -436,8 +436,8 @@
 							"value": ""
 						},
 						"ranges": {
-							"kUhaS17AJJyjxpDj": {
-								"range": "10ft"
+							"WOJoFCqBK9jMPcEG": {
+								"range": "fiveFeet"
 							}
 						},
 						"area": {
@@ -450,14 +450,14 @@
 							"type": "creature"
 						},
 						"rolls": {
-							"zEuomX4LXqFyOlgI": {
+							"S1yrdRCh6IwM6eRo": {
 								"bonus": "",
 								"critThreshold": "20",
 								"type": "attack",
 								"attackType": "meleeWeaponAttack",
 								"ability": "default"
 							},
-							"6BcBwsTTk3moeXaL": {
+							"AUfT9KVLdRKphI07": {
 								"canCrit": true,
 								"damageType": "slashing",
 								"formula": "3d8 + @@str.mod",
@@ -512,7 +512,7 @@
 			"img": "icons/svg/item-bag.svg",
 			"effects": [],
 			"folder": null,
-			"sort": 93750,
+			"sort": 800000,
 			"flags": {
 				"core": {
 					"sourceId": "Item.6Y1N4HAnCmpDkl3K"
@@ -529,7 +529,7 @@
 					"requiresUnarmored": false
 				},
 				"actions": {
-					"5571Qv5v3u0ajMhS": {
+					"1aWYVprSNyg3Jd6R": {
 						"name": "Legendary Resistance (3/Day)",
 						"activation": {
 							"cost": "",
@@ -550,13 +550,13 @@
 							"type": ""
 						},
 						"consumers": {
-							"zDtQdeSQCVa8Dn5w": {
+							"AeF4h1JakABxhwtz": {
 								"type": "itemUses"
 							}
 						}
 					}
 				},
-				"description": "<p>When the dragon fails a saving throw, it can choose to succeed instead. When it does, some of its scales fall away and turn to stone. If it has no more uses of this ability, its Armor Class is reduced to 19 until it finishes a long rest.</p>",
+				"description": "<p>When the dragon fails a saving throw, it can choose to succeed instead. When it does, some of its scales fall away and turn to stone. If it has no more uses of this ability, its Armor Class is reduced to 16 until it finishes a long rest.</p>",
 				"favorite": false,
 				"secretDescription": "",
 				"source": "",
@@ -616,30 +616,7 @@
 					"requiresNoShield": false,
 					"requiresUnarmored": false
 				},
-				"actions": {
-					"3cIbLR5LoRv3IQBv": {
-						"name": "Change Shape",
-						"activation": {
-							"cost": 1,
-							"type": "bonusAction",
-							"reactionTrigger": ""
-						},
-						"duration": {
-							"unit": "permanent",
-							"value": ""
-						},
-						"area": {
-							"shape": "",
-							"size": "",
-							"placeTemplate": false
-						},
-						"target": {
-							"quantity": "",
-							"type": ""
-						},
-						"consumers": {}
-					}
-				},
+				"actions": {},
 				"description": "<p>The dragon magically takes the shape of a humanoid or beast, or changes back into its true form. It reverts to its true form if it dies. Any equipment it is wearing or carrying is absorbed or borne by the new form (dragon’s choice). In the new form, the dragon’s stats are unchanged except for its size. It can’t use Acid Spit, Breath Weapons, Tail Attack, or Wing Attack except in dragon form. In beast form, it can attack only with its bite and claws, if appropriate to its form. If the beast form is Large or smaller, the reach of these attacks is reduced to 5 feet. In humanoid form, it can attack only with its war pick.</p>",
 				"favorite": false,
 				"secretDescription": "",
@@ -701,7 +678,7 @@
 					"requiresUnarmored": false
 				},
 				"actions": {
-					"REdpQFkOE3BkFkAU": {
+					"kgZYiwArHTSelbo0": {
 						"name": "Tail",
 						"activation": {
 							"cost": 1,
@@ -713,8 +690,9 @@
 							"value": ""
 						},
 						"ranges": {
-							"NleZs0XPJDjWK9vS": {
-								"range": "20ft"
+							"YtA5kSNGVDlSWeyP": {
+								"range": 15,
+								"unit": "feet"
 							}
 						},
 						"area": {
@@ -727,14 +705,14 @@
 							"type": "creature"
 						},
 						"rolls": {
-							"q1AdAZQIhQdEo1H3": {
+							"JBEmUyBM8j4KI1ct": {
 								"bonus": "",
 								"critThreshold": "20",
 								"type": "attack",
 								"attackType": "meleeWeaponAttack",
 								"ability": "str"
 							},
-							"NGOtOc2Q5xfZ0mkS": {
+							"OUOimM0q0arcDbMr": {
 								"canCrit": true,
 								"damageType": "bludgeoning",
 								"formula": "3d8 + @str.mod",
@@ -784,7 +762,7 @@
 		},
 		{
 			"_id": "f6WQ0UbiNBm2sufr",
-			"name": "Tail Attack",
+			"name": "Tail Attack (Reaction)",
 			"type": "feature",
 			"img": "icons/skills/wounds/injury-pain-impaled-hand-blood.webp",
 			"effects": [],
@@ -806,7 +784,7 @@
 					"requiresUnarmored": false
 				},
 				"actions": {
-					"OcmhEAVT4ExQWFd4": {
+					"kaoBNHoMcV1Yt5j6": {
 						"name": "Tail Attack",
 						"activation": {
 							"cost": 1,
@@ -818,7 +796,7 @@
 							"value": ""
 						},
 						"ranges": {
-							"pyjffBGyIdQMm62q": {
+							"mfcrLGJAP132v4E7": {
 								"range": "10ft"
 							}
 						},
@@ -835,7 +813,7 @@
 					}
 				},
 				"description": "<p>When a creature the dragon can see within 10 feet hits the dragon with a melee attack, the dragon&nbsp; makes a tail attack against it.</p>",
-				"favorite": false,
+				"favorite": true,
 				"secretDescription": "",
 				"source": "",
 				"uses": {
@@ -891,7 +869,7 @@
 					"requiresUnarmored": false
 				},
 				"actions": {
-					"qvCuQOk0HfAzQMe1": {
+					"7xWnHk2QsC3StnUT": {
 						"name": "Acid Spit",
 						"activation": {
 							"cost": 1,
@@ -903,7 +881,7 @@
 							"value": ""
 						},
 						"ranges": {
-							"hOOzX7d0DwRTSg6i": {
+							"ASytOd617r97m2Qk": {
 								"range": "medium"
 							}
 						},
@@ -917,28 +895,28 @@
 							"type": "creature"
 						},
 						"rolls": {
-							"5kEcPOdY9Q5AXBAF": {
+							"RDMH1qqUV7fLC83m": {
 								"canCrit": false,
 								"damageType": "acid",
-								"formula": "4d10",
+								"formula": "3d10",
 								"name": "Default",
 								"type": "damage"
 							},
-							"o3lyX2O18LJxSdy9": {
+							"oUsqPZMrvZLvX4jR": {
 								"canCrit": false,
 								"damageType": "acid",
-								"formula": "2d10",
+								"formula": "1d10",
 								"name": "Ongoing",
 								"type": "damage"
 							}
 						},
 						"prompts": {
-							"9TXQqh5NhSCe8fXO": {
+							"wkwXiZykD2t4AV3w": {
 								"ability": "dex",
 								"onSave": "Half damage and avoids/ends effects.",
 								"saveDC": {
 									"type": "custom",
-									"bonus": "22"
+									"bonus": "19"
 								},
 								"type": "savingThrow"
 							}
@@ -946,7 +924,7 @@
 						"consumers": {}
 					}
 				},
-				"description": "<p>The dragon targets a creature within 60 feet, forcing it to make a DC 22 Dexterity saving throw. The creature takes 22 (4d10) acid damage on a failure or half damage on a success. A creature that fails the save also takes 11 (2d10) ongoing acid damage. A creature can use an action to end the ongoing damage.</p>",
+				"description": "<p>The dragon targets a creature within 60 feet, forcing it to make a DC 19 Dexterity saving throw. The creature takes 16 (3d10) acid damage on a failure or half damage on a success. A creature that fails the save also takes 5 (1d10) ongoing acid damage. A creature can use an action to end the ongoing damage.</p>",
 				"favorite": true,
 				"secretDescription": "",
 				"source": "",
@@ -1007,7 +985,7 @@
 					"requiresUnarmored": false
 				},
 				"actions": {
-					"qwZ1tCyYFlu6MTwA": {
+					"idBIVRa7RsZdWLjN": {
 						"name": "Legendary Action: Roar",
 						"activation": {
 							"cost": 1,
@@ -1031,12 +1009,12 @@
 							"type": ""
 						},
 						"prompts": {
-							"bGnfZ5JBif7qwEeQ": {
+							"G8fMYSXjCVKV1WlH": {
 								"ability": "cha",
 								"onSave": "Avoids effects and immune to effects for 24 hours.",
 								"saveDC": {
 									"type": "custom",
-									"bonus": "19"
+									"bonus": "17"
 								},
 								"type": "savingThrow"
 							}
@@ -1044,7 +1022,7 @@
 						"consumers": {}
 					}
 				},
-				"description": "<p>Each creature of the dragon’s choice within 120 feet that can hear it makes a DC 19 Charisma saving throw. On a failure, it is frightened for 1 minute. A creature repeats the saving throw at the end of its turns, ending the effect on itself on a success. When it succeeds on a saving throw or the effect ends for it, it is immune to Roar for 24 hours.</p>",
+				"description": "<p>Each creature of the dragon’s choice within 120 feet that can hear it makes a DC 17 Charisma saving throw. On a failure, it is frightened for 1 minute. A creature repeats the saving throw at the end of its turns, ending the effect on itself on a success. When it succeeds on a saving throw or the effect ends for it, it is immune to Roar for 24 hours.</p>",
 				"favorite": true,
 				"secretDescription": "",
 				"source": "",
@@ -1105,7 +1083,7 @@
 					"requiresUnarmored": false
 				},
 				"actions": {
-					"4vrAb2m7TIKodh9B": {
+					"9LVH7bM3EEWJDOV0": {
 						"name": "Legendary Action: Wing Attack",
 						"activation": {
 							"cost": 1,
@@ -1129,12 +1107,12 @@
 							"type": ""
 						},
 						"prompts": {
-							"tuOoyYSEilZUkiPN": {
+							"JdWEncHfT3iDUQ0o": {
 								"ability": "dex",
 								"onSave": "Avoids effects.",
 								"saveDC": {
 									"type": "custom",
-									"bonus": "23"
+									"bonus": "19"
 								},
 								"type": "savingThrow"
 							}
@@ -1142,7 +1120,7 @@
 						"consumers": {}
 					}
 				},
-				"description": "<p>The dragon beats its wings. Each creature within 15 feet makes a DC 23 Dexterity saving throw. On a failure, it is pushed 10 feet away and knocked prone. The dragon can then fly up to half its fly speed.</p>",
+				"description": "<p>The dragon beats its wings. Each creature within 15 feet makes a DC 19 Dexterity saving throw. On a failure, it is pushed 10 feet away and knocked prone. The dragon can then fly up to half its fly speed.</p>",
 				"favorite": true,
 				"secretDescription": "",
 				"source": "",
@@ -1203,14 +1181,14 @@
 					"requiresUnarmored": false
 				},
 				"actions": {},
-				"description": "<p>The dragon can take 3 legendary actions, choosing from the options below. Only one legendary action can be used at a time and only at the end of another creature's turn. It regains spent legendary actions at the start of its turn.</p><p><strong><em>Roar.</em></strong> Each creature of the dragon’s choice within 120 feet that can hear it makes a DC 19 Charisma saving throw. On a failure, it is frightened for 1 minute. A creature repeats the saving throw at the end of its turns, ending the effect on itself on a success. When it succeeds on a saving throw or the effect ends for it, it is immune to Roar for 24 hours.</p><p><strong><em>Wing Attack.</em> </strong>The dragon beats its wings. Each creature within 15 feet makes a DC 23 Dexterity saving throw. On a failure, it is pushed 10 feet away and knocked prone. The dragon can then fly up to half its fly speed.</p><p><strong><em>Trickster’s Gambit (Costs 2 Actions).</em> </strong>The dragon magically teleports to an unoccupied space it can see within 30 feet and creates two illusory duplicates in different unoccupied spaces within 30 feet. These duplicates have an AC of 11, and a creature that hits one with an attack can make a DC 19 Intelligence (Investigation) check, identifying it as a fake on a success. The duplicates disappear at the end of the dragon’s next turn but otherwise mimic the dragon’s actions perfectly, even moving according to the dragon’s will.</p>",
+				"description": "<p>The dragon can take 3 legendary actions, choosing from the options below. Only one legendary action can be used at a time and only at the end of another creature's turn. It regains spent legendary actions at the start of its turn.</p><p><strong><em>Roar.</em></strong> Each creature of the dragon’s choice within 120 feet that can hear it makes a DC 17 Charisma saving throw. On a failure, it is frightened for 1 minute. A creature repeats the saving throw at the end of its turns, ending the effect on itself on a success. When it succeeds on a saving throw or the effect ends for it, it is immune to Roar for 24 hours.</p><p><strong><em>Wing Attack.</em> </strong>The dragon beats its wings. Each creature within 15 feet makes a DC 19 Dexterity saving throw. On a failure, it is pushed 10 feet away and knocked prone. The dragon can then fly up to half its fly speed.</p><p><strong><em>Trickster’s Gambit (Costs 2 Actions).</em> </strong>The dragon magically teleports to an unoccupied space it can see within 30 feet and creates two illusory duplicates in different unoccupied spaces within 30 feet. These duplicates have an AC of 11, and a creature that hits one with an attack can make a DC 16 Intelligence (Investigation) check, identifying it as a fake on a success. The duplicates disappear at the end of the dragon’s next turn but otherwise mimic the dragon’s actions perfectly, even moving according to the dragon’s will.</p>",
 				"favorite": false,
 				"secretDescription": "",
 				"source": "",
 				"uses": {
-					"value": 3,
-					"max": 3,
-					"per": "round",
+					"value": null,
+					"max": "",
+					"per": null,
 					"recharge": {
 						"formula": "",
 						"threshold": ""
@@ -1260,7 +1238,7 @@
 					"requiresUnarmored": false
 				},
 				"actions": {
-					"8lwRTqY4cM5xH9jI": {
+					"e0zX3M0asUkC8rmA": {
 						"name": "Legendary Action: Trickster's Gambit (Costs 2 Actions)",
 						"activation": {
 							"cost": 2,
@@ -1272,7 +1250,7 @@
 							"value": ""
 						},
 						"ranges": {
-							"MYKQ8X621M6lzgow": {
+							"TgunwvwT9zVlzlaM": {
 								"range": "short"
 							}
 						},
@@ -1288,7 +1266,7 @@
 						"consumers": {}
 					}
 				},
-				"description": "<p>The dragon magically teleports to an unoccupied space it can see within 30 feet and creates two illusory duplicates in different unoccupied spaces within 30 feet. These duplicates have an AC of 11, and a creature that hits one with an attack can make a DC 19 Intelligence (Investigation) check, identifying it as a fake on a success. The duplicates disappear at the end of the dragon’s next turn but otherwise mimic the dragon’s actions perfectly, even moving according to the dragon’s will.</p>",
+				"description": "<p>The dragon magically teleports to an unoccupied space it can see within 30 feet and creates two illusory duplicates in different unoccupied spaces within 30 feet. These duplicates have an AC of 11, and a creature that hits one with an attack can make a DC 16 Intelligence (Investigation) check, identifying it as a fake on a success. The duplicates disappear at the end of the dragon’s next turn but otherwise mimic the dragon’s actions perfectly, even moving according to the dragon’s will.</p>",
 				"favorite": false,
 				"secretDescription": "",
 				"source": "",
@@ -1326,18 +1304,14 @@
 			}
 		},
 		{
-			"_id": "lS39P0F3sFQNgNJV",
+			"_id": "AIg7sAcPcfOacYWn",
 			"name": "Warpick (Humanoid Form Only)",
 			"type": "object",
 			"img": "icons/svg/item-bag.svg",
 			"effects": [],
 			"folder": null,
 			"sort": 0,
-			"flags": {
-				"core": {
-					"sourceId": "Item.AIg7sAcPcfOacYWn"
-				}
-			},
+			"flags": {},
 			"system": {
 				"ac": {
 					"baseFormula": "",
@@ -1349,7 +1323,7 @@
 					"requiresUnarmored": false
 				},
 				"actions": {
-					"8BbfVYQKVbp7zObI": {
+					"TOmw0kEZwfkvnVKU": {
 						"name": "Warpick (Humanoid Form Only)",
 						"activation": {
 							"cost": 1,
@@ -1361,7 +1335,7 @@
 							"value": ""
 						},
 						"ranges": {
-							"qP0WmNnIwQgz9OFQ": {
+							"Qfhba4hhW1LoTy1m": {
 								"range": "fiveFeet"
 							}
 						},
@@ -1375,14 +1349,14 @@
 							"type": "creature"
 						},
 						"rolls": {
-							"vXj2nXKAiYm4Tahe": {
+							"50xn2pykq1Nq5pWP": {
 								"bonus": "",
 								"critThreshold": "20",
 								"type": "attack",
 								"attackType": "meleeWeaponAttack",
 								"ability": "default"
 							},
-							"NHz7osZgwgjtZd0l": {
+							"IBVdiVrc2O2H80lX": {
 								"canCrit": true,
 								"damageType": "piercing",
 								"formula": "1d8 + @str.mod",
@@ -1465,7 +1439,7 @@
 			},
 			"system": {
 				"actions": {
-					"UkzVZDjGotDIKYUH": {
+					"UpXlpPiYCI1t7Z3b": {
 						"name": "Shove",
 						"activation": {
 							"cost": 1,
@@ -1477,7 +1451,7 @@
 							"value": null
 						},
 						"ranges": {
-							"CW7oHSGcgNlc4Fzu": {
+							"GhozWqauF9pCToOK": {
 								"range": "fiveFeet"
 							}
 						},
@@ -1493,7 +1467,7 @@
 							"size": ""
 						},
 						"rolls": {
-							"88RfvkdiStklkNAb": {
+							"sihO1hNTqm7EL3CQ": {
 								"canCrit": false,
 								"damageType": "bludgeoning",
 								"formula": "1 + @str.mod",
@@ -1502,7 +1476,7 @@
 							}
 						},
 						"prompts": {
-							"bGDypFjWj7d6a9uy": {
+							"fgaCpXxLmqPstzmU": {
 								"ability": "str",
 								"onSave": "",
 								"saveDC": {
@@ -1554,7 +1528,7 @@
 			},
 			"folder": null,
 			"sort": 0,
-			"_id": "d6kdzbcu4okgyc1y"
+			"_id": "HCwwiM8yroNxxBvR"
 		},
 		{
 			"name": "Disarm",
@@ -1568,7 +1542,7 @@
 			},
 			"system": {
 				"actions": {
-					"zkxgkv4snrQUfrYm": {
+					"zTY6c1MZOP1J2LgM": {
 						"name": "Disarm",
 						"activation": {
 							"cost": 1,
@@ -1580,7 +1554,7 @@
 							"value": null
 						},
 						"ranges": {
-							"m4Hay0zh51RYlBJg": {
+							"rIj1YpaOllIX3Bdp": {
 								"range": "touch"
 							}
 						},
@@ -1596,7 +1570,7 @@
 							"size": ""
 						},
 						"rolls": {
-							"CgAAhV7LKNNJkB7r": {
+							"pNqdgUZKPd3vNOpw": {
 								"canCrit": false,
 								"damageType": "",
 								"formula": "1 + @str.mod",
@@ -1605,7 +1579,7 @@
 							}
 						},
 						"prompts": {
-							"fuQvE3ubUn1iQxog": {
+							"Zx4DIhRToapNpQYX": {
 								"ability": "str",
 								"onSave": "",
 								"saveDC": {
@@ -1657,7 +1631,7 @@
 			},
 			"folder": null,
 			"sort": 0,
-			"_id": "uRUzt57TBzDP5exu"
+			"_id": "nbj0HMWtdX4LQtZp"
 		},
 		{
 			"name": "Grab On",
@@ -1671,7 +1645,7 @@
 			},
 			"system": {
 				"actions": {
-					"EmwV4S5ORVF8ATwX": {
+					"qwm3YywhfWFMShwe": {
 						"name": "Grab On",
 						"activation": {
 							"cost": 1,
@@ -1683,7 +1657,7 @@
 							"value": null
 						},
 						"ranges": {
-							"HZUuBM8z2bmwFxsR": {
+							"2bqMoXJ6Cwp4gg1I": {
 								"range": "touch"
 							}
 						},
@@ -1699,7 +1673,7 @@
 							"size": ""
 						},
 						"prompts": {
-							"JnOjKFRhp2eDFh0h": {
+							"OH4ik9LthcvZ3wAG": {
 								"ability": "str",
 								"onSave": "",
 								"saveDC": {
@@ -1751,7 +1725,7 @@
 			},
 			"folder": null,
 			"sort": 0,
-			"_id": "qnQfsicWhZ562D1f"
+			"_id": "zurBYhIMroPnNouh"
 		},
 		{
 			"name": "Knockdown",
@@ -1765,7 +1739,7 @@
 			},
 			"system": {
 				"actions": {
-					"2tph50eZA1H5kql2": {
+					"ggHeMpShbVOEowSH": {
 						"name": "Knockdown",
 						"activation": {
 							"cost": 1,
@@ -1777,7 +1751,7 @@
 							"value": null
 						},
 						"ranges": {
-							"deeDQSJTVL49vbfp": {
+							"AmsrpGlm071mip6d": {
 								"range": "touch"
 							}
 						},
@@ -1793,7 +1767,7 @@
 							"size": ""
 						},
 						"prompts": {
-							"bM8F7AxispXeiGmR": {
+							"tQq9pSGwcbxusAx4": {
 								"ability": "str",
 								"onSave": "",
 								"saveDC": {
@@ -1845,7 +1819,7 @@
 			},
 			"folder": null,
 			"sort": 0,
-			"_id": "7g89J9wfD6YolfPj"
+			"_id": "zlJfO9xWy6VrzXWk"
 		},
 		{
 			"name": "Grapple",
@@ -1859,7 +1833,7 @@
 			},
 			"system": {
 				"actions": {
-					"GnizxRNJyM9WaRb8": {
+					"2cjGqPjBch5DkfIc": {
 						"name": "Grapple",
 						"activation": {
 							"cost": 1,
@@ -1871,7 +1845,7 @@
 							"value": null
 						},
 						"ranges": {
-							"aJVdrnGn7G9PuXWN": {
+							"N0CxWCjYh4rl8SSc": {
 								"range": "touch"
 							}
 						},
@@ -1887,7 +1861,7 @@
 							"size": ""
 						},
 						"prompts": {
-							"xSId5ZrPXCwgAMsW": {
+							"vnn3bqco4ckGMSN6": {
 								"ability": "str",
 								"onSave": "",
 								"saveDC": {
@@ -1939,7 +1913,7 @@
 			},
 			"folder": null,
 			"sort": 0,
-			"_id": "epuVrn6vMEVmRFrW"
+			"_id": "CqtGk9BzReq6zJrY"
 		},
 		{
 			"name": "Overrun",
@@ -1953,7 +1927,7 @@
 			},
 			"system": {
 				"actions": {
-					"ySuh90sXcgZZzqT3": {
+					"F5beF6NhuvbfObLb": {
 						"name": "Overrun",
 						"activation": {
 							"cost": 1,
@@ -1965,7 +1939,7 @@
 							"value": null
 						},
 						"ranges": {
-							"DoY5Lo2YEJgSre50": {
+							"QP7tirdxRzAawBRa": {
 								"range": "touch"
 							}
 						},
@@ -1981,7 +1955,7 @@
 							"size": ""
 						},
 						"prompts": {
-							"a2StbnF3NSB6LFU5": {
+							"FcmjwcgqLWHq7xWQ": {
 								"ability": "str",
 								"onSave": "",
 								"saveDC": {
@@ -2033,58 +2007,167 @@
 			},
 			"folder": null,
 			"sort": 0,
-			"_id": "AgfZwfFySnnq7FFa"
+			"_id": "fOnudbPDuxP5loIw"
 		},
 		{
-			"name": "Innate Spellcasting",
-			"type": "feature",
+			"name": "Hideous Laughter",
+			"type": "spell",
+			"img": "icons/skills/wounds/injury-face-impact-orange.webp",
+			"effects": [
+				{
+					"icon": "icons/skills/wounds/injury-face-impact-orange.webp",
+					"origin": "Actor.k2GSRR5BjeX6mkqM.Item.3X6O1zlFkcHeDlSj",
+					"flags": {
+						"a5e": {
+							"sort": 0,
+							"transferType": "onUse",
+							"actionId": "EnM94wEvCpTZmMnQ",
+							"duration": {
+								"unit": "minutes"
+							}
+						}
+					},
+					"transfer": false,
+					"name": "Hideous Laughter",
+					"_id": "sEzBFpSnqGKITqF4",
+					"changes": [
+						{
+							"key": "flags.a5e.effects.statusConditions",
+							"value": "[\"prone\",\"incapacitated\"]",
+							"mode": 0,
+							"priority": null
+						}
+					],
+					"disabled": false,
+					"duration": {
+						"startTime": null,
+						"seconds": 60,
+						"combat": null,
+						"rounds": null,
+						"turns": null,
+						"startRound": null,
+						"startTurn": null
+					},
+					"description": "<p>The target is overwhelmed by the absurdity of the world and is crippled by paroxysms of laughter. The target falls prone, becomes incapacitated, and cannot stand.</p>\n<p>Until the spell ends, at the end of each of the target's turns and when it suffers damage, the target may attempt another saving throw (with advantage if triggered by damage). On a successful save, the spell ends.</p>",
+					"statuses": [
+						"prone",
+						"incapacitated"
+					],
+					"folder": null
+				}
+			],
+			"flags": {},
 			"system": {
-				"ac": {
-					"baseFormula": "",
-					"formula": "",
-					"maxDex": 0,
-					"minStr": 0,
-					"mode": 2,
-					"requiresNoShield": false,
-					"requiresUnarmored": false
+				"actions": {
+					"EnM94wEvCpTZmMnQ": {
+						"name": "Hideous Laughter",
+						"activation": {
+							"cost": 1,
+							"type": "action",
+							"reactionTrigger": ""
+						},
+						"duration": {
+							"unit": "minute",
+							"value": "1"
+						},
+						"ranges": {
+							"ugxA7hBRUYvuksdr": {
+								"range": "short"
+							}
+						},
+						"area": {
+							"shape": "",
+							"size": "",
+							"placeTemplate": false
+						},
+						"target": {
+							"quantity": "",
+							"type": "creature"
+						},
+						"prompts": {
+							"plcXxhiZ6YSjHGFQ": {
+								"ability": "wis",
+								"onSave": "Negates effect",
+								"saveDC": {
+									"type": "spellcasting",
+									"bonus": ""
+								},
+								"type": "savingThrow"
+							},
+							"xFVLHsLZbeDVBmtj": {
+								"type": "effect",
+								"default": true,
+								"effectId": "sEzBFpSnqGKITqF4"
+							}
+						},
+						"consumers": {},
+						"uses": {
+							"value": 3,
+							"max": "3",
+							"per": "day"
+						}
+					}
 				},
-				"actions": {},
-				"description": "<p>The dragon&rsquo;s spellcasting ability is Charisma (save DC 19). It can innately cast the following spells, requiring no material components.&nbsp;</p>\n<p><strong>3/day each:</strong>&nbsp;<em>hideous laughter, suggestion, mislead, polymorph</em></p>\n<p><em><strong>1/day each:</strong>&nbsp;irrestiable dance, mass suggestion</em></p>",
+				"description": "<p>The target is overwhelmed by the absurdity of the world and is crippled by paroxysms of laughter. The target falls prone, becomes incapacitated, and cannot stand.</p><p>Until the spell ends, at the end of each of the target's turns and when it suffers damage, the target may attempt another saving throw (with advantage if triggered by damage). On a successful save, the spell ends.</p><p><strong><em>Cast at Higher Levels.</em></strong> Target an additional creature within 30 feet of the original for each slot level above 1st.</p>",
 				"favorite": false,
 				"secretDescription": "",
-				"source": {
-					"name": "",
-					"link": "",
-					"publisher": ""
-				},
+				"source": "",
 				"uses": {
 					"value": null,
 					"max": "",
 					"per": null,
 					"recharge": {
-						"formula": "1d6",
-						"threshold": "6"
+						"formula": "",
+						"threshold": ""
 					}
 				},
 				"schema": {
 					"version": null,
 					"lastMigration": null
 				},
-				"concentration": false,
-				"featureType": "other",
-				"grants": {},
+				"classes": [
+					"bard",
+					"witch",
+					"wizard"
+				],
+				"components": {
+					"vocalized": true,
+					"seen": true,
+					"material": true
+				},
+				"concentration": true,
+				"level": 1,
+				"materials": "poppy seed",
+				"materialsConsumed": false,
+				"prepared": 2,
 				"prerequisite": "",
-				"requiresBloodied": false
+				"rare": false,
+				"ritual": false,
+				"schools": {
+					"primary": "enchantment",
+					"secondary": [
+						"affliction",
+						"arcane",
+						"compulsion"
+					]
+				},
+				"schemaVersion": {
+					"version": 0.01,
+					"lastMigration": {
+						"version": {
+							"schema": 0.009,
+							"foundry": "12.316",
+							"system": "0.16.12"
+						}
+					}
+				}
 			},
-			"_id": "TZ9dUDOxzoukneLm",
-			"img": "icons/svg/item-bag.svg",
-			"effects": [],
 			"folder": null,
+			"_id": "3X6O1zlFkcHeDlSj",
 			"sort": 0,
 			"ownership": {
 				"default": 0
-			},
-			"flags": {}
+			}
 		},
 		{
 			"name": "Suggestion",
@@ -2196,7 +2279,160 @@
 				}
 			},
 			"folder": null,
-			"_id": "rtWLWG5dbN5PlJtj",
+			"_id": "6zpPZM0Sg1fHKDVs",
+			"sort": 0,
+			"ownership": {
+				"default": 0
+			}
+		},
+		{
+			"name": "Innate Spellcasting",
+			"type": "feature",
+			"system": {
+				"ac": {
+					"baseFormula": "",
+					"formula": "",
+					"maxDex": 0,
+					"minStr": 0,
+					"mode": 2,
+					"requiresNoShield": false,
+					"requiresUnarmored": false
+				},
+				"actions": {},
+				"description": "<p>The dragon&rsquo;s spellcasting ability is Charisma (save DC 17). It can innately cast the following spells, requiring no material components.&nbsp;</p>\n<p><strong>3/day each:</strong>&nbsp;<em>hideous laughter, suggestion, mislead, polymorph</em></p>",
+				"favorite": false,
+				"secretDescription": "",
+				"source": {
+					"name": "",
+					"link": "",
+					"publisher": ""
+				},
+				"uses": {
+					"value": null,
+					"max": "",
+					"per": null,
+					"recharge": {
+						"formula": "1d6",
+						"threshold": "6"
+					}
+				},
+				"schema": {
+					"version": null,
+					"lastMigration": null
+				},
+				"concentration": false,
+				"featureType": "other",
+				"grants": {},
+				"prerequisite": "",
+				"requiresBloodied": false
+			},
+			"_id": "iKm46QMxcQGfxz5z",
+			"img": "icons/svg/item-bag.svg",
+			"effects": [],
+			"folder": null,
+			"sort": 0,
+			"ownership": {
+				"default": 0
+			},
+			"flags": {}
+		},
+		{
+			"name": "Mislead",
+			"type": "spell",
+			"img": "icons/magic/light/explosion-star-glow-silhouette.webp",
+			"effects": [],
+			"flags": {},
+			"system": {
+				"actions": {
+					"XwzCIligMbTppQeP": {
+						"name": "Mislead",
+						"activation": {
+							"cost": 1,
+							"type": "action",
+							"reactionTrigger": ""
+						},
+						"duration": {
+							"unit": "hour",
+							"value": "1"
+						},
+						"ranges": {
+							"yPf6fuuXnKuJg3dU": {
+								"range": "self"
+							}
+						},
+						"area": {
+							"shape": "",
+							"size": "",
+							"placeTemplate": false
+						},
+						"target": {
+							"quantity": "",
+							"type": "self"
+						},
+						"consumers": {},
+						"uses": {
+							"value": 3,
+							"max": "3",
+							"per": "day"
+						}
+					}
+				},
+				"description": "<p>You become invisible. At the same time, an illusory copy of you appears where you're standing.</p><p>This invisibility ends when you cast a spell but the copy lasts until the spell ends.</p><p>You can use an action to move your copy up to twice your Speed, have it speak, make gestures, or behave however you'd like.</p><p>You may see and hear through your copy. Until the spell ends, you can use a bonus action to switch between your copy's senses and your own, or back again. While using your copy's senses you are blind and deaf to your body's surroundings.</p><p>The copy is revealed as an illusion with any physical interaction, as solid objects and creatures pass through it.</p>",
+				"favorite": false,
+				"secretDescription": "",
+				"source": "",
+				"uses": {
+					"value": null,
+					"max": "",
+					"per": null,
+					"recharge": {
+						"formula": "",
+						"threshold": ""
+					}
+				},
+				"schema": {
+					"version": null,
+					"lastMigration": null
+				},
+				"classes": [
+					"bard",
+					"wizard"
+				],
+				"components": {
+					"vocalized": false,
+					"seen": true,
+					"material": false
+				},
+				"concentration": true,
+				"level": 5,
+				"materials": "",
+				"materialsConsumed": false,
+				"prepared": 2,
+				"prerequisite": "",
+				"rare": false,
+				"ritual": false,
+				"schools": {
+					"primary": "illusion",
+					"secondary": [
+						"arcane",
+						"chaos",
+						"obscurement",
+						"transformation"
+					]
+				},
+				"schemaVersion": {
+					"version": 0.01,
+					"lastMigration": {
+						"version": {
+							"schema": 0.009,
+							"foundry": "12.316",
+							"system": "0.16.12"
+						}
+					}
+				}
+			},
+			"folder": null,
+			"_id": "O859Kj9y9jdxiqje",
 			"sort": 0,
 			"ownership": {
 				"default": 0
@@ -2315,390 +2551,7 @@
 				}
 			},
 			"folder": null,
-			"_id": "3bveP8R7of0FChzN",
-			"sort": 0,
-			"ownership": {
-				"default": 0
-			}
-		},
-		{
-			"name": "Mislead",
-			"type": "spell",
-			"img": "icons/magic/light/explosion-star-glow-silhouette.webp",
-			"effects": [],
-			"flags": {},
-			"system": {
-				"actions": {
-					"XwzCIligMbTppQeP": {
-						"name": "Mislead",
-						"activation": {
-							"cost": 1,
-							"type": "action",
-							"reactionTrigger": ""
-						},
-						"duration": {
-							"unit": "hour",
-							"value": "1"
-						},
-						"ranges": {
-							"yPf6fuuXnKuJg3dU": {
-								"range": "self"
-							}
-						},
-						"area": {
-							"shape": "",
-							"size": "",
-							"placeTemplate": false
-						},
-						"target": {
-							"quantity": "",
-							"type": "self"
-						},
-						"consumers": {},
-						"uses": {
-							"value": 3,
-							"max": "3",
-							"per": "day"
-						}
-					}
-				},
-				"description": "<p>You become invisible. At the same time, an illusory copy of you appears where you're standing.</p><p>This invisibility ends when you cast a spell but the copy lasts until the spell ends.</p><p>You can use an action to move your copy up to twice your Speed, have it speak, make gestures, or behave however you'd like.</p><p>You may see and hear through your copy. Until the spell ends, you can use a bonus action to switch between your copy's senses and your own, or back again. While using your copy's senses you are blind and deaf to your body's surroundings.</p><p>The copy is revealed as an illusion with any physical interaction, as solid objects and creatures pass through it.</p>",
-				"favorite": false,
-				"secretDescription": "",
-				"source": "",
-				"uses": {
-					"value": null,
-					"max": "",
-					"per": null,
-					"recharge": {
-						"formula": "",
-						"threshold": ""
-					}
-				},
-				"schema": {
-					"version": null,
-					"lastMigration": null
-				},
-				"classes": [
-					"bard",
-					"wizard"
-				],
-				"components": {
-					"vocalized": false,
-					"seen": true,
-					"material": false
-				},
-				"concentration": true,
-				"level": 5,
-				"materials": "",
-				"materialsConsumed": false,
-				"prepared": 2,
-				"prerequisite": "",
-				"rare": false,
-				"ritual": false,
-				"schools": {
-					"primary": "illusion",
-					"secondary": [
-						"arcane",
-						"chaos",
-						"obscurement",
-						"transformation"
-					]
-				},
-				"schemaVersion": {
-					"version": 0.01,
-					"lastMigration": {
-						"version": {
-							"schema": 0.009,
-							"foundry": "12.316",
-							"system": "0.16.12"
-						}
-					}
-				}
-			},
-			"folder": null,
-			"_id": "6MtNsiX1DCVDvBXb",
-			"sort": 0,
-			"ownership": {
-				"default": 0
-			}
-		},
-		{
-			"name": "Irresistible Dance",
-			"type": "spell",
-			"img": "icons/skills/trades/music-notes-sound-blue.webp",
-			"effects": [
-				{
-					"icon": "icons/skills/trades/music-notes-sound-blue.webp",
-					"origin": "Actor.T681zgFJunURfey4.Item.8KDrpFhILYBkr61B",
-					"flags": {
-						"a5e": {
-							"sort": 0,
-							"transferType": "onUse",
-							"actionId": "ymYutl44wa5JBERC",
-							"duration": {
-								"unit": "minutes"
-							}
-						}
-					},
-					"transfer": false,
-					"name": "Irresistible Dance",
-					"_id": "T0e2N19TSqmvLOQi",
-					"changes": [
-						{
-							"key": "flags.a5e.effects.rollMode.attack.all",
-							"value": "-1",
-							"mode": 6,
-							"priority": null
-						},
-						{
-							"key": "flags.a5e.effects.rollMode.abilitySave.all",
-							"value": "-1",
-							"mode": 6,
-							"priority": null
-						}
-					],
-					"disabled": false,
-					"duration": {
-						"startTime": null,
-						"seconds": 60,
-						"combat": null,
-						"rounds": null,
-						"turns": null,
-						"startRound": null,
-						"startTurn": null
-					},
-					"description": "<p>At the start of each of its turns, the dancing target must use all of its movement to dance in its space, and it has disadvantage on attack rolls and saving throws. Attacks made against the target have advantage. On each of its turns, the target can use an action to repeat the saving throw, ending the spell on a successful save.</p>",
-					"statuses": [],
-					"tint": "#ffffff",
-					"folder": null
-				}
-			],
-			"flags": {},
-			"system": {
-				"actions": {
-					"ymYutl44wa5JBERC": {
-						"name": "Irresistible Dance",
-						"activation": {
-							"cost": 1,
-							"type": "action",
-							"reactionTrigger": ""
-						},
-						"duration": {
-							"unit": "minute",
-							"value": "1"
-						},
-						"ranges": {
-							"AlpEuWazjYW3uorr": {
-								"range": "short"
-							}
-						},
-						"area": {
-							"shape": "",
-							"size": "",
-							"placeTemplate": false
-						},
-						"target": {
-							"quantity": 1,
-							"type": "creature",
-							"scaling": {
-								"mode": "spellLevel",
-								"formula": "1"
-							}
-						},
-						"prompts": {
-							"Es6RbSo2QvYTdQRU": {
-								"ability": "wis",
-								"onSave": "Negates effect",
-								"saveDC": {
-									"type": "spellcasting",
-									"bonus": ""
-								},
-								"type": "savingThrow"
-							},
-							"9TUCL0ALEGHosxFt": {
-								"type": "effect",
-								"default": true,
-								"effectId": "T0e2N19TSqmvLOQi"
-							}
-						},
-						"consumers": {},
-						"uses": {
-							"value": 1,
-							"max": "1",
-							"per": "day"
-						}
-					}
-				},
-				"description": "<p>You murmur a tune that takes root in the target's mind until the spell ends, forcing it to caper, dance, and shuffle. At the start of each of its turns, the dancing target must use all of its movement to dance in its space, and it has disadvantage on attack rolls and saving throws. Attacks made against the target have advantage. On each of its turns, the target can use an action to repeat the saving throw, ending the spell on a successful save.</p><p><strong><em>Cast at Higher Levels.</em></strong> Target one additional creature within 30 feet for each slot level above 6th.</p>",
-				"favorite": false,
-				"secretDescription": "",
-				"source": "",
-				"uses": {
-					"value": null,
-					"max": "",
-					"per": null,
-					"recharge": {
-						"formula": "",
-						"threshold": ""
-					}
-				},
-				"schema": {
-					"version": null,
-					"lastMigration": null
-				},
-				"classes": [
-					"bard",
-					"wizard"
-				],
-				"components": {
-					"vocalized": true,
-					"seen": false,
-					"material": false
-				},
-				"concentration": true,
-				"level": 6,
-				"materials": "",
-				"materialsConsumed": false,
-				"prepared": 2,
-				"prerequisite": "",
-				"rare": false,
-				"ritual": false,
-				"schools": {
-					"primary": "enchantment",
-					"secondary": [
-						"arcane",
-						"compulsion"
-					]
-				},
-				"schemaVersion": {
-					"version": 0.01,
-					"lastMigration": {
-						"version": {
-							"schema": 0.009,
-							"foundry": "12.316",
-							"system": "0.16.12"
-						}
-					}
-				}
-			},
-			"folder": null,
-			"_id": "8KDrpFhILYBkr61B",
-			"sort": 0,
-			"ownership": {
-				"default": 0
-			}
-		},
-		{
-			"name": "Mass Suggestion",
-			"type": "spell",
-			"img": "icons/magic/control/hypnosis-mesmerism-eye.webp",
-			"effects": [],
-			"flags": {},
-			"system": {
-				"actions": {
-					"BhayaPzBIsRNZ7xY": {
-						"name": "Mass Suggestion",
-						"activation": {
-							"cost": 1,
-							"type": "action",
-							"reactionTrigger": ""
-						},
-						"duration": {
-							"unit": "hour",
-							"value": "24"
-						},
-						"ranges": {
-							"zoFV80PTj3vJHoK5": {
-								"range": "medium"
-							}
-						},
-						"area": {
-							"shape": "",
-							"size": "",
-							"placeTemplate": false
-						},
-						"target": {
-							"quantity": "",
-							"type": "creature"
-						},
-						"prompts": {
-							"p3dXxpsmMDZNfcz1": {
-								"ability": "wis",
-								"onSave": "Negates effect",
-								"saveDC": {
-									"type": "spellcasting",
-									"bonus": ""
-								},
-								"type": "savingThrow"
-							}
-						},
-						"consumers": {},
-						"uses": {
-							"value": 1,
-							"max": "1",
-							"per": "day"
-						}
-					}
-				},
-				"description": "<p>Creatures that cannot be charmed are immune to this spell. Suggest an activity phrased in a sentence or two. The targets are magically influenced to follow that course of activity. The suggestion must be worded to sound reasonable. Asking the targets to perform an action that is obviously harmful to them ends the spell.</p><p>A target carries out the activity suggested by you as well as it can. The activity can last for the duration of the spell, and if it requires less time the spell ends after a target has carried out the activity.</p><p>You may specify trigger conditions that cause a target to perform a specific activity while the spell lasts. For example, you may suggest that the target takes off its clothes and dives the next time it sees a body of water. If the target does not see a body of water before the spell ends, the specific activity isn't performed.</p><p>Any damage done to a target by you or an ally ends the spell for that creature.</p><p><strong><em>Cast at Higher Levels.</em></strong> When cast using a 7th-level spell slot, the duration of the spell increases to 10 days. When cast using an 8th-level spell slot, the duration increases to 30 days. When cast using a 9th-level spell slot, the duration increases to a year and a day.</p>",
-				"favorite": false,
-				"secretDescription": "",
-				"source": "",
-				"uses": {
-					"value": null,
-					"max": "",
-					"per": null,
-					"recharge": {
-						"formula": "",
-						"threshold": ""
-					}
-				},
-				"schema": {
-					"version": null,
-					"lastMigration": null
-				},
-				"classes": [
-					"bard",
-					"sorcerer",
-					"warlock",
-					"witch",
-					"wizard"
-				],
-				"components": {
-					"vocalized": true,
-					"seen": false,
-					"material": true
-				},
-				"concentration": false,
-				"level": 6,
-				"materials": "miniature bottle of wine and some soap",
-				"materialsConsumed": false,
-				"prepared": 2,
-				"prerequisite": "",
-				"rare": false,
-				"ritual": false,
-				"schools": {
-					"primary": "enchantment",
-					"secondary": [
-						"arcane",
-						"chaos",
-						"compulsion"
-					]
-				},
-				"schemaVersion": {
-					"version": 0.01,
-					"lastMigration": {
-						"version": {
-							"schema": 0.009,
-							"foundry": "12.316",
-							"system": "0.16.12"
-						}
-					}
-				}
-			},
-			"folder": null,
-			"_id": "d0fFhuysSjCVgZx9",
+			"_id": "LDjcSdfX3z4gXqMz",
 			"sort": 0,
 			"ownership": {
 				"default": 0
@@ -2717,7 +2570,7 @@
 	"system": {
 		"abilities": {
 			"str": {
-				"value": 26,
+				"value": 22,
 				"check": {
 					"expertiseDice": 0,
 					"bonus": "",
@@ -2745,7 +2598,7 @@
 				}
 			},
 			"con": {
-				"value": 24,
+				"value": 20,
 				"check": {
 					"expertiseDice": 0,
 					"bonus": "",
@@ -2759,7 +2612,7 @@
 				}
 			},
 			"int": {
-				"value": 20,
+				"value": 18,
 				"check": {
 					"expertiseDice": 0,
 					"bonus": "",
@@ -2773,7 +2626,7 @@
 				}
 			},
 			"wis": {
-				"value": 16,
+				"value": 14,
 				"check": {
 					"expertiseDice": 0,
 					"bonus": "",
@@ -2787,7 +2640,7 @@
 				}
 			},
 			"cha": {
-				"value": 18,
+				"value": 16,
 				"check": {
 					"expertiseDice": 0,
 					"bonus": "",
@@ -2973,7 +2826,7 @@
 				"value": 0,
 				"proficient": true,
 				"specialties": [],
-				"expertiseDice": 0,
+				"expertiseDice": 2,
 				"minRoll": 1,
 				"bonuses": {
 					"check": "",
@@ -3099,7 +2952,7 @@
 		},
 		"attributes": {
 			"ac": {
-				"baseFormula": "21",
+				"baseFormula": "17",
 				"value": 0
 			},
 			"death": {
@@ -3107,8 +2960,8 @@
 				"failure": 0
 			},
 			"hp": {
-				"value": 367,
-				"baseMax": 367,
+				"value": 253,
+				"baseMax": 253,
 				"temp": 0,
 				"bonus": 0
 			},
@@ -3126,8 +2979,8 @@
 					"total": 0
 				},
 				"d12": {
-					"current": 0,
-					"total": 0
+					"current": 22,
+					"total": 22
 				},
 				"d4": {
 					"current": 0,
@@ -3218,7 +3071,7 @@
 				"dragon"
 			],
 			"isSwarm": false,
-			"cr": 23,
+			"cr": 17,
 			"elite": false,
 			"privateNotes": "",
 			"notes": ""
@@ -3228,7 +3081,7 @@
 			"languages": [
 				"draconic",
 				"common",
-				"Three more"
+				"Two more"
 			],
 			"tools": [],
 			"weapons": []
@@ -3285,7 +3138,7 @@
 			"publisher": ""
 		},
 		"traits": {
-			"size": "grg",
+			"size": "huge",
 			"conditionImmunities": [],
 			"damageImmunities": [
 				"acid"
@@ -3295,11 +3148,11 @@
 		}
 	},
 	"prototypeToken": {
-		"name": "Ancient Copper Dragon",
+		"name": "Adult Copper Dragon",
 		"displayName": 0,
 		"actorLink": false,
-		"width": 4,
-		"height": 4,
+		"width": 3,
+		"height": 3,
 		"lockRotation": false,
 		"rotation": 0,
 		"alpha": 1,
@@ -3361,5 +3214,5 @@
 		"prependAdjective": false
 	},
 	"folder": null,
-	"_id": "b5k9k59o5wt9n9am"
+	"_id": "vkh9o4a70q79xwtf"
 }
