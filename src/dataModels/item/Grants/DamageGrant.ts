@@ -22,6 +22,10 @@ export default class DamageGrant extends BaseGrant {
     });
   }
 
+  getSelectionComponent() { return null; }
+
+  getSelectionComponentProps() { return null; }
+
   override async applyGrant(actor: typeof Actor): Promise<void> {
     if (!actor) return;
 

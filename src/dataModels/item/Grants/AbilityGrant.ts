@@ -34,10 +34,12 @@ export default class AbilityGrant extends BaseGrant {
     });
   }
 
-  override async applyGrant(actor: typeof Actor): Promise<void> {
-    if (!actor) return;
+  getSelectionComponent() {
+    return this.#component;
+  }
 
-    const dialogData = {
+  getSelectionComponentProps() {
+    return {
       base: this.abilities.base,
       bonus: this.bonus,
       choices: this.abilities.options,
@@ -45,22 +47,16 @@ export default class AbilityGrant extends BaseGrant {
       count: this.abilities.total,
       heading: 'Ability Grant Selection'
     };
+  }
 
-    const promise = await super.applyGrant(
-      'Ability Grant Selection',
-      dialogData,
-      this.#component,
-      { width: 400 }
-    );
-    if (!promise.selected) {
-      throw new Error('No ability selected');
-    }
+  override async applyGrant(actor: typeof Actor, data: any): Promise<void> {
+    if (!actor) return;
 
     // Construct bonus
     const bonusId = foundry.utils.randomID();
     const bonus = {
       context: {
-        abilities: promise.selected,
+        abilities: data.selected,
         ...this.context
       },
       formula: this.bonus,

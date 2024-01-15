@@ -3,18 +3,17 @@
 <script>
     import { getContext } from "svelte";
 
-    import FieldWrapper from "../FieldWrapper.svelte";
     import CheckboxGroup from "../CheckboxGroup.svelte";
+    import FieldWrapper from "../FieldWrapper.svelte";
+    import Section from "../Section.svelte";
 
-    export let { dialog, heading, base, choices, configObject, count, bonus } =
-        // @ts-ignore
-        getContext("#external").application;
-
-    function onSubmit() {
-        dialog.submit({
-            selected,
-        });
-    }
+    export let grant;
+    export let heading;
+    export let base;
+    export let choices;
+    export let configObject;
+    export let count;
+    export let bonus;
 
     function getDisabledOptions() {
         const options = [];
@@ -30,37 +29,34 @@
         return options;
     }
 
-    let selected = [...base];
     let choicesLocked = true;
 
-    $: disabledOptions = getDisabledOptions(choicesLocked);
+    $: selected = [...base];
+    $: disabledOptions = getDisabledOptions(choicesLocked, grant);
 </script>
 
-<article>
+<Section
+    heading="{heading} - {grant.label}"
+    headerButtons={[
+        {
+            classes: "add-button",
+            handler: () => (choicesLocked = !choicesLocked),
+            htmlString: `<i class="fa-solid ${
+                choicesLocked ? "fa-plus" : "fa-minus"
+            }" />`,
+            tooltip: choicesLocked
+                ? "Locked to Grant Options"
+                : "Free Selection Mode",
+        },
+    ]}
+    --a5e-section-body-gap="0.75rem"
+>
     <FieldWrapper
-        {heading}
         warning="{count - selected.length} choice(s) remaining."
         showWarning={selected.length < count}
         hint="A5E.grants.choicesHint"
         --direction="column"
     >
-        <button
-            class="choice-lock"
-            data-tooltip={choicesLocked
-                ? "Locked to Grant Options"
-                : "Free Selection Mode"}
-            data-tooltip-direction="LEFT"
-            on:click={() => (choicesLocked = !choicesLocked)}
-        >
-            <i
-                class="fa-solid"
-                class:fa-lock={choicesLocked}
-                class:fa-lock-open={!choicesLocked}
-                class:locked={choicesLocked}
-                class:unlocked={!choicesLocked}
-            />
-        </button>
-
         <CheckboxGroup
             options={Object.entries(configObject)}
             {selected}
@@ -76,47 +72,7 @@
             .map((s) => configObject[s])
             .join(", ")}.
     </FieldWrapper>
-
-    <button on:click|preventDefault={onSubmit}> Submit </button>
-</article>
+</Section>
 
 <style lang="scss">
-    article {
-        display: flex;
-        flex-direction: column;
-        gap: 0.5rem;
-        padding: 0.75rem;
-    }
-
-    .choice-lock {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-
-        position: absolute;
-        right: 0.5rem;
-        top: 0.5;
-
-        font-size: $font-size-sm;
-        background: transparent;
-        width: max-content;
-        border: 0;
-        padding: 0;
-        margin: 0;
-        transition: $standard-transition;
-
-        &:hover,
-        &:focus {
-            transform: scale(1.2);
-            box-shadow: none;
-        }
-    }
-
-    .locked {
-        color: $color-secondary;
-    }
-
-    .unlocked {
-        color: $color-primary;
-    }
 </style>

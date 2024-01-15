@@ -1,6 +1,9 @@
 import type { Grant } from 'types/grants';
 import type ItemGrantsManager from './ItemGrantsManager';
 
+import GenericDialog from '../apps/dialogs/initializers/GenericDialog';
+import GrantApplyDialog from '../apps/dialogs/GrantApplyDialog.svelte';
+
 type ActorGrantData = {
   bonusId?: string,
   grantId: string,
@@ -25,24 +28,35 @@ export default class ActorGrantsManger extends Map<string, ActorGrantData> {
   async applyGrants(): Promise<void> {
     const appliedGrants = [...this.values()].map(({ itemUuid, grantId }) => `${itemUuid}.${grantId}`);
     const applicableGrants: Grant[] = [];
+    const optionalGrants: Grant[] = [];
 
     for await (const item of this.actor.items) {
       if (item.type !== 'feature') continue;
 
       const grantsManager: ItemGrantsManager = item.grants;
-      const grants = [...grantsManager.values()].reduce((acc: Grant[], grant) => {
+      [...grantsManager.values()].forEach((grant) => {
         const id = `${item.uuid}.${grant._id}`;
-        if (appliedGrants.includes(id)) return acc;
-        acc.push(grant);
-        return acc;
-      }, []);
+        if (appliedGrants.includes(id)) return;
 
-      applicableGrants.push(...grants);
+        if (grant.optional) optionalGrants.push(grant);
+        applicableGrants.push(grant);
+      });
     }
 
-    for await (const grant of applicableGrants) {
-      await grant.applyGrant(this.actor);
-    }
+    const dialog = new GenericDialog(
+      `${this.actor.name} - Apply Grants`,
+      GrantApplyDialog,
+      {
+        actor: this.actor,
+        grants: applicableGrants,
+        optionalGrants
+      }
+    );
+    dialog.render(true);
+
+    // for await (const grant of applicableGrants) {
+    //   await grant.applyGrant(this.actor);
+    // }
   }
 
   removeGrantsByItem(itemUuid: string): void {

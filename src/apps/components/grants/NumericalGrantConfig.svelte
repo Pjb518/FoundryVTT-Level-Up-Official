@@ -142,7 +142,7 @@
 
     <Section heading="Grant Config">
         <Checkbox
-            label="Mark Grant as Optional"
+            label="Mark grant as optional"
             checked={grant.optional ?? false}
             on:updateSelection={({ detail }) =>
                 onUpdateValue("optional", detail)}
