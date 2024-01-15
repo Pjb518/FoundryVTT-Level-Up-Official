@@ -17,7 +17,8 @@ export default class DamageGrant extends BaseGrant {
       bonus: new fields.StringField({ required: true, initial: '' }),
       damageType: new fields.StringField({ required: true, initial: '' }),
       context: new fields.SchemaField(getDamageBonusContext()),
-      default: new fields.BooleanField({ required: true, initial: true })
+      default: new fields.BooleanField({ required: true, initial: true }),
+      label: new fields.StringField({ required: true, initial: 'New Damage Grant' })
     });
   }
 

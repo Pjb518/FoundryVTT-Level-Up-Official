@@ -29,7 +29,8 @@ export default class AbilityGrant extends BaseGrant {
         total: new fields.NumberField({ required: true, initial: 0, integer: true })
       }),
       bonus: new fields.StringField({ required: true, initial: '' }),
-      context: new fields.SchemaField(getAbilitiesBonusContext('grant'))
+      context: new fields.SchemaField(getAbilitiesBonusContext('grant')),
+      label: new fields.StringField({ required: true, initial: 'New Ability Grant' })
     });
   }
 

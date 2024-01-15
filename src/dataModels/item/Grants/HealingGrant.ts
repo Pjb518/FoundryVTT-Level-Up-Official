@@ -16,7 +16,8 @@ export default class HealingGrant extends BaseGrant {
       grantType: new fields.StringField({ required: true, initial: 'healing' }),
       bonus: new fields.StringField({ required: true, initial: '' }),
       context: new fields.SchemaField(getHealingBonusContext()),
-      healingType: new fields.StringField({ required: true, initial: 'healing' })
+      healingType: new fields.StringField({ required: true, initial: 'healing' }),
+      label: new fields.StringField({ required: true, initial: 'New Healing Grant' })
     });
   }
 

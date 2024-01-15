@@ -13,7 +13,7 @@
 
     export let documentName = "Item";
     export let menuList = [];
-    export let offset = {};
+    export let offset = { x: 0, y: 0 };
     export let reducerType = null;
     export let options = {};
     export let entityTypeOverride = null;

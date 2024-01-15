@@ -30,7 +30,8 @@ export default class SkillGrant extends BaseGrant {
       }),
       bonus: new fields.StringField({ required: true, initial: '' }),
       context: new fields.SchemaField(getSkillBonusContext('grant')),
-      default: new fields.BooleanField({ required: true, initial: true })
+      default: new fields.BooleanField({ required: true, initial: true }),
+      label: new fields.StringField({ required: true, initial: 'New Skill Grant' })
     });
   }
 
