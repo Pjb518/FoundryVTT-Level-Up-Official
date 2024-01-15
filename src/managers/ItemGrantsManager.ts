@@ -23,11 +23,15 @@ export default class ItemGrantsManager extends Map<string, Grant> {
     });
   }
 
+  get optionalGrants(): Array<Grant> {
+    return [...this.values()].filter((grant) => grant.optional);
+  }
+
   /**
    * @param {String} type
    * @returns
    */
-  byType(type: string): Array<any> {
+  byType(type: string): Array<Grant> {
     return [...this.values()].filter((grant) => grant.grantType === type);
   }
 
