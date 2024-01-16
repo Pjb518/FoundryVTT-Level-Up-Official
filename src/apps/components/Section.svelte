@@ -2,14 +2,14 @@
     import { localize } from "#runtime/svelte/helper";
 
     export let headerButtons = [];
-    export let heading = null;
+    export let heading = "";
     export let hint = null;
     export let showWarning = false;
     export let warning = null;
 </script>
 
 <section class="a5e-section">
-    {#if heading}
+    {#if heading && heading.length}
         <header class="a5e-section-header">
             <h3 class="a5e-section-header__heading">{localize(heading)}</h3>
 

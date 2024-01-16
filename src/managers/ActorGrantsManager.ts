@@ -48,7 +48,7 @@ export default class ActorGrantsManger extends Map<string, ActorGrantData> {
       GrantApplyDialog,
       {
         actor: this.actor,
-        grants: applicableGrants,
+        allGrants: applicableGrants,
         optionalGrants
       }
     );

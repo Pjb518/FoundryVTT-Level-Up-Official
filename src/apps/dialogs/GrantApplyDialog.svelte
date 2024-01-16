@@ -1,6 +1,6 @@
 <svelte:options accessors={true} />
 
-<script>
+<script lang="ts">
     import { getContext } from "svelte";
     import { TJSDocument } from "#runtime/svelte/store/fvtt/document";
     import { localize } from "#runtime/svelte/helper";
@@ -8,30 +8,94 @@
     import CheckboxGroup from "../components/CheckboxGroup.svelte";
     import Section from "../components/Section.svelte";
 
-    export let { grants, optionalGrants, actor } =
+    export let { allGrants, optionalGrants, actor } =
+        // @ts-ignore
         getContext("#external").application;
 
-    console.log(grants, optionalGrants, actor);
-
     function nextGrant() {
+        if (state === 0) {
+            state = 1;
+            return;
+        }
+
+        if (state === 1 && progress === total - 1) {
+            state = 2;
+            return;
+        }
+
+        if (progress === total - 1) return;
+
         progress = progress + 1;
-        if (progress >= grants.length) return;
-        currentGrant = grants[progress];
+        currentGrant = configurableGrants[progress];
     }
 
     function previousGrant() {
+        if (progress === total - 1 && state === 2) {
+            state = 1;
+            return;
+        }
+
+        if (progress === 0 && state === 1) {
+            state = 0;
+            return;
+        }
+
+        if (progress === 0) return;
+
         progress = progress - 1;
-        if (progress < 0) return;
-        currentGrant = grants[progress];
+        currentGrant = configurableGrants[progress];
     }
 
-    let total = grants.length;
-    let progress = -1;
-    let selectedOptionalGrants = [];
+    // Create a list of grants to show based on selected optional
+    // grants and those grants that have configurable properties
+    function getApplicableGrants(selectedOptionalGrants: string[]) {
+        const grantsList: any[] = [];
 
-    let currentGrant = grants[0];
-    $: CurrentComponent = currentGrant?.getSelectionComponent();
-    $: currentComponentProps = currentGrant?.getSelectionComponentProps();
+        // Add all non-optional grants and set config mode
+        allGrants.forEach((grant) => {
+            if (grant.optional) return;
+
+            let requiresConfig = false;
+            if (grant.requiresConfig()) requiresConfig = true;
+
+            grantsList.push({ grant, requiresConfig, id: grant._id });
+        });
+
+        // Add all optional grants that are selected
+        optionalGrants.forEach((grant: any) => {
+            if (!selectedOptionalGrants.includes(grant._id)) return;
+
+            let requiresConfig = false;
+            if (grant.requiresConfig()) requiresConfig = true;
+
+            grantsList.push({ grant, requiresConfig, id: grant._id });
+        });
+
+        return grantsList;
+    }
+
+    let progress = 0;
+    let selectedOptionalGrants: string[] = [];
+    let state = optionalGrants.length ? 0 : 1;
+
+    $: grants = getApplicableGrants(selectedOptionalGrants);
+    $: configurableGrants = grants.filter((grant) => grant.requiresConfig);
+    $: totalApplicable = grants.length;
+    $: total = configurableGrants.length;
+
+    $: currentGrant = configurableGrants[progress];
+    $: CurrentComponent = currentGrant?.grant?.getSelectionComponent?.();
+    $: currentComponentProps =
+        currentGrant?.grant?.getSelectionComponentProps?.();
+
+    $: progressDisplay =
+        state === 0 ? 0 : state === 1 ? progress : progress + 1;
+    $: progressTooltip = `
+        Total Applicable Grants: ${totalApplicable}
+        Total Configurable Grants: ${total}
+        Current Grant: ${currentGrant?.grant?.label}
+        Current Grant Progress: ${progress + 1} / ${total}
+    `;
 </script>
 
 <article>
@@ -39,27 +103,30 @@
     <div class="progress-bar-wrapper">
         <button
             class="nav-button"
-            disabled={progress <= -1}
+            disabled={state === 0 && progress === 0}
             on:click={previousGrant}
         >
             <i class="fa-solid fa-chevron-left" />
         </button>
 
-        <div class="progress-bar">
-            {Math.max(progress, 0)} / {total}
+        <div
+            class="progress-bar"
+            data-tooltip={progressTooltip}
+            data-tooltip-direction="UP"
+        >
+            {progressDisplay} / {total}
         </div>
 
         <button
             class="nav-button"
-            disabled={progress >= total - 1}
+            disabled={state === 2 && progress >= total - 1}
             on:click={nextGrant}
         >
             <i class="fa-solid fa-chevron-right" />
         </button>
     </div>
 
-    <!-- TODO: Display before if optional grants available -->
-    {#if progress === -1 && optionalGrants.length}
+    {#if state === 0}
         <Section heading="Optional Grants Selection">
             <CheckboxGroup
                 options={optionalGrants.map((grant) => [
@@ -74,12 +141,21 @@
     {/if}
 
     <!-- Current Grant -->
-    {#if progress >= 0}
+    {#if state === 1}
         <svelte:component
             this={CurrentComponent}
             {...currentComponentProps}
-            grant={currentGrant}
+            grant={currentGrant.grant}
         />
+    {/if}
+
+    <!-- Summary and Submit Page -->
+    {#if state === 2}
+        <Section heading="Summary">
+            <!--  -->
+        </Section>
+
+        <button> Submit </button>
     {/if}
 </article>
 

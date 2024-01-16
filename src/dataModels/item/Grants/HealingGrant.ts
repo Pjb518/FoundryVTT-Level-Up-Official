@@ -21,6 +21,12 @@ export default class HealingGrant extends BaseGrant {
     });
   }
 
+  getSelectionComponent() { return null; }
+
+  getSelectionComponentProps() { return null; }
+
+  requiresConfig() { return false; }
+
   override async applyGrant(actor: typeof Actor): Promise<void> {
     if (!actor) return;
 

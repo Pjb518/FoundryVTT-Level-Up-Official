@@ -35,6 +35,26 @@ export default class SkillGrant extends BaseGrant {
     });
   }
 
+  getSelectionComponent() {
+    return this.#component;
+  }
+
+  getSelectionComponentProps() {
+    return {
+      base: this.skills.base,
+      bonus: this.bonus,
+      choices: this.skills.options,
+      configObject: CONFIG.A5E.skills,
+      count: this.skills.total,
+      heading: 'Skill Grant Selection'
+    };
+  }
+
+  requiresConfig() {
+    console.log(this.skills.base, this.skills.total);
+    return this.skills.base.length !== this.skills.total;
+  }
+
   override async applyGrant(actor: typeof Actor): Promise<void> {
     if (!actor) return;
 

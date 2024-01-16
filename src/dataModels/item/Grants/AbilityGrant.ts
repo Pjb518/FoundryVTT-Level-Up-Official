@@ -49,6 +49,10 @@ export default class AbilityGrant extends BaseGrant {
     };
   }
 
+  requiresConfig() {
+    return this.abilities.base.length !== this.abilities.total;
+  }
+
   override async applyGrant(actor: typeof Actor, data: any): Promise<void> {
     if (!actor) return;
 
