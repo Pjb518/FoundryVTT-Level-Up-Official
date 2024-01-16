@@ -53,10 +53,6 @@ export default class ActorGrantsManger extends Map<string, ActorGrantData> {
       }
     );
     dialog.render(true);
-
-    // for await (const grant of applicableGrants) {
-    //   await grant.applyGrant(this.actor);
-    // }
   }
 
   removeGrantsByItem(itemUuid: string): void {

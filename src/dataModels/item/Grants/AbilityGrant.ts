@@ -34,27 +34,8 @@ export default class AbilityGrant extends BaseGrant {
     });
   }
 
-  getSelectionComponent() {
-    return this.#component;
-  }
-
-  getSelectionComponentProps() {
-    return {
-      base: this.abilities.base,
-      bonus: this.bonus,
-      choices: this.abilities.options,
-      configObject: CONFIG.A5E.abilities,
-      count: this.abilities.total,
-      heading: 'Ability Grant Selection'
-    };
-  }
-
-  requiresConfig() {
-    return this.abilities.base.length !== this.abilities.total;
-  }
-
-  override async applyGrant(actor: typeof Actor, data: any): Promise<void> {
-    if (!actor) return;
+  getApplyData(actor: any, data: any): any {
+    if (!data.selected) return {};
 
     // Construct bonus
     const bonusId = foundry.utils.randomID();
@@ -76,13 +57,32 @@ export default class AbilityGrant extends BaseGrant {
       type: 'abilities'
     };
 
-    await actor.update({
+    return {
       [`system.bonuses.abilities.${bonusId}`]: bonus,
       'system.grants': {
         ...actor.system.grants,
         [this._id]: grantData
       }
-    });
+    };
+  }
+
+  getSelectionComponent() {
+    return this.#component;
+  }
+
+  getSelectionComponentProps() {
+    return {
+      base: this.abilities.base,
+      bonus: this.bonus,
+      choices: this.abilities.options,
+      configObject: CONFIG.A5E.abilities,
+      count: this.abilities.total,
+      heading: 'Ability Grant Selection'
+    };
+  }
+
+  requiresConfig() {
+    return this.abilities.base.length !== this.abilities.total;
   }
 
   override async configureGrant() {

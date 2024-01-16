@@ -13,6 +13,8 @@
         getContext("#external").application;
 
     function nextGrant() {
+        console.log(applyData);
+
         if (state === 0) {
             state = 1;
             return;
@@ -74,6 +76,7 @@
         return grantsList;
     }
 
+    let applyData = new Map<string, any>();
     let progress = 0;
     let selectedOptionalGrants: string[] = [];
     let state = optionalGrants.length ? 0 : 1;
@@ -146,13 +149,21 @@
             this={CurrentComponent}
             {...currentComponentProps}
             grant={currentGrant.grant}
+            on:updateSelection={({ detail }) =>
+                applyData.set(currentGrant.id, detail)}
         />
     {/if}
 
     <!-- Summary and Submit Page -->
     {#if state === 2}
         <Section heading="Summary">
-            <!--  -->
+            <ul>
+                {#each applyData.entries() as [id, { summary }]}
+                    <li>
+                        {id}: {summary}
+                    </li>
+                {/each}
+            </ul>
         </Section>
 
         <button> Submit </button>

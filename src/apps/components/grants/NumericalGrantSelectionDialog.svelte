@@ -1,7 +1,7 @@
 <svelte:options accessors={true} />
 
 <script>
-    import { getContext } from "svelte";
+    import { getContext, createEventDispatcher } from "svelte";
 
     import CheckboxGroup from "../CheckboxGroup.svelte";
     import FieldWrapper from "../FieldWrapper.svelte";
@@ -29,10 +29,20 @@
         return options;
     }
 
+    function onUpdateSelection({ detail }) {
+        selected = detail;
+        dispatch("updateSelection", { selected, summary });
+    }
+
+    const dispatch = createEventDispatcher();
     let choicesLocked = true;
 
     $: selected = [...base];
     $: disabledOptions = getDisabledOptions(choicesLocked, grant);
+    $: summary = ` This grant provides a bonus of ${bonus} to ${selected
+        .map((s) => configObject[s])
+        .join(", ")}.
+    `;
 </script>
 
 <Section
@@ -63,14 +73,12 @@
             orange={choices}
             disabled={selected.length >= count}
             {disabledOptions}
-            on:updateSelection={({ detail }) => (selected = detail)}
+            on:updateSelection={onUpdateSelection}
         />
     </FieldWrapper>
 
     <FieldWrapper>
-        This grant provides a bonus of {bonus} to {selected
-            .map((s) => configObject[s])
-            .join(", ")}.
+        {summary}
     </FieldWrapper>
 </Section>
 
