@@ -9,16 +9,17 @@ import modifySpecialOptions from './modifySpecialOptions';
 export default function constructEffectOptions() {
   const options = {};
 
-  Object.keys(game.system.model.Actor).forEach((type) => {
-    if (type === 'base') return;
-
+  Object.entries(CONFIG.Actor.dataModels ?? {}).forEach(([type, model]) => {
     options[type] = {
       allOptions: {},
       baseOptions: {},
       derivedOptions: {}
     };
 
-    const characterOptions = { system: foundry.utils.duplicate(game.system.model.Actor[type]) };
+    const characterOptions = {
+      system: foundry.utils.duplicate(model.schema.initial())
+    };
+
     const baseOptions = foundry.utils.flattenObject(characterOptions);
 
     Object.keys(baseOptions).forEach((option) => {
