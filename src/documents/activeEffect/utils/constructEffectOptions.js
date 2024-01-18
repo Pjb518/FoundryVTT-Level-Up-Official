@@ -91,7 +91,7 @@ export default function constructEffectOptions() {
 
     // Sort Object
     options[type].allOptions = Object.fromEntries(
-      Object.entries(options[type].allOptions)
+      Object.entries(options[type]?.allOptions ?? {})
         .sort(([, a], [, b]) => a.label.localeCompare(b.label))
     );
   });
@@ -100,7 +100,7 @@ export default function constructEffectOptions() {
   const allOptions = {};
   Object.keys(game.system.model.Actor).forEach((type) => {
     if (type === 'base') return;
-    Object.entries(options[type].allOptions)
+    Object.entries(options[type]?.allOptions ?? {})
       .forEach(([key, value]) => { allOptions[key] = value; });
   });
 

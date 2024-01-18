@@ -93,7 +93,7 @@ export default function init() {
   CONFIG.MeasuredTemplate.defaults.angle = 60;
 
   // DataModels
-  const version = game.settings.storage.get('world').getItem('a5e.worldSchemaVersion');
+  const version = game.settings.storage.get('world').getItem('a5e.worldSchemaVersion') ?? 1.0;
 
   if (version > 0.008) {
     CONFIG.Actor.dataModels.character = CharacterData;

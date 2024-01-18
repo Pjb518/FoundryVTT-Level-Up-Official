@@ -14,9 +14,11 @@ export default class BaseActorData extends A5EDataModel.mixin(SchemaDataModel) {
   static defineSchema() {
     const { fields } = foundry.data;
 
+    console.log(CONFIG.A5E);
+
     return this.mergeSchema(super.defineSchema(), {
-      abilities: new fields.SchemaField({
-        ...['str', 'dex', 'con', 'int', 'wis', 'cha'].reduce((acc, abl) => {
+      abilities: new fields.SchemaField(
+        ['str', 'dex', 'con', 'int', 'wis', 'cha'].reduce((acc, abl) => {
           acc[abl] = new fields.SchemaField({
             value: new fields.NumberField({ required: true, initial: 10, integer: true }),
             check: new fields.SchemaField({
@@ -48,7 +50,7 @@ export default class BaseActorData extends A5EDataModel.mixin(SchemaDataModel) {
 
           return acc;
         }, {})
-      }),
+      ),
       attributes: new fields.SchemaField({
         ac: new fields.SchemaField({
           baseFormula: new fields.StringField({ required: true, initial: '10 + @dex.mod' }),
@@ -200,8 +202,8 @@ export default class BaseActorData extends A5EDataModel.mixin(SchemaDataModel) {
         tools: new fields.ArrayField(new fields.StringField({ required: true, initial: '' }), { required: true, initial: [] }),
         weapons: new fields.ArrayField(new fields.StringField({ required: true, initial: '' }), { required: true, initial: [] })
       }),
-      resources: new fields.SchemaField({
-        ...['primary', 'secondary', 'tertiary', 'quaternary'].reduce((acc, res) => {
+      resources: new fields.SchemaField(
+        ['primary', 'secondary', 'tertiary', 'quaternary'].reduce((acc, res) => {
           acc[res] = new fields.SchemaField({
             label: new fields.StringField({ required: true, initial: '' }),
             value: new fields.NumberField({ required: true, initial: 0, integer: true }),
@@ -216,9 +218,9 @@ export default class BaseActorData extends A5EDataModel.mixin(SchemaDataModel) {
 
           return acc;
         }, {})
-      }),
-      skills: new fields.SchemaField({
-        ...['acr', 'ani', 'arc', 'ath', 'cul', 'dec', 'eng', 'his', 'ins', 'itm', 'inv', 'med', 'nat', 'prc', 'prf', 'per', 'rel', 'slt', 'ste', 'sur'].reduce((acc, skl) => {
+      ),
+      skills: new fields.SchemaField(
+        ['acr', 'ani', 'arc', 'ath', 'cul', 'dec', 'eng', 'his', 'ins', 'itm', 'inv', 'med', 'nat', 'prc', 'prf', 'per', 'rel', 'slt', 'ste', 'sur'].reduce((acc, skl) => {
           acc[skl] = new fields.SchemaField({
             ability: new fields.StringField({ required: true, initial: 'dex' }),
             value: new fields.NumberField({ required: true, initial: 0, integer: true }),
@@ -243,7 +245,7 @@ export default class BaseActorData extends A5EDataModel.mixin(SchemaDataModel) {
 
           return acc;
         }, {})
-      }),
+      ),
       source: new fields.SchemaField({
         name: new fields.StringField({ required: true, initial: '' }),
         link: new fields.StringField({ required: true, initial: '' }),
