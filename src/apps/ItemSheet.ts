@@ -84,6 +84,10 @@ export default class ItemSheet extends SvelteApplication {
     });
   }
 
+  get object() {
+    return this.item;
+  }
+
   _getHeaderButtons() {
     const buttons = super._getHeaderButtons();
 

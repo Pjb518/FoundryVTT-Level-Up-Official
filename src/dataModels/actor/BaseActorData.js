@@ -14,8 +14,6 @@ export default class BaseActorData extends A5EDataModel.mixin(SchemaDataModel) {
   static defineSchema() {
     const { fields } = foundry.data;
 
-    console.log(CONFIG.A5E);
-
     return this.mergeSchema(super.defineSchema(), {
       abilities: new fields.SchemaField(
         ['str', 'dex', 'con', 'int', 'wis', 'cha'].reduce((acc, abl) => {
@@ -153,11 +151,6 @@ export default class BaseActorData extends A5EDataModel.mixin(SchemaDataModel) {
         spellcasting: new fields.StringField({ required: true, initial: 'int' })
       }),
       bonuses: new fields.SchemaField({
-        // abilities: new fields.SchemaField({
-        //   check: new fields.StringField({ initial: '' }),
-        //   save: new fields.StringField({ initial: '' }),
-        //   skill: new fields.StringField({ initial: '' })
-        // }),
         abilities: new RecordField(
           new fields.DocumentIdField({ required: true, initial: () => foundry.utils.randomID() }),
           new UnchasteSchemaField(getAbilitiesBonusData())

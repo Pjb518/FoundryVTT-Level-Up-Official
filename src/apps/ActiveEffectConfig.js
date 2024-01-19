@@ -76,6 +76,10 @@ export default class ActiveEffectConfigA5e extends SvelteApplication {
     });
   }
 
+  get object() {
+    return this.activeEffect;
+  }
+
   get title() {
     return `${game.i18n.localize('EFFECT.ConfigTitle')}: ${this.activeEffect.name}`;
   }
