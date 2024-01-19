@@ -69,6 +69,8 @@ export default class ActorSheet extends SvelteApplication {
     ActorSheetTempSettingsStore.subscribe((store) => {
       this.tempSettings = store;
     });
+
+    this.position.subscribe((pos) => this.setPosition(pos, false));
   }
 
   /**
@@ -95,6 +97,11 @@ export default class ActorSheet extends SvelteApplication {
 
   get token() {
     return this.options?.token || this.actor.token || null;
+  }
+
+  setPosition(pos: any, propagate = true): any {
+    if (!propagate) return this.position.get();
+    return super.setPosition(pos);
   }
 
   _getHeaderButtons() {
