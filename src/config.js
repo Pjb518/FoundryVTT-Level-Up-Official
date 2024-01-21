@@ -521,6 +521,7 @@ A5E.maneuverTraditions = {
   awakenedMind: 'A5E.maneuverTraditions.awakenedMind',
   beastUnity: 'A5E.maneuverTraditions.beastUnity',
   bitingZephyr: 'A5E.maneuverTraditions.bitingZephyr',
+  comedicJabs: 'A5E.maneuverTraditions.comedicJabs',
   cuttingOmen: 'A5E.maneuverTraditions.cuttingOmen',
   eldritchBlackguard: 'A5E.maneuverTraditions.eldritchBlackguard',
   gallantHeart: 'A5E.maneuverTraditions.gallantHeart',
