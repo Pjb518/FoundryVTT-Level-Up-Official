@@ -10,6 +10,7 @@
     import CustomTagGroup from "../CustomTagGroup.svelte";
     import CheckboxGroup from "../CheckboxGroup.svelte";
     import RadioGroup from "../RadioGroup.svelte";
+    import AttackBonusConfigDialog from "../../dialogs/AttackBonusConfigDialog.svelte";
 
     export let key;
     export let mode;
@@ -127,6 +128,13 @@
     />
 {:else if componentType === "ABILITY_BONUS"}
     <AbilityBonusConfigDialog
+        jsonValue={value}
+        --padding="0"
+        --background="none"
+        on:change={({ detail }) => dispatch("change", detail)}
+    />
+{:else if componentType === "ATTACK_BONUS"}
+    <AttackBonusConfigDialog
         jsonValue={value}
         --padding="0"
         --background="none"
