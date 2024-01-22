@@ -5,23 +5,14 @@
     import { TJSDocument } from "#runtime/svelte/store/fvtt/document";
     import { localize } from "#runtime/svelte/helper";
 
+    import prepareApplyData from "../../utils/prepareApplyData";
+
     import CheckboxGroup from "../components/CheckboxGroup.svelte";
     import Section from "../components/Section.svelte";
 
     export let { allGrants, optionalGrants, actor } =
         // @ts-ignore
         getContext("#external").application;
-
-    function prepareApplyData() {
-        const data = {};
-        console.log("Apply Data", applyData);
-
-        grants.forEach(({ id, grant }) => {
-            console.log(id);
-            console.log(applyData.get(id));
-            console.log(grant.getApplyData(actor, applyData.get(id)));
-        });
-    }
 
     function nextGrant() {
         console.log(applyData);
@@ -172,7 +163,9 @@
                 {#each applyData.entries() as [id, { summary }]}
                     <li>
                         {id}: {summary}
-                        {console.log(prepareApplyData())}
+                        {console.log(
+                            prepareApplyData(actor, grants, applyData),
+                        )}
                     </li>
                 {/each}
             </ul>

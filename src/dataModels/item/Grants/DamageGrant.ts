@@ -22,7 +22,7 @@ export default class DamageGrant extends BaseGrant {
     });
   }
 
-  getApplyData(actor: any, data: any): any {
+  getApplyData(actor: any): any {
     if (!actor) return {};
 
     const bonusId = foundry.utils.randomID();

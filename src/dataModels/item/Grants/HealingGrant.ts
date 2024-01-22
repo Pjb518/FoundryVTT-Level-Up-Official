@@ -21,7 +21,7 @@ export default class HealingGrant extends BaseGrant {
     });
   }
 
-  getApplyData(actor: typeof Actor, data: any = {}): any {
+  getApplyData(actor: typeof Actor): any {
     if (!actor) return {};
 
     const bonusId = foundry.utils.randomID();

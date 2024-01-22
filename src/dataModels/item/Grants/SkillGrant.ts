@@ -35,34 +35,15 @@ export default class SkillGrant extends BaseGrant {
     });
   }
 
-  getSelectionComponent() {
-    return this.#component;
-  }
-
-  getSelectionComponentProps() {
-    return {
-      base: this.skills.base,
-      bonus: this.bonus,
-      choices: this.skills.options,
-      configObject: CONFIG.A5E.skills,
-      count: this.skills.total,
-      heading: 'Skill Grant Selection'
-    };
-  }
-
-  requiresConfig() {
-    return this.skills.base.length !== this.skills.total;
-  }
-
   getApplyData(actor: typeof Actor, data: any = {}): any {
     if (!actor) return {};
-    if (!data.selected) return {};
+    const selected = data.selected ?? this.skills.base ?? [];
 
     // Construct bonus
     const bonusId = foundry.utils.randomID();
     const bonus = {
       context: {
-        skills: data.selected,
+        skills: selected,
         ...this.context
       },
       formula: this.bonus,
@@ -85,6 +66,25 @@ export default class SkillGrant extends BaseGrant {
         [this._id]: grantData
       }
     };
+  }
+
+  getSelectionComponent() {
+    return this.#component;
+  }
+
+  getSelectionComponentProps() {
+    return {
+      base: this.skills.base,
+      bonus: this.bonus,
+      choices: this.skills.options,
+      configObject: CONFIG.A5E.skills,
+      count: this.skills.total,
+      heading: 'Skill Grant Selection'
+    };
+  }
+
+  requiresConfig() {
+    return this.skills.base.length !== this.skills.total;
   }
 
   override async configureGrant() {

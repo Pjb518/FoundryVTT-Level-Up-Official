@@ -6,7 +6,11 @@ export interface BaseGrant {
   label: string;
   optional: boolean;
 
-  applyGrant(applyData?: any): void;
+  getApplyData(actor: Actor, data?: any): Record<string, any>;
+  getSelectionComponent(): any;
+  getSelectionComponentProps(): Record<string, any>;
+  requiresConfig(): boolean;
+
   configureGrant(): void;
   deleteGrant(): void;
 
