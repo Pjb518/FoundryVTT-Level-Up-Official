@@ -1127,6 +1127,36 @@ A5E.targetTypesPlural = {
   other: 'A5E.TargetOther'
 };
 
+A5E.terrainTypes = {
+  abyss: 'A5E.terrainTypes.abyss',
+  astralPlane: 'A5E.terrainTypes.astralPlane',
+  caverns: 'A5E.terrainTypes.caverns',
+  desert: 'A5E.terrainTypes.desert',
+  etherealPlane: 'A5E.terrainTypes.etherealPlane',
+  forest: 'A5E.terrainTypes.forest',
+  grassland: 'A5E.terrainTypes.grassland',
+  hell: 'A5E.terrainTypes.hell',
+  hills: 'A5E.terrainTypes.hills',
+  jungle: 'A5E.terrainTypes.jungle',
+  laboratory: 'A5E.terrainTypes.laboratory',
+  mountains: 'A5E.terrainTypes.mountains',
+  planeOfAir: 'A5E.terrainTypes.planeOfAir',
+  planeOfEarth: 'A5E.terrainTypes.planeOfEarth',
+  planeOfFire: 'A5E.terrainTypes.planeOfFire',
+  planeOfWater: 'A5E.terrainTypes.planeOfWater',
+  ruin: 'A5E.terrainTypes.ruin',
+  settlement: 'A5E.terrainTypes.settlement',
+  sewer: 'A5E.terrainTypes.sewer',
+  swamp: 'A5E.terrainTypes.swamp',
+  temple: 'A5E.terrainTypes.temple',
+  theBleakGate: 'A5E.terrainTypes.theBleakGate',
+  theDreaming: 'A5E.terrainTypes.theDreaming',
+  tomb: 'A5E.terrainTypes.tomb',
+  tundra: 'A5E.terrainTypes.tundra',
+  underland: 'A5E.terrainTypes.underland',
+  water: 'A5E.terrainTypes.water'
+};
+
 A5E.timePeriods = {
   instantaneous: 'A5E.DurationInstantaneous',
   round: 'A5E.DurationRound',
