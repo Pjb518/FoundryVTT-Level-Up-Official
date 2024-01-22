@@ -9,7 +9,6 @@ import getRollFormula from '../../utils/getRollFormula';
 import overrideRollMode from '../../utils/overrideRollMode';
 import overrideExpertiseDie from '../../utils/overrideExpertiseDie';
 import prepareConsumers from '../../apps/dataPreparationHelpers/itemActivationConsumers/prepareConsumers';
-import prepareDamageBonuses from '../../apps/dataPreparationHelpers/itemActivationRolls/prepareDamageBonuses';
 import prepareHealingBonuses from '../../apps/dataPreparationHelpers/itemActivationRolls/prepareHealingBonuses';
 import prepareHitDice from '../../apps/dataPreparationHelpers/prepareHitDice';
 import preparePrompts from '../../apps/dataPreparationHelpers/itemActivationPrompts/preparePrompts';
@@ -400,7 +399,7 @@ export default class ItemA5e extends BaseItemA5e {
   }
 
   #getDefaultBonuses(actor, rolls) {
-    const damageBonuses = prepareDamageBonuses(actor, this, rolls);
+    const damageBonuses = actor.BonusesManager.prepareGlobalDamageBonuses(this, rolls);
     const healingBonuses = prepareHealingBonuses(actor, this, rolls);
 
     const defaultDamageBonuses = damageBonuses.reduce((acc, [, bonus]) => {

@@ -30,6 +30,12 @@ interface NumberConstructor {
   fromString(n: string): number;
 }
 
+interface Set<T> {
+  intersects(other: Set<T>): boolean;
+  intersection(other: Set<T>): Set<T>;
+  union(other: Set<T>): Set<T>;
+}
+
 interface String {
   capitalize(): string;
   titleCase(): string;

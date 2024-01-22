@@ -1,6 +1,12 @@
-import type { Bonuses } from 'types/foundry/bonuses';
+import type { Bonuses, DamageBonus } from 'types/foundry/bonuses';
 
 import arraysAreEqual from '../utils/arraysAreEqual';
+
+export type DamageBonusCriteria = {
+  attackTypes: string[];
+  damageTypes: string[];
+  spellLevels: number[];
+};
 
 export default class BonusesManager {
   #actor: typeof Actor;
@@ -27,6 +33,7 @@ export default class BonusesManager {
    *
    * @param abilityKey
    * @param type
+   * @param selectedBonuses
    * @returns
    */
   getAbilityBonusesFormula(
@@ -50,10 +57,11 @@ export default class BonusesManager {
 
   /**
    * Wrapper for {@link getSkillBonuses} that returns a formula string instead of an array.
-   * @param skillKey
-   * @param abilityKey
-   * @param type
-   * @param includeAbilityBonuses
+   * @param skillKey              The skill key to get bonuses for.
+   * @param abilityKey            The ability key to get bonuses for. If not provided, the default
+   * @param type                  The type of bonus to get. Can be either 'check' or 'passive'.
+   * @param includeAbilityBonuses Whether or not to include ability bonuses in the formula.
+   * @param selectedBonuses       Whether or not to include only selected bonuses.
    * @returns
    */
   getSkillBonusesFormula(
@@ -96,6 +104,7 @@ export default class BonusesManager {
    *
    * @param abilityKey
    * @param type
+   * @param selectedBonuses
    * @returns
    */
   getAbilityBonuses(
@@ -158,6 +167,58 @@ export default class BonusesManager {
   }
 
   /**
+   * Gets all damage bonuses given certain criteria. This function requires
+   * an item and rolls to be passed to it.
+   *
+   *
+   * @returns
+   */
+  prepareGlobalDamageBonuses(
+    item: typeof Item,
+    rolls: any
+  ): (string | DamageBonus)[][] {
+    const attackRoll: any[] = rolls.attack ?? [];
+    const damageRoll: any[] = rolls.damage ?? [];
+    const spellLevel = item.system.level ?? null;
+
+    if (!Array.isArray(attackRoll)) return [];
+
+    const { attackType }: { attackType: string } = attackRoll[0][1] ?? {};
+    const damages = new Set(damageRoll.map(([, { damageType }]) => damageType));
+    const bonuses = this.#bonuses.damage ?? {};
+    const counts = {};
+
+    const damageBonuses = Object.entries(bonuses).filter(
+      ([, { context, formula }]) => {
+        if (!formula) return false;
+        const { attackTypes, spellLevels } = context;
+        const damageTypes = new Set(context.damageTypes ?? []);
+
+        if (attackTypes?.length && !attackTypes.includes((attackType || 'meleeWeaponAttack'))) return false;
+        if (spellLevel !== null && spellLevels.length && !spellLevels.includes(`${spellLevel}`)) return false;
+        if (damageTypes.size && !damageTypes.intersects(damages)) return false;
+
+        return true;
+      }
+    );
+
+    return damageBonuses.map(([key, damageBonus]) => {
+      if (!damageBonus.label) {
+        const label = game.i18n.format('A5E.DamageBonusSpecific', {
+          damageType: game.i18n.localize(CONFIG.A5E.damageTypes[damageBonus.damageType] ?? '')
+        });
+
+        counts[damageBonus.damageType] ??= 0;
+        counts[damageBonus.damageType] += 1;
+
+        damageBonus.defaultLabel = `${label} #${counts[damageBonus.damageType]}`;
+      }
+
+      return [key, damageBonus];
+    });
+  }
+
+  /**
    * Gets all bonuses for a given skill and ability. This function requires a skill key,
    * an optional ability key, and an optional type. The ability key must be a valid ability.
    * The skill key must be a valid skill. In the case that an ability key is not provided,
@@ -171,6 +232,7 @@ export default class BonusesManager {
    * @param abilityKey
    * @param type
    * @param includeAbilityBonuses
+   * @param selectedBonuses
    * @returns
    */
   getSkillBonuses(
