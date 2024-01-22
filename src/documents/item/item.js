@@ -310,7 +310,7 @@ export default class ItemA5e extends BaseItemA5e {
     const formula = getRollFormula(actor, {
       ability: attackAbility,
       attackBonus: attackRoll?.bonus,
-      attackType: attackRoll?.type,
+      attackType: attackRoll?.attackType,
       expertiseDie,
       proficient: attackRoll?.proficient ?? true,
       rollMode,
