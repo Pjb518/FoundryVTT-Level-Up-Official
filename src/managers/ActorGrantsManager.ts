@@ -55,6 +55,44 @@ export default class ActorGrantsManger extends Map<string, ActorGrantData> {
     dialog.render(true);
   }
 
+  async applyGrant(itemId: string) {
+    if (!itemId) return;
+    const item = this.actor.items.get(itemId);
+    if (item.type !== 'feature') return;
+
+    const applicableGrants: Grant[] = [];
+    const optionalGrants: Grant[] = [];
+
+    const grantsManager: ItemGrantsManager = item.grants;
+    [...grantsManager.values()].forEach((grant) => {
+      const id = `${item.uuid}.${grant._id}`;
+      if (this.has(id)) return;
+
+      if (grant.optional) optionalGrants.push(grant);
+      applicableGrants.push(grant);
+    });
+
+    const dialog = new GenericDialog(
+      `${this.actor.name} - Apply Grants`,
+      GrantApplicationDialog,
+      {
+        actor: this.actor,
+        allGrants: applicableGrants,
+        optionalGrants
+      }
+    );
+
+    await dialog.render(true);
+    const promise = await dialog.promise;
+
+    if (!promise?.success) {
+      item.delete();
+      return;
+    }
+
+    console.log(promise);
+  }
+
   removeGrantsByItem(itemUuid: string): void {
     const updates: Record<string, null> = {};
 
