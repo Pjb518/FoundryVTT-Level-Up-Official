@@ -17,6 +17,7 @@ import ActorSpellConfigDialog from '../../apps/dialogs/ActorSpellConfigDialog.sv
 import ActorTerrainConfigDialog from '../../apps/dialogs/ActorTerrainConfigDialog.svelte';
 import ArmorProfConfigDialog from '../../apps/dialogs/ArmorProfConfigDialog.svelte';
 import ArmorClassConfigDialog from '../../apps/dialogs/ArmorClassConfigDialog.svelte';
+import AttackBonusConfigDialog from '../../apps/dialogs/AttackBonusConfigDialog.svelte';
 import ConditionImmunitiesConfigDialog from '../../apps/dialogs/ConditionImmunitiesConfigDialog.svelte';
 import CreatureSizeConfigDialog from '../../apps/dialogs/CreatureSizeConfigDialog.svelte';
 import CreatureTypeConfigDialog from '../../apps/dialogs/CreatureTypeConfigDialog.svelte';
@@ -64,6 +65,7 @@ export default class ActorA5e extends Actor {
       abilityBonus: AbilityBonusConfigDialog,
       armor: ArmorProfConfigDialog,
       armorClass: ArmorClassConfigDialog,
+      attackBonus: AttackBonusConfigDialog,
       conditionImmunities: ConditionImmunitiesConfigDialog,
       damageBonus: DamageBonusConfigDialog,
       damageImmunities: DamageImmunitiesConfigDialog,
@@ -728,7 +730,7 @@ export default class ActorA5e extends Actor {
   addBonus(type = 'damage') {
     const bonuses = foundry.utils.duplicate(this._source.system.bonuses[type] ?? {});
 
-    if (!['abilities', 'skills', 'damage', 'healing'].includes(type)) return;
+    if (!['abilities', 'attacks', 'skills', 'damage', 'healing'].includes(type)) return;
 
     this.update({
       [`system.bonuses.${type}`]: {
@@ -746,7 +748,7 @@ export default class ActorA5e extends Actor {
 
     if (key === 'ability') dialog = this.dialogs.abilities[data.abilityKey];
     else if (key === 'skill') dialog = this.dialogs.skills[data.skillKey];
-    else if (['abilityBonus', 'damageBonus', 'healingBonus', 'skillBonus'].includes(key)) {
+    else if (['abilityBonus', 'attackBonus', 'damageBonus', 'healingBonus', 'skillBonus'].includes(key)) {
       dialog = this.dialogs.bonuses[data.bonusID];
     }
     else dialog = this.dialogs[key];
@@ -756,7 +758,7 @@ export default class ActorA5e extends Actor {
 
       if (key === 'ability') this.dialogs.abilities[data.abilityKey] = dialog;
       else if (key === 'skill') this.dialogs.skills[data.skillKey] = dialog;
-      else if (['abilityBonus', 'damageBonus', 'healingBonus', 'skillBonus'].includes(key)) {
+      else if (['abilityBonus', 'attackBonus', 'damageBonus', 'healingBonus', 'skillBonus'].includes(key)) {
         this.dialogs.bonuses[data.bonusID] = dialog;
       }
       else this.dialogs[key] = dialog;
@@ -792,6 +794,8 @@ export default class ActorA5e extends Actor {
   configureBonus(bonusID, type = 'damage') {
     if (type === 'abilities') {
       this.#configure('abilityBonus', `${this.name} Ability Bonus Configuration`, { bonusID });
+    } else if (type === 'attacks') {
+      this.#configure('attackBonus', `${this.name} Attack Bonus Configuration`, { bonusID });
     } else if (type === 'damage') {
       this.#configure('damageBonus', `${this.name} Damage Bonus Configuration`, { bonusID });
     }

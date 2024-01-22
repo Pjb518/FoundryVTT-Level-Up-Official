@@ -40,6 +40,8 @@
         switch (bonusType) {
             case "abilities":
                 return "Ability Bonuses";
+            case "attacks":
+                return "Attack Bonuses";
             case "damage":
                 return "Damage Bonuses";
             case "healing":
@@ -53,6 +55,8 @@
         switch (bonusType) {
             case "abilities":
                 return "+ Add Ability Bonus";
+            case "attacks":
+                return "+ Add Attack Bonus";
             case "damage":
                 return "+ Add Damage Bonus";
             case "healing":
@@ -66,6 +70,8 @@
         switch (bonusType) {
             case "abilities":
                 return "New Ability Bonus";
+            case "attacks":
+                return "New Attack Bonus";
             case "damage":
                 return "New Damage Bonus";
             case "healing":
@@ -77,7 +83,13 @@
 
     const actor = getContext("actor");
 
-    const bonusCategories = ["abilities", "damage", "healing", "skills"];
+    const bonusCategories = [
+        "abilities",
+        "attacks",
+        "damage",
+        "healing",
+        "skills",
+    ];
 
     let rightClickConfigure =
         game.settings.get("a5e", "itemRightClickConfigure") ?? true;
