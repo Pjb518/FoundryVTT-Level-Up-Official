@@ -51,31 +51,18 @@ export default class SkillGrant extends BaseGrant {
   }
 
   requiresConfig() {
-    console.log(this.skills.base, this.skills.total);
     return this.skills.base.length !== this.skills.total;
   }
 
-  override async applyGrant(actor: typeof Actor): Promise<void> {
-    if (!actor) return;
-
-    const dialogData = {
-      base: this.skills.base,
-      bonus: this.bonus,
-      choices: this.skills.options,
-      configObject: CONFIG.A5E.skills,
-      count: this.skills.total,
-      heading: 'Skill Grant Selection'
-    };
-
-    const promise = await super.applyGrant('Skill Grant Selection', dialogData, this.#component, { width: 400 });
-    if (!promise.selected) {
-      throw new Error('No skill selected');
-    }
+  getApplyData(actor: typeof Actor, data: any = {}): any {
+    if (!actor) return {};
+    if (!data.selected) return {};
 
     // Construct bonus
+    const bonusId = foundry.utils.randomID();
     const bonus = {
       context: {
-        skills: promise.selected,
+        skills: data.selected,
         ...this.context
       },
       formula: this.bonus,
@@ -84,7 +71,6 @@ export default class SkillGrant extends BaseGrant {
       img: this.img || this?.parent?.img
     };
 
-    const bonusId = foundry.utils.randomID();
     const grantData = {
       itemUuid: this.parent.uuid,
       grantId: this._id,
@@ -92,13 +78,13 @@ export default class SkillGrant extends BaseGrant {
       type: 'skills'
     };
 
-    await actor.update({
+    return {
       [`system.bonuses.skills.${bonusId}`]: bonus,
       'system.grants': {
         ...actor.system.grants,
         [this._id]: grantData
       }
-    });
+    };
   }
 
   override async configureGrant() {

@@ -22,14 +22,8 @@ export default class DamageGrant extends BaseGrant {
     });
   }
 
-  getSelectionComponent() { return null; }
-
-  getSelectionComponentProps() { return null; }
-
-  requiresConfig() { return false; }
-
-  override async applyGrant(actor: typeof Actor): Promise<void> {
-    if (!actor) return;
+  getApplyData(actor: any, data: any): any {
+    if (!actor) return {};
 
     const bonusId = foundry.utils.randomID();
     const bonus = {
@@ -47,14 +41,20 @@ export default class DamageGrant extends BaseGrant {
       type: 'damage'
     };
 
-    await actor.update({
+    return {
       [`system.bonuses.damage.${bonusId}`]: bonus,
       'system.grants': {
         ...actor.system.grants,
         [this._id]: grantData
       }
-    });
+    };
   }
+
+  getSelectionComponent() { return null; }
+
+  getSelectionComponentProps() { return null; }
+
+  requiresConfig() { return false; }
 
   override async configureGrant() {
     const dialogData = {

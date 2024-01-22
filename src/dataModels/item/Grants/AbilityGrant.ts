@@ -35,6 +35,7 @@ export default class AbilityGrant extends BaseGrant {
   }
 
   getApplyData(actor: any, data: any): any {
+    if (!actor) return {};
     if (!data.selected) return {};
 
     // Construct bonus

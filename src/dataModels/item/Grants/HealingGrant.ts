@@ -21,14 +21,8 @@ export default class HealingGrant extends BaseGrant {
     });
   }
 
-  getSelectionComponent() { return null; }
-
-  getSelectionComponentProps() { return null; }
-
-  requiresConfig() { return false; }
-
-  override async applyGrant(actor: typeof Actor): Promise<void> {
-    if (!actor) return;
+  getApplyData(actor: typeof Actor, data: any = {}): any {
+    if (!actor) return {};
 
     const bonusId = foundry.utils.randomID();
     const bonus = {
@@ -46,14 +40,20 @@ export default class HealingGrant extends BaseGrant {
       type: 'healing'
     };
 
-    await actor.update({
+    return {
       [`system.bonuses.healing.${bonusId}`]: bonus,
       'system.grants': {
         ...actor.system.grants,
         [this._id]: grantData
       }
-    });
+    };
   }
+
+  getSelectionComponent() { return null; }
+
+  getSelectionComponentProps() { return null; }
+
+  requiresConfig() { return false; }
 
   override async configureGrant() {
     const dialogData = {
