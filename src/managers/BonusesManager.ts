@@ -1,4 +1,4 @@
-import type { Bonuses, DamageBonus } from 'types/foundry/bonuses';
+import type { Bonuses, DamageBonus, HealingBonus } from 'types/foundry/bonuses';
 
 import arraysAreEqual from '../utils/arraysAreEqual';
 
@@ -182,6 +182,7 @@ export default class BonusesManager {
     const spellLevel = item.system.level ?? null;
 
     if (!Array.isArray(attackRoll)) return [];
+    if (!attackRoll.length) return [];
 
     const { attackType }: { attackType: string } = attackRoll[0][1] ?? {};
     const damages = new Set(damageRoll.map(([, { damageType }]) => damageType));
@@ -215,6 +216,50 @@ export default class BonusesManager {
       }
 
       return [key, damageBonus];
+    });
+  }
+
+  prepareGlobalHealingBonuses(
+    item: typeof Item,
+    rolls: any
+  ): (string | HealingBonus)[][] {
+    const bonuses = this.#bonuses.healing;
+    const counts = {};
+
+    const healingRolls = rolls.healing ?? [];
+    const spellLevel = item.system.level ?? null;
+
+    if (!healingRolls.length) return [];
+
+    const heals: Set<string> = new Set(healingRolls.map(([, { healingType }]) => healingType));
+
+    const healingBonuses = Object.entries(bonuses).filter(
+      ([, { context, formula }]) => {
+        if (!formula) return false;
+
+        const { spellLevels } = context;
+        const healingTypes = new Set(context.healingTypes ?? []);
+
+        if (healingTypes.size && !healingTypes.intersects(heals)) return false;
+        if (spellLevel !== null && spellLevels.length && !spellLevels.includes(`${spellLevel}`)) return false;
+
+        return true;
+      }
+    );
+
+    return healingBonuses.map(([key, healingBonus]) => {
+      const healingType = healingBonus.healingType || 'healing';
+
+      if (!healingBonus.label) {
+        const label = game.i18n.localize(CONFIG.A5E.healingTypes[healingType]);
+
+        counts[healingType] ??= 0;
+        counts[healingType] += 1;
+
+        healingBonus.defaultLabel = `${label} #${counts[healingType]}`;
+      }
+
+      return [key, healingBonus];
     });
   }
 
