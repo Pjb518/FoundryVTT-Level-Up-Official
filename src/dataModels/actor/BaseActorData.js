@@ -7,7 +7,11 @@ import UnchasteSchemaField from '../fields/UnchasteSchemaField';
 import getCheckNotesData from './CheckNotes';
 
 import {
-  getAbilitiesBonusData, getDamageBonusData, getHealingBonusData, getSkillBonusData
+  getAbilitiesBonusData,
+  getAttackBonusData,
+  getDamageBonusData,
+  getHealingBonusData,
+  getSkillBonusData
 } from './Bonuses';
 
 export default class BaseActorData extends A5EDataModel.mixin(SchemaDataModel) {
@@ -154,6 +158,10 @@ export default class BaseActorData extends A5EDataModel.mixin(SchemaDataModel) {
         abilities: new RecordField(
           new fields.DocumentIdField({ required: true, initial: () => foundry.utils.randomID() }),
           new UnchasteSchemaField(getAbilitiesBonusData())
+        ),
+        attacks: new RecordField(
+          new fields.DocumentIdField({ required: true, initial: () => foundry.utils.randomID() }),
+          new fields.SchemaField(getAttackBonusData())
         ),
         damage: new RecordField(
           new fields.DocumentIdField({ required: true, initial: () => foundry.utils.randomID() }),

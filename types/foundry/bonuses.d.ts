@@ -1,9 +1,21 @@
 import type {
-  AbilityBonusContext, DamageBonusContext, HealingBonusContext, SkillBonusContext
+  AbilityBonusContext,
+  AttackBonusContext,
+  DamageBonusContext,
+  HealingBonusContext,
+  SkillBonusContext
 } from './contexts';
 
 export interface AbilityBonus {
   context: AbilityBonusContext;
+  formula: string;
+  label: string;
+  default: boolean;
+  defaultLabel?: string;
+}
+
+export interface AttackBonus {
+  context: AttackBonusContext;
   formula: string;
   label: string;
   default: boolean;
