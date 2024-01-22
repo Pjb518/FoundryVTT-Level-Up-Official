@@ -37,7 +37,7 @@ export default class SkillGrant extends BaseGrant {
 
   getApplyData(actor: typeof Actor, data: any = {}): any {
     if (!actor) return {};
-    const selected = data.selected ?? this.skills.base ?? [];
+    const selected = data?.selected ?? this.skills.base ?? [];
 
     // Construct bonus
     const bonusId = foundry.utils.randomID();
