@@ -195,14 +195,11 @@ export default class ActionsManager extends DataProxy {
     }
 
     if (consumer) {
-      console.log(consumer);
       newAction.consumers = {
         ...newAction.consumers,
         ...(Object.values(consumer)[0])
       };
     }
-
-    console.log(newAction);
 
     const updateData = {
       'system.actions': {
