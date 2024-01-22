@@ -2,7 +2,7 @@ import type { Grant } from 'types/grants';
 import type ItemGrantsManager from './ItemGrantsManager';
 
 import GenericDialog from '../apps/dialogs/initializers/GenericDialog';
-import GrantApplyDialog from '../apps/dialogs/GrantApplyDialog.svelte';
+import GrantApplicationDialog from '../apps/dialogs/GrantApplicationDialog.svelte';
 
 type ActorGrantData = {
   bonusId?: string,
@@ -45,7 +45,7 @@ export default class ActorGrantsManger extends Map<string, ActorGrantData> {
 
     const dialog = new GenericDialog(
       `${this.actor.name} - Apply Grants`,
-      GrantApplyDialog,
+      GrantApplicationDialog,
       {
         actor: this.actor,
         allGrants: applicableGrants,

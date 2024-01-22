@@ -104,12 +104,44 @@
 </script>
 
 <article>
+    <Section heading="Optional Grants Selection">
+        <CheckboxGroup
+            options={optionalGrants.map((grant) => [grant._id, grant.label])}
+            selected={selectedOptionalGrants}
+            on:updateSelection={({ detail }) =>
+                (selectedOptionalGrants = detail)}
+        />
+    </Section>
+
+    <svelte:component
+        this={CurrentComponent}
+        {...currentComponentProps}
+        grant={currentGrant.grant}
+        on:updateSelection={({ detail }) =>
+            applyData.set(currentGrant.id, detail)}
+    />
+
+    <Section heading="Summary">
+        <ul>
+            {#each applyData.entries() as [id, { summary }]}
+                <li>
+                    {id}: {summary}
+                    {console.log(prepareApplyData(actor, grants, applyData))}
+                </li>
+            {/each}
+        </ul>
+    </Section>
+
+    <button> Submit </button>
+
     <!-- Progress Bar -->
     <div class="progress-bar-wrapper">
         <button
             class="nav-button"
             disabled={state === 0 && progress === 0}
             on:click={previousGrant}
+            data-tooltip="Previous"
+            data-tooltip-direction="UP"
         >
             <i class="fa-solid fa-chevron-left" />
         </button>
@@ -126,53 +158,12 @@
             class="nav-button"
             disabled={state === 2 && progress >= total - 1}
             on:click={nextGrant}
+            data-tooltip="Next"
+            data-tooltip-direction="UP"
         >
             <i class="fa-solid fa-chevron-right" />
         </button>
     </div>
-
-    {#if state === 0}
-        <Section heading="Optional Grants Selection">
-            <CheckboxGroup
-                options={optionalGrants.map((grant) => [
-                    grant._id,
-                    grant.label,
-                ])}
-                selected={selectedOptionalGrants}
-                on:updateSelection={({ detail }) =>
-                    (selectedOptionalGrants = detail)}
-            />
-        </Section>
-    {/if}
-
-    <!-- Current Grant -->
-    {#if state === 1}
-        <svelte:component
-            this={CurrentComponent}
-            {...currentComponentProps}
-            grant={currentGrant.grant}
-            on:updateSelection={({ detail }) =>
-                applyData.set(currentGrant.id, detail)}
-        />
-    {/if}
-
-    <!-- Summary and Submit Page -->
-    {#if state === 2}
-        <Section heading="Summary">
-            <ul>
-                {#each applyData.entries() as [id, { summary }]}
-                    <li>
-                        {id}: {summary}
-                        {console.log(
-                            prepareApplyData(actor, grants, applyData),
-                        )}
-                    </li>
-                {/each}
-            </ul>
-        </Section>
-
-        <button> Submit </button>
-    {/if}
 </article>
 
 <style lang="scss">
@@ -188,6 +179,8 @@
         justify-content: center;
         align-items: center;
         gap: 0.5rem;
+        padding-top: 0.75rem;
+        border-top: 1px solid #ccc;
     }
 
     .progress-bar {
@@ -196,10 +189,9 @@
         justify-content: center;
         align-items: center;
         gap: 0.5rem;
-        padding: 0.5rem;
         border-radius: 0.3rem;
         height: 1.5rem;
-        border: 1px solid black;
+        border: 1px solid #aaa;
         background-color: var(--color-primary);
         color: var(--color-primary-text);
     }
@@ -208,16 +200,21 @@
         display: flex;
         justify-content: center;
         align-items: center;
-        background: transparent;
-        border: 0;
-        padding: 0;
-        width: min-content;
+        gap: 0.25rem;
+        width: 4rem;
+        padding: 0.25rem;
+        font-size: 0.833rem;
+        color: #f6f2eb;
+        background: #425f65;
+        border: 1px solid #3e4240;
+        border-radius: 3px;
+        line-height: 1;
+        box-shadow: 0 0 10px #2e4246 inset;
         transition: all 0.15s ease-in-out;
 
         &:hover,
         &:focus {
-            transform: scale(1.2);
-            box-shadow: none;
+            box-shadow: 0 0 10px #2e4246 inset;
         }
     }
 </style>
