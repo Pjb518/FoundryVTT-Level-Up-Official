@@ -14,6 +14,7 @@ import ActorHpConfigDialog from '../../apps/dialogs/ActorHpConfigDialog.svelte';
 import ActorInitConfigDialog from '../../apps/dialogs/ActorInitConfigDialog.svelte';
 import ActorManueverConfigDialog from '../../apps/dialogs/ActorManueverConfigDialog.svelte';
 import ActorSpellConfigDialog from '../../apps/dialogs/ActorSpellConfigDialog.svelte';
+import ActorTerrainConfigDialog from '../../apps/dialogs/ActorTerrainConfigDialog.svelte';
 import ArmorProfConfigDialog from '../../apps/dialogs/ArmorProfConfigDialog.svelte';
 import ArmorClassConfigDialog from '../../apps/dialogs/ArmorClassConfigDialog.svelte';
 import ConditionImmunitiesConfigDialog from '../../apps/dialogs/ConditionImmunitiesConfigDialog.svelte';
@@ -79,6 +80,7 @@ export default class ActorA5e extends Actor {
       skill: SkillConfigDialog,
       skillBonus: SkillBonusConfigDialog,
       spells: ActorSpellConfigDialog,
+      terrain: ActorTerrainConfigDialog,
       tools: ToolProfConfigDialog,
       types: CreatureTypeConfigDialog,
       weapons: WeaponProfConfigDialog
@@ -859,6 +861,10 @@ export default class ActorA5e extends Actor {
     );
 
     this.#configure('skill', title, data, options);
+  }
+
+  configureCreatureTerrains(data = {}, options = {}) {
+    this.#configure('terrain', `${this.name}: Configure Creature Terrains`, data, options);
   }
 
   configureToolProficiencies(data = {}, options = {}) {

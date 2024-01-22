@@ -8,6 +8,7 @@
     import determineIfPropertyModifiedByEffect from "../../../utils/determineIfPropertyModifiedByEffect ";
     import prepareArmorProficiencies from "../../dataPreparationHelpers/prepareArmorProficiencies";
     import prepareConditionImmunities from "../../dataPreparationHelpers/prepareConditionImmunities";
+    import prepareCreatureTerrains from "../../dataPreparationHelpers/prepareCreatureTerrains";
     import prepareCreatureTypes from "../../dataPreparationHelpers/prepareCreatureTypes";
     import prepareCreatureSize from "../../dataPreparationHelpers/prepareCreatureSize";
     import prepareDamageImmunities from "../../dataPreparationHelpers/prepareDamageImmunities";
@@ -115,6 +116,14 @@
             propertyKey: "system.details.creatureTypes",
             tooltip: "Configure Creature Types",
         },
+        {
+            heading: localize("A5E.CreatureTerrainsLabel"),
+            values: prepareCreatureTerrains($actor),
+            dialogMethod: "configureCreatureTerrains",
+            propertyKey: "system.details.terrain",
+            tooltip: "Configure Creature Terrains",
+            display: $actor.type === "npc",
+        },
     ];
 
     $: sheetIsLocked = !$actor.isOwner
@@ -122,8 +131,8 @@
         : $actor.flags?.a5e?.sheetIsLocked ?? true;
 </script>
 
-{#each details as { dialogMethod, heading, propertyKey, tooltip, values }}
-    {#if values.length || !sheetIsLocked}
+{#each details as { dialogMethod, display, heading, propertyKey, tooltip, values }}
+    {#if (values.length || !sheetIsLocked) && (display ?? true)}
         <FieldWrapper
             {heading}
             buttons={[
