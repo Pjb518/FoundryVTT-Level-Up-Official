@@ -50,6 +50,7 @@ export interface SkillBonus {
 
 export interface Bonuses {
   abilities: { [id: string]: AbilityBonus };
+  attacks: { [id: string]: AttackBonus };
   damage: { [id: string]: DamageBonus };
   healing: { [id: string]: HealingBonus };
   skills: { [id: string]: SkillBonus };

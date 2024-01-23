@@ -310,6 +310,7 @@ export default class ItemA5e extends BaseItemA5e {
       attackBonus: attackRoll?.bonus,
       attackType: attackRoll?.attackType,
       expertiseDie,
+      item: this,
       proficient: attackRoll?.proficient ?? true,
       rollMode,
       situationalMods: options.situationalMods,

@@ -56,6 +56,20 @@ export default class BonusesManager {
   }
 
   /**
+   * Wrapper for {@link getAttackBonuses} that returns a formula string instead of an array.
+   * @param item
+   * @param type
+   * @returns
+   */
+  getAttackBonusFormula(
+    item: typeof Item,
+    type: 'meleeWeaponAttack' | 'rangedWeaponAttack' | 'meleeSpellAttack' | 'rangedSpellAttack' = 'meleeWeaponAttack'
+  ): string {
+    const parts = this.getAttackBonuses(item, type);
+    return parts.join(' + ').trim();
+  }
+
+  /**
    * Wrapper for {@link getSkillBonuses} that returns a formula string instead of an array.
    * @param skillKey              The skill key to get bonuses for.
    * @param abilityKey            The ability key to get bonuses for. If not provided, the default
@@ -166,6 +180,115 @@ export default class BonusesManager {
     return parts;
   }
 
+  getAttackBonuses(
+    item: typeof Item,
+    type: 'meleeWeaponAttack' | 'rangedWeaponAttack' | 'meleeSpellAttack' | 'rangedSpellAttack' = 'meleeWeaponAttack'
+  ): string[] {
+    const bonuses = this.#bonuses.attacks;
+    const spellLevel = item.system.level ?? null;
+
+    const parts = Object.values(bonuses).reduce((acc: string[], bonus) => {
+      const bonusFormula = bonus.formula.trim();
+      if (!bonusFormula) return acc;
+
+      const { attackTypes, spellLevels } = bonus.context ?? {};
+
+      if (attackTypes?.length && !attackTypes.includes((type))) return acc;
+      if (spellLevel !== null && spellLevels.length && !spellLevels.includes(`${spellLevel}`)) return acc;
+
+      acc.push(bonusFormula);
+      return acc;
+    }, []);
+
+    return parts;
+  }
+
+  /**
+   * Gets all bonuses for a given skill and ability. This function requires a skill key,
+   * an optional ability key, and an optional type. The ability key must be a valid ability.
+   * The skill key must be a valid skill. In the case that an ability key is not provided,
+   * the default ability for the skill is used. In the case that a type is not provided,
+   * the default type of 'check' is used. The type can be either 'check' or 'passive'.
+   *
+   * Note: This function will also account for global bonuses that apply to all skills. If you don't
+   * have a key for a skill, use the {@link getGlobalSkillBonuses} function instead.
+   *
+   * @param skillKey
+   * @param abilityKey
+   * @param type
+   * @param includeAbilityBonuses
+   * @param selectedBonuses
+   * @returns
+   */
+  getSkillBonuses(
+    skillKey: string,
+    abilityKey?: string,
+    type: 'check' | 'passive' = 'check',
+    includeAbilityBonuses: boolean = true,
+    selectedBonuses: { enabled: boolean, ids: string[] } = { enabled: false, ids: [] }
+  ): string[] {
+    const bonuses = this.#bonuses.skills;
+    const skill = this.#actor.system.skills[skillKey];
+    if (!skill) return [];
+
+    const defaultAbility = skill.ability;
+    const isProficient = skill.proficient;
+
+    const skillParts = Object.entries(bonuses).reduce((acc: string[], [id, bonus]) => {
+      if (selectedBonuses.enabled) {
+        if (!selectedBonuses.ids.includes(id)) return acc;
+      } else if (!bonus.default) return acc;
+
+      if (!bonus.context.skills.includes(skillKey)) return acc;
+      if (type !== 'passive' && bonus.context.passiveOnly) return acc;
+
+      const bonusFormula = bonus.formula.trim();
+
+      if (bonus.context.requiresProficiency && !isProficient) return acc;
+      if (!bonusFormula) return acc;
+
+      acc.push(bonusFormula);
+      return acc;
+    }, []);
+
+    // Add expertise bonus if applicable
+    if (type === 'passive' && skill.expertiseDice) skillParts.push('3');
+
+    if (!includeAbilityBonuses) return skillParts;
+
+    const abilityParts = this.getAbilityBonuses(abilityKey ?? defaultAbility, 'check');
+    return [...abilityParts, ...skillParts];
+  }
+
+  /**
+   * Gets all global bonuses for skills.
+   *
+   * Note: This function does not take a skill key, and as such can't account for
+   * if proficiency is required for a particular bonus, therefore any bonus that
+   * requiresProficiency is skipped. If you have a key for a skill, use the
+   * {@link getSkillBonuses} function instead.
+   *
+   * @param type
+   * @returns
+   */
+  getGlobalSkillBonuses(type: 'check' | 'passive' = 'check'): string[] {
+    const bonuses = this.#bonuses.skills;
+    const parts = Object.values(bonuses).reduce((acc: string[], bonus) => {
+      if (!bonus.default) return acc;
+      const bonusFormula = bonus.formula.trim();
+      if (bonus.context.requiresProficiency) return acc;
+      if (type !== 'passive' && bonus.context.passiveOnly) return acc;
+
+      const isGlobalBonus = arraysAreEqual(bonus.context.skills, this.#skills);
+      if (!isGlobalBonus) return acc;
+
+      acc.push(bonusFormula);
+      return acc;
+    }, []);
+
+    return parts;
+  }
+
   /**
    * Gets all damage bonuses given certain criteria. This function requires
    * an item and rolls to be passed to it.
@@ -261,91 +384,5 @@ export default class BonusesManager {
 
       return [key, healingBonus];
     });
-  }
-
-  /**
-   * Gets all bonuses for a given skill and ability. This function requires a skill key,
-   * an optional ability key, and an optional type. The ability key must be a valid ability.
-   * The skill key must be a valid skill. In the case that an ability key is not provided,
-   * the default ability for the skill is used. In the case that a type is not provided,
-   * the default type of 'check' is used. The type can be either 'check' or 'passive'.
-   *
-   * Note: This function will also account for global bonuses that apply to all skills. If you don't
-   * have a key for a skill, use the {@link getGlobalSkillBonuses} function instead.
-   *
-   * @param skillKey
-   * @param abilityKey
-   * @param type
-   * @param includeAbilityBonuses
-   * @param selectedBonuses
-   * @returns
-   */
-  getSkillBonuses(
-    skillKey: string,
-    abilityKey?: string,
-    type: 'check' | 'passive' = 'check',
-    includeAbilityBonuses: boolean = true,
-    selectedBonuses: { enabled: boolean, ids: string[] } = { enabled: false, ids: [] }
-  ): string[] {
-    const bonuses = this.#bonuses.skills;
-    const skill = this.#actor.system.skills[skillKey];
-    if (!skill) return [];
-
-    const defaultAbility = skill.ability;
-    const isProficient = skill.proficient;
-
-    const skillParts = Object.entries(bonuses).reduce((acc: string[], [id, bonus]) => {
-      if (selectedBonuses.enabled) {
-        if (!selectedBonuses.ids.includes(id)) return acc;
-      } else if (!bonus.default) return acc;
-
-      if (!bonus.context.skills.includes(skillKey)) return acc;
-      if (type !== 'passive' && bonus.context.passiveOnly) return acc;
-
-      const bonusFormula = bonus.formula.trim();
-
-      if (bonus.context.requiresProficiency && !isProficient) return acc;
-      if (!bonusFormula) return acc;
-
-      acc.push(bonusFormula);
-      return acc;
-    }, []);
-
-    // Add expertise bonus if applicable
-    if (type === 'passive' && skill.expertiseDice) skillParts.push('3');
-
-    if (!includeAbilityBonuses) return skillParts;
-
-    const abilityParts = this.getAbilityBonuses(abilityKey ?? defaultAbility, 'check');
-    return [...abilityParts, ...skillParts];
-  }
-
-  /**
-   * Gets all global bonuses for skills.
-   *
-   * Note: This function does not take a skill key, and as such can't account for
-   * if proficiency is required for a particular bonus, therefore any bonus that
-   * requiresProficiency is skipped. If you have a key for a skill, use the
-   * {@link getSkillBonuses} function instead.
-   *
-   * @param type
-   * @returns
-   */
-  getGlobalSkillBonuses(type: 'check' | 'passive' = 'check'): string[] {
-    const bonuses = this.#bonuses.skills;
-    const parts = Object.values(bonuses).reduce((acc: string[], bonus) => {
-      if (!bonus.default) return acc;
-      const bonusFormula = bonus.formula.trim();
-      if (bonus.context.requiresProficiency) return acc;
-      if (type !== 'passive' && bonus.context.passiveOnly) return acc;
-
-      const isGlobalBonus = arraysAreEqual(bonus.context.skills, this.#skills);
-      if (!isGlobalBonus) return acc;
-
-      acc.push(bonusFormula);
-      return acc;
-    }, []);
-
-    return parts;
   }
 }
