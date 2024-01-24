@@ -1,3 +1,4 @@
+/* eslint-disable no-param-reassign */
 import type { Bonuses, DamageBonus, HealingBonus } from 'types/foundry/bonuses';
 
 import arraysAreEqual from '../utils/arraysAreEqual';
@@ -66,6 +67,17 @@ export default class BonusesManager {
     type: 'meleeWeaponAttack' | 'rangedWeaponAttack' | 'meleeSpellAttack' | 'rangedSpellAttack' = 'meleeWeaponAttack'
   ): string {
     const parts = this.getAttackBonuses(item, type);
+    return parts.join(' + ').trim();
+  }
+
+  /**
+   * Wrapper for {@link getInitiativeBonuses} that returns a formula string instead of an array.
+   * @param ablKey
+   * @param skillKey
+   * @returns
+   */
+  getInitiativeBonusFormula(ablKey?: string, skillKey?: string): string {
+    const parts = this.getInitiativeBonuses(ablKey, skillKey);
     return parts.join(' + ').trim();
   }
 
@@ -195,6 +207,37 @@ export default class BonusesManager {
 
       if (attackTypes?.length && !attackTypes.includes((type))) return acc;
       if (spellLevel !== null && spellLevels.length && !spellLevels.includes(`${spellLevel}`)) return acc;
+
+      acc.push(bonusFormula);
+      return acc;
+    }, []);
+
+    return parts;
+  }
+
+  /**
+   * Gets all bonuses for initiative. This function can be passed an ability key or a skill key.
+   * If an ability key is passed, it will return all bonuses that apply to that ability. If a skill
+   * key is passed, it will return all bonuses that apply to that skill. If neither are passed, it
+   * will return all bonuses that apply to initiative.
+   *
+   * @param ablKey
+   * @param skillKey
+   * @returns
+   */
+  getInitiativeBonuses(ablKey?: string, skillKey?: string): string[] {
+    const bonuses = this.#bonuses.initiative;
+    ablKey = ablKey === 'none' ? undefined : ablKey;
+    skillKey = skillKey === 'none' ? undefined : skillKey;
+
+    const parts = Object.values(bonuses).reduce((acc: string[], bonus) => {
+      const bonusFormula = bonus.formula.trim();
+      if (!bonusFormula) return acc;
+
+      const { abilities, skills } = bonus.context ?? {};
+
+      if (ablKey && abilities?.length && !abilities.includes(ablKey)) return acc;
+      if (skillKey && skills?.length && !skills.includes(skillKey)) return acc;
 
       acc.push(bonusFormula);
       return acc;

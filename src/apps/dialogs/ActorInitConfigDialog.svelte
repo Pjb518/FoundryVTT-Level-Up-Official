@@ -41,18 +41,4 @@
                 event.detail,
             )}
     />
-
-    <FieldWrapper
-        heading="A5E.InitiativeBonus"
-        hint="This field accepts any values valid in roll formulae."
-    >
-        <input
-            class="a5e-input"
-            type="text"
-            name="system.attributes.initiative.bonus"
-            value={initiative.bonus}
-            on:change={({ target }) =>
-                updateDocumentDataFromField($actor, target.name, target.value)}
-        />
-    </FieldWrapper>
 </Section>

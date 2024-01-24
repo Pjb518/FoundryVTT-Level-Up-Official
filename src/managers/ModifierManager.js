@@ -197,9 +197,11 @@ export default class ModifierManager {
   }
 
   #getInitiativeBonus() {
+    const { ability, skill } = this.rollData;
+
     return {
       label: localize('A5E.InitiativeBonus'),
-      value: this.actor.system.attributes.initiative.bonus
+      value: this.actor.BonusesManager.getInitiativeBonusFormula(ability, skill)
     };
   }
 

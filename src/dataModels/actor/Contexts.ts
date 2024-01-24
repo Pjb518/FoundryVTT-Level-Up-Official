@@ -69,10 +69,10 @@ export function getInitiativeBonusContext() {
   const { fields } = foundry.data;
   return {
     abilities: new fields.ArrayField(new fields.StringField({ required: true, initial: '' }), {
-      initial: []
+      initial: Object.keys(CONFIG.A5E.abilities)
     }),
     skills: new fields.ArrayField(new fields.StringField({ required: true, initial: '' }), {
-      initial: []
+      initial: Object.keys(CONFIG.A5E.skills)
     })
   };
 }
