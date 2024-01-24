@@ -52,8 +52,8 @@
             obj.label = obj.label ?? "";
             obj.formula = obj.formula ?? "";
             obj.context = obj.context ?? {
-                abilities: [],
-                skills: [],
+                abilities: Object.keys(CONFIG.A5E.abilities),
+                skills: Object.keys(CONFIG.A5E.skills),
             };
             obj.default = obj.default ?? true;
             obj.img = obj.img || "icons/svg/upgrade.svg";
@@ -64,8 +64,8 @@
                 formula: "",
                 damageType: "",
                 context: {
-                    abilities: [],
-                    skills: [],
+                    abilities: Object.keys(CONFIG.A5E.abilities),
+                    skills: Object.keys(CONFIG.A5E.skills),
                 },
                 default: true,
                 img: "icons/svg/upgrade.svg",
