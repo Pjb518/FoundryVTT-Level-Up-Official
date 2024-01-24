@@ -531,6 +531,7 @@ A5E.maneuverTraditions = {
   rapidCurrent: 'A5E.maneuverTraditions.rapidCurrent',
   razorsEdge: 'A5E.maneuverTraditions.razorsEdge',
   sanguineKnot: 'A5E.maneuverTraditions.sanguineKnot',
+  selflessSentinel: 'A5E.maneuverTraditions.selflessSentinel',
   spiritedSteed: 'A5E.maneuverTraditions.spiritedSteed',
   temperedIron: 'A5E.maneuverTraditions.temperedIron',
   toothAndClaw: 'A5E.maneuverTraditions.toothAndClaw',
