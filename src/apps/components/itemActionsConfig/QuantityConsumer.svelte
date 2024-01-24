@@ -98,22 +98,17 @@
         {/if}
     </FieldWrapper>
 
-    {#if $item.actor}
-        <FieldWrapper
-            heading="A5E.ItemQuantity"
-            --a5e-field-wrapper-width="7.5rem"
-        >
-            <input
-                type="number"
-                d-type="Number"
-                value={consumer.quantity ?? 1}
-                on:change={({ target }) =>
-                    updateDocumentDataFromField(
-                        $item,
-                        `system.actions.${actionId}.consumers.${consumerId}.quantity`,
-                        Number(target.value),
-                    )}
-            />
-        </FieldWrapper>
-    {/if}
+    <FieldWrapper heading="A5E.ItemQuantity" --a5e-field-wrapper-width="7.5rem">
+        <input
+            type="number"
+            d-type="Number"
+            value={consumer.quantity ?? 1}
+            on:change={({ target }) =>
+                updateDocumentDataFromField(
+                    $item,
+                    `system.actions.${actionId}.consumers.${consumerId}.quantity`,
+                    Number(target.value),
+                )}
+        />
+    </FieldWrapper>
 </Section>
