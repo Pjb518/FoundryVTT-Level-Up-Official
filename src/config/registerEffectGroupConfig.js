@@ -59,6 +59,7 @@ export default function registerEffectGroupConfig(A5E) {
       label: 'A5E.effects.groups.bonuses',
       items: [
         'flags.a5e.effects.bonuses.abilities',
+        'flags.a5e.effects.bonuses.attacks',
         'flags.a5e.effects.bonuses.damage',
         'flags.a5e.effects.bonuses.healing',
         'flags.a5e.effects.bonuses.skills',
@@ -66,10 +67,6 @@ export default function registerEffectGroupConfig(A5E) {
         'system.bonuses.abilities.save',
         'system.bonuses.abilities.skill',
         'system.bonuses.maneuverDC',
-        'system.bonuses.meleeSpellAttack',
-        'system.bonuses.meleeWeaponAttack',
-        'system.bonuses.rangedSpellAttack',
-        'system.bonuses.rangedWeaponAttack',
         'system.bonuses.spellDC'
       ]
     },
