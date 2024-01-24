@@ -128,6 +128,7 @@
                 label: "A5E.TabSettings",
                 icon: "fas fa-gear",
                 component: ActorSettingsPage,
+                hasSubNavigation: true,
                 display:
                     !actor.pack &&
                     actor.permission !==
