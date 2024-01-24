@@ -90,12 +90,12 @@
 			}
 		},
 		"schemaVersion": {
-			"version": 0.01,
+			"version": 0.011,
 			"lastMigration": {
 				"version": {
-					"schema": 0.006,
-					"foundry": "11.307",
-					"system": "0.15.0"
+					"schema": 0.01,
+					"foundry": "11.315",
+					"system": "0.16.37"
 				}
 			}
 		},
@@ -428,7 +428,8 @@
 			},
 			"initiative": {
 				"bonus": "",
-				"expertiseDice": 0
+				"expertiseDice": 0,
+				"ability": "dex"
 			},
 			"movement": {
 				"burrow": {
@@ -490,7 +491,8 @@
 			"rangedSpellAttack": "",
 			"rangedWeaponAttack": "",
 			"spellDC": "",
-			"skills": {}
+			"skills": {},
+			"attacks": {}
 		},
 		"currency": {
 			"pp": 0,
@@ -508,7 +510,8 @@
 			"cr": 2,
 			"elite": false,
 			"privateNotes": "",
-			"notes": "<div id=\"stat-block-highlight\">\n<div id=\"stat-block-text\"></div>\n</div>\n<p><strong>Source&nbsp;</strong>Dungeon Delver's Guide</p>\n<p><strong>Terrain&nbsp;</strong>Temple, Tomb</p>\n<hr>\n<h3>COMBAT</h3>\n<p>The immortal fights with more intelligence than most skeletons. It attacks the creatures it perceives as most dangerous first, such as those that deal bludgeoning or radiant damage. It takes cover against ranged attacks if it can. If it fights multiple creatures, it saves its reaction to disarm a creature wielding a bludgeoning weapon. If one of its enemies is disarmed, the immortal picks up the weapon. After it is restored by its Reanimation trait, the immortal leaps to its feet and attacks at the start of its next turn.</p>\n<h3>DESCRIPTION</h3>\n<p>Once skilled warriors and mercenaries, death has robbed skeletal immortals of none of the martial skills they possessed in life. Furthermore, necromancy has granted them a kind of immortality: until they are pulverized or burned with holy fire, they leap to their feet unharmed moments after being defeated. A skeletal immortal can outlast and overwhelm even the most hardened battle veteran.</p>\n<p>Burning skeletons are formed from the charred remains of those burned alive on funeral pyres. Wreathed in magical flames, burning skeletons set their enemies ablaze with their flaming weapons and with fiery blasts from their eye sockets.</p>\n<h3>MONSTER TYPE DESCRIPTION</h3>\n<p>Undead are supernatural creatures or spirits that are no longer alive but are still animate. Some have been reanimated by magic spells, such as skeletons . Others, like vampires , are the products of an evil ritual or curse.</p>"
+			"notes": "<div id=\"stat-block-highlight\">\n<div id=\"stat-block-text\"></div>\n</div>\n<p><strong>Source&nbsp;</strong>Dungeon Delver's Guide</p>\n<p><strong>Terrain&nbsp;</strong>Temple, Tomb</p>\n<hr>\n<h3>COMBAT</h3>\n<p>The immortal fights with more intelligence than most skeletons. It attacks the creatures it perceives as most dangerous first, such as those that deal bludgeoning or radiant damage. It takes cover against ranged attacks if it can. If it fights multiple creatures, it saves its reaction to disarm a creature wielding a bludgeoning weapon. If one of its enemies is disarmed, the immortal picks up the weapon. After it is restored by its Reanimation trait, the immortal leaps to its feet and attacks at the start of its next turn.</p>\n<h3>DESCRIPTION</h3>\n<p>Once skilled warriors and mercenaries, death has robbed skeletal immortals of none of the martial skills they possessed in life. Furthermore, necromancy has granted them a kind of immortality: until they are pulverized or burned with holy fire, they leap to their feet unharmed moments after being defeated. A skeletal immortal can outlast and overwhelm even the most hardened battle veteran.</p>\n<p>Burning skeletons are formed from the charred remains of those burned alive on funeral pyres. Wreathed in magical flames, burning skeletons set their enemies ablaze with their flaming weapons and with fiery blasts from their eye sockets.</p>\n<h3>MONSTER TYPE DESCRIPTION</h3>\n<p>Undead are supernatural creatures or spirits that are no longer alive but are still animate. Some have been reanimated by magic spells, such as skeletons . Others, like vampires , are the products of an evil ritual or curse.</p>",
+			"terrain": []
 		},
 		"proficiencies": {
 			"armor": [],
@@ -598,11 +601,7 @@
 			"offsetX": 0,
 			"offsetY": 0,
 			"rotation": 0,
-			"tint": "#ffffff",
-			"anchorX": 0.5,
-			"anchorY": 0.5,
-			"fit": "contain",
-			"alphaThreshold": 0.75
+			"tint": "#ffffff"
 		},
 		"width": 1,
 		"height": 1,
@@ -653,12 +652,7 @@
 		},
 		"detectionModes": [],
 		"flags": {},
-		"randomImg": false,
-		"hexagonalShape": 0,
-		"locked": false,
-		"occludable": {
-			"radius": 0
-		}
+		"randomImg": false
 	},
 	"items": [
 		{
@@ -736,6 +730,7 @@
 					"version": null,
 					"lastMigration": null
 				},
+				"concentration": false,
 				"degree": 0,
 				"exertionCost": 0,
 				"isStance": false,
@@ -743,12 +738,12 @@
 				"tradition": "",
 				"equippedState": 0,
 				"schemaVersion": {
-					"version": 0.01,
+					"version": 0.011,
 					"lastMigration": {
 						"version": {
-							"schema": 0.009,
-							"foundry": "12.316",
-							"system": "0.16.12"
+							"schema": 0.01,
+							"foundry": "11.315",
+							"system": "0.16.37"
 						}
 					}
 				}
@@ -835,6 +830,7 @@
 					"version": null,
 					"lastMigration": null
 				},
+				"concentration": false,
 				"degree": 0,
 				"exertionCost": 0,
 				"isStance": false,
@@ -842,12 +838,12 @@
 				"tradition": "",
 				"equippedState": 0,
 				"schemaVersion": {
-					"version": 0.01,
+					"version": 0.011,
 					"lastMigration": {
 						"version": {
-							"schema": 0.009,
-							"foundry": "12.316",
-							"system": "0.16.12"
+							"schema": 0.01,
+							"foundry": "11.315",
+							"system": "0.16.37"
 						}
 					}
 				}
@@ -934,6 +930,7 @@
 					"version": null,
 					"lastMigration": null
 				},
+				"concentration": false,
 				"degree": 0,
 				"exertionCost": 0,
 				"isStance": false,
@@ -941,12 +938,12 @@
 				"tradition": "",
 				"equippedState": 0,
 				"schemaVersion": {
-					"version": 0.01,
+					"version": 0.011,
 					"lastMigration": {
 						"version": {
-							"schema": 0.009,
-							"foundry": "12.316",
-							"system": "0.16.12"
+							"schema": 0.01,
+							"foundry": "11.315",
+							"system": "0.16.37"
 						}
 					}
 				}
@@ -1033,6 +1030,7 @@
 					"version": null,
 					"lastMigration": null
 				},
+				"concentration": false,
 				"degree": 0,
 				"exertionCost": 0,
 				"isStance": false,
@@ -1040,12 +1038,12 @@
 				"tradition": "",
 				"equippedState": 0,
 				"schemaVersion": {
-					"version": 0.01,
+					"version": 0.011,
 					"lastMigration": {
 						"version": {
-							"schema": 0.009,
-							"foundry": "12.316",
-							"system": "0.16.12"
+							"schema": 0.01,
+							"foundry": "11.315",
+							"system": "0.16.37"
 						}
 					}
 				}
@@ -1132,6 +1130,7 @@
 					"version": null,
 					"lastMigration": null
 				},
+				"concentration": false,
 				"degree": 0,
 				"exertionCost": 0,
 				"isStance": false,
@@ -1139,12 +1138,12 @@
 				"tradition": "",
 				"equippedState": 0,
 				"schemaVersion": {
-					"version": 0.01,
+					"version": 0.011,
 					"lastMigration": {
 						"version": {
-							"schema": 0.009,
-							"foundry": "12.316",
-							"system": "0.16.12"
+							"schema": 0.01,
+							"foundry": "11.315",
+							"system": "0.16.37"
 						}
 					}
 				}
@@ -1231,6 +1230,7 @@
 					"version": null,
 					"lastMigration": null
 				},
+				"concentration": false,
 				"degree": 0,
 				"exertionCost": 0,
 				"isStance": false,
@@ -1238,12 +1238,12 @@
 				"tradition": "",
 				"equippedState": 0,
 				"schemaVersion": {
-					"version": 0.01,
+					"version": 0.011,
 					"lastMigration": {
 						"version": {
-							"schema": 0.009,
-							"foundry": "12.316",
-							"system": "0.16.12"
+							"schema": 0.01,
+							"foundry": "11.315",
+							"system": "0.16.37"
 						}
 					}
 				}
@@ -1315,12 +1315,12 @@
 				"weaponProperties": [],
 				"weight": 8,
 				"schemaVersion": {
-					"version": 0.01,
+					"version": 0.011,
 					"lastMigration": {
 						"version": {
-							"schema": 0.009,
-							"foundry": "12.316",
-							"system": "0.16.12"
+							"schema": 0.01,
+							"foundry": "11.315",
+							"system": "0.16.37"
 						}
 					}
 				}
@@ -1435,12 +1435,12 @@
 				],
 				"weight": 3,
 				"schemaVersion": {
-					"version": 0.01,
+					"version": 0.011,
 					"lastMigration": {
 						"version": {
-							"schema": 0.009,
-							"foundry": "12.316",
-							"system": "0.16.12"
+							"schema": 0.01,
+							"foundry": "11.315",
+							"system": "0.16.37"
 						}
 					}
 				}
@@ -1491,13 +1491,14 @@
 				"featureType": "other",
 				"grants": {},
 				"prerequisite": "",
+				"requiresBloodied": false,
 				"schemaVersion": {
-					"version": 0.01,
+					"version": 0.011,
 					"lastMigration": {
 						"version": {
-							"schema": 0.009,
-							"foundry": "12.316",
-							"system": "0.16.12"
+							"schema": 0.01,
+							"foundry": "11.315",
+							"system": "0.16.37"
 						}
 					}
 				}
@@ -1581,13 +1582,14 @@
 				"featureType": "other",
 				"grants": {},
 				"prerequisite": "",
+				"requiresBloodied": false,
 				"schemaVersion": {
-					"version": 0.01,
+					"version": 0.011,
 					"lastMigration": {
 						"version": {
-							"schema": 0.009,
-							"foundry": "12.316",
-							"system": "0.16.12"
+							"schema": 0.01,
+							"foundry": "11.315",
+							"system": "0.16.37"
 						}
 					}
 				}
@@ -1641,13 +1643,14 @@
 				"featureType": "other",
 				"grants": {},
 				"prerequisite": "",
+				"requiresBloodied": false,
 				"schemaVersion": {
-					"version": 0.01,
+					"version": 0.011,
 					"lastMigration": {
 						"version": {
-							"schema": 0.009,
-							"foundry": "12.316",
-							"system": "0.16.12"
+							"schema": 0.01,
+							"foundry": "11.315",
+							"system": "0.16.37"
 						}
 					}
 				}
@@ -1731,13 +1734,14 @@
 				"featureType": "other",
 				"grants": {},
 				"prerequisite": "",
+				"requiresBloodied": false,
 				"schemaVersion": {
-					"version": 0.01,
+					"version": 0.011,
 					"lastMigration": {
 						"version": {
-							"schema": 0.009,
-							"foundry": "12.316",
-							"system": "0.16.12"
+							"schema": 0.01,
+							"foundry": "11.315",
+							"system": "0.16.37"
 						}
 					}
 				}
@@ -1847,13 +1851,14 @@
 				"featureType": "other",
 				"grants": {},
 				"prerequisite": "",
+				"requiresBloodied": false,
 				"schemaVersion": {
-					"version": 0.01,
+					"version": 0.011,
 					"lastMigration": {
 						"version": {
-							"schema": 0.009,
-							"foundry": "12.316",
-							"system": "0.16.12"
+							"schema": 0.01,
+							"foundry": "11.315",
+							"system": "0.16.37"
 						}
 					}
 				}
@@ -1909,13 +1914,14 @@
 				"featureType": "",
 				"grants": {},
 				"prerequisite": "",
+				"requiresBloodied": false,
 				"schemaVersion": {
-					"version": 0.01,
+					"version": 0.011,
 					"lastMigration": {
 						"version": {
-							"schema": 0.009,
-							"foundry": "12.316",
-							"system": "0.16.12"
+							"schema": 0.01,
+							"foundry": "11.315",
+							"system": "0.16.37"
 						}
 					}
 				}

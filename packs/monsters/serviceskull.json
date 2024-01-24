@@ -91,12 +91,12 @@
 			}
 		},
 		"schemaVersion": {
-			"version": 0.01,
+			"version": 0.011,
 			"lastMigration": {
 				"version": {
-					"schema": 0.006,
-					"foundry": "11.307",
-					"system": "0.15.0"
+					"schema": 0.01,
+					"foundry": "11.315",
+					"system": "0.16.37"
 				}
 			}
 		},
@@ -429,7 +429,8 @@
 			},
 			"initiative": {
 				"bonus": "",
-				"expertiseDice": 0
+				"expertiseDice": 0,
+				"ability": "dex"
 			},
 			"movement": {
 				"burrow": {
@@ -505,7 +506,8 @@
 					"default": true,
 					"img": "icons/svg/upgrade.svg"
 				}
-			}
+			},
+			"attacks": {}
 		},
 		"currency": {
 			"pp": 0,
@@ -523,7 +525,8 @@
 			"cr": 0.125,
 			"elite": false,
 			"privateNotes": "",
-			"notes": "<div class=\"field field--name-field-monster-other-notes field--type-text-long field--label-hidden field--item\">\n<p>There&rsquo;s not much a serviceskull is able to do to defend itself, and so it is typically programmed to immediately request reinforcements or trigger an alert when attacked.</p>\n<h2>Dead-On Service</h2>\n<p>Mechanoskulls are created with behaviors fitting to their function, and can usually be controlled or accessed remotely by their owners. All mechanoskulls have the following action.</p>\n<p><em><strong>Transmit. </strong></em>The mechanoskull sends data to an object or creature designated by its creator. As a bonus action, the designated creature can see through the mechanoskull&rsquo;s senses as if they were their own. A creature can only be the receiver for a number of mechanoskulls equal to its proficiency modifier and can only see through the senses of one mechano skull at a time. During this time it is blind and deaf to its body&rsquo;s surroundings. If the receiver is a computer or similar device, such as a crystal ball, the data can also be recorded for later viewing.</p>\n<h2>Legends and Lore</h2>\n<p>The following is revealed with an Engineering or History check.</p>\n<p><strong>DC 10 </strong>Mechanoskulls were the first rudimentary attempts of necroscientists to weave together magic and technology.</p>\n<p><strong>DC 15</strong> The very presence of mechanoskulls has a lasting psychological impact (whether they are being used offensively or not).</p>\n<p><strong>DC 20 </strong>Many militaries and secret societies make use of mechanoskulls, regardless of laws forbidding their use.</p>\n</div>\n<div class=\"field field--name-field-monster-description field--type-text-long field--label-above\">\n<h2 class=\"field--label\">Description</h2>\n<div class=\"field--item\">\n<p>While it&rsquo;s certainly still not common, most people that know about mechanoskulls are familiar only with these ancient machines&mdash;many of which still function, serving an obsolete purpose deep in the halls of places filled with forgotten knowledge.</p>\n</div>\n</div>"
+			"notes": "<div class=\"field field--name-field-monster-other-notes field--type-text-long field--label-hidden field--item\">\n<p>There&rsquo;s not much a serviceskull is able to do to defend itself, and so it is typically programmed to immediately request reinforcements or trigger an alert when attacked.</p>\n<h2>Dead-On Service</h2>\n<p>Mechanoskulls are created with behaviors fitting to their function, and can usually be controlled or accessed remotely by their owners. All mechanoskulls have the following action.</p>\n<p><em><strong>Transmit. </strong></em>The mechanoskull sends data to an object or creature designated by its creator. As a bonus action, the designated creature can see through the mechanoskull&rsquo;s senses as if they were their own. A creature can only be the receiver for a number of mechanoskulls equal to its proficiency modifier and can only see through the senses of one mechano skull at a time. During this time it is blind and deaf to its body&rsquo;s surroundings. If the receiver is a computer or similar device, such as a crystal ball, the data can also be recorded for later viewing.</p>\n<h2>Legends and Lore</h2>\n<p>The following is revealed with an Engineering or History check.</p>\n<p><strong>DC 10 </strong>Mechanoskulls were the first rudimentary attempts of necroscientists to weave together magic and technology.</p>\n<p><strong>DC 15</strong> The very presence of mechanoskulls has a lasting psychological impact (whether they are being used offensively or not).</p>\n<p><strong>DC 20 </strong>Many militaries and secret societies make use of mechanoskulls, regardless of laws forbidding their use.</p>\n</div>\n<div class=\"field field--name-field-monster-description field--type-text-long field--label-above\">\n<h2 class=\"field--label\">Description</h2>\n<div class=\"field--item\">\n<p>While it&rsquo;s certainly still not common, most people that know about mechanoskulls are familiar only with these ancient machines&mdash;many of which still function, serving an obsolete purpose deep in the halls of places filled with forgotten knowledge.</p>\n</div>\n</div>",
+			"terrain": []
 		},
 		"proficiencies": {
 			"armor": [],
@@ -618,11 +621,7 @@
 			"offsetX": 0,
 			"offsetY": 0,
 			"rotation": 0,
-			"anchorX": 0.5,
-			"anchorY": 0.5,
-			"fit": "contain",
-			"tint": "#ffffff",
-			"alphaThreshold": 0.75
+			"tint": "#ffffff"
 		},
 		"width": 0.5,
 		"height": 0.5,
@@ -679,12 +678,7 @@
 			}
 		],
 		"flags": {},
-		"randomImg": false,
-		"hexagonalShape": 0,
-		"locked": false,
-		"occludable": {
-			"radius": 0
-		}
+		"randomImg": false
 	},
 	"items": [
 		{
@@ -757,18 +751,19 @@
 					"version": null,
 					"lastMigration": null
 				},
+				"concentration": false,
 				"degree": 0,
 				"exertionCost": 0,
 				"isStance": false,
 				"prerequisite": "",
 				"tradition": "",
 				"schemaVersion": {
-					"version": 0.01,
+					"version": 0.011,
 					"lastMigration": {
 						"version": {
-							"schema": 0.009,
-							"foundry": "12.316",
-							"system": "0.16.12"
+							"schema": 0.01,
+							"foundry": "11.315",
+							"system": "0.16.37"
 						}
 					}
 				}
@@ -850,18 +845,19 @@
 					"version": null,
 					"lastMigration": null
 				},
+				"concentration": false,
 				"degree": 0,
 				"exertionCost": 0,
 				"isStance": false,
 				"prerequisite": "",
 				"tradition": "",
 				"schemaVersion": {
-					"version": 0.01,
+					"version": 0.011,
 					"lastMigration": {
 						"version": {
-							"schema": 0.009,
-							"foundry": "12.316",
-							"system": "0.16.12"
+							"schema": 0.01,
+							"foundry": "11.315",
+							"system": "0.16.37"
 						}
 					}
 				}
@@ -952,18 +948,19 @@
 					"version": null,
 					"lastMigration": null
 				},
+				"concentration": false,
 				"degree": 0,
 				"exertionCost": 0,
 				"isStance": false,
 				"prerequisite": "",
 				"tradition": "",
 				"schemaVersion": {
-					"version": 0.01,
+					"version": 0.011,
 					"lastMigration": {
 						"version": {
-							"schema": 0.009,
-							"foundry": "12.316",
-							"system": "0.16.12"
+							"schema": 0.01,
+							"foundry": "11.315",
+							"system": "0.16.37"
 						}
 					}
 				}
@@ -1045,18 +1042,19 @@
 					"version": null,
 					"lastMigration": null
 				},
+				"concentration": false,
 				"degree": 0,
 				"exertionCost": 0,
 				"isStance": false,
 				"prerequisite": "",
 				"tradition": "",
 				"schemaVersion": {
-					"version": 0.01,
+					"version": 0.011,
 					"lastMigration": {
 						"version": {
-							"schema": 0.009,
-							"foundry": "12.316",
-							"system": "0.16.12"
+							"schema": 0.01,
+							"foundry": "11.315",
+							"system": "0.16.37"
 						}
 					}
 				}
@@ -1138,18 +1136,19 @@
 					"version": null,
 					"lastMigration": null
 				},
+				"concentration": false,
 				"degree": 0,
 				"exertionCost": 0,
 				"isStance": false,
 				"prerequisite": "",
 				"tradition": "",
 				"schemaVersion": {
-					"version": 0.01,
+					"version": 0.011,
 					"lastMigration": {
 						"version": {
-							"schema": 0.009,
-							"foundry": "12.316",
-							"system": "0.16.12"
+							"schema": 0.01,
+							"foundry": "11.315",
+							"system": "0.16.37"
 						}
 					}
 				}
@@ -1240,18 +1239,19 @@
 					"version": null,
 					"lastMigration": null
 				},
+				"concentration": false,
 				"degree": 0,
 				"exertionCost": 0,
 				"isStance": false,
 				"prerequisite": "",
 				"tradition": "",
 				"schemaVersion": {
-					"version": 0.01,
+					"version": 0.011,
 					"lastMigration": {
 						"version": {
-							"schema": 0.009,
-							"foundry": "12.316",
-							"system": "0.16.12"
+							"schema": 0.01,
+							"foundry": "11.315",
+							"system": "0.16.37"
 						}
 					}
 				}
@@ -1302,13 +1302,14 @@
 				"featureType": "other",
 				"grants": {},
 				"prerequisite": "",
+				"requiresBloodied": false,
 				"schemaVersion": {
-					"version": 0.01,
+					"version": 0.011,
 					"lastMigration": {
 						"version": {
-							"schema": 0.009,
-							"foundry": "12.316",
-							"system": "0.16.12"
+							"schema": 0.01,
+							"foundry": "11.315",
+							"system": "0.16.37"
 						}
 					}
 				}
@@ -1409,13 +1410,14 @@
 				"featureType": "naturalWeapon",
 				"grants": {},
 				"prerequisite": "",
+				"requiresBloodied": false,
 				"schemaVersion": {
-					"version": 0.01,
+					"version": 0.011,
 					"lastMigration": {
 						"version": {
-							"schema": 0.009,
-							"foundry": "12.316",
-							"system": "0.16.12"
+							"schema": 0.01,
+							"foundry": "11.315",
+							"system": "0.16.37"
 						}
 					}
 				}
@@ -1508,13 +1510,14 @@
 				"featureType": "other",
 				"grants": {},
 				"prerequisite": "",
+				"requiresBloodied": false,
 				"schemaVersion": {
-					"version": 0.01,
+					"version": 0.011,
 					"lastMigration": {
 						"version": {
-							"schema": 0.009,
-							"foundry": "12.316",
-							"system": "0.16.12"
+							"schema": 0.01,
+							"foundry": "11.315",
+							"system": "0.16.37"
 						}
 					}
 				}
