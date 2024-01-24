@@ -54,6 +54,7 @@
         attackBonus: attackRoll?.bonus,
         attackType: attackRoll?.attackType,
         expertiseDie,
+        item: $item,
         proficient: attackRoll?.proficient ?? true,
         situationalMods,
         rollMode,

@@ -1,5 +1,9 @@
 import type {
-  AbilityBonusContext, DamageBonusContext, HealingBonusContext, SkillBonusContext
+  AbilityBonusContext,
+  AttackBonusContext,
+  DamageBonusContext,
+  HealingBonusContext,
+  SkillBonusContext
 } from './contexts';
 
 export interface AbilityBonus {
@@ -7,14 +11,24 @@ export interface AbilityBonus {
   formula: string;
   label: string;
   default: boolean;
+  defaultLabel?: string;
+}
+
+export interface AttackBonus {
+  context: AttackBonusContext;
+  formula: string;
+  label: string;
+  default: boolean;
+  defaultLabel?: string;
 }
 
 export interface DamageBonus {
   context: DamageBonusContext;
   damageType: string;
-  default: boolean;
   formula: string;
   label: string;
+  default: boolean;
+  defaultLabel?: string;
 }
 
 export interface HealingBonus {
@@ -23,6 +37,7 @@ export interface HealingBonus {
   formula: string;
   label: string;
   default: boolean;
+  defaultLabel?: string;
 }
 
 export interface SkillBonus {
@@ -30,10 +45,12 @@ export interface SkillBonus {
   formula: string;
   label: string;
   default: boolean;
+  defaultLabel?: string;
 }
 
 export interface Bonuses {
   abilities: { [id: string]: AbilityBonus };
+  attacks: { [id: string]: AttackBonus };
   damage: { [id: string]: DamageBonus };
   healing: { [id: string]: HealingBonus };
   skills: { [id: string]: SkillBonus };

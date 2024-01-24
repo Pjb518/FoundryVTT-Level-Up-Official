@@ -44,13 +44,14 @@
 				"featureType": "",
 				"grants": {},
 				"prerequisite": "",
+				"requiresBloodied": false,
 				"schemaVersion": {
-					"version": 0.01,
+					"version": 0.011,
 					"lastMigration": {
 						"version": {
-							"schema": 0.009,
-							"foundry": "12.316",
-							"system": "0.16.12"
+							"schema": 0.01,
+							"foundry": "11.315",
+							"system": "0.16.37"
 						}
 					}
 				}
@@ -156,13 +157,14 @@
 				"featureType": "naturalWeapon",
 				"grants": {},
 				"prerequisite": "",
+				"requiresBloodied": false,
 				"schemaVersion": {
-					"version": 0.01,
+					"version": 0.011,
 					"lastMigration": {
 						"version": {
-							"schema": 0.009,
-							"foundry": "12.316",
-							"system": "0.16.12"
+							"schema": 0.01,
+							"foundry": "11.315",
+							"system": "0.16.37"
 						}
 					}
 				}
@@ -194,90 +196,15 @@
 					"requiresNoShield": false,
 					"requiresUnarmored": false
 				},
-				"actions": {},
-				"description": "<p>The dragon uses one of the following breath weapons:</p><p><strong>Acid Breath.</strong> The dragon spits acid in a 90-foot-long, 10-foot-wide line. Each creature in the area makes a DC 22 Dexterity saving throw, taking 85 (19d8) acid damage on a failed save or half damage on a success. A creature that fails the save is blinded until the end of its next turn.</p><p><strong>Slowing Breath.</strong> The dragon exhales toxic gas in a 90-foot cone. Each creature in the area makes a DC 22 Constitution saving throw, becoming slowed for 1 minute on a failure. A creature repeats the saving throw at the end of each of its turns, ending the effect on itself on a success.</p>",
-				"favorite": false,
-				"secretDescription": "",
-				"source": "",
-				"uses": {
-					"value": null,
-					"max": "",
-					"per": null,
-					"recharge": {
-						"formula": "",
-						"threshold": ""
-					}
-				},
-				"schema": {
-					"version": null,
-					"lastMigration": null
-				},
-				"concentration": false,
-				"featureType": "",
-				"grants": {},
-				"prerequisite": "",
-				"schemaVersion": {
-					"version": 0.01,
-					"lastMigration": {
-						"version": {
-							"schema": 0.009,
-							"foundry": "12.316",
-							"system": "0.16.12"
-						}
-					}
-				}
-			},
-			"ownership": {
-				"default": 0
-			}
-		},
-		{
-			"_id": "oZEY5wdyDghFSPdi",
-			"name": "Acid Breath",
-			"type": "feature",
-			"img": "icons/magic/acid/projectile-smoke-glowing.webp",
-			"effects": [],
-			"folder": null,
-			"sort": 325000,
-			"flags": {
-				"core": {
-					"sourceId": "Item.306Vm1DH1Ukw4q3e"
-				}
-			},
-			"system": {
-				"ac": {
-					"baseFormula": "",
-					"formula": "",
-					"maxDex": 0,
-					"minStr": 0,
-					"mode": 1,
-					"requiresNoShield": false,
-					"requiresUnarmored": false
-				},
 				"actions": {
-					"7BI6hp8iVqT4FiyI": {
+					"zGdAOnhyzJci1swB": {
 						"name": "Acid Breath",
 						"activation": {
 							"cost": 1,
 							"type": "action",
 							"reactionTrigger": ""
 						},
-						"duration": {
-							"unit": "instantaneous",
-							"value": ""
-						},
-						"ranges": {},
-						"area": {
-							"shape": "line",
-							"size": "90ft long, 10ft wide",
-							"placeTemplate": false,
-							"length": 90,
-							"width": 10
-						},
-						"target": {
-							"quantity": 1,
-							"type": ""
-						},
+						"consumers": {},
 						"rolls": {
 							"JS9bc0nsLcL3gKJb": {
 								"canCrit": false,
@@ -298,87 +225,45 @@
 								"type": "savingThrow"
 							}
 						},
-						"consumers": {}
-					}
-				},
-				"description": "<p>The dragon spits acid in a 90-foot-long, 10-foot-wide line. Each creature in the area makes a DC 22 Dexterity saving throw, taking 85 (19d8) acid damage on a failed save or half damage on a success. A creature that fails the save is blinded until the end of its next turn.</p>",
-				"favorite": true,
-				"secretDescription": "",
-				"source": "",
-				"uses": {
-					"value": null,
-					"max": "",
-					"per": null,
-					"recharge": {
-						"formula": "",
-						"threshold": ""
-					}
-				},
-				"schema": {
-					"version": null,
-					"lastMigration": null
-				},
-				"concentration": false,
-				"featureType": "",
-				"grants": {},
-				"prerequisite": "",
-				"schemaVersion": {
-					"version": 0.01,
-					"lastMigration": {
-						"version": {
-							"schema": 0.009,
-							"foundry": "12.316",
-							"system": "0.16.12"
-						}
-					}
-				}
-			},
-			"ownership": {
-				"default": 0
-			}
-		},
-		{
-			"_id": "ErMW6UPbSgWTS3PD",
-			"name": "Slowing Breath",
-			"type": "feature",
-			"img": "icons/svg/item-bag.svg",
-			"effects": [],
-			"folder": null,
-			"sort": 350000,
-			"flags": {},
-			"system": {
-				"ac": {
-					"baseFormula": "",
-					"formula": "",
-					"maxDex": 0,
-					"minStr": 0,
-					"mode": 1,
-					"requiresNoShield": false,
-					"requiresUnarmored": false
-				},
-				"actions": {
-					"8KGbRTe83XEr4tcw": {
+						"uses": {
+							"value": 0,
+							"max": "",
+							"per": "",
+							"recharge": {
+								"formula": "1d6",
+								"rechargeType": "custom",
+								"rechargeAmount": "1",
+								"threshold": 6
+							}
+						},
+						"duration": {
+							"unit": "instantaneous",
+							"value": ""
+						},
+						"ranges": {},
+						"area": {
+							"shape": "line",
+							"size": "90ft long, 10ft wide",
+							"placeTemplate": false,
+							"length": 90,
+							"width": 10,
+							"quantity": 1
+						},
+						"target": {
+							"quantity": 1,
+							"type": ""
+						},
+						"img": "icons/magic/acid/projectile-smoke-glowing.webp"
+					},
+					"pMGLhFm7rlNkcXT9": {
 						"name": "Slowing Breath",
 						"activation": {
 							"cost": 1,
 							"type": "action",
 							"reactionTrigger": ""
 						},
-						"duration": {
-							"unit": "minute",
-							"value": 1
-						},
-						"ranges": {},
-						"area": {
-							"shape": "cone",
-							"size": "90ft",
-							"placeTemplate": false,
-							"length": 90
-						},
-						"target": {
-							"quantity": 1,
-							"type": ""
-						},
+						"consumers": {},
+						"rolls": {},
 						"prompts": {
 							"HLuxV4rOMXfML8xo": {
 								"ability": "con",
@@ -390,20 +275,48 @@
 								"type": "savingThrow"
 							}
 						},
-						"consumers": {}
+						"uses": {
+							"value": 0,
+							"max": "",
+							"per": "",
+							"recharge": {
+								"formula": "1d6",
+								"rechargeType": "custom",
+								"rechargeAmount": "1",
+								"threshold": 6
+							}
+						},
+						"duration": {
+							"unit": "minute",
+							"value": 1
+						},
+						"ranges": {},
+						"area": {
+							"shape": "cone",
+							"size": "90ft",
+							"placeTemplate": false,
+							"length": 90,
+							"quantity": 1
+						},
+						"target": {
+							"quantity": 1,
+							"type": ""
+						},
+						"img": "icons/svg/item-bag.svg",
+						"description": "<p>The dragon exhales toxic gas in a 90-foot cone. Each creature in the area makes a DC 22 Constitution saving throw, becoming slowed for 1 minute on a failure. A creature repeats the saving throw at the end of each of its turns, ending the effect on itself on a success.</p>"
 					}
 				},
-				"description": "<p>The dragon exhales toxic gas in a 90-foot cone. Each creature in the area makes a DC 22 Constitution saving throw, becoming slowed for 1 minute on a failure. A creature repeats the saving throw at the end of each of its turns, ending the effect on itself on a success.</p>",
+				"description": "<p>The dragon uses one of the following breath weapons:</p><p><strong>Acid Breath.</strong> The dragon spits acid in a 90-foot-long, 10-foot-wide line. Each creature in the area makes a DC 22 Dexterity saving throw, taking 85 (19d8) acid damage on a failed save or half damage on a success. A creature that fails the save is blinded until the end of its next turn.</p><p><strong>Slowing Breath.</strong> The dragon exhales toxic gas in a 90-foot cone. Each creature in the area makes a DC 22 Constitution saving throw, becoming slowed for 1 minute on a failure. A creature repeats the saving throw at the end of each of its turns, ending the effect on itself on a success.</p>",
 				"favorite": true,
 				"secretDescription": "",
 				"source": "",
 				"uses": {
-					"value": null,
+					"value": 0,
 					"max": "",
-					"per": null,
+					"per": "recharge",
 					"recharge": {
 						"formula": "",
-						"threshold": ""
+						"threshold": 5
 					}
 				},
 				"schema": {
@@ -414,13 +327,14 @@
 				"featureType": "",
 				"grants": {},
 				"prerequisite": "",
+				"requiresBloodied": false,
 				"schemaVersion": {
-					"version": 0.01,
+					"version": 0.011,
 					"lastMigration": {
 						"version": {
-							"schema": 0.009,
-							"foundry": "12.316",
-							"system": "0.16.12"
+							"schema": 0.01,
+							"foundry": "11.315",
+							"system": "0.16.37"
 						}
 					}
 				}
@@ -474,13 +388,14 @@
 				"featureType": "",
 				"grants": {},
 				"prerequisite": "",
+				"requiresBloodied": false,
 				"schemaVersion": {
-					"version": 0.01,
+					"version": 0.011,
 					"lastMigration": {
 						"version": {
-							"schema": 0.009,
-							"foundry": "12.316",
-							"system": "0.16.12"
+							"schema": 0.01,
+							"foundry": "11.315",
+							"system": "0.16.37"
 						}
 					}
 				}
@@ -574,13 +489,14 @@
 				"featureType": "",
 				"grants": {},
 				"prerequisite": "",
+				"requiresBloodied": false,
 				"schemaVersion": {
-					"version": 0.01,
+					"version": 0.011,
 					"lastMigration": {
 						"version": {
-							"schema": 0.009,
-							"foundry": "12.316",
-							"system": "0.16.12"
+							"schema": 0.01,
+							"foundry": "11.315",
+							"system": "0.16.37"
 						}
 					}
 				}
@@ -661,13 +577,14 @@
 				"featureType": "",
 				"grants": {},
 				"prerequisite": "",
+				"requiresBloodied": false,
 				"schemaVersion": {
-					"version": 0.01,
+					"version": 0.011,
 					"lastMigration": {
 						"version": {
-							"schema": 0.009,
-							"foundry": "12.316",
-							"system": "0.16.12"
+							"schema": 0.01,
+							"foundry": "11.315",
+							"system": "0.16.37"
 						}
 					}
 				}
@@ -744,13 +661,14 @@
 				"featureType": "",
 				"grants": {},
 				"prerequisite": "",
+				"requiresBloodied": false,
 				"schemaVersion": {
-					"version": 0.01,
+					"version": 0.011,
 					"lastMigration": {
 						"version": {
-							"schema": 0.009,
-							"foundry": "12.316",
-							"system": "0.16.12"
+							"schema": 0.01,
+							"foundry": "11.315",
+							"system": "0.16.37"
 						}
 					}
 				}
@@ -848,13 +766,14 @@
 				"featureType": "",
 				"grants": {},
 				"prerequisite": "",
+				"requiresBloodied": false,
 				"schemaVersion": {
-					"version": 0.01,
+					"version": 0.011,
 					"lastMigration": {
 						"version": {
-							"schema": 0.009,
-							"foundry": "12.316",
-							"system": "0.16.12"
+							"schema": 0.01,
+							"foundry": "11.315",
+							"system": "0.16.37"
 						}
 					}
 				}
@@ -936,13 +855,14 @@
 				"featureType": "",
 				"grants": {},
 				"prerequisite": "",
+				"requiresBloodied": false,
 				"schemaVersion": {
-					"version": 0.01,
+					"version": 0.011,
 					"lastMigration": {
 						"version": {
-							"schema": 0.009,
-							"foundry": "12.316",
-							"system": "0.16.12"
+							"schema": 0.01,
+							"foundry": "11.315",
+							"system": "0.16.37"
 						}
 					}
 				}
@@ -1047,13 +967,14 @@
 				"featureType": "",
 				"grants": {},
 				"prerequisite": "",
+				"requiresBloodied": false,
 				"schemaVersion": {
-					"version": 0.01,
+					"version": 0.011,
 					"lastMigration": {
 						"version": {
-							"schema": 0.009,
-							"foundry": "12.316",
-							"system": "0.16.12"
+							"schema": 0.01,
+							"foundry": "11.315",
+							"system": "0.16.37"
 						}
 					}
 				}
@@ -1144,13 +1065,14 @@
 				"featureType": "",
 				"grants": {},
 				"prerequisite": "",
+				"requiresBloodied": false,
 				"schemaVersion": {
-					"version": 0.01,
+					"version": 0.011,
 					"lastMigration": {
 						"version": {
-							"schema": 0.009,
-							"foundry": "12.316",
-							"system": "0.16.12"
+							"schema": 0.01,
+							"foundry": "11.315",
+							"system": "0.16.37"
 						}
 					}
 				}
@@ -1241,13 +1163,14 @@
 				"featureType": "",
 				"grants": {},
 				"prerequisite": "",
+				"requiresBloodied": false,
 				"schemaVersion": {
-					"version": 0.01,
+					"version": 0.011,
 					"lastMigration": {
 						"version": {
-							"schema": 0.009,
-							"foundry": "12.316",
-							"system": "0.16.12"
+							"schema": 0.01,
+							"foundry": "11.315",
+							"system": "0.16.37"
 						}
 					}
 				}
@@ -1301,13 +1224,14 @@
 				"featureType": "",
 				"grants": {},
 				"prerequisite": "",
+				"requiresBloodied": false,
 				"schemaVersion": {
-					"version": 0.01,
+					"version": 0.011,
 					"lastMigration": {
 						"version": {
-							"schema": 0.009,
-							"foundry": "12.316",
-							"system": "0.16.12"
+							"schema": 0.01,
+							"foundry": "11.315",
+							"system": "0.16.37"
 						}
 					}
 				}
@@ -1385,13 +1309,14 @@
 				"featureType": "",
 				"grants": {},
 				"prerequisite": "",
+				"requiresBloodied": false,
 				"schemaVersion": {
-					"version": 0.01,
+					"version": 0.011,
 					"lastMigration": {
 						"version": {
-							"schema": 0.009,
-							"foundry": "12.316",
-							"system": "0.16.12"
+							"schema": 0.01,
+							"foundry": "11.315",
+							"system": "0.16.37"
 						}
 					}
 				}
@@ -1514,12 +1439,12 @@
 				"weight": 2,
 				"broken": false,
 				"schemaVersion": {
-					"version": 0.01,
+					"version": 0.011,
 					"lastMigration": {
 						"version": {
-							"schema": 0.009,
-							"foundry": "12.316",
-							"system": "0.16.12"
+							"schema": 0.01,
+							"foundry": "11.315",
+							"system": "0.16.37"
 						}
 					}
 				}
@@ -1607,18 +1532,19 @@
 					"version": null,
 					"lastMigration": null
 				},
+				"concentration": false,
 				"degree": 0,
 				"exertionCost": 0,
 				"isStance": false,
 				"prerequisite": "",
 				"tradition": "",
 				"schemaVersion": {
-					"version": 0.01,
+					"version": 0.011,
 					"lastMigration": {
 						"version": {
-							"schema": 0.009,
-							"foundry": "12.316",
-							"system": "0.16.12"
+							"schema": 0.01,
+							"foundry": "11.315",
+							"system": "0.16.37"
 						}
 					}
 				}
@@ -1709,18 +1635,19 @@
 					"version": null,
 					"lastMigration": null
 				},
+				"concentration": false,
 				"degree": 0,
 				"exertionCost": 0,
 				"isStance": false,
 				"prerequisite": "",
 				"tradition": "",
 				"schemaVersion": {
-					"version": 0.01,
+					"version": 0.011,
 					"lastMigration": {
 						"version": {
-							"schema": 0.009,
-							"foundry": "12.316",
-							"system": "0.16.12"
+							"schema": 0.01,
+							"foundry": "11.315",
+							"system": "0.16.37"
 						}
 					}
 				}
@@ -1802,18 +1729,19 @@
 					"version": null,
 					"lastMigration": null
 				},
+				"concentration": false,
 				"degree": 0,
 				"exertionCost": 0,
 				"isStance": false,
 				"prerequisite": "",
 				"tradition": "",
 				"schemaVersion": {
-					"version": 0.01,
+					"version": 0.011,
 					"lastMigration": {
 						"version": {
-							"schema": 0.009,
-							"foundry": "12.316",
-							"system": "0.16.12"
+							"schema": 0.01,
+							"foundry": "11.315",
+							"system": "0.16.37"
 						}
 					}
 				}
@@ -1895,18 +1823,19 @@
 					"version": null,
 					"lastMigration": null
 				},
+				"concentration": false,
 				"degree": 0,
 				"exertionCost": 0,
 				"isStance": false,
 				"prerequisite": "",
 				"tradition": "",
 				"schemaVersion": {
-					"version": 0.01,
+					"version": 0.011,
 					"lastMigration": {
 						"version": {
-							"schema": 0.009,
-							"foundry": "12.316",
-							"system": "0.16.12"
+							"schema": 0.01,
+							"foundry": "11.315",
+							"system": "0.16.37"
 						}
 					}
 				}
@@ -1988,18 +1917,19 @@
 					"version": null,
 					"lastMigration": null
 				},
+				"concentration": false,
 				"degree": 0,
 				"exertionCost": 0,
 				"isStance": false,
 				"prerequisite": "",
 				"tradition": "",
 				"schemaVersion": {
-					"version": 0.01,
+					"version": 0.011,
 					"lastMigration": {
 						"version": {
-							"schema": 0.009,
-							"foundry": "12.316",
-							"system": "0.16.12"
+							"schema": 0.01,
+							"foundry": "11.315",
+							"system": "0.16.37"
 						}
 					}
 				}
@@ -2081,18 +2011,19 @@
 					"version": null,
 					"lastMigration": null
 				},
+				"concentration": false,
 				"degree": 0,
 				"exertionCost": 0,
 				"isStance": false,
 				"prerequisite": "",
 				"tradition": "",
 				"schemaVersion": {
-					"version": 0.01,
+					"version": 0.011,
 					"lastMigration": {
 						"version": {
-							"schema": 0.009,
-							"foundry": "12.316",
-							"system": "0.16.12"
+							"schema": 0.01,
+							"foundry": "11.315",
+							"system": "0.16.37"
 						}
 					}
 				}
@@ -2103,12 +2034,691 @@
 			"folder": null,
 			"sort": 0,
 			"_id": "AgfZwfFySnnq7FFa"
+		},
+		{
+			"name": "Innate Spellcasting",
+			"type": "feature",
+			"system": {
+				"ac": {
+					"baseFormula": "",
+					"formula": "",
+					"maxDex": 0,
+					"minStr": 0,
+					"mode": 2,
+					"requiresNoShield": false,
+					"requiresUnarmored": false
+				},
+				"actions": {},
+				"description": "<p>The dragon&rsquo;s spellcasting ability is Charisma (save DC 19). It can innately cast the following spells, requiring no material components.&nbsp;</p>\n<p><strong>3/day each:</strong>&nbsp;<em>hideous laughter, suggestion, mislead, polymorph</em></p>\n<p><em><strong>1/day each:</strong>&nbsp;irrestiable dance, mass suggestion</em></p>",
+				"favorite": false,
+				"secretDescription": "",
+				"source": {
+					"name": "",
+					"link": "",
+					"publisher": ""
+				},
+				"uses": {
+					"value": null,
+					"max": "",
+					"per": null,
+					"recharge": {
+						"formula": "1d6",
+						"threshold": "6"
+					}
+				},
+				"schema": {
+					"version": null,
+					"lastMigration": null
+				},
+				"concentration": false,
+				"featureType": "other",
+				"grants": {},
+				"prerequisite": "",
+				"requiresBloodied": false,
+				"schemaVersion": {
+					"version": 0.011,
+					"lastMigration": {
+						"version": {
+							"schema": null,
+							"foundry": "11.315",
+							"system": "0.16.37"
+						}
+					}
+				}
+			},
+			"_id": "TZ9dUDOxzoukneLm",
+			"img": "icons/svg/item-bag.svg",
+			"effects": [],
+			"folder": null,
+			"sort": 0,
+			"ownership": {
+				"default": 0
+			},
+			"flags": {}
+		},
+		{
+			"name": "Suggestion",
+			"type": "spell",
+			"img": "icons/magic/control/hypnosis-mesmerism-pendulum.webp",
+			"effects": [],
+			"flags": {},
+			"system": {
+				"actions": {
+					"HAVBAuWUd77vIkT2": {
+						"name": "Suggestion (2nd-level)",
+						"activation": {
+							"cost": 1,
+							"type": "action",
+							"reactionTrigger": ""
+						},
+						"duration": {
+							"unit": "hour",
+							"value": "8"
+						},
+						"ranges": {
+							"R8AfmhfWgZcrAOnB": {
+								"range": "short"
+							}
+						},
+						"area": {
+							"shape": "",
+							"size": "",
+							"placeTemplate": false,
+							"quantity": 1
+						},
+						"target": {
+							"quantity": "",
+							"type": "creature"
+						},
+						"prompts": {
+							"iZ04XZe1LejKYG9l": {
+								"ability": "wis",
+								"onSave": "Negates effect",
+								"saveDC": {
+									"type": "spellcasting",
+									"bonus": ""
+								},
+								"type": "savingThrow"
+							}
+						},
+						"consumers": {},
+						"uses": {
+							"value": 3,
+							"max": "3",
+							"per": "day"
+						}
+					}
+				},
+				"description": "<p>Creatures that cannot be charmed are immune to this spell. Suggest an activity phrased in a sentence or two. The target is magically influenced to follow that course of activity. The suggestion must be worded to sound reasonable. Asking the target to perform an action that is obviously harmful to it ends the spell.</p><p>The target carries out the activity suggested by you as well as it can. The activity can last for the duration of the spell, and if it requires less time the spell ends after the target has carried out the activity.</p><p>You may specify trigger conditions that cause the target to perform a specific activity while the spell lasts. For example, you may suggest that the target takes off its clothes and dives the next time it sees a body of water. If the target does not see a body of water before the spell ends, the specific activity isn't performed.</p><p>Any damage done to the target by you or an ally ends the spell for that creature.</p><p><strong><em>Cast at Higher Levels.</em></strong> When using a 4th-level spell slot, the duration is concentration, up to 24 hours. When using a 5th-level spell slot, the duration is 7 days. When using a 7th-level spell slot, the duration is 1 year. When using a 9th-level spell slot, the suggestion lasts until it is dispelled.</p><p>Any use of a 5th-level or higher spell slot grants a duration that doesn't require concentration.</p>",
+				"favorite": false,
+				"secretDescription": "",
+				"source": "",
+				"uses": {
+					"value": null,
+					"max": "",
+					"per": null,
+					"recharge": {
+						"formula": "",
+						"threshold": ""
+					}
+				},
+				"schema": {
+					"version": null,
+					"lastMigration": null
+				},
+				"classes": [
+					"bard",
+					"sorcerer",
+					"warlock",
+					"wielder",
+					"witch",
+					"wizard"
+				],
+				"components": {
+					"vocalized": true,
+					"seen": false,
+					"material": true
+				},
+				"concentration": true,
+				"level": 2,
+				"materials": "miniature bottle of red wine and some soap",
+				"materialsConsumed": false,
+				"prepared": 2,
+				"prerequisite": "",
+				"rare": false,
+				"ritual": false,
+				"schools": {
+					"primary": "enchantment",
+					"secondary": [
+						"arcane",
+						"compulsion"
+					]
+				},
+				"schemaVersion": {
+					"version": 0.011,
+					"lastMigration": {
+						"version": {
+							"schema": 0.01,
+							"foundry": "11.315",
+							"system": "0.16.37"
+						}
+					}
+				}
+			},
+			"folder": null,
+			"_id": "rtWLWG5dbN5PlJtj",
+			"sort": 0,
+			"ownership": {
+				"default": 0
+			}
+		},
+		{
+			"name": "Polymorph",
+			"type": "spell",
+			"img": "icons/magic/nature/symbol-moon-stars-white.webp",
+			"effects": [],
+			"flags": {},
+			"system": {
+				"actions": {
+					"V5f9I7U91YA1L8XU": {
+						"name": "Polymorph",
+						"activation": {
+							"cost": 1,
+							"type": "action",
+							"reactionTrigger": ""
+						},
+						"duration": {
+							"unit": "hour",
+							"value": "1"
+						},
+						"ranges": {
+							"9fpVoXabfdjZD1de": {
+								"range": "medium"
+							}
+						},
+						"area": {
+							"shape": "",
+							"size": "",
+							"placeTemplate": false
+						},
+						"target": {
+							"quantity": "",
+							"type": "creature"
+						},
+						"prompts": {
+							"ja7HMh8mtrZHfQOc": {
+								"ability": "wis",
+								"onSave": "Negates effect",
+								"saveDC": {
+									"type": "spellcasting",
+									"bonus": ""
+								},
+								"type": "savingThrow"
+							}
+						},
+						"consumers": {},
+						"uses": {
+							"per": "day",
+							"value": 3,
+							"max": "3"
+						}
+					}
+				},
+				"description": "<p>The target's body is transformed into a beast with a Challenge Rating equal to or less than its own. If the target doesn't have a Challenge Rating, use its level.</p><p>Until the spell ends or it is dropped to 0 hit points, the target's game statistics (including its hit points and mental ability scores) are replaced by the statistics of the chosen beast. The target is limited to actions that it is physically capable of doing, and it can't speak or cast spells. The target's gear melds into the new form. Equipment that merges with a target's form has no effect until it leaves the form.</p><p>When the target reverts to its normal form, it returns to the number of hit points it had before it transformed. If the spell's effects on the target end early from dropping to 0 hit points, any excess damage carries over to its normal form and knocks it unconscious if the damage reduces it to 0 hit points.</p>",
+				"favorite": false,
+				"secretDescription": "",
+				"source": "",
+				"uses": {
+					"value": null,
+					"max": "",
+					"per": null,
+					"recharge": {
+						"formula": "",
+						"threshold": ""
+					}
+				},
+				"schema": {
+					"version": null,
+					"lastMigration": null
+				},
+				"classes": [
+					"artificer",
+					"bard",
+					"druid",
+					"sorcerer",
+					"witch",
+					"wizard"
+				],
+				"components": {
+					"vocalized": true,
+					"seen": true,
+					"material": true
+				},
+				"concentration": true,
+				"level": 4,
+				"materials": "cocoon",
+				"materialsConsumed": false,
+				"prepared": 2,
+				"prerequisite": "",
+				"rare": false,
+				"ritual": false,
+				"schools": {
+					"primary": "transmutation",
+					"secondary": [
+						"affliction",
+						"arcane",
+						"beasts",
+						"nature",
+						"shapechanging",
+						"transformation"
+					]
+				},
+				"schemaVersion": {
+					"version": 0.011,
+					"lastMigration": {
+						"version": {
+							"schema": 0.01,
+							"foundry": "11.315",
+							"system": "0.16.37"
+						}
+					}
+				}
+			},
+			"folder": null,
+			"_id": "3bveP8R7of0FChzN",
+			"sort": 0,
+			"ownership": {
+				"default": 0
+			}
+		},
+		{
+			"name": "Mislead",
+			"type": "spell",
+			"img": "icons/magic/light/explosion-star-glow-silhouette.webp",
+			"effects": [],
+			"flags": {},
+			"system": {
+				"actions": {
+					"XwzCIligMbTppQeP": {
+						"name": "Mislead",
+						"activation": {
+							"cost": 1,
+							"type": "action",
+							"reactionTrigger": ""
+						},
+						"duration": {
+							"unit": "hour",
+							"value": "1"
+						},
+						"ranges": {
+							"yPf6fuuXnKuJg3dU": {
+								"range": "self"
+							}
+						},
+						"area": {
+							"shape": "",
+							"size": "",
+							"placeTemplate": false
+						},
+						"target": {
+							"quantity": "",
+							"type": "self"
+						},
+						"consumers": {},
+						"uses": {
+							"value": 3,
+							"max": "3",
+							"per": "day"
+						}
+					}
+				},
+				"description": "<p>You become invisible. At the same time, an illusory copy of you appears where you're standing.</p><p>This invisibility ends when you cast a spell but the copy lasts until the spell ends.</p><p>You can use an action to move your copy up to twice your Speed, have it speak, make gestures, or behave however you'd like.</p><p>You may see and hear through your copy. Until the spell ends, you can use a bonus action to switch between your copy's senses and your own, or back again. While using your copy's senses you are blind and deaf to your body's surroundings.</p><p>The copy is revealed as an illusion with any physical interaction, as solid objects and creatures pass through it.</p>",
+				"favorite": false,
+				"secretDescription": "",
+				"source": "",
+				"uses": {
+					"value": null,
+					"max": "",
+					"per": null,
+					"recharge": {
+						"formula": "",
+						"threshold": ""
+					}
+				},
+				"schema": {
+					"version": null,
+					"lastMigration": null
+				},
+				"classes": [
+					"bard",
+					"wizard"
+				],
+				"components": {
+					"vocalized": false,
+					"seen": true,
+					"material": false
+				},
+				"concentration": true,
+				"level": 5,
+				"materials": "",
+				"materialsConsumed": false,
+				"prepared": 2,
+				"prerequisite": "",
+				"rare": false,
+				"ritual": false,
+				"schools": {
+					"primary": "illusion",
+					"secondary": [
+						"arcane",
+						"chaos",
+						"obscurement",
+						"transformation"
+					]
+				},
+				"schemaVersion": {
+					"version": 0.011,
+					"lastMigration": {
+						"version": {
+							"schema": 0.01,
+							"foundry": "11.315",
+							"system": "0.16.37"
+						}
+					}
+				}
+			},
+			"folder": null,
+			"_id": "6MtNsiX1DCVDvBXb",
+			"sort": 0,
+			"ownership": {
+				"default": 0
+			}
+		},
+		{
+			"name": "Irresistible Dance",
+			"type": "spell",
+			"img": "icons/skills/trades/music-notes-sound-blue.webp",
+			"effects": [
+				{
+					"icon": "icons/skills/trades/music-notes-sound-blue.webp",
+					"origin": "Actor.T681zgFJunURfey4.Item.8KDrpFhILYBkr61B",
+					"flags": {
+						"a5e": {
+							"sort": 0,
+							"transferType": "onUse",
+							"actionId": "ymYutl44wa5JBERC",
+							"duration": {
+								"unit": "minutes"
+							}
+						}
+					},
+					"transfer": false,
+					"name": "Irresistible Dance",
+					"_id": "T0e2N19TSqmvLOQi",
+					"changes": [
+						{
+							"key": "flags.a5e.effects.rollMode.attack.all",
+							"value": "-1",
+							"mode": 6,
+							"priority": null
+						},
+						{
+							"key": "flags.a5e.effects.rollMode.abilitySave.all",
+							"value": "-1",
+							"mode": 6,
+							"priority": null
+						}
+					],
+					"disabled": false,
+					"duration": {
+						"startTime": null,
+						"seconds": 60,
+						"combat": null,
+						"rounds": null,
+						"turns": null,
+						"startRound": null,
+						"startTurn": null
+					},
+					"description": "<p>At the start of each of its turns, the dancing target must use all of its movement to dance in its space, and it has disadvantage on attack rolls and saving throws. Attacks made against the target have advantage. On each of its turns, the target can use an action to repeat the saving throw, ending the spell on a successful save.</p>",
+					"statuses": [],
+					"tint": "#ffffff",
+					"folder": null
+				}
+			],
+			"flags": {},
+			"system": {
+				"actions": {
+					"ymYutl44wa5JBERC": {
+						"name": "Irresistible Dance",
+						"activation": {
+							"cost": 1,
+							"type": "action",
+							"reactionTrigger": ""
+						},
+						"duration": {
+							"unit": "minute",
+							"value": "1"
+						},
+						"ranges": {
+							"AlpEuWazjYW3uorr": {
+								"range": "short"
+							}
+						},
+						"area": {
+							"shape": "",
+							"size": "",
+							"placeTemplate": false
+						},
+						"target": {
+							"quantity": 1,
+							"type": "creature",
+							"scaling": {
+								"mode": "spellLevel",
+								"formula": "1"
+							}
+						},
+						"prompts": {
+							"Es6RbSo2QvYTdQRU": {
+								"ability": "wis",
+								"onSave": "Negates effect",
+								"saveDC": {
+									"type": "spellcasting",
+									"bonus": ""
+								},
+								"type": "savingThrow"
+							},
+							"9TUCL0ALEGHosxFt": {
+								"type": "effect",
+								"default": true,
+								"effectId": "T0e2N19TSqmvLOQi"
+							}
+						},
+						"consumers": {},
+						"uses": {
+							"value": 1,
+							"max": "1",
+							"per": "day"
+						}
+					}
+				},
+				"description": "<p>You murmur a tune that takes root in the target's mind until the spell ends, forcing it to caper, dance, and shuffle. At the start of each of its turns, the dancing target must use all of its movement to dance in its space, and it has disadvantage on attack rolls and saving throws. Attacks made against the target have advantage. On each of its turns, the target can use an action to repeat the saving throw, ending the spell on a successful save.</p><p><strong><em>Cast at Higher Levels.</em></strong> Target one additional creature within 30 feet for each slot level above 6th.</p>",
+				"favorite": false,
+				"secretDescription": "",
+				"source": "",
+				"uses": {
+					"value": null,
+					"max": "",
+					"per": null,
+					"recharge": {
+						"formula": "",
+						"threshold": ""
+					}
+				},
+				"schema": {
+					"version": null,
+					"lastMigration": null
+				},
+				"classes": [
+					"bard",
+					"wizard"
+				],
+				"components": {
+					"vocalized": true,
+					"seen": false,
+					"material": false
+				},
+				"concentration": true,
+				"level": 6,
+				"materials": "",
+				"materialsConsumed": false,
+				"prepared": 2,
+				"prerequisite": "",
+				"rare": false,
+				"ritual": false,
+				"schools": {
+					"primary": "enchantment",
+					"secondary": [
+						"arcane",
+						"compulsion"
+					]
+				},
+				"schemaVersion": {
+					"version": 0.011,
+					"lastMigration": {
+						"version": {
+							"schema": 0.01,
+							"foundry": "11.315",
+							"system": "0.16.37"
+						}
+					}
+				}
+			},
+			"folder": null,
+			"_id": "8KDrpFhILYBkr61B",
+			"sort": 0,
+			"ownership": {
+				"default": 0
+			}
+		},
+		{
+			"name": "Mass Suggestion",
+			"type": "spell",
+			"img": "icons/magic/control/hypnosis-mesmerism-eye.webp",
+			"effects": [],
+			"flags": {},
+			"system": {
+				"actions": {
+					"BhayaPzBIsRNZ7xY": {
+						"name": "Mass Suggestion",
+						"activation": {
+							"cost": 1,
+							"type": "action",
+							"reactionTrigger": ""
+						},
+						"duration": {
+							"unit": "hour",
+							"value": "24"
+						},
+						"ranges": {
+							"zoFV80PTj3vJHoK5": {
+								"range": "medium"
+							}
+						},
+						"area": {
+							"shape": "",
+							"size": "",
+							"placeTemplate": false
+						},
+						"target": {
+							"quantity": "",
+							"type": "creature"
+						},
+						"prompts": {
+							"p3dXxpsmMDZNfcz1": {
+								"ability": "wis",
+								"onSave": "Negates effect",
+								"saveDC": {
+									"type": "spellcasting",
+									"bonus": ""
+								},
+								"type": "savingThrow"
+							}
+						},
+						"consumers": {},
+						"uses": {
+							"value": 1,
+							"max": "1",
+							"per": "day"
+						}
+					}
+				},
+				"description": "<p>Creatures that cannot be charmed are immune to this spell. Suggest an activity phrased in a sentence or two. The targets are magically influenced to follow that course of activity. The suggestion must be worded to sound reasonable. Asking the targets to perform an action that is obviously harmful to them ends the spell.</p><p>A target carries out the activity suggested by you as well as it can. The activity can last for the duration of the spell, and if it requires less time the spell ends after a target has carried out the activity.</p><p>You may specify trigger conditions that cause a target to perform a specific activity while the spell lasts. For example, you may suggest that the target takes off its clothes and dives the next time it sees a body of water. If the target does not see a body of water before the spell ends, the specific activity isn't performed.</p><p>Any damage done to a target by you or an ally ends the spell for that creature.</p><p><strong><em>Cast at Higher Levels.</em></strong> When cast using a 7th-level spell slot, the duration of the spell increases to 10 days. When cast using an 8th-level spell slot, the duration increases to 30 days. When cast using a 9th-level spell slot, the duration increases to a year and a day.</p>",
+				"favorite": false,
+				"secretDescription": "",
+				"source": "",
+				"uses": {
+					"value": null,
+					"max": "",
+					"per": null,
+					"recharge": {
+						"formula": "",
+						"threshold": ""
+					}
+				},
+				"schema": {
+					"version": null,
+					"lastMigration": null
+				},
+				"classes": [
+					"bard",
+					"sorcerer",
+					"warlock",
+					"witch",
+					"wizard"
+				],
+				"components": {
+					"vocalized": true,
+					"seen": false,
+					"material": true
+				},
+				"concentration": false,
+				"level": 6,
+				"materials": "miniature bottle of wine and some soap",
+				"materialsConsumed": false,
+				"prepared": 2,
+				"prerequisite": "",
+				"rare": false,
+				"ritual": false,
+				"schools": {
+					"primary": "enchantment",
+					"secondary": [
+						"arcane",
+						"chaos",
+						"compulsion"
+					]
+				},
+				"schemaVersion": {
+					"version": 0.011,
+					"lastMigration": {
+						"version": {
+							"schema": 0.01,
+							"foundry": "11.315",
+							"system": "0.16.37"
+						}
+					}
+				}
+			},
+			"folder": null,
+			"_id": "d0fFhuysSjCVgZx9",
+			"sort": 0,
+			"ownership": {
+				"default": 0
+			}
 		}
 	],
 	"effects": [],
 	"flags": {
 		"a5e": {
-			"sheetIsLocked": true,
+			"sheetIsLocked": false,
 			"availableSpellLevels": [],
 			"showSpellSlots": false,
 			"showSpellPoints": false
@@ -2202,12 +2812,12 @@
 			}
 		},
 		"schemaVersion": {
-			"version": 0.01,
+			"version": 0.011,
 			"lastMigration": {
 				"version": {
-					"schema": 0.006,
-					"foundry": "11.307",
-					"system": "0.15.0"
+					"schema": 0.01,
+					"foundry": "11.315",
+					"system": "0.16.37"
 				}
 			}
 		},
@@ -2539,6 +3149,7 @@
 				}
 			},
 			"initiative": {
+				"ability": "dex",
 				"bonus": "",
 				"expertiseDice": 0
 			},
@@ -2593,16 +3204,17 @@
 			"casterLevel": 0
 		},
 		"bonuses": {
-			"abilities": {},
-			"damage": {},
-			"healing": {},
 			"maneuverDC": "",
 			"meleeSpellAttack": "",
 			"meleeWeaponAttack": "",
 			"rangedSpellAttack": "",
 			"rangedWeaponAttack": "",
 			"spellDC": "",
-			"skills": {}
+			"abilities": {},
+			"damage": {},
+			"healing": {},
+			"skills": {},
+			"attacks": {}
 		},
 		"currency": {
 			"pp": 0,
@@ -2620,7 +3232,8 @@
 			"cr": 23,
 			"elite": false,
 			"privateNotes": "",
-			"notes": ""
+			"notes": "",
+			"terrain": []
 		},
 		"proficiencies": {
 			"armor": [],
@@ -2742,11 +3355,7 @@
 			"scaleY": 1,
 			"offsetX": 0,
 			"offsetY": 0,
-			"rotation": 0,
-			"anchorX": 0.5,
-			"anchorY": 0.5,
-			"fit": "contain",
-			"alphaThreshold": 0.75
+			"rotation": 0
 		},
 		"sight": {
 			"angle": 360,
@@ -2761,12 +3370,7 @@
 		},
 		"detectionModes": [],
 		"appendNumber": false,
-		"prependAdjective": false,
-		"hexagonalShape": 0,
-		"locked": false,
-		"occludable": {
-			"radius": 0
-		}
+		"prependAdjective": false
 	},
 	"folder": null,
 	"_id": "b5k9k59o5wt9n9am"

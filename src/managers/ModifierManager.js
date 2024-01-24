@@ -29,7 +29,6 @@ export default class ModifierManager {
     return [
       this.#getAbilityModifier(),
       this.#getAbilityCheckBonus(),
-      // this.#getGlobalAbilityCheckBonus(),
       this.#getExpertiseDice(),
       this.#getSituationalModifiers()
     ];
@@ -58,7 +57,6 @@ export default class ModifierManager {
       this.#getAbilitySaveModifier(),
       this.#getAbilitySaveBonus(),
       this.#getConcentrationBonus(),
-      // this.#getGlobalSavingThrowBonus(),
       this.#getExpertiseDice(),
       this.#getSituationalModifiers()
     ];
@@ -70,8 +68,6 @@ export default class ModifierManager {
       this.#getAbilityModifier(),
       this.#getSkillCheckBonus(),
       this.#getAbilityCheckBonus(),
-      // this.#getGlobalSkillCheckBonus(),
-      // this.#getGlobalAbilityCheckBonus(),
       this.#getExpertiseDice(),
       this.#getSituationalModifiers()
     ];
@@ -170,57 +166,34 @@ export default class ModifierManager {
     };
   }
 
-  #getGlobalAbilityCheckBonus() {
-    return {
-      label: localize('A5E.AbilityCheckBonusGlobal'),
-      value: this.actor.system.bonuses.abilities.check.trim()
-    };
-  }
-
   #getGlobalAttackBonus() {
-    const { bonuses } = this.actor.system;
+    const { BonusesManager } = this.actor;
+    const { item } = this.rollData;
 
     switch (this.rollData.attackType) {
       case 'meleeSpellAttack':
         return {
           label: localize('A5E.BonusMeleeSpellAttack'),
-          value: bonuses.meleeSpellAttack
+          value: BonusesManager.getAttackBonusFormula(item, 'meleeSpellAttack')
         };
       case 'meleeWeaponAttack':
         return {
           label: localize('A5E.BonusMeleeWeaponAttack'),
-          value: bonuses.meleeWeaponAttack
+          value: BonusesManager.getAttackBonusFormula(item, 'meleeWeaponAttack')
         };
       case 'rangedSpellAttack':
         return {
           label: localize('A5E.BonusRangedSpellAttack'),
-          value: bonuses.rangedSpellAttack
+          value: BonusesManager.getAttackBonusFormula(item, 'rangedSpellAttack')
         };
       case 'rangedWeaponAttack':
         return {
           label: localize('A5E.BonusRangedWeaponAttack'),
-          value: bonuses.rangedWeaponAttack
+          value: BonusesManager.getAttackBonusFormula(item, 'rangedWeaponAttack')
         };
       default:
         return null;
     }
-  }
-
-  #getGlobalSavingThrowBonus() {
-    return {
-      label: localize('A5E.SavingThrowBonusGlobal'),
-      value: this.actor.system.bonuses.abilities.save.trim()
-    };
-  }
-
-  #getGlobalSkillCheckBonus() {
-    // This is to prevent initiative bonuses including skill bonuses when no skill is selected.
-    if (!this.rollData.skill) return null;
-
-    return {
-      label: localize('A5E.SkillCheckBonusGlobal'),
-      value: this.actor.system.bonuses.abilities.skill.trim()
-    };
   }
 
   #getInitiativeBonus() {

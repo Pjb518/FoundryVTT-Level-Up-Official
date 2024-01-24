@@ -9,11 +9,11 @@
         const [dragEvent] = event.detail;
         try {
             const { uuid } = JSON.parse(
-                dragEvent.dataTransfer.getData("text/plain")
+                dragEvent.dataTransfer.getData("text/plain"),
             );
             const child = await fromUuid(uuid);
             if (!child) return;
-            await $item.items.add(uuid, { optional: true });
+            await $item.containerItems.add(uuid, { optional: true });
 
             const actor =
                 $item?.parent?.documentName === "Actor" ? $item.parent : null;
@@ -46,6 +46,7 @@
         <DropArea
             {uuids}
             attribute="items"
+            topLevelAttribute="containerItems"
             on:item-dropped={updateEquipment}
             on:item-deleted={deleteEquipment}
         />

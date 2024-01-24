@@ -185,6 +185,22 @@ export default class ActionsManager extends DataProxy {
     }, data);
 
     const id = foundry.utils.randomID();
+
+    // Add Consumers
+    let consumer = null;
+    if (item.system.uses?.max) consumer = await this.addConsumer(item, [id, newAction], 'itemUses', {}, false);
+    if (item.type === 'spell') consumer = await this.addConsumer(item, [id, newAction], 'spell', {}, false);
+    else if (item.type === 'maneuver') {
+      consumer = await this.addConsumer(item, [id, newAction], 'resource', { resource: 'exertion' }, false);
+    }
+
+    if (consumer) {
+      newAction.consumers = {
+        ...newAction.consumers,
+        ...(Object.values(consumer)[0])
+      };
+    }
+
     const updateData = {
       'system.actions': {
         ...item.system.actions,

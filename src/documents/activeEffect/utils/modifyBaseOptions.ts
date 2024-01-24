@@ -60,9 +60,15 @@ export default function modifyBaseOptions(options: Object) {
 
   // Bonuses
   options['flags.a5e.effects.bonuses.abilities'] = [{}, MODES.CUSTOM_ONLY, null, 'ABILITY_BONUS'];
+  options['flags.a5e.effects.bonuses.attacks'] = [{}, MODES.CUSTOM_ONLY, null, 'ATTACK_BONUS'];
   options['flags.a5e.effects.bonuses.damage'] = [{}, MODES.CUSTOM_ONLY, null, 'DAMAGE_BONUS'];
   options['flags.a5e.effects.bonuses.healing'] = [{}, MODES.CUSTOM_ONLY, null, 'HEALING_BONUS'];
   options['flags.a5e.effects.bonuses.skills'] = [{}, MODES.CUSTOM_ONLY, null, 'SKILL_BONUS'];
+
+  delete options['system.bonuses.meleeWeaponAttack'];
+  delete options['system.bonuses.rangedWeaponAttack'];
+  delete options['system.bonuses.meleeSpellAttack'];
+  delete options['system.bonuses.rangedSpellAttack'];
 
   // Delete derived values
   Object.keys(CONFIG.A5E.abilities).forEach((a) => {

@@ -119,6 +119,10 @@
                   : "spellPoint";
     }
 
+    if ($item.system?.level === null || $item.system?.level === undefined) {
+        spellData.consume = "noConsume";
+    }
+
     if (spellData.consume === "spellSlot") disableSpellSlotOptions();
     else if (spellData.consume === "noConsume") disableBaseSlotOptions();
     else disableSpellPointOptions();
@@ -128,7 +132,7 @@
     <!-- Select spell Level -->
     <RadioGroup
         heading={spellData.consume === "spellPoint"
-            ? `${localize("A5E.SpellLevel")} ($${spellData.points} Points)`
+            ? `${localize("A5E.SpellLevel")} (${spellData.points} Points)`
             : localize("A5E.SpellLevel")}
         selected={spellData.level}
         options={spellLevels}

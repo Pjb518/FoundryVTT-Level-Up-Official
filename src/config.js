@@ -521,6 +521,7 @@ A5E.maneuverTraditions = {
   awakenedMind: 'A5E.maneuverTraditions.awakenedMind',
   beastUnity: 'A5E.maneuverTraditions.beastUnity',
   bitingZephyr: 'A5E.maneuverTraditions.bitingZephyr',
+  comedicJabs: 'A5E.maneuverTraditions.comedicJabs',
   cuttingOmen: 'A5E.maneuverTraditions.cuttingOmen',
   eldritchBlackguard: 'A5E.maneuverTraditions.eldritchBlackguard',
   gallantHeart: 'A5E.maneuverTraditions.gallantHeart',
@@ -530,6 +531,7 @@ A5E.maneuverTraditions = {
   rapidCurrent: 'A5E.maneuverTraditions.rapidCurrent',
   razorsEdge: 'A5E.maneuverTraditions.razorsEdge',
   sanguineKnot: 'A5E.maneuverTraditions.sanguineKnot',
+  selflessSentinel: 'A5E.maneuverTraditions.selflessSentinel',
   spiritedSteed: 'A5E.maneuverTraditions.spiritedSteed',
   temperedIron: 'A5E.maneuverTraditions.temperedIron',
   toothAndClaw: 'A5E.maneuverTraditions.toothAndClaw',
@@ -887,6 +889,7 @@ A5E.spellSchools = {
     force: 'A5E.SpellSchoolForce',
     good: 'A5E.SpellSchoolGood',
     healing: 'A5E.SpellSchoolHealing',
+    hearth: 'A5E.SpellSchoolHearth',
     knowledge: 'A5E.SpellSchoolKnowledge',
     law: 'A5E.SpellSchoolLaw',
     lightning: 'A5E.SpellSchoolLightning',
@@ -1123,6 +1126,36 @@ A5E.targetTypesPlural = {
   object: 'A5E.TargetObjectPlural',
   creatureObject: 'A5E.TargetCreatureObjectPlural',
   other: 'A5E.TargetOther'
+};
+
+A5E.terrainTypes = {
+  abyss: 'A5E.terrainTypes.abyss',
+  astralPlane: 'A5E.terrainTypes.astralPlane',
+  caverns: 'A5E.terrainTypes.caverns',
+  desert: 'A5E.terrainTypes.desert',
+  etherealPlane: 'A5E.terrainTypes.etherealPlane',
+  forest: 'A5E.terrainTypes.forest',
+  grassland: 'A5E.terrainTypes.grassland',
+  hell: 'A5E.terrainTypes.hell',
+  hills: 'A5E.terrainTypes.hills',
+  jungle: 'A5E.terrainTypes.jungle',
+  laboratory: 'A5E.terrainTypes.laboratory',
+  mountains: 'A5E.terrainTypes.mountains',
+  planeOfAir: 'A5E.terrainTypes.planeOfAir',
+  planeOfEarth: 'A5E.terrainTypes.planeOfEarth',
+  planeOfFire: 'A5E.terrainTypes.planeOfFire',
+  planeOfWater: 'A5E.terrainTypes.planeOfWater',
+  ruin: 'A5E.terrainTypes.ruin',
+  settlement: 'A5E.terrainTypes.settlement',
+  sewer: 'A5E.terrainTypes.sewer',
+  swamp: 'A5E.terrainTypes.swamp',
+  temple: 'A5E.terrainTypes.temple',
+  theBleakGate: 'A5E.terrainTypes.theBleakGate',
+  theDreaming: 'A5E.terrainTypes.theDreaming',
+  tomb: 'A5E.terrainTypes.tomb',
+  tundra: 'A5E.terrainTypes.tundra',
+  underland: 'A5E.terrainTypes.underland',
+  water: 'A5E.terrainTypes.water'
 };
 
 A5E.timePeriods = {

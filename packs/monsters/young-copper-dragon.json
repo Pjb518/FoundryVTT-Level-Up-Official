@@ -44,13 +44,14 @@
 				"featureType": "",
 				"grants": {},
 				"prerequisite": "",
+				"requiresBloodied": false,
 				"schemaVersion": {
-					"version": 0.01,
+					"version": 0.011,
 					"lastMigration": {
 						"version": {
-							"schema": 0.009,
-							"foundry": "12.316",
-							"system": "0.16.12"
+							"schema": 0.01,
+							"foundry": "11.315",
+							"system": "0.16.37"
 						}
 					}
 				}
@@ -155,13 +156,14 @@
 				"featureType": "naturalWeapon",
 				"grants": {},
 				"prerequisite": "",
+				"requiresBloodied": false,
 				"schemaVersion": {
-					"version": 0.01,
+					"version": 0.011,
 					"lastMigration": {
 						"version": {
-							"schema": 0.009,
-							"foundry": "12.316",
-							"system": "0.16.12"
+							"schema": 0.01,
+							"foundry": "11.315",
+							"system": "0.16.37"
 						}
 					}
 				}
@@ -193,90 +195,15 @@
 					"requiresNoShield": false,
 					"requiresUnarmored": false
 				},
-				"actions": {},
-				"description": "<p>The dragon uses one of the following breath weapons:</p><p><strong>Acid Breath.</strong> The dragon exhales acid in a 40-foot-long, 5-foot wide-line. Each creature in the area makes a DC 15 Dexterity saving throw, taking 45 (10d8) acid damage on a failed save or half damage on a success.&nbsp;</p><p><strong>Slowing Breath.</strong> The dragon exhales toxic gas in a 30-foot cone. Each creature in the area makes a DC 15 Constitution saving throw, becoming slowed for 1 minute on a failure. A creature repeats the saving throw at the end of each of its turns, ending the effect on itself on a success.</p>",
-				"favorite": false,
-				"secretDescription": "",
-				"source": "",
-				"uses": {
-					"value": null,
-					"max": "",
-					"per": null,
-					"recharge": {
-						"formula": "",
-						"threshold": ""
-					}
-				},
-				"schema": {
-					"version": null,
-					"lastMigration": null
-				},
-				"concentration": false,
-				"featureType": "",
-				"grants": {},
-				"prerequisite": "",
-				"schemaVersion": {
-					"version": 0.01,
-					"lastMigration": {
-						"version": {
-							"schema": 0.009,
-							"foundry": "12.316",
-							"system": "0.16.12"
-						}
-					}
-				}
-			},
-			"ownership": {
-				"default": 0
-			}
-		},
-		{
-			"_id": "oZEY5wdyDghFSPdi",
-			"name": "Acid Breath",
-			"type": "feature",
-			"img": "icons/magic/acid/projectile-smoke-glowing.webp",
-			"effects": [],
-			"folder": null,
-			"sort": 325000,
-			"flags": {
-				"core": {
-					"sourceId": "Item.306Vm1DH1Ukw4q3e"
-				}
-			},
-			"system": {
-				"ac": {
-					"baseFormula": "",
-					"formula": "",
-					"maxDex": 0,
-					"minStr": 0,
-					"mode": 1,
-					"requiresNoShield": false,
-					"requiresUnarmored": false
-				},
 				"actions": {
-					"0xZtWTOsFMKFUSjS": {
+					"9OpZpSKMzrtD3r1n": {
 						"name": "Acid Breath",
 						"activation": {
 							"cost": 1,
 							"type": "action",
 							"reactionTrigger": ""
 						},
-						"duration": {
-							"unit": "instantaneous",
-							"value": ""
-						},
-						"ranges": {},
-						"area": {
-							"shape": "line",
-							"size": "40ft long, 5ft wide",
-							"placeTemplate": false,
-							"length": 40,
-							"width": 5
-						},
-						"target": {
-							"quantity": 1,
-							"type": ""
-						},
+						"consumers": {},
 						"rolls": {
 							"KU54keQJgIqpiAU0": {
 								"canCrit": false,
@@ -297,87 +224,46 @@
 								"type": "savingThrow"
 							}
 						},
-						"consumers": {}
-					}
-				},
-				"description": "<p>The dragon exhales acid in a 40-foot-long, 5-foot wide-line. Each creature in the area makes a DC 15 Dexterity saving throw, taking 45 (10d8) acid damage on a failed save or half damage on a success.&nbsp;</p>",
-				"favorite": true,
-				"secretDescription": "",
-				"source": "",
-				"uses": {
-					"value": null,
-					"max": "",
-					"per": null,
-					"recharge": {
-						"formula": "",
-						"threshold": ""
-					}
-				},
-				"schema": {
-					"version": null,
-					"lastMigration": null
-				},
-				"concentration": false,
-				"featureType": "",
-				"grants": {},
-				"prerequisite": "",
-				"schemaVersion": {
-					"version": 0.01,
-					"lastMigration": {
-						"version": {
-							"schema": 0.009,
-							"foundry": "12.316",
-							"system": "0.16.12"
-						}
-					}
-				}
-			},
-			"ownership": {
-				"default": 0
-			}
-		},
-		{
-			"_id": "ErMW6UPbSgWTS3PD",
-			"name": "Slowing Breath",
-			"type": "feature",
-			"img": "icons/svg/item-bag.svg",
-			"effects": [],
-			"folder": null,
-			"sort": 350000,
-			"flags": {},
-			"system": {
-				"ac": {
-					"baseFormula": "",
-					"formula": "",
-					"maxDex": 0,
-					"minStr": 0,
-					"mode": 1,
-					"requiresNoShield": false,
-					"requiresUnarmored": false
-				},
-				"actions": {
-					"FEOR4LxWUxhhX88t": {
+						"uses": {
+							"value": 0,
+							"max": "",
+							"per": "",
+							"recharge": {
+								"formula": "1d6",
+								"rechargeType": "custom",
+								"rechargeAmount": "1",
+								"threshold": 6
+							}
+						},
+						"duration": {
+							"unit": "instantaneous",
+							"value": ""
+						},
+						"ranges": {},
+						"area": {
+							"shape": "line",
+							"size": "40ft long, 5ft wide",
+							"placeTemplate": false,
+							"length": 40,
+							"width": 5,
+							"quantity": 1
+						},
+						"target": {
+							"quantity": 1,
+							"type": ""
+						},
+						"img": "icons/magic/acid/projectile-smoke-glowing.webp",
+						"description": "<p>The dragon exhales acid in a 40-foot-long, 5-foot wide-line. Each creature in the area makes a DC 15 Dexterity saving throw, taking 45 (10d8) acid damage on a failed save or half damage on a success.&nbsp;</p>"
+					},
+					"nSjqC4XuRciNX4hh": {
 						"name": "Slowing Breath",
 						"activation": {
 							"cost": 1,
 							"type": "action",
 							"reactionTrigger": ""
 						},
-						"duration": {
-							"unit": "minute",
-							"value": 1
-						},
-						"ranges": {},
-						"area": {
-							"shape": "cone",
-							"size": "30ft",
-							"placeTemplate": false,
-							"length": 30
-						},
-						"target": {
-							"quantity": 1,
-							"type": ""
-						},
+						"consumers": {},
+						"rolls": {},
 						"prompts": {
 							"XGBZsuIlmtF2WVGG": {
 								"ability": "con",
@@ -389,10 +275,38 @@
 								"type": "savingThrow"
 							}
 						},
-						"consumers": {}
+						"uses": {
+							"value": 0,
+							"max": "",
+							"per": "",
+							"recharge": {
+								"formula": "1d6",
+								"rechargeType": "custom",
+								"rechargeAmount": "1",
+								"threshold": 6
+							}
+						},
+						"duration": {
+							"unit": "minute",
+							"value": 1
+						},
+						"ranges": {},
+						"area": {
+							"shape": "cone",
+							"size": "30ft",
+							"placeTemplate": false,
+							"length": 30,
+							"quantity": 1
+						},
+						"target": {
+							"quantity": 1,
+							"type": ""
+						},
+						"img": "icons/svg/item-bag.svg",
+						"description": "<p>The dragon exhales toxic gas in a 30-foot cone. Each creature in the area makes a DC 15 Constitution saving throw, becoming slowed for 1 minute on a failure. A creature repeats the saving throw at the end of each of its turns, ending the effect on itself on a success.</p>"
 					}
 				},
-				"description": "<p> The dragon exhales toxic gas in a 30-foot cone. Each creature in the area makes a DC 15 Constitution saving throw, becoming slowed for 1 minute on a failure. A creature repeats the saving throw at the end of each of its turns, ending the effect on itself on a success.</p>",
+				"description": "<p>The dragon uses one of the following breath weapons:</p><p><strong>Acid Breath.</strong> The dragon exhales acid in a 40-foot-long, 5-foot wide-line. Each creature in the area makes a DC 15 Dexterity saving throw, taking 45 (10d8) acid damage on a failed save or half damage on a success.&nbsp;</p><p><strong>Slowing Breath.</strong> The dragon exhales toxic gas in a 30-foot cone. Each creature in the area makes a DC 15 Constitution saving throw, becoming slowed for 1 minute on a failure. A creature repeats the saving throw at the end of each of its turns, ending the effect on itself on a success.</p>",
 				"favorite": true,
 				"secretDescription": "",
 				"source": "",
@@ -413,13 +327,14 @@
 				"featureType": "",
 				"grants": {},
 				"prerequisite": "",
+				"requiresBloodied": false,
 				"schemaVersion": {
-					"version": 0.01,
+					"version": 0.011,
 					"lastMigration": {
 						"version": {
-							"schema": 0.009,
-							"foundry": "12.316",
-							"system": "0.16.12"
+							"schema": 0.01,
+							"foundry": "11.315",
+							"system": "0.16.37"
 						}
 					}
 				}
@@ -473,13 +388,14 @@
 				"featureType": "",
 				"grants": {},
 				"prerequisite": "",
+				"requiresBloodied": false,
 				"schemaVersion": {
-					"version": 0.01,
+					"version": 0.011,
 					"lastMigration": {
 						"version": {
-							"schema": 0.009,
-							"foundry": "12.316",
-							"system": "0.16.12"
+							"schema": 0.01,
+							"foundry": "11.315",
+							"system": "0.16.37"
 						}
 					}
 				}
@@ -573,13 +489,14 @@
 				"featureType": "",
 				"grants": {},
 				"prerequisite": "",
+				"requiresBloodied": false,
 				"schemaVersion": {
-					"version": 0.01,
+					"version": 0.011,
 					"lastMigration": {
 						"version": {
-							"schema": 0.009,
-							"foundry": "12.316",
-							"system": "0.16.12"
+							"schema": 0.01,
+							"foundry": "11.315",
+							"system": "0.16.37"
 						}
 					}
 				}
@@ -667,18 +584,19 @@
 					"version": null,
 					"lastMigration": null
 				},
+				"concentration": false,
 				"degree": 0,
 				"exertionCost": 0,
 				"isStance": false,
 				"prerequisite": "",
 				"tradition": "",
 				"schemaVersion": {
-					"version": 0.01,
+					"version": 0.011,
 					"lastMigration": {
 						"version": {
-							"schema": 0.009,
-							"foundry": "12.316",
-							"system": "0.16.12"
+							"schema": 0.01,
+							"foundry": "11.315",
+							"system": "0.16.37"
 						}
 					}
 				}
@@ -769,18 +687,19 @@
 					"version": null,
 					"lastMigration": null
 				},
+				"concentration": false,
 				"degree": 0,
 				"exertionCost": 0,
 				"isStance": false,
 				"prerequisite": "",
 				"tradition": "",
 				"schemaVersion": {
-					"version": 0.01,
+					"version": 0.011,
 					"lastMigration": {
 						"version": {
-							"schema": 0.009,
-							"foundry": "12.316",
-							"system": "0.16.12"
+							"schema": 0.01,
+							"foundry": "11.315",
+							"system": "0.16.37"
 						}
 					}
 				}
@@ -862,18 +781,19 @@
 					"version": null,
 					"lastMigration": null
 				},
+				"concentration": false,
 				"degree": 0,
 				"exertionCost": 0,
 				"isStance": false,
 				"prerequisite": "",
 				"tradition": "",
 				"schemaVersion": {
-					"version": 0.01,
+					"version": 0.011,
 					"lastMigration": {
 						"version": {
-							"schema": 0.009,
-							"foundry": "12.316",
-							"system": "0.16.12"
+							"schema": 0.01,
+							"foundry": "11.315",
+							"system": "0.16.37"
 						}
 					}
 				}
@@ -955,18 +875,19 @@
 					"version": null,
 					"lastMigration": null
 				},
+				"concentration": false,
 				"degree": 0,
 				"exertionCost": 0,
 				"isStance": false,
 				"prerequisite": "",
 				"tradition": "",
 				"schemaVersion": {
-					"version": 0.01,
+					"version": 0.011,
 					"lastMigration": {
 						"version": {
-							"schema": 0.009,
-							"foundry": "12.316",
-							"system": "0.16.12"
+							"schema": 0.01,
+							"foundry": "11.315",
+							"system": "0.16.37"
 						}
 					}
 				}
@@ -1048,18 +969,19 @@
 					"version": null,
 					"lastMigration": null
 				},
+				"concentration": false,
 				"degree": 0,
 				"exertionCost": 0,
 				"isStance": false,
 				"prerequisite": "",
 				"tradition": "",
 				"schemaVersion": {
-					"version": 0.01,
+					"version": 0.011,
 					"lastMigration": {
 						"version": {
-							"schema": 0.009,
-							"foundry": "12.316",
-							"system": "0.16.12"
+							"schema": 0.01,
+							"foundry": "11.315",
+							"system": "0.16.37"
 						}
 					}
 				}
@@ -1141,18 +1063,19 @@
 					"version": null,
 					"lastMigration": null
 				},
+				"concentration": false,
 				"degree": 0,
 				"exertionCost": 0,
 				"isStance": false,
 				"prerequisite": "",
 				"tradition": "",
 				"schemaVersion": {
-					"version": 0.01,
+					"version": 0.011,
 					"lastMigration": {
 						"version": {
-							"schema": 0.009,
-							"foundry": "12.316",
-							"system": "0.16.12"
+							"schema": 0.01,
+							"foundry": "11.315",
+							"system": "0.16.37"
 						}
 					}
 				}
@@ -1168,7 +1091,7 @@
 	"effects": [],
 	"flags": {
 		"a5e": {
-			"sheetIsLocked": true,
+			"sheetIsLocked": false,
 			"availableSpellLevels": [],
 			"showSpellSlots": false,
 			"showSpellPoints": false
@@ -1262,12 +1185,12 @@
 			}
 		},
 		"schemaVersion": {
-			"version": 0.01,
+			"version": 0.011,
 			"lastMigration": {
 				"version": {
-					"schema": 0.006,
-					"foundry": "11.307",
-					"system": "0.15.0"
+					"schema": 0.01,
+					"foundry": "11.315",
+					"system": "0.16.37"
 				}
 			}
 		},
@@ -1599,6 +1522,7 @@
 				}
 			},
 			"initiative": {
+				"ability": "dex",
 				"bonus": "",
 				"expertiseDice": 0
 			},
@@ -1653,16 +1577,17 @@
 			"casterLevel": 0
 		},
 		"bonuses": {
-			"abilities": {},
-			"damage": {},
-			"healing": {},
 			"maneuverDC": "",
 			"meleeSpellAttack": "",
 			"meleeWeaponAttack": "",
 			"rangedSpellAttack": "",
 			"rangedWeaponAttack": "",
 			"spellDC": "",
-			"skills": {}
+			"abilities": {},
+			"damage": {},
+			"healing": {},
+			"skills": {},
+			"attacks": {}
 		},
 		"currency": {
 			"pp": 0,
@@ -1680,7 +1605,8 @@
 			"cr": 9,
 			"elite": false,
 			"privateNotes": "",
-			"notes": ""
+			"notes": "",
+			"terrain": []
 		},
 		"proficiencies": {
 			"armor": [],
@@ -1801,11 +1727,7 @@
 			"scaleY": 1,
 			"offsetX": 0,
 			"offsetY": 0,
-			"rotation": 0,
-			"anchorX": 0.5,
-			"anchorY": 0.5,
-			"fit": "contain",
-			"alphaThreshold": 0.75
+			"rotation": 0
 		},
 		"sight": {
 			"angle": 360,
@@ -1820,12 +1742,7 @@
 		},
 		"detectionModes": [],
 		"appendNumber": false,
-		"prependAdjective": false,
-		"hexagonalShape": 0,
-		"locked": false,
-		"occludable": {
-			"radius": 0
-		}
+		"prependAdjective": false
 	},
 	"folder": null,
 	"_id": "202n507oau7k5ecl"

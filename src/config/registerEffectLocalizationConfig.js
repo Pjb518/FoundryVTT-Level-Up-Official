@@ -5,6 +5,7 @@
 export default function registerEffectLocalizationConfig(A5E) {
   A5E.effectsKeyLocalizations = {
     'flags.a5e.effects.bonuses.abilities': 'A5E.effects.keys.bonuses.ability',
+    'flags.a5e.effects.bonuses.attacks': 'A5E.effects.keys.bonuses.attacks',
     'flags.a5e.effects.bonuses.damage': 'A5E.effects.keys.bonuses.damage',
     'flags.a5e.effects.bonuses.healing': 'A5E.effects.keys.bonuses.healing',
     'flags.a5e.effects.bonuses.skills': 'A5E.effects.keys.bonuses.skill',
@@ -161,10 +162,6 @@ export default function registerEffectLocalizationConfig(A5E) {
     'system.bonuses.abilities.save': 'A5E.effects.keys.bonuses.save',
     'system.bonuses.abilities.skill': 'A5E.effects.keys.bonuses.skill',
     'system.bonuses.maneuverDC': 'A5E.effects.keys.bonuses.maneuverDC',
-    'system.bonuses.meleeSpellAttack': 'A5E.effects.keys.bonuses.meleeSpellAttack',
-    'system.bonuses.meleeWeaponAttack': 'A5E.effects.keys.bonuses.meleeWeaponAttack',
-    'system.bonuses.rangedSpellAttack': 'A5E.effects.keys.bonuses.rangedSpellAttack',
-    'system.bonuses.rangedWeaponAttack': 'A5E.effects.keys.bonuses.rangedWeaponAttack',
     'system.bonuses.spellDC': 'A5E.effects.keys.bonuses.spellDC',
     'system.currency.cp': 'A5E.effects.keys.currency.cp',
     'system.currency.ep': 'A5E.effects.keys.currency.ep',

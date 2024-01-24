@@ -22,7 +22,11 @@ export default class NPCData extends BaseActorData {
         cr: new fields.NumberField({ required: true, initial: 0 }),
         elite: new fields.BooleanField({ required: true, initial: false }),
         notes: new fields.HTMLField({ required: true, initial: '' }),
-        privateNotes: new fields.HTMLField({ required: true, initial: '' })
+        privateNotes: new fields.HTMLField({ required: true, initial: '' }),
+        terrain: new fields.ArrayField(
+          new fields.StringField({ required: true, initial: '' }),
+          { required: true, initial: [] }
+        )
       })
     });
   }

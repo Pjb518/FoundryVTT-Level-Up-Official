@@ -69,6 +69,8 @@ export default class ActorSheet extends SvelteApplication {
     ActorSheetTempSettingsStore.subscribe((store) => {
       this.tempSettings = store;
     });
+
+    this.position.subscribe((pos) => this.setPosition(pos, false));
   }
 
   /**
@@ -89,12 +91,21 @@ export default class ActorSheet extends SvelteApplication {
     });
   }
 
+  get object() {
+    return this.actor;
+  }
+
   get token() {
     return this.options?.token || this.actor.token || null;
   }
 
+  setPosition(pos: any, propagate = true): any {
+    if (!propagate) return this.position.get();
+    return super.setPosition(pos);
+  }
+
   _getHeaderButtons() {
-    const buttons = super._getHeaderButtons();
+    const buttons: any[] = super._getHeaderButtons();
 
     const PERMS = {
       isGM: game.user.isGM,
@@ -179,7 +190,17 @@ export default class ActorSheet extends SvelteApplication {
       });
     }
 
-    return buttons;
+    // Remove any duplicate buttons that made if in due to multiple calls to _getHeaderButtons
+    const labels: Set<string> = new Set();
+    const uniqueButtons: any[] = [];
+    buttons.forEach(({ label }, idx) => {
+      if (labels.has(label)) return;
+
+      labels.add(label);
+      uniqueButtons.push(buttons[idx]);
+    });
+
+    return uniqueButtons;
   }
 
   async #getCultureFeatures(item, featureList) {

@@ -194,6 +194,19 @@ export default class ObjectItemA5e extends ItemA5e {
     // Clean containerId
     const container = await fromUuid(this.system.containerId);
     if (!container) await this.update({ 'system.containerId': '' });
+
+    // Update quantity consumers to set themselves as the target
+    const updates = {};
+    const actions = Object.entries(this.system.actions ?? {});
+    actions.forEach(([actionId, action]) => {
+      const consumers = Object.entries(action.consumers ?? {});
+      consumers.forEach(([consumerId, consumer]) => {
+        if (consumer.type !== 'quantity') return;
+        updates[`system.actions.${actionId}.consumers.${consumerId}.itemId`] = this._id;
+      });
+    });
+
+    await this.update(updates);
   }
 
   async _onDelete(data, options, user) {

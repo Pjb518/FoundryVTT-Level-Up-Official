@@ -4,6 +4,13 @@ export interface AbilityBonusContext {
   requiresProficiency: boolean;
 }
 
+export interface AttackBonusContext {
+  attackTypes: string[];
+  // weaponTypes: string[];
+  spellLevels: string[];
+  requiresProficiency: boolean;
+}
+
 export interface DamageBonusContext {
   attackTypes: string[];
   damageTypes: string[];

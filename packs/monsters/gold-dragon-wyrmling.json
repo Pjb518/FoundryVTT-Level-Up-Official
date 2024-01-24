@@ -92,13 +92,14 @@
 				"featureType": "naturalWeapon",
 				"grants": {},
 				"prerequisite": "",
+				"requiresBloodied": false,
 				"schemaVersion": {
-					"version": 0.01,
+					"version": 0.011,
 					"lastMigration": {
 						"version": {
-							"schema": 0.009,
-							"foundry": "12.316",
-							"system": "0.16.12"
+							"schema": 0.01,
+							"foundry": "11.315",
+							"system": "0.16.37"
 						}
 					}
 				}
@@ -109,7 +110,7 @@
 		},
 		{
 			"_id": "HuvSzEixNkLGhrU6",
-			"name": "Breath Weapons (Recharge 5–6)",
+			"name": "Breath Weapons",
 			"type": "feature",
 			"img": "icons/svg/item-bag.svg",
 			"effects": [],
@@ -130,18 +131,127 @@
 					"requiresNoShield": false,
 					"requiresUnarmored": false
 				},
-				"actions": {},
+				"actions": {
+					"BB9xV1wySvSQxq6H": {
+						"name": "Molten Breath",
+						"activation": {
+							"cost": 1,
+							"type": "action",
+							"reactionTrigger": ""
+						},
+						"consumers": {},
+						"rolls": {
+							"hfnIK6Xxbww80mC1": {
+								"canCrit": false,
+								"damageType": "fire",
+								"formula": "4d10",
+								"name": "Default",
+								"type": "damage"
+							}
+						},
+						"prompts": {
+							"f9qNPoWg5akEaICp": {
+								"ability": "dex",
+								"onSave": "Half damage.",
+								"saveDC": {
+									"type": "custom",
+									"bonus": "13"
+								},
+								"type": "savingThrow"
+							}
+						},
+						"uses": {
+							"value": 0,
+							"max": "",
+							"per": "",
+							"recharge": {
+								"formula": "1d6",
+								"rechargeType": "custom",
+								"rechargeAmount": "1",
+								"threshold": 6
+							}
+						},
+						"duration": {
+							"unit": "instantaneous",
+							"value": ""
+						},
+						"ranges": {},
+						"area": {
+							"shape": "cone",
+							"size": "15ft",
+							"placeTemplate": false,
+							"length": 15,
+							"quantity": 1
+						},
+						"target": {
+							"quantity": 1,
+							"type": ""
+						},
+						"img": "icons/svg/item-bag.svg",
+						"description": "<p>The dragon exhales molten gold in a 15-foot cone. Each creature in the area makes a DC 13 Dexterity saving throw, taking 22 (4d10) fire damage on a failed save or half damage on a success.</p>"
+					},
+					"Woz91yjeOzjriUud": {
+						"name": "Slowing Breath",
+						"activation": {
+							"cost": 1,
+							"type": "action",
+							"reactionTrigger": ""
+						},
+						"consumers": {},
+						"rolls": {},
+						"prompts": {
+							"usocZmdnSvsv6s03": {
+								"ability": "str",
+								"onSave": "Avoids/ends effects.",
+								"saveDC": {
+									"type": "custom",
+									"bonus": "13"
+								},
+								"type": "savingThrow"
+							}
+						},
+						"uses": {
+							"value": 0,
+							"max": "",
+							"per": "",
+							"recharge": {
+								"formula": "1d6",
+								"rechargeType": "custom",
+								"rechargeAmount": "1",
+								"threshold": 6
+							}
+						},
+						"duration": {
+							"unit": "minute",
+							"value": 1
+						},
+						"ranges": {},
+						"area": {
+							"shape": "cone",
+							"size": "15",
+							"placeTemplate": false,
+							"length": 15,
+							"quantity": 1
+						},
+						"target": {
+							"quantity": 1,
+							"type": ""
+						},
+						"img": "icons/svg/item-bag.svg",
+						"description": "<p>The dragon exhales gas in a 15-foot cone. Each creature in the area must succeed on a DC 13 Strength saving throw or suffer disadvantage on weapon attack rolls for 1 minute. A weakened creature repeats the saving throw at the end of each of its turns, ending the effect on a success.</p>"
+					}
+				},
 				"description": "<p>The dragon uses one of the following breath weapons:</p><p><strong>Molten Breath.</strong> The dragon exhales molten gold in a 15-foot cone. Each creature in the area makes a DC 13 Dexterity saving throw, taking 22 (4d10) fire damage on a failed save or half damage on a success.</p><p><strong>Slowing Breath.</strong> The dragon exhales gas in a 15-foot cone. Each creature in the area must succeed on a DC 13 Strength saving throw or suffer disadvantage on weapon attack rolls for 1 minute. A weakened creature repeats the saving throw at the end of each of its turns, ending the effect on a success.</p>",
-				"favorite": false,
+				"favorite": true,
 				"secretDescription": "",
 				"source": "",
 				"uses": {
-					"value": null,
+					"value": 0,
 					"max": "",
-					"per": null,
+					"per": "recharge",
 					"recharge": {
 						"formula": "",
-						"threshold": ""
+						"threshold": 5
 					}
 				},
 				"schema": {
@@ -152,13 +262,14 @@
 				"featureType": "",
 				"grants": {},
 				"prerequisite": "",
+				"requiresBloodied": false,
 				"schemaVersion": {
-					"version": 0.01,
+					"version": 0.011,
 					"lastMigration": {
 						"version": {
-							"schema": 0.009,
-							"foundry": "12.316",
-							"system": "0.16.12"
+							"schema": 0.01,
+							"foundry": "11.315",
+							"system": "0.16.37"
 						}
 					}
 				}
@@ -257,13 +368,14 @@
 				"featureType": "",
 				"grants": {},
 				"prerequisite": "",
+				"requiresBloodied": false,
 				"schemaVersion": {
-					"version": 0.01,
+					"version": 0.011,
 					"lastMigration": {
 						"version": {
-							"schema": 0.009,
-							"foundry": "12.316",
-							"system": "0.16.12"
+							"schema": 0.01,
+							"foundry": "11.315",
+							"system": "0.16.37"
 						}
 					}
 				}
@@ -353,13 +465,14 @@
 				"featureType": "",
 				"grants": {},
 				"prerequisite": "",
+				"requiresBloodied": false,
 				"schemaVersion": {
-					"version": 0.01,
+					"version": 0.011,
 					"lastMigration": {
 						"version": {
-							"schema": 0.009,
-							"foundry": "12.316",
-							"system": "0.16.12"
+							"schema": 0.01,
+							"foundry": "11.315",
+							"system": "0.16.37"
 						}
 					}
 				}
@@ -447,18 +560,19 @@
 					"version": null,
 					"lastMigration": null
 				},
+				"concentration": false,
 				"degree": 0,
 				"exertionCost": 0,
 				"isStance": false,
 				"prerequisite": "",
 				"tradition": "",
 				"schemaVersion": {
-					"version": 0.01,
+					"version": 0.011,
 					"lastMigration": {
 						"version": {
-							"schema": 0.009,
-							"foundry": "12.316",
-							"system": "0.16.12"
+							"schema": 0.01,
+							"foundry": "11.315",
+							"system": "0.16.37"
 						}
 					}
 				}
@@ -549,18 +663,19 @@
 					"version": null,
 					"lastMigration": null
 				},
+				"concentration": false,
 				"degree": 0,
 				"exertionCost": 0,
 				"isStance": false,
 				"prerequisite": "",
 				"tradition": "",
 				"schemaVersion": {
-					"version": 0.01,
+					"version": 0.011,
 					"lastMigration": {
 						"version": {
-							"schema": 0.009,
-							"foundry": "12.316",
-							"system": "0.16.12"
+							"schema": 0.01,
+							"foundry": "11.315",
+							"system": "0.16.37"
 						}
 					}
 				}
@@ -642,18 +757,19 @@
 					"version": null,
 					"lastMigration": null
 				},
+				"concentration": false,
 				"degree": 0,
 				"exertionCost": 0,
 				"isStance": false,
 				"prerequisite": "",
 				"tradition": "",
 				"schemaVersion": {
-					"version": 0.01,
+					"version": 0.011,
 					"lastMigration": {
 						"version": {
-							"schema": 0.009,
-							"foundry": "12.316",
-							"system": "0.16.12"
+							"schema": 0.01,
+							"foundry": "11.315",
+							"system": "0.16.37"
 						}
 					}
 				}
@@ -735,18 +851,19 @@
 					"version": null,
 					"lastMigration": null
 				},
+				"concentration": false,
 				"degree": 0,
 				"exertionCost": 0,
 				"isStance": false,
 				"prerequisite": "",
 				"tradition": "",
 				"schemaVersion": {
-					"version": 0.01,
+					"version": 0.011,
 					"lastMigration": {
 						"version": {
-							"schema": 0.009,
-							"foundry": "12.316",
-							"system": "0.16.12"
+							"schema": 0.01,
+							"foundry": "11.315",
+							"system": "0.16.37"
 						}
 					}
 				}
@@ -828,18 +945,19 @@
 					"version": null,
 					"lastMigration": null
 				},
+				"concentration": false,
 				"degree": 0,
 				"exertionCost": 0,
 				"isStance": false,
 				"prerequisite": "",
 				"tradition": "",
 				"schemaVersion": {
-					"version": 0.01,
+					"version": 0.011,
 					"lastMigration": {
 						"version": {
-							"schema": 0.009,
-							"foundry": "12.316",
-							"system": "0.16.12"
+							"schema": 0.01,
+							"foundry": "11.315",
+							"system": "0.16.37"
 						}
 					}
 				}
@@ -921,18 +1039,19 @@
 					"version": null,
 					"lastMigration": null
 				},
+				"concentration": false,
 				"degree": 0,
 				"exertionCost": 0,
 				"isStance": false,
 				"prerequisite": "",
 				"tradition": "",
 				"schemaVersion": {
-					"version": 0.01,
+					"version": 0.011,
 					"lastMigration": {
 						"version": {
-							"schema": 0.009,
-							"foundry": "12.316",
-							"system": "0.16.12"
+							"schema": 0.01,
+							"foundry": "11.315",
+							"system": "0.16.37"
 						}
 					}
 				}
@@ -946,7 +1065,11 @@
 		}
 	],
 	"effects": [],
-	"flags": {},
+	"flags": {
+		"a5e": {
+			"sheetIsLocked": false
+		}
+	},
 	"system": {
 		"abilities": {
 			"str": {
@@ -1035,12 +1158,12 @@
 			}
 		},
 		"schemaVersion": {
-			"version": 0.01,
+			"version": 0.011,
 			"lastMigration": {
 				"version": {
-					"schema": 0.006,
-					"foundry": "11.307",
-					"system": "0.15.0"
+					"schema": 0.01,
+					"foundry": "11.315",
+					"system": "0.16.37"
 				}
 			}
 		},
@@ -1372,6 +1495,7 @@
 				}
 			},
 			"initiative": {
+				"ability": "dex",
 				"bonus": "",
 				"expertiseDice": 0
 			},
@@ -1426,16 +1550,17 @@
 			"casterLevel": 0
 		},
 		"bonuses": {
-			"abilities": {},
-			"damage": {},
-			"healing": {},
 			"maneuverDC": "",
 			"meleeSpellAttack": "",
 			"meleeWeaponAttack": "",
 			"rangedSpellAttack": "",
 			"rangedWeaponAttack": "",
 			"spellDC": "",
-			"skills": {}
+			"abilities": {},
+			"damage": {},
+			"healing": {},
+			"skills": {},
+			"attacks": {}
 		},
 		"currency": {
 			"pp": 0,
@@ -1453,7 +1578,8 @@
 			"cr": 4,
 			"elite": false,
 			"privateNotes": "",
-			"notes": ""
+			"notes": "",
+			"terrain": []
 		},
 		"proficiencies": {
 			"armor": [],
@@ -1573,11 +1699,7 @@
 			"offsetX": 0,
 			"offsetY": 0,
 			"rotation": 0,
-			"tint": "#ffffff",
-			"anchorX": 0.5,
-			"anchorY": 0.5,
-			"fit": "contain",
-			"alphaThreshold": 0.75
+			"tint": "#ffffff"
 		},
 		"sight": {
 			"angle": 360,
@@ -1592,12 +1714,7 @@
 		},
 		"detectionModes": [],
 		"appendNumber": false,
-		"prependAdjective": false,
-		"hexagonalShape": 0,
-		"locked": false,
-		"occludable": {
-			"radius": 0
-		}
+		"prependAdjective": false
 	},
 	"folder": null,
 	"_id": "7bo1n3ao47354vq3"

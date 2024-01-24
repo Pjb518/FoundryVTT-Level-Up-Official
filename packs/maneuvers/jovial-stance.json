@@ -1,0 +1,128 @@
+{
+	"folder": null,
+	"name": "Jovial Stance",
+	"type": "maneuver",
+	"img": "icons/consumables/fruit/tomato-ripe-red.webp",
+	"system": {
+		"actions": {
+			"ypY5qIJiTUwWj4lG": {
+				"name": "Jovial Stance",
+				"activation": {
+					"type": "bonusAction",
+					"cost": 1
+				},
+				"consumers": {
+					"uuC6ar98ZvkJbAAQ": {
+						"type": "resource",
+						"default": true,
+						"resource": "exertion",
+						"quantity": 1
+					}
+				},
+				"rolls": {},
+				"prompts": {
+					"l543pcCsghB6faru": {
+						"type": "effect",
+						"default": true,
+						"effectId": "0WROaCITW1TkFIMK"
+					}
+				},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"rechargeType": "custom",
+						"rechargeAmount": "1",
+						"threshold": 6
+					}
+				},
+				"duration": {
+					"unit": "day",
+					"value": 1
+				},
+				"target": {
+					"type": "self",
+					"quantity": 1
+				}
+			}
+		},
+		"description": "<div class=\"field field--name-body field--type-text-with-summary field--label-hidden field--item\">\n<p>Just the right amount of lightness to a warrior&rsquo;s step can frustrate an opponent and make them easy to trick.</p>\n<p>You gain an <span class=\"freelinking-link\">expertise die</span> on Acrobatics and nonmusical Performance checks.</p>\n</div>",
+		"favorite": false,
+		"secretDescription": "",
+		"source": {
+			"name": "",
+			"link": "",
+			"publisher": ""
+		},
+		"uses": {
+			"value": null,
+			"max": "",
+			"per": null,
+			"recharge": {
+				"formula": "1d6",
+				"threshold": "6"
+			}
+		},
+		"schema": {
+			"version": null,
+			"lastMigration": null
+		},
+		"concentration": false,
+		"degree": 1,
+		"exertionCost": 1,
+		"isStance": true,
+		"prerequisite": "",
+		"tradition": "comedicJabs"
+	},
+	"effects": [
+		{
+			"icon": "icons/consumables/fruit/tomato-ripe-red.webp",
+			"origin": "Item.IzcE0ztvaVX3m8Vh",
+			"flags": {
+				"a5e": {
+					"sort": 0,
+					"transferType": "onUse",
+					"actionId": "ypY5qIJiTUwWj4lG",
+					"applyToSelf": true,
+					"duration": {
+						"unit": "hours"
+					}
+				}
+			},
+			"transfer": false,
+			"name": "Jovial Stance",
+			"_id": "0WROaCITW1TkFIMK",
+			"changes": [
+				{
+					"key": "system.skills.acr.expertiseDice",
+					"value": "1",
+					"mode": 2,
+					"priority": null
+				},
+				{
+					"key": "system.skills.prf.expertiseDice",
+					"value": "1",
+					"mode": 2,
+					"priority": null
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": 86400,
+				"combat": null,
+				"rounds": null,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "",
+			"statuses": [],
+			"folder": null
+		}
+	],
+	"flags": {},
+	"_id": "k2qgksxe1qk94hup"
+}

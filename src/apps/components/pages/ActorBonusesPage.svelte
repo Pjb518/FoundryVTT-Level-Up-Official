@@ -40,6 +40,8 @@
         switch (bonusType) {
             case "abilities":
                 return "Ability Bonuses";
+            case "attacks":
+                return "Attack Bonuses";
             case "damage":
                 return "Damage Bonuses";
             case "healing":
@@ -53,6 +55,8 @@
         switch (bonusType) {
             case "abilities":
                 return "+ Add Ability Bonus";
+            case "attacks":
+                return "+ Add Attack Bonus";
             case "damage":
                 return "+ Add Damage Bonus";
             case "healing":
@@ -66,6 +70,8 @@
         switch (bonusType) {
             case "abilities":
                 return "New Ability Bonus";
+            case "attacks":
+                return "New Attack Bonus";
             case "damage":
                 return "New Damage Bonus";
             case "healing":
@@ -77,30 +83,16 @@
 
     const actor = getContext("actor");
 
-    const bonusCategories = ["abilities", "damage", "healing", "skills"];
+    const bonusCategories = [
+        "abilities",
+        "attacks",
+        "damage",
+        "healing",
+        "skills",
+    ];
 
     let rightClickConfigure =
         game.settings.get("a5e", "itemRightClickConfigure") ?? true;
-
-    $: disableMeleeWeaponAttack = determineIfPropertyModifiedByEffect(
-        $actor,
-        "system.bonuses.meleeWeaponAttack",
-    );
-
-    $: disableRangedWeaponAttack = determineIfPropertyModifiedByEffect(
-        $actor,
-        "system.bonuses.rangedWeaponAttack",
-    );
-
-    $: disableMeleeSpellAttack = determineIfPropertyModifiedByEffect(
-        $actor,
-        "system.bonuses.meleeSpellAttack",
-    );
-
-    $: disableRangedSpellAttack = determineIfPropertyModifiedByEffect(
-        $actor,
-        "system.bonuses.rangedSpellAttack",
-    );
 
     $: disableManeuverDC = determineIfPropertyModifiedByEffect(
         $actor,
@@ -123,90 +115,6 @@
         hint="All of the fields in this section accept any values valid in roll formulae."
         --a5e-section-body-gap="0.5rem"
     >
-        <div class="global-bonus-container">
-            <FieldWrapper
-                heading="Melee Weapon Attack"
-                showWarning={disableMeleeWeaponAttack}
-                warning="A5E.validations.warnings.modifiedByEffect"
-            >
-                <input
-                    class="a5e-input"
-                    type="text"
-                    name="system.bonuses.meleeWeaponAttack"
-                    value={$actor.system.bonuses.meleeWeaponAttack}
-                    disabled={disableMeleeWeaponAttack}
-                    on:change={({ target }) =>
-                        updateDocumentDataFromField(
-                            $actor,
-                            target.name,
-                            target.value,
-                        )}
-                />
-            </FieldWrapper>
-
-            <FieldWrapper
-                heading="Ranged Weapon Attack"
-                showWarning={disableRangedWeaponAttack}
-                warning="A5E.validations.warnings.modifiedByEffect"
-            >
-                <input
-                    class="a5e-input"
-                    type="text"
-                    name="system.bonuses.rangedWeaponAttack"
-                    value={$actor.system.bonuses.rangedWeaponAttack}
-                    disabled={disableRangedWeaponAttack}
-                    on:change={({ target }) =>
-                        updateDocumentDataFromField(
-                            $actor,
-                            target.name,
-                            target.value,
-                        )}
-                />
-            </FieldWrapper>
-
-            <FieldWrapper
-                heading="Melee Spell Attack"
-                showWarning={disableMeleeSpellAttack}
-                warning="A5E.validations.warnings.modifiedByEffect"
-            >
-                <input
-                    class="a5e-input"
-                    type="text"
-                    name="system.bonuses.meleeSpellAttack"
-                    value={$actor.system.bonuses.meleeSpellAttack}
-                    disabled={disableMeleeSpellAttack}
-                    on:change={({ target }) =>
-                        updateDocumentDataFromField(
-                            $actor,
-                            target.name,
-                            target.value,
-                        )}
-                />
-            </FieldWrapper>
-
-            <FieldWrapper
-                heading="Ranged Spell Attack"
-                showWarning={disableRangedSpellAttack}
-                warning="A5E.validations.warnings.modifiedByEffect"
-            >
-                <input
-                    class="a5e-input"
-                    type="text"
-                    name="system.bonuses.rangedSpellAttack"
-                    value={$actor.system.bonuses.rangedSpellAttack}
-                    disabled={disableRangedSpellAttack}
-                    on:change={({ target }) =>
-                        updateDocumentDataFromField(
-                            $actor,
-                            target.name,
-                            target.value,
-                        )}
-                />
-            </FieldWrapper>
-        </div>
-
-        <hr class="divider" />
-
         <div class="global-bonus-container">
             <FieldWrapper
                 heading="A5E.ManeuverDCBonus"
@@ -368,11 +276,11 @@
         list-style: none;
     }
 
-    .divider {
-        border: 0;
-        border-bottom: 0.5px solid #ccc;
-        margin: 0;
-    }
+    // .divider {
+    //     border: 0;
+    //     border-bottom: 0.5px solid #ccc;
+    //     margin: 0;
+    // }
 
     .global-bonus-container {
         display: grid;

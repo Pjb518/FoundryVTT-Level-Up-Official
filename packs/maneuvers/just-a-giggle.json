@@ -1,0 +1,127 @@
+{
+	"folder": null,
+	"name": "Just A Giggle",
+	"type": "maneuver",
+	"img": "icons/consumables/fruit/tomato-ripe-red.webp",
+	"system": {
+		"actions": {
+			"7Vegs5Bk3HIEmWSw": {
+				"name": "Just A Giggle",
+				"activation": {
+					"type": "action",
+					"cost": 1
+				},
+				"consumers": {
+					"LtWuNQpKBjZH0HSi": {
+						"type": "resource",
+						"default": true,
+						"resource": "exertion",
+						"quantity": 1
+					}
+				},
+				"rolls": {
+					"6xZ8jan0xsqgBvLn": {
+						"type": "skillCheck",
+						"default": true,
+						"skill": "prf",
+						"ability": "cha"
+					}
+				},
+				"prompts": {
+					"MKqnP35275PyU8E9": {
+						"type": "effect",
+						"default": true,
+						"effectId": "xrQzfn5kfZGlERPx"
+					}
+				},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"rechargeType": "custom",
+						"rechargeAmount": "1",
+						"threshold": 6
+					}
+				},
+				"target": {
+					"type": "creature",
+					"quantity": 1
+				}
+			}
+		},
+		"description": "<div class=\"field field--name-body field--type-text-with-summary field--label-hidden field--item\">\n<p>Inversion is at the heart of humor, and nothing upends a no-holdsbarred fight faster than a solid joke.</p>\n<p>Choose a creature able to see you and make a nonmusical Performance check opposed by its Insight check. On a success, your antics force it to laugh uncontrollably, making it <span class=\"freelinking-link\">incapacitated</span> until the start of your next turn. After you have used Just a Giggle against a creature, until the end of combat it has <span class=\"freelinking-link\">advantage</span> on Insight checks to resist this maneuver.</p>\n</div>",
+		"favorite": false,
+		"secretDescription": "",
+		"source": {
+			"name": "",
+			"link": "",
+			"publisher": ""
+		},
+		"uses": {
+			"value": null,
+			"max": "",
+			"per": null,
+			"recharge": {
+				"formula": "1d6",
+				"threshold": "6"
+			}
+		},
+		"schema": {
+			"version": null,
+			"lastMigration": null
+		},
+		"concentration": false,
+		"degree": 3,
+		"exertionCost": 3,
+		"isStance": false,
+		"prerequisite": "",
+		"tradition": "comedicJabs"
+	},
+	"effects": [
+		{
+			"icon": "icons/consumables/fruit/tomato-ripe-red.webp",
+			"origin": "Item.yyV0v2Mwujlm0Fkz",
+			"flags": {
+				"a5e": {
+					"sort": 0,
+					"transferType": "onUse",
+					"actionId": "7Vegs5Bk3HIEmWSw",
+					"duration": {
+						"type": "rounds",
+						"unit": "minutes"
+					}
+				}
+			},
+			"transfer": false,
+			"name": "Incapacitated",
+			"_id": "xrQzfn5kfZGlERPx",
+			"changes": [
+				{
+					"key": "flags.a5e.effects.statusConditions",
+					"value": "[\"incapacitated\"]",
+					"mode": 0,
+					"priority": null
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": null,
+				"combat": null,
+				"rounds": null,
+				"turns": 1,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "",
+			"statuses": [
+				"incapacitated"
+			],
+			"folder": null
+		}
+	],
+	"flags": {},
+	"_id": "ek6olmucuv9o5ojl"
+}

@@ -90,8 +90,14 @@
 			}
 		},
 		"schemaVersion": {
-			"version": 0.01,
-			"lastMigration": null
+			"version": 0.011,
+			"lastMigration": {
+				"version": {
+					"schema": 0.01,
+					"foundry": "11.315",
+					"system": "0.16.37"
+				}
+			}
 		},
 		"skills": {
 			"acr": {
@@ -422,7 +428,8 @@
 			},
 			"initiative": {
 				"bonus": "",
-				"expertiseDice": 0
+				"expertiseDice": 0,
+				"ability": "dex"
 			},
 			"movement": {
 				"burrow": {
@@ -484,7 +491,8 @@
 			"rangedSpellAttack": "",
 			"rangedWeaponAttack": "",
 			"spellDC": "",
-			"skills": {}
+			"skills": {},
+			"attacks": {}
 		},
 		"currency": {
 			"pp": 0,
@@ -502,7 +510,8 @@
 			"cr": 0.5,
 			"elite": false,
 			"privateNotes": "",
-			"notes": "<p><strong>Source&nbsp;</strong>Gate Pass Gazette 13</p>\n<p><strong>Terrain&nbsp;</strong>Caverns, Forest, Underland</p>\n<p><strong>Variant </strong>@UUID[Compendium.a5e.a5e-monsters.Actor.310y8k6ulriin0ci]{Dryad}</p>\n<hr>\n<h2>DESCRIPTION</h2>\n<div class=\"field field--name-field-monster-description field--type-text-long field--label-above\">\n<div class=\"field--item\">\n<p>As the dryad is bound to a heart tree, so the mykand is bound to a particular mushroom known as their fungal heart. Appearing as a leathery old humanoid with a scraggly lichen beard and wrapped in all manner of rotting material, a mykand is easily mistaken for a pile of garbage until it moves.</p>\n<p>Living deep underground, mykands tend to dozens of mushroom rings around their fungal heart, bringing them dead plant and animal materials and defending them from outside threats. They often have numerous hidden high ledges that they can teleport to scattered around their domain and from which they can attack their enemies with sling stones. They are also known to ally themselves with giant spiders and other such beasts, though they have a fierce hatred for ettercaps. Even further underground there are those mykand that make their homes in the Underlands, often working alongside the druids of the Sanctuary (see Underland Locations in Dungeon Delver&rsquo;s Guide for more information).</p>\n<p>Gold, magical items, and precious gems that the fungi cannot consume are discarded outside of the mykand&rsquo;s domain and often small piles of such material identifies the beginning of such an area. In combat the mykand will attempt to draw creatures away from its fungi and towards such piles, understanding the interest they hold for other creatures.</p>\n</div>\n</div>\n<div class=\"field field--name-field-monster-type-description field--type-text-long field--label-above\">\n<h2 class=\"field--label\">MONSTER TYPE DESCRIPTION</h2>\n<p class=\"field--label\">Fey are creatures that are native to Fairyland, also called the Dreaming. These creatures live in a verdant realm of heightened natural beauty and combine grace and danger. <span class=\"freelinking-link\">Sprites</span>&nbsp;and&nbsp;<span class=\"freelinking-link\">pixies</span>&nbsp;are fey.</p>\n</div>"
+			"notes": "<p><strong>Source&nbsp;</strong>Gate Pass Gazette 13</p>\n<p><strong>Terrain&nbsp;</strong>Caverns, Forest, Underland</p>\n<p><strong>Variant </strong>@UUID[Compendium.a5e.a5e-monsters.Actor.310y8k6ulriin0ci]{Dryad}</p>\n<hr>\n<h2>DESCRIPTION</h2>\n<div class=\"field field--name-field-monster-description field--type-text-long field--label-above\">\n<div class=\"field--item\">\n<p>As the dryad is bound to a heart tree, so the mykand is bound to a particular mushroom known as their fungal heart. Appearing as a leathery old humanoid with a scraggly lichen beard and wrapped in all manner of rotting material, a mykand is easily mistaken for a pile of garbage until it moves.</p>\n<p>Living deep underground, mykands tend to dozens of mushroom rings around their fungal heart, bringing them dead plant and animal materials and defending them from outside threats. They often have numerous hidden high ledges that they can teleport to scattered around their domain and from which they can attack their enemies with sling stones. They are also known to ally themselves with giant spiders and other such beasts, though they have a fierce hatred for ettercaps. Even further underground there are those mykand that make their homes in the Underlands, often working alongside the druids of the Sanctuary (see Underland Locations in Dungeon Delver&rsquo;s Guide for more information).</p>\n<p>Gold, magical items, and precious gems that the fungi cannot consume are discarded outside of the mykand&rsquo;s domain and often small piles of such material identifies the beginning of such an area. In combat the mykand will attempt to draw creatures away from its fungi and towards such piles, understanding the interest they hold for other creatures.</p>\n</div>\n</div>\n<div class=\"field field--name-field-monster-type-description field--type-text-long field--label-above\">\n<h2 class=\"field--label\">MONSTER TYPE DESCRIPTION</h2>\n<p class=\"field--label\">Fey are creatures that are native to Fairyland, also called the Dreaming. These creatures live in a verdant realm of heightened natural beauty and combine grace and danger. <span class=\"freelinking-link\">Sprites</span>&nbsp;and&nbsp;<span class=\"freelinking-link\">pixies</span>&nbsp;are fey.</p>\n</div>",
+			"terrain": []
 		},
 		"proficiencies": {
 			"armor": [],
@@ -590,11 +599,7 @@
 			"offsetX": 0,
 			"offsetY": 0,
 			"rotation": 0,
-			"anchorX": 0.5,
-			"anchorY": 0.5,
-			"fit": "contain",
-			"tint": "#ffffff",
-			"alphaThreshold": 0.75
+			"tint": "#ffffff"
 		},
 		"width": 1,
 		"height": 1,
@@ -645,12 +650,7 @@
 		},
 		"detectionModes": [],
 		"flags": {},
-		"randomImg": false,
-		"hexagonalShape": 0,
-		"locked": false,
-		"occludable": {
-			"radius": 0
-		}
+		"randomImg": false
 	},
 	"items": [
 		{
@@ -728,6 +728,7 @@
 					"version": null,
 					"lastMigration": null
 				},
+				"concentration": false,
 				"degree": 0,
 				"exertionCost": 0,
 				"isStance": false,
@@ -735,12 +736,12 @@
 				"tradition": "",
 				"equippedState": 0,
 				"schemaVersion": {
-					"version": 0.01,
+					"version": 0.011,
 					"lastMigration": {
 						"version": {
-							"schema": 0.009,
-							"foundry": "12.316",
-							"system": "0.16.12"
+							"schema": 0.01,
+							"foundry": "11.315",
+							"system": "0.16.37"
 						}
 					}
 				}
@@ -827,6 +828,7 @@
 					"version": null,
 					"lastMigration": null
 				},
+				"concentration": false,
 				"degree": 0,
 				"exertionCost": 0,
 				"isStance": false,
@@ -834,12 +836,12 @@
 				"tradition": "",
 				"equippedState": 0,
 				"schemaVersion": {
-					"version": 0.01,
+					"version": 0.011,
 					"lastMigration": {
 						"version": {
-							"schema": 0.009,
-							"foundry": "12.316",
-							"system": "0.16.12"
+							"schema": 0.01,
+							"foundry": "11.315",
+							"system": "0.16.37"
 						}
 					}
 				}
@@ -926,6 +928,7 @@
 					"version": null,
 					"lastMigration": null
 				},
+				"concentration": false,
 				"degree": 0,
 				"exertionCost": 0,
 				"isStance": false,
@@ -933,12 +936,12 @@
 				"tradition": "",
 				"equippedState": 0,
 				"schemaVersion": {
-					"version": 0.01,
+					"version": 0.011,
 					"lastMigration": {
 						"version": {
-							"schema": 0.009,
-							"foundry": "12.316",
-							"system": "0.16.12"
+							"schema": 0.01,
+							"foundry": "11.315",
+							"system": "0.16.37"
 						}
 					}
 				}
@@ -1025,6 +1028,7 @@
 					"version": null,
 					"lastMigration": null
 				},
+				"concentration": false,
 				"degree": 0,
 				"exertionCost": 0,
 				"isStance": false,
@@ -1032,12 +1036,12 @@
 				"tradition": "",
 				"equippedState": 0,
 				"schemaVersion": {
-					"version": 0.01,
+					"version": 0.011,
 					"lastMigration": {
 						"version": {
-							"schema": 0.009,
-							"foundry": "12.316",
-							"system": "0.16.12"
+							"schema": 0.01,
+							"foundry": "11.315",
+							"system": "0.16.37"
 						}
 					}
 				}
@@ -1124,6 +1128,7 @@
 					"version": null,
 					"lastMigration": null
 				},
+				"concentration": false,
 				"degree": 0,
 				"exertionCost": 0,
 				"isStance": false,
@@ -1131,12 +1136,12 @@
 				"tradition": "",
 				"equippedState": 0,
 				"schemaVersion": {
-					"version": 0.01,
+					"version": 0.011,
 					"lastMigration": {
 						"version": {
-							"schema": 0.009,
-							"foundry": "12.316",
-							"system": "0.16.12"
+							"schema": 0.01,
+							"foundry": "11.315",
+							"system": "0.16.37"
 						}
 					}
 				}
@@ -1223,6 +1228,7 @@
 					"version": null,
 					"lastMigration": null
 				},
+				"concentration": false,
 				"degree": 0,
 				"exertionCost": 0,
 				"isStance": false,
@@ -1230,12 +1236,12 @@
 				"tradition": "",
 				"equippedState": 0,
 				"schemaVersion": {
-					"version": 0.01,
+					"version": 0.011,
 					"lastMigration": {
 						"version": {
-							"schema": 0.009,
-							"foundry": "12.316",
-							"system": "0.16.12"
+							"schema": 0.01,
+							"foundry": "11.315",
+							"system": "0.16.37"
 						}
 					}
 				}
@@ -1286,13 +1292,14 @@
 				"featureType": "other",
 				"grants": {},
 				"prerequisite": "",
+				"requiresBloodied": false,
 				"schemaVersion": {
-					"version": 0.01,
+					"version": 0.011,
 					"lastMigration": {
 						"version": {
-							"schema": 0.009,
-							"foundry": "12.316",
-							"system": "0.16.12"
+							"schema": 0.01,
+							"foundry": "11.315",
+							"system": "0.16.37"
 						}
 					}
 				}
@@ -1369,13 +1376,14 @@
 				"featureType": "other",
 				"grants": {},
 				"prerequisite": "",
+				"requiresBloodied": false,
 				"schemaVersion": {
-					"version": 0.01,
+					"version": 0.011,
 					"lastMigration": {
 						"version": {
-							"schema": 0.009,
-							"foundry": "12.316",
-							"system": "0.16.12"
+							"schema": 0.01,
+							"foundry": "11.315",
+							"system": "0.16.37"
 						}
 					}
 				}
@@ -1435,13 +1443,14 @@
 				"featureType": "",
 				"grants": {},
 				"prerequisite": "",
+				"requiresBloodied": false,
 				"schemaVersion": {
-					"version": 0.01,
+					"version": 0.011,
 					"lastMigration": {
 						"version": {
-							"schema": 0.009,
-							"foundry": "12.316",
-							"system": "0.16.12"
+							"schema": 0.01,
+							"foundry": "11.315",
+							"system": "0.16.37"
 						}
 					}
 				}
@@ -1551,12 +1560,12 @@
 				],
 				"weight": 2,
 				"schemaVersion": {
-					"version": 0.01,
+					"version": 0.011,
 					"lastMigration": {
 						"version": {
-							"schema": 0.009,
-							"foundry": "12.316",
-							"system": "0.16.12"
+							"schema": 0.01,
+							"foundry": "11.315",
+							"system": "0.16.37"
 						}
 					}
 				}
@@ -1685,12 +1694,12 @@
 				],
 				"weight": 0,
 				"schemaVersion": {
-					"version": 0.01,
+					"version": 0.011,
 					"lastMigration": {
 						"version": {
-							"schema": 0.009,
-							"foundry": "12.316",
-							"system": "0.16.12"
+							"schema": 0.01,
+							"foundry": "11.315",
+							"system": "0.16.37"
 						}
 					}
 				}
@@ -1762,12 +1771,12 @@
 				"weaponProperties": [],
 				"weight": 1,
 				"schemaVersion": {
-					"version": 0.01,
+					"version": 0.011,
 					"lastMigration": {
 						"version": {
-							"schema": 0.009,
-							"foundry": "12.316",
-							"system": "0.16.12"
+							"schema": 0.01,
+							"foundry": "11.315",
+							"system": "0.16.37"
 						}
 					}
 				}
@@ -1863,13 +1872,14 @@
 				"featureType": "other",
 				"grants": {},
 				"prerequisite": "",
+				"requiresBloodied": false,
 				"schemaVersion": {
-					"version": 0.01,
+					"version": 0.011,
 					"lastMigration": {
 						"version": {
-							"schema": 0.009,
-							"foundry": "12.316",
-							"system": "0.16.12"
+							"schema": 0.01,
+							"foundry": "11.315",
+							"system": "0.16.37"
 						}
 					}
 				}
@@ -1925,13 +1935,14 @@
 				"featureType": "other",
 				"grants": {},
 				"prerequisite": "",
+				"requiresBloodied": false,
 				"schemaVersion": {
-					"version": 0.01,
+					"version": 0.011,
 					"lastMigration": {
 						"version": {
-							"schema": 0.009,
-							"foundry": "12.316",
-							"system": "0.16.12"
+							"schema": 0.01,
+							"foundry": "11.315",
+							"system": "0.16.37"
 						}
 					}
 				}

@@ -10,8 +10,6 @@
     import validateTemplateData from "../../utils/measuredTemplates/validateTemplateData";
 
     import prepareConsumers from "../dataPreparationHelpers/itemActivationConsumers/prepareConsumers";
-    import prepareDamageBonuses from "../dataPreparationHelpers/itemActivationRolls/prepareDamageBonuses";
-    import prepareHealingBonuses from "../dataPreparationHelpers/itemActivationRolls/prepareHealingBonuses";
     import preparePrompts from "../dataPreparationHelpers/itemActivationPrompts/preparePrompts";
     import prepareRolls from "../dataPreparationHelpers/itemActivationRolls/prepareRolls";
 
@@ -114,8 +112,14 @@
     const consumers = prepareConsumers(action.consumers);
     const prompts = preparePrompts(action.prompts, $item);
     const rolls = prepareRolls(action.rolls);
-    const damageBonuses = prepareDamageBonuses($actor, $item, rolls);
-    const healingBonuses = prepareHealingBonuses($actor, $item, rolls);
+    const damageBonuses = $actor.BonusesManager.prepareGlobalDamageBonuses(
+        $item,
+        rolls,
+    );
+    const healingBonuses = $actor.BonusesManager.prepareGlobalHealingBonuses(
+        $item,
+        rolls,
+    );
 
     const attackRoll = rolls?.attack?.length ? rolls.attack[0][1] : {};
 

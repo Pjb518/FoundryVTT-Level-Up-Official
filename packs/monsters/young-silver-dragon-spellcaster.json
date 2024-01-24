@@ -1,13 +1,295 @@
 {
-	"name": "Skeletal Tyrannosaurus Rex (Copy)",
+	"name": "Young Silver Dragon Spellcaster",
 	"type": "npc",
-	"img": "systems/a5e/assets/skeleton.webp",
+	"img": "systems/a5e/assets/silver-dragon.webp",
 	"items": [
 		{
-			"_id": "wWPF1ifV0n1Xd48F",
-			"name": "Undead Nature",
+			"_id": "oZT6HaNvREgnHfoV",
+			"name": "Bite",
 			"type": "feature",
-			"img": "icons/magic/death/skeleton-dinosaur-skull-tan.webp",
+			"img": "icons/creatures/abilities/mouth-teeth-long-red.webp",
+			"effects": [],
+			"folder": null,
+			"sort": 200000,
+			"flags": {
+				"core": {
+					"sourceId": "Item.vPUDWLIaJ79ymJJg"
+				}
+			},
+			"system": {
+				"ac": {
+					"baseFormula": "",
+					"formula": "",
+					"maxDex": 0,
+					"minStr": 0,
+					"mode": 1,
+					"requiresNoShield": false,
+					"requiresUnarmored": false
+				},
+				"actions": {
+					"QJf1R7o6KkjyWrLj": {
+						"name": "Bite",
+						"activation": {
+							"cost": 1,
+							"type": "action",
+							"reactionTrigger": ""
+						},
+						"duration": {
+							"unit": "instantaneous",
+							"value": ""
+						},
+						"ranges": {
+							"SfG8Kbffi7mnlRgV": {
+								"range": "10ft"
+							}
+						},
+						"area": {
+							"shape": "",
+							"size": "",
+							"placeTemplate": false
+						},
+						"target": {
+							"quantity": 1,
+							"type": "creature"
+						},
+						"rolls": {
+							"Tq7AIPAMpmi5ZYte": {
+								"bonus": "",
+								"critThreshold": "20",
+								"type": "attack",
+								"attackType": "meleeWeaponAttack",
+								"ability": "str"
+							},
+							"jH1MUwAXJx6iRzGR": {
+								"canCrit": true,
+								"damageType": "piercing",
+								"formula": "3d10 + @str.mod",
+								"name": "Default",
+								"type": "damage"
+							},
+							"w4DwWA108q0oDVCT": {
+								"canCrit": true,
+								"damageType": "cold",
+								"formula": "1d8",
+								"name": "Cold",
+								"type": "damage"
+							}
+						},
+						"consumers": {}
+					}
+				},
+				"description": "",
+				"favorite": true,
+				"secretDescription": "",
+				"source": "",
+				"uses": {
+					"value": null,
+					"max": "",
+					"per": null,
+					"recharge": {
+						"formula": "",
+						"threshold": ""
+					}
+				},
+				"schema": {
+					"version": null,
+					"lastMigration": null
+				},
+				"concentration": false,
+				"featureType": "naturalWeapon",
+				"grants": {},
+				"prerequisite": "",
+				"requiresBloodied": false,
+				"schemaVersion": {
+					"version": 0.011,
+					"lastMigration": {
+						"version": {
+							"schema": 0.01,
+							"foundry": "11.315",
+							"system": "0.16.37"
+						}
+					}
+				}
+			},
+			"ownership": {
+				"default": 0
+			}
+		},
+		{
+			"_id": "HuvSzEixNkLGhrU6",
+			"name": "Breath Weapons",
+			"type": "feature",
+			"img": "icons/svg/item-bag.svg",
+			"effects": [],
+			"folder": null,
+			"sort": 300000,
+			"flags": {
+				"core": {
+					"sourceId": "Item.UsGt8K5pNhFpsTVU"
+				}
+			},
+			"system": {
+				"ac": {
+					"baseFormula": "",
+					"formula": "",
+					"maxDex": 0,
+					"minStr": 0,
+					"mode": 1,
+					"requiresNoShield": false,
+					"requiresUnarmored": false
+				},
+				"actions": {
+					"b9BwJZpul3jdPais": {
+						"name": "Frost Breath",
+						"activation": {
+							"cost": 1,
+							"type": "action",
+							"reactionTrigger": ""
+						},
+						"consumers": {},
+						"rolls": {
+							"U0KGoKdeljvl7a8C": {
+								"canCrit": false,
+								"damageType": "cold",
+								"formula": "9d8",
+								"name": "Default",
+								"type": "damage"
+							}
+						},
+						"prompts": {
+							"SUFdbvZ7J9D0kJnc": {
+								"ability": "dex",
+								"onSave": "Half damage.",
+								"saveDC": {
+									"type": "custom",
+									"bonus": "17"
+								},
+								"type": "savingThrow"
+							}
+						},
+						"uses": {
+							"value": 0,
+							"max": "",
+							"per": "",
+							"recharge": {
+								"formula": "1d6",
+								"rechargeType": "custom",
+								"rechargeAmount": "1",
+								"threshold": 6
+							}
+						},
+						"duration": {
+							"unit": "instantaneous",
+							"value": ""
+						},
+						"ranges": {},
+						"area": {
+							"shape": "cone",
+							"size": "30ft",
+							"placeTemplate": false,
+							"length": 30,
+							"quantity": 1
+						},
+						"target": {
+							"quantity": 1,
+							"type": ""
+						},
+						"img": "icons/svg/item-bag.svg",
+						"description": "<p>The dragon exhales freezing wind in a 30-foot cone. Each creature in the area makes a DC 17 Constitution saving throw, taking 40 (9d8) cold damage on a failed save or half damage on a success.</p>"
+					},
+					"zidXpWsC49DV1Rae": {
+						"name": "Paralyzing Breath",
+						"activation": {
+							"cost": 1,
+							"type": "action",
+							"reactionTrigger": ""
+						},
+						"consumers": {},
+						"rolls": {},
+						"prompts": {
+							"kHMsP2uPm1f6shn9": {
+								"ability": "con",
+								"onSave": "Avoids/ends effects.",
+								"saveDC": {
+									"type": "custom",
+									"bonus": "17"
+								},
+								"type": "savingThrow"
+							}
+						},
+						"uses": {
+							"value": 0,
+							"max": "",
+							"per": "",
+							"recharge": {
+								"formula": "1d6",
+								"rechargeType": "custom",
+								"rechargeAmount": "1",
+								"threshold": 6
+							}
+						},
+						"duration": {
+							"unit": "minute",
+							"value": 1
+						},
+						"ranges": {},
+						"area": {
+							"shape": "cone",
+							"size": "30ft",
+							"placeTemplate": false,
+							"length": 30,
+							"quantity": 1
+						},
+						"target": {
+							"quantity": 1,
+							"type": ""
+						},
+						"img": "icons/magic/acid/projectile-smoke-glowing.webp",
+						"description": "<p>The dragon exhales paralytic gas in a 30-foot cone. Each creature in the area must succeed on a DC 17 Constitution saving throw or be paralyzed until the end of its next turn.</p>"
+					}
+				},
+				"description": "<p>The dragon uses one of the following breath weapons:</p><p><strong>Frost Breath.</strong> The dragon exhales freezing wind in a 30-foot cone. Each creature in the area makes a DC 17 Constitution saving throw, taking 40 (9d8) cold damage on a failed save or half damage on a success.</p><p><strong>Paralyzing Breath.</strong> The dragon exhales paralytic gas in a 30-foot cone. Each creature in the area must succeed on a DC 17 Constitution saving throw or be paralyzed until the end of its next turn.</p>",
+				"favorite": true,
+				"secretDescription": "",
+				"source": "",
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "recharge",
+					"recharge": {
+						"formula": "",
+						"threshold": 5
+					}
+				},
+				"schema": {
+					"version": null,
+					"lastMigration": null
+				},
+				"concentration": false,
+				"featureType": "",
+				"grants": {},
+				"prerequisite": "",
+				"requiresBloodied": false,
+				"schemaVersion": {
+					"version": 0.011,
+					"lastMigration": {
+						"version": {
+							"schema": 0.01,
+							"foundry": "11.315",
+							"system": "0.16.37"
+						}
+					}
+				}
+			},
+			"ownership": {
+				"default": 0
+			}
+		},
+		{
+			"_id": "7uXW9LaBsyZW5r7T",
+			"name": "Cloud Strider",
+			"type": "feature",
+			"img": "icons/svg/item-bag.svg",
 			"effects": [],
 			"folder": null,
 			"sort": 0,
@@ -23,7 +305,7 @@
 					"requiresUnarmored": false
 				},
 				"actions": {},
-				"description": "<p>A skeleton doesn’t require air, sustenance, or sleep.</p>",
+				"description": "<p>The dragon suffers no harmful effects from high altitude.</p>",
 				"favorite": false,
 				"secretDescription": "",
 				"source": "",
@@ -44,13 +326,14 @@
 				"featureType": "",
 				"grants": {},
 				"prerequisite": "",
+				"requiresBloodied": false,
 				"schemaVersion": {
-					"version": 0.01,
+					"version": 0.011,
 					"lastMigration": {
 						"version": {
-							"schema": 0.009,
-							"foundry": "12.316",
-							"system": "0.16.12"
+							"schema": 0.01,
+							"foundry": "11.315",
+							"system": "0.16.37"
 						}
 					}
 				}
@@ -60,14 +343,18 @@
 			}
 		},
 		{
-			"_id": "zYKqF9t9elZljalQ",
-			"name": "Bite",
-			"type": "object",
-			"img": "icons/creatures/abilities/mouth-teeth-long-red.webp",
+			"_id": "wAchtW8xtMee4PbN",
+			"name": "Multiattack",
+			"type": "feature",
+			"img": "icons/skills/melee/blade-tips-triple-steel.webp",
 			"effects": [],
 			"folder": null,
-			"sort": 0,
-			"flags": {},
+			"sort": 187500,
+			"flags": {
+				"core": {
+					"sourceId": "Item.oWZFcySGc0jdMBK5"
+				}
+			},
 			"system": {
 				"ac": {
 					"baseFormula": "",
@@ -78,65 +365,9 @@
 					"requiresNoShield": false,
 					"requiresUnarmored": false
 				},
-				"actions": {
-					"UdjMSxAnCWXVwtNY": {
-						"name": "Attack",
-						"activation": {
-							"cost": 1,
-							"type": "action",
-							"reactionTrigger": ""
-						},
-						"duration": {
-							"unit": "",
-							"value": ""
-						},
-						"area": {
-							"shape": "",
-							"size": "",
-							"placeTemplate": false
-						},
-						"target": {
-							"quantity": 1,
-							"type": "creature"
-						},
-						"rolls": {
-							"KlcqQxBrFS26lIks": {
-								"bonus": "",
-								"critThreshold": "20",
-								"type": "attack",
-								"attackType": "meleeWeaponAttack",
-								"ability": "str"
-							},
-							"reQVnXV1XXT2xUM7": {
-								"canCrit": true,
-								"damageType": "piercing",
-								"formula": "3d12 + @str.mod",
-								"name": "Melee Weapon Attack",
-								"type": "damage"
-							}
-						},
-						"prompts": {
-							"m9DhO34wXJ02lnc5": {
-								"ability": "dex",
-								"onSave": "Not grabbed",
-								"saveDC": {
-									"type": "custom",
-									"bonus": "17"
-								},
-								"type": "savingThrow"
-							}
-						},
-						"consumers": {},
-						"ranges": {
-							"rMkpFEqtGmm5NmAw": {
-								"range": 10,
-								"unit": "feet"
-							}
-						}
-					}
-				},
-				"description": "<p>If the target is a creature, it is grappled (escape DC 17). Until this grapple ends, the skeleton can’t bite a different creature and it has advantage on bite attacks against the grappled creature.</p>",
-				"favorite": true,
+				"actions": {},
+				"description": "<p>The dragon attacks with its bite and twice with its claws.</p>",
+				"favorite": false,
 				"secretDescription": "",
 				"source": "",
 				"uses": {
@@ -152,39 +383,18 @@
 					"version": null,
 					"lastMigration": null
 				},
-				"ammunitionProperties": [],
-				"armorCategory": "",
-				"armorProperties": [],
-				"attuned": false,
-				"bulky": false,
-				"craftingComponents": "",
-				"containerId": "",
-				"damagedState": 0,
-				"equippedState": 0,
-				"items": {},
-				"materialProperties": [],
-				"objectType": "weapon",
-				"plotItem": false,
-				"price": 0,
-				"proficient": true,
-				"quantity": 1,
-				"rarity": "common",
-				"requiresAttunement": false,
-				"shieldCategory": "",
-				"shieldProperties": [],
-				"unidentified": false,
-				"unidentifiedDescription": "",
-				"unidentifiedName": "",
-				"weaponProperties": [],
-				"weight": 0,
-				"broken": false,
+				"concentration": false,
+				"featureType": "",
+				"grants": {},
+				"prerequisite": "",
+				"requiresBloodied": false,
 				"schemaVersion": {
-					"version": 0.01,
+					"version": 0.011,
 					"lastMigration": {
 						"version": {
-							"schema": 0.009,
-							"foundry": "12.316",
-							"system": "0.16.12"
+							"schema": 0.01,
+							"foundry": "11.315",
+							"system": "0.16.37"
 						}
 					}
 				}
@@ -194,14 +404,18 @@
 			}
 		},
 		{
-			"_id": "nbkl0ca80t33UPax",
-			"name": "Multiattack",
+			"_id": "iwMzuE08jt8fO8qY",
+			"name": "Claws",
 			"type": "feature",
-			"img": "icons/skills/melee/blade-tips-triple-steel.webp",
+			"img": "icons/skills/melee/blood-slash-foam-red.webp",
 			"effects": [],
 			"folder": null,
-			"sort": 0,
-			"flags": {},
+			"sort": 250000,
+			"flags": {
+				"core": {
+					"sourceId": "Item.FnfGLPPI0HknNig2"
+				}
+			},
 			"system": {
 				"ac": {
 					"baseFormula": "",
@@ -212,8 +426,52 @@
 					"requiresNoShield": false,
 					"requiresUnarmored": false
 				},
-				"actions": {},
-				"description": "<p>The skeleton makes a bite attack and a tail attack against two different targets.</p>",
+				"actions": {
+					"6UF9vp5UpS3gGgk4": {
+						"name": "Claws",
+						"activation": {
+							"cost": 1,
+							"type": "action",
+							"reactionTrigger": ""
+						},
+						"duration": {
+							"unit": "instantaneous",
+							"value": ""
+						},
+						"ranges": {
+							"9jGyTbuolnzYTlCu": {
+								"range": "fiveFeet"
+							}
+						},
+						"area": {
+							"shape": "",
+							"size": "",
+							"placeTemplate": false
+						},
+						"target": {
+							"quantity": 1,
+							"type": "creature"
+						},
+						"rolls": {
+							"nXv3JSrv1LpTUveq": {
+								"bonus": "",
+								"critThreshold": "20",
+								"type": "attack",
+								"attackType": "meleeWeaponAttack",
+								"ability": "str"
+							},
+							"8Oj1sY2D0AsqtEt5": {
+								"canCrit": true,
+								"damageType": "slashing",
+								"formula": "2d8 + @str.mod",
+								"name": "Default",
+								"type": "damage"
+							}
+						},
+						"consumers": {}
+					}
+				},
+				"description": "",
 				"favorite": true,
 				"secretDescription": "",
 				"source": "",
@@ -234,137 +492,14 @@
 				"featureType": "",
 				"grants": {},
 				"prerequisite": "",
+				"requiresBloodied": false,
 				"schemaVersion": {
-					"version": 0.01,
+					"version": 0.011,
 					"lastMigration": {
 						"version": {
-							"schema": 0.009,
-							"foundry": "12.316",
-							"system": "0.16.12"
-						}
-					}
-				}
-			},
-			"ownership": {
-				"default": 0
-			}
-		},
-		{
-			"_id": "7RfBZpv8imWixL0X",
-			"name": "Tail",
-			"type": "object",
-			"img": "icons/creatures/abilities/tail-swipe-green.webp",
-			"effects": [],
-			"folder": null,
-			"sort": 0,
-			"flags": {},
-			"system": {
-				"ac": {
-					"baseFormula": "",
-					"formula": "",
-					"maxDex": 0,
-					"minStr": 0,
-					"mode": 1,
-					"requiresNoShield": false,
-					"requiresUnarmored": false
-				},
-				"actions": {
-					"7wXUzUXTmor4zqqw": {
-						"name": "Attack",
-						"activation": {
-							"cost": "",
-							"type": "",
-							"reactionTrigger": ""
-						},
-						"duration": {
-							"unit": "",
-							"value": ""
-						},
-						"area": {
-							"shape": "",
-							"size": "",
-							"placeTemplate": false
-						},
-						"target": {
-							"quantity": 1,
-							"type": "creature"
-						},
-						"rolls": {
-							"JceEbkS5HTweV4ha": {
-								"bonus": "",
-								"critThreshold": "20",
-								"type": "attack",
-								"attackType": "meleeWeaponAttack",
-								"ability": "str"
-							},
-							"rJecPSKxDIBhl7pC": {
-								"canCrit": true,
-								"damageType": "bludgeoning",
-								"formula": "3d6 + @str.mod",
-								"name": "Melee Weapon Attack",
-								"type": "damage"
-							}
-						},
-						"consumers": {},
-						"ranges": {
-							"fD1Cv1Bjg51X3OtU": {
-								"range": 10,
-								"unit": "feet"
-							}
-						},
-						"img": "icons/creatures/abilities/tail-swipe-green.webp"
-					}
-				},
-				"description": "",
-				"favorite": true,
-				"secretDescription": "",
-				"source": "",
-				"uses": {
-					"value": null,
-					"max": "",
-					"per": null,
-					"recharge": {
-						"formula": "",
-						"threshold": ""
-					}
-				},
-				"schema": {
-					"version": null,
-					"lastMigration": null
-				},
-				"ammunitionProperties": [],
-				"armorCategory": "",
-				"armorProperties": [],
-				"attuned": false,
-				"bulky": false,
-				"craftingComponents": "",
-				"containerId": "",
-				"damagedState": 0,
-				"equippedState": 0,
-				"items": {},
-				"materialProperties": [],
-				"objectType": "weapon",
-				"plotItem": false,
-				"price": 0,
-				"proficient": true,
-				"quantity": 1,
-				"rarity": "common",
-				"requiresAttunement": false,
-				"shieldCategory": "",
-				"shieldProperties": [],
-				"unidentified": false,
-				"unidentifiedDescription": "",
-				"unidentifiedName": "",
-				"weaponProperties": [],
-				"weight": 0,
-				"broken": false,
-				"schemaVersion": {
-					"version": 0.01,
-					"lastMigration": {
-						"version": {
-							"schema": 0.009,
-							"foundry": "12.316",
-							"system": "0.16.12"
+							"schema": 0.01,
+							"foundry": "11.315",
+							"system": "0.16.37"
 						}
 					}
 				}
@@ -385,7 +520,7 @@
 			},
 			"system": {
 				"actions": {
-					"db8BErSF0zrKOQ1D": {
+					"BuuiFqSddgSL2ero": {
 						"name": "Shove",
 						"activation": {
 							"cost": 1,
@@ -397,7 +532,7 @@
 							"value": null
 						},
 						"ranges": {
-							"I6Kc6Or6y3lYhRno": {
+							"cIf405Ga7mL308fn": {
 								"range": "fiveFeet"
 							}
 						},
@@ -413,7 +548,7 @@
 							"size": ""
 						},
 						"rolls": {
-							"S2aCTnPpljsvUicm": {
+							"cjIMDLynLKqIGVyQ": {
 								"canCrit": false,
 								"damageType": "bludgeoning",
 								"formula": "1 + @str.mod",
@@ -422,7 +557,7 @@
 							}
 						},
 						"prompts": {
-							"x6BJbxpWQAPQe5QX": {
+							"vNwK9yBxpKrPxyLQ": {
 								"ability": "str",
 								"onSave": "",
 								"saveDC": {
@@ -452,18 +587,19 @@
 					"version": null,
 					"lastMigration": null
 				},
+				"concentration": false,
 				"degree": 0,
 				"exertionCost": 0,
 				"isStance": false,
 				"prerequisite": "",
 				"tradition": "",
 				"schemaVersion": {
-					"version": 0.01,
+					"version": 0.011,
 					"lastMigration": {
 						"version": {
-							"schema": 0.009,
-							"foundry": "12.316",
-							"system": "0.16.12"
+							"schema": 0.01,
+							"foundry": "11.315",
+							"system": "0.16.37"
 						}
 					}
 				}
@@ -473,7 +609,7 @@
 			},
 			"folder": null,
 			"sort": 0,
-			"_id": "KLQ7shodaAEzWwbU"
+			"_id": "VDWx8gRFo3YmnrIY"
 		},
 		{
 			"name": "Disarm",
@@ -487,7 +623,7 @@
 			},
 			"system": {
 				"actions": {
-					"Y634lK3cbxa0N4VI": {
+					"vM2hrG1ZPg7QK6cD": {
 						"name": "Disarm",
 						"activation": {
 							"cost": 1,
@@ -499,7 +635,7 @@
 							"value": null
 						},
 						"ranges": {
-							"zdAyLRVfOEbSMeNd": {
+							"2W4Dn2oTXirz3W18": {
 								"range": "touch"
 							}
 						},
@@ -515,7 +651,7 @@
 							"size": ""
 						},
 						"rolls": {
-							"ELldSSZGIpqZutkT": {
+							"UiwcMsax9sdoX9mM": {
 								"canCrit": false,
 								"damageType": "",
 								"formula": "1 + @str.mod",
@@ -524,7 +660,7 @@
 							}
 						},
 						"prompts": {
-							"TFJMa9waw9rAA5j9": {
+							"phtaT1TCjX3azSuo": {
 								"ability": "str",
 								"onSave": "",
 								"saveDC": {
@@ -554,18 +690,19 @@
 					"version": null,
 					"lastMigration": null
 				},
+				"concentration": false,
 				"degree": 0,
 				"exertionCost": 0,
 				"isStance": false,
 				"prerequisite": "",
 				"tradition": "",
 				"schemaVersion": {
-					"version": 0.01,
+					"version": 0.011,
 					"lastMigration": {
 						"version": {
-							"schema": 0.009,
-							"foundry": "12.316",
-							"system": "0.16.12"
+							"schema": 0.01,
+							"foundry": "11.315",
+							"system": "0.16.37"
 						}
 					}
 				}
@@ -575,7 +712,7 @@
 			},
 			"folder": null,
 			"sort": 0,
-			"_id": "rrBacA1ks4ToeubD"
+			"_id": "4CpFogdbqnOruoZn"
 		},
 		{
 			"name": "Grab On",
@@ -589,7 +726,7 @@
 			},
 			"system": {
 				"actions": {
-					"Ccm1Mny2rP1oStlx": {
+					"FnBIdU2qO7tYKn2w": {
 						"name": "Grab On",
 						"activation": {
 							"cost": 1,
@@ -601,7 +738,7 @@
 							"value": null
 						},
 						"ranges": {
-							"Wz03CHqvQiaKLn2r": {
+							"64zQ2azrU7GHypqT": {
 								"range": "touch"
 							}
 						},
@@ -617,7 +754,7 @@
 							"size": ""
 						},
 						"prompts": {
-							"iKtklO45tjqmamRF": {
+							"w6PxijyC26WbZlFF": {
 								"ability": "str",
 								"onSave": "",
 								"saveDC": {
@@ -647,18 +784,19 @@
 					"version": null,
 					"lastMigration": null
 				},
+				"concentration": false,
 				"degree": 0,
 				"exertionCost": 0,
 				"isStance": false,
 				"prerequisite": "",
 				"tradition": "",
 				"schemaVersion": {
-					"version": 0.01,
+					"version": 0.011,
 					"lastMigration": {
 						"version": {
-							"schema": 0.009,
-							"foundry": "12.316",
-							"system": "0.16.12"
+							"schema": 0.01,
+							"foundry": "11.315",
+							"system": "0.16.37"
 						}
 					}
 				}
@@ -668,7 +806,7 @@
 			},
 			"folder": null,
 			"sort": 0,
-			"_id": "EkZd3saq4L2Zbkfh"
+			"_id": "tbdI65jLonOwVcRI"
 		},
 		{
 			"name": "Knockdown",
@@ -682,7 +820,7 @@
 			},
 			"system": {
 				"actions": {
-					"lbTLB3Dc7TaC7AG9": {
+					"UYFO3Jxw7bTmIJ9B": {
 						"name": "Knockdown",
 						"activation": {
 							"cost": 1,
@@ -694,7 +832,7 @@
 							"value": null
 						},
 						"ranges": {
-							"bMXSDWJrUFRrnmZz": {
+							"iRqjctXxn1jM9k1d": {
 								"range": "touch"
 							}
 						},
@@ -710,7 +848,7 @@
 							"size": ""
 						},
 						"prompts": {
-							"Vb8X7NWSeJBaOQoi": {
+							"6RrzDG172tgjxBKB": {
 								"ability": "str",
 								"onSave": "",
 								"saveDC": {
@@ -740,18 +878,19 @@
 					"version": null,
 					"lastMigration": null
 				},
+				"concentration": false,
 				"degree": 0,
 				"exertionCost": 0,
 				"isStance": false,
 				"prerequisite": "",
 				"tradition": "",
 				"schemaVersion": {
-					"version": 0.01,
+					"version": 0.011,
 					"lastMigration": {
 						"version": {
-							"schema": 0.009,
-							"foundry": "12.316",
-							"system": "0.16.12"
+							"schema": 0.01,
+							"foundry": "11.315",
+							"system": "0.16.37"
 						}
 					}
 				}
@@ -761,7 +900,7 @@
 			},
 			"folder": null,
 			"sort": 0,
-			"_id": "5yPW6py2iPo0f0bs"
+			"_id": "RLN6BIPbhc4upuiG"
 		},
 		{
 			"name": "Grapple",
@@ -775,7 +914,7 @@
 			},
 			"system": {
 				"actions": {
-					"JplcUvqivXZvW3Zm": {
+					"Il0CftumKKIEv6ZB": {
 						"name": "Grapple",
 						"activation": {
 							"cost": 1,
@@ -787,7 +926,7 @@
 							"value": null
 						},
 						"ranges": {
-							"HFdfzRLWgKiQnQB7": {
+							"K5XulPyRC6mcpv0K": {
 								"range": "touch"
 							}
 						},
@@ -803,7 +942,7 @@
 							"size": ""
 						},
 						"prompts": {
-							"aIti8Dpk4s4uUt5w": {
+							"tPpqJm33aCnaQzk2": {
 								"ability": "str",
 								"onSave": "",
 								"saveDC": {
@@ -833,18 +972,19 @@
 					"version": null,
 					"lastMigration": null
 				},
+				"concentration": false,
 				"degree": 0,
 				"exertionCost": 0,
 				"isStance": false,
 				"prerequisite": "",
 				"tradition": "",
 				"schemaVersion": {
-					"version": 0.01,
+					"version": 0.011,
 					"lastMigration": {
 						"version": {
-							"schema": 0.009,
-							"foundry": "12.316",
-							"system": "0.16.12"
+							"schema": 0.01,
+							"foundry": "11.315",
+							"system": "0.16.37"
 						}
 					}
 				}
@@ -854,7 +994,7 @@
 			},
 			"folder": null,
 			"sort": 0,
-			"_id": "bCjED4pe9K5rDGeW"
+			"_id": "nUqdA2p3WVz31O9P"
 		},
 		{
 			"name": "Overrun",
@@ -868,7 +1008,7 @@
 			},
 			"system": {
 				"actions": {
-					"1VbzgbdcTGz0GiA4": {
+					"9dBa56bNLLbOEQRZ": {
 						"name": "Overrun",
 						"activation": {
 							"cost": 1,
@@ -880,7 +1020,7 @@
 							"value": null
 						},
 						"ranges": {
-							"vgzN80ArLQAx0xdw": {
+							"IPKNj9sfiABb6FNo": {
 								"range": "touch"
 							}
 						},
@@ -896,7 +1036,7 @@
 							"size": ""
 						},
 						"prompts": {
-							"yyQvcpJQjG1mdvbH": {
+							"jlByYKCSgJFLHqDI": {
 								"ability": "str",
 								"onSave": "",
 								"saveDC": {
@@ -926,18 +1066,19 @@
 					"version": null,
 					"lastMigration": null
 				},
+				"concentration": false,
 				"degree": 0,
 				"exertionCost": 0,
 				"isStance": false,
 				"prerequisite": "",
 				"tradition": "",
 				"schemaVersion": {
-					"version": 0.01,
+					"version": 0.011,
 					"lastMigration": {
 						"version": {
-							"schema": 0.009,
-							"foundry": "12.316",
-							"system": "0.16.12"
+							"schema": 0.01,
+							"foundry": "11.315",
+							"system": "0.16.37"
 						}
 					}
 				}
@@ -947,14 +1088,349 @@
 			},
 			"folder": null,
 			"sort": 0,
-			"_id": "HUIm7DfZo4zjN0CE"
+			"_id": "dIgGf91nmnMDRq5Q"
+		},
+		{
+			"name": "Innate Spellcasting",
+			"type": "feature",
+			"system": {
+				"ac": {
+					"baseFormula": "",
+					"formula": "",
+					"maxDex": 0,
+					"minStr": 0,
+					"mode": 2,
+					"requiresNoShield": false,
+					"requiresUnarmored": false
+				},
+				"actions": {},
+				"description": "<p>The dragon&rsquo;s spellcasting ability is Charisma (save DC 16). It can innately cast the following spells, requiring no material components.&nbsp;</p>\n<p><strong>3/day each:</strong>&nbsp;<em>charm person, faerie fire</em></p>",
+				"favorite": false,
+				"secretDescription": "",
+				"source": {
+					"name": "",
+					"link": "",
+					"publisher": ""
+				},
+				"uses": {
+					"value": null,
+					"max": "",
+					"per": null,
+					"recharge": {
+						"formula": "1d6",
+						"threshold": "6"
+					}
+				},
+				"schema": {
+					"version": null,
+					"lastMigration": null
+				},
+				"concentration": false,
+				"featureType": "other",
+				"grants": {},
+				"prerequisite": "",
+				"requiresBloodied": false,
+				"schemaVersion": {
+					"version": 0.011,
+					"lastMigration": {
+						"version": {
+							"schema": null,
+							"foundry": "11.315",
+							"system": "0.16.37"
+						}
+					}
+				}
+			},
+			"_id": "RzE1Z0b2W312MHGO",
+			"img": "icons/svg/item-bag.svg",
+			"effects": [],
+			"folder": null,
+			"sort": 0,
+			"ownership": {
+				"default": 0
+			},
+			"flags": {}
+		},
+		{
+			"name": "Charm Person",
+			"type": "spell",
+			"img": "icons/magic/control/control-influence-puppet.webp",
+			"effects": [
+				{
+					"icon": "icons/magic/control/control-influence-puppet.webp",
+					"origin": "Actor.vkPoP6R71SUQULLy.Item.xBcA7bbTt2fPzivS",
+					"flags": {
+						"a5e": {
+							"sort": 0,
+							"transferType": "onUse",
+							"duration": {
+								"unit": "hours"
+							},
+							"actionId": "F8BStUMZ0QkuHIWs"
+						}
+					},
+					"transfer": false,
+					"name": "Charm Person",
+					"_id": "m8ZI2ALQ9jH4sptL",
+					"changes": [
+						{
+							"key": "flags.a5e.effects.statusConditions",
+							"value": "[\"charmed\"]",
+							"mode": 0,
+							"priority": null
+						}
+					],
+					"disabled": false,
+					"duration": {
+						"startTime": null,
+						"seconds": 3600,
+						"combat": null,
+						"rounds": null,
+						"turns": null,
+						"startRound": null,
+						"startTurn": null
+					},
+					"description": "",
+					"statuses": [],
+					"tint": "#ffffff",
+					"folder": null
+				}
+			],
+			"flags": {},
+			"system": {
+				"actions": {
+					"F8BStUMZ0QkuHIWs": {
+						"name": "Cast Spell",
+						"activation": {
+							"cost": 1,
+							"type": "action",
+							"reactionTrigger": ""
+						},
+						"duration": {
+							"unit": "hour",
+							"value": "1"
+						},
+						"ranges": {
+							"D03zfzZhGAKBLTsK": {
+								"range": "short"
+							}
+						},
+						"area": {
+							"shape": "",
+							"size": "",
+							"placeTemplate": false
+						},
+						"target": {
+							"quantity": "",
+							"type": "creature"
+						},
+						"prompts": {
+							"pvX82eum3zUAY8rx": {
+								"ability": "wis",
+								"onSave": "Negates effect",
+								"saveDC": {
+									"type": "spellcasting",
+									"bonus": ""
+								},
+								"type": "savingThrow"
+							},
+							"QThaA0QZtap4PR4N": {
+								"type": "effect",
+								"default": true,
+								"effectId": "m8ZI2ALQ9jH4sptL",
+								"label": "Charm Person"
+							}
+						},
+						"consumers": {},
+						"uses": {
+							"value": 3,
+							"max": "3",
+							"per": "day"
+						}
+					}
+				},
+				"description": "<p>You only require line of sight to the target (not line of effect) and it has advantage on its saving throw to resist the spell if you or your companions are fighting it. Until the spell ends, the target is charmed by you and friendly towards you.</p><p>The spell ends if you or your companions do anything harmful towards the target. The target knows it was charmed by you when the spell ends.</p><p><strong><em>Cast at Higher Levels.</em></strong> For each slot level above 1st, you affect one additional target that is within 30 feet of other targets.</p>",
+				"favorite": false,
+				"secretDescription": "",
+				"source": "",
+				"uses": {
+					"value": null,
+					"max": "",
+					"per": null,
+					"recharge": {
+						"formula": "",
+						"threshold": ""
+					}
+				},
+				"schema": {
+					"version": null,
+					"lastMigration": null
+				},
+				"classes": [
+					"bard",
+					"druid",
+					"sorcerer",
+					"warlock",
+					"wielder",
+					"witch",
+					"wizard"
+				],
+				"components": {
+					"vocalized": true,
+					"seen": true,
+					"material": false
+				},
+				"concentration": false,
+				"level": 1,
+				"materials": "",
+				"materialsConsumed": false,
+				"prepared": 2,
+				"prerequisite": "",
+				"rare": false,
+				"ritual": false,
+				"schools": {
+					"primary": "enchantment",
+					"secondary": [
+						"arcane",
+						"compulsion"
+					]
+				},
+				"schemaVersion": {
+					"version": 0.011,
+					"lastMigration": {
+						"version": {
+							"schema": 0.01,
+							"foundry": "11.315",
+							"system": "0.16.37"
+						}
+					}
+				}
+			},
+			"folder": null,
+			"_id": "xBcA7bbTt2fPzivS",
+			"sort": 0,
+			"ownership": {
+				"default": 0
+			}
+		},
+		{
+			"name": "Faerie Fire",
+			"type": "spell",
+			"img": "icons/magic/light/projectiles-pink-purple.webp",
+			"effects": [],
+			"flags": {},
+			"system": {
+				"actions": {
+					"csBA0B0VYc68le4M": {
+						"name": "Faerie Fire",
+						"activation": {
+							"cost": 1,
+							"type": "action",
+							"reactionTrigger": ""
+						},
+						"duration": {
+							"unit": "minute",
+							"value": "1"
+						},
+						"ranges": {
+							"mfLaFLmAAEW4pD4n": {
+								"range": "medium"
+							}
+						},
+						"area": {
+							"shape": "cube",
+							"width": 20,
+							"placeTemplate": true
+						},
+						"target": {
+							"quantity": "",
+							"type": ""
+						},
+						"prompts": {
+							"C95Yph6KdzvdTomm": {
+								"ability": "dex",
+								"onSave": "Special",
+								"saveDC": {
+									"type": "spellcasting",
+									"bonus": ""
+								},
+								"type": "savingThrow"
+							}
+						},
+						"consumers": {},
+						"uses": {
+							"value": 3,
+							"max": "3",
+							"per": "day"
+						}
+					}
+				},
+				"description": "<p>Each object in a 20-foot cube within range is outlined in light (your choice of color). Any creature in the area when the spell is cast is also outlined unless it makes a Dexterity saving throw. Until the spell ends, affected objects and creatures shed dim light in a 10-foot radius.</p><p>Any attack roll against an affected object or creature has advantage. The spell also negates the benefits of invisibility on affected creatures and objects.</p>",
+				"favorite": false,
+				"secretDescription": "",
+				"source": "",
+				"uses": {
+					"value": null,
+					"max": "",
+					"per": null,
+					"recharge": {
+						"formula": "",
+						"threshold": ""
+					}
+				},
+				"schema": {
+					"version": null,
+					"lastMigration": null
+				},
+				"classes": [
+					"bard",
+					"druid",
+					"elementalistFire",
+					"witch"
+				],
+				"components": {
+					"vocalized": true,
+					"seen": false,
+					"material": false
+				},
+				"concentration": true,
+				"level": 1,
+				"materials": "",
+				"materialsConsumed": false,
+				"prepared": 2,
+				"prerequisite": "",
+				"rare": false,
+				"ritual": false,
+				"schools": {
+					"primary": "evocation",
+					"secondary": [
+						"arcane",
+						"utility"
+					]
+				},
+				"schemaVersion": {
+					"version": 0.011,
+					"lastMigration": {
+						"version": {
+							"schema": 0.01,
+							"foundry": "11.315",
+							"system": "0.16.37"
+						}
+					}
+				}
+			},
+			"folder": null,
+			"_id": "S04qRG6PdmVjP9og",
+			"sort": 0,
+			"ownership": {
+				"default": 0
+			}
 		}
 	],
 	"effects": [],
 	"flags": {
 		"a5e": {
-			"sheetIsLocked": true,
-			"showSpellTab": false
+			"sheetIsLocked": false
 		}
 	},
 	"system": {
@@ -974,14 +1450,14 @@
 				}
 			},
 			"dex": {
-				"value": 10,
+				"value": 14,
 				"check": {
 					"expertiseDice": 0,
 					"bonus": "",
 					"notes": {}
 				},
 				"save": {
-					"proficient": false,
+					"proficient": true,
 					"expertiseDice": 0,
 					"bonus": "",
 					"notes": {}
@@ -995,14 +1471,14 @@
 					"notes": {}
 				},
 				"save": {
-					"proficient": false,
+					"proficient": true,
 					"expertiseDice": 0,
 					"bonus": "",
 					"notes": {}
 				}
 			},
 			"int": {
-				"value": 2,
+				"value": 14,
 				"check": {
 					"expertiseDice": 0,
 					"bonus": "",
@@ -1016,28 +1492,28 @@
 				}
 			},
 			"wis": {
-				"value": 8,
+				"value": 10,
 				"check": {
 					"expertiseDice": 0,
 					"bonus": "",
 					"notes": {}
 				},
 				"save": {
-					"proficient": false,
+					"proficient": true,
 					"expertiseDice": 0,
 					"bonus": "",
 					"notes": {}
 				}
 			},
 			"cha": {
-				"value": 5,
+				"value": 18,
 				"check": {
 					"expertiseDice": 0,
 					"bonus": "",
 					"notes": {}
 				},
 				"save": {
-					"proficient": false,
+					"proficient": true,
 					"expertiseDice": 0,
 					"bonus": "",
 					"notes": {}
@@ -1045,12 +1521,12 @@
 			}
 		},
 		"schemaVersion": {
-			"version": 0.01,
+			"version": 0.011,
 			"lastMigration": {
 				"version": {
-					"schema": 0.006,
-					"foundry": "11.307",
-					"system": "0.15.0"
+					"schema": 0.01,
+					"foundry": "11.315",
+					"system": "0.16.37"
 				}
 			}
 		},
@@ -1082,7 +1558,7 @@
 			"arc": {
 				"ability": "int",
 				"value": 0,
-				"proficient": false,
+				"proficient": true,
 				"specialties": [],
 				"expertiseDice": 0,
 				"minRoll": 1,
@@ -1142,7 +1618,7 @@
 			"his": {
 				"ability": "int",
 				"value": 0,
-				"proficient": false,
+				"proficient": true,
 				"specialties": [],
 				"expertiseDice": 0,
 				"minRoll": 1,
@@ -1214,9 +1690,9 @@
 			"prc": {
 				"ability": "wis",
 				"value": 0,
-				"proficient": false,
+				"proficient": true,
 				"specialties": [],
-				"expertiseDice": 0,
+				"expertiseDice": 2,
 				"minRoll": 1,
 				"bonuses": {
 					"check": "",
@@ -1274,7 +1750,7 @@
 			"ste": {
 				"ability": "dex",
 				"value": 0,
-				"proficient": false,
+				"proficient": true,
 				"specialties": [],
 				"expertiseDice": 0,
 				"minRoll": 1,
@@ -1342,7 +1818,7 @@
 		},
 		"attributes": {
 			"ac": {
-				"baseFormula": "13",
+				"baseFormula": "18",
 				"value": 0
 			},
 			"death": {
@@ -1350,8 +1826,8 @@
 				"failure": 0
 			},
 			"hp": {
-				"value": 126,
-				"baseMax": 126,
+				"value": 157,
+				"baseMax": 157,
 				"temp": 0,
 				"bonus": 0
 			},
@@ -1365,12 +1841,12 @@
 					"total": 0
 				},
 				"d10": {
-					"current": 4,
-					"total": 4
+					"current": 15,
+					"total": 15
 				},
 				"d12": {
-					"current": 11,
-					"total": 11
+					"current": 0,
+					"total": 0
 				},
 				"d4": {
 					"current": 0,
@@ -1382,6 +1858,7 @@
 				}
 			},
 			"initiative": {
+				"ability": "dex",
 				"bonus": "",
 				"expertiseDice": 0
 			},
@@ -1395,7 +1872,7 @@
 					"unit": "feet"
 				},
 				"fly": {
-					"distance": 0,
+					"distance": 80,
 					"unit": "feet"
 				},
 				"swim": {
@@ -1403,7 +1880,7 @@
 					"unit": "feet"
 				},
 				"walk": {
-					"distance": 50,
+					"distance": 40,
 					"unit": "feet"
 				},
 				"traits": {
@@ -1412,12 +1889,12 @@
 			},
 			"senses": {
 				"blindsight": {
-					"distance": null,
+					"distance": 30,
 					"unit": "feet",
 					"otherwiseBlind": false
 				},
 				"darkvision": {
-					"distance": 60,
+					"distance": 120,
 					"unit": "feet"
 				},
 				"tremorsense": {
@@ -1432,20 +1909,21 @@
 			"inspiration": false,
 			"fatigue": 0,
 			"strife": 0,
-			"spellcasting": "int",
+			"spellcasting": "cha",
 			"casterLevel": 0
 		},
 		"bonuses": {
-			"abilities": {},
-			"damage": {},
-			"healing": {},
 			"maneuverDC": "",
 			"meleeSpellAttack": "",
 			"meleeWeaponAttack": "",
 			"rangedSpellAttack": "",
 			"rangedWeaponAttack": "",
 			"spellDC": "",
-			"skills": {}
+			"abilities": {},
+			"damage": {},
+			"healing": {},
+			"skills": {},
+			"attacks": {}
 		},
 		"currency": {
 			"pp": 0,
@@ -1455,19 +1933,23 @@
 			"cp": 0
 		},
 		"details": {
-			"bio": "<h3>COMBAT</h3>\n<p>Skeletons follow the last order given them by their creator: defend the gates, attack trespassers, etc. Without orders, they attack any creatures that approach them. Skeletons don&rsquo;t retreat unless commanded to do so.</p>\n<hr>\n<h3>LEGENDS AND LORE</h3>\n<p>With an Arcana or Religion check, characters can learn the following:</p>\n<p><strong>DC 10 </strong>Necromancy imbues skeletons with a semblance of life, although some skeletons rise spontaneously on cursed battlefields or in cities ravaged by plague.</p>\n<p><strong>DC 15 </strong>Nearly anything with bones can be reanimated as a skeleton. Like most undead, skeletons are immune to poison, but their brittle bones can be easily smashed.</p>\n<p><strong>DC 20 </strong>Skeletons generally follow the orders given to them by their creator. Without such orders, skeletons may revert to activities they performed in life.</p>\n<h3>DESCRIPTION</h3>\n<p>Skeletons are fleshless corpses imbued by necromantic energies with a mockery of life. Most often, spellcasters create skeletons to act as guards and servants, but it&rsquo;s not unheard of for skeletons to arise from cursed grounds where the living are outnumbered by the unburied dead.</p>\n<p><em><strong>Following Orders</strong></em>. Skeletons follow their creators&rsquo; instructions to the best of their limited ability. They understand language and can follow detailed instructions, but their ability to think independently is limited. If ordered to cross a dangerous river, a skeleton may take a detour to use a bridge. In the absence of a bridge, however, it will risk a dangerous swim rather than build a raft or search for a safe place to cross.</p>\n<p><em><strong>Shreds of Memory</strong></em>. If left to its own devices, a skeleton without orders may mimic habitual activities from its previous life. In a tavern, one skeleton may shuffle a handful of faded playing cards, while another stands behind the bar to polish mugs. A skeleton will abandon such pursuits to attack living creatures, unless it has been specifically ordered otherwise.</p>\n<h3>BEHAVIOR</h3>\n<p><strong>Humanoid Skeleton Behavior</strong></p>\n<p>1 Standing guard</p>\n<p>2 Lying motionless on the ground; leaps up to attack if approached</p>\n<p>3 Patrolling a path worn into the floor</p>\n<p>4 Miming everyday activities such as drinking and dicing; attacks if approached</p>\n<p>5 Attacks anyone who engages in a forbidden activity, such as examining a specific item</p>\n<p>6 Sharpening a sword down to the nub</p>\n<p>7 With Intelligence 10, speaks Common</p>\n<p>8 Luring trespassers into pit traps, or throwing levers to open pit traps under their feet</p>\n<hr>\n<p><strong>Beast Skeleton Behavior</strong></p>\n<p>1 In a cage or shackled to a wall</p>\n<p>2 Follows any command it hears</p>\n<p>3 Attacks on sight</p>\n<p>4 Hunting, raising silent jaws to the sky as if to roar</p>\n<p><strong>SIGNS</strong></p>\n<p>1 Broken bones</p>\n<p>2 Inanimate skeletons</p>\n<p>3 Smashed sarcophagi or coffins, or defiled tombs</p>\n<p>4 DC 12 Perception check: distant clattering</p>\n<h3>ENCOUNTERS</h3>\n<p>Skeletons patrol arcane laboratories, march across ancient battlefields, and extend bony hands from crumbling sarcophagi.</p>\n<p><strong>CR 0&ndash;2</strong> 1d4 skeletons; 1 or 2 skeletons riding skeletal warhorses</p>\n<p><strong>&nbsp; &nbsp;Treasure </strong>30 gp, 100 ep (coins minted in a long-forgotten era)</p>\n<p><strong>CR 3&ndash;4</strong> skeletal champion; skeleton horde; 1d4 + 4 skeletons</p>\n<p><strong>&nbsp; &nbsp;Treasure </strong>120 gp, silver-chased hunting horn (75 gp), 8 +1 arrows (make a screaming sound when fired)</p>\n<p><strong>CR 5&ndash;10</strong> skeletal champion with skeleton horde; skeletal tyrannosaurus rex; 2 skeletal champions riding skeletal warhorses</p>\n<p><strong>&nbsp; &nbsp;Treasure </strong>200 gp, twisted steel crown set with garnets (250 gp), ceremonial gold-encrusted sword (250 gp), winged boots</p>",
+			"bio": "<h2><strong>COMBAT</strong></h2><p>While individual dragons have their own personalities and tactics, most rely heavily on their breath weapons. They use them whenever they can, preferably from maximum distance and while flying above their enemies.&nbsp;</p><p>When fighting in the open, dragons often circle above their enemies as they wait for their breath weapons to recharge. They only close to melee if their enemies deal significant damage with ranged attacks, or if they can savage an enemy cut off from its allies. Once bloodied, dragons become more aggressive, attacking with bite and claws when their breath weapons aren’t available.</p><p>If a dragon is protecting its lair, it utilizes lair features, traps, allies, and architecture such as escape tunnels to keep up a hit-and-run fight, reappearing only when it has a fully-recharged breath weapon. If the dragon is forced into melee combat, it uses its bite and claws against a single foe. If it has legendary actions like Roar and Wing Attack, it uses them to disperse its other enemies.</p><p>If reduced to less than one-fourth its hit points while fighting in the open, a dragon flies away. However, it fights to the death to defend its lair, unless it can regain the upper hand through tricks or bargains.</p><hr class=\"a5e-rule u-my-md\"><h2><strong>SILVER DRAGON LAIR FEATURES</strong></h2><p>The save DC for the following effects is 13 + the dragon’s proficiency bonus. Choose or roll one or more of the following lair features:</p><p>1 Wispy clouds gather within the lair. Once per day, when the dragon uses Windstorm, it can cause the area of the windstorm to become heavily obscured to creatures other than itself.</p><p>2 When the dragon uses its Frost Breath, ground inside the area becomes difficult terrain as spears of ice sprout upwards. Fire damage instantly melts the spears, and the spears also melt when the dragon recharges its Breath Weapon.</p><p>3 The dragon can target a point on the ceiling with its Spit Frost action, causing icicles to fall to the ground in a 10-foot-radius cylinder. Creatures in the area make a Dexterity saving throw, taking 11 (2d10) cold damage on a failure. A flying creature that fails the saving throw falls to the ground.</p><p>4 Thick ice conceals a 30-foot-diameter escape chimney in the ceiling. The silver dragon can shatter the ice by flying through it, causing a harsh wind to blast down the chimney. Medium or smaller creatures flying up the chimney make a Strength saving throw at the end of each of their turns, being pushed back 60 feet on a failure.</p><hr class=\"a5e-rule u-my-md\"><h2><strong>NAMES</strong></h2><p>Argenith,<strong> </strong>Rathadaxio, Clauthilia, Moonsilver, Sariov, Silverwing</p><hr class=\"a5e-rule u-my-md\"><h2><strong>LEGENDS AND LORE</strong></h2><p>With an Arcana or History check, characters can learn the following:</p><p><strong>DC 10</strong> Silver dragons rarely descend from their mountaintop lairs; when they do, they often disguise themselves as humanoids.</p><p><strong>DC 15</strong> A silver dragon’s breath weapon can take two forms: a blast of freezing air or a cloud of paralytic gas.</p><p><strong>DC 20</strong> Silver dragons are creatures of the sky. The eldest of them can transform into clouds and summon magical windstorms.</p><hr class=\"a5e-rule u-my-md\"><h2><strong>DESCRIPTION</strong></h2><p>Silver dragons are graceful, majestic dragons that adopt humanoid forms to mentor good-hearted humanoids. They see potential for greatness everywhere, but demand nothing less than perfection from themselves and their students.</p><p><strong><em>Tutors to Smallfolk.</em></strong> Once they grow to full adulthood, silver dragons often take humanoid form to serve as teachers to particularly gifted students. Being so long-lived gives the dragons time to become experts in a variety of fields, and they may pass on their knowledge of art, swordplay, various crafts, or spellcasting to their students. Once a silver dragon selects a protege, it will not rest until its lessons are complete. If the student’s conviction wavers, the dragon may take drastic measures to keep its pupil on track—often to the student’s chagrin.</p><p><strong><em>Hoarders of Art and History.</em></strong> Silver dragons decorate their lairs with objects that remind them of their favorite students: a perfectly crafted blade, a masterwork painting, or even a collection of top-quality alchemical supplies. In addition to such keepsakes, a silver dragon might collect items of historical significance, such as the mast of a warship used in a pivotal battle, a renowned queen’s wedding dress, or a battlement from a castle demolished centuries ago.</p><p><strong><em>Social Butterflies.</em></strong> Silver dragons can’t stand extended isolation and will travel immense distances to visit others of their kind. Without such interactions, a silver dragon may take humanoid form and befriend humanoids passing through its domain. Travelers who aren’t sufficiently receptive to this talkative stranger may find themselves face-to-face with a wrathful dragon.</p><hr class=\"a5e-rule u-my-md\"><h2><strong>BEHAVIOR</strong></h2><p>1 In the form of an elf ranger who cares for this area</p><p>2 In humanoid form, emerging from a frozen lake</p><p>3 With knowledge and advice about the party’s quest</p><p>4 Angered by a recent killing in its domain</p><hr class=\"a5e-rule u-my-md\"><h2><strong>SIGNS</strong></h2><p>1 An ancient roofless tower on a peak, its door frozen shut</p><p>2 Swirling winds: if a creature not hostile to the dragon falls, the winds carry it gently to the ground</p><p>3 Gray skies, except for a clear patch above a particular peak</p><p>4 A field of snow, untouched except for four draconic footprints</p><hr class=\"a5e-rule u-my-md\"><h2><strong>ENCOUNTERS</strong></h2><p>Silver dragons live in caverns on mountaintops, often at elevations high enough to be shrouded in clouds.</p><p><strong>CR 3–4</strong> silver dragon wyrmling with 1d8 + 4 dragonbound warriors (see warrior), ice mephits, or mountain dwarf soldiers (see soldier)</p><p><strong>Treasure</strong> 3,000 sp, 5 quartz gemstones (10 gp each), 2 curios (huge stone throne and weightless boulder), <em>potion of cold resistance</em>, 12 <em>+2 crossbow bolts</em></p><p><strong>CR 5–10</strong> young silver dragon; silver dragon wyrmling with 1d4 berserkers, faerie dragons, or snowmen (see scarecrows)</p><p><strong>Treasure</strong> 750 gp, 2,000 sp, 3 sets of stylish clothes (100 gp each), 3 silver and amber bracelets (125 gp each), 2 curios (ship’s wheel marked with a famous ship name, map of another world), <em>spell scrolls</em> of <em>alter self</em> and <em>misty step</em>, <em>robe of eyes</em></p><p><strong>CR 11–16</strong> young silver dragon with 2 elktaurs (see centaur), knights, or yetis</p><p><strong>Treasure</strong> 2,000 gp, 5,000 sp, topaz (500 gp), 10 silver idols (75 gp each), silver ewer (250 gp), 3 curios (giant sword stuck into ground, two magical doors that teleport passers to the other), <em>bag of holding</em>, <em>ring of telekinesis</em></p><p><strong>CR 17–22</strong> adult silver dragon</p><p><strong>Treasure</strong> 10,000 gp, 12 pieces of jewelry (750 gp each), masterpiece play (2,500 gp), 3 curios (historically famous sword, the first clumsy painting of a master artist, sentient and speaking boulder), 2 <em>oils of sharpness</em>, 2 <em>potions of supreme healing</em>, <em>berserker axe</em>, fairy tale book (acts as <em>rod of security</em>)</p><p><strong>CR 23–30</strong> ancient silver dragon; adult silver dragon with 2 werebears, fey knights, or unicorns</p><p><strong>Treasure</strong> 25,000 gp, 20 pearls (100 gp each), 3 life-sized silver statues of famous paladins (7,500 gp each), hammer that belonged to a famous smith, 4 <em>arrows of fey slaying</em>, 3 <em>beads of force</em>, <em>giant slayer </em>(rapier), <em>ring of fire resistance</em></p><p><strong>CR 31+</strong> ancient silver dragon with holy knight, mage, or young silver dragon</p><p><strong>Treasure</strong> 10,000 pp, diamond necklace (25,000 gp), 2 ruby bracelets (7,500 gp), cloth-of-gold royal robe (7,500 gp), masterpiece painting of a past king (2,500 gp), 3 curios (warhorn that signaled a famous battle charge, broken staff of a famous archmage, 30-foot-long key), <em>oil of sharpness</em>, <em>universal solvent</em>, <em>+3 rapier </em>(named <em>Jack Frost</em>, made of unmelting ice; its wielder gains a fly speed of 60 feet)</p><hr class=\"a5e-rule u-my-md\"><h2><strong>MONSTER TYPE DESCRIPTION</strong></h2><p>Dragons include red and gold dragons, which are huge reptilian fire-breathers that number among the world’s most dangerous monsters. This type includes white dragons, which breathe killing frost, as well as smaller reptilian creatures related to true dragons, such as pseudodragons.&nbsp;</p>",
 			"creatureTypes": [
-				"undead"
+				"dragon"
 			],
 			"isSwarm": false,
-			"cr": 8,
+			"cr": 10,
 			"elite": false,
 			"privateNotes": "",
-			"notes": ""
+			"notes": "",
+			"terrain": []
 		},
 		"proficiencies": {
 			"armor": [],
-			"languages": [],
+			"languages": [
+				"draconic",
+				"common"
+			],
 			"tools": [],
 			"weapons": []
 		},
@@ -1523,26 +2005,21 @@
 			"publisher": ""
 		},
 		"traits": {
-			"size": "huge",
-			"conditionImmunities": [
-				"fatigue",
-				"poisoned"
-			],
+			"size": "lg",
+			"conditionImmunities": [],
 			"damageImmunities": [
-				"poison"
+				"cold"
 			],
 			"damageResistances": [],
-			"damageVulnerabilities": [
-				"bludgeoning"
-			]
+			"damageVulnerabilities": []
 		}
 	},
 	"prototypeToken": {
-		"name": "Skeletal Tyrannosaurus Rex",
-		"displayName": 20,
+		"name": "Young Silver Dragon",
+		"displayName": 0,
 		"actorLink": false,
-		"width": 3,
-		"height": 3,
+		"width": 2,
+		"height": 2,
 		"lockRotation": false,
 		"rotation": 0,
 		"alpha": 1,
@@ -1566,8 +2043,8 @@
 				"min": 0,
 				"max": 1
 			},
-			"attenuation": 0.5,
-			"color": null
+			"color": null,
+			"attenuation": 0.5
 		},
 		"disposition": -1,
 		"displayBars": 0,
@@ -1580,17 +2057,13 @@
 		"flags": {},
 		"randomImg": false,
 		"texture": {
-			"src": "systems/a5e/assets/skeleton.webp",
+			"src": "systems/a5e/assets/silver-dragon.webp",
+			"tint": "#ffffff",
 			"scaleX": 1,
 			"scaleY": 1,
 			"offsetX": 0,
 			"offsetY": 0,
-			"rotation": 0,
-			"tint": "#ffffff",
-			"anchorX": 0.5,
-			"anchorY": 0.5,
-			"fit": "contain",
-			"alphaThreshold": 0.75
+			"rotation": 0
 		},
 		"sight": {
 			"angle": 360,
@@ -1604,14 +2077,9 @@
 			"visionMode": "basic"
 		},
 		"detectionModes": [],
-		"appendNumber": true,
-		"prependAdjective": false,
-		"hexagonalShape": 0,
-		"locked": false,
-		"occludable": {
-			"radius": 0
-		}
+		"appendNumber": false,
+		"prependAdjective": false
 	},
 	"folder": null,
-	"_id": "ry1obz73pjh0ezoe"
+	"_id": "hkbid9e5yvtt9isd"
 }

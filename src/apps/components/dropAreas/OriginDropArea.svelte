@@ -6,6 +6,7 @@
     export let uuids = [];
     export let singleDocument = false;
     export let attribute = null;
+    export let topLevelAttribute = null;
 
     const dispatch = createEventDispatcher();
 
@@ -64,6 +65,7 @@
                         {uuid}
                         {doc}
                         {attribute}
+                        {topLevelAttribute}
                         on:item-deleted={(event) =>
                             dispatch("item-deleted", [event, uuid])}
                     />

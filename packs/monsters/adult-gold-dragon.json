@@ -26,89 +26,15 @@
 					"requiresNoShield": false,
 					"requiresUnarmored": false
 				},
-				"actions": {},
-				"description": "<p>The dragon uses one of the following breath weapons:</p><p><strong>Molten Breath.</strong> The dragon exhales molten gold in a 60-foot cone. Each creature in the area makes a DC 21 Dexterity saving throw, taking 66 (12d10) fire damage on a failed save or half damage on a success. A creature that fails the saving throw is covered in a shell of rapidly cooling gold, reducing its Speed to 0. A creature can use an action to break the shell, ending the effect.</p><p><strong>Weakening Breath. </strong>The dragon exhales weakening gas in a 60-foot cone. Each creature in the area must succeed on a DC 21 Constitution saving throw or suffer disadvantage on weapon attack rolls for 1 minute. A weakened creature repeats the saving throw at the end of each of its turns, ending the effect on a success.</p>",
-				"favorite": false,
-				"secretDescription": "",
-				"source": "",
-				"uses": {
-					"value": null,
-					"max": "",
-					"per": null,
-					"recharge": {
-						"formula": "",
-						"threshold": ""
-					}
-				},
-				"schema": {
-					"version": null,
-					"lastMigration": null
-				},
-				"concentration": false,
-				"featureType": "",
-				"grants": {},
-				"prerequisite": "",
-				"schemaVersion": {
-					"version": 0.01,
-					"lastMigration": {
-						"version": {
-							"schema": 0.009,
-							"foundry": "12.316",
-							"system": "0.16.12"
-						}
-					}
-				}
-			},
-			"ownership": {
-				"default": 0
-			}
-		},
-		{
-			"_id": "fO7HLLEF9KaaER84",
-			"name": "Molten Breath",
-			"type": "feature",
-			"img": "icons/svg/item-bag.svg",
-			"effects": [],
-			"folder": null,
-			"sort": 400000,
-			"flags": {
-				"core": {
-					"sourceId": "Item.306Vm1DH1Ukw4q3e"
-				}
-			},
-			"system": {
-				"ac": {
-					"baseFormula": "",
-					"formula": "",
-					"maxDex": 0,
-					"minStr": 0,
-					"mode": 1,
-					"requiresNoShield": false,
-					"requiresUnarmored": false
-				},
 				"actions": {
-					"fo6aNTgYqk7WBQSH": {
+					"jW4VWHU1Q1s7WTSj": {
 						"name": "Molten Breath",
 						"activation": {
 							"cost": 1,
 							"type": "action",
 							"reactionTrigger": ""
 						},
-						"duration": {
-							"unit": "instantaneous",
-							"value": ""
-						},
-						"ranges": {},
-						"area": {
-							"shape": "cone",
-							"size": "60ft",
-							"placeTemplate": false,
-							"length": 60
-						},
-						"target": {
-							"quantity": 1,
-							"type": ""
-						},
+						"consumers": {},
 						"rolls": {
 							"vT4389pVzAjFtm8w": {
 								"canCrit": false,
@@ -129,91 +55,45 @@
 								"type": "savingThrow"
 							}
 						},
-						"consumers": {}
-					}
-				},
-				"description": "<p>The dragon exhales molten gold in a 60-foot cone. Each creature in the area makes a DC 21 Dexterity saving throw, taking 66 (12d10) fire damage on a failed save or half damage on a success. A creature that fails the saving throw is covered in a shell of rapidly cooling gold, reducing its Speed to 0. A creature can use an action to break the shell, ending the effect.</p>",
-				"favorite": true,
-				"secretDescription": "",
-				"source": "",
-				"uses": {
-					"value": null,
-					"max": "",
-					"per": null,
-					"recharge": {
-						"formula": "",
-						"threshold": ""
-					}
-				},
-				"schema": {
-					"version": null,
-					"lastMigration": null
-				},
-				"concentration": false,
-				"featureType": "",
-				"grants": {},
-				"prerequisite": "",
-				"schemaVersion": {
-					"version": 0.01,
-					"lastMigration": {
-						"version": {
-							"schema": 0.009,
-							"foundry": "12.316",
-							"system": "0.16.12"
-						}
-					}
-				}
-			},
-			"ownership": {
-				"default": 0
-			}
-		},
-		{
-			"_id": "UnwwARnlXt5JfL5k",
-			"name": "Weakening Breath",
-			"type": "feature",
-			"img": "icons/svg/item-bag.svg",
-			"effects": [],
-			"folder": null,
-			"sort": 500000,
-			"flags": {
-				"core": {
-					"sourceId": "Item.Bim0H8V6HDfKgukk"
-				}
-			},
-			"system": {
-				"ac": {
-					"baseFormula": "",
-					"formula": "",
-					"maxDex": 0,
-					"minStr": 0,
-					"mode": 1,
-					"requiresNoShield": false,
-					"requiresUnarmored": false
-				},
-				"actions": {
-					"g6yMaqB381d3umYL": {
-						"name": "Weakening Breath",
-						"activation": {
-							"cost": 1,
-							"type": "action",
-							"reactionTrigger": ""
+						"uses": {
+							"value": 0,
+							"max": "",
+							"per": "",
+							"recharge": {
+								"formula": "1d6",
+								"rechargeType": "custom",
+								"rechargeAmount": "1",
+								"threshold": 6
+							}
 						},
 						"duration": {
-							"unit": "minute",
-							"value": 1
+							"unit": "instantaneous",
+							"value": ""
 						},
 						"ranges": {},
 						"area": {
 							"shape": "cone",
 							"size": "60ft",
 							"placeTemplate": false,
-							"length": 60
+							"length": 60,
+							"quantity": 1
 						},
 						"target": {
 							"quantity": 1,
 							"type": ""
 						},
+						"img": "icons/svg/item-bag.svg",
+						"description": "<p>The dragon exhales molten gold in a 60-foot cone. Each creature in the area makes a DC 21 Dexterity saving throw, taking 66 (12d10) fire damage on a failed save or half damage on a success. A creature that fails the saving throw is covered in a shell of rapidly cooling gold, reducing its Speed to 0. A creature can use an action to break the shell, ending the effect.</p>"
+					},
+					"FiJKgCHqXsb0E9p9": {
+						"name": "Weakening Breath",
+						"activation": {
+							"cost": 1,
+							"type": "action",
+							"reactionTrigger": ""
+						},
+						"consumers": {},
+						"rolls": {},
 						"prompts": {
 							"c9nS3x1Sw3Zx5TLk": {
 								"ability": "con",
@@ -225,20 +105,48 @@
 								"type": "savingThrow"
 							}
 						},
-						"consumers": {}
+						"uses": {
+							"value": 0,
+							"max": "",
+							"per": "",
+							"recharge": {
+								"formula": "1d6",
+								"rechargeType": "custom",
+								"rechargeAmount": "1",
+								"threshold": 6
+							}
+						},
+						"duration": {
+							"unit": "minute",
+							"value": 1
+						},
+						"ranges": {},
+						"area": {
+							"shape": "cone",
+							"size": "60ft",
+							"placeTemplate": false,
+							"length": 60,
+							"quantity": 1
+						},
+						"target": {
+							"quantity": 1,
+							"type": ""
+						},
+						"img": "icons/svg/item-bag.svg",
+						"description": "<p>The dragon exhales weakening gas in a 60-foot cone. Each creature in the area must succeed on a DC 21 Constitution saving throw or suffer disadvantage on weapon attack rolls for 1 minute. A weakened creature repeats the saving throw at the end of each of its turns, ending the effect on a success.</p>"
 					}
 				},
-				"description": "<p>The dragon exhales weakening gas in a 60-foot cone. Each creature in the area must succeed on a DC 21 Constitution saving throw or suffer disadvantage on weapon attack rolls for 1 minute. A weakened creature repeats the saving throw at the end of each of its turns, ending the effect on a success.</p>",
+				"description": "<p>The dragon uses one of the following breath weapons:</p><p><strong>Molten Breath.</strong> The dragon exhales molten gold in a 60-foot cone. Each creature in the area makes a DC 21 Dexterity saving throw, taking 66 (12d10) fire damage on a failed save or half damage on a success. A creature that fails the saving throw is covered in a shell of rapidly cooling gold, reducing its Speed to 0. A creature can use an action to break the shell, ending the effect.</p><p><strong>Weakening Breath. </strong>The dragon exhales weakening gas in a 60-foot cone. Each creature in the area must succeed on a DC 21 Constitution saving throw or suffer disadvantage on weapon attack rolls for 1 minute. A weakened creature repeats the saving throw at the end of each of its turns, ending the effect on a success.</p>",
 				"favorite": true,
 				"secretDescription": "",
 				"source": "",
 				"uses": {
-					"value": null,
+					"value": 0,
 					"max": "",
-					"per": null,
+					"per": "recharge",
 					"recharge": {
 						"formula": "",
-						"threshold": ""
+						"threshold": 5
 					}
 				},
 				"schema": {
@@ -249,13 +157,14 @@
 				"featureType": "",
 				"grants": {},
 				"prerequisite": "",
+				"requiresBloodied": false,
 				"schemaVersion": {
-					"version": 0.01,
+					"version": 0.011,
 					"lastMigration": {
 						"version": {
-							"schema": 0.009,
-							"foundry": "12.316",
-							"system": "0.16.12"
+							"schema": 0.01,
+							"foundry": "11.315",
+							"system": "0.16.37"
 						}
 					}
 				}
@@ -333,13 +242,14 @@
 				"featureType": "",
 				"grants": {},
 				"prerequisite": "",
+				"requiresBloodied": false,
 				"schemaVersion": {
-					"version": 0.01,
+					"version": 0.011,
 					"lastMigration": {
 						"version": {
-							"schema": 0.009,
-							"foundry": "12.316",
-							"system": "0.16.12"
+							"schema": 0.01,
+							"foundry": "11.315",
+							"system": "0.16.37"
 						}
 					}
 				}
@@ -393,13 +303,14 @@
 				"featureType": "",
 				"grants": {},
 				"prerequisite": "",
+				"requiresBloodied": false,
 				"schemaVersion": {
-					"version": 0.01,
+					"version": 0.011,
 					"lastMigration": {
 						"version": {
-							"schema": 0.009,
-							"foundry": "12.316",
-							"system": "0.16.12"
+							"schema": 0.01,
+							"foundry": "11.315",
+							"system": "0.16.37"
 						}
 					}
 				}
@@ -497,13 +408,14 @@
 				"featureType": "",
 				"grants": {},
 				"prerequisite": "",
+				"requiresBloodied": false,
 				"schemaVersion": {
-					"version": 0.01,
+					"version": 0.011,
 					"lastMigration": {
 						"version": {
-							"schema": 0.009,
-							"foundry": "12.316",
-							"system": "0.16.12"
+							"schema": 0.01,
+							"foundry": "11.315",
+							"system": "0.16.37"
 						}
 					}
 				}
@@ -608,13 +520,14 @@
 				"featureType": "naturalWeapon",
 				"grants": {},
 				"prerequisite": "",
+				"requiresBloodied": false,
 				"schemaVersion": {
-					"version": 0.01,
+					"version": 0.011,
 					"lastMigration": {
 						"version": {
-							"schema": 0.009,
-							"foundry": "12.316",
-							"system": "0.16.12"
+							"schema": 0.01,
+							"foundry": "11.315",
+							"system": "0.16.37"
 						}
 					}
 				}
@@ -695,13 +608,14 @@
 				"featureType": "",
 				"grants": {},
 				"prerequisite": "",
+				"requiresBloodied": false,
 				"schemaVersion": {
-					"version": 0.01,
+					"version": 0.011,
 					"lastMigration": {
 						"version": {
-							"schema": 0.009,
-							"foundry": "12.316",
-							"system": "0.16.12"
+							"schema": 0.01,
+							"foundry": "11.315",
+							"system": "0.16.37"
 						}
 					}
 				}
@@ -800,13 +714,14 @@
 				"featureType": "",
 				"grants": {},
 				"prerequisite": "",
+				"requiresBloodied": false,
 				"schemaVersion": {
-					"version": 0.01,
+					"version": 0.011,
 					"lastMigration": {
 						"version": {
-							"schema": 0.009,
-							"foundry": "12.316",
-							"system": "0.16.12"
+							"schema": 0.01,
+							"foundry": "11.315",
+							"system": "0.16.37"
 						}
 					}
 				}
@@ -904,13 +819,14 @@
 				"featureType": "",
 				"grants": {},
 				"prerequisite": "",
+				"requiresBloodied": false,
 				"schemaVersion": {
-					"version": 0.01,
+					"version": 0.011,
 					"lastMigration": {
 						"version": {
-							"schema": 0.009,
-							"foundry": "12.316",
-							"system": "0.16.12"
+							"schema": 0.01,
+							"foundry": "11.315",
+							"system": "0.16.37"
 						}
 					}
 				}
@@ -1019,13 +935,14 @@
 				"featureType": "",
 				"grants": {},
 				"prerequisite": "",
+				"requiresBloodied": false,
 				"schemaVersion": {
-					"version": 0.01,
+					"version": 0.011,
 					"lastMigration": {
 						"version": {
-							"schema": 0.009,
-							"foundry": "12.316",
-							"system": "0.16.12"
+							"schema": 0.01,
+							"foundry": "11.315",
+							"system": "0.16.37"
 						}
 					}
 				}
@@ -1102,13 +1019,14 @@
 				"featureType": "",
 				"grants": {},
 				"prerequisite": "",
+				"requiresBloodied": false,
 				"schemaVersion": {
-					"version": 0.01,
+					"version": 0.011,
 					"lastMigration": {
 						"version": {
-							"schema": 0.009,
-							"foundry": "12.316",
-							"system": "0.16.12"
+							"schema": 0.01,
+							"foundry": "11.315",
+							"system": "0.16.37"
 						}
 					}
 				}
@@ -1190,13 +1108,14 @@
 				"featureType": "",
 				"grants": {},
 				"prerequisite": "",
+				"requiresBloodied": false,
 				"schemaVersion": {
-					"version": 0.01,
+					"version": 0.011,
 					"lastMigration": {
 						"version": {
-							"schema": 0.009,
-							"foundry": "12.316",
-							"system": "0.16.12"
+							"schema": 0.01,
+							"foundry": "11.315",
+							"system": "0.16.37"
 						}
 					}
 				}
@@ -1275,13 +1194,14 @@
 				"featureType": "",
 				"grants": {},
 				"prerequisite": "",
+				"requiresBloodied": false,
 				"schemaVersion": {
-					"version": 0.01,
+					"version": 0.011,
 					"lastMigration": {
 						"version": {
-							"schema": 0.009,
-							"foundry": "12.316",
-							"system": "0.16.12"
+							"schema": 0.01,
+							"foundry": "11.315",
+							"system": "0.16.37"
 						}
 					}
 				}
@@ -1335,13 +1255,14 @@
 				"featureType": "",
 				"grants": {},
 				"prerequisite": "",
+				"requiresBloodied": false,
 				"schemaVersion": {
-					"version": 0.01,
+					"version": 0.011,
 					"lastMigration": {
 						"version": {
-							"schema": 0.009,
-							"foundry": "12.316",
-							"system": "0.16.12"
+							"schema": 0.01,
+							"foundry": "11.315",
+							"system": "0.16.37"
 						}
 					}
 				}
@@ -1432,13 +1353,14 @@
 				"featureType": "",
 				"grants": {},
 				"prerequisite": "",
+				"requiresBloodied": false,
 				"schemaVersion": {
-					"version": 0.01,
+					"version": 0.011,
 					"lastMigration": {
 						"version": {
-							"schema": 0.009,
-							"foundry": "12.316",
-							"system": "0.16.12"
+							"schema": 0.01,
+							"foundry": "11.315",
+							"system": "0.16.37"
 						}
 					}
 				}
@@ -1529,13 +1451,14 @@
 				"featureType": "",
 				"grants": {},
 				"prerequisite": "",
+				"requiresBloodied": false,
 				"schemaVersion": {
-					"version": 0.01,
+					"version": 0.011,
 					"lastMigration": {
 						"version": {
-							"schema": 0.009,
-							"foundry": "12.316",
-							"system": "0.16.12"
+							"schema": 0.01,
+							"foundry": "11.315",
+							"system": "0.16.37"
 						}
 					}
 				}
@@ -1613,13 +1536,14 @@
 				"featureType": "",
 				"grants": {},
 				"prerequisite": "",
+				"requiresBloodied": false,
 				"schemaVersion": {
-					"version": 0.01,
+					"version": 0.011,
 					"lastMigration": {
 						"version": {
-							"schema": 0.009,
-							"foundry": "12.316",
-							"system": "0.16.12"
+							"schema": 0.01,
+							"foundry": "11.315",
+							"system": "0.16.37"
 						}
 					}
 				}
@@ -1740,12 +1664,12 @@
 				"weight": 7,
 				"broken": false,
 				"schemaVersion": {
-					"version": 0.01,
+					"version": 0.011,
 					"lastMigration": {
 						"version": {
-							"schema": 0.009,
-							"foundry": "12.316",
-							"system": "0.16.12"
+							"schema": 0.01,
+							"foundry": "11.315",
+							"system": "0.16.37"
 						}
 					}
 				}
@@ -1833,18 +1757,19 @@
 					"version": null,
 					"lastMigration": null
 				},
+				"concentration": false,
 				"degree": 0,
 				"exertionCost": 0,
 				"isStance": false,
 				"prerequisite": "",
 				"tradition": "",
 				"schemaVersion": {
-					"version": 0.01,
+					"version": 0.011,
 					"lastMigration": {
 						"version": {
-							"schema": 0.009,
-							"foundry": "12.316",
-							"system": "0.16.12"
+							"schema": 0.01,
+							"foundry": "11.315",
+							"system": "0.16.37"
 						}
 					}
 				}
@@ -1935,18 +1860,19 @@
 					"version": null,
 					"lastMigration": null
 				},
+				"concentration": false,
 				"degree": 0,
 				"exertionCost": 0,
 				"isStance": false,
 				"prerequisite": "",
 				"tradition": "",
 				"schemaVersion": {
-					"version": 0.01,
+					"version": 0.011,
 					"lastMigration": {
 						"version": {
-							"schema": 0.009,
-							"foundry": "12.316",
-							"system": "0.16.12"
+							"schema": 0.01,
+							"foundry": "11.315",
+							"system": "0.16.37"
 						}
 					}
 				}
@@ -2028,18 +1954,19 @@
 					"version": null,
 					"lastMigration": null
 				},
+				"concentration": false,
 				"degree": 0,
 				"exertionCost": 0,
 				"isStance": false,
 				"prerequisite": "",
 				"tradition": "",
 				"schemaVersion": {
-					"version": 0.01,
+					"version": 0.011,
 					"lastMigration": {
 						"version": {
-							"schema": 0.009,
-							"foundry": "12.316",
-							"system": "0.16.12"
+							"schema": 0.01,
+							"foundry": "11.315",
+							"system": "0.16.37"
 						}
 					}
 				}
@@ -2121,18 +2048,19 @@
 					"version": null,
 					"lastMigration": null
 				},
+				"concentration": false,
 				"degree": 0,
 				"exertionCost": 0,
 				"isStance": false,
 				"prerequisite": "",
 				"tradition": "",
 				"schemaVersion": {
-					"version": 0.01,
+					"version": 0.011,
 					"lastMigration": {
 						"version": {
-							"schema": 0.009,
-							"foundry": "12.316",
-							"system": "0.16.12"
+							"schema": 0.01,
+							"foundry": "11.315",
+							"system": "0.16.37"
 						}
 					}
 				}
@@ -2214,18 +2142,19 @@
 					"version": null,
 					"lastMigration": null
 				},
+				"concentration": false,
 				"degree": 0,
 				"exertionCost": 0,
 				"isStance": false,
 				"prerequisite": "",
 				"tradition": "",
 				"schemaVersion": {
-					"version": 0.01,
+					"version": 0.011,
 					"lastMigration": {
 						"version": {
-							"schema": 0.009,
-							"foundry": "12.316",
-							"system": "0.16.12"
+							"schema": 0.01,
+							"foundry": "11.315",
+							"system": "0.16.37"
 						}
 					}
 				}
@@ -2307,18 +2236,19 @@
 					"version": null,
 					"lastMigration": null
 				},
+				"concentration": false,
 				"degree": 0,
 				"exertionCost": 0,
 				"isStance": false,
 				"prerequisite": "",
 				"tradition": "",
 				"schemaVersion": {
-					"version": 0.01,
+					"version": 0.011,
 					"lastMigration": {
 						"version": {
-							"schema": 0.009,
-							"foundry": "12.316",
-							"system": "0.16.12"
+							"schema": 0.01,
+							"foundry": "11.315",
+							"system": "0.16.37"
 						}
 					}
 				}
@@ -2332,7 +2262,11 @@
 		}
 	],
 	"effects": [],
-	"flags": {},
+	"flags": {
+		"a5e": {
+			"sheetIsLocked": false
+		}
+	},
 	"system": {
 		"abilities": {
 			"str": {
@@ -2421,12 +2355,12 @@
 			}
 		},
 		"schemaVersion": {
-			"version": 0.01,
+			"version": 0.011,
 			"lastMigration": {
 				"version": {
-					"schema": 0.006,
-					"foundry": "11.307",
-					"system": "0.15.0"
+					"schema": 0.01,
+					"foundry": "11.315",
+					"system": "0.16.37"
 				}
 			}
 		},
@@ -2758,6 +2692,7 @@
 				}
 			},
 			"initiative": {
+				"ability": "dex",
 				"bonus": "",
 				"expertiseDice": 0
 			},
@@ -2808,20 +2743,21 @@
 			"inspiration": false,
 			"fatigue": 0,
 			"strife": 0,
-			"spellcasting": "int",
+			"spellcasting": "cha",
 			"casterLevel": 0
 		},
 		"bonuses": {
-			"abilities": {},
-			"damage": {},
-			"healing": {},
 			"maneuverDC": "",
 			"meleeSpellAttack": "",
 			"meleeWeaponAttack": "",
 			"rangedSpellAttack": "",
 			"rangedWeaponAttack": "",
 			"spellDC": "",
-			"skills": {}
+			"abilities": {},
+			"damage": {},
+			"healing": {},
+			"skills": {},
+			"attacks": {}
 		},
 		"currency": {
 			"pp": 0,
@@ -2839,7 +2775,8 @@
 			"cr": 20,
 			"elite": false,
 			"privateNotes": "",
-			"notes": ""
+			"notes": "",
+			"terrain": []
 		},
 		"proficiencies": {
 			"armor": [],
@@ -2961,11 +2898,7 @@
 			"scaleY": 1,
 			"offsetX": 0,
 			"offsetY": 0,
-			"rotation": 0,
-			"anchorX": 0.5,
-			"anchorY": 0.5,
-			"fit": "contain",
-			"alphaThreshold": 0.75
+			"rotation": 0
 		},
 		"sight": {
 			"angle": 360,
@@ -2980,12 +2913,7 @@
 		},
 		"detectionModes": [],
 		"appendNumber": false,
-		"prependAdjective": false,
-		"hexagonalShape": 0,
-		"locked": false,
-		"occludable": {
-			"radius": 0
-		}
+		"prependAdjective": false
 	},
 	"folder": null,
 	"_id": "k250hlv61ueiib4x"

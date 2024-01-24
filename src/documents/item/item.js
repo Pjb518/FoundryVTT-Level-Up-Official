@@ -9,8 +9,6 @@ import getRollFormula from '../../utils/getRollFormula';
 import overrideRollMode from '../../utils/overrideRollMode';
 import overrideExpertiseDie from '../../utils/overrideExpertiseDie';
 import prepareConsumers from '../../apps/dataPreparationHelpers/itemActivationConsumers/prepareConsumers';
-import prepareDamageBonuses from '../../apps/dataPreparationHelpers/itemActivationRolls/prepareDamageBonuses';
-import prepareHealingBonuses from '../../apps/dataPreparationHelpers/itemActivationRolls/prepareHealingBonuses';
 import prepareHitDice from '../../apps/dataPreparationHelpers/prepareHitDice';
 import preparePrompts from '../../apps/dataPreparationHelpers/itemActivationPrompts/preparePrompts';
 import prepareRolls from '../../apps/dataPreparationHelpers/itemActivationRolls/prepareRolls';
@@ -172,6 +170,7 @@ export default class ItemA5e extends BaseItemA5e {
 
     const chatData = {
       user: game.user?.id,
+      flavor: action.name ? `${this.name}: ${action.name}` : this.name,
       speaker: ChatMessage.getSpeaker({ actor: this }),
       type: rolls.length ? CONST.CHAT_MESSAGE_TYPES.ROLL : CONST.CHAT_MESSAGE_TYPES.OTHER,
       sound: CONFIG.sounds.dice,
@@ -309,8 +308,9 @@ export default class ItemA5e extends BaseItemA5e {
     const formula = getRollFormula(actor, {
       ability: attackAbility,
       attackBonus: attackRoll?.bonus,
-      attackType: attackRoll?.type,
+      attackType: attackRoll?.attackType,
       expertiseDie,
+      item: this,
       proficient: attackRoll?.proficient ?? true,
       rollMode,
       situationalMods: options.situationalMods,
@@ -380,14 +380,18 @@ export default class ItemA5e extends BaseItemA5e {
       const spellPoints = spellConsumer.points ?? CONFIG.A5E.spellLevelCost[spellLevel] ?? 1;
       spellData.level = spellLevel;
       spellData.points = spellPoints;
-      spellData.basePoints = spellLevel;
-      spellData.baseLevel = spellPoints;
+      spellData.basePoints = spellPoints;
+      spellData.baseLevel = spellLevel;
       // eslint-disable-next-line no-nested-ternary
       spellData.consume = mode === 'pointsOnly'
         ? 'spellPoint'
         : availableSpellSlots.length > 0
           ? 'spellSlot'
           : 'spellPoint';
+
+      if (this.system?.level === null || this.system?.level === undefined) {
+        spellData.consume = 'noConsume';
+      }
     }
 
     return {
@@ -399,8 +403,8 @@ export default class ItemA5e extends BaseItemA5e {
   }
 
   #getDefaultBonuses(actor, rolls) {
-    const damageBonuses = prepareDamageBonuses(actor, this, rolls);
-    const healingBonuses = prepareHealingBonuses(actor, this, rolls);
+    const damageBonuses = actor.BonusesManager.prepareGlobalDamageBonuses(this, rolls);
+    const healingBonuses = actor.BonusesManager.prepareGlobalHealingBonuses(this, rolls);
 
     const defaultDamageBonuses = damageBonuses.reduce((acc, [, bonus]) => {
       if (bonus.default ?? true) acc.push(bonus);

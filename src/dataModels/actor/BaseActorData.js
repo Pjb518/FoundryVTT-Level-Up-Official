@@ -7,7 +7,11 @@ import UnchasteSchemaField from '../fields/UnchasteSchemaField';
 import getCheckNotesData from './CheckNotes';
 
 import {
-  getAbilitiesBonusData, getDamageBonusData, getHealingBonusData, getSkillBonusData
+  getAbilitiesBonusData,
+  getAttackBonusData,
+  getDamageBonusData,
+  getHealingBonusData,
+  getSkillBonusData
 } from './Bonuses';
 
 export default class BaseActorData extends A5EDataModel.mixin(SchemaDataModel) {
@@ -15,152 +19,40 @@ export default class BaseActorData extends A5EDataModel.mixin(SchemaDataModel) {
     const { fields } = foundry.data;
 
     return this.mergeSchema(super.defineSchema(), {
-      abilities: new fields.SchemaField({
-        str: new fields.SchemaField({
-          value: new fields.NumberField({ required: true, initial: 10, integer: true }),
-          check: new fields.SchemaField({
-            expertiseDice: new fields.NumberField({ required: true, initial: 0, integer: true }),
-            bonus: new fields.StringField({ required: true, initial: '' }),
-            notes: new RecordField(
-              new fields.DocumentIdField({
-                required: true, initial: () => foundry.utils.randomID()
+      abilities: new fields.SchemaField(
+        ['str', 'dex', 'con', 'int', 'wis', 'cha'].reduce((acc, abl) => {
+          acc[abl] = new fields.SchemaField({
+            value: new fields.NumberField({ required: true, initial: 10, integer: true }),
+            check: new fields.SchemaField({
+              expertiseDice: new fields.NumberField({
+                required: true, initial: 0, integer: true
               }),
-              new fields.SchemaField(getCheckNotesData())
-            )
-          }),
-          save: new fields.SchemaField({
-            proficient: new fields.BooleanField({ required: true, initial: false }),
-            expertiseDice: new fields.NumberField({ required: true, initial: 0, integer: true }),
-            bonus: new fields.StringField({ required: true, initial: '' }),
-            notes: new RecordField(
-              new fields.DocumentIdField({
-                required: true, initial: () => foundry.utils.randomID()
+              bonus: new fields.StringField({ required: true, initial: '' }),
+              notes: new RecordField(
+                new fields.DocumentIdField({
+                  required: true, initial: () => foundry.utils.randomID()
+                }),
+                new fields.SchemaField(getCheckNotesData())
+              )
+            }),
+            save: new fields.SchemaField({
+              proficient: new fields.BooleanField({ required: true, initial: false }),
+              expertiseDice: new fields.NumberField({
+                required: true, initial: 0, integer: true
               }),
-              new fields.SchemaField(getCheckNotesData())
-            )
-          })
-        }),
-        dex: new fields.SchemaField({
-          value: new fields.NumberField({ required: true, initial: 10, integer: true }),
-          check: new fields.SchemaField({
-            expertiseDice: new fields.NumberField({ required: true, initial: 0, integer: true }),
-            bonus: new fields.StringField({ required: true, initial: '' }),
-            notes: new RecordField(
-              new fields.DocumentIdField({
-                required: true, initial: () => foundry.utils.randomID()
-              }),
-              new fields.SchemaField(getCheckNotesData())
-            )
-          }),
-          save: new fields.SchemaField({
-            proficient: new fields.BooleanField({ required: true, initial: false }),
-            expertiseDice: new fields.NumberField({ required: true, initial: 0, integer: true }),
-            bonus: new fields.StringField({ required: true, initial: '' }),
-            notes: new RecordField(
-              new fields.DocumentIdField({
-                required: true, initial: () => foundry.utils.randomID()
-              }),
-              new fields.SchemaField(getCheckNotesData())
-            )
-          })
-        }),
-        con: new fields.SchemaField({
-          value: new fields.NumberField({ required: true, initial: 10, integer: true }),
-          check: new fields.SchemaField({
-            expertiseDice: new fields.NumberField({ required: true, initial: 0, integer: true }),
-            bonus: new fields.StringField({ required: true, initial: '' }),
-            notes: new RecordField(
-              new fields.DocumentIdField({
-                required: true, initial: () => foundry.utils.randomID()
-              }),
-              new fields.SchemaField(getCheckNotesData())
-            )
-          }),
-          save: new fields.SchemaField({
-            proficient: new fields.BooleanField({ required: true, initial: false }),
-            expertiseDice: new fields.NumberField({ required: true, initial: 0, integer: true }),
-            bonus: new fields.StringField({ required: true, initial: '' }),
-            notes: new RecordField(
-              new fields.DocumentIdField({
-                required: true, initial: () => foundry.utils.randomID()
-              }),
-              new fields.SchemaField(getCheckNotesData())
-            )
-          })
-        }),
-        int: new fields.SchemaField({
-          value: new fields.NumberField({ required: true, initial: 10, integer: true }),
-          check: new fields.SchemaField({
-            expertiseDice: new fields.NumberField({ required: true, initial: 0, integer: true }),
-            bonus: new fields.StringField({ required: true, initial: '' }),
-            notes: new RecordField(
-              new fields.DocumentIdField({
-                required: true, initial: () => foundry.utils.randomID()
-              }),
-              new fields.SchemaField(getCheckNotesData())
-            )
-          }),
-          save: new fields.SchemaField({
-            proficient: new fields.BooleanField({ required: true, initial: false }),
-            expertiseDice: new fields.NumberField({ required: true, initial: 0, integer: true }),
-            bonus: new fields.StringField({ required: true, initial: '' }),
-            notes: new RecordField(
-              new fields.DocumentIdField({
-                required: true, initial: () => foundry.utils.randomID()
-              }),
-              new fields.SchemaField(getCheckNotesData())
-            )
-          })
-        }),
-        wis: new fields.SchemaField({
-          value: new fields.NumberField({ required: true, initial: 10, integer: true }),
-          check: new fields.SchemaField({
-            expertiseDice: new fields.NumberField({ required: true, initial: 0, integer: true }),
-            bonus: new fields.StringField({ required: true, initial: '' }),
-            notes: new RecordField(
-              new fields.DocumentIdField({
-                required: true, initial: () => foundry.utils.randomID()
-              }),
-              new fields.SchemaField(getCheckNotesData())
-            )
-          }),
-          save: new fields.SchemaField({
-            proficient: new fields.BooleanField({ required: true, initial: false }),
-            expertiseDice: new fields.NumberField({ required: true, initial: 0, integer: true }),
-            bonus: new fields.StringField({ required: true, initial: '' }),
-            notes: new RecordField(
-              new fields.DocumentIdField({
-                required: true, initial: () => foundry.utils.randomID()
-              }),
-              new fields.SchemaField(getCheckNotesData())
-            )
-          })
-        }),
-        cha: new fields.SchemaField({
-          value: new fields.NumberField({ required: true, initial: 10, integer: true }),
-          check: new fields.SchemaField({
-            expertiseDice: new fields.NumberField({ required: true, initial: 0, integer: true }),
-            bonus: new fields.StringField({ required: true, initial: '' }),
-            notes: new RecordField(
-              new fields.DocumentIdField({
-                required: true, initial: () => foundry.utils.randomID()
-              }),
-              new fields.SchemaField(getCheckNotesData())
-            )
-          }),
-          save: new fields.SchemaField({
-            proficient: new fields.BooleanField({ required: true, initial: false }),
-            expertiseDice: new fields.NumberField({ required: true, initial: 0, integer: true }),
-            bonus: new fields.StringField({ required: true, initial: '' }),
-            notes: new RecordField(
-              new fields.DocumentIdField({
-                required: true, initial: () => foundry.utils.randomID()
-              }),
-              new fields.SchemaField(getCheckNotesData())
-            )
-          })
-        })
-      }),
+              bonus: new fields.StringField({ required: true, initial: '' }),
+              notes: new RecordField(
+                new fields.DocumentIdField({
+                  required: true, initial: () => foundry.utils.randomID()
+                }),
+                new fields.SchemaField(getCheckNotesData())
+              )
+            })
+          });
+
+          return acc;
+        }, {})
+      ),
       attributes: new fields.SchemaField({
         ac: new fields.SchemaField({
           baseFormula: new fields.StringField({ required: true, initial: '10 + @dex.mod' }),
@@ -177,38 +69,18 @@ export default class BaseActorData extends A5EDataModel.mixin(SchemaDataModel) {
           bonus: new fields.NumberField({ required: true, initial: 0, integer: true })
         }),
         hitDice: new fields.SchemaField({
-          d6: new fields.SchemaField({
-            current: new fields.NumberField({
-              required: true, initial: 0, integer: true, min: 0
-            }),
-            total: new fields.NumberField({
-              required: true, initial: 0, integer: true, min: 0
-            })
-          }),
-          d8: new fields.SchemaField({
-            current: new fields.NumberField({
-              required: true, initial: 0, integer: true, min: 0
-            }),
-            total: new fields.NumberField({
-              required: true, initial: 0, integer: true, min: 0
-            })
-          }),
-          d10: new fields.SchemaField({
-            current: new fields.NumberField({
-              required: true, initial: 0, integer: true, min: 0
-            }),
-            total: new fields.NumberField({
-              required: true, initial: 0, integer: true, min: 0
-            })
-          }),
-          d12: new fields.SchemaField({
-            current: new fields.NumberField({
-              required: true, initial: 0, integer: true, min: 0
-            }),
-            total: new fields.NumberField({
-              required: true, initial: 0, integer: true, min: 0
-            })
-          })
+          ...['d4', 'd6', 'd8', 'd10', 'd12'].reduce((acc, die) => {
+            acc[die] = new fields.SchemaField({
+              current: new fields.NumberField({
+                required: true, initial: 0, integer: true, min: 0
+              }),
+              total: new fields.NumberField({
+                required: true, initial: 0, integer: true, min: 0
+              })
+            });
+
+            return acc;
+          }, {})
         }),
         initiative: new fields.SchemaField({
           ability: new fields.StringField({ required: true, initial: 'dex' }),
@@ -283,14 +155,13 @@ export default class BaseActorData extends A5EDataModel.mixin(SchemaDataModel) {
         spellcasting: new fields.StringField({ required: true, initial: 'int' })
       }),
       bonuses: new fields.SchemaField({
-        // abilities: new fields.SchemaField({
-        //   check: new fields.StringField({ initial: '' }),
-        //   save: new fields.StringField({ initial: '' }),
-        //   skill: new fields.StringField({ initial: '' })
-        // }),
         abilities: new RecordField(
           new fields.DocumentIdField({ required: true, initial: () => foundry.utils.randomID() }),
           new UnchasteSchemaField(getAbilitiesBonusData())
+        ),
+        attacks: new RecordField(
+          new fields.DocumentIdField({ required: true, initial: () => foundry.utils.randomID() }),
+          new fields.SchemaField(getAttackBonusData())
         ),
         damage: new RecordField(
           new fields.DocumentIdField({ required: true, initial: () => foundry.utils.randomID() }),
@@ -305,6 +176,7 @@ export default class BaseActorData extends A5EDataModel.mixin(SchemaDataModel) {
           new fields.SchemaField(getSkillBonusData())
         ),
         maneuverDC: new fields.StringField({ initial: '' }),
+        // TODO: Remove these at a later date when migration is guaranteed
         meleeSpellAttack: new fields.StringField({ initial: '' }),
         meleeWeaponAttack: new fields.StringField({ initial: '' }),
         rangedSpellAttack: new fields.StringField({ initial: '' }),
@@ -343,474 +215,50 @@ export default class BaseActorData extends A5EDataModel.mixin(SchemaDataModel) {
         tools: new fields.ArrayField(new fields.StringField({ required: true, initial: '' }), { required: true, initial: [] }),
         weapons: new fields.ArrayField(new fields.StringField({ required: true, initial: '' }), { required: true, initial: [] })
       }),
-      resources: new fields.SchemaField({
-        primary: new fields.SchemaField({
-          label: new fields.StringField({ required: true, initial: '' }),
-          value: new fields.NumberField({ required: true, initial: 0, integer: true }),
-          max: new fields.StringField({ required: true, initial: '' }),
-          per: new fields.StringField({ required: true, initial: '' }),
-          hideMax: new fields.BooleanField({ required: true, initial: false }),
-          recharge: new fields.SchemaField({
-            formula: new fields.StringField({ required: true, initial: '1d6' }),
-            threshold: new fields.NumberField({ required: true, initial: 6, integer: true })
-          })
-        }),
-        secondary: new fields.SchemaField({
-          label: new fields.StringField({ required: true, initial: '' }),
-          value: new fields.NumberField({ required: true, initial: 0, integer: true }),
-          max: new fields.StringField({ required: true, initial: '' }),
-          per: new fields.StringField({ required: true, initial: '' }),
-          hideMax: new fields.BooleanField({ required: true, initial: false }),
-          recharge: new fields.SchemaField({
-            formula: new fields.StringField({ required: true, initial: '1d6' }),
-            threshold: new fields.NumberField({ required: true, initial: 6, integer: true })
-          })
-        }),
-        tertiary: new fields.SchemaField({
-          label: new fields.StringField({ required: true, initial: '' }),
-          value: new fields.NumberField({ required: true, initial: 0, integer: true }),
-          max: new fields.StringField({ required: true, initial: '' }),
-          per: new fields.StringField({ required: true, initial: '' }),
-          hideMax: new fields.BooleanField({ required: true, initial: false }),
-          recharge: new fields.SchemaField({
-            formula: new fields.StringField({ required: true, initial: '1d6' }),
-            threshold: new fields.NumberField({ required: true, initial: 6, integer: true })
-          })
-        }),
-        quaternary: new fields.SchemaField({
-          label: new fields.StringField({ required: true, initial: '' }),
-          value: new fields.NumberField({ required: true, initial: 0, integer: true }),
-          max: new fields.StringField({ required: true, initial: '' }),
-          per: new fields.StringField({ required: true, initial: '' }),
-          hideMax: new fields.BooleanField({ required: true, initial: false }),
-          recharge: new fields.SchemaField({
-            formula: new fields.StringField({ required: true, initial: '1d6' }),
-            threshold: new fields.NumberField({ required: true, initial: 6, integer: true })
-          })
-        })
-      }),
-      skills: new fields.SchemaField({
-        acr: new fields.SchemaField({
-          ability: new fields.StringField({ required: true, initial: 'dex' }),
-          value: new fields.NumberField({ required: true, initial: 0, integer: true }),
-          proficient: new fields.BooleanField({ required: true, initial: false }),
-          specialties: new fields.ArrayField(
-            new fields.StringField({ required: true, initial: '' }),
-            { required: true, initial: [] }
-          ),
-          expertiseDice: new fields.NumberField({ required: true, initial: 0, integer: true }),
-          minRoll: new fields.NumberField({
-            required: true,
-            initial: 1,
-            integer: true,
-            min: 1,
-            max: 20
-          }),
-          bonuses: new fields.SchemaField({
-            check: new fields.StringField({ required: true, initial: '' }),
-            passive: new fields.NumberField({ required: true, initial: 0, integer: true })
-          })
-        }),
-        ani: new fields.SchemaField({
-          ability: new fields.StringField({ required: true, initial: 'wis' }),
-          value: new fields.NumberField({ required: true, initial: 0, integer: true }),
-          proficient: new fields.BooleanField({ required: true, initial: false }),
-          specialties: new fields.ArrayField(
-            new fields.StringField({ required: true, initial: '' }),
-            { required: true, initial: [] }
-          ),
-          expertiseDice: new fields.NumberField({ required: true, initial: 0, integer: true }),
-          minRoll: new fields.NumberField({
-            required: true,
-            initial: 1,
-            integer: true,
-            min: 1,
-            max: 20
-          }),
-          bonuses: new fields.SchemaField({
-            check: new fields.StringField({ required: true, initial: '' }),
-            passive: new fields.NumberField({ required: true, initial: 0, integer: true })
-          })
-        }),
-        arc: new fields.SchemaField({
-          ability: new fields.StringField({ required: true, initial: 'int' }),
-          value: new fields.NumberField({ required: true, initial: 0, integer: true }),
-          proficient: new fields.BooleanField({ required: true, initial: false }),
-          specialties: new fields.ArrayField(
-            new fields.StringField({ required: true, initial: '' }),
-            { required: true, initial: [] }
-          ),
-          expertiseDice: new fields.NumberField({ required: true, initial: 0, integer: true }),
-          minRoll: new fields.NumberField({
-            required: true,
-            initial: 1,
-            integer: true,
-            min: 1,
-            max: 20
-          }),
-          bonuses: new fields.SchemaField({
-            check: new fields.StringField({ required: true, initial: '' }),
-            passive: new fields.NumberField({ required: true, initial: 0, integer: true })
-          })
-        }),
-        ath: new fields.SchemaField({
-          ability: new fields.StringField({ required: true, initial: 'str' }),
-          value: new fields.NumberField({ required: true, initial: 0, integer: true }),
-          proficient: new fields.BooleanField({ required: true, initial: false }),
-          specialties: new fields.ArrayField(
-            new fields.StringField({ required: true, initial: '' }),
-            { required: true, initial: [] }
-          ),
-          expertiseDice: new fields.NumberField({ required: true, initial: 0, integer: true }),
-          minRoll: new fields.NumberField({
-            required: true,
-            initial: 1,
-            integer: true,
-            min: 1,
-            max: 20
-          }),
-          bonuses: new fields.SchemaField({
-            check: new fields.StringField({ required: true, initial: '' }),
-            passive: new fields.NumberField({ required: true, initial: 0, integer: true })
-          })
-        }),
-        cul: new fields.SchemaField({
-          ability: new fields.StringField({ required: true, initial: 'int' }),
-          value: new fields.NumberField({ required: true, initial: 0, integer: true }),
-          proficient: new fields.BooleanField({ required: true, initial: false }),
-          specialties: new fields.ArrayField(
-            new fields.StringField({ required: true, initial: '' }),
-            { required: true, initial: [] }
-          ),
-          expertiseDice: new fields.NumberField({ required: true, initial: 0, integer: true }),
-          minRoll: new fields.NumberField({
-            required: true,
-            initial: 1,
-            integer: true,
-            min: 1,
-            max: 20
-          }),
-          bonuses: new fields.SchemaField({
-            check: new fields.StringField({ required: true, initial: '' }),
-            passive: new fields.NumberField({ required: true, initial: 0, integer: true })
-          })
-        }),
-        dec: new fields.SchemaField({
-          ability: new fields.StringField({ required: true, initial: 'cha' }),
-          value: new fields.NumberField({ required: true, initial: 0, integer: true }),
-          proficient: new fields.BooleanField({ required: true, initial: false }),
-          specialties: new fields.ArrayField(
-            new fields.StringField({ required: true, initial: '' }),
-            { required: true, initial: [] }
-          ),
-          expertiseDice: new fields.NumberField({ required: true, initial: 0, integer: true }),
-          minRoll: new fields.NumberField({
-            required: true,
-            initial: 1,
-            integer: true,
-            min: 1,
-            max: 20
-          }),
-          bonuses: new fields.SchemaField({
-            check: new fields.StringField({ required: true, initial: '' }),
-            passive: new fields.NumberField({ required: true, initial: 0, integer: true })
-          })
-        }),
-        eng: new fields.SchemaField({
-          ability: new fields.StringField({ required: true, initial: 'int' }),
-          value: new fields.NumberField({ required: true, initial: 0, integer: true }),
-          proficient: new fields.BooleanField({ required: true, initial: false }),
-          specialties: new fields.ArrayField(
-            new fields.StringField({ required: true, initial: '' }),
-            { required: true, initial: [] }
-          ),
-          expertiseDice: new fields.NumberField({ required: true, initial: 0, integer: true }),
-          minRoll: new fields.NumberField({
-            required: true,
-            initial: 1,
-            integer: true,
-            min: 1,
-            max: 20
-          }),
-          bonuses: new fields.SchemaField({
-            check: new fields.StringField({ required: true, initial: '' }),
-            passive: new fields.NumberField({ required: true, initial: 0, integer: true })
-          })
-        }),
-        his: new fields.SchemaField({
-          ability: new fields.StringField({ required: true, initial: 'int' }),
-          value: new fields.NumberField({ required: true, initial: 0, integer: true }),
-          proficient: new fields.BooleanField({ required: true, initial: false }),
-          specialties: new fields.ArrayField(
-            new fields.StringField({ required: true, initial: '' }),
-            { required: true, initial: [] }
-          ),
-          expertiseDice: new fields.NumberField({ required: true, initial: 0, integer: true }),
-          minRoll: new fields.NumberField({
-            required: true,
-            initial: 1,
-            integer: true,
-            min: 1,
-            max: 20
-          }),
-          bonuses: new fields.SchemaField({
-            check: new fields.StringField({ required: true, initial: '' }),
-            passive: new fields.NumberField({ required: true, initial: 0, integer: true })
-          })
-        }),
-        ins: new fields.SchemaField({
-          ability: new fields.StringField({ required: true, initial: 'wis' }),
-          value: new fields.NumberField({ required: true, initial: 0, integer: true }),
-          proficient: new fields.BooleanField({ required: true, initial: false }),
-          specialties: new fields.ArrayField(
-            new fields.StringField({ required: true, initial: '' }),
-            { required: true, initial: [] }
-          ),
-          expertiseDice: new fields.NumberField({ required: true, initial: 0, integer: true }),
-          minRoll: new fields.NumberField({
-            required: true,
-            initial: 1,
-            integer: true,
-            min: 1,
-            max: 20
-          }),
-          bonuses: new fields.SchemaField({
-            check: new fields.StringField({ required: true, initial: '' }),
-            passive: new fields.NumberField({ required: true, initial: 0, integer: true })
-          })
-        }),
-        itm: new fields.SchemaField({
-          ability: new fields.StringField({ required: true, initial: 'cha' }),
-          value: new fields.NumberField({ required: true, initial: 0, integer: true }),
-          proficient: new fields.BooleanField({ required: true, initial: false }),
-          specialties: new fields.ArrayField(
-            new fields.StringField({ required: true, initial: '' }),
-            { required: true, initial: [] }
-          ),
-          expertiseDice: new fields.NumberField({ required: true, initial: 0, integer: true }),
-          minRoll: new fields.NumberField({
-            required: true,
-            initial: 1,
-            integer: true,
-            min: 1,
-            max: 20
-          }),
-          bonuses: new fields.SchemaField({
-            check: new fields.StringField({ required: true, initial: '' }),
-            passive: new fields.NumberField({ required: true, initial: 0, integer: true })
-          })
-        }),
-        inv: new fields.SchemaField({
-          ability: new fields.StringField({ required: true, initial: 'int' }),
-          value: new fields.NumberField({ required: true, initial: 0, integer: true }),
-          proficient: new fields.BooleanField({ required: true, initial: false }),
-          specialties: new fields.ArrayField(
-            new fields.StringField({ required: true, initial: '' }),
-            { required: true, initial: [] }
-          ),
-          expertiseDice: new fields.NumberField({ required: true, initial: 0, integer: true }),
-          minRoll: new fields.NumberField({
-            required: true,
-            initial: 1,
-            integer: true,
-            min: 1,
-            max: 20
-          }),
-          bonuses: new fields.SchemaField({
-            check: new fields.StringField({ required: true, initial: '' }),
-            passive: new fields.NumberField({ required: true, initial: 0, integer: true })
-          })
-        }),
-        med: new fields.SchemaField({
-          ability: new fields.StringField({ required: true, initial: 'wis' }),
-          value: new fields.NumberField({ required: true, initial: 0, integer: true }),
-          proficient: new fields.BooleanField({ required: true, initial: false }),
-          specialties: new fields.ArrayField(
-            new fields.StringField({ required: true, initial: '' }),
-            { required: true, initial: [] }
-          ),
-          expertiseDice: new fields.NumberField({ required: true, initial: 0, integer: true }),
-          minRoll: new fields.NumberField({
-            required: true,
-            initial: 1,
-            integer: true,
-            min: 1,
-            max: 20
-          }),
-          bonuses: new fields.SchemaField({
-            check: new fields.StringField({ required: true, initial: '' }),
-            passive: new fields.NumberField({ required: true, initial: 0, integer: true })
-          })
-        }),
-        nat: new fields.SchemaField({
-          ability: new fields.StringField({ required: true, initial: 'int' }),
-          value: new fields.NumberField({ required: true, initial: 0, integer: true }),
-          proficient: new fields.BooleanField({ required: true, initial: false }),
-          specialties: new fields.ArrayField(
-            new fields.StringField({ required: true, initial: '' }),
-            { required: true, initial: [] }
-          ),
-          expertiseDice: new fields.NumberField({ required: true, initial: 0, integer: true }),
-          minRoll: new fields.NumberField({
-            required: true,
-            initial: 1,
-            integer: true,
-            min: 1,
-            max: 20
-          }),
-          bonuses: new fields.SchemaField({
-            check: new fields.StringField({ required: true, initial: '' }),
-            passive: new fields.NumberField({ required: true, initial: 0, integer: true })
-          })
-        }),
-        prc: new fields.SchemaField({
-          ability: new fields.StringField({ required: true, initial: 'wis' }),
-          value: new fields.NumberField({ required: true, initial: 0, integer: true }),
-          proficient: new fields.BooleanField({ required: true, initial: false }),
-          specialties: new fields.ArrayField(
-            new fields.StringField({ required: true, initial: '' }),
-            { required: true, initial: [] }
-          ),
-          expertiseDice: new fields.NumberField({ required: true, initial: 0, integer: true }),
-          minRoll: new fields.NumberField({
-            required: true,
-            initial: 1,
-            integer: true,
-            min: 1,
-            max: 20
-          }),
-          bonuses: new fields.SchemaField({
-            check: new fields.StringField({ required: true, initial: '' }),
-            passive: new fields.NumberField({ required: true, initial: 0, integer: true })
-          })
-        }),
-        prf: new fields.SchemaField({
-          ability: new fields.StringField({ required: true, initial: 'cha' }),
-          value: new fields.NumberField({ required: true, initial: 0, integer: true }),
-          proficient: new fields.BooleanField({ required: true, initial: false }),
-          specialties: new fields.ArrayField(
-            new fields.StringField({ required: true, initial: '' }),
-            { required: true, initial: [] }
-          ),
-          expertiseDice: new fields.NumberField({ required: true, initial: 0, integer: true }),
-          minRoll: new fields.NumberField({
-            required: true,
-            initial: 1,
-            integer: true,
-            min: 1,
-            max: 20
-          }),
-          bonuses: new fields.SchemaField({
-            check: new fields.StringField({ required: true, initial: '' }),
-            passive: new fields.NumberField({ required: true, initial: 0, integer: true })
-          })
-        }),
-        per: new fields.SchemaField({
-          ability: new fields.StringField({ required: true, initial: 'cha' }),
-          value: new fields.NumberField({ required: true, initial: 0, integer: true }),
-          proficient: new fields.BooleanField({ required: true, initial: false }),
-          specialties: new fields.ArrayField(
-            new fields.StringField({ required: true, initial: '' }),
-            { required: true, initial: [] }
-          ),
-          expertiseDice: new fields.NumberField({ required: true, initial: 0, integer: true }),
-          minRoll: new fields.NumberField({
-            required: true,
-            initial: 1,
-            integer: true,
-            min: 1,
-            max: 20
-          }),
-          bonuses: new fields.SchemaField({
-            check: new fields.StringField({ required: true, initial: '' }),
-            passive: new fields.NumberField({ required: true, initial: 0, integer: true })
-          })
-        }),
-        rel: new fields.SchemaField({
-          ability: new fields.StringField({ required: true, initial: 'int' }),
-          value: new fields.NumberField({ required: true, initial: 0, integer: true }),
-          proficient: new fields.BooleanField({ required: true, initial: false }),
-          specialties: new fields.ArrayField(
-            new fields.StringField({ required: true, initial: '' }),
-            { required: true, initial: [] }
-          ),
-          expertiseDice: new fields.NumberField({ required: true, initial: 0, integer: true }),
-          minRoll: new fields.NumberField({
-            required: true,
-            initial: 1,
-            integer: true,
-            min: 1,
-            max: 20
-          }),
-          bonuses: new fields.SchemaField({
-            check: new fields.StringField({ required: true, initial: '' }),
-            passive: new fields.NumberField({ required: true, initial: 0, integer: true })
-          })
-        }),
-        slt: new fields.SchemaField({
-          ability: new fields.StringField({ required: true, initial: 'dex' }),
-          value: new fields.NumberField({ required: true, initial: 0, integer: true }),
-          proficient: new fields.BooleanField({ required: true, initial: false }),
-          specialties: new fields.ArrayField(
-            new fields.StringField({ required: true, initial: '' }),
-            { required: true, initial: [] }
-          ),
-          expertiseDice: new fields.NumberField({ required: true, initial: 0, integer: true }),
-          minRoll: new fields.NumberField({
-            required: true,
-            initial: 1,
-            integer: true,
-            min: 1,
-            max: 20
-          }),
-          bonuses: new fields.SchemaField({
-            check: new fields.StringField({ required: true, initial: '' }),
-            passive: new fields.NumberField({ required: true, initial: 0, integer: true })
-          })
-        }),
-        ste: new fields.SchemaField({
-          ability: new fields.StringField({ required: true, initial: 'dex' }),
-          value: new fields.NumberField({ required: true, initial: 0, integer: true }),
-          proficient: new fields.BooleanField({ required: true, initial: false }),
-          specialties: new fields.ArrayField(
-            new fields.StringField({ required: true, initial: '' }),
-            { required: true, initial: [] }
-          ),
-          expertiseDice: new fields.NumberField({ required: true, initial: 0, integer: true }),
-          minRoll: new fields.NumberField({
-            required: true,
-            initial: 1,
-            integer: true,
-            min: 1,
-            max: 20
-          }),
-          bonuses: new fields.SchemaField({
-            check: new fields.StringField({ required: true, initial: '' }),
-            passive: new fields.NumberField({ required: true, initial: 0, integer: true })
-          })
-        }),
-        sur: new fields.SchemaField({
-          ability: new fields.StringField({ required: true, initial: 'wis' }),
-          value: new fields.NumberField({ required: true, initial: 0, integer: true }),
-          proficient: new fields.BooleanField({ required: true, initial: false }),
-          specialties: new fields.ArrayField(
-            new fields.StringField({ required: true, initial: '' }),
-            { required: true, initial: [] }
-          ),
-          expertiseDice: new fields.NumberField({ required: true, initial: 0, integer: true }),
-          minRoll: new fields.NumberField({
-            required: true,
-            initial: 1,
-            integer: true,
-            min: 1,
-            max: 20
-          }),
-          bonuses: new fields.SchemaField({
-            check: new fields.StringField({ required: true, initial: '' }),
-            passive: new fields.NumberField({ required: true, initial: 0, integer: true })
-          })
-        })
-      }),
+      resources: new fields.SchemaField(
+        ['primary', 'secondary', 'tertiary', 'quaternary'].reduce((acc, res) => {
+          acc[res] = new fields.SchemaField({
+            label: new fields.StringField({ required: true, initial: '' }),
+            value: new fields.NumberField({ required: true, initial: 0, integer: true }),
+            max: new fields.StringField({ required: true, initial: '' }),
+            per: new fields.StringField({ required: true, initial: '' }),
+            hideMax: new fields.BooleanField({ required: true, initial: false }),
+            recharge: new fields.SchemaField({
+              formula: new fields.StringField({ required: true, initial: '1d6' }),
+              threshold: new fields.NumberField({ required: true, initial: 6, integer: true })
+            })
+          });
+
+          return acc;
+        }, {})
+      ),
+      skills: new fields.SchemaField(
+        ['acr', 'ani', 'arc', 'ath', 'cul', 'dec', 'eng', 'his', 'ins', 'itm', 'inv', 'med', 'nat', 'prc', 'prf', 'per', 'rel', 'slt', 'ste', 'sur'].reduce((acc, skl) => {
+          acc[skl] = new fields.SchemaField({
+            ability: new fields.StringField({ required: true, initial: 'dex' }),
+            value: new fields.NumberField({ required: true, initial: 0, integer: true }),
+            proficient: new fields.BooleanField({ required: true, initial: false }),
+            specialties: new fields.ArrayField(
+              new fields.StringField({ required: true, initial: '' }),
+              { required: true, initial: [] }
+            ),
+            expertiseDice: new fields.NumberField({ required: true, initial: 0, integer: true }),
+            minRoll: new fields.NumberField({
+              required: true,
+              initial: 1,
+              integer: true,
+              min: 1,
+              max: 20
+            }),
+            bonuses: new fields.SchemaField({
+              check: new fields.StringField({ required: true, initial: '' }),
+              passive: new fields.NumberField({ required: true, initial: 0, integer: true })
+            })
+          });
+
+          return acc;
+        }, {})
+      ),
       source: new fields.SchemaField({
         name: new fields.StringField({ required: true, initial: '' }),
         link: new fields.StringField({ required: true, initial: '' }),

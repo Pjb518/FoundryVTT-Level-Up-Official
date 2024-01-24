@@ -1,11 +1,26 @@
 import {
-  getAbilitiesBonusContext, getDamageBonusContext, getHealingBonusContext, getSkillBonusContext
+  getAbilitiesBonusContext,
+  getAttackBonusContext,
+  getDamageBonusContext,
+  getHealingBonusContext,
+  getSkillBonusContext
 } from './Contexts';
 
 export function getAbilitiesBonusData() {
   const { fields } = foundry.data;
   return {
     context: new fields.SchemaField(getAbilitiesBonusContext('bonus')),
+    default: new fields.BooleanField({ required: true, initial: true }),
+    formula: new fields.StringField({ required: true, initial: '' }),
+    label: new fields.StringField({ required: true, initial: '' }),
+    img: new fields.StringField({ required: true, initial: 'icons/svg/upgrade.svg' })
+  };
+}
+
+export function getAttackBonusData() {
+  const { fields } = foundry.data;
+  return {
+    context: new fields.SchemaField(getAttackBonusContext()),
     default: new fields.BooleanField({ required: true, initial: true }),
     formula: new fields.StringField({ required: true, initial: '' }),
     label: new fields.StringField({ required: true, initial: '' }),

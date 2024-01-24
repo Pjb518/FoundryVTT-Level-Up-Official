@@ -19,7 +19,17 @@ export function getAbilitiesBonusContext(type: 'grant' | 'bonus') {
 }
 
 export function getAttackBonusContext() {
-  // const { fields } = foundry.data;
+  const { fields } = foundry.data;
+  return {
+    attackTypes: new fields.ArrayField(new fields.StringField({ required: true, initial: '' }), {
+      initial: Object.keys(A5E.attackTypes)
+    }),
+    spellLevels: new fields.ArrayField(
+      new fields.StringField({ required: true, initial: '' }),
+      { initial: [] }
+    ),
+    requiresProficiency: new fields.BooleanField({ required: true, initial: false })
+  };
 }
 
 export function getDamageBonusContext() {
