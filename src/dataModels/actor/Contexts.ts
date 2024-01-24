@@ -22,7 +22,7 @@ export function getAttackBonusContext() {
   const { fields } = foundry.data;
   return {
     attackTypes: new fields.ArrayField(new fields.StringField({ required: true, initial: '' }), {
-      initial: Object.keys(A5E.attackTypes)
+      initial: Object.keys(CONFIG.A5E.attackTypes)
     }),
     spellLevels: new fields.ArrayField(
       new fields.StringField({ required: true, initial: '' }),
@@ -62,6 +62,18 @@ export function getHealingBonusContext() {
       new fields.StringField({ required: true, initial: '' }),
       { initial: [] }
     )
+  };
+}
+
+export function getInitiativeBonusContext() {
+  const { fields } = foundry.data;
+  return {
+    abilities: new fields.ArrayField(new fields.StringField({ required: true, initial: '' }), {
+      initial: []
+    }),
+    skills: new fields.ArrayField(new fields.StringField({ required: true, initial: '' }), {
+      initial: []
+    })
   };
 }
 

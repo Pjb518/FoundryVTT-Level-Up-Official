@@ -1,6 +1,5 @@
 <script>
     import { getContext, createEventDispatcher } from "svelte";
-    import { localize } from "#runtime/svelte/helper";
 
     import updateDocumentDataFromField from "../../utils/updateDocumentDataFromField";
 
@@ -16,7 +15,7 @@
     const dispatch = createEventDispatcher();
 
     function updateImage() {
-        const current = attackBonus?.img;
+        const current = initiativeBonus?.img;
 
         const filePicker = new FilePicker({
             type: "image",
@@ -31,20 +30,21 @@
 
     function onUpdateValue(key, value) {
         if (jsonValue === null) {
-            key = `system.bonuses.attacks.${bonusID}.${key}`;
+            key = `system.bonuses.initiative.${bonusID}.${key}`;
             updateDocumentDataFromField($actor, key, value);
             return;
         }
 
         const newObj = foundry.utils.expandObject({
-            ...attackBonus,
+            ...initiativeBonus,
             [key]: value,
         });
         dispatch("change", JSON.stringify(newObj));
     }
 
-    function getAttackBonus() {
-        if (jsonValue === null) return $actor.system.bonuses.attacks[bonusID];
+    function getAbilityBonus() {
+        if (jsonValue === null)
+            return $actor.system.bonuses.initiative[bonusID];
 
         try {
             const obj = JSON.parse(jsonValue || '""') ?? {};
@@ -52,9 +52,8 @@
             obj.label = obj.label ?? "";
             obj.formula = obj.formula ?? "";
             obj.context = obj.context ?? {
-                attackTypes: [],
-                spellLevels: [],
-                requiresProficiency: false,
+                abilities: [],
+                skills: [],
             };
             obj.default = obj.default ?? true;
             obj.img = obj.img || "icons/svg/upgrade.svg";
@@ -63,10 +62,10 @@
             return {
                 label: "",
                 formula: "",
+                damageType: "",
                 context: {
-                    attackTypes: [],
-                    spellLevels: [],
-                    requiresProficiency: false,
+                    abilities: [],
+                    skills: [],
                 },
                 default: true,
                 img: "icons/svg/upgrade.svg",
@@ -74,12 +73,11 @@
         }
     }
 
-    const { attackTypes, spellLevels } = CONFIG.A5E;
+    const { abilities, skills } = CONFIG.A5E;
 
-    $: attackBonus = getAttackBonus($actor, jsonValue) ?? {};
-    $: attackTypesContext = attackBonus.context.attackTypes ?? [];
-    $: spellLevelsContext = attackBonus.context.spellLevels ?? [];
-    $: requiresProficiency = attackBonus.context.requiresProficiency ?? false;
+    $: initiativeBonus = getAbilityBonus($actor, jsonValue) ?? {};
+    $: abilitiesContext = initiativeBonus.context?.abilities ?? [];
+    $: skillsContext = initiativeBonus.context?.skills ?? [];
 </script>
 
 <form>
@@ -88,8 +86,8 @@
         <!-- svelte-ignore a11y-no-noninteractive-element-interactions -->
         <img
             class="bonus-image"
-            src={attackBonus.img}
-            alt={attackBonus.label}
+            src={initiativeBonus.img}
+            alt={initiativeBonus.label}
             on:click={() => updateImage()}
         />
 
@@ -97,7 +95,7 @@
             <input
                 type="text"
                 name="name"
-                value={attackBonus.label ?? ""}
+                value={initiativeBonus.label ?? ""}
                 class="bonus-name"
                 placeholder="Bonus Name"
                 on:change={({ target }) => onUpdateValue("label", target.value)}
@@ -105,14 +103,11 @@
         </div>
     </header>
 
-    <Section
-        --a5e-section-body-direction="row"
-        --a5e-section-margin="0.25rem 0"
-    >
-        <FieldWrapper heading="A5E.Formula" --a5e-field-wrapper-grow="1">
+    <Section --a5e-section-margin="0.25rem 0">
+        <FieldWrapper heading="A5E.Formula">
             <input
                 type="text"
-                value={attackBonus.formula ?? ""}
+                value={initiativeBonus.formula ?? ""}
                 on:change={({ target }) =>
                     onUpdateValue("formula", target.value)}
             />
@@ -121,41 +116,33 @@
 
     <Section
         heading="Contexts"
-        hint="The context determines when the attack bonus applies"
+        hint="The context determines when the ability bonus applies"
         --a5e-section-body-gap="0.75rem"
     >
         <CheckboxGroup
-            heading="A5E.contexts.attackType"
-            options={Object.entries(attackTypes)}
-            selected={attackTypesContext}
+            heading="A5E.contexts.abilities"
+            options={Object.entries(abilities)}
+            selected={abilitiesContext}
             showToggleAllButton={true}
             on:updateSelection={({ detail }) => {
-                onUpdateValue("context.attackTypes", detail);
+                onUpdateValue("context.abilities", detail);
             }}
         />
 
         <CheckboxGroup
-            heading="A5E.contexts.spellLevel"
-            options={Object.entries(spellLevels)}
-            selected={spellLevelsContext}
+            heading="A5E.contexts.skills"
+            options={Object.entries(skills)}
+            selected={skillsContext}
             showToggleAllButton={true}
             on:updateSelection={({ detail }) => {
-                onUpdateValue("context.spellLevels", detail);
-            }}
-        />
-
-        <Checkbox
-            label="A5E.contexts.requiresProficiency"
-            checked={requiresProficiency}
-            on:updateSelection={({ detail }) => {
-                onUpdateValue("context.requiresProficiency", detail);
+                onUpdateValue("context.skills", detail);
             }}
         />
 
         <FieldWrapper>
             <Checkbox
-                label="Select Attack Bonus Automatically in Roll Prompt"
-                checked={attackBonus.default ?? true}
+                label="Select Ability Bonus Automatically in Roll Prompt"
+                checked={initiativeBonus.default ?? true}
                 on:updateSelection={({ detail }) => {
                     onUpdateValue("default", detail);
                 }}

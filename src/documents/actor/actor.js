@@ -27,6 +27,7 @@ import DamageBonusConfigDialog from '../../apps/dialogs/DamageBonusConfigDialog.
 import DamageImmunitiesConfigDialog from '../../apps/dialogs/DamageImmunitiesConfigDialog.svelte';
 import DamageResistancesConfigDialog from '../../apps/dialogs/DamageResistancesConfigDialog.svelte';
 import DamageVulnerabilitiesConfigDialog from '../../apps/dialogs/DamageVulnerabilitiesConfigDialog.svelte';
+import InitiativeBonusConfigDialog from '../../apps/dialogs/InitiativeBonusConfigDialog.svelte';
 import HealingBonusConfigDialog from '../../apps/dialogs/HealingBonusConfigDialog.svelte';
 import LanguagesConfigDialog from '../../apps/dialogs/LanguagesConfigDialog.svelte';
 import MovementConfigDialog from '../../apps/dialogs/MovementConfigDialog.svelte';
@@ -76,6 +77,7 @@ export default class ActorA5e extends Actor {
       healingBonus: HealingBonusConfigDialog,
       health: ActorHpConfigDialog,
       initiative: ActorInitConfigDialog,
+      initiativeBonus: InitiativeBonusConfigDialog,
       languages: LanguagesConfigDialog,
       maneuvers: ActorManueverConfigDialog,
       movement: MovementConfigDialog,
@@ -744,7 +746,7 @@ export default class ActorA5e extends Actor {
   addBonus(type = 'damage') {
     const bonuses = foundry.utils.duplicate(this._source.system.bonuses[type] ?? {});
 
-    if (!['abilities', 'attacks', 'skills', 'damage', 'healing'].includes(type)) return;
+    if (!['abilities', 'attacks', 'skills', 'damage', 'healing', 'initiative'].includes(type)) return;
 
     this.update({
       [`system.bonuses.${type}`]: {
@@ -812,11 +814,11 @@ export default class ActorA5e extends Actor {
       this.#configure('attackBonus', `${this.name} Attack Bonus Configuration`, { bonusID });
     } else if (type === 'damage') {
       this.#configure('damageBonus', `${this.name} Damage Bonus Configuration`, { bonusID });
-    }
-    else if (type === 'healing') {
+    } else if (type === 'healing') {
       this.#configure('healingBonus', `${this.name} Healing Bonus Configuration`, { bonusID });
-    }
-    else if (type === 'skills') {
+    } else if (type === 'initiative') {
+      this.#configure('initiativeBonus', `${this.name} Initiative Bonus Configuration`, { bonusID });
+    } else if (type === 'skills') {
       this.#configure('skillBonus', `${this.name} Skill Bonus Configuration`, { bonusID });
     }
   }

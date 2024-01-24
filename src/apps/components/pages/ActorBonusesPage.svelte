@@ -46,6 +46,8 @@
                 return "Damage Bonuses";
             case "healing":
                 return "Healing Bonuses";
+            case "initiative":
+                return "Initiative Bonuses";
             case "skills":
                 return "Skill Bonuses";
         }
@@ -61,6 +63,8 @@
                 return "+ Add Damage Bonus";
             case "healing":
                 return "+ Add Healing Bonus";
+            case "initiative":
+                return "+ Add Initiative Bonus";
             case "skills":
                 return "+ Add Skill Bonus";
         }
@@ -76,6 +80,8 @@
                 return "New Damage Bonus";
             case "healing":
                 return "New Healing Bonus";
+            case "initiative":
+                return "New Initiative Bonus";
             case "skills":
                 return "New Skill Bonus";
         }
@@ -88,6 +94,7 @@
         "attacks",
         "damage",
         "healing",
+        "initiative",
         "skills",
     ];
 

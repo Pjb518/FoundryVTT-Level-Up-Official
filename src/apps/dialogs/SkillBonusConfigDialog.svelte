@@ -56,7 +56,7 @@
                 passiveOnly: false,
             };
             obj.default = obj.default ?? true;
-            obj.img = obj.img ?? "icons/svg/upgrade.svg";
+            obj.img = obj.img || "icons/svg/upgrade.svg";
             return obj;
         } catch (error) {
             return {
