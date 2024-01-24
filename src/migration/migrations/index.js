@@ -9,3 +9,4 @@ export { default as Migration007MigrateEffectModes } from './007-migrate-effect-
 export { default as Migration008MigrateSpecter } from './008-migrate-specter';
 export { default as Migration009MigrateToGenie } from './009-migrate-to-genie';
 export { default as Migration010MigrateContexts } from './010-migrate-contexts';
+export { default as Migration011MigrateAttackBonuses } from './011-migrate-attack-bonuses';
