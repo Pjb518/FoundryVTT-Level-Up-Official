@@ -1,0 +1,125 @@
+{
+	"folder": null,
+	"name": "Pie to the Face",
+	"type": "maneuver",
+	"img": "icons/consumables/fruit/tomato-ripe-red.webp",
+	"system": {
+		"actions": {
+			"xuxGz5lol1sE8dgH": {
+				"name": "Pie to the Face",
+				"activation": {
+					"type": "action",
+					"cost": 1
+				},
+				"consumers": {
+					"jQMsmKpahCgzjY1Q": {
+						"type": "resource",
+						"default": true,
+						"resource": "exertion",
+						"quantity": 1
+					}
+				},
+				"rolls": {
+					"L2GsxDVmTbCzHiCh": {
+						"type": "attack",
+						"default": true,
+						"attackType": "meleeWeaponAttack",
+						"proficient": false,
+						"ability": "default",
+						"label": "Improvised Weapon"
+					}
+				},
+				"prompts": {
+					"HBpBby6dnoINrG6C": {
+						"type": "effect",
+						"default": true,
+						"effectId": "zzk5izccdBTuxWIW"
+					}
+				},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"rechargeType": "custom",
+						"rechargeAmount": "1",
+						"threshold": 6
+					}
+				}
+			}
+		},
+		"description": "<div class=\"field field--name-body field--type-text-with-summary field--label-hidden field--item\">\n<p>The extremely rapid delivery of food can be not only hilariously satisfying, but also give a warrior an edge in combat.</p>\n<p>When you activate this maneuver, you take the <span class=\"freelinking-link\">Attack action and make a weapon attack</span>, as well as any additional attacks granted by Extra Attack. This weapon attack must target a creature and be made using an improvised weapon that includes food or is made out of <span class=\"freelinking-link\">Supply</span> (such as a pie, bowl of stew, flagon of mead, or other container filled with nourishment). On a hit, the creature is <span class=\"freelinking-link\">blinded</span> until either the start of its next turn or until it uses its reaction to wipe its eyes clean (whichever is first). Until the creature uses a bonus action to entirely clean its face, you gain an <span class=\"freelinking-link\">expertise die</span> on Intimidation checks made against the creature.</p>\n</div>",
+		"favorite": false,
+		"secretDescription": "",
+		"source": {
+			"name": "",
+			"link": "",
+			"publisher": ""
+		},
+		"uses": {
+			"value": null,
+			"max": "",
+			"per": null,
+			"recharge": {
+				"formula": "1d6",
+				"threshold": "6"
+			}
+		},
+		"schema": {
+			"version": null,
+			"lastMigration": null
+		},
+		"concentration": false,
+		"degree": 1,
+		"exertionCost": 2,
+		"isStance": false,
+		"prerequisite": "",
+		"tradition": "comedicJabs"
+	},
+	"effects": [
+		{
+			"icon": "icons/consumables/fruit/tomato-ripe-red.webp",
+			"origin": "Item.hKCGtDJpJjmNVpIM",
+			"flags": {
+				"a5e": {
+					"sort": 0,
+					"transferType": "onUse",
+					"actionId": "xuxGz5lol1sE8dgH",
+					"duration": {
+						"type": "rounds",
+						"unit": "minutes"
+					}
+				}
+			},
+			"transfer": false,
+			"name": "Blinded",
+			"_id": "zzk5izccdBTuxWIW",
+			"changes": [
+				{
+					"key": "flags.a5e.effects.statusConditions",
+					"value": "[\"blinded\"]",
+					"mode": 0,
+					"priority": null
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": null,
+				"combat": null,
+				"rounds": null,
+				"turns": 1,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "",
+			"statuses": [
+				"blinded"
+			],
+			"folder": null
+		}
+	],
+	"flags": {},
+	"_id": "y6bc0fekc7nuinzs"
+}

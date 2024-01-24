@@ -1,0 +1,127 @@
+{
+	"folder": null,
+	"name": "Make Them Laugh",
+	"type": "maneuver",
+	"img": "icons/consumables/fruit/tomato-ripe-red.webp",
+	"system": {
+		"actions": {
+			"eFjO5PYXOPckXqN7": {
+				"name": "Make Them Laugh",
+				"activation": {
+					"type": "action",
+					"cost": 1
+				},
+				"consumers": {
+					"M9zgDVlfrCdKEhdF": {
+						"type": "resource",
+						"default": true,
+						"resource": "exertion",
+						"quantity": 1
+					}
+				},
+				"rolls": {
+					"nMjryotZonnKsGIh": {
+						"type": "skillCheck",
+						"default": true,
+						"skill": "prf",
+						"ability": "cha"
+					}
+				},
+				"prompts": {
+					"RUN9Ie4S5neU89Py": {
+						"type": "effect",
+						"default": true,
+						"effectId": "CAwWGy7XkSbP7eNb"
+					}
+				},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"rechargeType": "custom",
+						"rechargeAmount": "1",
+						"threshold": 6
+					}
+				}
+			}
+		},
+		"description": "<div class=\"field field--name-body field--type-text-with-summary field--label-hidden field--item\">\n<p>With unmatched enthusiasm you undertake a fantastic bit of comedic gymnastics&mdash;flipping off of walls, slipping into cartwheels, landing in splits, and otherwise making a grand fool of yourself to the absolute delight of those able to see your exhausting display.</p>\n<p>Make a nonmusical Performance check, gaining a number of rapt onlookers equal to half the result (at the Narrator&rsquo;s discretion, the amount of potential onlookers may be limited by your location). At the end of your routine, roll 1d20 and add 1 per rapt onlooker. On a result of 20 or higher, you gain inspiration. If you do not roll a natural 20 on either roll, you suffer a level of <span class=\"freelinking-link\">fatigue</span> . Rapt onlookers (including those who are enemies) have <span class=\"freelinking-link\">disadvantage</span> on Perception and Insight checks until the start of your next turn.</p>\n</div>",
+		"favorite": false,
+		"secretDescription": "",
+		"source": {
+			"name": "",
+			"link": "",
+			"publisher": ""
+		},
+		"uses": {
+			"value": null,
+			"max": "",
+			"per": null,
+			"recharge": {
+				"formula": "1d6",
+				"threshold": "6"
+			}
+		},
+		"schema": {
+			"version": null,
+			"lastMigration": null
+		},
+		"concentration": false,
+		"degree": 5,
+		"exertionCost": 6,
+		"isStance": false,
+		"prerequisite": "",
+		"tradition": "comedicJabs"
+	},
+	"effects": [
+		{
+			"icon": "icons/consumables/fruit/tomato-ripe-red.webp",
+			"origin": "Item.MS2NiO1UITnCIqG9",
+			"flags": {
+				"a5e": {
+					"sort": 0,
+					"transferType": "onUse",
+					"actionId": "eFjO5PYXOPckXqN7",
+					"duration": {
+						"type": "rounds",
+						"unit": "minutes"
+					}
+				}
+			},
+			"transfer": false,
+			"name": "Rapt Onlooker",
+			"_id": "CAwWGy7XkSbP7eNb",
+			"changes": [
+				{
+					"key": "flags.a5e.effects.rollMode.skillCheck.prc",
+					"value": "-1",
+					"mode": 6,
+					"priority": null
+				},
+				{
+					"key": "flags.a5e.effects.rollMode.skillCheck.ins",
+					"value": "-1",
+					"mode": 6,
+					"priority": null
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": null,
+				"combat": null,
+				"rounds": null,
+				"turns": 1,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "",
+			"statuses": [],
+			"folder": null
+		}
+	],
+	"flags": {},
+	"_id": "iunj9xeyzpm1jb54"
+}
