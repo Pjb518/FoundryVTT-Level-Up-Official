@@ -450,8 +450,11 @@ export default class RollPreparationManager {
 
   #applySpellLevelScaling(roll) {
     const baseSpellLevel = this.#consumers.spell?.baseLevel ?? this.#item.system.level ?? 1;
+    console.log(this.#consumers.spell);
     const castingLevel = this.#consumers.spell?.level ?? baseSpellLevel;
     const delta = castingLevel - baseSpellLevel;
+
+    console.log('Spell Level Scaling', { baseSpellLevel, castingLevel, delta });
 
     return this.#applyResourceBasedScaling(roll, delta);
   }

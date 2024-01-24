@@ -380,14 +380,18 @@ export default class ItemA5e extends BaseItemA5e {
       const spellPoints = spellConsumer.points ?? CONFIG.A5E.spellLevelCost[spellLevel] ?? 1;
       spellData.level = spellLevel;
       spellData.points = spellPoints;
-      spellData.basePoints = spellLevel;
-      spellData.baseLevel = spellPoints;
+      spellData.basePoints = spellPoints;
+      spellData.baseLevel = spellLevel;
       // eslint-disable-next-line no-nested-ternary
       spellData.consume = mode === 'pointsOnly'
         ? 'spellPoint'
         : availableSpellSlots.length > 0
           ? 'spellSlot'
           : 'spellPoint';
+
+      if (this.system?.level === null || this.system?.level === undefined) {
+        spellData.consume = 'noConsume';
+      }
     }
 
     return {
