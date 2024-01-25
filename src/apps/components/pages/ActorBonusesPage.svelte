@@ -105,7 +105,7 @@
     );
 </script>
 
-<section class="a5e-page-wrapper a5e-page-wrapper--scrollable">
+<section class="a5e-page-wrapper a5e-page-wrapper--item-list">
     <Section
         heading="Global Bonuses"
         hint="All of the fields in this section accept any values valid in roll formulae."
@@ -156,6 +156,10 @@
 
     {#each bonusCategories as bonusType}
         <Section
+            headerClasses={Object.values($actor.system.bonuses[bonusType] ?? {})
+                .length
+                ? "a5e-section-header--flat-bottom"
+                : ""}
             heading={getBonusSectionHeader(bonusType)}
             headerButtons={[
                 {

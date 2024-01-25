@@ -22,7 +22,7 @@
     </UtilityBar>
 {/if}
 
-<section class="a5e-page-wrapper a5e-page-wrapper--scrollable">
+<section class="a5e-page-wrapper a5e-page-wrapper--item-list">
     {#each Object.entries($activeEffects._types) as [label, effects]}
         {#if effects.length}
             <EffectCategory label={subTypes[label]} {effects} />

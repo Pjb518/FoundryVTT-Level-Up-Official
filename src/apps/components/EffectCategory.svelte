@@ -30,7 +30,10 @@
 </script>
 
 <section>
-    <header class="a5e-section-header a5e-section-header--item-list">
+    <header
+        class="a5e-section-header a5e-section-header--item-list"
+        class:a5e-section-header--flat-bottom={[...effects].length}
+    >
         <h3 class="a5e-section-header__heading">
             {localize(label)}
         </h3>

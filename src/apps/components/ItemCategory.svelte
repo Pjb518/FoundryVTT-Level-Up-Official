@@ -83,6 +83,7 @@
     {#if !(type === "featureTypes" && $actor.type === "npc")}
         <header
             class="a5e-section-header a5e-section-header--item-list"
+            class:a5e-section-header--flat-bottom={[...items].length}
             style="
                 --a5e-section-heading-template-areas: {headingTemplateConfiguration.areas};
                 --a5e-section-heading-template-columns: {headingTemplateConfiguration.columns};
