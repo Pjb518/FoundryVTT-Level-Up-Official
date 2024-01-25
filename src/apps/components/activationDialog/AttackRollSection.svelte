@@ -7,6 +7,7 @@
     import overrideRollMode from "../../../utils/overrideRollMode";
     import overrideExpertiseDie from "../../../utils/overrideExpertiseDie";
 
+    import CheckboxGroup from "../CheckboxGroup.svelte";
     import ExpertiseDiePicker from "../ExpertiseDiePicker.svelte";
     import FieldWrapper from "../FieldWrapper.svelte";
     import RadioGroup from "../RadioGroup.svelte";
@@ -18,6 +19,11 @@
     const actor = getContext("actor");
     const dialog = getContext("dialog");
     const item = getContext("item");
+    const attackBonuses = $actor.BonusesManager.prepareAttackBonuses(
+        $item,
+        attackRoll?.attackType,
+    );
+    console.log(attackBonuses);
 
     function updateData() {
         attackRollData = {
@@ -49,6 +55,11 @@
         },
     );
 
+    $: selectedAttackBonuses = $actor.BonusesManager.getDefaultSelections(
+        "attacks",
+        { item: $item, attackType: attackRoll?.attackType },
+    );
+
     $: rollFormula = getRollFormula($actor, {
         ability: attackAbility,
         attackBonus: attackRoll?.bonus,
@@ -58,6 +69,7 @@
         proficient: attackRoll?.proficient ?? true,
         situationalMods,
         rollMode,
+        selectedAttackBonuses,
         type: "attack",
     });
 
@@ -79,6 +91,18 @@
     selected={expertiseDie}
     on:updateSelection={({ detail }) => (expertiseDie = detail)}
 />
+
+{#if Object.values(attackBonuses).flat().length}
+    <CheckboxGroup
+        heading="Ability Bonuses"
+        options={attackBonuses.map(([key, attackBonus]) => [
+            key,
+            attackBonus.label || attackBonus.defaultLabel,
+        ])}
+        selected={selectedAttackBonuses}
+        on:updateSelection={({ detail }) => (selectedAttackBonuses = detail)}
+    />
+{/if}
 
 <FieldWrapper
     heading="A5E.SituationalMods"

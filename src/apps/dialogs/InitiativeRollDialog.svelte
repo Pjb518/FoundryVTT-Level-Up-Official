@@ -10,20 +10,9 @@
 
     import getRollFormula from "../../utils/getRollFormula";
     import overrideRollMode from "../../utils/overrideRollMode";
-    import prepareAbilityBonuses from "../dataPreparationHelpers/prepareAbilityBonuses";
-    import prepareSkillBonuses from "../dataPreparationHelpers/prepareSkillBonuses";
 
     export let { document, dialog, options } =
         getContext("#external").application;
-
-    function getDefaultSelections(property) {
-        return Object.values(property ?? {})
-            .flat()
-            .reduce((acc, [key, value]) => {
-                if (value.default ?? true) acc.push(key);
-                return acc;
-            }, []);
-    }
 
     function getInitialExpertiseDieSelection() {
         if (hideExpertiseDice) return 0;
@@ -72,10 +61,35 @@
         type: "initiative",
     });
 
-    $: abilityBonuses = prepareAbilityBonuses($actor, abilityKey, "check");
-    $: skillBonuses = prepareSkillBonuses($actor, skillKey, "check");
-    $: selectedAbilityBonuses = getDefaultSelections({ abilityBonuses });
-    $: selectedSkillBonuses = getDefaultSelections({ skillBonuses });
+    $: abilityBonuses = $actor.BonusesManager.prepareAbilityBonuses(
+        abilityKey,
+        "check",
+    );
+
+    $: skillBonuses = $actor.BonusesManager.prepareSkillBonuses(
+        skillKey,
+        abilityKey,
+    );
+
+    $: initiativeBonuses = $actor.BonusesManager.prepareInitiativeBonuses({
+        abilityKey,
+        skillKey,
+    });
+
+    $: selectedAbilityBonuses = $actor.BonusesManager.getDefaultSelections(
+        "abilities",
+        { abilityKey, ablType: "check" },
+    );
+
+    $: selectedSkillBonuses = $actor.BonusesManager.getDefaultSelections(
+        "skills",
+        { skillKey, abilityKey },
+    );
+
+    $: selectedInitiativeBonuses = $actor.BonusesManager.getDefaultSelections(
+        "initiative",
+        { abilityKey, skillKey },
+    );
 
     $: rollFormula = getRollFormula($actor, {
         ability: abilityKey,
@@ -85,6 +99,7 @@
         skill: skillKey,
         selectedAbilityBonuses,
         selectedSkillBonuses,
+        selectedInitiativeBonuses,
         type: "initiative",
     });
 </script>
@@ -140,6 +155,19 @@
             ])}
             selected={selectedSkillBonuses}
             on:updateSelection={({ detail }) => (selectedSkillBonuses = detail)}
+        />
+    {/if}
+
+    {#if Object.values(initiativeBonuses).flat().length}
+        <CheckboxGroup
+            heading="Initiative Bonuses"
+            options={initiativeBonuses.map(([key, initiativeBonus]) => [
+                key,
+                initiativeBonus.label || initiativeBonus.defaultLabel,
+            ])}
+            selected={selectedInitiativeBonuses}
+            on:updateSelection={({ detail }) =>
+                (selectedInitiativeBonuses = detail)}
         />
     {/if}
 

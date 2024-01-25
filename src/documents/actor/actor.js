@@ -480,7 +480,7 @@ export default class ActorA5e extends Actor {
         deterministicBonus = getDeterministicBonus(
           [
             skill.mod,
-            this.BonusesManager.getSkillBonusesFormula(key, skill.ability, 'check').trim()
+            this.BonusesManager.getSkillBonusesFormula(key, skill.ability, 'check', true)
           ].filter(Boolean).join(' + '),
           this.getRollData()
         );
@@ -508,7 +508,7 @@ export default class ActorA5e extends Actor {
       10,
       skill.mod,
       rollData.abilities[skill.ability]?.check?.deterministicBonus ?? 0,
-      this.BonusesManager.getSkillBonusesFormula(skillKey, skill.ability, 'passive').trim()
+      this.BonusesManager.getSkillBonusesFormula(skillKey, skill.ability, 'passive', true)
     ].filter(Boolean).join(' + '), rollData);
   }
 
@@ -1064,6 +1064,10 @@ export default class ActorA5e extends Actor {
       expertiseDie,
       rollMode,
       situationalMods: options.situationalMods,
+      selectedAbilityBonuses: this.BonusesManager.getDefaultSelections(
+        'abilities',
+        { abilityKey, ablType: 'check' }
+      ),
       type: 'abilityCheck'
     });
 
@@ -1238,6 +1242,10 @@ export default class ActorA5e extends Actor {
       rollMode,
       saveType: options.saveType,
       situationalMods: options.situationalMods,
+      selectedAbilityBonuses: this.BonusesManager.getDefaultSelections(
+        'abilities',
+        { abilityKey, ablType: 'save' }
+      ),
       type: 'savingThrow'
     });
 
@@ -1362,6 +1370,14 @@ export default class ActorA5e extends Actor {
       type: 'skillCheck',
       rollMode,
       skill: skillKey,
+      selectedAbilityBonuses: this.BonusesManager.getDefaultSelections(
+        'abilities',
+        { abilityKey, ablType: 'check' }
+      ),
+      selectedSkillBonuses: this.BonusesManager.getDefaultSelections(
+        'skills',
+        { skillKey, abilityKey }
+      ),
       situationalMods: options.situationalMods
     });
 

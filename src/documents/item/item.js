@@ -314,6 +314,10 @@ export default class ItemA5e extends BaseItemA5e {
       proficient: attackRoll?.proficient ?? true,
       rollMode,
       situationalMods: options.situationalMods,
+      selectedAttackBonuses: this.parent?.BonusesManager?.getDefaultSelections(
+        'attacks',
+        { item: this, attackType: attackRoll?.attackType }
+      ),
       type: 'attack'
     });
 

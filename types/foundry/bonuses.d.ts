@@ -49,6 +49,7 @@ export interface InitiativeBonus {
   context: InitiativeBonusContext;
   formula: string;
   label: string;
+  defaultLabel?: string;
   img: string;
 }
 

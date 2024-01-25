@@ -10,19 +10,9 @@
 
     import getRollFormula from "../../utils/getRollFormula";
     import overrideRollMode from "../../utils/overrideRollMode";
-    import prepareAbilityBonuses from "../dataPreparationHelpers/prepareAbilityBonuses";
 
     export let { document, dialog, options } =
         getContext("#external").application;
-
-    function getDefaultSelections(property) {
-        return Object.values(property ?? {})
-            .flat()
-            .reduce((acc, [key, value]) => {
-                if (value.default ?? true) acc.push(key);
-                return acc;
-            }, []);
-    }
 
     function getInitialExpertiseDieSelection() {
         if (hideExpertiseDice) return 0;
@@ -64,8 +54,25 @@
         type: "initiative",
     });
 
-    $: abilityBonuses = prepareAbilityBonuses($actor, abilityKey, "check");
-    $: selectedAbilityBonuses = getDefaultSelections({ abilityBonuses });
+    $: abilityBonuses = $actor.BonusesManager.prepareAbilityBonuses(
+        abilityKey,
+        "check",
+    );
+
+    $: initiativeBonuses = $actor.BonusesManager.prepareInitiativeBonuses({
+        abilityKey,
+        skillKey,
+    });
+
+    $: selectedAbilityBonuses = $actor.BonusesManager.getDefaultSelections(
+        "abilities",
+        { abilityKey, ablType: "check" },
+    );
+
+    $: selectedInitiativeBonuses = $actor.BonusesManager.getDefaultSelections(
+        "initiative",
+        { abilityKey, skillKey },
+    );
 
     $: rollFormula = getRollFormula($actor, {
         ability: abilityKey,
@@ -73,6 +80,7 @@
         rollMode,
         situationalMods,
         selectedAbilityBonuses,
+        selectedInitiativeBonuses,
         type: "initiative",
     });
 </script>
@@ -109,6 +117,19 @@
             selected={selectedAbilityBonuses}
             on:updateSelection={({ detail }) =>
                 (selectedAbilityBonuses = detail)}
+        />
+    {/if}
+
+    {#if Object.values(initiativeBonuses).flat().length}
+        <CheckboxGroup
+            heading="Initiative Bonuses"
+            options={initiativeBonuses.map(([key, initiativeBonus]) => [
+                key,
+                initiativeBonus.label || initiativeBonus.defaultLabel,
+            ])}
+            selected={selectedInitiativeBonuses}
+            on:updateSelection={({ detail }) =>
+                (selectedInitiativeBonuses = detail)}
         />
     {/if}
 
