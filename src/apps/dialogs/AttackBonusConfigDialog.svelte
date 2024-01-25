@@ -152,7 +152,8 @@
             }}
         />
 
-        <FieldWrapper>
+        <!-- TODO: ADD THIS BACK IN WHEN IT ACTUALLY DOES SOMETHING! -->
+        <!-- <FieldWrapper>
             <Checkbox
                 label="Select Attack Bonus Automatically in Roll Prompt"
                 checked={attackBonus.default ?? true}
@@ -160,7 +161,7 @@
                     onUpdateValue("default", detail);
                 }}
             />
-        </FieldWrapper>
+        </FieldWrapper> -->
     </Section>
 </form>
 
