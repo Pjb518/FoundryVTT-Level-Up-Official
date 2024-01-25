@@ -15,8 +15,42 @@
     export let showQuantity = false;
 
     const actor = getContext("actor");
+    const sheet = getContext("sheet");
 
     const A5E = CONFIG.A5E;
+
+    async function onDropObject(event, items) {
+        const draggedItemUUID = JSON.parse(
+            event.dataTransfer.getData("text/plain"),
+        ).uuid;
+
+        const draggedItem = await fromUuid(draggedItemUUID);
+
+        const target = event.target.closest(".a5e-item");
+        const targetUUID = target.getAttribute("data-document-uuid");
+        const targetItem = await fromUuid(targetUUID);
+
+        if (targetItem?.system?.objectType === "container") {
+            sheet._onDrop(event, { containerUuid: targetItem.uuid });
+            return;
+        }
+
+        if (!items.includes(draggedItem)) return sheet._onDrop(event);
+
+        const updates = SortingHelpers.performIntegerSort(draggedItem, {
+            target: targetItem,
+            siblings: items,
+        });
+
+        console.log(updates);
+
+        $actor.updateEmbeddedDocuments(
+            "Item",
+            updates.map(({ target, update }) => {
+                return { _id: target.id, sort: update.sort };
+            }),
+        );
+    }
 
     function getHeadingTemplateConfiguration(showUses, showQuantity) {
         let areas = "name";
@@ -140,6 +174,7 @@
                 {showDescription}
                 --itemTemplateAreas={itemTemplateConfiguration.areas}
                 --itemTemplateColumns={itemTemplateConfiguration.columns}
+                on:dropObject={({ detail }) => onDropObject(detail, [...items])}
             />
         {/each}
     </ul>

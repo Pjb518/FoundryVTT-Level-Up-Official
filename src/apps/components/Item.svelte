@@ -1,5 +1,5 @@
 <script>
-    import { getContext } from "svelte";
+    import { createEventDispatcher, getContext } from "svelte";
     import { slide } from "svelte/transition";
     import { localize } from "#runtime/svelte/helper";
 
@@ -17,8 +17,9 @@
     export let showDescription = false;
 
     const actor = getContext("actor");
-    const sheet = getContext("sheet");
     const { A5E } = CONFIG;
+
+    const dispatch = createEventDispatcher();
 
     let rightClickConfigure =
         game.settings.get("a5e", "itemRightClickConfigure") ?? false;
@@ -65,14 +66,6 @@
             "text/plain",
             JSON.stringify(dragData),
         );
-    }
-
-    function onDropObject(event) {
-        if (item?.system?.objectType === "container") {
-            sheet._onDrop(event, { containerUuid: item.uuid });
-            return;
-        }
-        sheet._onDrop(event);
     }
 
     async function getDescription() {
@@ -131,8 +124,10 @@
         A5E.PREPARED_STATES.ALWAYS_PREPARED}
     class:a5e-item--red-highlight={item.system.requiresBloodied}
     draggable="true"
+    data-document-uuid={item.uuid}
     on:dragstart={onDragStart}
-    on:drop|preventDefault|stopPropagation={(e) => onDropObject(e)}
+    on:drop|preventDefault|stopPropagation={(e) =>
+        dispatch("dropObject", event)}
     on:click={() => {
         showDescription = !showDescription;
     }}

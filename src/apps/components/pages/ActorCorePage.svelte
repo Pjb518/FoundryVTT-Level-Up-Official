@@ -42,7 +42,7 @@
         <ItemCategory
             label="A5E.FavoriteItems"
             icon="fas fa-star a5e-section-header__icon"
-            items={[...$favorites]}
+            items={[...$favorites].sort((a, b) => a.sort - b.sort)}
             type="favorites"
             {showQuantity}
             {showUses}
