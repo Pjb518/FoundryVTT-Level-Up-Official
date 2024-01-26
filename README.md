@@ -36,6 +36,11 @@ We also have our own custom compendium sheets which are highly filterable, integ
 
 ![Fancy Compendium Packs Demo](https://github.com/Pjb518/FoundryVTT-Level-Up-Official/blob/main/public/assets/github/system-packs.png)
 
+### D&D 5E Support
+In addition to including all of the D&D 5e SRD content in our system packs, the A5e system also provides a number of settings to better support standard 5e play or a partial adoption of the A5e rule set. Settings include the ability to hide expertise dice and A5e skills, use Exhaustion in place of A5e's Fatigue and Strife tracks, and use 5e's simpler Initiative and Death Saving Throw mechanics.
+
+We're working hard to make 5e play in the A5e system even better, so please submit feature requests if there's something that will make your 5e games run smoother.
+
 ### Party Viewer
 The system includes a detailed party viewer that allows you to view summary statistics for the whole party in a single window.
 
