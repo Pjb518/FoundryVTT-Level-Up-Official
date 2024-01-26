@@ -68,6 +68,7 @@
 
     <Section heading="Summary">
         <ul>
+            <!-- TODO: Add a proper summary for the various grants -->
             {#each applyData.entries() as [id, { summary }]}
                 <li>
                     {id}: {summary}
@@ -77,7 +78,7 @@
         </ul>
     </Section>
 
-    <button> Submit </button>
+    <button>Submit</button>
 </article>
 
 <style lang="scss">
