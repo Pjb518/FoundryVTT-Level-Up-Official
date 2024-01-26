@@ -12,6 +12,8 @@ This is an official FoundryVTT system implementation for Level Up: Advanced 5th 
 ### Actions
 A5e features, spells, maneuvers, and objects can each be configured with numerous "actions", each of which represents a different way to activate the item, with fully independent configuration. This makes it easy to configure a staff full of spells, weapons with different attack modes (like thrown weapons), and features with ongoing effects.
 
+![Actions Demo](https://github.com/Pjb518/FoundryVTT-Level-Up-Official/blob/main/public/assets/github/actions.png)
+
 ### Active Effects
 The A5e Effects system offers a rich interface for Active Effects including searchable, human-readable keys, selectable values, and baked in support for attribute references. You can even configure temporary damage and healing bonuses.
 
