@@ -25,6 +25,8 @@ The A5e system includes a fairly elaborate bonus system, with each bonus being c
 
 Bonuses can be toggled on or off at roll time and the default state for this toggle can be configured on a per-bonus basis. So, if you have a damage bonus that only applies sometimes (like Sneak Attack), you can keep that toggled off until it's time to use it.
 
+![Bonuses Demo](https://github.com/Pjb518/FoundryVTT-Level-Up-Official/blob/main/public/assets/github/bonuses.png)
+
 ### Compendium Packs
 The A5e system includes comprehensive packs for both Level Up and D&D 5e content. The D&D 5e packs contain everything permitted by the [D&D 5e SRD 5.1](https://media.wizards.com/2023/downloads/dnd/SRD_CC_v5.1.pdf), fully configured and ready to use. The A5e packs are much more extensive. The [LUSRD](https://a5esrd.com/a5esrd) permits almost all official game mechanical content published for Level Up to be included in the system packs, and we also include a great deal of third-party Level Up material licensed under the OGL. In total, our compendia contain over 7,500 documents.
 
