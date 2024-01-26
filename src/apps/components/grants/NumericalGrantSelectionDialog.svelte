@@ -1,7 +1,7 @@
 <svelte:options accessors={true} />
 
 <script>
-    import { getContext, createEventDispatcher } from "svelte";
+    import { createEventDispatcher } from "svelte";
 
     import CheckboxGroup from "../CheckboxGroup.svelte";
     import FieldWrapper from "../FieldWrapper.svelte";
@@ -29,6 +29,12 @@
         return options;
     }
 
+    function getGrantSummary(bonus, selected) {
+        return ` This grant provides a bonus of ${bonus} to ${selected
+            .map((s) => configObject[s])
+            .join(", ")}.`;
+    }
+
     function onUpdateSelection({ detail }) {
         selected = detail;
         dispatch("updateSelection", { selected, summary });
@@ -38,11 +44,9 @@
     let choicesLocked = true;
 
     $: selected = [...base];
+    $: remainingSelections = count - selected.length;
     $: disabledOptions = getDisabledOptions(choicesLocked, grant);
-    $: summary = ` This grant provides a bonus of ${bonus} to ${selected
-        .map((s) => configObject[s])
-        .join(", ")}.
-    `;
+    $: summary = getGrantSummary(bonus, selected);
 </script>
 
 <Section
@@ -62,9 +66,10 @@
     --a5e-section-body-gap="0.75rem"
 >
     <FieldWrapper
-        warning="{count - selected.length} choice(s) remaining."
+        warning={remainingSelections === 1
+            ? `1 choice remaining`
+            : `${count - selected.length} choices remaining.`}
         showWarning={selected.length < count}
-        hint="A5E.grants.choicesHint"
         --direction="column"
     >
         <CheckboxGroup
