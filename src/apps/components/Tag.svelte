@@ -50,19 +50,6 @@
             color: var(--color-hover, inherit);
         }
 
-        &:disabled,
-        &[disabled] {
-            background: $color-disabled;
-            border: 1px solid #999;
-            color: white;
-            cursor: auto;
-
-            &:hover,
-            &:focus {
-                background: $color-disabled;
-            }
-        }
-
         &--red {
             border-color: darken($color-secondary, 5%);
             background: $color-secondary;
@@ -100,6 +87,19 @@
             &[disabled]:hover {
                 background: $color-warning;
                 color: lighten($color-warning, 95%);
+            }
+        }
+
+        &:disabled,
+        &[disabled] {
+            background: $color-disabled;
+            border: 1px solid #999;
+            color: white;
+            cursor: auto;
+
+            &:hover,
+            &:focus {
+                background: $color-disabled;
             }
         }
 

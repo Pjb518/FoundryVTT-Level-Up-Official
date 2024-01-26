@@ -1,6 +1,7 @@
-import { grantsClassMappings } from '../config/registerGrantsConfig';
+import type { Grant } from 'types/grants';
+import GrantCls from '../dataModels/item/Grants/index';
 
-export default class ItemGrantsManager extends Map {
+export default class ItemGrantsManager extends Map<string, Grant> {
   #item: any;
 
   constructor(item: any) {
@@ -10,24 +11,28 @@ export default class ItemGrantsManager extends Map {
     Object.entries(this.#item.system.grants ?? {}).forEach(([id, data]: Array<any>) => {
       data._id = id;
 
-      let Cls = grantsClassMappings[data.grantType];
+      let Cls = GrantCls[data.grantType];
 
       // eslint-disable-next-line no-console
       if (!Cls) console.warn(`Grant ${id} has no class mapping.`);
 
-      Cls ??= grantsClassMappings.default;
+      Cls ??= GrantCls.base;
       const grant = new Cls(data, { parent: item });
 
       this.set(id, grant);
     });
   }
 
+  get optionalGrants(): Array<Grant> {
+    return [...this.values()].filter((grant) => grant.optional);
+  }
+
   /**
    * @param {String} type
    * @returns
    */
-  byType(type: string): Array<any> {
-    return [...this.values()].filter((grant) => grant.type === type);
+  byType(type: string): Array<Grant> {
+    return [...this.values()].filter((grant) => grant.grantType === type);
   }
 
   /** ************************************************
@@ -36,6 +41,13 @@ export default class ItemGrantsManager extends Map {
   async add(data = {}) {
     await ItemGrantsManager.addGrant(this.#item, data);
   }
+
+  // configure(id: string): void {
+  //   const grant = this.get(id);
+  //   if (!grant) return;
+
+  //   grant.configureDialog();
+  // }
 
   async clear() {
     await this.#item.update({
@@ -60,7 +72,7 @@ export default class ItemGrantsManager extends Map {
   }
 
   // @ts-ignore
-  async delete(id: string) {
+  override async delete(id: string): Promise<void> {
     super.delete(id);
 
     await this.#item.update({
@@ -68,6 +80,11 @@ export default class ItemGrantsManager extends Map {
         [`-=${id}`]: null
       }
     });
+
+    const actor = this.#item.parent;
+    if (!actor || actor.documentName !== 'Actor') return;
+
+    actor.grants.removeGrant(id);
   }
 
   /** ************************************************

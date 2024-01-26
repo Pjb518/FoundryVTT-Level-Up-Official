@@ -13,6 +13,7 @@
 
     const actor = getContext("actor");
 
+    $: sourceValue = $actor._source.system.abilities[abilityLabel].value;
     $: sheetIsLocked = !$actor.isOwner
         ? true
         : $actor.flags?.a5e?.sheetIsLocked ?? true;
@@ -38,7 +39,7 @@
             class="a5e-ability-score__value"
             name="system.abilities.{abilityLabel}.value"
             type="number"
-            value={ability.value}
+            value={sheetIsLocked ? ability.value : sourceValue}
             tabindex={idx + 1}
             on:change={({ target }) =>
                 updateDocumentDataFromField(

@@ -11,6 +11,7 @@
     import CheckboxGroup from "../CheckboxGroup.svelte";
     import RadioGroup from "../RadioGroup.svelte";
     import AttackBonusConfigDialog from "../../dialogs/AttackBonusConfigDialog.svelte";
+    import InitiativeBonusConfigDialog from "../../dialogs/InitiativeBonusConfigDialog.svelte";
 
     export let key;
     export let mode;
@@ -149,6 +150,13 @@
     />
 {:else if componentType === "HEALING_BONUS"}
     <HealingBonusConfigDialog
+        jsonValue={value}
+        --padding="0"
+        --background="none"
+        on:change={({ detail }) => dispatch("change", detail)}
+    />
+{:else if componentType === "INITIATIVE_BONUS"}
+    <InitiativeBonusConfigDialog
         jsonValue={value}
         --padding="0"
         --background="none"

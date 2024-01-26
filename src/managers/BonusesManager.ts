@@ -1,32 +1,77 @@
-import type { Bonuses, DamageBonus, HealingBonus } from 'types/foundry/bonuses';
+/* eslint-disable no-param-reassign */
+import type {
+  Bonuses,
+  AbilityBonus,
+  DamageBonus,
+  HealingBonus,
+  AttackBonus,
+  InitiativeBonus,
+  SkillBonus
+} from 'types/foundry/bonuses';
 
 import arraysAreEqual from '../utils/arraysAreEqual';
 
-export type DamageBonusCriteria = {
-  attackTypes: string[];
-  damageTypes: string[];
-  spellLevels: number[];
-};
+interface SelectionData {
+  abilityKey?: string;
+  abilityType?: 'base' | 'check' | 'save';
+  attackType?: 'meleeWeaponAttack' | 'rangedWeaponAttack' | 'meleeSpellAttack' | 'rangedSpellAttack';
+  item?: typeof Item;
+  rolls?: any;
+  skillKey?: string;
+}
 
 export default class BonusesManager {
   #actor: typeof Actor;
 
   #bonuses: Bonuses;
 
-  #abilities: string[];
-
-  #skills: string[];
-
   constructor(actor: typeof Actor) {
     this.#actor = actor;
     this.#bonuses = this.#actor.system.bonuses ?? {};
-
-    this.#abilities = Object.keys(CONFIG.A5E.abilities);
-    this.#skills = Object.keys(CONFIG.A5E.skills);
   }
 
   // ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-  // Formula Wrappers for Bonus Calculations
+  //  Utility Helpers
+  // ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+  getDefaultSelections(key: string, data: SelectionData = {}): string[] {
+    let bonuses: any;
+
+    if (key === 'abilities' && data.abilityKey) {
+      bonuses = this.prepareAbilityBonuses(data.abilityKey, (data.abilityType ?? 'check'));
+    } else if (key === 'attacks' && data.item && data.attackType) {
+      bonuses = this.prepareAttackBonuses(data.item, data.attackType);
+    } else if (key === 'damage' && data.item && data.rolls) {
+      bonuses = this.prepareGlobalDamageBonuses(data.item, data.rolls);
+    } else if (key === 'healing' && data.item && data.rolls) {
+      bonuses = this.prepareGlobalHealingBonuses(data.item, data.rolls);
+    } else if (key === 'initiative' && (data.skillKey || data.abilityKey)) {
+      bonuses = this.prepareInitiativeBonuses(
+        { abilityKey: data.abilityKey, skillKey: data.skillKey }
+      );
+    } else if (key === 'skills' && data.skillKey) {
+      bonuses = this.prepareSkillBonuses(data.skillKey, data.abilityKey, 'check', false);
+    }
+
+    if (!bonuses) return [];
+    bonuses = { bonuses };
+    const parts: [string, any][] = Object.values(bonuses ?? {}).flat() as [string, any][];
+
+    return parts
+      .reduce((acc: string[], [id, value]: [string, any]) => {
+        if (!value.formula) return acc;
+        if (value.default ?? true) acc.push(id);
+        return acc;
+      }, []);
+  }
+
+  getSelectedBonusesFormula(type: string, ids: string[]): string {
+    const bonuses = this.#bonuses[type];
+    const parts = ids.map((id) => bonuses[id]?.formula);
+    return parts.join(' + ').trim();
+  }
+
+  // ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+  // Formula Wrappers
   // ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
   /**
    * Wrapper for {@link getAbilityBonuses} that returns a formula string instead of an array.
@@ -38,10 +83,12 @@ export default class BonusesManager {
    */
   getAbilityBonusesFormula(
     abilityKey: string,
-    type: 'check' | 'save' = 'check',
-    selectedBonuses: { enabled: boolean, ids: string[] } = { enabled: false, ids: [] }
+    type: 'base' | 'check' | 'save' = 'check'
+    // selectedBonuses: { enabled: boolean, ids: string[] } = { enabled: false, ids: [] }
   ): string {
-    const parts = this.getAbilityBonuses(abilityKey, type, selectedBonuses);
+    // const parts = this.getAbilityBonuses(abilityKey, type, selectedBonuses);
+    const bonuses = this.prepareAbilityBonuses(abilityKey, type);
+    const parts = bonuses.map(([, bonus]) => bonus.formula);
     return parts.join(' + ').trim();
   }
 
@@ -50,8 +97,9 @@ export default class BonusesManager {
    * @param type
    * @returns
    */
-  getGlobalAbilityBonusesFormula(type: 'check' | 'save' = 'check'): string {
-    const parts = this.getGlobalAbilityBonuses(type);
+  getGlobalAbilityBonusesFormula(type: 'base' | 'check' | 'save' = 'check'): string {
+    const bonuses = this.prepareGlobalAbilityBonuses(type);
+    const parts = bonuses.map(([, bonus]) => bonus.formula);
     return parts.join(' + ').trim();
   }
 
@@ -65,7 +113,22 @@ export default class BonusesManager {
     item: typeof Item,
     type: 'meleeWeaponAttack' | 'rangedWeaponAttack' | 'meleeSpellAttack' | 'rangedSpellAttack' = 'meleeWeaponAttack'
   ): string {
-    const parts = this.getAttackBonuses(item, type);
+    const bonuses = this.prepareAttackBonuses(item, type);
+    const parts = bonuses.map(([, bonus]) => bonus.formula);
+    return parts.join(' + ').trim();
+  }
+
+  /**
+   * Wrapper for {@link getInitiativeBonuses} that returns a formula string instead of an array.
+   * @param ablKey
+   * @param skillKey
+   * @returns
+   */
+  getInitiativeBonusFormula(
+    { abilityKey, skillKey }: { abilityKey?: string, skillKey?: string } = {}
+  ): string {
+    const bonuses = this.prepareInitiativeBonuses({ abilityKey, skillKey });
+    const parts = bonuses.map(([, bonus]) => bonus.formula);
     return parts.join(' + ').trim();
   }
 
@@ -82,16 +145,15 @@ export default class BonusesManager {
     skillKey: string,
     abilityKey?: string,
     type: 'check' | 'passive' = 'check',
-    includeAbilityBonuses: boolean = true,
-    selectedBonuses: { enabled: boolean, ids: string[] } = { enabled: false, ids: [] }
+    includeAbilityBonuses: boolean = false
   ): string {
-    const parts = this.getSkillBonuses(
-      skillKey,
-      abilityKey,
-      type,
-      includeAbilityBonuses,
-      selectedBonuses
-    );
+    const bonuses = this.prepareSkillBonuses(skillKey, abilityKey, type, includeAbilityBonuses);
+    const parts = bonuses.map(([, bonus]) => bonus.formula);
+
+    // Expertise bonus addition for passive skills
+    const skill = this.#actor.system.skills[skillKey];
+    if (type === 'passive' && skill?.expertiseDice) parts.push('3');
+
     return parts.join(' + ').trim();
   }
 
@@ -102,204 +164,124 @@ export default class BonusesManager {
    * @returns
    */
   getGlobalSkillBonusesFormula(type: 'check' | 'passive' = 'check'): string {
-    const parts = this.getGlobalSkillBonuses(type);
+    const bonuses = this.prepareGlobalSkillBonuses(type);
+    const parts = bonuses.map(([, bonus]) => bonus.formula);
     return parts.join(' + ').trim();
   }
 
   // ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-  // Bonuses Calculations
+  // Bonuses Prepare Functions
   // ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-  /**
-   * Gets all bonuses for a given ability and type. This function requires an ability key and
-   * a type. The type can be either 'check' or 'save'. The ability key must be a valid ability.
-   *
-   * Note: This function will also account for global bonuses that apply to all abilities.
-   * If you want to get only the global bonuses, use the {@link getGlobalAbilityBonuses} function.
-   *
-   * @param abilityKey
-   * @param type
-   * @param selectedBonuses
-   * @returns
-   */
-  getAbilityBonuses(
-    abilityKey: string,
-    type: 'check' | 'save' = 'check',
-    selectedBonuses: { enabled: boolean, ids: string[] } = { enabled: false, ids: [] }
-  ): string[] {
+  prepareAbilityBonuses(ablKey: string, type: 'base' | 'check' | 'save' = 'check'): [string, AbilityBonus][] {
     const bonuses = this.#bonuses.abilities;
-    const ability = this.#actor.system.abilities[abilityKey];
+    const ability = this.#actor.system.abilities[ablKey];
     const isProficient = ability.save.proficient;
+    const counts = {};
 
-    const parts = Object.entries(bonuses).reduce((acc: string[], [id, bonus]) => {
-      if (selectedBonuses.enabled) {
-        if (!selectedBonuses.ids.includes(id)) return acc;
-      } else if (!bonus.default) return acc;
+    const parts = Object.entries(bonuses).filter(
+      ([, { context, formula }]) => {
+        if (!formula) return false;
+        const { abilities, requiresProficiency, types } = context ?? {};
 
-      if (!bonus.context.abilities?.includes(abilityKey)) return acc;
-      const bonusFormula = bonus.formula.trim();
+        if (!abilities?.includes(ablKey)) return false;
+        if (!types?.includes(type)) return false;
+        if (requiresProficiency && !isProficient) return false;
 
-      if (!bonus.context.types?.includes(type)) return acc;
-      if (bonus.context.requiresProficiency && !isProficient) return acc;
+        return true;
+      }
+    );
 
-      if (!bonusFormula) return acc;
+    return parts.map(([key, bonus]) => {
+      if (!bonus.label) {
+        const label = game.i18n.format('A5E.bonuses.labels.abilityBonusSpecific', {
+          ability: game.i18n.localize(CONFIG.A5E.abilities[ablKey] ?? '')
+        });
 
-      acc.push(bonusFormula);
-      return acc;
-    }, []);
+        counts[ablKey] ??= 0;
+        counts[ablKey] += 1;
 
-    return parts;
+        bonus.defaultLabel = `${label} #${counts[ablKey]}`;
+      }
+
+      return [key, bonus];
+    });
   }
 
-  /**
-   * Gets all global ability bonuses for a given type. This function requires a type. The type
-   * can be either 'check' or 'save'.
-   *
-   * Note: This function does not take an ability key, and as such can't account for
-   * if proficiency is required for a particular bonus, therefore any bonus that
-   * requiresProficiency is skipped. If you have a key for an ability, use the
-   * {@link getAbilityBonuses} function instead.
-   *
-   * @param type
-   * @returns
-   */
-  getGlobalAbilityBonuses(type: 'check' | 'save' = 'check'): string[] {
+  prepareGlobalAbilityBonuses(type: 'base' | 'check' | 'save' = 'check'): [string, AbilityBonus][] {
     const bonuses = this.#bonuses.abilities;
-    const parts = Object.values(bonuses).reduce((acc: string[], bonus) => {
-      const bonusFormula = bonus.formula.trim();
-      if (!bonus.default) return acc;
-      if (!bonus.context.types?.includes(type)) return acc;
-      if (bonus.context.requiresProficiency) return acc;
+    let counts = 0;
 
-      const isGlobalBonus = arraysAreEqual(bonus.context.abilities, this.#abilities);
-      if (!isGlobalBonus) return acc;
+    const parts = Object.entries(bonuses).filter(
+      ([, { context, formula }]) => {
+        if (!formula) return false;
+        const { abilities, requiresProficiency, types } = context ?? {};
 
-      acc.push(bonusFormula);
-      return acc;
-    }, []);
+        if (!types?.includes(type)) return false;
+        if (requiresProficiency) return false;
 
-    return parts;
+        const isGlobalBonus = arraysAreEqual(abilities, Object.keys(CONFIG.A5E.abilities));
+        if (!isGlobalBonus) return false;
+
+        return true;
+      }
+    );
+
+    return parts.map(([key, bonus]) => {
+      if (!bonus.label) {
+        const label = game.i18n.localize('A5E.bonuses.labels.abilityBonusGlobal');
+
+        counts += 1;
+        bonus.defaultLabel = `${label} #${counts[key]}`;
+      }
+
+      return [key, bonus];
+    });
   }
 
-  getAttackBonuses(
+  prepareAttackBonuses(
     item: typeof Item,
     type: 'meleeWeaponAttack' | 'rangedWeaponAttack' | 'meleeSpellAttack' | 'rangedSpellAttack' = 'meleeWeaponAttack'
-  ): string[] {
+  ): [string, AttackBonus][] {
     const bonuses = this.#bonuses.attacks;
     const spellLevel = item.system.level ?? null;
+    const counts = {};
 
-    const parts = Object.values(bonuses).reduce((acc: string[], bonus) => {
-      const bonusFormula = bonus.formula.trim();
-      if (!bonusFormula) return acc;
+    const parts = Object.entries(bonuses).filter(
+      ([, { context, formula }]) => {
+        if (!formula) return false;
+        const { attackTypes, spellLevels } = context ?? {};
 
-      const { attackTypes, spellLevels } = bonus.context ?? {};
+        if (!attackTypes?.includes(type)) return false;
+        if (spellLevel !== null && spellLevels.length && !spellLevels.includes(`${spellLevel}`)) return false;
 
-      if (attackTypes?.length && !attackTypes.includes((type))) return acc;
-      if (spellLevel !== null && spellLevels.length && !spellLevels.includes(`${spellLevel}`)) return acc;
+        return true;
+      }
+    );
 
-      acc.push(bonusFormula);
-      return acc;
-    }, []);
+    return parts.map(([key, bonus]) => {
+      if (!bonus.label) {
+        const label = game.i18n.format('A5E.bonuses.labels.attackBonusSpecific', {
+          attackType: game.i18n.localize(CONFIG.A5E.attackTypes[type] ?? '')
+        });
 
-    return parts;
+        counts[type] ??= 0;
+        counts[type] += 1;
+
+        bonus.defaultLabel = `${label} #${counts[type]}`;
+      }
+
+      return [key, bonus];
+    });
   }
 
   /**
-   * Gets all bonuses for a given skill and ability. This function requires a skill key,
-   * an optional ability key, and an optional type. The ability key must be a valid ability.
-   * The skill key must be a valid skill. In the case that an ability key is not provided,
-   * the default ability for the skill is used. In the case that a type is not provided,
-   * the default type of 'check' is used. The type can be either 'check' or 'passive'.
-   *
-   * Note: This function will also account for global bonuses that apply to all skills. If you don't
-   * have a key for a skill, use the {@link getGlobalSkillBonuses} function instead.
-   *
-   * @param skillKey
-   * @param abilityKey
-   * @param type
-   * @param includeAbilityBonuses
-   * @param selectedBonuses
-   * @returns
-   */
-  getSkillBonuses(
-    skillKey: string,
-    abilityKey?: string,
-    type: 'check' | 'passive' = 'check',
-    includeAbilityBonuses: boolean = true,
-    selectedBonuses: { enabled: boolean, ids: string[] } = { enabled: false, ids: [] }
-  ): string[] {
-    const bonuses = this.#bonuses.skills;
-    const skill = this.#actor.system.skills[skillKey];
-    if (!skill) return [];
-
-    const defaultAbility = skill.ability;
-    const isProficient = skill.proficient;
-
-    const skillParts = Object.entries(bonuses).reduce((acc: string[], [id, bonus]) => {
-      if (selectedBonuses.enabled) {
-        if (!selectedBonuses.ids.includes(id)) return acc;
-      } else if (!bonus.default) return acc;
-
-      if (!bonus.context.skills.includes(skillKey)) return acc;
-      if (type !== 'passive' && bonus.context.passiveOnly) return acc;
-
-      const bonusFormula = bonus.formula.trim();
-
-      if (bonus.context.requiresProficiency && !isProficient) return acc;
-      if (!bonusFormula) return acc;
-
-      acc.push(bonusFormula);
-      return acc;
-    }, []);
-
-    // Add expertise bonus if applicable
-    if (type === 'passive' && skill.expertiseDice) skillParts.push('3');
-
-    if (!includeAbilityBonuses) return skillParts;
-
-    const abilityParts = this.getAbilityBonuses(abilityKey ?? defaultAbility, 'check');
-    return [...abilityParts, ...skillParts];
-  }
-
-  /**
-   * Gets all global bonuses for skills.
-   *
-   * Note: This function does not take a skill key, and as such can't account for
-   * if proficiency is required for a particular bonus, therefore any bonus that
-   * requiresProficiency is skipped. If you have a key for a skill, use the
-   * {@link getSkillBonuses} function instead.
-   *
-   * @param type
-   * @returns
-   */
-  getGlobalSkillBonuses(type: 'check' | 'passive' = 'check'): string[] {
-    const bonuses = this.#bonuses.skills;
-    const parts = Object.values(bonuses).reduce((acc: string[], bonus) => {
-      if (!bonus.default) return acc;
-      const bonusFormula = bonus.formula.trim();
-      if (bonus.context.requiresProficiency) return acc;
-      if (type !== 'passive' && bonus.context.passiveOnly) return acc;
-
-      const isGlobalBonus = arraysAreEqual(bonus.context.skills, this.#skills);
-      if (!isGlobalBonus) return acc;
-
-      acc.push(bonusFormula);
-      return acc;
-    }, []);
-
-    return parts;
-  }
-
-  /**
-   * Gets all damage bonuses given certain criteria. This function requires
-   * an item and rolls to be passed to it.
-   *
    *
    * @returns
    */
   prepareGlobalDamageBonuses(
     item: typeof Item,
     rolls: any
-  ): (string | DamageBonus)[][] {
+  ): [string, DamageBonus][] {
     const attackRoll: any[] = rolls.attack ?? [];
     const damageRoll: any[] = rolls.damage ?? [];
     const spellLevel = item.system.level ?? null;
@@ -345,7 +327,7 @@ export default class BonusesManager {
   prepareGlobalHealingBonuses(
     item: typeof Item,
     rolls: any
-  ): (string | HealingBonus)[][] {
+  ): [string, HealingBonus][] {
     const bonuses = this.#bonuses.healing;
     const counts = {};
 
@@ -383,6 +365,116 @@ export default class BonusesManager {
       }
 
       return [key, healingBonus];
+    });
+  }
+
+  prepareInitiativeBonuses(
+    { abilityKey, skillKey }: { abilityKey?: string, skillKey?: string } = {}
+  ): [string, InitiativeBonus][] {
+    const bonuses = this.#bonuses.initiative;
+    let counts = 0;
+
+    abilityKey = abilityKey === 'none' ? undefined : abilityKey;
+    skillKey = skillKey === 'none' ? undefined : skillKey;
+
+    const parts = Object.entries(bonuses).filter(
+      ([, { context, formula }]) => {
+        if (!formula) return false;
+        const { abilities, skills } = context ?? {};
+
+        if (abilityKey && abilities?.length && !abilities.includes(abilityKey)) return false;
+        if (skillKey && skills?.length && !skills.includes(skillKey)) return false;
+
+        return true;
+      }
+    );
+
+    return parts.map(([key, bonus]) => {
+      if (!bonus.label) {
+        const label = game.i18n.localize('A5E.bonuses.labels.initiativeBonus');
+        counts += 1;
+        bonus.defaultLabel = `${label} #${counts}`;
+      }
+
+      return [key, bonus];
+    });
+  }
+
+  prepareSkillBonuses(
+    skillKey: string,
+    abilityKey?: string,
+    type: 'check' | 'passive' = 'check',
+    includeAbilityBonuses: boolean = false
+  ): ([string, AbilityBonus] | [string, SkillBonus])[] {
+    const bonuses = this.#bonuses.skills;
+    const skill = this.#actor.system.skills[skillKey];
+    const counts = {};
+    if (!skill) return [];
+
+    const defaultAbility = skill.ability;
+
+    const parts = Object.entries(bonuses).filter(
+      ([, { context, formula }]) => {
+        if (!formula) return false;
+        const { skills, passiveOnly } = context ?? {};
+
+        if (!skills.includes(skillKey)) return false;
+        if (type !== 'passive' && passiveOnly) return false;
+
+        return true;
+      }
+    );
+
+    const skillParts: [string, SkillBonus][] = parts.map(([key, bonus]) => {
+      if (!bonus.label) {
+        const label = game.i18n.format('A5E.bonuses.labels.skillBonusSpecific', {
+          skill: game.i18n.localize(CONFIG.A5E.skills[skillKey] ?? '')
+        });
+
+        counts[skillKey] ??= 0;
+        counts[skillKey] += 1;
+
+        bonus.defaultLabel = `${label} #${counts[skillKey]}`;
+      }
+
+      return [key, bonus];
+    });
+
+    // Note: Expertise bonus for passive is applied in the formula wrapper
+    if (!includeAbilityBonuses) return skillParts;
+
+    const abilityParts: [string, AbilityBonus][] = this.prepareAbilityBonuses(abilityKey ?? defaultAbility, 'check');
+    return [...abilityParts, ...skillParts];
+  }
+
+  prepareGlobalSkillBonuses(type: 'check' | 'passive' = 'check'): [string, SkillBonus][] {
+    const bonuses = this.#bonuses.skills;
+    let counts = 0;
+
+    const parts = Object.entries(bonuses).filter(
+      ([, { context, formula }]) => {
+        if (!formula) return false;
+        const { passiveOnly, requiresProficiency } = context ?? {};
+
+        if (requiresProficiency) return false;
+        if (type !== 'passive' && passiveOnly) return false;
+
+        const isGlobalBonus = arraysAreEqual(context.skills, Object.keys(CONFIG.A5E.skills));
+        if (!isGlobalBonus) return false;
+
+        return true;
+      }
+    );
+
+    return parts.map(([key, bonus]) => {
+      if (!bonus.label) {
+        const label = game.i18n.localize('A5E.bonuses.labels.skillBonusGlobal');
+
+        counts += 1;
+        bonus.defaultLabel = `${label} #${counts[key]}`;
+      }
+
+      return [key, bonus];
     });
   }
 }

@@ -6,11 +6,12 @@ import getSpellSummaryData from './getSpellSummaryData';
 
 export default function getSummaryData(item, action, options) {
   const summaryData = {};
+  const { mergeObject } = foundry.utils;
 
   if (!action && !item.actions) return '';
 
   if (!foundry.utils.isEmpty(action) || item.actions?.count === 1) {
-    foundry.utils.mergeObject(
+    mergeObject(
       summaryData,
       getBaseActionSummaryData(item, action ?? item.actions.values()[0])
     );

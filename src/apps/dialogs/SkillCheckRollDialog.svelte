@@ -11,20 +11,9 @@
 
     import getRollFormula from "../../utils/getRollFormula";
     import overrideRollMode from "../../utils/overrideRollMode";
-    import prepareAbilityBonuses from "../dataPreparationHelpers/prepareAbilityBonuses";
-    import prepareSkillBonuses from "../dataPreparationHelpers/prepareSkillBonuses";
 
     export let { document, dialog, skillKey, options } =
         getContext("#external").application;
-
-    function getDefaultSelections(property) {
-        return Object.values(property ?? {})
-            .flat()
-            .reduce((acc, [key, value]) => {
-                if (value.default ?? true) acc.push(key);
-                return acc;
-            }, []);
-    }
 
     function getInitialExpertiseDieSelection() {
         if (hideExpertiseDice) return 0;
@@ -75,10 +64,25 @@
     let selectedRollMode = options.rollMode ?? CONFIG.A5E.ROLL_MODE.NORMAL;
     let situationalMods = options.situationalMods ?? "";
 
-    const abilityBonuses = prepareAbilityBonuses($actor, abilityKey, "check");
-    const skillBonuses = prepareSkillBonuses($actor, skillKey);
-    let selectedAbilityBonuses = getDefaultSelections({ abilityBonuses });
-    let selectedSkillBonuses = getDefaultSelections({ skillBonuses });
+    $: abilityBonuses = $actor.BonusesManager.prepareAbilityBonuses(
+        abilityKey,
+        "check",
+    );
+
+    $: skillBonuses = $actor.BonusesManager.prepareSkillBonuses(
+        skillKey,
+        abilityKey,
+    );
+
+    $: selectedAbilityBonuses = $actor.BonusesManager.getDefaultSelections(
+        "abilities",
+        { abilityKey, ablType: "check" },
+    );
+
+    $: selectedSkillBonuses = $actor.BonusesManager.getDefaultSelections(
+        "skills",
+        { skillKey, abilityKey },
+    );
 
     let rollMode = overrideRollMode($actor, selectedRollMode, {
         ability: abilityKey,
@@ -106,6 +110,7 @@
         heading="A5E.RollModeHeading"
         options={rollModeOptions}
         selected={rollMode}
+        allowDeselect={false}
         on:updateSelection={({ detail }) => (rollMode = detail)}
     />
 
@@ -113,6 +118,7 @@
         heading="A5E.AbilityScore"
         options={Object.entries(abilities)}
         selected={abilityKey}
+        allowDeselect={false}
         on:updateSelection={({ detail }) => (abilityKey = detail)}
     />
 

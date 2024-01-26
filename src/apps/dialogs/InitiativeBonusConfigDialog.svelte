@@ -1,6 +1,5 @@
 <script>
     import { getContext, createEventDispatcher } from "svelte";
-    import { localize } from "#runtime/svelte/helper";
 
     import updateDocumentDataFromField from "../../utils/updateDocumentDataFromField";
 
@@ -16,7 +15,7 @@
     const dispatch = createEventDispatcher();
 
     function updateImage() {
-        const current = damageBonus?.img;
+        const current = initiativeBonus?.img;
 
         const filePicker = new FilePicker({
             type: "image",
@@ -31,32 +30,30 @@
 
     function onUpdateValue(key, value) {
         if (jsonValue === null) {
-            key = `system.bonuses.damage.${bonusID}.${key}`;
+            key = `system.bonuses.initiative.${bonusID}.${key}`;
             updateDocumentDataFromField($actor, key, value);
             return;
         }
 
         const newObj = foundry.utils.expandObject({
-            ...damageBonus,
+            ...initiativeBonus,
             [key]: value,
         });
         dispatch("change", JSON.stringify(newObj));
     }
 
-    function getDamageBonus() {
-        if (jsonValue === null) return $actor.system.bonuses.damage[bonusID];
+    function getAbilityBonus() {
+        if (jsonValue === null)
+            return $actor.system.bonuses.initiative[bonusID];
 
         try {
             const obj = JSON.parse(jsonValue || '""') ?? {};
             if (typeof obj !== "object") throw new Error();
             obj.label = obj.label ?? "";
             obj.formula = obj.formula ?? "";
-            obj.damageType = obj.damageType ?? "";
             obj.context = obj.context ?? {
-                attackTypes: [],
-                damageTypes: [],
-                spellLevels: [],
-                isCritBonus: false,
+                abilities: Object.keys(CONFIG.A5E.abilities),
+                skills: Object.keys(CONFIG.A5E.skills),
             };
             obj.default = obj.default ?? true;
             obj.img = obj.img || "icons/svg/upgrade.svg";
@@ -67,10 +64,8 @@
                 formula: "",
                 damageType: "",
                 context: {
-                    attackTypes: [],
-                    damageTypes: [],
-                    spellLevels: [],
-                    isCritBonus: false,
+                    abilities: Object.keys(CONFIG.A5E.abilities),
+                    skills: Object.keys(CONFIG.A5E.skills),
                 },
                 default: true,
                 img: "icons/svg/upgrade.svg",
@@ -78,13 +73,11 @@
         }
     }
 
-    const { damageBonusContexts, damageTypes, spellLevels } = CONFIG.A5E;
+    const { abilities, skills } = CONFIG.A5E;
 
-    $: damageBonus = getDamageBonus($actor, jsonValue) ?? {};
-    $: attackTypesContext = damageBonus.context.attackTypes ?? [];
-    $: damageTypesContext = damageBonus.context.damageTypes ?? [];
-    $: isCritBonus = damageBonus.context.isCritBonus ?? false;
-    $: spellLevelsContext = damageBonus.context.spellLevels ?? [];
+    $: initiativeBonus = getAbilityBonus($actor, jsonValue) ?? {};
+    $: abilitiesContext = initiativeBonus.context?.abilities ?? [];
+    $: skillsContext = initiativeBonus.context?.skills ?? [];
 </script>
 
 <form>
@@ -93,8 +86,8 @@
         <!-- svelte-ignore a11y-no-noninteractive-element-interactions -->
         <img
             class="bonus-image"
-            src={damageBonus.img}
-            alt={damageBonus.label}
+            src={initiativeBonus.img}
+            alt={initiativeBonus.label}
             on:click={() => updateImage()}
         />
 
@@ -102,7 +95,7 @@
             <input
                 type="text"
                 name="name"
-                value={damageBonus.label ?? ""}
+                value={initiativeBonus.label ?? ""}
                 class="bonus-name"
                 placeholder="Bonus Name"
                 on:change={({ target }) => onUpdateValue("label", target.value)}
@@ -110,97 +103,46 @@
         </div>
     </header>
 
-    <Section
-        --a5e-section-body-direction="row"
-        --a5e-section-margin="0.25rem 0"
-    >
-        <FieldWrapper heading="A5E.DamageFormula" --a5e-field-wrapper-grow="1">
+    <Section --a5e-section-margin="0.25rem 0">
+        <FieldWrapper heading="A5E.Formula">
             <input
                 type="text"
-                value={damageBonus.formula ?? ""}
+                value={initiativeBonus.formula ?? ""}
                 on:change={({ target }) =>
                     onUpdateValue("formula", target.value)}
             />
-        </FieldWrapper>
-
-        <FieldWrapper
-            heading="A5E.DamageType"
-            --background="none"
-            --direction="column"
-            --padding="0"
-        >
-            <select
-                class="u-w-fit damage-type-select"
-                on:change={({ target }) =>
-                    onUpdateValue("damageType", target.value)}
-            >
-                <option
-                    value={null}
-                    selected={damageBonus.damageType === "null" ||
-                        damageBonus.damageType === null}
-                >
-                    {localize("A5E.None")}
-                </option>
-
-                {#each Object.entries(damageTypes) as [key, name] (key)}
-                    <option
-                        value={key}
-                        selected={damageBonus.damageType === key}
-                    >
-                        {localize(name)}
-                    </option>
-                {/each}
-            </select>
         </FieldWrapper>
     </Section>
 
     <Section
         heading="Contexts"
-        hint="The context determines when the damage bonus applies"
+        hint="The context determines when the ability bonus applies"
         --a5e-section-body-gap="0.75rem"
     >
         <CheckboxGroup
-            heading="A5E.contexts.attackType"
-            options={Object.entries(damageBonusContexts)}
-            selected={attackTypesContext}
+            heading="A5E.contexts.abilities"
+            options={Object.entries(abilities)}
+            selected={abilitiesContext}
             showToggleAllButton={true}
             on:updateSelection={({ detail }) => {
-                onUpdateValue("context.attackTypes", detail);
+                onUpdateValue("context.abilities", detail);
             }}
         />
 
         <CheckboxGroup
-            heading="A5E.contexts.damageType"
-            options={Object.entries(damageTypes)}
-            selected={damageTypesContext}
+            heading="A5E.contexts.skills"
+            options={Object.entries(skills)}
+            selected={skillsContext}
             showToggleAllButton={true}
             on:updateSelection={({ detail }) => {
-                onUpdateValue("context.damageTypes", detail);
-            }}
-        />
-
-        <CheckboxGroup
-            heading="A5E.contexts.spellLevel"
-            options={Object.entries(spellLevels)}
-            selected={spellLevelsContext}
-            showToggleAllButton={true}
-            on:updateSelection={({ detail }) => {
-                onUpdateValue("context.spellLevels", detail);
-            }}
-        />
-
-        <Checkbox
-            label="This bonus only applies to critical hits."
-            checked={isCritBonus}
-            on:updateSelection={({ detail }) => {
-                onUpdateValue("context.isCritBonus", detail);
+                onUpdateValue("context.skills", detail);
             }}
         />
 
         <FieldWrapper>
             <Checkbox
-                label="Select Damage Bonus Automatically in Roll Prompt"
-                checked={damageBonus.default ?? true}
+                label="Select Ability Bonus Automatically in Roll Prompt"
+                checked={initiativeBonus.default ?? true}
                 on:updateSelection={({ detail }) => {
                     onUpdateValue("default", detail);
                 }}

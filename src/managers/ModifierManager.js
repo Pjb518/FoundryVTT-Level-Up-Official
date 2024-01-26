@@ -74,24 +74,21 @@ export default class ModifierManager {
   }
 
   #getAbilityCheckBonus() {
-    const { ability } = this.rollData;
-
+    const { ability, selectedAbilityBonuses } = this.rollData;
     if (!ability) return null;
 
-    let { selectedAbilityBonuses } = this.rollData;
+    let value;
     if (selectedAbilityBonuses) {
-      selectedAbilityBonuses = { enabled: true, ids: selectedAbilityBonuses };
-    } else selectedAbilityBonuses = { enabled: false, ids: [] };
+      value = this.actor.BonusesManager.getSelectedBonusesFormula('abilities', selectedAbilityBonuses);
+    } else {
+      value = this.actor.BonusesManager.getAbilityBonusesFormula(ability, 'check');
+    }
 
     return {
       label: localize('A5E.AbilityCheckBonus', {
         ability: CONFIG.A5E.abilities[ability]
       }),
-      value: this.actor.BonusesManager.getAbilityBonusesFormula(
-        ability,
-        'check',
-        selectedAbilityBonuses
-      ) || null
+      value: value || null
     };
   }
 
@@ -109,24 +106,21 @@ export default class ModifierManager {
   }
 
   #getAbilitySaveBonus() {
-    const { ability } = this.rollData;
-
+    const { ability, selectedAbilityBonuses } = this.rollData;
     if (!ability) return null;
 
-    let { selectedAbilityBonuses } = this.rollData;
+    let value;
     if (selectedAbilityBonuses) {
-      selectedAbilityBonuses = { enabled: true, ids: selectedAbilityBonuses };
-    } else selectedAbilityBonuses = { enabled: false, ids: [] };
+      value = this.actor.BonusesManager.getSelectedBonusesFormula('abilities', selectedAbilityBonuses);
+    } else {
+      value = this.actor.BonusesManager.getAbilityBonusesFormula(ability, 'save');
+    }
 
     return {
       label: localize('A5E.AbilitySaveBonus', {
         ability: CONFIG.A5E.abilities[ability]
       }),
-      value: this.actor.BonusesManager.getAbilityBonusesFormula(
-        ability,
-        'save',
-        selectedAbilityBonuses
-      ) || null
+      value: value || null
     };
   }
 
@@ -168,38 +162,45 @@ export default class ModifierManager {
 
   #getGlobalAttackBonus() {
     const { BonusesManager } = this.actor;
-    const { item } = this.rollData;
+    const { attackType, item, selectedAttackBonuses } = this.rollData;
 
-    switch (this.rollData.attackType) {
+    let value;
+
+    if (selectedAttackBonuses) {
+      value = BonusesManager.getSelectedBonusesFormula('attacks', selectedAttackBonuses);
+    } else {
+      value = BonusesManager.getAttackBonusesFormula(item, attackType);
+    }
+
+    switch (attackType) {
       case 'meleeSpellAttack':
-        return {
-          label: localize('A5E.BonusMeleeSpellAttack'),
-          value: BonusesManager.getAttackBonusFormula(item, 'meleeSpellAttack')
-        };
+        return { label: localize('A5E.BonusMeleeSpellAttack'), value };
       case 'meleeWeaponAttack':
-        return {
-          label: localize('A5E.BonusMeleeWeaponAttack'),
-          value: BonusesManager.getAttackBonusFormula(item, 'meleeWeaponAttack')
-        };
+        return { label: localize('A5E.BonusMeleeWeaponAttack'), value };
       case 'rangedSpellAttack':
-        return {
-          label: localize('A5E.BonusRangedSpellAttack'),
-          value: BonusesManager.getAttackBonusFormula(item, 'rangedSpellAttack')
-        };
+        return { label: localize('A5E.BonusRangedSpellAttack'), value };
       case 'rangedWeaponAttack':
-        return {
-          label: localize('A5E.BonusRangedWeaponAttack'),
-          value: BonusesManager.getAttackBonusFormula(item, 'rangedWeaponAttack')
-        };
+        return { label: localize('A5E.BonusRangedWeaponAttack'), value };
       default:
         return null;
     }
   }
 
   #getInitiativeBonus() {
+    const { ability, selectedInitiativeBonuses, skill } = this.rollData;
+
+    let value;
+    if (selectedInitiativeBonuses) {
+      value = this.actor.BonusesManager.getSelectedBonusesFormula('initiative', selectedInitiativeBonuses);
+    } else {
+      value = this.actor.BonusesManager.getInitiativeBonusesFormula(
+        { abilityKey: ability, skillKey: skill }
+      );
+    }
+
     return {
       label: localize('A5E.InitiativeBonus'),
-      value: this.actor.system.attributes.initiative.bonus
+      value: value || null
     };
   }
 
@@ -224,22 +225,19 @@ export default class ModifierManager {
   }
 
   #getSkillCheckBonus() {
-    const { ability, skill } = this.rollData;
-
+    const { ability, selectedSkillBonuses, skill } = this.rollData;
     if (!skill) return null;
-    let { selectedSkillBonuses } = this.rollData;
-    if (selectedSkillBonuses) selectedSkillBonuses = { enabled: true, ids: selectedSkillBonuses };
-    else selectedSkillBonuses = { enabled: false, ids: [] };
+
+    let value;
+    if (selectedSkillBonuses) {
+      value = this.actor.BonusesManager.getSelectedBonusesFormula('skills', selectedSkillBonuses);
+    } else {
+      value = this.actor.BonusesManager.getSkillBonusesFormula(skill, ability);
+    }
 
     return {
       label: localize('A5E.SkillCheckBonus', { skill: CONFIG.A5E.skills[skill] }),
-      value: this.actor.BonusesManager.getSkillBonusesFormula(
-        skill,
-        ability,
-        'check',
-        false,
-        selectedSkillBonuses
-      ) || null
+      value: value || null
     };
   }
 

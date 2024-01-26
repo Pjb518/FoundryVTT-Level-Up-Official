@@ -2,6 +2,8 @@
 import { localize } from '#runtime/svelte/helper';
 
 import ActiveEffectA5e from '../activeEffect/activeEffect';
+
+import ActorGrantsManager from '../../managers/ActorGrantsManager';
 import BonusesManager from '../../managers/BonusesManager';
 import MigrationRunnerBase from '../../migration/MigrationRunnerBase';
 import RestManager from '../../managers/RestManager';
@@ -25,6 +27,7 @@ import DamageBonusConfigDialog from '../../apps/dialogs/DamageBonusConfigDialog.
 import DamageImmunitiesConfigDialog from '../../apps/dialogs/DamageImmunitiesConfigDialog.svelte';
 import DamageResistancesConfigDialog from '../../apps/dialogs/DamageResistancesConfigDialog.svelte';
 import DamageVulnerabilitiesConfigDialog from '../../apps/dialogs/DamageVulnerabilitiesConfigDialog.svelte';
+import InitiativeBonusConfigDialog from '../../apps/dialogs/InitiativeBonusConfigDialog.svelte';
 import HealingBonusConfigDialog from '../../apps/dialogs/HealingBonusConfigDialog.svelte';
 import LanguagesConfigDialog from '../../apps/dialogs/LanguagesConfigDialog.svelte';
 import MovementConfigDialog from '../../apps/dialogs/MovementConfigDialog.svelte';
@@ -74,6 +77,7 @@ export default class ActorA5e extends Actor {
       healingBonus: HealingBonusConfigDialog,
       health: ActorHpConfigDialog,
       initiative: ActorInitConfigDialog,
+      initiativeBonus: InitiativeBonusConfigDialog,
       languages: LanguagesConfigDialog,
       maneuvers: ActorManueverConfigDialog,
       movement: MovementConfigDialog,
@@ -153,7 +157,9 @@ export default class ActorA5e extends Actor {
    * @override
    */
   prepareBaseData() {
-    const actorType = this.type;
+    // Register Managers
+    this.BonusesManager = new BonusesManager(this);
+    this.GrantsManager = new ActorGrantsManager(this);
 
     // Add AC data to the actor.
     if ((this.system.schemaVersion?.version ?? this.system.schema?.version) >= 0.005) {
@@ -165,14 +171,24 @@ export default class ActorA5e extends Actor {
       };
     }
 
+    // Add base bonuses for abilities
+    Object.entries(this.system.abilities).forEach(([abilityKey, ability]) => {
+      const value = getDeterministicBonus(
+        [
+          ability.value,
+          this.BonusesManager.getAbilityBonusesFormula(abilityKey, 'base').trim()
+        ].filter(Boolean).join(' + ')
+      );
+
+      ability.value = value ?? ability.value;
+    });
+
+    const actorType = this.type;
     if (actorType === 'character') {
       this.prepareCharacterData();
     } else {
       this.prepareNPCData();
     }
-
-    // Register Managers
-    this.BonusesManager = new BonusesManager(this);
   }
 
   /**
@@ -464,7 +480,7 @@ export default class ActorA5e extends Actor {
         deterministicBonus = getDeterministicBonus(
           [
             skill.mod,
-            this.BonusesManager.getSkillBonusesFormula(key, skill.ability, 'check').trim()
+            this.BonusesManager.getSkillBonusesFormula(key, skill.ability, 'check', true)
           ].filter(Boolean).join(' + '),
           this.getRollData()
         );
@@ -492,7 +508,7 @@ export default class ActorA5e extends Actor {
       10,
       skill.mod,
       rollData.abilities[skill.ability]?.check?.deterministicBonus ?? 0,
-      this.BonusesManager.getSkillBonusesFormula(skillKey, skill.ability, 'passive').trim()
+      this.BonusesManager.getSkillBonusesFormula(skillKey, skill.ability, 'passive', true)
     ].filter(Boolean).join(' + '), rollData);
   }
 
@@ -730,7 +746,7 @@ export default class ActorA5e extends Actor {
   addBonus(type = 'damage') {
     const bonuses = foundry.utils.duplicate(this._source.system.bonuses[type] ?? {});
 
-    if (!['abilities', 'attacks', 'skills', 'damage', 'healing'].includes(type)) return;
+    if (!['abilities', 'attacks', 'skills', 'damage', 'healing', 'initiative'].includes(type)) return;
 
     this.update({
       [`system.bonuses.${type}`]: {
@@ -798,11 +814,11 @@ export default class ActorA5e extends Actor {
       this.#configure('attackBonus', `${this.name} Attack Bonus Configuration`, { bonusID });
     } else if (type === 'damage') {
       this.#configure('damageBonus', `${this.name} Damage Bonus Configuration`, { bonusID });
-    }
-    else if (type === 'healing') {
+    } else if (type === 'healing') {
       this.#configure('healingBonus', `${this.name} Healing Bonus Configuration`, { bonusID });
-    }
-    else if (type === 'skills') {
+    } else if (type === 'initiative') {
+      this.#configure('initiativeBonus', `${this.name} Initiative Bonus Configuration`, { bonusID });
+    } else if (type === 'skills') {
       this.#configure('skillBonus', `${this.name} Skill Bonus Configuration`, { bonusID });
     }
   }
@@ -1048,6 +1064,10 @@ export default class ActorA5e extends Actor {
       expertiseDie,
       rollMode,
       situationalMods: options.situationalMods,
+      selectedAbilityBonuses: this.BonusesManager.getDefaultSelections(
+        'abilities',
+        { abilityKey, ablType: 'check' }
+      ),
       type: 'abilityCheck'
     });
 
@@ -1222,6 +1242,10 @@ export default class ActorA5e extends Actor {
       rollMode,
       saveType: options.saveType,
       situationalMods: options.situationalMods,
+      selectedAbilityBonuses: this.BonusesManager.getDefaultSelections(
+        'abilities',
+        { abilityKey, ablType: 'save' }
+      ),
       type: 'savingThrow'
     });
 
@@ -1346,6 +1370,14 @@ export default class ActorA5e extends Actor {
       type: 'skillCheck',
       rollMode,
       skill: skillKey,
+      selectedAbilityBonuses: this.BonusesManager.getDefaultSelections(
+        'abilities',
+        { abilityKey, ablType: 'check' }
+      ),
+      selectedSkillBonuses: this.BonusesManager.getDefaultSelections(
+        'skills',
+        { skillKey, abilityKey }
+      ),
       situationalMods: options.situationalMods
     });
 

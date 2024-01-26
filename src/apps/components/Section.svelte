@@ -16,7 +16,7 @@
 
             {#if headerButtons.length}
                 <div class="a5e-section-header__button-wrapper">
-                    {#each headerButtons as { classes, display, handler, label, tooltip }}
+                    {#each headerButtons as { classes, display, handler, htmlString, label, tooltip }}
                         {#if display ?? true}
                             <button
                                 class={`a5e-section-header__button ${classes}`}
@@ -24,7 +24,13 @@
                                 data-tooltip={tooltip}
                                 data-tooltip-direction="UP"
                             >
-                                {localize(label ?? "")}
+                                {#if htmlString}
+                                    {@html htmlString}
+                                {:else if label}
+                                    {localize(label)}
+                                {:else}
+                                    {localize("")}
+                                {/if}
                             </button>
                         {/if}
                     {/each}

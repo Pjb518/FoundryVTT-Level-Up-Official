@@ -4,13 +4,14 @@ import SchemaDataModel from '../template/SchemaDataModel';
 import RecordField from '../fields/RecordField';
 import UnchasteSchemaField from '../fields/UnchasteSchemaField';
 
-import getCheckNotesData from './CheckNotes';
+// import getCheckNotesData from './CheckNotes';
 
 import {
   getAbilitiesBonusData,
   getAttackBonusData,
   getDamageBonusData,
   getHealingBonusData,
+  getInitiativeBonusData,
   getSkillBonusData
 } from './Bonuses';
 
@@ -27,26 +28,26 @@ export default class BaseActorData extends A5EDataModel.mixin(SchemaDataModel) {
               expertiseDice: new fields.NumberField({
                 required: true, initial: 0, integer: true
               }),
-              bonus: new fields.StringField({ required: true, initial: '' }),
-              notes: new RecordField(
-                new fields.DocumentIdField({
-                  required: true, initial: () => foundry.utils.randomID()
-                }),
-                new fields.SchemaField(getCheckNotesData())
-              )
+              bonus: new fields.StringField({ required: true, initial: '' })
+              // notes: new RecordField(
+              //   new fields.DocumentIdField({
+              //     required: true, initial: () => foundry.utils.randomID()
+              //   }),
+              //   new fields.SchemaField(getCheckNotesData())
+              // )
             }),
             save: new fields.SchemaField({
               proficient: new fields.BooleanField({ required: true, initial: false }),
               expertiseDice: new fields.NumberField({
                 required: true, initial: 0, integer: true
               }),
-              bonus: new fields.StringField({ required: true, initial: '' }),
-              notes: new RecordField(
-                new fields.DocumentIdField({
-                  required: true, initial: () => foundry.utils.randomID()
-                }),
-                new fields.SchemaField(getCheckNotesData())
-              )
+              bonus: new fields.StringField({ required: true, initial: '' })
+              // notes: new RecordField(
+              //   new fields.DocumentIdField({
+              //     required: true, initial: () => foundry.utils.randomID()
+              //   }),
+              //   new fields.SchemaField(getCheckNotesData())
+              // )
             })
           });
 
@@ -84,6 +85,7 @@ export default class BaseActorData extends A5EDataModel.mixin(SchemaDataModel) {
         }),
         initiative: new fields.SchemaField({
           ability: new fields.StringField({ required: true, initial: 'dex' }),
+          // TODO: Remove this at a later date when migration is guaranteed
           bonus: new fields.StringField({ required: true, initial: '' }),
           expertiseDice: new fields.NumberField({ required: true, initial: 0, integer: true })
         }),
@@ -171,6 +173,10 @@ export default class BaseActorData extends A5EDataModel.mixin(SchemaDataModel) {
           new fields.DocumentIdField({ required: true, initial: () => foundry.utils.randomID() }),
           new fields.SchemaField(getHealingBonusData())
         ),
+        initiative: new RecordField(
+          new fields.DocumentIdField({ required: true, initial: () => foundry.utils.randomID() }),
+          new fields.SchemaField(getInitiativeBonusData())
+        ),
         skills: new RecordField(
           new fields.DocumentIdField({ required: true, initial: () => foundry.utils.randomID() }),
           new fields.SchemaField(getSkillBonusData())
@@ -198,6 +204,17 @@ export default class BaseActorData extends A5EDataModel.mixin(SchemaDataModel) {
         ),
         isSwarm: new fields.BooleanField({ required: true, initial: false })
       }),
+      grants: new RecordField(
+        new fields.DocumentIdField({ required: true, initial: () => foundry.utils.randomID() }),
+        new fields.SchemaField({
+          // TODO: Update to UUIDField in v12
+          itemUuid: new fields.StringField({ required: true, initial: '' }),
+          // itemUuid: new fields.DocumentUUIDField({ required: true, initial: '' }),
+          grantId: new fields.DocumentIdField({ required: true, initial: '' }),
+          bonusId: new fields.DocumentIdField({ required: false, initial: '' }),
+          type: new fields.StringField({ required: true, initial: '' })
+        })
+      ),
       proficiencies: new fields.SchemaField({
         armor: new fields.ArrayField(new fields.StringField({ required: true, initial: '' }), { required: true, initial: [] }),
         languages: new fields.ArrayField(new fields.StringField({ required: true, initial: '' }), { required: true, initial: [] }),

@@ -1,5 +1,6 @@
 export default function registerContextsConfig(A5E) {
   A5E.abilityBonusContexts = {
+    base: 'A5E.contexts.base',
     check: 'A5E.contexts.check',
     save: 'A5E.contexts.save'
   };

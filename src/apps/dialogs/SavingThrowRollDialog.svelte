@@ -6,25 +6,13 @@
     import CheckboxGroup from "../components/CheckboxGroup.svelte";
     import ExpertiseDiePicker from "../components/ExpertiseDiePicker.svelte";
     import FieldWrapper from "../components/FieldWrapper.svelte";
-    import FormSection from "../components/LegacyFormSection.svelte";
     import OutputVisibilitySection from "../components/activationDialog/OutputVisibilitySection.svelte";
     import RadioGroup from "../components/RadioGroup.svelte";
 
     import getRollFormula from "../../utils/getRollFormula";
     import overrideRollMode from "../../utils/overrideRollMode";
-    import prepareAbilityBonuses from "../dataPreparationHelpers/prepareAbilityBonuses";
-
     export let { document, abilityKey, dialog, options } =
         getContext("#external").application;
-
-    function getDefaultSelections(property) {
-        return Object.values(property ?? {})
-            .flat()
-            .reduce((acc, [key, value]) => {
-                if (value.default ?? true) acc.push(key);
-                return acc;
-            }, []);
-    }
 
     function getInitialExpertiseDieSelection() {
         if (hideExpertiseDice) return 0;
@@ -65,7 +53,10 @@
     ];
 
     const actor = new TJSDocument(document);
-    const abilityBonuses = prepareAbilityBonuses($actor, abilityKey, "save");
+    const abilityBonuses = $actor.BonusesManager.prepareAbilityBonuses(
+        abilityKey,
+        "save",
+    );
     const appId = dialog.id;
     const hideExpertiseDice = game.settings.get("a5e", "hideExpertiseDice");
     const localizeSave = localize(CONFIG.A5E.abilities[abilityKey]);
@@ -88,7 +79,10 @@
     let selectedRollMode = options.rollMode ?? CONFIG.A5E.ROLL_MODE.NORMAL;
     let rollFormula;
     let situationalMods = options.situationalMods ?? "";
-    let selectedAbilityBonuses = getDefaultSelections({ abilityBonuses });
+    $: selectedAbilityBonuses = $actor.BonusesManager.getDefaultSelections(
+        "abilities",
+        { abilityKey, ablType: "save" },
+    );
 
     $: rollMode = overrideRollMode($actor, selectedRollMode, {
         ability: abilityKey,
