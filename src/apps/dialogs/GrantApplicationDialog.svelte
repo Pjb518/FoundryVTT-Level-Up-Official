@@ -47,38 +47,45 @@
     $: configurableGrants = grants.filter((grant) => grant.requiresConfig);
 </script>
 
-<article class="a5e-page-wrapper a5e-page-wrapper--scrollable">
-    <Section heading="Optional Grants Selection">
-        <CheckboxGroup
-            options={optionalGrants.map((grant) => [grant._id, grant.label])}
-            selected={selectedOptionalGrants}
-            on:updateSelection={({ detail }) =>
-                (selectedOptionalGrants = detail)}
-        />
-    </Section>
+<article>
+    <section class="a5e-page-wrapper a5e-page-wrapper--scrollable">
+        <Section heading="Optional Grants Selection">
+            <CheckboxGroup
+                options={optionalGrants.map((grant) => [
+                    grant._id,
+                    grant.label,
+                ])}
+                selected={selectedOptionalGrants}
+                on:updateSelection={({ detail }) =>
+                    (selectedOptionalGrants = detail)}
+            />
+        </Section>
 
-    {#each configurableGrants as { grant, id }}
-        <svelte:component
-            this={grant.getSelectionComponent?.()}
-            {...grant.getSelectionComponentProps?.()}
-            {grant}
-            on:updateSelection={({ detail }) => applyData.set(id, detail)}
-        />
-    {/each}
+        {#each configurableGrants as { grant, id }}
+            <svelte:component
+                this={grant.getSelectionComponent?.()}
+                {...grant.getSelectionComponentProps?.()}
+                {grant}
+                on:updateSelection={({ detail }) => applyData.set(id, detail)}
+            />
+        {/each}
 
-    <Section heading="Summary">
-        <ul>
-            <!-- TODO: Add a proper summary for the various grants -->
-            {#each applyData.entries() as [id, { summary }]}
-                <li>
-                    {id}: {summary}
-                    {console.log(prepareApplyData(actor, grants, applyData))}
-                </li>
-            {/each}
-        </ul>
-    </Section>
+        <Section heading="Summary">
+            <ul>
+                <!-- TODO: Add a proper summary for the various grants -->
+                {#each applyData.entries() as [id, { summary }]}
+                    <li>
+                        {id}: {summary}
+                        {console.log(
+                            prepareApplyData(actor, grants, applyData),
+                        )}
+                    </li>
+                {/each}
+            </ul>
+        </Section>
 
-    <button>Submit</button>
+        <button>Submit</button>
+    </section>
 </article>
 
 <style lang="scss">
