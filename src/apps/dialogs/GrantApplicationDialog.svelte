@@ -47,7 +47,7 @@
     $: configurableGrants = grants.filter((grant) => grant.requiresConfig);
 </script>
 
-<article>
+<article class="a5e-page-wrapper a5e-page-wrapper--scrollable">
     <Section heading="Optional Grants Selection">
         <CheckboxGroup
             options={optionalGrants.map((grant) => [grant._id, grant.label])}
@@ -83,9 +83,6 @@
 
 <style lang="scss">
     article {
-        display: flex;
-        flex-direction: column;
-        gap: 0.75rem;
         padding: 0.75rem;
     }
 </style>
