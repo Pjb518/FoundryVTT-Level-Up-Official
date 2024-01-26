@@ -5,13 +5,35 @@
 [![Forge Installs](https://img.shields.io/badge/dynamic/json?label=Forge%20Installs&query=package.installs&suffix=%25&url=https%3A%2F%2Fforge-vtt.com%2Fapi%2Fbazaar%2Fpackage%2Fa5e&colorB=brightgreen)](https://forge-vtt.com/bazaar#package=a5e)
 [![Discord](https://img.shields.io/discord/957965481455788032?label=A5e%20Foundry%20Discord)](https://discord.gg/XtkZ6RkN9E)
 
-This is an official FoundryVTT system implementation for Level Up: Advanced 5th Edition. The system is currently released as part of an open beta, but it's fully game ready for those of your itching to play Level Up online.
+This is an official FoundryVTT system implementation for Level Up: Advanced 5th Edition. If you want to keep up to date with the system's development and influence its future, join our [community Discord server](https://discord.gg/XtkZ6RkN9E).
 
-The system currently has dedicated sheets for both PCs and NPCs, both of which feature various pieces of helpful automation, including roll buttons and resource tracking.
+## Major Features
 
-Make sure to update regularly, as new features are currently being added all the time!
+### Actions
+A5e features, spells, maneuvers, and objects can each be configured with numerous "actions", each of which represents a different way to activate the item, with fully independent configuration. This makes it easy to configure a staff full of spells, weapons with different attack modes (like thrown weapons), and features with ongoing effects.
 
-If you want to keep up to date with the system's development and influence its future, join our [community Discord server](https://discord.gg/XtkZ6RkN9E).
+### Active Effects
+The A5e Effects system offers a rich interface for Active Effects including searchable, human-readable keys, selectable values, and baked in support for attribute references. You can even configure temporary damage and healing bonuses.
+
+### Automation
+The system's character sheets provide a number of pieces of handy automation, including bonus and armor class calculations, weight tracking, and resource consumption / restoration. The system also automatically grants features and benefits linked to various parts of character creation, such as your heritage, culture, and background.
+
+Rolls in the system are also highly automated and can be modified post-hoc directly in the chat cards.
+
+### Bonuses
+The A5e system includes a fairly elaborate bonus system, with each bonus being configured with a specific context. This context dictates when a bonus should be applied. For example, an attack roll might apply specifically to melee and ranged spell attack rolls, but not weapon attack rolls. A skill bonus may apply only to skills using Strength or only the Acrobatics and Stealth skills.
+
+Bonuses can be toggled on or off at roll time and the default state for this toggle can be configured on a per-bonus basis. So, if you have a damage bonus that only applies sometimes (like Sneak Attack), you can keep that toggled off until it's time to use it.
+
+### Compendium Packs
+The A5e system includes comprehensive packs for both Level Up and D&D 5e content. The D&D 5e packs contain everything permitted by the D&D 5e SRD 5.1, fully configured and ready to use. The A5e packs are much more extensive. The LUSRD permits almost all official game mechanical content published for Level Up to be included in the system packs, and we also include a great deal of third-party Level Up material licensed under the OGL.
+
+### Party Viewer
+The system includes a detailed party viewer that allows you to view summary statistics for the whole party in a single window.
+
+![Party Viewer Demo](https://github.com/Pjb518/FoundryVTT-Level-Up-Official/blob/main/public/assets/github/party-viewer.png)
+
+Support for multiple parties coming soon!
 
 ## Funding
 
