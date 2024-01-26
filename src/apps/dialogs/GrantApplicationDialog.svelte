@@ -3,12 +3,12 @@
 <script lang="ts">
     import { getContext } from "svelte";
 
-    import prepareApplyData from "../../utils/prepareApplyData";
+    import prepareGrantsApplyData from "../../utils/prepareGrantsApplyData";
 
     import CheckboxGroup from "../components/CheckboxGroup.svelte";
     import Section from "../components/Section.svelte";
 
-    export let { allGrants, optionalGrants, actor } =
+    export let { allGrants, dialog, optionalGrants, actor } =
         // @ts-ignore
         getContext("#external").application;
 
@@ -40,7 +40,15 @@
         return grantsList;
     }
 
-    let applyData = new Map<string, any>();
+    function onSubmit() {
+        const updateData = prepareGrantsApplyData(actor, grants, applyData);
+        dialog.submit({
+            success: true,
+            updateData,
+        });
+    }
+
+    $: applyData = new Map<string, any>();
     let selectedOptionalGrants: string[] = [];
 
     $: grants = getApplicableGrants(selectedOptionalGrants);
@@ -70,9 +78,9 @@
             />
         {/each}
 
-        <Section heading="Summary">
+        <!-- TODO: Add a proper summary for the various grants -->
+        <!-- <Section heading="Summary">
             <ul>
-                <!-- TODO: Add a proper summary for the various grants -->
                 {#each applyData.entries() as [id, { summary }]}
                     <li>
                         {id}: {summary}
@@ -82,9 +90,9 @@
                     </li>
                 {/each}
             </ul>
-        </Section>
+        </Section> -->
 
-        <button>Submit</button>
+        <button on:click|preventDefault={onSubmit}> Submit </button>
     </section>
 </article>
 

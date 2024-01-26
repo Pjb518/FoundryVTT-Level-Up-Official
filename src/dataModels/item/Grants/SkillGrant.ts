@@ -72,9 +72,9 @@ export default class SkillGrant extends BaseGrant {
     return this.#component;
   }
 
-  getSelectionComponentProps() {
+  getSelectionComponentProps(data: any) {
     return {
-      base: this.skills.base,
+      base: data?.selected ?? this.skills.base,
       bonus: this.bonus,
       choices: this.skills.options,
       configObject: CONFIG.A5E.skills,

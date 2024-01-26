@@ -71,9 +71,9 @@ export default class AbilityGrant extends BaseGrant {
     return this.#component;
   }
 
-  getSelectionComponentProps() {
+  getSelectionComponentProps(data: any) {
     return {
-      base: this.abilities.base,
+      base: data?.selected ?? this.abilities.base,
       bonus: this.bonus,
       choices: this.abilities.options,
       configObject: CONFIG.A5E.abilities,

@@ -25,37 +25,38 @@ export default class ActorGrantsManger extends Map<string, ActorGrantData> {
     });
   }
 
-  async applyGrants(): Promise<void> {
-    const appliedGrants = [...this.values()].map(({ itemUuid, grantId }) => `${itemUuid}.${grantId}`);
-    const applicableGrants: Grant[] = [];
-    const optionalGrants: Grant[] = [];
+  // async applyGrants(): Promise<void> {
+  // eslint-disable-next-line max-len
+  //   const appliedGrants = [...this.values()].map(({ itemUuid, grantId }) => `${itemUuid}.${grantId}`);
+  //   const applicableGrants: Grant[] = [];
+  //   const optionalGrants: Grant[] = [];
 
-    for await (const item of this.actor.items) {
-      if (item.type !== 'feature') continue;
+  //   for await (const item of this.actor.items) {
+  //     if (item.type !== 'feature') continue;
 
-      const grantsManager: ItemGrantsManager = item.grants;
-      [...grantsManager.values()].forEach((grant) => {
-        const id = `${item.uuid}.${grant._id}`;
-        if (appliedGrants.includes(id)) return;
+  //     const grantsManager: ItemGrantsManager = item.grants;
+  //     [...grantsManager.values()].forEach((grant) => {
+  //       const id = `${item.uuid}.${grant._id}`;
+  //       if (appliedGrants.includes(id)) return;
 
-        if (grant.optional) optionalGrants.push(grant);
-        applicableGrants.push(grant);
-      });
-    }
+  //       if (grant.optional) optionalGrants.push(grant);
+  //       applicableGrants.push(grant);
+  //     });
+  //   }
 
-    const dialog = new GenericDialog(
-      `${this.actor.name} - Apply Grants`,
-      GrantApplicationDialog,
-      {
-        actor: this.actor,
-        allGrants: applicableGrants,
-        optionalGrants
-      }
-    );
-    dialog.render(true);
-  }
+  //   const dialog = new GenericDialog(
+  //     `${this.actor.name} - Apply Grants`,
+  //     GrantApplicationDialog,
+  //     {
+  //       actor: this.actor,
+  //       allGrants: applicableGrants,
+  //       optionalGrants
+  //     }
+  //   );
+  //   dialog.render(true);
+  // }
 
-  async applyGrant(itemId: string) {
+  async applyGrant(itemId: string): Promise<void> {
     if (!itemId) return;
     const item = this.actor.items.get(itemId);
     if (item.type !== 'feature') return;
@@ -90,7 +91,7 @@ export default class ActorGrantsManger extends Map<string, ActorGrantData> {
       return;
     }
 
-    console.log(promise);
+    this.actor.update(promise.updateData);
   }
 
   removeGrantsByItem(itemUuid: string): void {
