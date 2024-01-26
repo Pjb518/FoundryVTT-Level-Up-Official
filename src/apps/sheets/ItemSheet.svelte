@@ -87,7 +87,7 @@
             name: "grants",
             label: "A5E.TabGrants",
             component: ItemGrantsTab,
-            display: !$item.system.unidentified || game.user.isGM,
+            display: $item.type === "feature",
         },
     ];
 
