@@ -28,6 +28,10 @@ Bonuses can be toggled on or off at roll time and the default state for this tog
 ### Compendium Packs
 The A5e system includes comprehensive packs for both Level Up and D&D 5e content. The D&D 5e packs contain everything permitted by the D&D 5e SRD 5.1, fully configured and ready to use. The A5e packs are much more extensive. The LUSRD permits almost all official game mechanical content published for Level Up to be included in the system packs, and we also include a great deal of third-party Level Up material licensed under the OGL.
 
+We also have our own custom compendium sheets which are highly filterable, integrate directly with our character sheets, and can even be used to generate RollTables. They also provide handy summary information to help you better understand the compendium content at a glance.
+
+![Fancy Compendium Packs Demo](https://github.com/Pjb518/FoundryVTT-Level-Up-Official/blob/main/public/assets/github/system-packs.png)
+
 ### Party Viewer
 The system includes a detailed party viewer that allows you to view summary statistics for the whole party in a single window.
 
