@@ -47,7 +47,7 @@ In addition to including all of the D&D 5e SRD content in our system packs, the 
 We're working hard to make 5e play in the A5e system even better, so please submit feature requests if there's something that will make your 5e games run more smoothly.
 
 ### Expanded Token HUD
-Tokens in the A5e system make use an expanded token HUD that includes AC information, beautiful conditions ring, and an updated conditions interface complete with generic markers.
+Tokens in the A5e system make use an expanded token HUD that includes AC information, a beautiful conditions ring, and an updated conditions interface complete with generic markers.
 
 ![Token HUD Demo](https://github.com/Pjb518/FoundryVTT-Level-Up-Official/blob/main/public/assets/github/token-hud.png)
 
