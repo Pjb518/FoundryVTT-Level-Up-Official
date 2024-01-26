@@ -73,6 +73,8 @@ export default class ActorGrantsManger extends Map<string, ActorGrantData> {
       applicableGrants.push(grant);
     });
 
+    if (!applicableGrants.length) return;
+
     const dialog = new GenericDialog(
       `${this.actor.name} - Apply Grants`,
       GrantApplicationDialog,
