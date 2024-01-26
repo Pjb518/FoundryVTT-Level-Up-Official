@@ -957,6 +957,29 @@ A5E.skills = {
   sur: 'A5E.SkillSur'
 };
 
+A5E.skillDefaultAbilities = {
+  acr: 'dex',
+  ani: 'wis',
+  arc: 'int',
+  ath: 'str',
+  cul: 'int',
+  dec: 'cha',
+  eng: 'int',
+  his: 'int',
+  ins: 'wis',
+  itm: 'cha',
+  inv: 'int',
+  med: 'int',
+  nat: 'int',
+  prc: 'wis',
+  prf: 'cha',
+  per: 'wis',
+  rel: 'int',
+  slt: 'dex',
+  ste: 'dex',
+  sur: 'wis'
+};
+
 /**
  * The set of core skill specialties used in the system.
  */

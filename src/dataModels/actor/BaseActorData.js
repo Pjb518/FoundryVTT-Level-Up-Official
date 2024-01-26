@@ -239,9 +239,11 @@ export default class BaseActorData extends A5EDataModel.mixin(SchemaDataModel) {
         }, {})
       ),
       skills: new fields.SchemaField(
-        ['acr', 'ani', 'arc', 'ath', 'cul', 'dec', 'eng', 'his', 'ins', 'itm', 'inv', 'med', 'nat', 'prc', 'prf', 'per', 'rel', 'slt', 'ste', 'sur'].reduce((acc, skl) => {
-          acc[skl] = new fields.SchemaField({
-            ability: new fields.StringField({ required: true, initial: 'dex' }),
+        Object.keys(CONFIG.A5E.skills ?? {}).reduce((acc, skill) => {
+          acc[skill] = new fields.SchemaField({
+            ability: new fields.StringField({
+              required: true, initial: CONFIG.A5E.skillDefaultAbilities[skill] ?? 'int'
+            }),
             value: new fields.NumberField({ required: true, initial: 0, integer: true }),
             proficient: new fields.BooleanField({ required: true, initial: false }),
             specialties: new fields.ArrayField(
