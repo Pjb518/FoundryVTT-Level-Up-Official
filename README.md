@@ -5,7 +5,9 @@
 [![Forge Installs](https://img.shields.io/badge/dynamic/json?label=Forge%20Installs&query=package.installs&suffix=%25&url=https%3A%2F%2Fforge-vtt.com%2Fapi%2Fbazaar%2Fpackage%2Fa5e&colorB=brightgreen)](https://forge-vtt.com/bazaar#package=a5e)
 [![Discord](https://img.shields.io/discord/957965481455788032?label=A5e%20Foundry%20Discord)](https://discord.gg/XtkZ6RkN9E)
 
-This is an official FoundryVTT system implementation for Level Up: Advanced 5th Edition. If you want to keep up to date with the system's development and influence its future, join our [community Discord server](https://discord.gg/XtkZ6RkN9E).
+This is an official FoundryVTT system implementation for Level Up: Advanced 5th Edition.
+
+The system is being *very* actively developed: it's very rare that we put out less than one release per week! If you want to keep up to date with the system's development and influence its future, definitely join our [community Discord server](https://discord.gg/XtkZ6RkN9E).
 
 ## Major Features
 
