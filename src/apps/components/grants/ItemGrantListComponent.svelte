@@ -75,7 +75,7 @@
                             data-tooltip="A5E.ButtonToolTipDuplicate"
                             data-tooltip-direction="UP"
                             on:click|stopPropagation={() =>
-                                grant?.duplicateGrant()}
+                                $item.grants.duplicate(grant._id)}
                         />
                     </li>
 
