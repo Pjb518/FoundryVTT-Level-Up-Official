@@ -19,6 +19,8 @@ A5e features, spells, maneuvers, and objects can each be configured with numerou
 ### Active Effects
 The A5e Effects system offers a rich interface for Active Effects including searchable, human-readable keys, selectable values, and baked in support for attribute references. You can even configure temporary damage and healing bonuses.
 
+If you're used to using DAE, our Effects system does everything DAE does and more.
+
 ### Automation
 The system's character sheets provide a number of pieces of handy automation, including bonus and armor class calculations, weight tracking, and resource consumption / restoration. The system also automatically grants features and benefits linked to various parts of character creation, such as your heritage, culture, and background.
 
