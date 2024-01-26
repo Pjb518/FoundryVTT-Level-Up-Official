@@ -1,12 +1,12 @@
-<script>
+<script lang="ts">
     import { localize } from "#runtime/svelte/helper";
 
-    export let headerButtons = [];
-    export let headerClasses = "";
-    export let heading = null;
-    export let hint = null;
-    export let showWarning = false;
-    export let warning = null;
+    export let headerButtons: any[] = [];
+    export let headerClasses: string = "";
+    export let heading: string = "";
+    export let hint: string = "";
+    export let showWarning: boolean = false;
+    export let warning: string = "";
 </script>
 
 <section class="a5e-section">
