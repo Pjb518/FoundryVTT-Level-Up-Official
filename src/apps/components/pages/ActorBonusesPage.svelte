@@ -111,9 +111,9 @@
         "system.bonuses.spellDC",
     );
 
-    $: grants = [...$actor.GrantsManager.values()].map(
-        (g) => `${g.type}.${g.bonusId}`,
-    );
+    // $: grants = [...$actor.GrantsManager.values()].map(
+    //     (g) => `${g.type}.${g.bonusId}`,
+    // );
 </script>
 
 <section class="a5e-page-wrapper a5e-page-wrapper--item-list">
@@ -216,6 +216,7 @@
                                     />
                                 </li>
 
+                                <!-- {#if !grants.includes(`${bonusType}.${id}`)} -->
                                 <li>
                                     <button
                                         class="action-button fa-solid fa-clone"
@@ -238,6 +239,7 @@
                                             $actor.deleteBonus(id, bonusType)}
                                     />
                                 </li>
+                                <!-- {/if} -->
                             </ul>
                         {/if}
                     </li>
