@@ -169,7 +169,7 @@ export default class ModifierManager {
     if (selectedAttackBonuses) {
       value = BonusesManager.getSelectedBonusesFormula('attacks', selectedAttackBonuses);
     } else {
-      value = BonusesManager.getAttackBonusesFormula(item, attackType);
+      value = BonusesManager.getAttackBonusFormula(item, attackType);
     }
 
     switch (attackType) {
