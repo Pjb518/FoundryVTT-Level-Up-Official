@@ -64,6 +64,22 @@ export default class BonusesManager {
       }, []);
   }
 
+  getDefaultSelectionsFromBonuses(bonuses: Record<string, any>): string[] {
+    return Object.values(bonuses ?? {})
+      .flat()
+      .reduce((acc: string[], [key, value]: [string, any]) => {
+        if (
+          ['generic', 'healing', 'damage'].includes(value.type)
+          && !value.formula
+        ) {
+          return acc;
+        }
+
+        if (value.default ?? true) acc.push(key);
+        return acc;
+      }, []);
+  }
+
   getSelectedBonusesFormula(type: string, ids: string[]): string {
     const bonuses = this.#bonuses[type];
     const parts = ids.map((id) => bonuses[id]?.formula);
