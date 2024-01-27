@@ -165,7 +165,10 @@
     $: selectedAmmo = getSelectedAmmo(item, action);
 </script>
 
-<div class="name-wrapper">
+<div
+    class="name-wrapper"
+    class:name-wrapper--ammunition={hasAmmunition(item, action)}
+>
     <div class="name">
         {action?.name ?? item.name}
 
@@ -514,7 +517,7 @@
 
     .ammunition-selector {
         height: 1.25rem;
-        width: fit-content;
+        flex-grow: 0;
         font-size: var(--a5e-text-size-xs);
 
         &:focus {
@@ -564,19 +567,21 @@
         display: flex;
         align-items: center;
         gap: 0.375rem;
-        font-size: var(a5e-text-size-sm);
         overflow: hidden;
         text-overflow: ellipsis;
         white-space: nowrap;
     }
 
     .name-wrapper {
-        display: flex;
+        display: grid;
         align-items: center;
-        flex-grow: 0;
         gap: 0.5rem;
         overflow: hidden;
         grid-area: name;
+
+        &--ammunition {
+            grid-template-columns: auto minmax(6rem, 1fr);
+        }
     }
 
     .number-input {
