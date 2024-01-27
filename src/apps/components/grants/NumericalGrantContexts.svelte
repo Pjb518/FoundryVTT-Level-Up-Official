@@ -1,5 +1,5 @@
 <script>
-    import { getContext, createEventDispatcher } from "svelte";
+    import { getContext } from "svelte";
     import { localize } from "#runtime/svelte/helper";
 
     import getContextsMap from "../../../utils/getContextsMap";

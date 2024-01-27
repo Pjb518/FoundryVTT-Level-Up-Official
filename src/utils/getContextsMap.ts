@@ -147,6 +147,23 @@ export default function getContextsMap(type: 'bonus' | 'grant', contextType: str
     );
   }
 
+  if (contextType === 'initiative') {
+    map.push(
+      {
+        heading: 'A5E.contexts.abilities',
+        options: Object.entries(CONFIG.A5E.abilities),
+        selectedProperty: 'context.abilities',
+        component: 'TagGroup'
+      },
+      {
+        heading: 'A5E.contexts.skills',
+        options: Object.entries(CONFIG.A5E.skills),
+        selectedProperty: 'context.skills',
+        component: 'TagGroup'
+      }
+    );
+  }
+
   if (contextType === 'skills') {
     if (type === 'bonus') {
       map.push(
