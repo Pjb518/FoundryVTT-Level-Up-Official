@@ -60,7 +60,6 @@
 
     $: grant = $item.system.grants[grantId];
     $: selectProperty = configObject[grantType]?.selectProperty;
-    console.log(grantType);
 
     setContext("item", item);
     setContext("grantId", grantId);

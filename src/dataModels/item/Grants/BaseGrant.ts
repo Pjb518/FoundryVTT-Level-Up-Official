@@ -4,6 +4,8 @@ import GenericDialog from '../../../apps/dialogs/initializers/GenericDialog';
 export default class BaseGrant extends A5EDataModel {
   #component = null;
 
+  #configComponent = null;
+
   constructor(data: any, options: any = {}) {
     // @ts-ignore
     super(data, options);
@@ -22,20 +24,21 @@ export default class BaseGrant extends A5EDataModel {
     };
   }
 
-  async applyGrant(title: string, data: any, component: any, options: any = {}): Promise<any> {
-    // Open Dialog and get choices
-    const dialog = new GenericDialog(
-      title,
-      component,
-      data,
-      options
-    );
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
+  getApplyData(actor: any, data: any): any {
+    return {};
+  }
 
-    await dialog.render(true);
-    const promise = await dialog.promise;
+  getSelectionComponent(): any {
+    return this.#component;
+  }
 
-    if (!promise) return {};
-    return promise;
+  getSelectionComponentProps(data: any): any {
+    return { ...data };
+  }
+
+  requiresConfig() {
+    return false;
   }
 
   async configureGrant(title: string, data: any, component: any, options: any = {}): Promise<any> {

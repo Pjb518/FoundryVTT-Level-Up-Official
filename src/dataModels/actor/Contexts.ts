@@ -1,7 +1,7 @@
 export function getAbilitiesBonusContext(type: 'grant' | 'bonus') {
   const { fields } = foundry.data;
 
-  const schema: any = {
+  const schema: Record<string, any> = {
     types: new fields.ArrayField(new fields.StringField({ required: true, initial: '' }), {
       initial: ['check', 'save']
     }),
@@ -18,18 +18,25 @@ export function getAbilitiesBonusContext(type: 'grant' | 'bonus') {
   return schema;
 }
 
-export function getAttackBonusContext() {
+export function getAttackBonusContext(type: 'grant' | 'bonus') {
   const { fields } = foundry.data;
-  return {
-    attackTypes: new fields.ArrayField(new fields.StringField({ required: true, initial: '' }), {
-      initial: Object.keys(CONFIG.A5E.attackTypes)
-    }),
+
+  const schema: Record<string, any> = {
     spellLevels: new fields.ArrayField(
       new fields.StringField({ required: true, initial: '' }),
       { initial: [] }
     ),
     requiresProficiency: new fields.BooleanField({ required: true, initial: false })
   };
+
+  if (type === 'bonus') {
+    schema.attackTypes = new fields.ArrayField(
+      new fields.StringField({ required: true, initial: '' }),
+      { initial: [] }
+    );
+  }
+
+  return schema;
 }
 
 export function getDamageBonusContext() {

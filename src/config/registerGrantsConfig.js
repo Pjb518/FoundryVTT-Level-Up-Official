@@ -1,6 +1,7 @@
 export default function registerGrantsConfig(A5E) {
   A5E.itemGrants = {
     ability: 'A5E.grants.headings.ability',
+    attack: 'A5E.grants.headings.attack',
     damage: 'A5E.grants.headings.damage',
     // expertiseDice: 'A5E.ExpertiseDice',
     // feature: 'A5E.Feature',

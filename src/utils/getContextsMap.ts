@@ -55,6 +55,53 @@ export default function getContextsMap(type: 'bonus' | 'grant', contextType: str
     );
   }
 
+  if (contextType === 'attacks') {
+    if (type === 'bonus') {
+      map.push(
+        {
+          heading: 'A5E.contexts.attackType',
+          options: Object.entries(CONFIG.A5E.attackTypes),
+          selectedProperty: 'context.attackTypes',
+          component: 'TagGroup'
+        }
+      );
+    } else {
+      map.push(
+        {
+          heading: 'Base Attack Types',
+          options: Object.entries(CONFIG.A5E.attackTypes),
+          selectedProperty: 'attackTypes.base',
+          component: 'TagGroup'
+        },
+        {
+          heading: 'Attack Type Choices',
+          options: Object.entries(CONFIG.A5E.attackTypes),
+          selectedProperty: 'attackTypes.options',
+          component: 'TagGroup'
+        }
+      );
+    }
+
+    map.push(
+      {
+        heading: 'Count',
+        selectedProperty: 'attackTypes.total',
+        component: 'Number'
+      },
+      {
+        heading: 'A5E.contexts.spellLevel',
+        options: Object.entries(CONFIG.A5E.spellLevels),
+        selectedProperty: 'context.spellLevels',
+        component: 'TagGroup'
+      },
+      {
+        heading: 'A5E.contexts.requiresProficiency',
+        selectedProperty: 'context.requiresProficiency',
+        component: 'Checkbox'
+      }
+    );
+  }
+
   if (contextType === 'damage') {
     map.push(
       {
