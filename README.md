@@ -41,7 +41,7 @@ We also have our own custom compendium sheets which are highly filterable, integ
 ![Fancy Compendium Packs Demo](https://github.com/Pjb518/FoundryVTT-Level-Up-Official/blob/main/public/assets/github/system-packs.png)
 
 ### Condition Tracking
-When you have a token selected on the canvas, we provide an unobtrusive interface for tracking conditions and Active Effects affecting the selected token. You can also see a handy summary of the condition's effects by hovering over the icon or removes the condition by right clicking.
+When you have a token selected on the canvas, we provide an unobtrusive interface for tracking conditions and Active Effects affecting the selected token. You can also see a handy summary of the condition's effects by hovering over the icon or remove the condition by right clicking.
 
 ![Conditions Tracker Demo](https://github.com/Pjb518/FoundryVTT-Level-Up-Official/blob/main/public/assets/github/conditions-tracker.png)
 
@@ -54,6 +54,11 @@ We're working hard to make 5e play in the A5e system even better, so please subm
 Tokens in the A5e system make use an expanded token HUD that includes AC information, a beautiful conditions ring, and an updated conditions interface complete with generic markers.
 
 ![Token HUD Demo](https://github.com/Pjb518/FoundryVTT-Level-Up-Official/blob/main/public/assets/github/token-hud.png)
+
+### Grants \[NEW\]
+Grants is a powerful new automation feature that allows features to automatically set up bonuses, modify traits and attributes, or even grant other items to a character. For example, adding the Potent Witchcraft invocation to a character sheet will automatically configure a damage bonus equal to your spellcasting modifier to the damage of your cantrips.
+
+Once our compendium packs are fully update to take advantage of grants, few if any features will require any manual set-up by users.
 
 ### Party Viewer
 The system includes a detailed party viewer that allows you to view summary statistics for the whole party in a single window.
