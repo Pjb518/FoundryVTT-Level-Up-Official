@@ -7,7 +7,6 @@
 [![Discord](https://img.shields.io/discord/957965481455788032?label=A5e%20Foundry%20Discord)](https://discord.gg/XtkZ6RkN9E)
 [![Patreon](https://img.shields.io/badge/Patreon-F96854?logo=patreon&logoColor=white)](https://www.patreon.com/ForgemasterModules)
 
-
 This is an official FoundryVTT system implementation for Level Up: Advanced 5th Edition.
 
 The system is being *very* actively developed: it's very rare that we put out less than one release per week! If you want to keep up to date with the system's development and influence its future, definitely join our [community Discord server](https://discord.gg/XtkZ6RkN9E).
@@ -104,3 +103,11 @@ The system software is distributed under the [MIT License](https://mit-license.o
 This system was made with the help of [Svelte](https://svelte.dev/) and [TyphonJS](https://github.com/typhonjs-fvtt-lib/typhonjs).
 
 [![68747470733a2f2f692e696d6775722e636f6d2f64784c635a724c2e6a7067](https://github.com/Pjb518/FoundryVTT-Level-Up-Official/assets/33249712/32006129-142e-43d1-8b7f-019a8cd1fc43)](https://github.com/typhonjs-fvtt-lib/typhonjs)
+
+![HTML5](https://img.shields.io/badge/HTML5-E34F26?style=for-the-badge&logo=html5&logoColor=white)
+![CSS3](https://img.shields.io/badge/CSS3-1572B6?style=for-the-badge&logo=css3&logoColor=white)
+![SCSS](https://img.shields.io/badge/Sass-cf649a?style=for-the-badge&logo=sass&logoColor=white)
+![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black)
+![TypeScript](https://img.shields.io/badge/Typescript-027bcd?style=for-the-badge&logo=typescript&logoColor=white)
+![Svelte](https://img.shields.io/badge/Svelte-ff3e00?style=for-the-badge&logo=svelte&logoColor=white)
+![Svelte](https://img.shields.io/badge/Vite-636cff?style=for-the-badge&logo=vite&logoColor=white)
