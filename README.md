@@ -1,6 +1,9 @@
 # FoundryVTT - Level Up: Advanced 5th Edition (Official)
 
-![MIT License](https://img.shields.io/badge/License-MIT-blue.svg)
+[![License: MIT](https://img.shields.io/badge/Software_License-MIT-blue.svg)](https://mit-license.org/)
+[![License: CC BY 4.0](https://img.shields.io/badge/Content_License-CC_BY_4.0-blue.svg)](https://creativecommons.org/licenses/by/4.0/)
+[![License: OGL 1.0a](https://img.shields.io/badge/Content_License-OGL_1.0a-blue.svg)](https://opengamingfoundation.org/ogl.html)
+
 ![Supported Foundry Versions](https://img.shields.io/endpoint?url=https://foundryshields.com/version?url=https://github.com/Pjb518/FoundryVTT-Level-Up-Official/releases/latest/download/system.json&color=blue)
 ![Latest Release Download Count](https://img.shields.io/github/downloads/Pjb518/FoundryVTT-Level-Up-Official/latest/a5e.zip)
 [![Forge Installs](https://img.shields.io/badge/dynamic/json?label=Forge%20Installs&query=package.installs&suffix=%25&url=https%3A%2F%2Fforge-vtt.com%2Fapi%2Fbazaar%2Fpackage%2Fa5e&colorB=brightgreen)](https://forge-vtt.com/bazaar#package=a5e)
@@ -85,12 +88,12 @@ If you've developed a module for the Level Up system and would like it listed he
 
 ## Licenses
 
-This system is offered and may be used under the terms of the Open Gaming License v1.0a and the accompanying
+This system is offered and may be used under the terms of the Open Game License v1.0a and the accompanying
 Level Up: Advanced 5th Edition [Systems Reference Document](https://www.levelup5e.com/system-reference-document).
 
-The content of the `public/packs/` is used under the terms of the Open Gaming License v1.0a. A copy of the license can be found in the `LICENSE-OGL.md` document.
+The content of the `public/packs/dnd5e-*` directories is sourced from the Dungeons and Dragons SRD 5.1, licensed under CC-BY-4.0. The content contained in the remaining `public/packs/` directories is used under the terms of the Open Game License v1.0a. A copy of the license can be found in the `LICENSE-OGL.md` document.
 
-Various icons are in the `public/assets/icons` directory are sourced from [game-icons.net](https://www.game-icons.net) and are licensed under CC BY 3.0 DEED. Attributions and license details are provided in the `LICENSE-MIT.md` file in that directory.
+Various icons are in the `public/assets/icons` directory are sourced from [game-icons.net](https://www.game-icons.net) and are licensed under CC BY 3.0 DEED. Attributions and license details are provided in the `LICENSE.md` file in that directory.
 
 The logos in `public/assets/publisherLogos` are used with permission of the respective publishers.
 
