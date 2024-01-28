@@ -58,7 +58,7 @@ Tokens in the A5e system make use an expanded token HUD that includes AC informa
 ### Grants \[NEW\]
 Grants is a powerful new automation feature that allows features to automatically set up bonuses, modify traits and attributes, or even grant other items to a character. For example, adding the Potent Witchcraft invocation to a character sheet will automatically configure a damage bonus equal to your spellcasting modifier to the damage of your cantrips.
 
-Once our compendium packs are fully update to take advantage of grants, few if any features will require any manual set-up by users.
+Once our compendium packs are fully updated to take advantage of grants, few if any features will require any manual set-up by users.
 
 ### Party Viewer
 The system includes a detailed party viewer that allows you to view summary statistics for the whole party in a single window.
