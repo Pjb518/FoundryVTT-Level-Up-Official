@@ -1,9 +1,12 @@
 # FoundryVTT - Level Up: Advanced 5th Edition (Official)
 
+![MIT License](https://img.shields.io/badge/License-MIT-blue.svg)
 ![Supported Foundry Versions](https://img.shields.io/endpoint?url=https://foundryshields.com/version?url=https://github.com/Pjb518/FoundryVTT-Level-Up-Official/releases/latest/download/system.json&color=blue)
 ![Latest Release Download Count](https://img.shields.io/github/downloads/Pjb518/FoundryVTT-Level-Up-Official/latest/a5e.zip)
 [![Forge Installs](https://img.shields.io/badge/dynamic/json?label=Forge%20Installs&query=package.installs&suffix=%25&url=https%3A%2F%2Fforge-vtt.com%2Fapi%2Fbazaar%2Fpackage%2Fa5e&colorB=brightgreen)](https://forge-vtt.com/bazaar#package=a5e)
 [![Discord](https://img.shields.io/discord/957965481455788032?label=A5e%20Foundry%20Discord)](https://discord.gg/XtkZ6RkN9E)
+[![Patreon](https://img.shields.io/badge/Patreon-F96854?logo=patreon&logoColor=white)](https://www.patreon.com/ForgemasterModules)
+
 
 This is an official FoundryVTT system implementation for Level Up: Advanced 5th Edition.
 
