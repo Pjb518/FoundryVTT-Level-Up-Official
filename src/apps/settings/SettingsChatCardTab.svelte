@@ -1,12 +1,12 @@
 <script>
     import { getContext } from "svelte";
 
-    import FormSection from "../components/LegacyFormSection.svelte";
     import Checkbox from "../components/Checkbox.svelte";
+    import FieldWrapper from "../components/FieldWrapper.svelte";
+    import Section from "../components/Section.svelte";
 
     export let reload;
 
-    const appId = getContext("appId");
     const settings = getContext("settings");
     const updates = getContext("updates");
 
@@ -18,15 +18,8 @@
     let terseRolls = settings.getStore("terseRollFormulae");
 </script>
 
-<section class="setting-group">
-    <header class="setting-header">
-        <h3 class="setting-heading">Chat Card Display Settings</h3>
-    </header>
-
-    <FormSection
-        hint="A5E.settings.hints.hideChatDescriptionsByDefault"
-        --gap="0.25rem"
-    >
+<Section heading="Chat Card Display Settings" --a5e-section-body-gap="0.5rem">
+    <FieldWrapper hint="A5E.settings.hints.hideChatDescriptionsByDefault">
         <Checkbox
             label="A5E.settings.hideChatDescriptionsByDefault"
             checked={updates.get("hideChatDescriptionsByDefault") ??
@@ -37,13 +30,10 @@
                 reload = true;
             }}
         />
-    </FormSection>
+    </FieldWrapper>
 
     {#if isGM}
-        <FormSection
-            hint="A5E.settings.hints.hideRandomizedHPRolls"
-            --gap="0.25rem"
-        >
+        <FieldWrapper hint="A5E.settings.hints.hideRandomizedHPRolls">
             <Checkbox
                 label="A5E.settings.hideRandomizedHPRolls"
                 checked={updates.get("hideRandomizedHPRolls") ??
@@ -53,11 +43,11 @@
                     updates.set("hideRandomizedHPRolls", detail);
                 }}
             />
-        </FormSection>
+        </FieldWrapper>
     {/if}
 
     {#if isGM}
-        <FormSection hint="A5E.settings.hints.protectRolls" --gap="0.25rem">
+        <FieldWrapper hint="A5E.settings.hints.protectRolls">
             <Checkbox
                 label="A5E.settings.protectRolls"
                 checked={updates.get("protectRolls") ?? $protectRolls ?? false}
@@ -66,10 +56,10 @@
                     reload = true;
                 }}
             />
-        </FormSection>
+        </FieldWrapper>
     {/if}
 
-    <FormSection hint="A5E.settings.hints.terseRollFormulae" --gap="0.25rem">
+    <FieldWrapper hint="A5E.settings.hints.terseRollFormulae">
         <Checkbox
             label="A5E.settings.terseRollFormulae"
             checked={updates.get("terseRollFormulae") ?? $terseRolls ?? false}
@@ -78,48 +68,5 @@
                 reload = true;
             }}
         />
-    </FormSection>
-</section>
-
-<style lang="scss">
-    .setting-group {
-        display: flex;
-        flex-direction: column;
-        gap: 0.25rem;
-
-        &:not(:last-child) {
-            margin-bottom: 0.25rem;
-        }
-    }
-
-    .setting-header {
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        padding: 0 0.5rem 0.25rem 0.125rem;
-        border-bottom: 1px solid #ccc;
-    }
-
-    // .setting-header-button {
-    //     width: fit-content;
-    //     padding: 0;
-    //     margin: 0;
-    //     background: transparent;
-    //     line-height: 1;
-    //     font-size: $font-size-sm;
-    //     color: #7e7960;
-
-    //     transition: $standard-transition;
-
-    //     &:focus,
-    //     &:hover {
-    //         box-shadow: none;
-    //         color: rgb(25, 24, 19);
-    //     }
-    // }
-
-    .setting-heading {
-        font-size: $font-size-sm;
-        white-space: nowrap;
-    }
-</style>
+    </FieldWrapper>
+</Section>

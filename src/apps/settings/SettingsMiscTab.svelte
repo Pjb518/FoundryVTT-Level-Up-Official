@@ -1,9 +1,11 @@
 <script>
     import { getContext } from "svelte";
 
-    import FormSection from "../components/LegacyFormSection.svelte";
     import Checkbox from "../components/Checkbox.svelte";
+    import FormSection from "../components/LegacyFormSection.svelte";
+    import FieldWrapper from "../components/FieldWrapper.svelte";
     import RadioGroup from "../components/RadioGroup.svelte";
+    import Section from "../components/Section.svelte";
 
     export let reload;
 
@@ -28,15 +30,8 @@
 </script>
 
 {#if isGM}
-    <section class="setting-group">
-        <header class="setting-header">
-            <h3 class="setting-heading">Sheet Settings</h3>
-        </header>
-
-        <FormSection
-            hint="A5E.settings.hints.showDescriptionOnLimitedPerms"
-            --gap="0.25rem"
-        >
+    <Section heading="Sheet Settings" --a5e-section-body-gap="0.5rem">
+        <FieldWrapper hint="A5E.settings.hints.showDescriptionOnLimitedPerms">
             <Checkbox
                 label="A5E.settings.showDescriptionOnLimitedPerms"
                 checked={updates.get("showDescriptionOnLimitedPerms") ??
@@ -47,7 +42,7 @@
                     reload = true;
                 }}
             />
-        </FormSection>
+        </FieldWrapper>
 
         <RadioGroup
             hint="A5E.settings.hints.newActionNameType"
@@ -59,10 +54,7 @@
             }}
         />
 
-        <FormSection
-            hint="A5E.settings.hints.autoApplyFancySheets"
-            --gap="0.25rem"
-        >
+        <FieldWrapper hint="A5E.settings.hints.autoApplyFancySheets">
             <Checkbox
                 label="A5E.settings.autoApplyFancySheets"
                 checked={updates.get("autoApplyFancySheets") ??
@@ -73,31 +65,6 @@
                     reload = true;
                 }}
             />
-        </FormSection>
-    </section>
+        </FieldWrapper>
+    </Section>
 {/if}
-
-<style lang="scss">
-    .setting-group {
-        display: flex;
-        flex-direction: column;
-        gap: 0.25rem;
-
-        &:not(:last-child) {
-            margin-bottom: 0.25rem;
-        }
-    }
-
-    .setting-header {
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        padding: 0 0.5rem 0.25rem 0.125rem;
-        border-bottom: 1px solid #ccc;
-    }
-
-    .setting-heading {
-        font-size: $font-size-sm;
-        white-space: nowrap;
-    }
-</style>

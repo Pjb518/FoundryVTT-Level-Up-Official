@@ -2,7 +2,8 @@
     import { getContext } from "svelte";
 
     import Checkbox from "../components/Checkbox.svelte";
-    import FormSection from "../components/LegacyFormSection.svelte";
+    import Section from "../components/Section.svelte";
+    import FieldWrapper from "../components/FieldWrapper.svelte";
 
     export let reload;
 
@@ -15,12 +16,8 @@
     let showActorImages = settings.getStore("showActorImagesInPartyViewer");
 </script>
 
-<section class="setting-group">
-    <header class="setting-header">
-        <h3 class="setting-heading">Appearance</h3>
-    </header>
-
-    <FormSection --gap="0.25rem">
+<Section heading="Appearance" --a5e-section-body-gap="0.5rem">
+    <FieldWrapper>
         <Checkbox
             label="Show character images in the party viewer"
             checked={updates.get("showActorImagesInPartyViewer") ??
@@ -31,18 +28,13 @@
                 reload = true;
             }}
         />
-    </FormSection>
-</section>
+    </FieldWrapper>
+</Section>
 
 {#if isGM}
-    <section class="setting-group">
-        <header class="setting-header">
-            <h3 class="setting-heading">Player Access</h3>
-        </header>
-
-        <FormSection
+    <Section heading="Player Access" --a5e-section-body-gap="0.5rem">
+        <FieldWrapper
             hint="Players will be able to view but not edit the summary information in the Party Viewer window."
-            --gap="0.25rem"
         >
             <Checkbox
                 label="Players can access the Party Viewer"
@@ -54,31 +46,6 @@
                     reload = true;
                 }}
             />
-        </FormSection>
-    </section>
+        </FieldWrapper>
+    </Section>
 {/if}
-
-<style lang="scss">
-    .setting-group {
-        display: flex;
-        flex-direction: column;
-        gap: 0.25rem;
-
-        &:not(:last-child) {
-            margin-bottom: 0.25rem;
-        }
-    }
-
-    .setting-header {
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        padding: 0 0.5rem 0.25rem 0.125rem;
-        border-bottom: 1px solid #ccc;
-    }
-
-    .setting-heading {
-        font-size: $font-size-sm;
-        white-space: nowrap;
-    }
-</style>

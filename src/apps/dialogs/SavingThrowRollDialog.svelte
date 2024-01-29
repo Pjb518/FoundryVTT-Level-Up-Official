@@ -79,6 +79,7 @@
     let selectedRollMode = options.rollMode ?? CONFIG.A5E.ROLL_MODE.NORMAL;
     let rollFormula;
     let situationalMods = options.situationalMods ?? "";
+
     $: selectedAbilityBonuses = $actor.BonusesManager.getDefaultSelections(
         "abilities",
         { abilityKey, abilityType: "save" },

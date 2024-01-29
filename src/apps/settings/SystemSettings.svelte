@@ -108,9 +108,7 @@
     <main>
         <NavigationBar {currentTab} {tabs} on:tab-change={updateCurrentTab} />
 
-        <section
-            class="u-flex-grow u-flex u-flex-col u-overflow-y-auto u-gap-md u-px-md"
-        >
+        <section class="a5e-page-wrapper a5e-page-wrapper--scrollable">
             <svelte:component this={currentTab.component} bind:reload />
         </section>
 

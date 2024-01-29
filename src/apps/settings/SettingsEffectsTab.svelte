@@ -1,13 +1,13 @@
 <script>
     import { getContext } from "svelte";
-    import { localize } from "#runtime/svelte/helper";
 
     import CheckboxGroup from "../components/CheckboxGroup.svelte";
     import Checkbox from "../components/Checkbox.svelte";
-    import FormSection from "../components/LegacyFormSection.svelte";
     import SettingsCustomIcon from "./SettingsCustomIcon.svelte";
     import ConditionIconResetConfirmationDialog from "../dialogs/initializers/ConditionIconResetConfirmationDialog";
     import RadioGroup from "../components/RadioGroup.svelte";
+    import FieldWrapper from "../components/FieldWrapper.svelte";
+    import Section from "../components/Section.svelte";
 
     export let reload;
 
@@ -109,13 +109,10 @@
     let selectedOffset = updates.get("effectsPanelOffset") ?? $panelOffset;
 </script>
 
-<section class="setting-group">
-    <header class="setting-header">
-        <h3 class="setting-heading">
-            {localize("A5E.settings.automateConditions")}
-        </h3>
-    </header>
-
+<Section
+    heading="A5E.settings.automateConditions"
+    --a5e-section-body-gap="0.5rem"
+>
     <!-- Condition Automation -->
     <CheckboxGroup
         hint="A5E.settings.hints.automateConditions"
@@ -128,10 +125,7 @@
         }}
     />
 
-    <FormSection
-        hint="A5E.settings.hints.automateBloodiedApplication"
-        --gap="0.25rem"
-    >
+    <FieldWrapper hint="A5E.settings.hints.automateBloodiedApplication">
         <Checkbox
             label="A5E.settings.automateBloodiedApplication"
             checked={updates.get("automateBloodiedApplication") ??
@@ -142,12 +136,9 @@
                 reload = true;
             }}
         />
-    </FormSection>
+    </FieldWrapper>
 
-    <FormSection
-        hint="A5E.settings.hints.automateUnconsciousApplication"
-        --gap="0.25rem"
-    >
+    <FieldWrapper hint="A5E.settings.hints.automateUnconsciousApplication">
         <Checkbox
             label="A5E.settings.automateUnconsciousApplication"
             checked={updates.get("automateUnconsciousApplication") ??
@@ -158,9 +149,9 @@
                 reload = true;
             }}
         />
-    </FormSection>
+    </FieldWrapper>
 
-    <FormSection hint="A5E.settings.hints.enableRadialEffects" --gap="0.25rem">
+    <FieldWrapper hint="A5E.settings.hints.enableRadialEffects">
         <Checkbox
             label="A5E.settings.enableRadialEffects"
             checked={updates.get("enableRadialEffects") ?? $radialEffects}
@@ -169,12 +160,9 @@
                 reload = true;
             }}
         />
-    </FormSection>
+    </FieldWrapper>
 
-    <FormSection
-        hint="A5E.settings.hints.removeActiveEffectsOnLongRest"
-        --gap="0.25rem"
-    >
+    <FieldWrapper hint="A5E.settings.hints.removeActiveEffectsOnLongRest">
         <Checkbox
             label="A5E.settings.removeActiveEffectsOnLongRest"
             checked={updates.get("removeActiveEffectsOnLongRest") ??
@@ -184,14 +172,10 @@
                 updates.set("removeActiveEffectsOnLongRest", detail);
             }}
         />
-    </FormSection>
-</section>
+    </FieldWrapper>
+</Section>
 
-<section class="setting-group">
-    <header class="setting-header">
-        <h3 class="setting-heading">Condition Interface Layout</h3>
-    </header>
-
+<Section heading="Condition Interface Layout" --a5e-section-body-gap="0.5rem">
     <RadioGroup
         heading="Condition Interface Flow Direction"
         hint={game.settings.settings.get("a5e.conditionFlowDirection").hint}
@@ -203,17 +187,19 @@
             reload = true;
         }}
     />
-</section>
+</Section>
 
-<section class="setting-group">
-    <header class="setting-header">
-        <h3 class="setting-heading">Custom Effect Icons</h3>
-
-        <button class="reset-button" on:click|preventDefault={resetIcons}>
-            Reset Icons to Defaults
-        </button>
-    </header>
-
+<Section
+    heading="Custom Effect Icons"
+    --a5e-section-body-gap="0.5rem"
+    headerButtons={[
+        {
+            classes: "reset-button",
+            label: "Reset Icons to Defaults",
+            handler: resetIcons,
+        },
+    ]}
+>
     <ul class="condition-grid">
         {#each Object.entries(customIcons) as [conditionKey, icon]}
             <SettingsCustomIcon
@@ -225,14 +211,10 @@
             />
         {/each}
     </ul>
-</section>
+</Section>
 
-<section class="setting-group">
-    <header class="setting-header">
-        <h3 class="setting-heading">Effects Panel</h3>
-    </header>
-
-    <FormSection hint="A5E.settings.hints.showEffectsPanel" --gap="0.25rem">
+<Section heading="Effects Panel" --a5e-section-body-gap="0.5rem">
+    <FieldWrapper hint="A5E.settings.hints.showEffectsPanel">
         <Checkbox
             label="A5E.settings.showEffectsPanel"
             checked={updates.get("showEffectsPanel") ??
@@ -243,7 +225,7 @@
                 reload = true;
             }}
         />
-    </FormSection>
+    </FieldWrapper>
 
     <RadioGroup
         heading="A5E.settings.effectsPanelIconSize"
@@ -256,15 +238,12 @@
         }}
     />
 
-    <FormSection
+    <FieldWrapper
         heading="A5E.settings.effectsPanelPosition"
         hint="A5E.settings.hints.effectsPanelPosition"
-        --label-size="$font-size-sm"
-        --label-weight="bold"
-        --label-width="100%"
     >
         <div class="u-flex u-gap-md">
-            <FormSection --padding="0" --background="none">
+            <FieldWrapper>
                 <label for="top-offset">Top Offset</label>
 
                 <input
@@ -278,9 +257,9 @@
                         updates.set("effectsPanelOffset", selectedOffset);
                     }}
                 />
-            </FormSection>
+            </FieldWrapper>
 
-            <FormSection --padding="0" --background="none">
+            <FieldWrapper>
                 <label for="bottom-offset"> Bottom Offset </label>
 
                 <input
@@ -293,9 +272,9 @@
                         updates.set("effectsPanelOffset", selectedOffset);
                     }}
                 />
-            </FormSection>
+            </FieldWrapper>
 
-            <FormSection --padding="0" --background="none">
+            <FieldWrapper>
                 <label for="right-offset"> Right Offset </label>
 
                 <input
@@ -308,10 +287,10 @@
                         updates.set("effectsPanelOffset", selectedOffset);
                     }}
                 />
-            </FormSection>
+            </FieldWrapper>
         </div>
-    </FormSection>
-</section>
+    </FieldWrapper>
+</Section>
 
 <style lang="scss">
     .condition-grid {
