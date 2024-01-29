@@ -4,6 +4,15 @@
     physical book. Others modules are sold as standalone products.
 </p>
 
+<p>
+    <i>
+        Disclaimer: This page contains some affiliate links. If you choose to
+        make a purchase after clicking a link, we may receive a small amount of
+        kickback from DriveThruRPG that will go towards developing and
+        maintaining the A5e Foundry system and its modules.
+    </i>
+</p>
+
 {#each Object.values(CONFIG.A5E.premiumContent) as { name, releases }}
     <h3>{name}</h3>
 
