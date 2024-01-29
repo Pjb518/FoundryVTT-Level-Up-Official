@@ -189,9 +189,10 @@ export default class BonusesManager {
   // Bonuses Prepare Functions
   // ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
   prepareAbilityBonuses(ablKey: string, type: 'base' | 'check' | 'save' = 'check'): [string, AbilityBonus][] {
-    const bonuses = this.#bonuses.abilities;
+    const bonuses = this.#bonuses.abilities ?? {};
     const ability = this.#actor.system.abilities[ablKey];
-    const isProficient = ability.save.proficient;
+    if (!ability) return [];
+    const isProficient = ability.save.proficient ?? false;
     const counts = {};
 
     const parts = Object.entries(bonuses).filter(
@@ -224,7 +225,7 @@ export default class BonusesManager {
   }
 
   prepareGlobalAbilityBonuses(type: 'base' | 'check' | 'save' = 'check'): [string, AbilityBonus][] {
-    const bonuses = this.#bonuses.abilities;
+    const bonuses = this.#bonuses.abilities ?? {};
     let counts = 0;
 
     const parts = Object.entries(bonuses).filter(
