@@ -21,7 +21,7 @@
 </script>
 
 <article>
-    {#each Object.entries($actor.system.attributes.senses) as [sense, senseData]}
+    {#each Object.entries($actor._source.system.attributes.senses) as [sense, senseData]}
         <FormSection
             heading={headings[sense]}
             --item-alignment="center"

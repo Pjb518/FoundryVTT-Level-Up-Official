@@ -22,7 +22,7 @@
 </script>
 
 <article>
-    {#each Object.entries($actor.system.attributes.movement) as [mode, movementData]}
+    {#each Object.entries($actor._source.system.attributes.movement) as [mode, movementData]}
         {#if mode != "traits"}
             <FormSection
                 heading={headings[mode]}
