@@ -58,6 +58,7 @@ export interface InitiativeBonus {
 
 export interface MovementBonus {
   context: MovementBonusContext;
+  unit: string;
   formula: string;
   label: string;
   defaultLabel?: string;
@@ -66,6 +67,7 @@ export interface MovementBonus {
 
 export interface SensesBonus {
   context: SensesBonusContext;
+  unit: string;
   formula: string;
   label: string;
   defaultLabel?: string;

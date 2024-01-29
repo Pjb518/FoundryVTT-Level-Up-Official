@@ -1,5 +1,6 @@
 <script>
     import { getContext, createEventDispatcher } from "svelte";
+    import { localize } from "#runtime/svelte/helper";
 
     import updateDocumentDataFromField from "../../../utils/updateDocumentDataFromField";
 
@@ -49,6 +50,7 @@
             const obj = JSON.parse(jsonValue || '""') ?? {};
             if (typeof obj !== "object") throw new Error();
             obj.label = obj.label ?? "";
+            obj.unit = obj.unit || "feet";
             obj.formula = obj.formula ?? "";
             obj.context = obj.context ?? {
                 movementTypes: [],
@@ -60,6 +62,7 @@
             return {
                 label: "",
                 formula: "",
+                unit: "feet",
                 damageType: "",
                 context: {
                     movementTypes: [],
@@ -71,7 +74,7 @@
         }
     }
 
-    const { movement } = CONFIG.A5E;
+    const { movement, distanceUnits } = CONFIG.A5E;
 
     $: movementBonus = getMovementBonus($actor, jsonValue) ?? {};
     $: movementTypes = movementBonus.context.movementTypes ?? [];
@@ -101,14 +104,43 @@
         </div>
     </header>
 
-    <Section --a5e-section-margin="0.25rem 0">
-        <FieldWrapper heading="A5E.Formula">
+    <Section
+        --a5e-section-body-direction="row"
+        --a5e-section-margin="0.25rem 0"
+    >
+        <FieldWrapper heading="A5E.Formula" --a5e-field-wrapper-grow="1">
             <input
                 type="text"
                 value={movementBonus.formula ?? ""}
                 on:change={({ target }) =>
                     onUpdateValue("formula", target.value)}
             />
+        </FieldWrapper>
+
+        <FieldWrapper
+            heading="A5E.Unit"
+            --background="none"
+            --direction="column"
+            --padding="0"
+        >
+            <select
+                class="u-w-fit damage-type-select"
+                on:change={({ target }) => onUpdateValue("unit", target.value)}
+            >
+                <option
+                    value={null}
+                    selected={movementBonus.unit === "null" ||
+                        movementBonus.unit === null}
+                >
+                    {localize("A5E.None")}
+                </option>
+
+                {#each Object.entries(distanceUnits) as [key, name] (key)}
+                    <option value={key} selected={movementBonus.unit === key}>
+                        {localize(name)}
+                    </option>
+                {/each}
+            </select>
         </FieldWrapper>
     </Section>
 

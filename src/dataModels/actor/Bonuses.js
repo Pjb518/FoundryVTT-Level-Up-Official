@@ -70,6 +70,7 @@ export function getMovementBonusData() {
   const { fields } = foundry.data;
   return {
     context: new fields.SchemaField(getMovementBonusContext()),
+    unit: new fields.StringField({ required: true, initial: 'feet' }),
     formula: new fields.StringField({ required: true, initial: '' }),
     label: new fields.StringField({ required: true, initial: '' }),
     img: new fields.StringField({ required: true, initial: 'icons/svg/upgrade.svg' })
@@ -80,6 +81,7 @@ export function getSensesBonusData() {
   const { fields } = foundry.data;
   return {
     context: new fields.SchemaField(getSensesBonusContext()),
+    unit: new fields.StringField({ required: true, initial: 'feet' }),
     formula: new fields.StringField({ required: true, initial: '' }),
     label: new fields.StringField({ required: true, initial: '' }),
     img: new fields.StringField({ required: true, initial: 'icons/svg/upgrade.svg' })
