@@ -6,7 +6,9 @@ import type {
   HealingBonus,
   AttackBonus,
   InitiativeBonus,
-  SkillBonus
+  SkillBonus,
+  MovementBonus,
+  SensesBonus
 } from 'types/foundry/bonuses';
 
 import arraysAreEqual from '../utils/arraysAreEqual';
@@ -144,6 +146,18 @@ export default class BonusesManager {
     { abilityKey, skillKey }: { abilityKey?: string, skillKey?: string } = {}
   ): string {
     const bonuses = this.prepareInitiativeBonuses({ abilityKey, skillKey });
+    const parts = bonuses.map(([, bonus]) => bonus.formula);
+    return parts.join(' + ').trim();
+  }
+
+  getMovementBonusFormula(type: string): string {
+    const bonuses = this.prepareMovementBonuses(type);
+    const parts = bonuses.map(([, bonus]) => bonus.formula);
+    return parts.join(' + ').trim();
+  }
+
+  getSensesBonusFormula(type: string): string {
+    const bonuses = this.prepareSensesBonuses(type);
     const parts = bonuses.map(([, bonus]) => bonus.formula);
     return parts.join(' + ').trim();
   }
@@ -411,6 +425,60 @@ export default class BonusesManager {
         const label = game.i18n.localize('A5E.bonuses.labels.initiativeBonus');
         counts += 1;
         bonus.defaultLabel = `${label} #${counts}`;
+      }
+
+      return [key, bonus];
+    });
+  }
+
+  prepareMovementBonuses(type: string): [string, MovementBonus][] {
+    const bonuses = this.#bonuses.movement;
+
+    const parts = Object.entries(bonuses).filter(
+      ([, { context, formula }]) => {
+        if (!formula) return false;
+
+        const { movementTypes } = context ?? {};
+        if (!movementTypes?.includes(type)) return false;
+
+        return true;
+      }
+    );
+
+    return parts.map(([key, bonus]) => {
+      if (!bonus.label) {
+        const label = game.i18n.format('A5E.bonuses.labels.movementBonus', {
+          movementType: game.i18n.localize(CONFIG.A5E.movementAbbreviations[type] ?? '')
+        });
+
+        bonus.defaultLabel = label;
+      }
+
+      return [key, bonus];
+    });
+  }
+
+  prepareSensesBonuses(type: string): [string, SensesBonus][] {
+    const bonuses = this.#bonuses.senses;
+
+    const parts = Object.entries(bonuses).filter(
+      ([, { context, formula }]) => {
+        if (!formula) return false;
+
+        const { senses } = context ?? {};
+        if (!senses?.includes(type)) return false;
+
+        return true;
+      }
+    );
+
+    return parts.map(([key, bonus]) => {
+      if (!bonus.label) {
+        const label = game.i18n.format('A5E.bonuses.labels.sensesBonus', {
+          sense: game.i18n.localize(CONFIG.A5E.senses[type] ?? '')
+        });
+
+        bonus.defaultLabel = label;
       }
 
       return [key, bonus];

@@ -332,6 +332,9 @@ export default class ActorA5e extends Actor {
     }
 
     this.prepareSkills();
+    this.prepareMovement();
+    this.prepareSenses();
+
     if ((this.system.schemaVersion?.version ?? this.system.schema?.version) < 0.005) return;
     foundry.utils.setProperty(this, 'system.attributes.ac.changes', this.prepareArmorChanges());
   }
@@ -514,6 +517,30 @@ export default class ActorA5e extends Actor {
       rollData.abilities[skill.ability]?.check?.deterministicBonus ?? 0,
       this.BonusesManager.getSkillBonusesFormula(skillKey, skill.ability, 'passive', true)
     ].filter(Boolean).join(' + '), rollData);
+  }
+
+  prepareMovement() {
+    const { movement } = this.system.attributes;
+    for (const [type, { distance }] of Object.entries(movement)) {
+      const bonusFormula = this.BonusesManager.getMovementBonusFormula(type);
+      if (!bonusFormula) continue;
+
+      const bonus = getDeterministicBonus(bonusFormula, this.getRollData());
+      if (!bonus) continue;
+      this.system.attributes.movement[type].distance = distance + bonus;
+    }
+  }
+
+  prepareSenses() {
+    const { senses } = this.system.attributes;
+    for (const [type, { distance }] of Object.entries(senses)) {
+      const bonusFormula = this.BonusesManager.getSensesBonusFormula(type);
+      if (!bonusFormula) continue;
+
+      const bonus = getDeterministicBonus(bonusFormula, this.getRollData());
+      if (!bonus) continue;
+      this.system.attributes.senses[type].distance = distance + bonus;
+    }
   }
 
   /**

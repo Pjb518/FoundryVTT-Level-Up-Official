@@ -4,6 +4,8 @@ import type {
   DamageBonusContext,
   HealingBonusContext,
   InitiativeBonusContext,
+  MovementBonusContext,
+  SensesBonusContext,
   SkillBonusContext
 } from './contexts';
 
@@ -55,7 +57,7 @@ export interface InitiativeBonus {
 }
 
 export interface MovementBonus {
-  context: string;
+  context: MovementBonusContext;
   formula: string;
   label: string;
   defaultLabel?: string;
@@ -63,7 +65,7 @@ export interface MovementBonus {
 }
 
 export interface SensesBonus {
-  context: string;
+  context: SensesBonusContext;
   formula: string;
   label: string;
   defaultLabel?: string;
