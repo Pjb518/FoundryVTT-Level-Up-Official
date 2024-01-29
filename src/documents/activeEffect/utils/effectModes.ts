@@ -1,6 +1,6 @@
 import A5E from '../../../config';
 
-const MODES = A5E.ACTIVE_EFFECT_MODES;
+const MODES: Record<string, number> = A5E.ACTIVE_EFFECT_MODES;
 const DEFAULT_MODES = Object.keys(MODES)
   .filter((k) => k !== 'CUSTOM')
   .sort((a, b) => a.localeCompare(b));

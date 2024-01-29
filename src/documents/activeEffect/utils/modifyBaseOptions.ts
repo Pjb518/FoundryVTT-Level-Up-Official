@@ -23,17 +23,6 @@ export default function modifyBaseOptions(options: Object) {
       options[`system.skills.${s}.ability`] = ['', MODES.OVERRIDE_ONLY, [...Object.entries(CONFIG.A5E.abilities), ['@attributes.spellcasting', 'Spellcasting']], 'RADIO'];
     });
 
-  // Add options for movement and sense units
-  Object.keys(CONFIG.A5E.movement)
-    .forEach((m) => {
-      options[`system.attributes.movement.${m}.unit`] = ['', MODES.OVERRIDE_ONLY, Object.entries(CONFIG.A5E.distanceUnits), 'RADIO'];
-    });
-
-  Object.keys(CONFIG.A5E.senses)
-    .forEach((s) => {
-      options[`system.attributes.senses.${s}.unit`] = ['', MODES.OVERRIDE_ONLY, Object.entries(CONFIG.A5E.visionUnits), 'RADIO'];
-    });
-
   options['system.attributes.initiative.ability'] = ['', MODES.OVERRIDE_ONLY, Object.entries(CONFIG.A5E.abilities), 'RADIO'];
 
   // Add options for details
