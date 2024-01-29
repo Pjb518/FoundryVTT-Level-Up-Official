@@ -5,10 +5,12 @@
 </script>
 
 <p>
-    There is a huge amount of 3PP material available for A5e, and we've worked
-    hard to forge relationships third-party publishers to ensure that all of
-    this great content is supported in the A5e system. Much of it is even
-    included in the system by default.
+    There is a <a
+        href="https://preview.drivethrurpg.com/en/browse?ruleSystem=1000104&?affiliate_id=1388381"
+        target="_blank">huge amount of 3PP material available for A5e</a
+    >, and we've worked hard to forge relationships with third-party publishers
+    to ensure that all of this great content is supported in the A5e system.
+    Much of it is even included in the system by default.
 </p>
 
 <p>
