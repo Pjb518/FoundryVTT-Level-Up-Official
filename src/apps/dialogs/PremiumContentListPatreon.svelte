@@ -44,31 +44,6 @@
 <h3>
     <a
         class="patreon-link"
-        href="https://www.patreon.com/posts/preview-of-our-90869285"
-        target="_blank"
-    >
-        <i
-            class="tier-indicator tier-indicator--bronze fa-solid fa-circle"
-            data-tooltip="This tool is available to bronze tier patrons"
-        /> Fancy Compendium Packs for A5e
-    </a>
-</h3>
-
-<p>
-    This module includes a host of improvements for compendium packs in A5e,
-    including context-specific filters, improved search functionality, and a
-    more helpful previews for compendium documents.
-</p>
-
-<p>
-    Future versions of this module will further integrate these new compendium
-    sheets into character sheets, allowing you to quickly add a host of
-    documents in a just a few clicks.
-</p>
-
-<h3>
-    <a
-        class="patreon-link"
         href="https://www.patreon.com/posts/preview-builder-92995236"
         target="_blank"
     >
