@@ -84,8 +84,24 @@ export function getInitiativeBonusContext() {
   };
 }
 
-export function getMovementBonusContext() {
+export function getMovementBonusContext(type: 'grant' | 'bonus') {
   const { fields } = foundry.data;
+
+  const schema: any = {
+    movementTypes: new fields.ArrayField(
+      new fields.StringField({ required: true, initial: '' }),
+      { initial: [] }
+    ),
+    isHover: new fields.BooleanField({ required: true, initial: false })
+  };
+
+  if (type === 'bonus') {
+    schema.movementTypes = new fields.ArrayField(
+      new fields.StringField({ required: true, initial: '' }),
+      { initial: [] }
+    );
+  }
+
   return {
     movementTypes: new fields.ArrayField(
       new fields.StringField({ required: true, initial: '' }),
@@ -95,8 +111,23 @@ export function getMovementBonusContext() {
   };
 }
 
-export function getSensesBonusContext() {
+export function getSensesBonusContext(type: 'grant' | 'bonus') {
   const { fields } = foundry.data;
+
+  const schema: any = {
+    senses: new fields.ArrayField(new fields.StringField({ required: true, initial: '' }), {
+      initial: Object.keys(CONFIG.A5E.senses)
+    }),
+    otherwiseBlind: new fields.BooleanField({ required: true, initial: false })
+  };
+
+  if (type === 'bonus') {
+    schema.senses = new fields.ArrayField(
+      new fields.StringField({ required: true, initial: '' }),
+      { initial: [] }
+    );
+  }
+
   return {
     senses: new fields.ArrayField(new fields.StringField({ required: true, initial: '' }), {
       initial: Object.keys(CONFIG.A5E.senses)

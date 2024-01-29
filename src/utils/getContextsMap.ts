@@ -164,6 +164,90 @@ export default function getContextsMap(type: 'bonus' | 'grant', contextType: str
     );
   }
 
+  if (contextType === 'movement') {
+    if (type === 'bonus') {
+      map.push(
+        {
+          heading: 'A5E.contexts.movementType',
+          options: Object.entries(CONFIG.A5E.movementAbbreviations),
+          selectedProperty: 'context.movementTypes',
+          component: 'TagGroup'
+        }
+      );
+    } else {
+      map.push(
+        {
+          heading: 'Base Movement Types',
+          options: Object.entries(CONFIG.A5E.movementAbbreviations),
+          selectedProperty: 'movementTypes.base',
+          component: 'TagGroup'
+        },
+        {
+          heading: 'Movement Type Choices',
+          options: Object.entries(CONFIG.A5E.movementAbbreviations),
+          selectedProperty: 'movementTypes.options',
+          component: 'TagGroup'
+        }
+      );
+    }
+
+    map.push(
+      {
+        heading: 'Count',
+        selectedProperty: 'movementTypes.total',
+        component: 'Number'
+      },
+
+      {
+        heading: 'Is Hover For Flying Speed',
+        selectedProperty: 'context.isHover',
+        component: 'Checkbox'
+      }
+    );
+  }
+
+  if (contextType === 'senses') {
+    if (type === 'bonus') {
+      map.push(
+        {
+          heading: 'A5E.contexts.senses',
+          options: Object.entries(CONFIG.A5E.senses),
+          selectedProperty: 'context.senses',
+          component: 'TagGroup'
+        }
+      );
+    } else {
+      map.push(
+        {
+          heading: 'Base Senses',
+          options: Object.entries(CONFIG.A5E.senses),
+          selectedProperty: 'senses.base',
+          component: 'TagGroup'
+        },
+        {
+          heading: 'Movement Type Choices',
+          options: Object.entries(CONFIG.A5E.movementAbbreviations),
+          selectedProperty: 'senses.options',
+          component: 'TagGroup'
+        }
+      );
+    }
+
+    map.push(
+      {
+        heading: 'Count',
+        selectedProperty: 'senses.total',
+        component: 'Number'
+      },
+
+      {
+        heading: 'Is Blind Beyond Vision Range',
+        selectedProperty: 'context.otherwiseBlind',
+        component: 'Checkbox'
+      }
+    );
+  }
+
   if (contextType === 'skills') {
     if (type === 'bonus') {
       map.push(

@@ -6,7 +6,7 @@ import HealingGrant from './HealingGrant';
 import InitiativeGrant from './InitiativeGrant';
 import MovementGrant from './MovementGrant';
 import SkillGrant from './SkillGrant';
-import VisionGrant from './VisionGrant';
+import SensesGrant from './SensesGrant';
 
 export default {
   base: BaseGrant,
@@ -16,6 +16,6 @@ export default {
   healing: HealingGrant,
   initiative: InitiativeGrant,
   movement: MovementGrant,
-  skill: SkillGrant,
-  vision: VisionGrant
+  senses: SensesGrant,
+  skill: SkillGrant
 };

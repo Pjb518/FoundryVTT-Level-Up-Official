@@ -32,12 +32,6 @@
         updateDocumentDataFromField($item, key, value);
     }
 
-    function getTypeHeading() {
-        if (grantType === "damage") return "A5E.DamageType";
-        if (grantType === "healing") return "A5E.HealingType";
-        return "";
-    }
-
     onDestroy(() => {
         item.destroy();
     });
@@ -55,8 +49,24 @@
             selectTypes: CONFIG.A5E.healingTypes,
             selectProperty: "healingType",
         },
+        movement: {
+            selectHeading: "A5E.Unit",
+            selectTypes: CONFIG.A5E.distanceUnits,
+            selectProperty: "unit",
+        },
+        senses: {
+            selectHeading: "A5E.Unit",
+            selectTypes: CONFIG.A5E.distanceUnits,
+            selectProperty: "unit",
+        },
         skills: {},
     };
+    const hasSelectDialog = [
+        "damage",
+        "healing",
+        "movement",
+        "senses",
+    ].includes(grantType);
 
     $: grant = $item.system.grants[grantId];
     $: selectProperty = configObject[grantType]?.selectProperty;
@@ -89,13 +99,13 @@
         </div>
     </header>
 
-    <section>
+    <Section
+        --a5e-section-margin="0.25rem 0"
+        --a5e-section-body-direction={hasSelectDialog ? "row" : "column"}
+    >
         <FieldWrapper
             heading="A5E.Formula"
-            --background="none"
-            --grow="1"
-            --direction="column"
-            --padding="0"
+            --a5e-field-wrapper-grow={hasSelectDialog ? "1" : "0"}
         >
             <input
                 type="text"
@@ -104,9 +114,9 @@
             />
         </FieldWrapper>
 
-        {#if grantType === "damage" || grantType === "healing"}
+        {#if hasSelectDialog}
             <FieldWrapper
-                heading={getTypeHeading()}
+                heading={configObject[grantType]?.selectHeading ?? ""}
                 --background="none"
                 --direction="column"
                 --padding="0"
@@ -114,7 +124,10 @@
                 <select
                     class="u-w-fit damage-type-select"
                     on:change={({ target }) =>
-                        onUpdateValue("damageType", target.value)}
+                        onUpdateValue(
+                            configObject[grantType]?.selectProperty,
+                            target.value,
+                        )}
                 >
                     <option
                         value={null}
@@ -135,7 +148,7 @@
                 </select>
             </FieldWrapper>
         {/if}
-    </section>
+    </Section>
 
     <NumericalGrantContexts />
 

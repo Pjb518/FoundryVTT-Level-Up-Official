@@ -8,10 +8,10 @@ export default function registerGrantsConfig(A5E) {
     healing: 'A5E.grants.headings.healing',
     // item: 'A5E.Item',
     initiative: 'A5E.grants.headings.initiative',
-    // movement: 'A5E.Movement',
+    movement: 'A5E.grants.headings.movement',
     // proficiency: 'A5E.Proficiency',
+    senses: 'A5E.grants.headings.senses',
     skill: 'A5E.grants.headings.skill'
     // trait: 'A5E.Trait',
-    // vision: 'A5E.Vision'
   };
 }

@@ -3,21 +3,21 @@ import BaseGrant from './BaseGrant';
 import NumericalGrantConfig from '../../../apps/components/grants/NumericalGrantConfig.svelte';
 import NumericalGrantSelectionDialog from '../../../apps/components/grants/NumericalGrantSelectionDialog.svelte';
 
-import { getMovementBonusContext } from '../../actor/Contexts';
+import { getSensesBonusContext } from '../../actor/Contexts';
 
-export default class MovementGrant extends BaseGrant {
+export default class SensesGrant extends BaseGrant {
   #component = NumericalGrantSelectionDialog;
 
   #configComponent = NumericalGrantConfig;
 
-  #type = 'movement';
+  #type = 'senses';
 
   static defineSchema() {
     const { fields } = foundry.data;
 
     return this.mergeSchema(super.defineSchema(), {
-      grantType: new fields.StringField({ required: true, initial: 'movement' }),
-      movementTypes: new fields.SchemaField({
+      grantType: new fields.StringField({ required: true, initial: 'senses' }),
+      senses: new fields.SchemaField({
         base: new fields.ArrayField(
           new fields.StringField({ required: true, initial: '' }),
           { required: true, initial: [] }
@@ -30,8 +30,8 @@ export default class MovementGrant extends BaseGrant {
       }),
       bonus: new fields.StringField({ required: true, initial: '' }),
       unit: new fields.StringField({ required: true, initial: 'feet' }),
-      context: new fields.SchemaField(getMovementBonusContext('grant')),
-      label: new fields.StringField({ required: true, initial: 'New Movement Grant' })
+      context: new fields.SchemaField(getSensesBonusContext('grant')),
+      label: new fields.StringField({ required: true, initial: 'New Senses Grant' })
     });
   }
 
@@ -41,12 +41,12 @@ export default class MovementGrant extends BaseGrant {
     const bonusId = foundry.utils.randomID();
     const bonus = {
       context: {
-        movementTypes: data?.selected ?? this.movementTypes.base ?? [],
+        senses: data?.selected ?? this.senses.base ?? [],
         ...this.context
       },
       formula: this.bonus,
       unit: this.unit || 'feet',
-      label: this.label || this.parent?.name || 'Movement Grant',
+      label: this.label || this.parent?.name || 'Senses Grant',
       img: this.img || this?.parent?.img
     };
 
@@ -58,7 +58,7 @@ export default class MovementGrant extends BaseGrant {
     };
 
     return {
-      [`system.bonuses.movement.${bonusId}`]: bonus,
+      [`system.bonuses.senses.${bonusId}`]: bonus,
       'system.grants': {
         ...actor.system.grants,
         [this._id]: grantData
@@ -72,29 +72,29 @@ export default class MovementGrant extends BaseGrant {
 
   getSelectionComponentProps(data: Record<string, any>) {
     return {
-      base: data?.selected ?? this.movementTypes.base ?? [],
+      base: data?.selected ?? this.senses.base ?? [],
       bonus: this.bonus,
-      choices: this.movementTypes.options ?? [],
-      configObject: CONFIG.A5E.movementAbbreviations,
-      count: this.movementTypes.total,
+      choices: this.senses.options ?? [],
+      configObject: CONFIG.A5E.senses,
+      count: this.senses.total,
       unit: this.unit,
-      heading: 'Movement Grant Selection'
+      heading: 'Senses Grant Selection'
     };
   }
 
   requiresConfig() {
-    return this.movementTypes.length !== this.movementTypes.total;
+    return this.senses.length !== this.senses.total;
   }
 
   override async configureGrant() {
     const dialogData = {
       document: this?.parent,
       grantId: this._id,
-      grantType: 'movement'
+      grantType: 'senses'
     };
 
     super.configureGrant(
-      'Configure Movement Grant',
+      'Configure Senses Grant',
       dialogData,
       this.#configComponent,
       { width: 400 }
