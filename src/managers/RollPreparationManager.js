@@ -186,10 +186,10 @@ export default class RollPreparationManager {
   }
 
   async #prepareDamageRoll(_roll, attackRoll, index) {
-    let formula;
-
     const { isCrit } = attackRoll ?? {};
     const { canCrit, critBonus, damageType } = _roll;
+    const critBonuses = [];
+    const modifiers = [];
 
     const { context } = _roll;
     let genericCritBonusDamage = '';
@@ -197,23 +197,18 @@ export default class RollPreparationManager {
     if (index === 0) {
       const genericBonusDamage = this.#prepareGenericBonusDamage(isCrit);
 
-      const { nonCritBonuses, critBonuses } = genericBonusDamage.reduce((acc, curr) => {
-        if (curr.context?.isCritBonus) acc.critBonuses.push(curr.formula);
-        else acc.nonCritBonuses.push(curr.formula);
-
-        return acc;
-      }, { nonCritBonuses: [], critBonuses: [] });
+      genericBonusDamage.forEach((bonus) => {
+        if (bonus.context?.isCritBonus) critBonuses.push(bonus.formula);
+        else modifiers.push({ value: bonus.formula, label: bonus.label });
+      });
 
       if (critBonuses.length) genericCritBonusDamage = critBonuses.join(' + ');
-
-      formula = [this.#applyDamageOrHealingScaling(_roll), ...nonCritBonuses].join(' + ');
-    } else {
-      formula = this.#applyDamageOrHealingScaling(_roll);
     }
 
     const { rollFormula } = constructRollFormula({
       actor: this.#actor,
-      formula
+      formula: this.#applyDamageOrHealingScaling(_roll),
+      modifiers
     });
 
     if (!rollFormula) return null;
@@ -262,7 +257,7 @@ export default class RollPreparationManager {
       ({ damageType }) => !damageType || damageType === 'null'
     );
 
-    return genericBonusDamage.map(({ formula, context }) => ({ formula, context }));
+    return genericBonusDamage.map(({ formula, context, label }) => ({ formula, context, label }));
   }
 
   async #prepareGenericRoll(_roll) {
