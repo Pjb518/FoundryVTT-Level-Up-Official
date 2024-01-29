@@ -30,9 +30,11 @@ import DamageVulnerabilitiesConfigDialog from '../../apps/dialogs/DamageVulnerab
 import InitiativeBonusConfigDialog from '../../apps/dialogs/InitiativeBonusConfigDialog.svelte';
 import HealingBonusConfigDialog from '../../apps/dialogs/HealingBonusConfigDialog.svelte';
 import LanguagesConfigDialog from '../../apps/dialogs/LanguagesConfigDialog.svelte';
+import MovementBonusConfigDialog from '../../apps/dialogs/bonuses/MovementBonusConfigDialog.svelte';
 import MovementConfigDialog from '../../apps/dialogs/MovementConfigDialog.svelte';
 import RestDialog from '../../apps/dialogs/RestDialog.svelte';
 import SavingThrowRollDialog from '../../apps/dialogs/SavingThrowRollDialog.svelte';
+import SensesBonusConfigDialog from '../../apps/dialogs/bonuses/SensesBonusConfigDialog.svelte';
 import SensesConfigDialog from '../../apps/dialogs/SensesConfigDialog.svelte';
 import SkillBonusConfigDialog from '../../apps/dialogs/SkillBonusConfigDialog.svelte';
 import SkillCheckRollDialog from '../../apps/dialogs/SkillCheckRollDialog.svelte';
@@ -81,7 +83,9 @@ export default class ActorA5e extends Actor {
       languages: LanguagesConfigDialog,
       maneuvers: ActorManueverConfigDialog,
       movement: MovementConfigDialog,
+      movementBonus: MovementBonusConfigDialog,
       senses: SensesConfigDialog,
+      sensesBonus: SensesBonusConfigDialog,
       size: CreatureSizeConfigDialog,
       skill: SkillConfigDialog,
       skillBonus: SkillBonusConfigDialog,
@@ -746,7 +750,7 @@ export default class ActorA5e extends Actor {
   addBonus(type = 'damage') {
     const bonuses = foundry.utils.duplicate(this._source.system.bonuses[type] ?? {});
 
-    if (!['abilities', 'attacks', 'skills', 'damage', 'healing', 'initiative'].includes(type)) return;
+    if (!Object.keys(CONFIG.A5E.bonusTypes)?.includes(type)) return;
 
     this.update({
       [`system.bonuses.${type}`]: {
@@ -764,7 +768,7 @@ export default class ActorA5e extends Actor {
 
     if (key === 'ability') dialog = this.dialogs.abilities[data.abilityKey];
     else if (key === 'skill') dialog = this.dialogs.skills[data.skillKey];
-    else if (['abilityBonus', 'attackBonus', 'damageBonus', 'healingBonus', 'skillBonus'].includes(key)) {
+    else if (Object.values(CONFIG.A5E.bonusDialogKeys).includes(key)) {
       dialog = this.dialogs.bonuses[data.bonusID];
     }
     else dialog = this.dialogs[key];
@@ -774,7 +778,7 @@ export default class ActorA5e extends Actor {
 
       if (key === 'ability') this.dialogs.abilities[data.abilityKey] = dialog;
       else if (key === 'skill') this.dialogs.skills[data.skillKey] = dialog;
-      else if (['abilityBonus', 'attackBonus', 'damageBonus', 'healingBonus', 'skillBonus'].includes(key)) {
+      else if (Object.values(CONFIG.A5E.bonusDialogKeys).includes(key)) {
         this.dialogs.bonuses[data.bonusID] = dialog;
       }
       else this.dialogs[key] = dialog;
@@ -808,19 +812,11 @@ export default class ActorA5e extends Actor {
   }
 
   configureBonus(bonusID, type = 'damage') {
-    if (type === 'abilities') {
-      this.#configure('abilityBonus', `${this.name} Ability Bonus Configuration`, { bonusID });
-    } else if (type === 'attacks') {
-      this.#configure('attackBonus', `${this.name} Attack Bonus Configuration`, { bonusID });
-    } else if (type === 'damage') {
-      this.#configure('damageBonus', `${this.name} Damage Bonus Configuration`, { bonusID });
-    } else if (type === 'healing') {
-      this.#configure('healingBonus', `${this.name} Healing Bonus Configuration`, { bonusID });
-    } else if (type === 'initiative') {
-      this.#configure('initiativeBonus', `${this.name} Initiative Bonus Configuration`, { bonusID });
-    } else if (type === 'skills') {
-      this.#configure('skillBonus', `${this.name} Skill Bonus Configuration`, { bonusID });
-    }
+    const dialogKey = CONFIG.A5E.bonusDialogKeys[type];
+    if (!dialogKey) return;
+
+    const dialogName = `${this.name} ${localize(CONFIG.A5E.bonusLabels[type]?.dialogName ?? type)}`;
+    this.#configure(dialogKey, dialogName, { bonusID });
   }
 
   configureArmorClass(data = {}, options = {}) {

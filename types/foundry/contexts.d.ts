@@ -30,10 +30,12 @@ export interface InitiativeBonusContext {
 
 export interface MovementBonusContext {
   movementTypes: string[];
+  istHover: boolean;
 }
 
 export interface SensesBonusContext {
   senses: string[];
+  otherwiseBlind: boolean;
 }
 
 export interface SkillBonusContext {

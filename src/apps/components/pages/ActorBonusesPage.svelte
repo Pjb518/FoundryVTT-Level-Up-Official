@@ -1,5 +1,6 @@
 <script>
     import { getContext } from "svelte";
+    import { localize } from "#runtime/svelte/helper";
 
     import FieldWrapper from "../FieldWrapper.svelte";
     import Section from "../Section.svelte";
@@ -37,66 +38,26 @@
     // }
 
     function getBonusSectionHeader(bonusType) {
-        switch (bonusType) {
-            case "abilities":
-                return "Ability Bonuses";
-            case "attacks":
-                return "Attack Bonuses";
-            case "damage":
-                return "Damage Bonuses";
-            case "healing":
-                return "Healing Bonuses";
-            case "initiative":
-                return "Initiative Bonuses";
-            case "skills":
-                return "Skill Bonuses";
-        }
+        return localize(
+            CONFIG.A5E.bonusLabels[bonusType]?.sectionHeader ?? bonusType,
+        );
     }
 
     function getAddButtonLabelForBonus(bonusType) {
-        switch (bonusType) {
-            case "abilities":
-                return "+ Add Ability Bonus";
-            case "attacks":
-                return "+ Add Attack Bonus";
-            case "damage":
-                return "+ Add Damage Bonus";
-            case "healing":
-                return "+ Add Healing Bonus";
-            case "initiative":
-                return "+ Add Initiative Bonus";
-            case "skills":
-                return "+ Add Skill Bonus";
-        }
+        return localize(
+            CONFIG.A5E.bonusLabels[bonusType]?.addButton ?? bonusType,
+        );
     }
 
     function getDefaultBonusName(bonusType) {
-        switch (bonusType) {
-            case "abilities":
-                return "New Ability Bonus";
-            case "attacks":
-                return "New Attack Bonus";
-            case "damage":
-                return "New Damage Bonus";
-            case "healing":
-                return "New Healing Bonus";
-            case "initiative":
-                return "New Initiative Bonus";
-            case "skills":
-                return "New Skill Bonus";
-        }
+        return localize(
+            CONFIG.A5E.bonusLabels[bonusType]?.defaultName ?? bonusType,
+        );
     }
 
     const actor = getContext("actor");
 
-    const bonusCategories = [
-        "abilities",
-        "attacks",
-        "damage",
-        "healing",
-        "initiative",
-        "skills",
-    ];
+    const bonusCategories = Object.keys(CONFIG.A5E.bonusTypes);
 
     let rightClickConfigure =
         game.settings.get("a5e", "itemRightClickConfigure") ?? true;
