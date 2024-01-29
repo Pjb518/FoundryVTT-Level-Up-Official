@@ -52,6 +52,13 @@ export default function registerPremiumContentConfig(A5E) {
 
       ]
     },
+    plantWitchPress: {
+      name: 'Plant Witch Press',
+      releases: [{
+        title: 'Toil and Trouble',
+        url: 'https://bit.ly/3HE10VQ'
+      }]
+    },
     purpleMartinGames: {
       name: 'Purple Martin Games',
       releases: [
@@ -61,7 +68,7 @@ export default function registerPremiumContentConfig(A5E) {
         },
         {
           title: 'MoAR: Complete',
-          url: 'https://bit.ly/3spFznx'
+          url: 'https://bit.ly/4b7Fsyi'
         },
         {
           title: 'MoAR: Elements',
@@ -80,16 +87,34 @@ export default function registerPremiumContentConfig(A5E) {
           url: 'https://bit.ly/3xisyKN'
         },
         {
-          title: 'Spells from the Forgotten Vault',
-          url: 'https://bit.ly/3nyQbOt'
+          title: 'Thematic Toolkit: Folk of the Court',
+          url: 'https://bit.ly/48SVn1R'
+        },
+        {
+          title: 'Thematic Toolkit: Itinerant',
+          url: 'https://bit.ly/3Sidh7p'
         }
       ]
+    },
+    rollThemBones: {
+      name: 'Roll them Bones',
+      releases: [{
+        title: 'Extra Credit and Deeper Mysteries',
+        url: 'https://bit.ly/47UnJaV'
+      }]
+    },
+    speaksAndSpells: {
+      name: 'Speaks & Spells Publishing',
+      releases: [{
+        title: 'The Arcane Exterminator: An Artificer Archetype and Magic Item Compendium',
+        url: 'https://bit.ly/49fTzA3'
+      }]
     },
     steampunkette: {
       name: 'Steampunkette',
       releases: [{
         title: 'Paranormal Power',
-        url: 'https://bit.ly/3ZbkPLj'
+        url: 'https://bit.ly/49bS1XH'
       }]
     },
     wolfworksPress: {
