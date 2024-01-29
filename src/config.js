@@ -1,4 +1,5 @@
 import registerActiveEffectConfig from './config/registerActiveEffectConfig';
+import registerBonusesConfig from './config/registerBonusesConfig';
 import registerCharacterClassesConfig from './config/registerCharacterClassesConfig';
 import registerConsumerConfig from './config/registerConsumerConfig';
 import registerContextsConfig from './config/registerContextsConfig';
@@ -1545,6 +1546,7 @@ registerContextsConfig(A5E);
 registerGrantsConfig(A5E);
 
 registerActiveEffectConfig(A5E);
+registerBonusesConfig(A5E);
 registerCharacterClassesConfig(A5E);
 registerConsumerConfig(A5E);
 registerFilterConfig(A5E);

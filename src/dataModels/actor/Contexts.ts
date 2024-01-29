@@ -84,6 +84,25 @@ export function getInitiativeBonusContext() {
   };
 }
 
+export function getMovementBonusContext() {
+  const { fields } = foundry.data;
+  return {
+    movementTypes: new fields.ArrayField(
+      new fields.StringField({ required: true, initial: '' }),
+      { initial: [] }
+    )
+  };
+}
+
+export function getSensesBonusContext() {
+  const { fields } = foundry.data;
+  return {
+    senses: new fields.ArrayField(new fields.StringField({ required: true, initial: '' }), {
+      initial: Object.keys(CONFIG.A5E.senses)
+    })
+  };
+}
+
 export function getSkillBonusContext(type: 'grant' | 'bonus') {
   const { fields } = foundry.data;
 

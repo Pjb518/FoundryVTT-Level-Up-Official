@@ -53,6 +53,22 @@ export interface InitiativeBonus {
   img: string;
 }
 
+export interface MovementBonus {
+  context: string;
+  formula: string;
+  label: string;
+  defaultLabel?: string;
+  img: string;
+}
+
+export interface SensesBonus {
+  context: string;
+  formula: string;
+  label: string;
+  defaultLabel?: string;
+  img: string;
+}
+
 export interface SkillBonus {
   context: SkillBonusContext;
   formula: string;
@@ -68,6 +84,8 @@ export interface Bonuses {
   damage: { [id: string]: DamageBonus };
   healing: { [id: string]: HealingBonus };
   initiative: { [id: string]: InitiativeBonus };
+  movement: { [id: string]: MovementBonus };
+  senses: { [id: string]: SensesBonus };
   skills: { [id: string]: SkillBonus };
   maneuverDC: string;
   meleeWeaponAttack: string;

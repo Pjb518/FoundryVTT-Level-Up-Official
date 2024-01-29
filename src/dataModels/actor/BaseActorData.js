@@ -12,6 +12,8 @@ import {
   getDamageBonusData,
   getHealingBonusData,
   getInitiativeBonusData,
+  getMovementBonusData,
+  getSensesBonusData,
   getSkillBonusData
 } from './Bonuses';
 
@@ -176,6 +178,14 @@ export default class BaseActorData extends A5EDataModel.mixin(SchemaDataModel) {
         initiative: new RecordField(
           new fields.DocumentIdField({ required: true, initial: () => foundry.utils.randomID() }),
           new fields.SchemaField(getInitiativeBonusData())
+        ),
+        movement: new RecordField(
+          new fields.DocumentIdField({ required: true, initial: () => foundry.utils.randomID() }),
+          new fields.SchemaField(getMovementBonusData())
+        ),
+        senses: new RecordField(
+          new fields.DocumentIdField({ required: true, initial: () => foundry.utils.randomID() }),
+          new fields.SchemaField(getSensesBonusData())
         ),
         skills: new RecordField(
           new fields.DocumentIdField({ required: true, initial: () => foundry.utils.randomID() }),

@@ -4,6 +4,8 @@ import {
   getDamageBonusContext,
   getHealingBonusContext,
   getInitiativeBonusContext,
+  getMovementBonusContext,
+  getSensesBonusContext,
   getSkillBonusContext
 } from './Contexts';
 
@@ -57,6 +59,27 @@ export function getInitiativeBonusData() {
   const { fields } = foundry.data;
   return {
     context: new fields.SchemaField(getInitiativeBonusContext('bonus')),
+    default: new fields.BooleanField({ required: true, initial: true }),
+    formula: new fields.StringField({ required: true, initial: '' }),
+    label: new fields.StringField({ required: true, initial: '' }),
+    img: new fields.StringField({ required: true, initial: 'icons/svg/upgrade.svg' })
+  };
+}
+
+export function getMovementBonusData() {
+  const { fields } = foundry.data;
+  return {
+    context: new fields.SchemaField(getMovementBonusContext()),
+    formula: new fields.StringField({ required: true, initial: '' }),
+    label: new fields.StringField({ required: true, initial: '' }),
+    img: new fields.StringField({ required: true, initial: 'icons/svg/upgrade.svg' })
+  };
+}
+
+export function getSensesBonusData() {
+  const { fields } = foundry.data;
+  return {
+    context: new fields.SchemaField(getSensesBonusContext()),
     formula: new fields.StringField({ required: true, initial: '' }),
     label: new fields.StringField({ required: true, initial: '' }),
     img: new fields.StringField({ required: true, initial: 'icons/svg/upgrade.svg' })

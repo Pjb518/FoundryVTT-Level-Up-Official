@@ -28,6 +28,14 @@ export interface InitiativeBonusContext {
   skills: string[];
 }
 
+export interface MovementBonusContext {
+  movementTypes: string[];
+}
+
+export interface SensesBonusContext {
+  senses: string[];
+}
+
 export interface SkillBonusContext {
   skills: string[];
   passiveOnly: boolean;
