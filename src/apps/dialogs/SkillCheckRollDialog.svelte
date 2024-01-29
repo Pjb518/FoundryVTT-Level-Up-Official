@@ -76,7 +76,7 @@
 
     $: selectedAbilityBonuses = $actor.BonusesManager.getDefaultSelections(
         "abilities",
-        { abilityKey, ablType: "check" },
+        { abilityKey, abilityType: "check" },
     );
 
     $: selectedSkillBonuses = $actor.BonusesManager.getDefaultSelections(

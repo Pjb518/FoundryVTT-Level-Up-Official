@@ -81,7 +81,7 @@
     let situationalMods = options.situationalMods ?? "";
     $: selectedAbilityBonuses = $actor.BonusesManager.getDefaultSelections(
         "abilities",
-        { abilityKey, ablType: "save" },
+        { abilityKey, abilityType: "save" },
     );
 
     $: rollMode = overrideRollMode($actor, selectedRollMode, {

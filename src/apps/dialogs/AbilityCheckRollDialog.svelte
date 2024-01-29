@@ -64,7 +64,7 @@
 
     $: selectedAbilityBonuses = $actor.BonusesManager.getDefaultSelections(
         "abilities",
-        { abilityKey, ablType: "check" },
+        { abilityKey, abilityType: "check" },
     );
 
     $: rollFormula = getRollFormula($actor, {

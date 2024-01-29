@@ -1089,7 +1089,7 @@ export default class ActorA5e extends Actor {
       situationalMods: options.situationalMods,
       selectedAbilityBonuses: this.BonusesManager.getDefaultSelections(
         'abilities',
-        { abilityKey, ablType: 'check' }
+        { abilityKey, abilityType: 'check' }
       ),
       type: 'abilityCheck'
     });
@@ -1267,7 +1267,7 @@ export default class ActorA5e extends Actor {
       situationalMods: options.situationalMods,
       selectedAbilityBonuses: this.BonusesManager.getDefaultSelections(
         'abilities',
-        { abilityKey, ablType: 'save' }
+        { abilityKey, abilityType: 'save' }
       ),
       type: 'savingThrow'
     });
@@ -1395,7 +1395,7 @@ export default class ActorA5e extends Actor {
       skill: skillKey,
       selectedAbilityBonuses: this.BonusesManager.getDefaultSelections(
         'abilities',
-        { abilityKey, ablType: 'check' }
+        { abilityKey, abilityType: 'check' }
       ),
       selectedSkillBonuses: this.BonusesManager.getDefaultSelections(
         'skills',
