@@ -6,5 +6,6 @@ export default function prepareExpertiseDiceOptions() {
     [3, 'd8'],
     [4, 'd10'],
     [5, 'd12']
+    // [6, 'd20']
   ];
 }

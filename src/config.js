@@ -414,6 +414,16 @@ A5E.equippedStates = {
   2: 'A5E.equippedState.equipped'
 };
 
+A5E.expertiseDiceSidesMap = {
+  0: 0,
+  1: 4,
+  2: 6,
+  3: 8,
+  4: 10,
+  5: 12,
+  6: 20
+};
+
 A5E.featureTypes = {
   background: 'A5E.FeatureBackground',
   boon: 'A5E.FeatureBoon',

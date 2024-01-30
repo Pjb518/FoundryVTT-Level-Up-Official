@@ -1,7 +1,6 @@
 <script>
     import prepareExpertiseDiceOptions from "../dataPreparationHelpers/prepareExpertiseDiceOptions";
 
-    import FieldWrapper from "./FieldWrapper.svelte";
     import RadioGroup from "./RadioGroup.svelte";
 
     export let selected;
