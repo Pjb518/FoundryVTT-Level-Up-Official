@@ -30,7 +30,7 @@ export default async function automateHpConditions(actor, changes, userId, condi
 
   // TODO: Call hook to recharge uses on bloodied
   // Handle Application of Condition
-  if (actor.type === 'character' && actor.parent === null) {
+  if (actor.prototypeToken.actorLink && actor.parent === null) {
     if (isApplicable && !hasCondition) {
       const createData = foundry.utils.deepClone(condition);
       createData.label = game.i18n.localize(condition.label);
