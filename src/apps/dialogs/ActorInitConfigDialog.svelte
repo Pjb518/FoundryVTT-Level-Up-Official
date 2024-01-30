@@ -34,6 +34,7 @@
 
     <ExpertiseDiePicker
         selected={initiative.expertiseDice}
+        type={$actor.type}
         on:updateSelection={(event) =>
             updateDocumentDataFromField(
                 $actor,

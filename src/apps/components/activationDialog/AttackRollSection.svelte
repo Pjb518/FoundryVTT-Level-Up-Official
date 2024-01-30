@@ -89,6 +89,7 @@
     --background="transparent"
     --padding="0"
     selected={expertiseDie}
+    type={$actor.type}
     on:updateSelection={({ detail }) => (expertiseDie = detail)}
 />
 

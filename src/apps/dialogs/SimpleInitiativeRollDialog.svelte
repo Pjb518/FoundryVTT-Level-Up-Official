@@ -102,6 +102,7 @@
 
     <ExpertiseDiePicker
         selected={expertiseDie}
+        type={$actor.type}
         on:updateSelection={(event) => {
             expertiseDie = event.detail;
         }}

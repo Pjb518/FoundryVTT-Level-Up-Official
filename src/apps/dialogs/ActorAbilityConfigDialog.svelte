@@ -23,6 +23,7 @@
         <Section heading="Ability Check Configuration">
             <ExpertiseDiePicker
                 selected={ability?.check.expertiseDice}
+                type={$actor.type}
                 on:updateSelection={({ detail }) =>
                     updateDocumentDataFromField(
                         $actor,
@@ -56,6 +57,7 @@
         {#if !hideExpertiseDice}
             <ExpertiseDiePicker
                 selected={ability?.save.expertiseDice}
+                type={$actor.type}
                 on:updateSelection={({ detail }) =>
                     updateDocumentDataFromField(
                         $actor,

@@ -3,9 +3,10 @@
 
     import RadioGroup from "./RadioGroup.svelte";
 
+    export let type = "character";
     export let selected;
 
-    const options = prepareExpertiseDiceOptions();
+    const options = prepareExpertiseDiceOptions(type);
     const hideExpertiseDice = game.settings.get("a5e", "hideExpertiseDice");
 </script>
 

@@ -21,6 +21,9 @@
         CONFIG.A5E.skillSpecialties[skillKey],
     );
 
+    let hideSkillSpecialties =
+        game.settings.get("a5e", "hideSkillSpecialties") ?? false;
+
     $: skill = $actor.system.skills[skillKey];
 </script>
 
@@ -40,7 +43,7 @@
             />
         </FieldWrapper>
 
-        {#if !game.settings.get("a5e", "hideSkillSpecialties")}
+        {#if !hideSkillSpecialties}
             <CustomTagGroup
                 heading="A5E.SkillSpecialties"
                 options={specialtyOptions}
@@ -73,6 +76,7 @@
 
         <ExpertiseDiePicker
             selected={skill.expertiseDice}
+            type={$actor.type}
             on:updateSelection={({ detail }) =>
                 updateDocumentDataFromField(
                     $actor,
