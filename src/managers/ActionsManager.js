@@ -130,13 +130,34 @@ export default class ActionsManager extends DataProxy {
   }
 
   async duplicate(id) {
-    const newAction = foundry.utils.duplicate(this.#item.system.actions[id]);
+    const original = this.#item.system.actions[id];
+    if (!original) return;
+
+    const newAction = foundry.utils.duplicate(original);
+    const newActionId = foundry.utils.randomID();
     newAction.name = `${newAction.name} (Copy)`;
+
+    // Get effect prompts
+    const prompts = Object.entries(newAction.prompts ?? {})
+      .filter(([, prompt]) => prompt.type === 'effect');
+
+    if (prompts.length) {
+      for await (const [promptId, prompt] of prompts) {
+        const effect = this.#item.effects.get(prompt.effectId);
+        if (!effect) return;
+
+        // Duplicate effect
+        const effectData = foundry.utils.duplicate(effect);
+        foundry.utils.setProperty(effectData, 'flags.a5e.actionId', newActionId);
+        const newEffect = await this.#item.createEmbeddedDocuments('ActiveEffect', [effectData]);
+        newAction.prompts[promptId].effectId = newEffect[0].id;
+      }
+    }
 
     await this.#item.update({
       'system.actions': {
         ...this.#item.system.actions,
-        [foundry.utils.randomID()]: newAction
+        [newActionId]: newAction
       }
     });
   }
@@ -152,6 +173,13 @@ export default class ActionsManager extends DataProxy {
         [`-=${actionId}`]: null
       }
     });
+
+    // Remove any effects associated with the action
+    const effects = this.#item.effects.filter(
+      (effect) => effect.flags.a5e.actionId === actionId
+    );
+
+    this.#item.deleteEmbeddedDocuments('ActiveEffect', effects.map((effect) => effect.id));
   }
 
   /** ************************************************
