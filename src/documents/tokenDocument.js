@@ -31,6 +31,38 @@ export default class TokenDocumentA5e extends TokenDocument {
     );
   }
 
+  _prepareDetectionModes() {
+    super._prepareDetectionModes();
+
+    const { actor, scene } = this;
+    if (!scene || !actor) {
+      return;
+    }
+
+    this.sight.attenuation = 0.1;
+    this.sight.brightness = 0;
+    this.sight.contrast = 0;
+    this.sight.range = 0;
+    this.sight.saturation = 0;
+    this.sight.visionMode = 'basic';
+
+    const { visionData } = actor;
+    const currentMode = visionData.hasDarkvision ? 'darkvision' : 'basic';
+    const { defaults } = CONFIG.Canvas.visionModes[currentMode].vision;
+
+    this.sight.visionMode = currentMode;
+    this.sight.brightness = defaults.brightness ?? 0;
+    this.sight.saturation = defaults.saturation ?? 0;
+
+    if (currentMode === 'darkvision') {
+      const basic = this.detectionModes.at(0);
+      if (!basic) return;
+
+      basic.range = visionData.senses.darkvision.distance;
+      this.sight.range = visionData.senses.darkvision.distance;
+    }
+  }
+
   updateTokenSize() {
     const { actor } = this;
     if (!actor) return;
@@ -60,10 +92,10 @@ export default class TokenDocumentA5e extends TokenDocument {
   }
 
   // Update canvas if there are changes that affect the canvas
-  _updateCanvas(updates, options) {
-    if (!this.scene?.isInFocus && !this.scene?.isView) return;
-    console.log(updates);
-  }
+  // _updateCanvas(updates, options) {
+  //   if (!this.scene?.isInFocus && !this.scene?.isView) return;
+  //   // console.log(updates);
+  // }
 
   /** @inheritdoc */
   getBarAttribute(barName, { alternative } = {}) {
