@@ -7,11 +7,14 @@ import ActiveEffectA5e from './activeEffect/activeEffect';
 export default class TokenDocumentA5e extends TokenDocument {
   overrides = this.overrides ?? {};
 
-  /**
-   * @override
-   */
-  prepareDerivedData() {
-    super.prepareDerivedData();
+  get scene() {
+    return this.parent;
+  }
+
+  prepareBaseData() {
+    this.updateTokenSize();
+    super.prepareBaseData();
+
     this.applyActiveEffects();
   }
 
@@ -26,6 +29,16 @@ export default class TokenDocumentA5e extends TokenDocument {
       null,
       (change) => change.key.startsWith('@token')
     );
+  }
+
+  updateTokenSize() {
+    const { actor } = this;
+    if (!actor) return;
+
+    const { size } = actor.system.traits;
+    const numericalSize = CONFIG.A5E.tokenDimensions[size];
+    this.width = numericalSize;
+    this.height = numericalSize;
   }
 
   /**
@@ -43,6 +56,13 @@ export default class TokenDocumentA5e extends TokenDocument {
     }
 
     this._onRelatedUpdate(update, options);
+    this._updateCanvas(update, options);
+  }
+
+  // Update canvas if there are changes that affect the canvas
+  _updateCanvas(updates, options) {
+    if (!this.scene?.isInFocus && !this.scene?.isView) return;
+    console.log(updates);
   }
 
   /** @inheritdoc */
@@ -50,8 +70,8 @@ export default class TokenDocumentA5e extends TokenDocument {
     const data = super.getBarAttribute(barName, { alternative });
 
     if (data && (data.attribute === 'attributes.hp')) {
-      data.value += parseInt(getProperty(this.actor.system, 'attributes.hp.temp') || 0, 10);
-      data.max += parseInt(getProperty(this.actor.system, 'attributes.hp.temp') || 0, 10);
+      data.value += parseInt(foundry.utils.getProperty(this.actor.system, 'attributes.hp.temp') || 0, 10);
+      data.max += parseInt(foundry.utils.getProperty(this.actor.system, 'attributes.hp.temp') || 0, 10);
     }
 
     return data;

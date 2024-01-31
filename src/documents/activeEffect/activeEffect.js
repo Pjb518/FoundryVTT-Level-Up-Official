@@ -344,6 +344,7 @@ export default class ActiveEffectA5e extends ActiveEffect {
    * @param {Object} data
    */
   #updateCanvas() {
+    // TODO: Move to related update on token document
     if (this.parent?.documentName !== 'Actor') return;
 
     const changeKeys = this.changes?.map((c) => c.key) ?? [];
