@@ -142,6 +142,18 @@ export default class ActorA5e extends Actor {
     return effects.sort((a, b) => a.name.localeCompare(b.name));
   }
 
+  get visionData() {
+    const { senses } = this.system.attributes;
+
+    return {
+      hasBlindsight: senses.blindsight.distance > 0,
+      hasDarkvision: senses.darkvision.distance > 0,
+      hasTremorsense: senses.tremorsense.distance > 0,
+      hasTruesight: senses.truesight.distance > 0,
+      senses
+    };
+  }
+
   /**
    * Sets the order of when to prepare data.
    * @override
