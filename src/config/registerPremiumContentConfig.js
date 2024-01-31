@@ -96,6 +96,23 @@ export default function registerPremiumContentConfig(A5E) {
         }
       ]
     },
+    roguesCollection: {
+      name: "The Rogue's Collection",
+      releases: [
+        {
+          title: 'Eclipsa Records - Armaments: Confidential',
+          url: 'https://bit.ly/3Om8W1y'
+        },
+        {
+          title: 'Legends of Strength',
+          url: 'https://bit.ly/3UnXINY'
+        },
+        {
+          title: 'Primal Sorcery',
+          url: 'https://bit.ly/3SBPS24'
+        }
+      ]
+    },
     rollThemBones: {
       name: 'Roll them Bones',
       releases: [{
