@@ -95,7 +95,7 @@
 
 {#if Object.values(attackBonuses).flat().length}
     <CheckboxGroup
-        heading="Ability Bonuses"
+        heading="Attack Bonuses"
         options={attackBonuses.map(([key, attackBonus]) => [
             key,
             attackBonus.label || attackBonus.defaultLabel,
