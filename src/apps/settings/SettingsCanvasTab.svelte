@@ -4,6 +4,7 @@
     import Checkbox from "../components/Checkbox.svelte";
     import FieldWrapper from "../components/FieldWrapper.svelte";
     import RadioGroup from "../components/RadioGroup.svelte";
+    import Section from "../components/Section.svelte";
 
     export let reload;
 
@@ -13,14 +14,29 @@
     const diagonalRuleOptions =
         game.settings.settings.get("a5e.diagonalRule").choices;
 
+    let visionRules = settings.getStore("automateVisionRules");
     let diagonalRule = settings.getStore("diagonalRule");
     let selectedDiagonalRule = updates.get("diagonalRule") ?? $diagonalRule;
     let placeTemplate = settings.getStore("placeItemTemplateDefault");
 </script>
 
-<section class="setting-group">
+<Section heading="VIsion Settings" --a5e-section-body-gap="0.5rem">
+    <FieldWrapper hint="A5E.settings.hints.automateVisionRules">
+        <Checkbox
+            label="A5E.settings.automateVisionRules"
+            checked={updates.get("automateVisionRules") ??
+                $visionRules ??
+                false}
+            on:updateSelection={({ detail }) => {
+                updates.set("automateVisionRules", detail);
+                reload = true;
+            }}
+        />
+    </FieldWrapper>
+</Section>
+
+<Section heading="Grid Settings" --a5e-section-body-gap="0.5rem">
     <RadioGroup
-        heading="Grid Settings"
         hint="A5E.settings.hints.diagonalRule"
         options={Object.entries(diagonalRuleOptions)}
         selected={selectedDiagonalRule}
@@ -30,13 +46,10 @@
             reload = true;
         }}
     />
-</section>
+</Section>
 
-<section class="setting-group">
-    <FieldWrapper
-        heading="Template Settings"
-        hint="A5E.settings.hints.placeItemTemplateDefault"
-    >
+<Section heading="Template Settings" --a5e-section-body-gap="0.5rem">
+    <FieldWrapper hint="A5E.settings.hints.placeItemTemplateDefault">
         <Checkbox
             label="A5E.settings.placeItemTemplateDefault"
             checked={updates.get("placeItemTemplateDefault") ??
@@ -47,16 +60,4 @@
             }}
         />
     </FieldWrapper>
-</section>
-
-<style lang="scss">
-    .setting-group {
-        display: flex;
-        flex-direction: column;
-        gap: 0.25rem;
-
-        &:not(:last-child) {
-            margin-bottom: 0.25rem;
-        }
-    }
-</style>
+</Section>

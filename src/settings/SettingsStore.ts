@@ -1,3 +1,4 @@
+// @ts-nocheck
 // eslint-disable-next-line import/no-unresolved
 import { TJSGameSettings, type GameSetting } from '#runtime/svelte/store/fvtt/settings';
 
@@ -130,6 +131,18 @@ class A5eGameSettings extends TJSGameSettings {
         }
       },
       // Canvas Settings
+      {
+        namespace,
+        key: 'automateVisionRules',
+        options: {
+          name: 'A5E.settings.automateVisionRules',
+          hint: 'A5E.settings.hints.automateVisionRules',
+          scope: scope.world,
+          config: true,
+          default: false,
+          type: Boolean
+        }
+      },
       {
         namespace,
         key: 'diagonalRule',

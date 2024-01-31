@@ -7,6 +7,8 @@ import ActiveEffectA5e from './activeEffect/activeEffect';
 export default class TokenDocumentA5e extends TokenDocument {
   overrides = this.overrides ?? {};
 
+  automateVision = game.settings.storage.get('world').getItem('a5e.automatedVisionRules');
+
   get scene() {
     return this.parent;
   }
@@ -32,12 +34,14 @@ export default class TokenDocumentA5e extends TokenDocument {
   }
 
   _prepareDetectionModes() {
+    this.automateVision ??= game.settings.storage.get('world').getItem('a5e.automateVisionRules');
+
+    // Enable actor vision if setting checked
+    if (this.automateVision) this.sight.enabled = true;
     super._prepareDetectionModes();
 
     const { actor, scene } = this;
-    if (!scene || !actor) {
-      return;
-    }
+    if (!scene || !actor || !this.automateVision) return;
 
     this.sight.attenuation = 0.1;
     this.sight.brightness = 0;
@@ -88,14 +92,20 @@ export default class TokenDocumentA5e extends TokenDocument {
     }
 
     this._onRelatedUpdate(update, options);
-    this._updateCanvas(update, options);
+    this._updateCanvas(update);
   }
 
   // Update canvas if there are changes that affect the canvas
-  // _updateCanvas(updates, options) {
-  //   if (!this.scene?.isInFocus && !this.scene?.isView) return;
-  //   // console.log(updates);
-  // }
+  _updateCanvas(updates) {
+    if (!this.scene?.isInFocus && !this.scene?.isView) return;
+    if (!this.automateVision || !this.sight.enabled) return;
+
+    const keys = Object.keys(foundry.utils.flattenObject(updates));
+    if (keys.some((k) => k.startsWith('system.attributes.senses'))) {
+      canvas.perception.update({ initializeVision: true }, true);
+      this.reset();
+    }
+  }
 
   /** @inheritdoc */
   getBarAttribute(barName, { alternative } = {}) {
