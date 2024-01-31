@@ -66,8 +66,19 @@ export default class TokenDocumentA5e extends TokenDocument {
       this.sight.range = visionData.senses.darkvision.distance;
     }
 
+    if (visionData.hasBlindsight) {
+      this.detectionModes.push(
+        { id: 'blindsight', enabled: true, range: visionData.senses.blindsight.distance ?? 0 }
+      );
+    }
+
+    if (visionData.hasTremorsense) {
+      this.detectionModes.push(
+        { id: 'feelTremor', enabled: true, range: visionData.senses.tremorsense.distance ?? 0 }
+      );
+    }
+
     if (visionData.hasTruesight) {
-      console.log('True sight');
       this.detectionModes.push(
         { id: 'seeInvisibility', enabled: true, range: visionData.senses.truesight.distance ?? 0 }
       );

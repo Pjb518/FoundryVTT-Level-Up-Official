@@ -11,6 +11,9 @@ import TokenDocumentA5e from '../documents/tokenDocument';
 
 import ItemProxy from '../documents/item/itemProxy';
 
+// Canvas
+import prepareDetectionModes from '../pixi/visionModes/prepareDetectionModes';
+
 // CompendiumSheets
 import DND5ESpellCompendiumSheet from '../apps/DND5ESpellCompendiumSheet';
 import ItemCompendiumSheet from '../apps/ItemCompendiumSheet';
@@ -206,6 +209,9 @@ export default function init() {
 
   CombatTracker.prototype._onCombatantControl = _onCombatantControl;
   CombatTracker.prototype._onCombatControl = _onCombatControl;
+
+  // Register detection modes
+  prepareDetectionModes();
 
   // Set tooltips to animate faster
   TooltipManager.TOOLTIP_ACTIVATION_MS = 100;
