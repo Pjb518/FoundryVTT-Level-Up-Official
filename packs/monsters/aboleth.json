@@ -1596,11 +1596,16 @@
 							}
 						},
 						"consumers": {
-							"Ma9BnzVjuomD6AaJ": {
-								"mode": "variable",
-								"spellLevel": 7,
-								"points": 10,
-								"type": "spell"
+							"8TguqxJxVmB4fyT8": {
+								"type": "itemUses",
+								"default": true,
+								"quantity": 1
+							}
+						},
+						"ranges": {
+							"pRY9dZwSrHp0hzIw": {
+								"range": 1,
+								"unit": "miles"
 							}
 						}
 					}
@@ -1610,9 +1615,9 @@
 				"secretDescription": "",
 				"source": "",
 				"uses": {
-					"value": null,
-					"max": "",
-					"per": null,
+					"value": 3,
+					"max": "3",
+					"per": "day",
 					"recharge": {
 						"formula": "",
 						"threshold": ""
@@ -1706,11 +1711,10 @@
 							}
 						},
 						"consumers": {
-							"MIdxw4Qm8XXheMGg": {
-								"mode": "variable",
-								"spellLevel": 3,
-								"points": 5,
-								"type": "spell"
+							"E7BJ9eyedJLNuhLq": {
+								"type": "itemUses",
+								"default": true,
+								"quantity": 1
 							}
 						}
 					}
@@ -1720,9 +1724,9 @@
 				"secretDescription": "",
 				"source": "",
 				"uses": {
-					"value": null,
-					"max": "",
-					"per": null,
+					"value": 3,
+					"max": "3",
+					"per": "day",
 					"recharge": {
 						"formula": "",
 						"threshold": ""
@@ -1796,7 +1800,7 @@
 						},
 						"ranges": {
 							"Gf8heOwD2w09GpQp": {
-								"range": "30-foot radius"
+								"range": "long"
 							}
 						},
 						"area": {
@@ -1820,11 +1824,10 @@
 							}
 						},
 						"consumers": {
-							"y9qZvBINLqD7e1NV": {
-								"mode": "variable",
-								"spellLevel": 2,
-								"points": 3,
-								"type": "spell"
+							"V1LYbWnGJKETEDnm": {
+								"type": "itemUses",
+								"default": true,
+								"quantity": 1
 							}
 						}
 					}
@@ -1834,9 +1837,9 @@
 				"secretDescription": "",
 				"source": "",
 				"uses": {
-					"value": null,
-					"max": "",
-					"per": null,
+					"value": 3,
+					"max": "3",
+					"per": "day",
 					"recharge": {
 						"formula": "",
 						"threshold": ""
@@ -1910,84 +1913,72 @@
 				"value": 20,
 				"check": {
 					"expertiseDice": 0,
-					"bonus": "",
-					"notes": {}
+					"bonus": ""
 				},
 				"save": {
 					"proficient": false,
 					"expertiseDice": 0,
-					"bonus": "",
-					"notes": {}
+					"bonus": ""
 				}
 			},
 			"dex": {
 				"value": 12,
 				"check": {
 					"expertiseDice": 0,
-					"bonus": "",
-					"notes": {}
+					"bonus": ""
 				},
 				"save": {
 					"proficient": true,
 					"expertiseDice": 0,
-					"bonus": "",
-					"notes": {}
+					"bonus": ""
 				}
 			},
 			"con": {
 				"value": 18,
 				"check": {
 					"expertiseDice": 0,
-					"bonus": "",
-					"notes": {}
+					"bonus": ""
 				},
 				"save": {
 					"proficient": true,
 					"expertiseDice": 0,
-					"bonus": "",
-					"notes": {}
+					"bonus": ""
 				}
 			},
 			"int": {
 				"value": 20,
 				"check": {
 					"expertiseDice": 0,
-					"bonus": "",
-					"notes": {}
+					"bonus": ""
 				},
 				"save": {
 					"proficient": true,
 					"expertiseDice": 0,
-					"bonus": "",
-					"notes": {}
+					"bonus": ""
 				}
 			},
 			"wis": {
 				"value": 20,
 				"check": {
 					"expertiseDice": 0,
-					"bonus": "",
-					"notes": {}
+					"bonus": ""
 				},
 				"save": {
 					"proficient": true,
 					"expertiseDice": 0,
-					"bonus": "",
-					"notes": {}
+					"bonus": ""
 				}
 			},
 			"cha": {
 				"value": 18,
 				"check": {
 					"expertiseDice": 0,
-					"bonus": "",
-					"notes": {}
+					"bonus": ""
 				},
 				"save": {
 					"proficient": false,
 					"expertiseDice": 0,
-					"bonus": "",
-					"notes": {}
+					"bonus": ""
 				}
 			}
 		},
@@ -2394,7 +2385,8 @@
 			"damage": {},
 			"healing": {},
 			"skills": {},
-			"attacks": {}
+			"attacks": {},
+			"initiative": {}
 		},
 		"currency": {
 			"pp": 0,
@@ -2481,11 +2473,12 @@
 			"damageImmunities": [],
 			"damageResistances": [],
 			"damageVulnerabilities": []
-		}
+		},
+		"grants": {}
 	},
 	"prototypeToken": {
 		"name": "Aboleth",
-		"displayName": 0,
+		"displayName": 30,
 		"actorLink": false,
 		"width": 2,
 		"height": 2,
@@ -2516,7 +2509,7 @@
 			"attenuation": 0.5
 		},
 		"disposition": -1,
-		"displayBars": 0,
+		"displayBars": 30,
 		"bar1": {
 			"attribute": "attributes.hp"
 		},
@@ -2536,7 +2529,7 @@
 		},
 		"sight": {
 			"angle": 360,
-			"enabled": false,
+			"enabled": true,
 			"range": 0,
 			"brightness": 1,
 			"color": null,
