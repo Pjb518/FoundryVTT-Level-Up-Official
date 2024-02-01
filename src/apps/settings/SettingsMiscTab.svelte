@@ -77,7 +77,10 @@
                 type="text"
                 value={selectedGamemasterName}
                 on:change={({ target }) => {
-                    updates.set("gamemasterName", target.value);
+                    updates.set(
+                        "gamemasterName",
+                        target.value?.strip?.() ?? "",
+                    );
                     reload = true;
                 }}
             />
