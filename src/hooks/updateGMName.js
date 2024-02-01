@@ -1,6 +1,6 @@
 export default function updateGMName() {
-  const defaultName = 'Narrator';
+  const name = game.settings.get('a5e', 'gamemasterName') || 'Narrator';
 
-  game.i18n.translations.USER.GM = defaultName;
-  game.i18n.translations.GM = defaultName;
+  game.i18n.translations.USER.GM = name;
+  game.i18n.translations.GM = name;
 }

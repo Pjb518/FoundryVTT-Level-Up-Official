@@ -479,6 +479,17 @@ class A5eGameSettings extends TJSGameSettings {
       },
       {
         namespace,
+        key: 'gamemasterName',
+        options: {
+          name: 'A5E.settings.gamemasterName',
+          scope: scope.world,
+          config: true,
+          default: 'Narrator',
+          type: String
+        }
+      },
+      {
+        namespace,
         key: 'newActionNameType',
         options: {
           name: 'A5E.settings.newActionNameType',

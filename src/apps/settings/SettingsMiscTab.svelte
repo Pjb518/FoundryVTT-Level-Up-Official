@@ -2,7 +2,6 @@
     import { getContext } from "svelte";
 
     import Checkbox from "../components/Checkbox.svelte";
-    import FormSection from "../components/LegacyFormSection.svelte";
     import FieldWrapper from "../components/FieldWrapper.svelte";
     import RadioGroup from "../components/RadioGroup.svelte";
     import Section from "../components/Section.svelte";
@@ -24,9 +23,13 @@
     let actionNameType = settings.getStore("newActionNameType");
     let showLimitedDesc = settings.getStore("showDescriptionOnLimitedPerms");
     let fancySheetsAutoApply = settings.getStore("autoApplyFancySheets");
+    let gamemasterName = settings.getStore("gamemasterName");
 
     let selectedNamingMode =
         updates.get("newActionNameType") ?? $actionNameType ?? "system";
+
+    let selectedGamemasterName =
+        updates.get("gamemasterName") ?? $gamemasterName;
 </script>
 
 {#if isGM}
@@ -62,6 +65,19 @@
                     false}
                 on:updateSelection={({ detail }) => {
                     updates.set("autoApplyFancySheets", detail);
+                    reload = true;
+                }}
+            />
+        </FieldWrapper>
+    </Section>
+
+    <Section heading="Other Settings">
+        <FieldWrapper heading="Gamemaster Name">
+            <input
+                type="text"
+                value={selectedGamemasterName}
+                on:change={({ target }) => {
+                    updates.set("gamemasterName", target.value);
                     reload = true;
                 }}
             />
