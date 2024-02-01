@@ -37,7 +37,8 @@ export default class HealingGrant extends BaseGrant {
       itemUuid: this.parent.uuid,
       grantId: this._id,
       bonusId,
-      type: 'healing'
+      type: 'healing',
+      grantType: 'bonus'
     };
 
     return {

@@ -55,7 +55,8 @@ export default class AbilityGrant extends BaseGrant {
       itemUuid: this.parent.uuid,
       grantId: this._id,
       bonusId,
-      type: 'abilities'
+      type: 'abilities',
+      grantType: 'bonus'
     };
 
     return {

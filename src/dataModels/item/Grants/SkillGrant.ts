@@ -56,7 +56,8 @@ export default class SkillGrant extends BaseGrant {
       itemUuid: this.parent.uuid,
       grantId: this._id,
       bonusId,
-      type: 'skills'
+      type: 'skills',
+      grantType: 'bonus'
     };
 
     return {

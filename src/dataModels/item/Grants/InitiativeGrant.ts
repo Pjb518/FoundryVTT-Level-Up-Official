@@ -37,7 +37,8 @@ export default class InitiativeGrant extends BaseGrant {
       itemUuid: this.parent.uuid,
       grantId: this._id,
       bonusId,
-      type: 'initiative'
+      type: 'initiative',
+      grantType: 'bonus'
     };
 
     return {

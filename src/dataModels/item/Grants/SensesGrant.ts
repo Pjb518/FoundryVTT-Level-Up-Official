@@ -54,7 +54,8 @@ export default class SensesGrant extends BaseGrant {
       itemUuid: this.parent.uuid,
       grantId: this._id,
       bonusId,
-      type: this.#type
+      type: this.#type,
+      grantType: 'bonus'
     };
 
     return {
