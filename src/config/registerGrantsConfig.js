@@ -11,7 +11,7 @@ export default function registerGrantsConfig(A5E) {
     movement: 'A5E.grants.headings.movement',
     // proficiency: 'A5E.Proficiency',
     senses: 'A5E.grants.headings.senses',
-    skill: 'A5E.grants.headings.skill'
-    // trait: 'A5E.Trait',
+    skill: 'A5E.grants.headings.skill',
+    trait: 'A5E.grants.headings.trait'
   };
 }

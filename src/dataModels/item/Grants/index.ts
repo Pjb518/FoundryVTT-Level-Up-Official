@@ -7,6 +7,7 @@ import InitiativeGrant from './InitiativeGrant';
 import MovementGrant from './MovementGrant';
 import SkillGrant from './SkillGrant';
 import SensesGrant from './SensesGrant';
+import TraitGrant from './TraitGrant';
 
 export default {
   base: BaseGrant,
@@ -17,5 +18,6 @@ export default {
   initiative: InitiativeGrant,
   movement: MovementGrant,
   senses: SensesGrant,
-  skill: SkillGrant
+  skill: SkillGrant,
+  trait: TraitGrant
 };
