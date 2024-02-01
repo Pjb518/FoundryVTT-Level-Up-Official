@@ -46,27 +46,27 @@
             config: Object.entries(CONFIG.A5E.armor),
         },
         conditionImmunities: {
-            label: "A5E.Condition",
+            label: "A5E.ConditionImmunities",
             config: Object.entries(CONFIG.A5E.conditions),
         },
         creatureTypes: {
-            label: "A5E.CreatureType",
+            label: "A5E.CreatureTypesLabel",
             config: Object.entries(CONFIG.A5E.creatureTypes),
         },
         damageImmunities: {
-            label: "A5E.DamageImmunity",
+            label: "A5E.DamageImmunities",
             config: Object.entries(CONFIG.A5E.damageTypes),
         },
         damageResistances: {
-            label: "A5E.DamageResistance",
+            label: "A5E.DamageResistances",
             config: Object.entries(CONFIG.A5E.damageTypes),
         },
         damageVulnerabilities: {
-            label: "A5E.DamageVulnerability",
+            label: "A5E.DamageVulnerabilities",
             config: Object.entries(CONFIG.A5E.damageTypes),
         },
         languages: {
-            label: "A5E.Language",
+            label: "A5E.Languages",
             config: Object.entries(CONFIG.A5E.languages),
         },
         size: {
