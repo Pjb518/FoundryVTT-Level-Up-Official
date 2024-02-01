@@ -1,8 +1,10 @@
-import TraitGrantConfig from '../../../apps/components/grants/TraitGrantConfig.svelte';
 import BaseGrant from './BaseGrant';
 
+import TraitGrantConfig from '../../../apps/components/grants/TraitGrantConfig.svelte';
+import TraitGrantSelectionDialog from '../../../apps/components/grants/TraitGrantSelectionDialog.svelte';
+
 export default class TraitGrant extends BaseGrant {
-  #component;
+  #component = TraitGrantSelectionDialog;
 
   #configComponent = TraitGrantConfig;
 
@@ -61,7 +63,7 @@ export default class TraitGrant extends BaseGrant {
       base: data?.selected ?? this.traits.base ?? [],
       choices: this.traits.options,
       count: this.traits.total,
-      type: this.traits.traitType
+      traitType: this.traits.traitType
     };
   }
 
