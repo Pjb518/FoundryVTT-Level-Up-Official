@@ -1601,122 +1601,6 @@
 			"sort": 0
 		},
 		{
-			"name": "Heal",
-			"type": "spell",
-			"img": "icons/magic/life/heart-cross-strong-flame-green.webp",
-			"effects": [],
-			"flags": {
-				"core": {
-					"sourceId": "Compendium.a5e.a5e-spells.i4869qu4aokvlvxr"
-				}
-			},
-			"system": {
-				"actions": {
-					"XWJ26F7JXKHF8yMo": {
-						"name": "Heal",
-						"activation": {
-							"cost": 1,
-							"type": "action",
-							"reactionTrigger": ""
-						},
-						"duration": {
-							"unit": "instantaneous",
-							"value": ""
-						},
-						"ranges": {
-							"U6bNDrDcAEZ0UYdu": {
-								"range": "medium"
-							}
-						},
-						"area": {
-							"shape": "",
-							"size": "",
-							"placeTemplate": false
-						},
-						"target": {
-							"quantity": "",
-							"type": "creature"
-						},
-						"rolls": {
-							"J8L7y8BndXrGBe7j": {
-								"defaultSelection": true,
-								"formula": "70",
-								"healingType": "healing",
-								"name": "",
-								"type": "healing",
-								"scaling": {
-									"mode": "spellLevel",
-									"formula": "10"
-								}
-							}
-						},
-						"consumers": {
-							"jfElxc8HGrXhyRja": {
-								"mode": "variable",
-								"spellLevel": 6,
-								"points": 9,
-								"type": "spell"
-							}
-						}
-					}
-				},
-				"description": "<p>A torrent of healing energy suffuses the target and it regains 70 hit points. The spell also ends blindness, deafness, and any diseases afflicting the target.</p><p><strong><em>Cast at Higher Levels.</em></strong> The hit points regained increase by 10 for each slot level above 6th.</p>",
-				"favorite": false,
-				"secretDescription": "",
-				"source": "",
-				"uses": {
-					"value": null,
-					"max": "",
-					"per": null,
-					"recharge": {
-						"formula": "",
-						"threshold": ""
-					}
-				},
-				"schema": {
-					"version": null,
-					"lastMigration": null
-				},
-				"classes": [],
-				"components": {
-					"vocalized": true,
-					"seen": true,
-					"material": false
-				},
-				"concentration": false,
-				"level": 6,
-				"materials": "",
-				"materialsConsumed": false,
-				"prepared": false,
-				"prerequisite": "",
-				"rare": false,
-				"ritual": false,
-				"schools": {
-					"primary": "evocation",
-					"secondary": [
-						"divine",
-						"healing"
-					]
-				},
-				"schemaVersion": {
-					"version": 0.011,
-					"lastMigration": {
-						"version": {
-							"schema": 0.01,
-							"foundry": "11.315",
-							"system": "0.16.37"
-						}
-					}
-				}
-			},
-			"_id": "lHT2yjXwL4Vlj75h",
-			"ownership": {
-				"default": 0
-			},
-			"folder": null,
-			"sort": 0
-		},
-		{
 			"name": "Hold Person",
 			"type": "spell",
 			"img": "icons/magic/control/debuff-chains-blue.webp",
@@ -2917,6 +2801,122 @@
 			},
 			"folder": null,
 			"sort": 0
+		},
+		{
+			"name": "Healing Word",
+			"type": "spell",
+			"img": "icons/magic/life/heart-cross-strong-green.webp",
+			"effects": [],
+			"flags": {},
+			"system": {
+				"actions": {
+					"pn0m8YMhc13oMlCR": {
+						"name": "Healing Word",
+						"activation": {
+							"cost": 1,
+							"type": "bonusAction",
+							"reactionTrigger": ""
+						},
+						"duration": {
+							"unit": "instantaneous",
+							"value": ""
+						},
+						"ranges": {
+							"8vJIPJilF3n07NAD": {
+								"range": "medium"
+							}
+						},
+						"area": {
+							"shape": "",
+							"size": "",
+							"placeTemplate": false
+						},
+						"target": {
+							"quantity": "",
+							"type": "creature"
+						},
+						"rolls": {
+							"oGAxJKQGRi1goy4V": {
+								"defaultSelection": true,
+								"formula": "1d4 + @spellcasting.mod",
+								"healingType": "healing",
+								"name": "",
+								"type": "healing",
+								"scaling": {
+									"mode": "spellLevel",
+									"formula": "1d4"
+								}
+							}
+						},
+						"consumers": {
+							"pmtpJaHyCEXuENOL": {
+								"mode": "variable",
+								"spellLevel": 1,
+								"points": 2,
+								"type": "spell"
+							}
+						}
+					}
+				},
+				"description": "<p>Healing energy washes over the target and it regains hit points equal to 1d4 + your spellcasting modifier.</p><p><strong><em>Cast at Higher Levels.</em></strong> The hit points regained increase by 1d4 for each slot level above 1st.</p>",
+				"favorite": false,
+				"secretDescription": "",
+				"source": "",
+				"uses": {
+					"value": null,
+					"max": "",
+					"per": null,
+					"recharge": {
+						"formula": "",
+						"threshold": ""
+					}
+				},
+				"schema": {
+					"version": null,
+					"lastMigration": null
+				},
+				"classes": [
+					"bard",
+					"cleric",
+					"druid"
+				],
+				"components": {
+					"vocalized": true,
+					"seen": false,
+					"material": false
+				},
+				"concentration": false,
+				"level": 1,
+				"materials": "",
+				"materialsConsumed": false,
+				"prepared": false,
+				"prerequisite": "",
+				"rare": false,
+				"ritual": false,
+				"schools": {
+					"primary": "evocation",
+					"secondary": [
+						"divine",
+						"healing"
+					]
+				},
+				"schemaVersion": {
+					"version": 0.011,
+					"lastMigration": {
+						"version": {
+							"schema": 0.01,
+							"foundry": "11.315",
+							"system": "0.16.37"
+						}
+					}
+				}
+			},
+			"folder": null,
+			"_id": "jXg9D5kIUp9S037i",
+			"sort": 0,
+			"ownership": {
+				"default": 0
+			}
 		}
 	],
 	"effects": [],
@@ -2932,7 +2932,8 @@
 				"6"
 			],
 			"showSpellSlots": true,
-			"showSpellPoints": false
+			"showSpellPoints": false,
+			"sheetIsLocked": false
 		}
 	},
 	"system": {
@@ -2941,84 +2942,72 @@
 				"value": 14,
 				"check": {
 					"expertiseDice": 0,
-					"bonus": "",
-					"notes": {}
+					"bonus": ""
 				},
 				"save": {
 					"proficient": false,
 					"expertiseDice": 0,
-					"bonus": "",
-					"notes": {}
+					"bonus": ""
 				}
 			},
 			"dex": {
 				"value": 10,
 				"check": {
 					"expertiseDice": 0,
-					"bonus": "",
-					"notes": {}
+					"bonus": ""
 				},
 				"save": {
 					"proficient": false,
 					"expertiseDice": 0,
-					"bonus": "",
-					"notes": {}
+					"bonus": ""
 				}
 			},
 			"con": {
 				"value": 16,
 				"check": {
 					"expertiseDice": 0,
-					"bonus": "",
-					"notes": {}
+					"bonus": ""
 				},
 				"save": {
 					"proficient": false,
 					"expertiseDice": 0,
-					"bonus": "",
-					"notes": {}
+					"bonus": ""
 				}
 			},
 			"int": {
 				"value": 12,
 				"check": {
 					"expertiseDice": 0,
-					"bonus": "",
-					"notes": {}
+					"bonus": ""
 				},
 				"save": {
 					"proficient": true,
 					"expertiseDice": 0,
-					"bonus": "",
-					"notes": {}
+					"bonus": ""
 				}
 			},
 			"wis": {
 				"value": 18,
 				"check": {
 					"expertiseDice": 0,
-					"bonus": "",
-					"notes": {}
+					"bonus": ""
 				},
 				"save": {
 					"proficient": true,
 					"expertiseDice": 0,
-					"bonus": "",
-					"notes": {}
+					"bonus": ""
 				}
 			},
 			"cha": {
 				"value": 16,
 				"check": {
 					"expertiseDice": 0,
-					"bonus": "",
-					"notes": {}
+					"bonus": ""
 				},
 				"save": {
 					"proficient": true,
 					"expertiseDice": 0,
-					"bonus": "",
-					"notes": {}
+					"bonus": ""
 				}
 			}
 		},
@@ -3277,28 +3266,28 @@
 		"spellResources": {
 			"slots": {
 				"1": {
-					"current": 0,
-					"max": 0
+					"current": 4,
+					"max": 4
 				},
 				"2": {
-					"current": 0,
-					"max": 0
+					"current": 3,
+					"max": 3
 				},
 				"3": {
-					"current": 0,
-					"max": 0
+					"current": 3,
+					"max": 3
 				},
 				"4": {
-					"current": 0,
-					"max": 0
+					"current": 3,
+					"max": 3
 				},
 				"5": {
-					"current": 0,
-					"max": 0
+					"current": 2,
+					"max": 2
 				},
 				"6": {
-					"current": 0,
-					"max": 0
+					"current": 1,
+					"max": 1
 				},
 				"7": {
 					"current": 0,
@@ -3425,7 +3414,10 @@
 			"rangedWeaponAttack": "",
 			"spellDC": "",
 			"skills": {},
-			"attacks": {}
+			"attacks": {},
+			"initiative": {},
+			"movement": {},
+			"senses": {}
 		},
 		"currency": {
 			"pp": 0,
@@ -3511,7 +3503,8 @@
 			"damageImmunities": [],
 			"damageResistances": [],
 			"damageVulnerabilities": []
-		}
+		},
+		"grants": {}
 	},
 	"prototypeToken": {
 		"name": "Priest",

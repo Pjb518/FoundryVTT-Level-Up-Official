@@ -8,84 +8,72 @@
 				"value": 18,
 				"check": {
 					"expertiseDice": 0,
-					"bonus": "",
-					"notes": {}
+					"bonus": ""
 				},
 				"save": {
 					"proficient": false,
 					"expertiseDice": 0,
-					"bonus": "",
-					"notes": {}
+					"bonus": ""
 				}
 			},
 			"dex": {
 				"value": 13,
 				"check": {
 					"expertiseDice": 0,
-					"bonus": "",
-					"notes": {}
+					"bonus": ""
 				},
 				"save": {
 					"proficient": false,
 					"expertiseDice": 0,
-					"bonus": "",
-					"notes": {}
+					"bonus": ""
 				}
 			},
 			"con": {
 				"value": 17,
 				"check": {
 					"expertiseDice": 0,
-					"bonus": "",
-					"notes": {}
+					"bonus": ""
 				},
 				"save": {
 					"proficient": false,
 					"expertiseDice": 0,
-					"bonus": "",
-					"notes": {}
+					"bonus": ""
 				}
 			},
 			"int": {
 				"value": 13,
 				"check": {
 					"expertiseDice": 0,
-					"bonus": "",
-					"notes": {}
+					"bonus": ""
 				},
 				"save": {
 					"proficient": false,
 					"expertiseDice": 0,
-					"bonus": "",
-					"notes": {}
+					"bonus": ""
 				}
 			},
 			"wis": {
 				"value": 14,
 				"check": {
 					"expertiseDice": 0,
-					"bonus": "",
-					"notes": {}
+					"bonus": ""
 				},
 				"save": {
 					"proficient": false,
 					"expertiseDice": 0,
-					"bonus": "",
-					"notes": {}
+					"bonus": ""
 				}
 			},
 			"cha": {
 				"value": 15,
 				"check": {
 					"expertiseDice": 0,
-					"bonus": "",
-					"notes": {}
+					"bonus": ""
 				},
 				"save": {
 					"proficient": false,
 					"expertiseDice": 0,
-					"bonus": "",
-					"notes": {}
+					"bonus": ""
 				}
 			}
 		},
@@ -492,7 +480,10 @@
 			"rangedWeaponAttack": "",
 			"spellDC": "",
 			"skills": {},
-			"attacks": {}
+			"attacks": {},
+			"initiative": {},
+			"movement": {},
+			"senses": {}
 		},
 		"currency": {
 			"pp": 0,
@@ -578,7 +569,8 @@
 			"damageImmunities": [],
 			"damageResistances": [],
 			"damageVulnerabilities": []
-		}
+		},
+		"grants": {}
 	},
 	"prototypeToken": {
 		"name": "Witch",
@@ -1230,208 +1222,6 @@
 			}
 		},
 		{
-			"name": "Unseen Watcher",
-			"type": "spell",
-			"img": "icons/magic/light/explosion-star-glow-silhouette.webp",
-			"effects": [],
-			"flags": {
-				"core": {
-					"sourceId": "Compendium.a5e.a5e-spells.4eidicv0lyqevtwd"
-				}
-			},
-			"system": {
-				"actions": {
-					"OFPhdHRRditwuJ86": {
-						"name": "Unseen Watcher",
-						"activation": {
-							"cost": 1,
-							"type": "bonusAction",
-							"reactionTrigger": ""
-						},
-						"duration": {
-							"unit": "special",
-							"value": 1
-						},
-						"area": {
-							"shape": "",
-							"size": "",
-							"placeTemplate": false
-						},
-						"target": {
-							"quantity": null,
-							"type": "self"
-						},
-						"consumers": {
-							"kMecD5Ib4NNNCP9W": {
-								"mode": "variable",
-								"spellLevel": 2,
-								"points": 3,
-								"type": "spell"
-							}
-						}
-					}
-				},
-				"description": "<p>A witch may choose to become invisible as a bonus action as long as she takes no other actions and does not move on the turn she becomes invisible.</p><p>Moving or taking any actions ends the invisibility effect.</p>",
-				"favorite": true,
-				"secretDescription": "",
-				"source": "",
-				"uses": {
-					"value": null,
-					"max": "",
-					"per": null,
-					"recharge": {
-						"formula": "",
-						"threshold": ""
-					}
-				},
-				"schema": {
-					"version": null,
-					"lastMigration": null
-				},
-				"classes": [],
-				"components": {
-					"vocalized": true,
-					"seen": true,
-					"material": false
-				},
-				"concentration": true,
-				"level": 2,
-				"materials": "piece of a veil",
-				"materialsConsumed": false,
-				"prepared": true,
-				"prerequisite": "",
-				"rare": false,
-				"ritual": false,
-				"schools": {
-					"primary": "illusion",
-					"secondary": [
-						"arcane",
-						"obscurement",
-						"shadow"
-					]
-				},
-				"schemaVersion": {
-					"version": 0.011,
-					"lastMigration": {
-						"version": {
-							"schema": 0.01,
-							"foundry": "11.315",
-							"system": "0.16.37"
-						}
-					}
-				}
-			},
-			"_id": "jD7F4fRgQPphF1Do",
-			"folder": null,
-			"sort": 0,
-			"ownership": {
-				"default": 0
-			}
-		},
-		{
-			"name": "Magical Disguise",
-			"type": "spell",
-			"img": "icons/equipment/head/mask-carved-wood-brown.webp",
-			"effects": [],
-			"flags": {
-				"core": {
-					"sourceId": "Compendium.a5e.a5e-spells.vemj08hawvmf44ya"
-				}
-			},
-			"system": {
-				"actions": {
-					"ntAwgFXuJba6Q4nq": {
-						"name": "Magical Disguise",
-						"activation": {
-							"cost": 1,
-							"type": "action",
-							"reactionTrigger": ""
-						},
-						"duration": {
-							"unit": "permanent",
-							"value": 1
-						},
-						"ranges": {
-							"0aYoPW5hHrS6fdnd": {
-								"range": "self"
-							}
-						},
-						"area": {
-							"shape": "",
-							"size": "",
-							"placeTemplate": false
-						},
-						"target": {
-							"quantity": "",
-							"type": "self"
-						},
-						"consumers": {
-							"DyZ8rbAlUcXS5qRa": {
-								"mode": "variable",
-								"spellLevel": 1,
-								"points": 2,
-								"type": "spell"
-							}
-						}
-					}
-				},
-				"description": "<p>Until the spell ends or you use an action to dismiss it, you and your gear are cloaked by an illusory disguise that makes you appear like another creature of your general size and body type, including but not limited to: your heritage, 1 foot of height, weight, clothing, tattoos, piercings, facial features, hair style and length, skin and eye coloration, sex, and any other distinguishing features. You cannot disguise yourself as a creature of a different size category, and your limb structure remains the same; for example if you're bipedal, you can't use this spell to appear as a quadruped.</p><p>The disguise does not hold up to physical inspection. A creature that tries to grab an illusory hat, for example, finds its hand passes straight through the figment. To see through your disguise without such an inspection, a creature must use its action to make an Investigation check against your spell save DC.</p><p>This effect is permanent, unless she chooses to end it as a bonus action.</p>",
-				"favorite": true,
-				"secretDescription": "",
-				"source": "",
-				"uses": {
-					"value": null,
-					"max": "",
-					"per": null,
-					"recharge": {
-						"formula": "",
-						"threshold": ""
-					}
-				},
-				"schema": {
-					"version": null,
-					"lastMigration": null
-				},
-				"classes": [],
-				"components": {
-					"vocalized": true,
-					"seen": true,
-					"material": false
-				},
-				"concentration": false,
-				"level": 1,
-				"materials": "",
-				"materialsConsumed": false,
-				"prepared": true,
-				"prerequisite": "",
-				"rare": false,
-				"ritual": false,
-				"schools": {
-					"primary": "illusion",
-					"secondary": [
-						"arcane",
-						"obscurement"
-					]
-				},
-				"schemaVersion": {
-					"version": 0.011,
-					"lastMigration": {
-						"version": {
-							"schema": 0.01,
-							"foundry": "11.315",
-							"system": "0.16.37"
-						}
-					}
-				}
-			},
-			"_id": "u6e2gY270djhbHhx",
-			"folder": null,
-			"sort": 0,
-			"ownership": {
-				"default": 0
-			}
-		},
-		{
 			"name": "Innate Spellcasting",
 			"type": "feature",
 			"img": "icons/magic/symbols/elements-air-earth-fire-water.webp",
@@ -1688,7 +1478,7 @@
 				"level": 0,
 				"materials": "",
 				"materialsConsumed": false,
-				"prepared": false,
+				"prepared": 2,
 				"prerequisite": "",
 				"rare": false,
 				"ritual": false,
@@ -1804,7 +1594,7 @@
 				"level": 0,
 				"materials": "",
 				"materialsConsumed": false,
-				"prepared": false,
+				"prepared": 2,
 				"prerequisite": "",
 				"rare": false,
 				"ritual": false,
@@ -1922,7 +1712,7 @@
 				"level": 0,
 				"materials": "",
 				"materialsConsumed": false,
-				"prepared": false,
+				"prepared": 2,
 				"prerequisite": "",
 				"rare": false,
 				"ritual": false,
@@ -2008,14 +1798,7 @@
 								"type": "savingThrow"
 							}
 						},
-						"consumers": {
-							"Na54jOqUxvh2xtGK": {
-								"mode": "variable",
-								"spellLevel": 2,
-								"points": 3,
-								"type": "spell"
-							}
-						}
+						"consumers": {}
 					}
 				},
 				"description": "<p>A black ray of necrotic energy shoots from your fingertip. Make a ranged spell attack against the target. On a hit, the target is weakened and only deals half damage with weapon attacks that use Strength.</p><p>At the end of each of the target's turns, it can make a Strength saving throw, ending the spell on a success.</p>",
@@ -2045,7 +1828,7 @@
 				"level": 2,
 				"materials": "",
 				"materialsConsumed": false,
-				"prepared": false,
+				"prepared": 2,
 				"prerequisite": "",
 				"rare": false,
 				"ritual": false,
@@ -2073,6 +1856,295 @@
 			},
 			"folder": null,
 			"sort": 0
+		},
+		{
+			"name": "Unseen Watcher",
+			"type": "feature",
+			"system": {
+				"ac": {
+					"baseFormula": "",
+					"formula": "",
+					"maxDex": 0,
+					"minStr": 0,
+					"mode": 2,
+					"requiresNoShield": false,
+					"requiresUnarmored": false
+				},
+				"actions": {
+					"d9Pq27lzOdfOrqxn": {
+						"name": "Unseen Watcher",
+						"activation": {
+							"cost": 1,
+							"type": "bonusAction",
+							"reactionTrigger": ""
+						},
+						"consumers": {},
+						"rolls": {},
+						"prompts": {
+							"W8169HlfTtxrsApF": {
+								"type": "effect",
+								"default": true,
+								"effectId": "70nqgCOtLAgNnUN2"
+							}
+						},
+						"uses": {
+							"value": 0,
+							"max": "",
+							"per": "",
+							"recharge": {
+								"formula": "1d6",
+								"rechargeType": "custom",
+								"rechargeAmount": "1",
+								"threshold": 6
+							}
+						},
+						"duration": {
+							"unit": "special",
+							"value": 1
+						},
+						"area": {
+							"shape": "",
+							"size": "",
+							"placeTemplate": false,
+							"quantity": 1
+						},
+						"target": {
+							"quantity": null,
+							"type": "self"
+						},
+						"img": "icons/magic/light/explosion-star-glow-silhouette.webp"
+					}
+				},
+				"description": "<p>A witch may choose to become&nbsp;<span class=\"freelinking-link\">invisible</span> as a bonus action as long as she takes no&nbsp;other actions and does not move on the turn she&nbsp;becomes invisible. Moving or taking any actions ends&nbsp;the invisibility effect.</p>",
+				"favorite": false,
+				"secretDescription": "",
+				"source": {
+					"name": "",
+					"link": "",
+					"publisher": ""
+				},
+				"uses": {
+					"value": null,
+					"max": "",
+					"per": null,
+					"recharge": {
+						"formula": "1d6",
+						"threshold": "6"
+					}
+				},
+				"schema": {
+					"version": null,
+					"lastMigration": null
+				},
+				"concentration": false,
+				"featureType": "other",
+				"grants": {},
+				"prerequisite": "",
+				"requiresBloodied": false
+			},
+			"_id": "7DLYjmLyCQhN5jDs",
+			"img": "icons/magic/light/explosion-star-glow-silhouette.webp",
+			"effects": [
+				{
+					"icon": "icons/magic/light/explosion-star-glow-silhouette.webp",
+					"origin": "Actor.vovoAHzAhDuH8E7N.Item.7DLYjmLyCQhN5jDs",
+					"flags": {
+						"a5e": {
+							"sort": 0,
+							"transferType": "onUse",
+							"actionId": "d9Pq27lzOdfOrqxn",
+							"applyToSelf": true
+						}
+					},
+					"transfer": false,
+					"name": "Invisibility",
+					"_id": "70nqgCOtLAgNnUN2",
+					"changes": [
+						{
+							"key": "flags.a5e.effects.statusConditions",
+							"value": "[\"invisible\"]",
+							"mode": 0,
+							"priority": null
+						}
+					],
+					"disabled": false,
+					"duration": {
+						"startTime": null,
+						"seconds": null,
+						"combat": null,
+						"rounds": null,
+						"turns": null,
+						"startRound": null,
+						"startTurn": null
+					},
+					"description": "",
+					"statuses": [
+						"invisible"
+					],
+					"folder": null
+				}
+			],
+			"folder": null,
+			"sort": 0,
+			"ownership": {
+				"default": 0
+			},
+			"flags": {}
+		},
+		{
+			"name": "Magical Disquise",
+			"type": "feature",
+			"system": {
+				"ac": {
+					"baseFormula": "",
+					"formula": "",
+					"maxDex": 0,
+					"minStr": 0,
+					"mode": 2,
+					"requiresNoShield": false,
+					"requiresUnarmored": false
+				},
+				"actions": {},
+				"description": "<p>As an action, the witch may cast<em>&nbsp;<span class=\"freelinking-link\">disguise self</span>&nbsp;</em>at will. This effect is permanent, unless she chooses to end it as a bonus action.</p>",
+				"favorite": false,
+				"secretDescription": "",
+				"source": {
+					"name": "",
+					"link": "",
+					"publisher": ""
+				},
+				"uses": {
+					"value": null,
+					"max": "",
+					"per": null,
+					"recharge": {
+						"formula": "1d6",
+						"threshold": "6"
+					}
+				},
+				"schema": {
+					"version": null,
+					"lastMigration": null
+				},
+				"concentration": false,
+				"featureType": "other",
+				"grants": {},
+				"prerequisite": "",
+				"requiresBloodied": false
+			},
+			"_id": "THvECpyBbRNBzOPW",
+			"img": "icons/equipment/head/mask-carved-wood-brown.webp",
+			"effects": [],
+			"folder": null,
+			"sort": 0,
+			"ownership": {
+				"default": 0
+			},
+			"flags": {}
+		},
+		{
+			"name": "Disguise Self",
+			"type": "spell",
+			"img": "icons/equipment/head/mask-carved-wood-brown.webp",
+			"effects": [],
+			"flags": {},
+			"system": {
+				"actions": {
+					"0qEkbCJOCXxfm5km": {
+						"name": "Disguise Self",
+						"activation": {
+							"cost": 1,
+							"type": "action",
+							"reactionTrigger": ""
+						},
+						"duration": {
+							"unit": "hour",
+							"value": "1"
+						},
+						"ranges": {
+							"iJ3osELZvlki2bnh": {
+								"range": "self"
+							}
+						},
+						"area": {
+							"shape": "",
+							"size": "",
+							"placeTemplate": false
+						},
+						"target": {
+							"quantity": "",
+							"type": "self"
+						},
+						"rolls": {
+							"s94L7q2SUWlijC86": {
+								"ability": "str",
+								"type": "abilityCheck"
+							}
+						},
+						"consumers": {}
+					}
+				},
+				"description": "<p>Until the spell ends or you use an action to dismiss it, you and your gear are cloaked by an illusory disguise that makes you appear like another creature of your general size and body type, including but not limited to: your heritage, 1 foot of height, weight, clothing, tattoos, piercings, facial features, hair style and length, skin and eye coloration, sex, and any other distinguishing features. You cannot disguise yourself as a creature of a different size category, and your limb structure remains the same; for example if you're bipedal, you can't use this spell to appear as a quadruped.</p><p>The disguise does not hold up to physical inspection. A creature that tries to grab an illusory hat, for example, finds its hand passes straight through the figment. To see through your disguise without such an inspection, a creature must use its action to make an Investigation check against your spell save DC.</p><p><strong><em>Cast at Higher Levels.</em></strong> When using a 3rd-level spell slot or higher, this spell functions identically to the seeming spell, except the spell's duration is 10 minutes.</p>",
+				"favorite": false,
+				"secretDescription": "",
+				"source": "",
+				"uses": {
+					"value": null,
+					"max": "",
+					"per": null,
+					"recharge": {
+						"formula": "",
+						"threshold": ""
+					}
+				},
+				"schema": {
+					"version": null,
+					"lastMigration": null
+				},
+				"classes": [
+					"artificer",
+					"bard",
+					"sorcerer",
+					"witch",
+					"wizard"
+				],
+				"components": {
+					"vocalized": true,
+					"seen": true,
+					"material": false
+				},
+				"concentration": false,
+				"level": 1,
+				"materials": "",
+				"materialsConsumed": false,
+				"prepared": 2,
+				"prerequisite": "",
+				"rare": false,
+				"ritual": false,
+				"schools": {
+					"primary": "illusion",
+					"secondary": [
+						"arcane",
+						"obscurement"
+					]
+				},
+				"schemaVersion": {
+					"version": 0.011,
+					"lastMigration": {
+						"version": {
+							"schema": 0.01,
+							"foundry": "11.315",
+							"system": "0.16.37"
+						}
+					}
+				}
+			},
+			"folder": null,
+			"_id": "FuOQU7op26xVFZCL",
+			"sort": 0,
+			"ownership": {
+				"default": 0
+			}
 		}
 	],
 	"effects": [],
@@ -2085,7 +2157,7 @@
 			],
 			"showSpellSlots": false,
 			"showSpellPoints": false,
-			"sheetIsLocked": true
+			"sheetIsLocked": false
 		}
 	},
 	"folder": null,

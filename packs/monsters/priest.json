@@ -851,108 +851,6 @@
 			"_id": "S6BczFTaPRviHHj9"
 		},
 		{
-			"name": "Ceremony",
-			"type": "spell",
-			"img": "icons/svg/mystery-man.svg",
-			"effects": [],
-			"flags": {
-				"core": {
-					"sourceId": "Compendium.a5e.a5e-spells.bq5bki8n1gfhrqz1"
-				}
-			},
-			"system": {
-				"actions": {
-					"cBo77Vw7V3BeIdsm": {
-						"name": "Ceremony",
-						"activation": {
-							"cost": 1,
-							"type": "hour",
-							"reactionTrigger": ""
-						},
-						"duration": {
-							"unit": "instantaneous",
-							"value": ""
-						},
-						"ranges": {
-							"w9OTwZI36lonAMVy": {
-								"range": "short"
-							}
-						},
-						"area": {
-							"shape": "",
-							"size": "",
-							"placeTemplate": false
-						},
-						"target": {
-							"quantity": "",
-							"type": "creatureObject"
-						},
-						"consumers": {
-							"eMwZZlceSbL9vZGr": {
-								"mode": "variable",
-								"spellLevel": 1,
-								"points": 2,
-								"type": "spell"
-							}
-						}
-					}
-				},
-				"description": "<p>You perform a religious ceremony during the casting time of this spell. When you cast the spell, you choose one of the following effects, any targets of which must be within range during the entire casting.</p><ul><li><p><strong>Funeral:</strong> You bless one or more corpses, acknowledging their transition away from this world. For the next week, they cannot become undead by any means short of a wish spell. This benefit lasts indefinitely regarding undead of CR 1/4 or less. A corpse can only benefit from this effect once.</p></li><li><p><strong>Guide the Passing:</strong> You bless one or more creatures within range for their passage into the next life. For the next 7 days, their souls cannot be trapped or captured by any means short of a wish spell. Once a creature benefits from this effect, it can't do so again until it has been restored to life.</p></li><li><p><strong>Offering:</strong> The gifts of the faithful are offered to the benefit of the gods and the community. Choose one skill or tool proficiency and target a number of creatures equal to your proficiency bonus that are within range. When a target makes an ability check using the skill or tool within the next week, it can choose to use this benefit to gain an expertise die on the check. A creature can be targeted by this effect no more than once per week.</p></li><li><p><strong>Purification:</strong> A creature you touch is washed with your spiritual energy. Choose one disease or possession effect on the target. If the save DC for that effect is equal to or lower than your spell save DC, the effect ends.</p></li><li><p><strong>Rite of Passage:</strong> You shepherd one or more creatures into the next phase of life, such as in a child dedication, coming of age, marriage, or conversion ceremony. These creatures gain inspiration. A creature can benefit from this effect no more than once per year.</p></li></ul>",
-				"favorite": false,
-				"secretDescription": "",
-				"source": "",
-				"uses": {
-					"value": null,
-					"max": "",
-					"per": null,
-					"recharge": {
-						"formula": "",
-						"threshold": ""
-					}
-				},
-				"schema": {
-					"version": null,
-					"lastMigration": null
-				},
-				"classes": [],
-				"components": {
-					"vocalized": true,
-					"seen": true,
-					"material": true
-				},
-				"concentration": false,
-				"level": 1,
-				"materials": "25 gold worth of incense, consumed by the spell",
-				"materialsConsumed": false,
-				"prepared": false,
-				"prerequisite": "",
-				"rare": false,
-				"ritual": true,
-				"schools": {
-					"primary": "evocation",
-					"secondary": [
-						"divine"
-					]
-				},
-				"schemaVersion": {
-					"version": 0.011,
-					"lastMigration": {
-						"version": {
-							"schema": 0.01,
-							"foundry": "11.315",
-							"system": "0.16.37"
-						}
-					}
-				}
-			},
-			"_id": "aPdISmJQ5NvvOnSY",
-			"ownership": {
-				"default": 0
-			},
-			"folder": null,
-			"sort": 0
-		},
-		{
 			"name": "Dispel Magic",
 			"type": "spell",
 			"img": "icons/magic/lightning/bolt-strike-explosion-blue.webp",
@@ -1278,122 +1176,6 @@
 				}
 			},
 			"_id": "CgTAFF2xnqG2XC2Y",
-			"ownership": {
-				"default": 0
-			},
-			"folder": null,
-			"sort": 0
-		},
-		{
-			"name": "Heal",
-			"type": "spell",
-			"img": "icons/magic/life/heart-cross-strong-flame-green.webp",
-			"effects": [],
-			"flags": {
-				"core": {
-					"sourceId": "Compendium.a5e.a5e-spells.i4869qu4aokvlvxr"
-				}
-			},
-			"system": {
-				"actions": {
-					"XWJ26F7JXKHF8yMo": {
-						"name": "Heal",
-						"activation": {
-							"cost": 1,
-							"type": "action",
-							"reactionTrigger": ""
-						},
-						"duration": {
-							"unit": "instantaneous",
-							"value": ""
-						},
-						"ranges": {
-							"U6bNDrDcAEZ0UYdu": {
-								"range": "medium"
-							}
-						},
-						"area": {
-							"shape": "",
-							"size": "",
-							"placeTemplate": false
-						},
-						"target": {
-							"quantity": "",
-							"type": "creature"
-						},
-						"rolls": {
-							"J8L7y8BndXrGBe7j": {
-								"defaultSelection": true,
-								"formula": "70",
-								"healingType": "healing",
-								"name": "",
-								"type": "healing",
-								"scaling": {
-									"mode": "spellLevel",
-									"formula": "10"
-								}
-							}
-						},
-						"consumers": {
-							"jfElxc8HGrXhyRja": {
-								"mode": "variable",
-								"spellLevel": 6,
-								"points": 9,
-								"type": "spell"
-							}
-						}
-					}
-				},
-				"description": "<p>A torrent of healing energy suffuses the target and it regains 70 hit points. The spell also ends blindness, deafness, and any diseases afflicting the target.</p><p><strong><em>Cast at Higher Levels.</em></strong> The hit points regained increase by 10 for each slot level above 6th.</p>",
-				"favorite": false,
-				"secretDescription": "",
-				"source": "",
-				"uses": {
-					"value": null,
-					"max": "",
-					"per": null,
-					"recharge": {
-						"formula": "",
-						"threshold": ""
-					}
-				},
-				"schema": {
-					"version": null,
-					"lastMigration": null
-				},
-				"classes": [],
-				"components": {
-					"vocalized": true,
-					"seen": true,
-					"material": false
-				},
-				"concentration": false,
-				"level": 6,
-				"materials": "",
-				"materialsConsumed": false,
-				"prepared": false,
-				"prerequisite": "",
-				"rare": false,
-				"ritual": false,
-				"schools": {
-					"primary": "evocation",
-					"secondary": [
-						"divine",
-						"healing"
-					]
-				},
-				"schemaVersion": {
-					"version": 0.011,
-					"lastMigration": {
-						"version": {
-							"schema": 0.01,
-							"foundry": "11.315",
-							"system": "0.16.37"
-						}
-					}
-				}
-			},
-			"_id": "cTaSZbt3mDUiBIbn",
 			"ownership": {
 				"default": 0
 			},
@@ -1727,145 +1509,6 @@
 				}
 			},
 			"_id": "NtawyZaSXOItXrEu",
-			"ownership": {
-				"default": 0
-			},
-			"folder": null,
-			"sort": 0
-		},
-		{
-			"name": "Spirit Guardians",
-			"type": "spell",
-			"img": "icons/magic/light/explosion-beam-impact-silhouette.webp",
-			"effects": [],
-			"flags": {
-				"core": {
-					"sourceId": "Compendium.a5e.a5e-spells.pbtje70pd17ouy83"
-				}
-			},
-			"system": {
-				"actions": {
-					"L7jpMaxyGrl891Gg": {
-						"name": "Spirit Guardians",
-						"activation": {
-							"cost": 1,
-							"type": "action",
-							"reactionTrigger": ""
-						},
-						"duration": {
-							"unit": "minute",
-							"value": "10"
-						},
-						"ranges": {
-							"Z8fAZ0uNnx7BTz3J": {
-								"range": "self"
-							}
-						},
-						"area": {
-							"shape": "sphere",
-							"radius": "10",
-							"placeTemplate": false
-						},
-						"target": {
-							"quantity": "",
-							"type": ""
-						},
-						"rolls": {
-							"bzqvKXJCFa0DUjdb": {
-								"canCrit": false,
-								"damageType": "radiant",
-								"formula": "3d6",
-								"name": "Radiant",
-								"type": "damage",
-								"scaling": {
-									"mode": "spellLevel",
-									"formula": "1d6"
-								}
-							},
-							"ufv1Zd8aRryexzJ8": {
-								"canCrit": false,
-								"damageType": "necrotic",
-								"formula": "3d6",
-								"name": "Necrotic",
-								"type": "damage",
-								"scaling": {
-									"mode": "spellLevel",
-									"formula": "1d6"
-								}
-							}
-						},
-						"prompts": {
-							"YEdu8ahM9DVK6DKC": {
-								"ability": "wis",
-								"onSave": "Half damage damage",
-								"saveDC": {
-									"type": "spellcasting",
-									"bonus": ""
-								},
-								"type": "savingThrow"
-							}
-						},
-						"consumers": {
-							"O0Omz2eSU0vLIW8E": {
-								"mode": "variable",
-								"spellLevel": 3,
-								"points": 5,
-								"type": "spell"
-							}
-						}
-					}
-				},
-				"description": "<p>You call down spirits of divine fury, filling the area with flitting spectral forms. You choose the form taken by the spirits.</p><p>Creatures of your choice halve their Speed while in the area. When a creature enters the area for the first time on a turn or starts its turn there, it takes 3d6 radiant or necrotic damage (your choice).</p><p><strong><em>Cast at Higher Levels.</em></strong> The damage increases by 1d6 for each slot level above 3rd.</p>",
-				"favorite": false,
-				"secretDescription": "",
-				"source": "",
-				"uses": {
-					"value": null,
-					"max": "",
-					"per": null,
-					"recharge": {
-						"formula": "",
-						"threshold": ""
-					}
-				},
-				"schema": {
-					"version": null,
-					"lastMigration": null
-				},
-				"classes": [],
-				"components": {
-					"vocalized": true,
-					"seen": true,
-					"material": true
-				},
-				"concentration": true,
-				"level": 3,
-				"materials": "holy symbol",
-				"materialsConsumed": false,
-				"prepared": false,
-				"prerequisite": "",
-				"rare": false,
-				"ritual": false,
-				"schools": {
-					"primary": "conjuration",
-					"secondary": [
-						"divine",
-						"necrotic",
-						"radiant"
-					]
-				},
-				"schemaVersion": {
-					"version": 0.011,
-					"lastMigration": {
-						"version": {
-							"schema": 0.01,
-							"foundry": "11.315",
-							"system": "0.16.37"
-						}
-					}
-				}
-			},
-			"_id": "Jkr8KZoC3R2KERif",
 			"ownership": {
 				"default": 0
 			},
@@ -2210,6 +1853,224 @@
 			},
 			"folder": null,
 			"sort": 0
+		},
+		{
+			"name": "Ceremony",
+			"type": "spell",
+			"img": "icons/commodities/treasure/token-gold-cross.webp",
+			"effects": [],
+			"flags": {},
+			"system": {
+				"actions": {
+					"cBo77Vw7V3BeIdsm": {
+						"name": "Ceremony",
+						"activation": {
+							"cost": 1,
+							"type": "hour",
+							"reactionTrigger": ""
+						},
+						"duration": {
+							"unit": "instantaneous",
+							"value": ""
+						},
+						"ranges": {
+							"w9OTwZI36lonAMVy": {
+								"range": "short"
+							}
+						},
+						"area": {
+							"shape": "",
+							"size": "",
+							"placeTemplate": false
+						},
+						"target": {
+							"quantity": "",
+							"type": "creatureObject"
+						},
+						"consumers": {
+							"eMwZZlceSbL9vZGr": {
+								"mode": "variable",
+								"spellLevel": 1,
+								"points": 2,
+								"type": "spell"
+							}
+						}
+					}
+				},
+				"description": "<p>You perform a religious ceremony during the casting time of this spell. When you cast the spell, you choose one of the following effects, any targets of which must be within range during the entire casting.</p><ul><li><p><strong>Funeral:</strong> You bless one or more corpses, acknowledging their transition away from this world. For the next week, they cannot become undead by any means short of a wish spell. This benefit lasts indefinitely regarding undead of CR 1/4 or less. A corpse can only benefit from this effect once.</p></li><li><p><strong>Guide the Passing:</strong> You bless one or more creatures within range for their passage into the next life. For the next 7 days, their souls cannot be trapped or captured by any means short of a wish spell. Once a creature benefits from this effect, it can't do so again until it has been restored to life.</p></li><li><p><strong>Offering:</strong> The gifts of the faithful are offered to the benefit of the gods and the community. Choose one skill or tool proficiency and target a number of creatures equal to your proficiency bonus that are within range. When a target makes an ability check using the skill or tool within the next week, it can choose to use this benefit to gain an expertise die on the check. A creature can be targeted by this effect no more than once per week.</p></li><li><p><strong>Purification:</strong> A creature you touch is washed with your spiritual energy. Choose one disease or possession effect on the target. If the save DC for that effect is equal to or lower than your spell save DC, the effect ends.</p></li><li><p><strong>Rite of Passage:</strong> You shepherd one or more creatures into the next phase of life, such as in a child dedication, coming of age, marriage, or conversion ceremony. These creatures gain inspiration. A creature can benefit from this effect no more than once per year.</p></li></ul>",
+				"favorite": false,
+				"secretDescription": "",
+				"source": "",
+				"uses": {
+					"value": null,
+					"max": "",
+					"per": null,
+					"recharge": {
+						"formula": "",
+						"threshold": ""
+					}
+				},
+				"schema": {
+					"version": null,
+					"lastMigration": null
+				},
+				"classes": [
+					"cleric",
+					"herald",
+					"witch"
+				],
+				"components": {
+					"vocalized": true,
+					"seen": true,
+					"material": true
+				},
+				"concentration": false,
+				"level": 1,
+				"materials": "25 gold worth of incense, consumed by the spell",
+				"materialsConsumed": false,
+				"prepared": false,
+				"prerequisite": "",
+				"rare": false,
+				"ritual": true,
+				"schools": {
+					"primary": "evocation",
+					"secondary": [
+						"divine"
+					]
+				},
+				"schemaVersion": {
+					"version": 0.011,
+					"lastMigration": {
+						"version": {
+							"schema": 0.01,
+							"foundry": "11.315",
+							"system": "0.16.37"
+						}
+					}
+				}
+			},
+			"folder": null,
+			"_id": "S7nremaHVjwNWhuM",
+			"sort": 0,
+			"ownership": {
+				"default": 0
+			}
+		},
+		{
+			"name": "Healing Word",
+			"type": "spell",
+			"img": "icons/magic/life/heart-cross-strong-green.webp",
+			"effects": [],
+			"flags": {},
+			"system": {
+				"actions": {
+					"pn0m8YMhc13oMlCR": {
+						"name": "Healing Word",
+						"activation": {
+							"cost": 1,
+							"type": "bonusAction",
+							"reactionTrigger": ""
+						},
+						"duration": {
+							"unit": "instantaneous",
+							"value": ""
+						},
+						"ranges": {
+							"8vJIPJilF3n07NAD": {
+								"range": "medium"
+							}
+						},
+						"area": {
+							"shape": "",
+							"size": "",
+							"placeTemplate": false
+						},
+						"target": {
+							"quantity": "",
+							"type": "creature"
+						},
+						"rolls": {
+							"oGAxJKQGRi1goy4V": {
+								"defaultSelection": true,
+								"formula": "1d4 + @spellcasting.mod",
+								"healingType": "healing",
+								"name": "",
+								"type": "healing",
+								"scaling": {
+									"mode": "spellLevel",
+									"formula": "1d4"
+								}
+							}
+						},
+						"consumers": {
+							"pmtpJaHyCEXuENOL": {
+								"mode": "variable",
+								"spellLevel": 1,
+								"points": 2,
+								"type": "spell"
+							}
+						}
+					}
+				},
+				"description": "<p>Healing energy washes over the target and it regains hit points equal to 1d4 + your spellcasting modifier.</p><p><strong><em>Cast at Higher Levels.</em></strong> The hit points regained increase by 1d4 for each slot level above 1st.</p>",
+				"favorite": false,
+				"secretDescription": "",
+				"source": "",
+				"uses": {
+					"value": null,
+					"max": "",
+					"per": null,
+					"recharge": {
+						"formula": "",
+						"threshold": ""
+					}
+				},
+				"schema": {
+					"version": null,
+					"lastMigration": null
+				},
+				"classes": [
+					"bard",
+					"cleric",
+					"druid"
+				],
+				"components": {
+					"vocalized": true,
+					"seen": false,
+					"material": false
+				},
+				"concentration": false,
+				"level": 1,
+				"materials": "",
+				"materialsConsumed": false,
+				"prepared": false,
+				"prerequisite": "",
+				"rare": false,
+				"ritual": false,
+				"schools": {
+					"primary": "evocation",
+					"secondary": [
+						"divine",
+						"healing"
+					]
+				},
+				"schemaVersion": {
+					"version": 0.011,
+					"lastMigration": {
+						"version": {
+							"schema": 0.01,
+							"foundry": "11.315",
+							"system": "0.16.37"
+						}
+					}
+				}
+			},
+			"folder": null,
+			"_id": "ig2VmkO7Kk3q6KEO",
+			"sort": 0,
+			"ownership": {
+				"default": 0
+			}
 		}
 	],
 	"effects": [],
@@ -2222,7 +2083,8 @@
 				"3"
 			],
 			"showSpellSlots": true,
-			"showSpellPoints": false
+			"showSpellPoints": false,
+			"sheetIsLocked": false
 		}
 	},
 	"system": {
@@ -2231,84 +2093,72 @@
 				"value": 12,
 				"check": {
 					"expertiseDice": 0,
-					"bonus": "",
-					"notes": {}
+					"bonus": ""
 				},
 				"save": {
 					"proficient": false,
 					"expertiseDice": 0,
-					"bonus": "",
-					"notes": {}
+					"bonus": ""
 				}
 			},
 			"dex": {
 				"value": 10,
 				"check": {
 					"expertiseDice": 0,
-					"bonus": "",
-					"notes": {}
+					"bonus": ""
 				},
 				"save": {
 					"proficient": false,
 					"expertiseDice": 0,
-					"bonus": "",
-					"notes": {}
+					"bonus": ""
 				}
 			},
 			"con": {
 				"value": 14,
 				"check": {
 					"expertiseDice": 0,
-					"bonus": "",
-					"notes": {}
+					"bonus": ""
 				},
 				"save": {
 					"proficient": false,
 					"expertiseDice": 0,
-					"bonus": "",
-					"notes": {}
+					"bonus": ""
 				}
 			},
 			"int": {
 				"value": 12,
 				"check": {
 					"expertiseDice": 0,
-					"bonus": "",
-					"notes": {}
+					"bonus": ""
 				},
 				"save": {
 					"proficient": false,
 					"expertiseDice": 0,
-					"bonus": "",
-					"notes": {}
+					"bonus": ""
 				}
 			},
 			"wis": {
 				"value": 16,
 				"check": {
 					"expertiseDice": 0,
-					"bonus": "",
-					"notes": {}
+					"bonus": ""
 				},
 				"save": {
 					"proficient": true,
 					"expertiseDice": 0,
-					"bonus": "",
-					"notes": {}
+					"bonus": ""
 				}
 			},
 			"cha": {
 				"value": 12,
 				"check": {
 					"expertiseDice": 0,
-					"bonus": "",
-					"notes": {}
+					"bonus": ""
 				},
 				"save": {
 					"proficient": true,
 					"expertiseDice": 0,
-					"bonus": "",
-					"notes": {}
+					"bonus": ""
 				}
 			}
 		},
@@ -2715,7 +2565,10 @@
 			"rangedWeaponAttack": "",
 			"spellDC": "",
 			"skills": {},
-			"attacks": {}
+			"attacks": {},
+			"initiative": {},
+			"movement": {},
+			"senses": {}
 		},
 		"currency": {
 			"pp": 0,
@@ -2801,7 +2654,8 @@
 			"damageImmunities": [],
 			"damageResistances": [],
 			"damageVulnerabilities": []
-		}
+		},
+		"grants": {}
 	},
 	"prototypeToken": {
 		"name": "Priest",

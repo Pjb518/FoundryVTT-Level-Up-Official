@@ -2184,123 +2184,6 @@
 					}
 				}
 			},
-			"_id": "BhGhBKUCz95rb9cR",
-			"ownership": {
-				"default": 0
-			},
-			"folder": null,
-			"sort": 0
-		},
-		{
-			"name": "Cure Wounds",
-			"type": "spell",
-			"img": "icons/magic/life/heart-area-circle-red-green.webp",
-			"effects": [],
-			"flags": {
-				"core": {
-					"sourceId": "Compendium.a5e.a5e-spells.1vo427vjnzgzb5z2"
-				}
-			},
-			"system": {
-				"actions": {
-					"NjViNAwVCh2PUMOf": {
-						"name": "Cure Wounds",
-						"activation": {
-							"cost": 1,
-							"type": "action",
-							"reactionTrigger": ""
-						},
-						"duration": {
-							"unit": "instantaneous",
-							"value": ""
-						},
-						"ranges": {
-							"lTgbcksyaGxsyLxV": {
-								"range": "touch"
-							}
-						},
-						"area": {
-							"shape": "",
-							"size": "",
-							"placeTemplate": false
-						},
-						"target": {
-							"quantity": "",
-							"type": "creature"
-						},
-						"rolls": {
-							"mvdI9zz1HD9ZzY8X": {
-								"defaultSelection": true,
-								"formula": "1d8 + @spellcasting.mod",
-								"healingType": "healing",
-								"name": "",
-								"type": "healing",
-								"scaling": {
-									"mode": "spellLevel",
-									"formula": "1d8"
-								}
-							}
-						},
-						"consumers": {
-							"AVlE963NvRYZ3fX6": {
-								"mode": "variable",
-								"spellLevel": 1,
-								"points": 2,
-								"type": "spell"
-							}
-						}
-					}
-				},
-				"description": "<p>The target regains hit points equal to 1d8 + your spellcasting ability modifier.</p><p><strong><em>Cast at Higher Levels.</em></strong> The hit points regained increase by 1d8 for each slot level above 1st.</p>",
-				"favorite": false,
-				"secretDescription": "",
-				"source": "",
-				"uses": {
-					"value": null,
-					"max": "",
-					"per": null,
-					"recharge": {
-						"formula": "",
-						"threshold": ""
-					}
-				},
-				"schema": {
-					"version": null,
-					"lastMigration": null
-				},
-				"classes": [],
-				"components": {
-					"vocalized": true,
-					"seen": true,
-					"material": false
-				},
-				"concentration": false,
-				"level": 1,
-				"materials": "",
-				"materialsConsumed": false,
-				"prepared": false,
-				"prerequisite": "",
-				"rare": false,
-				"ritual": false,
-				"schools": {
-					"primary": "evocation",
-					"secondary": [
-						"divine",
-						"healing",
-						"nature"
-					]
-				},
-				"schemaVersion": {
-					"version": 0.011,
-					"lastMigration": {
-						"version": {
-							"schema": 0.01,
-							"foundry": "11.315",
-							"system": "0.16.37"
-						}
-					}
-				}
-			},
 			"_id": "J1pN9L2h71JdmBdV",
 			"ownership": {
 				"default": 0
@@ -4776,6 +4659,116 @@
 			},
 			"folder": null,
 			"sort": 0
+		},
+		{
+			"name": "Mass Heal",
+			"type": "spell",
+			"img": "icons/magic/life/heart-cross-strong-flame-purple-orange.webp",
+			"effects": [],
+			"flags": {},
+			"system": {
+				"actions": {
+					"dLJX1tzOpvao47ig": {
+						"name": "Mass Heal",
+						"activation": {
+							"cost": 1,
+							"type": "action",
+							"reactionTrigger": ""
+						},
+						"duration": {
+							"unit": "instantaneous",
+							"value": ""
+						},
+						"ranges": {
+							"81c4slq2V3Crif8w": {
+								"range": "medium"
+							}
+						},
+						"area": {
+							"shape": "",
+							"size": "",
+							"placeTemplate": false
+						},
+						"target": {
+							"quantity": "",
+							"type": "creature"
+						},
+						"rolls": {
+							"LVynjxZnVHIpH7qV": {
+								"defaultSelection": true,
+								"formula": "700",
+								"healingType": "healing",
+								"name": "",
+								"type": "healing"
+							}
+						},
+						"consumers": {
+							"THkRYCN21FwkuGBO": {
+								"mode": "variable",
+								"spellLevel": 9,
+								"points": 13,
+								"type": "spell"
+							}
+						}
+					}
+				},
+				"description": "<p>Healing energy erupts from your steepled hands and restores up to 700 hit points between the targets.</p><p>Creatures healed in this way are also cured of any diseases, and any effect causing them to be blinded or deafened. In addition, on subsequent turns within the next minute you can use a bonus action to distribute any unused hit points.</p>",
+				"favorite": false,
+				"secretDescription": "",
+				"source": "",
+				"uses": {
+					"value": null,
+					"max": "",
+					"per": null,
+					"recharge": {
+						"formula": "",
+						"threshold": ""
+					}
+				},
+				"schema": {
+					"version": null,
+					"lastMigration": null
+				},
+				"classes": [
+					"cleric"
+				],
+				"components": {
+					"vocalized": true,
+					"seen": true,
+					"material": false
+				},
+				"concentration": false,
+				"level": 9,
+				"materials": "",
+				"materialsConsumed": false,
+				"prepared": false,
+				"prerequisite": "",
+				"rare": false,
+				"ritual": false,
+				"schools": {
+					"primary": "evocation",
+					"secondary": [
+						"divine",
+						"healing"
+					]
+				},
+				"schemaVersion": {
+					"version": 0.011,
+					"lastMigration": {
+						"version": {
+							"schema": 0.01,
+							"foundry": "11.315",
+							"system": "0.16.37"
+						}
+					}
+				}
+			},
+			"folder": null,
+			"_id": "HmPbcn2n4tWJ43RP",
+			"sort": 0,
+			"ownership": {
+				"default": 0
+			}
 		}
 	],
 	"effects": [],
@@ -4794,7 +4787,8 @@
 				"9"
 			],
 			"showSpellSlots": true,
-			"showSpellPoints": false
+			"showSpellPoints": false,
+			"sheetIsLocked": false
 		}
 	},
 	"system": {
@@ -4803,84 +4797,72 @@
 				"value": 18,
 				"check": {
 					"expertiseDice": 0,
-					"bonus": "",
-					"notes": {}
+					"bonus": ""
 				},
 				"save": {
 					"proficient": false,
 					"expertiseDice": 0,
-					"bonus": "",
-					"notes": {}
+					"bonus": ""
 				}
 			},
 			"dex": {
 				"value": 10,
 				"check": {
 					"expertiseDice": 0,
-					"bonus": "",
-					"notes": {}
+					"bonus": ""
 				},
 				"save": {
 					"proficient": false,
 					"expertiseDice": 0,
-					"bonus": "",
-					"notes": {}
+					"bonus": ""
 				}
 			},
 			"con": {
 				"value": 16,
 				"check": {
 					"expertiseDice": 0,
-					"bonus": "",
-					"notes": {}
+					"bonus": ""
 				},
 				"save": {
 					"proficient": false,
 					"expertiseDice": 0,
-					"bonus": "",
-					"notes": {}
+					"bonus": ""
 				}
 			},
 			"int": {
 				"value": 14,
 				"check": {
 					"expertiseDice": 0,
-					"bonus": "",
-					"notes": {}
+					"bonus": ""
 				},
 				"save": {
 					"proficient": true,
 					"expertiseDice": 0,
-					"bonus": "",
-					"notes": {}
+					"bonus": ""
 				}
 			},
 			"wis": {
 				"value": 20,
 				"check": {
 					"expertiseDice": 0,
-					"bonus": "",
-					"notes": {}
+					"bonus": ""
 				},
 				"save": {
 					"proficient": true,
 					"expertiseDice": 0,
-					"bonus": "",
-					"notes": {}
+					"bonus": ""
 				}
 			},
 			"cha": {
 				"value": 16,
 				"check": {
 					"expertiseDice": 0,
-					"bonus": "",
-					"notes": {}
+					"bonus": ""
 				},
 				"save": {
 					"proficient": true,
 					"expertiseDice": 0,
-					"bonus": "",
-					"notes": {}
+					"bonus": ""
 				}
 			}
 		},
@@ -5287,7 +5269,10 @@
 			"rangedWeaponAttack": "",
 			"spellDC": "",
 			"skills": {},
-			"attacks": {}
+			"attacks": {},
+			"initiative": {},
+			"movement": {},
+			"senses": {}
 		},
 		"currency": {
 			"pp": 0,
@@ -5375,7 +5360,8 @@
 				"radiant"
 			],
 			"damageVulnerabilities": []
-		}
+		},
+		"grants": {}
 	},
 	"prototypeToken": {
 		"name": "Priest",
