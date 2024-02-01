@@ -48,8 +48,8 @@
         target="_blank"
     >
         <i
-            class="tier-indicator tier-indicator--silver fa-solid fa-circle"
-            data-tooltip="This tool is available to silver tier patrons"
+            class="tier-indicator tier-indicator--bronze fa-solid fa-circle"
+            data-tooltip="This tool is available to bronze tier patrons"
         /> Encounter Builder
     </a>
 </h3>
