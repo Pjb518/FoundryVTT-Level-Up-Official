@@ -23,13 +23,13 @@
     let actionNameType = settings.getStore("newActionNameType");
     let showLimitedDesc = settings.getStore("showDescriptionOnLimitedPerms");
     let fancySheetsAutoApply = settings.getStore("autoApplyFancySheets");
-    let gamemasterName = settings.getStore("gamemasterName");
+    let gamemasterTitle = settings.getStore("gamemasterTitle");
 
     let selectedNamingMode =
         updates.get("newActionNameType") ?? $actionNameType ?? "system";
 
-    let selectedGamemasterName =
-        updates.get("gamemasterName") ?? $gamemasterName;
+    let selectedGamemasterTitle =
+        updates.get("gamemasterTitle") ?? $gamemasterTitle;
 </script>
 
 {#if isGM}
@@ -72,14 +72,14 @@
     </Section>
 
     <Section heading="Other Settings">
-        <FieldWrapper heading="Gamemaster Name">
+        <FieldWrapper heading="Gamemaster Title">
             <input
                 type="text"
-                value={selectedGamemasterName}
+                value={selectedGamemasterTitle}
                 on:change={({ target }) => {
                     updates.set(
-                        "gamemasterName",
-                        target.value?.strip?.() ?? "",
+                        "gamemasterTitle",
+                        target.value?.trim?.() ?? "",
                     );
                     reload = true;
                 }}
