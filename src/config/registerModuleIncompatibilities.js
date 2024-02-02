@@ -84,10 +84,13 @@ export default function registerModuleIncompatibilities(A5E) {
       reason: 'The content from this module is included in the core system packs, and the module is no longer necessary.',
       priority: 'low'
     },
-
     dae: {
       reason: "All of DAE's features are already part of the A5e system's Active Effects implementation. Using DAE will give you a worse experience than having it turned off.",
       priority: 'high'
+    },
+    'gamemaster-title-editor': {
+      reason: "The system already provides settings to configure a GM's title, so this module is unnecessary in the A5e system. It may also conflict with the system's built-in configuration options.",
+      priority: 'medium'
     }
   };
 }
