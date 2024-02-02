@@ -41,10 +41,19 @@
         return maneuverProperties;
     }
 
+    function getManeuverSource(maneuver) {
+        if (typeof maneuver.system.source !== "string") return null;
+
+        const source = CONFIG.A5E.products[maneuver.system.source];
+
+        return source || null;
+    }
+
     const collection = getContext("collection");
     const { maneuverDegrees, maneuverTraditions } = CONFIG.A5E;
 
     $: maneuverDetails = getManeuverDetailsLabel(document);
+    $: maneuverSource = getManeuverSource(document);
 </script>
 
 <!-- svelte-ignore a11y-click-events-have-key-events a11y-no-noninteractive-element-interactions -->
@@ -78,6 +87,17 @@
     </h3>
 
     <span class="a5e-item__details">
+        {#if maneuverSource?.abbreviation}
+            <a
+                class="a5e-item__source-tag"
+                href={maneuverSource?.url}
+                target="_blank"
+                data-tooltip={`${maneuverSource?.title} (Affiliate Link)`}
+            >
+                {maneuverSource?.abbreviation}
+            </a>
+        {/if}
+
         {maneuverDetails}
     </span>
 
