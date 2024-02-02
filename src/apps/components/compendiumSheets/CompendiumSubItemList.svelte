@@ -7,9 +7,11 @@
 </script>
 
 {#if reducer.length}
-    <Section heading={name}>
-        {#each [...$reducer] as document}
-            <svelte:component this={ItemComponent} {document} />
-        {/each}
+    <Section heading={name} --a5e-section-gap="0">
+        <ul class="a5e-item-list a5e-item-list--compendium">
+            {#each [...$reducer] as document}
+                <svelte:component this={ItemComponent} {document} />
+            {/each}
+        </ul>
     </Section>
 {/if}
