@@ -134,6 +134,7 @@
                 href={monsterSource?.url}
                 target="_blank"
                 data-tooltip={`${monsterSource?.title} (Affiliate Link)`}
+                on:click|stopPropagation
             >
                 {monsterSource?.abbreviation}
             </a>

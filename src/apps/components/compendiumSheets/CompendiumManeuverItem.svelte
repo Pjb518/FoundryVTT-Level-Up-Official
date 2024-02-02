@@ -93,6 +93,7 @@
                 href={maneuverSource?.url}
                 target="_blank"
                 data-tooltip={`${maneuverSource?.title} (Affiliate Link)`}
+                on:click|stopPropagation
             >
                 {maneuverSource?.abbreviation}
             </a>
