@@ -14,6 +14,7 @@ export async function createManeuverLikeIndex(packId: string) {
       'system.concentration',
       'system.degree',
       'system.isStance',
+      'system.source',
       'system.tradition'
     ]
   });
@@ -31,7 +32,8 @@ export async function createMonsterLikeIndex(packId: string) {
       'system.details.creatureTypes',
       'system.details.elite',
       'system.details.isSwarm',
-      'system.traits.size'
+      'system.traits.size',
+      'system.source'
     ]
   });
 
@@ -48,7 +50,8 @@ export async function create5eMonsterLikeIndex(packId: string) {
       'system.details.creatureTypes',
       'system.details.elite',
       'system.details.isSwarm',
-      'system.traits.size'
+      'system.traits.size',
+      'system.source'
     ]
   });
 
@@ -64,7 +67,8 @@ export async function createObjectLikeIndex(packId: string) {
       'system.bulky',
       'system.objectType',
       'system.price',
-      'system.rarity'
+      'system.rarity',
+      'system.source'
     ]
   });
 
@@ -83,7 +87,8 @@ export async function createSpellLikeIndex(packId: string) {
       'system.level',
       'system.rare',
       'system.ritual',
-      'system.schools'
+      'system.schools',
+      'system.source'
     ]
   });
 
@@ -100,7 +105,8 @@ export async function create5eSpellLikeIndex(packId: string) {
       'system.description',
       'system.level',
       'system.ritual',
-      'system.schools'
+      'system.schools',
+      'system.source'
     ]
   });
 
