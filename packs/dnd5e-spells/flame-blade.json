@@ -1,101 +1,97 @@
 {
-	"type": "spell",
-	"img": "icons/magic/fire/dagger-rune-enchant-flame-orange.webp",
-	"name": "Flame Blade",
-	"system": {
-		"actions": {
-			"VXZYbIkwjMn2IfXw": {
-				"activation": {
-					"cost": 1,
-					"type": "bonusAction",
-					"reactionTrigger": ""
-				},
-				"duration": {
-					"unit": "minute",
-					"value": "10"
-				},
-				"rolls": {
-					"BWLbenXoC6QBJVam": {
-						"bonus": "",
-						"critThreshold": 20,
-						"type": "attack",
-						"attackType": "meleeSpellAttack",
-						"ability": "spellcasting"
-					},
-					"KWWvvDHjCkO2t178": {
-						"canCrit": true,
-						"critBonus": "",
-						"damageType": "fire",
-						"formula": "floor(2 + @item.level / 2)d6",
-						"scaling": {
-							"formula": ""
-						},
-						"name": "",
-						"type": "damage"
-					}
-				},
-				"target": {
-					"quantity": null,
-					"type": "self"
-				},
-				"consumers": {
-					"NbNA8HLq8vOldwFi": {
-						"mode": "variable",
-						"spellLevel": 2,
-						"points": 3,
-						"type": "spell"
-					}
-				},
-				"name": "Cast Spell",
-				"ranges": {
-					"p82UR4W56gBXXcUw": {
-						"range": "self"
-					}
-				}
-			}
-		},
-		"description": "<p>You evoke a fiery blade in your free hand. The blade is similar in size and shape to a Scimitar, and it lasts for the Duration. If you let go of the blade, it disappears, but you can evoke the blade again as a Bonus Action.</p><p>You can use your action to make a melee spell Attack with the fiery blade. On a hit, the target takes 3d6 fire damage.</p><p>The flaming blade sheds bright light in a 10-foot radius and dim light for an additional 10 feet.</p><p><strong>At Higher Levels.</strong> When you cast this spell using a spell slot of 4th level or higher, the damage increases by 1d6 for every two slot levels above 2nd.</p>",
-		"favorite": false,
-		"secretDescription": "",
-		"source": {
-			"name": "",
-			"link": "",
-			"publisher": ""
-		},
-		"uses": {
-			"value": 0,
-			"max": 0,
-			"per": "",
-			"recharge": {
-				"formula": "1d6",
-				"threshold": 6
-			}
-		},
-		"schema": {
-			"version": 0.01,
-			"lastMigration": null
-		},
-		"classes": [],
-		"components": {
-			"vocalized": true,
-			"seen": true,
-			"material": true
-		},
-		"concentration": true,
-		"level": 2,
-		"materials": "Leaf of sumac",
-		"materialsConsumed": false,
-		"prepared": false,
-		"prerequisite": "",
-		"rare": false,
-		"ritual": false,
-		"schools": {
-			"primary": "evocation",
-			"secondary": []
-		}
-	},
-	"effects": [],
-	"folder": null,
-	"flags": {},
-	"_id": "mlwbbf5jcrfpyi5u"
+  "type": "spell",
+  "img": "icons/magic/fire/dagger-rune-enchant-flame-orange.webp",
+  "name": "Flame Blade",
+  "system": {
+    "actions": {
+      "VXZYbIkwjMn2IfXw": {
+        "activation": {
+          "cost": 1,
+          "type": "bonusAction",
+          "reactionTrigger": ""
+        },
+        "duration": {
+          "unit": "minute",
+          "value": "10"
+        },
+        "rolls": {
+          "BWLbenXoC6QBJVam": {
+            "bonus": "",
+            "critThreshold": 20,
+            "type": "attack",
+            "attackType": "meleeSpellAttack",
+            "ability": "spellcasting"
+          },
+          "KWWvvDHjCkO2t178": {
+            "canCrit": true,
+            "critBonus": "",
+            "damageType": "fire",
+            "formula": "floor(2 + @item.level / 2)d6",
+            "scaling": {
+              "formula": ""
+            },
+            "name": "",
+            "type": "damage"
+          }
+        },
+        "target": {
+          "quantity": null,
+          "type": "self"
+        },
+        "consumers": {
+          "NbNA8HLq8vOldwFi": {
+            "mode": "variable",
+            "spellLevel": 2,
+            "points": 3,
+            "type": "spell"
+          }
+        },
+        "name": "Cast Spell",
+        "ranges": {
+          "p82UR4W56gBXXcUw": {
+            "range": "self"
+          }
+        }
+      }
+    },
+    "description": "<p>You evoke a fiery blade in your free hand. The blade is similar in size and shape to a Scimitar, and it lasts for the Duration. If you let go of the blade, it disappears, but you can evoke the blade again as a Bonus Action.</p><p>You can use your action to make a melee spell Attack with the fiery blade. On a hit, the target takes 3d6 fire damage.</p><p>The flaming blade sheds bright light in a 10-foot radius and dim light for an additional 10 feet.</p><p><strong>At Higher Levels.</strong> When you cast this spell using a spell slot of 4th level or higher, the damage increases by 1d6 for every two slot levels above 2nd.</p>",
+    "favorite": false,
+    "secretDescription": "",
+    "source": "",
+    "uses": {
+      "value": 0,
+      "max": 0,
+      "per": "",
+      "recharge": {
+        "formula": "1d6",
+        "threshold": 6
+      }
+    },
+    "schema": {
+      "version": 0.01,
+      "lastMigration": null
+    },
+    "classes": [],
+    "components": {
+      "vocalized": true,
+      "seen": true,
+      "material": true
+    },
+    "concentration": true,
+    "level": 2,
+    "materials": "Leaf of sumac",
+    "materialsConsumed": false,
+    "prepared": false,
+    "prerequisite": "",
+    "rare": false,
+    "ritual": false,
+    "schools": {
+      "primary": "evocation",
+      "secondary": []
+    }
+  },
+  "effects": [],
+  "folder": null,
+  "flags": {},
+  "_id": "mlwbbf5jcrfpyi5u"
 }

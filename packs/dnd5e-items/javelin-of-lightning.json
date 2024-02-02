@@ -1,131 +1,127 @@
 {
-	"type": "object",
-	"img": "icons/magic/lightning/bolt-strike-blue.webp",
-	"name": "Javelin of Lightning",
-	"flags": {},
-	"system": {
-		"ac": {
-			"baseFormula": "",
-			"formula": "",
-			"maxDex": 0,
-			"minStr": 0,
-			"mode": 2,
-			"requiresNoShield": false,
-			"requiresUnarmored": false
-		},
-		"actions": {
-			"ILKE2hT05uBea4qT": {
-				"activation": {
-					"cost": 1,
-					"type": "action",
-					"reactionTrigger": "Command word."
-				},
-				"duration": {
-					"unit": "instantaneous",
-					"value": ""
-				},
-				"rolls": {
-					"AJRBItrQXrZaQebt": {
-						"bonus": "",
-						"critThreshold": 20,
-						"type": "attack",
-						"attackType": "rangedWeaponAttack",
-						"ability": "dex"
-					},
-					"DJEhm4DzLiDx2lj3": {
-						"canCrit": true,
-						"critBonus": "",
-						"damageType": "piercing",
-						"formula": "1d6 + @str.mod",
-						"scaling": {},
-						"name": "",
-						"type": "damage"
-					},
-					"MIqPvocADHyENQld": {
-						"canCrit": true,
-						"critBonus": "",
-						"damageType": "lightning",
-						"formula": "4d6",
-						"scaling": {},
-						"name": "",
-						"type": "damage"
-					}
-				},
-				"area": {
-					"length": 120,
-					"placeTemplate": true,
-					"shape": "line",
-					"width": 5
-				},
-				"consumers": {
-					"JBrmsj6WwMKhjPZ0": {
-						"type": "itemUses",
-						"quantity": 1
-					},
-					"Dnhp09o0dT5UjLOR": {
-						"itemId": "",
-						"quantity": 1,
-						"type": "ammunition"
-					}
-				},
-				"name": "Attack",
-				"ranges": {
-					"UEeZGZ9tskI0lmto": {
-						"range": "long"
-					}
-				}
-			}
-		},
-		"description": "<p>This javelin is a magic weapon. When you hurl it and speak its command word, it transforms into a bolt of lightning, forming a line 5 feet wide that extends out from you to a target within 120 feet. Each creature in the line excluding you and the target must make a DC 13 Dexterity saving throw, taking 4d6 lightning damage on a failed save, and half as much damage on a successful one. The lightning bolt turns back into a javelin when it reaches the target. Make a ranged weapon attack against the target. On a hit, the target takes damage from the javelin plus 4d6 lightning damage.</p>\n<p>The javelin's property can't be used again until the next dawn. In the meantime, the javelin can still be used as a magic weapon.</p>",
-		"favorite": false,
-		"secretDescription": "",
-		"source": {
-			"name": "",
-			"link": "",
-			"publisher": ""
-		},
-		"uses": {
-			"value": null,
-			"max": "",
-			"per": null,
-			"recharge": {
-				"formula": "1d6",
-				"threshold": "6"
-			}
-		},
-		"schema": {
-			"version": 0.01,
-			"lastMigration": null
-		},
-		"ammunitionProperties": [],
-		"armorCategory": "",
-		"armorProperties": [],
-		"attuned": false,
-		"bulky": false,
-		"craftingComponents": "",
-		"containerId": "",
-		"damagedState": 0,
-		"equippedState": 0,
-		"items": {},
-		"materialProperties": [],
-		"objectType": "weapon",
-		"plotItem": false,
-		"price": "1500gp",
-		"proficient": true,
-		"quantity": 1,
-		"rarity": "uncommon",
-		"requiresAttunement": false,
-		"shieldCategory": "",
-		"shieldProperties": [],
-		"unidentified": false,
-		"unidentifiedDescription": "",
-		"unidentifiedName": "",
-		"weaponProperties": [
-			"thrown"
-		],
-		"weight": 2
-	},
-	"effects": [],
-	"folder": null,
-	"_id": "aknmzrme3pta41l5"
+  "type": "object",
+  "img": "icons/magic/lightning/bolt-strike-blue.webp",
+  "name": "Javelin of Lightning",
+  "flags": {},
+  "system": {
+    "ac": {
+      "baseFormula": "",
+      "formula": "",
+      "maxDex": 0,
+      "minStr": 0,
+      "mode": 2,
+      "requiresNoShield": false,
+      "requiresUnarmored": false
+    },
+    "actions": {
+      "ILKE2hT05uBea4qT": {
+        "activation": {
+          "cost": 1,
+          "type": "action",
+          "reactionTrigger": "Command word."
+        },
+        "duration": {
+          "unit": "instantaneous",
+          "value": ""
+        },
+        "rolls": {
+          "AJRBItrQXrZaQebt": {
+            "bonus": "",
+            "critThreshold": 20,
+            "type": "attack",
+            "attackType": "rangedWeaponAttack",
+            "ability": "dex"
+          },
+          "DJEhm4DzLiDx2lj3": {
+            "canCrit": true,
+            "critBonus": "",
+            "damageType": "piercing",
+            "formula": "1d6 + @str.mod",
+            "scaling": {},
+            "name": "",
+            "type": "damage"
+          },
+          "MIqPvocADHyENQld": {
+            "canCrit": true,
+            "critBonus": "",
+            "damageType": "lightning",
+            "formula": "4d6",
+            "scaling": {},
+            "name": "",
+            "type": "damage"
+          }
+        },
+        "area": {
+          "length": 120,
+          "placeTemplate": true,
+          "shape": "line",
+          "width": 5
+        },
+        "consumers": {
+          "JBrmsj6WwMKhjPZ0": {
+            "type": "itemUses",
+            "quantity": 1
+          },
+          "Dnhp09o0dT5UjLOR": {
+            "itemId": "",
+            "quantity": 1,
+            "type": "ammunition"
+          }
+        },
+        "name": "Attack",
+        "ranges": {
+          "UEeZGZ9tskI0lmto": {
+            "range": "long"
+          }
+        }
+      }
+    },
+    "description": "<p>This javelin is a magic weapon. When you hurl it and speak its command word, it transforms into a bolt of lightning, forming a line 5 feet wide that extends out from you to a target within 120 feet. Each creature in the line excluding you and the target must make a DC 13 Dexterity saving throw, taking 4d6 lightning damage on a failed save, and half as much damage on a successful one. The lightning bolt turns back into a javelin when it reaches the target. Make a ranged weapon attack against the target. On a hit, the target takes damage from the javelin plus 4d6 lightning damage.</p>\n<p>The javelin's property can't be used again until the next dawn. In the meantime, the javelin can still be used as a magic weapon.</p>",
+    "favorite": false,
+    "secretDescription": "",
+    "source": "",
+    "uses": {
+      "value": null,
+      "max": "",
+      "per": null,
+      "recharge": {
+        "formula": "1d6",
+        "threshold": "6"
+      }
+    },
+    "schema": {
+      "version": 0.01,
+      "lastMigration": null
+    },
+    "ammunitionProperties": [],
+    "armorCategory": "",
+    "armorProperties": [],
+    "attuned": false,
+    "bulky": false,
+    "craftingComponents": "",
+    "containerId": "",
+    "damagedState": 0,
+    "equippedState": 0,
+    "items": {},
+    "materialProperties": [],
+    "objectType": "weapon",
+    "plotItem": false,
+    "price": "1500gp",
+    "proficient": true,
+    "quantity": 1,
+    "rarity": "uncommon",
+    "requiresAttunement": false,
+    "shieldCategory": "",
+    "shieldProperties": [],
+    "unidentified": false,
+    "unidentifiedDescription": "",
+    "unidentifiedName": "",
+    "weaponProperties": [
+      "thrown"
+    ],
+    "weight": 2
+  },
+  "effects": [],
+  "folder": null,
+  "_id": "aknmzrme3pta41l5"
 }

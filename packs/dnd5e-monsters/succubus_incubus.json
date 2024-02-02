@@ -1,1757 +1,1753 @@
 {
-	"type": "npc",
-	"img": "systems/a5e/assets/malcubus.webp",
-	"name": "Succubus/Incubus",
-	"flags": {},
-	"prototypeToken": {
-		"name": "Succubus/Incubus",
-		"detectionModes": [],
-		"disposition": -1,
-		"height": 1,
-		"light": {
-			"alpha": 1,
-			"angle": 360,
-			"bright": 0,
-			"coloration": 1,
-			"dim": 0,
-			"luminosity": 0.5,
-			"saturation": 0,
-			"contrast": 0,
-			"shadows": 0,
-			"animation": {
-				"speed": 5,
-				"intensity": 5,
-				"type": null,
-				"reverse": false
-			},
-			"darkness": {
-				"min": 0,
-				"max": 1
-			},
-			"color": null,
-			"attenuation": 0.5
-		},
-		"sight": {
-			"angle": 360,
-			"enabled": false,
-			"range": 60,
-			"brightness": 0,
-			"visionMode": "basic",
-			"color": null,
-			"attenuation": 0.1,
-			"saturation": 0,
-			"contrast": 0
-		},
-		"texture": {
-			"src": "systems/a5e/assets/malcubus.webp",
-			"tint": "#ffffff",
-			"scaleX": 3,
-			"scaleY": 3,
-			"offsetX": 0,
-			"offsetY": 0,
-			"rotation": 0,
-			"anchorX": 0.5,
-			"anchorY": 0.5,
-			"fit": "contain",
-			"alphaThreshold": 0.75
-		},
-		"width": 1,
-		"displayName": 0,
-		"actorLink": false,
-		"appendNumber": false,
-		"prependAdjective": false,
-		"lockRotation": false,
-		"rotation": 0,
-		"alpha": 1,
-		"displayBars": 0,
-		"bar1": {
-			"attribute": "attributes.hp"
-		},
-		"bar2": {
-			"attribute": null
-		},
-		"flags": {},
-		"randomImg": false,
-		"hexagonalShape": 0,
-		"locked": false,
-		"occludable": {
-			"radius": 0
-		}
-	},
-	"system": {
-		"abilities": {
-			"str": {
-				"value": 8,
-				"check": {
-					"expertiseDice": 0,
-					"bonus": "",
-					"notes": {}
-				},
-				"save": {
-					"proficient": false,
-					"expertiseDice": 0,
-					"bonus": "",
-					"notes": {}
-				}
-			},
-			"dex": {
-				"value": 17,
-				"check": {
-					"expertiseDice": 0,
-					"bonus": "",
-					"notes": {}
-				},
-				"save": {
-					"proficient": false,
-					"expertiseDice": 0,
-					"bonus": "",
-					"notes": {}
-				}
-			},
-			"con": {
-				"value": 13,
-				"check": {
-					"expertiseDice": 0,
-					"bonus": "",
-					"notes": {}
-				},
-				"save": {
-					"proficient": false,
-					"expertiseDice": 0,
-					"bonus": "",
-					"notes": {}
-				}
-			},
-			"int": {
-				"value": 15,
-				"check": {
-					"expertiseDice": 0,
-					"bonus": "",
-					"notes": {}
-				},
-				"save": {
-					"proficient": false,
-					"expertiseDice": 0,
-					"bonus": "",
-					"notes": {}
-				}
-			},
-			"wis": {
-				"value": 12,
-				"check": {
-					"expertiseDice": 0,
-					"bonus": "",
-					"notes": {}
-				},
-				"save": {
-					"proficient": false,
-					"expertiseDice": 0,
-					"bonus": "",
-					"notes": {}
-				}
-			},
-			"cha": {
-				"value": 20,
-				"check": {
-					"expertiseDice": 0,
-					"bonus": "",
-					"notes": {}
-				},
-				"save": {
-					"proficient": false,
-					"expertiseDice": 0,
-					"bonus": "",
-					"notes": {}
-				}
-			}
-		},
-		"schemaVersion": {
-			"version": 0.01,
-			"lastMigration": null
-		},
-		"skills": {
-			"acr": {
-				"ability": "dex",
-				"value": 0,
-				"proficient": false,
-				"specialties": [],
-				"expertiseDice": 0,
-				"minRoll": 1,
-				"bonuses": {
-					"check": "",
-					"passive": 0
-				}
-			},
-			"ani": {
-				"ability": "wis",
-				"value": 0,
-				"proficient": false,
-				"specialties": [],
-				"expertiseDice": 0,
-				"minRoll": 1,
-				"bonuses": {
-					"check": "",
-					"passive": 0
-				}
-			},
-			"arc": {
-				"ability": "int",
-				"value": 0,
-				"proficient": false,
-				"specialties": [],
-				"expertiseDice": 0,
-				"minRoll": 1,
-				"bonuses": {
-					"check": "",
-					"passive": 0
-				}
-			},
-			"ath": {
-				"ability": "str",
-				"value": 0,
-				"proficient": false,
-				"specialties": [],
-				"expertiseDice": 0,
-				"minRoll": 1,
-				"bonuses": {
-					"check": "",
-					"passive": 0
-				}
-			},
-			"cul": {
-				"ability": "int",
-				"value": 0,
-				"proficient": false,
-				"specialties": [],
-				"expertiseDice": 0,
-				"minRoll": 1,
-				"bonuses": {
-					"check": "",
-					"passive": 0
-				}
-			},
-			"dec": {
-				"ability": "cha",
-				"value": 0,
-				"proficient": true,
-				"specialties": [],
-				"expertiseDice": 0,
-				"minRoll": 1,
-				"bonuses": {
-					"check": "@prof[Expertise]",
-					"passive": 0
-				}
-			},
-			"eng": {
-				"ability": "int",
-				"value": 0,
-				"proficient": false,
-				"specialties": [],
-				"expertiseDice": 0,
-				"minRoll": 1,
-				"bonuses": {
-					"check": "",
-					"passive": 0
-				}
-			},
-			"his": {
-				"ability": "int",
-				"value": 0,
-				"proficient": false,
-				"specialties": [],
-				"expertiseDice": 0,
-				"minRoll": 1,
-				"bonuses": {
-					"check": "",
-					"passive": 0
-				}
-			},
-			"ins": {
-				"ability": "wis",
-				"value": 0,
-				"proficient": true,
-				"specialties": [],
-				"expertiseDice": 0,
-				"minRoll": 1,
-				"bonuses": {
-					"check": "@prof[Expertise]",
-					"passive": 0
-				}
-			},
-			"itm": {
-				"ability": "cha",
-				"value": 0,
-				"proficient": false,
-				"specialties": [],
-				"expertiseDice": 0,
-				"minRoll": 1,
-				"bonuses": {
-					"check": "",
-					"passive": 0
-				}
-			},
-			"inv": {
-				"ability": "int",
-				"value": 0,
-				"proficient": false,
-				"specialties": [],
-				"expertiseDice": 0,
-				"minRoll": 1,
-				"bonuses": {
-					"check": "",
-					"passive": 0
-				}
-			},
-			"med": {
-				"ability": "wis",
-				"value": 0,
-				"proficient": false,
-				"specialties": [],
-				"expertiseDice": 0,
-				"minRoll": 1,
-				"bonuses": {
-					"check": "",
-					"passive": 0
-				}
-			},
-			"nat": {
-				"ability": "int",
-				"value": 0,
-				"proficient": false,
-				"specialties": [],
-				"expertiseDice": 0,
-				"minRoll": 1,
-				"bonuses": {
-					"check": "",
-					"passive": 0
-				}
-			},
-			"prc": {
-				"ability": "wis",
-				"value": 0,
-				"proficient": true,
-				"specialties": [],
-				"expertiseDice": 0,
-				"minRoll": 1,
-				"bonuses": {
-					"check": "@prof[Expertise]",
-					"passive": 0
-				}
-			},
-			"prf": {
-				"ability": "cha",
-				"value": 0,
-				"proficient": false,
-				"specialties": [],
-				"expertiseDice": 0,
-				"minRoll": 1,
-				"bonuses": {
-					"check": "",
-					"passive": 0
-				}
-			},
-			"per": {
-				"ability": "cha",
-				"value": 0,
-				"proficient": true,
-				"specialties": [],
-				"expertiseDice": 0,
-				"minRoll": 1,
-				"bonuses": {
-					"check": "@prof[Expertise]",
-					"passive": 0
-				}
-			},
-			"rel": {
-				"ability": "int",
-				"value": 0,
-				"proficient": false,
-				"specialties": [],
-				"expertiseDice": 0,
-				"minRoll": 1,
-				"bonuses": {
-					"check": "",
-					"passive": 0
-				}
-			},
-			"slt": {
-				"ability": "dex",
-				"value": 0,
-				"proficient": false,
-				"specialties": [],
-				"expertiseDice": 0,
-				"minRoll": 1,
-				"bonuses": {
-					"check": "",
-					"passive": 0
-				}
-			},
-			"ste": {
-				"ability": "dex",
-				"value": 0,
-				"proficient": true,
-				"specialties": [],
-				"expertiseDice": 0,
-				"minRoll": 1,
-				"bonuses": {
-					"check": "@prof[Expertise]",
-					"passive": 0
-				}
-			},
-			"sur": {
-				"ability": "wis",
-				"value": 0,
-				"proficient": false,
-				"specialties": [],
-				"expertiseDice": 0,
-				"minRoll": 1,
-				"bonuses": {
-					"check": "",
-					"passive": 0
-				}
-			}
-		},
-		"spellResources": {
-			"slots": {
-				"1": {
-					"current": 0,
-					"max": 0
-				},
-				"2": {
-					"current": 0,
-					"max": 0
-				},
-				"3": {
-					"current": 0,
-					"max": 0
-				},
-				"4": {
-					"current": 0,
-					"max": 0
-				},
-				"5": {
-					"current": 0,
-					"max": 0
-				},
-				"6": {
-					"current": 0,
-					"max": 0
-				},
-				"7": {
-					"current": 0,
-					"max": 0
-				},
-				"8": {
-					"current": 0,
-					"max": 0
-				},
-				"9": {
-					"current": 0,
-					"max": 0
-				}
-			},
-			"points": {
-				"current": 0,
-				"max": 0
-			}
-		},
-		"attributes": {
-			"ac": {
-				"baseFormula": "15",
-				"value": 0
-			},
-			"death": {
-				"success": 0,
-				"failure": 0
-			},
-			"hp": {
-				"value": 66,
-				"baseMax": 66,
-				"temp": 0,
-				"bonus": 0
-			},
-			"hitDice": {
-				"d6": {
-					"current": 0,
-					"total": 0
-				},
-				"d8": {
-					"current": 0,
-					"total": 0
-				},
-				"d10": {
-					"current": 0,
-					"total": 0
-				},
-				"d12": {
-					"current": 0,
-					"total": 0
-				},
-				"d4": {
-					"current": 0,
-					"total": 0
-				},
-				"d20": {
-					"current": 0,
-					"total": 0
-				}
-			},
-			"initiative": {
-				"bonus": "0",
-				"expertiseDice": 0
-			},
-			"movement": {
-				"burrow": {
-					"distance": 0,
-					"unit": "feet"
-				},
-				"climb": {
-					"distance": 0,
-					"unit": "feet"
-				},
-				"fly": {
-					"distance": 60,
-					"unit": "feet"
-				},
-				"swim": {
-					"distance": 0,
-					"unit": "feet"
-				},
-				"walk": {
-					"distance": 30,
-					"unit": "feet"
-				},
-				"traits": {
-					"hover": false
-				}
-			},
-			"senses": {
-				"blindsight": {
-					"distance": 0,
-					"unit": "feet",
-					"otherwiseBlind": false
-				},
-				"darkvision": {
-					"distance": 60,
-					"unit": "feet"
-				},
-				"tremorsense": {
-					"distance": 0,
-					"unit": "feet"
-				},
-				"truesight": {
-					"distance": 0,
-					"unit": "feet"
-				}
-			},
-			"inspiration": false,
-			"fatigue": 0,
-			"strife": 0,
-			"spellcasting": "int",
-			"casterLevel": 0
-		},
-		"bonuses": {
-			"abilities": {},
-			"damage": {},
-			"healing": {},
-			"maneuverDC": "",
-			"meleeSpellAttack": "",
-			"meleeWeaponAttack": "",
-			"rangedSpellAttack": "",
-			"rangedWeaponAttack": "",
-			"spellDC": "",
-			"skills": {
-				"aqXAqnliikWqDpB4": {
-					"context": {
-						"skills": [
-							"dec",
-							"ins",
-							"prc",
-							"per",
-							"ste"
-						],
-						"passiveOnly": false,
-						"requiresProficiency": false
-					},
-					"formula": "@prof[Expertise]",
-					"label": "Check Bonus",
-					"default": true,
-					"img": "icons/svg/upgrade.svg"
-				}
-			}
-		},
-		"currency": {
-			"pp": 0,
-			"gp": 0,
-			"ep": 0,
-			"sp": 0,
-			"cp": 0
-		},
-		"details": {
-			"bio": "<p>\n        <em>\n          Token artwork by\n          <a href=\"https://www.forgotten-adventures.net/\" target=\"_blank\" rel=\"noopener\">Forgotten Adventures</a>.\n        </em>\n      </p>",
-			"creatureTypes": [
-				"fiend"
-			],
-			"isSwarm": false,
-			"cr": 4,
-			"elite": false,
-			"privateNotes": "",
-			"notes": ""
-		},
-		"proficiencies": {
-			"armor": [],
-			"languages": [],
-			"tools": [],
-			"weapons": []
-		},
-		"resources": {
-			"primary": {
-				"label": "",
-				"value": 0,
-				"max": "",
-				"per": "",
-				"hideMax": false,
-				"recharge": {
-					"formula": "1d6",
-					"threshold": 6
-				}
-			},
-			"secondary": {
-				"label": "",
-				"value": 0,
-				"max": "",
-				"per": "",
-				"hideMax": false,
-				"recharge": {
-					"formula": "1d6",
-					"threshold": 6
-				}
-			},
-			"tertiary": {
-				"label": "",
-				"value": 0,
-				"max": "",
-				"per": "",
-				"hideMax": false,
-				"recharge": {
-					"formula": "1d6",
-					"threshold": 6
-				}
-			},
-			"quaternary": {
-				"label": "",
-				"value": 0,
-				"max": "",
-				"per": "",
-				"hideMax": false,
-				"recharge": {
-					"formula": "1d6",
-					"threshold": 6
-				}
-			}
-		},
-		"source": {
-			"name": "",
-			"link": "",
-			"publisher": ""
-		},
-		"traits": {
-			"size": "med",
-			"conditionImmunities": [],
-			"damageImmunities": [],
-			"damageResistances": [
-				"bludgeoning",
-				"cold",
-				"fire",
-				"lightning",
-				"piercing",
-				"poison",
-				"slashing"
-			],
-			"damageVulnerabilities": []
-		}
-	},
-	"items": [
-		{
-			"type": "feature",
-			"img": "icons/magic/control/debuff-energy-hold-levitate-pink.webp",
-			"name": "Telepathic Bond",
-			"flags": {},
-			"system": {
-				"ac": {
-					"baseFormula": "",
-					"formula": "",
-					"maxDex": 0,
-					"minStr": 0,
-					"mode": 2,
-					"requiresNoShield": false,
-					"requiresUnarmored": false
-				},
-				"actions": {},
-				"description": "<p>The fiend ignores the range restriction on its telepathy when communicating with a creature it has charmed. The two don't even need to be on the same plane of existence.</p>",
-				"favorite": false,
-				"secretDescription": "",
-				"source": {
-					"name": "",
-					"link": "",
-					"publisher": ""
-				},
-				"uses": {
-					"value": 0,
-					"max": 0,
-					"per": "",
-					"recharge": {
-						"formula": "1d6",
-						"threshold": 6
-					}
-				},
-				"schema": {
-					"version": 0.01,
-					"lastMigration": null
-				},
-				"concentration": false,
-				"featureType": "",
-				"grants": {},
-				"prerequisite": "",
-				"schemaVersion": {
-					"version": 0.01,
-					"lastMigration": {
-						"version": {
-							"schema": null,
-							"foundry": "12.316",
-							"system": "0.16.12"
-						}
-					}
-				}
-			},
-			"_id": "3LVEV88Xv9AbAG6d",
-			"effects": [],
-			"folder": null,
-			"sort": 0,
-			"ownership": {
-				"default": 0
-			}
-		},
-		{
-			"type": "feature",
-			"img": "icons/magic/control/silhouette-hold-change-blue.webp",
-			"name": "Shapechanger",
-			"flags": {},
-			"system": {
-				"ac": {
-					"baseFormula": "",
-					"formula": "",
-					"maxDex": 0,
-					"minStr": 0,
-					"mode": 2,
-					"requiresNoShield": false,
-					"requiresUnarmored": false
-				},
-				"actions": {
-					"YTm3bTqT5s320Cv0": {
-						"activation": {
-							"cost": 1,
-							"type": "action",
-							"reactionTrigger": ""
-						},
-						"duration": {
-							"unit": "",
-							"value": ""
-						},
-						"name": "Use Shapechanger"
-					}
-				},
-				"description": "<section class=\"secret\"><p>The fiend can use its action to <strong>polymorph</strong> into a Small or Medium humanoid, or back into its true form. Without wings, the fiend loses its flying speed. Other than its size and speed, its statistics are the same in each form.</p><p>Any equipment it is wearing or carrying isn't transformed. It reverts to its true form if it dies.</p></section><p>The fiend can use its action to <strong>polymorph</strong> into a humanoid, or back into its true form.</p>",
-				"favorite": false,
-				"secretDescription": "",
-				"source": {
-					"name": "",
-					"link": "",
-					"publisher": ""
-				},
-				"uses": {
-					"value": 0,
-					"max": 0,
-					"per": "",
-					"recharge": {
-						"formula": "1d6",
-						"threshold": 6
-					}
-				},
-				"schema": {
-					"version": 0.01,
-					"lastMigration": null
-				},
-				"concentration": false,
-				"featureType": "",
-				"grants": {},
-				"prerequisite": "",
-				"schemaVersion": {
-					"version": 0.01,
-					"lastMigration": {
-						"version": {
-							"schema": null,
-							"foundry": "12.316",
-							"system": "0.16.12"
-						}
-					}
-				}
-			},
-			"_id": "QDbtFk9zVeCSI11A",
-			"effects": [],
-			"folder": null,
-			"sort": 0,
-			"ownership": {
-				"default": 0
-			}
-		},
-		{
-			"type": "feature",
-			"img": "icons/magic/air/wind-tornado-spiral-pink-purple.webp",
-			"name": "Charm",
-			"flags": {},
-			"system": {
-				"ac": {
-					"baseFormula": "",
-					"formula": "",
-					"maxDex": 0,
-					"minStr": 0,
-					"mode": 2,
-					"requiresNoShield": false,
-					"requiresUnarmored": false
-				},
-				"actions": {
-					"FdKLgc6kwEQ0HtXI": {
-						"activation": {
-							"cost": 1,
-							"type": "action",
-							"reactionTrigger": ""
-						},
-						"duration": {
-							"unit": "day",
-							"value": "1"
-						},
-						"prompts": {
-							"6TmsauXD3LyWcuGR": {
-								"ability": "wis",
-								"type": "savingThrow",
-								"saveDC": {
-									"bonus": "",
-									"type": "custom"
-								}
-							}
-						},
-						"name": "Use Charm",
-						"ranges": {
-							"SAl7MSt5LTXstCmI": {
-								"range": "short"
-							}
-						}
-					}
-				},
-				"description": "<section class=\"secret\"><p>One humanoid the fiend can see within 30 feet of it must make a <strong>Wisdom</strong> saving throw or be magically charmed for 1 day. The charmed target obeys the fiend's verbal or telepathic commands.</p><p>If the target suffers any harm or receives a suicidal command, it can repeat the saving throw, ending the effect on a success. If the target successfully saves against the effect, or if the effect on it ends, the target is immune to this fiend's Charm for the next 24 hours.The fiend can have only one target charmed at a time. If it charms another, the effect on the previous target ends.</p></section><p>One humanoid the fiend can see within 30 feet of it must make a <strong>Wisdom</strong> saving throw.</p>",
-				"favorite": false,
-				"secretDescription": "",
-				"source": {
-					"name": "",
-					"link": "",
-					"publisher": ""
-				},
-				"uses": {
-					"value": 0,
-					"max": 0,
-					"per": "",
-					"recharge": {
-						"formula": "1d6",
-						"threshold": 6
-					}
-				},
-				"schema": {
-					"version": 0.01,
-					"lastMigration": null
-				},
-				"concentration": false,
-				"featureType": "",
-				"grants": {},
-				"prerequisite": "",
-				"schemaVersion": {
-					"version": 0.01,
-					"lastMigration": {
-						"version": {
-							"schema": null,
-							"foundry": "12.316",
-							"system": "0.16.12"
-						}
-					}
-				}
-			},
-			"_id": "M6PNH8rBkonc53UL",
-			"effects": [],
-			"folder": null,
-			"sort": 0,
-			"ownership": {
-				"default": 0
-			}
-		},
-		{
-			"type": "feature",
-			"img": "icons/magic/air/wind-vortex-swirl-purple.webp",
-			"name": "Draining Kiss",
-			"flags": {},
-			"system": {
-				"ac": {
-					"baseFormula": "",
-					"formula": "",
-					"maxDex": 0,
-					"minStr": 0,
-					"mode": 2,
-					"requiresNoShield": false,
-					"requiresUnarmored": false
-				},
-				"actions": {
-					"K51zAErlUUT6MV4J": {
-						"activation": {
-							"cost": 1,
-							"type": "action",
-							"reactionTrigger": ""
-						},
-						"duration": {
-							"unit": "",
-							"value": ""
-						},
-						"prompts": {
-							"AVfGMXXDVYXrtjjn": {
-								"ability": "con",
-								"type": "savingThrow",
-								"saveDC": {
-									"bonus": "",
-									"type": "custom"
-								}
-							}
-						},
-						"rolls": {
-							"ww1tS8BNcBUzGopS": {
-								"canCrit": false,
-								"critBonus": "",
-								"damageType": "psychic",
-								"formula": "5d10 + @str.mod",
-								"scaling": {},
-								"name": "",
-								"type": "damage"
-							}
-						},
-						"name": "Use Draining Kiss"
-					}
-				},
-				"description": "<section class=\"secret\"><p>The fiend kisses a creature charmed by it or a willing creature. The target must make a  <strong>DC 15 Constitution</strong> saving throw against this magic, taking <strong>32 (5d10 + 5) <em>psychic damage</em></strong> on a failed save, or half as much damage on a successful one. </p><p>The target's hit point maximum is reduced by an amount equal to the damage taken. This reduction lasts until the target finishes a long rest. The target dies if this effect reduces its hit point maximum to 0.</p></section><p>The target must make a <strong>Constitution</strong> saving throw against this magic.</p>",
-				"favorite": false,
-				"secretDescription": "",
-				"source": {
-					"name": "",
-					"link": "",
-					"publisher": ""
-				},
-				"uses": {
-					"value": 0,
-					"max": 0,
-					"per": "",
-					"recharge": {
-						"formula": "1d6",
-						"threshold": 6
-					}
-				},
-				"schema": {
-					"version": 0.01,
-					"lastMigration": null
-				},
-				"concentration": false,
-				"featureType": "",
-				"grants": {},
-				"prerequisite": "",
-				"schemaVersion": {
-					"version": 0.01,
-					"lastMigration": {
-						"version": {
-							"schema": null,
-							"foundry": "12.316",
-							"system": "0.16.12"
-						}
-					}
-				}
-			},
-			"_id": "zgJTPI4fjsTVXATR",
-			"effects": [],
-			"folder": null,
-			"sort": 0,
-			"ownership": {
-				"default": 0
-			}
-		},
-		{
-			"type": "feature",
-			"img": "icons/magic/unholy/barrier-shield-glowing-pink.webp",
-			"name": "Etherealness",
-			"flags": {},
-			"system": {
-				"ac": {
-					"baseFormula": "",
-					"formula": "",
-					"maxDex": 0,
-					"minStr": 0,
-					"mode": 2,
-					"requiresNoShield": false,
-					"requiresUnarmored": false
-				},
-				"actions": {
-					"v1vSeGA7B9QeYwCa": {
-						"activation": {
-							"cost": 1,
-							"type": "action",
-							"reactionTrigger": ""
-						},
-						"duration": {
-							"unit": "",
-							"value": ""
-						},
-						"name": "Use Etherealness"
-					}
-				},
-				"description": "<section class=\"secret\"><p></p><p></p></section><p>The fiend magically enters the Ethereal Plane from the Material Plane, or vice versa.</p>",
-				"favorite": false,
-				"secretDescription": "",
-				"source": {
-					"name": "",
-					"link": "",
-					"publisher": ""
-				},
-				"uses": {
-					"value": 0,
-					"max": 0,
-					"per": "",
-					"recharge": {
-						"formula": "1d6",
-						"threshold": 6
-					}
-				},
-				"schema": {
-					"version": 0.01,
-					"lastMigration": null
-				},
-				"concentration": false,
-				"featureType": "",
-				"grants": {},
-				"prerequisite": "",
-				"schemaVersion": {
-					"version": 0.01,
-					"lastMigration": {
-						"version": {
-							"schema": null,
-							"foundry": "12.316",
-							"system": "0.16.12"
-						}
-					}
-				}
-			},
-			"_id": "6eR63lo3vQEeM85F",
-			"effects": [],
-			"folder": null,
-			"sort": 0,
-			"ownership": {
-				"default": 0
-			}
-		},
-		{
-			"type": "feature",
-			"img": "icons/skills/melee/strike-slashes-red.webp",
-			"name": "Claw (Fiend Form Only)",
-			"flags": {},
-			"system": {
-				"ac": {
-					"baseFormula": "",
-					"formula": "",
-					"maxDex": 0,
-					"minStr": 0,
-					"mode": 2,
-					"requiresNoShield": false,
-					"requiresUnarmored": false
-				},
-				"actions": {
-					"rE3xaz47zQaOcQve": {
-						"activation": {
-							"cost": 1,
-							"type": "action",
-							"reactionTrigger": ""
-						},
-						"duration": {
-							"unit": "",
-							"value": ""
-						},
-						"rolls": {
-							"2BClEguDBauzlX5G": {
-								"bonus": "",
-								"critThreshold": 20,
-								"type": "attack",
-								"attackType": "meleeWeaponAttack",
-								"ability": "dex"
-							},
-							"XNdk4NPh3uJEMpug": {
-								"canCrit": true,
-								"critBonus": "",
-								"damageType": "slashing",
-								"formula": "1d6 + @dex.mod",
-								"scaling": {},
-								"name": "",
-								"type": "damage"
-							}
-						},
-						"name": "Use Claw (Fiend Form Only)",
-						"ranges": {
-							"8i5XjgvJBFmahLR8": {
-								"range": "fiveFeet"
-							}
-						}
-					}
-				},
-				"description": "<section class=\"secret\"><p><em>Melee Weapon Attack:</em><strong>+5 to hit,</strong>, <strong>5 ft.,</strong> one target. Hit: <strong>6 (1d6 + 3) <em>slashing damage</em></strong>.</p><p></p></section><p>The Succubus/Incubus attacks with its Claw.</p>",
-				"favorite": false,
-				"secretDescription": "",
-				"source": {
-					"name": "",
-					"link": "",
-					"publisher": ""
-				},
-				"uses": {
-					"value": 0,
-					"max": 0,
-					"per": "",
-					"recharge": {
-						"formula": "1d6",
-						"threshold": 6
-					}
-				},
-				"schema": {
-					"version": 0.01,
-					"lastMigration": null
-				},
-				"concentration": false,
-				"featureType": "naturalWeapon",
-				"grants": {},
-				"prerequisite": "",
-				"schemaVersion": {
-					"version": 0.01,
-					"lastMigration": {
-						"version": {
-							"schema": null,
-							"foundry": "12.316",
-							"system": "0.16.12"
-						}
-					}
-				}
-			},
-			"_id": "eMmYCoNwOA8dCeRn",
-			"effects": [],
-			"folder": null,
-			"sort": 0,
-			"ownership": {
-				"default": 0
-			}
-		},
-		{
-			"name": "Grapple",
-			"type": "maneuver",
-			"img": "icons/skills/melee/unarmed-punch-fist.webp",
-			"effects": [],
-			"flags": {},
-			"system": {
-				"actions": {
-					"wOKLPnhKpnhU1kEj": {
-						"name": "Grapple",
-						"activation": {
-							"cost": 1,
-							"type": "action",
-							"reactionTrigger": ""
-						},
-						"duration": {
-							"unit": "instantaneous",
-							"value": null
-						},
-						"ranges": {
-							"5nrDtksc3KPCbcJd": {
-								"range": "fiveFeet"
-							}
-						},
-						"area": {
-							"shape": "",
-							"size": "",
-							"placeTemplate": false
-						},
-						"target": {
-							"quantity": "",
-							"type": "creature",
-							"shape": "",
-							"size": ""
-						},
-						"prompts": {
-							"B9sbtgKAz5GLtsp3": {
-								"ability": "str",
-								"onSave": "",
-								"saveDC": {
-									"type": "custom",
-									"bonus": "@maneuverDC"
-								},
-								"type": "savingThrow"
-							}
-						},
-						"consumers": {},
-						"rolls": {
-							"GjyfHt0lKnETufaD": {
-								"type": "damage",
-								"default": true,
-								"formula": "1 + @str.mod",
-								"label": "Basic Melee Damage",
-								"canCrit": false
-							}
-						}
-					}
-				},
-				"description": "<p>You can use the Grapple maneuver to grab or wrestle a creature. If you are able to make multiple attacks with the Attack action, this maneuver replaces one of them.</p>\n<p>You must have at least one free hand to attempt a grapple, your target must be within your reach, and the target must be no more than one size category larger than you. The target makes a Strength or Dexterity saving throw against your maneuver DC. On a failure, you deal basic melee damage and the target becomes grappled (see Appendix A: Conditions on page 616). In addition to things that end the condition, you can release the target at any time (no action required).</p>\n<p><em>Escaping a Grapple.</em> While grappled, a creature can use its action to attempt to escape. It must succeed on a Strength or Dexterity saving throw against your maneuver DC.</p>\n<p><em>Moving a Grappled Creature. </em>When you move, you can drag or carry the grappled creature with you. When you do so, your Speed is halved, unless the creature's weight is within your carrying capacity and you are not encumbered by bulky items.</p>\n<p><em>Freeing a Grappled Creature.</em> You can use the Grapple maneuver to try to free another grappled or restrained creature. The creature grappling or restraining the target makes a Strength saving throw against your maneuver DC. If it fails the saving throw, the grappled or restrained creature is freed. Additionally, you may move the freed creature 5 feet in any direction.</p>",
-				"favorite": false,
-				"secretDescription": "",
-				"source": "",
-				"uses": {
-					"value": null,
-					"max": "",
-					"per": null,
-					"recharge": {
-						"formula": "1d6",
-						"threshold": 6
-					}
-				},
-				"schema": {
-					"version": null,
-					"lastMigration": null
-				},
-				"degree": 0,
-				"exertionCost": 0,
-				"isStance": false,
-				"prerequisite": "",
-				"tradition": "",
-				"equippedState": 0,
-				"schemaVersion": {
-					"version": 0.01,
-					"lastMigration": {
-						"version": {
-							"schema": 0.009,
-							"foundry": "12.316",
-							"system": "0.16.12"
-						}
-					}
-				}
-			},
-			"folder": null,
-			"_id": "p3VInEBO2JafrV90",
-			"sort": 0,
-			"ownership": {
-				"default": 0
-			}
-		},
-		{
-			"name": "Grab On",
-			"type": "maneuver",
-			"img": "icons/skills/melee/hand-grip-staff-teal.webp",
-			"effects": [],
-			"flags": {},
-			"system": {
-				"actions": {
-					"dZElCBOd3yoRyDcB": {
-						"name": "Grab On",
-						"activation": {
-							"cost": 1,
-							"type": "action",
-							"reactionTrigger": ""
-						},
-						"duration": {
-							"unit": "instantaneous",
-							"value": null
-						},
-						"ranges": {
-							"x479yGm9lUjVLHDy": {
-								"range": "fiveFeet"
-							}
-						},
-						"area": {
-							"shape": "",
-							"size": "",
-							"placeTemplate": false
-						},
-						"target": {
-							"quantity": "",
-							"type": "creature",
-							"shape": "",
-							"size": ""
-						},
-						"prompts": {
-							"duRNu9hfiRNwhtCq": {
-								"ability": "str",
-								"onSave": "",
-								"saveDC": {
-									"type": "custom",
-									"bonus": "@maneuverDC"
-								},
-								"type": "savingThrow"
-							}
-						},
-						"consumers": {},
-						"rolls": {
-							"pzopjF1frh4UfKvT": {
-								"type": "damage",
-								"default": true,
-								"formula": "1 + @str.mod",
-								"label": "Basic Melee Damage",
-								"canCrit": false
-							}
-						}
-					}
-				},
-				"description": "<p>While you cannot grapple a creature two or more size categories larger than you, you can grab onto it. By jumping onto its back or climbing up a limb, you can make a Strength or Dexterity saving throw against the creature's maneuver DC to cling to or balance upon its body. On a success, you move into the creature's space and can move upon its body as if it is difficult terrain.</p><p>While grabbing onto a larger creature, you gain advantage on attack rolls against it. The larger creature may be able to attack you as normal, depending on its limbs or attacks. It can also use an action or replace one of its attacks on its turn to try to dislodge you, such as shaking you loose or bashing you against a wall, forcing you to make a Strength or Dexterity saving throw against its maneuver DC or fall prone into the nearest space adjacent to the creature, taking its basic melee damage in the process.</p><p>If the creature chooses to roll over in order to dislodge you, it becomes prone, but you have disadvantage on the saving throw to hang on.</p>",
-				"favorite": false,
-				"secretDescription": "",
-				"source": "",
-				"uses": {
-					"value": null,
-					"max": "",
-					"per": null,
-					"recharge": {
-						"formula": "1d6",
-						"threshold": 6
-					}
-				},
-				"schema": {
-					"version": null,
-					"lastMigration": null
-				},
-				"degree": 0,
-				"exertionCost": 0,
-				"isStance": false,
-				"prerequisite": "",
-				"tradition": "",
-				"equippedState": 0,
-				"schemaVersion": {
-					"version": 0.01,
-					"lastMigration": {
-						"version": {
-							"schema": 0.009,
-							"foundry": "12.316",
-							"system": "0.16.12"
-						}
-					}
-				}
-			},
-			"folder": null,
-			"_id": "8BDshb0IEjy7q9Lf",
-			"sort": 0,
-			"ownership": {
-				"default": 0
-			}
-		},
-		{
-			"name": "Disarm",
-			"type": "maneuver",
-			"img": "icons/skills/melee/sword-damaged-broken-glow-red.webp",
-			"effects": [],
-			"flags": {},
-			"system": {
-				"actions": {
-					"xN5ZLHIjo9cHRWrK": {
-						"name": "Disarm",
-						"activation": {
-							"cost": 1,
-							"type": "action",
-							"reactionTrigger": ""
-						},
-						"duration": {
-							"unit": "instantaneous",
-							"value": null
-						},
-						"ranges": {
-							"dFgwvnjjgmzR7vlN": {
-								"range": "fiveFeet"
-							}
-						},
-						"area": {
-							"shape": "",
-							"size": "",
-							"placeTemplate": false
-						},
-						"target": {
-							"quantity": "",
-							"type": "creature",
-							"shape": "",
-							"size": ""
-						},
-						"rolls": {
-							"FDMYIPcl2LveduMw": {
-								"canCrit": false,
-								"damageType": "",
-								"formula": "1 + @str.mod",
-								"label": "Basic Melee Damage",
-								"type": "damage"
-							}
-						},
-						"prompts": {
-							"xs1KlWtLXswqrVKY": {
-								"ability": "str",
-								"onSave": "",
-								"saveDC": {
-									"type": "custom",
-									"bonus": "@maneuverDC"
-								},
-								"type": "savingThrow"
-							}
-						},
-						"consumers": {}
-					}
-				},
-				"description": "<p>You can use the Disarm maneuver to attempt to knock an item or weapon from a creature's hand. If you are able to make multiple attacks with the Attack action, this maneuver replaces one of them.</p><p>The target must be within your reach and be holding an item (either carried or wielded). The target makes a Strength or Dexterity saving throw against your maneuver DC. On a failure, you deal basic melee damage and the target drops the item in its space. The target has advantage if it is larger than you or holding the item with two or more hands, and a target smaller than you has disadvantage.</p>",
-				"favorite": false,
-				"secretDescription": "",
-				"source": "",
-				"uses": {
-					"value": null,
-					"max": "",
-					"per": null,
-					"recharge": {
-						"formula": "1d6",
-						"threshold": 6
-					}
-				},
-				"schema": {
-					"version": null,
-					"lastMigration": null
-				},
-				"degree": 0,
-				"exertionCost": 0,
-				"isStance": false,
-				"prerequisite": "",
-				"tradition": "",
-				"equippedState": 0,
-				"schemaVersion": {
-					"version": 0.01,
-					"lastMigration": {
-						"version": {
-							"schema": 0.009,
-							"foundry": "12.316",
-							"system": "0.16.12"
-						}
-					}
-				}
-			},
-			"folder": null,
-			"_id": "wqVqp0LLhZe1ihgj",
-			"sort": 0,
-			"ownership": {
-				"default": 0
-			}
-		},
-		{
-			"name": "Knockdown",
-			"type": "maneuver",
-			"img": "icons/magic/control/silhouette-fall-slip-prone.webp",
-			"effects": [],
-			"flags": {},
-			"system": {
-				"actions": {
-					"wfzmnudl6tfhZk4v": {
-						"name": "Knockdown",
-						"activation": {
-							"cost": 1,
-							"type": "action",
-							"reactionTrigger": ""
-						},
-						"duration": {
-							"unit": "instantaneous",
-							"value": null
-						},
-						"ranges": {
-							"NbOuce8AtLVjDeeL": {
-								"range": "fiveFeet"
-							}
-						},
-						"area": {
-							"shape": "",
-							"size": "",
-							"placeTemplate": false
-						},
-						"target": {
-							"quantity": "",
-							"type": "creature",
-							"shape": "",
-							"size": ""
-						},
-						"prompts": {
-							"L65ZmTO0KcmeQ2EQ": {
-								"ability": "str",
-								"onSave": "",
-								"saveDC": {
-									"type": "custom",
-									"bonus": "@maneuverDC"
-								},
-								"type": "savingThrow"
-							}
-						},
-						"consumers": {},
-						"rolls": {
-							"Wgx2bdExxjzRu7nR": {
-								"type": "damage",
-								"default": true,
-								"formula": "1 + @str.mod",
-								"label": "Basic Melee Damage",
-								"canCrit": false
-							}
-						}
-					}
-				},
-				"description": "<p>You can use the Knockdown maneuver to trip or push a creature down. If you are able to make multiple attacks with the Attack action, this maneuver replaces one of them.</p><p>The target must be within your reach and be no more than one size category larger than you. The target makes a Strength saving throw against your maneuver DC. On a failure, you deal basic melee damage and knock the target prone.</p>",
-				"favorite": false,
-				"secretDescription": "",
-				"source": "",
-				"uses": {
-					"value": null,
-					"max": "",
-					"per": null,
-					"recharge": {
-						"formula": "1d6",
-						"threshold": 6
-					}
-				},
-				"schema": {
-					"version": null,
-					"lastMigration": null
-				},
-				"degree": 0,
-				"exertionCost": 0,
-				"isStance": false,
-				"prerequisite": "",
-				"tradition": "",
-				"equippedState": 0,
-				"schemaVersion": {
-					"version": 0.01,
-					"lastMigration": {
-						"version": {
-							"schema": 0.009,
-							"foundry": "12.316",
-							"system": "0.16.12"
-						}
-					}
-				}
-			},
-			"folder": null,
-			"_id": "EROvuKt3mt3eIBQn",
-			"sort": 0,
-			"ownership": {
-				"default": 0
-			}
-		},
-		{
-			"name": "Overrun",
-			"type": "maneuver",
-			"img": "icons/skills/melee/shield-damaged-broken-blue.webp",
-			"effects": [],
-			"flags": {},
-			"system": {
-				"actions": {
-					"kBUgwxtsHQqPa1DV": {
-						"name": "Overrun",
-						"activation": {
-							"cost": 1,
-							"type": "special",
-							"reactionTrigger": ""
-						},
-						"duration": {
-							"unit": "instantaneous",
-							"value": null
-						},
-						"ranges": {
-							"VAh3uPOJAaI5ShrA": {
-								"range": "fiveFeet"
-							}
-						},
-						"area": {
-							"shape": "",
-							"size": "",
-							"placeTemplate": false
-						},
-						"target": {
-							"quantity": "",
-							"type": "creature",
-							"shape": "",
-							"size": ""
-						},
-						"prompts": {
-							"bvFJU6hHDstCwg1b": {
-								"ability": "str",
-								"onSave": "",
-								"saveDC": {
-									"type": "custom",
-									"bonus": "@maneuverDC"
-								},
-								"type": "savingThrow"
-							}
-						},
-						"consumers": {},
-						"rolls": {
-							"ezzGenCLYoqg37hI": {
-								"type": "damage",
-								"default": true,
-								"formula": "1 + @str.mod",
-								"label": "Basic Melee Damage",
-								"canCrit": false
-							}
-						}
-					}
-				},
-				"description": "<p>You can use an action or bonus action to make an Overrun maneuver to move through a hostile creature's space by forcing your way past. Make a Strength saving throw against the target's maneuver DC. On a success, you deal basic melee damage and can move through the hostile creature's space once this turn. The creature can choose to just let you pass instead of rolling. You have advantage if you are larger than the target, or disadvantage if you are smaller. If you are two or more sizes smaller than the target, you can move through the hostile creature's space without making a save. You still provoke opportunity attacks if you move beyond a creature's reach.</p>",
-				"favorite": false,
-				"secretDescription": "",
-				"source": "",
-				"uses": {
-					"value": null,
-					"max": "",
-					"per": null,
-					"recharge": {
-						"formula": "1d6",
-						"threshold": 6
-					}
-				},
-				"schema": {
-					"version": null,
-					"lastMigration": null
-				},
-				"degree": 0,
-				"exertionCost": 0,
-				"isStance": false,
-				"prerequisite": "",
-				"tradition": "",
-				"equippedState": 0,
-				"schemaVersion": {
-					"version": 0.01,
-					"lastMigration": {
-						"version": {
-							"schema": 0.009,
-							"foundry": "12.316",
-							"system": "0.16.12"
-						}
-					}
-				}
-			},
-			"folder": null,
-			"_id": "2dhIBVrVfohLqZwP",
-			"sort": 0,
-			"ownership": {
-				"default": 0
-			}
-		},
-		{
-			"name": "Shove",
-			"type": "maneuver",
-			"img": "icons/skills/melee/shield-block-bash-yellow.webp",
-			"effects": [],
-			"flags": {},
-			"system": {
-				"actions": {
-					"uvkBwwL7OQopMMHB": {
-						"name": "Shove",
-						"activation": {
-							"cost": 1,
-							"type": "action",
-							"reactionTrigger": ""
-						},
-						"duration": {
-							"unit": "instantaneous",
-							"value": null
-						},
-						"ranges": {
-							"j7yuRUD8cu1y0Jia": {
-								"range": "fiveFeet"
-							}
-						},
-						"area": {
-							"shape": "",
-							"size": "",
-							"placeTemplate": false
-						},
-						"target": {
-							"quantity": null,
-							"type": "creature",
-							"shape": "",
-							"size": ""
-						},
-						"rolls": {
-							"TcI6WmWSAy0EAxg9": {
-								"canCrit": false,
-								"damageType": "",
-								"formula": "1 + @str.mod",
-								"label": "Basic Melee Damage",
-								"type": "damage"
-							}
-						},
-						"prompts": {
-							"UVu9ZVC0beiWNgAV": {
-								"ability": "str",
-								"onSave": "",
-								"saveDC": {
-									"type": "custom",
-									"bonus": "@maneuverDC"
-								},
-								"type": "savingThrow"
-							}
-						},
-						"consumers": {}
-					}
-				},
-				"description": "<p>You can use the Shove maneuver to push a creature away. If you are able to make multiple attacks with the Attack action, this maneuver replaces one of them.</p><p>The target must be within your reach and be no more than one size category larger than you. The target makes a Strength saving throw against your maneuver DC. On a failure, you deal basic melee damage and push the target a number of feet away from you equal to 5 + 5 for every 5 points it failed its saving throw by. You can move the creature in any direction away from you (to the side, forward, or diagonally away).</p><p>A creature that is shoved off of a precipice is propelled off of whatever it is standing on -- it does not receive any saving throw or ability check to grab onto something to avoid falling down below.</p>",
-				"favorite": false,
-				"secretDescription": "",
-				"source": "",
-				"uses": {
-					"value": null,
-					"max": "",
-					"per": null,
-					"recharge": {
-						"formula": "1d6",
-						"threshold": 6
-					}
-				},
-				"schema": {
-					"version": null,
-					"lastMigration": null
-				},
-				"degree": 0,
-				"exertionCost": 0,
-				"isStance": false,
-				"prerequisite": "",
-				"tradition": "",
-				"equippedState": 0,
-				"schemaVersion": {
-					"version": 0.01,
-					"lastMigration": {
-						"version": {
-							"schema": 0.009,
-							"foundry": "12.316",
-							"system": "0.16.12"
-						}
-					}
-				}
-			},
-			"folder": null,
-			"_id": "B4OxkrNgX9MzKoQS",
-			"sort": 0,
-			"ownership": {
-				"default": 0
-			}
-		}
-	],
-	"effects": [],
-	"folder": null,
-	"_id": "2z6eu0clbr6p2duj"
+  "type": "npc",
+  "img": "systems/a5e/assets/malcubus.webp",
+  "name": "Succubus/Incubus",
+  "flags": {},
+  "prototypeToken": {
+    "name": "Succubus/Incubus",
+    "detectionModes": [],
+    "disposition": -1,
+    "height": 1,
+    "light": {
+      "alpha": 1,
+      "angle": 360,
+      "bright": 0,
+      "coloration": 1,
+      "dim": 0,
+      "luminosity": 0.5,
+      "saturation": 0,
+      "contrast": 0,
+      "shadows": 0,
+      "animation": {
+        "speed": 5,
+        "intensity": 5,
+        "type": null,
+        "reverse": false
+      },
+      "darkness": {
+        "min": 0,
+        "max": 1
+      },
+      "color": null,
+      "attenuation": 0.5
+    },
+    "sight": {
+      "angle": 360,
+      "enabled": false,
+      "range": 60,
+      "brightness": 0,
+      "visionMode": "basic",
+      "color": null,
+      "attenuation": 0.1,
+      "saturation": 0,
+      "contrast": 0
+    },
+    "texture": {
+      "src": "systems/a5e/assets/malcubus.webp",
+      "tint": "#ffffff",
+      "scaleX": 3,
+      "scaleY": 3,
+      "offsetX": 0,
+      "offsetY": 0,
+      "rotation": 0,
+      "anchorX": 0.5,
+      "anchorY": 0.5,
+      "fit": "contain",
+      "alphaThreshold": 0.75
+    },
+    "width": 1,
+    "displayName": 0,
+    "actorLink": false,
+    "appendNumber": false,
+    "prependAdjective": false,
+    "lockRotation": false,
+    "rotation": 0,
+    "alpha": 1,
+    "displayBars": 0,
+    "bar1": {
+      "attribute": "attributes.hp"
+    },
+    "bar2": {
+      "attribute": null
+    },
+    "flags": {},
+    "randomImg": false,
+    "hexagonalShape": 0,
+    "locked": false,
+    "occludable": {
+      "radius": 0
+    }
+  },
+  "system": {
+    "abilities": {
+      "str": {
+        "value": 8,
+        "check": {
+          "expertiseDice": 0,
+          "bonus": "",
+          "notes": {}
+        },
+        "save": {
+          "proficient": false,
+          "expertiseDice": 0,
+          "bonus": "",
+          "notes": {}
+        }
+      },
+      "dex": {
+        "value": 17,
+        "check": {
+          "expertiseDice": 0,
+          "bonus": "",
+          "notes": {}
+        },
+        "save": {
+          "proficient": false,
+          "expertiseDice": 0,
+          "bonus": "",
+          "notes": {}
+        }
+      },
+      "con": {
+        "value": 13,
+        "check": {
+          "expertiseDice": 0,
+          "bonus": "",
+          "notes": {}
+        },
+        "save": {
+          "proficient": false,
+          "expertiseDice": 0,
+          "bonus": "",
+          "notes": {}
+        }
+      },
+      "int": {
+        "value": 15,
+        "check": {
+          "expertiseDice": 0,
+          "bonus": "",
+          "notes": {}
+        },
+        "save": {
+          "proficient": false,
+          "expertiseDice": 0,
+          "bonus": "",
+          "notes": {}
+        }
+      },
+      "wis": {
+        "value": 12,
+        "check": {
+          "expertiseDice": 0,
+          "bonus": "",
+          "notes": {}
+        },
+        "save": {
+          "proficient": false,
+          "expertiseDice": 0,
+          "bonus": "",
+          "notes": {}
+        }
+      },
+      "cha": {
+        "value": 20,
+        "check": {
+          "expertiseDice": 0,
+          "bonus": "",
+          "notes": {}
+        },
+        "save": {
+          "proficient": false,
+          "expertiseDice": 0,
+          "bonus": "",
+          "notes": {}
+        }
+      }
+    },
+    "schemaVersion": {
+      "version": 0.01,
+      "lastMigration": null
+    },
+    "skills": {
+      "acr": {
+        "ability": "dex",
+        "value": 0,
+        "proficient": false,
+        "specialties": [],
+        "expertiseDice": 0,
+        "minRoll": 1,
+        "bonuses": {
+          "check": "",
+          "passive": 0
+        }
+      },
+      "ani": {
+        "ability": "wis",
+        "value": 0,
+        "proficient": false,
+        "specialties": [],
+        "expertiseDice": 0,
+        "minRoll": 1,
+        "bonuses": {
+          "check": "",
+          "passive": 0
+        }
+      },
+      "arc": {
+        "ability": "int",
+        "value": 0,
+        "proficient": false,
+        "specialties": [],
+        "expertiseDice": 0,
+        "minRoll": 1,
+        "bonuses": {
+          "check": "",
+          "passive": 0
+        }
+      },
+      "ath": {
+        "ability": "str",
+        "value": 0,
+        "proficient": false,
+        "specialties": [],
+        "expertiseDice": 0,
+        "minRoll": 1,
+        "bonuses": {
+          "check": "",
+          "passive": 0
+        }
+      },
+      "cul": {
+        "ability": "int",
+        "value": 0,
+        "proficient": false,
+        "specialties": [],
+        "expertiseDice": 0,
+        "minRoll": 1,
+        "bonuses": {
+          "check": "",
+          "passive": 0
+        }
+      },
+      "dec": {
+        "ability": "cha",
+        "value": 0,
+        "proficient": true,
+        "specialties": [],
+        "expertiseDice": 0,
+        "minRoll": 1,
+        "bonuses": {
+          "check": "@prof[Expertise]",
+          "passive": 0
+        }
+      },
+      "eng": {
+        "ability": "int",
+        "value": 0,
+        "proficient": false,
+        "specialties": [],
+        "expertiseDice": 0,
+        "minRoll": 1,
+        "bonuses": {
+          "check": "",
+          "passive": 0
+        }
+      },
+      "his": {
+        "ability": "int",
+        "value": 0,
+        "proficient": false,
+        "specialties": [],
+        "expertiseDice": 0,
+        "minRoll": 1,
+        "bonuses": {
+          "check": "",
+          "passive": 0
+        }
+      },
+      "ins": {
+        "ability": "wis",
+        "value": 0,
+        "proficient": true,
+        "specialties": [],
+        "expertiseDice": 0,
+        "minRoll": 1,
+        "bonuses": {
+          "check": "@prof[Expertise]",
+          "passive": 0
+        }
+      },
+      "itm": {
+        "ability": "cha",
+        "value": 0,
+        "proficient": false,
+        "specialties": [],
+        "expertiseDice": 0,
+        "minRoll": 1,
+        "bonuses": {
+          "check": "",
+          "passive": 0
+        }
+      },
+      "inv": {
+        "ability": "int",
+        "value": 0,
+        "proficient": false,
+        "specialties": [],
+        "expertiseDice": 0,
+        "minRoll": 1,
+        "bonuses": {
+          "check": "",
+          "passive": 0
+        }
+      },
+      "med": {
+        "ability": "wis",
+        "value": 0,
+        "proficient": false,
+        "specialties": [],
+        "expertiseDice": 0,
+        "minRoll": 1,
+        "bonuses": {
+          "check": "",
+          "passive": 0
+        }
+      },
+      "nat": {
+        "ability": "int",
+        "value": 0,
+        "proficient": false,
+        "specialties": [],
+        "expertiseDice": 0,
+        "minRoll": 1,
+        "bonuses": {
+          "check": "",
+          "passive": 0
+        }
+      },
+      "prc": {
+        "ability": "wis",
+        "value": 0,
+        "proficient": true,
+        "specialties": [],
+        "expertiseDice": 0,
+        "minRoll": 1,
+        "bonuses": {
+          "check": "@prof[Expertise]",
+          "passive": 0
+        }
+      },
+      "prf": {
+        "ability": "cha",
+        "value": 0,
+        "proficient": false,
+        "specialties": [],
+        "expertiseDice": 0,
+        "minRoll": 1,
+        "bonuses": {
+          "check": "",
+          "passive": 0
+        }
+      },
+      "per": {
+        "ability": "cha",
+        "value": 0,
+        "proficient": true,
+        "specialties": [],
+        "expertiseDice": 0,
+        "minRoll": 1,
+        "bonuses": {
+          "check": "@prof[Expertise]",
+          "passive": 0
+        }
+      },
+      "rel": {
+        "ability": "int",
+        "value": 0,
+        "proficient": false,
+        "specialties": [],
+        "expertiseDice": 0,
+        "minRoll": 1,
+        "bonuses": {
+          "check": "",
+          "passive": 0
+        }
+      },
+      "slt": {
+        "ability": "dex",
+        "value": 0,
+        "proficient": false,
+        "specialties": [],
+        "expertiseDice": 0,
+        "minRoll": 1,
+        "bonuses": {
+          "check": "",
+          "passive": 0
+        }
+      },
+      "ste": {
+        "ability": "dex",
+        "value": 0,
+        "proficient": true,
+        "specialties": [],
+        "expertiseDice": 0,
+        "minRoll": 1,
+        "bonuses": {
+          "check": "@prof[Expertise]",
+          "passive": 0
+        }
+      },
+      "sur": {
+        "ability": "wis",
+        "value": 0,
+        "proficient": false,
+        "specialties": [],
+        "expertiseDice": 0,
+        "minRoll": 1,
+        "bonuses": {
+          "check": "",
+          "passive": 0
+        }
+      }
+    },
+    "spellResources": {
+      "slots": {
+        "1": {
+          "current": 0,
+          "max": 0
+        },
+        "2": {
+          "current": 0,
+          "max": 0
+        },
+        "3": {
+          "current": 0,
+          "max": 0
+        },
+        "4": {
+          "current": 0,
+          "max": 0
+        },
+        "5": {
+          "current": 0,
+          "max": 0
+        },
+        "6": {
+          "current": 0,
+          "max": 0
+        },
+        "7": {
+          "current": 0,
+          "max": 0
+        },
+        "8": {
+          "current": 0,
+          "max": 0
+        },
+        "9": {
+          "current": 0,
+          "max": 0
+        }
+      },
+      "points": {
+        "current": 0,
+        "max": 0
+      }
+    },
+    "attributes": {
+      "ac": {
+        "baseFormula": "15",
+        "value": 0
+      },
+      "death": {
+        "success": 0,
+        "failure": 0
+      },
+      "hp": {
+        "value": 66,
+        "baseMax": 66,
+        "temp": 0,
+        "bonus": 0
+      },
+      "hitDice": {
+        "d6": {
+          "current": 0,
+          "total": 0
+        },
+        "d8": {
+          "current": 0,
+          "total": 0
+        },
+        "d10": {
+          "current": 0,
+          "total": 0
+        },
+        "d12": {
+          "current": 0,
+          "total": 0
+        },
+        "d4": {
+          "current": 0,
+          "total": 0
+        },
+        "d20": {
+          "current": 0,
+          "total": 0
+        }
+      },
+      "initiative": {
+        "bonus": "0",
+        "expertiseDice": 0
+      },
+      "movement": {
+        "burrow": {
+          "distance": 0,
+          "unit": "feet"
+        },
+        "climb": {
+          "distance": 0,
+          "unit": "feet"
+        },
+        "fly": {
+          "distance": 60,
+          "unit": "feet"
+        },
+        "swim": {
+          "distance": 0,
+          "unit": "feet"
+        },
+        "walk": {
+          "distance": 30,
+          "unit": "feet"
+        },
+        "traits": {
+          "hover": false
+        }
+      },
+      "senses": {
+        "blindsight": {
+          "distance": 0,
+          "unit": "feet",
+          "otherwiseBlind": false
+        },
+        "darkvision": {
+          "distance": 60,
+          "unit": "feet"
+        },
+        "tremorsense": {
+          "distance": 0,
+          "unit": "feet"
+        },
+        "truesight": {
+          "distance": 0,
+          "unit": "feet"
+        }
+      },
+      "inspiration": false,
+      "fatigue": 0,
+      "strife": 0,
+      "spellcasting": "int",
+      "casterLevel": 0
+    },
+    "bonuses": {
+      "abilities": {},
+      "damage": {},
+      "healing": {},
+      "maneuverDC": "",
+      "meleeSpellAttack": "",
+      "meleeWeaponAttack": "",
+      "rangedSpellAttack": "",
+      "rangedWeaponAttack": "",
+      "spellDC": "",
+      "skills": {
+        "aqXAqnliikWqDpB4": {
+          "context": {
+            "skills": [
+              "dec",
+              "ins",
+              "prc",
+              "per",
+              "ste"
+            ],
+            "passiveOnly": false,
+            "requiresProficiency": false
+          },
+          "formula": "@prof[Expertise]",
+          "label": "Check Bonus",
+          "default": true,
+          "img": "icons/svg/upgrade.svg"
+        }
+      }
+    },
+    "currency": {
+      "pp": 0,
+      "gp": 0,
+      "ep": 0,
+      "sp": 0,
+      "cp": 0
+    },
+    "details": {
+      "bio": "<p>\n        <em>\n          Token artwork by\n          <a href=\"https://www.forgotten-adventures.net/\" target=\"_blank\" rel=\"noopener\">Forgotten Adventures</a>.\n        </em>\n      </p>",
+      "creatureTypes": [
+        "fiend"
+      ],
+      "isSwarm": false,
+      "cr": 4,
+      "elite": false,
+      "privateNotes": "",
+      "notes": ""
+    },
+    "proficiencies": {
+      "armor": [],
+      "languages": [],
+      "tools": [],
+      "weapons": []
+    },
+    "resources": {
+      "primary": {
+        "label": "",
+        "value": 0,
+        "max": "",
+        "per": "",
+        "hideMax": false,
+        "recharge": {
+          "formula": "1d6",
+          "threshold": 6
+        }
+      },
+      "secondary": {
+        "label": "",
+        "value": 0,
+        "max": "",
+        "per": "",
+        "hideMax": false,
+        "recharge": {
+          "formula": "1d6",
+          "threshold": 6
+        }
+      },
+      "tertiary": {
+        "label": "",
+        "value": 0,
+        "max": "",
+        "per": "",
+        "hideMax": false,
+        "recharge": {
+          "formula": "1d6",
+          "threshold": 6
+        }
+      },
+      "quaternary": {
+        "label": "",
+        "value": 0,
+        "max": "",
+        "per": "",
+        "hideMax": false,
+        "recharge": {
+          "formula": "1d6",
+          "threshold": 6
+        }
+      }
+    },
+    "source": "",
+    "traits": {
+      "size": "med",
+      "conditionImmunities": [],
+      "damageImmunities": [],
+      "damageResistances": [
+        "bludgeoning",
+        "cold",
+        "fire",
+        "lightning",
+        "piercing",
+        "poison",
+        "slashing"
+      ],
+      "damageVulnerabilities": []
+    }
+  },
+  "items": [
+    {
+      "type": "feature",
+      "img": "icons/magic/control/debuff-energy-hold-levitate-pink.webp",
+      "name": "Telepathic Bond",
+      "flags": {},
+      "system": {
+        "ac": {
+          "baseFormula": "",
+          "formula": "",
+          "maxDex": 0,
+          "minStr": 0,
+          "mode": 2,
+          "requiresNoShield": false,
+          "requiresUnarmored": false
+        },
+        "actions": {},
+        "description": "<p>The fiend ignores the range restriction on its telepathy when communicating with a creature it has charmed. The two don't even need to be on the same plane of existence.</p>",
+        "favorite": false,
+        "secretDescription": "",
+        "source": {
+          "name": "",
+          "link": "",
+          "publisher": ""
+        },
+        "uses": {
+          "value": 0,
+          "max": 0,
+          "per": "",
+          "recharge": {
+            "formula": "1d6",
+            "threshold": 6
+          }
+        },
+        "schema": {
+          "version": 0.01,
+          "lastMigration": null
+        },
+        "concentration": false,
+        "featureType": "",
+        "grants": {},
+        "prerequisite": "",
+        "schemaVersion": {
+          "version": 0.01,
+          "lastMigration": {
+            "version": {
+              "schema": null,
+              "foundry": "12.316",
+              "system": "0.16.12"
+            }
+          }
+        }
+      },
+      "_id": "3LVEV88Xv9AbAG6d",
+      "effects": [],
+      "folder": null,
+      "sort": 0,
+      "ownership": {
+        "default": 0
+      }
+    },
+    {
+      "type": "feature",
+      "img": "icons/magic/control/silhouette-hold-change-blue.webp",
+      "name": "Shapechanger",
+      "flags": {},
+      "system": {
+        "ac": {
+          "baseFormula": "",
+          "formula": "",
+          "maxDex": 0,
+          "minStr": 0,
+          "mode": 2,
+          "requiresNoShield": false,
+          "requiresUnarmored": false
+        },
+        "actions": {
+          "YTm3bTqT5s320Cv0": {
+            "activation": {
+              "cost": 1,
+              "type": "action",
+              "reactionTrigger": ""
+            },
+            "duration": {
+              "unit": "",
+              "value": ""
+            },
+            "name": "Use Shapechanger"
+          }
+        },
+        "description": "<section class=\"secret\"><p>The fiend can use its action to <strong>polymorph</strong> into a Small or Medium humanoid, or back into its true form. Without wings, the fiend loses its flying speed. Other than its size and speed, its statistics are the same in each form.</p><p>Any equipment it is wearing or carrying isn't transformed. It reverts to its true form if it dies.</p></section><p>The fiend can use its action to <strong>polymorph</strong> into a humanoid, or back into its true form.</p>",
+        "favorite": false,
+        "secretDescription": "",
+        "source": {
+          "name": "",
+          "link": "",
+          "publisher": ""
+        },
+        "uses": {
+          "value": 0,
+          "max": 0,
+          "per": "",
+          "recharge": {
+            "formula": "1d6",
+            "threshold": 6
+          }
+        },
+        "schema": {
+          "version": 0.01,
+          "lastMigration": null
+        },
+        "concentration": false,
+        "featureType": "",
+        "grants": {},
+        "prerequisite": "",
+        "schemaVersion": {
+          "version": 0.01,
+          "lastMigration": {
+            "version": {
+              "schema": null,
+              "foundry": "12.316",
+              "system": "0.16.12"
+            }
+          }
+        }
+      },
+      "_id": "QDbtFk9zVeCSI11A",
+      "effects": [],
+      "folder": null,
+      "sort": 0,
+      "ownership": {
+        "default": 0
+      }
+    },
+    {
+      "type": "feature",
+      "img": "icons/magic/air/wind-tornado-spiral-pink-purple.webp",
+      "name": "Charm",
+      "flags": {},
+      "system": {
+        "ac": {
+          "baseFormula": "",
+          "formula": "",
+          "maxDex": 0,
+          "minStr": 0,
+          "mode": 2,
+          "requiresNoShield": false,
+          "requiresUnarmored": false
+        },
+        "actions": {
+          "FdKLgc6kwEQ0HtXI": {
+            "activation": {
+              "cost": 1,
+              "type": "action",
+              "reactionTrigger": ""
+            },
+            "duration": {
+              "unit": "day",
+              "value": "1"
+            },
+            "prompts": {
+              "6TmsauXD3LyWcuGR": {
+                "ability": "wis",
+                "type": "savingThrow",
+                "saveDC": {
+                  "bonus": "",
+                  "type": "custom"
+                }
+              }
+            },
+            "name": "Use Charm",
+            "ranges": {
+              "SAl7MSt5LTXstCmI": {
+                "range": "short"
+              }
+            }
+          }
+        },
+        "description": "<section class=\"secret\"><p>One humanoid the fiend can see within 30 feet of it must make a <strong>Wisdom</strong> saving throw or be magically charmed for 1 day. The charmed target obeys the fiend's verbal or telepathic commands.</p><p>If the target suffers any harm or receives a suicidal command, it can repeat the saving throw, ending the effect on a success. If the target successfully saves against the effect, or if the effect on it ends, the target is immune to this fiend's Charm for the next 24 hours.The fiend can have only one target charmed at a time. If it charms another, the effect on the previous target ends.</p></section><p>One humanoid the fiend can see within 30 feet of it must make a <strong>Wisdom</strong> saving throw.</p>",
+        "favorite": false,
+        "secretDescription": "",
+        "source": {
+          "name": "",
+          "link": "",
+          "publisher": ""
+        },
+        "uses": {
+          "value": 0,
+          "max": 0,
+          "per": "",
+          "recharge": {
+            "formula": "1d6",
+            "threshold": 6
+          }
+        },
+        "schema": {
+          "version": 0.01,
+          "lastMigration": null
+        },
+        "concentration": false,
+        "featureType": "",
+        "grants": {},
+        "prerequisite": "",
+        "schemaVersion": {
+          "version": 0.01,
+          "lastMigration": {
+            "version": {
+              "schema": null,
+              "foundry": "12.316",
+              "system": "0.16.12"
+            }
+          }
+        }
+      },
+      "_id": "M6PNH8rBkonc53UL",
+      "effects": [],
+      "folder": null,
+      "sort": 0,
+      "ownership": {
+        "default": 0
+      }
+    },
+    {
+      "type": "feature",
+      "img": "icons/magic/air/wind-vortex-swirl-purple.webp",
+      "name": "Draining Kiss",
+      "flags": {},
+      "system": {
+        "ac": {
+          "baseFormula": "",
+          "formula": "",
+          "maxDex": 0,
+          "minStr": 0,
+          "mode": 2,
+          "requiresNoShield": false,
+          "requiresUnarmored": false
+        },
+        "actions": {
+          "K51zAErlUUT6MV4J": {
+            "activation": {
+              "cost": 1,
+              "type": "action",
+              "reactionTrigger": ""
+            },
+            "duration": {
+              "unit": "",
+              "value": ""
+            },
+            "prompts": {
+              "AVfGMXXDVYXrtjjn": {
+                "ability": "con",
+                "type": "savingThrow",
+                "saveDC": {
+                  "bonus": "",
+                  "type": "custom"
+                }
+              }
+            },
+            "rolls": {
+              "ww1tS8BNcBUzGopS": {
+                "canCrit": false,
+                "critBonus": "",
+                "damageType": "psychic",
+                "formula": "5d10 + @str.mod",
+                "scaling": {},
+                "name": "",
+                "type": "damage"
+              }
+            },
+            "name": "Use Draining Kiss"
+          }
+        },
+        "description": "<section class=\"secret\"><p>The fiend kisses a creature charmed by it or a willing creature. The target must make a  <strong>DC 15 Constitution</strong> saving throw against this magic, taking <strong>32 (5d10 + 5) <em>psychic damage</em></strong> on a failed save, or half as much damage on a successful one. </p><p>The target's hit point maximum is reduced by an amount equal to the damage taken. This reduction lasts until the target finishes a long rest. The target dies if this effect reduces its hit point maximum to 0.</p></section><p>The target must make a <strong>Constitution</strong> saving throw against this magic.</p>",
+        "favorite": false,
+        "secretDescription": "",
+        "source": {
+          "name": "",
+          "link": "",
+          "publisher": ""
+        },
+        "uses": {
+          "value": 0,
+          "max": 0,
+          "per": "",
+          "recharge": {
+            "formula": "1d6",
+            "threshold": 6
+          }
+        },
+        "schema": {
+          "version": 0.01,
+          "lastMigration": null
+        },
+        "concentration": false,
+        "featureType": "",
+        "grants": {},
+        "prerequisite": "",
+        "schemaVersion": {
+          "version": 0.01,
+          "lastMigration": {
+            "version": {
+              "schema": null,
+              "foundry": "12.316",
+              "system": "0.16.12"
+            }
+          }
+        }
+      },
+      "_id": "zgJTPI4fjsTVXATR",
+      "effects": [],
+      "folder": null,
+      "sort": 0,
+      "ownership": {
+        "default": 0
+      }
+    },
+    {
+      "type": "feature",
+      "img": "icons/magic/unholy/barrier-shield-glowing-pink.webp",
+      "name": "Etherealness",
+      "flags": {},
+      "system": {
+        "ac": {
+          "baseFormula": "",
+          "formula": "",
+          "maxDex": 0,
+          "minStr": 0,
+          "mode": 2,
+          "requiresNoShield": false,
+          "requiresUnarmored": false
+        },
+        "actions": {
+          "v1vSeGA7B9QeYwCa": {
+            "activation": {
+              "cost": 1,
+              "type": "action",
+              "reactionTrigger": ""
+            },
+            "duration": {
+              "unit": "",
+              "value": ""
+            },
+            "name": "Use Etherealness"
+          }
+        },
+        "description": "<section class=\"secret\"><p></p><p></p></section><p>The fiend magically enters the Ethereal Plane from the Material Plane, or vice versa.</p>",
+        "favorite": false,
+        "secretDescription": "",
+        "source": {
+          "name": "",
+          "link": "",
+          "publisher": ""
+        },
+        "uses": {
+          "value": 0,
+          "max": 0,
+          "per": "",
+          "recharge": {
+            "formula": "1d6",
+            "threshold": 6
+          }
+        },
+        "schema": {
+          "version": 0.01,
+          "lastMigration": null
+        },
+        "concentration": false,
+        "featureType": "",
+        "grants": {},
+        "prerequisite": "",
+        "schemaVersion": {
+          "version": 0.01,
+          "lastMigration": {
+            "version": {
+              "schema": null,
+              "foundry": "12.316",
+              "system": "0.16.12"
+            }
+          }
+        }
+      },
+      "_id": "6eR63lo3vQEeM85F",
+      "effects": [],
+      "folder": null,
+      "sort": 0,
+      "ownership": {
+        "default": 0
+      }
+    },
+    {
+      "type": "feature",
+      "img": "icons/skills/melee/strike-slashes-red.webp",
+      "name": "Claw (Fiend Form Only)",
+      "flags": {},
+      "system": {
+        "ac": {
+          "baseFormula": "",
+          "formula": "",
+          "maxDex": 0,
+          "minStr": 0,
+          "mode": 2,
+          "requiresNoShield": false,
+          "requiresUnarmored": false
+        },
+        "actions": {
+          "rE3xaz47zQaOcQve": {
+            "activation": {
+              "cost": 1,
+              "type": "action",
+              "reactionTrigger": ""
+            },
+            "duration": {
+              "unit": "",
+              "value": ""
+            },
+            "rolls": {
+              "2BClEguDBauzlX5G": {
+                "bonus": "",
+                "critThreshold": 20,
+                "type": "attack",
+                "attackType": "meleeWeaponAttack",
+                "ability": "dex"
+              },
+              "XNdk4NPh3uJEMpug": {
+                "canCrit": true,
+                "critBonus": "",
+                "damageType": "slashing",
+                "formula": "1d6 + @dex.mod",
+                "scaling": {},
+                "name": "",
+                "type": "damage"
+              }
+            },
+            "name": "Use Claw (Fiend Form Only)",
+            "ranges": {
+              "8i5XjgvJBFmahLR8": {
+                "range": "fiveFeet"
+              }
+            }
+          }
+        },
+        "description": "<section class=\"secret\"><p><em>Melee Weapon Attack:</em><strong>+5 to hit,</strong>, <strong>5 ft.,</strong> one target. Hit: <strong>6 (1d6 + 3) <em>slashing damage</em></strong>.</p><p></p></section><p>The Succubus/Incubus attacks with its Claw.</p>",
+        "favorite": false,
+        "secretDescription": "",
+        "source": {
+          "name": "",
+          "link": "",
+          "publisher": ""
+        },
+        "uses": {
+          "value": 0,
+          "max": 0,
+          "per": "",
+          "recharge": {
+            "formula": "1d6",
+            "threshold": 6
+          }
+        },
+        "schema": {
+          "version": 0.01,
+          "lastMigration": null
+        },
+        "concentration": false,
+        "featureType": "naturalWeapon",
+        "grants": {},
+        "prerequisite": "",
+        "schemaVersion": {
+          "version": 0.01,
+          "lastMigration": {
+            "version": {
+              "schema": null,
+              "foundry": "12.316",
+              "system": "0.16.12"
+            }
+          }
+        }
+      },
+      "_id": "eMmYCoNwOA8dCeRn",
+      "effects": [],
+      "folder": null,
+      "sort": 0,
+      "ownership": {
+        "default": 0
+      }
+    },
+    {
+      "name": "Grapple",
+      "type": "maneuver",
+      "img": "icons/skills/melee/unarmed-punch-fist.webp",
+      "effects": [],
+      "flags": {},
+      "system": {
+        "actions": {
+          "wOKLPnhKpnhU1kEj": {
+            "name": "Grapple",
+            "activation": {
+              "cost": 1,
+              "type": "action",
+              "reactionTrigger": ""
+            },
+            "duration": {
+              "unit": "instantaneous",
+              "value": null
+            },
+            "ranges": {
+              "5nrDtksc3KPCbcJd": {
+                "range": "fiveFeet"
+              }
+            },
+            "area": {
+              "shape": "",
+              "size": "",
+              "placeTemplate": false
+            },
+            "target": {
+              "quantity": "",
+              "type": "creature",
+              "shape": "",
+              "size": ""
+            },
+            "prompts": {
+              "B9sbtgKAz5GLtsp3": {
+                "ability": "str",
+                "onSave": "",
+                "saveDC": {
+                  "type": "custom",
+                  "bonus": "@maneuverDC"
+                },
+                "type": "savingThrow"
+              }
+            },
+            "consumers": {},
+            "rolls": {
+              "GjyfHt0lKnETufaD": {
+                "type": "damage",
+                "default": true,
+                "formula": "1 + @str.mod",
+                "label": "Basic Melee Damage",
+                "canCrit": false
+              }
+            }
+          }
+        },
+        "description": "<p>You can use the Grapple maneuver to grab or wrestle a creature. If you are able to make multiple attacks with the Attack action, this maneuver replaces one of them.</p>\n<p>You must have at least one free hand to attempt a grapple, your target must be within your reach, and the target must be no more than one size category larger than you. The target makes a Strength or Dexterity saving throw against your maneuver DC. On a failure, you deal basic melee damage and the target becomes grappled (see Appendix A: Conditions on page 616). In addition to things that end the condition, you can release the target at any time (no action required).</p>\n<p><em>Escaping a Grapple.</em> While grappled, a creature can use its action to attempt to escape. It must succeed on a Strength or Dexterity saving throw against your maneuver DC.</p>\n<p><em>Moving a Grappled Creature. </em>When you move, you can drag or carry the grappled creature with you. When you do so, your Speed is halved, unless the creature's weight is within your carrying capacity and you are not encumbered by bulky items.</p>\n<p><em>Freeing a Grappled Creature.</em> You can use the Grapple maneuver to try to free another grappled or restrained creature. The creature grappling or restraining the target makes a Strength saving throw against your maneuver DC. If it fails the saving throw, the grappled or restrained creature is freed. Additionally, you may move the freed creature 5 feet in any direction.</p>",
+        "favorite": false,
+        "secretDescription": "",
+        "source": "",
+        "uses": {
+          "value": null,
+          "max": "",
+          "per": null,
+          "recharge": {
+            "formula": "1d6",
+            "threshold": 6
+          }
+        },
+        "schema": {
+          "version": null,
+          "lastMigration": null
+        },
+        "degree": 0,
+        "exertionCost": 0,
+        "isStance": false,
+        "prerequisite": "",
+        "tradition": "",
+        "equippedState": 0,
+        "schemaVersion": {
+          "version": 0.01,
+          "lastMigration": {
+            "version": {
+              "schema": 0.009,
+              "foundry": "12.316",
+              "system": "0.16.12"
+            }
+          }
+        }
+      },
+      "folder": null,
+      "_id": "p3VInEBO2JafrV90",
+      "sort": 0,
+      "ownership": {
+        "default": 0
+      }
+    },
+    {
+      "name": "Grab On",
+      "type": "maneuver",
+      "img": "icons/skills/melee/hand-grip-staff-teal.webp",
+      "effects": [],
+      "flags": {},
+      "system": {
+        "actions": {
+          "dZElCBOd3yoRyDcB": {
+            "name": "Grab On",
+            "activation": {
+              "cost": 1,
+              "type": "action",
+              "reactionTrigger": ""
+            },
+            "duration": {
+              "unit": "instantaneous",
+              "value": null
+            },
+            "ranges": {
+              "x479yGm9lUjVLHDy": {
+                "range": "fiveFeet"
+              }
+            },
+            "area": {
+              "shape": "",
+              "size": "",
+              "placeTemplate": false
+            },
+            "target": {
+              "quantity": "",
+              "type": "creature",
+              "shape": "",
+              "size": ""
+            },
+            "prompts": {
+              "duRNu9hfiRNwhtCq": {
+                "ability": "str",
+                "onSave": "",
+                "saveDC": {
+                  "type": "custom",
+                  "bonus": "@maneuverDC"
+                },
+                "type": "savingThrow"
+              }
+            },
+            "consumers": {},
+            "rolls": {
+              "pzopjF1frh4UfKvT": {
+                "type": "damage",
+                "default": true,
+                "formula": "1 + @str.mod",
+                "label": "Basic Melee Damage",
+                "canCrit": false
+              }
+            }
+          }
+        },
+        "description": "<p>While you cannot grapple a creature two or more size categories larger than you, you can grab onto it. By jumping onto its back or climbing up a limb, you can make a Strength or Dexterity saving throw against the creature's maneuver DC to cling to or balance upon its body. On a success, you move into the creature's space and can move upon its body as if it is difficult terrain.</p><p>While grabbing onto a larger creature, you gain advantage on attack rolls against it. The larger creature may be able to attack you as normal, depending on its limbs or attacks. It can also use an action or replace one of its attacks on its turn to try to dislodge you, such as shaking you loose or bashing you against a wall, forcing you to make a Strength or Dexterity saving throw against its maneuver DC or fall prone into the nearest space adjacent to the creature, taking its basic melee damage in the process.</p><p>If the creature chooses to roll over in order to dislodge you, it becomes prone, but you have disadvantage on the saving throw to hang on.</p>",
+        "favorite": false,
+        "secretDescription": "",
+        "source": "",
+        "uses": {
+          "value": null,
+          "max": "",
+          "per": null,
+          "recharge": {
+            "formula": "1d6",
+            "threshold": 6
+          }
+        },
+        "schema": {
+          "version": null,
+          "lastMigration": null
+        },
+        "degree": 0,
+        "exertionCost": 0,
+        "isStance": false,
+        "prerequisite": "",
+        "tradition": "",
+        "equippedState": 0,
+        "schemaVersion": {
+          "version": 0.01,
+          "lastMigration": {
+            "version": {
+              "schema": 0.009,
+              "foundry": "12.316",
+              "system": "0.16.12"
+            }
+          }
+        }
+      },
+      "folder": null,
+      "_id": "8BDshb0IEjy7q9Lf",
+      "sort": 0,
+      "ownership": {
+        "default": 0
+      }
+    },
+    {
+      "name": "Disarm",
+      "type": "maneuver",
+      "img": "icons/skills/melee/sword-damaged-broken-glow-red.webp",
+      "effects": [],
+      "flags": {},
+      "system": {
+        "actions": {
+          "xN5ZLHIjo9cHRWrK": {
+            "name": "Disarm",
+            "activation": {
+              "cost": 1,
+              "type": "action",
+              "reactionTrigger": ""
+            },
+            "duration": {
+              "unit": "instantaneous",
+              "value": null
+            },
+            "ranges": {
+              "dFgwvnjjgmzR7vlN": {
+                "range": "fiveFeet"
+              }
+            },
+            "area": {
+              "shape": "",
+              "size": "",
+              "placeTemplate": false
+            },
+            "target": {
+              "quantity": "",
+              "type": "creature",
+              "shape": "",
+              "size": ""
+            },
+            "rolls": {
+              "FDMYIPcl2LveduMw": {
+                "canCrit": false,
+                "damageType": "",
+                "formula": "1 + @str.mod",
+                "label": "Basic Melee Damage",
+                "type": "damage"
+              }
+            },
+            "prompts": {
+              "xs1KlWtLXswqrVKY": {
+                "ability": "str",
+                "onSave": "",
+                "saveDC": {
+                  "type": "custom",
+                  "bonus": "@maneuverDC"
+                },
+                "type": "savingThrow"
+              }
+            },
+            "consumers": {}
+          }
+        },
+        "description": "<p>You can use the Disarm maneuver to attempt to knock an item or weapon from a creature's hand. If you are able to make multiple attacks with the Attack action, this maneuver replaces one of them.</p><p>The target must be within your reach and be holding an item (either carried or wielded). The target makes a Strength or Dexterity saving throw against your maneuver DC. On a failure, you deal basic melee damage and the target drops the item in its space. The target has advantage if it is larger than you or holding the item with two or more hands, and a target smaller than you has disadvantage.</p>",
+        "favorite": false,
+        "secretDescription": "",
+        "source": "",
+        "uses": {
+          "value": null,
+          "max": "",
+          "per": null,
+          "recharge": {
+            "formula": "1d6",
+            "threshold": 6
+          }
+        },
+        "schema": {
+          "version": null,
+          "lastMigration": null
+        },
+        "degree": 0,
+        "exertionCost": 0,
+        "isStance": false,
+        "prerequisite": "",
+        "tradition": "",
+        "equippedState": 0,
+        "schemaVersion": {
+          "version": 0.01,
+          "lastMigration": {
+            "version": {
+              "schema": 0.009,
+              "foundry": "12.316",
+              "system": "0.16.12"
+            }
+          }
+        }
+      },
+      "folder": null,
+      "_id": "wqVqp0LLhZe1ihgj",
+      "sort": 0,
+      "ownership": {
+        "default": 0
+      }
+    },
+    {
+      "name": "Knockdown",
+      "type": "maneuver",
+      "img": "icons/magic/control/silhouette-fall-slip-prone.webp",
+      "effects": [],
+      "flags": {},
+      "system": {
+        "actions": {
+          "wfzmnudl6tfhZk4v": {
+            "name": "Knockdown",
+            "activation": {
+              "cost": 1,
+              "type": "action",
+              "reactionTrigger": ""
+            },
+            "duration": {
+              "unit": "instantaneous",
+              "value": null
+            },
+            "ranges": {
+              "NbOuce8AtLVjDeeL": {
+                "range": "fiveFeet"
+              }
+            },
+            "area": {
+              "shape": "",
+              "size": "",
+              "placeTemplate": false
+            },
+            "target": {
+              "quantity": "",
+              "type": "creature",
+              "shape": "",
+              "size": ""
+            },
+            "prompts": {
+              "L65ZmTO0KcmeQ2EQ": {
+                "ability": "str",
+                "onSave": "",
+                "saveDC": {
+                  "type": "custom",
+                  "bonus": "@maneuverDC"
+                },
+                "type": "savingThrow"
+              }
+            },
+            "consumers": {},
+            "rolls": {
+              "Wgx2bdExxjzRu7nR": {
+                "type": "damage",
+                "default": true,
+                "formula": "1 + @str.mod",
+                "label": "Basic Melee Damage",
+                "canCrit": false
+              }
+            }
+          }
+        },
+        "description": "<p>You can use the Knockdown maneuver to trip or push a creature down. If you are able to make multiple attacks with the Attack action, this maneuver replaces one of them.</p><p>The target must be within your reach and be no more than one size category larger than you. The target makes a Strength saving throw against your maneuver DC. On a failure, you deal basic melee damage and knock the target prone.</p>",
+        "favorite": false,
+        "secretDescription": "",
+        "source": "",
+        "uses": {
+          "value": null,
+          "max": "",
+          "per": null,
+          "recharge": {
+            "formula": "1d6",
+            "threshold": 6
+          }
+        },
+        "schema": {
+          "version": null,
+          "lastMigration": null
+        },
+        "degree": 0,
+        "exertionCost": 0,
+        "isStance": false,
+        "prerequisite": "",
+        "tradition": "",
+        "equippedState": 0,
+        "schemaVersion": {
+          "version": 0.01,
+          "lastMigration": {
+            "version": {
+              "schema": 0.009,
+              "foundry": "12.316",
+              "system": "0.16.12"
+            }
+          }
+        }
+      },
+      "folder": null,
+      "_id": "EROvuKt3mt3eIBQn",
+      "sort": 0,
+      "ownership": {
+        "default": 0
+      }
+    },
+    {
+      "name": "Overrun",
+      "type": "maneuver",
+      "img": "icons/skills/melee/shield-damaged-broken-blue.webp",
+      "effects": [],
+      "flags": {},
+      "system": {
+        "actions": {
+          "kBUgwxtsHQqPa1DV": {
+            "name": "Overrun",
+            "activation": {
+              "cost": 1,
+              "type": "special",
+              "reactionTrigger": ""
+            },
+            "duration": {
+              "unit": "instantaneous",
+              "value": null
+            },
+            "ranges": {
+              "VAh3uPOJAaI5ShrA": {
+                "range": "fiveFeet"
+              }
+            },
+            "area": {
+              "shape": "",
+              "size": "",
+              "placeTemplate": false
+            },
+            "target": {
+              "quantity": "",
+              "type": "creature",
+              "shape": "",
+              "size": ""
+            },
+            "prompts": {
+              "bvFJU6hHDstCwg1b": {
+                "ability": "str",
+                "onSave": "",
+                "saveDC": {
+                  "type": "custom",
+                  "bonus": "@maneuverDC"
+                },
+                "type": "savingThrow"
+              }
+            },
+            "consumers": {},
+            "rolls": {
+              "ezzGenCLYoqg37hI": {
+                "type": "damage",
+                "default": true,
+                "formula": "1 + @str.mod",
+                "label": "Basic Melee Damage",
+                "canCrit": false
+              }
+            }
+          }
+        },
+        "description": "<p>You can use an action or bonus action to make an Overrun maneuver to move through a hostile creature's space by forcing your way past. Make a Strength saving throw against the target's maneuver DC. On a success, you deal basic melee damage and can move through the hostile creature's space once this turn. The creature can choose to just let you pass instead of rolling. You have advantage if you are larger than the target, or disadvantage if you are smaller. If you are two or more sizes smaller than the target, you can move through the hostile creature's space without making a save. You still provoke opportunity attacks if you move beyond a creature's reach.</p>",
+        "favorite": false,
+        "secretDescription": "",
+        "source": "",
+        "uses": {
+          "value": null,
+          "max": "",
+          "per": null,
+          "recharge": {
+            "formula": "1d6",
+            "threshold": 6
+          }
+        },
+        "schema": {
+          "version": null,
+          "lastMigration": null
+        },
+        "degree": 0,
+        "exertionCost": 0,
+        "isStance": false,
+        "prerequisite": "",
+        "tradition": "",
+        "equippedState": 0,
+        "schemaVersion": {
+          "version": 0.01,
+          "lastMigration": {
+            "version": {
+              "schema": 0.009,
+              "foundry": "12.316",
+              "system": "0.16.12"
+            }
+          }
+        }
+      },
+      "folder": null,
+      "_id": "2dhIBVrVfohLqZwP",
+      "sort": 0,
+      "ownership": {
+        "default": 0
+      }
+    },
+    {
+      "name": "Shove",
+      "type": "maneuver",
+      "img": "icons/skills/melee/shield-block-bash-yellow.webp",
+      "effects": [],
+      "flags": {},
+      "system": {
+        "actions": {
+          "uvkBwwL7OQopMMHB": {
+            "name": "Shove",
+            "activation": {
+              "cost": 1,
+              "type": "action",
+              "reactionTrigger": ""
+            },
+            "duration": {
+              "unit": "instantaneous",
+              "value": null
+            },
+            "ranges": {
+              "j7yuRUD8cu1y0Jia": {
+                "range": "fiveFeet"
+              }
+            },
+            "area": {
+              "shape": "",
+              "size": "",
+              "placeTemplate": false
+            },
+            "target": {
+              "quantity": null,
+              "type": "creature",
+              "shape": "",
+              "size": ""
+            },
+            "rolls": {
+              "TcI6WmWSAy0EAxg9": {
+                "canCrit": false,
+                "damageType": "",
+                "formula": "1 + @str.mod",
+                "label": "Basic Melee Damage",
+                "type": "damage"
+              }
+            },
+            "prompts": {
+              "UVu9ZVC0beiWNgAV": {
+                "ability": "str",
+                "onSave": "",
+                "saveDC": {
+                  "type": "custom",
+                  "bonus": "@maneuverDC"
+                },
+                "type": "savingThrow"
+              }
+            },
+            "consumers": {}
+          }
+        },
+        "description": "<p>You can use the Shove maneuver to push a creature away. If you are able to make multiple attacks with the Attack action, this maneuver replaces one of them.</p><p>The target must be within your reach and be no more than one size category larger than you. The target makes a Strength saving throw against your maneuver DC. On a failure, you deal basic melee damage and push the target a number of feet away from you equal to 5 + 5 for every 5 points it failed its saving throw by. You can move the creature in any direction away from you (to the side, forward, or diagonally away).</p><p>A creature that is shoved off of a precipice is propelled off of whatever it is standing on -- it does not receive any saving throw or ability check to grab onto something to avoid falling down below.</p>",
+        "favorite": false,
+        "secretDescription": "",
+        "source": "",
+        "uses": {
+          "value": null,
+          "max": "",
+          "per": null,
+          "recharge": {
+            "formula": "1d6",
+            "threshold": 6
+          }
+        },
+        "schema": {
+          "version": null,
+          "lastMigration": null
+        },
+        "degree": 0,
+        "exertionCost": 0,
+        "isStance": false,
+        "prerequisite": "",
+        "tradition": "",
+        "equippedState": 0,
+        "schemaVersion": {
+          "version": 0.01,
+          "lastMigration": {
+            "version": {
+              "schema": 0.009,
+              "foundry": "12.316",
+              "system": "0.16.12"
+            }
+          }
+        }
+      },
+      "folder": null,
+      "_id": "B4OxkrNgX9MzKoQS",
+      "sort": 0,
+      "ownership": {
+        "default": 0
+      }
+    }
+  ],
+  "effects": [],
+  "folder": null,
+  "_id": "2z6eu0clbr6p2duj"
 }

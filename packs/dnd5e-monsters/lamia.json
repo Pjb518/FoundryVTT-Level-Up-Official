@@ -1,2436 +1,2432 @@
 {
-	"type": "npc",
-	"img": "systems/a5e/assets/lamia.webp",
-	"name": "Lamia",
-	"flags": {},
-	"prototypeToken": {
-		"name": "Lamia",
-		"detectionModes": [],
-		"disposition": -1,
-		"height": 2,
-		"light": {
-			"alpha": 1,
-			"angle": 360,
-			"bright": 0,
-			"coloration": 1,
-			"dim": 0,
-			"luminosity": 0.5,
-			"saturation": 0,
-			"contrast": 0,
-			"shadows": 0,
-			"animation": {
-				"speed": 5,
-				"intensity": 5,
-				"type": null,
-				"reverse": false
-			},
-			"darkness": {
-				"min": 0,
-				"max": 1
-			},
-			"attenuation": 0.5,
-			"color": null
-		},
-		"sight": {
-			"angle": 360,
-			"enabled": false,
-			"range": 60,
-			"brightness": 0,
-			"visionMode": "basic",
-			"color": null,
-			"attenuation": 0.1,
-			"saturation": 0,
-			"contrast": 0
-		},
-		"texture": {
-			"src": "systems/a5e/assets/lamia.webp",
-			"tint": "#ffffff",
-			"scaleX": 1,
-			"scaleY": 1,
-			"offsetX": 0,
-			"offsetY": 0,
-			"rotation": 0,
-			"anchorX": 0.5,
-			"anchorY": 0.5,
-			"fit": "contain",
-			"alphaThreshold": 0.75
-		},
-		"width": 2,
-		"displayName": 0,
-		"actorLink": false,
-		"appendNumber": false,
-		"prependAdjective": false,
-		"lockRotation": false,
-		"rotation": 0,
-		"alpha": 1,
-		"displayBars": 0,
-		"bar1": {
-			"attribute": "attributes.hp"
-		},
-		"bar2": {
-			"attribute": null
-		},
-		"flags": {},
-		"randomImg": false,
-		"hexagonalShape": 0,
-		"locked": false,
-		"occludable": {
-			"radius": 0
-		}
-	},
-	"system": {
-		"abilities": {
-			"str": {
-				"value": 16,
-				"check": {
-					"expertiseDice": 0,
-					"bonus": "",
-					"notes": {}
-				},
-				"save": {
-					"proficient": false,
-					"expertiseDice": 0,
-					"bonus": "",
-					"notes": {}
-				}
-			},
-			"dex": {
-				"value": 13,
-				"check": {
-					"expertiseDice": 0,
-					"bonus": "",
-					"notes": {}
-				},
-				"save": {
-					"proficient": false,
-					"expertiseDice": 0,
-					"bonus": "",
-					"notes": {}
-				}
-			},
-			"con": {
-				"value": 15,
-				"check": {
-					"expertiseDice": 0,
-					"bonus": "",
-					"notes": {}
-				},
-				"save": {
-					"proficient": false,
-					"expertiseDice": 0,
-					"bonus": "",
-					"notes": {}
-				}
-			},
-			"int": {
-				"value": 14,
-				"check": {
-					"expertiseDice": 0,
-					"bonus": "",
-					"notes": {}
-				},
-				"save": {
-					"proficient": false,
-					"expertiseDice": 0,
-					"bonus": "",
-					"notes": {}
-				}
-			},
-			"wis": {
-				"value": 15,
-				"check": {
-					"expertiseDice": 0,
-					"bonus": "",
-					"notes": {}
-				},
-				"save": {
-					"proficient": false,
-					"expertiseDice": 0,
-					"bonus": "",
-					"notes": {}
-				}
-			},
-			"cha": {
-				"value": 16,
-				"check": {
-					"expertiseDice": 0,
-					"bonus": "",
-					"notes": {}
-				},
-				"save": {
-					"proficient": false,
-					"expertiseDice": 0,
-					"bonus": "",
-					"notes": {}
-				}
-			}
-		},
-		"schemaVersion": {
-			"version": 0.01,
-			"lastMigration": null
-		},
-		"skills": {
-			"acr": {
-				"ability": "dex",
-				"value": 0,
-				"proficient": false,
-				"specialties": [],
-				"expertiseDice": 0,
-				"minRoll": 1,
-				"bonuses": {
-					"check": "",
-					"passive": 0
-				}
-			},
-			"ani": {
-				"ability": "wis",
-				"value": 0,
-				"proficient": false,
-				"specialties": [],
-				"expertiseDice": 0,
-				"minRoll": 1,
-				"bonuses": {
-					"check": "",
-					"passive": 0
-				}
-			},
-			"arc": {
-				"ability": "int",
-				"value": 0,
-				"proficient": false,
-				"specialties": [],
-				"expertiseDice": 0,
-				"minRoll": 1,
-				"bonuses": {
-					"check": "",
-					"passive": 0
-				}
-			},
-			"ath": {
-				"ability": "str",
-				"value": 0,
-				"proficient": false,
-				"specialties": [],
-				"expertiseDice": 0,
-				"minRoll": 1,
-				"bonuses": {
-					"check": "",
-					"passive": 0
-				}
-			},
-			"cul": {
-				"ability": "int",
-				"value": 0,
-				"proficient": false,
-				"specialties": [],
-				"expertiseDice": 0,
-				"minRoll": 1,
-				"bonuses": {
-					"check": "",
-					"passive": 0
-				}
-			},
-			"dec": {
-				"ability": "cha",
-				"value": 0,
-				"proficient": true,
-				"specialties": [],
-				"expertiseDice": 0,
-				"minRoll": 1,
-				"bonuses": {
-					"check": "@prof[Expertise]",
-					"passive": 0
-				}
-			},
-			"eng": {
-				"ability": "int",
-				"value": 0,
-				"proficient": false,
-				"specialties": [],
-				"expertiseDice": 0,
-				"minRoll": 1,
-				"bonuses": {
-					"check": "",
-					"passive": 0
-				}
-			},
-			"his": {
-				"ability": "int",
-				"value": 0,
-				"proficient": false,
-				"specialties": [],
-				"expertiseDice": 0,
-				"minRoll": 1,
-				"bonuses": {
-					"check": "",
-					"passive": 0
-				}
-			},
-			"ins": {
-				"ability": "wis",
-				"value": 0,
-				"proficient": true,
-				"specialties": [],
-				"expertiseDice": 0,
-				"minRoll": 1,
-				"bonuses": {
-					"check": "",
-					"passive": 0
-				}
-			},
-			"itm": {
-				"ability": "cha",
-				"value": 0,
-				"proficient": false,
-				"specialties": [],
-				"expertiseDice": 0,
-				"minRoll": 1,
-				"bonuses": {
-					"check": "",
-					"passive": 0
-				}
-			},
-			"inv": {
-				"ability": "int",
-				"value": 0,
-				"proficient": false,
-				"specialties": [],
-				"expertiseDice": 0,
-				"minRoll": 1,
-				"bonuses": {
-					"check": "",
-					"passive": 0
-				}
-			},
-			"med": {
-				"ability": "wis",
-				"value": 0,
-				"proficient": false,
-				"specialties": [],
-				"expertiseDice": 0,
-				"minRoll": 1,
-				"bonuses": {
-					"check": "",
-					"passive": 0
-				}
-			},
-			"nat": {
-				"ability": "int",
-				"value": 0,
-				"proficient": false,
-				"specialties": [],
-				"expertiseDice": 0,
-				"minRoll": 1,
-				"bonuses": {
-					"check": "",
-					"passive": 0
-				}
-			},
-			"prc": {
-				"ability": "wis",
-				"value": 0,
-				"proficient": false,
-				"specialties": [],
-				"expertiseDice": 0,
-				"minRoll": 1,
-				"bonuses": {
-					"check": "",
-					"passive": 0
-				}
-			},
-			"prf": {
-				"ability": "cha",
-				"value": 0,
-				"proficient": false,
-				"specialties": [],
-				"expertiseDice": 0,
-				"minRoll": 1,
-				"bonuses": {
-					"check": "",
-					"passive": 0
-				}
-			},
-			"per": {
-				"ability": "cha",
-				"value": 0,
-				"proficient": false,
-				"specialties": [],
-				"expertiseDice": 0,
-				"minRoll": 1,
-				"bonuses": {
-					"check": "",
-					"passive": 0
-				}
-			},
-			"rel": {
-				"ability": "int",
-				"value": 0,
-				"proficient": false,
-				"specialties": [],
-				"expertiseDice": 0,
-				"minRoll": 1,
-				"bonuses": {
-					"check": "",
-					"passive": 0
-				}
-			},
-			"slt": {
-				"ability": "dex",
-				"value": 0,
-				"proficient": false,
-				"specialties": [],
-				"expertiseDice": 0,
-				"minRoll": 1,
-				"bonuses": {
-					"check": "",
-					"passive": 0
-				}
-			},
-			"ste": {
-				"ability": "dex",
-				"value": 0,
-				"proficient": true,
-				"specialties": [],
-				"expertiseDice": 0,
-				"minRoll": 1,
-				"bonuses": {
-					"check": "",
-					"passive": 0
-				}
-			},
-			"sur": {
-				"ability": "wis",
-				"value": 0,
-				"proficient": false,
-				"specialties": [],
-				"expertiseDice": 0,
-				"minRoll": 1,
-				"bonuses": {
-					"check": "",
-					"passive": 0
-				}
-			}
-		},
-		"spellResources": {
-			"slots": {
-				"1": {
-					"current": 0,
-					"max": 0
-				},
-				"2": {
-					"current": 0,
-					"max": 0
-				},
-				"3": {
-					"current": 0,
-					"max": 0
-				},
-				"4": {
-					"current": 0,
-					"max": 0
-				},
-				"5": {
-					"current": 0,
-					"max": 0
-				},
-				"6": {
-					"current": 0,
-					"max": 0
-				},
-				"7": {
-					"current": 0,
-					"max": 0
-				},
-				"8": {
-					"current": 0,
-					"max": 0
-				},
-				"9": {
-					"current": 0,
-					"max": 0
-				}
-			},
-			"points": {
-				"current": 0,
-				"max": 0
-			}
-		},
-		"attributes": {
-			"ac": {
-				"baseFormula": "13",
-				"value": 0
-			},
-			"death": {
-				"success": 0,
-				"failure": 0
-			},
-			"hp": {
-				"value": 97,
-				"baseMax": 97,
-				"temp": 0,
-				"bonus": 0
-			},
-			"hitDice": {
-				"d6": {
-					"current": 0,
-					"total": 0
-				},
-				"d8": {
-					"current": 0,
-					"total": 0
-				},
-				"d10": {
-					"current": 0,
-					"total": 0
-				},
-				"d12": {
-					"current": 0,
-					"total": 0
-				},
-				"d4": {
-					"current": 0,
-					"total": 0
-				},
-				"d20": {
-					"current": 0,
-					"total": 0
-				}
-			},
-			"initiative": {
-				"bonus": "0",
-				"expertiseDice": 0
-			},
-			"movement": {
-				"burrow": {
-					"distance": 0,
-					"unit": "feet"
-				},
-				"climb": {
-					"distance": 0,
-					"unit": "feet"
-				},
-				"fly": {
-					"distance": 0,
-					"unit": "feet"
-				},
-				"swim": {
-					"distance": 0,
-					"unit": "feet"
-				},
-				"walk": {
-					"distance": 30,
-					"unit": "feet"
-				},
-				"traits": {
-					"hover": false
-				}
-			},
-			"senses": {
-				"blindsight": {
-					"distance": 0,
-					"unit": "feet",
-					"otherwiseBlind": false
-				},
-				"darkvision": {
-					"distance": 60,
-					"unit": "feet"
-				},
-				"tremorsense": {
-					"distance": 0,
-					"unit": "feet"
-				},
-				"truesight": {
-					"distance": 0,
-					"unit": "feet"
-				}
-			},
-			"inspiration": false,
-			"fatigue": 0,
-			"strife": 0,
-			"spellcasting": "cha",
-			"casterLevel": 0
-		},
-		"bonuses": {
-			"abilities": {},
-			"damage": {},
-			"healing": {},
-			"maneuverDC": "",
-			"meleeSpellAttack": "",
-			"meleeWeaponAttack": "",
-			"rangedSpellAttack": "",
-			"rangedWeaponAttack": "",
-			"spellDC": "",
-			"skills": {
-				"pZk3t0tm7m5CyYkq": {
-					"context": {
-						"skills": [
-							"dec"
-						],
-						"passiveOnly": false,
-						"requiresProficiency": false
-					},
-					"formula": "@prof[Expertise]",
-					"label": "Check Bonus",
-					"default": true,
-					"img": "icons/svg/upgrade.svg"
-				}
-			}
-		},
-		"currency": {
-			"pp": 0,
-			"gp": 0,
-			"ep": 0,
-			"sp": 0,
-			"cp": 0
-		},
-		"details": {
-			"bio": "<p>\n        <em>\n          Token artwork by\n          <a href=\"https://www.forgotten-adventures.net/\" target=\"_blank\" rel=\"noopener\">Forgotten Adventures</a>.\n        </em>\n      </p>",
-			"creatureTypes": [
-				"monstrosity"
-			],
-			"isSwarm": false,
-			"cr": 4,
-			"elite": false,
-			"privateNotes": "",
-			"notes": ""
-		},
-		"proficiencies": {
-			"armor": [],
-			"languages": [],
-			"tools": [],
-			"weapons": []
-		},
-		"resources": {
-			"primary": {
-				"label": "",
-				"value": 0,
-				"max": "",
-				"per": "",
-				"hideMax": false,
-				"recharge": {
-					"formula": "1d6",
-					"threshold": 6
-				}
-			},
-			"secondary": {
-				"label": "",
-				"value": 0,
-				"max": "",
-				"per": "",
-				"hideMax": false,
-				"recharge": {
-					"formula": "1d6",
-					"threshold": 6
-				}
-			},
-			"tertiary": {
-				"label": "",
-				"value": 0,
-				"max": "",
-				"per": "",
-				"hideMax": false,
-				"recharge": {
-					"formula": "1d6",
-					"threshold": 6
-				}
-			},
-			"quaternary": {
-				"label": "",
-				"value": 0,
-				"max": "",
-				"per": "",
-				"hideMax": false,
-				"recharge": {
-					"formula": "1d6",
-					"threshold": 6
-				}
-			}
-		},
-		"source": {
-			"name": "",
-			"link": "",
-			"publisher": ""
-		},
-		"traits": {
-			"size": "lg",
-			"conditionImmunities": [],
-			"damageImmunities": [],
-			"damageResistances": [],
-			"damageVulnerabilities": []
-		}
-	},
-	"items": [
-		{
-			"type": "spell",
-			"img": "icons/magic/control/debuff-energy-hold-teal-blue.webp",
-			"name": "Disguise Self (any humanoid form) (At Will)",
-			"system": {
-				"actions": {
-					"gqxUupopqdXZzBSD": {
-						"activation": {
-							"cost": 1,
-							"type": "action",
-							"reactionTrigger": ""
-						},
-						"duration": {
-							"unit": "hour",
-							"value": "1"
-						},
-						"target": {
-							"quantity": null,
-							"type": "self"
-						},
-						"consumers": {
-							"5ztVDxTdJ1VvkJMC": {
-								"mode": "variable",
-								"spellLevel": 1,
-								"points": 2,
-								"type": "spell"
-							}
-						},
-						"name": "Cast Spell",
-						"ranges": {
-							"D500FimXBF3TUPVb": {
-								"range": "self"
-							}
-						}
-					}
-				},
-				"description": "<p>You make yourself—including your clothing, armor, weapons, and other belongings on your person—look different until the spell ends or until you use your action to dismiss it. You can seem 1 foot shorter or taller and can appear thin, fat, or in between. You can't change your body type, so you must adopt a form that has the same basic arrangement of limbs. Otherwise, the extent of the illusion is up to you.</p><p>The changes wrought by this spell fail to hold up to physical inspection. For example, if you use this spell to add a hat to your outfit, objects pass through the hat, and anyone who touches it would feel nothing or would feel your head and hair. If you use this spell to appear thinner than you are, the hand of someone who reaches out to touch you would bump into you while it was seemingly still in midair.</p><p>To discern that you are disguised, a creature can use its action to inspect your appearance and must succeed on an Intelligence (Investigation) check against your spell save DC.</p>",
-				"favorite": false,
-				"secretDescription": "",
-				"source": {
-					"name": "",
-					"link": "",
-					"publisher": ""
-				},
-				"uses": {
-					"value": 0,
-					"max": 0,
-					"per": "",
-					"recharge": {
-						"formula": "1d6",
-						"threshold": 6
-					}
-				},
-				"schema": {
-					"version": 0.01,
-					"lastMigration": null
-				},
-				"classes": [],
-				"components": {
-					"vocalized": true,
-					"seen": true,
-					"material": false
-				},
-				"concentration": false,
-				"level": 1,
-				"materials": "",
-				"materialsConsumed": false,
-				"prepared": true,
-				"prerequisite": "",
-				"rare": false,
-				"ritual": false,
-				"schools": {
-					"primary": "illusion",
-					"secondary": []
-				},
-				"schemaVersion": {
-					"version": 0.01,
-					"lastMigration": {
-						"version": {
-							"schema": null,
-							"foundry": "12.316",
-							"system": "0.16.12"
-						}
-					}
-				}
-			},
-			"_id": "AgmBKxqLtTR1Cu4B",
-			"effects": [],
-			"folder": null,
-			"sort": 0,
-			"ownership": {
-				"default": 0
-			},
-			"flags": {}
-		},
-		{
-			"type": "spell",
-			"img": "icons/magic/control/debuff-energy-hold-levitate-pink.webp",
-			"name": "Major Image (At Will)",
-			"system": {
-				"actions": {
-					"PEpuW1w77Gq8QeVU": {
-						"activation": {
-							"cost": 1,
-							"type": "action",
-							"reactionTrigger": ""
-						},
-						"duration": {
-							"unit": "minute",
-							"value": "10"
-						},
-						"area": {
-							"placeTemplate": true,
-							"shape": "cube",
-							"width": 20
-						},
-						"consumers": {
-							"gQgPlEuSeYxb1s5D": {
-								"mode": "variable",
-								"spellLevel": 3,
-								"points": 5,
-								"type": "spell"
-							}
-						},
-						"name": "Cast Spell",
-						"ranges": {
-							"GpSfhjuVqETlqWgc": {
-								"range": "long"
-							}
-						}
-					}
-				},
-				"description": "<p>You create the image of an object, a creature, or some other visible phenomenon that is no larger than a 20-foot cube. The image appears at a spot that you can see within range and lasts for the duration. It seems completely real, including sounds, smells, and temperature appropriate to the thing depicted. You can't create sufficient heat or cold to cause damage, a sound loud enough to deal thunder damage or deafen a creature, or a smell that might sicken a creature (like a troglodyte's stench).</p><p>As long as you are within range of the illusion, you can use your action to cause the image to move to any other spot within range. As the image changes location, you can alter its appearance so that its movements appear natural for the image. For example, if you create an image of a creature and move it, you can alter the image so that it appears to be walking. Similarly, you can cause the illusion to make different sounds at different times, even making it carry on a conversation, for example.</p><p>Physical interaction with the image reveals it to be an illusion, because things can pass through it. A creature that uses its action to examine the image can determine that it is an illusion with a successful Intelligence (Investigation) check against your spell save DC. If a creature discerns the illusion for what it is, the creature can see through the image, and its other sensory qualities become faint to the creature.</p><p><strong>At Higher Levels.</strong> When you cast this spell using a spell slot of 6th level or higher, the spell lasts until dispelled, without requiring your concentration.</p>",
-				"favorite": false,
-				"secretDescription": "",
-				"source": {
-					"name": "",
-					"link": "",
-					"publisher": ""
-				},
-				"uses": {
-					"value": 0,
-					"max": 0,
-					"per": "",
-					"recharge": {
-						"formula": "1d6",
-						"threshold": 6
-					}
-				},
-				"schema": {
-					"version": 0.01,
-					"lastMigration": null
-				},
-				"classes": [],
-				"components": {
-					"vocalized": true,
-					"seen": true,
-					"material": true
-				},
-				"concentration": true,
-				"level": 3,
-				"materials": "A bit of fleece",
-				"materialsConsumed": false,
-				"prepared": true,
-				"prerequisite": "",
-				"rare": false,
-				"ritual": false,
-				"schools": {
-					"primary": "illusion",
-					"secondary": []
-				},
-				"schemaVersion": {
-					"version": 0.01,
-					"lastMigration": {
-						"version": {
-							"schema": null,
-							"foundry": "12.316",
-							"system": "0.16.12"
-						}
-					}
-				}
-			},
-			"_id": "NTU7lRjXjDjPURaQ",
-			"effects": [],
-			"folder": null,
-			"sort": 0,
-			"ownership": {
-				"default": 0
-			},
-			"flags": {}
-		},
-		{
-			"type": "spell",
-			"img": "icons/magic/fire/explosion-fireball-medium-purple-pink.webp",
-			"name": "Charm Person (Innate)",
-			"system": {
-				"actions": {
-					"psyiekabbD6HVWUf": {
-						"activation": {
-							"cost": 1,
-							"type": "action",
-							"reactionTrigger": ""
-						},
-						"duration": {
-							"unit": "hour",
-							"value": "1"
-						},
-						"prompts": {
-							"zsN3JDlIAae4ZRPO": {
-								"ability": "wis",
-								"type": "savingThrow",
-								"saveDC": {
-									"bonus": "",
-									"type": "spellcasting"
-								}
-							}
-						},
-						"target": {
-							"quantity": 1,
-							"type": "creature"
-						},
-						"consumers": {
-							"dchcHWZWWA1CWshS": {
-								"type": "itemUses",
-								"quantity": 1
-							},
-							"MOJGs8l7HfLSV0x8": {
-								"mode": "variable",
-								"spellLevel": 1,
-								"points": 2,
-								"type": "spell"
-							}
-						},
-						"name": "Cast Spell",
-						"ranges": {
-							"HCfESxOMrV296dkg": {
-								"range": "short"
-							}
-						}
-					}
-				},
-				"description": "<p>You attempt to charm a humanoid you can see within range. It must make a Wisdom saving throw, and does so with advantage if you or your companions are fighting it. If it fails the saving throw, it is charmed by you until the spell ends or until you or your companions do anything harmful to it. The charmed creature regards you as a friendly acquaintance. When the spell ends, the creature knows it was charmed by you.</p>\n        <p><strong>At Higher Levels.</strong> When you cast this spell using a spell slot of 2nd level or higher, you can target one additional creature for each slot level above 1st. The creatures must be within 30 feet of each other when you target them.</p>",
-				"favorite": false,
-				"secretDescription": "",
-				"source": {
-					"name": "",
-					"link": "",
-					"publisher": ""
-				},
-				"uses": {
-					"value": 3,
-					"max": 3,
-					"per": "",
-					"recharge": {
-						"formula": "1d6",
-						"threshold": 6
-					}
-				},
-				"schema": {
-					"version": 0.01,
-					"lastMigration": null
-				},
-				"classes": [],
-				"components": {
-					"vocalized": true,
-					"seen": true,
-					"material": false
-				},
-				"concentration": false,
-				"level": 1,
-				"materials": "",
-				"materialsConsumed": false,
-				"prepared": true,
-				"prerequisite": "",
-				"rare": false,
-				"ritual": false,
-				"schools": {
-					"primary": "enchantment",
-					"secondary": []
-				},
-				"schemaVersion": {
-					"version": 0.01,
-					"lastMigration": {
-						"version": {
-							"schema": null,
-							"foundry": "12.316",
-							"system": "0.16.12"
-						}
-					}
-				}
-			},
-			"_id": "RjUyVbQV9drpl4Os",
-			"effects": [],
-			"folder": null,
-			"sort": 0,
-			"ownership": {
-				"default": 0
-			},
-			"flags": {}
-		},
-		{
-			"type": "spell",
-			"img": "icons/magic/control/debuff-energy-hold-levitate-pink.webp",
-			"name": "Mirror Image (Innate)",
-			"system": {
-				"actions": {
-					"IYv4YMZf7Rh9vtY3": {
-						"activation": {
-							"cost": 1,
-							"type": "action",
-							"reactionTrigger": ""
-						},
-						"duration": {
-							"unit": "minute",
-							"value": "1"
-						},
-						"target": {
-							"quantity": null,
-							"type": "self"
-						},
-						"consumers": {
-							"UGi8ExkoWdlBgcTK": {
-								"type": "itemUses",
-								"quantity": 1
-							},
-							"3ZrwmsWVErZKJiRk": {
-								"mode": "variable",
-								"spellLevel": 2,
-								"points": 3,
-								"type": "spell"
-							}
-						},
-						"name": "Cast Spell",
-						"ranges": {
-							"D3LZ8aOpj1yQLF37": {
-								"range": "self"
-							}
-						}
-					}
-				},
-				"description": "<p>Three illusory duplicates of yourself appear in your space. Until the spell ends, the duplicates move with you and mimic your actions, shifting position so it's impossible to track which image is real. You can use your action to dismiss the illusory duplicates.</p>\n<p>Each time a creature targets you with an attack during the spell's duration, roll a [[/r 1d20 # Mirror Image Check]] to determine whether the attack instead targets one of your duplicates.</p>\n<p>If you have three duplicates, you must roll a 6 or higher to change the attack's target to a duplicate. With two duplicates, you must roll an 8 or higher. With one duplicate, you must roll an 11 or higher.</p>\n<p>A duplicate's AC equals 10 + your Dexterity modifier. If an attack hits a duplicate, the duplicate is destroyed. A duplicate can be destroyed only by an attack that hits it. It ignores all other damage and effects. The spell ends when all three duplicates are destroyed.</p>\n<p>A creature is unaffected by this spell if it can't see, if it relies on senses other than sight, such as blindsight, or if it can perceive illusions as false, as with truesight.</p>",
-				"favorite": false,
-				"secretDescription": "",
-				"source": {
-					"name": "",
-					"link": "",
-					"publisher": ""
-				},
-				"uses": {
-					"value": 3,
-					"max": 3,
-					"per": "",
-					"recharge": {
-						"formula": "1d6",
-						"threshold": 6
-					}
-				},
-				"schema": {
-					"version": 0.01,
-					"lastMigration": null
-				},
-				"classes": [],
-				"components": {
-					"vocalized": true,
-					"seen": true,
-					"material": false
-				},
-				"concentration": false,
-				"level": 2,
-				"materials": "",
-				"materialsConsumed": false,
-				"prepared": true,
-				"prerequisite": "",
-				"rare": false,
-				"ritual": false,
-				"schools": {
-					"primary": "illusion",
-					"secondary": []
-				},
-				"schemaVersion": {
-					"version": 0.01,
-					"lastMigration": {
-						"version": {
-							"schema": null,
-							"foundry": "12.316",
-							"system": "0.16.12"
-						}
-					}
-				}
-			},
-			"_id": "yW5LUybV7lQfjkNV",
-			"effects": [],
-			"folder": null,
-			"sort": 0,
-			"ownership": {
-				"default": 0
-			},
-			"flags": {}
-		},
-		{
-			"type": "spell",
-			"img": "icons/magic/perception/eye-ringed-glow-angry-large-teal.webp",
-			"name": "Scrying (Innate)",
-			"system": {
-				"actions": {
-					"NkNN92QZi8MNfqML": {
-						"activation": {
-							"cost": 10,
-							"type": "minute",
-							"reactionTrigger": ""
-						},
-						"duration": {
-							"unit": "minute",
-							"value": "10"
-						},
-						"prompts": {
-							"QeJkVHEgdlfSHHNi": {
-								"ability": "wis",
-								"type": "savingThrow",
-								"saveDC": {
-									"bonus": "",
-									"type": "spellcasting"
-								}
-							}
-						},
-						"target": {
-							"quantity": 1,
-							"type": "creature"
-						},
-						"consumers": {
-							"NNYcvP7jinvMAqbN": {
-								"type": "itemUses",
-								"quantity": 1
-							},
-							"wgQbhehVIBtNmVrx": {
-								"mode": "variable",
-								"spellLevel": 5,
-								"points": 7,
-								"type": "spell"
-							}
-						},
-						"name": "Cast Spell",
-						"ranges": {
-							"j3FeXJelZTItJBf3": {
-								"range": "self"
-							}
-						}
-					}
-				},
-				"description": "<p>You can see and hear a particular creature you choose that is on the same plane of existence as you. The target must make a Wisdom saving throw, which is modified by how well you know the target and the sort of physical connection you have to it. If a target knows you're casting this spell, it can fail the saving throw voluntarily if it wants to be observed.</p>\n<table border=\"1\">\n<tbody>\n<tr>\n<td><strong>Knowledge</strong></td>\n<td><strong>Save Modifier</strong></td>\n</tr>\n<tr>\n<td>Secondhand (you have heard of the target)</td>\n<td>+5</td>\n</tr>\n<tr>\n<td>Firsthand (you have met the target)</td>\n<td>+0</td>\n</tr>\n<tr>\n<td>Familiar (you know the target well)</td>\n<td>-5</td>\n</tr>\n</tbody>\n</table>\n\n<table border=\"1\">\n<tbody>\n<tr>\n<td><strong>Connection</strong></td>\n<td><strong>Save Modifier</strong></td>\n</tr>\n<tr>\n<td>Likeness or picture</td>\n<td>-2</td>\n</tr>\n<tr>\n<td>Possession or garment</td>\n<td>-4</td>\n</tr>\n<tr>\n<td>Body part, lock of hair, bit of nail, or the like</td>\n<td>-10</td>\n</tr>\n</tbody>\n</table>\n<p>On a successful save, the target isn't affected, and you can't use this spell against it again for 24 hours.</p><p>On a failed save, the spell creates an Invisible sensor within 10 feet of the target. You can see and hear through the sensor as if you were there. The sensor moves with the target, remaining within 10 feet of it for the Duration. A creature that can see Invisile Objects sees the sensor as a luminous orb about the size of your fist.</p><p>Instead of targeting a creature, you can choose a location you have seen before as the target of this spell. When you do, the sensor appears at that location and doesn't move.</p>",
-				"favorite": false,
-				"secretDescription": "",
-				"source": {
-					"name": "",
-					"link": "",
-					"publisher": ""
-				},
-				"uses": {
-					"value": 3,
-					"max": 3,
-					"per": "",
-					"recharge": {
-						"formula": "1d6",
-						"threshold": 6
-					}
-				},
-				"schema": {
-					"version": 0.01,
-					"lastMigration": null
-				},
-				"classes": [],
-				"components": {
-					"vocalized": true,
-					"seen": true,
-					"material": true
-				},
-				"concentration": true,
-				"level": 5,
-				"materials": "A focus worth at least 1,000 gp, such as a crystal ball, a silver mirror, or a font filled with holy water.",
-				"materialsConsumed": false,
-				"prepared": true,
-				"prerequisite": "",
-				"rare": false,
-				"ritual": false,
-				"schools": {
-					"primary": "divination",
-					"secondary": []
-				},
-				"schemaVersion": {
-					"version": 0.01,
-					"lastMigration": {
-						"version": {
-							"schema": null,
-							"foundry": "12.316",
-							"system": "0.16.12"
-						}
-					}
-				}
-			},
-			"_id": "pf67XM3iwTk13KbS",
-			"effects": [],
-			"folder": null,
-			"sort": 0,
-			"ownership": {
-				"default": 0
-			},
-			"flags": {}
-		},
-		{
-			"type": "spell",
-			"img": "icons/magic/air/air-burst-spiral-pink.webp",
-			"name": "Suggestion (Innate)",
-			"system": {
-				"actions": {
-					"n32aeQzFUWHLZR3K": {
-						"activation": {
-							"cost": 1,
-							"type": "action",
-							"reactionTrigger": ""
-						},
-						"duration": {
-							"unit": "hour",
-							"value": "8"
-						},
-						"prompts": {
-							"W9GfEEC7ILVuah6S": {
-								"ability": "wis",
-								"type": "savingThrow",
-								"saveDC": {
-									"bonus": "",
-									"type": "spellcasting"
-								}
-							}
-						},
-						"target": {
-							"quantity": 1,
-							"type": "creature"
-						},
-						"consumers": {
-							"jywVyVVmDHpjwDeG": {
-								"type": "itemUses",
-								"quantity": 1
-							},
-							"2HvlXWqkwlPPUx6r": {
-								"mode": "variable",
-								"spellLevel": 2,
-								"points": 3,
-								"type": "spell"
-							}
-						},
-						"name": "Cast Spell",
-						"ranges": {
-							"pJi0vnU9LwkahwXf": {
-								"range": "short"
-							}
-						}
-					}
-				},
-				"description": "<p>You suggest a course of activity (limited to a sentence or two) and magically influence a creature you can see within range that can hear and understand you. Creatures that can't be charmed are immune to this effect. The suggestion must be worded in such a manner as to make the course of action sound reasonable. Asking the creature to stab itself, throw itself onto a spear, immolate itself, or do some other obviously harmful act ends the spell.</p><p>The target must make a Wisdom saving throw. On a failed save, it pursues the course of action you described to the best of its ability. The suggested course of action can continue for the entire duration. If the suggested activity can be completed in a shorter time, the spell ends when the subject finishes what it was asked to do.</p><p>You can also specify conditions that will trigger a special activity during the duration. For example, you might suggest that a knight give her warhorse to the first beggar she meets. If the condition isn't met before the spell expires, the activity isn't performed.</p><p>If you or any of your companions damage the target, the spell ends.</p>",
-				"favorite": false,
-				"secretDescription": "",
-				"source": {
-					"name": "",
-					"link": "",
-					"publisher": ""
-				},
-				"uses": {
-					"value": 3,
-					"max": 3,
-					"per": "",
-					"recharge": {
-						"formula": "1d6",
-						"threshold": 6
-					}
-				},
-				"schema": {
-					"version": 0.01,
-					"lastMigration": null
-				},
-				"classes": [],
-				"components": {
-					"vocalized": true,
-					"seen": false,
-					"material": true
-				},
-				"concentration": true,
-				"level": 2,
-				"materials": "A snake's tongue and either a bit of honeycomb or a drop of sweet oil",
-				"materialsConsumed": false,
-				"prepared": true,
-				"prerequisite": "",
-				"rare": false,
-				"ritual": false,
-				"schools": {
-					"primary": "enchantment",
-					"secondary": []
-				},
-				"schemaVersion": {
-					"version": 0.01,
-					"lastMigration": {
-						"version": {
-							"schema": null,
-							"foundry": "12.316",
-							"system": "0.16.12"
-						}
-					}
-				}
-			},
-			"_id": "y6HiGuZXwwl0UIx4",
-			"effects": [],
-			"folder": null,
-			"sort": 0,
-			"ownership": {
-				"default": 0
-			},
-			"flags": {}
-		},
-		{
-			"type": "spell",
-			"img": "icons/magic/air/air-burst-spiral-large-yellow.webp",
-			"name": "Geas (Innate)",
-			"system": {
-				"actions": {
-					"Su6S9FHiR0kSRup6": {
-						"activation": {
-							"cost": 1,
-							"type": "minute",
-							"reactionTrigger": ""
-						},
-						"duration": {
-							"unit": "day",
-							"value": "30"
-						},
-						"prompts": {
-							"MvyFah9IQENWcXO9": {
-								"ability": "wis",
-								"type": "savingThrow",
-								"saveDC": {
-									"bonus": "",
-									"type": "spellcasting"
-								}
-							}
-						},
-						"rolls": {
-							"zhDNBhaulHa20xiy": {
-								"canCrit": false,
-								"critBonus": "",
-								"damageType": "psychic",
-								"formula": "5d10",
-								"scaling": {
-									"mode": "spellLevel",
-									"formula": ""
-								},
-								"name": "",
-								"type": "damage"
-							}
-						},
-						"target": {
-							"quantity": 1,
-							"type": "creature"
-						},
-						"consumers": {
-							"rVGueKWhi9RbOq7T": {
-								"type": "itemUses",
-								"quantity": 1
-							},
-							"LkPJ2FsMRqFnamPo": {
-								"mode": "variable",
-								"spellLevel": 5,
-								"points": 7,
-								"type": "spell"
-							}
-						},
-						"name": "Cast Spell",
-						"ranges": {
-							"8APTGKphHdr9zcpC": {
-								"range": "medium"
-							}
-						}
-					}
-				},
-				"description": "<p>You place a magical command on a creature that you can see within range, forcing it to carry out some service or refrain from some action or course of activity as you decide. If the creature can understand you, it must succeed on a Wisdom saving throw or become Charmed by you for the Duration. While the creature is charmed by you, it takes 5d10 psychic damage each time it acts in a manner directly counter to your instructions, but no more than once each day. A creature that can't understand you is unaffected by the spell.</p><p>You can issue any command you choose, short of an activity that would result in certain death. Should you issue a suicidal command, the spell ends.</p><p>You can end the spell early by using an action to dismiss it. A Remove Curse, Greater Restoration, or wish spell also ends it.</p><p><strong>At Higher Levels.</strong> When you cast this spell using a spell slot of 7th or 8th level, the Duration is 1 year. When you cast this spell using a spell slot of 9th level, the spell lasts until it is ended by one of the Spells mentioned above.</p>",
-				"favorite": false,
-				"secretDescription": "",
-				"source": {
-					"name": "",
-					"link": "",
-					"publisher": ""
-				},
-				"uses": {
-					"value": 1,
-					"max": 1,
-					"per": "",
-					"recharge": {
-						"formula": "1d6",
-						"threshold": 6
-					}
-				},
-				"schema": {
-					"version": 0.01,
-					"lastMigration": null
-				},
-				"classes": [],
-				"components": {
-					"vocalized": true,
-					"seen": false,
-					"material": false
-				},
-				"concentration": false,
-				"level": 5,
-				"materials": "",
-				"materialsConsumed": false,
-				"prepared": true,
-				"prerequisite": "",
-				"rare": false,
-				"ritual": false,
-				"schools": {
-					"primary": "enchantment",
-					"secondary": []
-				},
-				"schemaVersion": {
-					"version": 0.01,
-					"lastMigration": {
-						"version": {
-							"schema": null,
-							"foundry": "12.316",
-							"system": "0.16.12"
-						}
-					}
-				}
-			},
-			"_id": "V89Jh4vCAQ9WnPPu",
-			"effects": [],
-			"folder": null,
-			"sort": 0,
-			"ownership": {
-				"default": 0
-			},
-			"flags": {}
-		},
-		{
-			"type": "feature",
-			"img": "icons/magic/light/projectiles-star-purple.webp",
-			"name": "Innate Spellcasting",
-			"flags": {},
-			"system": {
-				"ac": {
-					"baseFormula": "",
-					"formula": "",
-					"maxDex": 0,
-					"minStr": 0,
-					"mode": 2,
-					"requiresNoShield": false,
-					"requiresUnarmored": false
-				},
-				"actions": {},
-				"description": "<p>The lamia's innate spellcasting ability is Charisma (spell save DC 13). It can innately cast the following spells, requiring no material components:</p>\n<p>At will: disguise self (any humanoid form), major image</p>\n<p>3/day each: charm person, mirror image, scrying, suggestion</p>\n<p>1/day: geas</p>",
-				"favorite": false,
-				"secretDescription": "",
-				"source": {
-					"name": "",
-					"link": "",
-					"publisher": ""
-				},
-				"uses": {
-					"value": 0,
-					"max": 0,
-					"per": "",
-					"recharge": {
-						"formula": "1d6",
-						"threshold": 6
-					}
-				},
-				"schema": {
-					"version": 0.01,
-					"lastMigration": null
-				},
-				"concentration": false,
-				"featureType": "",
-				"grants": {},
-				"prerequisite": "",
-				"schemaVersion": {
-					"version": 0.01,
-					"lastMigration": {
-						"version": {
-							"schema": null,
-							"foundry": "12.316",
-							"system": "0.16.12"
-						}
-					}
-				}
-			},
-			"_id": "Pwwb3b6CIlM59oYO",
-			"effects": [],
-			"folder": null,
-			"sort": 0,
-			"ownership": {
-				"default": 0
-			}
-		},
-		{
-			"type": "feature",
-			"img": "icons/skills/melee/blade-tips-triple-steel.webp",
-			"name": "Multiattack",
-			"flags": {},
-			"system": {
-				"ac": {
-					"baseFormula": "",
-					"formula": "",
-					"maxDex": 0,
-					"minStr": 0,
-					"mode": 2,
-					"requiresNoShield": false,
-					"requiresUnarmored": false
-				},
-				"actions": {
-					"EAsGF1HucD4u1DIg": {
-						"activation": {
-							"cost": 1,
-							"type": "action",
-							"reactionTrigger": ""
-						},
-						"duration": {
-							"unit": "",
-							"value": ""
-						},
-						"name": "Use Multiattack"
-					}
-				},
-				"description": "<p>The lamia makes two attacks: one with its claws and one with its dagger or Intoxicating Touch.</p>",
-				"favorite": false,
-				"secretDescription": "",
-				"source": {
-					"name": "",
-					"link": "",
-					"publisher": ""
-				},
-				"uses": {
-					"value": 0,
-					"max": 0,
-					"per": "",
-					"recharge": {
-						"formula": "1d6",
-						"threshold": 6
-					}
-				},
-				"schema": {
-					"version": 0.01,
-					"lastMigration": null
-				},
-				"concentration": false,
-				"featureType": "",
-				"grants": {},
-				"prerequisite": "",
-				"schemaVersion": {
-					"version": 0.01,
-					"lastMigration": {
-						"version": {
-							"schema": null,
-							"foundry": "12.316",
-							"system": "0.16.12"
-						}
-					}
-				}
-			},
-			"_id": "KLtzsz312JfIBSrQ",
-			"effects": [],
-			"folder": null,
-			"sort": 0,
-			"ownership": {
-				"default": 0
-			}
-		},
-		{
-			"type": "feature",
-			"img": "icons/magic/nature/beam-hand-leaves-green.webp",
-			"name": "Intoxicating Touch",
-			"flags": {},
-			"system": {
-				"ac": {
-					"baseFormula": "",
-					"formula": "",
-					"maxDex": 0,
-					"minStr": 0,
-					"mode": 2,
-					"requiresNoShield": false,
-					"requiresUnarmored": false
-				},
-				"actions": {
-					"wvhYJeo2eQcTt0yG": {
-						"activation": {
-							"cost": 1,
-							"type": "action",
-							"reactionTrigger": ""
-						},
-						"duration": {
-							"unit": "",
-							"value": ""
-						},
-						"rolls": {
-							"s2ayMk0VQe725DAK": {
-								"bonus": "",
-								"critThreshold": 20,
-								"type": "attack",
-								"attackType": "meleeSpellAttack",
-								"ability": "str"
-							}
-						},
-						"name": "Use Intoxicating Touch",
-						"ranges": {
-							"uLHIydRpE1YgNdaD": {
-								"range": "fiveFeet"
-							}
-						}
-					}
-				},
-				"description": "<section class=\"secret\"><p><em>Melee Spell Attack:</em><strong>+5 to hit,</strong>, <strong>5 ft.,</strong> one creature. Hit: The target is magically cursed for 1 hour. Until the curse ends, the target has disadvantage on Wisdom saving throws and all ability checks.</p><p></p></section><p>The target has disadvantage on Wisdom saving throws and all ability checks.</p>",
-				"favorite": false,
-				"secretDescription": "",
-				"source": {
-					"name": "",
-					"link": "",
-					"publisher": ""
-				},
-				"uses": {
-					"value": 0,
-					"max": 0,
-					"per": "",
-					"recharge": {
-						"formula": "1d6",
-						"threshold": 6
-					}
-				},
-				"schema": {
-					"version": 0.01,
-					"lastMigration": null
-				},
-				"concentration": false,
-				"featureType": "",
-				"grants": {},
-				"prerequisite": "",
-				"schemaVersion": {
-					"version": 0.01,
-					"lastMigration": {
-						"version": {
-							"schema": null,
-							"foundry": "12.316",
-							"system": "0.16.12"
-						}
-					}
-				}
-			},
-			"_id": "6Pea0mlTY5hWd1QL",
-			"effects": [],
-			"folder": null,
-			"sort": 0,
-			"ownership": {
-				"default": 0
-			}
-		},
-		{
-			"type": "feature",
-			"img": "icons/skills/melee/strike-slashes-red.webp",
-			"name": "Claws",
-			"flags": {},
-			"system": {
-				"ac": {
-					"baseFormula": "",
-					"formula": "",
-					"maxDex": 0,
-					"minStr": 0,
-					"mode": 2,
-					"requiresNoShield": false,
-					"requiresUnarmored": false
-				},
-				"actions": {
-					"DLxMtJzhjOPVlVzo": {
-						"activation": {
-							"cost": 1,
-							"type": "action",
-							"reactionTrigger": ""
-						},
-						"duration": {
-							"unit": "",
-							"value": ""
-						},
-						"rolls": {
-							"873bZlYtkQ72LX7y": {
-								"bonus": "",
-								"critThreshold": 20,
-								"type": "attack",
-								"attackType": "meleeWeaponAttack",
-								"ability": "str"
-							},
-							"Xh8umfDbr0uHVlrS": {
-								"canCrit": true,
-								"critBonus": "",
-								"damageType": "slashing",
-								"formula": "2d10+@str.mod",
-								"scaling": {},
-								"name": "",
-								"type": "damage"
-							}
-						},
-						"name": "Use Claws",
-						"ranges": {
-							"6x7eTDDaZ5GFvLIO": {
-								"range": "fiveFeet"
-							}
-						}
-					}
-				},
-				"description": "<section class=\"secret\"><p><em>Melee Weapon Attack:</em><strong>+5 to hit,</strong>, <strong>5 ft.,</strong> one target. Hit: <strong>14 (2d10 + 3) <em>slashing damage</em></strong>.</p><p></p></section><p>The Lamia attacks with its Claws.</p>",
-				"favorite": false,
-				"secretDescription": "",
-				"source": {
-					"name": "",
-					"link": "",
-					"publisher": ""
-				},
-				"uses": {
-					"value": 0,
-					"max": 0,
-					"per": "",
-					"recharge": {
-						"formula": "1d6",
-						"threshold": 6
-					}
-				},
-				"schema": {
-					"version": 0.01,
-					"lastMigration": null
-				},
-				"concentration": false,
-				"featureType": "naturalWeapon",
-				"grants": {},
-				"prerequisite": "",
-				"schemaVersion": {
-					"version": 0.01,
-					"lastMigration": {
-						"version": {
-							"schema": null,
-							"foundry": "12.316",
-							"system": "0.16.12"
-						}
-					}
-				}
-			},
-			"_id": "Mi85Z1Bfco8qUh2T",
-			"effects": [],
-			"folder": null,
-			"sort": 0,
-			"ownership": {
-				"default": 0
-			}
-		},
-		{
-			"type": "object",
-			"img": "icons/weapons/daggers/dagger-jeweled-purple.webp",
-			"name": "Dagger",
-			"flags": {},
-			"system": {
-				"ac": {
-					"baseFormula": "",
-					"formula": "",
-					"maxDex": 0,
-					"minStr": 0,
-					"mode": 2,
-					"requiresNoShield": false,
-					"requiresUnarmored": false
-				},
-				"actions": {
-					"V2nfaCVzF4SdJoGm": {
-						"activation": {
-							"cost": 1,
-							"type": "action",
-							"reactionTrigger": ""
-						},
-						"duration": {
-							"unit": "",
-							"value": ""
-						},
-						"rolls": {
-							"9K61nieJtyUEQxMP": {
-								"bonus": "",
-								"critThreshold": 20,
-								"type": "attack",
-								"attackType": "meleeWeaponAttack",
-								"ability": "str"
-							},
-							"0G1Z9U63FTDlUUgo": {
-								"canCrit": true,
-								"critBonus": "",
-								"damageType": "piercing",
-								"formula": "1d4+@finesse.mod",
-								"scaling": {},
-								"name": "",
-								"type": "damage"
-							}
-						},
-						"name": "Attack",
-						"ranges": {
-							"YD5yaIocyUhHvESI": {
-								"range": "fiveFeet"
-							}
-						}
-					}
-				},
-				"description": "<section class=\"secret\"><p><em>Melee Weapon Attack:</em><strong>+5 to hit,</strong>, <strong>5 ft.,</strong> one target. Hit: <strong>5 (1d4 + 3) <em>piercing damage</em></strong>.</p><p></p></section><p>The Lamia attacks with its Dagger.</p>",
-				"favorite": false,
-				"secretDescription": "",
-				"source": {
-					"name": "",
-					"link": "",
-					"publisher": ""
-				},
-				"uses": {
-					"value": null,
-					"max": "",
-					"per": null,
-					"recharge": {
-						"formula": "1d6",
-						"threshold": "6"
-					}
-				},
-				"schema": {
-					"version": 0.01,
-					"lastMigration": null
-				},
-				"ammunitionProperties": [],
-				"armorCategory": "",
-				"armorProperties": [],
-				"attuned": false,
-				"bulky": false,
-				"craftingComponents": "",
-				"containerId": "",
-				"damagedState": 0,
-				"equippedState": 2,
-				"items": {},
-				"materialProperties": [],
-				"objectType": "weapon",
-				"plotItem": false,
-				"price": "0gp",
-				"proficient": true,
-				"quantity": 1,
-				"rarity": "mundane",
-				"requiresAttunement": false,
-				"shieldCategory": "",
-				"shieldProperties": [],
-				"unidentified": false,
-				"unidentifiedDescription": "",
-				"unidentifiedName": "",
-				"weaponProperties": [
-					"finesse"
-				],
-				"weight": 1,
-				"schemaVersion": {
-					"version": 0.01,
-					"lastMigration": {
-						"version": {
-							"schema": null,
-							"foundry": "12.316",
-							"system": "0.16.12"
-						}
-					}
-				}
-			},
-			"_id": "xa7HcVpvVfg2nihq",
-			"effects": [],
-			"folder": null,
-			"sort": 0,
-			"ownership": {
-				"default": 0
-			}
-		},
-		{
-			"name": "Grapple",
-			"type": "maneuver",
-			"img": "icons/skills/melee/unarmed-punch-fist.webp",
-			"effects": [],
-			"flags": {},
-			"system": {
-				"actions": {
-					"wOKLPnhKpnhU1kEj": {
-						"name": "Grapple",
-						"activation": {
-							"cost": 1,
-							"type": "action",
-							"reactionTrigger": ""
-						},
-						"duration": {
-							"unit": "instantaneous",
-							"value": null
-						},
-						"ranges": {
-							"5nrDtksc3KPCbcJd": {
-								"range": "fiveFeet"
-							}
-						},
-						"area": {
-							"shape": "",
-							"size": "",
-							"placeTemplate": false
-						},
-						"target": {
-							"quantity": "",
-							"type": "creature",
-							"shape": "",
-							"size": ""
-						},
-						"prompts": {
-							"B9sbtgKAz5GLtsp3": {
-								"ability": "str",
-								"onSave": "",
-								"saveDC": {
-									"type": "custom",
-									"bonus": "@maneuverDC"
-								},
-								"type": "savingThrow"
-							}
-						},
-						"consumers": {},
-						"rolls": {
-							"GjyfHt0lKnETufaD": {
-								"type": "damage",
-								"default": true,
-								"formula": "1 + @str.mod",
-								"label": "Basic Melee Damage",
-								"canCrit": false
-							}
-						}
-					}
-				},
-				"description": "<p>You can use the Grapple maneuver to grab or wrestle a creature. If you are able to make multiple attacks with the Attack action, this maneuver replaces one of them.</p>\n<p>You must have at least one free hand to attempt a grapple, your target must be within your reach, and the target must be no more than one size category larger than you. The target makes a Strength or Dexterity saving throw against your maneuver DC. On a failure, you deal basic melee damage and the target becomes grappled (see Appendix A: Conditions on page 616). In addition to things that end the condition, you can release the target at any time (no action required).</p>\n<p><em>Escaping a Grapple.</em> While grappled, a creature can use its action to attempt to escape. It must succeed on a Strength or Dexterity saving throw against your maneuver DC.</p>\n<p><em>Moving a Grappled Creature. </em>When you move, you can drag or carry the grappled creature with you. When you do so, your Speed is halved, unless the creature's weight is within your carrying capacity and you are not encumbered by bulky items.</p>\n<p><em>Freeing a Grappled Creature.</em> You can use the Grapple maneuver to try to free another grappled or restrained creature. The creature grappling or restraining the target makes a Strength saving throw against your maneuver DC. If it fails the saving throw, the grappled or restrained creature is freed. Additionally, you may move the freed creature 5 feet in any direction.</p>",
-				"favorite": false,
-				"secretDescription": "",
-				"source": "",
-				"uses": {
-					"value": null,
-					"max": "",
-					"per": null,
-					"recharge": {
-						"formula": "1d6",
-						"threshold": 6
-					}
-				},
-				"schema": {
-					"version": null,
-					"lastMigration": null
-				},
-				"degree": 0,
-				"exertionCost": 0,
-				"isStance": false,
-				"prerequisite": "",
-				"tradition": "",
-				"equippedState": 0,
-				"schemaVersion": {
-					"version": 0.01,
-					"lastMigration": {
-						"version": {
-							"schema": 0.009,
-							"foundry": "12.316",
-							"system": "0.16.12"
-						}
-					}
-				}
-			},
-			"folder": null,
-			"_id": "Tud8yuasXCieXL0E",
-			"sort": 0,
-			"ownership": {
-				"default": 0
-			}
-		},
-		{
-			"name": "Grab On",
-			"type": "maneuver",
-			"img": "icons/skills/melee/hand-grip-staff-teal.webp",
-			"effects": [],
-			"flags": {},
-			"system": {
-				"actions": {
-					"dZElCBOd3yoRyDcB": {
-						"name": "Grab On",
-						"activation": {
-							"cost": 1,
-							"type": "action",
-							"reactionTrigger": ""
-						},
-						"duration": {
-							"unit": "instantaneous",
-							"value": null
-						},
-						"ranges": {
-							"x479yGm9lUjVLHDy": {
-								"range": "fiveFeet"
-							}
-						},
-						"area": {
-							"shape": "",
-							"size": "",
-							"placeTemplate": false
-						},
-						"target": {
-							"quantity": "",
-							"type": "creature",
-							"shape": "",
-							"size": ""
-						},
-						"prompts": {
-							"duRNu9hfiRNwhtCq": {
-								"ability": "str",
-								"onSave": "",
-								"saveDC": {
-									"type": "custom",
-									"bonus": "@maneuverDC"
-								},
-								"type": "savingThrow"
-							}
-						},
-						"consumers": {},
-						"rolls": {
-							"pzopjF1frh4UfKvT": {
-								"type": "damage",
-								"default": true,
-								"formula": "1 + @str.mod",
-								"label": "Basic Melee Damage",
-								"canCrit": false
-							}
-						}
-					}
-				},
-				"description": "<p>While you cannot grapple a creature two or more size categories larger than you, you can grab onto it. By jumping onto its back or climbing up a limb, you can make a Strength or Dexterity saving throw against the creature's maneuver DC to cling to or balance upon its body. On a success, you move into the creature's space and can move upon its body as if it is difficult terrain.</p><p>While grabbing onto a larger creature, you gain advantage on attack rolls against it. The larger creature may be able to attack you as normal, depending on its limbs or attacks. It can also use an action or replace one of its attacks on its turn to try to dislodge you, such as shaking you loose or bashing you against a wall, forcing you to make a Strength or Dexterity saving throw against its maneuver DC or fall prone into the nearest space adjacent to the creature, taking its basic melee damage in the process.</p><p>If the creature chooses to roll over in order to dislodge you, it becomes prone, but you have disadvantage on the saving throw to hang on.</p>",
-				"favorite": false,
-				"secretDescription": "",
-				"source": "",
-				"uses": {
-					"value": null,
-					"max": "",
-					"per": null,
-					"recharge": {
-						"formula": "1d6",
-						"threshold": 6
-					}
-				},
-				"schema": {
-					"version": null,
-					"lastMigration": null
-				},
-				"degree": 0,
-				"exertionCost": 0,
-				"isStance": false,
-				"prerequisite": "",
-				"tradition": "",
-				"equippedState": 0,
-				"schemaVersion": {
-					"version": 0.01,
-					"lastMigration": {
-						"version": {
-							"schema": 0.009,
-							"foundry": "12.316",
-							"system": "0.16.12"
-						}
-					}
-				}
-			},
-			"folder": null,
-			"_id": "qUmQrxWgCoDBTmUa",
-			"sort": 0,
-			"ownership": {
-				"default": 0
-			}
-		},
-		{
-			"name": "Disarm",
-			"type": "maneuver",
-			"img": "icons/skills/melee/sword-damaged-broken-glow-red.webp",
-			"effects": [],
-			"flags": {},
-			"system": {
-				"actions": {
-					"xN5ZLHIjo9cHRWrK": {
-						"name": "Disarm",
-						"activation": {
-							"cost": 1,
-							"type": "action",
-							"reactionTrigger": ""
-						},
-						"duration": {
-							"unit": "instantaneous",
-							"value": null
-						},
-						"ranges": {
-							"dFgwvnjjgmzR7vlN": {
-								"range": "fiveFeet"
-							}
-						},
-						"area": {
-							"shape": "",
-							"size": "",
-							"placeTemplate": false
-						},
-						"target": {
-							"quantity": "",
-							"type": "creature",
-							"shape": "",
-							"size": ""
-						},
-						"rolls": {
-							"FDMYIPcl2LveduMw": {
-								"canCrit": false,
-								"damageType": "",
-								"formula": "1 + @str.mod",
-								"label": "Basic Melee Damage",
-								"type": "damage"
-							}
-						},
-						"prompts": {
-							"xs1KlWtLXswqrVKY": {
-								"ability": "str",
-								"onSave": "",
-								"saveDC": {
-									"type": "custom",
-									"bonus": "@maneuverDC"
-								},
-								"type": "savingThrow"
-							}
-						},
-						"consumers": {}
-					}
-				},
-				"description": "<p>You can use the Disarm maneuver to attempt to knock an item or weapon from a creature's hand. If you are able to make multiple attacks with the Attack action, this maneuver replaces one of them.</p><p>The target must be within your reach and be holding an item (either carried or wielded). The target makes a Strength or Dexterity saving throw against your maneuver DC. On a failure, you deal basic melee damage and the target drops the item in its space. The target has advantage if it is larger than you or holding the item with two or more hands, and a target smaller than you has disadvantage.</p>",
-				"favorite": false,
-				"secretDescription": "",
-				"source": "",
-				"uses": {
-					"value": null,
-					"max": "",
-					"per": null,
-					"recharge": {
-						"formula": "1d6",
-						"threshold": 6
-					}
-				},
-				"schema": {
-					"version": null,
-					"lastMigration": null
-				},
-				"degree": 0,
-				"exertionCost": 0,
-				"isStance": false,
-				"prerequisite": "",
-				"tradition": "",
-				"equippedState": 0,
-				"schemaVersion": {
-					"version": 0.01,
-					"lastMigration": {
-						"version": {
-							"schema": 0.009,
-							"foundry": "12.316",
-							"system": "0.16.12"
-						}
-					}
-				}
-			},
-			"folder": null,
-			"_id": "WK7UNNqGF1K4Ll80",
-			"sort": 0,
-			"ownership": {
-				"default": 0
-			}
-		},
-		{
-			"name": "Knockdown",
-			"type": "maneuver",
-			"img": "icons/magic/control/silhouette-fall-slip-prone.webp",
-			"effects": [],
-			"flags": {},
-			"system": {
-				"actions": {
-					"wfzmnudl6tfhZk4v": {
-						"name": "Knockdown",
-						"activation": {
-							"cost": 1,
-							"type": "action",
-							"reactionTrigger": ""
-						},
-						"duration": {
-							"unit": "instantaneous",
-							"value": null
-						},
-						"ranges": {
-							"NbOuce8AtLVjDeeL": {
-								"range": "fiveFeet"
-							}
-						},
-						"area": {
-							"shape": "",
-							"size": "",
-							"placeTemplate": false
-						},
-						"target": {
-							"quantity": "",
-							"type": "creature",
-							"shape": "",
-							"size": ""
-						},
-						"prompts": {
-							"L65ZmTO0KcmeQ2EQ": {
-								"ability": "str",
-								"onSave": "",
-								"saveDC": {
-									"type": "custom",
-									"bonus": "@maneuverDC"
-								},
-								"type": "savingThrow"
-							}
-						},
-						"consumers": {},
-						"rolls": {
-							"Wgx2bdExxjzRu7nR": {
-								"type": "damage",
-								"default": true,
-								"formula": "1 + @str.mod",
-								"label": "Basic Melee Damage",
-								"canCrit": false
-							}
-						}
-					}
-				},
-				"description": "<p>You can use the Knockdown maneuver to trip or push a creature down. If you are able to make multiple attacks with the Attack action, this maneuver replaces one of them.</p><p>The target must be within your reach and be no more than one size category larger than you. The target makes a Strength saving throw against your maneuver DC. On a failure, you deal basic melee damage and knock the target prone.</p>",
-				"favorite": false,
-				"secretDescription": "",
-				"source": "",
-				"uses": {
-					"value": null,
-					"max": "",
-					"per": null,
-					"recharge": {
-						"formula": "1d6",
-						"threshold": 6
-					}
-				},
-				"schema": {
-					"version": null,
-					"lastMigration": null
-				},
-				"degree": 0,
-				"exertionCost": 0,
-				"isStance": false,
-				"prerequisite": "",
-				"tradition": "",
-				"equippedState": 0,
-				"schemaVersion": {
-					"version": 0.01,
-					"lastMigration": {
-						"version": {
-							"schema": 0.009,
-							"foundry": "12.316",
-							"system": "0.16.12"
-						}
-					}
-				}
-			},
-			"folder": null,
-			"_id": "hDTIgiT6IMR5yWN8",
-			"sort": 0,
-			"ownership": {
-				"default": 0
-			}
-		},
-		{
-			"name": "Overrun",
-			"type": "maneuver",
-			"img": "icons/skills/melee/shield-damaged-broken-blue.webp",
-			"effects": [],
-			"flags": {},
-			"system": {
-				"actions": {
-					"kBUgwxtsHQqPa1DV": {
-						"name": "Overrun",
-						"activation": {
-							"cost": 1,
-							"type": "special",
-							"reactionTrigger": ""
-						},
-						"duration": {
-							"unit": "instantaneous",
-							"value": null
-						},
-						"ranges": {
-							"VAh3uPOJAaI5ShrA": {
-								"range": "fiveFeet"
-							}
-						},
-						"area": {
-							"shape": "",
-							"size": "",
-							"placeTemplate": false
-						},
-						"target": {
-							"quantity": "",
-							"type": "creature",
-							"shape": "",
-							"size": ""
-						},
-						"prompts": {
-							"bvFJU6hHDstCwg1b": {
-								"ability": "str",
-								"onSave": "",
-								"saveDC": {
-									"type": "custom",
-									"bonus": "@maneuverDC"
-								},
-								"type": "savingThrow"
-							}
-						},
-						"consumers": {},
-						"rolls": {
-							"ezzGenCLYoqg37hI": {
-								"type": "damage",
-								"default": true,
-								"formula": "1 + @str.mod",
-								"label": "Basic Melee Damage",
-								"canCrit": false
-							}
-						}
-					}
-				},
-				"description": "<p>You can use an action or bonus action to make an Overrun maneuver to move through a hostile creature's space by forcing your way past. Make a Strength saving throw against the target's maneuver DC. On a success, you deal basic melee damage and can move through the hostile creature's space once this turn. The creature can choose to just let you pass instead of rolling. You have advantage if you are larger than the target, or disadvantage if you are smaller. If you are two or more sizes smaller than the target, you can move through the hostile creature's space without making a save. You still provoke opportunity attacks if you move beyond a creature's reach.</p>",
-				"favorite": false,
-				"secretDescription": "",
-				"source": "",
-				"uses": {
-					"value": null,
-					"max": "",
-					"per": null,
-					"recharge": {
-						"formula": "1d6",
-						"threshold": 6
-					}
-				},
-				"schema": {
-					"version": null,
-					"lastMigration": null
-				},
-				"degree": 0,
-				"exertionCost": 0,
-				"isStance": false,
-				"prerequisite": "",
-				"tradition": "",
-				"equippedState": 0,
-				"schemaVersion": {
-					"version": 0.01,
-					"lastMigration": {
-						"version": {
-							"schema": 0.009,
-							"foundry": "12.316",
-							"system": "0.16.12"
-						}
-					}
-				}
-			},
-			"folder": null,
-			"_id": "ZzUKNiKtLDCRXwPO",
-			"sort": 0,
-			"ownership": {
-				"default": 0
-			}
-		},
-		{
-			"name": "Shove",
-			"type": "maneuver",
-			"img": "icons/skills/melee/shield-block-bash-yellow.webp",
-			"effects": [],
-			"flags": {},
-			"system": {
-				"actions": {
-					"uvkBwwL7OQopMMHB": {
-						"name": "Shove",
-						"activation": {
-							"cost": 1,
-							"type": "action",
-							"reactionTrigger": ""
-						},
-						"duration": {
-							"unit": "instantaneous",
-							"value": null
-						},
-						"ranges": {
-							"j7yuRUD8cu1y0Jia": {
-								"range": "fiveFeet"
-							}
-						},
-						"area": {
-							"shape": "",
-							"size": "",
-							"placeTemplate": false
-						},
-						"target": {
-							"quantity": null,
-							"type": "creature",
-							"shape": "",
-							"size": ""
-						},
-						"rolls": {
-							"TcI6WmWSAy0EAxg9": {
-								"canCrit": false,
-								"damageType": "",
-								"formula": "1 + @str.mod",
-								"label": "Basic Melee Damage",
-								"type": "damage"
-							}
-						},
-						"prompts": {
-							"UVu9ZVC0beiWNgAV": {
-								"ability": "str",
-								"onSave": "",
-								"saveDC": {
-									"type": "custom",
-									"bonus": "@maneuverDC"
-								},
-								"type": "savingThrow"
-							}
-						},
-						"consumers": {}
-					}
-				},
-				"description": "<p>You can use the Shove maneuver to push a creature away. If you are able to make multiple attacks with the Attack action, this maneuver replaces one of them.</p><p>The target must be within your reach and be no more than one size category larger than you. The target makes a Strength saving throw against your maneuver DC. On a failure, you deal basic melee damage and push the target a number of feet away from you equal to 5 + 5 for every 5 points it failed its saving throw by. You can move the creature in any direction away from you (to the side, forward, or diagonally away).</p><p>A creature that is shoved off of a precipice is propelled off of whatever it is standing on -- it does not receive any saving throw or ability check to grab onto something to avoid falling down below.</p>",
-				"favorite": false,
-				"secretDescription": "",
-				"source": "",
-				"uses": {
-					"value": null,
-					"max": "",
-					"per": null,
-					"recharge": {
-						"formula": "1d6",
-						"threshold": 6
-					}
-				},
-				"schema": {
-					"version": null,
-					"lastMigration": null
-				},
-				"degree": 0,
-				"exertionCost": 0,
-				"isStance": false,
-				"prerequisite": "",
-				"tradition": "",
-				"equippedState": 0,
-				"schemaVersion": {
-					"version": 0.01,
-					"lastMigration": {
-						"version": {
-							"schema": 0.009,
-							"foundry": "12.316",
-							"system": "0.16.12"
-						}
-					}
-				}
-			},
-			"folder": null,
-			"_id": "cq37gLLfugE1yZF8",
-			"sort": 0,
-			"ownership": {
-				"default": 0
-			}
-		}
-	],
-	"effects": [],
-	"folder": null,
-	"_id": "91rqsvhg19o1khm7"
+  "type": "npc",
+  "img": "systems/a5e/assets/lamia.webp",
+  "name": "Lamia",
+  "flags": {},
+  "prototypeToken": {
+    "name": "Lamia",
+    "detectionModes": [],
+    "disposition": -1,
+    "height": 2,
+    "light": {
+      "alpha": 1,
+      "angle": 360,
+      "bright": 0,
+      "coloration": 1,
+      "dim": 0,
+      "luminosity": 0.5,
+      "saturation": 0,
+      "contrast": 0,
+      "shadows": 0,
+      "animation": {
+        "speed": 5,
+        "intensity": 5,
+        "type": null,
+        "reverse": false
+      },
+      "darkness": {
+        "min": 0,
+        "max": 1
+      },
+      "attenuation": 0.5,
+      "color": null
+    },
+    "sight": {
+      "angle": 360,
+      "enabled": false,
+      "range": 60,
+      "brightness": 0,
+      "visionMode": "basic",
+      "color": null,
+      "attenuation": 0.1,
+      "saturation": 0,
+      "contrast": 0
+    },
+    "texture": {
+      "src": "systems/a5e/assets/lamia.webp",
+      "tint": "#ffffff",
+      "scaleX": 1,
+      "scaleY": 1,
+      "offsetX": 0,
+      "offsetY": 0,
+      "rotation": 0,
+      "anchorX": 0.5,
+      "anchorY": 0.5,
+      "fit": "contain",
+      "alphaThreshold": 0.75
+    },
+    "width": 2,
+    "displayName": 0,
+    "actorLink": false,
+    "appendNumber": false,
+    "prependAdjective": false,
+    "lockRotation": false,
+    "rotation": 0,
+    "alpha": 1,
+    "displayBars": 0,
+    "bar1": {
+      "attribute": "attributes.hp"
+    },
+    "bar2": {
+      "attribute": null
+    },
+    "flags": {},
+    "randomImg": false,
+    "hexagonalShape": 0,
+    "locked": false,
+    "occludable": {
+      "radius": 0
+    }
+  },
+  "system": {
+    "abilities": {
+      "str": {
+        "value": 16,
+        "check": {
+          "expertiseDice": 0,
+          "bonus": "",
+          "notes": {}
+        },
+        "save": {
+          "proficient": false,
+          "expertiseDice": 0,
+          "bonus": "",
+          "notes": {}
+        }
+      },
+      "dex": {
+        "value": 13,
+        "check": {
+          "expertiseDice": 0,
+          "bonus": "",
+          "notes": {}
+        },
+        "save": {
+          "proficient": false,
+          "expertiseDice": 0,
+          "bonus": "",
+          "notes": {}
+        }
+      },
+      "con": {
+        "value": 15,
+        "check": {
+          "expertiseDice": 0,
+          "bonus": "",
+          "notes": {}
+        },
+        "save": {
+          "proficient": false,
+          "expertiseDice": 0,
+          "bonus": "",
+          "notes": {}
+        }
+      },
+      "int": {
+        "value": 14,
+        "check": {
+          "expertiseDice": 0,
+          "bonus": "",
+          "notes": {}
+        },
+        "save": {
+          "proficient": false,
+          "expertiseDice": 0,
+          "bonus": "",
+          "notes": {}
+        }
+      },
+      "wis": {
+        "value": 15,
+        "check": {
+          "expertiseDice": 0,
+          "bonus": "",
+          "notes": {}
+        },
+        "save": {
+          "proficient": false,
+          "expertiseDice": 0,
+          "bonus": "",
+          "notes": {}
+        }
+      },
+      "cha": {
+        "value": 16,
+        "check": {
+          "expertiseDice": 0,
+          "bonus": "",
+          "notes": {}
+        },
+        "save": {
+          "proficient": false,
+          "expertiseDice": 0,
+          "bonus": "",
+          "notes": {}
+        }
+      }
+    },
+    "schemaVersion": {
+      "version": 0.01,
+      "lastMigration": null
+    },
+    "skills": {
+      "acr": {
+        "ability": "dex",
+        "value": 0,
+        "proficient": false,
+        "specialties": [],
+        "expertiseDice": 0,
+        "minRoll": 1,
+        "bonuses": {
+          "check": "",
+          "passive": 0
+        }
+      },
+      "ani": {
+        "ability": "wis",
+        "value": 0,
+        "proficient": false,
+        "specialties": [],
+        "expertiseDice": 0,
+        "minRoll": 1,
+        "bonuses": {
+          "check": "",
+          "passive": 0
+        }
+      },
+      "arc": {
+        "ability": "int",
+        "value": 0,
+        "proficient": false,
+        "specialties": [],
+        "expertiseDice": 0,
+        "minRoll": 1,
+        "bonuses": {
+          "check": "",
+          "passive": 0
+        }
+      },
+      "ath": {
+        "ability": "str",
+        "value": 0,
+        "proficient": false,
+        "specialties": [],
+        "expertiseDice": 0,
+        "minRoll": 1,
+        "bonuses": {
+          "check": "",
+          "passive": 0
+        }
+      },
+      "cul": {
+        "ability": "int",
+        "value": 0,
+        "proficient": false,
+        "specialties": [],
+        "expertiseDice": 0,
+        "minRoll": 1,
+        "bonuses": {
+          "check": "",
+          "passive": 0
+        }
+      },
+      "dec": {
+        "ability": "cha",
+        "value": 0,
+        "proficient": true,
+        "specialties": [],
+        "expertiseDice": 0,
+        "minRoll": 1,
+        "bonuses": {
+          "check": "@prof[Expertise]",
+          "passive": 0
+        }
+      },
+      "eng": {
+        "ability": "int",
+        "value": 0,
+        "proficient": false,
+        "specialties": [],
+        "expertiseDice": 0,
+        "minRoll": 1,
+        "bonuses": {
+          "check": "",
+          "passive": 0
+        }
+      },
+      "his": {
+        "ability": "int",
+        "value": 0,
+        "proficient": false,
+        "specialties": [],
+        "expertiseDice": 0,
+        "minRoll": 1,
+        "bonuses": {
+          "check": "",
+          "passive": 0
+        }
+      },
+      "ins": {
+        "ability": "wis",
+        "value": 0,
+        "proficient": true,
+        "specialties": [],
+        "expertiseDice": 0,
+        "minRoll": 1,
+        "bonuses": {
+          "check": "",
+          "passive": 0
+        }
+      },
+      "itm": {
+        "ability": "cha",
+        "value": 0,
+        "proficient": false,
+        "specialties": [],
+        "expertiseDice": 0,
+        "minRoll": 1,
+        "bonuses": {
+          "check": "",
+          "passive": 0
+        }
+      },
+      "inv": {
+        "ability": "int",
+        "value": 0,
+        "proficient": false,
+        "specialties": [],
+        "expertiseDice": 0,
+        "minRoll": 1,
+        "bonuses": {
+          "check": "",
+          "passive": 0
+        }
+      },
+      "med": {
+        "ability": "wis",
+        "value": 0,
+        "proficient": false,
+        "specialties": [],
+        "expertiseDice": 0,
+        "minRoll": 1,
+        "bonuses": {
+          "check": "",
+          "passive": 0
+        }
+      },
+      "nat": {
+        "ability": "int",
+        "value": 0,
+        "proficient": false,
+        "specialties": [],
+        "expertiseDice": 0,
+        "minRoll": 1,
+        "bonuses": {
+          "check": "",
+          "passive": 0
+        }
+      },
+      "prc": {
+        "ability": "wis",
+        "value": 0,
+        "proficient": false,
+        "specialties": [],
+        "expertiseDice": 0,
+        "minRoll": 1,
+        "bonuses": {
+          "check": "",
+          "passive": 0
+        }
+      },
+      "prf": {
+        "ability": "cha",
+        "value": 0,
+        "proficient": false,
+        "specialties": [],
+        "expertiseDice": 0,
+        "minRoll": 1,
+        "bonuses": {
+          "check": "",
+          "passive": 0
+        }
+      },
+      "per": {
+        "ability": "cha",
+        "value": 0,
+        "proficient": false,
+        "specialties": [],
+        "expertiseDice": 0,
+        "minRoll": 1,
+        "bonuses": {
+          "check": "",
+          "passive": 0
+        }
+      },
+      "rel": {
+        "ability": "int",
+        "value": 0,
+        "proficient": false,
+        "specialties": [],
+        "expertiseDice": 0,
+        "minRoll": 1,
+        "bonuses": {
+          "check": "",
+          "passive": 0
+        }
+      },
+      "slt": {
+        "ability": "dex",
+        "value": 0,
+        "proficient": false,
+        "specialties": [],
+        "expertiseDice": 0,
+        "minRoll": 1,
+        "bonuses": {
+          "check": "",
+          "passive": 0
+        }
+      },
+      "ste": {
+        "ability": "dex",
+        "value": 0,
+        "proficient": true,
+        "specialties": [],
+        "expertiseDice": 0,
+        "minRoll": 1,
+        "bonuses": {
+          "check": "",
+          "passive": 0
+        }
+      },
+      "sur": {
+        "ability": "wis",
+        "value": 0,
+        "proficient": false,
+        "specialties": [],
+        "expertiseDice": 0,
+        "minRoll": 1,
+        "bonuses": {
+          "check": "",
+          "passive": 0
+        }
+      }
+    },
+    "spellResources": {
+      "slots": {
+        "1": {
+          "current": 0,
+          "max": 0
+        },
+        "2": {
+          "current": 0,
+          "max": 0
+        },
+        "3": {
+          "current": 0,
+          "max": 0
+        },
+        "4": {
+          "current": 0,
+          "max": 0
+        },
+        "5": {
+          "current": 0,
+          "max": 0
+        },
+        "6": {
+          "current": 0,
+          "max": 0
+        },
+        "7": {
+          "current": 0,
+          "max": 0
+        },
+        "8": {
+          "current": 0,
+          "max": 0
+        },
+        "9": {
+          "current": 0,
+          "max": 0
+        }
+      },
+      "points": {
+        "current": 0,
+        "max": 0
+      }
+    },
+    "attributes": {
+      "ac": {
+        "baseFormula": "13",
+        "value": 0
+      },
+      "death": {
+        "success": 0,
+        "failure": 0
+      },
+      "hp": {
+        "value": 97,
+        "baseMax": 97,
+        "temp": 0,
+        "bonus": 0
+      },
+      "hitDice": {
+        "d6": {
+          "current": 0,
+          "total": 0
+        },
+        "d8": {
+          "current": 0,
+          "total": 0
+        },
+        "d10": {
+          "current": 0,
+          "total": 0
+        },
+        "d12": {
+          "current": 0,
+          "total": 0
+        },
+        "d4": {
+          "current": 0,
+          "total": 0
+        },
+        "d20": {
+          "current": 0,
+          "total": 0
+        }
+      },
+      "initiative": {
+        "bonus": "0",
+        "expertiseDice": 0
+      },
+      "movement": {
+        "burrow": {
+          "distance": 0,
+          "unit": "feet"
+        },
+        "climb": {
+          "distance": 0,
+          "unit": "feet"
+        },
+        "fly": {
+          "distance": 0,
+          "unit": "feet"
+        },
+        "swim": {
+          "distance": 0,
+          "unit": "feet"
+        },
+        "walk": {
+          "distance": 30,
+          "unit": "feet"
+        },
+        "traits": {
+          "hover": false
+        }
+      },
+      "senses": {
+        "blindsight": {
+          "distance": 0,
+          "unit": "feet",
+          "otherwiseBlind": false
+        },
+        "darkvision": {
+          "distance": 60,
+          "unit": "feet"
+        },
+        "tremorsense": {
+          "distance": 0,
+          "unit": "feet"
+        },
+        "truesight": {
+          "distance": 0,
+          "unit": "feet"
+        }
+      },
+      "inspiration": false,
+      "fatigue": 0,
+      "strife": 0,
+      "spellcasting": "cha",
+      "casterLevel": 0
+    },
+    "bonuses": {
+      "abilities": {},
+      "damage": {},
+      "healing": {},
+      "maneuverDC": "",
+      "meleeSpellAttack": "",
+      "meleeWeaponAttack": "",
+      "rangedSpellAttack": "",
+      "rangedWeaponAttack": "",
+      "spellDC": "",
+      "skills": {
+        "pZk3t0tm7m5CyYkq": {
+          "context": {
+            "skills": [
+              "dec"
+            ],
+            "passiveOnly": false,
+            "requiresProficiency": false
+          },
+          "formula": "@prof[Expertise]",
+          "label": "Check Bonus",
+          "default": true,
+          "img": "icons/svg/upgrade.svg"
+        }
+      }
+    },
+    "currency": {
+      "pp": 0,
+      "gp": 0,
+      "ep": 0,
+      "sp": 0,
+      "cp": 0
+    },
+    "details": {
+      "bio": "<p>\n        <em>\n          Token artwork by\n          <a href=\"https://www.forgotten-adventures.net/\" target=\"_blank\" rel=\"noopener\">Forgotten Adventures</a>.\n        </em>\n      </p>",
+      "creatureTypes": [
+        "monstrosity"
+      ],
+      "isSwarm": false,
+      "cr": 4,
+      "elite": false,
+      "privateNotes": "",
+      "notes": ""
+    },
+    "proficiencies": {
+      "armor": [],
+      "languages": [],
+      "tools": [],
+      "weapons": []
+    },
+    "resources": {
+      "primary": {
+        "label": "",
+        "value": 0,
+        "max": "",
+        "per": "",
+        "hideMax": false,
+        "recharge": {
+          "formula": "1d6",
+          "threshold": 6
+        }
+      },
+      "secondary": {
+        "label": "",
+        "value": 0,
+        "max": "",
+        "per": "",
+        "hideMax": false,
+        "recharge": {
+          "formula": "1d6",
+          "threshold": 6
+        }
+      },
+      "tertiary": {
+        "label": "",
+        "value": 0,
+        "max": "",
+        "per": "",
+        "hideMax": false,
+        "recharge": {
+          "formula": "1d6",
+          "threshold": 6
+        }
+      },
+      "quaternary": {
+        "label": "",
+        "value": 0,
+        "max": "",
+        "per": "",
+        "hideMax": false,
+        "recharge": {
+          "formula": "1d6",
+          "threshold": 6
+        }
+      }
+    },
+    "source": "",
+    "traits": {
+      "size": "lg",
+      "conditionImmunities": [],
+      "damageImmunities": [],
+      "damageResistances": [],
+      "damageVulnerabilities": []
+    }
+  },
+  "items": [
+    {
+      "type": "spell",
+      "img": "icons/magic/control/debuff-energy-hold-teal-blue.webp",
+      "name": "Disguise Self (any humanoid form) (At Will)",
+      "system": {
+        "actions": {
+          "gqxUupopqdXZzBSD": {
+            "activation": {
+              "cost": 1,
+              "type": "action",
+              "reactionTrigger": ""
+            },
+            "duration": {
+              "unit": "hour",
+              "value": "1"
+            },
+            "target": {
+              "quantity": null,
+              "type": "self"
+            },
+            "consumers": {
+              "5ztVDxTdJ1VvkJMC": {
+                "mode": "variable",
+                "spellLevel": 1,
+                "points": 2,
+                "type": "spell"
+              }
+            },
+            "name": "Cast Spell",
+            "ranges": {
+              "D500FimXBF3TUPVb": {
+                "range": "self"
+              }
+            }
+          }
+        },
+        "description": "<p>You make yourself—including your clothing, armor, weapons, and other belongings on your person—look different until the spell ends or until you use your action to dismiss it. You can seem 1 foot shorter or taller and can appear thin, fat, or in between. You can't change your body type, so you must adopt a form that has the same basic arrangement of limbs. Otherwise, the extent of the illusion is up to you.</p><p>The changes wrought by this spell fail to hold up to physical inspection. For example, if you use this spell to add a hat to your outfit, objects pass through the hat, and anyone who touches it would feel nothing or would feel your head and hair. If you use this spell to appear thinner than you are, the hand of someone who reaches out to touch you would bump into you while it was seemingly still in midair.</p><p>To discern that you are disguised, a creature can use its action to inspect your appearance and must succeed on an Intelligence (Investigation) check against your spell save DC.</p>",
+        "favorite": false,
+        "secretDescription": "",
+        "source": {
+          "name": "",
+          "link": "",
+          "publisher": ""
+        },
+        "uses": {
+          "value": 0,
+          "max": 0,
+          "per": "",
+          "recharge": {
+            "formula": "1d6",
+            "threshold": 6
+          }
+        },
+        "schema": {
+          "version": 0.01,
+          "lastMigration": null
+        },
+        "classes": [],
+        "components": {
+          "vocalized": true,
+          "seen": true,
+          "material": false
+        },
+        "concentration": false,
+        "level": 1,
+        "materials": "",
+        "materialsConsumed": false,
+        "prepared": true,
+        "prerequisite": "",
+        "rare": false,
+        "ritual": false,
+        "schools": {
+          "primary": "illusion",
+          "secondary": []
+        },
+        "schemaVersion": {
+          "version": 0.01,
+          "lastMigration": {
+            "version": {
+              "schema": null,
+              "foundry": "12.316",
+              "system": "0.16.12"
+            }
+          }
+        }
+      },
+      "_id": "AgmBKxqLtTR1Cu4B",
+      "effects": [],
+      "folder": null,
+      "sort": 0,
+      "ownership": {
+        "default": 0
+      },
+      "flags": {}
+    },
+    {
+      "type": "spell",
+      "img": "icons/magic/control/debuff-energy-hold-levitate-pink.webp",
+      "name": "Major Image (At Will)",
+      "system": {
+        "actions": {
+          "PEpuW1w77Gq8QeVU": {
+            "activation": {
+              "cost": 1,
+              "type": "action",
+              "reactionTrigger": ""
+            },
+            "duration": {
+              "unit": "minute",
+              "value": "10"
+            },
+            "area": {
+              "placeTemplate": true,
+              "shape": "cube",
+              "width": 20
+            },
+            "consumers": {
+              "gQgPlEuSeYxb1s5D": {
+                "mode": "variable",
+                "spellLevel": 3,
+                "points": 5,
+                "type": "spell"
+              }
+            },
+            "name": "Cast Spell",
+            "ranges": {
+              "GpSfhjuVqETlqWgc": {
+                "range": "long"
+              }
+            }
+          }
+        },
+        "description": "<p>You create the image of an object, a creature, or some other visible phenomenon that is no larger than a 20-foot cube. The image appears at a spot that you can see within range and lasts for the duration. It seems completely real, including sounds, smells, and temperature appropriate to the thing depicted. You can't create sufficient heat or cold to cause damage, a sound loud enough to deal thunder damage or deafen a creature, or a smell that might sicken a creature (like a troglodyte's stench).</p><p>As long as you are within range of the illusion, you can use your action to cause the image to move to any other spot within range. As the image changes location, you can alter its appearance so that its movements appear natural for the image. For example, if you create an image of a creature and move it, you can alter the image so that it appears to be walking. Similarly, you can cause the illusion to make different sounds at different times, even making it carry on a conversation, for example.</p><p>Physical interaction with the image reveals it to be an illusion, because things can pass through it. A creature that uses its action to examine the image can determine that it is an illusion with a successful Intelligence (Investigation) check against your spell save DC. If a creature discerns the illusion for what it is, the creature can see through the image, and its other sensory qualities become faint to the creature.</p><p><strong>At Higher Levels.</strong> When you cast this spell using a spell slot of 6th level or higher, the spell lasts until dispelled, without requiring your concentration.</p>",
+        "favorite": false,
+        "secretDescription": "",
+        "source": {
+          "name": "",
+          "link": "",
+          "publisher": ""
+        },
+        "uses": {
+          "value": 0,
+          "max": 0,
+          "per": "",
+          "recharge": {
+            "formula": "1d6",
+            "threshold": 6
+          }
+        },
+        "schema": {
+          "version": 0.01,
+          "lastMigration": null
+        },
+        "classes": [],
+        "components": {
+          "vocalized": true,
+          "seen": true,
+          "material": true
+        },
+        "concentration": true,
+        "level": 3,
+        "materials": "A bit of fleece",
+        "materialsConsumed": false,
+        "prepared": true,
+        "prerequisite": "",
+        "rare": false,
+        "ritual": false,
+        "schools": {
+          "primary": "illusion",
+          "secondary": []
+        },
+        "schemaVersion": {
+          "version": 0.01,
+          "lastMigration": {
+            "version": {
+              "schema": null,
+              "foundry": "12.316",
+              "system": "0.16.12"
+            }
+          }
+        }
+      },
+      "_id": "NTU7lRjXjDjPURaQ",
+      "effects": [],
+      "folder": null,
+      "sort": 0,
+      "ownership": {
+        "default": 0
+      },
+      "flags": {}
+    },
+    {
+      "type": "spell",
+      "img": "icons/magic/fire/explosion-fireball-medium-purple-pink.webp",
+      "name": "Charm Person (Innate)",
+      "system": {
+        "actions": {
+          "psyiekabbD6HVWUf": {
+            "activation": {
+              "cost": 1,
+              "type": "action",
+              "reactionTrigger": ""
+            },
+            "duration": {
+              "unit": "hour",
+              "value": "1"
+            },
+            "prompts": {
+              "zsN3JDlIAae4ZRPO": {
+                "ability": "wis",
+                "type": "savingThrow",
+                "saveDC": {
+                  "bonus": "",
+                  "type": "spellcasting"
+                }
+              }
+            },
+            "target": {
+              "quantity": 1,
+              "type": "creature"
+            },
+            "consumers": {
+              "dchcHWZWWA1CWshS": {
+                "type": "itemUses",
+                "quantity": 1
+              },
+              "MOJGs8l7HfLSV0x8": {
+                "mode": "variable",
+                "spellLevel": 1,
+                "points": 2,
+                "type": "spell"
+              }
+            },
+            "name": "Cast Spell",
+            "ranges": {
+              "HCfESxOMrV296dkg": {
+                "range": "short"
+              }
+            }
+          }
+        },
+        "description": "<p>You attempt to charm a humanoid you can see within range. It must make a Wisdom saving throw, and does so with advantage if you or your companions are fighting it. If it fails the saving throw, it is charmed by you until the spell ends or until you or your companions do anything harmful to it. The charmed creature regards you as a friendly acquaintance. When the spell ends, the creature knows it was charmed by you.</p>\n        <p><strong>At Higher Levels.</strong> When you cast this spell using a spell slot of 2nd level or higher, you can target one additional creature for each slot level above 1st. The creatures must be within 30 feet of each other when you target them.</p>",
+        "favorite": false,
+        "secretDescription": "",
+        "source": {
+          "name": "",
+          "link": "",
+          "publisher": ""
+        },
+        "uses": {
+          "value": 3,
+          "max": 3,
+          "per": "",
+          "recharge": {
+            "formula": "1d6",
+            "threshold": 6
+          }
+        },
+        "schema": {
+          "version": 0.01,
+          "lastMigration": null
+        },
+        "classes": [],
+        "components": {
+          "vocalized": true,
+          "seen": true,
+          "material": false
+        },
+        "concentration": false,
+        "level": 1,
+        "materials": "",
+        "materialsConsumed": false,
+        "prepared": true,
+        "prerequisite": "",
+        "rare": false,
+        "ritual": false,
+        "schools": {
+          "primary": "enchantment",
+          "secondary": []
+        },
+        "schemaVersion": {
+          "version": 0.01,
+          "lastMigration": {
+            "version": {
+              "schema": null,
+              "foundry": "12.316",
+              "system": "0.16.12"
+            }
+          }
+        }
+      },
+      "_id": "RjUyVbQV9drpl4Os",
+      "effects": [],
+      "folder": null,
+      "sort": 0,
+      "ownership": {
+        "default": 0
+      },
+      "flags": {}
+    },
+    {
+      "type": "spell",
+      "img": "icons/magic/control/debuff-energy-hold-levitate-pink.webp",
+      "name": "Mirror Image (Innate)",
+      "system": {
+        "actions": {
+          "IYv4YMZf7Rh9vtY3": {
+            "activation": {
+              "cost": 1,
+              "type": "action",
+              "reactionTrigger": ""
+            },
+            "duration": {
+              "unit": "minute",
+              "value": "1"
+            },
+            "target": {
+              "quantity": null,
+              "type": "self"
+            },
+            "consumers": {
+              "UGi8ExkoWdlBgcTK": {
+                "type": "itemUses",
+                "quantity": 1
+              },
+              "3ZrwmsWVErZKJiRk": {
+                "mode": "variable",
+                "spellLevel": 2,
+                "points": 3,
+                "type": "spell"
+              }
+            },
+            "name": "Cast Spell",
+            "ranges": {
+              "D3LZ8aOpj1yQLF37": {
+                "range": "self"
+              }
+            }
+          }
+        },
+        "description": "<p>Three illusory duplicates of yourself appear in your space. Until the spell ends, the duplicates move with you and mimic your actions, shifting position so it's impossible to track which image is real. You can use your action to dismiss the illusory duplicates.</p>\n<p>Each time a creature targets you with an attack during the spell's duration, roll a [[/r 1d20 # Mirror Image Check]] to determine whether the attack instead targets one of your duplicates.</p>\n<p>If you have three duplicates, you must roll a 6 or higher to change the attack's target to a duplicate. With two duplicates, you must roll an 8 or higher. With one duplicate, you must roll an 11 or higher.</p>\n<p>A duplicate's AC equals 10 + your Dexterity modifier. If an attack hits a duplicate, the duplicate is destroyed. A duplicate can be destroyed only by an attack that hits it. It ignores all other damage and effects. The spell ends when all three duplicates are destroyed.</p>\n<p>A creature is unaffected by this spell if it can't see, if it relies on senses other than sight, such as blindsight, or if it can perceive illusions as false, as with truesight.</p>",
+        "favorite": false,
+        "secretDescription": "",
+        "source": {
+          "name": "",
+          "link": "",
+          "publisher": ""
+        },
+        "uses": {
+          "value": 3,
+          "max": 3,
+          "per": "",
+          "recharge": {
+            "formula": "1d6",
+            "threshold": 6
+          }
+        },
+        "schema": {
+          "version": 0.01,
+          "lastMigration": null
+        },
+        "classes": [],
+        "components": {
+          "vocalized": true,
+          "seen": true,
+          "material": false
+        },
+        "concentration": false,
+        "level": 2,
+        "materials": "",
+        "materialsConsumed": false,
+        "prepared": true,
+        "prerequisite": "",
+        "rare": false,
+        "ritual": false,
+        "schools": {
+          "primary": "illusion",
+          "secondary": []
+        },
+        "schemaVersion": {
+          "version": 0.01,
+          "lastMigration": {
+            "version": {
+              "schema": null,
+              "foundry": "12.316",
+              "system": "0.16.12"
+            }
+          }
+        }
+      },
+      "_id": "yW5LUybV7lQfjkNV",
+      "effects": [],
+      "folder": null,
+      "sort": 0,
+      "ownership": {
+        "default": 0
+      },
+      "flags": {}
+    },
+    {
+      "type": "spell",
+      "img": "icons/magic/perception/eye-ringed-glow-angry-large-teal.webp",
+      "name": "Scrying (Innate)",
+      "system": {
+        "actions": {
+          "NkNN92QZi8MNfqML": {
+            "activation": {
+              "cost": 10,
+              "type": "minute",
+              "reactionTrigger": ""
+            },
+            "duration": {
+              "unit": "minute",
+              "value": "10"
+            },
+            "prompts": {
+              "QeJkVHEgdlfSHHNi": {
+                "ability": "wis",
+                "type": "savingThrow",
+                "saveDC": {
+                  "bonus": "",
+                  "type": "spellcasting"
+                }
+              }
+            },
+            "target": {
+              "quantity": 1,
+              "type": "creature"
+            },
+            "consumers": {
+              "NNYcvP7jinvMAqbN": {
+                "type": "itemUses",
+                "quantity": 1
+              },
+              "wgQbhehVIBtNmVrx": {
+                "mode": "variable",
+                "spellLevel": 5,
+                "points": 7,
+                "type": "spell"
+              }
+            },
+            "name": "Cast Spell",
+            "ranges": {
+              "j3FeXJelZTItJBf3": {
+                "range": "self"
+              }
+            }
+          }
+        },
+        "description": "<p>You can see and hear a particular creature you choose that is on the same plane of existence as you. The target must make a Wisdom saving throw, which is modified by how well you know the target and the sort of physical connection you have to it. If a target knows you're casting this spell, it can fail the saving throw voluntarily if it wants to be observed.</p>\n<table border=\"1\">\n<tbody>\n<tr>\n<td><strong>Knowledge</strong></td>\n<td><strong>Save Modifier</strong></td>\n</tr>\n<tr>\n<td>Secondhand (you have heard of the target)</td>\n<td>+5</td>\n</tr>\n<tr>\n<td>Firsthand (you have met the target)</td>\n<td>+0</td>\n</tr>\n<tr>\n<td>Familiar (you know the target well)</td>\n<td>-5</td>\n</tr>\n</tbody>\n</table>\n\n<table border=\"1\">\n<tbody>\n<tr>\n<td><strong>Connection</strong></td>\n<td><strong>Save Modifier</strong></td>\n</tr>\n<tr>\n<td>Likeness or picture</td>\n<td>-2</td>\n</tr>\n<tr>\n<td>Possession or garment</td>\n<td>-4</td>\n</tr>\n<tr>\n<td>Body part, lock of hair, bit of nail, or the like</td>\n<td>-10</td>\n</tr>\n</tbody>\n</table>\n<p>On a successful save, the target isn't affected, and you can't use this spell against it again for 24 hours.</p><p>On a failed save, the spell creates an Invisible sensor within 10 feet of the target. You can see and hear through the sensor as if you were there. The sensor moves with the target, remaining within 10 feet of it for the Duration. A creature that can see Invisile Objects sees the sensor as a luminous orb about the size of your fist.</p><p>Instead of targeting a creature, you can choose a location you have seen before as the target of this spell. When you do, the sensor appears at that location and doesn't move.</p>",
+        "favorite": false,
+        "secretDescription": "",
+        "source": {
+          "name": "",
+          "link": "",
+          "publisher": ""
+        },
+        "uses": {
+          "value": 3,
+          "max": 3,
+          "per": "",
+          "recharge": {
+            "formula": "1d6",
+            "threshold": 6
+          }
+        },
+        "schema": {
+          "version": 0.01,
+          "lastMigration": null
+        },
+        "classes": [],
+        "components": {
+          "vocalized": true,
+          "seen": true,
+          "material": true
+        },
+        "concentration": true,
+        "level": 5,
+        "materials": "A focus worth at least 1,000 gp, such as a crystal ball, a silver mirror, or a font filled with holy water.",
+        "materialsConsumed": false,
+        "prepared": true,
+        "prerequisite": "",
+        "rare": false,
+        "ritual": false,
+        "schools": {
+          "primary": "divination",
+          "secondary": []
+        },
+        "schemaVersion": {
+          "version": 0.01,
+          "lastMigration": {
+            "version": {
+              "schema": null,
+              "foundry": "12.316",
+              "system": "0.16.12"
+            }
+          }
+        }
+      },
+      "_id": "pf67XM3iwTk13KbS",
+      "effects": [],
+      "folder": null,
+      "sort": 0,
+      "ownership": {
+        "default": 0
+      },
+      "flags": {}
+    },
+    {
+      "type": "spell",
+      "img": "icons/magic/air/air-burst-spiral-pink.webp",
+      "name": "Suggestion (Innate)",
+      "system": {
+        "actions": {
+          "n32aeQzFUWHLZR3K": {
+            "activation": {
+              "cost": 1,
+              "type": "action",
+              "reactionTrigger": ""
+            },
+            "duration": {
+              "unit": "hour",
+              "value": "8"
+            },
+            "prompts": {
+              "W9GfEEC7ILVuah6S": {
+                "ability": "wis",
+                "type": "savingThrow",
+                "saveDC": {
+                  "bonus": "",
+                  "type": "spellcasting"
+                }
+              }
+            },
+            "target": {
+              "quantity": 1,
+              "type": "creature"
+            },
+            "consumers": {
+              "jywVyVVmDHpjwDeG": {
+                "type": "itemUses",
+                "quantity": 1
+              },
+              "2HvlXWqkwlPPUx6r": {
+                "mode": "variable",
+                "spellLevel": 2,
+                "points": 3,
+                "type": "spell"
+              }
+            },
+            "name": "Cast Spell",
+            "ranges": {
+              "pJi0vnU9LwkahwXf": {
+                "range": "short"
+              }
+            }
+          }
+        },
+        "description": "<p>You suggest a course of activity (limited to a sentence or two) and magically influence a creature you can see within range that can hear and understand you. Creatures that can't be charmed are immune to this effect. The suggestion must be worded in such a manner as to make the course of action sound reasonable. Asking the creature to stab itself, throw itself onto a spear, immolate itself, or do some other obviously harmful act ends the spell.</p><p>The target must make a Wisdom saving throw. On a failed save, it pursues the course of action you described to the best of its ability. The suggested course of action can continue for the entire duration. If the suggested activity can be completed in a shorter time, the spell ends when the subject finishes what it was asked to do.</p><p>You can also specify conditions that will trigger a special activity during the duration. For example, you might suggest that a knight give her warhorse to the first beggar she meets. If the condition isn't met before the spell expires, the activity isn't performed.</p><p>If you or any of your companions damage the target, the spell ends.</p>",
+        "favorite": false,
+        "secretDescription": "",
+        "source": {
+          "name": "",
+          "link": "",
+          "publisher": ""
+        },
+        "uses": {
+          "value": 3,
+          "max": 3,
+          "per": "",
+          "recharge": {
+            "formula": "1d6",
+            "threshold": 6
+          }
+        },
+        "schema": {
+          "version": 0.01,
+          "lastMigration": null
+        },
+        "classes": [],
+        "components": {
+          "vocalized": true,
+          "seen": false,
+          "material": true
+        },
+        "concentration": true,
+        "level": 2,
+        "materials": "A snake's tongue and either a bit of honeycomb or a drop of sweet oil",
+        "materialsConsumed": false,
+        "prepared": true,
+        "prerequisite": "",
+        "rare": false,
+        "ritual": false,
+        "schools": {
+          "primary": "enchantment",
+          "secondary": []
+        },
+        "schemaVersion": {
+          "version": 0.01,
+          "lastMigration": {
+            "version": {
+              "schema": null,
+              "foundry": "12.316",
+              "system": "0.16.12"
+            }
+          }
+        }
+      },
+      "_id": "y6HiGuZXwwl0UIx4",
+      "effects": [],
+      "folder": null,
+      "sort": 0,
+      "ownership": {
+        "default": 0
+      },
+      "flags": {}
+    },
+    {
+      "type": "spell",
+      "img": "icons/magic/air/air-burst-spiral-large-yellow.webp",
+      "name": "Geas (Innate)",
+      "system": {
+        "actions": {
+          "Su6S9FHiR0kSRup6": {
+            "activation": {
+              "cost": 1,
+              "type": "minute",
+              "reactionTrigger": ""
+            },
+            "duration": {
+              "unit": "day",
+              "value": "30"
+            },
+            "prompts": {
+              "MvyFah9IQENWcXO9": {
+                "ability": "wis",
+                "type": "savingThrow",
+                "saveDC": {
+                  "bonus": "",
+                  "type": "spellcasting"
+                }
+              }
+            },
+            "rolls": {
+              "zhDNBhaulHa20xiy": {
+                "canCrit": false,
+                "critBonus": "",
+                "damageType": "psychic",
+                "formula": "5d10",
+                "scaling": {
+                  "mode": "spellLevel",
+                  "formula": ""
+                },
+                "name": "",
+                "type": "damage"
+              }
+            },
+            "target": {
+              "quantity": 1,
+              "type": "creature"
+            },
+            "consumers": {
+              "rVGueKWhi9RbOq7T": {
+                "type": "itemUses",
+                "quantity": 1
+              },
+              "LkPJ2FsMRqFnamPo": {
+                "mode": "variable",
+                "spellLevel": 5,
+                "points": 7,
+                "type": "spell"
+              }
+            },
+            "name": "Cast Spell",
+            "ranges": {
+              "8APTGKphHdr9zcpC": {
+                "range": "medium"
+              }
+            }
+          }
+        },
+        "description": "<p>You place a magical command on a creature that you can see within range, forcing it to carry out some service or refrain from some action or course of activity as you decide. If the creature can understand you, it must succeed on a Wisdom saving throw or become Charmed by you for the Duration. While the creature is charmed by you, it takes 5d10 psychic damage each time it acts in a manner directly counter to your instructions, but no more than once each day. A creature that can't understand you is unaffected by the spell.</p><p>You can issue any command you choose, short of an activity that would result in certain death. Should you issue a suicidal command, the spell ends.</p><p>You can end the spell early by using an action to dismiss it. A Remove Curse, Greater Restoration, or wish spell also ends it.</p><p><strong>At Higher Levels.</strong> When you cast this spell using a spell slot of 7th or 8th level, the Duration is 1 year. When you cast this spell using a spell slot of 9th level, the spell lasts until it is ended by one of the Spells mentioned above.</p>",
+        "favorite": false,
+        "secretDescription": "",
+        "source": {
+          "name": "",
+          "link": "",
+          "publisher": ""
+        },
+        "uses": {
+          "value": 1,
+          "max": 1,
+          "per": "",
+          "recharge": {
+            "formula": "1d6",
+            "threshold": 6
+          }
+        },
+        "schema": {
+          "version": 0.01,
+          "lastMigration": null
+        },
+        "classes": [],
+        "components": {
+          "vocalized": true,
+          "seen": false,
+          "material": false
+        },
+        "concentration": false,
+        "level": 5,
+        "materials": "",
+        "materialsConsumed": false,
+        "prepared": true,
+        "prerequisite": "",
+        "rare": false,
+        "ritual": false,
+        "schools": {
+          "primary": "enchantment",
+          "secondary": []
+        },
+        "schemaVersion": {
+          "version": 0.01,
+          "lastMigration": {
+            "version": {
+              "schema": null,
+              "foundry": "12.316",
+              "system": "0.16.12"
+            }
+          }
+        }
+      },
+      "_id": "V89Jh4vCAQ9WnPPu",
+      "effects": [],
+      "folder": null,
+      "sort": 0,
+      "ownership": {
+        "default": 0
+      },
+      "flags": {}
+    },
+    {
+      "type": "feature",
+      "img": "icons/magic/light/projectiles-star-purple.webp",
+      "name": "Innate Spellcasting",
+      "flags": {},
+      "system": {
+        "ac": {
+          "baseFormula": "",
+          "formula": "",
+          "maxDex": 0,
+          "minStr": 0,
+          "mode": 2,
+          "requiresNoShield": false,
+          "requiresUnarmored": false
+        },
+        "actions": {},
+        "description": "<p>The lamia's innate spellcasting ability is Charisma (spell save DC 13). It can innately cast the following spells, requiring no material components:</p>\n<p>At will: disguise self (any humanoid form), major image</p>\n<p>3/day each: charm person, mirror image, scrying, suggestion</p>\n<p>1/day: geas</p>",
+        "favorite": false,
+        "secretDescription": "",
+        "source": {
+          "name": "",
+          "link": "",
+          "publisher": ""
+        },
+        "uses": {
+          "value": 0,
+          "max": 0,
+          "per": "",
+          "recharge": {
+            "formula": "1d6",
+            "threshold": 6
+          }
+        },
+        "schema": {
+          "version": 0.01,
+          "lastMigration": null
+        },
+        "concentration": false,
+        "featureType": "",
+        "grants": {},
+        "prerequisite": "",
+        "schemaVersion": {
+          "version": 0.01,
+          "lastMigration": {
+            "version": {
+              "schema": null,
+              "foundry": "12.316",
+              "system": "0.16.12"
+            }
+          }
+        }
+      },
+      "_id": "Pwwb3b6CIlM59oYO",
+      "effects": [],
+      "folder": null,
+      "sort": 0,
+      "ownership": {
+        "default": 0
+      }
+    },
+    {
+      "type": "feature",
+      "img": "icons/skills/melee/blade-tips-triple-steel.webp",
+      "name": "Multiattack",
+      "flags": {},
+      "system": {
+        "ac": {
+          "baseFormula": "",
+          "formula": "",
+          "maxDex": 0,
+          "minStr": 0,
+          "mode": 2,
+          "requiresNoShield": false,
+          "requiresUnarmored": false
+        },
+        "actions": {
+          "EAsGF1HucD4u1DIg": {
+            "activation": {
+              "cost": 1,
+              "type": "action",
+              "reactionTrigger": ""
+            },
+            "duration": {
+              "unit": "",
+              "value": ""
+            },
+            "name": "Use Multiattack"
+          }
+        },
+        "description": "<p>The lamia makes two attacks: one with its claws and one with its dagger or Intoxicating Touch.</p>",
+        "favorite": false,
+        "secretDescription": "",
+        "source": {
+          "name": "",
+          "link": "",
+          "publisher": ""
+        },
+        "uses": {
+          "value": 0,
+          "max": 0,
+          "per": "",
+          "recharge": {
+            "formula": "1d6",
+            "threshold": 6
+          }
+        },
+        "schema": {
+          "version": 0.01,
+          "lastMigration": null
+        },
+        "concentration": false,
+        "featureType": "",
+        "grants": {},
+        "prerequisite": "",
+        "schemaVersion": {
+          "version": 0.01,
+          "lastMigration": {
+            "version": {
+              "schema": null,
+              "foundry": "12.316",
+              "system": "0.16.12"
+            }
+          }
+        }
+      },
+      "_id": "KLtzsz312JfIBSrQ",
+      "effects": [],
+      "folder": null,
+      "sort": 0,
+      "ownership": {
+        "default": 0
+      }
+    },
+    {
+      "type": "feature",
+      "img": "icons/magic/nature/beam-hand-leaves-green.webp",
+      "name": "Intoxicating Touch",
+      "flags": {},
+      "system": {
+        "ac": {
+          "baseFormula": "",
+          "formula": "",
+          "maxDex": 0,
+          "minStr": 0,
+          "mode": 2,
+          "requiresNoShield": false,
+          "requiresUnarmored": false
+        },
+        "actions": {
+          "wvhYJeo2eQcTt0yG": {
+            "activation": {
+              "cost": 1,
+              "type": "action",
+              "reactionTrigger": ""
+            },
+            "duration": {
+              "unit": "",
+              "value": ""
+            },
+            "rolls": {
+              "s2ayMk0VQe725DAK": {
+                "bonus": "",
+                "critThreshold": 20,
+                "type": "attack",
+                "attackType": "meleeSpellAttack",
+                "ability": "str"
+              }
+            },
+            "name": "Use Intoxicating Touch",
+            "ranges": {
+              "uLHIydRpE1YgNdaD": {
+                "range": "fiveFeet"
+              }
+            }
+          }
+        },
+        "description": "<section class=\"secret\"><p><em>Melee Spell Attack:</em><strong>+5 to hit,</strong>, <strong>5 ft.,</strong> one creature. Hit: The target is magically cursed for 1 hour. Until the curse ends, the target has disadvantage on Wisdom saving throws and all ability checks.</p><p></p></section><p>The target has disadvantage on Wisdom saving throws and all ability checks.</p>",
+        "favorite": false,
+        "secretDescription": "",
+        "source": {
+          "name": "",
+          "link": "",
+          "publisher": ""
+        },
+        "uses": {
+          "value": 0,
+          "max": 0,
+          "per": "",
+          "recharge": {
+            "formula": "1d6",
+            "threshold": 6
+          }
+        },
+        "schema": {
+          "version": 0.01,
+          "lastMigration": null
+        },
+        "concentration": false,
+        "featureType": "",
+        "grants": {},
+        "prerequisite": "",
+        "schemaVersion": {
+          "version": 0.01,
+          "lastMigration": {
+            "version": {
+              "schema": null,
+              "foundry": "12.316",
+              "system": "0.16.12"
+            }
+          }
+        }
+      },
+      "_id": "6Pea0mlTY5hWd1QL",
+      "effects": [],
+      "folder": null,
+      "sort": 0,
+      "ownership": {
+        "default": 0
+      }
+    },
+    {
+      "type": "feature",
+      "img": "icons/skills/melee/strike-slashes-red.webp",
+      "name": "Claws",
+      "flags": {},
+      "system": {
+        "ac": {
+          "baseFormula": "",
+          "formula": "",
+          "maxDex": 0,
+          "minStr": 0,
+          "mode": 2,
+          "requiresNoShield": false,
+          "requiresUnarmored": false
+        },
+        "actions": {
+          "DLxMtJzhjOPVlVzo": {
+            "activation": {
+              "cost": 1,
+              "type": "action",
+              "reactionTrigger": ""
+            },
+            "duration": {
+              "unit": "",
+              "value": ""
+            },
+            "rolls": {
+              "873bZlYtkQ72LX7y": {
+                "bonus": "",
+                "critThreshold": 20,
+                "type": "attack",
+                "attackType": "meleeWeaponAttack",
+                "ability": "str"
+              },
+              "Xh8umfDbr0uHVlrS": {
+                "canCrit": true,
+                "critBonus": "",
+                "damageType": "slashing",
+                "formula": "2d10+@str.mod",
+                "scaling": {},
+                "name": "",
+                "type": "damage"
+              }
+            },
+            "name": "Use Claws",
+            "ranges": {
+              "6x7eTDDaZ5GFvLIO": {
+                "range": "fiveFeet"
+              }
+            }
+          }
+        },
+        "description": "<section class=\"secret\"><p><em>Melee Weapon Attack:</em><strong>+5 to hit,</strong>, <strong>5 ft.,</strong> one target. Hit: <strong>14 (2d10 + 3) <em>slashing damage</em></strong>.</p><p></p></section><p>The Lamia attacks with its Claws.</p>",
+        "favorite": false,
+        "secretDescription": "",
+        "source": {
+          "name": "",
+          "link": "",
+          "publisher": ""
+        },
+        "uses": {
+          "value": 0,
+          "max": 0,
+          "per": "",
+          "recharge": {
+            "formula": "1d6",
+            "threshold": 6
+          }
+        },
+        "schema": {
+          "version": 0.01,
+          "lastMigration": null
+        },
+        "concentration": false,
+        "featureType": "naturalWeapon",
+        "grants": {},
+        "prerequisite": "",
+        "schemaVersion": {
+          "version": 0.01,
+          "lastMigration": {
+            "version": {
+              "schema": null,
+              "foundry": "12.316",
+              "system": "0.16.12"
+            }
+          }
+        }
+      },
+      "_id": "Mi85Z1Bfco8qUh2T",
+      "effects": [],
+      "folder": null,
+      "sort": 0,
+      "ownership": {
+        "default": 0
+      }
+    },
+    {
+      "type": "object",
+      "img": "icons/weapons/daggers/dagger-jeweled-purple.webp",
+      "name": "Dagger",
+      "flags": {},
+      "system": {
+        "ac": {
+          "baseFormula": "",
+          "formula": "",
+          "maxDex": 0,
+          "minStr": 0,
+          "mode": 2,
+          "requiresNoShield": false,
+          "requiresUnarmored": false
+        },
+        "actions": {
+          "V2nfaCVzF4SdJoGm": {
+            "activation": {
+              "cost": 1,
+              "type": "action",
+              "reactionTrigger": ""
+            },
+            "duration": {
+              "unit": "",
+              "value": ""
+            },
+            "rolls": {
+              "9K61nieJtyUEQxMP": {
+                "bonus": "",
+                "critThreshold": 20,
+                "type": "attack",
+                "attackType": "meleeWeaponAttack",
+                "ability": "str"
+              },
+              "0G1Z9U63FTDlUUgo": {
+                "canCrit": true,
+                "critBonus": "",
+                "damageType": "piercing",
+                "formula": "1d4+@finesse.mod",
+                "scaling": {},
+                "name": "",
+                "type": "damage"
+              }
+            },
+            "name": "Attack",
+            "ranges": {
+              "YD5yaIocyUhHvESI": {
+                "range": "fiveFeet"
+              }
+            }
+          }
+        },
+        "description": "<section class=\"secret\"><p><em>Melee Weapon Attack:</em><strong>+5 to hit,</strong>, <strong>5 ft.,</strong> one target. Hit: <strong>5 (1d4 + 3) <em>piercing damage</em></strong>.</p><p></p></section><p>The Lamia attacks with its Dagger.</p>",
+        "favorite": false,
+        "secretDescription": "",
+        "source": {
+          "name": "",
+          "link": "",
+          "publisher": ""
+        },
+        "uses": {
+          "value": null,
+          "max": "",
+          "per": null,
+          "recharge": {
+            "formula": "1d6",
+            "threshold": "6"
+          }
+        },
+        "schema": {
+          "version": 0.01,
+          "lastMigration": null
+        },
+        "ammunitionProperties": [],
+        "armorCategory": "",
+        "armorProperties": [],
+        "attuned": false,
+        "bulky": false,
+        "craftingComponents": "",
+        "containerId": "",
+        "damagedState": 0,
+        "equippedState": 2,
+        "items": {},
+        "materialProperties": [],
+        "objectType": "weapon",
+        "plotItem": false,
+        "price": "0gp",
+        "proficient": true,
+        "quantity": 1,
+        "rarity": "mundane",
+        "requiresAttunement": false,
+        "shieldCategory": "",
+        "shieldProperties": [],
+        "unidentified": false,
+        "unidentifiedDescription": "",
+        "unidentifiedName": "",
+        "weaponProperties": [
+          "finesse"
+        ],
+        "weight": 1,
+        "schemaVersion": {
+          "version": 0.01,
+          "lastMigration": {
+            "version": {
+              "schema": null,
+              "foundry": "12.316",
+              "system": "0.16.12"
+            }
+          }
+        }
+      },
+      "_id": "xa7HcVpvVfg2nihq",
+      "effects": [],
+      "folder": null,
+      "sort": 0,
+      "ownership": {
+        "default": 0
+      }
+    },
+    {
+      "name": "Grapple",
+      "type": "maneuver",
+      "img": "icons/skills/melee/unarmed-punch-fist.webp",
+      "effects": [],
+      "flags": {},
+      "system": {
+        "actions": {
+          "wOKLPnhKpnhU1kEj": {
+            "name": "Grapple",
+            "activation": {
+              "cost": 1,
+              "type": "action",
+              "reactionTrigger": ""
+            },
+            "duration": {
+              "unit": "instantaneous",
+              "value": null
+            },
+            "ranges": {
+              "5nrDtksc3KPCbcJd": {
+                "range": "fiveFeet"
+              }
+            },
+            "area": {
+              "shape": "",
+              "size": "",
+              "placeTemplate": false
+            },
+            "target": {
+              "quantity": "",
+              "type": "creature",
+              "shape": "",
+              "size": ""
+            },
+            "prompts": {
+              "B9sbtgKAz5GLtsp3": {
+                "ability": "str",
+                "onSave": "",
+                "saveDC": {
+                  "type": "custom",
+                  "bonus": "@maneuverDC"
+                },
+                "type": "savingThrow"
+              }
+            },
+            "consumers": {},
+            "rolls": {
+              "GjyfHt0lKnETufaD": {
+                "type": "damage",
+                "default": true,
+                "formula": "1 + @str.mod",
+                "label": "Basic Melee Damage",
+                "canCrit": false
+              }
+            }
+          }
+        },
+        "description": "<p>You can use the Grapple maneuver to grab or wrestle a creature. If you are able to make multiple attacks with the Attack action, this maneuver replaces one of them.</p>\n<p>You must have at least one free hand to attempt a grapple, your target must be within your reach, and the target must be no more than one size category larger than you. The target makes a Strength or Dexterity saving throw against your maneuver DC. On a failure, you deal basic melee damage and the target becomes grappled (see Appendix A: Conditions on page 616). In addition to things that end the condition, you can release the target at any time (no action required).</p>\n<p><em>Escaping a Grapple.</em> While grappled, a creature can use its action to attempt to escape. It must succeed on a Strength or Dexterity saving throw against your maneuver DC.</p>\n<p><em>Moving a Grappled Creature. </em>When you move, you can drag or carry the grappled creature with you. When you do so, your Speed is halved, unless the creature's weight is within your carrying capacity and you are not encumbered by bulky items.</p>\n<p><em>Freeing a Grappled Creature.</em> You can use the Grapple maneuver to try to free another grappled or restrained creature. The creature grappling or restraining the target makes a Strength saving throw against your maneuver DC. If it fails the saving throw, the grappled or restrained creature is freed. Additionally, you may move the freed creature 5 feet in any direction.</p>",
+        "favorite": false,
+        "secretDescription": "",
+        "source": "",
+        "uses": {
+          "value": null,
+          "max": "",
+          "per": null,
+          "recharge": {
+            "formula": "1d6",
+            "threshold": 6
+          }
+        },
+        "schema": {
+          "version": null,
+          "lastMigration": null
+        },
+        "degree": 0,
+        "exertionCost": 0,
+        "isStance": false,
+        "prerequisite": "",
+        "tradition": "",
+        "equippedState": 0,
+        "schemaVersion": {
+          "version": 0.01,
+          "lastMigration": {
+            "version": {
+              "schema": 0.009,
+              "foundry": "12.316",
+              "system": "0.16.12"
+            }
+          }
+        }
+      },
+      "folder": null,
+      "_id": "Tud8yuasXCieXL0E",
+      "sort": 0,
+      "ownership": {
+        "default": 0
+      }
+    },
+    {
+      "name": "Grab On",
+      "type": "maneuver",
+      "img": "icons/skills/melee/hand-grip-staff-teal.webp",
+      "effects": [],
+      "flags": {},
+      "system": {
+        "actions": {
+          "dZElCBOd3yoRyDcB": {
+            "name": "Grab On",
+            "activation": {
+              "cost": 1,
+              "type": "action",
+              "reactionTrigger": ""
+            },
+            "duration": {
+              "unit": "instantaneous",
+              "value": null
+            },
+            "ranges": {
+              "x479yGm9lUjVLHDy": {
+                "range": "fiveFeet"
+              }
+            },
+            "area": {
+              "shape": "",
+              "size": "",
+              "placeTemplate": false
+            },
+            "target": {
+              "quantity": "",
+              "type": "creature",
+              "shape": "",
+              "size": ""
+            },
+            "prompts": {
+              "duRNu9hfiRNwhtCq": {
+                "ability": "str",
+                "onSave": "",
+                "saveDC": {
+                  "type": "custom",
+                  "bonus": "@maneuverDC"
+                },
+                "type": "savingThrow"
+              }
+            },
+            "consumers": {},
+            "rolls": {
+              "pzopjF1frh4UfKvT": {
+                "type": "damage",
+                "default": true,
+                "formula": "1 + @str.mod",
+                "label": "Basic Melee Damage",
+                "canCrit": false
+              }
+            }
+          }
+        },
+        "description": "<p>While you cannot grapple a creature two or more size categories larger than you, you can grab onto it. By jumping onto its back or climbing up a limb, you can make a Strength or Dexterity saving throw against the creature's maneuver DC to cling to or balance upon its body. On a success, you move into the creature's space and can move upon its body as if it is difficult terrain.</p><p>While grabbing onto a larger creature, you gain advantage on attack rolls against it. The larger creature may be able to attack you as normal, depending on its limbs or attacks. It can also use an action or replace one of its attacks on its turn to try to dislodge you, such as shaking you loose or bashing you against a wall, forcing you to make a Strength or Dexterity saving throw against its maneuver DC or fall prone into the nearest space adjacent to the creature, taking its basic melee damage in the process.</p><p>If the creature chooses to roll over in order to dislodge you, it becomes prone, but you have disadvantage on the saving throw to hang on.</p>",
+        "favorite": false,
+        "secretDescription": "",
+        "source": "",
+        "uses": {
+          "value": null,
+          "max": "",
+          "per": null,
+          "recharge": {
+            "formula": "1d6",
+            "threshold": 6
+          }
+        },
+        "schema": {
+          "version": null,
+          "lastMigration": null
+        },
+        "degree": 0,
+        "exertionCost": 0,
+        "isStance": false,
+        "prerequisite": "",
+        "tradition": "",
+        "equippedState": 0,
+        "schemaVersion": {
+          "version": 0.01,
+          "lastMigration": {
+            "version": {
+              "schema": 0.009,
+              "foundry": "12.316",
+              "system": "0.16.12"
+            }
+          }
+        }
+      },
+      "folder": null,
+      "_id": "qUmQrxWgCoDBTmUa",
+      "sort": 0,
+      "ownership": {
+        "default": 0
+      }
+    },
+    {
+      "name": "Disarm",
+      "type": "maneuver",
+      "img": "icons/skills/melee/sword-damaged-broken-glow-red.webp",
+      "effects": [],
+      "flags": {},
+      "system": {
+        "actions": {
+          "xN5ZLHIjo9cHRWrK": {
+            "name": "Disarm",
+            "activation": {
+              "cost": 1,
+              "type": "action",
+              "reactionTrigger": ""
+            },
+            "duration": {
+              "unit": "instantaneous",
+              "value": null
+            },
+            "ranges": {
+              "dFgwvnjjgmzR7vlN": {
+                "range": "fiveFeet"
+              }
+            },
+            "area": {
+              "shape": "",
+              "size": "",
+              "placeTemplate": false
+            },
+            "target": {
+              "quantity": "",
+              "type": "creature",
+              "shape": "",
+              "size": ""
+            },
+            "rolls": {
+              "FDMYIPcl2LveduMw": {
+                "canCrit": false,
+                "damageType": "",
+                "formula": "1 + @str.mod",
+                "label": "Basic Melee Damage",
+                "type": "damage"
+              }
+            },
+            "prompts": {
+              "xs1KlWtLXswqrVKY": {
+                "ability": "str",
+                "onSave": "",
+                "saveDC": {
+                  "type": "custom",
+                  "bonus": "@maneuverDC"
+                },
+                "type": "savingThrow"
+              }
+            },
+            "consumers": {}
+          }
+        },
+        "description": "<p>You can use the Disarm maneuver to attempt to knock an item or weapon from a creature's hand. If you are able to make multiple attacks with the Attack action, this maneuver replaces one of them.</p><p>The target must be within your reach and be holding an item (either carried or wielded). The target makes a Strength or Dexterity saving throw against your maneuver DC. On a failure, you deal basic melee damage and the target drops the item in its space. The target has advantage if it is larger than you or holding the item with two or more hands, and a target smaller than you has disadvantage.</p>",
+        "favorite": false,
+        "secretDescription": "",
+        "source": "",
+        "uses": {
+          "value": null,
+          "max": "",
+          "per": null,
+          "recharge": {
+            "formula": "1d6",
+            "threshold": 6
+          }
+        },
+        "schema": {
+          "version": null,
+          "lastMigration": null
+        },
+        "degree": 0,
+        "exertionCost": 0,
+        "isStance": false,
+        "prerequisite": "",
+        "tradition": "",
+        "equippedState": 0,
+        "schemaVersion": {
+          "version": 0.01,
+          "lastMigration": {
+            "version": {
+              "schema": 0.009,
+              "foundry": "12.316",
+              "system": "0.16.12"
+            }
+          }
+        }
+      },
+      "folder": null,
+      "_id": "WK7UNNqGF1K4Ll80",
+      "sort": 0,
+      "ownership": {
+        "default": 0
+      }
+    },
+    {
+      "name": "Knockdown",
+      "type": "maneuver",
+      "img": "icons/magic/control/silhouette-fall-slip-prone.webp",
+      "effects": [],
+      "flags": {},
+      "system": {
+        "actions": {
+          "wfzmnudl6tfhZk4v": {
+            "name": "Knockdown",
+            "activation": {
+              "cost": 1,
+              "type": "action",
+              "reactionTrigger": ""
+            },
+            "duration": {
+              "unit": "instantaneous",
+              "value": null
+            },
+            "ranges": {
+              "NbOuce8AtLVjDeeL": {
+                "range": "fiveFeet"
+              }
+            },
+            "area": {
+              "shape": "",
+              "size": "",
+              "placeTemplate": false
+            },
+            "target": {
+              "quantity": "",
+              "type": "creature",
+              "shape": "",
+              "size": ""
+            },
+            "prompts": {
+              "L65ZmTO0KcmeQ2EQ": {
+                "ability": "str",
+                "onSave": "",
+                "saveDC": {
+                  "type": "custom",
+                  "bonus": "@maneuverDC"
+                },
+                "type": "savingThrow"
+              }
+            },
+            "consumers": {},
+            "rolls": {
+              "Wgx2bdExxjzRu7nR": {
+                "type": "damage",
+                "default": true,
+                "formula": "1 + @str.mod",
+                "label": "Basic Melee Damage",
+                "canCrit": false
+              }
+            }
+          }
+        },
+        "description": "<p>You can use the Knockdown maneuver to trip or push a creature down. If you are able to make multiple attacks with the Attack action, this maneuver replaces one of them.</p><p>The target must be within your reach and be no more than one size category larger than you. The target makes a Strength saving throw against your maneuver DC. On a failure, you deal basic melee damage and knock the target prone.</p>",
+        "favorite": false,
+        "secretDescription": "",
+        "source": "",
+        "uses": {
+          "value": null,
+          "max": "",
+          "per": null,
+          "recharge": {
+            "formula": "1d6",
+            "threshold": 6
+          }
+        },
+        "schema": {
+          "version": null,
+          "lastMigration": null
+        },
+        "degree": 0,
+        "exertionCost": 0,
+        "isStance": false,
+        "prerequisite": "",
+        "tradition": "",
+        "equippedState": 0,
+        "schemaVersion": {
+          "version": 0.01,
+          "lastMigration": {
+            "version": {
+              "schema": 0.009,
+              "foundry": "12.316",
+              "system": "0.16.12"
+            }
+          }
+        }
+      },
+      "folder": null,
+      "_id": "hDTIgiT6IMR5yWN8",
+      "sort": 0,
+      "ownership": {
+        "default": 0
+      }
+    },
+    {
+      "name": "Overrun",
+      "type": "maneuver",
+      "img": "icons/skills/melee/shield-damaged-broken-blue.webp",
+      "effects": [],
+      "flags": {},
+      "system": {
+        "actions": {
+          "kBUgwxtsHQqPa1DV": {
+            "name": "Overrun",
+            "activation": {
+              "cost": 1,
+              "type": "special",
+              "reactionTrigger": ""
+            },
+            "duration": {
+              "unit": "instantaneous",
+              "value": null
+            },
+            "ranges": {
+              "VAh3uPOJAaI5ShrA": {
+                "range": "fiveFeet"
+              }
+            },
+            "area": {
+              "shape": "",
+              "size": "",
+              "placeTemplate": false
+            },
+            "target": {
+              "quantity": "",
+              "type": "creature",
+              "shape": "",
+              "size": ""
+            },
+            "prompts": {
+              "bvFJU6hHDstCwg1b": {
+                "ability": "str",
+                "onSave": "",
+                "saveDC": {
+                  "type": "custom",
+                  "bonus": "@maneuverDC"
+                },
+                "type": "savingThrow"
+              }
+            },
+            "consumers": {},
+            "rolls": {
+              "ezzGenCLYoqg37hI": {
+                "type": "damage",
+                "default": true,
+                "formula": "1 + @str.mod",
+                "label": "Basic Melee Damage",
+                "canCrit": false
+              }
+            }
+          }
+        },
+        "description": "<p>You can use an action or bonus action to make an Overrun maneuver to move through a hostile creature's space by forcing your way past. Make a Strength saving throw against the target's maneuver DC. On a success, you deal basic melee damage and can move through the hostile creature's space once this turn. The creature can choose to just let you pass instead of rolling. You have advantage if you are larger than the target, or disadvantage if you are smaller. If you are two or more sizes smaller than the target, you can move through the hostile creature's space without making a save. You still provoke opportunity attacks if you move beyond a creature's reach.</p>",
+        "favorite": false,
+        "secretDescription": "",
+        "source": "",
+        "uses": {
+          "value": null,
+          "max": "",
+          "per": null,
+          "recharge": {
+            "formula": "1d6",
+            "threshold": 6
+          }
+        },
+        "schema": {
+          "version": null,
+          "lastMigration": null
+        },
+        "degree": 0,
+        "exertionCost": 0,
+        "isStance": false,
+        "prerequisite": "",
+        "tradition": "",
+        "equippedState": 0,
+        "schemaVersion": {
+          "version": 0.01,
+          "lastMigration": {
+            "version": {
+              "schema": 0.009,
+              "foundry": "12.316",
+              "system": "0.16.12"
+            }
+          }
+        }
+      },
+      "folder": null,
+      "_id": "ZzUKNiKtLDCRXwPO",
+      "sort": 0,
+      "ownership": {
+        "default": 0
+      }
+    },
+    {
+      "name": "Shove",
+      "type": "maneuver",
+      "img": "icons/skills/melee/shield-block-bash-yellow.webp",
+      "effects": [],
+      "flags": {},
+      "system": {
+        "actions": {
+          "uvkBwwL7OQopMMHB": {
+            "name": "Shove",
+            "activation": {
+              "cost": 1,
+              "type": "action",
+              "reactionTrigger": ""
+            },
+            "duration": {
+              "unit": "instantaneous",
+              "value": null
+            },
+            "ranges": {
+              "j7yuRUD8cu1y0Jia": {
+                "range": "fiveFeet"
+              }
+            },
+            "area": {
+              "shape": "",
+              "size": "",
+              "placeTemplate": false
+            },
+            "target": {
+              "quantity": null,
+              "type": "creature",
+              "shape": "",
+              "size": ""
+            },
+            "rolls": {
+              "TcI6WmWSAy0EAxg9": {
+                "canCrit": false,
+                "damageType": "",
+                "formula": "1 + @str.mod",
+                "label": "Basic Melee Damage",
+                "type": "damage"
+              }
+            },
+            "prompts": {
+              "UVu9ZVC0beiWNgAV": {
+                "ability": "str",
+                "onSave": "",
+                "saveDC": {
+                  "type": "custom",
+                  "bonus": "@maneuverDC"
+                },
+                "type": "savingThrow"
+              }
+            },
+            "consumers": {}
+          }
+        },
+        "description": "<p>You can use the Shove maneuver to push a creature away. If you are able to make multiple attacks with the Attack action, this maneuver replaces one of them.</p><p>The target must be within your reach and be no more than one size category larger than you. The target makes a Strength saving throw against your maneuver DC. On a failure, you deal basic melee damage and push the target a number of feet away from you equal to 5 + 5 for every 5 points it failed its saving throw by. You can move the creature in any direction away from you (to the side, forward, or diagonally away).</p><p>A creature that is shoved off of a precipice is propelled off of whatever it is standing on -- it does not receive any saving throw or ability check to grab onto something to avoid falling down below.</p>",
+        "favorite": false,
+        "secretDescription": "",
+        "source": "",
+        "uses": {
+          "value": null,
+          "max": "",
+          "per": null,
+          "recharge": {
+            "formula": "1d6",
+            "threshold": 6
+          }
+        },
+        "schema": {
+          "version": null,
+          "lastMigration": null
+        },
+        "degree": 0,
+        "exertionCost": 0,
+        "isStance": false,
+        "prerequisite": "",
+        "tradition": "",
+        "equippedState": 0,
+        "schemaVersion": {
+          "version": 0.01,
+          "lastMigration": {
+            "version": {
+              "schema": 0.009,
+              "foundry": "12.316",
+              "system": "0.16.12"
+            }
+          }
+        }
+      },
+      "folder": null,
+      "_id": "cq37gLLfugE1yZF8",
+      "sort": 0,
+      "ownership": {
+        "default": 0
+      }
+    }
+  ],
+  "effects": [],
+  "folder": null,
+  "_id": "91rqsvhg19o1khm7"
 }

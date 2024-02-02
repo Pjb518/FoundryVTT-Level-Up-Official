@@ -1,159 +1,155 @@
 {
-	"folder": null,
-	"name": "Burnt Othur Fumes",
-	"type": "object",
-	"img": "icons/magic/air/fog-gas-smoke-dense-brown.webp",
-	"system": {
-		"ac": {
-			"baseFormula": "",
-			"formula": "",
-			"maxDex": 0,
-			"minStr": 0,
-			"mode": 2,
-			"requiresNoShield": false,
-			"requiresUnarmored": false
-		},
-		"actions": {
-			"iXiD5Xl8MPahhMgR": {
-				"name": "Inhale",
-				"activation": {},
-				"consumers": {
-					"snS9IzgVaPEpMXpz": {
-						"type": "quantity",
-						"default": true,
-						"itemId": "",
-						"quantity": 1
-					}
-				},
-				"rolls": {
-					"TyNSQglzStvwAUxk": {
-						"type": "damage",
-						"default": true,
-						"canCrit": false,
-						"formula": "3d6",
-						"damageType": "poison"
-					}
-				},
-				"prompts": {
-					"22qWKNnySNhtZaj4": {
-						"type": "savingThrow",
-						"default": true,
-						"ability": "con",
-						"saveDC": {
-							"type": "custom",
-							"bonus": "13"
-						},
-						"onSave": "half damage"
-					},
-					"41Dj0ih4cXfrOduT": {
-						"type": "generic",
-						"default": true,
-						"label": "Ongoing Poison Damage",
-						"formula": "1d6"
-					}
-				},
-				"uses": {
-					"value": 0,
-					"max": "",
-					"per": "",
-					"recharge": {
-						"formula": "1d6",
-						"threshold": 6
-					}
-				}
-			},
-			"MaujC3DJcuxytbbX": {
-				"name": "Exposed to Flame",
-				"activation": {},
-				"consumers": {},
-				"rolls": {
-					"ZeZlBEMTn3LqNKJ5": {
-						"type": "damage",
-						"default": true,
-						"canCrit": false,
-						"formula": "3d6",
-						"damageType": "fire"
-					}
-				},
-				"prompts": {
-					"nxmcyErewHGbX3Yn": {
-						"type": "savingThrow",
-						"default": true,
-						"ability": "dex",
-						"saveDC": {
-							"type": "custom",
-							"bonus": "13"
-						},
-						"onSave": "half damage"
-					}
-				},
-				"uses": {
-					"value": 0,
-					"max": "",
-					"per": "",
-					"recharge": {
-						"formula": "1d6",
-						"threshold": 6
-					}
-				},
-				"duration": {
-					"unit": "instantaneous"
-				},
-				"ranges": {
-					"wx40DbHeZactdDYV": {
-						"range": "fiveFeet"
-					}
-				}
-			}
-		},
-		"description": "<p><em>Uncommon, Inhaled, Instantaneous</em></p>\n<p>Othur bog mold emits caustic spores that are both&nbsp;toxic and intensely flammable. A creature makes a&nbsp;DC 13 Constitution saving throw when subjected&nbsp;to this poison, taking 10 (3d6) poison damage on&nbsp;a failure, or half as much on a success. Additionally,&nbsp;a creature that fails its saving throw takes an&nbsp;additional 3 (1d6) ongoing poison damage for the&nbsp;next 3 rounds.</p>\n<p>If a cloud of this poison is exposed to an open flame or any target within it takes fire damage, the 5-foot radius cloud is immediately dispersed as it explodes. Each creature in the area makes a DC 13 Dexterity saving throw, taking 10 (3d6) fire damage on a failure, or half as much on a success.</p>",
-		"favorite": false,
-		"secretDescription": "",
-		"source": {
-			"name": "",
-			"link": "",
-			"publisher": ""
-		},
-		"uses": {
-			"value": null,
-			"max": "",
-			"per": null,
-			"recharge": {
-				"formula": "1d6",
-				"threshold": "6"
-			}
-		},
-		"schema": {
-			"version": null,
-			"lastMigration": null
-		},
-		"ammunitionProperties": [],
-		"armorCategory": "",
-		"armorProperties": [],
-		"attuned": false,
-		"bulky": false,
-		"craftingComponents": "",
-		"containerId": "",
-		"damagedState": 0,
-		"equippedState": 0,
-		"items": {},
-		"materialProperties": [],
-		"objectType": "consumable",
-		"plotItem": false,
-		"price": "450 gp",
-		"proficient": true,
-		"quantity": 1,
-		"rarity": "uncommon",
-		"requiresAttunement": false,
-		"shieldCategory": "",
-		"shieldProperties": [],
-		"unidentified": false,
-		"unidentifiedDescription": "",
-		"unidentifiedName": "",
-		"weaponProperties": [],
-		"weight": 0
-	},
-	"effects": [],
-	"flags": {},
-	"_id": "shjcdb1bjptzx7ok"
+  "folder": null,
+  "name": "Burnt Othur Fumes",
+  "type": "object",
+  "img": "icons/magic/air/fog-gas-smoke-dense-brown.webp",
+  "system": {
+    "ac": {
+      "baseFormula": "",
+      "formula": "",
+      "maxDex": 0,
+      "minStr": 0,
+      "mode": 2,
+      "requiresNoShield": false,
+      "requiresUnarmored": false
+    },
+    "actions": {
+      "iXiD5Xl8MPahhMgR": {
+        "name": "Inhale",
+        "activation": {},
+        "consumers": {
+          "snS9IzgVaPEpMXpz": {
+            "type": "quantity",
+            "default": true,
+            "itemId": "",
+            "quantity": 1
+          }
+        },
+        "rolls": {
+          "TyNSQglzStvwAUxk": {
+            "type": "damage",
+            "default": true,
+            "canCrit": false,
+            "formula": "3d6",
+            "damageType": "poison"
+          }
+        },
+        "prompts": {
+          "22qWKNnySNhtZaj4": {
+            "type": "savingThrow",
+            "default": true,
+            "ability": "con",
+            "saveDC": {
+              "type": "custom",
+              "bonus": "13"
+            },
+            "onSave": "half damage"
+          },
+          "41Dj0ih4cXfrOduT": {
+            "type": "generic",
+            "default": true,
+            "label": "Ongoing Poison Damage",
+            "formula": "1d6"
+          }
+        },
+        "uses": {
+          "value": 0,
+          "max": "",
+          "per": "",
+          "recharge": {
+            "formula": "1d6",
+            "threshold": 6
+          }
+        }
+      },
+      "MaujC3DJcuxytbbX": {
+        "name": "Exposed to Flame",
+        "activation": {},
+        "consumers": {},
+        "rolls": {
+          "ZeZlBEMTn3LqNKJ5": {
+            "type": "damage",
+            "default": true,
+            "canCrit": false,
+            "formula": "3d6",
+            "damageType": "fire"
+          }
+        },
+        "prompts": {
+          "nxmcyErewHGbX3Yn": {
+            "type": "savingThrow",
+            "default": true,
+            "ability": "dex",
+            "saveDC": {
+              "type": "custom",
+              "bonus": "13"
+            },
+            "onSave": "half damage"
+          }
+        },
+        "uses": {
+          "value": 0,
+          "max": "",
+          "per": "",
+          "recharge": {
+            "formula": "1d6",
+            "threshold": 6
+          }
+        },
+        "duration": {
+          "unit": "instantaneous"
+        },
+        "ranges": {
+          "wx40DbHeZactdDYV": {
+            "range": "fiveFeet"
+          }
+        }
+      }
+    },
+    "description": "<p><em>Uncommon, Inhaled, Instantaneous</em></p>\n<p>Othur bog mold emits caustic spores that are both&nbsp;toxic and intensely flammable. A creature makes a&nbsp;DC 13 Constitution saving throw when subjected&nbsp;to this poison, taking 10 (3d6) poison damage on&nbsp;a failure, or half as much on a success. Additionally,&nbsp;a creature that fails its saving throw takes an&nbsp;additional 3 (1d6) ongoing poison damage for the&nbsp;next 3 rounds.</p>\n<p>If a cloud of this poison is exposed to an open flame or any target within it takes fire damage, the 5-foot radius cloud is immediately dispersed as it explodes. Each creature in the area makes a DC 13 Dexterity saving throw, taking 10 (3d6) fire damage on a failure, or half as much on a success.</p>",
+    "favorite": false,
+    "secretDescription": "",
+    "source": "",
+    "uses": {
+      "value": null,
+      "max": "",
+      "per": null,
+      "recharge": {
+        "formula": "1d6",
+        "threshold": "6"
+      }
+    },
+    "schema": {
+      "version": null,
+      "lastMigration": null
+    },
+    "ammunitionProperties": [],
+    "armorCategory": "",
+    "armorProperties": [],
+    "attuned": false,
+    "bulky": false,
+    "craftingComponents": "",
+    "containerId": "",
+    "damagedState": 0,
+    "equippedState": 0,
+    "items": {},
+    "materialProperties": [],
+    "objectType": "consumable",
+    "plotItem": false,
+    "price": "450 gp",
+    "proficient": true,
+    "quantity": 1,
+    "rarity": "uncommon",
+    "requiresAttunement": false,
+    "shieldCategory": "",
+    "shieldProperties": [],
+    "unidentified": false,
+    "unidentifiedDescription": "",
+    "unidentifiedName": "",
+    "weaponProperties": [],
+    "weight": 0
+  },
+  "effects": [],
+  "flags": {},
+  "_id": "shjcdb1bjptzx7ok"
 }

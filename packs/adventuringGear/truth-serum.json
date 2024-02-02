@@ -1,149 +1,145 @@
 {
-	"folder": null,
-	"name": "Truth Serum",
-	"type": "object",
-	"img": "icons/consumables/potions/bottle-corked-empty.webp",
-	"system": {
-		"ac": {
-			"baseFormula": "",
-			"formula": "",
-			"maxDex": 0,
-			"minStr": 0,
-			"mode": 2,
-			"requiresNoShield": false,
-			"requiresUnarmored": false
-		},
-		"actions": {
-			"xj033Ihp4ERkhV77": {
-				"name": "Consume",
-				"activation": {},
-				"consumers": {
-					"dRDiPugFcGwKKpqy": {
-						"type": "quantity",
-						"default": true,
-						"itemId": "",
-						"quantity": 1
-					}
-				},
-				"rolls": {},
-				"prompts": {
-					"gsi2GWen7q9Ir1bw": {
-						"type": "savingThrow",
-						"default": true,
-						"ability": "con",
-						"saveDC": {
-							"type": "custom",
-							"bonus": "14"
-						},
-						"onSave": ""
-					},
-					"AC61vsfVzSYyjLwr": {
-						"type": "effect",
-						"default": true,
-						"effectId": "5UaBqRqzFKFk9i84"
-					}
-				},
-				"uses": {
-					"value": 0,
-					"max": "",
-					"per": "",
-					"recharge": {
-						"formula": "1d6",
-						"threshold": 6
-					}
-				}
-			}
-		},
-		"description": "<p><em>Uncommon, Ingested, Instantaneous</em></p>\n<p>This clear alchemical concoction unlocks and&nbsp;untethers the mind. A creature makes a DC 14&nbsp;Constitution saving throw when it is subjected to&nbsp;this poison, and on a failure it becomes poisoned&nbsp;for 1 hour. While poisoned in this way a creature&nbsp;cannot knowingly lie (as per @UUID[Compendium.a5e.a5e-spells.Item.i0o4xqqd86vdkwwu]{Zone of Truth}),&nbsp;using the poison&rsquo;s DC as the spell save DC.</p>",
-		"favorite": false,
-		"secretDescription": "",
-		"source": {
-			"name": "",
-			"link": "",
-			"publisher": ""
-		},
-		"uses": {
-			"value": null,
-			"max": "",
-			"per": null,
-			"recharge": {
-				"formula": "1d6",
-				"threshold": "6"
-			}
-		},
-		"schema": {
-			"version": null,
-			"lastMigration": null
-		},
-		"ammunitionProperties": [],
-		"armorCategory": "",
-		"armorProperties": [],
-		"attuned": false,
-		"bulky": false,
-		"craftingComponents": "",
-		"containerId": "",
-		"damagedState": 0,
-		"equippedState": 0,
-		"items": {},
-		"materialProperties": [],
-		"objectType": "consumable",
-		"plotItem": false,
-		"price": "450 gp",
-		"proficient": true,
-		"quantity": 1,
-		"rarity": "uncommon",
-		"requiresAttunement": false,
-		"shieldCategory": "",
-		"shieldProperties": [],
-		"unidentified": false,
-		"unidentifiedDescription": "",
-		"unidentifiedName": "",
-		"weaponProperties": [],
-		"weight": 0
-	},
-	"effects": [
-		{
-			"icon": "icons/consumables/potions/bottle-corked-empty.webp",
-			"origin": "Item.0tqedqbdg2p9lg3d",
-			"flags": {
-				"a5e": {
-					"sort": 0,
-					"transferType": "onUse",
-					"actionId": "xj033Ihp4ERkhV77",
-					"duration": {
-						"unit": "hours"
-					}
-				}
-			},
-			"transfer": false,
-			"name": "Truth Serum Poisoning",
-			"_id": "5UaBqRqzFKFk9i84",
-			"changes": [
-				{
-					"key": "flags.a5e.effects.statusConditions",
-					"value": "[\"poisoned\"]",
-					"mode": 0,
-					"priority": null
-				}
-			],
-			"disabled": false,
-			"duration": {
-				"startTime": null,
-				"seconds": 3600,
-				"combat": null,
-				"rounds": null,
-				"turns": null,
-				"startRound": null,
-				"startTurn": null
-			},
-			"description": "",
-			"statuses": [
-				"poisoned"
-			],
-			"tint": "#ffffff",
-			"folder": null
-		}
-	],
-	"flags": {},
-	"_id": "0tqedqbdg2p9lg3d"
+  "folder": null,
+  "name": "Truth Serum",
+  "type": "object",
+  "img": "icons/consumables/potions/bottle-corked-empty.webp",
+  "system": {
+    "ac": {
+      "baseFormula": "",
+      "formula": "",
+      "maxDex": 0,
+      "minStr": 0,
+      "mode": 2,
+      "requiresNoShield": false,
+      "requiresUnarmored": false
+    },
+    "actions": {
+      "xj033Ihp4ERkhV77": {
+        "name": "Consume",
+        "activation": {},
+        "consumers": {
+          "dRDiPugFcGwKKpqy": {
+            "type": "quantity",
+            "default": true,
+            "itemId": "",
+            "quantity": 1
+          }
+        },
+        "rolls": {},
+        "prompts": {
+          "gsi2GWen7q9Ir1bw": {
+            "type": "savingThrow",
+            "default": true,
+            "ability": "con",
+            "saveDC": {
+              "type": "custom",
+              "bonus": "14"
+            },
+            "onSave": ""
+          },
+          "AC61vsfVzSYyjLwr": {
+            "type": "effect",
+            "default": true,
+            "effectId": "5UaBqRqzFKFk9i84"
+          }
+        },
+        "uses": {
+          "value": 0,
+          "max": "",
+          "per": "",
+          "recharge": {
+            "formula": "1d6",
+            "threshold": 6
+          }
+        }
+      }
+    },
+    "description": "<p><em>Uncommon, Ingested, Instantaneous</em></p>\n<p>This clear alchemical concoction unlocks and&nbsp;untethers the mind. A creature makes a DC 14&nbsp;Constitution saving throw when it is subjected to&nbsp;this poison, and on a failure it becomes poisoned&nbsp;for 1 hour. While poisoned in this way a creature&nbsp;cannot knowingly lie (as per @UUID[Compendium.a5e.a5e-spells.Item.i0o4xqqd86vdkwwu]{Zone of Truth}),&nbsp;using the poison&rsquo;s DC as the spell save DC.</p>",
+    "favorite": false,
+    "secretDescription": "",
+    "source": "",
+    "uses": {
+      "value": null,
+      "max": "",
+      "per": null,
+      "recharge": {
+        "formula": "1d6",
+        "threshold": "6"
+      }
+    },
+    "schema": {
+      "version": null,
+      "lastMigration": null
+    },
+    "ammunitionProperties": [],
+    "armorCategory": "",
+    "armorProperties": [],
+    "attuned": false,
+    "bulky": false,
+    "craftingComponents": "",
+    "containerId": "",
+    "damagedState": 0,
+    "equippedState": 0,
+    "items": {},
+    "materialProperties": [],
+    "objectType": "consumable",
+    "plotItem": false,
+    "price": "450 gp",
+    "proficient": true,
+    "quantity": 1,
+    "rarity": "uncommon",
+    "requiresAttunement": false,
+    "shieldCategory": "",
+    "shieldProperties": [],
+    "unidentified": false,
+    "unidentifiedDescription": "",
+    "unidentifiedName": "",
+    "weaponProperties": [],
+    "weight": 0
+  },
+  "effects": [
+    {
+      "icon": "icons/consumables/potions/bottle-corked-empty.webp",
+      "origin": "Item.0tqedqbdg2p9lg3d",
+      "flags": {
+        "a5e": {
+          "sort": 0,
+          "transferType": "onUse",
+          "actionId": "xj033Ihp4ERkhV77",
+          "duration": {
+            "unit": "hours"
+          }
+        }
+      },
+      "transfer": false,
+      "name": "Truth Serum Poisoning",
+      "_id": "5UaBqRqzFKFk9i84",
+      "changes": [
+        {
+          "key": "flags.a5e.effects.statusConditions",
+          "value": "[\"poisoned\"]",
+          "mode": 0,
+          "priority": null
+        }
+      ],
+      "disabled": false,
+      "duration": {
+        "startTime": null,
+        "seconds": 3600,
+        "combat": null,
+        "rounds": null,
+        "turns": null,
+        "startRound": null,
+        "startTurn": null
+      },
+      "description": "",
+      "statuses": [
+        "poisoned"
+      ],
+      "tint": "#ffffff",
+      "folder": null
+    }
+  ],
+  "flags": {},
+  "_id": "0tqedqbdg2p9lg3d"
 }

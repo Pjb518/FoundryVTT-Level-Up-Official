@@ -1,2162 +1,2158 @@
 {
-	"name": "Troll Hulk",
-	"type": "npc",
-	"img": "systems/a5e/assets/troll.webp",
-	"items": [
-		{
-			"_id": "nnAonsXRMHJM3PXj",
-			"name": "Regeneration",
-			"type": "feature",
-			"img": "icons/skills/wounds/anatomy-organ-heart-red.webp",
-			"effects": [],
-			"folder": null,
-			"sort": 0,
-			"flags": {},
-			"system": {
-				"ac": {
-					"baseFormula": "",
-					"formula": "",
-					"maxDex": 0,
-					"minStr": 0,
-					"mode": 1,
-					"requiresNoShield": false,
-					"requiresUnarmored": false
-				},
-				"actions": {},
-				"description": "<p>The troll regains 20 hit points at the start of its turn. If the troll takes acid or fire damage, this trait doesn&rsquo;t function on its next turn. The troll dies only if it starts its turn with 0 hit points and doesn&rsquo;t regenerate.</p>",
-				"favorite": true,
-				"secretDescription": "",
-				"source": "",
-				"uses": {
-					"value": null,
-					"max": "",
-					"per": null,
-					"recharge": {
-						"formula": "",
-						"threshold": ""
-					}
-				},
-				"schema": {
-					"version": null,
-					"lastMigration": null
-				},
-				"concentration": false,
-				"featureType": "",
-				"grants": {},
-				"prerequisite": "",
-				"requiresBloodied": false,
-				"schemaVersion": {
-					"version": 0.011,
-					"lastMigration": {
-						"version": {
-							"schema": 0.01,
-							"foundry": "11.315",
-							"system": "0.16.37"
-						}
-					}
-				}
-			},
-			"ownership": {
-				"default": 0
-			}
-		},
-		{
-			"_id": "JQhjDW1MeYWPMfOU",
-			"name": "Multiattack",
-			"type": "feature",
-			"img": "icons/skills/melee/blade-tips-triple-steel.webp",
-			"effects": [],
-			"folder": null,
-			"sort": 0,
-			"flags": {},
-			"system": {
-				"ac": {
-					"baseFormula": "",
-					"formula": "",
-					"maxDex": 0,
-					"minStr": 0,
-					"mode": 1,
-					"requiresNoShield": false,
-					"requiresUnarmored": false
-				},
-				"actions": {},
-				"description": "<p>The troll attacks once with its bite and twice with its claw.</p>",
-				"favorite": true,
-				"secretDescription": "",
-				"source": "",
-				"uses": {
-					"value": null,
-					"max": "",
-					"per": null,
-					"recharge": {
-						"formula": "",
-						"threshold": ""
-					}
-				},
-				"schema": {
-					"version": null,
-					"lastMigration": null
-				},
-				"concentration": false,
-				"featureType": "",
-				"grants": {},
-				"prerequisite": "",
-				"requiresBloodied": false,
-				"schemaVersion": {
-					"version": 0.011,
-					"lastMigration": {
-						"version": {
-							"schema": 0.01,
-							"foundry": "11.315",
-							"system": "0.16.37"
-						}
-					}
-				}
-			},
-			"ownership": {
-				"default": 0
-			}
-		},
-		{
-			"_id": "hxXDrbgIrEEISTl3",
-			"name": "Bite",
-			"type": "feature",
-			"img": "icons/creatures/abilities/mouth-teeth-long-red.webp",
-			"effects": [],
-			"folder": null,
-			"sort": 0,
-			"flags": {},
-			"system": {
-				"ac": {
-					"baseFormula": "",
-					"formula": "",
-					"maxDex": 0,
-					"minStr": 0,
-					"mode": 1,
-					"requiresNoShield": false,
-					"requiresUnarmored": false
-				},
-				"actions": {
-					"zBFvLQKbofPHWcPg": {
-						"name": "Attack",
-						"activation": {
-							"cost": 1,
-							"type": "action",
-							"reactionTrigger": ""
-						},
-						"duration": {
-							"unit": "instantaneous",
-							"value": ""
-						},
-						"ranges": {
-							"LDFUZWqeTxZyjXlT": {
-								"range": "fiveFeet"
-							}
-						},
-						"area": {
-							"shape": "",
-							"size": "",
-							"placeTemplate": false
-						},
-						"target": {
-							"quantity": 1,
-							"type": "creature"
-						},
-						"rolls": {
-							"XbxnPQ4q3wQAg7sC": {
-								"bonus": "",
-								"critThreshold": "20",
-								"type": "attack",
-								"attackType": "meleeWeaponAttack",
-								"ability": "str"
-							},
-							"voQ7NtauALIuHjFe": {
-								"canCrit": true,
-								"damageType": "piercing",
-								"formula": "3d12+ @str.mod",
-								"name": "Default",
-								"type": "damage"
-							}
-						},
-						"consumers": {}
-					}
-				},
-				"description": "<p><em>Melee Weapon Attack:</em>&nbsp;+12 to hit, reach 5 ft., one target.&nbsp;<em>Hit:</em>&nbsp;26 (3d12 + 7) piercing damage. If the target is a creature, it is&nbsp;<span class=\"freelinking-link\">grappled</span>&nbsp;(escape DC 20). Until the grapple ends, the target is&nbsp;<span class=\"freelinking-link\">restrained</span>&nbsp;and the troll can&rsquo;t bite a different creature. If this attack reduces a creature to 0 hit points, the creature dies and the troll swallows the creature. If a swallowed creature isn&rsquo;t retrieved from the troll&rsquo;s stomach within 1 hour, its body is destroyed, its face appears on the troll&rsquo;s hide, and the troll gains another use of Legendary Resistance.</p>",
-				"favorite": true,
-				"secretDescription": "",
-				"source": "",
-				"uses": {
-					"value": null,
-					"max": "",
-					"per": null,
-					"recharge": {
-						"formula": "",
-						"threshold": ""
-					}
-				},
-				"schema": {
-					"version": null,
-					"lastMigration": null
-				},
-				"concentration": false,
-				"featureType": "naturalWeapon",
-				"grants": {},
-				"prerequisite": "",
-				"requiresBloodied": false,
-				"schemaVersion": {
-					"version": 0.011,
-					"lastMigration": {
-						"version": {
-							"schema": 0.01,
-							"foundry": "11.315",
-							"system": "0.16.37"
-						}
-					}
-				}
-			},
-			"ownership": {
-				"default": 0
-			}
-		},
-		{
-			"_id": "URYK8eaIcBh0JYwh",
-			"name": "Claw",
-			"type": "feature",
-			"img": "icons/skills/melee/blood-slash-foam-red.webp",
-			"effects": [],
-			"folder": null,
-			"sort": 0,
-			"flags": {},
-			"system": {
-				"ac": {
-					"baseFormula": "",
-					"formula": "",
-					"maxDex": 0,
-					"minStr": 0,
-					"mode": 1,
-					"requiresNoShield": false,
-					"requiresUnarmored": false
-				},
-				"actions": {
-					"xGvWcNZGDtfOKE3O": {
-						"name": "Attack",
-						"activation": {
-							"cost": 1,
-							"type": "action",
-							"reactionTrigger": ""
-						},
-						"duration": {
-							"unit": "instantaneous",
-							"value": ""
-						},
-						"ranges": {
-							"VFPKqsDf5qqhSwO5": {
-								"range": 15,
-								"unit": "feet"
-							}
-						},
-						"area": {
-							"shape": "",
-							"size": "",
-							"placeTemplate": false
-						},
-						"target": {
-							"quantity": 1,
-							"type": "creature"
-						},
-						"rolls": {
-							"VdMKBJ4ubUDuMMB5": {
-								"bonus": "",
-								"critThreshold": "20",
-								"type": "attack",
-								"attackType": "meleeWeaponAttack",
-								"ability": "str"
-							},
-							"g9XXEKoiOVQHgZxb": {
-								"canCrit": true,
-								"damageType": "slashing",
-								"formula": "3d4 + @str.mod",
-								"name": "Default",
-								"type": "damage"
-							}
-						},
-						"consumers": {}
-					}
-				},
-				"description": "<p><em>Melee Weapon Attack:</em>&nbsp;+12 to hit, reach 15 ft., one target.&nbsp;<em>Hit:&nbsp;</em>14 (3d4 + 7) slashing damage.</p>",
-				"favorite": true,
-				"secretDescription": "",
-				"source": "",
-				"uses": {
-					"value": null,
-					"max": "",
-					"per": null,
-					"recharge": {
-						"formula": "",
-						"threshold": ""
-					}
-				},
-				"schema": {
-					"version": null,
-					"lastMigration": null
-				},
-				"concentration": false,
-				"featureType": "naturalWeapon",
-				"grants": {},
-				"prerequisite": "",
-				"requiresBloodied": false,
-				"schemaVersion": {
-					"version": 0.011,
-					"lastMigration": {
-						"version": {
-							"schema": 0.01,
-							"foundry": "11.315",
-							"system": "0.16.37"
-						}
-					}
-				}
-			},
-			"ownership": {
-				"default": 0
-			}
-		},
-		{
-			"name": "Shove",
-			"type": "maneuver",
-			"img": "icons/skills/melee/shield-block-bash-yellow.webp",
-			"effects": [],
-			"flags": {
-				"core": {
-					"sourceId": "Compendium.a5e.a5e-maneuvers.md35qozzy2fxy2o6"
-				}
-			},
-			"system": {
-				"actions": {
-					"ihTB3Qd18gf30wTQ": {
-						"name": "Shove",
-						"activation": {
-							"cost": 1,
-							"type": "action",
-							"reactionTrigger": ""
-						},
-						"duration": {
-							"unit": "instantaneous",
-							"value": null
-						},
-						"ranges": {
-							"0Pz6N18pkr8fI42X": {
-								"range": "fiveFeet"
-							}
-						},
-						"area": {
-							"shape": "",
-							"size": "",
-							"placeTemplate": false
-						},
-						"target": {
-							"quantity": null,
-							"type": "creature",
-							"shape": "",
-							"size": ""
-						},
-						"rolls": {
-							"sq9tbpcnKDjZNGRe": {
-								"canCrit": false,
-								"damageType": "bludgeoning",
-								"formula": "1 + @str.mod",
-								"name": "Default",
-								"type": "damage"
-							}
-						},
-						"prompts": {
-							"P7Be79kcBDT5Bzkj": {
-								"ability": "str",
-								"onSave": "",
-								"saveDC": {
-									"type": "custom",
-									"bonus": "@maneuverDC"
-								},
-								"type": "savingThrow"
-							}
-						},
-						"consumers": {}
-					}
-				},
-				"description": "<p>You can use the Shove maneuver to push a creature away. If you are able to make multiple attacks with the Attack action, this maneuver replaces one of them.</p><p>The target must be within your reach and be no more than one size category larger than you. The target makes a Strength saving throw against your maneuver DC. On a failure, you deal basic melee damage and push the target a number of feet away from you equal to 5 + 5 for every 5 points it failed its saving throw by. You can move the creature in any direction away from you (to the side, forward, or diagonally away).</p><p>A creature that is shoved off of a precipice is propelled off of whatever it is standing on -- it does not receive any saving throw or ability check to grab onto something to avoid falling down below.</p>",
-				"favorite": false,
-				"secretDescription": "",
-				"source": "",
-				"uses": {
-					"value": null,
-					"max": "",
-					"per": null,
-					"recharge": {
-						"formula": "",
-						"threshold": ""
-					}
-				},
-				"schema": {
-					"version": null,
-					"lastMigration": null
-				},
-				"concentration": false,
-				"degree": 0,
-				"exertionCost": 0,
-				"isStance": false,
-				"prerequisite": "",
-				"tradition": "",
-				"schemaVersion": {
-					"version": 0.011,
-					"lastMigration": {
-						"version": {
-							"schema": 0.01,
-							"foundry": "11.315",
-							"system": "0.16.37"
-						}
-					}
-				}
-			},
-			"ownership": {
-				"default": 0
-			},
-			"folder": null,
-			"sort": 0,
-			"_id": "E3YYUOzQ1OJlAhrY"
-		},
-		{
-			"name": "Disarm",
-			"type": "maneuver",
-			"img": "icons/skills/melee/sword-damaged-broken-glow-red.webp",
-			"effects": [],
-			"flags": {
-				"core": {
-					"sourceId": "Compendium.a5e.a5e-maneuvers.c0bv7fsy2akld5lp"
-				}
-			},
-			"system": {
-				"actions": {
-					"YzxNFE8aiFVfKKQa": {
-						"name": "Disarm",
-						"activation": {
-							"cost": 1,
-							"type": "action",
-							"reactionTrigger": ""
-						},
-						"duration": {
-							"unit": "instantaneous",
-							"value": null
-						},
-						"ranges": {
-							"PAWzQY2ZLrbTKKyg": {
-								"range": "touch"
-							}
-						},
-						"area": {
-							"shape": "",
-							"size": "",
-							"placeTemplate": false
-						},
-						"target": {
-							"quantity": "",
-							"type": "creature",
-							"shape": "",
-							"size": ""
-						},
-						"rolls": {
-							"4ZSyDX5Cjam8CRXh": {
-								"canCrit": false,
-								"damageType": "",
-								"formula": "1 + @str.mod",
-								"name": "",
-								"type": "damage"
-							}
-						},
-						"prompts": {
-							"2nYY9ora82ibl7Kw": {
-								"ability": "str",
-								"onSave": "",
-								"saveDC": {
-									"type": "custom",
-									"bonus": "@maneuverDC"
-								},
-								"type": "savingThrow"
-							}
-						},
-						"consumers": {}
-					}
-				},
-				"description": "<p>You can use the Disarm maneuver to attempt to knock an item or weapon from a creature's hand. If you are able to make multiple attacks with the Attack action, this maneuver replaces one of them.</p><p>The target must be within your reach and be holding an item (either carried or wielded). The target makes a Strength or Dexterity saving throw against your maneuver DC. On a failure, you deal basic melee damage and the target drops the item in its space. The target has advantage if it is larger than you or holding the item with two or more hands, and a target smaller than you has disadvantage.</p>",
-				"favorite": false,
-				"secretDescription": "",
-				"source": "",
-				"uses": {
-					"value": null,
-					"max": "",
-					"per": null,
-					"recharge": {
-						"formula": "",
-						"threshold": ""
-					}
-				},
-				"schema": {
-					"version": null,
-					"lastMigration": null
-				},
-				"concentration": false,
-				"degree": 0,
-				"exertionCost": 0,
-				"isStance": false,
-				"prerequisite": "",
-				"tradition": "",
-				"schemaVersion": {
-					"version": 0.011,
-					"lastMigration": {
-						"version": {
-							"schema": 0.01,
-							"foundry": "11.315",
-							"system": "0.16.37"
-						}
-					}
-				}
-			},
-			"ownership": {
-				"default": 0
-			},
-			"folder": null,
-			"sort": 0,
-			"_id": "4WxSoMUe0WA5TOrU"
-		},
-		{
-			"name": "Grab On",
-			"type": "maneuver",
-			"img": "icons/skills/melee/hand-grip-staff-teal.webp",
-			"effects": [],
-			"flags": {
-				"core": {
-					"sourceId": "Compendium.a5e.a5e-maneuvers.jewmp4pzrg9cdui9"
-				}
-			},
-			"system": {
-				"actions": {
-					"uzkhV47LH9mpQvqX": {
-						"name": "Grab On",
-						"activation": {
-							"cost": 1,
-							"type": "action",
-							"reactionTrigger": ""
-						},
-						"duration": {
-							"unit": "instantaneous",
-							"value": null
-						},
-						"ranges": {
-							"qSDRBq77gbP5DzR9": {
-								"range": "touch"
-							}
-						},
-						"area": {
-							"shape": "",
-							"size": "",
-							"placeTemplate": false
-						},
-						"target": {
-							"quantity": "",
-							"type": "creature",
-							"shape": "",
-							"size": ""
-						},
-						"prompts": {
-							"YNjh77VIifPW2N31": {
-								"ability": "str",
-								"onSave": "",
-								"saveDC": {
-									"type": "custom",
-									"bonus": "@maneuverDC"
-								},
-								"type": "savingThrow"
-							}
-						},
-						"consumers": {}
-					}
-				},
-				"description": "<p>While you cannot grapple a creature two or more size categories larger than you, you can grab onto it. By jumping onto its back or climbing up a limb, you can make a Strength or Dexterity saving throw against the creature's maneuver DC to cling to or balance upon its body. On a success, you move into the creature's space and can move upon its body as if it is difficult terrain.</p><p>While grabbing onto a larger creature, you gain advantage on attack rolls against it. The larger creature may be able to attack you as normal, depending on its limbs or attacks. It can also use an action or replace one of its attacks on its turn to try to dislodge you, such as shaking you loose or bashing you against a wall, forcing you to make a Strength or Dexterity saving throw against its maneuver DC or fall prone into the nearest space adjacent to the creature, taking its basic melee damage in the process.</p><p>If the creature chooses to roll over in order to dislodge you, it becomes prone, but you have disadvantage on the saving throw to hang on.</p>",
-				"favorite": false,
-				"secretDescription": "",
-				"source": "",
-				"uses": {
-					"value": null,
-					"max": "",
-					"per": null,
-					"recharge": {
-						"formula": "",
-						"threshold": ""
-					}
-				},
-				"schema": {
-					"version": null,
-					"lastMigration": null
-				},
-				"concentration": false,
-				"degree": 0,
-				"exertionCost": 0,
-				"isStance": false,
-				"prerequisite": "",
-				"tradition": "",
-				"schemaVersion": {
-					"version": 0.011,
-					"lastMigration": {
-						"version": {
-							"schema": 0.01,
-							"foundry": "11.315",
-							"system": "0.16.37"
-						}
-					}
-				}
-			},
-			"ownership": {
-				"default": 0
-			},
-			"folder": null,
-			"sort": 0,
-			"_id": "Iln05kYcezT0wk3X"
-		},
-		{
-			"name": "Knockdown",
-			"type": "maneuver",
-			"img": "icons/magic/control/silhouette-fall-slip-prone.webp",
-			"effects": [],
-			"flags": {
-				"core": {
-					"sourceId": "Compendium.a5e.a5e-maneuvers.zzg7j7cb0vkgctwi"
-				}
-			},
-			"system": {
-				"actions": {
-					"F6odlNAjoO2EaZxN": {
-						"name": "Knockdown",
-						"activation": {
-							"cost": 1,
-							"type": "action",
-							"reactionTrigger": ""
-						},
-						"duration": {
-							"unit": "instantaneous",
-							"value": null
-						},
-						"ranges": {
-							"9xVuAtHGx78eBg2D": {
-								"range": "touch"
-							}
-						},
-						"area": {
-							"shape": "",
-							"size": "",
-							"placeTemplate": false
-						},
-						"target": {
-							"quantity": "",
-							"type": "creature",
-							"shape": "",
-							"size": ""
-						},
-						"prompts": {
-							"j2Sz61Yb4l96ublz": {
-								"ability": "str",
-								"onSave": "",
-								"saveDC": {
-									"type": "custom",
-									"bonus": "@maneuverDC"
-								},
-								"type": "savingThrow"
-							}
-						},
-						"consumers": {}
-					}
-				},
-				"description": "<p>You can use the Knockdown maneuver to trip or push a creature down. If you are able to make multiple attacks with the Attack action, this maneuver replaces one of them.</p><p>The target must be within your reach and be no more than one size category larger than you. The target makes a Strength saving throw against your maneuver DC. On a failure, you deal basic melee damage and knock the target prone.</p>",
-				"favorite": false,
-				"secretDescription": "",
-				"source": "",
-				"uses": {
-					"value": null,
-					"max": "",
-					"per": null,
-					"recharge": {
-						"formula": "",
-						"threshold": ""
-					}
-				},
-				"schema": {
-					"version": null,
-					"lastMigration": null
-				},
-				"concentration": false,
-				"degree": 0,
-				"exertionCost": 0,
-				"isStance": false,
-				"prerequisite": "",
-				"tradition": "",
-				"schemaVersion": {
-					"version": 0.011,
-					"lastMigration": {
-						"version": {
-							"schema": 0.01,
-							"foundry": "11.315",
-							"system": "0.16.37"
-						}
-					}
-				}
-			},
-			"ownership": {
-				"default": 0
-			},
-			"folder": null,
-			"sort": 0,
-			"_id": "NFVxIEA2r15MCKAp"
-		},
-		{
-			"name": "Grapple",
-			"type": "maneuver",
-			"img": "icons/skills/melee/unarmed-punch-fist.webp",
-			"effects": [],
-			"flags": {
-				"core": {
-					"sourceId": "Compendium.a5e.a5e-maneuvers.9umrahwm68f81d7l"
-				}
-			},
-			"system": {
-				"actions": {
-					"nODaYidn6SPiKADC": {
-						"name": "Grapple",
-						"activation": {
-							"cost": 1,
-							"type": "action",
-							"reactionTrigger": ""
-						},
-						"duration": {
-							"unit": "instantaneous",
-							"value": null
-						},
-						"ranges": {
-							"LU1tZfN9jaBYjLEi": {
-								"range": "touch"
-							}
-						},
-						"area": {
-							"shape": "",
-							"size": "",
-							"placeTemplate": false
-						},
-						"target": {
-							"quantity": "",
-							"type": "creature",
-							"shape": "",
-							"size": ""
-						},
-						"prompts": {
-							"ReuPKBlduILKKRp1": {
-								"ability": "str",
-								"onSave": "",
-								"saveDC": {
-									"type": "custom",
-									"bonus": "@maneuverDC"
-								},
-								"type": "savingThrow"
-							}
-						},
-						"consumers": {}
-					}
-				},
-				"description": "<p>You can use the Grapple maneuver to grab or wrestle a creature. If you are able to make multiple attacks with the Attack action, this maneuver replaces one of them.</p>\n<p>You must have at least one free hand to attempt a grapple, your target must be within your reach, and the target must be no more than one size category larger than you. The target makes a Strength or Dexterity saving throw against your maneuver DC. On a failure, you deal basic melee damage and the target becomes grappled (see Appendix A: Conditions on page 616). In addition to things that end the condition, you can release the target at any time (no action required).</p>\n<p><em>Escaping a Grapple.</em> While grappled, a creature can use its action to attempt to escape. It must succeed on a Strength or Dexterity saving throw against your maneuver DC.</p>\n<p><em>Moving a Grappled Creature. </em>When you move, you can drag or carry the grappled creature with you. When you do so, your Speed is halved, unless the creature's weight is within your carrying capacity and you are not encumbered by bulky items.</p>\n<p><em>Freeing a Grappled Creature.</em> You can use the Grapple maneuver to try to free another grappled or restrained creature. The creature grappling or restraining the target makes a Strength saving throw against your maneuver DC. If it fails the saving throw, the grappled or restrained creature is freed. Additionally, you may move the freed creature 5 feet in any direction.</p>",
-				"favorite": false,
-				"secretDescription": "",
-				"source": "",
-				"uses": {
-					"value": null,
-					"max": "",
-					"per": null,
-					"recharge": {
-						"formula": "",
-						"threshold": ""
-					}
-				},
-				"schema": {
-					"version": null,
-					"lastMigration": null
-				},
-				"concentration": false,
-				"degree": 0,
-				"exertionCost": 0,
-				"isStance": false,
-				"prerequisite": "",
-				"tradition": "",
-				"schemaVersion": {
-					"version": 0.011,
-					"lastMigration": {
-						"version": {
-							"schema": 0.01,
-							"foundry": "11.315",
-							"system": "0.16.37"
-						}
-					}
-				}
-			},
-			"ownership": {
-				"default": 0
-			},
-			"folder": null,
-			"sort": 0,
-			"_id": "ZGZq4xJ0IGVO7TWw"
-		},
-		{
-			"name": "Overrun",
-			"type": "maneuver",
-			"img": "icons/skills/melee/shield-damaged-broken-blue.webp",
-			"effects": [],
-			"flags": {
-				"core": {
-					"sourceId": "Compendium.a5e.a5e-maneuvers.210ihnnejao46r20"
-				}
-			},
-			"system": {
-				"actions": {
-					"Dus5n72g8hPt0Wwy": {
-						"name": "Overrun",
-						"activation": {
-							"cost": 1,
-							"type": "special",
-							"reactionTrigger": ""
-						},
-						"duration": {
-							"unit": "instantaneous",
-							"value": null
-						},
-						"ranges": {
-							"GaraEvLX7aTtdpNp": {
-								"range": "touch"
-							}
-						},
-						"area": {
-							"shape": "",
-							"size": "",
-							"placeTemplate": false
-						},
-						"target": {
-							"quantity": "",
-							"type": "creature",
-							"shape": "",
-							"size": ""
-						},
-						"prompts": {
-							"6yEAZB5GUswGc59k": {
-								"ability": "str",
-								"onSave": "",
-								"saveDC": {
-									"type": "custom",
-									"bonus": "@maneuverDC"
-								},
-								"type": "savingThrow"
-							}
-						},
-						"consumers": {}
-					}
-				},
-				"description": "<p>You can use an action or bonus action to make an Overrun maneuver to move through a hostile creature's space by forcing your way past. Make a Strength saving throw against the target's maneuver DC. On a success, you deal basic melee damage and can move through the hostile creature's space once this turn. The creature can choose to just let you pass instead of rolling. You have advantage if you are larger than the target, or disadvantage if you are smaller. If you are two or more sizes smaller than the target, you can move through the hostile creature's space without making a save. You still provoke opportunity attacks if you move beyond a creature's reach.</p>",
-				"favorite": false,
-				"secretDescription": "",
-				"source": "",
-				"uses": {
-					"value": null,
-					"max": "",
-					"per": null,
-					"recharge": {
-						"formula": "",
-						"threshold": ""
-					}
-				},
-				"schema": {
-					"version": null,
-					"lastMigration": null
-				},
-				"concentration": false,
-				"degree": 0,
-				"exertionCost": 0,
-				"isStance": false,
-				"prerequisite": "",
-				"tradition": "",
-				"schemaVersion": {
-					"version": 0.011,
-					"lastMigration": {
-						"version": {
-							"schema": 0.01,
-							"foundry": "11.315",
-							"system": "0.16.37"
-						}
-					}
-				}
-			},
-			"ownership": {
-				"default": 0
-			},
-			"folder": null,
-			"sort": 0,
-			"_id": "6r2P3mImF3AwNEx8"
-		},
-		{
-			"_id": "6ldCHDek37do0Qno",
-			"name": "Legendary Resistance",
-			"type": "feature",
-			"img": "icons/commodities/treasure/crown-gold-laurel-wreath.webp",
-			"effects": [],
-			"folder": null,
-			"sort": 0,
-			"flags": {},
-			"system": {
-				"ac": {
-					"baseFormula": "",
-					"formula": "",
-					"maxDex": 0,
-					"minStr": 0,
-					"mode": 1,
-					"requiresNoShield": false,
-					"requiresUnarmored": false
-				},
-				"actions": {
-					"6a9TBmDwiX7n8JbP": {
-						"name": "Legendary Resistance",
-						"activation": {
-							"cost": 1,
-							"type": "none",
-							"reactionTrigger": ""
-						},
-						"duration": {
-							"unit": "",
-							"value": ""
-						},
-						"area": {
-							"shape": "",
-							"size": "",
-							"placeTemplate": false
-						},
-						"target": {
-							"quantity": "",
-							"type": ""
-						},
-						"consumers": {
-							"VXmm9tUZsNW8QbJE": {
-								"type": "itemUses"
-							}
-						}
-					}
-				},
-				"description": "<p>The troll has four extra troll, humanoid, or giant faces budding from its hide. When the troll fails a&nbsp;<span class=\"freelinking-link\">saving throw</span>&nbsp;, it can choose to succeed instead. If it does, one of its extra faces dies. When the troll succeeds on a saving throw in this way, it takes no damage from an effect that would deal half damage on a success. Once the troll has used this trait four times, it can&rsquo;t do so again until it consumes another creature that has a face.</p>",
-				"favorite": true,
-				"secretDescription": "",
-				"source": "",
-				"uses": {
-					"value": 4,
-					"max": "4",
-					"per": "day",
-					"recharge": {
-						"formula": "",
-						"threshold": ""
-					}
-				},
-				"schema": {
-					"version": null,
-					"lastMigration": null
-				},
-				"concentration": false,
-				"featureType": "",
-				"grants": {},
-				"prerequisite": "",
-				"requiresBloodied": false,
-				"schemaVersion": {
-					"version": 0.011,
-					"lastMigration": {
-						"version": {
-							"schema": 0.01,
-							"foundry": "11.315",
-							"system": "0.16.37"
-						}
-					}
-				}
-			},
-			"ownership": {
-				"default": 0
-			}
-		},
-		{
-			"name": "Rock",
-			"type": "feature",
-			"system": {
-				"ac": {
-					"baseFormula": "",
-					"formula": "",
-					"maxDex": 0,
-					"minStr": 0,
-					"mode": 2,
-					"requiresNoShield": false,
-					"requiresUnarmored": false
-				},
-				"actions": {
-					"i8O5KtNiDEFY0jcl": {
-						"name": "Throw Rock",
-						"activation": {},
-						"consumers": {},
-						"rolls": {
-							"j7RQMLfOLondE9yI": {
-								"type": "attack",
-								"default": true,
-								"attackType": "rangedWeaponAttack",
-								"proficient": true,
-								"ability": "str"
-							},
-							"hCm6eVLisvba2a62": {
-								"type": "damage",
-								"default": true,
-								"damageType": "bludgeoning",
-								"formula": "3d12 + @str.mod"
-							}
-						},
-						"prompts": {},
-						"uses": {
-							"value": 0,
-							"max": "",
-							"per": "",
-							"recharge": {
-								"formula": "1d6",
-								"threshold": 6
-							}
-						},
-						"ranges": {
-							"rtnr2pKb9fjrPXe6": {
-								"range": 20,
-								"unit": "feet"
-							},
-							"1QkuQZw0vB7HTgzj": {
-								"range": "medium"
-							}
-						},
-						"target": {
-							"type": "creature",
-							"quantity": 1
-						}
-					}
-				},
-				"description": "<p><em>Ranged Weapon Attack:&nbsp;</em>+12 to hit, reach 5 ft., one target.&nbsp;<em>Hit:&nbsp;</em>26 (3d12 + 7) bludgeoning damage. If the target is a creature, it must succeed on a DC 20 Strength&nbsp;<span class=\"freelinking-link\">saving throw</span>&nbsp;or be knocked&nbsp;<span class=\"freelinking-link\">prone</span>&nbsp;.</p>",
-				"favorite": true,
-				"secretDescription": "",
-				"source": {
-					"name": "",
-					"link": "",
-					"publisher": ""
-				},
-				"uses": {
-					"value": null,
-					"max": "",
-					"per": null,
-					"recharge": {
-						"formula": "1d6",
-						"threshold": "6"
-					}
-				},
-				"schema": {
-					"version": null,
-					"lastMigration": null
-				},
-				"concentration": false,
-				"featureType": "other",
-				"grants": {},
-				"prerequisite": "",
-				"requiresBloodied": false,
-				"schemaVersion": {
-					"version": 0.011,
-					"lastMigration": {
-						"version": {
-							"schema": 0.01,
-							"foundry": "11.315",
-							"system": "0.16.37"
-						}
-					}
-				}
-			},
-			"_id": "z6Pi0u4jWW2AtQ9V",
-			"img": "icons/magic/earth/projectile-boulder-debris.webp",
-			"effects": [],
-			"folder": null,
-			"sort": 0,
-			"ownership": {
-				"default": 0
-			},
-			"flags": {}
-		},
-		{
-			"name": "Legendary Actions",
-			"type": "feature",
-			"system": {
-				"ac": {
-					"baseFormula": "",
-					"formula": "",
-					"maxDex": 0,
-					"minStr": 0,
-					"mode": 2,
-					"requiresNoShield": false,
-					"requiresUnarmored": false
-				},
-				"actions": {},
-				"description": "<p>The troll can take 2 legendary actions, choosing from the options below. Only one legendary action can be used at a time and only at the end of another creature&rsquo;s turn. It regains spent legendary actions at the start of its turn.</p>",
-				"favorite": true,
-				"secretDescription": "",
-				"source": {
-					"name": "",
-					"link": "",
-					"publisher": ""
-				},
-				"uses": {
-					"value": 2,
-					"max": "2",
-					"per": null,
-					"recharge": {
-						"formula": "1d6",
-						"threshold": "6"
-					}
-				},
-				"schema": {
-					"version": null,
-					"lastMigration": null
-				},
-				"concentration": false,
-				"featureType": "legendaryAction",
-				"grants": {},
-				"prerequisite": "",
-				"requiresBloodied": false,
-				"schemaVersion": {
-					"version": 0.011,
-					"lastMigration": {
-						"version": {
-							"schema": 0.01,
-							"foundry": "11.315",
-							"system": "0.16.37"
-						}
-					}
-				}
-			},
-			"_id": "mRQAo5V8d87SUgj1",
-			"img": "icons/skills/social/intimidation-impressing.webp",
-			"effects": [],
-			"folder": null,
-			"sort": 0,
-			"ownership": {
-				"default": 0
-			},
-			"flags": {}
-		},
-		{
-			"name": "Clumsy Leap (Legendary Action)",
-			"type": "feature",
-			"system": {
-				"ac": {
-					"baseFormula": "",
-					"formula": "",
-					"maxDex": 0,
-					"minStr": 0,
-					"mode": 2,
-					"requiresNoShield": false,
-					"requiresUnarmored": false
-				},
-				"actions": {},
-				"description": "<p>The troll leaps up to 50 feet horizontally or 20 feet vertically, with or without a running start. The troll lands&nbsp;<span class=\"freelinking-link\">prone</span>.</p>",
-				"favorite": true,
-				"secretDescription": "",
-				"source": {
-					"name": "",
-					"link": "",
-					"publisher": ""
-				},
-				"uses": {
-					"value": null,
-					"max": "",
-					"per": null,
-					"recharge": {
-						"formula": "1d6",
-						"threshold": "6"
-					}
-				},
-				"schema": {
-					"version": null,
-					"lastMigration": null
-				},
-				"concentration": false,
-				"featureType": "other",
-				"grants": {},
-				"prerequisite": "",
-				"requiresBloodied": false,
-				"schemaVersion": {
-					"version": 0.011,
-					"lastMigration": {
-						"version": {
-							"schema": 0.01,
-							"foundry": "11.315",
-							"system": "0.16.37"
-						}
-					}
-				}
-			},
-			"_id": "vjMY31cVYeR8ECcg",
-			"img": "icons/skills/movement/arrow-upward-yellow.webp",
-			"effects": [],
-			"folder": null,
-			"sort": 0,
-			"ownership": {
-				"default": 0
-			},
-			"flags": {}
-		},
-		{
-			"name": "Lunging Claw (Legendary Action)",
-			"type": "feature",
-			"system": {
-				"ac": {
-					"baseFormula": "",
-					"formula": "",
-					"maxDex": 0,
-					"minStr": 0,
-					"mode": 2,
-					"requiresNoShield": false,
-					"requiresUnarmored": false
-				},
-				"actions": {},
-				"description": "<p>The troll moves up to half its speed straight towards a target without provoking&nbsp;<span class=\"freelinking-link\">opportunity attacks</span>&nbsp;and makes a claw attack against that target.</p>",
-				"favorite": true,
-				"secretDescription": "",
-				"source": {
-					"name": "",
-					"link": "",
-					"publisher": ""
-				},
-				"uses": {
-					"value": null,
-					"max": "",
-					"per": null,
-					"recharge": {
-						"formula": "1d6",
-						"threshold": "6"
-					}
-				},
-				"schema": {
-					"version": null,
-					"lastMigration": null
-				},
-				"concentration": false,
-				"featureType": "legendaryAction",
-				"grants": {},
-				"prerequisite": "",
-				"requiresBloodied": false,
-				"schemaVersion": {
-					"version": 0.011,
-					"lastMigration": {
-						"version": {
-							"schema": 0.01,
-							"foundry": "11.315",
-							"system": "0.16.37"
-						}
-					}
-				}
-			},
-			"_id": "EU2WJJsUnGM96OcU",
-			"img": "icons/skills/melee/blood-slash-foam-red.webp",
-			"effects": [],
-			"folder": null,
-			"sort": 0,
-			"ownership": {
-				"default": 0
-			},
-			"flags": {}
-		},
-		{
-			"name": "Backhand Swipe (Legendary Action)",
-			"type": "feature",
-			"system": {
-				"ac": {
-					"baseFormula": "",
-					"formula": "",
-					"maxDex": 0,
-					"minStr": 0,
-					"mode": 2,
-					"requiresNoShield": false,
-					"requiresUnarmored": false
-				},
-				"actions": {},
-				"description": "<p>The troll makes a claw attack against one or two targets.</p>",
-				"favorite": true,
-				"secretDescription": "",
-				"source": {
-					"name": "",
-					"link": "",
-					"publisher": ""
-				},
-				"uses": {
-					"value": null,
-					"max": "",
-					"per": null,
-					"recharge": {
-						"formula": "1d6",
-						"threshold": "6"
-					}
-				},
-				"schema": {
-					"version": null,
-					"lastMigration": null
-				},
-				"concentration": false,
-				"featureType": "legendaryAction",
-				"grants": {},
-				"prerequisite": "",
-				"requiresBloodied": false,
-				"schemaVersion": {
-					"version": 0.011,
-					"lastMigration": {
-						"version": {
-							"schema": 0.01,
-							"foundry": "11.315",
-							"system": "0.16.37"
-						}
-					}
-				}
-			},
-			"_id": "GjfrY6DCziBKacN4",
-			"img": "icons/skills/melee/blood-slash-foam-red.webp",
-			"effects": [],
-			"folder": null,
-			"sort": 0,
-			"ownership": {
-				"default": 0
-			},
-			"flags": {}
-		},
-		{
-			"name": "Rock (Legendary Action)",
-			"type": "feature",
-			"system": {
-				"ac": {
-					"baseFormula": "",
-					"formula": "",
-					"maxDex": 0,
-					"minStr": 0,
-					"mode": 2,
-					"requiresNoShield": false,
-					"requiresUnarmored": false
-				},
-				"actions": {},
-				"description": "<p>The troll makes a rock attack.</p>",
-				"favorite": true,
-				"secretDescription": "",
-				"source": {
-					"name": "",
-					"link": "",
-					"publisher": ""
-				},
-				"uses": {
-					"value": null,
-					"max": "",
-					"per": null,
-					"recharge": {
-						"formula": "1d6",
-						"threshold": "6"
-					}
-				},
-				"schema": {
-					"version": null,
-					"lastMigration": null
-				},
-				"concentration": false,
-				"featureType": "legendaryAction",
-				"grants": {},
-				"prerequisite": "",
-				"requiresBloodied": false,
-				"schemaVersion": {
-					"version": 0.011,
-					"lastMigration": {
-						"version": {
-							"schema": 0.01,
-							"foundry": "11.315",
-							"system": "0.16.37"
-						}
-					}
-				}
-			},
-			"_id": "12bsOB40E8BUWqzy",
-			"img": "icons/magic/earth/projectile-boulder-debris.webp",
-			"effects": [],
-			"folder": null,
-			"sort": 0,
-			"ownership": {
-				"default": 0
-			},
-			"flags": {}
-		},
-		{
-			"_id": "nPG7Y1FlGKGW5uJ8",
-			"name": "Keen Smell",
-			"type": "feature",
-			"img": "icons/creatures/mammals/wolf-shadow-black.webp",
-			"effects": [],
-			"folder": null,
-			"sort": 2,
-			"flags": {},
-			"system": {
-				"ac": {
-					"baseFormula": "",
-					"formula": "",
-					"maxDex": 0,
-					"minStr": 0,
-					"mode": 1,
-					"requiresNoShield": false,
-					"requiresUnarmored": false
-				},
-				"actions": {},
-				"description": "<p>The troll has advantage on Perception checks that rely on smell.</p>",
-				"favorite": true,
-				"secretDescription": "",
-				"source": "",
-				"uses": {
-					"value": null,
-					"max": "",
-					"per": null,
-					"recharge": {
-						"formula": "",
-						"threshold": ""
-					}
-				},
-				"schema": {
-					"version": null,
-					"lastMigration": null
-				},
-				"concentration": false,
-				"featureType": "",
-				"grants": {},
-				"prerequisite": "",
-				"requiresBloodied": false,
-				"schemaVersion": {
-					"version": 0.011,
-					"lastMigration": {
-						"version": {
-							"schema": 0.01,
-							"foundry": "11.315",
-							"system": "0.16.37"
-						}
-					}
-				}
-			},
-			"ownership": {
-				"default": 0
-			}
-		}
-	],
-	"effects": [],
-	"flags": {
-		"a5e": {
-			"availableSpellLevels": [],
-			"showSpellSlots": false,
-			"showSpellPoints": false,
-			"sheetIsLocked": true,
-			"showSpellTab": false
-		}
-	},
-	"system": {
-		"abilities": {
-			"str": {
-				"value": 24,
-				"check": {
-					"expertiseDice": 0,
-					"bonus": "",
-					"notes": {}
-				},
-				"save": {
-					"proficient": false,
-					"expertiseDice": 0,
-					"bonus": "",
-					"notes": {}
-				}
-			},
-			"dex": {
-				"value": 12,
-				"check": {
-					"expertiseDice": 0,
-					"bonus": "",
-					"notes": {}
-				},
-				"save": {
-					"proficient": false,
-					"expertiseDice": 0,
-					"bonus": "",
-					"notes": {}
-				}
-			},
-			"con": {
-				"value": 22,
-				"check": {
-					"expertiseDice": 0,
-					"bonus": "",
-					"notes": {}
-				},
-				"save": {
-					"proficient": false,
-					"expertiseDice": 0,
-					"bonus": "",
-					"notes": {}
-				}
-			},
-			"int": {
-				"value": 12,
-				"check": {
-					"expertiseDice": 0,
-					"bonus": "",
-					"notes": {}
-				},
-				"save": {
-					"proficient": false,
-					"expertiseDice": 0,
-					"bonus": "",
-					"notes": {}
-				}
-			},
-			"wis": {
-				"value": 16,
-				"check": {
-					"expertiseDice": 0,
-					"bonus": "",
-					"notes": {}
-				},
-				"save": {
-					"proficient": false,
-					"expertiseDice": 0,
-					"bonus": "",
-					"notes": {}
-				}
-			},
-			"cha": {
-				"value": 10,
-				"check": {
-					"expertiseDice": 0,
-					"bonus": "",
-					"notes": {}
-				},
-				"save": {
-					"proficient": false,
-					"expertiseDice": 0,
-					"bonus": "",
-					"notes": {}
-				}
-			}
-		},
-		"schemaVersion": {
-			"version": 0.011,
-			"lastMigration": {
-				"version": {
-					"schema": 0.01,
-					"foundry": "11.315",
-					"system": "0.16.37"
-				}
-			}
-		},
-		"skills": {
-			"acr": {
-				"ability": "dex",
-				"value": 0,
-				"proficient": false,
-				"specialties": [],
-				"expertiseDice": 0,
-				"minRoll": 1,
-				"bonuses": {
-					"check": "",
-					"passive": 0
-				}
-			},
-			"ani": {
-				"ability": "wis",
-				"value": 0,
-				"proficient": false,
-				"specialties": [],
-				"expertiseDice": 0,
-				"minRoll": 1,
-				"bonuses": {
-					"check": "",
-					"passive": 0
-				}
-			},
-			"arc": {
-				"ability": "int",
-				"value": 0,
-				"proficient": false,
-				"specialties": [],
-				"expertiseDice": 0,
-				"minRoll": 1,
-				"bonuses": {
-					"check": "",
-					"passive": 0
-				}
-			},
-			"ath": {
-				"ability": "str",
-				"value": 0,
-				"proficient": false,
-				"specialties": [],
-				"expertiseDice": 0,
-				"minRoll": 1,
-				"bonuses": {
-					"check": "",
-					"passive": 0
-				}
-			},
-			"cul": {
-				"ability": "int",
-				"value": 0,
-				"proficient": false,
-				"specialties": [],
-				"expertiseDice": 0,
-				"minRoll": 1,
-				"bonuses": {
-					"check": "",
-					"passive": 0
-				}
-			},
-			"dec": {
-				"ability": "cha",
-				"value": 0,
-				"proficient": false,
-				"specialties": [],
-				"expertiseDice": 0,
-				"minRoll": 1,
-				"bonuses": {
-					"check": "",
-					"passive": 0
-				}
-			},
-			"eng": {
-				"ability": "int",
-				"value": 0,
-				"proficient": false,
-				"specialties": [],
-				"expertiseDice": 0,
-				"minRoll": 1,
-				"bonuses": {
-					"check": "",
-					"passive": 0
-				}
-			},
-			"his": {
-				"ability": "int",
-				"value": 0,
-				"proficient": false,
-				"specialties": [],
-				"expertiseDice": 0,
-				"minRoll": 1,
-				"bonuses": {
-					"check": "",
-					"passive": 0
-				}
-			},
-			"ins": {
-				"ability": "wis",
-				"value": 0,
-				"proficient": false,
-				"specialties": [],
-				"expertiseDice": 0,
-				"minRoll": 1,
-				"bonuses": {
-					"check": "",
-					"passive": 0
-				}
-			},
-			"itm": {
-				"ability": "cha",
-				"value": 0,
-				"proficient": false,
-				"specialties": [],
-				"expertiseDice": 0,
-				"minRoll": 1,
-				"bonuses": {
-					"check": "",
-					"passive": 0
-				}
-			},
-			"inv": {
-				"ability": "int",
-				"value": 0,
-				"proficient": false,
-				"specialties": [],
-				"expertiseDice": 0,
-				"minRoll": 1,
-				"bonuses": {
-					"check": "",
-					"passive": 0
-				}
-			},
-			"med": {
-				"ability": "wis",
-				"value": 0,
-				"proficient": false,
-				"specialties": [],
-				"expertiseDice": 0,
-				"minRoll": 1,
-				"bonuses": {
-					"check": "",
-					"passive": 0
-				}
-			},
-			"nat": {
-				"ability": "int",
-				"value": 0,
-				"proficient": false,
-				"specialties": [],
-				"expertiseDice": 0,
-				"minRoll": 1,
-				"bonuses": {
-					"check": "",
-					"passive": 0
-				}
-			},
-			"prc": {
-				"ability": "wis",
-				"value": 0,
-				"proficient": true,
-				"specialties": [],
-				"expertiseDice": 0,
-				"minRoll": 1,
-				"bonuses": {
-					"check": "",
-					"passive": 0
-				}
-			},
-			"prf": {
-				"ability": "cha",
-				"value": 0,
-				"proficient": false,
-				"specialties": [],
-				"expertiseDice": 0,
-				"minRoll": 1,
-				"bonuses": {
-					"check": "",
-					"passive": 0
-				}
-			},
-			"per": {
-				"ability": "cha",
-				"value": 0,
-				"proficient": false,
-				"specialties": [],
-				"expertiseDice": 0,
-				"minRoll": 1,
-				"bonuses": {
-					"check": "",
-					"passive": 0
-				}
-			},
-			"rel": {
-				"ability": "int",
-				"value": 0,
-				"proficient": false,
-				"specialties": [],
-				"expertiseDice": 0,
-				"minRoll": 1,
-				"bonuses": {
-					"check": "",
-					"passive": 0
-				}
-			},
-			"slt": {
-				"ability": "dex",
-				"value": 0,
-				"proficient": false,
-				"specialties": [],
-				"expertiseDice": 0,
-				"minRoll": 1,
-				"bonuses": {
-					"check": "",
-					"passive": 0
-				}
-			},
-			"ste": {
-				"ability": "dex",
-				"value": 0,
-				"proficient": true,
-				"specialties": [],
-				"expertiseDice": 0,
-				"minRoll": 1,
-				"bonuses": {
-					"check": "",
-					"passive": 0
-				}
-			},
-			"sur": {
-				"ability": "wis",
-				"value": 0,
-				"proficient": true,
-				"specialties": [],
-				"expertiseDice": 0,
-				"minRoll": 1,
-				"bonuses": {
-					"check": "",
-					"passive": 0
-				}
-			}
-		},
-		"spellResources": {
-			"slots": {
-				"1": {
-					"current": 0,
-					"max": 0
-				},
-				"2": {
-					"current": 0,
-					"max": 0
-				},
-				"3": {
-					"current": 0,
-					"max": 0
-				},
-				"4": {
-					"current": 0,
-					"max": 0
-				},
-				"5": {
-					"current": 0,
-					"max": 0
-				},
-				"6": {
-					"current": 0,
-					"max": 0
-				},
-				"7": {
-					"current": 0,
-					"max": 0
-				},
-				"8": {
-					"current": 0,
-					"max": 0
-				},
-				"9": {
-					"current": 0,
-					"max": 0
-				}
-			},
-			"points": {
-				"current": 0,
-				"max": 0
-			}
-		},
-		"attributes": {
-			"ac": {
-				"baseFormula": "16",
-				"value": 0
-			},
-			"death": {
-				"success": 0,
-				"failure": 0
-			},
-			"hp": {
-				"value": 250,
-				"baseMax": 250,
-				"temp": 0,
-				"bonus": 0
-			},
-			"hitDice": {
-				"d6": {
-					"current": 0,
-					"total": 0
-				},
-				"d8": {
-					"current": 0,
-					"total": 0
-				},
-				"d10": {
-					"current": 0,
-					"total": 0
-				},
-				"d12": {
-					"current": 20,
-					"total": 20
-				},
-				"d4": {
-					"current": 0,
-					"total": 0
-				},
-				"d20": {
-					"current": 0,
-					"total": 0
-				}
-			},
-			"initiative": {
-				"bonus": "",
-				"expertiseDice": 0,
-				"ability": "dex"
-			},
-			"movement": {
-				"burrow": {
-					"distance": 0,
-					"unit": "feet"
-				},
-				"climb": {
-					"distance": 0,
-					"unit": "feet"
-				},
-				"fly": {
-					"distance": 0,
-					"unit": "feet"
-				},
-				"swim": {
-					"distance": 0,
-					"unit": "feet"
-				},
-				"walk": {
-					"distance": 50,
-					"unit": "feet"
-				},
-				"traits": {
-					"hover": false
-				}
-			},
-			"senses": {
-				"blindsight": {
-					"distance": null,
-					"unit": "feet",
-					"otherwiseBlind": false
-				},
-				"darkvision": {
-					"distance": 60,
-					"unit": "feet"
-				},
-				"tremorsense": {
-					"distance": null,
-					"unit": "feet"
-				},
-				"truesight": {
-					"distance": null,
-					"unit": "feet"
-				}
-			},
-			"inspiration": false,
-			"fatigue": 0,
-			"strife": 0,
-			"spellcasting": "int",
-			"casterLevel": 0
-		},
-		"bonuses": {
-			"abilities": {},
-			"damage": {},
-			"healing": {},
-			"maneuverDC": "",
-			"meleeSpellAttack": "",
-			"meleeWeaponAttack": "",
-			"rangedSpellAttack": "",
-			"rangedWeaponAttack": "",
-			"spellDC": "",
-			"skills": {},
-			"attacks": {}
-		},
-		"currency": {
-			"pp": 0,
-			"gp": 0,
-			"ep": 0,
-			"sp": 0,
-			"cp": 0
-		},
-		"details": {
-			"bio": "<h2><strong>COMBAT</strong></h2>\n<p>The troll bites and claws the closest creature. If it takes over 40 damage from a single attack, it uses its Clumsy Leap or Lunging Claw legendary actions to reach that attacker. Otherwise, it chomps a&nbsp;<span class=\"freelinking-link\">grappled</span>&nbsp;creature or uses Backhand Swipe. It flees only if it takes fire or acid damage while it has no uses of Legendary Resistance</p>\n<hr class=\"a5e-rule u-my-md\">\n<h2><strong>NAMES</strong></h2>\n<p>Arreck the Thin, Dovregubbens, Vilith</p>\n<hr class=\"a5e-rule u-my-md\">\n<h2><strong>LEGENDS AND LORE</strong></h2>\n<p>With an Arcana or Nature check, characters can learn the following:</p>\n<p><strong>DC 10</strong> A troll&rsquo;s unique physiology allows it to heal wounds with incredible speed. Fire and acid temporarily suppress this regeneration.</p>\n<p><strong>DC 15</strong> Though large, trolls are quite stealthy. They can see in the dark and track prey by smell alone.</p>\n<p><strong>DC 20</strong> Because of their regeneration, trolls are prone to mutation. Certain strains have adapted to life underground or deep beneath the waves.</p>\n<hr class=\"a5e-rule u-my-md\">\n<h2><strong>DESCRIPTION</strong></h2>\n<p>A troll hulk is a massively muscled troll that has out-consumed and outgrown its fellows. Its hide is dotted with the blinking and leering visages of humanoids, trolls, and giants: the faces of rivals it has eaten and absorbed.</p>\n<p><em><strong>Sated Behemoths.</strong></em>&nbsp;A troll&rsquo;s appetite is so tremendous that most trolls are thin and wasted even in areas of plenty. Only rarely does a troll find enough sustenance that it realizes its full size and strength. Such a troll can quickly turn a lush forest or a thriving settlement into a barren, uninhabited waste. While a troll hulk&rsquo;s favorite meal is another troll (since every troll is also a voracious rival), troll hulks eat anything they get their claws on, including carrion.</p>\n<p><em><strong>You Are What You Eat.&nbsp;</strong></em>A troll hulk&rsquo;s meals are incorporated half-digested into its body. Every troll hulk has several sets of working organs and networks of spare bones. This makes it difficult to kill a troll hulk simply by smashing it or stabbing its organs.</p>\n<p>Just as a troll hulk incorporates its prey&rsquo;s organs into its body, it absorbs facial features as well. The faces of the creatures it has consumed bud from its skin, making antic expressions in a parody of independent life.</p>\n<hr class=\"a5e-rule u-my-md\">\n<h2><strong>BEHAVIOR</strong></h2>\n<p>1 Feasting on troll or giant corpses</p>\n<p>2 Awaiting tribute from its servants</p>\n<p>3 Mad with hunger; smashing through a wall beyond which it smells prey</p>\n<p>4 Sleeping atop a reeking pile of bones and treasure</p>\n<p>5 Being regaled with stories by a creature trying to delay its consumption</p>\n<p>6 Willing to work with anyone planning to fight a large, meaty monster</p>\n<hr class=\"a5e-rule u-my-md\">\n<h2><strong>SIGNS</strong></h2>\n<p>1 Thousands of cracked bones with the marrow sucked out</p>\n<p>2 The stench of carrion</p>\n<p>3 A cowering goblin, human, or pixie</p>\n<p>4 A mysteriously uninhabited settlement</p>\n<hr class=\"a5e-rule u-my-md\">\n<h2><strong>ENCOUNTERS</strong></h2>\n<p>Troll hulks stalk mountain caves and Underland caverns, depopulating their hunting grounds in order to sate their enormous hunger.</p>\n<p><strong>CR&nbsp;</strong>11&ndash;16&nbsp;<span class=\"freelinking-link\">troll hulk</span></p>\n<p><strong>Treasure&nbsp;</strong>6 pieces of bloody gold jewelry, including rings, bracelets, and a necklace (750 gp each)</p>\n<p><strong>CR&nbsp;</strong>17&ndash;22&nbsp;<span class=\"freelinking-link\">troll hulk</span>&nbsp;with 2 or 3&nbsp;<span class=\"freelinking-link\">bugbears</span>&nbsp;,&nbsp;<span class=\"freelinking-link\">ettercaps</span>&nbsp;,&nbsp;<span class=\"freelinking-link\">harpies</span>&nbsp;, or&nbsp;<span class=\"freelinking-link\">ogres</span></p>\n<p><strong>Treasure&nbsp;</strong>11,000 gp, 8 gnawed silver busts of famous philosophers (500 gp each),<em>&nbsp;<span class=\"freelinking-link\">staff of the woodlands</span>&nbsp;</em>(named Staff of Prey; the owner can also expend 4 charges to cast&nbsp;<em><span class=\"freelinking-link\">conjure woodland beings</span></em></p>\n<p><strong>CR&nbsp;</strong>23&ndash;30&nbsp;<span class=\"freelinking-link\">troll king</span>&nbsp;;&nbsp;<span class=\"freelinking-link\">troll hulk</span>&nbsp;with 2 or 3&nbsp;<span class=\"freelinking-link\">ettins</span>&nbsp;,&nbsp;<span class=\"freelinking-link\">hill giants</span>&nbsp;, or&nbsp;<span class=\"freelinking-link\">trolls</span></p>\n<p><strong>Treasure&nbsp;</strong>giant mithral frying pan (2,500 gp), 3 silver dragon eggs (20,000 gp each),<em>&nbsp;<span class=\"freelinking-link\">portable hole</span>&nbsp;</em>completely filled with bones (including dragon bones)</p>\n<p><strong>CR&nbsp;</strong>31+&nbsp;<span class=\"freelinking-link\">troll king</span>&nbsp;with 2 or 3&nbsp;<span class=\"freelinking-link\">ettins</span>&nbsp;,&nbsp;<span class=\"freelinking-link\">frost giants</span>&nbsp;,&nbsp;<span class=\"freelinking-link\">hill giants</span>&nbsp;, or&nbsp;<span class=\"freelinking-link\">trolls</span></p>\n<p><strong>Treasure&nbsp;</strong>10,000 pp, gold and emerald crown for a Huge creature (25,000 gp), sheaf of maps showing secret entrances to nearby settlements and fortifications (25,000 gp), <em>ring of spell turning </em>worn by a humanoid hand protruding from the troll&rsquo;s side (the troll is attuned to the ring)</p>\n<hr class=\"a5e-rule u-my-md\">\n<h2><strong>MONSTER TYPE DESCRIPTION</strong></h2>\n<p>Giants look like immense humanoids, standing from 10 feet tall (like ogres) to 30 (like storm giants). Some giants, like trolls, have human-like shapes but monstrous features.</p>",
-			"creatureTypes": [
-				"giant"
-			],
-			"isSwarm": false,
-			"cr": 15,
-			"elite": false,
-			"privateNotes": "",
-			"notes": "",
-			"terrain": []
-		},
-		"proficiencies": {
-			"armor": [],
-			"languages": [
-				"giant",
-				"common"
-			],
-			"tools": [],
-			"weapons": []
-		},
-		"resources": {
-			"primary": {
-				"label": "",
-				"value": 0,
-				"max": "0",
-				"per": "",
-				"hideMax": false,
-				"recharge": {
-					"formula": "",
-					"threshold": 6
-				}
-			},
-			"secondary": {
-				"label": "",
-				"value": 0,
-				"max": "0",
-				"per": "",
-				"hideMax": false,
-				"recharge": {
-					"formula": "",
-					"threshold": 6
-				}
-			},
-			"tertiary": {
-				"label": "",
-				"value": 0,
-				"max": "0",
-				"per": "",
-				"hideMax": false,
-				"recharge": {
-					"formula": "",
-					"threshold": 6
-				}
-			},
-			"quaternary": {
-				"label": "",
-				"value": 0,
-				"max": "0",
-				"per": "",
-				"hideMax": false,
-				"recharge": {
-					"formula": "",
-					"threshold": 6
-				}
-			}
-		},
-		"source": {
-			"name": "",
-			"link": "",
-			"publisher": ""
-		},
-		"traits": {
-			"size": "huge",
-			"conditionImmunities": [
-				"poisoned"
-			],
-			"damageImmunities": [
-				"poison"
-			],
-			"damageResistances": [
-				"bludgeoning",
-				"piercing"
-			],
-			"damageVulnerabilities": []
-		}
-	},
-	"prototypeToken": {
-		"name": "Troll Hulk",
-		"displayName": 0,
-		"actorLink": false,
-		"width": 3,
-		"height": 3,
-		"lockRotation": false,
-		"rotation": 0,
-		"alpha": 1,
-		"light": {
-			"alpha": 0.5,
-			"angle": 360,
-			"bright": 0,
-			"coloration": 1,
-			"dim": 0,
-			"luminosity": 0.5,
-			"saturation": 0,
-			"contrast": 0,
-			"shadows": 0,
-			"animation": {
-				"speed": 5,
-				"intensity": 5,
-				"reverse": false,
-				"type": null
-			},
-			"darkness": {
-				"min": 0,
-				"max": 1
-			},
-			"color": null,
-			"attenuation": 0.5
-		},
-		"disposition": -1,
-		"displayBars": 0,
-		"bar1": {
-			"attribute": "attributes.hp"
-		},
-		"bar2": {
-			"attribute": null
-		},
-		"flags": {
-			"wall-height": {
-				"tokenHeight": 0
-			},
-			"token-z": {
-				"zIndex": 0
-			},
-			"monks-enhanced-journal": {
-				"chatbubble": ""
-			},
-			"monks-tokenbar": {
-				"include": "default"
-			},
-			"pushable": {
-				"isPushable": false,
-				"isPullable": false
-			},
-			"token-variants": {
-				"randomImgDefault": ""
-			},
-			"monks-combat-marker": {
-				"token-highlight-scale": 1.5,
-				"token-combat-animation": "",
-				"token-highlight": ""
-			},
-			"roll-tokens": {
-				"table": ""
-			},
-			"Rideable": {
-				"issetRideableFlag": false,
-				"MaxRiderFlag": null,
-				"RiderPositioningFlag": "RowPlacement",
-				"TokenFormFlag": "TokenFormCircle",
-				"InsideMovementFlag": false,
-				"SpawnRidersFlag": ""
-			},
-			"healthEstimate": {
-				"dontMarkDead": false,
-				"hideHealthEstimate": false,
-				"hideName": false
-			}
-		},
-		"randomImg": false,
-		"texture": {
-			"src": "systems/a5e/assets/troll.webp",
-			"tint": "#ffffff",
-			"scaleX": 1,
-			"scaleY": 1,
-			"offsetX": 0,
-			"offsetY": 0,
-			"rotation": 0
-		},
-		"sight": {
-			"angle": 360,
-			"enabled": false,
-			"range": 0,
-			"brightness": 1,
-			"color": null,
-			"attenuation": 0.1,
-			"saturation": 0,
-			"contrast": 0,
-			"visionMode": "basic"
-		},
-		"detectionModes": [],
-		"appendNumber": false,
-		"prependAdjective": false
-	},
-	"folder": null,
-	"_id": "rou1jldzkx5zxsy1"
+  "name": "Troll Hulk",
+  "type": "npc",
+  "img": "systems/a5e/assets/troll.webp",
+  "items": [
+    {
+      "_id": "nnAonsXRMHJM3PXj",
+      "name": "Regeneration",
+      "type": "feature",
+      "img": "icons/skills/wounds/anatomy-organ-heart-red.webp",
+      "effects": [],
+      "folder": null,
+      "sort": 0,
+      "flags": {},
+      "system": {
+        "ac": {
+          "baseFormula": "",
+          "formula": "",
+          "maxDex": 0,
+          "minStr": 0,
+          "mode": 1,
+          "requiresNoShield": false,
+          "requiresUnarmored": false
+        },
+        "actions": {},
+        "description": "<p>The troll regains 20 hit points at the start of its turn. If the troll takes acid or fire damage, this trait doesn&rsquo;t function on its next turn. The troll dies only if it starts its turn with 0 hit points and doesn&rsquo;t regenerate.</p>",
+        "favorite": true,
+        "secretDescription": "",
+        "source": "",
+        "uses": {
+          "value": null,
+          "max": "",
+          "per": null,
+          "recharge": {
+            "formula": "",
+            "threshold": ""
+          }
+        },
+        "schema": {
+          "version": null,
+          "lastMigration": null
+        },
+        "concentration": false,
+        "featureType": "",
+        "grants": {},
+        "prerequisite": "",
+        "requiresBloodied": false,
+        "schemaVersion": {
+          "version": 0.011,
+          "lastMigration": {
+            "version": {
+              "schema": 0.01,
+              "foundry": "11.315",
+              "system": "0.16.37"
+            }
+          }
+        }
+      },
+      "ownership": {
+        "default": 0
+      }
+    },
+    {
+      "_id": "JQhjDW1MeYWPMfOU",
+      "name": "Multiattack",
+      "type": "feature",
+      "img": "icons/skills/melee/blade-tips-triple-steel.webp",
+      "effects": [],
+      "folder": null,
+      "sort": 0,
+      "flags": {},
+      "system": {
+        "ac": {
+          "baseFormula": "",
+          "formula": "",
+          "maxDex": 0,
+          "minStr": 0,
+          "mode": 1,
+          "requiresNoShield": false,
+          "requiresUnarmored": false
+        },
+        "actions": {},
+        "description": "<p>The troll attacks once with its bite and twice with its claw.</p>",
+        "favorite": true,
+        "secretDescription": "",
+        "source": "",
+        "uses": {
+          "value": null,
+          "max": "",
+          "per": null,
+          "recharge": {
+            "formula": "",
+            "threshold": ""
+          }
+        },
+        "schema": {
+          "version": null,
+          "lastMigration": null
+        },
+        "concentration": false,
+        "featureType": "",
+        "grants": {},
+        "prerequisite": "",
+        "requiresBloodied": false,
+        "schemaVersion": {
+          "version": 0.011,
+          "lastMigration": {
+            "version": {
+              "schema": 0.01,
+              "foundry": "11.315",
+              "system": "0.16.37"
+            }
+          }
+        }
+      },
+      "ownership": {
+        "default": 0
+      }
+    },
+    {
+      "_id": "hxXDrbgIrEEISTl3",
+      "name": "Bite",
+      "type": "feature",
+      "img": "icons/creatures/abilities/mouth-teeth-long-red.webp",
+      "effects": [],
+      "folder": null,
+      "sort": 0,
+      "flags": {},
+      "system": {
+        "ac": {
+          "baseFormula": "",
+          "formula": "",
+          "maxDex": 0,
+          "minStr": 0,
+          "mode": 1,
+          "requiresNoShield": false,
+          "requiresUnarmored": false
+        },
+        "actions": {
+          "zBFvLQKbofPHWcPg": {
+            "name": "Attack",
+            "activation": {
+              "cost": 1,
+              "type": "action",
+              "reactionTrigger": ""
+            },
+            "duration": {
+              "unit": "instantaneous",
+              "value": ""
+            },
+            "ranges": {
+              "LDFUZWqeTxZyjXlT": {
+                "range": "fiveFeet"
+              }
+            },
+            "area": {
+              "shape": "",
+              "size": "",
+              "placeTemplate": false
+            },
+            "target": {
+              "quantity": 1,
+              "type": "creature"
+            },
+            "rolls": {
+              "XbxnPQ4q3wQAg7sC": {
+                "bonus": "",
+                "critThreshold": "20",
+                "type": "attack",
+                "attackType": "meleeWeaponAttack",
+                "ability": "str"
+              },
+              "voQ7NtauALIuHjFe": {
+                "canCrit": true,
+                "damageType": "piercing",
+                "formula": "3d12+ @str.mod",
+                "name": "Default",
+                "type": "damage"
+              }
+            },
+            "consumers": {}
+          }
+        },
+        "description": "<p><em>Melee Weapon Attack:</em>&nbsp;+12 to hit, reach 5 ft., one target.&nbsp;<em>Hit:</em>&nbsp;26 (3d12 + 7) piercing damage. If the target is a creature, it is&nbsp;<span class=\"freelinking-link\">grappled</span>&nbsp;(escape DC 20). Until the grapple ends, the target is&nbsp;<span class=\"freelinking-link\">restrained</span>&nbsp;and the troll can&rsquo;t bite a different creature. If this attack reduces a creature to 0 hit points, the creature dies and the troll swallows the creature. If a swallowed creature isn&rsquo;t retrieved from the troll&rsquo;s stomach within 1 hour, its body is destroyed, its face appears on the troll&rsquo;s hide, and the troll gains another use of Legendary Resistance.</p>",
+        "favorite": true,
+        "secretDescription": "",
+        "source": "",
+        "uses": {
+          "value": null,
+          "max": "",
+          "per": null,
+          "recharge": {
+            "formula": "",
+            "threshold": ""
+          }
+        },
+        "schema": {
+          "version": null,
+          "lastMigration": null
+        },
+        "concentration": false,
+        "featureType": "naturalWeapon",
+        "grants": {},
+        "prerequisite": "",
+        "requiresBloodied": false,
+        "schemaVersion": {
+          "version": 0.011,
+          "lastMigration": {
+            "version": {
+              "schema": 0.01,
+              "foundry": "11.315",
+              "system": "0.16.37"
+            }
+          }
+        }
+      },
+      "ownership": {
+        "default": 0
+      }
+    },
+    {
+      "_id": "URYK8eaIcBh0JYwh",
+      "name": "Claw",
+      "type": "feature",
+      "img": "icons/skills/melee/blood-slash-foam-red.webp",
+      "effects": [],
+      "folder": null,
+      "sort": 0,
+      "flags": {},
+      "system": {
+        "ac": {
+          "baseFormula": "",
+          "formula": "",
+          "maxDex": 0,
+          "minStr": 0,
+          "mode": 1,
+          "requiresNoShield": false,
+          "requiresUnarmored": false
+        },
+        "actions": {
+          "xGvWcNZGDtfOKE3O": {
+            "name": "Attack",
+            "activation": {
+              "cost": 1,
+              "type": "action",
+              "reactionTrigger": ""
+            },
+            "duration": {
+              "unit": "instantaneous",
+              "value": ""
+            },
+            "ranges": {
+              "VFPKqsDf5qqhSwO5": {
+                "range": 15,
+                "unit": "feet"
+              }
+            },
+            "area": {
+              "shape": "",
+              "size": "",
+              "placeTemplate": false
+            },
+            "target": {
+              "quantity": 1,
+              "type": "creature"
+            },
+            "rolls": {
+              "VdMKBJ4ubUDuMMB5": {
+                "bonus": "",
+                "critThreshold": "20",
+                "type": "attack",
+                "attackType": "meleeWeaponAttack",
+                "ability": "str"
+              },
+              "g9XXEKoiOVQHgZxb": {
+                "canCrit": true,
+                "damageType": "slashing",
+                "formula": "3d4 + @str.mod",
+                "name": "Default",
+                "type": "damage"
+              }
+            },
+            "consumers": {}
+          }
+        },
+        "description": "<p><em>Melee Weapon Attack:</em>&nbsp;+12 to hit, reach 15 ft., one target.&nbsp;<em>Hit:&nbsp;</em>14 (3d4 + 7) slashing damage.</p>",
+        "favorite": true,
+        "secretDescription": "",
+        "source": "",
+        "uses": {
+          "value": null,
+          "max": "",
+          "per": null,
+          "recharge": {
+            "formula": "",
+            "threshold": ""
+          }
+        },
+        "schema": {
+          "version": null,
+          "lastMigration": null
+        },
+        "concentration": false,
+        "featureType": "naturalWeapon",
+        "grants": {},
+        "prerequisite": "",
+        "requiresBloodied": false,
+        "schemaVersion": {
+          "version": 0.011,
+          "lastMigration": {
+            "version": {
+              "schema": 0.01,
+              "foundry": "11.315",
+              "system": "0.16.37"
+            }
+          }
+        }
+      },
+      "ownership": {
+        "default": 0
+      }
+    },
+    {
+      "name": "Shove",
+      "type": "maneuver",
+      "img": "icons/skills/melee/shield-block-bash-yellow.webp",
+      "effects": [],
+      "flags": {
+        "core": {
+          "sourceId": "Compendium.a5e.a5e-maneuvers.md35qozzy2fxy2o6"
+        }
+      },
+      "system": {
+        "actions": {
+          "ihTB3Qd18gf30wTQ": {
+            "name": "Shove",
+            "activation": {
+              "cost": 1,
+              "type": "action",
+              "reactionTrigger": ""
+            },
+            "duration": {
+              "unit": "instantaneous",
+              "value": null
+            },
+            "ranges": {
+              "0Pz6N18pkr8fI42X": {
+                "range": "fiveFeet"
+              }
+            },
+            "area": {
+              "shape": "",
+              "size": "",
+              "placeTemplate": false
+            },
+            "target": {
+              "quantity": null,
+              "type": "creature",
+              "shape": "",
+              "size": ""
+            },
+            "rolls": {
+              "sq9tbpcnKDjZNGRe": {
+                "canCrit": false,
+                "damageType": "bludgeoning",
+                "formula": "1 + @str.mod",
+                "name": "Default",
+                "type": "damage"
+              }
+            },
+            "prompts": {
+              "P7Be79kcBDT5Bzkj": {
+                "ability": "str",
+                "onSave": "",
+                "saveDC": {
+                  "type": "custom",
+                  "bonus": "@maneuverDC"
+                },
+                "type": "savingThrow"
+              }
+            },
+            "consumers": {}
+          }
+        },
+        "description": "<p>You can use the Shove maneuver to push a creature away. If you are able to make multiple attacks with the Attack action, this maneuver replaces one of them.</p><p>The target must be within your reach and be no more than one size category larger than you. The target makes a Strength saving throw against your maneuver DC. On a failure, you deal basic melee damage and push the target a number of feet away from you equal to 5 + 5 for every 5 points it failed its saving throw by. You can move the creature in any direction away from you (to the side, forward, or diagonally away).</p><p>A creature that is shoved off of a precipice is propelled off of whatever it is standing on -- it does not receive any saving throw or ability check to grab onto something to avoid falling down below.</p>",
+        "favorite": false,
+        "secretDescription": "",
+        "source": "",
+        "uses": {
+          "value": null,
+          "max": "",
+          "per": null,
+          "recharge": {
+            "formula": "",
+            "threshold": ""
+          }
+        },
+        "schema": {
+          "version": null,
+          "lastMigration": null
+        },
+        "concentration": false,
+        "degree": 0,
+        "exertionCost": 0,
+        "isStance": false,
+        "prerequisite": "",
+        "tradition": "",
+        "schemaVersion": {
+          "version": 0.011,
+          "lastMigration": {
+            "version": {
+              "schema": 0.01,
+              "foundry": "11.315",
+              "system": "0.16.37"
+            }
+          }
+        }
+      },
+      "ownership": {
+        "default": 0
+      },
+      "folder": null,
+      "sort": 0,
+      "_id": "E3YYUOzQ1OJlAhrY"
+    },
+    {
+      "name": "Disarm",
+      "type": "maneuver",
+      "img": "icons/skills/melee/sword-damaged-broken-glow-red.webp",
+      "effects": [],
+      "flags": {
+        "core": {
+          "sourceId": "Compendium.a5e.a5e-maneuvers.c0bv7fsy2akld5lp"
+        }
+      },
+      "system": {
+        "actions": {
+          "YzxNFE8aiFVfKKQa": {
+            "name": "Disarm",
+            "activation": {
+              "cost": 1,
+              "type": "action",
+              "reactionTrigger": ""
+            },
+            "duration": {
+              "unit": "instantaneous",
+              "value": null
+            },
+            "ranges": {
+              "PAWzQY2ZLrbTKKyg": {
+                "range": "touch"
+              }
+            },
+            "area": {
+              "shape": "",
+              "size": "",
+              "placeTemplate": false
+            },
+            "target": {
+              "quantity": "",
+              "type": "creature",
+              "shape": "",
+              "size": ""
+            },
+            "rolls": {
+              "4ZSyDX5Cjam8CRXh": {
+                "canCrit": false,
+                "damageType": "",
+                "formula": "1 + @str.mod",
+                "name": "",
+                "type": "damage"
+              }
+            },
+            "prompts": {
+              "2nYY9ora82ibl7Kw": {
+                "ability": "str",
+                "onSave": "",
+                "saveDC": {
+                  "type": "custom",
+                  "bonus": "@maneuverDC"
+                },
+                "type": "savingThrow"
+              }
+            },
+            "consumers": {}
+          }
+        },
+        "description": "<p>You can use the Disarm maneuver to attempt to knock an item or weapon from a creature's hand. If you are able to make multiple attacks with the Attack action, this maneuver replaces one of them.</p><p>The target must be within your reach and be holding an item (either carried or wielded). The target makes a Strength or Dexterity saving throw against your maneuver DC. On a failure, you deal basic melee damage and the target drops the item in its space. The target has advantage if it is larger than you or holding the item with two or more hands, and a target smaller than you has disadvantage.</p>",
+        "favorite": false,
+        "secretDescription": "",
+        "source": "",
+        "uses": {
+          "value": null,
+          "max": "",
+          "per": null,
+          "recharge": {
+            "formula": "",
+            "threshold": ""
+          }
+        },
+        "schema": {
+          "version": null,
+          "lastMigration": null
+        },
+        "concentration": false,
+        "degree": 0,
+        "exertionCost": 0,
+        "isStance": false,
+        "prerequisite": "",
+        "tradition": "",
+        "schemaVersion": {
+          "version": 0.011,
+          "lastMigration": {
+            "version": {
+              "schema": 0.01,
+              "foundry": "11.315",
+              "system": "0.16.37"
+            }
+          }
+        }
+      },
+      "ownership": {
+        "default": 0
+      },
+      "folder": null,
+      "sort": 0,
+      "_id": "4WxSoMUe0WA5TOrU"
+    },
+    {
+      "name": "Grab On",
+      "type": "maneuver",
+      "img": "icons/skills/melee/hand-grip-staff-teal.webp",
+      "effects": [],
+      "flags": {
+        "core": {
+          "sourceId": "Compendium.a5e.a5e-maneuvers.jewmp4pzrg9cdui9"
+        }
+      },
+      "system": {
+        "actions": {
+          "uzkhV47LH9mpQvqX": {
+            "name": "Grab On",
+            "activation": {
+              "cost": 1,
+              "type": "action",
+              "reactionTrigger": ""
+            },
+            "duration": {
+              "unit": "instantaneous",
+              "value": null
+            },
+            "ranges": {
+              "qSDRBq77gbP5DzR9": {
+                "range": "touch"
+              }
+            },
+            "area": {
+              "shape": "",
+              "size": "",
+              "placeTemplate": false
+            },
+            "target": {
+              "quantity": "",
+              "type": "creature",
+              "shape": "",
+              "size": ""
+            },
+            "prompts": {
+              "YNjh77VIifPW2N31": {
+                "ability": "str",
+                "onSave": "",
+                "saveDC": {
+                  "type": "custom",
+                  "bonus": "@maneuverDC"
+                },
+                "type": "savingThrow"
+              }
+            },
+            "consumers": {}
+          }
+        },
+        "description": "<p>While you cannot grapple a creature two or more size categories larger than you, you can grab onto it. By jumping onto its back or climbing up a limb, you can make a Strength or Dexterity saving throw against the creature's maneuver DC to cling to or balance upon its body. On a success, you move into the creature's space and can move upon its body as if it is difficult terrain.</p><p>While grabbing onto a larger creature, you gain advantage on attack rolls against it. The larger creature may be able to attack you as normal, depending on its limbs or attacks. It can also use an action or replace one of its attacks on its turn to try to dislodge you, such as shaking you loose or bashing you against a wall, forcing you to make a Strength or Dexterity saving throw against its maneuver DC or fall prone into the nearest space adjacent to the creature, taking its basic melee damage in the process.</p><p>If the creature chooses to roll over in order to dislodge you, it becomes prone, but you have disadvantage on the saving throw to hang on.</p>",
+        "favorite": false,
+        "secretDescription": "",
+        "source": "",
+        "uses": {
+          "value": null,
+          "max": "",
+          "per": null,
+          "recharge": {
+            "formula": "",
+            "threshold": ""
+          }
+        },
+        "schema": {
+          "version": null,
+          "lastMigration": null
+        },
+        "concentration": false,
+        "degree": 0,
+        "exertionCost": 0,
+        "isStance": false,
+        "prerequisite": "",
+        "tradition": "",
+        "schemaVersion": {
+          "version": 0.011,
+          "lastMigration": {
+            "version": {
+              "schema": 0.01,
+              "foundry": "11.315",
+              "system": "0.16.37"
+            }
+          }
+        }
+      },
+      "ownership": {
+        "default": 0
+      },
+      "folder": null,
+      "sort": 0,
+      "_id": "Iln05kYcezT0wk3X"
+    },
+    {
+      "name": "Knockdown",
+      "type": "maneuver",
+      "img": "icons/magic/control/silhouette-fall-slip-prone.webp",
+      "effects": [],
+      "flags": {
+        "core": {
+          "sourceId": "Compendium.a5e.a5e-maneuvers.zzg7j7cb0vkgctwi"
+        }
+      },
+      "system": {
+        "actions": {
+          "F6odlNAjoO2EaZxN": {
+            "name": "Knockdown",
+            "activation": {
+              "cost": 1,
+              "type": "action",
+              "reactionTrigger": ""
+            },
+            "duration": {
+              "unit": "instantaneous",
+              "value": null
+            },
+            "ranges": {
+              "9xVuAtHGx78eBg2D": {
+                "range": "touch"
+              }
+            },
+            "area": {
+              "shape": "",
+              "size": "",
+              "placeTemplate": false
+            },
+            "target": {
+              "quantity": "",
+              "type": "creature",
+              "shape": "",
+              "size": ""
+            },
+            "prompts": {
+              "j2Sz61Yb4l96ublz": {
+                "ability": "str",
+                "onSave": "",
+                "saveDC": {
+                  "type": "custom",
+                  "bonus": "@maneuverDC"
+                },
+                "type": "savingThrow"
+              }
+            },
+            "consumers": {}
+          }
+        },
+        "description": "<p>You can use the Knockdown maneuver to trip or push a creature down. If you are able to make multiple attacks with the Attack action, this maneuver replaces one of them.</p><p>The target must be within your reach and be no more than one size category larger than you. The target makes a Strength saving throw against your maneuver DC. On a failure, you deal basic melee damage and knock the target prone.</p>",
+        "favorite": false,
+        "secretDescription": "",
+        "source": "",
+        "uses": {
+          "value": null,
+          "max": "",
+          "per": null,
+          "recharge": {
+            "formula": "",
+            "threshold": ""
+          }
+        },
+        "schema": {
+          "version": null,
+          "lastMigration": null
+        },
+        "concentration": false,
+        "degree": 0,
+        "exertionCost": 0,
+        "isStance": false,
+        "prerequisite": "",
+        "tradition": "",
+        "schemaVersion": {
+          "version": 0.011,
+          "lastMigration": {
+            "version": {
+              "schema": 0.01,
+              "foundry": "11.315",
+              "system": "0.16.37"
+            }
+          }
+        }
+      },
+      "ownership": {
+        "default": 0
+      },
+      "folder": null,
+      "sort": 0,
+      "_id": "NFVxIEA2r15MCKAp"
+    },
+    {
+      "name": "Grapple",
+      "type": "maneuver",
+      "img": "icons/skills/melee/unarmed-punch-fist.webp",
+      "effects": [],
+      "flags": {
+        "core": {
+          "sourceId": "Compendium.a5e.a5e-maneuvers.9umrahwm68f81d7l"
+        }
+      },
+      "system": {
+        "actions": {
+          "nODaYidn6SPiKADC": {
+            "name": "Grapple",
+            "activation": {
+              "cost": 1,
+              "type": "action",
+              "reactionTrigger": ""
+            },
+            "duration": {
+              "unit": "instantaneous",
+              "value": null
+            },
+            "ranges": {
+              "LU1tZfN9jaBYjLEi": {
+                "range": "touch"
+              }
+            },
+            "area": {
+              "shape": "",
+              "size": "",
+              "placeTemplate": false
+            },
+            "target": {
+              "quantity": "",
+              "type": "creature",
+              "shape": "",
+              "size": ""
+            },
+            "prompts": {
+              "ReuPKBlduILKKRp1": {
+                "ability": "str",
+                "onSave": "",
+                "saveDC": {
+                  "type": "custom",
+                  "bonus": "@maneuverDC"
+                },
+                "type": "savingThrow"
+              }
+            },
+            "consumers": {}
+          }
+        },
+        "description": "<p>You can use the Grapple maneuver to grab or wrestle a creature. If you are able to make multiple attacks with the Attack action, this maneuver replaces one of them.</p>\n<p>You must have at least one free hand to attempt a grapple, your target must be within your reach, and the target must be no more than one size category larger than you. The target makes a Strength or Dexterity saving throw against your maneuver DC. On a failure, you deal basic melee damage and the target becomes grappled (see Appendix A: Conditions on page 616). In addition to things that end the condition, you can release the target at any time (no action required).</p>\n<p><em>Escaping a Grapple.</em> While grappled, a creature can use its action to attempt to escape. It must succeed on a Strength or Dexterity saving throw against your maneuver DC.</p>\n<p><em>Moving a Grappled Creature. </em>When you move, you can drag or carry the grappled creature with you. When you do so, your Speed is halved, unless the creature's weight is within your carrying capacity and you are not encumbered by bulky items.</p>\n<p><em>Freeing a Grappled Creature.</em> You can use the Grapple maneuver to try to free another grappled or restrained creature. The creature grappling or restraining the target makes a Strength saving throw against your maneuver DC. If it fails the saving throw, the grappled or restrained creature is freed. Additionally, you may move the freed creature 5 feet in any direction.</p>",
+        "favorite": false,
+        "secretDescription": "",
+        "source": "",
+        "uses": {
+          "value": null,
+          "max": "",
+          "per": null,
+          "recharge": {
+            "formula": "",
+            "threshold": ""
+          }
+        },
+        "schema": {
+          "version": null,
+          "lastMigration": null
+        },
+        "concentration": false,
+        "degree": 0,
+        "exertionCost": 0,
+        "isStance": false,
+        "prerequisite": "",
+        "tradition": "",
+        "schemaVersion": {
+          "version": 0.011,
+          "lastMigration": {
+            "version": {
+              "schema": 0.01,
+              "foundry": "11.315",
+              "system": "0.16.37"
+            }
+          }
+        }
+      },
+      "ownership": {
+        "default": 0
+      },
+      "folder": null,
+      "sort": 0,
+      "_id": "ZGZq4xJ0IGVO7TWw"
+    },
+    {
+      "name": "Overrun",
+      "type": "maneuver",
+      "img": "icons/skills/melee/shield-damaged-broken-blue.webp",
+      "effects": [],
+      "flags": {
+        "core": {
+          "sourceId": "Compendium.a5e.a5e-maneuvers.210ihnnejao46r20"
+        }
+      },
+      "system": {
+        "actions": {
+          "Dus5n72g8hPt0Wwy": {
+            "name": "Overrun",
+            "activation": {
+              "cost": 1,
+              "type": "special",
+              "reactionTrigger": ""
+            },
+            "duration": {
+              "unit": "instantaneous",
+              "value": null
+            },
+            "ranges": {
+              "GaraEvLX7aTtdpNp": {
+                "range": "touch"
+              }
+            },
+            "area": {
+              "shape": "",
+              "size": "",
+              "placeTemplate": false
+            },
+            "target": {
+              "quantity": "",
+              "type": "creature",
+              "shape": "",
+              "size": ""
+            },
+            "prompts": {
+              "6yEAZB5GUswGc59k": {
+                "ability": "str",
+                "onSave": "",
+                "saveDC": {
+                  "type": "custom",
+                  "bonus": "@maneuverDC"
+                },
+                "type": "savingThrow"
+              }
+            },
+            "consumers": {}
+          }
+        },
+        "description": "<p>You can use an action or bonus action to make an Overrun maneuver to move through a hostile creature's space by forcing your way past. Make a Strength saving throw against the target's maneuver DC. On a success, you deal basic melee damage and can move through the hostile creature's space once this turn. The creature can choose to just let you pass instead of rolling. You have advantage if you are larger than the target, or disadvantage if you are smaller. If you are two or more sizes smaller than the target, you can move through the hostile creature's space without making a save. You still provoke opportunity attacks if you move beyond a creature's reach.</p>",
+        "favorite": false,
+        "secretDescription": "",
+        "source": "",
+        "uses": {
+          "value": null,
+          "max": "",
+          "per": null,
+          "recharge": {
+            "formula": "",
+            "threshold": ""
+          }
+        },
+        "schema": {
+          "version": null,
+          "lastMigration": null
+        },
+        "concentration": false,
+        "degree": 0,
+        "exertionCost": 0,
+        "isStance": false,
+        "prerequisite": "",
+        "tradition": "",
+        "schemaVersion": {
+          "version": 0.011,
+          "lastMigration": {
+            "version": {
+              "schema": 0.01,
+              "foundry": "11.315",
+              "system": "0.16.37"
+            }
+          }
+        }
+      },
+      "ownership": {
+        "default": 0
+      },
+      "folder": null,
+      "sort": 0,
+      "_id": "6r2P3mImF3AwNEx8"
+    },
+    {
+      "_id": "6ldCHDek37do0Qno",
+      "name": "Legendary Resistance",
+      "type": "feature",
+      "img": "icons/commodities/treasure/crown-gold-laurel-wreath.webp",
+      "effects": [],
+      "folder": null,
+      "sort": 0,
+      "flags": {},
+      "system": {
+        "ac": {
+          "baseFormula": "",
+          "formula": "",
+          "maxDex": 0,
+          "minStr": 0,
+          "mode": 1,
+          "requiresNoShield": false,
+          "requiresUnarmored": false
+        },
+        "actions": {
+          "6a9TBmDwiX7n8JbP": {
+            "name": "Legendary Resistance",
+            "activation": {
+              "cost": 1,
+              "type": "none",
+              "reactionTrigger": ""
+            },
+            "duration": {
+              "unit": "",
+              "value": ""
+            },
+            "area": {
+              "shape": "",
+              "size": "",
+              "placeTemplate": false
+            },
+            "target": {
+              "quantity": "",
+              "type": ""
+            },
+            "consumers": {
+              "VXmm9tUZsNW8QbJE": {
+                "type": "itemUses"
+              }
+            }
+          }
+        },
+        "description": "<p>The troll has four extra troll, humanoid, or giant faces budding from its hide. When the troll fails a&nbsp;<span class=\"freelinking-link\">saving throw</span>&nbsp;, it can choose to succeed instead. If it does, one of its extra faces dies. When the troll succeeds on a saving throw in this way, it takes no damage from an effect that would deal half damage on a success. Once the troll has used this trait four times, it can&rsquo;t do so again until it consumes another creature that has a face.</p>",
+        "favorite": true,
+        "secretDescription": "",
+        "source": "",
+        "uses": {
+          "value": 4,
+          "max": "4",
+          "per": "day",
+          "recharge": {
+            "formula": "",
+            "threshold": ""
+          }
+        },
+        "schema": {
+          "version": null,
+          "lastMigration": null
+        },
+        "concentration": false,
+        "featureType": "",
+        "grants": {},
+        "prerequisite": "",
+        "requiresBloodied": false,
+        "schemaVersion": {
+          "version": 0.011,
+          "lastMigration": {
+            "version": {
+              "schema": 0.01,
+              "foundry": "11.315",
+              "system": "0.16.37"
+            }
+          }
+        }
+      },
+      "ownership": {
+        "default": 0
+      }
+    },
+    {
+      "name": "Rock",
+      "type": "feature",
+      "system": {
+        "ac": {
+          "baseFormula": "",
+          "formula": "",
+          "maxDex": 0,
+          "minStr": 0,
+          "mode": 2,
+          "requiresNoShield": false,
+          "requiresUnarmored": false
+        },
+        "actions": {
+          "i8O5KtNiDEFY0jcl": {
+            "name": "Throw Rock",
+            "activation": {},
+            "consumers": {},
+            "rolls": {
+              "j7RQMLfOLondE9yI": {
+                "type": "attack",
+                "default": true,
+                "attackType": "rangedWeaponAttack",
+                "proficient": true,
+                "ability": "str"
+              },
+              "hCm6eVLisvba2a62": {
+                "type": "damage",
+                "default": true,
+                "damageType": "bludgeoning",
+                "formula": "3d12 + @str.mod"
+              }
+            },
+            "prompts": {},
+            "uses": {
+              "value": 0,
+              "max": "",
+              "per": "",
+              "recharge": {
+                "formula": "1d6",
+                "threshold": 6
+              }
+            },
+            "ranges": {
+              "rtnr2pKb9fjrPXe6": {
+                "range": 20,
+                "unit": "feet"
+              },
+              "1QkuQZw0vB7HTgzj": {
+                "range": "medium"
+              }
+            },
+            "target": {
+              "type": "creature",
+              "quantity": 1
+            }
+          }
+        },
+        "description": "<p><em>Ranged Weapon Attack:&nbsp;</em>+12 to hit, reach 5 ft., one target.&nbsp;<em>Hit:&nbsp;</em>26 (3d12 + 7) bludgeoning damage. If the target is a creature, it must succeed on a DC 20 Strength&nbsp;<span class=\"freelinking-link\">saving throw</span>&nbsp;or be knocked&nbsp;<span class=\"freelinking-link\">prone</span>&nbsp;.</p>",
+        "favorite": true,
+        "secretDescription": "",
+        "source": {
+          "name": "",
+          "link": "",
+          "publisher": ""
+        },
+        "uses": {
+          "value": null,
+          "max": "",
+          "per": null,
+          "recharge": {
+            "formula": "1d6",
+            "threshold": "6"
+          }
+        },
+        "schema": {
+          "version": null,
+          "lastMigration": null
+        },
+        "concentration": false,
+        "featureType": "other",
+        "grants": {},
+        "prerequisite": "",
+        "requiresBloodied": false,
+        "schemaVersion": {
+          "version": 0.011,
+          "lastMigration": {
+            "version": {
+              "schema": 0.01,
+              "foundry": "11.315",
+              "system": "0.16.37"
+            }
+          }
+        }
+      },
+      "_id": "z6Pi0u4jWW2AtQ9V",
+      "img": "icons/magic/earth/projectile-boulder-debris.webp",
+      "effects": [],
+      "folder": null,
+      "sort": 0,
+      "ownership": {
+        "default": 0
+      },
+      "flags": {}
+    },
+    {
+      "name": "Legendary Actions",
+      "type": "feature",
+      "system": {
+        "ac": {
+          "baseFormula": "",
+          "formula": "",
+          "maxDex": 0,
+          "minStr": 0,
+          "mode": 2,
+          "requiresNoShield": false,
+          "requiresUnarmored": false
+        },
+        "actions": {},
+        "description": "<p>The troll can take 2 legendary actions, choosing from the options below. Only one legendary action can be used at a time and only at the end of another creature&rsquo;s turn. It regains spent legendary actions at the start of its turn.</p>",
+        "favorite": true,
+        "secretDescription": "",
+        "source": {
+          "name": "",
+          "link": "",
+          "publisher": ""
+        },
+        "uses": {
+          "value": 2,
+          "max": "2",
+          "per": null,
+          "recharge": {
+            "formula": "1d6",
+            "threshold": "6"
+          }
+        },
+        "schema": {
+          "version": null,
+          "lastMigration": null
+        },
+        "concentration": false,
+        "featureType": "legendaryAction",
+        "grants": {},
+        "prerequisite": "",
+        "requiresBloodied": false,
+        "schemaVersion": {
+          "version": 0.011,
+          "lastMigration": {
+            "version": {
+              "schema": 0.01,
+              "foundry": "11.315",
+              "system": "0.16.37"
+            }
+          }
+        }
+      },
+      "_id": "mRQAo5V8d87SUgj1",
+      "img": "icons/skills/social/intimidation-impressing.webp",
+      "effects": [],
+      "folder": null,
+      "sort": 0,
+      "ownership": {
+        "default": 0
+      },
+      "flags": {}
+    },
+    {
+      "name": "Clumsy Leap (Legendary Action)",
+      "type": "feature",
+      "system": {
+        "ac": {
+          "baseFormula": "",
+          "formula": "",
+          "maxDex": 0,
+          "minStr": 0,
+          "mode": 2,
+          "requiresNoShield": false,
+          "requiresUnarmored": false
+        },
+        "actions": {},
+        "description": "<p>The troll leaps up to 50 feet horizontally or 20 feet vertically, with or without a running start. The troll lands&nbsp;<span class=\"freelinking-link\">prone</span>.</p>",
+        "favorite": true,
+        "secretDescription": "",
+        "source": {
+          "name": "",
+          "link": "",
+          "publisher": ""
+        },
+        "uses": {
+          "value": null,
+          "max": "",
+          "per": null,
+          "recharge": {
+            "formula": "1d6",
+            "threshold": "6"
+          }
+        },
+        "schema": {
+          "version": null,
+          "lastMigration": null
+        },
+        "concentration": false,
+        "featureType": "other",
+        "grants": {},
+        "prerequisite": "",
+        "requiresBloodied": false,
+        "schemaVersion": {
+          "version": 0.011,
+          "lastMigration": {
+            "version": {
+              "schema": 0.01,
+              "foundry": "11.315",
+              "system": "0.16.37"
+            }
+          }
+        }
+      },
+      "_id": "vjMY31cVYeR8ECcg",
+      "img": "icons/skills/movement/arrow-upward-yellow.webp",
+      "effects": [],
+      "folder": null,
+      "sort": 0,
+      "ownership": {
+        "default": 0
+      },
+      "flags": {}
+    },
+    {
+      "name": "Lunging Claw (Legendary Action)",
+      "type": "feature",
+      "system": {
+        "ac": {
+          "baseFormula": "",
+          "formula": "",
+          "maxDex": 0,
+          "minStr": 0,
+          "mode": 2,
+          "requiresNoShield": false,
+          "requiresUnarmored": false
+        },
+        "actions": {},
+        "description": "<p>The troll moves up to half its speed straight towards a target without provoking&nbsp;<span class=\"freelinking-link\">opportunity attacks</span>&nbsp;and makes a claw attack against that target.</p>",
+        "favorite": true,
+        "secretDescription": "",
+        "source": {
+          "name": "",
+          "link": "",
+          "publisher": ""
+        },
+        "uses": {
+          "value": null,
+          "max": "",
+          "per": null,
+          "recharge": {
+            "formula": "1d6",
+            "threshold": "6"
+          }
+        },
+        "schema": {
+          "version": null,
+          "lastMigration": null
+        },
+        "concentration": false,
+        "featureType": "legendaryAction",
+        "grants": {},
+        "prerequisite": "",
+        "requiresBloodied": false,
+        "schemaVersion": {
+          "version": 0.011,
+          "lastMigration": {
+            "version": {
+              "schema": 0.01,
+              "foundry": "11.315",
+              "system": "0.16.37"
+            }
+          }
+        }
+      },
+      "_id": "EU2WJJsUnGM96OcU",
+      "img": "icons/skills/melee/blood-slash-foam-red.webp",
+      "effects": [],
+      "folder": null,
+      "sort": 0,
+      "ownership": {
+        "default": 0
+      },
+      "flags": {}
+    },
+    {
+      "name": "Backhand Swipe (Legendary Action)",
+      "type": "feature",
+      "system": {
+        "ac": {
+          "baseFormula": "",
+          "formula": "",
+          "maxDex": 0,
+          "minStr": 0,
+          "mode": 2,
+          "requiresNoShield": false,
+          "requiresUnarmored": false
+        },
+        "actions": {},
+        "description": "<p>The troll makes a claw attack against one or two targets.</p>",
+        "favorite": true,
+        "secretDescription": "",
+        "source": {
+          "name": "",
+          "link": "",
+          "publisher": ""
+        },
+        "uses": {
+          "value": null,
+          "max": "",
+          "per": null,
+          "recharge": {
+            "formula": "1d6",
+            "threshold": "6"
+          }
+        },
+        "schema": {
+          "version": null,
+          "lastMigration": null
+        },
+        "concentration": false,
+        "featureType": "legendaryAction",
+        "grants": {},
+        "prerequisite": "",
+        "requiresBloodied": false,
+        "schemaVersion": {
+          "version": 0.011,
+          "lastMigration": {
+            "version": {
+              "schema": 0.01,
+              "foundry": "11.315",
+              "system": "0.16.37"
+            }
+          }
+        }
+      },
+      "_id": "GjfrY6DCziBKacN4",
+      "img": "icons/skills/melee/blood-slash-foam-red.webp",
+      "effects": [],
+      "folder": null,
+      "sort": 0,
+      "ownership": {
+        "default": 0
+      },
+      "flags": {}
+    },
+    {
+      "name": "Rock (Legendary Action)",
+      "type": "feature",
+      "system": {
+        "ac": {
+          "baseFormula": "",
+          "formula": "",
+          "maxDex": 0,
+          "minStr": 0,
+          "mode": 2,
+          "requiresNoShield": false,
+          "requiresUnarmored": false
+        },
+        "actions": {},
+        "description": "<p>The troll makes a rock attack.</p>",
+        "favorite": true,
+        "secretDescription": "",
+        "source": {
+          "name": "",
+          "link": "",
+          "publisher": ""
+        },
+        "uses": {
+          "value": null,
+          "max": "",
+          "per": null,
+          "recharge": {
+            "formula": "1d6",
+            "threshold": "6"
+          }
+        },
+        "schema": {
+          "version": null,
+          "lastMigration": null
+        },
+        "concentration": false,
+        "featureType": "legendaryAction",
+        "grants": {},
+        "prerequisite": "",
+        "requiresBloodied": false,
+        "schemaVersion": {
+          "version": 0.011,
+          "lastMigration": {
+            "version": {
+              "schema": 0.01,
+              "foundry": "11.315",
+              "system": "0.16.37"
+            }
+          }
+        }
+      },
+      "_id": "12bsOB40E8BUWqzy",
+      "img": "icons/magic/earth/projectile-boulder-debris.webp",
+      "effects": [],
+      "folder": null,
+      "sort": 0,
+      "ownership": {
+        "default": 0
+      },
+      "flags": {}
+    },
+    {
+      "_id": "nPG7Y1FlGKGW5uJ8",
+      "name": "Keen Smell",
+      "type": "feature",
+      "img": "icons/creatures/mammals/wolf-shadow-black.webp",
+      "effects": [],
+      "folder": null,
+      "sort": 2,
+      "flags": {},
+      "system": {
+        "ac": {
+          "baseFormula": "",
+          "formula": "",
+          "maxDex": 0,
+          "minStr": 0,
+          "mode": 1,
+          "requiresNoShield": false,
+          "requiresUnarmored": false
+        },
+        "actions": {},
+        "description": "<p>The troll has advantage on Perception checks that rely on smell.</p>",
+        "favorite": true,
+        "secretDescription": "",
+        "source": "",
+        "uses": {
+          "value": null,
+          "max": "",
+          "per": null,
+          "recharge": {
+            "formula": "",
+            "threshold": ""
+          }
+        },
+        "schema": {
+          "version": null,
+          "lastMigration": null
+        },
+        "concentration": false,
+        "featureType": "",
+        "grants": {},
+        "prerequisite": "",
+        "requiresBloodied": false,
+        "schemaVersion": {
+          "version": 0.011,
+          "lastMigration": {
+            "version": {
+              "schema": 0.01,
+              "foundry": "11.315",
+              "system": "0.16.37"
+            }
+          }
+        }
+      },
+      "ownership": {
+        "default": 0
+      }
+    }
+  ],
+  "effects": [],
+  "flags": {
+    "a5e": {
+      "availableSpellLevels": [],
+      "showSpellSlots": false,
+      "showSpellPoints": false,
+      "sheetIsLocked": true,
+      "showSpellTab": false
+    }
+  },
+  "system": {
+    "abilities": {
+      "str": {
+        "value": 24,
+        "check": {
+          "expertiseDice": 0,
+          "bonus": "",
+          "notes": {}
+        },
+        "save": {
+          "proficient": false,
+          "expertiseDice": 0,
+          "bonus": "",
+          "notes": {}
+        }
+      },
+      "dex": {
+        "value": 12,
+        "check": {
+          "expertiseDice": 0,
+          "bonus": "",
+          "notes": {}
+        },
+        "save": {
+          "proficient": false,
+          "expertiseDice": 0,
+          "bonus": "",
+          "notes": {}
+        }
+      },
+      "con": {
+        "value": 22,
+        "check": {
+          "expertiseDice": 0,
+          "bonus": "",
+          "notes": {}
+        },
+        "save": {
+          "proficient": false,
+          "expertiseDice": 0,
+          "bonus": "",
+          "notes": {}
+        }
+      },
+      "int": {
+        "value": 12,
+        "check": {
+          "expertiseDice": 0,
+          "bonus": "",
+          "notes": {}
+        },
+        "save": {
+          "proficient": false,
+          "expertiseDice": 0,
+          "bonus": "",
+          "notes": {}
+        }
+      },
+      "wis": {
+        "value": 16,
+        "check": {
+          "expertiseDice": 0,
+          "bonus": "",
+          "notes": {}
+        },
+        "save": {
+          "proficient": false,
+          "expertiseDice": 0,
+          "bonus": "",
+          "notes": {}
+        }
+      },
+      "cha": {
+        "value": 10,
+        "check": {
+          "expertiseDice": 0,
+          "bonus": "",
+          "notes": {}
+        },
+        "save": {
+          "proficient": false,
+          "expertiseDice": 0,
+          "bonus": "",
+          "notes": {}
+        }
+      }
+    },
+    "schemaVersion": {
+      "version": 0.011,
+      "lastMigration": {
+        "version": {
+          "schema": 0.01,
+          "foundry": "11.315",
+          "system": "0.16.37"
+        }
+      }
+    },
+    "skills": {
+      "acr": {
+        "ability": "dex",
+        "value": 0,
+        "proficient": false,
+        "specialties": [],
+        "expertiseDice": 0,
+        "minRoll": 1,
+        "bonuses": {
+          "check": "",
+          "passive": 0
+        }
+      },
+      "ani": {
+        "ability": "wis",
+        "value": 0,
+        "proficient": false,
+        "specialties": [],
+        "expertiseDice": 0,
+        "minRoll": 1,
+        "bonuses": {
+          "check": "",
+          "passive": 0
+        }
+      },
+      "arc": {
+        "ability": "int",
+        "value": 0,
+        "proficient": false,
+        "specialties": [],
+        "expertiseDice": 0,
+        "minRoll": 1,
+        "bonuses": {
+          "check": "",
+          "passive": 0
+        }
+      },
+      "ath": {
+        "ability": "str",
+        "value": 0,
+        "proficient": false,
+        "specialties": [],
+        "expertiseDice": 0,
+        "minRoll": 1,
+        "bonuses": {
+          "check": "",
+          "passive": 0
+        }
+      },
+      "cul": {
+        "ability": "int",
+        "value": 0,
+        "proficient": false,
+        "specialties": [],
+        "expertiseDice": 0,
+        "minRoll": 1,
+        "bonuses": {
+          "check": "",
+          "passive": 0
+        }
+      },
+      "dec": {
+        "ability": "cha",
+        "value": 0,
+        "proficient": false,
+        "specialties": [],
+        "expertiseDice": 0,
+        "minRoll": 1,
+        "bonuses": {
+          "check": "",
+          "passive": 0
+        }
+      },
+      "eng": {
+        "ability": "int",
+        "value": 0,
+        "proficient": false,
+        "specialties": [],
+        "expertiseDice": 0,
+        "minRoll": 1,
+        "bonuses": {
+          "check": "",
+          "passive": 0
+        }
+      },
+      "his": {
+        "ability": "int",
+        "value": 0,
+        "proficient": false,
+        "specialties": [],
+        "expertiseDice": 0,
+        "minRoll": 1,
+        "bonuses": {
+          "check": "",
+          "passive": 0
+        }
+      },
+      "ins": {
+        "ability": "wis",
+        "value": 0,
+        "proficient": false,
+        "specialties": [],
+        "expertiseDice": 0,
+        "minRoll": 1,
+        "bonuses": {
+          "check": "",
+          "passive": 0
+        }
+      },
+      "itm": {
+        "ability": "cha",
+        "value": 0,
+        "proficient": false,
+        "specialties": [],
+        "expertiseDice": 0,
+        "minRoll": 1,
+        "bonuses": {
+          "check": "",
+          "passive": 0
+        }
+      },
+      "inv": {
+        "ability": "int",
+        "value": 0,
+        "proficient": false,
+        "specialties": [],
+        "expertiseDice": 0,
+        "minRoll": 1,
+        "bonuses": {
+          "check": "",
+          "passive": 0
+        }
+      },
+      "med": {
+        "ability": "wis",
+        "value": 0,
+        "proficient": false,
+        "specialties": [],
+        "expertiseDice": 0,
+        "minRoll": 1,
+        "bonuses": {
+          "check": "",
+          "passive": 0
+        }
+      },
+      "nat": {
+        "ability": "int",
+        "value": 0,
+        "proficient": false,
+        "specialties": [],
+        "expertiseDice": 0,
+        "minRoll": 1,
+        "bonuses": {
+          "check": "",
+          "passive": 0
+        }
+      },
+      "prc": {
+        "ability": "wis",
+        "value": 0,
+        "proficient": true,
+        "specialties": [],
+        "expertiseDice": 0,
+        "minRoll": 1,
+        "bonuses": {
+          "check": "",
+          "passive": 0
+        }
+      },
+      "prf": {
+        "ability": "cha",
+        "value": 0,
+        "proficient": false,
+        "specialties": [],
+        "expertiseDice": 0,
+        "minRoll": 1,
+        "bonuses": {
+          "check": "",
+          "passive": 0
+        }
+      },
+      "per": {
+        "ability": "cha",
+        "value": 0,
+        "proficient": false,
+        "specialties": [],
+        "expertiseDice": 0,
+        "minRoll": 1,
+        "bonuses": {
+          "check": "",
+          "passive": 0
+        }
+      },
+      "rel": {
+        "ability": "int",
+        "value": 0,
+        "proficient": false,
+        "specialties": [],
+        "expertiseDice": 0,
+        "minRoll": 1,
+        "bonuses": {
+          "check": "",
+          "passive": 0
+        }
+      },
+      "slt": {
+        "ability": "dex",
+        "value": 0,
+        "proficient": false,
+        "specialties": [],
+        "expertiseDice": 0,
+        "minRoll": 1,
+        "bonuses": {
+          "check": "",
+          "passive": 0
+        }
+      },
+      "ste": {
+        "ability": "dex",
+        "value": 0,
+        "proficient": true,
+        "specialties": [],
+        "expertiseDice": 0,
+        "minRoll": 1,
+        "bonuses": {
+          "check": "",
+          "passive": 0
+        }
+      },
+      "sur": {
+        "ability": "wis",
+        "value": 0,
+        "proficient": true,
+        "specialties": [],
+        "expertiseDice": 0,
+        "minRoll": 1,
+        "bonuses": {
+          "check": "",
+          "passive": 0
+        }
+      }
+    },
+    "spellResources": {
+      "slots": {
+        "1": {
+          "current": 0,
+          "max": 0
+        },
+        "2": {
+          "current": 0,
+          "max": 0
+        },
+        "3": {
+          "current": 0,
+          "max": 0
+        },
+        "4": {
+          "current": 0,
+          "max": 0
+        },
+        "5": {
+          "current": 0,
+          "max": 0
+        },
+        "6": {
+          "current": 0,
+          "max": 0
+        },
+        "7": {
+          "current": 0,
+          "max": 0
+        },
+        "8": {
+          "current": 0,
+          "max": 0
+        },
+        "9": {
+          "current": 0,
+          "max": 0
+        }
+      },
+      "points": {
+        "current": 0,
+        "max": 0
+      }
+    },
+    "attributes": {
+      "ac": {
+        "baseFormula": "16",
+        "value": 0
+      },
+      "death": {
+        "success": 0,
+        "failure": 0
+      },
+      "hp": {
+        "value": 250,
+        "baseMax": 250,
+        "temp": 0,
+        "bonus": 0
+      },
+      "hitDice": {
+        "d6": {
+          "current": 0,
+          "total": 0
+        },
+        "d8": {
+          "current": 0,
+          "total": 0
+        },
+        "d10": {
+          "current": 0,
+          "total": 0
+        },
+        "d12": {
+          "current": 20,
+          "total": 20
+        },
+        "d4": {
+          "current": 0,
+          "total": 0
+        },
+        "d20": {
+          "current": 0,
+          "total": 0
+        }
+      },
+      "initiative": {
+        "bonus": "",
+        "expertiseDice": 0,
+        "ability": "dex"
+      },
+      "movement": {
+        "burrow": {
+          "distance": 0,
+          "unit": "feet"
+        },
+        "climb": {
+          "distance": 0,
+          "unit": "feet"
+        },
+        "fly": {
+          "distance": 0,
+          "unit": "feet"
+        },
+        "swim": {
+          "distance": 0,
+          "unit": "feet"
+        },
+        "walk": {
+          "distance": 50,
+          "unit": "feet"
+        },
+        "traits": {
+          "hover": false
+        }
+      },
+      "senses": {
+        "blindsight": {
+          "distance": null,
+          "unit": "feet",
+          "otherwiseBlind": false
+        },
+        "darkvision": {
+          "distance": 60,
+          "unit": "feet"
+        },
+        "tremorsense": {
+          "distance": null,
+          "unit": "feet"
+        },
+        "truesight": {
+          "distance": null,
+          "unit": "feet"
+        }
+      },
+      "inspiration": false,
+      "fatigue": 0,
+      "strife": 0,
+      "spellcasting": "int",
+      "casterLevel": 0
+    },
+    "bonuses": {
+      "abilities": {},
+      "damage": {},
+      "healing": {},
+      "maneuverDC": "",
+      "meleeSpellAttack": "",
+      "meleeWeaponAttack": "",
+      "rangedSpellAttack": "",
+      "rangedWeaponAttack": "",
+      "spellDC": "",
+      "skills": {},
+      "attacks": {}
+    },
+    "currency": {
+      "pp": 0,
+      "gp": 0,
+      "ep": 0,
+      "sp": 0,
+      "cp": 0
+    },
+    "details": {
+      "bio": "<h2><strong>COMBAT</strong></h2>\n<p>The troll bites and claws the closest creature. If it takes over 40 damage from a single attack, it uses its Clumsy Leap or Lunging Claw legendary actions to reach that attacker. Otherwise, it chomps a&nbsp;<span class=\"freelinking-link\">grappled</span>&nbsp;creature or uses Backhand Swipe. It flees only if it takes fire or acid damage while it has no uses of Legendary Resistance</p>\n<hr class=\"a5e-rule u-my-md\">\n<h2><strong>NAMES</strong></h2>\n<p>Arreck the Thin, Dovregubbens, Vilith</p>\n<hr class=\"a5e-rule u-my-md\">\n<h2><strong>LEGENDS AND LORE</strong></h2>\n<p>With an Arcana or Nature check, characters can learn the following:</p>\n<p><strong>DC 10</strong> A troll&rsquo;s unique physiology allows it to heal wounds with incredible speed. Fire and acid temporarily suppress this regeneration.</p>\n<p><strong>DC 15</strong> Though large, trolls are quite stealthy. They can see in the dark and track prey by smell alone.</p>\n<p><strong>DC 20</strong> Because of their regeneration, trolls are prone to mutation. Certain strains have adapted to life underground or deep beneath the waves.</p>\n<hr class=\"a5e-rule u-my-md\">\n<h2><strong>DESCRIPTION</strong></h2>\n<p>A troll hulk is a massively muscled troll that has out-consumed and outgrown its fellows. Its hide is dotted with the blinking and leering visages of humanoids, trolls, and giants: the faces of rivals it has eaten and absorbed.</p>\n<p><em><strong>Sated Behemoths.</strong></em>&nbsp;A troll&rsquo;s appetite is so tremendous that most trolls are thin and wasted even in areas of plenty. Only rarely does a troll find enough sustenance that it realizes its full size and strength. Such a troll can quickly turn a lush forest or a thriving settlement into a barren, uninhabited waste. While a troll hulk&rsquo;s favorite meal is another troll (since every troll is also a voracious rival), troll hulks eat anything they get their claws on, including carrion.</p>\n<p><em><strong>You Are What You Eat.&nbsp;</strong></em>A troll hulk&rsquo;s meals are incorporated half-digested into its body. Every troll hulk has several sets of working organs and networks of spare bones. This makes it difficult to kill a troll hulk simply by smashing it or stabbing its organs.</p>\n<p>Just as a troll hulk incorporates its prey&rsquo;s organs into its body, it absorbs facial features as well. The faces of the creatures it has consumed bud from its skin, making antic expressions in a parody of independent life.</p>\n<hr class=\"a5e-rule u-my-md\">\n<h2><strong>BEHAVIOR</strong></h2>\n<p>1 Feasting on troll or giant corpses</p>\n<p>2 Awaiting tribute from its servants</p>\n<p>3 Mad with hunger; smashing through a wall beyond which it smells prey</p>\n<p>4 Sleeping atop a reeking pile of bones and treasure</p>\n<p>5 Being regaled with stories by a creature trying to delay its consumption</p>\n<p>6 Willing to work with anyone planning to fight a large, meaty monster</p>\n<hr class=\"a5e-rule u-my-md\">\n<h2><strong>SIGNS</strong></h2>\n<p>1 Thousands of cracked bones with the marrow sucked out</p>\n<p>2 The stench of carrion</p>\n<p>3 A cowering goblin, human, or pixie</p>\n<p>4 A mysteriously uninhabited settlement</p>\n<hr class=\"a5e-rule u-my-md\">\n<h2><strong>ENCOUNTERS</strong></h2>\n<p>Troll hulks stalk mountain caves and Underland caverns, depopulating their hunting grounds in order to sate their enormous hunger.</p>\n<p><strong>CR&nbsp;</strong>11&ndash;16&nbsp;<span class=\"freelinking-link\">troll hulk</span></p>\n<p><strong>Treasure&nbsp;</strong>6 pieces of bloody gold jewelry, including rings, bracelets, and a necklace (750 gp each)</p>\n<p><strong>CR&nbsp;</strong>17&ndash;22&nbsp;<span class=\"freelinking-link\">troll hulk</span>&nbsp;with 2 or 3&nbsp;<span class=\"freelinking-link\">bugbears</span>&nbsp;,&nbsp;<span class=\"freelinking-link\">ettercaps</span>&nbsp;,&nbsp;<span class=\"freelinking-link\">harpies</span>&nbsp;, or&nbsp;<span class=\"freelinking-link\">ogres</span></p>\n<p><strong>Treasure&nbsp;</strong>11,000 gp, 8 gnawed silver busts of famous philosophers (500 gp each),<em>&nbsp;<span class=\"freelinking-link\">staff of the woodlands</span>&nbsp;</em>(named Staff of Prey; the owner can also expend 4 charges to cast&nbsp;<em><span class=\"freelinking-link\">conjure woodland beings</span></em></p>\n<p><strong>CR&nbsp;</strong>23&ndash;30&nbsp;<span class=\"freelinking-link\">troll king</span>&nbsp;;&nbsp;<span class=\"freelinking-link\">troll hulk</span>&nbsp;with 2 or 3&nbsp;<span class=\"freelinking-link\">ettins</span>&nbsp;,&nbsp;<span class=\"freelinking-link\">hill giants</span>&nbsp;, or&nbsp;<span class=\"freelinking-link\">trolls</span></p>\n<p><strong>Treasure&nbsp;</strong>giant mithral frying pan (2,500 gp), 3 silver dragon eggs (20,000 gp each),<em>&nbsp;<span class=\"freelinking-link\">portable hole</span>&nbsp;</em>completely filled with bones (including dragon bones)</p>\n<p><strong>CR&nbsp;</strong>31+&nbsp;<span class=\"freelinking-link\">troll king</span>&nbsp;with 2 or 3&nbsp;<span class=\"freelinking-link\">ettins</span>&nbsp;,&nbsp;<span class=\"freelinking-link\">frost giants</span>&nbsp;,&nbsp;<span class=\"freelinking-link\">hill giants</span>&nbsp;, or&nbsp;<span class=\"freelinking-link\">trolls</span></p>\n<p><strong>Treasure&nbsp;</strong>10,000 pp, gold and emerald crown for a Huge creature (25,000 gp), sheaf of maps showing secret entrances to nearby settlements and fortifications (25,000 gp), <em>ring of spell turning </em>worn by a humanoid hand protruding from the troll&rsquo;s side (the troll is attuned to the ring)</p>\n<hr class=\"a5e-rule u-my-md\">\n<h2><strong>MONSTER TYPE DESCRIPTION</strong></h2>\n<p>Giants look like immense humanoids, standing from 10 feet tall (like ogres) to 30 (like storm giants). Some giants, like trolls, have human-like shapes but monstrous features.</p>",
+      "creatureTypes": [
+        "giant"
+      ],
+      "isSwarm": false,
+      "cr": 15,
+      "elite": false,
+      "privateNotes": "",
+      "notes": "",
+      "terrain": []
+    },
+    "proficiencies": {
+      "armor": [],
+      "languages": [
+        "giant",
+        "common"
+      ],
+      "tools": [],
+      "weapons": []
+    },
+    "resources": {
+      "primary": {
+        "label": "",
+        "value": 0,
+        "max": "0",
+        "per": "",
+        "hideMax": false,
+        "recharge": {
+          "formula": "",
+          "threshold": 6
+        }
+      },
+      "secondary": {
+        "label": "",
+        "value": 0,
+        "max": "0",
+        "per": "",
+        "hideMax": false,
+        "recharge": {
+          "formula": "",
+          "threshold": 6
+        }
+      },
+      "tertiary": {
+        "label": "",
+        "value": 0,
+        "max": "0",
+        "per": "",
+        "hideMax": false,
+        "recharge": {
+          "formula": "",
+          "threshold": 6
+        }
+      },
+      "quaternary": {
+        "label": "",
+        "value": 0,
+        "max": "0",
+        "per": "",
+        "hideMax": false,
+        "recharge": {
+          "formula": "",
+          "threshold": 6
+        }
+      }
+    },
+    "source": "",
+    "traits": {
+      "size": "huge",
+      "conditionImmunities": [
+        "poisoned"
+      ],
+      "damageImmunities": [
+        "poison"
+      ],
+      "damageResistances": [
+        "bludgeoning",
+        "piercing"
+      ],
+      "damageVulnerabilities": []
+    }
+  },
+  "prototypeToken": {
+    "name": "Troll Hulk",
+    "displayName": 0,
+    "actorLink": false,
+    "width": 3,
+    "height": 3,
+    "lockRotation": false,
+    "rotation": 0,
+    "alpha": 1,
+    "light": {
+      "alpha": 0.5,
+      "angle": 360,
+      "bright": 0,
+      "coloration": 1,
+      "dim": 0,
+      "luminosity": 0.5,
+      "saturation": 0,
+      "contrast": 0,
+      "shadows": 0,
+      "animation": {
+        "speed": 5,
+        "intensity": 5,
+        "reverse": false,
+        "type": null
+      },
+      "darkness": {
+        "min": 0,
+        "max": 1
+      },
+      "color": null,
+      "attenuation": 0.5
+    },
+    "disposition": -1,
+    "displayBars": 0,
+    "bar1": {
+      "attribute": "attributes.hp"
+    },
+    "bar2": {
+      "attribute": null
+    },
+    "flags": {
+      "wall-height": {
+        "tokenHeight": 0
+      },
+      "token-z": {
+        "zIndex": 0
+      },
+      "monks-enhanced-journal": {
+        "chatbubble": ""
+      },
+      "monks-tokenbar": {
+        "include": "default"
+      },
+      "pushable": {
+        "isPushable": false,
+        "isPullable": false
+      },
+      "token-variants": {
+        "randomImgDefault": ""
+      },
+      "monks-combat-marker": {
+        "token-highlight-scale": 1.5,
+        "token-combat-animation": "",
+        "token-highlight": ""
+      },
+      "roll-tokens": {
+        "table": ""
+      },
+      "Rideable": {
+        "issetRideableFlag": false,
+        "MaxRiderFlag": null,
+        "RiderPositioningFlag": "RowPlacement",
+        "TokenFormFlag": "TokenFormCircle",
+        "InsideMovementFlag": false,
+        "SpawnRidersFlag": ""
+      },
+      "healthEstimate": {
+        "dontMarkDead": false,
+        "hideHealthEstimate": false,
+        "hideName": false
+      }
+    },
+    "randomImg": false,
+    "texture": {
+      "src": "systems/a5e/assets/troll.webp",
+      "tint": "#ffffff",
+      "scaleX": 1,
+      "scaleY": 1,
+      "offsetX": 0,
+      "offsetY": 0,
+      "rotation": 0
+    },
+    "sight": {
+      "angle": 360,
+      "enabled": false,
+      "range": 0,
+      "brightness": 1,
+      "color": null,
+      "attenuation": 0.1,
+      "saturation": 0,
+      "contrast": 0,
+      "visionMode": "basic"
+    },
+    "detectionModes": [],
+    "appendNumber": false,
+    "prependAdjective": false
+  },
+  "folder": null,
+  "_id": "rou1jldzkx5zxsy1"
 }

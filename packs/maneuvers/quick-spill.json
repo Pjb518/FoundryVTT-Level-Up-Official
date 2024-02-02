@@ -1,174 +1,170 @@
 {
-	"folder": null,
-	"name": "Quick Spill",
-	"type": "maneuver",
-	"img": "icons/consumables/fruit/tomato-ripe-red.webp",
-	"system": {
-		"actions": {
-			"KwNmBfrCIm35hub0": {
-				"name": "Quick Spill",
-				"activation": {
-					"type": "bonusAction",
-					"cost": 1
-				},
-				"consumers": {
-					"ri07mgiXxifL3RDp": {
-						"type": "resource",
-						"default": true,
-						"resource": "exertion",
-						"quantity": 1
-					}
-				},
-				"rolls": {
-					"CqVMDiWPOWH7kHFL": {
-						"type": "damage",
-						"default": false,
-						"label": "Caltrops",
-						"formula": "1d4",
-						"damageType": "piercing"
-					}
-				},
-				"prompts": {
-					"Y3702ZvEnd5nCe4b": {
-						"type": "savingThrow",
-						"default": true,
-						"ability": "dex",
-						"saveDC": {
-							"type": "maneuver"
-						}
-					},
-					"EEey41gICEsKk0Ap": {
-						"type": "effect",
-						"default": true,
-						"effectId": "Lx8DdE7WssFU3Sbm"
-					},
-					"Ok6HcrHvHGPegS3Y": {
-						"type": "effect",
-						"default": true,
-						"effectId": "V1hq9DEY2ILXAPls"
-					}
-				},
-				"uses": {
-					"value": 0,
-					"max": "",
-					"per": "",
-					"recharge": {
-						"formula": "1d6",
-						"rechargeType": "custom",
-						"rechargeAmount": "1",
-						"threshold": 6
-					}
-				},
-				"area": {
-					"shape": "square",
-					"quantity": 1,
-					"width": 5,
-					"placeTemplate": true
-				}
-			}
-		},
-		"description": "<p><span class=\"ui-provider a b c d e f g h i j k l m n o p q r s t u v w x y z ab ac ae af ag ah ai aj ak\" dir=\"ltr\">With daring-do and practiced grace you seamlessly fling an obstacle across the floor with surprising swiftness. With some extra effort, you can distract from the violent intent.</span></p>\n<p><span class=\"ui-provider a b c d e f g h i j k l m n o p q r s t u v w x y z ab ac ae af ag ah ai aj ak\" dir=\"ltr\">You spread @UUID[Compendium.a5e.a5e-adventuring-gear.Item.g7kjz2fok0p8yzrh]{Ball Bearings}, @UUID[Compendium.a5e.a5e-adventuring-gear.Item.txxm6r8vc8v7i81a]{Caltrops}, or @UUID[Compendium.a5e.a5e-adventuring-gear.Item.322whxi7q57yw3ww]{Oil} into a 5-foot square. If a creature is in the area, it makes a Dexterity saving throw with advantage (or normally if you spend an additional 1 exertion). On a failure against ball bearings or oil the creature falls prone , or on a failure against caltrops it takes 1d4 piercing damage that reduces its Speed by 10 feet until it regains at least 1 hit point.</span></p>",
-		"favorite": false,
-		"secretDescription": "",
-		"source": {
-			"name": "",
-			"link": "",
-			"publisher": ""
-		},
-		"uses": {
-			"value": null,
-			"max": "",
-			"per": null,
-			"recharge": {
-				"formula": "1d6",
-				"threshold": "6"
-			}
-		},
-		"schema": {
-			"version": null,
-			"lastMigration": null
-		},
-		"concentration": false,
-		"degree": 1,
-		"exertionCost": 2,
-		"isStance": false,
-		"prerequisite": "",
-		"tradition": "comedicJabs"
-	},
-	"effects": [
-		{
-			"icon": "icons/consumables/fruit/tomato-ripe-red.webp",
-			"origin": "Item.o0qR8WloyimjXty3",
-			"flags": {
-				"a5e": {
-					"sort": 0,
-					"transferType": "onUse",
-					"actionId": "KwNmBfrCIm35hub0"
-				}
-			},
-			"transfer": false,
-			"name": "Fall Prone (Ball Bearings or Oil)",
-			"_id": "Lx8DdE7WssFU3Sbm",
-			"changes": [
-				{
-					"key": "flags.a5e.effects.statusConditions",
-					"value": "[\"prone\"]",
-					"mode": 0,
-					"priority": null
-				}
-			],
-			"disabled": false,
-			"duration": {
-				"startTime": null,
-				"seconds": null,
-				"combat": null,
-				"rounds": null,
-				"turns": null,
-				"startRound": null,
-				"startTurn": null
-			},
-			"description": "",
-			"statuses": [
-				"prone"
-			],
-			"folder": null
-		},
-		{
-			"icon": "icons/consumables/fruit/tomato-ripe-red.webp",
-			"origin": "Item.o0qR8WloyimjXty3",
-			"flags": {
-				"a5e": {
-					"sort": 0,
-					"transferType": "onUse",
-					"actionId": "KwNmBfrCIm35hub0"
-				}
-			},
-			"transfer": false,
-			"name": "Caltrops",
-			"_id": "V1hq9DEY2ILXAPls",
-			"changes": [
-				{
-					"key": "system.attributes.movement.walk.distance",
-					"value": "10",
-					"mode": 3,
-					"priority": null
-				}
-			],
-			"disabled": false,
-			"duration": {
-				"startTime": null,
-				"seconds": null,
-				"combat": null,
-				"rounds": null,
-				"turns": null,
-				"startRound": null,
-				"startTurn": null
-			},
-			"description": "",
-			"statuses": [],
-			"folder": null
-		}
-	],
-	"flags": {},
-	"_id": "emc9aob74j8k0apq"
+  "folder": null,
+  "name": "Quick Spill",
+  "type": "maneuver",
+  "img": "icons/consumables/fruit/tomato-ripe-red.webp",
+  "system": {
+    "actions": {
+      "KwNmBfrCIm35hub0": {
+        "name": "Quick Spill",
+        "activation": {
+          "type": "bonusAction",
+          "cost": 1
+        },
+        "consumers": {
+          "ri07mgiXxifL3RDp": {
+            "type": "resource",
+            "default": true,
+            "resource": "exertion",
+            "quantity": 1
+          }
+        },
+        "rolls": {
+          "CqVMDiWPOWH7kHFL": {
+            "type": "damage",
+            "default": false,
+            "label": "Caltrops",
+            "formula": "1d4",
+            "damageType": "piercing"
+          }
+        },
+        "prompts": {
+          "Y3702ZvEnd5nCe4b": {
+            "type": "savingThrow",
+            "default": true,
+            "ability": "dex",
+            "saveDC": {
+              "type": "maneuver"
+            }
+          },
+          "EEey41gICEsKk0Ap": {
+            "type": "effect",
+            "default": true,
+            "effectId": "Lx8DdE7WssFU3Sbm"
+          },
+          "Ok6HcrHvHGPegS3Y": {
+            "type": "effect",
+            "default": true,
+            "effectId": "V1hq9DEY2ILXAPls"
+          }
+        },
+        "uses": {
+          "value": 0,
+          "max": "",
+          "per": "",
+          "recharge": {
+            "formula": "1d6",
+            "rechargeType": "custom",
+            "rechargeAmount": "1",
+            "threshold": 6
+          }
+        },
+        "area": {
+          "shape": "square",
+          "quantity": 1,
+          "width": 5,
+          "placeTemplate": true
+        }
+      }
+    },
+    "description": "<p><span class=\"ui-provider a b c d e f g h i j k l m n o p q r s t u v w x y z ab ac ae af ag ah ai aj ak\" dir=\"ltr\">With daring-do and practiced grace you seamlessly fling an obstacle across the floor with surprising swiftness. With some extra effort, you can distract from the violent intent.</span></p>\n<p><span class=\"ui-provider a b c d e f g h i j k l m n o p q r s t u v w x y z ab ac ae af ag ah ai aj ak\" dir=\"ltr\">You spread @UUID[Compendium.a5e.a5e-adventuring-gear.Item.g7kjz2fok0p8yzrh]{Ball Bearings}, @UUID[Compendium.a5e.a5e-adventuring-gear.Item.txxm6r8vc8v7i81a]{Caltrops}, or @UUID[Compendium.a5e.a5e-adventuring-gear.Item.322whxi7q57yw3ww]{Oil} into a 5-foot square. If a creature is in the area, it makes a Dexterity saving throw with advantage (or normally if you spend an additional 1 exertion). On a failure against ball bearings or oil the creature falls prone , or on a failure against caltrops it takes 1d4 piercing damage that reduces its Speed by 10 feet until it regains at least 1 hit point.</span></p>",
+    "favorite": false,
+    "secretDescription": "",
+    "source": "",
+    "uses": {
+      "value": null,
+      "max": "",
+      "per": null,
+      "recharge": {
+        "formula": "1d6",
+        "threshold": "6"
+      }
+    },
+    "schema": {
+      "version": null,
+      "lastMigration": null
+    },
+    "concentration": false,
+    "degree": 1,
+    "exertionCost": 2,
+    "isStance": false,
+    "prerequisite": "",
+    "tradition": "comedicJabs"
+  },
+  "effects": [
+    {
+      "icon": "icons/consumables/fruit/tomato-ripe-red.webp",
+      "origin": "Item.o0qR8WloyimjXty3",
+      "flags": {
+        "a5e": {
+          "sort": 0,
+          "transferType": "onUse",
+          "actionId": "KwNmBfrCIm35hub0"
+        }
+      },
+      "transfer": false,
+      "name": "Fall Prone (Ball Bearings or Oil)",
+      "_id": "Lx8DdE7WssFU3Sbm",
+      "changes": [
+        {
+          "key": "flags.a5e.effects.statusConditions",
+          "value": "[\"prone\"]",
+          "mode": 0,
+          "priority": null
+        }
+      ],
+      "disabled": false,
+      "duration": {
+        "startTime": null,
+        "seconds": null,
+        "combat": null,
+        "rounds": null,
+        "turns": null,
+        "startRound": null,
+        "startTurn": null
+      },
+      "description": "",
+      "statuses": [
+        "prone"
+      ],
+      "folder": null
+    },
+    {
+      "icon": "icons/consumables/fruit/tomato-ripe-red.webp",
+      "origin": "Item.o0qR8WloyimjXty3",
+      "flags": {
+        "a5e": {
+          "sort": 0,
+          "transferType": "onUse",
+          "actionId": "KwNmBfrCIm35hub0"
+        }
+      },
+      "transfer": false,
+      "name": "Caltrops",
+      "_id": "V1hq9DEY2ILXAPls",
+      "changes": [
+        {
+          "key": "system.attributes.movement.walk.distance",
+          "value": "10",
+          "mode": 3,
+          "priority": null
+        }
+      ],
+      "disabled": false,
+      "duration": {
+        "startTime": null,
+        "seconds": null,
+        "combat": null,
+        "rounds": null,
+        "turns": null,
+        "startRound": null,
+        "startTurn": null
+      },
+      "description": "",
+      "statuses": [],
+      "folder": null
+    }
+  ],
+  "flags": {},
+  "_id": "emc9aob74j8k0apq"
 }

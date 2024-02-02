@@ -1,281 +1,277 @@
 {
-	"name": "Iron Foe Mace",
-	"type": "object",
-	"img": "icons/weapons/maces/mace-spiked-steel-grey.webp",
-	"system": {
-		"ac": {
-			"baseFormula": "",
-			"formula": "",
-			"maxDex": 0,
-			"minStr": 0,
-			"mode": 2,
-			"requiresNoShield": false,
-			"requiresUnarmored": false
-		},
-		"actions": {
-			"AcT9DxHsEejvQfxD": {
-				"name": "Attack",
-				"activation": {
-					"cost": 1,
-					"type": "action",
-					"reactionTrigger": ""
-				},
-				"consumers": {},
-				"rolls": {
-					"OV48OUNKf4JsgEMd": {
-						"bonus": "2",
-						"critThreshold": "20",
-						"type": "attack",
-						"attackType": "meleeWeaponAttack",
-						"ability": "default"
-					},
-					"OFHd1XToouoFNOEW": {
-						"canCrit": true,
-						"damageType": "bludgeoning",
-						"formula": "1d6 + @str.mod +2",
-						"name": "Mace",
-						"type": "damage"
-					}
-				},
-				"prompts": {},
-				"uses": {
-					"value": 0,
-					"max": "",
-					"per": "",
-					"recharge": {
-						"formula": "1d6",
-						"threshold": 6
-					}
-				},
-				"duration": {
-					"unit": "",
-					"value": ""
-				},
-				"area": {
-					"shape": "",
-					"size": "",
-					"placeTemplate": false,
-					"quantity": 1
-				},
-				"target": {
-					"quantity": 1,
-					"type": "creatureObject"
-				},
-				"img": "icons/weapons/maces/mace-spiked-steel-grey.webp",
-				"ranges": {
-					"6rgNEDQwKi9Uxf7C": {
-						"range": "fiveFeet"
-					}
-				}
-			},
-			"HGJun13OvISuN3Z3": {
-				"name": "On Hit",
-				"activation": {
-					"type": "reaction",
-					"cost": 1,
-					"reactionTrigger": "on a successful attack"
-				},
-				"consumers": {
-					"GDvnuhnQV3o7FcKe": {
-						"type": "itemUses",
-						"default": true,
-						"quantity": 1
-					}
-				},
-				"rolls": {},
-				"prompts": {
-					"sm3GZBxH5acUA06c": {
-						"type": "savingThrow",
-						"default": true,
-						"ability": "con",
-						"saveDC": {
-							"type": "custom",
-							"bonus": "14"
-						}
-					}
-				},
-				"uses": {
-					"value": 0,
-					"max": "",
-					"per": "",
-					"recharge": {
-						"formula": "1d6",
-						"threshold": 6
-					}
-				},
-				"descriptionOutputs": [
-					"action"
-				],
-				"target": {
-					"type": "object",
-					"quantity": 1
-				},
-				"ranges": {
-					"kS4vE6DIQq8oumyW": {
-						"range": "fiveFeet"
-					}
-				}
-			},
-			"cXHLGh7hS9mnaEug": {
-				"name": "On Miss",
-				"activation": {
-					"type": "reaction",
-					"cost": 1,
-					"reactionTrigger": "an attack misses you"
-				},
-				"consumers": {
-					"M1Gu64RabpHTk9Bc": {
-						"type": "itemUses",
-						"default": true,
-						"quantity": 1
-					}
-				},
-				"rolls": {},
-				"prompts": {
-					"w9sKZSssJcOHot1c": {
-						"type": "savingThrow",
-						"default": true,
-						"ability": "con",
-						"saveDC": {
-							"type": "custom",
-							"bonus": "14"
-						}
-					}
-				},
-				"uses": {
-					"value": 0,
-					"max": "",
-					"per": "",
-					"recharge": {
-						"formula": "1d6",
-						"threshold": 6
-					}
-				},
-				"ranges": {
-					"UF0lyEcL3LaLXq6C": {
-						"range": "fiveFeet"
-					}
-				},
-				"target": {
-					"type": "object",
-					"quantity": 1
-				},
-				"img": "icons/weapons/maces/mace-spiked-steel-grey.webp"
-			},
-			"JWoVUIPshpf2W5Zc": {
-				"name": "Consume Object",
-				"activation": {
-					"type": "action",
-					"cost": 1
-				},
-				"consumers": {
-					"wbWLBaZz132PB9xu": {
-						"type": "itemUses",
-						"default": true,
-						"quantity": 1
-					}
-				},
-				"rolls": {},
-				"prompts": {},
-				"uses": {
-					"value": 0,
-					"max": "",
-					"per": "",
-					"recharge": {
-						"formula": "1d6",
-						"threshold": 6
-					}
-				},
-				"ranges": {
-					"rXVQ0LAkzk1Osvjs": {
-						"range": "fiveFeet"
-					}
-				},
-				"target": {
-					"type": "object",
-					"quantity": 1
-				},
-				"img": "icons/weapons/maces/mace-spiked-steel-grey.webp"
-			},
-			"Z7acvbtQf466Hdh2": {
-				"name": "Regain Charges",
-				"activation": {
-					"type": "day",
-					"cost": 1
-				},
-				"consumers": {},
-				"rolls": {
-					"xAjMAFe1RWNwgCk6": {
-						"type": "generic",
-						"default": true,
-						"formula": "1d4"
-					}
-				},
-				"prompts": {},
-				"uses": {
-					"value": 0,
-					"max": "",
-					"per": "",
-					"recharge": {
-						"formula": "1d6",
-						"threshold": 6
-					}
-				},
-				"img": "icons/weapons/maces/mace-spiked-steel-grey.webp"
-			}
-		},
-		"description": "<div class=\"field field--name-field-mi-description field--type-text-long field--label-hidden field--item\">\n<p>Crafted with the ichor of a rust monster, this pale white mace looks and feels like bone, but has the heft of stone and consumes metal on impact. You gain +2 bonus to <span class=\"freelinking-link\">attack and damage rolls</span> made with this magical mace. However, if your Strength score is less than 16 you suffer <span class=\"freelinking-link\">disadvantage</span> on attack rolls made with the mace.</p>\n<p>On a successful attack, you can use your reaction to expend a charge and attempt to consume non-magical metal armor or a shield worn by your target, in addition to your normal damage. Alternately, when an attack misses you, you can use your reaction to spend a charge to deflect the weapon and attempt to consume it. Finally, you can use your action to spend a charge and touch the mace to any unattended non-magical metal object of Medium size or smaller and consume it.</p>\n<p>The wielder of an item you are trying to consume must succeed on a DC 14 Constitution <span class=\"freelinking-link\">saving throw</span> , otherwise the item is destroyed. Unattended objects are automatically destroyed. The mace has 4 charges and regains 1d4 charges each dawn.</p>\n</div>",
-		"favorite": false,
-		"secretDescription": "",
-		"source": {
-			"name": "",
-			"link": "",
-			"publisher": ""
-		},
-		"uses": {
-			"value": 4,
-			"max": "4",
-			"per": "day",
-			"recharge": {
-				"formula": "1d6",
-				"threshold": "6"
-			}
-		},
-		"schema": {
-			"version": null,
-			"lastMigration": null
-		},
-		"ammunitionProperties": [],
-		"armorCategory": "",
-		"armorProperties": [],
-		"attuned": false,
-		"bulky": false,
-		"craftingComponents": "the antennae of a rust monster",
-		"containerId": "",
-		"damagedState": 0,
-		"equippedState": 0,
-		"items": {},
-		"materialProperties": [],
-		"objectType": "weapon",
-		"plotItem": false,
-		"price": "13,500",
-		"proficient": true,
-		"quantity": 1,
-		"rarity": "veryRare",
-		"requiresAttunement": false,
-		"shieldCategory": "",
-		"shieldProperties": [],
-		"unidentified": false,
-		"unidentifiedDescription": "",
-		"unidentifiedName": "",
-		"weaponProperties": [
-			"defensive",
-			"simple"
-		],
-		"weight": 8
-	},
-	"effects": [],
-	"folder": null,
-	"flags": {},
-	"_id": "zk00ezdt5arhkkdn"
+  "name": "Iron Foe Mace",
+  "type": "object",
+  "img": "icons/weapons/maces/mace-spiked-steel-grey.webp",
+  "system": {
+    "ac": {
+      "baseFormula": "",
+      "formula": "",
+      "maxDex": 0,
+      "minStr": 0,
+      "mode": 2,
+      "requiresNoShield": false,
+      "requiresUnarmored": false
+    },
+    "actions": {
+      "AcT9DxHsEejvQfxD": {
+        "name": "Attack",
+        "activation": {
+          "cost": 1,
+          "type": "action",
+          "reactionTrigger": ""
+        },
+        "consumers": {},
+        "rolls": {
+          "OV48OUNKf4JsgEMd": {
+            "bonus": "2",
+            "critThreshold": "20",
+            "type": "attack",
+            "attackType": "meleeWeaponAttack",
+            "ability": "default"
+          },
+          "OFHd1XToouoFNOEW": {
+            "canCrit": true,
+            "damageType": "bludgeoning",
+            "formula": "1d6 + @str.mod +2",
+            "name": "Mace",
+            "type": "damage"
+          }
+        },
+        "prompts": {},
+        "uses": {
+          "value": 0,
+          "max": "",
+          "per": "",
+          "recharge": {
+            "formula": "1d6",
+            "threshold": 6
+          }
+        },
+        "duration": {
+          "unit": "",
+          "value": ""
+        },
+        "area": {
+          "shape": "",
+          "size": "",
+          "placeTemplate": false,
+          "quantity": 1
+        },
+        "target": {
+          "quantity": 1,
+          "type": "creatureObject"
+        },
+        "img": "icons/weapons/maces/mace-spiked-steel-grey.webp",
+        "ranges": {
+          "6rgNEDQwKi9Uxf7C": {
+            "range": "fiveFeet"
+          }
+        }
+      },
+      "HGJun13OvISuN3Z3": {
+        "name": "On Hit",
+        "activation": {
+          "type": "reaction",
+          "cost": 1,
+          "reactionTrigger": "on a successful attack"
+        },
+        "consumers": {
+          "GDvnuhnQV3o7FcKe": {
+            "type": "itemUses",
+            "default": true,
+            "quantity": 1
+          }
+        },
+        "rolls": {},
+        "prompts": {
+          "sm3GZBxH5acUA06c": {
+            "type": "savingThrow",
+            "default": true,
+            "ability": "con",
+            "saveDC": {
+              "type": "custom",
+              "bonus": "14"
+            }
+          }
+        },
+        "uses": {
+          "value": 0,
+          "max": "",
+          "per": "",
+          "recharge": {
+            "formula": "1d6",
+            "threshold": 6
+          }
+        },
+        "descriptionOutputs": [
+          "action"
+        ],
+        "target": {
+          "type": "object",
+          "quantity": 1
+        },
+        "ranges": {
+          "kS4vE6DIQq8oumyW": {
+            "range": "fiveFeet"
+          }
+        }
+      },
+      "cXHLGh7hS9mnaEug": {
+        "name": "On Miss",
+        "activation": {
+          "type": "reaction",
+          "cost": 1,
+          "reactionTrigger": "an attack misses you"
+        },
+        "consumers": {
+          "M1Gu64RabpHTk9Bc": {
+            "type": "itemUses",
+            "default": true,
+            "quantity": 1
+          }
+        },
+        "rolls": {},
+        "prompts": {
+          "w9sKZSssJcOHot1c": {
+            "type": "savingThrow",
+            "default": true,
+            "ability": "con",
+            "saveDC": {
+              "type": "custom",
+              "bonus": "14"
+            }
+          }
+        },
+        "uses": {
+          "value": 0,
+          "max": "",
+          "per": "",
+          "recharge": {
+            "formula": "1d6",
+            "threshold": 6
+          }
+        },
+        "ranges": {
+          "UF0lyEcL3LaLXq6C": {
+            "range": "fiveFeet"
+          }
+        },
+        "target": {
+          "type": "object",
+          "quantity": 1
+        },
+        "img": "icons/weapons/maces/mace-spiked-steel-grey.webp"
+      },
+      "JWoVUIPshpf2W5Zc": {
+        "name": "Consume Object",
+        "activation": {
+          "type": "action",
+          "cost": 1
+        },
+        "consumers": {
+          "wbWLBaZz132PB9xu": {
+            "type": "itemUses",
+            "default": true,
+            "quantity": 1
+          }
+        },
+        "rolls": {},
+        "prompts": {},
+        "uses": {
+          "value": 0,
+          "max": "",
+          "per": "",
+          "recharge": {
+            "formula": "1d6",
+            "threshold": 6
+          }
+        },
+        "ranges": {
+          "rXVQ0LAkzk1Osvjs": {
+            "range": "fiveFeet"
+          }
+        },
+        "target": {
+          "type": "object",
+          "quantity": 1
+        },
+        "img": "icons/weapons/maces/mace-spiked-steel-grey.webp"
+      },
+      "Z7acvbtQf466Hdh2": {
+        "name": "Regain Charges",
+        "activation": {
+          "type": "day",
+          "cost": 1
+        },
+        "consumers": {},
+        "rolls": {
+          "xAjMAFe1RWNwgCk6": {
+            "type": "generic",
+            "default": true,
+            "formula": "1d4"
+          }
+        },
+        "prompts": {},
+        "uses": {
+          "value": 0,
+          "max": "",
+          "per": "",
+          "recharge": {
+            "formula": "1d6",
+            "threshold": 6
+          }
+        },
+        "img": "icons/weapons/maces/mace-spiked-steel-grey.webp"
+      }
+    },
+    "description": "<div class=\"field field--name-field-mi-description field--type-text-long field--label-hidden field--item\">\n<p>Crafted with the ichor of a rust monster, this pale white mace looks and feels like bone, but has the heft of stone and consumes metal on impact. You gain +2 bonus to <span class=\"freelinking-link\">attack and damage rolls</span> made with this magical mace. However, if your Strength score is less than 16 you suffer <span class=\"freelinking-link\">disadvantage</span> on attack rolls made with the mace.</p>\n<p>On a successful attack, you can use your reaction to expend a charge and attempt to consume non-magical metal armor or a shield worn by your target, in addition to your normal damage. Alternately, when an attack misses you, you can use your reaction to spend a charge to deflect the weapon and attempt to consume it. Finally, you can use your action to spend a charge and touch the mace to any unattended non-magical metal object of Medium size or smaller and consume it.</p>\n<p>The wielder of an item you are trying to consume must succeed on a DC 14 Constitution <span class=\"freelinking-link\">saving throw</span> , otherwise the item is destroyed. Unattended objects are automatically destroyed. The mace has 4 charges and regains 1d4 charges each dawn.</p>\n</div>",
+    "favorite": false,
+    "secretDescription": "",
+    "source": "",
+    "uses": {
+      "value": 4,
+      "max": "4",
+      "per": "day",
+      "recharge": {
+        "formula": "1d6",
+        "threshold": "6"
+      }
+    },
+    "schema": {
+      "version": null,
+      "lastMigration": null
+    },
+    "ammunitionProperties": [],
+    "armorCategory": "",
+    "armorProperties": [],
+    "attuned": false,
+    "bulky": false,
+    "craftingComponents": "the antennae of a rust monster",
+    "containerId": "",
+    "damagedState": 0,
+    "equippedState": 0,
+    "items": {},
+    "materialProperties": [],
+    "objectType": "weapon",
+    "plotItem": false,
+    "price": "13,500",
+    "proficient": true,
+    "quantity": 1,
+    "rarity": "veryRare",
+    "requiresAttunement": false,
+    "shieldCategory": "",
+    "shieldProperties": [],
+    "unidentified": false,
+    "unidentifiedDescription": "",
+    "unidentifiedName": "",
+    "weaponProperties": [
+      "defensive",
+      "simple"
+    ],
+    "weight": 8
+  },
+  "effects": [],
+  "folder": null,
+  "flags": {},
+  "_id": "zk00ezdt5arhkkdn"
 }

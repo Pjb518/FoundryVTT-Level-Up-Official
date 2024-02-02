@@ -1,122 +1,118 @@
 {
-	"folder": null,
-	"name": "Draining Nova",
-	"type": "spell",
-	"img": "icons/magic/unholy/orb-glowing-yellow-purple.webp",
-	"system": {
-		"actions": {
-			"xnZAcq3cuGsYgiR1": {
-				"name": "Draining Nova",
-				"activation": {
-					"type": "action",
-					"cost": 1
-				},
-				"consumers": {},
-				"rolls": {
-					"ic638616haz5jlAg": {
-						"type": "damage",
-						"default": true,
-						"formula": "4d8",
-						"damageType": "necrotic"
-					}
-				},
-				"prompts": {
-					"4Tl6ZwiEAudj3bfG": {
-						"type": "savingThrow",
-						"default": true,
-						"ability": "con",
-						"saveDC": {
-							"type": "spellcasting"
-						},
-						"onSave": "avoids the fatigue"
-					}
-				},
-				"uses": {
-					"value": 0,
-					"max": "",
-					"per": "",
-					"recharge": {
-						"formula": "1d6",
-						"threshold": 6
-					}
-				},
-				"duration": {
-					"unit": "instantaneous"
-				},
-				"area": {
-					"shape": "circle",
-					"quantity": 1,
-					"radius": 30,
-					"placeTemplate": true
-				},
-				"ranges": {
-					"AlxXpPfOg145wGI4": {
-						"range": "self"
-					}
-				}
-			}
-		},
-		"description": "<p>Creatures in the area make a Constitution&nbsp;<span class=\"freelinking-link\">saving throw</span>&nbsp;, taking 4d8 necrotic damage and suffering one level of&nbsp;<span class=\"freelinking-link\">fatigue</span>&nbsp;on a failed save and avoiding the fatigue on a successful one. For each level of fatigue you cause in this manner, you gain 1d8 temporary hit points.</p>",
-		"favorite": false,
-		"secretDescription": "",
-		"source": {
-			"name": "",
-			"link": "",
-			"publisher": ""
-		},
-		"uses": {
-			"value": null,
-			"max": "",
-			"per": null,
-			"recharge": {
-				"formula": "1d6",
-				"threshold": "6"
-			}
-		},
-		"schema": {
-			"version": null,
-			"lastMigration": null
-		},
-		"classes": [
-			"cleric",
-			"druid",
-			"sorcerer",
-			"warlock",
-			"wizard"
-		],
-		"components": {
-			"vocalized": true,
-			"seen": true,
-			"material": true
-		},
-		"concentration": false,
-		"level": 4,
-		"materials": "a handheld silver cauldron worth at least 50 gp",
-		"materialsConsumed": false,
-		"prepared": false,
-		"prerequisite": "",
-		"rare": false,
-		"ritual": false,
-		"schools": {
-			"primary": "necromancy",
-			"secondary": [
-				"affliction",
-				"necrotic",
-				"healing"
-			]
-		},
-		"schemaVersion": {
-			"version": 0.011,
-			"lastMigration": {
-				"version": {
-					"schema": 0.01,
-					"foundry": "11.315",
-					"system": "0.16.37"
-				}
-			}
-		}
-	},
-	"effects": [],
-	"flags": {},
-	"_id": "lpif2cwznoony1tj"
+  "folder": null,
+  "name": "Draining Nova",
+  "type": "spell",
+  "img": "icons/magic/unholy/orb-glowing-yellow-purple.webp",
+  "system": {
+    "actions": {
+      "xnZAcq3cuGsYgiR1": {
+        "name": "Draining Nova",
+        "activation": {
+          "type": "action",
+          "cost": 1
+        },
+        "consumers": {},
+        "rolls": {
+          "ic638616haz5jlAg": {
+            "type": "damage",
+            "default": true,
+            "formula": "4d8",
+            "damageType": "necrotic"
+          }
+        },
+        "prompts": {
+          "4Tl6ZwiEAudj3bfG": {
+            "type": "savingThrow",
+            "default": true,
+            "ability": "con",
+            "saveDC": {
+              "type": "spellcasting"
+            },
+            "onSave": "avoids the fatigue"
+          }
+        },
+        "uses": {
+          "value": 0,
+          "max": "",
+          "per": "",
+          "recharge": {
+            "formula": "1d6",
+            "threshold": 6
+          }
+        },
+        "duration": {
+          "unit": "instantaneous"
+        },
+        "area": {
+          "shape": "circle",
+          "quantity": 1,
+          "radius": 30,
+          "placeTemplate": true
+        },
+        "ranges": {
+          "AlxXpPfOg145wGI4": {
+            "range": "self"
+          }
+        }
+      }
+    },
+    "description": "<p>Creatures in the area make a Constitution&nbsp;<span class=\"freelinking-link\">saving throw</span>&nbsp;, taking 4d8 necrotic damage and suffering one level of&nbsp;<span class=\"freelinking-link\">fatigue</span>&nbsp;on a failed save and avoiding the fatigue on a successful one. For each level of fatigue you cause in this manner, you gain 1d8 temporary hit points.</p>",
+    "favorite": false,
+    "secretDescription": "",
+    "source": "",
+    "uses": {
+      "value": null,
+      "max": "",
+      "per": null,
+      "recharge": {
+        "formula": "1d6",
+        "threshold": "6"
+      }
+    },
+    "schema": {
+      "version": null,
+      "lastMigration": null
+    },
+    "classes": [
+      "cleric",
+      "druid",
+      "sorcerer",
+      "warlock",
+      "wizard"
+    ],
+    "components": {
+      "vocalized": true,
+      "seen": true,
+      "material": true
+    },
+    "concentration": false,
+    "level": 4,
+    "materials": "a handheld silver cauldron worth at least 50 gp",
+    "materialsConsumed": false,
+    "prepared": false,
+    "prerequisite": "",
+    "rare": false,
+    "ritual": false,
+    "schools": {
+      "primary": "necromancy",
+      "secondary": [
+        "affliction",
+        "necrotic",
+        "healing"
+      ]
+    },
+    "schemaVersion": {
+      "version": 0.011,
+      "lastMigration": {
+        "version": {
+          "schema": 0.01,
+          "foundry": "11.315",
+          "system": "0.16.37"
+        }
+      }
+    }
+  },
+  "effects": [],
+  "flags": {},
+  "_id": "lpif2cwznoony1tj"
 }

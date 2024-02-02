@@ -1,158 +1,154 @@
 {
-	"folder": null,
-	"name": "Arsenic",
-	"type": "object",
-	"img": "icons/commodities/materials/bowl-powder-grey.webp",
-	"system": {
-		"ac": {
-			"baseFormula": "",
-			"formula": "",
-			"maxDex": 0,
-			"minStr": 0,
-			"mode": 2,
-			"requiresNoShield": false,
-			"requiresUnarmored": false
-		},
-		"actions": {
-			"xj033Ihp4ERkhV77": {
-				"name": "Consume",
-				"activation": {},
-				"consumers": {
-					"dRDiPugFcGwKKpqy": {
-						"type": "quantity",
-						"default": true,
-						"itemId": "",
-						"quantity": 1
-					}
-				},
-				"rolls": {
-					"bugz2nb3xsanVjSk": {
-						"type": "damage",
-						"default": true,
-						"formula": "4d6",
-						"canCrit": false,
-						"damageType": "poison"
-					}
-				},
-				"prompts": {
-					"gsi2GWen7q9Ir1bw": {
-						"type": "savingThrow",
-						"default": true,
-						"ability": "con",
-						"saveDC": {
-							"type": "custom",
-							"bonus": "16"
-						},
-						"onSave": "takes half damage and isn’t poisoned or incapacitated"
-					},
-					"AC61vsfVzSYyjLwr": {
-						"type": "effect",
-						"default": true,
-						"effectId": "5UaBqRqzFKFk9i84"
-					}
-				},
-				"uses": {
-					"value": 0,
-					"max": "",
-					"per": "",
-					"recharge": {
-						"formula": "1d6",
-						"threshold": 6
-					}
-				}
-			}
-		},
-		"description": "<p><em>Uncommon, Ingested, Onset (30 minutes)</em></p>\n<p>While the simple mineral has many innocuous uses, it still numbers among the most prolifically used deadly poisons. A creature makes a DC 16 Constitution saving throw when subjected to this poison. On a failed saving throw, it takes 14 (4d6) poison damage and is poisoned and incapacitated for 24 hours. On a successful saving throw, the creature takes half damage and isn&rsquo;t poisoned or incapacitated.</p>",
-		"favorite": false,
-		"secretDescription": "",
-		"source": {
-			"name": "",
-			"link": "",
-			"publisher": ""
-		},
-		"uses": {
-			"value": null,
-			"max": "",
-			"per": null,
-			"recharge": {
-				"formula": "1d6",
-				"threshold": "6"
-			}
-		},
-		"schema": {
-			"version": null,
-			"lastMigration": null
-		},
-		"ammunitionProperties": [],
-		"armorCategory": "",
-		"armorProperties": [],
-		"attuned": false,
-		"bulky": false,
-		"craftingComponents": "",
-		"containerId": "",
-		"damagedState": 0,
-		"equippedState": 0,
-		"items": {},
-		"materialProperties": [],
-		"objectType": "consumable",
-		"plotItem": false,
-		"price": "300 gp",
-		"proficient": true,
-		"quantity": 1,
-		"rarity": "uncommon",
-		"requiresAttunement": false,
-		"shieldCategory": "",
-		"shieldProperties": [],
-		"unidentified": false,
-		"unidentifiedDescription": "",
-		"unidentifiedName": "",
-		"weaponProperties": [],
-		"weight": 0
-	},
-	"effects": [
-		{
-			"icon": "icons/commodities/materials/bowl-powder-grey.webp",
-			"origin": "Item.vrnwjs6cu1dapyn3",
-			"flags": {
-				"a5e": {
-					"sort": 0,
-					"transferType": "onUse",
-					"actionId": "xj033Ihp4ERkhV77",
-					"duration": {
-						"unit": "hours"
-					}
-				}
-			},
-			"transfer": false,
-			"name": "Arsenic Poisoning",
-			"_id": "5UaBqRqzFKFk9i84",
-			"changes": [
-				{
-					"key": "flags.a5e.effects.statusConditions",
-					"value": "[\"poisoned\",\"incapacitated\"]",
-					"mode": 0,
-					"priority": null
-				}
-			],
-			"disabled": false,
-			"duration": {
-				"startTime": null,
-				"seconds": 86400,
-				"combat": null,
-				"rounds": null,
-				"turns": null,
-				"startRound": null,
-				"startTurn": null
-			},
-			"description": "",
-			"statuses": [
-				"poisoned",
-				"incapacitated"
-			],
-			"tint": "#ffffff",
-			"folder": null
-		}
-	],
-	"flags": {},
-	"_id": "vrnwjs6cu1dapyn3"
+  "folder": null,
+  "name": "Arsenic",
+  "type": "object",
+  "img": "icons/commodities/materials/bowl-powder-grey.webp",
+  "system": {
+    "ac": {
+      "baseFormula": "",
+      "formula": "",
+      "maxDex": 0,
+      "minStr": 0,
+      "mode": 2,
+      "requiresNoShield": false,
+      "requiresUnarmored": false
+    },
+    "actions": {
+      "xj033Ihp4ERkhV77": {
+        "name": "Consume",
+        "activation": {},
+        "consumers": {
+          "dRDiPugFcGwKKpqy": {
+            "type": "quantity",
+            "default": true,
+            "itemId": "",
+            "quantity": 1
+          }
+        },
+        "rolls": {
+          "bugz2nb3xsanVjSk": {
+            "type": "damage",
+            "default": true,
+            "formula": "4d6",
+            "canCrit": false,
+            "damageType": "poison"
+          }
+        },
+        "prompts": {
+          "gsi2GWen7q9Ir1bw": {
+            "type": "savingThrow",
+            "default": true,
+            "ability": "con",
+            "saveDC": {
+              "type": "custom",
+              "bonus": "16"
+            },
+            "onSave": "takes half damage and isn’t poisoned or incapacitated"
+          },
+          "AC61vsfVzSYyjLwr": {
+            "type": "effect",
+            "default": true,
+            "effectId": "5UaBqRqzFKFk9i84"
+          }
+        },
+        "uses": {
+          "value": 0,
+          "max": "",
+          "per": "",
+          "recharge": {
+            "formula": "1d6",
+            "threshold": 6
+          }
+        }
+      }
+    },
+    "description": "<p><em>Uncommon, Ingested, Onset (30 minutes)</em></p>\n<p>While the simple mineral has many innocuous uses, it still numbers among the most prolifically used deadly poisons. A creature makes a DC 16 Constitution saving throw when subjected to this poison. On a failed saving throw, it takes 14 (4d6) poison damage and is poisoned and incapacitated for 24 hours. On a successful saving throw, the creature takes half damage and isn&rsquo;t poisoned or incapacitated.</p>",
+    "favorite": false,
+    "secretDescription": "",
+    "source": "",
+    "uses": {
+      "value": null,
+      "max": "",
+      "per": null,
+      "recharge": {
+        "formula": "1d6",
+        "threshold": "6"
+      }
+    },
+    "schema": {
+      "version": null,
+      "lastMigration": null
+    },
+    "ammunitionProperties": [],
+    "armorCategory": "",
+    "armorProperties": [],
+    "attuned": false,
+    "bulky": false,
+    "craftingComponents": "",
+    "containerId": "",
+    "damagedState": 0,
+    "equippedState": 0,
+    "items": {},
+    "materialProperties": [],
+    "objectType": "consumable",
+    "plotItem": false,
+    "price": "300 gp",
+    "proficient": true,
+    "quantity": 1,
+    "rarity": "uncommon",
+    "requiresAttunement": false,
+    "shieldCategory": "",
+    "shieldProperties": [],
+    "unidentified": false,
+    "unidentifiedDescription": "",
+    "unidentifiedName": "",
+    "weaponProperties": [],
+    "weight": 0
+  },
+  "effects": [
+    {
+      "icon": "icons/commodities/materials/bowl-powder-grey.webp",
+      "origin": "Item.vrnwjs6cu1dapyn3",
+      "flags": {
+        "a5e": {
+          "sort": 0,
+          "transferType": "onUse",
+          "actionId": "xj033Ihp4ERkhV77",
+          "duration": {
+            "unit": "hours"
+          }
+        }
+      },
+      "transfer": false,
+      "name": "Arsenic Poisoning",
+      "_id": "5UaBqRqzFKFk9i84",
+      "changes": [
+        {
+          "key": "flags.a5e.effects.statusConditions",
+          "value": "[\"poisoned\",\"incapacitated\"]",
+          "mode": 0,
+          "priority": null
+        }
+      ],
+      "disabled": false,
+      "duration": {
+        "startTime": null,
+        "seconds": 86400,
+        "combat": null,
+        "rounds": null,
+        "turns": null,
+        "startRound": null,
+        "startTurn": null
+      },
+      "description": "",
+      "statuses": [
+        "poisoned",
+        "incapacitated"
+      ],
+      "tint": "#ffffff",
+      "folder": null
+    }
+  ],
+  "flags": {},
+  "_id": "vrnwjs6cu1dapyn3"
 }

@@ -1,151 +1,147 @@
 {
-	"folder": null,
-	"name": "Read Thoughts (Doppelganger Paragon)",
-	"type": "feature",
-	"img": "icons/magic/perception/third-eye-blue-red.webp",
-	"system": {
-		"ac": {
-			"baseFormula": "",
-			"formula": "",
-			"maxDex": 0,
-			"minStr": 0,
-			"mode": 2,
-			"requiresNoShield": false,
-			"requiresUnarmored": false
-		},
-		"actions": {
-			"rrfwvdq5CkpjlFi8": {
-				"name": "Use Feature",
-				"activation": {
-					"type": "action",
-					"cost": 1
-				},
-				"consumers": {},
-				"rolls": {},
-				"prompts": {
-					"DBBXs28OEeY6oiIv": {
-						"type": "effect",
-						"default": true,
-						"effectId": "ymyGIoZWqY6Catga"
-					}
-				},
-				"uses": {
-					"value": 0,
-					"max": "",
-					"per": "",
-					"recharge": {
-						"formula": "1d6",
-						"threshold": 6
-					}
-				},
-				"ranges": {
-					"YP6OR36lAbzpGuC1": {
-						"range": "medium"
-					}
-				},
-				"target": {
-					"type": "creature",
-					"quantity": 1
-				},
-				"duration": {
-					"unit": "round",
-					"value": 1
-				}
-			}
-		},
-		"description": "<p>As an action, you can magically read the surface thoughts of one creature within 60 feet that you can see. Additionally, until the end of your next turn, you have&nbsp;<span class=\"freelinking-link\">advantage</span>&nbsp;on&nbsp;<span class=\"freelinking-link\">attack rolls</span>&nbsp;and Deception, Insight, Intimidation, and Persuasion checks against the creature. You can use this trait a number of times equal to your proficiency bonus. You regain any expended uses when you finish a&nbsp;<span class=\"freelinking-link\">long rest</span> .</p>",
-		"favorite": false,
-		"secretDescription": "",
-		"source": {
-			"name": "",
-			"link": "",
-			"publisher": ""
-		},
-		"uses": {
-			"value": 1,
-			"max": "@prof",
-			"per": "longRest",
-			"recharge": {
-				"formula": "1d6",
-				"threshold": "6"
-			}
-		},
-		"schema": {
-			"version": null,
-			"lastMigration": null
-		},
-		"concentration": false,
-		"featureType": "heritage",
-		"grants": {},
-		"prerequisite": "",
-		"requiresBloodied": false
-	},
-	"effects": [
-		{
-			"icon": "icons/magic/perception/third-eye-blue-red.webp",
-			"origin": "Item.cxgzlooxmdk9pn2k",
-			"flags": {
-				"a5e": {
-					"sort": 0,
-					"transferType": "onUse",
-					"actionId": "rrfwvdq5CkpjlFi8",
-					"duration": {
-						"unit": "minutes",
-						"type": "rounds"
-					},
-					"applyToSelf": true
-				}
-			},
-			"transfer": false,
-			"name": "Read Thoughts",
-			"_id": "ymyGIoZWqY6Catga",
-			"changes": [
-				{
-					"key": "flags.a5e.effects.rollMode.attack.all",
-					"value": "1",
-					"mode": 6,
-					"priority": null
-				},
-				{
-					"key": "flags.a5e.effects.rollMode.skillCheck.ins",
-					"value": "1",
-					"mode": 6,
-					"priority": null
-				},
-				{
-					"key": "flags.a5e.effects.rollMode.skillCheck.dec",
-					"value": "1",
-					"mode": 6,
-					"priority": null
-				},
-				{
-					"key": "flags.a5e.effects.rollMode.skillCheck.per",
-					"value": "1",
-					"mode": 6,
-					"priority": null
-				},
-				{
-					"key": "flags.a5e.effects.rollMode.skillCheck.itm",
-					"value": "1",
-					"mode": 6,
-					"priority": null
-				}
-			],
-			"disabled": false,
-			"duration": {
-				"startTime": null,
-				"seconds": null,
-				"combat": null,
-				"rounds": 1,
-				"turns": null,
-				"startRound": null,
-				"startTurn": null
-			},
-			"description": "",
-			"statuses": [],
-			"folder": null
-		}
-	],
-	"flags": {},
-	"_id": "cxgzlooxmdk9pn2k"
+  "folder": null,
+  "name": "Read Thoughts (Doppelganger Paragon)",
+  "type": "feature",
+  "img": "icons/magic/perception/third-eye-blue-red.webp",
+  "system": {
+    "ac": {
+      "baseFormula": "",
+      "formula": "",
+      "maxDex": 0,
+      "minStr": 0,
+      "mode": 2,
+      "requiresNoShield": false,
+      "requiresUnarmored": false
+    },
+    "actions": {
+      "rrfwvdq5CkpjlFi8": {
+        "name": "Use Feature",
+        "activation": {
+          "type": "action",
+          "cost": 1
+        },
+        "consumers": {},
+        "rolls": {},
+        "prompts": {
+          "DBBXs28OEeY6oiIv": {
+            "type": "effect",
+            "default": true,
+            "effectId": "ymyGIoZWqY6Catga"
+          }
+        },
+        "uses": {
+          "value": 0,
+          "max": "",
+          "per": "",
+          "recharge": {
+            "formula": "1d6",
+            "threshold": 6
+          }
+        },
+        "ranges": {
+          "YP6OR36lAbzpGuC1": {
+            "range": "medium"
+          }
+        },
+        "target": {
+          "type": "creature",
+          "quantity": 1
+        },
+        "duration": {
+          "unit": "round",
+          "value": 1
+        }
+      }
+    },
+    "description": "<p>As an action, you can magically read the surface thoughts of one creature within 60 feet that you can see. Additionally, until the end of your next turn, you have&nbsp;<span class=\"freelinking-link\">advantage</span>&nbsp;on&nbsp;<span class=\"freelinking-link\">attack rolls</span>&nbsp;and Deception, Insight, Intimidation, and Persuasion checks against the creature. You can use this trait a number of times equal to your proficiency bonus. You regain any expended uses when you finish a&nbsp;<span class=\"freelinking-link\">long rest</span> .</p>",
+    "favorite": false,
+    "secretDescription": "",
+    "source": "",
+    "uses": {
+      "value": 1,
+      "max": "@prof",
+      "per": "longRest",
+      "recharge": {
+        "formula": "1d6",
+        "threshold": "6"
+      }
+    },
+    "schema": {
+      "version": null,
+      "lastMigration": null
+    },
+    "concentration": false,
+    "featureType": "heritage",
+    "grants": {},
+    "prerequisite": "",
+    "requiresBloodied": false
+  },
+  "effects": [
+    {
+      "icon": "icons/magic/perception/third-eye-blue-red.webp",
+      "origin": "Item.cxgzlooxmdk9pn2k",
+      "flags": {
+        "a5e": {
+          "sort": 0,
+          "transferType": "onUse",
+          "actionId": "rrfwvdq5CkpjlFi8",
+          "duration": {
+            "unit": "minutes",
+            "type": "rounds"
+          },
+          "applyToSelf": true
+        }
+      },
+      "transfer": false,
+      "name": "Read Thoughts",
+      "_id": "ymyGIoZWqY6Catga",
+      "changes": [
+        {
+          "key": "flags.a5e.effects.rollMode.attack.all",
+          "value": "1",
+          "mode": 6,
+          "priority": null
+        },
+        {
+          "key": "flags.a5e.effects.rollMode.skillCheck.ins",
+          "value": "1",
+          "mode": 6,
+          "priority": null
+        },
+        {
+          "key": "flags.a5e.effects.rollMode.skillCheck.dec",
+          "value": "1",
+          "mode": 6,
+          "priority": null
+        },
+        {
+          "key": "flags.a5e.effects.rollMode.skillCheck.per",
+          "value": "1",
+          "mode": 6,
+          "priority": null
+        },
+        {
+          "key": "flags.a5e.effects.rollMode.skillCheck.itm",
+          "value": "1",
+          "mode": 6,
+          "priority": null
+        }
+      ],
+      "disabled": false,
+      "duration": {
+        "startTime": null,
+        "seconds": null,
+        "combat": null,
+        "rounds": 1,
+        "turns": null,
+        "startRound": null,
+        "startTurn": null
+      },
+      "description": "",
+      "statuses": [],
+      "folder": null
+    }
+  ],
+  "flags": {},
+  "_id": "cxgzlooxmdk9pn2k"
 }

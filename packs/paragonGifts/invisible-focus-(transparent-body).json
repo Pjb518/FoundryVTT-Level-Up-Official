@@ -1,119 +1,115 @@
 {
-	"folder": null,
-	"name": "Invisible Focus (Transparent Body)",
-	"type": "feature",
-	"img": "icons/creatures/slimes/slime-movement-pseudopods-blue.webp",
-	"system": {
-		"ac": {
-			"baseFormula": "",
-			"formula": "",
-			"maxDex": 0,
-			"minStr": 0,
-			"mode": 2,
-			"requiresNoShield": false,
-			"requiresUnarmored": false
-		},
-		"actions": {
-			"R1w6QzzeCTxPn0MC": {
-				"name": "Use Feature",
-				"activation": {
-					"type": "action",
-					"cost": 1
-				},
-				"consumers": {},
-				"rolls": {},
-				"prompts": {
-					"FAnkBlCwCcMcy3qL": {
-						"type": "effect",
-						"default": true,
-						"effectId": "L67R4G68jsmTcvuU"
-					}
-				},
-				"uses": {
-					"value": 0,
-					"max": "",
-					"per": "",
-					"recharge": {
-						"formula": "1d6",
-						"threshold": 6
-					}
-				},
-				"target": {
-					"type": "self",
-					"quantity": 1
-				}
-			}
-		},
-		"description": "<p>You can use an action to focus, spreading your transparent qualities to your equipment and any items you are carrying. You become&nbsp;<span class=\"freelinking-link\">invisible</span>&nbsp;for 1 minute or until you lose&nbsp;<span class=\"freelinking-link\">concentration</span>&nbsp;(as if concentrating on a spell). Once you have used this trait, you can&rsquo;t use it again until you finish a&nbsp;<span class=\"freelinking-link\">short or long rest</span>.</p>",
-		"favorite": false,
-		"secretDescription": "",
-		"source": {
-			"name": "",
-			"link": "",
-			"publisher": ""
-		},
-		"uses": {
-			"value": 1,
-			"max": "1",
-			"per": "shortRest",
-			"recharge": {
-				"formula": "1d6",
-				"threshold": "6"
-			}
-		},
-		"schema": {
-			"version": null,
-			"lastMigration": null
-		},
-		"concentration": true,
-		"featureType": "heritage",
-		"grants": {},
-		"prerequisite": "",
-		"requiresBloodied": false
-	},
-	"effects": [
-		{
-			"icon": "icons/creatures/slimes/slime-movement-pseudopods-blue.webp",
-			"origin": "Item.4qtrm4k61zvspiy2",
-			"flags": {
-				"a5e": {
-					"sort": 0,
-					"transferType": "onUse",
-					"actionId": "R1w6QzzeCTxPn0MC",
-					"duration": {
-						"unit": "minutes"
-					},
-					"applyToSelf": true
-				}
-			},
-			"transfer": false,
-			"name": "Invisibility",
-			"_id": "L67R4G68jsmTcvuU",
-			"changes": [
-				{
-					"key": "flags.a5e.effects.statusConditions",
-					"value": "[\"invisible\"]",
-					"mode": 0,
-					"priority": null
-				}
-			],
-			"disabled": false,
-			"duration": {
-				"startTime": null,
-				"seconds": 60,
-				"combat": null,
-				"rounds": null,
-				"turns": null,
-				"startRound": null,
-				"startTurn": null
-			},
-			"description": "",
-			"statuses": [
-				"invisible"
-			],
-			"folder": null
-		}
-	],
-	"flags": {},
-	"_id": "4qtrm4k61zvspiy2"
+  "folder": null,
+  "name": "Invisible Focus (Transparent Body)",
+  "type": "feature",
+  "img": "icons/creatures/slimes/slime-movement-pseudopods-blue.webp",
+  "system": {
+    "ac": {
+      "baseFormula": "",
+      "formula": "",
+      "maxDex": 0,
+      "minStr": 0,
+      "mode": 2,
+      "requiresNoShield": false,
+      "requiresUnarmored": false
+    },
+    "actions": {
+      "R1w6QzzeCTxPn0MC": {
+        "name": "Use Feature",
+        "activation": {
+          "type": "action",
+          "cost": 1
+        },
+        "consumers": {},
+        "rolls": {},
+        "prompts": {
+          "FAnkBlCwCcMcy3qL": {
+            "type": "effect",
+            "default": true,
+            "effectId": "L67R4G68jsmTcvuU"
+          }
+        },
+        "uses": {
+          "value": 0,
+          "max": "",
+          "per": "",
+          "recharge": {
+            "formula": "1d6",
+            "threshold": 6
+          }
+        },
+        "target": {
+          "type": "self",
+          "quantity": 1
+        }
+      }
+    },
+    "description": "<p>You can use an action to focus, spreading your transparent qualities to your equipment and any items you are carrying. You become&nbsp;<span class=\"freelinking-link\">invisible</span>&nbsp;for 1 minute or until you lose&nbsp;<span class=\"freelinking-link\">concentration</span>&nbsp;(as if concentrating on a spell). Once you have used this trait, you can&rsquo;t use it again until you finish a&nbsp;<span class=\"freelinking-link\">short or long rest</span>.</p>",
+    "favorite": false,
+    "secretDescription": "",
+    "source": "",
+    "uses": {
+      "value": 1,
+      "max": "1",
+      "per": "shortRest",
+      "recharge": {
+        "formula": "1d6",
+        "threshold": "6"
+      }
+    },
+    "schema": {
+      "version": null,
+      "lastMigration": null
+    },
+    "concentration": true,
+    "featureType": "heritage",
+    "grants": {},
+    "prerequisite": "",
+    "requiresBloodied": false
+  },
+  "effects": [
+    {
+      "icon": "icons/creatures/slimes/slime-movement-pseudopods-blue.webp",
+      "origin": "Item.4qtrm4k61zvspiy2",
+      "flags": {
+        "a5e": {
+          "sort": 0,
+          "transferType": "onUse",
+          "actionId": "R1w6QzzeCTxPn0MC",
+          "duration": {
+            "unit": "minutes"
+          },
+          "applyToSelf": true
+        }
+      },
+      "transfer": false,
+      "name": "Invisibility",
+      "_id": "L67R4G68jsmTcvuU",
+      "changes": [
+        {
+          "key": "flags.a5e.effects.statusConditions",
+          "value": "[\"invisible\"]",
+          "mode": 0,
+          "priority": null
+        }
+      ],
+      "disabled": false,
+      "duration": {
+        "startTime": null,
+        "seconds": 60,
+        "combat": null,
+        "rounds": null,
+        "turns": null,
+        "startRound": null,
+        "startTurn": null
+      },
+      "description": "",
+      "statuses": [
+        "invisible"
+      ],
+      "folder": null
+    }
+  ],
+  "flags": {},
+  "_id": "4qtrm4k61zvspiy2"
 }

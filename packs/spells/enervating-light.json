@@ -1,128 +1,124 @@
 {
-	"folder": null,
-	"name": "Enervating Light",
-	"type": "spell",
-	"img": "icons/magic/light/beam-rays-yellow.webp",
-	"system": {
-		"actions": {
-			"ZI3Nnv5mrnkbUJcF": {
-				"name": "Enervating Light",
-				"activation": {
-					"type": "action",
-					"cost": 1
-				},
-				"consumers": {},
-				"rolls": {
-					"UhWO7tqlyLpGiMVP": {
-						"type": "healing",
-						"default": true,
-						"healingType": "temporaryHealing",
-						"formula": "2d8",
-						"label": "undead in the area of bright light"
-					},
-					"V5CnblBlMgKvLe73": {
-						"type": "healing",
-						"default": true,
-						"healingType": "temporaryHealing",
-						"formula": "1d8",
-						"label": "undead in the area of dim light"
-					}
-				},
-				"prompts": {
-					"WsFrJAoWJyY1SOmk": {
-						"type": "savingThrow",
-						"default": true,
-						"ability": "con",
-						"saveDC": {
-							"type": "spellcasting"
-						},
-						"onSave": "no fatigue"
-					}
-				},
-				"uses": {
-					"value": 0,
-					"max": "",
-					"per": "",
-					"recharge": {
-						"formula": "1d6",
-						"threshold": 6
-					}
-				},
-				"duration": {
-					"unit": "minute",
-					"value": 1
-				},
-				"ranges": {
-					"AUqNwGSJ6LtdZGAa": {
-						"range": "short"
-					}
-				},
-				"area": {
-					"shape": "circle",
-					"quantity": 1,
-					"radius": 40
-				}
-			}
-		},
-		"description": "<p>You conjure a mote of sickly light at a point within range. The mote emits&nbsp;<span class=\"freelinking-link\">bright light</span>&nbsp;in a 20-foot radius, and&nbsp;<span class=\"freelinking-link\">dim light</span>&nbsp;for another 20 feet. A non-undead creature that starts its turn in the bright light, or enters the bright light for the first time on a turn, must succeed on a Constitution&nbsp;<span class=\"freelinking-link\">saving throw</span>&nbsp;or suffer a level of&nbsp;<span class=\"freelinking-link\">fatigue</span>&nbsp;.</p>\n<p>Additionally, if it suffers this fatigue, all&nbsp;<span class=\"freelinking-link\">undead</span>&nbsp;in the area of bright light gain 2d8 temporary hit points and those in the area of dim light gain 1d8 temporary hit points. On a successful save, a creature is&nbsp;<span class=\"freelinking-link\">immune</span>&nbsp;to the effect until it leaves the area.</p>",
-		"favorite": false,
-		"secretDescription": "",
-		"source": {
-			"name": "",
-			"link": "",
-			"publisher": ""
-		},
-		"uses": {
-			"value": null,
-			"max": "",
-			"per": null,
-			"recharge": {
-				"formula": "1d6",
-				"threshold": "6"
-			}
-		},
-		"schema": {
-			"version": null,
-			"lastMigration": null
-		},
-		"classes": [
-			"cleric",
-			"sorcerer",
-			"warlock",
-			"wizard"
-		],
-		"components": {
-			"vocalized": true,
-			"seen": true,
-			"material": false
-		},
-		"concentration": true,
-		"level": 4,
-		"materials": "",
-		"materialsConsumed": false,
-		"prepared": false,
-		"prerequisite": "",
-		"rare": false,
-		"ritual": false,
-		"schools": {
-			"primary": "necromancy",
-			"secondary": [
-				"affliction",
-				"undead"
-			]
-		},
-		"schemaVersion": {
-			"version": 0.011,
-			"lastMigration": {
-				"version": {
-					"schema": 0.01,
-					"foundry": "11.315",
-					"system": "0.16.37"
-				}
-			}
-		}
-	},
-	"effects": [],
-	"flags": {},
-	"_id": "dw6rd9ry1ndfy5x4"
+  "folder": null,
+  "name": "Enervating Light",
+  "type": "spell",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "actions": {
+      "ZI3Nnv5mrnkbUJcF": {
+        "name": "Enervating Light",
+        "activation": {
+          "type": "action",
+          "cost": 1
+        },
+        "consumers": {},
+        "rolls": {
+          "UhWO7tqlyLpGiMVP": {
+            "type": "healing",
+            "default": true,
+            "healingType": "temporaryHealing",
+            "formula": "2d8",
+            "label": "undead in the area of bright light"
+          },
+          "V5CnblBlMgKvLe73": {
+            "type": "healing",
+            "default": true,
+            "healingType": "temporaryHealing",
+            "formula": "1d8",
+            "label": "undead in the area of dim light"
+          }
+        },
+        "prompts": {
+          "WsFrJAoWJyY1SOmk": {
+            "type": "savingThrow",
+            "default": true,
+            "ability": "con",
+            "saveDC": {
+              "type": "spellcasting"
+            },
+            "onSave": "no fatigue"
+          }
+        },
+        "uses": {
+          "value": 0,
+          "max": "",
+          "per": "",
+          "recharge": {
+            "formula": "1d6",
+            "threshold": 6
+          }
+        },
+        "duration": {
+          "unit": "minute",
+          "value": 1
+        },
+        "ranges": {
+          "AUqNwGSJ6LtdZGAa": {
+            "range": "short"
+          }
+        },
+        "area": {
+          "shape": "circle",
+          "quantity": 1,
+          "radius": 40
+        }
+      }
+    },
+    "description": "<p>You conjure a mote of sickly light at a point within range. The mote emits&nbsp;<span class=\"freelinking-link\">bright light</span>&nbsp;in a 20-foot radius, and&nbsp;<span class=\"freelinking-link\">dim light</span>&nbsp;for another 20 feet. A non-undead creature that starts its turn in the bright light, or enters the bright light for the first time on a turn, must succeed on a Constitution&nbsp;<span class=\"freelinking-link\">saving throw</span>&nbsp;or suffer a level of&nbsp;<span class=\"freelinking-link\">fatigue</span>&nbsp;.</p>\n<p>Additionally, if it suffers this fatigue, all&nbsp;<span class=\"freelinking-link\">undead</span>&nbsp;in the area of bright light gain 2d8 temporary hit points and those in the area of dim light gain 1d8 temporary hit points. On a successful save, a creature is&nbsp;<span class=\"freelinking-link\">immune</span>&nbsp;to the effect until it leaves the area.</p>",
+    "favorite": false,
+    "secretDescription": "",
+    "source": "",
+    "uses": {
+      "value": null,
+      "max": "",
+      "per": null,
+      "recharge": {
+        "formula": "1d6",
+        "threshold": "6"
+      }
+    },
+    "schema": {
+      "version": null,
+      "lastMigration": null
+    },
+    "classes": [
+      "cleric",
+      "sorcerer",
+      "warlock",
+      "wizard"
+    ],
+    "components": {
+      "vocalized": true,
+      "seen": true,
+      "material": false
+    },
+    "concentration": true,
+    "level": 4,
+    "materials": "",
+    "materialsConsumed": false,
+    "prepared": false,
+    "prerequisite": "",
+    "rare": false,
+    "ritual": false,
+    "schools": {
+      "primary": "necromancy",
+      "secondary": [
+        "affliction",
+        "undead"
+      ]
+    },
+    "schemaVersion": {
+      "version": 0.011,
+      "lastMigration": {
+        "version": {
+          "schema": 0.01,
+          "foundry": "11.315",
+          "system": "0.16.37"
+        }
+      }
+    }
+  },
+  "effects": [],
+  "flags": {},
+  "_id": "dw6rd9ry1ndfy5x4"
 }

@@ -1,98 +1,94 @@
 {
-	"name": "Vicious Blade",
-	"type": "maneuver",
-	"img": "icons/magic/unholy/hand-claw-glow-orange.webp",
-	"system": {
-		"actions": {
-			"QJkutSDrVXULhBly": {
-				"name": "Vicious Blade",
-				"activation": {
-					"type": "bonusAction",
-					"cost": 1,
-					"reactionTrigger": "When you are grappling an opponent"
-				},
-				"consumers": {
-					"oo9F5OmDhJ3kZDU7": {
-						"type": "resource",
-						"default": true,
-						"resource": "exertion",
-						"quantity": 2
-					}
-				},
-				"rolls": {
-					"ZeXc297c1OKs44jv": {
-						"type": "damage",
-						"default": true,
-						"damageType": "necrotic",
-						"formula": "1 + @str.mod"
-					}
-				},
-				"prompts": {
-					"LqNYUhGXFOQL3tYA": {
-						"type": "savingThrow",
-						"default": true,
-						"ability": "con",
-						"saveDC": {
-							"type": "maneuver"
-						}
-					}
-				},
-				"uses": {
-					"value": 0,
-					"max": "",
-					"per": "",
-					"recharge": {
-						"formula": "1d6",
-						"threshold": 6
-					}
-				},
-				"ranges": {},
-				"duration": {
-					"unit": "",
-					"value": 1
-				}
-			}
-		},
-		"description": "<p>You enchant your weapon with clinging shadows. Until the end of your next turn, the next creature you damage with a&nbsp;<span class=\"freelinking-link\">melee weapon attack</span>&nbsp;makes a Constitution&nbsp;<span class=\"freelinking-link\">saving throw</span>&nbsp;or takes additional necrotic damage equal to your base melee damage for a number of rounds equal to your Charisma modifier.</p>",
-		"favorite": false,
-		"secretDescription": "",
-		"source": {
-			"name": "",
-			"link": "",
-			"publisher": ""
-		},
-		"uses": {
-			"value": null,
-			"max": "",
-			"per": null,
-			"recharge": {
-				"formula": "1d6",
-				"threshold": "6"
-			}
-		},
-		"schema": {
-			"version": null,
-			"lastMigration": null
-		},
-		"concentration": false,
-		"degree": 4,
-		"exertionCost": 2,
-		"isStance": false,
-		"prerequisite": "",
-		"tradition": "eldritchBlackguard",
-		"schemaVersion": {
-			"version": 0.011,
-			"lastMigration": {
-				"version": {
-					"schema": 0.01,
-					"foundry": "11.315",
-					"system": "0.16.37"
-				}
-			}
-		}
-	},
-	"effects": [],
-	"folder": null,
-	"flags": {},
-	"_id": "q2gdfqt6jxqdywdy"
+  "name": "Vicious Blade",
+  "type": "maneuver",
+  "img": "icons/magic/unholy/hand-claw-glow-orange.webp",
+  "system": {
+    "actions": {
+      "QJkutSDrVXULhBly": {
+        "name": "Vicious Blade",
+        "activation": {
+          "type": "bonusAction",
+          "cost": 1,
+          "reactionTrigger": "When you are grappling an opponent"
+        },
+        "consumers": {
+          "oo9F5OmDhJ3kZDU7": {
+            "type": "resource",
+            "default": true,
+            "resource": "exertion",
+            "quantity": 2
+          }
+        },
+        "rolls": {
+          "ZeXc297c1OKs44jv": {
+            "type": "damage",
+            "default": true,
+            "damageType": "necrotic",
+            "formula": "1 + @str.mod"
+          }
+        },
+        "prompts": {
+          "LqNYUhGXFOQL3tYA": {
+            "type": "savingThrow",
+            "default": true,
+            "ability": "con",
+            "saveDC": {
+              "type": "maneuver"
+            }
+          }
+        },
+        "uses": {
+          "value": 0,
+          "max": "",
+          "per": "",
+          "recharge": {
+            "formula": "1d6",
+            "threshold": 6
+          }
+        },
+        "ranges": {},
+        "duration": {
+          "unit": "",
+          "value": 1
+        }
+      }
+    },
+    "description": "<p>You enchant your weapon with clinging shadows. Until the end of your next turn, the next creature you damage with a&nbsp;<span class=\"freelinking-link\">melee weapon attack</span>&nbsp;makes a Constitution&nbsp;<span class=\"freelinking-link\">saving throw</span>&nbsp;or takes additional necrotic damage equal to your base melee damage for a number of rounds equal to your Charisma modifier.</p>",
+    "favorite": false,
+    "secretDescription": "",
+    "source": "",
+    "uses": {
+      "value": null,
+      "max": "",
+      "per": null,
+      "recharge": {
+        "formula": "1d6",
+        "threshold": "6"
+      }
+    },
+    "schema": {
+      "version": null,
+      "lastMigration": null
+    },
+    "concentration": false,
+    "degree": 4,
+    "exertionCost": 2,
+    "isStance": false,
+    "prerequisite": "",
+    "tradition": "eldritchBlackguard",
+    "schemaVersion": {
+      "version": 0.011,
+      "lastMigration": {
+        "version": {
+          "schema": 0.01,
+          "foundry": "11.315",
+          "system": "0.16.37"
+        }
+      }
+    }
+  },
+  "effects": [],
+  "folder": null,
+  "flags": {},
+  "_id": "q2gdfqt6jxqdywdy"
 }

@@ -1,195 +1,191 @@
 {
-	"folder": null,
-	"name": "Pipes of Haunting",
-	"type": "object",
-	"img": "icons/tools/instruments/flute-simple-wood.webp",
-	"system": {
-		"ac": {
-			"baseFormula": "",
-			"formula": "",
-			"maxDex": 0,
-			"minStr": 0,
-			"mode": 2,
-			"requiresNoShield": false,
-			"requiresUnarmored": false
-		},
-		"actions": {
-			"EAyJ8IDqpM07qkNV": {
-				"name": "Play",
-				"activation": {
-					"type": "action",
-					"cost": 1
-				},
-				"consumers": {
-					"NiN8Hz1sV8LvBIH9": {
-						"type": "itemUses",
-						"default": true,
-						"quantity": 1
-					}
-				},
-				"rolls": {},
-				"prompts": {
-					"AXwX9PSybpVSHQER": {
-						"type": "savingThrow",
-						"default": true,
-						"ability": "wis",
-						"saveDC": {
-							"type": "custom",
-							"bonus": "15"
-						},
-						"onSave": "Immune to pipes of haunting for 24 hours"
-					},
-					"s4KSB55i00sgiOGM": {
-						"type": "effect",
-						"default": true,
-						"effectId": "CSBI2B4nN4L0Qt0z"
-					}
-				},
-				"uses": {
-					"value": 0,
-					"max": "",
-					"per": "",
-					"recharge": {
-						"formula": "1d6",
-						"threshold": 6
-					}
-				},
-				"ranges": {
-					"twT0RjRTzRjiUrsq": {
-						"range": "short"
-					}
-				},
-				"area": {
-					"shape": "emanation",
-					"quantity": 1,
-					"placeTemplate": true,
-					"radius": 30
-				},
-				"target": {
-					"type": "",
-					"quantity": 1
-				},
-				"duration": {
-					"unit": "minute",
-					"value": 1
-				}
-			},
-			"ijCnlkuTozVNlK9z": {
-				"name": "Regain Charges",
-				"activation": {
-					"type": "day",
-					"cost": 1
-				},
-				"consumers": {},
-				"rolls": {
-					"V2vojtd8hWLDJNht": {
-						"type": "generic",
-						"default": true,
-						"formula": "1d3"
-					}
-				},
-				"prompts": {},
-				"uses": {
-					"value": 0,
-					"max": "",
-					"per": "",
-					"recharge": {
-						"formula": "1d6",
-						"threshold": 6
-					}
-				}
-			}
-		},
-		"description": "<p>Using these pipes requires proficiency with wind&nbsp;instruments. You can use an action and expend&nbsp;1 charge to play them and create an eerie, spellbinding&nbsp;tune. Each creature within 30 feet that&nbsp;hears you play makes a DC 15 Wisdom saving&nbsp;throw or becomes frightened of you for 1 minute.&nbsp;You may choose for nonhostile creatures in the&nbsp;area to automatically succeed on the saving throw.&nbsp;A frightened creature can repeat the saving throw&nbsp;at the end of each of its turns, ending the effect on&nbsp;itself on a success. A creature that succeeds on its&nbsp;saving throw is immune to these pipes of haunting&nbsp;for 24 hours. The pipes have 3 charges and regain&nbsp;1d3 charges each dawn.</p>",
-		"favorite": false,
-		"secretDescription": "",
-		"source": {
-			"name": "",
-			"link": "",
-			"publisher": ""
-		},
-		"uses": {
-			"value": 3,
-			"max": "3",
-			"per": "",
-			"recharge": {
-				"formula": "1d6",
-				"threshold": "6"
-			}
-		},
-		"schema": {
-			"version": null,
-			"lastMigration": null
-		},
-		"ammunitionProperties": [],
-		"armorCategory": "",
-		"armorProperties": [],
-		"attuned": false,
-		"bulky": false,
-		"craftingComponents": "hollowed bones of a deposed or exiled ruler",
-		"containerId": "",
-		"damagedState": 0,
-		"equippedState": 0,
-		"items": {},
-		"materialProperties": [],
-		"objectType": "tool",
-		"plotItem": false,
-		"price": "500 gp",
-		"proficient": true,
-		"quantity": 1,
-		"rarity": "uncommon",
-		"requiresAttunement": false,
-		"shieldCategory": "",
-		"shieldProperties": [],
-		"unidentified": false,
-		"unidentifiedDescription": "",
-		"unidentifiedName": "",
-		"weaponProperties": [],
-		"weight": 0
-	},
-	"effects": [
-		{
-			"icon": "icons/tools/instruments/flute-simple-wood.webp",
-			"origin": "Item.4tf60zylsra97p3f",
-			"flags": {
-				"a5e": {
-					"sort": 0,
-					"transferType": "onUse",
-					"actionId": "EAyJ8IDqpM07qkNV",
-					"duration": {
-						"unit": "minutes"
-					}
-				}
-			},
-			"transfer": false,
-			"name": "Frightened",
-			"_id": "CSBI2B4nN4L0Qt0z",
-			"changes": [
-				{
-					"key": "flags.a5e.effects.statusConditions",
-					"value": "[\"frightened\"]",
-					"mode": 0,
-					"priority": null
-				}
-			],
-			"disabled": false,
-			"duration": {
-				"startTime": null,
-				"seconds": 60,
-				"combat": null,
-				"rounds": null,
-				"turns": null,
-				"startRound": null,
-				"startTurn": null
-			},
-			"description": "",
-			"statuses": [
-				"frightened"
-			],
-			"tint": "#ffffff",
-			"folder": null
-		}
-	],
-	"flags": {},
-	"_id": "4tf60zylsra97p3f"
+  "folder": null,
+  "name": "Pipes of Haunting",
+  "type": "object",
+  "img": "icons/tools/instruments/flute-simple-wood.webp",
+  "system": {
+    "ac": {
+      "baseFormula": "",
+      "formula": "",
+      "maxDex": 0,
+      "minStr": 0,
+      "mode": 2,
+      "requiresNoShield": false,
+      "requiresUnarmored": false
+    },
+    "actions": {
+      "EAyJ8IDqpM07qkNV": {
+        "name": "Play",
+        "activation": {
+          "type": "action",
+          "cost": 1
+        },
+        "consumers": {
+          "NiN8Hz1sV8LvBIH9": {
+            "type": "itemUses",
+            "default": true,
+            "quantity": 1
+          }
+        },
+        "rolls": {},
+        "prompts": {
+          "AXwX9PSybpVSHQER": {
+            "type": "savingThrow",
+            "default": true,
+            "ability": "wis",
+            "saveDC": {
+              "type": "custom",
+              "bonus": "15"
+            },
+            "onSave": "Immune to pipes of haunting for 24 hours"
+          },
+          "s4KSB55i00sgiOGM": {
+            "type": "effect",
+            "default": true,
+            "effectId": "CSBI2B4nN4L0Qt0z"
+          }
+        },
+        "uses": {
+          "value": 0,
+          "max": "",
+          "per": "",
+          "recharge": {
+            "formula": "1d6",
+            "threshold": 6
+          }
+        },
+        "ranges": {
+          "twT0RjRTzRjiUrsq": {
+            "range": "short"
+          }
+        },
+        "area": {
+          "shape": "emanation",
+          "quantity": 1,
+          "placeTemplate": true,
+          "radius": 30
+        },
+        "target": {
+          "type": "",
+          "quantity": 1
+        },
+        "duration": {
+          "unit": "minute",
+          "value": 1
+        }
+      },
+      "ijCnlkuTozVNlK9z": {
+        "name": "Regain Charges",
+        "activation": {
+          "type": "day",
+          "cost": 1
+        },
+        "consumers": {},
+        "rolls": {
+          "V2vojtd8hWLDJNht": {
+            "type": "generic",
+            "default": true,
+            "formula": "1d3"
+          }
+        },
+        "prompts": {},
+        "uses": {
+          "value": 0,
+          "max": "",
+          "per": "",
+          "recharge": {
+            "formula": "1d6",
+            "threshold": 6
+          }
+        }
+      }
+    },
+    "description": "<p>Using these pipes requires proficiency with wind&nbsp;instruments. You can use an action and expend&nbsp;1 charge to play them and create an eerie, spellbinding&nbsp;tune. Each creature within 30 feet that&nbsp;hears you play makes a DC 15 Wisdom saving&nbsp;throw or becomes frightened of you for 1 minute.&nbsp;You may choose for nonhostile creatures in the&nbsp;area to automatically succeed on the saving throw.&nbsp;A frightened creature can repeat the saving throw&nbsp;at the end of each of its turns, ending the effect on&nbsp;itself on a success. A creature that succeeds on its&nbsp;saving throw is immune to these pipes of haunting&nbsp;for 24 hours. The pipes have 3 charges and regain&nbsp;1d3 charges each dawn.</p>",
+    "favorite": false,
+    "secretDescription": "",
+    "source": "",
+    "uses": {
+      "value": 3,
+      "max": "3",
+      "per": "",
+      "recharge": {
+        "formula": "1d6",
+        "threshold": "6"
+      }
+    },
+    "schema": {
+      "version": null,
+      "lastMigration": null
+    },
+    "ammunitionProperties": [],
+    "armorCategory": "",
+    "armorProperties": [],
+    "attuned": false,
+    "bulky": false,
+    "craftingComponents": "hollowed bones of a deposed or exiled ruler",
+    "containerId": "",
+    "damagedState": 0,
+    "equippedState": 0,
+    "items": {},
+    "materialProperties": [],
+    "objectType": "tool",
+    "plotItem": false,
+    "price": "500 gp",
+    "proficient": true,
+    "quantity": 1,
+    "rarity": "uncommon",
+    "requiresAttunement": false,
+    "shieldCategory": "",
+    "shieldProperties": [],
+    "unidentified": false,
+    "unidentifiedDescription": "",
+    "unidentifiedName": "",
+    "weaponProperties": [],
+    "weight": 0
+  },
+  "effects": [
+    {
+      "icon": "icons/tools/instruments/flute-simple-wood.webp",
+      "origin": "Item.4tf60zylsra97p3f",
+      "flags": {
+        "a5e": {
+          "sort": 0,
+          "transferType": "onUse",
+          "actionId": "EAyJ8IDqpM07qkNV",
+          "duration": {
+            "unit": "minutes"
+          }
+        }
+      },
+      "transfer": false,
+      "name": "Frightened",
+      "_id": "CSBI2B4nN4L0Qt0z",
+      "changes": [
+        {
+          "key": "flags.a5e.effects.statusConditions",
+          "value": "[\"frightened\"]",
+          "mode": 0,
+          "priority": null
+        }
+      ],
+      "disabled": false,
+      "duration": {
+        "startTime": null,
+        "seconds": 60,
+        "combat": null,
+        "rounds": null,
+        "turns": null,
+        "startRound": null,
+        "startTurn": null
+      },
+      "description": "",
+      "statuses": [
+        "frightened"
+      ],
+      "tint": "#ffffff",
+      "folder": null
+    }
+  ],
+  "flags": {},
+  "_id": "4tf60zylsra97p3f"
 }

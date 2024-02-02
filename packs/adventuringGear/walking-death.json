@@ -1,149 +1,145 @@
 {
-	"folder": null,
-	"name": "Walking Death",
-	"type": "object",
-	"img": "icons/commodities/flowers/flower-grey-orange.webp",
-	"system": {
-		"ac": {
-			"baseFormula": "",
-			"formula": "",
-			"maxDex": 0,
-			"minStr": 0,
-			"mode": 2,
-			"requiresNoShield": false,
-			"requiresUnarmored": false
-		},
-		"actions": {
-			"xj033Ihp4ERkhV77": {
-				"name": "Consume",
-				"activation": {},
-				"consumers": {
-					"dRDiPugFcGwKKpqy": {
-						"type": "quantity",
-						"default": true,
-						"itemId": "",
-						"quantity": 1
-					}
-				},
-				"rolls": {},
-				"prompts": {
-					"gsi2GWen7q9Ir1bw": {
-						"type": "savingThrow",
-						"default": true,
-						"ability": "con",
-						"saveDC": {
-							"type": "custom",
-							"bonus": "28"
-						},
-						"onSave": ""
-					},
-					"AC61vsfVzSYyjLwr": {
-						"type": "effect",
-						"default": true,
-						"effectId": "5UaBqRqzFKFk9i84"
-					}
-				},
-				"uses": {
-					"value": 0,
-					"max": "",
-					"per": "",
-					"recharge": {
-						"formula": "1d6",
-						"threshold": 6
-					}
-				}
-			}
-		},
-		"description": "<p><em>Legendary, Ingested, Onset (3 days)</em></p>\n<p>The shredded petals of this black flower&mdash;said to only grow in the land of the dead&mdash;are the most potent known poison. A creature makes a DC 28 Constitution saving throw when it is subjected to this poison, and on a failure it is doomed. Prior to the onset, this poison can only be counteracted by @UUID[Compendium.a5e.a5e-spells.Item.pe52jryde7ljobzq]{Wish} or similar magic.</p>",
-		"favorite": false,
-		"secretDescription": "",
-		"source": {
-			"name": "",
-			"link": "",
-			"publisher": ""
-		},
-		"uses": {
-			"value": null,
-			"max": "",
-			"per": null,
-			"recharge": {
-				"formula": "1d6",
-				"threshold": "6"
-			}
-		},
-		"schema": {
-			"version": null,
-			"lastMigration": null
-		},
-		"ammunitionProperties": [],
-		"armorCategory": "",
-		"armorProperties": [],
-		"attuned": false,
-		"bulky": false,
-		"craftingComponents": "",
-		"containerId": "",
-		"damagedState": 0,
-		"equippedState": 0,
-		"items": {},
-		"materialProperties": [],
-		"objectType": "consumable",
-		"plotItem": false,
-		"price": "60,000 gp",
-		"proficient": true,
-		"quantity": 1,
-		"rarity": "legendary",
-		"requiresAttunement": false,
-		"shieldCategory": "",
-		"shieldProperties": [],
-		"unidentified": false,
-		"unidentifiedDescription": "",
-		"unidentifiedName": "",
-		"weaponProperties": [],
-		"weight": 0
-	},
-	"effects": [
-		{
-			"icon": "icons/commodities/flowers/flower-grey-orange.webp",
-			"origin": "Item.b2nss18bdlwtrn8d",
-			"flags": {
-				"a5e": {
-					"sort": 0,
-					"transferType": "onUse",
-					"actionId": "xj033Ihp4ERkhV77",
-					"duration": {
-						"unit": "minutes"
-					}
-				}
-			},
-			"transfer": false,
-			"name": "Walking Death Poisoning",
-			"_id": "5UaBqRqzFKFk9i84",
-			"changes": [
-				{
-					"key": "flags.a5e.effects.statusConditions",
-					"value": "[\"doomed\"]",
-					"mode": 0,
-					"priority": null
-				}
-			],
-			"disabled": false,
-			"duration": {
-				"startTime": null,
-				"seconds": 0,
-				"combat": null,
-				"rounds": null,
-				"turns": null,
-				"startRound": null,
-				"startTurn": null
-			},
-			"description": "",
-			"statuses": [
-				"doomed"
-			],
-			"tint": "#ffffff",
-			"folder": null
-		}
-	],
-	"flags": {},
-	"_id": "b2nss18bdlwtrn8d"
+  "folder": null,
+  "name": "Walking Death",
+  "type": "object",
+  "img": "icons/commodities/flowers/flower-grey-orange.webp",
+  "system": {
+    "ac": {
+      "baseFormula": "",
+      "formula": "",
+      "maxDex": 0,
+      "minStr": 0,
+      "mode": 2,
+      "requiresNoShield": false,
+      "requiresUnarmored": false
+    },
+    "actions": {
+      "xj033Ihp4ERkhV77": {
+        "name": "Consume",
+        "activation": {},
+        "consumers": {
+          "dRDiPugFcGwKKpqy": {
+            "type": "quantity",
+            "default": true,
+            "itemId": "",
+            "quantity": 1
+          }
+        },
+        "rolls": {},
+        "prompts": {
+          "gsi2GWen7q9Ir1bw": {
+            "type": "savingThrow",
+            "default": true,
+            "ability": "con",
+            "saveDC": {
+              "type": "custom",
+              "bonus": "28"
+            },
+            "onSave": ""
+          },
+          "AC61vsfVzSYyjLwr": {
+            "type": "effect",
+            "default": true,
+            "effectId": "5UaBqRqzFKFk9i84"
+          }
+        },
+        "uses": {
+          "value": 0,
+          "max": "",
+          "per": "",
+          "recharge": {
+            "formula": "1d6",
+            "threshold": 6
+          }
+        }
+      }
+    },
+    "description": "<p><em>Legendary, Ingested, Onset (3 days)</em></p>\n<p>The shredded petals of this black flower&mdash;said to only grow in the land of the dead&mdash;are the most potent known poison. A creature makes a DC 28 Constitution saving throw when it is subjected to this poison, and on a failure it is doomed. Prior to the onset, this poison can only be counteracted by @UUID[Compendium.a5e.a5e-spells.Item.pe52jryde7ljobzq]{Wish} or similar magic.</p>",
+    "favorite": false,
+    "secretDescription": "",
+    "source": "",
+    "uses": {
+      "value": null,
+      "max": "",
+      "per": null,
+      "recharge": {
+        "formula": "1d6",
+        "threshold": "6"
+      }
+    },
+    "schema": {
+      "version": null,
+      "lastMigration": null
+    },
+    "ammunitionProperties": [],
+    "armorCategory": "",
+    "armorProperties": [],
+    "attuned": false,
+    "bulky": false,
+    "craftingComponents": "",
+    "containerId": "",
+    "damagedState": 0,
+    "equippedState": 0,
+    "items": {},
+    "materialProperties": [],
+    "objectType": "consumable",
+    "plotItem": false,
+    "price": "60,000 gp",
+    "proficient": true,
+    "quantity": 1,
+    "rarity": "legendary",
+    "requiresAttunement": false,
+    "shieldCategory": "",
+    "shieldProperties": [],
+    "unidentified": false,
+    "unidentifiedDescription": "",
+    "unidentifiedName": "",
+    "weaponProperties": [],
+    "weight": 0
+  },
+  "effects": [
+    {
+      "icon": "icons/commodities/flowers/flower-grey-orange.webp",
+      "origin": "Item.b2nss18bdlwtrn8d",
+      "flags": {
+        "a5e": {
+          "sort": 0,
+          "transferType": "onUse",
+          "actionId": "xj033Ihp4ERkhV77",
+          "duration": {
+            "unit": "minutes"
+          }
+        }
+      },
+      "transfer": false,
+      "name": "Walking Death Poisoning",
+      "_id": "5UaBqRqzFKFk9i84",
+      "changes": [
+        {
+          "key": "flags.a5e.effects.statusConditions",
+          "value": "[\"doomed\"]",
+          "mode": 0,
+          "priority": null
+        }
+      ],
+      "disabled": false,
+      "duration": {
+        "startTime": null,
+        "seconds": 0,
+        "combat": null,
+        "rounds": null,
+        "turns": null,
+        "startRound": null,
+        "startTurn": null
+      },
+      "description": "",
+      "statuses": [
+        "doomed"
+      ],
+      "tint": "#ffffff",
+      "folder": null
+    }
+  ],
+  "flags": {},
+  "_id": "b2nss18bdlwtrn8d"
 }

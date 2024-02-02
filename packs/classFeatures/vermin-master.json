@@ -1,150 +1,146 @@
 {
-	"folder": null,
-	"name": "Vermin Master",
-	"type": "feature",
-	"img": "icons/magic/death/skull-poison-green.webp",
-	"system": {
-		"ac": {
-			"baseFormula": "",
-			"formula": "",
-			"maxDex": 0,
-			"minStr": 0,
-			"mode": 2,
-			"requiresNoShield": false,
-			"requiresUnarmored": false
-		},
-		"actions": {
-			"gqpNUdspRzjVZVfl": {
-				"name": "Wild Shape",
-				"activation": {},
-				"consumers": {},
-				"rolls": {
-					"cVXTMta1C2NeCcHf": {
-						"type": "damage",
-						"default": true,
-						"damageType": "piercing",
-						"formula": "@level+@prof"
-					}
-				},
-				"prompts": {
-					"nmvpZbNeZWIONsW7": {
-						"type": "effect",
-						"default": true,
-						"effectId": "C5jyHxEghYGVhZdA"
-					},
-					"wtG3DLPJChU8aXZR": {
-						"type": "savingThrow",
-						"default": true,
-						"ability": "dex",
-						"saveDC": {
-							"type": "spellcasting"
-						},
-						"onSave": "takes half damage"
-					}
-				},
-				"uses": {
-					"value": 0,
-					"max": "",
-					"per": "",
-					"recharge": {
-						"formula": "1d6",
-						"threshold": 6
-					}
-				}
-			}
-		},
-		"description": "<p>At 14th level, adopting swarm form no longer expends a use of your Wild Shape, and you gain all the listed benefits, instead of choosing one. Additionally, you can cast spells while in swarm form even if they don&rsquo;t have a range of Touch or Self.</p>",
-		"favorite": false,
-		"secretDescription": "",
-		"source": {
-			"name": "",
-			"link": "",
-			"publisher": ""
-		},
-		"uses": {
-			"value": null,
-			"max": "",
-			"per": null,
-			"recharge": {
-				"formula": "1d6",
-				"threshold": "6"
-			}
-		},
-		"schema": {
-			"version": null,
-			"lastMigration": null
-		},
-		"concentration": false,
-		"featureType": "class",
-		"grants": {},
-		"prerequisite": "",
-		"requiresBloodied": false
-	},
-	"effects": [
-		{
-			"icon": "icons/magic/death/skull-poison-green.webp",
-			"origin": "Item.vxn7556itoousmay",
-			"flags": {
-				"a5e": {
-					"sort": 0,
-					"transferType": "onUse",
-					"actionId": "gqpNUdspRzjVZVfl",
-					"applyToSelf": true,
-					"duration": {
-						"unit": "minutes"
-					}
-				}
-			},
-			"transfer": false,
-			"name": "Swarm Form",
-			"_id": "C5jyHxEghYGVhZdA",
-			"changes": [
-				{
-					"key": "system.details.creatureTypes",
-					"value": "[\"beast\"]",
-					"mode": 6,
-					"priority": null
-				},
-				{
-					"key": "system.details.isSwarm",
-					"value": "true",
-					"mode": 6,
-					"priority": null
-				},
-				{
-					"key": "system.attributes.movement.fly.distance",
-					"value": "",
-					"mode": 6,
-					"priority": null
-				},
-				{
-					"key": "system.attributes.movement.climb.distance",
-					"value": "30",
-					"mode": 6,
-					"priority": null
-				},
-				{
-					"key": "system.traits.damageResistances",
-					"value": "[\"bludgeoning\",\"piercing\",\"slashing\"]",
-					"mode": 2,
-					"priority": null
-				}
-			],
-			"disabled": false,
-			"duration": {
-				"startTime": null,
-				"seconds": 60,
-				"combat": null,
-				"rounds": null,
-				"turns": null,
-				"startRound": null,
-				"startTurn": null
-			},
-			"description": "",
-			"statuses": [],
-			"folder": null
-		}
-	],
-	"flags": {},
-	"_id": "vxn7556itoousmay"
+  "folder": null,
+  "name": "Vermin Master",
+  "type": "feature",
+  "img": "icons/magic/death/skull-poison-green.webp",
+  "system": {
+    "ac": {
+      "baseFormula": "",
+      "formula": "",
+      "maxDex": 0,
+      "minStr": 0,
+      "mode": 2,
+      "requiresNoShield": false,
+      "requiresUnarmored": false
+    },
+    "actions": {
+      "gqpNUdspRzjVZVfl": {
+        "name": "Wild Shape",
+        "activation": {},
+        "consumers": {},
+        "rolls": {
+          "cVXTMta1C2NeCcHf": {
+            "type": "damage",
+            "default": true,
+            "damageType": "piercing",
+            "formula": "@level+@prof"
+          }
+        },
+        "prompts": {
+          "nmvpZbNeZWIONsW7": {
+            "type": "effect",
+            "default": true,
+            "effectId": "C5jyHxEghYGVhZdA"
+          },
+          "wtG3DLPJChU8aXZR": {
+            "type": "savingThrow",
+            "default": true,
+            "ability": "dex",
+            "saveDC": {
+              "type": "spellcasting"
+            },
+            "onSave": "takes half damage"
+          }
+        },
+        "uses": {
+          "value": 0,
+          "max": "",
+          "per": "",
+          "recharge": {
+            "formula": "1d6",
+            "threshold": 6
+          }
+        }
+      }
+    },
+    "description": "<p>At 14th level, adopting swarm form no longer expends a use of your Wild Shape, and you gain all the listed benefits, instead of choosing one. Additionally, you can cast spells while in swarm form even if they don&rsquo;t have a range of Touch or Self.</p>",
+    "favorite": false,
+    "secretDescription": "",
+    "source": "",
+    "uses": {
+      "value": null,
+      "max": "",
+      "per": null,
+      "recharge": {
+        "formula": "1d6",
+        "threshold": "6"
+      }
+    },
+    "schema": {
+      "version": null,
+      "lastMigration": null
+    },
+    "concentration": false,
+    "featureType": "class",
+    "grants": {},
+    "prerequisite": "",
+    "requiresBloodied": false
+  },
+  "effects": [
+    {
+      "icon": "icons/magic/death/skull-poison-green.webp",
+      "origin": "Item.vxn7556itoousmay",
+      "flags": {
+        "a5e": {
+          "sort": 0,
+          "transferType": "onUse",
+          "actionId": "gqpNUdspRzjVZVfl",
+          "applyToSelf": true,
+          "duration": {
+            "unit": "minutes"
+          }
+        }
+      },
+      "transfer": false,
+      "name": "Swarm Form",
+      "_id": "C5jyHxEghYGVhZdA",
+      "changes": [
+        {
+          "key": "system.details.creatureTypes",
+          "value": "[\"beast\"]",
+          "mode": 6,
+          "priority": null
+        },
+        {
+          "key": "system.details.isSwarm",
+          "value": "true",
+          "mode": 6,
+          "priority": null
+        },
+        {
+          "key": "system.attributes.movement.fly.distance",
+          "value": "",
+          "mode": 6,
+          "priority": null
+        },
+        {
+          "key": "system.attributes.movement.climb.distance",
+          "value": "30",
+          "mode": 6,
+          "priority": null
+        },
+        {
+          "key": "system.traits.damageResistances",
+          "value": "[\"bludgeoning\",\"piercing\",\"slashing\"]",
+          "mode": 2,
+          "priority": null
+        }
+      ],
+      "disabled": false,
+      "duration": {
+        "startTime": null,
+        "seconds": 60,
+        "combat": null,
+        "rounds": null,
+        "turns": null,
+        "startRound": null,
+        "startTurn": null
+      },
+      "description": "",
+      "statuses": [],
+      "folder": null
+    }
+  ],
+  "flags": {},
+  "_id": "vxn7556itoousmay"
 }
