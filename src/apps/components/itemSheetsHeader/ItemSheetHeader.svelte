@@ -5,23 +5,23 @@
     import editDocumentImage from "../../handlers/editDocumentImage";
     import updateDocumentDataFromField from "../../../utils/updateDocumentDataFromField";
 
-    function getPublisherTooltip(item) {
-        const publisher = item.system.source?.publisher;
-        const productName = item.system.source?.name;
-        const publisherName = CONFIG.A5E.publishers[publisher]?.name;
+    // function getPublisherTooltip(item) {
+    //     const publisher = item.system.source?.publisher;
+    //     const productName = item.system.source?.name;
+    //     const publisherName = CONFIG.A5E.publishers[publisher]?.name;
 
-        if (!publisher || !productName || !publisherName) return null;
+    //     if (!publisher || !productName || !publisherName) return null;
 
-        if (productName) {
-            return `${publisherName} - ${productName}`;
-        }
+    //     if (productName) {
+    //         return `${publisherName} - ${productName}`;
+    //     }
 
-        return `${publisherName}`;
-    }
+    //     return `${publisherName}`;
+    // }
 
     async function fulfilDestiny() {
         const fulfillmentFeature = await fromUuid(
-            $item.system.fulfillmentFeature
+            $item.system.fulfillmentFeature,
         );
         if (!fulfillmentFeature || !$item.actor) return;
         if ($item.actor.getFlag("a5e", "destinyFulfilled") ?? false) return;
@@ -49,10 +49,10 @@
     const prerequisiteTypes = ["maneuver", "feature", "spell"];
     const headerButtonTypes = ["object"];
     const appId = getContext("appId");
-    const publisher = $item.system.source?.publisher;
-    const publisherLogo = CONFIG.A5E.publishers[publisher]?.logo;
-    const publisherTooltip = getPublisherTooltip($item);
-    const productLink = $item.system.source?.link ?? null;
+    // const publisher = $item.system.source?.publisher;
+    // const publisherLogo = CONFIG.A5E.publishers[publisher]?.logo;
+    // const publisherTooltip = getPublisherTooltip($item);
+    // const productLink = $item.system.source?.link ?? null;
 
     let disableFulfil = $item.actor?.getFlag("a5e", "destinyFulfilled") ?? true;
 </script>
@@ -96,7 +96,7 @@
                         updateDocumentDataFromField(
                             $item,
                             target.name,
-                            target.value
+                            target.value,
                         )}
                 />
             </div>
@@ -164,7 +164,7 @@
             </button>
         {/if}
 
-        {#if publisherLogo}
+        <!-- {#if publisherLogo}
             <a
                 href={productLink}
                 class="publisher-logo"
@@ -177,7 +177,7 @@
                     alt={publisherTooltip}
                 />
             </a>
-        {/if}
+        {/if} -->
     </div>
 </header>
 
