@@ -146,42 +146,49 @@ export default function registerPremiumContentConfig(A5E) {
   A5E.products = {
     acesAdventuringGuideToNecromancy: {
       abbreviation: 'AAGtN',
+      affiliate: true,
       publisher: 'acesAdventuringGuides',
       title: "Ace's Adventuring Guide to Necromancy",
       url: 'https://bit.ly/4bez8oK'
     },
     acesAdventuringGuideToNecromancySupplement: {
       abbreviation: 'AAGtN:S',
+      affiliate: true,
       publisher: 'acesAdventuringGuides',
       title: "Ace's Adventuring Guide to Necromancy: A Supplement",
       url: 'https://bit.ly/3HQ17gV'
     },
     adventurersGuide: {
       abbreviation: 'AG',
+      affiliate: true,
       publisher: 'enPublishing',
       title: "Level Up: Adventurer's Guide",
       url: 'https://bit.ly/3w15Iua'
     },
     adventuresInZeitgeist: {
       abbreviation: 'AiZ',
+      affiliate: true,
       publisher: 'enPublishing',
       title: 'Level Up: Adventures in ZEITGEIST',
       url: 'https://bit.ly/3u99LnT'
     },
     doseOfDungeonpunk: {
       abbreviation: 'DOD:TH',
+      affiliate: true,
       publisher: 'joshGentry',
       title: 'Dose of Dungeonpunk - The Talos Heritage',
       url: 'https://bit.ly/4bo5FsM'
     },
     dungeonDelversGuide: {
       abbreviation: 'DDG',
+      affiliate: true,
       publisher: 'enPublishing',
       title: "Level Up: Dungeon Delver's Guide",
       url: 'https://bit.ly/3SrQmGC'
     },
     gpg0: {
       abbreviation: 'GPG #0',
+      affiliate: true,
       publisher: 'enPublishing',
       series: 'gatePassGazette',
       title: 'Level Up: Gate Pass Gazette Issue #0',
@@ -189,6 +196,7 @@ export default function registerPremiumContentConfig(A5E) {
     },
     gpg1: {
       abbreviation: 'GPG #1',
+      affiliate: true,
       publisher: 'enPublishing',
       series: 'gatePassGazette',
       title: 'Level Up: Gate Pass Gazette Issue #1',
@@ -196,6 +204,7 @@ export default function registerPremiumContentConfig(A5E) {
     },
     gpg2: {
       abbreviation: 'GPG #2',
+      affiliate: true,
       publisher: 'enPublishing',
       series: 'gatePassGazette',
       title: 'Level Up: Gate Pass Gazette Issue #2',
@@ -203,6 +212,7 @@ export default function registerPremiumContentConfig(A5E) {
     },
     gpg3: {
       abbreviation: 'GPG #3',
+      affiliate: true,
       publisher: 'enPublishing',
       series: 'gatePassGazette',
       title: 'Level Up: Gate Pass Gazette Issue #3',
@@ -210,6 +220,7 @@ export default function registerPremiumContentConfig(A5E) {
     },
     gpg4: {
       abbreviation: 'GPG #4',
+      affiliate: true,
       publisher: 'enPublishing',
       series: 'gatePassGazette',
       title: 'Level Up: Gate Pass Gazette Issue #4',
@@ -217,6 +228,7 @@ export default function registerPremiumContentConfig(A5E) {
     },
     gpg6: {
       abbreviation: 'GPG #6',
+      affiliate: true,
       publisher: 'enPublishing',
       series: 'gatePassGazette',
       title: 'Level Up: Gate Pass Gazette Issue #6',
@@ -224,6 +236,7 @@ export default function registerPremiumContentConfig(A5E) {
     },
     gpg9: {
       abbreviation: 'GPG #9',
+      affiliate: true,
       publisher: 'enPublishing',
       series: 'gatePassGazette',
       title: 'Level Up: Gate Pass Gazette Issue #9',
@@ -231,6 +244,7 @@ export default function registerPremiumContentConfig(A5E) {
     },
     gpg11: {
       abbreviation: 'GPG #11',
+      affiliate: true,
       publisher: 'enPublishing',
       series: 'gatePassGazette',
       title: 'Level Up: Gate Pass Gazette Issue #11',
@@ -238,6 +252,7 @@ export default function registerPremiumContentConfig(A5E) {
     },
     gpg19: {
       abbreviation: 'GPG #19',
+      affiliate: true,
       publisher: 'enPublishing',
       series: 'gatePassGazette',
       title: 'Level Up: Gate Pass Gazette Issue #19',
@@ -245,30 +260,35 @@ export default function registerPremiumContentConfig(A5E) {
     },
     moarComplete: {
       abbreviation: 'MoAR',
+      affiliate: true,
       publisher: 'purpleMartinGames',
       title: 'Manual of Adventurous Resources: Complete',
       url: 'https://bit.ly/4b7Fsyi'
     },
     monstrousMenagerie: {
       abbreviation: 'MM',
+      affiliate: true,
       publisher: 'enPublishing',
       title: 'Level Up: Monstrous Menagerie',
       url: 'https://bit.ly/42nUNa0'
     },
     motifClasses: {
       abbreviation: 'SA:MC',
+      affiliate: true,
       publisher: 'purpleMartinGames',
       title: 'System Architecture: Motif Classes',
       url: 'https://bit.ly/4bgzU4N'
     },
     strangerSights: {
       abbreviation: 'SS',
+      affiliate: true,
       publisher: 'dmSarah',
       title: 'Stranger Sights: Challenges for 5e and Advanced 5e',
       url: 'https://bit.ly/3SmPaEv'
     },
     trialsAndTreasures: {
       abbreviation: 'T&T',
+      affiliate: true,
       publisher: 'enPublishing',
       title: 'Level Up: Trials and Treasures',
       url: 'https://bit.ly/3w8ha7b'

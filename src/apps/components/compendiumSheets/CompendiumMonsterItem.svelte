@@ -133,7 +133,9 @@
                 class="a5e-item__source-tag"
                 href={monsterSource?.url}
                 target="_blank"
-                data-tooltip={`${monsterSource?.title} (Affiliate Link)`}
+                data-tooltip={monsterSource.affiliate
+                    ? `${monsterSource?.title} (Affiliate Link)`
+                    : monsterSource?.title}
                 on:click|stopPropagation
             >
                 {monsterSource?.abbreviation}

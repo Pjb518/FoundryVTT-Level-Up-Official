@@ -92,7 +92,9 @@
                 class="a5e-item__source-tag"
                 href={maneuverSource?.url}
                 target="_blank"
-                data-tooltip={`${maneuverSource?.title} (Affiliate Link)`}
+                data-tooltip={maneuverSource.affiliate
+                    ? `${maneuverSource?.title} (Affiliate Link)`
+                    : maneuverSource?.title}
                 on:click|stopPropagation
             >
                 {maneuverSource?.abbreviation}
