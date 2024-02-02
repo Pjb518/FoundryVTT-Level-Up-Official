@@ -1,0 +1,87 @@
+{
+	"name": "Channel Divinity: Unnatural Dread",
+	"type": "feature",
+	"img": "icons/magic/control/fear-fright-shadow-monster-green.webp",
+	"system": {
+		"ac": {
+			"baseFormula": "",
+			"formula": "",
+			"maxDex": 0,
+			"minStr": 0,
+			"mode": 2,
+			"requiresNoShield": false,
+			"requiresUnarmored": false
+		},
+		"actions": {
+			"bDIunOGRZJEcr6Lb": {
+				"name": "Channel Divinity: Unnatural Dread",
+				"activation": {
+					"cost": 1,
+					"type": "action",
+					"reactionTrigger": ""
+				},
+				"duration": {
+					"unit": "minute",
+					"value": 1
+				},
+				"ranges": {
+					"nVcBtbf18WV1QywI": {
+						"range": "short"
+					}
+				},
+				"area": {
+					"shape": "",
+					"placeTemplate": false
+				},
+				"target": {
+					"quantity": null,
+					"type": "creature"
+				},
+				"prompts": {
+					"iFYZenbImSaEpwZH": {
+						"ability": "wis",
+						"onSave": "not frightened",
+						"saveDC": {
+							"type": "custom",
+							"bonus": "@saveDC"
+						},
+						"type": "savingThrow"
+					}
+				}
+			}
+		},
+		"description": "<p>As an action, you focus your energy on creating an aura around you that turns ones deepest fears into a reality.</p><p>Each creature of your choice that can see you, and is within 30 feet of you must make a Wisdom saving throw.</p><p>On a failed save, the target is frightened of you for 1 minute. If a creature frightened by this effect ends its turn more than 30 feet away from you, it can attempt another Wisdom saving throw to end the effect on it.</p><p></p>",
+		"favorite": false,
+		"secretDescription": "",
+		"source": "acesAdventuringGuideToNecromancy",
+		"uses": {
+			"value": null,
+			"max": "",
+			"per": null,
+			"recharge": {
+				"formula": "1d6",
+				"threshold": "6"
+			}
+		},
+		"schema": {
+			"version": null,
+			"lastMigration": null
+		},
+		"concentration": false,
+		"featureType": "class",
+		"grants": {},
+		"prerequisite": "",
+		"requiresBloodied": false,
+		"ability": "",
+		"proficient": true,
+		"save": {
+			"dc": "@saveDC",
+			"onSave": "not frightened",
+			"targetAbility": "wis"
+		}
+	},
+	"effects": [],
+	"flags": {},
+	"folder": null,
+	"_id": "ku32vnha0rb54uqr"
+}

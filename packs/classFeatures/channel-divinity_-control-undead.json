@@ -1,0 +1,87 @@
+{
+	"name": "Channel Divinity: Control Undead",
+	"type": "feature",
+	"img": "icons/magic/control/debuff-energy-hold-green.webp",
+	"system": {
+		"ac": {
+			"baseFormula": "",
+			"formula": "",
+			"maxDex": 0,
+			"minStr": 0,
+			"mode": 2,
+			"requiresNoShield": false,
+			"requiresUnarmored": false
+		},
+		"actions": {
+			"MTgZyj7iIFxecOEy": {
+				"name": "Channel Divinity: Control Undead",
+				"activation": {
+					"cost": 1,
+					"type": "action",
+					"reactionTrigger": ""
+				},
+				"duration": {
+					"unit": "special",
+					"value": ""
+				},
+				"ranges": {
+					"CzcRA6smr7aPT4On": {
+						"range": "short"
+					}
+				},
+				"area": {
+					"shape": "",
+					"placeTemplate": false
+				},
+				"target": {
+					"quantity": 1,
+					"type": "creature"
+				},
+				"prompts": {
+					"hfwbUk09feVe6OLC": {
+						"ability": "cha",
+						"onSave": "not charmed",
+						"saveDC": {
+							"type": "custom",
+							"bonus": "@saveDC"
+						},
+						"type": "savingThrow"
+					}
+				}
+			}
+		},
+		"description": "<p>You can use an action to attempt to assert your control over one undead creature you can see within 30 feet of you. The undead makes a Charisma saving throw, or finds itself loyal to you.</p>\n<p>It remains under your control for a number of rounds equal to your proficiency bonus, or until you use this feature again. The effect ends immediately if you or your friends cause it harm, or if you command it to perform obviously suicidal actions.</p>\n<p>The undead has its own turn, rolling its own initiative. While it is within 60 feet, you can use a bonus action to mentally command the undead. You may decide the action the undead takes and where it moves during its next turn, or you can issue a general command, such as guarding an area. If not given a command, the undead only defends itself.</p>\n<p>The undead continues to follow a command until its task is complete.</p>\n<p>An undead whose challenge rating is higher than your herald level automatically succeeds on its saving throw.</p>\n<p>&nbsp;</p>",
+		"favorite": false,
+		"secretDescription": "",
+		"source": "acesAdventuringGuideToNecromancy",
+		"uses": {
+			"value": null,
+			"max": "",
+			"per": null,
+			"recharge": {
+				"formula": "1d6",
+				"threshold": "6"
+			}
+		},
+		"schema": {
+			"version": null,
+			"lastMigration": null
+		},
+		"concentration": false,
+		"featureType": "class",
+		"grants": {},
+		"prerequisite": "",
+		"requiresBloodied": false,
+		"ability": "",
+		"proficient": true,
+		"save": {
+			"dc": "@saveDC",
+			"onSave": "not charmed",
+			"targetAbility": "cha"
+		}
+	},
+	"effects": [],
+	"flags": {},
+	"folder": null,
+	"_id": "yi2dnz055jv34hfp"
+}

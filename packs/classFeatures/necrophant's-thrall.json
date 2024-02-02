@@ -1,0 +1,75 @@
+{
+	"folder": null,
+	"name": "Necrophant's Thrall",
+	"type": "feature",
+	"img": "icons/magic/death/blood-corruption-vomit-red.webp",
+	"system": {
+		"ac": {
+			"baseFormula": "",
+			"formula": "",
+			"maxDex": 0,
+			"minStr": 0,
+			"mode": 2,
+			"requiresNoShield": false,
+			"requiresUnarmored": false
+		},
+		"actions": {
+			"Kmn2PvVuKoTIL4Gr": {
+				"name": "Reanimate Dead",
+				"activation": {
+					"type": "bonusAction",
+					"cost": 1
+				},
+				"duration": {
+					"unit": "day",
+					"value": 5
+				},
+				"target": {
+					"type": "creature",
+					"quantity": 1
+				}
+			},
+			"Zb0RTa7dlBAvfA4K": {
+				"name": "Command Thrall",
+				"activation": {
+					"type": "bonusAction",
+					"cost": 1
+				},
+				"target": {
+					"type": "creature",
+					"quantity": 1
+				},
+				"ranges": {
+					"Ej6lHfn4oR0oHO1F": {
+						"range": "medium"
+					}
+				}
+			}
+		},
+		"description": "<p dir=\"ltr\">Starting at 17th level, if a humanoid or beast of large size or smaller dies, and it has been dealt necrotic damage by you in the last minute, you may use a bonus action to reanimate it as an undead that is completely loyal to you. It gains the Skeleton or Zombie template (your choice). The undead remains until you use this feature again, it is reduced to 0hp, you dismiss it, or a number of days has passed equal to your Wisdom modifier.</p>\n<p dir=\"ltr\">If the creature you reanimate has spell slots, it does not regain any used spell slots upon being reanimated, nor upon completing a short or long rest.</p>\n<p dir=\"ltr\">The undead has its own turn, rolling its own initiative. While it is within 60 feet, you can use a bonus action to mentally command the undead. You may decide the action the undead takes and where it moves during its next turn, or you can issue a general command, such as guarding an area. If not given a command, the undead only defends itself. The undead continues to follow a command until its task is complete.</p>\n<p dir=\"ltr\">Once you have used this feature, you cannot use it again until you finish a long rest.</p>",
+		"favorite": false,
+		"secretDescription": "",
+		"source": "acesAdventuringGuideToNecromancy",
+		"uses": {
+			"value": 1,
+			"max": 1,
+			"per": "longRest",
+			"recharge": {
+				"formula": "1d6",
+				"threshold": "6"
+			}
+		},
+		"schema": {
+			"version": null,
+			"lastMigration": null
+		},
+		"concentration": false,
+		"featureType": "class",
+		"grants": {},
+		"prerequisite": "",
+		"requiresBloodied": false
+	},
+	"effects": [],
+	"flags": {},
+	"_id": "0wh0htkkn27rdku6"
+}
