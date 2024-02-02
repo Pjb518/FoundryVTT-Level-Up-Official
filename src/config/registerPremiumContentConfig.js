@@ -181,39 +181,67 @@ export default function registerPremiumContentConfig(A5E) {
       url: 'https://bit.ly/3SrQmGC'
     },
     gpg0: {
-      abbreviation: 'GPG0',
+      abbreviation: 'GPG #0',
       publisher: 'enPublishing',
       series: 'gatePassGazette',
       title: 'Level Up: Gate Pass Gazette Issue #0',
       url: 'https://bit.ly/3HMhZW5'
     },
     gpg1: {
-      abbreviation: 'GPG1',
+      abbreviation: 'GPG #1',
       publisher: 'enPublishing',
       series: 'gatePassGazette',
       title: 'Level Up: Gate Pass Gazette Issue #1',
       url: 'https://bit.ly/48YR8BZ'
     },
     gpg2: {
-      abbreviation: 'GPG2',
+      abbreviation: 'GPG #2',
       publisher: 'enPublishing',
       series: 'gatePassGazette',
       title: 'Level Up: Gate Pass Gazette Issue #2',
       url: 'https://bit.ly/49hj181'
     },
     gpg3: {
-      abbreviation: 'GPG3',
+      abbreviation: 'GPG #3',
       publisher: 'enPublishing',
       series: 'gatePassGazette',
       title: 'Level Up: Gate Pass Gazette Issue #3',
       url: 'https://bit.ly/49elHTS'
     },
     gpg4: {
-      abbreviation: 'GPG4',
+      abbreviation: 'GPG #4',
       publisher: 'enPublishing',
       series: 'gatePassGazette',
       title: 'Level Up: Gate Pass Gazette Issue #4',
       url: 'https://bit.ly/4bo5Vbe'
+    },
+    gpg6: {
+      abbreviation: 'GPG #6',
+      publisher: 'enPublishing',
+      series: 'gatePassGazette',
+      title: 'Level Up: Gate Pass Gazette Issue #6',
+      url: 'https://bit.ly/3SquHyB'
+    },
+    gpg9: {
+      abbreviation: 'GPG #9',
+      publisher: 'enPublishing',
+      series: 'gatePassGazette',
+      title: 'Level Up: Gate Pass Gazette Issue #9',
+      url: 'https://bit.ly/3OvH2k2'
+    },
+    gpg11: {
+      abbreviation: 'GPG #11',
+      publisher: 'enPublishing',
+      series: 'gatePassGazette',
+      title: 'Level Up: Gate Pass Gazette Issue #11',
+      url: 'https://bit.ly/3OsnMnu'
+    },
+    gpg19: {
+      abbreviation: 'GPG #19',
+      publisher: 'enPublishing',
+      series: 'gatePassGazette',
+      title: 'Level Up: Gate Pass Gazette Issue #19',
+      url: 'https://bit.ly/4blqODO'
     },
     monstrousMenagerie: {
       abbreviation: 'MM',
