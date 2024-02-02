@@ -144,21 +144,3 @@
 
     <ImportButton {document} />
 </li>
-
-<style class="scss">
-    .a5e-item__source-tag {
-        display: inline-block;
-        margin-right: 0.25rem;
-        padding: 0.125rem 0.25rem;
-        font-size: var(--a5e-text-size-xs);
-        background: #425f65;
-        color: white;
-        border-radius: 3px;
-        text-decoration: none;
-
-        &:hover,
-        &:focus {
-            text-shadow: none;
-        }
-    }
-</style>
