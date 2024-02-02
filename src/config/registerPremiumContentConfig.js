@@ -244,7 +244,7 @@ export default function registerPremiumContentConfig(A5E) {
       url: 'https://bit.ly/4blqODO'
     },
     moarComplete: {
-      abbreviation: 'MoAR:C',
+      abbreviation: 'MoAR',
       publisher: 'purpleMartinGames',
       title: 'Manual of Adventurous Resources: Complete',
       url: 'https://bit.ly/4b7Fsyi'
@@ -254,6 +254,12 @@ export default function registerPremiumContentConfig(A5E) {
       publisher: 'enPublishing',
       title: 'Level Up: Monstrous Menagerie',
       url: 'https://bit.ly/42nUNa0'
+    },
+    motifClasses: {
+      abbreviation: 'SA:MC',
+      publisher: 'purpleMartinGames',
+      title: 'System Architecture: Motif Classes',
+      url: 'https://bit.ly/4bgzU4N'
     },
     strangerSights: {
       abbreviation: 'SS',
