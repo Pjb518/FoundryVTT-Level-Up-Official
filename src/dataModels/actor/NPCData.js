@@ -27,7 +27,8 @@ export default class NPCData extends BaseActorData {
           new fields.StringField({ required: true, initial: '' }),
           { required: true, initial: [] }
         )
-      })
+      }),
+      source: new fields.StringField({ required: false, initial: '' })
     });
   }
 }
