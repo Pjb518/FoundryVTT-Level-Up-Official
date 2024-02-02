@@ -142,4 +142,96 @@ export default function registerPremiumContentConfig(A5E) {
       }]
     }
   };
+
+  A5E.products = {
+    acesAdventuringGuideToNecromancy: {
+      abbreviation: 'AAGtN',
+      publisher: 'acesAdventuringGuides',
+      title: "Ace's Adventuring Guide to Necromancy",
+      url: 'https://bit.ly/4bez8oK'
+    },
+    acesAdventuringGuideToNecromancySupplement: {
+      abbreviation: 'AAGtN:S',
+      publisher: 'acesAdventuringGuides',
+      title: "Ace's Adventuring Guide to Necromancy: A Supplement",
+      url: 'https://bit.ly/3HQ17gV'
+    },
+    adventurersGuide: {
+      abbreviation: 'AG',
+      publisher: 'enPublishing',
+      title: "Level Up: Adventurer's Guide",
+      url: 'https://bit.ly/3w15Iua'
+    },
+    adventuresInZeitgeist: {
+      abbreviation: 'AiZ',
+      publisher: 'enPublishing',
+      title: 'Level Up: Adventures in ZEITGEIST',
+      url: 'https://bit.ly/3u99LnT'
+    },
+    doseOfDungeonpunk: {
+      abbreviation: 'DOD:TH',
+      publisher: 'joshGentry',
+      title: 'Dose of Dungeonpunk - The Talos Heritage',
+      url: 'https://bit.ly/4bo5FsM'
+    },
+    dungeonDelversGuide: {
+      abbreviation: 'DDG',
+      publisher: 'enPublishing',
+      title: "Level Up: Dungeon Delver's Guide",
+      url: 'https://bit.ly/3SrQmGC'
+    },
+    gpg0: {
+      abbreviation: 'GPG0',
+      publisher: 'enPublishing',
+      series: 'gatePassGazette',
+      title: 'Level Up: Gate Pass Gazette Issue #0',
+      url: 'https://bit.ly/3HMhZW5'
+    },
+    gpg1: {
+      abbreviation: 'GPG1',
+      publisher: 'enPublishing',
+      series: 'gatePassGazette',
+      title: 'Level Up: Gate Pass Gazette Issue #1',
+      url: 'https://bit.ly/48YR8BZ'
+    },
+    gpg2: {
+      abbreviation: 'GPG2',
+      publisher: 'enPublishing',
+      series: 'gatePassGazette',
+      title: 'Level Up: Gate Pass Gazette Issue #2',
+      url: 'https://bit.ly/49hj181'
+    },
+    gpg3: {
+      abbreviation: 'GPG3',
+      publisher: 'enPublishing',
+      series: 'gatePassGazette',
+      title: 'Level Up: Gate Pass Gazette Issue #3',
+      url: 'https://bit.ly/49elHTS'
+    },
+    gpg4: {
+      abbreviation: 'GPG4',
+      publisher: 'enPublishing',
+      series: 'gatePassGazette',
+      title: 'Level Up: Gate Pass Gazette Issue #4',
+      url: 'https://bit.ly/4bo5Vbe'
+    },
+    monstrousMenagerie: {
+      abbreviation: 'MM',
+      publisher: 'enPublishing',
+      title: 'Level Up: Monstrous Menagerie',
+      url: 'https://bit.ly/42nUNa0'
+    },
+    strangerSights: {
+      abbreviation: 'SS',
+      publisher: 'dmSarah',
+      title: 'Stranger Sights: Challenges for 5e and Advanced 5e',
+      url: 'https://bit.ly/3SmPaEv'
+    },
+    trialsAndTreasures: {
+      abbreviation: 'T&T',
+      publisher: 'enPublishing',
+      title: 'Level Up: Trials and Treasures',
+      url: 'https://bit.ly/3w8ha7b'
+    }
+  };
 }

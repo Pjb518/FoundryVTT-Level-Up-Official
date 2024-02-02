@@ -1,40 +1,17 @@
 export default function registerPublisherConfig(A5E) {
   A5E.publishers = {
-    acesAdventuringGuides: {
-      name: "Ace's Adventuring Guides",
-      logo: ''
-    },
-    anthonyAlipio: {
-      name: 'Anthony Alipio',
-      logo: ''
-    },
-    dmSarah: {
-      name: 'DM Sarah',
-      logo: ''
-    },
-    joshGentry: {
-      name: 'Josh Gentry',
-      logo: ''
-    },
-    purpleMartinGames: {
-      name: 'Purple Martin Games',
-      logo: 'systems/a5e/assets/publisherLogos/purple-martin-games-logo.webp'
-    },
-    ravine: {
-      name: 'Ravine',
-      logo: 'icons/svg/book.svg'
-    },
-    rollThemBones: {
-      name: 'Roll them Bones Gaming',
-      logo: 'systems/a5e/assets/publisherLogos/roll-them-bones-gaming-logo.webp'
-    },
-    steampunkette: {
-      name: 'Steampunkette',
-      logo: ''
-    },
-    wolfworksPress: {
-      name: 'Wolfworks Press',
-      logo: ''
-    }
+    acesAdventuringGuides: "Ace's Adventuring Guides",
+    anthonyAlipio: 'Anthony Alipio',
+    dmSarah: 'DM Sarah',
+    enPublishing: 'EN Publishing',
+    joshGentry: 'Josh Gentry',
+    plantWitchPress: 'Plant Witch Press',
+    purpleMartinGames: 'Purple Martin Games',
+    ravine: 'Ravine',
+    rollThemBones: 'Roll them Bones Gaming',
+    roguesCollection: "The Rogue's Collection",
+    speaksAndSpells: 'Speaks and Spells Publishing',
+    steampunkette: 'Steampunkette',
+    wolfworksPress: 'Wolfworks Press'
   };
 }
