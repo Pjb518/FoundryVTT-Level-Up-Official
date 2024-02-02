@@ -55,6 +55,14 @@
             .join(" ");
     }
 
+    function getMonsterSource(monster) {
+        if (typeof monster.system.source !== "string") return null;
+
+        const source = CONFIG.A5E.products[monster.system.source];
+
+        return source || null;
+    }
+
     function onDragStart(event) {
         const data = {
             type: collection.documentName,
@@ -78,6 +86,7 @@
     const { actorSizes, creatureTypes } = CONFIG.A5E;
 
     $: monsterDetails = getMonsterDetailsLabel(document);
+    $: monsterSource = getMonsterSource(document);
 </script>
 
 <!-- svelte-ignore a11y-click-events-have-key-events a11y-no-noninteractive-element-interactions -->
@@ -118,9 +127,38 @@
         {/if}
     </h3>
 
-    <span class="a5e-item__details">
+    <div class="a5e-item__details">
+        {#if monsterSource?.abbreviation}
+            <a
+                class="a5e-item__source-tag"
+                href={monsterSource?.url}
+                target="_blank"
+                data-tooltip={`${monsterSource?.title} (Affiliate Link)`}
+            >
+                {monsterSource?.abbreviation}
+            </a>
+        {/if}
+
         {monsterDetails}
-    </span>
+    </div>
 
     <ImportButton {document} />
 </li>
+
+<style class="scss">
+    .a5e-item__source-tag {
+        display: inline-block;
+        margin-right: 0.25rem;
+        padding: 0.125rem 0.25rem;
+        font-size: var(--a5e-text-size-xs);
+        background: #425f65;
+        color: white;
+        border-radius: 3px;
+        text-decoration: none;
+
+        &:hover,
+        &:focus {
+            text-shadow: none;
+        }
+    }
+</style>
