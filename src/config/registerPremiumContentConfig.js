@@ -243,6 +243,12 @@ export default function registerPremiumContentConfig(A5E) {
       title: 'Level Up: Gate Pass Gazette Issue #19',
       url: 'https://bit.ly/4blqODO'
     },
+    moarComplete: {
+      abbreviation: 'MoAR:C',
+      publisher: 'purpleMartinGames',
+      title: 'Manual of Adventurous Resources: Complete',
+      url: 'https://bit.ly/4b7Fsyi'
+    },
     monstrousMenagerie: {
       abbreviation: 'MM',
       publisher: 'enPublishing',
