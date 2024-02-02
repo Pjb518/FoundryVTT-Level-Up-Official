@@ -1,5 +1,9 @@
 export default function registerModuleIncompatibilities(A5E) {
   A5E.moduleIncompatibilities = {
+    'a5e-aces-necromancy-vol-1': {
+      reason: 'The content from this module is included in the core system packs, and the module is no longer necessary.',
+      priority: 'low'
+    },
     'a5e-arcane-sniper': {
       reason: 'The content from this module is included in the core system packs, and the module is no longer necessary.',
       priority: 'low'
