@@ -14,7 +14,7 @@ export default class TokenDocumentA5e extends TokenDocument {
   }
 
   prepareBaseData() {
-    this.updateTokenSize();
+    // this.updateTokenSize();
     super.prepareBaseData();
 
     this.applyActiveEffects();
@@ -91,8 +91,8 @@ export default class TokenDocumentA5e extends TokenDocument {
 
     const { size } = actor.system.traits;
     const numericalSize = CONFIG.A5E.tokenDimensions[size];
-    this.width = numericalSize;
-    this.height = numericalSize;
+    this.width = numericalSize ?? this.width ?? 1;
+    this.height = numericalSize ?? this.height ?? 1;
   }
 
   /**
