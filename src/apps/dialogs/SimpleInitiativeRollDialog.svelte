@@ -61,7 +61,6 @@
 
     $: initiativeBonuses = $actor.BonusesManager.prepareInitiativeBonuses({
         abilityKey,
-        skillKey,
     });
 
     $: selectedAbilityBonuses = $actor.BonusesManager.getDefaultSelections(
@@ -71,7 +70,7 @@
 
     $: selectedInitiativeBonuses = $actor.BonusesManager.getDefaultSelections(
         "initiative",
-        { abilityKey, skillKey },
+        { abilityKey },
     );
 
     $: rollFormula = getRollFormula($actor, {
