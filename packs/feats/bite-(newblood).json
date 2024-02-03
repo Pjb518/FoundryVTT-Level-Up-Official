@@ -1,120 +1,120 @@
 {
-	"name": "Bite (Newblood)",
-	"type": "feature",
-	"img": "icons/magic/death/mouth-bite-fangs-vampire.webp",
-	"effects": [],
-	"flags": {},
-	"system": {
-		"ac": {
-			"baseFormula": "",
-			"formula": "",
-			"maxDex": 0,
-			"minStr": 0,
-			"mode": 2,
-			"requiresNoShield": false,
-			"requiresUnarmored": false
-		},
-		"actions": {
-			"4epsI3klPOv0n5jX": {
-				"name": "Bite (Newblood)",
-				"activation": {
-					"cost": 1,
-					"type": "action",
-					"reactionTrigger": ""
-				},
-				"duration": {
-					"unit": "",
-					"value": ""
-				},
-				"ranges": {
-					"SqLbHKdywJJ4a5tb": {
-						"range": "fiveFeet"
-					}
-				},
-				"area": {
-					"shape": "",
-					"placeTemplate": false
-				},
-				"target": {
-					"quantity": 1,
-					"type": "creature"
-				},
-				"rolls": {
-					"RpprXFbmbqM2uci7": {
-						"bonus": "",
-						"critThreshold": "20",
-						"type": "attack",
-						"ability": "str"
-					},
-					"lp8ERuEZwXjihxu5": {
-						"canCrit": true,
-						"damageType": "piercing",
-						"defaultSelection": true,
-						"formula": "1d6 + @@str.mod",
-						"name": "Newblood",
-						"type": "damage"
-					},
-					"4hFJXkpfG1U9vqQ3": {
-						"canCrit": true,
-						"damageType": "piercing",
-						"defaultSelection": false,
-						"formula": "1d8 + @@str.mod",
-						"name": "Vampire Spawn",
-						"type": "damage"
-					},
-					"GWQawTppCINnsAL0": {
-						"canCrit": true,
-						"damageType": "piercing",
-						"defaultSelection": false,
-						"formula": "1d10 + @@str.mod",
-						"name": "Vampire Lord",
-						"type": "damage"
-					},
-					"Scq4Wvz5ufmVt5Va": {
-						"canCrit": true,
-						"damageType": "necrotic",
-						"defaultSelection": false,
-						"formula": "1d6 * @prof",
-						"name": "Necrotic",
-						"type": "damage"
-					}
-				},
-				"consumers": {}
-			}
-		},
-		"description": "<p>You gain a bite natural weapon you are proficient with. You are only able to bite grappled, incapacitated, restrained, or willing creatures. On a hit your bite deals piercing damage equal to 1d6 plus your Strength modifier or Dexterity modifier (whichever is highest). You can use Dexterity instead of Strength for the attack rolls of your bite. In addition, once per turn you can choose for your bite to also deal 1d6 necrotic damage × your proficiency bonus. You regain hit points equal to the amount of necrotic damage dealt to your target. This necrotic damage can only be increased by a critical hit. </p>",
-		"favorite": false,
-		"secretDescription": "",
-		"source": "",
-		"uses": {
-			"value": null,
-			"max": "",
-			"per": null,
-			"recharge": {
-				"formula": "1d6",
-				"threshold": 6
-			}
-		},
-		"schema": {
-			"version": null,
-			"lastMigration": null
-		},
-		"concentration": false,
-		"featureType": "naturalWeapon",
-		"grants": {},
-		"prerequisite": "",
-		"requiresBloodied": false,
-		"schemaVersion": {
-			"version": 0.011,
-			"lastMigration": {
-				"version": {
-					"schema": 0.01,
-					"foundry": "11.315",
-					"system": "0.16.37"
-				}
-			}
-		}
-	},
-	"folder": null,
-	"_id": "ofi8ajfrmrywp767"
+  "name": "Bite (Newblood)",
+  "type": "feature",
+  "img": "icons/magic/death/mouth-bite-fangs-vampire.webp",
+  "effects": [],
+  "flags": {},
+  "system": {
+    "ac": {
+      "baseFormula": "",
+      "formula": "",
+      "maxDex": 0,
+      "minStr": 0,
+      "mode": 2,
+      "requiresNoShield": false,
+      "requiresUnarmored": false
+    },
+    "actions": {
+      "4epsI3klPOv0n5jX": {
+        "name": "Bite (Newblood)",
+        "activation": {
+          "cost": 1,
+          "type": "action",
+          "reactionTrigger": ""
+        },
+        "duration": {
+          "unit": "",
+          "value": ""
+        },
+        "ranges": {
+          "SqLbHKdywJJ4a5tb": {
+            "range": "fiveFeet"
+          }
+        },
+        "area": {
+          "shape": "",
+          "placeTemplate": false
+        },
+        "target": {
+          "quantity": 1,
+          "type": "creature"
+        },
+        "rolls": {
+          "RpprXFbmbqM2uci7": {
+            "bonus": "",
+            "critThreshold": "20",
+            "type": "attack",
+            "ability": "str"
+          },
+          "lp8ERuEZwXjihxu5": {
+            "canCrit": true,
+            "damageType": "piercing",
+            "defaultSelection": true,
+            "formula": "1d6 + @str.mod",
+            "name": "Newblood",
+            "type": "damage"
+          },
+          "4hFJXkpfG1U9vqQ3": {
+            "canCrit": true,
+            "damageType": "piercing",
+            "defaultSelection": false,
+            "formula": "1d8 + @str.mod",
+            "name": "Vampire Spawn",
+            "type": "damage"
+          },
+          "GWQawTppCINnsAL0": {
+            "canCrit": true,
+            "damageType": "piercing",
+            "defaultSelection": false,
+            "formula": "1d10 + @str.mod",
+            "name": "Vampire Lord",
+            "type": "damage"
+          },
+          "Scq4Wvz5ufmVt5Va": {
+            "canCrit": true,
+            "damageType": "necrotic",
+            "defaultSelection": false,
+            "formula": "1d6 * @prof",
+            "name": "Necrotic",
+            "type": "damage"
+          }
+        },
+        "consumers": {}
+      }
+    },
+    "description": "<p>You gain a bite natural weapon you are proficient with. You are only able to bite grappled, incapacitated, restrained, or willing creatures. On a hit your bite deals piercing damage equal to 1d6 plus your Strength modifier or Dexterity modifier (whichever is highest). You can use Dexterity instead of Strength for the attack rolls of your bite. In addition, once per turn you can choose for your bite to also deal 1d6 necrotic damage × your proficiency bonus. You regain hit points equal to the amount of necrotic damage dealt to your target. This necrotic damage can only be increased by a critical hit. </p>",
+    "favorite": false,
+    "secretDescription": "",
+    "source": "",
+    "uses": {
+      "value": null,
+      "max": "",
+      "per": null,
+      "recharge": {
+        "formula": "1d6",
+        "threshold": 6
+      }
+    },
+    "schema": {
+      "version": null,
+      "lastMigration": null
+    },
+    "concentration": false,
+    "featureType": "naturalWeapon",
+    "grants": {},
+    "prerequisite": "",
+    "requiresBloodied": false,
+    "schemaVersion": {
+      "version": 0.011,
+      "lastMigration": {
+        "version": {
+          "schema": 0.01,
+          "foundry": "11.315",
+          "system": "0.16.37"
+        }
+      }
+    }
+  },
+  "folder": null,
+  "_id": "ofi8ajfrmrywp767"
 }
