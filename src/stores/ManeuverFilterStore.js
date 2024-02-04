@@ -3,7 +3,7 @@ import { writable } from 'svelte/store';
 const ManeuverFilterStore = writable({
   exertion: {
     min: 0,
-    max: 3
+    max: 6
   },
   maneuverDegrees: {
     inclusive: [],

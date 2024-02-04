@@ -66,7 +66,7 @@
         first={"label"}
         last={"label"}
         min={0}
-        max={3}
+        max={6}
         pips={true}
         pipstep={1}
         range={true}
