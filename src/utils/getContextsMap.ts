@@ -37,7 +37,7 @@ export default function getContextsMap(type: 'bonus' | 'grant', contextType: str
 
     map.push(
       {
-        heading: 'Count',
+        heading: 'Total Count',
         selectedProperty: 'abilities.total',
         component: 'Number'
       },
@@ -84,7 +84,7 @@ export default function getContextsMap(type: 'bonus' | 'grant', contextType: str
 
     map.push(
       {
-        heading: 'Count',
+        heading: 'Total Count',
         selectedProperty: 'attackTypes.total',
         component: 'Number'
       },
@@ -193,7 +193,7 @@ export default function getContextsMap(type: 'bonus' | 'grant', contextType: str
 
     map.push(
       {
-        heading: 'Count',
+        heading: 'Total Count',
         selectedProperty: 'movementTypes.total',
         component: 'Number'
       },
@@ -225,8 +225,8 @@ export default function getContextsMap(type: 'bonus' | 'grant', contextType: str
           component: 'TagGroup'
         },
         {
-          heading: 'Movement Type Choices',
-          options: Object.entries(CONFIG.A5E.movementAbbreviations),
+          heading: 'Senses Type Choices',
+          options: Object.entries(CONFIG.A5E.senses),
           selectedProperty: 'senses.options',
           component: 'TagGroup'
         }
@@ -235,7 +235,7 @@ export default function getContextsMap(type: 'bonus' | 'grant', contextType: str
 
     map.push(
       {
-        heading: 'Count',
+        heading: 'Total Count',
         selectedProperty: 'senses.total',
         component: 'Number'
       },
@@ -277,7 +277,7 @@ export default function getContextsMap(type: 'bonus' | 'grant', contextType: str
 
     map.push(
       {
-        heading: 'Count',
+        heading: 'Total Count',
         selectedProperty: 'skills.total',
         component: 'Number'
       },

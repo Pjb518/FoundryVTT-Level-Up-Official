@@ -26,7 +26,7 @@
 
 <Section
     heading="Contexts"
-    hint="The context determines when the damage bonus applies"
+    hint="The context determines when the bonus applies"
     --a5e-section-body-gap="0.75rem"
 >
     {#each contextMap as context}
