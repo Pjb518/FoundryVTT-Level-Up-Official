@@ -62,10 +62,13 @@ export default function modifyBaseOptions(options: Object) {
   delete options['system.bonuses.rangedSpellAttack'];
   delete options['system.attributes.initiative.bonus'];
 
-  // Delete derived values
+  // Delete bonus associated values
   Object.keys(CONFIG.A5E.abilities).forEach((a) => {
+    delete options[`system.${a}.value`];
     delete options[`system.abilities.${a}.check.mod`];
+    delete options[`system.abilities.${a}.check.bonus`];
     delete options[`system.abilities.${a}.save.mod`];
+    delete options[`system.abilities.${a}.save.bonus`];
   });
 
   delete options['system.attributes.ac.baseFormula'];
