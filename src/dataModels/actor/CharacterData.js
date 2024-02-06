@@ -36,6 +36,12 @@ export default class CharacterData extends BaseActorData {
         weight: new fields.StringField({ required: true, initial: '' }),
         xp: new fields.NumberField({ required: true, initial: 0, integer: true })
       }),
+      proficiencies: new fields.SchemaField({
+        traditions: new fields.ArrayField(
+          new fields.StringField({ required: true, initial: '' }),
+          { required: true, initial: [] }
+        )
+      }),
       supply: new fields.NumberField({ required: true, initial: 0, integer: true })
     });
   }

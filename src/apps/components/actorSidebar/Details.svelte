@@ -15,6 +15,7 @@
     import prepareDamageResistances from "../../dataPreparationHelpers/prepareDamageResistances";
     import prepareDamageVulnerabilities from "../../dataPreparationHelpers/prepareDamageVulnerabilities";
     import prepareLanguageProficiencies from "../../dataPreparationHelpers/prepareLanguageProficiencies";
+    import prepareManeuverTraditions from "../../dataPreparationHelpers/prepareManeuverTraditions";
     import prepareSenses from "../../dataPreparationHelpers/prepareSenses";
     import prepareMovementData from "../../dataPreparationHelpers/prepareMovementData";
     import prepareToolProficiencies from "../../dataPreparationHelpers/prepareToolProficiencies";
@@ -24,7 +25,7 @@
 
     function openConfig(dialogMethod, propertyKey) {
         if (!determineIfPropertyModifiedByEffect($actor, propertyKey))
-            return $actor[dialogMethod]();
+            return $actor[dialogMethod]({ propertyKey });
 
         ui.notifications.warn(
             localize("A5E.validations.warnings.modifiedByEffect"),
@@ -80,6 +81,14 @@
             dialogMethod: "configureDamageVulnerabilities",
             propertyKey: "system.traits.damageVulnerabilities",
             tooltip: "Configure Damage Vulnerabilities",
+        },
+        {
+            heading: localize("A5E.ManeuverTraditionPlural"),
+            values: prepareManeuverTraditions($actor),
+            dialogMethod: "configureManeuverTraditions",
+            propertyKey: "system.proficiencies.traditions",
+            tooltip: "Configure Maneuver Traditions",
+            display: $actor.type === "character",
         },
         {
             heading: localize("A5E.WeaponProficiencies"),

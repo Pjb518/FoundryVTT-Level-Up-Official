@@ -16,20 +16,12 @@ import ActorHpConfigDialog from '../../apps/dialogs/ActorHpConfigDialog.svelte';
 import ActorInitConfigDialog from '../../apps/dialogs/ActorInitConfigDialog.svelte';
 import ActorManueverConfigDialog from '../../apps/dialogs/ActorManueverConfigDialog.svelte';
 import ActorSpellConfigDialog from '../../apps/dialogs/ActorSpellConfigDialog.svelte';
-import ActorTerrainConfigDialog from '../../apps/dialogs/ActorTerrainConfigDialog.svelte';
-import ArmorProfConfigDialog from '../../apps/dialogs/ArmorProfConfigDialog.svelte';
 import ArmorClassConfigDialog from '../../apps/dialogs/ArmorClassConfigDialog.svelte';
 import AttackBonusConfigDialog from '../../apps/dialogs/AttackBonusConfigDialog.svelte';
-import ConditionImmunitiesConfigDialog from '../../apps/dialogs/ConditionImmunitiesConfigDialog.svelte';
-import CreatureSizeConfigDialog from '../../apps/dialogs/CreatureSizeConfigDialog.svelte';
-import CreatureTypeConfigDialog from '../../apps/dialogs/CreatureTypeConfigDialog.svelte';
 import DamageBonusConfigDialog from '../../apps/dialogs/DamageBonusConfigDialog.svelte';
-import DamageImmunitiesConfigDialog from '../../apps/dialogs/DamageImmunitiesConfigDialog.svelte';
-import DamageResistancesConfigDialog from '../../apps/dialogs/DamageResistancesConfigDialog.svelte';
-import DamageVulnerabilitiesConfigDialog from '../../apps/dialogs/DamageVulnerabilitiesConfigDialog.svelte';
+import DetailsConfigDialog from '../../apps/dialogs/DetailsConfigDialog.svelte';
 import InitiativeBonusConfigDialog from '../../apps/dialogs/InitiativeBonusConfigDialog.svelte';
 import HealingBonusConfigDialog from '../../apps/dialogs/HealingBonusConfigDialog.svelte';
-import LanguagesConfigDialog from '../../apps/dialogs/LanguagesConfigDialog.svelte';
 import MovementBonusConfigDialog from '../../apps/dialogs/bonuses/MovementBonusConfigDialog.svelte';
 import MovementConfigDialog from '../../apps/dialogs/MovementConfigDialog.svelte';
 import RestDialog from '../../apps/dialogs/RestDialog.svelte';
@@ -65,34 +57,37 @@ export default class ActorA5e extends Actor {
       notes: {}
     };
 
+    // TODO: Condense some of these into one handling custom tag group
+    // TODO: Condense weapon and tools proficiencies into one component.
     this.#configDialogMap = {
       ability: AbilityCheckConfigDialog,
       abilityBonus: AbilityBonusConfigDialog,
-      armor: ArmorProfConfigDialog,
+      armor: DetailsConfigDialog,
       armorClass: ArmorClassConfigDialog,
       attackBonus: AttackBonusConfigDialog,
-      conditionImmunities: ConditionImmunitiesConfigDialog,
+      conditionImmunities: DetailsConfigDialog,
       damageBonus: DamageBonusConfigDialog,
-      damageImmunities: DamageImmunitiesConfigDialog,
-      damageResistances: DamageResistancesConfigDialog,
-      damageVulnerabilities: DamageVulnerabilitiesConfigDialog,
+      damageImmunities: DetailsConfigDialog,
+      damageResistances: DetailsConfigDialog,
+      damageVulnerabilities: DetailsConfigDialog,
       healingBonus: HealingBonusConfigDialog,
       health: ActorHpConfigDialog,
       initiative: ActorInitConfigDialog,
       initiativeBonus: InitiativeBonusConfigDialog,
-      languages: LanguagesConfigDialog,
+      languages: DetailsConfigDialog,
       maneuvers: ActorManueverConfigDialog,
+      maneuverTraditions: DetailsConfigDialog,
       movement: MovementConfigDialog,
       movementBonus: MovementBonusConfigDialog,
       senses: SensesConfigDialog,
       sensesBonus: SensesBonusConfigDialog,
-      size: CreatureSizeConfigDialog,
+      size: DetailsConfigDialog,
       skill: SkillConfigDialog,
       skillBonus: SkillBonusConfigDialog,
       spells: ActorSpellConfigDialog,
-      terrain: ActorTerrainConfigDialog,
+      terrain: DetailsConfigDialog,
       tools: ToolProfConfigDialog,
-      types: CreatureTypeConfigDialog,
+      types: DetailsConfigDialog,
       weapons: WeaponProfConfigDialog
     };
   }
@@ -841,18 +836,38 @@ export default class ActorA5e extends Actor {
     this.#configure('ability', title, data, options);
   }
 
+  configureArmorClass(data = {}, options = {}) {
+    const title = localize('A5E.ACConfigurationPrompt', { name: this.name });
+    this.#configure('armorClass', title, data, options);
+  }
+
   configureArmorProficiencies(data = {}, options = {}) {
     const title = localize('A5E.ArmorProficienciesConfigurationPrompt', { name: this.name });
+
+    data.heading ??= 'A5E.ArmorProficiencies';
+    data.propertyKey ??= 'system.proficiencies.armor';
+    data.configObject ??= CONFIG.A5E.armor;
+
     this.#configure('armor', title, data, options);
   }
 
   configureConditionImmunities(data = {}, options = {}) {
     const title = localize('A5E.ConditionImmunitiesConfigurationPrompt', { name: this.name });
+
+    data.heading ??= 'A5E.ConditionImmunities';
+    data.configObject ??= CONFIG.A5E.conditions;
+    data.propertyKey ??= 'system.traits.conditionImmunities';
+
     this.#configure('conditionImmunities', title, data, options);
   }
 
   configureCreatureTypes(data = {}, options = {}) {
     const title = localize('A5E.CreatureTypesConfigurationPrompt', { name: this.name });
+
+    data.heading ??= 'A5E.CreatureTypePlural';
+    data.configObject ??= CONFIG.A5E.creatureTypes;
+    data.propertyKey ??= 'system.details.creatureTypes';
+
     this.#configure('types', title, data, options);
   }
 
@@ -864,23 +879,41 @@ export default class ActorA5e extends Actor {
     this.#configure(dialogKey, dialogName, { bonusID });
   }
 
-  configureArmorClass(data = {}, options = {}) {
-    const title = localize('A5E.ACConfigurationPrompt', { name: this.name });
-    this.#configure('armorClass', title, data, options);
+  configureCreatureTerrains(data = {}, options = {}) {
+    data.heading ??= 'A5E.CreatureTerrains';
+    data.configObject ??= CONFIG.A5E.terrainTypes;
+    data.propertyKey ??= 'system.details.terrain';
+
+    this.#configure('terrain', `${this.name}: Configure Creature Terrains`, data, options);
   }
 
   configureDamageImmunities(data = {}, options = {}) {
     const title = localize('A5E.DamageImmunitiesConfigurationPrompt', { name: this.name });
+
+    data.heading ??= 'A5E.DamageTypePlural';
+    data.configObject ??= CONFIG.A5E.damageTypes;
+    data.propertyKey ??= 'system.traits.damageImmunities';
+
     this.#configure('damageImmunities', title, data, options);
   }
 
   configureDamageResistances(data = {}, options = {}) {
     const title = localize('A5E.DamageResistancesConfigurationPrompt', { name: this.name });
+
+    data.heading ??= 'A5E.DamageTypePlural';
+    data.configObject ??= CONFIG.A5E.damageTypes;
+    data.propertyKey ??= 'system.traits.damageResistances';
+
     this.#configure('damageResistances', title, data, options);
   }
 
   configureDamageVulnerabilities(data = {}, options = {}) {
     const title = localize('A5E.DamageVulnerabilitiesConfigurationPrompt', { name: this.name });
+
+    data.heading ??= 'A5E.DamageTypePlural';
+    data.configObject ??= CONFIG.A5E.damageTypes;
+    data.propertyKey ??= 'system.traits.damageVulnerabilities';
+
     this.#configure('damageVulnerabilities', title, data, options);
   }
 
@@ -897,12 +930,27 @@ export default class ActorA5e extends Actor {
 
   configureLanguages(data = {}, options = {}) {
     const title = localize('A5E.LanguagesConfigurationPrompt', { name: this.name });
+
+    data.heading ??= 'A5E.Languages';
+    data.configObject ??= CONFIG.A5E.languages;
+    data.propertyKey ??= 'system.proficiencies.languages';
+
     this.#configure('languages', title, data, options);
   }
 
   configureMovement(data = {}, options = {}) {
     const title = localize('A5E.MovementConfigurationPrompt', { name: this.name });
     this.#configure('movement', title, data, options);
+  }
+
+  configureManeuverTraditions(data = {}, options = {}) {
+    const title = localize('A5E.ManeuverTraditionsConfigurationPrompt', { name: this.name });
+
+    data.heading ??= 'A5E.ManeuverTraditionPlural';
+    data.configObject ??= CONFIG.A5E.maneuverTraditions;
+    data.propertyKey ??= 'system.proficiencies.traditions';
+
+    this.#configure('maneuverTraditions', title, data, options);
   }
 
   configureSenses(data = {}, options = {}) {
@@ -912,6 +960,11 @@ export default class ActorA5e extends Actor {
 
   configureSizeCategory(data = {}, options = {}) {
     const title = localize('A5E.SizeCategoryConfigurationPrompt', { name: this.name });
+
+    data.heading ??= 'A5E.SizeCategory';
+    data.configObject ??= CONFIG.A5E.actorSizes;
+    data.propertyKey ??= 'system.traits.size';
+
     this.#configure('size', title, data, options);
   }
 
@@ -924,17 +977,21 @@ export default class ActorA5e extends Actor {
     this.#configure('skill', title, data, options);
   }
 
-  configureCreatureTerrains(data = {}, options = {}) {
-    this.#configure('terrain', `${this.name}: Configure Creature Terrains`, data, options);
-  }
-
   configureToolProficiencies(data = {}, options = {}) {
     const title = localize('A5E.ToolProficienciesConfigurationPrompt', { name: this.name });
+
+    data.configObject ??= CONFIG.A5E.tools;
+    data.propertyKey ??= 'system.proficiencies.tools';
+
     this.#configure('tools', title, data, options);
   }
 
   configureWeaponProficiencies(data = {}, options = {}) {
     const title = localize('A5E.WeaponProficienciesConfigurationPrompt', { name: this.name });
+
+    data.configObject ??= CONFIG.A5E.weapons;
+    data.propertyKey ??= 'system.proficiencies.weapons';
+
     this.#configure('weapons', title, data, options);
   }
 
