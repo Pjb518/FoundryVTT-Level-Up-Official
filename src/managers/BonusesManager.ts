@@ -219,7 +219,8 @@ export default class BonusesManager {
     const parts = Object.entries(bonuses).filter(
       ([, { context, formula }]) => {
         if (!formula) return false;
-        const { abilities, requiresProficiency, types } = context ?? {};
+        const { abilities, requiresProficiency, types } = context
+          ?? { abilities: [], requiresProficiency: false, types: [] };
 
         if (!abilities?.includes(ablKey)) return false;
         if (!types?.includes(type)) return false;
@@ -252,7 +253,8 @@ export default class BonusesManager {
     const parts = Object.entries(bonuses).filter(
       ([, { context, formula }]) => {
         if (!formula) return false;
-        const { abilities, requiresProficiency, types } = context ?? {};
+        const { abilities, requiresProficiency, types } = context
+          ?? { abilities: [], requiresProficiency: false, types: [] };
 
         if (!types?.includes(type)) return false;
         if (requiresProficiency) return false;
@@ -287,10 +289,10 @@ export default class BonusesManager {
     const parts = Object.entries(bonuses).filter(
       ([, { context, formula }]) => {
         if (!formula) return false;
-        const { attackTypes, spellLevels } = context ?? {};
+        const { attackTypes, spellLevels } = context ?? { attackTypes: [], spellLevels: [] };
 
         if (!attackTypes?.includes(type)) return false;
-        if (spellLevel !== null && spellLevels.length && !spellLevels.includes(`${spellLevel}`)) return false;
+        if (spellLevel !== null && spellLevels?.length && !spellLevels?.includes(`${spellLevel}`)) return false;
 
         return true;
       }
@@ -335,7 +337,7 @@ export default class BonusesManager {
     const damageBonuses = Object.entries(bonuses).filter(
       ([, { context, formula }]) => {
         if (!formula) return false;
-        const { attackTypes, spellLevels } = context;
+        const { attackTypes, spellLevels } = context ?? { attackTypes: [], spellLevels: [] };
         const damageTypes = new Set(context.damageTypes ?? []);
 
         if (attackTypes?.length && !attackTypes.includes((attackType || 'meleeWeaponAttack'))) return false;
@@ -380,7 +382,7 @@ export default class BonusesManager {
       ([, { context, formula }]) => {
         if (!formula) return false;
 
-        const { spellLevels } = context;
+        const { spellLevels } = context ?? { spellLevels: [] };
         const healingTypes = new Set(context.healingTypes ?? []);
 
         if (healingTypes.size && !healingTypes.intersects(heals)) return false;
@@ -418,7 +420,7 @@ export default class BonusesManager {
     const parts = Object.entries(bonuses).filter(
       ([, { context, formula }]) => {
         if (!formula) return false;
-        const { abilities, skills } = context ?? {};
+        const { abilities, skills } = context ?? { abilities: [], skills: [] };
 
         if (abilityKey && abilities?.length && !abilities.includes(abilityKey)) return false;
         if (skillKey && skills?.length && !skills.includes(skillKey)) return false;
@@ -445,7 +447,7 @@ export default class BonusesManager {
       ([, { context, formula }]) => {
         if (!formula) return false;
 
-        const { movementTypes } = context ?? {};
+        const { movementTypes } = context ?? { movementTypes: [] };
         if (!movementTypes?.includes(type)) return false;
 
         return true;
@@ -472,7 +474,7 @@ export default class BonusesManager {
       ([, { context, formula }]) => {
         if (!formula) return false;
 
-        const { senses } = context ?? {};
+        const { senses } = context ?? { senses: [] };
         if (!senses?.includes(type)) return false;
 
         return true;
@@ -508,7 +510,7 @@ export default class BonusesManager {
     const parts = Object.entries(bonuses).filter(
       ([, { context, formula }]) => {
         if (!formula) return false;
-        const { skills, passiveOnly } = context ?? {};
+        const { skills, passiveOnly } = context ?? { skills: [], passiveOnly: false };
 
         if (!skills.includes(skillKey)) return false;
         if (type !== 'passive' && passiveOnly) return false;
@@ -546,7 +548,8 @@ export default class BonusesManager {
     const parts = Object.entries(bonuses).filter(
       ([, { context, formula }]) => {
         if (!formula) return false;
-        const { passiveOnly, requiresProficiency } = context ?? {};
+        const { passiveOnly, requiresProficiency } = context
+          ?? { passiveOnly: false, requiresProficiency: false };
 
         if (requiresProficiency) return false;
         if (type !== 'passive' && passiveOnly) return false;
