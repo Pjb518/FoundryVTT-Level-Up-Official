@@ -83,7 +83,7 @@ export default class AbilityGrant extends BaseGrant {
   }
 
   requiresConfig() {
-    return this.abilities.base.length !== this.abilities.total;
+    return this.abilities.base.length > this.abilities.total;
   }
 
   override async configureGrant() {

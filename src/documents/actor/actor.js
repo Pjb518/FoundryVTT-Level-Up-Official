@@ -547,6 +547,7 @@ export default class ActorA5e extends Actor {
     const { senses } = this.system.attributes;
     for (const [type, { distance }] of Object.entries(senses)) {
       const bonusFormula = this.BonusesManager.getSensesBonusFormula(type);
+      console.log(type, bonusFormula);
       if (!bonusFormula) continue;
 
       const bonus = getDeterministicBonus(bonusFormula, this.getRollData());

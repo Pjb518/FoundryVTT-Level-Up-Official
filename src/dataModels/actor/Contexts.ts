@@ -88,10 +88,6 @@ export function getMovementBonusContext(type: 'grant' | 'bonus') {
   const { fields } = foundry.data;
 
   const schema: any = {
-    movementTypes: new fields.ArrayField(
-      new fields.StringField({ required: true, initial: '' }),
-      { initial: [] }
-    ),
     isHover: new fields.BooleanField({ required: true, initial: false })
   };
 
@@ -102,22 +98,13 @@ export function getMovementBonusContext(type: 'grant' | 'bonus') {
     );
   }
 
-  return {
-    movementTypes: new fields.ArrayField(
-      new fields.StringField({ required: true, initial: '' }),
-      { initial: [] }
-    ),
-    isHover: new fields.BooleanField({ required: true, initial: false })
-  };
+  return schema;
 }
 
 export function getSensesBonusContext(type: 'grant' | 'bonus') {
   const { fields } = foundry.data;
 
   const schema: any = {
-    senses: new fields.ArrayField(new fields.StringField({ required: true, initial: '' }), {
-      initial: Object.keys(CONFIG.A5E.senses)
-    }),
     otherwiseBlind: new fields.BooleanField({ required: true, initial: false })
   };
 
@@ -128,12 +115,7 @@ export function getSensesBonusContext(type: 'grant' | 'bonus') {
     );
   }
 
-  return {
-    senses: new fields.ArrayField(new fields.StringField({ required: true, initial: '' }), {
-      initial: Object.keys(CONFIG.A5E.senses)
-    }),
-    otherwiseBlind: new fields.BooleanField({ required: true, initial: false })
-  };
+  return schema;
 }
 
 export function getSkillBonusContext(type: 'grant' | 'bonus') {
