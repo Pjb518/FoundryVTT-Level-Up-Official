@@ -69,15 +69,9 @@
     <div class="level-box">
         <label class="xp-label" for="{$actor.id}-xp"> XP </label>
 
-        <input
-            id="{$actor.id}-xp"
-            class="xp-input"
-            type="number"
-            value={xp}
-            placeholder="0"
-            min="0"
-            disabled
-        />
+        <span class="xp-input" value={xp}>
+            {xp}
+        </span>
     </div>
 
     <div class="level-box">
@@ -126,12 +120,13 @@
     }
 
     .xp-input {
+        display: block;
         height: unset;
         text-align: center;
         border: 0;
         background: transparent;
         padding-inline: 0.125rem;
-        font-size: $font-size-md;
+        font-size: $font-size-sm;
 
         &:active,
         &:focus {
