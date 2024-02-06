@@ -154,6 +154,7 @@ export default class ActorA5e extends Actor {
    * @override
    */
   prepareData() {
+    this.applyEffectBonuses();
     this.prepareBaseData();
     super.prepareEmbeddedDocuments();
     this.prepareDerivedData();
@@ -161,6 +162,23 @@ export default class ActorA5e extends Actor {
 
     if ((this.system.schemaVersion?.version ?? this.system.schema?.version) < 0.005) return;
     this.prepareArmorClass();
+  }
+
+  /**
+   * Apply activeEffects to the actor with the phase 'applyAEs'.
+   * @override
+   */
+  applyEffectBonuses() {
+    this.overrides = {};
+
+    ActiveEffectA5e.applyEffects(
+      this,
+      this.actorEffects,
+      'prepareBonuses',
+      'applyAEs',
+      (change) => game.a5e.activeEffects.options[this.type]
+        .allOptions[change.key]?.phase === 'prepareBonuses'
+    );
   }
 
   /**
@@ -223,8 +241,6 @@ export default class ActorA5e extends Actor {
    * @override
    */
   applyActiveEffects() {
-    this.overrides = {};
-
     // Create base to store statuses on actor.
     this.statuses ??= new Set();
 

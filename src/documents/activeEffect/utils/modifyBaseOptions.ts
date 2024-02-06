@@ -48,12 +48,12 @@ export default function modifyBaseOptions(options: Object) {
   options['system.attributes.spellcasting'] = ['', MODES.OVERRIDE_ONLY, Object.entries(CONFIG.A5E.abilities), 'RADIO'];
 
   // Bonuses
-  options['flags.a5e.effects.bonuses.abilities'] = [{}, MODES.CUSTOM_ONLY, null, 'ABILITY_BONUS'];
-  options['flags.a5e.effects.bonuses.attacks'] = [{}, MODES.CUSTOM_ONLY, null, 'ATTACK_BONUS'];
-  options['flags.a5e.effects.bonuses.damage'] = [{}, MODES.CUSTOM_ONLY, null, 'DAMAGE_BONUS'];
-  options['flags.a5e.effects.bonuses.healing'] = [{}, MODES.CUSTOM_ONLY, null, 'HEALING_BONUS'];
-  options['flags.a5e.effects.bonuses.initiative'] = [{}, MODES.CUSTOM_ONLY, null, 'INITIATIVE_BONUS'];
-  options['flags.a5e.effects.bonuses.skills'] = [{}, MODES.CUSTOM_ONLY, null, 'SKILL_BONUS'];
+  options['flags.a5e.effects.bonuses.abilities'] = [{}, MODES.CUSTOM_ONLY, null, 'ABILITY_BONUS', 'prepareBonuses'];
+  options['flags.a5e.effects.bonuses.attacks'] = [{}, MODES.CUSTOM_ONLY, null, 'ATTACK_BONUS', 'prepareBonuses'];
+  options['flags.a5e.effects.bonuses.damage'] = [{}, MODES.CUSTOM_ONLY, null, 'DAMAGE_BONUS', 'prepareBonuses'];
+  options['flags.a5e.effects.bonuses.healing'] = [{}, MODES.CUSTOM_ONLY, null, 'HEALING_BONUS', 'prepareBonuses'];
+  options['flags.a5e.effects.bonuses.initiative'] = [{}, MODES.CUSTOM_ONLY, null, 'INITIATIVE_BONUS', 'prepareBonuses'];
+  options['flags.a5e.effects.bonuses.skills'] = [{}, MODES.CUSTOM_ONLY, null, 'SKILL_BONUS', 'prepareBonuses'];
 
   // Removes these when data model is fixes
   delete options['system.bonuses.meleeWeaponAttack'];
