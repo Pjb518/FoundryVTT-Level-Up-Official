@@ -649,13 +649,19 @@ export default class ActorA5e extends Actor {
     }
 
     // Update prototype token sizes to reflect the actor's token size
-    if (foundry.utils.getProperty(changed, 'system.traits.size')) {
-      const newSize = changed.system.traits.size;
+    const automateTokenSize = this.flags?.a5e?.automatePrototypeTokenSize
+      ?? game.settings.get('a5e', 'automatePrototypeTokenSize')
+      ?? true;
 
-      // If titanic token is already larger than 5, don't change it
-      if (newSize !== 'titan' || this.prototypeToken.width < 5) {
-        foundry.utils.setProperty(changed, 'prototypeToken.height', CONFIG.A5E.tokenDimensions[newSize]);
-        foundry.utils.setProperty(changed, 'prototypeToken.width', CONFIG.A5E.tokenDimensions[newSize]);
+    if (automateTokenSize) {
+      if (foundry.utils.getProperty(changed, 'system.traits.size')) {
+        const newSize = changed.system.traits.size;
+
+        // If titanic token is already larger than 5, don't change it
+        if (newSize !== 'titan' || this.prototypeToken.width < 5) {
+          foundry.utils.setProperty(changed, 'prototypeToken.height', CONFIG.A5E.tokenDimensions[newSize]);
+          foundry.utils.setProperty(changed, 'prototypeToken.width', CONFIG.A5E.tokenDimensions[newSize]);
+        }
       }
     }
   }

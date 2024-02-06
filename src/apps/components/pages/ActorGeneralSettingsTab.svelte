@@ -8,11 +8,31 @@
     import updateDocumentDataFromField from "../../../utils/updateDocumentDataFromField";
 
     const actor = getContext("actor");
+    const settingsStore = game.a5e.settings.store;
 
+    let automateTokenSize = settingsStore.getStore(
+        "automatePrototypeTokenSize",
+    );
     $: flags = $actor.flags?.a5e ?? {};
 </script>
 
 <Section heading="Sheet Customization" --a5e-section-body-gap="0.75rem">
+    <FieldWrapper>
+        <Checkbox
+            label="A5E.settings.automatePrototypeTokenSize"
+            checked={flags?.automatePrototypeTokenSize ??
+                automateTokenSize ??
+                true}
+            on:updateSelection={({ detail }) => {
+                updateDocumentDataFromField(
+                    $actor,
+                    "flags.a5e.automatePrototypeTokenSize",
+                    detail,
+                );
+            }}
+        />
+    </FieldWrapper>
+
     <FieldWrapper>
         <Checkbox
             label="A5E.HideGenericResources"

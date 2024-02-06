@@ -21,6 +21,7 @@
     let trackCurrency = settings.getStore("currencyWeight");
     let randomHP = settings.getStore("randomizeNPCHitPoints");
 
+    let automateTokenSize = settings.getStore("automatePrototypeTokenSize");
     let blindDeathSaves = settings.getStore("blindDeathSaves");
     let hideActionList = settings.getStore("collapseActionList");
     let hideDeleteDialog = settings.getStore("hideDeleteConfirmation");
@@ -38,6 +39,19 @@
         heading="A5E.settings.sectionHeader.actorBehavior"
         --a5e-section-body-gap="0.5rem"
     >
+        {#if isGM}
+            <FieldWrapper hint="A5E.settings.hints.automatePrototypeTokenSize">
+                <Checkbox
+                    label="A5E.settings.automatePrototypeTokenSize"
+                    checked={updates.get("automatePrototypeTokenSize") ??
+                        $automateTokenSize}
+                    on:updateSelection={({ detail }) => {
+                        updates.set("automatePrototypeTokenSize", detail);
+                    }}
+                />
+            </FieldWrapper>
+        {/if}
+
         {#if isGM}
             <FieldWrapper hint="A5E.settings.hints.blindDeathSaves">
                 <Checkbox
@@ -138,6 +152,7 @@
         />
     </FieldWrapper>
 
+    <!-- svelte-ignore missing-declaration -->
     <RadioGroup
         heading="Skill List Flow Direction"
         hint={game.settings.settings.get("a5e.skillListFlowDirection").hint}

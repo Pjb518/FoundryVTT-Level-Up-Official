@@ -20,6 +20,18 @@ class A5eGameSettings extends TJSGameSettings {
       // Actor Settings
       {
         namespace,
+        key: 'automatePrototypeTokenSize',
+        options: {
+          name: 'A5E.settings.automatePrototypeTokenSize',
+          hint: 'A5E.settings.hints.automatePrototypeTokenSize',
+          scope: 'world',
+          config: true,
+          default: true,
+          type: Boolean
+        }
+      },
+      {
+        namespace,
         key: 'blindDeathSaves',
         options: {
           name: 'A5E.settings.blindDeathSaves',
