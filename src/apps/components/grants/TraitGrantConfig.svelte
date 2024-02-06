@@ -86,7 +86,7 @@
     };
 
     $: grant = $item.system.grants[grantId];
-    $: traitType = grant?.traits?.traitType;
+    $: traitType = grant?.traits?.traitType || "armorTypes";
 </script>
 
 <form>
@@ -157,7 +157,7 @@
             }}
         />
 
-        <FieldWrapper heading="Count">
+        <FieldWrapper heading="Total Count">
             <input
                 type="number"
                 value={grant?.traits?.total ?? 0}

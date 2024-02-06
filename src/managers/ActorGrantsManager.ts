@@ -27,6 +27,10 @@ export default class ActorGrantsManger extends Map<string, ActorGrant> {
     });
   }
 
+  byType(type: string): ActorGrant[] {
+    return [...this.values()].filter((grant) => grant.grantType === type);
+  }
+
   async applyGrant(itemId: string): Promise<void> {
     if (!itemId) return;
     const item = this.actor.items.get(itemId);

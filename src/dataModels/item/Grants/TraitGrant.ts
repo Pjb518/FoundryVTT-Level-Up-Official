@@ -23,7 +23,7 @@ export default class TraitGrant extends BaseGrant {
           { required: true, initial: [] }
         ),
         total: new fields.NumberField({ required: true, initial: 0, integer: true }),
-        traitType: new fields.StringField({ required: true, initial: '' })
+        traitType: new fields.StringField({ required: true, initial: 'armorTypes' })
       }),
       label: new fields.StringField({ required: true, initial: 'New Trait Grant' })
     });
