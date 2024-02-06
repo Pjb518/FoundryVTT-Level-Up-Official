@@ -64,12 +64,14 @@ export default function modifyBaseOptions(options: Object) {
 
   // Delete bonus associated values
   Object.keys(CONFIG.A5E.abilities).forEach((a) => {
-    delete options[`system.${a}.value`];
+    delete options[`system.abilities.${a}.value`];
     delete options[`system.abilities.${a}.check.mod`];
     delete options[`system.abilities.${a}.check.bonus`];
     delete options[`system.abilities.${a}.save.mod`];
     delete options[`system.abilities.${a}.save.bonus`];
   });
+
+  delete options['system.attributes.initiative.bonus'];
 
   delete options['system.attributes.ac.baseFormula'];
   delete options['system.attributes.ac.value'];
