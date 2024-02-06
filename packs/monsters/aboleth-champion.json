@@ -1,1951 +1,1943 @@
 {
-  "name": "Aboleth Champion",
-  "type": "npc",
-  "img": "icons/svg/mystery-man.svg",
-  "items": [
-    {
-      "name": "Grapple",
-      "type": "maneuver",
-      "img": "icons/skills/melee/unarmed-punch-fist.webp",
-      "effects": [],
-      "flags": {},
-      "system": {
-        "actions": {
-          "wOKLPnhKpnhU1kEj": {
-            "name": "Grapple",
-            "activation": {
-              "cost": 1,
-              "type": "action",
-              "reactionTrigger": ""
-            },
-            "duration": {
-              "unit": "instantaneous",
-              "value": null
-            },
-            "ranges": {
-              "5nrDtksc3KPCbcJd": {
-                "range": "fiveFeet"
-              }
-            },
-            "area": {
-              "shape": "",
-              "size": "",
-              "placeTemplate": false
-            },
-            "target": {
-              "quantity": "",
-              "type": "creature",
-              "shape": "",
-              "size": ""
-            },
-            "prompts": {
-              "B9sbtgKAz5GLtsp3": {
-                "ability": "str",
-                "onSave": "",
-                "saveDC": {
-                  "type": "custom",
-                  "bonus": "@maneuverDC"
-                },
-                "type": "savingThrow"
-              }
-            },
-            "consumers": {},
-            "rolls": {
-              "GjyfHt0lKnETufaD": {
-                "type": "damage",
-                "default": true,
-                "formula": "1 + @str.mod",
-                "label": "Basic Melee Damage",
-                "canCrit": false
-              }
-            }
-          }
-        },
-        "description": "<p>You can use the Grapple maneuver to grab or wrestle a creature. If you are able to make multiple attacks with the Attack action, this maneuver replaces one of them.</p>\n<p>You must have at least one free hand to attempt a grapple, your target must be within your reach, and the target must be no more than one size category larger than you. The target makes a Strength or Dexterity saving throw against your maneuver DC. On a failure, you deal basic melee damage and the target becomes grappled (see Appendix A: Conditions on page 616). In addition to things that end the condition, you can release the target at any time (no action required).</p>\n<p><em>Escaping a Grapple.</em> While grappled, a creature can use its action to attempt to escape. It must succeed on a Strength or Dexterity saving throw against your maneuver DC.</p>\n<p><em>Moving a Grappled Creature. </em>When you move, you can drag or carry the grappled creature with you. When you do so, your Speed is halved, unless the creature's weight is within your carrying capacity and you are not encumbered by bulky items.</p>\n<p><em>Freeing a Grappled Creature.</em> You can use the Grapple maneuver to try to free another grappled or restrained creature. The creature grappling or restraining the target makes a Strength saving throw against your maneuver DC. If it fails the saving throw, the grappled or restrained creature is freed. Additionally, you may move the freed creature 5 feet in any direction.</p>",
-        "favorite": false,
-        "secretDescription": "",
-        "source": "",
-        "uses": {
-          "value": null,
-          "max": "",
-          "per": null,
-          "recharge": {
-            "formula": "1d6",
-            "threshold": 6
-          }
-        },
-        "schema": {
-          "version": null,
-          "lastMigration": null
-        },
-        "concentration": false,
-        "degree": 0,
-        "exertionCost": 0,
-        "isStance": false,
-        "prerequisite": "",
-        "tradition": "",
-        "equippedState": 0,
-        "schemaVersion": {
-          "version": 0.011,
-          "lastMigration": {
-            "version": {
-              "schema": 0.01,
-              "foundry": "11.315",
-              "system": "0.16.37"
-            }
-          }
-        }
-      },
-      "folder": null,
-      "_id": "2temoM1x2cpgdDIG",
-      "sort": 0,
-      "ownership": {
-        "default": 0
-      }
-    },
-    {
-      "name": "Grab On",
-      "type": "maneuver",
-      "img": "icons/skills/melee/hand-grip-staff-teal.webp",
-      "effects": [],
-      "flags": {},
-      "system": {
-        "actions": {
-          "dZElCBOd3yoRyDcB": {
-            "name": "Grab On",
-            "activation": {
-              "cost": 1,
-              "type": "action",
-              "reactionTrigger": ""
-            },
-            "duration": {
-              "unit": "instantaneous",
-              "value": null
-            },
-            "ranges": {
-              "x479yGm9lUjVLHDy": {
-                "range": "fiveFeet"
-              }
-            },
-            "area": {
-              "shape": "",
-              "size": "",
-              "placeTemplate": false
-            },
-            "target": {
-              "quantity": "",
-              "type": "creature",
-              "shape": "",
-              "size": ""
-            },
-            "prompts": {
-              "duRNu9hfiRNwhtCq": {
-                "ability": "str",
-                "onSave": "",
-                "saveDC": {
-                  "type": "custom",
-                  "bonus": "@maneuverDC"
-                },
-                "type": "savingThrow"
-              }
-            },
-            "consumers": {},
-            "rolls": {
-              "pzopjF1frh4UfKvT": {
-                "type": "damage",
-                "default": true,
-                "formula": "1 + @str.mod",
-                "label": "Basic Melee Damage",
-                "canCrit": false
-              }
-            }
-          }
-        },
-        "description": "<p>While you cannot grapple a creature two or more size categories larger than you, you can grab onto it. By jumping onto its back or climbing up a limb, you can make a Strength or Dexterity saving throw against the creature's maneuver DC to cling to or balance upon its body. On a success, you move into the creature's space and can move upon its body as if it is difficult terrain.</p><p>While grabbing onto a larger creature, you gain advantage on attack rolls against it. The larger creature may be able to attack you as normal, depending on its limbs or attacks. It can also use an action or replace one of its attacks on its turn to try to dislodge you, such as shaking you loose or bashing you against a wall, forcing you to make a Strength or Dexterity saving throw against its maneuver DC or fall prone into the nearest space adjacent to the creature, taking its basic melee damage in the process.</p><p>If the creature chooses to roll over in order to dislodge you, it becomes prone, but you have disadvantage on the saving throw to hang on.</p>",
-        "favorite": false,
-        "secretDescription": "",
-        "source": "",
-        "uses": {
-          "value": null,
-          "max": "",
-          "per": null,
-          "recharge": {
-            "formula": "1d6",
-            "threshold": 6
-          }
-        },
-        "schema": {
-          "version": null,
-          "lastMigration": null
-        },
-        "concentration": false,
-        "degree": 0,
-        "exertionCost": 0,
-        "isStance": false,
-        "prerequisite": "",
-        "tradition": "",
-        "equippedState": 0,
-        "schemaVersion": {
-          "version": 0.011,
-          "lastMigration": {
-            "version": {
-              "schema": 0.01,
-              "foundry": "11.315",
-              "system": "0.16.37"
-            }
-          }
-        }
-      },
-      "folder": null,
-      "_id": "h2kP4i0lJtoA81tC",
-      "sort": 0,
-      "ownership": {
-        "default": 0
-      }
-    },
-    {
-      "name": "Disarm",
-      "type": "maneuver",
-      "img": "icons/skills/melee/sword-damaged-broken-glow-red.webp",
-      "effects": [],
-      "flags": {},
-      "system": {
-        "actions": {
-          "xN5ZLHIjo9cHRWrK": {
-            "name": "Disarm",
-            "activation": {
-              "cost": 1,
-              "type": "action",
-              "reactionTrigger": ""
-            },
-            "duration": {
-              "unit": "instantaneous",
-              "value": null
-            },
-            "ranges": {
-              "dFgwvnjjgmzR7vlN": {
-                "range": "fiveFeet"
-              }
-            },
-            "area": {
-              "shape": "",
-              "size": "",
-              "placeTemplate": false
-            },
-            "target": {
-              "quantity": "",
-              "type": "creature",
-              "shape": "",
-              "size": ""
-            },
-            "rolls": {
-              "FDMYIPcl2LveduMw": {
-                "canCrit": false,
-                "damageType": "",
-                "formula": "1 + @str.mod",
-                "label": "Basic Melee Damage",
-                "type": "damage"
-              }
-            },
-            "prompts": {
-              "xs1KlWtLXswqrVKY": {
-                "ability": "str",
-                "onSave": "",
-                "saveDC": {
-                  "type": "custom",
-                  "bonus": "@maneuverDC"
-                },
-                "type": "savingThrow"
-              }
-            },
-            "consumers": {}
-          }
-        },
-        "description": "<p>You can use the Disarm maneuver to attempt to knock an item or weapon from a creature's hand. If you are able to make multiple attacks with the Attack action, this maneuver replaces one of them.</p><p>The target must be within your reach and be holding an item (either carried or wielded). The target makes a Strength or Dexterity saving throw against your maneuver DC. On a failure, you deal basic melee damage and the target drops the item in its space. The target has advantage if it is larger than you or holding the item with two or more hands, and a target smaller than you has disadvantage.</p>",
-        "favorite": false,
-        "secretDescription": "",
-        "source": "",
-        "uses": {
-          "value": null,
-          "max": "",
-          "per": null,
-          "recharge": {
-            "formula": "1d6",
-            "threshold": 6
-          }
-        },
-        "schema": {
-          "version": null,
-          "lastMigration": null
-        },
-        "concentration": false,
-        "degree": 0,
-        "exertionCost": 0,
-        "isStance": false,
-        "prerequisite": "",
-        "tradition": "",
-        "equippedState": 0,
-        "schemaVersion": {
-          "version": 0.011,
-          "lastMigration": {
-            "version": {
-              "schema": 0.01,
-              "foundry": "11.315",
-              "system": "0.16.37"
-            }
-          }
-        }
-      },
-      "folder": null,
-      "_id": "VxFv1zhCHHVnHuSS",
-      "sort": 0,
-      "ownership": {
-        "default": 0
-      }
-    },
-    {
-      "name": "Knockdown",
-      "type": "maneuver",
-      "img": "icons/magic/control/silhouette-fall-slip-prone.webp",
-      "effects": [],
-      "flags": {},
-      "system": {
-        "actions": {
-          "wfzmnudl6tfhZk4v": {
-            "name": "Knockdown",
-            "activation": {
-              "cost": 1,
-              "type": "action",
-              "reactionTrigger": ""
-            },
-            "duration": {
-              "unit": "instantaneous",
-              "value": null
-            },
-            "ranges": {
-              "NbOuce8AtLVjDeeL": {
-                "range": "fiveFeet"
-              }
-            },
-            "area": {
-              "shape": "",
-              "size": "",
-              "placeTemplate": false
-            },
-            "target": {
-              "quantity": "",
-              "type": "creature",
-              "shape": "",
-              "size": ""
-            },
-            "prompts": {
-              "L65ZmTO0KcmeQ2EQ": {
-                "ability": "str",
-                "onSave": "",
-                "saveDC": {
-                  "type": "custom",
-                  "bonus": "@maneuverDC"
-                },
-                "type": "savingThrow"
-              }
-            },
-            "consumers": {},
-            "rolls": {
-              "Wgx2bdExxjzRu7nR": {
-                "type": "damage",
-                "default": true,
-                "formula": "1 + @str.mod",
-                "label": "Basic Melee Damage",
-                "canCrit": false
-              }
-            }
-          }
-        },
-        "description": "<p>You can use the Knockdown maneuver to trip or push a creature down. If you are able to make multiple attacks with the Attack action, this maneuver replaces one of them.</p><p>The target must be within your reach and be no more than one size category larger than you. The target makes a Strength saving throw against your maneuver DC. On a failure, you deal basic melee damage and knock the target prone.</p>",
-        "favorite": false,
-        "secretDescription": "",
-        "source": "",
-        "uses": {
-          "value": null,
-          "max": "",
-          "per": null,
-          "recharge": {
-            "formula": "1d6",
-            "threshold": 6
-          }
-        },
-        "schema": {
-          "version": null,
-          "lastMigration": null
-        },
-        "concentration": false,
-        "degree": 0,
-        "exertionCost": 0,
-        "isStance": false,
-        "prerequisite": "",
-        "tradition": "",
-        "equippedState": 0,
-        "schemaVersion": {
-          "version": 0.011,
-          "lastMigration": {
-            "version": {
-              "schema": 0.01,
-              "foundry": "11.315",
-              "system": "0.16.37"
-            }
-          }
-        }
-      },
-      "folder": null,
-      "_id": "QIEfhtIcZqTcUGnb",
-      "sort": 0,
-      "ownership": {
-        "default": 0
-      }
-    },
-    {
-      "name": "Overrun",
-      "type": "maneuver",
-      "img": "icons/skills/melee/shield-damaged-broken-blue.webp",
-      "effects": [],
-      "flags": {},
-      "system": {
-        "actions": {
-          "kBUgwxtsHQqPa1DV": {
-            "name": "Overrun",
-            "activation": {
-              "cost": 1,
-              "type": "special",
-              "reactionTrigger": ""
-            },
-            "duration": {
-              "unit": "instantaneous",
-              "value": null
-            },
-            "ranges": {
-              "VAh3uPOJAaI5ShrA": {
-                "range": "fiveFeet"
-              }
-            },
-            "area": {
-              "shape": "",
-              "size": "",
-              "placeTemplate": false
-            },
-            "target": {
-              "quantity": "",
-              "type": "creature",
-              "shape": "",
-              "size": ""
-            },
-            "prompts": {
-              "bvFJU6hHDstCwg1b": {
-                "ability": "str",
-                "onSave": "",
-                "saveDC": {
-                  "type": "custom",
-                  "bonus": "@maneuverDC"
-                },
-                "type": "savingThrow"
-              }
-            },
-            "consumers": {},
-            "rolls": {
-              "ezzGenCLYoqg37hI": {
-                "type": "damage",
-                "default": true,
-                "formula": "1 + @str.mod",
-                "label": "Basic Melee Damage",
-                "canCrit": false
-              }
-            }
-          }
-        },
-        "description": "<p>You can use an action or bonus action to make an Overrun maneuver to move through a hostile creature's space by forcing your way past. Make a Strength saving throw against the target's maneuver DC. On a success, you deal basic melee damage and can move through the hostile creature's space once this turn. The creature can choose to just let you pass instead of rolling. You have advantage if you are larger than the target, or disadvantage if you are smaller. If you are two or more sizes smaller than the target, you can move through the hostile creature's space without making a save. You still provoke opportunity attacks if you move beyond a creature's reach.</p>",
-        "favorite": false,
-        "secretDescription": "",
-        "source": "",
-        "uses": {
-          "value": null,
-          "max": "",
-          "per": null,
-          "recharge": {
-            "formula": "1d6",
-            "threshold": 6
-          }
-        },
-        "schema": {
-          "version": null,
-          "lastMigration": null
-        },
-        "concentration": false,
-        "degree": 0,
-        "exertionCost": 0,
-        "isStance": false,
-        "prerequisite": "",
-        "tradition": "",
-        "equippedState": 0,
-        "schemaVersion": {
-          "version": 0.011,
-          "lastMigration": {
-            "version": {
-              "schema": 0.01,
-              "foundry": "11.315",
-              "system": "0.16.37"
-            }
-          }
-        }
-      },
-      "folder": null,
-      "_id": "eWtFuYz63hH7Fzpv",
-      "sort": 0,
-      "ownership": {
-        "default": 0
-      }
-    },
-    {
-      "name": "Shove",
-      "type": "maneuver",
-      "img": "icons/skills/melee/shield-block-bash-yellow.webp",
-      "effects": [],
-      "flags": {},
-      "system": {
-        "actions": {
-          "uvkBwwL7OQopMMHB": {
-            "name": "Shove",
-            "activation": {
-              "cost": 1,
-              "type": "action",
-              "reactionTrigger": ""
-            },
-            "duration": {
-              "unit": "instantaneous",
-              "value": null
-            },
-            "ranges": {
-              "j7yuRUD8cu1y0Jia": {
-                "range": "fiveFeet"
-              }
-            },
-            "area": {
-              "shape": "",
-              "size": "",
-              "placeTemplate": false
-            },
-            "target": {
-              "quantity": null,
-              "type": "creature",
-              "shape": "",
-              "size": ""
-            },
-            "rolls": {
-              "TcI6WmWSAy0EAxg9": {
-                "canCrit": false,
-                "damageType": "",
-                "formula": "1 + @str.mod",
-                "label": "Basic Melee Damage",
-                "type": "damage"
-              }
-            },
-            "prompts": {
-              "UVu9ZVC0beiWNgAV": {
-                "ability": "str",
-                "onSave": "",
-                "saveDC": {
-                  "type": "custom",
-                  "bonus": "@maneuverDC"
-                },
-                "type": "savingThrow"
-              }
-            },
-            "consumers": {}
-          }
-        },
-        "description": "<p>You can use the Shove maneuver to push a creature away. If you are able to make multiple attacks with the Attack action, this maneuver replaces one of them.</p><p>The target must be within your reach and be no more than one size category larger than you. The target makes a Strength saving throw against your maneuver DC. On a failure, you deal basic melee damage and push the target a number of feet away from you equal to 5 + 5 for every 5 points it failed its saving throw by. You can move the creature in any direction away from you (to the side, forward, or diagonally away).</p><p>A creature that is shoved off of a precipice is propelled off of whatever it is standing on -- it does not receive any saving throw or ability check to grab onto something to avoid falling down below.</p>",
-        "favorite": false,
-        "secretDescription": "",
-        "source": "",
-        "uses": {
-          "value": null,
-          "max": "",
-          "per": null,
-          "recharge": {
-            "formula": "1d6",
-            "threshold": 6
-          }
-        },
-        "schema": {
-          "version": null,
-          "lastMigration": null
-        },
-        "concentration": false,
-        "degree": 0,
-        "exertionCost": 0,
-        "isStance": false,
-        "prerequisite": "",
-        "tradition": "",
-        "equippedState": 0,
-        "schemaVersion": {
-          "version": 0.011,
-          "lastMigration": {
-            "version": {
-              "schema": 0.01,
-              "foundry": "11.315",
-              "system": "0.16.37"
-            }
-          }
-        }
-      },
-      "folder": null,
-      "_id": "HJRQ5FyptZfHawSz",
-      "sort": 0,
-      "ownership": {
-        "default": 0
-      }
-    },
-    {
-      "name": "Chain Shirt (Steel)",
-      "type": "object",
-      "img": "icons/commodities/metal/mail-chain-steel.webp",
-      "effects": [],
-      "flags": {},
-      "system": {
-        "ac": {
-          "baseFormula": "13 + @dex.mod",
-          "formula": "",
-          "maxDex": 2,
-          "minStr": 0,
-          "mode": 2,
-          "requiresNoShield": false,
-          "requiresUnarmored": false
-        },
-        "actions": {},
-        "description": "",
-        "favorite": false,
-        "secretDescription": "",
-        "source": "",
-        "uses": {
-          "value": null,
-          "max": "",
-          "per": null,
-          "recharge": {
-            "formula": "1d6",
-            "threshold": 6
-          }
-        },
-        "schema": {
-          "version": null,
-          "lastMigration": null
-        },
-        "ammunitionProperties": [],
-        "armorCategory": "medium",
-        "armorProperties": [],
-        "attuned": false,
-        "bulky": false,
-        "craftingComponents": "",
-        "containerId": "",
-        "damagedState": 0,
-        "equippedState": 2,
-        "items": {},
-        "materialProperties": [
-          "lowMaintenance"
-        ],
-        "objectType": "armor",
-        "plotItem": false,
-        "price": "50 gp",
-        "proficient": true,
-        "quantity": 1,
-        "rarity": "common",
-        "requiresAttunement": false,
-        "shieldCategory": "",
-        "shieldProperties": [],
-        "unidentified": false,
-        "unidentifiedDescription": "",
-        "unidentifiedName": "",
-        "weaponProperties": [],
-        "weight": 15,
-        "schemaVersion": {
-          "version": 0.011,
-          "lastMigration": {
-            "version": {
-              "schema": 0.01,
-              "foundry": "11.315",
-              "system": "0.16.37"
-            }
-          }
-        }
-      },
-      "folder": null,
-      "_id": "HFLuCTuqpoKO6c3x",
-      "sort": 0,
-      "ownership": {
-        "default": 0
-      }
-    },
-    {
-      "name": "Abolethic Agent",
-      "type": "feature",
-      "system": {
-        "ac": {
-          "baseFormula": "",
-          "formula": "",
-          "maxDex": 0,
-          "minStr": 0,
-          "mode": 1,
-          "requiresNoShield": false,
-          "requiresUnarmored": false
-        },
-        "actions": {},
-        "description": "<div>\n<div>The aboleth champion is treated as an aboleth for the purposes of an aboleth thrall's Self-Sacrifice reaction.</div>\n</div>",
-        "favorite": true,
-        "secretDescription": "",
-        "source": {
-          "name": "",
-          "link": "",
-          "publisher": ""
-        },
-        "uses": {
-          "value": null,
-          "max": "",
-          "per": null,
-          "recharge": {
-            "formula": "1d6",
-            "threshold": "6"
-          }
-        },
-        "schema": {
-          "version": null,
-          "lastMigration": null
-        },
-        "concentration": false,
-        "featureType": "class",
-        "grants": {},
-        "prerequisite": "",
-        "requiresBloodied": false,
-        "schemaVersion": {
-          "version": 0.011,
-          "lastMigration": {
-            "version": {
-              "schema": 0.01,
-              "foundry": "11.315",
-              "system": "0.16.37"
-            }
-          }
-        }
-      },
-      "_id": "8fWwbvLwiRkJXZj9",
-      "img": "icons/magic/perception/hand-eye-pink.webp",
-      "effects": [],
-      "folder": null,
-      "sort": 0,
-      "ownership": {
-        "default": 0
-      },
-      "flags": {}
-    },
-    {
-      "_id": "mHLNavI2dQ5vkDs0",
-      "name": "Multiattack",
-      "type": "feature",
-      "img": "icons/skills/melee/blade-tips-triple-steel.webp",
-      "effects": [],
-      "folder": null,
-      "sort": 3,
-      "flags": {},
-      "system": {
-        "ac": {
-          "baseFormula": "",
-          "formula": "",
-          "maxDex": 0,
-          "minStr": 0,
-          "mode": 1,
-          "requiresNoShield": false,
-          "requiresUnarmored": false
-        },
-        "actions": {
-          "CS6RjOdtn2mnUx2S": {
-            "name": "Multiattack",
-            "activation": {
-              "cost": "",
-              "type": "action",
-              "reactionTrigger": ""
-            },
-            "duration": {
-              "unit": "",
-              "value": ""
-            },
-            "area": {
-              "shape": "",
-              "size": "",
-              "placeTemplate": false
-            },
-            "target": {
-              "quantity": "",
-              "type": ""
-            },
-            "consumers": {},
-            "descriptionOutputs": [
-              "item"
-            ]
-          }
-        },
-        "description": "<p>The champion makes two melee attacks.</p>",
-        "favorite": false,
-        "secretDescription": "",
-        "source": "",
-        "uses": {
-          "value": null,
-          "max": "",
-          "per": null,
-          "recharge": {
-            "formula": "",
-            "threshold": ""
-          }
-        },
-        "schema": {
-          "version": null,
-          "lastMigration": null
-        },
-        "concentration": false,
-        "featureType": "",
-        "grants": {},
-        "prerequisite": "",
-        "requiresBloodied": false,
-        "schemaVersion": {
-          "version": 0.011,
-          "lastMigration": {
-            "version": {
-              "schema": 0.01,
-              "foundry": "11.315",
-              "system": "0.16.37"
-            }
-          }
-        }
-      },
-      "ownership": {
-        "default": 0
-      }
-    },
-    {
-      "name": "Serrated Sword",
-      "type": "object",
-      "system": {
-        "ac": {
-          "baseFormula": "",
-          "formula": "",
-          "maxDex": 0,
-          "minStr": 0,
-          "mode": 1,
-          "requiresNoShield": false,
-          "requiresUnarmored": false
-        },
-        "actions": {
-          "Xecj9CTMHtwrHmeK": {
-            "name": "Serrated Sword",
-            "activation": {
-              "type": "action",
-              "cost": 1
-            },
-            "consumers": {},
-            "rolls": {
-              "QgU7JF6BNvG80uo2": {
-                "type": "damage",
-                "default": true,
-                "damageType": "slashing",
-                "formula": "1d8 + @str.mod"
-              },
-              "LWlxH0DKXvaQvdmT": {
-                "type": "attack",
-                "default": true,
-                "attackType": "meleeWeaponAttack",
-                "proficient": true,
-                "ability": "str",
-                "bonus": ""
-              }
-            },
-            "prompts": {
-              "OjBsHaIOLOGk8mcN": {
-                "type": "savingThrow",
-                "default": true,
-                "ability": "con",
-                "saveDC": {
-                  "type": "maneuver"
-                },
-                "label": "Wound"
-              }
-            },
-            "uses": {
-              "value": 0,
-              "max": "",
-              "per": "",
-              "recharge": {
-                "formula": "1d6",
-                "threshold": 6
-              }
-            },
-            "ranges": {
-              "Yx8JJegR29r7NCcG": {
-                "range": "fiveFeet"
-              }
-            },
-            "descriptionOutputs": [
-              "item"
-            ],
-            "target": {
-              "type": "creature",
-              "quantity": 1
-            }
-          }
-        },
-        "description": "<div>\n<p>If the target is a creature other than an undead or construct, it makes a DC 15 Constitution saving throw. On a failure, it receives a wound.</p>\n<p>While wounded, it takes 4 (1d8) ongoing slashing damage and is rattled. Further wounds on a wounded creature have no effect. A creature can use an action to make a DC 12 Medicine check, ending the ongoing damage and rattled condition on a success. The effect also ends if the target receives at least 1 hit point of magical healing.</p>\n</div>",
-        "favorite": true,
-        "secretDescription": "",
-        "source": {
-          "name": "",
-          "link": "",
-          "publisher": ""
-        },
-        "uses": {
-          "value": null,
-          "max": "",
-          "per": null,
-          "recharge": {
-            "formula": "1d6",
-            "threshold": "6"
-          }
-        },
-        "schema": {
-          "version": null,
-          "lastMigration": null
-        },
-        "ammunitionProperties": [],
-        "armorCategory": "",
-        "armorProperties": [],
-        "attuned": false,
-        "bulky": false,
-        "craftingComponents": "",
-        "containerId": "",
-        "damagedState": 0,
-        "equippedState": 2,
-        "items": {},
-        "materialProperties": [],
-        "objectType": "weapon",
-        "plotItem": false,
-        "price": 0,
-        "proficient": true,
-        "quantity": 1,
-        "rarity": "common",
-        "requiresAttunement": false,
-        "shieldCategory": "",
-        "shieldProperties": [],
-        "unidentified": false,
-        "unidentifiedDescription": "",
-        "unidentifiedName": "",
-        "weaponProperties": [],
-        "weight": 0,
-        "schemaVersion": {
-          "version": 0.011,
-          "lastMigration": {
-            "version": {
-              "schema": 0.01,
-              "foundry": "11.315",
-              "system": "0.16.37"
-            }
-          }
-        }
-      },
-      "_id": "VoMUIuASJ4hEZAJ0",
-      "img": "icons/weapons/swords/sword-guard-serrated.webp",
-      "effects": [],
-      "folder": null,
-      "sort": 0,
-      "ownership": {
-        "default": 0
-      },
-      "flags": {}
-    },
-    {
-      "name": "Strangling Grasp",
-      "type": "feature",
-      "system": {
-        "ac": {
-          "baseFormula": "",
-          "formula": "",
-          "maxDex": 0,
-          "minStr": 0,
-          "mode": 1,
-          "requiresNoShield": false,
-          "requiresUnarmored": false
-        },
-        "actions": {
-          "LF5EmADBEk8AP5wh": {
-            "name": "Strangling Grasp",
-            "activation": {
-              "type": "action",
-              "cost": 1
-            },
-            "consumers": {},
-            "rolls": {
-              "OY1YYVIcN3Z3UEwn": {
-                "type": "attack",
-                "default": true,
-                "attackType": "meleeWeaponAttack",
-                "proficient": true,
-                "ability": "str"
-              },
-              "gjDEBLS5RZFLm0PO": {
-                "type": "damage",
-                "default": true,
-                "damageType": "bludgeoning",
-                "formula": "1d6 + @str.mod"
-              }
-            },
-            "prompts": {},
-            "uses": {
-              "value": 0,
-              "max": "",
-              "per": "",
-              "recharge": {
-                "formula": "1d6",
-                "threshold": 6
-              }
-            },
-            "ranges": {
-              "OenKAEdvsuUEYuME": {
-                "range": "fiveFeet"
-              }
-            },
-            "target": {
-              "type": "creature",
-              "quantity": 1
-            },
-            "duration": {
-              "unit": "instantaneous"
-            }
-          }
-        },
-        "description": "<div>\n<div>On a hit, if the target is a Large or smaller creature, it is grappled (escape DC 15). While grappled in this way, the target is restrained and can&rsquo;t breathe, and the champion can&rsquo;t use its strangling grasp on a different creature.</div>\n</div>\n<p>No description available.</p>",
-        "favorite": true,
-        "secretDescription": "",
-        "source": {
-          "name": "",
-          "link": "",
-          "publisher": ""
-        },
-        "uses": {
-          "value": null,
-          "max": "",
-          "per": null,
-          "recharge": {
-            "formula": "1d6",
-            "threshold": "6"
-          }
-        },
-        "schema": {
-          "version": null,
-          "lastMigration": null
-        },
-        "concentration": false,
-        "featureType": "other",
-        "grants": {},
-        "prerequisite": "",
-        "requiresBloodied": false,
-        "schemaVersion": {
-          "version": 0.011,
-          "lastMigration": {
-            "version": {
-              "schema": 0.01,
-              "foundry": "11.315",
-              "system": "0.16.37"
-            }
-          }
-        }
-      },
-      "_id": "fjziVIA8pboib6K4",
-      "img": "icons/equipment/hand/gauntlet-clawed-steel-blue.webp",
-      "effects": [],
-      "folder": null,
-      "sort": 0,
-      "ownership": {
-        "default": 0
-      },
-      "flags": {}
-    },
-    {
-      "name": "Mental Blast",
-      "type": "feature",
-      "system": {
-        "ac": {
-          "baseFormula": "",
-          "formula": "",
-          "maxDex": 0,
-          "minStr": 0,
-          "mode": 1,
-          "requiresNoShield": false,
-          "requiresUnarmored": false
-        },
-        "actions": {
-          "dDysRazWEsoexWzE": {
-            "name": "Mental Blast",
-            "activation": {
-              "type": "action",
-              "cost": 1
-            },
-            "consumers": {},
-            "rolls": {
-              "qnPuMkMufMt4sI1p": {
-                "type": "damage",
-                "default": true,
-                "canCrit": false,
-                "damageType": "psychic",
-                "formula": "5d10"
-              }
-            },
-            "prompts": {
-              "KfRgFzokZkqXyccS": {
-                "type": "savingThrow",
-                "default": true,
-                "ability": "int",
-                "saveDC": {
-                  "type": "spellcasting"
-                },
-                "onSave": "Half damage and not Rattled"
-              }
-            },
-            "uses": {
-              "value": 0,
-              "max": "",
-              "per": "",
-              "recharge": {
-                "formula": "1d6",
-                "threshold": 6
-              }
-            },
-            "duration": {
-              "unit": "round",
-              "value": 1
-            },
-            "area": {
-              "shape": "cone",
-              "quantity": 1,
-              "length": 15
-            },
-            "ranges": {
-              "3K3JMp2pgZdxqLB4": {
-                "range": "self"
-              }
-            },
-            "img": "icons/magic/control/silhouette-aura-energy.webp"
-          }
-        },
-        "description": "<p>The champion emits a 15-foot cone of psychic energy. Each creature in the area makes a DC 13 Intelligence saving throw. On a failed save, the target takes 27 (5d10) psychic damage and is rattled until the end of its next turn. On a success, the target takes half damage and isn't rattled.</p>",
-        "favorite": true,
-        "secretDescription": "",
-        "source": {
-          "name": "",
-          "link": "",
-          "publisher": ""
-        },
-        "uses": {
-          "value": null,
-          "max": "",
-          "per": null,
-          "recharge": {
-            "formula": "1d6",
-            "threshold": "6"
-          }
-        },
-        "schema": {
-          "version": null,
-          "lastMigration": null
-        },
-        "concentration": false,
-        "featureType": "other",
-        "grants": {},
-        "prerequisite": "",
-        "requiresBloodied": false,
-        "schemaVersion": {
-          "version": 0.011,
-          "lastMigration": {
-            "version": {
-              "schema": 0.01,
-              "foundry": "11.315",
-              "system": "0.16.37"
-            }
-          }
-        }
-      },
-      "_id": "AfME4MQ0WxQ0KVJQ",
-      "img": "icons/magic/control/silhouette-aura-energy.webp",
-      "effects": [],
-      "folder": null,
-      "sort": 0,
-      "ownership": {
-        "default": 0
-      },
-      "flags": {}
-    },
-    {
-      "name": "Vicious Taunt",
-      "type": "feature",
-      "system": {
-        "ac": {
-          "baseFormula": "",
-          "formula": "",
-          "maxDex": 0,
-          "minStr": 0,
-          "mode": 1,
-          "requiresNoShield": false,
-          "requiresUnarmored": false
-        },
-        "actions": {
-          "sJtYwCQRS5DT2o7A": {
-            "name": "Vicious Taunt",
-            "activation": {
-              "type": "bonusAction",
-              "cost": 1
-            },
-            "consumers": {},
-            "rolls": {
-              "jX9lcg96aimwDJIQ": {
-                "type": "damage",
-                "default": true,
-                "canCrit": false,
-                "damageType": "psychic",
-                "formula": "4d6"
-              }
-            },
-            "prompts": {
-              "D5o5tUopxTOcGvcA": {
-                "type": "savingThrow",
-                "default": true,
-                "ability": "cha",
-                "saveDC": {
-                  "type": "cha"
-                },
-                "onSave": "no damage and does not get disadvantage on attack rolls"
-              }
-            },
-            "uses": {
-              "value": 0,
-              "max": "",
-              "per": "",
-              "recharge": {
-                "formula": "1d6",
-                "threshold": 6
-              }
-            },
-            "duration": {
-              "unit": "round",
-              "value": 1
-            },
-            "ranges": {
-              "dNWFa7lIL8uOxwNs": {
-                "range": "a rattled creature that can hear and understand it"
-              }
-            },
-            "target": {
-              "type": "creature",
-              "quantity": 1
-            }
-          }
-        },
-        "description": "<p>The champion magically mocks or threatens a rattled creature that can hear and understand it. The target makes a DC 14 Charisma saving throw. On a failure, it takes 14 (4d6) psychic damage and has disadvantage on attack rolls until the end of its next turn.</p>",
-        "favorite": true,
-        "secretDescription": "",
-        "source": {
-          "name": "",
-          "link": "",
-          "publisher": ""
-        },
-        "uses": {
-          "value": null,
-          "max": "",
-          "per": null,
-          "recharge": {
-            "formula": "1d6",
-            "threshold": "6"
-          }
-        },
-        "schema": {
-          "version": null,
-          "lastMigration": null
-        },
-        "concentration": false,
-        "featureType": "other",
-        "grants": {},
-        "prerequisite": "",
-        "requiresBloodied": false,
-        "schemaVersion": {
-          "version": 0.011,
-          "lastMigration": {
-            "version": {
-              "schema": 0.01,
-              "foundry": "11.315",
-              "system": "0.16.37"
-            }
-          }
-        }
-      },
-      "_id": "2DzhVSGG1DPqo3d1",
-      "img": "icons/magic/control/mouth-smile-deception-purple.webp",
-      "effects": [],
-      "folder": null,
-      "sort": 0,
-      "ownership": {
-        "default": 0
-      },
-      "flags": {}
-    }
-  ],
-  "effects": [],
-  "flags": {
-    "a5e": {
-      "sheetIsLocked": true
-    }
-  },
-  "system": {
-    "abilities": {
-      "str": {
-        "value": 18,
-        "check": {
-          "expertiseDice": 0,
-          "bonus": "",
-          "notes": {}
-        },
-        "save": {
-          "proficient": false,
-          "expertiseDice": 0,
-          "bonus": "",
-          "notes": {}
-        }
-      },
-      "dex": {
-        "value": 12,
-        "check": {
-          "expertiseDice": 0,
-          "bonus": "",
-          "notes": {}
-        },
-        "save": {
-          "proficient": false,
-          "expertiseDice": 0,
-          "bonus": "",
-          "notes": {}
-        }
-      },
-      "con": {
-        "value": 16,
-        "check": {
-          "expertiseDice": 0,
-          "bonus": "",
-          "notes": {}
-        },
-        "save": {
-          "proficient": false,
-          "expertiseDice": 0,
-          "bonus": "",
-          "notes": {}
-        }
-      },
-      "int": {
-        "value": 14,
-        "check": {
-          "expertiseDice": 0,
-          "bonus": "",
-          "notes": {}
-        },
-        "save": {
-          "proficient": false,
-          "expertiseDice": 0,
-          "bonus": "",
-          "notes": {}
-        }
-      },
-      "wis": {
-        "value": 14,
-        "check": {
-          "expertiseDice": 0,
-          "bonus": "",
-          "notes": {}
-        },
-        "save": {
-          "proficient": false,
-          "expertiseDice": 0,
-          "bonus": "",
-          "notes": {}
-        }
-      },
-      "cha": {
-        "value": 16,
-        "check": {
-          "expertiseDice": 0,
-          "bonus": "",
-          "notes": {}
-        },
-        "save": {
-          "proficient": false,
-          "expertiseDice": 0,
-          "bonus": "",
-          "notes": {}
-        }
-      }
-    },
-    "schemaVersion": {
-      "version": 0.011,
-      "lastMigration": {
-        "version": {
-          "schema": 0.01,
-          "foundry": "11.315",
-          "system": "0.16.37"
-        }
-      }
-    },
-    "skills": {
-      "acr": {
-        "ability": "dex",
-        "value": 0,
-        "proficient": false,
-        "specialties": [],
-        "expertiseDice": 0,
-        "minRoll": 1,
-        "bonuses": {
-          "check": "",
-          "passive": 0
-        }
-      },
-      "ani": {
-        "ability": "wis",
-        "value": 0,
-        "proficient": false,
-        "specialties": [],
-        "expertiseDice": 0,
-        "minRoll": 1,
-        "bonuses": {
-          "check": "",
-          "passive": 0
-        }
-      },
-      "arc": {
-        "ability": "int",
-        "value": 0,
-        "proficient": false,
-        "specialties": [],
-        "expertiseDice": 0,
-        "minRoll": 1,
-        "bonuses": {
-          "check": "",
-          "passive": 0
-        }
-      },
-      "ath": {
-        "ability": "str",
-        "value": 0,
-        "proficient": false,
-        "specialties": [],
-        "expertiseDice": 0,
-        "minRoll": 1,
-        "bonuses": {
-          "check": "",
-          "passive": 0
-        }
-      },
-      "cul": {
-        "ability": "int",
-        "value": 0,
-        "proficient": false,
-        "specialties": [],
-        "expertiseDice": 0,
-        "minRoll": 1,
-        "bonuses": {
-          "check": "",
-          "passive": 0
-        }
-      },
-      "dec": {
-        "ability": "cha",
-        "value": 0,
-        "proficient": true,
-        "specialties": [],
-        "expertiseDice": 0,
-        "minRoll": 1,
-        "bonuses": {
-          "check": "",
-          "passive": 0
-        }
-      },
-      "eng": {
-        "ability": "int",
-        "value": 0,
-        "proficient": false,
-        "specialties": [],
-        "expertiseDice": 0,
-        "minRoll": 1,
-        "bonuses": {
-          "check": "",
-          "passive": 0
-        }
-      },
-      "his": {
-        "ability": "int",
-        "value": 0,
-        "proficient": false,
-        "specialties": [],
-        "expertiseDice": 0,
-        "minRoll": 1,
-        "bonuses": {
-          "check": "",
-          "passive": 0
-        }
-      },
-      "ins": {
-        "ability": "wis",
-        "value": 0,
-        "proficient": false,
-        "specialties": [],
-        "expertiseDice": 0,
-        "minRoll": 1,
-        "bonuses": {
-          "check": "",
-          "passive": 0
-        }
-      },
-      "itm": {
-        "ability": "cha",
-        "value": 0,
-        "proficient": true,
-        "specialties": [],
-        "expertiseDice": 0,
-        "minRoll": 1,
-        "bonuses": {
-          "check": "",
-          "passive": 0
-        }
-      },
-      "inv": {
-        "ability": "int",
-        "value": 0,
-        "proficient": false,
-        "specialties": [],
-        "expertiseDice": 0,
-        "minRoll": 1,
-        "bonuses": {
-          "check": "",
-          "passive": 0
-        }
-      },
-      "med": {
-        "ability": "wis",
-        "value": 0,
-        "proficient": false,
-        "specialties": [],
-        "expertiseDice": 0,
-        "minRoll": 1,
-        "bonuses": {
-          "check": "",
-          "passive": 0
-        }
-      },
-      "nat": {
-        "ability": "int",
-        "value": 0,
-        "proficient": false,
-        "specialties": [],
-        "expertiseDice": 0,
-        "minRoll": 1,
-        "bonuses": {
-          "check": "",
-          "passive": 0
-        }
-      },
-      "prc": {
-        "ability": "wis",
-        "value": 0,
-        "proficient": false,
-        "specialties": [],
-        "expertiseDice": 0,
-        "minRoll": 1,
-        "bonuses": {
-          "check": "",
-          "passive": 0
-        }
-      },
-      "prf": {
-        "ability": "cha",
-        "value": 0,
-        "proficient": false,
-        "specialties": [],
-        "expertiseDice": 0,
-        "minRoll": 1,
-        "bonuses": {
-          "check": "",
-          "passive": 0
-        }
-      },
-      "per": {
-        "ability": "cha",
-        "value": 0,
-        "proficient": false,
-        "specialties": [],
-        "expertiseDice": 0,
-        "minRoll": 1,
-        "bonuses": {
-          "check": "",
-          "passive": 0
-        }
-      },
-      "rel": {
-        "ability": "int",
-        "value": 0,
-        "proficient": false,
-        "specialties": [],
-        "expertiseDice": 0,
-        "minRoll": 1,
-        "bonuses": {
-          "check": "",
-          "passive": 0
-        }
-      },
-      "slt": {
-        "ability": "dex",
-        "value": 0,
-        "proficient": false,
-        "specialties": [],
-        "expertiseDice": 0,
-        "minRoll": 1,
-        "bonuses": {
-          "check": "",
-          "passive": 0
-        }
-      },
-      "ste": {
-        "ability": "dex",
-        "value": 0,
-        "proficient": false,
-        "specialties": [],
-        "expertiseDice": 0,
-        "minRoll": 1,
-        "bonuses": {
-          "check": "",
-          "passive": 0
-        }
-      },
-      "sur": {
-        "ability": "wis",
-        "value": 0,
-        "proficient": false,
-        "specialties": [],
-        "expertiseDice": 0,
-        "minRoll": 1,
-        "bonuses": {
-          "check": "",
-          "passive": 0
-        }
-      }
-    },
-    "spellResources": {
-      "slots": {
-        "1": {
-          "current": 0,
-          "max": 0
-        },
-        "2": {
-          "current": 0,
-          "max": 0
-        },
-        "3": {
-          "current": 0,
-          "max": 0
-        },
-        "4": {
-          "current": 0,
-          "max": 0
-        },
-        "5": {
-          "current": 0,
-          "max": 0
-        },
-        "6": {
-          "current": 0,
-          "max": 0
-        },
-        "7": {
-          "current": 0,
-          "max": 0
-        },
-        "8": {
-          "current": 0,
-          "max": 0
-        },
-        "9": {
-          "current": 0,
-          "max": 0
-        }
-      },
-      "points": {
-        "current": 0,
-        "max": 0
-      }
-    },
-    "attributes": {
-      "ac": {
-        "baseFormula": "",
-        "value": 0
-      },
-      "death": {
-        "success": 0,
-        "failure": 0
-      },
-      "hp": {
-        "value": 135,
-        "baseMax": 135,
-        "temp": 0,
-        "bonus": 0
-      },
-      "hitDice": {
-        "d6": {
-          "current": 0,
-          "total": 0
-        },
-        "d8": {
-          "current": 18,
-          "total": 18
-        },
-        "d10": {
-          "current": 0,
-          "total": 0
-        },
-        "d12": {
-          "current": 0,
-          "total": 0
-        },
-        "d4": {
-          "current": 0,
-          "total": 0
-        },
-        "d20": {
-          "current": 0,
-          "total": 0
-        }
-      },
-      "initiative": {
-        "bonus": "",
-        "expertiseDice": 0,
-        "ability": "dex"
-      },
-      "movement": {
-        "burrow": {
-          "distance": 0,
-          "unit": "feet"
-        },
-        "climb": {
-          "distance": 0,
-          "unit": "feet"
-        },
-        "fly": {
-          "distance": 0,
-          "unit": "feet"
-        },
-        "swim": {
-          "distance": 0,
-          "unit": "feet"
-        },
-        "walk": {
-          "distance": 30,
-          "unit": "feet"
-        },
-        "traits": {
-          "hover": false
-        }
-      },
-      "senses": {
-        "blindsight": {
-          "distance": 0,
-          "unit": "feet",
-          "otherwiseBlind": false
-        },
-        "darkvision": {
-          "distance": 30,
-          "unit": "feet"
-        },
-        "tremorsense": {
-          "distance": 0,
-          "unit": "feet"
-        },
-        "truesight": {
-          "distance": 0,
-          "unit": "feet"
-        }
-      },
-      "inspiration": false,
-      "fatigue": 0,
-      "strife": 0,
-      "spellcasting": "int",
-      "casterLevel": 0
-    },
-    "bonuses": {
-      "abilities": {},
-      "damage": {},
-      "healing": {},
-      "maneuverDC": "",
-      "meleeSpellAttack": "",
-      "meleeWeaponAttack": "",
-      "rangedSpellAttack": "",
-      "rangedWeaponAttack": "",
-      "spellDC": "",
-      "skills": {},
-      "attacks": {}
-    },
-    "currency": {
-      "pp": 0,
-      "gp": 0,
-      "ep": 0,
-      "sp": 0,
-      "cp": 0
-    },
-    "details": {
-      "bio": "<h2><strong>DESCRIPTION</strong></h2>\n<p>While certainly not above coercing or dominating creatures into following them&mdash;indeed, most aboleths fill out the ranks of their followers this way&mdash;aboleths also have genuine leadership ability, and their most loyal lieutenants serve them willingly. Too useful to be subjected to the Sea Change, these fanatical humanoid champions are instead rewarded with fell power, cruel combat techniques, and unearthly resilience.</p>\n<p>Aboleth champions travel where aboleths cannot go, acting as emissaries, spies, and ship captains upon the Midnight Sea. They frequently lead groups of dominated thralls, who follow the champion&rsquo;s orders as mindlessly as they do the aboleth&rsquo;s own.</p>\n<h2><strong>COMBAT</strong></h2>\n<p>The champion attacks with its serrated sword, inflicting wounds on as many foes as possible. It then uses Vicious Taunt and makes strangling grasp attacks against wounded creatures. If it can target two foes (or three foes and an ally), it uses Mental Blast. It retreats only to attack again later.</p>\n<h2><strong>ENCOUNTERS</strong></h2>\n<p>Aboleths dwell beneath the Midnight Sea, but their minions explore every part of Underland.</p>\n<p><strong>CR 0&ndash;2</strong> 1 or 2 oculites; 1d4 slitherwhites</p>\n<p><strong>CR 3&ndash;4</strong> maw swarm; 3 or 4 oculites</p>\n<p><strong>CR 5&ndash;10</strong> aboleth champion</p>\n<p><strong>Treasure</strong> 150 iron coins (worth 10 gp each, but only to creatures that trade with aboleths); vicious longsword</p>\n<p><strong>CR 11&ndash;16</strong> aboleth champion with 3 or 4 aboleth thralls , oculites , or slitherwhites ; aboleth brute with 1 or 2 aboleth thralls ; aboleth fallen ascendant</p>\n<p><strong>Treasure</strong> a barnacled mithral nameplate, torn from an ancient ship, bearing the name Red Queen (worth 5,000 gp), 10 vials of bubbling slime (each acts as a combined potion of greater healing and potion of water breathing )</p>\n<h2><strong>MONSTER TYPE DESCRIPTION</strong></h2>\n<p>Humanoids include a number of different intelligent, language-using bipeds of Small or Medium size. Humans and elves are humanoids, and so are orcs and goblins. Humanoids may employ magic but are not fundamentally magical&mdash;a characteristic that distinguishes them from bipedal, language-using fey, fiends, and other monsters. Humanoids have no inherent alignment, meaning that no humanoid ancestry is naturally good or evil, lawful or chaotic.</p>",
-      "creatureTypes": [
-        "humanoid"
-      ],
-      "isSwarm": false,
-      "cr": 7,
-      "elite": false,
-      "privateNotes": "",
-      "notes": "<p><strong>Terrain</strong>&nbsp;Abyss</p>",
-      "terrain": []
-    },
-    "proficiencies": {
-      "armor": [],
-      "languages": [
-        "common",
-        "deep",
-        "one more"
-      ],
-      "tools": [],
-      "weapons": []
-    },
-    "resources": {
-      "primary": {
-        "label": "",
-        "value": 0,
-        "max": "",
-        "per": "",
-        "hideMax": false,
-        "recharge": {
-          "formula": "",
-          "threshold": 6
-        }
-      },
-      "secondary": {
-        "label": "",
-        "value": 0,
-        "max": "",
-        "per": "",
-        "hideMax": false,
-        "recharge": {
-          "formula": "",
-          "threshold": 6
-        }
-      },
-      "tertiary": {
-        "label": "",
-        "value": 0,
-        "max": "",
-        "per": "",
-        "hideMax": false,
-        "recharge": {
-          "formula": "",
-          "threshold": 6
-        }
-      },
-      "quaternary": {
-        "label": "",
-        "value": 0,
-        "max": "",
-        "per": "",
-        "hideMax": false,
-        "recharge": {
-          "formula": "",
-          "threshold": 6
-        }
-      }
-    },
-    "source": "",
-    "traits": {
-      "size": "med",
-      "conditionImmunities": [],
-      "damageImmunities": [],
-      "damageResistances": [],
-      "damageVulnerabilities": []
-    }
-  },
-  "prototypeToken": {
-    "name": "Aboleth Champion",
-    "displayName": 0,
-    "actorLink": false,
-    "width": 1,
-    "height": 1,
-    "lockRotation": false,
-    "rotation": 0,
-    "alpha": 1,
-    "light": {
-      "alpha": 0.5,
-      "angle": 360,
-      "bright": 0,
-      "color": null,
-      "coloration": 1,
-      "dim": 0,
-      "luminosity": 0.5,
-      "saturation": 0,
-      "contrast": 0,
-      "shadows": 0,
-      "animation": {
-        "speed": 5,
-        "intensity": 5,
-        "reverse": false,
-        "type": null
-      },
-      "darkness": {
-        "min": 0,
-        "max": 1
-      },
-      "attenuation": 0.5
-    },
-    "disposition": -1,
-    "displayBars": 0,
-    "bar1": {
-      "attribute": "attributes.hp"
-    },
-    "bar2": {
-      "attribute": null
-    },
-    "flags": {},
-    "randomImg": false,
-    "texture": {
-      "src": "icons/svg/mystery-man.svg",
-      "tint": "#ffffff",
-      "scaleX": 1,
-      "scaleY": 1,
-      "offsetX": 0,
-      "offsetY": 0,
-      "rotation": 0
-    },
-    "sight": {
-      "angle": 360,
-      "enabled": false,
-      "range": 0,
-      "brightness": 0,
-      "color": null,
-      "attenuation": 0.1,
-      "saturation": 0,
-      "contrast": 0,
-      "visionMode": "basic"
-    },
-    "detectionModes": [],
-    "appendNumber": false,
-    "prependAdjective": false
-  },
-  "folder": null,
-  "_id": "1c6srbkz16xwol29"
+	"name": "Aboleth Champion",
+	"type": "npc",
+	"img": "icons/svg/mystery-man.svg",
+	"items": [
+		{
+			"name": "Grapple",
+			"type": "maneuver",
+			"img": "icons/skills/melee/unarmed-punch-fist.webp",
+			"effects": [],
+			"flags": {},
+			"system": {
+				"actions": {
+					"wOKLPnhKpnhU1kEj": {
+						"name": "Grapple",
+						"activation": {
+							"cost": 1,
+							"type": "action",
+							"reactionTrigger": ""
+						},
+						"duration": {
+							"unit": "instantaneous",
+							"value": null
+						},
+						"ranges": {
+							"5nrDtksc3KPCbcJd": {
+								"range": "fiveFeet"
+							}
+						},
+						"area": {
+							"shape": "",
+							"size": "",
+							"placeTemplate": false
+						},
+						"target": {
+							"quantity": "",
+							"type": "creature",
+							"shape": "",
+							"size": ""
+						},
+						"prompts": {
+							"B9sbtgKAz5GLtsp3": {
+								"ability": "str",
+								"onSave": "",
+								"saveDC": {
+									"type": "custom",
+									"bonus": "@maneuverDC"
+								},
+								"type": "savingThrow"
+							}
+						},
+						"consumers": {},
+						"rolls": {
+							"GjyfHt0lKnETufaD": {
+								"type": "damage",
+								"default": true,
+								"formula": "1 + @str.mod",
+								"label": "Basic Melee Damage",
+								"canCrit": false
+							}
+						}
+					}
+				},
+				"description": "<p>You can use the Grapple maneuver to grab or wrestle a creature. If you are able to make multiple attacks with the Attack action, this maneuver replaces one of them.</p>\n<p>You must have at least one free hand to attempt a grapple, your target must be within your reach, and the target must be no more than one size category larger than you. The target makes a Strength or Dexterity saving throw against your maneuver DC. On a failure, you deal basic melee damage and the target becomes grappled (see Appendix A: Conditions on page 616). In addition to things that end the condition, you can release the target at any time (no action required).</p>\n<p><em>Escaping a Grapple.</em> While grappled, a creature can use its action to attempt to escape. It must succeed on a Strength or Dexterity saving throw against your maneuver DC.</p>\n<p><em>Moving a Grappled Creature. </em>When you move, you can drag or carry the grappled creature with you. When you do so, your Speed is halved, unless the creature's weight is within your carrying capacity and you are not encumbered by bulky items.</p>\n<p><em>Freeing a Grappled Creature.</em> You can use the Grapple maneuver to try to free another grappled or restrained creature. The creature grappling or restraining the target makes a Strength saving throw against your maneuver DC. If it fails the saving throw, the grappled or restrained creature is freed. Additionally, you may move the freed creature 5 feet in any direction.</p>",
+				"favorite": false,
+				"secretDescription": "",
+				"source": "",
+				"uses": {
+					"value": null,
+					"max": "",
+					"per": null,
+					"recharge": {
+						"formula": "1d6",
+						"threshold": 6
+					}
+				},
+				"schema": {
+					"version": null,
+					"lastMigration": null
+				},
+				"concentration": false,
+				"degree": 0,
+				"exertionCost": 0,
+				"isStance": false,
+				"prerequisite": "",
+				"tradition": "",
+				"equippedState": 0,
+				"schemaVersion": {
+					"version": 0.013,
+					"lastMigration": {
+						"version": {
+							"schema": 0.011,
+							"foundry": "11.315",
+							"system": "0.16.49"
+						}
+					}
+				}
+			},
+			"folder": null,
+			"_id": "2temoM1x2cpgdDIG",
+			"sort": 0,
+			"ownership": {
+				"default": 0
+			}
+		},
+		{
+			"name": "Grab On",
+			"type": "maneuver",
+			"img": "icons/skills/melee/hand-grip-staff-teal.webp",
+			"effects": [],
+			"flags": {},
+			"system": {
+				"actions": {
+					"dZElCBOd3yoRyDcB": {
+						"name": "Grab On",
+						"activation": {
+							"cost": 1,
+							"type": "action",
+							"reactionTrigger": ""
+						},
+						"duration": {
+							"unit": "instantaneous",
+							"value": null
+						},
+						"ranges": {
+							"x479yGm9lUjVLHDy": {
+								"range": "fiveFeet"
+							}
+						},
+						"area": {
+							"shape": "",
+							"size": "",
+							"placeTemplate": false
+						},
+						"target": {
+							"quantity": "",
+							"type": "creature",
+							"shape": "",
+							"size": ""
+						},
+						"prompts": {
+							"duRNu9hfiRNwhtCq": {
+								"ability": "str",
+								"onSave": "",
+								"saveDC": {
+									"type": "custom",
+									"bonus": "@maneuverDC"
+								},
+								"type": "savingThrow"
+							}
+						},
+						"consumers": {},
+						"rolls": {
+							"pzopjF1frh4UfKvT": {
+								"type": "damage",
+								"default": true,
+								"formula": "1 + @str.mod",
+								"label": "Basic Melee Damage",
+								"canCrit": false
+							}
+						}
+					}
+				},
+				"description": "<p>While you cannot grapple a creature two or more size categories larger than you, you can grab onto it. By jumping onto its back or climbing up a limb, you can make a Strength or Dexterity saving throw against the creature's maneuver DC to cling to or balance upon its body. On a success, you move into the creature's space and can move upon its body as if it is difficult terrain.</p><p>While grabbing onto a larger creature, you gain advantage on attack rolls against it. The larger creature may be able to attack you as normal, depending on its limbs or attacks. It can also use an action or replace one of its attacks on its turn to try to dislodge you, such as shaking you loose or bashing you against a wall, forcing you to make a Strength or Dexterity saving throw against its maneuver DC or fall prone into the nearest space adjacent to the creature, taking its basic melee damage in the process.</p><p>If the creature chooses to roll over in order to dislodge you, it becomes prone, but you have disadvantage on the saving throw to hang on.</p>",
+				"favorite": false,
+				"secretDescription": "",
+				"source": "",
+				"uses": {
+					"value": null,
+					"max": "",
+					"per": null,
+					"recharge": {
+						"formula": "1d6",
+						"threshold": 6
+					}
+				},
+				"schema": {
+					"version": null,
+					"lastMigration": null
+				},
+				"concentration": false,
+				"degree": 0,
+				"exertionCost": 0,
+				"isStance": false,
+				"prerequisite": "",
+				"tradition": "",
+				"equippedState": 0,
+				"schemaVersion": {
+					"version": 0.013,
+					"lastMigration": {
+						"version": {
+							"schema": 0.011,
+							"foundry": "11.315",
+							"system": "0.16.49"
+						}
+					}
+				}
+			},
+			"folder": null,
+			"_id": "h2kP4i0lJtoA81tC",
+			"sort": 0,
+			"ownership": {
+				"default": 0
+			}
+		},
+		{
+			"name": "Disarm",
+			"type": "maneuver",
+			"img": "icons/skills/melee/sword-damaged-broken-glow-red.webp",
+			"effects": [],
+			"flags": {},
+			"system": {
+				"actions": {
+					"xN5ZLHIjo9cHRWrK": {
+						"name": "Disarm",
+						"activation": {
+							"cost": 1,
+							"type": "action",
+							"reactionTrigger": ""
+						},
+						"duration": {
+							"unit": "instantaneous",
+							"value": null
+						},
+						"ranges": {
+							"dFgwvnjjgmzR7vlN": {
+								"range": "fiveFeet"
+							}
+						},
+						"area": {
+							"shape": "",
+							"size": "",
+							"placeTemplate": false
+						},
+						"target": {
+							"quantity": "",
+							"type": "creature",
+							"shape": "",
+							"size": ""
+						},
+						"rolls": {
+							"FDMYIPcl2LveduMw": {
+								"canCrit": false,
+								"damageType": "",
+								"formula": "1 + @str.mod",
+								"label": "Basic Melee Damage",
+								"type": "damage"
+							}
+						},
+						"prompts": {
+							"xs1KlWtLXswqrVKY": {
+								"ability": "str",
+								"onSave": "",
+								"saveDC": {
+									"type": "custom",
+									"bonus": "@maneuverDC"
+								},
+								"type": "savingThrow"
+							}
+						},
+						"consumers": {}
+					}
+				},
+				"description": "<p>You can use the Disarm maneuver to attempt to knock an item or weapon from a creature's hand. If you are able to make multiple attacks with the Attack action, this maneuver replaces one of them.</p><p>The target must be within your reach and be holding an item (either carried or wielded). The target makes a Strength or Dexterity saving throw against your maneuver DC. On a failure, you deal basic melee damage and the target drops the item in its space. The target has advantage if it is larger than you or holding the item with two or more hands, and a target smaller than you has disadvantage.</p>",
+				"favorite": false,
+				"secretDescription": "",
+				"source": "",
+				"uses": {
+					"value": null,
+					"max": "",
+					"per": null,
+					"recharge": {
+						"formula": "1d6",
+						"threshold": 6
+					}
+				},
+				"schema": {
+					"version": null,
+					"lastMigration": null
+				},
+				"concentration": false,
+				"degree": 0,
+				"exertionCost": 0,
+				"isStance": false,
+				"prerequisite": "",
+				"tradition": "",
+				"equippedState": 0,
+				"schemaVersion": {
+					"version": 0.013,
+					"lastMigration": {
+						"version": {
+							"schema": 0.011,
+							"foundry": "11.315",
+							"system": "0.16.49"
+						}
+					}
+				}
+			},
+			"folder": null,
+			"_id": "VxFv1zhCHHVnHuSS",
+			"sort": 0,
+			"ownership": {
+				"default": 0
+			}
+		},
+		{
+			"name": "Knockdown",
+			"type": "maneuver",
+			"img": "icons/magic/control/silhouette-fall-slip-prone.webp",
+			"effects": [],
+			"flags": {},
+			"system": {
+				"actions": {
+					"wfzmnudl6tfhZk4v": {
+						"name": "Knockdown",
+						"activation": {
+							"cost": 1,
+							"type": "action",
+							"reactionTrigger": ""
+						},
+						"duration": {
+							"unit": "instantaneous",
+							"value": null
+						},
+						"ranges": {
+							"NbOuce8AtLVjDeeL": {
+								"range": "fiveFeet"
+							}
+						},
+						"area": {
+							"shape": "",
+							"size": "",
+							"placeTemplate": false
+						},
+						"target": {
+							"quantity": "",
+							"type": "creature",
+							"shape": "",
+							"size": ""
+						},
+						"prompts": {
+							"L65ZmTO0KcmeQ2EQ": {
+								"ability": "str",
+								"onSave": "",
+								"saveDC": {
+									"type": "custom",
+									"bonus": "@maneuverDC"
+								},
+								"type": "savingThrow"
+							}
+						},
+						"consumers": {},
+						"rolls": {
+							"Wgx2bdExxjzRu7nR": {
+								"type": "damage",
+								"default": true,
+								"formula": "1 + @str.mod",
+								"label": "Basic Melee Damage",
+								"canCrit": false
+							}
+						}
+					}
+				},
+				"description": "<p>You can use the Knockdown maneuver to trip or push a creature down. If you are able to make multiple attacks with the Attack action, this maneuver replaces one of them.</p><p>The target must be within your reach and be no more than one size category larger than you. The target makes a Strength saving throw against your maneuver DC. On a failure, you deal basic melee damage and knock the target prone.</p>",
+				"favorite": false,
+				"secretDescription": "",
+				"source": "",
+				"uses": {
+					"value": null,
+					"max": "",
+					"per": null,
+					"recharge": {
+						"formula": "1d6",
+						"threshold": 6
+					}
+				},
+				"schema": {
+					"version": null,
+					"lastMigration": null
+				},
+				"concentration": false,
+				"degree": 0,
+				"exertionCost": 0,
+				"isStance": false,
+				"prerequisite": "",
+				"tradition": "",
+				"equippedState": 0,
+				"schemaVersion": {
+					"version": 0.013,
+					"lastMigration": {
+						"version": {
+							"schema": 0.011,
+							"foundry": "11.315",
+							"system": "0.16.49"
+						}
+					}
+				}
+			},
+			"folder": null,
+			"_id": "QIEfhtIcZqTcUGnb",
+			"sort": 0,
+			"ownership": {
+				"default": 0
+			}
+		},
+		{
+			"name": "Overrun",
+			"type": "maneuver",
+			"img": "icons/skills/melee/shield-damaged-broken-blue.webp",
+			"effects": [],
+			"flags": {},
+			"system": {
+				"actions": {
+					"kBUgwxtsHQqPa1DV": {
+						"name": "Overrun",
+						"activation": {
+							"cost": 1,
+							"type": "special",
+							"reactionTrigger": ""
+						},
+						"duration": {
+							"unit": "instantaneous",
+							"value": null
+						},
+						"ranges": {
+							"VAh3uPOJAaI5ShrA": {
+								"range": "fiveFeet"
+							}
+						},
+						"area": {
+							"shape": "",
+							"size": "",
+							"placeTemplate": false
+						},
+						"target": {
+							"quantity": "",
+							"type": "creature",
+							"shape": "",
+							"size": ""
+						},
+						"prompts": {
+							"bvFJU6hHDstCwg1b": {
+								"ability": "str",
+								"onSave": "",
+								"saveDC": {
+									"type": "custom",
+									"bonus": "@maneuverDC"
+								},
+								"type": "savingThrow"
+							}
+						},
+						"consumers": {},
+						"rolls": {
+							"ezzGenCLYoqg37hI": {
+								"type": "damage",
+								"default": true,
+								"formula": "1 + @str.mod",
+								"label": "Basic Melee Damage",
+								"canCrit": false
+							}
+						}
+					}
+				},
+				"description": "<p>You can use an action or bonus action to make an Overrun maneuver to move through a hostile creature's space by forcing your way past. Make a Strength saving throw against the target's maneuver DC. On a success, you deal basic melee damage and can move through the hostile creature's space once this turn. The creature can choose to just let you pass instead of rolling. You have advantage if you are larger than the target, or disadvantage if you are smaller. If you are two or more sizes smaller than the target, you can move through the hostile creature's space without making a save. You still provoke opportunity attacks if you move beyond a creature's reach.</p>",
+				"favorite": false,
+				"secretDescription": "",
+				"source": "",
+				"uses": {
+					"value": null,
+					"max": "",
+					"per": null,
+					"recharge": {
+						"formula": "1d6",
+						"threshold": 6
+					}
+				},
+				"schema": {
+					"version": null,
+					"lastMigration": null
+				},
+				"concentration": false,
+				"degree": 0,
+				"exertionCost": 0,
+				"isStance": false,
+				"prerequisite": "",
+				"tradition": "",
+				"equippedState": 0,
+				"schemaVersion": {
+					"version": 0.013,
+					"lastMigration": {
+						"version": {
+							"schema": 0.011,
+							"foundry": "11.315",
+							"system": "0.16.49"
+						}
+					}
+				}
+			},
+			"folder": null,
+			"_id": "eWtFuYz63hH7Fzpv",
+			"sort": 0,
+			"ownership": {
+				"default": 0
+			}
+		},
+		{
+			"name": "Shove",
+			"type": "maneuver",
+			"img": "icons/skills/melee/shield-block-bash-yellow.webp",
+			"effects": [],
+			"flags": {},
+			"system": {
+				"actions": {
+					"uvkBwwL7OQopMMHB": {
+						"name": "Shove",
+						"activation": {
+							"cost": 1,
+							"type": "action",
+							"reactionTrigger": ""
+						},
+						"duration": {
+							"unit": "instantaneous",
+							"value": null
+						},
+						"ranges": {
+							"j7yuRUD8cu1y0Jia": {
+								"range": "fiveFeet"
+							}
+						},
+						"area": {
+							"shape": "",
+							"size": "",
+							"placeTemplate": false
+						},
+						"target": {
+							"quantity": null,
+							"type": "creature",
+							"shape": "",
+							"size": ""
+						},
+						"rolls": {
+							"TcI6WmWSAy0EAxg9": {
+								"canCrit": false,
+								"damageType": "",
+								"formula": "1 + @str.mod",
+								"label": "Basic Melee Damage",
+								"type": "damage"
+							}
+						},
+						"prompts": {
+							"UVu9ZVC0beiWNgAV": {
+								"ability": "str",
+								"onSave": "",
+								"saveDC": {
+									"type": "custom",
+									"bonus": "@maneuverDC"
+								},
+								"type": "savingThrow"
+							}
+						},
+						"consumers": {}
+					}
+				},
+				"description": "<p>You can use the Shove maneuver to push a creature away. If you are able to make multiple attacks with the Attack action, this maneuver replaces one of them.</p><p>The target must be within your reach and be no more than one size category larger than you. The target makes a Strength saving throw against your maneuver DC. On a failure, you deal basic melee damage and push the target a number of feet away from you equal to 5 + 5 for every 5 points it failed its saving throw by. You can move the creature in any direction away from you (to the side, forward, or diagonally away).</p><p>A creature that is shoved off of a precipice is propelled off of whatever it is standing on -- it does not receive any saving throw or ability check to grab onto something to avoid falling down below.</p>",
+				"favorite": false,
+				"secretDescription": "",
+				"source": "",
+				"uses": {
+					"value": null,
+					"max": "",
+					"per": null,
+					"recharge": {
+						"formula": "1d6",
+						"threshold": 6
+					}
+				},
+				"schema": {
+					"version": null,
+					"lastMigration": null
+				},
+				"concentration": false,
+				"degree": 0,
+				"exertionCost": 0,
+				"isStance": false,
+				"prerequisite": "",
+				"tradition": "",
+				"equippedState": 0,
+				"schemaVersion": {
+					"version": 0.013,
+					"lastMigration": {
+						"version": {
+							"schema": 0.011,
+							"foundry": "11.315",
+							"system": "0.16.49"
+						}
+					}
+				}
+			},
+			"folder": null,
+			"_id": "HJRQ5FyptZfHawSz",
+			"sort": 0,
+			"ownership": {
+				"default": 0
+			}
+		},
+		{
+			"name": "Chain Shirt (Steel)",
+			"type": "object",
+			"img": "icons/commodities/metal/mail-chain-steel.webp",
+			"effects": [],
+			"flags": {},
+			"system": {
+				"ac": {
+					"baseFormula": "13 + @dex.mod",
+					"formula": "",
+					"maxDex": 2,
+					"minStr": 0,
+					"mode": 2,
+					"requiresNoShield": false,
+					"requiresUnarmored": false
+				},
+				"actions": {},
+				"description": "",
+				"favorite": false,
+				"secretDescription": "",
+				"source": "",
+				"uses": {
+					"value": null,
+					"max": "",
+					"per": null,
+					"recharge": {
+						"formula": "1d6",
+						"threshold": 6
+					}
+				},
+				"schema": {
+					"version": null,
+					"lastMigration": null
+				},
+				"ammunitionProperties": [],
+				"armorCategory": "medium",
+				"armorProperties": [],
+				"attuned": false,
+				"bulky": false,
+				"craftingComponents": "",
+				"containerId": "",
+				"damagedState": 0,
+				"equippedState": 2,
+				"items": {},
+				"materialProperties": [
+					"lowMaintenance"
+				],
+				"objectType": "armor",
+				"plotItem": false,
+				"price": "50 gp",
+				"proficient": true,
+				"quantity": 1,
+				"rarity": "common",
+				"requiresAttunement": false,
+				"shieldCategory": "",
+				"shieldProperties": [],
+				"unidentified": false,
+				"unidentifiedDescription": "",
+				"unidentifiedName": "",
+				"weaponProperties": [],
+				"weight": 15,
+				"schemaVersion": {
+					"version": 0.013,
+					"lastMigration": {
+						"version": {
+							"schema": 0.011,
+							"foundry": "11.315",
+							"system": "0.16.49"
+						}
+					}
+				}
+			},
+			"folder": null,
+			"_id": "HFLuCTuqpoKO6c3x",
+			"sort": 0,
+			"ownership": {
+				"default": 0
+			}
+		},
+		{
+			"name": "Abolethic Agent",
+			"type": "feature",
+			"system": {
+				"ac": {
+					"baseFormula": "",
+					"formula": "",
+					"maxDex": 0,
+					"minStr": 0,
+					"mode": 1,
+					"requiresNoShield": false,
+					"requiresUnarmored": false
+				},
+				"actions": {},
+				"description": "<div>\n<div>The aboleth champion is treated as an aboleth for the purposes of an aboleth thrall's Self-Sacrifice reaction.</div>\n</div>",
+				"favorite": true,
+				"secretDescription": "",
+				"source": {
+					"name": "",
+					"link": "",
+					"publisher": ""
+				},
+				"uses": {
+					"value": null,
+					"max": "",
+					"per": null,
+					"recharge": {
+						"formula": "1d6",
+						"threshold": "6"
+					}
+				},
+				"schema": {
+					"version": null,
+					"lastMigration": null
+				},
+				"concentration": false,
+				"featureType": "class",
+				"grants": {},
+				"prerequisite": "",
+				"requiresBloodied": false,
+				"schemaVersion": {
+					"version": 0.013,
+					"lastMigration": {
+						"version": {
+							"schema": 0.011,
+							"foundry": "11.315",
+							"system": "0.16.49"
+						}
+					}
+				}
+			},
+			"_id": "8fWwbvLwiRkJXZj9",
+			"img": "icons/magic/perception/hand-eye-pink.webp",
+			"effects": [],
+			"folder": null,
+			"sort": 0,
+			"ownership": {
+				"default": 0
+			},
+			"flags": {}
+		},
+		{
+			"_id": "mHLNavI2dQ5vkDs0",
+			"name": "Multiattack",
+			"type": "feature",
+			"img": "icons/skills/melee/blade-tips-triple-steel.webp",
+			"effects": [],
+			"folder": null,
+			"sort": 3,
+			"flags": {},
+			"system": {
+				"ac": {
+					"baseFormula": "",
+					"formula": "",
+					"maxDex": 0,
+					"minStr": 0,
+					"mode": 1,
+					"requiresNoShield": false,
+					"requiresUnarmored": false
+				},
+				"actions": {
+					"CS6RjOdtn2mnUx2S": {
+						"name": "Multiattack",
+						"activation": {
+							"cost": "",
+							"type": "action",
+							"reactionTrigger": ""
+						},
+						"duration": {
+							"unit": "",
+							"value": ""
+						},
+						"area": {
+							"shape": "",
+							"size": "",
+							"placeTemplate": false
+						},
+						"target": {
+							"quantity": "",
+							"type": ""
+						},
+						"consumers": {},
+						"descriptionOutputs": [
+							"item"
+						]
+					}
+				},
+				"description": "<p>The champion makes two melee attacks.</p>",
+				"favorite": false,
+				"secretDescription": "",
+				"source": "",
+				"uses": {
+					"value": null,
+					"max": "",
+					"per": null,
+					"recharge": {
+						"formula": "",
+						"threshold": ""
+					}
+				},
+				"schema": {
+					"version": null,
+					"lastMigration": null
+				},
+				"concentration": false,
+				"featureType": "",
+				"grants": {},
+				"prerequisite": "",
+				"requiresBloodied": false,
+				"schemaVersion": {
+					"version": 0.013,
+					"lastMigration": {
+						"version": {
+							"schema": 0.011,
+							"foundry": "11.315",
+							"system": "0.16.49"
+						}
+					}
+				}
+			},
+			"ownership": {
+				"default": 0
+			}
+		},
+		{
+			"name": "Serrated Sword",
+			"type": "object",
+			"system": {
+				"ac": {
+					"baseFormula": "",
+					"formula": "",
+					"maxDex": 0,
+					"minStr": 0,
+					"mode": 1,
+					"requiresNoShield": false,
+					"requiresUnarmored": false
+				},
+				"actions": {
+					"Xecj9CTMHtwrHmeK": {
+						"name": "Serrated Sword",
+						"activation": {
+							"type": "action",
+							"cost": 1
+						},
+						"consumers": {},
+						"rolls": {
+							"QgU7JF6BNvG80uo2": {
+								"type": "damage",
+								"default": true,
+								"damageType": "slashing",
+								"formula": "1d8 + @str.mod"
+							},
+							"LWlxH0DKXvaQvdmT": {
+								"type": "attack",
+								"default": true,
+								"attackType": "meleeWeaponAttack",
+								"proficient": true,
+								"ability": "str",
+								"bonus": ""
+							}
+						},
+						"prompts": {
+							"OjBsHaIOLOGk8mcN": {
+								"type": "savingThrow",
+								"default": true,
+								"ability": "con",
+								"saveDC": {
+									"type": "maneuver"
+								},
+								"label": "Wound"
+							}
+						},
+						"uses": {
+							"value": 0,
+							"max": "",
+							"per": "",
+							"recharge": {
+								"formula": "1d6",
+								"threshold": 6
+							}
+						},
+						"ranges": {
+							"Yx8JJegR29r7NCcG": {
+								"range": "fiveFeet"
+							}
+						},
+						"descriptionOutputs": [
+							"item"
+						],
+						"target": {
+							"type": "creature",
+							"quantity": 1
+						}
+					}
+				},
+				"description": "<div>\n<p>If the target is a creature other than an undead or construct, it makes a DC 15 Constitution saving throw. On a failure, it receives a wound.</p>\n<p>While wounded, it takes 4 (1d8) ongoing slashing damage and is rattled. Further wounds on a wounded creature have no effect. A creature can use an action to make a DC 12 Medicine check, ending the ongoing damage and rattled condition on a success. The effect also ends if the target receives at least 1 hit point of magical healing.</p>\n</div>",
+				"favorite": true,
+				"secretDescription": "",
+				"source": {
+					"name": "",
+					"link": "",
+					"publisher": ""
+				},
+				"uses": {
+					"value": null,
+					"max": "",
+					"per": null,
+					"recharge": {
+						"formula": "1d6",
+						"threshold": "6"
+					}
+				},
+				"schema": {
+					"version": null,
+					"lastMigration": null
+				},
+				"ammunitionProperties": [],
+				"armorCategory": "",
+				"armorProperties": [],
+				"attuned": false,
+				"bulky": false,
+				"craftingComponents": "",
+				"containerId": "",
+				"damagedState": 0,
+				"equippedState": 2,
+				"items": {},
+				"materialProperties": [],
+				"objectType": "weapon",
+				"plotItem": false,
+				"price": 0,
+				"proficient": true,
+				"quantity": 1,
+				"rarity": "common",
+				"requiresAttunement": false,
+				"shieldCategory": "",
+				"shieldProperties": [],
+				"unidentified": false,
+				"unidentifiedDescription": "",
+				"unidentifiedName": "",
+				"weaponProperties": [],
+				"weight": 0,
+				"schemaVersion": {
+					"version": 0.013,
+					"lastMigration": {
+						"version": {
+							"schema": 0.011,
+							"foundry": "11.315",
+							"system": "0.16.49"
+						}
+					}
+				}
+			},
+			"_id": "VoMUIuASJ4hEZAJ0",
+			"img": "icons/weapons/swords/sword-guard-serrated.webp",
+			"effects": [],
+			"folder": null,
+			"sort": 0,
+			"ownership": {
+				"default": 0
+			},
+			"flags": {}
+		},
+		{
+			"name": "Strangling Grasp",
+			"type": "feature",
+			"system": {
+				"ac": {
+					"baseFormula": "",
+					"formula": "",
+					"maxDex": 0,
+					"minStr": 0,
+					"mode": 1,
+					"requiresNoShield": false,
+					"requiresUnarmored": false
+				},
+				"actions": {
+					"LF5EmADBEk8AP5wh": {
+						"name": "Strangling Grasp",
+						"activation": {
+							"type": "action",
+							"cost": 1
+						},
+						"consumers": {},
+						"rolls": {
+							"OY1YYVIcN3Z3UEwn": {
+								"type": "attack",
+								"default": true,
+								"attackType": "meleeWeaponAttack",
+								"proficient": true,
+								"ability": "str"
+							},
+							"gjDEBLS5RZFLm0PO": {
+								"type": "damage",
+								"default": true,
+								"damageType": "bludgeoning",
+								"formula": "1d6 + @str.mod"
+							}
+						},
+						"prompts": {},
+						"uses": {
+							"value": 0,
+							"max": "",
+							"per": "",
+							"recharge": {
+								"formula": "1d6",
+								"threshold": 6
+							}
+						},
+						"ranges": {
+							"OenKAEdvsuUEYuME": {
+								"range": "fiveFeet"
+							}
+						},
+						"target": {
+							"type": "creature",
+							"quantity": 1
+						},
+						"duration": {
+							"unit": "instantaneous"
+						}
+					}
+				},
+				"description": "<div>\n<div>On a hit, if the target is a Large or smaller creature, it is grappled (escape DC 15). While grappled in this way, the target is restrained and can&rsquo;t breathe, and the champion can&rsquo;t use its strangling grasp on a different creature.</div>\n</div>\n<p>No description available.</p>",
+				"favorite": true,
+				"secretDescription": "",
+				"source": {
+					"name": "",
+					"link": "",
+					"publisher": ""
+				},
+				"uses": {
+					"value": null,
+					"max": "",
+					"per": null,
+					"recharge": {
+						"formula": "1d6",
+						"threshold": "6"
+					}
+				},
+				"schema": {
+					"version": null,
+					"lastMigration": null
+				},
+				"concentration": false,
+				"featureType": "other",
+				"grants": {},
+				"prerequisite": "",
+				"requiresBloodied": false,
+				"schemaVersion": {
+					"version": 0.013,
+					"lastMigration": {
+						"version": {
+							"schema": 0.011,
+							"foundry": "11.315",
+							"system": "0.16.49"
+						}
+					}
+				}
+			},
+			"_id": "fjziVIA8pboib6K4",
+			"img": "icons/equipment/hand/gauntlet-clawed-steel-blue.webp",
+			"effects": [],
+			"folder": null,
+			"sort": 0,
+			"ownership": {
+				"default": 0
+			},
+			"flags": {}
+		},
+		{
+			"name": "Mental Blast",
+			"type": "feature",
+			"system": {
+				"ac": {
+					"baseFormula": "",
+					"formula": "",
+					"maxDex": 0,
+					"minStr": 0,
+					"mode": 1,
+					"requiresNoShield": false,
+					"requiresUnarmored": false
+				},
+				"actions": {
+					"dDysRazWEsoexWzE": {
+						"name": "Mental Blast",
+						"activation": {
+							"type": "action",
+							"cost": 1
+						},
+						"consumers": {},
+						"rolls": {
+							"qnPuMkMufMt4sI1p": {
+								"type": "damage",
+								"default": true,
+								"canCrit": false,
+								"damageType": "psychic",
+								"formula": "5d10"
+							}
+						},
+						"prompts": {
+							"KfRgFzokZkqXyccS": {
+								"type": "savingThrow",
+								"default": true,
+								"ability": "int",
+								"saveDC": {
+									"type": "spellcasting"
+								},
+								"onSave": "Half damage and not Rattled"
+							}
+						},
+						"uses": {
+							"value": 0,
+							"max": "",
+							"per": "",
+							"recharge": {
+								"formula": "1d6",
+								"threshold": 6
+							}
+						},
+						"duration": {
+							"unit": "round",
+							"value": 1
+						},
+						"area": {
+							"shape": "cone",
+							"quantity": 1,
+							"length": 15
+						},
+						"ranges": {
+							"3K3JMp2pgZdxqLB4": {
+								"range": "self"
+							}
+						},
+						"img": "icons/magic/control/silhouette-aura-energy.webp"
+					}
+				},
+				"description": "<p>The champion emits a 15-foot cone of psychic energy. Each creature in the area makes a DC 13 Intelligence saving throw. On a failed save, the target takes 27 (5d10) psychic damage and is rattled until the end of its next turn. On a success, the target takes half damage and isn't rattled.</p>",
+				"favorite": true,
+				"secretDescription": "",
+				"source": {
+					"name": "",
+					"link": "",
+					"publisher": ""
+				},
+				"uses": {
+					"value": null,
+					"max": "",
+					"per": null,
+					"recharge": {
+						"formula": "1d6",
+						"threshold": "6"
+					}
+				},
+				"schema": {
+					"version": null,
+					"lastMigration": null
+				},
+				"concentration": false,
+				"featureType": "other",
+				"grants": {},
+				"prerequisite": "",
+				"requiresBloodied": false,
+				"schemaVersion": {
+					"version": 0.013,
+					"lastMigration": {
+						"version": {
+							"schema": 0.011,
+							"foundry": "11.315",
+							"system": "0.16.49"
+						}
+					}
+				}
+			},
+			"_id": "AfME4MQ0WxQ0KVJQ",
+			"img": "icons/magic/control/silhouette-aura-energy.webp",
+			"effects": [],
+			"folder": null,
+			"sort": 0,
+			"ownership": {
+				"default": 0
+			},
+			"flags": {}
+		},
+		{
+			"name": "Vicious Taunt",
+			"type": "feature",
+			"system": {
+				"ac": {
+					"baseFormula": "",
+					"formula": "",
+					"maxDex": 0,
+					"minStr": 0,
+					"mode": 1,
+					"requiresNoShield": false,
+					"requiresUnarmored": false
+				},
+				"actions": {
+					"sJtYwCQRS5DT2o7A": {
+						"name": "Vicious Taunt",
+						"activation": {
+							"type": "bonusAction",
+							"cost": 1
+						},
+						"consumers": {},
+						"rolls": {
+							"jX9lcg96aimwDJIQ": {
+								"type": "damage",
+								"default": true,
+								"canCrit": false,
+								"damageType": "psychic",
+								"formula": "4d6"
+							}
+						},
+						"prompts": {
+							"D5o5tUopxTOcGvcA": {
+								"type": "savingThrow",
+								"default": true,
+								"ability": "cha",
+								"saveDC": {
+									"type": "cha"
+								},
+								"onSave": "no damage and does not get disadvantage on attack rolls"
+							}
+						},
+						"uses": {
+							"value": 0,
+							"max": "",
+							"per": "",
+							"recharge": {
+								"formula": "1d6",
+								"threshold": 6
+							}
+						},
+						"duration": {
+							"unit": "round",
+							"value": 1
+						},
+						"ranges": {
+							"dNWFa7lIL8uOxwNs": {
+								"range": "a rattled creature that can hear and understand it"
+							}
+						},
+						"target": {
+							"type": "creature",
+							"quantity": 1
+						}
+					}
+				},
+				"description": "<p>The champion magically mocks or threatens a rattled creature that can hear and understand it. The target makes a DC 14 Charisma saving throw. On a failure, it takes 14 (4d6) psychic damage and has disadvantage on attack rolls until the end of its next turn.</p>",
+				"favorite": true,
+				"secretDescription": "",
+				"source": {
+					"name": "",
+					"link": "",
+					"publisher": ""
+				},
+				"uses": {
+					"value": null,
+					"max": "",
+					"per": null,
+					"recharge": {
+						"formula": "1d6",
+						"threshold": "6"
+					}
+				},
+				"schema": {
+					"version": null,
+					"lastMigration": null
+				},
+				"concentration": false,
+				"featureType": "other",
+				"grants": {},
+				"prerequisite": "",
+				"requiresBloodied": false,
+				"schemaVersion": {
+					"version": 0.013,
+					"lastMigration": {
+						"version": {
+							"schema": 0.011,
+							"foundry": "11.315",
+							"system": "0.16.49"
+						}
+					}
+				}
+			},
+			"_id": "2DzhVSGG1DPqo3d1",
+			"img": "icons/magic/control/mouth-smile-deception-purple.webp",
+			"effects": [],
+			"folder": null,
+			"sort": 0,
+			"ownership": {
+				"default": 0
+			},
+			"flags": {}
+		}
+	],
+	"effects": [],
+	"flags": {
+		"a5e": {
+			"sheetIsLocked": true
+		}
+	},
+	"system": {
+		"abilities": {
+			"str": {
+				"value": 18,
+				"check": {
+					"expertiseDice": 0,
+					"bonus": ""
+				},
+				"save": {
+					"proficient": false,
+					"expertiseDice": 0,
+					"bonus": ""
+				}
+			},
+			"dex": {
+				"value": 12,
+				"check": {
+					"expertiseDice": 0,
+					"bonus": ""
+				},
+				"save": {
+					"proficient": false,
+					"expertiseDice": 0,
+					"bonus": ""
+				}
+			},
+			"con": {
+				"value": 16,
+				"check": {
+					"expertiseDice": 0,
+					"bonus": ""
+				},
+				"save": {
+					"proficient": false,
+					"expertiseDice": 0,
+					"bonus": ""
+				}
+			},
+			"int": {
+				"value": 14,
+				"check": {
+					"expertiseDice": 0,
+					"bonus": ""
+				},
+				"save": {
+					"proficient": false,
+					"expertiseDice": 0,
+					"bonus": ""
+				}
+			},
+			"wis": {
+				"value": 14,
+				"check": {
+					"expertiseDice": 0,
+					"bonus": ""
+				},
+				"save": {
+					"proficient": false,
+					"expertiseDice": 0,
+					"bonus": ""
+				}
+			},
+			"cha": {
+				"value": 16,
+				"check": {
+					"expertiseDice": 0,
+					"bonus": ""
+				},
+				"save": {
+					"proficient": false,
+					"expertiseDice": 0,
+					"bonus": ""
+				}
+			}
+		},
+		"schemaVersion": {
+			"version": 0.013,
+			"lastMigration": {
+				"version": {
+					"schema": 0.011,
+					"foundry": "11.315",
+					"system": "0.16.49"
+				}
+			}
+		},
+		"skills": {
+			"acr": {
+				"ability": "dex",
+				"value": 0,
+				"proficient": false,
+				"specialties": [],
+				"expertiseDice": 0,
+				"minRoll": 1,
+				"bonuses": {
+					"check": "",
+					"passive": 0
+				}
+			},
+			"ani": {
+				"ability": "wis",
+				"value": 0,
+				"proficient": false,
+				"specialties": [],
+				"expertiseDice": 0,
+				"minRoll": 1,
+				"bonuses": {
+					"check": "",
+					"passive": 0
+				}
+			},
+			"arc": {
+				"ability": "int",
+				"value": 0,
+				"proficient": false,
+				"specialties": [],
+				"expertiseDice": 0,
+				"minRoll": 1,
+				"bonuses": {
+					"check": "",
+					"passive": 0
+				}
+			},
+			"ath": {
+				"ability": "str",
+				"value": 0,
+				"proficient": false,
+				"specialties": [],
+				"expertiseDice": 0,
+				"minRoll": 1,
+				"bonuses": {
+					"check": "",
+					"passive": 0
+				}
+			},
+			"cul": {
+				"ability": "int",
+				"value": 0,
+				"proficient": false,
+				"specialties": [],
+				"expertiseDice": 0,
+				"minRoll": 1,
+				"bonuses": {
+					"check": "",
+					"passive": 0
+				}
+			},
+			"dec": {
+				"ability": "cha",
+				"value": 0,
+				"proficient": true,
+				"specialties": [],
+				"expertiseDice": 0,
+				"minRoll": 1,
+				"bonuses": {
+					"check": "",
+					"passive": 0
+				}
+			},
+			"eng": {
+				"ability": "int",
+				"value": 0,
+				"proficient": false,
+				"specialties": [],
+				"expertiseDice": 0,
+				"minRoll": 1,
+				"bonuses": {
+					"check": "",
+					"passive": 0
+				}
+			},
+			"his": {
+				"ability": "int",
+				"value": 0,
+				"proficient": false,
+				"specialties": [],
+				"expertiseDice": 0,
+				"minRoll": 1,
+				"bonuses": {
+					"check": "",
+					"passive": 0
+				}
+			},
+			"ins": {
+				"ability": "wis",
+				"value": 0,
+				"proficient": false,
+				"specialties": [],
+				"expertiseDice": 0,
+				"minRoll": 1,
+				"bonuses": {
+					"check": "",
+					"passive": 0
+				}
+			},
+			"itm": {
+				"ability": "cha",
+				"value": 0,
+				"proficient": true,
+				"specialties": [],
+				"expertiseDice": 0,
+				"minRoll": 1,
+				"bonuses": {
+					"check": "",
+					"passive": 0
+				}
+			},
+			"inv": {
+				"ability": "int",
+				"value": 0,
+				"proficient": false,
+				"specialties": [],
+				"expertiseDice": 0,
+				"minRoll": 1,
+				"bonuses": {
+					"check": "",
+					"passive": 0
+				}
+			},
+			"med": {
+				"ability": "wis",
+				"value": 0,
+				"proficient": false,
+				"specialties": [],
+				"expertiseDice": 0,
+				"minRoll": 1,
+				"bonuses": {
+					"check": "",
+					"passive": 0
+				}
+			},
+			"nat": {
+				"ability": "int",
+				"value": 0,
+				"proficient": false,
+				"specialties": [],
+				"expertiseDice": 0,
+				"minRoll": 1,
+				"bonuses": {
+					"check": "",
+					"passive": 0
+				}
+			},
+			"prc": {
+				"ability": "wis",
+				"value": 0,
+				"proficient": false,
+				"specialties": [],
+				"expertiseDice": 0,
+				"minRoll": 1,
+				"bonuses": {
+					"check": "",
+					"passive": 0
+				}
+			},
+			"prf": {
+				"ability": "cha",
+				"value": 0,
+				"proficient": false,
+				"specialties": [],
+				"expertiseDice": 0,
+				"minRoll": 1,
+				"bonuses": {
+					"check": "",
+					"passive": 0
+				}
+			},
+			"per": {
+				"ability": "cha",
+				"value": 0,
+				"proficient": false,
+				"specialties": [],
+				"expertiseDice": 0,
+				"minRoll": 1,
+				"bonuses": {
+					"check": "",
+					"passive": 0
+				}
+			},
+			"rel": {
+				"ability": "int",
+				"value": 0,
+				"proficient": false,
+				"specialties": [],
+				"expertiseDice": 0,
+				"minRoll": 1,
+				"bonuses": {
+					"check": "",
+					"passive": 0
+				}
+			},
+			"slt": {
+				"ability": "dex",
+				"value": 0,
+				"proficient": false,
+				"specialties": [],
+				"expertiseDice": 0,
+				"minRoll": 1,
+				"bonuses": {
+					"check": "",
+					"passive": 0
+				}
+			},
+			"ste": {
+				"ability": "dex",
+				"value": 0,
+				"proficient": false,
+				"specialties": [],
+				"expertiseDice": 0,
+				"minRoll": 1,
+				"bonuses": {
+					"check": "",
+					"passive": 0
+				}
+			},
+			"sur": {
+				"ability": "wis",
+				"value": 0,
+				"proficient": false,
+				"specialties": [],
+				"expertiseDice": 0,
+				"minRoll": 1,
+				"bonuses": {
+					"check": "",
+					"passive": 0
+				}
+			}
+		},
+		"spellResources": {
+			"slots": {
+				"1": {
+					"current": 0,
+					"max": 0
+				},
+				"2": {
+					"current": 0,
+					"max": 0
+				},
+				"3": {
+					"current": 0,
+					"max": 0
+				},
+				"4": {
+					"current": 0,
+					"max": 0
+				},
+				"5": {
+					"current": 0,
+					"max": 0
+				},
+				"6": {
+					"current": 0,
+					"max": 0
+				},
+				"7": {
+					"current": 0,
+					"max": 0
+				},
+				"8": {
+					"current": 0,
+					"max": 0
+				},
+				"9": {
+					"current": 0,
+					"max": 0
+				}
+			},
+			"points": {
+				"current": 0,
+				"max": 0
+			}
+		},
+		"attributes": {
+			"ac": {
+				"baseFormula": "",
+				"value": 0
+			},
+			"death": {
+				"success": 0,
+				"failure": 0
+			},
+			"hp": {
+				"value": 135,
+				"baseMax": 135,
+				"temp": 0,
+				"bonus": 0
+			},
+			"hitDice": {
+				"d6": {
+					"current": 0,
+					"total": 0
+				},
+				"d8": {
+					"current": 18,
+					"total": 18
+				},
+				"d10": {
+					"current": 0,
+					"total": 0
+				},
+				"d12": {
+					"current": 0,
+					"total": 0
+				},
+				"d4": {
+					"current": 0,
+					"total": 0
+				},
+				"d20": {
+					"current": 0,
+					"total": 0
+				}
+			},
+			"initiative": {
+				"bonus": "",
+				"expertiseDice": 0,
+				"ability": "dex"
+			},
+			"movement": {
+				"burrow": {
+					"distance": 0,
+					"unit": "feet"
+				},
+				"climb": {
+					"distance": 0,
+					"unit": "feet"
+				},
+				"fly": {
+					"distance": 0,
+					"unit": "feet"
+				},
+				"swim": {
+					"distance": 0,
+					"unit": "feet"
+				},
+				"walk": {
+					"distance": 30,
+					"unit": "feet"
+				},
+				"traits": {
+					"hover": false
+				}
+			},
+			"senses": {
+				"blindsight": {
+					"distance": 0,
+					"unit": "feet",
+					"otherwiseBlind": false
+				},
+				"darkvision": {
+					"distance": 30,
+					"unit": "feet"
+				},
+				"tremorsense": {
+					"distance": 0,
+					"unit": "feet"
+				},
+				"truesight": {
+					"distance": 0,
+					"unit": "feet"
+				}
+			},
+			"inspiration": false,
+			"fatigue": 0,
+			"strife": 0,
+			"spellcasting": "int",
+			"casterLevel": 0
+		},
+		"bonuses": {
+			"abilities": {},
+			"damage": {},
+			"healing": {},
+			"maneuverDC": "",
+			"meleeSpellAttack": "",
+			"meleeWeaponAttack": "",
+			"rangedSpellAttack": "",
+			"rangedWeaponAttack": "",
+			"spellDC": "",
+			"skills": {},
+			"attacks": {},
+			"initiative": {},
+			"movement": {},
+			"senses": {}
+		},
+		"currency": {
+			"pp": 0,
+			"gp": 0,
+			"ep": 0,
+			"sp": 0,
+			"cp": 0
+		},
+		"details": {
+			"bio": "<h2><strong>DESCRIPTION</strong></h2>\n<p>While certainly not above coercing or dominating creatures into following them&mdash;indeed, most aboleths fill out the ranks of their followers this way&mdash;aboleths also have genuine leadership ability, and their most loyal lieutenants serve them willingly. Too useful to be subjected to the Sea Change, these fanatical humanoid champions are instead rewarded with fell power, cruel combat techniques, and unearthly resilience.</p>\n<p>Aboleth champions travel where aboleths cannot go, acting as emissaries, spies, and ship captains upon the Midnight Sea. They frequently lead groups of dominated thralls, who follow the champion&rsquo;s orders as mindlessly as they do the aboleth&rsquo;s own.</p>\n<h2><strong>COMBAT</strong></h2>\n<p>The champion attacks with its serrated sword, inflicting wounds on as many foes as possible. It then uses Vicious Taunt and makes strangling grasp attacks against wounded creatures. If it can target two foes (or three foes and an ally), it uses Mental Blast. It retreats only to attack again later.</p>\n<h2><strong>ENCOUNTERS</strong></h2>\n<p>Aboleths dwell beneath the Midnight Sea, but their minions explore every part of Underland.</p>\n<p><strong>CR 0&ndash;2</strong> 1 or 2 oculites; 1d4 slitherwhites</p>\n<p><strong>CR 3&ndash;4</strong> maw swarm; 3 or 4 oculites</p>\n<p><strong>CR 5&ndash;10</strong> aboleth champion</p>\n<p><strong>Treasure</strong> 150 iron coins (worth 10 gp each, but only to creatures that trade with aboleths); vicious longsword</p>\n<p><strong>CR 11&ndash;16</strong> aboleth champion with 3 or 4 aboleth thralls , oculites , or slitherwhites ; aboleth brute with 1 or 2 aboleth thralls ; aboleth fallen ascendant</p>\n<p><strong>Treasure</strong> a barnacled mithral nameplate, torn from an ancient ship, bearing the name Red Queen (worth 5,000 gp), 10 vials of bubbling slime (each acts as a combined potion of greater healing and potion of water breathing )</p>\n<h2><strong>MONSTER TYPE DESCRIPTION</strong></h2>\n<p>Humanoids include a number of different intelligent, language-using bipeds of Small or Medium size. Humans and elves are humanoids, and so are orcs and goblins. Humanoids may employ magic but are not fundamentally magical&mdash;a characteristic that distinguishes them from bipedal, language-using fey, fiends, and other monsters. Humanoids have no inherent alignment, meaning that no humanoid ancestry is naturally good or evil, lawful or chaotic.</p>",
+			"creatureTypes": [
+				"humanoid"
+			],
+			"isSwarm": false,
+			"cr": 7,
+			"elite": false,
+			"privateNotes": "",
+			"notes": "<p><strong>Terrain</strong>&nbsp;Abyss</p>",
+			"terrain": []
+		},
+		"proficiencies": {
+			"armor": [],
+			"languages": [
+				"common",
+				"deep",
+				"one more"
+			],
+			"tools": [],
+			"weapons": []
+		},
+		"resources": {
+			"primary": {
+				"label": "",
+				"value": 0,
+				"max": "",
+				"per": "",
+				"hideMax": false,
+				"recharge": {
+					"formula": "",
+					"threshold": 6
+				}
+			},
+			"secondary": {
+				"label": "",
+				"value": 0,
+				"max": "",
+				"per": "",
+				"hideMax": false,
+				"recharge": {
+					"formula": "",
+					"threshold": 6
+				}
+			},
+			"tertiary": {
+				"label": "",
+				"value": 0,
+				"max": "",
+				"per": "",
+				"hideMax": false,
+				"recharge": {
+					"formula": "",
+					"threshold": 6
+				}
+			},
+			"quaternary": {
+				"label": "",
+				"value": 0,
+				"max": "",
+				"per": "",
+				"hideMax": false,
+				"recharge": {
+					"formula": "",
+					"threshold": 6
+				}
+			}
+		},
+		"source": "",
+		"traits": {
+			"size": "med",
+			"conditionImmunities": [],
+			"damageImmunities": [],
+			"damageResistances": [],
+			"damageVulnerabilities": []
+		},
+		"grants": {}
+	},
+	"prototypeToken": {
+		"name": "Aboleth Champion",
+		"displayName": 0,
+		"actorLink": false,
+		"width": 1,
+		"height": 1,
+		"lockRotation": false,
+		"rotation": 0,
+		"alpha": 1,
+		"light": {
+			"alpha": 0.5,
+			"angle": 360,
+			"bright": 0,
+			"color": null,
+			"coloration": 1,
+			"dim": 0,
+			"luminosity": 0.5,
+			"saturation": 0,
+			"contrast": 0,
+			"shadows": 0,
+			"animation": {
+				"speed": 5,
+				"intensity": 5,
+				"reverse": false,
+				"type": null
+			},
+			"darkness": {
+				"min": 0,
+				"max": 1
+			},
+			"attenuation": 0.5
+		},
+		"disposition": -1,
+		"displayBars": 0,
+		"bar1": {
+			"attribute": "attributes.hp"
+		},
+		"bar2": {
+			"attribute": null
+		},
+		"flags": {},
+		"randomImg": false,
+		"texture": {
+			"src": "icons/svg/mystery-man.svg",
+			"tint": "#ffffff",
+			"scaleX": 1,
+			"scaleY": 1,
+			"offsetX": 0,
+			"offsetY": 0,
+			"rotation": 0
+		},
+		"sight": {
+			"angle": 360,
+			"enabled": false,
+			"range": 0,
+			"brightness": 0,
+			"color": null,
+			"attenuation": 0.1,
+			"saturation": 0,
+			"contrast": 0,
+			"visionMode": "basic"
+		},
+		"detectionModes": [],
+		"appendNumber": false,
+		"prependAdjective": false
+	},
+	"folder": null,
+	"_id": "1c6srbkz16xwol29"
 }

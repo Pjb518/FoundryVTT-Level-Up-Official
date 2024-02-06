@@ -1,1768 +1,1760 @@
 {
-  "name": "Goblin Dreadnought",
-  "type": "npc",
-  "img": "systems/a5e/assets/goblin.webp",
-  "items": [
-    {
-      "_id": "4aIo4IEOVZagDwBg",
-      "name": "Nimble Escape. (Bonus Action)",
-      "type": "feature",
-      "img": "icons/svg/item-bag.svg",
-      "effects": [],
-      "folder": null,
-      "sort": 0,
-      "flags": {},
-      "system": {
-        "ac": {
-          "baseFormula": "",
-          "formula": "",
-          "maxDex": 0,
-          "minStr": 0,
-          "mode": 1,
-          "requiresNoShield": false,
-          "requiresUnarmored": false
-        },
-        "actions": {},
-        "description": "<p>The goblin takes the Disengage or Hide action.</p>",
-        "favorite": false,
-        "secretDescription": "",
-        "source": "",
-        "uses": {
-          "value": null,
-          "max": "",
-          "per": null,
-          "recharge": {
-            "formula": "",
-            "threshold": ""
-          }
-        },
-        "schema": {
-          "version": null,
-          "lastMigration": null
-        },
-        "concentration": false,
-        "featureType": "",
-        "grants": {},
-        "prerequisite": "",
-        "requiresBloodied": false,
-        "schemaVersion": {
-          "version": 0.011,
-          "lastMigration": {
-            "version": {
-              "schema": 0.01,
-              "foundry": "11.315",
-              "system": "0.16.37"
-            }
-          }
-        }
-      },
-      "ownership": {
-        "default": 0
-      }
-    },
-    {
-      "name": "Scale Mail (Steel)",
-      "type": "object",
-      "img": "icons/equipment/chest/breastplate-metal-scaled-grey.webp",
-      "effects": [],
-      "flags": {
-        "core": {
-          "sourceId": "Compendium.a5e.a5e-adventuring-gear.3mp5tbu1hl7l78i7"
-        }
-      },
-      "system": {
-        "ac": {
-          "baseFormula": "",
-          "formula": "",
-          "maxDex": 0,
-          "minStr": 0,
-          "mode": 1,
-          "requiresNoShield": false,
-          "requiresUnarmored": false
-        },
-        "actions": {},
-        "description": "<p><em>Low-Maintenance (Expertise Die), Requirements STR 14, Stealth (Disadvantage)</em></p><p><strong>AC 14 (DEX +2 max)</strong></p>",
-        "favorite": false,
-        "secretDescription": "",
-        "source": "",
-        "uses": {
-          "value": null,
-          "max": "",
-          "per": null,
-          "recharge": {
-            "formula": "",
-            "threshold": ""
-          }
-        },
-        "schema": {
-          "version": null,
-          "lastMigration": null
-        },
-        "ammunitionProperties": [],
-        "armorCategory": "medium",
-        "armorProperties": [],
-        "attuned": false,
-        "bulky": false,
-        "craftingComponents": "",
-        "containerId": "",
-        "damagedState": 0,
-        "equippedState": 2,
-        "items": {},
-        "materialProperties": [
-          "lowMaintenance"
-        ],
-        "objectType": "armor",
-        "plotItem": false,
-        "price": "50 gp",
-        "proficient": true,
-        "quantity": 1,
-        "rarity": "common",
-        "requiresAttunement": false,
-        "shieldCategory": "",
-        "shieldProperties": [],
-        "unidentified": false,
-        "unidentifiedDescription": "",
-        "unidentifiedName": "",
-        "weaponProperties": [],
-        "weight": 35,
-        "broken": false,
-        "schemaVersion": {
-          "version": 0.011,
-          "lastMigration": {
-            "version": {
-              "schema": 0.01,
-              "foundry": "11.315",
-              "system": "0.16.37"
-            }
-          }
-        }
-      },
-      "_id": "5s9ahW6MsC42c6cm",
-      "folder": null,
-      "sort": 0,
-      "ownership": {
-        "default": 0
-      }
-    },
-    {
-      "name": "Shield, Light",
-      "type": "object",
-      "img": "icons/equipment/shield/buckler-wooden-round-hole.webp",
-      "effects": [],
-      "flags": {
-        "core": {
-          "sourceId": "Compendium.a5e.a5e-adventuring-gear.xy2bn4687azmkadw"
-        }
-      },
-      "system": {
-        "ac": {
-          "baseFormula": "",
-          "formula": "",
-          "maxDex": 0,
-          "minStr": 0,
-          "mode": 1,
-          "requiresNoShield": false,
-          "requiresUnarmored": false
-        },
-        "actions": {
-          "PXojhMd3DNV0JlcA": {
-            "name": "Shield, Light",
-            "activation": {
-              "cost": "",
-              "type": "",
-              "reactionTrigger": ""
-            },
-            "duration": {
-              "unit": "",
-              "value": ""
-            },
-            "area": {
-              "shape": "",
-              "size": "",
-              "placeTemplate": false
-            },
-            "target": {
-              "quantity": 1,
-              "type": "creatureObject"
-            },
-            "rolls": {
-              "UBTLUZKeBuUrzZPR": {
-                "bonus": "",
-                "critThreshold": "20",
-                "type": "attack",
-                "attackType": "rangedWeaponAttack",
-                "ability": "default"
-              },
-              "Mis2fOPlQk8HnHid": {
-                "canCrit": true,
-                "damageType": "bludgeoning",
-                "formula": "1d6 + @str.mod",
-                "name": "Shield Throw (Improvised Weapon)",
-                "type": "damage"
-              }
-            },
-            "consumers": {}
-          }
-        },
-        "description": "<p><strong>AC +1</strong></p><hr class=\"a5e-rule u-my-md\"><p>When you take a critical hit, you can use your reaction to block it and sacrifice your shield, turning the critical hit into a regular hit. Afterwards your shield is broken, or if your shield is magical it instead becomes mundane for 1 hour.</p><hr class=\"a5e-rule u-my-md\"><p>You may throw this shield, treating it as an improvised weapon that deals 1d6 bludgeoning damage.</p>",
-        "favorite": true,
-        "secretDescription": "",
-        "source": "",
-        "uses": {
-          "value": null,
-          "max": "",
-          "per": null,
-          "recharge": {
-            "formula": "",
-            "threshold": ""
-          }
-        },
-        "schema": {
-          "version": null,
-          "lastMigration": null
-        },
-        "ammunitionProperties": [],
-        "armorCategory": "",
-        "armorProperties": [],
-        "attuned": false,
-        "bulky": false,
-        "craftingComponents": "",
-        "containerId": "",
-        "damagedState": 0,
-        "equippedState": 2,
-        "items": {},
-        "materialProperties": [],
-        "objectType": "shield",
-        "plotItem": false,
-        "price": "10 gp",
-        "proficient": true,
-        "quantity": 1,
-        "rarity": "common",
-        "requiresAttunement": false,
-        "shieldCategory": "",
-        "shieldProperties": [],
-        "unidentified": false,
-        "unidentifiedDescription": "",
-        "unidentifiedName": "",
-        "weaponProperties": [],
-        "weight": 4,
-        "broken": false,
-        "schemaVersion": {
-          "version": 0.011,
-          "lastMigration": {
-            "version": {
-              "schema": 0.01,
-              "foundry": "11.315",
-              "system": "0.16.37"
-            }
-          }
-        }
-      },
-      "_id": "1xaT1RIhjgacl5uX",
-      "folder": null,
-      "sort": 0,
-      "ownership": {
-        "default": 0
-      }
-    },
-    {
-      "name": "Saber",
-      "type": "object",
-      "img": "icons/weapons/swords/scimitar-guard.webp",
-      "effects": [],
-      "flags": {
-        "core": {
-          "sourceId": "Compendium.a5e.a5e-adventuring-gear.bbowllkalbhk2ndg"
-        }
-      },
-      "system": {
-        "ac": {
-          "baseFormula": "",
-          "formula": "",
-          "maxDex": 0,
-          "minStr": 0,
-          "mode": 1,
-          "requiresNoShield": false,
-          "requiresUnarmored": false
-        },
-        "actions": {
-          "jsu2QOxcIXcc0iTd": {
-            "name": "Saber",
-            "activation": {
-              "cost": "",
-              "type": "",
-              "reactionTrigger": ""
-            },
-            "duration": {
-              "unit": "",
-              "value": ""
-            },
-            "area": {
-              "shape": "",
-              "size": "",
-              "placeTemplate": false
-            },
-            "target": {
-              "quantity": 1,
-              "type": "creatureObject"
-            },
-            "rolls": {
-              "p2VbOGH5SnzgoVq2": {
-                "bonus": "",
-                "critThreshold": "20",
-                "type": "attack",
-                "attackType": "meleeWeaponAttack",
-                "ability": "default"
-              },
-              "7441dsfVqZKvsjav": {
-                "canCrit": true,
-                "damageType": "slashing",
-                "formula": "1d8 + @finesse.mod",
-                "name": "Saber Melee",
-                "type": "damage"
-              },
-              "YNAjqLmpnJYC569T": {
-                "canCrit": true,
-                "damageType": "slashing",
-                "formula": "1d10 + @finesse.mod",
-                "name": "Saber Mounted",
-                "type": "damage"
-              }
-            },
-            "consumers": {}
-          }
-        },
-        "description": "<p><em>Defensive (Light), Finesse, Mounted (1d10)</em></p>",
-        "favorite": true,
-        "secretDescription": "",
-        "source": "",
-        "uses": {
-          "value": null,
-          "max": "",
-          "per": null,
-          "recharge": {
-            "formula": "",
-            "threshold": ""
-          }
-        },
-        "schema": {
-          "version": null,
-          "lastMigration": null
-        },
-        "ammunitionProperties": [],
-        "armorCategory": "",
-        "armorProperties": [],
-        "attuned": false,
-        "bulky": false,
-        "craftingComponents": "",
-        "containerId": "",
-        "damagedState": 0,
-        "equippedState": 2,
-        "items": {},
-        "materialProperties": [],
-        "objectType": "weapon",
-        "plotItem": false,
-        "price": "30 gp",
-        "proficient": true,
-        "quantity": 1,
-        "rarity": "common",
-        "requiresAttunement": false,
-        "shieldCategory": "",
-        "shieldProperties": [],
-        "unidentified": false,
-        "unidentifiedDescription": "",
-        "unidentifiedName": "",
-        "weaponProperties": [
-          "defensive",
-          "finesse",
-          "mounted"
-        ],
-        "weight": 3,
-        "broken": false,
-        "schemaVersion": {
-          "version": 0.011,
-          "lastMigration": {
-            "version": {
-              "schema": 0.01,
-              "foundry": "11.315",
-              "system": "0.16.37"
-            }
-          }
-        }
-      },
-      "_id": "gmOLf8Zz57kdEnl3",
-      "folder": null,
-      "sort": 0,
-      "ownership": {
-        "default": 0
-      }
-    },
-    {
-      "name": "Shortbow",
-      "type": "object",
-      "img": "icons/weapons/bows/shortbow-leather.webp",
-      "effects": [],
-      "flags": {
-        "core": {
-          "sourceId": "Compendium.a5e.a5e-adventuring-gear.ch3xxcc7yimo0ktm"
-        }
-      },
-      "system": {
-        "ac": {
-          "baseFormula": "",
-          "formula": "",
-          "maxDex": 0,
-          "minStr": 0,
-          "mode": 1,
-          "requiresNoShield": false,
-          "requiresUnarmored": false
-        },
-        "actions": {
-          "r1kRtpJyGoJa2gGw": {
-            "name": "Shortbow",
-            "activation": {
-              "cost": "",
-              "type": "",
-              "reactionTrigger": ""
-            },
-            "duration": {
-              "unit": "",
-              "value": ""
-            },
-            "ranges": {
-              "7rgFrJgmByhkMRCh": {
-                "range": 80,
-                "unit": "feet"
-              },
-              "lxMiXf1Pdv7vgZ4n": {
-                "range": 320,
-                "unit": "feet"
-              }
-            },
-            "area": {
-              "shape": "",
-              "size": "",
-              "placeTemplate": false
-            },
-            "target": {
-              "quantity": 1,
-              "type": "creatureObject"
-            },
-            "rolls": {
-              "xshXSzYVzhNSVpHJ": {
-                "bonus": "",
-                "critThreshold": "20",
-                "type": "attack",
-                "attackType": "rangedWeaponAttack",
-                "ability": "default"
-              },
-              "8NzfWWzRsyzqSfjw": {
-                "canCrit": true,
-                "damageType": "piercing",
-                "formula": "1d6 + @dex.mod",
-                "name": "Shortbow",
-                "type": "damage"
-              }
-            },
-            "consumers": {
-              "aisnVxHlFyIh5r48": {
-                "itemid": "",
-                "quantity": 1,
-                "type": "ammunition"
-              }
-            }
-          }
-        },
-        "description": "<p><em>Range (80/320), Two-Handed</em></p>",
-        "favorite": true,
-        "secretDescription": "",
-        "source": "",
-        "uses": {
-          "value": null,
-          "max": "",
-          "per": null,
-          "recharge": {
-            "formula": "",
-            "threshold": ""
-          }
-        },
-        "schema": {
-          "version": null,
-          "lastMigration": null
-        },
-        "ammunitionProperties": [],
-        "armorCategory": "",
-        "armorProperties": [],
-        "attuned": false,
-        "bulky": false,
-        "craftingComponents": "",
-        "containerId": "",
-        "damagedState": 0,
-        "equippedState": 2,
-        "items": {},
-        "materialProperties": [],
-        "objectType": "weapon",
-        "plotItem": false,
-        "price": "25 gp",
-        "proficient": true,
-        "quantity": 1,
-        "rarity": "common",
-        "requiresAttunement": false,
-        "shieldCategory": "",
-        "shieldProperties": [],
-        "unidentified": false,
-        "unidentifiedDescription": "",
-        "unidentifiedName": "",
-        "weaponProperties": [
-          "range",
-          "twoHanded"
-        ],
-        "weight": 2,
-        "broken": false,
-        "schemaVersion": {
-          "version": 0.011,
-          "lastMigration": {
-            "version": {
-              "schema": 0.01,
-              "foundry": "11.315",
-              "system": "0.16.37"
-            }
-          }
-        }
-      },
-      "_id": "TyMwQMhLN2nlM1hN",
-      "folder": null,
-      "sort": 0,
-      "ownership": {
-        "default": 0
-      }
-    },
-    {
-      "name": "Shove",
-      "type": "maneuver",
-      "img": "icons/skills/melee/shield-block-bash-yellow.webp",
-      "effects": [],
-      "flags": {
-        "core": {
-          "sourceId": "Compendium.a5e.a5e-maneuvers.md35qozzy2fxy2o6"
-        }
-      },
-      "system": {
-        "actions": {
-          "IEe5j31oIZMsAMHm": {
-            "name": "Shove",
-            "activation": {
-              "cost": 1,
-              "type": "action",
-              "reactionTrigger": ""
-            },
-            "duration": {
-              "unit": "instantaneous",
-              "value": null
-            },
-            "ranges": {
-              "jqafSpLUWw5KFLFi": {
-                "range": "fiveFeet"
-              }
-            },
-            "area": {
-              "shape": "",
-              "size": "",
-              "placeTemplate": false
-            },
-            "target": {
-              "quantity": null,
-              "type": "creature",
-              "shape": "",
-              "size": ""
-            },
-            "rolls": {
-              "WrUY0WdJxatV3sW4": {
-                "canCrit": false,
-                "damageType": "bludgeoning",
-                "formula": "1 + @str.mod",
-                "name": "Default",
-                "type": "damage"
-              }
-            },
-            "prompts": {
-              "4cirxbpk64sXCTbm": {
-                "ability": "str",
-                "onSave": "",
-                "saveDC": {
-                  "type": "custom",
-                  "bonus": "@maneuverDC"
-                },
-                "type": "savingThrow"
-              }
-            },
-            "consumers": {}
-          }
-        },
-        "description": "<p>You can use the Shove maneuver to push a creature away. If you are able to make multiple attacks with the Attack action, this maneuver replaces one of them.</p><p>The target must be within your reach and be no more than one size category larger than you. The target makes a Strength saving throw against your maneuver DC. On a failure, you deal basic melee damage and push the target a number of feet away from you equal to 5 + 5 for every 5 points it failed its saving throw by. You can move the creature in any direction away from you (to the side, forward, or diagonally away).</p><p>A creature that is shoved off of a precipice is propelled off of whatever it is standing on -- it does not receive any saving throw or ability check to grab onto something to avoid falling down below.</p>",
-        "favorite": false,
-        "secretDescription": "",
-        "source": "",
-        "uses": {
-          "value": null,
-          "max": "",
-          "per": null,
-          "recharge": {
-            "formula": "",
-            "threshold": ""
-          }
-        },
-        "schema": {
-          "version": null,
-          "lastMigration": null
-        },
-        "concentration": false,
-        "degree": 0,
-        "exertionCost": 0,
-        "isStance": false,
-        "prerequisite": "",
-        "tradition": "",
-        "schemaVersion": {
-          "version": 0.011,
-          "lastMigration": {
-            "version": {
-              "schema": 0.01,
-              "foundry": "11.315",
-              "system": "0.16.37"
-            }
-          }
-        }
-      },
-      "ownership": {
-        "default": 0
-      },
-      "folder": null,
-      "sort": 0,
-      "_id": "8IRcCaahYb9pQ6Ms"
-    },
-    {
-      "name": "Disarm",
-      "type": "maneuver",
-      "img": "icons/skills/melee/sword-damaged-broken-glow-red.webp",
-      "effects": [],
-      "flags": {
-        "core": {
-          "sourceId": "Compendium.a5e.a5e-maneuvers.c0bv7fsy2akld5lp"
-        }
-      },
-      "system": {
-        "actions": {
-          "6bSVidpQczi6yDlv": {
-            "name": "Disarm",
-            "activation": {
-              "cost": 1,
-              "type": "action",
-              "reactionTrigger": ""
-            },
-            "duration": {
-              "unit": "instantaneous",
-              "value": null
-            },
-            "ranges": {
-              "tToLPambvOr4jQe9": {
-                "range": "touch"
-              }
-            },
-            "area": {
-              "shape": "",
-              "size": "",
-              "placeTemplate": false
-            },
-            "target": {
-              "quantity": "",
-              "type": "creature",
-              "shape": "",
-              "size": ""
-            },
-            "rolls": {
-              "iESnkHgfDd5G9Oef": {
-                "canCrit": false,
-                "damageType": "",
-                "formula": "1 + @str.mod",
-                "name": "",
-                "type": "damage"
-              }
-            },
-            "prompts": {
-              "65EpemFe8mhlS4Ga": {
-                "ability": "str",
-                "onSave": "",
-                "saveDC": {
-                  "type": "custom",
-                  "bonus": "@maneuverDC"
-                },
-                "type": "savingThrow"
-              }
-            },
-            "consumers": {}
-          }
-        },
-        "description": "<p>You can use the Disarm maneuver to attempt to knock an item or weapon from a creature's hand. If you are able to make multiple attacks with the Attack action, this maneuver replaces one of them.</p><p>The target must be within your reach and be holding an item (either carried or wielded). The target makes a Strength or Dexterity saving throw against your maneuver DC. On a failure, you deal basic melee damage and the target drops the item in its space. The target has advantage if it is larger than you or holding the item with two or more hands, and a target smaller than you has disadvantage.</p>",
-        "favorite": false,
-        "secretDescription": "",
-        "source": "",
-        "uses": {
-          "value": null,
-          "max": "",
-          "per": null,
-          "recharge": {
-            "formula": "",
-            "threshold": ""
-          }
-        },
-        "schema": {
-          "version": null,
-          "lastMigration": null
-        },
-        "concentration": false,
-        "degree": 0,
-        "exertionCost": 0,
-        "isStance": false,
-        "prerequisite": "",
-        "tradition": "",
-        "schemaVersion": {
-          "version": 0.011,
-          "lastMigration": {
-            "version": {
-              "schema": 0.01,
-              "foundry": "11.315",
-              "system": "0.16.37"
-            }
-          }
-        }
-      },
-      "ownership": {
-        "default": 0
-      },
-      "folder": null,
-      "sort": 0,
-      "_id": "XtDHbqURszZOxRix"
-    },
-    {
-      "name": "Grab On",
-      "type": "maneuver",
-      "img": "icons/skills/melee/hand-grip-staff-teal.webp",
-      "effects": [],
-      "flags": {
-        "core": {
-          "sourceId": "Compendium.a5e.a5e-maneuvers.jewmp4pzrg9cdui9"
-        }
-      },
-      "system": {
-        "actions": {
-          "GRvxH2i96AU4Y9lA": {
-            "name": "Grab On",
-            "activation": {
-              "cost": 1,
-              "type": "action",
-              "reactionTrigger": ""
-            },
-            "duration": {
-              "unit": "instantaneous",
-              "value": null
-            },
-            "ranges": {
-              "pzPBKaLgH10JwelC": {
-                "range": "touch"
-              }
-            },
-            "area": {
-              "shape": "",
-              "size": "",
-              "placeTemplate": false
-            },
-            "target": {
-              "quantity": "",
-              "type": "creature",
-              "shape": "",
-              "size": ""
-            },
-            "prompts": {
-              "TtX060fQdI33OvU0": {
-                "ability": "str",
-                "onSave": "",
-                "saveDC": {
-                  "type": "custom",
-                  "bonus": "@maneuverDC"
-                },
-                "type": "savingThrow"
-              }
-            },
-            "consumers": {}
-          }
-        },
-        "description": "<p>While you cannot grapple a creature two or more size categories larger than you, you can grab onto it. By jumping onto its back or climbing up a limb, you can make a Strength or Dexterity saving throw against the creature's maneuver DC to cling to or balance upon its body. On a success, you move into the creature's space and can move upon its body as if it is difficult terrain.</p><p>While grabbing onto a larger creature, you gain advantage on attack rolls against it. The larger creature may be able to attack you as normal, depending on its limbs or attacks. It can also use an action or replace one of its attacks on its turn to try to dislodge you, such as shaking you loose or bashing you against a wall, forcing you to make a Strength or Dexterity saving throw against its maneuver DC or fall prone into the nearest space adjacent to the creature, taking its basic melee damage in the process.</p><p>If the creature chooses to roll over in order to dislodge you, it becomes prone, but you have disadvantage on the saving throw to hang on.</p>",
-        "favorite": false,
-        "secretDescription": "",
-        "source": "",
-        "uses": {
-          "value": null,
-          "max": "",
-          "per": null,
-          "recharge": {
-            "formula": "",
-            "threshold": ""
-          }
-        },
-        "schema": {
-          "version": null,
-          "lastMigration": null
-        },
-        "concentration": false,
-        "degree": 0,
-        "exertionCost": 0,
-        "isStance": false,
-        "prerequisite": "",
-        "tradition": "",
-        "schemaVersion": {
-          "version": 0.011,
-          "lastMigration": {
-            "version": {
-              "schema": 0.01,
-              "foundry": "11.315",
-              "system": "0.16.37"
-            }
-          }
-        }
-      },
-      "ownership": {
-        "default": 0
-      },
-      "folder": null,
-      "sort": 0,
-      "_id": "aKegEswBN782Nev0"
-    },
-    {
-      "name": "Knockdown",
-      "type": "maneuver",
-      "img": "icons/magic/control/silhouette-fall-slip-prone.webp",
-      "effects": [],
-      "flags": {
-        "core": {
-          "sourceId": "Compendium.a5e.a5e-maneuvers.zzg7j7cb0vkgctwi"
-        }
-      },
-      "system": {
-        "actions": {
-          "tmwnI2j5oNDnsSWZ": {
-            "name": "Knockdown",
-            "activation": {
-              "cost": 1,
-              "type": "action",
-              "reactionTrigger": ""
-            },
-            "duration": {
-              "unit": "instantaneous",
-              "value": null
-            },
-            "ranges": {
-              "C8ldWwbGywk4QoaT": {
-                "range": "touch"
-              }
-            },
-            "area": {
-              "shape": "",
-              "size": "",
-              "placeTemplate": false
-            },
-            "target": {
-              "quantity": "",
-              "type": "creature",
-              "shape": "",
-              "size": ""
-            },
-            "prompts": {
-              "Drps102yglyUo3mc": {
-                "ability": "str",
-                "onSave": "",
-                "saveDC": {
-                  "type": "custom",
-                  "bonus": "@maneuverDC"
-                },
-                "type": "savingThrow"
-              }
-            },
-            "consumers": {}
-          }
-        },
-        "description": "<p>You can use the Knockdown maneuver to trip or push a creature down. If you are able to make multiple attacks with the Attack action, this maneuver replaces one of them.</p><p>The target must be within your reach and be no more than one size category larger than you. The target makes a Strength saving throw against your maneuver DC. On a failure, you deal basic melee damage and knock the target prone.</p>",
-        "favorite": false,
-        "secretDescription": "",
-        "source": "",
-        "uses": {
-          "value": null,
-          "max": "",
-          "per": null,
-          "recharge": {
-            "formula": "",
-            "threshold": ""
-          }
-        },
-        "schema": {
-          "version": null,
-          "lastMigration": null
-        },
-        "concentration": false,
-        "degree": 0,
-        "exertionCost": 0,
-        "isStance": false,
-        "prerequisite": "",
-        "tradition": "",
-        "schemaVersion": {
-          "version": 0.011,
-          "lastMigration": {
-            "version": {
-              "schema": 0.01,
-              "foundry": "11.315",
-              "system": "0.16.37"
-            }
-          }
-        }
-      },
-      "ownership": {
-        "default": 0
-      },
-      "folder": null,
-      "sort": 0,
-      "_id": "vMZt7XrEnbtPGyLF"
-    },
-    {
-      "name": "Grapple",
-      "type": "maneuver",
-      "img": "icons/skills/melee/unarmed-punch-fist.webp",
-      "effects": [],
-      "flags": {
-        "core": {
-          "sourceId": "Compendium.a5e.a5e-maneuvers.9umrahwm68f81d7l"
-        }
-      },
-      "system": {
-        "actions": {
-          "78GEu8695zekGziO": {
-            "name": "Grapple",
-            "activation": {
-              "cost": 1,
-              "type": "action",
-              "reactionTrigger": ""
-            },
-            "duration": {
-              "unit": "instantaneous",
-              "value": null
-            },
-            "ranges": {
-              "jWSvymt8MPk9K2Ya": {
-                "range": "touch"
-              }
-            },
-            "area": {
-              "shape": "",
-              "size": "",
-              "placeTemplate": false
-            },
-            "target": {
-              "quantity": "",
-              "type": "creature",
-              "shape": "",
-              "size": ""
-            },
-            "prompts": {
-              "rUgpULNW7pII98mO": {
-                "ability": "str",
-                "onSave": "",
-                "saveDC": {
-                  "type": "custom",
-                  "bonus": "@maneuverDC"
-                },
-                "type": "savingThrow"
-              }
-            },
-            "consumers": {}
-          }
-        },
-        "description": "<p>You can use the Grapple maneuver to grab or wrestle a creature. If you are able to make multiple attacks with the Attack action, this maneuver replaces one of them.</p>\n<p>You must have at least one free hand to attempt a grapple, your target must be within your reach, and the target must be no more than one size category larger than you. The target makes a Strength or Dexterity saving throw against your maneuver DC. On a failure, you deal basic melee damage and the target becomes grappled (see Appendix A: Conditions on page 616). In addition to things that end the condition, you can release the target at any time (no action required).</p>\n<p><em>Escaping a Grapple.</em> While grappled, a creature can use its action to attempt to escape. It must succeed on a Strength or Dexterity saving throw against your maneuver DC.</p>\n<p><em>Moving a Grappled Creature. </em>When you move, you can drag or carry the grappled creature with you. When you do so, your Speed is halved, unless the creature's weight is within your carrying capacity and you are not encumbered by bulky items.</p>\n<p><em>Freeing a Grappled Creature.</em> You can use the Grapple maneuver to try to free another grappled or restrained creature. The creature grappling or restraining the target makes a Strength saving throw against your maneuver DC. If it fails the saving throw, the grappled or restrained creature is freed. Additionally, you may move the freed creature 5 feet in any direction.</p>",
-        "favorite": false,
-        "secretDescription": "",
-        "source": "",
-        "uses": {
-          "value": null,
-          "max": "",
-          "per": null,
-          "recharge": {
-            "formula": "",
-            "threshold": ""
-          }
-        },
-        "schema": {
-          "version": null,
-          "lastMigration": null
-        },
-        "concentration": false,
-        "degree": 0,
-        "exertionCost": 0,
-        "isStance": false,
-        "prerequisite": "",
-        "tradition": "",
-        "schemaVersion": {
-          "version": 0.011,
-          "lastMigration": {
-            "version": {
-              "schema": 0.01,
-              "foundry": "11.315",
-              "system": "0.16.37"
-            }
-          }
-        }
-      },
-      "ownership": {
-        "default": 0
-      },
-      "folder": null,
-      "sort": 0,
-      "_id": "bJQfCJjXJymYukXX"
-    },
-    {
-      "name": "Overrun",
-      "type": "maneuver",
-      "img": "icons/skills/melee/shield-damaged-broken-blue.webp",
-      "effects": [],
-      "flags": {
-        "core": {
-          "sourceId": "Compendium.a5e.a5e-maneuvers.210ihnnejao46r20"
-        }
-      },
-      "system": {
-        "actions": {
-          "WZXTdewaec18W6eW": {
-            "name": "Overrun",
-            "activation": {
-              "cost": 1,
-              "type": "special",
-              "reactionTrigger": ""
-            },
-            "duration": {
-              "unit": "instantaneous",
-              "value": null
-            },
-            "ranges": {
-              "hkmjppWz7q3Qz1tB": {
-                "range": "touch"
-              }
-            },
-            "area": {
-              "shape": "",
-              "size": "",
-              "placeTemplate": false
-            },
-            "target": {
-              "quantity": "",
-              "type": "creature",
-              "shape": "",
-              "size": ""
-            },
-            "prompts": {
-              "xukyOAP3hkc6mTar": {
-                "ability": "str",
-                "onSave": "",
-                "saveDC": {
-                  "type": "custom",
-                  "bonus": "@maneuverDC"
-                },
-                "type": "savingThrow"
-              }
-            },
-            "consumers": {}
-          }
-        },
-        "description": "<p>You can use an action or bonus action to make an Overrun maneuver to move through a hostile creature's space by forcing your way past. Make a Strength saving throw against the target's maneuver DC. On a success, you deal basic melee damage and can move through the hostile creature's space once this turn. The creature can choose to just let you pass instead of rolling. You have advantage if you are larger than the target, or disadvantage if you are smaller. If you are two or more sizes smaller than the target, you can move through the hostile creature's space without making a save. You still provoke opportunity attacks if you move beyond a creature's reach.</p>",
-        "favorite": false,
-        "secretDescription": "",
-        "source": "",
-        "uses": {
-          "value": null,
-          "max": "",
-          "per": null,
-          "recharge": {
-            "formula": "",
-            "threshold": ""
-          }
-        },
-        "schema": {
-          "version": null,
-          "lastMigration": null
-        },
-        "concentration": false,
-        "degree": 0,
-        "exertionCost": 0,
-        "isStance": false,
-        "prerequisite": "",
-        "tradition": "",
-        "schemaVersion": {
-          "version": 0.011,
-          "lastMigration": {
-            "version": {
-              "schema": 0.01,
-              "foundry": "11.315",
-              "system": "0.16.37"
-            }
-          }
-        }
-      },
-      "ownership": {
-        "default": 0
-      },
-      "folder": null,
-      "sort": 0,
-      "_id": "i7QR6BZnjNIUPGvg"
-    }
-  ],
-  "effects": [],
-  "flags": {},
-  "system": {
-    "abilities": {
-      "str": {
-        "value": 8,
-        "check": {
-          "expertiseDice": 0,
-          "bonus": "",
-          "notes": {}
-        },
-        "save": {
-          "proficient": false,
-          "expertiseDice": 0,
-          "bonus": "",
-          "notes": {}
-        }
-      },
-      "dex": {
-        "value": 12,
-        "check": {
-          "expertiseDice": 0,
-          "bonus": "",
-          "notes": {}
-        },
-        "save": {
-          "proficient": false,
-          "expertiseDice": 0,
-          "bonus": "",
-          "notes": {}
-        }
-      },
-      "con": {
-        "value": 10,
-        "check": {
-          "expertiseDice": 0,
-          "bonus": "",
-          "notes": {}
-        },
-        "save": {
-          "proficient": false,
-          "expertiseDice": 0,
-          "bonus": "",
-          "notes": {}
-        }
-      },
-      "int": {
-        "value": 10,
-        "check": {
-          "expertiseDice": 0,
-          "bonus": "",
-          "notes": {}
-        },
-        "save": {
-          "proficient": false,
-          "expertiseDice": 0,
-          "bonus": "",
-          "notes": {}
-        }
-      },
-      "wis": {
-        "value": 10,
-        "check": {
-          "expertiseDice": 0,
-          "bonus": "",
-          "notes": {}
-        },
-        "save": {
-          "proficient": false,
-          "expertiseDice": 0,
-          "bonus": "",
-          "notes": {}
-        }
-      },
-      "cha": {
-        "value": 10,
-        "check": {
-          "expertiseDice": 0,
-          "bonus": "",
-          "notes": {}
-        },
-        "save": {
-          "proficient": false,
-          "expertiseDice": 0,
-          "bonus": "",
-          "notes": {}
-        }
-      }
-    },
-    "schemaVersion": {
-      "version": 0.011,
-      "lastMigration": {
-        "version": {
-          "schema": 0.01,
-          "foundry": "11.315",
-          "system": "0.16.37"
-        }
-      }
-    },
-    "skills": {
-      "acr": {
-        "ability": "dex",
-        "value": 0,
-        "proficient": false,
-        "specialties": [],
-        "expertiseDice": 0,
-        "minRoll": 1,
-        "bonuses": {
-          "check": "",
-          "passive": 0
-        }
-      },
-      "ani": {
-        "ability": "wis",
-        "value": 0,
-        "proficient": false,
-        "specialties": [],
-        "expertiseDice": 0,
-        "minRoll": 1,
-        "bonuses": {
-          "check": "",
-          "passive": 0
-        }
-      },
-      "arc": {
-        "ability": "int",
-        "value": 0,
-        "proficient": false,
-        "specialties": [],
-        "expertiseDice": 0,
-        "minRoll": 1,
-        "bonuses": {
-          "check": "",
-          "passive": 0
-        }
-      },
-      "ath": {
-        "ability": "str",
-        "value": 0,
-        "proficient": false,
-        "specialties": [],
-        "expertiseDice": 0,
-        "minRoll": 1,
-        "bonuses": {
-          "check": "",
-          "passive": 0
-        }
-      },
-      "cul": {
-        "ability": "int",
-        "value": 0,
-        "proficient": false,
-        "specialties": [],
-        "expertiseDice": 0,
-        "minRoll": 1,
-        "bonuses": {
-          "check": "",
-          "passive": 0
-        }
-      },
-      "dec": {
-        "ability": "cha",
-        "value": 0,
-        "proficient": false,
-        "specialties": [],
-        "expertiseDice": 0,
-        "minRoll": 1,
-        "bonuses": {
-          "check": "",
-          "passive": 0
-        }
-      },
-      "eng": {
-        "ability": "int",
-        "value": 0,
-        "proficient": false,
-        "specialties": [],
-        "expertiseDice": 0,
-        "minRoll": 1,
-        "bonuses": {
-          "check": "",
-          "passive": 0
-        }
-      },
-      "his": {
-        "ability": "int",
-        "value": 0,
-        "proficient": false,
-        "specialties": [],
-        "expertiseDice": 0,
-        "minRoll": 1,
-        "bonuses": {
-          "check": "",
-          "passive": 0
-        }
-      },
-      "ins": {
-        "ability": "wis",
-        "value": 0,
-        "proficient": false,
-        "specialties": [],
-        "expertiseDice": 0,
-        "minRoll": 1,
-        "bonuses": {
-          "check": "",
-          "passive": 0
-        }
-      },
-      "itm": {
-        "ability": "cha",
-        "value": 0,
-        "proficient": false,
-        "specialties": [],
-        "expertiseDice": 0,
-        "minRoll": 1,
-        "bonuses": {
-          "check": "",
-          "passive": 0
-        }
-      },
-      "inv": {
-        "ability": "int",
-        "value": 0,
-        "proficient": false,
-        "specialties": [],
-        "expertiseDice": 0,
-        "minRoll": 1,
-        "bonuses": {
-          "check": "",
-          "passive": 0
-        }
-      },
-      "med": {
-        "ability": "wis",
-        "value": 0,
-        "proficient": false,
-        "specialties": [],
-        "expertiseDice": 0,
-        "minRoll": 1,
-        "bonuses": {
-          "check": "",
-          "passive": 0
-        }
-      },
-      "nat": {
-        "ability": "int",
-        "value": 0,
-        "proficient": false,
-        "specialties": [],
-        "expertiseDice": 0,
-        "minRoll": 1,
-        "bonuses": {
-          "check": "",
-          "passive": 0
-        }
-      },
-      "prc": {
-        "ability": "wis",
-        "value": 0,
-        "proficient": false,
-        "specialties": [],
-        "expertiseDice": 0,
-        "minRoll": 1,
-        "bonuses": {
-          "check": "",
-          "passive": 0
-        }
-      },
-      "prf": {
-        "ability": "cha",
-        "value": 0,
-        "proficient": false,
-        "specialties": [],
-        "expertiseDice": 0,
-        "minRoll": 1,
-        "bonuses": {
-          "check": "",
-          "passive": 0
-        }
-      },
-      "per": {
-        "ability": "cha",
-        "value": 0,
-        "proficient": false,
-        "specialties": [],
-        "expertiseDice": 0,
-        "minRoll": 1,
-        "bonuses": {
-          "check": "",
-          "passive": 0
-        }
-      },
-      "rel": {
-        "ability": "int",
-        "value": 0,
-        "proficient": false,
-        "specialties": [],
-        "expertiseDice": 0,
-        "minRoll": 1,
-        "bonuses": {
-          "check": "",
-          "passive": 0
-        }
-      },
-      "slt": {
-        "ability": "dex",
-        "value": 0,
-        "proficient": false,
-        "specialties": [],
-        "expertiseDice": 0,
-        "minRoll": 1,
-        "bonuses": {
-          "check": "",
-          "passive": 0
-        }
-      },
-      "ste": {
-        "ability": "dex",
-        "value": 0,
-        "proficient": true,
-        "specialties": [],
-        "expertiseDice": 1,
-        "minRoll": 1,
-        "bonuses": {
-          "check": "",
-          "passive": 0
-        }
-      },
-      "sur": {
-        "ability": "wis",
-        "value": 0,
-        "proficient": false,
-        "specialties": [],
-        "expertiseDice": 0,
-        "minRoll": 1,
-        "bonuses": {
-          "check": "",
-          "passive": 0
-        }
-      }
-    },
-    "spellResources": {
-      "slots": {
-        "1": {
-          "current": 0,
-          "max": 0
-        },
-        "2": {
-          "current": 0,
-          "max": 0
-        },
-        "3": {
-          "current": 0,
-          "max": 0
-        },
-        "4": {
-          "current": 0,
-          "max": 0
-        },
-        "5": {
-          "current": 0,
-          "max": 0
-        },
-        "6": {
-          "current": 0,
-          "max": 0
-        },
-        "7": {
-          "current": 0,
-          "max": 0
-        },
-        "8": {
-          "current": 0,
-          "max": 0
-        },
-        "9": {
-          "current": 0,
-          "max": 0
-        }
-      },
-      "points": {
-        "current": 0,
-        "max": 0
-      }
-    },
-    "attributes": {
-      "ac": {
-        "baseFormula": "17",
-        "value": 0
-      },
-      "death": {
-        "success": 0,
-        "failure": 0
-      },
-      "hp": {
-        "value": 10,
-        "baseMax": 10,
-        "temp": 0,
-        "bonus": 0
-      },
-      "hitDice": {
-        "d6": {
-          "current": 3,
-          "total": 3
-        },
-        "d8": {
-          "current": 0,
-          "total": 0
-        },
-        "d10": {
-          "current": 0,
-          "total": 0
-        },
-        "d12": {
-          "current": 0,
-          "total": 0
-        },
-        "d4": {
-          "current": 0,
-          "total": 0
-        },
-        "d20": {
-          "current": 0,
-          "total": 0
-        }
-      },
-      "initiative": {
-        "bonus": "",
-        "expertiseDice": 0,
-        "ability": "dex"
-      },
-      "movement": {
-        "burrow": {
-          "distance": 0,
-          "unit": "feet"
-        },
-        "climb": {
-          "distance": 0,
-          "unit": "feet"
-        },
-        "fly": {
-          "distance": 0,
-          "unit": "feet"
-        },
-        "swim": {
-          "distance": 0,
-          "unit": "feet"
-        },
-        "walk": {
-          "distance": 30,
-          "unit": "feet"
-        },
-        "traits": {
-          "hover": false
-        }
-      },
-      "senses": {
-        "blindsight": {
-          "distance": 0,
-          "unit": "feet",
-          "otherwiseBlind": false
-        },
-        "darkvision": {
-          "distance": 60,
-          "unit": "feet"
-        },
-        "tremorsense": {
-          "distance": 0,
-          "unit": "feet"
-        },
-        "truesight": {
-          "distance": 0,
-          "unit": "feet"
-        }
-      },
-      "inspiration": false,
-      "fatigue": 0,
-      "strife": 0,
-      "spellcasting": "int",
-      "casterLevel": 0
-    },
-    "bonuses": {
-      "abilities": {},
-      "damage": {},
-      "healing": {},
-      "maneuverDC": "",
-      "meleeSpellAttack": "",
-      "meleeWeaponAttack": "",
-      "rangedSpellAttack": "",
-      "rangedWeaponAttack": "",
-      "spellDC": "",
-      "skills": {},
-      "attacks": {}
-    },
-    "currency": {
-      "pp": 0,
-      "gp": 0,
-      "ep": 0,
-      "sp": 0,
-      "cp": 0
-    },
-    "details": {
-      "bio": "<h2>Combat</h2><p>Goblins attack only when they outnumber their opponents. They employ ambush, firing arrows from hiding and then using Nimble Escape to hide elsewhere. When they can, they turn an aspect of the battle to their advantage, attacking in darkness or from above or amongst traps and hazards. If a goblin is engaged in melee while not in an advantageous position, it attacks with its shortsword and then disengages. Unless a powerful leader forces them to stand their ground, goblins retreat once they no longer outnumber their enemy.</p><hr class=\"a5e-rule u-my-md\"><h2>Goblin Names</h2><p>Blacktooth, Briarbones, Dinda, Flea, Flundercork, Grimgargle, Gurp, One-Toe, Ood, Skirn, Thrunk, Vivvle</p><hr class=\"a5e-rule u-my-md\"><h2>Legends and Lore</h2><p>With a History or Nature check, characters can learn the following:</p><p><strong>DC 10</strong> Goblins are small humanoids. While many find them disgusting, they are clever and resourceful creatures.</p><p><strong>DC 15</strong> Goblins rarely attack unless they outnumber their foes. For every goblin you see, there are usually two more lurking nearby.</p><p><strong>DC 20</strong> Goblins sometimes serve larger humanoids or train giant rats as watchdogs or mounts.</p><p>Description</p><p>From the wildest forests to the most sprawling metropolises, there's no place in the world you won't find goblins. For these small, individually weak creatures, survival is the greatest virtue.&nbsp;</p><p><strong><em>It's A Living.</em></strong> Life is unfair to goblins. It's the one thing they can count on. Goblins are rarely granted mercy or kindness by larger folk, and in return they rarely extend it to others.&nbsp;</p><p>Goblins are often found in the service of more powerful creatures, particularly larger goblinoids such as hobgoblins . When faced with impossible tasks or unfair expectations, goblins grumble and complain, plot petty revenge, then roll up their sleeves and get to work. Where other creatures might turn up their noses at disgusting, cramped environments, goblins see opportunity. They will carve out space where none exists, flourishing in the cracks of civilization or in the unforgiving wilderness.</p><p><strong><em>Expert Opportunists.</em> </strong>Goblins often lurk in civilization’s liminal spaces: in abandoned mines within raiding distance of a village, or in a sprawling sewer beneath a city. Goblins can find a use for almost anything, from broken or discarded gear to abandoned tunnels to the rotting husks of long-dead trees. Goblin equipment is frequently scavenged or crafted out of unlikely materials. Goblins rarely risk combat, except when they are certain they have the upper hand. They will gladly take your discarded food, however—and, if you're not careful, whatever's on your table and in the bag you left unattended, as well.&nbsp;</p><p><strong><em>Feral Glee.</em> </strong>Goblins take their joy wherever they can find it. An unsupervised moment to play is a prize they cherish more than food or treasure. It may not last long, but goblins can make a game out of anything, and they respond well to anyone who plays along.</p><p>Behavior</p><p><strong>Lone Behavior</strong></p><p>1–3 Scouting or patrolling for a larger group</p><p>4 Exiled; will betray its former comrades’ location to well-armed travelers (unless it’s a doublecross?)</p><p>5 Loaded down with stolen treasure</p><p>6 A goblin with no tribe; it knows the local area well</p><hr class=\"a5e-rule u-my-md\"><p><strong>Group Behavior in Desert or Grassland</strong></p><p>1 Drinking and filling waterskins at a well or stream</p><p>2 Hungry; arguing about the direction of the nearest food source</p><p>3 Traders who know their way through the trackless expanse</p><p>4 Living in an abandoned temple or palace</p><hr class=\"a5e-rule u-my-md\"><p><strong>Group Behavior in Hills or Mountains</strong></p><p>1 Hiding at a peak or clifftop, waiting to ambush travelers</p><p>2 Dragging a stumbling dwarf captive back to their camp</p><p>3 Fleeing from tyrannical hobgoblin masters</p><p>4 Scouting near their lair</p><hr class=\"a5e-rule u-my-md\"><p><strong>Group Behavior in Tundra</strong></p><p>1 Pulling and riding in a dogsled</p><p>2 Shivering next to a campfire</p><p>3 Having a snowball fight</p><p>4 Lying in ambush under snow</p><hr class=\"a5e-rule u-my-md\"><p><strong>Group Behavior in Forest, Jungle, or Swamp</strong></p><p>1 Hiding in the underbrush, waiting to ambush travelers</p><p>2 Stealthily surrounding an isolated homestead</p><p>3 Setting fires or preparing a fire trap</p><p>4 Lying in ambush in the trees, armed with nets</p><hr class=\"a5e-rule u-my-md\"><p><strong>Group Behavior in Settled Land</strong></p><p>1 On a raid, setting fire to a barn</p><p>2 Stealing panicky horses, several goblins to a horse</p><p>3 With goods to trade</p><p>4 Running a traveling circus or theater</p><hr class=\"a5e-rule u-my-md\"><p><strong>Group Behavior Underground</strong></p><p>1 Unwilling servants of a tough monster</p><p>2 Struggling to open a stuck door or crawl through a narrow crack</p><p>3 Spreading caltrops</p><p>4 Sleeping, guarded by a drowsy sentry</p><p>5 Looking down from holes in the ceiling, prepared to shoot arrows and drop rocks</p><p>6 Hiding in ambush behind giant mushrooms, stalagmites, furniture, or pillars</p><p>Signs</p><p>1 DC 15 Perception or Survival check: small footprints</p><p>2 DC 15 Perception or Survival check: a concealed trap, such as a hunting trap, pit trap, or tripwire</p><p>3 A filthy campsite</p><p>4 A looted corpse or an arrow-riddled game animal</p><p>5 A dead goblin</p><p>6 Discarded gear, such as a broken shortsword, an arrow stuck in the ground, or a smashed bottle</p><p>Encounters</p><p>Goblins can eke out an existence in nearly any environment.</p><p><strong>CR 0–2</strong> 1d4 goblins ; goblin with bloodhawk or giant rat</p><p><strong>Treasure</strong> 25 gp, 150 sp, 3<em> potions of climbing </em>, 2 <em>potions of healing</em></p><p><strong>CR 3–4</strong> 4 to 6 goblins with goblin boss , goblin warlock , or 2 goblin specialists ; 3 or 4 goblins riding worgs (or Large rats with the statistics of worgs); 3 or 4 goblins with bugbear , death dog , or ogre ; 4 to 6 goblin specialists</p><p><strong>Treasure</strong> 100 gp, 500 sp, dented silver helmet (75 gp), a hollow book containing 2 <em>potions of growth </em>and 2<em> potions of healing , 6 1 arrows </em>&nbsp;</p><p><strong>CR 5–10</strong> goblin boss and 1d6 + 6 goblins with one of the following: cave bear or goblin warlock , 2 ogrekin , 3 goblin specialists , or 4 hobgoblins or worgs</p><p><strong>Treasure</strong> 400 gp, 1,000 sp, silver and garnet necklace (250 gp), a wagon full of trade goods (500 gp), <em>hat of disguise , immovable rod</em></p><p>Monster Type Description</p><p></p><p>Humanoids include a number of different intelligent, language-using bipeds of Small or Medium size. Humans and elves are humanoids, and so are orcs and goblins. Humanoids may employ magic but are not fundamentally magical—a characteristic that distinguishes them from bipedal, language-using fey, fiends, and other monsters. Humanoids have no inherent alignment, meaning that no humanoid ancestry is naturally good or evil, lawful or chaotic.</p>",
-      "creatureTypes": [
-        "humanoid"
-      ],
-      "isSwarm": false,
-      "cr": 0.5,
-      "elite": false,
-      "privateNotes": "<div>\n<h2>COMBAT</h2>\n<p>Goblins attack only when they outnumber their opponents. They employ ambush, firing arrows from hiding and then using Nimble Escape to hide elsewhere. When they can, they turn an aspect of the battle to their advantage, attacking in darkness or from above or amongst traps and hazards. If a goblin is engaged in melee while not in an advantageous position, it attacks with its shortsword and then disengages. Unless a powerful leader forces them to stand their ground, goblins retreat once they no longer outnumber their enemy.</p>\n<hr />\n<h2>GOBLIN NAMES</h2>\n<p>Blacktooth, Briarbones, Dinda, Flea, Flundercork, Grimgargle, Gurp, One-Toe, Ood, Skirn, Thrunk, Vivvle</p>\n<hr />\n<h2>LEGENDS AND LORE</h2>\n<p>With a History or Nature check, characters can learn the following:</p>\n<p>DC 10 Goblins are small humanoids. While many find them disgusting, they are clever and resourceful creatures.</p>\n<p>DC 15 Goblins rarely attack unless they outnumber their foes. For every goblin you see, there are usually two more lurking nearby.</p>\n<p>DC 20 Goblins sometimes serve larger humanoids or train giant rats as watchdogs or mounts.</p>\n</div>\n<div>\n<p>From the wildest forests to the most sprawling metropolises, there's no place in the world you won't find goblins. For these small, individually weak creatures, survival is the greatest virtue.&nbsp;</p>\n<p>It's A Living. Life is unfair to goblins. It's the one thing they can count on. Goblins are rarely granted mercy or kindness by larger folk, and in return they rarely extend it to others.&nbsp;</p>\n<p>Goblins are often found in the service of more powerful creatures, particularly larger goblinoids such as hobgoblins. When faced with impossible tasks or unfair expectations, goblins grumble and complain, plot petty revenge, then roll up their sleeves and get to work. Where other creatures might turn up their noses at disgusting, cramped environments, goblins see opportunity. They will carve out space where none exists, flourishing in the cracks of civilization or in the unforgiving wilderness.</p>\n<p>Expert Opportunists. Goblins often lurk in civilization&rsquo;s liminal spaces: in abandoned mines within raiding distance of a village, or in a sprawling sewer beneath a city. Goblins can find a use for almost anything, from broken or discarded gear to abandoned tunnels to the rotting husks of long-dead trees. Goblin equipment is frequently scavenged or crafted out of unlikely materials. Goblins rarely risk combat, except when they are certain they have the upper hand. They will gladly take your discarded food, however&mdash;and, if you're not careful, whatever's on your table and in the bag you left unattended, as well.&nbsp;</p>\n<p>Feral Glee. Goblins take their joy wherever they can find it. An unsupervised moment to play is a prize they cherish more than food or treasure. It may not last long, but goblins can make a game out of anything, and they respond well to anyone who plays along.</p>\n</div>",
-      "notes": "",
-      "terrain": []
-    },
-    "proficiencies": {
-      "armor": [],
-      "languages": [
-        "common",
-        "goblin"
-      ],
-      "tools": [],
-      "weapons": []
-    },
-    "resources": {
-      "primary": {
-        "label": "",
-        "value": 0,
-        "max": "0",
-        "per": "",
-        "hideMax": false,
-        "recharge": {
-          "formula": "",
-          "threshold": 6
-        }
-      },
-      "secondary": {
-        "label": "",
-        "value": 0,
-        "max": "0",
-        "per": "",
-        "hideMax": false,
-        "recharge": {
-          "formula": "",
-          "threshold": 6
-        }
-      },
-      "tertiary": {
-        "label": "",
-        "value": 0,
-        "max": "0",
-        "per": "",
-        "hideMax": false,
-        "recharge": {
-          "formula": "",
-          "threshold": 6
-        }
-      },
-      "quaternary": {
-        "label": "",
-        "value": 0,
-        "max": "0",
-        "per": "",
-        "hideMax": false,
-        "recharge": {
-          "formula": "",
-          "threshold": 6
-        }
-      }
-    },
-    "source": "",
-    "traits": {
-      "size": "sm",
-      "conditionImmunities": [],
-      "damageImmunities": [],
-      "damageResistances": [],
-      "damageVulnerabilities": []
-    }
-  },
-  "prototypeToken": {
-    "name": "Goblin Dreadnought",
-    "displayName": 0,
-    "actorLink": false,
-    "width": 1,
-    "height": 1,
-    "lockRotation": false,
-    "rotation": 0,
-    "alpha": 1,
-    "light": {
-      "alpha": 0.5,
-      "angle": 360,
-      "bright": 0,
-      "color": null,
-      "coloration": 1,
-      "dim": 0,
-      "luminosity": 0.5,
-      "saturation": 0,
-      "contrast": 0,
-      "shadows": 0,
-      "animation": {
-        "speed": 5,
-        "intensity": 5,
-        "reverse": false,
-        "type": null
-      },
-      "darkness": {
-        "min": 0,
-        "max": 1
-      },
-      "attenuation": 0.5
-    },
-    "disposition": -1,
-    "displayBars": 0,
-    "bar1": {
-      "attribute": "attributes.hp"
-    },
-    "bar2": {
-      "attribute": null
-    },
-    "flags": {},
-    "randomImg": false,
-    "texture": {
-      "src": "systems/a5e/assets/goblin.webp",
-      "tint": "#ffffff",
-      "scaleX": 0.5,
-      "scaleY": 0.5,
-      "offsetX": 0,
-      "offsetY": 0,
-      "rotation": 0
-    },
-    "sight": {
-      "angle": 360,
-      "enabled": false,
-      "range": 0,
-      "brightness": 1,
-      "color": null,
-      "attenuation": 0.1,
-      "saturation": 0,
-      "contrast": 0,
-      "visionMode": "basic"
-    },
-    "detectionModes": [],
-    "appendNumber": false,
-    "prependAdjective": false
-  },
-  "folder": null,
-  "_id": "glh56u4oz5ngrs80"
+	"name": "Goblin Dreadnought",
+	"type": "npc",
+	"img": "systems/a5e/assets/goblin.webp",
+	"items": [
+		{
+			"_id": "4aIo4IEOVZagDwBg",
+			"name": "Nimble Escape. (Bonus Action)",
+			"type": "feature",
+			"img": "icons/svg/item-bag.svg",
+			"effects": [],
+			"folder": null,
+			"sort": 0,
+			"flags": {},
+			"system": {
+				"ac": {
+					"baseFormula": "",
+					"formula": "",
+					"maxDex": 0,
+					"minStr": 0,
+					"mode": 1,
+					"requiresNoShield": false,
+					"requiresUnarmored": false
+				},
+				"actions": {},
+				"description": "<p>The goblin takes the Disengage or Hide action.</p>",
+				"favorite": false,
+				"secretDescription": "",
+				"source": "",
+				"uses": {
+					"value": null,
+					"max": "",
+					"per": null,
+					"recharge": {
+						"formula": "",
+						"threshold": ""
+					}
+				},
+				"schema": {
+					"version": null,
+					"lastMigration": null
+				},
+				"concentration": false,
+				"featureType": "",
+				"grants": {},
+				"prerequisite": "",
+				"requiresBloodied": false,
+				"schemaVersion": {
+					"version": 0.013,
+					"lastMigration": {
+						"version": {
+							"schema": 0.011,
+							"foundry": "11.315",
+							"system": "0.16.49"
+						}
+					}
+				}
+			},
+			"ownership": {
+				"default": 0
+			}
+		},
+		{
+			"name": "Scale Mail (Steel)",
+			"type": "object",
+			"img": "icons/equipment/chest/breastplate-metal-scaled-grey.webp",
+			"effects": [],
+			"flags": {
+				"core": {
+					"sourceId": "Compendium.a5e.a5e-adventuring-gear.3mp5tbu1hl7l78i7"
+				}
+			},
+			"system": {
+				"ac": {
+					"baseFormula": "",
+					"formula": "",
+					"maxDex": 0,
+					"minStr": 0,
+					"mode": 1,
+					"requiresNoShield": false,
+					"requiresUnarmored": false
+				},
+				"actions": {},
+				"description": "<p><em>Low-Maintenance (Expertise Die), Requirements STR 14, Stealth (Disadvantage)</em></p><p><strong>AC 14 (DEX +2 max)</strong></p>",
+				"favorite": false,
+				"secretDescription": "",
+				"source": "",
+				"uses": {
+					"value": null,
+					"max": "",
+					"per": null,
+					"recharge": {
+						"formula": "",
+						"threshold": ""
+					}
+				},
+				"schema": {
+					"version": null,
+					"lastMigration": null
+				},
+				"ammunitionProperties": [],
+				"armorCategory": "medium",
+				"armorProperties": [],
+				"attuned": false,
+				"bulky": false,
+				"craftingComponents": "",
+				"containerId": "",
+				"damagedState": 0,
+				"equippedState": 2,
+				"items": {},
+				"materialProperties": [
+					"lowMaintenance"
+				],
+				"objectType": "armor",
+				"plotItem": false,
+				"price": "50 gp",
+				"proficient": true,
+				"quantity": 1,
+				"rarity": "common",
+				"requiresAttunement": false,
+				"shieldCategory": "",
+				"shieldProperties": [],
+				"unidentified": false,
+				"unidentifiedDescription": "",
+				"unidentifiedName": "",
+				"weaponProperties": [],
+				"weight": 35,
+				"broken": false,
+				"schemaVersion": {
+					"version": 0.013,
+					"lastMigration": {
+						"version": {
+							"schema": 0.011,
+							"foundry": "11.315",
+							"system": "0.16.49"
+						}
+					}
+				}
+			},
+			"_id": "5s9ahW6MsC42c6cm",
+			"folder": null,
+			"sort": 0,
+			"ownership": {
+				"default": 0
+			}
+		},
+		{
+			"name": "Shield, Light",
+			"type": "object",
+			"img": "icons/equipment/shield/buckler-wooden-round-hole.webp",
+			"effects": [],
+			"flags": {
+				"core": {
+					"sourceId": "Compendium.a5e.a5e-adventuring-gear.xy2bn4687azmkadw"
+				}
+			},
+			"system": {
+				"ac": {
+					"baseFormula": "",
+					"formula": "",
+					"maxDex": 0,
+					"minStr": 0,
+					"mode": 1,
+					"requiresNoShield": false,
+					"requiresUnarmored": false
+				},
+				"actions": {
+					"PXojhMd3DNV0JlcA": {
+						"name": "Shield, Light",
+						"activation": {
+							"cost": "",
+							"type": "",
+							"reactionTrigger": ""
+						},
+						"duration": {
+							"unit": "",
+							"value": ""
+						},
+						"area": {
+							"shape": "",
+							"size": "",
+							"placeTemplate": false
+						},
+						"target": {
+							"quantity": 1,
+							"type": "creatureObject"
+						},
+						"rolls": {
+							"UBTLUZKeBuUrzZPR": {
+								"bonus": "",
+								"critThreshold": "20",
+								"type": "attack",
+								"attackType": "rangedWeaponAttack",
+								"ability": "default"
+							},
+							"Mis2fOPlQk8HnHid": {
+								"canCrit": true,
+								"damageType": "bludgeoning",
+								"formula": "1d6 + @str.mod",
+								"name": "Shield Throw (Improvised Weapon)",
+								"type": "damage"
+							}
+						},
+						"consumers": {}
+					}
+				},
+				"description": "<p><strong>AC +1</strong></p><hr class=\"a5e-rule u-my-md\"><p>When you take a critical hit, you can use your reaction to block it and sacrifice your shield, turning the critical hit into a regular hit. Afterwards your shield is broken, or if your shield is magical it instead becomes mundane for 1 hour.</p><hr class=\"a5e-rule u-my-md\"><p>You may throw this shield, treating it as an improvised weapon that deals 1d6 bludgeoning damage.</p>",
+				"favorite": true,
+				"secretDescription": "",
+				"source": "",
+				"uses": {
+					"value": null,
+					"max": "",
+					"per": null,
+					"recharge": {
+						"formula": "",
+						"threshold": ""
+					}
+				},
+				"schema": {
+					"version": null,
+					"lastMigration": null
+				},
+				"ammunitionProperties": [],
+				"armorCategory": "",
+				"armorProperties": [],
+				"attuned": false,
+				"bulky": false,
+				"craftingComponents": "",
+				"containerId": "",
+				"damagedState": 0,
+				"equippedState": 2,
+				"items": {},
+				"materialProperties": [],
+				"objectType": "shield",
+				"plotItem": false,
+				"price": "10 gp",
+				"proficient": true,
+				"quantity": 1,
+				"rarity": "common",
+				"requiresAttunement": false,
+				"shieldCategory": "",
+				"shieldProperties": [],
+				"unidentified": false,
+				"unidentifiedDescription": "",
+				"unidentifiedName": "",
+				"weaponProperties": [],
+				"weight": 4,
+				"broken": false,
+				"schemaVersion": {
+					"version": 0.013,
+					"lastMigration": {
+						"version": {
+							"schema": 0.011,
+							"foundry": "11.315",
+							"system": "0.16.49"
+						}
+					}
+				}
+			},
+			"_id": "1xaT1RIhjgacl5uX",
+			"folder": null,
+			"sort": 0,
+			"ownership": {
+				"default": 0
+			}
+		},
+		{
+			"name": "Saber",
+			"type": "object",
+			"img": "icons/weapons/swords/scimitar-guard.webp",
+			"effects": [],
+			"flags": {
+				"core": {
+					"sourceId": "Compendium.a5e.a5e-adventuring-gear.bbowllkalbhk2ndg"
+				}
+			},
+			"system": {
+				"ac": {
+					"baseFormula": "",
+					"formula": "",
+					"maxDex": 0,
+					"minStr": 0,
+					"mode": 1,
+					"requiresNoShield": false,
+					"requiresUnarmored": false
+				},
+				"actions": {
+					"jsu2QOxcIXcc0iTd": {
+						"name": "Saber",
+						"activation": {
+							"cost": "",
+							"type": "",
+							"reactionTrigger": ""
+						},
+						"duration": {
+							"unit": "",
+							"value": ""
+						},
+						"area": {
+							"shape": "",
+							"size": "",
+							"placeTemplate": false
+						},
+						"target": {
+							"quantity": 1,
+							"type": "creatureObject"
+						},
+						"rolls": {
+							"p2VbOGH5SnzgoVq2": {
+								"bonus": "",
+								"critThreshold": "20",
+								"type": "attack",
+								"attackType": "meleeWeaponAttack",
+								"ability": "default"
+							},
+							"7441dsfVqZKvsjav": {
+								"canCrit": true,
+								"damageType": "slashing",
+								"formula": "1d8 + @finesse.mod",
+								"name": "Saber Melee",
+								"type": "damage"
+							},
+							"YNAjqLmpnJYC569T": {
+								"canCrit": true,
+								"damageType": "slashing",
+								"formula": "1d10 + @finesse.mod",
+								"name": "Saber Mounted",
+								"type": "damage"
+							}
+						},
+						"consumers": {}
+					}
+				},
+				"description": "<p><em>Defensive (Light), Finesse, Mounted (1d10)</em></p>",
+				"favorite": true,
+				"secretDescription": "",
+				"source": "",
+				"uses": {
+					"value": null,
+					"max": "",
+					"per": null,
+					"recharge": {
+						"formula": "",
+						"threshold": ""
+					}
+				},
+				"schema": {
+					"version": null,
+					"lastMigration": null
+				},
+				"ammunitionProperties": [],
+				"armorCategory": "",
+				"armorProperties": [],
+				"attuned": false,
+				"bulky": false,
+				"craftingComponents": "",
+				"containerId": "",
+				"damagedState": 0,
+				"equippedState": 2,
+				"items": {},
+				"materialProperties": [],
+				"objectType": "weapon",
+				"plotItem": false,
+				"price": "30 gp",
+				"proficient": true,
+				"quantity": 1,
+				"rarity": "common",
+				"requiresAttunement": false,
+				"shieldCategory": "",
+				"shieldProperties": [],
+				"unidentified": false,
+				"unidentifiedDescription": "",
+				"unidentifiedName": "",
+				"weaponProperties": [
+					"defensive",
+					"finesse",
+					"mounted"
+				],
+				"weight": 3,
+				"broken": false,
+				"schemaVersion": {
+					"version": 0.013,
+					"lastMigration": {
+						"version": {
+							"schema": 0.011,
+							"foundry": "11.315",
+							"system": "0.16.49"
+						}
+					}
+				}
+			},
+			"_id": "gmOLf8Zz57kdEnl3",
+			"folder": null,
+			"sort": 0,
+			"ownership": {
+				"default": 0
+			}
+		},
+		{
+			"name": "Shortbow",
+			"type": "object",
+			"img": "icons/weapons/bows/shortbow-leather.webp",
+			"effects": [],
+			"flags": {
+				"core": {
+					"sourceId": "Compendium.a5e.a5e-adventuring-gear.ch3xxcc7yimo0ktm"
+				}
+			},
+			"system": {
+				"ac": {
+					"baseFormula": "",
+					"formula": "",
+					"maxDex": 0,
+					"minStr": 0,
+					"mode": 1,
+					"requiresNoShield": false,
+					"requiresUnarmored": false
+				},
+				"actions": {
+					"r1kRtpJyGoJa2gGw": {
+						"name": "Shortbow",
+						"activation": {
+							"cost": "",
+							"type": "",
+							"reactionTrigger": ""
+						},
+						"duration": {
+							"unit": "",
+							"value": ""
+						},
+						"ranges": {
+							"7rgFrJgmByhkMRCh": {
+								"range": 80,
+								"unit": "feet"
+							},
+							"lxMiXf1Pdv7vgZ4n": {
+								"range": 320,
+								"unit": "feet"
+							}
+						},
+						"area": {
+							"shape": "",
+							"size": "",
+							"placeTemplate": false
+						},
+						"target": {
+							"quantity": 1,
+							"type": "creatureObject"
+						},
+						"rolls": {
+							"xshXSzYVzhNSVpHJ": {
+								"bonus": "",
+								"critThreshold": "20",
+								"type": "attack",
+								"attackType": "rangedWeaponAttack",
+								"ability": "default"
+							},
+							"8NzfWWzRsyzqSfjw": {
+								"canCrit": true,
+								"damageType": "piercing",
+								"formula": "1d6 + @dex.mod",
+								"name": "Shortbow",
+								"type": "damage"
+							}
+						},
+						"consumers": {
+							"aisnVxHlFyIh5r48": {
+								"itemid": "",
+								"quantity": 1,
+								"type": "ammunition"
+							}
+						}
+					}
+				},
+				"description": "<p><em>Range (80/320), Two-Handed</em></p>",
+				"favorite": true,
+				"secretDescription": "",
+				"source": "",
+				"uses": {
+					"value": null,
+					"max": "",
+					"per": null,
+					"recharge": {
+						"formula": "",
+						"threshold": ""
+					}
+				},
+				"schema": {
+					"version": null,
+					"lastMigration": null
+				},
+				"ammunitionProperties": [],
+				"armorCategory": "",
+				"armorProperties": [],
+				"attuned": false,
+				"bulky": false,
+				"craftingComponents": "",
+				"containerId": "",
+				"damagedState": 0,
+				"equippedState": 2,
+				"items": {},
+				"materialProperties": [],
+				"objectType": "weapon",
+				"plotItem": false,
+				"price": "25 gp",
+				"proficient": true,
+				"quantity": 1,
+				"rarity": "common",
+				"requiresAttunement": false,
+				"shieldCategory": "",
+				"shieldProperties": [],
+				"unidentified": false,
+				"unidentifiedDescription": "",
+				"unidentifiedName": "",
+				"weaponProperties": [
+					"range",
+					"twoHanded"
+				],
+				"weight": 2,
+				"broken": false,
+				"schemaVersion": {
+					"version": 0.013,
+					"lastMigration": {
+						"version": {
+							"schema": 0.011,
+							"foundry": "11.315",
+							"system": "0.16.49"
+						}
+					}
+				}
+			},
+			"_id": "TyMwQMhLN2nlM1hN",
+			"folder": null,
+			"sort": 0,
+			"ownership": {
+				"default": 0
+			}
+		},
+		{
+			"name": "Shove",
+			"type": "maneuver",
+			"img": "icons/skills/melee/shield-block-bash-yellow.webp",
+			"effects": [],
+			"flags": {
+				"core": {
+					"sourceId": "Compendium.a5e.a5e-maneuvers.md35qozzy2fxy2o6"
+				}
+			},
+			"system": {
+				"actions": {
+					"IEe5j31oIZMsAMHm": {
+						"name": "Shove",
+						"activation": {
+							"cost": 1,
+							"type": "action",
+							"reactionTrigger": ""
+						},
+						"duration": {
+							"unit": "instantaneous",
+							"value": null
+						},
+						"ranges": {
+							"jqafSpLUWw5KFLFi": {
+								"range": "fiveFeet"
+							}
+						},
+						"area": {
+							"shape": "",
+							"size": "",
+							"placeTemplate": false
+						},
+						"target": {
+							"quantity": null,
+							"type": "creature",
+							"shape": "",
+							"size": ""
+						},
+						"rolls": {
+							"WrUY0WdJxatV3sW4": {
+								"canCrit": false,
+								"damageType": "bludgeoning",
+								"formula": "1 + @str.mod",
+								"name": "Default",
+								"type": "damage"
+							}
+						},
+						"prompts": {
+							"4cirxbpk64sXCTbm": {
+								"ability": "str",
+								"onSave": "",
+								"saveDC": {
+									"type": "custom",
+									"bonus": "@maneuverDC"
+								},
+								"type": "savingThrow"
+							}
+						},
+						"consumers": {}
+					}
+				},
+				"description": "<p>You can use the Shove maneuver to push a creature away. If you are able to make multiple attacks with the Attack action, this maneuver replaces one of them.</p><p>The target must be within your reach and be no more than one size category larger than you. The target makes a Strength saving throw against your maneuver DC. On a failure, you deal basic melee damage and push the target a number of feet away from you equal to 5 + 5 for every 5 points it failed its saving throw by. You can move the creature in any direction away from you (to the side, forward, or diagonally away).</p><p>A creature that is shoved off of a precipice is propelled off of whatever it is standing on -- it does not receive any saving throw or ability check to grab onto something to avoid falling down below.</p>",
+				"favorite": false,
+				"secretDescription": "",
+				"source": "",
+				"uses": {
+					"value": null,
+					"max": "",
+					"per": null,
+					"recharge": {
+						"formula": "",
+						"threshold": ""
+					}
+				},
+				"schema": {
+					"version": null,
+					"lastMigration": null
+				},
+				"concentration": false,
+				"degree": 0,
+				"exertionCost": 0,
+				"isStance": false,
+				"prerequisite": "",
+				"tradition": "",
+				"schemaVersion": {
+					"version": 0.013,
+					"lastMigration": {
+						"version": {
+							"schema": 0.011,
+							"foundry": "11.315",
+							"system": "0.16.49"
+						}
+					}
+				}
+			},
+			"ownership": {
+				"default": 0
+			},
+			"folder": null,
+			"sort": 0,
+			"_id": "8IRcCaahYb9pQ6Ms"
+		},
+		{
+			"name": "Disarm",
+			"type": "maneuver",
+			"img": "icons/skills/melee/sword-damaged-broken-glow-red.webp",
+			"effects": [],
+			"flags": {
+				"core": {
+					"sourceId": "Compendium.a5e.a5e-maneuvers.c0bv7fsy2akld5lp"
+				}
+			},
+			"system": {
+				"actions": {
+					"6bSVidpQczi6yDlv": {
+						"name": "Disarm",
+						"activation": {
+							"cost": 1,
+							"type": "action",
+							"reactionTrigger": ""
+						},
+						"duration": {
+							"unit": "instantaneous",
+							"value": null
+						},
+						"ranges": {
+							"tToLPambvOr4jQe9": {
+								"range": "touch"
+							}
+						},
+						"area": {
+							"shape": "",
+							"size": "",
+							"placeTemplate": false
+						},
+						"target": {
+							"quantity": "",
+							"type": "creature",
+							"shape": "",
+							"size": ""
+						},
+						"rolls": {
+							"iESnkHgfDd5G9Oef": {
+								"canCrit": false,
+								"damageType": "",
+								"formula": "1 + @str.mod",
+								"name": "",
+								"type": "damage"
+							}
+						},
+						"prompts": {
+							"65EpemFe8mhlS4Ga": {
+								"ability": "str",
+								"onSave": "",
+								"saveDC": {
+									"type": "custom",
+									"bonus": "@maneuverDC"
+								},
+								"type": "savingThrow"
+							}
+						},
+						"consumers": {}
+					}
+				},
+				"description": "<p>You can use the Disarm maneuver to attempt to knock an item or weapon from a creature's hand. If you are able to make multiple attacks with the Attack action, this maneuver replaces one of them.</p><p>The target must be within your reach and be holding an item (either carried or wielded). The target makes a Strength or Dexterity saving throw against your maneuver DC. On a failure, you deal basic melee damage and the target drops the item in its space. The target has advantage if it is larger than you or holding the item with two or more hands, and a target smaller than you has disadvantage.</p>",
+				"favorite": false,
+				"secretDescription": "",
+				"source": "",
+				"uses": {
+					"value": null,
+					"max": "",
+					"per": null,
+					"recharge": {
+						"formula": "",
+						"threshold": ""
+					}
+				},
+				"schema": {
+					"version": null,
+					"lastMigration": null
+				},
+				"concentration": false,
+				"degree": 0,
+				"exertionCost": 0,
+				"isStance": false,
+				"prerequisite": "",
+				"tradition": "",
+				"schemaVersion": {
+					"version": 0.013,
+					"lastMigration": {
+						"version": {
+							"schema": 0.011,
+							"foundry": "11.315",
+							"system": "0.16.49"
+						}
+					}
+				}
+			},
+			"ownership": {
+				"default": 0
+			},
+			"folder": null,
+			"sort": 0,
+			"_id": "XtDHbqURszZOxRix"
+		},
+		{
+			"name": "Grab On",
+			"type": "maneuver",
+			"img": "icons/skills/melee/hand-grip-staff-teal.webp",
+			"effects": [],
+			"flags": {
+				"core": {
+					"sourceId": "Compendium.a5e.a5e-maneuvers.jewmp4pzrg9cdui9"
+				}
+			},
+			"system": {
+				"actions": {
+					"GRvxH2i96AU4Y9lA": {
+						"name": "Grab On",
+						"activation": {
+							"cost": 1,
+							"type": "action",
+							"reactionTrigger": ""
+						},
+						"duration": {
+							"unit": "instantaneous",
+							"value": null
+						},
+						"ranges": {
+							"pzPBKaLgH10JwelC": {
+								"range": "touch"
+							}
+						},
+						"area": {
+							"shape": "",
+							"size": "",
+							"placeTemplate": false
+						},
+						"target": {
+							"quantity": "",
+							"type": "creature",
+							"shape": "",
+							"size": ""
+						},
+						"prompts": {
+							"TtX060fQdI33OvU0": {
+								"ability": "str",
+								"onSave": "",
+								"saveDC": {
+									"type": "custom",
+									"bonus": "@maneuverDC"
+								},
+								"type": "savingThrow"
+							}
+						},
+						"consumers": {}
+					}
+				},
+				"description": "<p>While you cannot grapple a creature two or more size categories larger than you, you can grab onto it. By jumping onto its back or climbing up a limb, you can make a Strength or Dexterity saving throw against the creature's maneuver DC to cling to or balance upon its body. On a success, you move into the creature's space and can move upon its body as if it is difficult terrain.</p><p>While grabbing onto a larger creature, you gain advantage on attack rolls against it. The larger creature may be able to attack you as normal, depending on its limbs or attacks. It can also use an action or replace one of its attacks on its turn to try to dislodge you, such as shaking you loose or bashing you against a wall, forcing you to make a Strength or Dexterity saving throw against its maneuver DC or fall prone into the nearest space adjacent to the creature, taking its basic melee damage in the process.</p><p>If the creature chooses to roll over in order to dislodge you, it becomes prone, but you have disadvantage on the saving throw to hang on.</p>",
+				"favorite": false,
+				"secretDescription": "",
+				"source": "",
+				"uses": {
+					"value": null,
+					"max": "",
+					"per": null,
+					"recharge": {
+						"formula": "",
+						"threshold": ""
+					}
+				},
+				"schema": {
+					"version": null,
+					"lastMigration": null
+				},
+				"concentration": false,
+				"degree": 0,
+				"exertionCost": 0,
+				"isStance": false,
+				"prerequisite": "",
+				"tradition": "",
+				"schemaVersion": {
+					"version": 0.013,
+					"lastMigration": {
+						"version": {
+							"schema": 0.011,
+							"foundry": "11.315",
+							"system": "0.16.49"
+						}
+					}
+				}
+			},
+			"ownership": {
+				"default": 0
+			},
+			"folder": null,
+			"sort": 0,
+			"_id": "aKegEswBN782Nev0"
+		},
+		{
+			"name": "Knockdown",
+			"type": "maneuver",
+			"img": "icons/magic/control/silhouette-fall-slip-prone.webp",
+			"effects": [],
+			"flags": {
+				"core": {
+					"sourceId": "Compendium.a5e.a5e-maneuvers.zzg7j7cb0vkgctwi"
+				}
+			},
+			"system": {
+				"actions": {
+					"tmwnI2j5oNDnsSWZ": {
+						"name": "Knockdown",
+						"activation": {
+							"cost": 1,
+							"type": "action",
+							"reactionTrigger": ""
+						},
+						"duration": {
+							"unit": "instantaneous",
+							"value": null
+						},
+						"ranges": {
+							"C8ldWwbGywk4QoaT": {
+								"range": "touch"
+							}
+						},
+						"area": {
+							"shape": "",
+							"size": "",
+							"placeTemplate": false
+						},
+						"target": {
+							"quantity": "",
+							"type": "creature",
+							"shape": "",
+							"size": ""
+						},
+						"prompts": {
+							"Drps102yglyUo3mc": {
+								"ability": "str",
+								"onSave": "",
+								"saveDC": {
+									"type": "custom",
+									"bonus": "@maneuverDC"
+								},
+								"type": "savingThrow"
+							}
+						},
+						"consumers": {}
+					}
+				},
+				"description": "<p>You can use the Knockdown maneuver to trip or push a creature down. If you are able to make multiple attacks with the Attack action, this maneuver replaces one of them.</p><p>The target must be within your reach and be no more than one size category larger than you. The target makes a Strength saving throw against your maneuver DC. On a failure, you deal basic melee damage and knock the target prone.</p>",
+				"favorite": false,
+				"secretDescription": "",
+				"source": "",
+				"uses": {
+					"value": null,
+					"max": "",
+					"per": null,
+					"recharge": {
+						"formula": "",
+						"threshold": ""
+					}
+				},
+				"schema": {
+					"version": null,
+					"lastMigration": null
+				},
+				"concentration": false,
+				"degree": 0,
+				"exertionCost": 0,
+				"isStance": false,
+				"prerequisite": "",
+				"tradition": "",
+				"schemaVersion": {
+					"version": 0.013,
+					"lastMigration": {
+						"version": {
+							"schema": 0.011,
+							"foundry": "11.315",
+							"system": "0.16.49"
+						}
+					}
+				}
+			},
+			"ownership": {
+				"default": 0
+			},
+			"folder": null,
+			"sort": 0,
+			"_id": "vMZt7XrEnbtPGyLF"
+		},
+		{
+			"name": "Grapple",
+			"type": "maneuver",
+			"img": "icons/skills/melee/unarmed-punch-fist.webp",
+			"effects": [],
+			"flags": {
+				"core": {
+					"sourceId": "Compendium.a5e.a5e-maneuvers.9umrahwm68f81d7l"
+				}
+			},
+			"system": {
+				"actions": {
+					"78GEu8695zekGziO": {
+						"name": "Grapple",
+						"activation": {
+							"cost": 1,
+							"type": "action",
+							"reactionTrigger": ""
+						},
+						"duration": {
+							"unit": "instantaneous",
+							"value": null
+						},
+						"ranges": {
+							"jWSvymt8MPk9K2Ya": {
+								"range": "touch"
+							}
+						},
+						"area": {
+							"shape": "",
+							"size": "",
+							"placeTemplate": false
+						},
+						"target": {
+							"quantity": "",
+							"type": "creature",
+							"shape": "",
+							"size": ""
+						},
+						"prompts": {
+							"rUgpULNW7pII98mO": {
+								"ability": "str",
+								"onSave": "",
+								"saveDC": {
+									"type": "custom",
+									"bonus": "@maneuverDC"
+								},
+								"type": "savingThrow"
+							}
+						},
+						"consumers": {}
+					}
+				},
+				"description": "<p>You can use the Grapple maneuver to grab or wrestle a creature. If you are able to make multiple attacks with the Attack action, this maneuver replaces one of them.</p>\n<p>You must have at least one free hand to attempt a grapple, your target must be within your reach, and the target must be no more than one size category larger than you. The target makes a Strength or Dexterity saving throw against your maneuver DC. On a failure, you deal basic melee damage and the target becomes grappled (see Appendix A: Conditions on page 616). In addition to things that end the condition, you can release the target at any time (no action required).</p>\n<p><em>Escaping a Grapple.</em> While grappled, a creature can use its action to attempt to escape. It must succeed on a Strength or Dexterity saving throw against your maneuver DC.</p>\n<p><em>Moving a Grappled Creature. </em>When you move, you can drag or carry the grappled creature with you. When you do so, your Speed is halved, unless the creature's weight is within your carrying capacity and you are not encumbered by bulky items.</p>\n<p><em>Freeing a Grappled Creature.</em> You can use the Grapple maneuver to try to free another grappled or restrained creature. The creature grappling or restraining the target makes a Strength saving throw against your maneuver DC. If it fails the saving throw, the grappled or restrained creature is freed. Additionally, you may move the freed creature 5 feet in any direction.</p>",
+				"favorite": false,
+				"secretDescription": "",
+				"source": "",
+				"uses": {
+					"value": null,
+					"max": "",
+					"per": null,
+					"recharge": {
+						"formula": "",
+						"threshold": ""
+					}
+				},
+				"schema": {
+					"version": null,
+					"lastMigration": null
+				},
+				"concentration": false,
+				"degree": 0,
+				"exertionCost": 0,
+				"isStance": false,
+				"prerequisite": "",
+				"tradition": "",
+				"schemaVersion": {
+					"version": 0.013,
+					"lastMigration": {
+						"version": {
+							"schema": 0.011,
+							"foundry": "11.315",
+							"system": "0.16.49"
+						}
+					}
+				}
+			},
+			"ownership": {
+				"default": 0
+			},
+			"folder": null,
+			"sort": 0,
+			"_id": "bJQfCJjXJymYukXX"
+		},
+		{
+			"name": "Overrun",
+			"type": "maneuver",
+			"img": "icons/skills/melee/shield-damaged-broken-blue.webp",
+			"effects": [],
+			"flags": {
+				"core": {
+					"sourceId": "Compendium.a5e.a5e-maneuvers.210ihnnejao46r20"
+				}
+			},
+			"system": {
+				"actions": {
+					"WZXTdewaec18W6eW": {
+						"name": "Overrun",
+						"activation": {
+							"cost": 1,
+							"type": "special",
+							"reactionTrigger": ""
+						},
+						"duration": {
+							"unit": "instantaneous",
+							"value": null
+						},
+						"ranges": {
+							"hkmjppWz7q3Qz1tB": {
+								"range": "touch"
+							}
+						},
+						"area": {
+							"shape": "",
+							"size": "",
+							"placeTemplate": false
+						},
+						"target": {
+							"quantity": "",
+							"type": "creature",
+							"shape": "",
+							"size": ""
+						},
+						"prompts": {
+							"xukyOAP3hkc6mTar": {
+								"ability": "str",
+								"onSave": "",
+								"saveDC": {
+									"type": "custom",
+									"bonus": "@maneuverDC"
+								},
+								"type": "savingThrow"
+							}
+						},
+						"consumers": {}
+					}
+				},
+				"description": "<p>You can use an action or bonus action to make an Overrun maneuver to move through a hostile creature's space by forcing your way past. Make a Strength saving throw against the target's maneuver DC. On a success, you deal basic melee damage and can move through the hostile creature's space once this turn. The creature can choose to just let you pass instead of rolling. You have advantage if you are larger than the target, or disadvantage if you are smaller. If you are two or more sizes smaller than the target, you can move through the hostile creature's space without making a save. You still provoke opportunity attacks if you move beyond a creature's reach.</p>",
+				"favorite": false,
+				"secretDescription": "",
+				"source": "",
+				"uses": {
+					"value": null,
+					"max": "",
+					"per": null,
+					"recharge": {
+						"formula": "",
+						"threshold": ""
+					}
+				},
+				"schema": {
+					"version": null,
+					"lastMigration": null
+				},
+				"concentration": false,
+				"degree": 0,
+				"exertionCost": 0,
+				"isStance": false,
+				"prerequisite": "",
+				"tradition": "",
+				"schemaVersion": {
+					"version": 0.013,
+					"lastMigration": {
+						"version": {
+							"schema": 0.011,
+							"foundry": "11.315",
+							"system": "0.16.49"
+						}
+					}
+				}
+			},
+			"ownership": {
+				"default": 0
+			},
+			"folder": null,
+			"sort": 0,
+			"_id": "i7QR6BZnjNIUPGvg"
+		}
+	],
+	"effects": [],
+	"flags": {},
+	"system": {
+		"abilities": {
+			"str": {
+				"value": 8,
+				"check": {
+					"expertiseDice": 0,
+					"bonus": ""
+				},
+				"save": {
+					"proficient": false,
+					"expertiseDice": 0,
+					"bonus": ""
+				}
+			},
+			"dex": {
+				"value": 12,
+				"check": {
+					"expertiseDice": 0,
+					"bonus": ""
+				},
+				"save": {
+					"proficient": false,
+					"expertiseDice": 0,
+					"bonus": ""
+				}
+			},
+			"con": {
+				"value": 10,
+				"check": {
+					"expertiseDice": 0,
+					"bonus": ""
+				},
+				"save": {
+					"proficient": false,
+					"expertiseDice": 0,
+					"bonus": ""
+				}
+			},
+			"int": {
+				"value": 10,
+				"check": {
+					"expertiseDice": 0,
+					"bonus": ""
+				},
+				"save": {
+					"proficient": false,
+					"expertiseDice": 0,
+					"bonus": ""
+				}
+			},
+			"wis": {
+				"value": 10,
+				"check": {
+					"expertiseDice": 0,
+					"bonus": ""
+				},
+				"save": {
+					"proficient": false,
+					"expertiseDice": 0,
+					"bonus": ""
+				}
+			},
+			"cha": {
+				"value": 10,
+				"check": {
+					"expertiseDice": 0,
+					"bonus": ""
+				},
+				"save": {
+					"proficient": false,
+					"expertiseDice": 0,
+					"bonus": ""
+				}
+			}
+		},
+		"schemaVersion": {
+			"version": 0.013,
+			"lastMigration": {
+				"version": {
+					"schema": 0.011,
+					"foundry": "11.315",
+					"system": "0.16.49"
+				}
+			}
+		},
+		"skills": {
+			"acr": {
+				"ability": "dex",
+				"value": 0,
+				"proficient": false,
+				"specialties": [],
+				"expertiseDice": 0,
+				"minRoll": 1,
+				"bonuses": {
+					"check": "",
+					"passive": 0
+				}
+			},
+			"ani": {
+				"ability": "wis",
+				"value": 0,
+				"proficient": false,
+				"specialties": [],
+				"expertiseDice": 0,
+				"minRoll": 1,
+				"bonuses": {
+					"check": "",
+					"passive": 0
+				}
+			},
+			"arc": {
+				"ability": "int",
+				"value": 0,
+				"proficient": false,
+				"specialties": [],
+				"expertiseDice": 0,
+				"minRoll": 1,
+				"bonuses": {
+					"check": "",
+					"passive": 0
+				}
+			},
+			"ath": {
+				"ability": "str",
+				"value": 0,
+				"proficient": false,
+				"specialties": [],
+				"expertiseDice": 0,
+				"minRoll": 1,
+				"bonuses": {
+					"check": "",
+					"passive": 0
+				}
+			},
+			"cul": {
+				"ability": "int",
+				"value": 0,
+				"proficient": false,
+				"specialties": [],
+				"expertiseDice": 0,
+				"minRoll": 1,
+				"bonuses": {
+					"check": "",
+					"passive": 0
+				}
+			},
+			"dec": {
+				"ability": "cha",
+				"value": 0,
+				"proficient": false,
+				"specialties": [],
+				"expertiseDice": 0,
+				"minRoll": 1,
+				"bonuses": {
+					"check": "",
+					"passive": 0
+				}
+			},
+			"eng": {
+				"ability": "int",
+				"value": 0,
+				"proficient": false,
+				"specialties": [],
+				"expertiseDice": 0,
+				"minRoll": 1,
+				"bonuses": {
+					"check": "",
+					"passive": 0
+				}
+			},
+			"his": {
+				"ability": "int",
+				"value": 0,
+				"proficient": false,
+				"specialties": [],
+				"expertiseDice": 0,
+				"minRoll": 1,
+				"bonuses": {
+					"check": "",
+					"passive": 0
+				}
+			},
+			"ins": {
+				"ability": "wis",
+				"value": 0,
+				"proficient": false,
+				"specialties": [],
+				"expertiseDice": 0,
+				"minRoll": 1,
+				"bonuses": {
+					"check": "",
+					"passive": 0
+				}
+			},
+			"itm": {
+				"ability": "cha",
+				"value": 0,
+				"proficient": false,
+				"specialties": [],
+				"expertiseDice": 0,
+				"minRoll": 1,
+				"bonuses": {
+					"check": "",
+					"passive": 0
+				}
+			},
+			"inv": {
+				"ability": "int",
+				"value": 0,
+				"proficient": false,
+				"specialties": [],
+				"expertiseDice": 0,
+				"minRoll": 1,
+				"bonuses": {
+					"check": "",
+					"passive": 0
+				}
+			},
+			"med": {
+				"ability": "wis",
+				"value": 0,
+				"proficient": false,
+				"specialties": [],
+				"expertiseDice": 0,
+				"minRoll": 1,
+				"bonuses": {
+					"check": "",
+					"passive": 0
+				}
+			},
+			"nat": {
+				"ability": "int",
+				"value": 0,
+				"proficient": false,
+				"specialties": [],
+				"expertiseDice": 0,
+				"minRoll": 1,
+				"bonuses": {
+					"check": "",
+					"passive": 0
+				}
+			},
+			"prc": {
+				"ability": "wis",
+				"value": 0,
+				"proficient": false,
+				"specialties": [],
+				"expertiseDice": 0,
+				"minRoll": 1,
+				"bonuses": {
+					"check": "",
+					"passive": 0
+				}
+			},
+			"prf": {
+				"ability": "cha",
+				"value": 0,
+				"proficient": false,
+				"specialties": [],
+				"expertiseDice": 0,
+				"minRoll": 1,
+				"bonuses": {
+					"check": "",
+					"passive": 0
+				}
+			},
+			"per": {
+				"ability": "cha",
+				"value": 0,
+				"proficient": false,
+				"specialties": [],
+				"expertiseDice": 0,
+				"minRoll": 1,
+				"bonuses": {
+					"check": "",
+					"passive": 0
+				}
+			},
+			"rel": {
+				"ability": "int",
+				"value": 0,
+				"proficient": false,
+				"specialties": [],
+				"expertiseDice": 0,
+				"minRoll": 1,
+				"bonuses": {
+					"check": "",
+					"passive": 0
+				}
+			},
+			"slt": {
+				"ability": "dex",
+				"value": 0,
+				"proficient": false,
+				"specialties": [],
+				"expertiseDice": 0,
+				"minRoll": 1,
+				"bonuses": {
+					"check": "",
+					"passive": 0
+				}
+			},
+			"ste": {
+				"ability": "dex",
+				"value": 0,
+				"proficient": true,
+				"specialties": [],
+				"expertiseDice": 1,
+				"minRoll": 1,
+				"bonuses": {
+					"check": "",
+					"passive": 0
+				}
+			},
+			"sur": {
+				"ability": "wis",
+				"value": 0,
+				"proficient": false,
+				"specialties": [],
+				"expertiseDice": 0,
+				"minRoll": 1,
+				"bonuses": {
+					"check": "",
+					"passive": 0
+				}
+			}
+		},
+		"spellResources": {
+			"slots": {
+				"1": {
+					"current": 0,
+					"max": 0
+				},
+				"2": {
+					"current": 0,
+					"max": 0
+				},
+				"3": {
+					"current": 0,
+					"max": 0
+				},
+				"4": {
+					"current": 0,
+					"max": 0
+				},
+				"5": {
+					"current": 0,
+					"max": 0
+				},
+				"6": {
+					"current": 0,
+					"max": 0
+				},
+				"7": {
+					"current": 0,
+					"max": 0
+				},
+				"8": {
+					"current": 0,
+					"max": 0
+				},
+				"9": {
+					"current": 0,
+					"max": 0
+				}
+			},
+			"points": {
+				"current": 0,
+				"max": 0
+			}
+		},
+		"attributes": {
+			"ac": {
+				"baseFormula": "17",
+				"value": 0
+			},
+			"death": {
+				"success": 0,
+				"failure": 0
+			},
+			"hp": {
+				"value": 10,
+				"baseMax": 10,
+				"temp": 0,
+				"bonus": 0
+			},
+			"hitDice": {
+				"d6": {
+					"current": 3,
+					"total": 3
+				},
+				"d8": {
+					"current": 0,
+					"total": 0
+				},
+				"d10": {
+					"current": 0,
+					"total": 0
+				},
+				"d12": {
+					"current": 0,
+					"total": 0
+				},
+				"d4": {
+					"current": 0,
+					"total": 0
+				},
+				"d20": {
+					"current": 0,
+					"total": 0
+				}
+			},
+			"initiative": {
+				"bonus": "",
+				"expertiseDice": 0,
+				"ability": "dex"
+			},
+			"movement": {
+				"burrow": {
+					"distance": 0,
+					"unit": "feet"
+				},
+				"climb": {
+					"distance": 0,
+					"unit": "feet"
+				},
+				"fly": {
+					"distance": 0,
+					"unit": "feet"
+				},
+				"swim": {
+					"distance": 0,
+					"unit": "feet"
+				},
+				"walk": {
+					"distance": 30,
+					"unit": "feet"
+				},
+				"traits": {
+					"hover": false
+				}
+			},
+			"senses": {
+				"blindsight": {
+					"distance": 0,
+					"unit": "feet",
+					"otherwiseBlind": false
+				},
+				"darkvision": {
+					"distance": 60,
+					"unit": "feet"
+				},
+				"tremorsense": {
+					"distance": 0,
+					"unit": "feet"
+				},
+				"truesight": {
+					"distance": 0,
+					"unit": "feet"
+				}
+			},
+			"inspiration": false,
+			"fatigue": 0,
+			"strife": 0,
+			"spellcasting": "int",
+			"casterLevel": 0
+		},
+		"bonuses": {
+			"abilities": {},
+			"damage": {},
+			"healing": {},
+			"maneuverDC": "",
+			"meleeSpellAttack": "",
+			"meleeWeaponAttack": "",
+			"rangedSpellAttack": "",
+			"rangedWeaponAttack": "",
+			"spellDC": "",
+			"skills": {},
+			"attacks": {},
+			"initiative": {},
+			"movement": {},
+			"senses": {}
+		},
+		"currency": {
+			"pp": 0,
+			"gp": 0,
+			"ep": 0,
+			"sp": 0,
+			"cp": 0
+		},
+		"details": {
+			"bio": "<h2>Combat</h2><p>Goblins attack only when they outnumber their opponents. They employ ambush, firing arrows from hiding and then using Nimble Escape to hide elsewhere. When they can, they turn an aspect of the battle to their advantage, attacking in darkness or from above or amongst traps and hazards. If a goblin is engaged in melee while not in an advantageous position, it attacks with its shortsword and then disengages. Unless a powerful leader forces them to stand their ground, goblins retreat once they no longer outnumber their enemy.</p><hr class=\"a5e-rule u-my-md\"><h2>Goblin Names</h2><p>Blacktooth, Briarbones, Dinda, Flea, Flundercork, Grimgargle, Gurp, One-Toe, Ood, Skirn, Thrunk, Vivvle</p><hr class=\"a5e-rule u-my-md\"><h2>Legends and Lore</h2><p>With a History or Nature check, characters can learn the following:</p><p><strong>DC 10</strong> Goblins are small humanoids. While many find them disgusting, they are clever and resourceful creatures.</p><p><strong>DC 15</strong> Goblins rarely attack unless they outnumber their foes. For every goblin you see, there are usually two more lurking nearby.</p><p><strong>DC 20</strong> Goblins sometimes serve larger humanoids or train giant rats as watchdogs or mounts.</p><p>Description</p><p>From the wildest forests to the most sprawling metropolises, there's no place in the world you won't find goblins. For these small, individually weak creatures, survival is the greatest virtue.&nbsp;</p><p><strong><em>It's A Living.</em></strong> Life is unfair to goblins. It's the one thing they can count on. Goblins are rarely granted mercy or kindness by larger folk, and in return they rarely extend it to others.&nbsp;</p><p>Goblins are often found in the service of more powerful creatures, particularly larger goblinoids such as hobgoblins . When faced with impossible tasks or unfair expectations, goblins grumble and complain, plot petty revenge, then roll up their sleeves and get to work. Where other creatures might turn up their noses at disgusting, cramped environments, goblins see opportunity. They will carve out space where none exists, flourishing in the cracks of civilization or in the unforgiving wilderness.</p><p><strong><em>Expert Opportunists.</em> </strong>Goblins often lurk in civilization’s liminal spaces: in abandoned mines within raiding distance of a village, or in a sprawling sewer beneath a city. Goblins can find a use for almost anything, from broken or discarded gear to abandoned tunnels to the rotting husks of long-dead trees. Goblin equipment is frequently scavenged or crafted out of unlikely materials. Goblins rarely risk combat, except when they are certain they have the upper hand. They will gladly take your discarded food, however—and, if you're not careful, whatever's on your table and in the bag you left unattended, as well.&nbsp;</p><p><strong><em>Feral Glee.</em> </strong>Goblins take their joy wherever they can find it. An unsupervised moment to play is a prize they cherish more than food or treasure. It may not last long, but goblins can make a game out of anything, and they respond well to anyone who plays along.</p><p>Behavior</p><p><strong>Lone Behavior</strong></p><p>1–3 Scouting or patrolling for a larger group</p><p>4 Exiled; will betray its former comrades’ location to well-armed travelers (unless it’s a doublecross?)</p><p>5 Loaded down with stolen treasure</p><p>6 A goblin with no tribe; it knows the local area well</p><hr class=\"a5e-rule u-my-md\"><p><strong>Group Behavior in Desert or Grassland</strong></p><p>1 Drinking and filling waterskins at a well or stream</p><p>2 Hungry; arguing about the direction of the nearest food source</p><p>3 Traders who know their way through the trackless expanse</p><p>4 Living in an abandoned temple or palace</p><hr class=\"a5e-rule u-my-md\"><p><strong>Group Behavior in Hills or Mountains</strong></p><p>1 Hiding at a peak or clifftop, waiting to ambush travelers</p><p>2 Dragging a stumbling dwarf captive back to their camp</p><p>3 Fleeing from tyrannical hobgoblin masters</p><p>4 Scouting near their lair</p><hr class=\"a5e-rule u-my-md\"><p><strong>Group Behavior in Tundra</strong></p><p>1 Pulling and riding in a dogsled</p><p>2 Shivering next to a campfire</p><p>3 Having a snowball fight</p><p>4 Lying in ambush under snow</p><hr class=\"a5e-rule u-my-md\"><p><strong>Group Behavior in Forest, Jungle, or Swamp</strong></p><p>1 Hiding in the underbrush, waiting to ambush travelers</p><p>2 Stealthily surrounding an isolated homestead</p><p>3 Setting fires or preparing a fire trap</p><p>4 Lying in ambush in the trees, armed with nets</p><hr class=\"a5e-rule u-my-md\"><p><strong>Group Behavior in Settled Land</strong></p><p>1 On a raid, setting fire to a barn</p><p>2 Stealing panicky horses, several goblins to a horse</p><p>3 With goods to trade</p><p>4 Running a traveling circus or theater</p><hr class=\"a5e-rule u-my-md\"><p><strong>Group Behavior Underground</strong></p><p>1 Unwilling servants of a tough monster</p><p>2 Struggling to open a stuck door or crawl through a narrow crack</p><p>3 Spreading caltrops</p><p>4 Sleeping, guarded by a drowsy sentry</p><p>5 Looking down from holes in the ceiling, prepared to shoot arrows and drop rocks</p><p>6 Hiding in ambush behind giant mushrooms, stalagmites, furniture, or pillars</p><p>Signs</p><p>1 DC 15 Perception or Survival check: small footprints</p><p>2 DC 15 Perception or Survival check: a concealed trap, such as a hunting trap, pit trap, or tripwire</p><p>3 A filthy campsite</p><p>4 A looted corpse or an arrow-riddled game animal</p><p>5 A dead goblin</p><p>6 Discarded gear, such as a broken shortsword, an arrow stuck in the ground, or a smashed bottle</p><p>Encounters</p><p>Goblins can eke out an existence in nearly any environment.</p><p><strong>CR 0–2</strong> 1d4 goblins ; goblin with bloodhawk or giant rat</p><p><strong>Treasure</strong> 25 gp, 150 sp, 3<em> potions of climbing </em>, 2 <em>potions of healing</em></p><p><strong>CR 3–4</strong> 4 to 6 goblins with goblin boss , goblin warlock , or 2 goblin specialists ; 3 or 4 goblins riding worgs (or Large rats with the statistics of worgs); 3 or 4 goblins with bugbear , death dog , or ogre ; 4 to 6 goblin specialists</p><p><strong>Treasure</strong> 100 gp, 500 sp, dented silver helmet (75 gp), a hollow book containing 2 <em>potions of growth </em>and 2<em> potions of healing , 6 1 arrows </em>&nbsp;</p><p><strong>CR 5–10</strong> goblin boss and 1d6 + 6 goblins with one of the following: cave bear or goblin warlock , 2 ogrekin , 3 goblin specialists , or 4 hobgoblins or worgs</p><p><strong>Treasure</strong> 400 gp, 1,000 sp, silver and garnet necklace (250 gp), a wagon full of trade goods (500 gp), <em>hat of disguise , immovable rod</em></p><p>Monster Type Description</p><p></p><p>Humanoids include a number of different intelligent, language-using bipeds of Small or Medium size. Humans and elves are humanoids, and so are orcs and goblins. Humanoids may employ magic but are not fundamentally magical—a characteristic that distinguishes them from bipedal, language-using fey, fiends, and other monsters. Humanoids have no inherent alignment, meaning that no humanoid ancestry is naturally good or evil, lawful or chaotic.</p>",
+			"creatureTypes": [
+				"humanoid"
+			],
+			"isSwarm": false,
+			"cr": 0.5,
+			"elite": false,
+			"privateNotes": "<div>\n<h2>COMBAT</h2>\n<p>Goblins attack only when they outnumber their opponents. They employ ambush, firing arrows from hiding and then using Nimble Escape to hide elsewhere. When they can, they turn an aspect of the battle to their advantage, attacking in darkness or from above or amongst traps and hazards. If a goblin is engaged in melee while not in an advantageous position, it attacks with its shortsword and then disengages. Unless a powerful leader forces them to stand their ground, goblins retreat once they no longer outnumber their enemy.</p>\n<hr />\n<h2>GOBLIN NAMES</h2>\n<p>Blacktooth, Briarbones, Dinda, Flea, Flundercork, Grimgargle, Gurp, One-Toe, Ood, Skirn, Thrunk, Vivvle</p>\n<hr />\n<h2>LEGENDS AND LORE</h2>\n<p>With a History or Nature check, characters can learn the following:</p>\n<p>DC 10 Goblins are small humanoids. While many find them disgusting, they are clever and resourceful creatures.</p>\n<p>DC 15 Goblins rarely attack unless they outnumber their foes. For every goblin you see, there are usually two more lurking nearby.</p>\n<p>DC 20 Goblins sometimes serve larger humanoids or train giant rats as watchdogs or mounts.</p>\n</div>\n<div>\n<p>From the wildest forests to the most sprawling metropolises, there's no place in the world you won't find goblins. For these small, individually weak creatures, survival is the greatest virtue.&nbsp;</p>\n<p>It's A Living. Life is unfair to goblins. It's the one thing they can count on. Goblins are rarely granted mercy or kindness by larger folk, and in return they rarely extend it to others.&nbsp;</p>\n<p>Goblins are often found in the service of more powerful creatures, particularly larger goblinoids such as hobgoblins. When faced with impossible tasks or unfair expectations, goblins grumble and complain, plot petty revenge, then roll up their sleeves and get to work. Where other creatures might turn up their noses at disgusting, cramped environments, goblins see opportunity. They will carve out space where none exists, flourishing in the cracks of civilization or in the unforgiving wilderness.</p>\n<p>Expert Opportunists. Goblins often lurk in civilization&rsquo;s liminal spaces: in abandoned mines within raiding distance of a village, or in a sprawling sewer beneath a city. Goblins can find a use for almost anything, from broken or discarded gear to abandoned tunnels to the rotting husks of long-dead trees. Goblin equipment is frequently scavenged or crafted out of unlikely materials. Goblins rarely risk combat, except when they are certain they have the upper hand. They will gladly take your discarded food, however&mdash;and, if you're not careful, whatever's on your table and in the bag you left unattended, as well.&nbsp;</p>\n<p>Feral Glee. Goblins take their joy wherever they can find it. An unsupervised moment to play is a prize they cherish more than food or treasure. It may not last long, but goblins can make a game out of anything, and they respond well to anyone who plays along.</p>\n</div>",
+			"notes": "",
+			"terrain": []
+		},
+		"proficiencies": {
+			"armor": [],
+			"languages": [
+				"common",
+				"goblin"
+			],
+			"tools": [],
+			"weapons": []
+		},
+		"resources": {
+			"primary": {
+				"label": "",
+				"value": 0,
+				"max": "0",
+				"per": "",
+				"hideMax": false,
+				"recharge": {
+					"formula": "",
+					"threshold": 6
+				}
+			},
+			"secondary": {
+				"label": "",
+				"value": 0,
+				"max": "0",
+				"per": "",
+				"hideMax": false,
+				"recharge": {
+					"formula": "",
+					"threshold": 6
+				}
+			},
+			"tertiary": {
+				"label": "",
+				"value": 0,
+				"max": "0",
+				"per": "",
+				"hideMax": false,
+				"recharge": {
+					"formula": "",
+					"threshold": 6
+				}
+			},
+			"quaternary": {
+				"label": "",
+				"value": 0,
+				"max": "0",
+				"per": "",
+				"hideMax": false,
+				"recharge": {
+					"formula": "",
+					"threshold": 6
+				}
+			}
+		},
+		"source": "",
+		"traits": {
+			"size": "sm",
+			"conditionImmunities": [],
+			"damageImmunities": [],
+			"damageResistances": [],
+			"damageVulnerabilities": []
+		},
+		"grants": {}
+	},
+	"prototypeToken": {
+		"name": "Goblin Dreadnought",
+		"displayName": 0,
+		"actorLink": false,
+		"width": 1,
+		"height": 1,
+		"lockRotation": false,
+		"rotation": 0,
+		"alpha": 1,
+		"light": {
+			"alpha": 0.5,
+			"angle": 360,
+			"bright": 0,
+			"color": null,
+			"coloration": 1,
+			"dim": 0,
+			"luminosity": 0.5,
+			"saturation": 0,
+			"contrast": 0,
+			"shadows": 0,
+			"animation": {
+				"speed": 5,
+				"intensity": 5,
+				"reverse": false,
+				"type": null
+			},
+			"darkness": {
+				"min": 0,
+				"max": 1
+			},
+			"attenuation": 0.5
+		},
+		"disposition": -1,
+		"displayBars": 0,
+		"bar1": {
+			"attribute": "attributes.hp"
+		},
+		"bar2": {
+			"attribute": null
+		},
+		"flags": {},
+		"randomImg": false,
+		"texture": {
+			"src": "systems/a5e/assets/goblin.webp",
+			"tint": "#ffffff",
+			"scaleX": 0.5,
+			"scaleY": 0.5,
+			"offsetX": 0,
+			"offsetY": 0,
+			"rotation": 0
+		},
+		"sight": {
+			"angle": 360,
+			"enabled": false,
+			"range": 0,
+			"brightness": 1,
+			"color": null,
+			"attenuation": 0.1,
+			"saturation": 0,
+			"contrast": 0,
+			"visionMode": "basic"
+		},
+		"detectionModes": [],
+		"appendNumber": false,
+		"prependAdjective": false
+	},
+	"folder": null,
+	"_id": "glh56u4oz5ngrs80"
 }

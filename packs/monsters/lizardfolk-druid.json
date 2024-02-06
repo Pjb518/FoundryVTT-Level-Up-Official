@@ -1,2349 +1,2341 @@
 {
-  "name": "Lizardfolk Druid",
-  "type": "npc",
-  "img": "systems/a5e/assets/lizardfolk.webp",
-  "items": [
-    {
-      "_id": "5d8xWrnaLGNQhLFc",
-      "name": "Hold Breath",
-      "type": "feature",
-      "img": "icons/svg/item-bag.svg",
-      "effects": [],
-      "folder": null,
-      "sort": 100000,
-      "flags": {},
-      "system": {
-        "ac": {
-          "baseFormula": "",
-          "formula": "",
-          "maxDex": 0,
-          "minStr": 0,
-          "mode": 1,
-          "requiresNoShield": false,
-          "requiresUnarmored": false
-        },
-        "actions": {},
-        "description": "<p>The lizardfolk can hold its breath for 15 minutes.</p>",
-        "favorite": false,
-        "secretDescription": "",
-        "source": "",
-        "uses": {
-          "value": null,
-          "max": "",
-          "per": null,
-          "recharge": {
-            "formula": "",
-            "threshold": ""
-          }
-        },
-        "schema": {
-          "version": null,
-          "lastMigration": null
-        },
-        "concentration": false,
-        "featureType": "",
-        "grants": {},
-        "prerequisite": "",
-        "requiresBloodied": false,
-        "schemaVersion": {
-          "version": 0.011,
-          "lastMigration": {
-            "version": {
-              "schema": 0.01,
-              "foundry": "11.315",
-              "system": "0.16.37"
-            }
-          }
-        }
-      },
-      "ownership": {
-        "default": 0
-      }
-    },
-    {
-      "_id": "nZn4T1RI2H7B2rQF",
-      "name": "Multiattack",
-      "type": "feature",
-      "img": "icons/skills/melee/blade-tips-triple-steel.webp",
-      "effects": [],
-      "folder": null,
-      "sort": 262500,
-      "flags": {
-        "core": {
-          "sourceId": "Item.Hcp8zUrtUBaXFT4i"
-        }
-      },
-      "system": {
-        "ac": {
-          "baseFormula": "",
-          "formula": "",
-          "maxDex": 0,
-          "minStr": 0,
-          "mode": 1,
-          "requiresNoShield": false,
-          "requiresUnarmored": false
-        },
-        "actions": {
-          "QUFYzRIKGSBe00uD": {
-            "name": "Multiattack",
-            "activation": {
-              "cost": 1,
-              "type": "action",
-              "reactionTrigger": ""
-            },
-            "duration": {
-              "unit": "",
-              "value": ""
-            },
-            "area": {
-              "shape": "",
-              "size": "",
-              "placeTemplate": false
-            },
-            "target": {
-              "quantity": "",
-              "type": ""
-            },
-            "consumers": {}
-          }
-        },
-        "description": "<p>The lizardfolk attacks with its club and shield.</p>",
-        "favorite": false,
-        "secretDescription": "",
-        "source": "",
-        "uses": {
-          "value": null,
-          "max": "",
-          "per": null,
-          "recharge": {
-            "formula": "",
-            "threshold": ""
-          }
-        },
-        "schema": {
-          "version": null,
-          "lastMigration": null
-        },
-        "concentration": false,
-        "featureType": "",
-        "grants": {},
-        "prerequisite": "",
-        "requiresBloodied": false,
-        "schemaVersion": {
-          "version": 0.011,
-          "lastMigration": {
-            "version": {
-              "schema": 0.01,
-              "foundry": "11.315",
-              "system": "0.16.37"
-            }
-          }
-        }
-      },
-      "ownership": {
-        "default": 0
-      }
-    },
-    {
-      "_id": "WfqOuIajqyYBAhQ8",
-      "name": "Bite (Crocodile Form)",
-      "type": "feature",
-      "img": "icons/creatures/abilities/mouth-teeth-long-red.webp",
-      "effects": [],
-      "folder": null,
-      "sort": 275000,
-      "flags": {
-        "core": {
-          "sourceId": "Item.Hcp8zUrtUBaXFT4i"
-        }
-      },
-      "system": {
-        "ac": {
-          "baseFormula": "",
-          "formula": "",
-          "maxDex": 0,
-          "minStr": 0,
-          "mode": 1,
-          "requiresNoShield": false,
-          "requiresUnarmored": false
-        },
-        "actions": {
-          "If8dqlvKG07PeXix": {
-            "name": "Bite (Crocodile Form)",
-            "activation": {
-              "cost": 1,
-              "type": "action",
-              "reactionTrigger": ""
-            },
-            "duration": {
-              "unit": "",
-              "value": ""
-            },
-            "area": {
-              "shape": "",
-              "size": "",
-              "placeTemplate": false
-            },
-            "target": {
-              "quantity": "",
-              "type": ""
-            },
-            "rolls": {
-              "WJu0RZaFaeG68jLb": {
-                "bonus": "",
-                "critThreshold": "20",
-                "type": "attack",
-                "attackType": "meleeWeaponAttack",
-                "ability": "str"
-              },
-              "ud875bujaYawdurJ": {
-                "canCrit": true,
-                "damageType": "piercing",
-                "formula": "1d10+@str.mod",
-                "name": "Bite",
-                "type": "damage"
-              }
-            },
-            "prompts": {
-              "56Z1TuzMARFah5td": {
-                "ability": "dex",
-                "onSave": "",
-                "saveDC": {
-                  "type": "custom",
-                  "bonus": "12"
-                },
-                "type": "savingThrow"
-              }
-            },
-            "consumers": {}
-          }
-        },
-        "description": "<p>On a hit, the target is grappled (escape DC 12).&nbsp;Until this grapple ends, the target is restrained, and&nbsp;the lizardfolk can’t bite a different creature.</p>",
-        "favorite": true,
-        "secretDescription": "",
-        "source": "",
-        "uses": {
-          "value": null,
-          "max": "",
-          "per": null,
-          "recharge": {
-            "formula": "",
-            "threshold": ""
-          }
-        },
-        "schema": {
-          "version": null,
-          "lastMigration": null
-        },
-        "concentration": false,
-        "featureType": "",
-        "grants": {},
-        "prerequisite": "",
-        "requiresBloodied": false,
-        "schemaVersion": {
-          "version": 0.011,
-          "lastMigration": {
-            "version": {
-              "schema": 0.01,
-              "foundry": "11.315",
-              "system": "0.16.37"
-            }
-          }
-        }
-      },
-      "ownership": {
-        "default": 0
-      }
-    },
-    {
-      "_id": "RrI7giA5Do2H4bzc",
-      "name": "Club",
-      "type": "object",
-      "img": "icons/svg/item-bag.svg",
-      "effects": [],
-      "folder": null,
-      "sort": 0,
-      "flags": {},
-      "system": {
-        "ac": {
-          "baseFormula": "",
-          "formula": "",
-          "maxDex": 0,
-          "minStr": 0,
-          "mode": 1,
-          "requiresNoShield": false,
-          "requiresUnarmored": false
-        },
-        "actions": {
-          "4SLfr2baQQB6jAvq": {
-            "name": "Club",
-            "activation": {
-              "cost": 1,
-              "type": "action",
-              "reactionTrigger": ""
-            },
-            "duration": {
-              "unit": "",
-              "value": ""
-            },
-            "area": {
-              "shape": "",
-              "size": "",
-              "placeTemplate": false
-            },
-            "target": {
-              "quantity": "",
-              "type": ""
-            },
-            "rolls": {
-              "bI1o2sSiGFIAD09z": {
-                "bonus": "",
-                "critThreshold": "20",
-                "type": "attack",
-                "attackType": "meleeWeaponAttack",
-                "ability": "str"
-              },
-              "vfF0kT0TAUqHkxIE": {
-                "canCrit": true,
-                "damageType": "bludgeoning",
-                "formula": "1d4+@str.mod",
-                "name": "Club",
-                "type": "damage"
-              }
-            },
-            "consumers": {}
-          }
-        },
-        "description": "",
-        "favorite": true,
-        "secretDescription": "",
-        "source": "",
-        "uses": {
-          "value": null,
-          "max": "",
-          "per": null,
-          "recharge": {
-            "formula": "",
-            "threshold": ""
-          }
-        },
-        "schema": {
-          "version": null,
-          "lastMigration": null
-        },
-        "ammunitionProperties": [],
-        "armorCategory": "",
-        "armorProperties": [],
-        "attuned": false,
-        "bulky": false,
-        "craftingComponents": "",
-        "containerId": "",
-        "damagedState": 0,
-        "equippedState": 0,
-        "items": {},
-        "materialProperties": [],
-        "objectType": "weapon",
-        "plotItem": false,
-        "price": "0 gp",
-        "proficient": true,
-        "quantity": 1,
-        "rarity": "common",
-        "requiresAttunement": false,
-        "shieldCategory": "",
-        "shieldProperties": [],
-        "unidentified": false,
-        "unidentifiedDescription": "",
-        "unidentifiedName": "",
-        "weaponProperties": [],
-        "weight": 0,
-        "broken": false,
-        "schemaVersion": {
-          "version": 0.011,
-          "lastMigration": {
-            "version": {
-              "schema": 0.01,
-              "foundry": "11.315",
-              "system": "0.16.37"
-            }
-          }
-        }
-      },
-      "ownership": {
-        "default": 0
-      }
-    },
-    {
-      "_id": "bYf759LBtUt9YjqY",
-      "name": "Shield",
-      "type": "object",
-      "img": "icons/svg/item-bag.svg",
-      "effects": [],
-      "folder": null,
-      "sort": 0,
-      "flags": {},
-      "system": {
-        "ac": {
-          "baseFormula": "",
-          "formula": "",
-          "maxDex": 0,
-          "minStr": 0,
-          "mode": 1,
-          "requiresNoShield": false,
-          "requiresUnarmored": false
-        },
-        "actions": {
-          "Geeyn1lw90KFAMoV": {
-            "name": "Shield",
-            "activation": {
-              "cost": 1,
-              "type": "action",
-              "reactionTrigger": ""
-            },
-            "duration": {
-              "unit": "",
-              "value": ""
-            },
-            "area": {
-              "shape": "",
-              "size": "",
-              "placeTemplate": false
-            },
-            "target": {
-              "quantity": "",
-              "type": ""
-            },
-            "rolls": {
-              "NtLDBM5Y3ThKoA4W": {
-                "bonus": "",
-                "critThreshold": "20",
-                "type": "attack",
-                "attackType": "meleeWeaponAttack",
-                "ability": "str"
-              },
-              "9FZReYRULWuSk9kl": {
-                "canCrit": true,
-                "damageType": "bludgeoning",
-                "formula": "1d4+@str.mod",
-                "name": "Shield",
-                "type": "damage"
-              }
-            },
-            "consumers": {}
-          }
-        },
-        "description": "",
-        "favorite": true,
-        "secretDescription": "",
-        "source": "",
-        "uses": {
-          "value": null,
-          "max": "",
-          "per": null,
-          "recharge": {
-            "formula": "",
-            "threshold": ""
-          }
-        },
-        "schema": {
-          "version": null,
-          "lastMigration": null
-        },
-        "ammunitionProperties": [],
-        "armorCategory": "",
-        "armorProperties": [],
-        "attuned": false,
-        "bulky": false,
-        "craftingComponents": "",
-        "containerId": "",
-        "damagedState": 0,
-        "equippedState": 0,
-        "items": {},
-        "materialProperties": [],
-        "objectType": "weapon",
-        "plotItem": false,
-        "price": "0 gp",
-        "proficient": true,
-        "quantity": 1,
-        "rarity": "common",
-        "requiresAttunement": false,
-        "shieldCategory": "",
-        "shieldProperties": [],
-        "unidentified": false,
-        "unidentifiedDescription": "",
-        "unidentifiedName": "",
-        "weaponProperties": [],
-        "weight": 0,
-        "broken": false,
-        "schemaVersion": {
-          "version": 0.011,
-          "lastMigration": {
-            "version": {
-              "schema": 0.01,
-              "foundry": "11.315",
-              "system": "0.16.37"
-            }
-          }
-        }
-      },
-      "ownership": {
-        "default": 0
-      }
-    },
-    {
-      "_id": "j3nN5THmnqLDQbg5",
-      "name": "Javelin",
-      "type": "object",
-      "img": "icons/svg/item-bag.svg",
-      "effects": [],
-      "folder": null,
-      "sort": 0,
-      "flags": {},
-      "system": {
-        "ac": {
-          "baseFormula": "",
-          "formula": "",
-          "maxDex": 0,
-          "minStr": 0,
-          "mode": 1,
-          "requiresNoShield": false,
-          "requiresUnarmored": false
-        },
-        "actions": {
-          "3iQzerSmzwTVutVM": {
-            "name": "Javelin",
-            "activation": {
-              "cost": 1,
-              "type": "action",
-              "reactionTrigger": ""
-            },
-            "duration": {
-              "unit": "",
-              "value": ""
-            },
-            "area": {
-              "shape": "",
-              "size": "",
-              "placeTemplate": false
-            },
-            "target": {
-              "quantity": "",
-              "type": ""
-            },
-            "rolls": {
-              "WPfyp2wkvC3ccxY9": {
-                "bonus": "",
-                "critThreshold": "20",
-                "type": "attack",
-                "attackType": "meleeWeaponAttack",
-                "ability": "str"
-              },
-              "MOw2THTvDWLA9z7L": {
-                "canCrit": true,
-                "damageType": "piercing",
-                "formula": "1d6+@str.mod",
-                "name": "Javelin",
-                "type": "damage"
-              }
-            },
-            "consumers": {}
-          }
-        },
-        "description": "<p>Reach 5 ft. or range 30/120 ft., one target.</p>",
-        "favorite": true,
-        "secretDescription": "",
-        "source": "",
-        "uses": {
-          "value": null,
-          "max": "",
-          "per": null,
-          "recharge": {
-            "formula": "",
-            "threshold": ""
-          }
-        },
-        "schema": {
-          "version": null,
-          "lastMigration": null
-        },
-        "ammunitionProperties": [],
-        "armorCategory": "",
-        "armorProperties": [],
-        "attuned": false,
-        "bulky": false,
-        "craftingComponents": "",
-        "containerId": "",
-        "damagedState": 0,
-        "equippedState": 0,
-        "items": {},
-        "materialProperties": [],
-        "objectType": "weapon",
-        "plotItem": false,
-        "price": "0 gp",
-        "proficient": true,
-        "quantity": 1,
-        "rarity": "common",
-        "requiresAttunement": false,
-        "shieldCategory": "",
-        "shieldProperties": [],
-        "unidentified": false,
-        "unidentifiedDescription": "",
-        "unidentifiedName": "",
-        "weaponProperties": [],
-        "weight": 0,
-        "broken": false,
-        "schemaVersion": {
-          "version": 0.011,
-          "lastMigration": {
-            "version": {
-              "schema": 0.01,
-              "foundry": "11.315",
-              "system": "0.16.37"
-            }
-          }
-        }
-      },
-      "ownership": {
-        "default": 0
-      }
-    },
-    {
-      "_id": "xIHwtTzRMYeq3kdb",
-      "name": "Spellcasting",
-      "type": "feature",
-      "img": "icons/svg/item-bag.svg",
-      "effects": [],
-      "folder": null,
-      "sort": 200000,
-      "flags": {},
-      "system": {
-        "ac": {
-          "baseFormula": "",
-          "formula": "",
-          "maxDex": 0,
-          "minStr": 0,
-          "mode": 1,
-          "requiresNoShield": false,
-          "requiresUnarmored": false
-        },
-        "actions": {},
-        "description": "<p>Spellcasting. The lizardfolk druid is a 5th level spellcaster.&nbsp;Its spellcasting ability is Wisdom (spell save&nbsp;DC 10, +2 to hit with spell attacks). It has the following druid spells prepared:</p><p>Cantrips (at will): <em>druidcraft, produce flame  </em></p><p>1st-level (4 slots): <em>fog cloud, purify food and drink </em></p><p>2nd-level (3 slots): <em>heat metal, pass without trace</em></p><p>3rd-level (2 slots): <em>conjure animals, plant growth</em></p>",
-        "favorite": false,
-        "secretDescription": "",
-        "source": "",
-        "uses": {
-          "value": null,
-          "max": "",
-          "per": null,
-          "recharge": {
-            "formula": "",
-            "threshold": ""
-          }
-        },
-        "schema": {
-          "version": null,
-          "lastMigration": null
-        },
-        "concentration": false,
-        "featureType": "",
-        "grants": {},
-        "prerequisite": "",
-        "requiresBloodied": false,
-        "schemaVersion": {
-          "version": 0.011,
-          "lastMigration": {
-            "version": {
-              "schema": 0.01,
-              "foundry": "11.315",
-              "system": "0.16.37"
-            }
-          }
-        }
-      },
-      "ownership": {
-        "default": 0
-      }
-    },
-    {
-      "_id": "TQHt78JtPm1zovGM",
-      "name": "Shapeshift",
-      "type": "feature",
-      "img": "icons/svg/item-bag.svg",
-      "effects": [],
-      "folder": null,
-      "sort": 250000,
-      "flags": {},
-      "system": {
-        "ac": {
-          "baseFormula": "",
-          "formula": "",
-          "maxDex": 0,
-          "minStr": 0,
-          "mode": 1,
-          "requiresNoShield": false,
-          "requiresUnarmored": false
-        },
-        "actions": {},
-        "description": "<p>The lizardfolk magically changes its form&nbsp;into a Large crocodile or back into its true form. Its&nbsp;statistics are the same in each form, but it can’t speak&nbsp;or cast spells in crocodile form. Any equipment the&nbsp;lizardfolk is wearing or wielding merges into its new&nbsp;form. It reverts to its true form if it dies.</p>",
-        "favorite": false,
-        "secretDescription": "",
-        "source": "",
-        "uses": {
-          "value": null,
-          "max": "",
-          "per": null,
-          "recharge": {
-            "formula": "",
-            "threshold": ""
-          }
-        },
-        "schema": {
-          "version": null,
-          "lastMigration": null
-        },
-        "concentration": false,
-        "featureType": "",
-        "grants": {},
-        "prerequisite": "",
-        "requiresBloodied": false,
-        "schemaVersion": {
-          "version": 0.011,
-          "lastMigration": {
-            "version": {
-              "schema": 0.01,
-              "foundry": "11.315",
-              "system": "0.16.37"
-            }
-          }
-        }
-      },
-      "ownership": {
-        "default": 0
-      }
-    },
-    {
-      "_id": "w5cyGsuMYeEOQhpg",
-      "name": "Bite",
-      "type": "feature",
-      "img": "icons/creatures/abilities/mouth-teeth-long-red.webp",
-      "effects": [],
-      "folder": null,
-      "sort": 800000,
-      "flags": {
-        "core": {
-          "sourceId": "Item.Hcp8zUrtUBaXFT4i"
-        }
-      },
-      "system": {
-        "ac": {
-          "baseFormula": "",
-          "formula": "",
-          "maxDex": 0,
-          "minStr": 0,
-          "mode": 1,
-          "requiresNoShield": false,
-          "requiresUnarmored": false
-        },
-        "actions": {
-          "S07oUsNqZxZgPWVL": {
-            "name": "Bite",
-            "activation": {
-              "cost": 1,
-              "type": "action",
-              "reactionTrigger": ""
-            },
-            "duration": {
-              "unit": "",
-              "value": ""
-            },
-            "area": {
-              "shape": "",
-              "size": "",
-              "placeTemplate": false
-            },
-            "target": {
-              "quantity": "",
-              "type": ""
-            },
-            "rolls": {
-              "KJJU5sME852d60I9": {
-                "bonus": "",
-                "critThreshold": "20",
-                "type": "attack",
-                "attackType": "meleeWeaponAttack",
-                "ability": "str"
-              },
-              "vvBZ36cpShDkGmCf": {
-                "canCrit": true,
-                "damageType": "piercing",
-                "formula": "1d6+@str.mod",
-                "name": "Bite (Normal)",
-                "type": "damage"
-              },
-              "rG7TG8Qp1fm0kuMV": {
-                "canCrit": true,
-                "damageType": "piercing",
-                "formula": "2d6+@str.mod",
-                "name": "Bite (if attack with Advantage)",
-                "type": "damage"
-              }
-            },
-            "consumers": {}
-          }
-        },
-        "description": "",
-        "favorite": true,
-        "secretDescription": "",
-        "source": "",
-        "uses": {
-          "value": null,
-          "max": "",
-          "per": null,
-          "recharge": {
-            "formula": "",
-            "threshold": ""
-          }
-        },
-        "schema": {
-          "version": null,
-          "lastMigration": null
-        },
-        "concentration": false,
-        "featureType": "naturalWeapon",
-        "grants": {},
-        "prerequisite": "",
-        "requiresBloodied": false,
-        "schemaVersion": {
-          "version": 0.011,
-          "lastMigration": {
-            "version": {
-              "schema": 0.01,
-              "foundry": "11.315",
-              "system": "0.16.37"
-            }
-          }
-        }
-      },
-      "ownership": {
-        "default": 0
-      }
-    },
-    {
-      "_id": "kituVgrvJImvzYmi",
-      "name": "Produce Flame (Cantrip; V, S)",
-      "type": "feature",
-      "img": "icons/svg/item-bag.svg",
-      "effects": [],
-      "folder": null,
-      "sort": 900000,
-      "flags": {
-        "core": {
-          "sourceId": "Item.Hcp8zUrtUBaXFT4i"
-        }
-      },
-      "system": {
-        "ac": {
-          "baseFormula": "",
-          "formula": "",
-          "maxDex": 0,
-          "minStr": 0,
-          "mode": 1,
-          "requiresNoShield": false,
-          "requiresUnarmored": false
-        },
-        "actions": {
-          "oBuQsVyao6Ol3YsF": {
-            "name": "Produce Flame (Cantrip; V, S)",
-            "activation": {
-              "cost": 1,
-              "type": "action",
-              "reactionTrigger": ""
-            },
-            "duration": {
-              "unit": "",
-              "value": ""
-            },
-            "area": {
-              "shape": "",
-              "size": "",
-              "placeTemplate": false
-            },
-            "target": {
-              "quantity": null,
-              "type": ""
-            },
-            "rolls": {
-              "iQDZCH5lh5N4Cscu": {
-                "bonus": "",
-                "critThreshold": "20",
-                "type": "attack",
-                "attackType": "rangedWeaponAttack",
-                "ability": "spellcasting"
-              },
-              "DL1Y1qMm2TbWnZQS": {
-                "canCrit": true,
-                "damageType": "fire",
-                "formula": "2d8",
-                "name": "Flame",
-                "type": "damage"
-              }
-            },
-            "consumers": {}
-          }
-        },
-        "description": "<p>Range 30 ft.</p>",
-        "favorite": true,
-        "secretDescription": "",
-        "source": "",
-        "uses": {
-          "value": null,
-          "max": "",
-          "per": null,
-          "recharge": {
-            "formula": "",
-            "threshold": ""
-          }
-        },
-        "schema": {
-          "version": null,
-          "lastMigration": null
-        },
-        "concentration": false,
-        "featureType": "",
-        "grants": {},
-        "prerequisite": "",
-        "requiresBloodied": false,
-        "schemaVersion": {
-          "version": 0.011,
-          "lastMigration": {
-            "version": {
-              "schema": 0.01,
-              "foundry": "11.315",
-              "system": "0.16.37"
-            }
-          }
-        }
-      },
-      "ownership": {
-        "default": 0
-      }
-    },
-    {
-      "_id": "Rlj81AhcN4D0CQuF",
-      "name": "Heat Metal (2nd-Level; V, S, M, Concentration)",
-      "type": "feature",
-      "img": "icons/svg/item-bag.svg",
-      "effects": [],
-      "folder": null,
-      "sort": 700000,
-      "flags": {
-        "core": {
-          "sourceId": "Item.Hcp8zUrtUBaXFT4i"
-        }
-      },
-      "system": {
-        "ac": {
-          "baseFormula": "",
-          "formula": "",
-          "maxDex": 0,
-          "minStr": 0,
-          "mode": 1,
-          "requiresNoShield": false,
-          "requiresUnarmored": false
-        },
-        "actions": {
-          "WJB2YAaLzTdR3Jdq": {
-            "name": "Heat Metal (2nd-Level; V, S, M, Concentration)",
-            "activation": {
-              "cost": 1,
-              "type": "action",
-              "reactionTrigger": ""
-            },
-            "duration": {
-              "unit": "minute",
-              "value": 1
-            },
-            "area": {
-              "shape": "",
-              "size": "",
-              "placeTemplate": false
-            },
-            "target": {
-              "quantity": "",
-              "type": ""
-            },
-            "rolls": {
-              "AizaRjOBcyieSsBK": {
-                "canCrit": false,
-                "damageType": "fire",
-                "formula": "2d8",
-                "name": "Heat Metal",
-                "type": "damage"
-              }
-            },
-            "prompts": {
-              "5X2MRObYV1Wndcg5": {
-                "ability": "con",
-                "onSave": "",
-                "saveDC": {
-                  "type": "custom",
-                  "bonus": "10"
-                },
-                "type": "savingThrow"
-              }
-            },
-            "consumers": {}
-          }
-        },
-        "description": "<p>The&nbsp;lizardfolk heats a metal object within 60 feet. A creature&nbsp;touching the item takes 9 (2d8) fire damage when&nbsp;the spell is cast. On subsequent turns for 1 minute, the&nbsp;lizardfolk can use a bonus action to inflict the same&nbsp;damage. If a creature is holding the object, it makes a&nbsp;DC 10 Constitution saving throw or drops the object.&nbsp;If it can’t or won’t drop the object, it has disadvantage&nbsp;on attack rolls and ability checks until the start of the&nbsp;lizardfolk’s next turn.</p>",
-        "favorite": true,
-        "secretDescription": "",
-        "source": "",
-        "uses": {
-          "value": null,
-          "max": "",
-          "per": null,
-          "recharge": {
-            "formula": "",
-            "threshold": ""
-          }
-        },
-        "schema": {
-          "version": null,
-          "lastMigration": null
-        },
-        "concentration": false,
-        "featureType": "",
-        "grants": {},
-        "prerequisite": "",
-        "requiresBloodied": false,
-        "schemaVersion": {
-          "version": 0.011,
-          "lastMigration": {
-            "version": {
-              "schema": 0.01,
-              "foundry": "11.315",
-              "system": "0.16.37"
-            }
-          }
-        }
-      },
-      "ownership": {
-        "default": 0
-      }
-    },
-    {
-      "_id": "XY6B9Fsi5WMM2cPS",
-      "name": "Conjure Animals (3rd-Level; V, S, Concentration)",
-      "type": "feature",
-      "img": "icons/svg/item-bag.svg",
-      "effects": [],
-      "folder": null,
-      "sort": 300000,
-      "flags": {
-        "core": {
-          "sourceId": "Item.Hcp8zUrtUBaXFT4i"
-        }
-      },
-      "system": {
-        "ac": {
-          "baseFormula": "",
-          "formula": "",
-          "maxDex": 0,
-          "minStr": 0,
-          "mode": 1,
-          "requiresNoShield": false,
-          "requiresUnarmored": false
-        },
-        "actions": {
-          "6ArdFGBKwwhHeXlN": {
-            "name": "Conjure Animals (3rd-Level; V, S, Concentration)",
-            "activation": {
-              "cost": 1,
-              "type": "action",
-              "reactionTrigger": ""
-            },
-            "duration": {
-              "unit": "hour",
-              "value": 1
-            },
-            "area": {
-              "shape": "",
-              "size": "",
-              "placeTemplate": false
-            },
-            "target": {
-              "quantity": "",
-              "type": ""
-            },
-            "consumers": {}
-          }
-        },
-        "description": "<p>The&nbsp;lizardfolk summons 1 swarm of poisonous snakes or&nbsp;3 crocodiles, which appear in spaces the lizardfolk can&nbsp;see within 60 feet and remain for 1 hour or until killed.&nbsp;The beasts are allies that act on the lizardfolk’s turn&nbsp;under its control.</p>",
-        "favorite": false,
-        "secretDescription": "",
-        "source": "",
-        "uses": {
-          "value": null,
-          "max": "",
-          "per": null,
-          "recharge": {
-            "formula": "",
-            "threshold": ""
-          }
-        },
-        "schema": {
-          "version": null,
-          "lastMigration": null
-        },
-        "concentration": false,
-        "featureType": "",
-        "grants": {},
-        "prerequisite": "",
-        "requiresBloodied": false,
-        "schemaVersion": {
-          "version": 0.011,
-          "lastMigration": {
-            "version": {
-              "schema": 0.01,
-              "foundry": "11.315",
-              "system": "0.16.37"
-            }
-          }
-        }
-      },
-      "ownership": {
-        "default": 0
-      }
-    },
-    {
-      "name": "Shove",
-      "type": "maneuver",
-      "img": "icons/skills/melee/shield-block-bash-yellow.webp",
-      "effects": [],
-      "flags": {
-        "core": {
-          "sourceId": "Compendium.a5e.a5e-maneuvers.md35qozzy2fxy2o6"
-        }
-      },
-      "system": {
-        "actions": {
-          "AeJ7kIVDxZkWLgvK": {
-            "name": "Shove",
-            "activation": {
-              "cost": 1,
-              "type": "action",
-              "reactionTrigger": ""
-            },
-            "duration": {
-              "unit": "instantaneous",
-              "value": null
-            },
-            "ranges": {
-              "hCO76xezpFYDSZXV": {
-                "range": "fiveFeet"
-              }
-            },
-            "area": {
-              "shape": "",
-              "size": "",
-              "placeTemplate": false
-            },
-            "target": {
-              "quantity": null,
-              "type": "creature",
-              "shape": "",
-              "size": ""
-            },
-            "rolls": {
-              "8DAdAacPeVNTTbrl": {
-                "canCrit": false,
-                "damageType": "bludgeoning",
-                "formula": "1 + @str.mod",
-                "name": "Default",
-                "type": "damage"
-              }
-            },
-            "prompts": {
-              "GeEjDrN45Hn3voOD": {
-                "ability": "str",
-                "onSave": "",
-                "saveDC": {
-                  "type": "custom",
-                  "bonus": "@maneuverDC"
-                },
-                "type": "savingThrow"
-              }
-            },
-            "consumers": {}
-          }
-        },
-        "description": "<p>You can use the Shove maneuver to push a creature away. If you are able to make multiple attacks with the Attack action, this maneuver replaces one of them.</p><p>The target must be within your reach and be no more than one size category larger than you. The target makes a Strength saving throw against your maneuver DC. On a failure, you deal basic melee damage and push the target a number of feet away from you equal to 5 + 5 for every 5 points it failed its saving throw by. You can move the creature in any direction away from you (to the side, forward, or diagonally away).</p><p>A creature that is shoved off of a precipice is propelled off of whatever it is standing on -- it does not receive any saving throw or ability check to grab onto something to avoid falling down below.</p>",
-        "favorite": false,
-        "secretDescription": "",
-        "source": "",
-        "uses": {
-          "value": null,
-          "max": "",
-          "per": null,
-          "recharge": {
-            "formula": "",
-            "threshold": ""
-          }
-        },
-        "schema": {
-          "version": null,
-          "lastMigration": null
-        },
-        "concentration": false,
-        "degree": 0,
-        "exertionCost": 0,
-        "isStance": false,
-        "prerequisite": "",
-        "tradition": "",
-        "schemaVersion": {
-          "version": 0.011,
-          "lastMigration": {
-            "version": {
-              "schema": 0.01,
-              "foundry": "11.315",
-              "system": "0.16.37"
-            }
-          }
-        }
-      },
-      "ownership": {
-        "default": 0
-      },
-      "folder": null,
-      "sort": 0,
-      "_id": "ZGwyu7Y8PKWsI6Vn"
-    },
-    {
-      "name": "Disarm",
-      "type": "maneuver",
-      "img": "icons/skills/melee/sword-damaged-broken-glow-red.webp",
-      "effects": [],
-      "flags": {
-        "core": {
-          "sourceId": "Compendium.a5e.a5e-maneuvers.c0bv7fsy2akld5lp"
-        }
-      },
-      "system": {
-        "actions": {
-          "z152qIbVuMZjd23b": {
-            "name": "Disarm",
-            "activation": {
-              "cost": 1,
-              "type": "action",
-              "reactionTrigger": ""
-            },
-            "duration": {
-              "unit": "instantaneous",
-              "value": null
-            },
-            "ranges": {
-              "e1MFJktzctjtOFqC": {
-                "range": "touch"
-              }
-            },
-            "area": {
-              "shape": "",
-              "size": "",
-              "placeTemplate": false
-            },
-            "target": {
-              "quantity": "",
-              "type": "creature",
-              "shape": "",
-              "size": ""
-            },
-            "rolls": {
-              "wKMuzWrpCPSRpV1b": {
-                "canCrit": false,
-                "damageType": "",
-                "formula": "1 + @str.mod",
-                "name": "",
-                "type": "damage"
-              }
-            },
-            "prompts": {
-              "4iinPr9pg16f3ES2": {
-                "ability": "str",
-                "onSave": "",
-                "saveDC": {
-                  "type": "custom",
-                  "bonus": "@maneuverDC"
-                },
-                "type": "savingThrow"
-              }
-            },
-            "consumers": {}
-          }
-        },
-        "description": "<p>You can use the Disarm maneuver to attempt to knock an item or weapon from a creature's hand. If you are able to make multiple attacks with the Attack action, this maneuver replaces one of them.</p><p>The target must be within your reach and be holding an item (either carried or wielded). The target makes a Strength or Dexterity saving throw against your maneuver DC. On a failure, you deal basic melee damage and the target drops the item in its space. The target has advantage if it is larger than you or holding the item with two or more hands, and a target smaller than you has disadvantage.</p>",
-        "favorite": false,
-        "secretDescription": "",
-        "source": "",
-        "uses": {
-          "value": null,
-          "max": "",
-          "per": null,
-          "recharge": {
-            "formula": "",
-            "threshold": ""
-          }
-        },
-        "schema": {
-          "version": null,
-          "lastMigration": null
-        },
-        "concentration": false,
-        "degree": 0,
-        "exertionCost": 0,
-        "isStance": false,
-        "prerequisite": "",
-        "tradition": "",
-        "schemaVersion": {
-          "version": 0.011,
-          "lastMigration": {
-            "version": {
-              "schema": 0.01,
-              "foundry": "11.315",
-              "system": "0.16.37"
-            }
-          }
-        }
-      },
-      "ownership": {
-        "default": 0
-      },
-      "folder": null,
-      "sort": 0,
-      "_id": "3QuBqVWGEUATaWgs"
-    },
-    {
-      "name": "Grab On",
-      "type": "maneuver",
-      "img": "icons/skills/melee/hand-grip-staff-teal.webp",
-      "effects": [],
-      "flags": {
-        "core": {
-          "sourceId": "Compendium.a5e.a5e-maneuvers.jewmp4pzrg9cdui9"
-        }
-      },
-      "system": {
-        "actions": {
-          "tJZzg3XFMFstu5pw": {
-            "name": "Grab On",
-            "activation": {
-              "cost": 1,
-              "type": "action",
-              "reactionTrigger": ""
-            },
-            "duration": {
-              "unit": "instantaneous",
-              "value": null
-            },
-            "ranges": {
-              "MHcAqhqdVRknRJKQ": {
-                "range": "touch"
-              }
-            },
-            "area": {
-              "shape": "",
-              "size": "",
-              "placeTemplate": false
-            },
-            "target": {
-              "quantity": "",
-              "type": "creature",
-              "shape": "",
-              "size": ""
-            },
-            "prompts": {
-              "up0YK8zKhn82fSHm": {
-                "ability": "str",
-                "onSave": "",
-                "saveDC": {
-                  "type": "custom",
-                  "bonus": "@maneuverDC"
-                },
-                "type": "savingThrow"
-              }
-            },
-            "consumers": {}
-          }
-        },
-        "description": "<p>While you cannot grapple a creature two or more size categories larger than you, you can grab onto it. By jumping onto its back or climbing up a limb, you can make a Strength or Dexterity saving throw against the creature's maneuver DC to cling to or balance upon its body. On a success, you move into the creature's space and can move upon its body as if it is difficult terrain.</p><p>While grabbing onto a larger creature, you gain advantage on attack rolls against it. The larger creature may be able to attack you as normal, depending on its limbs or attacks. It can also use an action or replace one of its attacks on its turn to try to dislodge you, such as shaking you loose or bashing you against a wall, forcing you to make a Strength or Dexterity saving throw against its maneuver DC or fall prone into the nearest space adjacent to the creature, taking its basic melee damage in the process.</p><p>If the creature chooses to roll over in order to dislodge you, it becomes prone, but you have disadvantage on the saving throw to hang on.</p>",
-        "favorite": false,
-        "secretDescription": "",
-        "source": "",
-        "uses": {
-          "value": null,
-          "max": "",
-          "per": null,
-          "recharge": {
-            "formula": "",
-            "threshold": ""
-          }
-        },
-        "schema": {
-          "version": null,
-          "lastMigration": null
-        },
-        "concentration": false,
-        "degree": 0,
-        "exertionCost": 0,
-        "isStance": false,
-        "prerequisite": "",
-        "tradition": "",
-        "schemaVersion": {
-          "version": 0.011,
-          "lastMigration": {
-            "version": {
-              "schema": 0.01,
-              "foundry": "11.315",
-              "system": "0.16.37"
-            }
-          }
-        }
-      },
-      "ownership": {
-        "default": 0
-      },
-      "folder": null,
-      "sort": 0,
-      "_id": "Sj9LAr2WpN3kmAHX"
-    },
-    {
-      "name": "Knockdown",
-      "type": "maneuver",
-      "img": "icons/magic/control/silhouette-fall-slip-prone.webp",
-      "effects": [],
-      "flags": {
-        "core": {
-          "sourceId": "Compendium.a5e.a5e-maneuvers.zzg7j7cb0vkgctwi"
-        }
-      },
-      "system": {
-        "actions": {
-          "b5DGuydltTjSPX5n": {
-            "name": "Knockdown",
-            "activation": {
-              "cost": 1,
-              "type": "action",
-              "reactionTrigger": ""
-            },
-            "duration": {
-              "unit": "instantaneous",
-              "value": null
-            },
-            "ranges": {
-              "0cKiG7QhYrYtrH9x": {
-                "range": "touch"
-              }
-            },
-            "area": {
-              "shape": "",
-              "size": "",
-              "placeTemplate": false
-            },
-            "target": {
-              "quantity": "",
-              "type": "creature",
-              "shape": "",
-              "size": ""
-            },
-            "prompts": {
-              "AzVqBhxsorPgUX7C": {
-                "ability": "str",
-                "onSave": "",
-                "saveDC": {
-                  "type": "custom",
-                  "bonus": "@maneuverDC"
-                },
-                "type": "savingThrow"
-              }
-            },
-            "consumers": {}
-          }
-        },
-        "description": "<p>You can use the Knockdown maneuver to trip or push a creature down. If you are able to make multiple attacks with the Attack action, this maneuver replaces one of them.</p><p>The target must be within your reach and be no more than one size category larger than you. The target makes a Strength saving throw against your maneuver DC. On a failure, you deal basic melee damage and knock the target prone.</p>",
-        "favorite": false,
-        "secretDescription": "",
-        "source": "",
-        "uses": {
-          "value": null,
-          "max": "",
-          "per": null,
-          "recharge": {
-            "formula": "",
-            "threshold": ""
-          }
-        },
-        "schema": {
-          "version": null,
-          "lastMigration": null
-        },
-        "concentration": false,
-        "degree": 0,
-        "exertionCost": 0,
-        "isStance": false,
-        "prerequisite": "",
-        "tradition": "",
-        "schemaVersion": {
-          "version": 0.011,
-          "lastMigration": {
-            "version": {
-              "schema": 0.01,
-              "foundry": "11.315",
-              "system": "0.16.37"
-            }
-          }
-        }
-      },
-      "ownership": {
-        "default": 0
-      },
-      "folder": null,
-      "sort": 0,
-      "_id": "sqw6Cwuf8sSYmKgm"
-    },
-    {
-      "name": "Grapple",
-      "type": "maneuver",
-      "img": "icons/skills/melee/unarmed-punch-fist.webp",
-      "effects": [],
-      "flags": {
-        "core": {
-          "sourceId": "Compendium.a5e.a5e-maneuvers.9umrahwm68f81d7l"
-        }
-      },
-      "system": {
-        "actions": {
-          "Aa7lYDsJcwSA2kY0": {
-            "name": "Grapple",
-            "activation": {
-              "cost": 1,
-              "type": "action",
-              "reactionTrigger": ""
-            },
-            "duration": {
-              "unit": "instantaneous",
-              "value": null
-            },
-            "ranges": {
-              "vndAmoGYYcdLV8bR": {
-                "range": "touch"
-              }
-            },
-            "area": {
-              "shape": "",
-              "size": "",
-              "placeTemplate": false
-            },
-            "target": {
-              "quantity": "",
-              "type": "creature",
-              "shape": "",
-              "size": ""
-            },
-            "prompts": {
-              "kaXaADdjlNnXRqyb": {
-                "ability": "str",
-                "onSave": "",
-                "saveDC": {
-                  "type": "custom",
-                  "bonus": "@maneuverDC"
-                },
-                "type": "savingThrow"
-              }
-            },
-            "consumers": {}
-          }
-        },
-        "description": "<p>You can use the Grapple maneuver to grab or wrestle a creature. If you are able to make multiple attacks with the Attack action, this maneuver replaces one of them.</p>\n<p>You must have at least one free hand to attempt a grapple, your target must be within your reach, and the target must be no more than one size category larger than you. The target makes a Strength or Dexterity saving throw against your maneuver DC. On a failure, you deal basic melee damage and the target becomes grappled (see Appendix A: Conditions on page 616). In addition to things that end the condition, you can release the target at any time (no action required).</p>\n<p><em>Escaping a Grapple.</em> While grappled, a creature can use its action to attempt to escape. It must succeed on a Strength or Dexterity saving throw against your maneuver DC.</p>\n<p><em>Moving a Grappled Creature. </em>When you move, you can drag or carry the grappled creature with you. When you do so, your Speed is halved, unless the creature's weight is within your carrying capacity and you are not encumbered by bulky items.</p>\n<p><em>Freeing a Grappled Creature.</em> You can use the Grapple maneuver to try to free another grappled or restrained creature. The creature grappling or restraining the target makes a Strength saving throw against your maneuver DC. If it fails the saving throw, the grappled or restrained creature is freed. Additionally, you may move the freed creature 5 feet in any direction.</p>",
-        "favorite": false,
-        "secretDescription": "",
-        "source": "",
-        "uses": {
-          "value": null,
-          "max": "",
-          "per": null,
-          "recharge": {
-            "formula": "",
-            "threshold": ""
-          }
-        },
-        "schema": {
-          "version": null,
-          "lastMigration": null
-        },
-        "concentration": false,
-        "degree": 0,
-        "exertionCost": 0,
-        "isStance": false,
-        "prerequisite": "",
-        "tradition": "",
-        "schemaVersion": {
-          "version": 0.011,
-          "lastMigration": {
-            "version": {
-              "schema": 0.01,
-              "foundry": "11.315",
-              "system": "0.16.37"
-            }
-          }
-        }
-      },
-      "ownership": {
-        "default": 0
-      },
-      "folder": null,
-      "sort": 0,
-      "_id": "16SCud4aynlQPdjZ"
-    },
-    {
-      "name": "Overrun",
-      "type": "maneuver",
-      "img": "icons/skills/melee/shield-damaged-broken-blue.webp",
-      "effects": [],
-      "flags": {
-        "core": {
-          "sourceId": "Compendium.a5e.a5e-maneuvers.210ihnnejao46r20"
-        }
-      },
-      "system": {
-        "actions": {
-          "65DzMJVBen54unDU": {
-            "name": "Overrun",
-            "activation": {
-              "cost": 1,
-              "type": "special",
-              "reactionTrigger": ""
-            },
-            "duration": {
-              "unit": "instantaneous",
-              "value": null
-            },
-            "ranges": {
-              "YgvV5RYegJFdyjVu": {
-                "range": "touch"
-              }
-            },
-            "area": {
-              "shape": "",
-              "size": "",
-              "placeTemplate": false
-            },
-            "target": {
-              "quantity": "",
-              "type": "creature",
-              "shape": "",
-              "size": ""
-            },
-            "prompts": {
-              "F0x9PFxeb0LdSON2": {
-                "ability": "str",
-                "onSave": "",
-                "saveDC": {
-                  "type": "custom",
-                  "bonus": "@maneuverDC"
-                },
-                "type": "savingThrow"
-              }
-            },
-            "consumers": {}
-          }
-        },
-        "description": "<p>You can use an action or bonus action to make an Overrun maneuver to move through a hostile creature's space by forcing your way past. Make a Strength saving throw against the target's maneuver DC. On a success, you deal basic melee damage and can move through the hostile creature's space once this turn. The creature can choose to just let you pass instead of rolling. You have advantage if you are larger than the target, or disadvantage if you are smaller. If you are two or more sizes smaller than the target, you can move through the hostile creature's space without making a save. You still provoke opportunity attacks if you move beyond a creature's reach.</p>",
-        "favorite": false,
-        "secretDescription": "",
-        "source": "",
-        "uses": {
-          "value": null,
-          "max": "",
-          "per": null,
-          "recharge": {
-            "formula": "",
-            "threshold": ""
-          }
-        },
-        "schema": {
-          "version": null,
-          "lastMigration": null
-        },
-        "concentration": false,
-        "degree": 0,
-        "exertionCost": 0,
-        "isStance": false,
-        "prerequisite": "",
-        "tradition": "",
-        "schemaVersion": {
-          "version": 0.011,
-          "lastMigration": {
-            "version": {
-              "schema": 0.01,
-              "foundry": "11.315",
-              "system": "0.16.37"
-            }
-          }
-        }
-      },
-      "ownership": {
-        "default": 0
-      },
-      "folder": null,
-      "sort": 0,
-      "_id": "P01TcvyymOboUh0T"
-    }
-  ],
-  "effects": [],
-  "flags": {
-    "a5e": {
-      "sheetIsLocked": true
-    }
-  },
-  "system": {
-    "abilities": {
-      "str": {
-        "value": 14,
-        "check": {
-          "expertiseDice": 0,
-          "bonus": "",
-          "notes": {}
-        },
-        "save": {
-          "proficient": false,
-          "expertiseDice": 0,
-          "bonus": "",
-          "notes": {}
-        }
-      },
-      "dex": {
-        "value": 12,
-        "check": {
-          "expertiseDice": 0,
-          "bonus": "",
-          "notes": {}
-        },
-        "save": {
-          "proficient": false,
-          "expertiseDice": 0,
-          "bonus": "",
-          "notes": {}
-        }
-      },
-      "con": {
-        "value": 12,
-        "check": {
-          "expertiseDice": 0,
-          "bonus": "",
-          "notes": {}
-        },
-        "save": {
-          "proficient": false,
-          "expertiseDice": 0,
-          "bonus": "",
-          "notes": {}
-        }
-      },
-      "int": {
-        "value": 10,
-        "check": {
-          "expertiseDice": 0,
-          "bonus": "",
-          "notes": {}
-        },
-        "save": {
-          "proficient": false,
-          "expertiseDice": 0,
-          "bonus": "",
-          "notes": {}
-        }
-      },
-      "wis": {
-        "value": 10,
-        "check": {
-          "expertiseDice": 0,
-          "bonus": "",
-          "notes": {}
-        },
-        "save": {
-          "proficient": false,
-          "expertiseDice": 0,
-          "bonus": "",
-          "notes": {}
-        }
-      },
-      "cha": {
-        "value": 8,
-        "check": {
-          "expertiseDice": 0,
-          "bonus": "",
-          "notes": {}
-        },
-        "save": {
-          "proficient": false,
-          "expertiseDice": 0,
-          "bonus": "",
-          "notes": {}
-        }
-      }
-    },
-    "schemaVersion": {
-      "version": 0.011,
-      "lastMigration": {
-        "version": {
-          "schema": 0.01,
-          "foundry": "11.315",
-          "system": "0.16.37"
-        }
-      }
-    },
-    "skills": {
-      "acr": {
-        "ability": "dex",
-        "value": 0,
-        "proficient": false,
-        "specialties": [],
-        "expertiseDice": 0,
-        "minRoll": 1,
-        "bonuses": {
-          "check": "",
-          "passive": 0
-        }
-      },
-      "ani": {
-        "ability": "wis",
-        "value": 0,
-        "proficient": false,
-        "specialties": [],
-        "expertiseDice": 0,
-        "minRoll": 1,
-        "bonuses": {
-          "check": "",
-          "passive": 0
-        }
-      },
-      "arc": {
-        "ability": "int",
-        "value": 0,
-        "proficient": false,
-        "specialties": [],
-        "expertiseDice": 0,
-        "minRoll": 1,
-        "bonuses": {
-          "check": "",
-          "passive": 0
-        }
-      },
-      "ath": {
-        "ability": "str",
-        "value": 0,
-        "proficient": false,
-        "specialties": [],
-        "expertiseDice": 0,
-        "minRoll": 1,
-        "bonuses": {
-          "check": "",
-          "passive": 0
-        }
-      },
-      "cul": {
-        "ability": "int",
-        "value": 0,
-        "proficient": false,
-        "specialties": [],
-        "expertiseDice": 0,
-        "minRoll": 1,
-        "bonuses": {
-          "check": "",
-          "passive": 0
-        }
-      },
-      "dec": {
-        "ability": "cha",
-        "value": 0,
-        "proficient": false,
-        "specialties": [],
-        "expertiseDice": 0,
-        "minRoll": 1,
-        "bonuses": {
-          "check": "",
-          "passive": 0
-        }
-      },
-      "eng": {
-        "ability": "int",
-        "value": 0,
-        "proficient": false,
-        "specialties": [],
-        "expertiseDice": 0,
-        "minRoll": 1,
-        "bonuses": {
-          "check": "",
-          "passive": 0
-        }
-      },
-      "his": {
-        "ability": "int",
-        "value": 0,
-        "proficient": false,
-        "specialties": [],
-        "expertiseDice": 0,
-        "minRoll": 1,
-        "bonuses": {
-          "check": "",
-          "passive": 0
-        }
-      },
-      "ins": {
-        "ability": "wis",
-        "value": 0,
-        "proficient": false,
-        "specialties": [],
-        "expertiseDice": 0,
-        "minRoll": 1,
-        "bonuses": {
-          "check": "",
-          "passive": 0
-        }
-      },
-      "itm": {
-        "ability": "cha",
-        "value": 0,
-        "proficient": false,
-        "specialties": [],
-        "expertiseDice": 0,
-        "minRoll": 1,
-        "bonuses": {
-          "check": "",
-          "passive": 0
-        }
-      },
-      "inv": {
-        "ability": "int",
-        "value": 0,
-        "proficient": false,
-        "specialties": [],
-        "expertiseDice": 0,
-        "minRoll": 1,
-        "bonuses": {
-          "check": "",
-          "passive": 0
-        }
-      },
-      "med": {
-        "ability": "wis",
-        "value": 0,
-        "proficient": false,
-        "specialties": [],
-        "expertiseDice": 0,
-        "minRoll": 1,
-        "bonuses": {
-          "check": "",
-          "passive": 0
-        }
-      },
-      "nat": {
-        "ability": "int",
-        "value": 0,
-        "proficient": false,
-        "specialties": [],
-        "expertiseDice": 0,
-        "minRoll": 1,
-        "bonuses": {
-          "check": "",
-          "passive": 0
-        }
-      },
-      "prc": {
-        "ability": "wis",
-        "value": 0,
-        "proficient": true,
-        "specialties": [],
-        "expertiseDice": 0,
-        "minRoll": 1,
-        "bonuses": {
-          "check": "",
-          "passive": 0
-        }
-      },
-      "prf": {
-        "ability": "cha",
-        "value": 0,
-        "proficient": false,
-        "specialties": [],
-        "expertiseDice": 0,
-        "minRoll": 1,
-        "bonuses": {
-          "check": "",
-          "passive": 0
-        }
-      },
-      "per": {
-        "ability": "cha",
-        "value": 0,
-        "proficient": false,
-        "specialties": [],
-        "expertiseDice": 0,
-        "minRoll": 1,
-        "bonuses": {
-          "check": "",
-          "passive": 0
-        }
-      },
-      "rel": {
-        "ability": "int",
-        "value": 0,
-        "proficient": false,
-        "specialties": [],
-        "expertiseDice": 0,
-        "minRoll": 1,
-        "bonuses": {
-          "check": "",
-          "passive": 0
-        }
-      },
-      "slt": {
-        "ability": "dex",
-        "value": 0,
-        "proficient": false,
-        "specialties": [],
-        "expertiseDice": 0,
-        "minRoll": 1,
-        "bonuses": {
-          "check": "",
-          "passive": 0
-        }
-      },
-      "ste": {
-        "ability": "dex",
-        "value": 0,
-        "proficient": true,
-        "specialties": [],
-        "expertiseDice": 1,
-        "minRoll": 1,
-        "bonuses": {
-          "check": "",
-          "passive": 0
-        }
-      },
-      "sur": {
-        "ability": "wis",
-        "value": 0,
-        "proficient": true,
-        "specialties": [],
-        "expertiseDice": 0,
-        "minRoll": 1,
-        "bonuses": {
-          "check": "",
-          "passive": 0
-        }
-      }
-    },
-    "spellResources": {
-      "slots": {
-        "1": {
-          "current": 0,
-          "max": 0
-        },
-        "2": {
-          "current": 0,
-          "max": 0
-        },
-        "3": {
-          "current": 0,
-          "max": 0
-        },
-        "4": {
-          "current": 0,
-          "max": 0
-        },
-        "5": {
-          "current": 0,
-          "max": 0
-        },
-        "6": {
-          "current": 0,
-          "max": 0
-        },
-        "7": {
-          "current": 0,
-          "max": 0
-        },
-        "8": {
-          "current": 0,
-          "max": 0
-        },
-        "9": {
-          "current": 0,
-          "max": 0
-        }
-      },
-      "points": {
-        "current": 0,
-        "max": 0
-      }
-    },
-    "attributes": {
-      "ac": {
-        "baseFormula": "14",
-        "value": 0
-      },
-      "death": {
-        "success": 0,
-        "failure": 0
-      },
-      "hp": {
-        "value": 22,
-        "baseMax": 22,
-        "temp": 0,
-        "bonus": 0
-      },
-      "hitDice": {
-        "d6": {
-          "current": 0,
-          "total": 0
-        },
-        "d8": {
-          "current": 4,
-          "total": 4
-        },
-        "d10": {
-          "current": 0,
-          "total": 0
-        },
-        "d12": {
-          "current": 0,
-          "total": 0
-        },
-        "d4": {
-          "current": 0,
-          "total": 0
-        },
-        "d20": {
-          "current": 0,
-          "total": 0
-        }
-      },
-      "initiative": {
-        "bonus": "",
-        "expertiseDice": 0,
-        "ability": "dex"
-      },
-      "movement": {
-        "burrow": {
-          "distance": 0,
-          "unit": "feet"
-        },
-        "climb": {
-          "distance": 0,
-          "unit": "feet"
-        },
-        "fly": {
-          "distance": 0,
-          "unit": "feet"
-        },
-        "swim": {
-          "distance": 30,
-          "unit": "feet"
-        },
-        "walk": {
-          "distance": 30,
-          "unit": "feet"
-        },
-        "traits": {
-          "hover": false
-        }
-      },
-      "senses": {
-        "blindsight": {
-          "distance": 0,
-          "unit": "feet",
-          "otherwiseBlind": false
-        },
-        "darkvision": {
-          "distance": 0,
-          "unit": "feet"
-        },
-        "tremorsense": {
-          "distance": 0,
-          "unit": "feet"
-        },
-        "truesight": {
-          "distance": 0,
-          "unit": "feet"
-        }
-      },
-      "inspiration": false,
-      "fatigue": 0,
-      "strife": 0,
-      "spellcasting": "int",
-      "casterLevel": 5
-    },
-    "bonuses": {
-      "abilities": {},
-      "damage": {},
-      "healing": {},
-      "maneuverDC": "",
-      "meleeSpellAttack": "",
-      "meleeWeaponAttack": "",
-      "rangedSpellAttack": "",
-      "rangedWeaponAttack": "",
-      "spellDC": "",
-      "skills": {},
-      "attacks": {}
-    },
-    "currency": {
-      "pp": 0,
-      "gp": 0,
-      "ep": 0,
-      "sp": 0,
-      "cp": 0
-    },
-    "details": {
-      "bio": "<h2><strong>COMBAT</strong></h2><p>Lizardfolk hide underwater, making bite attacks with advantage when possible. Otherwise, they attack with club and shield. Outside their territory, they retreat once half their number are defeated. When protecting their territory, they fight to the death.</p><hr class=\"a5e-rule u-my-md\"><h2><strong>NAMES</strong></h2><p>Gleamwater, Isla, Ka, Kesk, Redroot, Zartha</p><hr class=\"a5e-rule u-my-md\"><h2><strong>LEGENDS AND LORE</strong></h2><p>With a History or Nature check, characters can learn the following:</p><p><strong>DC 10</strong> Lizardfolk live in isolated communities in jungles and swamps. While not inherently evil, they are distrustful of outsiders.</p><p><strong>DC 15</strong> Lizardfolk can hold their breath for long periods of time. They often ambush trespassers from beneath the water.</p><p><strong>DC 20</strong> In ages past, lizardfolk made pacts with beings from the outer planes. Occasionally, a lizardfolk will be born possessing a vestige of the power granted by these ancient pacts.</p><p><strong>DESCRIPTION</strong></p><p>Lizardfolk are reptilian humanoids who dwell in isolated communities in jungles and swamps. Fiercely territorial, they are quick to drive off (or simply kill) trespassers.&nbsp;</p><p><strong><em>Metal Poor.</em></strong> Most lizardfolk live in metal-poor areas, crafting their fish hooks, spears, and other equipment out of stone, wood, and bone. Though experts with these materials, lizardfolk understand that superior tools and weapons can mean the difference between life and death, especially when resisting steel-wielding invaders. Lizardfolk trade for metal when they can and strip it from their dead enemies when they can’t.&nbsp;</p><p><strong><em>Cold Blooded</em></strong><em>.</em> Lizardfolk are cold-blooded creatures with slow metabolisms. They are economical in their movements and remain perfectly still when idle. To other folk, lizardfolk can appear inexpressive, even alien, but they feel emotion as much as other people. Lizardfolk distrust outsiders, but they are stalwart allies once their loyalty is earned.</p><p><strong><em>Lost Empires.</em></strong> According to their own legends, lizardfolk were among the first people to walk the earth. Their civilization stretched from the depths of the earth and sea to the highest mountain peaks. They borrowed power from celestials and fiends alike, expanding their dominion until finally the gods themselves intervened. The descendents of the great lizardfolk empire are now scattered, with no memory of their former glory save for fallen towers half-buried in the muck.</p><p><strong>BEHAVIOR</strong></p><p>1 Camouflaged, scouting</p><p>2 Making weapons or jewelry</p><p>3 On a trade expedition, offering amber and food for metal</p><p>4 Ignore strangers unless approached</p><p>5 Attack on sight</p><p>6 Recently raided by rivals or monsters</p><p><strong>SIGNS</strong></p><p>1 Abandoned huts</p><p>2 A stone altar with a piece of dragon eggshell resting on it</p><p>3 A wall of sharpened stakes</p><p>4 A leather rucksack filled with stone tools</p><p>5-6 DC 15 Perception or Survival check: clawed footprints</p><p><strong>ENCOUNTERS</strong></p><p>Lizardfolk inhabit jungles and swamps.</p><p><strong>CR 0–2</strong> 1 or 2 lizardfolk; lizardfolk druid</p><p><strong>Treasure</strong> polished stone necklace (25 gp), 2 packets of healing herbs (act as <em>potions of healing</em>)</p><p><strong>CR 3–4</strong> 3 or 4 lizardfolk; 2 lizardfolk with 1d4 giant lizards or crocodiles; lizardfolk druid with 1 or 2 lizardfolk</p><p><strong>Treasure</strong> 4 amber gemstones (100 gp each), <em>potion of heroism</em></p><p><strong>CR 5–10</strong> lizardfolk chosen one with 1d4 + 2 lizardfolk; lizardfolk chosen one with lizardfolk druid and 1d4 lizardfolk; lizardfolk druid with giant crocodile and 3 lizardfolk</p><p><strong>Treasure</strong> fragment of ancient stone covered in glowing sigils (750 gp to certain buyers), <em>helm of telepathy</em></p>",
-      "creatureTypes": [
-        "humanoid"
-      ],
-      "isSwarm": false,
-      "cr": 2,
-      "elite": false,
-      "privateNotes": "",
-      "notes": "",
-      "terrain": []
-    },
-    "proficiencies": {
-      "armor": [],
-      "languages": [
-        "draconic"
-      ],
-      "tools": [],
-      "weapons": []
-    },
-    "resources": {
-      "primary": {
-        "label": "",
-        "value": 0,
-        "max": "0",
-        "per": "",
-        "hideMax": false,
-        "recharge": {
-          "formula": "",
-          "threshold": 6
-        }
-      },
-      "secondary": {
-        "label": "",
-        "value": 0,
-        "max": "0",
-        "per": "",
-        "hideMax": false,
-        "recharge": {
-          "formula": "",
-          "threshold": 6
-        }
-      },
-      "tertiary": {
-        "label": "",
-        "value": 0,
-        "max": "0",
-        "per": "",
-        "hideMax": false,
-        "recharge": {
-          "formula": "",
-          "threshold": 6
-        }
-      },
-      "quaternary": {
-        "label": "",
-        "value": 0,
-        "max": "0",
-        "per": "",
-        "hideMax": false,
-        "recharge": {
-          "formula": "",
-          "threshold": 6
-        }
-      }
-    },
-    "source": "",
-    "traits": {
-      "size": "med",
-      "conditionImmunities": [],
-      "damageImmunities": [],
-      "damageResistances": [],
-      "damageVulnerabilities": []
-    }
-  },
-  "prototypeToken": {
-    "name": "Lizardfolk Druid",
-    "displayName": 0,
-    "actorLink": false,
-    "width": 1,
-    "height": 1,
-    "lockRotation": false,
-    "rotation": 0,
-    "alpha": 1,
-    "light": {
-      "alpha": 0.5,
-      "angle": 360,
-      "bright": 0,
-      "coloration": 1,
-      "dim": 0,
-      "luminosity": 0.5,
-      "saturation": 0,
-      "contrast": 0,
-      "shadows": 0,
-      "animation": {
-        "speed": 5,
-        "intensity": 5,
-        "reverse": false,
-        "type": null
-      },
-      "darkness": {
-        "min": 0,
-        "max": 1
-      },
-      "attenuation": 0.5,
-      "color": null
-    },
-    "disposition": -1,
-    "displayBars": 0,
-    "bar1": {
-      "attribute": "attributes.hp"
-    },
-    "bar2": {
-      "attribute": null
-    },
-    "flags": {},
-    "randomImg": false,
-    "texture": {
-      "src": "systems/a5e/assets/lizardfolk.webp",
-      "scaleX": 1,
-      "scaleY": 1,
-      "offsetX": 0,
-      "offsetY": 0,
-      "rotation": 0,
-      "tint": "#ffffff"
-    },
-    "sight": {
-      "angle": 360,
-      "enabled": false,
-      "range": 0,
-      "brightness": 1,
-      "color": null,
-      "attenuation": 0.1,
-      "saturation": 0,
-      "contrast": 0,
-      "visionMode": "basic"
-    },
-    "detectionModes": [],
-    "appendNumber": false,
-    "prependAdjective": false
-  },
-  "folder": null,
-  "_id": "fehgybs3cdrhnw7b"
+	"name": "Lizardfolk Druid",
+	"type": "npc",
+	"img": "systems/a5e/assets/lizardfolk.webp",
+	"items": [
+		{
+			"_id": "5d8xWrnaLGNQhLFc",
+			"name": "Hold Breath",
+			"type": "feature",
+			"img": "icons/svg/item-bag.svg",
+			"effects": [],
+			"folder": null,
+			"sort": 100000,
+			"flags": {},
+			"system": {
+				"ac": {
+					"baseFormula": "",
+					"formula": "",
+					"maxDex": 0,
+					"minStr": 0,
+					"mode": 1,
+					"requiresNoShield": false,
+					"requiresUnarmored": false
+				},
+				"actions": {},
+				"description": "<p>The lizardfolk can hold its breath for 15 minutes.</p>",
+				"favorite": false,
+				"secretDescription": "",
+				"source": "",
+				"uses": {
+					"value": null,
+					"max": "",
+					"per": null,
+					"recharge": {
+						"formula": "",
+						"threshold": ""
+					}
+				},
+				"schema": {
+					"version": null,
+					"lastMigration": null
+				},
+				"concentration": false,
+				"featureType": "",
+				"grants": {},
+				"prerequisite": "",
+				"requiresBloodied": false,
+				"schemaVersion": {
+					"version": 0.013,
+					"lastMigration": {
+						"version": {
+							"schema": 0.011,
+							"foundry": "11.315",
+							"system": "0.16.49"
+						}
+					}
+				}
+			},
+			"ownership": {
+				"default": 0
+			}
+		},
+		{
+			"_id": "nZn4T1RI2H7B2rQF",
+			"name": "Multiattack",
+			"type": "feature",
+			"img": "icons/skills/melee/blade-tips-triple-steel.webp",
+			"effects": [],
+			"folder": null,
+			"sort": 262500,
+			"flags": {
+				"core": {
+					"sourceId": "Item.Hcp8zUrtUBaXFT4i"
+				}
+			},
+			"system": {
+				"ac": {
+					"baseFormula": "",
+					"formula": "",
+					"maxDex": 0,
+					"minStr": 0,
+					"mode": 1,
+					"requiresNoShield": false,
+					"requiresUnarmored": false
+				},
+				"actions": {
+					"QUFYzRIKGSBe00uD": {
+						"name": "Multiattack",
+						"activation": {
+							"cost": 1,
+							"type": "action",
+							"reactionTrigger": ""
+						},
+						"duration": {
+							"unit": "",
+							"value": ""
+						},
+						"area": {
+							"shape": "",
+							"size": "",
+							"placeTemplate": false
+						},
+						"target": {
+							"quantity": "",
+							"type": ""
+						},
+						"consumers": {}
+					}
+				},
+				"description": "<p>The lizardfolk attacks with its club and shield.</p>",
+				"favorite": false,
+				"secretDescription": "",
+				"source": "",
+				"uses": {
+					"value": null,
+					"max": "",
+					"per": null,
+					"recharge": {
+						"formula": "",
+						"threshold": ""
+					}
+				},
+				"schema": {
+					"version": null,
+					"lastMigration": null
+				},
+				"concentration": false,
+				"featureType": "",
+				"grants": {},
+				"prerequisite": "",
+				"requiresBloodied": false,
+				"schemaVersion": {
+					"version": 0.013,
+					"lastMigration": {
+						"version": {
+							"schema": 0.011,
+							"foundry": "11.315",
+							"system": "0.16.49"
+						}
+					}
+				}
+			},
+			"ownership": {
+				"default": 0
+			}
+		},
+		{
+			"_id": "WfqOuIajqyYBAhQ8",
+			"name": "Bite (Crocodile Form)",
+			"type": "feature",
+			"img": "icons/creatures/abilities/mouth-teeth-long-red.webp",
+			"effects": [],
+			"folder": null,
+			"sort": 275000,
+			"flags": {
+				"core": {
+					"sourceId": "Item.Hcp8zUrtUBaXFT4i"
+				}
+			},
+			"system": {
+				"ac": {
+					"baseFormula": "",
+					"formula": "",
+					"maxDex": 0,
+					"minStr": 0,
+					"mode": 1,
+					"requiresNoShield": false,
+					"requiresUnarmored": false
+				},
+				"actions": {
+					"If8dqlvKG07PeXix": {
+						"name": "Bite (Crocodile Form)",
+						"activation": {
+							"cost": 1,
+							"type": "action",
+							"reactionTrigger": ""
+						},
+						"duration": {
+							"unit": "",
+							"value": ""
+						},
+						"area": {
+							"shape": "",
+							"size": "",
+							"placeTemplate": false
+						},
+						"target": {
+							"quantity": "",
+							"type": ""
+						},
+						"rolls": {
+							"WJu0RZaFaeG68jLb": {
+								"bonus": "",
+								"critThreshold": "20",
+								"type": "attack",
+								"attackType": "meleeWeaponAttack",
+								"ability": "str"
+							},
+							"ud875bujaYawdurJ": {
+								"canCrit": true,
+								"damageType": "piercing",
+								"formula": "1d10+@str.mod",
+								"name": "Bite",
+								"type": "damage"
+							}
+						},
+						"prompts": {
+							"56Z1TuzMARFah5td": {
+								"ability": "dex",
+								"onSave": "",
+								"saveDC": {
+									"type": "custom",
+									"bonus": "12"
+								},
+								"type": "savingThrow"
+							}
+						},
+						"consumers": {}
+					}
+				},
+				"description": "<p>On a hit, the target is grappled (escape DC 12).&nbsp;Until this grapple ends, the target is restrained, and&nbsp;the lizardfolk can’t bite a different creature.</p>",
+				"favorite": true,
+				"secretDescription": "",
+				"source": "",
+				"uses": {
+					"value": null,
+					"max": "",
+					"per": null,
+					"recharge": {
+						"formula": "",
+						"threshold": ""
+					}
+				},
+				"schema": {
+					"version": null,
+					"lastMigration": null
+				},
+				"concentration": false,
+				"featureType": "",
+				"grants": {},
+				"prerequisite": "",
+				"requiresBloodied": false,
+				"schemaVersion": {
+					"version": 0.013,
+					"lastMigration": {
+						"version": {
+							"schema": 0.011,
+							"foundry": "11.315",
+							"system": "0.16.49"
+						}
+					}
+				}
+			},
+			"ownership": {
+				"default": 0
+			}
+		},
+		{
+			"_id": "RrI7giA5Do2H4bzc",
+			"name": "Club",
+			"type": "object",
+			"img": "icons/svg/item-bag.svg",
+			"effects": [],
+			"folder": null,
+			"sort": 0,
+			"flags": {},
+			"system": {
+				"ac": {
+					"baseFormula": "",
+					"formula": "",
+					"maxDex": 0,
+					"minStr": 0,
+					"mode": 1,
+					"requiresNoShield": false,
+					"requiresUnarmored": false
+				},
+				"actions": {
+					"4SLfr2baQQB6jAvq": {
+						"name": "Club",
+						"activation": {
+							"cost": 1,
+							"type": "action",
+							"reactionTrigger": ""
+						},
+						"duration": {
+							"unit": "",
+							"value": ""
+						},
+						"area": {
+							"shape": "",
+							"size": "",
+							"placeTemplate": false
+						},
+						"target": {
+							"quantity": "",
+							"type": ""
+						},
+						"rolls": {
+							"bI1o2sSiGFIAD09z": {
+								"bonus": "",
+								"critThreshold": "20",
+								"type": "attack",
+								"attackType": "meleeWeaponAttack",
+								"ability": "str"
+							},
+							"vfF0kT0TAUqHkxIE": {
+								"canCrit": true,
+								"damageType": "bludgeoning",
+								"formula": "1d4+@str.mod",
+								"name": "Club",
+								"type": "damage"
+							}
+						},
+						"consumers": {}
+					}
+				},
+				"description": "",
+				"favorite": true,
+				"secretDescription": "",
+				"source": "",
+				"uses": {
+					"value": null,
+					"max": "",
+					"per": null,
+					"recharge": {
+						"formula": "",
+						"threshold": ""
+					}
+				},
+				"schema": {
+					"version": null,
+					"lastMigration": null
+				},
+				"ammunitionProperties": [],
+				"armorCategory": "",
+				"armorProperties": [],
+				"attuned": false,
+				"bulky": false,
+				"craftingComponents": "",
+				"containerId": "",
+				"damagedState": 0,
+				"equippedState": 0,
+				"items": {},
+				"materialProperties": [],
+				"objectType": "weapon",
+				"plotItem": false,
+				"price": "0 gp",
+				"proficient": true,
+				"quantity": 1,
+				"rarity": "common",
+				"requiresAttunement": false,
+				"shieldCategory": "",
+				"shieldProperties": [],
+				"unidentified": false,
+				"unidentifiedDescription": "",
+				"unidentifiedName": "",
+				"weaponProperties": [],
+				"weight": 0,
+				"broken": false,
+				"schemaVersion": {
+					"version": 0.013,
+					"lastMigration": {
+						"version": {
+							"schema": 0.011,
+							"foundry": "11.315",
+							"system": "0.16.49"
+						}
+					}
+				}
+			},
+			"ownership": {
+				"default": 0
+			}
+		},
+		{
+			"_id": "bYf759LBtUt9YjqY",
+			"name": "Shield",
+			"type": "object",
+			"img": "icons/svg/item-bag.svg",
+			"effects": [],
+			"folder": null,
+			"sort": 0,
+			"flags": {},
+			"system": {
+				"ac": {
+					"baseFormula": "",
+					"formula": "",
+					"maxDex": 0,
+					"minStr": 0,
+					"mode": 1,
+					"requiresNoShield": false,
+					"requiresUnarmored": false
+				},
+				"actions": {
+					"Geeyn1lw90KFAMoV": {
+						"name": "Shield",
+						"activation": {
+							"cost": 1,
+							"type": "action",
+							"reactionTrigger": ""
+						},
+						"duration": {
+							"unit": "",
+							"value": ""
+						},
+						"area": {
+							"shape": "",
+							"size": "",
+							"placeTemplate": false
+						},
+						"target": {
+							"quantity": "",
+							"type": ""
+						},
+						"rolls": {
+							"NtLDBM5Y3ThKoA4W": {
+								"bonus": "",
+								"critThreshold": "20",
+								"type": "attack",
+								"attackType": "meleeWeaponAttack",
+								"ability": "str"
+							},
+							"9FZReYRULWuSk9kl": {
+								"canCrit": true,
+								"damageType": "bludgeoning",
+								"formula": "1d4+@str.mod",
+								"name": "Shield",
+								"type": "damage"
+							}
+						},
+						"consumers": {}
+					}
+				},
+				"description": "",
+				"favorite": true,
+				"secretDescription": "",
+				"source": "",
+				"uses": {
+					"value": null,
+					"max": "",
+					"per": null,
+					"recharge": {
+						"formula": "",
+						"threshold": ""
+					}
+				},
+				"schema": {
+					"version": null,
+					"lastMigration": null
+				},
+				"ammunitionProperties": [],
+				"armorCategory": "",
+				"armorProperties": [],
+				"attuned": false,
+				"bulky": false,
+				"craftingComponents": "",
+				"containerId": "",
+				"damagedState": 0,
+				"equippedState": 0,
+				"items": {},
+				"materialProperties": [],
+				"objectType": "weapon",
+				"plotItem": false,
+				"price": "0 gp",
+				"proficient": true,
+				"quantity": 1,
+				"rarity": "common",
+				"requiresAttunement": false,
+				"shieldCategory": "",
+				"shieldProperties": [],
+				"unidentified": false,
+				"unidentifiedDescription": "",
+				"unidentifiedName": "",
+				"weaponProperties": [],
+				"weight": 0,
+				"broken": false,
+				"schemaVersion": {
+					"version": 0.013,
+					"lastMigration": {
+						"version": {
+							"schema": 0.011,
+							"foundry": "11.315",
+							"system": "0.16.49"
+						}
+					}
+				}
+			},
+			"ownership": {
+				"default": 0
+			}
+		},
+		{
+			"_id": "j3nN5THmnqLDQbg5",
+			"name": "Javelin",
+			"type": "object",
+			"img": "icons/svg/item-bag.svg",
+			"effects": [],
+			"folder": null,
+			"sort": 0,
+			"flags": {},
+			"system": {
+				"ac": {
+					"baseFormula": "",
+					"formula": "",
+					"maxDex": 0,
+					"minStr": 0,
+					"mode": 1,
+					"requiresNoShield": false,
+					"requiresUnarmored": false
+				},
+				"actions": {
+					"3iQzerSmzwTVutVM": {
+						"name": "Javelin",
+						"activation": {
+							"cost": 1,
+							"type": "action",
+							"reactionTrigger": ""
+						},
+						"duration": {
+							"unit": "",
+							"value": ""
+						},
+						"area": {
+							"shape": "",
+							"size": "",
+							"placeTemplate": false
+						},
+						"target": {
+							"quantity": "",
+							"type": ""
+						},
+						"rolls": {
+							"WPfyp2wkvC3ccxY9": {
+								"bonus": "",
+								"critThreshold": "20",
+								"type": "attack",
+								"attackType": "meleeWeaponAttack",
+								"ability": "str"
+							},
+							"MOw2THTvDWLA9z7L": {
+								"canCrit": true,
+								"damageType": "piercing",
+								"formula": "1d6+@str.mod",
+								"name": "Javelin",
+								"type": "damage"
+							}
+						},
+						"consumers": {}
+					}
+				},
+				"description": "<p>Reach 5 ft. or range 30/120 ft., one target.</p>",
+				"favorite": true,
+				"secretDescription": "",
+				"source": "",
+				"uses": {
+					"value": null,
+					"max": "",
+					"per": null,
+					"recharge": {
+						"formula": "",
+						"threshold": ""
+					}
+				},
+				"schema": {
+					"version": null,
+					"lastMigration": null
+				},
+				"ammunitionProperties": [],
+				"armorCategory": "",
+				"armorProperties": [],
+				"attuned": false,
+				"bulky": false,
+				"craftingComponents": "",
+				"containerId": "",
+				"damagedState": 0,
+				"equippedState": 0,
+				"items": {},
+				"materialProperties": [],
+				"objectType": "weapon",
+				"plotItem": false,
+				"price": "0 gp",
+				"proficient": true,
+				"quantity": 1,
+				"rarity": "common",
+				"requiresAttunement": false,
+				"shieldCategory": "",
+				"shieldProperties": [],
+				"unidentified": false,
+				"unidentifiedDescription": "",
+				"unidentifiedName": "",
+				"weaponProperties": [],
+				"weight": 0,
+				"broken": false,
+				"schemaVersion": {
+					"version": 0.013,
+					"lastMigration": {
+						"version": {
+							"schema": 0.011,
+							"foundry": "11.315",
+							"system": "0.16.49"
+						}
+					}
+				}
+			},
+			"ownership": {
+				"default": 0
+			}
+		},
+		{
+			"_id": "xIHwtTzRMYeq3kdb",
+			"name": "Spellcasting",
+			"type": "feature",
+			"img": "icons/svg/item-bag.svg",
+			"effects": [],
+			"folder": null,
+			"sort": 200000,
+			"flags": {},
+			"system": {
+				"ac": {
+					"baseFormula": "",
+					"formula": "",
+					"maxDex": 0,
+					"minStr": 0,
+					"mode": 1,
+					"requiresNoShield": false,
+					"requiresUnarmored": false
+				},
+				"actions": {},
+				"description": "<p>Spellcasting. The lizardfolk druid is a 5th level spellcaster.&nbsp;Its spellcasting ability is Wisdom (spell save&nbsp;DC 10, +2 to hit with spell attacks). It has the following druid spells prepared:</p><p>Cantrips (at will): <em>druidcraft, produce flame  </em></p><p>1st-level (4 slots): <em>fog cloud, purify food and drink </em></p><p>2nd-level (3 slots): <em>heat metal, pass without trace</em></p><p>3rd-level (2 slots): <em>conjure animals, plant growth</em></p>",
+				"favorite": false,
+				"secretDescription": "",
+				"source": "",
+				"uses": {
+					"value": null,
+					"max": "",
+					"per": null,
+					"recharge": {
+						"formula": "",
+						"threshold": ""
+					}
+				},
+				"schema": {
+					"version": null,
+					"lastMigration": null
+				},
+				"concentration": false,
+				"featureType": "",
+				"grants": {},
+				"prerequisite": "",
+				"requiresBloodied": false,
+				"schemaVersion": {
+					"version": 0.013,
+					"lastMigration": {
+						"version": {
+							"schema": 0.011,
+							"foundry": "11.315",
+							"system": "0.16.49"
+						}
+					}
+				}
+			},
+			"ownership": {
+				"default": 0
+			}
+		},
+		{
+			"_id": "TQHt78JtPm1zovGM",
+			"name": "Shapeshift",
+			"type": "feature",
+			"img": "icons/svg/item-bag.svg",
+			"effects": [],
+			"folder": null,
+			"sort": 250000,
+			"flags": {},
+			"system": {
+				"ac": {
+					"baseFormula": "",
+					"formula": "",
+					"maxDex": 0,
+					"minStr": 0,
+					"mode": 1,
+					"requiresNoShield": false,
+					"requiresUnarmored": false
+				},
+				"actions": {},
+				"description": "<p>The lizardfolk magically changes its form&nbsp;into a Large crocodile or back into its true form. Its&nbsp;statistics are the same in each form, but it can’t speak&nbsp;or cast spells in crocodile form. Any equipment the&nbsp;lizardfolk is wearing or wielding merges into its new&nbsp;form. It reverts to its true form if it dies.</p>",
+				"favorite": false,
+				"secretDescription": "",
+				"source": "",
+				"uses": {
+					"value": null,
+					"max": "",
+					"per": null,
+					"recharge": {
+						"formula": "",
+						"threshold": ""
+					}
+				},
+				"schema": {
+					"version": null,
+					"lastMigration": null
+				},
+				"concentration": false,
+				"featureType": "",
+				"grants": {},
+				"prerequisite": "",
+				"requiresBloodied": false,
+				"schemaVersion": {
+					"version": 0.013,
+					"lastMigration": {
+						"version": {
+							"schema": 0.011,
+							"foundry": "11.315",
+							"system": "0.16.49"
+						}
+					}
+				}
+			},
+			"ownership": {
+				"default": 0
+			}
+		},
+		{
+			"_id": "w5cyGsuMYeEOQhpg",
+			"name": "Bite",
+			"type": "feature",
+			"img": "icons/creatures/abilities/mouth-teeth-long-red.webp",
+			"effects": [],
+			"folder": null,
+			"sort": 800000,
+			"flags": {
+				"core": {
+					"sourceId": "Item.Hcp8zUrtUBaXFT4i"
+				}
+			},
+			"system": {
+				"ac": {
+					"baseFormula": "",
+					"formula": "",
+					"maxDex": 0,
+					"minStr": 0,
+					"mode": 1,
+					"requiresNoShield": false,
+					"requiresUnarmored": false
+				},
+				"actions": {
+					"S07oUsNqZxZgPWVL": {
+						"name": "Bite",
+						"activation": {
+							"cost": 1,
+							"type": "action",
+							"reactionTrigger": ""
+						},
+						"duration": {
+							"unit": "",
+							"value": ""
+						},
+						"area": {
+							"shape": "",
+							"size": "",
+							"placeTemplate": false
+						},
+						"target": {
+							"quantity": "",
+							"type": ""
+						},
+						"rolls": {
+							"KJJU5sME852d60I9": {
+								"bonus": "",
+								"critThreshold": "20",
+								"type": "attack",
+								"attackType": "meleeWeaponAttack",
+								"ability": "str"
+							},
+							"vvBZ36cpShDkGmCf": {
+								"canCrit": true,
+								"damageType": "piercing",
+								"formula": "1d6+@str.mod",
+								"name": "Bite (Normal)",
+								"type": "damage"
+							},
+							"rG7TG8Qp1fm0kuMV": {
+								"canCrit": true,
+								"damageType": "piercing",
+								"formula": "2d6+@str.mod",
+								"name": "Bite (if attack with Advantage)",
+								"type": "damage"
+							}
+						},
+						"consumers": {}
+					}
+				},
+				"description": "",
+				"favorite": true,
+				"secretDescription": "",
+				"source": "",
+				"uses": {
+					"value": null,
+					"max": "",
+					"per": null,
+					"recharge": {
+						"formula": "",
+						"threshold": ""
+					}
+				},
+				"schema": {
+					"version": null,
+					"lastMigration": null
+				},
+				"concentration": false,
+				"featureType": "naturalWeapon",
+				"grants": {},
+				"prerequisite": "",
+				"requiresBloodied": false,
+				"schemaVersion": {
+					"version": 0.013,
+					"lastMigration": {
+						"version": {
+							"schema": 0.011,
+							"foundry": "11.315",
+							"system": "0.16.49"
+						}
+					}
+				}
+			},
+			"ownership": {
+				"default": 0
+			}
+		},
+		{
+			"_id": "kituVgrvJImvzYmi",
+			"name": "Produce Flame (Cantrip; V, S)",
+			"type": "feature",
+			"img": "icons/svg/item-bag.svg",
+			"effects": [],
+			"folder": null,
+			"sort": 900000,
+			"flags": {
+				"core": {
+					"sourceId": "Item.Hcp8zUrtUBaXFT4i"
+				}
+			},
+			"system": {
+				"ac": {
+					"baseFormula": "",
+					"formula": "",
+					"maxDex": 0,
+					"minStr": 0,
+					"mode": 1,
+					"requiresNoShield": false,
+					"requiresUnarmored": false
+				},
+				"actions": {
+					"oBuQsVyao6Ol3YsF": {
+						"name": "Produce Flame (Cantrip; V, S)",
+						"activation": {
+							"cost": 1,
+							"type": "action",
+							"reactionTrigger": ""
+						},
+						"duration": {
+							"unit": "",
+							"value": ""
+						},
+						"area": {
+							"shape": "",
+							"size": "",
+							"placeTemplate": false
+						},
+						"target": {
+							"quantity": null,
+							"type": ""
+						},
+						"rolls": {
+							"iQDZCH5lh5N4Cscu": {
+								"bonus": "",
+								"critThreshold": "20",
+								"type": "attack",
+								"attackType": "rangedWeaponAttack",
+								"ability": "spellcasting"
+							},
+							"DL1Y1qMm2TbWnZQS": {
+								"canCrit": true,
+								"damageType": "fire",
+								"formula": "2d8",
+								"name": "Flame",
+								"type": "damage"
+							}
+						},
+						"consumers": {}
+					}
+				},
+				"description": "<p>Range 30 ft.</p>",
+				"favorite": true,
+				"secretDescription": "",
+				"source": "",
+				"uses": {
+					"value": null,
+					"max": "",
+					"per": null,
+					"recharge": {
+						"formula": "",
+						"threshold": ""
+					}
+				},
+				"schema": {
+					"version": null,
+					"lastMigration": null
+				},
+				"concentration": false,
+				"featureType": "",
+				"grants": {},
+				"prerequisite": "",
+				"requiresBloodied": false,
+				"schemaVersion": {
+					"version": 0.013,
+					"lastMigration": {
+						"version": {
+							"schema": 0.011,
+							"foundry": "11.315",
+							"system": "0.16.49"
+						}
+					}
+				}
+			},
+			"ownership": {
+				"default": 0
+			}
+		},
+		{
+			"_id": "Rlj81AhcN4D0CQuF",
+			"name": "Heat Metal (2nd-Level; V, S, M, Concentration)",
+			"type": "feature",
+			"img": "icons/svg/item-bag.svg",
+			"effects": [],
+			"folder": null,
+			"sort": 700000,
+			"flags": {
+				"core": {
+					"sourceId": "Item.Hcp8zUrtUBaXFT4i"
+				}
+			},
+			"system": {
+				"ac": {
+					"baseFormula": "",
+					"formula": "",
+					"maxDex": 0,
+					"minStr": 0,
+					"mode": 1,
+					"requiresNoShield": false,
+					"requiresUnarmored": false
+				},
+				"actions": {
+					"WJB2YAaLzTdR3Jdq": {
+						"name": "Heat Metal (2nd-Level; V, S, M, Concentration)",
+						"activation": {
+							"cost": 1,
+							"type": "action",
+							"reactionTrigger": ""
+						},
+						"duration": {
+							"unit": "minute",
+							"value": 1
+						},
+						"area": {
+							"shape": "",
+							"size": "",
+							"placeTemplate": false
+						},
+						"target": {
+							"quantity": "",
+							"type": ""
+						},
+						"rolls": {
+							"AizaRjOBcyieSsBK": {
+								"canCrit": false,
+								"damageType": "fire",
+								"formula": "2d8",
+								"name": "Heat Metal",
+								"type": "damage"
+							}
+						},
+						"prompts": {
+							"5X2MRObYV1Wndcg5": {
+								"ability": "con",
+								"onSave": "",
+								"saveDC": {
+									"type": "custom",
+									"bonus": "10"
+								},
+								"type": "savingThrow"
+							}
+						},
+						"consumers": {}
+					}
+				},
+				"description": "<p>The&nbsp;lizardfolk heats a metal object within 60 feet. A creature&nbsp;touching the item takes 9 (2d8) fire damage when&nbsp;the spell is cast. On subsequent turns for 1 minute, the&nbsp;lizardfolk can use a bonus action to inflict the same&nbsp;damage. If a creature is holding the object, it makes a&nbsp;DC 10 Constitution saving throw or drops the object.&nbsp;If it can’t or won’t drop the object, it has disadvantage&nbsp;on attack rolls and ability checks until the start of the&nbsp;lizardfolk’s next turn.</p>",
+				"favorite": true,
+				"secretDescription": "",
+				"source": "",
+				"uses": {
+					"value": null,
+					"max": "",
+					"per": null,
+					"recharge": {
+						"formula": "",
+						"threshold": ""
+					}
+				},
+				"schema": {
+					"version": null,
+					"lastMigration": null
+				},
+				"concentration": false,
+				"featureType": "",
+				"grants": {},
+				"prerequisite": "",
+				"requiresBloodied": false,
+				"schemaVersion": {
+					"version": 0.013,
+					"lastMigration": {
+						"version": {
+							"schema": 0.011,
+							"foundry": "11.315",
+							"system": "0.16.49"
+						}
+					}
+				}
+			},
+			"ownership": {
+				"default": 0
+			}
+		},
+		{
+			"_id": "XY6B9Fsi5WMM2cPS",
+			"name": "Conjure Animals (3rd-Level; V, S, Concentration)",
+			"type": "feature",
+			"img": "icons/svg/item-bag.svg",
+			"effects": [],
+			"folder": null,
+			"sort": 300000,
+			"flags": {
+				"core": {
+					"sourceId": "Item.Hcp8zUrtUBaXFT4i"
+				}
+			},
+			"system": {
+				"ac": {
+					"baseFormula": "",
+					"formula": "",
+					"maxDex": 0,
+					"minStr": 0,
+					"mode": 1,
+					"requiresNoShield": false,
+					"requiresUnarmored": false
+				},
+				"actions": {
+					"6ArdFGBKwwhHeXlN": {
+						"name": "Conjure Animals (3rd-Level; V, S, Concentration)",
+						"activation": {
+							"cost": 1,
+							"type": "action",
+							"reactionTrigger": ""
+						},
+						"duration": {
+							"unit": "hour",
+							"value": 1
+						},
+						"area": {
+							"shape": "",
+							"size": "",
+							"placeTemplate": false
+						},
+						"target": {
+							"quantity": "",
+							"type": ""
+						},
+						"consumers": {}
+					}
+				},
+				"description": "<p>The&nbsp;lizardfolk summons 1 swarm of poisonous snakes or&nbsp;3 crocodiles, which appear in spaces the lizardfolk can&nbsp;see within 60 feet and remain for 1 hour or until killed.&nbsp;The beasts are allies that act on the lizardfolk’s turn&nbsp;under its control.</p>",
+				"favorite": false,
+				"secretDescription": "",
+				"source": "",
+				"uses": {
+					"value": null,
+					"max": "",
+					"per": null,
+					"recharge": {
+						"formula": "",
+						"threshold": ""
+					}
+				},
+				"schema": {
+					"version": null,
+					"lastMigration": null
+				},
+				"concentration": false,
+				"featureType": "",
+				"grants": {},
+				"prerequisite": "",
+				"requiresBloodied": false,
+				"schemaVersion": {
+					"version": 0.013,
+					"lastMigration": {
+						"version": {
+							"schema": 0.011,
+							"foundry": "11.315",
+							"system": "0.16.49"
+						}
+					}
+				}
+			},
+			"ownership": {
+				"default": 0
+			}
+		},
+		{
+			"name": "Shove",
+			"type": "maneuver",
+			"img": "icons/skills/melee/shield-block-bash-yellow.webp",
+			"effects": [],
+			"flags": {
+				"core": {
+					"sourceId": "Compendium.a5e.a5e-maneuvers.md35qozzy2fxy2o6"
+				}
+			},
+			"system": {
+				"actions": {
+					"AeJ7kIVDxZkWLgvK": {
+						"name": "Shove",
+						"activation": {
+							"cost": 1,
+							"type": "action",
+							"reactionTrigger": ""
+						},
+						"duration": {
+							"unit": "instantaneous",
+							"value": null
+						},
+						"ranges": {
+							"hCO76xezpFYDSZXV": {
+								"range": "fiveFeet"
+							}
+						},
+						"area": {
+							"shape": "",
+							"size": "",
+							"placeTemplate": false
+						},
+						"target": {
+							"quantity": null,
+							"type": "creature",
+							"shape": "",
+							"size": ""
+						},
+						"rolls": {
+							"8DAdAacPeVNTTbrl": {
+								"canCrit": false,
+								"damageType": "bludgeoning",
+								"formula": "1 + @str.mod",
+								"name": "Default",
+								"type": "damage"
+							}
+						},
+						"prompts": {
+							"GeEjDrN45Hn3voOD": {
+								"ability": "str",
+								"onSave": "",
+								"saveDC": {
+									"type": "custom",
+									"bonus": "@maneuverDC"
+								},
+								"type": "savingThrow"
+							}
+						},
+						"consumers": {}
+					}
+				},
+				"description": "<p>You can use the Shove maneuver to push a creature away. If you are able to make multiple attacks with the Attack action, this maneuver replaces one of them.</p><p>The target must be within your reach and be no more than one size category larger than you. The target makes a Strength saving throw against your maneuver DC. On a failure, you deal basic melee damage and push the target a number of feet away from you equal to 5 + 5 for every 5 points it failed its saving throw by. You can move the creature in any direction away from you (to the side, forward, or diagonally away).</p><p>A creature that is shoved off of a precipice is propelled off of whatever it is standing on -- it does not receive any saving throw or ability check to grab onto something to avoid falling down below.</p>",
+				"favorite": false,
+				"secretDescription": "",
+				"source": "",
+				"uses": {
+					"value": null,
+					"max": "",
+					"per": null,
+					"recharge": {
+						"formula": "",
+						"threshold": ""
+					}
+				},
+				"schema": {
+					"version": null,
+					"lastMigration": null
+				},
+				"concentration": false,
+				"degree": 0,
+				"exertionCost": 0,
+				"isStance": false,
+				"prerequisite": "",
+				"tradition": "",
+				"schemaVersion": {
+					"version": 0.013,
+					"lastMigration": {
+						"version": {
+							"schema": 0.011,
+							"foundry": "11.315",
+							"system": "0.16.49"
+						}
+					}
+				}
+			},
+			"ownership": {
+				"default": 0
+			},
+			"folder": null,
+			"sort": 0,
+			"_id": "ZGwyu7Y8PKWsI6Vn"
+		},
+		{
+			"name": "Disarm",
+			"type": "maneuver",
+			"img": "icons/skills/melee/sword-damaged-broken-glow-red.webp",
+			"effects": [],
+			"flags": {
+				"core": {
+					"sourceId": "Compendium.a5e.a5e-maneuvers.c0bv7fsy2akld5lp"
+				}
+			},
+			"system": {
+				"actions": {
+					"z152qIbVuMZjd23b": {
+						"name": "Disarm",
+						"activation": {
+							"cost": 1,
+							"type": "action",
+							"reactionTrigger": ""
+						},
+						"duration": {
+							"unit": "instantaneous",
+							"value": null
+						},
+						"ranges": {
+							"e1MFJktzctjtOFqC": {
+								"range": "touch"
+							}
+						},
+						"area": {
+							"shape": "",
+							"size": "",
+							"placeTemplate": false
+						},
+						"target": {
+							"quantity": "",
+							"type": "creature",
+							"shape": "",
+							"size": ""
+						},
+						"rolls": {
+							"wKMuzWrpCPSRpV1b": {
+								"canCrit": false,
+								"damageType": "",
+								"formula": "1 + @str.mod",
+								"name": "",
+								"type": "damage"
+							}
+						},
+						"prompts": {
+							"4iinPr9pg16f3ES2": {
+								"ability": "str",
+								"onSave": "",
+								"saveDC": {
+									"type": "custom",
+									"bonus": "@maneuverDC"
+								},
+								"type": "savingThrow"
+							}
+						},
+						"consumers": {}
+					}
+				},
+				"description": "<p>You can use the Disarm maneuver to attempt to knock an item or weapon from a creature's hand. If you are able to make multiple attacks with the Attack action, this maneuver replaces one of them.</p><p>The target must be within your reach and be holding an item (either carried or wielded). The target makes a Strength or Dexterity saving throw against your maneuver DC. On a failure, you deal basic melee damage and the target drops the item in its space. The target has advantage if it is larger than you or holding the item with two or more hands, and a target smaller than you has disadvantage.</p>",
+				"favorite": false,
+				"secretDescription": "",
+				"source": "",
+				"uses": {
+					"value": null,
+					"max": "",
+					"per": null,
+					"recharge": {
+						"formula": "",
+						"threshold": ""
+					}
+				},
+				"schema": {
+					"version": null,
+					"lastMigration": null
+				},
+				"concentration": false,
+				"degree": 0,
+				"exertionCost": 0,
+				"isStance": false,
+				"prerequisite": "",
+				"tradition": "",
+				"schemaVersion": {
+					"version": 0.013,
+					"lastMigration": {
+						"version": {
+							"schema": 0.011,
+							"foundry": "11.315",
+							"system": "0.16.49"
+						}
+					}
+				}
+			},
+			"ownership": {
+				"default": 0
+			},
+			"folder": null,
+			"sort": 0,
+			"_id": "3QuBqVWGEUATaWgs"
+		},
+		{
+			"name": "Grab On",
+			"type": "maneuver",
+			"img": "icons/skills/melee/hand-grip-staff-teal.webp",
+			"effects": [],
+			"flags": {
+				"core": {
+					"sourceId": "Compendium.a5e.a5e-maneuvers.jewmp4pzrg9cdui9"
+				}
+			},
+			"system": {
+				"actions": {
+					"tJZzg3XFMFstu5pw": {
+						"name": "Grab On",
+						"activation": {
+							"cost": 1,
+							"type": "action",
+							"reactionTrigger": ""
+						},
+						"duration": {
+							"unit": "instantaneous",
+							"value": null
+						},
+						"ranges": {
+							"MHcAqhqdVRknRJKQ": {
+								"range": "touch"
+							}
+						},
+						"area": {
+							"shape": "",
+							"size": "",
+							"placeTemplate": false
+						},
+						"target": {
+							"quantity": "",
+							"type": "creature",
+							"shape": "",
+							"size": ""
+						},
+						"prompts": {
+							"up0YK8zKhn82fSHm": {
+								"ability": "str",
+								"onSave": "",
+								"saveDC": {
+									"type": "custom",
+									"bonus": "@maneuverDC"
+								},
+								"type": "savingThrow"
+							}
+						},
+						"consumers": {}
+					}
+				},
+				"description": "<p>While you cannot grapple a creature two or more size categories larger than you, you can grab onto it. By jumping onto its back or climbing up a limb, you can make a Strength or Dexterity saving throw against the creature's maneuver DC to cling to or balance upon its body. On a success, you move into the creature's space and can move upon its body as if it is difficult terrain.</p><p>While grabbing onto a larger creature, you gain advantage on attack rolls against it. The larger creature may be able to attack you as normal, depending on its limbs or attacks. It can also use an action or replace one of its attacks on its turn to try to dislodge you, such as shaking you loose or bashing you against a wall, forcing you to make a Strength or Dexterity saving throw against its maneuver DC or fall prone into the nearest space adjacent to the creature, taking its basic melee damage in the process.</p><p>If the creature chooses to roll over in order to dislodge you, it becomes prone, but you have disadvantage on the saving throw to hang on.</p>",
+				"favorite": false,
+				"secretDescription": "",
+				"source": "",
+				"uses": {
+					"value": null,
+					"max": "",
+					"per": null,
+					"recharge": {
+						"formula": "",
+						"threshold": ""
+					}
+				},
+				"schema": {
+					"version": null,
+					"lastMigration": null
+				},
+				"concentration": false,
+				"degree": 0,
+				"exertionCost": 0,
+				"isStance": false,
+				"prerequisite": "",
+				"tradition": "",
+				"schemaVersion": {
+					"version": 0.013,
+					"lastMigration": {
+						"version": {
+							"schema": 0.011,
+							"foundry": "11.315",
+							"system": "0.16.49"
+						}
+					}
+				}
+			},
+			"ownership": {
+				"default": 0
+			},
+			"folder": null,
+			"sort": 0,
+			"_id": "Sj9LAr2WpN3kmAHX"
+		},
+		{
+			"name": "Knockdown",
+			"type": "maneuver",
+			"img": "icons/magic/control/silhouette-fall-slip-prone.webp",
+			"effects": [],
+			"flags": {
+				"core": {
+					"sourceId": "Compendium.a5e.a5e-maneuvers.zzg7j7cb0vkgctwi"
+				}
+			},
+			"system": {
+				"actions": {
+					"b5DGuydltTjSPX5n": {
+						"name": "Knockdown",
+						"activation": {
+							"cost": 1,
+							"type": "action",
+							"reactionTrigger": ""
+						},
+						"duration": {
+							"unit": "instantaneous",
+							"value": null
+						},
+						"ranges": {
+							"0cKiG7QhYrYtrH9x": {
+								"range": "touch"
+							}
+						},
+						"area": {
+							"shape": "",
+							"size": "",
+							"placeTemplate": false
+						},
+						"target": {
+							"quantity": "",
+							"type": "creature",
+							"shape": "",
+							"size": ""
+						},
+						"prompts": {
+							"AzVqBhxsorPgUX7C": {
+								"ability": "str",
+								"onSave": "",
+								"saveDC": {
+									"type": "custom",
+									"bonus": "@maneuverDC"
+								},
+								"type": "savingThrow"
+							}
+						},
+						"consumers": {}
+					}
+				},
+				"description": "<p>You can use the Knockdown maneuver to trip or push a creature down. If you are able to make multiple attacks with the Attack action, this maneuver replaces one of them.</p><p>The target must be within your reach and be no more than one size category larger than you. The target makes a Strength saving throw against your maneuver DC. On a failure, you deal basic melee damage and knock the target prone.</p>",
+				"favorite": false,
+				"secretDescription": "",
+				"source": "",
+				"uses": {
+					"value": null,
+					"max": "",
+					"per": null,
+					"recharge": {
+						"formula": "",
+						"threshold": ""
+					}
+				},
+				"schema": {
+					"version": null,
+					"lastMigration": null
+				},
+				"concentration": false,
+				"degree": 0,
+				"exertionCost": 0,
+				"isStance": false,
+				"prerequisite": "",
+				"tradition": "",
+				"schemaVersion": {
+					"version": 0.013,
+					"lastMigration": {
+						"version": {
+							"schema": 0.011,
+							"foundry": "11.315",
+							"system": "0.16.49"
+						}
+					}
+				}
+			},
+			"ownership": {
+				"default": 0
+			},
+			"folder": null,
+			"sort": 0,
+			"_id": "sqw6Cwuf8sSYmKgm"
+		},
+		{
+			"name": "Grapple",
+			"type": "maneuver",
+			"img": "icons/skills/melee/unarmed-punch-fist.webp",
+			"effects": [],
+			"flags": {
+				"core": {
+					"sourceId": "Compendium.a5e.a5e-maneuvers.9umrahwm68f81d7l"
+				}
+			},
+			"system": {
+				"actions": {
+					"Aa7lYDsJcwSA2kY0": {
+						"name": "Grapple",
+						"activation": {
+							"cost": 1,
+							"type": "action",
+							"reactionTrigger": ""
+						},
+						"duration": {
+							"unit": "instantaneous",
+							"value": null
+						},
+						"ranges": {
+							"vndAmoGYYcdLV8bR": {
+								"range": "touch"
+							}
+						},
+						"area": {
+							"shape": "",
+							"size": "",
+							"placeTemplate": false
+						},
+						"target": {
+							"quantity": "",
+							"type": "creature",
+							"shape": "",
+							"size": ""
+						},
+						"prompts": {
+							"kaXaADdjlNnXRqyb": {
+								"ability": "str",
+								"onSave": "",
+								"saveDC": {
+									"type": "custom",
+									"bonus": "@maneuverDC"
+								},
+								"type": "savingThrow"
+							}
+						},
+						"consumers": {}
+					}
+				},
+				"description": "<p>You can use the Grapple maneuver to grab or wrestle a creature. If you are able to make multiple attacks with the Attack action, this maneuver replaces one of them.</p>\n<p>You must have at least one free hand to attempt a grapple, your target must be within your reach, and the target must be no more than one size category larger than you. The target makes a Strength or Dexterity saving throw against your maneuver DC. On a failure, you deal basic melee damage and the target becomes grappled (see Appendix A: Conditions on page 616). In addition to things that end the condition, you can release the target at any time (no action required).</p>\n<p><em>Escaping a Grapple.</em> While grappled, a creature can use its action to attempt to escape. It must succeed on a Strength or Dexterity saving throw against your maneuver DC.</p>\n<p><em>Moving a Grappled Creature. </em>When you move, you can drag or carry the grappled creature with you. When you do so, your Speed is halved, unless the creature's weight is within your carrying capacity and you are not encumbered by bulky items.</p>\n<p><em>Freeing a Grappled Creature.</em> You can use the Grapple maneuver to try to free another grappled or restrained creature. The creature grappling or restraining the target makes a Strength saving throw against your maneuver DC. If it fails the saving throw, the grappled or restrained creature is freed. Additionally, you may move the freed creature 5 feet in any direction.</p>",
+				"favorite": false,
+				"secretDescription": "",
+				"source": "",
+				"uses": {
+					"value": null,
+					"max": "",
+					"per": null,
+					"recharge": {
+						"formula": "",
+						"threshold": ""
+					}
+				},
+				"schema": {
+					"version": null,
+					"lastMigration": null
+				},
+				"concentration": false,
+				"degree": 0,
+				"exertionCost": 0,
+				"isStance": false,
+				"prerequisite": "",
+				"tradition": "",
+				"schemaVersion": {
+					"version": 0.013,
+					"lastMigration": {
+						"version": {
+							"schema": 0.011,
+							"foundry": "11.315",
+							"system": "0.16.49"
+						}
+					}
+				}
+			},
+			"ownership": {
+				"default": 0
+			},
+			"folder": null,
+			"sort": 0,
+			"_id": "16SCud4aynlQPdjZ"
+		},
+		{
+			"name": "Overrun",
+			"type": "maneuver",
+			"img": "icons/skills/melee/shield-damaged-broken-blue.webp",
+			"effects": [],
+			"flags": {
+				"core": {
+					"sourceId": "Compendium.a5e.a5e-maneuvers.210ihnnejao46r20"
+				}
+			},
+			"system": {
+				"actions": {
+					"65DzMJVBen54unDU": {
+						"name": "Overrun",
+						"activation": {
+							"cost": 1,
+							"type": "special",
+							"reactionTrigger": ""
+						},
+						"duration": {
+							"unit": "instantaneous",
+							"value": null
+						},
+						"ranges": {
+							"YgvV5RYegJFdyjVu": {
+								"range": "touch"
+							}
+						},
+						"area": {
+							"shape": "",
+							"size": "",
+							"placeTemplate": false
+						},
+						"target": {
+							"quantity": "",
+							"type": "creature",
+							"shape": "",
+							"size": ""
+						},
+						"prompts": {
+							"F0x9PFxeb0LdSON2": {
+								"ability": "str",
+								"onSave": "",
+								"saveDC": {
+									"type": "custom",
+									"bonus": "@maneuverDC"
+								},
+								"type": "savingThrow"
+							}
+						},
+						"consumers": {}
+					}
+				},
+				"description": "<p>You can use an action or bonus action to make an Overrun maneuver to move through a hostile creature's space by forcing your way past. Make a Strength saving throw against the target's maneuver DC. On a success, you deal basic melee damage and can move through the hostile creature's space once this turn. The creature can choose to just let you pass instead of rolling. You have advantage if you are larger than the target, or disadvantage if you are smaller. If you are two or more sizes smaller than the target, you can move through the hostile creature's space without making a save. You still provoke opportunity attacks if you move beyond a creature's reach.</p>",
+				"favorite": false,
+				"secretDescription": "",
+				"source": "",
+				"uses": {
+					"value": null,
+					"max": "",
+					"per": null,
+					"recharge": {
+						"formula": "",
+						"threshold": ""
+					}
+				},
+				"schema": {
+					"version": null,
+					"lastMigration": null
+				},
+				"concentration": false,
+				"degree": 0,
+				"exertionCost": 0,
+				"isStance": false,
+				"prerequisite": "",
+				"tradition": "",
+				"schemaVersion": {
+					"version": 0.013,
+					"lastMigration": {
+						"version": {
+							"schema": 0.011,
+							"foundry": "11.315",
+							"system": "0.16.49"
+						}
+					}
+				}
+			},
+			"ownership": {
+				"default": 0
+			},
+			"folder": null,
+			"sort": 0,
+			"_id": "P01TcvyymOboUh0T"
+		}
+	],
+	"effects": [],
+	"flags": {
+		"a5e": {
+			"sheetIsLocked": true
+		}
+	},
+	"system": {
+		"abilities": {
+			"str": {
+				"value": 14,
+				"check": {
+					"expertiseDice": 0,
+					"bonus": ""
+				},
+				"save": {
+					"proficient": false,
+					"expertiseDice": 0,
+					"bonus": ""
+				}
+			},
+			"dex": {
+				"value": 12,
+				"check": {
+					"expertiseDice": 0,
+					"bonus": ""
+				},
+				"save": {
+					"proficient": false,
+					"expertiseDice": 0,
+					"bonus": ""
+				}
+			},
+			"con": {
+				"value": 12,
+				"check": {
+					"expertiseDice": 0,
+					"bonus": ""
+				},
+				"save": {
+					"proficient": false,
+					"expertiseDice": 0,
+					"bonus": ""
+				}
+			},
+			"int": {
+				"value": 10,
+				"check": {
+					"expertiseDice": 0,
+					"bonus": ""
+				},
+				"save": {
+					"proficient": false,
+					"expertiseDice": 0,
+					"bonus": ""
+				}
+			},
+			"wis": {
+				"value": 10,
+				"check": {
+					"expertiseDice": 0,
+					"bonus": ""
+				},
+				"save": {
+					"proficient": false,
+					"expertiseDice": 0,
+					"bonus": ""
+				}
+			},
+			"cha": {
+				"value": 8,
+				"check": {
+					"expertiseDice": 0,
+					"bonus": ""
+				},
+				"save": {
+					"proficient": false,
+					"expertiseDice": 0,
+					"bonus": ""
+				}
+			}
+		},
+		"schemaVersion": {
+			"version": 0.013,
+			"lastMigration": {
+				"version": {
+					"schema": 0.011,
+					"foundry": "11.315",
+					"system": "0.16.49"
+				}
+			}
+		},
+		"skills": {
+			"acr": {
+				"ability": "dex",
+				"value": 0,
+				"proficient": false,
+				"specialties": [],
+				"expertiseDice": 0,
+				"minRoll": 1,
+				"bonuses": {
+					"check": "",
+					"passive": 0
+				}
+			},
+			"ani": {
+				"ability": "wis",
+				"value": 0,
+				"proficient": false,
+				"specialties": [],
+				"expertiseDice": 0,
+				"minRoll": 1,
+				"bonuses": {
+					"check": "",
+					"passive": 0
+				}
+			},
+			"arc": {
+				"ability": "int",
+				"value": 0,
+				"proficient": false,
+				"specialties": [],
+				"expertiseDice": 0,
+				"minRoll": 1,
+				"bonuses": {
+					"check": "",
+					"passive": 0
+				}
+			},
+			"ath": {
+				"ability": "str",
+				"value": 0,
+				"proficient": false,
+				"specialties": [],
+				"expertiseDice": 0,
+				"minRoll": 1,
+				"bonuses": {
+					"check": "",
+					"passive": 0
+				}
+			},
+			"cul": {
+				"ability": "int",
+				"value": 0,
+				"proficient": false,
+				"specialties": [],
+				"expertiseDice": 0,
+				"minRoll": 1,
+				"bonuses": {
+					"check": "",
+					"passive": 0
+				}
+			},
+			"dec": {
+				"ability": "cha",
+				"value": 0,
+				"proficient": false,
+				"specialties": [],
+				"expertiseDice": 0,
+				"minRoll": 1,
+				"bonuses": {
+					"check": "",
+					"passive": 0
+				}
+			},
+			"eng": {
+				"ability": "int",
+				"value": 0,
+				"proficient": false,
+				"specialties": [],
+				"expertiseDice": 0,
+				"minRoll": 1,
+				"bonuses": {
+					"check": "",
+					"passive": 0
+				}
+			},
+			"his": {
+				"ability": "int",
+				"value": 0,
+				"proficient": false,
+				"specialties": [],
+				"expertiseDice": 0,
+				"minRoll": 1,
+				"bonuses": {
+					"check": "",
+					"passive": 0
+				}
+			},
+			"ins": {
+				"ability": "wis",
+				"value": 0,
+				"proficient": false,
+				"specialties": [],
+				"expertiseDice": 0,
+				"minRoll": 1,
+				"bonuses": {
+					"check": "",
+					"passive": 0
+				}
+			},
+			"itm": {
+				"ability": "cha",
+				"value": 0,
+				"proficient": false,
+				"specialties": [],
+				"expertiseDice": 0,
+				"minRoll": 1,
+				"bonuses": {
+					"check": "",
+					"passive": 0
+				}
+			},
+			"inv": {
+				"ability": "int",
+				"value": 0,
+				"proficient": false,
+				"specialties": [],
+				"expertiseDice": 0,
+				"minRoll": 1,
+				"bonuses": {
+					"check": "",
+					"passive": 0
+				}
+			},
+			"med": {
+				"ability": "wis",
+				"value": 0,
+				"proficient": false,
+				"specialties": [],
+				"expertiseDice": 0,
+				"minRoll": 1,
+				"bonuses": {
+					"check": "",
+					"passive": 0
+				}
+			},
+			"nat": {
+				"ability": "int",
+				"value": 0,
+				"proficient": false,
+				"specialties": [],
+				"expertiseDice": 0,
+				"minRoll": 1,
+				"bonuses": {
+					"check": "",
+					"passive": 0
+				}
+			},
+			"prc": {
+				"ability": "wis",
+				"value": 0,
+				"proficient": true,
+				"specialties": [],
+				"expertiseDice": 0,
+				"minRoll": 1,
+				"bonuses": {
+					"check": "",
+					"passive": 0
+				}
+			},
+			"prf": {
+				"ability": "cha",
+				"value": 0,
+				"proficient": false,
+				"specialties": [],
+				"expertiseDice": 0,
+				"minRoll": 1,
+				"bonuses": {
+					"check": "",
+					"passive": 0
+				}
+			},
+			"per": {
+				"ability": "cha",
+				"value": 0,
+				"proficient": false,
+				"specialties": [],
+				"expertiseDice": 0,
+				"minRoll": 1,
+				"bonuses": {
+					"check": "",
+					"passive": 0
+				}
+			},
+			"rel": {
+				"ability": "int",
+				"value": 0,
+				"proficient": false,
+				"specialties": [],
+				"expertiseDice": 0,
+				"minRoll": 1,
+				"bonuses": {
+					"check": "",
+					"passive": 0
+				}
+			},
+			"slt": {
+				"ability": "dex",
+				"value": 0,
+				"proficient": false,
+				"specialties": [],
+				"expertiseDice": 0,
+				"minRoll": 1,
+				"bonuses": {
+					"check": "",
+					"passive": 0
+				}
+			},
+			"ste": {
+				"ability": "dex",
+				"value": 0,
+				"proficient": true,
+				"specialties": [],
+				"expertiseDice": 1,
+				"minRoll": 1,
+				"bonuses": {
+					"check": "",
+					"passive": 0
+				}
+			},
+			"sur": {
+				"ability": "wis",
+				"value": 0,
+				"proficient": true,
+				"specialties": [],
+				"expertiseDice": 0,
+				"minRoll": 1,
+				"bonuses": {
+					"check": "",
+					"passive": 0
+				}
+			}
+		},
+		"spellResources": {
+			"slots": {
+				"1": {
+					"current": 0,
+					"max": 0
+				},
+				"2": {
+					"current": 0,
+					"max": 0
+				},
+				"3": {
+					"current": 0,
+					"max": 0
+				},
+				"4": {
+					"current": 0,
+					"max": 0
+				},
+				"5": {
+					"current": 0,
+					"max": 0
+				},
+				"6": {
+					"current": 0,
+					"max": 0
+				},
+				"7": {
+					"current": 0,
+					"max": 0
+				},
+				"8": {
+					"current": 0,
+					"max": 0
+				},
+				"9": {
+					"current": 0,
+					"max": 0
+				}
+			},
+			"points": {
+				"current": 0,
+				"max": 0
+			}
+		},
+		"attributes": {
+			"ac": {
+				"baseFormula": "14",
+				"value": 0
+			},
+			"death": {
+				"success": 0,
+				"failure": 0
+			},
+			"hp": {
+				"value": 22,
+				"baseMax": 22,
+				"temp": 0,
+				"bonus": 0
+			},
+			"hitDice": {
+				"d6": {
+					"current": 0,
+					"total": 0
+				},
+				"d8": {
+					"current": 4,
+					"total": 4
+				},
+				"d10": {
+					"current": 0,
+					"total": 0
+				},
+				"d12": {
+					"current": 0,
+					"total": 0
+				},
+				"d4": {
+					"current": 0,
+					"total": 0
+				},
+				"d20": {
+					"current": 0,
+					"total": 0
+				}
+			},
+			"initiative": {
+				"bonus": "",
+				"expertiseDice": 0,
+				"ability": "dex"
+			},
+			"movement": {
+				"burrow": {
+					"distance": 0,
+					"unit": "feet"
+				},
+				"climb": {
+					"distance": 0,
+					"unit": "feet"
+				},
+				"fly": {
+					"distance": 0,
+					"unit": "feet"
+				},
+				"swim": {
+					"distance": 30,
+					"unit": "feet"
+				},
+				"walk": {
+					"distance": 30,
+					"unit": "feet"
+				},
+				"traits": {
+					"hover": false
+				}
+			},
+			"senses": {
+				"blindsight": {
+					"distance": 0,
+					"unit": "feet",
+					"otherwiseBlind": false
+				},
+				"darkvision": {
+					"distance": 0,
+					"unit": "feet"
+				},
+				"tremorsense": {
+					"distance": 0,
+					"unit": "feet"
+				},
+				"truesight": {
+					"distance": 0,
+					"unit": "feet"
+				}
+			},
+			"inspiration": false,
+			"fatigue": 0,
+			"strife": 0,
+			"spellcasting": "int",
+			"casterLevel": 5
+		},
+		"bonuses": {
+			"abilities": {},
+			"damage": {},
+			"healing": {},
+			"maneuverDC": "",
+			"meleeSpellAttack": "",
+			"meleeWeaponAttack": "",
+			"rangedSpellAttack": "",
+			"rangedWeaponAttack": "",
+			"spellDC": "",
+			"skills": {},
+			"attacks": {},
+			"initiative": {},
+			"movement": {},
+			"senses": {}
+		},
+		"currency": {
+			"pp": 0,
+			"gp": 0,
+			"ep": 0,
+			"sp": 0,
+			"cp": 0
+		},
+		"details": {
+			"bio": "<h2><strong>COMBAT</strong></h2><p>Lizardfolk hide underwater, making bite attacks with advantage when possible. Otherwise, they attack with club and shield. Outside their territory, they retreat once half their number are defeated. When protecting their territory, they fight to the death.</p><hr class=\"a5e-rule u-my-md\"><h2><strong>NAMES</strong></h2><p>Gleamwater, Isla, Ka, Kesk, Redroot, Zartha</p><hr class=\"a5e-rule u-my-md\"><h2><strong>LEGENDS AND LORE</strong></h2><p>With a History or Nature check, characters can learn the following:</p><p><strong>DC 10</strong> Lizardfolk live in isolated communities in jungles and swamps. While not inherently evil, they are distrustful of outsiders.</p><p><strong>DC 15</strong> Lizardfolk can hold their breath for long periods of time. They often ambush trespassers from beneath the water.</p><p><strong>DC 20</strong> In ages past, lizardfolk made pacts with beings from the outer planes. Occasionally, a lizardfolk will be born possessing a vestige of the power granted by these ancient pacts.</p><p><strong>DESCRIPTION</strong></p><p>Lizardfolk are reptilian humanoids who dwell in isolated communities in jungles and swamps. Fiercely territorial, they are quick to drive off (or simply kill) trespassers.&nbsp;</p><p><strong><em>Metal Poor.</em></strong> Most lizardfolk live in metal-poor areas, crafting their fish hooks, spears, and other equipment out of stone, wood, and bone. Though experts with these materials, lizardfolk understand that superior tools and weapons can mean the difference between life and death, especially when resisting steel-wielding invaders. Lizardfolk trade for metal when they can and strip it from their dead enemies when they can’t.&nbsp;</p><p><strong><em>Cold Blooded</em></strong><em>.</em> Lizardfolk are cold-blooded creatures with slow metabolisms. They are economical in their movements and remain perfectly still when idle. To other folk, lizardfolk can appear inexpressive, even alien, but they feel emotion as much as other people. Lizardfolk distrust outsiders, but they are stalwart allies once their loyalty is earned.</p><p><strong><em>Lost Empires.</em></strong> According to their own legends, lizardfolk were among the first people to walk the earth. Their civilization stretched from the depths of the earth and sea to the highest mountain peaks. They borrowed power from celestials and fiends alike, expanding their dominion until finally the gods themselves intervened. The descendents of the great lizardfolk empire are now scattered, with no memory of their former glory save for fallen towers half-buried in the muck.</p><p><strong>BEHAVIOR</strong></p><p>1 Camouflaged, scouting</p><p>2 Making weapons or jewelry</p><p>3 On a trade expedition, offering amber and food for metal</p><p>4 Ignore strangers unless approached</p><p>5 Attack on sight</p><p>6 Recently raided by rivals or monsters</p><p><strong>SIGNS</strong></p><p>1 Abandoned huts</p><p>2 A stone altar with a piece of dragon eggshell resting on it</p><p>3 A wall of sharpened stakes</p><p>4 A leather rucksack filled with stone tools</p><p>5-6 DC 15 Perception or Survival check: clawed footprints</p><p><strong>ENCOUNTERS</strong></p><p>Lizardfolk inhabit jungles and swamps.</p><p><strong>CR 0–2</strong> 1 or 2 lizardfolk; lizardfolk druid</p><p><strong>Treasure</strong> polished stone necklace (25 gp), 2 packets of healing herbs (act as <em>potions of healing</em>)</p><p><strong>CR 3–4</strong> 3 or 4 lizardfolk; 2 lizardfolk with 1d4 giant lizards or crocodiles; lizardfolk druid with 1 or 2 lizardfolk</p><p><strong>Treasure</strong> 4 amber gemstones (100 gp each), <em>potion of heroism</em></p><p><strong>CR 5–10</strong> lizardfolk chosen one with 1d4 + 2 lizardfolk; lizardfolk chosen one with lizardfolk druid and 1d4 lizardfolk; lizardfolk druid with giant crocodile and 3 lizardfolk</p><p><strong>Treasure</strong> fragment of ancient stone covered in glowing sigils (750 gp to certain buyers), <em>helm of telepathy</em></p>",
+			"creatureTypes": [
+				"humanoid"
+			],
+			"isSwarm": false,
+			"cr": 2,
+			"elite": false,
+			"privateNotes": "",
+			"notes": "",
+			"terrain": []
+		},
+		"proficiencies": {
+			"armor": [],
+			"languages": [
+				"draconic"
+			],
+			"tools": [],
+			"weapons": []
+		},
+		"resources": {
+			"primary": {
+				"label": "",
+				"value": 0,
+				"max": "0",
+				"per": "",
+				"hideMax": false,
+				"recharge": {
+					"formula": "",
+					"threshold": 6
+				}
+			},
+			"secondary": {
+				"label": "",
+				"value": 0,
+				"max": "0",
+				"per": "",
+				"hideMax": false,
+				"recharge": {
+					"formula": "",
+					"threshold": 6
+				}
+			},
+			"tertiary": {
+				"label": "",
+				"value": 0,
+				"max": "0",
+				"per": "",
+				"hideMax": false,
+				"recharge": {
+					"formula": "",
+					"threshold": 6
+				}
+			},
+			"quaternary": {
+				"label": "",
+				"value": 0,
+				"max": "0",
+				"per": "",
+				"hideMax": false,
+				"recharge": {
+					"formula": "",
+					"threshold": 6
+				}
+			}
+		},
+		"source": "",
+		"traits": {
+			"size": "med",
+			"conditionImmunities": [],
+			"damageImmunities": [],
+			"damageResistances": [],
+			"damageVulnerabilities": []
+		},
+		"grants": {}
+	},
+	"prototypeToken": {
+		"name": "Lizardfolk Druid",
+		"displayName": 0,
+		"actorLink": false,
+		"width": 1,
+		"height": 1,
+		"lockRotation": false,
+		"rotation": 0,
+		"alpha": 1,
+		"light": {
+			"alpha": 0.5,
+			"angle": 360,
+			"bright": 0,
+			"coloration": 1,
+			"dim": 0,
+			"luminosity": 0.5,
+			"saturation": 0,
+			"contrast": 0,
+			"shadows": 0,
+			"animation": {
+				"speed": 5,
+				"intensity": 5,
+				"reverse": false,
+				"type": null
+			},
+			"darkness": {
+				"min": 0,
+				"max": 1
+			},
+			"attenuation": 0.5,
+			"color": null
+		},
+		"disposition": -1,
+		"displayBars": 0,
+		"bar1": {
+			"attribute": "attributes.hp"
+		},
+		"bar2": {
+			"attribute": null
+		},
+		"flags": {},
+		"randomImg": false,
+		"texture": {
+			"src": "systems/a5e/assets/lizardfolk.webp",
+			"scaleX": 1,
+			"scaleY": 1,
+			"offsetX": 0,
+			"offsetY": 0,
+			"rotation": 0,
+			"tint": "#ffffff"
+		},
+		"sight": {
+			"angle": 360,
+			"enabled": false,
+			"range": 0,
+			"brightness": 1,
+			"color": null,
+			"attenuation": 0.1,
+			"saturation": 0,
+			"contrast": 0,
+			"visionMode": "basic"
+		},
+		"detectionModes": [],
+		"appendNumber": false,
+		"prependAdjective": false
+	},
+	"folder": null,
+	"_id": "fehgybs3cdrhnw7b"
 }

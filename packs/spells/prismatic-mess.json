@@ -1,141 +1,141 @@
 {
-  "folder": null,
-  "name": "Prismatic Mess",
-  "type": "spell",
-  "img": "icons/magic/symbols/elements-air-earth-fire-water.webp",
-  "system": {
-    "actions": {
-      "Lf5qYBmlGmiSk0IO": {
-        "name": "Prismatic Mess",
-        "activation": {
-          "type": "action",
-          "cost": 1
-        },
-        "consumers": {},
-        "rolls": {},
-        "prompts": {
-          "M1jfUSRWJ9g3nsZx": {
-            "type": "generic",
-            "default": true,
-            "formula": "1d8",
-            "label": "Color"
-          },
-          "Rbl5GZlB8j49oSOQ": {
-            "type": "savingThrow",
-            "default": true,
-            "ability": "str",
-            "saveDC": {
-              "type": "spellcasting"
-            },
-            "label": "Indigo Save",
-            "onSave": "(indigo) no longer restrained"
-          },
-          "tIyHrZVSCZmLkWFd": {
-            "type": "savingThrow",
-            "default": true,
-            "ability": "con",
-            "saveDC": {
-              "type": "spellcasting"
-            },
-            "label": "Violet Save",
-            "onSave": "(indigo) no longer blinded"
-          },
-          "FDNtYQKJlHHOMg39": {
-            "type": "savingThrow",
-            "default": true,
-            "ability": "dex",
-            "saveDC": {
-              "type": "spellcasting"
-            },
-            "label": "Initial Dexterity Save",
-            "onSave": "no effect, half damage"
-          },
-          "jQYh2NVApHx0zznQ": {
-            "type": "generic",
-            "default": true,
-            "label": "Damage",
-            "formula": "6d6"
-          }
-        },
-        "uses": {
-          "value": 0,
-          "max": "",
-          "per": "",
-          "recharge": {
-            "formula": "1d6",
-            "threshold": 6
-          }
-        },
-        "area": {
-          "shape": "cube",
-          "quantity": 1,
-          "width": 35,
-          "placeTemplate": true
-        },
-        "target": {
-          "type": "self",
-          "quantity": 1
-        },
-        "duration": {
-          "unit": "instantaneous"
-        },
-        "ranges": {}
-      }
-    },
-    "description": "<p>Even a chaotic mess can be made useful using prisimancy. You flood the area around yourself with multicolored pigments and each creature (except you) in a 35-foot cube centered on you must make a Dexterity saving throw. For each target, roll a d8 to determine which color of pigment affects it.</p>\n<table style=\"width: 99.596%; height: 302.344px;\" border=\"1\"><colgroup><col style=\"width: 8.95105%;\"><col style=\"width: 22.0137%;\"><col style=\"width: 69.0535%;\"></colgroup>\n<tbody>\n<tr style=\"height: 33.5938px;\">\n<td style=\"height: 33.5938px; text-align: center;\">1</td>\n<td style=\"height: 33.5938px; text-align: center;\">Red</td>\n<td style=\"height: 33.5938px;\">The target takes 6d6 fire damage on a failed save, or half as much damage on a successful one.</td>\n</tr>\n<tr style=\"height: 33.5938px;\">\n<td style=\"height: 33.5938px; text-align: center;\">2</td>\n<td style=\"height: 33.5938px; text-align: center;\">Orange</td>\n<td style=\"height: 33.5938px;\">The target takes 6d6 acid damage on a failed save, or half as much damage on a successful one.</td>\n</tr>\n<tr style=\"height: 33.5938px;\">\n<td style=\"height: 33.5938px; text-align: center;\">3</td>\n<td style=\"height: 33.5938px; text-align: center;\">Yellow</td>\n<td style=\"height: 33.5938px;\">The target takes 6d6 lightning damage on a failed save, or half as much damage on a successful one.</td>\n</tr>\n<tr style=\"height: 33.5938px;\">\n<td style=\"height: 33.5938px; text-align: center;\">4</td>\n<td style=\"height: 33.5938px; text-align: center;\">Green</td>\n<td style=\"height: 33.5938px;\">&nbsp;The target takes 6d6 poison damage on a failed save, or half as much damage on a successful one.</td>\n</tr>\n<tr style=\"height: 33.5938px;\">\n<td style=\"height: 33.5938px; text-align: center;\">5</td>\n<td style=\"height: 33.5938px; text-align: center;\">Blue</td>\n<td style=\"height: 33.5938px;\">The target takes 6d6 cold damage on a failed save, or half as much damage on a successful one.</td>\n</tr>\n<tr style=\"height: 67.1875px;\">\n<td style=\"height: 67.1875px; text-align: center;\">6</td>\n<td style=\"height: 67.1875px; text-align: center;\">Indigo</td>\n<td style=\"height: 67.1875px;\">On a failed save, the target is&nbsp;<span class=\"freelinking-link\">restrained</span>&nbsp;. It must make a Strength&nbsp;<span class=\"freelinking-link\">saving throw</span>&nbsp;at the end of each of its turns. On a successful saving throw it frees itself from the constricting pigments and is no longer restrained.</td>\n</tr>\n<tr style=\"height: 50.3906px;\">\n<td style=\"height: 50.3906px; text-align: center;\">7</td>\n<td style=\"height: 50.3906px; text-align: center;\">Violet</td>\n<td style=\"height: 50.3906px;\">On a failed save, the target is&nbsp;<span class=\"freelinking-link\">blinded</span>&nbsp;. At the start of each of the creature&rsquo;s turns, it makes a Constitution&nbsp;<span class=\"freelinking-link\">saving throw</span>&nbsp;, ending the effect on itself on a success.</td>\n</tr>\n<tr style=\"height: 16.7969px;\">\n<td style=\"height: 16.7969px; text-align: center;\">8</td>\n<td style=\"height: 16.7969px; text-align: center;\">Special</td>\n<td style=\"height: 16.7969px;\">The target is afflicted by two pigments. Roll twice more, rerolling any 8.</td>\n</tr>\n</tbody>\n</table>",
-    "favorite": false,
-    "secretDescription": "",
-    "source": "",
-    "uses": {
-      "value": null,
-      "max": "",
-      "per": null,
-      "recharge": {
-        "formula": "1d6",
-        "threshold": "6"
-      }
-    },
-    "schema": {
-      "version": null,
-      "lastMigration": null
-    },
-    "classes": [
-      "bard",
-      "sorcerer",
-      "warlock"
-    ],
-    "components": {
-      "vocalized": true,
-      "seen": true,
-      "material": true
-    },
-    "concentration": false,
-    "level": 5,
-    "materials": "a paint or pigment set containing multiple colors",
-    "materialsConsumed": false,
-    "prepared": false,
-    "prerequisite": "",
-    "rare": false,
-    "ritual": false,
-    "schools": {
-      "primary": "evocation",
-      "secondary": [
-        "arcane",
-        "prismatic"
-      ]
-    },
-    "schemaVersion": {
-      "version": 0.011,
-      "lastMigration": {
-        "version": {
-          "schema": 0.01,
-          "foundry": "11.315",
-          "system": "0.16.37"
-        }
-      }
-    }
-  },
-  "effects": [],
-  "flags": {},
-  "_id": "8ercxuc4lli5wn5d"
+	"folder": null,
+	"name": "Prismatic Mess",
+	"type": "spell",
+	"img": "icons/magic/symbols/elements-air-earth-fire-water.webp",
+	"system": {
+		"actions": {
+			"Lf5qYBmlGmiSk0IO": {
+				"name": "Prismatic Mess",
+				"activation": {
+					"type": "action",
+					"cost": 1
+				},
+				"consumers": {},
+				"rolls": {},
+				"prompts": {
+					"M1jfUSRWJ9g3nsZx": {
+						"type": "generic",
+						"default": true,
+						"formula": "1d8",
+						"label": "Color"
+					},
+					"Rbl5GZlB8j49oSOQ": {
+						"type": "savingThrow",
+						"default": true,
+						"ability": "str",
+						"saveDC": {
+							"type": "spellcasting"
+						},
+						"label": "Indigo Save",
+						"onSave": "(indigo) no longer restrained"
+					},
+					"tIyHrZVSCZmLkWFd": {
+						"type": "savingThrow",
+						"default": true,
+						"ability": "con",
+						"saveDC": {
+							"type": "spellcasting"
+						},
+						"label": "Violet Save",
+						"onSave": "(indigo) no longer blinded"
+					},
+					"FDNtYQKJlHHOMg39": {
+						"type": "savingThrow",
+						"default": true,
+						"ability": "dex",
+						"saveDC": {
+							"type": "spellcasting"
+						},
+						"label": "Initial Dexterity Save",
+						"onSave": "no effect, half damage"
+					},
+					"jQYh2NVApHx0zznQ": {
+						"type": "generic",
+						"default": true,
+						"label": "Damage",
+						"formula": "6d6"
+					}
+				},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"threshold": 6
+					}
+				},
+				"area": {
+					"shape": "cube",
+					"quantity": 1,
+					"width": 35,
+					"placeTemplate": true
+				},
+				"target": {
+					"type": "self",
+					"quantity": 1
+				},
+				"duration": {
+					"unit": "instantaneous"
+				},
+				"ranges": {}
+			}
+		},
+		"description": "<p>Even a chaotic mess can be made useful using prisimancy. You flood the area around yourself with multicolored pigments and each creature (except you) in a 35-foot cube centered on you must make a Dexterity saving throw. For each target, roll a d8 to determine which color of pigment affects it.</p>\n<table style=\"width: 99.596%; height: 302.344px;\" border=\"1\"><colgroup><col style=\"width: 8.95105%;\"><col style=\"width: 22.0137%;\"><col style=\"width: 69.0535%;\"></colgroup>\n<tbody>\n<tr style=\"height: 33.5938px;\">\n<td style=\"height: 33.5938px; text-align: center;\">1</td>\n<td style=\"height: 33.5938px; text-align: center;\">Red</td>\n<td style=\"height: 33.5938px;\">The target takes 6d6 fire damage on a failed save, or half as much damage on a successful one.</td>\n</tr>\n<tr style=\"height: 33.5938px;\">\n<td style=\"height: 33.5938px; text-align: center;\">2</td>\n<td style=\"height: 33.5938px; text-align: center;\">Orange</td>\n<td style=\"height: 33.5938px;\">The target takes 6d6 acid damage on a failed save, or half as much damage on a successful one.</td>\n</tr>\n<tr style=\"height: 33.5938px;\">\n<td style=\"height: 33.5938px; text-align: center;\">3</td>\n<td style=\"height: 33.5938px; text-align: center;\">Yellow</td>\n<td style=\"height: 33.5938px;\">The target takes 6d6 lightning damage on a failed save, or half as much damage on a successful one.</td>\n</tr>\n<tr style=\"height: 33.5938px;\">\n<td style=\"height: 33.5938px; text-align: center;\">4</td>\n<td style=\"height: 33.5938px; text-align: center;\">Green</td>\n<td style=\"height: 33.5938px;\">&nbsp;The target takes 6d6 poison damage on a failed save, or half as much damage on a successful one.</td>\n</tr>\n<tr style=\"height: 33.5938px;\">\n<td style=\"height: 33.5938px; text-align: center;\">5</td>\n<td style=\"height: 33.5938px; text-align: center;\">Blue</td>\n<td style=\"height: 33.5938px;\">The target takes 6d6 cold damage on a failed save, or half as much damage on a successful one.</td>\n</tr>\n<tr style=\"height: 67.1875px;\">\n<td style=\"height: 67.1875px; text-align: center;\">6</td>\n<td style=\"height: 67.1875px; text-align: center;\">Indigo</td>\n<td style=\"height: 67.1875px;\">On a failed save, the target is&nbsp;<span class=\"freelinking-link\">restrained</span>&nbsp;. It must make a Strength&nbsp;<span class=\"freelinking-link\">saving throw</span>&nbsp;at the end of each of its turns. On a successful saving throw it frees itself from the constricting pigments and is no longer restrained.</td>\n</tr>\n<tr style=\"height: 50.3906px;\">\n<td style=\"height: 50.3906px; text-align: center;\">7</td>\n<td style=\"height: 50.3906px; text-align: center;\">Violet</td>\n<td style=\"height: 50.3906px;\">On a failed save, the target is&nbsp;<span class=\"freelinking-link\">blinded</span>&nbsp;. At the start of each of the creature&rsquo;s turns, it makes a Constitution&nbsp;<span class=\"freelinking-link\">saving throw</span>&nbsp;, ending the effect on itself on a success.</td>\n</tr>\n<tr style=\"height: 16.7969px;\">\n<td style=\"height: 16.7969px; text-align: center;\">8</td>\n<td style=\"height: 16.7969px; text-align: center;\">Special</td>\n<td style=\"height: 16.7969px;\">The target is afflicted by two pigments. Roll twice more, rerolling any 8.</td>\n</tr>\n</tbody>\n</table>",
+		"favorite": false,
+		"secretDescription": "",
+		"source": "",
+		"uses": {
+			"value": null,
+			"max": "",
+			"per": null,
+			"recharge": {
+				"formula": "1d6",
+				"threshold": "6"
+			}
+		},
+		"schema": {
+			"version": null,
+			"lastMigration": null
+		},
+		"classes": [
+			"bard",
+			"sorcerer",
+			"warlock"
+		],
+		"components": {
+			"vocalized": true,
+			"seen": true,
+			"material": true
+		},
+		"concentration": false,
+		"level": 5,
+		"materials": "a paint or pigment set containing multiple colors",
+		"materialsConsumed": false,
+		"prepared": false,
+		"prerequisite": "",
+		"rare": false,
+		"ritual": false,
+		"schools": {
+			"primary": "evocation",
+			"secondary": [
+				"arcane",
+				"prismatic"
+			]
+		},
+		"schemaVersion": {
+			"version": 0.013,
+			"lastMigration": {
+				"version": {
+					"schema": 0.011,
+					"foundry": "11.315",
+					"system": "0.16.49"
+				}
+			}
+		}
+	},
+	"effects": [],
+	"flags": {},
+	"_id": "8ercxuc4lli5wn5d"
 }

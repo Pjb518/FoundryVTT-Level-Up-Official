@@ -1,157 +1,157 @@
 {
-  "folder": null,
-  "name": "Striped Toadstool",
-  "type": "object",
-  "img": "icons/consumables/mushrooms/campanulate-bell-shiny-red.webp",
-  "system": {
-    "ac": {
-      "baseFormula": "",
-      "formula": "",
-      "maxDex": 0,
-      "minStr": 0,
-      "mode": 2,
-      "requiresNoShield": false,
-      "requiresUnarmored": false
-    },
-    "actions": {
-      "xj033Ihp4ERkhV77": {
-        "name": "Consume",
-        "activation": {},
-        "consumers": {
-          "dRDiPugFcGwKKpqy": {
-            "type": "quantity",
-            "default": true,
-            "itemId": "",
-            "quantity": 1
-          }
-        },
-        "rolls": {},
-        "prompts": {
-          "gsi2GWen7q9Ir1bw": {
-            "type": "savingThrow",
-            "default": true,
-            "ability": "con",
-            "saveDC": {
-              "type": "custom",
-              "bonus": "12"
-            },
-            "onSave": ""
-          },
-          "AC61vsfVzSYyjLwr": {
-            "type": "effect",
-            "default": true,
-            "effectId": "5UaBqRqzFKFk9i84"
-          }
-        },
-        "uses": {
-          "value": 0,
-          "max": "",
-          "per": "",
-          "recharge": {
-            "formula": "1d6",
-            "threshold": 6
-          }
-        }
-      }
-    },
-    "description": "<p><em>Common, Ingested, Onset (1 hour)</em></p>\n<p>These red-striped mushrooms are well known as&nbsp;toxic to forest foragers. A creature makes a DC 12&nbsp;Constitution saving throw when it is subjected to&nbsp;this poison, and on a failure it becomes poisoned&nbsp;for 1d4+2 hours. Creatures poisoned in this way&nbsp;also have disadvantage on Wisdom checks and&nbsp;saving throws. Prior to the onset, this poison can&nbsp;be counteracted by the lesser restoration spell or&nbsp;any ability that would cure the poisoned condition.</p>",
-    "favorite": false,
-    "secretDescription": "",
-    "source": "",
-    "uses": {
-      "value": null,
-      "max": "",
-      "per": null,
-      "recharge": {
-        "formula": "1d6",
-        "threshold": "6"
-      }
-    },
-    "schema": {
-      "version": null,
-      "lastMigration": null
-    },
-    "ammunitionProperties": [],
-    "armorCategory": "",
-    "armorProperties": [],
-    "attuned": false,
-    "bulky": false,
-    "craftingComponents": "",
-    "containerId": "",
-    "damagedState": 0,
-    "equippedState": 0,
-    "items": {},
-    "materialProperties": [],
-    "objectType": "consumable",
-    "plotItem": false,
-    "price": "50 gp",
-    "proficient": true,
-    "quantity": 1,
-    "rarity": "common",
-    "requiresAttunement": false,
-    "shieldCategory": "",
-    "shieldProperties": [],
-    "unidentified": false,
-    "unidentifiedDescription": "",
-    "unidentifiedName": "",
-    "weaponProperties": [],
-    "weight": 0
-  },
-  "effects": [
-    {
-      "icon": "icons/consumables/mushrooms/campanulate-bell-shiny-red.webp",
-      "origin": "Item.gqzbs079wsyd0tev",
-      "flags": {
-        "a5e": {
-          "sort": 0,
-          "transferType": "onUse",
-          "actionId": "xj033Ihp4ERkhV77",
-          "duration": {
-            "unit": "hours"
-          }
-        }
-      },
-      "transfer": false,
-      "name": "Striped Toadstool Poisoning",
-      "_id": "5UaBqRqzFKFk9i84",
-      "changes": [
-        {
-          "key": "flags.a5e.effects.statusConditions",
-          "value": "[\"poisoned\"]",
-          "mode": 0,
-          "priority": null
-        },
-        {
-          "key": "flags.a5e.effects.rollMode.abilityCheck.wis",
-          "value": "-1",
-          "mode": 6,
-          "priority": null
-        },
-        {
-          "key": "flags.a5e.effects.rollMode.abilitySave.wis",
-          "value": "-1",
-          "mode": 6,
-          "priority": null
-        }
-      ],
-      "disabled": false,
-      "duration": {
-        "startTime": null,
-        "seconds": 7200,
-        "combat": null,
-        "rounds": null,
-        "turns": null,
-        "startRound": null,
-        "startTurn": null
-      },
-      "description": "<p>[[1d4+2]] hours</p>",
-      "statuses": [
-        "poisoned"
-      ],
-      "tint": "#ffffff",
-      "folder": null
-    }
-  ],
-  "flags": {},
-  "_id": "gqzbs079wsyd0tev"
+	"folder": null,
+	"name": "Striped Toadstool",
+	"type": "object",
+	"img": "icons/consumables/mushrooms/campanulate-bell-shiny-red.webp",
+	"system": {
+		"ac": {
+			"baseFormula": "",
+			"formula": "",
+			"maxDex": 0,
+			"minStr": 0,
+			"mode": 2,
+			"requiresNoShield": false,
+			"requiresUnarmored": false
+		},
+		"actions": {
+			"xj033Ihp4ERkhV77": {
+				"name": "Consume",
+				"activation": {},
+				"consumers": {
+					"dRDiPugFcGwKKpqy": {
+						"type": "quantity",
+						"default": true,
+						"itemId": "gqzbs079wsyd0tev",
+						"quantity": 1
+					}
+				},
+				"rolls": {},
+				"prompts": {
+					"gsi2GWen7q9Ir1bw": {
+						"type": "savingThrow",
+						"default": true,
+						"ability": "con",
+						"saveDC": {
+							"type": "custom",
+							"bonus": "12"
+						},
+						"onSave": ""
+					},
+					"AC61vsfVzSYyjLwr": {
+						"type": "effect",
+						"default": true,
+						"effectId": "5UaBqRqzFKFk9i84"
+					}
+				},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"threshold": 6
+					}
+				}
+			}
+		},
+		"description": "<p><em>Common, Ingested, Onset (1 hour)</em></p>\n<p>These red-striped mushrooms are well known as&nbsp;toxic to forest foragers. A creature makes a DC 12&nbsp;Constitution saving throw when it is subjected to&nbsp;this poison, and on a failure it becomes poisoned&nbsp;for 1d4+2 hours. Creatures poisoned in this way&nbsp;also have disadvantage on Wisdom checks and&nbsp;saving throws. Prior to the onset, this poison can&nbsp;be counteracted by the lesser restoration spell or&nbsp;any ability that would cure the poisoned condition.</p>",
+		"favorite": false,
+		"secretDescription": "",
+		"source": "",
+		"uses": {
+			"value": null,
+			"max": "",
+			"per": null,
+			"recharge": {
+				"formula": "1d6",
+				"threshold": "6"
+			}
+		},
+		"schema": {
+			"version": null,
+			"lastMigration": null
+		},
+		"ammunitionProperties": [],
+		"armorCategory": "",
+		"armorProperties": [],
+		"attuned": false,
+		"bulky": false,
+		"craftingComponents": "",
+		"containerId": "",
+		"damagedState": 0,
+		"equippedState": 0,
+		"items": {},
+		"materialProperties": [],
+		"objectType": "consumable",
+		"plotItem": false,
+		"price": "50 gp",
+		"proficient": true,
+		"quantity": 1,
+		"rarity": "common",
+		"requiresAttunement": false,
+		"shieldCategory": "",
+		"shieldProperties": [],
+		"unidentified": false,
+		"unidentifiedDescription": "",
+		"unidentifiedName": "",
+		"weaponProperties": [],
+		"weight": 0
+	},
+	"effects": [
+		{
+			"icon": "icons/consumables/mushrooms/campanulate-bell-shiny-red.webp",
+			"origin": "Item.gqzbs079wsyd0tev",
+			"flags": {
+				"a5e": {
+					"sort": 0,
+					"transferType": "onUse",
+					"actionId": "xj033Ihp4ERkhV77",
+					"duration": {
+						"unit": "hours"
+					}
+				}
+			},
+			"transfer": false,
+			"name": "Striped Toadstool Poisoning",
+			"_id": "5UaBqRqzFKFk9i84",
+			"changes": [
+				{
+					"key": "flags.a5e.effects.statusConditions",
+					"value": "[\"poisoned\"]",
+					"mode": 0,
+					"priority": null
+				},
+				{
+					"key": "flags.a5e.effects.rollMode.abilityCheck.wis",
+					"value": "-1",
+					"mode": 6,
+					"priority": null
+				},
+				{
+					"key": "flags.a5e.effects.rollMode.abilitySave.wis",
+					"value": "-1",
+					"mode": 6,
+					"priority": null
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": 7200,
+				"combat": null,
+				"rounds": null,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "<p>[[1d4+2]] hours</p>",
+			"statuses": [
+				"poisoned"
+			],
+			"tint": "#ffffff",
+			"folder": null
+		}
+	],
+	"flags": {},
+	"_id": "gqzbs079wsyd0tev"
 }

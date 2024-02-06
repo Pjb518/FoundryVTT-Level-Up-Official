@@ -1,155 +1,155 @@
 {
-  "name": "Abstraction",
-  "type": "spell",
-  "img": "icons/magic/control/silhouette-grow-shrink-blue.webp",
-  "system": {
-    "actions": {
-      "kAgcivCIomUmCnu4": {
-        "name": "Abstraction",
-        "activation": {
-          "type": "action",
-          "cost": 1
-        },
-        "consumers": {},
-        "rolls": {},
-        "prompts": {
-          "RflMQRJYJpM5kAjd": {
-            "type": "savingThrow",
-            "default": true,
-            "ability": "cha",
-            "saveDC": {
-              "type": "spellcasting"
-            },
-            "onSave": "Effect Negated",
-            "label": "Charisma Save"
-          },
-          "2KpunzcaHSjBpV4N": {
-            "type": "effect",
-            "default": true,
-            "effectId": "XLzVCtGJ7pANyerH"
-          }
-        },
-        "uses": {
-          "value": 0,
-          "max": "",
-          "per": "",
-          "recharge": {
-            "formula": "1d6",
-            "threshold": 6
-          }
-        },
-        "duration": {
-          "unit": "minute",
-          "value": 1
-        },
-        "ranges": {
-          "CcAuWiQeS7G4zHFW": {
-            "range": "medium"
-          }
-        },
-        "target": {
-          "type": "creature",
-          "quantity": 1
-        }
-      }
-    },
-    "description": "<p>You imagine a creature you can see within range in a deconstructed and simplified form. The target must make a Charisma saving throw . On a failed save, the target becomes a barely recognizable, abstracted version of itself until the spell ends.</p>\n<p>An abstracted creature&rsquo;s speed is halved, it takes a &minus;2 penalty to AC and Dexterity saving throws, and it can&rsquo;t use reactions. On its turn, it can use either an action or a bonus action, not both. Regardless of the creature&rsquo;s abilities or magic items, it can&rsquo;t make more than one melee or ranged attack during its turn.</p>\n<p>At the end of each of its turns, an abstracted target repeats the saving throw to end the spell&rsquo;s effect on it.</p>\n<p><strong>Cast at Higher Levels.&nbsp;</strong>You can choose one additional target for each slot level above 2nd.</p>\n<div class=\"spell-source rules-source\">\n<div class=\"field field--name-field-spell-source field--type-entity-reference field--label-inline\">&nbsp;</div>\n</div>",
-    "favorite": false,
-    "secretDescription": "",
-    "source": "",
-    "uses": {
-      "value": null,
-      "max": "",
-      "per": null,
-      "recharge": {
-        "formula": "1d6",
-        "threshold": "6"
-      }
-    },
-    "schema": {
-      "version": null,
-      "lastMigration": null
-    },
-    "classes": [
-      "bard",
-      "warlock",
-      "sorcerer"
-    ],
-    "components": {
-      "vocalized": true,
-      "seen": true,
-      "material": true
-    },
-    "concentration": true,
-    "level": 2,
-    "materials": "a mechanical device that has been completely disassembled",
-    "materialsConsumed": false,
-    "prepared": false,
-    "prerequisite": "",
-    "rare": false,
-    "ritual": false,
-    "schools": {
-      "primary": "transmutation",
-      "secondary": [
-        "affliction",
-        "prismatic",
-        "transformation"
-      ]
-    },
-    "schemaVersion": {
-      "version": 0.011,
-      "lastMigration": {
-        "version": {
-          "schema": 0.01,
-          "foundry": "11.315",
-          "system": "0.16.37"
-        }
-      }
-    }
-  },
-  "effects": [
-    {
-      "icon": "icons/magic/control/silhouette-grow-shrink-blue.webp",
-      "origin": "Item.dwq6j2t1pookswre",
-      "flags": {
-        "a5e": {
-          "sort": 0,
-          "transferType": "onUse",
-          "actionId": "kAgcivCIomUmCnu4",
-          "duration": {
-            "unit": "minutes"
-          }
-        }
-      },
-      "transfer": false,
-      "name": "Abstracted",
-      "_id": "XLzVCtGJ7pANyerH",
-      "changes": [
-        {
-          "key": "flags.a5e.effects.statusConditions",
-          "value": "[\"slowed\"]",
-          "mode": 0,
-          "priority": null
-        }
-      ],
-      "disabled": false,
-      "duration": {
-        "startTime": null,
-        "seconds": 60,
-        "combat": null,
-        "rounds": null,
-        "turns": null,
-        "startRound": null,
-        "startTurn": null
-      },
-      "description": "<p>An abstracted creature’s speed is halved, it takes a −2 penalty to AC and Dexterity saving throws, and it can’t use reactions. On its turn, it can use either an action or a bonus action, not both. Regardless of the creature’s abilities or magic items, it can’t make more than one melee or ranged attack during its turn.</p>\n<p>At the end of each of its turns, an abstracted target repeats the saving throw to end the spell’s effect on it.</p>",
-      "statuses": [
-        "slowed"
-      ],
-      "folder": null
-    }
-  ],
-  "folder": null,
-  "flags": {},
-  "_id": "dwq6j2t1pookswre"
+	"name": "Abstraction",
+	"type": "spell",
+	"img": "icons/magic/control/silhouette-grow-shrink-blue.webp",
+	"system": {
+		"actions": {
+			"kAgcivCIomUmCnu4": {
+				"name": "Abstraction",
+				"activation": {
+					"type": "action",
+					"cost": 1
+				},
+				"consumers": {},
+				"rolls": {},
+				"prompts": {
+					"RflMQRJYJpM5kAjd": {
+						"type": "savingThrow",
+						"default": true,
+						"ability": "cha",
+						"saveDC": {
+							"type": "spellcasting"
+						},
+						"onSave": "Effect Negated",
+						"label": "Charisma Save"
+					},
+					"2KpunzcaHSjBpV4N": {
+						"type": "effect",
+						"default": true,
+						"effectId": "XLzVCtGJ7pANyerH"
+					}
+				},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"threshold": 6
+					}
+				},
+				"duration": {
+					"unit": "minute",
+					"value": 1
+				},
+				"ranges": {
+					"CcAuWiQeS7G4zHFW": {
+						"range": "medium"
+					}
+				},
+				"target": {
+					"type": "creature",
+					"quantity": 1
+				}
+			}
+		},
+		"description": "<p>You imagine a creature you can see within range in a deconstructed and simplified form. The target must make a Charisma saving throw . On a failed save, the target becomes a barely recognizable, abstracted version of itself until the spell ends.</p>\n<p>An abstracted creature&rsquo;s speed is halved, it takes a &minus;2 penalty to AC and Dexterity saving throws, and it can&rsquo;t use reactions. On its turn, it can use either an action or a bonus action, not both. Regardless of the creature&rsquo;s abilities or magic items, it can&rsquo;t make more than one melee or ranged attack during its turn.</p>\n<p>At the end of each of its turns, an abstracted target repeats the saving throw to end the spell&rsquo;s effect on it.</p>\n<p><strong>Cast at Higher Levels.&nbsp;</strong>You can choose one additional target for each slot level above 2nd.</p>\n<div class=\"spell-source rules-source\">\n<div class=\"field field--name-field-spell-source field--type-entity-reference field--label-inline\">&nbsp;</div>\n</div>",
+		"favorite": false,
+		"secretDescription": "",
+		"source": "",
+		"uses": {
+			"value": null,
+			"max": "",
+			"per": null,
+			"recharge": {
+				"formula": "1d6",
+				"threshold": "6"
+			}
+		},
+		"schema": {
+			"version": null,
+			"lastMigration": null
+		},
+		"classes": [
+			"bard",
+			"warlock",
+			"sorcerer"
+		],
+		"components": {
+			"vocalized": true,
+			"seen": true,
+			"material": true
+		},
+		"concentration": true,
+		"level": 2,
+		"materials": "a mechanical device that has been completely disassembled",
+		"materialsConsumed": false,
+		"prepared": false,
+		"prerequisite": "",
+		"rare": false,
+		"ritual": false,
+		"schools": {
+			"primary": "transmutation",
+			"secondary": [
+				"affliction",
+				"prismatic",
+				"transformation"
+			]
+		},
+		"schemaVersion": {
+			"version": 0.013,
+			"lastMigration": {
+				"version": {
+					"schema": 0.011,
+					"foundry": "11.315",
+					"system": "0.16.49"
+				}
+			}
+		}
+	},
+	"effects": [
+		{
+			"icon": "icons/magic/control/silhouette-grow-shrink-blue.webp",
+			"origin": "Item.dwq6j2t1pookswre",
+			"flags": {
+				"a5e": {
+					"sort": 0,
+					"transferType": "onUse",
+					"actionId": "kAgcivCIomUmCnu4",
+					"duration": {
+						"unit": "minutes"
+					}
+				}
+			},
+			"transfer": false,
+			"name": "Abstracted",
+			"_id": "XLzVCtGJ7pANyerH",
+			"changes": [
+				{
+					"key": "flags.a5e.effects.statusConditions",
+					"value": "[\"slowed\"]",
+					"mode": 0,
+					"priority": null
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": 60,
+				"combat": null,
+				"rounds": null,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "<p>An abstracted creature’s speed is halved, it takes a −2 penalty to AC and Dexterity saving throws, and it can’t use reactions. On its turn, it can use either an action or a bonus action, not both. Regardless of the creature’s abilities or magic items, it can’t make more than one melee or ranged attack during its turn.</p>\n<p>At the end of each of its turns, an abstracted target repeats the saving throw to end the spell’s effect on it.</p>",
+			"statuses": [
+				"slowed"
+			],
+			"folder": null
+		}
+	],
+	"folder": null,
+	"flags": {},
+	"_id": "dwq6j2t1pookswre"
 }

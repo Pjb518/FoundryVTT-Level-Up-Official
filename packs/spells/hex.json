@@ -1,350 +1,350 @@
 {
-  "name": "Hex",
-  "type": "spell",
-  "img": "icons/magic/unholy/hand-claw-fire-blue.webp",
-  "system": {
-    "actions": {
-      "LxysSpqqHErmv69r": {
-        "name": "Cast Spell",
-        "activation": {
-          "type": "bonusAction",
-          "cost": 1
-        },
-        "consumers": {
-          "JjZFTzeGNF0SLhq0": {
-            "type": "spell",
-            "default": true,
-            "mode": "variable",
-            "spellLevel": 1,
-            "points": 2
-          }
-        },
-        "rolls": {},
-        "prompts": {
-          "0QZqeNccgAhPJjfT": {
-            "type": "effect",
-            "default": true,
-            "effectId": "QZx83srhPHoLszt4"
-          },
-          "RKwbZnMxQDwzEa3t": {
-            "type": "effect",
-            "default": true,
-            "effectId": "DOxKTtj5UR8VTiyZ"
-          },
-          "kJgpj2FTwXyQAZKD": {
-            "type": "effect",
-            "default": true,
-            "effectId": "ZZDnBjcD2tIiA3Qm"
-          },
-          "nq4mChrAnXKSbYRK": {
-            "type": "effect",
-            "default": true,
-            "effectId": "evxYEHGqKyKRQKuu"
-          },
-          "qnLLV0fvpWkjRKIN": {
-            "type": "effect",
-            "default": true,
-            "effectId": "D8xsm6iUVLplKKnW"
-          },
-          "X4TAtTZkXOwl02WY": {
-            "type": "effect",
-            "default": true,
-            "effectId": "s6Xr2H2q3DyRZyvg"
-          }
-        },
-        "uses": {
-          "value": 0,
-          "max": "",
-          "per": "",
-          "recharge": {
-            "formula": "1d6",
-            "threshold": 6
-          }
-        },
-        "duration": {
-          "unit": "hour",
-          "value": 1
-        },
-        "target": {
-          "type": "creature",
-          "quantity": 1
-        },
-        "ranges": {
-          "7sv3LAJzBCoDfDHq": {
-            "range": "long"
-          }
-        }
-      }
-    },
-    "description": "<div id=\"spell-body\">\n<div>\n<p>You levy a mild&nbsp;curse&nbsp;on a creature you can see within range. When you cast this spell, choose an ability score. During the duration, that creature has&nbsp;disadvantage&nbsp;on ability checks of that type. Additionally, whenever you hit that creature with an attack it takes an additional 1d6 necrotic damage.</p>\n<p>When the target is reduced to 0 hit points, you can spend a bonus action on your next turn to move the curse to another creature you can see within range. Remove curse can end this spell.</p>\n<p><strong>Cast at Higher Levels.</strong> When cast at 3rd or 4th level, this spell&rsquo;s duration is&nbsp;concentration&nbsp;up to 8 hours. At 5th level or higher its duration is concentration up to 24 hours.</p>\n</div>\n</div>",
-    "favorite": false,
-    "secretDescription": "",
-    "source": "",
-    "uses": {
-      "value": null,
-      "max": "",
-      "per": null,
-      "recharge": {
-        "formula": "1d6",
-        "threshold": "6"
-      }
-    },
-    "schema": {
-      "version": null,
-      "lastMigration": null
-    },
-    "classes": [
-      "warlock"
-    ],
-    "components": {
-      "vocalized": true,
-      "seen": true,
-      "material": true
-    },
-    "concentration": true,
-    "level": 1,
-    "materials": "A blade or needle you draw your own blood with, or a venomous animal or poisonous plant you crush",
-    "materialsConsumed": false,
-    "prepared": false,
-    "prerequisite": "",
-    "rare": false,
-    "ritual": false,
-    "schools": {
-      "primary": "enchantment",
-      "secondary": [
-        "affliction"
-      ]
-    },
-    "schemaVersion": {
-      "version": 0.011,
-      "lastMigration": {
-        "version": {
-          "schema": 0.01,
-          "foundry": "11.315",
-          "system": "0.16.37"
-        }
-      }
-    }
-  },
-  "effects": [
-    {
-      "icon": "icons/magic/unholy/hand-claw-fire-blue.webp",
-      "origin": "Item.txfmzymj9oqqr0ag",
-      "flags": {
-        "a5e": {
-          "sort": 0,
-          "transferType": "onUse",
-          "actionId": "LxysSpqqHErmv69r",
-          "duration": {
-            "unit": "minutes"
-          }
-        }
-      },
-      "transfer": false,
-      "name": "Hex (Strength)",
-      "_id": "QZx83srhPHoLszt4",
-      "changes": [
-        {
-          "key": "flags.a5e.effects.rollMode.abilityCheck.str",
-          "value": "-1",
-          "mode": 6,
-          "priority": null
-        }
-      ],
-      "disabled": false,
-      "duration": {
-        "startTime": null,
-        "seconds": 0,
-        "combat": null,
-        "rounds": null,
-        "turns": null,
-        "startRound": null,
-        "startTurn": null
-      },
-      "description": "<p>During the duration, that creature has disadvantage on ability checks of that type. Additionally, whenever you hit that creature with an attack it takes an additional 1d6 necrotic damage.</p>",
-      "statuses": [],
-      "folder": null
-    },
-    {
-      "icon": "icons/magic/unholy/hand-claw-fire-blue.webp",
-      "origin": "Item.txfmzymj9oqqr0ag",
-      "flags": {
-        "a5e": {
-          "sort": 0,
-          "transferType": "onUse",
-          "actionId": "LxysSpqqHErmv69r",
-          "duration": {
-            "unit": "minutes"
-          }
-        }
-      },
-      "transfer": false,
-      "name": "Hex (Dexterity)",
-      "_id": "DOxKTtj5UR8VTiyZ",
-      "changes": [
-        {
-          "key": "flags.a5e.effects.rollMode.abilityCheck.dex",
-          "value": "-1",
-          "mode": 6,
-          "priority": null
-        }
-      ],
-      "disabled": false,
-      "duration": {
-        "startTime": null,
-        "seconds": 0,
-        "combat": null,
-        "rounds": null,
-        "turns": null,
-        "startRound": null,
-        "startTurn": null
-      },
-      "description": "<p>During the duration, that creature has disadvantage on ability checks of that type. Additionally, whenever you hit that creature with an attack it takes an additional 1d6 necrotic damage.</p>",
-      "statuses": [],
-      "folder": null
-    },
-    {
-      "icon": "icons/magic/unholy/hand-claw-fire-blue.webp",
-      "origin": "Item.txfmzymj9oqqr0ag",
-      "flags": {
-        "a5e": {
-          "sort": 0,
-          "transferType": "onUse",
-          "actionId": "LxysSpqqHErmv69r"
-        }
-      },
-      "transfer": false,
-      "name": "Hex (Constitution)",
-      "_id": "ZZDnBjcD2tIiA3Qm",
-      "changes": [
-        {
-          "key": "flags.a5e.effects.rollMode.abilityCheck.con",
-          "value": "-1",
-          "mode": 6,
-          "priority": null
-        }
-      ],
-      "disabled": false,
-      "duration": {
-        "startTime": null,
-        "seconds": null,
-        "combat": null,
-        "rounds": null,
-        "turns": null,
-        "startRound": null,
-        "startTurn": null
-      },
-      "description": "<p>During the duration, that creature has disadvantage on ability checks of that type. Additionally, whenever you hit that creature with an attack it takes an additional 1d6 necrotic damage.</p>",
-      "statuses": [],
-      "folder": null
-    },
-    {
-      "icon": "icons/magic/unholy/hand-claw-fire-blue.webp",
-      "origin": "Item.txfmzymj9oqqr0ag",
-      "flags": {
-        "a5e": {
-          "sort": 0,
-          "transferType": "onUse",
-          "actionId": "LxysSpqqHErmv69r"
-        }
-      },
-      "transfer": false,
-      "name": "Hex (Intelligence)",
-      "_id": "evxYEHGqKyKRQKuu",
-      "changes": [
-        {
-          "key": "flags.a5e.effects.rollMode.abilityCheck.int",
-          "value": "-1",
-          "mode": 6,
-          "priority": null
-        }
-      ],
-      "disabled": false,
-      "duration": {
-        "startTime": null,
-        "seconds": null,
-        "combat": null,
-        "rounds": null,
-        "turns": null,
-        "startRound": null,
-        "startTurn": null
-      },
-      "description": "<p>During the duration, that creature has disadvantage on ability checks of that type. Additionally, whenever you hit that creature with an attack it takes an additional 1d6 necrotic damage.</p>",
-      "statuses": [],
-      "folder": null
-    },
-    {
-      "icon": "icons/magic/unholy/hand-claw-fire-blue.webp",
-      "origin": "Item.txfmzymj9oqqr0ag",
-      "flags": {
-        "a5e": {
-          "sort": 0,
-          "transferType": "onUse",
-          "actionId": "LxysSpqqHErmv69r"
-        }
-      },
-      "transfer": false,
-      "name": "Hex (Wisdom)",
-      "_id": "D8xsm6iUVLplKKnW",
-      "changes": [
-        {
-          "key": "flags.a5e.effects.rollMode.abilityCheck.wis",
-          "value": "-1",
-          "mode": 6,
-          "priority": null
-        }
-      ],
-      "disabled": false,
-      "duration": {
-        "startTime": null,
-        "seconds": null,
-        "combat": null,
-        "rounds": null,
-        "turns": null,
-        "startRound": null,
-        "startTurn": null
-      },
-      "description": "<p>During the duration, that creature has disadvantage on ability checks of that type. Additionally, whenever you hit that creature with an attack it takes an additional 1d6 necrotic damage.</p>",
-      "statuses": [],
-      "folder": null
-    },
-    {
-      "icon": "icons/magic/unholy/hand-claw-fire-blue.webp",
-      "origin": "Item.txfmzymj9oqqr0ag",
-      "flags": {
-        "a5e": {
-          "sort": 0,
-          "transferType": "onUse",
-          "actionId": "LxysSpqqHErmv69r"
-        }
-      },
-      "transfer": false,
-      "name": "Hex (Charisma)",
-      "_id": "s6Xr2H2q3DyRZyvg",
-      "changes": [
-        {
-          "key": "flags.a5e.effects.rollMode.abilityCheck.cha",
-          "value": "-1",
-          "mode": 6,
-          "priority": null
-        }
-      ],
-      "disabled": false,
-      "duration": {
-        "startTime": null,
-        "seconds": null,
-        "combat": null,
-        "rounds": null,
-        "turns": null,
-        "startRound": null,
-        "startTurn": null
-      },
-      "description": "<p>During the duration, that creature has disadvantage on ability checks of that type. Additionally, whenever you hit that creature with an attack it takes an additional 1d6 necrotic damage.</p>",
-      "statuses": [],
-      "folder": null
-    }
-  ],
-  "folder": null,
-  "flags": {},
-  "_id": "txfmzymj9oqqr0ag"
+	"name": "Hex",
+	"type": "spell",
+	"img": "icons/magic/unholy/hand-claw-fire-blue.webp",
+	"system": {
+		"actions": {
+			"LxysSpqqHErmv69r": {
+				"name": "Cast Spell",
+				"activation": {
+					"type": "bonusAction",
+					"cost": 1
+				},
+				"consumers": {
+					"JjZFTzeGNF0SLhq0": {
+						"type": "spell",
+						"default": true,
+						"mode": "variable",
+						"spellLevel": 1,
+						"points": 2
+					}
+				},
+				"rolls": {},
+				"prompts": {
+					"0QZqeNccgAhPJjfT": {
+						"type": "effect",
+						"default": true,
+						"effectId": "QZx83srhPHoLszt4"
+					},
+					"RKwbZnMxQDwzEa3t": {
+						"type": "effect",
+						"default": true,
+						"effectId": "DOxKTtj5UR8VTiyZ"
+					},
+					"kJgpj2FTwXyQAZKD": {
+						"type": "effect",
+						"default": true,
+						"effectId": "ZZDnBjcD2tIiA3Qm"
+					},
+					"nq4mChrAnXKSbYRK": {
+						"type": "effect",
+						"default": true,
+						"effectId": "evxYEHGqKyKRQKuu"
+					},
+					"qnLLV0fvpWkjRKIN": {
+						"type": "effect",
+						"default": true,
+						"effectId": "D8xsm6iUVLplKKnW"
+					},
+					"X4TAtTZkXOwl02WY": {
+						"type": "effect",
+						"default": true,
+						"effectId": "s6Xr2H2q3DyRZyvg"
+					}
+				},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"threshold": 6
+					}
+				},
+				"duration": {
+					"unit": "hour",
+					"value": 1
+				},
+				"target": {
+					"type": "creature",
+					"quantity": 1
+				},
+				"ranges": {
+					"7sv3LAJzBCoDfDHq": {
+						"range": "long"
+					}
+				}
+			}
+		},
+		"description": "<div id=\"spell-body\">\n<div>\n<p>You levy a mild&nbsp;curse&nbsp;on a creature you can see within range. When you cast this spell, choose an ability score. During the duration, that creature has&nbsp;disadvantage&nbsp;on ability checks of that type. Additionally, whenever you hit that creature with an attack it takes an additional 1d6 necrotic damage.</p>\n<p>When the target is reduced to 0 hit points, you can spend a bonus action on your next turn to move the curse to another creature you can see within range. Remove curse can end this spell.</p>\n<p><strong>Cast at Higher Levels.</strong> When cast at 3rd or 4th level, this spell&rsquo;s duration is&nbsp;concentration&nbsp;up to 8 hours. At 5th level or higher its duration is concentration up to 24 hours.</p>\n</div>\n</div>",
+		"favorite": false,
+		"secretDescription": "",
+		"source": "",
+		"uses": {
+			"value": null,
+			"max": "",
+			"per": null,
+			"recharge": {
+				"formula": "1d6",
+				"threshold": "6"
+			}
+		},
+		"schema": {
+			"version": null,
+			"lastMigration": null
+		},
+		"classes": [
+			"warlock"
+		],
+		"components": {
+			"vocalized": true,
+			"seen": true,
+			"material": true
+		},
+		"concentration": true,
+		"level": 1,
+		"materials": "A blade or needle you draw your own blood with, or a venomous animal or poisonous plant you crush",
+		"materialsConsumed": false,
+		"prepared": false,
+		"prerequisite": "",
+		"rare": false,
+		"ritual": false,
+		"schools": {
+			"primary": "enchantment",
+			"secondary": [
+				"affliction"
+			]
+		},
+		"schemaVersion": {
+			"version": 0.013,
+			"lastMigration": {
+				"version": {
+					"schema": 0.011,
+					"foundry": "11.315",
+					"system": "0.16.49"
+				}
+			}
+		}
+	},
+	"effects": [
+		{
+			"icon": "icons/magic/unholy/hand-claw-fire-blue.webp",
+			"origin": "Item.txfmzymj9oqqr0ag",
+			"flags": {
+				"a5e": {
+					"sort": 0,
+					"transferType": "onUse",
+					"actionId": "LxysSpqqHErmv69r",
+					"duration": {
+						"unit": "minutes"
+					}
+				}
+			},
+			"transfer": false,
+			"name": "Hex (Strength)",
+			"_id": "QZx83srhPHoLszt4",
+			"changes": [
+				{
+					"key": "flags.a5e.effects.rollMode.abilityCheck.str",
+					"value": "-1",
+					"mode": 6,
+					"priority": null
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": 0,
+				"combat": null,
+				"rounds": null,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "<p>During the duration, that creature has disadvantage on ability checks of that type. Additionally, whenever you hit that creature with an attack it takes an additional 1d6 necrotic damage.</p>",
+			"statuses": [],
+			"folder": null
+		},
+		{
+			"icon": "icons/magic/unholy/hand-claw-fire-blue.webp",
+			"origin": "Item.txfmzymj9oqqr0ag",
+			"flags": {
+				"a5e": {
+					"sort": 0,
+					"transferType": "onUse",
+					"actionId": "LxysSpqqHErmv69r",
+					"duration": {
+						"unit": "minutes"
+					}
+				}
+			},
+			"transfer": false,
+			"name": "Hex (Dexterity)",
+			"_id": "DOxKTtj5UR8VTiyZ",
+			"changes": [
+				{
+					"key": "flags.a5e.effects.rollMode.abilityCheck.dex",
+					"value": "-1",
+					"mode": 6,
+					"priority": null
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": 0,
+				"combat": null,
+				"rounds": null,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "<p>During the duration, that creature has disadvantage on ability checks of that type. Additionally, whenever you hit that creature with an attack it takes an additional 1d6 necrotic damage.</p>",
+			"statuses": [],
+			"folder": null
+		},
+		{
+			"icon": "icons/magic/unholy/hand-claw-fire-blue.webp",
+			"origin": "Item.txfmzymj9oqqr0ag",
+			"flags": {
+				"a5e": {
+					"sort": 0,
+					"transferType": "onUse",
+					"actionId": "LxysSpqqHErmv69r"
+				}
+			},
+			"transfer": false,
+			"name": "Hex (Constitution)",
+			"_id": "ZZDnBjcD2tIiA3Qm",
+			"changes": [
+				{
+					"key": "flags.a5e.effects.rollMode.abilityCheck.con",
+					"value": "-1",
+					"mode": 6,
+					"priority": null
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": null,
+				"combat": null,
+				"rounds": null,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "<p>During the duration, that creature has disadvantage on ability checks of that type. Additionally, whenever you hit that creature with an attack it takes an additional 1d6 necrotic damage.</p>",
+			"statuses": [],
+			"folder": null
+		},
+		{
+			"icon": "icons/magic/unholy/hand-claw-fire-blue.webp",
+			"origin": "Item.txfmzymj9oqqr0ag",
+			"flags": {
+				"a5e": {
+					"sort": 0,
+					"transferType": "onUse",
+					"actionId": "LxysSpqqHErmv69r"
+				}
+			},
+			"transfer": false,
+			"name": "Hex (Intelligence)",
+			"_id": "evxYEHGqKyKRQKuu",
+			"changes": [
+				{
+					"key": "flags.a5e.effects.rollMode.abilityCheck.int",
+					"value": "-1",
+					"mode": 6,
+					"priority": null
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": null,
+				"combat": null,
+				"rounds": null,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "<p>During the duration, that creature has disadvantage on ability checks of that type. Additionally, whenever you hit that creature with an attack it takes an additional 1d6 necrotic damage.</p>",
+			"statuses": [],
+			"folder": null
+		},
+		{
+			"icon": "icons/magic/unholy/hand-claw-fire-blue.webp",
+			"origin": "Item.txfmzymj9oqqr0ag",
+			"flags": {
+				"a5e": {
+					"sort": 0,
+					"transferType": "onUse",
+					"actionId": "LxysSpqqHErmv69r"
+				}
+			},
+			"transfer": false,
+			"name": "Hex (Wisdom)",
+			"_id": "D8xsm6iUVLplKKnW",
+			"changes": [
+				{
+					"key": "flags.a5e.effects.rollMode.abilityCheck.wis",
+					"value": "-1",
+					"mode": 6,
+					"priority": null
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": null,
+				"combat": null,
+				"rounds": null,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "<p>During the duration, that creature has disadvantage on ability checks of that type. Additionally, whenever you hit that creature with an attack it takes an additional 1d6 necrotic damage.</p>",
+			"statuses": [],
+			"folder": null
+		},
+		{
+			"icon": "icons/magic/unholy/hand-claw-fire-blue.webp",
+			"origin": "Item.txfmzymj9oqqr0ag",
+			"flags": {
+				"a5e": {
+					"sort": 0,
+					"transferType": "onUse",
+					"actionId": "LxysSpqqHErmv69r"
+				}
+			},
+			"transfer": false,
+			"name": "Hex (Charisma)",
+			"_id": "s6Xr2H2q3DyRZyvg",
+			"changes": [
+				{
+					"key": "flags.a5e.effects.rollMode.abilityCheck.cha",
+					"value": "-1",
+					"mode": 6,
+					"priority": null
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": null,
+				"combat": null,
+				"rounds": null,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "<p>During the duration, that creature has disadvantage on ability checks of that type. Additionally, whenever you hit that creature with an attack it takes an additional 1d6 necrotic damage.</p>",
+			"statuses": [],
+			"folder": null
+		}
+	],
+	"folder": null,
+	"flags": {},
+	"_id": "txfmzymj9oqqr0ag"
 }

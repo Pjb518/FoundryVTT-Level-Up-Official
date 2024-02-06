@@ -1,167 +1,167 @@
 {
-  "folder": null,
-  "name": "Powdered Fiendhorn",
-  "type": "object",
-  "img": "icons/commodities/materials/powder-black.webp",
-  "system": {
-    "ac": {
-      "baseFormula": "",
-      "formula": "",
-      "maxDex": 0,
-      "minStr": 0,
-      "mode": 2,
-      "requiresNoShield": false,
-      "requiresUnarmored": false
-    },
-    "actions": {
-      "iXiD5Xl8MPahhMgR": {
-        "name": "Inhale",
-        "activation": {},
-        "consumers": {
-          "snS9IzgVaPEpMXpz": {
-            "type": "quantity",
-            "default": true,
-            "itemId": "",
-            "quantity": 1
-          }
-        },
-        "rolls": {
-          "TyNSQglzStvwAUxk": {
-            "type": "damage",
-            "default": true,
-            "canCrit": false,
-            "formula": "3d6",
-            "damageType": "necrotic"
-          },
-          "nQfbh3Jcmn13MVx9": {
-            "type": "damage",
-            "default": true,
-            "canCrit": false,
-            "formula": "3d6",
-            "damageType": "poison"
-          }
-        },
-        "prompts": {
-          "22qWKNnySNhtZaj4": {
-            "type": "savingThrow",
-            "default": true,
-            "ability": "con",
-            "saveDC": {
-              "type": "custom",
-              "bonus": "15"
-            },
-            "onSave": "no damage"
-          },
-          "2OhFDun4PXOpbkwu": {
-            "type": "effect",
-            "default": true,
-            "effectId": "PsZGIT5ziioLmJKn"
-          }
-        },
-        "uses": {
-          "value": 0,
-          "max": "",
-          "per": "",
-          "recharge": {
-            "formula": "1d6",
-            "threshold": 6
-          }
-        }
-      }
-    },
-    "description": "<p><em>Rare, Inhaled, Instantaneous</em></p>\n<p>This ash black powder is rendered from the horns&nbsp;of powerful fiends. A creature makes a DC 15 Constitution&nbsp;saving throw when subjected to this poison.&nbsp;On a failed saving throw, a creature takes 11 (3d6)&nbsp;necrotic damage and 11 (3d6) poison damage, and it&nbsp;becomes poisoned for 1 minute. While poisoned in&nbsp;this way the creature becomes vulnerable to necrotic&nbsp;damage. A creature that succeeds on its saving&nbsp;throw takes no damage from this poison.</p>",
-    "favorite": false,
-    "secretDescription": "",
-    "source": "",
-    "uses": {
-      "value": null,
-      "max": "",
-      "per": null,
-      "recharge": {
-        "formula": "1d6",
-        "threshold": "6"
-      }
-    },
-    "schema": {
-      "version": null,
-      "lastMigration": null
-    },
-    "ammunitionProperties": [],
-    "armorCategory": "",
-    "armorProperties": [],
-    "attuned": false,
-    "bulky": false,
-    "craftingComponents": "",
-    "containerId": "",
-    "damagedState": 0,
-    "equippedState": 0,
-    "items": {},
-    "materialProperties": [],
-    "objectType": "consumable",
-    "plotItem": false,
-    "price": "3,500 gp",
-    "proficient": true,
-    "quantity": 1,
-    "rarity": "rare",
-    "requiresAttunement": false,
-    "shieldCategory": "",
-    "shieldProperties": [],
-    "unidentified": false,
-    "unidentifiedDescription": "",
-    "unidentifiedName": "",
-    "weaponProperties": [],
-    "weight": 0
-  },
-  "effects": [
-    {
-      "icon": "icons/commodities/materials/powder-black.webp",
-      "origin": "Item.91203chk8mp8jfy5",
-      "flags": {
-        "a5e": {
-          "sort": 0,
-          "transferType": "onUse",
-          "actionId": "iXiD5Xl8MPahhMgR",
-          "duration": {
-            "type": "seconds",
-            "unit": "minutes"
-          }
-        }
-      },
-      "transfer": false,
-      "name": "Powdered Fiendhorn Poisoning",
-      "_id": "PsZGIT5ziioLmJKn",
-      "changes": [
-        {
-          "key": "flags.a5e.effects.statusConditions",
-          "value": "[\"poisoned\"]",
-          "mode": 0,
-          "priority": null
-        },
-        {
-          "key": "system.traits.damageVulnerabilities",
-          "value": "[\"necrotic\"]",
-          "mode": 2,
-          "priority": null
-        }
-      ],
-      "disabled": false,
-      "duration": {
-        "startTime": null,
-        "seconds": 60,
-        "combat": null,
-        "rounds": null,
-        "turns": null,
-        "startRound": null,
-        "startTurn": null
-      },
-      "description": "",
-      "statuses": [
-        "poisoned"
-      ],
-      "tint": "#ffffff",
-      "folder": null
-    }
-  ],
-  "flags": {},
-  "_id": "91203chk8mp8jfy5"
+	"folder": null,
+	"name": "Powdered Fiendhorn",
+	"type": "object",
+	"img": "icons/commodities/materials/powder-black.webp",
+	"system": {
+		"ac": {
+			"baseFormula": "",
+			"formula": "",
+			"maxDex": 0,
+			"minStr": 0,
+			"mode": 2,
+			"requiresNoShield": false,
+			"requiresUnarmored": false
+		},
+		"actions": {
+			"iXiD5Xl8MPahhMgR": {
+				"name": "Inhale",
+				"activation": {},
+				"consumers": {
+					"snS9IzgVaPEpMXpz": {
+						"type": "quantity",
+						"default": true,
+						"itemId": "91203chk8mp8jfy5",
+						"quantity": 1
+					}
+				},
+				"rolls": {
+					"TyNSQglzStvwAUxk": {
+						"type": "damage",
+						"default": true,
+						"canCrit": false,
+						"formula": "3d6",
+						"damageType": "necrotic"
+					},
+					"nQfbh3Jcmn13MVx9": {
+						"type": "damage",
+						"default": true,
+						"canCrit": false,
+						"formula": "3d6",
+						"damageType": "poison"
+					}
+				},
+				"prompts": {
+					"22qWKNnySNhtZaj4": {
+						"type": "savingThrow",
+						"default": true,
+						"ability": "con",
+						"saveDC": {
+							"type": "custom",
+							"bonus": "15"
+						},
+						"onSave": "no damage"
+					},
+					"2OhFDun4PXOpbkwu": {
+						"type": "effect",
+						"default": true,
+						"effectId": "PsZGIT5ziioLmJKn"
+					}
+				},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"threshold": 6
+					}
+				}
+			}
+		},
+		"description": "<p><em>Rare, Inhaled, Instantaneous</em></p>\n<p>This ash black powder is rendered from the horns&nbsp;of powerful fiends. A creature makes a DC 15 Constitution&nbsp;saving throw when subjected to this poison.&nbsp;On a failed saving throw, a creature takes 11 (3d6)&nbsp;necrotic damage and 11 (3d6) poison damage, and it&nbsp;becomes poisoned for 1 minute. While poisoned in&nbsp;this way the creature becomes vulnerable to necrotic&nbsp;damage. A creature that succeeds on its saving&nbsp;throw takes no damage from this poison.</p>",
+		"favorite": false,
+		"secretDescription": "",
+		"source": "",
+		"uses": {
+			"value": null,
+			"max": "",
+			"per": null,
+			"recharge": {
+				"formula": "1d6",
+				"threshold": "6"
+			}
+		},
+		"schema": {
+			"version": null,
+			"lastMigration": null
+		},
+		"ammunitionProperties": [],
+		"armorCategory": "",
+		"armorProperties": [],
+		"attuned": false,
+		"bulky": false,
+		"craftingComponents": "",
+		"containerId": "",
+		"damagedState": 0,
+		"equippedState": 0,
+		"items": {},
+		"materialProperties": [],
+		"objectType": "consumable",
+		"plotItem": false,
+		"price": "3,500 gp",
+		"proficient": true,
+		"quantity": 1,
+		"rarity": "rare",
+		"requiresAttunement": false,
+		"shieldCategory": "",
+		"shieldProperties": [],
+		"unidentified": false,
+		"unidentifiedDescription": "",
+		"unidentifiedName": "",
+		"weaponProperties": [],
+		"weight": 0
+	},
+	"effects": [
+		{
+			"icon": "icons/commodities/materials/powder-black.webp",
+			"origin": "Item.91203chk8mp8jfy5",
+			"flags": {
+				"a5e": {
+					"sort": 0,
+					"transferType": "onUse",
+					"actionId": "iXiD5Xl8MPahhMgR",
+					"duration": {
+						"type": "seconds",
+						"unit": "minutes"
+					}
+				}
+			},
+			"transfer": false,
+			"name": "Powdered Fiendhorn Poisoning",
+			"_id": "PsZGIT5ziioLmJKn",
+			"changes": [
+				{
+					"key": "flags.a5e.effects.statusConditions",
+					"value": "[\"poisoned\"]",
+					"mode": 0,
+					"priority": null
+				},
+				{
+					"key": "system.traits.damageVulnerabilities",
+					"value": "[\"necrotic\"]",
+					"mode": 2,
+					"priority": null
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": 60,
+				"combat": null,
+				"rounds": null,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "",
+			"statuses": [
+				"poisoned"
+			],
+			"tint": "#ffffff",
+			"folder": null
+		}
+	],
+	"flags": {},
+	"_id": "91203chk8mp8jfy5"
 }

@@ -1,228 +1,228 @@
 {
-  "folder": null,
-  "name": "Arcane Support",
-  "type": "feature",
-  "img": "icons/magic/control/buff-strength-muscle-damage-red.webp",
-  "system": {
-    "ac": {
-      "baseFormula": "",
-      "formula": "",
-      "maxDex": 0,
-      "minStr": 0,
-      "mode": 2,
-      "requiresNoShield": false,
-      "requiresUnarmored": false
-    },
-    "actions": {
-      "TzInaXGBUuvFAwSv": {
-        "name": "Arcane Shield",
-        "activation": {
-          "type": "reaction",
-          "cost": 1
-        },
-        "consumers": {
-          "Vz1C05BhM6sqZCmv": {
-            "type": "itemUses",
-            "default": true,
-            "quantity": 1
-          }
-        },
-        "rolls": {},
-        "prompts": {
-          "vLT0goZJOwfkJHxe": {
-            "type": "effect",
-            "default": true,
-            "effectId": "D6ftLjqyrbt7Z4i5"
-          }
-        },
-        "uses": {
-          "value": 0,
-          "max": "",
-          "per": "",
-          "recharge": {
-            "formula": "1d6",
-            "threshold": 6
-          }
-        },
-        "duration": {
-          "unit": "minute",
-          "value": 10
-        },
-        "ranges": {
-          "YHKOeZ2CbfsgBmzV": {
-            "range": 100,
-            "unit": "feet"
-          }
-        },
-        "target": {
-          "type": "creature",
-          "quantity": 1
-        }
-      },
-      "bD3RxwzTaTgE7ecK": {
-        "name": "Enchant",
-        "activation": {
-          "type": "reaction",
-          "cost": 1
-        },
-        "consumers": {
-          "wqFAu8myLu5UZYPU": {
-            "type": "itemUses",
-            "default": true,
-            "quantity": 1
-          }
-        },
-        "rolls": {},
-        "prompts": {},
-        "uses": {
-          "value": 0,
-          "max": "",
-          "per": "",
-          "recharge": {
-            "formula": "1d6",
-            "threshold": 6
-          }
-        },
-        "duration": {
-          "unit": "minute",
-          "value": 1
-        },
-        "target": {
-          "type": "creature",
-          "quantity": 1
-        }
-      }
-    },
-    "description": "<p class=\"preFade fadeIn\">At level 14, you gain the ability to bolster your allies in battle. As a reaction you can do one of the following:</p>\n<ul data-rte-list=\"default\">\n<li>\n<p class=\"preFade fadeIn\">Grant a number of allies within 100 feet equal to twice your proficiency bonus the benefits of your Arcane Shield for up to 10 minutes. This effect requires concentration to maintain.</p>\n</li>\n<li>\n<p class=\"preFade fadeIn\">Enchant the weapons of a number of allies equal to your proficiency bonus, giving them a +1 bonus to hit and damage, and changing their damage type to your choice of fire, cold, or lightning for up to 1 minute. This effect requires concentration to maintain.</p>\n</li>\n</ul>\n<p class=\"preFade fadeIn\">Once you have used this feature you cannot do so again until after you have taken a short rest.</p>",
-    "favorite": false,
-    "secretDescription": "",
-    "source": "",
-    "uses": {
-      "value": 1,
-      "max": "1",
-      "per": "shortRest",
-      "recharge": {
-        "formula": "1d6",
-        "threshold": "6"
-      }
-    },
-    "schema": {
-      "version": null,
-      "lastMigration": null
-    },
-    "concentration": false,
-    "featureType": "",
-    "grants": {},
-    "prerequisite": "",
-    "requiresBloodied": false,
-    "schemaVersion": {
-      "version": 0.011,
-      "lastMigration": {
-        "version": {
-          "schema": 0.01,
-          "foundry": "11.315",
-          "system": "0.16.37"
-        }
-      }
-    }
-  },
-  "effects": [
-    {
-      "icon": "icons/magic/control/buff-strength-muscle-damage-red.webp",
-      "origin": "Item.yidk67ticifqe5q5",
-      "flags": {
-        "a5e": {
-          "sort": 0,
-          "transferType": "onUse",
-          "duration": {
-            "unit": "minutes"
-          },
-          "actionId": "TzInaXGBUuvFAwSv"
-        }
-      },
-      "transfer": false,
-      "name": "Arcane Shield",
-      "_id": "D6ftLjqyrbt7Z4i5",
-      "changes": [
-        {
-          "key": "system.attributes.ac.changes.bonuses.value",
-          "mode": 2,
-          "value": "1",
-          "priority": null
-        }
-      ],
-      "disabled": false,
-      "duration": {
-        "startTime": null,
-        "seconds": 600,
-        "combat": null,
-        "rounds": null,
-        "turns": null,
-        "startRound": null,
-        "startTurn": null
-      },
-      "description": "",
-      "statuses": [],
-      "tint": "#ffffff",
-      "folder": null
-    },
-    {
-      "icon": "icons/magic/control/buff-strength-muscle-damage-red.webp",
-      "origin": "Item.yidk67ticifqe5q5",
-      "flags": {
-        "a5e": {
-          "sort": 0,
-          "transferType": "onUse",
-          "duration": {
-            "unit": "minutes"
-          }
-        }
-      },
-      "transfer": false,
-      "name": "Enchant",
-      "_id": "CrlWLxb5hPhF9fmS",
-      "changes": [
-        {
-          "key": "flags.a5e.effects.bonuses.attacks",
-          "mode": 0,
-          "value": "{\"context\":{\"attackTypes\":[\"meleeSpellAttack\"]},\"formula\":\"1\",\"label\":\"Melee Spell Attack\",\"img\":\"icons/svg/upgrade.svg\",\"default\":true}",
-          "priority": null
-        },
-        {
-          "key": "flags.a5e.effects.bonuses.attacks",
-          "mode": 0,
-          "value": "{\"context\":{\"attackTypes\":[\"meleeWeaponAttack\"]},\"formula\":\"1\",\"label\":\"Melee Weapon Attack\",\"img\":\"icons/svg/upgrade.svg\",\"default\":true}",
-          "priority": null
-        },
-        {
-          "key": "flags.a5e.effects.bonuses.attacks",
-          "mode": 0,
-          "value": "{\"context\":{\"attackTypes\":[\"rangedSpellAttack\"]},\"formula\":\"1\",\"label\":\"Ranged Spell Attack\",\"img\":\"icons/svg/upgrade.svg\",\"default\":true}",
-          "priority": null
-        },
-        {
-          "key": "flags.a5e.effects.bonuses.attacks",
-          "mode": 0,
-          "value": "{\"context\":{\"attackTypes\":[\"rangedWeaponAttack\"]},\"formula\":\"1\",\"label\":\"Ranged Weapon Attack\",\"img\":\"icons/svg/upgrade.svg\",\"default\":true}",
-          "priority": null
-        }
-      ],
-      "disabled": false,
-      "duration": {
-        "startTime": null,
-        "seconds": 60,
-        "combat": null,
-        "rounds": null,
-        "turns": null,
-        "startRound": null,
-        "startTurn": null
-      },
-      "description": "",
-      "statuses": [],
-      "tint": "#ffffff",
-      "folder": null
-    }
-  ],
-  "flags": {},
-  "_id": "yidk67ticifqe5q5"
+	"folder": null,
+	"name": "Arcane Support",
+	"type": "feature",
+	"img": "icons/magic/control/buff-strength-muscle-damage-red.webp",
+	"system": {
+		"ac": {
+			"baseFormula": "",
+			"formula": "",
+			"maxDex": 0,
+			"minStr": 0,
+			"mode": 2,
+			"requiresNoShield": false,
+			"requiresUnarmored": false
+		},
+		"actions": {
+			"TzInaXGBUuvFAwSv": {
+				"name": "Arcane Shield",
+				"activation": {
+					"type": "reaction",
+					"cost": 1
+				},
+				"consumers": {
+					"Vz1C05BhM6sqZCmv": {
+						"type": "itemUses",
+						"default": true,
+						"quantity": 1
+					}
+				},
+				"rolls": {},
+				"prompts": {
+					"vLT0goZJOwfkJHxe": {
+						"type": "effect",
+						"default": true,
+						"effectId": "D6ftLjqyrbt7Z4i5"
+					}
+				},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"threshold": 6
+					}
+				},
+				"duration": {
+					"unit": "minute",
+					"value": 10
+				},
+				"ranges": {
+					"YHKOeZ2CbfsgBmzV": {
+						"range": 100,
+						"unit": "feet"
+					}
+				},
+				"target": {
+					"type": "creature",
+					"quantity": 1
+				}
+			},
+			"bD3RxwzTaTgE7ecK": {
+				"name": "Enchant",
+				"activation": {
+					"type": "reaction",
+					"cost": 1
+				},
+				"consumers": {
+					"wqFAu8myLu5UZYPU": {
+						"type": "itemUses",
+						"default": true,
+						"quantity": 1
+					}
+				},
+				"rolls": {},
+				"prompts": {},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"threshold": 6
+					}
+				},
+				"duration": {
+					"unit": "minute",
+					"value": 1
+				},
+				"target": {
+					"type": "creature",
+					"quantity": 1
+				}
+			}
+		},
+		"description": "<p class=\"preFade fadeIn\">At level 14, you gain the ability to bolster your allies in battle. As a reaction you can do one of the following:</p>\n<ul data-rte-list=\"default\">\n<li>\n<p class=\"preFade fadeIn\">Grant a number of allies within 100 feet equal to twice your proficiency bonus the benefits of your Arcane Shield for up to 10 minutes. This effect requires concentration to maintain.</p>\n</li>\n<li>\n<p class=\"preFade fadeIn\">Enchant the weapons of a number of allies equal to your proficiency bonus, giving them a +1 bonus to hit and damage, and changing their damage type to your choice of fire, cold, or lightning for up to 1 minute. This effect requires concentration to maintain.</p>\n</li>\n</ul>\n<p class=\"preFade fadeIn\">Once you have used this feature you cannot do so again until after you have taken a short rest.</p>",
+		"favorite": false,
+		"secretDescription": "",
+		"source": "",
+		"uses": {
+			"value": 1,
+			"max": "1",
+			"per": "shortRest",
+			"recharge": {
+				"formula": "1d6",
+				"threshold": "6"
+			}
+		},
+		"schema": {
+			"version": null,
+			"lastMigration": null
+		},
+		"concentration": false,
+		"featureType": "",
+		"grants": {},
+		"prerequisite": "",
+		"requiresBloodied": false,
+		"schemaVersion": {
+			"version": 0.013,
+			"lastMigration": {
+				"version": {
+					"schema": 0.011,
+					"foundry": "11.315",
+					"system": "0.16.49"
+				}
+			}
+		}
+	},
+	"effects": [
+		{
+			"icon": "icons/magic/control/buff-strength-muscle-damage-red.webp",
+			"origin": "Item.yidk67ticifqe5q5",
+			"flags": {
+				"a5e": {
+					"sort": 0,
+					"transferType": "onUse",
+					"duration": {
+						"unit": "minutes"
+					},
+					"actionId": "TzInaXGBUuvFAwSv"
+				}
+			},
+			"transfer": false,
+			"name": "Arcane Shield",
+			"_id": "D6ftLjqyrbt7Z4i5",
+			"changes": [
+				{
+					"key": "system.attributes.ac.changes.bonuses.value",
+					"mode": 2,
+					"value": "1",
+					"priority": null
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": 600,
+				"combat": null,
+				"rounds": null,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "",
+			"statuses": [],
+			"tint": "#ffffff",
+			"folder": null
+		},
+		{
+			"icon": "icons/magic/control/buff-strength-muscle-damage-red.webp",
+			"origin": "Item.yidk67ticifqe5q5",
+			"flags": {
+				"a5e": {
+					"sort": 0,
+					"transferType": "onUse",
+					"duration": {
+						"unit": "minutes"
+					}
+				}
+			},
+			"transfer": false,
+			"name": "Enchant",
+			"_id": "CrlWLxb5hPhF9fmS",
+			"changes": [
+				{
+					"key": "flags.a5e.effects.bonuses.attacks",
+					"mode": 0,
+					"value": "{\"context\":{\"attackTypes\":[\"meleeSpellAttack\"]},\"formula\":\"1\",\"label\":\"Melee Spell Attack\",\"img\":\"icons/svg/upgrade.svg\",\"default\":true}",
+					"priority": null
+				},
+				{
+					"key": "flags.a5e.effects.bonuses.attacks",
+					"mode": 0,
+					"value": "{\"context\":{\"attackTypes\":[\"meleeWeaponAttack\"]},\"formula\":\"1\",\"label\":\"Melee Weapon Attack\",\"img\":\"icons/svg/upgrade.svg\",\"default\":true}",
+					"priority": null
+				},
+				{
+					"key": "flags.a5e.effects.bonuses.attacks",
+					"mode": 0,
+					"value": "{\"context\":{\"attackTypes\":[\"rangedSpellAttack\"]},\"formula\":\"1\",\"label\":\"Ranged Spell Attack\",\"img\":\"icons/svg/upgrade.svg\",\"default\":true}",
+					"priority": null
+				},
+				{
+					"key": "flags.a5e.effects.bonuses.attacks",
+					"mode": 0,
+					"value": "{\"context\":{\"attackTypes\":[\"rangedWeaponAttack\"]},\"formula\":\"1\",\"label\":\"Ranged Weapon Attack\",\"img\":\"icons/svg/upgrade.svg\",\"default\":true}",
+					"priority": null
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": 60,
+				"combat": null,
+				"rounds": null,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "",
+			"statuses": [],
+			"tint": "#ffffff",
+			"folder": null
+		}
+	],
+	"flags": {},
+	"_id": "yidk67ticifqe5q5"
 }
