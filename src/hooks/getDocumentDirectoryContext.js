@@ -23,9 +23,7 @@ function callMigration($li, docType) {
     }
   } else {
     const type = docType === 'Actor' ? 'actors' : 'items';
-    console.log(type);
     const document = game[type].get($li.data('document-id'));
-    console.log(document);
     if (document) {
       handleDocumentMigration(document);
     }
