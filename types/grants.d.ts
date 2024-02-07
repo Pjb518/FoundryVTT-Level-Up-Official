@@ -52,17 +52,17 @@ export interface AbilityGrant extends BaseGrant {
 
 export interface MovementGrant extends BaseGrant {
   grantType: 'movement';
-  movementMode: string;
-  ranges: {
-    base: {
-      distance: number,
-      unit: string,
-    },
-    bonus: {
-      distance: number,
-      unit: string,
-    },
+  movementTypes: {
+    base: string[],
+    options: string[],
+    total: number,
   };
+  bonus: string;
+  unit: string;
+  context: {
+    isHover: boolean
+  }
+  label: string;
 }
 
 export interface ProficiencyGrant extends BaseGrant {
@@ -87,19 +87,19 @@ export interface SkillGrant extends BaseGrant {
   bonus: string;
 }
 
-export interface VisionGrant extends BaseGrant {
-  grantType: 'vision';
-  visionMode: string;
-  ranges: {
-    base: {
-      distance: number,
-      unit: string,
-    },
-    bonus: {
-      distance: number,
-      unit: string,
-    },
+export interface SensesGrant extends BaseGrant {
+  grantType: 'senses';
+  senses: {
+    base: string[],
+    options: string[],
+    total: number,
   };
+  bonus: string;
+  unit: string;
+  context: {
+    otherwiseBlind: boolean
+  }
+  label: string;
 }
 
-export type Grant = AbilityGrant | MovementGrant | ProficiencyGrant | SkillGrant | VisionGrant;
+export type Grant = AbilityGrant | MovementGrant | ProficiencyGrant | SkillGrant | SensesGrant;

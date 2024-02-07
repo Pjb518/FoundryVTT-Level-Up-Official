@@ -30,7 +30,7 @@ export interface InitiativeBonusContext {
 
 export interface MovementBonusContext {
   movementTypes: string[];
-  istHover: boolean;
+  isHover: boolean;
 }
 
 export interface SensesBonusContext {

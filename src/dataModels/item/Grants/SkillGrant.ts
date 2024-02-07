@@ -85,7 +85,7 @@ export default class SkillGrant extends BaseGrant {
   }
 
   requiresConfig() {
-    return this.skills.base.length > this.skills.total;
+    return (this.skills.base.length + this.skills.options.length) > this.skills.total;
   }
 
   override async configureGrant() {
