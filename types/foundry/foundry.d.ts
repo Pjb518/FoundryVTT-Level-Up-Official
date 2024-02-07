@@ -34,6 +34,7 @@ interface Set<T> {
   intersects(other: Set<T>): boolean;
   intersection(other: Set<T>): Set<T>;
   union(other: Set<T>): Set<T>;
+  difference(other: Set<T>): Set<T>;
 }
 
 interface String {

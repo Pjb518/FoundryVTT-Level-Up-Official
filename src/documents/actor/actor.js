@@ -38,10 +38,10 @@ import GenericConfigDialog from '../../apps/dialogs/initializers/GenericConfigDi
 import GenericRollDialog from '../../apps/dialogs/initializers/GenericRollDialog';
 
 import automateHpConditions from '../activeEffect/utils/automateHpConditions';
+import automateMultiLevelConditions from '../activeEffect/utils/automateMultiLevelConditions';
 import getDeterministicBonus from '../../dice/getDeterministicBonus';
 import getRollFormula from '../../utils/getRollFormula';
 import overrideRollMode from '../../utils/overrideRollMode';
-import automateMultiLevelConditions from '../activeEffect/utils/automateMultiLevelConditions';
 
 export default class ActorA5e extends Actor {
   #configDialogMap;

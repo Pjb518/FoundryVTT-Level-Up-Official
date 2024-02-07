@@ -1,17 +1,13 @@
-import type { Grant } from 'types/grants';
+import type { ActorGrant, Grant } from 'types/grants';
 import type ItemGrantsManager from './ItemGrantsManager';
+
+import GrantCls from '../dataModels/actor/ActorGrants';
 
 import GenericDialog from '../apps/dialogs/initializers/GenericDialog';
 import GrantApplicationDialog from '../apps/dialogs/GrantApplicationDialog.svelte';
+import prepareTraitGrantConfigObject from '../utils/prepareTraitGrantConfigObject';
 
-type ActorGrantData = {
-  bonusId?: string,
-  grantId: string,
-  itemUuid: string,
-  type: string,
-};
-
-export default class ActorGrantsManger extends Map<string, ActorGrantData> {
+export default class ActorGrantsManger extends Map<string, ActorGrant> {
   private actor: typeof Actor;
 
   constructor(actor: typeof Actor) {
@@ -19,42 +15,22 @@ export default class ActorGrantsManger extends Map<string, ActorGrantData> {
 
     this.actor = actor;
 
-    const grantsData: Record<string, ActorGrantData> = this.actor.system.grants ?? {};
+    const grantsData: Record<string, ActorGrant> = this.actor.system.grants ?? {};
     Object.entries(grantsData).forEach(([id, data]) => {
-      this.set(id, data);
+      let Cls = GrantCls[data.grantType];
+
+      // eslint-disable-next-line no-console
+      if (!Cls) console.warn(`Grant ${id} has no class mapping.`);
+      Cls ??= GrantCls.base;
+      const grant: any = new Cls(data, { parent: actor });
+
+      this.set(id, grant);
     });
   }
 
-  // async applyGrants(): Promise<void> {
-  // eslint-disable-next-line max-len
-  //   const appliedGrants = [...this.values()].map(({ itemUuid, grantId }) => `${itemUuid}.${grantId}`);
-  //   const applicableGrants: Grant[] = [];
-  //   const optionalGrants: Grant[] = [];
-
-  //   for await (const item of this.actor.items) {
-  //     if (item.type !== 'feature') continue;
-
-  //     const grantsManager: ItemGrantsManager = item.grants;
-  //     [...grantsManager.values()].forEach((grant) => {
-  //       const id = `${item.uuid}.${grant._id}`;
-  //       if (appliedGrants.includes(id)) return;
-
-  //       if (grant.optional) optionalGrants.push(grant);
-  //       applicableGrants.push(grant);
-  //     });
-  //   }
-
-  //   const dialog = new GenericDialog(
-  //     `${this.actor.name} - Apply Grants`,
-  //     GrantApplicationDialog,
-  //     {
-  //       actor: this.actor,
-  //       allGrants: applicableGrants,
-  //       optionalGrants
-  //     }
-  //   );
-  //   dialog.render(true);
-  // }
+  byType(type: string): ActorGrant[] {
+    return [...this.values()].filter((grant) => grant.grantType === type);
+  }
 
   async applyGrant(itemId: string): Promise<void> {
     if (!itemId) return;
@@ -97,27 +73,47 @@ export default class ActorGrantsManger extends Map<string, ActorGrantData> {
   }
 
   removeGrantsByItem(itemUuid: string): void {
-    const updates: Record<string, null> = {};
+    const updates: Record<string, any> = {};
 
-    for (const [grantId, data] of this) {
-      if (data.itemUuid !== itemUuid) continue;
+    for (const [grantId, grant] of this) {
+      if (grant.itemUuid !== itemUuid) continue;
 
       updates[`system.grants.-=${grantId}`] = null;
-      if (data.bonusId) updates[`system.bonuses.${data.type}.-=${data.bonusId}`] = null;
+
+      if (grant instanceof GrantCls.bonus) {
+        if (grant.bonusId) {
+          updates[`system.bonuses.${grant.type}.-=${grant.bonusId}`] = null;
+        }
+      }
+
+      if (grant instanceof GrantCls.trait) {
+        const configObject = prepareTraitGrantConfigObject();
+        const { propertyKey } = configObject[grant.traitData.traitType] ?? {};
+        if (!propertyKey) continue;
+
+        const removals: Set<string> = new Set(grant.traitData.traits);
+        const traits = new Set(
+          foundry.utils.getProperty(this.actor, propertyKey) as string[] ?? []
+        );
+
+        updates[propertyKey] = [...traits.difference(removals)];
+      }
     }
 
     this.actor.update(updates);
   }
 
   removeGrant(grantId: string): void {
-    const data = this.get(grantId);
-    if (!data) return;
+    const grant = this.get(grantId);
+    if (!grant) return;
 
     const updates: Record<string, null> = {
       [`system.grants.-=${grantId}`]: null
     };
 
-    if (data.bonusId) updates[`system.bonuses.${data.type}.-=${data.bonusId}`] = null;
+    if (grant instanceof GrantCls.bonus) {
+      if (grant.bonusId) updates[`system.bonuses.${grant.type}.-=${grant.bonusId}`] = null;
+    }
 
     this.actor.update(updates);
   }
