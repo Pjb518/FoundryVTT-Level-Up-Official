@@ -1,4 +1,5 @@
-import type { ActorGrant, Grant } from 'types/grants';
+import type { ActorGrant } from 'types/actorGrants';
+import type { Grant } from 'types/itemGrants';
 import type ItemGrantsManager from './ItemGrantsManager';
 
 import GrantCls from '../dataModels/actor/ActorGrants';
