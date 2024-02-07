@@ -80,25 +80,7 @@ export default class ActorGrantsManger extends Map<string, ActorGrant> {
       if (grant.itemUuid !== itemUuid) continue;
 
       updates[`system.grants.-=${grantId}`] = null;
-
-      if (grant instanceof GrantCls.bonus) {
-        if (grant.bonusId) {
-          updates[`system.bonuses.${grant.type}.-=${grant.bonusId}`] = null;
-        }
-      }
-
-      if (grant instanceof GrantCls.trait) {
-        const configObject = prepareTraitGrantConfigObject();
-        const { propertyKey } = configObject[grant.traitData.traitType] ?? {};
-        if (!propertyKey) continue;
-
-        const removals: Set<string> = new Set(grant.traitData.traits);
-        const traits = new Set(
-          foundry.utils.getProperty(this.actor, propertyKey) as string[] ?? []
-        );
-
-        updates[propertyKey] = [...traits.difference(removals)];
-      }
+      foundry.utils.mergeObject(updates, this.#getRemoveUpdates(grant));
     }
 
     this.actor.update(updates);
@@ -108,14 +90,48 @@ export default class ActorGrantsManger extends Map<string, ActorGrant> {
     const grant = this.get(grantId);
     if (!grant) return;
 
-    const updates: Record<string, null> = {
-      [`system.grants.-=${grantId}`]: null
+    const updates: Record<string, any> = {
+      [`system.grants.-=${grantId}`]: null,
+      ...this.#getRemoveUpdates(grant)
     };
+
+    this.actor.update(updates);
+  }
+
+  #getRemoveUpdates(grant: ActorGrant): Record<string, any> {
+    const updates: Record<string, any> = {};
 
     if (grant instanceof GrantCls.bonus) {
       if (grant.bonusId) updates[`system.bonuses.${grant.type}.-=${grant.bonusId}`] = null;
     }
 
-    this.actor.update(updates);
+    if (grant instanceof GrantCls.proficiency) {
+      const { keys, proficiencyType } = grant.proficiencyData;
+
+      if (proficiencyType === 'ability') {
+        keys.forEach((key: string) => {
+          updates[`system.abilities.${key}.save.proficient`] = false;
+        });
+      } else if (proficiencyType === 'skill') {
+        keys.forEach((key: string) => {
+          updates[`system.skills.${key}.proficient`] = false;
+        });
+      }
+    }
+
+    if (grant instanceof GrantCls.trait) {
+      const configObject = prepareTraitGrantConfigObject();
+      const { propertyKey } = configObject[grant.traitData.traitType] ?? {};
+      if (!propertyKey) return {};
+
+      const removals: Set<string> = new Set(grant.traitData.traits);
+      const traits = new Set(
+        foundry.utils.getProperty(this.actor, propertyKey) as string[] ?? []
+      );
+
+      updates[propertyKey] = [...traits.difference(removals)];
+    }
+
+    return updates;
   }
 }
