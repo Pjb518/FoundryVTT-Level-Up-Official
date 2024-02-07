@@ -10,6 +10,8 @@ export default class TraitGrant extends BaseGrant {
 
   #configComponent = TraitGrantConfig;
 
+  #type = 'trait';
+
   static defineSchema() {
     const { fields } = foundry.data;
 
@@ -45,7 +47,7 @@ export default class TraitGrant extends BaseGrant {
       },
       itemUuid: this.parent.uuid,
       grantId: this._id,
-      grantType: 'trait'
+      grantType: this.#type
     };
 
     // Construct trait update

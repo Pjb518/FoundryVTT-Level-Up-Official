@@ -28,6 +28,14 @@
     }
 
     function onUpdateValue(key, value) {
+        if (key === "traits.traitType") {
+            updateDocumentDataFromField(
+                $item,
+                `system.grants.${grantId}.traits`,
+                { base: [], options: [], total: 0 },
+            );
+        }
+
         key = `system.grants.${grantId}.${key}`;
         updateDocumentDataFromField($item, key, value);
     }

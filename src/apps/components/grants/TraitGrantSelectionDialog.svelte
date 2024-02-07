@@ -18,9 +18,11 @@
 
         if (choicesLocked) {
             options.push(
-                ...Object.keys(configObject).filter(
-                    (key) => !choices.includes(key) || base.includes(key),
-                ),
+                ...configObject[traitType]?.config
+                    ?.map(([k]) => k)
+                    .filter(
+                        (key) => !choices.includes(key) || base.includes(key),
+                    ),
             );
         }
 
