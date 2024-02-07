@@ -5,6 +5,7 @@ import GrantCls from '../dataModels/actor/ActorGrants';
 
 import GenericDialog from '../apps/dialogs/initializers/GenericDialog';
 import GrantApplicationDialog from '../apps/dialogs/GrantApplicationDialog.svelte';
+import prepareTraitGrantConfigObject from '../utils/prepareTraitGrantConfigObject';
 
 export default class ActorGrantsManger extends Map<string, ActorGrant> {
   private actor: typeof Actor;
@@ -72,7 +73,7 @@ export default class ActorGrantsManger extends Map<string, ActorGrant> {
   }
 
   removeGrantsByItem(itemUuid: string): void {
-    const updates: Record<string, null> = {};
+    const updates: Record<string, any> = {};
 
     for (const [grantId, grant] of this) {
       if (grant.itemUuid !== itemUuid) continue;
@@ -83,6 +84,19 @@ export default class ActorGrantsManger extends Map<string, ActorGrant> {
         if (grant.bonusId) {
           updates[`system.bonuses.${grant.type}.-=${grant.bonusId}`] = null;
         }
+      }
+
+      if (grant instanceof GrantCls.trait) {
+        const configObject = prepareTraitGrantConfigObject();
+        const { propertyKey } = configObject[grant.traitData.traitType] ?? {};
+        if (!propertyKey) continue;
+
+        const removals: Set<string> = new Set(grant.traitData.traits);
+        const traits = new Set(
+          foundry.utils.getProperty(this.actor, propertyKey) as string[] ?? []
+        );
+
+        updates[propertyKey] = [...traits.difference(removals)];
       }
     }
 

@@ -3,6 +3,7 @@
     import { TJSDocument } from "#runtime/svelte/store/fvtt/document";
     import { localize } from "#runtime/svelte/helper";
 
+    import prepareTraitGrantConfigObject from "../../../utils/prepareTraitGrantConfigObject";
     import updateDocumentDataFromField from "../../../utils/updateDocumentDataFromField";
 
     import Checkbox from "../Checkbox.svelte";
@@ -36,54 +37,7 @@
     });
 
     const item = new TJSDocument(document);
-
-    // =============================================
-    // Trait choices configs
-    // =============================================
-    const configObject = {
-        armorTypes: {
-            label: "A5E.ArmorType",
-            config: Object.entries(CONFIG.A5E.armor),
-        },
-        conditionImmunities: {
-            label: "A5E.ConditionImmunities",
-            config: Object.entries(CONFIG.A5E.conditions),
-        },
-        creatureTypes: {
-            label: "A5E.CreatureTypesLabel",
-            config: Object.entries(CONFIG.A5E.creatureTypes),
-        },
-        damageImmunities: {
-            label: "A5E.DamageImmunities",
-            config: Object.entries(CONFIG.A5E.damageTypes),
-        },
-        damageResistances: {
-            label: "A5E.DamageResistances",
-            config: Object.entries(CONFIG.A5E.damageTypes),
-        },
-        damageVulnerabilities: {
-            label: "A5E.DamageVulnerabilities",
-            config: Object.entries(CONFIG.A5E.damageTypes),
-        },
-        languages: {
-            label: "A5E.Languages",
-            config: Object.entries(CONFIG.A5E.languages),
-        },
-        size: {
-            label: "A5E.Size",
-            config: Object.entries(CONFIG.A5E.actorSizes),
-        },
-        // tools: {
-        //     label: "A5E.ToolPlural",
-        //     config: Object.entries(
-        //         CONFIG.A5E.tools
-        //     ),
-        // },
-        // weapons: {
-        //     label: "A5E.WeaponPlural",
-        //     config: Object.entries(CONFIG.A5E.weapons),
-        // },
-    };
+    const configObject = prepareTraitGrantConfigObject();
 
     $: grant = $item.system.grants[grantId];
     $: traitType = grant?.traits?.traitType || "armorTypes";

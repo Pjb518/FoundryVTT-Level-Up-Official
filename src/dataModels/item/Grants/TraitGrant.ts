@@ -3,6 +3,8 @@ import BaseGrant from './BaseGrant';
 import TraitGrantConfig from '../../../apps/components/grants/TraitGrantConfig.svelte';
 import TraitGrantSelectionDialog from '../../../apps/components/grants/TraitGrantSelectionDialog.svelte';
 
+import prepareTraitGrantConfigObject from '../../../utils/prepareTraitGrantConfigObject';
+
 export default class TraitGrant extends BaseGrant {
   #component = TraitGrantSelectionDialog;
 
@@ -31,8 +33,8 @@ export default class TraitGrant extends BaseGrant {
 
   getApplyData(actor: any, data: any) {
     if (!actor) return {};
-    const selected = data?.selected ?? this.traits.base ?? [];
-    const count = this.traits.total;
+    const selected: string[] = data?.selected ?? this.traits.base ?? [];
+    const count: number = this.traits.total;
 
     // Construct grant
     const grantData = {
@@ -46,7 +48,19 @@ export default class TraitGrant extends BaseGrant {
       grantType: 'trait'
     };
 
+    // Construct trait update
+    const configObject = prepareTraitGrantConfigObject();
+    const { propertyKey } = configObject[this.traits.traitType] ?? {};
+    if (!propertyKey) return {};
+    if (!selected.length) return {};
+
+    const traits = new Set([
+      ...selected,
+      ...(foundry.utils.getProperty(actor, propertyKey) as string[] ?? [])
+    ]);
+
     return {
+      [propertyKey]: [...traits],
       'system.grants': {
         ...actor.system.grants,
         [this._id]: grantData
@@ -68,7 +82,7 @@ export default class TraitGrant extends BaseGrant {
   }
 
   requiresConfig(): boolean {
-    return this.traits.base.length !== this.traits.total;
+    return (this.traits.base.length + this.traits.options.length) > this.traits.total;
   }
 
   override async configureGrant() {

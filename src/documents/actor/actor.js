@@ -49,7 +49,6 @@ import automateHpConditions from '../activeEffect/utils/automateHpConditions';
 import automateMultiLevelConditions from '../activeEffect/utils/automateMultiLevelConditions';
 import getDeterministicBonus from '../../dice/getDeterministicBonus';
 import getRollFormula from '../../utils/getRollFormula';
-import prepareTraitGrantConfigObject from '../../utils/prepareTraitGrantConfigObject';
 import overrideRollMode from '../../utils/overrideRollMode';
 
 export default class ActorA5e extends Actor {
@@ -202,9 +201,6 @@ export default class ActorA5e extends Actor {
   prepareCharacterData() {
     // Calculate the proficiency bonus for the character with a minimum value of 2.
     this.system.attributes.prof = Math.max(2, Math.floor((this.system.details.level + 7) / 4));
-
-    // Display traits from grants
-    this.prepareTraitData();
   }
 
   /**
@@ -213,30 +209,6 @@ export default class ActorA5e extends Actor {
   prepareNPCData() {
     // Calculate the proficiency bonus for the character with a minimum value of 2.
     this.system.attributes.prof = Math.max(2, Math.floor((this.system.details.cr + 7) / 4));
-  }
-
-  prepareTraitData() {
-    const traitGrants = this.GrantsManager.byType('trait');
-    if (!traitGrants.length) return;
-
-    const configObject = prepareTraitGrantConfigObject();
-
-    for (const grant of traitGrants) {
-      const type = grant.traitData.traitType;
-      if (!type) continue;
-
-      const property = configObject[type]?.propertyKey;
-      if (!property) continue;
-
-      if (!grant.traitData.traits.length) continue;
-
-      const traits = new Set([
-        ...grant.traitData.traits,
-        ...(foundry.utils.getProperty(this, property) ?? [])
-      ]);
-
-      foundry.utils.setProperty(this, property, Array.from(traits));
-    }
   }
 
   /**

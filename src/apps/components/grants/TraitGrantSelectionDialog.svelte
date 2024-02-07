@@ -1,6 +1,8 @@
 <script>
     import { createEventDispatcher } from "svelte";
 
+    import prepareTraitGrantConfigObject from "../../../utils/prepareTraitGrantConfigObject";
+
     import CheckboxGroup from "../CheckboxGroup.svelte";
     import FieldWrapper from "../FieldWrapper.svelte";
     import Section from "../Section.svelte";
@@ -10,54 +12,6 @@
     export let choices;
     export let count;
     export let traitType;
-
-    // =============================================
-    // Trait choices configs
-    // =============================================
-    const configObject = {
-        armorTypes: {
-            label: "A5E.ArmorType",
-            config: Object.entries(CONFIG.A5E.armor),
-        },
-        conditionImmunities: {
-            label: "A5E.ConditionImmunities",
-            config: Object.entries(CONFIG.A5E.conditions),
-        },
-        creatureTypes: {
-            label: "A5E.CreatureTypesLabel",
-            config: Object.entries(CONFIG.A5E.creatureTypes),
-        },
-        damageImmunities: {
-            label: "A5E.DamageImmunities",
-            config: Object.entries(CONFIG.A5E.damageTypes),
-        },
-        damageResistances: {
-            label: "A5E.DamageResistances",
-            config: Object.entries(CONFIG.A5E.damageTypes),
-        },
-        damageVulnerabilities: {
-            label: "A5E.DamageVulnerabilities",
-            config: Object.entries(CONFIG.A5E.damageTypes),
-        },
-        languages: {
-            label: "A5E.Languages",
-            config: Object.entries(CONFIG.A5E.languages),
-        },
-        size: {
-            label: "A5E.Size",
-            config: Object.entries(CONFIG.A5E.actorSizes),
-        },
-        // tools: {
-        //     label: "A5E.ToolPlural",
-        //     config: Object.entries(
-        //         CONFIG.A5E.tools
-        //     ),
-        // },
-        // weapons: {
-        //     label: "A5E.WeaponPlural",
-        //     config: Object.entries(CONFIG.A5E.weapons),
-        // },
-    };
 
     function getDisabledOptions() {
         const options = [];
@@ -86,6 +40,7 @@
     }
 
     const dispatch = createEventDispatcher();
+    const configObject = prepareTraitGrantConfigObject();
     let choicesLocked = true;
 
     $: selected = [...base];
