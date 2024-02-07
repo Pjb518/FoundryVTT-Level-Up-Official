@@ -1,26 +1,3 @@
-export interface ActorBaseGrant {
-  itemUuid: string;
-  grantId: string;
-  grantType: string;
-}
-
-export interface BonusGrant extends ActorBaseGrant {
-  bonusId: string;
-  type: string;
-  grantType: 'bonus';
-}
-
-export interface TraitGrant extends ActorBaseGrant {
-  traitData: {
-    traits: string[],
-    total: number,
-    traitType: string,
-  };
-  grantType: 'trait';
-}
-
-export type ActorGrant = BonusGrant | TraitGrant;
-
 export interface BaseGrant {
   _id: string;
   default: boolean;
@@ -62,17 +39,15 @@ export interface MovementGrant extends BaseGrant {
   context: {
     isHover: boolean
   }
-  label: string;
 }
 
 export interface ProficiencyGrant extends BaseGrant {
   grantType: 'proficiency';
-  choices: {
+  keys: {
     base: string[],
     options: string[],
     total: number,
   };
-  proficiencyKey: string;
   proficiencyType: string;
 }
 
@@ -99,7 +74,6 @@ export interface SensesGrant extends BaseGrant {
   context: {
     otherwiseBlind: boolean
   }
-  label: string;
 }
 
 export type Grant = AbilityGrant | MovementGrant | ProficiencyGrant | SkillGrant | SensesGrant;
