@@ -1,4 +1,4 @@
-import type { Grant } from 'types/grants';
+import type { Grant } from 'types/itemGrants';
 import GrantCls from '../dataModels/item/Grants/index';
 
 export default class ItemGrantsManager extends Map<string, Grant> {

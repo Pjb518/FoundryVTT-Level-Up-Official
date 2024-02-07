@@ -1,4 +1,4 @@
-import type { Grant } from 'types/grants';
+import type { Grant } from 'types/itemGrants';
 
 export default function prepareApplyData(
   actor: typeof Actor,

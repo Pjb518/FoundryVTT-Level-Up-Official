@@ -72,7 +72,7 @@
         "system.bonuses.spellDC",
     );
 
-    // $: grants = [...$actor.GrantsManager.values()].map(
+    // $: grants = [...$actor.grants.values()].map(
     //     (g) => `${g.type}.${g.bonusId}`,
     // );
 </script>

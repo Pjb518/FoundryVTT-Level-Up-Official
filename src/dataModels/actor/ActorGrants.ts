@@ -32,6 +32,24 @@ class BonusGrant extends ActorBaseGrant {
   }
 }
 
+class ProficiencyGrant extends ActorBaseGrant {
+  static defineSchema() {
+    const { fields } = foundry.data;
+
+    return this.mergeSchema(super.defineSchema(), {
+      grantType: new fields.StringField({ required: true, initial: 'proficiency' }),
+      proficiencyData: new fields.SchemaField({
+        keys: new fields.ArrayField(
+          new fields.StringField({ required: true, initial: '' }),
+          { required: true, initial: [] }
+        ),
+        total: new fields.NumberField({ required: true, initial: 0, integer: true }),
+        proficiencyType: new fields.StringField({ required: true, initial: '' })
+      })
+    });
+  }
+}
+
 class TraitGrant extends ActorBaseGrant {
   static defineSchema() {
     const { fields } = foundry.data;
@@ -53,5 +71,6 @@ class TraitGrant extends ActorBaseGrant {
 export default {
   base: ActorBaseGrant,
   bonus: BonusGrant,
+  proficiency: ProficiencyGrant,
   trait: TraitGrant
 };
