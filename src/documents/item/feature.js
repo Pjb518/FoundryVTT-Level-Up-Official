@@ -14,7 +14,7 @@ export default class FeatureItemA5e extends ItemA5e {
     // Apply grants if any
     if (this.parent && this.parent.documentName === 'Actor') {
       const actor = this.parent;
-      actor.GrantsManager.applyGrant(this.id);
+      actor.grants.applyGrant(this.id);
     }
 
     super._onCreate(data, options, user);
@@ -26,6 +26,6 @@ export default class FeatureItemA5e extends ItemA5e {
     if (!this.parent || this.parent?.documentName !== 'Actor') return;
 
     const actor = this.parent;
-    await actor.GrantsManager.removeGrantsByItem(this.uuid);
+    await actor.grants.removeGrantsByItem(this.uuid);
   }
 }

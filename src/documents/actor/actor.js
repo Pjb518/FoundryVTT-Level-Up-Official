@@ -57,7 +57,6 @@ export default class ActorA5e extends Actor {
       notes: {}
     };
 
-    // TODO: Condense some of these into one handling custom tag group
     // TODO: Condense weapon and tools proficiencies into one component.
     this.#configDialogMap = {
       ability: AbilityCheckConfigDialog,
@@ -188,7 +187,7 @@ export default class ActorA5e extends Actor {
   prepareBaseData() {
     // Register Managers
     this.BonusesManager = new BonusesManager(this);
-    this.GrantsManager = new ActorGrantsManager(this);
+    this.grants = new ActorGrantsManager(this);
 
     // Add AC data to the actor.
     if ((this.system.schemaVersion?.version ?? this.system.schema?.version) >= 0.005) {
