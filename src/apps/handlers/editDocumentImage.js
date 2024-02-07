@@ -9,7 +9,7 @@ export default async function editDocumentImage(document, options = {}) {
     }
   }
 
-  const current = foundry.utils.getProperty(document, `actions.${options?.actionId}.img`)
+  const current = foundry.utils.getProperty(document, `system.actions.${options?.actionId}.img`)
     ?? document.img
     ?? document.icon;
 
