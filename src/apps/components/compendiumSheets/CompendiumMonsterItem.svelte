@@ -36,8 +36,6 @@
         const sizeCategory = actorSizes[monster?.system?.traits?.size] ?? "";
         const xp = prepareXP(monster);
 
-        console.log(xp);
-
         if (cr === "?") {
             components.push(sizeCategory, creatureTypes);
         } else {

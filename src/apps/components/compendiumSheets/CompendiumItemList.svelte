@@ -14,6 +14,8 @@
     export let compendiumType;
     export let enableGrouping = false;
 
+    const collection = getContext("collection");
+
     const compendiumItemComponents = {
         "5eSpell": CompendiumSpellItem,
         magicItem: CompendiumObjectItem,
@@ -95,6 +97,19 @@
         derived = derived;
     }
 
+    async function onDocumentDrop(event) {
+        const transferData = event.dataTransfer.getData("text/plain");
+        if (!transferData) return;
+
+        try {
+            const dragData = JSON.parse(transferData);
+            const document = await fromUuid(dragData.uuid);
+            return collection.importDocument(document);
+        } catch (e) {
+            return;
+        }
+    }
+
     const dispatch = createEventDispatcher();
 
     $: setupGrouping(enableGrouping);
@@ -109,6 +124,7 @@
             (target.scrollTop / (target.scrollHeight - target.clientHeight)) *
                 100,
         )}
+    on:drop={onDocumentDrop}
 >
     {#if derived.length}
         {#each derived as { name, derivedReducer }}

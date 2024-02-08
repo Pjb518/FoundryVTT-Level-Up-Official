@@ -27,7 +27,7 @@
 
     // **********************************************
     // Drag Drop Handlers
-    async function onDrop(event) {
+    function onDrop(event) {
         const transferData = event.dataTransfer.getData("text/plain");
         if (!transferData) return;
 
