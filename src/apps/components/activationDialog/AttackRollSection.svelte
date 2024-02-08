@@ -23,7 +23,6 @@
         $item,
         attackRoll?.attackType,
     );
-    console.log(attackBonuses);
 
     function updateData() {
         attackRollData = {

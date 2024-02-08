@@ -4,13 +4,17 @@
  * @param expertiseDie
  */
 export default function overrideExpertiseDie(
-  actor: { getFlag: (arg0: string, arg1: string) => number; },
+  actor: { getFlag: (arg0: string, arg1: string) => any; },
   dieCount: number
 ): number {
+  let addDie = 0;
+
+  // Account for flanking
+  const isFlanking: boolean = actor.getFlag('a5e', 'flanking');
+  if (isFlanking) addDie += 1;
+
   const flag: number | undefined = actor.getFlag('a5e', 'effects.expertiseDie');
-  if (!flag) return dieCount;
+  if (flag) addDie += flag;
 
-  if (flag === 0) return 0;
-
-  return Math.clamped(dieCount + flag, 0, 5);
+  return Math.clamped(dieCount + addDie, 0, 5);
 }
