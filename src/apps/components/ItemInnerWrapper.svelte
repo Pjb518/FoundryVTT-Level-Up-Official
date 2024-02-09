@@ -119,10 +119,30 @@
         updateDocumentDataFromField(item, target.name, Number(target.value));
     }
 
+    function onConfigure() {
+        if (!rightClickConfigure) return;
+
+        if (actionId) {
+            item.actions?.configure(actionId);
+            return;
+        }
+
+        const id = item.actions.keys()?.[0];
+        if (!id) {
+            item.configureItem();
+            return;
+        }
+
+        item.actions?.configure(id);
+    }
+
     const actor = getContext("actor");
     const { A5E } = CONFIG;
     const { DAMAGED_STATES, EQUIPPED_STATES, PREPARED_STATES } = A5E;
     let usesType = actionId ? "action" : "item";
+
+    let rightClickConfigure =
+        game.settings.get("a5e", "itemRightClickConfigure") ?? false;
 
     $: flags = $actor.flags;
 
@@ -177,6 +197,7 @@
                 class="action-button action-button--activation-cost"
                 data-tooltip={activationCostLabel}
                 data-tooltip-direction="UP"
+                on:auxclick|stopPropagation={onConfigure}
             >
                 {activationCost}
             </button>
