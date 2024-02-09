@@ -15,7 +15,7 @@ export default class ActiveEffectA5e extends ActiveEffect {
   // -------------------------------------------------------
   static FALLBACK_ICON = 'icons/svg/aura.svg';
 
-  static PHASES = ['prepareBonuses', 'applyAEs', 'afterDerived'];
+  static PHASES = ['applyAEs', 'afterDerived'];
 
   static ITEM_TYPES = ['passive', 'onUse', 'permanent'];
 
@@ -92,7 +92,10 @@ export default class ActiveEffectA5e extends ActiveEffect {
 
     // Determine types
     const current = getCorrectedTypeValueFromKey(document, change.key) ?? null;
-    change.value = change.value.replace('@original', current);
+    if (change.mode !== CONFIG.A5E.ACTIVE_EFFECT_MODES.CUSTOM) {
+      change.value = change.value.replace('@original', current);
+    }
+
     const targetType = foundry.utils.getType(current);
     const delta = castType(
       this.#convertToDeterministicBonus(document, change),

@@ -1,4 +1,3 @@
-// @ts-nocheck
 import MODES from './effectModes';
 
 // const [sampleValue, modes, effectOpts, componentType, phase] = specialOptions[key];

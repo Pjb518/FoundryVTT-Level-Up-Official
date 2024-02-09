@@ -153,7 +153,6 @@ export default class ActorA5e extends Actor {
    * @override
    */
   prepareData() {
-    this.applyEffectBonuses();
     this.prepareBaseData();
     super.prepareEmbeddedDocuments();
     this.prepareDerivedData();
@@ -161,23 +160,6 @@ export default class ActorA5e extends Actor {
 
     if ((this.system.schemaVersion?.version ?? this.system.schema?.version) < 0.005) return;
     this.prepareArmorClass();
-  }
-
-  /**
-   * Apply activeEffects to the actor with the phase 'applyAEs'.
-   * @override
-   */
-  applyEffectBonuses() {
-    this.overrides = {};
-
-    ActiveEffectA5e.applyEffects(
-      this,
-      this.actorEffects,
-      'prepareBonuses',
-      'applyAEs',
-      (change) => game.a5e.activeEffects.options[this.type]
-        .allOptions[change.key]?.phase === 'prepareBonuses'
-    );
   }
 
   /**
@@ -200,16 +182,16 @@ export default class ActorA5e extends Actor {
     }
 
     // Add base bonuses for abilities
-    Object.entries(this.system.abilities).forEach(([abilityKey, ability]) => {
-      const value = getDeterministicBonus(
-        [
-          ability.value,
-          this.BonusesManager.getAbilityBonusesFormula(abilityKey, 'base').trim()
-        ].filter(Boolean).join(' + ')
-      );
+    // Object.entries(this.system.abilities).forEach(([abilityKey, ability]) => {
+    //   const value = getDeterministicBonus(
+    //     [
+    //       ability.value,
+    //       this.BonusesManager.getAbilityBonusesFormula(abilityKey, 'base').trim()
+    //     ].filter(Boolean).join(' + ')
+    //   );
 
-      ability.value = value ?? ability.value;
-    });
+    //   ability.value = value ?? ability.value;
+    // });
 
     const actorType = this.type;
     if (actorType === 'character') {
@@ -240,6 +222,8 @@ export default class ActorA5e extends Actor {
    * @override
    */
   applyActiveEffects() {
+    this.overrides = {};
+
     // Create base to store statuses on actor.
     this.statuses ??= new Set();
 
@@ -283,6 +267,18 @@ export default class ActorA5e extends Actor {
    */
   prepareDerivedData() {
     const actorData = this.system;
+
+    // Add base bonuses for abilities
+    Object.entries(actorData.abilities).forEach(([abilityKey, ability]) => {
+      const value = getDeterministicBonus(
+        [
+          ability.value,
+          this.BonusesManager.getAbilityBonusesFormula(abilityKey, 'base').trim()
+        ].filter(Boolean).join(' + ')
+      );
+
+      ability.value = value ?? ability.value;
+    });
 
     // Calculate the base ability modifier for each ability score.
     Object.values(actorData.abilities).forEach((ability) => {

@@ -247,7 +247,6 @@ export default class BaseActorData extends A5EDataModel.mixin(SchemaDataModel) {
             ability: new fields.StringField({
               required: true, initial: CONFIG.A5E.skillDefaultAbilities[skill] ?? 'int'
             }),
-            value: new fields.NumberField({ required: true, initial: 0, integer: true }),
             proficient: new fields.BooleanField({ required: true, initial: false }),
             specialties: new fields.ArrayField(
               new fields.StringField({ required: true, initial: '' }),

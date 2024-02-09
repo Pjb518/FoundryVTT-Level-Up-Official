@@ -1,4 +1,3 @@
-// @ts-nocheck
 import MODES from './effectModes';
 
 // const [sampleValue, modes, effectOpts, componentType, phase] = specialOptions[key];
@@ -38,7 +37,9 @@ export default function modifyBaseOptions(options: Object) {
   // Add options for proficiencies
   options['system.proficiencies.armor'] = ['', MODES.DEFAULT_STRING_MODES, Object.entries(CONFIG.A5E.armor), 'TAG_GROUP'];
   options['system.proficiencies.languages'] = ['', MODES.DEFAULT_STRING_MODES, Object.entries(CONFIG.A5E.languages), 'TAG_GROUP'];
+  // @ts-ignore
   options['system.proficiencies.tools'] = ['', MODES.DEFAULT_STRING_MODES, Object.values(CONFIG.A5E.tools).flatMap((c) => Object.entries(c)), 'TAG_GROUP'];
+  // @ts-ignore
   options['system.proficiencies.weapons'] = ['', MODES.DEFAULT_STRING_MODES, Object.values(CONFIG.A5E.weapons).flatMap((c) => Object.entries(c)), 'TAG_GROUP'];
 
   // Proficiency is prepared in base data so we add it here.
@@ -48,12 +49,12 @@ export default function modifyBaseOptions(options: Object) {
   options['system.attributes.spellcasting'] = ['', MODES.OVERRIDE_ONLY, Object.entries(CONFIG.A5E.abilities), 'RADIO'];
 
   // Bonuses
-  options['flags.a5e.effects.bonuses.abilities'] = [{}, MODES.CUSTOM_ONLY, null, 'ABILITY_BONUS', 'prepareBonuses'];
-  options['flags.a5e.effects.bonuses.attacks'] = [{}, MODES.CUSTOM_ONLY, null, 'ATTACK_BONUS', 'prepareBonuses'];
-  options['flags.a5e.effects.bonuses.damage'] = [{}, MODES.CUSTOM_ONLY, null, 'DAMAGE_BONUS', 'prepareBonuses'];
-  options['flags.a5e.effects.bonuses.healing'] = [{}, MODES.CUSTOM_ONLY, null, 'HEALING_BONUS', 'prepareBonuses'];
-  options['flags.a5e.effects.bonuses.initiative'] = [{}, MODES.CUSTOM_ONLY, null, 'INITIATIVE_BONUS', 'prepareBonuses'];
-  options['flags.a5e.effects.bonuses.skills'] = [{}, MODES.CUSTOM_ONLY, null, 'SKILL_BONUS', 'prepareBonuses'];
+  options['flags.a5e.effects.bonuses.abilities'] = [{}, MODES.CUSTOM_ONLY, null, 'ABILITY_BONUS'];
+  options['flags.a5e.effects.bonuses.attacks'] = [{}, MODES.CUSTOM_ONLY, null, 'ATTACK_BONUS'];
+  options['flags.a5e.effects.bonuses.damage'] = [{}, MODES.CUSTOM_ONLY, null, 'DAMAGE_BONUS'];
+  options['flags.a5e.effects.bonuses.healing'] = [{}, MODES.CUSTOM_ONLY, null, 'HEALING_BONUS'];
+  options['flags.a5e.effects.bonuses.initiative'] = [{}, MODES.CUSTOM_ONLY, null, 'INITIATIVE_BONUS'];
+  options['flags.a5e.effects.bonuses.skills'] = [{}, MODES.CUSTOM_ONLY, null, 'SKILL_BONUS'];
 
   // Removes these when data model is fixes
   delete options['system.bonuses.meleeWeaponAttack'];
@@ -64,11 +65,15 @@ export default function modifyBaseOptions(options: Object) {
 
   // Delete bonus associated values
   Object.keys(CONFIG.A5E.abilities).forEach((a) => {
-    delete options[`system.abilities.${a}.value`];
     delete options[`system.abilities.${a}.check.mod`];
     delete options[`system.abilities.${a}.check.bonus`];
     delete options[`system.abilities.${a}.save.mod`];
     delete options[`system.abilities.${a}.save.bonus`];
+  });
+
+  Object.keys(CONFIG.A5E.skills).forEach((s) => {
+    delete options[`system.skills.${s}.mod`];
+    delete options[`system.skills.${s}.bonus`];
   });
 
   delete options['system.attributes.initiative.bonus'];
@@ -113,6 +118,8 @@ export default function modifyBaseOptions(options: Object) {
   delete options['system.bonuses.damage'];
   delete options['system.bonuses.healing'];
   delete options['system.bonuses.initiative'];
+  delete options['system.bonuses.movement'];
+  delete options['system.bonuses.senses'];
   delete options['system.bonuses.skills'];
 
   // Delete schema information
