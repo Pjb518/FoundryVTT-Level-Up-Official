@@ -76,6 +76,12 @@ export interface InitiativeGrant extends BaseGrant {
   }
 }
 
+export interface ItemGrant extends BaseGrant {
+  grantType: 'item';
+  uuid: string;
+  quantityOverride: number;
+}
+
 export interface MovementGrant extends BaseGrant {
   grantType: 'movement';
   movementTypes: {
@@ -140,6 +146,7 @@ export type Grant = AbilityGrant
   | DamageGrant
   | HealingGrant
   | InitiativeGrant
+  | ItemGrant
   | MovementGrant
   | ProficiencyGrant
   | SensesGrant
