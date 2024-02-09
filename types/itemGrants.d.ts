@@ -25,6 +25,55 @@ export interface AbilityGrant extends BaseGrant {
     total: number,
   };
   bonus: string;
+  context: {
+    types: string[],
+    requiresProficiency: boolean
+  }
+}
+
+export interface AttackGrant extends BaseGrant {
+  grantType: 'attack';
+  attackTypes: {
+    base: string[],
+    options: string[],
+    total: number,
+  };
+  bonus: string;
+  context: {
+    spellLevels: string[],
+    requiresProficiency: boolean
+  }
+}
+
+export interface DamageGrant extends BaseGrant {
+  grantType: 'damage';
+  bonus: string;
+  damageType: string;
+  context: {
+    attackTypes: string[],
+    damageTypes: string[],
+    spellLevels: string[],
+    isCritBonus: boolean
+  }
+}
+
+export interface HealingGrant extends BaseGrant {
+  grantType: 'healing';
+  bonus: string;
+  healingType: string;
+  context: {
+    healingTypes: string[],
+    spellLevels: string[]
+  }
+}
+
+export interface InitiativeGrant extends BaseGrant {
+  grantType: 'initiative';
+  bonus: string;
+  context: {
+    abilities: string[],
+    skills: string[]
+  }
 }
 
 export interface MovementGrant extends BaseGrant {
@@ -51,17 +100,6 @@ export interface ProficiencyGrant extends BaseGrant {
   proficiencyType: string;
 }
 
-export interface SkillGrant extends BaseGrant {
-  grantType: 'skill';
-  choices: {
-    base: string[],
-    options: string[],
-    total: number,
-  };
-  skillKey: string;
-  bonus: string;
-}
-
 export interface SensesGrant extends BaseGrant {
   grantType: 'senses';
   senses: {
@@ -76,4 +114,34 @@ export interface SensesGrant extends BaseGrant {
   }
 }
 
-export type Grant = AbilityGrant | MovementGrant | ProficiencyGrant | SkillGrant | SensesGrant;
+export interface SkillGrant extends BaseGrant {
+  grantType: 'skill';
+  choices: {
+    base: string[],
+    options: string[],
+    total: number,
+  };
+  skillKey: string;
+  bonus: string;
+}
+
+export interface TraitGrant extends BaseGrant {
+  grantType: 'trait';
+  traits: {
+    base: string[],
+    options: string[],
+    total: number,
+    traitType: string
+  };
+}
+
+export type Grant = AbilityGrant
+  | AttackGrant
+  | DamageGrant
+  | HealingGrant
+  | InitiativeGrant
+  | MovementGrant
+  | ProficiencyGrant
+  | SensesGrant
+  | SkillGrant
+  | TraitGran;
