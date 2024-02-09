@@ -25,9 +25,9 @@ export default function registerBonusesConfig(A5E) {
 
   A5E.bonusLabels = {
     abilities: {
-      addButton: 'A5E.bonuses.labels.ability.addButton',
-      sectionHeader: 'A5E.bonuses.labels.ability.sectionHeader',
-      defaultName: 'A5E.bonuses.labels.ability.defaultName',
+      addButton: 'A5E.bonuses.labels.abilities.addButton',
+      sectionHeader: 'A5E.bonuses.labels.abilities.sectionHeader',
+      defaultName: 'A5E.bonuses.labels.abilities.defaultName',
       dialogName: 'A5E.bonuses.labels.abilities.dialogName'
     },
     attacks: {
@@ -67,10 +67,10 @@ export default function registerBonusesConfig(A5E) {
       dialogName: 'A5E.bonuses.labels.senses.dialogName'
     },
     skills: {
-      addButton: 'A5E.bonuses.labels.skill.addButton',
-      sectionHeader: 'A5E.bonuses.labels.skill.sectionHeader',
-      defaultName: 'A5E.bonuses.labels.skill.defaultName',
-      dialogName: 'A5E.bonuses.labels.skill.dialogName'
+      addButton: 'A5E.bonuses.labels.skills.addButton',
+      sectionHeader: 'A5E.bonuses.labels.skills.sectionHeader',
+      defaultName: 'A5E.bonuses.labels.skills.defaultName',
+      dialogName: 'A5E.bonuses.labels.skills.dialogName'
     }
   };
 }
