@@ -35,6 +35,11 @@ export default function prepareTraitGrantConfigObject() {
       config: Object.entries(CONFIG.A5E.languages),
       propertyKey: 'system.proficiencies.languages'
     },
+    maneuverTraditions: {
+      label: 'A5E.ManeuverTraditionPlural',
+      config: Object.entries(CONFIG.A5E.maneuverTraditions),
+      propertyKey: 'system.proficiencies.traditions'
+    },
     size: {
       label: 'A5E.Size',
       config: Object.entries(CONFIG.A5E.actorSizes),
