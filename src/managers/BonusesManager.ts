@@ -102,11 +102,15 @@ export default class BonusesManager {
   getAbilityBonusesFormula(
     abilityKey: string,
     type: 'base' | 'check' | 'save' = 'check'
-    // selectedBonuses: { enabled: boolean, ids: string[] } = { enabled: false, ids: [] }
   ): string {
-    // const parts = this.getAbilityBonuses(abilityKey, type, selectedBonuses);
     const bonuses = this.prepareAbilityBonuses(abilityKey, type);
-    const parts = bonuses.map(([, bonus]) => bonus.formula);
+    const parts = bonuses.map(([, bonus]) => {
+      const original: number = this.#actor._source.system.abilities[abilityKey]?.value ?? 0;
+      const formula = bonus.formula.trim().replace('@original', original.toString());
+
+      return formula;
+    });
+
     return parts.join(' + ').trim();
   }
 
@@ -152,13 +156,22 @@ export default class BonusesManager {
 
   getMovementBonusFormula(type: string): string {
     const bonuses = this.prepareMovementBonuses(type);
-    const parts = bonuses.map(([, bonus]) => bonus.formula);
+    const parts = bonuses.map(([, bonus]) => {
+      const original: number = this.#actor._source.system.attributes.movement[type]?.distance ?? 0;
+      const formula = bonus.formula.trim().replace('@original', original.toString());
+      return formula;
+    });
     return parts.join(' + ').trim();
   }
 
   getSensesBonusFormula(type: string): string {
     const bonuses = this.prepareSensesBonuses(type);
-    const parts = bonuses.map(([, bonus]) => bonus.formula);
+    const parts = bonuses.map(([, bonus]) => {
+      const original: number = this.#actor._source.system.attributes.senses[type]?.distance ?? 0;
+      const formula = bonus.formula.trim().replace('@original', original.toString());
+
+      return formula;
+    });
     return parts.join(' + ').trim();
   }
 
@@ -178,7 +191,12 @@ export default class BonusesManager {
     includeAbilityBonuses: boolean = false
   ): string {
     const bonuses = this.prepareSkillBonuses(skillKey, abilityKey, type, includeAbilityBonuses);
-    const parts = bonuses.map(([, bonus]) => bonus.formula);
+    const parts = bonuses.map(([, bonus]) => {
+      const original: number = this.#actor._source.system.skills[skillKey]?.value ?? 0;
+      const formula = bonus.formula.trim().replace('@original', original.toString());
+
+      return formula;
+    });
 
     // Expertise bonus addition for passive skills
     const skill = this.#actor.system.skills[skillKey];
