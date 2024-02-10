@@ -1,48 +1,8 @@
 {
-  "name": "Dao",
+  "name": "Javelin +2",
   "type": "object",
-  "img": "icons/weapons/swords/scimitar-guard-wood.webp",
-  "effects": [
-    {
-      "icon": "icons/weapons/swords/scimitar-worn-blue.webp",
-      "origin": "Item.wO5DEwuTlmCERgHS",
-      "flags": {
-        "a5e": {
-          "sort": 0,
-          "transferType": "onUse",
-          "actionId": "1w6mZi0L5dJhv4TU",
-          "duration": {
-            "type": "rounds",
-            "unit": "minutes"
-          }
-        }
-      },
-      "transfer": false,
-      "name": "AC +1",
-      "_id": "PiHWvQKjPGNpP7A7",
-      "changes": [
-        {
-          "key": "system.attributes.ac.changes.bonuses.value",
-          "value": "1",
-          "mode": 2,
-          "priority": null
-        }
-      ],
-      "disabled": false,
-      "duration": {
-        "startTime": null,
-        "seconds": null,
-        "combat": null,
-        "rounds": null,
-        "turns": 1,
-        "startRound": null,
-        "startTurn": null
-      },
-      "description": "",
-      "statuses": [],
-      "tint": "#ffffff"
-    }
-  ],
+  "img": "icons/weapons/polearms/spear-simple-engraved.webp",
+  "effects": [],
   "flags": {
     "core": {},
     "exportSource": {
@@ -63,8 +23,8 @@
       "requiresUnarmored": false
     },
     "actions": {
-      "6obCuJYfNHC8IPSR": {
-        "name": "Dao",
+      "SvEzVurUbcUnVEKT": {
+        "name": "Javelin",
         "activation": {
           "cost": "",
           "type": "",
@@ -73,6 +33,14 @@
         "duration": {
           "unit": "",
           "value": ""
+        },
+        "ranges": {
+          "uTnvXDS2fw0qfuLQ": {
+            "range": "short"
+          },
+          "iMDfXRbotTUaCBbZ": {
+            "range": "long"
+          }
         },
         "area": {
           "shape": "",
@@ -85,25 +53,25 @@
           "type": "creatureObject"
         },
         "rolls": {
-          "Z80yvTABrbK7jTpF": {
-            "bonus": "",
+          "4MS1mZYiOeKU5YGX": {
+            "bonus": "2",
             "critThreshold": "20",
             "type": "attack",
             "attackType": "meleeWeaponAttack",
             "ability": "default"
           },
-          "KJiGUS59j662UbJm": {
+          "UhvQdZ92IGVTY949": {
             "canCrit": true,
-            "damageType": "slashing",
-            "formula": "1d6 + @finesse.mod",
-            "name": "Scimitar",
+            "damageType": "piercing",
+            "formula": "1d6 + @str.mod + 2",
+            "name": "Javelin",
             "type": "damage"
           }
         },
         "consumers": {}
       },
-      "gS4wMUqm6ItBBj90": {
-        "name": "Dao (Off-Hand)",
+      "qY45eA1h8U1aXb2E": {
+        "name": "Javelin (Throw)",
         "activation": {
           "cost": "",
           "type": "",
@@ -112,6 +80,14 @@
         "duration": {
           "unit": "",
           "value": ""
+        },
+        "ranges": {
+          "uTnvXDS2fw0qfuLQ": {
+            "range": "short"
+          },
+          "iMDfXRbotTUaCBbZ": {
+            "range": "long"
+          }
         },
         "area": {
           "shape": "",
@@ -124,60 +100,37 @@
           "type": "creatureObject"
         },
         "rolls": {
-          "Z80yvTABrbK7jTpF": {
-            "bonus": "",
+          "4MS1mZYiOeKU5YGX": {
+            "bonus": "2",
             "critThreshold": "20",
             "type": "attack",
-            "attackType": "meleeWeaponAttack",
+            "attackType": "rangedWeaponAttack",
             "ability": "default"
           },
-          "KJiGUS59j662UbJm": {
+          "UhvQdZ92IGVTY949": {
             "canCrit": true,
-            "damageType": "slashing",
-            "formula": "1d6 + min(@finesse.mod,0)",
-            "name": "Scimitar",
+            "damageType": "piercing",
+            "formula": "1d6 + @finesse.mod + 2",
+            "name": "Javelin",
             "type": "damage"
           }
         },
-        "consumers": {}
-      },
-      "1w6mZi0L5dJhv4TU": {
-        "name": "AC +1",
-        "activation": {
-          "type": "bonusAction",
-          "cost": 1
-        },
-        "consumers": {},
-        "rolls": {},
-        "prompts": {
-          "VzXK3rJS1p0jCl6M": {
-            "type": "effect",
+        "consumers": {
+          "zewNsvZvfmAyM2qM": {
+            "type": "itemUses",
             "default": true,
-            "effectId": "PiHWvQKjPGNpP7A7"
+            "quantity": 1
           }
-        },
-        "uses": {
-          "value": 0,
-          "max": "",
-          "per": "",
-          "recharge": {
-            "formula": "1d6",
-            "threshold": 6
-          }
-        },
-        "duration": {
-          "unit": "turn",
-          "value": 1
         }
       }
     },
-    "description": "<p><em>Defensive (Light), Dual-Wielding, Finesse</em></p>\n<p>A curved broadsword that uses the statistics of a @UUID[Compendium.a5e.a5e-adventuring-gear.Item.4wvjchmo31jngkyk]{Scimitar}.</p>",
+    "description": "<p><em>Thrown (30/120)</em></p>",
     "favorite": false,
     "secretDescription": "",
     "source": "",
     "uses": {
-      "value": null,
-      "max": "",
+      "value": 1,
+      "max": "1",
       "per": null,
       "recharge": {
         "formula": "1d6",
@@ -193,7 +146,7 @@
     "armorProperties": [],
     "attuned": false,
     "bulky": false,
-    "craftingComponents": "",
+    "craftingComponents": "+1 weapon",
     "containerId": "",
     "damagedState": 0,
     "equippedState": 0,
@@ -201,10 +154,10 @@
     "materialProperties": [],
     "objectType": "weapon",
     "plotItem": false,
-    "price": "20 gp",
+    "price": "3,500 gp",
     "proficient": true,
     "quantity": 1,
-    "rarity": "mundane",
+    "rarity": "rare",
     "requiresAttunement": false,
     "shieldCategory": "",
     "shieldProperties": [],
@@ -212,11 +165,9 @@
     "unidentifiedDescription": "",
     "unidentifiedName": "",
     "weaponProperties": [
-      "finesse",
-      "defensive",
-      "dualWielding"
+      "thrown"
     ],
-    "weight": 3,
+    "weight": 2,
     "schemaVersion": {
       "version": 0.011,
       "lastMigration": {
@@ -233,8 +184,8 @@
     "systemId": "a5e",
     "systemVersion": "0.16.48",
     "coreVersion": "11.315",
-    "createdTime": 1707061281932,
-    "modifiedTime": 1707068636928,
+    "createdTime": 1707061568154,
+    "modifiedTime": 1707068644678,
     "lastModifiedBy": "BDqRFxyWZFKs757e"
   }
 }

@@ -1,282 +1,259 @@
 {
-	"name": "Ninjato",
-	"type": "object",
-	"img": "icons/weapons/swords/shortsword-guard-worn.webp",
-	"effects": [
-		{
-			"icon": "icons/weapons/swords/shortsword-guard-worn.webp",
-			"origin": "Item.p4wky1vpoop0wax3",
-			"flags": {
-				"a5e": {
-					"sort": 0,
-					"transferType": "onUse",
-					"actionId": "LfiU8RBp5laBi6jt",
-					"duration": {
-						"type": "rounds",
-						"unit": "minutes"
-					}
-				}
-			},
-			"transfer": false,
-			"name": "AC +1",
-			"_id": "o3RplnB3d2bgc5Cs",
-			"changes": [
-				{
-					"key": "system.attributes.ac.changes.bonuses.value",
-					"value": "1",
-					"mode": 2,
-					"priority": null
-				}
-			],
-			"disabled": false,
-			"duration": {
-				"startTime": null,
-				"seconds": null,
-				"combat": null,
-				"rounds": null,
-				"turns": 1,
-				"startRound": null,
-				"startTurn": null
-			},
-			"description": "",
-			"statuses": [],
-			"tint": "#ffffff",
-			"folder": null
-		}
-	],
-	"flags": {
-		"core": {
-			"sheetClass": "a5e.ItemSheet5e"
-		}
-	},
-	"system": {
-		"ac": {
-			"baseFormula": "",
-			"formula": "",
-			"maxDex": 0,
-			"minStr": 0,
-			"mode": 1,
-			"requiresNoShield": false,
-			"requiresUnarmored": false
-		},
-		"actions": {
-			"s8ufuOSoG0jsuNjg": {
-				"name": "Ninjato",
-				"activation": {
-					"cost": "",
-					"type": "",
-					"reactionTrigger": ""
-				},
-				"duration": {
-					"unit": "",
-					"value": ""
-				},
-				"area": {
-					"shape": "",
-					"size": "",
-					"placeTemplate": false,
-					"quantity": 1
-				},
-				"target": {
-					"quantity": 1,
-					"type": "creatureObject"
-				},
-				"rolls": {
-					"P7UeMDVPmv9D9fqE": {
-						"bonus": "",
-						"critThreshold": "20",
-						"type": "attack",
-						"attackType": "meleeWeaponAttack",
-						"ability": "default"
-					},
-					"HUbaIlANmQsN4fYO": {
-						"canCrit": true,
-						"damageType": "slashing",
-						"formula": "1d6 + @finesse.mod",
-						"name": "Shortsword",
-						"type": "damage"
-					}
-				},
-				"consumers": {}
-			},
-			"9V7RfsLXfxK1rV7d": {
-				"name": "Attack With Shield",
-				"activation": {
-					"type": "bonusAction",
-					"cost": 1
-				},
-				"consumers": {},
-				"rolls": {
-					"PIrw82rB4OXOwLTp": {
-						"type": "attack",
-						"default": true,
-						"attackType": "meleeWeaponAttack",
-						"proficient": false,
-						"ability": "none",
-						"label": "Improvised Weapon"
-					},
-					"liKyWako9ZBgGHin": {
-						"type": "damage",
-						"default": true,
-						"formula": "1d4",
-						"damageType": "bludgeoning"
-					}
-				},
-				"prompts": {},
-				"uses": {
-					"value": 0,
-					"max": "",
-					"per": "",
-					"recharge": {
-						"formula": "1d6",
-						"threshold": 6
-					}
-				},
-				"img": "icons/weapons/swords/shortsword-guard-worn.webp"
-			},
-			"LfiU8RBp5laBi6jt": {
-				"name": "AC +1",
-				"activation": {
-					"type": "bonusAction",
-					"cost": 1
-				},
-				"consumers": {},
-				"rolls": {},
-				"prompts": {
-					"VzXK3rJS1p0jCl6M": {
-						"type": "effect",
-						"default": true,
-						"effectId": "PiHWvQKjPGNpP7A7"
-					},
-					"aihw6klbt8X6LdFS": {
-						"type": "effect",
-						"default": true,
-						"effectId": "o3RplnB3d2bgc5Cs"
-					}
-				},
-				"uses": {
-					"value": 0,
-					"max": "",
-					"per": "",
-					"recharge": {
-						"formula": "1d6",
-						"threshold": 6
-					}
-				},
-				"duration": {
-					"unit": "turn",
-					"value": 1
-				},
-				"img": "icons/weapons/swords/shortsword-guard-worn.webp"
-			},
-			"vQTQD7tzjEVIJLR0": {
-				"name": "Parry",
-				"activation": {},
-				"consumers": {},
-				"rolls": {
-					"tmuyLFz7KQutuiOG": {
-						"type": "generic",
-						"default": true,
-						"label": "Armor Class",
-						"formula": "1d4"
-					}
-				},
-				"prompts": {},
-				"uses": {
-					"value": 0,
-					"max": "",
-					"per": "",
-					"recharge": {
-						"formula": "1d6",
-						"threshold": 6
-					}
-				},
-				"img": "icons/weapons/swords/shortsword-guard-worn.webp"
-			},
-			"4WJ0cq0CCzfbxuyo": {
-				"name": "Release Liquid",
-				"activation": {
-					"type": "bonusAction",
-					"cost": 1
-				},
-				"consumers": {
-					"pmpCkHhS6k24C2iE": {
-						"type": "itemUses",
-						"default": true,
-						"quantity": 1
-					}
-				},
-				"rolls": {},
-				"prompts": {},
-				"uses": {
-					"value": 0,
-					"max": "",
-					"per": "",
-					"recharge": {
-						"formula": "1d6",
-						"threshold": 6
-					}
-				}
-			}
-		},
-		"description": "<p><em>Defensive (Medium), Finesse, Parrying, Storage</em></p>\n<p>&nbsp;</p>\n<p>This uses the&nbsp;statistics of a straight-bladed @UUID[Compendium.a5e.a5e-adventuring-gear.Item.36k2tx29firrtrgl]{Shortsword} with the&nbsp;storage property (often used to contain poison).</p>",
-		"favorite": false,
-		"secretDescription": "",
-		"source": "",
-		"uses": {
-			"value": 1,
-			"max": "1",
-			"per": null,
-			"recharge": {
-				"formula": "1d6",
-				"threshold": 6
-			}
-		},
-		"schema": {
-			"version": null,
-			"lastMigration": null
-		},
-		"ammunitionProperties": [],
-		"armorCategory": "",
-		"armorProperties": [],
-		"attuned": false,
-		"bulky": false,
-		"craftingComponents": "",
-		"containerId": "",
-		"damagedState": 0,
-		"equippedState": 0,
-		"items": {},
-		"materialProperties": [],
-		"objectType": "weapon",
-		"plotItem": false,
-		"price": "20 gp",
-		"proficient": true,
-		"quantity": 1,
-		"rarity": "mundane",
-		"requiresAttunement": false,
-		"shieldCategory": "",
-		"shieldProperties": [],
-		"unidentified": false,
-		"unidentifiedDescription": "",
-		"unidentifiedName": "",
-		"weaponProperties": [
-			"defensive",
-			"parrying",
-			"finesse",
-			"storage"
-		],
-		"weight": 2,
-		"schemaVersion": {
-			"version": 0.013,
-			"lastMigration": {
-				"version": {
-					"schema": 0.011,
-					"foundry": "11.315",
-					"system": "0.16.49"
-				}
-			}
-		}
-	},
-	"folder": null,
-	"_id": "p4wky1vpoop0wax3"
+  "name": "Ninjato",
+  "type": "object",
+  "img": "icons/weapons/swords/shortsword-guard-worn.webp",
+  "effects": [
+    {
+      "icon": "icons/weapons/swords/shortsword-guard-worn.webp",
+      "origin": "Item.Wv45MER2cQN5aG5u",
+      "flags": {
+        "a5e": {
+          "sort": 0,
+          "transferType": "onUse",
+          "actionId": "LfiU8RBp5laBi6jt",
+          "duration": {
+            "type": "rounds",
+            "unit": "minutes"
+          }
+        }
+      },
+      "transfer": false,
+      "name": "AC +1",
+      "_id": "o3RplnB3d2bgc5Cs",
+      "changes": [
+        {
+          "key": "system.attributes.ac.changes.bonuses.value",
+          "value": "1",
+          "mode": 2,
+          "priority": null
+        }
+      ],
+      "disabled": false,
+      "duration": {
+        "startTime": null,
+        "seconds": null,
+        "combat": null,
+        "rounds": null,
+        "turns": 1,
+        "startRound": null,
+        "startTurn": null
+      },
+      "description": "",
+      "statuses": [],
+      "tint": "#ffffff"
+    }
+  ],
+  "flags": {
+    "core": {
+      "sheetClass": "a5e.ItemSheet5e"
+    },
+    "exportSource": {
+      "world": "clean-test",
+      "system": "a5e",
+      "coreVersion": "11.315",
+      "systemVersion": "0.16.48"
+    }
+  },
+  "system": {
+    "ac": {
+      "baseFormula": "",
+      "formula": "",
+      "maxDex": 0,
+      "minStr": 0,
+      "mode": 1,
+      "requiresNoShield": false,
+      "requiresUnarmored": false
+    },
+    "actions": {
+      "s8ufuOSoG0jsuNjg": {
+        "name": "Ninjato",
+        "activation": {
+          "cost": "",
+          "type": "",
+          "reactionTrigger": ""
+        },
+        "duration": {
+          "unit": "",
+          "value": ""
+        },
+        "area": {
+          "shape": "",
+          "size": "",
+          "placeTemplate": false,
+          "quantity": 1
+        },
+        "target": {
+          "quantity": 1,
+          "type": "creatureObject"
+        },
+        "rolls": {
+          "P7UeMDVPmv9D9fqE": {
+            "bonus": "",
+            "critThreshold": "20",
+            "type": "attack",
+            "attackType": "meleeWeaponAttack",
+            "ability": "default"
+          },
+          "HUbaIlANmQsN4fYO": {
+            "canCrit": true,
+            "damageType": "slashing",
+            "formula": "1d6 + @finesse.mod",
+            "name": "Shortsword",
+            "type": "damage"
+          }
+        },
+        "consumers": {}
+      },
+      "LfiU8RBp5laBi6jt": {
+        "name": "AC +1",
+        "activation": {
+          "type": "bonusAction",
+          "cost": 1
+        },
+        "consumers": {},
+        "rolls": {},
+        "prompts": {
+          "VzXK3rJS1p0jCl6M": {
+            "type": "effect",
+            "default": true,
+            "effectId": "PiHWvQKjPGNpP7A7"
+          },
+          "aihw6klbt8X6LdFS": {
+            "type": "effect",
+            "default": true,
+            "effectId": "o3RplnB3d2bgc5Cs"
+          }
+        },
+        "uses": {
+          "value": 0,
+          "max": "",
+          "per": "",
+          "recharge": {
+            "formula": "1d6",
+            "threshold": 6
+          }
+        },
+        "duration": {
+          "unit": "turn",
+          "value": 1
+        },
+        "img": "icons/weapons/swords/shortsword-guard-worn.webp"
+      },
+      "vQTQD7tzjEVIJLR0": {
+        "name": "Parry",
+        "activation": {},
+        "consumers": {},
+        "rolls": {
+          "tmuyLFz7KQutuiOG": {
+            "type": "generic",
+            "default": true,
+            "label": "Armor Class",
+            "formula": "1d4"
+          }
+        },
+        "prompts": {},
+        "uses": {
+          "value": 0,
+          "max": "",
+          "per": "",
+          "recharge": {
+            "formula": "1d6",
+            "threshold": 6
+          }
+        },
+        "img": "icons/weapons/swords/shortsword-guard-worn.webp"
+      },
+      "4WJ0cq0CCzfbxuyo": {
+        "name": "Release Liquid",
+        "activation": {
+          "type": "bonusAction",
+          "cost": 1
+        },
+        "consumers": {
+          "pmpCkHhS6k24C2iE": {
+            "type": "itemUses",
+            "default": true,
+            "quantity": 1
+          }
+        },
+        "rolls": {},
+        "prompts": {},
+        "uses": {
+          "value": 0,
+          "max": "",
+          "per": "",
+          "recharge": {
+            "formula": "1d6",
+            "threshold": 6
+          }
+        }
+      }
+    },
+    "description": "<p><em>Defensive (Medium), Finesse, Parrying, Storage</em></p>\n<p>This uses the statistics of a straight-bladed @UUID[Compendium.a5e.a5e-adventuring-gear.Item.36k2tx29firrtrgl]{Shortsword} with the storage property (often used to contain poison).</p>",
+    "favorite": false,
+    "secretDescription": "",
+    "source": "",
+    "uses": {
+      "value": 1,
+      "max": "1",
+      "per": null,
+      "recharge": {
+        "formula": "1d6",
+        "threshold": 6
+      }
+    },
+    "schema": {
+      "version": null,
+      "lastMigration": null
+    },
+    "ammunitionProperties": [],
+    "armorCategory": "",
+    "armorProperties": [],
+    "attuned": false,
+    "bulky": false,
+    "craftingComponents": "",
+    "containerId": "",
+    "damagedState": 0,
+    "equippedState": 0,
+    "items": {},
+    "materialProperties": [],
+    "objectType": "weapon",
+    "plotItem": false,
+    "price": "20 gp",
+    "proficient": true,
+    "quantity": 1,
+    "rarity": "mundane",
+    "requiresAttunement": false,
+    "shieldCategory": "",
+    "shieldProperties": [],
+    "unidentified": false,
+    "unidentifiedDescription": "",
+    "unidentifiedName": "",
+    "weaponProperties": [
+      "defensive",
+      "parrying",
+      "finesse",
+      "storage"
+    ],
+    "weight": 2,
+    "schemaVersion": {
+      "version": 0.011,
+      "lastMigration": {
+        "version": {
+          "schema": 0.01,
+          "foundry": "11.315",
+          "system": "0.16.37"
+        }
+      }
+    }
+  },
+  "folder": "p4fk321k9dN3oTD5",
+  "_stats": {
+    "systemId": "a5e",
+    "systemVersion": "0.16.48",
+    "coreVersion": "11.315",
+    "createdTime": 1707063139586,
+    "modifiedTime": 1707068665907,
+    "lastModifiedBy": "BDqRFxyWZFKs757e"
+  }
 }

@@ -1,48 +1,8 @@
 {
-  "name": "Dao",
+  "name": "Main-Gauche +3",
   "type": "object",
-  "img": "icons/weapons/swords/scimitar-guard-wood.webp",
-  "effects": [
-    {
-      "icon": "icons/weapons/swords/scimitar-worn-blue.webp",
-      "origin": "Item.wO5DEwuTlmCERgHS",
-      "flags": {
-        "a5e": {
-          "sort": 0,
-          "transferType": "onUse",
-          "actionId": "1w6mZi0L5dJhv4TU",
-          "duration": {
-            "type": "rounds",
-            "unit": "minutes"
-          }
-        }
-      },
-      "transfer": false,
-      "name": "AC +1",
-      "_id": "PiHWvQKjPGNpP7A7",
-      "changes": [
-        {
-          "key": "system.attributes.ac.changes.bonuses.value",
-          "value": "1",
-          "mode": 2,
-          "priority": null
-        }
-      ],
-      "disabled": false,
-      "duration": {
-        "startTime": null,
-        "seconds": null,
-        "combat": null,
-        "rounds": null,
-        "turns": 1,
-        "startRound": null,
-        "startTurn": null
-      },
-      "description": "",
-      "statuses": [],
-      "tint": "#ffffff"
-    }
-  ],
+  "img": "icons/weapons/daggers/dagger-double-skull-pink.webp",
+  "effects": [],
   "flags": {
     "core": {},
     "exportSource": {
@@ -54,17 +14,17 @@
   },
   "system": {
     "ac": {
-      "baseFormula": "",
+      "baseFormula": "1",
       "formula": "",
       "maxDex": 0,
       "minStr": 0,
       "mode": 1,
-      "requiresNoShield": false,
+      "requiresNoShield": true,
       "requiresUnarmored": false
     },
     "actions": {
-      "6obCuJYfNHC8IPSR": {
-        "name": "Dao",
+      "CYURkv9sK45wkGZn": {
+        "name": "Main-Gauche",
         "activation": {
           "cost": "",
           "type": "",
@@ -82,28 +42,28 @@
         },
         "target": {
           "quantity": 1,
-          "type": "creatureObject"
+          "type": "object"
         },
         "rolls": {
-          "Z80yvTABrbK7jTpF": {
-            "bonus": "",
+          "gdR2mGnYfGBsk2ZY": {
+            "bonus": "3",
             "critThreshold": "20",
             "type": "attack",
             "attackType": "meleeWeaponAttack",
             "ability": "default"
           },
-          "KJiGUS59j662UbJm": {
+          "ut4E7BIwVCXdj5oE": {
             "canCrit": true,
-            "damageType": "slashing",
-            "formula": "1d6 + @finesse.mod",
-            "name": "Scimitar",
+            "damageType": "piercing",
+            "formula": "1d4 + @finesse.mod + 3",
+            "name": "Dagger",
             "type": "damage"
           }
         },
         "consumers": {}
       },
-      "gS4wMUqm6ItBBj90": {
-        "name": "Dao (Off-Hand)",
+      "911iDf2vrTJjuO4V": {
+        "name": "Main-Gauche (Off-Hand)",
         "activation": {
           "cost": "",
           "type": "",
@@ -121,41 +81,57 @@
         },
         "target": {
           "quantity": 1,
-          "type": "creatureObject"
+          "type": "object"
         },
         "rolls": {
-          "Z80yvTABrbK7jTpF": {
-            "bonus": "",
+          "gdR2mGnYfGBsk2ZY": {
+            "bonus": "3",
             "critThreshold": "20",
             "type": "attack",
             "attackType": "meleeWeaponAttack",
             "ability": "default"
           },
-          "KJiGUS59j662UbJm": {
+          "ut4E7BIwVCXdj5oE": {
             "canCrit": true,
-            "damageType": "slashing",
-            "formula": "1d6 + min(@finesse.mod,0)",
-            "name": "Scimitar",
+            "damageType": "piercing",
+            "formula": "1d4 + min(@finesse.mod,0) + 3",
+            "name": "Dagger",
             "type": "damage"
           }
         },
         "consumers": {}
       },
-      "1w6mZi0L5dJhv4TU": {
-        "name": "AC +1",
+      "gaa5lYCeSG7GqNX9": {
+        "name": "Throw",
         "activation": {
-          "type": "bonusAction",
+          "type": "action",
           "cost": 1
         },
-        "consumers": {},
-        "rolls": {},
-        "prompts": {
-          "VzXK3rJS1p0jCl6M": {
-            "type": "effect",
+        "consumers": {
+          "zFE9UqEOv0UBCD6r": {
+            "type": "itemUses",
             "default": true,
-            "effectId": "PiHWvQKjPGNpP7A7"
+            "quantity": 1
           }
         },
+        "rolls": {
+          "zewrmShN8LS3AwEi": {
+            "type": "attack",
+            "default": true,
+            "attackType": "rangedWeaponAttack",
+            "proficient": false,
+            "ability": "default",
+            "label": "Improvised Weapon",
+            "bonus": "3"
+          },
+          "XTo4JXjGiVnWggpB": {
+            "type": "damage",
+            "default": true,
+            "formula": "1d6 + 3",
+            "damageType": "bludgeoning"
+          }
+        },
+        "prompts": {},
         "uses": {
           "value": 0,
           "max": "",
@@ -165,19 +141,24 @@
             "threshold": 6
           }
         },
-        "duration": {
-          "unit": "turn",
-          "value": 1
+        "ranges": {
+          "zeWTAVnYDXqQSyWI": {
+            "range": 20,
+            "unit": "feet"
+          },
+          "bZ6p1htVyAXwDkJx": {
+            "range": "medium"
+          }
         }
       }
     },
-    "description": "<p><em>Defensive (Light), Dual-Wielding, Finesse</em></p>\n<p>A curved broadsword that uses the statistics of a @UUID[Compendium.a5e.a5e-adventuring-gear.Item.4wvjchmo31jngkyk]{Scimitar}.</p>",
+    "description": "<p><em>Dual-Wielding, Finesse, Simple, Thrown</em></p>\n<p>&nbsp;</p>\n<p>This&nbsp;parrying dagger may be used as a @UUID[Compendium.a5e.a5e-adventuring-gear.Item.vzmgutyegssa2akj]{Dagger} or as&nbsp;a @UUID[Compendium.a5e.a5e-adventuring-gear.Item.xy2bn4687azmkadw]{Shield, Light}.</p>",
     "favorite": false,
     "secretDescription": "",
     "source": "",
     "uses": {
-      "value": null,
-      "max": "",
+      "value": 1,
+      "max": "1",
       "per": null,
       "recharge": {
         "formula": "1d6",
@@ -193,7 +174,7 @@
     "armorProperties": [],
     "attuned": false,
     "bulky": false,
-    "craftingComponents": "",
+    "craftingComponents": "+2 weapon that has hit a monster of CR 15 or higher",
     "containerId": "",
     "damagedState": 0,
     "equippedState": 0,
@@ -201,10 +182,10 @@
     "materialProperties": [],
     "objectType": "weapon",
     "plotItem": false,
-    "price": "20 gp",
+    "price": "8,000 gp",
     "proficient": true,
     "quantity": 1,
-    "rarity": "mundane",
+    "rarity": "veryRare",
     "requiresAttunement": false,
     "shieldCategory": "",
     "shieldProperties": [],
@@ -212,11 +193,12 @@
     "unidentifiedDescription": "",
     "unidentifiedName": "",
     "weaponProperties": [
+      "dualWielding",
       "finesse",
-      "defensive",
-      "dualWielding"
+      "simple",
+      "thrown"
     ],
-    "weight": 3,
+    "weight": 1,
     "schemaVersion": {
       "version": 0.011,
       "lastMigration": {
@@ -233,8 +215,8 @@
     "systemId": "a5e",
     "systemVersion": "0.16.48",
     "coreVersion": "11.315",
-    "createdTime": 1707061281932,
-    "modifiedTime": 1707068636928,
+    "createdTime": 1707062870226,
+    "modifiedTime": 1707068663011,
     "lastModifiedBy": "BDqRFxyWZFKs757e"
   }
 }

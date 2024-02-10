@@ -1,16 +1,16 @@
 {
-  "name": "Thinblade",
+  "name": "Dao +3",
   "type": "object",
-  "img": "icons/weapons/swords/greatsword-crossguard-flanged.webp",
+  "img": "icons/weapons/swords/scimitar-guard-wood.webp",
   "effects": [
     {
-      "icon": "icons/weapons/swords/greatsword-crossguard-flanged.webp",
-      "origin": "Item.Liy3CWw9o71aUxV4",
+      "icon": "icons/weapons/swords/scimitar-worn-blue.webp",
+      "origin": "Item.nS9z7YrSsJLMAeNQ",
       "flags": {
         "a5e": {
           "sort": 0,
           "transferType": "onUse",
-          "actionId": "jE0oGbW4c91H4L9s",
+          "actionId": "1w6mZi0L5dJhv4TU",
           "duration": {
             "type": "rounds",
             "unit": "minutes"
@@ -19,7 +19,7 @@
       },
       "transfer": false,
       "name": "AC +1",
-      "_id": "fNsg1fB0AQvNW0yM",
+      "_id": "PiHWvQKjPGNpP7A7",
       "changes": [
         {
           "key": "system.attributes.ac.changes.bonuses.value",
@@ -63,8 +63,8 @@
       "requiresUnarmored": false
     },
     "actions": {
-      "4hUX21XJHYN8ppgn": {
-        "name": "Thinblade",
+      "6obCuJYfNHC8IPSR": {
+        "name": "Dao",
         "activation": {
           "cost": "",
           "type": "",
@@ -85,24 +85,63 @@
           "type": "creatureObject"
         },
         "rolls": {
-          "r9swSspq97S1RfWR": {
-            "bonus": "",
-            "critThreshold": 19,
+          "Z80yvTABrbK7jTpF": {
+            "bonus": "3",
+            "critThreshold": "20",
             "type": "attack",
             "attackType": "meleeWeaponAttack",
             "ability": "default"
           },
-          "uJI9p3ltabvV4LYr": {
+          "KJiGUS59j662UbJm": {
             "canCrit": true,
-            "damageType": "piercing",
-            "formula": "1d8 + @finesse.mod",
-            "name": "Rapier",
+            "damageType": "slashing",
+            "formula": "1d6 + @finesse.mod + 3",
+            "name": "Scimitar",
             "type": "damage"
           }
         },
         "consumers": {}
       },
-      "jE0oGbW4c91H4L9s": {
+      "gS4wMUqm6ItBBj90": {
+        "name": "Dao (Off-Hand)",
+        "activation": {
+          "cost": "",
+          "type": "",
+          "reactionTrigger": ""
+        },
+        "duration": {
+          "unit": "",
+          "value": ""
+        },
+        "area": {
+          "shape": "",
+          "size": "",
+          "placeTemplate": false,
+          "quantity": 1
+        },
+        "target": {
+          "quantity": 1,
+          "type": "creatureObject"
+        },
+        "rolls": {
+          "Z80yvTABrbK7jTpF": {
+            "bonus": "2",
+            "critThreshold": "20",
+            "type": "attack",
+            "attackType": "meleeWeaponAttack",
+            "ability": "default"
+          },
+          "KJiGUS59j662UbJm": {
+            "canCrit": true,
+            "damageType": "slashing",
+            "formula": "1d6 + min(@finesse.mod,0) + 2",
+            "name": "Scimitar",
+            "type": "damage"
+          }
+        },
+        "consumers": {}
+      },
+      "1w6mZi0L5dJhv4TU": {
         "name": "AC +1",
         "activation": {
           "type": "bonusAction",
@@ -115,26 +154,6 @@
             "type": "effect",
             "default": true,
             "effectId": "PiHWvQKjPGNpP7A7"
-          },
-          "aihw6klbt8X6LdFS": {
-            "type": "effect",
-            "default": true,
-            "effectId": "o3RplnB3d2bgc5Cs"
-          },
-          "KsLi5Hf2I5z2N7dq": {
-            "type": "effect",
-            "default": true,
-            "effectId": "Llj5xb79gCEj7iz8"
-          },
-          "JaSmK7pyGc0SWrmi": {
-            "type": "effect",
-            "default": true,
-            "effectId": "uyPf3aBTu6Dbjl7v"
-          },
-          "8KMwTeQKuqHx3rho": {
-            "type": "effect",
-            "default": true,
-            "effectId": "fNsg1fB0AQvNW0yM"
           }
         },
         "uses": {
@@ -149,11 +168,10 @@
         "duration": {
           "unit": "turn",
           "value": 1
-        },
-        "img": "icons/weapons/swords/greatsword-crossguard-flanged.webp"
+        }
       }
     },
-    "description": "<p><em>Defensive (Light), Finesse, Vicious</em></p>\n<p>This weapon uses the statistics of a @UUID[Compendium.a5e.a5e-adventuring-gear.Item.l6qdjqzvk3sddr2i]{Rapier} but is so sharp that it has the vicious property.</p>",
+    "description": "<p><em>Defensive (Light), Dual-Wielding, Finesse</em></p>\n<p>A curved broadsword that uses the statistics of a @UUID[Compendium.a5e.a5e-adventuring-gear.Item.4wvjchmo31jngkyk]{Scimitar}.</p>",
     "favorite": false,
     "secretDescription": "",
     "source": "",
@@ -175,7 +193,7 @@
     "armorProperties": [],
     "attuned": false,
     "bulky": false,
-    "craftingComponents": "",
+    "craftingComponents": "+2 weapon that has hit a monster of CR 15 or higher",
     "containerId": "",
     "damagedState": 0,
     "equippedState": 0,
@@ -183,10 +201,10 @@
     "materialProperties": [],
     "objectType": "weapon",
     "plotItem": false,
-    "price": "50 gp",
+    "price": "8,000 gp",
     "proficient": true,
     "quantity": 1,
-    "rarity": "mundane",
+    "rarity": "veryRare",
     "requiresAttunement": false,
     "shieldCategory": "",
     "shieldProperties": [],
@@ -194,11 +212,11 @@
     "unidentifiedDescription": "",
     "unidentifiedName": "",
     "weaponProperties": [
-      "defensive",
       "finesse",
-      "vicious"
+      "defensive",
+      "dualWielding"
     ],
-    "weight": 2,
+    "weight": 3,
     "schemaVersion": {
       "version": 0.011,
       "lastMigration": {
@@ -215,8 +233,8 @@
     "systemId": "a5e",
     "systemVersion": "0.16.48",
     "coreVersion": "11.315",
-    "createdTime": 1707068827355,
-    "modifiedTime": 1707068922030,
+    "createdTime": 1707061281932,
+    "modifiedTime": 1707068640112,
     "lastModifiedBy": "BDqRFxyWZFKs757e"
   }
 }

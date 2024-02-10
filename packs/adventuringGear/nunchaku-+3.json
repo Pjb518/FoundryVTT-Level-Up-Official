@@ -1,48 +1,8 @@
 {
-  "name": "Dao",
+  "name": "Nunchaku +3",
   "type": "object",
-  "img": "icons/weapons/swords/scimitar-guard-wood.webp",
-  "effects": [
-    {
-      "icon": "icons/weapons/swords/scimitar-worn-blue.webp",
-      "origin": "Item.wO5DEwuTlmCERgHS",
-      "flags": {
-        "a5e": {
-          "sort": 0,
-          "transferType": "onUse",
-          "actionId": "1w6mZi0L5dJhv4TU",
-          "duration": {
-            "type": "rounds",
-            "unit": "minutes"
-          }
-        }
-      },
-      "transfer": false,
-      "name": "AC +1",
-      "_id": "PiHWvQKjPGNpP7A7",
-      "changes": [
-        {
-          "key": "system.attributes.ac.changes.bonuses.value",
-          "value": "1",
-          "mode": 2,
-          "priority": null
-        }
-      ],
-      "disabled": false,
-      "duration": {
-        "startTime": null,
-        "seconds": null,
-        "combat": null,
-        "rounds": null,
-        "turns": 1,
-        "startRound": null,
-        "startTurn": null
-      },
-      "description": "",
-      "statuses": [],
-      "tint": "#ffffff"
-    }
-  ],
+  "img": "icons/tools/fasteners/chain-steel-grey.webp",
+  "effects": [],
   "flags": {
     "core": {},
     "exportSource": {
@@ -63,8 +23,8 @@
       "requiresUnarmored": false
     },
     "actions": {
-      "6obCuJYfNHC8IPSR": {
-        "name": "Dao",
+      "ZdX1rqHn29jj57xS": {
+        "name": "Nunchaku",
         "activation": {
           "cost": "",
           "type": "",
@@ -85,25 +45,25 @@
           "type": "creatureObject"
         },
         "rolls": {
-          "Z80yvTABrbK7jTpF": {
-            "bonus": "",
+          "4loQUAEZaCc8RC8h": {
+            "bonus": "3",
             "critThreshold": "20",
             "type": "attack",
             "attackType": "meleeWeaponAttack",
             "ability": "default"
           },
-          "KJiGUS59j662UbJm": {
+          "3DTZ2lWFlQONwpTn": {
             "canCrit": true,
-            "damageType": "slashing",
-            "formula": "1d6 + @finesse.mod",
-            "name": "Scimitar",
+            "damageType": "bludgeoning",
+            "formula": "1d4 + @str.mod + 3",
+            "name": "Club",
             "type": "damage"
           }
         },
         "consumers": {}
       },
-      "gS4wMUqm6ItBBj90": {
-        "name": "Dao (Off-Hand)",
+      "d631hMsbg7P0utV2": {
+        "name": "Nunchaku (Off-Hand)",
         "activation": {
           "cost": "",
           "type": "",
@@ -124,38 +84,36 @@
           "type": "creatureObject"
         },
         "rolls": {
-          "Z80yvTABrbK7jTpF": {
-            "bonus": "",
+          "4loQUAEZaCc8RC8h": {
+            "bonus": "3",
             "critThreshold": "20",
             "type": "attack",
             "attackType": "meleeWeaponAttack",
             "ability": "default"
           },
-          "KJiGUS59j662UbJm": {
+          "3DTZ2lWFlQONwpTn": {
             "canCrit": true,
-            "damageType": "slashing",
-            "formula": "1d6 + min(@finesse.mod,0)",
-            "name": "Scimitar",
+            "damageType": "bludgeoning",
+            "formula": "1d4 + min(@str.mod,0) + 3",
+            "name": "Club",
             "type": "damage"
           }
         },
         "consumers": {}
       },
-      "1w6mZi0L5dJhv4TU": {
-        "name": "AC +1",
-        "activation": {
-          "type": "bonusAction",
-          "cost": 1
-        },
+      "3TG0x185IS3ehfyu": {
+        "name": "Parry",
+        "activation": {},
         "consumers": {},
-        "rolls": {},
-        "prompts": {
-          "VzXK3rJS1p0jCl6M": {
-            "type": "effect",
+        "rolls": {
+          "tmuyLFz7KQutuiOG": {
+            "type": "generic",
             "default": true,
-            "effectId": "PiHWvQKjPGNpP7A7"
+            "label": "Armor Class",
+            "formula": "1d4"
           }
         },
+        "prompts": {},
         "uses": {
           "value": 0,
           "max": "",
@@ -165,13 +123,10 @@
             "threshold": 6
           }
         },
-        "duration": {
-          "unit": "turn",
-          "value": 1
-        }
+        "img": "icons/tools/fasteners/chain-steel-grey.webp"
       }
     },
-    "description": "<p><em>Defensive (Light), Dual-Wielding, Finesse</em></p>\n<p>A curved broadsword that uses the statistics of a @UUID[Compendium.a5e.a5e-adventuring-gear.Item.4wvjchmo31jngkyk]{Scimitar}.</p>",
+    "description": "<p><em>Dual-Wielding, Parrying, Simple</em></p>\n<p>&nbsp;</p>\n<p>This weapon&nbsp;uses the statistics of a @UUID[Compendium.a5e.a5e-adventuring-gear.Item.8u3v0q3jr3ov8u6l]{Club}, but is considered a double weapon.</p>",
     "favorite": false,
     "secretDescription": "",
     "source": "",
@@ -193,7 +148,7 @@
     "armorProperties": [],
     "attuned": false,
     "bulky": false,
-    "craftingComponents": "",
+    "craftingComponents": "+2 weapon that has hit a monster of CR 15 or higher",
     "containerId": "",
     "damagedState": 0,
     "equippedState": 0,
@@ -201,10 +156,10 @@
     "materialProperties": [],
     "objectType": "weapon",
     "plotItem": false,
-    "price": "20 gp",
+    "price": "8,000 gp",
     "proficient": true,
     "quantity": 1,
-    "rarity": "mundane",
+    "rarity": "veryRare",
     "requiresAttunement": false,
     "shieldCategory": "",
     "shieldProperties": [],
@@ -212,11 +167,11 @@
     "unidentifiedDescription": "",
     "unidentifiedName": "",
     "weaponProperties": [
-      "finesse",
-      "defensive",
-      "dualWielding"
+      "simple",
+      "dualWielding",
+      "parrying"
     ],
-    "weight": 3,
+    "weight": 2,
     "schemaVersion": {
       "version": 0.011,
       "lastMigration": {
@@ -233,8 +188,8 @@
     "systemId": "a5e",
     "systemVersion": "0.16.48",
     "coreVersion": "11.315",
-    "createdTime": 1707061281932,
-    "modifiedTime": 1707068636928,
+    "createdTime": 1707068161759,
+    "modifiedTime": 1707068671668,
     "lastModifiedBy": "BDqRFxyWZFKs757e"
   }
 }

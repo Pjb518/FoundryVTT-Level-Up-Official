@@ -1,48 +1,8 @@
 {
-  "name": "Machahuitl",
+  "name": "Claymore +3",
   "type": "object",
-  "img": "icons/weapons/staves/staff-spiked.webp",
-  "effects": [
-    {
-      "icon": "icons/weapons/staves/staff-spiked.webp",
-      "origin": "Item.PPPIBODXRebiF23R",
-      "flags": {
-        "a5e": {
-          "sort": 0,
-          "transferType": "onUse",
-          "actionId": "v3bptQ9yjfEMnfwo",
-          "duration": {
-            "type": "rounds",
-            "unit": "minutes"
-          }
-        }
-      },
-      "transfer": false,
-      "name": "AC +1",
-      "_id": "Llj5xb79gCEj7iz8",
-      "changes": [
-        {
-          "key": "system.attributes.ac.changes.bonuses.value",
-          "value": "1",
-          "mode": 2,
-          "priority": null
-        }
-      ],
-      "disabled": false,
-      "duration": {
-        "startTime": null,
-        "seconds": null,
-        "combat": null,
-        "rounds": null,
-        "turns": 1,
-        "startRound": null,
-        "startTurn": null
-      },
-      "description": "",
-      "statuses": [],
-      "tint": "#ffffff"
-    }
-  ],
+  "img": "icons/weapons/swords/greatsword-crossguard-silver.webp",
+  "effects": [],
   "flags": {
     "core": {},
     "exportSource": {
@@ -63,8 +23,8 @@
       "requiresUnarmored": false
     },
     "actions": {
-      "rPaMSExLpHCaYkH9": {
-        "name": "Machahuitl",
+      "gN1VnpQWmko9P0l8": {
+        "name": "Claymore",
         "activation": {
           "cost": "",
           "type": "",
@@ -85,48 +45,36 @@
           "type": "creatureObject"
         },
         "rolls": {
-          "UEwQqL1vKVE291PA": {
-            "bonus": "",
+          "dSqwxwRNQwjvOq43": {
+            "bonus": "3",
             "critThreshold": "20",
             "type": "attack",
             "attackType": "meleeWeaponAttack",
             "ability": "default"
           },
-          "x4uy5CMwLzIKdqmH": {
+          "vlUtyqLFnTkfBE3F": {
             "canCrit": true,
             "damageType": "slashing",
-            "formula": "1d8 + @str.mod",
-            "name": "Longsword",
+            "formula": "2d6 + @str.mod + 3",
+            "name": "Greatsword",
             "type": "damage"
           }
         },
         "consumers": {}
       },
-      "v3bptQ9yjfEMnfwo": {
-        "name": "AC +1",
-        "activation": {
-          "type": "bonusAction",
-          "cost": 1
-        },
+      "tWq3CWyPcjDp7rNd": {
+        "name": "Parry",
+        "activation": {},
         "consumers": {},
-        "rolls": {},
-        "prompts": {
-          "VzXK3rJS1p0jCl6M": {
-            "type": "effect",
+        "rolls": {
+          "Wr28F3fXpV7iLaWM": {
+            "type": "generic",
             "default": true,
-            "effectId": "PiHWvQKjPGNpP7A7"
-          },
-          "aihw6klbt8X6LdFS": {
-            "type": "effect",
-            "default": true,
-            "effectId": "o3RplnB3d2bgc5Cs"
-          },
-          "KsLi5Hf2I5z2N7dq": {
-            "type": "effect",
-            "default": true,
-            "effectId": "Llj5xb79gCEj7iz8"
+            "label": "Armor Class",
+            "formula": "1d4"
           }
         },
+        "prompts": {},
         "uses": {
           "value": 0,
           "max": "",
@@ -136,14 +84,10 @@
             "threshold": 6
           }
         },
-        "duration": {
-          "unit": "turn",
-          "value": 1
-        },
-        "img": "icons/weapons/staves/staff-spiked.webp"
+        "img": "icons/weapons/swords/greatsword-crossguard-silver.webp"
       }
     },
-    "description": "<p><em>Defensive (Medium)</em></p>\n<p>This club with embedded obsidian blades functions as a fine @UUID[Compendium.a5e.a5e-adventuring-gear.Item.pxazla3i4qaj6c29]{Longsword}.</p>",
+    "description": "<p><em>Heavy, Parrying, Two-Handed</em></p>\n<p>&nbsp;</p>\n<p>This cross-hilted&nbsp;weapon uses the statistics of a @UUID[Compendium.a5e.a5e-adventuring-gear.Item.gq6lfesjrd75se7u]{Greatsword}.</p>",
     "favorite": false,
     "secretDescription": "",
     "source": "",
@@ -165,7 +109,7 @@
     "armorProperties": [],
     "attuned": false,
     "bulky": false,
-    "craftingComponents": "",
+    "craftingComponents": "+2 weapon that has hit a monster of CR 15 or higher",
     "containerId": "",
     "damagedState": 0,
     "equippedState": 0,
@@ -173,10 +117,10 @@
     "materialProperties": [],
     "objectType": "weapon",
     "plotItem": false,
-    "price": "30 gp",
+    "price": "8,000 gp",
     "proficient": true,
     "quantity": 1,
-    "rarity": "mundane",
+    "rarity": "veryRare",
     "requiresAttunement": false,
     "shieldCategory": "",
     "shieldProperties": [],
@@ -184,9 +128,11 @@
     "unidentifiedDescription": "",
     "unidentifiedName": "",
     "weaponProperties": [
-      "defensive"
+      "parrying",
+      "heavy",
+      "twoHanded"
     ],
-    "weight": 3,
+    "weight": 7,
     "schemaVersion": {
       "version": 0.011,
       "lastMigration": {
@@ -203,8 +149,8 @@
     "systemId": "a5e",
     "systemVersion": "0.16.48",
     "coreVersion": "11.315",
-    "createdTime": 1707062257472,
-    "modifiedTime": 1707068658248,
+    "createdTime": 1707061044568,
+    "modifiedTime": 1707061135423,
     "lastModifiedBy": "BDqRFxyWZFKs757e"
   }
 }
