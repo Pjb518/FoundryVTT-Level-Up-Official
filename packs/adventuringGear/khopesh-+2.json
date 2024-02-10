@@ -1,240 +1,226 @@
 {
-  "name": "Khopesh +2",
-  "type": "object",
-  "img": "icons/weapons/sickles/sickle-wrapped-engraved-green.webp",
-  "effects": [
-    {
-      "icon": "icons/weapons/sickles/sickle-wrapped-engraved-green.webp",
-      "origin": "Item.PwrJBE2JDFhE15WL",
-      "flags": {
-        "a5e": {
-          "sort": 0,
-          "transferType": "onUse",
-          "actionId": "1w6mZi0L5dJhv4TU",
-          "duration": {
-            "type": "rounds",
-            "unit": "minutes"
-          }
-        }
-      },
-      "transfer": false,
-      "name": "AC +1",
-      "_id": "PiHWvQKjPGNpP7A7",
-      "changes": [
-        {
-          "key": "system.attributes.ac.changes.bonuses.value",
-          "value": "1",
-          "mode": 2,
-          "priority": null
-        }
-      ],
-      "disabled": false,
-      "duration": {
-        "startTime": null,
-        "seconds": null,
-        "combat": null,
-        "rounds": null,
-        "turns": 1,
-        "startRound": null,
-        "startTurn": null
-      },
-      "description": "",
-      "statuses": [],
-      "tint": "#ffffff"
-    }
-  ],
-  "flags": {
-    "core": {},
-    "exportSource": {
-      "world": "clean-test",
-      "system": "a5e",
-      "coreVersion": "11.315",
-      "systemVersion": "0.16.48"
-    }
-  },
-  "system": {
-    "ac": {
-      "baseFormula": "",
-      "formula": "",
-      "maxDex": 0,
-      "minStr": 0,
-      "mode": 1,
-      "requiresNoShield": false,
-      "requiresUnarmored": false
-    },
-    "actions": {
-      "6obCuJYfNHC8IPSR": {
-        "name": "Khopesh",
-        "activation": {
-          "cost": "",
-          "type": "",
-          "reactionTrigger": ""
-        },
-        "duration": {
-          "unit": "",
-          "value": ""
-        },
-        "area": {
-          "shape": "",
-          "size": "",
-          "placeTemplate": false,
-          "quantity": 1
-        },
-        "target": {
-          "quantity": 1,
-          "type": "creatureObject"
-        },
-        "rolls": {
-          "Z80yvTABrbK7jTpF": {
-            "bonus": "2",
-            "critThreshold": "20",
-            "type": "attack",
-            "attackType": "meleeWeaponAttack",
-            "ability": "default"
-          },
-          "KJiGUS59j662UbJm": {
-            "canCrit": true,
-            "damageType": "slashing",
-            "formula": "1d6 + @finesse.mod + 2",
-            "name": "Scimitar",
-            "type": "damage"
-          }
-        },
-        "consumers": {}
-      },
-      "gS4wMUqm6ItBBj90": {
-        "name": "Khopesh (Off-Hand)",
-        "activation": {
-          "cost": "",
-          "type": "",
-          "reactionTrigger": ""
-        },
-        "duration": {
-          "unit": "",
-          "value": ""
-        },
-        "area": {
-          "shape": "",
-          "size": "",
-          "placeTemplate": false,
-          "quantity": 1
-        },
-        "target": {
-          "quantity": 1,
-          "type": "creatureObject"
-        },
-        "rolls": {
-          "Z80yvTABrbK7jTpF": {
-            "bonus": "2",
-            "critThreshold": "20",
-            "type": "attack",
-            "attackType": "meleeWeaponAttack",
-            "ability": "default"
-          },
-          "KJiGUS59j662UbJm": {
-            "canCrit": true,
-            "damageType": "slashing",
-            "formula": "1d6 + min(@finesse.mod,0) + 2",
-            "name": "Scimitar",
-            "type": "damage"
-          }
-        },
-        "consumers": {}
-      },
-      "1w6mZi0L5dJhv4TU": {
-        "name": "AC +1",
-        "activation": {
-          "type": "bonusAction",
-          "cost": 1
-        },
-        "consumers": {},
-        "rolls": {},
-        "prompts": {
-          "VzXK3rJS1p0jCl6M": {
-            "type": "effect",
-            "default": true,
-            "effectId": "PiHWvQKjPGNpP7A7"
-          }
-        },
-        "uses": {
-          "value": 0,
-          "max": "",
-          "per": "",
-          "recharge": {
-            "formula": "1d6",
-            "threshold": 6
-          }
-        },
-        "duration": {
-          "unit": "turn",
-          "value": 1
-        }
-      }
-    },
-    "description": "<p><em>Defensive (Light), Dual-Wielding, Finesse</em></p>\n<p>This sickleshaped sword uses the statistics of a @UUID[Compendium.a5e.a5e-adventuring-gear.Item.4wvjchmo31jngkyk]{Scimitar}.</p>",
-    "favorite": false,
-    "secretDescription": "",
-    "source": "",
-    "uses": {
-      "value": null,
-      "max": "",
-      "per": null,
-      "recharge": {
-        "formula": "1d6",
-        "threshold": 6
-      }
-    },
-    "schema": {
-      "version": null,
-      "lastMigration": null
-    },
-    "ammunitionProperties": [],
-    "armorCategory": "",
-    "armorProperties": [],
-    "attuned": false,
-    "bulky": false,
-    "craftingComponents": "+1 weapon",
-    "containerId": "",
-    "damagedState": 0,
-    "equippedState": 0,
-    "items": {},
-    "materialProperties": [],
-    "objectType": "weapon",
-    "plotItem": false,
-    "price": "3,500 gp",
-    "proficient": true,
-    "quantity": 1,
-    "rarity": "rare",
-    "requiresAttunement": false,
-    "shieldCategory": "",
-    "shieldProperties": [],
-    "unidentified": false,
-    "unidentifiedDescription": "",
-    "unidentifiedName": "",
-    "weaponProperties": [
-      "finesse",
-      "defensive",
-      "dualWielding"
-    ],
-    "weight": 3,
-    "schemaVersion": {
-      "version": 0.011,
-      "lastMigration": {
-        "version": {
-          "schema": 0.01,
-          "foundry": "11.315",
-          "system": "0.16.37"
-        }
-      }
-    }
-  },
-  "folder": "p4fk321k9dN3oTD5",
-  "_stats": {
-    "systemId": "a5e",
-    "systemVersion": "0.16.48",
-    "coreVersion": "11.315",
-    "createdTime": 1707061821370,
-    "modifiedTime": 1707068651444,
-    "lastModifiedBy": "BDqRFxyWZFKs757e"
-  }
+	"name": "Khopesh +2",
+	"type": "object",
+	"img": "icons/weapons/sickles/sickle-wrapped-engraved-green.webp",
+	"effects": [
+		{
+			"icon": "icons/weapons/sickles/sickle-wrapped-engraved-green.webp",
+			"origin": "Item.PwrJBE2JDFhE15WL",
+			"flags": {
+				"a5e": {
+					"sort": 0,
+					"transferType": "onUse",
+					"actionId": "1w6mZi0L5dJhv4TU",
+					"duration": {
+						"type": "rounds",
+						"unit": "minutes"
+					}
+				}
+			},
+			"transfer": false,
+			"name": "AC +1",
+			"_id": "PiHWvQKjPGNpP7A7",
+			"changes": [
+				{
+					"key": "system.attributes.ac.changes.bonuses.value",
+					"value": "1",
+					"mode": 2,
+					"priority": null
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": null,
+				"combat": null,
+				"rounds": null,
+				"turns": 1,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "",
+			"statuses": [],
+			"tint": "#ffffff",
+			"folder": null
+		}
+	],
+	"flags": {},
+	"system": {
+		"ac": {
+			"baseFormula": "",
+			"formula": "",
+			"maxDex": 0,
+			"minStr": 0,
+			"mode": 1,
+			"requiresNoShield": false,
+			"requiresUnarmored": false
+		},
+		"actions": {
+			"6obCuJYfNHC8IPSR": {
+				"name": "Khopesh",
+				"activation": {
+					"cost": "",
+					"type": "",
+					"reactionTrigger": ""
+				},
+				"duration": {
+					"unit": "",
+					"value": ""
+				},
+				"area": {
+					"shape": "",
+					"size": "",
+					"placeTemplate": false,
+					"quantity": 1
+				},
+				"target": {
+					"quantity": 1,
+					"type": "creatureObject"
+				},
+				"rolls": {
+					"Z80yvTABrbK7jTpF": {
+						"bonus": "2",
+						"critThreshold": "20",
+						"type": "attack",
+						"attackType": "meleeWeaponAttack",
+						"ability": "default"
+					},
+					"KJiGUS59j662UbJm": {
+						"canCrit": true,
+						"damageType": "slashing",
+						"formula": "1d6 + @finesse.mod + 2",
+						"name": "Scimitar",
+						"type": "damage"
+					}
+				},
+				"consumers": {}
+			},
+			"gS4wMUqm6ItBBj90": {
+				"name": "Khopesh (Off-Hand)",
+				"activation": {
+					"cost": "",
+					"type": "",
+					"reactionTrigger": ""
+				},
+				"duration": {
+					"unit": "",
+					"value": ""
+				},
+				"area": {
+					"shape": "",
+					"size": "",
+					"placeTemplate": false,
+					"quantity": 1
+				},
+				"target": {
+					"quantity": 1,
+					"type": "creatureObject"
+				},
+				"rolls": {
+					"Z80yvTABrbK7jTpF": {
+						"bonus": "2",
+						"critThreshold": "20",
+						"type": "attack",
+						"attackType": "meleeWeaponAttack",
+						"ability": "default"
+					},
+					"KJiGUS59j662UbJm": {
+						"canCrit": true,
+						"damageType": "slashing",
+						"formula": "1d6 + min(@finesse.mod,0) + 2",
+						"name": "Scimitar",
+						"type": "damage"
+					}
+				},
+				"consumers": {}
+			},
+			"1w6mZi0L5dJhv4TU": {
+				"name": "AC +1",
+				"activation": {
+					"type": "bonusAction",
+					"cost": 1
+				},
+				"consumers": {},
+				"rolls": {},
+				"prompts": {
+					"VzXK3rJS1p0jCl6M": {
+						"type": "effect",
+						"default": true,
+						"effectId": "PiHWvQKjPGNpP7A7"
+					}
+				},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"threshold": 6
+					}
+				},
+				"duration": {
+					"unit": "turn",
+					"value": 1
+				}
+			}
+		},
+		"description": "<p><em>Defensive (Light), Dual-Wielding, Finesse</em></p>\n<p>This sickleshaped sword uses the statistics of a @UUID[Compendium.a5e.a5e-adventuring-gear.Item.4wvjchmo31jngkyk]{Scimitar}.</p>",
+		"favorite": false,
+		"secretDescription": "",
+		"source": "",
+		"uses": {
+			"value": null,
+			"max": "",
+			"per": null,
+			"recharge": {
+				"formula": "1d6",
+				"threshold": 6
+			}
+		},
+		"schema": {
+			"version": null,
+			"lastMigration": null
+		},
+		"ammunitionProperties": [],
+		"armorCategory": "",
+		"armorProperties": [],
+		"attuned": false,
+		"bulky": false,
+		"craftingComponents": "+1 weapon",
+		"containerId": "",
+		"damagedState": 0,
+		"equippedState": 0,
+		"items": {},
+		"materialProperties": [],
+		"objectType": "weapon",
+		"plotItem": false,
+		"price": "3,500 gp",
+		"proficient": true,
+		"quantity": 1,
+		"rarity": "rare",
+		"requiresAttunement": false,
+		"shieldCategory": "",
+		"shieldProperties": [],
+		"unidentified": false,
+		"unidentifiedDescription": "",
+		"unidentifiedName": "",
+		"weaponProperties": [
+			"finesse",
+			"defensive",
+			"dualWielding"
+		],
+		"weight": 3,
+		"schemaVersion": {
+			"version": 0.011,
+			"lastMigration": {
+				"version": {
+					"schema": 0.01,
+					"foundry": "11.315",
+					"system": "0.16.37"
+				}
+			}
+		}
+	},
+	"folder": null,
+	"_id": "4ghzaj3aod9nx2og"
 }

@@ -1,313 +1,302 @@
 {
-  "name": "Butterfly Sword +3",
-  "type": "object",
-  "img": "icons/weapons/swords/swords-short.webp",
-  "effects": [
-    {
-      "icon": "icons/weapons/swords/swords-short.webp",
-      "origin": "Item.ElCrLPK9sJzmEaGr",
-      "flags": {
-        "a5e": {
-          "sort": 0,
-          "transferType": "onUse",
-          "actionId": "LfiU8RBp5laBi6jt",
-          "duration": {
-            "type": "rounds",
-            "unit": "minutes"
-          }
-        }
-      },
-      "transfer": false,
-      "name": "AC +1",
-      "_id": "o3RplnB3d2bgc5Cs",
-      "changes": [
-        {
-          "key": "system.attributes.ac.changes.bonuses.value",
-          "value": "1",
-          "mode": 2,
-          "priority": null
-        }
-      ],
-      "disabled": false,
-      "duration": {
-        "startTime": null,
-        "seconds": null,
-        "combat": null,
-        "rounds": null,
-        "turns": 1,
-        "startRound": null,
-        "startTurn": null
-      },
-      "description": "",
-      "statuses": [],
-      "tint": "#ffffff"
-    },
-    {
-      "icon": "icons/weapons/swords/swords-short.webp",
-      "origin": "Item.ElCrLPK9sJzmEaGr",
-      "flags": {
-        "a5e": {
-          "sort": 0,
-          "transferType": "onUse",
-          "actionId": "LfiU8RBp5laBi6jt",
-          "duration": {
-            "type": "rounds",
-            "unit": "minutes"
-          }
-        }
-      },
-      "transfer": false,
-      "name": "AC +1",
-      "_id": "p3De6mXqbzuFUVGq",
-      "changes": [
-        {
-          "key": "system.attributes.ac.changes.bonuses.value",
-          "value": "1",
-          "mode": 2,
-          "priority": null
-        }
-      ],
-      "disabled": false,
-      "duration": {
-        "startTime": null,
-        "seconds": null,
-        "combat": null,
-        "rounds": null,
-        "turns": 1,
-        "startRound": null,
-        "startTurn": null
-      },
-      "description": "",
-      "statuses": [],
-      "tint": "#ffffff"
-    }
-  ],
-  "flags": {
-    "core": {
-      "sheetClass": "a5e.ItemSheet5e"
-    },
-    "exportSource": {
-      "world": "clean-test",
-      "system": "a5e",
-      "coreVersion": "11.315",
-      "systemVersion": "0.16.48"
-    }
-  },
-  "system": {
-    "ac": {
-      "baseFormula": "",
-      "formula": "",
-      "maxDex": 0,
-      "minStr": 0,
-      "mode": 1,
-      "requiresNoShield": false,
-      "requiresUnarmored": false
-    },
-    "actions": {
-      "s8ufuOSoG0jsuNjg": {
-        "name": "Butterfly Sword",
-        "activation": {
-          "cost": "",
-          "type": "",
-          "reactionTrigger": ""
-        },
-        "duration": {
-          "unit": "",
-          "value": ""
-        },
-        "area": {
-          "shape": "",
-          "size": "",
-          "placeTemplate": false,
-          "quantity": 1
-        },
-        "target": {
-          "quantity": 1,
-          "type": "creatureObject"
-        },
-        "rolls": {
-          "P7UeMDVPmv9D9fqE": {
-            "bonus": "3",
-            "critThreshold": "20",
-            "type": "attack",
-            "attackType": "meleeWeaponAttack",
-            "ability": "default"
-          },
-          "HUbaIlANmQsN4fYO": {
-            "canCrit": true,
-            "damageType": "slashing",
-            "formula": "1d6 + @finesse.mod + 3",
-            "name": "Shortsword",
-            "type": "damage"
-          }
-        },
-        "consumers": {}
-      },
-      "LfiU8RBp5laBi6jt": {
-        "name": "AC +1",
-        "activation": {
-          "type": "bonusAction",
-          "cost": 1
-        },
-        "consumers": {},
-        "rolls": {},
-        "prompts": {
-          "VzXK3rJS1p0jCl6M": {
-            "type": "effect",
-            "default": true,
-            "effectId": "PiHWvQKjPGNpP7A7"
-          },
-          "aihw6klbt8X6LdFS": {
-            "type": "effect",
-            "default": true,
-            "effectId": "o3RplnB3d2bgc5Cs"
-          }
-        },
-        "uses": {
-          "value": 0,
-          "max": "",
-          "per": "",
-          "recharge": {
-            "formula": "1d6",
-            "threshold": 6
-          }
-        },
-        "duration": {
-          "unit": "turn",
-          "value": 1
-        },
-        "img": "icons/weapons/swords/swords-short.webp"
-      },
-      "vQTQD7tzjEVIJLR0": {
-        "name": "Parry",
-        "activation": {},
-        "consumers": {},
-        "rolls": {
-          "tmuyLFz7KQutuiOG": {
-            "type": "generic",
-            "default": true,
-            "label": "Armor Class",
-            "formula": "1d4"
-          }
-        },
-        "prompts": {},
-        "uses": {
-          "value": 0,
-          "max": "",
-          "per": "",
-          "recharge": {
-            "formula": "1d6",
-            "threshold": 6
-          }
-        },
-        "img": "icons/weapons/swords/swords-short.webp"
-      },
-      "IviEPGCH6IZjW6Va": {
-        "name": "Butterfly Sword (Off-Hand)",
-        "activation": {
-          "cost": "",
-          "type": "",
-          "reactionTrigger": ""
-        },
-        "duration": {
-          "unit": "",
-          "value": ""
-        },
-        "area": {
-          "shape": "",
-          "size": "",
-          "placeTemplate": false,
-          "quantity": 1
-        },
-        "target": {
-          "quantity": 1,
-          "type": "creatureObject"
-        },
-        "rolls": {
-          "P7UeMDVPmv9D9fqE": {
-            "bonus": "3",
-            "critThreshold": "20",
-            "type": "attack",
-            "attackType": "meleeWeaponAttack",
-            "ability": "default"
-          },
-          "HUbaIlANmQsN4fYO": {
-            "canCrit": true,
-            "damageType": "slashing",
-            "formula": "1d6 + min(@finesse.mod,0) + 3",
-            "name": "Shortsword",
-            "type": "damage"
-          }
-        },
-        "consumers": {},
-        "img": "icons/weapons/swords/swords-short.webp"
-      }
-    },
-    "description": "<p><em>Defensive (Medium), Dual-Wielding, Finesse, Parrying</em></p>\n<p>&nbsp;</p>\n<p>These use the statistics of @UUID[Compendium.a5e.a5e-adventuring-gear.Item.36k2tx29firrtrgl]{Shortswords}, and are usually wielded in pairs. They have the dual-wielding property.</p>",
-    "favorite": false,
-    "secretDescription": "",
-    "source": "",
-    "uses": {
-      "value": null,
-      "max": "",
-      "per": null,
-      "recharge": {
-        "formula": "1d6",
-        "threshold": 6
-      }
-    },
-    "schema": {
-      "version": null,
-      "lastMigration": null
-    },
-    "ammunitionProperties": [],
-    "armorCategory": "",
-    "armorProperties": [],
-    "attuned": false,
-    "bulky": false,
-    "craftingComponents": "+2 weapon that has hit a monster of CR 15 or higher",
-    "containerId": "",
-    "damagedState": 0,
-    "equippedState": 0,
-    "items": {},
-    "materialProperties": [],
-    "objectType": "weapon",
-    "plotItem": false,
-    "price": "8,000 gp",
-    "proficient": true,
-    "quantity": 1,
-    "rarity": "veryRare",
-    "requiresAttunement": false,
-    "shieldCategory": "",
-    "shieldProperties": [],
-    "unidentified": false,
-    "unidentifiedDescription": "",
-    "unidentifiedName": "",
-    "weaponProperties": [
-      "defensive",
-      "parrying",
-      "finesse",
-      "dualWielding"
-    ],
-    "weight": 2,
-    "schemaVersion": {
-      "version": 0.011,
-      "lastMigration": {
-        "version": {
-          "schema": 0.01,
-          "foundry": "11.315",
-          "system": "0.16.37"
-        }
-      }
-    }
-  },
-  "folder": "p4fk321k9dN3oTD5",
-  "_stats": {
-    "systemId": "a5e",
-    "systemVersion": "0.16.48",
-    "coreVersion": "11.315",
-    "createdTime": 1707060431124,
-    "modifiedTime": 1707060868954,
-    "lastModifiedBy": "BDqRFxyWZFKs757e"
-  }
+	"name": "Butterfly Sword +3",
+	"type": "object",
+	"img": "icons/weapons/swords/swords-short.webp",
+	"effects": [
+		{
+			"icon": "icons/weapons/swords/swords-short.webp",
+			"origin": "Item.ElCrLPK9sJzmEaGr",
+			"flags": {
+				"a5e": {
+					"sort": 0,
+					"transferType": "onUse",
+					"actionId": "LfiU8RBp5laBi6jt",
+					"duration": {
+						"type": "rounds",
+						"unit": "minutes"
+					}
+				}
+			},
+			"transfer": false,
+			"name": "AC +1",
+			"_id": "o3RplnB3d2bgc5Cs",
+			"changes": [
+				{
+					"key": "system.attributes.ac.changes.bonuses.value",
+					"value": "1",
+					"mode": 2,
+					"priority": null
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": null,
+				"combat": null,
+				"rounds": null,
+				"turns": 1,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "",
+			"statuses": [],
+			"tint": "#ffffff",
+			"folder": null
+		},
+		{
+			"icon": "icons/weapons/swords/swords-short.webp",
+			"origin": "Item.ElCrLPK9sJzmEaGr",
+			"flags": {
+				"a5e": {
+					"sort": 0,
+					"transferType": "onUse",
+					"actionId": "LfiU8RBp5laBi6jt",
+					"duration": {
+						"type": "rounds",
+						"unit": "minutes"
+					}
+				}
+			},
+			"transfer": false,
+			"name": "AC +1",
+			"_id": "p3De6mXqbzuFUVGq",
+			"changes": [
+				{
+					"key": "system.attributes.ac.changes.bonuses.value",
+					"value": "1",
+					"mode": 2,
+					"priority": null
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": null,
+				"combat": null,
+				"rounds": null,
+				"turns": 1,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "",
+			"statuses": [],
+			"tint": "#ffffff",
+			"folder": null
+		}
+	],
+	"flags": {
+		"core": {
+			"sheetClass": "a5e.ItemSheet5e"
+		}
+	},
+	"system": {
+		"ac": {
+			"baseFormula": "",
+			"formula": "",
+			"maxDex": 0,
+			"minStr": 0,
+			"mode": 1,
+			"requiresNoShield": false,
+			"requiresUnarmored": false
+		},
+		"actions": {
+			"s8ufuOSoG0jsuNjg": {
+				"name": "Butterfly Sword",
+				"activation": {
+					"cost": "",
+					"type": "",
+					"reactionTrigger": ""
+				},
+				"duration": {
+					"unit": "",
+					"value": ""
+				},
+				"area": {
+					"shape": "",
+					"size": "",
+					"placeTemplate": false,
+					"quantity": 1
+				},
+				"target": {
+					"quantity": 1,
+					"type": "creatureObject"
+				},
+				"rolls": {
+					"P7UeMDVPmv9D9fqE": {
+						"bonus": "3",
+						"critThreshold": "20",
+						"type": "attack",
+						"attackType": "meleeWeaponAttack",
+						"ability": "default"
+					},
+					"HUbaIlANmQsN4fYO": {
+						"canCrit": true,
+						"damageType": "slashing",
+						"formula": "1d6 + @finesse.mod + 3",
+						"name": "Shortsword",
+						"type": "damage"
+					}
+				},
+				"consumers": {}
+			},
+			"LfiU8RBp5laBi6jt": {
+				"name": "AC +1",
+				"activation": {
+					"type": "bonusAction",
+					"cost": 1
+				},
+				"consumers": {},
+				"rolls": {},
+				"prompts": {
+					"VzXK3rJS1p0jCl6M": {
+						"type": "effect",
+						"default": true,
+						"effectId": "PiHWvQKjPGNpP7A7"
+					},
+					"aihw6klbt8X6LdFS": {
+						"type": "effect",
+						"default": true,
+						"effectId": "o3RplnB3d2bgc5Cs"
+					}
+				},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"threshold": 6
+					}
+				},
+				"duration": {
+					"unit": "turn",
+					"value": 1
+				},
+				"img": "icons/weapons/swords/swords-short.webp"
+			},
+			"vQTQD7tzjEVIJLR0": {
+				"name": "Parry",
+				"activation": {},
+				"consumers": {},
+				"rolls": {
+					"tmuyLFz7KQutuiOG": {
+						"type": "generic",
+						"default": true,
+						"label": "Armor Class",
+						"formula": "1d4"
+					}
+				},
+				"prompts": {},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"threshold": 6
+					}
+				},
+				"img": "icons/weapons/swords/swords-short.webp"
+			},
+			"IviEPGCH6IZjW6Va": {
+				"name": "Butterfly Sword (Off-Hand)",
+				"activation": {
+					"cost": "",
+					"type": "",
+					"reactionTrigger": ""
+				},
+				"duration": {
+					"unit": "",
+					"value": ""
+				},
+				"area": {
+					"shape": "",
+					"size": "",
+					"placeTemplate": false,
+					"quantity": 1
+				},
+				"target": {
+					"quantity": 1,
+					"type": "creatureObject"
+				},
+				"rolls": {
+					"P7UeMDVPmv9D9fqE": {
+						"bonus": "3",
+						"critThreshold": "20",
+						"type": "attack",
+						"attackType": "meleeWeaponAttack",
+						"ability": "default"
+					},
+					"HUbaIlANmQsN4fYO": {
+						"canCrit": true,
+						"damageType": "slashing",
+						"formula": "1d6 + min(@finesse.mod,0) + 3",
+						"name": "Shortsword",
+						"type": "damage"
+					}
+				},
+				"consumers": {},
+				"img": "icons/weapons/swords/swords-short.webp"
+			}
+		},
+		"description": "<p><em>Defensive (Medium), Dual-Wielding, Finesse, Parrying</em></p>\n<p>&nbsp;</p>\n<p>These use the statistics of @UUID[Compendium.a5e.a5e-adventuring-gear.Item.36k2tx29firrtrgl]{Shortswords}, and are usually wielded in pairs. They have the dual-wielding property.</p>",
+		"favorite": false,
+		"secretDescription": "",
+		"source": "",
+		"uses": {
+			"value": null,
+			"max": "",
+			"per": null,
+			"recharge": {
+				"formula": "1d6",
+				"threshold": 6
+			}
+		},
+		"schema": {
+			"version": null,
+			"lastMigration": null
+		},
+		"ammunitionProperties": [],
+		"armorCategory": "",
+		"armorProperties": [],
+		"attuned": false,
+		"bulky": false,
+		"craftingComponents": "+2 weapon that has hit a monster of CR 15 or higher",
+		"containerId": "",
+		"damagedState": 0,
+		"equippedState": 0,
+		"items": {},
+		"materialProperties": [],
+		"objectType": "weapon",
+		"plotItem": false,
+		"price": "8,000 gp",
+		"proficient": true,
+		"quantity": 1,
+		"rarity": "veryRare",
+		"requiresAttunement": false,
+		"shieldCategory": "",
+		"shieldProperties": [],
+		"unidentified": false,
+		"unidentifiedDescription": "",
+		"unidentifiedName": "",
+		"weaponProperties": [
+			"defensive",
+			"parrying",
+			"finesse",
+			"dualWielding"
+		],
+		"weight": 2,
+		"schemaVersion": {
+			"version": 0.011,
+			"lastMigration": {
+				"version": {
+					"schema": 0.01,
+					"foundry": "11.315",
+					"system": "0.16.37"
+				}
+			}
+		}
+	},
+	"folder": null,
+	"_id": "xsnwq03ljucz4tke"
 }

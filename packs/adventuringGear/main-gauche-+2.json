@@ -1,222 +1,207 @@
 {
-  "name": "Main-Gauche +2",
-  "type": "object",
-  "img": "icons/weapons/daggers/dagger-double-skull-pink.webp",
-  "effects": [],
-  "flags": {
-    "core": {},
-    "exportSource": {
-      "world": "clean-test",
-      "system": "a5e",
-      "coreVersion": "11.315",
-      "systemVersion": "0.16.48"
-    }
-  },
-  "system": {
-    "ac": {
-      "baseFormula": "1",
-      "formula": "",
-      "maxDex": 0,
-      "minStr": 0,
-      "mode": 1,
-      "requiresNoShield": true,
-      "requiresUnarmored": false
-    },
-    "actions": {
-      "CYURkv9sK45wkGZn": {
-        "name": "Main-Gauche",
-        "activation": {
-          "cost": "",
-          "type": "",
-          "reactionTrigger": ""
-        },
-        "duration": {
-          "unit": "",
-          "value": ""
-        },
-        "area": {
-          "shape": "",
-          "size": "",
-          "placeTemplate": false,
-          "quantity": 1
-        },
-        "target": {
-          "quantity": 1,
-          "type": "object"
-        },
-        "rolls": {
-          "gdR2mGnYfGBsk2ZY": {
-            "bonus": "2",
-            "critThreshold": "20",
-            "type": "attack",
-            "attackType": "meleeWeaponAttack",
-            "ability": "default"
-          },
-          "ut4E7BIwVCXdj5oE": {
-            "canCrit": true,
-            "damageType": "piercing",
-            "formula": "1d4 + @finesse.mod + 2",
-            "name": "Dagger",
-            "type": "damage"
-          }
-        },
-        "consumers": {}
-      },
-      "911iDf2vrTJjuO4V": {
-        "name": "Main-Gauche (Off-Hand)",
-        "activation": {
-          "cost": "",
-          "type": "",
-          "reactionTrigger": ""
-        },
-        "duration": {
-          "unit": "",
-          "value": ""
-        },
-        "area": {
-          "shape": "",
-          "size": "",
-          "placeTemplate": false,
-          "quantity": 1
-        },
-        "target": {
-          "quantity": 1,
-          "type": "object"
-        },
-        "rolls": {
-          "gdR2mGnYfGBsk2ZY": {
-            "bonus": "2",
-            "critThreshold": "20",
-            "type": "attack",
-            "attackType": "meleeWeaponAttack",
-            "ability": "default"
-          },
-          "ut4E7BIwVCXdj5oE": {
-            "canCrit": true,
-            "damageType": "piercing",
-            "formula": "1d4 + min(@finesse.mod,0) + 2",
-            "name": "Dagger",
-            "type": "damage"
-          }
-        },
-        "consumers": {}
-      },
-      "gaa5lYCeSG7GqNX9": {
-        "name": "Throw",
-        "activation": {
-          "type": "action",
-          "cost": 1
-        },
-        "consumers": {
-          "zFE9UqEOv0UBCD6r": {
-            "type": "itemUses",
-            "default": true,
-            "quantity": 1
-          }
-        },
-        "rolls": {
-          "zewrmShN8LS3AwEi": {
-            "type": "attack",
-            "default": true,
-            "attackType": "rangedWeaponAttack",
-            "proficient": false,
-            "ability": "default",
-            "label": "Improvised Weapon",
-            "bonus": "2"
-          },
-          "XTo4JXjGiVnWggpB": {
-            "type": "damage",
-            "default": true,
-            "formula": "1d6 + 2",
-            "damageType": "bludgeoning"
-          }
-        },
-        "prompts": {},
-        "uses": {
-          "value": 0,
-          "max": "",
-          "per": "",
-          "recharge": {
-            "formula": "1d6",
-            "threshold": 6
-          }
-        },
-        "ranges": {
-          "zeWTAVnYDXqQSyWI": {
-            "range": 20,
-            "unit": "feet"
-          },
-          "bZ6p1htVyAXwDkJx": {
-            "range": "medium"
-          }
-        }
-      }
-    },
-    "description": "<p><em>Dual-Wielding, Finesse, Simple, Thrown</em></p>\n<p>&nbsp;</p>\n<p>This&nbsp;parrying dagger may be used as a @UUID[Compendium.a5e.a5e-adventuring-gear.Item.vzmgutyegssa2akj]{Dagger} or as&nbsp;a @UUID[Compendium.a5e.a5e-adventuring-gear.Item.xy2bn4687azmkadw]{Shield, Light}.</p>",
-    "favorite": false,
-    "secretDescription": "",
-    "source": "",
-    "uses": {
-      "value": 1,
-      "max": "1",
-      "per": null,
-      "recharge": {
-        "formula": "1d6",
-        "threshold": 6
-      }
-    },
-    "schema": {
-      "version": null,
-      "lastMigration": null
-    },
-    "ammunitionProperties": [],
-    "armorCategory": "",
-    "armorProperties": [],
-    "attuned": false,
-    "bulky": false,
-    "craftingComponents": "+1 weapon",
-    "containerId": "",
-    "damagedState": 0,
-    "equippedState": 0,
-    "items": {},
-    "materialProperties": [],
-    "objectType": "weapon",
-    "plotItem": false,
-    "price": "3,500 gp",
-    "proficient": true,
-    "quantity": 1,
-    "rarity": "rare",
-    "requiresAttunement": false,
-    "shieldCategory": "",
-    "shieldProperties": [],
-    "unidentified": false,
-    "unidentifiedDescription": "",
-    "unidentifiedName": "",
-    "weaponProperties": [
-      "dualWielding",
-      "finesse",
-      "simple",
-      "thrown"
-    ],
-    "weight": 1,
-    "schemaVersion": {
-      "version": 0.011,
-      "lastMigration": {
-        "version": {
-          "schema": 0.01,
-          "foundry": "11.315",
-          "system": "0.16.37"
-        }
-      }
-    }
-  },
-  "folder": "p4fk321k9dN3oTD5",
-  "_stats": {
-    "systemId": "a5e",
-    "systemVersion": "0.16.48",
-    "coreVersion": "11.315",
-    "createdTime": 1707062870226,
-    "modifiedTime": 1707068662185,
-    "lastModifiedBy": "BDqRFxyWZFKs757e"
-  }
+	"name": "Main-Gauche +2",
+	"type": "object",
+	"img": "icons/weapons/daggers/dagger-double-skull-pink.webp",
+	"effects": [],
+	"flags": {},
+	"system": {
+		"ac": {
+			"baseFormula": "1",
+			"formula": "",
+			"maxDex": 0,
+			"minStr": 0,
+			"mode": 1,
+			"requiresNoShield": true,
+			"requiresUnarmored": false
+		},
+		"actions": {
+			"CYURkv9sK45wkGZn": {
+				"name": "Main-Gauche",
+				"activation": {
+					"cost": "",
+					"type": "",
+					"reactionTrigger": ""
+				},
+				"duration": {
+					"unit": "",
+					"value": ""
+				},
+				"area": {
+					"shape": "",
+					"size": "",
+					"placeTemplate": false,
+					"quantity": 1
+				},
+				"target": {
+					"quantity": 1,
+					"type": "object"
+				},
+				"rolls": {
+					"gdR2mGnYfGBsk2ZY": {
+						"bonus": "2",
+						"critThreshold": "20",
+						"type": "attack",
+						"attackType": "meleeWeaponAttack",
+						"ability": "default"
+					},
+					"ut4E7BIwVCXdj5oE": {
+						"canCrit": true,
+						"damageType": "piercing",
+						"formula": "1d4 + @finesse.mod + 2",
+						"name": "Dagger",
+						"type": "damage"
+					}
+				},
+				"consumers": {}
+			},
+			"911iDf2vrTJjuO4V": {
+				"name": "Main-Gauche (Off-Hand)",
+				"activation": {
+					"cost": "",
+					"type": "",
+					"reactionTrigger": ""
+				},
+				"duration": {
+					"unit": "",
+					"value": ""
+				},
+				"area": {
+					"shape": "",
+					"size": "",
+					"placeTemplate": false,
+					"quantity": 1
+				},
+				"target": {
+					"quantity": 1,
+					"type": "object"
+				},
+				"rolls": {
+					"gdR2mGnYfGBsk2ZY": {
+						"bonus": "2",
+						"critThreshold": "20",
+						"type": "attack",
+						"attackType": "meleeWeaponAttack",
+						"ability": "default"
+					},
+					"ut4E7BIwVCXdj5oE": {
+						"canCrit": true,
+						"damageType": "piercing",
+						"formula": "1d4 + min(@finesse.mod,0) + 2",
+						"name": "Dagger",
+						"type": "damage"
+					}
+				},
+				"consumers": {}
+			},
+			"gaa5lYCeSG7GqNX9": {
+				"name": "Throw",
+				"activation": {
+					"type": "action",
+					"cost": 1
+				},
+				"consumers": {
+					"zFE9UqEOv0UBCD6r": {
+						"type": "itemUses",
+						"default": true,
+						"quantity": 1
+					}
+				},
+				"rolls": {
+					"zewrmShN8LS3AwEi": {
+						"type": "attack",
+						"default": true,
+						"attackType": "rangedWeaponAttack",
+						"proficient": false,
+						"ability": "default",
+						"label": "Improvised Weapon",
+						"bonus": "2"
+					},
+					"XTo4JXjGiVnWggpB": {
+						"type": "damage",
+						"default": true,
+						"formula": "1d6 + 2",
+						"damageType": "bludgeoning"
+					}
+				},
+				"prompts": {},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"threshold": 6
+					}
+				},
+				"ranges": {
+					"zeWTAVnYDXqQSyWI": {
+						"range": 20,
+						"unit": "feet"
+					},
+					"bZ6p1htVyAXwDkJx": {
+						"range": "medium"
+					}
+				}
+			}
+		},
+		"description": "<p><em>Dual-Wielding, Finesse, Simple, Thrown</em></p>\n<p>&nbsp;</p>\n<p>This&nbsp;parrying dagger may be used as a @UUID[Compendium.a5e.a5e-adventuring-gear.Item.vzmgutyegssa2akj]{Dagger} or as&nbsp;a @UUID[Compendium.a5e.a5e-adventuring-gear.Item.xy2bn4687azmkadw]{Shield, Light}.</p>",
+		"favorite": false,
+		"secretDescription": "",
+		"source": "",
+		"uses": {
+			"value": 1,
+			"max": "1",
+			"per": null,
+			"recharge": {
+				"formula": "1d6",
+				"threshold": 6
+			}
+		},
+		"schema": {
+			"version": null,
+			"lastMigration": null
+		},
+		"ammunitionProperties": [],
+		"armorCategory": "",
+		"armorProperties": [],
+		"attuned": false,
+		"bulky": false,
+		"craftingComponents": "+1 weapon",
+		"containerId": "",
+		"damagedState": 0,
+		"equippedState": 0,
+		"items": {},
+		"materialProperties": [],
+		"objectType": "weapon",
+		"plotItem": false,
+		"price": "3,500 gp",
+		"proficient": true,
+		"quantity": 1,
+		"rarity": "rare",
+		"requiresAttunement": false,
+		"shieldCategory": "",
+		"shieldProperties": [],
+		"unidentified": false,
+		"unidentifiedDescription": "",
+		"unidentifiedName": "",
+		"weaponProperties": [
+			"dualWielding",
+			"finesse",
+			"simple",
+			"thrown"
+		],
+		"weight": 1,
+		"schemaVersion": {
+			"version": 0.011,
+			"lastMigration": {
+				"version": {
+					"schema": 0.01,
+					"foundry": "11.315",
+					"system": "0.16.37"
+				}
+			}
+		}
+	},
+	"folder": null,
+	"_id": "4pbd6ci8lspppnry"
 }

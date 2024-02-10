@@ -1,210 +1,196 @@
 {
-  "name": "Machahuitl +2",
-  "type": "object",
-  "img": "icons/weapons/staves/staff-spiked.webp",
-  "effects": [
-    {
-      "icon": "icons/weapons/staves/staff-spiked.webp",
-      "origin": "Item.CDa95i3ZSLO7g0ce",
-      "flags": {
-        "a5e": {
-          "sort": 0,
-          "transferType": "onUse",
-          "actionId": "v3bptQ9yjfEMnfwo",
-          "duration": {
-            "type": "rounds",
-            "unit": "minutes"
-          }
-        }
-      },
-      "transfer": false,
-      "name": "AC +1",
-      "_id": "Llj5xb79gCEj7iz8",
-      "changes": [
-        {
-          "key": "system.attributes.ac.changes.bonuses.value",
-          "value": "1",
-          "mode": 2,
-          "priority": null
-        }
-      ],
-      "disabled": false,
-      "duration": {
-        "startTime": null,
-        "seconds": null,
-        "combat": null,
-        "rounds": null,
-        "turns": 1,
-        "startRound": null,
-        "startTurn": null
-      },
-      "description": "",
-      "statuses": [],
-      "tint": "#ffffff"
-    }
-  ],
-  "flags": {
-    "core": {},
-    "exportSource": {
-      "world": "clean-test",
-      "system": "a5e",
-      "coreVersion": "11.315",
-      "systemVersion": "0.16.48"
-    }
-  },
-  "system": {
-    "ac": {
-      "baseFormula": "",
-      "formula": "",
-      "maxDex": 0,
-      "minStr": 0,
-      "mode": 1,
-      "requiresNoShield": false,
-      "requiresUnarmored": false
-    },
-    "actions": {
-      "rPaMSExLpHCaYkH9": {
-        "name": "Machahuitl",
-        "activation": {
-          "cost": "",
-          "type": "",
-          "reactionTrigger": ""
-        },
-        "duration": {
-          "unit": "",
-          "value": ""
-        },
-        "area": {
-          "shape": "",
-          "size": "",
-          "placeTemplate": false,
-          "quantity": 1
-        },
-        "target": {
-          "quantity": 1,
-          "type": "creatureObject"
-        },
-        "rolls": {
-          "UEwQqL1vKVE291PA": {
-            "bonus": "2",
-            "critThreshold": "20",
-            "type": "attack",
-            "attackType": "meleeWeaponAttack",
-            "ability": "default"
-          },
-          "x4uy5CMwLzIKdqmH": {
-            "canCrit": true,
-            "damageType": "slashing",
-            "formula": "1d8 + @str.mod + 2",
-            "name": "Longsword",
-            "type": "damage"
-          }
-        },
-        "consumers": {}
-      },
-      "v3bptQ9yjfEMnfwo": {
-        "name": "AC +1",
-        "activation": {
-          "type": "bonusAction",
-          "cost": 1
-        },
-        "consumers": {},
-        "rolls": {},
-        "prompts": {
-          "VzXK3rJS1p0jCl6M": {
-            "type": "effect",
-            "default": true,
-            "effectId": "PiHWvQKjPGNpP7A7"
-          },
-          "aihw6klbt8X6LdFS": {
-            "type": "effect",
-            "default": true,
-            "effectId": "o3RplnB3d2bgc5Cs"
-          },
-          "KsLi5Hf2I5z2N7dq": {
-            "type": "effect",
-            "default": true,
-            "effectId": "Llj5xb79gCEj7iz8"
-          }
-        },
-        "uses": {
-          "value": 0,
-          "max": "",
-          "per": "",
-          "recharge": {
-            "formula": "1d6",
-            "threshold": 6
-          }
-        },
-        "duration": {
-          "unit": "turn",
-          "value": 1
-        },
-        "img": "icons/weapons/staves/staff-spiked.webp"
-      }
-    },
-    "description": "<p><em>Defensive (Medium)</em></p>\n<p>This club with embedded obsidian blades functions as a fine @UUID[Compendium.a5e.a5e-adventuring-gear.Item.pxazla3i4qaj6c29]{Longsword}.</p>",
-    "favorite": false,
-    "secretDescription": "",
-    "source": "",
-    "uses": {
-      "value": null,
-      "max": "",
-      "per": null,
-      "recharge": {
-        "formula": "1d6",
-        "threshold": 6
-      }
-    },
-    "schema": {
-      "version": null,
-      "lastMigration": null
-    },
-    "ammunitionProperties": [],
-    "armorCategory": "",
-    "armorProperties": [],
-    "attuned": false,
-    "bulky": false,
-    "craftingComponents": "+1 weapon",
-    "containerId": "",
-    "damagedState": 0,
-    "equippedState": 0,
-    "items": {},
-    "materialProperties": [],
-    "objectType": "weapon",
-    "plotItem": false,
-    "price": "3,500 gp",
-    "proficient": true,
-    "quantity": 1,
-    "rarity": "rare",
-    "requiresAttunement": false,
-    "shieldCategory": "",
-    "shieldProperties": [],
-    "unidentified": false,
-    "unidentifiedDescription": "",
-    "unidentifiedName": "",
-    "weaponProperties": [
-      "defensive"
-    ],
-    "weight": 3,
-    "schemaVersion": {
-      "version": 0.011,
-      "lastMigration": {
-        "version": {
-          "schema": 0.01,
-          "foundry": "11.315",
-          "system": "0.16.37"
-        }
-      }
-    }
-  },
-  "folder": "p4fk321k9dN3oTD5",
-  "_stats": {
-    "systemId": "a5e",
-    "systemVersion": "0.16.48",
-    "coreVersion": "11.315",
-    "createdTime": 1707062257472,
-    "modifiedTime": 1707068659855,
-    "lastModifiedBy": "BDqRFxyWZFKs757e"
-  }
+	"name": "Machahuitl +2",
+	"type": "object",
+	"img": "icons/weapons/staves/staff-spiked.webp",
+	"effects": [
+		{
+			"icon": "icons/weapons/staves/staff-spiked.webp",
+			"origin": "Item.CDa95i3ZSLO7g0ce",
+			"flags": {
+				"a5e": {
+					"sort": 0,
+					"transferType": "onUse",
+					"actionId": "v3bptQ9yjfEMnfwo",
+					"duration": {
+						"type": "rounds",
+						"unit": "minutes"
+					}
+				}
+			},
+			"transfer": false,
+			"name": "AC +1",
+			"_id": "Llj5xb79gCEj7iz8",
+			"changes": [
+				{
+					"key": "system.attributes.ac.changes.bonuses.value",
+					"value": "1",
+					"mode": 2,
+					"priority": null
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": null,
+				"combat": null,
+				"rounds": null,
+				"turns": 1,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "",
+			"statuses": [],
+			"tint": "#ffffff",
+			"folder": null
+		}
+	],
+	"flags": {},
+	"system": {
+		"ac": {
+			"baseFormula": "",
+			"formula": "",
+			"maxDex": 0,
+			"minStr": 0,
+			"mode": 1,
+			"requiresNoShield": false,
+			"requiresUnarmored": false
+		},
+		"actions": {
+			"rPaMSExLpHCaYkH9": {
+				"name": "Machahuitl",
+				"activation": {
+					"cost": "",
+					"type": "",
+					"reactionTrigger": ""
+				},
+				"duration": {
+					"unit": "",
+					"value": ""
+				},
+				"area": {
+					"shape": "",
+					"size": "",
+					"placeTemplate": false,
+					"quantity": 1
+				},
+				"target": {
+					"quantity": 1,
+					"type": "creatureObject"
+				},
+				"rolls": {
+					"UEwQqL1vKVE291PA": {
+						"bonus": "2",
+						"critThreshold": "20",
+						"type": "attack",
+						"attackType": "meleeWeaponAttack",
+						"ability": "default"
+					},
+					"x4uy5CMwLzIKdqmH": {
+						"canCrit": true,
+						"damageType": "slashing",
+						"formula": "1d8 + @str.mod + 2",
+						"name": "Longsword",
+						"type": "damage"
+					}
+				},
+				"consumers": {}
+			},
+			"v3bptQ9yjfEMnfwo": {
+				"name": "AC +1",
+				"activation": {
+					"type": "bonusAction",
+					"cost": 1
+				},
+				"consumers": {},
+				"rolls": {},
+				"prompts": {
+					"VzXK3rJS1p0jCl6M": {
+						"type": "effect",
+						"default": true,
+						"effectId": "PiHWvQKjPGNpP7A7"
+					},
+					"aihw6klbt8X6LdFS": {
+						"type": "effect",
+						"default": true,
+						"effectId": "o3RplnB3d2bgc5Cs"
+					},
+					"KsLi5Hf2I5z2N7dq": {
+						"type": "effect",
+						"default": true,
+						"effectId": "Llj5xb79gCEj7iz8"
+					}
+				},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"threshold": 6
+					}
+				},
+				"duration": {
+					"unit": "turn",
+					"value": 1
+				},
+				"img": "icons/weapons/staves/staff-spiked.webp"
+			}
+		},
+		"description": "<p><em>Defensive (Medium)</em></p>\n<p>This club with embedded obsidian blades functions as a fine @UUID[Compendium.a5e.a5e-adventuring-gear.Item.pxazla3i4qaj6c29]{Longsword}.</p>",
+		"favorite": false,
+		"secretDescription": "",
+		"source": "",
+		"uses": {
+			"value": null,
+			"max": "",
+			"per": null,
+			"recharge": {
+				"formula": "1d6",
+				"threshold": 6
+			}
+		},
+		"schema": {
+			"version": null,
+			"lastMigration": null
+		},
+		"ammunitionProperties": [],
+		"armorCategory": "",
+		"armorProperties": [],
+		"attuned": false,
+		"bulky": false,
+		"craftingComponents": "+1 weapon",
+		"containerId": "",
+		"damagedState": 0,
+		"equippedState": 0,
+		"items": {},
+		"materialProperties": [],
+		"objectType": "weapon",
+		"plotItem": false,
+		"price": "3,500 gp",
+		"proficient": true,
+		"quantity": 1,
+		"rarity": "rare",
+		"requiresAttunement": false,
+		"shieldCategory": "",
+		"shieldProperties": [],
+		"unidentified": false,
+		"unidentifiedDescription": "",
+		"unidentifiedName": "",
+		"weaponProperties": [
+			"defensive"
+		],
+		"weight": 3,
+		"schemaVersion": {
+			"version": 0.011,
+			"lastMigration": {
+				"version": {
+					"schema": 0.01,
+					"foundry": "11.315",
+					"system": "0.16.37"
+				}
+			}
+		}
+	},
+	"folder": null,
+	"_id": "9ln7xj8bq1uauz95"
 }

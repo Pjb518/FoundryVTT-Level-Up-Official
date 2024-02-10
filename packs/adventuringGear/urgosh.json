@@ -1,420 +1,406 @@
 {
-  "name": "Urgosh",
-  "type": "object",
-  "img": "icons/weapons/polearms/halberd-engraved-black.webp",
-  "effects": [
-    {
-      "icon": "icons/weapons/polearms/halberd-engraved-black.webp",
-      "origin": "Item.pvbZGBKaamWSiy9t",
-      "flags": {
-        "a5e": {
-          "sort": 0,
-          "transferType": "onUse",
-          "actionId": "JtplYF8JKilBpP4f",
-          "duration": {
-            "type": "rounds",
-            "unit": "minutes"
-          }
-        }
-      },
-      "transfer": false,
-      "name": "AC +1",
-      "_id": "CzoRKz1aFF2zbPZy",
-      "changes": [
-        {
-          "key": "system.attributes.ac.changes.bonuses.value",
-          "value": "1",
-          "mode": 2,
-          "priority": null
-        }
-      ],
-      "disabled": false,
-      "duration": {
-        "startTime": null,
-        "seconds": null,
-        "combat": null,
-        "rounds": null,
-        "turns": 1,
-        "startRound": null,
-        "startTurn": null
-      },
-      "description": "",
-      "statuses": [],
-      "tint": "#ffffff"
-    }
-  ],
-  "flags": {
-    "core": {},
-    "exportSource": {
-      "world": "clean-test",
-      "system": "a5e",
-      "coreVersion": "11.315",
-      "systemVersion": "0.16.48"
-    }
-  },
-  "system": {
-    "ac": {
-      "baseFormula": "",
-      "formula": "",
-      "maxDex": 0,
-      "minStr": 0,
-      "mode": 1,
-      "requiresNoShield": false,
-      "requiresUnarmored": false
-    },
-    "actions": {
-      "kWsss8bI70rtpUV6": {
-        "name": "Urgosh",
-        "activation": {
-          "cost": "",
-          "type": "",
-          "reactionTrigger": ""
-        },
-        "duration": {
-          "unit": "",
-          "value": ""
-        },
-        "ranges": {
-          "GLFs1wAhfJxSfSPp": {
-            "range": 20,
-            "unit": "feet"
-          },
-          "Cmac44PO3vBMH47C": {
-            "range": "medium"
-          }
-        },
-        "area": {
-          "shape": "",
-          "size": "",
-          "placeTemplate": false,
-          "quantity": 1
-        },
-        "target": {
-          "quantity": 1,
-          "type": "creatureObject"
-        },
-        "rolls": {
-          "bgXGyMGdFJjCkrXA": {
-            "bonus": "",
-            "critThreshold": "20",
-            "type": "attack",
-            "attackType": "meleeWeaponAttack",
-            "ability": "default"
-          },
-          "EH41F8oxdy5FXyOT": {
-            "canCrit": true,
-            "damageType": "piercing",
-            "formula": "1d6 + @str.mod",
-            "name": "Spear - 1H",
-            "type": "damage",
-            "label": "One-Handed",
-            "default": false
-          },
-          "panx4AGUiOcDxR6b": {
-            "canCrit": true,
-            "damageType": "piercing",
-            "formula": "1d8 + @str.mod",
-            "name": "Spear - 2H",
-            "type": "damage",
-            "label": "Two-Handed",
-            "default": false
-          }
-        },
-        "consumers": {}
-      },
-      "MrV3YZriaZmI1ygT": {
-        "name": "Urgosh (Throw)",
-        "activation": {
-          "cost": "",
-          "type": "",
-          "reactionTrigger": ""
-        },
-        "duration": {
-          "unit": "",
-          "value": ""
-        },
-        "ranges": {
-          "GLFs1wAhfJxSfSPp": {
-            "range": 20,
-            "unit": "feet"
-          },
-          "Cmac44PO3vBMH47C": {
-            "range": "medium"
-          }
-        },
-        "area": {
-          "shape": "",
-          "size": "",
-          "placeTemplate": false,
-          "quantity": 1
-        },
-        "target": {
-          "quantity": 1,
-          "type": "creatureObject"
-        },
-        "rolls": {
-          "bgXGyMGdFJjCkrXA": {
-            "bonus": "",
-            "critThreshold": "20",
-            "type": "attack",
-            "attackType": "rangedWeaponAttack",
-            "ability": "default"
-          },
-          "EH41F8oxdy5FXyOT": {
-            "canCrit": true,
-            "damageType": "piercing",
-            "formula": "1d6 + @finesse.mod",
-            "name": "Spear - 1H",
-            "type": "damage"
-          }
-        },
-        "consumers": {
-          "HxaaV7J2JDjit1gC": {
-            "type": "itemUses",
-            "default": true,
-            "quantity": 1
-          }
-        }
-      },
-      "JtplYF8JKilBpP4f": {
-        "name": "AC +1",
-        "activation": {
-          "type": "bonusAction",
-          "cost": 1
-        },
-        "consumers": {},
-        "rolls": {},
-        "prompts": {
-          "VzXK3rJS1p0jCl6M": {
-            "type": "effect",
-            "default": true,
-            "effectId": "PiHWvQKjPGNpP7A7"
-          },
-          "aihw6klbt8X6LdFS": {
-            "type": "effect",
-            "default": true,
-            "effectId": "o3RplnB3d2bgc5Cs"
-          },
-          "5ZcZcUdOlk0VoMQM": {
-            "type": "effect",
-            "default": true,
-            "effectId": "CzoRKz1aFF2zbPZy"
-          }
-        },
-        "uses": {
-          "value": 0,
-          "max": "",
-          "per": "",
-          "recharge": {
-            "formula": "1d6",
-            "threshold": 6
-          }
-        },
-        "duration": {
-          "unit": "turn",
-          "value": 1
-        },
-        "img": "icons/weapons/polearms/halberd-engraved-black.webp"
-      },
-      "WQQdnltqTYFgsVOS": {
-        "name": "Urgosh (Off-Hand)",
-        "activation": {
-          "cost": "",
-          "type": "",
-          "reactionTrigger": ""
-        },
-        "duration": {
-          "unit": "",
-          "value": ""
-        },
-        "ranges": {
-          "GLFs1wAhfJxSfSPp": {
-            "range": 20,
-            "unit": "feet"
-          },
-          "Cmac44PO3vBMH47C": {
-            "range": "medium"
-          }
-        },
-        "area": {
-          "shape": "",
-          "size": "",
-          "placeTemplate": false,
-          "quantity": 1
-        },
-        "target": {
-          "quantity": 1,
-          "type": "creatureObject"
-        },
-        "rolls": {
-          "bgXGyMGdFJjCkrXA": {
-            "bonus": "",
-            "critThreshold": "20",
-            "type": "attack",
-            "attackType": "meleeWeaponAttack",
-            "ability": "default"
-          },
-          "EH41F8oxdy5FXyOT": {
-            "canCrit": true,
-            "damageType": "piercing",
-            "formula": "1d6 + min(@str.mod,0)",
-            "name": "Spear - 1H",
-            "type": "damage",
-            "label": "One-Handed",
-            "default": false
-          }
-        },
-        "consumers": {}
-      },
-      "jq2KioesCDeAnSZ3": {
-        "name": "Urgosh (Throw, Off-Hand)",
-        "activation": {
-          "cost": "",
-          "type": "",
-          "reactionTrigger": ""
-        },
-        "duration": {
-          "unit": "",
-          "value": ""
-        },
-        "ranges": {
-          "GLFs1wAhfJxSfSPp": {
-            "range": 20,
-            "unit": "feet"
-          },
-          "Cmac44PO3vBMH47C": {
-            "range": "medium"
-          }
-        },
-        "area": {
-          "shape": "",
-          "size": "",
-          "placeTemplate": false,
-          "quantity": 1
-        },
-        "target": {
-          "quantity": 1,
-          "type": "creatureObject"
-        },
-        "rolls": {
-          "bgXGyMGdFJjCkrXA": {
-            "bonus": "",
-            "critThreshold": "20",
-            "type": "attack",
-            "attackType": "rangedWeaponAttack",
-            "ability": "default"
-          },
-          "EH41F8oxdy5FXyOT": {
-            "canCrit": true,
-            "damageType": "piercing",
-            "formula": "1d6 + min(@finesse.mod,0)",
-            "name": "Spear - 1H",
-            "type": "damage",
-            "label": "One-Handed",
-            "default": false
-          }
-        },
-        "consumers": {
-          "6c9xnF2UqzBHEnZI": {
-            "type": "itemUses",
-            "default": true,
-            "quantity": 1
-          }
-        }
-      },
-      "AVlzB7wxGLfH0VZi": {
-        "name": "Parry",
-        "activation": {},
-        "consumers": {},
-        "rolls": {
-          "tmuyLFz7KQutuiOG": {
-            "type": "generic",
-            "default": true,
-            "label": "Armor Class",
-            "formula": "1d4"
-          }
-        },
-        "prompts": {},
-        "uses": {
-          "value": 0,
-          "max": "",
-          "per": "",
-          "recharge": {
-            "formula": "1d6",
-            "threshold": 6
-          }
-        },
-        "img": "icons/weapons/polearms/halberd-engraved-black.webp"
-      }
-    },
-    "description": "<p><em>Breaker (Wood), Defensive (Heavy), Dual-Wielding, Simple, Thrown (20/60), Versatile (1d8)</em></p>\n<p>This @UUID[Compendium.a5e.a5e-adventuring-gear.Item.ehrht446maas96sf]{Spear} and @UUID[Compendium.a5e.a5e-adventuring-gear.Item.h7r1ogzu9fairy71]{Axe} double weapon can be used as either.</p>",
-    "favorite": false,
-    "secretDescription": "",
-    "source": "",
-    "uses": {
-      "value": 1,
-      "max": "1",
-      "per": null,
-      "recharge": {
-        "formula": "1d6",
-        "threshold": 6
-      }
-    },
-    "schema": {
-      "version": null,
-      "lastMigration": null
-    },
-    "ammunitionProperties": [],
-    "armorCategory": "",
-    "armorProperties": [],
-    "attuned": false,
-    "bulky": false,
-    "craftingComponents": "",
-    "containerId": "",
-    "damagedState": 0,
-    "equippedState": 0,
-    "items": {},
-    "materialProperties": [],
-    "objectType": "weapon",
-    "plotItem": false,
-    "price": "20 gp",
-    "proficient": true,
-    "quantity": 1,
-    "rarity": "mundane",
-    "requiresAttunement": false,
-    "shieldCategory": "",
-    "shieldProperties": [],
-    "unidentified": false,
-    "unidentifiedDescription": "",
-    "unidentifiedName": "",
-    "weaponProperties": [
-      "thrown",
-      "simple",
-      "versatile",
-      "defensive",
-      "breaker",
-      "dualWielding",
-      "parrying"
-    ],
-    "weight": 3,
-    "schemaVersion": {
-      "version": 0.011,
-      "lastMigration": {
-        "version": {
-          "schema": 0.01,
-          "foundry": "11.315",
-          "system": "0.16.37"
-        }
-      }
-    }
-  },
-  "folder": "p4fk321k9dN3oTD5",
-  "_stats": {
-    "systemId": "a5e",
-    "systemVersion": "0.16.48",
-    "coreVersion": "11.315",
-    "createdTime": 1707069100211,
-    "modifiedTime": 1707069265086,
-    "lastModifiedBy": "BDqRFxyWZFKs757e"
-  }
+	"name": "Urgosh",
+	"type": "object",
+	"img": "icons/weapons/polearms/halberd-engraved-black.webp",
+	"effects": [
+		{
+			"icon": "icons/weapons/polearms/halberd-engraved-black.webp",
+			"origin": "Item.pvbZGBKaamWSiy9t",
+			"flags": {
+				"a5e": {
+					"sort": 0,
+					"transferType": "onUse",
+					"actionId": "JtplYF8JKilBpP4f",
+					"duration": {
+						"type": "rounds",
+						"unit": "minutes"
+					}
+				}
+			},
+			"transfer": false,
+			"name": "AC +1",
+			"_id": "CzoRKz1aFF2zbPZy",
+			"changes": [
+				{
+					"key": "system.attributes.ac.changes.bonuses.value",
+					"value": "1",
+					"mode": 2,
+					"priority": null
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": null,
+				"combat": null,
+				"rounds": null,
+				"turns": 1,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "",
+			"statuses": [],
+			"tint": "#ffffff",
+			"folder": null
+		}
+	],
+	"flags": {},
+	"system": {
+		"ac": {
+			"baseFormula": "",
+			"formula": "",
+			"maxDex": 0,
+			"minStr": 0,
+			"mode": 1,
+			"requiresNoShield": false,
+			"requiresUnarmored": false
+		},
+		"actions": {
+			"kWsss8bI70rtpUV6": {
+				"name": "Urgosh",
+				"activation": {
+					"cost": "",
+					"type": "",
+					"reactionTrigger": ""
+				},
+				"duration": {
+					"unit": "",
+					"value": ""
+				},
+				"ranges": {
+					"GLFs1wAhfJxSfSPp": {
+						"range": 20,
+						"unit": "feet"
+					},
+					"Cmac44PO3vBMH47C": {
+						"range": "medium"
+					}
+				},
+				"area": {
+					"shape": "",
+					"size": "",
+					"placeTemplate": false,
+					"quantity": 1
+				},
+				"target": {
+					"quantity": 1,
+					"type": "creatureObject"
+				},
+				"rolls": {
+					"bgXGyMGdFJjCkrXA": {
+						"bonus": "",
+						"critThreshold": "20",
+						"type": "attack",
+						"attackType": "meleeWeaponAttack",
+						"ability": "default"
+					},
+					"EH41F8oxdy5FXyOT": {
+						"canCrit": true,
+						"damageType": "piercing",
+						"formula": "1d6 + @str.mod",
+						"name": "Spear - 1H",
+						"type": "damage",
+						"label": "One-Handed",
+						"default": false
+					},
+					"panx4AGUiOcDxR6b": {
+						"canCrit": true,
+						"damageType": "piercing",
+						"formula": "1d8 + @str.mod",
+						"name": "Spear - 2H",
+						"type": "damage",
+						"label": "Two-Handed",
+						"default": false
+					}
+				},
+				"consumers": {}
+			},
+			"MrV3YZriaZmI1ygT": {
+				"name": "Urgosh (Throw)",
+				"activation": {
+					"cost": "",
+					"type": "",
+					"reactionTrigger": ""
+				},
+				"duration": {
+					"unit": "",
+					"value": ""
+				},
+				"ranges": {
+					"GLFs1wAhfJxSfSPp": {
+						"range": 20,
+						"unit": "feet"
+					},
+					"Cmac44PO3vBMH47C": {
+						"range": "medium"
+					}
+				},
+				"area": {
+					"shape": "",
+					"size": "",
+					"placeTemplate": false,
+					"quantity": 1
+				},
+				"target": {
+					"quantity": 1,
+					"type": "creatureObject"
+				},
+				"rolls": {
+					"bgXGyMGdFJjCkrXA": {
+						"bonus": "",
+						"critThreshold": "20",
+						"type": "attack",
+						"attackType": "rangedWeaponAttack",
+						"ability": "default"
+					},
+					"EH41F8oxdy5FXyOT": {
+						"canCrit": true,
+						"damageType": "piercing",
+						"formula": "1d6 + @finesse.mod",
+						"name": "Spear - 1H",
+						"type": "damage"
+					}
+				},
+				"consumers": {
+					"HxaaV7J2JDjit1gC": {
+						"type": "itemUses",
+						"default": true,
+						"quantity": 1
+					}
+				}
+			},
+			"JtplYF8JKilBpP4f": {
+				"name": "AC +1",
+				"activation": {
+					"type": "bonusAction",
+					"cost": 1
+				},
+				"consumers": {},
+				"rolls": {},
+				"prompts": {
+					"VzXK3rJS1p0jCl6M": {
+						"type": "effect",
+						"default": true,
+						"effectId": "PiHWvQKjPGNpP7A7"
+					},
+					"aihw6klbt8X6LdFS": {
+						"type": "effect",
+						"default": true,
+						"effectId": "o3RplnB3d2bgc5Cs"
+					},
+					"5ZcZcUdOlk0VoMQM": {
+						"type": "effect",
+						"default": true,
+						"effectId": "CzoRKz1aFF2zbPZy"
+					}
+				},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"threshold": 6
+					}
+				},
+				"duration": {
+					"unit": "turn",
+					"value": 1
+				},
+				"img": "icons/weapons/polearms/halberd-engraved-black.webp"
+			},
+			"WQQdnltqTYFgsVOS": {
+				"name": "Urgosh (Off-Hand)",
+				"activation": {
+					"cost": "",
+					"type": "",
+					"reactionTrigger": ""
+				},
+				"duration": {
+					"unit": "",
+					"value": ""
+				},
+				"ranges": {
+					"GLFs1wAhfJxSfSPp": {
+						"range": 20,
+						"unit": "feet"
+					},
+					"Cmac44PO3vBMH47C": {
+						"range": "medium"
+					}
+				},
+				"area": {
+					"shape": "",
+					"size": "",
+					"placeTemplate": false,
+					"quantity": 1
+				},
+				"target": {
+					"quantity": 1,
+					"type": "creatureObject"
+				},
+				"rolls": {
+					"bgXGyMGdFJjCkrXA": {
+						"bonus": "",
+						"critThreshold": "20",
+						"type": "attack",
+						"attackType": "meleeWeaponAttack",
+						"ability": "default"
+					},
+					"EH41F8oxdy5FXyOT": {
+						"canCrit": true,
+						"damageType": "piercing",
+						"formula": "1d6 + min(@str.mod,0)",
+						"name": "Spear - 1H",
+						"type": "damage",
+						"label": "One-Handed",
+						"default": false
+					}
+				},
+				"consumers": {}
+			},
+			"jq2KioesCDeAnSZ3": {
+				"name": "Urgosh (Throw, Off-Hand)",
+				"activation": {
+					"cost": "",
+					"type": "",
+					"reactionTrigger": ""
+				},
+				"duration": {
+					"unit": "",
+					"value": ""
+				},
+				"ranges": {
+					"GLFs1wAhfJxSfSPp": {
+						"range": 20,
+						"unit": "feet"
+					},
+					"Cmac44PO3vBMH47C": {
+						"range": "medium"
+					}
+				},
+				"area": {
+					"shape": "",
+					"size": "",
+					"placeTemplate": false,
+					"quantity": 1
+				},
+				"target": {
+					"quantity": 1,
+					"type": "creatureObject"
+				},
+				"rolls": {
+					"bgXGyMGdFJjCkrXA": {
+						"bonus": "",
+						"critThreshold": "20",
+						"type": "attack",
+						"attackType": "rangedWeaponAttack",
+						"ability": "default"
+					},
+					"EH41F8oxdy5FXyOT": {
+						"canCrit": true,
+						"damageType": "piercing",
+						"formula": "1d6 + min(@finesse.mod,0)",
+						"name": "Spear - 1H",
+						"type": "damage",
+						"label": "One-Handed",
+						"default": false
+					}
+				},
+				"consumers": {
+					"6c9xnF2UqzBHEnZI": {
+						"type": "itemUses",
+						"default": true,
+						"quantity": 1
+					}
+				}
+			},
+			"AVlzB7wxGLfH0VZi": {
+				"name": "Parry",
+				"activation": {},
+				"consumers": {},
+				"rolls": {
+					"tmuyLFz7KQutuiOG": {
+						"type": "generic",
+						"default": true,
+						"label": "Armor Class",
+						"formula": "1d4"
+					}
+				},
+				"prompts": {},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"threshold": 6
+					}
+				},
+				"img": "icons/weapons/polearms/halberd-engraved-black.webp"
+			}
+		},
+		"description": "<p><em>Breaker (Wood), Defensive (Heavy), Dual-Wielding, Simple, Thrown (20/60), Versatile (1d8)</em></p>\n<p>This @UUID[Compendium.a5e.a5e-adventuring-gear.Item.ehrht446maas96sf]{Spear} and @UUID[Compendium.a5e.a5e-adventuring-gear.Item.h7r1ogzu9fairy71]{Axe} double weapon can be used as either.</p>",
+		"favorite": false,
+		"secretDescription": "",
+		"source": "",
+		"uses": {
+			"value": 1,
+			"max": "1",
+			"per": null,
+			"recharge": {
+				"formula": "1d6",
+				"threshold": 6
+			}
+		},
+		"schema": {
+			"version": null,
+			"lastMigration": null
+		},
+		"ammunitionProperties": [],
+		"armorCategory": "",
+		"armorProperties": [],
+		"attuned": false,
+		"bulky": false,
+		"craftingComponents": "",
+		"containerId": "",
+		"damagedState": 0,
+		"equippedState": 0,
+		"items": {},
+		"materialProperties": [],
+		"objectType": "weapon",
+		"plotItem": false,
+		"price": "20 gp",
+		"proficient": true,
+		"quantity": 1,
+		"rarity": "mundane",
+		"requiresAttunement": false,
+		"shieldCategory": "",
+		"shieldProperties": [],
+		"unidentified": false,
+		"unidentifiedDescription": "",
+		"unidentifiedName": "",
+		"weaponProperties": [
+			"thrown",
+			"simple",
+			"versatile",
+			"defensive",
+			"breaker",
+			"dualWielding",
+			"parrying"
+		],
+		"weight": 3,
+		"schemaVersion": {
+			"version": 0.011,
+			"lastMigration": {
+				"version": {
+					"schema": 0.01,
+					"foundry": "11.315",
+					"system": "0.16.37"
+				}
+			}
+		}
+	},
+	"folder": null,
+	"_id": "gsiq64sk0xqukym2"
 }

@@ -1,368 +1,354 @@
 {
-  "name": "Tomahawk",
-  "type": "object",
-  "img": "icons/weapons/axes/shortaxe-tribal.webp",
-  "effects": [
-    {
-      "icon": "icons/weapons/axes/shortaxe-tribal.webp",
-      "origin": "Item.1SOSZ2dp49DOEuEQ",
-      "flags": {
-        "a5e": {
-          "sort": 0,
-          "transferType": "onUse",
-          "actionId": "Wj2wEtEOK3ej6uIH",
-          "duration": {
-            "type": "rounds",
-            "unit": "minutes"
-          }
-        }
-      },
-      "transfer": false,
-      "name": "AC +1",
-      "_id": "2pzcilmmaypkTG8n",
-      "changes": [
-        {
-          "key": "system.attributes.ac.changes.bonuses.value",
-          "value": "1",
-          "mode": 2,
-          "priority": null
-        }
-      ],
-      "disabled": false,
-      "duration": {
-        "startTime": null,
-        "seconds": null,
-        "combat": null,
-        "rounds": 0,
-        "turns": 1,
-        "startRound": null,
-        "startTurn": null
-      },
-      "description": "",
-      "statuses": [],
-      "tint": "#ffffff"
-    }
-  ],
-  "flags": {
-    "core": {},
-    "exportSource": {
-      "world": "clean-test",
-      "system": "a5e",
-      "coreVersion": "11.315",
-      "systemVersion": "0.16.48"
-    }
-  },
-  "system": {
-    "ac": {
-      "baseFormula": "",
-      "formula": "",
-      "maxDex": 0,
-      "minStr": 0,
-      "mode": 1,
-      "requiresNoShield": false,
-      "requiresUnarmored": false
-    },
-    "actions": {
-      "joThqvUsJpDSiFKZ": {
-        "name": "Tomahawk",
-        "activation": {
-          "cost": "",
-          "type": "",
-          "reactionTrigger": ""
-        },
-        "duration": {
-          "unit": "",
-          "value": ""
-        },
-        "ranges": {
-          "A2NRN93ZMOCh6amA": {
-            "range": 20,
-            "unit": "feet"
-          },
-          "rHv8SNI20s02tH56": {
-            "range": "medium"
-          }
-        },
-        "area": {
-          "shape": "",
-          "size": "",
-          "placeTemplate": false,
-          "quantity": 1
-        },
-        "target": {
-          "quantity": 1,
-          "type": "creatureObject"
-        },
-        "rolls": {
-          "AHgql9Eprarcv5iv": {
-            "bonus": "",
-            "critThreshold": "20",
-            "type": "attack",
-            "attackType": "meleeWeaponAttack",
-            "ability": "default"
-          },
-          "tNiSjwKpw3E4GHWd": {
-            "canCrit": true,
-            "damageType": "slashing",
-            "formula": "1d6 + @str.mod",
-            "name": "Handaxe",
-            "type": "damage"
-          }
-        },
-        "consumers": {}
-      },
-      "BzvjZocpxxPNJ6G1": {
-        "name": "Tomahawk (Off-Hand)",
-        "activation": {
-          "cost": "",
-          "type": "",
-          "reactionTrigger": ""
-        },
-        "duration": {
-          "unit": "",
-          "value": ""
-        },
-        "ranges": {
-          "A2NRN93ZMOCh6amA": {
-            "range": 20,
-            "unit": "feet"
-          },
-          "rHv8SNI20s02tH56": {
-            "range": "medium"
-          }
-        },
-        "area": {
-          "shape": "",
-          "size": "",
-          "placeTemplate": false,
-          "quantity": 1
-        },
-        "target": {
-          "quantity": 1,
-          "type": "creatureObject"
-        },
-        "rolls": {
-          "AHgql9Eprarcv5iv": {
-            "bonus": "",
-            "critThreshold": "20",
-            "type": "attack",
-            "attackType": "meleeWeaponAttack",
-            "ability": "default"
-          },
-          "tNiSjwKpw3E4GHWd": {
-            "canCrit": true,
-            "damageType": "slashing",
-            "formula": "1d6 + min(@str.mod,0)",
-            "name": "Handaxe",
-            "type": "damage"
-          }
-        },
-        "consumers": {}
-      },
-      "Hc25AqQi6G8oKSRs": {
-        "name": "Tomahawk (Throw)",
-        "activation": {
-          "cost": "",
-          "type": "",
-          "reactionTrigger": ""
-        },
-        "duration": {
-          "unit": "",
-          "value": ""
-        },
-        "ranges": {
-          "A2NRN93ZMOCh6amA": {
-            "range": 20,
-            "unit": "feet"
-          },
-          "rHv8SNI20s02tH56": {
-            "range": "medium"
-          }
-        },
-        "area": {
-          "shape": "",
-          "size": "",
-          "placeTemplate": false,
-          "quantity": 1
-        },
-        "target": {
-          "quantity": 1,
-          "type": "creatureObject"
-        },
-        "rolls": {
-          "AHgql9Eprarcv5iv": {
-            "bonus": "",
-            "critThreshold": "20",
-            "type": "attack",
-            "attackType": "rangedWeaponAttack",
-            "ability": "default"
-          },
-          "tNiSjwKpw3E4GHWd": {
-            "canCrit": true,
-            "damageType": "slashing",
-            "formula": "1d6 + @finesse.mod",
-            "name": "Handaxe",
-            "type": "damage"
-          }
-        },
-        "consumers": {
-          "Xq7rRGAnf4LdaXK6": {
-            "type": "itemUses",
-            "default": true,
-            "quantity": 1
-          }
-        }
-      },
-      "UgW3vG1tEMnlllRe": {
-        "name": "Tomahawk (Throw, Off-Hand)",
-        "activation": {
-          "cost": "",
-          "type": "",
-          "reactionTrigger": ""
-        },
-        "duration": {
-          "unit": "",
-          "value": ""
-        },
-        "ranges": {
-          "A2NRN93ZMOCh6amA": {
-            "range": 20,
-            "unit": "feet"
-          },
-          "rHv8SNI20s02tH56": {
-            "range": "medium"
-          }
-        },
-        "area": {
-          "shape": "",
-          "size": "",
-          "placeTemplate": false,
-          "quantity": 1
-        },
-        "target": {
-          "quantity": 1,
-          "type": "creatureObject"
-        },
-        "rolls": {
-          "AHgql9Eprarcv5iv": {
-            "bonus": "",
-            "critThreshold": "20",
-            "type": "attack",
-            "attackType": "rangedWeaponAttack",
-            "ability": "default"
-          },
-          "tNiSjwKpw3E4GHWd": {
-            "canCrit": true,
-            "damageType": "slashing",
-            "formula": "1d6 + min(@finesse.mod,0)",
-            "name": "Handaxe",
-            "type": "damage"
-          }
-        },
-        "consumers": {
-          "Xslo7NxF0MI3XDiG": {
-            "type": "itemUses",
-            "default": true,
-            "quantity": 1
-          }
-        }
-      },
-      "Wj2wEtEOK3ej6uIH": {
-        "name": "AC +1",
-        "activation": {
-          "type": "bonusAction",
-          "cost": 1
-        },
-        "consumers": {},
-        "rolls": {},
-        "prompts": {
-          "gzZoa34x7C44v857": {
-            "type": "effect",
-            "default": true,
-            "effectId": "2pzcilmmaypkTG8n"
-          }
-        },
-        "uses": {
-          "value": 0,
-          "max": "",
-          "per": "",
-          "recharge": {
-            "formula": "1d6",
-            "threshold": 6
-          }
-        },
-        "duration": {
-          "unit": "turn",
-          "value": 1
-        }
-      }
-    },
-    "description": "<p><em>Breaker (Wood), Defensive (Light), Dual-Wielding, Simple, Thrown (20/60)</em></p>\n<p>A tomahawk uses the statistics of a @UUID[Compendium.a5e.a5e-adventuring-gear.Item.h7r1ogzu9fairy71]{Handaxe}.</p>",
-    "favorite": false,
-    "secretDescription": "",
-    "source": "",
-    "uses": {
-      "value": 1,
-      "max": "1",
-      "per": null,
-      "recharge": {
-        "formula": "1d6",
-        "threshold": 6
-      }
-    },
-    "schema": {
-      "version": null,
-      "lastMigration": null
-    },
-    "ammunitionProperties": [],
-    "armorCategory": "",
-    "armorProperties": [],
-    "attuned": false,
-    "bulky": false,
-    "craftingComponents": "",
-    "containerId": "",
-    "damagedState": 0,
-    "equippedState": 0,
-    "items": {},
-    "materialProperties": [],
-    "objectType": "weapon",
-    "plotItem": false,
-    "price": "5 gp",
-    "proficient": true,
-    "quantity": 1,
-    "rarity": "mundane",
-    "requiresAttunement": false,
-    "shieldCategory": "",
-    "shieldProperties": [],
-    "unidentified": false,
-    "unidentifiedDescription": "",
-    "unidentifiedName": "",
-    "weaponProperties": [
-      "breaker",
-      "defensive",
-      "dualWielding",
-      "simple",
-      "thrown"
-    ],
-    "weight": 2,
-    "schemaVersion": {
-      "version": 0.011,
-      "lastMigration": {
-        "version": {
-          "schema": 0.01,
-          "foundry": "11.315",
-          "system": "0.16.37"
-        }
-      }
-    }
-  },
-  "folder": "p4fk321k9dN3oTD5",
-  "_stats": {
-    "systemId": "a5e",
-    "systemVersion": "0.16.48",
-    "coreVersion": "11.315",
-    "createdTime": 1707068930735,
-    "modifiedTime": 1707069091994,
-    "lastModifiedBy": "BDqRFxyWZFKs757e"
-  }
+	"name": "Tomahawk",
+	"type": "object",
+	"img": "icons/weapons/axes/shortaxe-tribal.webp",
+	"effects": [
+		{
+			"icon": "icons/weapons/axes/shortaxe-tribal.webp",
+			"origin": "Item.1SOSZ2dp49DOEuEQ",
+			"flags": {
+				"a5e": {
+					"sort": 0,
+					"transferType": "onUse",
+					"actionId": "Wj2wEtEOK3ej6uIH",
+					"duration": {
+						"type": "rounds",
+						"unit": "minutes"
+					}
+				}
+			},
+			"transfer": false,
+			"name": "AC +1",
+			"_id": "2pzcilmmaypkTG8n",
+			"changes": [
+				{
+					"key": "system.attributes.ac.changes.bonuses.value",
+					"value": "1",
+					"mode": 2,
+					"priority": null
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": null,
+				"combat": null,
+				"rounds": 0,
+				"turns": 1,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "",
+			"statuses": [],
+			"tint": "#ffffff",
+			"folder": null
+		}
+	],
+	"flags": {},
+	"system": {
+		"ac": {
+			"baseFormula": "",
+			"formula": "",
+			"maxDex": 0,
+			"minStr": 0,
+			"mode": 1,
+			"requiresNoShield": false,
+			"requiresUnarmored": false
+		},
+		"actions": {
+			"joThqvUsJpDSiFKZ": {
+				"name": "Tomahawk",
+				"activation": {
+					"cost": "",
+					"type": "",
+					"reactionTrigger": ""
+				},
+				"duration": {
+					"unit": "",
+					"value": ""
+				},
+				"ranges": {
+					"A2NRN93ZMOCh6amA": {
+						"range": 20,
+						"unit": "feet"
+					},
+					"rHv8SNI20s02tH56": {
+						"range": "medium"
+					}
+				},
+				"area": {
+					"shape": "",
+					"size": "",
+					"placeTemplate": false,
+					"quantity": 1
+				},
+				"target": {
+					"quantity": 1,
+					"type": "creatureObject"
+				},
+				"rolls": {
+					"AHgql9Eprarcv5iv": {
+						"bonus": "",
+						"critThreshold": "20",
+						"type": "attack",
+						"attackType": "meleeWeaponAttack",
+						"ability": "default"
+					},
+					"tNiSjwKpw3E4GHWd": {
+						"canCrit": true,
+						"damageType": "slashing",
+						"formula": "1d6 + @str.mod",
+						"name": "Handaxe",
+						"type": "damage"
+					}
+				},
+				"consumers": {}
+			},
+			"BzvjZocpxxPNJ6G1": {
+				"name": "Tomahawk (Off-Hand)",
+				"activation": {
+					"cost": "",
+					"type": "",
+					"reactionTrigger": ""
+				},
+				"duration": {
+					"unit": "",
+					"value": ""
+				},
+				"ranges": {
+					"A2NRN93ZMOCh6amA": {
+						"range": 20,
+						"unit": "feet"
+					},
+					"rHv8SNI20s02tH56": {
+						"range": "medium"
+					}
+				},
+				"area": {
+					"shape": "",
+					"size": "",
+					"placeTemplate": false,
+					"quantity": 1
+				},
+				"target": {
+					"quantity": 1,
+					"type": "creatureObject"
+				},
+				"rolls": {
+					"AHgql9Eprarcv5iv": {
+						"bonus": "",
+						"critThreshold": "20",
+						"type": "attack",
+						"attackType": "meleeWeaponAttack",
+						"ability": "default"
+					},
+					"tNiSjwKpw3E4GHWd": {
+						"canCrit": true,
+						"damageType": "slashing",
+						"formula": "1d6 + min(@str.mod,0)",
+						"name": "Handaxe",
+						"type": "damage"
+					}
+				},
+				"consumers": {}
+			},
+			"Hc25AqQi6G8oKSRs": {
+				"name": "Tomahawk (Throw)",
+				"activation": {
+					"cost": "",
+					"type": "",
+					"reactionTrigger": ""
+				},
+				"duration": {
+					"unit": "",
+					"value": ""
+				},
+				"ranges": {
+					"A2NRN93ZMOCh6amA": {
+						"range": 20,
+						"unit": "feet"
+					},
+					"rHv8SNI20s02tH56": {
+						"range": "medium"
+					}
+				},
+				"area": {
+					"shape": "",
+					"size": "",
+					"placeTemplate": false,
+					"quantity": 1
+				},
+				"target": {
+					"quantity": 1,
+					"type": "creatureObject"
+				},
+				"rolls": {
+					"AHgql9Eprarcv5iv": {
+						"bonus": "",
+						"critThreshold": "20",
+						"type": "attack",
+						"attackType": "rangedWeaponAttack",
+						"ability": "default"
+					},
+					"tNiSjwKpw3E4GHWd": {
+						"canCrit": true,
+						"damageType": "slashing",
+						"formula": "1d6 + @finesse.mod",
+						"name": "Handaxe",
+						"type": "damage"
+					}
+				},
+				"consumers": {
+					"Xq7rRGAnf4LdaXK6": {
+						"type": "itemUses",
+						"default": true,
+						"quantity": 1
+					}
+				}
+			},
+			"UgW3vG1tEMnlllRe": {
+				"name": "Tomahawk (Throw, Off-Hand)",
+				"activation": {
+					"cost": "",
+					"type": "",
+					"reactionTrigger": ""
+				},
+				"duration": {
+					"unit": "",
+					"value": ""
+				},
+				"ranges": {
+					"A2NRN93ZMOCh6amA": {
+						"range": 20,
+						"unit": "feet"
+					},
+					"rHv8SNI20s02tH56": {
+						"range": "medium"
+					}
+				},
+				"area": {
+					"shape": "",
+					"size": "",
+					"placeTemplate": false,
+					"quantity": 1
+				},
+				"target": {
+					"quantity": 1,
+					"type": "creatureObject"
+				},
+				"rolls": {
+					"AHgql9Eprarcv5iv": {
+						"bonus": "",
+						"critThreshold": "20",
+						"type": "attack",
+						"attackType": "rangedWeaponAttack",
+						"ability": "default"
+					},
+					"tNiSjwKpw3E4GHWd": {
+						"canCrit": true,
+						"damageType": "slashing",
+						"formula": "1d6 + min(@finesse.mod,0)",
+						"name": "Handaxe",
+						"type": "damage"
+					}
+				},
+				"consumers": {
+					"Xslo7NxF0MI3XDiG": {
+						"type": "itemUses",
+						"default": true,
+						"quantity": 1
+					}
+				}
+			},
+			"Wj2wEtEOK3ej6uIH": {
+				"name": "AC +1",
+				"activation": {
+					"type": "bonusAction",
+					"cost": 1
+				},
+				"consumers": {},
+				"rolls": {},
+				"prompts": {
+					"gzZoa34x7C44v857": {
+						"type": "effect",
+						"default": true,
+						"effectId": "2pzcilmmaypkTG8n"
+					}
+				},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"threshold": 6
+					}
+				},
+				"duration": {
+					"unit": "turn",
+					"value": 1
+				}
+			}
+		},
+		"description": "<p><em>Breaker (Wood), Defensive (Light), Dual-Wielding, Simple, Thrown (20/60)</em></p>\n<p>A tomahawk uses the statistics of a @UUID[Compendium.a5e.a5e-adventuring-gear.Item.h7r1ogzu9fairy71]{Handaxe}.</p>",
+		"favorite": false,
+		"secretDescription": "",
+		"source": "",
+		"uses": {
+			"value": 1,
+			"max": "1",
+			"per": null,
+			"recharge": {
+				"formula": "1d6",
+				"threshold": 6
+			}
+		},
+		"schema": {
+			"version": null,
+			"lastMigration": null
+		},
+		"ammunitionProperties": [],
+		"armorCategory": "",
+		"armorProperties": [],
+		"attuned": false,
+		"bulky": false,
+		"craftingComponents": "",
+		"containerId": "",
+		"damagedState": 0,
+		"equippedState": 0,
+		"items": {},
+		"materialProperties": [],
+		"objectType": "weapon",
+		"plotItem": false,
+		"price": "5 gp",
+		"proficient": true,
+		"quantity": 1,
+		"rarity": "mundane",
+		"requiresAttunement": false,
+		"shieldCategory": "",
+		"shieldProperties": [],
+		"unidentified": false,
+		"unidentifiedDescription": "",
+		"unidentifiedName": "",
+		"weaponProperties": [
+			"breaker",
+			"defensive",
+			"dualWielding",
+			"simple",
+			"thrown"
+		],
+		"weight": 2,
+		"schemaVersion": {
+			"version": 0.011,
+			"lastMigration": {
+				"version": {
+					"schema": 0.01,
+					"foundry": "11.315",
+					"system": "0.16.37"
+				}
+			}
+		}
+	},
+	"folder": null,
+	"_id": "xrqc448uoxjmigv9"
 }

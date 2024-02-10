@@ -1,166 +1,151 @@
 {
-  "name": "Katana +2",
-  "type": "object",
-  "img": "icons/weapons/swords/sword-katana-purple.webp",
-  "effects": [],
-  "flags": {
-    "core": {},
-    "exportSource": {
-      "world": "clean-test",
-      "system": "a5e",
-      "coreVersion": "11.315",
-      "systemVersion": "0.16.48"
-    }
-  },
-  "system": {
-    "ac": {
-      "baseFormula": "",
-      "formula": "",
-      "maxDex": 0,
-      "minStr": 0,
-      "mode": 1,
-      "requiresNoShield": false,
-      "requiresUnarmored": false
-    },
-    "actions": {
-      "I0obTn3GBYxTo1B8": {
-        "name": "Katana",
-        "activation": {
-          "cost": "",
-          "type": "",
-          "reactionTrigger": ""
-        },
-        "duration": {
-          "unit": "",
-          "value": ""
-        },
-        "area": {
-          "shape": "",
-          "size": "",
-          "placeTemplate": false,
-          "quantity": 1
-        },
-        "target": {
-          "quantity": 1,
-          "type": "creatureObject"
-        },
-        "rolls": {
-          "W8sCmPdMQFBSLrgC": {
-            "bonus": "2",
-            "critThreshold": "20",
-            "type": "attack",
-            "attackType": "meleeWeaponAttack",
-            "ability": "default"
-          },
-          "a3x1moN5q67g6Qjs": {
-            "canCrit": true,
-            "damageType": "slashing",
-            "formula": "1d8 + @str.mod + 2",
-            "name": "Bastard Sword 1H",
-            "type": "damage",
-            "label": "One-Handed",
-            "default": false
-          },
-          "azmNkJojkfPr1ROr": {
-            "canCrit": true,
-            "damageType": "slashing",
-            "formula": "1d10 + @str.mod + 2",
-            "name": "Bastard Sword 2H",
-            "type": "damage",
-            "label": "Two-Handed",
-            "default": false
-          }
-        },
-        "consumers": {}
-      },
-      "Nngwhz1gd18jLFKE": {
-        "name": "Parry",
-        "activation": {},
-        "consumers": {},
-        "rolls": {
-          "tmuyLFz7KQutuiOG": {
-            "type": "generic",
-            "default": true,
-            "label": "Armor Class",
-            "formula": "1d4"
-          }
-        },
-        "prompts": {},
-        "uses": {
-          "value": 0,
-          "max": "",
-          "per": "",
-          "recharge": {
-            "formula": "1d6",
-            "threshold": 6
-          }
-        },
-        "img": "icons/weapons/swords/sword-katana-purple.webp"
-      }
-    },
-    "description": "<p><em>Parrying, Versatile (1d10)</em></p>\n<p>&nbsp;</p>\n<p>This weapon uses&nbsp;the statistics of a fine @UUID[Compendium.a5e.a5e-adventuring-gear.Item.njbevv8xrgswtyue]{Bastard Sword}.</p>",
-    "favorite": false,
-    "secretDescription": "",
-    "source": "",
-    "uses": {
-      "value": null,
-      "max": "",
-      "per": null,
-      "recharge": {
-        "formula": "1d6",
-        "threshold": 6
-      }
-    },
-    "schema": {
-      "version": null,
-      "lastMigration": null
-    },
-    "ammunitionProperties": [],
-    "armorCategory": "",
-    "armorProperties": [],
-    "attuned": false,
-    "bulky": false,
-    "craftingComponents": "+1 weapon",
-    "containerId": "",
-    "damagedState": 0,
-    "equippedState": 0,
-    "items": {},
-    "materialProperties": [],
-    "objectType": "weapon",
-    "plotItem": false,
-    "price": "3,500 gp",
-    "proficient": true,
-    "quantity": 1,
-    "rarity": "rare",
-    "requiresAttunement": false,
-    "shieldCategory": "",
-    "shieldProperties": [],
-    "unidentified": false,
-    "unidentifiedDescription": "",
-    "unidentifiedName": "",
-    "weaponProperties": [
-      "parrying",
-      "versatile"
-    ],
-    "weight": 5,
-    "schemaVersion": {
-      "version": 0.011,
-      "lastMigration": {
-        "version": {
-          "schema": 0.01,
-          "foundry": "11.315",
-          "system": "0.16.37"
-        }
-      }
-    }
-  },
-  "folder": "p4fk321k9dN3oTD5",
-  "_stats": {
-    "systemId": "a5e",
-    "systemVersion": "0.16.48",
-    "coreVersion": "11.315",
-    "createdTime": 1707061690649,
-    "modifiedTime": 1707068647755,
-    "lastModifiedBy": "BDqRFxyWZFKs757e"
-  }
+	"name": "Katana +2",
+	"type": "object",
+	"img": "icons/weapons/swords/sword-katana-purple.webp",
+	"effects": [],
+	"flags": {},
+	"system": {
+		"ac": {
+			"baseFormula": "",
+			"formula": "",
+			"maxDex": 0,
+			"minStr": 0,
+			"mode": 1,
+			"requiresNoShield": false,
+			"requiresUnarmored": false
+		},
+		"actions": {
+			"I0obTn3GBYxTo1B8": {
+				"name": "Katana",
+				"activation": {
+					"cost": "",
+					"type": "",
+					"reactionTrigger": ""
+				},
+				"duration": {
+					"unit": "",
+					"value": ""
+				},
+				"area": {
+					"shape": "",
+					"size": "",
+					"placeTemplate": false,
+					"quantity": 1
+				},
+				"target": {
+					"quantity": 1,
+					"type": "creatureObject"
+				},
+				"rolls": {
+					"W8sCmPdMQFBSLrgC": {
+						"bonus": "2",
+						"critThreshold": "20",
+						"type": "attack",
+						"attackType": "meleeWeaponAttack",
+						"ability": "default"
+					},
+					"a3x1moN5q67g6Qjs": {
+						"canCrit": true,
+						"damageType": "slashing",
+						"formula": "1d8 + @str.mod + 2",
+						"name": "Bastard Sword 1H",
+						"type": "damage",
+						"label": "One-Handed",
+						"default": false
+					},
+					"azmNkJojkfPr1ROr": {
+						"canCrit": true,
+						"damageType": "slashing",
+						"formula": "1d10 + @str.mod + 2",
+						"name": "Bastard Sword 2H",
+						"type": "damage",
+						"label": "Two-Handed",
+						"default": false
+					}
+				},
+				"consumers": {}
+			},
+			"Nngwhz1gd18jLFKE": {
+				"name": "Parry",
+				"activation": {},
+				"consumers": {},
+				"rolls": {
+					"tmuyLFz7KQutuiOG": {
+						"type": "generic",
+						"default": true,
+						"label": "Armor Class",
+						"formula": "1d4"
+					}
+				},
+				"prompts": {},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"threshold": 6
+					}
+				},
+				"img": "icons/weapons/swords/sword-katana-purple.webp"
+			}
+		},
+		"description": "<p><em>Parrying, Versatile (1d10)</em></p>\n<p>&nbsp;</p>\n<p>This weapon uses&nbsp;the statistics of a fine @UUID[Compendium.a5e.a5e-adventuring-gear.Item.njbevv8xrgswtyue]{Bastard Sword}.</p>",
+		"favorite": false,
+		"secretDescription": "",
+		"source": "",
+		"uses": {
+			"value": null,
+			"max": "",
+			"per": null,
+			"recharge": {
+				"formula": "1d6",
+				"threshold": 6
+			}
+		},
+		"schema": {
+			"version": null,
+			"lastMigration": null
+		},
+		"ammunitionProperties": [],
+		"armorCategory": "",
+		"armorProperties": [],
+		"attuned": false,
+		"bulky": false,
+		"craftingComponents": "+1 weapon",
+		"containerId": "",
+		"damagedState": 0,
+		"equippedState": 0,
+		"items": {},
+		"materialProperties": [],
+		"objectType": "weapon",
+		"plotItem": false,
+		"price": "3,500 gp",
+		"proficient": true,
+		"quantity": 1,
+		"rarity": "rare",
+		"requiresAttunement": false,
+		"shieldCategory": "",
+		"shieldProperties": [],
+		"unidentified": false,
+		"unidentifiedDescription": "",
+		"unidentifiedName": "",
+		"weaponProperties": [
+			"parrying",
+			"versatile"
+		],
+		"weight": 5,
+		"schemaVersion": {
+			"version": 0.011,
+			"lastMigration": {
+				"version": {
+					"schema": 0.01,
+					"foundry": "11.315",
+					"system": "0.16.37"
+				}
+			}
+		}
+	},
+	"folder": null,
+	"_id": "yo44sulkgpidvegg"
 }

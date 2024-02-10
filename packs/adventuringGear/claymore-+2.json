@@ -1,156 +1,141 @@
 {
-  "name": "Claymore +2",
-  "type": "object",
-  "img": "icons/weapons/swords/greatsword-crossguard-silver.webp",
-  "effects": [],
-  "flags": {
-    "core": {},
-    "exportSource": {
-      "world": "clean-test",
-      "system": "a5e",
-      "coreVersion": "11.315",
-      "systemVersion": "0.16.48"
-    }
-  },
-  "system": {
-    "ac": {
-      "baseFormula": "",
-      "formula": "",
-      "maxDex": 0,
-      "minStr": 0,
-      "mode": 1,
-      "requiresNoShield": false,
-      "requiresUnarmored": false
-    },
-    "actions": {
-      "gN1VnpQWmko9P0l8": {
-        "name": "Claymore",
-        "activation": {
-          "cost": "",
-          "type": "",
-          "reactionTrigger": ""
-        },
-        "duration": {
-          "unit": "",
-          "value": ""
-        },
-        "area": {
-          "shape": "",
-          "size": "",
-          "placeTemplate": false,
-          "quantity": 1
-        },
-        "target": {
-          "quantity": 1,
-          "type": "creatureObject"
-        },
-        "rolls": {
-          "dSqwxwRNQwjvOq43": {
-            "bonus": "2",
-            "critThreshold": "20",
-            "type": "attack",
-            "attackType": "meleeWeaponAttack",
-            "ability": "default"
-          },
-          "vlUtyqLFnTkfBE3F": {
-            "canCrit": true,
-            "damageType": "slashing",
-            "formula": "2d6 + @str.mod + 2",
-            "name": "Greatsword",
-            "type": "damage"
-          }
-        },
-        "consumers": {}
-      },
-      "tWq3CWyPcjDp7rNd": {
-        "name": "Parry",
-        "activation": {},
-        "consumers": {},
-        "rolls": {
-          "Wr28F3fXpV7iLaWM": {
-            "type": "generic",
-            "default": true,
-            "label": "Armor Class",
-            "formula": "1d4"
-          }
-        },
-        "prompts": {},
-        "uses": {
-          "value": 0,
-          "max": "",
-          "per": "",
-          "recharge": {
-            "formula": "1d6",
-            "threshold": 6
-          }
-        },
-        "img": "icons/weapons/swords/greatsword-crossguard-silver.webp"
-      }
-    },
-    "description": "<p><em>Heavy, Parrying, Two-Handed</em></p>\n<p>&nbsp;</p>\n<p>This cross-hilted&nbsp;weapon uses the statistics of a @UUID[Compendium.a5e.a5e-adventuring-gear.Item.gq6lfesjrd75se7u]{Greatsword}.</p>",
-    "favorite": false,
-    "secretDescription": "",
-    "source": "",
-    "uses": {
-      "value": null,
-      "max": "",
-      "per": null,
-      "recharge": {
-        "formula": "1d6",
-        "threshold": 6
-      }
-    },
-    "schema": {
-      "version": null,
-      "lastMigration": null
-    },
-    "ammunitionProperties": [],
-    "armorCategory": "",
-    "armorProperties": [],
-    "attuned": false,
-    "bulky": false,
-    "craftingComponents": "+1 weapon",
-    "containerId": "",
-    "damagedState": 0,
-    "equippedState": 0,
-    "items": {},
-    "materialProperties": [],
-    "objectType": "weapon",
-    "plotItem": false,
-    "price": "3,500 gp",
-    "proficient": true,
-    "quantity": 1,
-    "rarity": "rare",
-    "requiresAttunement": false,
-    "shieldCategory": "",
-    "shieldProperties": [],
-    "unidentified": false,
-    "unidentifiedDescription": "",
-    "unidentifiedName": "",
-    "weaponProperties": [
-      "parrying",
-      "heavy",
-      "twoHanded"
-    ],
-    "weight": 7,
-    "schemaVersion": {
-      "version": 0.011,
-      "lastMigration": {
-        "version": {
-          "schema": 0.01,
-          "foundry": "11.315",
-          "system": "0.16.37"
-        }
-      }
-    }
-  },
-  "folder": "p4fk321k9dN3oTD5",
-  "_stats": {
-    "systemId": "a5e",
-    "systemVersion": "0.16.48",
-    "coreVersion": "11.315",
-    "createdTime": 1707061044568,
-    "modifiedTime": 1707061099247,
-    "lastModifiedBy": "BDqRFxyWZFKs757e"
-  }
+	"name": "Claymore +2",
+	"type": "object",
+	"img": "icons/weapons/swords/greatsword-crossguard-silver.webp",
+	"effects": [],
+	"flags": {},
+	"system": {
+		"ac": {
+			"baseFormula": "",
+			"formula": "",
+			"maxDex": 0,
+			"minStr": 0,
+			"mode": 1,
+			"requiresNoShield": false,
+			"requiresUnarmored": false
+		},
+		"actions": {
+			"gN1VnpQWmko9P0l8": {
+				"name": "Claymore",
+				"activation": {
+					"cost": "",
+					"type": "",
+					"reactionTrigger": ""
+				},
+				"duration": {
+					"unit": "",
+					"value": ""
+				},
+				"area": {
+					"shape": "",
+					"size": "",
+					"placeTemplate": false,
+					"quantity": 1
+				},
+				"target": {
+					"quantity": 1,
+					"type": "creatureObject"
+				},
+				"rolls": {
+					"dSqwxwRNQwjvOq43": {
+						"bonus": "2",
+						"critThreshold": "20",
+						"type": "attack",
+						"attackType": "meleeWeaponAttack",
+						"ability": "default"
+					},
+					"vlUtyqLFnTkfBE3F": {
+						"canCrit": true,
+						"damageType": "slashing",
+						"formula": "2d6 + @str.mod + 2",
+						"name": "Greatsword",
+						"type": "damage"
+					}
+				},
+				"consumers": {}
+			},
+			"tWq3CWyPcjDp7rNd": {
+				"name": "Parry",
+				"activation": {},
+				"consumers": {},
+				"rolls": {
+					"Wr28F3fXpV7iLaWM": {
+						"type": "generic",
+						"default": true,
+						"label": "Armor Class",
+						"formula": "1d4"
+					}
+				},
+				"prompts": {},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"threshold": 6
+					}
+				},
+				"img": "icons/weapons/swords/greatsword-crossguard-silver.webp"
+			}
+		},
+		"description": "<p><em>Heavy, Parrying, Two-Handed</em></p>\n<p>&nbsp;</p>\n<p>This cross-hilted&nbsp;weapon uses the statistics of a @UUID[Compendium.a5e.a5e-adventuring-gear.Item.gq6lfesjrd75se7u]{Greatsword}.</p>",
+		"favorite": false,
+		"secretDescription": "",
+		"source": "",
+		"uses": {
+			"value": null,
+			"max": "",
+			"per": null,
+			"recharge": {
+				"formula": "1d6",
+				"threshold": 6
+			}
+		},
+		"schema": {
+			"version": null,
+			"lastMigration": null
+		},
+		"ammunitionProperties": [],
+		"armorCategory": "",
+		"armorProperties": [],
+		"attuned": false,
+		"bulky": false,
+		"craftingComponents": "+1 weapon",
+		"containerId": "",
+		"damagedState": 0,
+		"equippedState": 0,
+		"items": {},
+		"materialProperties": [],
+		"objectType": "weapon",
+		"plotItem": false,
+		"price": "3,500 gp",
+		"proficient": true,
+		"quantity": 1,
+		"rarity": "rare",
+		"requiresAttunement": false,
+		"shieldCategory": "",
+		"shieldProperties": [],
+		"unidentified": false,
+		"unidentifiedDescription": "",
+		"unidentifiedName": "",
+		"weaponProperties": [
+			"parrying",
+			"heavy",
+			"twoHanded"
+		],
+		"weight": 7,
+		"schemaVersion": {
+			"version": 0.011,
+			"lastMigration": {
+				"version": {
+					"schema": 0.01,
+					"foundry": "11.315",
+					"system": "0.16.37"
+				}
+			}
+		}
+	},
+	"folder": null,
+	"_id": "csxoaxggq0sg33b6"
 }

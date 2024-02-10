@@ -1,283 +1,268 @@
 {
-  "name": "Tessen +3",
-  "type": "object",
-  "img": "icons/commodities/cloth/cloth-bolt-green.webp",
-  "effects": [],
-  "flags": {
-    "core": {},
-    "exportSource": {
-      "world": "clean-test",
-      "system": "a5e",
-      "coreVersion": "11.315",
-      "systemVersion": "0.16.48"
-    }
-  },
-  "system": {
-    "ac": {
-      "baseFormula": "1",
-      "formula": "",
-      "maxDex": 0,
-      "minStr": 0,
-      "mode": 1,
-      "requiresNoShield": false,
-      "requiresUnarmored": false
-    },
-    "actions": {
-      "CYURkv9sK45wkGZn": {
-        "name": "Tessen",
-        "activation": {
-          "cost": "",
-          "type": "",
-          "reactionTrigger": ""
-        },
-        "duration": {
-          "unit": "",
-          "value": ""
-        },
-        "area": {
-          "shape": "",
-          "size": "",
-          "placeTemplate": false,
-          "quantity": 1
-        },
-        "target": {
-          "quantity": 1,
-          "type": "object"
-        },
-        "rolls": {
-          "gdR2mGnYfGBsk2ZY": {
-            "bonus": "3",
-            "critThreshold": "20",
-            "type": "attack",
-            "attackType": "meleeWeaponAttack",
-            "ability": "default"
-          },
-          "ut4E7BIwVCXdj5oE": {
-            "canCrit": true,
-            "damageType": "piercing",
-            "formula": "1d4 + @finesse.mod + 3",
-            "name": "Dagger",
-            "type": "damage"
-          }
-        },
-        "consumers": {}
-      },
-      "911iDf2vrTJjuO4V": {
-        "name": "Tessen (Off-Hand)",
-        "activation": {
-          "cost": "",
-          "type": "",
-          "reactionTrigger": ""
-        },
-        "duration": {
-          "unit": "",
-          "value": ""
-        },
-        "area": {
-          "shape": "",
-          "size": "",
-          "placeTemplate": false,
-          "quantity": 1
-        },
-        "target": {
-          "quantity": 1,
-          "type": "object"
-        },
-        "rolls": {
-          "gdR2mGnYfGBsk2ZY": {
-            "bonus": "3",
-            "critThreshold": "20",
-            "type": "attack",
-            "attackType": "meleeWeaponAttack",
-            "ability": "default"
-          },
-          "ut4E7BIwVCXdj5oE": {
-            "canCrit": true,
-            "damageType": "piercing",
-            "formula": "1d4 + min(@finesse.mod,0) + 3",
-            "name": "Dagger",
-            "type": "damage"
-          }
-        },
-        "consumers": {}
-      },
-      "Aga6R8X5yZvEDvQZ": {
-        "name": "Throw",
-        "activation": {
-          "type": "action",
-          "cost": 1
-        },
-        "consumers": {
-          "tKRcOOXuwFUpaoJu": {
-            "type": "itemUses",
-            "default": true,
-            "quantity": 1
-          }
-        },
-        "rolls": {
-          "ogBmC1GTVz1iLcZ7": {
-            "type": "attack",
-            "default": true,
-            "attackType": "rangedWeaponAttack",
-            "proficient": false,
-            "ability": "none",
-            "label": "Improvised Weapon",
-            "bonus": "3"
-          },
-          "0i7Jt3CBmcPKMt6R": {
-            "type": "damage",
-            "default": true,
-            "formula": "1d6 + @finesse.mod + 3",
-            "damageType": "bludgeoning"
-          }
-        },
-        "prompts": {},
-        "uses": {
-          "value": 0,
-          "max": "",
-          "per": "",
-          "recharge": {
-            "formula": "1d6",
-            "threshold": 6
-          }
-        },
-        "ranges": {
-          "6KwokoOQqGY5t6eg": {
-            "range": 20,
-            "unit": "feet"
-          },
-          "Qtr2HpiDpsK56GaE": {
-            "range": 60,
-            "unit": "feet"
-          }
-        },
-        "target": {
-          "type": "creatureObject",
-          "quantity": 1
-        }
-      },
-      "aza7JPf4rzCtSfgE": {
-        "name": "Throw (Off-Hand)",
-        "activation": {
-          "type": "action",
-          "cost": 1
-        },
-        "consumers": {
-          "tKRcOOXuwFUpaoJu": {
-            "type": "itemUses",
-            "default": true,
-            "quantity": 1
-          }
-        },
-        "rolls": {
-          "ogBmC1GTVz1iLcZ7": {
-            "type": "attack",
-            "default": true,
-            "attackType": "rangedWeaponAttack",
-            "proficient": false,
-            "ability": "none",
-            "label": "Improvised Weapon",
-            "bonus": "3"
-          },
-          "0i7Jt3CBmcPKMt6R": {
-            "type": "damage",
-            "default": true,
-            "formula": "1d6 + min(@finesse.mod,0) + 3",
-            "damageType": "bludgeoning"
-          }
-        },
-        "prompts": {},
-        "uses": {
-          "value": 0,
-          "max": "",
-          "per": "",
-          "recharge": {
-            "formula": "1d6",
-            "threshold": 6
-          }
-        },
-        "ranges": {
-          "6KwokoOQqGY5t6eg": {
-            "range": 20,
-            "unit": "feet"
-          },
-          "Qtr2HpiDpsK56GaE": {
-            "range": 60,
-            "unit": "feet"
-          }
-        },
-        "target": {
-          "type": "creatureObject",
-          "quantity": 1
-        }
-      }
-    },
-    "description": "<p><em>Dual-Wielding, Finesse, Flamboyant, Simple, Thrown</em></p>\n<p>&nbsp;</p>\n<p>This war fan can&nbsp;be used as a @UUID[Compendium.a5e.a5e-adventuring-gear.Item.xy2bn4687azmkadw]{Shield, Light}&nbsp; and as a @UUID[Compendium.a5e.a5e-adventuring-gear.Item.vzmgutyegssa2akj]{Dagger}, and has the flamboyant property.</p>",
-    "favorite": false,
-    "secretDescription": "",
-    "source": "",
-    "uses": {
-      "value": 1,
-      "max": "1",
-      "per": null,
-      "recharge": {
-        "formula": "1d6",
-        "threshold": 6
-      }
-    },
-    "schema": {
-      "version": null,
-      "lastMigration": null
-    },
-    "ammunitionProperties": [],
-    "armorCategory": "",
-    "armorProperties": [],
-    "attuned": false,
-    "bulky": false,
-    "craftingComponents": "+2 weapon that has hit a monster of CR 15 or higher",
-    "containerId": "",
-    "damagedState": 0,
-    "equippedState": 0,
-    "items": {},
-    "materialProperties": [],
-    "objectType": "weapon",
-    "plotItem": false,
-    "price": "8,000 gp",
-    "proficient": true,
-    "quantity": 1,
-    "rarity": "veryRare",
-    "requiresAttunement": false,
-    "shieldCategory": "",
-    "shieldProperties": [],
-    "unidentified": false,
-    "unidentifiedDescription": "",
-    "unidentifiedName": "",
-    "weaponProperties": [
-      "dualWielding",
-      "finesse",
-      "simple",
-      "flamboyant",
-      "thrown"
-    ],
-    "weight": 1,
-    "schemaVersion": {
-      "version": 0.011,
-      "lastMigration": {
-        "version": {
-          "schema": 0.01,
-          "foundry": "11.315",
-          "system": "0.16.37"
-        }
-      }
-    }
-  },
-  "folder": "p4fk321k9dN3oTD5",
-  "_stats": {
-    "systemId": "a5e",
-    "systemVersion": "0.16.48",
-    "coreVersion": "11.315",
-    "createdTime": 1707068626305,
-    "modifiedTime": 1707068822645,
-    "lastModifiedBy": "BDqRFxyWZFKs757e"
-  }
+	"name": "Tessen +3",
+	"type": "object",
+	"img": "icons/commodities/cloth/cloth-bolt-green.webp",
+	"effects": [],
+	"flags": {},
+	"system": {
+		"ac": {
+			"baseFormula": "1",
+			"formula": "",
+			"maxDex": 0,
+			"minStr": 0,
+			"mode": 1,
+			"requiresNoShield": false,
+			"requiresUnarmored": false
+		},
+		"actions": {
+			"CYURkv9sK45wkGZn": {
+				"name": "Tessen",
+				"activation": {
+					"cost": "",
+					"type": "",
+					"reactionTrigger": ""
+				},
+				"duration": {
+					"unit": "",
+					"value": ""
+				},
+				"area": {
+					"shape": "",
+					"size": "",
+					"placeTemplate": false,
+					"quantity": 1
+				},
+				"target": {
+					"quantity": 1,
+					"type": "object"
+				},
+				"rolls": {
+					"gdR2mGnYfGBsk2ZY": {
+						"bonus": "3",
+						"critThreshold": "20",
+						"type": "attack",
+						"attackType": "meleeWeaponAttack",
+						"ability": "default"
+					},
+					"ut4E7BIwVCXdj5oE": {
+						"canCrit": true,
+						"damageType": "piercing",
+						"formula": "1d4 + @finesse.mod + 3",
+						"name": "Dagger",
+						"type": "damage"
+					}
+				},
+				"consumers": {}
+			},
+			"911iDf2vrTJjuO4V": {
+				"name": "Tessen (Off-Hand)",
+				"activation": {
+					"cost": "",
+					"type": "",
+					"reactionTrigger": ""
+				},
+				"duration": {
+					"unit": "",
+					"value": ""
+				},
+				"area": {
+					"shape": "",
+					"size": "",
+					"placeTemplate": false,
+					"quantity": 1
+				},
+				"target": {
+					"quantity": 1,
+					"type": "object"
+				},
+				"rolls": {
+					"gdR2mGnYfGBsk2ZY": {
+						"bonus": "3",
+						"critThreshold": "20",
+						"type": "attack",
+						"attackType": "meleeWeaponAttack",
+						"ability": "default"
+					},
+					"ut4E7BIwVCXdj5oE": {
+						"canCrit": true,
+						"damageType": "piercing",
+						"formula": "1d4 + min(@finesse.mod,0) + 3",
+						"name": "Dagger",
+						"type": "damage"
+					}
+				},
+				"consumers": {}
+			},
+			"Aga6R8X5yZvEDvQZ": {
+				"name": "Throw",
+				"activation": {
+					"type": "action",
+					"cost": 1
+				},
+				"consumers": {
+					"tKRcOOXuwFUpaoJu": {
+						"type": "itemUses",
+						"default": true,
+						"quantity": 1
+					}
+				},
+				"rolls": {
+					"ogBmC1GTVz1iLcZ7": {
+						"type": "attack",
+						"default": true,
+						"attackType": "rangedWeaponAttack",
+						"proficient": false,
+						"ability": "none",
+						"label": "Improvised Weapon",
+						"bonus": "3"
+					},
+					"0i7Jt3CBmcPKMt6R": {
+						"type": "damage",
+						"default": true,
+						"formula": "1d6 + @finesse.mod + 3",
+						"damageType": "bludgeoning"
+					}
+				},
+				"prompts": {},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"threshold": 6
+					}
+				},
+				"ranges": {
+					"6KwokoOQqGY5t6eg": {
+						"range": 20,
+						"unit": "feet"
+					},
+					"Qtr2HpiDpsK56GaE": {
+						"range": 60,
+						"unit": "feet"
+					}
+				},
+				"target": {
+					"type": "creatureObject",
+					"quantity": 1
+				}
+			},
+			"aza7JPf4rzCtSfgE": {
+				"name": "Throw (Off-Hand)",
+				"activation": {
+					"type": "action",
+					"cost": 1
+				},
+				"consumers": {
+					"tKRcOOXuwFUpaoJu": {
+						"type": "itemUses",
+						"default": true,
+						"quantity": 1
+					}
+				},
+				"rolls": {
+					"ogBmC1GTVz1iLcZ7": {
+						"type": "attack",
+						"default": true,
+						"attackType": "rangedWeaponAttack",
+						"proficient": false,
+						"ability": "none",
+						"label": "Improvised Weapon",
+						"bonus": "3"
+					},
+					"0i7Jt3CBmcPKMt6R": {
+						"type": "damage",
+						"default": true,
+						"formula": "1d6 + min(@finesse.mod,0) + 3",
+						"damageType": "bludgeoning"
+					}
+				},
+				"prompts": {},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"threshold": 6
+					}
+				},
+				"ranges": {
+					"6KwokoOQqGY5t6eg": {
+						"range": 20,
+						"unit": "feet"
+					},
+					"Qtr2HpiDpsK56GaE": {
+						"range": 60,
+						"unit": "feet"
+					}
+				},
+				"target": {
+					"type": "creatureObject",
+					"quantity": 1
+				}
+			}
+		},
+		"description": "<p><em>Dual-Wielding, Finesse, Flamboyant, Simple, Thrown</em></p>\n<p>&nbsp;</p>\n<p>This war fan can&nbsp;be used as a @UUID[Compendium.a5e.a5e-adventuring-gear.Item.xy2bn4687azmkadw]{Shield, Light}&nbsp; and as a @UUID[Compendium.a5e.a5e-adventuring-gear.Item.vzmgutyegssa2akj]{Dagger}, and has the flamboyant property.</p>",
+		"favorite": false,
+		"secretDescription": "",
+		"source": "",
+		"uses": {
+			"value": 1,
+			"max": "1",
+			"per": null,
+			"recharge": {
+				"formula": "1d6",
+				"threshold": 6
+			}
+		},
+		"schema": {
+			"version": null,
+			"lastMigration": null
+		},
+		"ammunitionProperties": [],
+		"armorCategory": "",
+		"armorProperties": [],
+		"attuned": false,
+		"bulky": false,
+		"craftingComponents": "+2 weapon that has hit a monster of CR 15 or higher",
+		"containerId": "",
+		"damagedState": 0,
+		"equippedState": 0,
+		"items": {},
+		"materialProperties": [],
+		"objectType": "weapon",
+		"plotItem": false,
+		"price": "8,000 gp",
+		"proficient": true,
+		"quantity": 1,
+		"rarity": "veryRare",
+		"requiresAttunement": false,
+		"shieldCategory": "",
+		"shieldProperties": [],
+		"unidentified": false,
+		"unidentifiedDescription": "",
+		"unidentifiedName": "",
+		"weaponProperties": [
+			"dualWielding",
+			"finesse",
+			"simple",
+			"flamboyant",
+			"thrown"
+		],
+		"weight": 1,
+		"schemaVersion": {
+			"version": 0.011,
+			"lastMigration": {
+				"version": {
+					"schema": 0.01,
+					"foundry": "11.315",
+					"system": "0.16.37"
+				}
+			}
+		}
+	},
+	"folder": null,
+	"_id": "3bj53e9m6iart6rx"
 }
