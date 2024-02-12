@@ -1,7 +1,6 @@
 <script lang="ts">
     import { createEventDispatcher } from "svelte";
     import { localize } from "#runtime/svelte/helper";
-    import { get } from "svelte/store";
 
     export let active = false;
     export let disabled = false;
@@ -10,6 +9,8 @@
     export let red = false;
     export let label = "";
     export let tight = false;
+    export let tooltipDirection = "UP";
+    export let tooltipText = "";
     export let value = "";
 
     function getColorData(color: string): string {
@@ -62,12 +63,7 @@
         `;
     }
 
-    function getColor(
-        green: boolean,
-        red: boolean,
-        orange: boolean,
-        disabled: boolean,
-    ): string {
+    function getColor(green, red, orange, disabled): string {
         if (green) return "green";
         if (disabled) return "disabled";
         if (red) return "red";
@@ -89,6 +85,8 @@
         class:tag--tight={tight}
         {disabled}
         {value}
+        data-tooltip={tooltipText}
+        data-tooltip-direction={tooltipDirection}
         on:click|preventDefault={() => dispatch("tagToggle", value)}
         on:auxclick|preventDefault={() => dispatch("tagToggleAux", value)}
     >
