@@ -1,4 +1,4 @@
-import type { ActorGrant } from 'types/actorGrants';
+import type { ActorGrant, TraitGrant } from 'types/actorGrants';
 import type { Grant } from 'types/itemGrants';
 import type ItemGrantsManager from './ItemGrantsManager';
 
@@ -33,6 +33,27 @@ export default class ActorGrantsManger extends Map<string, ActorGrant> {
     return [...this.values()].filter((grant) => grant.grantType === type);
   }
 
+  // *************************************************************
+  // Data Retrieval Methods
+  // *************************************************************
+  getGrantedTraits(type: string): Record<string, any> {
+    const grants = this.byType('trait') as TraitGrant[];
+
+    return grants.reduce((acc, grant) => {
+      if (grant.traitData.traitType !== type) return acc;
+
+      acc[grant.grantId] = {
+        itemId: grant.itemUuid,
+        traits: grant.traitData.traits
+      };
+
+      return acc;
+    }, {});
+  }
+
+  // *************************************************************
+  // Update Methods
+  // *************************************************************
   async applyGrant(itemId: string): Promise<void> {
     if (!itemId) return;
     const item = this.actor.items.get(itemId);

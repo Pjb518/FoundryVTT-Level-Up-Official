@@ -858,6 +858,7 @@ export default class ActorA5e extends Actor {
     data.heading ??= 'A5E.ArmorProficiencies';
     data.propertyKey ??= 'system.proficiencies.armor';
     data.configObject ??= CONFIG.A5E.armor;
+    data.type ??= 'armorTypes';
 
     this.#configure('armor', title, data, options);
   }
@@ -868,6 +869,7 @@ export default class ActorA5e extends Actor {
     data.heading ??= 'A5E.ConditionImmunities';
     data.configObject ??= CONFIG.A5E.conditions;
     data.propertyKey ??= 'system.traits.conditionImmunities';
+    data.type ??= 'conditionImmunities';
 
     this.#configure('conditionImmunities', title, data, options);
   }
@@ -878,6 +880,7 @@ export default class ActorA5e extends Actor {
     data.heading ??= 'A5E.CreatureTypePlural';
     data.configObject ??= CONFIG.A5E.creatureTypes;
     data.propertyKey ??= 'system.details.creatureTypes';
+    data.type ??= 'creatureTypes';
 
     this.#configure('types', title, data, options);
   }
@@ -894,6 +897,7 @@ export default class ActorA5e extends Actor {
     data.heading ??= 'A5E.CreatureTerrains';
     data.configObject ??= CONFIG.A5E.terrainTypes;
     data.propertyKey ??= 'system.details.terrain';
+    data.type ??= 'creatureTerrains';
 
     this.#configure('terrain', `${this.name}: Configure Creature Terrains`, data, options);
   }
@@ -904,6 +908,7 @@ export default class ActorA5e extends Actor {
     data.heading ??= 'A5E.DamageTypePlural';
     data.configObject ??= CONFIG.A5E.damageTypes;
     data.propertyKey ??= 'system.traits.damageImmunities';
+    data.type ??= 'damageImmunities';
 
     this.#configure('damageImmunities', title, data, options);
   }
@@ -914,6 +919,7 @@ export default class ActorA5e extends Actor {
     data.heading ??= 'A5E.DamageTypePlural';
     data.configObject ??= CONFIG.A5E.damageTypes;
     data.propertyKey ??= 'system.traits.damageResistances';
+    data.type ??= 'damageResistances';
 
     this.#configure('damageResistances', title, data, options);
   }
@@ -924,6 +930,7 @@ export default class ActorA5e extends Actor {
     data.heading ??= 'A5E.DamageTypePlural';
     data.configObject ??= CONFIG.A5E.damageTypes;
     data.propertyKey ??= 'system.traits.damageVulnerabilities';
+    data.type ??= 'damageVulnerabilities';
 
     this.#configure('damageVulnerabilities', title, data, options);
   }
@@ -945,6 +952,7 @@ export default class ActorA5e extends Actor {
     data.heading ??= 'A5E.Languages';
     data.configObject ??= CONFIG.A5E.languages;
     data.propertyKey ??= 'system.proficiencies.languages';
+    data.type ??= 'languages';
 
     this.#configure('languages', title, data, options);
   }
@@ -960,6 +968,7 @@ export default class ActorA5e extends Actor {
     data.heading ??= 'A5E.ManeuverTraditionPlural';
     data.configObject ??= CONFIG.A5E.maneuverTraditions;
     data.propertyKey ??= 'system.proficiencies.traditions';
+    data.type ??= 'maneuverTraditions';
 
     this.#configure('maneuverTraditions', title, data, options);
   }
@@ -975,6 +984,7 @@ export default class ActorA5e extends Actor {
     data.heading ??= 'A5E.SizeCategory';
     data.configObject ??= CONFIG.A5E.actorSizes;
     data.propertyKey ??= 'system.traits.size';
+    data.type ??= 'size';
 
     this.#configure('size', title, data, options);
   }
@@ -991,8 +1001,10 @@ export default class ActorA5e extends Actor {
   configureToolProficiencies(data = {}, options = {}) {
     const title = localize('A5E.ToolProficienciesConfigurationPrompt', { name: this.name });
 
+    data.heading ??= 'A5E.ToolProficiencies';
     data.configObject ??= CONFIG.A5E.tools;
     data.propertyKey ??= 'system.proficiencies.tools';
+    data.type ??= 'tools';
 
     this.#configure('tools', title, data, options);
   }
@@ -1000,8 +1012,10 @@ export default class ActorA5e extends Actor {
   configureWeaponProficiencies(data = {}, options = {}) {
     const title = localize('A5E.WeaponProficienciesConfigurationPrompt', { name: this.name });
 
+    data.heading ??= 'A5E.WeaponPlural';
     data.configObject ??= CONFIG.A5E.weapons;
     data.propertyKey ??= 'system.proficiencies.weapons';
+    data.type ??= 'weapons';
 
     this.#configure('weapons', title, data, options);
   }
