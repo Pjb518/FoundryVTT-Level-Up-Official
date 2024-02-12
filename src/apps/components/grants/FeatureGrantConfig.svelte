@@ -6,9 +6,10 @@
     import updateDocumentDataFromField from "../../../utils/updateDocumentDataFromField";
 
     import Checkbox from "../Checkbox.svelte";
-    import Section from "../Section.svelte";
     import DropArea from "../dropAreas/DropArea.svelte";
     import DropTag from "../DropTag.svelte";
+    import FieldWrapper from "../FieldWrapper.svelte";
+    import Section from "../Section.svelte";
 
     export let { document, grantId, grantType } =
         getContext("#external").application;
@@ -61,7 +62,6 @@
 </script>
 
 <form>
-    {console.log(grant)}
     <!-- svelte-ignore a11y-no-noninteractive-element-interactions -->
     <header class="sheet-header">
         <!-- svelte-ignore a11y-click-events-have-key-events -->
@@ -114,7 +114,16 @@
         />
     </Section>
 
-    <Section heading="Grant Config">
+    <Section heading="Grant Config" --a5e-section-body-gap="0.75rem">
+        <FieldWrapper heading="Total Count">
+            <input
+                type="number"
+                value={grant.features.total ?? 0}
+                on:change={({ target }) =>
+                    onUpdateValue("features.total", Number(target.value))}
+            />
+        </FieldWrapper>
+
         <Checkbox
             label="Mark grant as optional"
             checked={grant.optional ?? false}
