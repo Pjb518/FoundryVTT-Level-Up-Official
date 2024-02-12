@@ -1,19 +1,26 @@
-<script>
+<script lang="ts">
     import { createEventDispatcher } from "svelte";
 
     import CheckboxGroup from "./CheckboxGroup.svelte";
     import FieldWrapper from "./FieldWrapper.svelte";
 
-    export let options = [];
-    export let selected = [];
-    export let disabledOptions = [];
     export let disabled = false;
-    export let orange = [];
-    export let red = [];
-    export let showCustomInput = true;
+    export let disabledOptions: string[] = [];
     export let heading = "";
+    export let hint = "";
+    export let listClasses = "";
+    export let options: string[][] = [];
+    export let optionStyles = "";
+    export let orange: string[] = [];
+    export let red: string[] = [];
+    export let selected: string[] = [];
+    export let showCustomInput = true;
+    export let showToggleAllButton = true;
+    export let showWarning = false;
+    export let tooltipData: Record<string, string> = {};
+    export let warning = "";
 
-    function splitCustomSelections(value) {
+    function splitCustomSelections(value: string): string[] {
         return value
             .split(";")
             .map((option) => option.trim())
@@ -22,7 +29,6 @@
 
     function updateSelections() {
         selected = [...selectedCoreOptions, ...selectedCustomOptions];
-
         dispatch("updateSelection", selected);
     }
 
@@ -42,13 +48,19 @@
 
 <CheckboxGroup
     {heading}
+    {hint}
+    {listClasses}
     {options}
+    {optionStyles}
+    {orange}
+    {red}
     selected={selectedCoreOptions}
     {disabled}
     {disabledOptions}
-    {red}
-    {orange}
-    showToggleAllButton={true}
+    {showToggleAllButton}
+    {showWarning}
+    {tooltipData}
+    {warning}
     on:updateSelection={(event) => (selectedCoreOptions = event.detail)}
 />
 
@@ -58,8 +70,10 @@
             class="a5e-input"
             type="text"
             value={selectedCustomOptions.join("; ")}
-            on:change={({ target }) =>
-                (selectedCustomOptions = splitCustomSelections(target.value))}
+            on:change={({ target }) => {
+                // @ts-ignore
+                selectedCustomOptions = splitCustomSelections(target.event);
+            }}
         />
     </FieldWrapper>
 {/if}
