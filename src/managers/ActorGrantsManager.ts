@@ -63,14 +63,31 @@ export default class ActorGrantsManger extends Map<string, ActorGrant> {
     );
 
     await dialog.render(true);
-    const promise = await dialog.promise;
+    const promise: {
+      updateData: any,
+      success: boolean,
+      documentData: Map<string, string[]>
+    } = await dialog.promise;
 
     if (!promise?.success) {
       item.delete();
       return;
     }
 
-    this.actor.update(promise.updateData);
+    if (promise.updateData) await this.actor.update(promise.updateData);
+
+    // Create sub items
+    if (!promise.documentData.size) return;
+
+    const updateData: Record<string, any> = {};
+
+    for await (const [grantId, uuids] of promise.documentData) {
+      const docs = await Promise.all(uuids.map(async (uuid) => (await fromUuid(uuid)).toObject()));
+      const ids = (await this.actor.createEmbeddedDocuments('Item', docs)).map((i: any) => i.id);
+      updateData[`system.grants.${grantId}.documentIds`] = ids;
+    }
+
+    await this.actor.update(updateData);
   }
 
   removeGrantsByItem(itemUuid: string): void {
@@ -117,6 +134,13 @@ export default class ActorGrantsManger extends Map<string, ActorGrant> {
           updates[`system.skills.${key}.proficient`] = false;
         });
       }
+    }
+
+    if (grant instanceof GrantCls.feature) {
+      const ids = grant.documentIds;
+      if (!ids?.length) return updates;
+
+      this.actor.deleteEmbeddedDocuments('Item', ids);
     }
 
     if (grant instanceof GrantCls.trait) {
