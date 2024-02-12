@@ -13,7 +13,8 @@ export default function prepareApplyData(
 
     if (['feature', 'item'].includes(grant.grantType)) {
       const data = grant.getApplyData(actor, inputData);
-      const uuids = inputData?.uuids ?? grant?.[grant.grantType]?.base ?? [];
+      const type = `${grant.grantType}s`;
+      const uuids = inputData?.uuids ?? grant?.[type]?.base ?? [];
       documentData.set(id, uuids);
 
       foundry.utils.mergeObject(updateData, (data ?? {}));

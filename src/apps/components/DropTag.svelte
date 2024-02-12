@@ -4,25 +4,78 @@
     import FieldWrapper from "./FieldWrapper.svelte";
 
     export let uuids: string[] = [];
+    export let embeddedData: any[] = [];
+    export let type = "feature";
 
     const dispatch = createEventDispatcher();
 
     function onClick(idx: number) {
-        uuids = uuids.filter((_, i) => i !== idx);
-        dispatch("updateSelection", uuids);
+        if (type === "feature") {
+            uuids = uuids.filter((_, i) => i !== idx);
+            dispatch("updateSelection", uuids);
+        }
+
+        if (type === "item") {
+            embeddedData = embeddedData.filter((_, i) => i !== idx);
+            dispatch("updateSelection", embeddedData);
+        }
     }
 
-    $: documents = uuids.map((uuid) => {
-        const i = fromUuidSync(uuid);
-        return [i.img, i.name];
-    });
+    function onUpdateQuantity(idx: number, value: number) {
+        if (type === "item") {
+            embeddedData[idx].quantityOverride = value;
+            dispatch("updateSelection", embeddedData);
+
+            embeddedData = embeddedData;
+        }
+    }
+
+    function getDocuments(type: string) {
+        if (type === "feature") {
+            return uuids.map((uuid) => {
+                const i = fromUuidSync(uuid);
+                return [i.img, i.name];
+            });
+        }
+
+        if (type === "item") {
+            return embeddedData.map(({ uuid, quantityOverride }) => {
+                const i = fromUuidSync(uuid);
+                console.log(uuid, quantityOverride, i.system.quantity);
+                return [
+                    i.img,
+                    i.name,
+                    quantityOverride || i.system.quantity || 1,
+                ];
+            });
+        }
+
+        return [];
+    }
+
+    // @ts-ignore
+    $: documents = getDocuments(type, uuids, embeddedData);
 </script>
 
 <FieldWrapper --a5e-field-wrapper-direction="row">
-    {#each documents as [img, name], idx}
+    {#each documents as [img, name, quantity], idx}
         <div class="tag-wrapper">
             <img src={img} alt={name} class="tag-img" />
+
             <span class="tag-name">{name}</span>
+
+            {#if type === "item"}
+                <input
+                    type="number"
+                    class="tag-count"
+                    value={quantity}
+                    on:change={({ target }) => {
+                        // @ts-ignore
+                        onUpdateQuantity(idx, target.value);
+                    }}
+                />
+            {/if}
+
             <button
                 class="tag-delete-button"
                 on:click|preventDefault|stopPropagation={() => onClick(idx)}

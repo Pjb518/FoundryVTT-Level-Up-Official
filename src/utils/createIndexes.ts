@@ -67,6 +67,7 @@ export async function createObjectLikeIndex(packId: string) {
       'system.bulky',
       'system.objectType',
       'system.price',
+      'system.quantity',
       'system.rarity',
       'system.source'
     ]

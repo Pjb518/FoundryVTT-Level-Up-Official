@@ -1,9 +1,11 @@
 import BaseGrant from './BaseGrant';
 
+import ItemGrantConfig from '../../../apps/components/grants/ItemGrantConfig.svelte';
+
 export default class ItemGrant extends BaseGrant {
   #component = null;
 
-  #configComponent = null;
+  #configComponent = ItemGrantConfig;
 
   #type = 'item';
 
@@ -12,9 +14,21 @@ export default class ItemGrant extends BaseGrant {
 
     return this.mergeSchema(super.defineSchema(), {
       grantType: new fields.StringField({ required: true, initial: 'item' }),
-      itemData: new fields.SchemaField({
-        uuid: new fields.DocumentIdField({ required: true, initial: '' }),
-        quantityOverride: new fields.NumberField({ required: true, initial: 1, integer: true })
+      items: new fields.SchemaField({
+        base: new fields.ArrayField(
+          new fields.SchemaField({
+            uuid: new fields.StringField({ required: true, initial: '' }),
+            quantityOverride: new fields.NumberField({ required: true, initial: 0, integer: true })
+          }),
+          { required: true, default: [] }
+        ),
+        options: new fields.ArrayField(
+          new fields.SchemaField({
+            uuid: new fields.StringField({ required: true, initial: '' }),
+            quantityOverride: new fields.NumberField({ required: true, initial: 0, integer: true })
+          })
+        ),
+        total: new fields.NumberField({ required: true, default: 0, integer: true })
       }),
       label: new fields.StringField({ required: true, initial: 'New Item Grant' })
     });
@@ -41,7 +55,7 @@ export default class ItemGrant extends BaseGrant {
     const dialogData = {
       document: this?.parent,
       grantId: this._id,
-      grantType: 'item'
+      grantType: this.#type
     };
 
     super.configureGrant(
