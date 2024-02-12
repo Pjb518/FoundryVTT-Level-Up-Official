@@ -41,7 +41,6 @@
         if (type === "item") {
             return embeddedData.map(({ uuid, quantityOverride }) => {
                 const i = fromUuidSync(uuid);
-                console.log(uuid, quantityOverride, i.system.quantity);
                 return [
                     i.img,
                     i.name,
@@ -67,7 +66,7 @@
             {#if type === "item"}
                 <input
                     type="number"
-                    class="tag-count"
+                    class=" tag-count"
                     value={quantity}
                     on:change={({ target }) => {
                         // @ts-ignore
@@ -90,16 +89,25 @@
     .tag-wrapper {
         display: flex;
         align-items: center;
+        background-color: rgba(0, 0, 0, 0.05);
         gap: 0.5rem;
         padding: 0.25rem;
         border-radius: 4px;
-        background: #ddd;
     }
 
     .tag-img {
         width: 1.5rem;
         height: 1.5rem;
         border-radius: 4px;
+    }
+
+    .tag-count {
+        width: 3rem;
+        height: 1.25rem;
+        padding-inline: 0.25rem;
+        padding-block: 0rem;
+        font-size: var(--a5e-text-size-xs);
+        text-align: center;
     }
 
     .tag-delete-button {

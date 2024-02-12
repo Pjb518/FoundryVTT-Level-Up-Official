@@ -33,7 +33,6 @@
     }
 
     function onDropUpdate(key, value) {
-        console.log(key, value);
         if (key === "items.base") {
             if (baseUuids.includes(value)) return;
 
@@ -69,7 +68,6 @@
 </script>
 
 <form>
-    {console.log(grant)}
     <!-- svelte-ignore a11y-no-noninteractive-element-interactions -->
     <header class="sheet-header">
         <!-- svelte-ignore a11y-click-events-have-key-events -->
@@ -108,7 +106,7 @@
         />
     </Section>
 
-    <!-- <Section heading="Optional Items" --a5e-section-margin="0.25rem 0">
+    <Section heading="Optional Items" --a5e-section-margin="0.25rem 0">
         <DropArea
             type="uuid"
             documentType="Item"
@@ -117,12 +115,12 @@
         />
 
         <DropTag
-            uuids={optionalUuids}
+            embeddedData={grant.items.options}
             type="item"
             on:updateSelection={({ detail }) =>
                 onUpdateValue("items.options", detail)}
         />
-    </Section> -->
+    </Section>
 
     <Section heading="Grant Config" --a5e-section-body-gap="0.75rem">
         <FieldWrapper heading="Total Count">
