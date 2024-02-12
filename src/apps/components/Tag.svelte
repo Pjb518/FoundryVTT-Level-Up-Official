@@ -1,26 +1,91 @@
-<script>
+<script lang="ts">
     import { createEventDispatcher } from "svelte";
     import { localize } from "#runtime/svelte/helper";
+    import { get } from "svelte/store";
 
     export let active = false;
     export let disabled = false;
-    export let label;
-    export let orange = false;
     export let optionStyles = "";
+    export let orange = false;
     export let red = false;
+    export let label = "";
     export let tight = false;
-    export let value;
+    export let value = "";
+
+    function getColorData(color: string): string {
+        if (color === "red") {
+            return `
+                --tag-font-color: hsl(0, 58%, 100%);
+                --tag-background-color: hsl(0, 58%, 35%);
+                --tag-border-color: hsl(0, 58%, 28%);
+                --tag-hover-background-color: hsl(0, 58%, 35%);
+                --tag-hover-font-color: var(--color-hover, hsl(0, 58%, 100%));
+            `;
+        }
+
+        if (color === "orange") {
+            return `
+                --tag-font-color: hsl(36, 58%, 100%);
+                --tag-background-color: hsl(36, 58%, 35%);
+                --tag-border-color: hsl(36, 58%, 28%);
+                --tag-hover-background-color: hsl(36, 58%, 35%);
+                --tag-hover-font-color: var(--color-hover, hsl(36, 58%, 100%));
+            `;
+        }
+
+        if (color === "green") {
+            return `
+                --tag-font-color: hsl(190, 21%, 100%);
+                --tag-background-color: hsl(190, 21%, 33%);
+                --tag-border-color: hsl(190, 21%, 28%);
+                --tag-hover-background-color: hsl(190, 21%, 33%);
+                --tag-hover-font-color: var(--color-hover, hsl(190, 21%, 100%));
+            `;
+        }
+
+        if (color === "disabled") {
+            return `
+                --tag-font-color: hsl(0, 0%, 100%);
+                --tag-background-color: hsl(0, 0%, 67%);
+                --tag-border-color: hsl(0, 0%, 60%);
+                --tag-hover-background-color: hsl(0, 0%, 67%);
+                --tag-hover-font-color: var(--color-hover, hsl(0, 0%, 100%));
+            `;
+        }
+
+        return `
+            --tag-font-color: inherit;
+            --tag-background-color: transparent;
+            --tag-border-color: #706b55;
+            --tag-hover-background-color: #d8d4c6;
+            --tag-hover-font-color: var(--color-hover, inherit);
+        `;
+    }
+
+    function getColor(
+        green: boolean,
+        red: boolean,
+        orange: boolean,
+        disabled: boolean,
+    ): string {
+        if (green) return "green";
+        if (disabled) return "disabled";
+        if (red) return "red";
+        if (orange) return "orange";
+        return "default";
+    }
 
     const dispatch = createEventDispatcher();
+
+    $: color = getColor(active, red, orange, disabled);
+    $: colorStyles = getColorData(color);
+    $: style = `${colorStyles} ${optionStyles}`;
 </script>
 
 <li>
     <button
         class="tag"
-        style={optionStyles}
-        class:tag--active={active}
-        class:tag--orange={orange}
-        class:tag--red={red}
+        {style}
         class:tag--tight={tight}
         {disabled}
         {value}
@@ -34,90 +99,25 @@
 <style lang="scss">
     .tag {
         all: unset;
-        background: transparent;
+        background: var(--tag-background-color, transparent);
         display: inline;
         padding: 0.15rem 0.4rem;
-        border: 1px solid darken(#7e7960, 5%);
+        border: 1px solid var(--tag-border-color);
         border-radius: $border-radius-standard;
-        color: inherit;
+        color: var(--tag-font-color, inherit);
         transition: $standard-transition;
         white-space: normal;
         cursor: pointer;
 
         &:hover,
         &:focus {
-            background: darken(#dddace, 2.5%);
-            color: var(--color-hover, inherit);
-        }
-
-        &--red {
-            border-color: darken($color-secondary, 5%);
-            background: $color-secondary;
-            color: lighten($color-secondary, 95%);
-
-            &:hover,
-            &:focus {
-                background: $color-secondary;
-                color: lighten($color-secondary, 80%);
-            }
-
-            &:disabled,
-            &[disabled],
-            &:disabled:hover,
-            &[disabled]:hover {
-                background: $color-secondary;
-                color: lighten($color-secondary, 95%);
-            }
-        }
-
-        &--orange {
-            border-color: darken($color-warning, 5%);
-            background: $color-warning;
-            color: lighten($color-warning, 95%);
-
-            &:hover,
-            &:focus {
-                background: $color-warning;
-                color: lighten($color-warning, 80%);
-            }
-
-            &:disabled,
-            &[disabled],
-            &:disabled:hover,
-            &[disabled]:hover {
-                background: $color-warning;
-                color: lighten($color-warning, 95%);
-            }
+            background: var(--tag-hover-background-color);
+            color: var(--tag-hover-font-color);
         }
 
         &:disabled,
         &[disabled] {
-            background: $color-disabled;
-            border: 1px solid #999;
-            color: white;
             cursor: auto;
-
-            &:hover,
-            &:focus {
-                background: $color-disabled;
-            }
-        }
-
-        &--active {
-            border-color: $color-primary;
-            background: $color-primary;
-            color: lighten($color-primary, 80%);
-
-            &:hover,
-            &:focus {
-                background: $color-primary;
-                color: lighten($color-primary, 80%);
-            }
-
-            &:disabled,
-            &[disabled] {
-                color: lighten($color-primary, 95%);
-            }
         }
 
         &--tight {
