@@ -7,7 +7,7 @@
     export let documentType = "";
 
     function onDrop(dragEvent: DragEvent) {
-        if (!type) dispatch("document-dropper", dragEvent);
+        if (!type) dispatch("document-dropped", dragEvent);
 
         if (type === "uuid") {
             try {
@@ -18,7 +18,7 @@
                     JSON.parse(dataTransfer.getData("text/plain"));
 
                 if (type !== documentType) return;
-                dispatch("document-dropper", { dragEvent, uuid });
+                dispatch("document-dropped", { dragEvent, uuid });
             } catch (err) {
                 console.error(err);
             }

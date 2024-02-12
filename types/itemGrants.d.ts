@@ -57,6 +57,15 @@ export interface DamageGrant extends BaseGrant {
   }
 }
 
+export interface FeatureGrant extends BaseGrant {
+  grantType: 'feature';
+  features: {
+    base: string[],
+    options: string[],
+    total: number,
+  };
+}
+
 export interface HealingGrant extends BaseGrant {
   grantType: 'healing';
   bonus: string;
