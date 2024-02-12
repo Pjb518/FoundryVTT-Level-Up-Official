@@ -32,6 +32,34 @@ class BonusGrant extends ActorBaseGrant {
   }
 }
 
+class FeatureGrant extends ActorBaseGrant {
+  static defineSchema() {
+    const { fields } = foundry.data;
+
+    return this.mergeSchema(super.defineSchema(), {
+      grantType: new fields.StringField({ required: true, initial: 'feature' }),
+      documentIds: new fields.ArrayField(
+        new fields.DocumentIdField({ required: true, initial: '' }),
+        { required: true, initial: [] }
+      )
+    });
+  }
+}
+
+class ItemGrant extends ActorBaseGrant {
+  static defineSchema() {
+    const { fields } = foundry.data;
+
+    return this.mergeSchema(super.defineSchema(), {
+      grantType: new fields.StringField({ required: true, initial: 'item' }),
+      documentIds: new fields.ArrayField(
+        new fields.DocumentIdField({ required: true, initial: '' }),
+        { required: true, initial: [] }
+      )
+    });
+  }
+}
+
 class ProficiencyGrant extends ActorBaseGrant {
   static defineSchema() {
     const { fields } = foundry.data;
@@ -71,6 +99,8 @@ class TraitGrant extends ActorBaseGrant {
 export default {
   base: ActorBaseGrant,
   bonus: BonusGrant,
+  feature: FeatureGrant,
+  item: ItemGrant,
   proficiency: ProficiencyGrant,
   trait: TraitGrant
 };

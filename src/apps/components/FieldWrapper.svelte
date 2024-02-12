@@ -1,11 +1,11 @@
-<script>
+<script lang="ts">
     import { localize } from "#runtime/svelte/helper";
 
-    export let buttons = [];
-    export let heading = null;
-    export let hint = null;
+    export let buttons: Record<string, any>[] = [];
+    export let heading: string = "";
+    export let hint: string = "";
     export let showWarning = false;
-    export let warning = null;
+    export let warning: string = "";
 </script>
 
 <section class="a5e-field-wrapper">

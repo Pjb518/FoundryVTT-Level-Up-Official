@@ -1,24 +1,25 @@
-<script>
+<script lang="ts">
     import { createEventDispatcher } from "svelte";
 
     import FieldWrapper from "./FieldWrapper.svelte";
     import Tag from "./Tag.svelte";
 
     export let allowDeselect = true;
-    export let buttons = [];
-    export let disabled = [];
-    export let heading = null;
-    export let hint = null;
+    export let buttons: any[] = [];
+    export let disabled: string[] = [];
+    export let heading = "";
+    export let hint = "";
     export let listClasses = "";
     export let optionStyles = "";
-    export let options = [];
+    export let options: string[][] = [];
     export let selected = "";
     export let showWarning = false;
-    export let warning = null;
+    export let tooltipData: Record<string, string> = {};
+    export let warning = "";
 
     const dispatch = createEventDispatcher();
 
-    function updateSelection(value) {
+    function updateSelection(value: string) {
         if (allowDeselect) {
             dispatch("updateSelection", value === selected ? "" : value);
         } else {
@@ -46,6 +47,7 @@
                 {optionStyles}
                 {value}
                 disabled={disabled.includes(value)}
+                tooltipText={tooltipData?.[value] ?? ""}
                 on:tagToggle={({ detail }) => updateSelection(detail)}
             />
         {/each}

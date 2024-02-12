@@ -41,10 +41,15 @@
     }
 
     function onSubmit() {
-        const updateData = prepareGrantsApplyData(actor, grants, applyData);
+        const { updateData, documentData } =
+            prepareGrantsApplyData(actor, grants, applyData) ?? {};
+
+        console.log(documentData);
+
         dialog.submit({
             success: true,
             updateData,
+            documentData,
         });
     }
 

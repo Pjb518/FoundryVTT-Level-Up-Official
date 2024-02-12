@@ -9,14 +9,29 @@
     import RadioGroup from "../components/RadioGroup.svelte";
     import Section from "../components/Section.svelte";
 
-    export let { document, appId, propertyKey, configObject, heading } =
+    export let { document, appId, propertyKey, configObject, heading, type } =
         getContext("#external").application;
+
+    function getTooltipData() {
+        const grantData = $actor.grants.getGrantedTraits(type);
+
+        const data = {};
+        for (const value of Object.values(grantData)) {
+            value.traits.forEach((trait) => {
+                const docName = fromUuidSync(value.itemId)?.name;
+                data[trait] = `Granted by ${docName}`;
+            });
+        }
+
+        return data;
+    }
 
     const actor = document;
     const options = Object.entries(configObject);
-    const isRadioGroup = ["system.traits.size"].includes(propertyKey);
+    const isRadioGroup = ["size"].includes(type);
 
     $: selected = foundry.utils.getProperty($actor, propertyKey);
+    $: tooltipData = getTooltipData($actor);
 </script>
 
 <Section --a5e-section-body-padding="0.75rem" --a5e-section-body-gap="0.75rem">
@@ -41,6 +56,7 @@
                 {heading}
                 {options}
                 {selected}
+                {tooltipData}
                 on:updateSelection={(event) =>
                     updateDocumentDataFromField(
                         $actor,

@@ -57,6 +57,15 @@ export interface DamageGrant extends BaseGrant {
   }
 }
 
+export interface FeatureGrant extends BaseGrant {
+  grantType: 'feature';
+  features: {
+    base: string[],
+    options: string[],
+    total: number,
+  };
+}
+
 export interface HealingGrant extends BaseGrant {
   grantType: 'healing';
   bonus: string;
@@ -74,6 +83,21 @@ export interface InitiativeGrant extends BaseGrant {
     abilities: string[],
     skills: string[]
   }
+}
+
+export interface ItemGrant extends BaseGrant {
+  grantType: 'item';
+  items: {
+    base: {
+      uuid: string,
+      quantityOverride: number,
+    }[],
+    options: {
+      uuid: string,
+      quantityOverride: number,
+    }[],
+  }
+  total: number,
 }
 
 export interface MovementGrant extends BaseGrant {
@@ -139,9 +163,11 @@ export type Grant = AbilityGrant
   | AttackGrant
   | DamageGrant
   | HealingGrant
+  | FeatureGrant
   | InitiativeGrant
+  | ItemGrant
   | MovementGrant
   | ProficiencyGrant
   | SensesGrant
   | SkillGrant
-  | TraitGran;
+  | TraitGrant;

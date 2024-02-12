@@ -26,4 +26,4 @@ declare const ui: any;
 declare const warpgate: any;
 
 declare function fromUuid(uuid: string, options: any = {}): Promise<any>;
-declare function fromUuidSync(uuid: string, options: any = {}): Promise<any>;
+declare function fromUuidSync(uuid: string, options: any = {}): any;

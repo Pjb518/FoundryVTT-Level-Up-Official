@@ -1,4 +1,4 @@
-import type { ActorGrant } from 'types/actorGrants';
+import type { ActorGrant, TraitGrant } from 'types/actorGrants';
 import type { Grant } from 'types/itemGrants';
 import type ItemGrantsManager from './ItemGrantsManager';
 
@@ -33,6 +33,27 @@ export default class ActorGrantsManger extends Map<string, ActorGrant> {
     return [...this.values()].filter((grant) => grant.grantType === type);
   }
 
+  // *************************************************************
+  // Data Retrieval Methods
+  // *************************************************************
+  getGrantedTraits(type: string): Record<string, any> {
+    const grants = this.byType('trait') as TraitGrant[];
+
+    return grants.reduce((acc, grant) => {
+      if (grant.traitData.traitType !== type) return acc;
+
+      acc[grant.grantId] = {
+        itemId: grant.itemUuid,
+        traits: grant.traitData.traits
+      };
+
+      return acc;
+    }, {});
+  }
+
+  // *************************************************************
+  // Update Methods
+  // *************************************************************
   async applyGrant(itemId: string): Promise<void> {
     if (!itemId) return;
     const item = this.actor.items.get(itemId);
@@ -63,14 +84,40 @@ export default class ActorGrantsManger extends Map<string, ActorGrant> {
     );
 
     await dialog.render(true);
-    const promise = await dialog.promise;
+    const promise: {
+      updateData: any,
+      success: boolean,
+      documentData: Map<string, any[]>
+    } = await dialog.promise;
 
     if (!promise?.success) {
       item.delete();
       return;
     }
 
-    this.actor.update(promise.updateData);
+    if (promise.updateData) await this.actor.update(promise.updateData);
+
+    // Create sub items
+    if (!promise.documentData.size) return;
+
+    const updateData: Record<string, any> = {};
+
+    for await (const [grantId, docData] of promise.documentData) {
+      const docs = await Promise.all(
+        docData.map(async ([uuid, quantity]: [string, number | null]) => {
+          const doc = (await fromUuid(uuid)).toObject();
+          if (!quantity) return doc;
+
+          doc.system.quantity = quantity;
+          return doc;
+        })
+      );
+
+      const ids = (await this.actor.createEmbeddedDocuments('Item', docs)).map((i: any) => i.id);
+      updateData[`system.grants.${grantId}.documentIds`] = ids;
+    }
+
+    await this.actor.update(updateData);
   }
 
   removeGrantsByItem(itemUuid: string): void {
@@ -117,6 +164,13 @@ export default class ActorGrantsManger extends Map<string, ActorGrant> {
           updates[`system.skills.${key}.proficient`] = false;
         });
       }
+    }
+
+    if (grant instanceof GrantCls.feature || grant instanceof GrantCls.item) {
+      const ids = grant.documentIds;
+      if (!ids?.length) return updates;
+
+      this.actor.deleteEmbeddedDocuments('Item', ids);
     }
 
     if (grant instanceof GrantCls.trait) {
