@@ -1,7 +1,7 @@
 import BaseGrant from './BaseGrant';
 
-import FeatureGrantConfig from '../../../apps/components/grants/FeatureGrantConfig.svelte';
 import DocumentGrantSelectionDialog from '../../../apps/components/grants/DocumentGrantSelectionDialog.svelte';
+import FeatureGrantConfig from '../../../apps/components/grants/FeatureGrantConfig.svelte';
 
 export default class FeatureGrant extends BaseGrant {
   #component = DocumentGrantSelectionDialog;

@@ -10,6 +10,16 @@ export interface BonusGrant extends ActorBaseGrant {
   grantType: 'bonus';
 }
 
+export interface FeatureGrant extends ActorBaseGrant {
+  documentIds: string[];
+  grantType: 'feature';
+}
+
+export interface ItemGrant extends ActorBaseGrant {
+  documentIds: string[];
+  grantType: 'item';
+}
+
 export interface ProficiencyGrant extends ActorBaseGrant {
   proficiencyData: {
     keys: string[],
@@ -28,4 +38,4 @@ export interface TraitGrant extends ActorBaseGrant {
   grantType: 'trait';
 }
 
-export type ActorGrant = BonusGrant | ProficiencyGrant | TraitGrant;
+export type ActorGrant = BonusGrant | FeatureGrant | ItemGrant | ProficiencyGrant | TraitGrant;

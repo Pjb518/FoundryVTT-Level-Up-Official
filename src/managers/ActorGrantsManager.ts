@@ -87,7 +87,7 @@ export default class ActorGrantsManger extends Map<string, ActorGrant> {
     const promise: {
       updateData: any,
       success: boolean,
-      documentData: Map<string, string[]>
+      documentData: Map<string, any[]>
     } = await dialog.promise;
 
     if (!promise?.success) {
@@ -102,8 +102,17 @@ export default class ActorGrantsManger extends Map<string, ActorGrant> {
 
     const updateData: Record<string, any> = {};
 
-    for await (const [grantId, uuids] of promise.documentData) {
-      const docs = await Promise.all(uuids.map(async (uuid) => (await fromUuid(uuid)).toObject()));
+    for await (const [grantId, docData] of promise.documentData) {
+      const docs = await Promise.all(
+        docData.map(async ([uuid, quantity]: [string, number | null]) => {
+          const doc = (await fromUuid(uuid)).toObject();
+          if (!quantity) return doc;
+
+          doc.system.quantity = quantity;
+          return doc;
+        })
+      );
+
       const ids = (await this.actor.createEmbeddedDocuments('Item', docs)).map((i: any) => i.id);
       updateData[`system.grants.${grantId}.documentIds`] = ids;
     }
@@ -157,7 +166,7 @@ export default class ActorGrantsManger extends Map<string, ActorGrant> {
       }
     }
 
-    if (grant instanceof GrantCls.feature) {
+    if (grant instanceof GrantCls.feature || grant instanceof GrantCls.item) {
       const ids = grant.documentIds;
       if (!ids?.length) return updates;
 

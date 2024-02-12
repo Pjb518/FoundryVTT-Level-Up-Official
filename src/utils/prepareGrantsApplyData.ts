@@ -6,18 +6,37 @@ export default function prepareApplyData(
   applyData: Map<string, any>
 ): Record<string, any> {
   const updateData: Record<string, any> = {};
-  const documentData: Map<string, string[]> = new Map();
+  const documentData: Map<string, any[]> = new Map();
 
   grants.forEach(({ id, grant }: { id: string, grant: Grant }) => {
     const inputData = applyData.get(id);
 
-    if (['feature', 'item'].includes(grant.grantType)) {
+    if (grant.grantType === 'feature') {
       const data = grant.getApplyData(actor, inputData);
-      const type = `${grant.grantType}s`;
-      const uuids = inputData?.uuids ?? grant?.[type]?.base ?? [];
-      documentData.set(id, uuids);
+      const uuids = inputData?.uuids ?? grant?.features?.base ?? [];
+      const temp = uuids.map((uuid: string) => [uuid, null]);
+      documentData.set(id, temp);
 
       foundry.utils.mergeObject(updateData, (data ?? {}));
+      return;
+    }
+
+    if (grant.grantType === 'item') {
+      const data = grant.getApplyData(actor, inputData);
+      const uuids: string[] = inputData?.uuids ?? grant.items.base.map(({ uuid }) => uuid) ?? [];
+
+      // Get quantity overrides from the grant
+      const allOptions = [...grant.items.base, ...grant.items.options];
+      const temp = allOptions.reduce((acc: any[], { uuid, quantityOverride }) => {
+        if (!uuids.includes(uuid)) return acc;
+
+        acc.push([uuid, quantityOverride]);
+        return acc;
+      }, []);
+
+      documentData.set(id, temp);
+      foundry.utils.mergeObject(updateData, (data ?? {}));
+
       return;
     }
 

@@ -1,9 +1,10 @@
 import BaseGrant from './BaseGrant';
 
+import DocumentGrantSelectionDialog from '../../../apps/components/grants/DocumentGrantSelectionDialog.svelte';
 import ItemGrantConfig from '../../../apps/components/grants/ItemGrantConfig.svelte';
 
 export default class ItemGrant extends BaseGrant {
-  #component = null;
+  #component = DocumentGrantSelectionDialog;
 
   #configComponent = ItemGrantConfig;
 
@@ -34,8 +35,22 @@ export default class ItemGrant extends BaseGrant {
     });
   }
 
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   getApplyData(actor: any, data: any): any {
     if (!actor) return {};
+
+    const grantData = {
+      itemUuid: this.parent.uuid,
+      grantId: this._id,
+      grantType: this.#type
+    };
+
+    return {
+      'system.grants': {
+        ...actor.system.grants,
+        [this._id]: grantData
+      }
+    };
   }
 
   getSelectionComponent() {
@@ -44,11 +59,15 @@ export default class ItemGrant extends BaseGrant {
 
   getSelectionComponentProps(data: any) {
     return {
+      base: data?.selected ?? this.items.base.map(({ uuid }) => uuid) ?? [],
+      choices: this.items.options.map(({ uuid }) => uuid) ?? [],
+      count: this.items.total,
+      documentType: this.#type
     };
   }
 
   requiresConfig() {
-    return (this.abilities.base.length + this.abilities.options.length) > this.abilities.total;
+    return (this.items.base.length + this.items.options.length) > this.items.total;
   }
 
   override async configureGrant() {

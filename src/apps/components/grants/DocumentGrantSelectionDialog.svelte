@@ -38,7 +38,7 @@
 
     $: options = [...base, ...choices].map((uuid) => {
         const doc = fromUuidSync(uuid);
-        return [doc.uuid, doc.name];
+        return [uuid, doc.name];
     });
 </script>
 
