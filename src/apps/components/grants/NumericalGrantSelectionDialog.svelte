@@ -45,7 +45,7 @@
     $: totalCount = base.length + count;
 
     $: selected = [...base];
-    $: remainingSelections = count - selected.length;
+    $: remainingSelections = totalCount - selected.length;
     $: summary = getGrantSummary(bonus, selected);
 </script>
 
@@ -68,7 +68,7 @@
     <FieldWrapper
         warning={remainingSelections === 1
             ? `1 choice remaining`
-            : `${totalCount - selected.length} choices remaining.`}
+            : `${remainingSelections} choices remaining.`}
         showWarning={selected.length < totalCount}
         --direction="column"
     >

@@ -44,8 +44,6 @@
         const { updateData, documentData } =
             prepareGrantsApplyData(actor, grants, applyData) ?? {};
 
-        console.log(documentData);
-
         dialog.submit({
             success: true,
             updateData,
