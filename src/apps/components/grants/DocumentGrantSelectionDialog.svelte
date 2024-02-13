@@ -13,6 +13,11 @@
     export let count: number;
     export let documentType: string;
 
+    const allOptions = [...base, ...choices].map((uuid) => {
+        const doc = fromUuidSync(uuid);
+        return [uuid, doc.name];
+    });
+
     function getGrantSummary(selected: string[]) {
         // return ` This grant provides a bonus of ${bonus} to ${selected
         //     .map((s) => configObject[s])
@@ -30,31 +35,56 @@
         dispatch("updateSelection", { uuids: selected, summary });
     }
 
+    function getOptions(choicesLocked: boolean): string[][] {
+        if (!choicesLocked) return allOptions;
+
+        const options: string[][] = [];
+        for (const [value, label] of allOptions) {
+            if (choices.includes(value)) {
+                options.push([value, label]);
+            }
+        }
+
+        return options;
+    }
+
     const dispatch = createEventDispatcher();
+    let choicesLocked = true;
 
     $: selected = [...base];
-    $: remainingSelections = count - selected.length;
+    $: totalCount = base.length + count;
+    $: remainingSelections = totalCount - selected.length;
     $: summary = getGrantSummary(selected);
-
-    $: options = [...base, ...choices].map((uuid) => {
-        const doc = fromUuidSync(uuid);
-        return [uuid, doc.name];
-    });
 </script>
 
-<Section heading={getHeading()} --a5e-section-body-gap="0.75rem">
+<Section
+    heading={getHeading()}
+    headerButtons={[
+        {
+            classes: "add-button",
+            handler: () => (choicesLocked = !choicesLocked),
+            htmlString: `<i class="fa-solid ${
+                choicesLocked ? "fa-plus" : "fa-minus"
+            }" />`,
+            tooltip: choicesLocked
+                ? "Locked to Grant Options"
+                : "Free Selection Mode",
+        },
+    ]}
+    --a5e-section-body-gap="0.75rem"
+>
     <FieldWrapper
         warning={remainingSelections === 1
             ? `1 choice remaining`
-            : `${count - selected.length} choices remaining.`}
-        showWarning={selected.length < count}
+            : `${remainingSelections} choices remaining.`}
+        showWarning={selected.length < totalCount}
         --direction="column"
     >
         <CheckboxGroup
-            {options}
+            options={getOptions(choicesLocked)}
             {selected}
             orange={choices}
-            disabled={selected.length >= count}
+            disabled={selected.length >= totalCount}
             on:updateSelection={onUpdateSelection}
         />
     </FieldWrapper>

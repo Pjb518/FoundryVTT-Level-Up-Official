@@ -119,7 +119,7 @@
             }}
         />
 
-        <FieldWrapper heading="Total Count">
+        <FieldWrapper heading="Selectable Options Count">
             <input
                 type="number"
                 value={grant?.traits?.total ?? 0}

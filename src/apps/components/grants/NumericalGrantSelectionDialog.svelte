@@ -1,35 +1,21 @@
-<svelte:options accessors={true} />
+<script lang="ts">
+    import type { ItemGrant } from "types/itemGrants";
 
-<script>
     import { createEventDispatcher } from "svelte";
 
     import CheckboxGroup from "../CheckboxGroup.svelte";
     import FieldWrapper from "../FieldWrapper.svelte";
     import Section from "../Section.svelte";
 
-    export let grant;
-    export let heading;
-    export let base;
-    export let choices;
-    export let configObject;
-    export let count;
-    export let bonus;
+    export let grant: ItemGrant;
+    export let heading: string;
+    export let base: string[];
+    export let choices: string[];
+    export let configObject: Record<string, any> = {};
+    export let count: number;
+    export let bonus: string;
 
-    function getDisabledOptions() {
-        const options = [];
-
-        if (choicesLocked) {
-            options.push(
-                ...Object.keys(configObject).filter(
-                    (key) => !choices.includes(key) || base.includes(key),
-                ),
-            );
-        }
-
-        return options;
-    }
-
-    function getGrantSummary(bonus, selected) {
+    function getGrantSummary(bonus: string, selected: string[]) {
         return ` This grant provides a bonus of ${bonus} to ${selected
             .map((s) => configObject[s])
             .join(", ")}.`;
@@ -40,12 +26,26 @@
         dispatch("updateSelection", { selected, summary });
     }
 
+    function getOptions(choicesLocked: boolean): string[][] {
+        if (!choicesLocked) return Object.entries(configObject);
+
+        const options: string[][] = [];
+        for (const [value, label] of Object.entries(configObject)) {
+            if (choices.includes(value)) {
+                options.push([value, label]);
+            }
+        }
+
+        return options;
+    }
+
     const dispatch = createEventDispatcher();
     let choicesLocked = true;
 
+    $: totalCount = base.length + count;
+
     $: selected = [...base];
     $: remainingSelections = count - selected.length;
-    $: disabledOptions = getDisabledOptions(choicesLocked, grant);
     $: summary = getGrantSummary(bonus, selected);
 </script>
 
@@ -68,16 +68,15 @@
     <FieldWrapper
         warning={remainingSelections === 1
             ? `1 choice remaining`
-            : `${count - selected.length} choices remaining.`}
-        showWarning={selected.length < count}
+            : `${totalCount - selected.length} choices remaining.`}
+        showWarning={selected.length < totalCount}
         --direction="column"
     >
         <CheckboxGroup
-            options={Object.entries(configObject)}
+            options={getOptions(choicesLocked)}
             {selected}
             orange={choices}
-            disabled={selected.length >= count}
-            {disabledOptions}
+            disabled={selected.length >= totalCount}
             on:updateSelection={onUpdateSelection}
         />
     </FieldWrapper>

@@ -85,7 +85,7 @@ export default class ProficiencyGrant extends BaseGrant {
   }
 
   requiresConfig(): boolean {
-    return (this.keys.base.length + this.keys.options.length) > this.keys.total;
+    return this.keys.options.length;
   }
 
   override async configureGrant() {

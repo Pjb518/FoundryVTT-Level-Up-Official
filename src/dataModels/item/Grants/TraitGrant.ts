@@ -84,7 +84,7 @@ export default class TraitGrant extends BaseGrant {
   }
 
   requiresConfig(): boolean {
-    return (this.traits.base.length + this.traits.options.length) > this.traits.total;
+    return this.traits.options.length;
   }
 
   override async configureGrant() {

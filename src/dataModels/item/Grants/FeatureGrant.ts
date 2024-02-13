@@ -62,7 +62,7 @@ export default class FeatureGrant extends BaseGrant {
   }
 
   requiresConfig() {
-    return (this.features.base.length + this.features.options.length) > this.features.total;
+    return this.features.options.length;
   }
 
   override async configureGrant() {

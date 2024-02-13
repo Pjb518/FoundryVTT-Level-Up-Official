@@ -67,7 +67,7 @@ export default class ItemGrant extends BaseGrant {
   }
 
   requiresConfig() {
-    return (this.items.base.length + this.items.options.length) > this.items.total;
+    return this.items.options.length;
   }
 
   override async configureGrant() {

@@ -84,7 +84,7 @@ export default class SensesGrant extends BaseGrant {
   }
 
   requiresConfig() {
-    return (this.senses.base.length + this.senses.options.length) > this.senses.total;
+    return this.senses.options.length;
   }
 
   override async configureGrant() {

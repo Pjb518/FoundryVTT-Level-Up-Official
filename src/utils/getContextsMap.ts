@@ -37,7 +37,7 @@ export default function getContextsMap(type: 'bonus' | 'grant', contextType: str
 
     map.push(
       {
-        heading: 'Total Count',
+        heading: 'Selectable Options Count',
         selectedProperty: 'abilities.total',
         component: 'Number'
       },
@@ -84,7 +84,7 @@ export default function getContextsMap(type: 'bonus' | 'grant', contextType: str
 
     map.push(
       {
-        heading: 'Total Count',
+        heading: 'Selectable Options Count',
         selectedProperty: 'attackTypes.total',
         component: 'Number'
       },
@@ -193,7 +193,7 @@ export default function getContextsMap(type: 'bonus' | 'grant', contextType: str
 
     map.push(
       {
-        heading: 'Total Count',
+        heading: 'Selectable Options Count',
         selectedProperty: 'movementTypes.total',
         component: 'Number'
       },
@@ -235,7 +235,7 @@ export default function getContextsMap(type: 'bonus' | 'grant', contextType: str
 
     map.push(
       {
-        heading: 'Total Count',
+        heading: 'Selectable Options Count',
         selectedProperty: 'senses.total',
         component: 'Number'
       },
@@ -277,7 +277,7 @@ export default function getContextsMap(type: 'bonus' | 'grant', contextType: str
 
     map.push(
       {
-        heading: 'Total Count',
+        heading: 'Selectable Options Count',
         selectedProperty: 'skills.total',
         component: 'Number'
       },

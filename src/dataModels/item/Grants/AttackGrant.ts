@@ -85,7 +85,7 @@ export default class AttackGrant extends BaseGrant {
   }
 
   requiresConfig(): boolean {
-    return this.attackTypes.base.length !== this.attackTypes.total;
+    return this.attackTypes.options.length;
   }
 
   override async configureGrant() {

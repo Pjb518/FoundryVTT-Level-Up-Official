@@ -127,7 +127,7 @@
             }}
         />
 
-        <FieldWrapper heading="Total Count">
+        <FieldWrapper heading="Selectable Options Count">
             <input
                 type="number"
                 value={grant?.keys?.total ?? 0}

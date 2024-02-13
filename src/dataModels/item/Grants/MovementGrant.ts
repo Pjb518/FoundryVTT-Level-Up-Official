@@ -84,9 +84,7 @@ export default class MovementGrant extends BaseGrant {
   }
 
   requiresConfig() {
-    return (
-      this.movementTypes.base.length + this.movementTypes.options.length
-    ) > this.movementTypes.total;
+    return this.movementTypes.choices.length;
   }
 
   override async configureGrant() {

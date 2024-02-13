@@ -114,7 +114,7 @@
     </Section>
 
     <Section heading="Grant Config" --a5e-section-body-gap="0.75rem">
-        <FieldWrapper heading="Total Count">
+        <FieldWrapper heading="Selectable Options Count">
             <input
                 type="number"
                 value={grant.features.total ?? 0}
