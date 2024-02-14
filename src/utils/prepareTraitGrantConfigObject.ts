@@ -44,16 +44,16 @@ export default function prepareTraitGrantConfigObject() {
       label: 'A5E.Size',
       config: Object.entries(CONFIG.A5E.actorSizes),
       propertyKey: 'system.traits.size'
+    },
+    tools: {
+      label: 'A5E.ToolPlural',
+      config: CONFIG.A5E.tools,
+      propertyKey: 'system.proficiencies.tools'
+    },
+    weapons: {
+      label: 'A5E.Weapons',
+      config: CONFIG.A5E.weapons,
+      propertyKey: 'system.proficiencies.weapons'
     }
-    // tools: {
-    //     label: "A5E.ToolPlural",
-    //     config: Object.entries(CONFIG.A5E.tools),
-    //     propertyKey: 'system.proficiencies.tools'
-    // },
-    // weapons: {
-    //     label: "A5E.WeaponPlural",
-    //     config: Object.entries(CONFIG.A5E.weapons),
-    //     propertyKey: 'system.proficiencies.weapons'
-    // },
   };
 }

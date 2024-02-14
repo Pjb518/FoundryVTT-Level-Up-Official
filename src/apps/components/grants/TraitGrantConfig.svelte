@@ -10,6 +10,7 @@
     import FieldWrapper from "../FieldWrapper.svelte";
     import Section from "../Section.svelte";
     import CheckboxGroup from "../CheckboxGroup.svelte";
+    import ComplexDetailEmbed from "../ComplexDetailEmbed.svelte";
 
     export let { document, grantId } = getContext("#external").application;
 
@@ -46,6 +47,7 @@
 
     const item = new TJSDocument(document);
     const configObject = prepareTraitGrantConfigObject();
+    const { weaponCategories, toolCategories } = CONFIG.A5E;
 
     $: grant = $item.system.grants[grantId];
     $: traitType = grant?.traits?.traitType || "armorTypes";
@@ -94,30 +96,65 @@
         </FieldWrapper>
     </Section>
 
+    <!-- Keep this else it breaks when switching from tools to weapons -->
+    {#key traitType}
+        {#if ["tools", "weapons"].includes(traitType)}
+            <Section
+                heading="Base Options"
+                --a5e-section-margin="0.25rem 0"
+                --a5e-section-body-gap="0.75rem"
+            >
+                <ComplexDetailEmbed
+                    configObject={configObject[traitType]?.config}
+                    existingProperties={grant?.traits?.base}
+                    headings={traitType === "tools"
+                        ? toolCategories
+                        : weaponCategories}
+                />
+            </Section>
+
+            <Section
+                heading="Optional Choices"
+                --a5e-section-margin="0.25rem 0"
+                --a5e-section-body-gap="0.75rem"
+            >
+                <ComplexDetailEmbed
+                    configObject={configObject[traitType]?.config}
+                    existingProperties={grant?.traits?.options}
+                    headings={traitType === "tools"
+                        ? toolCategories
+                        : weaponCategories}
+                />
+            </Section>
+        {/if}
+    {/key}
+
     <Section
         heading="Grant Config"
         --a5e-section-margin="0.25rem 0"
         --a5e-section-body-gap="0.75rem"
     >
-        <CheckboxGroup
-            heading="Base Options"
-            options={configObject[traitType]?.config}
-            selected={grant?.traits?.base}
-            showToggleAllButton={true}
-            on:updateSelection={({ detail }) => {
-                onUpdateValue("traits.base", detail);
-            }}
-        />
+        {#if !["weapons", "tools"].includes(traitType)}
+            <CheckboxGroup
+                heading="Base Options"
+                options={configObject[traitType]?.config}
+                selected={grant?.traits?.base}
+                showToggleAllButton={true}
+                on:updateSelection={({ detail }) => {
+                    onUpdateValue("traits.base", detail);
+                }}
+            />
 
-        <CheckboxGroup
-            heading="Optional Choices"
-            options={configObject[traitType]?.config}
-            selected={grant?.traits?.options}
-            showToggleAllButton={true}
-            on:updateSelection={({ detail }) => {
-                onUpdateValue("traits.options", detail);
-            }}
-        />
+            <CheckboxGroup
+                heading="Optional Choices"
+                options={configObject[traitType]?.config}
+                selected={grant?.traits?.options}
+                showToggleAllButton={true}
+                on:updateSelection={({ detail }) => {
+                    onUpdateValue("traits.options", detail);
+                }}
+            />
+        {/if}
 
         <FieldWrapper heading="Selectable Options Count">
             <input
@@ -145,6 +182,8 @@
         padding: var(--padding, 0.75rem);
         gap: 0.75rem;
         background: var(--background, $color-sheet-background);
+        max-height: 75vh;
+        overflow-y: auto;
     }
 
     .grant-name,

@@ -30,6 +30,7 @@
     const actor = document;
     const options = Object.entries(configObject);
     const isRadioGroup = ["size"].includes(type);
+    const { weaponCategories, toolCategories } = CONFIG.A5E;
 
     $: selected = foundry.utils.getProperty($actor, propertyKey);
     $: tooltipData = getTooltipData($actor);
@@ -54,12 +55,7 @@
     {:else if type === "weapons"}
         <ComplexDetailEmbed
             existingProperties={$actor.system.proficiencies.weapons}
-            headings={{
-                simple: "A5E.WeaponsSimple",
-                martial: "A5E.WeaponsMartial",
-                rare: "A5E.WeaponsRare",
-                other: "A5E.WeaponsOther",
-            }}
+            headings={weaponCategories}
             {configObject}
             on:updateSelection={(event) =>
                 updateDocumentDataFromField($actor, propertyKey, event.detail)}
@@ -67,14 +63,7 @@
     {:else if type === "tools"}
         <ComplexDetailEmbed
             existingProperties={$actor.system.proficiencies.tools}
-            headings={{
-                artisansTools: "A5E.ToolsArtisanTools",
-                gamingSets: "A5E.ToolsGamingSets",
-                musicalInstruments: "A5E.MusicalInstruments",
-                miscellaneous: "A5E.ToolsMiscellaneous",
-                vehicles: "A5E.ToolsVehicles",
-                other: "A5E.ToolsOther",
-            }}
+            headings={toolCategories}
             {configObject}
             on:updateSelection={(event) =>
                 updateDocumentDataFromField($actor, propertyKey, event.detail)}

@@ -1242,6 +1242,15 @@ A5E.tokenHPColors = {
   temp: 0x66CCFF
 };
 
+A5E.toolCategories = {
+  artisansTools: 'A5E.ToolsArtisanTools',
+  gamingSets: 'A5E.ToolsGamingSets',
+  musicalInstruments: 'A5E.MusicalInstruments',
+  miscellaneous: 'A5E.ToolsMiscellaneous',
+  vehicles: 'A5E.ToolsVehicles',
+  other: 'A5E.ToolsOther'
+};
+
 A5E.tools = {
   artisansTools: {
     alchemistsSupplies: 'A5E.ToolAlchemistsSupplies',
@@ -1358,6 +1367,13 @@ A5E.toolsPlural = {
     waterVehicles: 'A5E.VehicleWaterPlural',
     airVehicles: 'A5E.VehicleAirPlural'
   }
+};
+
+A5E.weaponCategories = {
+  simple: 'A5E.WeaponsSimple',
+  martial: 'A5E.WeaponsMartial',
+  rare: 'A5E.WeaponsRare',
+  other: 'A5E.WeaponsOther'
 };
 
 /**
