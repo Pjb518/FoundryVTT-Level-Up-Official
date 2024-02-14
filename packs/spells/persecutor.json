@@ -1,147 +1,148 @@
 {
-	"name": "Persecutor",
-	"type": "spell",
-	"img": "icons/skills/melee/strike-axe-red.webp",
-	"system": {
-		"actions": {
-			"LuT9UZ4sByyDMEMy": {
-				"name": "Cast Spell",
-				"activation": {
-					"type": "minute",
-					"cost": 10
-				},
-				"consumers": {
-					"iY6c3quMAymfAge8": {
-						"type": "spell",
-						"default": true,
-						"mode": "variable",
-						"spellLevel": 1,
-						"points": 2
-					}
-				},
-				"rolls": {},
-				"prompts": {},
-				"uses": {
-					"value": 0,
-					"max": "",
-					"per": "",
-					"recharge": {
-						"formula": "1d6",
-						"threshold": 6
-					}
-				},
-				"duration": {
-					"unit": "hour",
-					"value": 8
-				},
-				"ranges": {
-					"VOwA8xUmo9UKish2": {
-						"range": "self"
-					}
-				},
-				"target": {
-					"type": "creature",
-					"quantity": 1
-				}
-			},
-			"qulLdkOsiUF7xd2N": {
-				"name": "Bonus Damage",
-				"activation": {
-					"type": "none"
-				},
-				"consumers": {},
-				"rolls": {
-					"gka54QDTn2FfO87I": {
-						"type": "damage",
-						"default": true,
-						"formula": "0",
-						"scaling": {
-							"mode": "spellLevel",
-							"formula": "1d4"
-						},
-						"damageType": "necrotic"
-					}
-				},
-				"prompts": {},
-				"uses": {
-					"value": 0,
-					"max": "",
-					"per": "",
-					"recharge": {
-						"formula": "1d6",
-						"threshold": 6
-					}
-				},
-				"duration": {
-					"unit": "instantaneous"
-				},
-				"target": {
-					"type": "creature",
-					"quantity": 1
-				}
-			}
-		},
-		"description": "<p>You do not just know your studied adversaries, you hate them, and that hatred manifests in terrible wrath against your chosen foe.</p><p>When you cast this spell, choose a single adversary or humanoid heritage that is currently your Studied Adversary. For the duration of the spell, you have advantage on Intimidate checks against this adversary or heritage.</p><p><strong>Cast at Higher Levels. </strong>For each spell slot above first, your attacks against the selected adversary or heritage deal an additional 1d4 points of necrotic damage. If you cast this spell with a 3rd-level or higher spell slot, a creature that takes this additional damage also cannot regain hit points until the start of your next turn.</p>",
-		"favorite": false,
-		"secretDescription": "",
-		"source": {
-			"name": "Arcane Sniper",
-			"link": "https://bit.ly/3bHQT5T",
-			"publisher": "purpleMartinGames"
-		},
-		"uses": {
-			"value": null,
-			"max": "",
-			"per": null,
-			"recharge": {
-				"formula": "1d6",
-				"threshold": "6"
-			}
-		},
-		"schema": {
-			"version": null,
-			"lastMigration": null
-		},
-		"classes": [
-			"cleric",
-			"herald",
-			"warlock"
-		],
-		"components": {
-			"vocalized": true,
-			"seen": true,
-			"material": false
-		},
-		"concentration": false,
-		"level": 1,
-		"materials": "",
-		"materialsConsumed": false,
-		"prepared": false,
-		"prerequisite": "Studied Adversary class feature",
-		"rare": false,
-		"ritual": true,
-		"schools": {
-			"primary": "necromancy",
-			"secondary": [
-				"arcane",
-				"fear",
-				"necrotic",
-				"multiclass"
-			]
-		},
-		"schemaVersion": {
-			"version": 0.013,
-			"lastMigration": {
-				"version": {
-					"schema": 0.011,
-					"foundry": "11.315",
-					"system": "0.16.49"
-				}
-			}
-		}
-	},
-	"effects": [],
-	"flags": {},
-	"folder": null,
-	"_id": "7lil3r3wnqfvi3sh"
+  "name": "Persecutor",
+  "type": "spell",
+  "img": "icons/skills/melee/strike-axe-red.webp",
+  "system": {
+    "actions": {
+      "LuT9UZ4sByyDMEMy": {
+        "name": "Cast Spell",
+        "activation": {
+          "type": "minute",
+          "cost": 10
+        },
+        "consumers": {
+          "iY6c3quMAymfAge8": {
+            "type": "spell",
+            "default": true,
+            "mode": "variable",
+            "spellLevel": 1,
+            "points": 2
+          }
+        },
+        "rolls": {},
+        "prompts": {},
+        "uses": {
+          "value": 0,
+          "max": "",
+          "per": "",
+          "recharge": {
+            "formula": "1d6",
+            "threshold": 6
+          }
+        },
+        "duration": {
+          "unit": "hour",
+          "value": 8
+        },
+        "ranges": {
+          "VOwA8xUmo9UKish2": {
+            "range": "self"
+          }
+        },
+        "target": {
+          "type": "creature",
+          "quantity": 1
+        }
+      },
+      "qulLdkOsiUF7xd2N": {
+        "name": "Bonus Damage",
+        "activation": {
+          "type": "none"
+        },
+        "consumers": {},
+        "rolls": {
+          "gka54QDTn2FfO87I": {
+            "type": "damage",
+            "default": true,
+            "formula": "0",
+            "scaling": {
+              "mode": "spellLevel",
+              "formula": "1d4"
+            },
+            "damageType": "necrotic"
+          }
+        },
+        "prompts": {},
+        "uses": {
+          "value": 0,
+          "max": "",
+          "per": "",
+          "recharge": {
+            "formula": "1d6",
+            "threshold": 6
+          }
+        },
+        "duration": {
+          "unit": "instantaneous"
+        },
+        "target": {
+          "type": "creature",
+          "quantity": 1
+        }
+      }
+    },
+    "description": "<p>You do not just know your studied adversaries, you hate them, and that hatred manifests in terrible wrath against your chosen foe.</p><p>When you cast this spell, choose a single adversary or humanoid heritage that is currently your Studied Adversary. For the duration of the spell, you have advantage on Intimidate checks against this adversary or heritage.</p><p><strong>Cast at Higher Levels. </strong>For each spell slot above first, your attacks against the selected adversary or heritage deal an additional 1d4 points of necrotic damage. If you cast this spell with a 3rd-level or higher spell slot, a creature that takes this additional damage also cannot regain hit points until the start of your next turn.</p>",
+    "favorite": false,
+    "secretDescription": "",
+    "source": {
+      "name": "Arcane Sniper",
+      "link": "https://bit.ly/3bHQT5T",
+      "publisher": "purpleMartinGames"
+    },
+    "uses": {
+      "value": null,
+      "max": "",
+      "per": null,
+      "recharge": {
+        "formula": "1d6",
+        "threshold": "6"
+      }
+    },
+    "schema": {
+      "version": null,
+      "lastMigration": null
+    },
+    "classes": [
+      "cleric",
+      "herald",
+      "warlock",
+      "witch"
+    ],
+    "components": {
+      "vocalized": true,
+      "seen": true,
+      "material": false
+    },
+    "concentration": false,
+    "level": 1,
+    "materials": "",
+    "materialsConsumed": false,
+    "prepared": false,
+    "prerequisite": "Studied Adversary class feature",
+    "rare": false,
+    "ritual": true,
+    "schools": {
+      "primary": "necromancy",
+      "secondary": [
+        "arcane",
+        "fear",
+        "necrotic",
+        "multiclass"
+      ]
+    },
+    "schemaVersion": {
+      "version": 0.013,
+      "lastMigration": {
+        "version": {
+          "schema": 0.011,
+          "foundry": "11.315",
+          "system": "0.16.49"
+        }
+      }
+    }
+  },
+  "effects": [],
+  "flags": {},
+  "folder": null,
+  "_id": "7lil3r3wnqfvi3sh"
 }
