@@ -102,5 +102,6 @@
 <style lang="scss">
     article {
         padding: 0.75rem;
+        max-height: 70vh;
     }
 </style>

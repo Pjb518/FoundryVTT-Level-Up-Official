@@ -28,9 +28,23 @@
     }
 
     function getOptions(choicesLocked: boolean): string[][] {
+        const options: string[][] = [];
+        if (["weapons", "tools"].includes(traitType)) {
+            const config: Record<string, string>[] = Object.values(
+                configObject[traitType]?.config ?? {},
+            );
+
+            config.forEach((category) => {
+                for (const [value, label] of Object.entries(category)) {
+                    if (choices.includes(value)) options.push([value, label]);
+                }
+            });
+
+            return options;
+        }
+
         if (!choicesLocked) return configObject[traitType]?.config ?? [];
 
-        const options: string[][] = [];
         for (const [value, label] of configObject[traitType]?.config ?? []) {
             if (choices.includes(value)) {
                 options.push([value, label]);
@@ -52,18 +66,20 @@
 
 <Section
     heading="Trait Grant - {grant.label}"
-    headerButtons={[
-        {
-            classes: "add-button",
-            handler: () => (choicesLocked = !choicesLocked),
-            htmlString: `<i class="fa-solid ${
-                choicesLocked ? "fa-plus" : "fa-minus"
-            }" />`,
-            tooltip: choicesLocked
-                ? "Locked to Grant Options"
-                : "Free Selection Mode",
-        },
-    ]}
+    headerButtons={["tools", "weapons"].includes(traitType)
+        ? []
+        : [
+              {
+                  classes: "add-button",
+                  handler: () => (choicesLocked = !choicesLocked),
+                  htmlString: `<i class="fa-solid ${
+                      choicesLocked ? "fa-plus" : "fa-minus"
+                  }" />`,
+                  tooltip: choicesLocked
+                      ? "Locked to Grant Options"
+                      : "Free Selection Mode",
+              },
+          ]}
     --a5e-section-body-gap="0.75rem"
 >
     <FieldWrapper

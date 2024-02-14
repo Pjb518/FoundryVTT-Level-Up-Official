@@ -110,6 +110,9 @@
                     headings={traitType === "tools"
                         ? toolCategories
                         : weaponCategories}
+                    on:updateSelection={({ detail }) => {
+                        onUpdateValue("traits.base", detail);
+                    }}
                 />
             </Section>
 
@@ -124,6 +127,9 @@
                     headings={traitType === "tools"
                         ? toolCategories
                         : weaponCategories}
+                    on:updateSelection={({ detail }) => {
+                        onUpdateValue("traits.options", detail);
+                    }}
                 />
             </Section>
         {/if}
