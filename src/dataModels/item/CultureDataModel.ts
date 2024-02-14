@@ -4,6 +4,7 @@ import type { SchemaSchema } from '../template/SchemaDataModel';
 
 type CultureSchema = {
   description: string;
+  grants: Record<string, any>;
   equipment: Object;
   features: Object;
   proficiencies: {
@@ -38,6 +39,7 @@ export default class CultureDataModel extends A5EDataModel.mixin(SchemaDataModel
   static defineSchema(): CultureSchema {
     return this.mergeSchema(super.defineSchema(), {
       description: new foundry.data.fields.StringField({ nullable: false, initial: '' }),
+      grants: new foundry.data.fields.ObjectField({ nullable: false, initial: {} }),
       equipment: new foundry.data.fields.ObjectField({ nullable: false, initial: {} }),
       features: new foundry.data.fields.ObjectField({ nullable: false, initial: {} }),
       proficiencies: new foundry.data.fields.SchemaField({

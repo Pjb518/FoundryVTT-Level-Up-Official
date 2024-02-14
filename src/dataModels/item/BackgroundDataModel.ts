@@ -4,6 +4,7 @@ import type { SchemaSchema } from '../template/SchemaDataModel';
 
 type BackgroundSchema = {
   description: string;
+  grants: Record<string, any>;
   defaultASI: string;
   includesASI: boolean;
   equipment: Object;
@@ -40,6 +41,7 @@ export default class BackgroundDataModel extends A5EDataModel.mixin(SchemaDataMo
   static defineSchema(): BackgroundSchema {
     return this.mergeSchema(super.defineSchema(), {
       description: new foundry.data.fields.StringField({ nullable: false, initial: '' }),
+      grants: new foundry.data.fields.ObjectField({ nullable: false, initial: {} }),
       defaultASI: new foundry.data.fields.StringField({ nullable: false, initial: '' }),
       includesASI: new foundry.data.fields.BooleanField({ nullable: false, initial: true }),
       equipment: new foundry.data.fields.ObjectField({ nullable: false, initial: {} }),
