@@ -9,6 +9,7 @@
     import HeritageGiftsTab from "../components/pages/HeritageGiftsTab.svelte";
     import HeritageParagonGiftsTab from "../components/pages/HeritageParagonGiftsTab.svelte";
     import ItemDescriptionTab from "../components/pages/ItemDescriptionTab.svelte";
+    import ItemGrantsTab from "../components/pages/ItemGrantsTab.svelte";
     import ItemSheetHeader from "../components/itemSheetsHeader/ItemSheetHeader.svelte";
     import NavigationBar from "../components/navigation/NavigationBar.svelte";
 
@@ -26,6 +27,11 @@
             name: "description",
             label: "A5E.Description",
             component: ItemDescriptionTab,
+        },
+        {
+            name: "grants",
+            label: "A5E.TabGrants",
+            component: ItemGrantsTab,
         },
         {
             name: "details",

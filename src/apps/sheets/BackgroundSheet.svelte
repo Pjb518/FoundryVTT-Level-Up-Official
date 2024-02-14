@@ -10,6 +10,7 @@
     import ItemDescriptionTab from "../components/pages/ItemDescriptionTab.svelte";
     import ItemSheetHeader from "../components/itemSheetsHeader/ItemSheetHeader.svelte";
     import NavigationBar from "../components/navigation/NavigationBar.svelte";
+    import ItemGrantsTab from "../components/pages/ItemGrantsTab.svelte";
 
     export let { document } = getContext("#external").application;
     export let elementRoot;
@@ -25,6 +26,11 @@
             name: "description",
             label: "A5E.Description",
             component: ItemDescriptionTab,
+        },
+        {
+            name: "grants",
+            label: "A5E.TabGrants",
+            component: ItemGrantsTab,
         },
         {
             name: "details",
