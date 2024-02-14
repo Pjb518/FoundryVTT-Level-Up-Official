@@ -1,8 +1,16 @@
 import BaseItemA5e from './base';
 
 import ForeignDocumentManager from '../../managers/ForeignDocumentManager';
+import ItemGrantsManager from '../../managers/ItemGrantsManager';
 
 export default class OriginItemA5e extends BaseItemA5e {
+  prepareBaseData() {
+    super.prepareBaseData();
+
+    // Setup Grants System
+    this.grants = new ItemGrantsManager(this);
+  }
+
   prepareDerivedData() {
     if (['culture', 'background', 'heritage'].includes(this.type)) this.prepareForeignDocuments();
   }
@@ -38,6 +46,12 @@ export default class OriginItemA5e extends BaseItemA5e {
   }
 
   async _onCreate(data, options, user) {
+    // Apply grants if any
+    if (this.parent && this.parent.documentName === 'Actor') {
+      const actor = this.parent;
+      actor.grants.applyGrant(this.id);
+    }
+
     // Create Movement / Senses Effects for heritages
     if (this.type === 'heritage') {
       const effectData = {
@@ -59,5 +73,14 @@ export default class OriginItemA5e extends BaseItemA5e {
     }
 
     super._onCreate(data, options, user);
+  }
+
+  async _onDelete(data, options, user) {
+    super._onDelete(data, options, user);
+
+    if (!this.parent || this.parent?.documentName !== 'Actor') return;
+
+    const actor = this.parent;
+    await actor.grants.removeGrantsByItem(this.uuid);
   }
 }
