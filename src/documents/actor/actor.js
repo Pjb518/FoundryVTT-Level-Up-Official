@@ -87,7 +87,7 @@ export default class ActorA5e extends Actor {
       terrain: DetailsConfigDialog,
       tools: ToolProfConfigDialog,
       types: DetailsConfigDialog,
-      weapons: WeaponProfConfigDialog
+      weapons: DetailsConfigDialog
     };
   }
 

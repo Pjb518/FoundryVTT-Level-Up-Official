@@ -8,6 +8,7 @@
     import FieldWrapper from "../components/FieldWrapper.svelte";
     import RadioGroup from "../components/RadioGroup.svelte";
     import Section from "../components/Section.svelte";
+    import ComplexDetailEmbed from "../components/ComplexDetailEmbed.svelte";
 
     export let { document, appId, propertyKey, configObject, heading, type } =
         getContext("#external").application;
@@ -50,6 +51,19 @@
                     )}
             />
         </FieldWrapper>
+    {:else if type === "weapons"}
+        <ComplexDetailEmbed
+            existingProperties={$actor.system.proficiencies.weapons}
+            headings={{
+                simple: "A5E.WeaponsSimple",
+                martial: "A5E.WeaponsMartial",
+                rare: "A5E.WeaponsRare",
+                other: "A5E.WeaponsOther",
+            }}
+            {configObject}
+            on:updateSelection={(event) =>
+                updateDocumentDataFromField($actor, propertyKey, event.detail)}
+        />
     {:else}
         <FieldWrapper>
             <CustomTagGroup
@@ -67,7 +81,7 @@
         </FieldWrapper>
     {/if}
 
-    {#if propertyKey === "system.details.creatureTypes"}
+    {#if type === "creatureTypes"}
         <FieldWrapper>
             <Checkbox
                 label="A5E.CreatureSwarm"

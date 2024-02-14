@@ -1,9 +1,9 @@
 <script>
     import FieldWrapper from "./FieldWrapper.svelte";
 
-    export let heading = null;
-    export let hint = null;
-    export let fieldValue = null;
+    export let heading = "";
+    export let hint = "";
+    export let fieldValue = "";
     export let updateFunction;
 
     function onValueChange(newValue) {
