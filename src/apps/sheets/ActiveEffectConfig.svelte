@@ -19,6 +19,11 @@
         currentTab = tabs[event.detail];
     }
 
+    let effectType = foundry.utils.getProperty(
+        $effect,
+        "flags.a5e.transferType",
+    );
+
     const tabs = [
         {
             name: "description",
@@ -29,6 +34,7 @@
             name: "properties",
             label: "A5E.ItemSheetLabelPropertiesTab",
             component: EffectsPropertiesTab,
+            display: effectType === "onUse",
         },
         {
             name: "effects",

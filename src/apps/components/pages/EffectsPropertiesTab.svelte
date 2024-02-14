@@ -51,16 +51,6 @@
 </script>
 
 <article>
-    {#if $effect.flags?.a5e?.transferType !== "onUse"}
-        <RadioGroup
-            heading="Effect Type"
-            options={Object.entries(A5E.itemActiveEffectTypes)}
-            selected={$effect.flags?.a5e?.transferType ?? "passive"}
-            on:updateSelection={({ detail }) =>
-                $effect.update({ "flags.a5e.transferType": detail })}
-        />
-    {/if}
-
     {#if $effect.flags?.a5e?.transferType === "onUse"}
         <FormSection>
             <Checkbox
