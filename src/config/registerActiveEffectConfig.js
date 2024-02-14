@@ -15,7 +15,6 @@ export default function registerActiveEffectConfig(A5E) {
     ongoing: 'A5E.effects.types.plural.ongoing',
     inactive: 'A5E.effects.types.plural.inactive',
     passive: 'A5E.effects.types.plural.passive',
-    permanent: 'A5E.effects.types.plural.permanent',
     temporary: 'A5E.effects.types.plural.temporary'
   };
 
@@ -57,13 +56,11 @@ export default function registerActiveEffectConfig(A5E) {
   };
 
   A5E.itemActiveEffectTypes = {
-    passive: 'A5E.effects.types.singular.passive',
-    permanent: 'A5E.effects.types.singular.permanent'
+    passive: 'A5E.effects.types.singular.passive'
   };
 
   A5E.itemActiveEffectTypesPlural = {
-    passive: 'A5E.effects.types.plural.passive',
-    permanent: 'A5E.effects.types.plural.permanent'
+    passive: 'A5E.effects.types.plural.passive'
   };
 
   A5E.effectDurationTypes = {

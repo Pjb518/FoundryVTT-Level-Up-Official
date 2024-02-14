@@ -17,7 +17,7 @@ export default class ActiveEffectA5e extends ActiveEffect {
 
   static PHASES = ['applyAEs', 'afterDerived'];
 
-  static ITEM_TYPES = ['passive', 'onUse', 'permanent'];
+  static ITEM_TYPES = ['passive', 'onUse'];
 
   // -------------------------------------------------------
   //  Getters
@@ -72,6 +72,7 @@ export default class ActiveEffectA5e extends ActiveEffect {
    * @inheritdoc
    */
   apply(document, _change, phase = 'applyAEs') {
+    // TODO: Remove support for permanent effects in 0.17.x
     // eslint-disable-next-line no-constant-binary-expression
     if (this.isSuppressed && (this.flags?.a5e?.transferType !== 'permanent' ?? true)) return null;
 
@@ -546,36 +547,6 @@ export default class ActiveEffectA5e extends ActiveEffect {
       ...foundry.utils.flattenObject(document.overrides),
       ...overrides
     });
-  }
-
-  static getPermanentEffectChanges(document, effects) {
-    const overrides = {};
-
-    // Get token data
-    const applyObjects = effects.flatMap((effect) => effect.changes.map((change) => {
-      change.priority = change.priority ?? change.mode * 10;
-      return { effect, change };
-    }));
-    applyObjects.sort((a, b) => (a.change.priority ?? 0) - (b.change.priority ?? 0));
-
-    // Create override object
-    applyObjects.forEach((applyObject) => {
-      if (!applyObject.change?.key) return;
-
-      // Determine if effect is applied on the actor or the token document.
-      let appliedChange;
-      if (document.documentName === 'Token' || applyObject.change.key.startsWith('@token')) {
-        // TODO: Add support for token overrides
-        // appliedChange = applyObject.effect.apply(document, applyObject.change, 'afterDerived');
-        // Object.assign(overrides, appliedChange);
-      } else {
-        appliedChange = applyObject.effect.apply(document, applyObject.change, 'afterDerived');
-        if (!appliedChange) return;
-        Object.assign(overrides, appliedChange);
-      }
-    });
-
-    return overrides;
   }
 
   /**
