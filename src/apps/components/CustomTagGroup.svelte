@@ -72,7 +72,7 @@
             value={selectedCustomOptions.join("; ")}
             on:change={({ target }) => {
                 // @ts-ignore
-                selectedCustomOptions = splitCustomSelections(target.event);
+                selectedCustomOptions = splitCustomSelections(target.value);
             }}
         />
     </FieldWrapper>
