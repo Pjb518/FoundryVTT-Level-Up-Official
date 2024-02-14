@@ -363,9 +363,6 @@ export default class ActorSheet extends SvelteApplication {
         backgroundFeature,
         ...startingEquipment
       ].filter(Boolean));
-
-      // Apply permanent effects
-      this.actor.applyPermanentEffects();
     }
   }
 
@@ -427,9 +424,6 @@ export default class ActorSheet extends SvelteApplication {
         ...cultureFeatures,
         ...startingEquipment
       ].filter(Boolean));
-
-      // Apply permanent effects
-      this.actor.applyPermanentEffects();
     }
   }
 
@@ -451,9 +445,6 @@ export default class ActorSheet extends SvelteApplication {
       item,
       ...features
     ]);
-
-    // Apply permanent effects
-    this.actor.applyPermanentEffects();
   }
 
   async #onDropHeritage(item) {
@@ -495,9 +486,6 @@ export default class ActorSheet extends SvelteApplication {
       item,
       ...itemDocuments
     ]);
-
-    // Apply permanent effects
-    this.actor.applyPermanentEffects();
   }
 
   async #onDropObject(item, options) {
