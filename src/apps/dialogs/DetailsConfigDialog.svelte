@@ -64,6 +64,21 @@
             on:updateSelection={(event) =>
                 updateDocumentDataFromField($actor, propertyKey, event.detail)}
         />
+    {:else if type === "tools"}
+        <ComplexDetailEmbed
+            existingProperties={$actor.system.proficiencies.tools}
+            headings={{
+                artisansTools: "A5E.ToolsArtisanTools",
+                gamingSets: "A5E.ToolsGamingSets",
+                musicalInstruments: "A5E.MusicalInstruments",
+                miscellaneous: "A5E.ToolsMiscellaneous",
+                vehicles: "A5E.ToolsVehicles",
+                other: "A5E.ToolsOther",
+            }}
+            {configObject}
+            on:updateSelection={(event) =>
+                updateDocumentDataFromField($actor, propertyKey, event.detail)}
+        />
     {:else}
         <FieldWrapper>
             <CustomTagGroup

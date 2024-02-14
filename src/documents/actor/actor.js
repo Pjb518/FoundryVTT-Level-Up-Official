@@ -31,8 +31,6 @@ import SensesConfigDialog from '../../apps/dialogs/SensesConfigDialog.svelte';
 import SkillBonusConfigDialog from '../../apps/dialogs/SkillBonusConfigDialog.svelte';
 import SkillCheckRollDialog from '../../apps/dialogs/SkillCheckRollDialog.svelte';
 import SkillConfigDialog from '../../apps/dialogs/SkillConfigDialog.svelte';
-import ToolProfConfigDialog from '../../apps/dialogs/ToolProfConfigDialog.svelte';
-import WeaponProfConfigDialog from '../../apps/dialogs/WeaponProfConfigDialog.svelte';
 
 import GenericConfigDialog from '../../apps/dialogs/initializers/GenericConfigDialog';
 import GenericRollDialog from '../../apps/dialogs/initializers/GenericRollDialog';
@@ -57,7 +55,6 @@ export default class ActorA5e extends Actor {
       notes: {}
     };
 
-    // TODO: Condense weapon and tools proficiencies into one component.
     this.#configDialogMap = {
       ability: AbilityCheckConfigDialog,
       abilityBonus: AbilityBonusConfigDialog,
@@ -85,7 +82,7 @@ export default class ActorA5e extends Actor {
       skillBonus: SkillBonusConfigDialog,
       spells: ActorSpellConfigDialog,
       terrain: DetailsConfigDialog,
-      tools: ToolProfConfigDialog,
+      tools: DetailsConfigDialog,
       types: DetailsConfigDialog,
       weapons: DetailsConfigDialog
     };
