@@ -24,7 +24,7 @@ export default class FeatureGrant extends BaseGrant {
           new fields.StringField({ required: true, initial: '' }),
           { required: true, default: [] }
         ),
-        total: new fields.NumberField({ required: true, default: 0, integer: true })
+        total: new fields.NumberField({ required: true, initial: 0, integer: true })
       }),
       label: new fields.StringField({ required: true, initial: 'New Feature Grant' })
     });

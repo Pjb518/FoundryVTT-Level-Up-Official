@@ -29,7 +29,7 @@ export default class ItemGrant extends BaseGrant {
             quantityOverride: new fields.NumberField({ required: true, initial: 0, integer: true })
           })
         ),
-        total: new fields.NumberField({ required: true, default: 0, integer: true })
+        total: new fields.NumberField({ required: true, initial: 0, integer: true })
       }),
       label: new fields.StringField({ required: true, initial: 'New Item Grant' })
     });
