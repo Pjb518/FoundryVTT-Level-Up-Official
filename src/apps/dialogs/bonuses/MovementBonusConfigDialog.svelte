@@ -55,6 +55,7 @@
             obj.context = obj.context ?? {
                 movementTypes: [],
                 isHover: false,
+                valueIfOriginalIsZero: "",
             };
             obj.img = obj.img || "icons/svg/upgrade.svg";
             return obj;
@@ -67,6 +68,7 @@
                 context: {
                     movementTypes: [],
                     isHover: false,
+                    valueIfOriginalIsZero: "",
                 },
                 default: true,
                 img: "icons/svg/upgrade.svg",
@@ -79,6 +81,8 @@
     $: movementBonus = getMovementBonus($actor, jsonValue) ?? {};
     $: movementTypes = movementBonus.context.movementTypes ?? [];
     $: isHover = movementBonus.context.isHover ?? false;
+    $: valueIfOriginalIsZero =
+        movementBonus.context.valueIfOriginalIsZero || "";
 </script>
 
 <form>
@@ -166,6 +170,18 @@
                 on:updateSelection={({ detail }) => {
                     onUpdateValue("context.isHover", detail);
                 }}
+            />
+        </FieldWrapper>
+
+        <FieldWrapper heading="A5E.contexts.valueIfOriginalIsZero">
+            <input
+                type="text"
+                value={valueIfOriginalIsZero || ""}
+                on:change={({ target }) =>
+                    onUpdateValue(
+                        "context.valueIfOriginalIsZero",
+                        target.value,
+                    )}
             />
         </FieldWrapper>
     </Section>

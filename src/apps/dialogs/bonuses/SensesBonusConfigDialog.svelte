@@ -55,6 +55,7 @@
             obj.context = obj.context ?? {
                 senses: [],
                 otherwiseBlind: false,
+                valueIfOriginalIsZero: "",
             };
             obj.img = obj.img || "icons/svg/upgrade.svg";
             return obj;
@@ -67,6 +68,7 @@
                 context: {
                     senses: [],
                     otherwiseBlind: false,
+                    valueIfOriginalIsZero: "",
                 },
                 default: true,
                 img: "icons/svg/upgrade.svg",
@@ -74,11 +76,12 @@
         }
     }
 
-    const { senses, distanceUnits } = CONFIG.A5E;
+    const { senses, visionUnits } = CONFIG.A5E;
 
     $: sensesBonus = getSensesBonus($actor, jsonValue) ?? {};
     $: sensesTypes = sensesBonus.context.senses ?? [];
     $: otherwiseBlind = sensesBonus.context.otherwiseBlind ?? false;
+    $: valueIfOriginalIsZero = sensesBonus.context.valueIfOriginalIsZero || "";
 </script>
 
 <form>
@@ -135,7 +138,7 @@
                     {localize("A5E.None")}
                 </option>
 
-                {#each Object.entries(distanceUnits) as [key, name] (key)}
+                {#each Object.entries(visionUnits) as [key, name] (key)}
                     <option value={key} selected={sensesBonus.unit === key}>
                         {localize(name)}
                     </option>
@@ -166,6 +169,18 @@
                 on:updateSelection={({ detail }) => {
                     onUpdateValue("context.otherwiseBlind", detail);
                 }}
+            />
+        </FieldWrapper>
+
+        <FieldWrapper heading="A5E.contexts.valueIfOriginalIsZero">
+            <input
+                type="text"
+                value={valueIfOriginalIsZero || ""}
+                on:change={({ target }) =>
+                    onUpdateValue(
+                        "context.valueIfOriginalIsZero",
+                        target.value,
+                    )}
             />
         </FieldWrapper>
     </Section>

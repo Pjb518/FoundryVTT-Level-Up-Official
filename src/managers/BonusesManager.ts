@@ -158,20 +158,42 @@ export default class BonusesManager {
     const bonuses = this.prepareMovementBonuses(type);
     const parts = bonuses.map(([, bonus]) => {
       const original: number = this.#actor._source.system.attributes.movement[type]?.distance ?? 0;
-      const formula = bonus.formula.trim().replace('@original', original.toString());
+      let formula = '';
+
+      if (bonus.context.valueIfOriginalIsZero && original === 0) {
+        formula = bonus.context.valueIfOriginalIsZero;
+      } else {
+        formula = bonus.formula;
+      }
+
+      formula = formula.trim().replace('@original', original.toString());
       return formula;
     });
+
     return parts.join(' + ').trim();
   }
 
   getSensesBonusFormula(type: string): string {
     const bonuses = this.prepareSensesBonuses(type);
+    let isUnlimited = false;
+
     const parts = bonuses.map(([, bonus]) => {
       const original: number = this.#actor._source.system.attributes.senses[type]?.distance ?? 0;
-      const formula = bonus.formula.trim().replace('@original', original.toString());
+      if (bonus.unit === 'unlimited') isUnlimited = true;
+      let formula = '';
 
+      if (bonus.context.valueIfOriginalIsZero && original === 0) {
+        formula = bonus.context.valueIfOriginalIsZero;
+      } else {
+        formula = bonus.formula;
+      }
+
+      formula = formula.trim().replace('@original', original.toString());
       return formula;
     });
+
+    if (isUnlimited) return 'unlimited';
+
     return parts.join(' + ').trim();
   }
 
@@ -489,8 +511,8 @@ export default class BonusesManager {
     const bonuses = this.#bonuses.senses;
 
     const parts = Object.entries(bonuses).filter(
-      ([, { context, formula }]) => {
-        if (!formula) return false;
+      ([, { context, formula, unit }]) => {
+        if (!formula && unit !== 'unlimited') return false;
 
         const { senses } = context ?? { senses: [] };
         if (!senses?.includes(type)) return false;

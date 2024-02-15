@@ -197,7 +197,11 @@ export default function getContextsMap(type: 'bonus' | 'grant', contextType: str
         selectedProperty: 'movementTypes.total',
         component: 'Number'
       },
-
+      {
+        heading: 'Value If Original Is Zero',
+        selectedProperty: 'context.valueIfOriginalIsZero',
+        component: 'String'
+      },
       {
         heading: 'Is Hover For Flying Speed',
         selectedProperty: 'context.isHover',
@@ -239,7 +243,11 @@ export default function getContextsMap(type: 'bonus' | 'grant', contextType: str
         selectedProperty: 'senses.total',
         component: 'Number'
       },
-
+      {
+        heading: 'Value If Original Is Zero',
+        selectedProperty: 'context.valueIfOriginalIsZero',
+        component: 'String'
+      },
       {
         heading: 'Is Blind Beyond Vision Range',
         selectedProperty: 'context.otherwiseBlind',

@@ -31,11 +31,13 @@ export interface InitiativeBonusContext {
 export interface MovementBonusContext {
   movementTypes: string[];
   isHover: boolean;
+  valueIfOriginalIsZero: string;
 }
 
 export interface SensesBonusContext {
   senses: string[];
   otherwiseBlind: boolean;
+  valueIfOriginalIsZero: string;
 }
 
 export interface SkillBonusContext {

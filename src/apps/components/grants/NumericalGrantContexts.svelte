@@ -66,6 +66,21 @@
                     }}
                 />
             </FieldWrapper>
+        {:else if context.component === "String"}
+            <FieldWrapper
+                heading={context.heading}
+                --background="none"
+                --padding="0"
+                --margin="0 0 0.5rem 0 "
+            >
+                <input
+                    type="text"
+                    value={getProperty(grant, context.selectedProperty) || ""}
+                    on:change={({ target }) => {
+                        onUpdateValue(context.selectedProperty, target.value);
+                    }}
+                />
+            </FieldWrapper>
         {/if}
     {/each}
 </Section>
