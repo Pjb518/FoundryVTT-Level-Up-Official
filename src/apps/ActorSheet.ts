@@ -9,9 +9,6 @@ import ActorSheetTempSettingsStore from '../stores/ActorSheetTempSettingsStore';
 import ActorSheetComponent from './sheets/ActorSheet.svelte';
 import LimitedSheetComponent from './sheets/LimitedSheet.svelte';
 
-import BackgroundCultureDropDialog from './dialogs/initializers/BackgroundCultureDropDialog';
-import HeritageDropDialog from './dialogs/initializers/HeritageDropDialog';
-
 import SubObjectManager from '../managers/subItems/SubObjectManager';
 
 export default class ActorSheet extends SvelteApplication {
@@ -203,37 +200,6 @@ export default class ActorSheet extends SvelteApplication {
     return uniqueButtons;
   }
 
-  async #getCultureFeatures(item, featureList) {
-    const cultureFeatures = await Promise.all(
-      featureList.map(async (feature) => fromUuid(item.features[feature]?.uuid))
-    );
-
-    return cultureFeatures.filter(Boolean);
-  }
-
-  #getProficiencies(property, selectedOptions) {
-    return [...new Set([
-      ...this.actor.system.proficiencies[property],
-      ...selectedOptions
-    ])];
-  }
-
-  async #getStartingEquipment(item, selectedEquipmentIds) {
-    const selectedEquipment = await Promise.all(selectedEquipmentIds.map(
-      async (id) => fromUuid(item.equipment[id]?.uuid)
-    ));
-
-    return selectedEquipment.reduce((startingEquipment, curr) => {
-      if (curr) {
-        const equipmentItem = curr.toObject();
-        equipmentItem.system.quantity = item.equipment[curr]?.quantity;
-        startingEquipment.push(equipmentItem);
-      }
-
-      return startingEquipment;
-    }, []);
-  }
-
   _onImport(event) {
     if (event) event.preventDefault();
     return this.actor.collection
@@ -289,142 +255,10 @@ export default class ActorSheet extends SvelteApplication {
   }
 
   async #onDropItem(item, options = {}) {
-    if (item.type === 'background') this.#onDropBackground(item);
-    else if (item.type === 'culture') this.#onDropCulture(item);
-    else if (item.type === 'destiny') this.#onDropDestiny(item);
-    else if (item.type === 'heritage') this.#onDropHeritage(item);
+    if (item.type === 'destiny') this.#onDropDestiny(item);
     else if (item.type === 'object') this.#onDropObject(item, options);
     else if (item.type === 'spell') this.#onDropSpell(item);
     else this.actor.createEmbeddedDocuments('Item', [item]);
-  }
-
-  async #onDropBackground(item) {
-    if (this.actor.type !== 'character') {
-      ui.notifications.warn('Background documents cannot be added to NPCs.');
-      return;
-    }
-
-    let selectedAbilityScores = [];
-    let selectedArmor = [];
-    let selectedEquipment = [];
-    let selectedSkills = [];
-    let selectedLanguages = [];
-    let selectedTools = [];
-    let selectedWeapons = [];
-
-    const dialog = new BackgroundCultureDropDialog(this.actor, item);
-    dialog.render(true);
-
-    try {
-      ({
-        selectedAbilityScores,
-        selectedArmor,
-        selectedEquipment,
-        selectedLanguages,
-        selectedSkills,
-        selectedTools,
-        selectedWeapons
-      } = await dialog.promise);
-    } catch (error) {
-      return;
-    }
-
-    const { feature } = item.system;
-    const updates: any = {};
-
-    // Setup Ability Scores
-    selectedAbilityScores.forEach((abl) => {
-      updates[`system.abilities.${abl}.value`] = this.actor.system.abilities[abl].value + 1;
-    });
-
-    // Setup Skills
-    selectedSkills.forEach((skill) => {
-      updates[`system.skills.${skill}.proficient`] = true;
-    });
-
-    // Update Actor
-    await this.actor.update({
-      ...updates,
-      'system.proficiencies.armor': this.#getProficiencies('armor', selectedArmor),
-      'system.proficiencies.languages': this.#getProficiencies('languages', selectedLanguages),
-      'system.proficiencies.tools': this.#getProficiencies('tools', selectedTools),
-      'system.proficiencies.weapons': this.#getProficiencies('weapons', selectedWeapons)
-    });
-
-    // Setup Background Feature and Equipment
-    const backgroundFeature = await fromUuid(feature);
-    const startingEquipment = await this.#getStartingEquipment(item, selectedEquipment);
-
-    // Do not attempt to add items if there are no background features or starting
-    // equipment to add.
-    if (backgroundFeature || startingEquipment.length) {
-      await this.actor.createEmbeddedDocuments('Item', [
-        item,
-        backgroundFeature,
-        ...startingEquipment
-      ].filter(Boolean));
-    }
-  }
-
-  async #onDropCulture(item) {
-    if (this.actor.type !== 'character') {
-      ui.notifications.warn('Culture documents cannot be added to NPCs.');
-      return;
-    }
-
-    let selectedArmor = [];
-    let selectedEquipment = [];
-    let selectedSkills = [];
-    let selectedLanguages = [];
-    let selectedTools = [];
-    let selectedWeapons = [];
-
-    const dialog = new BackgroundCultureDropDialog(this.actor, item);
-    dialog.render(true);
-
-    try {
-      ({
-        selectedArmor,
-        selectedEquipment,
-        selectedLanguages,
-        selectedSkills,
-        selectedTools,
-        selectedWeapons
-      } = await dialog.promise);
-    } catch (error) {
-      return;
-    }
-
-    const features = Object.keys(item.system.features);
-    const updates: any = {};
-
-    // Setup Skills
-    selectedSkills.forEach((skill) => {
-      updates[`system.skills.${skill}.proficient`] = true;
-    });
-
-    // Update Actor
-    await this.actor.update({
-      ...updates,
-      'system.proficiencies.armor': this.#getProficiencies('armor', selectedArmor),
-      'system.proficiencies.languages': this.#getProficiencies('languages', selectedLanguages),
-      'system.proficiencies.tools': this.#getProficiencies('tools', selectedTools),
-      'system.proficiencies.weapons': this.#getProficiencies('weapons', selectedWeapons)
-    });
-
-    // Setup Culture Feature and Equipment
-    const cultureFeatures = await this.#getCultureFeatures(item, features);
-    const startingEquipment = await this.#getStartingEquipment(item, selectedEquipment);
-
-    // Do not attempt to add items if there are no background features or starting
-    // equipment to add.
-    if (cultureFeatures.length || startingEquipment.length) {
-      await this.actor.createEmbeddedDocuments('Item', [
-        item,
-        ...cultureFeatures,
-        ...startingEquipment
-      ].filter(Boolean));
-    }
   }
 
   async #onDropDestiny(item) {
@@ -444,47 +278,6 @@ export default class ActorSheet extends SvelteApplication {
     await this.actor.createEmbeddedDocuments('Item', [
       item,
       ...features
-    ]);
-  }
-
-  async #onDropHeritage(item) {
-    if (this.actor.type !== 'character') {
-      ui.notifications.warn('Heritage documents cannot be added to NPCs.');
-      return;
-    }
-
-    let selectedFeatures = [];
-    let selectedCreatureSize = '';
-    let gifts = [];
-    let paragonGifts = [];
-
-    const dialog = new HeritageDropDialog(this.actor, item);
-    dialog.render(true);
-
-    try {
-      ({
-        selectedFeatures,
-        selectedCreatureSize,
-        gifts,
-        paragonGifts
-      } = await dialog.promise);
-    } catch (error) {
-      return;
-    }
-
-    const itemDocuments = await Promise.all(
-      [...selectedFeatures, ...gifts, ...paragonGifts]
-        .map(async (uuid) => (await fromUuid(uuid)).toObject())
-    );
-
-    await this.actor.update({
-      'system.traits.size': selectedCreatureSize || item.system.creatureSize.fixed || this.actor.system.traits.size || '',
-      'system.details.creatureTypes': item.system.creatureTypes
-    });
-
-    await this.actor.createEmbeddedDocuments('Item', [
-      item,
-      ...itemDocuments
     ]);
   }
 

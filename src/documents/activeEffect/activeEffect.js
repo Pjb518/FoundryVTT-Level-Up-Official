@@ -72,9 +72,8 @@ export default class ActiveEffectA5e extends ActiveEffect {
    * @inheritdoc
    */
   apply(document, _change, phase = 'applyAEs') {
-    // TODO: Remove support for permanent effects in 0.17.x
     // eslint-disable-next-line no-constant-binary-expression
-    if (this.isSuppressed && (this.flags?.a5e?.transferType !== 'permanent' ?? true)) return null;
+    if (this.isSuppressed) return null;
 
     const change = foundry.utils.deepClone(_change);
     change.key = change.key.replace('@token.', '');
