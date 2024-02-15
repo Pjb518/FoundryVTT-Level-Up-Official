@@ -1,1351 +1,1351 @@
 {
-	"folder": null,
-	"name": "Dread Caduceus",
-	"type": "object",
-	"img": "icons/weapons/staves/staff-metal-mask.webp",
-	"system": {
-		"ac": {
-			"baseFormula": "",
-			"formula": "",
-			"maxDex": 0,
-			"minStr": 0,
-			"mode": 2,
-			"requiresNoShield": false,
-			"requiresUnarmored": false
-		},
-		"actions": {
-			"nnsaEOhys9iQn91F": {
-				"name": "Dawn",
-				"activation": {},
-				"consumers": {},
-				"rolls": {
-					"6KQIravtPHhF9RaK": {
-						"type": "damage",
-						"default": true,
-						"formula": "1d6",
-						"damageType": "necrotic",
-						"canCrit": false
-					},
-					"M0tdvHbUMq2pydUv": {
-						"type": "generic",
-						"default": true,
-						"label": "Recharge",
-						"formula": "1d10"
-					}
-				},
-				"prompts": {},
-				"uses": {
-					"value": 0,
-					"max": "",
-					"per": "",
-					"recharge": {
-						"formula": "1d6",
-						"threshold": 6
-					}
-				}
-			},
-			"Fvh83ctRikSMUiiq": {
-				"name": "Zero Charges",
-				"activation": {},
-				"consumers": {},
-				"rolls": {
-					"P9ismm5v3DHmix6g": {
-						"type": "damage",
-						"default": true,
-						"canCrit": false,
-						"formula": "10d10",
-						"damageType": "necrotic"
-					}
-				},
-				"prompts": {},
-				"uses": {
-					"value": 0,
-					"max": "",
-					"per": "",
-					"recharge": {
-						"formula": "1d6",
-						"threshold": 6
-					}
-				}
-			},
-			"SIDjf9AoO9ywMLmo": {
-				"name": "Heal",
-				"activation": {
-					"type": "action",
-					"cost": 1
-				},
-				"consumers": {
-					"spZwF3FP0JY5Lv5a": {
-						"type": "itemUses",
-						"default": true,
-						"quantity": 1
-					}
-				},
-				"rolls": {
-					"VrjLBalS82p9TUUn": {
-						"type": "healing",
-						"default": true,
-						"formula": "1d8 + 1",
-						"scaling": {
-							"mode": "itemUses",
-							"formula": "1d8 + 1"
-						}
-					}
-				},
-				"prompts": {},
-				"uses": {
-					"value": 0,
-					"max": "",
-					"per": "",
-					"recharge": {
-						"formula": "1d6",
-						"threshold": 6
-					}
-				},
-				"ranges": {
-					"A5bEgPc6x8MmUv5R": {
-						"range": "self"
-					},
-					"Rq8vFpGMP8HPHQRc": {
-						"range": "short"
-					}
-				},
-				"target": {
-					"type": "creature",
-					"quantity": 1
-				}
-			},
-			"X3RFcehtuC2zTQKj": {
-				"name": "Healing Nimbus (Expend Charge)",
-				"activation": {
-					"type": "action",
-					"cost": 1
-				},
-				"consumers": {
-					"uirGdqOOS5g2Ik5X": {
-						"type": "itemUses",
-						"default": true,
-						"quantity": 3
-					}
-				},
-				"rolls": {
-					"uCD6EVt3C89kutpF": {
-						"type": "generic",
-						"default": true,
-						"label": "Rounds",
-						"formula": "1d6"
-					}
-				},
-				"prompts": {},
-				"uses": {
-					"value": 0,
-					"max": "",
-					"per": "",
-					"recharge": {
-						"formula": "1d6",
-						"threshold": 6
-					}
-				},
-				"duration": {
-					"unit": "",
-					"value": 1
-				},
-				"ranges": {
-					"uQyS8acQdg50MA2B": {
-						"range": "self"
-					},
-					"II4fMhZmzLbisNNn": {
-						"range": "short"
-					}
-				},
-				"target": {
-					"type": "creature",
-					"quantity": 1
-				}
-			},
-			"VVcXNECGMaT9ZyGw": {
-				"name": "Healing Nimbus (Heal)",
-				"activation": {
-					"type": "",
-					"cost": 1
-				},
-				"consumers": {},
-				"rolls": {
-					"mWXTQiR7JlRQRwcG": {
-						"type": "healing",
-						"default": false,
-						"label": "Take Damage",
-						"formula": "1"
-					},
-					"hP8MtpcEJ6EBr7ps": {
-						"type": "healing",
-						"default": false,
-						"label": "Missed By Attack",
-						"formula": "1d4"
-					}
-				},
-				"prompts": {},
-				"uses": {
-					"value": 0,
-					"max": "",
-					"per": "",
-					"recharge": {
-						"formula": "1d6",
-						"threshold": 6
-					}
-				},
-				"duration": {
-					"unit": "",
-					"value": 1
-				}
-			},
-			"eTutYTVI72mjF90l": {
-				"name": "Invulnerability",
-				"activation": {
-					"type": "action",
-					"cost": 1
-				},
-				"consumers": {
-					"7DUhojMpa1yq5R4Q": {
-						"type": "itemUses",
-						"default": true,
-						"quantity": 3
-					}
-				},
-				"rolls": {
-					"FZLFOOZnnxbKmO75": {
-						"type": "generic",
-						"default": true,
-						"label": "Rounds",
-						"formula": "1d4"
-					}
-				},
-				"prompts": {},
-				"uses": {
-					"value": 0,
-					"max": "",
-					"per": "",
-					"recharge": {
-						"formula": "1d6",
-						"threshold": 6
-					}
-				},
-				"ranges": {
-					"zlGkatHOCkYkLVVq": {
-						"range": "self"
-					},
-					"lDxLCId8wUaLyULO": {
-						"range": "short"
-					}
-				},
-				"target": {
-					"type": "creature",
-					"quantity": 1
-				}
-			},
-			"WaWVnJqTDXATiftk": {
-				"name": "Exhaustless",
-				"activation": {
-					"type": "action",
-					"cost": 1
-				},
-				"consumers": {
-					"Iah1IC3DUGt3SKJY": {
-						"type": "itemUses",
-						"default": true,
-						"quantity": 5
-					}
-				},
-				"rolls": {
-					"5v24naEs818fWI3f": {
-						"type": "generic",
-						"default": true,
-						"label": "Days",
-						"formula": "1d6"
-					}
-				},
-				"prompts": {},
-				"uses": {
-					"value": 0,
-					"max": "",
-					"per": "",
-					"recharge": {
-						"formula": "1d6",
-						"threshold": 6
-					}
-				},
-				"ranges": {
-					"NYmoPo6johWV85L4": {
-						"range": "self"
-					},
-					"YoWLW2PiCdpH7Wog": {
-						"range": "short"
-					}
-				},
-				"target": {
-					"type": "creature",
-					"quantity": 1
-				}
-			},
-			"0lbD4tDCZLwSfZwp": {
-				"name": "Resistance",
-				"activation": {
-					"type": "action",
-					"cost": 1
-				},
-				"consumers": {
-					"Iah1IC3DUGt3SKJY": {
-						"type": "itemUses",
-						"default": true,
-						"quantity": 5
-					}
-				},
-				"rolls": {
-					"5v24naEs818fWI3f": {
-						"type": "generic",
-						"default": true,
-						"label": "Rounds",
-						"formula": "1d6"
-					}
-				},
-				"prompts": {
-					"CnAii9FDLm6AVGai": {
-						"type": "effect",
-						"default": true,
-						"effectId": "gT7zOifVuuhnHL3W"
-					}
-				},
-				"uses": {
-					"value": 0,
-					"max": "",
-					"per": "",
-					"recharge": {
-						"formula": "1d6",
-						"threshold": 6
-					}
-				},
-				"ranges": {
-					"NYmoPo6johWV85L4": {
-						"range": "self"
-					},
-					"YoWLW2PiCdpH7Wog": {
-						"range": "short"
-					}
-				},
-				"target": {
-					"type": "creature",
-					"quantity": 1
-				}
-			},
-			"iwwaSOzq6YjjVXEO": {
-				"name": "Cure",
-				"activation": {
-					"type": "action",
-					"cost": 1
-				},
-				"consumers": {
-					"Iah1IC3DUGt3SKJY": {
-						"type": "itemUses",
-						"default": true,
-						"quantity": 10
-					}
-				},
-				"rolls": {},
-				"prompts": {},
-				"uses": {
-					"value": 0,
-					"max": "",
-					"per": "",
-					"recharge": {
-						"formula": "1d6",
-						"threshold": 6
-					}
-				},
-				"ranges": {
-					"NYmoPo6johWV85L4": {
-						"range": "self"
-					},
-					"YoWLW2PiCdpH7Wog": {
-						"range": "short"
-					}
-				},
-				"target": {
-					"type": "creature",
-					"quantity": 1
-				}
-			},
-			"k3KyJWrpq0sR6bNV": {
-				"name": "Invigorate",
-				"activation": {
-					"type": "action",
-					"cost": 1
-				},
-				"consumers": {
-					"Iah1IC3DUGt3SKJY": {
-						"type": "itemUses",
-						"default": true,
-						"quantity": 10
-					}
-				},
-				"rolls": {
-					"f4vtRT8yF9twsWHJ": {
-						"type": "generic",
-						"default": true,
-						"label": "Max Hit Points",
-						"formula": "1d8 + 1"
-					}
-				},
-				"prompts": {},
-				"uses": {
-					"value": 0,
-					"max": "",
-					"per": "",
-					"recharge": {
-						"formula": "1d6",
-						"threshold": 6
-					}
-				},
-				"ranges": {
-					"NYmoPo6johWV85L4": {
-						"range": "self"
-					},
-					"YoWLW2PiCdpH7Wog": {
-						"range": "short"
-					}
-				},
-				"target": {
-					"type": "creature",
-					"quantity": 1
-				}
-			},
-			"Zp13cqaqiHx8OfGI": {
-				"name": "Animate Skeleton",
-				"activation": {
-					"type": "action",
-					"cost": 1
-				},
-				"consumers": {
-					"959k4mLdQbj4aCpZ": {
-						"type": "itemUses",
-						"default": true,
-						"quantity": 1
-					}
-				},
-				"rolls": {},
-				"prompts": {
-					"C0ZSzeTcI29vctl9": {
-						"type": "effect",
-						"default": true,
-						"effectId": "8kEg9FAs0ynQ8PYH"
-					}
-				},
-				"uses": {
-					"value": 0,
-					"max": "",
-					"per": "",
-					"recharge": {
-						"formula": "1d6",
-						"threshold": 6
-					}
-				},
-				"ranges": {
-					"2jj4oKbFml9gr9dS": {
-						"range": "self"
-					},
-					"Uoko18Kr8op7QsUI": {
-						"range": 100,
-						"unit": "feet"
-					}
-				},
-				"target": {
-					"type": "creature",
-					"quantity": 1
-				}
-			},
-			"xOESbFE3dkNNWIV5": {
-				"name": "Animate Zombie",
-				"activation": {
-					"type": "action",
-					"cost": 1
-				},
-				"consumers": {
-					"959k4mLdQbj4aCpZ": {
-						"type": "itemUses",
-						"default": true,
-						"quantity": 2
-					}
-				},
-				"rolls": {},
-				"prompts": {
-					"C0ZSzeTcI29vctl9": {
-						"type": "effect",
-						"default": true,
-						"effectId": "8kEg9FAs0ynQ8PYH"
-					},
-					"3ZfUvmLgrNRESKQY": {
-						"type": "effect",
-						"default": true,
-						"effectId": "bHbWms3DRbcFhOVu"
-					}
-				},
-				"uses": {
-					"value": 0,
-					"max": "",
-					"per": "",
-					"recharge": {
-						"formula": "1d6",
-						"threshold": 6
-					}
-				},
-				"ranges": {
-					"2jj4oKbFml9gr9dS": {
-						"range": "self"
-					},
-					"Uoko18Kr8op7QsUI": {
-						"range": 100,
-						"unit": "feet"
-					}
-				},
-				"target": {
-					"type": "creature",
-					"quantity": 1
-				}
-			},
-			"nEvVayYoIx1KVmom": {
-				"name": "Undead Fortitude",
-				"activation": {
-					"cost": 1,
-					"type": "special",
-					"reactionTrigger": ""
-				},
-				"consumers": {},
-				"rolls": {},
-				"prompts": {},
-				"uses": {
-					"value": 1,
-					"max": "1",
-					"per": "day",
-					"recharge": {
-						"formula": "1d6",
-						"threshold": 6
-					}
-				},
-				"duration": {
-					"unit": "",
-					"value": ""
-				},
-				"area": {
-					"shape": "",
-					"size": "",
-					"placeTemplate": false,
-					"quantity": 1
-				},
-				"target": {
-					"quantity": "",
-					"type": ""
-				},
-				"img": "systems/a5e/assets/zombie.webp",
-				"description": "<p>If the zombie is reduced&nbsp;to 0 hit points by damage that isn&rsquo;t radiant or&nbsp;from a critical hit, it is instead reduced to 1 hit&nbsp;point, falls prone, and is stunned until the end&nbsp;of its next turn, appearing to be dead.</p>"
-			},
-			"9wpADhHYhrEXomh7": {
-				"name": "Bite",
-				"activation": {
-					"type": "action",
-					"cost": 1
-				},
-				"consumers": {},
-				"rolls": {
-					"CAmGpJrjRSOE3oGA": {
-						"type": "attack",
-						"default": true,
-						"attackType": "meleeWeaponAttack",
-						"proficient": true,
-						"ability": "none",
-						"label": "Grappled Creature"
-					},
-					"UtdlUuvrZUDhdGLm": {
-						"type": "damage",
-						"default": true,
-						"label": "Zombie Heals Damage Amount",
-						"formula": "2d4 + @str.mod",
-						"damageType": "piercing"
-					}
-				},
-				"prompts": {},
-				"uses": {
-					"value": 0,
-					"max": "",
-					"per": "",
-					"recharge": {
-						"formula": "1d6",
-						"threshold": 6
-					}
-				},
-				"descriptionOutputs": [
-					"action"
-				],
-				"ranges": {
-					"suTEnyM35roXMjt4": {
-						"range": "fiveFeet"
-					}
-				},
-				"target": {
-					"type": "creature",
-					"quantity": 1
-				},
-				"img": "systems/a5e/assets/zombie.webp"
-			},
-			"eIqlWcD0atd0gSco": {
-				"name": "Grab",
-				"activation": {
-					"type": "action",
-					"cost": 1
-				},
-				"consumers": {},
-				"rolls": {
-					"7r1r5sjwLuaoBq3H": {
-						"type": "attack",
-						"default": true,
-						"attackType": "meleeWeaponAttack",
-						"proficient": true,
-						"ability": "none"
-					},
-					"BMLyss7ULKuTIkMb": {
-						"type": "damage",
-						"default": true,
-						"formula": "1d6 + @str.mod",
-						"damageType": "bludgeoning"
-					}
-				},
-				"prompts": {
-					"53zqJYIaF1N1RGLx": {
-						"type": "savingThrow",
-						"default": true,
-						"ability": "str",
-						"saveDC": {
-							"type": "maneuver"
-						},
-						"label": "Grapple Escape (Strength)"
-					},
-					"I2uLg0mXCPwxj6j9": {
-						"type": "savingThrow",
-						"default": true,
-						"ability": "dex",
-						"saveDC": {
-							"type": "maneuver"
-						},
-						"label": "Grapple Escape (Dexterity)"
-					}
-				},
-				"uses": {
-					"value": 0,
-					"max": "",
-					"per": "",
-					"recharge": {
-						"formula": "1d6",
-						"threshold": 6
-					}
-				},
-				"img": "systems/a5e/assets/zombie.webp",
-				"descriptionOutputs": [
-					"action"
-				],
-				"ranges": {
-					"9DKG9GeaxtqDEP1o": {
-						"range": "fiveFeet"
-					}
-				},
-				"target": {
-					"type": "creature",
-					"quantity": 1
-				}
-			},
-			"dZnJtR1su4rtZpV2": {
-				"name": "Empower Undead",
-				"activation": {
-					"type": "action",
-					"cost": 1
-				},
-				"consumers": {
-					"959k4mLdQbj4aCpZ": {
-						"type": "itemUses",
-						"default": true,
-						"quantity": 2
-					}
-				},
-				"rolls": {},
-				"prompts": {
-					"siH2zkTgxXExPL5e": {
-						"type": "effect",
-						"default": true,
-						"effectId": "Gp4cS2CNhVrEwxjD"
-					}
-				},
-				"uses": {
-					"value": 0,
-					"max": "",
-					"per": "",
-					"recharge": {
-						"formula": "1d6",
-						"threshold": 6
-					}
-				},
-				"ranges": {
-					"2jj4oKbFml9gr9dS": {
-						"range": "self"
-					},
-					"Uoko18Kr8op7QsUI": {
-						"range": 100,
-						"unit": "feet"
-					}
-				},
-				"target": {
-					"type": "other",
-					"quantity": 1
-				}
-			},
-			"2O4xoZuVdI88sRmO": {
-				"name": "Animate Legion",
-				"activation": {
-					"type": "action",
-					"cost": 1
-				},
-				"consumers": {
-					"959k4mLdQbj4aCpZ": {
-						"type": "itemUses",
-						"default": true,
-						"quantity": 6
-					}
-				},
-				"rolls": {},
-				"prompts": {},
-				"uses": {
-					"value": 0,
-					"max": "",
-					"per": "",
-					"recharge": {
-						"formula": "1d6",
-						"threshold": 6
-					}
-				},
-				"ranges": {
-					"2jj4oKbFml9gr9dS": {
-						"range": "self"
-					},
-					"Uoko18Kr8op7QsUI": {
-						"range": 100,
-						"unit": "feet"
-					}
-				},
-				"target": {
-					"type": "other",
-					"quantity": 1
-				}
-			},
-			"RcwAzkCZQHtImBxU": {
-				"name": "Command the Undead",
-				"activation": {
-					"type": "bonusAction",
-					"cost": 1
-				},
-				"consumers": {},
-				"rolls": {},
-				"prompts": {},
-				"uses": {
-					"value": 0,
-					"max": "",
-					"per": "",
-					"recharge": {
-						"formula": "1d6",
-						"threshold": 6
-					}
-				}
-			}
-		},
-		"description": "<p>When wizards go to war their desperation reveals&nbsp;the bleak depths and miraculous heights of magic.&nbsp;Long ago it was a desire to both bolster and renew&nbsp;their forces that led a mage to create a relic many&nbsp;would consider unthinkable: a scepter that twists&nbsp;the essence of life itself. With it the dead are remade&nbsp;into unrecognizable tangles of flesh that despite their&nbsp;deformity do the wielder of the scepter&rsquo;s bidding, all&nbsp;as their allies are healed and empowered with vigor&nbsp;far beyond mortal bounds.</p>\n<p>This heavy silver scepter has two heads, both cast in metal and staring out of glassy onyx eyes. One head is a skull, its jaw thrown open and its teeth unnaturally elongated. At the other end of the scepter is a cherubic human face that is turned upwards as though determined not to look at its sibling.</p>\n<p>No one is certain whether it was the creator&rsquo;s shame that led them to hide the scepter, or if their enemies cast it out of memory for fear of its power. What is known is that the legend of the Dread Caduceus has endured and that whispers of its whereabouts have not been silenced by time.</p>\n<p>While you are attuned to the Dread Caduceus you may use either end of the scepter to activate its powers.</p>\n<p>&nbsp;</p>\n<h2>Legends and Lore</h2>\n<p>Success on an Arcana or History check reveals&nbsp;the following:</p>\n<p><strong>DC 15</strong> This is the Dread Caduceus, a holy scepter with the power to raise the dead.</p>\n<p><strong>DC 18</strong> The cherub and skull heads cause healing and necromantic effects, respectively.</p>\n<p><strong>DC 21</strong> Those who use the scepter risk having their very flesh corrupted and their souls devoured.</p>\n<p>&nbsp;</p>\n<h2>Artifact Properties</h2>\n<p>The Dread Caduceus has one lesser artifact benefit,&nbsp;one greater artifact benefit, one lesser artifact detriment,&nbsp;and one greater artifact detriment.</p>\n<p>The Dread Caduceus warps your life energy, twisting your flesh as it corrupts that of others. While you are attuned to the scepter, your organs shift and twist, sticking to one another within you. Take 1d6 necrotic damage each dawn from this effect. This damage can only be healed by a long or short rest. You also have disadvantage on initiative rolls as you are distracted by this tangible shifting within.</p>\n<p>The Dread Caduceus has [[2d10]] charges and regains 1d10 charges each dawn. When you reduce the Dread Caduceus to 0 charges, you take 10d10 necrotic damage. If this damage reduces you to 0 hit points, you instantly die and cannot be resurrected (even by a @UUID[Compendium.a5e.a5e-spells.Item.pe52jryde7ljobzq]{Wish} spell).</p>\n<p>&nbsp;</p>\n<h2>Cherub</h2>\n<p>You can use an action and expend charges from&nbsp;the Dread Caduceus to cause one of the following&nbsp;effects to extend from the cherub head of the scepter,&nbsp;targeting yourself or a creature within 30 feet:</p>\n<p><em><strong>Heal.</strong></em> The creature regains 1d8+1 hit points for each expended charge.</p>\n<p><em><strong>Healing Nimbus (3 Charges).</strong></em> A nimbus of healing appears around the creature for 1d6 rounds. For the duration, whenever the creature takes damage from an attack it regains 1 hit point, and when an attack misses the creature it regains 1d4 hit points.</p>\n<p><em><strong>Invulnerability (3 Charges).</strong></em> The creature becomes immune to damage from nonmagical attacks for 1d4 rounds.</p>\n<p><em><strong>Exhaustless (5 Charges).</strong></em> The creature becomes immune to fatigue for 1d6 days.</p>\n<p><em><strong>Resistance (5 Charges).</strong></em> The creature becomes resistant to one type of damage of your choice for 1d6 rounds. This property has no effect if the creature already has resistance to that damage type.</p>\n<p><em><strong>Cure (10 Charges).</strong></em> The creature is healed of any curses, diseases, poisons, or other negative effects, even if a @UUID[Compendium.a5e.a5e-spells.Item.pe52jryde7ljobzq]{Wish} spell has previously been unsuccessful.</p>\n<p><em><strong>Invigorate (10 Charges).</strong></em> The creature permanently&nbsp;increases its maximum hit points by&nbsp;1d8+1. A creature can only benefit from this&nbsp;property once.</p>\n<p>&nbsp;</p>\n<h2>Skull</h2>\n<p>You can use an action and expend charges from&nbsp;the Dread Caduceus to cause one of the following&nbsp;effects to extend from the skull head of the scepter,&nbsp;targeting yourself or a creature within 100 feet:</p>\n<p><em><strong>Animate Skeleton (1 Charge).</strong></em> You return a dead creature to a semblance of life, animating the skeleton of its body to serve at your whim. The creature gains the skeleton template and remains under your control until you die or are no longer attuned to the Dread Caduceus.</p>\n<p><em><strong>Animate Zombie (2 Charges).</strong></em> You return a dead creature to a semblance of life, animating it as a zombie to serve at your whim. The creature gains the zombie template and remains under your control until you die or are no longer attuned to the Dread Caduceus.</p>\n<p><em><strong>Empower Undead (2 Charges).</strong></em> Choose [[1d6]] undead that you can see within range. Whenever one of the chosen undead makes a weapon attack it deals an extra 1d4 necrotic damage. Even on a miss, the undead deals 1d4 necrotic damage.</p>\n<p><em><strong>Animate Legion (6 Charges).</strong></em> You return [[3d10]] dead humanoids to a semblance of life, transforming their corpses into zombies.</p>\n<p>You can use a bonus action to mentally command the undead you create using the Dread Caduceus. When you command multiple undead, you must give them all the same command. You may decide the action the undead takes and where it moves during its next turn, or you can issue a general command, such as guarding an area. If not given a command, the undead only defends itself. The undead continues to follow a command until its task is complete.</p>\n<p>&nbsp;</p>\n<p>In addition, any creature you animate in this fashion retains injuries or disfigurements that were upon its corpse, and it continues to decompose.</p>",
-		"favorite": false,
-		"secretDescription": "",
-		"source": "",
-		"uses": {
-			"value": null,
-			"max": "",
-			"per": null,
-			"recharge": {
-				"formula": "1d6",
-				"threshold": "6"
-			}
-		},
-		"schema": {
-			"version": null,
-			"lastMigration": null
-		},
-		"ammunitionProperties": [],
-		"armorCategory": "",
-		"armorProperties": [],
-		"attuned": false,
-		"bulky": false,
-		"craftingComponents": "Unique (uncraftable)",
-		"containerId": "",
-		"damagedState": 0,
-		"equippedState": 0,
-		"items": {},
-		"materialProperties": [],
-		"objectType": "miscellaneous",
-		"plotItem": false,
-		"price": 0,
-		"proficient": true,
-		"quantity": 1,
-		"rarity": "artifact",
-		"requiresAttunement": true,
-		"shieldCategory": "",
-		"shieldProperties": [],
-		"unidentified": false,
-		"unidentifiedDescription": "",
-		"unidentifiedName": "",
-		"weaponProperties": [],
-		"weight": 0
-	},
-	"effects": [
-		{
-			"icon": "icons/weapons/staves/staff-metal-mask.webp",
-			"origin": "Item.euuvbsr7xstuqazb",
-			"flags": {
-				"a5e": {
-					"sort": 0,
-					"transferType": "passive"
-				}
-			},
-			"transfer": false,
-			"name": "Attuned",
-			"_id": "nXLhCQaLogFxiwn5",
-			"changes": [
-				{
-					"key": "flags.a5e.effects.rollMode.initiative",
-					"value": "-1",
-					"mode": 6,
-					"priority": null
-				}
-			],
-			"disabled": false,
-			"duration": {
-				"startTime": null,
-				"seconds": null,
-				"combat": null,
-				"rounds": null,
-				"turns": null,
-				"startRound": null,
-				"startTurn": null
-			},
-			"description": "",
-			"statuses": [],
-			"tint": "#ffffff",
-			"folder": null
-		},
-		{
-			"icon": "icons/weapons/staves/staff-metal-mask.webp",
-			"origin": "Item.euuvbsr7xstuqazb",
-			"flags": {
-				"a5e": {
-					"sort": 0,
-					"transferType": "onUse",
-					"actionId": "0lbD4tDCZLwSfZwp"
-				}
-			},
-			"transfer": false,
-			"name": "Resistance",
-			"_id": "gT7zOifVuuhnHL3W",
-			"changes": [
-				{
-					"key": "system.traits.damageResistances",
-					"value": "",
-					"mode": 2,
-					"priority": null
-				}
-			],
-			"disabled": false,
-			"duration": {
-				"startTime": null,
-				"seconds": null,
-				"combat": null,
-				"rounds": null,
-				"turns": null,
-				"startRound": null,
-				"startTurn": null
-			},
-			"description": "",
-			"statuses": [],
-			"tint": "#ffffff",
-			"folder": null
-		},
-		{
-			"icon": "icons/weapons/staves/staff-metal-mask.webp",
-			"origin": "Item.euuvbsr7xstuqazb",
-			"flags": {
-				"a5e": {
-					"sort": 0,
-					"transferType": "onUse",
-					"actionId": "Zp13cqaqiHx8OfGI"
-				}
-			},
-			"transfer": false,
-			"name": "Skeleton",
-			"_id": "8kEg9FAs0ynQ8PYH",
-			"changes": [
-				{
-					"key": "system.details.creatureTypes",
-					"value": "[\"undead\"]",
-					"mode": 2,
-					"priority": null
-				},
-				{
-					"key": "flags.a5e.effects.bonuses.abilities",
-					"value": "{\"context\":{\"abilities\":[\"int\"],\"types\":[\"base\"],\"requiresProficiency\":false},\"formula\":\"6\",\"label\":\"Ability Bonus\",\"img\":\"icons/weapons/staves/staff-metal-mask.webp\",\"default\":true}",
-					"mode": 0,
-					"priority": null
-				},
-				{
-					"key": "flags.a5e.effects.bonuses.abilities",
-					"value": "{\"context\":{\"abilities\":[\"wis\"],\"types\":[\"base\"],\"requiresProficiency\":false},\"formula\":\"8\",\"label\":\"Ability Bonus\",\"img\":\"icons/weapons/staves/staff-metal-mask.webp\",\"default\":true}",
-					"mode": 0,
-					"priority": null
-				},
-				{
-					"key": "flags.a5e.effects.bonuses.abilities",
-					"value": "{\"context\":{\"abilities\":[\"cha\"],\"types\":[\"base\"],\"requiresProficiency\":false},\"formula\":\"5\",\"label\":\"Ability Bonus\",\"img\":\"icons/weapons/staves/staff-metal-mask.webp\",\"default\":true}",
-					"mode": 0,
-					"priority": null
-				},
-				{
-					"key": "system.skills.acr.proficient",
-					"value": "false",
-					"mode": 6,
-					"priority": null
-				},
-				{
-					"key": "system.skills.ani.proficient",
-					"value": "false",
-					"mode": 6,
-					"priority": null
-				},
-				{
-					"key": "system.skills.arc.proficient",
-					"value": "false",
-					"mode": 6,
-					"priority": null
-				},
-				{
-					"key": "system.skills.ath.proficient",
-					"value": "false",
-					"mode": 6,
-					"priority": null
-				},
-				{
-					"key": "system.skills.cul.proficient",
-					"value": "false",
-					"mode": 6,
-					"priority": null
-				},
-				{
-					"key": "system.skills.dec.proficient",
-					"value": "false",
-					"mode": 6,
-					"priority": null
-				},
-				{
-					"key": "system.skills.eng.proficient",
-					"value": "false",
-					"mode": 6,
-					"priority": null
-				},
-				{
-					"key": "system.skills.his.proficient",
-					"value": "false",
-					"mode": 6,
-					"priority": null
-				},
-				{
-					"key": "system.skills.ins.proficient",
-					"value": "false",
-					"mode": 6,
-					"priority": null
-				},
-				{
-					"key": "system.skills.itm.proficient",
-					"value": "false",
-					"mode": 6,
-					"priority": null
-				},
-				{
-					"key": "system.skills.inv.proficient",
-					"value": "false",
-					"mode": 6,
-					"priority": null
-				},
-				{
-					"key": "system.skills.med.proficient",
-					"value": "false",
-					"mode": 6,
-					"priority": null
-				},
-				{
-					"key": "system.skills.nat.proficient",
-					"value": "false",
-					"mode": 6,
-					"priority": null
-				},
-				{
-					"key": "system.skills.prc.proficient",
-					"value": "false",
-					"mode": 6,
-					"priority": null
-				},
-				{
-					"key": "system.skills.prf.proficient",
-					"value": "false",
-					"mode": 6,
-					"priority": null
-				},
-				{
-					"key": "system.skills.per.proficient",
-					"value": "false",
-					"mode": 6,
-					"priority": null
-				},
-				{
-					"key": "system.skills.rel.proficient",
-					"value": "false",
-					"mode": 6,
-					"priority": null
-				},
-				{
-					"key": "system.skills.slt.proficient",
-					"value": "false",
-					"mode": 6,
-					"priority": null
-				},
-				{
-					"key": "system.skills.ste.proficient",
-					"value": "false",
-					"mode": 6,
-					"priority": null
-				},
-				{
-					"key": "system.skills.sur.proficient",
-					"value": "false",
-					"mode": 6,
-					"priority": null
-				},
-				{
-					"key": "system.traits.damageVulnerabilities",
-					"value": "[\"bludgeoning\"]",
-					"mode": 2,
-					"priority": null
-				},
-				{
-					"key": "system.traits.damageImmunities",
-					"value": "[\"poison\"]",
-					"mode": 2,
-					"priority": null
-				},
-				{
-					"key": "system.traits.conditionImmunities",
-					"value": "[\"fatigue\",\"poisoned\"]",
-					"mode": 2,
-					"priority": null
-				},
-				{
-					"key": "system.attributes.senses.darkvision.distance",
-					"value": "60",
-					"mode": 6,
-					"priority": null
-				}
-			],
-			"disabled": false,
-			"duration": {
-				"startTime": null,
-				"seconds": null,
-				"combat": null,
-				"rounds": null,
-				"turns": null,
-				"startRound": null,
-				"startTurn": null
-			},
-			"description": "",
-			"statuses": [],
-			"tint": "#ffffff",
-			"folder": null
-		},
-		{
-			"icon": "icons/weapons/staves/staff-metal-mask.webp",
-			"origin": "Item.euuvbsr7xstuqazb",
-			"flags": {
-				"a5e": {
-					"sort": 0,
-					"transferType": "onUse",
-					"actionId": "xOESbFE3dkNNWIV5"
-				}
-			},
-			"transfer": false,
-			"name": "Zombie",
-			"_id": "bHbWms3DRbcFhOVu",
-			"changes": [
-				{
-					"key": "system.details.creatureTypes",
-					"value": "[\"undead\"]",
-					"mode": 2,
-					"priority": null
-				},
-				{
-					"key": "flags.a5e.effects.bonuses.abilities",
-					"value": "{\"context\":{\"abilities\":[\"int\"],\"types\":[\"base\"],\"requiresProficiency\":false},\"formula\":\"3\",\"label\":\"Ability Bonus\",\"img\":\"icons/weapons/staves/staff-metal-mask.webp\",\"default\":true}",
-					"mode": 0,
-					"priority": null
-				},
-				{
-					"key": "flags.a5e.effects.bonuses.abilities",
-					"value": "{\"context\":{\"abilities\":[\"wis\"],\"types\":[\"base\"],\"requiresProficiency\":false},\"formula\":\"8\",\"label\":\"Ability Bonus\",\"img\":\"icons/weapons/staves/staff-metal-mask.webp\",\"default\":true}",
-					"mode": 0,
-					"priority": null
-				},
-				{
-					"key": "flags.a5e.effects.bonuses.abilities",
-					"value": "{\"context\":{\"abilities\":[\"cha\"],\"types\":[\"base\"],\"requiresProficiency\":false},\"formula\":\"5\",\"label\":\"Ability Bonus\",\"img\":\"icons/weapons/staves/staff-metal-mask.webp\",\"default\":true}",
-					"mode": 0,
-					"priority": null
-				},
-				{
-					"key": "system.abilities.str.save.proficient",
-					"value": "false",
-					"mode": 6,
-					"priority": null
-				},
-				{
-					"key": "system.abilities.dex.save.proficient",
-					"value": "false",
-					"mode": 6,
-					"priority": null
-				},
-				{
-					"key": "system.abilities.con.save.proficient",
-					"value": "false",
-					"mode": 6,
-					"priority": null
-				},
-				{
-					"key": "system.abilities.int.save.proficient",
-					"value": "false",
-					"mode": 6,
-					"priority": null
-				},
-				{
-					"key": "system.abilities.wis.save.proficient",
-					"value": "false",
-					"mode": 6,
-					"priority": null
-				},
-				{
-					"key": "system.abilities.cha.save.proficient",
-					"value": "false",
-					"mode": 6,
-					"priority": null
-				},
-				{
-					"key": "system.attributes.movement.walk.distance",
-					"value": "20",
-					"mode": 6,
-					"priority": null
-				},
-				{
-					"key": "system.skills.acr.proficient",
-					"value": "false",
-					"mode": 6,
-					"priority": null
-				},
-				{
-					"key": "system.skills.ani.proficient",
-					"value": "false",
-					"mode": 6,
-					"priority": null
-				},
-				{
-					"key": "system.skills.arc.proficient",
-					"value": "false",
-					"mode": 6,
-					"priority": null
-				},
-				{
-					"key": "system.skills.ath.proficient",
-					"value": "false",
-					"mode": 6,
-					"priority": null
-				},
-				{
-					"key": "system.skills.cul.proficient",
-					"value": "false",
-					"mode": 6,
-					"priority": null
-				},
-				{
-					"key": "system.skills.dec.proficient",
-					"value": "false",
-					"mode": 6,
-					"priority": null
-				},
-				{
-					"key": "system.skills.eng.proficient",
-					"value": "false",
-					"mode": 6,
-					"priority": null
-				},
-				{
-					"key": "system.skills.his.proficient",
-					"value": "false",
-					"mode": 6,
-					"priority": null
-				},
-				{
-					"key": "system.skills.ins.proficient",
-					"value": "false",
-					"mode": 6,
-					"priority": null
-				},
-				{
-					"key": "system.skills.itm.proficient",
-					"value": "false",
-					"mode": 6,
-					"priority": null
-				},
-				{
-					"key": "system.skills.inv.proficient",
-					"value": "false",
-					"mode": 6,
-					"priority": null
-				},
-				{
-					"key": "system.skills.med.proficient",
-					"value": "false",
-					"mode": 6,
-					"priority": null
-				},
-				{
-					"key": "system.skills.nat.proficient",
-					"value": "false",
-					"mode": 6,
-					"priority": null
-				},
-				{
-					"key": "system.skills.prc.proficient",
-					"value": "false",
-					"mode": 6,
-					"priority": null
-				},
-				{
-					"key": "system.skills.prf.proficient",
-					"value": "false",
-					"mode": 6,
-					"priority": null
-				},
-				{
-					"key": "system.skills.per.proficient",
-					"value": "false",
-					"mode": 6,
-					"priority": null
-				},
-				{
-					"key": "system.skills.rel.proficient",
-					"value": "false",
-					"mode": 6,
-					"priority": null
-				},
-				{
-					"key": "system.skills.slt.proficient",
-					"value": "false",
-					"mode": 6,
-					"priority": null
-				},
-				{
-					"key": "system.skills.ste.proficient",
-					"value": "false",
-					"mode": 6,
-					"priority": null
-				},
-				{
-					"key": "system.skills.sur.proficient",
-					"value": "false",
-					"mode": 6,
-					"priority": null
-				},
-				{
-					"key": "system.traits.damageImmunities",
-					"value": "[\"poison\"]",
-					"mode": 2,
-					"priority": null
-				},
-				{
-					"key": "system.traits.conditionImmunities",
-					"value": "[\"fatigue\",\"poisoned\"]",
-					"mode": 2,
-					"priority": null
-				},
-				{
-					"key": "system.attributes.senses.darkvision.distance",
-					"value": "60",
-					"mode": 6,
-					"priority": null
-				}
-			],
-			"disabled": false,
-			"duration": {
-				"startTime": null,
-				"seconds": null,
-				"combat": null,
-				"rounds": null,
-				"turns": null,
-				"startRound": null,
-				"startTurn": null
-			},
-			"description": "",
-			"statuses": [],
-			"tint": "#ffffff",
-			"folder": null
-		},
-		{
-			"icon": "icons/weapons/staves/staff-metal-mask.webp",
-			"origin": "Item.euuvbsr7xstuqazb",
-			"flags": {
-				"a5e": {
-					"sort": 0,
-					"transferType": "onUse",
-					"actionId": "dZnJtR1su4rtZpV2"
-				}
-			},
-			"transfer": false,
-			"name": "Empower Undead",
-			"_id": "Gp4cS2CNhVrEwxjD",
-			"changes": [
-				{
-					"key": "flags.a5e.effects.bonuses.damage",
-					"value": "{\"label\":\"Damage Even on Miss\",\"formula\":\"1d4\",\"damageType\":\"necrotic\",\"context\":{\"attackTypes\":[\"meleeWeaponAttack\",\"rangedWeaponAttack\",\"meleeSpellAttack\",\"rangedSpellAttack\"],\"damageTypes\":[],\"isCritBonus\":false,\"spellLevels\":[]},\"default\":true}",
-					"mode": 0,
-					"priority": null
-				}
-			],
-			"disabled": false,
-			"duration": {
-				"startTime": null,
-				"seconds": null,
-				"combat": null,
-				"rounds": null,
-				"turns": null,
-				"startRound": null,
-				"startTurn": null
-			},
-			"description": "",
-			"statuses": [],
-			"tint": "#ffffff",
-			"folder": null
-		}
-	],
-	"flags": {},
-	"_id": "euuvbsr7xstuqazb"
+  "folder": null,
+  "name": "Dread Caduceus",
+  "type": "object",
+  "img": "icons/weapons/staves/staff-metal-mask.webp",
+  "system": {
+    "ac": {
+      "baseFormula": "",
+      "formula": "",
+      "maxDex": 0,
+      "minStr": 0,
+      "mode": 2,
+      "requiresNoShield": false,
+      "requiresUnarmored": false
+    },
+    "actions": {
+      "nnsaEOhys9iQn91F": {
+        "name": "Dawn",
+        "activation": {},
+        "consumers": {},
+        "rolls": {
+          "6KQIravtPHhF9RaK": {
+            "type": "damage",
+            "default": true,
+            "formula": "1d6",
+            "damageType": "necrotic",
+            "canCrit": false
+          },
+          "M0tdvHbUMq2pydUv": {
+            "type": "generic",
+            "default": true,
+            "label": "Recharge",
+            "formula": "1d10"
+          }
+        },
+        "prompts": {},
+        "uses": {
+          "value": 0,
+          "max": "",
+          "per": "",
+          "recharge": {
+            "formula": "1d6",
+            "threshold": 6
+          }
+        }
+      },
+      "Fvh83ctRikSMUiiq": {
+        "name": "Zero Charges",
+        "activation": {},
+        "consumers": {},
+        "rolls": {
+          "P9ismm5v3DHmix6g": {
+            "type": "damage",
+            "default": true,
+            "canCrit": false,
+            "formula": "10d10",
+            "damageType": "necrotic"
+          }
+        },
+        "prompts": {},
+        "uses": {
+          "value": 0,
+          "max": "",
+          "per": "",
+          "recharge": {
+            "formula": "1d6",
+            "threshold": 6
+          }
+        }
+      },
+      "SIDjf9AoO9ywMLmo": {
+        "name": "Heal",
+        "activation": {
+          "type": "action",
+          "cost": 1
+        },
+        "consumers": {
+          "spZwF3FP0JY5Lv5a": {
+            "type": "itemUses",
+            "default": true,
+            "quantity": 1
+          }
+        },
+        "rolls": {
+          "VrjLBalS82p9TUUn": {
+            "type": "healing",
+            "default": true,
+            "formula": "1d8 + 1",
+            "scaling": {
+              "mode": "itemUses",
+              "formula": "1d8 + 1"
+            }
+          }
+        },
+        "prompts": {},
+        "uses": {
+          "value": 0,
+          "max": "",
+          "per": "",
+          "recharge": {
+            "formula": "1d6",
+            "threshold": 6
+          }
+        },
+        "ranges": {
+          "A5bEgPc6x8MmUv5R": {
+            "range": "self"
+          },
+          "Rq8vFpGMP8HPHQRc": {
+            "range": "short"
+          }
+        },
+        "target": {
+          "type": "creature",
+          "quantity": 1
+        }
+      },
+      "X3RFcehtuC2zTQKj": {
+        "name": "Healing Nimbus (Expend Charge)",
+        "activation": {
+          "type": "action",
+          "cost": 1
+        },
+        "consumers": {
+          "uirGdqOOS5g2Ik5X": {
+            "type": "itemUses",
+            "default": true,
+            "quantity": 3
+          }
+        },
+        "rolls": {
+          "uCD6EVt3C89kutpF": {
+            "type": "generic",
+            "default": true,
+            "label": "Rounds",
+            "formula": "1d6"
+          }
+        },
+        "prompts": {},
+        "uses": {
+          "value": 0,
+          "max": "",
+          "per": "",
+          "recharge": {
+            "formula": "1d6",
+            "threshold": 6
+          }
+        },
+        "duration": {
+          "unit": "",
+          "value": 1
+        },
+        "ranges": {
+          "uQyS8acQdg50MA2B": {
+            "range": "self"
+          },
+          "II4fMhZmzLbisNNn": {
+            "range": "short"
+          }
+        },
+        "target": {
+          "type": "creature",
+          "quantity": 1
+        }
+      },
+      "VVcXNECGMaT9ZyGw": {
+        "name": "Healing Nimbus (Heal)",
+        "activation": {
+          "type": "",
+          "cost": 1
+        },
+        "consumers": {},
+        "rolls": {
+          "mWXTQiR7JlRQRwcG": {
+            "type": "healing",
+            "default": false,
+            "label": "Take Damage",
+            "formula": "1"
+          },
+          "hP8MtpcEJ6EBr7ps": {
+            "type": "healing",
+            "default": false,
+            "label": "Missed By Attack",
+            "formula": "1d4"
+          }
+        },
+        "prompts": {},
+        "uses": {
+          "value": 0,
+          "max": "",
+          "per": "",
+          "recharge": {
+            "formula": "1d6",
+            "threshold": 6
+          }
+        },
+        "duration": {
+          "unit": "",
+          "value": 1
+        }
+      },
+      "eTutYTVI72mjF90l": {
+        "name": "Invulnerability",
+        "activation": {
+          "type": "action",
+          "cost": 1
+        },
+        "consumers": {
+          "7DUhojMpa1yq5R4Q": {
+            "type": "itemUses",
+            "default": true,
+            "quantity": 3
+          }
+        },
+        "rolls": {
+          "FZLFOOZnnxbKmO75": {
+            "type": "generic",
+            "default": true,
+            "label": "Rounds",
+            "formula": "1d4"
+          }
+        },
+        "prompts": {},
+        "uses": {
+          "value": 0,
+          "max": "",
+          "per": "",
+          "recharge": {
+            "formula": "1d6",
+            "threshold": 6
+          }
+        },
+        "ranges": {
+          "zlGkatHOCkYkLVVq": {
+            "range": "self"
+          },
+          "lDxLCId8wUaLyULO": {
+            "range": "short"
+          }
+        },
+        "target": {
+          "type": "creature",
+          "quantity": 1
+        }
+      },
+      "WaWVnJqTDXATiftk": {
+        "name": "Exhaustless",
+        "activation": {
+          "type": "action",
+          "cost": 1
+        },
+        "consumers": {
+          "Iah1IC3DUGt3SKJY": {
+            "type": "itemUses",
+            "default": true,
+            "quantity": 5
+          }
+        },
+        "rolls": {
+          "5v24naEs818fWI3f": {
+            "type": "generic",
+            "default": true,
+            "label": "Days",
+            "formula": "1d6"
+          }
+        },
+        "prompts": {},
+        "uses": {
+          "value": 0,
+          "max": "",
+          "per": "",
+          "recharge": {
+            "formula": "1d6",
+            "threshold": 6
+          }
+        },
+        "ranges": {
+          "NYmoPo6johWV85L4": {
+            "range": "self"
+          },
+          "YoWLW2PiCdpH7Wog": {
+            "range": "short"
+          }
+        },
+        "target": {
+          "type": "creature",
+          "quantity": 1
+        }
+      },
+      "0lbD4tDCZLwSfZwp": {
+        "name": "Resistance",
+        "activation": {
+          "type": "action",
+          "cost": 1
+        },
+        "consumers": {
+          "Iah1IC3DUGt3SKJY": {
+            "type": "itemUses",
+            "default": true,
+            "quantity": 5
+          }
+        },
+        "rolls": {
+          "5v24naEs818fWI3f": {
+            "type": "generic",
+            "default": true,
+            "label": "Rounds",
+            "formula": "1d6"
+          }
+        },
+        "prompts": {
+          "CnAii9FDLm6AVGai": {
+            "type": "effect",
+            "default": true,
+            "effectId": "gT7zOifVuuhnHL3W"
+          }
+        },
+        "uses": {
+          "value": 0,
+          "max": "",
+          "per": "",
+          "recharge": {
+            "formula": "1d6",
+            "threshold": 6
+          }
+        },
+        "ranges": {
+          "NYmoPo6johWV85L4": {
+            "range": "self"
+          },
+          "YoWLW2PiCdpH7Wog": {
+            "range": "short"
+          }
+        },
+        "target": {
+          "type": "creature",
+          "quantity": 1
+        }
+      },
+      "iwwaSOzq6YjjVXEO": {
+        "name": "Cure",
+        "activation": {
+          "type": "action",
+          "cost": 1
+        },
+        "consumers": {
+          "Iah1IC3DUGt3SKJY": {
+            "type": "itemUses",
+            "default": true,
+            "quantity": 10
+          }
+        },
+        "rolls": {},
+        "prompts": {},
+        "uses": {
+          "value": 0,
+          "max": "",
+          "per": "",
+          "recharge": {
+            "formula": "1d6",
+            "threshold": 6
+          }
+        },
+        "ranges": {
+          "NYmoPo6johWV85L4": {
+            "range": "self"
+          },
+          "YoWLW2PiCdpH7Wog": {
+            "range": "short"
+          }
+        },
+        "target": {
+          "type": "creature",
+          "quantity": 1
+        }
+      },
+      "k3KyJWrpq0sR6bNV": {
+        "name": "Invigorate",
+        "activation": {
+          "type": "action",
+          "cost": 1
+        },
+        "consumers": {
+          "Iah1IC3DUGt3SKJY": {
+            "type": "itemUses",
+            "default": true,
+            "quantity": 10
+          }
+        },
+        "rolls": {
+          "f4vtRT8yF9twsWHJ": {
+            "type": "generic",
+            "default": true,
+            "label": "Max Hit Points",
+            "formula": "1d8 + 1"
+          }
+        },
+        "prompts": {},
+        "uses": {
+          "value": 0,
+          "max": "",
+          "per": "",
+          "recharge": {
+            "formula": "1d6",
+            "threshold": 6
+          }
+        },
+        "ranges": {
+          "NYmoPo6johWV85L4": {
+            "range": "self"
+          },
+          "YoWLW2PiCdpH7Wog": {
+            "range": "short"
+          }
+        },
+        "target": {
+          "type": "creature",
+          "quantity": 1
+        }
+      },
+      "Zp13cqaqiHx8OfGI": {
+        "name": "Animate Skeleton",
+        "activation": {
+          "type": "action",
+          "cost": 1
+        },
+        "consumers": {
+          "959k4mLdQbj4aCpZ": {
+            "type": "itemUses",
+            "default": true,
+            "quantity": 1
+          }
+        },
+        "rolls": {},
+        "prompts": {
+          "C0ZSzeTcI29vctl9": {
+            "type": "effect",
+            "default": true,
+            "effectId": "8kEg9FAs0ynQ8PYH"
+          }
+        },
+        "uses": {
+          "value": 0,
+          "max": "",
+          "per": "",
+          "recharge": {
+            "formula": "1d6",
+            "threshold": 6
+          }
+        },
+        "ranges": {
+          "2jj4oKbFml9gr9dS": {
+            "range": "self"
+          },
+          "Uoko18Kr8op7QsUI": {
+            "range": 100,
+            "unit": "feet"
+          }
+        },
+        "target": {
+          "type": "creature",
+          "quantity": 1
+        }
+      },
+      "xOESbFE3dkNNWIV5": {
+        "name": "Animate Zombie",
+        "activation": {
+          "type": "action",
+          "cost": 1
+        },
+        "consumers": {
+          "959k4mLdQbj4aCpZ": {
+            "type": "itemUses",
+            "default": true,
+            "quantity": 2
+          }
+        },
+        "rolls": {},
+        "prompts": {
+          "C0ZSzeTcI29vctl9": {
+            "type": "effect",
+            "default": true,
+            "effectId": "8kEg9FAs0ynQ8PYH"
+          },
+          "3ZfUvmLgrNRESKQY": {
+            "type": "effect",
+            "default": true,
+            "effectId": "bHbWms3DRbcFhOVu"
+          }
+        },
+        "uses": {
+          "value": 0,
+          "max": "",
+          "per": "",
+          "recharge": {
+            "formula": "1d6",
+            "threshold": 6
+          }
+        },
+        "ranges": {
+          "2jj4oKbFml9gr9dS": {
+            "range": "self"
+          },
+          "Uoko18Kr8op7QsUI": {
+            "range": 100,
+            "unit": "feet"
+          }
+        },
+        "target": {
+          "type": "creature",
+          "quantity": 1
+        }
+      },
+      "nEvVayYoIx1KVmom": {
+        "name": "Undead Fortitude",
+        "activation": {
+          "cost": 1,
+          "type": "special",
+          "reactionTrigger": ""
+        },
+        "consumers": {},
+        "rolls": {},
+        "prompts": {},
+        "uses": {
+          "value": 1,
+          "max": "1",
+          "per": "day",
+          "recharge": {
+            "formula": "1d6",
+            "threshold": 6
+          }
+        },
+        "duration": {
+          "unit": "",
+          "value": ""
+        },
+        "area": {
+          "shape": "",
+          "size": "",
+          "placeTemplate": false,
+          "quantity": 1
+        },
+        "target": {
+          "quantity": "",
+          "type": ""
+        },
+        "img": "systems/a5e/assets/zombie.webp",
+        "description": "<p>If the zombie is reduced&nbsp;to 0 hit points by damage that isn&rsquo;t radiant or&nbsp;from a critical hit, it is instead reduced to 1 hit&nbsp;point, falls prone, and is stunned until the end&nbsp;of its next turn, appearing to be dead.</p>"
+      },
+      "9wpADhHYhrEXomh7": {
+        "name": "Bite",
+        "activation": {
+          "type": "action",
+          "cost": 1
+        },
+        "consumers": {},
+        "rolls": {
+          "CAmGpJrjRSOE3oGA": {
+            "type": "attack",
+            "default": true,
+            "attackType": "meleeWeaponAttack",
+            "proficient": true,
+            "ability": "none",
+            "label": "Grappled Creature"
+          },
+          "UtdlUuvrZUDhdGLm": {
+            "type": "damage",
+            "default": true,
+            "label": "Zombie Heals Damage Amount",
+            "formula": "2d4 + @str.mod",
+            "damageType": "piercing"
+          }
+        },
+        "prompts": {},
+        "uses": {
+          "value": 0,
+          "max": "",
+          "per": "",
+          "recharge": {
+            "formula": "1d6",
+            "threshold": 6
+          }
+        },
+        "descriptionOutputs": [
+          "action"
+        ],
+        "ranges": {
+          "suTEnyM35roXMjt4": {
+            "range": "fiveFeet"
+          }
+        },
+        "target": {
+          "type": "creature",
+          "quantity": 1
+        },
+        "img": "systems/a5e/assets/zombie.webp"
+      },
+      "eIqlWcD0atd0gSco": {
+        "name": "Grab",
+        "activation": {
+          "type": "action",
+          "cost": 1
+        },
+        "consumers": {},
+        "rolls": {
+          "7r1r5sjwLuaoBq3H": {
+            "type": "attack",
+            "default": true,
+            "attackType": "meleeWeaponAttack",
+            "proficient": true,
+            "ability": "none"
+          },
+          "BMLyss7ULKuTIkMb": {
+            "type": "damage",
+            "default": true,
+            "formula": "1d6 + @str.mod",
+            "damageType": "bludgeoning"
+          }
+        },
+        "prompts": {
+          "53zqJYIaF1N1RGLx": {
+            "type": "savingThrow",
+            "default": true,
+            "ability": "str",
+            "saveDC": {
+              "type": "maneuver"
+            },
+            "label": "Grapple Escape (Strength)"
+          },
+          "I2uLg0mXCPwxj6j9": {
+            "type": "savingThrow",
+            "default": true,
+            "ability": "dex",
+            "saveDC": {
+              "type": "maneuver"
+            },
+            "label": "Grapple Escape (Dexterity)"
+          }
+        },
+        "uses": {
+          "value": 0,
+          "max": "",
+          "per": "",
+          "recharge": {
+            "formula": "1d6",
+            "threshold": 6
+          }
+        },
+        "img": "systems/a5e/assets/zombie.webp",
+        "descriptionOutputs": [
+          "action"
+        ],
+        "ranges": {
+          "9DKG9GeaxtqDEP1o": {
+            "range": "fiveFeet"
+          }
+        },
+        "target": {
+          "type": "creature",
+          "quantity": 1
+        }
+      },
+      "dZnJtR1su4rtZpV2": {
+        "name": "Empower Undead",
+        "activation": {
+          "type": "action",
+          "cost": 1
+        },
+        "consumers": {
+          "959k4mLdQbj4aCpZ": {
+            "type": "itemUses",
+            "default": true,
+            "quantity": 2
+          }
+        },
+        "rolls": {},
+        "prompts": {
+          "siH2zkTgxXExPL5e": {
+            "type": "effect",
+            "default": true,
+            "effectId": "Gp4cS2CNhVrEwxjD"
+          }
+        },
+        "uses": {
+          "value": 0,
+          "max": "",
+          "per": "",
+          "recharge": {
+            "formula": "1d6",
+            "threshold": 6
+          }
+        },
+        "ranges": {
+          "2jj4oKbFml9gr9dS": {
+            "range": "self"
+          },
+          "Uoko18Kr8op7QsUI": {
+            "range": 100,
+            "unit": "feet"
+          }
+        },
+        "target": {
+          "type": "other",
+          "quantity": 1
+        }
+      },
+      "2O4xoZuVdI88sRmO": {
+        "name": "Animate Legion",
+        "activation": {
+          "type": "action",
+          "cost": 1
+        },
+        "consumers": {
+          "959k4mLdQbj4aCpZ": {
+            "type": "itemUses",
+            "default": true,
+            "quantity": 6
+          }
+        },
+        "rolls": {},
+        "prompts": {},
+        "uses": {
+          "value": 0,
+          "max": "",
+          "per": "",
+          "recharge": {
+            "formula": "1d6",
+            "threshold": 6
+          }
+        },
+        "ranges": {
+          "2jj4oKbFml9gr9dS": {
+            "range": "self"
+          },
+          "Uoko18Kr8op7QsUI": {
+            "range": 100,
+            "unit": "feet"
+          }
+        },
+        "target": {
+          "type": "other",
+          "quantity": 1
+        }
+      },
+      "RcwAzkCZQHtImBxU": {
+        "name": "Command the Undead",
+        "activation": {
+          "type": "bonusAction",
+          "cost": 1
+        },
+        "consumers": {},
+        "rolls": {},
+        "prompts": {},
+        "uses": {
+          "value": 0,
+          "max": "",
+          "per": "",
+          "recharge": {
+            "formula": "1d6",
+            "threshold": 6
+          }
+        }
+      }
+    },
+    "description": "<p>When wizards go to war their desperation reveals&nbsp;the bleak depths and miraculous heights of magic.&nbsp;Long ago it was a desire to both bolster and renew&nbsp;their forces that led a mage to create a relic many&nbsp;would consider unthinkable: a scepter that twists&nbsp;the essence of life itself. With it the dead are remade&nbsp;into unrecognizable tangles of flesh that despite their&nbsp;deformity do the wielder of the scepter&rsquo;s bidding, all&nbsp;as their allies are healed and empowered with vigor&nbsp;far beyond mortal bounds.</p>\n<p>This heavy silver scepter has two heads, both cast in metal and staring out of glassy onyx eyes. One head is a skull, its jaw thrown open and its teeth unnaturally elongated. At the other end of the scepter is a cherubic human face that is turned upwards as though determined not to look at its sibling.</p>\n<p>No one is certain whether it was the creator&rsquo;s shame that led them to hide the scepter, or if their enemies cast it out of memory for fear of its power. What is known is that the legend of the Dread Caduceus has endured and that whispers of its whereabouts have not been silenced by time.</p>\n<p>While you are attuned to the Dread Caduceus you may use either end of the scepter to activate its powers.</p>\n<p>&nbsp;</p>\n<h2>Legends and Lore</h2>\n<p>Success on an Arcana or History check reveals&nbsp;the following:</p>\n<p><strong>DC 15</strong> This is the Dread Caduceus, a holy scepter with the power to raise the dead.</p>\n<p><strong>DC 18</strong> The cherub and skull heads cause healing and necromantic effects, respectively.</p>\n<p><strong>DC 21</strong> Those who use the scepter risk having their very flesh corrupted and their souls devoured.</p>\n<p>&nbsp;</p>\n<h2>Artifact Properties</h2>\n<p>The Dread Caduceus has one lesser artifact benefit,&nbsp;one greater artifact benefit, one lesser artifact detriment,&nbsp;and one greater artifact detriment.</p>\n<p>The Dread Caduceus warps your life energy, twisting your flesh as it corrupts that of others. While you are attuned to the scepter, your organs shift and twist, sticking to one another within you. Take 1d6 necrotic damage each dawn from this effect. This damage can only be healed by a long or short rest. You also have disadvantage on initiative rolls as you are distracted by this tangible shifting within.</p>\n<p>The Dread Caduceus has [[2d10]] charges and regains 1d10 charges each dawn. When you reduce the Dread Caduceus to 0 charges, you take 10d10 necrotic damage. If this damage reduces you to 0 hit points, you instantly die and cannot be resurrected (even by a @UUID[Compendium.a5e.a5e-spells.Item.pe52jryde7ljobzq]{Wish} spell).</p>\n<p>&nbsp;</p>\n<h2>Cherub</h2>\n<p>You can use an action and expend charges from&nbsp;the Dread Caduceus to cause one of the following&nbsp;effects to extend from the cherub head of the scepter,&nbsp;targeting yourself or a creature within 30 feet:</p>\n<p><em><strong>Heal.</strong></em> The creature regains 1d8+1 hit points for each expended charge.</p>\n<p><em><strong>Healing Nimbus (3 Charges).</strong></em> A nimbus of healing appears around the creature for 1d6 rounds. For the duration, whenever the creature takes damage from an attack it regains 1 hit point, and when an attack misses the creature it regains 1d4 hit points.</p>\n<p><em><strong>Invulnerability (3 Charges).</strong></em> The creature becomes immune to damage from nonmagical attacks for 1d4 rounds.</p>\n<p><em><strong>Exhaustless (5 Charges).</strong></em> The creature becomes immune to fatigue for 1d6 days.</p>\n<p><em><strong>Resistance (5 Charges).</strong></em> The creature becomes resistant to one type of damage of your choice for 1d6 rounds. This property has no effect if the creature already has resistance to that damage type.</p>\n<p><em><strong>Cure (10 Charges).</strong></em> The creature is healed of any curses, diseases, poisons, or other negative effects, even if a @UUID[Compendium.a5e.a5e-spells.Item.pe52jryde7ljobzq]{Wish} spell has previously been unsuccessful.</p>\n<p><em><strong>Invigorate (10 Charges).</strong></em> The creature permanently&nbsp;increases its maximum hit points by&nbsp;1d8+1. A creature can only benefit from this&nbsp;property once.</p>\n<p>&nbsp;</p>\n<h2>Skull</h2>\n<p>You can use an action and expend charges from&nbsp;the Dread Caduceus to cause one of the following&nbsp;effects to extend from the skull head of the scepter,&nbsp;targeting yourself or a creature within 100 feet:</p>\n<p><em><strong>Animate Skeleton (1 Charge).</strong></em> You return a dead creature to a semblance of life, animating the skeleton of its body to serve at your whim. The creature gains the skeleton template and remains under your control until you die or are no longer attuned to the Dread Caduceus.</p>\n<p><em><strong>Animate Zombie (2 Charges).</strong></em> You return a dead creature to a semblance of life, animating it as a zombie to serve at your whim. The creature gains the zombie template and remains under your control until you die or are no longer attuned to the Dread Caduceus.</p>\n<p><em><strong>Empower Undead (2 Charges).</strong></em> Choose [[1d6]] undead that you can see within range. Whenever one of the chosen undead makes a weapon attack it deals an extra 1d4 necrotic damage. Even on a miss, the undead deals 1d4 necrotic damage.</p>\n<p><em><strong>Animate Legion (6 Charges).</strong></em> You return [[3d10]] dead humanoids to a semblance of life, transforming their corpses into zombies.</p>\n<p>You can use a bonus action to mentally command the undead you create using the Dread Caduceus. When you command multiple undead, you must give them all the same command. You may decide the action the undead takes and where it moves during its next turn, or you can issue a general command, such as guarding an area. If not given a command, the undead only defends itself. The undead continues to follow a command until its task is complete.</p>\n<p>&nbsp;</p>\n<p>In addition, any creature you animate in this fashion retains injuries or disfigurements that were upon its corpse, and it continues to decompose.</p>",
+    "favorite": false,
+    "secretDescription": "",
+    "source": "",
+    "uses": {
+      "value": null,
+      "max": "",
+      "per": null,
+      "recharge": {
+        "formula": "1d6",
+        "threshold": "6"
+      }
+    },
+    "schema": {
+      "version": null,
+      "lastMigration": null
+    },
+    "ammunitionProperties": [],
+    "armorCategory": "",
+    "armorProperties": [],
+    "attuned": false,
+    "bulky": false,
+    "craftingComponents": "Unique (uncraftable)",
+    "containerId": "",
+    "damagedState": 0,
+    "equippedState": 0,
+    "items": {},
+    "materialProperties": [],
+    "objectType": "miscellaneous",
+    "plotItem": false,
+    "price": "0 gp",
+    "proficient": true,
+    "quantity": 1,
+    "rarity": "artifact",
+    "requiresAttunement": true,
+    "shieldCategory": "",
+    "shieldProperties": [],
+    "unidentified": false,
+    "unidentifiedDescription": "",
+    "unidentifiedName": "",
+    "weaponProperties": [],
+    "weight": 0
+  },
+  "effects": [
+    {
+      "icon": "icons/weapons/staves/staff-metal-mask.webp",
+      "origin": "Item.euuvbsr7xstuqazb",
+      "flags": {
+        "a5e": {
+          "sort": 0,
+          "transferType": "passive"
+        }
+      },
+      "transfer": false,
+      "name": "Attuned",
+      "_id": "nXLhCQaLogFxiwn5",
+      "changes": [
+        {
+          "key": "flags.a5e.effects.rollMode.initiative",
+          "value": "-1",
+          "mode": 6,
+          "priority": null
+        }
+      ],
+      "disabled": false,
+      "duration": {
+        "startTime": null,
+        "seconds": null,
+        "combat": null,
+        "rounds": null,
+        "turns": null,
+        "startRound": null,
+        "startTurn": null
+      },
+      "description": "",
+      "statuses": [],
+      "tint": "#ffffff",
+      "folder": null
+    },
+    {
+      "icon": "icons/weapons/staves/staff-metal-mask.webp",
+      "origin": "Item.euuvbsr7xstuqazb",
+      "flags": {
+        "a5e": {
+          "sort": 0,
+          "transferType": "onUse",
+          "actionId": "0lbD4tDCZLwSfZwp"
+        }
+      },
+      "transfer": false,
+      "name": "Resistance",
+      "_id": "gT7zOifVuuhnHL3W",
+      "changes": [
+        {
+          "key": "system.traits.damageResistances",
+          "value": "",
+          "mode": 2,
+          "priority": null
+        }
+      ],
+      "disabled": false,
+      "duration": {
+        "startTime": null,
+        "seconds": null,
+        "combat": null,
+        "rounds": null,
+        "turns": null,
+        "startRound": null,
+        "startTurn": null
+      },
+      "description": "",
+      "statuses": [],
+      "tint": "#ffffff",
+      "folder": null
+    },
+    {
+      "icon": "icons/weapons/staves/staff-metal-mask.webp",
+      "origin": "Item.euuvbsr7xstuqazb",
+      "flags": {
+        "a5e": {
+          "sort": 0,
+          "transferType": "onUse",
+          "actionId": "Zp13cqaqiHx8OfGI"
+        }
+      },
+      "transfer": false,
+      "name": "Skeleton",
+      "_id": "8kEg9FAs0ynQ8PYH",
+      "changes": [
+        {
+          "key": "system.details.creatureTypes",
+          "value": "[\"undead\"]",
+          "mode": 2,
+          "priority": null
+        },
+        {
+          "key": "flags.a5e.effects.bonuses.abilities",
+          "value": "{\"context\":{\"abilities\":[\"int\"],\"types\":[\"base\"],\"requiresProficiency\":false},\"formula\":\"6\",\"label\":\"Ability Bonus\",\"img\":\"icons/weapons/staves/staff-metal-mask.webp\",\"default\":true}",
+          "mode": 0,
+          "priority": null
+        },
+        {
+          "key": "flags.a5e.effects.bonuses.abilities",
+          "value": "{\"context\":{\"abilities\":[\"wis\"],\"types\":[\"base\"],\"requiresProficiency\":false},\"formula\":\"8\",\"label\":\"Ability Bonus\",\"img\":\"icons/weapons/staves/staff-metal-mask.webp\",\"default\":true}",
+          "mode": 0,
+          "priority": null
+        },
+        {
+          "key": "flags.a5e.effects.bonuses.abilities",
+          "value": "{\"context\":{\"abilities\":[\"cha\"],\"types\":[\"base\"],\"requiresProficiency\":false},\"formula\":\"5\",\"label\":\"Ability Bonus\",\"img\":\"icons/weapons/staves/staff-metal-mask.webp\",\"default\":true}",
+          "mode": 0,
+          "priority": null
+        },
+        {
+          "key": "system.skills.acr.proficient",
+          "value": "false",
+          "mode": 6,
+          "priority": null
+        },
+        {
+          "key": "system.skills.ani.proficient",
+          "value": "false",
+          "mode": 6,
+          "priority": null
+        },
+        {
+          "key": "system.skills.arc.proficient",
+          "value": "false",
+          "mode": 6,
+          "priority": null
+        },
+        {
+          "key": "system.skills.ath.proficient",
+          "value": "false",
+          "mode": 6,
+          "priority": null
+        },
+        {
+          "key": "system.skills.cul.proficient",
+          "value": "false",
+          "mode": 6,
+          "priority": null
+        },
+        {
+          "key": "system.skills.dec.proficient",
+          "value": "false",
+          "mode": 6,
+          "priority": null
+        },
+        {
+          "key": "system.skills.eng.proficient",
+          "value": "false",
+          "mode": 6,
+          "priority": null
+        },
+        {
+          "key": "system.skills.his.proficient",
+          "value": "false",
+          "mode": 6,
+          "priority": null
+        },
+        {
+          "key": "system.skills.ins.proficient",
+          "value": "false",
+          "mode": 6,
+          "priority": null
+        },
+        {
+          "key": "system.skills.itm.proficient",
+          "value": "false",
+          "mode": 6,
+          "priority": null
+        },
+        {
+          "key": "system.skills.inv.proficient",
+          "value": "false",
+          "mode": 6,
+          "priority": null
+        },
+        {
+          "key": "system.skills.med.proficient",
+          "value": "false",
+          "mode": 6,
+          "priority": null
+        },
+        {
+          "key": "system.skills.nat.proficient",
+          "value": "false",
+          "mode": 6,
+          "priority": null
+        },
+        {
+          "key": "system.skills.prc.proficient",
+          "value": "false",
+          "mode": 6,
+          "priority": null
+        },
+        {
+          "key": "system.skills.prf.proficient",
+          "value": "false",
+          "mode": 6,
+          "priority": null
+        },
+        {
+          "key": "system.skills.per.proficient",
+          "value": "false",
+          "mode": 6,
+          "priority": null
+        },
+        {
+          "key": "system.skills.rel.proficient",
+          "value": "false",
+          "mode": 6,
+          "priority": null
+        },
+        {
+          "key": "system.skills.slt.proficient",
+          "value": "false",
+          "mode": 6,
+          "priority": null
+        },
+        {
+          "key": "system.skills.ste.proficient",
+          "value": "false",
+          "mode": 6,
+          "priority": null
+        },
+        {
+          "key": "system.skills.sur.proficient",
+          "value": "false",
+          "mode": 6,
+          "priority": null
+        },
+        {
+          "key": "system.traits.damageVulnerabilities",
+          "value": "[\"bludgeoning\"]",
+          "mode": 2,
+          "priority": null
+        },
+        {
+          "key": "system.traits.damageImmunities",
+          "value": "[\"poison\"]",
+          "mode": 2,
+          "priority": null
+        },
+        {
+          "key": "system.traits.conditionImmunities",
+          "value": "[\"fatigue\",\"poisoned\"]",
+          "mode": 2,
+          "priority": null
+        },
+        {
+          "key": "system.attributes.senses.darkvision.distance",
+          "value": "60",
+          "mode": 6,
+          "priority": null
+        }
+      ],
+      "disabled": false,
+      "duration": {
+        "startTime": null,
+        "seconds": null,
+        "combat": null,
+        "rounds": null,
+        "turns": null,
+        "startRound": null,
+        "startTurn": null
+      },
+      "description": "",
+      "statuses": [],
+      "tint": "#ffffff",
+      "folder": null
+    },
+    {
+      "icon": "icons/weapons/staves/staff-metal-mask.webp",
+      "origin": "Item.euuvbsr7xstuqazb",
+      "flags": {
+        "a5e": {
+          "sort": 0,
+          "transferType": "onUse",
+          "actionId": "xOESbFE3dkNNWIV5"
+        }
+      },
+      "transfer": false,
+      "name": "Zombie",
+      "_id": "bHbWms3DRbcFhOVu",
+      "changes": [
+        {
+          "key": "system.details.creatureTypes",
+          "value": "[\"undead\"]",
+          "mode": 2,
+          "priority": null
+        },
+        {
+          "key": "flags.a5e.effects.bonuses.abilities",
+          "value": "{\"context\":{\"abilities\":[\"int\"],\"types\":[\"base\"],\"requiresProficiency\":false},\"formula\":\"3\",\"label\":\"Ability Bonus\",\"img\":\"icons/weapons/staves/staff-metal-mask.webp\",\"default\":true}",
+          "mode": 0,
+          "priority": null
+        },
+        {
+          "key": "flags.a5e.effects.bonuses.abilities",
+          "value": "{\"context\":{\"abilities\":[\"wis\"],\"types\":[\"base\"],\"requiresProficiency\":false},\"formula\":\"8\",\"label\":\"Ability Bonus\",\"img\":\"icons/weapons/staves/staff-metal-mask.webp\",\"default\":true}",
+          "mode": 0,
+          "priority": null
+        },
+        {
+          "key": "flags.a5e.effects.bonuses.abilities",
+          "value": "{\"context\":{\"abilities\":[\"cha\"],\"types\":[\"base\"],\"requiresProficiency\":false},\"formula\":\"5\",\"label\":\"Ability Bonus\",\"img\":\"icons/weapons/staves/staff-metal-mask.webp\",\"default\":true}",
+          "mode": 0,
+          "priority": null
+        },
+        {
+          "key": "system.abilities.str.save.proficient",
+          "value": "false",
+          "mode": 6,
+          "priority": null
+        },
+        {
+          "key": "system.abilities.dex.save.proficient",
+          "value": "false",
+          "mode": 6,
+          "priority": null
+        },
+        {
+          "key": "system.abilities.con.save.proficient",
+          "value": "false",
+          "mode": 6,
+          "priority": null
+        },
+        {
+          "key": "system.abilities.int.save.proficient",
+          "value": "false",
+          "mode": 6,
+          "priority": null
+        },
+        {
+          "key": "system.abilities.wis.save.proficient",
+          "value": "false",
+          "mode": 6,
+          "priority": null
+        },
+        {
+          "key": "system.abilities.cha.save.proficient",
+          "value": "false",
+          "mode": 6,
+          "priority": null
+        },
+        {
+          "key": "system.attributes.movement.walk.distance",
+          "value": "20",
+          "mode": 6,
+          "priority": null
+        },
+        {
+          "key": "system.skills.acr.proficient",
+          "value": "false",
+          "mode": 6,
+          "priority": null
+        },
+        {
+          "key": "system.skills.ani.proficient",
+          "value": "false",
+          "mode": 6,
+          "priority": null
+        },
+        {
+          "key": "system.skills.arc.proficient",
+          "value": "false",
+          "mode": 6,
+          "priority": null
+        },
+        {
+          "key": "system.skills.ath.proficient",
+          "value": "false",
+          "mode": 6,
+          "priority": null
+        },
+        {
+          "key": "system.skills.cul.proficient",
+          "value": "false",
+          "mode": 6,
+          "priority": null
+        },
+        {
+          "key": "system.skills.dec.proficient",
+          "value": "false",
+          "mode": 6,
+          "priority": null
+        },
+        {
+          "key": "system.skills.eng.proficient",
+          "value": "false",
+          "mode": 6,
+          "priority": null
+        },
+        {
+          "key": "system.skills.his.proficient",
+          "value": "false",
+          "mode": 6,
+          "priority": null
+        },
+        {
+          "key": "system.skills.ins.proficient",
+          "value": "false",
+          "mode": 6,
+          "priority": null
+        },
+        {
+          "key": "system.skills.itm.proficient",
+          "value": "false",
+          "mode": 6,
+          "priority": null
+        },
+        {
+          "key": "system.skills.inv.proficient",
+          "value": "false",
+          "mode": 6,
+          "priority": null
+        },
+        {
+          "key": "system.skills.med.proficient",
+          "value": "false",
+          "mode": 6,
+          "priority": null
+        },
+        {
+          "key": "system.skills.nat.proficient",
+          "value": "false",
+          "mode": 6,
+          "priority": null
+        },
+        {
+          "key": "system.skills.prc.proficient",
+          "value": "false",
+          "mode": 6,
+          "priority": null
+        },
+        {
+          "key": "system.skills.prf.proficient",
+          "value": "false",
+          "mode": 6,
+          "priority": null
+        },
+        {
+          "key": "system.skills.per.proficient",
+          "value": "false",
+          "mode": 6,
+          "priority": null
+        },
+        {
+          "key": "system.skills.rel.proficient",
+          "value": "false",
+          "mode": 6,
+          "priority": null
+        },
+        {
+          "key": "system.skills.slt.proficient",
+          "value": "false",
+          "mode": 6,
+          "priority": null
+        },
+        {
+          "key": "system.skills.ste.proficient",
+          "value": "false",
+          "mode": 6,
+          "priority": null
+        },
+        {
+          "key": "system.skills.sur.proficient",
+          "value": "false",
+          "mode": 6,
+          "priority": null
+        },
+        {
+          "key": "system.traits.damageImmunities",
+          "value": "[\"poison\"]",
+          "mode": 2,
+          "priority": null
+        },
+        {
+          "key": "system.traits.conditionImmunities",
+          "value": "[\"fatigue\",\"poisoned\"]",
+          "mode": 2,
+          "priority": null
+        },
+        {
+          "key": "system.attributes.senses.darkvision.distance",
+          "value": "60",
+          "mode": 6,
+          "priority": null
+        }
+      ],
+      "disabled": false,
+      "duration": {
+        "startTime": null,
+        "seconds": null,
+        "combat": null,
+        "rounds": null,
+        "turns": null,
+        "startRound": null,
+        "startTurn": null
+      },
+      "description": "",
+      "statuses": [],
+      "tint": "#ffffff",
+      "folder": null
+    },
+    {
+      "icon": "icons/weapons/staves/staff-metal-mask.webp",
+      "origin": "Item.euuvbsr7xstuqazb",
+      "flags": {
+        "a5e": {
+          "sort": 0,
+          "transferType": "onUse",
+          "actionId": "dZnJtR1su4rtZpV2"
+        }
+      },
+      "transfer": false,
+      "name": "Empower Undead",
+      "_id": "Gp4cS2CNhVrEwxjD",
+      "changes": [
+        {
+          "key": "flags.a5e.effects.bonuses.damage",
+          "value": "{\"label\":\"Damage Even on Miss\",\"formula\":\"1d4\",\"damageType\":\"necrotic\",\"context\":{\"attackTypes\":[\"meleeWeaponAttack\",\"rangedWeaponAttack\",\"meleeSpellAttack\",\"rangedSpellAttack\"],\"damageTypes\":[],\"isCritBonus\":false,\"spellLevels\":[]},\"default\":true}",
+          "mode": 0,
+          "priority": null
+        }
+      ],
+      "disabled": false,
+      "duration": {
+        "startTime": null,
+        "seconds": null,
+        "combat": null,
+        "rounds": null,
+        "turns": null,
+        "startRound": null,
+        "startTurn": null
+      },
+      "description": "",
+      "statuses": [],
+      "tint": "#ffffff",
+      "folder": null
+    }
+  ],
+  "flags": {},
+  "_id": "euuvbsr7xstuqazb"
 }

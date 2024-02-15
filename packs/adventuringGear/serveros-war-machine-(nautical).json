@@ -1,538 +1,538 @@
 {
-	"folder": null,
-	"name": "Serveros War Machine (Nautical)",
-	"type": "object",
-	"img": "icons/environment/creatures/golem-stone-purple.webp",
-	"system": {
-		"ac": {
-			"baseFormula": "",
-			"formula": "",
-			"maxDex": 0,
-			"minStr": 0,
-			"mode": 2,
-			"requiresNoShield": false,
-			"requiresUnarmored": false
-		},
-		"actions": {
-			"LNDkPyIIcEUzyqSU": {
-				"name": "Unarmed Strike",
-				"activation": {
-					"type": "action",
-					"cost": 1
-				},
-				"consumers": {},
-				"rolls": {
-					"6opdHToLhRfEun2e": {
-						"type": "attack",
-						"default": true,
-						"attackType": "meleeWeaponAttack",
-						"proficient": true,
-						"ability": "default"
-					},
-					"OVv6AABhyQ0XAL5d": {
-						"type": "damage",
-						"default": true,
-						"formula": "4d8",
-						"damageType": "bludgeoning"
-					}
-				},
-				"prompts": {},
-				"uses": {
-					"value": 0,
-					"max": "",
-					"per": "",
-					"recharge": {
-						"formula": "1d6",
-						"threshold": 6
-					}
-				},
-				"descriptionOutputs": [
-					"action"
-				],
-				"ranges": {
-					"KKDnOGoZXzCN9I9O": {
-						"range": "fiveFeet"
-					}
-				}
-			},
-			"PU9GhZ57rKVTLxEz": {
-				"name": "Draw Hilt",
-				"activation": {
-					"type": "bonusAction",
-					"cost": 1
-				},
-				"consumers": {
-					"vCG0Dj9DFFierdxd": {
-						"type": "itemUses",
-						"default": true,
-						"quantity": 1
-					}
-				},
-				"rolls": {
-					"pjY2tqF9k6677BIb": {
-						"type": "damage",
-						"default": false,
-						"formula": "2d4",
-						"damageType": "force",
-						"canCrit": false,
-						"label": "No Charge"
-					}
-				},
-				"prompts": {},
-				"uses": {
-					"value": 0,
-					"max": "",
-					"per": "",
-					"recharge": {
-						"formula": "1d6",
-						"threshold": 6
-					}
-				}
-			},
-			"ruAKv2uI0MGTsFWZ": {
-				"name": "Plasma Blade",
-				"activation": {
-					"type": "action",
-					"cost": 1
-				},
-				"consumers": {},
-				"rolls": {
-					"jFG9sjzyTzmvcjz9": {
-						"type": "attack",
-						"default": true,
-						"attackType": "meleeWeaponAttack",
-						"proficient": true,
-						"ability": "default"
-					},
-					"q0AJkqCWVqlbchf4": {
-						"type": "damage",
-						"default": false,
-						"label": "One-Handed",
-						"formula": "3d8 + @str.mod",
-						"damageType": "radiant"
-					},
-					"SjTgLP5xUMQz7p9V": {
-						"type": "damage",
-						"default": false,
-						"label": "Two-Handed",
-						"formula": "3d10 + @str.mod",
-						"damageType": "radiant"
-					}
-				},
-				"prompts": {},
-				"uses": {
-					"value": 0,
-					"max": "",
-					"per": "",
-					"recharge": {
-						"formula": "1d6",
-						"threshold": 6
-					}
-				},
-				"ranges": {
-					"oC8PQhQBiacpybYD": {
-						"range": 10,
-						"unit": "feet"
-					}
-				},
-				"target": {
-					"type": "creatureObject",
-					"quantity": 1
-				}
-			},
-			"lcoftNdCHb6cXQQD": {
-				"name": "Fire Cannon (Action)",
-				"activation": {
-					"type": "action",
-					"cost": 1
-				},
-				"consumers": {
-					"wbdnaAf9xDcSYb49": {
-						"type": "itemUses",
-						"default": true,
-						"quantity": 1
-					}
-				},
-				"rolls": {
-					"zenqYhY3SuIt39X3": {
-						"type": "damage",
-						"default": false,
-						"canCrit": false,
-						"formula": "2d4",
-						"damageType": "force",
-						"label": "No Charge"
-					},
-					"v1BFa9VwEGi4WiVZ": {
-						"type": "attack",
-						"default": true,
-						"attackType": "rangedWeaponAttack",
-						"proficient": true,
-						"ability": "default"
-					},
-					"NmlFltfvvVlY64eZ": {
-						"type": "damage",
-						"default": true,
-						"formula": "2d6",
-						"damageType": "radiant"
-					}
-				},
-				"prompts": {},
-				"uses": {
-					"value": 0,
-					"max": "",
-					"per": "",
-					"recharge": {
-						"formula": "1d6",
-						"threshold": 6
-					}
-				},
-				"ranges": {
-					"u3qqqjQENwMmMBRn": {
-						"range": "long"
-					},
-					"JxoaREhvkreZJ913": {
-						"range": 300,
-						"unit": "feet"
-					}
-				},
-				"target": {
-					"type": "creatureObject",
-					"quantity": 1
-				}
-			},
-			"A2by4Gnogf3sVyNd": {
-				"name": "Fire Cannon (Bonus Action)",
-				"activation": {
-					"type": "bonusAction",
-					"cost": 1
-				},
-				"consumers": {
-					"wbdnaAf9xDcSYb49": {
-						"type": "itemUses",
-						"default": true,
-						"quantity": 1
-					}
-				},
-				"rolls": {
-					"zenqYhY3SuIt39X3": {
-						"type": "damage",
-						"default": false,
-						"canCrit": false,
-						"formula": "2d4",
-						"damageType": "force",
-						"label": "No Charge"
-					},
-					"v1BFa9VwEGi4WiVZ": {
-						"type": "attack",
-						"default": true,
-						"attackType": "rangedWeaponAttack",
-						"proficient": true,
-						"ability": "default"
-					},
-					"NmlFltfvvVlY64eZ": {
-						"type": "damage",
-						"default": true,
-						"formula": "2d6",
-						"damageType": "radiant"
-					}
-				},
-				"prompts": {},
-				"uses": {
-					"value": 0,
-					"max": "",
-					"per": "",
-					"recharge": {
-						"formula": "1d6",
-						"threshold": 6
-					}
-				},
-				"ranges": {
-					"u3qqqjQENwMmMBRn": {
-						"range": "long"
-					},
-					"JxoaREhvkreZJ913": {
-						"range": 300,
-						"unit": "feet"
-					}
-				},
-				"target": {
-					"type": "creatureObject",
-					"quantity": 1
-				}
-			},
-			"BzxS9cOtxlOaFEDw": {
-				"name": "Fire Gauntlet",
-				"activation": {
-					"type": "action",
-					"cost": 1
-				},
-				"consumers": {
-					"wbdnaAf9xDcSYb49": {
-						"type": "itemUses",
-						"default": true,
-						"quantity": 1
-					}
-				},
-				"rolls": {
-					"zenqYhY3SuIt39X3": {
-						"type": "damage",
-						"default": false,
-						"canCrit": false,
-						"formula": "2d4",
-						"damageType": "force",
-						"label": "No Charge"
-					},
-					"v1BFa9VwEGi4WiVZ": {
-						"type": "attack",
-						"default": true,
-						"attackType": "rangedWeaponAttack",
-						"proficient": true,
-						"ability": "default"
-					},
-					"NmlFltfvvVlY64eZ": {
-						"type": "damage",
-						"default": false,
-						"formula": "4d8 + @str.mod",
-						"damageType": "bludgeoning",
-						"label": "Non-Grapple"
-					},
-					"f95ICwej83VZ91L8": {
-						"type": "damage",
-						"default": false,
-						"formula": "1d6 + @str.mod",
-						"damageType": "bludgeoning",
-						"label": "Grapple (Large or smaller)"
-					}
-				},
-				"prompts": {},
-				"uses": {
-					"value": 0,
-					"max": "",
-					"per": "",
-					"recharge": {
-						"formula": "1d6",
-						"threshold": 6
-					}
-				},
-				"ranges": {
-					"u3qqqjQENwMmMBRn": {
-						"range": "medium"
-					},
-					"IlaoCzaa3G2hb4RM": {
-						"range": "long"
-					}
-				},
-				"target": {
-					"type": "creatureObject",
-					"quantity": 1
-				}
-			},
-			"JBBNGIL3XscMXMDr": {
-				"name": "Retract Gauntlet",
-				"activation": {
-					"type": "bonusAction",
-					"cost": 1
-				},
-				"consumers": {},
-				"rolls": {},
-				"prompts": {},
-				"uses": {
-					"value": 0,
-					"max": "",
-					"per": "",
-					"recharge": {
-						"formula": "1d6",
-						"threshold": 6
-					}
-				}
-			},
-			"NOpybosfVyd9gmxX": {
-				"name": "Restore Charges",
-				"activation": {
-					"type": "day",
-					"cost": 1
-				},
-				"consumers": {},
-				"rolls": {
-					"zZ7K4VUMzVBXtyka": {
-						"type": "skillCheck",
-						"default": true,
-						"skill": "eng",
-						"ability": "int",
-						"label": "DC 18"
-					},
-					"hIipujXjuIv4V5xt": {
-						"type": "generic",
-						"default": true,
-						"formula": "2d10"
-					}
-				},
-				"prompts": {},
-				"uses": {
-					"value": 0,
-					"max": "",
-					"per": "",
-					"recharge": {
-						"formula": "1d6",
-						"threshold": 6
-					}
-				}
-			},
-			"n2vMxxkpWqyxyNC2": {
-				"name": "Seal Cockpit",
-				"activation": {
-					"type": "action",
-					"cost": 1
-				},
-				"consumers": {
-					"UKkWuCxcb2rqETDe": {
-						"type": "itemUses",
-						"default": true,
-						"quantity": 1
-					}
-				},
-				"rolls": {
-					"QrXDitQtJtRoieiP": {
-						"type": "damage",
-						"default": false,
-						"label": "No Charge",
-						"canCrit": false,
-						"formula": "2d4",
-						"damageType": "force"
-					}
-				},
-				"prompts": {},
-				"uses": {
-					"value": 0,
-					"max": "",
-					"per": "",
-					"recharge": {
-						"formula": "1d6",
-						"threshold": 6
-					}
-				},
-				"duration": {
-					"unit": "hour",
-					"value": 1
-				}
-			}
-		},
-		"description": "<p>In size and shape this massive construct is not unlike&nbsp;a squat hill giant&mdash;if hill giants were made of metal, leather, wood, and glass. With all manner of wheels,&nbsp;gears, cables, and hinges, when worn its movements&nbsp;are surprisingly fluid, if somewhat loud and heavy.</p>\n<p>The last of its kind, the Serveros War Engine was used by a forgotten empire&rsquo;s soldiers in wars that spread far beyond their kingdom. It&rsquo;s hard to imagine there may once have been entire armies outfitted with these magical constructs and engaged in battle against one another, and impossible to conceive of the untold destruction they wrought.</p>\n<p>Mounting the war engine is a fairly straight forward matter. As you enter the construct, you can don a helm and belt, both connected to the war engine, which allow you to attune to and control the construct. The construct is not sentient and moves only when controlled in this way.</p>\n<p>When controlling the construct, you form a psychic bond with it, seeing through its eyes, moving with its limbs, and experiencing pain through its body.</p>\n<p>&nbsp;</p>\n<h2>Legends and Lore</h2>\n<p>Success on an Arcana or History check reveals&nbsp;the following:</p>\n<p><strong>DC 15</strong> This is the Serveros War Engine, the last war machine of a forgotten empire.</p>\n<p><strong>DC 18</strong> The engine is piloted from inside, and only those with mental and physical fortitude can endure it. In addition to offering great might, it can manifest arcane blades, cannons, and other effects.</p>\n<p><strong>DC 21</strong> Destroying the engine requires destroying the helm, which is heavily enchanted with fortifications against harm.</p>\n<p>&nbsp;</p>\n<h2>Artifact Properties</h2>\n<p>The Serveros War Engine has one lesser artifact&nbsp;benefit. Piloting the war engine can be quite taxing,&nbsp;both mentally and physically. You gain no benefits&nbsp;from a long or short rest while mounted in the war&nbsp;engine, and when you expend its last available charge&nbsp;you suffer both a level of fatigue and strife.</p>\n<p>While you are attuned to, mounted inside, and controlling the Serveros War Engine, you gain the following benefits:</p>\n<ul>\n<li>Your AC becomes 18.</li>\n<li>Your Strength score becomes 21.</li>\n<li>You are Huge-sized.</li>\n<li>Your Speed becomes 40 feet.</li>\n<li>You have advantage on saving throws made to avoid being grappled or knocked prone.</li>\n<li>You sustain only 1 hit point of damage for every 5 hit points of nonmagical bludgeoning, piercing, and slashing damage dealt to you.</li>\n<li>Your unarmed strikes deal 4d8 bludgeoning damage.</li>\n<li>Your weapon attacks count as magical for the purposes of overcoming resistance and immunity to nonmagical attacks.</li>\n<li>You have disadvantage on Dexterity (Stealth) checks.</li>\n<li>You are vulnerable to psychic damage.</li>\n</ul>\n<p>&nbsp;</p>\n<h2>Charged Properties</h2>\n<p>The war engine also has several built-in features,&nbsp;some of which are powered by stored electrical&nbsp;charges or drain energy from your life force.</p>\n<ul>\n<li>A massive sword hilt is secured to the&nbsp;construct&rsquo;s hip by an incredible magnetic&nbsp;force. You can use a bonus action to either&nbsp;expend 1 charge or take 5 (2d4) force&nbsp;damage to draw the hilt and engage its plasma blade.\n<ul>\n<li><em><strong>Plasma Blade.</strong> Melee Weapon Attack:</em> reach 10 ft., one target. Hit: 18 (3d8+5) radiant damage, or 21 (3d10+5) radiant damage if wielded in two hands.</li>\n</ul>\n</li>\n<li>An arcane cannon is housed in the construct&rsquo;s&nbsp;left forearm. You can use an action or bonus&nbsp;action to either expend 1 charge or take 5&nbsp;(2d4) force damage to fire the arcane cannon.\n<ul>\n<li><em><strong>Arcane Cannon.</strong> Ranged Weapon Attack:</em> range 120/300 ft., one target. Hit: 7 (2d6) radiant damage.</li>\n</ul>\n</li>\n<li>The construct&rsquo;s right hand is detachable.&nbsp;You can use an action and either expend 1&nbsp;charge or take 5 (2d4) force damage to fire&nbsp;the gauntlet as a projectile.\n<ul>\n<li><em><strong>Gauntlet Grapple.</strong> Ranged Weapon Attack:</em> range 60/120 ft., one target. Hit: 23 (4d8+5) bludgeoning damage, or 8 (1d6+5) bludgeoning damage and if the target is a Large or smaller creature it is grappled. You can use a bonus action to retract the hand up to 120 feet and reconnect it to the construct. A grappled target moves with the hand.</li>\n</ul>\n</li>\n</ul>\n<p>The Serveros War Engine begins with [[1d20]] charges. By making a DC 18 Intelligence (Engineering) check, 2d10 charges can be restored during a long rest.</p>\n<p>&nbsp;</p>\n<h2>Warframe Variations</h2>\n<p>The Narrator may apply one or more of the&nbsp;following variant options if desired.</p>\n<p><em><strong>Airborne.</strong></em> You can expend 1 charge or take 5 (2d4) force damage to unfold magical wings and gain a flying speed of 15 feet for 1 minute.</p>\n<p><em><strong>Disrepair.</strong></em> When first discovered, the Serveros War Engine may be completely depleted of stored charges and heavily damaged, or perhaps almost completely dismantled. With maintenance, care, and careful reconstruction using Engineering (or a wish spell), it can be restored to its full, terrible power.</p>\n<p><em><strong>Glass Jaw.</strong></em> When the Serveros War Engine takes a critical hit from an attack that deals bludgeoning damage, roll a d20. On a 1, the war engine&rsquo;s head is knocked off, disabling the artifact until it is repaired with a DC 23 Intelligence (Engineering) check and 8 hours of work.</p>\n<p><em><strong>Mortal Echoes.</strong></em> The Serveros War Engine&rsquo;s last pilot died while mounted within the war engine, and echoes of their psyche still linger within the construct. When first attempting to attune to the artifact, you relive the final moments of the dead pilot and make a DC 18 Charisma saving throw. On a failure, you take 5 (1d10) psychic damage and gain a short-term mental stress effect.</p>\n<p><em><strong>Nautical.</strong></em> You gain a swim speed of 40 feet. In addition, you can use an action to either expend 1 charge or take 5 (2d4) force damage to seal the cockpit and fill it with breathable air which lasts for 1 hour.</p>\n<p><em><strong>Recon.</strong></em> You gain darkvision to a range of 60 feet and can either expend 1 charge or take 5 (2d4) force damage to activate magical floating discs on the soles of the construct&rsquo;s feet. The discs last for 1 hour during which time the construct does not cause you to have disadvantage on Dexterity (Stealth) checks and you leave no tracks on the ground.</p>\n<p><em><strong>Serveros Slayer.</strong></em> In lieu of the arcane cannon and detachable fist, the construct is equipped with a psyblade in each hand. You can use a bonus action and either expend 1 charge or take 5 (2d4) force damage to deploy one or both psyblades.</p>\n<p style=\"text-align: center;\"><em><strong>Psyblade.</strong> Melee Weapon Attack:</em> reach 10 ft., one target. Hit: 15 (3d6+5) psychic damage.</p>\n<p style=\"text-align: left;\"><em><strong>Specialized Weaponry.</strong></em> Instead of a giant&nbsp;plasma sword, the Serveros War Engine has one&nbsp;of the following weapons. You can use a bonus&nbsp;action and either expend 1 charge or take 5 (2d4) force damage to equip and activate the weapon.</p>\n<p style=\"text-align: center;\"><em><strong>Discus Throwing Shield.</strong> Melee or Ranged&nbsp;Weapon Attack:</em> reach 5 ft. or range 40/80 ft.,&nbsp;one target, or if thrown two targets within 10&nbsp;feet of each other. Hit: 15 (3d6+5) bludgeoning&nbsp;damage.</p>\n<p style=\"text-align: center;\">In addition, while the shield is donned your AC increases by 2.</p>\n<p style=\"text-align: center;\"><em><strong>Extendable Metal Staff.</strong> Melee Weapon Attack:</em> reach 15 ft., one target. Hit: 15 (3d6+5) bludgeoning, or 18 (3d8+5) bludgeoning damage when wielded with two hands, and a Large or smaller target makes a DC 18 Strength saving throw or is knocked prone.</p>\n<p style=\"text-align: center;\"><em><strong>Shocking Net.</strong> Ranged Weapon Attack:</em> range 30/60 ft., all targets in a 15-foot square area. Hit: 9 (2d8) lightning damage and the target is grappled. At the start of your turn, conscious creatures grappled by the net take 9 (2d8) lightning damage. This weapon cannot damage a creature with 0 hit points.</p>\n<p style=\"text-align: center;\"><em><strong>Sonic War Hammer.</strong> Melee Weapon Attack:</em> reach 10 ft., one target. Hit: 18 (3d8+5) thunder damage, or 21 (3d10+5) thunder damage when wielded with two hands.</p>\n<p style=\"text-align: center;\">&nbsp;</p>\n<h2 style=\"text-align: left;\">Destroying the War Engine</h2>\n<p style=\"text-align: left;\">Of all its various parts and components the key to&nbsp;disabling and ultimately destroying the war engine&nbsp;is the helm. The rest of the massive construct might&nbsp;feasibly be replaced or reengineered by an ingenious&nbsp;mind. However with its complex structure, both&nbsp;magical and mechanical, replicating the controller&nbsp;headpiece requires arcane knowledge and technical&nbsp;documentation that disappeared with the war&nbsp;engine&rsquo;s creators long ago.</p>\n<p style=\"text-align: left;\">The helm is heavily enchanted with fortifications against harm. Bypassing its magical protections requires two steps: first, a @UUID[Compendium.a5e.a5e-spells.Item.hms9kdl2qoqjjrs4]{Dispel Magic} cast at 5th-level or higher is needed to make the invisible barrier around the war engine&rsquo;s helm vulnerable for 6 seconds, followed by a @UUID[Compendium.a5e.a5e-spells.Item.suktewdv0zo7rgd0]{Disintegrate} spell cast at 7th-level or higher to completely dissolve the barrier. Once the barrier is dissolved, for the next 24 hours the helm can be destroyed like any other item (AC 22, 100 hit points) before its magical protections regenerate and fully repair it.</p>",
-		"favorite": false,
-		"secretDescription": "",
-		"source": "",
-		"uses": {
-			"value": null,
-			"max": "",
-			"per": null,
-			"recharge": {
-				"formula": "1d6",
-				"threshold": "6"
-			}
-		},
-		"schema": {
-			"version": null,
-			"lastMigration": null
-		},
-		"ammunitionProperties": [],
-		"armorCategory": "",
-		"armorProperties": [],
-		"attuned": false,
-		"bulky": false,
-		"craftingComponents": "Unique (uncraftable)",
-		"containerId": "",
-		"damagedState": 0,
-		"equippedState": 0,
-		"items": {},
-		"materialProperties": [],
-		"objectType": "miscellaneous",
-		"plotItem": false,
-		"price": 0,
-		"proficient": true,
-		"quantity": 1,
-		"rarity": "artifact",
-		"requiresAttunement": true,
-		"shieldCategory": "",
-		"shieldProperties": [],
-		"unidentified": false,
-		"unidentifiedDescription": "",
-		"unidentifiedName": "",
-		"weaponProperties": [],
-		"weight": 0
-	},
-	"effects": [
-		{
-			"icon": "icons/environment/creatures/golem-stone-purple.webp",
-			"origin": "Item.wr68gak39jh07h16",
-			"flags": {
-				"a5e": {
-					"sort": 0,
-					"transferType": "passive"
-				}
-			},
-			"transfer": false,
-			"name": "Mounted",
-			"_id": "XSNCEfI6owr4LH5C",
-			"changes": [
-				{
-					"key": "system.attributes.ac.value",
-					"value": "18",
-					"mode": 6,
-					"priority": null
-				},
-				{
-					"key": "system.abilities.str.value",
-					"value": "21",
-					"mode": 6,
-					"priority": null
-				},
-				{
-					"key": "system.traits.size",
-					"value": "huge",
-					"mode": 6,
-					"priority": null
-				},
-				{
-					"key": "system.attributes.movement.walk.distance",
-					"value": "40",
-					"mode": 6,
-					"priority": null
-				},
-				{
-					"key": "flags.a5e.effects.rollMode.skillCheck.ste",
-					"value": "-1",
-					"mode": 6,
-					"priority": null
-				},
-				{
-					"key": "system.traits.damageVulnerabilities",
-					"value": "[\"psychic\"]",
-					"mode": 2,
-					"priority": null
-				},
-				{
-					"key": "system.attributes.movement.swim.distance",
-					"value": "40",
-					"mode": 6,
-					"priority": null
-				}
-			],
-			"disabled": false,
-			"duration": {
-				"startTime": null,
-				"seconds": null,
-				"combat": null,
-				"rounds": null,
-				"turns": null,
-				"startRound": null,
-				"startTurn": null
-			},
-			"description": "",
-			"statuses": [],
-			"tint": "#ffffff",
-			"folder": null
-		}
-	],
-	"flags": {},
-	"_id": "wr68gak39jh07h16"
+  "folder": null,
+  "name": "Serveros War Machine (Nautical)",
+  "type": "object",
+  "img": "icons/environment/creatures/golem-stone-purple.webp",
+  "system": {
+    "ac": {
+      "baseFormula": "",
+      "formula": "",
+      "maxDex": 0,
+      "minStr": 0,
+      "mode": 2,
+      "requiresNoShield": false,
+      "requiresUnarmored": false
+    },
+    "actions": {
+      "LNDkPyIIcEUzyqSU": {
+        "name": "Unarmed Strike",
+        "activation": {
+          "type": "action",
+          "cost": 1
+        },
+        "consumers": {},
+        "rolls": {
+          "6opdHToLhRfEun2e": {
+            "type": "attack",
+            "default": true,
+            "attackType": "meleeWeaponAttack",
+            "proficient": true,
+            "ability": "default"
+          },
+          "OVv6AABhyQ0XAL5d": {
+            "type": "damage",
+            "default": true,
+            "formula": "4d8",
+            "damageType": "bludgeoning"
+          }
+        },
+        "prompts": {},
+        "uses": {
+          "value": 0,
+          "max": "",
+          "per": "",
+          "recharge": {
+            "formula": "1d6",
+            "threshold": 6
+          }
+        },
+        "descriptionOutputs": [
+          "action"
+        ],
+        "ranges": {
+          "KKDnOGoZXzCN9I9O": {
+            "range": "fiveFeet"
+          }
+        }
+      },
+      "PU9GhZ57rKVTLxEz": {
+        "name": "Draw Hilt",
+        "activation": {
+          "type": "bonusAction",
+          "cost": 1
+        },
+        "consumers": {
+          "vCG0Dj9DFFierdxd": {
+            "type": "itemUses",
+            "default": true,
+            "quantity": 1
+          }
+        },
+        "rolls": {
+          "pjY2tqF9k6677BIb": {
+            "type": "damage",
+            "default": false,
+            "formula": "2d4",
+            "damageType": "force",
+            "canCrit": false,
+            "label": "No Charge"
+          }
+        },
+        "prompts": {},
+        "uses": {
+          "value": 0,
+          "max": "",
+          "per": "",
+          "recharge": {
+            "formula": "1d6",
+            "threshold": 6
+          }
+        }
+      },
+      "ruAKv2uI0MGTsFWZ": {
+        "name": "Plasma Blade",
+        "activation": {
+          "type": "action",
+          "cost": 1
+        },
+        "consumers": {},
+        "rolls": {
+          "jFG9sjzyTzmvcjz9": {
+            "type": "attack",
+            "default": true,
+            "attackType": "meleeWeaponAttack",
+            "proficient": true,
+            "ability": "default"
+          },
+          "q0AJkqCWVqlbchf4": {
+            "type": "damage",
+            "default": false,
+            "label": "One-Handed",
+            "formula": "3d8 + @str.mod",
+            "damageType": "radiant"
+          },
+          "SjTgLP5xUMQz7p9V": {
+            "type": "damage",
+            "default": false,
+            "label": "Two-Handed",
+            "formula": "3d10 + @str.mod",
+            "damageType": "radiant"
+          }
+        },
+        "prompts": {},
+        "uses": {
+          "value": 0,
+          "max": "",
+          "per": "",
+          "recharge": {
+            "formula": "1d6",
+            "threshold": 6
+          }
+        },
+        "ranges": {
+          "oC8PQhQBiacpybYD": {
+            "range": 10,
+            "unit": "feet"
+          }
+        },
+        "target": {
+          "type": "creatureObject",
+          "quantity": 1
+        }
+      },
+      "lcoftNdCHb6cXQQD": {
+        "name": "Fire Cannon (Action)",
+        "activation": {
+          "type": "action",
+          "cost": 1
+        },
+        "consumers": {
+          "wbdnaAf9xDcSYb49": {
+            "type": "itemUses",
+            "default": true,
+            "quantity": 1
+          }
+        },
+        "rolls": {
+          "zenqYhY3SuIt39X3": {
+            "type": "damage",
+            "default": false,
+            "canCrit": false,
+            "formula": "2d4",
+            "damageType": "force",
+            "label": "No Charge"
+          },
+          "v1BFa9VwEGi4WiVZ": {
+            "type": "attack",
+            "default": true,
+            "attackType": "rangedWeaponAttack",
+            "proficient": true,
+            "ability": "default"
+          },
+          "NmlFltfvvVlY64eZ": {
+            "type": "damage",
+            "default": true,
+            "formula": "2d6",
+            "damageType": "radiant"
+          }
+        },
+        "prompts": {},
+        "uses": {
+          "value": 0,
+          "max": "",
+          "per": "",
+          "recharge": {
+            "formula": "1d6",
+            "threshold": 6
+          }
+        },
+        "ranges": {
+          "u3qqqjQENwMmMBRn": {
+            "range": "long"
+          },
+          "JxoaREhvkreZJ913": {
+            "range": 300,
+            "unit": "feet"
+          }
+        },
+        "target": {
+          "type": "creatureObject",
+          "quantity": 1
+        }
+      },
+      "A2by4Gnogf3sVyNd": {
+        "name": "Fire Cannon (Bonus Action)",
+        "activation": {
+          "type": "bonusAction",
+          "cost": 1
+        },
+        "consumers": {
+          "wbdnaAf9xDcSYb49": {
+            "type": "itemUses",
+            "default": true,
+            "quantity": 1
+          }
+        },
+        "rolls": {
+          "zenqYhY3SuIt39X3": {
+            "type": "damage",
+            "default": false,
+            "canCrit": false,
+            "formula": "2d4",
+            "damageType": "force",
+            "label": "No Charge"
+          },
+          "v1BFa9VwEGi4WiVZ": {
+            "type": "attack",
+            "default": true,
+            "attackType": "rangedWeaponAttack",
+            "proficient": true,
+            "ability": "default"
+          },
+          "NmlFltfvvVlY64eZ": {
+            "type": "damage",
+            "default": true,
+            "formula": "2d6",
+            "damageType": "radiant"
+          }
+        },
+        "prompts": {},
+        "uses": {
+          "value": 0,
+          "max": "",
+          "per": "",
+          "recharge": {
+            "formula": "1d6",
+            "threshold": 6
+          }
+        },
+        "ranges": {
+          "u3qqqjQENwMmMBRn": {
+            "range": "long"
+          },
+          "JxoaREhvkreZJ913": {
+            "range": 300,
+            "unit": "feet"
+          }
+        },
+        "target": {
+          "type": "creatureObject",
+          "quantity": 1
+        }
+      },
+      "BzxS9cOtxlOaFEDw": {
+        "name": "Fire Gauntlet",
+        "activation": {
+          "type": "action",
+          "cost": 1
+        },
+        "consumers": {
+          "wbdnaAf9xDcSYb49": {
+            "type": "itemUses",
+            "default": true,
+            "quantity": 1
+          }
+        },
+        "rolls": {
+          "zenqYhY3SuIt39X3": {
+            "type": "damage",
+            "default": false,
+            "canCrit": false,
+            "formula": "2d4",
+            "damageType": "force",
+            "label": "No Charge"
+          },
+          "v1BFa9VwEGi4WiVZ": {
+            "type": "attack",
+            "default": true,
+            "attackType": "rangedWeaponAttack",
+            "proficient": true,
+            "ability": "default"
+          },
+          "NmlFltfvvVlY64eZ": {
+            "type": "damage",
+            "default": false,
+            "formula": "4d8 + @str.mod",
+            "damageType": "bludgeoning",
+            "label": "Non-Grapple"
+          },
+          "f95ICwej83VZ91L8": {
+            "type": "damage",
+            "default": false,
+            "formula": "1d6 + @str.mod",
+            "damageType": "bludgeoning",
+            "label": "Grapple (Large or smaller)"
+          }
+        },
+        "prompts": {},
+        "uses": {
+          "value": 0,
+          "max": "",
+          "per": "",
+          "recharge": {
+            "formula": "1d6",
+            "threshold": 6
+          }
+        },
+        "ranges": {
+          "u3qqqjQENwMmMBRn": {
+            "range": "medium"
+          },
+          "IlaoCzaa3G2hb4RM": {
+            "range": "long"
+          }
+        },
+        "target": {
+          "type": "creatureObject",
+          "quantity": 1
+        }
+      },
+      "JBBNGIL3XscMXMDr": {
+        "name": "Retract Gauntlet",
+        "activation": {
+          "type": "bonusAction",
+          "cost": 1
+        },
+        "consumers": {},
+        "rolls": {},
+        "prompts": {},
+        "uses": {
+          "value": 0,
+          "max": "",
+          "per": "",
+          "recharge": {
+            "formula": "1d6",
+            "threshold": 6
+          }
+        }
+      },
+      "NOpybosfVyd9gmxX": {
+        "name": "Restore Charges",
+        "activation": {
+          "type": "day",
+          "cost": 1
+        },
+        "consumers": {},
+        "rolls": {
+          "zZ7K4VUMzVBXtyka": {
+            "type": "skillCheck",
+            "default": true,
+            "skill": "eng",
+            "ability": "int",
+            "label": "DC 18"
+          },
+          "hIipujXjuIv4V5xt": {
+            "type": "generic",
+            "default": true,
+            "formula": "2d10"
+          }
+        },
+        "prompts": {},
+        "uses": {
+          "value": 0,
+          "max": "",
+          "per": "",
+          "recharge": {
+            "formula": "1d6",
+            "threshold": 6
+          }
+        }
+      },
+      "n2vMxxkpWqyxyNC2": {
+        "name": "Seal Cockpit",
+        "activation": {
+          "type": "action",
+          "cost": 1
+        },
+        "consumers": {
+          "UKkWuCxcb2rqETDe": {
+            "type": "itemUses",
+            "default": true,
+            "quantity": 1
+          }
+        },
+        "rolls": {
+          "QrXDitQtJtRoieiP": {
+            "type": "damage",
+            "default": false,
+            "label": "No Charge",
+            "canCrit": false,
+            "formula": "2d4",
+            "damageType": "force"
+          }
+        },
+        "prompts": {},
+        "uses": {
+          "value": 0,
+          "max": "",
+          "per": "",
+          "recharge": {
+            "formula": "1d6",
+            "threshold": 6
+          }
+        },
+        "duration": {
+          "unit": "hour",
+          "value": 1
+        }
+      }
+    },
+    "description": "<p>In size and shape this massive construct is not unlike&nbsp;a squat hill giant&mdash;if hill giants were made of metal, leather, wood, and glass. With all manner of wheels,&nbsp;gears, cables, and hinges, when worn its movements&nbsp;are surprisingly fluid, if somewhat loud and heavy.</p>\n<p>The last of its kind, the Serveros War Engine was used by a forgotten empire&rsquo;s soldiers in wars that spread far beyond their kingdom. It&rsquo;s hard to imagine there may once have been entire armies outfitted with these magical constructs and engaged in battle against one another, and impossible to conceive of the untold destruction they wrought.</p>\n<p>Mounting the war engine is a fairly straight forward matter. As you enter the construct, you can don a helm and belt, both connected to the war engine, which allow you to attune to and control the construct. The construct is not sentient and moves only when controlled in this way.</p>\n<p>When controlling the construct, you form a psychic bond with it, seeing through its eyes, moving with its limbs, and experiencing pain through its body.</p>\n<p>&nbsp;</p>\n<h2>Legends and Lore</h2>\n<p>Success on an Arcana or History check reveals&nbsp;the following:</p>\n<p><strong>DC 15</strong> This is the Serveros War Engine, the last war machine of a forgotten empire.</p>\n<p><strong>DC 18</strong> The engine is piloted from inside, and only those with mental and physical fortitude can endure it. In addition to offering great might, it can manifest arcane blades, cannons, and other effects.</p>\n<p><strong>DC 21</strong> Destroying the engine requires destroying the helm, which is heavily enchanted with fortifications against harm.</p>\n<p>&nbsp;</p>\n<h2>Artifact Properties</h2>\n<p>The Serveros War Engine has one lesser artifact&nbsp;benefit. Piloting the war engine can be quite taxing,&nbsp;both mentally and physically. You gain no benefits&nbsp;from a long or short rest while mounted in the war&nbsp;engine, and when you expend its last available charge&nbsp;you suffer both a level of fatigue and strife.</p>\n<p>While you are attuned to, mounted inside, and controlling the Serveros War Engine, you gain the following benefits:</p>\n<ul>\n<li>Your AC becomes 18.</li>\n<li>Your Strength score becomes 21.</li>\n<li>You are Huge-sized.</li>\n<li>Your Speed becomes 40 feet.</li>\n<li>You have advantage on saving throws made to avoid being grappled or knocked prone.</li>\n<li>You sustain only 1 hit point of damage for every 5 hit points of nonmagical bludgeoning, piercing, and slashing damage dealt to you.</li>\n<li>Your unarmed strikes deal 4d8 bludgeoning damage.</li>\n<li>Your weapon attacks count as magical for the purposes of overcoming resistance and immunity to nonmagical attacks.</li>\n<li>You have disadvantage on Dexterity (Stealth) checks.</li>\n<li>You are vulnerable to psychic damage.</li>\n</ul>\n<p>&nbsp;</p>\n<h2>Charged Properties</h2>\n<p>The war engine also has several built-in features,&nbsp;some of which are powered by stored electrical&nbsp;charges or drain energy from your life force.</p>\n<ul>\n<li>A massive sword hilt is secured to the&nbsp;construct&rsquo;s hip by an incredible magnetic&nbsp;force. You can use a bonus action to either&nbsp;expend 1 charge or take 5 (2d4) force&nbsp;damage to draw the hilt and engage its plasma blade.\n<ul>\n<li><em><strong>Plasma Blade.</strong> Melee Weapon Attack:</em> reach 10 ft., one target. Hit: 18 (3d8+5) radiant damage, or 21 (3d10+5) radiant damage if wielded in two hands.</li>\n</ul>\n</li>\n<li>An arcane cannon is housed in the construct&rsquo;s&nbsp;left forearm. You can use an action or bonus&nbsp;action to either expend 1 charge or take 5&nbsp;(2d4) force damage to fire the arcane cannon.\n<ul>\n<li><em><strong>Arcane Cannon.</strong> Ranged Weapon Attack:</em> range 120/300 ft., one target. Hit: 7 (2d6) radiant damage.</li>\n</ul>\n</li>\n<li>The construct&rsquo;s right hand is detachable.&nbsp;You can use an action and either expend 1&nbsp;charge or take 5 (2d4) force damage to fire&nbsp;the gauntlet as a projectile.\n<ul>\n<li><em><strong>Gauntlet Grapple.</strong> Ranged Weapon Attack:</em> range 60/120 ft., one target. Hit: 23 (4d8+5) bludgeoning damage, or 8 (1d6+5) bludgeoning damage and if the target is a Large or smaller creature it is grappled. You can use a bonus action to retract the hand up to 120 feet and reconnect it to the construct. A grappled target moves with the hand.</li>\n</ul>\n</li>\n</ul>\n<p>The Serveros War Engine begins with [[1d20]] charges. By making a DC 18 Intelligence (Engineering) check, 2d10 charges can be restored during a long rest.</p>\n<p>&nbsp;</p>\n<h2>Warframe Variations</h2>\n<p>The Narrator may apply one or more of the&nbsp;following variant options if desired.</p>\n<p><em><strong>Airborne.</strong></em> You can expend 1 charge or take 5 (2d4) force damage to unfold magical wings and gain a flying speed of 15 feet for 1 minute.</p>\n<p><em><strong>Disrepair.</strong></em> When first discovered, the Serveros War Engine may be completely depleted of stored charges and heavily damaged, or perhaps almost completely dismantled. With maintenance, care, and careful reconstruction using Engineering (or a wish spell), it can be restored to its full, terrible power.</p>\n<p><em><strong>Glass Jaw.</strong></em> When the Serveros War Engine takes a critical hit from an attack that deals bludgeoning damage, roll a d20. On a 1, the war engine&rsquo;s head is knocked off, disabling the artifact until it is repaired with a DC 23 Intelligence (Engineering) check and 8 hours of work.</p>\n<p><em><strong>Mortal Echoes.</strong></em> The Serveros War Engine&rsquo;s last pilot died while mounted within the war engine, and echoes of their psyche still linger within the construct. When first attempting to attune to the artifact, you relive the final moments of the dead pilot and make a DC 18 Charisma saving throw. On a failure, you take 5 (1d10) psychic damage and gain a short-term mental stress effect.</p>\n<p><em><strong>Nautical.</strong></em> You gain a swim speed of 40 feet. In addition, you can use an action to either expend 1 charge or take 5 (2d4) force damage to seal the cockpit and fill it with breathable air which lasts for 1 hour.</p>\n<p><em><strong>Recon.</strong></em> You gain darkvision to a range of 60 feet and can either expend 1 charge or take 5 (2d4) force damage to activate magical floating discs on the soles of the construct&rsquo;s feet. The discs last for 1 hour during which time the construct does not cause you to have disadvantage on Dexterity (Stealth) checks and you leave no tracks on the ground.</p>\n<p><em><strong>Serveros Slayer.</strong></em> In lieu of the arcane cannon and detachable fist, the construct is equipped with a psyblade in each hand. You can use a bonus action and either expend 1 charge or take 5 (2d4) force damage to deploy one or both psyblades.</p>\n<p style=\"text-align: center;\"><em><strong>Psyblade.</strong> Melee Weapon Attack:</em> reach 10 ft., one target. Hit: 15 (3d6+5) psychic damage.</p>\n<p style=\"text-align: left;\"><em><strong>Specialized Weaponry.</strong></em> Instead of a giant&nbsp;plasma sword, the Serveros War Engine has one&nbsp;of the following weapons. You can use a bonus&nbsp;action and either expend 1 charge or take 5 (2d4) force damage to equip and activate the weapon.</p>\n<p style=\"text-align: center;\"><em><strong>Discus Throwing Shield.</strong> Melee or Ranged&nbsp;Weapon Attack:</em> reach 5 ft. or range 40/80 ft.,&nbsp;one target, or if thrown two targets within 10&nbsp;feet of each other. Hit: 15 (3d6+5) bludgeoning&nbsp;damage.</p>\n<p style=\"text-align: center;\">In addition, while the shield is donned your AC increases by 2.</p>\n<p style=\"text-align: center;\"><em><strong>Extendable Metal Staff.</strong> Melee Weapon Attack:</em> reach 15 ft., one target. Hit: 15 (3d6+5) bludgeoning, or 18 (3d8+5) bludgeoning damage when wielded with two hands, and a Large or smaller target makes a DC 18 Strength saving throw or is knocked prone.</p>\n<p style=\"text-align: center;\"><em><strong>Shocking Net.</strong> Ranged Weapon Attack:</em> range 30/60 ft., all targets in a 15-foot square area. Hit: 9 (2d8) lightning damage and the target is grappled. At the start of your turn, conscious creatures grappled by the net take 9 (2d8) lightning damage. This weapon cannot damage a creature with 0 hit points.</p>\n<p style=\"text-align: center;\"><em><strong>Sonic War Hammer.</strong> Melee Weapon Attack:</em> reach 10 ft., one target. Hit: 18 (3d8+5) thunder damage, or 21 (3d10+5) thunder damage when wielded with two hands.</p>\n<p style=\"text-align: center;\">&nbsp;</p>\n<h2 style=\"text-align: left;\">Destroying the War Engine</h2>\n<p style=\"text-align: left;\">Of all its various parts and components the key to&nbsp;disabling and ultimately destroying the war engine&nbsp;is the helm. The rest of the massive construct might&nbsp;feasibly be replaced or reengineered by an ingenious&nbsp;mind. However with its complex structure, both&nbsp;magical and mechanical, replicating the controller&nbsp;headpiece requires arcane knowledge and technical&nbsp;documentation that disappeared with the war&nbsp;engine&rsquo;s creators long ago.</p>\n<p style=\"text-align: left;\">The helm is heavily enchanted with fortifications against harm. Bypassing its magical protections requires two steps: first, a @UUID[Compendium.a5e.a5e-spells.Item.hms9kdl2qoqjjrs4]{Dispel Magic} cast at 5th-level or higher is needed to make the invisible barrier around the war engine&rsquo;s helm vulnerable for 6 seconds, followed by a @UUID[Compendium.a5e.a5e-spells.Item.suktewdv0zo7rgd0]{Disintegrate} spell cast at 7th-level or higher to completely dissolve the barrier. Once the barrier is dissolved, for the next 24 hours the helm can be destroyed like any other item (AC 22, 100 hit points) before its magical protections regenerate and fully repair it.</p>",
+    "favorite": false,
+    "secretDescription": "",
+    "source": "",
+    "uses": {
+      "value": null,
+      "max": "",
+      "per": null,
+      "recharge": {
+        "formula": "1d6",
+        "threshold": "6"
+      }
+    },
+    "schema": {
+      "version": null,
+      "lastMigration": null
+    },
+    "ammunitionProperties": [],
+    "armorCategory": "",
+    "armorProperties": [],
+    "attuned": false,
+    "bulky": false,
+    "craftingComponents": "Unique (uncraftable)",
+    "containerId": "",
+    "damagedState": 0,
+    "equippedState": 0,
+    "items": {},
+    "materialProperties": [],
+    "objectType": "miscellaneous",
+    "plotItem": false,
+    "price": "0 gp",
+    "proficient": true,
+    "quantity": 1,
+    "rarity": "artifact",
+    "requiresAttunement": true,
+    "shieldCategory": "",
+    "shieldProperties": [],
+    "unidentified": false,
+    "unidentifiedDescription": "",
+    "unidentifiedName": "",
+    "weaponProperties": [],
+    "weight": 0
+  },
+  "effects": [
+    {
+      "icon": "icons/environment/creatures/golem-stone-purple.webp",
+      "origin": "Item.wr68gak39jh07h16",
+      "flags": {
+        "a5e": {
+          "sort": 0,
+          "transferType": "passive"
+        }
+      },
+      "transfer": false,
+      "name": "Mounted",
+      "_id": "XSNCEfI6owr4LH5C",
+      "changes": [
+        {
+          "key": "system.attributes.ac.value",
+          "value": "18",
+          "mode": 6,
+          "priority": null
+        },
+        {
+          "key": "system.abilities.str.value",
+          "value": "21",
+          "mode": 6,
+          "priority": null
+        },
+        {
+          "key": "system.traits.size",
+          "value": "huge",
+          "mode": 6,
+          "priority": null
+        },
+        {
+          "key": "system.attributes.movement.walk.distance",
+          "value": "40",
+          "mode": 6,
+          "priority": null
+        },
+        {
+          "key": "flags.a5e.effects.rollMode.skillCheck.ste",
+          "value": "-1",
+          "mode": 6,
+          "priority": null
+        },
+        {
+          "key": "system.traits.damageVulnerabilities",
+          "value": "[\"psychic\"]",
+          "mode": 2,
+          "priority": null
+        },
+        {
+          "key": "system.attributes.movement.swim.distance",
+          "value": "40",
+          "mode": 6,
+          "priority": null
+        }
+      ],
+      "disabled": false,
+      "duration": {
+        "startTime": null,
+        "seconds": null,
+        "combat": null,
+        "rounds": null,
+        "turns": null,
+        "startRound": null,
+        "startTurn": null
+      },
+      "description": "",
+      "statuses": [],
+      "tint": "#ffffff",
+      "folder": null
+    }
+  ],
+  "flags": {},
+  "_id": "wr68gak39jh07h16"
 }
