@@ -140,6 +140,8 @@
         padding: var(--padding, 0.75rem);
         gap: 0.75rem;
         background: var(--background, $color-sheet-background);
+        max-height: 70vh;
+        overflow-y: auto;
     }
 
     .grant-name,
