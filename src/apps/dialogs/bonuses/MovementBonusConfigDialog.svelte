@@ -55,7 +55,7 @@
             obj.context = obj.context ?? {
                 movementTypes: [],
                 isHover: false,
-                valueIfOriginalIsZero: "",
+                // valueIfOriginalIsZero: "",
             };
             obj.img = obj.img || "icons/svg/upgrade.svg";
             return obj;
@@ -68,7 +68,7 @@
                 context: {
                     movementTypes: [],
                     isHover: false,
-                    valueIfOriginalIsZero: "",
+                    // valueIfOriginalIsZero: "",
                 },
                 default: true,
                 img: "icons/svg/upgrade.svg",
@@ -81,8 +81,8 @@
     $: movementBonus = getMovementBonus($actor, jsonValue) ?? {};
     $: movementTypes = movementBonus.context.movementTypes ?? [];
     $: isHover = movementBonus.context.isHover ?? false;
-    $: valueIfOriginalIsZero =
-        movementBonus.context.valueIfOriginalIsZero || "";
+    // $: valueIfOriginalIsZero =
+    //     movementBonus.context.valueIfOriginalIsZero || "";
 </script>
 
 <form>
@@ -173,7 +173,7 @@
             />
         </FieldWrapper>
 
-        <FieldWrapper heading="A5E.contexts.valueIfOriginalIsZero">
+        <!-- <FieldWrapper heading="A5E.contexts.valueIfOriginalIsZero">
             <input
                 type="text"
                 value={valueIfOriginalIsZero || ""}
@@ -183,7 +183,7 @@
                         target.value,
                     )}
             />
-        </FieldWrapper>
+        </FieldWrapper> -->
     </Section>
 </form>
 

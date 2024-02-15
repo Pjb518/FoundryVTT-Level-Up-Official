@@ -55,7 +55,7 @@
             obj.context = obj.context ?? {
                 senses: [],
                 otherwiseBlind: false,
-                valueIfOriginalIsZero: "",
+                // valueIfOriginalIsZero: "",
             };
             obj.img = obj.img || "icons/svg/upgrade.svg";
             return obj;
@@ -68,7 +68,7 @@
                 context: {
                     senses: [],
                     otherwiseBlind: false,
-                    valueIfOriginalIsZero: "",
+                    // valueIfOriginalIsZero: "",
                 },
                 default: true,
                 img: "icons/svg/upgrade.svg",
@@ -81,7 +81,7 @@
     $: sensesBonus = getSensesBonus($actor, jsonValue) ?? {};
     $: sensesTypes = sensesBonus.context.senses ?? [];
     $: otherwiseBlind = sensesBonus.context.otherwiseBlind ?? false;
-    $: valueIfOriginalIsZero = sensesBonus.context.valueIfOriginalIsZero || "";
+    // $: valueIfOriginalIsZero = sensesBonus.context.valueIfOriginalIsZero || "";
 </script>
 
 <form>
@@ -172,7 +172,7 @@
             />
         </FieldWrapper>
 
-        <FieldWrapper heading="A5E.contexts.valueIfOriginalIsZero">
+        <!-- <FieldWrapper heading="A5E.contexts.valueIfOriginalIsZero">
             <input
                 type="text"
                 value={valueIfOriginalIsZero || ""}
@@ -182,7 +182,7 @@
                         target.value,
                     )}
             />
-        </FieldWrapper>
+        </FieldWrapper> -->
     </Section>
 </form>
 

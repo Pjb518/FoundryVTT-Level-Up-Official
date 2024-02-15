@@ -158,15 +158,14 @@ export default class BonusesManager {
     const bonuses = this.prepareMovementBonuses(type);
     const parts = bonuses.map(([, bonus]) => {
       const original: number = this.#actor._source.system.attributes.movement[type]?.distance ?? 0;
-      let formula = '';
+      const formula = bonus.formula.trim().replace('@original', original.toString());
 
-      if (bonus.context.valueIfOriginalIsZero && original === 0) {
-        formula = bonus.context.valueIfOriginalIsZero;
-      } else {
-        formula = bonus.formula;
-      }
+      // if (bonus.context.valueIfOriginalIsZero && original === 0) {
+      //   formula = bonus.context.valueIfOriginalIsZero;
+      // } else {
+      //   formula = bonus.formula;
+      // }
 
-      formula = formula.trim().replace('@original', original.toString());
       return formula;
     });
 
@@ -180,15 +179,14 @@ export default class BonusesManager {
     const parts = bonuses.map(([, bonus]) => {
       const original: number = this.#actor._source.system.attributes.senses[type]?.distance ?? 0;
       if (bonus.unit === 'unlimited') isUnlimited = true;
-      let formula = '';
+      const formula = bonus.formula.trim().replace('@original', original.toString());
 
-      if (bonus.context.valueIfOriginalIsZero && original === 0) {
-        formula = bonus.context.valueIfOriginalIsZero;
-      } else {
-        formula = bonus.formula;
-      }
+      // if (bonus.context.valueIfOriginalIsZero && original === 0) {
+      //   formula = bonus.context.valueIfOriginalIsZero;
+      // } else {
+      //   formula = bonus.formula;
+      // }
 
-      formula = formula.trim().replace('@original', original.toString());
       return formula;
     });
 

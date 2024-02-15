@@ -88,8 +88,8 @@ export function getMovementBonusContext(type: 'grant' | 'bonus') {
   const { fields } = foundry.data;
 
   const schema: any = {
-    isHover: new fields.BooleanField({ required: true, initial: false }),
-    valueIfOriginalIsZero: new fields.StringField({ required: true, initial: '' })
+    isHover: new fields.BooleanField({ required: true, initial: false })
+    // valueIfOriginalIsZero: new fields.StringField({ required: true, initial: '' })
   };
 
   if (type === 'bonus') {
@@ -106,8 +106,8 @@ export function getSensesBonusContext(type: 'grant' | 'bonus') {
   const { fields } = foundry.data;
 
   const schema: any = {
-    otherwiseBlind: new fields.BooleanField({ required: true, initial: false }),
-    valueIfOriginalIsZero: new fields.StringField({ required: true, initial: '' })
+    otherwiseBlind: new fields.BooleanField({ required: true, initial: false })
+    // valueIfOriginalIsZero: new fields.StringField({ required: true, initial: '' })
   };
 
   if (type === 'bonus') {
