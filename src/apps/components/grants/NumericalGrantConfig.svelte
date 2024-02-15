@@ -56,7 +56,7 @@
         },
         senses: {
             selectHeading: "A5E.Unit",
-            selectTypes: CONFIG.A5E.distanceUnits,
+            selectTypes: CONFIG.A5E.visionUnits,
             selectProperty: "unit",
         },
         skills: {},
