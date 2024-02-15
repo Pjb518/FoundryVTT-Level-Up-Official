@@ -11,6 +11,8 @@ import prepareTraitGrantConfigObject from '../utils/prepareTraitGrantConfigObjec
 export default class ActorGrantsManger extends Map<string, ActorGrant> {
   private actor: typeof Actor;
 
+  private allowedTypes = ['feature', 'background', 'culture', 'heritage'];
+
   constructor(actor: typeof Actor) {
     super();
 
@@ -57,7 +59,7 @@ export default class ActorGrantsManger extends Map<string, ActorGrant> {
   async applyGrant(itemId: string): Promise<void> {
     if (!itemId) return;
     const item = this.actor.items.get(itemId);
-    if (item.type !== 'feature') return;
+    if (!this.allowedTypes.includes(item.type)) return;
 
     const applicableGrants: Grant[] = [];
     const optionalGrants: Grant[] = [];
