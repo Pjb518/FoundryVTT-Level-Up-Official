@@ -145,6 +145,7 @@
                 heading="Base Options"
                 options={configObject[traitType]?.config}
                 selected={grant?.traits?.base}
+                disabledOptions={grant?.traits?.options}
                 showToggleAllButton={true}
                 on:updateSelection={({ detail }) => {
                     onUpdateValue("traits.base", detail);
@@ -155,6 +156,7 @@
                 heading="Optional Choices"
                 options={configObject[traitType]?.config}
                 selected={grant?.traits?.options}
+                disabledOptions={grant?.traits?.base}
                 showToggleAllButton={true}
                 on:updateSelection={({ detail }) => {
                     onUpdateValue("traits.options", detail);
