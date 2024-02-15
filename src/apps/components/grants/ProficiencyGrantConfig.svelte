@@ -112,6 +112,7 @@
             options={configObject[proficiencyType]?.options}
             selected={grant?.keys?.base}
             showToggleAllButton={true}
+            disabledOptions={grant?.keys?.options}
             on:updateSelection={({ detail }) => {
                 onUpdateValue("keys.base", detail);
             }}
@@ -121,6 +122,7 @@
             heading="Optional Choices"
             options={configObject[proficiencyType]?.options}
             selected={grant?.keys?.options}
+            disabledOptions={grant?.keys?.base}
             showToggleAllButton={true}
             on:updateSelection={({ detail }) => {
                 onUpdateValue("keys.options", detail);
