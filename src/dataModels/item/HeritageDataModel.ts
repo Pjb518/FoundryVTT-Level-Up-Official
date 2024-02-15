@@ -12,7 +12,18 @@ export default class HeritageDataModel extends A5EDataModel.mixin(SchemaDataMode
   static defineSchema(): HeritageSchema {
     return this.mergeSchema(super.defineSchema(), {
       description: new foundry.data.fields.StringField({ nullable: false, initial: '' }),
-      grants: new foundry.data.fields.ObjectField({ nullable: false, initial: {} })
+      grants: new foundry.data.fields.ObjectField({
+        nullable: false,
+        initial: () => ({
+          [foundry.utils.randomID()]: {
+            grantType: 'movement',
+            movementTypes: { base: ['walk'] },
+            bonus: '30',
+            unit: 'feet',
+            label: 'Base Movement'
+          }
+        })
+      })
     });
   }
 }
