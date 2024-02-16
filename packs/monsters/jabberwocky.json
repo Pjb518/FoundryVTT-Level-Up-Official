@@ -1,5 +1,5 @@
 {
-	"name": "Jabberwock",
+	"name": "Jabberwocky",
 	"type": "npc",
 	"img": "icons/svg/mystery-man.svg",
 	"system": {
@@ -91,8 +91,8 @@
 				"failure": 0
 			},
 			"hp": {
-				"value": 270,
-				"baseMax": 270,
+				"value": 405,
+				"baseMax": 405,
 				"temp": 0,
 				"bonus": 0
 			},
@@ -114,8 +114,8 @@
 					"total": 0
 				},
 				"d12": {
-					"current": 20,
-					"total": 20
+					"current": 30,
+					"total": 30
 				},
 				"d20": {
 					"current": 0,
@@ -207,7 +207,7 @@
 				"fey"
 			],
 			"isSwarm": false,
-			"cr": 18,
+			"cr": 24,
 			"elite": false,
 			"notes": "",
 			"privateNotes": "",
@@ -1977,7 +1977,7 @@
 				},
 				"actions": {
 					"THDtMZ9UaJ1iKSRS": {
-						"name": "Use Feature",
+						"name": "Eyes of Flame",
 						"activation": {
 							"type": "action",
 							"cost": 1
@@ -2003,7 +2003,8 @@
 								"default": true,
 								"ability": "str",
 								"saveDC": {
-									"type": "maneuver"
+									"type": "custom",
+									"bonus": "20"
 								},
 								"onSave": "half damage on a success"
 							}
@@ -2025,6 +2026,59 @@
 							"length": 60,
 							"placeTemplate": true
 						}
+					},
+					"OPNwOocSOCasRj7R": {
+						"name": "Eyes of Vengence",
+						"activation": {
+							"type": "reaction",
+							"cost": 1,
+							"reactionTrigger": "When a creature within 60 feet targets Jabberwocky with a spell or magical effect, or includes Jabberwocky in the area of a spell or magical effect"
+						},
+						"consumers": {
+							"vPC1pwsRGVVVEZDp": {
+								"type": "itemUses",
+								"default": true,
+								"quantity": 1
+							}
+						},
+						"rolls": {
+							"iZCfil0D8X32sUyM": {
+								"type": "damage",
+								"default": true,
+								"damageType": "fire",
+								"formula": "14d6"
+							}
+						},
+						"prompts": {
+							"DjnB5Iw3KQ7efpdx": {
+								"type": "savingThrow",
+								"default": true,
+								"ability": "str",
+								"saveDC": {
+									"type": "custom",
+									"bonus": "20"
+								},
+								"onSave": "half damage on a success"
+							}
+						},
+						"uses": {
+							"value": 0,
+							"max": "",
+							"per": "",
+							"recharge": {
+								"formula": "1d6",
+								"rechargeType": "custom",
+								"rechargeAmount": "1",
+								"threshold": 6
+							}
+						},
+						"area": {
+							"shape": "cone",
+							"quantity": 1,
+							"length": 60,
+							"placeTemplate": true
+						},
+						"description": "<p>When a creature&nbsp;within 60 feet targets Jabberwocky with a&nbsp;spell or magical effect, or includes&nbsp;Jabberwocky in the area of a spell or&nbsp;magical effect, Jabberwocky immediately&nbsp;recharges and uses Eyes of Flame,&nbsp;including the attacker in its area if&nbsp;possible.</p>"
 					}
 				},
 				"description": "<p>The&nbsp;jabberwock&rsquo;s gaze ignites everything in a&nbsp;60-foot cone. Each creature in that area&nbsp;makes a DC 21 Dexterity saving throw,&nbsp;taking 49 (14d6) fire damage on a failed<br>save or half damage on a success.</p>",
@@ -2088,7 +2142,8 @@
 								"default": true,
 								"ability": "str",
 								"saveDC": {
-									"type": "cha"
+									"type": "custom",
+									"bonus": "20"
 								},
 								"onSave": "Not get a burbling curse"
 							}
@@ -2245,6 +2300,83 @@
 			"ownership": {
 				"default": 0
 			}
+		},
+		{
+			"name": "Manxome Burble",
+			"type": "feature",
+			"system": {
+				"ac": {
+					"baseFormula": "",
+					"formula": "",
+					"maxDex": 0,
+					"minStr": 0,
+					"mode": 2,
+					"requiresNoShield": false,
+					"requiresUnarmored": false
+				},
+				"actions": {
+					"TAhtbEvciJiiScFX": {
+						"name": "Use Feature",
+						"activation": {},
+						"consumers": {},
+						"rolls": {},
+						"prompts": {
+							"WsA9cphuOPAs124d": {
+								"type": "savingThrow",
+								"default": true,
+								"ability": "wis",
+								"saveDC": {
+									"type": "custom",
+									"bonus": "20"
+								},
+								"onSave": "Not be affected by burbling curse"
+							}
+						},
+						"uses": {
+							"value": 0,
+							"max": "",
+							"per": "",
+							"recharge": {
+								"formula": "1d6",
+								"rechargeType": "custom",
+								"rechargeAmount": "1",
+								"threshold": 6
+							}
+						}
+					}
+				},
+				"description": "<p>Whenever a creature&nbsp;that was cursed by Jabberwocky speaks,&nbsp;each listener must succeed on a DC 20&nbsp;Wisdom saving throw or be subject to Burbling Curse. A listener cursed in this&nbsp;way can&rsquo;t spread the curse any further.</p>",
+				"favorite": false,
+				"secretDescription": "",
+				"source": "",
+				"uses": {
+					"value": null,
+					"max": "",
+					"per": null,
+					"recharge": {
+						"formula": "1d6",
+						"threshold": "6"
+					}
+				},
+				"schema": {
+					"version": null,
+					"lastMigration": null
+				},
+				"concentration": false,
+				"featureType": "other",
+				"grants": {},
+				"prerequisite": "",
+				"requiresBloodied": false
+			},
+			"_id": "sDB34FlDnK646t2L",
+			"img": "icons/magic/control/hypnosis-mesmerism-swirl.webp",
+			"effects": [],
+			"folder": null,
+			"sort": 0,
+			"ownership": {
+				"default": 0
+			},
+			"flags": {}
 		}
 	],
 	"effects": [],
@@ -2254,5 +2386,5 @@
 			"sheetIsLocked": false
 		}
 	},
-	"_id": "8opg538qquqatm2s"
+	"_id": "cr41ls4sowat8e6t"
 }
