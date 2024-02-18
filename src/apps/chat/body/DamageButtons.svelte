@@ -1,7 +1,7 @@
 <script>
-    function applyDamage(multiplier = 1) {
+    function applyDamage(multiplier = 1, temp = false) {
         if (multiplier < 0) {
-            applyHealing("healing");
+            applyHealing(temp ? "temp" : "healing");
             return;
         }
 
@@ -39,6 +39,12 @@
 
     const damageButtons = [
         {
+            label: "Grant Temporary Hit Points",
+            multiplier: -1,
+            temp: true,
+            icon: "fa-heart-circle-bolt",
+        },
+        {
             label: "Apply Damage as Healing",
             multiplier: -1,
             icon: "fa-heart-circle-plus",
@@ -71,12 +77,13 @@
         <i class="damage-menu__button fa-heart-circle-minus fa-solid" />
 
         <ol class="damage-buttons">
-            {#each damageButtons as { label, multiplier, icon }}
+            {#each damageButtons as { label, multiplier, temp, icon }}
                 <!-- svelte-ignore a11y-click-events-have-key-events a11y-no-noninteractive-element-to-interactive-role -->
                 <li
                     class="damage-buttons__item"
                     role="button"
-                    on:click|stopPropagation={() => applyDamage(multiplier)}
+                    on:click|stopPropagation={() =>
+                        applyDamage(multiplier, temp)}
                 >
                     <span>{label}</span>
                     <i class="fa-solid {icon} button__icon" />
