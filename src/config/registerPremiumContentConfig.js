@@ -279,6 +279,13 @@ export default function registerPremiumContentConfig(A5E) {
       title: 'System Architecture: Motif Classes',
       url: 'https://bit.ly/4bgzU4N'
     },
+    secretsOfTheSelkies: {
+      abbreviation: 'SotS',
+      affiliate: false,
+      publisher: 'speaksAndSpells',
+      title: 'Secrets of the Selkies',
+      url: ''
+    },
     strangerSights: {
       abbreviation: 'SS',
       affiliate: true,
