@@ -996,161 +996,161 @@ A5E.skillDefaultAbilities = {
  */
 A5E.skillSpecialties = {
   acr: {
-    balancing: 'A5E.SkillSpecialtyBalancing',
-    escapeArtistry: 'A5E.SkillSpecialtyEscapeArtistry',
-    swinging: 'A5E.SkillSpecialtySwinging',
-    tumbling: 'A5E.SkillSpecialtyTumbling'
+    balancing: 'A5E.skillSpecialties.balancing',
+    escapeArtistry: 'A5E.skillSpecialties.escapeArtistry',
+    swinging: 'A5E.skillSpecialties.swinging',
+    tumbling: 'A5E.skillSpecialties.tumbling'
   },
   ani: {
-    calming: 'A5E.SkillSpecialtyCalming',
-    driving: 'A5E.SkillSpecialtyDriving',
-    farming: 'A5E.SkillSpecialtyFarming',
-    riding: 'A5E.SkillSpecialtyRiding',
-    training: 'A5E.SkillSpecialtyTraining'
+    calming: 'A5E.skillSpecialties.calming',
+    driving: 'A5E.skillSpecialties.driving',
+    farming: 'A5E.skillSpecialties.farming',
+    riding: 'A5E.skillSpecialties.riding',
+    training: 'A5E.skillSpecialties.training'
   },
   arc: {
-    aberrations: 'A5E.SkillSpecialtyAberrations',
-    artifacts: 'A5E.SkillSpecialtyArtifacts',
-    constructs: 'A5E.SkillSpecialtyConstructs',
-    detection: 'A5E.SkillSpecialtyDetection',
-    dragons: 'A5E.SkillSpecialtyDragons',
-    elementals: 'A5E.SkillSpecialtyElementals',
-    fey: 'A5E.SkillSpecialtyFey',
-    forbiddenKnowledge: 'A5E.SkillSpecialtyForbiddenKnowledge',
-    monstrosities: 'A5E.SkillSpecialtyMonstrosities',
-    oozes: 'A5E.SkillSpecialtyOozes',
-    thePlanes: 'A5E.SkillSpecialtyThePlanes'
+    aberrations: 'A5E.skillSpecialties.aberrations',
+    artifacts: 'A5E.skillSpecialties.artifacts',
+    constructs: 'A5E.skillSpecialties.constructs',
+    detection: 'A5E.skillSpecialties.detection',
+    dragons: 'A5E.skillSpecialties.dragons',
+    elementals: 'A5E.skillSpecialties.elementals',
+    fey: 'A5E.skillSpecialties.fey',
+    forbiddenKnowledge: 'A5E.skillSpecialties.forbiddenKnowledge',
+    monstrosities: 'A5E.skillSpecialties.monstrosities',
+    oozes: 'A5E.skillSpecialties.oozes',
+    thePlanes: 'A5E.skillSpecialties.thePlanes'
   },
   ath: {
-    climbing: 'A5E.SkillSpecialtyClimbing',
-    jumping: 'A5E.SkillSpecialtyJumping',
-    lifting: 'A5E.SkillSpecialtyLifting',
-    martialArts: 'A5E.SkillSpecialtyMartialArts',
-    running: 'A5E.SkillSpecialtyRunning',
-    swimming: 'A5E.SkillSpecialtySwimming',
-    throwing: 'A5E.SkillSpecialtyThrowing'
+    climbing: 'A5E.skillSpecialties.climbing',
+    jumping: 'A5E.skillSpecialties.jumping',
+    lifting: 'A5E.skillSpecialties.lifting',
+    martialArts: 'A5E.skillSpecialties.martialArts',
+    running: 'A5E.skillSpecialties.running',
+    swimming: 'A5E.skillSpecialties.swimming',
+    throwing: 'A5E.skillSpecialties.throwing'
   },
   cul: {
-    courtlyManners: 'A5E.SkillSpecialtyCourtlyManners',
-    cuisine: 'A5E.SkillSpecialtyCuisine',
-    etiquette: 'A5E.SkillSpecialtyEtiquette',
-    laws: 'A5E.SkillSpecialtyLaws',
-    linguistics: 'A5E.SkillSpecialtyLinguistics',
-    regionalGoods: 'A5E.SkillSpecialtyRegionalGoods',
-    streetwise: 'A5E.SkillSpecialtyStreetwise',
-    trade: 'A5E.SkillSpecialtyTrade'
+    courtlyManners: 'A5E.skillSpecialties.courtlyManners',
+    cuisine: 'A5E.skillSpecialties.cuisine',
+    etiquette: 'A5E.skillSpecialties.etiquette',
+    laws: 'A5E.skillSpecialties.laws',
+    linguistics: 'A5E.skillSpecialties.linguistics',
+    regionalGoods: 'A5E.skillSpecialties.regionalGoods',
+    streetwise: 'A5E.skillSpecialties.streetwise',
+    trade: 'A5E.skillSpecialties.trade'
   },
   dec: {
-    boasting: 'A5E.SkillSpecialtyBoasting',
-    ciphers: 'A5E.SkillSpecialtyCiphers',
-    concealingEmotions: 'A5E.SkillSpecialtyConcealingEmotions',
-    liesOfOmission: 'A5E.SkillSpecialtyLiesOfOmission',
-    mimicry: 'A5E.SkillSpecialtyMimicry'
+    boasting: 'A5E.skillSpecialties.boasting',
+    ciphers: 'A5E.skillSpecialties.ciphers',
+    concealingEmotions: 'A5E.skillSpecialties.concealingEmotions',
+    liesOfOmission: 'A5E.skillSpecialties.liesOfOmission',
+    mimicry: 'A5E.skillSpecialties.mimicry'
   },
   eng: {
-    architecture: 'A5E.SkillSpecialtyArchitecture',
-    chemistry: 'A5E.SkillSpecialtyChemistry',
-    explosives: 'A5E.SkillSpecialtyExplosives',
-    gadgetry: 'A5E.SkillSpecialtyGadgetry',
-    mathematics: 'A5E.SkillSpecialtyMathematics',
-    mechanicalTraps: 'A5E.SkillSpecialtyMechanicalTraps',
-    plumbing: 'A5E.SkillSpecialtyPlumbing',
-    siegecraft: 'A5E.SkillSpecialtySiegecraft'
+    architecture: 'A5E.skillSpecialties.architecture',
+    chemistry: 'A5E.skillSpecialties.chemistry',
+    explosives: 'A5E.skillSpecialties.explosives',
+    gadgetry: 'A5E.skillSpecialties.gadgetry',
+    mathematics: 'A5E.skillSpecialties.mathematics',
+    mechanicalTraps: 'A5E.skillSpecialties.mechanicalTraps',
+    plumbing: 'A5E.skillSpecialties.plumbing',
+    siegecraft: 'A5E.skillSpecialties.siegecraft'
   },
   his: {
-    arts: 'A5E.SkillSpecialtyArts',
-    empires: 'A5E.SkillSpecialtyEmpires',
-    genealogy: 'A5E.SkillSpecialtyGenealogy',
-    legends: 'A5E.SkillSpecialtyLegends',
-    wars: 'A5E.SkillSpecialtyWars'
+    arts: 'A5E.skillSpecialties.arts',
+    empires: 'A5E.skillSpecialties.empires',
+    genealogy: 'A5E.skillSpecialties.genealogy',
+    legends: 'A5E.skillSpecialties.legends',
+    wars: 'A5E.skillSpecialties.wars'
   },
   ins: {
-    detectingLies: 'A5E.SkillSpecialtyDetectingLies',
-    readingEmotions: 'A5E.SkillSpecialtyReadingEmotions',
-    sensingMotives: 'A5E.SkillSpecialtySensingMotives'
+    detectingLies: 'A5E.skillSpecialties.detectingLies',
+    readingEmotions: 'A5E.skillSpecialties.readingEmotions',
+    sensingMotives: 'A5E.skillSpecialties.sensingMotives'
   },
   itm: {
-    authority: 'A5E.SkillSpecialtyAuthority',
-    ferocity: 'A5E.SkillSpecialtyFerocity',
-    interrogation: 'A5E.SkillSpecialtyInterrogation',
-    subtleThreats: 'A5E.SkillSpecialtySubtleThreats',
-    weaponDisplays: 'A5E.SkillSpecialtyWeaponDisplays'
+    authority: 'A5E.skillSpecialties.authority',
+    ferocity: 'A5E.skillSpecialties.ferocity',
+    interrogation: 'A5E.skillSpecialties.interrogation',
+    subtleThreats: 'A5E.skillSpecialties.subtleThreats',
+    weaponDisplays: 'A5E.skillSpecialties.weaponDisplays'
   },
   inv: {
-    appraisal: 'A5E.SkillSpecialtyAppraisal',
-    deciphering: 'A5E.SkillSpecialtyDeciphering',
-    forensics: 'A5E.SkillSpecialtyForensics',
-    gatheringRumors: 'A5E.SkillSpecialtyGatheringRumors',
-    research: 'A5E.SkillSpecialtyResearch',
-    trapfinding: 'A5E.SkillSpecialtyTrapfinding'
+    appraisal: 'A5E.skillSpecialties.appraisal',
+    deciphering: 'A5E.skillSpecialties.deciphering',
+    forensics: 'A5E.skillSpecialties.forensics',
+    gatheringRumors: 'A5E.skillSpecialties.gatheringRumors',
+    research: 'A5E.skillSpecialties.research',
+    trapfinding: 'A5E.skillSpecialties.trapfinding'
   },
   med: {
-    animals: 'A5E.SkillSpecialtyAnimals',
-    autopsy: 'A5E.SkillSpecialtyAutopsy',
-    diseases: 'A5E.SkillSpecialtyDiseases',
-    drugs: 'A5E.SkillSpecialtyDrugs',
-    herbalism: 'A5E.SkillSpecialtyHerbalism',
-    mentalHealth: 'A5E.SkillSpecialtyMentalHealth',
-    poisons: 'A5E.SkillSpecialtyPoisons'
+    animals: 'A5E.skillSpecialties.animals',
+    autopsy: 'A5E.skillSpecialties.autopsy',
+    diseases: 'A5E.skillSpecialties.diseases',
+    drugs: 'A5E.skillSpecialties.drugs',
+    herbalism: 'A5E.skillSpecialties.herbalism',
+    mentalHealth: 'A5E.skillSpecialties.mentalHealth',
+    poisons: 'A5E.skillSpecialties.poisons'
   },
   nat: {
-    astronomy: 'A5E.SkillSpecialtyAstronomy',
-    beastLore: 'A5E.SkillSpecialtyBeastLore',
-    farming: 'A5E.SkillSpecialtyFarming',
-    fey: 'A5E.SkillSpecialtyFey',
-    plantLore: 'A5E.SkillSpecialtyPlantLore',
-    weather: 'A5E.SkillSpecialtyWeather'
+    astronomy: 'A5E.skillSpecialties.astronomy',
+    beastLore: 'A5E.skillSpecialties.beastLore',
+    farming: 'A5E.skillSpecialties.farming',
+    fey: 'A5E.skillSpecialties.fey',
+    plantLore: 'A5E.skillSpecialties.plantLore',
+    weather: 'A5E.skillSpecialties.weather'
   },
   prc: {
-    farsight: 'A5E.SkillSpecialtyFarsight',
-    invisibleObjects: 'A5E.SkillSpecialtyInvisibleObjects',
-    listening: 'A5E.SkillSpecialtyListening',
-    scent: 'A5E.SkillSpecialtyScent'
+    farsight: 'A5E.skillSpecialties.farsight',
+    invisibleObjects: 'A5E.skillSpecialties.invisibleObjects',
+    listening: 'A5E.skillSpecialties.listening',
+    scent: 'A5E.skillSpecialties.scent'
   },
   prf: {
-    acting: 'A5E.SkillSpecialtyActing',
-    composing: 'A5E.SkillSpecialtyComposing',
-    dancing: 'A5E.SkillSpecialtyDancing',
-    fineArt: 'A5E.SkillSpecialtyFineArt',
-    singing: 'A5E.SkillSpecialtySinging',
-    speaking: 'A5E.SkillSpecialtySpeaking',
-    writing: 'A5E.SkillSpecialtyWriting'
+    acting: 'A5E.skillSpecialties.acting',
+    composing: 'A5E.skillSpecialties.composing',
+    dancing: 'A5E.skillSpecialties.dancing',
+    fineArt: 'A5E.skillSpecialties.fineArt',
+    singing: 'A5E.skillSpecialties.singing',
+    speaking: 'A5E.skillSpecialties.speaking',
+    writing: 'A5E.skillSpecialties.writing'
   },
   per: {
-    bribery: 'A5E.SkillSpecialtyBribery',
-    flattery: 'A5E.SkillSpecialtyFlattery',
-    leadership: 'A5E.SkillSpecialtyLeadership',
-    negotiation: 'A5E.SkillSpecialtyNegotiation',
-    peacemaking: 'A5E.SkillSpecialtyPeacemaking'
+    bribery: 'A5E.skillSpecialties.bribery',
+    flattery: 'A5E.skillSpecialties.flattery',
+    leadership: 'A5E.skillSpecialties.leadership',
+    negotiation: 'A5E.skillSpecialties.negotiation',
+    peacemaking: 'A5E.skillSpecialties.peacemaking'
   },
   rel: {
-    alignment: 'A5E.SkillSpecialtyAlignment',
-    celestials: 'A5E.SkillSpecialtyCelestials',
-    cults: 'A5E.SkillSpecialtyCults',
-    fiends: 'A5E.SkillSpecialtyFiends',
-    gods: 'A5E.SkillSpecialtyGods',
-    holySymbols: 'A5E.SkillSpecialtyHolySymbols',
-    morality: 'A5E.SkillSpecialtyMorality',
-    prophecy: 'A5E.SkillSpecialtyProphecy',
-    relics: 'A5E.SkillSpecialtyRelics',
-    undead: 'A5E.SkillSpecialtyUndead'
+    alignment: 'A5E.skillSpecialties.alignment',
+    celestials: 'A5E.skillSpecialties.celestials',
+    cults: 'A5E.skillSpecialties.cults',
+    fiends: 'A5E.skillSpecialties.fiends',
+    gods: 'A5E.skillSpecialties.gods',
+    holySymbols: 'A5E.skillSpecialties.holySymbols',
+    morality: 'A5E.skillSpecialties.morality',
+    prophecy: 'A5E.skillSpecialties.prophecy',
+    relics: 'A5E.skillSpecialties.relics',
+    undead: 'A5E.skillSpecialties.undead'
   },
   slt: {
-    distraction: 'A5E.SkillSpecialtyDistraction',
-    legerdemain: 'A5E.SkillSpecialtyLegerdemain',
-    pickpocketing: 'A5E.SkillSpecialtyPickpocketing'
+    distraction: 'A5E.skillSpecialties.distraction',
+    legerdemain: 'A5E.skillSpecialties.legerdemain',
+    pickpocketing: 'A5E.skillSpecialties.pickpocketing'
   },
   ste: {
-    anonymity: 'A5E.SkillSpecialtyAnonymity',
-    camouflage: 'A5E.SkillSpecialtyCamouflage',
-    casing: 'A5E.SkillSpecialtyCasing'
+    anonymity: 'A5E.skillSpecialties.anonymity',
+    camouflage: 'A5E.skillSpecialties.camouflage',
+    casing: 'A5E.skillSpecialties.casing'
   },
   sur: {
-    dungeoneering: 'A5E.SkillSpecialtyDungeoneering',
-    foraging: 'A5E.SkillSpecialtyForaging',
-    hunting: 'A5E.SkillSpecialtyHunting',
-    tracking: 'A5E.SkillSpecialtyTracking',
-    wayfinding: 'A5E.SkillSpecialtyWayfinding'
+    dungeoneering: 'A5E.skillSpecialties.dungeoneering',
+    foraging: 'A5E.skillSpecialties.foraging',
+    hunting: 'A5E.skillSpecialties.hunting',
+    tracking: 'A5E.skillSpecialties.tracking',
+    wayfinding: 'A5E.skillSpecialties.wayfinding'
   }
 };
 
