@@ -282,6 +282,13 @@ export default function registerPremiumContentConfig(A5E) {
       title: 'Level Up: Gate Pass Gazette Issue #19',
       url: 'https://bit.ly/4blqODO'
     },
+    heroesOldAndNew: {
+      abbreviation: 'MMM',
+      affiliate: false,
+      publisher: 'rollThemBones',
+      title: 'Heroes Old and New',
+      url: 'https://bit.ly/3UevPrJ'
+    },
     moarComplete: {
       abbreviation: 'MoAR',
       affiliate: true,
