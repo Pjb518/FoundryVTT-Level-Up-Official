@@ -1,0 +1,295 @@
+{
+	"name": "Draconic Umbra",
+	"type": "feature",
+	"img": "icons/creatures/reptiles/dragon-winged-blue.webp",
+	"effects": [
+		{
+			"icon": "icons/creatures/reptiles/dragon-winged-blue.webp",
+			"origin": "Item.M4SgZr7iNBqVtoUt",
+			"flags": {
+				"a5e": {
+					"sort": 0,
+					"transferType": "onUse",
+					"actionId": "rAnzwr9zOB8bPxo9",
+					"applyToSelf": true,
+					"duration": {
+						"unit": "minutes"
+					}
+				}
+			},
+			"transfer": false,
+			"name": "Spiritual Umbra",
+			"_id": "MS53pisnBIj2W1jY",
+			"changes": [
+				{
+					"key": "system.skills.ste.expertiseDice",
+					"value": "1",
+					"mode": 2,
+					"priority": null
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": 60,
+				"combat": null,
+				"rounds": null,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "",
+			"statuses": [],
+			"folder": null
+		},
+		{
+			"icon": "icons/creatures/reptiles/dragon-winged-blue.webp",
+			"origin": "Item.M4SgZr7iNBqVtoUt",
+			"flags": {
+				"a5e": {
+					"sort": 0,
+					"transferType": "onUse",
+					"actionId": "dsmSbvb6cNWbY2B6",
+					"applyToSelf": true,
+					"duration": {
+						"unit": "minutes"
+					}
+				}
+			},
+			"transfer": false,
+			"name": "Protective Umbra",
+			"_id": "FeAkARRCr2RMMMfN",
+			"changes": [
+				{
+					"key": "system.abilities.wis.check.expertiseDice",
+					"value": "1",
+					"mode": 2,
+					"priority": null
+				},
+				{
+					"key": "system.abilities.int.check.expertiseDice",
+					"value": "1",
+					"mode": 2,
+					"priority": null
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": 60,
+				"combat": null,
+				"rounds": null,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "",
+			"statuses": [],
+			"folder": null
+		}
+	],
+	"flags": {},
+	"system": {
+		"ac": {
+			"baseFormula": "",
+			"formula": "",
+			"maxDex": 0,
+			"minStr": 0,
+			"mode": 2,
+			"requiresNoShield": false,
+			"requiresUnarmored": false
+		},
+		"actions": {
+			"dz04ZSIkgwvzKkqH": {
+				"name": "Damaging Umbra",
+				"activation": {
+					"type": "bonusAction",
+					"cost": 1
+				},
+				"consumers": {
+					"GGbFgCu0qSoOwfkV": {
+						"type": "itemUses",
+						"default": true,
+						"quantity": 1
+					},
+					"IKZJ6RRy5AfclFQj": {
+						"type": "actionUses",
+						"default": true,
+						"quantity": 1
+					}
+				},
+				"rolls": {
+					"ykSFlMNz9RPvtqUG": {
+						"type": "damage",
+						"default": true,
+						"canCrit": false,
+						"formula": "floor(@level/2)"
+					}
+				},
+				"prompts": {},
+				"uses": {
+					"value": 1,
+					"max": "1",
+					"per": "turn",
+					"recharge": {
+						"formula": "1d6",
+						"rechargeType": "custom",
+						"rechargeAmount": "1",
+						"threshold": 6
+					}
+				},
+				"duration": {
+					"unit": "minute",
+					"value": 1
+				}
+			},
+			"Lbs5QWaJxcRBTxhE": {
+				"name": "Ethereal Umbra",
+				"activation": {
+					"type": "bonusAction",
+					"cost": 1
+				},
+				"consumers": {
+					"GGbFgCu0qSoOwfkV": {
+						"type": "itemUses",
+						"default": true,
+						"quantity": 1
+					}
+				},
+				"rolls": {
+					"eFcRltFTyF5t562c": {
+						"type": "damage",
+						"default": true,
+						"formula": "1d6",
+						"canCrit": false,
+						"damageType": "force"
+					}
+				},
+				"prompts": {},
+				"uses": {
+					"value": 1,
+					"max": "1",
+					"per": "turn",
+					"recharge": {
+						"formula": "1d6",
+						"rechargeType": "custom",
+						"rechargeAmount": "1",
+						"threshold": 6
+					}
+				},
+				"duration": {
+					"unit": "minute",
+					"value": 1
+				}
+			},
+			"rAnzwr9zOB8bPxo9": {
+				"name": "Spiritual Umbra",
+				"activation": {
+					"type": "bonusAction",
+					"cost": 1
+				},
+				"consumers": {
+					"GGbFgCu0qSoOwfkV": {
+						"type": "itemUses",
+						"default": true,
+						"quantity": 1
+					}
+				},
+				"rolls": {},
+				"prompts": {
+					"BDIlnAa1A6lVM5zi": {
+						"type": "effect",
+						"default": true,
+						"effectId": "MS53pisnBIj2W1jY"
+					}
+				},
+				"uses": {
+					"value": 1,
+					"max": "1",
+					"per": "turn",
+					"recharge": {
+						"formula": "1d6",
+						"rechargeType": "custom",
+						"rechargeAmount": "1",
+						"threshold": 6
+					}
+				},
+				"duration": {
+					"unit": "minute",
+					"value": 1
+				}
+			},
+			"dsmSbvb6cNWbY2B6": {
+				"name": "Protective Umbra",
+				"activation": {
+					"type": "bonusAction",
+					"cost": 1
+				},
+				"consumers": {
+					"GGbFgCu0qSoOwfkV": {
+						"type": "itemUses",
+						"default": true,
+						"quantity": 1
+					}
+				},
+				"rolls": {},
+				"prompts": {
+					"BDIlnAa1A6lVM5zi": {
+						"type": "effect",
+						"default": true,
+						"effectId": "FeAkARRCr2RMMMfN"
+					}
+				},
+				"uses": {
+					"value": 1,
+					"max": "1",
+					"per": "turn",
+					"recharge": {
+						"formula": "1d6",
+						"rechargeType": "custom",
+						"rechargeAmount": "1",
+						"threshold": 6
+					}
+				},
+				"duration": {
+					"unit": "minute",
+					"value": 1
+				}
+			}
+		},
+		"description": "<p>Dragon cultists are often blessed with power from the object of their devotion so that they may spread their dragon&rsquo;s word or further its plans. As a bonus action, you can cause draconic power to course around you in a draconic umbra. This draconic umbra lasts for 1 minute or until you use a bonus action to end it. Once you have used this trait, you cannot use it again until after you finish a long rest. Choose one of the following effects:</p>\n<p><strong>Damaging Umbra:</strong> Common amongst the chromatic dragons, this umbra burns with draconic power. Once on each of your turns while this umbra is active, you can deal extra damage of the type dealt by your Dragon Breath to one target when you deal damage to it with an attack or a spell. The extra damage equals half your level (minimum 1). If you are not dragonborn, you may choose the damage type dealt by your umbra from those available in the Dragon Breath trait.</p>\n<p><strong>Ethereal Umbra:</strong> Common amongst the essence dragons, this umbra shimmers with draconic will. While this umbra is active you can move through nonmagical solid objects and occupied spaces as if they were difficult terrain. Opportunity attacks made against you while this umbra is active have disadvantage. You cannot move further than 5 feet into walls or other solid objects in this way. If you would end your turn in an occupied space, you are shunted into the nearest unoccupied space and take 1d6 force damage.</p>\n<p><strong>Spiritual Umbra:</strong> Common amongst the gem dragons, this umbra shifts with draconic cunning. While this umbra is active you gain an expertise die on Stealth checks, and once on each of your turns you may alter your appearance (as the @UUID[Compendium.a5e.a5e-spells.Item.vemj08hawvmf44ya]{Disguise Self} spell). When your umbra ends, so do any illusions conjured by it.&nbsp;</p>\n<p><strong>Protective Umbra:</strong> Common amongst the metallic dragons, this umbra sparks with draconic ingenuity. While this umbra is active you gain resistance to the damage type dealt by your Dragon Breath (if you already had resistance to that damage type, you gain immunity instead), and you gain an expertise die on Wisdom or Intelligence checks. If you are not dragonborn, you may choose the damage type for your umbra from those available in the Dragon Breath trait.</p>",
+		"favorite": false,
+		"secretDescription": "",
+		"source": "",
+		"uses": {
+			"value": 1,
+			"max": "1",
+			"per": "shortRest",
+			"recharge": {
+				"formula": "1d6",
+				"threshold": 6
+			}
+		},
+		"schema": {
+			"version": null,
+			"lastMigration": null
+		},
+		"concentration": false,
+		"featureType": "culture",
+		"grants": {},
+		"prerequisite": "",
+		"requiresBloodied": false,
+		"schemaVersion": {
+			"version": 0.013,
+			"lastMigration": {
+				"version": {
+					"schema": 0.011,
+					"foundry": "11.315",
+					"system": "0.16.49"
+				}
+			}
+		}
+	},
+	"folder": null,
+	"_id": "53qtyzj9dok8ap0u"
+}

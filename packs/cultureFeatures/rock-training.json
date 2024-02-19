@@ -2,7 +2,7 @@
 	"folder": null,
 	"name": "Rock Training",
 	"type": "feature",
-	"img": "icons/magic/earth/projectile-stone-ball-brown.webp",
+	"img": "icons/skills/trades/construction-mason-stonecutter-sculpture.webp",
 	"system": {
 		"ac": {
 			"baseFormula": "",
@@ -16,7 +16,10 @@
 		"actions": {
 			"M7AATeMXEZCsH1zY": {
 				"name": "Rock Bash",
-				"activation": {},
+				"activation": {
+					"type": "action",
+					"cost": 1
+				},
 				"consumers": {},
 				"rolls": {
 					"Rn2t5dXLWtLg2tNp": {
@@ -42,24 +45,42 @@
 						"formula": "1d6",
 						"threshold": 6
 					}
+				},
+				"ranges": {
+					"fCuOm9nvmxLajhFN": {
+						"range": "fiveFeet"
+					}
+				},
+				"target": {
+					"type": "creatureObject",
+					"quantity": 1
 				}
 			},
 			"K46owZJ359RrlAWS": {
 				"name": "Throw Rock",
-				"activation": {},
-				"consumers": {},
+				"activation": {
+					"type": "action",
+					"cost": 1
+				},
+				"consumers": {
+					"oY1xPkseewA4Yaek": {
+						"type": "itemUses",
+						"default": true,
+						"quantity": 1
+					}
+				},
 				"rolls": {
 					"b7IuTp1kDBs4Ah1l": {
 						"type": "attack",
 						"default": true,
 						"attackType": "rangedWeaponAttack",
 						"proficient": true,
-						"ability": "str"
+						"ability": "default"
 					},
 					"fDwUPMOshlJxKTXC": {
 						"type": "damage",
 						"default": true,
-						"formula": "1d6 + @str.mod",
+						"formula": "1d6 + @finesse.mod",
 						"damageType": "bludgeoning"
 					}
 				},
@@ -82,6 +103,10 @@
 						"range": 80,
 						"unit": "feet"
 					}
+				},
+				"target": {
+					"type": "creatureObject",
+					"quantity": 1
 				}
 			}
 		},
@@ -90,8 +115,8 @@
 		"secretDescription": "",
 		"source": "",
 		"uses": {
-			"value": null,
-			"max": "",
+			"value": 1,
+			"max": "1",
 			"per": null,
 			"recharge": {
 				"formula": "1d6",
