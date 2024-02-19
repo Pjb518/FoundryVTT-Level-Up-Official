@@ -946,26 +946,26 @@ A5E.spellSchools = {
  * @enum {string}
  */
 A5E.skills = {
-  acr: 'A5E.SkillAcr',
-  ani: 'A5E.SkillAni',
-  arc: 'A5E.SkillArc',
-  ath: 'A5E.SkillAth',
-  cul: 'A5E.SkillCul',
-  dec: 'A5E.SkillDec',
-  eng: 'A5E.SkillEng',
-  his: 'A5E.SkillHis',
-  ins: 'A5E.SkillIns',
-  itm: 'A5E.SkillItm',
-  inv: 'A5E.SkillInv',
-  med: 'A5E.SkillMed',
-  nat: 'A5E.SkillNat',
-  prc: 'A5E.SkillPrc',
-  prf: 'A5E.SkillPrf',
-  per: 'A5E.SkillPer',
-  rel: 'A5E.SkillRel',
-  slt: 'A5E.SkillSlt',
-  ste: 'A5E.SkillSte',
-  sur: 'A5E.SkillSur'
+  acr: 'A5E.skills.acrobatics',
+  ani: 'A5E.skills.animalHandling',
+  arc: 'A5E.skills.arcana',
+  ath: 'A5E.skills.athletics',
+  cul: 'A5E.skills.culture',
+  dec: 'A5E.skills.deception',
+  eng: 'A5E.skills.engineering',
+  his: 'A5E.skills.history',
+  ins: 'A5E.skills.insight',
+  itm: 'A5E.skills.intimidation',
+  inv: 'A5E.skills.investigation',
+  med: 'A5E.skills.medicine',
+  nat: 'A5E.skills.nature',
+  prc: 'A5E.skills.perception',
+  prf: 'A5E.skills.performance',
+  per: 'A5E.skills.persuasion',
+  rel: 'A5E.skills.religion',
+  slt: 'A5E.skills.sleightOfHand',
+  ste: 'A5E.skills.stealth',
+  sur: 'A5E.skills.survival'
 };
 
 A5E.skillDefaultAbilities = {
