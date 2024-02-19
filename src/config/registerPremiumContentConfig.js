@@ -303,6 +303,13 @@ export default function registerPremiumContentConfig(A5E) {
       title: 'System Architecture: Motif Classes',
       url: 'https://bit.ly/4bgzU4N'
     },
+    mysteriousAndMarvelousMiscellanea: {
+      abbreviation: 'MMM',
+      affiliate: false,
+      publisher: 'rollThemBones',
+      title: 'Mysterious and Marvelous Miscellanea',
+      url: 'https://bit.ly/42fLLM8'
+    },
     secretsOfTheSelkies: {
       abbreviation: 'SotS',
       affiliate: false,
