@@ -1010,6 +1010,7 @@ A5E.skillSpecialties = {
   },
   arc: {
     aberrations: 'A5E.SkillSpecialtyAberrations',
+    artifacts: 'A5E.SkillSpecialtyArtifacts',
     constructs: 'A5E.SkillSpecialtyConstructs',
     detection: 'A5E.SkillSpecialtyDetection',
     dragons: 'A5E.SkillSpecialtyDragons',
@@ -1024,12 +1025,14 @@ A5E.skillSpecialties = {
     climbing: 'A5E.SkillSpecialtyClimbing',
     jumping: 'A5E.SkillSpecialtyJumping',
     lifting: 'A5E.SkillSpecialtyLifting',
+    martialArts: 'A5E.SkillSpecialtyMartialArts',
     running: 'A5E.SkillSpecialtyRunning',
     swimming: 'A5E.SkillSpecialtySwimming',
     throwing: 'A5E.SkillSpecialtyThrowing'
   },
   cul: {
     courtlyManners: 'A5E.SkillSpecialtyCourtlyManners',
+    cuisine: 'A5E.SkillSpecialtyCuisine',
     etiquette: 'A5E.SkillSpecialtyEtiquette',
     laws: 'A5E.SkillSpecialtyLaws',
     linguistics: 'A5E.SkillSpecialtyLinguistics',
@@ -1041,6 +1044,7 @@ A5E.skillSpecialties = {
     boasting: 'A5E.SkillSpecialtyBoasting',
     ciphers: 'A5E.SkillSpecialtyCiphers',
     concealingEmotions: 'A5E.SkillSpecialtyConcealingEmotions',
+    liesOfOmission: 'A5E.SkillSpecialtyLiesOfOmission',
     mimicry: 'A5E.SkillSpecialtyMimicry'
   },
   eng: {
@@ -1050,6 +1054,7 @@ A5E.skillSpecialties = {
     gadgetry: 'A5E.SkillSpecialtyGadgetry',
     mathematics: 'A5E.SkillSpecialtyMathematics',
     mechanicalTraps: 'A5E.SkillSpecialtyMechanicalTraps',
+    plumbing: 'A5E.SkillSpecialtyPlumbing',
     siegecraft: 'A5E.SkillSpecialtySiegecraft'
   },
   his: {
@@ -1083,7 +1088,9 @@ A5E.skillSpecialties = {
     animals: 'A5E.SkillSpecialtyAnimals',
     autopsy: 'A5E.SkillSpecialtyAutopsy',
     diseases: 'A5E.SkillSpecialtyDiseases',
+    drugs: 'A5E.SkillSpecialtyDrugs',
     herbalism: 'A5E.SkillSpecialtyHerbalism',
+    mentalHealth: 'A5E.SkillSpecialtyMentalHealth',
     poisons: 'A5E.SkillSpecialtyPoisons'
   },
   nat: {
@@ -1125,6 +1132,7 @@ A5E.skillSpecialties = {
     holySymbols: 'A5E.SkillSpecialtyHolySymbols',
     morality: 'A5E.SkillSpecialtyMorality',
     prophecy: 'A5E.SkillSpecialtyProphecy',
+    relics: 'A5E.SkillSpecialtyRelics',
     undead: 'A5E.SkillSpecialtyUndead'
   },
   slt: {
