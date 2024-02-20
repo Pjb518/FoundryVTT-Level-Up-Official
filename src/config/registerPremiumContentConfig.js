@@ -343,6 +343,13 @@ export default function registerPremiumContentConfig(A5E) {
       title: 'Level Up: Monstrous Menagerie',
       url: 'https://bit.ly/42nUNa0'
     },
+    mortalist: {
+      abbreviation: 'Mort',
+      affiliate: true,
+      publisher: 'purpleMartinGames',
+      title: 'Mortalist',
+      url: 'https://bit.ly/3I6n4Zj'
+    },
     motifClasses: {
       abbreviation: 'SA:MC',
       affiliate: true,
