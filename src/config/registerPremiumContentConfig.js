@@ -266,6 +266,14 @@ export default function registerPremiumContentConfig(A5E) {
       title: 'Level Up: Gate Pass Gazette Issue #9',
       url: 'https://bit.ly/3OvH2k2'
     },
+    gpg10: {
+      abbreviation: 'GPG #10',
+      affiliate: true,
+      publisher: 'enPublishing',
+      series: 'gatePassGazette',
+      title: 'Level Up: Gate Pass Gazette Issue #10',
+      url: 'https://bit.ly/42JSXR0'
+    },
     gpg11: {
       abbreviation: 'GPG #11',
       affiliate: true,
@@ -273,6 +281,22 @@ export default function registerPremiumContentConfig(A5E) {
       series: 'gatePassGazette',
       title: 'Level Up: Gate Pass Gazette Issue #11',
       url: 'https://bit.ly/3OsnMnu'
+    },
+    gpg12: {
+      abbreviation: 'GPG #12',
+      affiliate: true,
+      publisher: 'enPublishing',
+      series: 'gatePassGazette',
+      title: 'Level Up: Gate Pass Gazette Issue #12',
+      url: 'https://bit.ly/3uI2SKn'
+    },
+    gpg13: {
+      abbreviation: 'GPG #13',
+      affiliate: true,
+      publisher: 'enPublishing',
+      series: 'gatePassGazette',
+      title: 'Level Up: Gate Pass Gazette Issue #13',
+      url: 'https://bit.ly/3T1ABHU'
     },
     gpg19: {
       abbreviation: 'GPG #19',
