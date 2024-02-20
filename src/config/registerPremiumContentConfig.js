@@ -371,6 +371,13 @@ export default function registerPremiumContentConfig(A5E) {
       title: 'Stranger Sights: Challenges for 5e and Advanced 5e',
       url: 'https://bit.ly/3SmPaEv'
     },
+    toSaveAKingdom: {
+      abbreviation: 'TSaK',
+      affiliate: true,
+      publisher: 'enPublishing',
+      title: 'Level Up: To Save a Kingdom',
+      url: 'https://bit.ly/42iQKvN'
+    },
     trialsAndTreasures: {
       abbreviation: 'T&T',
       affiliate: true,
