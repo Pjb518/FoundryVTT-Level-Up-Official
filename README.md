@@ -95,8 +95,6 @@ The content of the `public/packs/dnd5e-*` directories is sourced from the [Dunge
 
 Various icons are in the `public/assets/icons` directory are sourced from [game-icons.net](https://www.game-icons.net) and are licensed under [CC-BY-3.0](https://creativecommons.org/licenses/by/3.0). Attributions and license details are provided in the `LICENSE.md` file in that directory.
 
-The logos in `public/assets/publisherLogos` are used with permission of the respective publishers.
-
 The remaining images in the `public/assets/` directory are provided for non-commercial use by EN Publishing Inc. and can be found [here](https://www.enworld.org/newsimages/lu_monstrous_menagerie_tokens.zip).
 
 The system software is distributed under the [MIT License](https://mit-license.org/).
