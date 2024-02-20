@@ -1,8 +1,8 @@
 {
   "folder": null,
-  "name": "Conjured Woodland Beings (Sprite)",
-  "type": "character",
-  "img": "icons/svg/mystery-man.svg",
+  "name": "Conjured Fey (Satyr)",
+  "type": "npc",
+  "img": "systems/a5e/assets/satyr.webp",
   "system": {
     "abilities": {
       "str": {
@@ -54,7 +54,7 @@
         }
       },
       "wis": {
-        "value": 10,
+        "value": 12,
         "check": {
           "expertiseDice": 0,
           "bonus": ""
@@ -91,7 +91,6 @@
     "skills": {
       "acr": {
         "ability": "dex",
-        "value": 0,
         "proficient": false,
         "specialties": [],
         "expertiseDice": 0,
@@ -103,7 +102,6 @@
       },
       "ani": {
         "ability": "wis",
-        "value": 0,
         "proficient": false,
         "specialties": [],
         "expertiseDice": 0,
@@ -115,7 +113,6 @@
       },
       "arc": {
         "ability": "int",
-        "value": 0,
         "proficient": false,
         "specialties": [],
         "expertiseDice": 0,
@@ -127,7 +124,6 @@
       },
       "ath": {
         "ability": "str",
-        "value": 0,
         "proficient": false,
         "specialties": [],
         "expertiseDice": 0,
@@ -139,7 +135,6 @@
       },
       "cul": {
         "ability": "int",
-        "value": 0,
         "proficient": false,
         "specialties": [],
         "expertiseDice": 0,
@@ -151,7 +146,6 @@
       },
       "dec": {
         "ability": "cha",
-        "value": 0,
         "proficient": false,
         "specialties": [],
         "expertiseDice": 0,
@@ -163,7 +157,6 @@
       },
       "eng": {
         "ability": "int",
-        "value": 0,
         "proficient": false,
         "specialties": [],
         "expertiseDice": 0,
@@ -175,7 +168,6 @@
       },
       "his": {
         "ability": "int",
-        "value": 0,
         "proficient": false,
         "specialties": [],
         "expertiseDice": 0,
@@ -187,7 +179,6 @@
       },
       "ins": {
         "ability": "wis",
-        "value": 0,
         "proficient": false,
         "specialties": [],
         "expertiseDice": 0,
@@ -199,7 +190,6 @@
       },
       "itm": {
         "ability": "cha",
-        "value": 0,
         "proficient": false,
         "specialties": [],
         "expertiseDice": 0,
@@ -211,7 +201,6 @@
       },
       "inv": {
         "ability": "int",
-        "value": 0,
         "proficient": false,
         "specialties": [],
         "expertiseDice": 0,
@@ -223,7 +212,6 @@
       },
       "med": {
         "ability": "wis",
-        "value": 0,
         "proficient": false,
         "specialties": [],
         "expertiseDice": 0,
@@ -235,7 +223,6 @@
       },
       "nat": {
         "ability": "int",
-        "value": 0,
         "proficient": false,
         "specialties": [],
         "expertiseDice": 0,
@@ -247,7 +234,6 @@
       },
       "prc": {
         "ability": "wis",
-        "value": 0,
         "proficient": false,
         "specialties": [],
         "expertiseDice": 0,
@@ -259,7 +245,6 @@
       },
       "prf": {
         "ability": "cha",
-        "value": 0,
         "proficient": false,
         "specialties": [],
         "expertiseDice": 0,
@@ -271,7 +256,6 @@
       },
       "per": {
         "ability": "cha",
-        "value": 0,
         "proficient": false,
         "specialties": [],
         "expertiseDice": 0,
@@ -283,7 +267,6 @@
       },
       "rel": {
         "ability": "int",
-        "value": 0,
         "proficient": false,
         "specialties": [],
         "expertiseDice": 0,
@@ -295,7 +278,6 @@
       },
       "slt": {
         "ability": "dex",
-        "value": 0,
         "proficient": false,
         "specialties": [],
         "expertiseDice": 0,
@@ -307,7 +289,6 @@
       },
       "ste": {
         "ability": "dex",
-        "value": 0,
         "proficient": false,
         "specialties": [],
         "expertiseDice": 0,
@@ -319,7 +300,6 @@
       },
       "sur": {
         "ability": "wis",
-        "value": 0,
         "proficient": false,
         "specialties": [],
         "expertiseDice": 0,
@@ -409,6 +389,10 @@
         "d4": {
           "current": 0,
           "total": 0
+        },
+        "d20": {
+          "current": 0,
+          "total": 0
         }
       },
       "initiative": {
@@ -426,7 +410,7 @@
           "unit": "feet"
         },
         "fly": {
-          "distance": 40,
+          "distance": 0,
           "unit": "feet"
         },
         "swim": {
@@ -434,7 +418,7 @@
           "unit": "feet"
         },
         "walk": {
-          "distance": 10,
+          "distance": 40,
           "unit": "feet"
         },
         "traits": {
@@ -464,15 +448,7 @@
       "fatigue": 0,
       "strife": 0,
       "spellcasting": "int",
-      "attunement": {
-        "current": 0,
-        "max": 3
-      },
-      "exertion": {
-        "current": 0,
-        "max": 0,
-        "recoverOnRest": true
-      }
+      "casterLevel": 0
     },
     "bonuses": {
       "abilities": {},
@@ -503,24 +479,11 @@
         "fey"
       ],
       "isSwarm": false,
-      "age": "",
-      "appearance": "",
-      "background": "",
-      "classes": "",
-      "culture": "",
-      "destiny": "",
-      "eyeColor": "",
-      "gender": "",
-      "hairColor": "",
-      "heritage": "",
-      "height": "",
-      "level": 0,
+      "cr": 0,
+      "elite": false,
+      "privateNotes": "",
       "notes": "",
-      "prestige": 1,
-      "skinColor": "",
-      "weight": "",
-      "xp": 0,
-      "archetype": ""
+      "terrain": []
     },
     "proficiencies": {
       "armor": [],
@@ -529,8 +492,7 @@
         "sylvan"
       ],
       "tools": [],
-      "weapons": [],
-      "traditions": []
+      "weapons": []
     },
     "resources": {
       "primary": {
@@ -586,17 +548,16 @@
       "damageResistances": [],
       "damageVulnerabilities": []
     },
-    "supply": 0,
     "grants": {}
   },
   "prototypeToken": {
-    "name": "Conjured Woodland Beings",
+    "name": "Conjured Fey",
     "displayName": 30,
-    "actorLink": true,
+    "actorLink": false,
     "appendNumber": false,
     "prependAdjective": false,
     "texture": {
-      "src": "icons/svg/mystery-man.svg",
+      "src": "systems/a5e/assets/satyr.webp",
       "scaleX": 1,
       "scaleY": 1,
       "offsetX": 0,
@@ -609,10 +570,10 @@
     "lockRotation": false,
     "rotation": 0,
     "alpha": 1,
-    "disposition": 1,
+    "disposition": 0,
     "displayBars": 30,
     "bar1": {
-      "attribute": "attributes.hp.value"
+      "attribute": "attributes.hp"
     },
     "bar2": {
       "attribute": null
@@ -749,7 +710,7 @@
           }
         }
       },
-      "_id": "dl00wS86LahWQN8N",
+      "_id": "FVXkZVGl9goib7XS",
       "folder": null,
       "sort": 0,
       "ownership": {
@@ -843,7 +804,7 @@
           }
         }
       },
-      "_id": "J2hK8nqRyH6sTt7T",
+      "_id": "FPQ8VOetQQ9pUSni",
       "folder": null,
       "sort": 0,
       "ownership": {
@@ -946,7 +907,7 @@
           }
         }
       },
-      "_id": "QgqfL0qKnMEvCbAu",
+      "_id": "2EBuPCsJA6wg3lJH",
       "folder": null,
       "sort": 0,
       "ownership": {
@@ -1040,7 +1001,7 @@
           }
         }
       },
-      "_id": "YbOC17B7Cms6sgsl",
+      "_id": "zNZ47bD3xYo0ZKBs",
       "folder": null,
       "sort": 0,
       "ownership": {
@@ -1134,7 +1095,7 @@
           }
         }
       },
-      "_id": "8WcL1B0IsissurYV",
+      "_id": "TOrcz0sbspWaW6wO",
       "folder": null,
       "sort": 0,
       "ownership": {
@@ -1237,7 +1198,7 @@
           }
         }
       },
-      "_id": "cPt5liw86RVyk57A",
+      "_id": "vk2gGCH68F2381fq",
       "folder": null,
       "sort": 0,
       "ownership": {
@@ -1245,7 +1206,7 @@
       }
     },
     {
-      "name": "Shortbow",
+      "name": "Magic Resistance",
       "type": "feature",
       "system": {
         "ac": {
@@ -1253,118 +1214,15 @@
           "formula": "",
           "maxDex": 0,
           "minStr": 0,
-          "mode": 1,
+          "mode": 2,
           "requiresNoShield": false,
           "requiresUnarmored": false
         },
-        "actions": {
-          "H4JWWysYk25gt3w9": {
-            "name": "Shortbow",
-            "activation": {
-              "type": "action",
-              "cost": 1
-            },
-            "consumers": {},
-            "rolls": {
-              "aWfyLpkwxlnAmkaU": {
-                "type": "attack",
-                "default": true,
-                "attackType": "meleeSpellAttack",
-                "proficient": false,
-                "ability": "none"
-              },
-              "Hnz07wm0QVfHs1fB": {
-                "type": "damage",
-                "default": true,
-                "label": "4th-level Spell Slot",
-                "formula": "3",
-                "damageType": "piercing"
-              },
-              "JpofBlQIPZLu80cw": {
-                "type": "damage",
-                "default": false,
-                "label": "5th-level Spell Slot",
-                "formula": "3 + 5",
-                "damageType": "piercing"
-              },
-              "2uGGHfgCyDHe6Hkk": {
-                "type": "damage",
-                "default": false,
-                "label": "6th-level Spell Slot",
-                "formula": "3 + 6",
-                "damageType": "piercing"
-              },
-              "5ATkTIxjODvoJtF0": {
-                "type": "damage",
-                "default": false,
-                "label": "7th-level Spell Slot",
-                "formula": "3 + 7",
-                "damageType": "piercing"
-              },
-              "I6NGOlSSuJJCmIyz": {
-                "type": "damage",
-                "default": false,
-                "label": "8th-level Spell Slot",
-                "formula": "3 + 8",
-                "damageType": "piercing"
-              },
-              "8M3gZIJbB9NvDUmf": {
-                "type": "damage",
-                "default": false,
-                "label": "9th-level Spell Slot",
-                "formula": "3 + 9",
-                "damageType": "piercing"
-              }
-            },
-            "prompts": {
-              "X0iv0ehzBygZGI1Y": {
-                "type": "savingThrow",
-                "default": true,
-                "ability": "con",
-                "saveDC": {
-                  "type": "spellcasting"
-                }
-              }
-            },
-            "uses": {
-              "value": 0,
-              "max": "",
-              "per": "",
-              "recharge": {
-                "formula": "1d6",
-                "threshold": 6
-              }
-            },
-            "descriptionOutputs": [
-              "action"
-            ],
-            "duration": {
-              "unit": "instantaneous"
-            },
-            "ranges": {
-              "6ehYBd9c9uc2VZtx": {
-                "range": 40,
-                "unit": "feet"
-              },
-              "ZjauHdqFZ3KdZ2q8": {
-                "range": 160,
-                "unit": "feet"
-              }
-            },
-            "target": {
-              "type": "creature",
-              "quantity": 1
-            }
-          }
-        },
-        "description": "<p>If the target is a creature it&nbsp;must succeed on a Constitution saving throw against&nbsp;your spell save DC or become poisoned for 1 minute.&nbsp;On a failure by 5 or more, the poisoned target falls&nbsp;unconscious for the same duration, or until another&nbsp;creature uses an action to shake it awake.</p>",
+        "actions": {},
+        "description": "<p>The satyr has&nbsp;advantage&nbsp;on&nbsp;saving throws against spells and other magical effects.</p>",
         "favorite": false,
         "secretDescription": "",
-        "source": {
-          "name": "",
-          "link": "",
-          "publisher": ""
-        },
+        "source": "",
         "uses": {
           "value": null,
           "max": "",
@@ -1382,20 +1240,106 @@
         "featureType": "other",
         "grants": {},
         "prerequisite": "",
-        "requiresBloodied": false,
-        "schemaVersion": {
-          "version": 0.013,
-          "lastMigration": {
-            "version": {
-              "schema": 0.011,
-              "foundry": "11.315",
-              "system": "0.16.49"
+        "requiresBloodied": false
+      },
+      "_id": "nNc1SEwLgGxMlnEQ",
+      "img": "icons/magic/defensive/shield-barrier-glowing-triangle-teal-purple.webp",
+      "effects": [],
+      "folder": null,
+      "sort": 0,
+      "ownership": {
+        "default": 0
+      },
+      "flags": {}
+    },
+    {
+      "name": "Ram",
+      "type": "feature",
+      "system": {
+        "ac": {
+          "baseFormula": "",
+          "formula": "",
+          "maxDex": 0,
+          "minStr": 0,
+          "mode": 2,
+          "requiresNoShield": false,
+          "requiresUnarmored": false
+        },
+        "actions": {
+          "YoivuOvu5QcMxNc6": {
+            "name": "Attack",
+            "activation": {
+              "type": "action",
+              "cost": 1
+            },
+            "consumers": {},
+            "rolls": {
+              "AYuRBI1LEIlVo9ao": {
+                "type": "attack",
+                "default": true,
+                "attackType": "meleeWeaponAttack",
+                "proficient": true,
+                "ability": "str"
+              },
+              "owR5GQMt8eNAd1wU": {
+                "type": "damage",
+                "default": true,
+                "formula": "2d4 + 1",
+                "damageType": "bludgeoning"
+              }
+            },
+            "prompts": {},
+            "uses": {
+              "value": 0,
+              "max": "",
+              "per": "",
+              "recharge": {
+                "formula": "1d6",
+                "rechargeType": "custom",
+                "rechargeAmount": "1",
+                "threshold": 6
+              }
+            },
+            "duration": {
+              "unit": "",
+              "value": 1
+            },
+            "target": {
+              "type": "creatureObject",
+              "quantity": 1
+            },
+            "ranges": {
+              "IOAreFjugEnr2bnv": {
+                "range": "fiveFeet"
+              }
             }
           }
-        }
+        },
+        "description": "<p><em>Melee Weapon Attack:&nbsp;</em>your spell attack bonus to hit, reach 5 ft., one target.&nbsp;<em>Hit:</em> 6 (2d4+1) bludgeoning damage plus extra damage equal to spell slot level.</p>",
+        "favorite": false,
+        "secretDescription": "",
+        "source": "",
+        "uses": {
+          "value": null,
+          "max": "",
+          "per": null,
+          "recharge": {
+            "formula": "1d6",
+            "threshold": "6"
+          }
+        },
+        "schema": {
+          "version": null,
+          "lastMigration": null
+        },
+        "concentration": false,
+        "featureType": "naturalWeapon",
+        "grants": {},
+        "prerequisite": "",
+        "requiresBloodied": false
       },
-      "_id": "yXGScky9vhTKJbbZ",
-      "img": "icons/svg/item-bag.svg",
+      "_id": "e64Il4j9sUh1oEp3",
+      "img": "icons/creatures/mammals/goat-horned-blue.webp",
       "effects": [],
       "folder": null,
       "sort": 0,
@@ -1414,7 +1358,41 @@
           "sort": 0
         }
       },
-      "_id": "WdhF24g2gRDT9LWg",
+      "_id": "JBYObZ0dozCMxrAC",
+      "changes": [
+        {
+          "key": "flags.a5e.effects.bonuses.attacks",
+          "value": "{\"context\":{\"attackTypes\":[\"meleeWeaponAttack\"]},\"formula\":\"0\",\"label\":\"Melee Weapon Attack\",\"img\":\"icons/svg/upgrade.svg\",\"default\":true}",
+          "mode": 0,
+          "priority": 50
+        }
+      ],
+      "disabled": false,
+      "duration": {
+        "startTime": 0,
+        "seconds": null,
+        "combat": null,
+        "rounds": null,
+        "turns": null,
+        "startRound": null,
+        "startTurn": null
+      },
+      "tint": "#ffffff",
+      "transfer": false,
+      "name": "Conjurer's Spell Attack Bonus (Change As Needed)",
+      "description": "",
+      "statuses": [],
+      "folder": null
+    },
+    {
+      "icon": "icons/svg/aura.svg",
+      "origin": "Actor.R45DNyxthwQEw2Nd",
+      "flags": {
+        "a5e": {
+          "sort": 0
+        }
+      },
+      "_id": "I0wsIXFFAj8nlRZs",
       "changes": [
         {
           "key": "system.details.cr",
@@ -1448,41 +1426,7 @@
           "sort": 0
         }
       },
-      "_id": "ObLMXVxsWCRmeCHy",
-      "changes": [
-        {
-          "key": "flags.a5e.effects.bonuses.attacks",
-          "value": "{\"context\":{\"attackTypes\":[\"meleeSpellAttack\"]},\"formula\":\"0\",\"label\":\"Melee Spell Attack\",\"img\":\"icons/svg/upgrade.svg\",\"default\":true}",
-          "mode": 0,
-          "priority": 50
-        }
-      ],
-      "disabled": false,
-      "duration": {
-        "startTime": 0,
-        "seconds": null,
-        "combat": null,
-        "rounds": null,
-        "turns": null,
-        "startRound": null,
-        "startTurn": null
-      },
-      "tint": "#ffffff",
-      "transfer": false,
-      "name": "Conjurer's Spell Attack Bonus (Change As Needed)",
-      "description": "",
-      "statuses": [],
-      "folder": null
-    },
-    {
-      "icon": "icons/svg/aura.svg",
-      "origin": "Actor.R45DNyxthwQEw2Nd",
-      "flags": {
-        "a5e": {
-          "sort": 0
-        }
-      },
-      "_id": "2u6CURMDUOkQTQgy",
+      "_id": "aL3hQ3fnyzLpmv0y",
       "changes": [
         {
           "key": "system.details.cr",
@@ -1516,7 +1460,7 @@
           "sort": 0
         }
       },
-      "_id": "mw2HCXVQcF1g78NE",
+      "_id": "lt7jO5mA7YRFcxVj",
       "changes": [
         {
           "key": "system.details.cr",
@@ -1550,7 +1494,7 @@
           "sort": 0
         }
       },
-      "_id": "OBMUEDLNI7mgHJCG",
+      "_id": "FkU4WfZG5Jw4n189",
       "changes": [
         {
           "key": "system.details.cr",
@@ -1584,7 +1528,7 @@
           "sort": 0
         }
       },
-      "_id": "RKTcTsT448GlqhYz",
+      "_id": "wrLus9BJwZ5ElUCF",
       "changes": [
         {
           "key": "system.details.cr",
@@ -1618,7 +1562,7 @@
           "sort": 0
         }
       },
-      "_id": "oDFAYHHXpkjjdZJe",
+      "_id": "563R3caM8D6XVRvl",
       "changes": [
         {
           "key": "system.attributes.ac",
@@ -1651,7 +1595,7 @@
       },
       "tint": "#ffffff",
       "transfer": false,
-      "name": "5th-level Spell Slot",
+      "name": "7th-level Spell Slot",
       "description": "",
       "statuses": [],
       "folder": null
@@ -1664,7 +1608,7 @@
           "sort": 0
         }
       },
-      "_id": "vgjoN3MAatIru148",
+      "_id": "6leKDtJVQiYriTTU",
       "changes": [
         {
           "key": "system.attributes.ac",
@@ -1697,7 +1641,7 @@
       },
       "tint": "#ffffff",
       "transfer": false,
-      "name": "6th-level Spell Slot",
+      "name": "8th-level Spell Slot",
       "description": "",
       "statuses": [],
       "folder": null
@@ -1710,7 +1654,7 @@
           "sort": 0
         }
       },
-      "_id": "WvPzWbo1HEdJSMeQ",
+      "_id": "WNhnpvvfXoaov9xu",
       "changes": [
         {
           "key": "system.attributes.ac",
@@ -1743,98 +1687,6 @@
       },
       "tint": "#ffffff",
       "transfer": false,
-      "name": "7th-level Spell Slot",
-      "description": "",
-      "statuses": [],
-      "folder": null
-    },
-    {
-      "icon": "icons/svg/aura.svg",
-      "origin": "Actor.R45DNyxthwQEw2Nd",
-      "flags": {
-        "a5e": {
-          "sort": 0
-        }
-      },
-      "_id": "9TRq2KjMZ2GSAbpf",
-      "changes": [
-        {
-          "key": "system.attributes.ac",
-          "value": "4",
-          "mode": 2,
-          "priority": 20
-        },
-        {
-          "key": "system.attributes.hp.baseMax",
-          "value": "40",
-          "mode": 2,
-          "priority": 20
-        },
-        {
-          "key": "system.attributes.hp.value",
-          "value": "40",
-          "mode": 2,
-          "priority": 20
-        }
-      ],
-      "disabled": true,
-      "duration": {
-        "startTime": 0,
-        "seconds": null,
-        "combat": null,
-        "rounds": null,
-        "turns": null,
-        "startRound": null,
-        "startTurn": null
-      },
-      "tint": "#ffffff",
-      "transfer": false,
-      "name": "8th-level Spell Slot",
-      "description": "",
-      "statuses": [],
-      "folder": null
-    },
-    {
-      "icon": "icons/svg/aura.svg",
-      "origin": "Actor.R45DNyxthwQEw2Nd",
-      "flags": {
-        "a5e": {
-          "sort": 0
-        }
-      },
-      "_id": "7r1GFqRHYJg1m1uE",
-      "changes": [
-        {
-          "key": "system.attributes.ac",
-          "value": "5",
-          "mode": 2,
-          "priority": 20
-        },
-        {
-          "key": "system.attributes.hp.baseMax",
-          "value": "50",
-          "mode": 2,
-          "priority": 20
-        },
-        {
-          "key": "system.attributes.hp.value",
-          "value": "50",
-          "mode": 2,
-          "priority": 20
-        }
-      ],
-      "disabled": true,
-      "duration": {
-        "startTime": 0,
-        "seconds": null,
-        "combat": null,
-        "rounds": null,
-        "turns": null,
-        "startRound": null,
-        "startTurn": null
-      },
-      "tint": "#ffffff",
-      "transfer": false,
       "name": "9th-level Spell Slot",
       "description": "",
       "statuses": [],
@@ -1848,12 +1700,12 @@
           "sort": 0
         }
       },
-      "_id": "dNx3hJKd0PX3hfPT",
+      "_id": "W7GtARUx6fWxyV7x",
       "changes": [
         {
           "key": "system.bonuses.spellDC",
           "value": "0",
-          "mode": 6,
+          "mode": 2,
           "priority": 50
         }
       ],
@@ -1877,8 +1729,9 @@
   ],
   "flags": {
     "a5e": {
-      "sheetIsLocked": true
+      "sheetIsLocked": true,
+      "showSpellTab": false
     }
   },
-  "_id": "bb2b3gjimehh5qj5"
+  "_id": "wgkgbgz4j42ritab"
 }
