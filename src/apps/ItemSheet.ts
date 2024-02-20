@@ -9,6 +9,8 @@ import HeritageSheetComponent from './sheets/HeritageSheet.svelte';
 import ItemSheetComponent from './sheets/ItemSheet.svelte';
 import LimitedSheetComponent from './sheets/LimitedSheet.svelte';
 
+import getDocumentSourceTooltip from '../utils/getDocumentSourceTooltip';
+
 export default class ItemSheet extends SvelteApplication {
   public item: any;
 
@@ -223,6 +225,20 @@ export default class ItemSheet extends SvelteApplication {
 
     const documentID = this.item.id;
     const documentUUID = this.item.uuid;
+    const documentSource = CONFIG.A5E.products[this.item?.system?.source];
+
+    if (documentSource?.abbreviation) {
+      const sourceLink = document.createElement('a');
+      sourceLink.classList.add('a5e-document-source-link');
+      sourceLink.setAttribute('alt', documentSource?.title);
+      sourceLink.dataset.tooltip = getDocumentSourceTooltip(documentSource);
+      sourceLink.dataset.tooltipDirection = 'DOWN';
+      sourceLink.innerHTML = `<i class="fa-solid fa-book-open"></i> ${documentSource?.abbreviation}`;
+      sourceLink.href = documentSource?.url;
+      sourceLink.target = '_blank';
+
+      sheetTitle.append(sourceLink);
+    }
 
     const idLink = document.createElement('a');
     idLink.classList.add('document-id-link');
