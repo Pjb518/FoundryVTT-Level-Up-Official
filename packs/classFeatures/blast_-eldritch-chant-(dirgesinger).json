@@ -1,105 +1,101 @@
 {
-	"name": "Blast: Eldritch Chant (Dirgesinger)",
-	"type": "feature",
-	"img": "icons/magic/unholy/silhouette-light-fire-blue.webp",
-	"system": {
-		"ac": {
-			"baseFormula": "",
-			"formula": "",
-			"maxDex": 0,
-			"minStr": 0,
-			"mode": 2,
-			"requiresNoShield": false,
-			"requiresUnarmored": false
-		},
-		"actions": {
-			"powapQ266DInKunT": {
-				"name": "Blast: Eldritch Chant",
-				"descriptionOutputs": [
-					"item"
-				],
-				"activation": {
-					"type": "action",
-					"cost": 1
-				},
-				"duration": {
-					"unit": "instantaneous"
-				},
-				"ranges": {
-					"6Mb98i5dpSQXvScu": {
-						"range": "medium"
-					}
-				},
-				"target": {
-					"type": "creature",
-					"quantity": 1
-				},
-				"rolls": {
-					"eOJXRd9aDQ4xYgm9": {
-						"type": "damage",
-						"default": true,
-						"label": "Force",
-						"formula": "@prof",
-						"damageType": "force"
-					}
-				},
-				"prompts": {
-					"Tc9sai0y5RtMfTH2": {
-						"type": "savingThrow",
-						"default": true,
-						"ability": "int",
-						"saveDC": {
-							"type": "spellcasting"
-						},
-						"label": "Eldritch Chant",
-						"onSave": "No damage and rattled instead of Confused"
-					}
-				},
-				"consumers": {}
-			}
-		},
-		"description": "<p dir=\"ltr\">You can use an action to focus mind-melting chanting and wailing on a creature within 60 feet. The creature must succeed on an Intelligence saving throw or take force damage equal to your Proficiency Bonus and become Confused until the beginning of your next turn. Creatures that succeed on this save are Rattled instead and take no damage.</p>\n<p dir=\"ltr\">You must be able to speak and the target creature must be able to hear you for this effect to work.</p>",
-		"favorite": false,
-		"secretDescription": "",
-		"source": {
-			"name": "System Architecture: Motif Classes",
-			"link": "https://bit.ly/437OgQZ",
-			"publisher": "purpleMartinGames"
-		},
-		"uses": {
-			"value": null,
-			"max": "",
-			"per": null,
-			"recharge": {
-				"formula": "1d6",
-				"threshold": 6
-			}
-		},
-		"schema": {
-			"version": null,
-			"lastMigration": null
-		},
-		"concentration": false,
-		"featureType": "class",
-		"grants": {},
-		"prerequisite": "",
-		"requiresBloodied": false,
-		"equippedState": 0,
-		"-=recharge": null,
-		"-=equipped": null,
-		"schemaVersion": {
-			"version": 0.013,
-			"lastMigration": {
-				"version": {
-					"schema": 0.011,
-					"foundry": "11.315",
-					"system": "0.16.49"
-				}
-			}
-		}
-	},
-	"effects": [],
-	"flags": {},
-	"folder": null,
-	"_id": "62wvclk6khdj1nff"
+  "name": "Blast: Eldritch Chant (Dirgesinger)",
+  "type": "feature",
+  "img": "icons/magic/unholy/silhouette-light-fire-blue.webp",
+  "system": {
+    "ac": {
+      "baseFormula": "",
+      "formula": "",
+      "maxDex": 0,
+      "minStr": 0,
+      "mode": 2,
+      "requiresNoShield": false,
+      "requiresUnarmored": false
+    },
+    "actions": {
+      "powapQ266DInKunT": {
+        "name": "Blast: Eldritch Chant",
+        "descriptionOutputs": [
+          "item"
+        ],
+        "activation": {
+          "type": "action",
+          "cost": 1
+        },
+        "duration": {
+          "unit": "instantaneous"
+        },
+        "ranges": {
+          "6Mb98i5dpSQXvScu": {
+            "range": "medium"
+          }
+        },
+        "target": {
+          "type": "creature",
+          "quantity": 1
+        },
+        "rolls": {
+          "eOJXRd9aDQ4xYgm9": {
+            "type": "damage",
+            "default": true,
+            "label": "Force",
+            "formula": "@prof",
+            "damageType": "force"
+          }
+        },
+        "prompts": {
+          "Tc9sai0y5RtMfTH2": {
+            "type": "savingThrow",
+            "default": true,
+            "ability": "int",
+            "saveDC": {
+              "type": "spellcasting"
+            },
+            "label": "Eldritch Chant",
+            "onSave": "No damage and rattled instead of Confused"
+          }
+        },
+        "consumers": {}
+      }
+    },
+    "description": "<p dir=\"ltr\">You can use an action to focus mind-melting chanting and wailing on a creature within 60 feet. The creature must succeed on an Intelligence saving throw or take force damage equal to your Proficiency Bonus and become Confused until the beginning of your next turn. Creatures that succeed on this save are Rattled instead and take no damage.</p>\n<p dir=\"ltr\">You must be able to speak and the target creature must be able to hear you for this effect to work.</p>",
+    "favorite": false,
+    "secretDescription": "",
+    "source": "motifClasses",
+    "uses": {
+      "value": null,
+      "max": "",
+      "per": null,
+      "recharge": {
+        "formula": "1d6",
+        "threshold": 6
+      }
+    },
+    "schema": {
+      "version": null,
+      "lastMigration": null
+    },
+    "concentration": false,
+    "featureType": "class",
+    "grants": {},
+    "prerequisite": "",
+    "requiresBloodied": false,
+    "equippedState": 0,
+    "-=recharge": null,
+    "-=equipped": null,
+    "schemaVersion": {
+      "version": 0.013,
+      "lastMigration": {
+        "version": {
+          "schema": 0.011,
+          "foundry": "11.315",
+          "system": "0.16.49"
+        }
+      }
+    }
+  },
+  "effects": [],
+  "flags": {},
+  "folder": null,
+  "_id": "62wvclk6khdj1nff"
 }
