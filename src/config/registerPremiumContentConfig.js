@@ -172,6 +172,13 @@ export default function registerPremiumContentConfig(A5E) {
       title: 'Level Up: Adventures in ZEITGEIST',
       url: 'https://bit.ly/3u99LnT'
     },
+    arcaneSniper: {
+      abbreviation: 'AS',
+      affiliate: true,
+      publisher: 'purpleMartinGames',
+      title: 'Arcane Sniper',
+      url: 'https://bit.ly/3I3t0SW'
+    },
     doseOfDungeonpunk: {
       abbreviation: 'DOD:TH',
       affiliate: true,

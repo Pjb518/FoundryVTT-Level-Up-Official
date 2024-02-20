@@ -1,157 +1,153 @@
 {
-	"name": "Calatyr's Explosive Conflagration",
-	"type": "spell",
-	"img": "icons/magic/fire/barrier-shield-explosion-yellow.webp",
-	"system": {
-		"actions": {
-			"p3ruStKPGsJkY5hy": {
-				"name": "Cast Spell",
-				"activation": {
-					"type": "action",
-					"cost": 1
-				},
-				"consumers": {
-					"N7nzfKkdP5VNH8vS": {
-						"type": "spell",
-						"default": true,
-						"mode": "variable",
-						"spellLevel": 2,
-						"points": 3
-					}
-				},
-				"rolls": {
-					"LVIy5nK2fH7ugR76": {
-						"type": "damage",
-						"default": true,
-						"formula": "2d6",
-						"damageType": "fire",
-						"canCrit": false
-					},
-					"Mp1H5WPkjbyhNrS6": {
-						"type": "damage",
-						"default": true,
-						"formula": "2d6",
-						"damageType": "thunder",
-						"canCrit": false,
-						"scaling": {
-							"mode": "spellLevel",
-							"formula": "1d6"
-						}
-					}
-				},
-				"prompts": {
-					"CIBIOrNXKGmFNgua": {
-						"type": "savingThrow",
-						"default": true,
-						"ability": "dex",
-						"saveDC": {
-							"type": "spellcasting"
-						},
-						"onSave": "Dexterity halves"
-					}
-				},
-				"uses": {
-					"value": 0,
-					"max": "",
-					"per": "",
-					"recharge": {
-						"formula": "1d6",
-						"threshold": 6
-					}
-				},
-				"duration": {
-					"unit": "instantaneous"
-				},
-				"target": {
-					"type": "creatureObject",
-					"quantity": 1
-				},
-				"area": {
-					"shape": "circle",
-					"quantity": 1,
-					"radius": 10
-				},
-				"ranges": {
-					"kVlIkTNGT1cS6fLS": {
-						"range": "Special"
-					}
-				},
-				"img": "icons/magic/fire/barrier-shield-explosion-yellow.webp"
-			},
-			"pUiu1ubR1pYUzBnW": {
-				"name": "Ongoing Damage",
-				"activation": {},
-				"consumers": {},
-				"rolls": {
-					"024dLNHE9ABmRAtu": {
-						"type": "damage",
-						"default": true,
-						"canCrit": false,
-						"formula": "1d6",
-						"damageType": "fire"
-					}
-				},
-				"prompts": {},
-				"uses": {
-					"value": 0,
-					"max": "",
-					"per": "",
-					"recharge": {
-						"formula": "1d6",
-						"threshold": 6
-					}
-				}
-			}
-		},
-		"description": "<p>You charge a piece of ammunition with unstable energies. It will make quite the impression when it arrives…</p><p>As part of the action used to cast this spell, make a ranged weapon attack against a target within range of the weapon you are wielding. If you hit, the target takes normal weapon damage and the ammunition explodes on impact, dealing 2d6 piercing and 2d6 thunder damage to each creature and unattended objects in the spell’s area. This detonation can be heard up to 300 feet from the point of impact.</p><p><strong>Cast at Higher Levels.</strong> The thunder damage increases by 1d6 for each slot level above 2nd.</p><p><strong>Rare: Calatyr's Explosive Conflagration.</strong> The piercing damage is replaced with fire damage. Unattended flammable objects and creatures that fail their save take 1d6 ongoing fire damage each round for one minute or until an action is spent to extinguish the flames.</p>",
-		"favorite": false,
-		"secretDescription": "",
-		"source": {
-			"name": "Arcane Sniper",
-			"link": "https://bit.ly/3bHQT5T",
-			"publisher": "purpleMartinGames"
-		},
-		"uses": {
-			"value": null,
-			"max": "",
-			"per": null,
-			"recharge": {
-				"formula": "1d6",
-				"threshold": "6"
-			}
-		},
-		"schema": {
-			"version": null,
-			"lastMigration": null
-		},
-		"classes": [],
-		"components": {
-			"vocalized": true,
-			"seen": true,
-			"material": true
-		},
-		"concentration": false,
-		"level": 2,
-		"materials": "A ranged weapon",
-		"materialsConsumed": false,
-		"prepared": false,
-		"prerequisite": "",
-		"rare": false,
-		"ritual": false,
-		"schools": {
-			"primary": "evocation",
-			"secondary": [
-				"arcane",
-				"weaponry"
-			]
-		}
-	},
-	"effects": [],
-	"flags": {
-		"a5e": {
-			"placeTemplate": true
-		}
-	},
-	"folder": null,
-	"_id": "dhwuzsgsyjnz2scz"
+  "name": "Calatyr's Explosive Conflagration",
+  "type": "spell",
+  "img": "icons/magic/fire/barrier-shield-explosion-yellow.webp",
+  "system": {
+    "actions": {
+      "p3ruStKPGsJkY5hy": {
+        "name": "Cast Spell",
+        "activation": {
+          "type": "action",
+          "cost": 1
+        },
+        "consumers": {
+          "N7nzfKkdP5VNH8vS": {
+            "type": "spell",
+            "default": true,
+            "mode": "variable",
+            "spellLevel": 2,
+            "points": 3
+          }
+        },
+        "rolls": {
+          "LVIy5nK2fH7ugR76": {
+            "type": "damage",
+            "default": true,
+            "formula": "2d6",
+            "damageType": "fire",
+            "canCrit": false
+          },
+          "Mp1H5WPkjbyhNrS6": {
+            "type": "damage",
+            "default": true,
+            "formula": "2d6",
+            "damageType": "thunder",
+            "canCrit": false,
+            "scaling": {
+              "mode": "spellLevel",
+              "formula": "1d6"
+            }
+          }
+        },
+        "prompts": {
+          "CIBIOrNXKGmFNgua": {
+            "type": "savingThrow",
+            "default": true,
+            "ability": "dex",
+            "saveDC": {
+              "type": "spellcasting"
+            },
+            "onSave": "Dexterity halves"
+          }
+        },
+        "uses": {
+          "value": 0,
+          "max": "",
+          "per": "",
+          "recharge": {
+            "formula": "1d6",
+            "threshold": 6
+          }
+        },
+        "duration": {
+          "unit": "instantaneous"
+        },
+        "target": {
+          "type": "creatureObject",
+          "quantity": 1
+        },
+        "area": {
+          "shape": "circle",
+          "quantity": 1,
+          "radius": 10
+        },
+        "ranges": {
+          "kVlIkTNGT1cS6fLS": {
+            "range": "Special"
+          }
+        },
+        "img": "icons/magic/fire/barrier-shield-explosion-yellow.webp"
+      },
+      "pUiu1ubR1pYUzBnW": {
+        "name": "Ongoing Damage",
+        "activation": {},
+        "consumers": {},
+        "rolls": {
+          "024dLNHE9ABmRAtu": {
+            "type": "damage",
+            "default": true,
+            "canCrit": false,
+            "formula": "1d6",
+            "damageType": "fire"
+          }
+        },
+        "prompts": {},
+        "uses": {
+          "value": 0,
+          "max": "",
+          "per": "",
+          "recharge": {
+            "formula": "1d6",
+            "threshold": 6
+          }
+        }
+      }
+    },
+    "description": "<p>You charge a piece of ammunition with unstable energies. It will make quite the impression when it arrives…</p><p>As part of the action used to cast this spell, make a ranged weapon attack against a target within range of the weapon you are wielding. If you hit, the target takes normal weapon damage and the ammunition explodes on impact, dealing 2d6 piercing and 2d6 thunder damage to each creature and unattended objects in the spell’s area. This detonation can be heard up to 300 feet from the point of impact.</p><p><strong>Cast at Higher Levels.</strong> The thunder damage increases by 1d6 for each slot level above 2nd.</p><p><strong>Rare: Calatyr's Explosive Conflagration.</strong> The piercing damage is replaced with fire damage. Unattended flammable objects and creatures that fail their save take 1d6 ongoing fire damage each round for one minute or until an action is spent to extinguish the flames.</p>",
+    "favorite": false,
+    "secretDescription": "",
+    "source": "arcaneSniper",
+    "uses": {
+      "value": null,
+      "max": "",
+      "per": null,
+      "recharge": {
+        "formula": "1d6",
+        "threshold": "6"
+      }
+    },
+    "schema": {
+      "version": null,
+      "lastMigration": null
+    },
+    "classes": [],
+    "components": {
+      "vocalized": true,
+      "seen": true,
+      "material": true
+    },
+    "concentration": false,
+    "level": 2,
+    "materials": "A ranged weapon",
+    "materialsConsumed": false,
+    "prepared": false,
+    "prerequisite": "",
+    "rare": false,
+    "ritual": false,
+    "schools": {
+      "primary": "evocation",
+      "secondary": [
+        "arcane",
+        "weaponry"
+      ]
+    }
+  },
+  "effects": [],
+  "flags": {
+    "a5e": {
+      "placeTemplate": true
+    }
+  },
+  "folder": null,
+  "_id": "dhwuzsgsyjnz2scz"
 }

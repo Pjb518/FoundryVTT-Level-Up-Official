@@ -1,112 +1,108 @@
 {
-	"name": "Flare Shot",
-	"type": "spell",
-	"img": "icons/magic/fire/projectile-arrow-fire-orange-yellow.webp",
-	"system": {
-		"actions": {
-			"HO4pVCI1q3xCysCu": {
-				"name": "Cast Spell",
-				"activation": {
-					"type": "action",
-					"cost": 1
-				},
-				"consumers": {},
-				"rolls": {
-					"UG0onhi31wjeQUuX": {
-						"type": "damage",
-						"default": true,
-						"scaling": {
-							"mode": "cantrip",
-							"formula": "1d4"
-						},
-						"formula": "0",
-						"damageType": "radiant"
-					}
-				},
-				"prompts": {},
-				"uses": {
-					"value": 0,
-					"max": "",
-					"per": "",
-					"recharge": {
-						"formula": "1d6",
-						"threshold": 6
-					}
-				},
-				"duration": {
-					"unit": "minute",
-					"value": 1
-				},
-				"target": {
-					"type": "creatureObject",
-					"quantity": 1
-				},
-				"ranges": {
-					"kMMO7qJoUHEjhBqx": {
-						"range": "medium"
-					}
-				}
-			}
-		},
-		"description": "<p>Your shot glows brightly as it streaks toward its target.</p><p>As part of the action used to cast this spell, make a ranged weapon attack against a target within range of the weapon you are wielding. On a hit, the target takes normal weapon damage and sheds bright light to a range of 20 feet from its point of impact and dim light to a range of 40 feet from its point of impact. Alternatively, you may fire the shot into the sky, where it slowly descends over the course of a minute, shedding bright light to a range of 100 feet and dim light to a range of 200 feet. If it impacts something, the ranges decrease to 20/40 feet as if you had fired it into a target. You may only have one such light effect active at a time. If you cast the spell again, the prior target/shot stops glowing immediately.</p><p>At 5th level, the target takes an additional 1d4 points of radiant damage on a hit. This increases to 2d4 at level 11 and 3d4 at level 17.</p>",
-		"favorite": false,
-		"secretDescription": "",
-		"source": {
-			"name": "Arcane Sniper",
-			"link": "https://bit.ly/3bHQT5T",
-			"publisher": "purpleMartinGames"
-		},
-		"uses": {
-			"value": null,
-			"max": "",
-			"per": null,
-			"recharge": {
-				"formula": "1d6",
-				"threshold": "6"
-			}
-		},
-		"schema": {
-			"version": null,
-			"lastMigration": null
-		},
-		"classes": [
-			"cleric",
-			"sorcerer"
-		],
-		"components": {
-			"vocalized": true,
-			"seen": true,
-			"material": true
-		},
-		"concentration": false,
-		"level": 0,
-		"materials": "A ranged weapon",
-		"materialsConsumed": false,
-		"prepared": false,
-		"prerequisite": "",
-		"rare": false,
-		"ritual": false,
-		"schools": {
-			"primary": "evocation",
-			"secondary": [
-				"divine",
-				"radiant",
-				"weaponry"
-			]
-		},
-		"schemaVersion": {
-			"version": 0.013,
-			"lastMigration": {
-				"version": {
-					"schema": 0.011,
-					"foundry": "11.315",
-					"system": "0.16.49"
-				}
-			}
-		}
-	},
-	"effects": [],
-	"flags": {},
-	"folder": null,
-	"_id": "wwt8tl6wfx5up0x0"
+  "name": "Flare Shot",
+  "type": "spell",
+  "img": "icons/magic/fire/projectile-arrow-fire-orange-yellow.webp",
+  "system": {
+    "actions": {
+      "HO4pVCI1q3xCysCu": {
+        "name": "Cast Spell",
+        "activation": {
+          "type": "action",
+          "cost": 1
+        },
+        "consumers": {},
+        "rolls": {
+          "UG0onhi31wjeQUuX": {
+            "type": "damage",
+            "default": true,
+            "scaling": {
+              "mode": "cantrip",
+              "formula": "1d4"
+            },
+            "formula": "0",
+            "damageType": "radiant"
+          }
+        },
+        "prompts": {},
+        "uses": {
+          "value": 0,
+          "max": "",
+          "per": "",
+          "recharge": {
+            "formula": "1d6",
+            "threshold": 6
+          }
+        },
+        "duration": {
+          "unit": "minute",
+          "value": 1
+        },
+        "target": {
+          "type": "creatureObject",
+          "quantity": 1
+        },
+        "ranges": {
+          "kMMO7qJoUHEjhBqx": {
+            "range": "medium"
+          }
+        }
+      }
+    },
+    "description": "<p>Your shot glows brightly as it streaks toward its target.</p><p>As part of the action used to cast this spell, make a ranged weapon attack against a target within range of the weapon you are wielding. On a hit, the target takes normal weapon damage and sheds bright light to a range of 20 feet from its point of impact and dim light to a range of 40 feet from its point of impact. Alternatively, you may fire the shot into the sky, where it slowly descends over the course of a minute, shedding bright light to a range of 100 feet and dim light to a range of 200 feet. If it impacts something, the ranges decrease to 20/40 feet as if you had fired it into a target. You may only have one such light effect active at a time. If you cast the spell again, the prior target/shot stops glowing immediately.</p><p>At 5th level, the target takes an additional 1d4 points of radiant damage on a hit. This increases to 2d4 at level 11 and 3d4 at level 17.</p>",
+    "favorite": false,
+    "secretDescription": "",
+    "source": "arcaneSniper",
+    "uses": {
+      "value": null,
+      "max": "",
+      "per": null,
+      "recharge": {
+        "formula": "1d6",
+        "threshold": "6"
+      }
+    },
+    "schema": {
+      "version": null,
+      "lastMigration": null
+    },
+    "classes": [
+      "cleric",
+      "sorcerer"
+    ],
+    "components": {
+      "vocalized": true,
+      "seen": true,
+      "material": true
+    },
+    "concentration": false,
+    "level": 0,
+    "materials": "A ranged weapon",
+    "materialsConsumed": false,
+    "prepared": false,
+    "prerequisite": "",
+    "rare": false,
+    "ritual": false,
+    "schools": {
+      "primary": "evocation",
+      "secondary": [
+        "divine",
+        "radiant",
+        "weaponry"
+      ]
+    },
+    "schemaVersion": {
+      "version": 0.013,
+      "lastMigration": {
+        "version": {
+          "schema": 0.011,
+          "foundry": "11.315",
+          "system": "0.16.49"
+        }
+      }
+    }
+  },
+  "effects": [],
+  "flags": {},
+  "folder": null,
+  "_id": "wwt8tl6wfx5up0x0"
 }
