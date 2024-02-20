@@ -1,183 +1,179 @@
 {
-	"folder": null,
-	"name": "Chains of Heaven",
-	"type": "spell",
-	"img": "icons/magic/light/beam-deflect-path-yellow.webp",
-	"system": {
-		"actions": {
-			"30Lu71hnRfePIac0": {
-				"name": "Cast Spell",
-				"activation": {
-					"type": "action",
-					"cost": 1
-				},
-				"consumers": {
-					"1k2Zrbu9Omh6HJ6T": {
-						"type": "spell",
-						"default": true,
-						"mode": "variable",
-						"spellLevel": 3,
-						"points": 5
-					}
-				},
-				"rolls": {
-					"cXuksMC44FZ0lt1d": {
-						"type": "damage",
-						"default": true,
-						"canCrit": false,
-						"formula": "3d6",
-						"damageType": "piercing",
-						"scaling": {
-							"mode": "spellLevel",
-							"formula": "1d6"
-						}
-					},
-					"mps70DJlqUqar3IQ": {
-						"type": "damage",
-						"default": true,
-						"canCrit": false,
-						"formula": "3d6",
-						"damageType": "radiant",
-						"scaling": {
-							"mode": "spellLevel",
-							"formula": "1d6"
-						}
-					}
-				},
-				"prompts": {
-					"ERPtX3q2jTnRGBTk": {
-						"type": "savingThrow",
-						"default": true,
-						"ability": "str",
-						"saveDC": {
-							"type": "spellcasting"
-						},
-						"onSave": "Creature takes half damage but is still grappled"
-					}
-				},
-				"uses": {
-					"value": 0,
-					"max": "",
-					"per": "",
-					"recharge": {
-						"formula": "1d6",
-						"threshold": 6
-					}
-				},
-				"duration": {
-					"unit": "minute",
-					"value": 1
-				},
-				"ranges": {
-					"sEDH4X4ojK9tAsR8": {
-						"range": "medium"
-					}
-				},
-				"target": {
-					"type": "creature",
-					"quantity": 1
-				}
-			},
-			"XUV95GZz8gH8zkqr": {
-				"name": "Ongoing Damage",
-				"activation": {
-					"type": "none",
-					"cost": 1
-				},
-				"consumers": {},
-				"rolls": {
-					"o9JWpZDe9mXXt6wz": {
-						"type": "damage",
-						"default": true,
-						"canCrit": false,
-						"formula": "1d6",
-						"damageType": "piercing"
-					},
-					"5vvPv3K23MZfDN5m": {
-						"type": "damage",
-						"default": true,
-						"canCrit": false,
-						"formula": "1d6",
-						"damageType": "radiant"
-					}
-				},
-				"prompts": {},
-				"uses": {
-					"value": 0,
-					"max": "",
-					"per": "",
-					"recharge": {
-						"formula": "1d6",
-						"threshold": 6
-					}
-				},
-				"duration": {
-					"unit": "instantaneous"
-				},
-				"target": {
-					"type": "creature",
-					"quantity": 1
-				}
-			}
-		},
-		"description": "<p dir=\"ltr\">You summon up a set of heavy, spiked chains made of hellish metal to bind and constrict your foe.</p>\n<p dir=\"ltr\">When you cast this spell, a set of heavy metal chains covered in barbs wrap around the target, which must make a Strength saving throw. On a failed save, the chains deal 3d6 piercing damage and 3d6 psychic damage to the target. The creature is also grappled (escape DC equal to your spell save DC).&nbsp; A creature that succeeds on its save takes half damage and is still grappled, but rolls its attempts to escape with advantage.</p>\n<p dir=\"ltr\">Each time the target begins its turn grappled this way, the creature takes 1d6 piercing damage and 1d6 psychic damage as the chains constrict them.</p>\n<p dir=\"ltr\"><strong id=\"docs-internal-guid-4d03dbe3-7fff-ca81-dc22-3206396c9449\">Cast At Higher Levels. </strong>The initial damage increases by 1d6 piercing and 1d6 psychic damage for each spell slot level above 3rd.</p>\n<p dir=\"ltr\"><strong>Rare: Chains of Heaven.</strong> The spell does radiant damage instead of psychic, is part of the Good school instead of the Evil school, and you may choose to have the chains do no damage.</p>",
-		"favorite": false,
-		"secretDescription": "",
-		"source": {
-			"name": "Spells from the Forgotten Vault",
-			"link": "https://bit.ly/3nyQbOt",
-			"publisher": "purpleMartinGames"
-		},
-		"uses": {
-			"value": null,
-			"max": "",
-			"per": null,
-			"recharge": {
-				"formula": "1d6",
-				"threshold": "6"
-			}
-		},
-		"schema": {
-			"version": null,
-			"lastMigration": null
-		},
-		"classes": [
-			"sorcerer",
-			"warlock",
-			"wizard"
-		],
-		"components": {
-			"vocalized": true,
-			"seen": true,
-			"material": false
-		},
-		"concentration": true,
-		"level": 3,
-		"materials": "",
-		"materialsConsumed": false,
-		"prepared": false,
-		"prerequisite": "",
-		"rare": true,
-		"ritual": false,
-		"schools": {
-			"primary": "conjuration",
-			"secondary": [
-				"summoning",
-				"good"
-			]
-		},
-		"schemaVersion": {
-			"version": 0.013,
-			"lastMigration": {
-				"version": {
-					"schema": 0.011,
-					"foundry": "11.315",
-					"system": "0.16.49"
-				}
-			}
-		}
-	},
-	"effects": [],
-	"flags": {},
-	"_id": "t6t1eslo1tn9siun"
+  "folder": null,
+  "name": "Chains of Heaven",
+  "type": "spell",
+  "img": "icons/magic/light/beam-deflect-path-yellow.webp",
+  "system": {
+    "actions": {
+      "30Lu71hnRfePIac0": {
+        "name": "Cast Spell",
+        "activation": {
+          "type": "action",
+          "cost": 1
+        },
+        "consumers": {
+          "1k2Zrbu9Omh6HJ6T": {
+            "type": "spell",
+            "default": true,
+            "mode": "variable",
+            "spellLevel": 3,
+            "points": 5
+          }
+        },
+        "rolls": {
+          "cXuksMC44FZ0lt1d": {
+            "type": "damage",
+            "default": true,
+            "canCrit": false,
+            "formula": "3d6",
+            "damageType": "piercing",
+            "scaling": {
+              "mode": "spellLevel",
+              "formula": "1d6"
+            }
+          },
+          "mps70DJlqUqar3IQ": {
+            "type": "damage",
+            "default": true,
+            "canCrit": false,
+            "formula": "3d6",
+            "damageType": "radiant",
+            "scaling": {
+              "mode": "spellLevel",
+              "formula": "1d6"
+            }
+          }
+        },
+        "prompts": {
+          "ERPtX3q2jTnRGBTk": {
+            "type": "savingThrow",
+            "default": true,
+            "ability": "str",
+            "saveDC": {
+              "type": "spellcasting"
+            },
+            "onSave": "Creature takes half damage but is still grappled"
+          }
+        },
+        "uses": {
+          "value": 0,
+          "max": "",
+          "per": "",
+          "recharge": {
+            "formula": "1d6",
+            "threshold": 6
+          }
+        },
+        "duration": {
+          "unit": "minute",
+          "value": 1
+        },
+        "ranges": {
+          "sEDH4X4ojK9tAsR8": {
+            "range": "medium"
+          }
+        },
+        "target": {
+          "type": "creature",
+          "quantity": 1
+        }
+      },
+      "XUV95GZz8gH8zkqr": {
+        "name": "Ongoing Damage",
+        "activation": {
+          "type": "none",
+          "cost": 1
+        },
+        "consumers": {},
+        "rolls": {
+          "o9JWpZDe9mXXt6wz": {
+            "type": "damage",
+            "default": true,
+            "canCrit": false,
+            "formula": "1d6",
+            "damageType": "piercing"
+          },
+          "5vvPv3K23MZfDN5m": {
+            "type": "damage",
+            "default": true,
+            "canCrit": false,
+            "formula": "1d6",
+            "damageType": "radiant"
+          }
+        },
+        "prompts": {},
+        "uses": {
+          "value": 0,
+          "max": "",
+          "per": "",
+          "recharge": {
+            "formula": "1d6",
+            "threshold": 6
+          }
+        },
+        "duration": {
+          "unit": "instantaneous"
+        },
+        "target": {
+          "type": "creature",
+          "quantity": 1
+        }
+      }
+    },
+    "description": "<p dir=\"ltr\">You summon up a set of heavy, spiked chains made of hellish metal to bind and constrict your foe.</p>\n<p dir=\"ltr\">When you cast this spell, a set of heavy metal chains covered in barbs wrap around the target, which must make a Strength saving throw. On a failed save, the chains deal 3d6 piercing damage and 3d6 psychic damage to the target. The creature is also grappled (escape DC equal to your spell save DC).&nbsp; A creature that succeeds on its save takes half damage and is still grappled, but rolls its attempts to escape with advantage.</p>\n<p dir=\"ltr\">Each time the target begins its turn grappled this way, the creature takes 1d6 piercing damage and 1d6 psychic damage as the chains constrict them.</p>\n<p dir=\"ltr\"><strong id=\"docs-internal-guid-4d03dbe3-7fff-ca81-dc22-3206396c9449\">Cast At Higher Levels. </strong>The initial damage increases by 1d6 piercing and 1d6 psychic damage for each spell slot level above 3rd.</p>\n<p dir=\"ltr\"><strong>Rare: Chains of Heaven.</strong> The spell does radiant damage instead of psychic, is part of the Good school instead of the Evil school, and you may choose to have the chains do no damage.</p>",
+    "favorite": false,
+    "secretDescription": "",
+    "source": "spellsFromTheForgottenVault",
+    "uses": {
+      "value": null,
+      "max": "",
+      "per": null,
+      "recharge": {
+        "formula": "1d6",
+        "threshold": "6"
+      }
+    },
+    "schema": {
+      "version": null,
+      "lastMigration": null
+    },
+    "classes": [
+      "sorcerer",
+      "warlock",
+      "wizard"
+    ],
+    "components": {
+      "vocalized": true,
+      "seen": true,
+      "material": false
+    },
+    "concentration": true,
+    "level": 3,
+    "materials": "",
+    "materialsConsumed": false,
+    "prepared": false,
+    "prerequisite": "",
+    "rare": true,
+    "ritual": false,
+    "schools": {
+      "primary": "conjuration",
+      "secondary": [
+        "summoning",
+        "good"
+      ]
+    },
+    "schemaVersion": {
+      "version": 0.013,
+      "lastMigration": {
+        "version": {
+          "schema": 0.011,
+          "foundry": "11.315",
+          "system": "0.16.49"
+        }
+      }
+    }
+  },
+  "effects": [],
+  "flags": {},
+  "_id": "t6t1eslo1tn9siun"
 }

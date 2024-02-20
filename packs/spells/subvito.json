@@ -1,131 +1,127 @@
 {
-	"folder": null,
-	"name": "Subvito",
-	"type": "spell",
-	"img": "icons/skills/wounds/blood-spurt-spray-red.webp",
-	"system": {
-		"actions": {
-			"xilYe5zPLrhhmodb": {
-				"name": "Cast Spell",
-				"activation": {
-					"type": "action",
-					"cost": 1
-				},
-				"consumers": {
-					"k5eh7IDQeenHXZ2I": {
-						"type": "spell",
-						"default": true,
-						"mode": "variable",
-						"spellLevel": 2,
-						"points": 3
-					}
-				},
-				"rolls": {
-					"dD2wW7qMICiXQqgD": {
-						"type": "damage",
-						"default": true,
-						"formula": "3d10",
-						"damageType": "necrotic",
-						"scaling": {
-							"mode": "spellLevel",
-							"formula": "1d10"
-						},
-						"canCrit": false
-					}
-				},
-				"prompts": {
-					"4Xculq0AT89OjChv": {
-						"type": "savingThrow",
-						"default": true,
-						"ability": "con",
-						"saveDC": {
-							"type": "spellcasting"
-						},
-						"onSave": "Constitution halves"
-					}
-				},
-				"uses": {
-					"value": 0,
-					"max": "",
-					"per": "",
-					"recharge": {
-						"formula": "1d6",
-						"threshold": 6
-					}
-				},
-				"duration": {
-					"unit": "instantaneous"
-				},
-				"target": {
-					"type": "creature",
-					"quantity": 2
-				},
-				"ranges": {
-					"cZMyQ1ym9qVbQjFh": {
-						"range": "medium"
-					}
-				}
-			}
-		},
-		"description": "<p dir=\"ltr\">With a harsh word and a sharp gesture you steal the very life essence from one target and grant it to another. The first target takes 3d10 necrotic damage if it fails its save, or half as much if it succeeds. The second target may expend 1 hit die to recover hit points as if they had taken a short rest.</p>\n<p dir=\"ltr\"><strong>Cast at Higher Levels.</strong> For each level above 2nd, increase the damage by 1d10 and the number of hit dice rolled by 1.</p>",
-		"favorite": false,
-		"secretDescription": "",
-		"source": {
-			"name": "Spells from the Forgotten Vault",
-			"link": "https://bit.ly/3nyQbOt",
-			"publisher": "purpleMartinGames"
-		},
-		"uses": {
-			"value": null,
-			"max": "",
-			"per": null,
-			"recharge": {
-				"formula": "1d6",
-				"threshold": "6"
-			}
-		},
-		"schema": {
-			"version": null,
-			"lastMigration": null
-		},
-		"classes": [
-			"druid",
-			"warlock",
-			"witch",
-			"wizard"
-		],
-		"components": {
-			"vocalized": true,
-			"seen": true,
-			"material": false
-		},
-		"concentration": false,
-		"level": 2,
-		"materials": "",
-		"materialsConsumed": false,
-		"prepared": false,
-		"prerequisite": "",
-		"rare": false,
-		"ritual": false,
-		"schools": {
-			"primary": "necromancy",
-			"secondary": [
-				"healing",
-				"necrotic"
-			]
-		},
-		"schemaVersion": {
-			"version": 0.013,
-			"lastMigration": {
-				"version": {
-					"schema": 0.011,
-					"foundry": "11.315",
-					"system": "0.16.49"
-				}
-			}
-		}
-	},
-	"effects": [],
-	"flags": {},
-	"_id": "l1mxjfqxzqpnsewq"
+  "folder": null,
+  "name": "Subvito",
+  "type": "spell",
+  "img": "icons/skills/wounds/blood-spurt-spray-red.webp",
+  "system": {
+    "actions": {
+      "xilYe5zPLrhhmodb": {
+        "name": "Cast Spell",
+        "activation": {
+          "type": "action",
+          "cost": 1
+        },
+        "consumers": {
+          "k5eh7IDQeenHXZ2I": {
+            "type": "spell",
+            "default": true,
+            "mode": "variable",
+            "spellLevel": 2,
+            "points": 3
+          }
+        },
+        "rolls": {
+          "dD2wW7qMICiXQqgD": {
+            "type": "damage",
+            "default": true,
+            "formula": "3d10",
+            "damageType": "necrotic",
+            "scaling": {
+              "mode": "spellLevel",
+              "formula": "1d10"
+            },
+            "canCrit": false
+          }
+        },
+        "prompts": {
+          "4Xculq0AT89OjChv": {
+            "type": "savingThrow",
+            "default": true,
+            "ability": "con",
+            "saveDC": {
+              "type": "spellcasting"
+            },
+            "onSave": "Constitution halves"
+          }
+        },
+        "uses": {
+          "value": 0,
+          "max": "",
+          "per": "",
+          "recharge": {
+            "formula": "1d6",
+            "threshold": 6
+          }
+        },
+        "duration": {
+          "unit": "instantaneous"
+        },
+        "target": {
+          "type": "creature",
+          "quantity": 2
+        },
+        "ranges": {
+          "cZMyQ1ym9qVbQjFh": {
+            "range": "medium"
+          }
+        }
+      }
+    },
+    "description": "<p dir=\"ltr\">With a harsh word and a sharp gesture you steal the very life essence from one target and grant it to another. The first target takes 3d10 necrotic damage if it fails its save, or half as much if it succeeds. The second target may expend 1 hit die to recover hit points as if they had taken a short rest.</p>\n<p dir=\"ltr\"><strong>Cast at Higher Levels.</strong> For each level above 2nd, increase the damage by 1d10 and the number of hit dice rolled by 1.</p>",
+    "favorite": false,
+    "secretDescription": "",
+    "source": "spellsFromTheForgottenVault",
+    "uses": {
+      "value": null,
+      "max": "",
+      "per": null,
+      "recharge": {
+        "formula": "1d6",
+        "threshold": "6"
+      }
+    },
+    "schema": {
+      "version": null,
+      "lastMigration": null
+    },
+    "classes": [
+      "druid",
+      "warlock",
+      "witch",
+      "wizard"
+    ],
+    "components": {
+      "vocalized": true,
+      "seen": true,
+      "material": false
+    },
+    "concentration": false,
+    "level": 2,
+    "materials": "",
+    "materialsConsumed": false,
+    "prepared": false,
+    "prerequisite": "",
+    "rare": false,
+    "ritual": false,
+    "schools": {
+      "primary": "necromancy",
+      "secondary": [
+        "healing",
+        "necrotic"
+      ]
+    },
+    "schemaVersion": {
+      "version": 0.013,
+      "lastMigration": {
+        "version": {
+          "schema": 0.011,
+          "foundry": "11.315",
+          "system": "0.16.49"
+        }
+      }
+    }
+  },
+  "effects": [],
+  "flags": {},
+  "_id": "l1mxjfqxzqpnsewq"
 }

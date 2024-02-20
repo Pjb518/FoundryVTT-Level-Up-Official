@@ -1,152 +1,148 @@
 {
-	"folder": null,
-	"name": "Clangorous Blow",
-	"type": "spell",
-	"img": "icons/magic/sonic/explosion-shock-sound-wave.webp",
-	"system": {
-		"actions": {
-			"Euc2hGVelKdHGHyx": {
-				"name": "Cast Spell",
-				"activation": {
-					"type": "bonusAction",
-					"cost": 1
-				},
-				"consumers": {
-					"m8fKbwGqFkENzmuf": {
-						"type": "spell",
-						"default": true,
-						"mode": "variable",
-						"spellLevel": 1,
-						"points": 0
-					}
-				},
-				"rolls": {},
-				"prompts": {},
-				"uses": {
-					"value": 0,
-					"max": "",
-					"per": "",
-					"recharge": {
-						"formula": "1d6",
-						"threshold": 6
-					}
-				},
-				"duration": {
-					"unit": "minute",
-					"value": 1
-				},
-				"ranges": {
-					"Fwz19cDpYcRYaXf4": {
-						"range": "self"
-					}
-				}
-			},
-			"DwqbLjrabYxPkNGZ": {
-				"name": "Strike",
-				"activation": {},
-				"consumers": {},
-				"rolls": {
-					"qd6hyUs2V4qGfSPY": {
-						"type": "damage",
-						"default": true,
-						"formula": "3d6",
-						"damageType": "thunder"
-					}
-				},
-				"prompts": {
-					"vtEnFmZ1Dk57WHiV": {
-						"type": "savingThrow",
-						"default": true,
-						"ability": "con",
-						"saveDC": {
-							"type": "spellcasting"
-						}
-					}
-				},
-				"uses": {
-					"value": 0,
-					"max": "",
-					"per": "",
-					"recharge": {
-						"formula": "1d6",
-						"threshold": 6
-					}
-				},
-				"duration": {
-					"unit": "instantaneous"
-				},
-				"target": {
-					"type": "creature",
-					"quantity": 1
-				},
-				"area": {
-					"shape": "sphere",
-					"quantity": 1,
-					"radius": 20
-				}
-			}
-		},
-		"description": "<p dir=\"ltr\">Your weapon reverberates with powerful magic, ready to strike with deafening power.</p>\n<p dir=\"ltr\">The first time you hit with a melee weapon attack after you cast this spell the sound of a massive&nbsp; bell fills the air and the blow deals an additional 3d6 points of Thunder damage and all creatures within 20 feet of the target of your attack must make a Constitution saving throw or be deafened for a minute. The target makes this saving throw with disadvantage. The clang is so loud, it can be heard a mile away with no check required and can be heard up to 5 miles away with a DC 10 Perception check. The spell then ends.</p>\n<p dir=\"ltr\"><strong id=\"docs-internal-guid-9d1f1404-7fff-f008-dd5c-c078ada69a57\">Cast at Higher Levels</strong>. If you cast this spell with at least a 2nd-level spell slot, creatures that fail their save against the deafening effect also take 1d6 points of Thunder damage. If you cast this spell with at least a 3rd-level spell slot, the initial attack and area damage both increase by 1d6 for each spell slot level above 2nd.</p>",
-		"favorite": false,
-		"secretDescription": "",
-		"source": {
-			"name": "Spells from the Forgotten Vault",
-			"link": "https://bit.ly/3nyQbOt",
-			"publisher": "purpleMartinGames"
-		},
-		"uses": {
-			"value": null,
-			"max": "",
-			"per": null,
-			"recharge": {
-				"formula": "1d6",
-				"threshold": "6"
-			}
-		},
-		"schema": {
-			"version": null,
-			"lastMigration": null
-		},
-		"classes": [
-			"cleric",
-			"herald",
-			"sorcerer",
-			"warlock",
-			"wielder"
-		],
-		"components": {
-			"vocalized": true,
-			"seen": true,
-			"material": true
-		},
-		"concentration": true,
-		"level": 1,
-		"materials": "A melee weapon",
-		"materialsConsumed": false,
-		"prepared": false,
-		"prerequisite": "",
-		"rare": false,
-		"ritual": false,
-		"schools": {
-			"primary": "evocation",
-			"secondary": [
-				"attack",
-				"sound",
-				"weaponry"
-			]
-		},
-		"schemaVersion": {
-			"version": 0.013,
-			"lastMigration": {
-				"version": {
-					"schema": 0.011,
-					"foundry": "11.315",
-					"system": "0.16.49"
-				}
-			}
-		}
-	},
-	"effects": [],
-	"flags": {},
-	"_id": "1e98tn7mhq5ixt2e"
+  "folder": null,
+  "name": "Clangorous Blow",
+  "type": "spell",
+  "img": "icons/magic/sonic/explosion-shock-sound-wave.webp",
+  "system": {
+    "actions": {
+      "Euc2hGVelKdHGHyx": {
+        "name": "Cast Spell",
+        "activation": {
+          "type": "bonusAction",
+          "cost": 1
+        },
+        "consumers": {
+          "m8fKbwGqFkENzmuf": {
+            "type": "spell",
+            "default": true,
+            "mode": "variable",
+            "spellLevel": 1,
+            "points": 0
+          }
+        },
+        "rolls": {},
+        "prompts": {},
+        "uses": {
+          "value": 0,
+          "max": "",
+          "per": "",
+          "recharge": {
+            "formula": "1d6",
+            "threshold": 6
+          }
+        },
+        "duration": {
+          "unit": "minute",
+          "value": 1
+        },
+        "ranges": {
+          "Fwz19cDpYcRYaXf4": {
+            "range": "self"
+          }
+        }
+      },
+      "DwqbLjrabYxPkNGZ": {
+        "name": "Strike",
+        "activation": {},
+        "consumers": {},
+        "rolls": {
+          "qd6hyUs2V4qGfSPY": {
+            "type": "damage",
+            "default": true,
+            "formula": "3d6",
+            "damageType": "thunder"
+          }
+        },
+        "prompts": {
+          "vtEnFmZ1Dk57WHiV": {
+            "type": "savingThrow",
+            "default": true,
+            "ability": "con",
+            "saveDC": {
+              "type": "spellcasting"
+            }
+          }
+        },
+        "uses": {
+          "value": 0,
+          "max": "",
+          "per": "",
+          "recharge": {
+            "formula": "1d6",
+            "threshold": 6
+          }
+        },
+        "duration": {
+          "unit": "instantaneous"
+        },
+        "target": {
+          "type": "creature",
+          "quantity": 1
+        },
+        "area": {
+          "shape": "sphere",
+          "quantity": 1,
+          "radius": 20
+        }
+      }
+    },
+    "description": "<p dir=\"ltr\">Your weapon reverberates with powerful magic, ready to strike with deafening power.</p>\n<p dir=\"ltr\">The first time you hit with a melee weapon attack after you cast this spell the sound of a massive&nbsp; bell fills the air and the blow deals an additional 3d6 points of Thunder damage and all creatures within 20 feet of the target of your attack must make a Constitution saving throw or be deafened for a minute. The target makes this saving throw with disadvantage. The clang is so loud, it can be heard a mile away with no check required and can be heard up to 5 miles away with a DC 10 Perception check. The spell then ends.</p>\n<p dir=\"ltr\"><strong id=\"docs-internal-guid-9d1f1404-7fff-f008-dd5c-c078ada69a57\">Cast at Higher Levels</strong>. If you cast this spell with at least a 2nd-level spell slot, creatures that fail their save against the deafening effect also take 1d6 points of Thunder damage. If you cast this spell with at least a 3rd-level spell slot, the initial attack and area damage both increase by 1d6 for each spell slot level above 2nd.</p>",
+    "favorite": false,
+    "secretDescription": "",
+    "source": "spellsFromTheForgottenVault",
+    "uses": {
+      "value": null,
+      "max": "",
+      "per": null,
+      "recharge": {
+        "formula": "1d6",
+        "threshold": "6"
+      }
+    },
+    "schema": {
+      "version": null,
+      "lastMigration": null
+    },
+    "classes": [
+      "cleric",
+      "herald",
+      "sorcerer",
+      "warlock",
+      "wielder"
+    ],
+    "components": {
+      "vocalized": true,
+      "seen": true,
+      "material": true
+    },
+    "concentration": true,
+    "level": 1,
+    "materials": "A melee weapon",
+    "materialsConsumed": false,
+    "prepared": false,
+    "prerequisite": "",
+    "rare": false,
+    "ritual": false,
+    "schools": {
+      "primary": "evocation",
+      "secondary": [
+        "attack",
+        "sound",
+        "weaponry"
+      ]
+    },
+    "schemaVersion": {
+      "version": 0.013,
+      "lastMigration": {
+        "version": {
+          "schema": 0.011,
+          "foundry": "11.315",
+          "system": "0.16.49"
+        }
+      }
+    }
+  },
+  "effects": [],
+  "flags": {},
+  "_id": "1e98tn7mhq5ixt2e"
 }

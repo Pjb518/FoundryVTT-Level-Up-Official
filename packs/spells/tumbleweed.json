@@ -1,178 +1,174 @@
 {
-	"folder": null,
-	"name": "Tumbleweed",
-	"type": "spell",
-	"img": "icons/magic/nature/root-vines-knot-brown.webp",
-	"system": {
-		"actions": {
-			"TOyJvSMzGLzGochD": {
-				"name": "Cast Spell",
-				"activation": {
-					"type": "action",
-					"cost": 1
-				},
-				"consumers": {
-					"STvcBe0j2JNFYRnZ": {
-						"type": "spell",
-						"default": true,
-						"mode": "variable",
-						"spellLevel": 3,
-						"points": 5
-					}
-				},
-				"rolls": {},
-				"prompts": {},
-				"uses": {
-					"value": 0,
-					"max": "",
-					"per": "",
-					"recharge": {
-						"formula": "1d6",
-						"threshold": 6
-					}
-				},
-				"duration": {
-					"unit": "minute",
-					"value": 10
-				},
-				"ranges": {
-					"lfSQPO2NPV2Rz4gU": {
-						"range": "medium"
-					}
-				}
-			},
-			"yVl6k9kmNPOaYalD": {
-				"name": "Stick to Creature",
-				"activation": {},
-				"consumers": {},
-				"rolls": {},
-				"prompts": {
-					"ikyec2qvjj1ypSD1": {
-						"type": "savingThrow",
-						"default": true,
-						"ability": "dex",
-						"saveDC": {
-							"type": "spellcasting"
-						},
-						"onSave": "Not grappled"
-					}
-				},
-				"uses": {
-					"value": 0,
-					"max": "",
-					"per": "",
-					"recharge": {
-						"formula": "1d6",
-						"threshold": 6
-					}
-				}
-			},
-			"JIlkq9XWeH5P5tYP": {
-				"name": "Swift Roll",
-				"activation": {
-					"type": "bonusAction",
-					"cost": 1
-				},
-				"consumers": {},
-				"rolls": {
-					"751NWBb79UAD9bBE": {
-						"type": "damage",
-						"default": true,
-						"formula": "1d6",
-						"damageType": "piercing",
-						"canCrit": false,
-						"label": "Move 10 feet"
-					},
-					"aGo8R0b8vho3nSVn": {
-						"type": "damage",
-						"default": true,
-						"formula": "2d6",
-						"damageType": "piercing",
-						"canCrit": false,
-						"label": "Move 20 feet"
-					},
-					"FAO3E0TrksjVsHkj": {
-						"type": "damage",
-						"default": true,
-						"formula": "3d6",
-						"damageType": "piercing",
-						"canCrit": false,
-						"label": "Move 30 feet"
-					}
-				},
-				"prompts": {},
-				"uses": {
-					"value": 0,
-					"max": "",
-					"per": "",
-					"recharge": {
-						"formula": "1d6",
-						"threshold": 6
-					}
-				},
-				"duration": {
-					"unit": "instantaneous"
-				}
-			}
-		},
-		"description": "<p dir=\"ltr\">With silken words you conjure an orb of web within range. Standing four feet in diameter, it rolls across the battlefield, to and fro, at your direction. At the start of each of your turns the Tumbleweb can move up to 30ft, including over obstacles and up walls or other objects. The tumbleweb ignores all forms of difficult terrain.</p>\n<p dir=\"ltr\">When the tumbleweb enters a creature&rsquo;s square, or a creature passes through the tumbleweb&rsquo;s square, the creature must make a dexterity saving throw or become grappled by the tumbleweb. Grappling does not impede the tumbleweb&rsquo;s movement, and the tumbleweb cannot be moved by creatures that it has grappled. The tumbleweb gains size based on the amount and size of creatures grappled by it. With 4 medium creatures making it large sized, four large creatures making it huge sized, and so forth. The tumbleweb can only grapple creatures that are up to one size category larger than itself.</p>\n<p dir=\"ltr\">As a bonus action, you can cause the tumbleweb to roll, swiftly, up to 30ft. If you do so, each creature grappled by the tumbleweb takes 1d6 damage per 10ft of movement they are forced to take.</p>\n<p dir=\"ltr\">At the end of a grappled creature&rsquo;s turn, it may attempt a strength save to free itself from the tumbleweb.</p>",
-		"favorite": false,
-		"secretDescription": "",
-		"source": {
-			"name": "Spells from the Forgotten Vault",
-			"link": "https://bit.ly/3nyQbOt",
-			"publisher": "purpleMartinGames"
-		},
-		"uses": {
-			"value": null,
-			"max": "",
-			"per": null,
-			"recharge": {
-				"formula": "1d6",
-				"threshold": "6"
-			}
-		},
-		"schema": {
-			"version": null,
-			"lastMigration": null
-		},
-		"classes": [
-			"druid",
-			"witch",
-			"wizard"
-		],
-		"components": {
-			"vocalized": true,
-			"seen": false,
-			"material": true
-		},
-		"concentration": true,
-		"level": 3,
-		"materials": "A cobweb rolled into a ball between two fingers",
-		"materialsConsumed": false,
-		"prepared": false,
-		"prerequisite": "",
-		"rare": false,
-		"ritual": false,
-		"schools": {
-			"primary": "conjuration",
-			"secondary": [
-				"chaos",
-				"movement"
-			]
-		},
-		"schemaVersion": {
-			"version": 0.013,
-			"lastMigration": {
-				"version": {
-					"schema": 0.011,
-					"foundry": "11.315",
-					"system": "0.16.49"
-				}
-			}
-		}
-	},
-	"effects": [],
-	"flags": {},
-	"_id": "clfoq87zut27g7hl"
+  "folder": null,
+  "name": "Tumbleweed",
+  "type": "spell",
+  "img": "icons/magic/nature/root-vines-knot-brown.webp",
+  "system": {
+    "actions": {
+      "TOyJvSMzGLzGochD": {
+        "name": "Cast Spell",
+        "activation": {
+          "type": "action",
+          "cost": 1
+        },
+        "consumers": {
+          "STvcBe0j2JNFYRnZ": {
+            "type": "spell",
+            "default": true,
+            "mode": "variable",
+            "spellLevel": 3,
+            "points": 5
+          }
+        },
+        "rolls": {},
+        "prompts": {},
+        "uses": {
+          "value": 0,
+          "max": "",
+          "per": "",
+          "recharge": {
+            "formula": "1d6",
+            "threshold": 6
+          }
+        },
+        "duration": {
+          "unit": "minute",
+          "value": 10
+        },
+        "ranges": {
+          "lfSQPO2NPV2Rz4gU": {
+            "range": "medium"
+          }
+        }
+      },
+      "yVl6k9kmNPOaYalD": {
+        "name": "Stick to Creature",
+        "activation": {},
+        "consumers": {},
+        "rolls": {},
+        "prompts": {
+          "ikyec2qvjj1ypSD1": {
+            "type": "savingThrow",
+            "default": true,
+            "ability": "dex",
+            "saveDC": {
+              "type": "spellcasting"
+            },
+            "onSave": "Not grappled"
+          }
+        },
+        "uses": {
+          "value": 0,
+          "max": "",
+          "per": "",
+          "recharge": {
+            "formula": "1d6",
+            "threshold": 6
+          }
+        }
+      },
+      "JIlkq9XWeH5P5tYP": {
+        "name": "Swift Roll",
+        "activation": {
+          "type": "bonusAction",
+          "cost": 1
+        },
+        "consumers": {},
+        "rolls": {
+          "751NWBb79UAD9bBE": {
+            "type": "damage",
+            "default": true,
+            "formula": "1d6",
+            "damageType": "piercing",
+            "canCrit": false,
+            "label": "Move 10 feet"
+          },
+          "aGo8R0b8vho3nSVn": {
+            "type": "damage",
+            "default": true,
+            "formula": "2d6",
+            "damageType": "piercing",
+            "canCrit": false,
+            "label": "Move 20 feet"
+          },
+          "FAO3E0TrksjVsHkj": {
+            "type": "damage",
+            "default": true,
+            "formula": "3d6",
+            "damageType": "piercing",
+            "canCrit": false,
+            "label": "Move 30 feet"
+          }
+        },
+        "prompts": {},
+        "uses": {
+          "value": 0,
+          "max": "",
+          "per": "",
+          "recharge": {
+            "formula": "1d6",
+            "threshold": 6
+          }
+        },
+        "duration": {
+          "unit": "instantaneous"
+        }
+      }
+    },
+    "description": "<p dir=\"ltr\">With silken words you conjure an orb of web within range. Standing four feet in diameter, it rolls across the battlefield, to and fro, at your direction. At the start of each of your turns the Tumbleweb can move up to 30ft, including over obstacles and up walls or other objects. The tumbleweb ignores all forms of difficult terrain.</p>\n<p dir=\"ltr\">When the tumbleweb enters a creature&rsquo;s square, or a creature passes through the tumbleweb&rsquo;s square, the creature must make a dexterity saving throw or become grappled by the tumbleweb. Grappling does not impede the tumbleweb&rsquo;s movement, and the tumbleweb cannot be moved by creatures that it has grappled. The tumbleweb gains size based on the amount and size of creatures grappled by it. With 4 medium creatures making it large sized, four large creatures making it huge sized, and so forth. The tumbleweb can only grapple creatures that are up to one size category larger than itself.</p>\n<p dir=\"ltr\">As a bonus action, you can cause the tumbleweb to roll, swiftly, up to 30ft. If you do so, each creature grappled by the tumbleweb takes 1d6 damage per 10ft of movement they are forced to take.</p>\n<p dir=\"ltr\">At the end of a grappled creature&rsquo;s turn, it may attempt a strength save to free itself from the tumbleweb.</p>",
+    "favorite": false,
+    "secretDescription": "",
+    "source": "spellsFromTheForgottenVault",
+    "uses": {
+      "value": null,
+      "max": "",
+      "per": null,
+      "recharge": {
+        "formula": "1d6",
+        "threshold": "6"
+      }
+    },
+    "schema": {
+      "version": null,
+      "lastMigration": null
+    },
+    "classes": [
+      "druid",
+      "witch",
+      "wizard"
+    ],
+    "components": {
+      "vocalized": true,
+      "seen": false,
+      "material": true
+    },
+    "concentration": true,
+    "level": 3,
+    "materials": "A cobweb rolled into a ball between two fingers",
+    "materialsConsumed": false,
+    "prepared": false,
+    "prerequisite": "",
+    "rare": false,
+    "ritual": false,
+    "schools": {
+      "primary": "conjuration",
+      "secondary": [
+        "chaos",
+        "movement"
+      ]
+    },
+    "schemaVersion": {
+      "version": 0.013,
+      "lastMigration": {
+        "version": {
+          "schema": 0.011,
+          "foundry": "11.315",
+          "system": "0.16.49"
+        }
+      }
+    }
+  },
+  "effects": [],
+  "flags": {},
+  "_id": "clfoq87zut27g7hl"
 }

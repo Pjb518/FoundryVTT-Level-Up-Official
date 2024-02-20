@@ -1,283 +1,279 @@
 {
-	"name": "Predator's Arsenal",
-	"type": "spell",
-	"img": "icons/creatures/claws/claw-talons-glowing-purple.webp",
-	"system": {
-		"actions": {
-			"4MQ1xlFhjEQzPkZT": {
-				"name": "Cast Spell",
-				"activation": {
-					"type": "action",
-					"cost": 1
-				},
-				"consumers": {},
-				"rolls": {},
-				"prompts": {},
-				"uses": {
-					"value": 0,
-					"max": "",
-					"per": "",
-					"recharge": {
-						"formula": "1d6",
-						"threshold": 6
-					}
-				},
-				"ranges": {
-					"Rq7kbpEcGijEuWmP": {
-						"range": "self"
-					}
-				},
-				"duration": {
-					"unit": "minute",
-					"value": 1
-				}
-			},
-			"lwpV0jURVfhR50u2": {
-				"name": "Claw Attack",
-				"activation": {
-					"type": "action",
-					"cost": 1
-				},
-				"consumers": {},
-				"rolls": {
-					"rQKopMTPwufyeSj5": {
-						"type": "attack",
-						"default": true,
-						"attackType": "meleeWeaponAttack",
-						"proficient": true,
-						"ability": "none",
-						"bonus": "@finesse.mod"
-					},
-					"GGY1QfR5KVtMsBsr": {
-						"type": "damage",
-						"default": true,
-						"formula": "1d6 + @finesse.mod",
-						"damageType": "slashing"
-					}
-				},
-				"prompts": {},
-				"uses": {
-					"value": 0,
-					"max": "",
-					"per": "",
-					"recharge": {
-						"formula": "1d6",
-						"threshold": 6
-					}
-				},
-				"ranges": {
-					"YSdMcnEpKX5BPfkx": {
-						"range": "fiveFeet"
-					}
-				},
-				"target": {
-					"type": "creatureObject",
-					"quantity": 1
-				},
-				"duration": {
-					"unit": "instantaneous"
-				},
-				"descriptionOutputs": []
-			},
-			"ylmek7IpkD6sFAmP": {
-				"name": "Fang Attack",
-				"activation": {
-					"type": "action",
-					"cost": 1
-				},
-				"consumers": {},
-				"rolls": {
-					"rQKopMTPwufyeSj5": {
-						"type": "attack",
-						"default": true,
-						"attackType": "meleeWeaponAttack",
-						"proficient": true,
-						"ability": "str",
-						"bonus": "",
-						"critThreshold": 19
-					},
-					"GGY1QfR5KVtMsBsr": {
-						"type": "damage",
-						"default": true,
-						"formula": "1d6 + @str.mod",
-						"damageType": "piercing"
-					}
-				},
-				"prompts": {},
-				"uses": {
-					"value": 0,
-					"max": "",
-					"per": "",
-					"recharge": {
-						"formula": "1d6",
-						"threshold": 6
-					}
-				},
-				"ranges": {
-					"YSdMcnEpKX5BPfkx": {
-						"range": "fiveFeet"
-					}
-				},
-				"target": {
-					"type": "creatureObject",
-					"quantity": 1
-				},
-				"duration": {
-					"unit": "instantaneous"
-				},
-				"descriptionOutputs": [],
-				"img": "icons/creatures/abilities/mouth-teeth-rows-red.webp"
-			},
-			"u8NmS8qvVEwNIVO3": {
-				"name": "Pincer Attack",
-				"activation": {
-					"type": "action",
-					"cost": 1
-				},
-				"consumers": {},
-				"rolls": {
-					"rQKopMTPwufyeSj5": {
-						"type": "attack",
-						"default": true,
-						"attackType": "meleeWeaponAttack",
-						"proficient": true,
-						"ability": "str",
-						"bonus": "",
-						"critThreshold": 20
-					},
-					"GGY1QfR5KVtMsBsr": {
-						"type": "damage",
-						"default": true,
-						"formula": "1d6 + @str.mod",
-						"damageType": "piercing"
-					}
-				},
-				"prompts": {},
-				"uses": {
-					"value": 0,
-					"max": "",
-					"per": "",
-					"recharge": {
-						"formula": "1d6",
-						"threshold": 6
-					}
-				},
-				"ranges": {
-					"YSdMcnEpKX5BPfkx": {
-						"range": "fiveFeet"
-					}
-				},
-				"target": {
-					"type": "creatureObject",
-					"quantity": 1
-				},
-				"duration": {
-					"unit": "instantaneous"
-				},
-				"descriptionOutputs": [],
-				"img": "icons/creatures/claws/pincer-crab-red.webp"
-			},
-			"2AXtCcu4VDRzUiBj": {
-				"name": "Pincer Crush",
-				"activation": {
-					"type": "bonusAction",
-					"cost": 1
-				},
-				"consumers": {},
-				"rolls": {
-					"GGY1QfR5KVtMsBsr": {
-						"type": "damage",
-						"default": true,
-						"formula": "1d4 + @str.mod",
-						"damageType": "piercing"
-					}
-				},
-				"prompts": {},
-				"uses": {
-					"value": 0,
-					"max": "",
-					"per": "",
-					"recharge": {
-						"formula": "1d6",
-						"threshold": 6
-					}
-				},
-				"ranges": {
-					"YSdMcnEpKX5BPfkx": {
-						"range": "fiveFeet"
-					}
-				},
-				"target": {
-					"type": "creatureObject",
-					"quantity": 1
-				},
-				"duration": {
-					"unit": "instantaneous"
-				},
-				"descriptionOutputs": [],
-				"img": "icons/creatures/claws/pincer-crab-red.webp"
-			}
-		},
-		"description": "<p dir=\"ltr\">Your body takes on the traits of a predatory creature.</p>\n<p>When you cast the spell, choose fangs, claws, or a pincer. Your jaws or one of your hands (your choice as to which one) transforms into magical natural weapons of the selected type. For the rest of the spell&rsquo;s duration, you can make unarmed attacks with your new natural weapon.</p>\n<p>Claws have the finesse property and deal slashing damage equal 1d6 + your Strength or Dexterity modifier.</p>\n<p>Fangs deal piercing damage equal to 1d6 + your Strength modifier and score a critical hit on a roll of 19-20.</p>\n<p>A pincer deals piercing damage equal to 1d6 + your Strength modifier and you may grapple your target as part of the attack. You cannot deal piercing damage with your pincer as long as the target remains grappled this way, but you may squeeze a creature grappled this way for bludgeoning damage equal to 1d4 + your Strength modifier as a bonus action on your turn. You cannot use your pincer hand to hold weapons or a shield or any task requiring fine dexterity such as playing a musical instrument or picking a lock.</p>\n<p>The damage of your claws, fangs, or pincer increases to 1d8 at level 5. At level 11, you can also choose a tail with a scorpion-like stinger which has a reach of 10 feet and deals piercing damage equal to 1d4 + your strength modifier + 1d4 poison damage and your claws, fangs, or pincer increases to 1d10. At 17th level, the damage of your claws, fangs, or pincer increases to 1d12 and the poison damage dealt by your tail stinger increases to 1d6.</p>",
-		"favorite": false,
-		"secretDescription": "",
-		"source": {
-			"name": "Spells from the Forgotten Vault",
-			"link": "https://bit.ly/3nyQbOt",
-			"publisher": "purpleMartinGames"
-		},
-		"uses": {
-			"value": null,
-			"max": "",
-			"per": null,
-			"recharge": {
-				"formula": "1d6",
-				"threshold": "6"
-			}
-		},
-		"schema": {
-			"version": null,
-			"lastMigration": null
-		},
-		"classes": [
-			"druid",
-			"sorcerer"
-		],
-		"components": {
-			"vocalized": true,
-			"seen": true,
-			"material": false
-		},
-		"concentration": true,
-		"level": 0,
-		"materials": "",
-		"materialsConsumed": false,
-		"prepared": false,
-		"prerequisite": "",
-		"rare": false,
-		"ritual": false,
-		"schools": {
-			"primary": "transmutation",
-			"secondary": [
-				"nature",
-				"poison",
-				"shapechanging",
-				"unarmed"
-			]
-		},
-		"schemaVersion": {
-			"version": 0.013,
-			"lastMigration": {
-				"version": {
-					"schema": 0.011,
-					"foundry": "11.315",
-					"system": "0.16.49"
-				}
-			}
-		}
-	},
-	"effects": [],
-	"folder": null,
-	"flags": {},
-	"_id": "f7eg0o1z7mqfunel"
+  "name": "Predator's Arsenal",
+  "type": "spell",
+  "img": "icons/creatures/claws/claw-talons-glowing-purple.webp",
+  "system": {
+    "actions": {
+      "4MQ1xlFhjEQzPkZT": {
+        "name": "Cast Spell",
+        "activation": {
+          "type": "action",
+          "cost": 1
+        },
+        "consumers": {},
+        "rolls": {},
+        "prompts": {},
+        "uses": {
+          "value": 0,
+          "max": "",
+          "per": "",
+          "recharge": {
+            "formula": "1d6",
+            "threshold": 6
+          }
+        },
+        "ranges": {
+          "Rq7kbpEcGijEuWmP": {
+            "range": "self"
+          }
+        },
+        "duration": {
+          "unit": "minute",
+          "value": 1
+        }
+      },
+      "lwpV0jURVfhR50u2": {
+        "name": "Claw Attack",
+        "activation": {
+          "type": "action",
+          "cost": 1
+        },
+        "consumers": {},
+        "rolls": {
+          "rQKopMTPwufyeSj5": {
+            "type": "attack",
+            "default": true,
+            "attackType": "meleeWeaponAttack",
+            "proficient": true,
+            "ability": "none",
+            "bonus": "@finesse.mod"
+          },
+          "GGY1QfR5KVtMsBsr": {
+            "type": "damage",
+            "default": true,
+            "formula": "1d6 + @finesse.mod",
+            "damageType": "slashing"
+          }
+        },
+        "prompts": {},
+        "uses": {
+          "value": 0,
+          "max": "",
+          "per": "",
+          "recharge": {
+            "formula": "1d6",
+            "threshold": 6
+          }
+        },
+        "ranges": {
+          "YSdMcnEpKX5BPfkx": {
+            "range": "fiveFeet"
+          }
+        },
+        "target": {
+          "type": "creatureObject",
+          "quantity": 1
+        },
+        "duration": {
+          "unit": "instantaneous"
+        },
+        "descriptionOutputs": []
+      },
+      "ylmek7IpkD6sFAmP": {
+        "name": "Fang Attack",
+        "activation": {
+          "type": "action",
+          "cost": 1
+        },
+        "consumers": {},
+        "rolls": {
+          "rQKopMTPwufyeSj5": {
+            "type": "attack",
+            "default": true,
+            "attackType": "meleeWeaponAttack",
+            "proficient": true,
+            "ability": "str",
+            "bonus": "",
+            "critThreshold": 19
+          },
+          "GGY1QfR5KVtMsBsr": {
+            "type": "damage",
+            "default": true,
+            "formula": "1d6 + @str.mod",
+            "damageType": "piercing"
+          }
+        },
+        "prompts": {},
+        "uses": {
+          "value": 0,
+          "max": "",
+          "per": "",
+          "recharge": {
+            "formula": "1d6",
+            "threshold": 6
+          }
+        },
+        "ranges": {
+          "YSdMcnEpKX5BPfkx": {
+            "range": "fiveFeet"
+          }
+        },
+        "target": {
+          "type": "creatureObject",
+          "quantity": 1
+        },
+        "duration": {
+          "unit": "instantaneous"
+        },
+        "descriptionOutputs": [],
+        "img": "icons/creatures/abilities/mouth-teeth-rows-red.webp"
+      },
+      "u8NmS8qvVEwNIVO3": {
+        "name": "Pincer Attack",
+        "activation": {
+          "type": "action",
+          "cost": 1
+        },
+        "consumers": {},
+        "rolls": {
+          "rQKopMTPwufyeSj5": {
+            "type": "attack",
+            "default": true,
+            "attackType": "meleeWeaponAttack",
+            "proficient": true,
+            "ability": "str",
+            "bonus": "",
+            "critThreshold": 20
+          },
+          "GGY1QfR5KVtMsBsr": {
+            "type": "damage",
+            "default": true,
+            "formula": "1d6 + @str.mod",
+            "damageType": "piercing"
+          }
+        },
+        "prompts": {},
+        "uses": {
+          "value": 0,
+          "max": "",
+          "per": "",
+          "recharge": {
+            "formula": "1d6",
+            "threshold": 6
+          }
+        },
+        "ranges": {
+          "YSdMcnEpKX5BPfkx": {
+            "range": "fiveFeet"
+          }
+        },
+        "target": {
+          "type": "creatureObject",
+          "quantity": 1
+        },
+        "duration": {
+          "unit": "instantaneous"
+        },
+        "descriptionOutputs": [],
+        "img": "icons/creatures/claws/pincer-crab-red.webp"
+      },
+      "2AXtCcu4VDRzUiBj": {
+        "name": "Pincer Crush",
+        "activation": {
+          "type": "bonusAction",
+          "cost": 1
+        },
+        "consumers": {},
+        "rolls": {
+          "GGY1QfR5KVtMsBsr": {
+            "type": "damage",
+            "default": true,
+            "formula": "1d4 + @str.mod",
+            "damageType": "piercing"
+          }
+        },
+        "prompts": {},
+        "uses": {
+          "value": 0,
+          "max": "",
+          "per": "",
+          "recharge": {
+            "formula": "1d6",
+            "threshold": 6
+          }
+        },
+        "ranges": {
+          "YSdMcnEpKX5BPfkx": {
+            "range": "fiveFeet"
+          }
+        },
+        "target": {
+          "type": "creatureObject",
+          "quantity": 1
+        },
+        "duration": {
+          "unit": "instantaneous"
+        },
+        "descriptionOutputs": [],
+        "img": "icons/creatures/claws/pincer-crab-red.webp"
+      }
+    },
+    "description": "<p dir=\"ltr\">Your body takes on the traits of a predatory creature.</p>\n<p>When you cast the spell, choose fangs, claws, or a pincer. Your jaws or one of your hands (your choice as to which one) transforms into magical natural weapons of the selected type. For the rest of the spell&rsquo;s duration, you can make unarmed attacks with your new natural weapon.</p>\n<p>Claws have the finesse property and deal slashing damage equal 1d6 + your Strength or Dexterity modifier.</p>\n<p>Fangs deal piercing damage equal to 1d6 + your Strength modifier and score a critical hit on a roll of 19-20.</p>\n<p>A pincer deals piercing damage equal to 1d6 + your Strength modifier and you may grapple your target as part of the attack. You cannot deal piercing damage with your pincer as long as the target remains grappled this way, but you may squeeze a creature grappled this way for bludgeoning damage equal to 1d4 + your Strength modifier as a bonus action on your turn. You cannot use your pincer hand to hold weapons or a shield or any task requiring fine dexterity such as playing a musical instrument or picking a lock.</p>\n<p>The damage of your claws, fangs, or pincer increases to 1d8 at level 5. At level 11, you can also choose a tail with a scorpion-like stinger which has a reach of 10 feet and deals piercing damage equal to 1d4 + your strength modifier + 1d4 poison damage and your claws, fangs, or pincer increases to 1d10. At 17th level, the damage of your claws, fangs, or pincer increases to 1d12 and the poison damage dealt by your tail stinger increases to 1d6.</p>",
+    "favorite": false,
+    "secretDescription": "",
+    "source": "spellsFromTheForgottenVault",
+    "uses": {
+      "value": null,
+      "max": "",
+      "per": null,
+      "recharge": {
+        "formula": "1d6",
+        "threshold": "6"
+      }
+    },
+    "schema": {
+      "version": null,
+      "lastMigration": null
+    },
+    "classes": [
+      "druid",
+      "sorcerer"
+    ],
+    "components": {
+      "vocalized": true,
+      "seen": true,
+      "material": false
+    },
+    "concentration": true,
+    "level": 0,
+    "materials": "",
+    "materialsConsumed": false,
+    "prepared": false,
+    "prerequisite": "",
+    "rare": false,
+    "ritual": false,
+    "schools": {
+      "primary": "transmutation",
+      "secondary": [
+        "nature",
+        "poison",
+        "shapechanging",
+        "unarmed"
+      ]
+    },
+    "schemaVersion": {
+      "version": 0.013,
+      "lastMigration": {
+        "version": {
+          "schema": 0.011,
+          "foundry": "11.315",
+          "system": "0.16.49"
+        }
+      }
+    }
+  },
+  "effects": [],
+  "folder": null,
+  "flags": {},
+  "_id": "f7eg0o1z7mqfunel"
 }

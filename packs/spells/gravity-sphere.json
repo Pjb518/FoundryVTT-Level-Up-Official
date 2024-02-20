@@ -1,130 +1,126 @@
 {
-	"folder": null,
-	"name": "Gravity Sphere",
-	"type": "spell",
-	"img": "icons/magic/unholy/orb-beam-pink.webp",
-	"system": {
-		"actions": {
-			"H5z4cHswDHGsxiNp": {
-				"name": "Cast Spell",
-				"activation": {
-					"type": "action",
-					"cost": 1
-				},
-				"consumers": {
-					"WveEc95KTCgtni7F": {
-						"type": "spell",
-						"default": true,
-						"mode": "variable",
-						"spellLevel": 3,
-						"points": 5
-					}
-				},
-				"rolls": {
-					"BxRpB5c4iXJWm0fa": {
-						"type": "damage",
-						"default": true,
-						"formula": "4d8",
-						"canCrit": false,
-						"damageType": "force"
-					}
-				},
-				"prompts": {
-					"76ocwEa9d8Zsesm2": {
-						"type": "savingThrow",
-						"default": true,
-						"ability": "str",
-						"saveDC": {
-							"type": "spellcasting"
-						},
-						"onSave": "Strength halves"
-					}
-				},
-				"uses": {
-					"value": 0,
-					"max": "",
-					"per": "",
-					"recharge": {
-						"formula": "1d6",
-						"threshold": 6
-					}
-				},
-				"duration": {
-					"unit": "instantaneous"
-				},
-				"ranges": {
-					"hIvi1a6h6yg6QezI": {
-						"range": "long"
-					}
-				},
-				"area": {
-					"shape": "sphere",
-					"quantity": 1,
-					"radius": 30,
-					"placeTemplate": true
-				}
-			}
-		},
-		"description": "<p>You summon up a small ball of dark, incredibly-dense matter with a prodigious gravitational field just long enough to wreak havoc on your enemies.</p>\n<p>When you cast this spell, all creatures in the area must make a Strength saving throw or be pulled immediately to the middle of the area, knocked prone, and take 4d8 force damage. All creatures moved this way are packed into the smallest number of open spaces as close to the center of the effect as possible. Exact positioning is up to the Narrator. A creature that succeeds on its save takes half damage and is not moved or knocked prone.</p>\n<p>The area of the spell then becomes difficult terrain. At the Narrator&rsquo;s discretion, this may damage or destroy objects or structures as well.</p>",
-		"favorite": false,
-		"secretDescription": "",
-		"source": {
-			"name": "Spells from the Forgotten Vault",
-			"link": "https://bit.ly/3nyQbOt",
-			"publisher": "purpleMartinGames"
-		},
-		"uses": {
-			"value": null,
-			"max": "",
-			"per": null,
-			"recharge": {
-				"formula": "1d6",
-				"threshold": "6"
-			}
-		},
-		"schema": {
-			"version": null,
-			"lastMigration": null
-		},
-		"classes": [
-			"sorcerer",
-			"warlock",
-			"witch",
-			"wizard"
-		],
-		"components": {
-			"vocalized": true,
-			"seen": true,
-			"material": true
-		},
-		"concentration": false,
-		"level": 3,
-		"materials": "A small lead bead",
-		"materialsConsumed": false,
-		"prepared": false,
-		"prerequisite": "",
-		"rare": false,
-		"ritual": false,
-		"schools": {
-			"primary": "conjuration",
-			"secondary": [
-				"force",
-				"summoning",
-				"movement"
-			]
-		},
-		"schemaVersion": {
-			"version": 0.013,
-			"lastMigration": {
-				"version": {
-					"schema": 0.011,
-					"foundry": "11.315",
-					"system": "0.16.49"
-				}
-			}
-		}
-	},
-	"effects": [],
-	"flags": {},
-	"_id": "dn4nkud4qjvmrms4"
+  "folder": null,
+  "name": "Gravity Sphere",
+  "type": "spell",
+  "img": "icons/magic/unholy/orb-beam-pink.webp",
+  "system": {
+    "actions": {
+      "H5z4cHswDHGsxiNp": {
+        "name": "Cast Spell",
+        "activation": {
+          "type": "action",
+          "cost": 1
+        },
+        "consumers": {
+          "WveEc95KTCgtni7F": {
+            "type": "spell",
+            "default": true,
+            "mode": "variable",
+            "spellLevel": 3,
+            "points": 5
+          }
+        },
+        "rolls": {
+          "BxRpB5c4iXJWm0fa": {
+            "type": "damage",
+            "default": true,
+            "formula": "4d8",
+            "canCrit": false,
+            "damageType": "force"
+          }
+        },
+        "prompts": {
+          "76ocwEa9d8Zsesm2": {
+            "type": "savingThrow",
+            "default": true,
+            "ability": "str",
+            "saveDC": {
+              "type": "spellcasting"
+            },
+            "onSave": "Strength halves"
+          }
+        },
+        "uses": {
+          "value": 0,
+          "max": "",
+          "per": "",
+          "recharge": {
+            "formula": "1d6",
+            "threshold": 6
+          }
+        },
+        "duration": {
+          "unit": "instantaneous"
+        },
+        "ranges": {
+          "hIvi1a6h6yg6QezI": {
+            "range": "long"
+          }
+        },
+        "area": {
+          "shape": "sphere",
+          "quantity": 1,
+          "radius": 30,
+          "placeTemplate": true
+        }
+      }
+    },
+    "description": "<p>You summon up a small ball of dark, incredibly-dense matter with a prodigious gravitational field just long enough to wreak havoc on your enemies.</p>\n<p>When you cast this spell, all creatures in the area must make a Strength saving throw or be pulled immediately to the middle of the area, knocked prone, and take 4d8 force damage. All creatures moved this way are packed into the smallest number of open spaces as close to the center of the effect as possible. Exact positioning is up to the Narrator. A creature that succeeds on its save takes half damage and is not moved or knocked prone.</p>\n<p>The area of the spell then becomes difficult terrain. At the Narrator&rsquo;s discretion, this may damage or destroy objects or structures as well.</p>",
+    "favorite": false,
+    "secretDescription": "",
+    "source": "spellsFromTheForgottenVault",
+    "uses": {
+      "value": null,
+      "max": "",
+      "per": null,
+      "recharge": {
+        "formula": "1d6",
+        "threshold": "6"
+      }
+    },
+    "schema": {
+      "version": null,
+      "lastMigration": null
+    },
+    "classes": [
+      "sorcerer",
+      "warlock",
+      "witch",
+      "wizard"
+    ],
+    "components": {
+      "vocalized": true,
+      "seen": true,
+      "material": true
+    },
+    "concentration": false,
+    "level": 3,
+    "materials": "A small lead bead",
+    "materialsConsumed": false,
+    "prepared": false,
+    "prerequisite": "",
+    "rare": false,
+    "ritual": false,
+    "schools": {
+      "primary": "conjuration",
+      "secondary": [
+        "force",
+        "summoning",
+        "movement"
+      ]
+    },
+    "schemaVersion": {
+      "version": 0.013,
+      "lastMigration": {
+        "version": {
+          "schema": 0.011,
+          "foundry": "11.315",
+          "system": "0.16.49"
+        }
+      }
+    }
+  },
+  "effects": [],
+  "flags": {},
+  "_id": "dn4nkud4qjvmrms4"
 }

@@ -1,136 +1,132 @@
 {
-	"name": "Edict: Ignite",
-	"type": "spell",
-	"img": "icons/magic/fire/flame-burning-skeleton-explosion.webp",
-	"system": {
-		"actions": {
-			"SwP29M8sTRHJzL6V": {
-				"name": "Cast Spell",
-				"activation": {
-					"type": "action",
-					"cost": 1
-				},
-				"consumers": {},
-				"rolls": {},
-				"prompts": {},
-				"uses": {
-					"value": 0,
-					"max": "",
-					"per": "",
-					"recharge": {
-						"formula": "1d6",
-						"threshold": 6
-					}
-				},
-				"target": {
-					"type": "creatureObject",
-					"quantity": 1
-				},
-				"ranges": {
-					"BoWHaUMQzb0LHvDU": {
-						"range": "short"
-					}
-				},
-				"duration": {
-					"unit": "minute",
-					"value": 1
-				}
-			},
-			"utKukXiMDcHvgLQI": {
-				"name": "Burn",
-				"activation": {
-					"type": "none"
-				},
-				"consumers": {},
-				"rolls": {
-					"LmewmRCfiCqMngDk": {
-						"type": "damage",
-						"default": true,
-						"formula": "@prof",
-						"canCrit": false,
-						"damageType": "fire"
-					}
-				},
-				"prompts": {},
-				"uses": {
-					"value": 0,
-					"max": "",
-					"per": "",
-					"recharge": {
-						"formula": "1d6",
-						"threshold": 6
-					}
-				},
-				"duration": {
-					"unit": "instantaneous"
-				},
-				"target": {
-					"type": "creatureObject",
-					"quantity": 1
-				}
-			}
-		},
-		"description": "<p dir=\"ltr\">With a word of power you cause your target to burst into flames.</p>\n<p dir=\"ltr\">Your target is subjected to ongoing fire damage equal to your proficiency bonus at the start of each of their turns. On their turn creatures within 5ft of your target, including your target if it is a creature, can spend their action putting out the fire.</p>\n<p dir=\"ltr\">This spell has no effect on objects and creatures that are made of material that is not flammable, such as stone or metal.</p>",
-		"favorite": false,
-		"secretDescription": "",
-		"source": {
-			"name": "Spells from the Forgotten Vault",
-			"link": "https://bit.ly/3nyQbOt",
-			"publisher": "purpleMartinGames"
-		},
-		"uses": {
-			"value": null,
-			"max": "",
-			"per": null,
-			"recharge": {
-				"formula": "1d6",
-				"threshold": "6"
-			}
-		},
-		"schema": {
-			"version": null,
-			"lastMigration": null
-		},
-		"classes": [
-			"bard",
-			"cleric",
-			"druid",
-			"warlock",
-			"witch"
-		],
-		"components": {
-			"vocalized": true,
-			"seen": false,
-			"material": false
-		},
-		"concentration": true,
-		"level": 0,
-		"materials": "",
-		"materialsConsumed": false,
-		"prepared": false,
-		"prerequisite": "",
-		"rare": false,
-		"ritual": false,
-		"schools": {
-			"primary": "conjuration",
-			"secondary": [
-				"fire",
-				"summoning"
-			]
-		},
-		"schemaVersion": {
-			"version": 0.013,
-			"lastMigration": {
-				"version": {
-					"schema": 0.011,
-					"foundry": "11.315",
-					"system": "0.16.49"
-				}
-			}
-		}
-	},
-	"effects": [],
-	"folder": null,
-	"flags": {},
-	"_id": "acr5o4a8jj7z67am"
+  "name": "Edict: Ignite",
+  "type": "spell",
+  "img": "icons/magic/fire/flame-burning-skeleton-explosion.webp",
+  "system": {
+    "actions": {
+      "SwP29M8sTRHJzL6V": {
+        "name": "Cast Spell",
+        "activation": {
+          "type": "action",
+          "cost": 1
+        },
+        "consumers": {},
+        "rolls": {},
+        "prompts": {},
+        "uses": {
+          "value": 0,
+          "max": "",
+          "per": "",
+          "recharge": {
+            "formula": "1d6",
+            "threshold": 6
+          }
+        },
+        "target": {
+          "type": "creatureObject",
+          "quantity": 1
+        },
+        "ranges": {
+          "BoWHaUMQzb0LHvDU": {
+            "range": "short"
+          }
+        },
+        "duration": {
+          "unit": "minute",
+          "value": 1
+        }
+      },
+      "utKukXiMDcHvgLQI": {
+        "name": "Burn",
+        "activation": {
+          "type": "none"
+        },
+        "consumers": {},
+        "rolls": {
+          "LmewmRCfiCqMngDk": {
+            "type": "damage",
+            "default": true,
+            "formula": "@prof",
+            "canCrit": false,
+            "damageType": "fire"
+          }
+        },
+        "prompts": {},
+        "uses": {
+          "value": 0,
+          "max": "",
+          "per": "",
+          "recharge": {
+            "formula": "1d6",
+            "threshold": 6
+          }
+        },
+        "duration": {
+          "unit": "instantaneous"
+        },
+        "target": {
+          "type": "creatureObject",
+          "quantity": 1
+        }
+      }
+    },
+    "description": "<p dir=\"ltr\">With a word of power you cause your target to burst into flames.</p>\n<p dir=\"ltr\">Your target is subjected to ongoing fire damage equal to your proficiency bonus at the start of each of their turns. On their turn creatures within 5ft of your target, including your target if it is a creature, can spend their action putting out the fire.</p>\n<p dir=\"ltr\">This spell has no effect on objects and creatures that are made of material that is not flammable, such as stone or metal.</p>",
+    "favorite": false,
+    "secretDescription": "",
+    "source": "spellsFromTheForgottenVault",
+    "uses": {
+      "value": null,
+      "max": "",
+      "per": null,
+      "recharge": {
+        "formula": "1d6",
+        "threshold": "6"
+      }
+    },
+    "schema": {
+      "version": null,
+      "lastMigration": null
+    },
+    "classes": [
+      "bard",
+      "cleric",
+      "druid",
+      "warlock",
+      "witch"
+    ],
+    "components": {
+      "vocalized": true,
+      "seen": false,
+      "material": false
+    },
+    "concentration": true,
+    "level": 0,
+    "materials": "",
+    "materialsConsumed": false,
+    "prepared": false,
+    "prerequisite": "",
+    "rare": false,
+    "ritual": false,
+    "schools": {
+      "primary": "conjuration",
+      "secondary": [
+        "fire",
+        "summoning"
+      ]
+    },
+    "schemaVersion": {
+      "version": 0.013,
+      "lastMigration": {
+        "version": {
+          "schema": 0.011,
+          "foundry": "11.315",
+          "system": "0.16.49"
+        }
+      }
+    }
+  },
+  "effects": [],
+  "folder": null,
+  "flags": {},
+  "_id": "acr5o4a8jj7z67am"
 }

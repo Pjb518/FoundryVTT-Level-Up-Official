@@ -1,118 +1,114 @@
 {
-	"folder": null,
-	"name": "Sacrificial Healing",
-	"type": "spell",
-	"img": "icons/skills/wounds/blood-drip-droplet-red.webp",
-	"system": {
-		"actions": {
-			"pa2l2WBk0xJynMgl": {
-				"name": "Cast Spell",
-				"activation": {
-					"type": "action",
-					"cost": 1
-				},
-				"consumers": {
-					"a4GksoqGBAIkjjLd": {
-						"type": "spell",
-						"default": true,
-						"mode": "variable",
-						"spellLevel": 3,
-						"points": 5
-					}
-				},
-				"rolls": {
-					"HvKVC0WR281zeLX3": {
-						"type": "damage",
-						"default": true,
-						"formula": "4d8",
-						"damageType": "necrotic",
-						"canCrit": false
-					}
-				},
-				"prompts": {},
-				"uses": {
-					"value": 0,
-					"max": "",
-					"per": "",
-					"recharge": {
-						"formula": "1d6",
-						"threshold": 6
-					}
-				},
-				"duration": {
-					"unit": "instantaneous"
-				},
-				"ranges": {
-					"CAqXTq7CsfcQotOs": {
-						"range": "short"
-					}
-				},
-				"target": {
-					"type": "creature",
-					"quantity": 1
-				}
-			}
-		},
-		"description": "<p dir=\"ltr\">You sacrifice your own life force to heal another. When you cast this spell, you suffer 4d8 points of necrotic damage that cannot be reduced or negated by any means and your maximum hit points are reduced by an equal amount until you finish a long rest. The target recovers a number of hit points equal to twice the damage taken. If this damage drops you to zero hit points, you begin with a failed death save. If this reduces your maximum hit points to zero, you die immediately.</p>\n<p dir=\"ltr\">You may also optionally choose to purge a disease or poison from the creature at the cost of taking it on yourself at the same time you heal the target. When you cast this spell, you may remove a disease or poison from the target, which immediately affects you as if you had just failed a saving throw against it.</p>\n<p dir=\"ltr\"><strong id=\"docs-internal-guid-b38150bf-7fff-310b-0d55-9e21545e7618\">Cast at Higher Levels.</strong> For each spell slot level above 3rd, increase the damage by 1d8 and increase the number of diseases or poisons you can absorb by 1.</p>",
-		"favorite": false,
-		"secretDescription": "",
-		"source": {
-			"name": "Spells from the Forgotten Vault",
-			"link": "https://bit.ly/3nyQbOt",
-			"publisher": "purpleMartinGames"
-		},
-		"uses": {
-			"value": null,
-			"max": "",
-			"per": null,
-			"recharge": {
-				"formula": "1d6",
-				"threshold": "6"
-			}
-		},
-		"schema": {
-			"version": null,
-			"lastMigration": null
-		},
-		"classes": [
-			"cleric",
-			"herald",
-			"warlock",
-			"witch",
-			"wizard"
-		],
-		"components": {
-			"vocalized": true,
-			"seen": true,
-			"material": false
-		},
-		"concentration": false,
-		"level": 3,
-		"materials": "",
-		"materialsConsumed": false,
-		"prepared": false,
-		"prerequisite": "",
-		"rare": false,
-		"ritual": false,
-		"schools": {
-			"primary": "necromancy",
-			"secondary": [
-				"healing",
-				"necrotic"
-			]
-		},
-		"schemaVersion": {
-			"version": 0.013,
-			"lastMigration": {
-				"version": {
-					"schema": 0.011,
-					"foundry": "11.315",
-					"system": "0.16.49"
-				}
-			}
-		}
-	},
-	"effects": [],
-	"flags": {},
-	"_id": "evuupqn19e7rgg34"
+  "folder": null,
+  "name": "Sacrificial Healing",
+  "type": "spell",
+  "img": "icons/skills/wounds/blood-drip-droplet-red.webp",
+  "system": {
+    "actions": {
+      "pa2l2WBk0xJynMgl": {
+        "name": "Cast Spell",
+        "activation": {
+          "type": "action",
+          "cost": 1
+        },
+        "consumers": {
+          "a4GksoqGBAIkjjLd": {
+            "type": "spell",
+            "default": true,
+            "mode": "variable",
+            "spellLevel": 3,
+            "points": 5
+          }
+        },
+        "rolls": {
+          "HvKVC0WR281zeLX3": {
+            "type": "damage",
+            "default": true,
+            "formula": "4d8",
+            "damageType": "necrotic",
+            "canCrit": false
+          }
+        },
+        "prompts": {},
+        "uses": {
+          "value": 0,
+          "max": "",
+          "per": "",
+          "recharge": {
+            "formula": "1d6",
+            "threshold": 6
+          }
+        },
+        "duration": {
+          "unit": "instantaneous"
+        },
+        "ranges": {
+          "CAqXTq7CsfcQotOs": {
+            "range": "short"
+          }
+        },
+        "target": {
+          "type": "creature",
+          "quantity": 1
+        }
+      }
+    },
+    "description": "<p dir=\"ltr\">You sacrifice your own life force to heal another. When you cast this spell, you suffer 4d8 points of necrotic damage that cannot be reduced or negated by any means and your maximum hit points are reduced by an equal amount until you finish a long rest. The target recovers a number of hit points equal to twice the damage taken. If this damage drops you to zero hit points, you begin with a failed death save. If this reduces your maximum hit points to zero, you die immediately.</p>\n<p dir=\"ltr\">You may also optionally choose to purge a disease or poison from the creature at the cost of taking it on yourself at the same time you heal the target. When you cast this spell, you may remove a disease or poison from the target, which immediately affects you as if you had just failed a saving throw against it.</p>\n<p dir=\"ltr\"><strong id=\"docs-internal-guid-b38150bf-7fff-310b-0d55-9e21545e7618\">Cast at Higher Levels.</strong> For each spell slot level above 3rd, increase the damage by 1d8 and increase the number of diseases or poisons you can absorb by 1.</p>",
+    "favorite": false,
+    "secretDescription": "",
+    "source": "spellsFromTheForgottenVault",
+    "uses": {
+      "value": null,
+      "max": "",
+      "per": null,
+      "recharge": {
+        "formula": "1d6",
+        "threshold": "6"
+      }
+    },
+    "schema": {
+      "version": null,
+      "lastMigration": null
+    },
+    "classes": [
+      "cleric",
+      "herald",
+      "warlock",
+      "witch",
+      "wizard"
+    ],
+    "components": {
+      "vocalized": true,
+      "seen": true,
+      "material": false
+    },
+    "concentration": false,
+    "level": 3,
+    "materials": "",
+    "materialsConsumed": false,
+    "prepared": false,
+    "prerequisite": "",
+    "rare": false,
+    "ritual": false,
+    "schools": {
+      "primary": "necromancy",
+      "secondary": [
+        "healing",
+        "necrotic"
+      ]
+    },
+    "schemaVersion": {
+      "version": 0.013,
+      "lastMigration": {
+        "version": {
+          "schema": 0.011,
+          "foundry": "11.315",
+          "system": "0.16.49"
+        }
+      }
+    }
+  },
+  "effects": [],
+  "flags": {},
+  "_id": "evuupqn19e7rgg34"
 }

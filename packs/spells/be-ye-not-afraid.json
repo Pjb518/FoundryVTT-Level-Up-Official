@@ -1,182 +1,178 @@
 {
-	"folder": null,
-	"name": "Be Ye Not Afraid",
-	"type": "spell",
-	"img": "icons/magic/holy/barrier-shield-winged-blue.webp",
-	"system": {
-		"actions": {
-			"pljTh0LV76BeBIjk": {
-				"name": "Cast Spell",
-				"activation": {
-					"type": "action",
-					"cost": 1
-				},
-				"consumers": {
-					"6zZV0umTZzHylnUq": {
-						"type": "spell",
-						"default": true,
-						"mode": "variable",
-						"spellLevel": 8,
-						"points": 11
-					}
-				},
-				"rolls": {},
-				"prompts": {
-					"JUxHcjEn5Nwk8WbQ": {
-						"type": "effect",
-						"default": true,
-						"effectId": "oXwkfaBAlPr169XO"
-					}
-				},
-				"uses": {
-					"value": 0,
-					"max": "",
-					"per": "",
-					"recharge": {
-						"formula": "1d6",
-						"threshold": 6
-					}
-				},
-				"duration": {
-					"unit": "minute",
-					"value": 10
-				},
-				"target": {
-					"type": "self",
-					"quantity": 1
-				},
-				"ranges": {
-					"wvvavDZBcpGEv7tF": {
-						"range": "self"
-					}
-				}
-			}
-		},
-		"description": "<p dir=\"ltr\">With a single word of divine power, you transform yourself into a fearsome messenger of divine wrath. Your form transforms into something distinctly non-humanoid. The details are left to you and the narrator, but masses of wings and eyes, burning wheels, and similarly-alien forms are common.</p>\n<p dir=\"ltr\">While the spell lasts, you gain the following benefits:</p>\n<ul>\n<li dir=\"ltr\" aria-level=\"1\">\n<p dir=\"ltr\" role=\"presentation\">You gain a fly speed of 120 feet and can hover.</p>\n</li>\n<li dir=\"ltr\" aria-level=\"1\">\n<p dir=\"ltr\" role=\"presentation\">You do not need to breathe.</p>\n</li>\n<li dir=\"ltr\" aria-level=\"1\">\n<p dir=\"ltr\" role=\"presentation\">You are immune to radiant, fire, and poison damage.</p>\n</li>\n<li dir=\"ltr\" aria-level=\"1\">\n<p dir=\"ltr\" role=\"presentation\">You are immune to the Blinded, Charmed, Confused, Deafened, Frightened, Paralyzed, Petrified, Poisoned, Prone, Restrained, Slowed, and Stunned conditions.</p>\n</li>\n<li dir=\"ltr\" aria-level=\"1\">\n<p dir=\"ltr\" role=\"presentation\">Hostile creatures who see you must make a saving throw against your spell save DC with disadvantage or become frightened of you until the spell ends. A creature may repeat this save at the end of each of its turns, ending the effect on a success. A creature that fails its save by 10 more suffers a mild heart attack, is stunned for 1 round, and gains a level of fatigue.</p>\n</li>\n<li dir=\"ltr\" aria-level=\"1\">\n<p dir=\"ltr\" role=\"presentation\">If a friendly creature becomes frightened, you may use your reaction to cancel the effect that caused the condition.</p>\n</li>\n<li dir=\"ltr\" aria-level=\"1\">\n<p dir=\"ltr\" role=\"presentation\">Friendly creatures within 100 feet of you automatically stabilize when reduced to 0 hit points. If you come within 100 feet of a friendly creature that is already making death saves, it immediately stabilizes.&nbsp;&nbsp;</p>\n</li>\n<li dir=\"ltr\" aria-level=\"1\">\n<p dir=\"ltr\" role=\"presentation\">You gain truesight with a range of 60 feet.</p>\n</li>\n<li dir=\"ltr\" aria-level=\"1\">\n<p dir=\"ltr\" role=\"presentation\">You gain a radiant blast attack. Treat it as a ranged weapon attack dealing 4d8 radiant damage with a range of 60/300 feet.</p>\n</li>\n</ul>",
-		"favorite": false,
-		"secretDescription": "",
-		"source": {
-			"name": "Spells from the Forgotten Vault",
-			"link": "https://bit.ly/3nyQbOt",
-			"publisher": "purpleMartinGames"
-		},
-		"uses": {
-			"value": null,
-			"max": "",
-			"per": null,
-			"recharge": {
-				"formula": "1d6",
-				"threshold": "6"
-			}
-		},
-		"schema": {
-			"version": null,
-			"lastMigration": null
-		},
-		"classes": [
-			"cleric"
-		],
-		"components": {
-			"vocalized": true,
-			"seen": true,
-			"material": true
-		},
-		"concentration": true,
-		"level": 8,
-		"materials": "A holy relic",
-		"materialsConsumed": false,
-		"prepared": false,
-		"prerequisite": "",
-		"rare": false,
-		"ritual": false,
-		"schools": {
-			"primary": "divination",
-			"secondary": [
-				"divine",
-				"fear",
-				"good",
-				"law",
-				"movement",
-				"radiant",
-				"transformation"
-			]
-		},
-		"schemaVersion": {
-			"version": 0.013,
-			"lastMigration": {
-				"version": {
-					"schema": 0.011,
-					"foundry": "11.315",
-					"system": "0.16.49"
-				}
-			}
-		}
-	},
-	"effects": [
-		{
-			"icon": "icons/magic/holy/barrier-shield-winged-blue.webp",
-			"origin": "Item.3qevw31l4imcudhs",
-			"flags": {
-				"a5e": {
-					"sort": 0,
-					"transferType": "onUse",
-					"actionId": "pljTh0LV76BeBIjk",
-					"duration": {
-						"unit": "minutes"
-					},
-					"applyToSelf": true
-				}
-			},
-			"transfer": false,
-			"name": "Be Ye Not Afraid",
-			"_id": "oXwkfaBAlPr169XO",
-			"changes": [
-				{
-					"key": "system.attributes.movement.fly.distance",
-					"value": "120",
-					"mode": 6,
-					"priority": null
-				},
-				{
-					"key": "system.attributes.movement.traits.hover",
-					"value": "true",
-					"mode": 6,
-					"priority": null
-				},
-				{
-					"key": "system.traits.damageImmunities",
-					"value": "[\"radiant\",\"fire\",\"poison\"]",
-					"mode": 2,
-					"priority": null
-				},
-				{
-					"key": "system.traits.conditionImmunities",
-					"value": "[\"blinded\",\"charmed\",\"confused\",\"deafened\",\"frightened\",\"paralyzed\",\"petrified\",\"poisoned\",\"prone\",\"restrained\",\"slowed\",\"stunned\"]",
-					"mode": 2,
-					"priority": null
-				},
-				{
-					"key": "system.attributes.senses.truesight.distance",
-					"value": "60",
-					"mode": 6,
-					"priority": null
-				}
-			],
-			"disabled": false,
-			"duration": {
-				"startTime": null,
-				"seconds": 600,
-				"combat": null,
-				"rounds": null,
-				"turns": null,
-				"startRound": null,
-				"startTurn": null
-			},
-			"description": "<p dir=\"ltr\">With a single word of divine power, you transform yourself into a fearsome messenger of divine wrath. Your form transforms into something distinctly non-humanoid. The details are left to you and the narrator, but masses of wings and eyes, burning wheels, and similarly-alien forms are common.</p>\n<p dir=\"ltr\">While the spell lasts, you gain the following benefits:</p>\n<ul>\n<li dir=\"ltr\" aria-level=\"1\">\n<p dir=\"ltr\">You gain a fly speed of 120 feet and can hover.</p>\n</li>\n<li dir=\"ltr\" aria-level=\"1\">\n<p dir=\"ltr\">You do not need to breathe.</p>\n</li>\n<li dir=\"ltr\" aria-level=\"1\">\n<p dir=\"ltr\">You are immune to radiant, fire, and poison damage.</p>\n</li>\n<li dir=\"ltr\" aria-level=\"1\">\n<p dir=\"ltr\">You are immune to the Blinded, Charmed, Confused, Deafened, Frightened, Paralyzed, Petrified, Poisoned, Prone, Restrained, Slowed, and Stunned conditions.</p>\n</li>\n<li dir=\"ltr\" aria-level=\"1\">\n<p dir=\"ltr\">Hostile creatures who see you must make a saving throw against your spell save DC with disadvantage or become frightened of you until the spell ends. A creature may repeat this save at the end of each of its turns, ending the effect on a success. A creature that fails its save by 10 more suffers a mild heart attack, is stunned for 1 round, and gains a level of fatigue.</p>\n</li>\n<li dir=\"ltr\" aria-level=\"1\">\n<p dir=\"ltr\">If a friendly creature becomes frightened, you may use your reaction to cancel the effect that caused the condition.</p>\n</li>\n<li dir=\"ltr\" aria-level=\"1\">\n<p dir=\"ltr\">Friendly creatures within 100 feet of you automatically stabilize when reduced to 0 hit points. If you come within 100 feet of a friendly creature that is already making death saves, it immediately stabilizes.  </p>\n</li>\n<li dir=\"ltr\" aria-level=\"1\">\n<p dir=\"ltr\">You gain truesight with a range of 60 feet.</p>\n</li>\n<li dir=\"ltr\" aria-level=\"1\">\n<p dir=\"ltr\">You gain a radiant blast attack. Treat it as a ranged weapon attack dealing 4d8 radiant damage with a range of 60/300 feet.</p>\n</li>\n</ul>",
-			"statuses": [],
-			"folder": null
-		}
-	],
-	"flags": {},
-	"_id": "3qevw31l4imcudhs"
+  "folder": null,
+  "name": "Be Ye Not Afraid",
+  "type": "spell",
+  "img": "icons/magic/holy/barrier-shield-winged-blue.webp",
+  "system": {
+    "actions": {
+      "pljTh0LV76BeBIjk": {
+        "name": "Cast Spell",
+        "activation": {
+          "type": "action",
+          "cost": 1
+        },
+        "consumers": {
+          "6zZV0umTZzHylnUq": {
+            "type": "spell",
+            "default": true,
+            "mode": "variable",
+            "spellLevel": 8,
+            "points": 11
+          }
+        },
+        "rolls": {},
+        "prompts": {
+          "JUxHcjEn5Nwk8WbQ": {
+            "type": "effect",
+            "default": true,
+            "effectId": "oXwkfaBAlPr169XO"
+          }
+        },
+        "uses": {
+          "value": 0,
+          "max": "",
+          "per": "",
+          "recharge": {
+            "formula": "1d6",
+            "threshold": 6
+          }
+        },
+        "duration": {
+          "unit": "minute",
+          "value": 10
+        },
+        "target": {
+          "type": "self",
+          "quantity": 1
+        },
+        "ranges": {
+          "wvvavDZBcpGEv7tF": {
+            "range": "self"
+          }
+        }
+      }
+    },
+    "description": "<p dir=\"ltr\">With a single word of divine power, you transform yourself into a fearsome messenger of divine wrath. Your form transforms into something distinctly non-humanoid. The details are left to you and the narrator, but masses of wings and eyes, burning wheels, and similarly-alien forms are common.</p>\n<p dir=\"ltr\">While the spell lasts, you gain the following benefits:</p>\n<ul>\n<li dir=\"ltr\" aria-level=\"1\">\n<p dir=\"ltr\" role=\"presentation\">You gain a fly speed of 120 feet and can hover.</p>\n</li>\n<li dir=\"ltr\" aria-level=\"1\">\n<p dir=\"ltr\" role=\"presentation\">You do not need to breathe.</p>\n</li>\n<li dir=\"ltr\" aria-level=\"1\">\n<p dir=\"ltr\" role=\"presentation\">You are immune to radiant, fire, and poison damage.</p>\n</li>\n<li dir=\"ltr\" aria-level=\"1\">\n<p dir=\"ltr\" role=\"presentation\">You are immune to the Blinded, Charmed, Confused, Deafened, Frightened, Paralyzed, Petrified, Poisoned, Prone, Restrained, Slowed, and Stunned conditions.</p>\n</li>\n<li dir=\"ltr\" aria-level=\"1\">\n<p dir=\"ltr\" role=\"presentation\">Hostile creatures who see you must make a saving throw against your spell save DC with disadvantage or become frightened of you until the spell ends. A creature may repeat this save at the end of each of its turns, ending the effect on a success. A creature that fails its save by 10 more suffers a mild heart attack, is stunned for 1 round, and gains a level of fatigue.</p>\n</li>\n<li dir=\"ltr\" aria-level=\"1\">\n<p dir=\"ltr\" role=\"presentation\">If a friendly creature becomes frightened, you may use your reaction to cancel the effect that caused the condition.</p>\n</li>\n<li dir=\"ltr\" aria-level=\"1\">\n<p dir=\"ltr\" role=\"presentation\">Friendly creatures within 100 feet of you automatically stabilize when reduced to 0 hit points. If you come within 100 feet of a friendly creature that is already making death saves, it immediately stabilizes.&nbsp;&nbsp;</p>\n</li>\n<li dir=\"ltr\" aria-level=\"1\">\n<p dir=\"ltr\" role=\"presentation\">You gain truesight with a range of 60 feet.</p>\n</li>\n<li dir=\"ltr\" aria-level=\"1\">\n<p dir=\"ltr\" role=\"presentation\">You gain a radiant blast attack. Treat it as a ranged weapon attack dealing 4d8 radiant damage with a range of 60/300 feet.</p>\n</li>\n</ul>",
+    "favorite": false,
+    "secretDescription": "",
+    "source": "spellsFromTheForgottenVault",
+    "uses": {
+      "value": null,
+      "max": "",
+      "per": null,
+      "recharge": {
+        "formula": "1d6",
+        "threshold": "6"
+      }
+    },
+    "schema": {
+      "version": null,
+      "lastMigration": null
+    },
+    "classes": [
+      "cleric"
+    ],
+    "components": {
+      "vocalized": true,
+      "seen": true,
+      "material": true
+    },
+    "concentration": true,
+    "level": 8,
+    "materials": "A holy relic",
+    "materialsConsumed": false,
+    "prepared": false,
+    "prerequisite": "",
+    "rare": false,
+    "ritual": false,
+    "schools": {
+      "primary": "divination",
+      "secondary": [
+        "divine",
+        "fear",
+        "good",
+        "law",
+        "movement",
+        "radiant",
+        "transformation"
+      ]
+    },
+    "schemaVersion": {
+      "version": 0.013,
+      "lastMigration": {
+        "version": {
+          "schema": 0.011,
+          "foundry": "11.315",
+          "system": "0.16.49"
+        }
+      }
+    }
+  },
+  "effects": [
+    {
+      "icon": "icons/magic/holy/barrier-shield-winged-blue.webp",
+      "origin": "Item.3qevw31l4imcudhs",
+      "flags": {
+        "a5e": {
+          "sort": 0,
+          "transferType": "onUse",
+          "actionId": "pljTh0LV76BeBIjk",
+          "duration": {
+            "unit": "minutes"
+          },
+          "applyToSelf": true
+        }
+      },
+      "transfer": false,
+      "name": "Be Ye Not Afraid",
+      "_id": "oXwkfaBAlPr169XO",
+      "changes": [
+        {
+          "key": "system.attributes.movement.fly.distance",
+          "value": "120",
+          "mode": 6,
+          "priority": null
+        },
+        {
+          "key": "system.attributes.movement.traits.hover",
+          "value": "true",
+          "mode": 6,
+          "priority": null
+        },
+        {
+          "key": "system.traits.damageImmunities",
+          "value": "[\"radiant\",\"fire\",\"poison\"]",
+          "mode": 2,
+          "priority": null
+        },
+        {
+          "key": "system.traits.conditionImmunities",
+          "value": "[\"blinded\",\"charmed\",\"confused\",\"deafened\",\"frightened\",\"paralyzed\",\"petrified\",\"poisoned\",\"prone\",\"restrained\",\"slowed\",\"stunned\"]",
+          "mode": 2,
+          "priority": null
+        },
+        {
+          "key": "system.attributes.senses.truesight.distance",
+          "value": "60",
+          "mode": 6,
+          "priority": null
+        }
+      ],
+      "disabled": false,
+      "duration": {
+        "startTime": null,
+        "seconds": 600,
+        "combat": null,
+        "rounds": null,
+        "turns": null,
+        "startRound": null,
+        "startTurn": null
+      },
+      "description": "<p dir=\"ltr\">With a single word of divine power, you transform yourself into a fearsome messenger of divine wrath. Your form transforms into something distinctly non-humanoid. The details are left to you and the narrator, but masses of wings and eyes, burning wheels, and similarly-alien forms are common.</p>\n<p dir=\"ltr\">While the spell lasts, you gain the following benefits:</p>\n<ul>\n<li dir=\"ltr\" aria-level=\"1\">\n<p dir=\"ltr\">You gain a fly speed of 120 feet and can hover.</p>\n</li>\n<li dir=\"ltr\" aria-level=\"1\">\n<p dir=\"ltr\">You do not need to breathe.</p>\n</li>\n<li dir=\"ltr\" aria-level=\"1\">\n<p dir=\"ltr\">You are immune to radiant, fire, and poison damage.</p>\n</li>\n<li dir=\"ltr\" aria-level=\"1\">\n<p dir=\"ltr\">You are immune to the Blinded, Charmed, Confused, Deafened, Frightened, Paralyzed, Petrified, Poisoned, Prone, Restrained, Slowed, and Stunned conditions.</p>\n</li>\n<li dir=\"ltr\" aria-level=\"1\">\n<p dir=\"ltr\">Hostile creatures who see you must make a saving throw against your spell save DC with disadvantage or become frightened of you until the spell ends. A creature may repeat this save at the end of each of its turns, ending the effect on a success. A creature that fails its save by 10 more suffers a mild heart attack, is stunned for 1 round, and gains a level of fatigue.</p>\n</li>\n<li dir=\"ltr\" aria-level=\"1\">\n<p dir=\"ltr\">If a friendly creature becomes frightened, you may use your reaction to cancel the effect that caused the condition.</p>\n</li>\n<li dir=\"ltr\" aria-level=\"1\">\n<p dir=\"ltr\">Friendly creatures within 100 feet of you automatically stabilize when reduced to 0 hit points. If you come within 100 feet of a friendly creature that is already making death saves, it immediately stabilizes.  </p>\n</li>\n<li dir=\"ltr\" aria-level=\"1\">\n<p dir=\"ltr\">You gain truesight with a range of 60 feet.</p>\n</li>\n<li dir=\"ltr\" aria-level=\"1\">\n<p dir=\"ltr\">You gain a radiant blast attack. Treat it as a ranged weapon attack dealing 4d8 radiant damage with a range of 60/300 feet.</p>\n</li>\n</ul>",
+      "statuses": [],
+      "folder": null
+    }
+  ],
+  "flags": {},
+  "_id": "3qevw31l4imcudhs"
 }

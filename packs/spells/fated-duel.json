@@ -1,111 +1,107 @@
 {
-	"folder": null,
-	"name": "Fated Duel",
-	"type": "spell",
-	"img": "icons/skills/melee/swords-parry-block-blue.webp",
-	"system": {
-		"actions": {
-			"GXkWxMfXqNAc75Ib": {
-				"name": "Cast Spell",
-				"activation": {
-					"type": "action",
-					"cost": 1
-				},
-				"consumers": {
-					"DOxT8cWQnykUkcng": {
-						"type": "spell",
-						"default": true,
-						"mode": "variable",
-						"spellLevel": 2,
-						"points": 3
-					}
-				},
-				"rolls": {},
-				"prompts": {},
-				"uses": {
-					"value": 0,
-					"max": "",
-					"per": "",
-					"recharge": {
-						"formula": "1d6",
-						"threshold": 6
-					}
-				},
-				"target": {
-					"type": "creature",
-					"quantity": 2,
-					"scaling": {
-						"mode": "spellLevel",
-						"formula": "2",
-						"step": 2
-					}
-				},
-				"ranges": {
-					"UroEhBLxyEWyHOeF": {
-						"range": "medium"
-					}
-				},
-				"duration": {
-					"unit": "minute",
-					"value": 1
-				}
-			}
-		},
-		"description": "<p dir=\"ltr\">As you sing or play a rousing and recognizable leitmotif, your targets feel themselves drawn to one another, and they feel compelled to battle. Attacks made against the fated pair by other creatures are made with disadvantage. And the fated pair has disadvantage to strike anyone other than the other target of this spell. However, both members of the fated pair land a critical hit on an 18, 19, or 20 on any target so long as your concentration is maintained. Either target may choose to end this effect by surrendering to the other, and the effect also ends when one of the targets reaches 0 hit points or is otherwise incapacitated.</p>\n<p dir=\"ltr\"><strong id=\"docs-internal-guid-a962d442-7fff-80e3-4d1b-9e54a7fb5885\">Cast at Higher Levels.</strong> When cast at 4th, 6th, or 8th level you may designate an additional fated pair to battle.</p>",
-		"favorite": false,
-		"secretDescription": "",
-		"source": {
-			"name": "Spells from the Forgotten Vault",
-			"link": "https://bit.ly/3nyQbOt",
-			"publisher": "purpleMartinGames"
-		},
-		"uses": {
-			"value": null,
-			"max": "",
-			"per": null,
-			"recharge": {
-				"formula": "1d6",
-				"threshold": "6"
-			}
-		},
-		"schema": {
-			"version": null,
-			"lastMigration": null
-		},
-		"classes": [
-			"bard"
-		],
-		"components": {
-			"vocalized": true,
-			"seen": true,
-			"material": true
-		},
-		"concentration": true,
-		"level": 2,
-		"materials": "A musical instrument you play or a banner or weapon held aloft",
-		"materialsConsumed": false,
-		"prepared": false,
-		"prerequisite": "",
-		"rare": false,
-		"ritual": false,
-		"schools": {
-			"primary": "enchantment",
-			"secondary": [
-				"compulsion"
-			]
-		},
-		"schemaVersion": {
-			"version": 0.013,
-			"lastMigration": {
-				"version": {
-					"schema": 0.011,
-					"foundry": "11.315",
-					"system": "0.16.49"
-				}
-			}
-		}
-	},
-	"effects": [],
-	"flags": {},
-	"_id": "x3s3j2dshgg2dnet"
+  "folder": null,
+  "name": "Fated Duel",
+  "type": "spell",
+  "img": "icons/skills/melee/swords-parry-block-blue.webp",
+  "system": {
+    "actions": {
+      "GXkWxMfXqNAc75Ib": {
+        "name": "Cast Spell",
+        "activation": {
+          "type": "action",
+          "cost": 1
+        },
+        "consumers": {
+          "DOxT8cWQnykUkcng": {
+            "type": "spell",
+            "default": true,
+            "mode": "variable",
+            "spellLevel": 2,
+            "points": 3
+          }
+        },
+        "rolls": {},
+        "prompts": {},
+        "uses": {
+          "value": 0,
+          "max": "",
+          "per": "",
+          "recharge": {
+            "formula": "1d6",
+            "threshold": 6
+          }
+        },
+        "target": {
+          "type": "creature",
+          "quantity": 2,
+          "scaling": {
+            "mode": "spellLevel",
+            "formula": "2",
+            "step": 2
+          }
+        },
+        "ranges": {
+          "UroEhBLxyEWyHOeF": {
+            "range": "medium"
+          }
+        },
+        "duration": {
+          "unit": "minute",
+          "value": 1
+        }
+      }
+    },
+    "description": "<p dir=\"ltr\">As you sing or play a rousing and recognizable leitmotif, your targets feel themselves drawn to one another, and they feel compelled to battle. Attacks made against the fated pair by other creatures are made with disadvantage. And the fated pair has disadvantage to strike anyone other than the other target of this spell. However, both members of the fated pair land a critical hit on an 18, 19, or 20 on any target so long as your concentration is maintained. Either target may choose to end this effect by surrendering to the other, and the effect also ends when one of the targets reaches 0 hit points or is otherwise incapacitated.</p>\n<p dir=\"ltr\"><strong id=\"docs-internal-guid-a962d442-7fff-80e3-4d1b-9e54a7fb5885\">Cast at Higher Levels.</strong> When cast at 4th, 6th, or 8th level you may designate an additional fated pair to battle.</p>",
+    "favorite": false,
+    "secretDescription": "",
+    "source": "spellsFromTheForgottenVault",
+    "uses": {
+      "value": null,
+      "max": "",
+      "per": null,
+      "recharge": {
+        "formula": "1d6",
+        "threshold": "6"
+      }
+    },
+    "schema": {
+      "version": null,
+      "lastMigration": null
+    },
+    "classes": [
+      "bard"
+    ],
+    "components": {
+      "vocalized": true,
+      "seen": true,
+      "material": true
+    },
+    "concentration": true,
+    "level": 2,
+    "materials": "A musical instrument you play or a banner or weapon held aloft",
+    "materialsConsumed": false,
+    "prepared": false,
+    "prerequisite": "",
+    "rare": false,
+    "ritual": false,
+    "schools": {
+      "primary": "enchantment",
+      "secondary": [
+        "compulsion"
+      ]
+    },
+    "schemaVersion": {
+      "version": 0.013,
+      "lastMigration": {
+        "version": {
+          "schema": 0.011,
+          "foundry": "11.315",
+          "system": "0.16.49"
+        }
+      }
+    }
+  },
+  "effects": [],
+  "flags": {},
+  "_id": "x3s3j2dshgg2dnet"
 }

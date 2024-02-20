@@ -1,156 +1,152 @@
 {
-	"folder": null,
-	"name": "Scalding Steam",
-	"type": "spell",
-	"img": "icons/magic/air/fog-gas-smoke-dense-white.webp",
-	"system": {
-		"actions": {
-			"m7XmU01RqWPijwUe": {
-				"name": "Cast Spell",
-				"activation": {
-					"type": "action",
-					"cost": 1
-				},
-				"consumers": {
-					"1oQOTWxvj5YsVGNi": {
-						"type": "spell",
-						"default": true,
-						"mode": "variable",
-						"spellLevel": 3,
-						"points": 5
-					}
-				},
-				"rolls": {},
-				"prompts": {},
-				"uses": {
-					"value": 0,
-					"max": "",
-					"per": "",
-					"recharge": {
-						"formula": "1d6",
-						"threshold": 6
-					}
-				},
-				"duration": {
-					"unit": "minute",
-					"value": 10
-				},
-				"ranges": {
-					"sFTAK9YV5mpYSlfn": {
-						"range": "medium"
-					}
-				},
-				"area": {
-					"shape": "sphere",
-					"quantity": 1,
-					"radius": 15,
-					"placeTemplate": true
-				}
-			},
-			"iX3NA043x0rEoxCk": {
-				"name": "Ongoing Damage",
-				"activation": {
-					"type": "none",
-					"cost": 1
-				},
-				"consumers": {},
-				"rolls": {
-					"FQSYMiZvqiO7P4x1": {
-						"type": "damage",
-						"default": true,
-						"formula": "3d6",
-						"canCrit": false,
-						"damageType": "fire"
-					}
-				},
-				"prompts": {
-					"U6SwX3BAkdE4MU8d": {
-						"type": "savingThrow",
-						"default": true,
-						"ability": "con",
-						"saveDC": {
-							"type": "spellcasting"
-						},
-						"onSave": "Constitution halves"
-					}
-				},
-				"uses": {
-					"value": 0,
-					"max": "",
-					"per": "",
-					"recharge": {
-						"formula": "1d6",
-						"threshold": 6
-					}
-				},
-				"duration": {
-					"unit": "instantaneous"
-				}
-			}
-		},
-		"description": "<p>You conjure up a cloud of searing-hot, heavily-mineralized steam. The spell&rsquo;s area is lightly obscured, and a creature that enters the area for the first time on its turn or begins its turn there takes 3d6 points of fire damage. A creature that saves takes half damage.</p>\n<p>The steam is also highly-conductive, rendering creatures inside the spell&rsquo;s area vulnerable to lightning damage.</p>",
-		"favorite": false,
-		"secretDescription": "",
-		"source": {
-			"name": "Spells from the Forgotten Vault",
-			"link": "https://bit.ly/3nyQbOt",
-			"publisher": "purpleMartinGames"
-		},
-		"uses": {
-			"value": null,
-			"max": "",
-			"per": null,
-			"recharge": {
-				"formula": "1d6",
-				"threshold": "6"
-			}
-		},
-		"schema": {
-			"version": null,
-			"lastMigration": null
-		},
-		"classes": [
-			"artificer",
-			"druid",
-			"elementalistAir",
-			"elementalistWater",
-			"sorcerer",
-			"wizard"
-		],
-		"components": {
-			"vocalized": true,
-			"seen": true,
-			"material": false
-		},
-		"concentration": true,
-		"level": 3,
-		"materials": "",
-		"materialsConsumed": false,
-		"prepared": false,
-		"prerequisite": "",
-		"rare": false,
-		"ritual": false,
-		"schools": {
-			"primary": "conjuration",
-			"secondary": [
-				"air",
-				"nature",
-				"obscurement",
-				"water"
-			]
-		},
-		"schemaVersion": {
-			"version": 0.013,
-			"lastMigration": {
-				"version": {
-					"schema": 0.011,
-					"foundry": "11.315",
-					"system": "0.16.49"
-				}
-			}
-		}
-	},
-	"effects": [],
-	"flags": {},
-	"_id": "4d34soddujdw26u3"
+  "folder": null,
+  "name": "Scalding Steam",
+  "type": "spell",
+  "img": "icons/magic/air/fog-gas-smoke-dense-white.webp",
+  "system": {
+    "actions": {
+      "m7XmU01RqWPijwUe": {
+        "name": "Cast Spell",
+        "activation": {
+          "type": "action",
+          "cost": 1
+        },
+        "consumers": {
+          "1oQOTWxvj5YsVGNi": {
+            "type": "spell",
+            "default": true,
+            "mode": "variable",
+            "spellLevel": 3,
+            "points": 5
+          }
+        },
+        "rolls": {},
+        "prompts": {},
+        "uses": {
+          "value": 0,
+          "max": "",
+          "per": "",
+          "recharge": {
+            "formula": "1d6",
+            "threshold": 6
+          }
+        },
+        "duration": {
+          "unit": "minute",
+          "value": 10
+        },
+        "ranges": {
+          "sFTAK9YV5mpYSlfn": {
+            "range": "medium"
+          }
+        },
+        "area": {
+          "shape": "sphere",
+          "quantity": 1,
+          "radius": 15,
+          "placeTemplate": true
+        }
+      },
+      "iX3NA043x0rEoxCk": {
+        "name": "Ongoing Damage",
+        "activation": {
+          "type": "none",
+          "cost": 1
+        },
+        "consumers": {},
+        "rolls": {
+          "FQSYMiZvqiO7P4x1": {
+            "type": "damage",
+            "default": true,
+            "formula": "3d6",
+            "canCrit": false,
+            "damageType": "fire"
+          }
+        },
+        "prompts": {
+          "U6SwX3BAkdE4MU8d": {
+            "type": "savingThrow",
+            "default": true,
+            "ability": "con",
+            "saveDC": {
+              "type": "spellcasting"
+            },
+            "onSave": "Constitution halves"
+          }
+        },
+        "uses": {
+          "value": 0,
+          "max": "",
+          "per": "",
+          "recharge": {
+            "formula": "1d6",
+            "threshold": 6
+          }
+        },
+        "duration": {
+          "unit": "instantaneous"
+        }
+      }
+    },
+    "description": "<p>You conjure up a cloud of searing-hot, heavily-mineralized steam. The spell&rsquo;s area is lightly obscured, and a creature that enters the area for the first time on its turn or begins its turn there takes 3d6 points of fire damage. A creature that saves takes half damage.</p>\n<p>The steam is also highly-conductive, rendering creatures inside the spell&rsquo;s area vulnerable to lightning damage.</p>",
+    "favorite": false,
+    "secretDescription": "",
+    "source": "spellsFromTheForgottenVault",
+    "uses": {
+      "value": null,
+      "max": "",
+      "per": null,
+      "recharge": {
+        "formula": "1d6",
+        "threshold": "6"
+      }
+    },
+    "schema": {
+      "version": null,
+      "lastMigration": null
+    },
+    "classes": [
+      "artificer",
+      "druid",
+      "elementalistAir",
+      "elementalistWater",
+      "sorcerer",
+      "wizard"
+    ],
+    "components": {
+      "vocalized": true,
+      "seen": true,
+      "material": false
+    },
+    "concentration": true,
+    "level": 3,
+    "materials": "",
+    "materialsConsumed": false,
+    "prepared": false,
+    "prerequisite": "",
+    "rare": false,
+    "ritual": false,
+    "schools": {
+      "primary": "conjuration",
+      "secondary": [
+        "air",
+        "nature",
+        "obscurement",
+        "water"
+      ]
+    },
+    "schemaVersion": {
+      "version": 0.013,
+      "lastMigration": {
+        "version": {
+          "schema": 0.011,
+          "foundry": "11.315",
+          "system": "0.16.49"
+        }
+      }
+    }
+  },
+  "effects": [],
+  "flags": {},
+  "_id": "4d34soddujdw26u3"
 }

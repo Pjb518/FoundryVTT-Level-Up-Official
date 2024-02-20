@@ -1,121 +1,117 @@
 {
-	"folder": null,
-	"name": "Siphon Healing",
-	"type": "spell",
-	"img": "icons/magic/life/cross-beam-green.webp",
-	"system": {
-		"actions": {
-			"fQPLBIeZRCqzNdoT": {
-				"name": "Cast Spell",
-				"activation": {
-					"type": "reaction",
-					"cost": 1,
-					"reactionTrigger": "A creature you can see within range would regain hit points via any means including spells, spending hit dice, regeneration, and so on"
-				},
-				"consumers": {
-					"ufNclNzGrLA1tepf": {
-						"type": "spell",
-						"default": true,
-						"mode": "variable",
-						"spellLevel": 2,
-						"points": 3
-					}
-				},
-				"rolls": {},
-				"prompts": {
-					"YDy1YdtANhl4LG1Q": {
-						"type": "savingThrow",
-						"default": true,
-						"ability": "con",
-						"saveDC": {
-							"type": "spellcasting"
-						},
-						"onSave": "Constitution negates"
-					}
-				},
-				"uses": {
-					"value": 0,
-					"max": "",
-					"per": "",
-					"recharge": {
-						"formula": "1d6",
-						"threshold": 6
-					}
-				},
-				"duration": {
-					"unit": "instantaneous"
-				},
-				"ranges": {
-					"pmHJt82Q82WkWZi9": {
-						"range": "short"
-					}
-				},
-				"target": {
-					"type": "creature",
-					"quantity": 1
-				}
-			}
-		},
-		"description": "<p dir=\"ltr\">You siphon healing from one creature and give it to another.</p>\n<p dir=\"ltr\">You may cast this spell when a creature you can see within range would regain hit points via any means including spells, spending hit dice, regeneration, and so on.</p>\n<p dir=\"ltr\">The target must make a saving throw against your spell save DC or you may redirect as many hit points as you want to another target within range. You may choose yourself or another creature within range to receive the difference in hit points.</p>",
-		"favorite": false,
-		"secretDescription": "",
-		"source": {
-			"name": "Spells from the Forgotten Vault",
-			"link": "https://bit.ly/3nyQbOt",
-			"publisher": "purpleMartinGames"
-		},
-		"uses": {
-			"value": null,
-			"max": "",
-			"per": null,
-			"recharge": {
-				"formula": "1d6",
-				"threshold": "6"
-			}
-		},
-		"schema": {
-			"version": null,
-			"lastMigration": null
-		},
-		"classes": [
-			"bard",
-			"cleric",
-			"druid",
-			"warlock",
-			"witch"
-		],
-		"components": {
-			"vocalized": true,
-			"seen": true,
-			"material": false
-		},
-		"concentration": false,
-		"level": 2,
-		"materials": "",
-		"materialsConsumed": false,
-		"prepared": false,
-		"prerequisite": "",
-		"rare": false,
-		"ritual": false,
-		"schools": {
-			"primary": "necromancy",
-			"secondary": [
-				"affliction",
-				"healing"
-			]
-		},
-		"schemaVersion": {
-			"version": 0.013,
-			"lastMigration": {
-				"version": {
-					"schema": 0.011,
-					"foundry": "11.315",
-					"system": "0.16.49"
-				}
-			}
-		}
-	},
-	"effects": [],
-	"flags": {},
-	"_id": "10el90c9nqnbdaik"
+  "folder": null,
+  "name": "Siphon Healing",
+  "type": "spell",
+  "img": "icons/magic/life/cross-beam-green.webp",
+  "system": {
+    "actions": {
+      "fQPLBIeZRCqzNdoT": {
+        "name": "Cast Spell",
+        "activation": {
+          "type": "reaction",
+          "cost": 1,
+          "reactionTrigger": "A creature you can see within range would regain hit points via any means including spells, spending hit dice, regeneration, and so on"
+        },
+        "consumers": {
+          "ufNclNzGrLA1tepf": {
+            "type": "spell",
+            "default": true,
+            "mode": "variable",
+            "spellLevel": 2,
+            "points": 3
+          }
+        },
+        "rolls": {},
+        "prompts": {
+          "YDy1YdtANhl4LG1Q": {
+            "type": "savingThrow",
+            "default": true,
+            "ability": "con",
+            "saveDC": {
+              "type": "spellcasting"
+            },
+            "onSave": "Constitution negates"
+          }
+        },
+        "uses": {
+          "value": 0,
+          "max": "",
+          "per": "",
+          "recharge": {
+            "formula": "1d6",
+            "threshold": 6
+          }
+        },
+        "duration": {
+          "unit": "instantaneous"
+        },
+        "ranges": {
+          "pmHJt82Q82WkWZi9": {
+            "range": "short"
+          }
+        },
+        "target": {
+          "type": "creature",
+          "quantity": 1
+        }
+      }
+    },
+    "description": "<p dir=\"ltr\">You siphon healing from one creature and give it to another.</p>\n<p dir=\"ltr\">You may cast this spell when a creature you can see within range would regain hit points via any means including spells, spending hit dice, regeneration, and so on.</p>\n<p dir=\"ltr\">The target must make a saving throw against your spell save DC or you may redirect as many hit points as you want to another target within range. You may choose yourself or another creature within range to receive the difference in hit points.</p>",
+    "favorite": false,
+    "secretDescription": "",
+    "source": "spellsFromTheForgottenVault",
+    "uses": {
+      "value": null,
+      "max": "",
+      "per": null,
+      "recharge": {
+        "formula": "1d6",
+        "threshold": "6"
+      }
+    },
+    "schema": {
+      "version": null,
+      "lastMigration": null
+    },
+    "classes": [
+      "bard",
+      "cleric",
+      "druid",
+      "warlock",
+      "witch"
+    ],
+    "components": {
+      "vocalized": true,
+      "seen": true,
+      "material": false
+    },
+    "concentration": false,
+    "level": 2,
+    "materials": "",
+    "materialsConsumed": false,
+    "prepared": false,
+    "prerequisite": "",
+    "rare": false,
+    "ritual": false,
+    "schools": {
+      "primary": "necromancy",
+      "secondary": [
+        "affliction",
+        "healing"
+      ]
+    },
+    "schemaVersion": {
+      "version": 0.013,
+      "lastMigration": {
+        "version": {
+          "schema": 0.011,
+          "foundry": "11.315",
+          "system": "0.16.49"
+        }
+      }
+    }
+  },
+  "effects": [],
+  "flags": {},
+  "_id": "10el90c9nqnbdaik"
 }

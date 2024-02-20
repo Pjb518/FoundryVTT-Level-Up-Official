@@ -1,118 +1,114 @@
 {
-	"name": "Righteous Strike",
-	"type": "spell",
-	"img": "icons/skills/melee/strike-sword-dagger-runes-yellow.webp",
-	"system": {
-		"actions": {
-			"zrOqkxP0sJIA3wDh": {
-				"name": "Cast Spell",
-				"activation": {
-					"type": "action",
-					"cost": 1
-				},
-				"consumers": {},
-				"rolls": {
-					"ync1vp9bce27z2UH": {
-						"type": "damage",
-						"default": true,
-						"label": "Level 1 - 4 Damage",
-						"formula": "1",
-						"damageType": "radiant",
-						"canCrit": true
-					},
-					"Q7r3zS7thYBuSkp8": {
-						"type": "damage",
-						"default": true,
-						"label": "Level 5+ Damage",
-						"scaling": {
-							"mode": "cantrip",
-							"formula": "1d4"
-						},
-						"formula": "0",
-						"damageType": "radiant",
-						"canCrit": true
-					}
-				},
-				"prompts": {},
-				"uses": {
-					"value": 0,
-					"max": "",
-					"per": "",
-					"recharge": {
-						"formula": "1d6",
-						"threshold": 6
-					}
-				},
-				"duration": {
-					"unit": "instantaneous"
-				},
-				"ranges": {
-					"WZxDDZ3UGiRMl3Wr": {
-						"range": "self"
-					}
-				}
-			}
-		},
-		"description": "<p dir=\"ltr\">You infuse your weapon with divine power and strike with it.</p>\n<p dir=\"ltr\">As part of the action to cast this spell, make an attack with your weapon. On a hit, the target is rattled and takes a point of radiant damage. This damage increases to 1d4 at level 5, 2d4 at level 11, and 3d4 at level 17.</p>",
-		"favorite": false,
-		"secretDescription": "",
-		"source": {
-			"name": "Spells from the Forgotten Vault",
-			"link": "https://bit.ly/3nyQbOt",
-			"publisher": "purpleMartinGames"
-		},
-		"uses": {
-			"value": null,
-			"max": "",
-			"per": null,
-			"recharge": {
-				"formula": "1d6",
-				"threshold": "6"
-			}
-		},
-		"schema": {
-			"version": null,
-			"lastMigration": null
-		},
-		"classes": [
-			"cleric",
-			"herald"
-		],
-		"components": {
-			"vocalized": true,
-			"seen": true,
-			"material": true
-		},
-		"concentration": false,
-		"level": 0,
-		"materials": "A melee weapon",
-		"materialsConsumed": false,
-		"prepared": false,
-		"prerequisite": "",
-		"rare": false,
-		"ritual": false,
-		"schools": {
-			"primary": "abjuration",
-			"secondary": [
-				"attack",
-				"divine",
-				"radiant",
-				"weaponry"
-			]
-		},
-		"schemaVersion": {
-			"version": 0.013,
-			"lastMigration": {
-				"version": {
-					"schema": 0.011,
-					"foundry": "11.315",
-					"system": "0.16.49"
-				}
-			}
-		}
-	},
-	"effects": [],
-	"folder": null,
-	"flags": {},
-	"_id": "rxi0eufsap9b88ar"
+  "name": "Righteous Strike",
+  "type": "spell",
+  "img": "icons/skills/melee/strike-sword-dagger-runes-yellow.webp",
+  "system": {
+    "actions": {
+      "zrOqkxP0sJIA3wDh": {
+        "name": "Cast Spell",
+        "activation": {
+          "type": "action",
+          "cost": 1
+        },
+        "consumers": {},
+        "rolls": {
+          "ync1vp9bce27z2UH": {
+            "type": "damage",
+            "default": true,
+            "label": "Level 1 - 4 Damage",
+            "formula": "1",
+            "damageType": "radiant",
+            "canCrit": true
+          },
+          "Q7r3zS7thYBuSkp8": {
+            "type": "damage",
+            "default": true,
+            "label": "Level 5+ Damage",
+            "scaling": {
+              "mode": "cantrip",
+              "formula": "1d4"
+            },
+            "formula": "0",
+            "damageType": "radiant",
+            "canCrit": true
+          }
+        },
+        "prompts": {},
+        "uses": {
+          "value": 0,
+          "max": "",
+          "per": "",
+          "recharge": {
+            "formula": "1d6",
+            "threshold": 6
+          }
+        },
+        "duration": {
+          "unit": "instantaneous"
+        },
+        "ranges": {
+          "WZxDDZ3UGiRMl3Wr": {
+            "range": "self"
+          }
+        }
+      }
+    },
+    "description": "<p dir=\"ltr\">You infuse your weapon with divine power and strike with it.</p>\n<p dir=\"ltr\">As part of the action to cast this spell, make an attack with your weapon. On a hit, the target is rattled and takes a point of radiant damage. This damage increases to 1d4 at level 5, 2d4 at level 11, and 3d4 at level 17.</p>",
+    "favorite": false,
+    "secretDescription": "",
+    "source": "spellsFromTheForgottenVault",
+    "uses": {
+      "value": null,
+      "max": "",
+      "per": null,
+      "recharge": {
+        "formula": "1d6",
+        "threshold": "6"
+      }
+    },
+    "schema": {
+      "version": null,
+      "lastMigration": null
+    },
+    "classes": [
+      "cleric",
+      "herald"
+    ],
+    "components": {
+      "vocalized": true,
+      "seen": true,
+      "material": true
+    },
+    "concentration": false,
+    "level": 0,
+    "materials": "A melee weapon",
+    "materialsConsumed": false,
+    "prepared": false,
+    "prerequisite": "",
+    "rare": false,
+    "ritual": false,
+    "schools": {
+      "primary": "abjuration",
+      "secondary": [
+        "attack",
+        "divine",
+        "radiant",
+        "weaponry"
+      ]
+    },
+    "schemaVersion": {
+      "version": 0.013,
+      "lastMigration": {
+        "version": {
+          "schema": 0.011,
+          "foundry": "11.315",
+          "system": "0.16.49"
+        }
+      }
+    }
+  },
+  "effects": [],
+  "folder": null,
+  "flags": {},
+  "_id": "rxi0eufsap9b88ar"
 }

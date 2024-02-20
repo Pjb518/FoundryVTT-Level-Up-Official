@@ -1,151 +1,147 @@
 {
-	"folder": null,
-	"name": "Mouth of Hell",
-	"type": "spell",
-	"img": "icons/magic/fire/barrier-wall-explosion-orange.webp",
-	"system": {
-		"actions": {
-			"p9yLcWOy5lTeNTbX": {
-				"name": "Cast Spell",
-				"activation": {
-					"type": "action",
-					"cost": 1
-				},
-				"consumers": {
-					"Y1HL2LxTGS9eS7cB": {
-						"type": "spell",
-						"default": true,
-						"mode": "variable",
-						"spellLevel": 3,
-						"points": 5
-					}
-				},
-				"rolls": {
-					"nKDc1SIe5Vi8ZRfS": {
-						"type": "damage",
-						"default": true,
-						"formula": "2d6",
-						"damageType": "bludgeoning",
-						"canCrit": false
-					},
-					"QDEl93TbrnctKx4B": {
-						"type": "damage",
-						"default": true,
-						"formula": "2d6",
-						"damageType": "fire",
-						"canCrit": false
-					},
-					"XGM1Rgu5c3aIw50Y": {
-						"type": "damage",
-						"default": true,
-						"formula": "2d6",
-						"damageType": "necrotic",
-						"canCrit": false
-					}
-				},
-				"prompts": {
-					"r2SgbOYTaOjhCGpb": {
-						"type": "savingThrow",
-						"default": true,
-						"ability": "dex",
-						"saveDC": {
-							"type": "spellcasting"
-						},
-						"onSave": "Dexterity halves"
-					}
-				},
-				"uses": {
-					"value": 0,
-					"max": "",
-					"per": "",
-					"recharge": {
-						"formula": "1d6",
-						"threshold": 6
-					}
-				},
-				"duration": {
-					"unit": "hour",
-					"value": 1
-				},
-				"ranges": {
-					"zj8sdgNAckt24Jn4": {
-						"range": "medium"
-					}
-				},
-				"area": {
-					"shape": "circle",
-					"quantity": 1,
-					"radius": 15,
-					"placeTemplate": true,
-					"scaling": {
-						"mode": "spellLevel",
-						"formula": {
-							"radius": "5"
-						}
-					}
-				}
-			}
-		},
-		"description": "<p dir=\"ltr\">The ground explodes with hellfire and shards of rock. Creatures in the spell&rsquo;s area must make a Dexterity save or suffer 2d6 bludgeoning, 2d6 fire, and 2d6 necrotic damage. A creature that successfully saves takes half damage. The spell&rsquo;s area then becomes difficult terrain for the next hour. In addition a creature that enters the spell&rsquo;s area for the first time on a turn or starts its turn there takes 1d6 points of fire damage.</p>\n<p dir=\"ltr\"><strong id=\"docs-internal-guid-7e258158-7fff-a49e-7cbb-970c13f41ed2\">Cast at Higher Levels.</strong> The spell&rsquo;s area increases by 5 feet for every spell slot level above 3rd.</p>",
-		"favorite": false,
-		"secretDescription": "",
-		"source": {
-			"name": "Spells from the Forgotten Vault",
-			"link": "https://bit.ly/3nyQbOt",
-			"publisher": "purpleMartinGames"
-		},
-		"uses": {
-			"value": null,
-			"max": "",
-			"per": null,
-			"recharge": {
-				"formula": "1d6",
-				"threshold": "6"
-			}
-		},
-		"schema": {
-			"version": null,
-			"lastMigration": null
-		},
-		"classes": [
-			"warlock",
-			"wizard"
-		],
-		"components": {
-			"vocalized": true,
-			"seen": true,
-			"material": false
-		},
-		"concentration": false,
-		"level": 3,
-		"materials": "",
-		"materialsConsumed": false,
-		"prepared": false,
-		"prerequisite": "",
-		"rare": false,
-		"ritual": false,
-		"schools": {
-			"primary": "transmutation",
-			"secondary": [
-				"earth",
-				"evil",
-				"fire",
-				"necrotic",
-				"terrain"
-			]
-		},
-		"schemaVersion": {
-			"version": 0.013,
-			"lastMigration": {
-				"version": {
-					"schema": 0.011,
-					"foundry": "11.315",
-					"system": "0.16.49"
-				}
-			}
-		}
-	},
-	"effects": [],
-	"flags": {},
-	"_id": "t7c8c8cgh987718c"
+  "folder": null,
+  "name": "Mouth of Hell",
+  "type": "spell",
+  "img": "icons/magic/fire/barrier-wall-explosion-orange.webp",
+  "system": {
+    "actions": {
+      "p9yLcWOy5lTeNTbX": {
+        "name": "Cast Spell",
+        "activation": {
+          "type": "action",
+          "cost": 1
+        },
+        "consumers": {
+          "Y1HL2LxTGS9eS7cB": {
+            "type": "spell",
+            "default": true,
+            "mode": "variable",
+            "spellLevel": 3,
+            "points": 5
+          }
+        },
+        "rolls": {
+          "nKDc1SIe5Vi8ZRfS": {
+            "type": "damage",
+            "default": true,
+            "formula": "2d6",
+            "damageType": "bludgeoning",
+            "canCrit": false
+          },
+          "QDEl93TbrnctKx4B": {
+            "type": "damage",
+            "default": true,
+            "formula": "2d6",
+            "damageType": "fire",
+            "canCrit": false
+          },
+          "XGM1Rgu5c3aIw50Y": {
+            "type": "damage",
+            "default": true,
+            "formula": "2d6",
+            "damageType": "necrotic",
+            "canCrit": false
+          }
+        },
+        "prompts": {
+          "r2SgbOYTaOjhCGpb": {
+            "type": "savingThrow",
+            "default": true,
+            "ability": "dex",
+            "saveDC": {
+              "type": "spellcasting"
+            },
+            "onSave": "Dexterity halves"
+          }
+        },
+        "uses": {
+          "value": 0,
+          "max": "",
+          "per": "",
+          "recharge": {
+            "formula": "1d6",
+            "threshold": 6
+          }
+        },
+        "duration": {
+          "unit": "hour",
+          "value": 1
+        },
+        "ranges": {
+          "zj8sdgNAckt24Jn4": {
+            "range": "medium"
+          }
+        },
+        "area": {
+          "shape": "circle",
+          "quantity": 1,
+          "radius": 15,
+          "placeTemplate": true,
+          "scaling": {
+            "mode": "spellLevel",
+            "formula": {
+              "radius": "5"
+            }
+          }
+        }
+      }
+    },
+    "description": "<p dir=\"ltr\">The ground explodes with hellfire and shards of rock. Creatures in the spell&rsquo;s area must make a Dexterity save or suffer 2d6 bludgeoning, 2d6 fire, and 2d6 necrotic damage. A creature that successfully saves takes half damage. The spell&rsquo;s area then becomes difficult terrain for the next hour. In addition a creature that enters the spell&rsquo;s area for the first time on a turn or starts its turn there takes 1d6 points of fire damage.</p>\n<p dir=\"ltr\"><strong id=\"docs-internal-guid-7e258158-7fff-a49e-7cbb-970c13f41ed2\">Cast at Higher Levels.</strong> The spell&rsquo;s area increases by 5 feet for every spell slot level above 3rd.</p>",
+    "favorite": false,
+    "secretDescription": "",
+    "source": "spellsFromTheForgottenVault",
+    "uses": {
+      "value": null,
+      "max": "",
+      "per": null,
+      "recharge": {
+        "formula": "1d6",
+        "threshold": "6"
+      }
+    },
+    "schema": {
+      "version": null,
+      "lastMigration": null
+    },
+    "classes": [
+      "warlock",
+      "wizard"
+    ],
+    "components": {
+      "vocalized": true,
+      "seen": true,
+      "material": false
+    },
+    "concentration": false,
+    "level": 3,
+    "materials": "",
+    "materialsConsumed": false,
+    "prepared": false,
+    "prerequisite": "",
+    "rare": false,
+    "ritual": false,
+    "schools": {
+      "primary": "transmutation",
+      "secondary": [
+        "earth",
+        "evil",
+        "fire",
+        "necrotic",
+        "terrain"
+      ]
+    },
+    "schemaVersion": {
+      "version": 0.013,
+      "lastMigration": {
+        "version": {
+          "schema": 0.011,
+          "foundry": "11.315",
+          "system": "0.16.49"
+        }
+      }
+    }
+  },
+  "effects": [],
+  "flags": {},
+  "_id": "t7c8c8cgh987718c"
 }

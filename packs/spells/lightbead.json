@@ -1,148 +1,144 @@
 {
-	"folder": null,
-	"name": "Lightbead",
-	"type": "spell",
-	"img": "icons/magic/light/hand-sparks-smoke-green.webp",
-	"system": {
-		"actions": {
-			"GegJAQRs3QpOaOTQ": {
-				"name": "Cast Spell",
-				"activation": {
-					"type": "action",
-					"cost": 1
-				},
-				"consumers": {
-					"iQ8D8Uixw4iencMz": {
-						"type": "spell",
-						"default": true,
-						"mode": "variable",
-						"spellLevel": 2,
-						"points": 3
-					}
-				},
-				"rolls": {
-					"sy7hf4AHW5Q0vpG2": {
-						"type": "healing",
-						"default": true,
-						"formula": "1d4 + @spell.mod"
-					}
-				},
-				"prompts": {},
-				"uses": {
-					"value": 0,
-					"max": "",
-					"per": "",
-					"recharge": {
-						"formula": "1d6",
-						"threshold": 6
-					}
-				},
-				"duration": {
-					"unit": "special"
-				},
-				"ranges": {
-					"woMnoHCAr1fHWQTc": {
-						"range": "medium"
-					}
-				},
-				"target": {
-					"type": "creature",
-					"quantity": 1,
-					"scaling": {
-						"mode": "spellLevel",
-						"formula": "1"
-					}
-				}
-			},
-			"3ycTKUAZLdfuAGEF": {
-				"name": "Heal",
-				"activation": {
-					"type": "none"
-				},
-				"consumers": {},
-				"rolls": {
-					"8ALBe47EImzNPz2T": {
-						"type": "healing",
-						"default": true,
-						"formula": "1d4 + @spell.mod"
-					}
-				},
-				"prompts": {},
-				"uses": {
-					"value": 0,
-					"max": "",
-					"per": "",
-					"recharge": {
-						"formula": "1d6",
-						"threshold": 6
-					}
-				},
-				"duration": {
-					"unit": "instantaneous"
-				},
-				"target": {
-					"type": "creature",
-					"quantity": 1
-				}
-			}
-		},
-		"description": "<p dir=\"ltr\">Rubbing the glowing ooze between your fingertips you send up a tiny spark that flits over to your target. This mote of light sheds light like a candle, giving your target disadvantage on stealth checks, but also provides 1d4+spellcasting modifier healing and the same amount on each following turn.</p>\n<p dir=\"ltr\"><strong>Cast at Higher Levels.</strong> For every level above 2nd, you may target an additional creature.</p>",
-		"favorite": false,
-		"secretDescription": "",
-		"source": {
-			"name": "Spells from the Forgotten Vault",
-			"link": "https://bit.ly/3nyQbOt",
-			"publisher": "purpleMartinGames"
-		},
-		"uses": {
-			"value": null,
-			"max": "",
-			"per": null,
-			"recharge": {
-				"formula": "1d6",
-				"threshold": "6"
-			}
-		},
-		"schema": {
-			"version": null,
-			"lastMigration": null
-		},
-		"classes": [
-			"cleric",
-			"druid",
-			"warlock"
-		],
-		"components": {
-			"vocalized": false,
-			"seen": true,
-			"material": true
-		},
-		"concentration": true,
-		"level": 2,
-		"materials": "The secretions of a phosphorescent mushroom or animal",
-		"materialsConsumed": false,
-		"prepared": false,
-		"prerequisite": "",
-		"rare": false,
-		"ritual": false,
-		"schools": {
-			"primary": "conjuration",
-			"secondary": [
-				"healing"
-			]
-		},
-		"schemaVersion": {
-			"version": 0.013,
-			"lastMigration": {
-				"version": {
-					"schema": 0.011,
-					"foundry": "11.315",
-					"system": "0.16.49"
-				}
-			}
-		}
-	},
-	"effects": [],
-	"flags": {},
-	"_id": "ir93j9vdoc5lwggw"
+  "folder": null,
+  "name": "Lightbead",
+  "type": "spell",
+  "img": "icons/magic/light/hand-sparks-smoke-green.webp",
+  "system": {
+    "actions": {
+      "GegJAQRs3QpOaOTQ": {
+        "name": "Cast Spell",
+        "activation": {
+          "type": "action",
+          "cost": 1
+        },
+        "consumers": {
+          "iQ8D8Uixw4iencMz": {
+            "type": "spell",
+            "default": true,
+            "mode": "variable",
+            "spellLevel": 2,
+            "points": 3
+          }
+        },
+        "rolls": {
+          "sy7hf4AHW5Q0vpG2": {
+            "type": "healing",
+            "default": true,
+            "formula": "1d4 + @spell.mod"
+          }
+        },
+        "prompts": {},
+        "uses": {
+          "value": 0,
+          "max": "",
+          "per": "",
+          "recharge": {
+            "formula": "1d6",
+            "threshold": 6
+          }
+        },
+        "duration": {
+          "unit": "special"
+        },
+        "ranges": {
+          "woMnoHCAr1fHWQTc": {
+            "range": "medium"
+          }
+        },
+        "target": {
+          "type": "creature",
+          "quantity": 1,
+          "scaling": {
+            "mode": "spellLevel",
+            "formula": "1"
+          }
+        }
+      },
+      "3ycTKUAZLdfuAGEF": {
+        "name": "Heal",
+        "activation": {
+          "type": "none"
+        },
+        "consumers": {},
+        "rolls": {
+          "8ALBe47EImzNPz2T": {
+            "type": "healing",
+            "default": true,
+            "formula": "1d4 + @spell.mod"
+          }
+        },
+        "prompts": {},
+        "uses": {
+          "value": 0,
+          "max": "",
+          "per": "",
+          "recharge": {
+            "formula": "1d6",
+            "threshold": 6
+          }
+        },
+        "duration": {
+          "unit": "instantaneous"
+        },
+        "target": {
+          "type": "creature",
+          "quantity": 1
+        }
+      }
+    },
+    "description": "<p dir=\"ltr\">Rubbing the glowing ooze between your fingertips you send up a tiny spark that flits over to your target. This mote of light sheds light like a candle, giving your target disadvantage on stealth checks, but also provides 1d4+spellcasting modifier healing and the same amount on each following turn.</p>\n<p dir=\"ltr\"><strong>Cast at Higher Levels.</strong> For every level above 2nd, you may target an additional creature.</p>",
+    "favorite": false,
+    "secretDescription": "",
+    "source": "spellsFromTheForgottenVault",
+    "uses": {
+      "value": null,
+      "max": "",
+      "per": null,
+      "recharge": {
+        "formula": "1d6",
+        "threshold": "6"
+      }
+    },
+    "schema": {
+      "version": null,
+      "lastMigration": null
+    },
+    "classes": [
+      "cleric",
+      "druid",
+      "warlock"
+    ],
+    "components": {
+      "vocalized": false,
+      "seen": true,
+      "material": true
+    },
+    "concentration": true,
+    "level": 2,
+    "materials": "The secretions of a phosphorescent mushroom or animal",
+    "materialsConsumed": false,
+    "prepared": false,
+    "prerequisite": "",
+    "rare": false,
+    "ritual": false,
+    "schools": {
+      "primary": "conjuration",
+      "secondary": [
+        "healing"
+      ]
+    },
+    "schemaVersion": {
+      "version": 0.013,
+      "lastMigration": {
+        "version": {
+          "schema": 0.011,
+          "foundry": "11.315",
+          "system": "0.16.49"
+        }
+      }
+    }
+  },
+  "effects": [],
+  "flags": {},
+  "_id": "ir93j9vdoc5lwggw"
 }

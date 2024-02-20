@@ -1,133 +1,129 @@
 {
-	"folder": null,
-	"name": "Lacerating Blast",
-	"type": "spell",
-	"img": "icons/magic/water/projectiles-ice-faceted-salvo-gray.webp",
-	"system": {
-		"actions": {
-			"msDdF0GieE8Pslrw": {
-				"name": "Cast Spell",
-				"activation": {
-					"type": "action",
-					"cost": 1
-				},
-				"consumers": {
-					"In5JfhZV6HUogfAW": {
-						"type": "spell",
-						"default": true,
-						"mode": "variable",
-						"spellLevel": 2,
-						"points": 3
-					}
-				},
-				"rolls": {
-					"dl4NeGeRwaxdiCSk": {
-						"type": "damage",
-						"default": true,
-						"formula": "4d4",
-						"damageType": "slashing",
-						"canCrit": false,
-						"scaling": {
-							"mode": "spellLevel",
-							"formula": "1d4"
-						}
-					}
-				},
-				"prompts": {
-					"ur0ajxrFFOf1Q9YU": {
-						"type": "savingThrow",
-						"default": true,
-						"ability": "dex",
-						"saveDC": {
-							"type": "spellcasting"
-						},
-						"onSave": "Dexterity halves"
-					}
-				},
-				"uses": {
-					"value": 0,
-					"max": "",
-					"per": "",
-					"recharge": {
-						"formula": "1d6",
-						"threshold": 6
-					}
-				},
-				"duration": {
-					"unit": "instantaneous"
-				},
-				"ranges": {
-					"8Pp7VADLjlIj0Tvq": {
-						"range": "self"
-					}
-				},
-				"area": {
-					"shape": "cone",
-					"quantity": 1,
-					"length": 20,
-					"placeTemplate": true
-				}
-			}
-		},
-		"description": "<p>Razor-sharp shards of volcanic glass blast from your outstretched hand. Each creature in the area takes 4d4 slashing damage. A creature that fails its save also takes 1d4 ongoing slashing damage for one minute or until an action is used to stanch the bleeding.</p>\n<p><strong>Cast at Higher Levels. </strong>The initial and ongoing damage each increase by 1d4 for each spell slot level above 2nd.</p>",
-		"favorite": false,
-		"secretDescription": "",
-		"source": {
-			"name": "Spells from the Forgotten Vault",
-			"link": "https://bit.ly/3nyQbOt",
-			"publisher": "purpleMartinGames"
-		},
-		"uses": {
-			"value": null,
-			"max": "",
-			"per": null,
-			"recharge": {
-				"formula": "1d6",
-				"threshold": "6"
-			}
-		},
-		"schema": {
-			"version": null,
-			"lastMigration": null
-		},
-		"classes": [
-			"druid",
-			"elementalistEarth",
-			"sorcerer",
-			"warlock"
-		],
-		"components": {
-			"vocalized": true,
-			"seen": true,
-			"material": true
-		},
-		"concentration": false,
-		"level": 2,
-		"materials": "A piece of sharp obsidian",
-		"materialsConsumed": false,
-		"prepared": false,
-		"prerequisite": "",
-		"rare": false,
-		"ritual": false,
-		"schools": {
-			"primary": "conjuration",
-			"secondary": [
-				"arcane",
-				"earth"
-			]
-		},
-		"schemaVersion": {
-			"version": 0.013,
-			"lastMigration": {
-				"version": {
-					"schema": 0.011,
-					"foundry": "11.315",
-					"system": "0.16.49"
-				}
-			}
-		}
-	},
-	"effects": [],
-	"flags": {},
-	"_id": "hccxpt54fnokq3pl"
+  "folder": null,
+  "name": "Lacerating Blast",
+  "type": "spell",
+  "img": "icons/magic/water/projectiles-ice-faceted-salvo-gray.webp",
+  "system": {
+    "actions": {
+      "msDdF0GieE8Pslrw": {
+        "name": "Cast Spell",
+        "activation": {
+          "type": "action",
+          "cost": 1
+        },
+        "consumers": {
+          "In5JfhZV6HUogfAW": {
+            "type": "spell",
+            "default": true,
+            "mode": "variable",
+            "spellLevel": 2,
+            "points": 3
+          }
+        },
+        "rolls": {
+          "dl4NeGeRwaxdiCSk": {
+            "type": "damage",
+            "default": true,
+            "formula": "4d4",
+            "damageType": "slashing",
+            "canCrit": false,
+            "scaling": {
+              "mode": "spellLevel",
+              "formula": "1d4"
+            }
+          }
+        },
+        "prompts": {
+          "ur0ajxrFFOf1Q9YU": {
+            "type": "savingThrow",
+            "default": true,
+            "ability": "dex",
+            "saveDC": {
+              "type": "spellcasting"
+            },
+            "onSave": "Dexterity halves"
+          }
+        },
+        "uses": {
+          "value": 0,
+          "max": "",
+          "per": "",
+          "recharge": {
+            "formula": "1d6",
+            "threshold": 6
+          }
+        },
+        "duration": {
+          "unit": "instantaneous"
+        },
+        "ranges": {
+          "8Pp7VADLjlIj0Tvq": {
+            "range": "self"
+          }
+        },
+        "area": {
+          "shape": "cone",
+          "quantity": 1,
+          "length": 20,
+          "placeTemplate": true
+        }
+      }
+    },
+    "description": "<p>Razor-sharp shards of volcanic glass blast from your outstretched hand. Each creature in the area takes 4d4 slashing damage. A creature that fails its save also takes 1d4 ongoing slashing damage for one minute or until an action is used to stanch the bleeding.</p>\n<p><strong>Cast at Higher Levels. </strong>The initial and ongoing damage each increase by 1d4 for each spell slot level above 2nd.</p>",
+    "favorite": false,
+    "secretDescription": "",
+    "source": "spellsFromTheForgottenVault",
+    "uses": {
+      "value": null,
+      "max": "",
+      "per": null,
+      "recharge": {
+        "formula": "1d6",
+        "threshold": "6"
+      }
+    },
+    "schema": {
+      "version": null,
+      "lastMigration": null
+    },
+    "classes": [
+      "druid",
+      "elementalistEarth",
+      "sorcerer",
+      "warlock"
+    ],
+    "components": {
+      "vocalized": true,
+      "seen": true,
+      "material": true
+    },
+    "concentration": false,
+    "level": 2,
+    "materials": "A piece of sharp obsidian",
+    "materialsConsumed": false,
+    "prepared": false,
+    "prerequisite": "",
+    "rare": false,
+    "ritual": false,
+    "schools": {
+      "primary": "conjuration",
+      "secondary": [
+        "arcane",
+        "earth"
+      ]
+    },
+    "schemaVersion": {
+      "version": 0.013,
+      "lastMigration": {
+        "version": {
+          "schema": 0.011,
+          "foundry": "11.315",
+          "system": "0.16.49"
+        }
+      }
+    }
+  },
+  "effects": [],
+  "flags": {},
+  "_id": "hccxpt54fnokq3pl"
 }

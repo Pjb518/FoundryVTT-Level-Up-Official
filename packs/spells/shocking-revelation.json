@@ -1,127 +1,123 @@
 {
-	"folder": null,
-	"name": "Shocking Revelation",
-	"type": "spell",
-	"img": "icons/magic/lightning/bolt-strike-blue-white.webp",
-	"system": {
-		"actions": {
-			"xbzR70hKErZw3kGt": {
-				"name": "Cast Spell",
-				"activation": {
-					"type": "action",
-					"cost": 1
-				},
-				"consumers": {
-					"9PlsOKNHrpuNDejo": {
-						"type": "spell",
-						"default": true,
-						"mode": "variable",
-						"spellLevel": 1,
-						"points": 2
-					}
-				},
-				"rolls": {
-					"Oui4U1GooaokmQHO": {
-						"type": "damage",
-						"default": true,
-						"formula": "3d6",
-						"canCrit": false,
-						"damageType": "lightning"
-					}
-				},
-				"prompts": {
-					"bIPsdWhwjzzCAakH": {
-						"type": "savingThrow",
-						"default": true,
-						"ability": "con",
-						"saveDC": {
-							"type": "spellcasting"
-						}
-					}
-				},
-				"uses": {
-					"value": 0,
-					"max": "",
-					"per": "",
-					"recharge": {
-						"formula": "1d6",
-						"threshold": 6
-					}
-				},
-				"duration": {
-					"unit": "instantaneous"
-				},
-				"ranges": {
-					"jIQ1Tj2ZoN43Rwjt": {
-						"range": "short"
-					}
-				},
-				"target": {
-					"type": "creature",
-					"quantity": 1
-				}
-			}
-		},
-		"description": "<p dir=\"ltr\">You jolt the target into alertness.</p>\n<p dir=\"ltr\">The target must make a Constitution save or take 3d6 lightning damage and be rattled until the end of its next turn. A creature that succeeds takes half damage and is not rattled.</p>\n<p dir=\"ltr\">Regardless of whether the creature makes its save or not, it has advantage on Perception checks and Intelligence checks for the next minute.</p>",
-		"favorite": false,
-		"secretDescription": "",
-		"source": {
-			"name": "Spells from the Forgotten Vault",
-			"link": "https://bit.ly/3nyQbOt",
-			"publisher": "purpleMartinGames"
-		},
-		"uses": {
-			"value": null,
-			"max": "",
-			"per": null,
-			"recharge": {
-				"formula": "1d6",
-				"threshold": "6"
-			}
-		},
-		"schema": {
-			"version": null,
-			"lastMigration": null
-		},
-		"classes": [
-			"elementalistAir",
-			"sorcerer",
-			"warlock",
-			"wizard"
-		],
-		"components": {
-			"vocalized": true,
-			"seen": true,
-			"material": true
-		},
-		"concentration": false,
-		"level": 1,
-		"materials": "A small strip of hammered copper",
-		"materialsConsumed": false,
-		"prepared": false,
-		"prerequisite": "",
-		"rare": false,
-		"ritual": false,
-		"schools": {
-			"primary": "evocation",
-			"secondary": [
-				"enhancement",
-				"lightning",
-				"senses"
-			]
-		},
-		"schemaVersion": {
-			"version": 0.013,
-			"lastMigration": {
-				"version": {
-					"schema": 0.011,
-					"foundry": "11.315",
-					"system": "0.16.49"
-				}
-			}
-		}
-	},
-	"effects": [],
-	"flags": {},
-	"_id": "2wgori856f4pl1ip"
+  "folder": null,
+  "name": "Shocking Revelation",
+  "type": "spell",
+  "img": "icons/magic/lightning/bolt-strike-blue-white.webp",
+  "system": {
+    "actions": {
+      "xbzR70hKErZw3kGt": {
+        "name": "Cast Spell",
+        "activation": {
+          "type": "action",
+          "cost": 1
+        },
+        "consumers": {
+          "9PlsOKNHrpuNDejo": {
+            "type": "spell",
+            "default": true,
+            "mode": "variable",
+            "spellLevel": 1,
+            "points": 2
+          }
+        },
+        "rolls": {
+          "Oui4U1GooaokmQHO": {
+            "type": "damage",
+            "default": true,
+            "formula": "3d6",
+            "canCrit": false,
+            "damageType": "lightning"
+          }
+        },
+        "prompts": {
+          "bIPsdWhwjzzCAakH": {
+            "type": "savingThrow",
+            "default": true,
+            "ability": "con",
+            "saveDC": {
+              "type": "spellcasting"
+            }
+          }
+        },
+        "uses": {
+          "value": 0,
+          "max": "",
+          "per": "",
+          "recharge": {
+            "formula": "1d6",
+            "threshold": 6
+          }
+        },
+        "duration": {
+          "unit": "instantaneous"
+        },
+        "ranges": {
+          "jIQ1Tj2ZoN43Rwjt": {
+            "range": "short"
+          }
+        },
+        "target": {
+          "type": "creature",
+          "quantity": 1
+        }
+      }
+    },
+    "description": "<p dir=\"ltr\">You jolt the target into alertness.</p>\n<p dir=\"ltr\">The target must make a Constitution save or take 3d6 lightning damage and be rattled until the end of its next turn. A creature that succeeds takes half damage and is not rattled.</p>\n<p dir=\"ltr\">Regardless of whether the creature makes its save or not, it has advantage on Perception checks and Intelligence checks for the next minute.</p>",
+    "favorite": false,
+    "secretDescription": "",
+    "source": "spellsFromTheForgottenVault",
+    "uses": {
+      "value": null,
+      "max": "",
+      "per": null,
+      "recharge": {
+        "formula": "1d6",
+        "threshold": "6"
+      }
+    },
+    "schema": {
+      "version": null,
+      "lastMigration": null
+    },
+    "classes": [
+      "elementalistAir",
+      "sorcerer",
+      "warlock",
+      "wizard"
+    ],
+    "components": {
+      "vocalized": true,
+      "seen": true,
+      "material": true
+    },
+    "concentration": false,
+    "level": 1,
+    "materials": "A small strip of hammered copper",
+    "materialsConsumed": false,
+    "prepared": false,
+    "prerequisite": "",
+    "rare": false,
+    "ritual": false,
+    "schools": {
+      "primary": "evocation",
+      "secondary": [
+        "enhancement",
+        "lightning",
+        "senses"
+      ]
+    },
+    "schemaVersion": {
+      "version": 0.013,
+      "lastMigration": {
+        "version": {
+          "schema": 0.011,
+          "foundry": "11.315",
+          "system": "0.16.49"
+        }
+      }
+    }
+  },
+  "effects": [],
+  "flags": {},
+  "_id": "2wgori856f4pl1ip"
 }
