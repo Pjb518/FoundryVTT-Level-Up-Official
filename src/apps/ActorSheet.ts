@@ -412,12 +412,26 @@ export default class ActorSheet extends SvelteApplication {
 
     const documentID = this.token?.id ?? this.actor?.id;
     const documentUUID = this.token?.uuid ?? this.actor?.uuid;
+    const documentSource = CONFIG.A5E.products[this.actor?.system?.source];
+
+    if (documentSource?.abbreviation) {
+      const sourceLink = document.createElement('a');
+      sourceLink.classList.add('a5e-document-source-link');
+      sourceLink.setAttribute('alt', documentSource?.title);
+      sourceLink.dataset.tooltip = documentSource?.affiliate ? `${documentSource?.title}` : documentSource?.title;
+      sourceLink.dataset.tooltipDirection = 'DOWN';
+      sourceLink.innerHTML = `<i class="fa-solid fa-book-open"></i> ${documentSource?.abbreviation}`;
+      sourceLink.href = documentSource?.url;
+      sourceLink.target = '_blank';
+
+      sheetTitle.append(sourceLink);
+    }
 
     const idLink = document.createElement('a');
     idLink.classList.add('document-id-link');
     idLink.setAttribute('alt', 'Copy Document ID');
     idLink.dataset.tooltip = 'Copy Document ID';
-    idLink.dataset.tooltipDirection = 'UP';
+    idLink.dataset.tooltipDirection = 'DOWN';
     idLink.innerHTML = '<i class="fa-solid fa-passport"></i>';
 
     idLink.addEventListener('click', (event) => {
