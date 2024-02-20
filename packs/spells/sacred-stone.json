@@ -1,202 +1,202 @@
 {
-  "folder": null,
-  "name": "Sacred Stone",
-  "type": "spell",
-  "img": "icons/magic/symbols/runes-carved-stone-green.webp",
-  "system": {
-    "actions": {
-      "f5mDmLLjTnbg2tZm": {
-        "name": "Cast Spell",
-        "activation": {
-          "type": "action",
-          "cost": 1
-        },
-        "consumers": {
-          "kVyFQup2TzeHsiqr": {
-            "type": "spell",
-            "default": true,
-            "mode": "variable",
-            "spellLevel": 3,
-            "points": 5
-          }
-        },
-        "rolls": {},
-        "prompts": {},
-        "uses": {
-          "value": 0,
-          "max": "",
-          "per": "",
-          "recharge": {
-            "formula": "1d6",
-            "threshold": 6
-          }
-        },
-        "duration": {
-          "unit": "minute",
-          "value": 10
-        },
-        "target": {
-          "type": "self",
-          "quantity": 1
-        }
-      },
-      "46NpXG0o7j6rpZEH": {
-        "name": "Interpose Stone",
-        "activation": {
-          "type": "reaction",
-          "cost": 1,
-          "reactionTrigger": "When you are hit with an attack"
-        },
-        "consumers": {},
-        "rolls": {
-          "0IwazhbAlXDNNxOy": {
-            "type": "damage",
-            "default": true,
-            "canCrit": false,
-            "formula": "2d6",
-            "damageType": "radiant"
-          }
-        },
-        "prompts": {},
-        "uses": {
-          "value": 0,
-          "max": "",
-          "per": "",
-          "recharge": {
-            "formula": "1d6",
-            "threshold": 6
-          }
-        },
-        "duration": {
-          "unit": "instantaneous"
-        }
-      },
-      "Xsviq2jBY1T8yPJu": {
-        "name": "Blast",
-        "activation": {
-          "type": "bonusAction",
-          "cost": 1
-        },
-        "consumers": {},
-        "rolls": {
-          "9U9F6NyaLag2R3IS": {
-            "type": "attack",
-            "default": true,
-            "attackType": "rangedSpellAttack",
-            "proficient": true,
-            "ability": "spellcasting"
-          },
-          "L9Iy0MD2LxPAxkGm": {
-            "type": "damage",
-            "default": true,
-            "formula": "2d6",
-            "canCrit": false,
-            "damageType": "radiant"
-          }
-        },
-        "prompts": {},
-        "uses": {
-          "value": 0,
-          "max": "",
-          "per": "",
-          "recharge": {
-            "formula": "1d6",
-            "threshold": 6
-          }
-        },
-        "duration": {
-          "unit": "instantaneous"
-        }
-      },
-      "EmlxRRX7BRZwQraa": {
-        "name": "Stone Crumbles",
-        "activation": {
-          "type": "none",
-          "cost": 1
-        },
-        "consumers": {},
-        "rolls": {
-          "jKkJHO9x8ocndfll": {
-            "type": "healing",
-            "default": true,
-            "formula": "1d4"
-          }
-        },
-        "prompts": {},
-        "uses": {
-          "value": 0,
-          "max": "",
-          "per": "",
-          "recharge": {
-            "formula": "1d6",
-            "threshold": 6
-          }
-        },
-        "duration": {
-          "unit": "instantaneous"
-        },
-        "target": {
-          "type": "self",
-          "quantity": 1
-        }
-      }
-    },
-    "description": "<p dir=\"ltr\">You call up a floating tablet made of stone and inscribed with holy text to protect you and smite your enemies.</p>\n<p dir=\"ltr\">The stone begins with 3 charges. It orbits around your body, protecting you from attacks. The stone sheds bright light to a range equal to 10 feet times the number of charges remaining and dim light to double that range.</p>\n<p dir=\"ltr\">When you are hit with an attack, you may use your reaction to interpose the stone between you and the attack, granting you an AC bonus equal to the number of charges the stone has remaining against that attack, potentially turning the hit into a miss. Whenever an attack is canceled this way, the stone loses a charge and the attacking creature takes 2d6 points of radiant damage.</p>\n<p dir=\"ltr\">On your turn, you may use a bonus action to spend 1 or more charges from the stone to blast a target within 60 feet with a ranged spell attack. On a hit, the target takes 2d6 points of radiant damage for each charge spent this way.</p>\n<p dir=\"ltr\">When the last charge is spent, or if you drop or lose concentration on the spell, the stone crumbles away and you are healed a number of hit points equal to 1d4 + your spell modifier. This healing does not trigger if you are unconscious.</p>\n<p dir=\"ltr\"><strong id=\"docs-internal-guid-bdfa226a-7fff-1451-c06b-b25c264dadca\">Cast At Higher Levels.</strong> The stone begins with an additional charge for each spell slot level above 3rd.</p>",
-    "favorite": false,
-    "secretDescription": "",
-    "source": "spellsFromTheForgottenVault",
-    "uses": {
-      "value": null,
-      "max": "",
-      "per": null,
-      "recharge": {
-        "formula": "1d6",
-        "threshold": "6"
-      }
-    },
-    "schema": {
-      "version": null,
-      "lastMigration": null
-    },
-    "classes": [
-      "cleric",
-      "druid",
-      "herald"
-    ],
-    "components": {
-      "vocalized": true,
-      "seen": true,
-      "material": true
-    },
-    "concentration": true,
-    "level": 3,
-    "materials": "A small piece of sacred stone",
-    "materialsConsumed": false,
-    "prepared": false,
-    "prerequisite": "",
-    "rare": false,
-    "ritual": false,
-    "schools": {
-      "primary": "conjuration",
-      "secondary": [
-        "divine",
-        "protection",
-        "radiant",
-        "summoning"
-      ]
-    },
-    "schemaVersion": {
-      "version": 0.013,
-      "lastMigration": {
-        "version": {
-          "schema": 0.011,
-          "foundry": "11.315",
-          "system": "0.16.49"
-        }
-      }
-    }
-  },
-  "effects": [],
-  "flags": {},
-  "_id": "fkmu1qt9amtddmcs"
+	"folder": null,
+	"name": "Sacred Stone",
+	"type": "spell",
+	"img": "icons/magic/symbols/runes-carved-stone-green.webp",
+	"system": {
+		"actions": {
+			"f5mDmLLjTnbg2tZm": {
+				"name": "Cast Spell",
+				"activation": {
+					"type": "action",
+					"cost": 1
+				},
+				"consumers": {
+					"kVyFQup2TzeHsiqr": {
+						"type": "spell",
+						"default": true,
+						"mode": "variable",
+						"spellLevel": 3,
+						"points": 5
+					}
+				},
+				"rolls": {},
+				"prompts": {},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"threshold": 6
+					}
+				},
+				"duration": {
+					"unit": "minute",
+					"value": 10
+				},
+				"target": {
+					"type": "self",
+					"quantity": 1
+				}
+			},
+			"46NpXG0o7j6rpZEH": {
+				"name": "Interpose Stone",
+				"activation": {
+					"type": "reaction",
+					"cost": 1,
+					"reactionTrigger": "When you are hit with an attack"
+				},
+				"consumers": {},
+				"rolls": {
+					"0IwazhbAlXDNNxOy": {
+						"type": "damage",
+						"default": true,
+						"canCrit": false,
+						"formula": "2d6",
+						"damageType": "radiant"
+					}
+				},
+				"prompts": {},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"threshold": 6
+					}
+				},
+				"duration": {
+					"unit": "instantaneous"
+				}
+			},
+			"Xsviq2jBY1T8yPJu": {
+				"name": "Blast",
+				"activation": {
+					"type": "bonusAction",
+					"cost": 1
+				},
+				"consumers": {},
+				"rolls": {
+					"9U9F6NyaLag2R3IS": {
+						"type": "attack",
+						"default": true,
+						"attackType": "rangedSpellAttack",
+						"proficient": true,
+						"ability": "spellcasting"
+					},
+					"L9Iy0MD2LxPAxkGm": {
+						"type": "damage",
+						"default": true,
+						"formula": "2d6",
+						"canCrit": false,
+						"damageType": "radiant"
+					}
+				},
+				"prompts": {},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"threshold": 6
+					}
+				},
+				"duration": {
+					"unit": "instantaneous"
+				}
+			},
+			"EmlxRRX7BRZwQraa": {
+				"name": "Stone Crumbles",
+				"activation": {
+					"type": "none",
+					"cost": 1
+				},
+				"consumers": {},
+				"rolls": {
+					"jKkJHO9x8ocndfll": {
+						"type": "healing",
+						"default": true,
+						"formula": "1d4"
+					}
+				},
+				"prompts": {},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"threshold": 6
+					}
+				},
+				"duration": {
+					"unit": "instantaneous"
+				},
+				"target": {
+					"type": "self",
+					"quantity": 1
+				}
+			}
+		},
+		"description": "<p dir=\"ltr\">You call up a floating tablet made of stone and inscribed with holy text to protect you and smite your enemies.</p>\n<p dir=\"ltr\">The stone begins with 3 charges. It orbits around your body, protecting you from attacks. The stone sheds bright light to a range equal to 10 feet times the number of charges remaining and dim light to double that range.</p>\n<p dir=\"ltr\">When you are hit with an attack, you may use your reaction to interpose the stone between you and the attack, granting you an AC bonus equal to the number of charges the stone has remaining against that attack, potentially turning the hit into a miss. Whenever an attack is canceled this way, the stone loses a charge and the attacking creature takes 2d6 points of radiant damage.</p>\n<p dir=\"ltr\">On your turn, you may use a bonus action to spend 1 or more charges from the stone to blast a target within 60 feet with a ranged spell attack. On a hit, the target takes 2d6 points of radiant damage for each charge spent this way.</p>\n<p dir=\"ltr\">When the last charge is spent, or if you drop or lose concentration on the spell, the stone crumbles away and you are healed a number of hit points equal to 1d4 + your spell modifier. This healing does not trigger if you are unconscious.</p>\n<p dir=\"ltr\"><strong id=\"docs-internal-guid-bdfa226a-7fff-1451-c06b-b25c264dadca\">Cast At Higher Levels.</strong> The stone begins with an additional charge for each spell slot level above 3rd.</p>",
+		"favorite": false,
+		"secretDescription": "",
+		"source": "spellsFromTheForgottenVault",
+		"uses": {
+			"value": null,
+			"max": "",
+			"per": null,
+			"recharge": {
+				"formula": "1d6",
+				"threshold": "6"
+			}
+		},
+		"schema": {
+			"version": null,
+			"lastMigration": null
+		},
+		"classes": [
+			"cleric",
+			"druid",
+			"herald"
+		],
+		"components": {
+			"vocalized": true,
+			"seen": true,
+			"material": true
+		},
+		"concentration": true,
+		"level": 3,
+		"materials": "A small piece of sacred stone",
+		"materialsConsumed": false,
+		"prepared": false,
+		"prerequisite": "",
+		"rare": false,
+		"ritual": false,
+		"schools": {
+			"primary": "conjuration",
+			"secondary": [
+				"divine",
+				"protection",
+				"radiant",
+				"summoning"
+			]
+		},
+		"schemaVersion": {
+			"version": 0.013,
+			"lastMigration": {
+				"version": {
+					"schema": 0.011,
+					"foundry": "11.315",
+					"system": "0.16.49"
+				}
+			}
+		}
+	},
+	"effects": [],
+	"flags": {},
+	"_id": "fkmu1qt9amtddmcs"
 }

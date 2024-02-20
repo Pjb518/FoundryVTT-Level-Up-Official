@@ -1,180 +1,180 @@
 {
-  "folder": null,
-  "name": "Battle Stilts",
-  "type": "spell",
-  "img": "icons/commodities/wood/wood-pole.webp",
-  "system": {
-    "actions": {
-      "QqgIqdQ5uWMFzcxe": {
-        "name": "Cast Spell",
-        "activation": {
-          "type": "action",
-          "cost": 1
-        },
-        "consumers": {
-          "f99Gcid6sdmcKHPm": {
-            "type": "spell",
-            "default": true,
-            "mode": "variable",
-            "spellLevel": 1,
-            "points": 0
-          }
-        },
-        "rolls": {},
-        "prompts": {
-          "ZiRtYEsaKDlS3aia": {
-            "type": "effect",
-            "default": true,
-            "effectId": "DaQ5n02PelQ7SytI"
-          }
-        },
-        "uses": {
-          "value": 0,
-          "max": "",
-          "per": "",
-          "recharge": {
-            "formula": "1d6",
-            "threshold": 6
-          }
-        },
-        "duration": {
-          "unit": "minute",
-          "value": 10
-        },
-        "ranges": {
-          "cGbgzuDAZZX03DaP": {
-            "range": "self"
-          }
-        }
-      },
-      "vshPwFWxYPsp9qgn": {
-        "name": "Stilt Kick",
-        "activation": {
-          "type": "action",
-          "cost": 1
-        },
-        "consumers": {},
-        "rolls": {
-          "LqrPB4SIEHbgyNYm": {
-            "type": "attack",
-            "default": true,
-            "attackType": "meleeSpellAttack",
-            "proficient": true,
-            "ability": "spellcasting"
-          },
-          "lmuV5NT0CoXl8t93": {
-            "type": "damage",
-            "default": true,
-            "formula": "1d10 + @spell.moc",
-            "damageType": "bludgeoning"
-          }
-        },
-        "prompts": {},
-        "uses": {
-          "value": 0,
-          "max": "",
-          "per": "",
-          "recharge": {
-            "formula": "1d6",
-            "threshold": 6
-          }
-        },
-        "duration": {
-          "unit": "instantaneous"
-        },
-        "descriptionOutputs": []
-      }
-    },
-    "description": "<p dir=\"ltr\">You create a pair of stilts under your feet and grants you supernatural balance to use them.</p>\n<p dir=\"ltr\">While the stilts are in place, you can walk through hazardous liquid up to 10 feet deep without suffering ill effects, your height is 10 feet taller (and so you can reach or see over things further off the ground), you have disadvantage on Stealth checks, and you gain a vicious kick that functions as melee spell attack which deals 1d10 bludgeoning damage + your spellcasting modifier and has a reach of 10 feet.</p>\n<p dir=\"ltr\">Your stilts have hit points equal to your proficiency bonus + your caster level and an AC equal to your spell save DC. If your stilts are destroyed or dispelled, you fall. If you attempt to cast this spell in a location which would not accommodate your new height, it fails.</p>\n<p dir=\"ltr\"><strong id=\"docs-internal-guid-c249d3a2-7fff-9f83-1846-eaf106ebf190\">Cast at Higher Levels.</strong> The height of the stilts increases by 5 feet for every spell slot level above 1st, as does the reach of the kick attack. If you cast this spell with at least a 3rd-level spell slot, your movement speed increases by 10 feet. This increase occurs again at spell slot levels 5, 7, and 9. If you use at least a 4th-level spell slot to cast the spell, your stilts become spectral and can no longer be damaged, though the can still be dispelled. They also deal force damage instead of bludgeoning, and creatures on the ground must be at least Large size or use a reach weapon in order to target you with melee attacks. If you cast this spell with at least a 6th level spell slot, the attack damage increases to 2d10 and creatures on the ground must be at least Huge size or use a reach weapon in order to target you with melee attacks.</p>",
-    "favorite": false,
-    "secretDescription": "",
-    "source": "spellsFromTheForgottenVault",
-    "uses": {
-      "value": null,
-      "max": "",
-      "per": null,
-      "recharge": {
-        "formula": "1d6",
-        "threshold": "6"
-      }
-    },
-    "schema": {
-      "version": null,
-      "lastMigration": null
-    },
-    "classes": [
-      "wielder",
-      "wizard"
-    ],
-    "components": {
-      "vocalized": true,
-      "seen": true,
-      "material": true
-    },
-    "concentration": false,
-    "level": 1,
-    "materials": "A long, thin piece of wood such as a wand, stick, or ruler",
-    "materialsConsumed": false,
-    "prepared": false,
-    "prerequisite": "",
-    "rare": false,
-    "ritual": false,
-    "schools": {
-      "primary": "conjuration",
-      "secondary": [
-        "arcane",
-        "utility"
-      ]
-    },
-    "schemaVersion": {
-      "version": 0.013,
-      "lastMigration": {
-        "version": {
-          "schema": 0.011,
-          "foundry": "11.315",
-          "system": "0.16.49"
-        }
-      }
-    }
-  },
-  "effects": [
-    {
-      "icon": "icons/commodities/wood/wood-pole.webp",
-      "origin": "Item.68h87n3z12azsd0x",
-      "flags": {
-        "a5e": {
-          "sort": 0,
-          "transferType": "onUse",
-          "actionId": "QqgIqdQ5uWMFzcxe",
-          "applyToSelf": true
-        }
-      },
-      "transfer": false,
-      "name": "On Stilts",
-      "_id": "DaQ5n02PelQ7SytI",
-      "changes": [
-        {
-          "key": "flags.a5e.effects.rollMode.skillCheck.ste",
-          "value": "-1",
-          "mode": 6,
-          "priority": null
-        }
-      ],
-      "disabled": false,
-      "duration": {
-        "startTime": null,
-        "seconds": null,
-        "combat": null,
-        "rounds": null,
-        "turns": null,
-        "startRound": null,
-        "startTurn": null
-      },
-      "description": "",
-      "statuses": [],
-      "folder": null
-    }
-  ],
-  "flags": {},
-  "_id": "68h87n3z12azsd0x"
+	"folder": null,
+	"name": "Battle Stilts",
+	"type": "spell",
+	"img": "icons/commodities/wood/wood-pole.webp",
+	"system": {
+		"actions": {
+			"QqgIqdQ5uWMFzcxe": {
+				"name": "Cast Spell",
+				"activation": {
+					"type": "action",
+					"cost": 1
+				},
+				"consumers": {
+					"f99Gcid6sdmcKHPm": {
+						"type": "spell",
+						"default": true,
+						"mode": "variable",
+						"spellLevel": 1,
+						"points": 0
+					}
+				},
+				"rolls": {},
+				"prompts": {
+					"ZiRtYEsaKDlS3aia": {
+						"type": "effect",
+						"default": true,
+						"effectId": "DaQ5n02PelQ7SytI"
+					}
+				},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"threshold": 6
+					}
+				},
+				"duration": {
+					"unit": "minute",
+					"value": 10
+				},
+				"ranges": {
+					"cGbgzuDAZZX03DaP": {
+						"range": "self"
+					}
+				}
+			},
+			"vshPwFWxYPsp9qgn": {
+				"name": "Stilt Kick",
+				"activation": {
+					"type": "action",
+					"cost": 1
+				},
+				"consumers": {},
+				"rolls": {
+					"LqrPB4SIEHbgyNYm": {
+						"type": "attack",
+						"default": true,
+						"attackType": "meleeSpellAttack",
+						"proficient": true,
+						"ability": "spellcasting"
+					},
+					"lmuV5NT0CoXl8t93": {
+						"type": "damage",
+						"default": true,
+						"formula": "1d10 + @spell.moc",
+						"damageType": "bludgeoning"
+					}
+				},
+				"prompts": {},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"threshold": 6
+					}
+				},
+				"duration": {
+					"unit": "instantaneous"
+				},
+				"descriptionOutputs": []
+			}
+		},
+		"description": "<p dir=\"ltr\">You create a pair of stilts under your feet and grants you supernatural balance to use them.</p>\n<p dir=\"ltr\">While the stilts are in place, you can walk through hazardous liquid up to 10 feet deep without suffering ill effects, your height is 10 feet taller (and so you can reach or see over things further off the ground), you have disadvantage on Stealth checks, and you gain a vicious kick that functions as melee spell attack which deals 1d10 bludgeoning damage + your spellcasting modifier and has a reach of 10 feet.</p>\n<p dir=\"ltr\">Your stilts have hit points equal to your proficiency bonus + your caster level and an AC equal to your spell save DC. If your stilts are destroyed or dispelled, you fall. If you attempt to cast this spell in a location which would not accommodate your new height, it fails.</p>\n<p dir=\"ltr\"><strong id=\"docs-internal-guid-c249d3a2-7fff-9f83-1846-eaf106ebf190\">Cast at Higher Levels.</strong> The height of the stilts increases by 5 feet for every spell slot level above 1st, as does the reach of the kick attack. If you cast this spell with at least a 3rd-level spell slot, your movement speed increases by 10 feet. This increase occurs again at spell slot levels 5, 7, and 9. If you use at least a 4th-level spell slot to cast the spell, your stilts become spectral and can no longer be damaged, though the can still be dispelled. They also deal force damage instead of bludgeoning, and creatures on the ground must be at least Large size or use a reach weapon in order to target you with melee attacks. If you cast this spell with at least a 6th level spell slot, the attack damage increases to 2d10 and creatures on the ground must be at least Huge size or use a reach weapon in order to target you with melee attacks.</p>",
+		"favorite": false,
+		"secretDescription": "",
+		"source": "spellsFromTheForgottenVault",
+		"uses": {
+			"value": null,
+			"max": "",
+			"per": null,
+			"recharge": {
+				"formula": "1d6",
+				"threshold": "6"
+			}
+		},
+		"schema": {
+			"version": null,
+			"lastMigration": null
+		},
+		"classes": [
+			"wielder",
+			"wizard"
+		],
+		"components": {
+			"vocalized": true,
+			"seen": true,
+			"material": true
+		},
+		"concentration": false,
+		"level": 1,
+		"materials": "A long, thin piece of wood such as a wand, stick, or ruler",
+		"materialsConsumed": false,
+		"prepared": false,
+		"prerequisite": "",
+		"rare": false,
+		"ritual": false,
+		"schools": {
+			"primary": "conjuration",
+			"secondary": [
+				"arcane",
+				"utility"
+			]
+		},
+		"schemaVersion": {
+			"version": 0.013,
+			"lastMigration": {
+				"version": {
+					"schema": 0.011,
+					"foundry": "11.315",
+					"system": "0.16.49"
+				}
+			}
+		}
+	},
+	"effects": [
+		{
+			"icon": "icons/commodities/wood/wood-pole.webp",
+			"origin": "Item.68h87n3z12azsd0x",
+			"flags": {
+				"a5e": {
+					"sort": 0,
+					"transferType": "onUse",
+					"actionId": "QqgIqdQ5uWMFzcxe",
+					"applyToSelf": true
+				}
+			},
+			"transfer": false,
+			"name": "On Stilts",
+			"_id": "DaQ5n02PelQ7SytI",
+			"changes": [
+				{
+					"key": "flags.a5e.effects.rollMode.skillCheck.ste",
+					"value": "-1",
+					"mode": 6,
+					"priority": null
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": null,
+				"combat": null,
+				"rounds": null,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "",
+			"statuses": [],
+			"folder": null
+		}
+	],
+	"flags": {},
+	"_id": "68h87n3z12azsd0x"
 }

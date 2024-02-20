@@ -1,203 +1,203 @@
 {
-  "folder": null,
-  "name": "Babel Tongue",
-  "type": "spell",
-  "img": "icons/magic/control/hypnosis-mesmerism-swirl.webp",
-  "system": {
-    "actions": {
-      "jj4DmR3LgAvFTLwg": {
-        "name": "Cast Spell",
-        "activation": {
-          "type": "action",
-          "cost": 1
-        },
-        "consumers": {
-          "KlOURJr9rtDuBGZt": {
-            "type": "spell",
-            "default": true,
-            "mode": "variable",
-            "spellLevel": 2,
-            "points": 3
-          }
-        },
-        "rolls": {},
-        "prompts": {
-          "7dQePf2iolrVUwyk": {
-            "type": "savingThrow",
-            "default": true,
-            "ability": "int",
-            "saveDC": {
-              "type": "spellcasting"
-            }
-          },
-          "ncqeLn7AzuhAzIbh": {
-            "type": "effect",
-            "default": true,
-            "effectId": "vCfVmnmtpPyDol2P"
-          },
-          "tevQwpazkU6dkNZQ": {
-            "type": "effect",
-            "default": true,
-            "effectId": "7yD1AjSAxgxFqV2x"
-          }
-        },
-        "uses": {
-          "value": 0,
-          "max": "",
-          "per": "",
-          "recharge": {
-            "formula": "1d6",
-            "threshold": 6
-          }
-        },
-        "ranges": {
-          "y6hch43zs2M2Phyl": {
-            "range": "long"
-          }
-        },
-        "area": {
-          "shape": "circle",
-          "quantity": 1,
-          "radius": 30,
-          "placeTemplate": true
-        },
-        "duration": {
-          "unit": "hour",
-          "value": 8
-        }
-      }
-    },
-    "description": "<p dir=\"ltr\">You curse the language of your foes, casting them into disarray.</p>\n<p dir=\"ltr\">Each creature in the spell&rsquo;s area that fails its save immediately begins speaking a brand-new language unique to itself. The creature perceives itself as speaking the language it has always spoken, but in reality is instead speaking an entirely new tongue with its own vocabulary and grammar. This extends even to writing and sign language. The only way to communicate with affected creatures is via the tongues spell (or a comprehend languages spell for writing) or telepathy. An affected creature can repeat the saving throw every hour, ending the effect for itself on a success.</p>\n<p dir=\"ltr\">A creature that succeeds on its saving throw has disadvantage on all Intelligence ability checks and saves for one minute instead.</p>",
-    "favorite": false,
-    "secretDescription": "",
-    "source": "spellsFromTheForgottenVault",
-    "uses": {
-      "value": null,
-      "max": "",
-      "per": null,
-      "recharge": {
-        "formula": "1d6",
-        "threshold": "6"
-      }
-    },
-    "schema": {
-      "version": null,
-      "lastMigration": null
-    },
-    "classes": [
-      "cleric",
-      "wizard"
-    ],
-    "components": {
-      "vocalized": true,
-      "seen": true,
-      "material": false
-    },
-    "concentration": false,
-    "level": 2,
-    "materials": "",
-    "materialsConsumed": false,
-    "prepared": false,
-    "prerequisite": "",
-    "rare": false,
-    "ritual": false,
-    "schools": {
-      "primary": "enchantment",
-      "secondary": [
-        "affliction",
-        "chaos",
-        "compulsion",
-        "communication"
-      ]
-    },
-    "schemaVersion": {
-      "version": 0.013,
-      "lastMigration": {
-        "version": {
-          "schema": 0.011,
-          "foundry": "11.315",
-          "system": "0.16.49"
-        }
-      }
-    }
-  },
-  "effects": [
-    {
-      "icon": "icons/magic/control/hypnosis-mesmerism-swirl.webp",
-      "origin": "Item.d22ucrzshn77xlv2",
-      "flags": {
-        "a5e": {
-          "sort": 0,
-          "transferType": "onUse",
-          "actionId": "jj4DmR3LgAvFTLwg",
-          "duration": {
-            "unit": "hours"
-          }
-        }
-      },
-      "transfer": false,
-      "name": "Babel Tongue",
-      "_id": "vCfVmnmtpPyDol2P",
-      "changes": [],
-      "disabled": false,
-      "duration": {
-        "startTime": null,
-        "seconds": 28800,
-        "combat": null,
-        "rounds": null,
-        "turns": null,
-        "startRound": null,
-        "startTurn": null
-      },
-      "description": "<p>The creature perceives itself as speaking the language it has always spoken, but in reality is instead speaking an entirely new tongue with its own vocabulary and grammar. This extends even to writing and sign language. The only way to communicate with affected creatures is via the tongues spell (or a comprehend languages spell for writing) or telepathy. An affected creature can repeat the saving throw every hour, ending the effect for itself on a success.</p>",
-      "statuses": [],
-      "folder": null
-    },
-    {
-      "icon": "icons/magic/control/hypnosis-mesmerism-swirl.webp",
-      "origin": "Item.d22ucrzshn77xlv2",
-      "flags": {
-        "a5e": {
-          "sort": 0,
-          "transferType": "onUse",
-          "actionId": "jj4DmR3LgAvFTLwg",
-          "duration": {
-            "unit": "minutes"
-          }
-        }
-      },
-      "transfer": false,
-      "name": "Babel Tongue (Saved)",
-      "_id": "7yD1AjSAxgxFqV2x",
-      "changes": [
-        {
-          "key": "flags.a5e.effects.rollMode.abilityCheck.int",
-          "value": "-1",
-          "mode": 6,
-          "priority": null
-        },
-        {
-          "key": "flags.a5e.effects.rollMode.abilitySave.int",
-          "value": "-1",
-          "mode": 6,
-          "priority": null
-        }
-      ],
-      "disabled": false,
-      "duration": {
-        "startTime": null,
-        "seconds": 60,
-        "combat": null,
-        "rounds": null,
-        "turns": null,
-        "startRound": null,
-        "startTurn": null
-      },
-      "description": "<p>A creature that succeeds on its saving throw has disadvantage on all Intelligence ability checks and saves for one minute instead.</p>",
-      "statuses": [],
-      "folder": null
-    }
-  ],
-  "flags": {},
-  "_id": "d22ucrzshn77xlv2"
+	"folder": null,
+	"name": "Babel Tongue",
+	"type": "spell",
+	"img": "icons/magic/control/hypnosis-mesmerism-swirl.webp",
+	"system": {
+		"actions": {
+			"jj4DmR3LgAvFTLwg": {
+				"name": "Cast Spell",
+				"activation": {
+					"type": "action",
+					"cost": 1
+				},
+				"consumers": {
+					"KlOURJr9rtDuBGZt": {
+						"type": "spell",
+						"default": true,
+						"mode": "variable",
+						"spellLevel": 2,
+						"points": 3
+					}
+				},
+				"rolls": {},
+				"prompts": {
+					"7dQePf2iolrVUwyk": {
+						"type": "savingThrow",
+						"default": true,
+						"ability": "int",
+						"saveDC": {
+							"type": "spellcasting"
+						}
+					},
+					"ncqeLn7AzuhAzIbh": {
+						"type": "effect",
+						"default": true,
+						"effectId": "vCfVmnmtpPyDol2P"
+					},
+					"tevQwpazkU6dkNZQ": {
+						"type": "effect",
+						"default": true,
+						"effectId": "7yD1AjSAxgxFqV2x"
+					}
+				},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"threshold": 6
+					}
+				},
+				"ranges": {
+					"y6hch43zs2M2Phyl": {
+						"range": "long"
+					}
+				},
+				"area": {
+					"shape": "circle",
+					"quantity": 1,
+					"radius": 30,
+					"placeTemplate": true
+				},
+				"duration": {
+					"unit": "hour",
+					"value": 8
+				}
+			}
+		},
+		"description": "<p dir=\"ltr\">You curse the language of your foes, casting them into disarray.</p>\n<p dir=\"ltr\">Each creature in the spell&rsquo;s area that fails its save immediately begins speaking a brand-new language unique to itself. The creature perceives itself as speaking the language it has always spoken, but in reality is instead speaking an entirely new tongue with its own vocabulary and grammar. This extends even to writing and sign language. The only way to communicate with affected creatures is via the tongues spell (or a comprehend languages spell for writing) or telepathy. An affected creature can repeat the saving throw every hour, ending the effect for itself on a success.</p>\n<p dir=\"ltr\">A creature that succeeds on its saving throw has disadvantage on all Intelligence ability checks and saves for one minute instead.</p>",
+		"favorite": false,
+		"secretDescription": "",
+		"source": "spellsFromTheForgottenVault",
+		"uses": {
+			"value": null,
+			"max": "",
+			"per": null,
+			"recharge": {
+				"formula": "1d6",
+				"threshold": "6"
+			}
+		},
+		"schema": {
+			"version": null,
+			"lastMigration": null
+		},
+		"classes": [
+			"cleric",
+			"wizard"
+		],
+		"components": {
+			"vocalized": true,
+			"seen": true,
+			"material": false
+		},
+		"concentration": false,
+		"level": 2,
+		"materials": "",
+		"materialsConsumed": false,
+		"prepared": false,
+		"prerequisite": "",
+		"rare": false,
+		"ritual": false,
+		"schools": {
+			"primary": "enchantment",
+			"secondary": [
+				"affliction",
+				"chaos",
+				"compulsion",
+				"communication"
+			]
+		},
+		"schemaVersion": {
+			"version": 0.013,
+			"lastMigration": {
+				"version": {
+					"schema": 0.011,
+					"foundry": "11.315",
+					"system": "0.16.49"
+				}
+			}
+		}
+	},
+	"effects": [
+		{
+			"icon": "icons/magic/control/hypnosis-mesmerism-swirl.webp",
+			"origin": "Item.d22ucrzshn77xlv2",
+			"flags": {
+				"a5e": {
+					"sort": 0,
+					"transferType": "onUse",
+					"actionId": "jj4DmR3LgAvFTLwg",
+					"duration": {
+						"unit": "hours"
+					}
+				}
+			},
+			"transfer": false,
+			"name": "Babel Tongue",
+			"_id": "vCfVmnmtpPyDol2P",
+			"changes": [],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": 28800,
+				"combat": null,
+				"rounds": null,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "<p>The creature perceives itself as speaking the language it has always spoken, but in reality is instead speaking an entirely new tongue with its own vocabulary and grammar. This extends even to writing and sign language. The only way to communicate with affected creatures is via the tongues spell (or a comprehend languages spell for writing) or telepathy. An affected creature can repeat the saving throw every hour, ending the effect for itself on a success.</p>",
+			"statuses": [],
+			"folder": null
+		},
+		{
+			"icon": "icons/magic/control/hypnosis-mesmerism-swirl.webp",
+			"origin": "Item.d22ucrzshn77xlv2",
+			"flags": {
+				"a5e": {
+					"sort": 0,
+					"transferType": "onUse",
+					"actionId": "jj4DmR3LgAvFTLwg",
+					"duration": {
+						"unit": "minutes"
+					}
+				}
+			},
+			"transfer": false,
+			"name": "Babel Tongue (Saved)",
+			"_id": "7yD1AjSAxgxFqV2x",
+			"changes": [
+				{
+					"key": "flags.a5e.effects.rollMode.abilityCheck.int",
+					"value": "-1",
+					"mode": 6,
+					"priority": null
+				},
+				{
+					"key": "flags.a5e.effects.rollMode.abilitySave.int",
+					"value": "-1",
+					"mode": 6,
+					"priority": null
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": 60,
+				"combat": null,
+				"rounds": null,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "<p>A creature that succeeds on its saving throw has disadvantage on all Intelligence ability checks and saves for one minute instead.</p>",
+			"statuses": [],
+			"folder": null
+		}
+	],
+	"flags": {},
+	"_id": "d22ucrzshn77xlv2"
 }

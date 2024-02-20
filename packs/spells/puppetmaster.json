@@ -1,384 +1,384 @@
 {
-  "folder": null,
-  "name": "Puppetmaster",
-  "type": "spell",
-  "img": "icons/magic/control/control-influence-puppet.webp",
-  "system": {
-    "actions": {
-      "OgFYRfX7QNGjJIy7": {
-        "name": "Cast Spell",
-        "activation": {
-          "type": "action",
-          "cost": 1
-        },
-        "consumers": {
-          "7PduKsnu03i1E6BT": {
-            "type": "spell",
-            "default": true,
-            "mode": "variable",
-            "spellLevel": 7,
-            "points": 10
-          }
-        },
-        "rolls": {},
-        "prompts": {},
-        "uses": {
-          "value": 0,
-          "max": "",
-          "per": "",
-          "recharge": {
-            "formula": "1d6",
-            "threshold": 6
-          }
-        },
-        "target": {
-          "type": "creature",
-          "quantity": 6
-        },
-        "ranges": {
-          "YREXxZcTsb32fmbZ": {
-            "range": "medium"
-          }
-        },
-        "duration": {
-          "unit": "minute",
-          "value": 1
-        }
-      },
-      "sSlmrBsQgxr829rH": {
-        "name": "Break",
-        "activation": {
-          "type": "bonusAction",
-          "cost": 1
-        },
-        "consumers": {},
-        "rolls": {
-          "4r5uohe92BnRGzdR": {
-            "type": "damage",
-            "default": true,
-            "formula": "3d8 + @int.mod",
-            "damageType": "necrotic"
-          }
-        },
-        "prompts": {
-          "4lLx9UmahzdVgIy8": {
-            "type": "savingThrow",
-            "default": true,
-            "ability": "cha",
-            "saveDC": {
-              "type": "spellcasting"
-            }
-          }
-        },
-        "uses": {
-          "value": 0,
-          "max": "",
-          "per": "",
-          "recharge": {
-            "formula": "1d6",
-            "threshold": 6
-          }
-        },
-        "duration": {
-          "unit": "instantaneous"
-        },
-        "descriptionOutputs": [
-          "action"
-        ],
-        "description": "<p>By snapping a limb of the doll, you cause intense pain in your target. The target takes 3d8+int modifier necrotic damage. If you break an arm, the creature takes disadvantage on attack rolls during the remaining duration. If you break a leg the target&rsquo;s movement speed is halved. You may only attempt to use this action once per limb the target possesses.</p>"
-      },
-      "Bgadu3EbBw3K4xyA": {
-        "name": "Control",
-        "activation": {
-          "type": "bonusAction",
-          "cost": 1
-        },
-        "consumers": {},
-        "rolls": {},
-        "prompts": {
-          "Yu2faO8DkWmlCRPB": {
-            "type": "savingThrow",
-            "default": true,
-            "ability": "cha",
-            "saveDC": {
-              "type": "spellcasting"
-            }
-          }
-        },
-        "uses": {
-          "value": 0,
-          "max": "",
-          "per": "",
-          "recharge": {
-            "formula": "1d6",
-            "threshold": 6
-          }
-        },
-        "duration": {
-          "unit": "instantaneous"
-        },
-        "descriptionOutputs": [
-          "action"
-        ],
-        "description": "<p>By sharply turning the doll in your hand, you force the target of your spell to lash out, making a weapon attack against a target of your choosing with any weapon the creature has readied.</p>"
-      },
-      "albTvkHTBlsY7TVL": {
-        "name": "Drown",
-        "activation": {
-          "type": "bonusAction",
-          "cost": 1
-        },
-        "consumers": {},
-        "rolls": {},
-        "prompts": {
-          "K50gl7t0leH6zZ7D": {
-            "type": "savingThrow",
-            "default": true,
-            "ability": "cha",
-            "saveDC": {
-              "type": "spellcasting"
-            }
-          }
-        },
-        "uses": {
-          "value": 0,
-          "max": "",
-          "per": "",
-          "recharge": {
-            "formula": "1d6",
-            "threshold": 6
-          }
-        },
-        "duration": {
-          "unit": "instantaneous"
-        },
-        "descriptionOutputs": [
-          "action"
-        ],
-        "description": "<p>If you have access to water you may dunk your figurine in water. This forces your target to hold their breath or begin drowning. However this action also causes the target to be capable of swimming through the air until the effigy is removed from the water.</p>"
-      },
-      "iC3W8Re0FieUad09": {
-        "name": "Fling",
-        "activation": {
-          "type": "bonusAction",
-          "cost": 1
-        },
-        "consumers": {},
-        "rolls": {},
-        "prompts": {
-          "TkWqJ7wscswtupS4": {
-            "type": "savingThrow",
-            "default": true,
-            "ability": "cha",
-            "saveDC": {
-              "type": "spellcasting"
-            }
-          }
-        },
-        "uses": {
-          "value": 0,
-          "max": "",
-          "per": "",
-          "recharge": {
-            "formula": "1d6",
-            "threshold": 6
-          }
-        },
-        "duration": {
-          "unit": "instantaneous"
-        },
-        "descriptionOutputs": [
-          "action"
-        ],
-        "description": "<p>By throwing your effigy, you also throw your target up to 60ft in a direction of your choosing, including upward. If you fling the effigy into a solid object, your target takes falling damage as if they had fallen 60ft.</p>"
-      },
-      "8eMUuIXv0mBnlZ48": {
-        "name": "Jerk",
-        "activation": {
-          "type": "bonusAction",
-          "cost": 1
-        },
-        "consumers": {},
-        "rolls": {},
-        "prompts": {
-          "hJOi5nGgRmA6jV87": {
-            "type": "savingThrow",
-            "default": true,
-            "ability": "cha",
-            "saveDC": {
-              "type": "spellcasting"
-            }
-          }
-        },
-        "uses": {
-          "value": 0,
-          "max": "",
-          "per": "",
-          "recharge": {
-            "formula": "1d6",
-            "threshold": 6
-          }
-        },
-        "duration": {
-          "unit": "instantaneous"
-        },
-        "descriptionOutputs": [
-          "action"
-        ],
-        "description": "<p>By jerking the effigy sharply you cause your target to move, jerkily and as if not under their own control, up to half their movement rate.</p>"
-      },
-      "xkDX0UogW83L2WHb": {
-        "name": "Slam",
-        "activation": {
-          "type": "bonusAction",
-          "cost": 1
-        },
-        "consumers": {},
-        "rolls": {},
-        "prompts": {
-          "2C1IK2oyAFKxNHli": {
-            "type": "savingThrow",
-            "default": true,
-            "ability": "cha",
-            "saveDC": {
-              "type": "spellcasting"
-            }
-          }
-        },
-        "uses": {
-          "value": 0,
-          "max": "",
-          "per": "",
-          "recharge": {
-            "formula": "1d6",
-            "threshold": 6
-          }
-        },
-        "duration": {
-          "unit": "instantaneous"
-        },
-        "descriptionOutputs": [
-          "action"
-        ],
-        "description": "<p>By slamming the doll against a solid surface, such as a table or the ground, you can force your target to become prone. If they attempt to get up on their turn, they must make a charisma save or waste half their movement doing so.</p>"
-      },
-      "ka9WqAx8kmc7u91X": {
-        "name": "Stab",
-        "activation": {
-          "type": "bonusAction",
-          "cost": 1
-        },
-        "consumers": {},
-        "rolls": {
-          "3n2CFKSIkIVUzUWL": {
-            "type": "damage",
-            "default": false,
-            "formula": "1d8 + @int.mod",
-            "damageType": "necrotic",
-            "canCrit": false,
-            "label": "Minor Damage"
-          },
-          "ffx0SIRDvhvvmcm9": {
-            "type": "damage",
-            "default": false,
-            "formula": "2d8 + @int.mod",
-            "canCrit": false,
-            "label": "Moderate Damage",
-            "damageType": "necrotic"
-          },
-          "LQQ1ofBRH2cI18z4": {
-            "type": "damage",
-            "default": true,
-            "formula": "3d8 + @int.mod",
-            "canCrit": false,
-            "label": "Severe Damage",
-            "damageType": "necrotic"
-          }
-        },
-        "prompts": {
-          "68kiYzNoJ448plZA": {
-            "type": "savingThrow",
-            "default": true,
-            "ability": "cha",
-            "saveDC": {
-              "type": "spellcasting"
-            }
-          }
-        },
-        "uses": {
-          "value": 0,
-          "max": "",
-          "per": "",
-          "recharge": {
-            "formula": "1d6",
-            "threshold": 6
-          }
-        },
-        "duration": {
-          "unit": "instantaneous"
-        },
-        "descriptionOutputs": [
-          "action"
-        ],
-        "description": "<p>Using a hatpin, dagger, or other sharp implement, you may stab the doll, dealing between 1d8+Int modifier and 3d8+Int modifier piercing or necrotic damage to your target. You may choose to do more or less damage by aiming for more or less sensitive parts of the effigy.</p>"
-      }
-    },
-    "description": "<p><strong>&nbsp;</strong>The puppets you control dance about you in the air, giving you access to all of them at once. As an action on each of your turns, and as part of casting this spell, you may choose one of the following options to apply to any, or all, of your targets. As a bonus action, you may choose one of the following options to apply to any of your targets not affected by your action.</p>\n<p dir=\"ltr\" role=\"presentation\"><strong>Break:</strong> By snapping a limb of the doll, you cause intense pain in your target. The target takes 3d8+int modifier necrotic damage. If you break an arm, the creature takes disadvantage on attack rolls during the remaining duration. If you break a leg the target&rsquo;s movement speed is halved. You may only attempt to use this action once per limb the target possesses.</p>\n<p dir=\"ltr\" role=\"presentation\"><strong>Control:</strong> By sharply turning the doll in your hand, you force the target of your spell to lash out, making a weapon attack against a target of your choosing with any weapon the creature has readied.</p>\n<p dir=\"ltr\" role=\"presentation\"><strong>Drown:</strong> If you have access to water you may dunk your figurine in water. This forces your target to hold their breath or begin drowning. However this action also causes the target to be capable of swimming through the air until the effigy is removed from the water.</p>\n<p dir=\"ltr\" role=\"presentation\"><strong>Fling:</strong> By throwing your effigy, you also throw your target up to 60ft in a direction of your choosing, including upward. If you fling the effigy into a solid object, your target takes falling damage as if they had fallen 60ft.</p>\n<p dir=\"ltr\" role=\"presentation\"><strong>Jerk: </strong>By jerking the effigy sharply you cause your target to move, jerkily and as if not under their own control, up to half their movement rate.</p>\n<p dir=\"ltr\" role=\"presentation\"><strong>Slam:</strong> By slamming the doll against a solid surface, such as a table or the ground, you can force your target to become prone. If they attempt to get up on their turn, they must make a charisma save or waste half their movement doing so.</p>\n<p dir=\"ltr\" role=\"presentation\"><strong>Stab:</strong> Using a hatpin, dagger, or other sharp implement, you may stab the doll, dealing between 1d8+Int modifier and 3d8+Int modifier piercing or necrotic damage to your target. You may choose to do more or less damage by aiming for more or less sensitive parts of the effigy.</p>\n<p dir=\"ltr\">The creature may make charisma saving throws against any action you attempt to force them to perform. If you have created this effigy by spending ten minutes of preparation using an item owned by or body part (such as hair or fingernails) of your target, they have disadvantage on a charisma save to resist any of the individual effects. The spell can be ended early with remove curse or similar magic. If you created an effigy using the create likeness spell, the target makes their saves normally.The spell does not end on a successful save, but the effect does not take hold.</p>",
-    "favorite": false,
-    "secretDescription": "",
-    "source": "spellsFromTheForgottenVault",
-    "uses": {
-      "value": null,
-      "max": "",
-      "per": null,
-      "recharge": {
-        "formula": "1d6",
-        "threshold": "6"
-      }
-    },
-    "schema": {
-      "version": null,
-      "lastMigration": null
-    },
-    "classes": [
-      "druid",
-      "warlock",
-      "witch",
-      "wizard"
-    ],
-    "components": {
-      "vocalized": false,
-      "seen": true,
-      "material": true
-    },
-    "concentration": true,
-    "level": 7,
-    "materials": "An effigy of each target",
-    "materialsConsumed": false,
-    "prepared": false,
-    "prerequisite": "",
-    "rare": false,
-    "ritual": false,
-    "schools": {
-      "primary": "enchantment",
-      "secondary": [
-        "affliction",
-        "compulsion",
-        "evil"
-      ]
-    },
-    "schemaVersion": {
-      "version": 0.013,
-      "lastMigration": {
-        "version": {
-          "schema": 0.011,
-          "foundry": "11.315",
-          "system": "0.16.49"
-        }
-      }
-    }
-  },
-  "effects": [],
-  "flags": {},
-  "_id": "7ogp39bnvhju7z2l"
+	"folder": null,
+	"name": "Puppetmaster",
+	"type": "spell",
+	"img": "icons/magic/control/control-influence-puppet.webp",
+	"system": {
+		"actions": {
+			"OgFYRfX7QNGjJIy7": {
+				"name": "Cast Spell",
+				"activation": {
+					"type": "action",
+					"cost": 1
+				},
+				"consumers": {
+					"7PduKsnu03i1E6BT": {
+						"type": "spell",
+						"default": true,
+						"mode": "variable",
+						"spellLevel": 7,
+						"points": 10
+					}
+				},
+				"rolls": {},
+				"prompts": {},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"threshold": 6
+					}
+				},
+				"target": {
+					"type": "creature",
+					"quantity": 6
+				},
+				"ranges": {
+					"YREXxZcTsb32fmbZ": {
+						"range": "medium"
+					}
+				},
+				"duration": {
+					"unit": "minute",
+					"value": 1
+				}
+			},
+			"sSlmrBsQgxr829rH": {
+				"name": "Break",
+				"activation": {
+					"type": "bonusAction",
+					"cost": 1
+				},
+				"consumers": {},
+				"rolls": {
+					"4r5uohe92BnRGzdR": {
+						"type": "damage",
+						"default": true,
+						"formula": "3d8 + @int.mod",
+						"damageType": "necrotic"
+					}
+				},
+				"prompts": {
+					"4lLx9UmahzdVgIy8": {
+						"type": "savingThrow",
+						"default": true,
+						"ability": "cha",
+						"saveDC": {
+							"type": "spellcasting"
+						}
+					}
+				},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"threshold": 6
+					}
+				},
+				"duration": {
+					"unit": "instantaneous"
+				},
+				"descriptionOutputs": [
+					"action"
+				],
+				"description": "<p>By snapping a limb of the doll, you cause intense pain in your target. The target takes 3d8+int modifier necrotic damage. If you break an arm, the creature takes disadvantage on attack rolls during the remaining duration. If you break a leg the target&rsquo;s movement speed is halved. You may only attempt to use this action once per limb the target possesses.</p>"
+			},
+			"Bgadu3EbBw3K4xyA": {
+				"name": "Control",
+				"activation": {
+					"type": "bonusAction",
+					"cost": 1
+				},
+				"consumers": {},
+				"rolls": {},
+				"prompts": {
+					"Yu2faO8DkWmlCRPB": {
+						"type": "savingThrow",
+						"default": true,
+						"ability": "cha",
+						"saveDC": {
+							"type": "spellcasting"
+						}
+					}
+				},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"threshold": 6
+					}
+				},
+				"duration": {
+					"unit": "instantaneous"
+				},
+				"descriptionOutputs": [
+					"action"
+				],
+				"description": "<p>By sharply turning the doll in your hand, you force the target of your spell to lash out, making a weapon attack against a target of your choosing with any weapon the creature has readied.</p>"
+			},
+			"albTvkHTBlsY7TVL": {
+				"name": "Drown",
+				"activation": {
+					"type": "bonusAction",
+					"cost": 1
+				},
+				"consumers": {},
+				"rolls": {},
+				"prompts": {
+					"K50gl7t0leH6zZ7D": {
+						"type": "savingThrow",
+						"default": true,
+						"ability": "cha",
+						"saveDC": {
+							"type": "spellcasting"
+						}
+					}
+				},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"threshold": 6
+					}
+				},
+				"duration": {
+					"unit": "instantaneous"
+				},
+				"descriptionOutputs": [
+					"action"
+				],
+				"description": "<p>If you have access to water you may dunk your figurine in water. This forces your target to hold their breath or begin drowning. However this action also causes the target to be capable of swimming through the air until the effigy is removed from the water.</p>"
+			},
+			"iC3W8Re0FieUad09": {
+				"name": "Fling",
+				"activation": {
+					"type": "bonusAction",
+					"cost": 1
+				},
+				"consumers": {},
+				"rolls": {},
+				"prompts": {
+					"TkWqJ7wscswtupS4": {
+						"type": "savingThrow",
+						"default": true,
+						"ability": "cha",
+						"saveDC": {
+							"type": "spellcasting"
+						}
+					}
+				},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"threshold": 6
+					}
+				},
+				"duration": {
+					"unit": "instantaneous"
+				},
+				"descriptionOutputs": [
+					"action"
+				],
+				"description": "<p>By throwing your effigy, you also throw your target up to 60ft in a direction of your choosing, including upward. If you fling the effigy into a solid object, your target takes falling damage as if they had fallen 60ft.</p>"
+			},
+			"8eMUuIXv0mBnlZ48": {
+				"name": "Jerk",
+				"activation": {
+					"type": "bonusAction",
+					"cost": 1
+				},
+				"consumers": {},
+				"rolls": {},
+				"prompts": {
+					"hJOi5nGgRmA6jV87": {
+						"type": "savingThrow",
+						"default": true,
+						"ability": "cha",
+						"saveDC": {
+							"type": "spellcasting"
+						}
+					}
+				},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"threshold": 6
+					}
+				},
+				"duration": {
+					"unit": "instantaneous"
+				},
+				"descriptionOutputs": [
+					"action"
+				],
+				"description": "<p>By jerking the effigy sharply you cause your target to move, jerkily and as if not under their own control, up to half their movement rate.</p>"
+			},
+			"xkDX0UogW83L2WHb": {
+				"name": "Slam",
+				"activation": {
+					"type": "bonusAction",
+					"cost": 1
+				},
+				"consumers": {},
+				"rolls": {},
+				"prompts": {
+					"2C1IK2oyAFKxNHli": {
+						"type": "savingThrow",
+						"default": true,
+						"ability": "cha",
+						"saveDC": {
+							"type": "spellcasting"
+						}
+					}
+				},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"threshold": 6
+					}
+				},
+				"duration": {
+					"unit": "instantaneous"
+				},
+				"descriptionOutputs": [
+					"action"
+				],
+				"description": "<p>By slamming the doll against a solid surface, such as a table or the ground, you can force your target to become prone. If they attempt to get up on their turn, they must make a charisma save or waste half their movement doing so.</p>"
+			},
+			"ka9WqAx8kmc7u91X": {
+				"name": "Stab",
+				"activation": {
+					"type": "bonusAction",
+					"cost": 1
+				},
+				"consumers": {},
+				"rolls": {
+					"3n2CFKSIkIVUzUWL": {
+						"type": "damage",
+						"default": false,
+						"formula": "1d8 + @int.mod",
+						"damageType": "necrotic",
+						"canCrit": false,
+						"label": "Minor Damage"
+					},
+					"ffx0SIRDvhvvmcm9": {
+						"type": "damage",
+						"default": false,
+						"formula": "2d8 + @int.mod",
+						"canCrit": false,
+						"label": "Moderate Damage",
+						"damageType": "necrotic"
+					},
+					"LQQ1ofBRH2cI18z4": {
+						"type": "damage",
+						"default": true,
+						"formula": "3d8 + @int.mod",
+						"canCrit": false,
+						"label": "Severe Damage",
+						"damageType": "necrotic"
+					}
+				},
+				"prompts": {
+					"68kiYzNoJ448plZA": {
+						"type": "savingThrow",
+						"default": true,
+						"ability": "cha",
+						"saveDC": {
+							"type": "spellcasting"
+						}
+					}
+				},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"threshold": 6
+					}
+				},
+				"duration": {
+					"unit": "instantaneous"
+				},
+				"descriptionOutputs": [
+					"action"
+				],
+				"description": "<p>Using a hatpin, dagger, or other sharp implement, you may stab the doll, dealing between 1d8+Int modifier and 3d8+Int modifier piercing or necrotic damage to your target. You may choose to do more or less damage by aiming for more or less sensitive parts of the effigy.</p>"
+			}
+		},
+		"description": "<p><strong>&nbsp;</strong>The puppets you control dance about you in the air, giving you access to all of them at once. As an action on each of your turns, and as part of casting this spell, you may choose one of the following options to apply to any, or all, of your targets. As a bonus action, you may choose one of the following options to apply to any of your targets not affected by your action.</p>\n<p dir=\"ltr\" role=\"presentation\"><strong>Break:</strong> By snapping a limb of the doll, you cause intense pain in your target. The target takes 3d8+int modifier necrotic damage. If you break an arm, the creature takes disadvantage on attack rolls during the remaining duration. If you break a leg the target&rsquo;s movement speed is halved. You may only attempt to use this action once per limb the target possesses.</p>\n<p dir=\"ltr\" role=\"presentation\"><strong>Control:</strong> By sharply turning the doll in your hand, you force the target of your spell to lash out, making a weapon attack against a target of your choosing with any weapon the creature has readied.</p>\n<p dir=\"ltr\" role=\"presentation\"><strong>Drown:</strong> If you have access to water you may dunk your figurine in water. This forces your target to hold their breath or begin drowning. However this action also causes the target to be capable of swimming through the air until the effigy is removed from the water.</p>\n<p dir=\"ltr\" role=\"presentation\"><strong>Fling:</strong> By throwing your effigy, you also throw your target up to 60ft in a direction of your choosing, including upward. If you fling the effigy into a solid object, your target takes falling damage as if they had fallen 60ft.</p>\n<p dir=\"ltr\" role=\"presentation\"><strong>Jerk: </strong>By jerking the effigy sharply you cause your target to move, jerkily and as if not under their own control, up to half their movement rate.</p>\n<p dir=\"ltr\" role=\"presentation\"><strong>Slam:</strong> By slamming the doll against a solid surface, such as a table or the ground, you can force your target to become prone. If they attempt to get up on their turn, they must make a charisma save or waste half their movement doing so.</p>\n<p dir=\"ltr\" role=\"presentation\"><strong>Stab:</strong> Using a hatpin, dagger, or other sharp implement, you may stab the doll, dealing between 1d8+Int modifier and 3d8+Int modifier piercing or necrotic damage to your target. You may choose to do more or less damage by aiming for more or less sensitive parts of the effigy.</p>\n<p dir=\"ltr\">The creature may make charisma saving throws against any action you attempt to force them to perform. If you have created this effigy by spending ten minutes of preparation using an item owned by or body part (such as hair or fingernails) of your target, they have disadvantage on a charisma save to resist any of the individual effects. The spell can be ended early with remove curse or similar magic. If you created an effigy using the create likeness spell, the target makes their saves normally.The spell does not end on a successful save, but the effect does not take hold.</p>",
+		"favorite": false,
+		"secretDescription": "",
+		"source": "spellsFromTheForgottenVault",
+		"uses": {
+			"value": null,
+			"max": "",
+			"per": null,
+			"recharge": {
+				"formula": "1d6",
+				"threshold": "6"
+			}
+		},
+		"schema": {
+			"version": null,
+			"lastMigration": null
+		},
+		"classes": [
+			"druid",
+			"warlock",
+			"witch",
+			"wizard"
+		],
+		"components": {
+			"vocalized": false,
+			"seen": true,
+			"material": true
+		},
+		"concentration": true,
+		"level": 7,
+		"materials": "An effigy of each target",
+		"materialsConsumed": false,
+		"prepared": false,
+		"prerequisite": "",
+		"rare": false,
+		"ritual": false,
+		"schools": {
+			"primary": "enchantment",
+			"secondary": [
+				"affliction",
+				"compulsion",
+				"evil"
+			]
+		},
+		"schemaVersion": {
+			"version": 0.013,
+			"lastMigration": {
+				"version": {
+					"schema": 0.011,
+					"foundry": "11.315",
+					"system": "0.16.49"
+				}
+			}
+		}
+	},
+	"effects": [],
+	"flags": {},
+	"_id": "7ogp39bnvhju7z2l"
 }

@@ -1,136 +1,136 @@
 {
-  "folder": null,
-  "name": "Hammerfall",
-  "type": "spell",
-  "img": "icons/skills/melee/strike-hammer-destructive-blue.webp",
-  "system": {
-    "actions": {
-      "uTash1G7fpG5VfVB": {
-        "name": "Cast Spell",
-        "activation": {
-          "type": "action",
-          "cost": 1
-        },
-        "consumers": {
-          "3laqk7SCpnFy6JIh": {
-            "type": "spell",
-            "default": true,
-            "mode": "variable",
-            "spellLevel": 1,
-            "points": 2
-          }
-        },
-        "rolls": {
-          "eyzfQ1SiIchTUB7g": {
-            "type": "damage",
-            "default": true,
-            "formula": "2d6",
-            "damageType": "thunder",
-            "canCrit": false
-          },
-          "tzSEbjqlsJ6s4oxQ": {
-            "type": "damage",
-            "default": true,
-            "canCrit": false,
-            "formula": "1d6",
-            "damageType": "thunder",
-            "label": "Additional damage vs target at cone origin"
-          }
-        },
-        "prompts": {
-          "IF4gDq7cKiPquG3o": {
-            "type": "savingThrow",
-            "default": true,
-            "ability": "str",
-            "saveDC": {
-              "type": "spellcasting"
-            },
-            "onSave": "Half Damage and Target is not Knocked Prone"
-          }
-        },
-        "uses": {
-          "value": 0,
-          "max": "",
-          "per": "",
-          "recharge": {
-            "formula": "1d6",
-            "threshold": 6
-          }
-        },
-        "duration": {
-          "unit": "instantaneous"
-        },
-        "ranges": {
-          "Kj5DAVUNnRQqR0vw": {
-            "range": "self"
-          }
-        },
-        "area": {
-          "shape": "cone",
-          "quantity": 1,
-          "length": 20,
-          "placeTemplate": true
-        }
-      }
-    },
-    "description": "<p dir=\"ltr\">You strike the ground before you with the force of all the hammers of all the forges to drive your enemies to their knees.</p>\n<p dir=\"ltr\">Creatures in the spell&rsquo;s area must make a Strength save or are knocked prone and take 2d6 bludgeoning damage. If a creature is in the space that you target to start the cone, that creature instead takes 3d6 damage and has disadvantage on their saving throw.</p>\n<p dir=\"ltr\">On a successful save the target takes half damage and is not knocked prone.</p>",
-    "favorite": false,
-    "secretDescription": "",
-    "source": "spellsFromTheForgottenVault",
-    "uses": {
-      "value": null,
-      "max": "",
-      "per": null,
-      "recharge": {
-        "formula": "1d6",
-        "threshold": "6"
-      }
-    },
-    "schema": {
-      "version": null,
-      "lastMigration": null
-    },
-    "classes": [
-      "cleric",
-      "elementalistEarth",
-      "sorcerer",
-      "warlock",
-      "wielder",
-      "wizard"
-    ],
-    "components": {
-      "vocalized": true,
-      "seen": true,
-      "material": true
-    },
-    "concentration": false,
-    "level": 1,
-    "materials": "A hammer of any size",
-    "materialsConsumed": false,
-    "prepared": false,
-    "prerequisite": "",
-    "rare": false,
-    "ritual": false,
-    "schools": {
-      "primary": "evocation",
-      "secondary": [
-        "arcane",
-        "earth",
-        "thunder"
-      ]
-    },
-    "schemaVersion": {
-      "version": 0.013,
-      "lastMigration": {
-        "version": {
-          "schema": 0.011,
-          "foundry": "11.315",
-          "system": "0.16.49"
-        }
-      }
-    }
-  },
-  "effects": [],
-  "flags": {},
-  "_id": "izoehsob81ijza3f"
+	"folder": null,
+	"name": "Hammerfall",
+	"type": "spell",
+	"img": "icons/skills/melee/strike-hammer-destructive-blue.webp",
+	"system": {
+		"actions": {
+			"uTash1G7fpG5VfVB": {
+				"name": "Cast Spell",
+				"activation": {
+					"type": "action",
+					"cost": 1
+				},
+				"consumers": {
+					"3laqk7SCpnFy6JIh": {
+						"type": "spell",
+						"default": true,
+						"mode": "variable",
+						"spellLevel": 1,
+						"points": 2
+					}
+				},
+				"rolls": {
+					"eyzfQ1SiIchTUB7g": {
+						"type": "damage",
+						"default": true,
+						"formula": "2d6",
+						"damageType": "thunder",
+						"canCrit": false
+					},
+					"tzSEbjqlsJ6s4oxQ": {
+						"type": "damage",
+						"default": true,
+						"canCrit": false,
+						"formula": "1d6",
+						"damageType": "thunder",
+						"label": "Additional damage vs target at cone origin"
+					}
+				},
+				"prompts": {
+					"IF4gDq7cKiPquG3o": {
+						"type": "savingThrow",
+						"default": true,
+						"ability": "str",
+						"saveDC": {
+							"type": "spellcasting"
+						},
+						"onSave": "Half Damage and Target is not Knocked Prone"
+					}
+				},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"threshold": 6
+					}
+				},
+				"duration": {
+					"unit": "instantaneous"
+				},
+				"ranges": {
+					"Kj5DAVUNnRQqR0vw": {
+						"range": "self"
+					}
+				},
+				"area": {
+					"shape": "cone",
+					"quantity": 1,
+					"length": 20,
+					"placeTemplate": true
+				}
+			}
+		},
+		"description": "<p dir=\"ltr\">You strike the ground before you with the force of all the hammers of all the forges to drive your enemies to their knees.</p>\n<p dir=\"ltr\">Creatures in the spell&rsquo;s area must make a Strength save or are knocked prone and take 2d6 bludgeoning damage. If a creature is in the space that you target to start the cone, that creature instead takes 3d6 damage and has disadvantage on their saving throw.</p>\n<p dir=\"ltr\">On a successful save the target takes half damage and is not knocked prone.</p>",
+		"favorite": false,
+		"secretDescription": "",
+		"source": "spellsFromTheForgottenVault",
+		"uses": {
+			"value": null,
+			"max": "",
+			"per": null,
+			"recharge": {
+				"formula": "1d6",
+				"threshold": "6"
+			}
+		},
+		"schema": {
+			"version": null,
+			"lastMigration": null
+		},
+		"classes": [
+			"cleric",
+			"elementalistEarth",
+			"sorcerer",
+			"warlock",
+			"wielder",
+			"wizard"
+		],
+		"components": {
+			"vocalized": true,
+			"seen": true,
+			"material": true
+		},
+		"concentration": false,
+		"level": 1,
+		"materials": "A hammer of any size",
+		"materialsConsumed": false,
+		"prepared": false,
+		"prerequisite": "",
+		"rare": false,
+		"ritual": false,
+		"schools": {
+			"primary": "evocation",
+			"secondary": [
+				"arcane",
+				"earth",
+				"thunder"
+			]
+		},
+		"schemaVersion": {
+			"version": 0.013,
+			"lastMigration": {
+				"version": {
+					"schema": 0.011,
+					"foundry": "11.315",
+					"system": "0.16.49"
+				}
+			}
+		}
+	},
+	"effects": [],
+	"flags": {},
+	"_id": "izoehsob81ijza3f"
 }

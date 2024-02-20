@@ -1,231 +1,231 @@
 {
-  "folder": null,
-  "name": "Resplendent Refraction",
-  "type": "spell",
-  "img": "icons/magic/light/explosion-star-glow-silhouette.webp",
-  "system": {
-    "actions": {
-      "QhtlmvRMn4iLPd8Y": {
-        "name": "Resplendent Refraction",
-        "activation": {
-          "type": "bonusAction",
-          "cost": 1
-        },
-        "consumers": {},
-        "rolls": {},
-        "prompts": {},
-        "uses": {
-          "value": 0,
-          "max": "",
-          "per": "",
-          "recharge": {
-            "formula": "1d6",
-            "threshold": 6
-          }
-        },
-        "duration": {
-          "unit": "minute",
-          "value": 1
-        },
-        "target": {
-          "type": "creature",
-          "quantity": 1
-        },
-        "ranges": {
-          "5ydfpJCg0cZJlokT": {
-            "range": "touch"
-          }
-        }
-      },
-      "9yIbEALiLUoAiZyZ": {
-        "name": "Light Beam",
-        "activation": {
-          "type": "action",
-          "cost": 1
-        },
-        "consumers": {},
-        "rolls": {
-          "hIVkD7nCcqKN4XDO": {
-            "type": "damage",
-            "default": false,
-            "damageType": "radiant",
-            "label": "Dim Light",
-            "formula": "1d10",
-            "scaling": {
-              "mode": "spellLevel",
-              "formula": "1d10"
-            }
-          },
-          "MNjuoyfOiQW7oah5": {
-            "type": "damage",
-            "default": false,
-            "label": "Bright Light",
-            "formula": "5d10",
-            "damageType": "radiant",
-            "scaling": {
-              "mode": "spellLevel",
-              "formula": "1d10"
-            }
-          }
-        },
-        "prompts": {
-          "JC0bQqWKb7BMp3Ay": {
-            "type": "savingThrow",
-            "default": true,
-            "ability": "con",
-            "saveDC": {
-              "type": "spellcasting"
-            },
-            "onSave": "half damage"
-          }
-        },
-        "uses": {
-          "value": 0,
-          "max": "",
-          "per": "",
-          "recharge": {
-            "formula": "1d6",
-            "threshold": 6
-          }
-        },
-        "descriptionOutputs": [
-          "action"
-        ],
-        "description": "<p>The target can use their action to fire a beam of reflected light in a 30-foot line. Each creature in that area must make a Constitution <span class=\"freelinking-link\">saving throw</span>&nbsp;, taking an amount of damage determined by the light level around the target on a failed save, or half as much on a successful one.</p>",
-        "duration": {
-          "unit": "instantaneous"
-        },
-        "area": {
-          "shape": "line",
-          "quantity": 1,
-          "length": 30,
-          "width": 5,
-          "placeTemplate": true
-        }
-      },
-      "HdgMXKTKlzYcgX1c": {
-        "name": "Reflect Light",
-        "activation": {
-          "type": "reaction",
-          "cost": 1,
-          "reactionTrigger": "Taking radiant damage"
-        },
-        "consumers": {},
-        "rolls": {
-          "lPKUtKMxgLAWzMuY": {
-            "type": "damage",
-            "default": false,
-            "formula": "1d10",
-            "label": "Dim Light",
-            "damageType": "radiant",
-            "scaling": {
-              "mode": "spellLevel",
-              "formula": "1d10"
-            }
-          },
-          "gAndYNH4dCvAdEcF": {
-            "type": "damage",
-            "default": false,
-            "label": "Bright Light",
-            "formula": "5d10",
-            "damageType": "radiant",
-            "scaling": {
-              "mode": "spellLevel",
-              "formula": "1d10"
-            }
-          }
-        },
-        "prompts": {
-          "SZQsqfMIA1z5ymyt": {
-            "type": "savingThrow",
-            "default": true,
-            "ability": "con",
-            "saveDC": {
-              "type": "spellcasting"
-            },
-            "onSave": "half damage"
-          }
-        },
-        "uses": {
-          "value": 0,
-          "max": "",
-          "per": "",
-          "recharge": {
-            "formula": "1d6",
-            "threshold": 6
-          }
-        },
-        "description": "<p>Whenever the target would take radiant damage (from a source other than this spell), it may instead reflect it as a reaction. If it does, it gains <span class=\"freelinking-link\">resistance</span>&nbsp;to the triggering damage and may immediately fire a beam at the attacker as if it were in bright light.</p>",
-        "descriptionOutputs": [
-          "action"
-        ],
-        "area": {
-          "shape": "line",
-          "quantity": 1,
-          "length": 30,
-          "width": 5,
-          "placeTemplate": true
-        },
-        "duration": {
-          "unit": "instantaneous"
-        }
-      }
-    },
-    "description": "<p>The target&rsquo;s skin becomes reflective and faceted like a finely cut gemstone. Until the spell ends, the target can use their action to fire a beam of reflected light in a 30-foot line. Each creature in that area must make a Constitution&nbsp;<span class=\"freelinking-link\">saving</span> throw&nbsp;, taking an amount of damage determined by the light level around the target on a failed save, or half as much on a successful one.</p>\n<p>In addition, whenever the target would take radiant damage (from a source other than this spell), it may instead reflect it as a reaction. If it does, it gains&nbsp;<span class=\"freelinking-link\">resistance</span>&nbsp;to the triggering damage and may immediately fire a beam at the attacker as if it were in bright light.</p>\n<div id=\"spell-body\">\n<div class=\"field field--name-body field--type-text-with-summary field--label-hidden field--item\">\n<table style=\"height: 100.781px;\" border=\"1\" width=\"550\" cellspacing=\"1\" cellpadding=\"1\">\n<thead>\n<tr style=\"height: 33.5938px;\">\n<td style=\"height: 33.5938px; width: 104.016px; text-align: center;\">Light Level</td>\n<td style=\"height: 33.5938px; width: 407.984px;\">Damage and Effects</td>\n</tr>\n</thead>\n<tbody>\n<tr style=\"height: 16.7969px;\">\n<td style=\"height: 16.7969px; width: 104.016px; text-align: center;\">Darkness</td>\n<td style=\"height: 16.7969px; width: 407.984px;\">Beams cannot be fired.</td>\n</tr>\n<tr style=\"height: 16.7969px;\">\n<td style=\"height: 16.7969px; width: 104.016px; text-align: center;\">Dim Light</td>\n<td style=\"height: 16.7969px; width: 407.984px;\">1d10 radiant damage</td>\n</tr>\n<tr style=\"height: 33.5938px;\">\n<td style=\"height: 33.5938px; width: 104.016px; text-align: center;\">Bright Light</td>\n<td style=\"height: 33.5938px; width: 407.984px;\">5d10 radiant damage, and on a failed save the creature is also&nbsp;<span class=\"freelinking-link\">blinded</span>&nbsp;until the end of their next turn</td>\n</tr>\n</tbody>\n</table>\n</div>\n</div>\n<div class=\"field field--name-field-spellcast-at-higher-levels field--type-text-long field--label-above\">\n<p class=\"field--label\"><strong>Cast at Higher Levels. </strong>This spell&rsquo;s damage increases by 1d10 in both&nbsp;<span class=\"freelinking-link\">dim light and bright light</span>&nbsp;for each slot level above 4th.</p>\n</div>\n<div class=\"spell-source rules-source\">\n<div class=\"field field--name-field-spell-source field--type-entity-reference field--label-inline\">&nbsp;</div>\n</div>",
-    "favorite": false,
-    "secretDescription": "",
-    "source": "gpg14",
-    "uses": {
-      "value": null,
-      "max": "",
-      "per": null,
-      "recharge": {
-        "formula": "1d6",
-        "threshold": "6"
-      }
-    },
-    "schema": {
-      "version": null,
-      "lastMigration": null
-    },
-    "classes": [
-      "bard",
-      "sorcerer",
-      "warlock"
-    ],
-    "components": {
-      "vocalized": true,
-      "seen": true,
-      "material": true
-    },
-    "concentration": true,
-    "level": 4,
-    "materials": "a gemstone worth at least 50 gp",
-    "materialsConsumed": false,
-    "prepared": false,
-    "prerequisite": "",
-    "rare": false,
-    "ritual": false,
-    "schools": {
-      "primary": "transmutation",
-      "secondary": [
-        "prismatic",
-        "protection",
-        "radiant"
-      ]
-    },
-    "schemaVersion": {
-      "version": 0.013,
-      "lastMigration": {
-        "version": {
-          "schema": 0.011,
-          "foundry": "11.315",
-          "system": "0.16.49"
-        }
-      }
-    }
-  },
-  "effects": [],
-  "flags": {},
-  "_id": "zmlvcsplwvc5snj3"
+	"folder": null,
+	"name": "Resplendent Refraction",
+	"type": "spell",
+	"img": "icons/magic/light/explosion-star-glow-silhouette.webp",
+	"system": {
+		"actions": {
+			"QhtlmvRMn4iLPd8Y": {
+				"name": "Resplendent Refraction",
+				"activation": {
+					"type": "bonusAction",
+					"cost": 1
+				},
+				"consumers": {},
+				"rolls": {},
+				"prompts": {},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"threshold": 6
+					}
+				},
+				"duration": {
+					"unit": "minute",
+					"value": 1
+				},
+				"target": {
+					"type": "creature",
+					"quantity": 1
+				},
+				"ranges": {
+					"5ydfpJCg0cZJlokT": {
+						"range": "touch"
+					}
+				}
+			},
+			"9yIbEALiLUoAiZyZ": {
+				"name": "Light Beam",
+				"activation": {
+					"type": "action",
+					"cost": 1
+				},
+				"consumers": {},
+				"rolls": {
+					"hIVkD7nCcqKN4XDO": {
+						"type": "damage",
+						"default": false,
+						"damageType": "radiant",
+						"label": "Dim Light",
+						"formula": "1d10",
+						"scaling": {
+							"mode": "spellLevel",
+							"formula": "1d10"
+						}
+					},
+					"MNjuoyfOiQW7oah5": {
+						"type": "damage",
+						"default": false,
+						"label": "Bright Light",
+						"formula": "5d10",
+						"damageType": "radiant",
+						"scaling": {
+							"mode": "spellLevel",
+							"formula": "1d10"
+						}
+					}
+				},
+				"prompts": {
+					"JC0bQqWKb7BMp3Ay": {
+						"type": "savingThrow",
+						"default": true,
+						"ability": "con",
+						"saveDC": {
+							"type": "spellcasting"
+						},
+						"onSave": "half damage"
+					}
+				},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"threshold": 6
+					}
+				},
+				"descriptionOutputs": [
+					"action"
+				],
+				"description": "<p>The target can use their action to fire a beam of reflected light in a 30-foot line. Each creature in that area must make a Constitution <span class=\"freelinking-link\">saving throw</span>&nbsp;, taking an amount of damage determined by the light level around the target on a failed save, or half as much on a successful one.</p>",
+				"duration": {
+					"unit": "instantaneous"
+				},
+				"area": {
+					"shape": "line",
+					"quantity": 1,
+					"length": 30,
+					"width": 5,
+					"placeTemplate": true
+				}
+			},
+			"HdgMXKTKlzYcgX1c": {
+				"name": "Reflect Light",
+				"activation": {
+					"type": "reaction",
+					"cost": 1,
+					"reactionTrigger": "Taking radiant damage"
+				},
+				"consumers": {},
+				"rolls": {
+					"lPKUtKMxgLAWzMuY": {
+						"type": "damage",
+						"default": false,
+						"formula": "1d10",
+						"label": "Dim Light",
+						"damageType": "radiant",
+						"scaling": {
+							"mode": "spellLevel",
+							"formula": "1d10"
+						}
+					},
+					"gAndYNH4dCvAdEcF": {
+						"type": "damage",
+						"default": false,
+						"label": "Bright Light",
+						"formula": "5d10",
+						"damageType": "radiant",
+						"scaling": {
+							"mode": "spellLevel",
+							"formula": "1d10"
+						}
+					}
+				},
+				"prompts": {
+					"SZQsqfMIA1z5ymyt": {
+						"type": "savingThrow",
+						"default": true,
+						"ability": "con",
+						"saveDC": {
+							"type": "spellcasting"
+						},
+						"onSave": "half damage"
+					}
+				},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"threshold": 6
+					}
+				},
+				"description": "<p>Whenever the target would take radiant damage (from a source other than this spell), it may instead reflect it as a reaction. If it does, it gains <span class=\"freelinking-link\">resistance</span>&nbsp;to the triggering damage and may immediately fire a beam at the attacker as if it were in bright light.</p>",
+				"descriptionOutputs": [
+					"action"
+				],
+				"area": {
+					"shape": "line",
+					"quantity": 1,
+					"length": 30,
+					"width": 5,
+					"placeTemplate": true
+				},
+				"duration": {
+					"unit": "instantaneous"
+				}
+			}
+		},
+		"description": "<p>The target&rsquo;s skin becomes reflective and faceted like a finely cut gemstone. Until the spell ends, the target can use their action to fire a beam of reflected light in a 30-foot line. Each creature in that area must make a Constitution&nbsp;<span class=\"freelinking-link\">saving</span> throw&nbsp;, taking an amount of damage determined by the light level around the target on a failed save, or half as much on a successful one.</p>\n<p>In addition, whenever the target would take radiant damage (from a source other than this spell), it may instead reflect it as a reaction. If it does, it gains&nbsp;<span class=\"freelinking-link\">resistance</span>&nbsp;to the triggering damage and may immediately fire a beam at the attacker as if it were in bright light.</p>\n<div id=\"spell-body\">\n<div class=\"field field--name-body field--type-text-with-summary field--label-hidden field--item\">\n<table style=\"height: 100.781px;\" border=\"1\" width=\"550\" cellspacing=\"1\" cellpadding=\"1\">\n<thead>\n<tr style=\"height: 33.5938px;\">\n<td style=\"height: 33.5938px; width: 104.016px; text-align: center;\">Light Level</td>\n<td style=\"height: 33.5938px; width: 407.984px;\">Damage and Effects</td>\n</tr>\n</thead>\n<tbody>\n<tr style=\"height: 16.7969px;\">\n<td style=\"height: 16.7969px; width: 104.016px; text-align: center;\">Darkness</td>\n<td style=\"height: 16.7969px; width: 407.984px;\">Beams cannot be fired.</td>\n</tr>\n<tr style=\"height: 16.7969px;\">\n<td style=\"height: 16.7969px; width: 104.016px; text-align: center;\">Dim Light</td>\n<td style=\"height: 16.7969px; width: 407.984px;\">1d10 radiant damage</td>\n</tr>\n<tr style=\"height: 33.5938px;\">\n<td style=\"height: 33.5938px; width: 104.016px; text-align: center;\">Bright Light</td>\n<td style=\"height: 33.5938px; width: 407.984px;\">5d10 radiant damage, and on a failed save the creature is also&nbsp;<span class=\"freelinking-link\">blinded</span>&nbsp;until the end of their next turn</td>\n</tr>\n</tbody>\n</table>\n</div>\n</div>\n<div class=\"field field--name-field-spellcast-at-higher-levels field--type-text-long field--label-above\">\n<p class=\"field--label\"><strong>Cast at Higher Levels. </strong>This spell&rsquo;s damage increases by 1d10 in both&nbsp;<span class=\"freelinking-link\">dim light and bright light</span>&nbsp;for each slot level above 4th.</p>\n</div>\n<div class=\"spell-source rules-source\">\n<div class=\"field field--name-field-spell-source field--type-entity-reference field--label-inline\">&nbsp;</div>\n</div>",
+		"favorite": false,
+		"secretDescription": "",
+		"source": "gpg14",
+		"uses": {
+			"value": null,
+			"max": "",
+			"per": null,
+			"recharge": {
+				"formula": "1d6",
+				"threshold": "6"
+			}
+		},
+		"schema": {
+			"version": null,
+			"lastMigration": null
+		},
+		"classes": [
+			"bard",
+			"sorcerer",
+			"warlock"
+		],
+		"components": {
+			"vocalized": true,
+			"seen": true,
+			"material": true
+		},
+		"concentration": true,
+		"level": 4,
+		"materials": "a gemstone worth at least 50 gp",
+		"materialsConsumed": false,
+		"prepared": false,
+		"prerequisite": "",
+		"rare": false,
+		"ritual": false,
+		"schools": {
+			"primary": "transmutation",
+			"secondary": [
+				"prismatic",
+				"protection",
+				"radiant"
+			]
+		},
+		"schemaVersion": {
+			"version": 0.013,
+			"lastMigration": {
+				"version": {
+					"schema": 0.011,
+					"foundry": "11.315",
+					"system": "0.16.49"
+				}
+			}
+		}
+	},
+	"effects": [],
+	"flags": {},
+	"_id": "zmlvcsplwvc5snj3"
 }

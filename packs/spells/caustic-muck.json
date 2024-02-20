@@ -1,165 +1,165 @@
 {
-  "folder": null,
-  "name": "Caustic Muck",
-  "type": "spell",
-  "img": "icons/magic/acid/dissolve-bone-white.webp",
-  "system": {
-    "actions": {
-      "RCEyoAUiOfAzzI34": {
-        "name": "Cast Spell",
-        "activation": {
-          "type": "action",
-          "cost": 1
-        },
-        "consumers": {
-          "5GJQqXmd1Y2znqHy": {
-            "type": "spell",
-            "default": true,
-            "mode": "variable",
-            "spellLevel": 3,
-            "points": 5
-          }
-        },
-        "rolls": {},
-        "prompts": {},
-        "uses": {
-          "value": 0,
-          "max": "",
-          "per": "",
-          "recharge": {
-            "formula": "1d6",
-            "threshold": 6
-          }
-        },
-        "duration": {
-          "unit": "minute",
-          "value": 10
-        },
-        "ranges": {
-          "bWtnXV8SHyPyfNkE": {
-            "range": "medium"
-          }
-        },
-        "area": {
-          "shape": "circle",
-          "quantity": 1,
-          "radius": 20,
-          "placeTemplate": true
-        }
-      },
-      "AKziF06XnLAJfvjc": {
-        "name": "Damage Creatures in the Affected Area",
-        "activation": {
-          "type": "none",
-          "cost": 1
-        },
-        "consumers": {},
-        "rolls": {
-          "eWyIcTmLFPW2rfST": {
-            "type": "damage",
-            "default": true,
-            "formula": "2d6",
-            "damageType": "acid",
-            "canCrit": false,
-            "scaling": {
-              "mode": "spellLevel",
-              "formula": "1d6"
-            }
-          },
-          "FoHSBlXYBMF2qsR9": {
-            "type": "damage",
-            "default": true,
-            "canCrit": false,
-            "label": "Additional damage vs creatures grappled by the muck",
-            "formula": "2d6",
-            "damageType": "acid",
-            "scaling": {
-              "mode": "spellLevel",
-              "formula": "1d6"
-            }
-          }
-        },
-        "prompts": {
-          "IL4nyF7wgKL0dQke": {
-            "type": "savingThrow",
-            "default": true,
-            "ability": "str",
-            "saveDC": {
-              "type": "spellcasting"
-            }
-          }
-        },
-        "uses": {
-          "value": 0,
-          "max": "",
-          "per": "",
-          "recharge": {
-            "formula": "1d6",
-            "threshold": 6
-          }
-        },
-        "duration": {
-          "unit": "instantaneous"
-        }
-      }
-    },
-    "description": "<p dir=\"ltr\">You soften a patch of dry ground you can see within range into a horrible caustic mire. The spell&rsquo;s area becomes difficult terrain. A creature that enters the area for the first time on its turn or begins its turn in the area must make a Strength saving throw or be grappled (escape DC equal to your spell save DC) and take 2d6 points of acid damage. A creature that begins its turn grappled by the spell also takes 2d6 points of acid damage.&nbsp;</p>\n<p dir=\"ltr\"><strong id=\"docs-internal-guid-fec4f85f-7fff-f8f5-0d13-3d645accc826\">Cast at Higher Levels. </strong>The acid damage increases by 1d6 for each spell slot level above 3rd.</p>",
-    "favorite": false,
-    "secretDescription": "",
-    "source": "spellsFromTheForgottenVault",
-    "uses": {
-      "value": null,
-      "max": "",
-      "per": null,
-      "recharge": {
-        "formula": "1d6",
-        "threshold": "6"
-      }
-    },
-    "schema": {
-      "version": null,
-      "lastMigration": null
-    },
-    "classes": [
-      "druid",
-      "elementalistEarth",
-      "warlock",
-      "witch",
-      "wizard"
-    ],
-    "components": {
-      "vocalized": true,
-      "seen": true,
-      "material": true
-    },
-    "concentration": false,
-    "level": 3,
-    "materials": "An acid flask; consumed by the casting of the spell",
-    "materialsConsumed": false,
-    "prepared": false,
-    "prerequisite": "",
-    "rare": false,
-    "ritual": false,
-    "schools": {
-      "primary": "transmutation",
-      "secondary": [
-        "acid",
-        "earth",
-        "terrain"
-      ]
-    },
-    "schemaVersion": {
-      "version": 0.013,
-      "lastMigration": {
-        "version": {
-          "schema": 0.011,
-          "foundry": "11.315",
-          "system": "0.16.49"
-        }
-      }
-    }
-  },
-  "effects": [],
-  "flags": {},
-  "_id": "lc2gxaul1pp1582i"
+	"folder": null,
+	"name": "Caustic Muck",
+	"type": "spell",
+	"img": "icons/magic/acid/dissolve-bone-white.webp",
+	"system": {
+		"actions": {
+			"RCEyoAUiOfAzzI34": {
+				"name": "Cast Spell",
+				"activation": {
+					"type": "action",
+					"cost": 1
+				},
+				"consumers": {
+					"5GJQqXmd1Y2znqHy": {
+						"type": "spell",
+						"default": true,
+						"mode": "variable",
+						"spellLevel": 3,
+						"points": 5
+					}
+				},
+				"rolls": {},
+				"prompts": {},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"threshold": 6
+					}
+				},
+				"duration": {
+					"unit": "minute",
+					"value": 10
+				},
+				"ranges": {
+					"bWtnXV8SHyPyfNkE": {
+						"range": "medium"
+					}
+				},
+				"area": {
+					"shape": "circle",
+					"quantity": 1,
+					"radius": 20,
+					"placeTemplate": true
+				}
+			},
+			"AKziF06XnLAJfvjc": {
+				"name": "Damage Creatures in the Affected Area",
+				"activation": {
+					"type": "none",
+					"cost": 1
+				},
+				"consumers": {},
+				"rolls": {
+					"eWyIcTmLFPW2rfST": {
+						"type": "damage",
+						"default": true,
+						"formula": "2d6",
+						"damageType": "acid",
+						"canCrit": false,
+						"scaling": {
+							"mode": "spellLevel",
+							"formula": "1d6"
+						}
+					},
+					"FoHSBlXYBMF2qsR9": {
+						"type": "damage",
+						"default": true,
+						"canCrit": false,
+						"label": "Additional damage vs creatures grappled by the muck",
+						"formula": "2d6",
+						"damageType": "acid",
+						"scaling": {
+							"mode": "spellLevel",
+							"formula": "1d6"
+						}
+					}
+				},
+				"prompts": {
+					"IL4nyF7wgKL0dQke": {
+						"type": "savingThrow",
+						"default": true,
+						"ability": "str",
+						"saveDC": {
+							"type": "spellcasting"
+						}
+					}
+				},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"threshold": 6
+					}
+				},
+				"duration": {
+					"unit": "instantaneous"
+				}
+			}
+		},
+		"description": "<p dir=\"ltr\">You soften a patch of dry ground you can see within range into a horrible caustic mire. The spell&rsquo;s area becomes difficult terrain. A creature that enters the area for the first time on its turn or begins its turn in the area must make a Strength saving throw or be grappled (escape DC equal to your spell save DC) and take 2d6 points of acid damage. A creature that begins its turn grappled by the spell also takes 2d6 points of acid damage.&nbsp;</p>\n<p dir=\"ltr\"><strong id=\"docs-internal-guid-fec4f85f-7fff-f8f5-0d13-3d645accc826\">Cast at Higher Levels. </strong>The acid damage increases by 1d6 for each spell slot level above 3rd.</p>",
+		"favorite": false,
+		"secretDescription": "",
+		"source": "spellsFromTheForgottenVault",
+		"uses": {
+			"value": null,
+			"max": "",
+			"per": null,
+			"recharge": {
+				"formula": "1d6",
+				"threshold": "6"
+			}
+		},
+		"schema": {
+			"version": null,
+			"lastMigration": null
+		},
+		"classes": [
+			"druid",
+			"elementalistEarth",
+			"warlock",
+			"witch",
+			"wizard"
+		],
+		"components": {
+			"vocalized": true,
+			"seen": true,
+			"material": true
+		},
+		"concentration": false,
+		"level": 3,
+		"materials": "An acid flask; consumed by the casting of the spell",
+		"materialsConsumed": false,
+		"prepared": false,
+		"prerequisite": "",
+		"rare": false,
+		"ritual": false,
+		"schools": {
+			"primary": "transmutation",
+			"secondary": [
+				"acid",
+				"earth",
+				"terrain"
+			]
+		},
+		"schemaVersion": {
+			"version": 0.013,
+			"lastMigration": {
+				"version": {
+					"schema": 0.011,
+					"foundry": "11.315",
+					"system": "0.16.49"
+				}
+			}
+		}
+	},
+	"effects": [],
+	"flags": {},
+	"_id": "lc2gxaul1pp1582i"
 }

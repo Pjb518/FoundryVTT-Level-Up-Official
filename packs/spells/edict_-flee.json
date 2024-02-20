@@ -1,168 +1,168 @@
 {
-  "folder": null,
-  "name": "Edict: Flee",
-  "type": "spell",
-  "img": "icons/skills/movement/figure-running-gray.webp",
-  "system": {
-    "actions": {
-      "pby9X2yqn7j9hXhj": {
-        "name": "Cast Spell",
-        "activation": {
-          "type": "action",
-          "cost": 1
-        },
-        "consumers": {
-          "Xf5tndcGSglxRCTY": {
-            "type": "spell",
-            "default": true,
-            "mode": "variable",
-            "spellLevel": 4,
-            "points": 6
-          }
-        },
-        "rolls": {
-          "9RSK3r1UuEO6ZMHL": {
-            "type": "damage",
-            "default": true,
-            "formula": "10d10",
-            "scaling": {
-              "mode": "spellLevel",
-              "formula": "2d10"
-            },
-            "canCrit": false
-          }
-        },
-        "prompts": {
-          "3nqfY8uVIh5cSKMF": {
-            "type": "effect",
-            "default": true,
-            "effectId": "2di5gGXvhhBstcOq"
-          }
-        },
-        "uses": {
-          "value": 0,
-          "max": "",
-          "per": "",
-          "recharge": {
-            "formula": "1d6",
-            "threshold": 6
-          }
-        },
-        "duration": {
-          "unit": "minute",
-          "value": 1
-        },
-        "area": {
-          "shape": "circle",
-          "quantity": 1,
-          "radius": 10,
-          "placeTemplate": true
-        },
-        "ranges": {
-          "Ilrl5SK2fZpYDsMp": {
-            "range": "medium"
-          }
-        }
-      }
-    },
-    "description": "<p dir=\"ltr\">With a single word, you send the targets into a blind panic to obey your will. Starting with the target with the lowest hit points (ignoring unconscious creatures), targets becomes frightened of you, and must spend its action to dash away from you as well as their normal movement. At the end of an affected creature&rsquo;s turns, it may make a charisma saving throw to end the effect, but whether it can see you or not is irrelevant and they continue to flee on each subsequent turn, expending their movement and taking the dash action, until they succeed at the saving throw or the spell ends.</p>\n<p dir=\"ltr\">As each target is frightened, subtract its hit points from the total before moving on to the next target. A target&rsquo;s hit points must be equal to or less than the total remaining for the spell to have any effect.</p>\n<p dir=\"ltr\">If the spell affects no creatures, the creature in the area with the lowest hit point total is rattled until the beginning of its next turn.</p>\n<p dir=\"ltr\"><strong id=\"docs-internal-guid-de537d83-7fff-10ac-686f-d3f63fbf9c0c\">Cast at Higher Levels.</strong> The spell affects an additional 2d10 hit points worth of creatures for each slot level above 4th.</p>",
-    "favorite": false,
-    "secretDescription": "",
-    "source": "spellsFromTheForgottenVault",
-    "uses": {
-      "value": null,
-      "max": "",
-      "per": null,
-      "recharge": {
-        "formula": "1d6",
-        "threshold": "6"
-      }
-    },
-    "schema": {
-      "version": null,
-      "lastMigration": null
-    },
-    "classes": [
-      "bard",
-      "cleric",
-      "druid",
-      "warlock",
-      "witch"
-    ],
-    "components": {
-      "vocalized": true,
-      "seen": false,
-      "material": false
-    },
-    "concentration": true,
-    "level": 4,
-    "materials": "",
-    "materialsConsumed": false,
-    "prepared": false,
-    "prerequisite": "",
-    "rare": false,
-    "ritual": false,
-    "schools": {
-      "primary": "enchantment",
-      "secondary": [
-        "compulsion",
-        "divine",
-        "fear"
-      ]
-    },
-    "schemaVersion": {
-      "version": 0.013,
-      "lastMigration": {
-        "version": {
-          "schema": 0.011,
-          "foundry": "11.315",
-          "system": "0.16.49"
-        }
-      }
-    }
-  },
-  "effects": [
-    {
-      "icon": "icons/skills/movement/figure-running-gray.webp",
-      "origin": "Item.6nkv4f8e2vqu5xtr",
-      "flags": {
-        "a5e": {
-          "sort": 0,
-          "transferType": "onUse",
-          "actionId": "pby9X2yqn7j9hXhj",
-          "duration": {
-            "unit": "minutes"
-          }
-        }
-      },
-      "transfer": false,
-      "name": "Fleeing",
-      "_id": "2di5gGXvhhBstcOq",
-      "changes": [
-        {
-          "key": "flags.a5e.effects.statusConditions",
-          "value": "[\"frightened\"]",
-          "mode": 0,
-          "priority": null
-        }
-      ],
-      "disabled": false,
-      "duration": {
-        "startTime": null,
-        "seconds": 60,
-        "combat": null,
-        "rounds": null,
-        "turns": null,
-        "startRound": null,
-        "startTurn": null
-      },
-      "description": "<p>Target becomes frightened of you, and must spend its action to dash away from you as well as their normal movement. At the end of an affected creature’s turns, it may make a charisma saving throw to end the effect, but whether it can see you or not is irrelevant and they continue to flee on each subsequent turn, expending their movement and taking the dash action, until they succeed at the saving throw or the spell ends.</p>",
-      "statuses": [
-        "frightened"
-      ],
-      "folder": null
-    }
-  ],
-  "flags": {},
-  "_id": "6nkv4f8e2vqu5xtr"
+	"folder": null,
+	"name": "Edict: Flee",
+	"type": "spell",
+	"img": "icons/skills/movement/figure-running-gray.webp",
+	"system": {
+		"actions": {
+			"pby9X2yqn7j9hXhj": {
+				"name": "Cast Spell",
+				"activation": {
+					"type": "action",
+					"cost": 1
+				},
+				"consumers": {
+					"Xf5tndcGSglxRCTY": {
+						"type": "spell",
+						"default": true,
+						"mode": "variable",
+						"spellLevel": 4,
+						"points": 6
+					}
+				},
+				"rolls": {
+					"9RSK3r1UuEO6ZMHL": {
+						"type": "damage",
+						"default": true,
+						"formula": "10d10",
+						"scaling": {
+							"mode": "spellLevel",
+							"formula": "2d10"
+						},
+						"canCrit": false
+					}
+				},
+				"prompts": {
+					"3nqfY8uVIh5cSKMF": {
+						"type": "effect",
+						"default": true,
+						"effectId": "2di5gGXvhhBstcOq"
+					}
+				},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"threshold": 6
+					}
+				},
+				"duration": {
+					"unit": "minute",
+					"value": 1
+				},
+				"area": {
+					"shape": "circle",
+					"quantity": 1,
+					"radius": 10,
+					"placeTemplate": true
+				},
+				"ranges": {
+					"Ilrl5SK2fZpYDsMp": {
+						"range": "medium"
+					}
+				}
+			}
+		},
+		"description": "<p dir=\"ltr\">With a single word, you send the targets into a blind panic to obey your will. Starting with the target with the lowest hit points (ignoring unconscious creatures), targets becomes frightened of you, and must spend its action to dash away from you as well as their normal movement. At the end of an affected creature&rsquo;s turns, it may make a charisma saving throw to end the effect, but whether it can see you or not is irrelevant and they continue to flee on each subsequent turn, expending their movement and taking the dash action, until they succeed at the saving throw or the spell ends.</p>\n<p dir=\"ltr\">As each target is frightened, subtract its hit points from the total before moving on to the next target. A target&rsquo;s hit points must be equal to or less than the total remaining for the spell to have any effect.</p>\n<p dir=\"ltr\">If the spell affects no creatures, the creature in the area with the lowest hit point total is rattled until the beginning of its next turn.</p>\n<p dir=\"ltr\"><strong id=\"docs-internal-guid-de537d83-7fff-10ac-686f-d3f63fbf9c0c\">Cast at Higher Levels.</strong> The spell affects an additional 2d10 hit points worth of creatures for each slot level above 4th.</p>",
+		"favorite": false,
+		"secretDescription": "",
+		"source": "spellsFromTheForgottenVault",
+		"uses": {
+			"value": null,
+			"max": "",
+			"per": null,
+			"recharge": {
+				"formula": "1d6",
+				"threshold": "6"
+			}
+		},
+		"schema": {
+			"version": null,
+			"lastMigration": null
+		},
+		"classes": [
+			"bard",
+			"cleric",
+			"druid",
+			"warlock",
+			"witch"
+		],
+		"components": {
+			"vocalized": true,
+			"seen": false,
+			"material": false
+		},
+		"concentration": true,
+		"level": 4,
+		"materials": "",
+		"materialsConsumed": false,
+		"prepared": false,
+		"prerequisite": "",
+		"rare": false,
+		"ritual": false,
+		"schools": {
+			"primary": "enchantment",
+			"secondary": [
+				"compulsion",
+				"divine",
+				"fear"
+			]
+		},
+		"schemaVersion": {
+			"version": 0.013,
+			"lastMigration": {
+				"version": {
+					"schema": 0.011,
+					"foundry": "11.315",
+					"system": "0.16.49"
+				}
+			}
+		}
+	},
+	"effects": [
+		{
+			"icon": "icons/skills/movement/figure-running-gray.webp",
+			"origin": "Item.6nkv4f8e2vqu5xtr",
+			"flags": {
+				"a5e": {
+					"sort": 0,
+					"transferType": "onUse",
+					"actionId": "pby9X2yqn7j9hXhj",
+					"duration": {
+						"unit": "minutes"
+					}
+				}
+			},
+			"transfer": false,
+			"name": "Fleeing",
+			"_id": "2di5gGXvhhBstcOq",
+			"changes": [
+				{
+					"key": "flags.a5e.effects.statusConditions",
+					"value": "[\"frightened\"]",
+					"mode": 0,
+					"priority": null
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": 60,
+				"combat": null,
+				"rounds": null,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "<p>Target becomes frightened of you, and must spend its action to dash away from you as well as their normal movement. At the end of an affected creature’s turns, it may make a charisma saving throw to end the effect, but whether it can see you or not is irrelevant and they continue to flee on each subsequent turn, expending their movement and taking the dash action, until they succeed at the saving throw or the spell ends.</p>",
+			"statuses": [
+				"frightened"
+			],
+			"folder": null
+		}
+	],
+	"flags": {},
+	"_id": "6nkv4f8e2vqu5xtr"
 }

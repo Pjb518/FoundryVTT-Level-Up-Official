@@ -1,193 +1,193 @@
 {
-  "name": "Elvatar's Thunderous Entrance",
-  "type": "spell",
-  "img": "icons/magic/sonic/projectile-shock-wave-blue.webp",
-  "system": {
-    "actions": {
-      "JSgNidgT3n37hph2": {
-        "name": "Cast Spell",
-        "activation": {
-          "type": "action",
-          "cost": 1
-        },
-        "consumers": {
-          "e9hqj6ZRnLdfFlg3": {
-            "type": "spell",
-            "default": true,
-            "mode": "variable",
-            "spellLevel": 4,
-            "points": 6
-          }
-        },
-        "rolls": {
-          "CO6iRMNogT94mzvB": {
-            "type": "damage",
-            "default": true,
-            "label": "Thunder Bolt",
-            "formula": "8d6",
-            "damageType": "thunder",
-            "scaling": {
-              "mode": "spellLevel",
-              "formula": "1d6"
-            }
-          },
-          "jSIKLAWFkIFvxCIZ": {
-            "type": "damage",
-            "default": false,
-            "label": "Flying Splinters",
-            "formula": "2d6",
-            "damageType": "slashing",
-            "canCrit": false,
-            "scaling": {
-              "mode": "spellLevel",
-              "formula": "1d6"
-            }
-          }
-        },
-        "prompts": {
-          "grh4bMyllhONQthy": {
-            "type": "savingThrow",
-            "default": true,
-            "ability": "dex",
-            "saveDC": {
-              "type": "spellcasting"
-            },
-            "onSave": "Half damage and negates deafness"
-          },
-          "tbsODzSZ1i6Iyru9": {
-            "type": "effect",
-            "default": true,
-            "effectId": "AeZNb16ixyr0pEdk"
-          }
-        },
-        "uses": {
-          "value": 0,
-          "max": "",
-          "per": "",
-          "recharge": {
-            "formula": "1d6",
-            "threshold": 6
-          }
-        },
-        "duration": {
-          "unit": "instantaneous"
-        },
-        "ranges": {
-          "nYypOsB6GyOLXC7k": {
-            "range": "long"
-          }
-        },
-        "area": {
-          "shape": "sphere",
-          "quantity": 1,
-          "radius": 20,
-          "placeTemplate": true
-        }
-      }
-    },
-    "description": "<p>A peal of thunder ripples from a point you can see within range. Each creature in the area takes 8d6 thunder damage and is deafened until the end of its next turn. If the area contains Large or larger nonmagical wood or stone objects, the objects take 8d6 thunder damage and creatures in the area that fail their saving throw take an additional 2d6 slashing damage from flying splinters. The thunderclap can be heard from 600 feet away.</p>\n<p><em><strong>Cast at Higher Levels.</strong></em> For every slot level above 4th, the thunder and slashing damage increase by 1d6, and the thunderclap can be heard from an additional 100 feet away.</p>\n<p><strong><em>Rare:</em> Elvatar&rsquo;s Thunderous Entrance.</strong> After the spell deals damage, you can teleport to the center of the area.</p>",
-    "favorite": false,
-    "secretDescription": "",
-    "source": "",
-    "uses": {
-      "value": null,
-      "max": "",
-      "per": null,
-      "recharge": {
-        "formula": "1d6",
-        "threshold": "6"
-      }
-    },
-    "schema": {
-      "version": null,
-      "lastMigration": null
-    },
-    "classes": [
-      "bard",
-      "druid",
-      "sorcerer",
-      "wizard"
-    ],
-    "components": {
-      "vocalized": true,
-      "seen": true,
-      "material": true
-    },
-    "concentration": false,
-    "level": 4,
-    "materials": "tiny sheet of metal",
-    "materialsConsumed": false,
-    "prepared": false,
-    "prerequisite": "",
-    "rare": true,
-    "ritual": false,
-    "schools": {
-      "primary": "evocation",
-      "secondary": [
-        "arcane",
-        "attack",
-        "nature",
-        "sound",
-        "storm",
-        "thunder"
-      ]
-    },
-    "schemaVersion": {
-      "version": 0.013,
-      "lastMigration": {
-        "version": {
-          "schema": 0.011,
-          "foundry": "11.315",
-          "system": "0.16.49"
-        }
-      }
-    }
-  },
-  "effects": [
-    {
-      "icon": "icons/magic/sonic/projectile-shock-wave-blue.webp",
-      "origin": "Item.8058rmfxq4pq3icr",
-      "flags": {
-        "a5e": {
-          "sort": 0,
-          "transferType": "onUse",
-          "actionId": "JSgNidgT3n37hph2",
-          "duration": {
-            "type": "rounds",
-            "unit": "minutes"
-          }
-        }
-      },
-      "transfer": false,
-      "name": "Deafened",
-      "_id": "AeZNb16ixyr0pEdk",
-      "changes": [
-        {
-          "key": "flags.a5e.effects.statusConditions",
-          "value": "[\"deafened\"]",
-          "mode": 0,
-          "priority": null
-        }
-      ],
-      "disabled": false,
-      "duration": {
-        "startTime": null,
-        "seconds": null,
-        "combat": null,
-        "rounds": null,
-        "turns": 1,
-        "startRound": null,
-        "startTurn": null
-      },
-      "description": "",
-      "statuses": [
-        "deafened"
-      ],
-      "tint": "#ffffff",
-      "folder": null
-    }
-  ],
-  "flags": {},
-  "folder": null,
-  "_id": "8058rmfxq4pq3icr"
+	"name": "Elvatar's Thunderous Entrance",
+	"type": "spell",
+	"img": "icons/magic/sonic/projectile-shock-wave-blue.webp",
+	"system": {
+		"actions": {
+			"JSgNidgT3n37hph2": {
+				"name": "Cast Spell",
+				"activation": {
+					"type": "action",
+					"cost": 1
+				},
+				"consumers": {
+					"e9hqj6ZRnLdfFlg3": {
+						"type": "spell",
+						"default": true,
+						"mode": "variable",
+						"spellLevel": 4,
+						"points": 6
+					}
+				},
+				"rolls": {
+					"CO6iRMNogT94mzvB": {
+						"type": "damage",
+						"default": true,
+						"label": "Thunder Bolt",
+						"formula": "8d6",
+						"damageType": "thunder",
+						"scaling": {
+							"mode": "spellLevel",
+							"formula": "1d6"
+						}
+					},
+					"jSIKLAWFkIFvxCIZ": {
+						"type": "damage",
+						"default": false,
+						"label": "Flying Splinters",
+						"formula": "2d6",
+						"damageType": "slashing",
+						"canCrit": false,
+						"scaling": {
+							"mode": "spellLevel",
+							"formula": "1d6"
+						}
+					}
+				},
+				"prompts": {
+					"grh4bMyllhONQthy": {
+						"type": "savingThrow",
+						"default": true,
+						"ability": "dex",
+						"saveDC": {
+							"type": "spellcasting"
+						},
+						"onSave": "Half damage and negates deafness"
+					},
+					"tbsODzSZ1i6Iyru9": {
+						"type": "effect",
+						"default": true,
+						"effectId": "AeZNb16ixyr0pEdk"
+					}
+				},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"threshold": 6
+					}
+				},
+				"duration": {
+					"unit": "instantaneous"
+				},
+				"ranges": {
+					"nYypOsB6GyOLXC7k": {
+						"range": "long"
+					}
+				},
+				"area": {
+					"shape": "sphere",
+					"quantity": 1,
+					"radius": 20,
+					"placeTemplate": true
+				}
+			}
+		},
+		"description": "<p>A peal of thunder ripples from a point you can see within range. Each creature in the area takes 8d6 thunder damage and is deafened until the end of its next turn. If the area contains Large or larger nonmagical wood or stone objects, the objects take 8d6 thunder damage and creatures in the area that fail their saving throw take an additional 2d6 slashing damage from flying splinters. The thunderclap can be heard from 600 feet away.</p>\n<p><em><strong>Cast at Higher Levels.</strong></em> For every slot level above 4th, the thunder and slashing damage increase by 1d6, and the thunderclap can be heard from an additional 100 feet away.</p>\n<p><strong><em>Rare:</em> Elvatar&rsquo;s Thunderous Entrance.</strong> After the spell deals damage, you can teleport to the center of the area.</p>",
+		"favorite": false,
+		"secretDescription": "",
+		"source": "adventurersGuide",
+		"uses": {
+			"value": null,
+			"max": "",
+			"per": null,
+			"recharge": {
+				"formula": "1d6",
+				"threshold": "6"
+			}
+		},
+		"schema": {
+			"version": null,
+			"lastMigration": null
+		},
+		"classes": [
+			"bard",
+			"druid",
+			"sorcerer",
+			"wizard"
+		],
+		"components": {
+			"vocalized": true,
+			"seen": true,
+			"material": true
+		},
+		"concentration": false,
+		"level": 4,
+		"materials": "tiny sheet of metal",
+		"materialsConsumed": false,
+		"prepared": false,
+		"prerequisite": "",
+		"rare": true,
+		"ritual": false,
+		"schools": {
+			"primary": "evocation",
+			"secondary": [
+				"arcane",
+				"attack",
+				"nature",
+				"sound",
+				"storm",
+				"thunder"
+			]
+		},
+		"schemaVersion": {
+			"version": 0.013,
+			"lastMigration": {
+				"version": {
+					"schema": 0.011,
+					"foundry": "11.315",
+					"system": "0.16.49"
+				}
+			}
+		}
+	},
+	"effects": [
+		{
+			"icon": "icons/magic/sonic/projectile-shock-wave-blue.webp",
+			"origin": "Item.8058rmfxq4pq3icr",
+			"flags": {
+				"a5e": {
+					"sort": 0,
+					"transferType": "onUse",
+					"actionId": "JSgNidgT3n37hph2",
+					"duration": {
+						"type": "rounds",
+						"unit": "minutes"
+					}
+				}
+			},
+			"transfer": false,
+			"name": "Deafened",
+			"_id": "AeZNb16ixyr0pEdk",
+			"changes": [
+				{
+					"key": "flags.a5e.effects.statusConditions",
+					"value": "[\"deafened\"]",
+					"mode": 0,
+					"priority": null
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": null,
+				"combat": null,
+				"rounds": null,
+				"turns": 1,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "",
+			"statuses": [
+				"deafened"
+			],
+			"tint": "#ffffff",
+			"folder": null
+		}
+	],
+	"flags": {},
+	"folder": null,
+	"_id": "8058rmfxq4pq3icr"
 }
