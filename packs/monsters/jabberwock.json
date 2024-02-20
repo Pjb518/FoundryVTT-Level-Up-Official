@@ -1,2258 +1,2258 @@
 {
-	"name": "Jabberwock",
-	"type": "npc",
-	"img": "icons/svg/mystery-man.svg",
-	"system": {
-		"schemaVersion": {
-			"version": 0.013,
-			"lastMigration": null
-		},
-		"abilities": {
-			"str": {
-				"value": 24,
-				"check": {
-					"expertiseDice": 0,
-					"bonus": ""
-				},
-				"save": {
-					"proficient": false,
-					"expertiseDice": 0,
-					"bonus": ""
-				}
-			},
-			"dex": {
-				"value": 18,
-				"check": {
-					"expertiseDice": 0,
-					"bonus": ""
-				},
-				"save": {
-					"proficient": true,
-					"expertiseDice": 0,
-					"bonus": ""
-				}
-			},
-			"con": {
-				"value": 24,
-				"check": {
-					"expertiseDice": 0,
-					"bonus": ""
-				},
-				"save": {
-					"proficient": true,
-					"expertiseDice": 0,
-					"bonus": ""
-				}
-			},
-			"int": {
-				"value": 10,
-				"check": {
-					"expertiseDice": 0,
-					"bonus": ""
-				},
-				"save": {
-					"proficient": false,
-					"expertiseDice": 0,
-					"bonus": ""
-				}
-			},
-			"wis": {
-				"value": 20,
-				"check": {
-					"expertiseDice": 0,
-					"bonus": ""
-				},
-				"save": {
-					"proficient": true,
-					"expertiseDice": 0,
-					"bonus": ""
-				}
-			},
-			"cha": {
-				"value": 22,
-				"check": {
-					"expertiseDice": 0,
-					"bonus": ""
-				},
-				"save": {
-					"proficient": true,
-					"expertiseDice": 0,
-					"bonus": ""
-				}
-			}
-		},
-		"attributes": {
-			"ac": {
-				"baseFormula": "10 + @dex.mod + @cha.mod",
-				"value": 0
-			},
-			"death": {
-				"success": 0,
-				"failure": 0
-			},
-			"hp": {
-				"value": 270,
-				"baseMax": 270,
-				"temp": 0,
-				"bonus": 0
-			},
-			"hitDice": {
-				"d4": {
-					"current": 0,
-					"total": 0
-				},
-				"d6": {
-					"current": 0,
-					"total": 0
-				},
-				"d8": {
-					"current": 0,
-					"total": 0
-				},
-				"d10": {
-					"current": 0,
-					"total": 0
-				},
-				"d12": {
-					"current": 20,
-					"total": 20
-				},
-				"d20": {
-					"current": 0,
-					"total": 0
-				}
-			},
-			"initiative": {
-				"ability": "dex",
-				"bonus": "",
-				"expertiseDice": 0
-			},
-			"movement": {
-				"burrow": {
-					"distance": 0,
-					"unit": "feet"
-				},
-				"climb": {
-					"distance": 0,
-					"unit": "feet"
-				},
-				"fly": {
-					"distance": 40,
-					"unit": "feet"
-				},
-				"swim": {
-					"distance": 0,
-					"unit": "feet"
-				},
-				"walk": {
-					"distance": 60,
-					"unit": "feet"
-				},
-				"traits": {
-					"hover": false
-				}
-			},
-			"senses": {
-				"blindsight": {
-					"distance": 0,
-					"unit": "feet",
-					"otherwiseBlind": false
-				},
-				"darkvision": {
-					"distance": 60,
-					"unit": "feet"
-				},
-				"tremorsense": {
-					"distance": 0,
-					"unit": "feet"
-				},
-				"truesight": {
-					"distance": 0,
-					"unit": "feet"
-				}
-			},
-			"inspiration": false,
-			"fatigue": 0,
-			"strife": 0,
-			"spellcasting": "int",
-			"casterLevel": 0
-		},
-		"bonuses": {
-			"abilities": {},
-			"attacks": {},
-			"damage": {},
-			"healing": {},
-			"initiative": {},
-			"movement": {},
-			"senses": {},
-			"skills": {},
-			"maneuverDC": "",
-			"meleeSpellAttack": "",
-			"meleeWeaponAttack": "",
-			"rangedSpellAttack": "",
-			"rangedWeaponAttack": "",
-			"spellDC": ""
-		},
-		"currency": {
-			"cp": 0,
-			"sp": 0,
-			"ep": 0,
-			"gp": 0,
-			"pp": 0
-		},
-		"details": {
-			"bio": "<h2><strong>COMBAT</strong></h2>\n<p>While flying, the jabberwock uses Eyes of&nbsp;Flame. The jabberwock then lands, attacking one&nbsp;opponent with a bite and a claw and a different&nbsp;opponent with its second claw. It focuses on&nbsp;spellcasters, grappling them and using Burble to&nbsp;hamper their spells. It prefers to use its reaction&nbsp;to bite a grappled creature. If it isn&rsquo;t grappling&nbsp;a creature, it uses Whiffling Dodge. The&nbsp;jabberwock flies away if it takes slashing damage&nbsp;while it is bloodied. When it retreats, it carries&nbsp;with it any creatures it is grappling.</p>\n<hr class=\"a5e-rule u-my-md\">\n<h2><strong>NAMES</strong></h2>\n<p>Barbjadorith, Gostak, Mimlimious</p>\n<hr class=\"a5e-rule u-my-md\">\n<h2><strong>LEGENDS AND LORE</strong></h2>\n<p>An Arcana or History check&nbsp;reveals the following:</p>\n<p><strong>DC 10</strong> Jabberwocks are dragons native to the fey&nbsp;realm. Accounts of the creatures vary.</p>\n<p><strong>DC 15</strong> Survivors of a jabberwock encounter are&nbsp;often afflicted with a curse that reduces&nbsp;their speech to nonsense.</p>\n<p><strong>DC 20</strong> Jabberwocks fear bladed weapons,&nbsp;especially vorpal swords.</p>\n<hr class=\"a5e-rule u-my-md\">\n<h2><strong>BURBLING CURSE</strong></h2>\n<p>Characters with low Wisdom scores might&nbsp;struggle to recover from the curse inflicted by&nbsp;the jabberwock&rsquo;s unintelligible speech. The&nbsp;rules of the curse indicate that an affected&nbsp;character should roll a d20 each time it tries&nbsp;to communicate. Players or Narrators who&nbsp;prefer to act out the curse might instead try the&nbsp;following challenge: when an affected character&nbsp;speaks, replace each adjective and noun with a&nbsp;nonsense word, such as &ldquo;jabberwock&rdquo; for nouns&nbsp;and &ldquo;jabberwocky&rdquo; for adjectives. Casting a&nbsp;spell with a vocalized component still requires a&nbsp;die roll.</p>\n<hr class=\"a5e-rule u-my-md\">\n<h2><strong>DESCRIPTION</strong></h2>\n<p>The jabberwock is a gangly, long-necked&nbsp;dragon native to the faerie realm. Although its&nbsp;appearance is unlikely, even the mightiest heroes&nbsp;must beware the jabberwock&rsquo;s claws that grab&nbsp;and eyes of flame. Spellcasters in particular fear&nbsp;its burbling speech, a magical singsong that ruins&nbsp;spells and reduces words to nonsense.</p>\n<p><strong>Fey Dragon</strong>. Just as forests in the Dreaming&nbsp;weirdly reflect those in the material world,&nbsp;the jabberwock looks like a green dragon seen&nbsp;through a warped mirror. Although the two&nbsp;species may be related, they are often bitter&nbsp;rivals. Whereas a green dragon uses its glib&nbsp;tongue to manipulate a network of informants&nbsp;and underlings, the jabberwock thrives on&nbsp;sowing miscommunication and confusion.</p>\n<p><strong>Strange Speech.</strong> The jabberwock&rsquo;s language,&nbsp;Jabber, leaves those who hear it teetering&nbsp;on the edge of madness. When spoken by&nbsp;a jabberwock, the words of this strange&nbsp;tongue infect the minds of mortals and fey&nbsp;alike. Inhabitants of a jabberwock&rsquo;s forest&nbsp;often speak in an unintelligible mix of Jabber&nbsp;and their own language. The jabberwock&rsquo;s&nbsp;cursed speech has distorted much of what&nbsp;is known about the creature, as even those&nbsp;who encounter a jabberwock firsthand can&rsquo;t&nbsp;describe it in a way that makes sense to&nbsp;others. Jabber can&rsquo;t be learned; it can only be&nbsp;spoken by those cursed by the jabberwock.</p>\n<p><strong>Vorpal Vulnerability.</strong> A jabberwock&rsquo;s sinuous,&nbsp;rubbery body recalls the lanky frame of&nbsp;a troll. Much like a troll, a jabberwock&rsquo;s&nbsp;wounds heal quickly, making the creature&nbsp;difficult to kill. Unlike a troll, however, a&nbsp;jabberwock can&rsquo;t regrow severed body parts.&nbsp;The jabberwock fears magic blades like&nbsp;swords of sharpness and, above all, vorpal&nbsp;swords. A jabberwock&rsquo;s foes often go to&nbsp;great lengths to obtain such weapons and&nbsp;place them in the hands of suitable heroes.&nbsp;The jabberwock, on the other hand, hunts&nbsp;down anyone rumored to possess such a&nbsp;sword, destroying the blade or hiding it in&nbsp;its treasure hoard.</p>\n<hr class=\"a5e-rule u-my-md\">\n<h2><strong>BEHAVIOR</strong></h2>\n<p>1 Hunting</p>\n<p>2 Questioning a victim of its burbling curse;&nbsp;it understands them perfectly</p>\n<p>3&nbsp;Following an adventuring party (possibly&nbsp;yours!) that it suspects carries a vorpal&nbsp;sword</p>\n<p>4 Reciting Jabber poetry to an inanimate tree</p>\n<hr class=\"a5e-rule u-my-md\">\n<h2><strong>SIGNS</strong></h2>\n<p>1 A humanoid afflicted with a burbling&nbsp;curse, trying to warn travelers of danger</p>\n<p>2 Two talking animals; one always lies, one&nbsp;always tells the truth</p>\n<p>3&nbsp;Easy-to-spot footprints (DC 15 Survival&nbsp;check: the footprints of a jabberwock&nbsp;walking backwards)</p>\n<p>4 A stretch of barren, ashy ground</p>\n<hr class=\"a5e-rule u-my-md\">\n<h2><strong>ENCOUNTERS</strong></h2>\n<p>The jabberwock&nbsp;whiffles through ancient and fey forests.</p>\n<p><strong>CR 17&ndash;22</strong> jabberwock; jabberwock with 2 or 3 faerie&nbsp;dragons, flying swords, or keches (see bugbear)</p>\n<p><strong>Treasure</strong> 600 pp, 2,000 gp, Huge-size&nbsp;silken waistcoat (200 gp), 2 potions of&nbsp;diminution, 2 potions of growth, sword of&nbsp;sharpness hidden in an alcove that a Small&nbsp;creature must squeeze into to reach</p>\n<p><strong>CR 23&ndash;30</strong> Jabberwocky; jabberwock with 2 or 3&nbsp;coven green hags, invisible stalkers, or trolls</p>\n<p><strong>Treasure</strong> 14,500 gp, 2 sentient diamonds&nbsp;(5,000 gp each) that argue with each&nbsp;other, book of incomprehensible poetry,&nbsp;vorpal battleaxe (as vorpal sword)</p>\n<hr class=\"a5e-rule u-my-md\">\n<h2><strong>MONSTER TYPE DESCRIPTION</strong></h2>\n<p>Dragons include red and gold dragons, which are huge reptilian fire-breathers that number among the world&rsquo;s most dangerous monsters. This type includes white dragons, which breathe killing frost, as well as smaller reptilian creatures related to true dragons, such as pseudodragons.&nbsp;</p>",
-			"creatureTypes": [
-				"dragon",
-				"fey"
-			],
-			"isSwarm": false,
-			"cr": 18,
-			"elite": false,
-			"notes": "",
-			"privateNotes": "",
-			"terrain": [
-				"theDreaming"
-			]
-		},
-		"grants": {},
-		"proficiencies": {
-			"armor": [],
-			"languages": [],
-			"tools": [],
-			"weapons": []
-		},
-		"resources": {
-			"primary": {
-				"label": "",
-				"value": 0,
-				"max": "",
-				"per": "",
-				"hideMax": false,
-				"recharge": {
-					"formula": "1d6",
-					"threshold": 6
-				}
-			},
-			"secondary": {
-				"label": "",
-				"value": 0,
-				"max": "",
-				"per": "",
-				"hideMax": false,
-				"recharge": {
-					"formula": "1d6",
-					"threshold": 6
-				}
-			},
-			"tertiary": {
-				"label": "",
-				"value": 0,
-				"max": "",
-				"per": "",
-				"hideMax": false,
-				"recharge": {
-					"formula": "1d6",
-					"threshold": 6
-				}
-			},
-			"quaternary": {
-				"label": "",
-				"value": 0,
-				"max": "",
-				"per": "",
-				"hideMax": false,
-				"recharge": {
-					"formula": "1d6",
-					"threshold": 6
-				}
-			}
-		},
-		"skills": {
-			"acr": {
-				"ability": "dex",
-				"proficient": false,
-				"specialties": [],
-				"expertiseDice": 0,
-				"minRoll": 1,
-				"bonuses": {
-					"check": "",
-					"passive": 0
-				}
-			},
-			"ani": {
-				"ability": "wis",
-				"proficient": false,
-				"specialties": [],
-				"expertiseDice": 0,
-				"minRoll": 1,
-				"bonuses": {
-					"check": "",
-					"passive": 0
-				}
-			},
-			"arc": {
-				"ability": "int",
-				"proficient": false,
-				"specialties": [],
-				"expertiseDice": 0,
-				"minRoll": 1,
-				"bonuses": {
-					"check": "",
-					"passive": 0
-				}
-			},
-			"ath": {
-				"ability": "str",
-				"proficient": false,
-				"specialties": [],
-				"expertiseDice": 0,
-				"minRoll": 1,
-				"bonuses": {
-					"check": "",
-					"passive": 0
-				}
-			},
-			"cul": {
-				"ability": "int",
-				"proficient": false,
-				"specialties": [],
-				"expertiseDice": 0,
-				"minRoll": 1,
-				"bonuses": {
-					"check": "",
-					"passive": 0
-				}
-			},
-			"dec": {
-				"ability": "cha",
-				"proficient": false,
-				"specialties": [],
-				"expertiseDice": 0,
-				"minRoll": 1,
-				"bonuses": {
-					"check": "",
-					"passive": 0
-				}
-			},
-			"eng": {
-				"ability": "int",
-				"proficient": false,
-				"specialties": [],
-				"expertiseDice": 0,
-				"minRoll": 1,
-				"bonuses": {
-					"check": "",
-					"passive": 0
-				}
-			},
-			"his": {
-				"ability": "int",
-				"proficient": false,
-				"specialties": [],
-				"expertiseDice": 0,
-				"minRoll": 1,
-				"bonuses": {
-					"check": "",
-					"passive": 0
-				}
-			},
-			"ins": {
-				"ability": "wis",
-				"proficient": false,
-				"specialties": [],
-				"expertiseDice": 0,
-				"minRoll": 1,
-				"bonuses": {
-					"check": "",
-					"passive": 0
-				}
-			},
-			"itm": {
-				"ability": "cha",
-				"proficient": true,
-				"specialties": [],
-				"expertiseDice": 0,
-				"minRoll": 1,
-				"bonuses": {
-					"check": "",
-					"passive": 0
-				}
-			},
-			"inv": {
-				"ability": "int",
-				"proficient": false,
-				"specialties": [],
-				"expertiseDice": 0,
-				"minRoll": 1,
-				"bonuses": {
-					"check": "",
-					"passive": 0
-				}
-			},
-			"med": {
-				"ability": "int",
-				"proficient": false,
-				"specialties": [],
-				"expertiseDice": 0,
-				"minRoll": 1,
-				"bonuses": {
-					"check": "",
-					"passive": 0
-				}
-			},
-			"nat": {
-				"ability": "int",
-				"proficient": false,
-				"specialties": [],
-				"expertiseDice": 0,
-				"minRoll": 1,
-				"bonuses": {
-					"check": "",
-					"passive": 0
-				}
-			},
-			"prc": {
-				"ability": "wis",
-				"proficient": true,
-				"specialties": [],
-				"expertiseDice": 0,
-				"minRoll": 1,
-				"bonuses": {
-					"check": "",
-					"passive": 0
-				}
-			},
-			"prf": {
-				"ability": "cha",
-				"proficient": false,
-				"specialties": [],
-				"expertiseDice": 0,
-				"minRoll": 1,
-				"bonuses": {
-					"check": "",
-					"passive": 0
-				}
-			},
-			"per": {
-				"ability": "wis",
-				"proficient": false,
-				"specialties": [],
-				"expertiseDice": 0,
-				"minRoll": 1,
-				"bonuses": {
-					"check": "",
-					"passive": 0
-				}
-			},
-			"rel": {
-				"ability": "int",
-				"proficient": false,
-				"specialties": [],
-				"expertiseDice": 0,
-				"minRoll": 1,
-				"bonuses": {
-					"check": "",
-					"passive": 0
-				}
-			},
-			"slt": {
-				"ability": "dex",
-				"proficient": false,
-				"specialties": [],
-				"expertiseDice": 0,
-				"minRoll": 1,
-				"bonuses": {
-					"check": "",
-					"passive": 0
-				}
-			},
-			"ste": {
-				"ability": "dex",
-				"proficient": true,
-				"specialties": [],
-				"expertiseDice": 0,
-				"minRoll": 1,
-				"bonuses": {
-					"check": "",
-					"passive": 0
-				}
-			},
-			"sur": {
-				"ability": "wis",
-				"proficient": false,
-				"specialties": [],
-				"expertiseDice": 0,
-				"minRoll": 1,
-				"bonuses": {
-					"check": "",
-					"passive": 0
-				}
-			}
-		},
-		"source": "",
-		"traits": {
-			"size": "huge",
-			"conditionImmunities": [
-				"charmed",
-				"confused",
-				"fatigue",
-				"frightened",
-				"paralyzed",
-				"unconscious"
-			],
-			"damageImmunities": [],
-			"damageResistances": [
-				"fire",
-				"bludgeoning",
-				"piercing"
-			],
-			"damageVulnerabilities": []
-		},
-		"spellResources": {
-			"slots": {
-				"1": {
-					"current": 0,
-					"max": 0
-				},
-				"2": {
-					"current": 0,
-					"max": 0
-				},
-				"3": {
-					"current": 0,
-					"max": 0
-				},
-				"4": {
-					"current": 0,
-					"max": 0
-				},
-				"5": {
-					"current": 0,
-					"max": 0
-				},
-				"6": {
-					"current": 0,
-					"max": 0
-				},
-				"7": {
-					"current": 0,
-					"max": 0
-				},
-				"8": {
-					"current": 0,
-					"max": 0
-				},
-				"9": {
-					"current": 0,
-					"max": 0
-				}
-			},
-			"points": {
-				"current": 0,
-				"max": 0
-			}
-		}
-	},
-	"prototypeToken": {
-		"name": "Jabberwock",
-		"displayName": 0,
-		"actorLink": false,
-		"appendNumber": false,
-		"prependAdjective": false,
-		"texture": {
-			"src": "icons/svg/mystery-man.svg",
-			"scaleX": 1,
-			"scaleY": 1,
-			"offsetX": 0,
-			"offsetY": 0,
-			"rotation": 0
-		},
-		"width": 3,
-		"height": 3,
-		"lockRotation": false,
-		"rotation": 0,
-		"alpha": 1,
-		"disposition": -1,
-		"displayBars": 0,
-		"bar1": {
-			"attribute": "attributes.hp"
-		},
-		"bar2": {
-			"attribute": null
-		},
-		"light": {
-			"alpha": 0.5,
-			"angle": 360,
-			"bright": 0,
-			"coloration": 1,
-			"dim": 0,
-			"attenuation": 0.5,
-			"luminosity": 0.5,
-			"saturation": 0,
-			"contrast": 0,
-			"shadows": 0,
-			"animation": {
-				"type": null,
-				"speed": 5,
-				"intensity": 5,
-				"reverse": false
-			},
-			"darkness": {
-				"min": 0,
-				"max": 1
-			}
-		},
-		"sight": {
-			"enabled": false,
-			"range": 0,
-			"angle": 360,
-			"visionMode": "basic",
-			"attenuation": 0.1,
-			"brightness": 0,
-			"saturation": 0,
-			"contrast": 0
-		},
-		"detectionModes": [],
-		"flags": {},
-		"randomImg": false
-	},
-	"items": [
-		{
-			"name": "Grapple",
-			"type": "maneuver",
-			"img": "icons/skills/melee/unarmed-punch-fist.webp",
-			"effects": [],
-			"flags": {},
-			"system": {
-				"actions": {
-					"wOKLPnhKpnhU1kEj": {
-						"name": "Grapple",
-						"activation": {
-							"cost": 1,
-							"type": "action",
-							"reactionTrigger": ""
-						},
-						"duration": {
-							"unit": "instantaneous",
-							"value": null
-						},
-						"ranges": {
-							"5nrDtksc3KPCbcJd": {
-								"range": "fiveFeet"
-							}
-						},
-						"area": {
-							"shape": "",
-							"size": "",
-							"placeTemplate": false
-						},
-						"target": {
-							"quantity": "",
-							"type": "creature",
-							"shape": "",
-							"size": ""
-						},
-						"prompts": {
-							"B9sbtgKAz5GLtsp3": {
-								"ability": "str",
-								"onSave": "",
-								"saveDC": {
-									"type": "custom",
-									"bonus": "@maneuverDC"
-								},
-								"type": "savingThrow"
-							}
-						},
-						"consumers": {},
-						"rolls": {
-							"GjyfHt0lKnETufaD": {
-								"type": "damage",
-								"default": true,
-								"formula": "1 + @str.mod",
-								"label": "Basic Melee Damage",
-								"canCrit": false
-							}
-						}
-					}
-				},
-				"description": "<p>You can use the Grapple maneuver to grab or wrestle a creature. If you are able to make multiple attacks with the Attack action, this maneuver replaces one of them.</p>\n<p>You must have at least one free hand to attempt a grapple, your target must be within your reach, and the target must be no more than one size category larger than you. The target makes a Strength or Dexterity saving throw against your maneuver DC. On a failure, you deal basic melee damage and the target becomes grappled (see Appendix A: Conditions on page 616). In addition to things that end the condition, you can release the target at any time (no action required).</p>\n<p><em>Escaping a Grapple.</em> While grappled, a creature can use its action to attempt to escape. It must succeed on a Strength or Dexterity saving throw against your maneuver DC.</p>\n<p><em>Moving a Grappled Creature. </em>When you move, you can drag or carry the grappled creature with you. When you do so, your Speed is halved, unless the creature's weight is within your carrying capacity and you are not encumbered by bulky items.</p>\n<p><em>Freeing a Grappled Creature.</em> You can use the Grapple maneuver to try to free another grappled or restrained creature. The creature grappling or restraining the target makes a Strength saving throw against your maneuver DC. If it fails the saving throw, the grappled or restrained creature is freed. Additionally, you may move the freed creature 5 feet in any direction.</p>",
-				"favorite": false,
-				"secretDescription": "",
-				"source": "adventurersGuide",
-				"uses": {
-					"value": null,
-					"max": "",
-					"per": null,
-					"recharge": {
-						"formula": "1d6",
-						"threshold": 6
-					}
-				},
-				"schema": {
-					"version": null,
-					"lastMigration": null
-				},
-				"concentration": false,
-				"degree": 0,
-				"exertionCost": 0,
-				"isStance": false,
-				"prerequisite": "",
-				"tradition": "",
-				"equippedState": 0,
-				"schemaVersion": {
-					"version": 0.013,
-					"lastMigration": {
-						"version": {
-							"schema": 0.011,
-							"foundry": "11.315",
-							"system": "0.16.49"
-						}
-					}
-				}
-			},
-			"folder": null,
-			"_id": "yFqGkh1V0VhUvYnV",
-			"sort": 0,
-			"ownership": {
-				"default": 0
-			}
-		},
-		{
-			"name": "Grab On",
-			"type": "maneuver",
-			"img": "icons/skills/melee/hand-grip-staff-teal.webp",
-			"effects": [],
-			"flags": {},
-			"system": {
-				"actions": {
-					"dZElCBOd3yoRyDcB": {
-						"name": "Grab On",
-						"activation": {
-							"cost": 1,
-							"type": "action",
-							"reactionTrigger": ""
-						},
-						"duration": {
-							"unit": "instantaneous",
-							"value": null
-						},
-						"ranges": {
-							"x479yGm9lUjVLHDy": {
-								"range": "fiveFeet"
-							}
-						},
-						"area": {
-							"shape": "",
-							"size": "",
-							"placeTemplate": false
-						},
-						"target": {
-							"quantity": "",
-							"type": "creature",
-							"shape": "",
-							"size": ""
-						},
-						"prompts": {
-							"duRNu9hfiRNwhtCq": {
-								"ability": "str",
-								"onSave": "",
-								"saveDC": {
-									"type": "custom",
-									"bonus": "@maneuverDC"
-								},
-								"type": "savingThrow"
-							}
-						},
-						"consumers": {},
-						"rolls": {
-							"pzopjF1frh4UfKvT": {
-								"type": "damage",
-								"default": true,
-								"formula": "1 + @str.mod",
-								"label": "Basic Melee Damage",
-								"canCrit": false
-							}
-						}
-					}
-				},
-				"description": "<p>While you cannot grapple a creature two or more size categories larger than you, you can grab onto it. By jumping onto its back or climbing up a limb, you can make a Strength or Dexterity saving throw against the creature's maneuver DC to cling to or balance upon its body. On a success, you move into the creature's space and can move upon its body as if it is difficult terrain.</p><p>While grabbing onto a larger creature, you gain advantage on attack rolls against it. The larger creature may be able to attack you as normal, depending on its limbs or attacks. It can also use an action or replace one of its attacks on its turn to try to dislodge you, such as shaking you loose or bashing you against a wall, forcing you to make a Strength or Dexterity saving throw against its maneuver DC or fall prone into the nearest space adjacent to the creature, taking its basic melee damage in the process.</p><p>If the creature chooses to roll over in order to dislodge you, it becomes prone, but you have disadvantage on the saving throw to hang on.</p>",
-				"favorite": false,
-				"secretDescription": "",
-				"source": "adventurersGuide",
-				"uses": {
-					"value": null,
-					"max": "",
-					"per": null,
-					"recharge": {
-						"formula": "1d6",
-						"threshold": 6
-					}
-				},
-				"schema": {
-					"version": null,
-					"lastMigration": null
-				},
-				"concentration": false,
-				"degree": 0,
-				"exertionCost": 0,
-				"isStance": false,
-				"prerequisite": "",
-				"tradition": "",
-				"equippedState": 0,
-				"schemaVersion": {
-					"version": 0.013,
-					"lastMigration": {
-						"version": {
-							"schema": 0.011,
-							"foundry": "11.315",
-							"system": "0.16.49"
-						}
-					}
-				}
-			},
-			"folder": null,
-			"_id": "hvDmoj3RyAAEXDzN",
-			"sort": 0,
-			"ownership": {
-				"default": 0
-			}
-		},
-		{
-			"name": "Disarm",
-			"type": "maneuver",
-			"img": "icons/skills/melee/sword-damaged-broken-glow-red.webp",
-			"effects": [],
-			"flags": {},
-			"system": {
-				"actions": {
-					"xN5ZLHIjo9cHRWrK": {
-						"name": "Disarm",
-						"activation": {
-							"cost": 1,
-							"type": "action",
-							"reactionTrigger": ""
-						},
-						"duration": {
-							"unit": "instantaneous",
-							"value": null
-						},
-						"ranges": {
-							"dFgwvnjjgmzR7vlN": {
-								"range": "fiveFeet"
-							}
-						},
-						"area": {
-							"shape": "",
-							"size": "",
-							"placeTemplate": false
-						},
-						"target": {
-							"quantity": "",
-							"type": "creature",
-							"shape": "",
-							"size": ""
-						},
-						"rolls": {
-							"FDMYIPcl2LveduMw": {
-								"canCrit": false,
-								"damageType": "",
-								"formula": "1 + @str.mod",
-								"label": "Basic Melee Damage",
-								"type": "damage"
-							}
-						},
-						"prompts": {
-							"xs1KlWtLXswqrVKY": {
-								"ability": "str",
-								"onSave": "",
-								"saveDC": {
-									"type": "custom",
-									"bonus": "@maneuverDC"
-								},
-								"type": "savingThrow"
-							}
-						},
-						"consumers": {}
-					}
-				},
-				"description": "<p>You can use the Disarm maneuver to attempt to knock an item or weapon from a creature's hand. If you are able to make multiple attacks with the Attack action, this maneuver replaces one of them.</p><p>The target must be within your reach and be holding an item (either carried or wielded). The target makes a Strength or Dexterity saving throw against your maneuver DC. On a failure, you deal basic melee damage and the target drops the item in its space. The target has advantage if it is larger than you or holding the item with two or more hands, and a target smaller than you has disadvantage.</p>",
-				"favorite": false,
-				"secretDescription": "",
-				"source": "adventurersGuide",
-				"uses": {
-					"value": null,
-					"max": "",
-					"per": null,
-					"recharge": {
-						"formula": "1d6",
-						"threshold": 6
-					}
-				},
-				"schema": {
-					"version": null,
-					"lastMigration": null
-				},
-				"concentration": false,
-				"degree": 0,
-				"exertionCost": 0,
-				"isStance": false,
-				"prerequisite": "",
-				"tradition": "",
-				"equippedState": 0,
-				"schemaVersion": {
-					"version": 0.013,
-					"lastMigration": {
-						"version": {
-							"schema": 0.011,
-							"foundry": "11.315",
-							"system": "0.16.49"
-						}
-					}
-				}
-			},
-			"folder": null,
-			"_id": "EgkV3hT4yDU65tng",
-			"sort": 0,
-			"ownership": {
-				"default": 0
-			}
-		},
-		{
-			"name": "Knockdown",
-			"type": "maneuver",
-			"img": "icons/magic/control/silhouette-fall-slip-prone.webp",
-			"effects": [],
-			"flags": {},
-			"system": {
-				"actions": {
-					"wfzmnudl6tfhZk4v": {
-						"name": "Knockdown",
-						"activation": {
-							"cost": 1,
-							"type": "action",
-							"reactionTrigger": ""
-						},
-						"duration": {
-							"unit": "instantaneous",
-							"value": null
-						},
-						"ranges": {
-							"NbOuce8AtLVjDeeL": {
-								"range": "fiveFeet"
-							}
-						},
-						"area": {
-							"shape": "",
-							"size": "",
-							"placeTemplate": false
-						},
-						"target": {
-							"quantity": "",
-							"type": "creature",
-							"shape": "",
-							"size": ""
-						},
-						"prompts": {
-							"L65ZmTO0KcmeQ2EQ": {
-								"ability": "str",
-								"onSave": "",
-								"saveDC": {
-									"type": "custom",
-									"bonus": "@maneuverDC"
-								},
-								"type": "savingThrow"
-							}
-						},
-						"consumers": {},
-						"rolls": {
-							"Wgx2bdExxjzRu7nR": {
-								"type": "damage",
-								"default": true,
-								"formula": "1 + @str.mod",
-								"label": "Basic Melee Damage",
-								"canCrit": false
-							}
-						}
-					}
-				},
-				"description": "<p>You can use the Knockdown maneuver to trip or push a creature down. If you are able to make multiple attacks with the Attack action, this maneuver replaces one of them.</p><p>The target must be within your reach and be no more than one size category larger than you. The target makes a Strength saving throw against your maneuver DC. On a failure, you deal basic melee damage and knock the target prone.</p>",
-				"favorite": false,
-				"secretDescription": "",
-				"source": "adventurersGuide",
-				"uses": {
-					"value": null,
-					"max": "",
-					"per": null,
-					"recharge": {
-						"formula": "1d6",
-						"threshold": 6
-					}
-				},
-				"schema": {
-					"version": null,
-					"lastMigration": null
-				},
-				"concentration": false,
-				"degree": 0,
-				"exertionCost": 0,
-				"isStance": false,
-				"prerequisite": "",
-				"tradition": "",
-				"equippedState": 0,
-				"schemaVersion": {
-					"version": 0.013,
-					"lastMigration": {
-						"version": {
-							"schema": 0.011,
-							"foundry": "11.315",
-							"system": "0.16.49"
-						}
-					}
-				}
-			},
-			"folder": null,
-			"_id": "eodxJkq8WcXRjuHX",
-			"sort": 0,
-			"ownership": {
-				"default": 0
-			}
-		},
-		{
-			"name": "Overrun",
-			"type": "maneuver",
-			"img": "icons/skills/melee/shield-damaged-broken-blue.webp",
-			"effects": [],
-			"flags": {},
-			"system": {
-				"actions": {
-					"kBUgwxtsHQqPa1DV": {
-						"name": "Overrun",
-						"activation": {
-							"cost": 1,
-							"type": "special",
-							"reactionTrigger": ""
-						},
-						"duration": {
-							"unit": "instantaneous",
-							"value": null
-						},
-						"ranges": {
-							"VAh3uPOJAaI5ShrA": {
-								"range": "fiveFeet"
-							}
-						},
-						"area": {
-							"shape": "",
-							"size": "",
-							"placeTemplate": false
-						},
-						"target": {
-							"quantity": "",
-							"type": "creature",
-							"shape": "",
-							"size": ""
-						},
-						"prompts": {
-							"bvFJU6hHDstCwg1b": {
-								"ability": "str",
-								"onSave": "",
-								"saveDC": {
-									"type": "custom",
-									"bonus": "@maneuverDC"
-								},
-								"type": "savingThrow"
-							}
-						},
-						"consumers": {},
-						"rolls": {
-							"ezzGenCLYoqg37hI": {
-								"type": "damage",
-								"default": true,
-								"formula": "1 + @str.mod",
-								"label": "Basic Melee Damage",
-								"canCrit": false
-							}
-						}
-					}
-				},
-				"description": "<p>You can use an action or bonus action to make an Overrun maneuver to move through a hostile creature's space by forcing your way past. Make a Strength saving throw against the target's maneuver DC. On a success, you deal basic melee damage and can move through the hostile creature's space once this turn. The creature can choose to just let you pass instead of rolling. You have advantage if you are larger than the target, or disadvantage if you are smaller. If you are two or more sizes smaller than the target, you can move through the hostile creature's space without making a save. You still provoke opportunity attacks if you move beyond a creature's reach.</p>",
-				"favorite": false,
-				"secretDescription": "",
-				"source": "adventurersGuide",
-				"uses": {
-					"value": null,
-					"max": "",
-					"per": null,
-					"recharge": {
-						"formula": "1d6",
-						"threshold": 6
-					}
-				},
-				"schema": {
-					"version": null,
-					"lastMigration": null
-				},
-				"concentration": false,
-				"degree": 0,
-				"exertionCost": 0,
-				"isStance": false,
-				"prerequisite": "",
-				"tradition": "",
-				"equippedState": 0,
-				"schemaVersion": {
-					"version": 0.013,
-					"lastMigration": {
-						"version": {
-							"schema": 0.011,
-							"foundry": "11.315",
-							"system": "0.16.49"
-						}
-					}
-				}
-			},
-			"folder": null,
-			"_id": "DxGIGKay93f0Kg5R",
-			"sort": 0,
-			"ownership": {
-				"default": 0
-			}
-		},
-		{
-			"name": "Shove",
-			"type": "maneuver",
-			"img": "icons/skills/melee/shield-block-bash-yellow.webp",
-			"effects": [],
-			"flags": {},
-			"system": {
-				"actions": {
-					"uvkBwwL7OQopMMHB": {
-						"name": "Shove",
-						"activation": {
-							"cost": 1,
-							"type": "action",
-							"reactionTrigger": ""
-						},
-						"duration": {
-							"unit": "instantaneous",
-							"value": null
-						},
-						"ranges": {
-							"j7yuRUD8cu1y0Jia": {
-								"range": "fiveFeet"
-							}
-						},
-						"area": {
-							"shape": "",
-							"size": "",
-							"placeTemplate": false
-						},
-						"target": {
-							"quantity": null,
-							"type": "creature",
-							"shape": "",
-							"size": ""
-						},
-						"rolls": {
-							"TcI6WmWSAy0EAxg9": {
-								"canCrit": false,
-								"damageType": "",
-								"formula": "1 + @str.mod",
-								"label": "Basic Melee Damage",
-								"type": "damage"
-							}
-						},
-						"prompts": {
-							"UVu9ZVC0beiWNgAV": {
-								"ability": "str",
-								"onSave": "",
-								"saveDC": {
-									"type": "custom",
-									"bonus": "@maneuverDC"
-								},
-								"type": "savingThrow"
-							}
-						},
-						"consumers": {}
-					}
-				},
-				"description": "<p>You can use the Shove maneuver to push a creature away. If you are able to make multiple attacks with the Attack action, this maneuver replaces one of them.</p><p>The target must be within your reach and be no more than one size category larger than you. The target makes a Strength saving throw against your maneuver DC. On a failure, you deal basic melee damage and push the target a number of feet away from you equal to 5 + 5 for every 5 points it failed its saving throw by. You can move the creature in any direction away from you (to the side, forward, or diagonally away).</p><p>A creature that is shoved off of a precipice is propelled off of whatever it is standing on -- it does not receive any saving throw or ability check to grab onto something to avoid falling down below.</p>",
-				"favorite": false,
-				"secretDescription": "",
-				"source": "adventurersGuide",
-				"uses": {
-					"value": null,
-					"max": "",
-					"per": null,
-					"recharge": {
-						"formula": "1d6",
-						"threshold": 6
-					}
-				},
-				"schema": {
-					"version": null,
-					"lastMigration": null
-				},
-				"concentration": false,
-				"degree": 0,
-				"exertionCost": 0,
-				"isStance": false,
-				"prerequisite": "",
-				"tradition": "",
-				"equippedState": 0,
-				"schemaVersion": {
-					"version": 0.013,
-					"lastMigration": {
-						"version": {
-							"schema": 0.011,
-							"foundry": "11.315",
-							"system": "0.16.49"
-						}
-					}
-				}
-			},
-			"folder": null,
-			"_id": "ddTplIKhzahe9JdE",
-			"sort": 0,
-			"ownership": {
-				"default": 0
-			}
-		},
-		{
-			"name": "Legendary Resistance",
-			"type": "feature",
-			"system": {
-				"ac": {
-					"baseFormula": "",
-					"formula": "",
-					"maxDex": 0,
-					"minStr": 0,
-					"mode": 2,
-					"requiresNoShield": false,
-					"requiresUnarmored": false
-				},
-				"actions": {},
-				"description": "<p>When the&nbsp;jabberwock fails a saving throw, it can&nbsp;choose to succeed instead. It can&rsquo;t do so&nbsp;against an effect that would sever one of&nbsp;its body parts.</p>",
-				"favorite": false,
-				"secretDescription": "",
-				"source": "",
-				"uses": {
-					"value": 3,
-					"max": "3",
-					"per": "day",
-					"recharge": {
-						"formula": "1d6",
-						"threshold": "6"
-					}
-				},
-				"schema": {
-					"version": null,
-					"lastMigration": null
-				},
-				"concentration": false,
-				"featureType": "other",
-				"grants": {},
-				"prerequisite": "",
-				"requiresBloodied": false
-			},
-			"_id": "CbkSoFJXAMQODgji",
-			"img": "icons/svg/item-bag.svg",
-			"effects": [],
-			"folder": null,
-			"sort": 0,
-			"ownership": {
-				"default": 0
-			},
-			"flags": {}
-		},
-		{
-			"name": "Reactive",
-			"type": "feature",
-			"system": {
-				"ac": {
-					"baseFormula": "",
-					"formula": "",
-					"maxDex": 0,
-					"minStr": 0,
-					"mode": 2,
-					"requiresNoShield": false,
-					"requiresUnarmored": false
-				},
-				"actions": {},
-				"description": "<p>The jabberwock can take three&nbsp;reactions per round. It can&rsquo;t take more&nbsp;than one reaction on the same turn.</p>",
-				"favorite": false,
-				"secretDescription": "",
-				"source": "",
-				"uses": {
-					"value": null,
-					"max": "",
-					"per": null,
-					"recharge": {
-						"formula": "1d6",
-						"threshold": "6"
-					}
-				},
-				"schema": {
-					"version": null,
-					"lastMigration": null
-				},
-				"concentration": false,
-				"featureType": "other",
-				"grants": {},
-				"prerequisite": "",
-				"requiresBloodied": false
-			},
-			"_id": "6zliDJLDvgwFGDae",
-			"img": "icons/svg/item-bag.svg",
-			"effects": [],
-			"folder": null,
-			"sort": 0,
-			"ownership": {
-				"default": 0
-			},
-			"flags": {}
-		},
-		{
-			"name": "Regenration",
-			"type": "feature",
-			"system": {
-				"ac": {
-					"baseFormula": "",
-					"formula": "",
-					"maxDex": 0,
-					"minStr": 0,
-					"mode": 2,
-					"requiresNoShield": false,
-					"requiresUnarmored": false
-				},
-				"actions": {},
-				"description": "<p>The jabberwock regains 20&nbsp;hit points at the start of its turn. The&nbsp;jabberwock dies only if its head is&nbsp;severed. A creature can sever the&nbsp;jabberwock&rsquo;s head by dealing 15 slashing<br>damage to it in a single turn while it has 0&nbsp;hit points.</p>",
-				"favorite": false,
-				"secretDescription": "",
-				"source": "",
-				"uses": {
-					"value": null,
-					"max": "",
-					"per": null,
-					"recharge": {
-						"formula": "1d6",
-						"threshold": "6"
-					}
-				},
-				"schema": {
-					"version": null,
-					"lastMigration": null
-				},
-				"concentration": false,
-				"featureType": "other",
-				"grants": {},
-				"prerequisite": "",
-				"requiresBloodied": false
-			},
-			"_id": "hYgGwxks2YMtwOQ9",
-			"img": "icons/skills/wounds/anatomy-organ-heart-red.webp",
-			"effects": [],
-			"folder": null,
-			"sort": 0,
-			"ownership": {
-				"default": 0
-			},
-			"flags": {}
-		},
-		{
-			"name": "Vorpal Weakness",
-			"type": "feature",
-			"system": {
-				"ac": {
-					"baseFormula": "",
-					"formula": "",
-					"maxDex": 0,
-					"minStr": 0,
-					"mode": 2,
-					"requiresNoShield": false,
-					"requiresUnarmored": false
-				},
-				"actions": {},
-				"description": "<p>While the jabberwocky&nbsp;is bloodied, a roll of 16 or higher with a&nbsp;sword of sharpness or vorpal sword is&nbsp;treated as a 20.</p>",
-				"favorite": false,
-				"secretDescription": "",
-				"source": "",
-				"uses": {
-					"value": null,
-					"max": "",
-					"per": null,
-					"recharge": {
-						"formula": "1d6",
-						"threshold": "6"
-					}
-				},
-				"schema": {
-					"version": null,
-					"lastMigration": null
-				},
-				"concentration": false,
-				"featureType": "other",
-				"grants": {},
-				"prerequisite": "",
-				"requiresBloodied": true
-			},
-			"_id": "P31WJum1QM8OIa3A",
-			"img": "icons/svg/item-bag.svg",
-			"effects": [],
-			"folder": null,
-			"sort": 0,
-			"ownership": {
-				"default": 0
-			},
-			"flags": {}
-		},
-		{
-			"name": "Whiffling Flight",
-			"type": "feature",
-			"system": {
-				"ac": {
-					"baseFormula": "",
-					"formula": "",
-					"maxDex": 0,
-					"minStr": 0,
-					"mode": 2,
-					"requiresNoShield": false,
-					"requiresUnarmored": false
-				},
-				"actions": {},
-				"description": "<p>The jabberwock&rsquo;s flight is&nbsp;clumsy and unpredictable. While the&nbsp;jabberwock is flying it has disadvantage&nbsp;on attack rolls and attack rolls against it&nbsp;have disadvantage.</p>",
-				"favorite": false,
-				"secretDescription": "",
-				"source": "",
-				"uses": {
-					"value": null,
-					"max": "",
-					"per": null,
-					"recharge": {
-						"formula": "1d6",
-						"threshold": "6"
-					}
-				},
-				"schema": {
-					"version": null,
-					"lastMigration": null
-				},
-				"concentration": false,
-				"featureType": "other",
-				"grants": {},
-				"prerequisite": "",
-				"requiresBloodied": false
-			},
-			"_id": "ix6qiG51n95FfIMA",
-			"img": "icons/svg/item-bag.svg",
-			"effects": [],
-			"folder": null,
-			"sort": 0,
-			"ownership": {
-				"default": 0
-			},
-			"flags": {}
-		},
-		{
-			"name": "Multiattack",
-			"type": "feature",
-			"system": {
-				"ac": {
-					"baseFormula": "",
-					"formula": "",
-					"maxDex": 0,
-					"minStr": 0,
-					"mode": 2,
-					"requiresNoShield": false,
-					"requiresUnarmored": false
-				},
-				"actions": {},
-				"description": "<p>The jabberwock attacks once&nbsp;with its bite and twice with its claw.</p>",
-				"favorite": false,
-				"secretDescription": "",
-				"source": "",
-				"uses": {
-					"value": null,
-					"max": "",
-					"per": null,
-					"recharge": {
-						"formula": "1d6",
-						"threshold": "6"
-					}
-				},
-				"schema": {
-					"version": null,
-					"lastMigration": null
-				},
-				"concentration": false,
-				"featureType": "other",
-				"grants": {},
-				"prerequisite": "",
-				"requiresBloodied": false
-			},
-			"_id": "OZsd5iHo7tnCvZpU",
-			"img": "icons/skills/melee/blade-tips-triple-steel.webp",
-			"effects": [],
-			"folder": null,
-			"sort": 0,
-			"ownership": {
-				"default": 0
-			},
-			"flags": {}
-		},
-		{
-			"name": "Bite",
-			"type": "feature",
-			"system": {
-				"ac": {
-					"baseFormula": "",
-					"formula": "",
-					"maxDex": 0,
-					"minStr": 0,
-					"mode": 2,
-					"requiresNoShield": false,
-					"requiresUnarmored": false
-				},
-				"actions": {
-					"7H7zuNXExkCyeCdD": {
-						"name": "Attack",
-						"activation": {
-							"type": "action",
-							"cost": 1
-						},
-						"consumers": {},
-						"rolls": {
-							"HIDc3dKegCfsUGxd": {
-								"type": "attack",
-								"default": true,
-								"attackType": "meleeWeaponAttack",
-								"proficient": true,
-								"ability": "default"
-							},
-							"aGBUz3slwoBa5YbX": {
-								"type": "damage",
-								"default": true,
-								"formula": "3d12+@str.mod"
-							},
-							"4UcMCnIMBBjpLrcn": {
-								"type": "generic",
-								"default": true,
-								"label": "Body Part",
-								"formula": "1d6"
-							}
-						},
-						"prompts": {
-							"qcy2wEm2eNIFzN8n": {
-								"type": "effect",
-								"default": true,
-								"effectId": "afVYGE1xC5wYoUBc"
-							}
-						},
-						"uses": {
-							"value": 0,
-							"max": "",
-							"per": "",
-							"recharge": {
-								"formula": "1d6",
-								"rechargeType": "custom",
-								"rechargeAmount": "1",
-								"threshold": 6
-							}
-						},
-						"target": {
-							"type": "creatureObject",
-							"quantity": 1
-						},
-						"ranges": {
-							"0tAdaB0Mbx08z9V4": {
-								"range": 15,
-								"unit": "feet"
-							}
-						}
-					},
-					"4c7PeR1lE97jAjkO": {
-						"name": "Jaws that Bite",
-						"activation": {
-							"type": "reaction",
-							"cost": 1,
-							"reactionTrigger": "When a creature that the jabberwock can see makes a melee attack against it"
-						},
-						"consumers": {},
-						"rolls": {
-							"HIDc3dKegCfsUGxd": {
-								"type": "attack",
-								"default": true,
-								"attackType": "meleeWeaponAttack",
-								"proficient": true,
-								"ability": "default"
-							},
-							"aGBUz3slwoBa5YbX": {
-								"type": "damage",
-								"default": true,
-								"formula": "3d12+@str.mod"
-							},
-							"4UcMCnIMBBjpLrcn": {
-								"type": "generic",
-								"default": true,
-								"label": "Body Part",
-								"formula": "1d6"
-							}
-						},
-						"prompts": {
-							"qcy2wEm2eNIFzN8n": {
-								"type": "effect",
-								"default": true,
-								"effectId": "7iXdd3iJWJexXRGU"
-							}
-						},
-						"uses": {
-							"value": 0,
-							"max": "",
-							"per": "",
-							"recharge": {
-								"formula": "1d6",
-								"rechargeType": "custom",
-								"rechargeAmount": "1",
-								"threshold": 6
-							}
-						},
-						"target": {
-							"type": "creatureObject",
-							"quantity": 1
-						},
-						"ranges": {
-							"0tAdaB0Mbx08z9V4": {
-								"range": 15,
-								"unit": "feet"
-							}
-						},
-						"description": "<p>When a creature that the&nbsp;jabberwock can see makes a melee&nbsp;attack against it, the jabberwock makes a&nbsp;bite attack against that creature.</p>"
-					}
-				},
-				"description": "<p>Melee Weapon Attack: +13 to hit,&nbsp;reach 15 ft., one target. Hit: 26 (3d12 + 7)&nbsp;slashing damage. On a critical hit against&nbsp;a creature, the jabberwock&rsquo;s teeth&nbsp;debilitate a limb until the character&nbsp;completes a long rest or is restored to full&nbsp;hit points. At the Narrator's discretion, the&nbsp;target might suffer a permanent wound&nbsp;that requires the regeneration spell. For a&nbsp;typical humanoid, roll 1d6: 1&ndash;3 arm&nbsp;(preventing the use of that arm to hold&nbsp;items or wear a shield), 4&ndash;6 leg (halving&nbsp;the target&rsquo;s Speed).</p>",
-				"favorite": true,
-				"secretDescription": "",
-				"source": "",
-				"uses": {
-					"value": null,
-					"max": "",
-					"per": null,
-					"recharge": {
-						"formula": "1d6",
-						"threshold": "6"
-					}
-				},
-				"schema": {
-					"version": null,
-					"lastMigration": null
-				},
-				"concentration": false,
-				"featureType": "other",
-				"grants": {},
-				"prerequisite": "",
-				"requiresBloodied": false
-			},
-			"_id": "PTmrp2V6W3xgzRPq",
-			"img": "icons/creatures/abilities/mouth-teeth-long-red.webp",
-			"effects": [
-				{
-					"icon": "icons/creatures/abilities/mouth-teeth-long-red.webp",
-					"origin": "Actor.PIwWWq23IZXzA3PY.Item.PTmrp2V6W3xgzRPq",
-					"flags": {
-						"a5e": {
-							"sort": 0,
-							"transferType": "onUse",
-							"actionId": "7H7zuNXExkCyeCdD"
-						}
-					},
-					"transfer": false,
-					"name": "Leg Damage",
-					"_id": "afVYGE1xC5wYoUBc",
-					"changes": [
-						{
-							"key": "system.attributes.movement.walk.distance",
-							"value": "0.5",
-							"mode": 1,
-							"priority": null
-						}
-					],
-					"disabled": false,
-					"duration": {
-						"startTime": null,
-						"seconds": null,
-						"combat": null,
-						"rounds": null,
-						"turns": null,
-						"startRound": null,
-						"startTurn": null
-					},
-					"description": "",
-					"statuses": [],
-					"folder": null
-				},
-				{
-					"icon": "icons/creatures/abilities/mouth-teeth-long-red.webp",
-					"origin": "Actor.PIwWWq23IZXzA3PY.Item.PTmrp2V6W3xgzRPq",
-					"flags": {
-						"a5e": {
-							"sort": 0,
-							"transferType": "onUse",
-							"actionId": "4c7PeR1lE97jAjkO"
-						}
-					},
-					"transfer": false,
-					"name": "Leg Damage",
-					"_id": "7iXdd3iJWJexXRGU",
-					"changes": [
-						{
-							"key": "system.attributes.movement.walk.distance",
-							"value": "0.5",
-							"mode": 1,
-							"priority": null
-						}
-					],
-					"disabled": false,
-					"duration": {
-						"startTime": null,
-						"seconds": null,
-						"combat": null,
-						"rounds": null,
-						"turns": null,
-						"startRound": null,
-						"startTurn": null
-					},
-					"description": "",
-					"statuses": [],
-					"folder": null
-				}
-			],
-			"folder": null,
-			"sort": 0,
-			"ownership": {
-				"default": 0
-			},
-			"flags": {}
-		},
-		{
-			"name": "Claw",
-			"type": "feature",
-			"system": {
-				"ac": {
-					"baseFormula": "",
-					"formula": "",
-					"maxDex": 0,
-					"minStr": 0,
-					"mode": 2,
-					"requiresNoShield": false,
-					"requiresUnarmored": false
-				},
-				"actions": {
-					"ROquKmBnm6kOrMiU": {
-						"name": "Attack",
-						"activation": {
-							"type": "action",
-							"cost": 1
-						},
-						"consumers": {},
-						"rolls": {
-							"WI5rsBx1xnTpT2XI": {
-								"type": "attack",
-								"default": true,
-								"attackType": "meleeWeaponAttack",
-								"proficient": true,
-								"ability": "none"
-							},
-							"VJ0z1GWOpa32pUFo": {
-								"type": "damage",
-								"default": true,
-								"formula": "3d8+@str.mod",
-								"damageType": "slashing"
-							}
-						},
-						"prompts": {
-							"sIQtiXCcpSyDiVu3": {
-								"type": "effect",
-								"default": true,
-								"effectId": "Fj8CeNbJjZcpWYC7"
-							}
-						},
-						"uses": {
-							"value": 0,
-							"max": "",
-							"per": "",
-							"recharge": {
-								"formula": "1d6",
-								"rechargeType": "custom",
-								"rechargeAmount": "1",
-								"threshold": 6
-							}
-						},
-						"ranges": {
-							"BT4XKxwsR316mhC5": {
-								"range": 15,
-								"unit": "feet"
-							}
-						},
-						"target": {
-							"type": "creatureObject",
-							"quantity": 1
-						}
-					},
-					"uiPWIc3BClpAdhyt": {
-						"name": "Claws that Catch",
-						"activation": {
-							"type": "reaction",
-							"cost": 1,
-							"reactionTrigger": "When a creature escapes the jabberwock’s grapple"
-						},
-						"consumers": {},
-						"rolls": {
-							"WI5rsBx1xnTpT2XI": {
-								"type": "attack",
-								"default": true,
-								"attackType": "meleeWeaponAttack",
-								"proficient": true,
-								"ability": "none"
-							},
-							"VJ0z1GWOpa32pUFo": {
-								"type": "damage",
-								"default": true,
-								"formula": "3d8+@str.mod",
-								"damageType": "slashing"
-							}
-						},
-						"prompts": {
-							"sIQtiXCcpSyDiVu3": {
-								"type": "effect",
-								"default": true,
-								"effectId": "vQjeHmooQjniRnwm"
-							}
-						},
-						"uses": {
-							"value": 0,
-							"max": "",
-							"per": "",
-							"recharge": {
-								"formula": "1d6",
-								"rechargeType": "custom",
-								"rechargeAmount": "1",
-								"threshold": 6
-							}
-						},
-						"ranges": {
-							"BT4XKxwsR316mhC5": {
-								"range": 15,
-								"unit": "feet"
-							}
-						},
-						"target": {
-							"type": "creatureObject",
-							"quantity": 1
-						},
-						"description": "<p>When a creature&nbsp;escapes the jabberwock&rsquo;s grapple, the&nbsp;jabberwock makes a claw attack against&nbsp;that creature.</p>"
-					}
-				},
-				"description": "<p>Melee Weapon Attack: +13 to hit,&nbsp;reach 15 ft., one target. Hit: 20 (3d8 + 7)<br>slashing damage. If the target is a&nbsp;creature, it is grappled (escape DC 21).&nbsp;Until this grapple ends, the target is&nbsp;restrained. The jabberwock can have up&nbsp;to two creatures grappled at a time.</p>",
-				"favorite": true,
-				"secretDescription": "",
-				"source": "",
-				"uses": {
-					"value": null,
-					"max": "",
-					"per": null,
-					"recharge": {
-						"formula": "1d6",
-						"threshold": "6"
-					}
-				},
-				"schema": {
-					"version": null,
-					"lastMigration": null
-				},
-				"concentration": false,
-				"featureType": "other",
-				"grants": {},
-				"prerequisite": "",
-				"requiresBloodied": false
-			},
-			"_id": "a2UYFfE2bEYsSHzY",
-			"img": "icons/skills/melee/blood-slash-foam-red.webp",
-			"effects": [
-				{
-					"icon": "icons/skills/melee/blood-slash-foam-red.webp",
-					"origin": "Actor.PIwWWq23IZXzA3PY.Item.a2UYFfE2bEYsSHzY",
-					"flags": {
-						"a5e": {
-							"sort": 0,
-							"transferType": "onUse",
-							"actionId": "ROquKmBnm6kOrMiU"
-						}
-					},
-					"transfer": false,
-					"name": "Grab",
-					"_id": "Fj8CeNbJjZcpWYC7",
-					"changes": [
-						{
-							"key": "flags.a5e.effects.statusConditions",
-							"value": "[\"grappled\",\"restrained\"]",
-							"mode": 0,
-							"priority": null
-						}
-					],
-					"disabled": false,
-					"duration": {
-						"startTime": null,
-						"seconds": null,
-						"combat": null,
-						"rounds": null,
-						"turns": null,
-						"startRound": null,
-						"startTurn": null
-					},
-					"description": "",
-					"statuses": [
-						"grappled",
-						"restrained"
-					],
-					"folder": null
-				},
-				{
-					"icon": "icons/skills/melee/blood-slash-foam-red.webp",
-					"origin": "Actor.PIwWWq23IZXzA3PY.Item.a2UYFfE2bEYsSHzY",
-					"flags": {
-						"a5e": {
-							"sort": 0,
-							"transferType": "onUse",
-							"actionId": "uiPWIc3BClpAdhyt"
-						}
-					},
-					"transfer": false,
-					"name": "Grab",
-					"_id": "vQjeHmooQjniRnwm",
-					"changes": [
-						{
-							"key": "flags.a5e.effects.statusConditions",
-							"value": "[\"grappled\",\"restrained\"]",
-							"mode": 0,
-							"priority": null
-						}
-					],
-					"disabled": false,
-					"duration": {
-						"startTime": null,
-						"seconds": null,
-						"combat": null,
-						"rounds": null,
-						"turns": null,
-						"startRound": null,
-						"startTurn": null
-					},
-					"description": "",
-					"statuses": [
-						"grappled",
-						"restrained"
-					],
-					"folder": null
-				}
-			],
-			"folder": null,
-			"sort": 0,
-			"ownership": {
-				"default": 0
-			},
-			"flags": {}
-		},
-		{
-			"name": "Eyes of Flame",
-			"type": "feature",
-			"system": {
-				"ac": {
-					"baseFormula": "",
-					"formula": "",
-					"maxDex": 0,
-					"minStr": 0,
-					"mode": 2,
-					"requiresNoShield": false,
-					"requiresUnarmored": false
-				},
-				"actions": {
-					"THDtMZ9UaJ1iKSRS": {
-						"name": "Use Feature",
-						"activation": {
-							"type": "action",
-							"cost": 1
-						},
-						"consumers": {
-							"vPC1pwsRGVVVEZDp": {
-								"type": "itemUses",
-								"default": true,
-								"quantity": 1
-							}
-						},
-						"rolls": {
-							"iZCfil0D8X32sUyM": {
-								"type": "damage",
-								"default": true,
-								"damageType": "fire",
-								"formula": "14d6"
-							}
-						},
-						"prompts": {
-							"DjnB5Iw3KQ7efpdx": {
-								"type": "savingThrow",
-								"default": true,
-								"ability": "str",
-								"saveDC": {
-									"type": "maneuver"
-								},
-								"onSave": "half damage on a success"
-							}
-						},
-						"uses": {
-							"value": 0,
-							"max": "",
-							"per": "",
-							"recharge": {
-								"formula": "1d6",
-								"rechargeType": "custom",
-								"rechargeAmount": "1",
-								"threshold": 6
-							}
-						},
-						"area": {
-							"shape": "cone",
-							"quantity": 1,
-							"length": 60,
-							"placeTemplate": true
-						}
-					}
-				},
-				"description": "<p>The&nbsp;jabberwock&rsquo;s gaze ignites everything in a&nbsp;60-foot cone. Each creature in that area&nbsp;makes a DC 21 Dexterity saving throw,&nbsp;taking 49 (14d6) fire damage on a failed<br>save or half damage on a success.</p>",
-				"favorite": true,
-				"secretDescription": "",
-				"source": "",
-				"uses": {
-					"value": 1,
-					"max": "1",
-					"per": "recharge",
-					"recharge": {
-						"formula": "1d6",
-						"threshold": 5
-					}
-				},
-				"schema": {
-					"version": null,
-					"lastMigration": null
-				},
-				"concentration": false,
-				"featureType": "other",
-				"grants": {},
-				"prerequisite": "",
-				"requiresBloodied": false
-			},
-			"_id": "Ry3RLIyjVbKhdtj7",
-			"img": "icons/magic/fire/flame-burning-eye.webp",
-			"effects": [],
-			"folder": null,
-			"sort": 0,
-			"ownership": {
-				"default": 0
-			},
-			"flags": {}
-		},
-		{
-			"name": "Burble",
-			"type": "feature",
-			"system": {
-				"ac": {
-					"baseFormula": "",
-					"formula": "",
-					"maxDex": 0,
-					"minStr": 0,
-					"mode": 2,
-					"requiresNoShield": false,
-					"requiresUnarmored": false
-				},
-				"actions": {
-					"uO1PnzckuGV3hucN": {
-						"name": "Use Feature",
-						"activation": {
-							"type": "bonusAction",
-							"cost": 1
-						},
-						"consumers": {},
-						"rolls": {},
-						"prompts": {
-							"FKcZ930rm8y7g2bw": {
-								"type": "savingThrow",
-								"default": true,
-								"ability": "str",
-								"saveDC": {
-									"type": "cha"
-								},
-								"onSave": "Not get a burbling curse"
-							}
-						},
-						"uses": {
-							"value": 0,
-							"max": "",
-							"per": "",
-							"recharge": {
-								"formula": "1d6",
-								"rechargeType": "custom",
-								"rechargeAmount": "1",
-								"threshold": 6
-							}
-						},
-						"ranges": {},
-						"area": {
-							"shape": "emanation",
-							"quantity": 1,
-							"radius": 30,
-							"placeTemplate": true
-						}
-					}
-				},
-				"description": "<p>The jabberwock speaks in the&nbsp;magical Jabber language. Each creature&nbsp;within 30 feet of the jabberwock that can&nbsp;hear it and that doesn&rsquo;t speak Jabber&nbsp;makes a DC 20 Wisdom saving throw. On&nbsp;a failure, the creature is subjected to a&nbsp;burbling curse. While cursed, half the&nbsp;words the creature speaks are replaced&nbsp;with words in the Jabber language. Each&nbsp;time the creature speaks, casts a spell&nbsp;with a vocalized component, or uses an effect that requires listeners to understand&nbsp;its words, the creature must roll a d20. On<br>a roll of 1&ndash;9, the speech is unintelligible or&nbsp;the spell or effect is wasted. The creature<br>repeats the saving throw whenever it&nbsp;finishes a long rest, ending the curse on a&nbsp;success. If a creature&rsquo;s saving throw is&nbsp;successful or the effect ends for it, it is&nbsp;immune to Burble for 24 hours.</p>",
-				"favorite": true,
-				"secretDescription": "",
-				"source": "",
-				"uses": {
-					"value": null,
-					"max": "",
-					"per": null,
-					"recharge": {
-						"formula": "1d6",
-						"threshold": "6"
-					}
-				},
-				"schema": {
-					"version": null,
-					"lastMigration": null
-				},
-				"concentration": false,
-				"featureType": "other",
-				"grants": {},
-				"prerequisite": "",
-				"requiresBloodied": false
-			},
-			"_id": "O6HZ5bWlmnKc1Uyd",
-			"img": "icons/magic/control/hypnosis-mesmerism-swirl.webp",
-			"effects": [],
-			"folder": null,
-			"sort": 0,
-			"ownership": {
-				"default": 0
-			},
-			"flags": {}
-		},
-		{
-			"type": "feature",
-			"img": "icons/creatures/abilities/wing-batlike-white-blue.webp",
-			"name": "Whiffling Dodge",
-			"flags": {},
-			"system": {
-				"ac": {
-					"baseFormula": "",
-					"formula": "",
-					"maxDex": 0,
-					"minStr": 0,
-					"mode": 2,
-					"requiresNoShield": false,
-					"requiresUnarmored": false
-				},
-				"actions": {
-					"ivRfl2bKI7fiV2qX": {
-						"activation": {
-							"cost": 1,
-							"type": "reaction",
-							"reactionTrigger": "When the jabberwock would be hit by a ranged attack while it is not flying"
-						},
-						"duration": {
-							"unit": "",
-							"value": ""
-						},
-						"prompts": {
-							"1iHPQAp5dTNH513T": {
-								"ability": "dex",
-								"type": "savingThrow",
-								"saveDC": {
-									"bonus": "",
-									"type": "custom"
-								}
-							}
-						},
-						"rolls": {
-							"gfsLUMolNpWecg9l": {
-								"canCrit": false,
-								"critBonus": "",
-								"damageType": "bludgeoning",
-								"formula": "2d6 + @str.mod",
-								"scaling": {},
-								"name": "",
-								"type": "damage"
-							}
-						},
-						"target": {
-							"quantity": 1,
-							"type": ""
-						},
-						"name": "Whiffling Dodge",
-						"ranges": {}
-					}
-				},
-				"description": "<p>When the jabberwock&nbsp;would be hit by a ranged attack while it is&nbsp;not flying, it flies up to its speed, imposing&nbsp;disadvantage on the triggering attack.</p>",
-				"favorite": true,
-				"secretDescription": "",
-				"source": {
-					"name": "",
-					"link": "",
-					"publisher": ""
-				},
-				"uses": {
-					"value": 0,
-					"max": 0,
-					"per": "",
-					"recharge": {
-						"formula": "1d6",
-						"threshold": 6
-					}
-				},
-				"schema": {
-					"version": 0.01,
-					"lastMigration": null
-				},
-				"concentration": false,
-				"featureType": "other",
-				"grants": {},
-				"prerequisite": "",
-				"requiresBloodied": false,
-				"schemaVersion": {
-					"version": 0.01,
-					"lastMigration": {
-						"version": {
-							"schema": null,
-							"foundry": "12.316",
-							"system": "0.16.12"
-						}
-					}
-				}
-			},
-			"_id": "XUykyQgasAaJP8Aw",
-			"effects": [],
-			"folder": null,
-			"sort": 0,
-			"ownership": {
-				"default": 0
-			}
-		}
-	],
-	"effects": [],
-	"folder": null,
-	"flags": {
-		"a5e": {
-			"sheetIsLocked": false
-		}
-	},
-	"_id": "8opg538qquqatm2s"
+  "name": "Jabberwock",
+  "type": "npc",
+  "img": "icons/svg/mystery-man.svg",
+  "system": {
+    "schemaVersion": {
+      "version": 0.013,
+      "lastMigration": null
+    },
+    "abilities": {
+      "str": {
+        "value": 24,
+        "check": {
+          "expertiseDice": 0,
+          "bonus": ""
+        },
+        "save": {
+          "proficient": false,
+          "expertiseDice": 0,
+          "bonus": ""
+        }
+      },
+      "dex": {
+        "value": 18,
+        "check": {
+          "expertiseDice": 0,
+          "bonus": ""
+        },
+        "save": {
+          "proficient": true,
+          "expertiseDice": 0,
+          "bonus": ""
+        }
+      },
+      "con": {
+        "value": 24,
+        "check": {
+          "expertiseDice": 0,
+          "bonus": ""
+        },
+        "save": {
+          "proficient": true,
+          "expertiseDice": 0,
+          "bonus": ""
+        }
+      },
+      "int": {
+        "value": 10,
+        "check": {
+          "expertiseDice": 0,
+          "bonus": ""
+        },
+        "save": {
+          "proficient": false,
+          "expertiseDice": 0,
+          "bonus": ""
+        }
+      },
+      "wis": {
+        "value": 20,
+        "check": {
+          "expertiseDice": 0,
+          "bonus": ""
+        },
+        "save": {
+          "proficient": true,
+          "expertiseDice": 0,
+          "bonus": ""
+        }
+      },
+      "cha": {
+        "value": 22,
+        "check": {
+          "expertiseDice": 0,
+          "bonus": ""
+        },
+        "save": {
+          "proficient": true,
+          "expertiseDice": 0,
+          "bonus": ""
+        }
+      }
+    },
+    "attributes": {
+      "ac": {
+        "baseFormula": "10 + @dex.mod + @cha.mod",
+        "value": 0
+      },
+      "death": {
+        "success": 0,
+        "failure": 0
+      },
+      "hp": {
+        "value": 270,
+        "baseMax": 270,
+        "temp": 0,
+        "bonus": 0
+      },
+      "hitDice": {
+        "d4": {
+          "current": 0,
+          "total": 0
+        },
+        "d6": {
+          "current": 0,
+          "total": 0
+        },
+        "d8": {
+          "current": 0,
+          "total": 0
+        },
+        "d10": {
+          "current": 0,
+          "total": 0
+        },
+        "d12": {
+          "current": 20,
+          "total": 20
+        },
+        "d20": {
+          "current": 0,
+          "total": 0
+        }
+      },
+      "initiative": {
+        "ability": "dex",
+        "bonus": "",
+        "expertiseDice": 0
+      },
+      "movement": {
+        "burrow": {
+          "distance": 0,
+          "unit": "feet"
+        },
+        "climb": {
+          "distance": 0,
+          "unit": "feet"
+        },
+        "fly": {
+          "distance": 40,
+          "unit": "feet"
+        },
+        "swim": {
+          "distance": 0,
+          "unit": "feet"
+        },
+        "walk": {
+          "distance": 60,
+          "unit": "feet"
+        },
+        "traits": {
+          "hover": false
+        }
+      },
+      "senses": {
+        "blindsight": {
+          "distance": 0,
+          "unit": "feet",
+          "otherwiseBlind": false
+        },
+        "darkvision": {
+          "distance": 60,
+          "unit": "feet"
+        },
+        "tremorsense": {
+          "distance": 0,
+          "unit": "feet"
+        },
+        "truesight": {
+          "distance": 0,
+          "unit": "feet"
+        }
+      },
+      "inspiration": false,
+      "fatigue": 0,
+      "strife": 0,
+      "spellcasting": "int",
+      "casterLevel": 0
+    },
+    "bonuses": {
+      "abilities": {},
+      "attacks": {},
+      "damage": {},
+      "healing": {},
+      "initiative": {},
+      "movement": {},
+      "senses": {},
+      "skills": {},
+      "maneuverDC": "",
+      "meleeSpellAttack": "",
+      "meleeWeaponAttack": "",
+      "rangedSpellAttack": "",
+      "rangedWeaponAttack": "",
+      "spellDC": ""
+    },
+    "currency": {
+      "cp": 0,
+      "sp": 0,
+      "ep": 0,
+      "gp": 0,
+      "pp": 0
+    },
+    "details": {
+      "bio": "<h2><strong>COMBAT</strong></h2>\n<p>While flying, the jabberwock uses Eyes of&nbsp;Flame. The jabberwock then lands, attacking one&nbsp;opponent with a bite and a claw and a different&nbsp;opponent with its second claw. It focuses on&nbsp;spellcasters, grappling them and using Burble to&nbsp;hamper their spells. It prefers to use its reaction&nbsp;to bite a grappled creature. If it isn&rsquo;t grappling&nbsp;a creature, it uses Whiffling Dodge. The&nbsp;jabberwock flies away if it takes slashing damage&nbsp;while it is bloodied. When it retreats, it carries&nbsp;with it any creatures it is grappling.</p>\n<hr class=\"a5e-rule u-my-md\">\n<h2><strong>NAMES</strong></h2>\n<p>Barbjadorith, Gostak, Mimlimious</p>\n<hr class=\"a5e-rule u-my-md\">\n<h2><strong>LEGENDS AND LORE</strong></h2>\n<p>An Arcana or History check&nbsp;reveals the following:</p>\n<p><strong>DC 10</strong> Jabberwocks are dragons native to the fey&nbsp;realm. Accounts of the creatures vary.</p>\n<p><strong>DC 15</strong> Survivors of a jabberwock encounter are&nbsp;often afflicted with a curse that reduces&nbsp;their speech to nonsense.</p>\n<p><strong>DC 20</strong> Jabberwocks fear bladed weapons,&nbsp;especially vorpal swords.</p>\n<hr class=\"a5e-rule u-my-md\">\n<h2><strong>BURBLING CURSE</strong></h2>\n<p>Characters with low Wisdom scores might&nbsp;struggle to recover from the curse inflicted by&nbsp;the jabberwock&rsquo;s unintelligible speech. The&nbsp;rules of the curse indicate that an affected&nbsp;character should roll a d20 each time it tries&nbsp;to communicate. Players or Narrators who&nbsp;prefer to act out the curse might instead try the&nbsp;following challenge: when an affected character&nbsp;speaks, replace each adjective and noun with a&nbsp;nonsense word, such as &ldquo;jabberwock&rdquo; for nouns&nbsp;and &ldquo;jabberwocky&rdquo; for adjectives. Casting a&nbsp;spell with a vocalized component still requires a&nbsp;die roll.</p>\n<hr class=\"a5e-rule u-my-md\">\n<h2><strong>DESCRIPTION</strong></h2>\n<p>The jabberwock is a gangly, long-necked&nbsp;dragon native to the faerie realm. Although its&nbsp;appearance is unlikely, even the mightiest heroes&nbsp;must beware the jabberwock&rsquo;s claws that grab&nbsp;and eyes of flame. Spellcasters in particular fear&nbsp;its burbling speech, a magical singsong that ruins&nbsp;spells and reduces words to nonsense.</p>\n<p><strong>Fey Dragon</strong>. Just as forests in the Dreaming&nbsp;weirdly reflect those in the material world,&nbsp;the jabberwock looks like a green dragon seen&nbsp;through a warped mirror. Although the two&nbsp;species may be related, they are often bitter&nbsp;rivals. Whereas a green dragon uses its glib&nbsp;tongue to manipulate a network of informants&nbsp;and underlings, the jabberwock thrives on&nbsp;sowing miscommunication and confusion.</p>\n<p><strong>Strange Speech.</strong> The jabberwock&rsquo;s language,&nbsp;Jabber, leaves those who hear it teetering&nbsp;on the edge of madness. When spoken by&nbsp;a jabberwock, the words of this strange&nbsp;tongue infect the minds of mortals and fey&nbsp;alike. Inhabitants of a jabberwock&rsquo;s forest&nbsp;often speak in an unintelligible mix of Jabber&nbsp;and their own language. The jabberwock&rsquo;s&nbsp;cursed speech has distorted much of what&nbsp;is known about the creature, as even those&nbsp;who encounter a jabberwock firsthand can&rsquo;t&nbsp;describe it in a way that makes sense to&nbsp;others. Jabber can&rsquo;t be learned; it can only be&nbsp;spoken by those cursed by the jabberwock.</p>\n<p><strong>Vorpal Vulnerability.</strong> A jabberwock&rsquo;s sinuous,&nbsp;rubbery body recalls the lanky frame of&nbsp;a troll. Much like a troll, a jabberwock&rsquo;s&nbsp;wounds heal quickly, making the creature&nbsp;difficult to kill. Unlike a troll, however, a&nbsp;jabberwock can&rsquo;t regrow severed body parts.&nbsp;The jabberwock fears magic blades like&nbsp;swords of sharpness and, above all, vorpal&nbsp;swords. A jabberwock&rsquo;s foes often go to&nbsp;great lengths to obtain such weapons and&nbsp;place them in the hands of suitable heroes.&nbsp;The jabberwock, on the other hand, hunts&nbsp;down anyone rumored to possess such a&nbsp;sword, destroying the blade or hiding it in&nbsp;its treasure hoard.</p>\n<hr class=\"a5e-rule u-my-md\">\n<h2><strong>BEHAVIOR</strong></h2>\n<p>1 Hunting</p>\n<p>2 Questioning a victim of its burbling curse;&nbsp;it understands them perfectly</p>\n<p>3&nbsp;Following an adventuring party (possibly&nbsp;yours!) that it suspects carries a vorpal&nbsp;sword</p>\n<p>4 Reciting Jabber poetry to an inanimate tree</p>\n<hr class=\"a5e-rule u-my-md\">\n<h2><strong>SIGNS</strong></h2>\n<p>1 A humanoid afflicted with a burbling&nbsp;curse, trying to warn travelers of danger</p>\n<p>2 Two talking animals; one always lies, one&nbsp;always tells the truth</p>\n<p>3&nbsp;Easy-to-spot footprints (DC 15 Survival&nbsp;check: the footprints of a jabberwock&nbsp;walking backwards)</p>\n<p>4 A stretch of barren, ashy ground</p>\n<hr class=\"a5e-rule u-my-md\">\n<h2><strong>ENCOUNTERS</strong></h2>\n<p>The jabberwock&nbsp;whiffles through ancient and fey forests.</p>\n<p><strong>CR 17&ndash;22</strong> jabberwock; jabberwock with 2 or 3 faerie&nbsp;dragons, flying swords, or keches (see bugbear)</p>\n<p><strong>Treasure</strong> 600 pp, 2,000 gp, Huge-size&nbsp;silken waistcoat (200 gp), 2 potions of&nbsp;diminution, 2 potions of growth, sword of&nbsp;sharpness hidden in an alcove that a Small&nbsp;creature must squeeze into to reach</p>\n<p><strong>CR 23&ndash;30</strong> Jabberwocky; jabberwock with 2 or 3&nbsp;coven green hags, invisible stalkers, or trolls</p>\n<p><strong>Treasure</strong> 14,500 gp, 2 sentient diamonds&nbsp;(5,000 gp each) that argue with each&nbsp;other, book of incomprehensible poetry,&nbsp;vorpal battleaxe (as vorpal sword)</p>\n<hr class=\"a5e-rule u-my-md\">\n<h2><strong>MONSTER TYPE DESCRIPTION</strong></h2>\n<p>Dragons include red and gold dragons, which are huge reptilian fire-breathers that number among the world&rsquo;s most dangerous monsters. This type includes white dragons, which breathe killing frost, as well as smaller reptilian creatures related to true dragons, such as pseudodragons.&nbsp;</p>",
+      "creatureTypes": [
+        "dragon",
+        "fey"
+      ],
+      "isSwarm": false,
+      "cr": 18,
+      "elite": false,
+      "notes": "",
+      "privateNotes": "",
+      "terrain": [
+        "theDreaming"
+      ]
+    },
+    "grants": {},
+    "proficiencies": {
+      "armor": [],
+      "languages": [],
+      "tools": [],
+      "weapons": []
+    },
+    "resources": {
+      "primary": {
+        "label": "",
+        "value": 0,
+        "max": "",
+        "per": "",
+        "hideMax": false,
+        "recharge": {
+          "formula": "1d6",
+          "threshold": 6
+        }
+      },
+      "secondary": {
+        "label": "",
+        "value": 0,
+        "max": "",
+        "per": "",
+        "hideMax": false,
+        "recharge": {
+          "formula": "1d6",
+          "threshold": 6
+        }
+      },
+      "tertiary": {
+        "label": "",
+        "value": 0,
+        "max": "",
+        "per": "",
+        "hideMax": false,
+        "recharge": {
+          "formula": "1d6",
+          "threshold": 6
+        }
+      },
+      "quaternary": {
+        "label": "",
+        "value": 0,
+        "max": "",
+        "per": "",
+        "hideMax": false,
+        "recharge": {
+          "formula": "1d6",
+          "threshold": 6
+        }
+      }
+    },
+    "skills": {
+      "acr": {
+        "ability": "dex",
+        "proficient": false,
+        "specialties": [],
+        "expertiseDice": 0,
+        "minRoll": 1,
+        "bonuses": {
+          "check": "",
+          "passive": 0
+        }
+      },
+      "ani": {
+        "ability": "wis",
+        "proficient": false,
+        "specialties": [],
+        "expertiseDice": 0,
+        "minRoll": 1,
+        "bonuses": {
+          "check": "",
+          "passive": 0
+        }
+      },
+      "arc": {
+        "ability": "int",
+        "proficient": false,
+        "specialties": [],
+        "expertiseDice": 0,
+        "minRoll": 1,
+        "bonuses": {
+          "check": "",
+          "passive": 0
+        }
+      },
+      "ath": {
+        "ability": "str",
+        "proficient": false,
+        "specialties": [],
+        "expertiseDice": 0,
+        "minRoll": 1,
+        "bonuses": {
+          "check": "",
+          "passive": 0
+        }
+      },
+      "cul": {
+        "ability": "int",
+        "proficient": false,
+        "specialties": [],
+        "expertiseDice": 0,
+        "minRoll": 1,
+        "bonuses": {
+          "check": "",
+          "passive": 0
+        }
+      },
+      "dec": {
+        "ability": "cha",
+        "proficient": false,
+        "specialties": [],
+        "expertiseDice": 0,
+        "minRoll": 1,
+        "bonuses": {
+          "check": "",
+          "passive": 0
+        }
+      },
+      "eng": {
+        "ability": "int",
+        "proficient": false,
+        "specialties": [],
+        "expertiseDice": 0,
+        "minRoll": 1,
+        "bonuses": {
+          "check": "",
+          "passive": 0
+        }
+      },
+      "his": {
+        "ability": "int",
+        "proficient": false,
+        "specialties": [],
+        "expertiseDice": 0,
+        "minRoll": 1,
+        "bonuses": {
+          "check": "",
+          "passive": 0
+        }
+      },
+      "ins": {
+        "ability": "wis",
+        "proficient": false,
+        "specialties": [],
+        "expertiseDice": 0,
+        "minRoll": 1,
+        "bonuses": {
+          "check": "",
+          "passive": 0
+        }
+      },
+      "itm": {
+        "ability": "cha",
+        "proficient": true,
+        "specialties": [],
+        "expertiseDice": 0,
+        "minRoll": 1,
+        "bonuses": {
+          "check": "",
+          "passive": 0
+        }
+      },
+      "inv": {
+        "ability": "int",
+        "proficient": false,
+        "specialties": [],
+        "expertiseDice": 0,
+        "minRoll": 1,
+        "bonuses": {
+          "check": "",
+          "passive": 0
+        }
+      },
+      "med": {
+        "ability": "int",
+        "proficient": false,
+        "specialties": [],
+        "expertiseDice": 0,
+        "minRoll": 1,
+        "bonuses": {
+          "check": "",
+          "passive": 0
+        }
+      },
+      "nat": {
+        "ability": "int",
+        "proficient": false,
+        "specialties": [],
+        "expertiseDice": 0,
+        "minRoll": 1,
+        "bonuses": {
+          "check": "",
+          "passive": 0
+        }
+      },
+      "prc": {
+        "ability": "wis",
+        "proficient": true,
+        "specialties": [],
+        "expertiseDice": 0,
+        "minRoll": 1,
+        "bonuses": {
+          "check": "",
+          "passive": 0
+        }
+      },
+      "prf": {
+        "ability": "cha",
+        "proficient": false,
+        "specialties": [],
+        "expertiseDice": 0,
+        "minRoll": 1,
+        "bonuses": {
+          "check": "",
+          "passive": 0
+        }
+      },
+      "per": {
+        "ability": "wis",
+        "proficient": false,
+        "specialties": [],
+        "expertiseDice": 0,
+        "minRoll": 1,
+        "bonuses": {
+          "check": "",
+          "passive": 0
+        }
+      },
+      "rel": {
+        "ability": "int",
+        "proficient": false,
+        "specialties": [],
+        "expertiseDice": 0,
+        "minRoll": 1,
+        "bonuses": {
+          "check": "",
+          "passive": 0
+        }
+      },
+      "slt": {
+        "ability": "dex",
+        "proficient": false,
+        "specialties": [],
+        "expertiseDice": 0,
+        "minRoll": 1,
+        "bonuses": {
+          "check": "",
+          "passive": 0
+        }
+      },
+      "ste": {
+        "ability": "dex",
+        "proficient": true,
+        "specialties": [],
+        "expertiseDice": 0,
+        "minRoll": 1,
+        "bonuses": {
+          "check": "",
+          "passive": 0
+        }
+      },
+      "sur": {
+        "ability": "wis",
+        "proficient": false,
+        "specialties": [],
+        "expertiseDice": 0,
+        "minRoll": 1,
+        "bonuses": {
+          "check": "",
+          "passive": 0
+        }
+      }
+    },
+    "source": "gpg0",
+    "traits": {
+      "size": "huge",
+      "conditionImmunities": [
+        "charmed",
+        "confused",
+        "fatigue",
+        "frightened",
+        "paralyzed",
+        "unconscious"
+      ],
+      "damageImmunities": [],
+      "damageResistances": [
+        "fire",
+        "bludgeoning",
+        "piercing"
+      ],
+      "damageVulnerabilities": []
+    },
+    "spellResources": {
+      "slots": {
+        "1": {
+          "current": 0,
+          "max": 0
+        },
+        "2": {
+          "current": 0,
+          "max": 0
+        },
+        "3": {
+          "current": 0,
+          "max": 0
+        },
+        "4": {
+          "current": 0,
+          "max": 0
+        },
+        "5": {
+          "current": 0,
+          "max": 0
+        },
+        "6": {
+          "current": 0,
+          "max": 0
+        },
+        "7": {
+          "current": 0,
+          "max": 0
+        },
+        "8": {
+          "current": 0,
+          "max": 0
+        },
+        "9": {
+          "current": 0,
+          "max": 0
+        }
+      },
+      "points": {
+        "current": 0,
+        "max": 0
+      }
+    }
+  },
+  "prototypeToken": {
+    "name": "Jabberwock",
+    "displayName": 0,
+    "actorLink": false,
+    "appendNumber": false,
+    "prependAdjective": false,
+    "texture": {
+      "src": "icons/svg/mystery-man.svg",
+      "scaleX": 1,
+      "scaleY": 1,
+      "offsetX": 0,
+      "offsetY": 0,
+      "rotation": 0
+    },
+    "width": 3,
+    "height": 3,
+    "lockRotation": false,
+    "rotation": 0,
+    "alpha": 1,
+    "disposition": -1,
+    "displayBars": 0,
+    "bar1": {
+      "attribute": "attributes.hp"
+    },
+    "bar2": {
+      "attribute": null
+    },
+    "light": {
+      "alpha": 0.5,
+      "angle": 360,
+      "bright": 0,
+      "coloration": 1,
+      "dim": 0,
+      "attenuation": 0.5,
+      "luminosity": 0.5,
+      "saturation": 0,
+      "contrast": 0,
+      "shadows": 0,
+      "animation": {
+        "type": null,
+        "speed": 5,
+        "intensity": 5,
+        "reverse": false
+      },
+      "darkness": {
+        "min": 0,
+        "max": 1
+      }
+    },
+    "sight": {
+      "enabled": false,
+      "range": 0,
+      "angle": 360,
+      "visionMode": "basic",
+      "attenuation": 0.1,
+      "brightness": 0,
+      "saturation": 0,
+      "contrast": 0
+    },
+    "detectionModes": [],
+    "flags": {},
+    "randomImg": false
+  },
+  "items": [
+    {
+      "name": "Grapple",
+      "type": "maneuver",
+      "img": "icons/skills/melee/unarmed-punch-fist.webp",
+      "effects": [],
+      "flags": {},
+      "system": {
+        "actions": {
+          "wOKLPnhKpnhU1kEj": {
+            "name": "Grapple",
+            "activation": {
+              "cost": 1,
+              "type": "action",
+              "reactionTrigger": ""
+            },
+            "duration": {
+              "unit": "instantaneous",
+              "value": null
+            },
+            "ranges": {
+              "5nrDtksc3KPCbcJd": {
+                "range": "fiveFeet"
+              }
+            },
+            "area": {
+              "shape": "",
+              "size": "",
+              "placeTemplate": false
+            },
+            "target": {
+              "quantity": "",
+              "type": "creature",
+              "shape": "",
+              "size": ""
+            },
+            "prompts": {
+              "B9sbtgKAz5GLtsp3": {
+                "ability": "str",
+                "onSave": "",
+                "saveDC": {
+                  "type": "custom",
+                  "bonus": "@maneuverDC"
+                },
+                "type": "savingThrow"
+              }
+            },
+            "consumers": {},
+            "rolls": {
+              "GjyfHt0lKnETufaD": {
+                "type": "damage",
+                "default": true,
+                "formula": "1 + @str.mod",
+                "label": "Basic Melee Damage",
+                "canCrit": false
+              }
+            }
+          }
+        },
+        "description": "<p>You can use the Grapple maneuver to grab or wrestle a creature. If you are able to make multiple attacks with the Attack action, this maneuver replaces one of them.</p>\n<p>You must have at least one free hand to attempt a grapple, your target must be within your reach, and the target must be no more than one size category larger than you. The target makes a Strength or Dexterity saving throw against your maneuver DC. On a failure, you deal basic melee damage and the target becomes grappled (see Appendix A: Conditions on page 616). In addition to things that end the condition, you can release the target at any time (no action required).</p>\n<p><em>Escaping a Grapple.</em> While grappled, a creature can use its action to attempt to escape. It must succeed on a Strength or Dexterity saving throw against your maneuver DC.</p>\n<p><em>Moving a Grappled Creature. </em>When you move, you can drag or carry the grappled creature with you. When you do so, your Speed is halved, unless the creature's weight is within your carrying capacity and you are not encumbered by bulky items.</p>\n<p><em>Freeing a Grappled Creature.</em> You can use the Grapple maneuver to try to free another grappled or restrained creature. The creature grappling or restraining the target makes a Strength saving throw against your maneuver DC. If it fails the saving throw, the grappled or restrained creature is freed. Additionally, you may move the freed creature 5 feet in any direction.</p>",
+        "favorite": false,
+        "secretDescription": "",
+        "source": "adventurersGuide",
+        "uses": {
+          "value": null,
+          "max": "",
+          "per": null,
+          "recharge": {
+            "formula": "1d6",
+            "threshold": 6
+          }
+        },
+        "schema": {
+          "version": null,
+          "lastMigration": null
+        },
+        "concentration": false,
+        "degree": 0,
+        "exertionCost": 0,
+        "isStance": false,
+        "prerequisite": "",
+        "tradition": "",
+        "equippedState": 0,
+        "schemaVersion": {
+          "version": 0.013,
+          "lastMigration": {
+            "version": {
+              "schema": 0.011,
+              "foundry": "11.315",
+              "system": "0.16.49"
+            }
+          }
+        }
+      },
+      "folder": null,
+      "_id": "yFqGkh1V0VhUvYnV",
+      "sort": 0,
+      "ownership": {
+        "default": 0
+      }
+    },
+    {
+      "name": "Grab On",
+      "type": "maneuver",
+      "img": "icons/skills/melee/hand-grip-staff-teal.webp",
+      "effects": [],
+      "flags": {},
+      "system": {
+        "actions": {
+          "dZElCBOd3yoRyDcB": {
+            "name": "Grab On",
+            "activation": {
+              "cost": 1,
+              "type": "action",
+              "reactionTrigger": ""
+            },
+            "duration": {
+              "unit": "instantaneous",
+              "value": null
+            },
+            "ranges": {
+              "x479yGm9lUjVLHDy": {
+                "range": "fiveFeet"
+              }
+            },
+            "area": {
+              "shape": "",
+              "size": "",
+              "placeTemplate": false
+            },
+            "target": {
+              "quantity": "",
+              "type": "creature",
+              "shape": "",
+              "size": ""
+            },
+            "prompts": {
+              "duRNu9hfiRNwhtCq": {
+                "ability": "str",
+                "onSave": "",
+                "saveDC": {
+                  "type": "custom",
+                  "bonus": "@maneuverDC"
+                },
+                "type": "savingThrow"
+              }
+            },
+            "consumers": {},
+            "rolls": {
+              "pzopjF1frh4UfKvT": {
+                "type": "damage",
+                "default": true,
+                "formula": "1 + @str.mod",
+                "label": "Basic Melee Damage",
+                "canCrit": false
+              }
+            }
+          }
+        },
+        "description": "<p>While you cannot grapple a creature two or more size categories larger than you, you can grab onto it. By jumping onto its back or climbing up a limb, you can make a Strength or Dexterity saving throw against the creature's maneuver DC to cling to or balance upon its body. On a success, you move into the creature's space and can move upon its body as if it is difficult terrain.</p><p>While grabbing onto a larger creature, you gain advantage on attack rolls against it. The larger creature may be able to attack you as normal, depending on its limbs or attacks. It can also use an action or replace one of its attacks on its turn to try to dislodge you, such as shaking you loose or bashing you against a wall, forcing you to make a Strength or Dexterity saving throw against its maneuver DC or fall prone into the nearest space adjacent to the creature, taking its basic melee damage in the process.</p><p>If the creature chooses to roll over in order to dislodge you, it becomes prone, but you have disadvantage on the saving throw to hang on.</p>",
+        "favorite": false,
+        "secretDescription": "",
+        "source": "adventurersGuide",
+        "uses": {
+          "value": null,
+          "max": "",
+          "per": null,
+          "recharge": {
+            "formula": "1d6",
+            "threshold": 6
+          }
+        },
+        "schema": {
+          "version": null,
+          "lastMigration": null
+        },
+        "concentration": false,
+        "degree": 0,
+        "exertionCost": 0,
+        "isStance": false,
+        "prerequisite": "",
+        "tradition": "",
+        "equippedState": 0,
+        "schemaVersion": {
+          "version": 0.013,
+          "lastMigration": {
+            "version": {
+              "schema": 0.011,
+              "foundry": "11.315",
+              "system": "0.16.49"
+            }
+          }
+        }
+      },
+      "folder": null,
+      "_id": "hvDmoj3RyAAEXDzN",
+      "sort": 0,
+      "ownership": {
+        "default": 0
+      }
+    },
+    {
+      "name": "Disarm",
+      "type": "maneuver",
+      "img": "icons/skills/melee/sword-damaged-broken-glow-red.webp",
+      "effects": [],
+      "flags": {},
+      "system": {
+        "actions": {
+          "xN5ZLHIjo9cHRWrK": {
+            "name": "Disarm",
+            "activation": {
+              "cost": 1,
+              "type": "action",
+              "reactionTrigger": ""
+            },
+            "duration": {
+              "unit": "instantaneous",
+              "value": null
+            },
+            "ranges": {
+              "dFgwvnjjgmzR7vlN": {
+                "range": "fiveFeet"
+              }
+            },
+            "area": {
+              "shape": "",
+              "size": "",
+              "placeTemplate": false
+            },
+            "target": {
+              "quantity": "",
+              "type": "creature",
+              "shape": "",
+              "size": ""
+            },
+            "rolls": {
+              "FDMYIPcl2LveduMw": {
+                "canCrit": false,
+                "damageType": "",
+                "formula": "1 + @str.mod",
+                "label": "Basic Melee Damage",
+                "type": "damage"
+              }
+            },
+            "prompts": {
+              "xs1KlWtLXswqrVKY": {
+                "ability": "str",
+                "onSave": "",
+                "saveDC": {
+                  "type": "custom",
+                  "bonus": "@maneuverDC"
+                },
+                "type": "savingThrow"
+              }
+            },
+            "consumers": {}
+          }
+        },
+        "description": "<p>You can use the Disarm maneuver to attempt to knock an item or weapon from a creature's hand. If you are able to make multiple attacks with the Attack action, this maneuver replaces one of them.</p><p>The target must be within your reach and be holding an item (either carried or wielded). The target makes a Strength or Dexterity saving throw against your maneuver DC. On a failure, you deal basic melee damage and the target drops the item in its space. The target has advantage if it is larger than you or holding the item with two or more hands, and a target smaller than you has disadvantage.</p>",
+        "favorite": false,
+        "secretDescription": "",
+        "source": "adventurersGuide",
+        "uses": {
+          "value": null,
+          "max": "",
+          "per": null,
+          "recharge": {
+            "formula": "1d6",
+            "threshold": 6
+          }
+        },
+        "schema": {
+          "version": null,
+          "lastMigration": null
+        },
+        "concentration": false,
+        "degree": 0,
+        "exertionCost": 0,
+        "isStance": false,
+        "prerequisite": "",
+        "tradition": "",
+        "equippedState": 0,
+        "schemaVersion": {
+          "version": 0.013,
+          "lastMigration": {
+            "version": {
+              "schema": 0.011,
+              "foundry": "11.315",
+              "system": "0.16.49"
+            }
+          }
+        }
+      },
+      "folder": null,
+      "_id": "EgkV3hT4yDU65tng",
+      "sort": 0,
+      "ownership": {
+        "default": 0
+      }
+    },
+    {
+      "name": "Knockdown",
+      "type": "maneuver",
+      "img": "icons/magic/control/silhouette-fall-slip-prone.webp",
+      "effects": [],
+      "flags": {},
+      "system": {
+        "actions": {
+          "wfzmnudl6tfhZk4v": {
+            "name": "Knockdown",
+            "activation": {
+              "cost": 1,
+              "type": "action",
+              "reactionTrigger": ""
+            },
+            "duration": {
+              "unit": "instantaneous",
+              "value": null
+            },
+            "ranges": {
+              "NbOuce8AtLVjDeeL": {
+                "range": "fiveFeet"
+              }
+            },
+            "area": {
+              "shape": "",
+              "size": "",
+              "placeTemplate": false
+            },
+            "target": {
+              "quantity": "",
+              "type": "creature",
+              "shape": "",
+              "size": ""
+            },
+            "prompts": {
+              "L65ZmTO0KcmeQ2EQ": {
+                "ability": "str",
+                "onSave": "",
+                "saveDC": {
+                  "type": "custom",
+                  "bonus": "@maneuverDC"
+                },
+                "type": "savingThrow"
+              }
+            },
+            "consumers": {},
+            "rolls": {
+              "Wgx2bdExxjzRu7nR": {
+                "type": "damage",
+                "default": true,
+                "formula": "1 + @str.mod",
+                "label": "Basic Melee Damage",
+                "canCrit": false
+              }
+            }
+          }
+        },
+        "description": "<p>You can use the Knockdown maneuver to trip or push a creature down. If you are able to make multiple attacks with the Attack action, this maneuver replaces one of them.</p><p>The target must be within your reach and be no more than one size category larger than you. The target makes a Strength saving throw against your maneuver DC. On a failure, you deal basic melee damage and knock the target prone.</p>",
+        "favorite": false,
+        "secretDescription": "",
+        "source": "adventurersGuide",
+        "uses": {
+          "value": null,
+          "max": "",
+          "per": null,
+          "recharge": {
+            "formula": "1d6",
+            "threshold": 6
+          }
+        },
+        "schema": {
+          "version": null,
+          "lastMigration": null
+        },
+        "concentration": false,
+        "degree": 0,
+        "exertionCost": 0,
+        "isStance": false,
+        "prerequisite": "",
+        "tradition": "",
+        "equippedState": 0,
+        "schemaVersion": {
+          "version": 0.013,
+          "lastMigration": {
+            "version": {
+              "schema": 0.011,
+              "foundry": "11.315",
+              "system": "0.16.49"
+            }
+          }
+        }
+      },
+      "folder": null,
+      "_id": "eodxJkq8WcXRjuHX",
+      "sort": 0,
+      "ownership": {
+        "default": 0
+      }
+    },
+    {
+      "name": "Overrun",
+      "type": "maneuver",
+      "img": "icons/skills/melee/shield-damaged-broken-blue.webp",
+      "effects": [],
+      "flags": {},
+      "system": {
+        "actions": {
+          "kBUgwxtsHQqPa1DV": {
+            "name": "Overrun",
+            "activation": {
+              "cost": 1,
+              "type": "special",
+              "reactionTrigger": ""
+            },
+            "duration": {
+              "unit": "instantaneous",
+              "value": null
+            },
+            "ranges": {
+              "VAh3uPOJAaI5ShrA": {
+                "range": "fiveFeet"
+              }
+            },
+            "area": {
+              "shape": "",
+              "size": "",
+              "placeTemplate": false
+            },
+            "target": {
+              "quantity": "",
+              "type": "creature",
+              "shape": "",
+              "size": ""
+            },
+            "prompts": {
+              "bvFJU6hHDstCwg1b": {
+                "ability": "str",
+                "onSave": "",
+                "saveDC": {
+                  "type": "custom",
+                  "bonus": "@maneuverDC"
+                },
+                "type": "savingThrow"
+              }
+            },
+            "consumers": {},
+            "rolls": {
+              "ezzGenCLYoqg37hI": {
+                "type": "damage",
+                "default": true,
+                "formula": "1 + @str.mod",
+                "label": "Basic Melee Damage",
+                "canCrit": false
+              }
+            }
+          }
+        },
+        "description": "<p>You can use an action or bonus action to make an Overrun maneuver to move through a hostile creature's space by forcing your way past. Make a Strength saving throw against the target's maneuver DC. On a success, you deal basic melee damage and can move through the hostile creature's space once this turn. The creature can choose to just let you pass instead of rolling. You have advantage if you are larger than the target, or disadvantage if you are smaller. If you are two or more sizes smaller than the target, you can move through the hostile creature's space without making a save. You still provoke opportunity attacks if you move beyond a creature's reach.</p>",
+        "favorite": false,
+        "secretDescription": "",
+        "source": "adventurersGuide",
+        "uses": {
+          "value": null,
+          "max": "",
+          "per": null,
+          "recharge": {
+            "formula": "1d6",
+            "threshold": 6
+          }
+        },
+        "schema": {
+          "version": null,
+          "lastMigration": null
+        },
+        "concentration": false,
+        "degree": 0,
+        "exertionCost": 0,
+        "isStance": false,
+        "prerequisite": "",
+        "tradition": "",
+        "equippedState": 0,
+        "schemaVersion": {
+          "version": 0.013,
+          "lastMigration": {
+            "version": {
+              "schema": 0.011,
+              "foundry": "11.315",
+              "system": "0.16.49"
+            }
+          }
+        }
+      },
+      "folder": null,
+      "_id": "DxGIGKay93f0Kg5R",
+      "sort": 0,
+      "ownership": {
+        "default": 0
+      }
+    },
+    {
+      "name": "Shove",
+      "type": "maneuver",
+      "img": "icons/skills/melee/shield-block-bash-yellow.webp",
+      "effects": [],
+      "flags": {},
+      "system": {
+        "actions": {
+          "uvkBwwL7OQopMMHB": {
+            "name": "Shove",
+            "activation": {
+              "cost": 1,
+              "type": "action",
+              "reactionTrigger": ""
+            },
+            "duration": {
+              "unit": "instantaneous",
+              "value": null
+            },
+            "ranges": {
+              "j7yuRUD8cu1y0Jia": {
+                "range": "fiveFeet"
+              }
+            },
+            "area": {
+              "shape": "",
+              "size": "",
+              "placeTemplate": false
+            },
+            "target": {
+              "quantity": null,
+              "type": "creature",
+              "shape": "",
+              "size": ""
+            },
+            "rolls": {
+              "TcI6WmWSAy0EAxg9": {
+                "canCrit": false,
+                "damageType": "",
+                "formula": "1 + @str.mod",
+                "label": "Basic Melee Damage",
+                "type": "damage"
+              }
+            },
+            "prompts": {
+              "UVu9ZVC0beiWNgAV": {
+                "ability": "str",
+                "onSave": "",
+                "saveDC": {
+                  "type": "custom",
+                  "bonus": "@maneuverDC"
+                },
+                "type": "savingThrow"
+              }
+            },
+            "consumers": {}
+          }
+        },
+        "description": "<p>You can use the Shove maneuver to push a creature away. If you are able to make multiple attacks with the Attack action, this maneuver replaces one of them.</p><p>The target must be within your reach and be no more than one size category larger than you. The target makes a Strength saving throw against your maneuver DC. On a failure, you deal basic melee damage and push the target a number of feet away from you equal to 5 + 5 for every 5 points it failed its saving throw by. You can move the creature in any direction away from you (to the side, forward, or diagonally away).</p><p>A creature that is shoved off of a precipice is propelled off of whatever it is standing on -- it does not receive any saving throw or ability check to grab onto something to avoid falling down below.</p>",
+        "favorite": false,
+        "secretDescription": "",
+        "source": "adventurersGuide",
+        "uses": {
+          "value": null,
+          "max": "",
+          "per": null,
+          "recharge": {
+            "formula": "1d6",
+            "threshold": 6
+          }
+        },
+        "schema": {
+          "version": null,
+          "lastMigration": null
+        },
+        "concentration": false,
+        "degree": 0,
+        "exertionCost": 0,
+        "isStance": false,
+        "prerequisite": "",
+        "tradition": "",
+        "equippedState": 0,
+        "schemaVersion": {
+          "version": 0.013,
+          "lastMigration": {
+            "version": {
+              "schema": 0.011,
+              "foundry": "11.315",
+              "system": "0.16.49"
+            }
+          }
+        }
+      },
+      "folder": null,
+      "_id": "ddTplIKhzahe9JdE",
+      "sort": 0,
+      "ownership": {
+        "default": 0
+      }
+    },
+    {
+      "name": "Legendary Resistance",
+      "type": "feature",
+      "system": {
+        "ac": {
+          "baseFormula": "",
+          "formula": "",
+          "maxDex": 0,
+          "minStr": 0,
+          "mode": 2,
+          "requiresNoShield": false,
+          "requiresUnarmored": false
+        },
+        "actions": {},
+        "description": "<p>When the&nbsp;jabberwock fails a saving throw, it can&nbsp;choose to succeed instead. It can&rsquo;t do so&nbsp;against an effect that would sever one of&nbsp;its body parts.</p>",
+        "favorite": false,
+        "secretDescription": "",
+        "source": "",
+        "uses": {
+          "value": 3,
+          "max": "3",
+          "per": "day",
+          "recharge": {
+            "formula": "1d6",
+            "threshold": "6"
+          }
+        },
+        "schema": {
+          "version": null,
+          "lastMigration": null
+        },
+        "concentration": false,
+        "featureType": "other",
+        "grants": {},
+        "prerequisite": "",
+        "requiresBloodied": false
+      },
+      "_id": "CbkSoFJXAMQODgji",
+      "img": "icons/svg/item-bag.svg",
+      "effects": [],
+      "folder": null,
+      "sort": 0,
+      "ownership": {
+        "default": 0
+      },
+      "flags": {}
+    },
+    {
+      "name": "Reactive",
+      "type": "feature",
+      "system": {
+        "ac": {
+          "baseFormula": "",
+          "formula": "",
+          "maxDex": 0,
+          "minStr": 0,
+          "mode": 2,
+          "requiresNoShield": false,
+          "requiresUnarmored": false
+        },
+        "actions": {},
+        "description": "<p>The jabberwock can take three&nbsp;reactions per round. It can&rsquo;t take more&nbsp;than one reaction on the same turn.</p>",
+        "favorite": false,
+        "secretDescription": "",
+        "source": "",
+        "uses": {
+          "value": null,
+          "max": "",
+          "per": null,
+          "recharge": {
+            "formula": "1d6",
+            "threshold": "6"
+          }
+        },
+        "schema": {
+          "version": null,
+          "lastMigration": null
+        },
+        "concentration": false,
+        "featureType": "other",
+        "grants": {},
+        "prerequisite": "",
+        "requiresBloodied": false
+      },
+      "_id": "6zliDJLDvgwFGDae",
+      "img": "icons/svg/item-bag.svg",
+      "effects": [],
+      "folder": null,
+      "sort": 0,
+      "ownership": {
+        "default": 0
+      },
+      "flags": {}
+    },
+    {
+      "name": "Regenration",
+      "type": "feature",
+      "system": {
+        "ac": {
+          "baseFormula": "",
+          "formula": "",
+          "maxDex": 0,
+          "minStr": 0,
+          "mode": 2,
+          "requiresNoShield": false,
+          "requiresUnarmored": false
+        },
+        "actions": {},
+        "description": "<p>The jabberwock regains 20&nbsp;hit points at the start of its turn. The&nbsp;jabberwock dies only if its head is&nbsp;severed. A creature can sever the&nbsp;jabberwock&rsquo;s head by dealing 15 slashing<br>damage to it in a single turn while it has 0&nbsp;hit points.</p>",
+        "favorite": false,
+        "secretDescription": "",
+        "source": "",
+        "uses": {
+          "value": null,
+          "max": "",
+          "per": null,
+          "recharge": {
+            "formula": "1d6",
+            "threshold": "6"
+          }
+        },
+        "schema": {
+          "version": null,
+          "lastMigration": null
+        },
+        "concentration": false,
+        "featureType": "other",
+        "grants": {},
+        "prerequisite": "",
+        "requiresBloodied": false
+      },
+      "_id": "hYgGwxks2YMtwOQ9",
+      "img": "icons/skills/wounds/anatomy-organ-heart-red.webp",
+      "effects": [],
+      "folder": null,
+      "sort": 0,
+      "ownership": {
+        "default": 0
+      },
+      "flags": {}
+    },
+    {
+      "name": "Vorpal Weakness",
+      "type": "feature",
+      "system": {
+        "ac": {
+          "baseFormula": "",
+          "formula": "",
+          "maxDex": 0,
+          "minStr": 0,
+          "mode": 2,
+          "requiresNoShield": false,
+          "requiresUnarmored": false
+        },
+        "actions": {},
+        "description": "<p>While the jabberwocky&nbsp;is bloodied, a roll of 16 or higher with a&nbsp;sword of sharpness or vorpal sword is&nbsp;treated as a 20.</p>",
+        "favorite": false,
+        "secretDescription": "",
+        "source": "",
+        "uses": {
+          "value": null,
+          "max": "",
+          "per": null,
+          "recharge": {
+            "formula": "1d6",
+            "threshold": "6"
+          }
+        },
+        "schema": {
+          "version": null,
+          "lastMigration": null
+        },
+        "concentration": false,
+        "featureType": "other",
+        "grants": {},
+        "prerequisite": "",
+        "requiresBloodied": true
+      },
+      "_id": "P31WJum1QM8OIa3A",
+      "img": "icons/svg/item-bag.svg",
+      "effects": [],
+      "folder": null,
+      "sort": 0,
+      "ownership": {
+        "default": 0
+      },
+      "flags": {}
+    },
+    {
+      "name": "Whiffling Flight",
+      "type": "feature",
+      "system": {
+        "ac": {
+          "baseFormula": "",
+          "formula": "",
+          "maxDex": 0,
+          "minStr": 0,
+          "mode": 2,
+          "requiresNoShield": false,
+          "requiresUnarmored": false
+        },
+        "actions": {},
+        "description": "<p>The jabberwock&rsquo;s flight is&nbsp;clumsy and unpredictable. While the&nbsp;jabberwock is flying it has disadvantage&nbsp;on attack rolls and attack rolls against it&nbsp;have disadvantage.</p>",
+        "favorite": false,
+        "secretDescription": "",
+        "source": "",
+        "uses": {
+          "value": null,
+          "max": "",
+          "per": null,
+          "recharge": {
+            "formula": "1d6",
+            "threshold": "6"
+          }
+        },
+        "schema": {
+          "version": null,
+          "lastMigration": null
+        },
+        "concentration": false,
+        "featureType": "other",
+        "grants": {},
+        "prerequisite": "",
+        "requiresBloodied": false
+      },
+      "_id": "ix6qiG51n95FfIMA",
+      "img": "icons/svg/item-bag.svg",
+      "effects": [],
+      "folder": null,
+      "sort": 0,
+      "ownership": {
+        "default": 0
+      },
+      "flags": {}
+    },
+    {
+      "name": "Multiattack",
+      "type": "feature",
+      "system": {
+        "ac": {
+          "baseFormula": "",
+          "formula": "",
+          "maxDex": 0,
+          "minStr": 0,
+          "mode": 2,
+          "requiresNoShield": false,
+          "requiresUnarmored": false
+        },
+        "actions": {},
+        "description": "<p>The jabberwock attacks once&nbsp;with its bite and twice with its claw.</p>",
+        "favorite": false,
+        "secretDescription": "",
+        "source": "",
+        "uses": {
+          "value": null,
+          "max": "",
+          "per": null,
+          "recharge": {
+            "formula": "1d6",
+            "threshold": "6"
+          }
+        },
+        "schema": {
+          "version": null,
+          "lastMigration": null
+        },
+        "concentration": false,
+        "featureType": "other",
+        "grants": {},
+        "prerequisite": "",
+        "requiresBloodied": false
+      },
+      "_id": "OZsd5iHo7tnCvZpU",
+      "img": "icons/skills/melee/blade-tips-triple-steel.webp",
+      "effects": [],
+      "folder": null,
+      "sort": 0,
+      "ownership": {
+        "default": 0
+      },
+      "flags": {}
+    },
+    {
+      "name": "Bite",
+      "type": "feature",
+      "system": {
+        "ac": {
+          "baseFormula": "",
+          "formula": "",
+          "maxDex": 0,
+          "minStr": 0,
+          "mode": 2,
+          "requiresNoShield": false,
+          "requiresUnarmored": false
+        },
+        "actions": {
+          "7H7zuNXExkCyeCdD": {
+            "name": "Attack",
+            "activation": {
+              "type": "action",
+              "cost": 1
+            },
+            "consumers": {},
+            "rolls": {
+              "HIDc3dKegCfsUGxd": {
+                "type": "attack",
+                "default": true,
+                "attackType": "meleeWeaponAttack",
+                "proficient": true,
+                "ability": "default"
+              },
+              "aGBUz3slwoBa5YbX": {
+                "type": "damage",
+                "default": true,
+                "formula": "3d12+@str.mod"
+              },
+              "4UcMCnIMBBjpLrcn": {
+                "type": "generic",
+                "default": true,
+                "label": "Body Part",
+                "formula": "1d6"
+              }
+            },
+            "prompts": {
+              "qcy2wEm2eNIFzN8n": {
+                "type": "effect",
+                "default": true,
+                "effectId": "afVYGE1xC5wYoUBc"
+              }
+            },
+            "uses": {
+              "value": 0,
+              "max": "",
+              "per": "",
+              "recharge": {
+                "formula": "1d6",
+                "rechargeType": "custom",
+                "rechargeAmount": "1",
+                "threshold": 6
+              }
+            },
+            "target": {
+              "type": "creatureObject",
+              "quantity": 1
+            },
+            "ranges": {
+              "0tAdaB0Mbx08z9V4": {
+                "range": 15,
+                "unit": "feet"
+              }
+            }
+          },
+          "4c7PeR1lE97jAjkO": {
+            "name": "Jaws that Bite",
+            "activation": {
+              "type": "reaction",
+              "cost": 1,
+              "reactionTrigger": "When a creature that the jabberwock can see makes a melee attack against it"
+            },
+            "consumers": {},
+            "rolls": {
+              "HIDc3dKegCfsUGxd": {
+                "type": "attack",
+                "default": true,
+                "attackType": "meleeWeaponAttack",
+                "proficient": true,
+                "ability": "default"
+              },
+              "aGBUz3slwoBa5YbX": {
+                "type": "damage",
+                "default": true,
+                "formula": "3d12+@str.mod"
+              },
+              "4UcMCnIMBBjpLrcn": {
+                "type": "generic",
+                "default": true,
+                "label": "Body Part",
+                "formula": "1d6"
+              }
+            },
+            "prompts": {
+              "qcy2wEm2eNIFzN8n": {
+                "type": "effect",
+                "default": true,
+                "effectId": "7iXdd3iJWJexXRGU"
+              }
+            },
+            "uses": {
+              "value": 0,
+              "max": "",
+              "per": "",
+              "recharge": {
+                "formula": "1d6",
+                "rechargeType": "custom",
+                "rechargeAmount": "1",
+                "threshold": 6
+              }
+            },
+            "target": {
+              "type": "creatureObject",
+              "quantity": 1
+            },
+            "ranges": {
+              "0tAdaB0Mbx08z9V4": {
+                "range": 15,
+                "unit": "feet"
+              }
+            },
+            "description": "<p>When a creature that the&nbsp;jabberwock can see makes a melee&nbsp;attack against it, the jabberwock makes a&nbsp;bite attack against that creature.</p>"
+          }
+        },
+        "description": "<p>Melee Weapon Attack: +13 to hit,&nbsp;reach 15 ft., one target. Hit: 26 (3d12 + 7)&nbsp;slashing damage. On a critical hit against&nbsp;a creature, the jabberwock&rsquo;s teeth&nbsp;debilitate a limb until the character&nbsp;completes a long rest or is restored to full&nbsp;hit points. At the Narrator's discretion, the&nbsp;target might suffer a permanent wound&nbsp;that requires the regeneration spell. For a&nbsp;typical humanoid, roll 1d6: 1&ndash;3 arm&nbsp;(preventing the use of that arm to hold&nbsp;items or wear a shield), 4&ndash;6 leg (halving&nbsp;the target&rsquo;s Speed).</p>",
+        "favorite": true,
+        "secretDescription": "",
+        "source": "",
+        "uses": {
+          "value": null,
+          "max": "",
+          "per": null,
+          "recharge": {
+            "formula": "1d6",
+            "threshold": "6"
+          }
+        },
+        "schema": {
+          "version": null,
+          "lastMigration": null
+        },
+        "concentration": false,
+        "featureType": "other",
+        "grants": {},
+        "prerequisite": "",
+        "requiresBloodied": false
+      },
+      "_id": "PTmrp2V6W3xgzRPq",
+      "img": "icons/creatures/abilities/mouth-teeth-long-red.webp",
+      "effects": [
+        {
+          "icon": "icons/creatures/abilities/mouth-teeth-long-red.webp",
+          "origin": "Actor.PIwWWq23IZXzA3PY.Item.PTmrp2V6W3xgzRPq",
+          "flags": {
+            "a5e": {
+              "sort": 0,
+              "transferType": "onUse",
+              "actionId": "7H7zuNXExkCyeCdD"
+            }
+          },
+          "transfer": false,
+          "name": "Leg Damage",
+          "_id": "afVYGE1xC5wYoUBc",
+          "changes": [
+            {
+              "key": "system.attributes.movement.walk.distance",
+              "value": "0.5",
+              "mode": 1,
+              "priority": null
+            }
+          ],
+          "disabled": false,
+          "duration": {
+            "startTime": null,
+            "seconds": null,
+            "combat": null,
+            "rounds": null,
+            "turns": null,
+            "startRound": null,
+            "startTurn": null
+          },
+          "description": "",
+          "statuses": [],
+          "folder": null
+        },
+        {
+          "icon": "icons/creatures/abilities/mouth-teeth-long-red.webp",
+          "origin": "Actor.PIwWWq23IZXzA3PY.Item.PTmrp2V6W3xgzRPq",
+          "flags": {
+            "a5e": {
+              "sort": 0,
+              "transferType": "onUse",
+              "actionId": "4c7PeR1lE97jAjkO"
+            }
+          },
+          "transfer": false,
+          "name": "Leg Damage",
+          "_id": "7iXdd3iJWJexXRGU",
+          "changes": [
+            {
+              "key": "system.attributes.movement.walk.distance",
+              "value": "0.5",
+              "mode": 1,
+              "priority": null
+            }
+          ],
+          "disabled": false,
+          "duration": {
+            "startTime": null,
+            "seconds": null,
+            "combat": null,
+            "rounds": null,
+            "turns": null,
+            "startRound": null,
+            "startTurn": null
+          },
+          "description": "",
+          "statuses": [],
+          "folder": null
+        }
+      ],
+      "folder": null,
+      "sort": 0,
+      "ownership": {
+        "default": 0
+      },
+      "flags": {}
+    },
+    {
+      "name": "Claw",
+      "type": "feature",
+      "system": {
+        "ac": {
+          "baseFormula": "",
+          "formula": "",
+          "maxDex": 0,
+          "minStr": 0,
+          "mode": 2,
+          "requiresNoShield": false,
+          "requiresUnarmored": false
+        },
+        "actions": {
+          "ROquKmBnm6kOrMiU": {
+            "name": "Attack",
+            "activation": {
+              "type": "action",
+              "cost": 1
+            },
+            "consumers": {},
+            "rolls": {
+              "WI5rsBx1xnTpT2XI": {
+                "type": "attack",
+                "default": true,
+                "attackType": "meleeWeaponAttack",
+                "proficient": true,
+                "ability": "none"
+              },
+              "VJ0z1GWOpa32pUFo": {
+                "type": "damage",
+                "default": true,
+                "formula": "3d8+@str.mod",
+                "damageType": "slashing"
+              }
+            },
+            "prompts": {
+              "sIQtiXCcpSyDiVu3": {
+                "type": "effect",
+                "default": true,
+                "effectId": "Fj8CeNbJjZcpWYC7"
+              }
+            },
+            "uses": {
+              "value": 0,
+              "max": "",
+              "per": "",
+              "recharge": {
+                "formula": "1d6",
+                "rechargeType": "custom",
+                "rechargeAmount": "1",
+                "threshold": 6
+              }
+            },
+            "ranges": {
+              "BT4XKxwsR316mhC5": {
+                "range": 15,
+                "unit": "feet"
+              }
+            },
+            "target": {
+              "type": "creatureObject",
+              "quantity": 1
+            }
+          },
+          "uiPWIc3BClpAdhyt": {
+            "name": "Claws that Catch",
+            "activation": {
+              "type": "reaction",
+              "cost": 1,
+              "reactionTrigger": "When a creature escapes the jabberwock’s grapple"
+            },
+            "consumers": {},
+            "rolls": {
+              "WI5rsBx1xnTpT2XI": {
+                "type": "attack",
+                "default": true,
+                "attackType": "meleeWeaponAttack",
+                "proficient": true,
+                "ability": "none"
+              },
+              "VJ0z1GWOpa32pUFo": {
+                "type": "damage",
+                "default": true,
+                "formula": "3d8+@str.mod",
+                "damageType": "slashing"
+              }
+            },
+            "prompts": {
+              "sIQtiXCcpSyDiVu3": {
+                "type": "effect",
+                "default": true,
+                "effectId": "vQjeHmooQjniRnwm"
+              }
+            },
+            "uses": {
+              "value": 0,
+              "max": "",
+              "per": "",
+              "recharge": {
+                "formula": "1d6",
+                "rechargeType": "custom",
+                "rechargeAmount": "1",
+                "threshold": 6
+              }
+            },
+            "ranges": {
+              "BT4XKxwsR316mhC5": {
+                "range": 15,
+                "unit": "feet"
+              }
+            },
+            "target": {
+              "type": "creatureObject",
+              "quantity": 1
+            },
+            "description": "<p>When a creature&nbsp;escapes the jabberwock&rsquo;s grapple, the&nbsp;jabberwock makes a claw attack against&nbsp;that creature.</p>"
+          }
+        },
+        "description": "<p>Melee Weapon Attack: +13 to hit,&nbsp;reach 15 ft., one target. Hit: 20 (3d8 + 7)<br>slashing damage. If the target is a&nbsp;creature, it is grappled (escape DC 21).&nbsp;Until this grapple ends, the target is&nbsp;restrained. The jabberwock can have up&nbsp;to two creatures grappled at a time.</p>",
+        "favorite": true,
+        "secretDescription": "",
+        "source": "",
+        "uses": {
+          "value": null,
+          "max": "",
+          "per": null,
+          "recharge": {
+            "formula": "1d6",
+            "threshold": "6"
+          }
+        },
+        "schema": {
+          "version": null,
+          "lastMigration": null
+        },
+        "concentration": false,
+        "featureType": "other",
+        "grants": {},
+        "prerequisite": "",
+        "requiresBloodied": false
+      },
+      "_id": "a2UYFfE2bEYsSHzY",
+      "img": "icons/skills/melee/blood-slash-foam-red.webp",
+      "effects": [
+        {
+          "icon": "icons/skills/melee/blood-slash-foam-red.webp",
+          "origin": "Actor.PIwWWq23IZXzA3PY.Item.a2UYFfE2bEYsSHzY",
+          "flags": {
+            "a5e": {
+              "sort": 0,
+              "transferType": "onUse",
+              "actionId": "ROquKmBnm6kOrMiU"
+            }
+          },
+          "transfer": false,
+          "name": "Grab",
+          "_id": "Fj8CeNbJjZcpWYC7",
+          "changes": [
+            {
+              "key": "flags.a5e.effects.statusConditions",
+              "value": "[\"grappled\",\"restrained\"]",
+              "mode": 0,
+              "priority": null
+            }
+          ],
+          "disabled": false,
+          "duration": {
+            "startTime": null,
+            "seconds": null,
+            "combat": null,
+            "rounds": null,
+            "turns": null,
+            "startRound": null,
+            "startTurn": null
+          },
+          "description": "",
+          "statuses": [
+            "grappled",
+            "restrained"
+          ],
+          "folder": null
+        },
+        {
+          "icon": "icons/skills/melee/blood-slash-foam-red.webp",
+          "origin": "Actor.PIwWWq23IZXzA3PY.Item.a2UYFfE2bEYsSHzY",
+          "flags": {
+            "a5e": {
+              "sort": 0,
+              "transferType": "onUse",
+              "actionId": "uiPWIc3BClpAdhyt"
+            }
+          },
+          "transfer": false,
+          "name": "Grab",
+          "_id": "vQjeHmooQjniRnwm",
+          "changes": [
+            {
+              "key": "flags.a5e.effects.statusConditions",
+              "value": "[\"grappled\",\"restrained\"]",
+              "mode": 0,
+              "priority": null
+            }
+          ],
+          "disabled": false,
+          "duration": {
+            "startTime": null,
+            "seconds": null,
+            "combat": null,
+            "rounds": null,
+            "turns": null,
+            "startRound": null,
+            "startTurn": null
+          },
+          "description": "",
+          "statuses": [
+            "grappled",
+            "restrained"
+          ],
+          "folder": null
+        }
+      ],
+      "folder": null,
+      "sort": 0,
+      "ownership": {
+        "default": 0
+      },
+      "flags": {}
+    },
+    {
+      "name": "Eyes of Flame",
+      "type": "feature",
+      "system": {
+        "ac": {
+          "baseFormula": "",
+          "formula": "",
+          "maxDex": 0,
+          "minStr": 0,
+          "mode": 2,
+          "requiresNoShield": false,
+          "requiresUnarmored": false
+        },
+        "actions": {
+          "THDtMZ9UaJ1iKSRS": {
+            "name": "Use Feature",
+            "activation": {
+              "type": "action",
+              "cost": 1
+            },
+            "consumers": {
+              "vPC1pwsRGVVVEZDp": {
+                "type": "itemUses",
+                "default": true,
+                "quantity": 1
+              }
+            },
+            "rolls": {
+              "iZCfil0D8X32sUyM": {
+                "type": "damage",
+                "default": true,
+                "damageType": "fire",
+                "formula": "14d6"
+              }
+            },
+            "prompts": {
+              "DjnB5Iw3KQ7efpdx": {
+                "type": "savingThrow",
+                "default": true,
+                "ability": "str",
+                "saveDC": {
+                  "type": "maneuver"
+                },
+                "onSave": "half damage on a success"
+              }
+            },
+            "uses": {
+              "value": 0,
+              "max": "",
+              "per": "",
+              "recharge": {
+                "formula": "1d6",
+                "rechargeType": "custom",
+                "rechargeAmount": "1",
+                "threshold": 6
+              }
+            },
+            "area": {
+              "shape": "cone",
+              "quantity": 1,
+              "length": 60,
+              "placeTemplate": true
+            }
+          }
+        },
+        "description": "<p>The&nbsp;jabberwock&rsquo;s gaze ignites everything in a&nbsp;60-foot cone. Each creature in that area&nbsp;makes a DC 21 Dexterity saving throw,&nbsp;taking 49 (14d6) fire damage on a failed<br>save or half damage on a success.</p>",
+        "favorite": true,
+        "secretDescription": "",
+        "source": "",
+        "uses": {
+          "value": 1,
+          "max": "1",
+          "per": "recharge",
+          "recharge": {
+            "formula": "1d6",
+            "threshold": 5
+          }
+        },
+        "schema": {
+          "version": null,
+          "lastMigration": null
+        },
+        "concentration": false,
+        "featureType": "other",
+        "grants": {},
+        "prerequisite": "",
+        "requiresBloodied": false
+      },
+      "_id": "Ry3RLIyjVbKhdtj7",
+      "img": "icons/magic/fire/flame-burning-eye.webp",
+      "effects": [],
+      "folder": null,
+      "sort": 0,
+      "ownership": {
+        "default": 0
+      },
+      "flags": {}
+    },
+    {
+      "name": "Burble",
+      "type": "feature",
+      "system": {
+        "ac": {
+          "baseFormula": "",
+          "formula": "",
+          "maxDex": 0,
+          "minStr": 0,
+          "mode": 2,
+          "requiresNoShield": false,
+          "requiresUnarmored": false
+        },
+        "actions": {
+          "uO1PnzckuGV3hucN": {
+            "name": "Use Feature",
+            "activation": {
+              "type": "bonusAction",
+              "cost": 1
+            },
+            "consumers": {},
+            "rolls": {},
+            "prompts": {
+              "FKcZ930rm8y7g2bw": {
+                "type": "savingThrow",
+                "default": true,
+                "ability": "str",
+                "saveDC": {
+                  "type": "cha"
+                },
+                "onSave": "Not get a burbling curse"
+              }
+            },
+            "uses": {
+              "value": 0,
+              "max": "",
+              "per": "",
+              "recharge": {
+                "formula": "1d6",
+                "rechargeType": "custom",
+                "rechargeAmount": "1",
+                "threshold": 6
+              }
+            },
+            "ranges": {},
+            "area": {
+              "shape": "emanation",
+              "quantity": 1,
+              "radius": 30,
+              "placeTemplate": true
+            }
+          }
+        },
+        "description": "<p>The jabberwock speaks in the&nbsp;magical Jabber language. Each creature&nbsp;within 30 feet of the jabberwock that can&nbsp;hear it and that doesn&rsquo;t speak Jabber&nbsp;makes a DC 20 Wisdom saving throw. On&nbsp;a failure, the creature is subjected to a&nbsp;burbling curse. While cursed, half the&nbsp;words the creature speaks are replaced&nbsp;with words in the Jabber language. Each&nbsp;time the creature speaks, casts a spell&nbsp;with a vocalized component, or uses an effect that requires listeners to understand&nbsp;its words, the creature must roll a d20. On<br>a roll of 1&ndash;9, the speech is unintelligible or&nbsp;the spell or effect is wasted. The creature<br>repeats the saving throw whenever it&nbsp;finishes a long rest, ending the curse on a&nbsp;success. If a creature&rsquo;s saving throw is&nbsp;successful or the effect ends for it, it is&nbsp;immune to Burble for 24 hours.</p>",
+        "favorite": true,
+        "secretDescription": "",
+        "source": "",
+        "uses": {
+          "value": null,
+          "max": "",
+          "per": null,
+          "recharge": {
+            "formula": "1d6",
+            "threshold": "6"
+          }
+        },
+        "schema": {
+          "version": null,
+          "lastMigration": null
+        },
+        "concentration": false,
+        "featureType": "other",
+        "grants": {},
+        "prerequisite": "",
+        "requiresBloodied": false
+      },
+      "_id": "O6HZ5bWlmnKc1Uyd",
+      "img": "icons/magic/control/hypnosis-mesmerism-swirl.webp",
+      "effects": [],
+      "folder": null,
+      "sort": 0,
+      "ownership": {
+        "default": 0
+      },
+      "flags": {}
+    },
+    {
+      "type": "feature",
+      "img": "icons/creatures/abilities/wing-batlike-white-blue.webp",
+      "name": "Whiffling Dodge",
+      "flags": {},
+      "system": {
+        "ac": {
+          "baseFormula": "",
+          "formula": "",
+          "maxDex": 0,
+          "minStr": 0,
+          "mode": 2,
+          "requiresNoShield": false,
+          "requiresUnarmored": false
+        },
+        "actions": {
+          "ivRfl2bKI7fiV2qX": {
+            "activation": {
+              "cost": 1,
+              "type": "reaction",
+              "reactionTrigger": "When the jabberwock would be hit by a ranged attack while it is not flying"
+            },
+            "duration": {
+              "unit": "",
+              "value": ""
+            },
+            "prompts": {
+              "1iHPQAp5dTNH513T": {
+                "ability": "dex",
+                "type": "savingThrow",
+                "saveDC": {
+                  "bonus": "",
+                  "type": "custom"
+                }
+              }
+            },
+            "rolls": {
+              "gfsLUMolNpWecg9l": {
+                "canCrit": false,
+                "critBonus": "",
+                "damageType": "bludgeoning",
+                "formula": "2d6 + @str.mod",
+                "scaling": {},
+                "name": "",
+                "type": "damage"
+              }
+            },
+            "target": {
+              "quantity": 1,
+              "type": ""
+            },
+            "name": "Whiffling Dodge",
+            "ranges": {}
+          }
+        },
+        "description": "<p>When the jabberwock&nbsp;would be hit by a ranged attack while it is&nbsp;not flying, it flies up to its speed, imposing&nbsp;disadvantage on the triggering attack.</p>",
+        "favorite": true,
+        "secretDescription": "",
+        "source": {
+          "name": "",
+          "link": "",
+          "publisher": ""
+        },
+        "uses": {
+          "value": 0,
+          "max": 0,
+          "per": "",
+          "recharge": {
+            "formula": "1d6",
+            "threshold": 6
+          }
+        },
+        "schema": {
+          "version": 0.01,
+          "lastMigration": null
+        },
+        "concentration": false,
+        "featureType": "other",
+        "grants": {},
+        "prerequisite": "",
+        "requiresBloodied": false,
+        "schemaVersion": {
+          "version": 0.01,
+          "lastMigration": {
+            "version": {
+              "schema": null,
+              "foundry": "12.316",
+              "system": "0.16.12"
+            }
+          }
+        }
+      },
+      "_id": "XUykyQgasAaJP8Aw",
+      "effects": [],
+      "folder": null,
+      "sort": 0,
+      "ownership": {
+        "default": 0
+      }
+    }
+  ],
+  "effects": [],
+  "folder": null,
+  "flags": {
+    "a5e": {
+      "sheetIsLocked": false
+    }
+  },
+  "_id": "8opg538qquqatm2s"
 }
