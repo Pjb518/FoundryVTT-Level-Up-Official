@@ -1,0 +1,152 @@
+{
+	"name": "Fey Tongue",
+	"type": "spell",
+	"img": "icons/creatures/magical/fae-fairy-winged-glowing-green.webp",
+	"system": {
+		"actions": {
+			"A4iQ9Hf9hLpx2UaO": {
+				"name": "Cast Spell",
+				"activation": {
+					"type": "action",
+					"cost": 1
+				},
+				"consumers": {
+					"1iDzdVyjcZfhiZeC": {
+						"type": "spell",
+						"default": true,
+						"mode": "variable",
+						"spellLevel": 1,
+						"points": 2
+					}
+				},
+				"rolls": {},
+				"prompts": {
+					"FTMZTozTABaeYCr0": {
+						"type": "effect",
+						"default": true,
+						"effectId": "gMp1O3sIWlxqKCCy"
+					}
+				},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"rechargeType": "custom",
+						"rechargeAmount": "1",
+						"threshold": 6
+					}
+				},
+				"duration": {
+					"unit": "minute",
+					"value": 10
+				},
+				"ranges": {
+					"hj2sHbWjXaaMaBwQ": {
+						"range": "self"
+					}
+				}
+			}
+		},
+		"description": "<p>You gain a +10 bonus on Insight checks made to understand the meaning of any spoken Sylvan, Elvish or Primordial that you hear, or any written text in those languages that you can touch. In addition, you gain an&nbsp;<span class=\"freelinking-link\">expertise die</span> on Performance and Persuasion checks for the duration.</p>",
+		"favorite": false,
+		"secretDescription": "",
+		"source": "gpg17",
+		"uses": {
+			"value": null,
+			"max": "",
+			"per": null,
+			"recharge": {
+				"formula": "1d6",
+				"threshold": "6"
+			}
+		},
+		"schema": {
+			"version": null,
+			"lastMigration": null
+		},
+		"classes": [
+			"bard",
+			"druid",
+			"sorcerer",
+			"wizard"
+		],
+		"components": {
+			"vocalized": true,
+			"seen": true,
+			"material": true
+		},
+		"concentration": true,
+		"level": 1,
+		"materials": "A piece of parchment with Elvish, Sylvan or Primordial writing on it",
+		"materialsConsumed": false,
+		"prepared": false,
+		"prerequisite": "",
+		"rare": false,
+		"ritual": false,
+		"schools": {
+			"primary": "divination",
+			"secondary": [
+				"communication",
+				"knowledge"
+			]
+		}
+	},
+	"effects": [
+		{
+			"icon": "icons/creatures/magical/fae-fairy-winged-glowing-green.webp",
+			"origin": "Item.DocjgjNYmpx1kzMS",
+			"flags": {
+				"a5e": {
+					"sort": 0,
+					"transferType": "onUse",
+					"actionId": "A4iQ9Hf9hLpx2UaO",
+					"applyToSelf": true,
+					"duration": {
+						"unit": "minutes"
+					}
+				}
+			},
+			"transfer": false,
+			"name": "Fey Tongue",
+			"_id": "gMp1O3sIWlxqKCCy",
+			"changes": [
+				{
+					"key": "system.skills.prf.expertiseDice",
+					"value": "1",
+					"mode": 2,
+					"priority": null
+				},
+				{
+					"key": "system.skills.per.expertiseDice",
+					"value": "1",
+					"mode": 2,
+					"priority": null
+				},
+				{
+					"key": "flags.a5e.effects.bonuses.skills",
+					"value": "{\"label\":\"Fey Tongue\",\"formula\":\"10[Fey Tongue]\",\"damageType\":\"\",\"context\":{\"skills\":[\"ins\"],\"requiresProficiency\":false,\"passiveOnly\":false},\"default\":false,\"img\":\"icons/creatures/magical/fae-fairy-winged-glowing-green.webp\"}",
+					"mode": 0,
+					"priority": null
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": 600,
+				"combat": null,
+				"rounds": null,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "",
+			"statuses": [],
+			"folder": null
+		}
+	],
+	"folder": null,
+	"flags": {},
+	"_id": "gl97et99a5f2vs0m"
+}

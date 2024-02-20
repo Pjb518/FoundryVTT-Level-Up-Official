@@ -1,0 +1,131 @@
+{
+	"name": "Spellbound Oath",
+	"type": "spell",
+	"img": "icons/equipment/neck/choker-chain-thick-gold.webp",
+	"system": {
+		"actions": {
+			"WQrW0b3u2dwQXdzQ": {
+				"name": "Cast Spell",
+				"activation": {
+					"type": "minute",
+					"cost": 1
+				},
+				"consumers": {
+					"lwgCBy6mn0dk5hmN": {
+						"type": "spell",
+						"default": true,
+						"mode": "variable",
+						"spellLevel": 6,
+						"points": 9
+					}
+				},
+				"rolls": {},
+				"prompts": {},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"rechargeType": "custom",
+						"rechargeAmount": "1",
+						"threshold": 6
+					}
+				},
+				"duration": {
+					"unit": "permanent"
+				},
+				"ranges": {
+					"Nba8EBntHYxAnDWN": {
+						"range": "touch"
+					}
+				},
+				"target": {
+					"type": "creature",
+					"quantity": 2
+				}
+			},
+			"3nb3ed13NAubaHFp": {
+				"name": "Punish Broken Promise",
+				"activation": {},
+				"consumers": {},
+				"rolls": {
+					"fAonv4kIqEO3bOPq": {
+						"type": "damage",
+						"default": true,
+						"formula": "8d12",
+						"damageType": "psychic"
+					}
+				},
+				"prompts": {
+					"8RPgNxAeZ5m5HxsZ": {
+						"type": "savingThrow",
+						"default": true,
+						"ability": "wis",
+						"saveDC": {
+							"type": "spellcasting"
+						},
+						"onSave": "The creature takes the full amount of damage, but can act normally"
+					}
+				},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"rechargeType": "custom",
+						"rechargeAmount": "1",
+						"threshold": 6
+					}
+				}
+			}
+		},
+		"description": "<p>This spell binds two creatures to an agreement spoken as the part of the casting of the spell in a language that both parties understand.</p>\n<p>The agreement must include a promise by both parties to do or refrain from doing something specific. The promises do not need to be the same or equal but mustn&rsquo;t be obviously harmful to either creature. For example, an archfey may promise to restore the freedom of a loved one in exchange for a mortal becoming their emissary.</p>\n<p>A creature attempting to act in a way that will breach the terms must make a Wisdom&nbsp;<span class=\"freelinking-link\">saving throw</span> . On a failure, they find themselves unable to act as intended, ending their turn if they are in combat. Regardless, it suffers 52 (8d12) psychic damage for the attempt. Damage from this spell does not require a save for massive damage, though the creature makes death saving throws as usual.</p>",
+		"favorite": false,
+		"secretDescription": "",
+		"source": "gpg17",
+		"uses": {
+			"value": null,
+			"max": "",
+			"per": null,
+			"recharge": {
+				"formula": "1d6",
+				"threshold": "6"
+			}
+		},
+		"schema": {
+			"version": null,
+			"lastMigration": null
+		},
+		"classes": [
+			"bard",
+			"herald",
+			"wizard"
+		],
+		"components": {
+			"vocalized": true,
+			"seen": true,
+			"material": true
+		},
+		"concentration": false,
+		"level": 6,
+		"materials": "Two matching pieces of jewelry worth at least 25 gold each",
+		"materialsConsumed": false,
+		"prepared": false,
+		"prerequisite": "",
+		"rare": false,
+		"ritual": false,
+		"schools": {
+			"primary": "abjuration",
+			"secondary": [
+				"arcane",
+				"compulsion"
+			]
+		}
+	},
+	"effects": [],
+	"folder": null,
+	"flags": {},
+	"_id": "ehal804pav5zu5tc"
+}
