@@ -378,6 +378,13 @@ export default function registerPremiumContentConfig(A5E) {
       title: 'Secrets of the Selkies',
       url: ''
     },
+    spellsFromTheForgottenVault: {
+      abbreviation: 'SftFV',
+      affiliate: true,
+      publisher: 'purpleMartinGames',
+      title: 'Spells from the Forgotten Vault',
+      url: 'https://bit.ly/3T8o5GU'
+    },
     strangerSights: {
       abbreviation: 'SS',
       affiliate: true,
