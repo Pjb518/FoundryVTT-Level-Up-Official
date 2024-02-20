@@ -193,6 +193,13 @@ export default function registerPremiumContentConfig(A5E) {
       title: "Level Up: Dungeon Delver's Guide",
       url: 'https://bit.ly/3SrQmGC'
     },
+    fieldEngineer: {
+      abbreviation: 'FE',
+      affiliate: true,
+      publisher: 'purpleMartinGames',
+      title: 'Field Engineer',
+      url: 'https://bit.ly/49D4FPF'
+    },
     gpg0: {
       abbreviation: 'GPG #0',
       affiliate: true,
