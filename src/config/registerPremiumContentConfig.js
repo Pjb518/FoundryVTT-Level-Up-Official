@@ -191,7 +191,7 @@ export default function registerPremiumContentConfig(A5E) {
       affiliate: true,
       publisher: 'enPublishing',
       title: "Level Up: Dungeon Delver's Guide",
-      url: 'https://bit.ly/3SrQmGC'
+      url: 'https://bit.ly/4bLImsK'
     },
     fieldEngineer: {
       abbreviation: 'FE',
@@ -379,7 +379,7 @@ export default function registerPremiumContentConfig(A5E) {
       affiliate: true,
       publisher: 'enPublishing',
       title: 'Level Up: Monstrous Menagerie',
-      url: 'https://bit.ly/42nUNa0'
+      url: 'https://bit.ly/3T1jeqJ'
     },
     mortalist: {
       abbreviation: 'Mort',
