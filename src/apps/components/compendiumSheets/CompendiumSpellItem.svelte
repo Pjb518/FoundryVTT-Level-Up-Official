@@ -4,6 +4,8 @@
 
     import ImportButton from "../ImportButton.svelte";
 
+    import getDocumentSourceTooltip from "../../../utils/getDocumentSourceTooltip";
+
     export let document;
 
     function getSpellDetailsLabel(spell) {
@@ -86,9 +88,7 @@
                 class="a5e-item__source-tag"
                 href={spellSource?.url}
                 target="_blank"
-                data-tooltip={spellSource.affiliate
-                    ? `${spellSource?.title} (Affiliate Link)`
-                    : spellSource?.title}
+                data-tooltip={getDocumentSourceTooltip(spellSource)}
                 on:click|stopPropagation
             >
                 {spellSource?.abbreviation}

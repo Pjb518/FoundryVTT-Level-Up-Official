@@ -4,6 +4,8 @@
 
     import ImportButton from "../ImportButton.svelte";
 
+    import getDocumentSourceTooltip from "../../../utils/getDocumentSourceTooltip";
+
     export let document;
 
     function onDragStart(event) {
@@ -92,9 +94,7 @@
                 class="a5e-item__source-tag"
                 href={maneuverSource?.url}
                 target="_blank"
-                data-tooltip={maneuverSource.affiliate
-                    ? `${maneuverSource?.title} (Affiliate Link)`
-                    : maneuverSource?.title}
+                data-tooltip={getDocumentSourceTooltip(maneuverSource)}
                 on:click|stopPropagation
             >
                 {maneuverSource?.abbreviation}

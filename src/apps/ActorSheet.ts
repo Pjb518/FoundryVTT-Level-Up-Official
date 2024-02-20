@@ -11,6 +11,8 @@ import LimitedSheetComponent from './sheets/LimitedSheet.svelte';
 
 import SubObjectManager from '../managers/subItems/SubObjectManager';
 
+import getDocumentSourceTooltip from '../utils/getDocumentSourceTooltip';
+
 export default class ActorSheet extends SvelteApplication {
   public actor: any;
 
@@ -418,7 +420,7 @@ export default class ActorSheet extends SvelteApplication {
       const sourceLink = document.createElement('a');
       sourceLink.classList.add('a5e-document-source-link');
       sourceLink.setAttribute('alt', documentSource?.title);
-      sourceLink.dataset.tooltip = documentSource?.affiliate ? `${documentSource?.title} (Affiliate Link)` : documentSource?.title;
+      sourceLink.dataset.tooltip = getDocumentSourceTooltip(documentSource);
       sourceLink.dataset.tooltipDirection = 'DOWN';
       sourceLink.innerHTML = `<i class="fa-solid fa-book-open"></i> ${documentSource?.abbreviation}`;
       sourceLink.href = documentSource?.url;

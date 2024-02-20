@@ -5,6 +5,8 @@
 
     import ImportButton from "../ImportButton.svelte";
 
+    import getDocumentSourceTooltip from "../../../utils/getDocumentSourceTooltip";
+
     export let document;
 
     function getCreatureTypes(monster) {
@@ -124,9 +126,7 @@
                 class="a5e-item__source-tag"
                 href={monsterSource?.url}
                 target="_blank"
-                data-tooltip={monsterSource.affiliate
-                    ? `${monsterSource?.title} (Affiliate Link)`
-                    : monsterSource?.title}
+                data-tooltip={getDocumentSourceTooltip(monsterSource)}
                 on:click|stopPropagation
             >
                 {monsterSource?.abbreviation}

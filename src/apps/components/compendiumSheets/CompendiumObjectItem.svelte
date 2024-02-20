@@ -4,6 +4,8 @@
 
     import ImportButton from "../ImportButton.svelte";
 
+    import getDocumentSourceTooltip from "../../../utils/getDocumentSourceTooltip";
+
     export let document;
 
     function getAttunementLabel(object) {
@@ -33,6 +35,14 @@
         return null;
     }
 
+    function getObjectSource(item) {
+        if (typeof item.system.source !== "string") return null;
+
+        const source = CONFIG.A5E.products[item.system.source];
+
+        return source || null;
+    }
+
     function getRarityLabel(object) {
         const { rarity } = object.system;
 
@@ -53,6 +63,7 @@
     const { itemRarity } = CONFIG.A5E;
 
     $: objectDetails = getObjectDetailsLabel(document);
+    $: objectSource = getObjectSource(document);
 </script>
 
 <!-- svelte-ignore a11y-click-events-have-key-events a11y-no-noninteractive-element-interactions -->
@@ -86,6 +97,18 @@
     </h3>
 
     <span class="a5e-item__details">
+        {#if objectSource?.abbreviation}
+            <a
+                class="a5e-item__source-tag"
+                href={objectSource?.url}
+                target="_blank"
+                data-tooltip={getDocumentSourceTooltip(objectSource)}
+                on:click|stopPropagation
+            >
+                {objectSource?.abbreviation}
+            </a>
+        {/if}
+
         {objectDetails}
     </span>
 
