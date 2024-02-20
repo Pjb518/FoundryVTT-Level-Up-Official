@@ -27,6 +27,14 @@
         return spellLevel;
     }
 
+    function getSpellSource(spell) {
+        if (typeof spell.system.source !== "string") return null;
+
+        const source = CONFIG.A5E.products[spell.system.source];
+
+        return source || null;
+    }
+
     function onDragStart(event) {
         const data = {
             type: collection.documentName,
@@ -39,6 +47,7 @@
     const { spellSchools, spellLevels } = CONFIG.A5E;
 
     $: spellDetails = getSpellDetailsLabel(document);
+    $: spellSource = getSpellSource(document);
 </script>
 
 <!-- svelte-ignore a11y-click-events-have-key-events a11y-no-noninteractive-element-interactions -->
@@ -72,6 +81,20 @@
     </span>
 
     <span class="a5e-item__details">
+        {#if spellSource?.abbreviation}
+            <a
+                class="a5e-item__source-tag"
+                href={spellSource?.url}
+                target="_blank"
+                data-tooltip={spellSource.affiliate
+                    ? `${spellSource?.title} (Affiliate Link)`
+                    : spellSource?.title}
+                on:click|stopPropagation
+            >
+                {spellSource?.abbreviation}
+            </a>
+        {/if}
+
         {spellDetails}
     </span>
 
