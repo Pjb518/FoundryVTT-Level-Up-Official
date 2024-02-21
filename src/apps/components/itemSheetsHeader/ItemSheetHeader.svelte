@@ -163,21 +163,6 @@
                 {localize("A5E.FulfilDestiny")}
             </button>
         {/if}
-
-        <!-- {#if publisherLogo}
-            <a
-                href={productLink}
-                class="publisher-logo"
-                data-tooltip={publisherTooltip}
-                data-tooltip-direction="UP"
-            >
-                <img
-                    class="publisher-logo__image"
-                    src={publisherLogo}
-                    alt={publisherTooltip}
-                />
-            </a>
-        {/if} -->
     </div>
 </header>
 
@@ -283,22 +268,6 @@
         font-family: $font-primary;
         font-size: $font-size-md;
         align-items: center;
-    }
-
-    .publisher-logo {
-        height: 3.2rem;
-        width: auto;
-        flex-shrink: 0;
-        cursor: pointer;
-
-        :hover {
-            transform: scale(1.2);
-        }
-
-        &__image {
-            height: 100%;
-            transition: $standard-transition;
-        }
     }
 
     .name-wrapper {
