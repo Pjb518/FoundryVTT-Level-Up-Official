@@ -6,7 +6,9 @@ import GrantCls from '../dataModels/actor/ActorGrants';
 
 import GenericDialog from '../apps/dialogs/initializers/GenericDialog';
 import GrantApplicationDialog from '../apps/dialogs/GrantApplicationDialog.svelte';
+
 import prepareTraitGrantConfigObject from '../utils/prepareTraitGrantConfigObject';
+import prepareGrantsApplyData from '../utils/prepareGrantsApplyData';
 
 export default class ActorGrantsManger extends Map<string, ActorGrant> {
   private actor: typeof Actor;
@@ -75,36 +77,42 @@ export default class ActorGrantsManger extends Map<string, ActorGrant> {
 
     if (!applicableGrants.length) return;
 
-    const dialog = new GenericDialog(
-      `${this.actor.name} - Apply Grants`,
-      GrantApplicationDialog,
-      {
-        actor: this.actor,
-        allGrants: applicableGrants,
-        optionalGrants
+    const requiresDialog = [...applicableGrants].some((grant) => grant.requiresConfig())
+      || !!optionalGrants.length;
+
+    let dialogData: { updateData: any, success: boolean, documentData: Map<string, any[]> };
+    if (!requiresDialog) {
+      const grants = applicableGrants.map((grant) => ({ id: grant._id, grant }));
+      const { updateData, documentData } = prepareGrantsApplyData(this.actor, grants, new Map());
+      dialogData = { success: true, updateData, documentData };
+    } else {
+      const dialog = new GenericDialog(
+        `${this.actor.name} - Apply Grants`,
+        GrantApplicationDialog,
+        {
+          actor: this.actor,
+          allGrants: applicableGrants,
+          optionalGrants
+        }
+      );
+
+      await dialog.render(true);
+      dialogData = await dialog.promise;
+
+      if (!dialogData?.success) {
+        item.delete();
+        return;
       }
-    );
-
-    await dialog.render(true);
-    const promise: {
-      updateData: any,
-      success: boolean,
-      documentData: Map<string, any[]>
-    } = await dialog.promise;
-
-    if (!promise?.success) {
-      item.delete();
-      return;
     }
 
-    if (promise.updateData) await this.actor.update(promise.updateData);
+    if (dialogData.updateData) await this.actor.update(dialogData.updateData);
 
     // Create sub items
-    if (!promise.documentData.size) return;
+    if (!dialogData.documentData.size) return;
 
     const updateData: Record<string, any> = {};
 
-    for await (const [grantId, docData] of promise.documentData) {
+    for await (const [grantId, docData] of dialogData.documentData) {
       const docs = await Promise.all(
         docData.map(async ([uuid, quantity]: [string, number | null]) => {
           const doc = (await fromUuid(uuid)).toObject();
