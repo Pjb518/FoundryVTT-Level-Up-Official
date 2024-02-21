@@ -1,6 +1,6 @@
 {
   "folder": null,
-  "name": "Sewer Born (Swim Speed)",
+  "name": "Sewer Sneak",
   "type": "feature",
   "img": "icons/creatures/mammals/rodent-rat-green.webp",
   "system": {
@@ -14,7 +14,7 @@
       "requiresUnarmored": false
     },
     "actions": {},
-    "description": "<p>You gain either a swim speed or a climb speed (your choice) equal to your Speed.</p>",
+    "description": "<p>You are proficient with&nbsp;thieves&rsquo; tools and your choice of the&nbsp;Arcana, Acrobatics, Athletics, or Stealth&nbsp;skill.</p>",
     "favorite": false,
     "secretDescription": "",
     "source": "",
@@ -34,16 +34,38 @@
     "concentration": false,
     "featureType": "culture",
     "grants": {
-      "oYRmPRhlRqiBOLWN": {
-        "grantType": "movement",
+      "OOjgA0UmlEXiSGfK": {
+        "grantType": "proficiency",
         "level": 0,
         "optional": false,
-        "label": "Swim Speed",
-        "bonus": "@attributes.movement.walk.distance",
-        "movementTypes": {
+        "keys": {
+          "base": [],
+          "options": [
+            "arc",
+            "acr",
+            "ath",
+            "ste"
+          ],
+          "total": 1
+        },
+        "proficiencyType": "skill",
+        "label": "Skill Proficiency",
+        "_id": "OOjgA0UmlEXiSGfK",
+        "default": true,
+        "img": ""
+      },
+      "ds81qD0bl48QP9zh": {
+        "grantType": "trait",
+        "level": 0,
+        "optional": false,
+        "label": "Tool Proficiency",
+        "traits": {
           "base": [
-            "swim"
-          ]
+            "thievesTools"
+          ],
+          "options": [],
+          "total": 0,
+          "traitType": "tools"
         }
       }
     },
@@ -64,8 +86,8 @@
     "systemId": "a5e",
     "systemVersion": "0.17.0",
     "coreVersion": "11.315",
-    "createdTime": 1708534123997,
-    "modifiedTime": 1708534195453,
+    "createdTime": 1708534080561,
+    "modifiedTime": 1708534368402,
     "lastModifiedBy": "SkNEzSES7ahAJz45"
   }
 }
