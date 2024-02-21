@@ -56,10 +56,16 @@ export default class TraitGrant extends BaseGrant {
     if (!propertyKey) return {};
     if (!selected.length) return {};
 
-    const traits = new Set([
-      ...selected,
-      ...(foundry.utils.getProperty(actor, propertyKey) as string[] ?? [])
-    ]);
+    let traits: Set<string>;
+
+    if (this.traits.traitType === 'size') {
+      traits = new Set([selected[0]]);
+    } else {
+      traits = new Set([
+        ...selected,
+        ...(foundry.utils.getProperty(actor, propertyKey) as string[] ?? [])
+      ]);
+    }
 
     return {
       [propertyKey]: [...traits],

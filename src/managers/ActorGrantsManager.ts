@@ -185,7 +185,8 @@ export default class ActorGrantsManger extends Map<string, ActorGrant> {
         foundry.utils.getProperty(this.actor, propertyKey) as string[] ?? []
       );
 
-      updates[propertyKey] = [...traits.difference(removals)];
+      if (grant.traitData.traitType === 'size') updates[propertyKey] = '';
+      else updates[propertyKey] = [...traits.difference(removals)];
     }
 
     return updates;
