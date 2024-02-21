@@ -7,6 +7,7 @@ import ActorGrantsManager from '../../managers/ActorGrantsManager';
 import BonusesManager from '../../managers/BonusesManager';
 import MigrationRunnerBase from '../../migration/MigrationRunnerBase';
 import RestManager from '../../managers/RestManager';
+import RollOverrideManager from '../../managers/RollOverrideManager';
 import RollPreparationManager from '../../managers/RollPreparationManager';
 
 import AbilityBonusConfigDialog from '../../apps/dialogs/AbilityBonusConfigDialog.svelte';
@@ -157,6 +158,7 @@ export default class ActorA5e extends Actor {
 
     if ((this.system.schemaVersion?.version ?? this.system.schema?.version) < 0.005) return;
     this.prepareArmorClass();
+    this.RollOverrideManager.initialize();
   }
 
   /**
@@ -167,6 +169,7 @@ export default class ActorA5e extends Actor {
     // Register Managers
     this.BonusesManager = new BonusesManager(this);
     this.grants = new ActorGrantsManager(this);
+    this.RollOverrideManager = new RollOverrideManager(this);
 
     // Add AC data to the actor.
     if ((this.system.schemaVersion?.version ?? this.system.schema?.version) >= 0.005) {
