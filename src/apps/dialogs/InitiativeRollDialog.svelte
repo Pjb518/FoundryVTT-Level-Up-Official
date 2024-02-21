@@ -56,10 +56,15 @@
     let rollFormula;
     let situationalMods = options.situationalMods ?? "";
 
-    let rollMode = overrideRollMode($actor, selectedRollMode, {
-        ability: abilityKey,
-        type: "initiative",
-    });
+    let rollMode = $actor.RollOverrideManager.getRollOverride(
+        `initiative`,
+        selectedRollMode,
+    );
+
+    let rollModeString = $actor.RollOverrideManager.getRollOverridesSource(
+        `initiative`,
+        selectedRollMode,
+    );
 
     $: abilityBonuses = $actor.BonusesManager.prepareAbilityBonuses(
         abilityKey,
@@ -107,6 +112,13 @@
 <form>
     <RadioGroup
         heading="A5E.RollModeHeading"
+        ,
+        buttons={[
+            {
+                classes: "fas fa-question-circle",
+                tooltip: rollModeString,
+            },
+        ]}
         options={rollModeOptions}
         selected={rollMode}
         on:updateSelection={({ detail }) => (rollMode = detail)}

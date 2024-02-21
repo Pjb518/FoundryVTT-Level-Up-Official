@@ -171,8 +171,16 @@ export default class RollOverrideManager {
     this.ready = true;
   }
 
-  getRollOverride(key: string, baseRollMode: number = 0): number {
-    const overrides = this.overrides.get(key)?.filter((o) => o.overrideType === 'rollMode');
+  getRollOverride(
+    key: string,
+    baseRollMode: number = 0,
+    options: { ability?: string, skill?: string } = {}
+  ): number {
+    const overrides = this.overrides.get(key)?.filter((o) => o.overrideType === 'rollMode') ?? [];
+
+    // TODO: Add special handling for skills and initiative
+    // TODO: Add special handling for "all" keys
+
     if (!overrides?.length) return baseRollMode;
 
     const hasAdvantage = overrides.some((o) => o.value === CONFIG.A5E.ROLL_MODE.ADVANTAGE);
@@ -186,7 +194,7 @@ export default class RollOverrideManager {
 
   getRollOverridesSource(key: string, baseRollMode: number = 0): string {
     const overrides = this.overrides.get(key)?.filter((o) => o.overrideType === 'rollMode');
-    if (!overrides?.length) return '';
+    if (!overrides) return '';
 
     let base: string;
     if (baseRollMode === CONFIG.A5E.ROLL_MODE.ADVANTAGE) base = 'Advantage';

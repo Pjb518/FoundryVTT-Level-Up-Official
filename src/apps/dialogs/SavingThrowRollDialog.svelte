@@ -14,6 +14,12 @@
     export let { document, abilityKey, dialog, options } =
         getContext("#external").application;
 
+    function getRollModeKey(saveType, abilityKey) {
+        if (!abilityKey) return "deathSave";
+        if (saveType === "concentration") return "concentration";
+        return `system.abilities.${abilityKey}.save`;
+    }
+
     function getInitialExpertiseDieSelection() {
         if (hideExpertiseDice) return 0;
 
@@ -85,12 +91,16 @@
         { abilityKey, abilityType: "save" },
     );
 
-    $: rollMode = overrideRollMode($actor, selectedRollMode, {
-        ability: abilityKey,
-        type: "save",
-        concentration: saveType === "concentration",
-        deathSave: !abilityKey,
-    });
+    $: rollModeKey = getRollModeKey(saveType, abilityKey);
+    $: rollMode = $actor.RollOverrideManager.getRollOverride(
+        rollModeKey,
+        selectedRollMode,
+    );
+
+    $: rollModeString = $actor.RollOverrideManager.getRollOverridesSource(
+        rollModeKey,
+        selectedRollMode,
+    );
 
     $: buttonText = getSubmitButtonText(saveType, abilityKey);
 
@@ -108,12 +118,20 @@
 <form>
     <OutputVisibilitySection bind:visibilityMode />
 
-    <RadioGroup
-        heading="A5E.RollModeHeading"
-        options={rollModeOptions}
-        selected={rollMode}
-        on:updateSelection={({ detail }) => (rollMode = detail)}
-    />
+    {#key saveType}
+        <RadioGroup
+            heading="A5E.RollModeHeading"
+            buttons={[
+                {
+                    classes: "fas fa-question-circle",
+                    tooltip: rollModeString,
+                },
+            ]}
+            options={rollModeOptions}
+            selected={rollMode}
+            on:updateSelection={({ detail }) => (rollMode = detail)}
+        />
+    {/key}
 
     <ExpertiseDiePicker
         selected={expertiseDie}

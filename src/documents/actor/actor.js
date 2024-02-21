@@ -1167,10 +1167,9 @@ export default class ActorA5e extends Actor {
     const defaultRollMode = options?.rollMode ?? CONFIG.A5E.ROLL_MODE.NORMAL;
     const expertiseDie = options.expertiseDice ?? ability.check.expertiseDice;
 
-    const rollMode = overrideRollMode(
-      this,
-      defaultRollMode,
-      { ability: abilityKey, type: 'check' }
+    const rollMode = this.RollOverrideManager.getRollOverride(
+      `system.abilities.${abilityKey}.check`,
+      defaultRollMode
     );
 
     const rollFormula = getRollFormula(this, {
@@ -1344,11 +1343,8 @@ export default class ActorA5e extends Actor {
     const defaultRollMode = options?.rollMode ?? CONFIG.A5E.ROLL_MODE.NORMAL;
     const expertiseDie = options.expertiseDice ?? ability?.save.expertiseDice ?? 0;
 
-    const rollMode = overrideRollMode(
-      this,
-      defaultRollMode,
-      { ability: abilityKey, deathSave: abilityKey === null, type: 'save' }
-    );
+    const rollOverrideKey = abilityKey ? `system.abilities.${abilityKey}.save` : 'deathSave';
+    const rollMode = this.RollOverrideManager.getRollOverride(rollOverrideKey, defaultRollMode);
 
     const rollFormula = getRollFormula(this, {
       ability: abilityKey,
@@ -1470,11 +1466,7 @@ export default class ActorA5e extends Actor {
     const defaultRollMode = options?.rollMode ?? CONFIG.A5E.ROLL_MODE.NORMAL;
     const expertiseDie = options.expertiseDice ?? skill.expertiseDice;
 
-    const rollMode = overrideRollMode(
-      this,
-      defaultRollMode,
-      { ability: abilityKey, skill: skillKey, type: 'skill' }
-    );
+    const rollMode = this.RollOverrideManager.getRollOverride(`system.skills.${skillKey}`, defaultRollMode);
 
     const rollFormula = getRollFormula(this, {
       ability: abilityKey,

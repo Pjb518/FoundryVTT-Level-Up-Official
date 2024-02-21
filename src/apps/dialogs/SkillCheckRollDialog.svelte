@@ -84,11 +84,15 @@
         { skillKey, abilityKey },
     );
 
-    let rollMode = overrideRollMode($actor, selectedRollMode, {
-        ability: abilityKey,
-        skill: skillKey,
-        type: "skill",
-    });
+    let rollMode = $actor.RollOverrideManager.getRollOverride(
+        `system.skills.${skillKey}`,
+        selectedRollMode,
+    );
+
+    let rollModeString = $actor.RollOverrideManager?.getRollOverridesSource(
+        `system.skills.${skillKey}`,
+        selectedRollMode,
+    );
 
     $: rollFormula = getRollFormula($actor, {
         ability: abilityKey,
@@ -108,6 +112,12 @@
 
     <RadioGroup
         heading="A5E.RollModeHeading"
+        buttons={[
+            {
+                classes: "fas fa-question-circle",
+                tooltip: rollModeString,
+            },
+        ]}
         options={rollModeOptions}
         selected={rollMode}
         allowDeselect={false}
