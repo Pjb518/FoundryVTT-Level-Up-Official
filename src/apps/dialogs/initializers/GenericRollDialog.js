@@ -10,7 +10,8 @@ export default class GenericRollDialog extends TJSDialog {
       content: {
         class: component,
         props: { document, ...data, options: rollOptions }
-      }
+      },
+      zIndex: null
     }, {
       classes: ['a5e-sheet'],
       height: dialogOptions.height ?? 'auto',

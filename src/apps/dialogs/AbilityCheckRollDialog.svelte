@@ -51,10 +51,20 @@
     let expertiseDie = getInitialExpertiseDieSelection();
     let selectedRollMode = options.rollMode ?? CONFIG.A5E.ROLL_MODE.NORMAL;
 
-    let rollMode = overrideRollMode($actor, selectedRollMode, {
-        ability: abilityKey,
-        type: "check",
-    });
+    // let rollMode = overrideRollMode($actor, selectedRollMode, {
+    //     ability: abilityKey,
+    //     type: "check",
+    // });
+
+    let rollMode = $actor.RollOverrideManager.getRollOverride(
+        `system.abilities.${abilityKey}.check`,
+        selectedRollMode,
+    );
+
+    let rollModeString = $actor.RollOverrideManager?.getRollOverridesSource(
+        `system.abilities.${abilityKey}.check`,
+        selectedRollMode,
+    );
 
     let visibilityMode =
         options.visibilityMode ?? game.settings.get("core", "rollMode");
@@ -82,6 +92,12 @@
 
     <RadioGroup
         heading="A5E.RollModeHeading"
+        buttons={[
+            {
+                classes: "fas fa-question-circle",
+                tooltip: rollModeString,
+            },
+        ]}
         options={rollModeOptions}
         selected={rollMode}
         on:updateSelection={({ detail }) => (rollMode = detail)}

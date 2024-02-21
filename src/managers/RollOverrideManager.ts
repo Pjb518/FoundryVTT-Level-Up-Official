@@ -200,14 +200,25 @@ export default class RollOverrideManager {
       return acc;
     }, { adv: [], dis: [] });
 
-    const result = `<h2>Roll Override BreakDown</h2>
-      <p> <strong>Base Roll Mode:</strong> ${base}</p>
-      <p> <strong>Advantage:</strong> ${adv.join(', ')}</p>
-      <p> <strong>Disadvantage:</strong> ${dis.join(', ')}</p>
-      <p> <strong>Result:</strong> ${this.getRollOverride(key, baseRollMode)}</p>
-    `;
+    let advString = '';
+    let disString = '';
 
-    return result;
+    if (adv.length) advString = `<p> <strong>Advantage:</strong> ${adv.join(', ')}</p>`;
+    if (dis.length) disString = `<p> <strong>Disadvantage:</strong> ${dis.join(', ')}</p>`;
+
+    const result = this.getRollOverride(key, baseRollMode);
+    let res: string;
+    if (result === CONFIG.A5E.ROLL_MODE.ADVANTAGE) res = 'Advantage';
+    else if (result === CONFIG.A5E.ROLL_MODE.DISADVANTAGE) res = 'Disadvantage';
+    else res = 'Normal';
+
+    return `<div class='u-text-xs u-text-left'>
+      <p> <strong>Base Roll Mode:</strong> ${base}</p>
+      ${advString}
+      ${disString}
+      <p> <strong>Result:</strong> ${res}</p>
+    </div>
+    `;
   }
 
   #determineRollMode(original: number, override: number): number {
