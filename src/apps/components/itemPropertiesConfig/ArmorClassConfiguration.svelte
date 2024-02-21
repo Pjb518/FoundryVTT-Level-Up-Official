@@ -102,6 +102,21 @@
             </FieldWrapper>
         </Section>
 
+        {#if $item.system?.objectType === "armor"}
+            <FieldWrapper>
+                <Checkbox
+                    label="A5E.armorClass.grantsDisadvantage"
+                    checked={$item.system.ac.grantsDisadvantage ?? false}
+                    on:updateSelection={({ detail }) =>
+                        updateDocumentDataFromField(
+                            $item,
+                            "system.ac.grantsDisadvantage",
+                            detail,
+                        )}
+                />
+            </FieldWrapper>
+        {/if}
+
         {#if !["armor", "shield"].includes($item.system?.objectType)}
             <FieldWrapper>
                 <Checkbox
