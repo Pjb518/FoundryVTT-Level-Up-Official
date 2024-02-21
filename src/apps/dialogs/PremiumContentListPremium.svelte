@@ -51,8 +51,4 @@
             text-decoration: none;
         }
     }
-
-    h3 {
-        margin-bottom: 0.375rem;
-    }
 </style>
