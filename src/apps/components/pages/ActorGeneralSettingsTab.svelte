@@ -50,8 +50,7 @@
     <FieldWrapper>
         <Checkbox
             label="A5E.settings.includeAbilityModifiersForSkills"
-            checked={flags?.includeAbilityModifiersForSkills ??
-                $actor.type === "npc"}
+            checked={flags?.includeAbilityModifiersForSkills ?? true}
             on:updateSelection={({ detail }) => {
                 updateDocumentDataFromField(
                     $actor,
