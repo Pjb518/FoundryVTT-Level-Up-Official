@@ -19,6 +19,7 @@ export default function modifySpecialOptions(options: object) {
   options['flags.a5e.effects.rollMode.abilitySave.all'] = [0, MODES.OVERRIDE_ONLY, ROLL_MODES, 'RADIO'];
   options['flags.a5e.effects.rollMode.skillCheck.all'] = [0, MODES.OVERRIDE_ONLY, ROLL_MODES, 'RADIO'];
   options['flags.a5e.effects.rollMode.concentration'] = [0, MODES.OVERRIDE_ONLY, ROLL_MODES, 'RADIO'];
+  options['flags.a5e.effects.expertiseDice.concentration'] = [0, MODES.ADD_AND_OVERRIDE];
   options['flags.a5e.effects.rollMode.deathSave'] = [0, MODES.OVERRIDE_ONLY, ROLL_MODES, 'RADIO'];
   options['flags.a5e.effects.rollMode.initiative'] = [0, MODES.OVERRIDE_ONLY, ROLL_MODES, 'RADIO'];
 
@@ -31,8 +32,7 @@ export default function modifySpecialOptions(options: object) {
     options[`flags.a5e.effects.rollMode.skillCheck.${s}`] = [0, MODES.OVERRIDE_ONLY, ROLL_MODES, 'RADIO'];
   });
 
-  // TODO: Re-implement when better UI is available
-  // options['flags.a5e.effects.expertiseDie'] = [0, MODES.ADD_AND_OVERRIDE];
+  options['flags.a5e.effects.expertiseDice.all'] = [0, MODES.ADD_AND_OVERRIDE];
 
   // Add options for damage and conditions
   options['flags.a5e.effects.damageImmunities.all'] = [[], MODES.CUSTOM_ONLY, null, 'NONE'];

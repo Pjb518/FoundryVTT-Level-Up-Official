@@ -9,7 +9,6 @@
     import RadioGroup from "../components/RadioGroup.svelte";
 
     import getRollFormula from "../../utils/getRollFormula";
-    import overrideRollMode from "../../utils/overrideRollMode";
 
     export let { document, dialog, options } =
         getContext("#external").application;
@@ -56,10 +55,17 @@
     let rollFormula;
     let situationalMods = options.situationalMods ?? "";
 
-    let rollMode = overrideRollMode($actor, selectedRollMode, {
-        ability: abilityKey,
-        type: "initiative",
-    });
+    $: rollMode = $actor.RollOverrideManager.getRollOverride(
+        `initiative`,
+        selectedRollMode,
+        { ability: abilityKey, skill: skillKey },
+    );
+
+    $: rollModeString = $actor.RollOverrideManager.getRollOverridesSource(
+        `initiative`,
+        selectedRollMode,
+        { ability: abilityKey, skill: skillKey },
+    );
 
     $: abilityBonuses = $actor.BonusesManager.prepareAbilityBonuses(
         abilityKey,
@@ -107,6 +113,13 @@
 <form>
     <RadioGroup
         heading="A5E.RollModeHeading"
+        ,
+        buttons={[
+            {
+                classes: "fas fa-question-circle",
+                tooltip: rollModeString,
+            },
+        ]}
         options={rollModeOptions}
         selected={rollMode}
         on:updateSelection={({ detail }) => (rollMode = detail)}

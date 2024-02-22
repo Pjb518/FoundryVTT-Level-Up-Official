@@ -4,7 +4,6 @@
 
     import getAttackAbility from "../../../utils/getAttackAbility";
     import getRollFormula from "../../../utils/getRollFormula";
-    import overrideRollMode from "../../../utils/overrideRollMode";
     import overrideExpertiseDie from "../../../utils/overrideExpertiseDie";
 
     import CheckboxGroup from "../CheckboxGroup.svelte";
@@ -45,13 +44,14 @@
     let expertiseDie = overrideExpertiseDie($actor, 0);
     let situationalMods = "";
 
-    let rollMode = overrideRollMode(
-        $actor,
+    let rollMode = $actor.RollOverrideManager.getRollOverride(
+        `attackTypes.${attackRoll?.attackType}`,
         options.rollMode ?? CONFIG.A5E.ROLL_MODE.NORMAL,
-        {
-            attackType: attackRoll.attackType,
-            type: "attack",
-        },
+    );
+
+    let rollModeString = $actor.RollOverrideManager.getRollOverridesSource(
+        `attackTypes.${attackRoll?.attackType}`,
+        rollMode,
     );
 
     $: selectedAttackBonuses = $actor.BonusesManager.getDefaultSelections(
@@ -79,6 +79,12 @@
 
 <RadioGroup
     heading="A5E.AttackRollModeHeading"
+    buttons={[
+        {
+            classes: "fas fa-question-circle",
+            tooltip: rollModeString,
+        },
+    ]}
     options={rollModeOptions}
     selected={rollMode}
     on:updateSelection={({ detail }) => (rollMode = detail)}

@@ -6,7 +6,6 @@ import computeSaveDC from '../../utils/computeSaveDC';
 import getAttackAbility from '../../utils/getAttackAbility';
 import getDeterministicBonus from '../../dice/getDeterministicBonus';
 import getRollFormula from '../../utils/getRollFormula';
-import overrideRollMode from '../../utils/overrideRollMode';
 import overrideExpertiseDie from '../../utils/overrideExpertiseDie';
 import prepareConsumers from '../../apps/dataPreparationHelpers/itemActivationConsumers/prepareConsumers';
 import prepareHitDice from '../../apps/dataPreparationHelpers/prepareHitDice';
@@ -296,13 +295,9 @@ export default class ItemA5e extends BaseItemA5e {
     const attackAbility = getAttackAbility(actor, this, attackRoll);
     const expertiseDie = overrideExpertiseDie(actor, 0);
 
-    const rollMode = overrideRollMode(
-      actor,
-      options.rollMode ?? CONFIG.A5E.ROLL_MODE.NORMAL,
-      {
-        attackType: attackRoll.attackType,
-        type: 'attack'
-      }
+    const rollMode = actor.RollOverrideManager?.getRollOverride(
+      `attackTypes.${attackRoll.attackType}.`,
+      options.rollMode ?? CONFIG.A5E.ROLL_MODE.NORMAL
     );
 
     const formula = getRollFormula(actor, {

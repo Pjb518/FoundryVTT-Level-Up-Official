@@ -1,5 +1,4 @@
 import constructD20RollFormula from '../dice/constructD20RollFormula';
-import overrideRollMode from '../utils/overrideRollMode';
 
 import ModifierManager from '../managers/ModifierManager';
 
@@ -9,10 +8,10 @@ export default function getDefaultInitiativeFormula(actor, options = {}) {
   const abilityKey = options.abilityKey ?? 'dex';
   const defaultRollMode = options?.rollMode ?? CONFIG.A5E.ROLL_MODE.NORMAL;
 
-  const rollMode = overrideRollMode(
-    actor,
+  const rollMode = actor.RollOverrideManager.getRollOverride(
+    'initiative',
     defaultRollMode,
-    { ability: abilityKey, type: 'check' }
+    { ability: abilityKey }
   );
 
   const modifierManager = new ModifierManager(actor, {

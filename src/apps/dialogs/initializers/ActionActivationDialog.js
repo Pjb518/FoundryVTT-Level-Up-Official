@@ -16,7 +16,8 @@ export default class ActionActivationDialog extends TJSDialog {
         props: {
           actionId, actorDocument, itemDocument, options
         }
-      }
+      },
+      zIndex: null
     }, {
       classes: ['a5e-sheet', 'a5e-activation-dialog'],
       width: 420

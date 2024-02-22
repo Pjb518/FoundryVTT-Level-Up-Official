@@ -7,6 +7,7 @@ import ActorGrantsManager from '../../managers/ActorGrantsManager';
 import BonusesManager from '../../managers/BonusesManager';
 import MigrationRunnerBase from '../../migration/MigrationRunnerBase';
 import RestManager from '../../managers/RestManager';
+import RollOverrideManager from '../../managers/RollOverrideManager';
 import RollPreparationManager from '../../managers/RollPreparationManager';
 
 import AbilityBonusConfigDialog from '../../apps/dialogs/AbilityBonusConfigDialog.svelte';
@@ -39,7 +40,6 @@ import automateHpConditions from '../activeEffect/utils/automateHpConditions';
 import automateMultiLevelConditions from '../activeEffect/utils/automateMultiLevelConditions';
 import getDeterministicBonus from '../../dice/getDeterministicBonus';
 import getRollFormula from '../../utils/getRollFormula';
-import overrideRollMode from '../../utils/overrideRollMode';
 
 export default class ActorA5e extends Actor {
   #configDialogMap;
@@ -157,6 +157,7 @@ export default class ActorA5e extends Actor {
 
     if ((this.system.schemaVersion?.version ?? this.system.schema?.version) < 0.005) return;
     this.prepareArmorClass();
+    this.RollOverrideManager.initialize();
   }
 
   /**
@@ -167,6 +168,7 @@ export default class ActorA5e extends Actor {
     // Register Managers
     this.BonusesManager = new BonusesManager(this);
     this.grants = new ActorGrantsManager(this);
+    this.RollOverrideManager = new RollOverrideManager(this);
 
     // Add AC data to the actor.
     if ((this.system.schemaVersion?.version ?? this.system.schema?.version) >= 0.005) {
@@ -1164,10 +1166,9 @@ export default class ActorA5e extends Actor {
     const defaultRollMode = options?.rollMode ?? CONFIG.A5E.ROLL_MODE.NORMAL;
     const expertiseDie = options.expertiseDice ?? ability.check.expertiseDice;
 
-    const rollMode = overrideRollMode(
-      this,
-      defaultRollMode,
-      { ability: abilityKey, type: 'check' }
+    const rollMode = this.RollOverrideManager.getRollOverride(
+      `system.abilities.${abilityKey}.check`,
+      defaultRollMode
     );
 
     const rollFormula = getRollFormula(this, {
@@ -1341,11 +1342,8 @@ export default class ActorA5e extends Actor {
     const defaultRollMode = options?.rollMode ?? CONFIG.A5E.ROLL_MODE.NORMAL;
     const expertiseDie = options.expertiseDice ?? ability?.save.expertiseDice ?? 0;
 
-    const rollMode = overrideRollMode(
-      this,
-      defaultRollMode,
-      { ability: abilityKey, deathSave: abilityKey === null, type: 'save' }
-    );
+    const rollOverrideKey = abilityKey ? `system.abilities.${abilityKey}.save` : 'deathSave';
+    const rollMode = this.RollOverrideManager.getRollOverride(rollOverrideKey, defaultRollMode);
 
     const rollFormula = getRollFormula(this, {
       ability: abilityKey,
@@ -1467,11 +1465,8 @@ export default class ActorA5e extends Actor {
     const defaultRollMode = options?.rollMode ?? CONFIG.A5E.ROLL_MODE.NORMAL;
     const expertiseDie = options.expertiseDice ?? skill.expertiseDice;
 
-    const rollMode = overrideRollMode(
-      this,
-      defaultRollMode,
-      { ability: abilityKey, skill: skillKey, type: 'skill' }
-    );
+    const rollMode = this.RollOverrideManager
+      .getRollOverride(`system.skills.${skillKey}`, defaultRollMode, { ability: abilityKey });
 
     const rollFormula = getRollFormula(this, {
       ability: abilityKey,
