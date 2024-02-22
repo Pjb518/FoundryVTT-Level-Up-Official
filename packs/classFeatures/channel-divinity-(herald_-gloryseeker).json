@@ -1,136 +1,132 @@
 {
-	"name": "Channel Divinity (Herald: Gloryseeker)",
-	"type": "feature",
-	"img": "icons/skills/melee/strike-hammer-destructive-orange.webp",
-	"system": {
-		"ac": {
-			"baseFormula": "",
-			"formula": "",
-			"maxDex": 0,
-			"minStr": 0,
-			"mode": 2,
-			"requiresNoShield": false,
-			"requiresUnarmored": false
-		},
-		"actions": {
-			"CO3bQ9CxeDbNtthg": {
-				"name": "Heroic Attack",
-				"activation": {
-					"type": "bonusAction",
-					"cost": 1
-				},
-				"consumers": {
-					"P5j3YpFPJ6VDmjB3": {
-						"type": "itemUses",
-						"default": true,
-						"quantity": 1,
-						"label": "Channel Divinity"
-					}
-				},
-				"rolls": {},
-				"prompts": {},
-				"uses": {
-					"value": 0,
-					"max": "",
-					"per": "",
-					"recharge": {
-						"formula": "1d6",
-						"threshold": 6
-					}
-				},
-				"description": "<p>As a bonus action, you can grant yourself the ability to critically hit on a 19-20 with all weapon attacks. If you would already critically hit on better than a natural 20 you increase the range by 1, to a maximum of 17-20. This lasts for one minute.</p>",
-				"duration": {
-					"unit": "minute",
-					"value": 1
-				},
-				"ranges": {
-					"nuzidKTxl1Ee7ipn": {
-						"range": "self"
-					}
-				},
-				"descriptionOutputs": [
-					"action"
-				]
-			},
-			"VAiHvu2p4JBbxPSn": {
-				"name": "Peerless",
-				"activation": {
-					"type": "action",
-					"cost": 1
-				},
-				"consumers": {
-					"xKFovMXhjZKxWOeT": {
-						"type": "itemUses",
-						"default": true,
-						"quantity": 1,
-						"label": "Channel Divinity"
-					}
-				},
-				"rolls": {},
-				"prompts": {},
-				"uses": {
-					"value": 0,
-					"max": "",
-					"per": "",
-					"recharge": {
-						"formula": "1d6",
-						"threshold": 6
-					}
-				},
-				"description": "<p>As an action you can grant yourself unmatched skill. For the next 10 minutes you may add your Charisma modifier to all ability checks.</p>",
-				"descriptionOutputs": [
-					"action"
-				],
-				"duration": {
-					"unit": "minute",
-					"value": 10
-				},
-				"ranges": {
-					"k86lsVypDRNnwkGJ": {
-						"range": "self"
-					}
-				}
-			}
-		},
-		"description": "<p>At 3rd level you gain the following channel divinity options:</p>\n<p>&nbsp;</p>\n<h2>Heroic Attack</h2>\n<p>As a bonus action, you can grant yourself the ability to critically hit on a 19-20 with all weapon attacks. If you would already critically hit on better than a natural 20 you increase the range by 1, to a maximum of 17-20. This lasts for one minute.</p>\n<p>&nbsp;</p>\n<h2>Peerless</h2>\n<p>As an action you can grant yourself unmatched skill. For the next 10 minutes you may add your Charisma modifier to all ability checks.</p>",
-		"favorite": false,
-		"secretDescription": "",
-		"source": {
-			"name": "Heroes Old and New",
-			"link": "https://bit.ly/3o0lQbQ",
-			"publisher": "rollThemBones"
-		},
-		"uses": {
-			"value": 1,
-			"max": "1",
-			"per": "shortRest",
-			"recharge": {
-				"formula": "1d6",
-				"threshold": "6"
-			}
-		},
-		"schema": {
-			"version": null,
-			"lastMigration": null
-		},
-		"concentration": false,
-		"featureType": "class",
-		"grants": {},
-		"prerequisite": "",
-		"requiresBloodied": false,
-		"schemaVersion": {
-			"version": 0.013,
-			"lastMigration": {
-				"version": {
-					"schema": 0.011,
-					"foundry": "11.315",
-					"system": "0.16.49"
-				}
-			}
-		}
-	},
-	"effects": [],
-	"flags": {},
-	"folder": null,
-	"_id": "ll982msnwu00v8vu"
+  "name": "Channel Divinity (Herald: Gloryseeker)",
+  "type": "feature",
+  "img": "icons/skills/melee/strike-hammer-destructive-orange.webp",
+  "system": {
+    "ac": {
+      "baseFormula": "",
+      "formula": "",
+      "maxDex": 0,
+      "minStr": 0,
+      "mode": 2,
+      "requiresNoShield": false,
+      "requiresUnarmored": false
+    },
+    "actions": {
+      "CO3bQ9CxeDbNtthg": {
+        "name": "Heroic Attack",
+        "activation": {
+          "type": "bonusAction",
+          "cost": 1
+        },
+        "consumers": {
+          "P5j3YpFPJ6VDmjB3": {
+            "type": "itemUses",
+            "default": true,
+            "quantity": 1,
+            "label": "Channel Divinity"
+          }
+        },
+        "rolls": {},
+        "prompts": {},
+        "uses": {
+          "value": 0,
+          "max": "",
+          "per": "",
+          "recharge": {
+            "formula": "1d6",
+            "threshold": 6
+          }
+        },
+        "description": "<p>As a bonus action, you can grant yourself the ability to critically hit on a 19-20 with all weapon attacks. If you would already critically hit on better than a natural 20 you increase the range by 1, to a maximum of 17-20. This lasts for one minute.</p>",
+        "duration": {
+          "unit": "minute",
+          "value": 1
+        },
+        "ranges": {
+          "nuzidKTxl1Ee7ipn": {
+            "range": "self"
+          }
+        },
+        "descriptionOutputs": [
+          "action"
+        ]
+      },
+      "VAiHvu2p4JBbxPSn": {
+        "name": "Peerless",
+        "activation": {
+          "type": "action",
+          "cost": 1
+        },
+        "consumers": {
+          "xKFovMXhjZKxWOeT": {
+            "type": "itemUses",
+            "default": true,
+            "quantity": 1,
+            "label": "Channel Divinity"
+          }
+        },
+        "rolls": {},
+        "prompts": {},
+        "uses": {
+          "value": 0,
+          "max": "",
+          "per": "",
+          "recharge": {
+            "formula": "1d6",
+            "threshold": 6
+          }
+        },
+        "description": "<p>As an action you can grant yourself unmatched skill. For the next 10 minutes you may add your Charisma modifier to all ability checks.</p>",
+        "descriptionOutputs": [
+          "action"
+        ],
+        "duration": {
+          "unit": "minute",
+          "value": 10
+        },
+        "ranges": {
+          "k86lsVypDRNnwkGJ": {
+            "range": "self"
+          }
+        }
+      }
+    },
+    "description": "<p>At 3rd level you gain the following channel divinity options:</p>\n<p>&nbsp;</p>\n<h2>Heroic Attack</h2>\n<p>As a bonus action, you can grant yourself the ability to critically hit on a 19-20 with all weapon attacks. If you would already critically hit on better than a natural 20 you increase the range by 1, to a maximum of 17-20. This lasts for one minute.</p>\n<p>&nbsp;</p>\n<h2>Peerless</h2>\n<p>As an action you can grant yourself unmatched skill. For the next 10 minutes you may add your Charisma modifier to all ability checks.</p>",
+    "favorite": false,
+    "secretDescription": "",
+    "source": "heroesOldAndNew",
+    "uses": {
+      "value": 1,
+      "max": "1",
+      "per": "shortRest",
+      "recharge": {
+        "formula": "1d6",
+        "threshold": "6"
+      }
+    },
+    "schema": {
+      "version": null,
+      "lastMigration": null
+    },
+    "concentration": false,
+    "featureType": "class",
+    "grants": {},
+    "prerequisite": "",
+    "requiresBloodied": false,
+    "schemaVersion": {
+      "version": 0.013,
+      "lastMigration": {
+        "version": {
+          "schema": 0.011,
+          "foundry": "11.315",
+          "system": "0.16.49"
+        }
+      }
+    }
+  },
+  "effects": [],
+  "flags": {},
+  "folder": null,
+  "_id": "ll982msnwu00v8vu"
 }

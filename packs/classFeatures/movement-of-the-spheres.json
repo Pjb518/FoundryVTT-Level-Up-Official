@@ -1,150 +1,146 @@
 {
-	"name": "Movement of the Spheres",
-	"type": "feature",
-	"img": "icons/magic/light/projectiles-trio-pink.webp",
-	"system": {
-		"ac": {
-			"baseFormula": "",
-			"formula": "",
-			"maxDex": 0,
-			"minStr": 0,
-			"mode": 2,
-			"requiresNoShield": false,
-			"requiresUnarmored": false
-		},
-		"actions": {
-			"WPNrBR4Eh7xoKLKG": {
-				"name": "Augury",
-				"activation": {
-					"cost": 1,
-					"type": "minute",
-					"reactionTrigger": ""
-				},
-				"consumers": {
-					"tVhkY6UcDpf5TFcy": {
-						"mode": "variable",
-						"spellLevel": 2,
-						"points": 3,
-						"type": "spell"
-					}
-				},
-				"rolls": {},
-				"prompts": {},
-				"uses": {
-					"value": 0,
-					"max": "floor(@prof / 2)",
-					"per": "longRest",
-					"recharge": {
-						"formula": "1d6",
-						"threshold": 6
-					}
-				},
-				"duration": {
-					"unit": "instantaneous",
-					"value": ""
-				},
-				"ranges": {
-					"yx16o4KTfoQobkxy": {
-						"range": "self"
-					}
-				},
-				"area": {
-					"shape": "",
-					"size": "",
-					"placeTemplate": false
-				},
-				"target": {
-					"quantity": "",
-					"type": "self"
-				},
-				"img": "icons/sundries/gaming/dice-runed-brown.webp"
-			},
-			"aJ4G9SRJoTw2pe6Z": {
-				"name": "Divination",
-				"activation": {
-					"cost": 1,
-					"type": "action",
-					"reactionTrigger": ""
-				},
-				"consumers": {
-					"4WqjjHwH6zWHQ9Xg": {
-						"mode": "variable",
-						"spellLevel": 4,
-						"points": 6,
-						"type": "spell"
-					}
-				},
-				"rolls": {},
-				"prompts": {},
-				"uses": {
-					"value": 0,
-					"max": "floor(@prof / 2)",
-					"per": "longRest",
-					"recharge": {
-						"formula": "1d6",
-						"threshold": 6
-					}
-				},
-				"duration": {
-					"unit": "instantaneous",
-					"value": ""
-				},
-				"ranges": {
-					"l2vCY1jTw48Lw0mU": {
-						"range": "self"
-					}
-				},
-				"area": {
-					"shape": "",
-					"size": "",
-					"placeTemplate": false
-				},
-				"target": {
-					"quantity": "",
-					"type": "self"
-				},
-				"img": "icons/magic/perception/orb-crystal-ball-scrying.webp"
-			}
-		},
-		"description": "<p>At 6th level you add the @UUID[Compendium.a5e.a5e-spells.qsa7b22n3y1pbzf6]{Augury} and @UUID[Compendium.a5e.a5e-spells.bs3wnsid88tbup6c]{Divination} spells to your druid spell list. When casting either of these spells, you may ignore an accumulated failure chance as long as you can see the night sky. You may do so a number of times equal to half your proficiency bonus per spell and regain all expended uses when you finish a long rest.</p>",
-		"favorite": false,
-		"secretDescription": "",
-		"source": {
-			"name": "Heroes Old and New",
-			"link": "https://bit.ly/3o0lQbQ",
-			"publisher": "rollThemBones"
-		},
-		"uses": {
-			"value": null,
-			"max": "",
-			"per": "",
-			"recharge": {
-				"formula": "1d6",
-				"threshold": "6"
-			}
-		},
-		"schema": {
-			"version": null,
-			"lastMigration": null
-		},
-		"concentration": false,
-		"featureType": "",
-		"grants": {},
-		"prerequisite": "",
-		"requiresBloodied": false,
-		"schemaVersion": {
-			"version": 0.013,
-			"lastMigration": {
-				"version": {
-					"schema": 0.011,
-					"foundry": "11.315",
-					"system": "0.16.49"
-				}
-			}
-		}
-	},
-	"effects": [],
-	"flags": {},
-	"folder": null,
-	"_id": "imswc5s6vln2vb78"
+  "name": "Movement of the Spheres",
+  "type": "feature",
+  "img": "icons/magic/light/projectiles-trio-pink.webp",
+  "system": {
+    "ac": {
+      "baseFormula": "",
+      "formula": "",
+      "maxDex": 0,
+      "minStr": 0,
+      "mode": 2,
+      "requiresNoShield": false,
+      "requiresUnarmored": false
+    },
+    "actions": {
+      "WPNrBR4Eh7xoKLKG": {
+        "name": "Augury",
+        "activation": {
+          "cost": 1,
+          "type": "minute",
+          "reactionTrigger": ""
+        },
+        "consumers": {
+          "tVhkY6UcDpf5TFcy": {
+            "mode": "variable",
+            "spellLevel": 2,
+            "points": 3,
+            "type": "spell"
+          }
+        },
+        "rolls": {},
+        "prompts": {},
+        "uses": {
+          "value": 0,
+          "max": "floor(@prof / 2)",
+          "per": "longRest",
+          "recharge": {
+            "formula": "1d6",
+            "threshold": 6
+          }
+        },
+        "duration": {
+          "unit": "instantaneous",
+          "value": ""
+        },
+        "ranges": {
+          "yx16o4KTfoQobkxy": {
+            "range": "self"
+          }
+        },
+        "area": {
+          "shape": "",
+          "size": "",
+          "placeTemplate": false
+        },
+        "target": {
+          "quantity": "",
+          "type": "self"
+        },
+        "img": "icons/sundries/gaming/dice-runed-brown.webp"
+      },
+      "aJ4G9SRJoTw2pe6Z": {
+        "name": "Divination",
+        "activation": {
+          "cost": 1,
+          "type": "action",
+          "reactionTrigger": ""
+        },
+        "consumers": {
+          "4WqjjHwH6zWHQ9Xg": {
+            "mode": "variable",
+            "spellLevel": 4,
+            "points": 6,
+            "type": "spell"
+          }
+        },
+        "rolls": {},
+        "prompts": {},
+        "uses": {
+          "value": 0,
+          "max": "floor(@prof / 2)",
+          "per": "longRest",
+          "recharge": {
+            "formula": "1d6",
+            "threshold": 6
+          }
+        },
+        "duration": {
+          "unit": "instantaneous",
+          "value": ""
+        },
+        "ranges": {
+          "l2vCY1jTw48Lw0mU": {
+            "range": "self"
+          }
+        },
+        "area": {
+          "shape": "",
+          "size": "",
+          "placeTemplate": false
+        },
+        "target": {
+          "quantity": "",
+          "type": "self"
+        },
+        "img": "icons/magic/perception/orb-crystal-ball-scrying.webp"
+      }
+    },
+    "description": "<p>At 6th level you add the @UUID[Compendium.a5e.a5e-spells.qsa7b22n3y1pbzf6]{Augury} and @UUID[Compendium.a5e.a5e-spells.bs3wnsid88tbup6c]{Divination} spells to your druid spell list. When casting either of these spells, you may ignore an accumulated failure chance as long as you can see the night sky. You may do so a number of times equal to half your proficiency bonus per spell and regain all expended uses when you finish a long rest.</p>",
+    "favorite": false,
+    "secretDescription": "",
+    "source": "heroesOldAndNew",
+    "uses": {
+      "value": null,
+      "max": "",
+      "per": "",
+      "recharge": {
+        "formula": "1d6",
+        "threshold": "6"
+      }
+    },
+    "schema": {
+      "version": null,
+      "lastMigration": null
+    },
+    "concentration": false,
+    "featureType": "",
+    "grants": {},
+    "prerequisite": "",
+    "requiresBloodied": false,
+    "schemaVersion": {
+      "version": 0.013,
+      "lastMigration": {
+        "version": {
+          "schema": 0.011,
+          "foundry": "11.315",
+          "system": "0.16.49"
+        }
+      }
+    }
+  },
+  "effects": [],
+  "flags": {},
+  "folder": null,
+  "_id": "imswc5s6vln2vb78"
 }

@@ -1,170 +1,166 @@
 {
-	"name": "Favor from the Blessed Realms",
-	"type": "feature",
-	"img": "icons/magic/light/beams-rays-orange-purple-large.webp",
-	"system": {
-		"ac": {
-			"baseFormula": "",
-			"formula": "",
-			"maxDex": 0,
-			"minStr": 0,
-			"mode": 2,
-			"requiresNoShield": false,
-			"requiresUnarmored": false
-		},
-		"actions": {
-			"3oayXOmF2fIjTE03": {
-				"name": "Angel Paradox",
-				"activation": {
-					"cost": 1,
-					"type": "action",
-					"reactionTrigger": ""
-				},
-				"consumers": {
-					"Cy7eTRBoBEoxjaaa": {
-						"mode": "variable",
-						"spellLevel": 7,
-						"points": 10,
-						"type": "spell"
-					}
-				},
-				"rolls": {
-					"o6zlrgOjGiu7ZzTJ": {
-						"canCrit": false,
-						"damageType": "radiant",
-						"formula": "40",
-						"name": "",
-						"type": "damage",
-						"scaling": {
-							"mode": "spellLevel",
-							"formula": "5"
-						}
-					}
-				},
-				"prompts": {},
-				"uses": {
-					"value": 1,
-					"max": "",
-					"per": "longRest",
-					"recharge": {
-						"formula": "1d6",
-						"threshold": 6
-					}
-				},
-				"duration": {
-					"unit": "day",
-					"value": "7"
-				},
-				"ranges": {
-					"P7Rg0WdKlJv3N6dP": {
-						"range": "short"
-					}
-				},
-				"area": {
-					"shape": "",
-					"size": "",
-					"placeTemplate": false
-				},
-				"target": {
-					"quantity": 1,
-					"type": "creature"
-				},
-				"img": "icons/magic/light/projectile-beam-yellow.webp",
-				"description": "<p>The target is bombarded with a fraction of energy stolen from some slumbering, deific source, immediately taking 40 radiant damage. This spell ignores resistances but does not ignore immunities. A creature killed by this spell does not decay and cannot become undead for the spell's duration. Days spent under the influence of this spell don't count against the time limit of spells such as <em>raise dead</em>. This effect ends early if the corpse takes necrotic damage.</p>\n<p>&nbsp;</p>",
-				"descriptionOutputs": [
-					"action"
-				]
-			},
-			"D8o6qZfzbewYROoL": {
-				"name": "Conjure Celestial",
-				"activation": {
-					"cost": 1,
-					"type": "minute",
-					"reactionTrigger": ""
-				},
-				"consumers": {
-					"I3LdwJgpB7QKave2": {
-						"mode": "variable",
-						"spellLevel": 7,
-						"points": 10,
-						"type": "spell"
-					}
-				},
-				"rolls": {},
-				"prompts": {},
-				"uses": {
-					"value": 1,
-					"max": "",
-					"per": "longRest",
-					"recharge": {
-						"formula": "1d6",
-						"threshold": 6
-					}
-				},
-				"duration": {
-					"unit": "hour",
-					"value": "1"
-				},
-				"ranges": {
-					"pOUd1SuJxGtD1ldw": {
-						"range": "medium"
-					}
-				},
-				"area": {
-					"shape": "",
-					"size": "",
-					"placeTemplate": false
-				},
-				"target": {
-					"quantity": "",
-					"type": "none"
-				},
-				"img": "icons/magic/light/explosion-beam-impact-silhouette.webp",
-				"description": "<p>You summon a creature from the realms celestial.</p>\n<p>This creature uses the statistics of a celestial creature (detailed below) with certain traits determined by your choice of its type: an angel of battle, angel of protection, or angel of vengeance.</p>\n<p>The creature is friendly to you and your companions and takes its turn immediately after yours.</p>\n<p>It obeys your verbal commands. Without such commands, the creature only defends itself.</p>\n<p>The creature disappears when reduced to 0 hit points. If your concentration is broken before the spell ends, you lose control of the celestial creature, which becomes hostile and might attack you and your companions. An uncontrolled creature disappears 1 hour after you summoned it.</p>\n<p>&nbsp;</p>",
-				"descriptionOutputs": [
-					"action"
-				]
-			}
-		},
-		"description": "<p>You may cast the <em>angel paradox</em> and <em>conjure celestial</em> spells once each at their lowest spell level, and they count as warlock spells for you. You regain this ability when you finish a long rest.</p>",
-		"favorite": false,
-		"secretDescription": "",
-		"source": {
-			"name": "Heroes Old and New",
-			"link": "https://bit.ly/3o0lQbQ",
-			"publisher": "rollThemBones"
-		},
-		"uses": {
-			"value": null,
-			"max": "",
-			"per": null,
-			"recharge": {
-				"formula": "1d6",
-				"threshold": "6"
-			}
-		},
-		"schema": {
-			"version": null,
-			"lastMigration": null
-		},
-		"concentration": false,
-		"featureType": "",
-		"grants": {},
-		"prerequisite": "Level 14 Empyreal Sage archetype",
-		"requiresBloodied": false,
-		"schemaVersion": {
-			"version": 0.013,
-			"lastMigration": {
-				"version": {
-					"schema": 0.011,
-					"foundry": "11.315",
-					"system": "0.16.49"
-				}
-			}
-		}
-	},
-	"effects": [],
-	"flags": {},
-	"folder": null,
-	"_id": "q3ap7xcfa8dflzac"
+  "name": "Favor from the Blessed Realms",
+  "type": "feature",
+  "img": "icons/magic/light/beams-rays-orange-purple-large.webp",
+  "system": {
+    "ac": {
+      "baseFormula": "",
+      "formula": "",
+      "maxDex": 0,
+      "minStr": 0,
+      "mode": 2,
+      "requiresNoShield": false,
+      "requiresUnarmored": false
+    },
+    "actions": {
+      "3oayXOmF2fIjTE03": {
+        "name": "Angel Paradox",
+        "activation": {
+          "cost": 1,
+          "type": "action",
+          "reactionTrigger": ""
+        },
+        "consumers": {
+          "Cy7eTRBoBEoxjaaa": {
+            "mode": "variable",
+            "spellLevel": 7,
+            "points": 10,
+            "type": "spell"
+          }
+        },
+        "rolls": {
+          "o6zlrgOjGiu7ZzTJ": {
+            "canCrit": false,
+            "damageType": "radiant",
+            "formula": "40",
+            "name": "",
+            "type": "damage",
+            "scaling": {
+              "mode": "spellLevel",
+              "formula": "5"
+            }
+          }
+        },
+        "prompts": {},
+        "uses": {
+          "value": 1,
+          "max": "",
+          "per": "longRest",
+          "recharge": {
+            "formula": "1d6",
+            "threshold": 6
+          }
+        },
+        "duration": {
+          "unit": "day",
+          "value": "7"
+        },
+        "ranges": {
+          "P7Rg0WdKlJv3N6dP": {
+            "range": "short"
+          }
+        },
+        "area": {
+          "shape": "",
+          "size": "",
+          "placeTemplate": false
+        },
+        "target": {
+          "quantity": 1,
+          "type": "creature"
+        },
+        "img": "icons/magic/light/projectile-beam-yellow.webp",
+        "description": "<p>The target is bombarded with a fraction of energy stolen from some slumbering, deific source, immediately taking 40 radiant damage. This spell ignores resistances but does not ignore immunities. A creature killed by this spell does not decay and cannot become undead for the spell's duration. Days spent under the influence of this spell don't count against the time limit of spells such as <em>raise dead</em>. This effect ends early if the corpse takes necrotic damage.</p>\n<p>&nbsp;</p>",
+        "descriptionOutputs": [
+          "action"
+        ]
+      },
+      "D8o6qZfzbewYROoL": {
+        "name": "Conjure Celestial",
+        "activation": {
+          "cost": 1,
+          "type": "minute",
+          "reactionTrigger": ""
+        },
+        "consumers": {
+          "I3LdwJgpB7QKave2": {
+            "mode": "variable",
+            "spellLevel": 7,
+            "points": 10,
+            "type": "spell"
+          }
+        },
+        "rolls": {},
+        "prompts": {},
+        "uses": {
+          "value": 1,
+          "max": "",
+          "per": "longRest",
+          "recharge": {
+            "formula": "1d6",
+            "threshold": 6
+          }
+        },
+        "duration": {
+          "unit": "hour",
+          "value": "1"
+        },
+        "ranges": {
+          "pOUd1SuJxGtD1ldw": {
+            "range": "medium"
+          }
+        },
+        "area": {
+          "shape": "",
+          "size": "",
+          "placeTemplate": false
+        },
+        "target": {
+          "quantity": "",
+          "type": "none"
+        },
+        "img": "icons/magic/light/explosion-beam-impact-silhouette.webp",
+        "description": "<p>You summon a creature from the realms celestial.</p>\n<p>This creature uses the statistics of a celestial creature (detailed below) with certain traits determined by your choice of its type: an angel of battle, angel of protection, or angel of vengeance.</p>\n<p>The creature is friendly to you and your companions and takes its turn immediately after yours.</p>\n<p>It obeys your verbal commands. Without such commands, the creature only defends itself.</p>\n<p>The creature disappears when reduced to 0 hit points. If your concentration is broken before the spell ends, you lose control of the celestial creature, which becomes hostile and might attack you and your companions. An uncontrolled creature disappears 1 hour after you summoned it.</p>\n<p>&nbsp;</p>",
+        "descriptionOutputs": [
+          "action"
+        ]
+      }
+    },
+    "description": "<p>You may cast the <em>angel paradox</em> and <em>conjure celestial</em> spells once each at their lowest spell level, and they count as warlock spells for you. You regain this ability when you finish a long rest.</p>",
+    "favorite": false,
+    "secretDescription": "",
+    "source": "heroesOldAndNew",
+    "uses": {
+      "value": null,
+      "max": "",
+      "per": null,
+      "recharge": {
+        "formula": "1d6",
+        "threshold": "6"
+      }
+    },
+    "schema": {
+      "version": null,
+      "lastMigration": null
+    },
+    "concentration": false,
+    "featureType": "",
+    "grants": {},
+    "prerequisite": "Level 14 Empyreal Sage archetype",
+    "requiresBloodied": false,
+    "schemaVersion": {
+      "version": 0.013,
+      "lastMigration": {
+        "version": {
+          "schema": 0.011,
+          "foundry": "11.315",
+          "system": "0.16.49"
+        }
+      }
+    }
+  },
+  "effects": [],
+  "flags": {},
+  "folder": null,
+  "_id": "q3ap7xcfa8dflzac"
 }

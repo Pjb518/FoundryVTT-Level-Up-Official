@@ -1,145 +1,141 @@
 {
-	"name": "Divine Fury",
-	"type": "feature",
-	"img": "icons/magic/holy/yin-yang-balance-symbol.webp",
-	"system": {
-		"ac": {
-			"baseFormula": "",
-			"formula": "",
-			"maxDex": 0,
-			"minStr": 0,
-			"mode": 2,
-			"requiresNoShield": false,
-			"requiresUnarmored": false
-		},
-		"actions": {
-			"IdmUkvNoYE5xxCV3": {
-				"name": "Divine Fury Activation",
-				"activation": {
-					"type": "special"
-				},
-				"consumers": {
-					"DP058J5B2prGeR4E": {
-						"type": "resource",
-						"default": true,
-						"resource": "exertion",
-						"quantity": 1
-					}
-				},
-				"rolls": {},
-				"prompts": {},
-				"uses": {
-					"value": 0,
-					"max": "",
-					"per": "",
-					"recharge": {
-						"formula": "1d6",
-						"threshold": 6
-					}
-				},
-				"duration": {
-					"unit": "special"
-				},
-				"ranges": {
-					"KcPhfEDHhntukpmD": {
-						"range": "self"
-					}
-				}
-			},
-			"5Kpcws5ZUAFCNU9K": {
-				"name": "Radiant Damage",
-				"activation": {},
-				"consumers": {},
-				"rolls": {
-					"dJQu3W0mdh34JdLn": {
-						"type": "damage",
-						"default": true,
-						"formula": "1d4",
-						"damageType": "radiant"
-					}
-				},
-				"prompts": {},
-				"uses": {
-					"value": 0,
-					"max": "",
-					"per": "",
-					"recharge": {
-						"formula": "1d6",
-						"threshold": 6
-					}
-				},
-				"target": {
-					"type": "creature",
-					"quantity": 1
-				}
-			},
-			"o22YLKZJ18UJU1Ma": {
-				"name": "Necrotic Damage",
-				"activation": {},
-				"consumers": {},
-				"rolls": {
-					"dJQu3W0mdh34JdLn": {
-						"type": "damage",
-						"default": true,
-						"formula": "1d4",
-						"damageType": "necrotic"
-					}
-				},
-				"prompts": {},
-				"uses": {
-					"value": 0,
-					"max": "",
-					"per": "",
-					"recharge": {
-						"formula": "1d6",
-						"threshold": 6
-					}
-				},
-				"target": {
-					"type": "creature",
-					"quantity": 1
-				}
-			}
-		},
-		"description": "<p>Choose radiant or necrotic damage. At 1st level whenever you enter a rage, you may spend a point of exertion as well. If you do so, you deal an additional 1d4 points of the chosen damage type with all weapon attacks for the duration of your rage.</p>",
-		"favorite": false,
-		"secretDescription": "",
-		"source": {
-			"name": "Heroes Old and New",
-			"link": "https://bit.ly/3o0lQbQ",
-			"publisher": "rollThemBones"
-		},
-		"uses": {
-			"value": null,
-			"max": "",
-			"per": null,
-			"recharge": {
-				"formula": "1d6",
-				"threshold": "6"
-			}
-		},
-		"schema": {
-			"version": null,
-			"lastMigration": null
-		},
-		"concentration": false,
-		"featureType": "",
-		"grants": {},
-		"prerequisite": "",
-		"requiresBloodied": false,
-		"schemaVersion": {
-			"version": 0.013,
-			"lastMigration": {
-				"version": {
-					"schema": 0.011,
-					"foundry": "11.315",
-					"system": "0.16.49"
-				}
-			}
-		}
-	},
-	"effects": [],
-	"flags": {},
-	"folder": null,
-	"_id": "rfnksv0vykoi2oip"
+  "name": "Divine Fury",
+  "type": "feature",
+  "img": "icons/magic/holy/yin-yang-balance-symbol.webp",
+  "system": {
+    "ac": {
+      "baseFormula": "",
+      "formula": "",
+      "maxDex": 0,
+      "minStr": 0,
+      "mode": 2,
+      "requiresNoShield": false,
+      "requiresUnarmored": false
+    },
+    "actions": {
+      "IdmUkvNoYE5xxCV3": {
+        "name": "Divine Fury Activation",
+        "activation": {
+          "type": "special"
+        },
+        "consumers": {
+          "DP058J5B2prGeR4E": {
+            "type": "resource",
+            "default": true,
+            "resource": "exertion",
+            "quantity": 1
+          }
+        },
+        "rolls": {},
+        "prompts": {},
+        "uses": {
+          "value": 0,
+          "max": "",
+          "per": "",
+          "recharge": {
+            "formula": "1d6",
+            "threshold": 6
+          }
+        },
+        "duration": {
+          "unit": "special"
+        },
+        "ranges": {
+          "KcPhfEDHhntukpmD": {
+            "range": "self"
+          }
+        }
+      },
+      "5Kpcws5ZUAFCNU9K": {
+        "name": "Radiant Damage",
+        "activation": {},
+        "consumers": {},
+        "rolls": {
+          "dJQu3W0mdh34JdLn": {
+            "type": "damage",
+            "default": true,
+            "formula": "1d4",
+            "damageType": "radiant"
+          }
+        },
+        "prompts": {},
+        "uses": {
+          "value": 0,
+          "max": "",
+          "per": "",
+          "recharge": {
+            "formula": "1d6",
+            "threshold": 6
+          }
+        },
+        "target": {
+          "type": "creature",
+          "quantity": 1
+        }
+      },
+      "o22YLKZJ18UJU1Ma": {
+        "name": "Necrotic Damage",
+        "activation": {},
+        "consumers": {},
+        "rolls": {
+          "dJQu3W0mdh34JdLn": {
+            "type": "damage",
+            "default": true,
+            "formula": "1d4",
+            "damageType": "necrotic"
+          }
+        },
+        "prompts": {},
+        "uses": {
+          "value": 0,
+          "max": "",
+          "per": "",
+          "recharge": {
+            "formula": "1d6",
+            "threshold": 6
+          }
+        },
+        "target": {
+          "type": "creature",
+          "quantity": 1
+        }
+      }
+    },
+    "description": "<p>Choose radiant or necrotic damage. At 1st level whenever you enter a rage, you may spend a point of exertion as well. If you do so, you deal an additional 1d4 points of the chosen damage type with all weapon attacks for the duration of your rage.</p>",
+    "favorite": false,
+    "secretDescription": "",
+    "source": "heroesOldAndNew",
+    "uses": {
+      "value": null,
+      "max": "",
+      "per": null,
+      "recharge": {
+        "formula": "1d6",
+        "threshold": "6"
+      }
+    },
+    "schema": {
+      "version": null,
+      "lastMigration": null
+    },
+    "concentration": false,
+    "featureType": "",
+    "grants": {},
+    "prerequisite": "",
+    "requiresBloodied": false,
+    "schemaVersion": {
+      "version": 0.013,
+      "lastMigration": {
+        "version": {
+          "schema": 0.011,
+          "foundry": "11.315",
+          "system": "0.16.49"
+        }
+      }
+    }
+  },
+  "effects": [],
+  "flags": {},
+  "folder": null,
+  "_id": "rfnksv0vykoi2oip"
 }
