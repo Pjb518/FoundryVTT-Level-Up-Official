@@ -9,7 +9,6 @@
     import RadioGroup from "../components/RadioGroup.svelte";
 
     import getRollFormula from "../../utils/getRollFormula";
-    import overrideRollMode from "../../utils/overrideRollMode";
 
     export let { document, dialog, options } =
         getContext("#external").application;
@@ -52,11 +51,13 @@
     let rollMode = $actor.RollOverrideManager.getRollOverride(
         `initiative`,
         selectedRollMode,
+        { ability: abilityKey },
     );
 
     let rollModeString = $actor.RollOverrideManager.getRollOverridesSource(
         `initiative`,
         selectedRollMode,
+        { ability: abilityKey },
     );
 
     $: abilityBonuses = $actor.BonusesManager.prepareAbilityBonuses(

@@ -10,7 +10,6 @@
     import RadioGroup from "../components/RadioGroup.svelte";
 
     import getRollFormula from "../../utils/getRollFormula";
-    import overrideRollMode from "../../utils/overrideRollMode";
 
     export let { document, abilityKey, dialog, options } =
         getContext("#external").application;
@@ -50,11 +49,6 @@
 
     let expertiseDie = getInitialExpertiseDieSelection();
     let selectedRollMode = options.rollMode ?? CONFIG.A5E.ROLL_MODE.NORMAL;
-
-    // let rollMode = overrideRollMode($actor, selectedRollMode, {
-    //     ability: abilityKey,
-    //     type: "check",
-    // });
 
     let rollMode = $actor.RollOverrideManager.getRollOverride(
         `system.abilities.${abilityKey}.check`,

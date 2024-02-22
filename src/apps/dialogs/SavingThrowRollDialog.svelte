@@ -10,7 +10,7 @@
     import RadioGroup from "../components/RadioGroup.svelte";
 
     import getRollFormula from "../../utils/getRollFormula";
-    import overrideRollMode from "../../utils/overrideRollMode";
+
     export let { document, abilityKey, dialog, options } =
         getContext("#external").application;
 

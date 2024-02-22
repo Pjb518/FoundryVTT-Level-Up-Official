@@ -40,7 +40,6 @@ import automateHpConditions from '../activeEffect/utils/automateHpConditions';
 import automateMultiLevelConditions from '../activeEffect/utils/automateMultiLevelConditions';
 import getDeterministicBonus from '../../dice/getDeterministicBonus';
 import getRollFormula from '../../utils/getRollFormula';
-import overrideRollMode from '../../utils/overrideRollMode';
 
 export default class ActorA5e extends Actor {
   #configDialogMap;
@@ -1466,7 +1465,8 @@ export default class ActorA5e extends Actor {
     const defaultRollMode = options?.rollMode ?? CONFIG.A5E.ROLL_MODE.NORMAL;
     const expertiseDie = options.expertiseDice ?? skill.expertiseDice;
 
-    const rollMode = this.RollOverrideManager.getRollOverride(`system.skills.${skillKey}`, defaultRollMode);
+    const rollMode = this.RollOverrideManager
+      .getRollOverride(`system.skills.${skillKey}`, defaultRollMode, { ability: abilityKey });
 
     const rollFormula = getRollFormula(this, {
       ability: abilityKey,

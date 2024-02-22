@@ -3,7 +3,6 @@
 
     import pressedKeysStore from "../../../stores/pressedKeysStore";
     import getKeyPressAsOptions from "../../handlers/getKeyPressAsOptions";
-    import overrideRollMode from "../../../utils/overrideRollMode";
 
     const actor = getContext("actor");
     const { settings } = game;
@@ -13,13 +12,16 @@
             reverseAlt: settings.get("a5e", "reverseInitiativeAltBehavior"),
         });
 
-        options.rollMode = overrideRollMode($actor, options.rollMode, {
-            ability: "dex",
-            type: "initiative",
-        });
+        options.rollMode = $actor.RollOverrideManager.getRollOverride(
+            "initiative",
+            options.rollMode,
+            { ability: abilityKey },
+        );
 
         return options;
     }
+
+    let abilityKey = $actor.system.attributes.initiative.ability ?? "dex";
 
     $: sheetIsLocked = !$actor.isOwner
         ? true
