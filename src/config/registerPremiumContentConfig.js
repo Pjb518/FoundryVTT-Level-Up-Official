@@ -423,12 +423,89 @@ export default function registerPremiumContentConfig(A5E) {
       title: 'Stranger Sights: Challenges for 5e and Advanced 5e',
       url: 'https://bit.ly/3SmPaEv'
     },
+    thematicToolkitArcaneAvenger: {
+      abbreviation: 'TT:AA',
+      affiliate: true,
+      publisher: 'purpleMartinGames',
+      title: 'Thematic Toolkit: Arcane Avenger',
+      url: 'https://preview.drivethrurpg.com/en/product/392599/thematic-toolkit-arcane-avenger-a5e?affiliate_id=1388381'
+    },
+    thematicToolkitBurningGloom: {
+      abbreviation: 'TT:BG',
+      affiliate: true,
+      publisher: 'purpleMartinGames',
+      title: 'Thematic Toolkit: Burning Gloom',
+      url: 'https://bit.ly/48XRLfm'
+    },
+    thematicToolkitCarryTheDarkness: {
+      abbreviation: 'TT:CtD',
+      affiliate: true,
+      publisher: 'purpleMartinGames',
+      title: 'Thematic Toolkit: Carry the Darkness',
+      url: 'https://bit.ly/480m03Y'
+    },
+    thematicToolkitCultist: {
+      abbreviation: 'TT:Cult',
+      affiliate: true,
+      publisher: 'purpleMartinGames',
+      title: 'Thematic Toolkit: Cultist',
+      url: 'https://preview.drivethrurpg.com/en/product/392588/thematic-toolkit-cultist-a5e?affiliate_id=1388381'
+    },
+    thematicToolkitFolkOfTheCourt: {
+      abbreviation: 'TT:FotC',
+      affiliate: true,
+      publisher: 'purpleMartinGames',
+      title: 'Thematic Toolkit: Folk of the Court',
+      url: 'https://bit.ly/48SVn1R'
+    },
+    thematicToolkitItinerant: {
+      abbreviation: 'TT:Itin',
+      affiliate: true,
+      publisher: 'purpleMartinGames',
+      title: 'Thematic Toolkit: Itinerant',
+      url: 'https://bit.ly/3Sidh7p'
+    },
     thematicToolkitJudgeJuryAndExecutioner: {
       abbreviation: 'TT:JJE',
       affiliate: true,
       publisher: 'purpleMartinGames',
       title: 'Thematic Toolkit: Judge, Jury, and Executioner',
       url: 'https://bit.ly/42OmyZC'
+    },
+    thematicToolkitMasterOfCeremonies: {
+      abbreviation: 'TT:MoC',
+      affiliate: true,
+      publisher: 'purpleMartinGames',
+      title: 'Thematic Toolkit: Master of Ceremonies',
+      url: 'https://preview.drivethrurpg.com/en/product/422460/thematic-toolkit-master-of-ceremonies-a5e?affiliate_id=1388381'
+    },
+    thematicToolkitScrapper: {
+      abbreviation: 'TT:Scrap',
+      affiliate: true,
+      publisher: 'purpleMartinGames',
+      title: 'Thematic Toolkit: Scrapper',
+      url: 'https://preview.drivethrurpg.com/en/product/412017/thematic-toolkit-scrapper-a5e?affiliate_id=1388381'
+    },
+    thematicToolkitStoryteller: {
+      abbreviation: 'TT:Story',
+      affiliate: true,
+      publisher: 'purpleMartinGames',
+      title: 'Thematic Toolkit: Storyteller',
+      url: 'https://preview.drivethrurpg.com/en/product/407903/thematic-toolkit-storyteller-a5e?affiliate_id=1388381'
+    },
+    thematicToolkitThunderOfWar: {
+      abbreviation: 'TT:ToW',
+      affiliate: true,
+      publisher: 'purpleMartinGames',
+      title: 'Thematic Toolkit: Thunder of War',
+      url: 'https://preview.drivethrurpg.com/en/product/404207/thematic-toolkit-thunder-of-war-a5e?affiliate_id=1388381'
+    },
+    thematicToolkitVenomousShadow: {
+      abbreviation: 'TT:VS',
+      affiliate: true,
+      publisher: 'purpleMartinGames',
+      title: 'Thematic Toolkit: Venomous Shadow',
+      url: 'https://preview.drivethrurpg.com/en/product/400541/thematic-toolkit-venomous-shadow-a5e?affiliate_id=1388381'
     },
     toSaveAKingdom: {
       abbreviation: 'TSaK',
