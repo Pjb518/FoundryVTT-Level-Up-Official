@@ -423,6 +423,13 @@ export default function registerPremiumContentConfig(A5E) {
       title: 'Stranger Sights: Challenges for 5e and Advanced 5e',
       url: 'https://bit.ly/3SmPaEv'
     },
+    thematicToolkitJudgeJuryAndExecutioner: {
+      abbreviation: 'TT:JJE',
+      affiliate: true,
+      publisher: 'purpleMartinGames',
+      title: 'Thematic Toolkit: Judge, Jury, and Executioner',
+      url: 'https://bit.ly/42OmyZC'
+    },
     toSaveAKingdom: {
       abbreviation: 'TSaK',
       affiliate: true,
