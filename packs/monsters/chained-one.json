@@ -1,2128 +1,2128 @@
 {
-	"name": "Chained One",
-	"type": "npc",
-	"img": "systems/a5e/assets/chain-devil.webp",
-	"items": [
-		{
-			"_id": "TzXTbR13mntmQwwg",
-			"name": "Magic Resistance",
-			"type": "feature",
-			"img": "icons/magic/defensive/shield-barrier-glowing-blue.webp",
-			"effects": [],
-			"folder": null,
-			"sort": 5,
-			"flags": {},
-			"system": {
-				"ac": {
-					"baseFormula": "",
-					"formula": "",
-					"maxDex": 0,
-					"minStr": 0,
-					"mode": 1,
-					"requiresNoShield": false,
-					"requiresUnarmored": false
-				},
-				"actions": {},
-				"description": "<p>The devil has advantage on saving throws against spells and magical effects.</p>",
-				"favorite": false,
-				"secretDescription": "",
-				"source": "",
-				"uses": {
-					"value": null,
-					"max": "",
-					"per": null,
-					"recharge": {
-						"formula": "",
-						"threshold": ""
-					}
-				},
-				"schema": {
-					"version": null,
-					"lastMigration": null
-				},
-				"concentration": false,
-				"featureType": "",
-				"grants": {},
-				"prerequisite": "",
-				"requiresBloodied": false,
-				"schemaVersion": {
-					"version": 0.013,
-					"lastMigration": {
-						"version": {
-							"schema": 0.011,
-							"foundry": "11.315",
-							"system": "0.16.49"
-						}
-					}
-				}
-			},
-			"ownership": {
-				"default": 0
-			}
-		},
-		{
-			"_id": "2SYT38SWydKmonFV",
-			"name": "Multiattack",
-			"type": "feature",
-			"img": "icons/skills/melee/blade-tips-triple-steel.webp",
-			"effects": [],
-			"folder": null,
-			"sort": 6,
-			"flags": {},
-			"system": {
-				"ac": {
-					"baseFormula": "",
-					"formula": "",
-					"maxDex": 0,
-					"minStr": 0,
-					"mode": 1,
-					"requiresNoShield": false,
-					"requiresUnarmored": false
-				},
-				"actions": {
-					"6xIsp1BYGnVdbY55": {
-						"name": "Multiattack",
-						"activation": {
-							"cost": 1,
-							"type": "action",
-							"reactionTrigger": ""
-						},
-						"duration": {
-							"unit": "",
-							"value": ""
-						},
-						"area": {
-							"shape": "",
-							"size": "",
-							"placeTemplate": false
-						},
-						"target": {
-							"quantity": "",
-							"type": ""
-						},
-						"consumers": {}
-					}
-				},
-				"description": "<p>The chain devil makes two chain attacks and commands up to two animated chains under its control to make chain attacks.</p>",
-				"favorite": false,
-				"secretDescription": "",
-				"source": "",
-				"uses": {
-					"value": null,
-					"max": "",
-					"per": null,
-					"recharge": {
-						"formula": "",
-						"threshold": ""
-					}
-				},
-				"schema": {
-					"version": null,
-					"lastMigration": null
-				},
-				"concentration": false,
-				"featureType": "",
-				"grants": {},
-				"prerequisite": "",
-				"requiresBloodied": false,
-				"schemaVersion": {
-					"version": 0.013,
-					"lastMigration": {
-						"version": {
-							"schema": 0.011,
-							"foundry": "11.315",
-							"system": "0.16.49"
-						}
-					}
-				}
-			},
-			"ownership": {
-				"default": 0
-			}
-		},
-		{
-			"_id": "qGLqD8EFcubv9FPC",
-			"name": "Chain",
-			"type": "object",
-			"img": "icons/tools/fasteners/chain-hook-grey.webp",
-			"effects": [],
-			"folder": null,
-			"sort": 0,
-			"flags": {},
-			"system": {
-				"ac": {
-					"baseFormula": "",
-					"formula": "",
-					"maxDex": 0,
-					"minStr": 0,
-					"mode": 1,
-					"requiresNoShield": false,
-					"requiresUnarmored": false
-				},
-				"actions": {
-					"OWciohQFD9KyPKFz": {
-						"name": "Chain",
-						"activation": {
-							"cost": 1,
-							"type": "action",
-							"reactionTrigger": ""
-						},
-						"duration": {
-							"unit": "",
-							"value": ""
-						},
-						"area": {
-							"shape": "",
-							"size": "",
-							"placeTemplate": false
-						},
-						"target": {
-							"quantity": "",
-							"type": ""
-						},
-						"rolls": {
-							"DZRY8jm5yhgFGg1h": {
-								"bonus": "",
-								"critThreshold": "20",
-								"type": "attack",
-								"attackType": "meleeWeaponAttack",
-								"ability": "str"
-							},
-							"0cyUSBE9vzyLChdN": {
-								"canCrit": true,
-								"damageType": "slashing",
-								"formula": "2d8+5",
-								"name": "Chain",
-								"type": "damage"
-							}
-						},
-						"prompts": {
-							"cI94nQLdqmPNEbEn": {
-								"ability": "dex",
-								"onSave": "",
-								"saveDC": {
-									"type": "custom",
-									"bonus": "16"
-								},
-								"type": "savingThrow"
-							}
-						},
-						"consumers": {},
-						"ranges": {
-							"bASyMtGVGUKdgNKf": {
-								"range": 15,
-								"unit": "feet"
-							}
-						}
-					}
-				},
-				"description": "<p>If the target is a creature, it is grappled (escape DC 16) and restrained. Until the grapple ends, this chain can only attack the grappled target.</p>",
-				"favorite": true,
-				"secretDescription": "",
-				"source": "",
-				"uses": {
-					"value": null,
-					"max": "",
-					"per": null,
-					"recharge": {
-						"formula": "",
-						"threshold": ""
-					}
-				},
-				"schema": {
-					"version": null,
-					"lastMigration": null
-				},
-				"ammunitionProperties": [],
-				"armorCategory": "",
-				"armorProperties": [],
-				"attuned": false,
-				"bulky": false,
-				"craftingComponents": "",
-				"containerId": "",
-				"damagedState": 0,
-				"equippedState": 0,
-				"items": {},
-				"materialProperties": [],
-				"objectType": "weapon",
-				"plotItem": false,
-				"price": 0,
-				"proficient": true,
-				"quantity": 1,
-				"rarity": "common",
-				"requiresAttunement": false,
-				"shieldCategory": "",
-				"shieldProperties": [],
-				"unidentified": false,
-				"unidentifiedDescription": "",
-				"unidentifiedName": "",
-				"weaponProperties": [],
-				"weight": 0,
-				"broken": false,
-				"schemaVersion": {
-					"version": 0.013,
-					"lastMigration": {
-						"version": {
-							"schema": 0.011,
-							"foundry": "11.315",
-							"system": "0.16.49"
-						}
-					}
-				}
-			},
-			"ownership": {
-				"default": 0
-			}
-		},
-		{
-			"_id": "tbp8j7xZOaOAGy1o",
-			"name": "Rattling Chains",
-			"type": "feature",
-			"img": "icons/tools/fasteners/chain-steel-grey.webp",
-			"effects": [],
-			"folder": null,
-			"sort": 7,
-			"flags": {},
-			"system": {
-				"ac": {
-					"baseFormula": "",
-					"formula": "",
-					"maxDex": 0,
-					"minStr": 0,
-					"mode": 1,
-					"requiresNoShield": false,
-					"requiresUnarmored": false
-				},
-				"actions": {},
-				"description": "<p>Whenever the devil moves, the rattling of its chains can be heard up to 300 feet away, unless it moves at half its Speed.</p>",
-				"favorite": false,
-				"secretDescription": "",
-				"source": "",
-				"uses": {
-					"value": null,
-					"max": "",
-					"per": null,
-					"recharge": {
-						"formula": "",
-						"threshold": ""
-					}
-				},
-				"schema": {
-					"version": null,
-					"lastMigration": null
-				},
-				"concentration": false,
-				"featureType": "",
-				"grants": {},
-				"prerequisite": "",
-				"requiresBloodied": false,
-				"schemaVersion": {
-					"version": 0.013,
-					"lastMigration": {
-						"version": {
-							"schema": 0.011,
-							"foundry": "11.315",
-							"system": "0.16.49"
-						}
-					}
-				}
-			},
-			"ownership": {
-				"default": 0
-			}
-		},
-		{
-			"_id": "9s8opLHAh3VO6fws",
-			"name": "Relentless Tracker",
-			"type": "feature",
-			"img": "icons/magic/nature/wolf-paw-glow-small-orange.webp",
-			"effects": [],
-			"folder": null,
-			"sort": 8,
-			"flags": {},
-			"system": {
-				"ac": {
-					"baseFormula": "",
-					"formula": "",
-					"maxDex": 0,
-					"minStr": 0,
-					"mode": 1,
-					"requiresNoShield": false,
-					"requiresUnarmored": false
-				},
-				"actions": {},
-				"description": "<p>Once the devil has grappled a creature in its chains, it has advantage on ability checks made to track that creature for the next 30 days.</p>",
-				"favorite": false,
-				"secretDescription": "",
-				"source": "",
-				"uses": {
-					"value": null,
-					"max": "",
-					"per": null,
-					"recharge": {
-						"formula": "",
-						"threshold": ""
-					}
-				},
-				"schema": {
-					"version": null,
-					"lastMigration": null
-				},
-				"concentration": false,
-				"featureType": "",
-				"grants": {},
-				"prerequisite": "",
-				"requiresBloodied": false,
-				"schemaVersion": {
-					"version": 0.013,
-					"lastMigration": {
-						"version": {
-							"schema": 0.011,
-							"foundry": "11.315",
-							"system": "0.16.49"
-						}
-					}
-				}
-			},
-			"ownership": {
-				"default": 0
-			}
-		},
-		{
-			"_id": "9ouBOAhJKEJV9SMz",
-			"name": "Unnerving Mask",
-			"type": "feature",
-			"img": "icons/magic/control/fear-fright-shadow-monster-red.webp",
-			"effects": [],
-			"folder": null,
-			"sort": 9,
-			"flags": {},
-			"system": {
-				"ac": {
-					"baseFormula": "",
-					"formula": "",
-					"maxDex": 0,
-					"minStr": 0,
-					"mode": 1,
-					"requiresNoShield": false,
-					"requiresUnarmored": false
-				},
-				"actions": {
-					"FopXApH6cWSYVWcn": {
-						"name": "Unnerving Mask",
-						"activation": {
-							"cost": 1,
-							"type": "reaction",
-							"reactionTrigger": ""
-						},
-						"duration": {
-							"unit": "",
-							"value": ""
-						},
-						"area": {
-							"shape": "",
-							"size": "",
-							"placeTemplate": false
-						},
-						"target": {
-							"quantity": "",
-							"type": ""
-						},
-						"prompts": {
-							"wHj4VyZpJkmCvJlV": {
-								"ability": "wis",
-								"onSave": "",
-								"saveDC": {
-									"type": "custom",
-									"bonus": "15"
-								},
-								"type": "savingThrow"
-							}
-						},
-						"consumers": {},
-						"img": "icons/magic/control/fear-fright-shadow-monster-red.webp"
-					}
-				},
-				"description": "<p>When damaged by a creature within 30 feet that can see the devil, the devil momentarily assumes the magical illusory form of one of the attacker’s enemies or loved ones, alive or dead. The illusory figure may speak words that only the attacker can hear. The attacker makes a DC 15 Wisdom saving throw. On a failure, it takes 9 (2d8) psychic damage and is frightened until the end of its next turn.The attacker is then immune to this effect for the next 24 hours.</p>",
-				"favorite": true,
-				"secretDescription": "",
-				"source": "",
-				"uses": {
-					"value": null,
-					"max": "",
-					"per": null,
-					"recharge": {
-						"formula": "",
-						"threshold": ""
-					}
-				},
-				"schema": {
-					"version": null,
-					"lastMigration": null
-				},
-				"concentration": false,
-				"featureType": "",
-				"grants": {},
-				"prerequisite": "",
-				"requiresBloodied": false,
-				"schemaVersion": {
-					"version": 0.013,
-					"lastMigration": {
-						"version": {
-							"schema": 0.011,
-							"foundry": "11.315",
-							"system": "0.16.49"
-						}
-					}
-				}
-			},
-			"ownership": {
-				"default": 0
-			}
-		},
-		{
-			"_id": "ZvbGfUPDDvjcf9mM",
-			"name": "Animate Chain",
-			"type": "feature",
-			"img": "icons/tools/fasteners/chain-steel-grey.webp",
-			"effects": [],
-			"folder": null,
-			"sort": 0,
-			"flags": {},
-			"system": {
-				"ac": {
-					"baseFormula": "",
-					"formula": "",
-					"maxDex": 0,
-					"minStr": 0,
-					"mode": 1,
-					"requiresNoShield": false,
-					"requiresUnarmored": false
-				},
-				"actions": {
-					"GCtWrTSV7ixcaSNm": {
-						"name": "Animate Chain",
-						"activation": {
-							"cost": 1,
-							"type": "bonusAction",
-							"reactionTrigger": ""
-						},
-						"duration": {
-							"unit": "hour",
-							"value": 1
-						},
-						"area": {
-							"shape": "",
-							"size": "",
-							"placeTemplate": false
-						},
-						"target": {
-							"quantity": "",
-							"type": ""
-						},
-						"consumers": {}
-					}
-				},
-				"description": "<p>One inanimate, unattended chain within 60 feet sprouts blades and magically animates under the devil’s control for 1 hour. It has AC 20 and 20 hit points, a Speed of 0, and immunity to psychic, piercing, poison, and thunder damage. When the devil uses Multiattack, the devil may command the chain to make one Chain attack against a target within 15 feet of it. If the chain is reduced to 0 hit points, it can’t be reanimated.</p>",
-				"favorite": false,
-				"secretDescription": "",
-				"source": "",
-				"uses": {
-					"value": null,
-					"max": "",
-					"per": null,
-					"recharge": {
-						"formula": "",
-						"threshold": ""
-					}
-				},
-				"schema": {
-					"version": null,
-					"lastMigration": null
-				},
-				"concentration": false,
-				"featureType": "",
-				"grants": {},
-				"prerequisite": "",
-				"requiresBloodied": false,
-				"schemaVersion": {
-					"version": 0.013,
-					"lastMigration": {
-						"version": {
-							"schema": 0.011,
-							"foundry": "11.315",
-							"system": "0.16.49"
-						}
-					}
-				}
-			},
-			"ownership": {
-				"default": 0
-			}
-		},
-		{
-			"name": "Shove",
-			"type": "maneuver",
-			"img": "icons/skills/melee/shield-block-bash-yellow.webp",
-			"effects": [],
-			"flags": {
-				"core": {
-					"sourceId": "Compendium.a5e.a5e-maneuvers.md35qozzy2fxy2o6"
-				}
-			},
-			"system": {
-				"actions": {
-					"OnqaUS6RgPb3z38d": {
-						"name": "Shove",
-						"activation": {
-							"cost": 1,
-							"type": "action",
-							"reactionTrigger": ""
-						},
-						"duration": {
-							"unit": "instantaneous",
-							"value": null
-						},
-						"ranges": {
-							"YIx4tIzNmS2UGOKE": {
-								"range": "fiveFeet"
-							}
-						},
-						"area": {
-							"shape": "",
-							"size": "",
-							"placeTemplate": false
-						},
-						"target": {
-							"quantity": null,
-							"type": "creature",
-							"shape": "",
-							"size": ""
-						},
-						"rolls": {
-							"n0owD2dTOImbJtgj": {
-								"canCrit": false,
-								"damageType": "bludgeoning",
-								"formula": "1 + @str.mod",
-								"name": "Default",
-								"type": "damage"
-							}
-						},
-						"prompts": {
-							"Iv60p5LDCcW6M3FI": {
-								"ability": "str",
-								"onSave": "",
-								"saveDC": {
-									"type": "custom",
-									"bonus": "@maneuverDC"
-								},
-								"type": "savingThrow"
-							}
-						},
-						"consumers": {}
-					}
-				},
-				"description": "<p>You can use the Shove maneuver to push a creature away. If you are able to make multiple attacks with the Attack action, this maneuver replaces one of them.</p><p>The target must be within your reach and be no more than one size category larger than you. The target makes a Strength saving throw against your maneuver DC. On a failure, you deal basic melee damage and push the target a number of feet away from you equal to 5 + 5 for every 5 points it failed its saving throw by. You can move the creature in any direction away from you (to the side, forward, or diagonally away).</p><p>A creature that is shoved off of a precipice is propelled off of whatever it is standing on -- it does not receive any saving throw or ability check to grab onto something to avoid falling down below.</p>",
-				"favorite": false,
-				"secretDescription": "",
-				"source": "",
-				"uses": {
-					"value": null,
-					"max": "",
-					"per": null,
-					"recharge": {
-						"formula": "",
-						"threshold": ""
-					}
-				},
-				"schema": {
-					"version": null,
-					"lastMigration": null
-				},
-				"concentration": false,
-				"degree": 0,
-				"exertionCost": 0,
-				"isStance": false,
-				"prerequisite": "",
-				"tradition": "",
-				"schemaVersion": {
-					"version": 0.013,
-					"lastMigration": {
-						"version": {
-							"schema": 0.011,
-							"foundry": "11.315",
-							"system": "0.16.49"
-						}
-					}
-				}
-			},
-			"ownership": {
-				"default": 0
-			},
-			"folder": null,
-			"sort": 0,
-			"_id": "ZsKfXFhug2AVbz62"
-		},
-		{
-			"name": "Disarm",
-			"type": "maneuver",
-			"img": "icons/skills/melee/sword-damaged-broken-glow-red.webp",
-			"effects": [],
-			"flags": {
-				"core": {
-					"sourceId": "Compendium.a5e.a5e-maneuvers.c0bv7fsy2akld5lp"
-				}
-			},
-			"system": {
-				"actions": {
-					"V7nULqwW6Eyejsv0": {
-						"name": "Disarm",
-						"activation": {
-							"cost": 1,
-							"type": "action",
-							"reactionTrigger": ""
-						},
-						"duration": {
-							"unit": "instantaneous",
-							"value": null
-						},
-						"ranges": {
-							"7SPa9wfM54gTcNb2": {
-								"range": "touch"
-							}
-						},
-						"area": {
-							"shape": "",
-							"size": "",
-							"placeTemplate": false
-						},
-						"target": {
-							"quantity": "",
-							"type": "creature",
-							"shape": "",
-							"size": ""
-						},
-						"rolls": {
-							"IP8BbzkbB6Lj60FC": {
-								"canCrit": false,
-								"damageType": "",
-								"formula": "1 + @str.mod",
-								"name": "",
-								"type": "damage"
-							}
-						},
-						"prompts": {
-							"0xQGZ4zjrBKt8Rfq": {
-								"ability": "str",
-								"onSave": "",
-								"saveDC": {
-									"type": "custom",
-									"bonus": "@maneuverDC"
-								},
-								"type": "savingThrow"
-							}
-						},
-						"consumers": {}
-					}
-				},
-				"description": "<p>You can use the Disarm maneuver to attempt to knock an item or weapon from a creature's hand. If you are able to make multiple attacks with the Attack action, this maneuver replaces one of them.</p><p>The target must be within your reach and be holding an item (either carried or wielded). The target makes a Strength or Dexterity saving throw against your maneuver DC. On a failure, you deal basic melee damage and the target drops the item in its space. The target has advantage if it is larger than you or holding the item with two or more hands, and a target smaller than you has disadvantage.</p>",
-				"favorite": false,
-				"secretDescription": "",
-				"source": "",
-				"uses": {
-					"value": null,
-					"max": "",
-					"per": null,
-					"recharge": {
-						"formula": "",
-						"threshold": ""
-					}
-				},
-				"schema": {
-					"version": null,
-					"lastMigration": null
-				},
-				"concentration": false,
-				"degree": 0,
-				"exertionCost": 0,
-				"isStance": false,
-				"prerequisite": "",
-				"tradition": "",
-				"schemaVersion": {
-					"version": 0.013,
-					"lastMigration": {
-						"version": {
-							"schema": 0.011,
-							"foundry": "11.315",
-							"system": "0.16.49"
-						}
-					}
-				}
-			},
-			"ownership": {
-				"default": 0
-			},
-			"folder": null,
-			"sort": 0,
-			"_id": "PxeA5BKLKHrgY4wH"
-		},
-		{
-			"name": "Grab On",
-			"type": "maneuver",
-			"img": "icons/skills/melee/hand-grip-staff-teal.webp",
-			"effects": [],
-			"flags": {
-				"core": {
-					"sourceId": "Compendium.a5e.a5e-maneuvers.jewmp4pzrg9cdui9"
-				}
-			},
-			"system": {
-				"actions": {
-					"eoW7k5ZEbZQmm6za": {
-						"name": "Grab On",
-						"activation": {
-							"cost": 1,
-							"type": "action",
-							"reactionTrigger": ""
-						},
-						"duration": {
-							"unit": "instantaneous",
-							"value": null
-						},
-						"ranges": {
-							"DuZIHF1pIJzmn8Pm": {
-								"range": "touch"
-							}
-						},
-						"area": {
-							"shape": "",
-							"size": "",
-							"placeTemplate": false
-						},
-						"target": {
-							"quantity": "",
-							"type": "creature",
-							"shape": "",
-							"size": ""
-						},
-						"prompts": {
-							"LdXehaI8WEpQt0YP": {
-								"ability": "str",
-								"onSave": "",
-								"saveDC": {
-									"type": "custom",
-									"bonus": "@maneuverDC"
-								},
-								"type": "savingThrow"
-							}
-						},
-						"consumers": {}
-					}
-				},
-				"description": "<p>While you cannot grapple a creature two or more size categories larger than you, you can grab onto it. By jumping onto its back or climbing up a limb, you can make a Strength or Dexterity saving throw against the creature's maneuver DC to cling to or balance upon its body. On a success, you move into the creature's space and can move upon its body as if it is difficult terrain.</p><p>While grabbing onto a larger creature, you gain advantage on attack rolls against it. The larger creature may be able to attack you as normal, depending on its limbs or attacks. It can also use an action or replace one of its attacks on its turn to try to dislodge you, such as shaking you loose or bashing you against a wall, forcing you to make a Strength or Dexterity saving throw against its maneuver DC or fall prone into the nearest space adjacent to the creature, taking its basic melee damage in the process.</p><p>If the creature chooses to roll over in order to dislodge you, it becomes prone, but you have disadvantage on the saving throw to hang on.</p>",
-				"favorite": false,
-				"secretDescription": "",
-				"source": "",
-				"uses": {
-					"value": null,
-					"max": "",
-					"per": null,
-					"recharge": {
-						"formula": "",
-						"threshold": ""
-					}
-				},
-				"schema": {
-					"version": null,
-					"lastMigration": null
-				},
-				"concentration": false,
-				"degree": 0,
-				"exertionCost": 0,
-				"isStance": false,
-				"prerequisite": "",
-				"tradition": "",
-				"schemaVersion": {
-					"version": 0.013,
-					"lastMigration": {
-						"version": {
-							"schema": 0.011,
-							"foundry": "11.315",
-							"system": "0.16.49"
-						}
-					}
-				}
-			},
-			"ownership": {
-				"default": 0
-			},
-			"folder": null,
-			"sort": 0,
-			"_id": "ji285AqXYrk2sDOw"
-		},
-		{
-			"name": "Knockdown",
-			"type": "maneuver",
-			"img": "icons/magic/control/silhouette-fall-slip-prone.webp",
-			"effects": [],
-			"flags": {
-				"core": {
-					"sourceId": "Compendium.a5e.a5e-maneuvers.zzg7j7cb0vkgctwi"
-				}
-			},
-			"system": {
-				"actions": {
-					"kRXfFzmgW8JT88cR": {
-						"name": "Knockdown",
-						"activation": {
-							"cost": 1,
-							"type": "action",
-							"reactionTrigger": ""
-						},
-						"duration": {
-							"unit": "instantaneous",
-							"value": null
-						},
-						"ranges": {
-							"onKCVcrDsGiWeI89": {
-								"range": "touch"
-							}
-						},
-						"area": {
-							"shape": "",
-							"size": "",
-							"placeTemplate": false
-						},
-						"target": {
-							"quantity": "",
-							"type": "creature",
-							"shape": "",
-							"size": ""
-						},
-						"prompts": {
-							"UTBcoiHj4doF9iJm": {
-								"ability": "str",
-								"onSave": "",
-								"saveDC": {
-									"type": "custom",
-									"bonus": "@maneuverDC"
-								},
-								"type": "savingThrow"
-							}
-						},
-						"consumers": {}
-					}
-				},
-				"description": "<p>You can use the Knockdown maneuver to trip or push a creature down. If you are able to make multiple attacks with the Attack action, this maneuver replaces one of them.</p><p>The target must be within your reach and be no more than one size category larger than you. The target makes a Strength saving throw against your maneuver DC. On a failure, you deal basic melee damage and knock the target prone.</p>",
-				"favorite": false,
-				"secretDescription": "",
-				"source": "",
-				"uses": {
-					"value": null,
-					"max": "",
-					"per": null,
-					"recharge": {
-						"formula": "",
-						"threshold": ""
-					}
-				},
-				"schema": {
-					"version": null,
-					"lastMigration": null
-				},
-				"concentration": false,
-				"degree": 0,
-				"exertionCost": 0,
-				"isStance": false,
-				"prerequisite": "",
-				"tradition": "",
-				"schemaVersion": {
-					"version": 0.013,
-					"lastMigration": {
-						"version": {
-							"schema": 0.011,
-							"foundry": "11.315",
-							"system": "0.16.49"
-						}
-					}
-				}
-			},
-			"ownership": {
-				"default": 0
-			},
-			"folder": null,
-			"sort": 0,
-			"_id": "4PyeITQdulrijY9O"
-		},
-		{
-			"name": "Grapple",
-			"type": "maneuver",
-			"img": "icons/skills/melee/unarmed-punch-fist.webp",
-			"effects": [],
-			"flags": {
-				"core": {
-					"sourceId": "Compendium.a5e.a5e-maneuvers.9umrahwm68f81d7l"
-				}
-			},
-			"system": {
-				"actions": {
-					"wGdLHciTVheoDi89": {
-						"name": "Grapple",
-						"activation": {
-							"cost": 1,
-							"type": "action",
-							"reactionTrigger": ""
-						},
-						"duration": {
-							"unit": "instantaneous",
-							"value": null
-						},
-						"ranges": {
-							"pcAODYCc9R7fDoLI": {
-								"range": "touch"
-							}
-						},
-						"area": {
-							"shape": "",
-							"size": "",
-							"placeTemplate": false
-						},
-						"target": {
-							"quantity": "",
-							"type": "creature",
-							"shape": "",
-							"size": ""
-						},
-						"prompts": {
-							"OWwpdIfBahtzm8T1": {
-								"ability": "str",
-								"onSave": "",
-								"saveDC": {
-									"type": "custom",
-									"bonus": "@maneuverDC"
-								},
-								"type": "savingThrow"
-							}
-						},
-						"consumers": {}
-					}
-				},
-				"description": "<p>You can use the Grapple maneuver to grab or wrestle a creature. If you are able to make multiple attacks with the Attack action, this maneuver replaces one of them.</p>\n<p>You must have at least one free hand to attempt a grapple, your target must be within your reach, and the target must be no more than one size category larger than you. The target makes a Strength or Dexterity saving throw against your maneuver DC. On a failure, you deal basic melee damage and the target becomes grappled (see Appendix A: Conditions on page 616). In addition to things that end the condition, you can release the target at any time (no action required).</p>\n<p><em>Escaping a Grapple.</em> While grappled, a creature can use its action to attempt to escape. It must succeed on a Strength or Dexterity saving throw against your maneuver DC.</p>\n<p><em>Moving a Grappled Creature. </em>When you move, you can drag or carry the grappled creature with you. When you do so, your Speed is halved, unless the creature's weight is within your carrying capacity and you are not encumbered by bulky items.</p>\n<p><em>Freeing a Grappled Creature.</em> You can use the Grapple maneuver to try to free another grappled or restrained creature. The creature grappling or restraining the target makes a Strength saving throw against your maneuver DC. If it fails the saving throw, the grappled or restrained creature is freed. Additionally, you may move the freed creature 5 feet in any direction.</p>",
-				"favorite": false,
-				"secretDescription": "",
-				"source": "",
-				"uses": {
-					"value": null,
-					"max": "",
-					"per": null,
-					"recharge": {
-						"formula": "",
-						"threshold": ""
-					}
-				},
-				"schema": {
-					"version": null,
-					"lastMigration": null
-				},
-				"concentration": false,
-				"degree": 0,
-				"exertionCost": 0,
-				"isStance": false,
-				"prerequisite": "",
-				"tradition": "",
-				"schemaVersion": {
-					"version": 0.013,
-					"lastMigration": {
-						"version": {
-							"schema": 0.011,
-							"foundry": "11.315",
-							"system": "0.16.49"
-						}
-					}
-				}
-			},
-			"ownership": {
-				"default": 0
-			},
-			"folder": null,
-			"sort": 0,
-			"_id": "Opx2o1rIUv7Dyftg"
-		},
-		{
-			"name": "Overrun",
-			"type": "maneuver",
-			"img": "icons/skills/melee/shield-damaged-broken-blue.webp",
-			"effects": [],
-			"flags": {
-				"core": {
-					"sourceId": "Compendium.a5e.a5e-maneuvers.210ihnnejao46r20"
-				}
-			},
-			"system": {
-				"actions": {
-					"GgokIdLMkGKjZSdY": {
-						"name": "Overrun",
-						"activation": {
-							"cost": 1,
-							"type": "special",
-							"reactionTrigger": ""
-						},
-						"duration": {
-							"unit": "instantaneous",
-							"value": null
-						},
-						"ranges": {
-							"LnooWUMSK5GKRczt": {
-								"range": "touch"
-							}
-						},
-						"area": {
-							"shape": "",
-							"size": "",
-							"placeTemplate": false
-						},
-						"target": {
-							"quantity": "",
-							"type": "creature",
-							"shape": "",
-							"size": ""
-						},
-						"prompts": {
-							"LoqxCd8ZlSDbkCOs": {
-								"ability": "str",
-								"onSave": "",
-								"saveDC": {
-									"type": "custom",
-									"bonus": "@maneuverDC"
-								},
-								"type": "savingThrow"
-							}
-						},
-						"consumers": {}
-					}
-				},
-				"description": "<p>You can use an action or bonus action to make an Overrun maneuver to move through a hostile creature's space by forcing your way past. Make a Strength saving throw against the target's maneuver DC. On a success, you deal basic melee damage and can move through the hostile creature's space once this turn. The creature can choose to just let you pass instead of rolling. You have advantage if you are larger than the target, or disadvantage if you are smaller. If you are two or more sizes smaller than the target, you can move through the hostile creature's space without making a save. You still provoke opportunity attacks if you move beyond a creature's reach.</p>",
-				"favorite": false,
-				"secretDescription": "",
-				"source": "",
-				"uses": {
-					"value": null,
-					"max": "",
-					"per": null,
-					"recharge": {
-						"formula": "",
-						"threshold": ""
-					}
-				},
-				"schema": {
-					"version": null,
-					"lastMigration": null
-				},
-				"concentration": false,
-				"degree": 0,
-				"exertionCost": 0,
-				"isStance": false,
-				"prerequisite": "",
-				"tradition": "",
-				"schemaVersion": {
-					"version": 0.013,
-					"lastMigration": {
-						"version": {
-							"schema": 0.011,
-							"foundry": "11.315",
-							"system": "0.16.49"
-						}
-					}
-				}
-			},
-			"ownership": {
-				"default": 0
-			},
-			"folder": null,
-			"sort": 0,
-			"_id": "2jU4pWYtNmrLDxcb"
-		},
-		{
-			"_id": "CxO2KKVwxO0uumJ7",
-			"name": "Devil's Sight",
-			"type": "feature",
-			"img": "icons/magic/perception/eye-ringed-glow-angry-large-red.webp",
-			"effects": [],
-			"folder": null,
-			"sort": 1,
-			"flags": {},
-			"system": {
-				"ac": {
-					"baseFormula": "",
-					"formula": "",
-					"maxDex": 0,
-					"minStr": 0,
-					"mode": 1,
-					"requiresNoShield": false,
-					"requiresUnarmored": false
-				},
-				"actions": {},
-				"description": "<p>The devil’s darkvision penetrates magical darkness.</p>",
-				"favorite": false,
-				"secretDescription": "",
-				"source": "",
-				"uses": {
-					"value": null,
-					"max": "",
-					"per": null,
-					"recharge": {
-						"formula": "",
-						"threshold": ""
-					}
-				},
-				"schema": {
-					"version": null,
-					"lastMigration": null
-				},
-				"concentration": false,
-				"featureType": "",
-				"grants": {},
-				"prerequisite": "",
-				"requiresBloodied": false,
-				"schemaVersion": {
-					"version": 0.013,
-					"lastMigration": {
-						"version": {
-							"schema": 0.011,
-							"foundry": "11.315",
-							"system": "0.16.49"
-						}
-					}
-				}
-			},
-			"ownership": {
-				"default": 0
-			}
-		},
-		{
-			"_id": "1kC9Kg1JgHFTYLJO",
-			"name": "Lawful Evil",
-			"type": "feature",
-			"img": "icons/creatures/unholy/demon-horned-winged-laughing.webp",
-			"effects": [],
-			"folder": null,
-			"sort": 3,
-			"flags": {},
-			"system": {
-				"ac": {
-					"baseFormula": "",
-					"formula": "",
-					"maxDex": 0,
-					"minStr": 0,
-					"mode": 1,
-					"requiresNoShield": false,
-					"requiresUnarmored": false
-				},
-				"actions": {},
-				"description": "<p>The devil radiates a Lawful and Evil aura.</p>",
-				"favorite": false,
-				"secretDescription": "",
-				"source": "",
-				"uses": {
-					"value": null,
-					"max": "",
-					"per": null,
-					"recharge": {
-						"formula": "",
-						"threshold": ""
-					}
-				},
-				"schema": {
-					"version": null,
-					"lastMigration": null
-				},
-				"concentration": false,
-				"featureType": "",
-				"grants": {},
-				"prerequisite": "",
-				"requiresBloodied": false,
-				"schemaVersion": {
-					"version": 0.013,
-					"lastMigration": {
-						"version": {
-							"schema": 0.011,
-							"foundry": "11.315",
-							"system": "0.16.49"
-						}
-					}
-				}
-			},
-			"ownership": {
-				"default": 0
-			}
-		},
-		{
-			"name": "Burning Blood",
-			"type": "feature",
-			"system": {
-				"ac": {
-					"baseFormula": "",
-					"formula": "",
-					"maxDex": 0,
-					"minStr": 0,
-					"mode": 2,
-					"requiresNoShield": false,
-					"requiresUnarmored": false
-				},
-				"actions": {
-					"bbBcTK6zxqgPXWi8": {
-						"name": "Burning Blood",
-						"activation": {},
-						"consumers": {},
-						"rolls": {
-							"cV3aLk1uoiC57IN9": {
-								"type": "damage",
-								"default": true,
-								"formula": "3d10",
-								"damageType": "fire"
-							}
-						},
-						"prompts": {
-							"tQNHeDQeaXyeihu3": {
-								"type": "savingThrow",
-								"default": true,
-								"ability": "con",
-								"saveDC": {
-									"type": "custom",
-									"bonus": "16"
-								},
-								"onSave": "Half damage"
-							}
-						},
-						"uses": {
-							"value": 0,
-							"max": "",
-							"per": "",
-							"recharge": {
-								"formula": "1d6",
-								"threshold": 6
-							}
-						},
-						"ranges": {
-							"nahCjuEJNyZsFlNE": {
-								"range": "fiveFeet"
-							}
-						},
-						"target": {
-							"type": "creature",
-							"quantity": 1
-						}
-					}
-				},
-				"description": "<p>When a creature within&nbsp;5 feet hits the Chained One with a melee attack, boiling&nbsp;black blood spurts from the wound. The attacker makes&nbsp;a DC 16 Constitution saving throw, taking 16 (3d10) fire&nbsp;damage on a failure or half damage on a success.</p>",
-				"favorite": false,
-				"secretDescription": "",
-				"source": {
-					"name": "",
-					"link": "",
-					"publisher": ""
-				},
-				"uses": {
-					"value": null,
-					"max": "",
-					"per": null,
-					"recharge": {
-						"formula": "1d6",
-						"threshold": "6"
-					}
-				},
-				"schema": {
-					"version": null,
-					"lastMigration": null
-				},
-				"concentration": false,
-				"featureType": "other",
-				"grants": {},
-				"prerequisite": "",
-				"requiresBloodied": true,
-				"schemaVersion": {
-					"version": 0.013,
-					"lastMigration": {
-						"version": {
-							"schema": 0.011,
-							"foundry": "11.315",
-							"system": "0.16.49"
-						}
-					}
-				}
-			},
-			"_id": "067M5fB60la9igMd",
-			"img": "icons/svg/item-bag.svg",
-			"effects": [],
-			"folder": null,
-			"sort": 0,
-			"ownership": {
-				"default": 0
-			},
-			"flags": {}
-		},
-		{
-			"name": "Despairing Howl",
-			"type": "feature",
-			"system": {
-				"ac": {
-					"baseFormula": "",
-					"formula": "",
-					"maxDex": 0,
-					"minStr": 0,
-					"mode": 2,
-					"requiresNoShield": false,
-					"requiresUnarmored": false
-				},
-				"actions": {
-					"InNXvWVTncTGKRIR": {
-						"name": "Despairing Howl",
-						"activation": {
-							"type": "action",
-							"cost": 1
-						},
-						"consumers": {},
-						"rolls": {
-							"W2rJR6dl6HDbQnyc": {
-								"type": "damage",
-								"default": true,
-								"formula": "8d6",
-								"damageType": "thunder",
-								"canCrit": false
-							},
-							"aj395xU8OSBlMR82": {
-								"type": "damage",
-								"default": true,
-								"damageType": "psychic",
-								"canCrit": false,
-								"formula": "8d6"
-							}
-						},
-						"prompts": {
-							"hAXAx23WpCRTrMER": {
-								"type": "savingThrow",
-								"default": true,
-								"ability": "con",
-								"saveDC": {
-									"type": "custom",
-									"bonus": "16"
-								},
-								"onSave": "Half damage"
-							}
-						},
-						"uses": {
-							"value": 0,
-							"max": "",
-							"per": "",
-							"recharge": {
-								"formula": "1d6",
-								"threshold": 6
-							}
-						},
-						"ranges": {
-							"9ACQBfAIlaPk7wN9": {
-								"range": "self"
-							}
-						},
-						"area": {
-							"shape": "emanation",
-							"quantity": 1,
-							"radius": 90,
-							"placeTemplate": true
-						}
-					}
-				},
-				"description": "<p>The Chained One&nbsp;screams. Each creature that can hear it within 90 feet&nbsp;makes a DC 16 Constitution saving throw, taking 28&nbsp;(8d6) thunder damage and 28 (8d6) psychic damage&nbsp;on a failure or half damage on a success.</p>",
-				"favorite": false,
-				"secretDescription": "",
-				"source": {
-					"name": "",
-					"link": "",
-					"publisher": ""
-				},
-				"uses": {
-					"value": 1,
-					"max": "1",
-					"per": "recharge",
-					"recharge": {
-						"formula": "1d6",
-						"threshold": 5
-					}
-				},
-				"schema": {
-					"version": null,
-					"lastMigration": null
-				},
-				"concentration": false,
-				"featureType": "other",
-				"grants": {},
-				"prerequisite": "",
-				"requiresBloodied": false,
-				"schemaVersion": {
-					"version": 0.013,
-					"lastMigration": {
-						"version": {
-							"schema": 0.011,
-							"foundry": "11.315",
-							"system": "0.16.49"
-						}
-					}
-				}
-			},
-			"_id": "BQwCryYAYGFIHAQU",
-			"img": "icons/svg/item-bag.svg",
-			"effects": [],
-			"folder": null,
-			"sort": 0,
-			"ownership": {
-				"default": 0
-			},
-			"flags": {}
-		}
-	],
-	"effects": [],
-	"flags": {
-		"a5e": {
-			"sheetIsLocked": false,
-			"sortMode": 1,
-			"showSpellTab": false
-		}
-	},
-	"system": {
-		"abilities": {
-			"str": {
-				"value": 18,
-				"check": {
-					"expertiseDice": 0,
-					"bonus": ""
-				},
-				"save": {
-					"proficient": true,
-					"expertiseDice": 0,
-					"bonus": ""
-				}
-			},
-			"dex": {
-				"value": 14,
-				"check": {
-					"expertiseDice": 0,
-					"bonus": ""
-				},
-				"save": {
-					"proficient": false,
-					"expertiseDice": 0,
-					"bonus": ""
-				}
-			},
-			"con": {
-				"value": 18,
-				"check": {
-					"expertiseDice": 0,
-					"bonus": ""
-				},
-				"save": {
-					"proficient": true,
-					"expertiseDice": 0,
-					"bonus": ""
-				}
-			},
-			"int": {
-				"value": 10,
-				"check": {
-					"expertiseDice": 0,
-					"bonus": ""
-				},
-				"save": {
-					"proficient": false,
-					"expertiseDice": 0,
-					"bonus": ""
-				}
-			},
-			"wis": {
-				"value": 12,
-				"check": {
-					"expertiseDice": 0,
-					"bonus": ""
-				},
-				"save": {
-					"proficient": true,
-					"expertiseDice": 0,
-					"bonus": ""
-				}
-			},
-			"cha": {
-				"value": 16,
-				"check": {
-					"expertiseDice": 0,
-					"bonus": ""
-				},
-				"save": {
-					"proficient": true,
-					"expertiseDice": 0,
-					"bonus": ""
-				}
-			}
-		},
-		"schemaVersion": {
-			"version": 0.013,
-			"lastMigration": {
-				"version": {
-					"schema": 0.011,
-					"foundry": "11.315",
-					"system": "0.16.49"
-				}
-			}
-		},
-		"skills": {
-			"acr": {
-				"ability": "dex",
-				"proficient": false,
-				"specialties": [],
-				"expertiseDice": 0,
-				"minRoll": 1,
-				"bonuses": {
-					"check": "",
-					"passive": 0
-				}
-			},
-			"ani": {
-				"ability": "wis",
-				"proficient": false,
-				"specialties": [],
-				"expertiseDice": 0,
-				"minRoll": 1,
-				"bonuses": {
-					"check": "",
-					"passive": 0
-				}
-			},
-			"arc": {
-				"ability": "int",
-				"proficient": false,
-				"specialties": [],
-				"expertiseDice": 0,
-				"minRoll": 1,
-				"bonuses": {
-					"check": "",
-					"passive": 0
-				}
-			},
-			"ath": {
-				"ability": "str",
-				"proficient": false,
-				"specialties": [],
-				"expertiseDice": 0,
-				"minRoll": 1,
-				"bonuses": {
-					"check": "",
-					"passive": 0
-				}
-			},
-			"cul": {
-				"ability": "int",
-				"proficient": false,
-				"specialties": [],
-				"expertiseDice": 0,
-				"minRoll": 1,
-				"bonuses": {
-					"check": "",
-					"passive": 0
-				}
-			},
-			"dec": {
-				"ability": "cha",
-				"proficient": false,
-				"specialties": [],
-				"expertiseDice": 0,
-				"minRoll": 1,
-				"bonuses": {
-					"check": "",
-					"passive": 0
-				}
-			},
-			"eng": {
-				"ability": "int",
-				"proficient": false,
-				"specialties": [],
-				"expertiseDice": 0,
-				"minRoll": 1,
-				"bonuses": {
-					"check": "",
-					"passive": 0
-				}
-			},
-			"his": {
-				"ability": "int",
-				"proficient": false,
-				"specialties": [],
-				"expertiseDice": 0,
-				"minRoll": 1,
-				"bonuses": {
-					"check": "",
-					"passive": 0
-				}
-			},
-			"ins": {
-				"ability": "wis",
-				"proficient": false,
-				"specialties": [],
-				"expertiseDice": 0,
-				"minRoll": 1,
-				"bonuses": {
-					"check": "",
-					"passive": 0
-				}
-			},
-			"itm": {
-				"ability": "cha",
-				"proficient": false,
-				"specialties": [],
-				"expertiseDice": 0,
-				"minRoll": 1,
-				"bonuses": {
-					"check": "",
-					"passive": 0
-				}
-			},
-			"inv": {
-				"ability": "int",
-				"proficient": false,
-				"specialties": [],
-				"expertiseDice": 0,
-				"minRoll": 1,
-				"bonuses": {
-					"check": "",
-					"passive": 0
-				}
-			},
-			"med": {
-				"ability": "wis",
-				"proficient": false,
-				"specialties": [],
-				"expertiseDice": 0,
-				"minRoll": 1,
-				"bonuses": {
-					"check": "",
-					"passive": 0
-				}
-			},
-			"nat": {
-				"ability": "int",
-				"proficient": false,
-				"specialties": [],
-				"expertiseDice": 0,
-				"minRoll": 1,
-				"bonuses": {
-					"check": "",
-					"passive": 0
-				}
-			},
-			"prc": {
-				"ability": "wis",
-				"proficient": false,
-				"specialties": [],
-				"expertiseDice": 1,
-				"minRoll": 1,
-				"bonuses": {
-					"check": "",
-					"passive": 0
-				}
-			},
-			"prf": {
-				"ability": "cha",
-				"proficient": false,
-				"specialties": [],
-				"expertiseDice": 0,
-				"minRoll": 1,
-				"bonuses": {
-					"check": "",
-					"passive": 0
-				}
-			},
-			"per": {
-				"ability": "cha",
-				"proficient": false,
-				"specialties": [],
-				"expertiseDice": 0,
-				"minRoll": 1,
-				"bonuses": {
-					"check": "",
-					"passive": 0
-				}
-			},
-			"rel": {
-				"ability": "int",
-				"proficient": false,
-				"specialties": [],
-				"expertiseDice": 0,
-				"minRoll": 1,
-				"bonuses": {
-					"check": "",
-					"passive": 0
-				}
-			},
-			"slt": {
-				"ability": "dex",
-				"proficient": false,
-				"specialties": [],
-				"expertiseDice": 0,
-				"minRoll": 1,
-				"bonuses": {
-					"check": "",
-					"passive": 0
-				}
-			},
-			"ste": {
-				"ability": "dex",
-				"proficient": false,
-				"specialties": [],
-				"expertiseDice": 0,
-				"minRoll": 1,
-				"bonuses": {
-					"check": "",
-					"passive": 0
-				}
-			},
-			"sur": {
-				"ability": "wis",
-				"proficient": true,
-				"specialties": [],
-				"expertiseDice": 0,
-				"minRoll": 1,
-				"bonuses": {
-					"check": "1",
-					"passive": 0
-				}
-			}
-		},
-		"spellResources": {
-			"slots": {
-				"1": {
-					"current": 0,
-					"max": 0
-				},
-				"2": {
-					"current": 0,
-					"max": 0
-				},
-				"3": {
-					"current": 0,
-					"max": 0
-				},
-				"4": {
-					"current": 0,
-					"max": 0
-				},
-				"5": {
-					"current": 0,
-					"max": 0
-				},
-				"6": {
-					"current": 0,
-					"max": 0
-				},
-				"7": {
-					"current": 0,
-					"max": 0
-				},
-				"8": {
-					"current": 0,
-					"max": 0
-				},
-				"9": {
-					"current": 0,
-					"max": 0
-				}
-			},
-			"points": {
-				"current": 0,
-				"max": 0
-			}
-		},
-		"attributes": {
-			"ac": {
-				"baseFormula": "17",
-				"value": 0
-			},
-			"death": {
-				"success": 0,
-				"failure": 0
-			},
-			"hp": {
-				"value": 199,
-				"baseMax": 199,
-				"temp": 0,
-				"bonus": 0
-			},
-			"hitDice": {
-				"d6": {
-					"current": 0,
-					"total": 0
-				},
-				"d8": {
-					"current": 15,
-					"total": 15
-				},
-				"d10": {
-					"current": 21,
-					"total": 21
-				},
-				"d12": {
-					"current": 0,
-					"total": 0
-				},
-				"d4": {
-					"current": 0,
-					"total": 0
-				},
-				"d20": {
-					"current": 0,
-					"total": 0
-				}
-			},
-			"initiative": {
-				"ability": "dex",
-				"bonus": "",
-				"expertiseDice": 0
-			},
-			"movement": {
-				"burrow": {
-					"distance": 0,
-					"unit": "feet"
-				},
-				"climb": {
-					"distance": 0,
-					"unit": "feet"
-				},
-				"fly": {
-					"distance": 0,
-					"unit": "feet"
-				},
-				"swim": {
-					"distance": 0,
-					"unit": "feet"
-				},
-				"walk": {
-					"distance": 40,
-					"unit": "feet"
-				},
-				"traits": {
-					"hover": false
-				}
-			},
-			"senses": {
-				"blindsight": {
-					"distance": null,
-					"unit": "feet",
-					"otherwiseBlind": false
-				},
-				"darkvision": {
-					"distance": 120,
-					"unit": "feet"
-				},
-				"tremorsense": {
-					"distance": null,
-					"unit": "feet"
-				},
-				"truesight": {
-					"distance": null,
-					"unit": "feet"
-				}
-			},
-			"inspiration": false,
-			"fatigue": 0,
-			"strife": 0,
-			"spellcasting": "int",
-			"casterLevel": 0
-		},
-		"bonuses": {
-			"maneuverDC": "",
-			"meleeSpellAttack": "",
-			"meleeWeaponAttack": "",
-			"rangedSpellAttack": "",
-			"rangedWeaponAttack": "",
-			"spellDC": "",
-			"abilities": {},
-			"damage": {},
-			"healing": {},
-			"skills": {
-				"bOZtW0Cosl6Hjczi": {
-					"context": {
-						"skills": [
-							"sur"
-						],
-						"passiveOnly": false,
-						"requiresProficiency": false
-					},
-					"formula": "1",
-					"label": "Check Bonus",
-					"default": true,
-					"img": "icons/svg/upgrade.svg"
-				}
-			},
-			"attacks": {},
-			"initiative": {},
-			"movement": {},
-			"senses": {}
-		},
-		"currency": {
-			"pp": 0,
-			"gp": 0,
-			"ep": 0,
-			"sp": 0,
-			"cp": 0
-		},
-		"details": {
-			"bio": "<h2><strong>COMBAT</strong></h2><p>The chain devil prefers locations festooned with chains. On its first and second turns, it animates a chain near its enemies and then attacks. Though it can’t make more than four chain attacks at a time, it animates a new chain whenever it can, so as to have as many attack options as possible. The devil uses Unnerving Mask once against each attacker. The chain devil fights to the death. It may let defeated creatures escape for the joy of hunting them.</p><hr class=\"a5e-rule u-my-md\"><h2><strong>DEVIL NAMES</strong></h2><p>Abathon, Alashel, Arcaxes, Asardel, Atha-Xul, Barashiel, Bel Nakari, Beleth, Besthelias, Bethegar, Brimstone, Calderax, Cenereth, Damaceus, Decimeth, Demedal, Elthodrath, Gethen, Glibris, Gur-Toras, Heleph, Ibaris, Kamien, Kush, Lorza, Machem, Maethiel, Meltis, Nensis, Silithis, Thaxes, Turel, Vish-Alatith, Zethayn, Zir</p><hr class=\"a5e-rule u-my-md\"><h2><strong>LEGENDS AND LORE</strong></h2><p>With an Arcana or Religion check, characters can learn the following:</p><p><strong>DC 10</strong> Many scholars believe that devils are angels that fell from grace. When touched by evil, mortal souls may transform into devils, as well.</p><p><strong>DC 15</strong> Neither fire nor poison harms a devil, and even magical darkness doesn’t impede a devil’s vision. They are supernaturally resistant to mundane damage, although magical and silvered weapons wound them normally.</p><p><strong>DC 20</strong> Though irredeemably evil, devils can be bargained with at the bargainer’s peril. They generally keep their word.</p><p><strong>DESCRIPTION</strong></p><p>Barbed devils are the untiring sentinels of hell. They protect treasure vaults, serve more powerful devils as bodyguards, and patrol the halls of infernal citadels looking for intruders. Needle-sharp spines cover their bodies, and their eyes—which seem to burn with penetrating flame—continually shift about as they keep watch over their charges.</p><p><strong>BEHAVIOR</strong></p><p>1 Whispering poison into a mortal’s ear</p><p>2 Engaging the pious in philosophical debate, so as to sow doubt</p><p>3 Offers the party the information they seek, for a price</p><p>4 Indulging pleasures of the flesh: enjoying a meal, listening to music, flirting with mortals</p><p>5 Hunting a mortal who defaulted on a deal</p><p>6 Imprisoned by ancient runes and seals; can’t leave its current general area</p><p>7 Guarding or otherwise serving a summoner</p><p>8 Guarding a sinister treasure, such as a forbidden book or cursed weapon</p><p><strong>SIGNS</strong></p><p><strong>Wilderness and Underground Signs</strong></p><p>1 A shrine to an archdevil, lit with black candles</p><p>2 Footprints, strangely warm to the touch</p><p>3 A waft of brimstone at a lonely crossroads</p><p>4 The remains of a humanoid who was clearly tortured to death</p><hr class=\"a5e-rule u-my-md\"><p><strong>Settlement Signs</strong></p><p>1 Statues of saints crying blood</p><p>2 Church bells magically fall silent</p><p>3 An infernal contract, as yet unsigned</p><p>4 Animals gather in large numbers, become aggressive, or die unexpectedly</p><p><strong>ENCOUNTERS</strong></p><p>Most devils are imprisoned in Hell but some are loosed upon the world by wicked spellcasters.&nbsp;</p><p><strong>CR 0–2</strong> imp; 1d8 lemures</p><p><strong>CR 3–4</strong> bearded devil; 2 lemure bands; imp leading lemure band</p><p><strong>CR 5–10</strong> 1 or 2 barbed devils; bone devil; chain devil; 2 or 3 bearded devils; bearded devil, barbed devil, or night hag leading 2 lemure bands</p><p><strong>Treasure</strong> a silver cup etched with a blasphemous word (the first three times the word is spoken, the cup fills with a <em>greater healing potion</em>; the fourth time, the cup breaks)</p><p><strong>CR 11–16 </strong>horned devil, erinyes, ice devil, or chained one, possibly with 1 or 2 lemure bands; 3 barbed devils; &nbsp; barbed devil with 3 bearded devils</p><p><strong>Treasure</strong> signed infernal contract that frees an evil soul from Hell if destroyed, <em>manual of quickness of action</em></p><p><strong>CR 17–22</strong> pit fiend; bone devil, chain devil, horned devil, erinyes, or ice devil with 3 bearded devils; erinyes with 1d6 + 3 harpies; chain devil with chained one</p><p><strong>Treasure</strong> 3 rubies (5,000 gp each), <em>spell scrolls</em> of <em>magic circle</em> and <em>raise dead</em>, <em>rope of entanglement</em></p><p><strong>CR 23–30</strong> pit fiend with 1 to 3 bearded devils or hellhounds; 4 bearded devils or barbed devils with bone devil, chain devil, or horned devil;&nbsp; 2 erinyes or ice devils; ice devil with 1d4 + 2 winter wolves&nbsp;</p><p><strong>Treasure</strong> 1,300 pp, 2 <em>potions of flying</em>, <em>+3 trident</em> (named <em>Artifice</em>; acts as a <em>hat of disguise</em> but the trident can’t be disguised)</p><p><strong>CR 31+</strong> Belethias, possibly with 1d4 + 2 lemure bands or bearded devils; pit fiend with 3 or 4 barbed devils; 3 or 4 erinyes</p><p><strong>Treasure </strong>gold and ruby scepter (25,000 gp), forbidden book with gold and diamond binding (25,000 gp), 13 star rubies (1,000 gp each), <em>spell scroll</em> of <em>gate</em>, <em>animated shield</em>, <em>deck of many things</em></p>",
-			"creatureTypes": [
-				"fiend"
-			],
-			"isSwarm": false,
-			"cr": 13,
-			"elite": false,
-			"privateNotes": "",
-			"notes": "",
-			"terrain": []
-		},
-		"proficiencies": {
-			"armor": [],
-			"languages": [
-				"infernal",
-				"Telepathy 120 ft"
-			],
-			"tools": [],
-			"weapons": []
-		},
-		"resources": {
-			"primary": {
-				"label": "",
-				"value": 0,
-				"max": "0",
-				"per": "",
-				"hideMax": false,
-				"recharge": {
-					"formula": "",
-					"threshold": 6
-				}
-			},
-			"secondary": {
-				"label": "",
-				"value": 0,
-				"max": "0",
-				"per": "",
-				"hideMax": false,
-				"recharge": {
-					"formula": "",
-					"threshold": 6
-				}
-			},
-			"tertiary": {
-				"label": "",
-				"value": 0,
-				"max": "0",
-				"per": "",
-				"hideMax": false,
-				"recharge": {
-					"formula": "",
-					"threshold": 6
-				}
-			},
-			"quaternary": {
-				"label": "",
-				"value": 0,
-				"max": "0",
-				"per": "",
-				"hideMax": false,
-				"recharge": {
-					"formula": "",
-					"threshold": 6
-				}
-			}
-		},
-		"source": "monstrousMenagerie",
-		"traits": {
-			"size": "lg",
-			"conditionImmunities": [
-				"poisoned"
-			],
-			"damageImmunities": [
-				"fire",
-				"poison"
-			],
-			"damageResistances": [
-				"cold",
-				"Non-Magical, Non-Silvered Weapons"
-			],
-			"damageVulnerabilities": []
-		},
-		"grants": {}
-	},
-	"prototypeToken": {
-		"name": "Chain Devil",
-		"displayName": 30,
-		"actorLink": false,
-		"width": 2,
-		"height": 2,
-		"lockRotation": false,
-		"rotation": 0,
-		"alpha": 1,
-		"light": {
-			"alpha": 0.5,
-			"angle": 360,
-			"bright": 0,
-			"coloration": 1,
-			"dim": 0,
-			"luminosity": 0.5,
-			"saturation": 0,
-			"contrast": 0,
-			"shadows": 0,
-			"animation": {
-				"speed": 5,
-				"intensity": 5,
-				"reverse": false,
-				"type": null
-			},
-			"darkness": {
-				"min": 0,
-				"max": 1
-			},
-			"attenuation": 0.5,
-			"color": null
-		},
-		"disposition": -1,
-		"displayBars": 30,
-		"bar1": {
-			"attribute": "attributes.hp"
-		},
-		"bar2": {
-			"attribute": null
-		},
-		"flags": {},
-		"randomImg": false,
-		"texture": {
-			"src": "systems/a5e/assets/chain-devil.webp",
-			"scaleX": 1,
-			"scaleY": 1,
-			"offsetX": 0,
-			"offsetY": 0,
-			"rotation": 0,
-			"tint": "#ffffff"
-		},
-		"sight": {
-			"angle": 360,
-			"enabled": true,
-			"range": 0,
-			"brightness": 1,
-			"color": null,
-			"attenuation": 0.1,
-			"saturation": 0,
-			"contrast": 0,
-			"visionMode": "basic"
-		},
-		"detectionModes": [],
-		"appendNumber": false,
-		"prependAdjective": false
-	},
-	"folder": null,
-	"_id": "ytbmblmuus95gkc0"
+  "name": "Chained One",
+  "type": "npc",
+  "img": "systems/a5e/assets/chain-devil.webp",
+  "items": [
+    {
+      "_id": "TzXTbR13mntmQwwg",
+      "name": "Magic Resistance",
+      "type": "feature",
+      "img": "icons/magic/defensive/shield-barrier-glowing-blue.webp",
+      "effects": [],
+      "folder": null,
+      "sort": 5,
+      "flags": {},
+      "system": {
+        "ac": {
+          "baseFormula": "",
+          "formula": "",
+          "maxDex": 0,
+          "minStr": 0,
+          "mode": 1,
+          "requiresNoShield": false,
+          "requiresUnarmored": false
+        },
+        "actions": {},
+        "description": "<p>The devil has advantage on saving throws against spells and magical effects.</p>",
+        "favorite": false,
+        "secretDescription": "",
+        "source": "",
+        "uses": {
+          "value": null,
+          "max": "",
+          "per": null,
+          "recharge": {
+            "formula": "",
+            "threshold": ""
+          }
+        },
+        "schema": {
+          "version": null,
+          "lastMigration": null
+        },
+        "concentration": false,
+        "featureType": "",
+        "grants": {},
+        "prerequisite": "",
+        "requiresBloodied": false,
+        "schemaVersion": {
+          "version": 0.013,
+          "lastMigration": {
+            "version": {
+              "schema": 0.011,
+              "foundry": "11.315",
+              "system": "0.16.49"
+            }
+          }
+        }
+      },
+      "ownership": {
+        "default": 0
+      }
+    },
+    {
+      "_id": "2SYT38SWydKmonFV",
+      "name": "Multiattack",
+      "type": "feature",
+      "img": "icons/skills/melee/blade-tips-triple-steel.webp",
+      "effects": [],
+      "folder": null,
+      "sort": 6,
+      "flags": {},
+      "system": {
+        "ac": {
+          "baseFormula": "",
+          "formula": "",
+          "maxDex": 0,
+          "minStr": 0,
+          "mode": 1,
+          "requiresNoShield": false,
+          "requiresUnarmored": false
+        },
+        "actions": {
+          "6xIsp1BYGnVdbY55": {
+            "name": "Multiattack",
+            "activation": {
+              "cost": 1,
+              "type": "action",
+              "reactionTrigger": ""
+            },
+            "duration": {
+              "unit": "",
+              "value": ""
+            },
+            "area": {
+              "shape": "",
+              "size": "",
+              "placeTemplate": false
+            },
+            "target": {
+              "quantity": "",
+              "type": ""
+            },
+            "consumers": {}
+          }
+        },
+        "description": "<p>The chain devil makes two chain attacks and commands up to two animated chains under its control to make chain attacks.</p>",
+        "favorite": false,
+        "secretDescription": "",
+        "source": "",
+        "uses": {
+          "value": null,
+          "max": "",
+          "per": null,
+          "recharge": {
+            "formula": "",
+            "threshold": ""
+          }
+        },
+        "schema": {
+          "version": null,
+          "lastMigration": null
+        },
+        "concentration": false,
+        "featureType": "",
+        "grants": {},
+        "prerequisite": "",
+        "requiresBloodied": false,
+        "schemaVersion": {
+          "version": 0.013,
+          "lastMigration": {
+            "version": {
+              "schema": 0.011,
+              "foundry": "11.315",
+              "system": "0.16.49"
+            }
+          }
+        }
+      },
+      "ownership": {
+        "default": 0
+      }
+    },
+    {
+      "_id": "qGLqD8EFcubv9FPC",
+      "name": "Chain",
+      "type": "object",
+      "img": "icons/tools/fasteners/chain-hook-grey.webp",
+      "effects": [],
+      "folder": null,
+      "sort": 0,
+      "flags": {},
+      "system": {
+        "ac": {
+          "baseFormula": "",
+          "formula": "",
+          "maxDex": 0,
+          "minStr": 0,
+          "mode": 1,
+          "requiresNoShield": false,
+          "requiresUnarmored": false
+        },
+        "actions": {
+          "OWciohQFD9KyPKFz": {
+            "name": "Chain",
+            "activation": {
+              "cost": 1,
+              "type": "action",
+              "reactionTrigger": ""
+            },
+            "duration": {
+              "unit": "",
+              "value": ""
+            },
+            "area": {
+              "shape": "",
+              "size": "",
+              "placeTemplate": false
+            },
+            "target": {
+              "quantity": "",
+              "type": ""
+            },
+            "rolls": {
+              "DZRY8jm5yhgFGg1h": {
+                "bonus": "",
+                "critThreshold": "20",
+                "type": "attack",
+                "attackType": "meleeWeaponAttack",
+                "ability": "str"
+              },
+              "0cyUSBE9vzyLChdN": {
+                "canCrit": true,
+                "damageType": "slashing",
+                "formula": "2d8+5",
+                "name": "Chain",
+                "type": "damage"
+              }
+            },
+            "prompts": {
+              "cI94nQLdqmPNEbEn": {
+                "ability": "dex",
+                "onSave": "",
+                "saveDC": {
+                  "type": "custom",
+                  "bonus": "16"
+                },
+                "type": "savingThrow"
+              }
+            },
+            "consumers": {},
+            "ranges": {
+              "bASyMtGVGUKdgNKf": {
+                "range": 15,
+                "unit": "feet"
+              }
+            }
+          }
+        },
+        "description": "<p>If the target is a creature, it is grappled (escape DC 16) and restrained. Until the grapple ends, this chain can only attack the grappled target.</p>",
+        "favorite": true,
+        "secretDescription": "",
+        "source": "",
+        "uses": {
+          "value": null,
+          "max": "",
+          "per": null,
+          "recharge": {
+            "formula": "",
+            "threshold": ""
+          }
+        },
+        "schema": {
+          "version": null,
+          "lastMigration": null
+        },
+        "ammunitionProperties": [],
+        "armorCategory": "",
+        "armorProperties": [],
+        "attuned": false,
+        "bulky": false,
+        "craftingComponents": "",
+        "containerId": "",
+        "damagedState": 0,
+        "equippedState": 0,
+        "items": {},
+        "materialProperties": [],
+        "objectType": "weapon",
+        "plotItem": false,
+        "price": 0,
+        "proficient": true,
+        "quantity": 1,
+        "rarity": "common",
+        "requiresAttunement": false,
+        "shieldCategory": "",
+        "shieldProperties": [],
+        "unidentified": false,
+        "unidentifiedDescription": "",
+        "unidentifiedName": "",
+        "weaponProperties": [],
+        "weight": 0,
+        "broken": false,
+        "schemaVersion": {
+          "version": 0.013,
+          "lastMigration": {
+            "version": {
+              "schema": 0.011,
+              "foundry": "11.315",
+              "system": "0.16.49"
+            }
+          }
+        }
+      },
+      "ownership": {
+        "default": 0
+      }
+    },
+    {
+      "_id": "tbp8j7xZOaOAGy1o",
+      "name": "Rattling Chains",
+      "type": "feature",
+      "img": "icons/tools/fasteners/chain-steel-grey.webp",
+      "effects": [],
+      "folder": null,
+      "sort": 7,
+      "flags": {},
+      "system": {
+        "ac": {
+          "baseFormula": "",
+          "formula": "",
+          "maxDex": 0,
+          "minStr": 0,
+          "mode": 1,
+          "requiresNoShield": false,
+          "requiresUnarmored": false
+        },
+        "actions": {},
+        "description": "<p>Whenever the devil moves, the rattling of its chains can be heard up to 300 feet away, unless it moves at half its Speed.</p>",
+        "favorite": false,
+        "secretDescription": "",
+        "source": "",
+        "uses": {
+          "value": null,
+          "max": "",
+          "per": null,
+          "recharge": {
+            "formula": "",
+            "threshold": ""
+          }
+        },
+        "schema": {
+          "version": null,
+          "lastMigration": null
+        },
+        "concentration": false,
+        "featureType": "",
+        "grants": {},
+        "prerequisite": "",
+        "requiresBloodied": false,
+        "schemaVersion": {
+          "version": 0.013,
+          "lastMigration": {
+            "version": {
+              "schema": 0.011,
+              "foundry": "11.315",
+              "system": "0.16.49"
+            }
+          }
+        }
+      },
+      "ownership": {
+        "default": 0
+      }
+    },
+    {
+      "_id": "9s8opLHAh3VO6fws",
+      "name": "Relentless Tracker",
+      "type": "feature",
+      "img": "icons/magic/nature/wolf-paw-glow-small-orange.webp",
+      "effects": [],
+      "folder": null,
+      "sort": 8,
+      "flags": {},
+      "system": {
+        "ac": {
+          "baseFormula": "",
+          "formula": "",
+          "maxDex": 0,
+          "minStr": 0,
+          "mode": 1,
+          "requiresNoShield": false,
+          "requiresUnarmored": false
+        },
+        "actions": {},
+        "description": "<p>Once the devil has grappled a creature in its chains, it has advantage on ability checks made to track that creature for the next 30 days.</p>",
+        "favorite": false,
+        "secretDescription": "",
+        "source": "",
+        "uses": {
+          "value": null,
+          "max": "",
+          "per": null,
+          "recharge": {
+            "formula": "",
+            "threshold": ""
+          }
+        },
+        "schema": {
+          "version": null,
+          "lastMigration": null
+        },
+        "concentration": false,
+        "featureType": "",
+        "grants": {},
+        "prerequisite": "",
+        "requiresBloodied": false,
+        "schemaVersion": {
+          "version": 0.013,
+          "lastMigration": {
+            "version": {
+              "schema": 0.011,
+              "foundry": "11.315",
+              "system": "0.16.49"
+            }
+          }
+        }
+      },
+      "ownership": {
+        "default": 0
+      }
+    },
+    {
+      "_id": "9ouBOAhJKEJV9SMz",
+      "name": "Unnerving Mask",
+      "type": "feature",
+      "img": "icons/magic/control/fear-fright-shadow-monster-red.webp",
+      "effects": [],
+      "folder": null,
+      "sort": 9,
+      "flags": {},
+      "system": {
+        "ac": {
+          "baseFormula": "",
+          "formula": "",
+          "maxDex": 0,
+          "minStr": 0,
+          "mode": 1,
+          "requiresNoShield": false,
+          "requiresUnarmored": false
+        },
+        "actions": {
+          "FopXApH6cWSYVWcn": {
+            "name": "Unnerving Mask",
+            "activation": {
+              "cost": 1,
+              "type": "reaction",
+              "reactionTrigger": ""
+            },
+            "duration": {
+              "unit": "",
+              "value": ""
+            },
+            "area": {
+              "shape": "",
+              "size": "",
+              "placeTemplate": false
+            },
+            "target": {
+              "quantity": "",
+              "type": ""
+            },
+            "prompts": {
+              "wHj4VyZpJkmCvJlV": {
+                "ability": "wis",
+                "onSave": "",
+                "saveDC": {
+                  "type": "custom",
+                  "bonus": "15"
+                },
+                "type": "savingThrow"
+              }
+            },
+            "consumers": {},
+            "img": "icons/magic/control/fear-fright-shadow-monster-red.webp"
+          }
+        },
+        "description": "<p>When damaged by a creature within 30 feet that can see the devil, the devil momentarily assumes the magical illusory form of one of the attacker’s enemies or loved ones, alive or dead. The illusory figure may speak words that only the attacker can hear. The attacker makes a DC 15 Wisdom saving throw. On a failure, it takes 9 (2d8) psychic damage and is frightened until the end of its next turn.The attacker is then immune to this effect for the next 24 hours.</p>",
+        "favorite": true,
+        "secretDescription": "",
+        "source": "",
+        "uses": {
+          "value": null,
+          "max": "",
+          "per": null,
+          "recharge": {
+            "formula": "",
+            "threshold": ""
+          }
+        },
+        "schema": {
+          "version": null,
+          "lastMigration": null
+        },
+        "concentration": false,
+        "featureType": "",
+        "grants": {},
+        "prerequisite": "",
+        "requiresBloodied": false,
+        "schemaVersion": {
+          "version": 0.013,
+          "lastMigration": {
+            "version": {
+              "schema": 0.011,
+              "foundry": "11.315",
+              "system": "0.16.49"
+            }
+          }
+        }
+      },
+      "ownership": {
+        "default": 0
+      }
+    },
+    {
+      "_id": "ZvbGfUPDDvjcf9mM",
+      "name": "Animate Chain",
+      "type": "feature",
+      "img": "icons/tools/fasteners/chain-steel-grey.webp",
+      "effects": [],
+      "folder": null,
+      "sort": 0,
+      "flags": {},
+      "system": {
+        "ac": {
+          "baseFormula": "",
+          "formula": "",
+          "maxDex": 0,
+          "minStr": 0,
+          "mode": 1,
+          "requiresNoShield": false,
+          "requiresUnarmored": false
+        },
+        "actions": {
+          "GCtWrTSV7ixcaSNm": {
+            "name": "Animate Chain",
+            "activation": {
+              "cost": 1,
+              "type": "bonusAction",
+              "reactionTrigger": ""
+            },
+            "duration": {
+              "unit": "hour",
+              "value": 1
+            },
+            "area": {
+              "shape": "",
+              "size": "",
+              "placeTemplate": false
+            },
+            "target": {
+              "quantity": "",
+              "type": ""
+            },
+            "consumers": {}
+          }
+        },
+        "description": "<p>One inanimate, unattended chain within 60 feet sprouts blades and magically animates under the devil’s control for 1 hour. It has AC 20 and 20 hit points, a Speed of 0, and immunity to psychic, piercing, poison, and thunder damage. When the devil uses Multiattack, the devil may command the chain to make one Chain attack against a target within 15 feet of it. If the chain is reduced to 0 hit points, it can’t be reanimated.</p>",
+        "favorite": false,
+        "secretDescription": "",
+        "source": "",
+        "uses": {
+          "value": null,
+          "max": "",
+          "per": null,
+          "recharge": {
+            "formula": "",
+            "threshold": ""
+          }
+        },
+        "schema": {
+          "version": null,
+          "lastMigration": null
+        },
+        "concentration": false,
+        "featureType": "",
+        "grants": {},
+        "prerequisite": "",
+        "requiresBloodied": false,
+        "schemaVersion": {
+          "version": 0.013,
+          "lastMigration": {
+            "version": {
+              "schema": 0.011,
+              "foundry": "11.315",
+              "system": "0.16.49"
+            }
+          }
+        }
+      },
+      "ownership": {
+        "default": 0
+      }
+    },
+    {
+      "name": "Shove",
+      "type": "maneuver",
+      "img": "icons/skills/melee/shield-block-bash-yellow.webp",
+      "effects": [],
+      "flags": {
+        "core": {
+          "sourceId": "Compendium.a5e.a5e-maneuvers.md35qozzy2fxy2o6"
+        }
+      },
+      "system": {
+        "actions": {
+          "OnqaUS6RgPb3z38d": {
+            "name": "Shove",
+            "activation": {
+              "cost": 1,
+              "type": "action",
+              "reactionTrigger": ""
+            },
+            "duration": {
+              "unit": "instantaneous",
+              "value": null
+            },
+            "ranges": {
+              "YIx4tIzNmS2UGOKE": {
+                "range": "fiveFeet"
+              }
+            },
+            "area": {
+              "shape": "",
+              "size": "",
+              "placeTemplate": false
+            },
+            "target": {
+              "quantity": null,
+              "type": "creature",
+              "shape": "",
+              "size": ""
+            },
+            "rolls": {
+              "n0owD2dTOImbJtgj": {
+                "canCrit": false,
+                "damageType": "bludgeoning",
+                "formula": "1 + @str.mod",
+                "name": "Default",
+                "type": "damage"
+              }
+            },
+            "prompts": {
+              "Iv60p5LDCcW6M3FI": {
+                "ability": "str",
+                "onSave": "",
+                "saveDC": {
+                  "type": "custom",
+                  "bonus": "@maneuverDC"
+                },
+                "type": "savingThrow"
+              }
+            },
+            "consumers": {}
+          }
+        },
+        "description": "<p>You can use the Shove maneuver to push a creature away. If you are able to make multiple attacks with the Attack action, this maneuver replaces one of them.</p><p>The target must be within your reach and be no more than one size category larger than you. The target makes a Strength saving throw against your maneuver DC. On a failure, you deal basic melee damage and push the target a number of feet away from you equal to 5 + 5 for every 5 points it failed its saving throw by. You can move the creature in any direction away from you (to the side, forward, or diagonally away).</p><p>A creature that is shoved off of a precipice is propelled off of whatever it is standing on -- it does not receive any saving throw or ability check to grab onto something to avoid falling down below.</p>",
+        "favorite": false,
+        "secretDescription": "",
+        "source": "",
+        "uses": {
+          "value": null,
+          "max": "",
+          "per": null,
+          "recharge": {
+            "formula": "",
+            "threshold": ""
+          }
+        },
+        "schema": {
+          "version": null,
+          "lastMigration": null
+        },
+        "concentration": false,
+        "degree": 0,
+        "exertionCost": 0,
+        "isStance": false,
+        "prerequisite": "",
+        "tradition": "",
+        "schemaVersion": {
+          "version": 0.013,
+          "lastMigration": {
+            "version": {
+              "schema": 0.011,
+              "foundry": "11.315",
+              "system": "0.16.49"
+            }
+          }
+        }
+      },
+      "ownership": {
+        "default": 0
+      },
+      "folder": null,
+      "sort": 0,
+      "_id": "ZsKfXFhug2AVbz62"
+    },
+    {
+      "name": "Disarm",
+      "type": "maneuver",
+      "img": "icons/skills/melee/sword-damaged-broken-glow-red.webp",
+      "effects": [],
+      "flags": {
+        "core": {
+          "sourceId": "Compendium.a5e.a5e-maneuvers.c0bv7fsy2akld5lp"
+        }
+      },
+      "system": {
+        "actions": {
+          "V7nULqwW6Eyejsv0": {
+            "name": "Disarm",
+            "activation": {
+              "cost": 1,
+              "type": "action",
+              "reactionTrigger": ""
+            },
+            "duration": {
+              "unit": "instantaneous",
+              "value": null
+            },
+            "ranges": {
+              "7SPa9wfM54gTcNb2": {
+                "range": "touch"
+              }
+            },
+            "area": {
+              "shape": "",
+              "size": "",
+              "placeTemplate": false
+            },
+            "target": {
+              "quantity": "",
+              "type": "creature",
+              "shape": "",
+              "size": ""
+            },
+            "rolls": {
+              "IP8BbzkbB6Lj60FC": {
+                "canCrit": false,
+                "damageType": "",
+                "formula": "1 + @str.mod",
+                "name": "",
+                "type": "damage"
+              }
+            },
+            "prompts": {
+              "0xQGZ4zjrBKt8Rfq": {
+                "ability": "str",
+                "onSave": "",
+                "saveDC": {
+                  "type": "custom",
+                  "bonus": "@maneuverDC"
+                },
+                "type": "savingThrow"
+              }
+            },
+            "consumers": {}
+          }
+        },
+        "description": "<p>You can use the Disarm maneuver to attempt to knock an item or weapon from a creature's hand. If you are able to make multiple attacks with the Attack action, this maneuver replaces one of them.</p><p>The target must be within your reach and be holding an item (either carried or wielded). The target makes a Strength or Dexterity saving throw against your maneuver DC. On a failure, you deal basic melee damage and the target drops the item in its space. The target has advantage if it is larger than you or holding the item with two or more hands, and a target smaller than you has disadvantage.</p>",
+        "favorite": false,
+        "secretDescription": "",
+        "source": "",
+        "uses": {
+          "value": null,
+          "max": "",
+          "per": null,
+          "recharge": {
+            "formula": "",
+            "threshold": ""
+          }
+        },
+        "schema": {
+          "version": null,
+          "lastMigration": null
+        },
+        "concentration": false,
+        "degree": 0,
+        "exertionCost": 0,
+        "isStance": false,
+        "prerequisite": "",
+        "tradition": "",
+        "schemaVersion": {
+          "version": 0.013,
+          "lastMigration": {
+            "version": {
+              "schema": 0.011,
+              "foundry": "11.315",
+              "system": "0.16.49"
+            }
+          }
+        }
+      },
+      "ownership": {
+        "default": 0
+      },
+      "folder": null,
+      "sort": 0,
+      "_id": "PxeA5BKLKHrgY4wH"
+    },
+    {
+      "name": "Grab On",
+      "type": "maneuver",
+      "img": "icons/skills/melee/hand-grip-staff-teal.webp",
+      "effects": [],
+      "flags": {
+        "core": {
+          "sourceId": "Compendium.a5e.a5e-maneuvers.jewmp4pzrg9cdui9"
+        }
+      },
+      "system": {
+        "actions": {
+          "eoW7k5ZEbZQmm6za": {
+            "name": "Grab On",
+            "activation": {
+              "cost": 1,
+              "type": "action",
+              "reactionTrigger": ""
+            },
+            "duration": {
+              "unit": "instantaneous",
+              "value": null
+            },
+            "ranges": {
+              "DuZIHF1pIJzmn8Pm": {
+                "range": "touch"
+              }
+            },
+            "area": {
+              "shape": "",
+              "size": "",
+              "placeTemplate": false
+            },
+            "target": {
+              "quantity": "",
+              "type": "creature",
+              "shape": "",
+              "size": ""
+            },
+            "prompts": {
+              "LdXehaI8WEpQt0YP": {
+                "ability": "str",
+                "onSave": "",
+                "saveDC": {
+                  "type": "custom",
+                  "bonus": "@maneuverDC"
+                },
+                "type": "savingThrow"
+              }
+            },
+            "consumers": {}
+          }
+        },
+        "description": "<p>While you cannot grapple a creature two or more size categories larger than you, you can grab onto it. By jumping onto its back or climbing up a limb, you can make a Strength or Dexterity saving throw against the creature's maneuver DC to cling to or balance upon its body. On a success, you move into the creature's space and can move upon its body as if it is difficult terrain.</p><p>While grabbing onto a larger creature, you gain advantage on attack rolls against it. The larger creature may be able to attack you as normal, depending on its limbs or attacks. It can also use an action or replace one of its attacks on its turn to try to dislodge you, such as shaking you loose or bashing you against a wall, forcing you to make a Strength or Dexterity saving throw against its maneuver DC or fall prone into the nearest space adjacent to the creature, taking its basic melee damage in the process.</p><p>If the creature chooses to roll over in order to dislodge you, it becomes prone, but you have disadvantage on the saving throw to hang on.</p>",
+        "favorite": false,
+        "secretDescription": "",
+        "source": "",
+        "uses": {
+          "value": null,
+          "max": "",
+          "per": null,
+          "recharge": {
+            "formula": "",
+            "threshold": ""
+          }
+        },
+        "schema": {
+          "version": null,
+          "lastMigration": null
+        },
+        "concentration": false,
+        "degree": 0,
+        "exertionCost": 0,
+        "isStance": false,
+        "prerequisite": "",
+        "tradition": "",
+        "schemaVersion": {
+          "version": 0.013,
+          "lastMigration": {
+            "version": {
+              "schema": 0.011,
+              "foundry": "11.315",
+              "system": "0.16.49"
+            }
+          }
+        }
+      },
+      "ownership": {
+        "default": 0
+      },
+      "folder": null,
+      "sort": 0,
+      "_id": "ji285AqXYrk2sDOw"
+    },
+    {
+      "name": "Knockdown",
+      "type": "maneuver",
+      "img": "icons/magic/control/silhouette-fall-slip-prone.webp",
+      "effects": [],
+      "flags": {
+        "core": {
+          "sourceId": "Compendium.a5e.a5e-maneuvers.zzg7j7cb0vkgctwi"
+        }
+      },
+      "system": {
+        "actions": {
+          "kRXfFzmgW8JT88cR": {
+            "name": "Knockdown",
+            "activation": {
+              "cost": 1,
+              "type": "action",
+              "reactionTrigger": ""
+            },
+            "duration": {
+              "unit": "instantaneous",
+              "value": null
+            },
+            "ranges": {
+              "onKCVcrDsGiWeI89": {
+                "range": "touch"
+              }
+            },
+            "area": {
+              "shape": "",
+              "size": "",
+              "placeTemplate": false
+            },
+            "target": {
+              "quantity": "",
+              "type": "creature",
+              "shape": "",
+              "size": ""
+            },
+            "prompts": {
+              "UTBcoiHj4doF9iJm": {
+                "ability": "str",
+                "onSave": "",
+                "saveDC": {
+                  "type": "custom",
+                  "bonus": "@maneuverDC"
+                },
+                "type": "savingThrow"
+              }
+            },
+            "consumers": {}
+          }
+        },
+        "description": "<p>You can use the Knockdown maneuver to trip or push a creature down. If you are able to make multiple attacks with the Attack action, this maneuver replaces one of them.</p><p>The target must be within your reach and be no more than one size category larger than you. The target makes a Strength saving throw against your maneuver DC. On a failure, you deal basic melee damage and knock the target prone.</p>",
+        "favorite": false,
+        "secretDescription": "",
+        "source": "",
+        "uses": {
+          "value": null,
+          "max": "",
+          "per": null,
+          "recharge": {
+            "formula": "",
+            "threshold": ""
+          }
+        },
+        "schema": {
+          "version": null,
+          "lastMigration": null
+        },
+        "concentration": false,
+        "degree": 0,
+        "exertionCost": 0,
+        "isStance": false,
+        "prerequisite": "",
+        "tradition": "",
+        "schemaVersion": {
+          "version": 0.013,
+          "lastMigration": {
+            "version": {
+              "schema": 0.011,
+              "foundry": "11.315",
+              "system": "0.16.49"
+            }
+          }
+        }
+      },
+      "ownership": {
+        "default": 0
+      },
+      "folder": null,
+      "sort": 0,
+      "_id": "4PyeITQdulrijY9O"
+    },
+    {
+      "name": "Grapple",
+      "type": "maneuver",
+      "img": "icons/skills/melee/unarmed-punch-fist.webp",
+      "effects": [],
+      "flags": {
+        "core": {
+          "sourceId": "Compendium.a5e.a5e-maneuvers.9umrahwm68f81d7l"
+        }
+      },
+      "system": {
+        "actions": {
+          "wGdLHciTVheoDi89": {
+            "name": "Grapple",
+            "activation": {
+              "cost": 1,
+              "type": "action",
+              "reactionTrigger": ""
+            },
+            "duration": {
+              "unit": "instantaneous",
+              "value": null
+            },
+            "ranges": {
+              "pcAODYCc9R7fDoLI": {
+                "range": "touch"
+              }
+            },
+            "area": {
+              "shape": "",
+              "size": "",
+              "placeTemplate": false
+            },
+            "target": {
+              "quantity": "",
+              "type": "creature",
+              "shape": "",
+              "size": ""
+            },
+            "prompts": {
+              "OWwpdIfBahtzm8T1": {
+                "ability": "str",
+                "onSave": "",
+                "saveDC": {
+                  "type": "custom",
+                  "bonus": "@maneuverDC"
+                },
+                "type": "savingThrow"
+              }
+            },
+            "consumers": {}
+          }
+        },
+        "description": "<p>You can use the Grapple maneuver to grab or wrestle a creature. If you are able to make multiple attacks with the Attack action, this maneuver replaces one of them.</p>\n<p>You must have at least one free hand to attempt a grapple, your target must be within your reach, and the target must be no more than one size category larger than you. The target makes a Strength or Dexterity saving throw against your maneuver DC. On a failure, you deal basic melee damage and the target becomes grappled (see Appendix A: Conditions on page 616). In addition to things that end the condition, you can release the target at any time (no action required).</p>\n<p><em>Escaping a Grapple.</em> While grappled, a creature can use its action to attempt to escape. It must succeed on a Strength or Dexterity saving throw against your maneuver DC.</p>\n<p><em>Moving a Grappled Creature. </em>When you move, you can drag or carry the grappled creature with you. When you do so, your Speed is halved, unless the creature's weight is within your carrying capacity and you are not encumbered by bulky items.</p>\n<p><em>Freeing a Grappled Creature.</em> You can use the Grapple maneuver to try to free another grappled or restrained creature. The creature grappling or restraining the target makes a Strength saving throw against your maneuver DC. If it fails the saving throw, the grappled or restrained creature is freed. Additionally, you may move the freed creature 5 feet in any direction.</p>",
+        "favorite": false,
+        "secretDescription": "",
+        "source": "",
+        "uses": {
+          "value": null,
+          "max": "",
+          "per": null,
+          "recharge": {
+            "formula": "",
+            "threshold": ""
+          }
+        },
+        "schema": {
+          "version": null,
+          "lastMigration": null
+        },
+        "concentration": false,
+        "degree": 0,
+        "exertionCost": 0,
+        "isStance": false,
+        "prerequisite": "",
+        "tradition": "",
+        "schemaVersion": {
+          "version": 0.013,
+          "lastMigration": {
+            "version": {
+              "schema": 0.011,
+              "foundry": "11.315",
+              "system": "0.16.49"
+            }
+          }
+        }
+      },
+      "ownership": {
+        "default": 0
+      },
+      "folder": null,
+      "sort": 0,
+      "_id": "Opx2o1rIUv7Dyftg"
+    },
+    {
+      "name": "Overrun",
+      "type": "maneuver",
+      "img": "icons/skills/melee/shield-damaged-broken-blue.webp",
+      "effects": [],
+      "flags": {
+        "core": {
+          "sourceId": "Compendium.a5e.a5e-maneuvers.210ihnnejao46r20"
+        }
+      },
+      "system": {
+        "actions": {
+          "GgokIdLMkGKjZSdY": {
+            "name": "Overrun",
+            "activation": {
+              "cost": 1,
+              "type": "special",
+              "reactionTrigger": ""
+            },
+            "duration": {
+              "unit": "instantaneous",
+              "value": null
+            },
+            "ranges": {
+              "LnooWUMSK5GKRczt": {
+                "range": "touch"
+              }
+            },
+            "area": {
+              "shape": "",
+              "size": "",
+              "placeTemplate": false
+            },
+            "target": {
+              "quantity": "",
+              "type": "creature",
+              "shape": "",
+              "size": ""
+            },
+            "prompts": {
+              "LoqxCd8ZlSDbkCOs": {
+                "ability": "str",
+                "onSave": "",
+                "saveDC": {
+                  "type": "custom",
+                  "bonus": "@maneuverDC"
+                },
+                "type": "savingThrow"
+              }
+            },
+            "consumers": {}
+          }
+        },
+        "description": "<p>You can use an action or bonus action to make an Overrun maneuver to move through a hostile creature's space by forcing your way past. Make a Strength saving throw against the target's maneuver DC. On a success, you deal basic melee damage and can move through the hostile creature's space once this turn. The creature can choose to just let you pass instead of rolling. You have advantage if you are larger than the target, or disadvantage if you are smaller. If you are two or more sizes smaller than the target, you can move through the hostile creature's space without making a save. You still provoke opportunity attacks if you move beyond a creature's reach.</p>",
+        "favorite": false,
+        "secretDescription": "",
+        "source": "",
+        "uses": {
+          "value": null,
+          "max": "",
+          "per": null,
+          "recharge": {
+            "formula": "",
+            "threshold": ""
+          }
+        },
+        "schema": {
+          "version": null,
+          "lastMigration": null
+        },
+        "concentration": false,
+        "degree": 0,
+        "exertionCost": 0,
+        "isStance": false,
+        "prerequisite": "",
+        "tradition": "",
+        "schemaVersion": {
+          "version": 0.013,
+          "lastMigration": {
+            "version": {
+              "schema": 0.011,
+              "foundry": "11.315",
+              "system": "0.16.49"
+            }
+          }
+        }
+      },
+      "ownership": {
+        "default": 0
+      },
+      "folder": null,
+      "sort": 0,
+      "_id": "2jU4pWYtNmrLDxcb"
+    },
+    {
+      "_id": "CxO2KKVwxO0uumJ7",
+      "name": "Devil's Sight",
+      "type": "feature",
+      "img": "icons/magic/perception/eye-ringed-glow-angry-large-red.webp",
+      "effects": [],
+      "folder": null,
+      "sort": 1,
+      "flags": {},
+      "system": {
+        "ac": {
+          "baseFormula": "",
+          "formula": "",
+          "maxDex": 0,
+          "minStr": 0,
+          "mode": 1,
+          "requiresNoShield": false,
+          "requiresUnarmored": false
+        },
+        "actions": {},
+        "description": "<p>The devil’s darkvision penetrates magical darkness.</p>",
+        "favorite": false,
+        "secretDescription": "",
+        "source": "",
+        "uses": {
+          "value": null,
+          "max": "",
+          "per": null,
+          "recharge": {
+            "formula": "",
+            "threshold": ""
+          }
+        },
+        "schema": {
+          "version": null,
+          "lastMigration": null
+        },
+        "concentration": false,
+        "featureType": "",
+        "grants": {},
+        "prerequisite": "",
+        "requiresBloodied": false,
+        "schemaVersion": {
+          "version": 0.013,
+          "lastMigration": {
+            "version": {
+              "schema": 0.011,
+              "foundry": "11.315",
+              "system": "0.16.49"
+            }
+          }
+        }
+      },
+      "ownership": {
+        "default": 0
+      }
+    },
+    {
+      "_id": "1kC9Kg1JgHFTYLJO",
+      "name": "Lawful Evil",
+      "type": "feature",
+      "img": "icons/creatures/unholy/demon-horned-winged-laughing.webp",
+      "effects": [],
+      "folder": null,
+      "sort": 3,
+      "flags": {},
+      "system": {
+        "ac": {
+          "baseFormula": "",
+          "formula": "",
+          "maxDex": 0,
+          "minStr": 0,
+          "mode": 1,
+          "requiresNoShield": false,
+          "requiresUnarmored": false
+        },
+        "actions": {},
+        "description": "<p>The devil radiates a Lawful and Evil aura.</p>",
+        "favorite": false,
+        "secretDescription": "",
+        "source": "",
+        "uses": {
+          "value": null,
+          "max": "",
+          "per": null,
+          "recharge": {
+            "formula": "",
+            "threshold": ""
+          }
+        },
+        "schema": {
+          "version": null,
+          "lastMigration": null
+        },
+        "concentration": false,
+        "featureType": "",
+        "grants": {},
+        "prerequisite": "",
+        "requiresBloodied": false,
+        "schemaVersion": {
+          "version": 0.013,
+          "lastMigration": {
+            "version": {
+              "schema": 0.011,
+              "foundry": "11.315",
+              "system": "0.16.49"
+            }
+          }
+        }
+      },
+      "ownership": {
+        "default": 0
+      }
+    },
+    {
+      "name": "Burning Blood",
+      "type": "feature",
+      "system": {
+        "ac": {
+          "baseFormula": "",
+          "formula": "",
+          "maxDex": 0,
+          "minStr": 0,
+          "mode": 2,
+          "requiresNoShield": false,
+          "requiresUnarmored": false
+        },
+        "actions": {
+          "bbBcTK6zxqgPXWi8": {
+            "name": "Burning Blood",
+            "activation": {},
+            "consumers": {},
+            "rolls": {
+              "cV3aLk1uoiC57IN9": {
+                "type": "damage",
+                "default": true,
+                "formula": "3d10",
+                "damageType": "fire"
+              }
+            },
+            "prompts": {
+              "tQNHeDQeaXyeihu3": {
+                "type": "savingThrow",
+                "default": true,
+                "ability": "con",
+                "saveDC": {
+                  "type": "custom",
+                  "bonus": "16"
+                },
+                "onSave": "Half damage"
+              }
+            },
+            "uses": {
+              "value": 0,
+              "max": "",
+              "per": "",
+              "recharge": {
+                "formula": "1d6",
+                "threshold": 6
+              }
+            },
+            "ranges": {
+              "nahCjuEJNyZsFlNE": {
+                "range": "fiveFeet"
+              }
+            },
+            "target": {
+              "type": "creature",
+              "quantity": 1
+            }
+          }
+        },
+        "description": "<p>When a creature within&nbsp;5 feet hits the Chained One with a melee attack, boiling&nbsp;black blood spurts from the wound. The attacker makes&nbsp;a DC 16 Constitution saving throw, taking 16 (3d10) fire&nbsp;damage on a failure or half damage on a success.</p>",
+        "favorite": false,
+        "secretDescription": "",
+        "source": {
+          "name": "",
+          "link": "",
+          "publisher": ""
+        },
+        "uses": {
+          "value": null,
+          "max": "",
+          "per": null,
+          "recharge": {
+            "formula": "1d6",
+            "threshold": "6"
+          }
+        },
+        "schema": {
+          "version": null,
+          "lastMigration": null
+        },
+        "concentration": false,
+        "featureType": "other",
+        "grants": {},
+        "prerequisite": "",
+        "requiresBloodied": true,
+        "schemaVersion": {
+          "version": 0.013,
+          "lastMigration": {
+            "version": {
+              "schema": 0.011,
+              "foundry": "11.315",
+              "system": "0.16.49"
+            }
+          }
+        }
+      },
+      "_id": "067M5fB60la9igMd",
+      "img": "icons/svg/item-bag.svg",
+      "effects": [],
+      "folder": null,
+      "sort": 0,
+      "ownership": {
+        "default": 0
+      },
+      "flags": {}
+    },
+    {
+      "name": "Despairing Howl",
+      "type": "feature",
+      "system": {
+        "ac": {
+          "baseFormula": "",
+          "formula": "",
+          "maxDex": 0,
+          "minStr": 0,
+          "mode": 2,
+          "requiresNoShield": false,
+          "requiresUnarmored": false
+        },
+        "actions": {
+          "InNXvWVTncTGKRIR": {
+            "name": "Despairing Howl",
+            "activation": {
+              "type": "action",
+              "cost": 1
+            },
+            "consumers": {},
+            "rolls": {
+              "W2rJR6dl6HDbQnyc": {
+                "type": "damage",
+                "default": true,
+                "formula": "8d6",
+                "damageType": "thunder",
+                "canCrit": false
+              },
+              "aj395xU8OSBlMR82": {
+                "type": "damage",
+                "default": true,
+                "damageType": "psychic",
+                "canCrit": false,
+                "formula": "8d6"
+              }
+            },
+            "prompts": {
+              "hAXAx23WpCRTrMER": {
+                "type": "savingThrow",
+                "default": true,
+                "ability": "con",
+                "saveDC": {
+                  "type": "custom",
+                  "bonus": "16"
+                },
+                "onSave": "Half damage"
+              }
+            },
+            "uses": {
+              "value": 0,
+              "max": "",
+              "per": "",
+              "recharge": {
+                "formula": "1d6",
+                "threshold": 6
+              }
+            },
+            "ranges": {
+              "9ACQBfAIlaPk7wN9": {
+                "range": "self"
+              }
+            },
+            "area": {
+              "shape": "emanation",
+              "quantity": 1,
+              "radius": 90,
+              "placeTemplate": true
+            }
+          }
+        },
+        "description": "<p>The Chained One&nbsp;screams. Each creature that can hear it within 90 feet&nbsp;makes a DC 16 Constitution saving throw, taking 28&nbsp;(8d6) thunder damage and 28 (8d6) psychic damage&nbsp;on a failure or half damage on a success.</p>",
+        "favorite": false,
+        "secretDescription": "",
+        "source": {
+          "name": "",
+          "link": "",
+          "publisher": ""
+        },
+        "uses": {
+          "value": 1,
+          "max": "1",
+          "per": "recharge",
+          "recharge": {
+            "formula": "1d6",
+            "threshold": 5
+          }
+        },
+        "schema": {
+          "version": null,
+          "lastMigration": null
+        },
+        "concentration": false,
+        "featureType": "other",
+        "grants": {},
+        "prerequisite": "",
+        "requiresBloodied": false,
+        "schemaVersion": {
+          "version": 0.013,
+          "lastMigration": {
+            "version": {
+              "schema": 0.011,
+              "foundry": "11.315",
+              "system": "0.16.49"
+            }
+          }
+        }
+      },
+      "_id": "BQwCryYAYGFIHAQU",
+      "img": "icons/svg/item-bag.svg",
+      "effects": [],
+      "folder": null,
+      "sort": 0,
+      "ownership": {
+        "default": 0
+      },
+      "flags": {}
+    }
+  ],
+  "effects": [],
+  "flags": {
+    "a5e": {
+      "sheetIsLocked": true,
+      "sortMode": 1,
+      "showSpellTab": false
+    }
+  },
+  "system": {
+    "abilities": {
+      "str": {
+        "value": 18,
+        "check": {
+          "expertiseDice": 0,
+          "bonus": ""
+        },
+        "save": {
+          "proficient": true,
+          "expertiseDice": 0,
+          "bonus": ""
+        }
+      },
+      "dex": {
+        "value": 14,
+        "check": {
+          "expertiseDice": 0,
+          "bonus": ""
+        },
+        "save": {
+          "proficient": false,
+          "expertiseDice": 0,
+          "bonus": ""
+        }
+      },
+      "con": {
+        "value": 18,
+        "check": {
+          "expertiseDice": 0,
+          "bonus": ""
+        },
+        "save": {
+          "proficient": true,
+          "expertiseDice": 0,
+          "bonus": ""
+        }
+      },
+      "int": {
+        "value": 10,
+        "check": {
+          "expertiseDice": 0,
+          "bonus": ""
+        },
+        "save": {
+          "proficient": false,
+          "expertiseDice": 0,
+          "bonus": ""
+        }
+      },
+      "wis": {
+        "value": 12,
+        "check": {
+          "expertiseDice": 0,
+          "bonus": ""
+        },
+        "save": {
+          "proficient": true,
+          "expertiseDice": 0,
+          "bonus": ""
+        }
+      },
+      "cha": {
+        "value": 16,
+        "check": {
+          "expertiseDice": 0,
+          "bonus": ""
+        },
+        "save": {
+          "proficient": true,
+          "expertiseDice": 0,
+          "bonus": ""
+        }
+      }
+    },
+    "schemaVersion": {
+      "version": 0.013,
+      "lastMigration": {
+        "version": {
+          "schema": 0.011,
+          "foundry": "11.315",
+          "system": "0.16.49"
+        }
+      }
+    },
+    "skills": {
+      "acr": {
+        "ability": "dex",
+        "proficient": false,
+        "specialties": [],
+        "expertiseDice": 0,
+        "minRoll": 1,
+        "bonuses": {
+          "check": "",
+          "passive": 0
+        }
+      },
+      "ani": {
+        "ability": "wis",
+        "proficient": false,
+        "specialties": [],
+        "expertiseDice": 0,
+        "minRoll": 1,
+        "bonuses": {
+          "check": "",
+          "passive": 0
+        }
+      },
+      "arc": {
+        "ability": "int",
+        "proficient": false,
+        "specialties": [],
+        "expertiseDice": 0,
+        "minRoll": 1,
+        "bonuses": {
+          "check": "",
+          "passive": 0
+        }
+      },
+      "ath": {
+        "ability": "str",
+        "proficient": false,
+        "specialties": [],
+        "expertiseDice": 0,
+        "minRoll": 1,
+        "bonuses": {
+          "check": "",
+          "passive": 0
+        }
+      },
+      "cul": {
+        "ability": "int",
+        "proficient": false,
+        "specialties": [],
+        "expertiseDice": 0,
+        "minRoll": 1,
+        "bonuses": {
+          "check": "",
+          "passive": 0
+        }
+      },
+      "dec": {
+        "ability": "cha",
+        "proficient": false,
+        "specialties": [],
+        "expertiseDice": 0,
+        "minRoll": 1,
+        "bonuses": {
+          "check": "",
+          "passive": 0
+        }
+      },
+      "eng": {
+        "ability": "int",
+        "proficient": false,
+        "specialties": [],
+        "expertiseDice": 0,
+        "minRoll": 1,
+        "bonuses": {
+          "check": "",
+          "passive": 0
+        }
+      },
+      "his": {
+        "ability": "int",
+        "proficient": false,
+        "specialties": [],
+        "expertiseDice": 0,
+        "minRoll": 1,
+        "bonuses": {
+          "check": "",
+          "passive": 0
+        }
+      },
+      "ins": {
+        "ability": "wis",
+        "proficient": false,
+        "specialties": [],
+        "expertiseDice": 0,
+        "minRoll": 1,
+        "bonuses": {
+          "check": "",
+          "passive": 0
+        }
+      },
+      "itm": {
+        "ability": "cha",
+        "proficient": false,
+        "specialties": [],
+        "expertiseDice": 0,
+        "minRoll": 1,
+        "bonuses": {
+          "check": "",
+          "passive": 0
+        }
+      },
+      "inv": {
+        "ability": "int",
+        "proficient": false,
+        "specialties": [],
+        "expertiseDice": 0,
+        "minRoll": 1,
+        "bonuses": {
+          "check": "",
+          "passive": 0
+        }
+      },
+      "med": {
+        "ability": "wis",
+        "proficient": false,
+        "specialties": [],
+        "expertiseDice": 0,
+        "minRoll": 1,
+        "bonuses": {
+          "check": "",
+          "passive": 0
+        }
+      },
+      "nat": {
+        "ability": "int",
+        "proficient": false,
+        "specialties": [],
+        "expertiseDice": 0,
+        "minRoll": 1,
+        "bonuses": {
+          "check": "",
+          "passive": 0
+        }
+      },
+      "prc": {
+        "ability": "wis",
+        "proficient": false,
+        "specialties": [],
+        "expertiseDice": 1,
+        "minRoll": 1,
+        "bonuses": {
+          "check": "",
+          "passive": 0
+        }
+      },
+      "prf": {
+        "ability": "cha",
+        "proficient": false,
+        "specialties": [],
+        "expertiseDice": 0,
+        "minRoll": 1,
+        "bonuses": {
+          "check": "",
+          "passive": 0
+        }
+      },
+      "per": {
+        "ability": "cha",
+        "proficient": false,
+        "specialties": [],
+        "expertiseDice": 0,
+        "minRoll": 1,
+        "bonuses": {
+          "check": "",
+          "passive": 0
+        }
+      },
+      "rel": {
+        "ability": "int",
+        "proficient": false,
+        "specialties": [],
+        "expertiseDice": 0,
+        "minRoll": 1,
+        "bonuses": {
+          "check": "",
+          "passive": 0
+        }
+      },
+      "slt": {
+        "ability": "dex",
+        "proficient": false,
+        "specialties": [],
+        "expertiseDice": 0,
+        "minRoll": 1,
+        "bonuses": {
+          "check": "",
+          "passive": 0
+        }
+      },
+      "ste": {
+        "ability": "dex",
+        "proficient": false,
+        "specialties": [],
+        "expertiseDice": 0,
+        "minRoll": 1,
+        "bonuses": {
+          "check": "",
+          "passive": 0
+        }
+      },
+      "sur": {
+        "ability": "wis",
+        "proficient": true,
+        "specialties": [],
+        "expertiseDice": 0,
+        "minRoll": 1,
+        "bonuses": {
+          "check": "1",
+          "passive": 0
+        }
+      }
+    },
+    "spellResources": {
+      "slots": {
+        "1": {
+          "current": 0,
+          "max": 0
+        },
+        "2": {
+          "current": 0,
+          "max": 0
+        },
+        "3": {
+          "current": 0,
+          "max": 0
+        },
+        "4": {
+          "current": 0,
+          "max": 0
+        },
+        "5": {
+          "current": 0,
+          "max": 0
+        },
+        "6": {
+          "current": 0,
+          "max": 0
+        },
+        "7": {
+          "current": 0,
+          "max": 0
+        },
+        "8": {
+          "current": 0,
+          "max": 0
+        },
+        "9": {
+          "current": 0,
+          "max": 0
+        }
+      },
+      "points": {
+        "current": 0,
+        "max": 0
+      }
+    },
+    "attributes": {
+      "ac": {
+        "baseFormula": "17",
+        "value": 0
+      },
+      "death": {
+        "success": 0,
+        "failure": 0
+      },
+      "hp": {
+        "value": 199,
+        "baseMax": 199,
+        "temp": 0,
+        "bonus": 0
+      },
+      "hitDice": {
+        "d6": {
+          "current": 0,
+          "total": 0
+        },
+        "d8": {
+          "current": 15,
+          "total": 15
+        },
+        "d10": {
+          "current": 21,
+          "total": 21
+        },
+        "d12": {
+          "current": 0,
+          "total": 0
+        },
+        "d4": {
+          "current": 0,
+          "total": 0
+        },
+        "d20": {
+          "current": 0,
+          "total": 0
+        }
+      },
+      "initiative": {
+        "ability": "dex",
+        "bonus": "",
+        "expertiseDice": 0
+      },
+      "movement": {
+        "burrow": {
+          "distance": 0,
+          "unit": "feet"
+        },
+        "climb": {
+          "distance": 0,
+          "unit": "feet"
+        },
+        "fly": {
+          "distance": 0,
+          "unit": "feet"
+        },
+        "swim": {
+          "distance": 0,
+          "unit": "feet"
+        },
+        "walk": {
+          "distance": 40,
+          "unit": "feet"
+        },
+        "traits": {
+          "hover": false
+        }
+      },
+      "senses": {
+        "blindsight": {
+          "distance": null,
+          "unit": "feet",
+          "otherwiseBlind": false
+        },
+        "darkvision": {
+          "distance": 120,
+          "unit": "feet"
+        },
+        "tremorsense": {
+          "distance": null,
+          "unit": "feet"
+        },
+        "truesight": {
+          "distance": null,
+          "unit": "feet"
+        }
+      },
+      "inspiration": false,
+      "fatigue": 0,
+      "strife": 0,
+      "spellcasting": "int",
+      "casterLevel": 0
+    },
+    "bonuses": {
+      "maneuverDC": "",
+      "meleeSpellAttack": "",
+      "meleeWeaponAttack": "",
+      "rangedSpellAttack": "",
+      "rangedWeaponAttack": "",
+      "spellDC": "",
+      "abilities": {},
+      "damage": {},
+      "healing": {},
+      "skills": {
+        "bOZtW0Cosl6Hjczi": {
+          "context": {
+            "skills": [
+              "sur"
+            ],
+            "passiveOnly": false,
+            "requiresProficiency": false
+          },
+          "formula": "1",
+          "label": "Check Bonus",
+          "default": true,
+          "img": "icons/svg/upgrade.svg"
+        }
+      },
+      "attacks": {},
+      "initiative": {},
+      "movement": {},
+      "senses": {}
+    },
+    "currency": {
+      "pp": 0,
+      "gp": 0,
+      "ep": 0,
+      "sp": 0,
+      "cp": 0
+    },
+    "details": {
+      "bio": "<h2><strong>COMBAT</strong></h2><p>The chain devil prefers locations festooned with chains. On its first and second turns, it animates a chain near its enemies and then attacks. Though it can’t make more than four chain attacks at a time, it animates a new chain whenever it can, so as to have as many attack options as possible. The devil uses Unnerving Mask once against each attacker. The chain devil fights to the death. It may let defeated creatures escape for the joy of hunting them.</p><hr class=\"a5e-rule u-my-md\"><h2><strong>DEVIL NAMES</strong></h2><p>Abathon, Alashel, Arcaxes, Asardel, Atha-Xul, Barashiel, Bel Nakari, Beleth, Besthelias, Bethegar, Brimstone, Calderax, Cenereth, Damaceus, Decimeth, Demedal, Elthodrath, Gethen, Glibris, Gur-Toras, Heleph, Ibaris, Kamien, Kush, Lorza, Machem, Maethiel, Meltis, Nensis, Silithis, Thaxes, Turel, Vish-Alatith, Zethayn, Zir</p><hr class=\"a5e-rule u-my-md\"><h2><strong>LEGENDS AND LORE</strong></h2><p>With an Arcana or Religion check, characters can learn the following:</p><p><strong>DC 10</strong> Many scholars believe that devils are angels that fell from grace. When touched by evil, mortal souls may transform into devils, as well.</p><p><strong>DC 15</strong> Neither fire nor poison harms a devil, and even magical darkness doesn’t impede a devil’s vision. They are supernaturally resistant to mundane damage, although magical and silvered weapons wound them normally.</p><p><strong>DC 20</strong> Though irredeemably evil, devils can be bargained with at the bargainer’s peril. They generally keep their word.</p><p><strong>DESCRIPTION</strong></p><p>Barbed devils are the untiring sentinels of hell. They protect treasure vaults, serve more powerful devils as bodyguards, and patrol the halls of infernal citadels looking for intruders. Needle-sharp spines cover their bodies, and their eyes—which seem to burn with penetrating flame—continually shift about as they keep watch over their charges.</p><p><strong>BEHAVIOR</strong></p><p>1 Whispering poison into a mortal’s ear</p><p>2 Engaging the pious in philosophical debate, so as to sow doubt</p><p>3 Offers the party the information they seek, for a price</p><p>4 Indulging pleasures of the flesh: enjoying a meal, listening to music, flirting with mortals</p><p>5 Hunting a mortal who defaulted on a deal</p><p>6 Imprisoned by ancient runes and seals; can’t leave its current general area</p><p>7 Guarding or otherwise serving a summoner</p><p>8 Guarding a sinister treasure, such as a forbidden book or cursed weapon</p><p><strong>SIGNS</strong></p><p><strong>Wilderness and Underground Signs</strong></p><p>1 A shrine to an archdevil, lit with black candles</p><p>2 Footprints, strangely warm to the touch</p><p>3 A waft of brimstone at a lonely crossroads</p><p>4 The remains of a humanoid who was clearly tortured to death</p><hr class=\"a5e-rule u-my-md\"><p><strong>Settlement Signs</strong></p><p>1 Statues of saints crying blood</p><p>2 Church bells magically fall silent</p><p>3 An infernal contract, as yet unsigned</p><p>4 Animals gather in large numbers, become aggressive, or die unexpectedly</p><p><strong>ENCOUNTERS</strong></p><p>Most devils are imprisoned in Hell but some are loosed upon the world by wicked spellcasters.&nbsp;</p><p><strong>CR 0–2</strong> imp; 1d8 lemures</p><p><strong>CR 3–4</strong> bearded devil; 2 lemure bands; imp leading lemure band</p><p><strong>CR 5–10</strong> 1 or 2 barbed devils; bone devil; chain devil; 2 or 3 bearded devils; bearded devil, barbed devil, or night hag leading 2 lemure bands</p><p><strong>Treasure</strong> a silver cup etched with a blasphemous word (the first three times the word is spoken, the cup fills with a <em>greater healing potion</em>; the fourth time, the cup breaks)</p><p><strong>CR 11–16 </strong>horned devil, erinyes, ice devil, or chained one, possibly with 1 or 2 lemure bands; 3 barbed devils; &nbsp; barbed devil with 3 bearded devils</p><p><strong>Treasure</strong> signed infernal contract that frees an evil soul from Hell if destroyed, <em>manual of quickness of action</em></p><p><strong>CR 17–22</strong> pit fiend; bone devil, chain devil, horned devil, erinyes, or ice devil with 3 bearded devils; erinyes with 1d6 + 3 harpies; chain devil with chained one</p><p><strong>Treasure</strong> 3 rubies (5,000 gp each), <em>spell scrolls</em> of <em>magic circle</em> and <em>raise dead</em>, <em>rope of entanglement</em></p><p><strong>CR 23–30</strong> pit fiend with 1 to 3 bearded devils or hellhounds; 4 bearded devils or barbed devils with bone devil, chain devil, or horned devil;&nbsp; 2 erinyes or ice devils; ice devil with 1d4 + 2 winter wolves&nbsp;</p><p><strong>Treasure</strong> 1,300 pp, 2 <em>potions of flying</em>, <em>+3 trident</em> (named <em>Artifice</em>; acts as a <em>hat of disguise</em> but the trident can’t be disguised)</p><p><strong>CR 31+</strong> Belethias, possibly with 1d4 + 2 lemure bands or bearded devils; pit fiend with 3 or 4 barbed devils; 3 or 4 erinyes</p><p><strong>Treasure </strong>gold and ruby scepter (25,000 gp), forbidden book with gold and diamond binding (25,000 gp), 13 star rubies (1,000 gp each), <em>spell scroll</em> of <em>gate</em>, <em>animated shield</em>, <em>deck of many things</em></p>",
+      "creatureTypes": [
+        "fiend"
+      ],
+      "isSwarm": false,
+      "cr": 13,
+      "elite": false,
+      "privateNotes": "",
+      "notes": "",
+      "terrain": []
+    },
+    "proficiencies": {
+      "armor": [],
+      "languages": [
+        "infernal",
+        "Telepathy 120 ft"
+      ],
+      "tools": [],
+      "weapons": []
+    },
+    "resources": {
+      "primary": {
+        "label": "",
+        "value": 0,
+        "max": "0",
+        "per": "",
+        "hideMax": false,
+        "recharge": {
+          "formula": "",
+          "threshold": 6
+        }
+      },
+      "secondary": {
+        "label": "",
+        "value": 0,
+        "max": "0",
+        "per": "",
+        "hideMax": false,
+        "recharge": {
+          "formula": "",
+          "threshold": 6
+        }
+      },
+      "tertiary": {
+        "label": "",
+        "value": 0,
+        "max": "0",
+        "per": "",
+        "hideMax": false,
+        "recharge": {
+          "formula": "",
+          "threshold": 6
+        }
+      },
+      "quaternary": {
+        "label": "",
+        "value": 0,
+        "max": "0",
+        "per": "",
+        "hideMax": false,
+        "recharge": {
+          "formula": "",
+          "threshold": 6
+        }
+      }
+    },
+    "source": "monstrousMenagerie",
+    "traits": {
+      "size": "lg",
+      "conditionImmunities": [
+        "poisoned"
+      ],
+      "damageImmunities": [
+        "fire",
+        "poison"
+      ],
+      "damageResistances": [
+        "cold",
+        "Non-Magical, Non-Silvered Weapons"
+      ],
+      "damageVulnerabilities": []
+    },
+    "grants": {}
+  },
+  "prototypeToken": {
+    "name": "Chain Devil",
+    "displayName": 30,
+    "actorLink": false,
+    "width": 2,
+    "height": 2,
+    "lockRotation": false,
+    "rotation": 0,
+    "alpha": 1,
+    "light": {
+      "alpha": 0.5,
+      "angle": 360,
+      "bright": 0,
+      "coloration": 1,
+      "dim": 0,
+      "luminosity": 0.5,
+      "saturation": 0,
+      "contrast": 0,
+      "shadows": 0,
+      "animation": {
+        "speed": 5,
+        "intensity": 5,
+        "reverse": false,
+        "type": null
+      },
+      "darkness": {
+        "min": 0,
+        "max": 1
+      },
+      "attenuation": 0.5,
+      "color": null
+    },
+    "disposition": -1,
+    "displayBars": 30,
+    "bar1": {
+      "attribute": "attributes.hp"
+    },
+    "bar2": {
+      "attribute": null
+    },
+    "flags": {},
+    "randomImg": false,
+    "texture": {
+      "src": "systems/a5e/assets/chain-devil.webp",
+      "scaleX": 1,
+      "scaleY": 1,
+      "offsetX": 0,
+      "offsetY": 0,
+      "rotation": 0,
+      "tint": "#ffffff"
+    },
+    "sight": {
+      "angle": 360,
+      "enabled": true,
+      "range": 0,
+      "brightness": 1,
+      "color": null,
+      "attenuation": 0.1,
+      "saturation": 0,
+      "contrast": 0,
+      "visionMode": "basic"
+    },
+    "detectionModes": [],
+    "appendNumber": false,
+    "prependAdjective": false
+  },
+  "folder": null,
+  "_id": "ytbmblmuus95gkc0"
 }

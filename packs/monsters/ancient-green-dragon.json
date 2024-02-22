@@ -1,2626 +1,2626 @@
 {
-	"name": "Ancient Green Dragon",
-	"type": "npc",
-	"img": "systems/a5e/assets/green-dragon.webp",
-	"items": [
-		{
-			"_id": "6Y1N4HAnCmpDkl3K",
-			"name": "Legendary Resistance",
-			"type": "feature",
-			"img": "icons/svg/item-bag.svg",
-			"effects": [],
-			"folder": null,
-			"sort": 100000,
-			"flags": {},
-			"system": {
-				"ac": {
-					"baseFormula": "",
-					"formula": "",
-					"maxDex": 0,
-					"minStr": 0,
-					"mode": 1,
-					"requiresNoShield": false,
-					"requiresUnarmored": false
-				},
-				"actions": {},
-				"description": "<p>When the dragon fails a saving throw, it can choose to succeed instead. When it does, it sheds some of its scales, which turn into dry leaves and blow away. If it has no more uses of this ability, its Armor Class is reduced to <strong>19</strong> until it finishes a long rest.</p>",
-				"favorite": false,
-				"secretDescription": "",
-				"source": "",
-				"uses": {
-					"value": 3,
-					"max": "3",
-					"per": "day",
-					"recharge": {
-						"formula": "",
-						"threshold": ""
-					}
-				},
-				"schema": {
-					"version": null,
-					"lastMigration": null
-				},
-				"concentration": false,
-				"featureType": "",
-				"grants": {},
-				"prerequisite": "",
-				"requiresBloodied": false,
-				"schemaVersion": {
-					"version": 0.013,
-					"lastMigration": {
-						"version": {
-							"schema": 0.011,
-							"foundry": "11.315",
-							"system": "0.16.49"
-						}
-					}
-				}
-			},
-			"ownership": {
-				"default": 0
-			}
-		},
-		{
-			"_id": "4ZXiupEvOZClTDj1",
-			"name": "Multiattack",
-			"type": "feature",
-			"img": "icons/skills/melee/blade-tips-triple-steel.webp",
-			"effects": [],
-			"folder": null,
-			"sort": 200000,
-			"flags": {
-				"core": {
-					"sourceId": "Item.ykE7paV0sg2mTjxp"
-				}
-			},
-			"system": {
-				"ac": {
-					"baseFormula": "",
-					"formula": "",
-					"maxDex": 0,
-					"minStr": 0,
-					"mode": 1,
-					"requiresNoShield": false,
-					"requiresUnarmored": false
-				},
-				"actions": {},
-				"description": "<p>The dragon attacks once with its bite and twice with its claws. In place of its bite attack, it can Spit Poison.</p>",
-				"favorite": false,
-				"secretDescription": "",
-				"source": "",
-				"uses": {
-					"value": null,
-					"max": "",
-					"per": null,
-					"recharge": {
-						"formula": "",
-						"threshold": ""
-					}
-				},
-				"schema": {
-					"version": null,
-					"lastMigration": null
-				},
-				"concentration": false,
-				"featureType": "",
-				"grants": {},
-				"prerequisite": "",
-				"requiresBloodied": false,
-				"schemaVersion": {
-					"version": 0.013,
-					"lastMigration": {
-						"version": {
-							"schema": 0.011,
-							"foundry": "11.315",
-							"system": "0.16.49"
-						}
-					}
-				}
-			},
-			"ownership": {
-				"default": 0
-			}
-		},
-		{
-			"_id": "cMlwbscidnVzT52D",
-			"name": "Bite",
-			"type": "feature",
-			"img": "icons/creatures/abilities/mouth-teeth-long-red.webp",
-			"effects": [],
-			"folder": null,
-			"sort": 300000,
-			"flags": {
-				"core": {
-					"sourceId": "Item.InKYp8aGuFNL9gdG"
-				}
-			},
-			"system": {
-				"ac": {
-					"baseFormula": "",
-					"formula": "",
-					"maxDex": 0,
-					"minStr": 0,
-					"mode": 1,
-					"requiresNoShield": false,
-					"requiresUnarmored": false
-				},
-				"actions": {
-					"yKnMm507FW1fJjb2": {
-						"name": "Bite",
-						"activation": {
-							"cost": 1,
-							"type": "action",
-							"reactionTrigger": ""
-						},
-						"duration": {
-							"unit": "instantaneous",
-							"value": ""
-						},
-						"ranges": {
-							"7ajefKAglCzBjhiZ": {
-								"range": "Reach: 15ft."
-							}
-						},
-						"area": {
-							"shape": "",
-							"size": "",
-							"placeTemplate": false
-						},
-						"target": {
-							"quantity": 1,
-							"type": "creature"
-						},
-						"rolls": {
-							"FKZRYBzlPAfeqroZ": {
-								"bonus": "",
-								"critThreshold": "20",
-								"type": "attack",
-								"attackType": "meleeWeaponAttack",
-								"ability": "default"
-							},
-							"eMaKt3sxKpHy33Q2": {
-								"canCrit": true,
-								"damageType": "piercing",
-								"formula": "4d8 + @str.mod",
-								"name": "",
-								"type": "damage"
-							},
-							"n1tm3hWpFE2zlWYK": {
-								"canCrit": true,
-								"damageType": "poison",
-								"formula": "2d8",
-								"name": "",
-								"type": "damage"
-							}
-						},
-						"consumers": {}
-					}
-				},
-				"description": "<p>The dragon makes a bite attack.</p>",
-				"favorite": true,
-				"secretDescription": "",
-				"source": "",
-				"uses": {
-					"value": null,
-					"max": "",
-					"per": null,
-					"recharge": {
-						"formula": "",
-						"threshold": ""
-					}
-				},
-				"schema": {
-					"version": null,
-					"lastMigration": null
-				},
-				"concentration": false,
-				"featureType": "naturalWeapon",
-				"grants": {},
-				"prerequisite": "",
-				"requiresBloodied": false,
-				"schemaVersion": {
-					"version": 0.013,
-					"lastMigration": {
-						"version": {
-							"schema": 0.011,
-							"foundry": "11.315",
-							"system": "0.16.49"
-						}
-					}
-				}
-			},
-			"ownership": {
-				"default": 0
-			}
-		},
-		{
-			"_id": "KYmTKwO01H01LCIu",
-			"name": "Claw",
-			"type": "feature",
-			"img": "icons/skills/melee/blood-slash-foam-red.webp",
-			"effects": [],
-			"folder": null,
-			"sort": 500000,
-			"flags": {},
-			"system": {
-				"ac": {
-					"baseFormula": "",
-					"formula": "",
-					"maxDex": 0,
-					"minStr": 0,
-					"mode": 1,
-					"requiresNoShield": false,
-					"requiresUnarmored": false
-				},
-				"actions": {
-					"9cmAu0GUbSoBZFYI": {
-						"name": "Claw",
-						"activation": {
-							"cost": 1,
-							"type": "action",
-							"reactionTrigger": ""
-						},
-						"duration": {
-							"unit": "instantaneous",
-							"value": ""
-						},
-						"ranges": {
-							"TPTMB9QMEc1FDMhK": {
-								"range": "Reach: 10ft"
-							}
-						},
-						"area": {
-							"shape": "",
-							"size": "",
-							"placeTemplate": false
-						},
-						"target": {
-							"quantity": 1,
-							"type": "creature"
-						},
-						"rolls": {
-							"sz0SdK5QrdwS6k64": {
-								"bonus": "",
-								"critThreshold": "20",
-								"type": "attack",
-								"attackType": "meleeWeaponAttack",
-								"ability": "default"
-							},
-							"FAMlvCSQFFMaN0s1": {
-								"canCrit": true,
-								"damageType": "slashing",
-								"formula": "3d8 + @str.mod",
-								"name": "",
-								"type": "damage"
-							}
-						},
-						"consumers": {}
-					}
-				},
-				"description": "<p>The Dragon makes a claw attack.</p>",
-				"favorite": true,
-				"secretDescription": "",
-				"source": "",
-				"uses": {
-					"value": null,
-					"max": "",
-					"per": null,
-					"recharge": {
-						"formula": "",
-						"threshold": ""
-					}
-				},
-				"schema": {
-					"version": null,
-					"lastMigration": null
-				},
-				"concentration": false,
-				"featureType": "naturalWeapon",
-				"grants": {},
-				"prerequisite": "",
-				"requiresBloodied": false,
-				"schemaVersion": {
-					"version": 0.013,
-					"lastMigration": {
-						"version": {
-							"schema": 0.011,
-							"foundry": "11.315",
-							"system": "0.16.49"
-						}
-					}
-				}
-			},
-			"ownership": {
-				"default": 0
-			}
-		},
-		{
-			"_id": "M84U0XSfmXtWa9e1",
-			"name": "Tail",
-			"type": "feature",
-			"img": "icons/skills/wounds/injury-pain-impaled-hand-blood.webp",
-			"effects": [],
-			"folder": null,
-			"sort": 525000,
-			"flags": {},
-			"system": {
-				"ac": {
-					"baseFormula": "",
-					"formula": "",
-					"maxDex": 0,
-					"minStr": 0,
-					"mode": 1,
-					"requiresNoShield": false,
-					"requiresUnarmored": false
-				},
-				"actions": {
-					"0uK8VaKfcETdRSaT": {
-						"name": "Tail",
-						"activation": {
-							"cost": 1,
-							"type": "action",
-							"reactionTrigger": ""
-						},
-						"duration": {
-							"unit": "instantaneous",
-							"value": ""
-						},
-						"ranges": {
-							"Xofc8y2VozTNyPm2": {
-								"range": "Reach: 20ft."
-							}
-						},
-						"area": {
-							"shape": "",
-							"size": "",
-							"placeTemplate": false
-						},
-						"target": {
-							"quantity": 1,
-							"type": "creature"
-						},
-						"rolls": {
-							"0fvhLbHTAmmp4rpK": {
-								"bonus": "",
-								"critThreshold": "20",
-								"type": "attack",
-								"attackType": "meleeWeaponAttack",
-								"ability": "default"
-							},
-							"BGOrBgjbVnsGxgWj": {
-								"canCrit": true,
-								"damageType": "bludgeoning",
-								"formula": "3d8 + @str.mod",
-								"name": "",
-								"type": "damage"
-							}
-						},
-						"consumers": {}
-					}
-				},
-				"description": "<p>The dragon makes a tail attack. On a successful hit, the target is pushed 10 feet away.</p>",
-				"favorite": true,
-				"secretDescription": "",
-				"source": "",
-				"uses": {
-					"value": null,
-					"max": "",
-					"per": null,
-					"recharge": {
-						"formula": "",
-						"threshold": ""
-					}
-				},
-				"schema": {
-					"version": null,
-					"lastMigration": null
-				},
-				"concentration": false,
-				"featureType": "naturalWeapon",
-				"grants": {},
-				"prerequisite": "",
-				"requiresBloodied": false,
-				"schemaVersion": {
-					"version": 0.013,
-					"lastMigration": {
-						"version": {
-							"schema": 0.011,
-							"foundry": "11.315",
-							"system": "0.16.49"
-						}
-					}
-				}
-			},
-			"ownership": {
-				"default": 0
-			}
-		},
-		{
-			"_id": "LcsncSG0v72AnXoV",
-			"name": "Tail Attack",
-			"type": "feature",
-			"img": "icons/skills/wounds/injury-pain-impaled-hand-blood.webp",
-			"effects": [],
-			"folder": null,
-			"sort": 587500,
-			"flags": {
-				"core": {
-					"sourceId": "Item.M84U0XSfmXtWa9e1"
-				}
-			},
-			"system": {
-				"ac": {
-					"baseFormula": "",
-					"formula": "",
-					"maxDex": 0,
-					"minStr": 0,
-					"mode": 1,
-					"requiresNoShield": false,
-					"requiresUnarmored": false
-				},
-				"actions": {
-					"y2yOsFdovSW8W72j": {
-						"name": "Tail Attack",
-						"activation": {
-							"cost": 1,
-							"type": "reaction",
-							"reactionTrigger": "When a creature the dragon can see within 10 feet hits the dragon with a melee attack, the dragon makes a tail attack against it."
-						},
-						"duration": {
-							"unit": "instantaneous",
-							"value": ""
-						},
-						"ranges": {
-							"e10zFTnUgcFUCsIG": {
-								"range": "Reach: 10ft."
-							}
-						},
-						"area": {
-							"shape": "",
-							"size": "",
-							"placeTemplate": false
-						},
-						"target": {
-							"quantity": 1,
-							"type": "creature"
-						},
-						"rolls": {
-							"N1JDqdDAMa9Tciuq": {
-								"bonus": "",
-								"critThreshold": "20",
-								"type": "attack",
-								"attackType": "meleeWeaponAttack",
-								"ability": "default"
-							},
-							"mzYJ31bSLSyzn3cS": {
-								"canCrit": true,
-								"damageType": "bludgeoning",
-								"formula": "2d8 + @str.mod",
-								"name": "",
-								"type": "damage"
-							}
-						},
-						"consumers": {}
-					}
-				},
-				"description": "<p>When a creature the dragon can see within 10 feet hits the dragon with a melee attack, the dragon makes a tail attack against it.</p>",
-				"favorite": true,
-				"secretDescription": "",
-				"source": "",
-				"uses": {
-					"value": null,
-					"max": "",
-					"per": null,
-					"recharge": {
-						"formula": "",
-						"threshold": ""
-					}
-				},
-				"schema": {
-					"version": null,
-					"lastMigration": null
-				},
-				"concentration": false,
-				"featureType": "naturalWeapon",
-				"grants": {},
-				"prerequisite": "",
-				"requiresBloodied": false,
-				"schemaVersion": {
-					"version": 0.013,
-					"lastMigration": {
-						"version": {
-							"schema": 0.011,
-							"foundry": "11.315",
-							"system": "0.16.49"
-						}
-					}
-				}
-			},
-			"ownership": {
-				"default": 0
-			}
-		},
-		{
-			"_id": "9Rq4BiK8eMSDGF34",
-			"name": "Roar",
-			"type": "feature",
-			"img": "icons/magic/sonic/scream-wail-shout-teal.webp",
-			"effects": [],
-			"folder": null,
-			"sort": 1000000,
-			"flags": {
-				"core": {
-					"sourceId": "Item.91ojLlYW012QzL2y"
-				}
-			},
-			"system": {
-				"ac": {
-					"baseFormula": "",
-					"formula": "",
-					"maxDex": 0,
-					"minStr": 0,
-					"mode": 1,
-					"requiresNoShield": false,
-					"requiresUnarmored": false
-				},
-				"actions": {
-					"O2omT2nqSdpGkVS4": {
-						"name": "Roar",
-						"activation": {
-							"cost": 1,
-							"type": "legendaryAction",
-							"reactionTrigger": ""
-						},
-						"duration": {
-							"unit": "minute",
-							"value": 1
-						},
-						"area": {
-							"shape": "emanation",
-							"size": "120",
-							"placeTemplate": false,
-							"quantity": 1,
-							"radius": 120
-						},
-						"target": {
-							"quantity": 1,
-							"type": ""
-						},
-						"prompts": {
-							"Nh84Z0OnNCRtEoe4": {
-								"ability": "cha",
-								"onSave": "Not frightened.",
-								"saveDC": {
-									"type": "custom",
-									"bonus": "19"
-								},
-								"type": "savingThrow"
-							}
-						},
-						"consumers": {}
-					}
-				},
-				"description": "<p>Each creature of the dragon’s choice within 120 feet that can hear it makes a DC 19 Charisma saving throw. On a failure, it is frightened for 1 minute. A creature repeats the saving throw at the end of its turns, ending the effect on itself on a success. When it succeeds on a saving throw or the effect ends for it, it is immune to Roar for 24 hours.</p>",
-				"favorite": true,
-				"secretDescription": "",
-				"source": "",
-				"uses": {
-					"value": null,
-					"max": "",
-					"per": null,
-					"recharge": {
-						"formula": "",
-						"threshold": ""
-					}
-				},
-				"schema": {
-					"version": null,
-					"lastMigration": null
-				},
-				"concentration": false,
-				"featureType": "other",
-				"grants": {},
-				"prerequisite": "",
-				"requiresBloodied": false,
-				"schemaVersion": {
-					"version": 0.013,
-					"lastMigration": {
-						"version": {
-							"schema": 0.011,
-							"foundry": "11.315",
-							"system": "0.16.49"
-						}
-					}
-				}
-			},
-			"ownership": {
-				"default": 0
-			}
-		},
-		{
-			"_id": "f2FrNF7toyEqWdgY",
-			"name": "Wing Attack",
-			"type": "feature",
-			"img": "icons/svg/item-bag.svg",
-			"effects": [],
-			"folder": null,
-			"sort": 1025000,
-			"flags": {
-				"core": {
-					"sourceId": "Item.kscfGEevngAze5kQ"
-				}
-			},
-			"system": {
-				"ac": {
-					"baseFormula": "",
-					"formula": "",
-					"maxDex": 0,
-					"minStr": 0,
-					"mode": 1,
-					"requiresNoShield": false,
-					"requiresUnarmored": false
-				},
-				"actions": {
-					"uu0I6jANeKVqQRcr": {
-						"name": "Wing Attack",
-						"activation": {
-							"cost": 1,
-							"type": "legendaryAction",
-							"reactionTrigger": ""
-						},
-						"duration": {
-							"unit": "instantaneous",
-							"value": ""
-						},
-						"area": {
-							"shape": "emanation",
-							"size": "15",
-							"placeTemplate": false,
-							"quantity": 1,
-							"radius": 15
-						},
-						"target": {
-							"quantity": 1,
-							"type": ""
-						},
-						"prompts": {
-							"1A6jkxaJxw2bcTg4": {
-								"ability": "dex",
-								"onSave": "Not knocked prone.",
-								"saveDC": {
-									"type": "custom",
-									"bonus": "22"
-								},
-								"type": "savingThrow"
-							}
-						},
-						"consumers": {}
-					}
-				},
-				"description": "<p>The dragon beats its wings. Each creature within 15 feet makes a DC 22 Dexterity saving throw. On a failure, it is pushed 10 feet away and knocked prone. The dragon can then fly up to half its fly speed.</p>",
-				"favorite": true,
-				"secretDescription": "",
-				"source": "",
-				"uses": {
-					"value": null,
-					"max": "",
-					"per": null,
-					"recharge": {
-						"formula": "",
-						"threshold": ""
-					}
-				},
-				"schema": {
-					"version": null,
-					"lastMigration": null
-				},
-				"concentration": false,
-				"featureType": "other",
-				"grants": {},
-				"prerequisite": "",
-				"requiresBloodied": false,
-				"schemaVersion": {
-					"version": 0.013,
-					"lastMigration": {
-						"version": {
-							"schema": 0.011,
-							"foundry": "11.315",
-							"system": "0.16.49"
-						}
-					}
-				}
-			},
-			"ownership": {
-				"default": 0
-			}
-		},
-		{
-			"_id": "eKQSxsTMkr5kZQKQ",
-			"name": "Legendary Actions",
-			"type": "feature",
-			"img": "icons/svg/item-bag.svg",
-			"effects": [],
-			"folder": null,
-			"sort": 581250,
-			"flags": {},
-			"system": {
-				"ac": {
-					"baseFormula": "",
-					"formula": "",
-					"maxDex": 0,
-					"minStr": 0,
-					"mode": 1,
-					"requiresNoShield": false,
-					"requiresUnarmored": false
-				},
-				"actions": {},
-				"description": "<p>The dragon can take 3 legendary actions, choosing from the options below. Only one legendary action can be used at a time and only at the end of another creature's turn. It regains spent legendary actions at the start of its turn.</p><p><strong><em>Honeyed Words.</em></strong> The dragon uses Honeyed Words.</p><p><strong><em>Roar.</em></strong> Each creature of the dragon’s choice within 120 feet that can hear it makes a DC 19 Charisma saving throw. On a failure, it is frightened for 1 minute. A creature repeats the saving throw at the end of its turns, ending the effect on itself on a success. When it succeeds on a saving throw or the effect ends for it, it is immune to Roar for 24 hours.</p><p><strong><em>Wing Attack.</em> </strong>The dragon beats its wings. Each creature within 15 feet makes a DC 22 Dexterity saving throw. On a failure, it is pushed 10 feet away and knocked prone. The dragon can then fly up to half its fly speed.</p>",
-				"favorite": false,
-				"secretDescription": "",
-				"source": "",
-				"uses": {
-					"value": 3,
-					"max": "3",
-					"per": "turn",
-					"recharge": {
-						"formula": "",
-						"threshold": ""
-					}
-				},
-				"schema": {
-					"version": null,
-					"lastMigration": null
-				},
-				"concentration": false,
-				"featureType": "other",
-				"grants": {},
-				"prerequisite": "",
-				"requiresBloodied": false,
-				"schemaVersion": {
-					"version": 0.013,
-					"lastMigration": {
-						"version": {
-							"schema": 0.011,
-							"foundry": "11.315",
-							"system": "0.16.49"
-						}
-					}
-				}
-			},
-			"ownership": {
-				"default": 0
-			}
-		},
-		{
-			"_id": "IhOZBFdxBtGZUkSe",
-			"name": "Spit Poison",
-			"type": "feature",
-			"img": "icons/svg/item-bag.svg",
-			"effects": [],
-			"folder": null,
-			"sort": 550000,
-			"flags": {},
-			"system": {
-				"ac": {
-					"baseFormula": "",
-					"formula": "",
-					"maxDex": 0,
-					"minStr": 0,
-					"mode": 1,
-					"requiresNoShield": false,
-					"requiresUnarmored": false
-				},
-				"actions": {
-					"H5gbUYUOUKgp10nt": {
-						"name": "Spit Poison",
-						"activation": {
-							"cost": 1,
-							"type": "action",
-							"reactionTrigger": ""
-						},
-						"duration": {
-							"unit": "instantaneous",
-							"value": ""
-						},
-						"ranges": {
-							"Lupy6OaIMRAbxfe7": {
-								"range": "medium"
-							}
-						},
-						"area": {
-							"shape": "",
-							"size": "",
-							"placeTemplate": false
-						},
-						"target": {
-							"quantity": 1,
-							"type": "creature"
-						},
-						"rolls": {
-							"FkvrLI4MFv1RVO3A": {
-								"canCrit": false,
-								"damageType": "poison",
-								"formula": "4d10",
-								"name": "",
-								"type": "damage"
-							},
-							"rKFNq9U7mozFXQWs": {
-								"canCrit": false,
-								"damageType": "poison",
-								"formula": "2d10",
-								"name": "Ongoing",
-								"type": "damage"
-							}
-						},
-						"prompts": {
-							"r99IDfSI4WytFveJ": {
-								"ability": "dex",
-								"onSave": "Half damage and not poisioned.",
-								"saveDC": {
-									"type": "custom",
-									"bonus": "22"
-								},
-								"type": "savingThrow"
-							}
-						},
-						"consumers": {}
-					}
-				},
-				"description": "<p>The dragon targets a creature within 60 feet, forcing it to make a DC 22 Dexterity saving throw. The creature takes 22 (4d10) poison damage on a failure or half damage on a success. A creature that fails the save is also poisoned for 1 minute. The creature repeats the saving throw at the end of each of its turns, taking 11 (2d10) poison damage on a failure and ending the effect on a success.</p>",
-				"favorite": true,
-				"secretDescription": "",
-				"source": "",
-				"uses": {
-					"value": null,
-					"max": "",
-					"per": null,
-					"recharge": {
-						"formula": "",
-						"threshold": ""
-					}
-				},
-				"schema": {
-					"version": null,
-					"lastMigration": null
-				},
-				"concentration": false,
-				"featureType": "naturalWeapon",
-				"grants": {},
-				"prerequisite": "",
-				"requiresBloodied": false,
-				"schemaVersion": {
-					"version": 0.013,
-					"lastMigration": {
-						"version": {
-							"schema": 0.011,
-							"foundry": "11.315",
-							"system": "0.16.49"
-						}
-					}
-				}
-			},
-			"ownership": {
-				"default": 0
-			}
-		},
-		{
-			"_id": "TlNdc1pqCOl7xdHS",
-			"name": "Honeyed Words",
-			"type": "feature",
-			"img": "icons/svg/item-bag.svg",
-			"effects": [],
-			"folder": null,
-			"sort": 575000,
-			"flags": {},
-			"system": {
-				"ac": {
-					"baseFormula": "",
-					"formula": "",
-					"maxDex": 0,
-					"minStr": 0,
-					"mode": 1,
-					"requiresNoShield": false,
-					"requiresUnarmored": false
-				},
-				"actions": {
-					"0doLqBe1dssuSRU6": {
-						"name": "Honeyed Words",
-						"activation": {
-							"cost": 1,
-							"type": "action",
-							"reactionTrigger": ""
-						},
-						"duration": {
-							"unit": "instantaneous",
-							"value": ""
-						},
-						"area": {
-							"shape": "sphere",
-							"size": "60",
-							"placeTemplate": false
-						},
-						"target": {
-							"quantity": 1,
-							"type": "creature"
-						},
-						"prompts": {
-							"TcbGDYCpl8urOIPJ": {
-								"ability": "wis",
-								"onSave": "Nothing Happens.",
-								"saveDC": {
-									"type": "custom",
-									"bonus": "19"
-								},
-								"type": "savingThrow"
-							}
-						},
-						"consumers": {}
-					}
-				},
-				"description": "<p>The dragon’s words sow doubt in the minds of those who hear them. One creature within 60 feet who can hear and understand the dragon makes a DC 19 Wisdom saving throw. On a failure, the creature must use its reaction, if available, to make one attack against a creature of the dragon’s choice with whatever weapon it has to do so, moving up to its speed as part of the reaction if necessary. It need not use any special class features (such as Sneak Attack or Divine Smite) when making this attack. If it can’t get in a position to attack the creature, it moves as far as it can toward the target before regaining its senses. A creature immune to being charmed is immune to this ability.</p>",
-				"favorite": true,
-				"secretDescription": "",
-				"source": "",
-				"uses": {
-					"value": null,
-					"max": "",
-					"per": null,
-					"recharge": {
-						"formula": "",
-						"threshold": ""
-					}
-				},
-				"schema": {
-					"version": null,
-					"lastMigration": null
-				},
-				"concentration": false,
-				"featureType": "other",
-				"grants": {},
-				"prerequisite": "",
-				"requiresBloodied": false,
-				"schemaVersion": {
-					"version": 0.013,
-					"lastMigration": {
-						"version": {
-							"schema": 0.011,
-							"foundry": "11.315",
-							"system": "0.16.49"
-						}
-					}
-				}
-			},
-			"ownership": {
-				"default": 0
-			}
-		},
-		{
-			"_id": "Dlu4XIb9I6hi5K8I",
-			"name": "Poison Breath",
-			"type": "feature",
-			"img": "icons/magic/acid/projectile-smoke-glowing.webp",
-			"effects": [],
-			"folder": null,
-			"sort": 562500,
-			"flags": {
-				"core": {
-					"sourceId": "Item.bb0pkgfCH8Rr8RIc"
-				}
-			},
-			"system": {
-				"ac": {
-					"baseFormula": "",
-					"formula": "",
-					"maxDex": 0,
-					"minStr": 0,
-					"mode": 1,
-					"requiresNoShield": false,
-					"requiresUnarmored": false
-				},
-				"actions": {
-					"K2CpiWwUzo5yLjUb": {
-						"name": "Poison Breath",
-						"activation": {
-							"cost": 1,
-							"type": "action",
-							"reactionTrigger": ""
-						},
-						"duration": {
-							"unit": "instantaneous",
-							"value": ""
-						},
-						"ranges": {},
-						"area": {
-							"shape": "cone",
-							"size": "90",
-							"placeTemplate": false,
-							"length": 90
-						},
-						"target": {
-							"quantity": 1,
-							"type": ""
-						},
-						"rolls": {
-							"iGnJGvghMovGzzEK": {
-								"canCrit": false,
-								"damageType": "poison",
-								"formula": "23d6",
-								"name": "",
-								"type": "damage"
-							}
-						},
-						"prompts": {
-							"54DKvSjO20GkkqgK": {
-								"ability": "con",
-								"onSave": "Half damage.",
-								"saveDC": {
-									"type": "custom",
-									"bonus": "22"
-								},
-								"type": "savingThrow"
-							}
-						},
-						"consumers": {
-							"zN9U7VFuXn5xJEDq": {
-								"type": "itemUses",
-								"default": true,
-								"quantity": 1
-							}
-						}
-					}
-				},
-				"description": "<p>The dragon exhales poisonous gas in a 90-foot cone. Each creature in that area makes a DC 22 Constitution saving throw, taking 80 (23d6) poison damage on a failed save or half damage on a success. A creature with immunity to poison damage that fails the save takes no damage, but its poison immunity is reduced to resistance for the next hour.</p>",
-				"favorite": true,
-				"secretDescription": "",
-				"source": "",
-				"uses": {
-					"value": 1,
-					"max": "1",
-					"per": "recharge",
-					"recharge": {
-						"formula": "",
-						"threshold": 5
-					}
-				},
-				"schema": {
-					"version": null,
-					"lastMigration": null
-				},
-				"concentration": false,
-				"featureType": "naturalWeapon",
-				"grants": {},
-				"prerequisite": "",
-				"requiresBloodied": false,
-				"schemaVersion": {
-					"version": 0.013,
-					"lastMigration": {
-						"version": {
-							"schema": 0.011,
-							"foundry": "11.315",
-							"system": "0.16.49"
-						}
-					}
-				}
-			},
-			"ownership": {
-				"default": 0
-			}
-		},
-		{
-			"_id": "HcudkJ6gE27GSpKV",
-			"name": "Honeyed Words",
-			"type": "feature",
-			"img": "icons/svg/item-bag.svg",
-			"effects": [],
-			"folder": null,
-			"sort": 1050000,
-			"flags": {},
-			"system": {
-				"ac": {
-					"baseFormula": "",
-					"formula": "",
-					"maxDex": 0,
-					"minStr": 0,
-					"mode": 1,
-					"requiresNoShield": false,
-					"requiresUnarmored": false
-				},
-				"actions": {
-					"eIenx8Dy50kC6mIe": {
-						"name": "Honeyed Words",
-						"activation": {
-							"cost": 1,
-							"type": "legendaryAction",
-							"reactionTrigger": ""
-						},
-						"duration": {
-							"unit": "instantaneous",
-							"value": ""
-						},
-						"area": {
-							"shape": "",
-							"size": "",
-							"placeTemplate": false
-						},
-						"target": {
-							"quantity": "",
-							"type": ""
-						},
-						"consumers": {}
-					}
-				},
-				"description": "<p>The dragon uses Honeyed Words.</p>",
-				"favorite": false,
-				"secretDescription": "",
-				"source": "",
-				"uses": {
-					"value": null,
-					"max": "",
-					"per": null,
-					"recharge": {
-						"formula": "",
-						"threshold": ""
-					}
-				},
-				"schema": {
-					"version": null,
-					"lastMigration": null
-				},
-				"concentration": false,
-				"featureType": "",
-				"grants": {},
-				"prerequisite": "",
-				"requiresBloodied": false,
-				"schemaVersion": {
-					"version": 0.013,
-					"lastMigration": {
-						"version": {
-							"schema": 0.011,
-							"foundry": "11.315",
-							"system": "0.16.49"
-						}
-					}
-				}
-			},
-			"ownership": {
-				"default": 0
-			}
-		},
-		{
-			"_id": "gd7tO43sm5vdwndy",
-			"name": "Amphibious",
-			"type": "feature",
-			"img": "icons/environment/creatures/frog-spotted-green.webp",
-			"effects": [],
-			"folder": null,
-			"sort": 0,
-			"flags": {},
-			"system": {
-				"ac": {
-					"baseFormula": "",
-					"formula": "",
-					"maxDex": 0,
-					"minStr": 0,
-					"mode": 1,
-					"requiresNoShield": false,
-					"requiresUnarmored": false
-				},
-				"actions": {},
-				"description": "<p>The dragon can breathe air and water.</p>",
-				"favorite": false,
-				"secretDescription": "",
-				"source": "",
-				"uses": {
-					"value": null,
-					"max": "",
-					"per": null,
-					"recharge": {
-						"formula": "",
-						"threshold": ""
-					}
-				},
-				"schema": {
-					"version": null,
-					"lastMigration": null
-				},
-				"concentration": false,
-				"featureType": "",
-				"grants": {},
-				"prerequisite": "",
-				"requiresBloodied": false,
-				"schemaVersion": {
-					"version": 0.013,
-					"lastMigration": {
-						"version": {
-							"schema": 0.011,
-							"foundry": "11.315",
-							"system": "0.16.49"
-						}
-					}
-				}
-			},
-			"ownership": {
-				"default": 0
-			}
-		},
-		{
-			"_id": "1QchRi2wTQjhjoL1",
-			"name": "Woodland Stalker",
-			"type": "feature",
-			"img": "icons/svg/item-bag.svg",
-			"effects": [],
-			"folder": null,
-			"sort": 0,
-			"flags": {},
-			"system": {
-				"ac": {
-					"baseFormula": "",
-					"formula": "",
-					"maxDex": 0,
-					"minStr": 0,
-					"mode": 1,
-					"requiresNoShield": false,
-					"requiresUnarmored": false
-				},
-				"actions": {},
-				"description": "<p>When in a forested area, the dragon has advantage on Stealth checks. Additionally, when it speaks in such a place, it can project its voice such that it seems to come from all around, allowing it to remain hidden while speaking.</p>",
-				"favorite": false,
-				"secretDescription": "",
-				"source": "",
-				"uses": {
-					"value": null,
-					"max": "",
-					"per": null,
-					"recharge": {
-						"formula": "",
-						"threshold": ""
-					}
-				},
-				"schema": {
-					"version": null,
-					"lastMigration": null
-				},
-				"concentration": false,
-				"featureType": "",
-				"grants": {},
-				"prerequisite": "",
-				"requiresBloodied": false,
-				"schemaVersion": {
-					"version": 0.013,
-					"lastMigration": {
-						"version": {
-							"schema": 0.011,
-							"foundry": "11.315",
-							"system": "0.16.49"
-						}
-					}
-				}
-			},
-			"ownership": {
-				"default": 0
-			}
-		},
-		{
-			"_id": "7QLcjJ321qTRS0UL",
-			"name": "Blood Toxicity",
-			"type": "feature",
-			"img": "icons/svg/item-bag.svg",
-			"effects": [],
-			"folder": null,
-			"sort": 0,
-			"flags": {},
-			"system": {
-				"ac": {
-					"baseFormula": "",
-					"formula": "",
-					"maxDex": 0,
-					"minStr": 0,
-					"mode": 1,
-					"requiresNoShield": false,
-					"requiresUnarmored": false
-				},
-				"actions": {
-					"om5xxzoKWmXQJFXF": {
-						"name": "Blood Toxicity (While Bloodied)",
-						"activation": {
-							"cost": "",
-							"type": "special",
-							"reactionTrigger": ""
-						},
-						"duration": {
-							"unit": "permanent",
-							"value": ""
-						},
-						"area": {
-							"shape": "sphere",
-							"size": "10",
-							"placeTemplate": false
-						},
-						"target": {
-							"quantity": 1,
-							"type": "creature"
-						},
-						"rolls": {
-							"N4tOvg2jfdjvh1Yg": {
-								"canCrit": false,
-								"damageType": "poison",
-								"formula": "3d6",
-								"name": "",
-								"type": "damage"
-							}
-						},
-						"prompts": {
-							"Y8Z8RpT2Og6IlE7P": {
-								"ability": "dex",
-								"onSave": "No damange.",
-								"saveDC": {
-									"type": "custom",
-									"bonus": "22"
-								},
-								"type": "savingThrow"
-							}
-						},
-						"consumers": {}
-					}
-				},
-				"description": "<p>The first time each turn a creature hits the dragon with a melee attack while within 10 feet of it, that creature makes a DC 22 Dexterity saving throw, taking 10 (3d6) poison damage on a failure.</p>",
-				"favorite": true,
-				"secretDescription": "",
-				"source": "",
-				"uses": {
-					"value": null,
-					"max": "",
-					"per": null,
-					"recharge": {
-						"formula": "",
-						"threshold": ""
-					}
-				},
-				"schema": {
-					"version": null,
-					"lastMigration": null
-				},
-				"concentration": false,
-				"featureType": "other",
-				"grants": {},
-				"prerequisite": "",
-				"requiresBloodied": true,
-				"schemaVersion": {
-					"version": 0.013,
-					"lastMigration": {
-						"version": {
-							"schema": 0.011,
-							"foundry": "11.315",
-							"system": "0.16.49"
-						}
-					}
-				}
-			},
-			"ownership": {
-				"default": 0
-			}
-		},
-		{
-			"name": "Shove",
-			"type": "maneuver",
-			"img": "icons/skills/melee/shield-block-bash-yellow.webp",
-			"effects": [],
-			"flags": {
-				"core": {
-					"sourceId": "Compendium.a5e.a5e-maneuvers.md35qozzy2fxy2o6"
-				}
-			},
-			"system": {
-				"actions": {
-					"JszepZ9WrHKxvbqJ": {
-						"name": "Shove",
-						"activation": {
-							"cost": 1,
-							"type": "action",
-							"reactionTrigger": ""
-						},
-						"duration": {
-							"unit": "instantaneous",
-							"value": null
-						},
-						"ranges": {
-							"dhOvYNd6tjR0awKk": {
-								"range": "fiveFeet"
-							}
-						},
-						"area": {
-							"shape": "",
-							"size": "",
-							"placeTemplate": false
-						},
-						"target": {
-							"quantity": null,
-							"type": "creature",
-							"shape": "",
-							"size": ""
-						},
-						"rolls": {
-							"OpEW8jXBkhTo5XxR": {
-								"canCrit": false,
-								"damageType": "bludgeoning",
-								"formula": "1 + @str.mod",
-								"name": "Default",
-								"type": "damage"
-							}
-						},
-						"prompts": {
-							"CFcZrmET6DiNRdbr": {
-								"ability": "str",
-								"onSave": "",
-								"saveDC": {
-									"type": "custom",
-									"bonus": "@maneuverDC"
-								},
-								"type": "savingThrow"
-							}
-						},
-						"consumers": {}
-					}
-				},
-				"description": "<p>You can use the Shove maneuver to push a creature away. If you are able to make multiple attacks with the Attack action, this maneuver replaces one of them.</p><p>The target must be within your reach and be no more than one size category larger than you. The target makes a Strength saving throw against your maneuver DC. On a failure, you deal basic melee damage and push the target a number of feet away from you equal to 5 + 5 for every 5 points it failed its saving throw by. You can move the creature in any direction away from you (to the side, forward, or diagonally away).</p><p>A creature that is shoved off of a precipice is propelled off of whatever it is standing on -- it does not receive any saving throw or ability check to grab onto something to avoid falling down below.</p>",
-				"favorite": false,
-				"secretDescription": "",
-				"source": "",
-				"uses": {
-					"value": null,
-					"max": "",
-					"per": null,
-					"recharge": {
-						"formula": "",
-						"threshold": ""
-					}
-				},
-				"schema": {
-					"version": null,
-					"lastMigration": null
-				},
-				"concentration": false,
-				"degree": 0,
-				"exertionCost": 0,
-				"isStance": false,
-				"prerequisite": "",
-				"tradition": "",
-				"schemaVersion": {
-					"version": 0.013,
-					"lastMigration": {
-						"version": {
-							"schema": 0.011,
-							"foundry": "11.315",
-							"system": "0.16.49"
-						}
-					}
-				}
-			},
-			"ownership": {
-				"default": 0
-			},
-			"folder": null,
-			"sort": 0,
-			"_id": "QrHvizL0jeErerCC"
-		},
-		{
-			"name": "Disarm",
-			"type": "maneuver",
-			"img": "icons/skills/melee/sword-damaged-broken-glow-red.webp",
-			"effects": [],
-			"flags": {
-				"core": {
-					"sourceId": "Compendium.a5e.a5e-maneuvers.c0bv7fsy2akld5lp"
-				}
-			},
-			"system": {
-				"actions": {
-					"Rv0lYKVIhYmNJInt": {
-						"name": "Disarm",
-						"activation": {
-							"cost": 1,
-							"type": "action",
-							"reactionTrigger": ""
-						},
-						"duration": {
-							"unit": "instantaneous",
-							"value": null
-						},
-						"ranges": {
-							"Civpv2gfT2mrXcp4": {
-								"range": "touch"
-							}
-						},
-						"area": {
-							"shape": "",
-							"size": "",
-							"placeTemplate": false
-						},
-						"target": {
-							"quantity": "",
-							"type": "creature",
-							"shape": "",
-							"size": ""
-						},
-						"rolls": {
-							"NiMV6kmadPgk66M9": {
-								"canCrit": false,
-								"damageType": "",
-								"formula": "1 + @str.mod",
-								"name": "",
-								"type": "damage"
-							}
-						},
-						"prompts": {
-							"BnNHnW5AplkIgZBJ": {
-								"ability": "str",
-								"onSave": "",
-								"saveDC": {
-									"type": "custom",
-									"bonus": "@maneuverDC"
-								},
-								"type": "savingThrow"
-							}
-						},
-						"consumers": {}
-					}
-				},
-				"description": "<p>You can use the Disarm maneuver to attempt to knock an item or weapon from a creature's hand. If you are able to make multiple attacks with the Attack action, this maneuver replaces one of them.</p><p>The target must be within your reach and be holding an item (either carried or wielded). The target makes a Strength or Dexterity saving throw against your maneuver DC. On a failure, you deal basic melee damage and the target drops the item in its space. The target has advantage if it is larger than you or holding the item with two or more hands, and a target smaller than you has disadvantage.</p>",
-				"favorite": false,
-				"secretDescription": "",
-				"source": "",
-				"uses": {
-					"value": null,
-					"max": "",
-					"per": null,
-					"recharge": {
-						"formula": "",
-						"threshold": ""
-					}
-				},
-				"schema": {
-					"version": null,
-					"lastMigration": null
-				},
-				"concentration": false,
-				"degree": 0,
-				"exertionCost": 0,
-				"isStance": false,
-				"prerequisite": "",
-				"tradition": "",
-				"schemaVersion": {
-					"version": 0.013,
-					"lastMigration": {
-						"version": {
-							"schema": 0.011,
-							"foundry": "11.315",
-							"system": "0.16.49"
-						}
-					}
-				}
-			},
-			"ownership": {
-				"default": 0
-			},
-			"folder": null,
-			"sort": 0,
-			"_id": "EC5NqzKLFYMYxNNo"
-		},
-		{
-			"name": "Grab On",
-			"type": "maneuver",
-			"img": "icons/skills/melee/hand-grip-staff-teal.webp",
-			"effects": [],
-			"flags": {
-				"core": {
-					"sourceId": "Compendium.a5e.a5e-maneuvers.jewmp4pzrg9cdui9"
-				}
-			},
-			"system": {
-				"actions": {
-					"AhKwxNvz4B2tvIYf": {
-						"name": "Grab On",
-						"activation": {
-							"cost": 1,
-							"type": "action",
-							"reactionTrigger": ""
-						},
-						"duration": {
-							"unit": "instantaneous",
-							"value": null
-						},
-						"ranges": {
-							"FPF3BjGspPcSDb6C": {
-								"range": "touch"
-							}
-						},
-						"area": {
-							"shape": "",
-							"size": "",
-							"placeTemplate": false
-						},
-						"target": {
-							"quantity": "",
-							"type": "creature",
-							"shape": "",
-							"size": ""
-						},
-						"prompts": {
-							"LJSgHnl5BGr3HK2y": {
-								"ability": "str",
-								"onSave": "",
-								"saveDC": {
-									"type": "custom",
-									"bonus": "@maneuverDC"
-								},
-								"type": "savingThrow"
-							}
-						},
-						"consumers": {}
-					}
-				},
-				"description": "<p>While you cannot grapple a creature two or more size categories larger than you, you can grab onto it. By jumping onto its back or climbing up a limb, you can make a Strength or Dexterity saving throw against the creature's maneuver DC to cling to or balance upon its body. On a success, you move into the creature's space and can move upon its body as if it is difficult terrain.</p><p>While grabbing onto a larger creature, you gain advantage on attack rolls against it. The larger creature may be able to attack you as normal, depending on its limbs or attacks. It can also use an action or replace one of its attacks on its turn to try to dislodge you, such as shaking you loose or bashing you against a wall, forcing you to make a Strength or Dexterity saving throw against its maneuver DC or fall prone into the nearest space adjacent to the creature, taking its basic melee damage in the process.</p><p>If the creature chooses to roll over in order to dislodge you, it becomes prone, but you have disadvantage on the saving throw to hang on.</p>",
-				"favorite": false,
-				"secretDescription": "",
-				"source": "",
-				"uses": {
-					"value": null,
-					"max": "",
-					"per": null,
-					"recharge": {
-						"formula": "",
-						"threshold": ""
-					}
-				},
-				"schema": {
-					"version": null,
-					"lastMigration": null
-				},
-				"concentration": false,
-				"degree": 0,
-				"exertionCost": 0,
-				"isStance": false,
-				"prerequisite": "",
-				"tradition": "",
-				"schemaVersion": {
-					"version": 0.013,
-					"lastMigration": {
-						"version": {
-							"schema": 0.011,
-							"foundry": "11.315",
-							"system": "0.16.49"
-						}
-					}
-				}
-			},
-			"ownership": {
-				"default": 0
-			},
-			"folder": null,
-			"sort": 0,
-			"_id": "9FyVEPNHNcsPL5Xg"
-		},
-		{
-			"name": "Knockdown",
-			"type": "maneuver",
-			"img": "icons/magic/control/silhouette-fall-slip-prone.webp",
-			"effects": [],
-			"flags": {
-				"core": {
-					"sourceId": "Compendium.a5e.a5e-maneuvers.zzg7j7cb0vkgctwi"
-				}
-			},
-			"system": {
-				"actions": {
-					"GcH6yrQIDbRXZpUU": {
-						"name": "Knockdown",
-						"activation": {
-							"cost": 1,
-							"type": "action",
-							"reactionTrigger": ""
-						},
-						"duration": {
-							"unit": "instantaneous",
-							"value": null
-						},
-						"ranges": {
-							"5vUWxrNOe79ekGlU": {
-								"range": "touch"
-							}
-						},
-						"area": {
-							"shape": "",
-							"size": "",
-							"placeTemplate": false
-						},
-						"target": {
-							"quantity": "",
-							"type": "creature",
-							"shape": "",
-							"size": ""
-						},
-						"prompts": {
-							"lKDzf9MKimIbK7ys": {
-								"ability": "str",
-								"onSave": "",
-								"saveDC": {
-									"type": "custom",
-									"bonus": "@maneuverDC"
-								},
-								"type": "savingThrow"
-							}
-						},
-						"consumers": {}
-					}
-				},
-				"description": "<p>You can use the Knockdown maneuver to trip or push a creature down. If you are able to make multiple attacks with the Attack action, this maneuver replaces one of them.</p><p>The target must be within your reach and be no more than one size category larger than you. The target makes a Strength saving throw against your maneuver DC. On a failure, you deal basic melee damage and knock the target prone.</p>",
-				"favorite": false,
-				"secretDescription": "",
-				"source": "",
-				"uses": {
-					"value": null,
-					"max": "",
-					"per": null,
-					"recharge": {
-						"formula": "",
-						"threshold": ""
-					}
-				},
-				"schema": {
-					"version": null,
-					"lastMigration": null
-				},
-				"concentration": false,
-				"degree": 0,
-				"exertionCost": 0,
-				"isStance": false,
-				"prerequisite": "",
-				"tradition": "",
-				"schemaVersion": {
-					"version": 0.013,
-					"lastMigration": {
-						"version": {
-							"schema": 0.011,
-							"foundry": "11.315",
-							"system": "0.16.49"
-						}
-					}
-				}
-			},
-			"ownership": {
-				"default": 0
-			},
-			"folder": null,
-			"sort": 0,
-			"_id": "nNdgdSyNxlwcCTkd"
-		},
-		{
-			"name": "Grapple",
-			"type": "maneuver",
-			"img": "icons/skills/melee/unarmed-punch-fist.webp",
-			"effects": [],
-			"flags": {
-				"core": {
-					"sourceId": "Compendium.a5e.a5e-maneuvers.9umrahwm68f81d7l"
-				}
-			},
-			"system": {
-				"actions": {
-					"gSnwYoeSQ8TTxQtF": {
-						"name": "Grapple",
-						"activation": {
-							"cost": 1,
-							"type": "action",
-							"reactionTrigger": ""
-						},
-						"duration": {
-							"unit": "instantaneous",
-							"value": null
-						},
-						"ranges": {
-							"mxgaVf3VGrRdTzmf": {
-								"range": "touch"
-							}
-						},
-						"area": {
-							"shape": "",
-							"size": "",
-							"placeTemplate": false
-						},
-						"target": {
-							"quantity": "",
-							"type": "creature",
-							"shape": "",
-							"size": ""
-						},
-						"prompts": {
-							"VStgKwzdngoIQYKj": {
-								"ability": "str",
-								"onSave": "",
-								"saveDC": {
-									"type": "custom",
-									"bonus": "@maneuverDC"
-								},
-								"type": "savingThrow"
-							}
-						},
-						"consumers": {}
-					}
-				},
-				"description": "<p>You can use the Grapple maneuver to grab or wrestle a creature. If you are able to make multiple attacks with the Attack action, this maneuver replaces one of them.</p>\n<p>You must have at least one free hand to attempt a grapple, your target must be within your reach, and the target must be no more than one size category larger than you. The target makes a Strength or Dexterity saving throw against your maneuver DC. On a failure, you deal basic melee damage and the target becomes grappled (see Appendix A: Conditions on page 616). In addition to things that end the condition, you can release the target at any time (no action required).</p>\n<p><em>Escaping a Grapple.</em> While grappled, a creature can use its action to attempt to escape. It must succeed on a Strength or Dexterity saving throw against your maneuver DC.</p>\n<p><em>Moving a Grappled Creature. </em>When you move, you can drag or carry the grappled creature with you. When you do so, your Speed is halved, unless the creature's weight is within your carrying capacity and you are not encumbered by bulky items.</p>\n<p><em>Freeing a Grappled Creature.</em> You can use the Grapple maneuver to try to free another grappled or restrained creature. The creature grappling or restraining the target makes a Strength saving throw against your maneuver DC. If it fails the saving throw, the grappled or restrained creature is freed. Additionally, you may move the freed creature 5 feet in any direction.</p>",
-				"favorite": false,
-				"secretDescription": "",
-				"source": "",
-				"uses": {
-					"value": null,
-					"max": "",
-					"per": null,
-					"recharge": {
-						"formula": "",
-						"threshold": ""
-					}
-				},
-				"schema": {
-					"version": null,
-					"lastMigration": null
-				},
-				"concentration": false,
-				"degree": 0,
-				"exertionCost": 0,
-				"isStance": false,
-				"prerequisite": "",
-				"tradition": "",
-				"schemaVersion": {
-					"version": 0.013,
-					"lastMigration": {
-						"version": {
-							"schema": 0.011,
-							"foundry": "11.315",
-							"system": "0.16.49"
-						}
-					}
-				}
-			},
-			"ownership": {
-				"default": 0
-			},
-			"folder": null,
-			"sort": 0,
-			"_id": "grE1qrrAXSanCrPb"
-		},
-		{
-			"name": "Overrun",
-			"type": "maneuver",
-			"img": "icons/skills/melee/shield-damaged-broken-blue.webp",
-			"effects": [],
-			"flags": {
-				"core": {
-					"sourceId": "Compendium.a5e.a5e-maneuvers.210ihnnejao46r20"
-				}
-			},
-			"system": {
-				"actions": {
-					"WJh7cSl7InilELw9": {
-						"name": "Overrun",
-						"activation": {
-							"cost": 1,
-							"type": "special",
-							"reactionTrigger": ""
-						},
-						"duration": {
-							"unit": "instantaneous",
-							"value": null
-						},
-						"ranges": {
-							"a63v1FDMz3ILECZM": {
-								"range": "touch"
-							}
-						},
-						"area": {
-							"shape": "",
-							"size": "",
-							"placeTemplate": false
-						},
-						"target": {
-							"quantity": "",
-							"type": "creature",
-							"shape": "",
-							"size": ""
-						},
-						"prompts": {
-							"K0t35en6EG5CpoZB": {
-								"ability": "str",
-								"onSave": "",
-								"saveDC": {
-									"type": "custom",
-									"bonus": "@maneuverDC"
-								},
-								"type": "savingThrow"
-							}
-						},
-						"consumers": {}
-					}
-				},
-				"description": "<p>You can use an action or bonus action to make an Overrun maneuver to move through a hostile creature's space by forcing your way past. Make a Strength saving throw against the target's maneuver DC. On a success, you deal basic melee damage and can move through the hostile creature's space once this turn. The creature can choose to just let you pass instead of rolling. You have advantage if you are larger than the target, or disadvantage if you are smaller. If you are two or more sizes smaller than the target, you can move through the hostile creature's space without making a save. You still provoke opportunity attacks if you move beyond a creature's reach.</p>",
-				"favorite": false,
-				"secretDescription": "",
-				"source": "",
-				"uses": {
-					"value": null,
-					"max": "",
-					"per": null,
-					"recharge": {
-						"formula": "",
-						"threshold": ""
-					}
-				},
-				"schema": {
-					"version": null,
-					"lastMigration": null
-				},
-				"concentration": false,
-				"degree": 0,
-				"exertionCost": 0,
-				"isStance": false,
-				"prerequisite": "",
-				"tradition": "",
-				"schemaVersion": {
-					"version": 0.013,
-					"lastMigration": {
-						"version": {
-							"schema": 0.011,
-							"foundry": "11.315",
-							"system": "0.16.49"
-						}
-					}
-				}
-			},
-			"ownership": {
-				"default": 0
-			},
-			"folder": null,
-			"sort": 0,
-			"_id": "xvandDl7KIsSDQUY"
-		}
-	],
-	"effects": [],
-	"flags": {
-		"a5e": {
-			"availableSpellLevels": [
-				"0",
-				"1",
-				"2",
-				"3",
-				"4",
-				"5",
-				"6",
-				"7",
-				"8",
-				"9"
-			],
-			"showSpellSlots": false,
-			"showSpellPoints": false,
-			"sheetIsLocked": false
-		}
-	},
-	"system": {
-		"abilities": {
-			"str": {
-				"value": 26,
-				"check": {
-					"expertiseDice": 0,
-					"bonus": ""
-				},
-				"save": {
-					"proficient": false,
-					"expertiseDice": 0,
-					"bonus": ""
-				}
-			},
-			"dex": {
-				"value": 12,
-				"check": {
-					"expertiseDice": 0,
-					"bonus": ""
-				},
-				"save": {
-					"proficient": true,
-					"expertiseDice": 0,
-					"bonus": ""
-				}
-			},
-			"con": {
-				"value": 24,
-				"check": {
-					"expertiseDice": 0,
-					"bonus": ""
-				},
-				"save": {
-					"proficient": true,
-					"expertiseDice": 0,
-					"bonus": ""
-				}
-			},
-			"int": {
-				"value": 20,
-				"check": {
-					"expertiseDice": 0,
-					"bonus": ""
-				},
-				"save": {
-					"proficient": false,
-					"expertiseDice": 0,
-					"bonus": ""
-				}
-			},
-			"wis": {
-				"value": 16,
-				"check": {
-					"expertiseDice": 0,
-					"bonus": ""
-				},
-				"save": {
-					"proficient": true,
-					"expertiseDice": 0,
-					"bonus": ""
-				}
-			},
-			"cha": {
-				"value": 18,
-				"check": {
-					"expertiseDice": 0,
-					"bonus": ""
-				},
-				"save": {
-					"proficient": true,
-					"expertiseDice": 0,
-					"bonus": ""
-				}
-			}
-		},
-		"schemaVersion": {
-			"version": 0.013,
-			"lastMigration": {
-				"version": {
-					"schema": 0.011,
-					"foundry": "11.315",
-					"system": "0.16.49"
-				}
-			}
-		},
-		"skills": {
-			"acr": {
-				"ability": "dex",
-				"proficient": false,
-				"specialties": [],
-				"expertiseDice": 0,
-				"minRoll": 1,
-				"bonuses": {
-					"check": "",
-					"passive": 0
-				}
-			},
-			"ani": {
-				"ability": "wis",
-				"proficient": false,
-				"specialties": [],
-				"expertiseDice": 0,
-				"minRoll": 1,
-				"bonuses": {
-					"check": "",
-					"passive": 0
-				}
-			},
-			"arc": {
-				"ability": "int",
-				"proficient": false,
-				"specialties": [],
-				"expertiseDice": 0,
-				"minRoll": 1,
-				"bonuses": {
-					"check": "",
-					"passive": 0
-				}
-			},
-			"ath": {
-				"ability": "str",
-				"proficient": false,
-				"specialties": [],
-				"expertiseDice": 0,
-				"minRoll": 1,
-				"bonuses": {
-					"check": "",
-					"passive": 0
-				}
-			},
-			"cul": {
-				"ability": "int",
-				"proficient": false,
-				"specialties": [],
-				"expertiseDice": 0,
-				"minRoll": 1,
-				"bonuses": {
-					"check": "",
-					"passive": 0
-				}
-			},
-			"dec": {
-				"ability": "cha",
-				"proficient": true,
-				"specialties": [],
-				"expertiseDice": 2,
-				"minRoll": 1,
-				"bonuses": {
-					"check": "",
-					"passive": 0
-				}
-			},
-			"eng": {
-				"ability": "int",
-				"proficient": false,
-				"specialties": [],
-				"expertiseDice": 0,
-				"minRoll": 1,
-				"bonuses": {
-					"check": "",
-					"passive": 0
-				}
-			},
-			"his": {
-				"ability": "int",
-				"proficient": false,
-				"specialties": [],
-				"expertiseDice": 0,
-				"minRoll": 1,
-				"bonuses": {
-					"check": "",
-					"passive": 0
-				}
-			},
-			"ins": {
-				"ability": "wis",
-				"proficient": true,
-				"specialties": [],
-				"expertiseDice": 0,
-				"minRoll": 1,
-				"bonuses": {
-					"check": "",
-					"passive": 0
-				}
-			},
-			"itm": {
-				"ability": "cha",
-				"proficient": false,
-				"specialties": [],
-				"expertiseDice": 0,
-				"minRoll": 1,
-				"bonuses": {
-					"check": "",
-					"passive": 0
-				}
-			},
-			"inv": {
-				"ability": "int",
-				"proficient": false,
-				"specialties": [],
-				"expertiseDice": 0,
-				"minRoll": 1,
-				"bonuses": {
-					"check": "",
-					"passive": 0
-				}
-			},
-			"med": {
-				"ability": "wis",
-				"proficient": false,
-				"specialties": [],
-				"expertiseDice": 0,
-				"minRoll": 1,
-				"bonuses": {
-					"check": "",
-					"passive": 0
-				}
-			},
-			"nat": {
-				"ability": "int",
-				"proficient": false,
-				"specialties": [],
-				"expertiseDice": 0,
-				"minRoll": 1,
-				"bonuses": {
-					"check": "",
-					"passive": 0
-				}
-			},
-			"prc": {
-				"ability": "wis",
-				"proficient": true,
-				"specialties": [],
-				"expertiseDice": 2,
-				"minRoll": 1,
-				"bonuses": {
-					"check": "",
-					"passive": 0
-				}
-			},
-			"prf": {
-				"ability": "cha",
-				"proficient": false,
-				"specialties": [],
-				"expertiseDice": 0,
-				"minRoll": 1,
-				"bonuses": {
-					"check": "",
-					"passive": 0
-				}
-			},
-			"per": {
-				"ability": "cha",
-				"proficient": true,
-				"specialties": [],
-				"expertiseDice": 0,
-				"minRoll": 1,
-				"bonuses": {
-					"check": "",
-					"passive": 0
-				}
-			},
-			"rel": {
-				"ability": "int",
-				"proficient": false,
-				"specialties": [],
-				"expertiseDice": 0,
-				"minRoll": 1,
-				"bonuses": {
-					"check": "",
-					"passive": 0
-				}
-			},
-			"slt": {
-				"ability": "dex",
-				"proficient": false,
-				"specialties": [],
-				"expertiseDice": 0,
-				"minRoll": 1,
-				"bonuses": {
-					"check": "",
-					"passive": 0
-				}
-			},
-			"ste": {
-				"ability": "dex",
-				"proficient": true,
-				"specialties": [],
-				"expertiseDice": 0,
-				"minRoll": 1,
-				"bonuses": {
-					"check": "",
-					"passive": 0
-				}
-			},
-			"sur": {
-				"ability": "wis",
-				"proficient": true,
-				"specialties": [],
-				"expertiseDice": 0,
-				"minRoll": 1,
-				"bonuses": {
-					"check": "",
-					"passive": 0
-				}
-			}
-		},
-		"spellResources": {
-			"slots": {
-				"1": {
-					"current": 0,
-					"max": 0
-				},
-				"2": {
-					"current": 0,
-					"max": 0
-				},
-				"3": {
-					"current": 0,
-					"max": 0
-				},
-				"4": {
-					"current": 0,
-					"max": 0
-				},
-				"5": {
-					"current": 0,
-					"max": 0
-				},
-				"6": {
-					"current": 0,
-					"max": 0
-				},
-				"7": {
-					"current": 0,
-					"max": 0
-				},
-				"8": {
-					"current": 0,
-					"max": 0
-				},
-				"9": {
-					"current": 0,
-					"max": 0
-				}
-			},
-			"points": {
-				"current": 0,
-				"max": 0
-			}
-		},
-		"attributes": {
-			"ac": {
-				"baseFormula": "21",
-				"value": 0
-			},
-			"death": {
-				"success": 0,
-				"failure": 0
-			},
-			"hp": {
-				"value": 420,
-				"baseMax": 420,
-				"temp": 0,
-				"bonus": 0
-			},
-			"hitDice": {
-				"d6": {
-					"current": 0,
-					"total": 0
-				},
-				"d8": {
-					"current": 0,
-					"total": 0
-				},
-				"d10": {
-					"current": 0,
-					"total": 0
-				},
-				"d12": {
-					"current": 0,
-					"total": 0
-				},
-				"d4": {
-					"current": 0,
-					"total": 0
-				},
-				"d20": {
-					"current": 0,
-					"total": 0
-				}
-			},
-			"initiative": {
-				"ability": "dex",
-				"bonus": "",
-				"expertiseDice": 0
-			},
-			"movement": {
-				"burrow": {
-					"distance": 0,
-					"unit": "feet"
-				},
-				"climb": {
-					"distance": 0,
-					"unit": "feet"
-				},
-				"fly": {
-					"distance": 80,
-					"unit": "feet"
-				},
-				"swim": {
-					"distance": 40,
-					"unit": "feet"
-				},
-				"walk": {
-					"distance": 40,
-					"unit": "feet"
-				},
-				"traits": {
-					"hover": false
-				}
-			},
-			"senses": {
-				"blindsight": {
-					"distance": 60,
-					"unit": "feet",
-					"otherwiseBlind": false
-				},
-				"darkvision": {
-					"distance": 120,
-					"unit": "feet"
-				},
-				"tremorsense": {
-					"distance": null,
-					"unit": "feet"
-				},
-				"truesight": {
-					"distance": null,
-					"unit": "feet"
-				}
-			},
-			"inspiration": false,
-			"fatigue": 0,
-			"strife": 0,
-			"spellcasting": "cha",
-			"casterLevel": 0
-		},
-		"bonuses": {
-			"maneuverDC": "",
-			"meleeSpellAttack": "",
-			"meleeWeaponAttack": "",
-			"rangedSpellAttack": "",
-			"rangedWeaponAttack": "",
-			"spellDC": "",
-			"abilities": {},
-			"damage": {},
-			"healing": {},
-			"skills": {},
-			"attacks": {},
-			"initiative": {},
-			"movement": {},
-			"senses": {}
-		},
-		"currency": {
-			"pp": 0,
-			"gp": 0,
-			"ep": 0,
-			"sp": 0,
-			"cp": 0
-		},
-		"details": {
-			"bio": "<h2>Combat</h2><p>While individual dragons have their own personalities and tactics, most rely heavily on their breath weapons. They use them whenever they can, preferably from maximum distance and while flying above their enemies.&nbsp;</p><p>When fighting in the open, dragons often circle above their enemies as they wait for their breath weapons to recharge. They only close to melee if their enemies deal significant damage with ranged attacks, or if they can savage an enemy cut off from its allies. Once bloodied, dragons become more aggressive, attacking with bite and claws when their breath weapons aren’t available.</p><p>If a dragon is protecting its lair, it utilizes lair features, traps, allies, and architecture such as escape tunnels to keep up a hit-and-run fight, reappearing only when it has a fully-recharged breath weapon. If the dragon is forced into melee combat, it uses its bite and claws against a single foe. If it has legendary actions like Roar and Wing Attack, it uses them to disperse its other enemies.</p><p>If reduced to less than one-fourth its hit points while fighting in the open, a dragon flies away. However, it fights to the death to defend its lair, unless it can regain the upper hand through tricks or bargains.</p><hr class=\"a5e-rule u-my-md\"><h2>Green Dragon Lair Features</h2><p>The save DC for the following effects is 13 + the dragon’s proficiency bonus. Choose or roll one or more of the following lair features:</p><p>1 Lingering toxic fumes suffocate intruders. A bloodied creature in the lair makes a Constitution saving throw at the start of each of its turns. On a failure, it has disadvantage on attack rolls until the start of its next turn. On a success, it is immune to this effect for 24 hours.</p><p>2 Bloated corpses litter the lair. If a creature disturbs or enters the space of one of these corpses, the corpse erupts with poisonous gas. Creatures within 10 feet of the body make a Constitution saving throw, taking 13 (4d6) poison damage on a failure.</p><p>3 Pools of poison are scattered throughout the lair. If the dragon is within 10 feet of a pool, it can use a legendary action to drink from it, at which point it can immediately roll to recharge its breath weapon. It can’t do so again until the end of its next turn.</p><p>4 The dragon can use Spit Poison on the ceiling of its lair. When it does, the poison reacts with minerals in the rock and creates a green gas that fills a 40-foot-radius cylinder. The area is heavily obscured to creatures other than the dragon. The gas lasts for 1 minute or until dispersed by a strong wind.</p><hr class=\"a5e-rule u-my-md\"><h2>Names</h2><p>Arkenox, Blightbane, Greengall, Honeytongue, Malice, Sirivistra</p><hr class=\"a5e-rule u-my-md\"><h2>Legends and Lore</h2><p>With a History or Nature check, characters can learn the following:</p><p><strong>DC 10</strong> Green dragons breathe poison gas.</p><p><strong>DC 15</strong> Most green dragons are cunning liars that can charm you with their gaze and their deceptive words.</p><p><strong>DC 20</strong> Many green dragons have networks of spies and are secret political players.</p><hr class=\"a5e-rule u-my-md\"><h2>Description</h2><p>Green dragons enjoy a reputation as cunning schemers who relish twisting the minds of their prey. Green dragons rarely attack without warning: they enjoy combat more when it’s preceded by the frisson of deceit and fear.</p><p><strong><em>Beguiling Words</em>.</strong> Conversing with a green dragon is a mistake. Many find the dragon’s words, an artful mixt of lies and half-truths, nearly irresistible. A creature charmed by a green dragon may reveal closely-held secrets and betray friendships. If a creature appears useful, the dragon will let it go, but the creature’s behavior may be influenced by the dragon’s subtle prompts long after its escape.</p><p><strong><em>Prisoners and Minions</em>. </strong>Most green dragons collect interesting prisoners: minstrels to soothe it, nobles to charm and subvert, and knights and warriors to torment with terror and lies. A green dragon values its stable of prisoners almost as much as its actual treasure hoard.&nbsp;</p><p>Only slightly less precious than its prisoners are the dragon’s many minions: the kobolds and other monsters that guard its lair, the forest creatures that report to it, and the agents throughout the world that are bound to it by charms, bribes, or threats.</p><p><strong><em>Playing Politics.</em></strong> Unlike most chromatic dragons, green dragons are intensely interested in humanoid politics. Many a mysterious assassination was funded with wealth from a green dragon’s hoard. Green dragons sometimes even orchestrate conflicts between two rival factions, favoring the side that it believes to be the most venal and destructive.</p><p><strong><em>Enemies of Civilization</em>.</strong> A green dragon finds cruel amusement in its schemes, but in the long term its meddling has a more sinister purpose: by sowing discord among the humanoids that rule more settled lands, the dragon weakens those who might stand against a draconic conqueror.</p><hr class=\"a5e-rule u-my-md\"><h2>Behavior</h2><p>1 Receiving a report from one of its spies</p><p>2 Will pay for specific (but seemingly harmless) information about a human leader</p><p>3 Knows about your mission and can help, for a price</p><p>4 Returning to its lair with prisoners</p><p>5 Fascinating a local commoner or warrior; hasn’t decided whether to eat it or send it home full of lies</p><p>6 Hiding in ambush among emerald-green foliage</p><p>7 Sleeping in its lair, guarded by minions</p><p>8 Patrolling overhead</p><hr class=\"a5e-rule u-my-md\"><h2>Signs</h2><p>1 A low-hanging, greenish fog with an acrid smell</p><p>2 Close-growing, vine-draped trees make travel nearly impossible except on winding paths</p><p>3 Rodents and birds seem to watch you</p><p>4 A treetop village of strange-acting elves: enchanted servants of the dragon</p><p>5 A rift opens and releases a 100-foot-tall plume of poison gas</p><p>6 A clearing containing recently-killed animals such as deer or birds. The cause of death is not apparent. DC 19 Medicine check: killed by poison</p><hr class=\"a5e-rule u-my-md\"><h2>Encounters</h2><p>Green dragons live in forests and jungles. For miles around their lairs, greenery is lush, thorny, and poisonous.</p><p><strong>CR 3–4</strong> green dragon wyrmling; green dragon wyrmling with 1d4 kobolds</p><p><strong>Treasure</strong> 300 gp, 900 ep, 2 jade dragon statues (60 gp each), a concealed bronze key, 2 <em>potions of healing</em>, <em>ring of mind shielding</em></p><p><strong>CR 5–10</strong> young green dragon; green dragon wyrmling with 2 ogres or swarm of poisonous snakes</p><p><strong>Treasure</strong> 1,000 gp, 1,000 ep, 3,000 sp, silver and emerald necklace (250 gp), masterwork lute (250 gp), <em>dust of sneezing and choking</em>, <em>necklace of fireballs</em>, <em>dagger of venom</em></p><p><strong>CR 11–16</strong> young green dragon with corrupted unicorn (see unicorn), shambling mound, or troll; young green dragon with 1d4 dragonbound warriors (see warrior) or giant spiders</p><p><strong>Treasure</strong> 3,000 gp, 12 signet rings from noble families (50 gp each) strung on a chain, magic pool that acts as a <em>crystal ball</em> but can’t be moved, <em>+2 breastplate</em>, <em>dimensional shackles</em></p><p><strong>CR 17–22</strong> adult green dragon; adult green dragon with green dragon wyrmling</p><p><strong>Treasure</strong> 300 pp, 8,500 gp, 5 emeralds (500 gp each), 3 <em>potions of supreme healing</em>, <em>staff of striking</em></p><p><strong>CR 23–30</strong> ancient green dragon; ancient green dragon with 1 or 2 dragon cultists and 1d6 + 2 dragonbound warriors (see warrior); adult green dragon with green hag and 1d6 + 6 dragonbound warriors, goblins, or kobolds</p><p><strong>Treasure</strong> 2,000 pp, 25,000 gp, 2 bejeweled and poisoned gold goblets (2,500 gp each), dozens of letters incriminating the local nobility, 3 <em>potions of flying</em>, <em>crystal ball</em>, <em>ring of invisibility</em></p><p><strong>CR 31+</strong> 2 ancient green dragons; 2 ancient green dragons with fire elemental and mage; green great wyrm</p><p><strong>Treasure</strong> 6,000 pp, 80,000 gp, 10 diamonds (5,000 gp each), one piece of a magic artifact, <em>ring of invisibility</em>, <em>rod of lordly might</em></p><hr class=\"a5e-rule u-my-md\"><h2>Monster Type Description</h2><p>Dragons include red and gold dragons, which are huge reptilian fire-breathers that number among the world’s most dangerous monsters. This type includes white dragons, which breathe killing frost, as well as smaller reptilian creatures related to true dragons, such as pseudodragons.&nbsp;</p>",
-			"creatureTypes": [
-				"dragon"
-			],
-			"isSwarm": false,
-			"cr": 24,
-			"elite": false,
-			"privateNotes": "",
-			"notes": "",
-			"terrain": []
-		},
-		"proficiencies": {
-			"armor": [],
-			"languages": [
-				"common",
-				"draconic",
-				"three more"
-			],
-			"tools": [],
-			"weapons": []
-		},
-		"resources": {
-			"primary": {
-				"label": "",
-				"value": 0,
-				"max": "0",
-				"per": "",
-				"hideMax": false,
-				"recharge": {
-					"formula": "",
-					"threshold": 6
-				}
-			},
-			"secondary": {
-				"label": "",
-				"value": 0,
-				"max": "0",
-				"per": "",
-				"hideMax": false,
-				"recharge": {
-					"formula": "",
-					"threshold": 6
-				}
-			},
-			"tertiary": {
-				"label": "",
-				"value": 0,
-				"max": "0",
-				"per": "",
-				"hideMax": false,
-				"recharge": {
-					"formula": "",
-					"threshold": 6
-				}
-			},
-			"quaternary": {
-				"label": "",
-				"value": 0,
-				"max": "0",
-				"per": "",
-				"hideMax": false,
-				"recharge": {
-					"formula": "",
-					"threshold": 6
-				}
-			}
-		},
-		"source": "monstrousMenagerie",
-		"traits": {
-			"size": "grg",
-			"conditionImmunities": [
-				"poisoned"
-			],
-			"damageImmunities": [
-				"poison"
-			],
-			"damageResistances": [],
-			"damageVulnerabilities": []
-		},
-		"grants": {}
-	},
-	"prototypeToken": {
-		"name": "Ancient Green Dragon",
-		"displayName": 30,
-		"actorLink": false,
-		"width": 4,
-		"height": 4,
-		"lockRotation": false,
-		"rotation": 0,
-		"alpha": 1,
-		"light": {
-			"alpha": 0.5,
-			"angle": 360,
-			"bright": 0,
-			"coloration": 1,
-			"dim": 0,
-			"luminosity": 0.5,
-			"saturation": 0,
-			"contrast": 0,
-			"shadows": 0,
-			"animation": {
-				"speed": 5,
-				"intensity": 5,
-				"reverse": false,
-				"type": null
-			},
-			"darkness": {
-				"min": 0,
-				"max": 1
-			},
-			"color": null,
-			"attenuation": 0.5
-		},
-		"disposition": -1,
-		"displayBars": 30,
-		"bar1": {
-			"attribute": "attributes.hp"
-		},
-		"bar2": {
-			"attribute": null
-		},
-		"flags": {},
-		"randomImg": false,
-		"texture": {
-			"src": "systems/a5e/assets/green-dragon.webp",
-			"tint": "#ffffff",
-			"scaleX": 1,
-			"scaleY": 1,
-			"offsetX": 0,
-			"offsetY": 0,
-			"rotation": 0
-		},
-		"sight": {
-			"angle": 360,
-			"enabled": true,
-			"range": 0,
-			"brightness": 1,
-			"color": null,
-			"attenuation": 0.1,
-			"saturation": 0,
-			"contrast": 0,
-			"visionMode": "basic"
-		},
-		"detectionModes": [],
-		"appendNumber": false,
-		"prependAdjective": false
-	},
-	"folder": null,
-	"_id": "jguwyf387ksigiz1"
+  "name": "Ancient Green Dragon",
+  "type": "npc",
+  "img": "systems/a5e/assets/green-dragon.webp",
+  "items": [
+    {
+      "_id": "6Y1N4HAnCmpDkl3K",
+      "name": "Legendary Resistance",
+      "type": "feature",
+      "img": "icons/svg/item-bag.svg",
+      "effects": [],
+      "folder": null,
+      "sort": 100000,
+      "flags": {},
+      "system": {
+        "ac": {
+          "baseFormula": "",
+          "formula": "",
+          "maxDex": 0,
+          "minStr": 0,
+          "mode": 1,
+          "requiresNoShield": false,
+          "requiresUnarmored": false
+        },
+        "actions": {},
+        "description": "<p>When the dragon fails a saving throw, it can choose to succeed instead. When it does, it sheds some of its scales, which turn into dry leaves and blow away. If it has no more uses of this ability, its Armor Class is reduced to <strong>19</strong> until it finishes a long rest.</p>",
+        "favorite": false,
+        "secretDescription": "",
+        "source": "",
+        "uses": {
+          "value": 3,
+          "max": "3",
+          "per": "day",
+          "recharge": {
+            "formula": "",
+            "threshold": ""
+          }
+        },
+        "schema": {
+          "version": null,
+          "lastMigration": null
+        },
+        "concentration": false,
+        "featureType": "",
+        "grants": {},
+        "prerequisite": "",
+        "requiresBloodied": false,
+        "schemaVersion": {
+          "version": 0.013,
+          "lastMigration": {
+            "version": {
+              "schema": 0.011,
+              "foundry": "11.315",
+              "system": "0.16.49"
+            }
+          }
+        }
+      },
+      "ownership": {
+        "default": 0
+      }
+    },
+    {
+      "_id": "4ZXiupEvOZClTDj1",
+      "name": "Multiattack",
+      "type": "feature",
+      "img": "icons/skills/melee/blade-tips-triple-steel.webp",
+      "effects": [],
+      "folder": null,
+      "sort": 200000,
+      "flags": {
+        "core": {
+          "sourceId": "Item.ykE7paV0sg2mTjxp"
+        }
+      },
+      "system": {
+        "ac": {
+          "baseFormula": "",
+          "formula": "",
+          "maxDex": 0,
+          "minStr": 0,
+          "mode": 1,
+          "requiresNoShield": false,
+          "requiresUnarmored": false
+        },
+        "actions": {},
+        "description": "<p>The dragon attacks once with its bite and twice with its claws. In place of its bite attack, it can Spit Poison.</p>",
+        "favorite": false,
+        "secretDescription": "",
+        "source": "",
+        "uses": {
+          "value": null,
+          "max": "",
+          "per": null,
+          "recharge": {
+            "formula": "",
+            "threshold": ""
+          }
+        },
+        "schema": {
+          "version": null,
+          "lastMigration": null
+        },
+        "concentration": false,
+        "featureType": "",
+        "grants": {},
+        "prerequisite": "",
+        "requiresBloodied": false,
+        "schemaVersion": {
+          "version": 0.013,
+          "lastMigration": {
+            "version": {
+              "schema": 0.011,
+              "foundry": "11.315",
+              "system": "0.16.49"
+            }
+          }
+        }
+      },
+      "ownership": {
+        "default": 0
+      }
+    },
+    {
+      "_id": "cMlwbscidnVzT52D",
+      "name": "Bite",
+      "type": "feature",
+      "img": "icons/creatures/abilities/mouth-teeth-long-red.webp",
+      "effects": [],
+      "folder": null,
+      "sort": 300000,
+      "flags": {
+        "core": {
+          "sourceId": "Item.InKYp8aGuFNL9gdG"
+        }
+      },
+      "system": {
+        "ac": {
+          "baseFormula": "",
+          "formula": "",
+          "maxDex": 0,
+          "minStr": 0,
+          "mode": 1,
+          "requiresNoShield": false,
+          "requiresUnarmored": false
+        },
+        "actions": {
+          "yKnMm507FW1fJjb2": {
+            "name": "Bite",
+            "activation": {
+              "cost": 1,
+              "type": "action",
+              "reactionTrigger": ""
+            },
+            "duration": {
+              "unit": "instantaneous",
+              "value": ""
+            },
+            "ranges": {
+              "7ajefKAglCzBjhiZ": {
+                "range": "Reach: 15ft."
+              }
+            },
+            "area": {
+              "shape": "",
+              "size": "",
+              "placeTemplate": false
+            },
+            "target": {
+              "quantity": 1,
+              "type": "creature"
+            },
+            "rolls": {
+              "FKZRYBzlPAfeqroZ": {
+                "bonus": "",
+                "critThreshold": "20",
+                "type": "attack",
+                "attackType": "meleeWeaponAttack",
+                "ability": "default"
+              },
+              "eMaKt3sxKpHy33Q2": {
+                "canCrit": true,
+                "damageType": "piercing",
+                "formula": "4d8 + @str.mod",
+                "name": "",
+                "type": "damage"
+              },
+              "n1tm3hWpFE2zlWYK": {
+                "canCrit": true,
+                "damageType": "poison",
+                "formula": "2d8",
+                "name": "",
+                "type": "damage"
+              }
+            },
+            "consumers": {}
+          }
+        },
+        "description": "<p>The dragon makes a bite attack.</p>",
+        "favorite": true,
+        "secretDescription": "",
+        "source": "",
+        "uses": {
+          "value": null,
+          "max": "",
+          "per": null,
+          "recharge": {
+            "formula": "",
+            "threshold": ""
+          }
+        },
+        "schema": {
+          "version": null,
+          "lastMigration": null
+        },
+        "concentration": false,
+        "featureType": "naturalWeapon",
+        "grants": {},
+        "prerequisite": "",
+        "requiresBloodied": false,
+        "schemaVersion": {
+          "version": 0.013,
+          "lastMigration": {
+            "version": {
+              "schema": 0.011,
+              "foundry": "11.315",
+              "system": "0.16.49"
+            }
+          }
+        }
+      },
+      "ownership": {
+        "default": 0
+      }
+    },
+    {
+      "_id": "KYmTKwO01H01LCIu",
+      "name": "Claw",
+      "type": "feature",
+      "img": "icons/skills/melee/blood-slash-foam-red.webp",
+      "effects": [],
+      "folder": null,
+      "sort": 500000,
+      "flags": {},
+      "system": {
+        "ac": {
+          "baseFormula": "",
+          "formula": "",
+          "maxDex": 0,
+          "minStr": 0,
+          "mode": 1,
+          "requiresNoShield": false,
+          "requiresUnarmored": false
+        },
+        "actions": {
+          "9cmAu0GUbSoBZFYI": {
+            "name": "Claw",
+            "activation": {
+              "cost": 1,
+              "type": "action",
+              "reactionTrigger": ""
+            },
+            "duration": {
+              "unit": "instantaneous",
+              "value": ""
+            },
+            "ranges": {
+              "TPTMB9QMEc1FDMhK": {
+                "range": "Reach: 10ft"
+              }
+            },
+            "area": {
+              "shape": "",
+              "size": "",
+              "placeTemplate": false
+            },
+            "target": {
+              "quantity": 1,
+              "type": "creature"
+            },
+            "rolls": {
+              "sz0SdK5QrdwS6k64": {
+                "bonus": "",
+                "critThreshold": "20",
+                "type": "attack",
+                "attackType": "meleeWeaponAttack",
+                "ability": "default"
+              },
+              "FAMlvCSQFFMaN0s1": {
+                "canCrit": true,
+                "damageType": "slashing",
+                "formula": "3d8 + @str.mod",
+                "name": "",
+                "type": "damage"
+              }
+            },
+            "consumers": {}
+          }
+        },
+        "description": "<p>The Dragon makes a claw attack.</p>",
+        "favorite": true,
+        "secretDescription": "",
+        "source": "",
+        "uses": {
+          "value": null,
+          "max": "",
+          "per": null,
+          "recharge": {
+            "formula": "",
+            "threshold": ""
+          }
+        },
+        "schema": {
+          "version": null,
+          "lastMigration": null
+        },
+        "concentration": false,
+        "featureType": "naturalWeapon",
+        "grants": {},
+        "prerequisite": "",
+        "requiresBloodied": false,
+        "schemaVersion": {
+          "version": 0.013,
+          "lastMigration": {
+            "version": {
+              "schema": 0.011,
+              "foundry": "11.315",
+              "system": "0.16.49"
+            }
+          }
+        }
+      },
+      "ownership": {
+        "default": 0
+      }
+    },
+    {
+      "_id": "M84U0XSfmXtWa9e1",
+      "name": "Tail",
+      "type": "feature",
+      "img": "icons/skills/wounds/injury-pain-impaled-hand-blood.webp",
+      "effects": [],
+      "folder": null,
+      "sort": 525000,
+      "flags": {},
+      "system": {
+        "ac": {
+          "baseFormula": "",
+          "formula": "",
+          "maxDex": 0,
+          "minStr": 0,
+          "mode": 1,
+          "requiresNoShield": false,
+          "requiresUnarmored": false
+        },
+        "actions": {
+          "0uK8VaKfcETdRSaT": {
+            "name": "Tail",
+            "activation": {
+              "cost": 1,
+              "type": "action",
+              "reactionTrigger": ""
+            },
+            "duration": {
+              "unit": "instantaneous",
+              "value": ""
+            },
+            "ranges": {
+              "Xofc8y2VozTNyPm2": {
+                "range": "Reach: 20ft."
+              }
+            },
+            "area": {
+              "shape": "",
+              "size": "",
+              "placeTemplate": false
+            },
+            "target": {
+              "quantity": 1,
+              "type": "creature"
+            },
+            "rolls": {
+              "0fvhLbHTAmmp4rpK": {
+                "bonus": "",
+                "critThreshold": "20",
+                "type": "attack",
+                "attackType": "meleeWeaponAttack",
+                "ability": "default"
+              },
+              "BGOrBgjbVnsGxgWj": {
+                "canCrit": true,
+                "damageType": "bludgeoning",
+                "formula": "3d8 + @str.mod",
+                "name": "",
+                "type": "damage"
+              }
+            },
+            "consumers": {}
+          }
+        },
+        "description": "<p>The dragon makes a tail attack. On a successful hit, the target is pushed 10 feet away.</p>",
+        "favorite": true,
+        "secretDescription": "",
+        "source": "",
+        "uses": {
+          "value": null,
+          "max": "",
+          "per": null,
+          "recharge": {
+            "formula": "",
+            "threshold": ""
+          }
+        },
+        "schema": {
+          "version": null,
+          "lastMigration": null
+        },
+        "concentration": false,
+        "featureType": "naturalWeapon",
+        "grants": {},
+        "prerequisite": "",
+        "requiresBloodied": false,
+        "schemaVersion": {
+          "version": 0.013,
+          "lastMigration": {
+            "version": {
+              "schema": 0.011,
+              "foundry": "11.315",
+              "system": "0.16.49"
+            }
+          }
+        }
+      },
+      "ownership": {
+        "default": 0
+      }
+    },
+    {
+      "_id": "LcsncSG0v72AnXoV",
+      "name": "Tail Attack",
+      "type": "feature",
+      "img": "icons/skills/wounds/injury-pain-impaled-hand-blood.webp",
+      "effects": [],
+      "folder": null,
+      "sort": 587500,
+      "flags": {
+        "core": {
+          "sourceId": "Item.M84U0XSfmXtWa9e1"
+        }
+      },
+      "system": {
+        "ac": {
+          "baseFormula": "",
+          "formula": "",
+          "maxDex": 0,
+          "minStr": 0,
+          "mode": 1,
+          "requiresNoShield": false,
+          "requiresUnarmored": false
+        },
+        "actions": {
+          "y2yOsFdovSW8W72j": {
+            "name": "Tail Attack",
+            "activation": {
+              "cost": 1,
+              "type": "reaction",
+              "reactionTrigger": "When a creature the dragon can see within 10 feet hits the dragon with a melee attack, the dragon makes a tail attack against it."
+            },
+            "duration": {
+              "unit": "instantaneous",
+              "value": ""
+            },
+            "ranges": {
+              "e10zFTnUgcFUCsIG": {
+                "range": "Reach: 10ft."
+              }
+            },
+            "area": {
+              "shape": "",
+              "size": "",
+              "placeTemplate": false
+            },
+            "target": {
+              "quantity": 1,
+              "type": "creature"
+            },
+            "rolls": {
+              "N1JDqdDAMa9Tciuq": {
+                "bonus": "",
+                "critThreshold": "20",
+                "type": "attack",
+                "attackType": "meleeWeaponAttack",
+                "ability": "default"
+              },
+              "mzYJ31bSLSyzn3cS": {
+                "canCrit": true,
+                "damageType": "bludgeoning",
+                "formula": "2d8 + @str.mod",
+                "name": "",
+                "type": "damage"
+              }
+            },
+            "consumers": {}
+          }
+        },
+        "description": "<p>When a creature the dragon can see within 10 feet hits the dragon with a melee attack, the dragon makes a tail attack against it.</p>",
+        "favorite": true,
+        "secretDescription": "",
+        "source": "",
+        "uses": {
+          "value": null,
+          "max": "",
+          "per": null,
+          "recharge": {
+            "formula": "",
+            "threshold": ""
+          }
+        },
+        "schema": {
+          "version": null,
+          "lastMigration": null
+        },
+        "concentration": false,
+        "featureType": "naturalWeapon",
+        "grants": {},
+        "prerequisite": "",
+        "requiresBloodied": false,
+        "schemaVersion": {
+          "version": 0.013,
+          "lastMigration": {
+            "version": {
+              "schema": 0.011,
+              "foundry": "11.315",
+              "system": "0.16.49"
+            }
+          }
+        }
+      },
+      "ownership": {
+        "default": 0
+      }
+    },
+    {
+      "_id": "9Rq4BiK8eMSDGF34",
+      "name": "Roar",
+      "type": "feature",
+      "img": "icons/magic/sonic/scream-wail-shout-teal.webp",
+      "effects": [],
+      "folder": null,
+      "sort": 1000000,
+      "flags": {
+        "core": {
+          "sourceId": "Item.91ojLlYW012QzL2y"
+        }
+      },
+      "system": {
+        "ac": {
+          "baseFormula": "",
+          "formula": "",
+          "maxDex": 0,
+          "minStr": 0,
+          "mode": 1,
+          "requiresNoShield": false,
+          "requiresUnarmored": false
+        },
+        "actions": {
+          "O2omT2nqSdpGkVS4": {
+            "name": "Roar",
+            "activation": {
+              "cost": 1,
+              "type": "legendaryAction",
+              "reactionTrigger": ""
+            },
+            "duration": {
+              "unit": "minute",
+              "value": 1
+            },
+            "area": {
+              "shape": "emanation",
+              "size": "120",
+              "placeTemplate": false,
+              "quantity": 1,
+              "radius": 120
+            },
+            "target": {
+              "quantity": 1,
+              "type": ""
+            },
+            "prompts": {
+              "Nh84Z0OnNCRtEoe4": {
+                "ability": "cha",
+                "onSave": "Not frightened.",
+                "saveDC": {
+                  "type": "custom",
+                  "bonus": "19"
+                },
+                "type": "savingThrow"
+              }
+            },
+            "consumers": {}
+          }
+        },
+        "description": "<p>Each creature of the dragon’s choice within 120 feet that can hear it makes a DC 19 Charisma saving throw. On a failure, it is frightened for 1 minute. A creature repeats the saving throw at the end of its turns, ending the effect on itself on a success. When it succeeds on a saving throw or the effect ends for it, it is immune to Roar for 24 hours.</p>",
+        "favorite": true,
+        "secretDescription": "",
+        "source": "",
+        "uses": {
+          "value": null,
+          "max": "",
+          "per": null,
+          "recharge": {
+            "formula": "",
+            "threshold": ""
+          }
+        },
+        "schema": {
+          "version": null,
+          "lastMigration": null
+        },
+        "concentration": false,
+        "featureType": "other",
+        "grants": {},
+        "prerequisite": "",
+        "requiresBloodied": false,
+        "schemaVersion": {
+          "version": 0.013,
+          "lastMigration": {
+            "version": {
+              "schema": 0.011,
+              "foundry": "11.315",
+              "system": "0.16.49"
+            }
+          }
+        }
+      },
+      "ownership": {
+        "default": 0
+      }
+    },
+    {
+      "_id": "f2FrNF7toyEqWdgY",
+      "name": "Wing Attack",
+      "type": "feature",
+      "img": "icons/svg/item-bag.svg",
+      "effects": [],
+      "folder": null,
+      "sort": 1025000,
+      "flags": {
+        "core": {
+          "sourceId": "Item.kscfGEevngAze5kQ"
+        }
+      },
+      "system": {
+        "ac": {
+          "baseFormula": "",
+          "formula": "",
+          "maxDex": 0,
+          "minStr": 0,
+          "mode": 1,
+          "requiresNoShield": false,
+          "requiresUnarmored": false
+        },
+        "actions": {
+          "uu0I6jANeKVqQRcr": {
+            "name": "Wing Attack",
+            "activation": {
+              "cost": 1,
+              "type": "legendaryAction",
+              "reactionTrigger": ""
+            },
+            "duration": {
+              "unit": "instantaneous",
+              "value": ""
+            },
+            "area": {
+              "shape": "emanation",
+              "size": "15",
+              "placeTemplate": false,
+              "quantity": 1,
+              "radius": 15
+            },
+            "target": {
+              "quantity": 1,
+              "type": ""
+            },
+            "prompts": {
+              "1A6jkxaJxw2bcTg4": {
+                "ability": "dex",
+                "onSave": "Not knocked prone.",
+                "saveDC": {
+                  "type": "custom",
+                  "bonus": "22"
+                },
+                "type": "savingThrow"
+              }
+            },
+            "consumers": {}
+          }
+        },
+        "description": "<p>The dragon beats its wings. Each creature within 15 feet makes a DC 22 Dexterity saving throw. On a failure, it is pushed 10 feet away and knocked prone. The dragon can then fly up to half its fly speed.</p>",
+        "favorite": true,
+        "secretDescription": "",
+        "source": "",
+        "uses": {
+          "value": null,
+          "max": "",
+          "per": null,
+          "recharge": {
+            "formula": "",
+            "threshold": ""
+          }
+        },
+        "schema": {
+          "version": null,
+          "lastMigration": null
+        },
+        "concentration": false,
+        "featureType": "other",
+        "grants": {},
+        "prerequisite": "",
+        "requiresBloodied": false,
+        "schemaVersion": {
+          "version": 0.013,
+          "lastMigration": {
+            "version": {
+              "schema": 0.011,
+              "foundry": "11.315",
+              "system": "0.16.49"
+            }
+          }
+        }
+      },
+      "ownership": {
+        "default": 0
+      }
+    },
+    {
+      "_id": "eKQSxsTMkr5kZQKQ",
+      "name": "Legendary Actions",
+      "type": "feature",
+      "img": "icons/svg/item-bag.svg",
+      "effects": [],
+      "folder": null,
+      "sort": 581250,
+      "flags": {},
+      "system": {
+        "ac": {
+          "baseFormula": "",
+          "formula": "",
+          "maxDex": 0,
+          "minStr": 0,
+          "mode": 1,
+          "requiresNoShield": false,
+          "requiresUnarmored": false
+        },
+        "actions": {},
+        "description": "<p>The dragon can take 3 legendary actions, choosing from the options below. Only one legendary action can be used at a time and only at the end of another creature's turn. It regains spent legendary actions at the start of its turn.</p><p><strong><em>Honeyed Words.</em></strong> The dragon uses Honeyed Words.</p><p><strong><em>Roar.</em></strong> Each creature of the dragon’s choice within 120 feet that can hear it makes a DC 19 Charisma saving throw. On a failure, it is frightened for 1 minute. A creature repeats the saving throw at the end of its turns, ending the effect on itself on a success. When it succeeds on a saving throw or the effect ends for it, it is immune to Roar for 24 hours.</p><p><strong><em>Wing Attack.</em> </strong>The dragon beats its wings. Each creature within 15 feet makes a DC 22 Dexterity saving throw. On a failure, it is pushed 10 feet away and knocked prone. The dragon can then fly up to half its fly speed.</p>",
+        "favorite": false,
+        "secretDescription": "",
+        "source": "",
+        "uses": {
+          "value": 3,
+          "max": "3",
+          "per": "turn",
+          "recharge": {
+            "formula": "",
+            "threshold": ""
+          }
+        },
+        "schema": {
+          "version": null,
+          "lastMigration": null
+        },
+        "concentration": false,
+        "featureType": "other",
+        "grants": {},
+        "prerequisite": "",
+        "requiresBloodied": false,
+        "schemaVersion": {
+          "version": 0.013,
+          "lastMigration": {
+            "version": {
+              "schema": 0.011,
+              "foundry": "11.315",
+              "system": "0.16.49"
+            }
+          }
+        }
+      },
+      "ownership": {
+        "default": 0
+      }
+    },
+    {
+      "_id": "IhOZBFdxBtGZUkSe",
+      "name": "Spit Poison",
+      "type": "feature",
+      "img": "icons/svg/item-bag.svg",
+      "effects": [],
+      "folder": null,
+      "sort": 550000,
+      "flags": {},
+      "system": {
+        "ac": {
+          "baseFormula": "",
+          "formula": "",
+          "maxDex": 0,
+          "minStr": 0,
+          "mode": 1,
+          "requiresNoShield": false,
+          "requiresUnarmored": false
+        },
+        "actions": {
+          "H5gbUYUOUKgp10nt": {
+            "name": "Spit Poison",
+            "activation": {
+              "cost": 1,
+              "type": "action",
+              "reactionTrigger": ""
+            },
+            "duration": {
+              "unit": "instantaneous",
+              "value": ""
+            },
+            "ranges": {
+              "Lupy6OaIMRAbxfe7": {
+                "range": "medium"
+              }
+            },
+            "area": {
+              "shape": "",
+              "size": "",
+              "placeTemplate": false
+            },
+            "target": {
+              "quantity": 1,
+              "type": "creature"
+            },
+            "rolls": {
+              "FkvrLI4MFv1RVO3A": {
+                "canCrit": false,
+                "damageType": "poison",
+                "formula": "4d10",
+                "name": "",
+                "type": "damage"
+              },
+              "rKFNq9U7mozFXQWs": {
+                "canCrit": false,
+                "damageType": "poison",
+                "formula": "2d10",
+                "name": "Ongoing",
+                "type": "damage"
+              }
+            },
+            "prompts": {
+              "r99IDfSI4WytFveJ": {
+                "ability": "dex",
+                "onSave": "Half damage and not poisioned.",
+                "saveDC": {
+                  "type": "custom",
+                  "bonus": "22"
+                },
+                "type": "savingThrow"
+              }
+            },
+            "consumers": {}
+          }
+        },
+        "description": "<p>The dragon targets a creature within 60 feet, forcing it to make a DC 22 Dexterity saving throw. The creature takes 22 (4d10) poison damage on a failure or half damage on a success. A creature that fails the save is also poisoned for 1 minute. The creature repeats the saving throw at the end of each of its turns, taking 11 (2d10) poison damage on a failure and ending the effect on a success.</p>",
+        "favorite": true,
+        "secretDescription": "",
+        "source": "",
+        "uses": {
+          "value": null,
+          "max": "",
+          "per": null,
+          "recharge": {
+            "formula": "",
+            "threshold": ""
+          }
+        },
+        "schema": {
+          "version": null,
+          "lastMigration": null
+        },
+        "concentration": false,
+        "featureType": "naturalWeapon",
+        "grants": {},
+        "prerequisite": "",
+        "requiresBloodied": false,
+        "schemaVersion": {
+          "version": 0.013,
+          "lastMigration": {
+            "version": {
+              "schema": 0.011,
+              "foundry": "11.315",
+              "system": "0.16.49"
+            }
+          }
+        }
+      },
+      "ownership": {
+        "default": 0
+      }
+    },
+    {
+      "_id": "TlNdc1pqCOl7xdHS",
+      "name": "Honeyed Words",
+      "type": "feature",
+      "img": "icons/svg/item-bag.svg",
+      "effects": [],
+      "folder": null,
+      "sort": 575000,
+      "flags": {},
+      "system": {
+        "ac": {
+          "baseFormula": "",
+          "formula": "",
+          "maxDex": 0,
+          "minStr": 0,
+          "mode": 1,
+          "requiresNoShield": false,
+          "requiresUnarmored": false
+        },
+        "actions": {
+          "0doLqBe1dssuSRU6": {
+            "name": "Honeyed Words",
+            "activation": {
+              "cost": 1,
+              "type": "action",
+              "reactionTrigger": ""
+            },
+            "duration": {
+              "unit": "instantaneous",
+              "value": ""
+            },
+            "area": {
+              "shape": "sphere",
+              "size": "60",
+              "placeTemplate": false
+            },
+            "target": {
+              "quantity": 1,
+              "type": "creature"
+            },
+            "prompts": {
+              "TcbGDYCpl8urOIPJ": {
+                "ability": "wis",
+                "onSave": "Nothing Happens.",
+                "saveDC": {
+                  "type": "custom",
+                  "bonus": "19"
+                },
+                "type": "savingThrow"
+              }
+            },
+            "consumers": {}
+          }
+        },
+        "description": "<p>The dragon’s words sow doubt in the minds of those who hear them. One creature within 60 feet who can hear and understand the dragon makes a DC 19 Wisdom saving throw. On a failure, the creature must use its reaction, if available, to make one attack against a creature of the dragon’s choice with whatever weapon it has to do so, moving up to its speed as part of the reaction if necessary. It need not use any special class features (such as Sneak Attack or Divine Smite) when making this attack. If it can’t get in a position to attack the creature, it moves as far as it can toward the target before regaining its senses. A creature immune to being charmed is immune to this ability.</p>",
+        "favorite": true,
+        "secretDescription": "",
+        "source": "",
+        "uses": {
+          "value": null,
+          "max": "",
+          "per": null,
+          "recharge": {
+            "formula": "",
+            "threshold": ""
+          }
+        },
+        "schema": {
+          "version": null,
+          "lastMigration": null
+        },
+        "concentration": false,
+        "featureType": "other",
+        "grants": {},
+        "prerequisite": "",
+        "requiresBloodied": false,
+        "schemaVersion": {
+          "version": 0.013,
+          "lastMigration": {
+            "version": {
+              "schema": 0.011,
+              "foundry": "11.315",
+              "system": "0.16.49"
+            }
+          }
+        }
+      },
+      "ownership": {
+        "default": 0
+      }
+    },
+    {
+      "_id": "Dlu4XIb9I6hi5K8I",
+      "name": "Poison Breath",
+      "type": "feature",
+      "img": "icons/magic/acid/projectile-smoke-glowing.webp",
+      "effects": [],
+      "folder": null,
+      "sort": 562500,
+      "flags": {
+        "core": {
+          "sourceId": "Item.bb0pkgfCH8Rr8RIc"
+        }
+      },
+      "system": {
+        "ac": {
+          "baseFormula": "",
+          "formula": "",
+          "maxDex": 0,
+          "minStr": 0,
+          "mode": 1,
+          "requiresNoShield": false,
+          "requiresUnarmored": false
+        },
+        "actions": {
+          "K2CpiWwUzo5yLjUb": {
+            "name": "Poison Breath",
+            "activation": {
+              "cost": 1,
+              "type": "action",
+              "reactionTrigger": ""
+            },
+            "duration": {
+              "unit": "instantaneous",
+              "value": ""
+            },
+            "ranges": {},
+            "area": {
+              "shape": "cone",
+              "size": "90",
+              "placeTemplate": false,
+              "length": 90
+            },
+            "target": {
+              "quantity": 1,
+              "type": ""
+            },
+            "rolls": {
+              "iGnJGvghMovGzzEK": {
+                "canCrit": false,
+                "damageType": "poison",
+                "formula": "23d6",
+                "name": "",
+                "type": "damage"
+              }
+            },
+            "prompts": {
+              "54DKvSjO20GkkqgK": {
+                "ability": "con",
+                "onSave": "Half damage.",
+                "saveDC": {
+                  "type": "custom",
+                  "bonus": "22"
+                },
+                "type": "savingThrow"
+              }
+            },
+            "consumers": {
+              "zN9U7VFuXn5xJEDq": {
+                "type": "itemUses",
+                "default": true,
+                "quantity": 1
+              }
+            }
+          }
+        },
+        "description": "<p>The dragon exhales poisonous gas in a 90-foot cone. Each creature in that area makes a DC 22 Constitution saving throw, taking 80 (23d6) poison damage on a failed save or half damage on a success. A creature with immunity to poison damage that fails the save takes no damage, but its poison immunity is reduced to resistance for the next hour.</p>",
+        "favorite": true,
+        "secretDescription": "",
+        "source": "",
+        "uses": {
+          "value": 1,
+          "max": "1",
+          "per": "recharge",
+          "recharge": {
+            "formula": "",
+            "threshold": 5
+          }
+        },
+        "schema": {
+          "version": null,
+          "lastMigration": null
+        },
+        "concentration": false,
+        "featureType": "naturalWeapon",
+        "grants": {},
+        "prerequisite": "",
+        "requiresBloodied": false,
+        "schemaVersion": {
+          "version": 0.013,
+          "lastMigration": {
+            "version": {
+              "schema": 0.011,
+              "foundry": "11.315",
+              "system": "0.16.49"
+            }
+          }
+        }
+      },
+      "ownership": {
+        "default": 0
+      }
+    },
+    {
+      "_id": "HcudkJ6gE27GSpKV",
+      "name": "Honeyed Words",
+      "type": "feature",
+      "img": "icons/svg/item-bag.svg",
+      "effects": [],
+      "folder": null,
+      "sort": 1050000,
+      "flags": {},
+      "system": {
+        "ac": {
+          "baseFormula": "",
+          "formula": "",
+          "maxDex": 0,
+          "minStr": 0,
+          "mode": 1,
+          "requiresNoShield": false,
+          "requiresUnarmored": false
+        },
+        "actions": {
+          "eIenx8Dy50kC6mIe": {
+            "name": "Honeyed Words",
+            "activation": {
+              "cost": 1,
+              "type": "legendaryAction",
+              "reactionTrigger": ""
+            },
+            "duration": {
+              "unit": "instantaneous",
+              "value": ""
+            },
+            "area": {
+              "shape": "",
+              "size": "",
+              "placeTemplate": false
+            },
+            "target": {
+              "quantity": "",
+              "type": ""
+            },
+            "consumers": {}
+          }
+        },
+        "description": "<p>The dragon uses Honeyed Words.</p>",
+        "favorite": false,
+        "secretDescription": "",
+        "source": "",
+        "uses": {
+          "value": null,
+          "max": "",
+          "per": null,
+          "recharge": {
+            "formula": "",
+            "threshold": ""
+          }
+        },
+        "schema": {
+          "version": null,
+          "lastMigration": null
+        },
+        "concentration": false,
+        "featureType": "",
+        "grants": {},
+        "prerequisite": "",
+        "requiresBloodied": false,
+        "schemaVersion": {
+          "version": 0.013,
+          "lastMigration": {
+            "version": {
+              "schema": 0.011,
+              "foundry": "11.315",
+              "system": "0.16.49"
+            }
+          }
+        }
+      },
+      "ownership": {
+        "default": 0
+      }
+    },
+    {
+      "_id": "gd7tO43sm5vdwndy",
+      "name": "Amphibious",
+      "type": "feature",
+      "img": "icons/environment/creatures/frog-spotted-green.webp",
+      "effects": [],
+      "folder": null,
+      "sort": 0,
+      "flags": {},
+      "system": {
+        "ac": {
+          "baseFormula": "",
+          "formula": "",
+          "maxDex": 0,
+          "minStr": 0,
+          "mode": 1,
+          "requiresNoShield": false,
+          "requiresUnarmored": false
+        },
+        "actions": {},
+        "description": "<p>The dragon can breathe air and water.</p>",
+        "favorite": false,
+        "secretDescription": "",
+        "source": "",
+        "uses": {
+          "value": null,
+          "max": "",
+          "per": null,
+          "recharge": {
+            "formula": "",
+            "threshold": ""
+          }
+        },
+        "schema": {
+          "version": null,
+          "lastMigration": null
+        },
+        "concentration": false,
+        "featureType": "",
+        "grants": {},
+        "prerequisite": "",
+        "requiresBloodied": false,
+        "schemaVersion": {
+          "version": 0.013,
+          "lastMigration": {
+            "version": {
+              "schema": 0.011,
+              "foundry": "11.315",
+              "system": "0.16.49"
+            }
+          }
+        }
+      },
+      "ownership": {
+        "default": 0
+      }
+    },
+    {
+      "_id": "1QchRi2wTQjhjoL1",
+      "name": "Woodland Stalker",
+      "type": "feature",
+      "img": "icons/svg/item-bag.svg",
+      "effects": [],
+      "folder": null,
+      "sort": 0,
+      "flags": {},
+      "system": {
+        "ac": {
+          "baseFormula": "",
+          "formula": "",
+          "maxDex": 0,
+          "minStr": 0,
+          "mode": 1,
+          "requiresNoShield": false,
+          "requiresUnarmored": false
+        },
+        "actions": {},
+        "description": "<p>When in a forested area, the dragon has advantage on Stealth checks. Additionally, when it speaks in such a place, it can project its voice such that it seems to come from all around, allowing it to remain hidden while speaking.</p>",
+        "favorite": false,
+        "secretDescription": "",
+        "source": "",
+        "uses": {
+          "value": null,
+          "max": "",
+          "per": null,
+          "recharge": {
+            "formula": "",
+            "threshold": ""
+          }
+        },
+        "schema": {
+          "version": null,
+          "lastMigration": null
+        },
+        "concentration": false,
+        "featureType": "",
+        "grants": {},
+        "prerequisite": "",
+        "requiresBloodied": false,
+        "schemaVersion": {
+          "version": 0.013,
+          "lastMigration": {
+            "version": {
+              "schema": 0.011,
+              "foundry": "11.315",
+              "system": "0.16.49"
+            }
+          }
+        }
+      },
+      "ownership": {
+        "default": 0
+      }
+    },
+    {
+      "_id": "7QLcjJ321qTRS0UL",
+      "name": "Blood Toxicity",
+      "type": "feature",
+      "img": "icons/svg/item-bag.svg",
+      "effects": [],
+      "folder": null,
+      "sort": 0,
+      "flags": {},
+      "system": {
+        "ac": {
+          "baseFormula": "",
+          "formula": "",
+          "maxDex": 0,
+          "minStr": 0,
+          "mode": 1,
+          "requiresNoShield": false,
+          "requiresUnarmored": false
+        },
+        "actions": {
+          "om5xxzoKWmXQJFXF": {
+            "name": "Blood Toxicity (While Bloodied)",
+            "activation": {
+              "cost": "",
+              "type": "special",
+              "reactionTrigger": ""
+            },
+            "duration": {
+              "unit": "permanent",
+              "value": ""
+            },
+            "area": {
+              "shape": "sphere",
+              "size": "10",
+              "placeTemplate": false
+            },
+            "target": {
+              "quantity": 1,
+              "type": "creature"
+            },
+            "rolls": {
+              "N4tOvg2jfdjvh1Yg": {
+                "canCrit": false,
+                "damageType": "poison",
+                "formula": "3d6",
+                "name": "",
+                "type": "damage"
+              }
+            },
+            "prompts": {
+              "Y8Z8RpT2Og6IlE7P": {
+                "ability": "dex",
+                "onSave": "No damange.",
+                "saveDC": {
+                  "type": "custom",
+                  "bonus": "22"
+                },
+                "type": "savingThrow"
+              }
+            },
+            "consumers": {}
+          }
+        },
+        "description": "<p>The first time each turn a creature hits the dragon with a melee attack while within 10 feet of it, that creature makes a DC 22 Dexterity saving throw, taking 10 (3d6) poison damage on a failure.</p>",
+        "favorite": true,
+        "secretDescription": "",
+        "source": "",
+        "uses": {
+          "value": null,
+          "max": "",
+          "per": null,
+          "recharge": {
+            "formula": "",
+            "threshold": ""
+          }
+        },
+        "schema": {
+          "version": null,
+          "lastMigration": null
+        },
+        "concentration": false,
+        "featureType": "other",
+        "grants": {},
+        "prerequisite": "",
+        "requiresBloodied": true,
+        "schemaVersion": {
+          "version": 0.013,
+          "lastMigration": {
+            "version": {
+              "schema": 0.011,
+              "foundry": "11.315",
+              "system": "0.16.49"
+            }
+          }
+        }
+      },
+      "ownership": {
+        "default": 0
+      }
+    },
+    {
+      "name": "Shove",
+      "type": "maneuver",
+      "img": "icons/skills/melee/shield-block-bash-yellow.webp",
+      "effects": [],
+      "flags": {
+        "core": {
+          "sourceId": "Compendium.a5e.a5e-maneuvers.md35qozzy2fxy2o6"
+        }
+      },
+      "system": {
+        "actions": {
+          "JszepZ9WrHKxvbqJ": {
+            "name": "Shove",
+            "activation": {
+              "cost": 1,
+              "type": "action",
+              "reactionTrigger": ""
+            },
+            "duration": {
+              "unit": "instantaneous",
+              "value": null
+            },
+            "ranges": {
+              "dhOvYNd6tjR0awKk": {
+                "range": "fiveFeet"
+              }
+            },
+            "area": {
+              "shape": "",
+              "size": "",
+              "placeTemplate": false
+            },
+            "target": {
+              "quantity": null,
+              "type": "creature",
+              "shape": "",
+              "size": ""
+            },
+            "rolls": {
+              "OpEW8jXBkhTo5XxR": {
+                "canCrit": false,
+                "damageType": "bludgeoning",
+                "formula": "1 + @str.mod",
+                "name": "Default",
+                "type": "damage"
+              }
+            },
+            "prompts": {
+              "CFcZrmET6DiNRdbr": {
+                "ability": "str",
+                "onSave": "",
+                "saveDC": {
+                  "type": "custom",
+                  "bonus": "@maneuverDC"
+                },
+                "type": "savingThrow"
+              }
+            },
+            "consumers": {}
+          }
+        },
+        "description": "<p>You can use the Shove maneuver to push a creature away. If you are able to make multiple attacks with the Attack action, this maneuver replaces one of them.</p><p>The target must be within your reach and be no more than one size category larger than you. The target makes a Strength saving throw against your maneuver DC. On a failure, you deal basic melee damage and push the target a number of feet away from you equal to 5 + 5 for every 5 points it failed its saving throw by. You can move the creature in any direction away from you (to the side, forward, or diagonally away).</p><p>A creature that is shoved off of a precipice is propelled off of whatever it is standing on -- it does not receive any saving throw or ability check to grab onto something to avoid falling down below.</p>",
+        "favorite": false,
+        "secretDescription": "",
+        "source": "",
+        "uses": {
+          "value": null,
+          "max": "",
+          "per": null,
+          "recharge": {
+            "formula": "",
+            "threshold": ""
+          }
+        },
+        "schema": {
+          "version": null,
+          "lastMigration": null
+        },
+        "concentration": false,
+        "degree": 0,
+        "exertionCost": 0,
+        "isStance": false,
+        "prerequisite": "",
+        "tradition": "",
+        "schemaVersion": {
+          "version": 0.013,
+          "lastMigration": {
+            "version": {
+              "schema": 0.011,
+              "foundry": "11.315",
+              "system": "0.16.49"
+            }
+          }
+        }
+      },
+      "ownership": {
+        "default": 0
+      },
+      "folder": null,
+      "sort": 0,
+      "_id": "QrHvizL0jeErerCC"
+    },
+    {
+      "name": "Disarm",
+      "type": "maneuver",
+      "img": "icons/skills/melee/sword-damaged-broken-glow-red.webp",
+      "effects": [],
+      "flags": {
+        "core": {
+          "sourceId": "Compendium.a5e.a5e-maneuvers.c0bv7fsy2akld5lp"
+        }
+      },
+      "system": {
+        "actions": {
+          "Rv0lYKVIhYmNJInt": {
+            "name": "Disarm",
+            "activation": {
+              "cost": 1,
+              "type": "action",
+              "reactionTrigger": ""
+            },
+            "duration": {
+              "unit": "instantaneous",
+              "value": null
+            },
+            "ranges": {
+              "Civpv2gfT2mrXcp4": {
+                "range": "touch"
+              }
+            },
+            "area": {
+              "shape": "",
+              "size": "",
+              "placeTemplate": false
+            },
+            "target": {
+              "quantity": "",
+              "type": "creature",
+              "shape": "",
+              "size": ""
+            },
+            "rolls": {
+              "NiMV6kmadPgk66M9": {
+                "canCrit": false,
+                "damageType": "",
+                "formula": "1 + @str.mod",
+                "name": "",
+                "type": "damage"
+              }
+            },
+            "prompts": {
+              "BnNHnW5AplkIgZBJ": {
+                "ability": "str",
+                "onSave": "",
+                "saveDC": {
+                  "type": "custom",
+                  "bonus": "@maneuverDC"
+                },
+                "type": "savingThrow"
+              }
+            },
+            "consumers": {}
+          }
+        },
+        "description": "<p>You can use the Disarm maneuver to attempt to knock an item or weapon from a creature's hand. If you are able to make multiple attacks with the Attack action, this maneuver replaces one of them.</p><p>The target must be within your reach and be holding an item (either carried or wielded). The target makes a Strength or Dexterity saving throw against your maneuver DC. On a failure, you deal basic melee damage and the target drops the item in its space. The target has advantage if it is larger than you or holding the item with two or more hands, and a target smaller than you has disadvantage.</p>",
+        "favorite": false,
+        "secretDescription": "",
+        "source": "",
+        "uses": {
+          "value": null,
+          "max": "",
+          "per": null,
+          "recharge": {
+            "formula": "",
+            "threshold": ""
+          }
+        },
+        "schema": {
+          "version": null,
+          "lastMigration": null
+        },
+        "concentration": false,
+        "degree": 0,
+        "exertionCost": 0,
+        "isStance": false,
+        "prerequisite": "",
+        "tradition": "",
+        "schemaVersion": {
+          "version": 0.013,
+          "lastMigration": {
+            "version": {
+              "schema": 0.011,
+              "foundry": "11.315",
+              "system": "0.16.49"
+            }
+          }
+        }
+      },
+      "ownership": {
+        "default": 0
+      },
+      "folder": null,
+      "sort": 0,
+      "_id": "EC5NqzKLFYMYxNNo"
+    },
+    {
+      "name": "Grab On",
+      "type": "maneuver",
+      "img": "icons/skills/melee/hand-grip-staff-teal.webp",
+      "effects": [],
+      "flags": {
+        "core": {
+          "sourceId": "Compendium.a5e.a5e-maneuvers.jewmp4pzrg9cdui9"
+        }
+      },
+      "system": {
+        "actions": {
+          "AhKwxNvz4B2tvIYf": {
+            "name": "Grab On",
+            "activation": {
+              "cost": 1,
+              "type": "action",
+              "reactionTrigger": ""
+            },
+            "duration": {
+              "unit": "instantaneous",
+              "value": null
+            },
+            "ranges": {
+              "FPF3BjGspPcSDb6C": {
+                "range": "touch"
+              }
+            },
+            "area": {
+              "shape": "",
+              "size": "",
+              "placeTemplate": false
+            },
+            "target": {
+              "quantity": "",
+              "type": "creature",
+              "shape": "",
+              "size": ""
+            },
+            "prompts": {
+              "LJSgHnl5BGr3HK2y": {
+                "ability": "str",
+                "onSave": "",
+                "saveDC": {
+                  "type": "custom",
+                  "bonus": "@maneuverDC"
+                },
+                "type": "savingThrow"
+              }
+            },
+            "consumers": {}
+          }
+        },
+        "description": "<p>While you cannot grapple a creature two or more size categories larger than you, you can grab onto it. By jumping onto its back or climbing up a limb, you can make a Strength or Dexterity saving throw against the creature's maneuver DC to cling to or balance upon its body. On a success, you move into the creature's space and can move upon its body as if it is difficult terrain.</p><p>While grabbing onto a larger creature, you gain advantage on attack rolls against it. The larger creature may be able to attack you as normal, depending on its limbs or attacks. It can also use an action or replace one of its attacks on its turn to try to dislodge you, such as shaking you loose or bashing you against a wall, forcing you to make a Strength or Dexterity saving throw against its maneuver DC or fall prone into the nearest space adjacent to the creature, taking its basic melee damage in the process.</p><p>If the creature chooses to roll over in order to dislodge you, it becomes prone, but you have disadvantage on the saving throw to hang on.</p>",
+        "favorite": false,
+        "secretDescription": "",
+        "source": "",
+        "uses": {
+          "value": null,
+          "max": "",
+          "per": null,
+          "recharge": {
+            "formula": "",
+            "threshold": ""
+          }
+        },
+        "schema": {
+          "version": null,
+          "lastMigration": null
+        },
+        "concentration": false,
+        "degree": 0,
+        "exertionCost": 0,
+        "isStance": false,
+        "prerequisite": "",
+        "tradition": "",
+        "schemaVersion": {
+          "version": 0.013,
+          "lastMigration": {
+            "version": {
+              "schema": 0.011,
+              "foundry": "11.315",
+              "system": "0.16.49"
+            }
+          }
+        }
+      },
+      "ownership": {
+        "default": 0
+      },
+      "folder": null,
+      "sort": 0,
+      "_id": "9FyVEPNHNcsPL5Xg"
+    },
+    {
+      "name": "Knockdown",
+      "type": "maneuver",
+      "img": "icons/magic/control/silhouette-fall-slip-prone.webp",
+      "effects": [],
+      "flags": {
+        "core": {
+          "sourceId": "Compendium.a5e.a5e-maneuvers.zzg7j7cb0vkgctwi"
+        }
+      },
+      "system": {
+        "actions": {
+          "GcH6yrQIDbRXZpUU": {
+            "name": "Knockdown",
+            "activation": {
+              "cost": 1,
+              "type": "action",
+              "reactionTrigger": ""
+            },
+            "duration": {
+              "unit": "instantaneous",
+              "value": null
+            },
+            "ranges": {
+              "5vUWxrNOe79ekGlU": {
+                "range": "touch"
+              }
+            },
+            "area": {
+              "shape": "",
+              "size": "",
+              "placeTemplate": false
+            },
+            "target": {
+              "quantity": "",
+              "type": "creature",
+              "shape": "",
+              "size": ""
+            },
+            "prompts": {
+              "lKDzf9MKimIbK7ys": {
+                "ability": "str",
+                "onSave": "",
+                "saveDC": {
+                  "type": "custom",
+                  "bonus": "@maneuverDC"
+                },
+                "type": "savingThrow"
+              }
+            },
+            "consumers": {}
+          }
+        },
+        "description": "<p>You can use the Knockdown maneuver to trip or push a creature down. If you are able to make multiple attacks with the Attack action, this maneuver replaces one of them.</p><p>The target must be within your reach and be no more than one size category larger than you. The target makes a Strength saving throw against your maneuver DC. On a failure, you deal basic melee damage and knock the target prone.</p>",
+        "favorite": false,
+        "secretDescription": "",
+        "source": "",
+        "uses": {
+          "value": null,
+          "max": "",
+          "per": null,
+          "recharge": {
+            "formula": "",
+            "threshold": ""
+          }
+        },
+        "schema": {
+          "version": null,
+          "lastMigration": null
+        },
+        "concentration": false,
+        "degree": 0,
+        "exertionCost": 0,
+        "isStance": false,
+        "prerequisite": "",
+        "tradition": "",
+        "schemaVersion": {
+          "version": 0.013,
+          "lastMigration": {
+            "version": {
+              "schema": 0.011,
+              "foundry": "11.315",
+              "system": "0.16.49"
+            }
+          }
+        }
+      },
+      "ownership": {
+        "default": 0
+      },
+      "folder": null,
+      "sort": 0,
+      "_id": "nNdgdSyNxlwcCTkd"
+    },
+    {
+      "name": "Grapple",
+      "type": "maneuver",
+      "img": "icons/skills/melee/unarmed-punch-fist.webp",
+      "effects": [],
+      "flags": {
+        "core": {
+          "sourceId": "Compendium.a5e.a5e-maneuvers.9umrahwm68f81d7l"
+        }
+      },
+      "system": {
+        "actions": {
+          "gSnwYoeSQ8TTxQtF": {
+            "name": "Grapple",
+            "activation": {
+              "cost": 1,
+              "type": "action",
+              "reactionTrigger": ""
+            },
+            "duration": {
+              "unit": "instantaneous",
+              "value": null
+            },
+            "ranges": {
+              "mxgaVf3VGrRdTzmf": {
+                "range": "touch"
+              }
+            },
+            "area": {
+              "shape": "",
+              "size": "",
+              "placeTemplate": false
+            },
+            "target": {
+              "quantity": "",
+              "type": "creature",
+              "shape": "",
+              "size": ""
+            },
+            "prompts": {
+              "VStgKwzdngoIQYKj": {
+                "ability": "str",
+                "onSave": "",
+                "saveDC": {
+                  "type": "custom",
+                  "bonus": "@maneuverDC"
+                },
+                "type": "savingThrow"
+              }
+            },
+            "consumers": {}
+          }
+        },
+        "description": "<p>You can use the Grapple maneuver to grab or wrestle a creature. If you are able to make multiple attacks with the Attack action, this maneuver replaces one of them.</p>\n<p>You must have at least one free hand to attempt a grapple, your target must be within your reach, and the target must be no more than one size category larger than you. The target makes a Strength or Dexterity saving throw against your maneuver DC. On a failure, you deal basic melee damage and the target becomes grappled (see Appendix A: Conditions on page 616). In addition to things that end the condition, you can release the target at any time (no action required).</p>\n<p><em>Escaping a Grapple.</em> While grappled, a creature can use its action to attempt to escape. It must succeed on a Strength or Dexterity saving throw against your maneuver DC.</p>\n<p><em>Moving a Grappled Creature. </em>When you move, you can drag or carry the grappled creature with you. When you do so, your Speed is halved, unless the creature's weight is within your carrying capacity and you are not encumbered by bulky items.</p>\n<p><em>Freeing a Grappled Creature.</em> You can use the Grapple maneuver to try to free another grappled or restrained creature. The creature grappling or restraining the target makes a Strength saving throw against your maneuver DC. If it fails the saving throw, the grappled or restrained creature is freed. Additionally, you may move the freed creature 5 feet in any direction.</p>",
+        "favorite": false,
+        "secretDescription": "",
+        "source": "",
+        "uses": {
+          "value": null,
+          "max": "",
+          "per": null,
+          "recharge": {
+            "formula": "",
+            "threshold": ""
+          }
+        },
+        "schema": {
+          "version": null,
+          "lastMigration": null
+        },
+        "concentration": false,
+        "degree": 0,
+        "exertionCost": 0,
+        "isStance": false,
+        "prerequisite": "",
+        "tradition": "",
+        "schemaVersion": {
+          "version": 0.013,
+          "lastMigration": {
+            "version": {
+              "schema": 0.011,
+              "foundry": "11.315",
+              "system": "0.16.49"
+            }
+          }
+        }
+      },
+      "ownership": {
+        "default": 0
+      },
+      "folder": null,
+      "sort": 0,
+      "_id": "grE1qrrAXSanCrPb"
+    },
+    {
+      "name": "Overrun",
+      "type": "maneuver",
+      "img": "icons/skills/melee/shield-damaged-broken-blue.webp",
+      "effects": [],
+      "flags": {
+        "core": {
+          "sourceId": "Compendium.a5e.a5e-maneuvers.210ihnnejao46r20"
+        }
+      },
+      "system": {
+        "actions": {
+          "WJh7cSl7InilELw9": {
+            "name": "Overrun",
+            "activation": {
+              "cost": 1,
+              "type": "special",
+              "reactionTrigger": ""
+            },
+            "duration": {
+              "unit": "instantaneous",
+              "value": null
+            },
+            "ranges": {
+              "a63v1FDMz3ILECZM": {
+                "range": "touch"
+              }
+            },
+            "area": {
+              "shape": "",
+              "size": "",
+              "placeTemplate": false
+            },
+            "target": {
+              "quantity": "",
+              "type": "creature",
+              "shape": "",
+              "size": ""
+            },
+            "prompts": {
+              "K0t35en6EG5CpoZB": {
+                "ability": "str",
+                "onSave": "",
+                "saveDC": {
+                  "type": "custom",
+                  "bonus": "@maneuverDC"
+                },
+                "type": "savingThrow"
+              }
+            },
+            "consumers": {}
+          }
+        },
+        "description": "<p>You can use an action or bonus action to make an Overrun maneuver to move through a hostile creature's space by forcing your way past. Make a Strength saving throw against the target's maneuver DC. On a success, you deal basic melee damage and can move through the hostile creature's space once this turn. The creature can choose to just let you pass instead of rolling. You have advantage if you are larger than the target, or disadvantage if you are smaller. If you are two or more sizes smaller than the target, you can move through the hostile creature's space without making a save. You still provoke opportunity attacks if you move beyond a creature's reach.</p>",
+        "favorite": false,
+        "secretDescription": "",
+        "source": "",
+        "uses": {
+          "value": null,
+          "max": "",
+          "per": null,
+          "recharge": {
+            "formula": "",
+            "threshold": ""
+          }
+        },
+        "schema": {
+          "version": null,
+          "lastMigration": null
+        },
+        "concentration": false,
+        "degree": 0,
+        "exertionCost": 0,
+        "isStance": false,
+        "prerequisite": "",
+        "tradition": "",
+        "schemaVersion": {
+          "version": 0.013,
+          "lastMigration": {
+            "version": {
+              "schema": 0.011,
+              "foundry": "11.315",
+              "system": "0.16.49"
+            }
+          }
+        }
+      },
+      "ownership": {
+        "default": 0
+      },
+      "folder": null,
+      "sort": 0,
+      "_id": "xvandDl7KIsSDQUY"
+    }
+  ],
+  "effects": [],
+  "flags": {
+    "a5e": {
+      "availableSpellLevels": [
+        "0",
+        "1",
+        "2",
+        "3",
+        "4",
+        "5",
+        "6",
+        "7",
+        "8",
+        "9"
+      ],
+      "showSpellSlots": false,
+      "showSpellPoints": false,
+      "sheetIsLocked": true
+    }
+  },
+  "system": {
+    "abilities": {
+      "str": {
+        "value": 26,
+        "check": {
+          "expertiseDice": 0,
+          "bonus": ""
+        },
+        "save": {
+          "proficient": false,
+          "expertiseDice": 0,
+          "bonus": ""
+        }
+      },
+      "dex": {
+        "value": 12,
+        "check": {
+          "expertiseDice": 0,
+          "bonus": ""
+        },
+        "save": {
+          "proficient": true,
+          "expertiseDice": 0,
+          "bonus": ""
+        }
+      },
+      "con": {
+        "value": 24,
+        "check": {
+          "expertiseDice": 0,
+          "bonus": ""
+        },
+        "save": {
+          "proficient": true,
+          "expertiseDice": 0,
+          "bonus": ""
+        }
+      },
+      "int": {
+        "value": 20,
+        "check": {
+          "expertiseDice": 0,
+          "bonus": ""
+        },
+        "save": {
+          "proficient": false,
+          "expertiseDice": 0,
+          "bonus": ""
+        }
+      },
+      "wis": {
+        "value": 16,
+        "check": {
+          "expertiseDice": 0,
+          "bonus": ""
+        },
+        "save": {
+          "proficient": true,
+          "expertiseDice": 0,
+          "bonus": ""
+        }
+      },
+      "cha": {
+        "value": 18,
+        "check": {
+          "expertiseDice": 0,
+          "bonus": ""
+        },
+        "save": {
+          "proficient": true,
+          "expertiseDice": 0,
+          "bonus": ""
+        }
+      }
+    },
+    "schemaVersion": {
+      "version": 0.013,
+      "lastMigration": {
+        "version": {
+          "schema": 0.011,
+          "foundry": "11.315",
+          "system": "0.16.49"
+        }
+      }
+    },
+    "skills": {
+      "acr": {
+        "ability": "dex",
+        "proficient": false,
+        "specialties": [],
+        "expertiseDice": 0,
+        "minRoll": 1,
+        "bonuses": {
+          "check": "",
+          "passive": 0
+        }
+      },
+      "ani": {
+        "ability": "wis",
+        "proficient": false,
+        "specialties": [],
+        "expertiseDice": 0,
+        "minRoll": 1,
+        "bonuses": {
+          "check": "",
+          "passive": 0
+        }
+      },
+      "arc": {
+        "ability": "int",
+        "proficient": false,
+        "specialties": [],
+        "expertiseDice": 0,
+        "minRoll": 1,
+        "bonuses": {
+          "check": "",
+          "passive": 0
+        }
+      },
+      "ath": {
+        "ability": "str",
+        "proficient": false,
+        "specialties": [],
+        "expertiseDice": 0,
+        "minRoll": 1,
+        "bonuses": {
+          "check": "",
+          "passive": 0
+        }
+      },
+      "cul": {
+        "ability": "int",
+        "proficient": false,
+        "specialties": [],
+        "expertiseDice": 0,
+        "minRoll": 1,
+        "bonuses": {
+          "check": "",
+          "passive": 0
+        }
+      },
+      "dec": {
+        "ability": "cha",
+        "proficient": true,
+        "specialties": [],
+        "expertiseDice": 2,
+        "minRoll": 1,
+        "bonuses": {
+          "check": "",
+          "passive": 0
+        }
+      },
+      "eng": {
+        "ability": "int",
+        "proficient": false,
+        "specialties": [],
+        "expertiseDice": 0,
+        "minRoll": 1,
+        "bonuses": {
+          "check": "",
+          "passive": 0
+        }
+      },
+      "his": {
+        "ability": "int",
+        "proficient": false,
+        "specialties": [],
+        "expertiseDice": 0,
+        "minRoll": 1,
+        "bonuses": {
+          "check": "",
+          "passive": 0
+        }
+      },
+      "ins": {
+        "ability": "wis",
+        "proficient": true,
+        "specialties": [],
+        "expertiseDice": 0,
+        "minRoll": 1,
+        "bonuses": {
+          "check": "",
+          "passive": 0
+        }
+      },
+      "itm": {
+        "ability": "cha",
+        "proficient": false,
+        "specialties": [],
+        "expertiseDice": 0,
+        "minRoll": 1,
+        "bonuses": {
+          "check": "",
+          "passive": 0
+        }
+      },
+      "inv": {
+        "ability": "int",
+        "proficient": false,
+        "specialties": [],
+        "expertiseDice": 0,
+        "minRoll": 1,
+        "bonuses": {
+          "check": "",
+          "passive": 0
+        }
+      },
+      "med": {
+        "ability": "wis",
+        "proficient": false,
+        "specialties": [],
+        "expertiseDice": 0,
+        "minRoll": 1,
+        "bonuses": {
+          "check": "",
+          "passive": 0
+        }
+      },
+      "nat": {
+        "ability": "int",
+        "proficient": false,
+        "specialties": [],
+        "expertiseDice": 0,
+        "minRoll": 1,
+        "bonuses": {
+          "check": "",
+          "passive": 0
+        }
+      },
+      "prc": {
+        "ability": "wis",
+        "proficient": true,
+        "specialties": [],
+        "expertiseDice": 2,
+        "minRoll": 1,
+        "bonuses": {
+          "check": "",
+          "passive": 0
+        }
+      },
+      "prf": {
+        "ability": "cha",
+        "proficient": false,
+        "specialties": [],
+        "expertiseDice": 0,
+        "minRoll": 1,
+        "bonuses": {
+          "check": "",
+          "passive": 0
+        }
+      },
+      "per": {
+        "ability": "cha",
+        "proficient": true,
+        "specialties": [],
+        "expertiseDice": 0,
+        "minRoll": 1,
+        "bonuses": {
+          "check": "",
+          "passive": 0
+        }
+      },
+      "rel": {
+        "ability": "int",
+        "proficient": false,
+        "specialties": [],
+        "expertiseDice": 0,
+        "minRoll": 1,
+        "bonuses": {
+          "check": "",
+          "passive": 0
+        }
+      },
+      "slt": {
+        "ability": "dex",
+        "proficient": false,
+        "specialties": [],
+        "expertiseDice": 0,
+        "minRoll": 1,
+        "bonuses": {
+          "check": "",
+          "passive": 0
+        }
+      },
+      "ste": {
+        "ability": "dex",
+        "proficient": true,
+        "specialties": [],
+        "expertiseDice": 0,
+        "minRoll": 1,
+        "bonuses": {
+          "check": "",
+          "passive": 0
+        }
+      },
+      "sur": {
+        "ability": "wis",
+        "proficient": true,
+        "specialties": [],
+        "expertiseDice": 0,
+        "minRoll": 1,
+        "bonuses": {
+          "check": "",
+          "passive": 0
+        }
+      }
+    },
+    "spellResources": {
+      "slots": {
+        "1": {
+          "current": 0,
+          "max": 0
+        },
+        "2": {
+          "current": 0,
+          "max": 0
+        },
+        "3": {
+          "current": 0,
+          "max": 0
+        },
+        "4": {
+          "current": 0,
+          "max": 0
+        },
+        "5": {
+          "current": 0,
+          "max": 0
+        },
+        "6": {
+          "current": 0,
+          "max": 0
+        },
+        "7": {
+          "current": 0,
+          "max": 0
+        },
+        "8": {
+          "current": 0,
+          "max": 0
+        },
+        "9": {
+          "current": 0,
+          "max": 0
+        }
+      },
+      "points": {
+        "current": 0,
+        "max": 0
+      }
+    },
+    "attributes": {
+      "ac": {
+        "baseFormula": "21",
+        "value": 0
+      },
+      "death": {
+        "success": 0,
+        "failure": 0
+      },
+      "hp": {
+        "value": 420,
+        "baseMax": 420,
+        "temp": 0,
+        "bonus": 0
+      },
+      "hitDice": {
+        "d6": {
+          "current": 0,
+          "total": 0
+        },
+        "d8": {
+          "current": 0,
+          "total": 0
+        },
+        "d10": {
+          "current": 0,
+          "total": 0
+        },
+        "d12": {
+          "current": 0,
+          "total": 0
+        },
+        "d4": {
+          "current": 0,
+          "total": 0
+        },
+        "d20": {
+          "current": 0,
+          "total": 0
+        }
+      },
+      "initiative": {
+        "ability": "dex",
+        "bonus": "",
+        "expertiseDice": 0
+      },
+      "movement": {
+        "burrow": {
+          "distance": 0,
+          "unit": "feet"
+        },
+        "climb": {
+          "distance": 0,
+          "unit": "feet"
+        },
+        "fly": {
+          "distance": 80,
+          "unit": "feet"
+        },
+        "swim": {
+          "distance": 40,
+          "unit": "feet"
+        },
+        "walk": {
+          "distance": 40,
+          "unit": "feet"
+        },
+        "traits": {
+          "hover": false
+        }
+      },
+      "senses": {
+        "blindsight": {
+          "distance": 60,
+          "unit": "feet",
+          "otherwiseBlind": false
+        },
+        "darkvision": {
+          "distance": 120,
+          "unit": "feet"
+        },
+        "tremorsense": {
+          "distance": null,
+          "unit": "feet"
+        },
+        "truesight": {
+          "distance": null,
+          "unit": "feet"
+        }
+      },
+      "inspiration": false,
+      "fatigue": 0,
+      "strife": 0,
+      "spellcasting": "cha",
+      "casterLevel": 0
+    },
+    "bonuses": {
+      "maneuverDC": "",
+      "meleeSpellAttack": "",
+      "meleeWeaponAttack": "",
+      "rangedSpellAttack": "",
+      "rangedWeaponAttack": "",
+      "spellDC": "",
+      "abilities": {},
+      "damage": {},
+      "healing": {},
+      "skills": {},
+      "attacks": {},
+      "initiative": {},
+      "movement": {},
+      "senses": {}
+    },
+    "currency": {
+      "pp": 0,
+      "gp": 0,
+      "ep": 0,
+      "sp": 0,
+      "cp": 0
+    },
+    "details": {
+      "bio": "<h2>Combat</h2><p>While individual dragons have their own personalities and tactics, most rely heavily on their breath weapons. They use them whenever they can, preferably from maximum distance and while flying above their enemies.&nbsp;</p><p>When fighting in the open, dragons often circle above their enemies as they wait for their breath weapons to recharge. They only close to melee if their enemies deal significant damage with ranged attacks, or if they can savage an enemy cut off from its allies. Once bloodied, dragons become more aggressive, attacking with bite and claws when their breath weapons aren’t available.</p><p>If a dragon is protecting its lair, it utilizes lair features, traps, allies, and architecture such as escape tunnels to keep up a hit-and-run fight, reappearing only when it has a fully-recharged breath weapon. If the dragon is forced into melee combat, it uses its bite and claws against a single foe. If it has legendary actions like Roar and Wing Attack, it uses them to disperse its other enemies.</p><p>If reduced to less than one-fourth its hit points while fighting in the open, a dragon flies away. However, it fights to the death to defend its lair, unless it can regain the upper hand through tricks or bargains.</p><hr class=\"a5e-rule u-my-md\"><h2>Green Dragon Lair Features</h2><p>The save DC for the following effects is 13 + the dragon’s proficiency bonus. Choose or roll one or more of the following lair features:</p><p>1 Lingering toxic fumes suffocate intruders. A bloodied creature in the lair makes a Constitution saving throw at the start of each of its turns. On a failure, it has disadvantage on attack rolls until the start of its next turn. On a success, it is immune to this effect for 24 hours.</p><p>2 Bloated corpses litter the lair. If a creature disturbs or enters the space of one of these corpses, the corpse erupts with poisonous gas. Creatures within 10 feet of the body make a Constitution saving throw, taking 13 (4d6) poison damage on a failure.</p><p>3 Pools of poison are scattered throughout the lair. If the dragon is within 10 feet of a pool, it can use a legendary action to drink from it, at which point it can immediately roll to recharge its breath weapon. It can’t do so again until the end of its next turn.</p><p>4 The dragon can use Spit Poison on the ceiling of its lair. When it does, the poison reacts with minerals in the rock and creates a green gas that fills a 40-foot-radius cylinder. The area is heavily obscured to creatures other than the dragon. The gas lasts for 1 minute or until dispersed by a strong wind.</p><hr class=\"a5e-rule u-my-md\"><h2>Names</h2><p>Arkenox, Blightbane, Greengall, Honeytongue, Malice, Sirivistra</p><hr class=\"a5e-rule u-my-md\"><h2>Legends and Lore</h2><p>With a History or Nature check, characters can learn the following:</p><p><strong>DC 10</strong> Green dragons breathe poison gas.</p><p><strong>DC 15</strong> Most green dragons are cunning liars that can charm you with their gaze and their deceptive words.</p><p><strong>DC 20</strong> Many green dragons have networks of spies and are secret political players.</p><hr class=\"a5e-rule u-my-md\"><h2>Description</h2><p>Green dragons enjoy a reputation as cunning schemers who relish twisting the minds of their prey. Green dragons rarely attack without warning: they enjoy combat more when it’s preceded by the frisson of deceit and fear.</p><p><strong><em>Beguiling Words</em>.</strong> Conversing with a green dragon is a mistake. Many find the dragon’s words, an artful mixt of lies and half-truths, nearly irresistible. A creature charmed by a green dragon may reveal closely-held secrets and betray friendships. If a creature appears useful, the dragon will let it go, but the creature’s behavior may be influenced by the dragon’s subtle prompts long after its escape.</p><p><strong><em>Prisoners and Minions</em>. </strong>Most green dragons collect interesting prisoners: minstrels to soothe it, nobles to charm and subvert, and knights and warriors to torment with terror and lies. A green dragon values its stable of prisoners almost as much as its actual treasure hoard.&nbsp;</p><p>Only slightly less precious than its prisoners are the dragon’s many minions: the kobolds and other monsters that guard its lair, the forest creatures that report to it, and the agents throughout the world that are bound to it by charms, bribes, or threats.</p><p><strong><em>Playing Politics.</em></strong> Unlike most chromatic dragons, green dragons are intensely interested in humanoid politics. Many a mysterious assassination was funded with wealth from a green dragon’s hoard. Green dragons sometimes even orchestrate conflicts between two rival factions, favoring the side that it believes to be the most venal and destructive.</p><p><strong><em>Enemies of Civilization</em>.</strong> A green dragon finds cruel amusement in its schemes, but in the long term its meddling has a more sinister purpose: by sowing discord among the humanoids that rule more settled lands, the dragon weakens those who might stand against a draconic conqueror.</p><hr class=\"a5e-rule u-my-md\"><h2>Behavior</h2><p>1 Receiving a report from one of its spies</p><p>2 Will pay for specific (but seemingly harmless) information about a human leader</p><p>3 Knows about your mission and can help, for a price</p><p>4 Returning to its lair with prisoners</p><p>5 Fascinating a local commoner or warrior; hasn’t decided whether to eat it or send it home full of lies</p><p>6 Hiding in ambush among emerald-green foliage</p><p>7 Sleeping in its lair, guarded by minions</p><p>8 Patrolling overhead</p><hr class=\"a5e-rule u-my-md\"><h2>Signs</h2><p>1 A low-hanging, greenish fog with an acrid smell</p><p>2 Close-growing, vine-draped trees make travel nearly impossible except on winding paths</p><p>3 Rodents and birds seem to watch you</p><p>4 A treetop village of strange-acting elves: enchanted servants of the dragon</p><p>5 A rift opens and releases a 100-foot-tall plume of poison gas</p><p>6 A clearing containing recently-killed animals such as deer or birds. The cause of death is not apparent. DC 19 Medicine check: killed by poison</p><hr class=\"a5e-rule u-my-md\"><h2>Encounters</h2><p>Green dragons live in forests and jungles. For miles around their lairs, greenery is lush, thorny, and poisonous.</p><p><strong>CR 3–4</strong> green dragon wyrmling; green dragon wyrmling with 1d4 kobolds</p><p><strong>Treasure</strong> 300 gp, 900 ep, 2 jade dragon statues (60 gp each), a concealed bronze key, 2 <em>potions of healing</em>, <em>ring of mind shielding</em></p><p><strong>CR 5–10</strong> young green dragon; green dragon wyrmling with 2 ogres or swarm of poisonous snakes</p><p><strong>Treasure</strong> 1,000 gp, 1,000 ep, 3,000 sp, silver and emerald necklace (250 gp), masterwork lute (250 gp), <em>dust of sneezing and choking</em>, <em>necklace of fireballs</em>, <em>dagger of venom</em></p><p><strong>CR 11–16</strong> young green dragon with corrupted unicorn (see unicorn), shambling mound, or troll; young green dragon with 1d4 dragonbound warriors (see warrior) or giant spiders</p><p><strong>Treasure</strong> 3,000 gp, 12 signet rings from noble families (50 gp each) strung on a chain, magic pool that acts as a <em>crystal ball</em> but can’t be moved, <em>+2 breastplate</em>, <em>dimensional shackles</em></p><p><strong>CR 17–22</strong> adult green dragon; adult green dragon with green dragon wyrmling</p><p><strong>Treasure</strong> 300 pp, 8,500 gp, 5 emeralds (500 gp each), 3 <em>potions of supreme healing</em>, <em>staff of striking</em></p><p><strong>CR 23–30</strong> ancient green dragon; ancient green dragon with 1 or 2 dragon cultists and 1d6 + 2 dragonbound warriors (see warrior); adult green dragon with green hag and 1d6 + 6 dragonbound warriors, goblins, or kobolds</p><p><strong>Treasure</strong> 2,000 pp, 25,000 gp, 2 bejeweled and poisoned gold goblets (2,500 gp each), dozens of letters incriminating the local nobility, 3 <em>potions of flying</em>, <em>crystal ball</em>, <em>ring of invisibility</em></p><p><strong>CR 31+</strong> 2 ancient green dragons; 2 ancient green dragons with fire elemental and mage; green great wyrm</p><p><strong>Treasure</strong> 6,000 pp, 80,000 gp, 10 diamonds (5,000 gp each), one piece of a magic artifact, <em>ring of invisibility</em>, <em>rod of lordly might</em></p><hr class=\"a5e-rule u-my-md\"><h2>Monster Type Description</h2><p>Dragons include red and gold dragons, which are huge reptilian fire-breathers that number among the world’s most dangerous monsters. This type includes white dragons, which breathe killing frost, as well as smaller reptilian creatures related to true dragons, such as pseudodragons.&nbsp;</p>",
+      "creatureTypes": [
+        "dragon"
+      ],
+      "isSwarm": false,
+      "cr": 24,
+      "elite": false,
+      "privateNotes": "",
+      "notes": "",
+      "terrain": []
+    },
+    "proficiencies": {
+      "armor": [],
+      "languages": [
+        "common",
+        "draconic",
+        "three more"
+      ],
+      "tools": [],
+      "weapons": []
+    },
+    "resources": {
+      "primary": {
+        "label": "",
+        "value": 0,
+        "max": "0",
+        "per": "",
+        "hideMax": false,
+        "recharge": {
+          "formula": "",
+          "threshold": 6
+        }
+      },
+      "secondary": {
+        "label": "",
+        "value": 0,
+        "max": "0",
+        "per": "",
+        "hideMax": false,
+        "recharge": {
+          "formula": "",
+          "threshold": 6
+        }
+      },
+      "tertiary": {
+        "label": "",
+        "value": 0,
+        "max": "0",
+        "per": "",
+        "hideMax": false,
+        "recharge": {
+          "formula": "",
+          "threshold": 6
+        }
+      },
+      "quaternary": {
+        "label": "",
+        "value": 0,
+        "max": "0",
+        "per": "",
+        "hideMax": false,
+        "recharge": {
+          "formula": "",
+          "threshold": 6
+        }
+      }
+    },
+    "source": "monstrousMenagerie",
+    "traits": {
+      "size": "grg",
+      "conditionImmunities": [
+        "poisoned"
+      ],
+      "damageImmunities": [
+        "poison"
+      ],
+      "damageResistances": [],
+      "damageVulnerabilities": []
+    },
+    "grants": {}
+  },
+  "prototypeToken": {
+    "name": "Ancient Green Dragon",
+    "displayName": 30,
+    "actorLink": false,
+    "width": 4,
+    "height": 4,
+    "lockRotation": false,
+    "rotation": 0,
+    "alpha": 1,
+    "light": {
+      "alpha": 0.5,
+      "angle": 360,
+      "bright": 0,
+      "coloration": 1,
+      "dim": 0,
+      "luminosity": 0.5,
+      "saturation": 0,
+      "contrast": 0,
+      "shadows": 0,
+      "animation": {
+        "speed": 5,
+        "intensity": 5,
+        "reverse": false,
+        "type": null
+      },
+      "darkness": {
+        "min": 0,
+        "max": 1
+      },
+      "color": null,
+      "attenuation": 0.5
+    },
+    "disposition": -1,
+    "displayBars": 30,
+    "bar1": {
+      "attribute": "attributes.hp"
+    },
+    "bar2": {
+      "attribute": null
+    },
+    "flags": {},
+    "randomImg": false,
+    "texture": {
+      "src": "systems/a5e/assets/green-dragon.webp",
+      "tint": "#ffffff",
+      "scaleX": 1,
+      "scaleY": 1,
+      "offsetX": 0,
+      "offsetY": 0,
+      "rotation": 0
+    },
+    "sight": {
+      "angle": 360,
+      "enabled": true,
+      "range": 0,
+      "brightness": 1,
+      "color": null,
+      "attenuation": 0.1,
+      "saturation": 0,
+      "contrast": 0,
+      "visionMode": "basic"
+    },
+    "detectionModes": [],
+    "appendNumber": false,
+    "prependAdjective": false
+  },
+  "folder": null,
+  "_id": "jguwyf387ksigiz1"
 }
