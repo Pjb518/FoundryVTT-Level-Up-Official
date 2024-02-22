@@ -179,6 +179,13 @@ export default function registerPremiumContentConfig(A5E) {
       title: 'Arcane Sniper',
       url: 'https://bit.ly/3I3t0SW'
     },
+    confidenceMage: {
+      abbreviation: 'ConfMage',
+      affiliate: true,
+      publisher: 'purpleMartinGames',
+      title: 'Confidence Mage',
+      url: 'https://preview.drivethrurpg.com/en/product/403897/confidence-mage-a5e?affiliate_id=1388381'
+    },
     doseOfDungeonpunk: {
       abbreviation: 'DOD:TH',
       affiliate: true,
