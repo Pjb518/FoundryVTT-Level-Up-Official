@@ -1,0 +1,148 @@
+{
+	"folder": null,
+	"name": "Crane Arm (Flamethrower Extension)",
+	"type": "feature",
+	"img": "icons/commodities/tech/claw-mechanical.webp",
+	"system": {
+		"ac": {
+			"baseFormula": "",
+			"formula": "",
+			"grantsDisadvantage": false,
+			"maxDex": 0,
+			"minStr": 0,
+			"mode": 2,
+			"requiresNoShield": false,
+			"requiresUnarmored": false
+		},
+		"actions": {
+			"RYFO8iJ48nXWOEdI": {
+				"name": "Cast Spell",
+				"activation": {
+					"cost": 1,
+					"type": "action",
+					"reactionTrigger": ""
+				},
+				"consumers": {},
+				"rolls": {},
+				"prompts": {
+					"JWDP4S4Yjv2wE7xD": {
+						"type": "effect",
+						"default": true,
+						"effectId": "fX7ykJezw2Vd0NZv"
+					}
+				},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"rechargeType": "custom",
+						"rechargeAmount": "1",
+						"threshold": 6
+					}
+				},
+				"duration": {
+					"unit": "minute",
+					"value": "10"
+				},
+				"ranges": {},
+				"area": {
+					"shape": "",
+					"size": "",
+					"placeTemplate": false
+				},
+				"target": {
+					"quantity": "",
+					"type": "self"
+				},
+				"img": "icons/magic/fire/flame-burning-hand-white.webp",
+				"description": "<p>You create a flame in your hand which lasts until the spell ends and does no harm to you or your equipment. The flame sheds bright light in a 10-foot radius and dim light for an additional 10 feet.</p><p>The spell ends when you dismiss it, cast it again, or attack with the flame. As part of casting the spell or as an action on a following turn, you can fling the flame at a creature within 30 feet, making a ranged spell attack that deals 1d8 fire damage.</p><p>This spell's damage increases by 1d8 when you reach 5th level (2d8), 11th level (3d8), and 17th level (4d8).</p>",
+				"descriptionOutputs": [
+					"action"
+				]
+			},
+			"2a8qjELQkudAZSWu": {
+				"name": "Fling Flame",
+				"activation": {
+					"type": "action",
+					"cost": 1
+				},
+				"consumers": {},
+				"rolls": {
+					"H6iXhtlh9PZo5jh9": {
+						"type": "attack",
+						"default": true,
+						"attackType": "rangedSpellAttack",
+						"proficient": true,
+						"ability": "spellcasting"
+					},
+					"qP8PUzpn1gRnH5z7": {
+						"type": "damage",
+						"default": true,
+						"formula": "1d8",
+						"scaling": {
+							"mode": "cantrip",
+							"formula": "1d8"
+						},
+						"damageType": "fire"
+					}
+				},
+				"prompts": {},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"rechargeType": "custom",
+						"rechargeAmount": "1",
+						"threshold": 6
+					}
+				},
+				"duration": {
+					"unit": "instantaneous"
+				},
+				"ranges": {
+					"JAqtnUo1wZwXFmHk": {
+						"range": "short"
+					}
+				},
+				"target": {
+					"type": "creature",
+					"quantity": 1
+				},
+				"img": "icons/magic/fire/flame-burning-hand-white.webp",
+				"description": "<p>You create a flame in your hand which lasts until the spell ends and does no harm to you or your equipment. The flame sheds bright light in a 10-foot radius and dim light for an additional 10 feet.</p><p>The spell ends when you dismiss it, cast it again, or attack with the flame. As part of casting the spell or as an action on a following turn, you can fling the flame at a creature within 30 feet, making a ranged spell attack that deals 1d8 fire damage.</p><p>This spell's damage increases by 1d8 when you reach 5th level (2d8), 11th level (3d8), and 17th level (4d8).</p>",
+				"descriptionOutputs": [
+					"action"
+				]
+			}
+		},
+		"description": "<p><span style=\"font-size: 10.5pt;\">This extension functions as the produce flame cantrip (using your highest ability score as its spellcasting </span>ability) but its effects are nonmagical.</p>",
+		"favorite": false,
+		"secretDescription": "",
+		"source": "gpg0",
+		"uses": {
+			"value": null,
+			"max": "",
+			"per": null,
+			"recharge": {
+				"formula": "1d6",
+				"threshold": "6"
+			}
+		},
+		"schema": {
+			"version": null,
+			"lastMigration": null
+		},
+		"concentration": false,
+		"featureType": "heritage",
+		"grants": {},
+		"prerequisite": "",
+		"requiresBloodied": false
+	},
+	"effects": [],
+	"flags": {},
+	"_id": "u1i1evsdealz4msp"
+}
