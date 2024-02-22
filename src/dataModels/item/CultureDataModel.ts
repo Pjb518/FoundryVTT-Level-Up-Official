@@ -27,7 +27,8 @@ export default class CultureDataModel extends A5EDataModel.mixin(SchemaDataModel
             label: 'Languages'
           }
         })
-      })
+      }),
+      source: new foundry.data.fields.StringField({ nullable: false, initial: '' })
     });
   }
 }

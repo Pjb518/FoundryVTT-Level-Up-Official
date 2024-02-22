@@ -16,7 +16,8 @@ export default class DestinyDataModel extends A5EDataModel.mixin(SchemaDataModel
       description: new foundry.data.fields.StringField({ nullable: false, initial: '' }),
       sourceOfInspiration: new foundry.data.fields.StringField({ nullable: false, initial: '' }),
       inspirationFeature: new foundry.data.fields.StringField({ nullable: false, initial: '' }),
-      fulfillmentFeature: new foundry.data.fields.StringField({ nullable: false, initial: '' })
+      fulfillmentFeature: new foundry.data.fields.StringField({ nullable: false, initial: '' }),
+      source: new foundry.data.fields.StringField({ nullable: false, initial: '' })
     });
   }
 }

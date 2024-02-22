@@ -23,7 +23,8 @@ export default class HeritageDataModel extends A5EDataModel.mixin(SchemaDataMode
             label: 'Base Movement'
           }
         })
-      })
+      }),
+      source: new foundry.data.fields.StringField({ nullable: false, initial: '' })
     });
   }
 }

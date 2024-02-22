@@ -48,7 +48,8 @@ export default class BackgroundDataModel extends A5EDataModel.mixin(SchemaDataMo
             label: 'Tool Proficiencies'
           }
         })
-      })
+      }),
+      source: new foundry.data.fields.StringField({ nullable: false, initial: '' })
     });
   }
 }
