@@ -1,0 +1,2377 @@
+{
+	"folder": null,
+	"name": "Blastfire Captain",
+	"type": "npc",
+	"img": "icons/svg/mystery-man.svg",
+	"system": {
+		"schemaVersion": {
+			"version": 0.013,
+			"lastMigration": null
+		},
+		"abilities": {
+			"str": {
+				"value": 16,
+				"check": {
+					"expertiseDice": 0,
+					"bonus": ""
+				},
+				"save": {
+					"proficient": false,
+					"expertiseDice": 0,
+					"bonus": ""
+				}
+			},
+			"dex": {
+				"value": 17,
+				"check": {
+					"expertiseDice": 0,
+					"bonus": ""
+				},
+				"save": {
+					"proficient": true,
+					"expertiseDice": 0,
+					"bonus": ""
+				}
+			},
+			"con": {
+				"value": 18,
+				"check": {
+					"expertiseDice": 0,
+					"bonus": ""
+				},
+				"save": {
+					"proficient": true,
+					"expertiseDice": 0,
+					"bonus": ""
+				}
+			},
+			"int": {
+				"value": 15,
+				"check": {
+					"expertiseDice": 0,
+					"bonus": ""
+				},
+				"save": {
+					"proficient": false,
+					"expertiseDice": 0,
+					"bonus": ""
+				}
+			},
+			"wis": {
+				"value": 12,
+				"check": {
+					"expertiseDice": 0,
+					"bonus": ""
+				},
+				"save": {
+					"proficient": false,
+					"expertiseDice": 0,
+					"bonus": ""
+				}
+			},
+			"cha": {
+				"value": 15,
+				"check": {
+					"expertiseDice": 0,
+					"bonus": ""
+				},
+				"save": {
+					"proficient": false,
+					"expertiseDice": 0,
+					"bonus": ""
+				}
+			}
+		},
+		"attributes": {
+			"ac": {
+				"baseFormula": "10 + @dex.mod",
+				"value": 0
+			},
+			"death": {
+				"success": 0,
+				"failure": 0
+			},
+			"hp": {
+				"value": 119,
+				"baseMax": 119,
+				"temp": 0,
+				"bonus": 0
+			},
+			"hitDice": {
+				"d4": {
+					"current": 0,
+					"total": 0
+				},
+				"d6": {
+					"current": 0,
+					"total": 0
+				},
+				"d8": {
+					"current": 14,
+					"total": 14
+				},
+				"d10": {
+					"current": 0,
+					"total": 0
+				},
+				"d12": {
+					"current": 0,
+					"total": 0
+				},
+				"d20": {
+					"current": 0,
+					"total": 0
+				}
+			},
+			"initiative": {
+				"ability": "dex",
+				"bonus": "",
+				"expertiseDice": 0
+			},
+			"movement": {
+				"burrow": {
+					"distance": 0,
+					"unit": "feet"
+				},
+				"climb": {
+					"distance": 25,
+					"unit": "feet"
+				},
+				"fly": {
+					"distance": 0,
+					"unit": "feet"
+				},
+				"swim": {
+					"distance": 25,
+					"unit": "feet"
+				},
+				"walk": {
+					"distance": 35,
+					"unit": "feet"
+				},
+				"traits": {
+					"hover": false
+				}
+			},
+			"senses": {
+				"blindsight": {
+					"distance": 0,
+					"unit": "feet",
+					"otherwiseBlind": false
+				},
+				"darkvision": {
+					"distance": 60,
+					"unit": "feet"
+				},
+				"tremorsense": {
+					"distance": 0,
+					"unit": "feet"
+				},
+				"truesight": {
+					"distance": 0,
+					"unit": "feet"
+				}
+			},
+			"inspiration": false,
+			"fatigue": 0,
+			"strife": 0,
+			"spellcasting": "int",
+			"casterLevel": 0
+		},
+		"bonuses": {
+			"abilities": {},
+			"attacks": {},
+			"damage": {
+				"E16aOvAW7RHwA8Rm": {
+					"label": "Combat Expertise",
+					"formula": "1d6",
+					"context": {
+						"attackTypes": [
+							"meleeWeaponAttack",
+							"meleeSpellAttack",
+							"rangedWeaponAttack",
+							"rangedSpellAttack"
+						],
+						"damageTypes": [
+							"acid",
+							"bludgeoning",
+							"cold",
+							"force",
+							"lightning",
+							"necrotic",
+							"piercing",
+							"poison",
+							"psychic",
+							"radiant",
+							"slashing",
+							"thunder"
+						],
+						"spellLevels": [
+							"0",
+							"1",
+							"2",
+							"3",
+							"4",
+							"5",
+							"6",
+							"7",
+							"8",
+							"9"
+						],
+						"isCritBonus": false
+					},
+					"damageType": "",
+					"default": true,
+					"img": "icons/svg/upgrade.svg"
+				}
+			},
+			"healing": {},
+			"initiative": {},
+			"movement": {},
+			"senses": {},
+			"skills": {},
+			"maneuverDC": "",
+			"meleeSpellAttack": "",
+			"meleeWeaponAttack": "",
+			"rangedSpellAttack": "",
+			"rangedWeaponAttack": "",
+			"spellDC": ""
+		},
+		"currency": {
+			"cp": 0,
+			"sp": 0,
+			"ep": 0,
+			"gp": 0,
+			"pp": 0
+		},
+		"details": {
+			"bio": "",
+			"creatureTypes": [
+				"humanoid"
+			],
+			"isSwarm": false,
+			"cr": 6,
+			"elite": false,
+			"notes": "",
+			"privateNotes": "",
+			"terrain": [
+				"water"
+			]
+		},
+		"grants": {},
+		"proficiencies": {
+			"armor": [],
+			"languages": [
+				"common",
+				"cant"
+			],
+			"tools": [
+				"waterVehicles"
+			],
+			"weapons": []
+		},
+		"resources": {
+			"primary": {
+				"label": "",
+				"value": 0,
+				"max": "",
+				"per": "",
+				"hideMax": false,
+				"recharge": {
+					"formula": "1d6",
+					"threshold": 6
+				}
+			},
+			"secondary": {
+				"label": "",
+				"value": 0,
+				"max": "",
+				"per": "",
+				"hideMax": false,
+				"recharge": {
+					"formula": "1d6",
+					"threshold": 6
+				}
+			},
+			"tertiary": {
+				"label": "",
+				"value": 0,
+				"max": "",
+				"per": "",
+				"hideMax": false,
+				"recharge": {
+					"formula": "1d6",
+					"threshold": 6
+				}
+			},
+			"quaternary": {
+				"label": "",
+				"value": 0,
+				"max": "",
+				"per": "",
+				"hideMax": false,
+				"recharge": {
+					"formula": "1d6",
+					"threshold": 6
+				}
+			}
+		},
+		"skills": {
+			"acr": {
+				"ability": "dex",
+				"proficient": false,
+				"specialties": [],
+				"expertiseDice": 0,
+				"minRoll": 1,
+				"bonuses": {
+					"check": "",
+					"passive": 0
+				}
+			},
+			"ani": {
+				"ability": "wis",
+				"proficient": false,
+				"specialties": [],
+				"expertiseDice": 0,
+				"minRoll": 1,
+				"bonuses": {
+					"check": "",
+					"passive": 0
+				}
+			},
+			"arc": {
+				"ability": "int",
+				"proficient": false,
+				"specialties": [],
+				"expertiseDice": 0,
+				"minRoll": 1,
+				"bonuses": {
+					"check": "",
+					"passive": 0
+				}
+			},
+			"ath": {
+				"ability": "str",
+				"proficient": true,
+				"specialties": [],
+				"expertiseDice": 1,
+				"minRoll": 1,
+				"bonuses": {
+					"check": "",
+					"passive": 0
+				}
+			},
+			"cul": {
+				"ability": "int",
+				"proficient": false,
+				"specialties": [],
+				"expertiseDice": 0,
+				"minRoll": 1,
+				"bonuses": {
+					"check": "",
+					"passive": 0
+				}
+			},
+			"dec": {
+				"ability": "cha",
+				"proficient": true,
+				"specialties": [],
+				"expertiseDice": 2,
+				"minRoll": 1,
+				"bonuses": {
+					"check": "",
+					"passive": 0
+				}
+			},
+			"eng": {
+				"ability": "int",
+				"proficient": true,
+				"specialties": [],
+				"expertiseDice": 0,
+				"minRoll": 1,
+				"bonuses": {
+					"check": "",
+					"passive": 0
+				}
+			},
+			"his": {
+				"ability": "int",
+				"proficient": false,
+				"specialties": [],
+				"expertiseDice": 0,
+				"minRoll": 1,
+				"bonuses": {
+					"check": "",
+					"passive": 0
+				}
+			},
+			"ins": {
+				"ability": "wis",
+				"proficient": true,
+				"specialties": [],
+				"expertiseDice": 1,
+				"minRoll": 1,
+				"bonuses": {
+					"check": "",
+					"passive": 0
+				}
+			},
+			"itm": {
+				"ability": "cha",
+				"proficient": false,
+				"specialties": [],
+				"expertiseDice": 0,
+				"minRoll": 1,
+				"bonuses": {
+					"check": "",
+					"passive": 0
+				}
+			},
+			"inv": {
+				"ability": "int",
+				"proficient": false,
+				"specialties": [],
+				"expertiseDice": 0,
+				"minRoll": 1,
+				"bonuses": {
+					"check": "",
+					"passive": 0
+				}
+			},
+			"med": {
+				"ability": "int",
+				"proficient": false,
+				"specialties": [],
+				"expertiseDice": 0,
+				"minRoll": 1,
+				"bonuses": {
+					"check": "",
+					"passive": 0
+				}
+			},
+			"nat": {
+				"ability": "int",
+				"proficient": true,
+				"specialties": [],
+				"expertiseDice": 0,
+				"minRoll": 1,
+				"bonuses": {
+					"check": "",
+					"passive": 0
+				}
+			},
+			"prc": {
+				"ability": "wis",
+				"proficient": true,
+				"specialties": [],
+				"expertiseDice": 1,
+				"minRoll": 1,
+				"bonuses": {
+					"check": "",
+					"passive": 0
+				}
+			},
+			"prf": {
+				"ability": "cha",
+				"proficient": false,
+				"specialties": [],
+				"expertiseDice": 0,
+				"minRoll": 1,
+				"bonuses": {
+					"check": "",
+					"passive": 0
+				}
+			},
+			"per": {
+				"ability": "wis",
+				"proficient": false,
+				"specialties": [],
+				"expertiseDice": 0,
+				"minRoll": 1,
+				"bonuses": {
+					"check": "",
+					"passive": 0
+				}
+			},
+			"rel": {
+				"ability": "int",
+				"proficient": false,
+				"specialties": [],
+				"expertiseDice": 0,
+				"minRoll": 1,
+				"bonuses": {
+					"check": "",
+					"passive": 0
+				}
+			},
+			"slt": {
+				"ability": "dex",
+				"proficient": false,
+				"specialties": [],
+				"expertiseDice": 0,
+				"minRoll": 1,
+				"bonuses": {
+					"check": "",
+					"passive": 0
+				}
+			},
+			"ste": {
+				"ability": "dex",
+				"proficient": true,
+				"specialties": [],
+				"expertiseDice": 2,
+				"minRoll": 1,
+				"bonuses": {
+					"check": "",
+					"passive": 0
+				}
+			},
+			"sur": {
+				"ability": "wis",
+				"proficient": false,
+				"specialties": [],
+				"expertiseDice": 0,
+				"minRoll": 1,
+				"bonuses": {
+					"check": "",
+					"passive": 0
+				}
+			}
+		},
+		"source": "gpg17",
+		"traits": {
+			"size": "med",
+			"conditionImmunities": [],
+			"damageImmunities": [],
+			"damageResistances": [
+				"fire",
+				"poison"
+			],
+			"damageVulnerabilities": []
+		},
+		"spellResources": {
+			"slots": {
+				"1": {
+					"current": 0,
+					"max": 0
+				},
+				"2": {
+					"current": 0,
+					"max": 0
+				},
+				"3": {
+					"current": 0,
+					"max": 0
+				},
+				"4": {
+					"current": 0,
+					"max": 0
+				},
+				"5": {
+					"current": 0,
+					"max": 0
+				},
+				"6": {
+					"current": 0,
+					"max": 0
+				},
+				"7": {
+					"current": 0,
+					"max": 0
+				},
+				"8": {
+					"current": 0,
+					"max": 0
+				},
+				"9": {
+					"current": 0,
+					"max": 0
+				}
+			},
+			"points": {
+				"current": 0,
+				"max": 0
+			}
+		}
+	},
+	"prototypeToken": {
+		"name": "Blastfire Crewmate",
+		"displayName": 30,
+		"actorLink": false,
+		"appendNumber": false,
+		"prependAdjective": false,
+		"texture": {
+			"src": "icons/svg/mystery-man.svg",
+			"scaleX": 1,
+			"scaleY": 1,
+			"offsetX": 0,
+			"offsetY": 0,
+			"rotation": 0
+		},
+		"width": 1,
+		"height": 1,
+		"lockRotation": false,
+		"rotation": 0,
+		"alpha": 1,
+		"disposition": -1,
+		"displayBars": 30,
+		"bar1": {
+			"attribute": "attributes.hp"
+		},
+		"bar2": {
+			"attribute": null
+		},
+		"light": {
+			"alpha": 0.5,
+			"angle": 360,
+			"bright": 0,
+			"coloration": 1,
+			"dim": 0,
+			"attenuation": 0.5,
+			"luminosity": 0.5,
+			"saturation": 0,
+			"contrast": 0,
+			"shadows": 0,
+			"animation": {
+				"type": null,
+				"speed": 5,
+				"intensity": 5,
+				"reverse": false
+			},
+			"darkness": {
+				"min": 0,
+				"max": 1
+			}
+		},
+		"sight": {
+			"enabled": true,
+			"range": 0,
+			"angle": 360,
+			"visionMode": "basic",
+			"color": null,
+			"attenuation": 0.1,
+			"brightness": 0,
+			"saturation": 0,
+			"contrast": 0
+		},
+		"detectionModes": [],
+		"flags": {},
+		"randomImg": false
+	},
+	"items": [
+		{
+			"name": "Grapple",
+			"type": "maneuver",
+			"img": "icons/skills/melee/unarmed-punch-fist.webp",
+			"effects": [],
+			"flags": {},
+			"system": {
+				"actions": {
+					"wOKLPnhKpnhU1kEj": {
+						"name": "Grapple",
+						"activation": {
+							"cost": 1,
+							"type": "action",
+							"reactionTrigger": ""
+						},
+						"duration": {
+							"unit": "instantaneous",
+							"value": null
+						},
+						"ranges": {
+							"5nrDtksc3KPCbcJd": {
+								"range": "fiveFeet"
+							}
+						},
+						"area": {
+							"shape": "",
+							"size": "",
+							"placeTemplate": false
+						},
+						"target": {
+							"quantity": "",
+							"type": "creature",
+							"shape": "",
+							"size": ""
+						},
+						"prompts": {
+							"B9sbtgKAz5GLtsp3": {
+								"ability": "str",
+								"onSave": "",
+								"saveDC": {
+									"type": "custom",
+									"bonus": "@maneuverDC"
+								},
+								"type": "savingThrow"
+							}
+						},
+						"consumers": {},
+						"rolls": {
+							"GjyfHt0lKnETufaD": {
+								"type": "damage",
+								"default": true,
+								"formula": "1 + @str.mod",
+								"label": "Basic Melee Damage",
+								"canCrit": false
+							}
+						}
+					}
+				},
+				"description": "<p>You can use the Grapple maneuver to grab or wrestle a creature. If you are able to make multiple attacks with the Attack action, this maneuver replaces one of them.</p>\n<p>You must have at least one free hand to attempt a grapple, your target must be within your reach, and the target must be no more than one size category larger than you. The target makes a Strength or Dexterity saving throw against your maneuver DC. On a failure, you deal basic melee damage and the target becomes grappled (see Appendix A: Conditions on page 616). In addition to things that end the condition, you can release the target at any time (no action required).</p>\n<p><em>Escaping a Grapple.</em> While grappled, a creature can use its action to attempt to escape. It must succeed on a Strength or Dexterity saving throw against your maneuver DC.</p>\n<p><em>Moving a Grappled Creature. </em>When you move, you can drag or carry the grappled creature with you. When you do so, your Speed is halved, unless the creature's weight is within your carrying capacity and you are not encumbered by bulky items.</p>\n<p><em>Freeing a Grappled Creature.</em> You can use the Grapple maneuver to try to free another grappled or restrained creature. The creature grappling or restraining the target makes a Strength saving throw against your maneuver DC. If it fails the saving throw, the grappled or restrained creature is freed. Additionally, you may move the freed creature 5 feet in any direction.</p>",
+				"favorite": false,
+				"secretDescription": "",
+				"source": "adventurersGuide",
+				"uses": {
+					"value": null,
+					"max": "",
+					"per": null,
+					"recharge": {
+						"formula": "1d6",
+						"threshold": 6
+					}
+				},
+				"schema": {
+					"version": null,
+					"lastMigration": null
+				},
+				"concentration": false,
+				"degree": 0,
+				"exertionCost": 0,
+				"isStance": false,
+				"prerequisite": "",
+				"tradition": "",
+				"equippedState": 0,
+				"schemaVersion": {
+					"version": 0.013,
+					"lastMigration": {
+						"version": {
+							"schema": 0.011,
+							"foundry": "11.315",
+							"system": "0.16.49"
+						}
+					}
+				}
+			},
+			"folder": null,
+			"_id": "Byf9974Q2M8VTz6V",
+			"sort": 0,
+			"ownership": {
+				"default": 0
+			}
+		},
+		{
+			"name": "Grab On",
+			"type": "maneuver",
+			"img": "icons/skills/melee/hand-grip-staff-teal.webp",
+			"effects": [],
+			"flags": {},
+			"system": {
+				"actions": {
+					"dZElCBOd3yoRyDcB": {
+						"name": "Grab On",
+						"activation": {
+							"cost": 1,
+							"type": "action",
+							"reactionTrigger": ""
+						},
+						"duration": {
+							"unit": "instantaneous",
+							"value": null
+						},
+						"ranges": {
+							"x479yGm9lUjVLHDy": {
+								"range": "fiveFeet"
+							}
+						},
+						"area": {
+							"shape": "",
+							"size": "",
+							"placeTemplate": false
+						},
+						"target": {
+							"quantity": "",
+							"type": "creature",
+							"shape": "",
+							"size": ""
+						},
+						"prompts": {
+							"duRNu9hfiRNwhtCq": {
+								"ability": "str",
+								"onSave": "",
+								"saveDC": {
+									"type": "custom",
+									"bonus": "@maneuverDC"
+								},
+								"type": "savingThrow"
+							}
+						},
+						"consumers": {},
+						"rolls": {
+							"pzopjF1frh4UfKvT": {
+								"type": "damage",
+								"default": true,
+								"formula": "1 + @str.mod",
+								"label": "Basic Melee Damage",
+								"canCrit": false
+							}
+						}
+					}
+				},
+				"description": "<p>While you cannot grapple a creature two or more size categories larger than you, you can grab onto it. By jumping onto its back or climbing up a limb, you can make a Strength or Dexterity saving throw against the creature's maneuver DC to cling to or balance upon its body. On a success, you move into the creature's space and can move upon its body as if it is difficult terrain.</p><p>While grabbing onto a larger creature, you gain advantage on attack rolls against it. The larger creature may be able to attack you as normal, depending on its limbs or attacks. It can also use an action or replace one of its attacks on its turn to try to dislodge you, such as shaking you loose or bashing you against a wall, forcing you to make a Strength or Dexterity saving throw against its maneuver DC or fall prone into the nearest space adjacent to the creature, taking its basic melee damage in the process.</p><p>If the creature chooses to roll over in order to dislodge you, it becomes prone, but you have disadvantage on the saving throw to hang on.</p>",
+				"favorite": false,
+				"secretDescription": "",
+				"source": "adventurersGuide",
+				"uses": {
+					"value": null,
+					"max": "",
+					"per": null,
+					"recharge": {
+						"formula": "1d6",
+						"threshold": 6
+					}
+				},
+				"schema": {
+					"version": null,
+					"lastMigration": null
+				},
+				"concentration": false,
+				"degree": 0,
+				"exertionCost": 0,
+				"isStance": false,
+				"prerequisite": "",
+				"tradition": "",
+				"equippedState": 0,
+				"schemaVersion": {
+					"version": 0.013,
+					"lastMigration": {
+						"version": {
+							"schema": 0.011,
+							"foundry": "11.315",
+							"system": "0.16.49"
+						}
+					}
+				}
+			},
+			"folder": null,
+			"_id": "AN3EwJRgOQhCv4E2",
+			"sort": 0,
+			"ownership": {
+				"default": 0
+			}
+		},
+		{
+			"name": "Disarm",
+			"type": "maneuver",
+			"img": "icons/skills/melee/sword-damaged-broken-glow-red.webp",
+			"effects": [],
+			"flags": {},
+			"system": {
+				"actions": {
+					"xN5ZLHIjo9cHRWrK": {
+						"name": "Disarm",
+						"activation": {
+							"cost": 1,
+							"type": "action",
+							"reactionTrigger": ""
+						},
+						"duration": {
+							"unit": "instantaneous",
+							"value": null
+						},
+						"ranges": {
+							"dFgwvnjjgmzR7vlN": {
+								"range": "fiveFeet"
+							}
+						},
+						"area": {
+							"shape": "",
+							"size": "",
+							"placeTemplate": false
+						},
+						"target": {
+							"quantity": "",
+							"type": "creature",
+							"shape": "",
+							"size": ""
+						},
+						"rolls": {
+							"FDMYIPcl2LveduMw": {
+								"canCrit": false,
+								"damageType": "",
+								"formula": "1 + @str.mod",
+								"label": "Basic Melee Damage",
+								"type": "damage"
+							}
+						},
+						"prompts": {
+							"xs1KlWtLXswqrVKY": {
+								"ability": "str",
+								"onSave": "",
+								"saveDC": {
+									"type": "custom",
+									"bonus": "@maneuverDC"
+								},
+								"type": "savingThrow"
+							}
+						},
+						"consumers": {}
+					}
+				},
+				"description": "<p>You can use the Disarm maneuver to attempt to knock an item or weapon from a creature's hand. If you are able to make multiple attacks with the Attack action, this maneuver replaces one of them.</p><p>The target must be within your reach and be holding an item (either carried or wielded). The target makes a Strength or Dexterity saving throw against your maneuver DC. On a failure, you deal basic melee damage and the target drops the item in its space. The target has advantage if it is larger than you or holding the item with two or more hands, and a target smaller than you has disadvantage.</p>",
+				"favorite": false,
+				"secretDescription": "",
+				"source": "adventurersGuide",
+				"uses": {
+					"value": null,
+					"max": "",
+					"per": null,
+					"recharge": {
+						"formula": "1d6",
+						"threshold": 6
+					}
+				},
+				"schema": {
+					"version": null,
+					"lastMigration": null
+				},
+				"concentration": false,
+				"degree": 0,
+				"exertionCost": 0,
+				"isStance": false,
+				"prerequisite": "",
+				"tradition": "",
+				"equippedState": 0,
+				"schemaVersion": {
+					"version": 0.013,
+					"lastMigration": {
+						"version": {
+							"schema": 0.011,
+							"foundry": "11.315",
+							"system": "0.16.49"
+						}
+					}
+				}
+			},
+			"folder": null,
+			"_id": "4XvNUCrEO5tFSLxb",
+			"sort": 0,
+			"ownership": {
+				"default": 0
+			}
+		},
+		{
+			"name": "Knockdown",
+			"type": "maneuver",
+			"img": "icons/magic/control/silhouette-fall-slip-prone.webp",
+			"effects": [],
+			"flags": {},
+			"system": {
+				"actions": {
+					"wfzmnudl6tfhZk4v": {
+						"name": "Knockdown",
+						"activation": {
+							"cost": 1,
+							"type": "action",
+							"reactionTrigger": ""
+						},
+						"duration": {
+							"unit": "instantaneous",
+							"value": null
+						},
+						"ranges": {
+							"NbOuce8AtLVjDeeL": {
+								"range": "fiveFeet"
+							}
+						},
+						"area": {
+							"shape": "",
+							"size": "",
+							"placeTemplate": false
+						},
+						"target": {
+							"quantity": "",
+							"type": "creature",
+							"shape": "",
+							"size": ""
+						},
+						"prompts": {
+							"L65ZmTO0KcmeQ2EQ": {
+								"ability": "str",
+								"onSave": "",
+								"saveDC": {
+									"type": "custom",
+									"bonus": "@maneuverDC"
+								},
+								"type": "savingThrow"
+							}
+						},
+						"consumers": {},
+						"rolls": {
+							"Wgx2bdExxjzRu7nR": {
+								"type": "damage",
+								"default": true,
+								"formula": "1 + @str.mod",
+								"label": "Basic Melee Damage",
+								"canCrit": false
+							}
+						}
+					}
+				},
+				"description": "<p>You can use the Knockdown maneuver to trip or push a creature down. If you are able to make multiple attacks with the Attack action, this maneuver replaces one of them.</p><p>The target must be within your reach and be no more than one size category larger than you. The target makes a Strength saving throw against your maneuver DC. On a failure, you deal basic melee damage and knock the target prone.</p>",
+				"favorite": false,
+				"secretDescription": "",
+				"source": "adventurersGuide",
+				"uses": {
+					"value": null,
+					"max": "",
+					"per": null,
+					"recharge": {
+						"formula": "1d6",
+						"threshold": 6
+					}
+				},
+				"schema": {
+					"version": null,
+					"lastMigration": null
+				},
+				"concentration": false,
+				"degree": 0,
+				"exertionCost": 0,
+				"isStance": false,
+				"prerequisite": "",
+				"tradition": "",
+				"equippedState": 0,
+				"schemaVersion": {
+					"version": 0.013,
+					"lastMigration": {
+						"version": {
+							"schema": 0.011,
+							"foundry": "11.315",
+							"system": "0.16.49"
+						}
+					}
+				}
+			},
+			"folder": null,
+			"_id": "EB8pLaxp5FCXApqA",
+			"sort": 0,
+			"ownership": {
+				"default": 0
+			}
+		},
+		{
+			"name": "Overrun",
+			"type": "maneuver",
+			"img": "icons/skills/melee/shield-damaged-broken-blue.webp",
+			"effects": [],
+			"flags": {},
+			"system": {
+				"actions": {
+					"kBUgwxtsHQqPa1DV": {
+						"name": "Overrun",
+						"activation": {
+							"cost": 1,
+							"type": "special",
+							"reactionTrigger": ""
+						},
+						"duration": {
+							"unit": "instantaneous",
+							"value": null
+						},
+						"ranges": {
+							"VAh3uPOJAaI5ShrA": {
+								"range": "fiveFeet"
+							}
+						},
+						"area": {
+							"shape": "",
+							"size": "",
+							"placeTemplate": false
+						},
+						"target": {
+							"quantity": "",
+							"type": "creature",
+							"shape": "",
+							"size": ""
+						},
+						"prompts": {
+							"bvFJU6hHDstCwg1b": {
+								"ability": "str",
+								"onSave": "",
+								"saveDC": {
+									"type": "custom",
+									"bonus": "@maneuverDC"
+								},
+								"type": "savingThrow"
+							}
+						},
+						"consumers": {},
+						"rolls": {
+							"ezzGenCLYoqg37hI": {
+								"type": "damage",
+								"default": true,
+								"formula": "1 + @str.mod",
+								"label": "Basic Melee Damage",
+								"canCrit": false
+							}
+						}
+					}
+				},
+				"description": "<p>You can use an action or bonus action to make an Overrun maneuver to move through a hostile creature's space by forcing your way past. Make a Strength saving throw against the target's maneuver DC. On a success, you deal basic melee damage and can move through the hostile creature's space once this turn. The creature can choose to just let you pass instead of rolling. You have advantage if you are larger than the target, or disadvantage if you are smaller. If you are two or more sizes smaller than the target, you can move through the hostile creature's space without making a save. You still provoke opportunity attacks if you move beyond a creature's reach.</p>",
+				"favorite": false,
+				"secretDescription": "",
+				"source": "adventurersGuide",
+				"uses": {
+					"value": null,
+					"max": "",
+					"per": null,
+					"recharge": {
+						"formula": "1d6",
+						"threshold": 6
+					}
+				},
+				"schema": {
+					"version": null,
+					"lastMigration": null
+				},
+				"concentration": false,
+				"degree": 0,
+				"exertionCost": 0,
+				"isStance": false,
+				"prerequisite": "",
+				"tradition": "",
+				"equippedState": 0,
+				"schemaVersion": {
+					"version": 0.013,
+					"lastMigration": {
+						"version": {
+							"schema": 0.011,
+							"foundry": "11.315",
+							"system": "0.16.49"
+						}
+					}
+				}
+			},
+			"folder": null,
+			"_id": "rltWiHSyjg5AiXD1",
+			"sort": 0,
+			"ownership": {
+				"default": 0
+			}
+		},
+		{
+			"name": "Shove",
+			"type": "maneuver",
+			"img": "icons/skills/melee/shield-block-bash-yellow.webp",
+			"effects": [],
+			"flags": {},
+			"system": {
+				"actions": {
+					"uvkBwwL7OQopMMHB": {
+						"name": "Shove",
+						"activation": {
+							"cost": 1,
+							"type": "action",
+							"reactionTrigger": ""
+						},
+						"duration": {
+							"unit": "instantaneous",
+							"value": null
+						},
+						"ranges": {
+							"j7yuRUD8cu1y0Jia": {
+								"range": "fiveFeet"
+							}
+						},
+						"area": {
+							"shape": "",
+							"size": "",
+							"placeTemplate": false
+						},
+						"target": {
+							"quantity": null,
+							"type": "creature",
+							"shape": "",
+							"size": ""
+						},
+						"rolls": {
+							"TcI6WmWSAy0EAxg9": {
+								"canCrit": false,
+								"damageType": "",
+								"formula": "1 + @str.mod",
+								"label": "Basic Melee Damage",
+								"type": "damage"
+							}
+						},
+						"prompts": {
+							"UVu9ZVC0beiWNgAV": {
+								"ability": "str",
+								"onSave": "",
+								"saveDC": {
+									"type": "custom",
+									"bonus": "@maneuverDC"
+								},
+								"type": "savingThrow"
+							}
+						},
+						"consumers": {}
+					}
+				},
+				"description": "<p>You can use the Shove maneuver to push a creature away. If you are able to make multiple attacks with the Attack action, this maneuver replaces one of them.</p><p>The target must be within your reach and be no more than one size category larger than you. The target makes a Strength saving throw against your maneuver DC. On a failure, you deal basic melee damage and push the target a number of feet away from you equal to 5 + 5 for every 5 points it failed its saving throw by. You can move the creature in any direction away from you (to the side, forward, or diagonally away).</p><p>A creature that is shoved off of a precipice is propelled off of whatever it is standing on -- it does not receive any saving throw or ability check to grab onto something to avoid falling down below.</p>",
+				"favorite": false,
+				"secretDescription": "",
+				"source": "adventurersGuide",
+				"uses": {
+					"value": null,
+					"max": "",
+					"per": null,
+					"recharge": {
+						"formula": "1d6",
+						"threshold": 6
+					}
+				},
+				"schema": {
+					"version": null,
+					"lastMigration": null
+				},
+				"concentration": false,
+				"degree": 0,
+				"exertionCost": 0,
+				"isStance": false,
+				"prerequisite": "",
+				"tradition": "",
+				"equippedState": 0,
+				"schemaVersion": {
+					"version": 0.013,
+					"lastMigration": {
+						"version": {
+							"schema": 0.011,
+							"foundry": "11.315",
+							"system": "0.16.49"
+						}
+					}
+				}
+			},
+			"folder": null,
+			"_id": "5DcsBmEmspJ3Ma0O",
+			"sort": 0,
+			"ownership": {
+				"default": 0
+			}
+		},
+		{
+			"name": "Blastfire Cauldron",
+			"type": "feature",
+			"system": {
+				"ac": {
+					"baseFormula": "",
+					"formula": "",
+					"maxDex": 0,
+					"minStr": 0,
+					"mode": 2,
+					"requiresNoShield": false,
+					"requiresUnarmored": false
+				},
+				"actions": {
+					"vQi5cpb6spnsArop": {
+						"name": "Add Cauldron",
+						"activation": {
+							"type": "hour",
+							"cost": 24
+						},
+						"consumers": {},
+						"rolls": {},
+						"prompts": {},
+						"uses": {
+							"value": 0,
+							"max": "",
+							"per": "",
+							"recharge": {
+								"formula": "1d6",
+								"rechargeType": "custom",
+								"rechargeAmount": "1",
+								"threshold": 6
+							}
+						}
+					},
+					"D03i814FXCHDq7gE": {
+						"name": "Double Speed",
+						"activation": {},
+						"consumers": {
+							"Khe50vTn2zgeLrZw": {
+								"type": "actionUses",
+								"default": true,
+								"quantity": 1
+							}
+						},
+						"rolls": {},
+						"prompts": {},
+						"uses": {
+							"value": 1,
+							"max": "1",
+							"per": "day",
+							"recharge": {
+								"formula": "1d6",
+								"rechargeType": "custom",
+								"rechargeAmount": "1",
+								"threshold": 6
+							}
+						}
+					}
+				},
+				"description": "<p>The crewmate can spend 24 hours (&ndash;1d4 hours per additional crewmate) modifying the rear of a water vehicle to add on a blastfire cauldron. Once per day, the water vehicle can double its Speed for up to 1d4 rounds, during which it can only travel in one direction.</p>",
+				"favorite": false,
+				"secretDescription": "",
+				"source": "",
+				"uses": {
+					"value": null,
+					"max": "",
+					"per": null,
+					"recharge": {
+						"formula": "1d6",
+						"threshold": "6"
+					}
+				},
+				"schema": {
+					"version": null,
+					"lastMigration": null
+				},
+				"concentration": false,
+				"featureType": "other",
+				"grants": {},
+				"prerequisite": "",
+				"requiresBloodied": false
+			},
+			"_id": "VO3ELXnr4NhDlaJD",
+			"img": "icons/svg/item-bag.svg",
+			"effects": [],
+			"folder": null,
+			"sort": 0,
+			"ownership": {
+				"default": 0
+			},
+			"flags": {}
+		},
+		{
+			"name": "Combat Expertise",
+			"type": "feature",
+			"system": {
+				"ac": {
+					"baseFormula": "",
+					"formula": "",
+					"maxDex": 0,
+					"minStr": 0,
+					"mode": 2,
+					"requiresNoShield": false,
+					"requiresUnarmored": false
+				},
+				"actions": {},
+				"description": "<p>The damage of the captain&rsquo;s attacks includes a d6 expertise die.</p>",
+				"favorite": false,
+				"secretDescription": "",
+				"source": "",
+				"uses": {
+					"value": null,
+					"max": "",
+					"per": null,
+					"recharge": {
+						"formula": "1d6",
+						"threshold": "6"
+					}
+				},
+				"schema": {
+					"version": null,
+					"lastMigration": null
+				},
+				"concentration": false,
+				"featureType": "other",
+				"grants": {},
+				"prerequisite": "",
+				"requiresBloodied": false
+			},
+			"_id": "v04rDZn2Wk5xhm7f",
+			"img": "icons/svg/item-bag.svg",
+			"effects": [],
+			"folder": null,
+			"sort": 0,
+			"ownership": {
+				"default": 0
+			},
+			"flags": {}
+		},
+		{
+			"name": "Multiattack",
+			"type": "feature",
+			"system": {
+				"ac": {
+					"baseFormula": "",
+					"formula": "",
+					"maxDex": 0,
+					"minStr": 0,
+					"mode": 2,
+					"requiresNoShield": false,
+					"requiresUnarmored": false
+				},
+				"actions": {
+					"uotChd2CW6WMXgBz": {
+						"name": "Multiattack",
+						"activation": {
+							"type": "action",
+							"cost": 1
+						},
+						"consumers": {},
+						"rolls": {},
+						"prompts": {},
+						"uses": {
+							"value": 0,
+							"max": "",
+							"per": "",
+							"recharge": {
+								"formula": "1d6",
+								"rechargeType": "custom",
+								"rechargeAmount": "1",
+								"threshold": 6
+							}
+						}
+					}
+				},
+				"description": "<p>The Blastfire captain makes two attacks in any combination, but they can only make one ranged attack with their saber pistol per turn and must have sufficient ammunition loaded to fire their revolver more than once per turn.</p>",
+				"favorite": true,
+				"secretDescription": "",
+				"source": "",
+				"uses": {
+					"value": null,
+					"max": "",
+					"per": null,
+					"recharge": {
+						"formula": "1d6",
+						"threshold": "6"
+					}
+				},
+				"schema": {
+					"version": null,
+					"lastMigration": null
+				},
+				"concentration": false,
+				"featureType": "other",
+				"grants": {},
+				"prerequisite": "",
+				"requiresBloodied": false
+			},
+			"_id": "943xTvXb45Z4ORxG",
+			"img": "icons/svg/item-bag.svg",
+			"effects": [],
+			"folder": null,
+			"sort": 0,
+			"ownership": {
+				"default": 0
+			},
+			"flags": {}
+		},
+		{
+			"name": "Saber Pistol",
+			"type": "object",
+			"system": {
+				"ac": {
+					"baseFormula": "",
+					"formula": "",
+					"maxDex": 0,
+					"minStr": 0,
+					"mode": 2,
+					"requiresNoShield": false,
+					"requiresUnarmored": false
+				},
+				"actions": {
+					"LuFl3gp5q0OJEiiZ": {
+						"name": "Melee",
+						"activation": {
+							"type": "action",
+							"cost": 1
+						},
+						"consumers": {},
+						"rolls": {
+							"8VzVp2wHbfMz9rHs": {
+								"type": "attack",
+								"default": true,
+								"attackType": "meleeWeaponAttack",
+								"proficient": true,
+								"ability": "str"
+							},
+							"KfQrNWAYnJCOxm90": {
+								"type": "damage",
+								"default": true,
+								"formula": "1d8 + @str.mod",
+								"damageType": "slashing"
+							}
+						},
+						"prompts": {},
+						"uses": {
+							"value": 0,
+							"max": "",
+							"per": "",
+							"recharge": {
+								"formula": "1d6",
+								"rechargeType": "custom",
+								"rechargeAmount": "1",
+								"threshold": 6
+							}
+						},
+						"ranges": {
+							"Yrs4wmmQRriDoQ7U": {
+								"range": "fiveFeet"
+							}
+						},
+						"target": {
+							"type": "creatureObject",
+							"quantity": 1
+						}
+					},
+					"YabH9dhTXfcaMDIJ": {
+						"name": "Ranged",
+						"activation": {
+							"type": "action",
+							"cost": 1
+						},
+						"consumers": {},
+						"rolls": {
+							"8VzVp2wHbfMz9rHs": {
+								"type": "attack",
+								"default": true,
+								"attackType": "rangedWeaponAttack",
+								"proficient": true,
+								"ability": "dex"
+							},
+							"KfQrNWAYnJCOxm90": {
+								"type": "damage",
+								"default": true,
+								"formula": "1d8 + @dex.mod",
+								"damageType": "piercing"
+							}
+						},
+						"prompts": {},
+						"uses": {
+							"value": 0,
+							"max": "",
+							"per": "",
+							"recharge": {
+								"formula": "1d6",
+								"rechargeType": "custom",
+								"rechargeAmount": "1",
+								"threshold": 6
+							}
+						},
+						"ranges": {
+							"Yrs4wmmQRriDoQ7U": {
+								"range": 10,
+								"unit": "feet"
+							},
+							"3SiOR4LEgtQWJajY": {
+								"range": "short"
+							}
+						},
+						"target": {
+							"type": "creatureObject",
+							"quantity": 1
+						}
+					}
+				},
+				"description": "",
+				"favorite": true,
+				"secretDescription": "",
+				"source": "",
+				"uses": {
+					"value": null,
+					"max": "",
+					"per": null,
+					"recharge": {
+						"formula": "1d6",
+						"threshold": "6"
+					}
+				},
+				"schema": {
+					"version": null,
+					"lastMigration": null
+				},
+				"ammunitionProperties": [],
+				"armorCategory": "",
+				"armorProperties": [],
+				"attuned": false,
+				"bulky": false,
+				"craftingComponents": "",
+				"containerId": "",
+				"damagedState": 0,
+				"equippedState": 0,
+				"items": {},
+				"materialProperties": [],
+				"objectType": "weapon",
+				"plotItem": false,
+				"price": 0,
+				"proficient": true,
+				"quantity": 1,
+				"rarity": "mundane",
+				"requiresAttunement": false,
+				"shieldCategory": "",
+				"shieldProperties": [],
+				"unidentified": false,
+				"unidentifiedDescription": "",
+				"unidentifiedName": "",
+				"weaponProperties": [],
+				"weight": 5
+			},
+			"_id": "g3OUm45q6DyK3OSO",
+			"img": "icons/svg/item-bag.svg",
+			"effects": [],
+			"folder": null,
+			"sort": 0,
+			"ownership": {
+				"default": 0
+			},
+			"flags": {}
+		},
+		{
+			"name": "Blasting Jump",
+			"type": "feature",
+			"system": {
+				"ac": {
+					"baseFormula": "",
+					"formula": "",
+					"maxDex": 0,
+					"minStr": 0,
+					"mode": 2,
+					"requiresNoShield": false,
+					"requiresUnarmored": false
+				},
+				"actions": {
+					"ZLsiRQQSZqlZRFUW": {
+						"name": "Blasting Jump",
+						"activation": {
+							"type": "bonusAction",
+							"cost": 1
+						},
+						"consumers": {
+							"t6eITomtQWYqzsTs": {
+								"type": "itemUses",
+								"default": true,
+								"quantity": 1
+							}
+						},
+						"rolls": {
+							"rbv3UpqG4PmuJ01o": {
+								"type": "damage",
+								"default": true,
+								"canCrit": false,
+								"formula": "10d6",
+								"damageType": "fire"
+							}
+						},
+						"prompts": {
+							"TXQFQyLPHTFaQX2Q": {
+								"type": "savingThrow",
+								"default": true,
+								"ability": "dex",
+								"saveDC": {
+									"type": "custom",
+									"bonus": "15"
+								},
+								"onSave": "Half damage"
+							}
+						},
+						"uses": {
+							"value": 0,
+							"max": "",
+							"per": "",
+							"recharge": {
+								"formula": "1d6",
+								"rechargeType": "custom",
+								"rechargeAmount": "1",
+								"threshold": 6
+							}
+						},
+						"ranges": {
+							"PHZxBjGvmppMR09z": {
+								"range": "self"
+							}
+						},
+						"area": {
+							"shape": "sphere",
+							"quantity": 1,
+							"radius": 20,
+							"placeTemplate": true
+						}
+					}
+				},
+				"description": "<p>The captain tears a pouched-horn from their belt and lights it, moving them up to 80 feet in a direction of their choosing without provoking opportunity attacks while creating a 20-foot radius explosion centered on their starting square.</p>\n<p>Each creature in the area makes a DC 15 Dexterity saving throw , taking 35 (10d6) fire damage on a failure, or half damage on a success. The captain can spend their reaction to take no damage from colliding with a structure during this movement (which deals falling damage) and otherwise takes half damage, but such an impact ends the movement.</p>",
+				"favorite": true,
+				"secretDescription": "",
+				"source": "",
+				"uses": {
+					"value": 2,
+					"max": "2",
+					"per": "day",
+					"recharge": {
+						"formula": "1d6",
+						"threshold": "6"
+					}
+				},
+				"schema": {
+					"version": null,
+					"lastMigration": null
+				},
+				"concentration": false,
+				"featureType": "other",
+				"grants": {},
+				"prerequisite": "",
+				"requiresBloodied": false
+			},
+			"_id": "Yh1o7cWDZayIlKJ6",
+			"img": "icons/svg/item-bag.svg",
+			"effects": [],
+			"folder": null,
+			"sort": 0,
+			"ownership": {
+				"default": 0
+			},
+			"flags": {}
+		},
+		{
+			"name": "Defusing Fuses",
+			"type": "feature",
+			"system": {
+				"ac": {
+					"baseFormula": "",
+					"formula": "",
+					"maxDex": 0,
+					"minStr": 0,
+					"mode": 2,
+					"requiresNoShield": false,
+					"requiresUnarmored": false
+				},
+				"actions": {
+					"dQV7j6VlCwTPOGEt": {
+						"name": "Defusing Fuses",
+						"activation": {
+							"type": "reaction",
+							"cost": 1,
+							"reactionTrigger": "Hit with a melee attack"
+						},
+						"consumers": {
+							"ocJ6Vyjy15a08Rhr": {
+								"type": "itemUses",
+								"default": true,
+								"quantity": 1
+							}
+						},
+						"rolls": {},
+						"prompts": {},
+						"uses": {
+							"value": 0,
+							"max": "",
+							"per": "",
+							"recharge": {
+								"formula": "1d6",
+								"rechargeType": "custom",
+								"rechargeAmount": "1",
+								"threshold": 6
+							}
+						}
+					}
+				},
+				"description": "<p>When a creature hits the captain with a melee attack, they pull a bundle of friction-lit fuses out of their bandolier to create a shower of sparks that disrupt their attacker and turn the hit into a miss.</p>",
+				"favorite": true,
+				"secretDescription": "",
+				"source": "",
+				"uses": {
+					"value": 2,
+					"max": "2",
+					"per": "day",
+					"recharge": {
+						"formula": "1d6",
+						"threshold": "6"
+					}
+				},
+				"schema": {
+					"version": null,
+					"lastMigration": null
+				},
+				"concentration": false,
+				"featureType": "other",
+				"grants": {},
+				"prerequisite": "",
+				"requiresBloodied": false
+			},
+			"_id": "edIczXU8rl0nrNxe",
+			"img": "icons/svg/item-bag.svg",
+			"effects": [],
+			"folder": null,
+			"sort": 0,
+			"ownership": {
+				"default": 0
+			},
+			"flags": {}
+		},
+		{
+			"name": "Leather, Padded +1",
+			"type": "object",
+			"img": "icons/equipment/chest/vest-leather-brown.webp",
+			"effects": [],
+			"flags": {},
+			"system": {
+				"ac": {
+					"baseFormula": "12 + @dex.mod + 1",
+					"formula": "",
+					"maxDex": 0,
+					"minStr": 0,
+					"mode": 2,
+					"requiresNoShield": false,
+					"requiresUnarmored": false
+				},
+				"actions": {},
+				"description": "",
+				"favorite": false,
+				"secretDescription": "",
+				"source": "",
+				"uses": {
+					"value": null,
+					"max": "",
+					"per": null,
+					"recharge": {
+						"formula": "1d6",
+						"threshold": 6
+					}
+				},
+				"schema": {
+					"version": null,
+					"lastMigration": null
+				},
+				"ammunitionProperties": [],
+				"armorCategory": "light",
+				"armorProperties": [],
+				"attuned": false,
+				"bulky": false,
+				"craftingComponents": "Hide or scales of a beast of CR 1–4",
+				"containerId": "",
+				"damagedState": 0,
+				"equippedState": 2,
+				"items": {},
+				"materialProperties": [
+					"comfortable",
+					"flaw"
+				],
+				"objectType": "armor",
+				"plotItem": false,
+				"price": "400 gp",
+				"proficient": true,
+				"quantity": 1,
+				"rarity": "uncommon",
+				"requiresAttunement": false,
+				"shieldCategory": "",
+				"shieldProperties": [],
+				"unidentified": false,
+				"unidentifiedDescription": "",
+				"unidentifiedName": "",
+				"weaponProperties": [],
+				"weight": 8,
+				"schemaVersion": {
+					"version": 0.013,
+					"lastMigration": {
+						"version": {
+							"schema": 0.011,
+							"foundry": "11.315",
+							"system": "0.16.49"
+						}
+					}
+				}
+			},
+			"folder": null,
+			"_id": "ZuDCrC454wrS93bs",
+			"sort": 0,
+			"ownership": {
+				"default": 0
+			}
+		},
+		{
+			"name": "Chaotic",
+			"type": "feature",
+			"system": {
+				"ac": {
+					"baseFormula": "",
+					"formula": "",
+					"maxDex": 0,
+					"minStr": 0,
+					"mode": 2,
+					"requiresNoShield": false,
+					"requiresUnarmored": false
+				},
+				"actions": {},
+				"description": "<p>The captain radiates a Chaotic aura.</p>",
+				"favorite": false,
+				"secretDescription": "",
+				"source": "",
+				"uses": {
+					"value": null,
+					"max": "",
+					"per": null,
+					"recharge": {
+						"formula": "1d6",
+						"threshold": "6"
+					}
+				},
+				"schema": {
+					"version": null,
+					"lastMigration": null
+				},
+				"concentration": false,
+				"featureType": "other",
+				"grants": {},
+				"prerequisite": "",
+				"requiresBloodied": false
+			},
+			"_id": "BzjM34HMoW3MPGa8",
+			"img": "icons/svg/item-bag.svg",
+			"effects": [],
+			"folder": null,
+			"sort": 0,
+			"ownership": {
+				"default": 0
+			},
+			"flags": {}
+		},
+		{
+			"name": "Evasion",
+			"type": "feature",
+			"system": {
+				"ac": {
+					"baseFormula": "",
+					"formula": "",
+					"maxDex": 0,
+					"minStr": 0,
+					"mode": 2,
+					"requiresNoShield": false,
+					"requiresUnarmored": false
+				},
+				"actions": {},
+				"description": "<p>When the captain makes a Dexterity saving throw against an effect that deals half damage on a success, they take no damage on a success and half damage on a failure.</p>",
+				"favorite": false,
+				"secretDescription": "",
+				"source": "",
+				"uses": {
+					"value": null,
+					"max": "",
+					"per": null,
+					"recharge": {
+						"formula": "1d6",
+						"threshold": "6"
+					}
+				},
+				"schema": {
+					"version": null,
+					"lastMigration": null
+				},
+				"concentration": false,
+				"featureType": "other",
+				"grants": {},
+				"prerequisite": "",
+				"requiresBloodied": false
+			},
+			"_id": "7Tet0mPcFgc3gq1H",
+			"img": "icons/svg/item-bag.svg",
+			"effects": [],
+			"folder": null,
+			"sort": 0,
+			"ownership": {
+				"default": 0
+			},
+			"flags": {}
+		},
+		{
+			"name": "Sneak Attack",
+			"type": "feature",
+			"system": {
+				"ac": {
+					"baseFormula": "",
+					"formula": "",
+					"maxDex": 0,
+					"minStr": 0,
+					"mode": 2,
+					"requiresNoShield": false,
+					"requiresUnarmored": false
+				},
+				"actions": {
+					"VQqFKuiE4o3NLDBx": {
+						"name": "Sneak Attack",
+						"activation": {},
+						"consumers": {
+							"3zw5IjUexUFOVZii": {
+								"type": "itemUses",
+								"default": true,
+								"quantity": 1
+							}
+						},
+						"rolls": {
+							"NCdIwvEk6zZuE0Q2": {
+								"type": "damage",
+								"default": true,
+								"formula": "3d6"
+							}
+						},
+						"prompts": {},
+						"uses": {
+							"value": 0,
+							"max": "",
+							"per": "",
+							"recharge": {
+								"formula": "1d6",
+								"rechargeType": "custom",
+								"rechargeAmount": "1",
+								"threshold": 6
+							}
+						}
+					}
+				},
+				"description": "",
+				"favorite": true,
+				"secretDescription": "",
+				"source": "",
+				"uses": {
+					"value": 1,
+					"max": "1",
+					"per": "turn",
+					"recharge": {
+						"formula": "1d6",
+						"threshold": "6"
+					}
+				},
+				"schema": {
+					"version": null,
+					"lastMigration": null
+				},
+				"concentration": false,
+				"featureType": "other",
+				"grants": {},
+				"prerequisite": "",
+				"requiresBloodied": false
+			},
+			"_id": "FL1VGd3AxMtFACW1",
+			"img": "icons/svg/item-bag.svg",
+			"effects": [],
+			"folder": null,
+			"sort": 0,
+			"ownership": {
+				"default": 0
+			},
+			"flags": {}
+		},
+		{
+			"name": "Revolver",
+			"type": "object",
+			"img": "icons/weapons/guns/rifle-brown.webp",
+			"effects": [],
+			"flags": {},
+			"system": {
+				"ac": {
+					"baseFormula": "",
+					"formula": "",
+					"maxDex": 0,
+					"minStr": 0,
+					"mode": 1,
+					"requiresNoShield": false,
+					"requiresUnarmored": false
+				},
+				"actions": {
+					"oJrLBxGLO93a9rTa": {
+						"name": "Revolver",
+						"activation": {
+							"cost": "",
+							"type": "",
+							"reactionTrigger": ""
+						},
+						"duration": {
+							"unit": "",
+							"value": ""
+						},
+						"ranges": {
+							"TZcUA0bYm0lu02Qu": {
+								"range": "medium"
+							},
+							"CJceNCcLl1OS3RD7": {
+								"range": "180"
+							}
+						},
+						"area": {
+							"shape": "",
+							"size": "",
+							"placeTemplate": false,
+							"quantity": 1
+						},
+						"target": {
+							"quantity": 1,
+							"type": "creature"
+						},
+						"rolls": {
+							"sXtxXjG70zP6diEk": {
+								"bonus": "",
+								"critThreshold": "20",
+								"type": "attack",
+								"attackType": "rangedWeaponAttack",
+								"ability": "dex"
+							},
+							"p51OHG44FGRi3OGR": {
+								"canCrit": true,
+								"damageType": "piercing",
+								"formula": "2d6 + @dex.mod",
+								"name": "Revolver",
+								"type": "damage"
+							}
+						},
+						"consumers": {
+							"IhFkOUPgfms9JI1c": {
+								"type": "ammunition",
+								"default": true,
+								"itemId": "",
+								"quantity": 1
+							}
+						}
+					},
+					"ELpn1fi1sm0yv0oc": {
+						"name": "Load",
+						"activation": {
+							"type": "action",
+							"cost": 1
+						},
+						"consumers": {
+							"piLi0Au7eNENjgFV": {
+								"type": "itemUses",
+								"default": true,
+								"quantity": -1
+							}
+						},
+						"rolls": {},
+						"prompts": {},
+						"uses": {
+							"value": 0,
+							"max": "",
+							"per": "",
+							"recharge": {
+								"formula": "1d6",
+								"threshold": 6
+							}
+						}
+					}
+				},
+				"description": "<p>When a revolver is loaded, it holds up to 6 bullets. The revolver only needs to be loaded after all of its ammunition has been fired.</p><p><em>Loading a revolver requires an action. A revolver can be used to make one ranged attack per bullet loaded into it.</em></p>",
+				"favorite": true,
+				"secretDescription": "",
+				"source": "",
+				"uses": {
+					"value": 6,
+					"max": "6",
+					"per": null,
+					"recharge": {
+						"formula": "1d6",
+						"threshold": 6
+					}
+				},
+				"schema": {
+					"version": null,
+					"lastMigration": null
+				},
+				"ammunitionProperties": [],
+				"armorCategory": "",
+				"armorProperties": [],
+				"attuned": false,
+				"bulky": false,
+				"craftingComponents": "",
+				"containerId": "",
+				"damagedState": 0,
+				"equippedState": 0,
+				"items": {},
+				"materialProperties": [],
+				"objectType": "weapon",
+				"plotItem": false,
+				"price": "300 gp",
+				"proficient": true,
+				"quantity": 1,
+				"rarity": "mundane",
+				"requiresAttunement": false,
+				"shieldCategory": "",
+				"shieldProperties": [],
+				"unidentified": false,
+				"unidentifiedDescription": "",
+				"unidentifiedName": "",
+				"weaponProperties": [
+					"loading"
+				],
+				"weight": 3,
+				"schemaVersion": {
+					"version": 0.013,
+					"lastMigration": {
+						"version": {
+							"schema": 0.011,
+							"foundry": "11.315",
+							"system": "0.16.49"
+						}
+					}
+				}
+			},
+			"folder": null,
+			"_id": "UdvXuAQHBRbQBVuF",
+			"sort": 0,
+			"ownership": {
+				"default": 0
+			}
+		},
+		{
+			"name": "Cunning Action",
+			"type": "feature",
+			"system": {
+				"ac": {
+					"baseFormula": "",
+					"formula": "",
+					"maxDex": 0,
+					"minStr": 0,
+					"mode": 2,
+					"requiresNoShield": false,
+					"requiresUnarmored": false
+				},
+				"actions": {
+					"JCiwRUoWBmyIoLcR": {
+						"name": "Cunning Action",
+						"activation": {
+							"type": "bonusAction",
+							"cost": 1
+						},
+						"consumers": {},
+						"rolls": {},
+						"prompts": {},
+						"uses": {
+							"value": 0,
+							"max": "",
+							"per": "",
+							"recharge": {
+								"formula": "1d6",
+								"rechargeType": "custom",
+								"rechargeAmount": "1",
+								"threshold": 6
+							}
+						}
+					}
+				},
+				"description": "<p>The captain takes the Dash, Disengage, Hide, or Use an Object action.</p>",
+				"favorite": true,
+				"secretDescription": "",
+				"source": "",
+				"uses": {
+					"value": null,
+					"max": "",
+					"per": null,
+					"recharge": {
+						"formula": "1d6",
+						"threshold": "6"
+					}
+				},
+				"schema": {
+					"version": null,
+					"lastMigration": null
+				},
+				"concentration": false,
+				"featureType": "other",
+				"grants": {},
+				"prerequisite": "",
+				"requiresBloodied": false
+			},
+			"_id": "W5Pp7Z5W3kE1xDmS",
+			"img": "icons/svg/item-bag.svg",
+			"effects": [],
+			"folder": null,
+			"sort": 0,
+			"ownership": {
+				"default": 0
+			},
+			"flags": {}
+		},
+		{
+			"name": "Twist the Knife",
+			"type": "feature",
+			"system": {
+				"ac": {
+					"baseFormula": "",
+					"formula": "",
+					"maxDex": 0,
+					"minStr": 0,
+					"mode": 2,
+					"requiresNoShield": false,
+					"requiresUnarmored": false
+				},
+				"actions": {
+					"0pzbGI8aDVO2sLPp": {
+						"name": "Twist the Knife",
+						"activation": {
+							"type": "reaction",
+							"cost": 1,
+							"reactionTrigger": "Critical hit with a melee weapon"
+						},
+						"consumers": {
+							"Yplyf1m8rWJTJ0lx": {
+								"type": "itemUses",
+								"default": true,
+								"quantity": 1
+							}
+						},
+						"rolls": {},
+						"prompts": {},
+						"uses": {
+							"value": 0,
+							"max": "",
+							"per": "",
+							"recharge": {
+								"formula": "1d6",
+								"rechargeType": "custom",
+								"rechargeAmount": "1",
+								"threshold": 6
+							}
+						}
+					}
+				},
+				"description": "<p>When the captain scores a critical hit with a melee weapon attack, they deal their sneak attack damage (if they are not already doing so).</p>",
+				"favorite": true,
+				"secretDescription": "",
+				"source": "",
+				"uses": {
+					"value": 1,
+					"max": "1",
+					"per": "recharge",
+					"recharge": {
+						"formula": "1d6",
+						"threshold": "6"
+					}
+				},
+				"schema": {
+					"version": null,
+					"lastMigration": null
+				},
+				"concentration": false,
+				"featureType": "other",
+				"grants": {},
+				"prerequisite": "",
+				"requiresBloodied": false
+			},
+			"_id": "O6MwAz1EZ3E0aDWD",
+			"img": "icons/svg/item-bag.svg",
+			"effects": [],
+			"folder": null,
+			"sort": 0,
+			"ownership": {
+				"default": 0
+			},
+			"flags": {}
+		}
+	],
+	"effects": [],
+	"flags": {
+		"a5e": {
+			"sheetIsLocked": true,
+			"showSpellTab": false
+		}
+	},
+	"_id": "8r918xhv8n44agls"
+}
