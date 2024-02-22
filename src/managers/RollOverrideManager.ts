@@ -1,4 +1,4 @@
-type OverrideType = 'rollMode' | 'expertiseDie';
+type OverrideType = 'rollMode' | 'expertiseDice';
 
 type Change = {
   key: string;
@@ -60,7 +60,7 @@ export default class RollOverrideManager {
           this.overrides.get(`system.abilities.${ablKey}.${type}`)?.push(
             {
               value: die,
-              overrideType: 'expertiseDie',
+              overrideType: 'expertiseDice',
               source: CONFIG.A5E.abilities[ablKey],
               mode: CONFIG.A5E.ACTIVE_EFFECT_MODES.OVERRIDE
             }
@@ -75,7 +75,7 @@ export default class RollOverrideManager {
         this.overrides.get(`system.skills.${skillKey}`)?.push(
           {
             value: die,
-            overrideType: 'expertiseDie',
+            overrideType: 'expertiseDice',
             source: CONFIG.A5E.skills[skillKey],
             mode: CONFIG.A5E.ACTIVE_EFFECT_MODES.OVERRIDE
           }
@@ -103,11 +103,11 @@ export default class RollOverrideManager {
 
       const data: any[] = [];
       effect.changes.forEach((change) => {
-        if (!change.key.startsWith('flags.a5e.effects.rollMode') && !change.key.startsWith('flags.a5e.effects.expertiseDie')) return;
+        if (!change.key.startsWith('flags.a5e.effects.rollMode') && !change.key.startsWith('flags.a5e.effects.expertiseDice')) return;
         let key: string = change.key.replace('flags.a5e.effects.', '');
         const type = key.split('.').shift();
         if (type === 'rollMode') key = key.replace('rollMode.', '');
-        else key = key.replace('expertiseDie.', '');
+        else key = key.replace('expertiseDice.', '');
 
         data.push({
           key,
@@ -124,59 +124,173 @@ export default class RollOverrideManager {
 
     changes.forEach((change: Change) => {
       const {
-        key, value, name: source, type: overrideType
+        key, value, name: source, type: overrideType, mode
       } = change;
 
       if (['concentration', 'deathSave', 'initiative'].includes(key)) {
-        this.overrides.get(key)?.push({ value, overrideType, source });
+        this.overrides
+          .get(key)?.push({
+            value, overrideType, source, mode
+          });
         return;
       }
 
       if (key === 'abilityCheck.all') {
-        this.overrides.get('abilityCheck.all')?.push({ value, overrideType, source });
+        this.overrides.get('abilityCheck.all')?.push({
+          value, overrideType, source, mode
+        });
         return;
       }
 
       if (key === 'abilitySave.all') {
-        this.overrides.get('abilitySave.all')?.push({ value, overrideType, source });
+        this.overrides.get('abilitySave.all')?.push({
+          value, overrideType, source, mode
+        });
         return;
       }
 
       if (key === 'skillCheck.all') {
-        this.overrides.get('skillCheck.all')?.push({ value, overrideType, source });
+        this.overrides.get('skillCheck.all')?.push({
+          value, overrideType, source, mode
+        });
         return;
       }
 
       if (key === 'attack.all') {
-        this.overrides.get('attack.all')?.push({ value, overrideType, source });
+        this.overrides.get('attack.all')?.push({
+          value, overrideType, source, mode
+        });
+        return;
+      }
+
+      if (key === 'all' && overrideType === 'expertiseDice') {
+        this.overrides.get('abilityCheck.all')?.push({
+          value, overrideType, source, mode
+        });
+
+        this.overrides.get('abilitySave.all')?.push({
+          value, overrideType, source, mode
+        });
+
+        // We don't need to add to skills because it's already handled by the ability
+
+        this.overrides.get('attack.all')?.push({
+          value, overrideType, source, mode
+        });
+        return;
       }
 
       const [propertyType, propertyKey] = key.split('.');
       if (['abilityCheck', 'abilitySave'].includes(propertyType)) {
         const type = propertyType === 'abilityCheck' ? 'check' : 'save';
-        this.overrides.get(`system.abilities.${propertyKey}.${type}`)?.push({ value, overrideType, source });
+        this.overrides.get(`system.abilities.${propertyKey}.${type}`)?.push({
+          value, overrideType, source, mode
+        });
         return;
       }
 
       if (propertyType === 'skillCheck') {
-        this.overrides.get(`system.skills.${propertyKey}`)?.push({ value, overrideType, source });
+        this.overrides.get(`system.skills.${propertyKey}`)?.push({
+          value, overrideType, source, mode
+        });
         return;
       }
 
       if (propertyType === 'attack') {
-        this.overrides.get(`attackTypes.${propertyKey}`)?.push({ value, overrideType, source });
+        this.overrides.get(`attackTypes.${propertyKey}`)?.push({
+          value, overrideType, source, mode
+        });
       }
     });
 
     this.ready = true;
   }
 
+  #prepareOverrides(
+    key: string,
+    overrideType: OverrideType = 'rollMode',
+    options: { ability?: string, skill?: string } = {}
+  ) {
+    const overrides = this.overrides.get(key)?.filter((o) => o.overrideType === overrideType) ?? [];
+
+    // Add handling for all ability overrides
+    if (key.includes('abilities')) {
+      this.overrides.get('abilityCheck.all')?.forEach((o) => {
+        if (o.overrideType !== overrideType) return;
+        overrides.push(o);
+      });
+    }
+
+    // Add handling for all skill overrides as well as the ability overrides
+    if (key.includes('skills')) {
+      this.overrides.get('skillCheck.all')?.forEach((o) => {
+        if (o.overrideType !== overrideType) return;
+        overrides.push(o);
+      });
+
+      // Add specific ability override for skills as well as the all override
+      const ability = options.ability || this.actor.system.skills[key.split('.').pop() as string]?.ability || '';
+      if (ability) {
+        this.overrides.get(`system.abilities.${ability}.check`)?.forEach((o) => {
+          if (o.overrideType !== overrideType) return;
+          overrides.push(o);
+        });
+      }
+
+      this.overrides.get('abilityCheck.all')?.forEach((o) => {
+        if (o.overrideType !== overrideType) return;
+        overrides.push(o);
+      });
+    }
+
+    // Add handling for initiative overrides
+    if (key === 'initiative') {
+      this.overrides.get('abilityCheck.all')?.forEach((o) => {
+        if (o.overrideType !== overrideType) return;
+        overrides.push(o);
+      });
+      this.overrides.get('skillCheck.all')?.forEach((o) => {
+        if (o.overrideType !== overrideType) return;
+        overrides.push(o);
+      });
+
+      const ability = options.ability || '';
+      if (ability) {
+        this.overrides.get(`system.abilities.${ability}.check`)?.forEach((o) => {
+          if (o.overrideType !== overrideType) return;
+          overrides.push(o);
+        });
+      }
+
+      const skill = options.skill || '';
+      if (skill) {
+        this.overrides.get(`system.skills.${skill}`)?.forEach((o) => {
+          if (o.overrideType !== overrideType) return;
+          overrides.push(o);
+        });
+      }
+    }
+
+    // Add handling for all attack overrides
+    if (key.includes('attack')) {
+      this.overrides.get('attack.all')?.forEach((o) => {
+        if (o.overrideType !== overrideType) return;
+        overrides.push(o);
+      });
+    }
+
+    return overrides;
+  }
+
+  // *********************************************************************************************
+  //  Roll Override Methods
+  // *********************************************************************************************
   getRollOverride(
     key: string,
     baseRollMode: number = 0,
     options: { ability?: string, skill?: string } = {}
   ): number {
-    const overrides = this.#prepareRollOverrides(key, options);
+    const overrides = this.#prepareOverrides(key, 'rollMode', options);
     if (!overrides?.length) return baseRollMode;
 
     const hasAdvantage = overrides.some((o) => o.value === CONFIG.A5E.ROLL_MODE.ADVANTAGE);
@@ -193,7 +307,7 @@ export default class RollOverrideManager {
     baseRollMode: number = 0,
     options: { ability?: string, skill?: string } = {}
   ): string {
-    const overrides = this.#prepareRollOverrides(key, options);
+    const overrides = this.#prepareOverrides(key, 'rollMode', options);
     if (!overrides) return '';
 
     let base: string;
@@ -229,57 +343,27 @@ export default class RollOverrideManager {
     `;
   }
 
-  #prepareRollOverrides(
-    key: string,
-    options: { ability?: string, skill?: string } = {}
-  ) {
-    const overrides = this.overrides.get(key)?.filter((o) => o.overrideType === 'rollMode') ?? [];
-
-    // Add handling for all ability overrides
-    if (key.includes('abilities')) {
-      this.overrides.get('abilityCheck.all')?.forEach((o) => overrides.push(o));
-    }
-
-    // Add handling for all skill overrides as well as the ability overrides
-    if (key.includes('skills')) {
-      this.overrides.get('skillCheck.all')?.forEach((o) => overrides.push(o));
-
-      // Add specific ability override for skills as well as the all override
-      const ability = options.ability || this.actor.system.skills[key.split('.').pop() as string].ability || '';
-      if (ability) {
-        this.overrides.get(`system.abilities.${ability}.check`)?.forEach((o) => overrides.push(o));
-      }
-
-      this.overrides.get('abilityCheck.all')?.forEach((o) => overrides.push(o));
-    }
-
-    // Add handling for initiative overrides
-    if (key === 'initiative') {
-      this.overrides.get('abilityCheck.all')?.forEach((o) => overrides.push(o));
-      this.overrides.get('skillCheck.all')?.forEach((o) => overrides.push(o));
-
-      const ability = options.ability || '';
-      if (ability) {
-        this.overrides.get(`system.abilities.${ability}.check`)?.forEach((o) => overrides.push(o));
-      }
-
-      const skill = options.skill || '';
-      if (skill) {
-        this.overrides.get(`system.skills.${skill}`)?.forEach((o) => overrides.push(o));
-      }
-    }
-
-    // Add handling for all attack overrides
-    if (key.includes('attack')) {
-      this.overrides.get('attack.all')?.forEach((o) => overrides.push(o));
-    }
-
-    return overrides;
-  }
-
   #determineRollMode(original: number, override: number): number {
     // eslint-disable-next-line no-bitwise
     const cancels = (original ^ override) < -1;
     return cancels ? 0 : override;
+  }
+
+  // *********************************************************************************************
+  //  Expertise Override Methods
+  // *********************************************************************************************
+  getExpertiseDice(
+    key: string,
+    baseDie: number = 0,
+    options: { ability?: string, skill?: string } = {}
+  ): number {
+    const overrides = this.#prepareOverrides(key, 'expertiseDice', options);
+    if (!overrides?.length) return baseDie;
+
+    // Sort the overrides by mode
+    overrides.sort((a, b) => (b.mode ?? 2) - (a.mode ?? 2));
+    console.log(overrides);
+
+    return 0;
   }
 }
