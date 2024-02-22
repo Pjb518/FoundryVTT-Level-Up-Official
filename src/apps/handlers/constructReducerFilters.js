@@ -16,6 +16,22 @@ const spellsFilterConfig = {
     key: 'system.schools.secondary',
     type: 'array'
   },
+  components: {
+    subFilters: {
+      material: {
+        key: 'system.components.material',
+        type: 'boolean'
+      },
+      seen: {
+        key: 'system.components.seen',
+        type: 'boolean'
+      },
+      vocalized: {
+        key: 'system.components.vocalized',
+        type: 'boolean'
+      }
+    }
+  },
   miscellaneous: {
     subFilters: {
       concentration: {

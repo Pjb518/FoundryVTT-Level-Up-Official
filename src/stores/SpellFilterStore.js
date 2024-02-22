@@ -1,4 +1,4 @@
-import { writable } from "svelte/store";
+import { writable } from 'svelte/store';
 
 const SpellFilterStore = writable({
   spellLists: {
@@ -12,6 +12,12 @@ const SpellFilterStore = writable({
     inclusiveMode: 0,
     exclusive: [],
     exclusiveMode: 0
+  },
+  components: {
+    inclusive: [],
+    inclusiveMode: 0,
+    exclusive: [],
+    exclusiveMode: 1
   },
   miscellaneous: {
     inclusive: [],

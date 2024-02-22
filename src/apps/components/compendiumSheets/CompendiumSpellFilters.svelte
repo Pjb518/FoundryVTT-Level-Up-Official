@@ -6,7 +6,8 @@
     export let compendiumType = "spell";
 
     const filterStore = getContext("filterStore");
-    const { classSpellLists, spellLevels, spellSchools } = CONFIG.A5E;
+    const { classSpellLists, spellLevels, spellSchools, spellComponents } =
+        CONFIG.A5E;
 
     let filterSelections = {};
 
@@ -39,6 +40,11 @@
             heading: "Secondary Spell Schools",
             options: spellSchools.secondary,
             display: compendiumType === "spell",
+        },
+        {
+            filterKey: "components",
+            heading: "Components",
+            options: spellComponents,
         },
         {
             filterKey: "miscellaneous",
