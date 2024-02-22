@@ -207,6 +207,13 @@ export default function registerPremiumContentConfig(A5E) {
       title: 'Field Engineer',
       url: 'https://bit.ly/49D4FPF'
     },
+    fieryJustice: {
+      abbreviation: 'FJ',
+      affiliate: true,
+      publisher: 'purpleMartinGames',
+      title: 'Fiery Justice',
+      url: 'https://preview.drivethrurpg.com/en/product/409471/fiery-justice-a5e?affiliate_id=1388381'
+    },
     gpg0: {
       abbreviation: 'GPG #0',
       affiliate: true,
@@ -422,6 +429,13 @@ export default function registerPremiumContentConfig(A5E) {
       publisher: 'purpleMartinGames',
       title: 'Spells from the Forgotten Vault',
       url: 'https://bit.ly/3T8o5GU'
+    },
+    spiritualist: {
+      abbreviation: 'Spirit',
+      affiliate: true,
+      publisher: 'purpleMartinGames',
+      title: 'Spiritualist',
+      url: 'https://preview.drivethrurpg.com/en/product/424846/spiritualist-a5e?affiliate_id=1388381'
     },
     strangerSights: {
       abbreviation: 'SS',
