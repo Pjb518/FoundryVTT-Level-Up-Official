@@ -1,18 +1,145 @@
 {
-  "name": "Guard",
-  "type": "background",
-  "img": "icons/equipment/shield/heater-wooden-blue.webp",
-  "system": {
-    "description": "<p>Whether you worked as a sentry, constable, member of the city watch, or even a knightly order, rich folk used to pay you to protect them. These days you&rsquo;re looking after yourself.&nbsp;</p>\n<p>Did you stand watch in a throne room or lookout tower? Walk a beat on city streets? Travel with a caravan? Why did you turn in your badge and sword?</p>\n<hr>\n<p class=\"Indent1\"><strong>Ability Score Increases:</strong>&nbsp;+1 to Strength and one other ability score.</p>\n<p class=\"Indent1\"><strong>Skill Proficiencies:&nbsp;</strong>Intimidation, and either Athletics or Investigation.</p>\n<p class=\"Indent1\"><strong>Languages:</strong>&nbsp;One of your choice.</p>\n<p class=\"Indent1\"><strong>Suggested Equipment (Cost 11 gold):</strong>&nbsp;Common clothes, halberd, uniform.</p>\n<p class=\"Indent1\"><strong><em>Feature: Natural Authority</em></strong><strong>.&nbsp;</strong>Commoners and civilians sometimes assume you are part of a local constabulary force and defer to you.</p>\n<p class=\"Indent1\"><strong><em>Adventures and Advancement</em></strong><strong>.&nbsp;</strong>When you visit the city or countryside you once patrolled you&rsquo;re sure to get embroiled in the same politics that drove you out. Should you stick around righting wrongs, you might accidentally find yourself in a position of responsibility.</p>\n<h3><strong>GUARD CONNECTIONS</strong></h3>\n<ol>\n<li>The corrupt guard captain who framed you.</li>\n<li>The by-the-book guard captain who found you in violation of a regulation.</li>\n<li>The mighty guard captain who taught you all you know.</li>\n<li>The informant who tipped you off about criminal activity.</li>\n<li>The noble or merchant you protected.</li>\n<li>The comrade or superior officer you admired.</li>\n<li>The villain who kidnapped the person you were charged to protect.</li>\n<li>Your betrayer, the one person you didn&rsquo;t think to mistrust.</li>\n<li>The noble or merchant who had everyone in their pocket.</li>\n<li>The diviner wizard who could usually provide you with the missing piece of a puzzle.</li>\n</ol>\n<hr>\n<h3><strong>GUARD MEMENTOS</strong></h3>\n<ol>\n<li>Your badge of office, a symbol of an ideal few could live up to.</li>\n<li>Your badge of office, a symbol of a corrupt system you could no longer stomach.</li>\n<li>The arrow-damaged prayer book or playing card deck that saved your life.</li>\n<li>The whiskey flask that stood you in good stead on many cold patrols.</li>\n<li>Notes about a series of disappearances you would have liked to put a stop to.</li>\n<li>A broken sword, torn insignia, or other symbol of your disgrace and banishment.</li>\n<li>A tattoo or insignia marking you as part of an organization of which you are the last member.</li>\n<li>The fellow guard&rsquo;s last words which you will never forget.</li>\n<li>A letter you were asked to deliver.</li>\n<li>A bloodstained duty roster.</li>\n</ol>",
-    "schemaVersion": {
-      "version": 0.01,
-      "lastMigration": null
-    },
-    "grants": {},
-    "source": "adventurersGuide"
-  },
-  "effects": [],
-  "flags": {},
-  "folder": null,
-  "_id": "f3hw79b7wjo9huy4"
+	"name": "Guard",
+	"type": "background",
+	"img": "icons/equipment/shield/heater-wooden-blue.webp",
+	"system": {
+		"description": "<p class=\"Indent1\"><strong>Ability Score Increases:</strong>&nbsp;+1 to Strength and one other ability score.</p>\n<p class=\"Indent1\"><strong>Skill Proficiencies:&nbsp;</strong>Intimidation, and either Athletics or Investigation.</p>\n<p class=\"Indent1\"><strong>Languages:</strong>&nbsp;One of your choice.</p>\n<p class=\"Indent1\"><strong>Suggested Equipment (Cost 11 gold):</strong>&nbsp;Common clothes, halberd, uniform.</p>\n<p class=\"Indent1\"><strong><em>Feature: Natural Authority</em></strong><strong>.&nbsp;</strong>Commoners and civilians sometimes assume you are part of a local constabulary force and defer to you.</p>\n<p class=\"Indent1\"><strong><em>Adventures and Advancement</em></strong><strong>.&nbsp;</strong>When you visit the city or countryside you once patrolled you&rsquo;re sure to get embroiled in the same politics that drove you out. Should you stick around righting wrongs, you might accidentally find yourself in a position of responsibility.</p>\n<h3><strong>GUARD CONNECTIONS</strong></h3>\n<ol>\n<li>The corrupt guard captain who framed you.</li>\n<li>The by-the-book guard captain who found you in violation of a regulation.</li>\n<li>The mighty guard captain who taught you all you know.</li>\n<li>The informant who tipped you off about criminal activity.</li>\n<li>The noble or merchant you protected.</li>\n<li>The comrade or superior officer you admired.</li>\n<li>The villain who kidnapped the person you were charged to protect.</li>\n<li>Your betrayer, the one person you didn&rsquo;t think to mistrust.</li>\n<li>The noble or merchant who had everyone in their pocket.</li>\n<li>The diviner wizard who could usually provide you with the missing piece of a puzzle.</li>\n</ol>\n<hr>\n<h3><strong>GUARD MEMENTOS</strong></h3>\n<ol>\n<li>Your badge of office, a symbol of an ideal few could live up to.</li>\n<li>Your badge of office, a symbol of a corrupt system you could no longer stomach.</li>\n<li>The arrow-damaged prayer book or playing card deck that saved your life.</li>\n<li>The whiskey flask that stood you in good stead on many cold patrols.</li>\n<li>Notes about a series of disappearances you would have liked to put a stop to.</li>\n<li>A broken sword, torn insignia, or other symbol of your disgrace and banishment.</li>\n<li>A tattoo or insignia marking you as part of an organization of which you are the last member.</li>\n<li>The fellow guard&rsquo;s last words which you will never forget.</li>\n<li>A letter you were asked to deliver.</li>\n<li>A bloodstained duty roster.</li>\n</ol>",
+		"schemaVersion": {
+			"version": 0.01,
+			"lastMigration": null
+		},
+		"grants": {
+			"FKTWF5WHGR8R0XJ3": {
+				"grantType": "ability",
+				"level": 0,
+				"optional": false,
+				"_id": "FKTWF5WHGR8R0XJ3",
+				"default": true,
+				"img": "",
+				"label": "Ability Score Increase",
+				"abilities": {
+					"base": [
+						"str"
+					],
+					"options": [
+						"str",
+						"dex",
+						"con",
+						"int",
+						"wis",
+						"cha"
+					],
+					"total": 1
+				},
+				"bonus": "1",
+				"context": {
+					"types": [
+						"base"
+					],
+					"requiresProficiency": false
+				}
+			},
+			"ewHg3v2fZ5kcYdfW": {
+				"grantType": "item",
+				"level": 0,
+				"optional": true,
+				"_id": "ewHg3v2fZ5kcYdfW",
+				"default": true,
+				"img": "",
+				"label": "Suggested Equipment",
+				"items": {
+					"base": [],
+					"options": [
+						{
+							"uuid": "Compendium.a5e.a5e-adventuring-gear.Item.w9t45o2j9aqx1qmp",
+							"quantityOverride": 0
+						},
+						{
+							"uuid": "Compendium.a5e.a5e-adventuring-gear.Item.56f3xn2t5hv917jk",
+							"quantityOverride": 0
+						}
+					],
+					"total": 1
+				}
+			},
+			"Hsof8F5AMqW3vSRu": {
+				"grantType": "trait",
+				"level": 0,
+				"optional": false,
+				"_id": "Hsof8F5AMqW3vSRu",
+				"default": true,
+				"img": "",
+				"label": "Languages",
+				"traits": {
+					"base": [],
+					"options": [
+						"abyssal",
+						"aquan",
+						"auran",
+						"celestial",
+						"common",
+						"deep",
+						"draconic",
+						"druidic",
+						"dwarvish",
+						"elvish",
+						"giant",
+						"gnoll",
+						"gnomish",
+						"goblin",
+						"grimlock",
+						"halfling",
+						"ignan",
+						"infernal",
+						"minotaur",
+						"mycelial",
+						"orc",
+						"primordial",
+						"sylvan",
+						"terran",
+						"cant",
+						"undercommon"
+					],
+					"total": 1,
+					"traitType": "languages"
+				}
+			},
+			"d3MMja8syAYRedD6": {
+				"grantType": "proficiency",
+				"level": 0,
+				"optional": false,
+				"label": "Skill Proficiencies",
+				"keys": {
+					"base": [
+						"itm"
+					],
+					"options": [
+						"ath",
+						"inv"
+					],
+					"total": 1
+				},
+				"proficiencyType": "skill",
+				"_id": "d3MMja8syAYRedD6",
+				"default": true,
+				"img": ""
+			},
+			"vFfDe2HE1xZiepfE": {
+				"grantType": "feature",
+				"level": 0,
+				"optional": false,
+				"label": "Feature",
+				"features": {
+					"base": [
+						"Compendium.a5e.a5e-background-features.Item.dgl1bp93fxkjkawn"
+					]
+				}
+			}
+		},
+		"source": "adventurersGuide"
+	},
+	"effects": [],
+	"flags": {},
+	"folder": null,
+	"_id": "f3hw79b7wjo9huy4"
 }
