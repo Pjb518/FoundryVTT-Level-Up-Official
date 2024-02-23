@@ -374,6 +374,22 @@ export default function registerPremiumContentConfig(A5E) {
       title: 'Level Up: Gate Pass Gazette Issue #19',
       url: 'https://bit.ly/4blqODO'
     },
+    gpg20: {
+      abbreviation: 'GPG #20',
+      affiliate: true,
+      publisher: 'enPublishing',
+      series: 'gatePassGazette',
+      title: 'Level Up: Gate Pass Gazette Issue #20',
+      url: 'https://bit.ly/49OPl2F'
+    },
+    gpg21: {
+      abbreviation: 'GPG #21',
+      affiliate: true,
+      publisher: 'enPublishing',
+      series: 'gatePassGazette',
+      title: 'Level Up: Gate Pass Gazette Issue #21',
+      url: 'https://bit.ly/4c1jnCf'
+    },
     heroesOldAndNew: {
       abbreviation: 'MMM',
       affiliate: false,
