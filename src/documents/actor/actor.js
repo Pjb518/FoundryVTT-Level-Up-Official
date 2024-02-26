@@ -884,7 +884,7 @@ export default class ActorA5e extends Actor {
   }
 
   configureCreatureTerrains(data = {}, options = {}) {
-    data.heading ??= 'A5E.CreatureTerrains';
+    data.heading ??= 'A5E.CreatureTerrainsLabel';
     data.configObject ??= CONFIG.A5E.terrainTypes;
     data.propertyKey ??= 'system.details.terrain';
     data.type ??= 'creatureTerrains';
