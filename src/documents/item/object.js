@@ -188,8 +188,8 @@ export default class ObjectItemA5e extends ItemA5e {
     await this.update(updates);
   }
 
-  async _onCreate(data, options, user) {
-    super._onCreate(data, options, user);
+  async _onCreate(data, options, userId) {
+    super._onCreate(data, options, userId);
 
     // Clean containerId
     const container = await fromUuid(this.system.containerId);

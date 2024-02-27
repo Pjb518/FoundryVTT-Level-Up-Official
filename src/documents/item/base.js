@@ -144,8 +144,8 @@ export default class BaseItemA5e extends Item {
     super._onUpdate(data, options, user);
   }
 
-  async _onCreate(data, options, user) {
-    super._onCreate(data, options, user);
+  async _onCreate(data, options, userId) {
+    super._onCreate(data, options, userId);
 
     // Update effect origins
     const effects = this.effects.contents;

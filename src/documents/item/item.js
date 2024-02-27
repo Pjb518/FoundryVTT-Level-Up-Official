@@ -522,8 +522,8 @@ export default class ItemA5e extends BaseItemA5e {
     super._onUpdate(data, options, user);
   }
 
-  async _onCreate(data, options, user) {
-    super._onCreate(data, options, user);
+  async _onCreate(data, options, userId) {
+    super._onCreate(data, options, userId);
   }
 
   async _onDelete(data, options, user) {
