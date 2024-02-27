@@ -146,6 +146,7 @@ export default class BaseItemA5e extends Item {
 
   async _onCreate(data, options, userId) {
     super._onCreate(data, options, userId);
+    if (userId !== game.userId) return;
 
     // Update effect origins
     const effects = this.effects.contents;

@@ -11,6 +11,11 @@ export default class OriginItemA5e extends BaseItemA5e {
   }
 
   async _onCreate(data, options, userId) {
+    if (userId !== game.userId) {
+      super._onCreate(data, options, userId);
+      return;
+    }
+
     // Apply grants if any
     if (this.parent && this.parent.documentName === 'Actor') {
       const actor = this.parent;
