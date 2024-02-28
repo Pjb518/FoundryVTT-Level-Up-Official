@@ -981,7 +981,7 @@ A5E.skillDefaultAbilities = {
   ins: 'wis',
   itm: 'cha',
   inv: 'int',
-  med: 'int',
+  med: 'wis',
   nat: 'int',
   prc: 'wis',
   prf: 'cha',
