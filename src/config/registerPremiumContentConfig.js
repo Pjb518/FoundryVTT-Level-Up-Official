@@ -439,6 +439,13 @@ export default function registerPremiumContentConfig(A5E) {
       title: 'Secrets of the Selkies',
       url: 'https://bit.ly/3USEOix'
     },
+    sinuousSentinels: {
+      abbreviation: 'SinSen',
+      affiliate: false,
+      publisher: 'purpleMartinGames',
+      title: 'Sinuous Sentinels',
+      url: 'https://bit.ly/3SSNXoy'
+    },
     spellsFromTheForgottenVault: {
       abbreviation: 'SftFV',
       affiliate: true,
