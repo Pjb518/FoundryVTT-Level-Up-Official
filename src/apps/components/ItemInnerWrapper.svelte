@@ -203,13 +203,20 @@
             </button>
         {/if}
 
+        {#if !action && item.system.isStance}
+            <i
+                class="action-button action-button--stance fa-solid fa-street-view"
+                data-tooltip={"A5E.ManeuverIsStance"}
+                data-tooltip-direction="UP"
+            />
+        {/if}
+
         {#if !action && item.system.requiresBloodied}
-            <button
+            <i
                 class="action-button action-button--bloodied fa-solid fa-droplet"
                 data-tooltip={"A5E.RequiresBloodied"}
                 data-tooltip-direction="UP"
-            >
-            </button>
+            />
         {/if}
     </div>
 
@@ -524,6 +531,11 @@
                 color: var(--icon-color-active, inherit);
                 transform: scale(1);
             }
+        }
+
+        &--stance:hover {
+            color: var(--icon-color, #999);
+            transform: scale(1);
         }
     }
 
