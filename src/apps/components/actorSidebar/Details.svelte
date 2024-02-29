@@ -6,6 +6,7 @@
     import Tag from "../Tag.svelte";
 
     import determineIfPropertyModifiedByEffect from "../../../utils/determineIfPropertyModifiedByEffect ";
+    import prepareAlignment from "../../dataPreparationHelpers/prepareAlignment";
     import prepareArmorProficiencies from "../../dataPreparationHelpers/prepareArmorProficiencies";
     import prepareConditionImmunities from "../../dataPreparationHelpers/prepareConditionImmunities";
     import prepareCreatureTerrains from "../../dataPreparationHelpers/prepareCreatureTerrains";
@@ -132,6 +133,13 @@
             propertyKey: "system.details.terrain",
             tooltip: "Configure Creature Terrains",
             display: $actor.type === "npc",
+        },
+        {
+            heading: localize("A5E.Alignments"),
+            values: prepareAlignment($actor),
+            dialogMethod: "configureAlignment",
+            propertyKey: "system.traits.alignment",
+            tooltip: "Configure Alignment",
         },
     ];
 

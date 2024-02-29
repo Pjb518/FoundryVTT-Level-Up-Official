@@ -189,6 +189,14 @@ A5E.originItemTypes = [
   'heritage'
 ];
 
+A5E.alignments = {
+  chaotic: 'Chaotic',
+  evil: 'Evil',
+  good: 'Good',
+  lawful: 'Lawful',
+  neutral: 'Neutral'
+};
+
 A5E.ammunitionProperties = {
   explosive: 'A5E.AmmunitionPropertyExplosive',
   flaming: 'A5E.AmmunitionPropertyFlaming',
