@@ -977,6 +977,29 @@ A5E.skills = {
   sur: 'A5E.skills.survival'
 };
 
+A5E.skillCriticalTables = {
+  acr: 'Compendium.a5e.a5e-roll-tables.RollTable.dsjim2st1rh232bp',
+  ani: 'Compendium.a5e.a5e-roll-tables.RollTable.zhl6y7kfe5ilrmhw',
+  arc: 'Compendium.a5e.a5e-roll-tables.RollTable.yxycigxwdndble0l',
+  ath: 'Compendium.a5e.a5e-roll-tables.RollTable.dsjim2st1rh232bp',
+  cul: 'Compendium.a5e.a5e-roll-tables.RollTable.yxycigxwdndble0l',
+  dec: 'Compendium.a5e.a5e-roll-tables.RollTable.zhl6y7kfe5ilrmhw',
+  eng: 'Compendium.a5e.a5e-roll-tables.RollTable.yxycigxwdndble0l',
+  his: 'Compendium.a5e.a5e-roll-tables.RollTable.yxycigxwdndble0l',
+  ins: 'Compendium.a5e.a5e-roll-tables.RollTable.zhl6y7kfe5ilrmhw',
+  itm: 'Compendium.a5e.a5e-roll-tables.RollTable.zhl6y7kfe5ilrmhw',
+  inv: 'Compendium.a5e.a5e-roll-tables.RollTable.yxycigxwdndble0l',
+  med: 'Compendium.a5e.a5e-roll-tables.RollTable.i8hy7hrmfliuhe8y',
+  nat: 'Compendium.a5e.a5e-roll-tables.RollTable.yxycigxwdndble0l',
+  prc: 'Compendium.a5e.a5e-roll-tables.RollTable.yxycigxwdndble0l',
+  prf: 'Compendium.a5e.a5e-roll-tables.RollTable.zhl6y7kfe5ilrmhw',
+  per: 'Compendium.a5e.a5e-roll-tables.RollTable.zhl6y7kfe5ilrmhw',
+  rel: 'Compendium.a5e.a5e-roll-tables.RollTable.yxycigxwdndble0l',
+  slt: 'Compendium.a5e.a5e-roll-tables.RollTable.dsjim2st1rh232bp',
+  ste: 'Compendium.a5e.a5e-roll-tables.RollTable.dsjim2st1rh232bp',
+  sur: 'Compendium.a5e.a5e-roll-tables.RollTable.yxycigxwdndble0l'
+};
+
 A5E.skillDefaultAbilities = {
   acr: 'dex',
   ani: 'wis',
