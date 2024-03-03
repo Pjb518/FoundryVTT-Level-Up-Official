@@ -11,6 +11,32 @@
     export let abilityLabel;
     export let idx;
 
+    function handleCheckClick(abilityLabel) {
+        if (!sheetIsLocked) return;
+
+        $actor.rollAbilityCheck(
+            abilityLabel,
+            getKeyPressAsOptions($pressedKeysStore),
+        );
+    }
+
+    function handleSaveClick(abilityLabel) {
+        if (!sheetIsLocked) {
+            const currentProficiencyState =
+                $actor.system.abilities[abilityLabel]?.save?.proficient;
+
+            $actor.update({
+                [`system.abilities.${abilityLabel}.save.proficient`]:
+                    !currentProficiencyState,
+            });
+        } else {
+            $actor.rollSavingThrow(
+                abilityLabel,
+                getKeyPressAsOptions($pressedKeysStore),
+            );
+        }
+    }
+
     const actor = getContext("actor");
 
     $: sourceValue = $actor._source.system.abilities[abilityLabel].value;
@@ -53,13 +79,9 @@
 
         <button
             class="a5e-ability-score__roll-button a5e-ability-score__roll-button--check"
-            data-tooltip="A5E.RollAbilityCheck"
+            data-tooltip={sheetIsLocked ? "A5E.RollAbilityCheck" : null}
             data-tooltip-direction="DOWN"
-            on:click={() =>
-                $actor.rollAbilityCheck(
-                    abilityLabel,
-                    getKeyPressAsOptions($pressedKeysStore),
-                )}
+            on:click={() => handleCheckClick(abilityLabel)}
         >
             <div class="a5e-ability-score__roll-button-value">
                 {replaceHyphenWithMinusSign(ability.check.deterministicBonus)}
@@ -70,13 +92,11 @@
             class="a5e-ability-score__roll-button a5e-ability-score__roll-button--save"
             class:a5e-ability-score__roll-button--proficient={ability.save
                 .proficient}
-            data-tooltip="A5E.RollSavingThrow"
+            data-tooltip={sheetIsLocked
+                ? "A5E.RollSavingThrow"
+                : "Toggle Saving Throw Proficiency"}
             data-tooltip-direction="DOWN"
-            on:click={() =>
-                $actor.rollSavingThrow(
-                    abilityLabel,
-                    getKeyPressAsOptions($pressedKeysStore),
-                )}
+            on:click={() => handleSaveClick(abilityLabel)}
         >
             <div class="a5e-ability-score__roll-button-value">
                 {replaceHyphenWithMinusSign(ability.save.deterministicBonus)}
