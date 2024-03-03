@@ -68,6 +68,8 @@
 
         <button
             class="a5e-ability-score__roll-button a5e-ability-score__roll-button--save"
+            class:a5e-ability-score__roll-button--proficient={ability.save
+                .proficient}
             data-tooltip="A5E.RollSavingThrow"
             data-tooltip-direction="DOWN"
             on:click={() =>
