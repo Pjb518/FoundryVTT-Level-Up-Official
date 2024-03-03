@@ -1,8 +1,8 @@
 {
 	"folder": null,
-	"name": "Laskian Sled Dog",
+	"name": "Vampiric Dire Bear",
 	"type": "npc",
-	"img": "icons/svg/mystery-man.svg",
+	"img": "systems/a5e/assets/bear.webp",
 	"system": {
 		"schemaVersion": {
 			"version": 0.013,
@@ -10,7 +10,7 @@
 		},
 		"abilities": {
 			"str": {
-				"value": 12,
+				"value": 21,
 				"check": {
 					"expertiseDice": 0,
 					"bonus": ""
@@ -28,13 +28,13 @@
 					"bonus": ""
 				},
 				"save": {
-					"proficient": false,
+					"proficient": true,
 					"expertiseDice": 0,
 					"bonus": ""
 				}
 			},
 			"con": {
-				"value": 10,
+				"value": 16,
 				"check": {
 					"expertiseDice": 0,
 					"bonus": ""
@@ -46,7 +46,7 @@
 				}
 			},
 			"int": {
-				"value": 3,
+				"value": 2,
 				"check": {
 					"expertiseDice": 0,
 					"bonus": ""
@@ -58,25 +58,25 @@
 				}
 			},
 			"wis": {
-				"value": 12,
+				"value": 13,
 				"check": {
 					"expertiseDice": 0,
 					"bonus": ""
 				},
 				"save": {
-					"proficient": false,
+					"proficient": true,
 					"expertiseDice": 0,
 					"bonus": ""
 				}
 			},
 			"cha": {
-				"value": 6,
+				"value": 7,
 				"check": {
 					"expertiseDice": 0,
 					"bonus": ""
 				},
 				"save": {
-					"proficient": false,
+					"proficient": true,
 					"expertiseDice": 0,
 					"bonus": ""
 				}
@@ -84,7 +84,7 @@
 		},
 		"attributes": {
 			"ac": {
-				"baseFormula": "10 + @dex.mod",
+				"baseFormula": "17",
 				"value": 0
 			},
 			"death": {
@@ -92,8 +92,8 @@
 				"failure": 0
 			},
 			"hp": {
-				"value": 9,
-				"baseMax": 9,
+				"value": 114,
+				"baseMax": 114,
 				"temp": 0,
 				"bonus": 0
 			},
@@ -107,16 +107,16 @@
 					"total": 0
 				},
 				"d8": {
-					"current": 2,
-					"total": 2
+					"current": 0,
+					"total": 0
 				},
 				"d10": {
 					"current": 0,
 					"total": 0
 				},
 				"d12": {
-					"current": 0,
-					"total": 0
+					"current": 12,
+					"total": 12
 				},
 				"d20": {
 					"current": 0,
@@ -134,7 +134,7 @@
 					"unit": "feet"
 				},
 				"climb": {
-					"distance": 0,
+					"distance": 30,
 					"unit": "feet"
 				},
 				"fly": {
@@ -160,7 +160,7 @@
 					"otherwiseBlind": false
 				},
 				"darkvision": {
-					"distance": 0,
+					"distance": 120,
 					"unit": "feet"
 				},
 				"tremorsense": {
@@ -204,15 +204,15 @@
 		"details": {
 			"bio": "",
 			"creatureTypes": [
-				"beast"
+				"undead"
 			],
 			"isSwarm": false,
-			"cr": 0.125,
+			"cr": 10,
 			"elite": false,
 			"notes": "",
 			"privateNotes": "",
 			"terrain": [
-				"settlement"
+				"forest"
 			]
 		},
 		"grants": {},
@@ -416,7 +416,7 @@
 				"ability": "wis",
 				"proficient": true,
 				"specialties": [],
-				"expertiseDice": 0,
+				"expertiseDice": 3,
 				"minRoll": 1,
 				"bonuses": {
 					"check": "",
@@ -469,9 +469,9 @@
 			},
 			"ste": {
 				"ability": "dex",
-				"proficient": false,
+				"proficient": true,
 				"specialties": [],
-				"expertiseDice": 0,
+				"expertiseDice": 3,
 				"minRoll": 1,
 				"bonuses": {
 					"check": "",
@@ -480,7 +480,7 @@
 			},
 			"sur": {
 				"ability": "wis",
-				"proficient": false,
+				"proficient": true,
 				"specialties": [],
 				"expertiseDice": 0,
 				"minRoll": 1,
@@ -492,12 +492,13 @@
 		},
 		"source": "toSaveAKingdom",
 		"traits": {
-			"size": "med",
+			"size": "huge",
 			"alignment": [],
 			"conditionImmunities": [],
 			"damageImmunities": [],
 			"damageResistances": [
-				"cold"
+				"necrotic",
+				"Nonmagical, Non-Silvered Weapons"
 			],
 			"damageVulnerabilities": []
 		},
@@ -547,21 +548,21 @@
 		}
 	},
 	"prototypeToken": {
-		"name": "Laskian Sled Dog",
+		"name": "Vampiric Dire Bear",
 		"displayName": 0,
 		"actorLink": false,
 		"appendNumber": false,
 		"prependAdjective": false,
 		"texture": {
-			"src": "icons/svg/mystery-man.svg",
+			"src": "systems/a5e/assets/bear.webp",
 			"scaleX": 1,
 			"scaleY": 1,
 			"offsetX": 0,
 			"offsetY": 0,
 			"rotation": 0
 		},
-		"width": 1,
-		"height": 1,
+		"width": 3,
+		"height": 3,
 		"lockRotation": false,
 		"rotation": 0,
 		"alpha": 1,
@@ -704,7 +705,7 @@
 				}
 			},
 			"folder": null,
-			"_id": "readIJJl5fsRR5Zp",
+			"_id": "U6MGm9zrffAZ1eEu",
 			"sort": 0,
 			"ownership": {
 				"default": 0
@@ -804,7 +805,7 @@
 				}
 			},
 			"folder": null,
-			"_id": "iIWnbLCzy2ypx8gF",
+			"_id": "fJZ0KKWEc3MDHmc2",
 			"sort": 0,
 			"ownership": {
 				"default": 0
@@ -904,7 +905,7 @@
 				}
 			},
 			"folder": null,
-			"_id": "hPK9QZRz8AJYXqtO",
+			"_id": "iTO5U3LuY63PAOk9",
 			"sort": 0,
 			"ownership": {
 				"default": 0
@@ -1004,7 +1005,7 @@
 				}
 			},
 			"folder": null,
-			"_id": "7S1fF0fzrKu7vlcO",
+			"_id": "BrT2AiOWMmoKgIBo",
 			"sort": 0,
 			"ownership": {
 				"default": 0
@@ -1104,7 +1105,7 @@
 				}
 			},
 			"folder": null,
-			"_id": "vNK0iGcyhtW6wzj1",
+			"_id": "mWmqaeiiA4veqqeK",
 			"sort": 0,
 			"ownership": {
 				"default": 0
@@ -1204,14 +1205,14 @@
 				}
 			},
 			"folder": null,
-			"_id": "jGYeE1Xu4yk9F5on",
+			"_id": "0odDKKuuWwLBQ3k4",
 			"sort": 0,
 			"ownership": {
 				"default": 0
 			}
 		},
 		{
-			"name": "Keen Hearing and Smell",
+			"name": "Keen Smell",
 			"type": "feature",
 			"system": {
 				"ac": {
@@ -1225,7 +1226,7 @@
 					"requiresUnarmored": false
 				},
 				"actions": {},
-				"description": "<p>The sled dog has advantage on Perception checks that rely on hearing and smell.</p>",
+				"description": "<p>The bear has advantage on Perception checks that rely on smell.</p>",
 				"favorite": false,
 				"secretDescription": "",
 				"source": "",
@@ -1248,7 +1249,415 @@
 				"prerequisite": "",
 				"requiresBloodied": false
 			},
-			"_id": "gDKF1s6b4CM92qV7",
+			"_id": "r0eDc2KCgf3n2yAx",
+			"img": "icons/svg/item-bag.svg",
+			"effects": [],
+			"folder": null,
+			"sort": 0,
+			"ownership": {
+				"default": 0
+			},
+			"flags": {}
+		},
+		{
+			"name": "Regeneration",
+			"type": "feature",
+			"system": {
+				"ac": {
+					"baseFormula": "",
+					"formula": "",
+					"grantsDisadvantage": false,
+					"maxDex": 0,
+					"minStr": 0,
+					"mode": 2,
+					"requiresNoShield": false,
+					"requiresUnarmored": false
+				},
+				"actions": {
+					"gGJnWmgaaRhvkc0y": {
+						"name": "Regeneration",
+						"activation": {},
+						"consumers": {},
+						"rolls": {
+							"jFepxvJRCGEY2apz": {
+								"type": "healing",
+								"default": true,
+								"formula": "10"
+							}
+						},
+						"prompts": {},
+						"uses": {
+							"value": 0,
+							"max": "",
+							"per": "",
+							"recharge": {
+								"formula": "1d6",
+								"rechargeType": "custom",
+								"rechargeAmount": "1",
+								"threshold": 6
+							}
+						}
+					}
+				},
+				"description": "<p>The bear regains 10 hit points at the start of its turn if it has at least 1 hit point and hasn&rsquo;t taken radiant damage since its last turn.</p>",
+				"favorite": true,
+				"secretDescription": "",
+				"source": "",
+				"uses": {
+					"value": null,
+					"max": "",
+					"per": null,
+					"recharge": {
+						"formula": "1d6",
+						"threshold": "6"
+					}
+				},
+				"schema": {
+					"version": null,
+					"lastMigration": null
+				},
+				"concentration": false,
+				"featureType": "other",
+				"grants": {},
+				"prerequisite": "",
+				"requiresBloodied": false
+			},
+			"_id": "5KvAZAegZYog4DQo",
+			"img": "icons/svg/item-bag.svg",
+			"effects": [],
+			"folder": null,
+			"sort": 0,
+			"ownership": {
+				"default": 0
+			},
+			"flags": {}
+		},
+		{
+			"name": "Spider Climb",
+			"type": "feature",
+			"system": {
+				"ac": {
+					"baseFormula": "",
+					"formula": "",
+					"grantsDisadvantage": false,
+					"maxDex": 0,
+					"minStr": 0,
+					"mode": 2,
+					"requiresNoShield": false,
+					"requiresUnarmored": false
+				},
+				"actions": {},
+				"description": "<p>The bear can climb even on difficult surfaces and upside down on ceilings.</p>",
+				"favorite": false,
+				"secretDescription": "",
+				"source": "",
+				"uses": {
+					"value": null,
+					"max": "",
+					"per": null,
+					"recharge": {
+						"formula": "1d6",
+						"threshold": "6"
+					}
+				},
+				"schema": {
+					"version": null,
+					"lastMigration": null
+				},
+				"concentration": false,
+				"featureType": "other",
+				"grants": {},
+				"prerequisite": "",
+				"requiresBloodied": false
+			},
+			"_id": "FYaixqCBfNsnJWHC",
+			"img": "icons/svg/item-bag.svg",
+			"effects": [],
+			"folder": null,
+			"sort": 0,
+			"ownership": {
+				"default": 0
+			},
+			"flags": {}
+		},
+		{
+			"name": "Vampire Weaknesses",
+			"type": "feature",
+			"system": {
+				"ac": {
+					"baseFormula": "",
+					"formula": "",
+					"grantsDisadvantage": false,
+					"maxDex": 0,
+					"minStr": 0,
+					"mode": 2,
+					"requiresNoShield": false,
+					"requiresUnarmored": false
+				},
+				"actions": {
+					"H7c8YsbaMU06IXz0": {
+						"name": "Vampire Weaknesses",
+						"activation": {},
+						"consumers": {},
+						"rolls": {
+							"rRaaq3qU5WvYU0p7": {
+								"type": "damage",
+								"default": true,
+								"canCrit": false,
+								"formula": "20",
+								"damageType": "radiant"
+							}
+						},
+						"prompts": {},
+						"uses": {
+							"value": 0,
+							"max": "",
+							"per": "",
+							"recharge": {
+								"formula": "1d6",
+								"rechargeType": "custom",
+								"rechargeAmount": "1",
+								"threshold": 6
+							}
+						}
+					}
+				},
+				"description": "<p>When the bear ends its turn in contact with one of its weaknesses (such as being bathed in sunlight or running water), it takes 20 radiant damage. While in contact with its weakness, the bear can&rsquo;t use its Regeneration trait.</p>",
+				"favorite": true,
+				"secretDescription": "",
+				"source": "",
+				"uses": {
+					"value": null,
+					"max": "",
+					"per": null,
+					"recharge": {
+						"formula": "1d6",
+						"threshold": "6"
+					}
+				},
+				"schema": {
+					"version": null,
+					"lastMigration": null
+				},
+				"concentration": false,
+				"featureType": "other",
+				"grants": {},
+				"prerequisite": "",
+				"requiresBloodied": false
+			},
+			"_id": "PpRzi9kNHBS9Vvpw",
+			"img": "icons/svg/item-bag.svg",
+			"effects": [],
+			"folder": null,
+			"sort": 0,
+			"ownership": {
+				"default": 0
+			},
+			"flags": {}
+		},
+		{
+			"name": "Turn Resistance",
+			"type": "feature",
+			"system": {
+				"ac": {
+					"baseFormula": "",
+					"formula": "",
+					"grantsDisadvantage": false,
+					"maxDex": 0,
+					"minStr": 0,
+					"mode": 2,
+					"requiresNoShield": false,
+					"requiresUnarmored": false
+				},
+				"actions": {},
+				"description": "<p>The bear has advantage on saving throws against any effect that turns undead.</p>",
+				"favorite": false,
+				"secretDescription": "",
+				"source": "",
+				"uses": {
+					"value": null,
+					"max": "",
+					"per": null,
+					"recharge": {
+						"formula": "1d6",
+						"threshold": "6"
+					}
+				},
+				"schema": {
+					"version": null,
+					"lastMigration": null
+				},
+				"concentration": false,
+				"featureType": "other",
+				"grants": {},
+				"prerequisite": "",
+				"requiresBloodied": false
+			},
+			"_id": "2YHadqCTX0QWp601",
+			"img": "icons/svg/item-bag.svg",
+			"effects": [],
+			"folder": null,
+			"sort": 0,
+			"ownership": {
+				"default": 0
+			},
+			"flags": {}
+		},
+		{
+			"name": "Multiattack",
+			"type": "feature",
+			"system": {
+				"ac": {
+					"baseFormula": "",
+					"formula": "",
+					"grantsDisadvantage": false,
+					"maxDex": 0,
+					"minStr": 0,
+					"mode": 2,
+					"requiresNoShield": false,
+					"requiresUnarmored": false
+				},
+				"actions": {
+					"EGVKWN725WFRCkpG": {
+						"name": "Multiattack",
+						"activation": {
+							"type": "action",
+							"cost": 1
+						},
+						"consumers": {},
+						"rolls": {},
+						"prompts": {},
+						"uses": {
+							"value": 0,
+							"max": "",
+							"per": "",
+							"recharge": {
+								"formula": "1d6",
+								"rechargeType": "custom",
+								"rechargeAmount": "1",
+								"threshold": 6
+							}
+						}
+					}
+				},
+				"description": "<p>The bear makes two attacks: one with its bite and one with its claws.</p>",
+				"favorite": true,
+				"secretDescription": "",
+				"source": "",
+				"uses": {
+					"value": null,
+					"max": "",
+					"per": null,
+					"recharge": {
+						"formula": "1d6",
+						"threshold": "6"
+					}
+				},
+				"schema": {
+					"version": null,
+					"lastMigration": null
+				},
+				"concentration": false,
+				"featureType": "other",
+				"grants": {},
+				"prerequisite": "",
+				"requiresBloodied": false
+			},
+			"_id": "qtNnSnDSbNmT5ssG",
+			"img": "icons/svg/item-bag.svg",
+			"effects": [],
+			"folder": null,
+			"sort": 0,
+			"ownership": {
+				"default": 0
+			},
+			"flags": {}
+		},
+		{
+			"name": "Claws",
+			"type": "feature",
+			"system": {
+				"ac": {
+					"baseFormula": "",
+					"formula": "",
+					"grantsDisadvantage": false,
+					"maxDex": 0,
+					"minStr": 0,
+					"mode": 2,
+					"requiresNoShield": false,
+					"requiresUnarmored": false
+				},
+				"actions": {
+					"IdvTHwlY3N2vgy5z": {
+						"name": "Claws",
+						"activation": {
+							"type": "action",
+							"cost": 1
+						},
+						"consumers": {},
+						"rolls": {
+							"JYisM5PWFo7Dgo9O": {
+								"type": "attack",
+								"default": true,
+								"attackType": "meleeWeaponAttack",
+								"proficient": true,
+								"ability": "str"
+							},
+							"JjPAaBhpjhAYm2C5": {
+								"type": "damage",
+								"default": true,
+								"formula": "2d8 + @str.mod",
+								"damageType": "slashing"
+							}
+						},
+						"prompts": {},
+						"uses": {
+							"value": 0,
+							"max": "",
+							"per": "",
+							"recharge": {
+								"formula": "1d6",
+								"rechargeType": "custom",
+								"rechargeAmount": "1",
+								"threshold": 6
+							}
+						},
+						"ranges": {
+							"iJiJKWU2nIHGpWF0": {
+								"range": 10,
+								"unit": "feet"
+							}
+						},
+						"target": {
+							"type": "creatureObject",
+							"quantity": 1
+						}
+					}
+				},
+				"description": "",
+				"favorite": true,
+				"secretDescription": "",
+				"source": "",
+				"uses": {
+					"value": null,
+					"max": "",
+					"per": null,
+					"recharge": {
+						"formula": "1d6",
+						"threshold": "6"
+					}
+				},
+				"schema": {
+					"version": null,
+					"lastMigration": null
+				},
+				"concentration": false,
+				"featureType": "naturalWeapon",
+				"grants": {},
+				"prerequisite": "",
+				"requiresBloodied": false
+			},
+			"_id": "Na1XO9HYk4yGhtYW",
 			"img": "icons/svg/item-bag.svg",
 			"effects": [],
 			"folder": null,
@@ -1273,7 +1682,7 @@
 					"requiresUnarmored": false
 				},
 				"actions": {
-					"CJvcQLfUq1X9ibqG": {
+					"6DQciHTBBJGmRLfS": {
 						"name": "Bite",
 						"activation": {
 							"type": "action",
@@ -1281,35 +1690,27 @@
 						},
 						"consumers": {},
 						"rolls": {
-							"dWlQbGX86XfNNc63": {
+							"nXkFGsrNMw27w9CY": {
 								"type": "attack",
 								"default": true,
 								"attackType": "meleeWeaponAttack",
 								"proficient": true,
 								"ability": "str"
 							},
-							"PyrbO2bSbs9upNuh": {
+							"rQwmSBH2pnQBVvzg": {
 								"type": "damage",
 								"default": true,
-								"formula": "1d4 + @str.mod",
+								"formula": "2d6 + @str.mod",
 								"damageType": "piercing"
-							}
-						},
-						"prompts": {
-							"jE0mlzIjnk496Zmu": {
-								"type": "savingThrow",
-								"default": true,
-								"ability": "str",
-								"saveDC": {
-									"type": "str"
-								}
 							},
-							"9tdWe7r17DtuU7m3": {
-								"type": "effect",
+							"lUnigj9pIwDsmgbo": {
+								"type": "damage",
 								"default": true,
-								"effectId": "bOORIDdL68SrRHwG"
+								"formula": "3d6",
+								"damageType": "necrotic"
 							}
 						},
+						"prompts": {},
 						"uses": {
 							"value": 0,
 							"max": "",
@@ -1322,8 +1723,9 @@
 							}
 						},
 						"ranges": {
-							"2fVldrPnkOkvCWqd": {
-								"range": "fiveFeet"
+							"7GDKVqO0IFUYAJLt": {
+								"range": 10,
+								"unit": "feet"
 							}
 						},
 						"target": {
@@ -1332,7 +1734,7 @@
 						}
 					}
 				},
-				"description": "<p>If the target is a creature, it makes a DC 11 Strength saving throw, falling prone on a failure.</p>",
+				"description": "<p>The target&rsquo;s hit point maximum is reduced by an amount equal to the necrotic damage dealt, and the bear regains this number of hit points. The reduction lasts until the target finishes a long rest . If the target is reduced to 0 hit points by this attack, it dies.</p>",
 				"favorite": true,
 				"secretDescription": "",
 				"source": "",
@@ -1355,26 +1757,139 @@
 				"prerequisite": "",
 				"requiresBloodied": false
 			},
-			"_id": "iSvBcshPKXCp0dlQ",
+			"_id": "w8uZn1yXVK2mlVJk",
+			"img": "icons/svg/item-bag.svg",
+			"effects": [],
+			"folder": null,
+			"sort": 0,
+			"ownership": {
+				"default": 0
+			},
+			"flags": {}
+		},
+		{
+			"name": "Charm Simpleton",
+			"type": "feature",
+			"system": {
+				"ac": {
+					"baseFormula": "",
+					"formula": "",
+					"grantsDisadvantage": false,
+					"maxDex": 0,
+					"minStr": 0,
+					"mode": 2,
+					"requiresNoShield": false,
+					"requiresUnarmored": false
+				},
+				"actions": {
+					"rsds7AyuN8EYiHm1": {
+						"name": "Charm Simpleton",
+						"activation": {
+							"type": "action",
+							"cost": 1
+						},
+						"consumers": {},
+						"rolls": {},
+						"prompts": {
+							"VD3qCTofdHNPAU2F": {
+								"type": "savingThrow",
+								"default": true,
+								"ability": "wis",
+								"saveDC": {
+									"type": "wis"
+								}
+							},
+							"8c5pguKTzpKbxcxf": {
+								"type": "effect",
+								"default": true,
+								"effectId": "IGxvubQVzijUjq61"
+							}
+						},
+						"uses": {
+							"value": 0,
+							"max": "",
+							"per": "",
+							"recharge": {
+								"formula": "1d6",
+								"rechargeType": "custom",
+								"rechargeAmount": "1",
+								"threshold": 6
+							}
+						},
+						"ranges": {
+							"ccb6xxsZxNpJDd9z": {
+								"range": "short"
+							}
+						}
+					},
+					"8Fy75qFoCQKQjSUL": {
+						"name": "End Charm",
+						"activation": {
+							"type": "bonusAction",
+							"cost": 1
+						},
+						"consumers": {},
+						"rolls": {},
+						"prompts": {},
+						"uses": {
+							"value": 0,
+							"max": "",
+							"per": "",
+							"recharge": {
+								"formula": "1d6",
+								"rechargeType": "custom",
+								"rechargeAmount": "1",
+								"threshold": 6
+							}
+						}
+					}
+				},
+				"description": "<p>The bear targets one beast , giant , or humanoid it can see within 30 feet of it. If the target can see the bear and has an Intelligence of 7 or lower, it makes a DC 13 Wisdom saving throw or becomes charmed by the bear. The charmed target regards the bear as a trusted friend to be heeded and protected. Although the target isn&rsquo;t under the bear&rsquo;s control, it takes the bear&rsquo;s requests or actions in the most favorable way it can, and it is a willing target for the bear&rsquo;s bite attack. Each time the bear or the bear&rsquo;s companions do anything harmful to the target, it can repeat the saving throw , ending the effect on itself on a success. Otherwise, the effect lasts 24 hours or until the bear is destroyed, is on a different plane of existence than the target, or takes a bonus action to end the effect.</p>",
+				"favorite": true,
+				"secretDescription": "",
+				"source": "",
+				"uses": {
+					"value": null,
+					"max": "",
+					"per": null,
+					"recharge": {
+						"formula": "1d6",
+						"threshold": "6"
+					}
+				},
+				"schema": {
+					"version": null,
+					"lastMigration": null
+				},
+				"concentration": false,
+				"featureType": "naturalWeapon",
+				"grants": {},
+				"prerequisite": "",
+				"requiresBloodied": false
+			},
+			"_id": "EGFoyJbQlFavQvv6",
 			"img": "icons/svg/item-bag.svg",
 			"effects": [
 				{
 					"icon": "icons/svg/item-bag.svg",
-					"origin": "Actor.9swq1ylYhhWN76nf.Item.iSvBcshPKXCp0dlQ",
+					"origin": "Actor.2OIQWiZbeFXzVUYr.Item.EGFoyJbQlFavQvv6",
 					"flags": {
 						"a5e": {
 							"sort": 0,
 							"transferType": "onUse",
-							"actionId": "CJvcQLfUq1X9ibqG"
+							"actionId": "rsds7AyuN8EYiHm1",
+							"duration": {
+								"unit": "hours"
+							}
 						}
 					},
 					"transfer": false,
-					"name": "Prone",
-					"_id": "bOORIDdL68SrRHwG",
+					"name": "Charmed",
+					"_id": "IGxvubQVzijUjq61",
 					"changes": [
 						{
 							"key": "flags.a5e.effects.statusConditions",
-							"value": "[\"prone\"]",
+							"value": "[\"charmed\"]",
 							"mode": 0,
 							"priority": null
 						}
@@ -1382,7 +1897,7 @@
 					"disabled": false,
 					"duration": {
 						"startTime": null,
-						"seconds": null,
+						"seconds": 86400,
 						"combat": null,
 						"rounds": null,
 						"turns": null,
@@ -1391,11 +1906,325 @@
 					},
 					"description": "",
 					"statuses": [
-						"prone"
+						"charmed"
 					],
 					"folder": null
 				}
 			],
+			"folder": null,
+			"sort": 0,
+			"ownership": {
+				"default": 0
+			},
+			"flags": {}
+		},
+		{
+			"name": "Legendary Actions",
+			"type": "feature",
+			"system": {
+				"ac": {
+					"baseFormula": "",
+					"formula": "",
+					"grantsDisadvantage": false,
+					"maxDex": 0,
+					"minStr": 0,
+					"mode": 2,
+					"requiresNoShield": false,
+					"requiresUnarmored": false
+				},
+				"actions": {},
+				"description": "<p>he bear can take 3 legendary actions, choosing from the options below. Only one legendary action option can be used at a time and only at the end of another creature&rsquo;s turn. The bear regains spent legendary actions at the start of its turn.</p>",
+				"favorite": true,
+				"secretDescription": "",
+				"source": "",
+				"uses": {
+					"value": 3,
+					"max": "3",
+					"per": "turn",
+					"recharge": {
+						"formula": "1d6",
+						"threshold": "6"
+					}
+				},
+				"schema": {
+					"version": null,
+					"lastMigration": null
+				},
+				"concentration": false,
+				"featureType": "other",
+				"grants": {},
+				"prerequisite": "",
+				"requiresBloodied": false
+			},
+			"_id": "T8lEdz2Fl4Ei325N",
+			"img": "icons/svg/item-bag.svg",
+			"effects": [],
+			"folder": null,
+			"sort": 0,
+			"ownership": {
+				"default": 0
+			},
+			"flags": {}
+		},
+		{
+			"name": "Move",
+			"type": "feature",
+			"system": {
+				"ac": {
+					"baseFormula": "",
+					"formula": "",
+					"grantsDisadvantage": false,
+					"maxDex": 0,
+					"minStr": 0,
+					"mode": 2,
+					"requiresNoShield": false,
+					"requiresUnarmored": false
+				},
+				"actions": {
+					"oxXCwf6UKjqSlGTY": {
+						"name": "Move",
+						"activation": {
+							"type": "legendaryAction",
+							"cost": 1
+						},
+						"consumers": {},
+						"rolls": {},
+						"prompts": {},
+						"uses": {
+							"value": 0,
+							"max": "",
+							"per": "",
+							"recharge": {
+								"formula": "1d6",
+								"rechargeType": "custom",
+								"rechargeAmount": "1",
+								"threshold": 6
+							}
+						}
+					}
+				},
+				"description": "<p>The bear moves up to its Speed without provoking opportunity attacks.</p>",
+				"favorite": true,
+				"secretDescription": "",
+				"source": "",
+				"uses": {
+					"value": null,
+					"max": "",
+					"per": null,
+					"recharge": {
+						"formula": "1d6",
+						"threshold": "6"
+					}
+				},
+				"schema": {
+					"version": null,
+					"lastMigration": null
+				},
+				"concentration": false,
+				"featureType": "legendaryAction",
+				"grants": {},
+				"prerequisite": "",
+				"requiresBloodied": false
+			},
+			"_id": "shGx7DhIhDtqe0vO",
+			"img": "icons/svg/item-bag.svg",
+			"effects": [],
+			"folder": null,
+			"sort": 0,
+			"ownership": {
+				"default": 0
+			},
+			"flags": {}
+		},
+		{
+			"name": "Claw",
+			"type": "feature",
+			"system": {
+				"ac": {
+					"baseFormula": "",
+					"formula": "",
+					"grantsDisadvantage": false,
+					"maxDex": 0,
+					"minStr": 0,
+					"mode": 2,
+					"requiresNoShield": false,
+					"requiresUnarmored": false
+				},
+				"actions": {
+					"wCh7PRULj5IR75Pq": {
+						"name": "Claws",
+						"activation": {
+							"type": "legendaryAction",
+							"cost": 1
+						},
+						"consumers": {},
+						"rolls": {
+							"JYisM5PWFo7Dgo9O": {
+								"type": "attack",
+								"default": true,
+								"attackType": "meleeWeaponAttack",
+								"proficient": true,
+								"ability": "str"
+							},
+							"JjPAaBhpjhAYm2C5": {
+								"type": "damage",
+								"default": true,
+								"formula": "2d8 + @str.mod",
+								"damageType": "slashing"
+							}
+						},
+						"prompts": {},
+						"uses": {
+							"value": 0,
+							"max": "",
+							"per": "",
+							"recharge": {
+								"formula": "1d6",
+								"rechargeType": "custom",
+								"rechargeAmount": "1",
+								"threshold": 6
+							}
+						},
+						"ranges": {
+							"iJiJKWU2nIHGpWF0": {
+								"range": 10,
+								"unit": "feet"
+							}
+						},
+						"target": {
+							"type": "creatureObject",
+							"quantity": 1
+						},
+						"img": "icons/svg/item-bag.svg"
+					}
+				},
+				"description": "<p>The bear makes one claw attack.</p>",
+				"favorite": true,
+				"secretDescription": "",
+				"source": "",
+				"uses": {
+					"value": null,
+					"max": "",
+					"per": null,
+					"recharge": {
+						"formula": "1d6",
+						"threshold": "6"
+					}
+				},
+				"schema": {
+					"version": null,
+					"lastMigration": null
+				},
+				"concentration": false,
+				"featureType": "legendaryAction",
+				"grants": {},
+				"prerequisite": "",
+				"requiresBloodied": false
+			},
+			"_id": "o0Sa82TFenjVbOcq",
+			"img": "icons/svg/item-bag.svg",
+			"effects": [],
+			"folder": null,
+			"sort": 0,
+			"ownership": {
+				"default": 0
+			},
+			"flags": {}
+		},
+		{
+			"name": "Bite (Costs 2)",
+			"type": "feature",
+			"system": {
+				"ac": {
+					"baseFormula": "",
+					"formula": "",
+					"grantsDisadvantage": false,
+					"maxDex": 0,
+					"minStr": 0,
+					"mode": 2,
+					"requiresNoShield": false,
+					"requiresUnarmored": false
+				},
+				"actions": {
+					"2xutPqtjWLgywdbK": {
+						"name": "Bite",
+						"activation": {
+							"type": "legendaryAction",
+							"cost": 2
+						},
+						"consumers": {},
+						"rolls": {
+							"nXkFGsrNMw27w9CY": {
+								"type": "attack",
+								"default": true,
+								"attackType": "meleeWeaponAttack",
+								"proficient": true,
+								"ability": "str"
+							},
+							"rQwmSBH2pnQBVvzg": {
+								"type": "damage",
+								"default": true,
+								"formula": "2d6 + @str.mod",
+								"damageType": "piercing"
+							},
+							"lUnigj9pIwDsmgbo": {
+								"type": "damage",
+								"default": true,
+								"formula": "3d6",
+								"damageType": "necrotic"
+							}
+						},
+						"prompts": {},
+						"uses": {
+							"value": 0,
+							"max": "",
+							"per": "",
+							"recharge": {
+								"formula": "1d6",
+								"rechargeType": "custom",
+								"rechargeAmount": "1",
+								"threshold": 6
+							}
+						},
+						"ranges": {
+							"7GDKVqO0IFUYAJLt": {
+								"range": 10,
+								"unit": "feet"
+							}
+						},
+						"target": {
+							"type": "creatureObject",
+							"quantity": 1
+						},
+						"img": "icons/svg/item-bag.svg"
+					}
+				},
+				"description": "<p>The bear makes one bite attack.</p>",
+				"favorite": true,
+				"secretDescription": "",
+				"source": "",
+				"uses": {
+					"value": null,
+					"max": "",
+					"per": null,
+					"recharge": {
+						"formula": "1d6",
+						"threshold": "6"
+					}
+				},
+				"schema": {
+					"version": null,
+					"lastMigration": null
+				},
+				"concentration": false,
+				"featureType": "legendaryAction",
+				"grants": {},
+				"prerequisite": "",
+				"requiresBloodied": false
+			},
+			"_id": "jAp0A3PzhP2c1skW",
+			"img": "icons/svg/item-bag.svg",
+			"effects": [],
 			"folder": null,
 			"sort": 0,
 			"ownership": {
@@ -1410,5 +2239,5 @@
 			"sheetIsLocked": true
 		}
 	},
-	"_id": "cpe64lm8xq9a2c6k"
+	"_id": "hxsf2ytrjyjejfok"
 }

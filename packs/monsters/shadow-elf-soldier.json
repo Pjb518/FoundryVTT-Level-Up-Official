@@ -1,6 +1,6 @@
 {
 	"folder": null,
-	"name": "Infernal Dwarf",
+	"name": "Shadow Elf Soldier",
 	"type": "npc",
 	"img": "icons/svg/mystery-man.svg",
 	"system": {
@@ -22,37 +22,37 @@
 				}
 			},
 			"dex": {
-				"value": 11,
-				"check": {
-					"expertiseDice": 0,
-					"bonus": ""
-				},
-				"save": {
-					"proficient": false,
-					"expertiseDice": 0,
-					"bonus": ""
-				}
-			},
-			"con": {
 				"value": 14,
 				"check": {
 					"expertiseDice": 0,
 					"bonus": ""
 				},
 				"save": {
-					"proficient": false,
+					"proficient": true,
 					"expertiseDice": 0,
 					"bonus": ""
 				}
 			},
-			"int": {
-				"value": 15,
+			"con": {
+				"value": 11,
 				"check": {
 					"expertiseDice": 0,
 					"bonus": ""
 				},
 				"save": {
 					"proficient": true,
+					"expertiseDice": 0,
+					"bonus": ""
+				}
+			},
+			"int": {
+				"value": 10,
+				"check": {
+					"expertiseDice": 0,
+					"bonus": ""
+				},
+				"save": {
+					"proficient": false,
 					"expertiseDice": 0,
 					"bonus": ""
 				}
@@ -70,7 +70,7 @@
 				}
 			},
 			"cha": {
-				"value": 13,
+				"value": 10,
 				"check": {
 					"expertiseDice": 0,
 					"bonus": ""
@@ -92,8 +92,8 @@
 				"failure": 0
 			},
 			"hp": {
-				"value": 65,
-				"baseMax": 65,
+				"value": 45,
+				"baseMax": 45,
 				"temp": 0,
 				"bonus": 0
 			},
@@ -146,7 +146,7 @@
 					"unit": "feet"
 				},
 				"walk": {
-					"distance": 25,
+					"distance": 30,
 					"unit": "feet"
 				},
 				"traits": {
@@ -175,8 +175,8 @@
 			"inspiration": false,
 			"fatigue": 0,
 			"strife": 0,
-			"spellcasting": "int",
-			"casterLevel": 5
+			"spellcasting": "cha",
+			"casterLevel": 0
 		},
 		"bonuses": {
 			"abilities": {},
@@ -204,15 +204,16 @@
 		"details": {
 			"bio": "",
 			"creatureTypes": [
-				"fiend"
+				"humanoid"
 			],
 			"isSwarm": false,
-			"cr": 3,
+			"cr": 4,
 			"elite": false,
 			"notes": "",
 			"privateNotes": "",
 			"terrain": [
-				"caverns",
+				"forest",
+				"theDreaming",
 				"underland"
 			]
 		},
@@ -220,8 +221,9 @@
 		"proficiencies": {
 			"armor": [],
 			"languages": [
-				"dwarvish",
-				"infernal"
+				"common",
+				"elvish",
+				"undercommon"
 			],
 			"tools": [],
 			"weapons": []
@@ -275,9 +277,9 @@
 		"skills": {
 			"acr": {
 				"ability": "dex",
-				"proficient": false,
+				"proficient": true,
 				"specialties": [],
-				"expertiseDice": 0,
+				"expertiseDice": 1,
 				"minRoll": 1,
 				"bonuses": {
 					"check": "",
@@ -297,7 +299,7 @@
 			},
 			"arc": {
 				"ability": "int",
-				"proficient": true,
+				"proficient": false,
 				"specialties": [],
 				"expertiseDice": 0,
 				"minRoll": 1,
@@ -330,7 +332,7 @@
 			},
 			"dec": {
 				"ability": "cha",
-				"proficient": false,
+				"proficient": true,
 				"specialties": [],
 				"expertiseDice": 0,
 				"minRoll": 1,
@@ -363,7 +365,7 @@
 			},
 			"ins": {
 				"ability": "wis",
-				"proficient": false,
+				"proficient": true,
 				"specialties": [],
 				"expertiseDice": 0,
 				"minRoll": 1,
@@ -374,7 +376,7 @@
 			},
 			"itm": {
 				"ability": "cha",
-				"proficient": true,
+				"proficient": false,
 				"specialties": [],
 				"expertiseDice": 0,
 				"minRoll": 1,
@@ -418,9 +420,9 @@
 			},
 			"prc": {
 				"ability": "wis",
-				"proficient": false,
+				"proficient": true,
 				"specialties": [],
-				"expertiseDice": 0,
+				"expertiseDice": 1,
 				"minRoll": 1,
 				"bonuses": {
 					"check": "",
@@ -473,9 +475,9 @@
 			},
 			"ste": {
 				"ability": "dex",
-				"proficient": false,
+				"proficient": true,
 				"specialties": [],
-				"expertiseDice": 0,
+				"expertiseDice": 1,
 				"minRoll": 1,
 				"bonuses": {
 					"check": "",
@@ -484,9 +486,9 @@
 			},
 			"sur": {
 				"ability": "wis",
-				"proficient": false,
+				"proficient": true,
 				"specialties": [],
-				"expertiseDice": 0,
+				"expertiseDice": 1,
 				"minRoll": 1,
 				"bonuses": {
 					"check": "",
@@ -497,33 +499,25 @@
 		"source": "toSaveAKingdom",
 		"traits": {
 			"size": "med",
-			"alignment": [
-				"evil",
-				"lawful"
-			],
+			"alignment": [],
 			"conditionImmunities": [],
-			"damageImmunities": [
-				"poison",
-				"necrotic"
-			],
-			"damageResistances": [
-				"fire"
-			],
+			"damageImmunities": [],
+			"damageResistances": [],
 			"damageVulnerabilities": []
 		},
 		"spellResources": {
 			"slots": {
 				"1": {
-					"current": 4,
-					"max": 4
+					"current": 0,
+					"max": 0
 				},
 				"2": {
-					"current": 3,
-					"max": 3
+					"current": 0,
+					"max": 0
 				},
 				"3": {
-					"current": 2,
-					"max": 2
+					"current": 0,
+					"max": 0
 				},
 				"4": {
 					"current": 0,
@@ -557,7 +551,7 @@
 		}
 	},
 	"prototypeToken": {
-		"name": "Infernal Dwarf",
+		"name": "Shadow Elf Priest",
 		"displayName": 0,
 		"actorLink": false,
 		"appendNumber": false,
@@ -714,7 +708,7 @@
 				}
 			},
 			"folder": null,
-			"_id": "PThZNt6Q4T8kCuMb",
+			"_id": "MfTjDPST4uUIyC4u",
 			"sort": 0,
 			"ownership": {
 				"default": 0
@@ -814,7 +808,7 @@
 				}
 			},
 			"folder": null,
-			"_id": "9FW8sjhD01aeUOp6",
+			"_id": "s1hwzsMi8AmZasYd",
 			"sort": 0,
 			"ownership": {
 				"default": 0
@@ -914,7 +908,7 @@
 				}
 			},
 			"folder": null,
-			"_id": "KaapfdViIrtB8xNy",
+			"_id": "pHfsjU88tSFllhiK",
 			"sort": 0,
 			"ownership": {
 				"default": 0
@@ -1014,7 +1008,7 @@
 				}
 			},
 			"folder": null,
-			"_id": "d6ZYuBfE7APmtHk2",
+			"_id": "CcKoy41Z3PDCoIW6",
 			"sort": 0,
 			"ownership": {
 				"default": 0
@@ -1114,7 +1108,7 @@
 				}
 			},
 			"folder": null,
-			"_id": "e1G5gpYSewOoPDqZ",
+			"_id": "MwSB19NATUGX48Zn",
 			"sort": 0,
 			"ownership": {
 				"default": 0
@@ -1214,25 +1208,73 @@
 				}
 			},
 			"folder": null,
-			"_id": "n72nMXGoB4ZyvUGR",
+			"_id": "evQ1cedxjpJckGTe",
 			"sort": 0,
 			"ownership": {
 				"default": 0
 			}
 		},
 		{
-			"name": "Hauberk (Bone)",
+			"name": "Fey Ancestry",
+			"type": "feature",
+			"system": {
+				"ac": {
+					"baseFormula": "",
+					"formula": "",
+					"grantsDisadvantage": false,
+					"maxDex": 0,
+					"minStr": 0,
+					"mode": 2,
+					"requiresNoShield": false,
+					"requiresUnarmored": false
+				},
+				"actions": {},
+				"description": "<p>The warrior gains an expertise die on saving throws against being charmed , and magic can&rsquo;t put them to sleep.</p>",
+				"favorite": false,
+				"secretDescription": "",
+				"source": "",
+				"uses": {
+					"value": null,
+					"max": "",
+					"per": null,
+					"recharge": {
+						"formula": "1d6",
+						"threshold": "6"
+					}
+				},
+				"schema": {
+					"version": null,
+					"lastMigration": null
+				},
+				"concentration": false,
+				"featureType": "other",
+				"grants": {},
+				"prerequisite": "",
+				"requiresBloodied": false
+			},
+			"_id": "yY3WyTYDU9UeRN4l",
+			"img": "icons/svg/item-bag.svg",
+			"effects": [],
+			"folder": null,
+			"sort": 0,
+			"ownership": {
+				"default": 0
+			},
+			"flags": {}
+		},
+		{
+			"name": "Chain Shirt (Steel)",
 			"type": "object",
 			"img": "icons/commodities/metal/mail-chain-steel.webp",
 			"effects": [],
 			"flags": {},
 			"system": {
 				"ac": {
-					"baseFormula": "16",
+					"baseFormula": "13 + @dex.mod",
 					"formula": "",
 					"grantsDisadvantage": false,
-					"maxDex": 0,
-					"minStr": 13,
+					"maxDex": 2,
+					"minStr": 0,
 					"mode": 2,
 					"requiresNoShield": false,
 					"requiresUnarmored": false
@@ -1256,7 +1298,7 @@
 					"lastMigration": null
 				},
 				"ammunitionProperties": [],
-				"armorCategory": "heavy",
+				"armorCategory": "medium",
 				"armorProperties": [],
 				"attuned": false,
 				"bulky": false,
@@ -1266,13 +1308,11 @@
 				"equippedState": 2,
 				"items": {},
 				"materialProperties": [
-					"lowMaintenance",
-					"flaw",
-					"lightweight"
+					"lowMaintenance"
 				],
 				"objectType": "armor",
 				"plotItem": false,
-				"price": "150 gp",
+				"price": "50 gp",
 				"proficient": true,
 				"quantity": 1,
 				"rarity": "mundane",
@@ -1283,7 +1323,7 @@
 				"unidentifiedDescription": "",
 				"unidentifiedName": "",
 				"weaponProperties": [],
-				"weight": 10,
+				"weight": 15,
 				"schemaVersion": {
 					"version": 0.013,
 					"lastMigration": {
@@ -1296,14 +1336,14 @@
 				}
 			},
 			"folder": null,
-			"_id": "Ipaf2VR15DtkgZzo",
+			"_id": "cRddALCALBnAgY2D",
 			"sort": 0,
 			"ownership": {
 				"default": 0
 			}
 		},
 		{
-			"name": "Bone Armaments",
+			"name": "Gear",
 			"type": "feature",
 			"system": {
 				"ac": {
@@ -1317,7 +1357,7 @@
 					"requiresUnarmored": false
 				},
 				"actions": {},
-				"description": "<p>The infernal dwarf ignores the flaw property of any bone armor they wear or bone weapon they wield.</p>",
+				"description": "<p>The soldier carries a @UUID[Compendium.a5e.a5e-adventuring-gear.Item.nees9nzonritxzwe]{Healing Potion (Greater)} (4d4+4 hit points) and @UUID[Compendium.a5e.a5e-adventuring-gear.Item.7xfhqdmhicdtmtw8]{Potion of Invisibility}.</p>",
 				"favorite": false,
 				"secretDescription": "",
 				"source": "",
@@ -1340,7 +1380,7 @@
 				"prerequisite": "",
 				"requiresBloodied": false
 			},
-			"_id": "3r177JVk38BiL9ab",
+			"_id": "rVuauq4p6KJNoLcf",
 			"img": "icons/svg/item-bag.svg",
 			"effects": [],
 			"folder": null,
@@ -1351,179 +1391,29 @@
 			"flags": {}
 		},
 		{
-			"name": "Lawful Evil",
-			"type": "feature",
-			"system": {
-				"ac": {
-					"baseFormula": "",
-					"formula": "",
-					"grantsDisadvantage": false,
-					"maxDex": 0,
-					"minStr": 0,
-					"mode": 2,
-					"requiresNoShield": false,
-					"requiresUnarmored": false
-				},
-				"actions": {},
-				"description": "<p>The infernal dwarf radiates a Lawful Evil aura.</p>",
-				"favorite": false,
-				"secretDescription": "",
-				"source": "",
-				"uses": {
-					"value": null,
-					"max": "",
-					"per": null,
-					"recharge": {
-						"formula": "1d6",
-						"threshold": "6"
-					}
-				},
-				"schema": {
-					"version": null,
-					"lastMigration": null
-				},
-				"concentration": false,
-				"featureType": "other",
-				"grants": {},
-				"prerequisite": "",
-				"requiresBloodied": false
-			},
-			"_id": "UGwMS75544dSeMM5",
-			"img": "icons/svg/item-bag.svg",
+			"name": "Healing Potion (Greater)",
+			"type": "object",
+			"img": "icons/consumables/potions/bottle-corked-red.webp",
 			"effects": [],
-			"folder": null,
-			"sort": 0,
-			"ownership": {
-				"default": 0
-			},
-			"flags": {}
-		},
-		{
-			"name": "Spellcasting",
-			"type": "feature",
-			"system": {
-				"ac": {
-					"baseFormula": "",
-					"formula": "",
-					"grantsDisadvantage": false,
-					"maxDex": 0,
-					"minStr": 0,
-					"mode": 2,
-					"requiresNoShield": false,
-					"requiresUnarmored": false
-				},
-				"actions": {},
-				"description": "<p>The infernal dwarf is a 5th level spellcaster, using Intelligence as their spellcasting ability (spell save DC 12; +4 to hit with spell attacks). They have the following spells prepared:</p>\n<p>Cantrips: @UUID[Compendium.a5e.a5e-spells.Item.mocigztrqyoks506]{Mage Hand}, @UUID[Compendium.a5e.a5e-spells.Item.9ot2c39ypiu4l8ws]{Ray of Frost}</p>\n<p>1st-level (4 slots): @UUID[Compendium.a5e.a5e-spells.Item.zf1kpjwhg9fabe01]{Charm Person}, @UUID[Compendium.a5e.a5e-spells.Item.nlto7z4j14ips45w]{Shield}, @UUID[Compendium.a5e.a5e-spells.Item.65ksar78lxxp7uol]{Thunderwave}</p>\n<p>2nd-level (3 slots): @UUID[Compendium.a5e.a5e-spells.Item.0ou0qutr7p2bedg0]{Darkness}, @UUID[Compendium.a5e.a5e-spells.Item.9eojtnhu5ptcipov]{Ray of Enfeeblement}</p>\n<p>3rd-level (2 slots): @UUID[Compendium.a5e.a5e-spells.Item.j4dxhregibkcte2j]{Vampiric Touch}</p>",
-				"favorite": false,
-				"secretDescription": "",
-				"source": "",
-				"uses": {
-					"value": null,
-					"max": "",
-					"per": null,
-					"recharge": {
-						"formula": "1d6",
-						"threshold": "6"
-					}
-				},
-				"schema": {
-					"version": null,
-					"lastMigration": null
-				},
-				"concentration": false,
-				"featureType": "other",
-				"grants": {},
-				"prerequisite": "",
-				"requiresBloodied": false
-			},
-			"_id": "u4SrjwQrZ6hUQB16",
-			"img": "icons/svg/item-bag.svg",
-			"effects": [],
-			"folder": null,
-			"sort": 0,
-			"ownership": {
-				"default": 0
-			},
-			"flags": {}
-		},
-		{
-			"name": "Ray of Frost",
-			"type": "spell",
-			"img": "icons/magic/water/projectile-icecicle-glowing.webp",
-			"effects": [
-				{
-					"icon": "icons/magic/water/projectile-icecicle-glowing.webp",
-					"origin": "Actor.kblhlKkhb0DSlFOq.Item.jeKzSHaNBBtrbBse",
-					"flags": {
-						"a5e": {
-							"sort": 0,
-							"transferType": "onUse",
-							"actionId": "rjaz6n2uCMQHcsGc",
-							"duration": {
-								"type": "rounds",
-								"unit": "minutes"
-							}
-						}
-					},
-					"transfer": false,
-					"name": "Ray of Frost",
-					"_id": "6meIM37yip1QShpH",
-					"changes": [
-						{
-							"key": "system.attributes.movement.burrow.distance",
-							"value": "{\"comparisonOperator\":\">\",\"comparisonValue\":\"10\",\"positiveValue\":\"@original - 10\",\"negativeValue\":\"0\"}",
-							"mode": 7,
-							"priority": null
-						},
-						{
-							"key": "system.attributes.movement.climb.distance",
-							"value": "{\"comparisonOperator\":\">\",\"comparisonValue\":\"10\",\"positiveValue\":\"@original - 10\",\"negativeValue\":\"0\"}",
-							"mode": 7,
-							"priority": null
-						},
-						{
-							"key": "system.attributes.movement.fly.distance",
-							"value": "{\"comparisonOperator\":\">\",\"comparisonValue\":\"10\",\"positiveValue\":\"@original - 10\",\"negativeValue\":\"0\"}",
-							"mode": 7,
-							"priority": null
-						},
-						{
-							"key": "system.attributes.movement.swim.distance",
-							"value": "{\"comparisonOperator\":\">\",\"comparisonValue\":\"10\",\"positiveValue\":\"@original - 10\",\"negativeValue\":\"0\"}",
-							"mode": 7,
-							"priority": null
-						},
-						{
-							"key": "system.attributes.movement.walk.distance",
-							"value": "{\"comparisonOperator\":\">\",\"comparisonValue\":\"10\",\"positiveValue\":\"@original - 10\",\"negativeValue\":\"0\"}",
-							"mode": 7,
-							"priority": null
-						}
-					],
-					"disabled": false,
-					"duration": {
-						"startTime": null,
-						"seconds": null,
-						"combat": null,
-						"rounds": 1,
-						"turns": null,
-						"startRound": null,
-						"startTurn": null
-					},
-					"description": "<p>The target's Speed by 10 feet until the start of your next turn.</p>",
-					"statuses": [],
-					"folder": null
-				}
-			],
 			"flags": {
 				"core": {
-					"sourceId": "Compendium.a5e.a5e-spells.Item.9ot2c39ypiu4l8ws"
+					"sourceId": "Compendium.a5e.a5e-adventuring-gear.Item.nees9nzonritxzwe"
 				}
 			},
 			"system": {
+				"ac": {
+					"baseFormula": "",
+					"formula": "",
+					"grantsDisadvantage": false,
+					"maxDex": 0,
+					"minStr": 0,
+					"mode": 1,
+					"requiresNoShield": false,
+					"requiresUnarmored": false
+				},
 				"actions": {
-					"rjaz6n2uCMQHcsGc": {
-						"name": "Cast Spell",
+					"n80diXYgRGzNEaYl": {
+						"name": "Drink Potion",
 						"activation": {
 							"cost": 1,
 							"type": "action",
@@ -1533,11 +1423,6 @@
 							"unit": "instantaneous",
 							"value": ""
 						},
-						"ranges": {
-							"MiX7YFyH7f21pqZL": {
-								"range": "medium"
-							}
-						},
 						"area": {
 							"shape": "",
 							"size": "",
@@ -1545,82 +1430,61 @@
 						},
 						"target": {
 							"quantity": "",
-							"type": "creature"
+							"type": ""
 						},
 						"rolls": {
-							"9Edhi5INnPDZEEz3": {
-								"bonus": "",
-								"critThreshold": 20,
-								"type": "attack",
-								"attackType": "rangedSpellAttack",
-								"ability": "spellcasting"
-							},
-							"8PiujKc60ugoEB2e": {
-								"canCrit": true,
-								"damageType": "cold",
-								"formula": "1d8",
-								"name": "",
-								"type": "damage",
-								"scaling": {
-									"mode": "cantrip",
-									"formula": "1d8"
-								}
+							"JL8oimCBG7H143iO": {
+								"formula": "4d4 + 4",
+								"healingType": "healing",
+								"name": "Healing potion (greater)",
+								"type": "healing"
 							}
 						},
-						"consumers": {},
-						"prompts": {
-							"GKzeiAKIE2qf79e8": {
-								"type": "effect",
-								"default": true,
-								"effectId": "6meIM37yip1QShpH"
-							}
-						}
+						"consumers": {}
 					}
 				},
-				"description": "<p>An icy beam shoots from your outstretched fingers.</p><p>Make a ranged spell attack. On a hit, you deal 1d8 cold damage and reduce the target's Speed by 10 feet until the start of your next turn.</p><p>This spell's damage increases by 1d8 when you reach 5th level (2d8), 11th level (3d8), and 17th level (4d8).</p>",
-				"favorite": true,
+				"description": "<p>When you drink the pure red concoction in this flask, you regain 4d4 + 4 hit points.</p>",
+				"favorite": false,
 				"secretDescription": "",
-				"source": "adventurersGuide",
+				"source": "",
 				"uses": {
 					"value": null,
 					"max": "",
 					"per": null,
 					"recharge": {
-						"formula": "",
-						"threshold": ""
+						"formula": "1d6",
+						"threshold": 6
 					}
 				},
 				"schema": {
 					"version": null,
 					"lastMigration": null
 				},
-				"classes": [
-					"artificer",
-					"sorcerer",
-					"witch",
-					"wizard"
-				],
-				"components": {
-					"vocalized": true,
-					"seen": true,
-					"material": false
-				},
-				"concentration": false,
-				"level": 0,
-				"materials": "",
-				"materialsConsumed": false,
-				"prepared": false,
-				"prerequisite": "",
-				"rare": false,
-				"ritual": false,
-				"schools": {
-					"primary": "evocation",
-					"secondary": [
-						"arcane",
-						"cold",
-						"movement"
-					]
-				},
+				"ammunitionProperties": [],
+				"armorCategory": "",
+				"armorProperties": [],
+				"attuned": false,
+				"bulky": false,
+				"craftingComponents": "Alchemist's supplies, diamonds",
+				"containerId": "",
+				"damagedState": 0,
+				"equippedState": 0,
+				"items": {},
+				"materialProperties": [],
+				"objectType": "consumable",
+				"plotItem": false,
+				"price": "150 gp",
+				"proficient": true,
+				"quantity": 1,
+				"rarity": "uncommon",
+				"requiresAttunement": false,
+				"shieldCategory": "",
+				"shieldProperties": [],
+				"unidentified": false,
+				"unidentifiedDescription": "",
+				"unidentifiedName": "",
+				"weaponProperties": [],
+				"weight": 1,
 				"schemaVersion": {
 					"version": 0.013,
 					"lastMigration": {
@@ -1633,26 +1497,156 @@
 				}
 			},
 			"folder": null,
-			"_id": "jeKzSHaNBBtrbBse",
+			"_id": "cXTYOzDaaesqhClu",
 			"sort": 0,
 			"ownership": {
 				"default": 0
 			}
 		},
 		{
-			"name": "Mage Hand",
-			"type": "spell",
-			"img": "icons/magic/unholy/strike-hand-glow-pink.webp",
+			"name": "Potion of Invisibility",
+			"type": "object",
+			"img": "icons/consumables/potions/vial-ornet-silver-black.webp",
+			"system": {
+				"ac": {
+					"baseFormula": "",
+					"formula": "",
+					"grantsDisadvantage": false,
+					"maxDex": 0,
+					"minStr": 0,
+					"mode": 1,
+					"requiresNoShield": false,
+					"requiresUnarmored": false
+				},
+				"actions": {},
+				"description": "<blockquote><p>The silver liquid in this vial is visible only when shaken or disturbed.</p></blockquote><p>After drinking this potion, for the next hour you and anything you’re wearing or carrying becomes invisible.</p><p>The effect ends early if you attack or cast a spell.</p><hr class=\"a5e-rule u-my-md\"><blockquote><p><strong>Crafting Components</strong>:</p><ul><li><p>Crushed moonstone</p><p>or</p></li><li><p>a piece from a sacred veil</p></li></ul></blockquote>",
+				"favorite": false,
+				"secretDescription": "",
+				"source": "",
+				"uses": {
+					"value": null,
+					"max": "",
+					"per": null,
+					"recharge": {
+						"formula": "1d6",
+						"threshold": 6
+					}
+				},
+				"schema": {
+					"version": null,
+					"lastMigration": null
+				},
+				"ammunitionProperties": [],
+				"armorCategory": "",
+				"armorProperties": [],
+				"attuned": false,
+				"bulky": false,
+				"craftingComponents": "",
+				"containerId": "",
+				"damagedState": 0,
+				"equippedState": 0,
+				"items": {},
+				"materialProperties": [],
+				"objectType": "consumable",
+				"plotItem": false,
+				"price": "5,500 gp",
+				"proficient": true,
+				"quantity": 1,
+				"rarity": "veryRare",
+				"requiresAttunement": false,
+				"shieldCategory": "",
+				"shieldProperties": [],
+				"unidentified": false,
+				"unidentifiedDescription": "",
+				"unidentifiedName": "",
+				"weaponProperties": [],
+				"weight": 0,
+				"schemaVersion": {
+					"version": 0.013,
+					"lastMigration": {
+						"version": {
+							"schema": 0.011,
+							"foundry": "11.315",
+							"system": "0.16.49"
+						}
+					}
+				}
+			},
 			"effects": [],
 			"flags": {
 				"core": {
-					"sourceId": "Compendium.a5e.a5e-spells.Item.mocigztrqyoks506"
+					"sourceId": "Compendium.a5e.a5e-adventuring-gear.Item.7xfhqdmhicdtmtw8"
+				}
+			},
+			"folder": null,
+			"_id": "X0FJG7BNlBvNuttP",
+			"sort": 0,
+			"ownership": {
+				"default": 0
+			}
+		},
+		{
+			"name": "Innate Spellcasting",
+			"type": "feature",
+			"system": {
+				"ac": {
+					"baseFormula": "",
+					"formula": "",
+					"grantsDisadvantage": false,
+					"maxDex": 0,
+					"minStr": 0,
+					"mode": 2,
+					"requiresNoShield": false,
+					"requiresUnarmored": false
+				},
+				"actions": {},
+				"description": "<p>The soldier&rsquo;s spellcasting ability is Charisma (spell save DC 10). They can innately cast the following spells, requiring no material components:</p>\n<p>At will: @UUID[Compendium.a5e.a5e-spells.Item.kh26gom04osoo005]{Dancing Lights}</p>\n<p>1/day each: @UUID[Compendium.a5e.a5e-spells.Item.0ou0qutr7p2bedg0]{Darkness}, @UUID[Compendium.a5e.a5e-spells.Item.z7r6plq6vyesck07]{Faerie Fire}</p>",
+				"favorite": false,
+				"secretDescription": "",
+				"source": "",
+				"uses": {
+					"value": null,
+					"max": "",
+					"per": null,
+					"recharge": {
+						"formula": "1d6",
+						"threshold": "6"
+					}
+				},
+				"schema": {
+					"version": null,
+					"lastMigration": null
+				},
+				"concentration": false,
+				"featureType": "other",
+				"grants": {},
+				"prerequisite": "",
+				"requiresBloodied": false
+			},
+			"_id": "ypqvxx3tnpetSIie",
+			"img": "icons/svg/item-bag.svg",
+			"effects": [],
+			"folder": null,
+			"sort": 0,
+			"ownership": {
+				"default": 0
+			},
+			"flags": {}
+		},
+		{
+			"name": "Dancing Lights",
+			"type": "spell",
+			"img": "icons/magic/light/projectiles-trio-pink.webp",
+			"effects": [],
+			"flags": {
+				"core": {
+					"sourceId": "Compendium.a5e.a5e-spells.Item.kh26gom04osoo005"
 				}
 			},
 			"system": {
 				"actions": {
-					"Eu9YDiwyizN1E1zh": {
-						"name": "Mage Hand",
+					"ujamq8LIqiSNoAYw": {
+						"name": "Dancing Lights",
 						"activation": {
 							"cost": 1,
 							"type": "action",
@@ -1663,8 +1657,8 @@
 							"value": "1"
 						},
 						"ranges": {
-							"jTIF5jsoF1Um2nVk": {
-								"range": "short"
+							"vZh5NgxuSNZSsAbg": {
+								"range": "long"
 							}
 						},
 						"area": {
@@ -1679,7 +1673,7 @@
 						"consumers": {}
 					}
 				},
-				"description": "<p>A faintly shimmering phantasmal hand appears at a point you choose within range. It remains until you dismiss it as an action, or until you move more than 30 feet from it.</p><p>You can use an action to control the hand and direct it to do any of the following:</p><ul><li>manipulate an object.</li><li>open an unlocked container or door.</li><li>stow or retrieve items from unlocked containers.</li></ul><p>The hand cannot attack, use magic items, or carry more than 10 pounds.</p>",
+				"description": "<p>You create up to four hovering lights which appear as torches, lanterns, or glowing orbs that can be combined into a glowing Medium-sized humanoid form. Each sheds dim light in a 10-foot radius.</p><p>You can use a bonus action to move the lights up to 60 feet so long as each remains within 20 feet of another light created by this spell. A dancing light winks out when it exceeds the spell's range.</p>",
 				"favorite": false,
 				"secretDescription": "",
 				"source": "adventurersGuide",
@@ -1698,6 +1692,7 @@
 				},
 				"classes": [
 					"artificer",
+					"bard",
 					"sorcerer",
 					"warlock",
 					"witch",
@@ -1706,18 +1701,18 @@
 				"components": {
 					"vocalized": true,
 					"seen": true,
-					"material": false
+					"material": true
 				},
-				"concentration": false,
+				"concentration": true,
 				"level": 0,
-				"materials": "",
+				"materials": "bit of phosphorus or wychwood, or a glowworm",
 				"materialsConsumed": false,
 				"prepared": false,
 				"prerequisite": "",
 				"rare": false,
 				"ritual": false,
 				"schools": {
-					"primary": "conjuration",
+					"primary": "evocation",
 					"secondary": [
 						"arcane",
 						"utility"
@@ -1735,465 +1730,7 @@
 				}
 			},
 			"folder": null,
-			"_id": "0oGsvRnCDf0d94Je",
-			"sort": 0,
-			"ownership": {
-				"default": 0
-			}
-		},
-		{
-			"name": "Charm Person",
-			"type": "spell",
-			"img": "icons/magic/control/control-influence-puppet.webp",
-			"effects": [
-				{
-					"icon": "icons/magic/control/control-influence-puppet.webp",
-					"origin": "Actor.kblhlKkhb0DSlFOq.Item.c6r0VyVWgAZ0PJF1",
-					"flags": {
-						"a5e": {
-							"sort": 0,
-							"transferType": "onUse",
-							"duration": {
-								"unit": "hours"
-							},
-							"actionId": "F8BStUMZ0QkuHIWs"
-						}
-					},
-					"transfer": false,
-					"name": "Charm Person",
-					"_id": "m8ZI2ALQ9jH4sptL",
-					"changes": [
-						{
-							"key": "flags.a5e.effects.statusConditions",
-							"value": "[\"charmed\"]",
-							"mode": 0,
-							"priority": null
-						}
-					],
-					"disabled": false,
-					"duration": {
-						"startTime": null,
-						"seconds": 3600,
-						"combat": null,
-						"rounds": null,
-						"turns": null,
-						"startRound": null,
-						"startTurn": null
-					},
-					"description": "",
-					"statuses": [],
-					"tint": "#ffffff",
-					"folder": null
-				}
-			],
-			"flags": {
-				"core": {
-					"sourceId": "Compendium.a5e.a5e-spells.Item.zf1kpjwhg9fabe01"
-				}
-			},
-			"system": {
-				"actions": {
-					"F8BStUMZ0QkuHIWs": {
-						"name": "Cast Spell",
-						"activation": {
-							"cost": 1,
-							"type": "action",
-							"reactionTrigger": ""
-						},
-						"duration": {
-							"unit": "hour",
-							"value": "1"
-						},
-						"ranges": {
-							"D03zfzZhGAKBLTsK": {
-								"range": "short"
-							}
-						},
-						"area": {
-							"shape": "",
-							"size": "",
-							"placeTemplate": false
-						},
-						"target": {
-							"quantity": "",
-							"type": "creature"
-						},
-						"prompts": {
-							"pvX82eum3zUAY8rx": {
-								"ability": "wis",
-								"onSave": "Negates effect",
-								"saveDC": {
-									"type": "spellcasting",
-									"bonus": ""
-								},
-								"type": "savingThrow"
-							},
-							"QThaA0QZtap4PR4N": {
-								"type": "effect",
-								"default": true,
-								"effectId": "m8ZI2ALQ9jH4sptL",
-								"label": "Charm Person"
-							}
-						},
-						"consumers": {
-							"4gmBaqwWp60lu6xF": {
-								"mode": "variable",
-								"spellLevel": 1,
-								"points": 2,
-								"type": "spell"
-							}
-						}
-					}
-				},
-				"description": "<p>You only require line of sight to the target (not line of effect) and it has advantage on its saving throw to resist the spell if you or your companions are fighting it. Until the spell ends, the target is charmed by you and friendly towards you.</p><p>The spell ends if you or your companions do anything harmful towards the target. The target knows it was charmed by you when the spell ends.</p><p><strong><em>Cast at Higher Levels.</em></strong> For each slot level above 1st, you affect one additional target that is within 30 feet of other targets.</p>",
-				"favorite": false,
-				"secretDescription": "",
-				"source": "adventurersGuide",
-				"uses": {
-					"value": null,
-					"max": "",
-					"per": null,
-					"recharge": {
-						"formula": "",
-						"threshold": ""
-					}
-				},
-				"schema": {
-					"version": null,
-					"lastMigration": null
-				},
-				"classes": [
-					"bard",
-					"druid",
-					"sorcerer",
-					"warlock",
-					"wielder",
-					"witch",
-					"wizard"
-				],
-				"components": {
-					"vocalized": true,
-					"seen": true,
-					"material": false
-				},
-				"concentration": false,
-				"level": 1,
-				"materials": "",
-				"materialsConsumed": false,
-				"prepared": false,
-				"prerequisite": "",
-				"rare": false,
-				"ritual": false,
-				"schools": {
-					"primary": "enchantment",
-					"secondary": [
-						"arcane",
-						"compulsion"
-					]
-				},
-				"schemaVersion": {
-					"version": 0.013,
-					"lastMigration": {
-						"version": {
-							"schema": 0.011,
-							"foundry": "11.315",
-							"system": "0.16.49"
-						}
-					}
-				}
-			},
-			"folder": null,
-			"_id": "c6r0VyVWgAZ0PJF1",
-			"sort": 0,
-			"ownership": {
-				"default": 0
-			}
-		},
-		{
-			"name": "Shield",
-			"type": "spell",
-			"img": "icons/magic/defensive/shield-barrier-deflect-teal.webp",
-			"effects": [
-				{
-					"icon": "icons/magic/defensive/shield-barrier-deflect-teal.webp",
-					"origin": "Actor.kblhlKkhb0DSlFOq.Item.kgeyGfXH4298hklr",
-					"flags": {
-						"a5e": {
-							"sort": 0,
-							"transferType": "onUse",
-							"actionId": "DfBODFbe1UYn4vIm",
-							"duration": {
-								"type": "rounds",
-								"unit": "minutes"
-							}
-						}
-					},
-					"transfer": false,
-					"name": "Shield",
-					"_id": "3JSn5GwbNdSgD0oS",
-					"changes": [
-						{
-							"key": "system.attributes.ac.changes.bonuses.value",
-							"value": "5",
-							"mode": 2,
-							"priority": null
-						}
-					],
-					"disabled": false,
-					"duration": {
-						"startTime": null,
-						"seconds": null,
-						"combat": null,
-						"rounds": 1,
-						"turns": null,
-						"startRound": null,
-						"startTurn": null
-					},
-					"description": "<p>Until the spell ends, you gain a +5 bonus to your AC (including against the triggering attack) and any magic missile targeting you is harmlessly deflected.</p>",
-					"statuses": [],
-					"folder": null
-				}
-			],
-			"flags": {
-				"core": {
-					"sourceId": "Compendium.a5e.a5e-spells.Item.nlto7z4j14ips45w"
-				}
-			},
-			"system": {
-				"actions": {
-					"DfBODFbe1UYn4vIm": {
-						"name": "Shield",
-						"activation": {
-							"cost": 1,
-							"type": "reaction",
-							"reactionTrigger": "which you take when you are hit by an attack or targeted by the magic missile spell"
-						},
-						"duration": {
-							"unit": "round",
-							"value": "1"
-						},
-						"ranges": {
-							"cbSCCrMm0w21q3jj": {
-								"range": "self"
-							}
-						},
-						"area": {
-							"shape": "",
-							"size": "",
-							"placeTemplate": false
-						},
-						"target": {
-							"quantity": "",
-							"type": "self"
-						},
-						"consumers": {
-							"ouUaA2neyWA5CrrX": {
-								"mode": "variable",
-								"spellLevel": 1,
-								"points": 2,
-								"type": "spell"
-							}
-						},
-						"prompts": {
-							"Gpw63XYtGOkkZmXp": {
-								"type": "effect",
-								"default": true,
-								"effectId": "3JSn5GwbNdSgD0oS"
-							}
-						}
-					}
-				},
-				"description": "<p>You create a shimmering arcane barrier between yourself and an oncoming attack. Until the spell ends, you gain a +5 bonus to your AC (including against the triggering attack) and any magic missile targeting you is harmlessly deflected.</p>",
-				"favorite": true,
-				"secretDescription": "",
-				"source": "adventurersGuide",
-				"uses": {
-					"value": null,
-					"max": "",
-					"per": null,
-					"recharge": {
-						"formula": "",
-						"threshold": ""
-					}
-				},
-				"schema": {
-					"version": null,
-					"lastMigration": null
-				},
-				"classes": [
-					"sorcerer",
-					"wielder",
-					"wizard"
-				],
-				"components": {
-					"vocalized": true,
-					"seen": true,
-					"material": false
-				},
-				"concentration": false,
-				"level": 1,
-				"materials": "",
-				"materialsConsumed": false,
-				"prepared": false,
-				"prerequisite": "",
-				"rare": false,
-				"ritual": false,
-				"schools": {
-					"primary": "abjuration",
-					"secondary": [
-						"arcane",
-						"protection"
-					]
-				},
-				"schemaVersion": {
-					"version": 0.013,
-					"lastMigration": {
-						"version": {
-							"schema": 0.011,
-							"foundry": "11.315",
-							"system": "0.16.49"
-						}
-					}
-				}
-			},
-			"folder": null,
-			"_id": "kgeyGfXH4298hklr",
-			"sort": 0,
-			"ownership": {
-				"default": 0
-			}
-		},
-		{
-			"name": "Thunderwave",
-			"type": "spell",
-			"img": "icons/magic/sonic/explosion-shock-wave-teal.webp",
-			"effects": [],
-			"flags": {
-				"core": {
-					"sourceId": "Compendium.a5e.a5e-spells.Item.65ksar78lxxp7uol"
-				}
-			},
-			"system": {
-				"actions": {
-					"eYPaFwD8qJKgP4F9": {
-						"name": "Thunderwave",
-						"activation": {
-							"cost": 1,
-							"type": "action",
-							"reactionTrigger": ""
-						},
-						"duration": {
-							"unit": "instantaneous",
-							"value": ""
-						},
-						"ranges": {
-							"071AJ8wHawS0KVfl": {
-								"range": "self"
-							}
-						},
-						"area": {
-							"shape": "cube",
-							"width": "15",
-							"placeTemplate": false
-						},
-						"target": {
-							"quantity": "",
-							"type": ""
-						},
-						"rolls": {
-							"YTGdpIjQaVqA1JqS": {
-								"canCrit": false,
-								"damageType": "thunder",
-								"formula": "2d8",
-								"name": "",
-								"type": "damage",
-								"scaling": {
-									"mode": "spellLevel",
-									"formula": "1d8"
-								}
-							}
-						},
-						"prompts": {
-							"pmWVvarbBoH64W7f": {
-								"ability": "con",
-								"onSave": "Half damage and negates push",
-								"saveDC": {
-									"type": "spellcasting",
-									"bonus": ""
-								},
-								"type": "savingThrow"
-							}
-						},
-						"consumers": {
-							"CUZYsaSoCGkaBzi2": {
-								"mode": "variable",
-								"spellLevel": 1,
-								"points": 2,
-								"type": "spell"
-							}
-						}
-					}
-				},
-				"description": "<p>You create a wave of thunderous force, damaging creatures and pushing them back. Creatures in the area take 2d8 thunder damage and are pushed 10 feet away from you.</p><p>Unsecured objects completely within the area are also pushed 10 feet away from you. The thunderous boom of the spell is audible out to 300 feet.</p><p><strong><em>Cast at Higher Levels.</em></strong> The damage increases by 1d8 for each slot level above 1st.</p>",
-				"favorite": true,
-				"secretDescription": "",
-				"source": "adventurersGuide",
-				"uses": {
-					"value": null,
-					"max": "",
-					"per": null,
-					"recharge": {
-						"formula": "",
-						"threshold": ""
-					}
-				},
-				"schema": {
-					"version": null,
-					"lastMigration": null
-				},
-				"classes": [
-					"artificer",
-					"bard",
-					"druid",
-					"elementalistAir",
-					"sorcerer",
-					"wielder",
-					"wizard"
-				],
-				"components": {
-					"vocalized": true,
-					"seen": true,
-					"material": false
-				},
-				"concentration": false,
-				"level": 1,
-				"materials": "",
-				"materialsConsumed": false,
-				"prepared": false,
-				"prerequisite": "",
-				"rare": false,
-				"ritual": false,
-				"schools": {
-					"primary": "evocation",
-					"secondary": [
-						"arcane",
-						"nature",
-						"thunder"
-					]
-				},
-				"schemaVersion": {
-					"version": 0.013,
-					"lastMigration": {
-						"version": {
-							"schema": 0.011,
-							"foundry": "11.315",
-							"system": "0.16.49"
-						}
-					}
-				}
-			},
-			"folder": null,
-			"_id": "sJ65k3VwYteS9gcF",
+			"_id": "8eR5bgwVUr8wFAjJ",
 			"sort": 0,
 			"ownership": {
 				"default": 0
@@ -2237,11 +1774,10 @@
 							"type": ""
 						},
 						"consumers": {
-							"NnAGDUaYi8CFb15M": {
-								"mode": "variable",
-								"spellLevel": 2,
-								"points": 3,
-								"type": "spell"
+							"KZEoovU6KGVQIbJ1": {
+								"type": "itemUses",
+								"default": true,
+								"quantity": 1
 							}
 						}
 					}
@@ -2251,9 +1787,9 @@
 				"secretDescription": "",
 				"source": "adventurersGuide",
 				"uses": {
-					"value": null,
-					"max": "",
-					"per": null,
+					"value": 1,
+					"max": "1",
+					"per": "day",
 					"recharge": {
 						"formula": "",
 						"threshold": ""
@@ -2301,58 +1837,26 @@
 				}
 			},
 			"folder": null,
-			"_id": "WaHFWTLcG3GJAoAq",
+			"_id": "J3XXZsQDC2vV4ioF",
 			"sort": 0,
 			"ownership": {
 				"default": 0
 			}
 		},
 		{
-			"name": "Ray of Enfeeblement",
+			"name": "Faerie Fire",
 			"type": "spell",
-			"img": "icons/magic/unholy/projectile-missile-green.webp",
-			"effects": [
-				{
-					"icon": "icons/magic/unholy/projectile-missile-green.webp",
-					"origin": "Actor.kblhlKkhb0DSlFOq.Item.VMQ7nO8eY9y9vdrw",
-					"flags": {
-						"a5e": {
-							"sort": 0,
-							"transferType": "onUse",
-							"actionId": "V8Mow1LinKc9f1OC",
-							"duration": {
-								"unit": "minutes"
-							}
-						}
-					},
-					"transfer": false,
-					"name": "Enfeebled",
-					"_id": "9QTmOApfjoZezikh",
-					"changes": [],
-					"disabled": false,
-					"duration": {
-						"startTime": null,
-						"seconds": 60,
-						"combat": null,
-						"rounds": null,
-						"turns": null,
-						"startRound": null,
-						"startTurn": null
-					},
-					"description": "<p>The target is weakened and only deals half damage with weapon attacks that use Strength.</p>\n<p>At the end of each of the target's turns, it can make a Strength saving throw, ending the spell on a success.</p>",
-					"statuses": [],
-					"folder": null
-				}
-			],
+			"img": "icons/magic/light/projectiles-pink-purple.webp",
+			"effects": [],
 			"flags": {
 				"core": {
-					"sourceId": "Compendium.a5e.a5e-spells.Item.9eojtnhu5ptcipov"
+					"sourceId": "Compendium.a5e.a5e-spells.Item.z7r6plq6vyesck07"
 				}
 			},
 			"system": {
 				"actions": {
-					"V8Mow1LinKc9f1OC": {
-						"name": "Ray of Enfeeblement",
+					"csBA0B0VYc68le4M": {
+						"name": "Faerie Fire",
 						"activation": {
 							"cost": 1,
 							"type": "action",
@@ -2363,62 +1867,47 @@
 							"value": "1"
 						},
 						"ranges": {
-							"IzJaQhJ7dOEpFshp": {
+							"mfLaFLmAAEW4pD4n": {
 								"range": "medium"
 							}
 						},
 						"area": {
-							"shape": "",
-							"size": "",
-							"placeTemplate": false
+							"shape": "cube",
+							"width": 20,
+							"placeTemplate": true
 						},
 						"target": {
 							"quantity": "",
-							"type": "creature"
-						},
-						"rolls": {
-							"GYsjN0NtCFlwDKjJ": {
-								"bonus": "",
-								"critThreshold": 20,
-								"type": "attack",
-								"attackType": "rangedSpellAttack",
-								"ability": "spellcasting"
-							}
+							"type": ""
 						},
 						"prompts": {
-							"pEZZxoF4O42XEveS": {
-								"ability": "str",
+							"C95Yph6KdzvdTomm": {
+								"ability": "dex",
 								"onSave": "Special",
 								"saveDC": {
 									"type": "spellcasting",
 									"bonus": ""
 								},
 								"type": "savingThrow"
-							},
-							"glKi9aJfjvxGEcHr": {
-								"type": "effect",
+							}
+						},
+						"consumers": {
+							"jSbKn4IbkimidTWI": {
+								"type": "itemUses",
 								"default": true,
-								"effectId": "9QTmOApfjoZezikh"
-							}
-						},
-						"consumers": {
-							"Na54jOqUxvh2xtGK": {
-								"mode": "variable",
-								"spellLevel": 2,
-								"points": 3,
-								"type": "spell"
+								"quantity": 1
 							}
 						}
 					}
 				},
-				"description": "<p>A black ray of necrotic energy shoots from your fingertip. Make a ranged spell attack against the target. On a hit, the target is weakened and only deals half damage with weapon attacks that use Strength.</p><p>At the end of each of the target's turns, it can make a Strength saving throw, ending the spell on a success.</p>",
+				"description": "<p>Each object in a 20-foot cube within range is outlined in light (your choice of color). Any creature in the area when the spell is cast is also outlined unless it makes a Dexterity saving throw. Until the spell ends, affected objects and creatures shed dim light in a 10-foot radius.</p><p>Any attack roll against an affected object or creature has advantage. The spell also negates the benefits of invisibility on affected creatures and objects.</p>",
 				"favorite": true,
 				"secretDescription": "",
 				"source": "adventurersGuide",
 				"uses": {
-					"value": null,
-					"max": "",
-					"per": null,
+					"value": 1,
+					"max": "1",
+					"per": "day",
 					"recharge": {
 						"formula": "",
 						"threshold": ""
@@ -2429,16 +1918,18 @@
 					"lastMigration": null
 				},
 				"classes": [
-					"warlock",
-					"wizard"
+					"bard",
+					"druid",
+					"elementalistFire",
+					"witch"
 				],
 				"components": {
 					"vocalized": true,
-					"seen": true,
+					"seen": false,
 					"material": false
 				},
 				"concentration": true,
-				"level": 2,
+				"level": 1,
 				"materials": "",
 				"materialsConsumed": false,
 				"prepared": false,
@@ -2446,10 +1937,10 @@
 				"rare": false,
 				"ritual": false,
 				"schools": {
-					"primary": "necromancy",
+					"primary": "evocation",
 					"secondary": [
 						"arcane",
-						"necrotic"
+						"utility"
 					]
 				},
 				"schemaVersion": {
@@ -2464,144 +1955,14 @@
 				}
 			},
 			"folder": null,
-			"_id": "VMQ7nO8eY9y9vdrw",
+			"_id": "RgJFC9HQPvOEQPe2",
 			"sort": 0,
 			"ownership": {
 				"default": 0
 			}
 		},
 		{
-			"name": "Vampiric Touch",
-			"type": "spell",
-			"img": "icons/magic/unholy/hand-light-pink.webp",
-			"effects": [],
-			"flags": {
-				"core": {
-					"sourceId": "Compendium.a5e.a5e-spells.Item.j4dxhregibkcte2j"
-				}
-			},
-			"system": {
-				"actions": {
-					"dKqDQTjuRsd8DpLf": {
-						"name": "Vampiric Touch",
-						"activation": {
-							"cost": 1,
-							"type": "action",
-							"reactionTrigger": ""
-						},
-						"duration": {
-							"unit": "minute",
-							"value": "1"
-						},
-						"ranges": {
-							"KpioGr3mL5b8BrTH": {
-								"range": "self"
-							}
-						},
-						"area": {
-							"shape": "",
-							"size": "",
-							"placeTemplate": false
-						},
-						"target": {
-							"quantity": 1,
-							"type": "creature"
-						},
-						"rolls": {
-							"1UpXqrQSQeY4tI3A": {
-								"bonus": "",
-								"critThreshold": 20,
-								"type": "attack",
-								"attackType": "meleeSpellAttack",
-								"ability": "spellcasting"
-							},
-							"8XmOe6zYmPi7S8Hf": {
-								"canCrit": true,
-								"damageType": "necrotic",
-								"formula": "3d6",
-								"name": "",
-								"type": "damage",
-								"scaling": {
-									"mode": "spellLevel",
-									"formula": "1d6"
-								}
-							}
-						},
-						"consumers": {
-							"3FX9rji4vIL8dK1g": {
-								"mode": "variable",
-								"spellLevel": 3,
-								"points": 5,
-								"type": "spell"
-							}
-						}
-					}
-				},
-				"description": "<p>Shadows roil about your hand and heal you by siphoning away the life force from others. On the round you cast it, and as an action on subsequent turns until the spell ends, you can make a melee spell attack against a creature within your reach.</p><p>On a hit, you deal 3d6 necrotic damage and regain hit points equal to half the amount of necrotic damage dealt.</p><p><strong><em>Cast at Higher Levels.</em></strong> The damage increases by 1d6 for each slot level above 3rd.</p>",
-				"favorite": true,
-				"secretDescription": "",
-				"source": "adventurersGuide",
-				"uses": {
-					"value": null,
-					"max": "",
-					"per": null,
-					"recharge": {
-						"formula": "",
-						"threshold": ""
-					}
-				},
-				"schema": {
-					"version": null,
-					"lastMigration": null
-				},
-				"classes": [
-					"warlock",
-					"wielder",
-					"witch",
-					"wizard"
-				],
-				"components": {
-					"vocalized": true,
-					"seen": true,
-					"material": false
-				},
-				"concentration": true,
-				"level": 3,
-				"materials": "",
-				"materialsConsumed": false,
-				"prepared": false,
-				"prerequisite": "",
-				"rare": false,
-				"ritual": false,
-				"schools": {
-					"primary": "necromancy",
-					"secondary": [
-						"arcane",
-						"attack",
-						"healing",
-						"necrotic"
-					]
-				},
-				"schemaVersion": {
-					"version": 0.013,
-					"lastMigration": {
-						"version": {
-							"schema": 0.011,
-							"foundry": "11.315",
-							"system": "0.16.49"
-						}
-					}
-				}
-			},
-			"folder": null,
-			"_id": "vVHEyZlrXalYdZtu",
-			"sort": 0,
-			"ownership": {
-				"default": 0
-			}
-		},
-		{
-			"name": "United in Action",
+			"name": "Magic Resistance",
 			"type": "feature",
 			"system": {
 				"ac": {
@@ -2615,8 +1976,8 @@
 					"requiresUnarmored": false
 				},
 				"actions": {},
-				"description": "<p>When the infernal dwarf is adjacent to another infernal dwarf and makes a melee weapon attack, it gains an expertise die and on a hit deals an extra 3 (1d6) necrotic damage.</p>",
-				"favorite": true,
+				"description": "<p>The soldier has advantage on saving throws made against spells and other magical effects.</p>",
+				"favorite": false,
 				"secretDescription": "",
 				"source": "",
 				"uses": {
@@ -2638,12 +1999,60 @@
 				"prerequisite": "",
 				"requiresBloodied": false
 			},
-			"_id": "2pGAOML0CTNjJlKD",
+			"_id": "j5PvDULN8hJX7VBB",
+			"img": "icons/svg/item-bag.svg",
+			"effects": [],
+			"folder": null,
+			"sort": 0,
+			"ownership": {
+				"default": 0
+			},
+			"flags": {}
+		},
+		{
+			"name": "Sunlight Sensitivity",
+			"type": "feature",
+			"system": {
+				"ac": {
+					"baseFormula": "",
+					"formula": "",
+					"grantsDisadvantage": false,
+					"maxDex": 0,
+					"minStr": 0,
+					"mode": 2,
+					"requiresNoShield": false,
+					"requiresUnarmored": false
+				},
+				"actions": {},
+				"description": "<p>While in sunlight, the soldier has disadvantage on attack rolls, as well as on Perception checks that rely on sight.</p>",
+				"favorite": false,
+				"secretDescription": "",
+				"source": "",
+				"uses": {
+					"value": null,
+					"max": "",
+					"per": null,
+					"recharge": {
+						"formula": "1d6",
+						"threshold": "6"
+					}
+				},
+				"schema": {
+					"version": null,
+					"lastMigration": null
+				},
+				"concentration": false,
+				"featureType": "other",
+				"grants": {},
+				"prerequisite": "",
+				"requiresBloodied": false
+			},
+			"_id": "YLoqLhmKUQENDXyB",
 			"img": "icons/svg/item-bag.svg",
 			"effects": [
 				{
 					"icon": "icons/svg/item-bag.svg",
-					"origin": "Actor.kblhlKkhb0DSlFOq.Item.2pGAOML0CTNjJlKD",
+					"origin": "Actor.w6xgjRyWYYuk3trZ.Item.YLoqLhmKUQENDXyB",
 					"flags": {
 						"a5e": {
 							"sort": 0,
@@ -2651,19 +2060,19 @@
 						}
 					},
 					"transfer": false,
-					"name": "United in Action",
-					"_id": "EPqafi69V91oQhSk",
+					"name": "Sunlight",
+					"_id": "tCImTKYtOMG8MjZO",
 					"changes": [
 						{
-							"key": "flags.a5e.effects.bonuses.attacks",
-							"value": "{\"label\":\"United in Action\",\"formula\":\"1d4\",\"context\":{\"attackTypes\":[\"meleeWeaponAttack\"],\"spellLevels\":[],\"requiresProficiency\":false},\"default\":true,\"img\":\"icons/svg/upgrade.svg\"}",
-							"mode": 0,
+							"key": "flags.a5e.effects.rollMode.attack.all",
+							"value": "-1",
+							"mode": 6,
 							"priority": null
 						},
 						{
-							"key": "flags.a5e.effects.bonuses.damage",
-							"value": "{\"label\":\"United in Action\",\"formula\":\"1d6\",\"damageType\":\"necrotic\",\"context\":{\"attackTypes\":[\"meleeWeaponAttack\"],\"damageTypes\":[],\"spellLevels\":[],\"isCritBonus\":false},\"default\":true,\"img\":\"icons/svg/upgrade.svg\"}",
-							"mode": 0,
+							"key": "flags.a5e.effects.rollMode.skillCheck.prc",
+							"value": "-1",
+							"mode": 6,
 							"priority": null
 						}
 					],
@@ -2690,6 +2099,120 @@
 			"flags": {}
 		},
 		{
+			"name": "Target Enemy",
+			"type": "feature",
+			"system": {
+				"ac": {
+					"baseFormula": "",
+					"formula": "",
+					"grantsDisadvantage": false,
+					"maxDex": 0,
+					"minStr": 0,
+					"mode": 2,
+					"requiresNoShield": false,
+					"requiresUnarmored": false
+				},
+				"actions": {
+					"D57JfsZb3RjKdG2y": {
+						"name": "Target Enemy",
+						"activation": {
+							"type": "bonusAction",
+							"cost": 1
+						},
+						"consumers": {
+							"0UJP2gQ7XCbe3ZJE": {
+								"type": "itemUses",
+								"default": true,
+								"quantity": 1
+							}
+						},
+						"rolls": {},
+						"prompts": {
+							"A6FiC38ECU0zpgZ1": {
+								"type": "generic",
+								"default": true,
+								"label": "Extra Damage",
+								"formula": "1d6"
+							}
+						},
+						"uses": {
+							"value": 0,
+							"max": "",
+							"per": "",
+							"recharge": {
+								"formula": "1d6",
+								"rechargeType": "custom",
+								"rechargeAmount": "1",
+								"threshold": 6
+							}
+						},
+						"duration": {
+							"unit": "minute",
+							"value": 1
+						}
+					},
+					"DYeAoWXaihNWm3CN": {
+						"name": "Change Target",
+						"activation": {
+							"type": "bonusAction",
+							"cost": 1
+						},
+						"consumers": {
+							"KzhagUcCbSx8V08j": {
+								"type": "itemUses",
+								"default": true,
+								"quantity": 1
+							}
+						},
+						"rolls": {},
+						"prompts": {},
+						"uses": {
+							"value": 0,
+							"max": "",
+							"per": "",
+							"recharge": {
+								"formula": "1d6",
+								"rechargeType": "custom",
+								"rechargeAmount": "1",
+								"threshold": 6
+							}
+						}
+					}
+				},
+				"description": "<p>The soldier can use a bonus action to choose a creature it can see within 60 feet. For the next minute, the soldier&rsquo;s weapon attacks deal an extra 3 (1d6) damage against the chosen creature. If the chosen creature is reduced to 0 hit points before the duration ends, the soldier can use a bonus action to choose a different creature for Target Enemy.</p>",
+				"favorite": true,
+				"secretDescription": "",
+				"source": "",
+				"uses": {
+					"value": 1,
+					"max": "1",
+					"per": "shortRest",
+					"recharge": {
+						"formula": "1d6",
+						"threshold": "6"
+					}
+				},
+				"schema": {
+					"version": null,
+					"lastMigration": null
+				},
+				"concentration": false,
+				"featureType": "other",
+				"grants": {},
+				"prerequisite": "",
+				"requiresBloodied": false
+			},
+			"_id": "2N8ViJbMY2wVnBQj",
+			"img": "icons/svg/item-bag.svg",
+			"effects": [],
+			"folder": null,
+			"sort": 0,
+			"ownership": {
+				"default": 0
+			},
+			"flags": {}
+		},
+		{
 			"name": "Multiattack",
 			"type": "feature",
 			"system": {
@@ -2704,7 +2227,7 @@
 					"requiresUnarmored": false
 				},
 				"actions": {
-					"cOVXr6jHxBYLFus8": {
+					"iwNHXxo3Bu94j31I": {
 						"name": "Multiattack",
 						"activation": {
 							"type": "action",
@@ -2726,7 +2249,7 @@
 						}
 					}
 				},
-				"description": "<p>The infernal dwarf attacks twice.</p>",
+				"description": "<p>The soldier attacks twice with their longbow, or they attack four times: twice with their longsword and twice with their shortsword.</p>",
 				"favorite": true,
 				"secretDescription": "",
 				"source": "",
@@ -2749,7 +2272,7 @@
 				"prerequisite": "",
 				"requiresBloodied": false
 			},
-			"_id": "2310AZDwwifzHJcO",
+			"_id": "3H56kHQ7jYHiQZ3B",
 			"img": "icons/svg/item-bag.svg",
 			"effects": [],
 			"folder": null,
@@ -2760,10 +2283,51 @@
 			"flags": {}
 		},
 		{
-			"name": "Bone Warhammer",
+			"name": "Longsword +1",
 			"type": "object",
-			"img": "icons/weapons/hammers/hammer-drilling-spiked.webp",
-			"effects": [],
+			"img": "icons/weapons/swords/greatsword-blue.webp",
+			"effects": [
+				{
+					"icon": "icons/weapons/swords/greatsword-blue.webp",
+					"origin": "Actor.w6xgjRyWYYuk3trZ.Item.fwZhqztSUVIAQhoP",
+					"flags": {
+						"a5e": {
+							"sort": 0,
+							"transferType": "onUse",
+							"actionId": "v3bptQ9yjfEMnfwo",
+							"duration": {
+								"type": "rounds",
+								"unit": "minutes"
+							}
+						}
+					},
+					"transfer": false,
+					"name": "AC +1",
+					"_id": "Llj5xb79gCEj7iz8",
+					"changes": [
+						{
+							"key": "system.attributes.ac.changes.bonuses.value",
+							"value": "1",
+							"mode": 2,
+							"priority": null
+						}
+					],
+					"disabled": false,
+					"duration": {
+						"startTime": null,
+						"seconds": null,
+						"combat": null,
+						"rounds": null,
+						"turns": 1,
+						"startRound": null,
+						"startTurn": null
+					},
+					"description": "",
+					"statuses": [],
+					"tint": "#ffffff",
+					"folder": null
+				}
+			],
 			"flags": {},
 			"system": {
 				"ac": {
@@ -2777,8 +2341,8 @@
 					"requiresUnarmored": false
 				},
 				"actions": {
-					"vyRQ7uPQugLDVOn6": {
-						"name": "Bone Warhammer",
+					"rPaMSExLpHCaYkH9": {
+						"name": "Longsword",
 						"activation": {
 							"cost": "",
 							"type": "",
@@ -2791,43 +2355,33 @@
 						"area": {
 							"shape": "",
 							"size": "",
-							"placeTemplate": false
+							"placeTemplate": false,
+							"quantity": 1
 						},
 						"target": {
 							"quantity": 1,
 							"type": "creatureObject"
 						},
 						"rolls": {
-							"sz34o0lZChAfzq92": {
-								"bonus": "",
+							"UEwQqL1vKVE291PA": {
+								"bonus": "1",
 								"critThreshold": "20",
 								"type": "attack",
 								"attackType": "meleeWeaponAttack",
 								"ability": "default"
 							},
-							"avEzM2ldJEDhQEPF": {
+							"x4uy5CMwLzIKdqmH": {
 								"canCrit": true,
-								"damageType": "bludgeoning",
-								"formula": "1d10 + @str.mod",
-								"name": "Warhammer 1H",
-								"type": "damage",
-								"label": "One-Handed",
-								"default": false
-							},
-							"I2YLTXoFuKJbZoVE": {
-								"canCrit": true,
-								"damageType": "bludgeoning",
-								"formula": "1d10 + @str.mod",
-								"name": "Warhammer 2H",
-								"type": "damage",
-								"label": "Two-Handed",
-								"default": false
+								"damageType": "slashing",
+								"formula": "1d8 + @str.mod + 1",
+								"name": "Longsword",
+								"type": "damage"
 							}
 						},
 						"consumers": {}
 					}
 				},
-				"description": "<p><em>Breaker, Versatile (1d10)</em></p>",
+				"description": "<p><em>Defensive (Medium)</em></p>",
 				"favorite": true,
 				"secretDescription": "",
 				"source": "",
@@ -2849,21 +2403,18 @@
 				"armorProperties": [],
 				"attuned": false,
 				"bulky": false,
-				"craftingComponents": "",
+				"craftingComponents": "Cubic inch of rare metal",
 				"containerId": "",
 				"damagedState": 0,
 				"equippedState": 0,
 				"items": {},
-				"materialProperties": [
-					"flaw",
-					"lightweight"
-				],
+				"materialProperties": [],
 				"objectType": "weapon",
 				"plotItem": false,
-				"price": "15 gp",
+				"price": "500 gp",
 				"proficient": true,
 				"quantity": 1,
-				"rarity": "mundane",
+				"rarity": "uncommon",
 				"requiresAttunement": false,
 				"shieldCategory": "",
 				"shieldProperties": [],
@@ -2871,10 +2422,9 @@
 				"unidentifiedDescription": "",
 				"unidentifiedName": "",
 				"weaponProperties": [
-					"versatile",
-					"breaker"
+					"defensive"
 				],
-				"weight": 1.5,
+				"weight": 3,
 				"schemaVersion": {
 					"version": 0.013,
 					"lastMigration": {
@@ -2887,17 +2437,604 @@
 				}
 			},
 			"folder": null,
-			"_id": "EXkMDEQcpN9yXzs9",
+			"_id": "fwZhqztSUVIAQhoP",
 			"sort": 0,
 			"ownership": {
 				"default": 0
 			}
+		},
+		{
+			"name": "Shortsword +1",
+			"type": "object",
+			"img": "icons/weapons/swords/shortsword-guard-brass.webp",
+			"effects": [
+				{
+					"icon": "icons/weapons/swords/shortsword-guard-brass.webp",
+					"origin": "Actor.w6xgjRyWYYuk3trZ.Item.mLjODekVwOd2U57H",
+					"flags": {
+						"a5e": {
+							"sort": 0,
+							"transferType": "onUse",
+							"actionId": "LfiU8RBp5laBi6jt",
+							"duration": {
+								"type": "rounds",
+								"unit": "minutes"
+							}
+						}
+					},
+					"transfer": false,
+					"name": "AC +1",
+					"_id": "o3RplnB3d2bgc5Cs",
+					"changes": [
+						{
+							"key": "system.attributes.ac.changes.bonuses.value",
+							"value": "1",
+							"mode": 2,
+							"priority": null
+						}
+					],
+					"disabled": false,
+					"duration": {
+						"startTime": null,
+						"seconds": null,
+						"combat": null,
+						"rounds": null,
+						"turns": 1,
+						"startRound": null,
+						"startTurn": null
+					},
+					"description": "",
+					"statuses": [],
+					"tint": "#ffffff",
+					"folder": null
+				}
+			],
+			"flags": {
+				"core": {
+					"sheetClass": "a5e.ItemSheet5e"
+				}
+			},
+			"system": {
+				"ac": {
+					"baseFormula": "",
+					"formula": "",
+					"grantsDisadvantage": false,
+					"maxDex": 0,
+					"minStr": 0,
+					"mode": 1,
+					"requiresNoShield": false,
+					"requiresUnarmored": false
+				},
+				"actions": {
+					"s8ufuOSoG0jsuNjg": {
+						"name": "Shortsword",
+						"activation": {
+							"cost": "",
+							"type": "",
+							"reactionTrigger": ""
+						},
+						"duration": {
+							"unit": "",
+							"value": ""
+						},
+						"area": {
+							"shape": "",
+							"size": "",
+							"placeTemplate": false,
+							"quantity": 1
+						},
+						"target": {
+							"quantity": 1,
+							"type": "creatureObject"
+						},
+						"rolls": {
+							"P7UeMDVPmv9D9fqE": {
+								"bonus": "1",
+								"critThreshold": "20",
+								"type": "attack",
+								"attackType": "meleeWeaponAttack",
+								"ability": "default"
+							},
+							"HUbaIlANmQsN4fYO": {
+								"canCrit": true,
+								"damageType": "slashing",
+								"formula": "1d6 + @finesse.mod + 1",
+								"name": "Shortsword",
+								"type": "damage"
+							}
+						},
+						"consumers": {}
+					},
+					"vQTQD7tzjEVIJLR0": {
+						"name": "Parry",
+						"activation": {},
+						"consumers": {},
+						"rolls": {
+							"tmuyLFz7KQutuiOG": {
+								"type": "generic",
+								"default": true,
+								"label": "Armor Class",
+								"formula": "1d4"
+							}
+						},
+						"prompts": {},
+						"uses": {
+							"value": 0,
+							"max": "",
+							"per": "",
+							"recharge": {
+								"formula": "1d6",
+								"threshold": 6
+							}
+						},
+						"img": "icons/weapons/swords/shortsword-guard-brass.webp"
+					}
+				},
+				"description": "<p><em>Defensive (Medium), Finesse, Parrying</em></p>",
+				"favorite": true,
+				"secretDescription": "",
+				"source": "",
+				"uses": {
+					"value": null,
+					"max": "",
+					"per": null,
+					"recharge": {
+						"formula": "1d6",
+						"threshold": 6
+					}
+				},
+				"schema": {
+					"version": null,
+					"lastMigration": null
+				},
+				"ammunitionProperties": [],
+				"armorCategory": "",
+				"armorProperties": [],
+				"attuned": false,
+				"bulky": false,
+				"craftingComponents": "Cubic inch of rare metal",
+				"containerId": "",
+				"damagedState": 0,
+				"equippedState": 0,
+				"items": {},
+				"materialProperties": [],
+				"objectType": "weapon",
+				"plotItem": false,
+				"price": "500 gp",
+				"proficient": true,
+				"quantity": 1,
+				"rarity": "uncommon",
+				"requiresAttunement": false,
+				"shieldCategory": "",
+				"shieldProperties": [],
+				"unidentified": false,
+				"unidentifiedDescription": "",
+				"unidentifiedName": "",
+				"weaponProperties": [
+					"defensive",
+					"parrying",
+					"finesse"
+				],
+				"weight": 2,
+				"schemaVersion": {
+					"version": 0.013,
+					"lastMigration": {
+						"version": {
+							"schema": 0.011,
+							"foundry": "11.315",
+							"system": "0.16.49"
+						}
+					}
+				}
+			},
+			"folder": null,
+			"_id": "mLjODekVwOd2U57H",
+			"sort": 0,
+			"ownership": {
+				"default": 0
+			}
+		},
+		{
+			"name": "Longbow +1",
+			"type": "object",
+			"img": "icons/weapons/bows/longbow-leather-green.webp",
+			"effects": [],
+			"flags": {},
+			"system": {
+				"ac": {
+					"baseFormula": "",
+					"formula": "",
+					"grantsDisadvantage": false,
+					"maxDex": 0,
+					"minStr": 0,
+					"mode": 1,
+					"requiresNoShield": false,
+					"requiresUnarmored": false
+				},
+				"actions": {
+					"Fh6gRJTKSHM2phvi": {
+						"name": "Longbow",
+						"activation": {
+							"cost": "",
+							"type": "",
+							"reactionTrigger": ""
+						},
+						"duration": {
+							"unit": "",
+							"value": ""
+						},
+						"ranges": {
+							"7vk9kI9PGVA1Yeqv": {
+								"range": 150,
+								"unit": "feet"
+							},
+							"NUoE7YtByjoi7Suz": {
+								"range": 600,
+								"unit": "feet"
+							}
+						},
+						"area": {
+							"shape": "",
+							"size": "",
+							"placeTemplate": false
+						},
+						"target": {
+							"quantity": 1,
+							"type": "creatureObject"
+						},
+						"rolls": {
+							"k5MAUQp9WXGwY6NF": {
+								"bonus": "1",
+								"critThreshold": "20",
+								"type": "attack",
+								"attackType": "rangedWeaponAttack",
+								"ability": "default"
+							},
+							"KgeLplrDrWd0pu8f": {
+								"canCrit": true,
+								"damageType": "piercing",
+								"formula": "1d8 + @dex.mod + 1",
+								"name": "Longbow",
+								"type": "damage"
+							}
+						},
+						"consumers": {
+							"wT6UA6U2zx6mK6Mk": {
+								"itemid": "",
+								"quantity": 1,
+								"type": "ammunition"
+							}
+						}
+					}
+				},
+				"description": "<p><em>Heavy, Range (150/600), Two-Handed</em></p>",
+				"favorite": true,
+				"secretDescription": "",
+				"source": "",
+				"uses": {
+					"value": null,
+					"max": "",
+					"per": null,
+					"recharge": {
+						"formula": "1d6",
+						"threshold": 6
+					}
+				},
+				"schema": {
+					"version": null,
+					"lastMigration": null
+				},
+				"ammunitionProperties": [],
+				"armorCategory": "",
+				"armorProperties": [],
+				"attuned": false,
+				"bulky": false,
+				"craftingComponents": "Cubic inch of rare metal",
+				"containerId": "",
+				"damagedState": 0,
+				"equippedState": 0,
+				"items": {},
+				"materialProperties": [],
+				"objectType": "weapon",
+				"plotItem": false,
+				"price": "500 gp",
+				"proficient": true,
+				"quantity": 1,
+				"rarity": "uncommon",
+				"requiresAttunement": false,
+				"shieldCategory": "",
+				"shieldProperties": [],
+				"unidentified": false,
+				"unidentifiedDescription": "",
+				"unidentifiedName": "",
+				"weaponProperties": [
+					"heavy",
+					"range",
+					"twoHanded"
+				],
+				"weight": 2,
+				"schemaVersion": {
+					"version": 0.013,
+					"lastMigration": {
+						"version": {
+							"schema": 0.011,
+							"foundry": "11.315",
+							"system": "0.16.49"
+						}
+					}
+				}
+			},
+			"folder": null,
+			"_id": "pzJ9pZlPHRrZgcK4",
+			"sort": 0,
+			"ownership": {
+				"default": 0
+			}
+		},
+		{
+			"name": "Tactical Movement",
+			"type": "feature",
+			"system": {
+				"ac": {
+					"baseFormula": "",
+					"formula": "",
+					"grantsDisadvantage": false,
+					"maxDex": 0,
+					"minStr": 0,
+					"mode": 2,
+					"requiresNoShield": false,
+					"requiresUnarmored": false
+				},
+				"actions": {
+					"9ObWMJ8X5uyJk2u1": {
+						"name": "Tactical Movement",
+						"activation": {
+							"type": "bonusAction",
+							"cost": 1
+						},
+						"consumers": {},
+						"rolls": {},
+						"prompts": {
+							"0SmHwlwpdu25vuc1": {
+								"type": "effect",
+								"default": true,
+								"effectId": "AL0HabkepzfvfTjM"
+							}
+						},
+						"uses": {
+							"value": 0,
+							"max": "",
+							"per": "",
+							"recharge": {
+								"formula": "1d6",
+								"rechargeType": "custom",
+								"rechargeAmount": "1",
+								"threshold": 6
+							}
+						}
+					}
+				},
+				"description": "<p>Until the end of the veteran&rsquo;s turn, their Speed is halved and their movement doesn&rsquo;t provoke opportunity attacks.</p>",
+				"favorite": true,
+				"secretDescription": "",
+				"source": "",
+				"uses": {
+					"value": null,
+					"max": "",
+					"per": null,
+					"recharge": {
+						"formula": "1d6",
+						"threshold": "6"
+					}
+				},
+				"schema": {
+					"version": null,
+					"lastMigration": null
+				},
+				"concentration": false,
+				"featureType": "other",
+				"grants": {},
+				"prerequisite": "",
+				"requiresBloodied": false
+			},
+			"_id": "JkwbbU2bxHuuiLOe",
+			"img": "icons/svg/item-bag.svg",
+			"effects": [
+				{
+					"icon": "icons/svg/item-bag.svg",
+					"origin": "Actor.w6xgjRyWYYuk3trZ.Item.JkwbbU2bxHuuiLOe",
+					"flags": {
+						"a5e": {
+							"sort": 0,
+							"transferType": "onUse",
+							"actionId": "9ObWMJ8X5uyJk2u1",
+							"applyToSelf": true,
+							"duration": {
+								"type": "rounds",
+								"unit": "minutes"
+							}
+						}
+					},
+					"transfer": false,
+					"name": "Tactical Movement",
+					"_id": "AL0HabkepzfvfTjM",
+					"changes": [
+						{
+							"key": "system.attributes.movement.walk.distance",
+							"value": "0.5",
+							"mode": 1,
+							"priority": null
+						}
+					],
+					"disabled": false,
+					"duration": {
+						"startTime": null,
+						"seconds": null,
+						"combat": null,
+						"rounds": null,
+						"turns": 1,
+						"startRound": null,
+						"startTurn": null
+					},
+					"description": "",
+					"statuses": [],
+					"folder": null
+				}
+			],
+			"folder": null,
+			"sort": 0,
+			"ownership": {
+				"default": 0
+			},
+			"flags": {}
+		},
+		{
+			"name": "Painful Counter",
+			"type": "feature",
+			"system": {
+				"ac": {
+					"baseFormula": "",
+					"formula": "",
+					"grantsDisadvantage": false,
+					"maxDex": 0,
+					"minStr": 0,
+					"mode": 2,
+					"requiresNoShield": false,
+					"requiresUnarmored": false
+				},
+				"actions": {
+					"3YeCeTJYbFhZ9aZ5": {
+						"name": "Shortsword",
+						"activation": {
+							"cost": 1,
+							"type": "reaction",
+							"reactionTrigger": "Hit by a melee attack by an attacker they can see within 5 feet"
+						},
+						"consumers": {},
+						"rolls": {
+							"P7UeMDVPmv9D9fqE": {
+								"bonus": "1",
+								"critThreshold": "20",
+								"type": "attack",
+								"attackType": "meleeWeaponAttack",
+								"ability": "default"
+							},
+							"HUbaIlANmQsN4fYO": {
+								"canCrit": true,
+								"damageType": "slashing",
+								"formula": "1d6 + @finesse.mod + 1",
+								"name": "Shortsword",
+								"type": "damage"
+							}
+						},
+						"prompts": {},
+						"uses": {
+							"value": 0,
+							"max": "",
+							"per": "",
+							"recharge": {
+								"formula": "1d6",
+								"rechargeType": "custom",
+								"rechargeAmount": "1",
+								"threshold": 6
+							}
+						},
+						"duration": {
+							"unit": "",
+							"value": ""
+						},
+						"area": {
+							"shape": "",
+							"size": "",
+							"placeTemplate": false,
+							"quantity": 1
+						},
+						"target": {
+							"quantity": 1,
+							"type": "creatureObject"
+						},
+						"img": "icons/weapons/swords/shortsword-guard-brass.webp"
+					}
+				},
+				"description": "<p>When the veteran is hit by a melee attack by an attacker they can see within 5 feet, the veteran makes a shortsword attack against the attacker.</p>",
+				"favorite": true,
+				"secretDescription": "",
+				"source": "",
+				"uses": {
+					"value": null,
+					"max": "",
+					"per": null,
+					"recharge": {
+						"formula": "1d6",
+						"threshold": "6"
+					}
+				},
+				"schema": {
+					"version": null,
+					"lastMigration": null
+				},
+				"concentration": false,
+				"featureType": "other",
+				"grants": {},
+				"prerequisite": "",
+				"requiresBloodied": false
+			},
+			"_id": "7FAzXKrX0Wi7XYW9",
+			"img": "icons/svg/item-bag.svg",
+			"effects": [
+				{
+					"icon": "icons/weapons/swords/shortsword-guard-brass.webp",
+					"origin": "Actor.w6xgjRyWYYuk3trZ.Item.mLjODekVwOd2U57H",
+					"flags": {
+						"a5e": {
+							"sort": 0,
+							"transferType": "onUse",
+							"actionId": "LfiU8RBp5laBi6jt",
+							"duration": {
+								"type": "rounds",
+								"unit": "minutes"
+							}
+						}
+					},
+					"transfer": false,
+					"name": "AC +1",
+					"_id": "hUqkTM4PCITzaV07",
+					"changes": [
+						{
+							"key": "system.attributes.ac.changes.bonuses.value",
+							"value": "1",
+							"mode": 2,
+							"priority": null
+						}
+					],
+					"disabled": false,
+					"duration": {
+						"startTime": null,
+						"seconds": null,
+						"combat": null,
+						"rounds": null,
+						"turns": 1,
+						"startRound": null,
+						"startTurn": null
+					},
+					"description": "",
+					"statuses": [],
+					"tint": "#ffffff",
+					"folder": null
+				}
+			],
+			"folder": null,
+			"sort": 0,
+			"ownership": {
+				"default": 0
+			},
+			"flags": {}
 		}
 	],
 	"effects": [
 		{
 			"icon": "icons/svg/item-bag.svg",
-			"origin": "Actor.kblhlKkhb0DSlFOq.Item.2pGAOML0CTNjJlKD",
+			"origin": "Actor.w6xgjRyWYYuk3trZ.Item.YLoqLhmKUQENDXyB",
 			"flags": {
 				"a5e": {
 					"sort": 0,
@@ -2905,19 +3042,19 @@
 				}
 			},
 			"transfer": false,
-			"name": "United in Action",
-			"_id": "xO3N01xyRe2Bu1EB",
+			"name": "Sunlight",
+			"_id": "Y9RWdh0vhHvFYozi",
 			"changes": [
 				{
-					"key": "flags.a5e.effects.bonuses.attacks",
-					"value": "{\"label\":\"United in Action\",\"formula\":\"1d4\",\"context\":{\"attackTypes\":[\"meleeWeaponAttack\"],\"spellLevels\":[],\"requiresProficiency\":false},\"default\":true,\"img\":\"icons/svg/upgrade.svg\"}",
-					"mode": 0,
+					"key": "flags.a5e.effects.rollMode.attack.all",
+					"value": "-1",
+					"mode": 6,
 					"priority": null
 				},
 				{
-					"key": "flags.a5e.effects.bonuses.damage",
-					"value": "{\"label\":\"United in Action\",\"formula\":\"1d6\",\"damageType\":\"necrotic\",\"context\":{\"attackTypes\":[\"meleeWeaponAttack\"],\"damageTypes\":[],\"spellLevels\":[],\"isCritBonus\":false},\"default\":true,\"img\":\"icons/svg/upgrade.svg\"}",
-					"mode": 0,
+					"key": "flags.a5e.effects.rollMode.skillCheck.prc",
+					"value": "-1",
+					"mode": 6,
 					"priority": null
 				}
 			],
@@ -2938,8 +3075,9 @@
 	],
 	"flags": {
 		"a5e": {
-			"sheetIsLocked": true
+			"sheetIsLocked": true,
+			"showSpellSlots": false
 		}
 	},
-	"_id": "fvr9r2uzp69emhsb"
+	"_id": "cn68cn5jutv3nmlk"
 }

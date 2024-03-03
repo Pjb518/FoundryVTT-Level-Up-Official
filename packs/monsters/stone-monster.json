@@ -1,6 +1,6 @@
 {
 	"folder": null,
-	"name": "Laskian Sled Dog",
+	"name": "Stone Monster",
 	"type": "npc",
 	"img": "icons/svg/mystery-man.svg",
 	"system": {
@@ -10,13 +10,13 @@
 		},
 		"abilities": {
 			"str": {
-				"value": 12,
+				"value": 23,
 				"check": {
 					"expertiseDice": 0,
 					"bonus": ""
 				},
 				"save": {
-					"proficient": false,
+					"proficient": true,
 					"expertiseDice": 0,
 					"bonus": ""
 				}
@@ -28,25 +28,25 @@
 					"bonus": ""
 				},
 				"save": {
-					"proficient": false,
+					"proficient": true,
 					"expertiseDice": 0,
 					"bonus": ""
 				}
 			},
 			"con": {
-				"value": 10,
+				"value": 20,
 				"check": {
 					"expertiseDice": 0,
 					"bonus": ""
 				},
 				"save": {
-					"proficient": false,
+					"proficient": true,
 					"expertiseDice": 0,
 					"bonus": ""
 				}
 			},
 			"int": {
-				"value": 3,
+				"value": 4,
 				"check": {
 					"expertiseDice": 0,
 					"bonus": ""
@@ -64,13 +64,13 @@
 					"bonus": ""
 				},
 				"save": {
-					"proficient": false,
+					"proficient": true,
 					"expertiseDice": 0,
 					"bonus": ""
 				}
 			},
 			"cha": {
-				"value": 6,
+				"value": 10,
 				"check": {
 					"expertiseDice": 0,
 					"bonus": ""
@@ -84,7 +84,7 @@
 		},
 		"attributes": {
 			"ac": {
-				"baseFormula": "10 + @dex.mod",
+				"baseFormula": "17",
 				"value": 0
 			},
 			"death": {
@@ -92,8 +92,8 @@
 				"failure": 0
 			},
 			"hp": {
-				"value": 9,
-				"baseMax": 9,
+				"value": 126,
+				"baseMax": 126,
 				"temp": 0,
 				"bonus": 0
 			},
@@ -107,16 +107,16 @@
 					"total": 0
 				},
 				"d8": {
-					"current": 2,
-					"total": 2
+					"current": 0,
+					"total": 0
 				},
 				"d10": {
 					"current": 0,
 					"total": 0
 				},
 				"d12": {
-					"current": 0,
-					"total": 0
+					"current": 11,
+					"total": 11
 				},
 				"d20": {
 					"current": 0,
@@ -204,21 +204,25 @@
 		"details": {
 			"bio": "",
 			"creatureTypes": [
-				"beast"
+				"giant"
 			],
 			"isSwarm": false,
-			"cr": 0.125,
+			"cr": 8,
 			"elite": false,
 			"notes": "",
 			"privateNotes": "",
 			"terrain": [
-				"settlement"
+				"hills",
+				"mountains",
+				"planeOfEarth"
 			]
 		},
 		"grants": {},
 		"proficiencies": {
 			"armor": [],
-			"languages": [],
+			"languages": [
+				"giant"
+			],
 			"tools": [],
 			"weapons": []
 		},
@@ -304,9 +308,9 @@
 			},
 			"ath": {
 				"ability": "str",
-				"proficient": false,
+				"proficient": true,
 				"specialties": [],
-				"expertiseDice": 0,
+				"expertiseDice": 1,
 				"minRoll": 1,
 				"bonuses": {
 					"check": "",
@@ -469,7 +473,7 @@
 			},
 			"ste": {
 				"ability": "dex",
-				"proficient": false,
+				"proficient": true,
 				"specialties": [],
 				"expertiseDice": 0,
 				"minRoll": 1,
@@ -492,12 +496,14 @@
 		},
 		"source": "toSaveAKingdom",
 		"traits": {
-			"size": "med",
+			"size": "huge",
 			"alignment": [],
-			"conditionImmunities": [],
+			"conditionImmunities": [
+				"petrified"
+			],
 			"damageImmunities": [],
 			"damageResistances": [
-				"cold"
+				"acid"
 			],
 			"damageVulnerabilities": []
 		},
@@ -547,7 +553,7 @@
 		}
 	},
 	"prototypeToken": {
-		"name": "Laskian Sled Dog",
+		"name": "Stone Monster",
 		"displayName": 0,
 		"actorLink": false,
 		"appendNumber": false,
@@ -560,8 +566,8 @@
 			"offsetY": 0,
 			"rotation": 0
 		},
-		"width": 1,
-		"height": 1,
+		"width": 3,
+		"height": 3,
 		"lockRotation": false,
 		"rotation": 0,
 		"alpha": 1,
@@ -704,7 +710,7 @@
 				}
 			},
 			"folder": null,
-			"_id": "readIJJl5fsRR5Zp",
+			"_id": "37E6zUxOcD5CWIFu",
 			"sort": 0,
 			"ownership": {
 				"default": 0
@@ -804,7 +810,7 @@
 				}
 			},
 			"folder": null,
-			"_id": "iIWnbLCzy2ypx8gF",
+			"_id": "ouEI27ZDrcV6UlmD",
 			"sort": 0,
 			"ownership": {
 				"default": 0
@@ -904,7 +910,7 @@
 				}
 			},
 			"folder": null,
-			"_id": "hPK9QZRz8AJYXqtO",
+			"_id": "Sy1d2psbCAZL25b0",
 			"sort": 0,
 			"ownership": {
 				"default": 0
@@ -1004,7 +1010,7 @@
 				}
 			},
 			"folder": null,
-			"_id": "7S1fF0fzrKu7vlcO",
+			"_id": "uDJsIN6gqUU1sFzQ",
 			"sort": 0,
 			"ownership": {
 				"default": 0
@@ -1104,7 +1110,7 @@
 				}
 			},
 			"folder": null,
-			"_id": "vNK0iGcyhtW6wzj1",
+			"_id": "teaZPqR5GtQOpYlE",
 			"sort": 0,
 			"ownership": {
 				"default": 0
@@ -1204,14 +1210,14 @@
 				}
 			},
 			"folder": null,
-			"_id": "jGYeE1Xu4yk9F5on",
+			"_id": "aGO3YR52lVzanVWk",
 			"sort": 0,
 			"ownership": {
 				"default": 0
 			}
 		},
 		{
-			"name": "Keen Hearing and Smell",
+			"name": "Camouflage",
 			"type": "feature",
 			"system": {
 				"ac": {
@@ -1225,7 +1231,7 @@
 					"requiresUnarmored": false
 				},
 				"actions": {},
-				"description": "<p>The sled dog has advantage on Perception checks that rely on hearing and smell.</p>",
+				"description": "<p>The giant has advantage on Stealth checks made to hide in rocky terrain.</p>",
 				"favorite": false,
 				"secretDescription": "",
 				"source": "",
@@ -1248,7 +1254,7 @@
 				"prerequisite": "",
 				"requiresBloodied": false
 			},
-			"_id": "gDKF1s6b4CM92qV7",
+			"_id": "ZKKts4qF7PpBkb2Z",
 			"img": "icons/svg/item-bag.svg",
 			"effects": [],
 			"folder": null,
@@ -1259,7 +1265,7 @@
 			"flags": {}
 		},
 		{
-			"name": "Bite",
+			"name": "Multiattack",
 			"type": "feature",
 			"system": {
 				"ac": {
@@ -1273,43 +1279,15 @@
 					"requiresUnarmored": false
 				},
 				"actions": {
-					"CJvcQLfUq1X9ibqG": {
-						"name": "Bite",
+					"Q9V6JvADWlPdAaYe": {
+						"name": "Multiattack",
 						"activation": {
 							"type": "action",
 							"cost": 1
 						},
 						"consumers": {},
-						"rolls": {
-							"dWlQbGX86XfNNc63": {
-								"type": "attack",
-								"default": true,
-								"attackType": "meleeWeaponAttack",
-								"proficient": true,
-								"ability": "str"
-							},
-							"PyrbO2bSbs9upNuh": {
-								"type": "damage",
-								"default": true,
-								"formula": "1d4 + @str.mod",
-								"damageType": "piercing"
-							}
-						},
-						"prompts": {
-							"jE0mlzIjnk496Zmu": {
-								"type": "savingThrow",
-								"default": true,
-								"ability": "str",
-								"saveDC": {
-									"type": "str"
-								}
-							},
-							"9tdWe7r17DtuU7m3": {
-								"type": "effect",
-								"default": true,
-								"effectId": "bOORIDdL68SrRHwG"
-							}
-						},
+						"rolls": {},
+						"prompts": {},
 						"uses": {
 							"value": 0,
 							"max": "",
@@ -1320,19 +1298,10 @@
 								"rechargeAmount": "1",
 								"threshold": 6
 							}
-						},
-						"ranges": {
-							"2fVldrPnkOkvCWqd": {
-								"range": "fiveFeet"
-							}
-						},
-						"target": {
-							"type": "creatureObject",
-							"quantity": 1
 						}
 					}
 				},
-				"description": "<p>If the target is a creature, it makes a DC 11 Strength saving throw, falling prone on a failure.</p>",
+				"description": "<p>The giant attacks twice with its greatclub or twice with rocks.&nbsp;</p>",
 				"favorite": true,
 				"secretDescription": "",
 				"source": "",
@@ -1350,27 +1319,425 @@
 					"lastMigration": null
 				},
 				"concentration": false,
-				"featureType": "naturalWeapon",
+				"featureType": "other",
 				"grants": {},
 				"prerequisite": "",
 				"requiresBloodied": false
 			},
-			"_id": "iSvBcshPKXCp0dlQ",
+			"_id": "ttWVdymWEuqdQbF6",
 			"img": "icons/svg/item-bag.svg",
+			"effects": [],
+			"folder": null,
+			"sort": 0,
+			"ownership": {
+				"default": 0
+			},
+			"flags": {}
+		},
+		{
+			"name": "Greatclub",
+			"type": "object",
+			"img": "icons/weapons/clubs/club-banded-barbed-black.webp",
 			"effects": [
 				{
-					"icon": "icons/svg/item-bag.svg",
-					"origin": "Actor.9swq1ylYhhWN76nf.Item.iSvBcshPKXCp0dlQ",
+					"icon": "icons/weapons/clubs/club-banded-barbed-black.webp",
+					"origin": "Actor.GV4TjudhNaTRz2Qs.Item.g3RcvzvczokH3Yml",
 					"flags": {
 						"a5e": {
 							"sort": 0,
 							"transferType": "onUse",
-							"actionId": "CJvcQLfUq1X9ibqG"
+							"actionId": "TZ68p8QOlBxq5nAp"
 						}
 					},
 					"transfer": false,
 					"name": "Prone",
-					"_id": "bOORIDdL68SrRHwG",
+					"_id": "ixIdiLHJIV2nFRE0",
+					"changes": [
+						{
+							"key": "flags.a5e.effects.statusConditions",
+							"value": "[\"prone\"]",
+							"mode": 0,
+							"priority": null
+						}
+					],
+					"disabled": false,
+					"duration": {
+						"startTime": null,
+						"seconds": null,
+						"combat": null,
+						"rounds": null,
+						"turns": null,
+						"startRound": null,
+						"startTurn": null
+					},
+					"description": "",
+					"statuses": [
+						"prone"
+					],
+					"folder": null
+				}
+			],
+			"flags": {},
+			"system": {
+				"ac": {
+					"baseFormula": "",
+					"formula": "",
+					"grantsDisadvantage": false,
+					"maxDex": 0,
+					"minStr": 0,
+					"mode": 1,
+					"requiresNoShield": false,
+					"requiresUnarmored": false
+				},
+				"actions": {
+					"TZ68p8QOlBxq5nAp": {
+						"name": "Greatclub",
+						"activation": {
+							"cost": "",
+							"type": "",
+							"reactionTrigger": ""
+						},
+						"duration": {
+							"unit": "",
+							"value": ""
+						},
+						"area": {
+							"shape": "",
+							"size": "",
+							"placeTemplate": false
+						},
+						"target": {
+							"quantity": 1,
+							"type": "creatureObject"
+						},
+						"rolls": {
+							"iCfqnFJbiMWsO2fo": {
+								"bonus": "",
+								"critThreshold": "20",
+								"type": "attack",
+								"attackType": "meleeWeaponAttack",
+								"ability": "default"
+							},
+							"hlVu0grEO6zrkk7w": {
+								"canCrit": true,
+								"damageType": "bludgeoning",
+								"formula": "3d8 + @str.mod",
+								"name": "Greatclub 1H",
+								"type": "damage",
+								"label": "",
+								"default": false
+							}
+						},
+						"consumers": {},
+						"prompts": {
+							"qsOtW4tvMXCIVLZP": {
+								"type": "savingThrow",
+								"default": true,
+								"ability": "str",
+								"saveDC": {
+									"type": "custom",
+									"bonus": "19"
+								}
+							},
+							"OND4fcYzTSRjQu0m": {
+								"type": "effect",
+								"default": true,
+								"effectId": "ixIdiLHJIV2nFRE0"
+							}
+						}
+					}
+				},
+				"description": "<p><em>Simple, Versatile (1d10)</em></p>\n<p>If the target is a Large or smaller creature, it makes a DC 19 Strength saving throw , falling prone &nbsp;on a failure.</p>",
+				"favorite": true,
+				"secretDescription": "",
+				"source": "",
+				"uses": {
+					"value": null,
+					"max": "",
+					"per": null,
+					"recharge": {
+						"formula": "1d6",
+						"threshold": 6
+					}
+				},
+				"schema": {
+					"version": null,
+					"lastMigration": null
+				},
+				"ammunitionProperties": [],
+				"armorCategory": "",
+				"armorProperties": [],
+				"attuned": false,
+				"bulky": false,
+				"craftingComponents": "",
+				"containerId": "",
+				"damagedState": 0,
+				"equippedState": 0,
+				"items": {},
+				"materialProperties": [],
+				"objectType": "weapon",
+				"plotItem": false,
+				"price": "5 sp",
+				"proficient": true,
+				"quantity": 1,
+				"rarity": "mundane",
+				"requiresAttunement": false,
+				"shieldCategory": "",
+				"shieldProperties": [],
+				"unidentified": false,
+				"unidentifiedDescription": "",
+				"unidentifiedName": "",
+				"weaponProperties": [
+					"versatile",
+					"simple"
+				],
+				"weight": 10,
+				"schemaVersion": {
+					"version": 0.013,
+					"lastMigration": {
+						"version": {
+							"schema": 0.011,
+							"foundry": "11.315",
+							"system": "0.16.49"
+						}
+					}
+				}
+			},
+			"folder": null,
+			"_id": "g3RcvzvczokH3Yml",
+			"sort": 0,
+			"ownership": {
+				"default": 0
+			}
+		},
+		{
+			"name": "Rock",
+			"type": "object",
+			"system": {
+				"ac": {
+					"baseFormula": "",
+					"formula": "",
+					"grantsDisadvantage": false,
+					"maxDex": 0,
+					"minStr": 0,
+					"mode": 2,
+					"requiresNoShield": false,
+					"requiresUnarmored": false
+				},
+				"actions": {
+					"yY5b1BVWGNjL6mnN": {
+						"name": "Throw Rock",
+						"activation": {},
+						"consumers": {},
+						"rolls": {
+							"f4Vsn5B5JBxDxK4k": {
+								"type": "attack",
+								"default": true,
+								"attackType": "rangedWeaponAttack",
+								"proficient": true,
+								"ability": "str"
+							},
+							"TrfK1JbUDgfKojU4": {
+								"type": "damage",
+								"default": true,
+								"formula": "4d6 + @str.mod",
+								"damageType": "bludgeoning"
+							}
+						},
+						"prompts": {
+							"nBf75d1FaqZLrj19": {
+								"type": "savingThrow",
+								"default": true,
+								"ability": "str",
+								"saveDC": {
+									"type": "custom",
+									"bonus": "19"
+								}
+							},
+							"bj2qZdQgGfhcsOR1": {
+								"type": "effect",
+								"default": true,
+								"effectId": "7mmi5Poc1rObQs1H"
+							}
+						},
+						"uses": {
+							"value": 0,
+							"max": "",
+							"per": "",
+							"recharge": {
+								"formula": "1d6",
+								"rechargeType": "custom",
+								"rechargeAmount": "1",
+								"threshold": 6
+							}
+						},
+						"ranges": {
+							"4YR3JZleXtXIQsMI": {
+								"range": "medium"
+							},
+							"mqMYqirNz092qkpe": {
+								"range": 240,
+								"unit": "feet"
+							}
+						},
+						"target": {
+							"type": "creatureObject",
+							"quantity": 1
+						}
+					},
+					"aSWxcccGO2UAO1Qn": {
+						"name": "Throw Creature",
+						"activation": {},
+						"consumers": {},
+						"rolls": {
+							"f4Vsn5B5JBxDxK4k": {
+								"type": "attack",
+								"default": true,
+								"attackType": "rangedWeaponAttack",
+								"proficient": true,
+								"ability": "str"
+							},
+							"TrfK1JbUDgfKojU4": {
+								"type": "damage",
+								"default": true,
+								"formula": "3d6 + @con.mod",
+								"damageType": "bludgeoning"
+							}
+						},
+						"prompts": {
+							"nBf75d1FaqZLrj19": {
+								"type": "savingThrow",
+								"default": true,
+								"ability": "str",
+								"saveDC": {
+									"type": "custom",
+									"bonus": "19"
+								}
+							},
+							"bj2qZdQgGfhcsOR1": {
+								"type": "effect",
+								"default": true,
+								"effectId": "BTFrd6vPO9KsjvmD"
+							}
+						},
+						"uses": {
+							"value": 0,
+							"max": "",
+							"per": "",
+							"recharge": {
+								"formula": "1d6",
+								"rechargeType": "custom",
+								"rechargeAmount": "1",
+								"threshold": 6
+							}
+						},
+						"ranges": {
+							"4YR3JZleXtXIQsMI": {
+								"range": "short"
+							}
+						},
+						"target": {
+							"type": "creatureObject",
+							"quantity": 1
+						}
+					}
+				},
+				"description": "<p>If the target is a Large or smaller creature, it makes a DC 19 Strength saving throw . On a failure, it is pushed 10 feet away from the giant and knocked prone . In lieu of a rock, the giant can throw a grappled Medium or smaller creature up to 30 feet. On a hit, the target and the thrown creature both take 15 (3d6 + 5) bludgeoning damage. On a miss, only the thrown creature takes the damage. The thrown creature falls prone in an unoccupied space 5 feet from the target.</p>",
+				"favorite": true,
+				"secretDescription": "",
+				"source": "",
+				"uses": {
+					"value": null,
+					"max": "",
+					"per": null,
+					"recharge": {
+						"formula": "1d6",
+						"threshold": "6"
+					}
+				},
+				"schema": {
+					"version": null,
+					"lastMigration": null
+				},
+				"ammunitionProperties": [],
+				"armorCategory": "",
+				"armorProperties": [],
+				"attuned": false,
+				"bulky": false,
+				"craftingComponents": "",
+				"containerId": "",
+				"damagedState": 0,
+				"equippedState": 0,
+				"items": {},
+				"materialProperties": [],
+				"objectType": "weapon",
+				"plotItem": false,
+				"price": 0,
+				"proficient": true,
+				"quantity": 1,
+				"rarity": "mundane",
+				"requiresAttunement": false,
+				"shieldCategory": "",
+				"shieldProperties": [],
+				"unidentified": false,
+				"unidentifiedDescription": "",
+				"unidentifiedName": "",
+				"weaponProperties": [],
+				"weight": 0
+			},
+			"_id": "T0i6Tt4ULJhe1avm",
+			"img": "icons/svg/item-bag.svg",
+			"effects": [
+				{
+					"icon": "icons/svg/item-bag.svg",
+					"origin": "Actor.GV4TjudhNaTRz2Qs.Item.T0i6Tt4ULJhe1avm",
+					"flags": {
+						"a5e": {
+							"sort": 0,
+							"transferType": "onUse",
+							"actionId": "yY5b1BVWGNjL6mnN"
+						}
+					},
+					"transfer": false,
+					"name": "Prone",
+					"_id": "7mmi5Poc1rObQs1H",
+					"changes": [
+						{
+							"key": "flags.a5e.effects.statusConditions",
+							"value": "[\"prone\"]",
+							"mode": 0,
+							"priority": null
+						}
+					],
+					"disabled": false,
+					"duration": {
+						"startTime": null,
+						"seconds": null,
+						"combat": null,
+						"rounds": null,
+						"turns": null,
+						"startRound": null,
+						"startTurn": null
+					},
+					"description": "",
+					"statuses": [
+						"prone"
+					],
+					"folder": null
+				},
+				{
+					"icon": "icons/svg/item-bag.svg",
+					"origin": "Actor.GV4TjudhNaTRz2Qs.Item.T0i6Tt4ULJhe1avm",
+					"flags": {
+						"a5e": {
+							"sort": 0,
+							"transferType": "onUse",
+							"actionId": "aSWxcccGO2UAO1Qn"
+						}
+					},
+					"transfer": false,
+					"name": "Prone",
+					"_id": "BTFrd6vPO9KsjvmD",
 					"changes": [
 						{
 							"key": "flags.a5e.effects.statusConditions",
@@ -1402,6 +1769,223 @@
 				"default": 0
 			},
 			"flags": {}
+		},
+		{
+			"name": "Grab",
+			"type": "feature",
+			"system": {
+				"ac": {
+					"baseFormula": "",
+					"formula": "",
+					"grantsDisadvantage": false,
+					"maxDex": 0,
+					"minStr": 0,
+					"mode": 2,
+					"requiresNoShield": false,
+					"requiresUnarmored": false
+				},
+				"actions": {
+					"CmrkKHGwQ0IV3wPe": {
+						"name": "Grab",
+						"activation": {
+							"type": "bonusAction",
+							"cost": 1
+						},
+						"consumers": {},
+						"rolls": {},
+						"prompts": {
+							"GpDUk56Y6tCppdpb": {
+								"type": "savingThrow",
+								"default": true,
+								"ability": "dex",
+								"saveDC": {
+									"type": "dex"
+								}
+							},
+							"gUqXcjLj6I7PldPg": {
+								"type": "skillCheck",
+								"default": true,
+								"skill": "acr",
+								"ability": "dex",
+								"label": "Acrobatics"
+							},
+							"28oBcjoZV0tkBz99": {
+								"type": "skillCheck",
+								"default": true,
+								"skill": "ath",
+								"ability": "str",
+								"label": "Athletics"
+							},
+							"GCl0ENOrW59G75gW": {
+								"type": "effect",
+								"default": true,
+								"effectId": "fdGrxwYscpSXp3KC"
+							}
+						},
+						"uses": {
+							"value": 0,
+							"max": "",
+							"per": "",
+							"recharge": {
+								"formula": "1d6",
+								"rechargeType": "custom",
+								"rechargeAmount": "1",
+								"threshold": 6
+							}
+						},
+						"target": {
+							"type": "creature",
+							"quantity": 1
+						}
+					}
+				},
+				"description": "<p>One creature within 5 feet makes a DC 13 Dexterity saving throw . On a failure, it is grappled (escape DC 17). Until this grapple ends, the giant can&rsquo;t grab another target, and it makes greatclub attacks with advantage &nbsp;against the grappled target.</p>",
+				"favorite": true,
+				"secretDescription": "",
+				"source": "",
+				"uses": {
+					"value": null,
+					"max": "",
+					"per": null,
+					"recharge": {
+						"formula": "1d6",
+						"threshold": "6"
+					}
+				},
+				"schema": {
+					"version": null,
+					"lastMigration": null
+				},
+				"concentration": false,
+				"featureType": "naturalWeapon",
+				"grants": {},
+				"prerequisite": "",
+				"requiresBloodied": false
+			},
+			"_id": "4Mdg9B4ltSFK66CA",
+			"img": "icons/svg/item-bag.svg",
+			"effects": [
+				{
+					"icon": "icons/svg/item-bag.svg",
+					"origin": "Actor.GV4TjudhNaTRz2Qs.Item.4Mdg9B4ltSFK66CA",
+					"flags": {
+						"a5e": {
+							"sort": 0,
+							"transferType": "onUse",
+							"actionId": "CmrkKHGwQ0IV3wPe"
+						}
+					},
+					"transfer": false,
+					"name": "Grappled",
+					"_id": "fdGrxwYscpSXp3KC",
+					"changes": [
+						{
+							"key": "flags.a5e.effects.statusConditions",
+							"value": "[\"grappled\"]",
+							"mode": 0,
+							"priority": null
+						}
+					],
+					"disabled": false,
+					"duration": {
+						"startTime": null,
+						"seconds": null,
+						"combat": null,
+						"rounds": null,
+						"turns": null,
+						"startRound": null,
+						"startTurn": null
+					},
+					"description": "",
+					"statuses": [
+						"grappled"
+					],
+					"folder": null
+				}
+			],
+			"folder": null,
+			"sort": 0,
+			"ownership": {
+				"default": 0
+			},
+			"flags": {}
+		},
+		{
+			"name": "Rock Catching",
+			"type": "feature",
+			"system": {
+				"ac": {
+					"baseFormula": "",
+					"formula": "",
+					"grantsDisadvantage": false,
+					"maxDex": 0,
+					"minStr": 0,
+					"mode": 2,
+					"requiresNoShield": false,
+					"requiresUnarmored": false
+				},
+				"actions": {
+					"ThHyuXCPIfpqBNmJ": {
+						"name": "Rock Catching",
+						"activation": {
+							"type": "reaction",
+							"cost": 1,
+							"reactionTrigger": "Rock or other Small or larger projectile is hurled or fired at the giant"
+						},
+						"consumers": {},
+						"rolls": {
+							"W1ZBACTB5Bkcc62N": {
+								"type": "savingThrow",
+								"default": true,
+								"ability": "dex"
+							}
+						},
+						"prompts": {},
+						"uses": {
+							"value": 0,
+							"max": "",
+							"per": "",
+							"recharge": {
+								"formula": "1d6",
+								"rechargeType": "custom",
+								"rechargeAmount": "1",
+								"threshold": 6
+							}
+						}
+					}
+				},
+				"description": "<p>If a rock or other Small or larger projectile is hurled or fired at the giant, the giant makes a DC 10 Dexterity saving throw . On a success, the giant catches the projectile, takes no bludgeoning or piercing damage from it, and is not pushed or knocked prone &nbsp;by it.</p>",
+				"favorite": true,
+				"secretDescription": "",
+				"source": "",
+				"uses": {
+					"value": null,
+					"max": "",
+					"per": null,
+					"recharge": {
+						"formula": "1d6",
+						"threshold": "6"
+					}
+				},
+				"schema": {
+					"version": null,
+					"lastMigration": null
+				},
+				"concentration": false,
+				"featureType": "other",
+				"grants": {},
+				"prerequisite": "",
+				"requiresBloodied": false
+			},
+			"_id": "INHsof8m6HdeASXG",
+			"img": "icons/svg/item-bag.svg",
+			"effects": [],
+			"folder": null,
+			"sort": 0,
+			"ownership": {
+				"default": 0
+			},
+			"flags": {}
 		}
 	],
 	"effects": [],
@@ -1410,5 +1994,5 @@
 			"sheetIsLocked": true
 		}
 	},
-	"_id": "cpe64lm8xq9a2c6k"
+	"_id": "9lj4rhy6o8qj1ykt"
 }

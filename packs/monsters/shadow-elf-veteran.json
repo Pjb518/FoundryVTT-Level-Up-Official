@@ -1,6 +1,6 @@
 {
 	"folder": null,
-	"name": "Hydrodaemon",
+	"name": "Shadow Elf Veteran",
 	"type": "npc",
 	"img": "icons/svg/mystery-man.svg",
 	"system": {
@@ -10,7 +10,7 @@
 		},
 		"abilities": {
 			"str": {
-				"value": 17,
+				"value": 16,
 				"check": {
 					"expertiseDice": 0,
 					"bonus": ""
@@ -22,7 +22,7 @@
 				}
 			},
 			"dex": {
-				"value": 14,
+				"value": 12,
 				"check": {
 					"expertiseDice": 0,
 					"bonus": ""
@@ -34,7 +34,7 @@
 				}
 			},
 			"con": {
-				"value": 18,
+				"value": 14,
 				"check": {
 					"expertiseDice": 0,
 					"bonus": ""
@@ -46,7 +46,7 @@
 				}
 			},
 			"int": {
-				"value": 9,
+				"value": 10,
 				"check": {
 					"expertiseDice": 0,
 					"bonus": ""
@@ -70,7 +70,7 @@
 				}
 			},
 			"cha": {
-				"value": 14,
+				"value": 10,
 				"check": {
 					"expertiseDice": 0,
 					"bonus": ""
@@ -84,7 +84,7 @@
 		},
 		"attributes": {
 			"ac": {
-				"baseFormula": "16",
+				"baseFormula": "10 + @dex.mod",
 				"value": 0
 			},
 			"death": {
@@ -92,8 +92,8 @@
 				"failure": 0
 			},
 			"hp": {
-				"value": 76,
-				"baseMax": 76,
+				"value": 58,
+				"baseMax": 58,
 				"temp": 0,
 				"bonus": 0
 			},
@@ -107,12 +107,12 @@
 					"total": 0
 				},
 				"d8": {
-					"current": 0,
-					"total": 0
+					"current": 9,
+					"total": 9
 				},
 				"d10": {
-					"current": 8,
-					"total": 8
+					"current": 0,
+					"total": 0
 				},
 				"d12": {
 					"current": 0,
@@ -138,11 +138,11 @@
 					"unit": "feet"
 				},
 				"fly": {
-					"distance": 40,
+					"distance": 0,
 					"unit": "feet"
 				},
 				"swim": {
-					"distance": 60,
+					"distance": 0,
 					"unit": "feet"
 				},
 				"walk": {
@@ -160,7 +160,7 @@
 					"otherwiseBlind": false
 				},
 				"darkvision": {
-					"distance": 60,
+					"distance": 120,
 					"unit": "feet"
 				},
 				"tremorsense": {
@@ -175,7 +175,7 @@
 			"inspiration": false,
 			"fatigue": 0,
 			"strife": 0,
-			"spellcasting": "int",
+			"spellcasting": "wis",
 			"casterLevel": 0
 		},
 		"bonuses": {
@@ -204,27 +204,26 @@
 		"details": {
 			"bio": "",
 			"creatureTypes": [
-				"fiend"
+				"humanoid"
 			],
 			"isSwarm": false,
-			"cr": 6,
+			"cr": 3,
 			"elite": false,
 			"notes": "",
 			"privateNotes": "",
 			"terrain": [
-				"hell",
-				"ruin",
-				"tomb"
+				"forest",
+				"theDreaming",
+				"underland"
 			]
 		},
 		"grants": {},
 		"proficiencies": {
 			"armor": [],
 			"languages": [
-				"abyssal",
 				"common",
-				"infernal",
-				"Telepathy (100 ft.)"
+				"elvish",
+				"undercommon"
 			],
 			"tools": [],
 			"weapons": []
@@ -377,9 +376,9 @@
 			},
 			"itm": {
 				"ability": "cha",
-				"proficient": false,
+				"proficient": true,
 				"specialties": [],
-				"expertiseDice": 0,
+				"expertiseDice": 1,
 				"minRoll": 1,
 				"bonuses": {
 					"check": "",
@@ -476,7 +475,7 @@
 			},
 			"ste": {
 				"ability": "dex",
-				"proficient": true,
+				"proficient": false,
 				"specialties": [],
 				"expertiseDice": 0,
 				"minRoll": 1,
@@ -487,7 +486,7 @@
 			},
 			"sur": {
 				"ability": "wis",
-				"proficient": false,
+				"proficient": true,
 				"specialties": [],
 				"expertiseDice": 0,
 				"minRoll": 1,
@@ -499,25 +498,11 @@
 		},
 		"source": "toSaveAKingdom",
 		"traits": {
-			"size": "lg",
-			"alignment": [
-				"evil"
-			],
-			"conditionImmunities": [
-				"poisoned"
-			],
-			"damageImmunities": [
-				"acid",
-				"necrotic",
-				"poison"
-			],
-			"damageResistances": [
-				"cold",
-				"fire",
-				"lightning",
-				"Non-Cold Iron Weapons",
-				"Non-Silvered Weapons"
-			],
+			"size": "med",
+			"alignment": [],
+			"conditionImmunities": [],
+			"damageImmunities": [],
+			"damageResistances": [],
 			"damageVulnerabilities": []
 		},
 		"spellResources": {
@@ -566,7 +551,7 @@
 		}
 	},
 	"prototypeToken": {
-		"name": "Hydrodaemon",
+		"name": "Shadow Elf Priest",
 		"displayName": 0,
 		"actorLink": false,
 		"appendNumber": false,
@@ -579,8 +564,8 @@
 			"offsetY": 0,
 			"rotation": 0
 		},
-		"width": 2,
-		"height": 2,
+		"width": 1,
+		"height": 1,
 		"lockRotation": false,
 		"rotation": 0,
 		"alpha": 1,
@@ -723,7 +708,7 @@
 				}
 			},
 			"folder": null,
-			"_id": "swb7o9gnT1rUL6jO",
+			"_id": "MfTjDPST4uUIyC4u",
 			"sort": 0,
 			"ownership": {
 				"default": 0
@@ -823,7 +808,7 @@
 				}
 			},
 			"folder": null,
-			"_id": "XxUIFbXnl3q1bqhk",
+			"_id": "s1hwzsMi8AmZasYd",
 			"sort": 0,
 			"ownership": {
 				"default": 0
@@ -923,7 +908,7 @@
 				}
 			},
 			"folder": null,
-			"_id": "5At9ruCAvmo1OsOM",
+			"_id": "pHfsjU88tSFllhiK",
 			"sort": 0,
 			"ownership": {
 				"default": 0
@@ -1023,7 +1008,7 @@
 				}
 			},
 			"folder": null,
-			"_id": "sDTeDFqFuheYkTMn",
+			"_id": "CcKoy41Z3PDCoIW6",
 			"sort": 0,
 			"ownership": {
 				"default": 0
@@ -1123,7 +1108,7 @@
 				}
 			},
 			"folder": null,
-			"_id": "OceiZlpyTY3AEWCr",
+			"_id": "MwSB19NATUGX48Zn",
 			"sort": 0,
 			"ownership": {
 				"default": 0
@@ -1223,14 +1208,14 @@
 				}
 			},
 			"folder": null,
-			"_id": "YGEA9n1rJxgZ06yw",
+			"_id": "evQ1cedxjpJckGTe",
 			"sort": 0,
 			"ownership": {
 				"default": 0
 			}
 		},
 		{
-			"name": "Evil",
+			"name": "Fey Ancestry",
 			"type": "feature",
 			"system": {
 				"ac": {
@@ -1244,7 +1229,7 @@
 					"requiresUnarmored": false
 				},
 				"actions": {},
-				"description": "<p>The hydrodaemon radiates an Evil aura.</p>",
+				"description": "<p>The warrior gains an expertise die on saving throws against being charmed , and magic can&rsquo;t put them to sleep.</p>",
 				"favorite": false,
 				"secretDescription": "",
 				"source": "",
@@ -1267,7 +1252,7 @@
 				"prerequisite": "",
 				"requiresBloodied": false
 			},
-			"_id": "0WiKOjytvNUsDfoK",
+			"_id": "yY3WyTYDU9UeRN4l",
 			"img": "icons/svg/item-bag.svg",
 			"effects": [],
 			"folder": null,
@@ -1278,7 +1263,7 @@
 			"flags": {}
 		},
 		{
-			"name": "Magic Resistance",
+			"name": "Shadow Elf Spellcasting",
 			"type": "feature",
 			"system": {
 				"ac": {
@@ -1292,7 +1277,7 @@
 					"requiresUnarmored": false
 				},
 				"actions": {},
-				"description": "<p>The hydrodaemon has advantage on saving throws against spells and other magical effects.</p>",
+				"description": "<p>The veteran&rsquo;s spellcasting ability is Wisdom (spell save DC 12). The veteran can innately cast the following spells, requiring no material components:</p>\n<p>At will: @UUID[Compendium.a5e.a5e-spells.Item.kh26gom04osoo005]{Dancing Lights}</p>\n<p>1/day each: @UUID[Compendium.a5e.a5e-spells.Item.0ou0qutr7p2bedg0]{Darkness}, @UUID[Compendium.a5e.a5e-spells.Item.z7r6plq6vyesck07]{Faerie Fire}</p>",
 				"favorite": false,
 				"secretDescription": "",
 				"source": "",
@@ -1315,7 +1300,7 @@
 				"prerequisite": "",
 				"requiresBloodied": false
 			},
-			"_id": "QTTLZY4lUos16UAG",
+			"_id": "ypqvxx3tnpetSIie",
 			"img": "icons/svg/item-bag.svg",
 			"effects": [],
 			"folder": null,
@@ -1324,6 +1309,334 @@
 				"default": 0
 			},
 			"flags": {}
+		},
+		{
+			"name": "Dancing Lights",
+			"type": "spell",
+			"img": "icons/magic/light/projectiles-trio-pink.webp",
+			"effects": [],
+			"flags": {
+				"core": {
+					"sourceId": "Compendium.a5e.a5e-spells.Item.kh26gom04osoo005"
+				}
+			},
+			"system": {
+				"actions": {
+					"ujamq8LIqiSNoAYw": {
+						"name": "Dancing Lights",
+						"activation": {
+							"cost": 1,
+							"type": "action",
+							"reactionTrigger": ""
+						},
+						"duration": {
+							"unit": "minute",
+							"value": "1"
+						},
+						"ranges": {
+							"vZh5NgxuSNZSsAbg": {
+								"range": "long"
+							}
+						},
+						"area": {
+							"shape": "",
+							"size": "",
+							"placeTemplate": false
+						},
+						"target": {
+							"quantity": "",
+							"type": "none"
+						},
+						"consumers": {}
+					}
+				},
+				"description": "<p>You create up to four hovering lights which appear as torches, lanterns, or glowing orbs that can be combined into a glowing Medium-sized humanoid form. Each sheds dim light in a 10-foot radius.</p><p>You can use a bonus action to move the lights up to 60 feet so long as each remains within 20 feet of another light created by this spell. A dancing light winks out when it exceeds the spell's range.</p>",
+				"favorite": false,
+				"secretDescription": "",
+				"source": "adventurersGuide",
+				"uses": {
+					"value": null,
+					"max": "",
+					"per": null,
+					"recharge": {
+						"formula": "",
+						"threshold": ""
+					}
+				},
+				"schema": {
+					"version": null,
+					"lastMigration": null
+				},
+				"classes": [
+					"artificer",
+					"bard",
+					"sorcerer",
+					"warlock",
+					"witch",
+					"wizard"
+				],
+				"components": {
+					"vocalized": true,
+					"seen": true,
+					"material": true
+				},
+				"concentration": true,
+				"level": 0,
+				"materials": "bit of phosphorus or wychwood, or a glowworm",
+				"materialsConsumed": false,
+				"prepared": false,
+				"prerequisite": "",
+				"rare": false,
+				"ritual": false,
+				"schools": {
+					"primary": "evocation",
+					"secondary": [
+						"arcane",
+						"utility"
+					]
+				},
+				"schemaVersion": {
+					"version": 0.013,
+					"lastMigration": {
+						"version": {
+							"schema": 0.011,
+							"foundry": "11.315",
+							"system": "0.16.49"
+						}
+					}
+				}
+			},
+			"folder": null,
+			"_id": "8eR5bgwVUr8wFAjJ",
+			"sort": 0,
+			"ownership": {
+				"default": 0
+			}
+		},
+		{
+			"name": "Darkness",
+			"type": "spell",
+			"img": "icons/magic/unholy/orb-glowing-purple.webp",
+			"effects": [],
+			"flags": {
+				"core": {
+					"sourceId": "Compendium.a5e.a5e-spells.Item.0ou0qutr7p2bedg0"
+				}
+			},
+			"system": {
+				"actions": {
+					"LQlQq3OIRpMOsCHF": {
+						"name": "Darkness",
+						"activation": {
+							"cost": 1,
+							"type": "action",
+							"reactionTrigger": ""
+						},
+						"duration": {
+							"unit": "minute",
+							"value": "10"
+						},
+						"ranges": {
+							"uEiVvrN8F3RQmpwF": {
+								"range": "medium"
+							}
+						},
+						"area": {
+							"shape": "sphere",
+							"radius": "15",
+							"placeTemplate": false
+						},
+						"target": {
+							"quantity": "",
+							"type": ""
+						},
+						"consumers": {
+							"KZEoovU6KGVQIbJ1": {
+								"type": "itemUses",
+								"default": true,
+								"quantity": 1
+							}
+						}
+					}
+				},
+				"description": "<p>Magical darkness heavily obscures darkvision and blocks nonmagical light in the area. The darkness spreads around corners. If any of the area overlaps with magical light created by a spell of 2nd-level or lower, the spell that created the light is dispelled.</p><p>When cast on an object that is in your possession or unattended, the darkness emanates from it and moves with it. Completely covering the object with something that is not transparent blocks the darkness.</p>",
+				"favorite": true,
+				"secretDescription": "",
+				"source": "adventurersGuide",
+				"uses": {
+					"value": 1,
+					"max": "1",
+					"per": "day",
+					"recharge": {
+						"formula": "",
+						"threshold": ""
+					}
+				},
+				"schema": {
+					"version": null,
+					"lastMigration": null
+				},
+				"classes": [
+					"sorcerer",
+					"warlock",
+					"witch",
+					"wizard"
+				],
+				"components": {
+					"vocalized": true,
+					"seen": false,
+					"material": true
+				},
+				"concentration": true,
+				"level": 2,
+				"materials": "bat fur and a drop of pitch or piece of coal",
+				"materialsConsumed": false,
+				"prepared": false,
+				"prerequisite": "",
+				"rare": false,
+				"ritual": false,
+				"schools": {
+					"primary": "evocation",
+					"secondary": [
+						"arcane",
+						"shadow"
+					]
+				},
+				"schemaVersion": {
+					"version": 0.013,
+					"lastMigration": {
+						"version": {
+							"schema": 0.011,
+							"foundry": "11.315",
+							"system": "0.16.49"
+						}
+					}
+				}
+			},
+			"folder": null,
+			"_id": "J3XXZsQDC2vV4ioF",
+			"sort": 0,
+			"ownership": {
+				"default": 0
+			}
+		},
+		{
+			"name": "Faerie Fire",
+			"type": "spell",
+			"img": "icons/magic/light/projectiles-pink-purple.webp",
+			"effects": [],
+			"flags": {
+				"core": {
+					"sourceId": "Compendium.a5e.a5e-spells.Item.z7r6plq6vyesck07"
+				}
+			},
+			"system": {
+				"actions": {
+					"csBA0B0VYc68le4M": {
+						"name": "Faerie Fire",
+						"activation": {
+							"cost": 1,
+							"type": "action",
+							"reactionTrigger": ""
+						},
+						"duration": {
+							"unit": "minute",
+							"value": "1"
+						},
+						"ranges": {
+							"mfLaFLmAAEW4pD4n": {
+								"range": "medium"
+							}
+						},
+						"area": {
+							"shape": "cube",
+							"width": 20,
+							"placeTemplate": true
+						},
+						"target": {
+							"quantity": "",
+							"type": ""
+						},
+						"prompts": {
+							"C95Yph6KdzvdTomm": {
+								"ability": "dex",
+								"onSave": "Special",
+								"saveDC": {
+									"type": "spellcasting",
+									"bonus": ""
+								},
+								"type": "savingThrow"
+							}
+						},
+						"consumers": {
+							"jSbKn4IbkimidTWI": {
+								"type": "itemUses",
+								"default": true,
+								"quantity": 1
+							}
+						}
+					}
+				},
+				"description": "<p>Each object in a 20-foot cube within range is outlined in light (your choice of color). Any creature in the area when the spell is cast is also outlined unless it makes a Dexterity saving throw. Until the spell ends, affected objects and creatures shed dim light in a 10-foot radius.</p><p>Any attack roll against an affected object or creature has advantage. The spell also negates the benefits of invisibility on affected creatures and objects.</p>",
+				"favorite": true,
+				"secretDescription": "",
+				"source": "adventurersGuide",
+				"uses": {
+					"value": 1,
+					"max": "1",
+					"per": "day",
+					"recharge": {
+						"formula": "",
+						"threshold": ""
+					}
+				},
+				"schema": {
+					"version": null,
+					"lastMigration": null
+				},
+				"classes": [
+					"bard",
+					"druid",
+					"elementalistFire",
+					"witch"
+				],
+				"components": {
+					"vocalized": true,
+					"seen": false,
+					"material": false
+				},
+				"concentration": true,
+				"level": 1,
+				"materials": "",
+				"materialsConsumed": false,
+				"prepared": false,
+				"prerequisite": "",
+				"rare": false,
+				"ritual": false,
+				"schools": {
+					"primary": "evocation",
+					"secondary": [
+						"arcane",
+						"utility"
+					]
+				},
+				"schemaVersion": {
+					"version": 0.013,
+					"lastMigration": {
+						"version": {
+							"schema": 0.011,
+							"foundry": "11.315",
+							"system": "0.16.49"
+						}
+					}
+				}
+			},
+			"folder": null,
+			"_id": "RgJFC9HQPvOEQPe2",
+			"sort": 0,
+			"ownership": {
+				"default": 0
+			}
 		},
 		{
 			"name": "Multiattack",
@@ -1340,7 +1653,7 @@
 					"requiresUnarmored": false
 				},
 				"actions": {
-					"GbfRLnH69RFma8an": {
+					"iwNHXxo3Bu94j31I": {
 						"name": "Multiattack",
 						"activation": {
 							"type": "action",
@@ -1362,7 +1675,7 @@
 						}
 					}
 				},
-				"description": "<p>The hydrodaemon makes one bite attack and two claw attacks.</p>",
+				"description": "<p>The veteran makes two melee attacks.</p>",
 				"favorite": true,
 				"secretDescription": "",
 				"source": "",
@@ -1385,7 +1698,7 @@
 				"prerequisite": "",
 				"requiresBloodied": false
 			},
-			"_id": "fTBiG1PkPMrYE6wD",
+			"_id": "3H56kHQ7jYHiQZ3B",
 			"img": "icons/svg/item-bag.svg",
 			"effects": [],
 			"folder": null,
@@ -1396,7 +1709,7 @@
 			"flags": {}
 		},
 		{
-			"name": "Bite",
+			"name": "Tactical Movement",
 			"type": "feature",
 			"system": {
 				"ac": {
@@ -1410,47 +1723,19 @@
 					"requiresUnarmored": false
 				},
 				"actions": {
-					"1eoPHMPqXLsnw7QW": {
-						"name": "Bite",
+					"9ObWMJ8X5uyJk2u1": {
+						"name": "Tactical Movement",
 						"activation": {
-							"type": "action",
+							"type": "bonusAction",
 							"cost": 1
 						},
 						"consumers": {},
-						"rolls": {
-							"L4kHl2Xeyrua6DmS": {
-								"type": "attack",
-								"default": true,
-								"attackType": "meleeWeaponAttack",
-								"proficient": true,
-								"ability": "str"
-							},
-							"m2po3p95HMvEYkD7": {
-								"type": "damage",
-								"default": true,
-								"label": "Magical Piercing",
-								"formula": "1d8 + @str.mod",
-								"damageType": "piercing"
-							}
-						},
+						"rolls": {},
 						"prompts": {
-							"IkBQO1w3SpBr9VUd": {
-								"type": "savingThrow",
-								"default": true,
-								"ability": "wis",
-								"saveDC": {
-									"type": "con"
-								}
-							},
-							"yleL0iYPGlbeN8Ep": {
+							"0SmHwlwpdu25vuc1": {
 								"type": "effect",
 								"default": true,
-								"effectId": "0m28H4Th0lzd2AB2"
-							},
-							"VEKZr1nYOljwjvJZ": {
-								"type": "effect",
-								"default": true,
-								"effectId": "WW37zywyBAupp4b7"
+								"effectId": "AL0HabkepzfvfTjM"
 							}
 						},
 						"uses": {
@@ -1463,19 +1748,10 @@
 								"rechargeAmount": "1",
 								"threshold": 6
 							}
-						},
-						"ranges": {
-							"q7sBBkaatmME74gp": {
-								"range": "fiveFeet"
-							}
-						},
-						"target": {
-							"type": "creatureObject",
-							"quantity": 1
 						}
 					}
 				},
-				"description": "<p>&nbsp;If the target is a creature, it makes a DC 15 Wisdom saving throw or falls unconscious for 1d4 rounds. The creature wakes up early if it either takes damage or someone uses an action to shake or slap it awake. Instead of dealing damage, the hydrodaemon can choose to grapple its target instead.</p>",
+				"description": "<p>Until the end of the veteran&rsquo;s turn, their Speed is halved and their movement doesn&rsquo;t provoke opportunity attacks.</p>",
 				"favorite": true,
 				"secretDescription": "",
 				"source": "",
@@ -1493,32 +1769,37 @@
 					"lastMigration": null
 				},
 				"concentration": false,
-				"featureType": "naturalWeapon",
+				"featureType": "other",
 				"grants": {},
 				"prerequisite": "",
 				"requiresBloodied": false
 			},
-			"_id": "41yrN8ndzquFHYfS",
+			"_id": "JkwbbU2bxHuuiLOe",
 			"img": "icons/svg/item-bag.svg",
 			"effects": [
 				{
 					"icon": "icons/svg/item-bag.svg",
-					"origin": "Actor.DCJzayG4kmks5ZhR.Item.41yrN8ndzquFHYfS",
+					"origin": "Actor.w6xgjRyWYYuk3trZ.Item.JkwbbU2bxHuuiLOe",
 					"flags": {
 						"a5e": {
 							"sort": 0,
 							"transferType": "onUse",
-							"actionId": "1eoPHMPqXLsnw7QW"
+							"actionId": "9ObWMJ8X5uyJk2u1",
+							"applyToSelf": true,
+							"duration": {
+								"type": "rounds",
+								"unit": "minutes"
+							}
 						}
 					},
 					"transfer": false,
-					"name": "Unconscious",
-					"_id": "0m28H4Th0lzd2AB2",
+					"name": "Tactical Movement",
+					"_id": "AL0HabkepzfvfTjM",
 					"changes": [
 						{
-							"key": "flags.a5e.effects.statusConditions",
-							"value": "[\"unconscious\"]",
-							"mode": 0,
+							"key": "system.attributes.movement.walk.distance",
+							"value": "0.5",
+							"mode": 1,
 							"priority": null
 						}
 					],
@@ -1528,51 +1809,12 @@
 						"seconds": null,
 						"combat": null,
 						"rounds": null,
-						"turns": null,
+						"turns": 1,
 						"startRound": null,
 						"startTurn": null
 					},
 					"description": "",
-					"statuses": [
-						"unconscious"
-					],
-					"folder": null
-				},
-				{
-					"icon": "icons/svg/item-bag.svg",
-					"origin": "Actor.DCJzayG4kmks5ZhR.Item.41yrN8ndzquFHYfS",
-					"flags": {
-						"a5e": {
-							"sort": 0,
-							"transferType": "onUse",
-							"actionId": "1eoPHMPqXLsnw7QW"
-						}
-					},
-					"transfer": false,
-					"name": "Grappled",
-					"_id": "WW37zywyBAupp4b7",
-					"changes": [
-						{
-							"key": "flags.a5e.effects.statusConditions",
-							"value": "[\"grappled\"]",
-							"mode": 0,
-							"priority": null
-						}
-					],
-					"disabled": false,
-					"duration": {
-						"startTime": null,
-						"seconds": null,
-						"combat": null,
-						"rounds": null,
-						"turns": null,
-						"startRound": null,
-						"startTurn": null
-					},
-					"description": "",
-					"statuses": [
-						"grappled"
-					],
+					"statuses": [],
 					"folder": null
 				}
 			],
@@ -1584,7 +1826,7 @@
 			"flags": {}
 		},
 		{
-			"name": "Claw",
+			"name": "Painful Counter",
 			"type": "feature",
 			"system": {
 				"ac": {
@@ -1598,27 +1840,28 @@
 					"requiresUnarmored": false
 				},
 				"actions": {
-					"qIbwFpekcWq0w06p": {
-						"name": "Claw",
+					"9CX0OQIiBldbB4Ju": {
+						"name": "Shortsword",
 						"activation": {
-							"type": "action",
-							"cost": 1
+							"cost": 1,
+							"type": "reaction",
+							"reactionTrigger": "Hit by a melee attack by an attacker they can see within 5 feet"
 						},
 						"consumers": {},
 						"rolls": {
-							"QPmsvvMr6slP1pty": {
+							"P7UeMDVPmv9D9fqE": {
+								"bonus": "",
+								"critThreshold": "20",
 								"type": "attack",
-								"default": true,
 								"attackType": "meleeWeaponAttack",
-								"proficient": true,
-								"ability": "str"
+								"ability": "default"
 							},
-							"ZupEJSx14MLwGimo": {
-								"type": "damage",
-								"default": true,
-								"formula": "1d6 + @str.mod",
+							"HUbaIlANmQsN4fYO": {
+								"canCrit": true,
 								"damageType": "slashing",
-								"label": "Magical Slashing"
+								"formula": "1d6 + @finesse.mod",
+								"name": "Shortsword",
+								"type": "damage"
 							}
 						},
 						"prompts": {},
@@ -1633,19 +1876,24 @@
 								"threshold": 6
 							}
 						},
-						"ranges": {
-							"kmduDclCwDQGdhGi": {
-								"range": 10,
-								"unit": "feet"
-							}
+						"duration": {
+							"unit": "",
+							"value": ""
+						},
+						"area": {
+							"shape": "",
+							"size": "",
+							"placeTemplate": false,
+							"quantity": 1
 						},
 						"target": {
-							"type": "creatureObject",
-							"quantity": 1
-						}
+							"quantity": 1,
+							"type": "creatureObject"
+						},
+						"img": "icons/weapons/swords/shortsword-guard-brass.webp"
 					}
 				},
-				"description": "",
+				"description": "<p>When the veteran is hit by a melee attack by an attacker they can see within 5 feet, the veteran makes a shortsword attack against the attacker.</p>",
 				"favorite": true,
 				"secretDescription": "",
 				"source": "",
@@ -1663,141 +1911,36 @@
 					"lastMigration": null
 				},
 				"concentration": false,
-				"featureType": "naturalWeapon",
+				"featureType": "other",
 				"grants": {},
 				"prerequisite": "",
 				"requiresBloodied": false
 			},
-			"_id": "kbnJVnmsFjqYfPzW",
-			"img": "icons/svg/item-bag.svg",
-			"effects": [],
-			"folder": null,
-			"sort": 0,
-			"ownership": {
-				"default": 0
-			},
-			"flags": {}
-		},
-		{
-			"name": "Swallow",
-			"type": "feature",
-			"system": {
-				"ac": {
-					"baseFormula": "",
-					"formula": "",
-					"grantsDisadvantage": false,
-					"maxDex": 0,
-					"minStr": 0,
-					"mode": 2,
-					"requiresNoShield": false,
-					"requiresUnarmored": false
-				},
-				"actions": {
-					"GtEJojbMsvIOlkvo": {
-						"name": "Bite",
-						"activation": {
-							"type": "action",
-							"cost": 1
-						},
-						"consumers": {},
-						"rolls": {
-							"L4kHl2Xeyrua6DmS": {
-								"type": "attack",
-								"default": true,
-								"attackType": "meleeWeaponAttack",
-								"proficient": true,
-								"ability": "str"
-							},
-							"m2po3p95HMvEYkD7": {
-								"type": "damage",
-								"default": true,
-								"label": "Magical Piercing",
-								"formula": "1d8 + @str.mod",
-								"damageType": "piercing"
-							}
-						},
-						"prompts": {
-							"IkBQO1w3SpBr9VUd": {
-								"type": "savingThrow",
-								"default": true,
-								"ability": "wis",
-								"saveDC": {
-									"type": "con"
-								}
-							},
-							"SBuXD5O9V8P3wNVS": {
-								"type": "effect",
-								"default": true,
-								"effectId": "tIDRy2wPCycBJsWd"
-							}
-						},
-						"uses": {
-							"value": 0,
-							"max": "",
-							"per": "",
-							"recharge": {
-								"formula": "1d6",
-								"rechargeType": "custom",
-								"rechargeAmount": "1",
-								"threshold": 6
-							}
-						},
-						"ranges": {
-							"q7sBBkaatmME74gp": {
-								"range": "fiveFeet"
-							}
-						},
-						"target": {
-							"type": "creatureObject",
-							"quantity": 1
-						},
-						"img": "icons/svg/item-bag.svg"
-					}
-				},
-				"description": "<p>The hydrodaemon makes a bite attack against a Medium or smaller creature it is grappling. If the attack hits and the hydrodaemon has not swallowed another creature, the target is swallowed and the grapple ends. A swallowed creature has total cover from attacks from outside the hydrodaemon, it is blinded and restrained , and it makes a DC 15 Wisdom saving throw at the beginning of each of the hydrodaemon&rsquo;s turns or it falls unconscious for 1d4 rounds. If the hydrodaemon dies, the target is no longer swallowed.</p>",
-				"favorite": true,
-				"secretDescription": "",
-				"source": "",
-				"uses": {
-					"value": null,
-					"max": "",
-					"per": null,
-					"recharge": {
-						"formula": "1d6",
-						"threshold": "6"
-					}
-				},
-				"schema": {
-					"version": null,
-					"lastMigration": null
-				},
-				"concentration": false,
-				"featureType": "naturalWeapon",
-				"grants": {},
-				"prerequisite": "",
-				"requiresBloodied": false
-			},
-			"_id": "syGI2O5b5eJxUvyx",
+			"_id": "7FAzXKrX0Wi7XYW9",
 			"img": "icons/svg/item-bag.svg",
 			"effects": [
 				{
-					"icon": "icons/svg/item-bag.svg",
-					"origin": "Actor.DCJzayG4kmks5ZhR.Item.syGI2O5b5eJxUvyx",
+					"icon": "icons/weapons/swords/shortsword-guard-brass.webp",
+					"origin": "Actor.w6xgjRyWYYuk3trZ.Item.mLjODekVwOd2U57H",
 					"flags": {
 						"a5e": {
 							"sort": 0,
 							"transferType": "onUse",
-							"actionId": "GtEJojbMsvIOlkvo"
+							"actionId": "LfiU8RBp5laBi6jt",
+							"duration": {
+								"type": "rounds",
+								"unit": "minutes"
+							}
 						}
 					},
 					"transfer": false,
-					"name": "Swallowed",
-					"_id": "tIDRy2wPCycBJsWd",
+					"name": "AC +1",
+					"_id": "hUqkTM4PCITzaV07",
 					"changes": [
 						{
-							"key": "flags.a5e.effects.statusConditions",
-							"value": "[\"blinded\",\"restrained\"]",
-							"mode": 0,
+							"key": "system.attributes.ac.changes.bonuses.value",
+							"value": "1",
+							"mode": 2,
 							"priority": null
 						}
 					],
@@ -1807,15 +1950,53 @@
 						"seconds": null,
 						"combat": null,
 						"rounds": null,
-						"turns": null,
+						"turns": 1,
 						"startRound": null,
 						"startTurn": null
 					},
 					"description": "",
-					"statuses": [
-						"blinded",
-						"restrained"
+					"statuses": [],
+					"tint": "#ffffff",
+					"folder": null
+				},
+				{
+					"icon": "icons/weapons/swords/shortsword-guard-brass.webp",
+					"origin": "Actor.HF1TKWXUCFYdIotp.Item.gyU7seYIcV9McLdt",
+					"flags": {
+						"a5e": {
+							"sort": 0,
+							"transferType": "onUse",
+							"actionId": "LfiU8RBp5laBi6jt",
+							"duration": {
+								"type": "rounds",
+								"unit": "minutes"
+							}
+						}
+					},
+					"transfer": false,
+					"name": "AC +1",
+					"_id": "N7WWJrFL3o5dyXjI",
+					"changes": [
+						{
+							"key": "system.attributes.ac.changes.bonuses.value",
+							"value": "1",
+							"mode": 2,
+							"priority": null
+						}
 					],
+					"disabled": false,
+					"duration": {
+						"startTime": null,
+						"seconds": null,
+						"combat": null,
+						"rounds": null,
+						"turns": 1,
+						"startRound": null,
+						"startTurn": null
+					},
+					"description": "",
+					"statuses": [],
+					"tint": "#ffffff",
 					"folder": null
 				}
 			],
@@ -1827,80 +2008,25 @@
 			"flags": {}
 		},
 		{
-			"name": "Sleep Spittle",
-			"type": "feature",
+			"name": "Hauberk (Steel)",
+			"type": "object",
+			"img": "icons/commodities/metal/mail-chain-steel.webp",
+			"effects": [],
+			"flags": {},
 			"system": {
 				"ac": {
-					"baseFormula": "",
+					"baseFormula": "16",
 					"formula": "",
 					"grantsDisadvantage": false,
 					"maxDex": 0,
-					"minStr": 0,
+					"minStr": 13,
 					"mode": 2,
 					"requiresNoShield": false,
 					"requiresUnarmored": false
 				},
-				"actions": {
-					"KKoqV28kgDYEAJMO": {
-						"name": "Sleep Spittle",
-						"activation": {
-							"type": "action",
-							"cost": 1
-						},
-						"consumers": {},
-						"rolls": {
-							"TQMACCrcQcVEM0x9": {
-								"type": "attack",
-								"default": true,
-								"attackType": "rangedWeaponAttack",
-								"proficient": true,
-								"ability": "dex"
-							}
-						},
-						"prompts": {
-							"KyY49zc3pm0wjzAa": {
-								"type": "savingThrow",
-								"default": true,
-								"ability": "wis",
-								"saveDC": {
-									"type": "con"
-								}
-							},
-							"iTeiBQBbc4mCyxOZ": {
-								"type": "effect",
-								"default": true,
-								"effectId": "3dgU2CVpqIxmKOlO"
-							}
-						},
-						"uses": {
-							"value": 0,
-							"max": "",
-							"per": "",
-							"recharge": {
-								"formula": "1d6",
-								"rechargeType": "custom",
-								"rechargeAmount": "1",
-								"threshold": 6
-							}
-						},
-						"ranges": {
-							"MRpFnOSszGRE1XhP": {
-								"range": 20,
-								"unit": "feet"
-							},
-							"D2ec2BuH1fFiiauA": {
-								"range": 40,
-								"unit": "feet"
-							}
-						},
-						"target": {
-							"type": "creature",
-							"quantity": 1
-						}
-					}
-				},
-				"description": "<p>The creature makes a DC 15 Wisdom saving throw or falls unconscious for 1d4 rounds. The creature wakes up early if it either takes damage or someone uses an action to shake or slap it awake.</p>",
-				"favorite": true,
+				"actions": {},
+				"description": "",
+				"favorite": false,
 				"secretDescription": "",
 				"source": "",
 				"uses": {
@@ -1909,40 +2035,85 @@
 					"per": null,
 					"recharge": {
 						"formula": "1d6",
-						"threshold": "6"
+						"threshold": 6
 					}
 				},
 				"schema": {
 					"version": null,
 					"lastMigration": null
 				},
-				"concentration": false,
-				"featureType": "naturalWeapon",
-				"grants": {},
-				"prerequisite": "",
-				"requiresBloodied": false
+				"ammunitionProperties": [],
+				"armorCategory": "heavy",
+				"armorProperties": [],
+				"attuned": false,
+				"bulky": false,
+				"craftingComponents": "",
+				"containerId": "",
+				"damagedState": 0,
+				"equippedState": 2,
+				"items": {},
+				"materialProperties": [
+					"lowMaintenance"
+				],
+				"objectType": "armor",
+				"plotItem": false,
+				"price": "150 gp",
+				"proficient": true,
+				"quantity": 1,
+				"rarity": "mundane",
+				"requiresAttunement": false,
+				"shieldCategory": "",
+				"shieldProperties": [],
+				"unidentified": false,
+				"unidentifiedDescription": "",
+				"unidentifiedName": "",
+				"weaponProperties": [],
+				"weight": 20,
+				"schemaVersion": {
+					"version": 0.013,
+					"lastMigration": {
+						"version": {
+							"schema": 0.011,
+							"foundry": "11.315",
+							"system": "0.16.49"
+						}
+					}
+				}
 			},
-			"_id": "uDcAqPBYu8TK80Yp",
-			"img": "icons/svg/item-bag.svg",
+			"folder": null,
+			"_id": "IGQy2eESiQHtHywd",
+			"sort": 0,
+			"ownership": {
+				"default": 0
+			}
+		},
+		{
+			"name": "Longsword",
+			"type": "object",
+			"img": "icons/weapons/swords/greatsword-blue.webp",
 			"effects": [
 				{
-					"icon": "icons/svg/item-bag.svg",
-					"origin": "Actor.DCJzayG4kmks5ZhR.Item.uDcAqPBYu8TK80Yp",
+					"icon": "icons/weapons/swords/greatsword-blue.webp",
+					"origin": "Actor.HF1TKWXUCFYdIotp.Item.citcwEdF2oVsnsF7",
 					"flags": {
 						"a5e": {
 							"sort": 0,
 							"transferType": "onUse",
-							"actionId": "KKoqV28kgDYEAJMO"
+							"actionId": "v3bptQ9yjfEMnfwo",
+							"duration": {
+								"type": "rounds",
+								"unit": "minutes"
+							}
 						}
 					},
 					"transfer": false,
-					"name": "Unconscious",
-					"_id": "3dgU2CVpqIxmKOlO",
+					"name": "AC +1",
+					"_id": "Llj5xb79gCEj7iz8",
 					"changes": [
 						{
-							"key": "flags.a5e.effects.statusConditions",
-							"value": "[\"unconscious\"]",
-							"mode": 0,
+							"key": "system.attributes.ac.changes.bonuses.value",
+							"value": "1",
+							"mode": 2,
 							"priority": null
 						}
 					],
@@ -1952,30 +2123,570 @@
 						"seconds": null,
 						"combat": null,
 						"rounds": null,
+						"turns": 1,
+						"startRound": null,
+						"startTurn": null
+					},
+					"description": "",
+					"statuses": [],
+					"tint": "#ffffff",
+					"folder": null
+				}
+			],
+			"flags": {},
+			"system": {
+				"ac": {
+					"baseFormula": "",
+					"formula": "",
+					"grantsDisadvantage": false,
+					"maxDex": 0,
+					"minStr": 0,
+					"mode": 1,
+					"requiresNoShield": false,
+					"requiresUnarmored": false
+				},
+				"actions": {
+					"rPaMSExLpHCaYkH9": {
+						"name": "Longsword",
+						"activation": {
+							"cost": "",
+							"type": "",
+							"reactionTrigger": ""
+						},
+						"duration": {
+							"unit": "",
+							"value": ""
+						},
+						"area": {
+							"shape": "",
+							"size": "",
+							"placeTemplate": false,
+							"quantity": 1
+						},
+						"target": {
+							"quantity": 1,
+							"type": "creatureObject"
+						},
+						"rolls": {
+							"UEwQqL1vKVE291PA": {
+								"bonus": "",
+								"critThreshold": "20",
+								"type": "attack",
+								"attackType": "meleeWeaponAttack",
+								"ability": "default"
+							},
+							"x4uy5CMwLzIKdqmH": {
+								"canCrit": true,
+								"damageType": "slashing",
+								"formula": "1d8 + @str.mod",
+								"name": "Longsword",
+								"type": "damage"
+							}
+						},
+						"consumers": {}
+					}
+				},
+				"description": "<p><em>Defensive (Medium)</em></p>",
+				"favorite": true,
+				"secretDescription": "",
+				"source": "",
+				"uses": {
+					"value": null,
+					"max": "",
+					"per": null,
+					"recharge": {
+						"formula": "1d6",
+						"threshold": 6
+					}
+				},
+				"schema": {
+					"version": null,
+					"lastMigration": null
+				},
+				"ammunitionProperties": [],
+				"armorCategory": "",
+				"armorProperties": [],
+				"attuned": false,
+				"bulky": false,
+				"craftingComponents": "",
+				"containerId": "",
+				"damagedState": 0,
+				"equippedState": 0,
+				"items": {},
+				"materialProperties": [],
+				"objectType": "weapon",
+				"plotItem": false,
+				"price": "20 gp",
+				"proficient": true,
+				"quantity": 1,
+				"rarity": "mundane",
+				"requiresAttunement": false,
+				"shieldCategory": "",
+				"shieldProperties": [],
+				"unidentified": false,
+				"unidentifiedDescription": "",
+				"unidentifiedName": "",
+				"weaponProperties": [
+					"defensive"
+				],
+				"weight": 3,
+				"schemaVersion": {
+					"version": 0.013,
+					"lastMigration": {
+						"version": {
+							"schema": 0.011,
+							"foundry": "11.315",
+							"system": "0.16.49"
+						}
+					}
+				}
+			},
+			"folder": null,
+			"_id": "citcwEdF2oVsnsF7",
+			"sort": 0,
+			"ownership": {
+				"default": 0
+			}
+		},
+		{
+			"name": "Shortsword",
+			"type": "object",
+			"img": "icons/weapons/swords/shortsword-guard-brass.webp",
+			"effects": [
+				{
+					"icon": "icons/weapons/swords/shortsword-guard-brass.webp",
+					"origin": "Actor.HF1TKWXUCFYdIotp.Item.gyU7seYIcV9McLdt",
+					"flags": {
+						"a5e": {
+							"sort": 0,
+							"transferType": "onUse",
+							"actionId": "LfiU8RBp5laBi6jt",
+							"duration": {
+								"type": "rounds",
+								"unit": "minutes"
+							}
+						}
+					},
+					"transfer": false,
+					"name": "AC +1",
+					"_id": "o3RplnB3d2bgc5Cs",
+					"changes": [
+						{
+							"key": "system.attributes.ac.changes.bonuses.value",
+							"value": "1",
+							"mode": 2,
+							"priority": null
+						}
+					],
+					"disabled": false,
+					"duration": {
+						"startTime": null,
+						"seconds": null,
+						"combat": null,
+						"rounds": null,
+						"turns": 1,
+						"startRound": null,
+						"startTurn": null
+					},
+					"description": "",
+					"statuses": [],
+					"tint": "#ffffff",
+					"folder": null
+				}
+			],
+			"flags": {
+				"core": {
+					"sheetClass": "a5e.ItemSheet5e"
+				}
+			},
+			"system": {
+				"ac": {
+					"baseFormula": "",
+					"formula": "",
+					"grantsDisadvantage": false,
+					"maxDex": 0,
+					"minStr": 0,
+					"mode": 1,
+					"requiresNoShield": false,
+					"requiresUnarmored": false
+				},
+				"actions": {
+					"s8ufuOSoG0jsuNjg": {
+						"name": "Shortsword",
+						"activation": {
+							"cost": "",
+							"type": "",
+							"reactionTrigger": ""
+						},
+						"duration": {
+							"unit": "",
+							"value": ""
+						},
+						"area": {
+							"shape": "",
+							"size": "",
+							"placeTemplate": false,
+							"quantity": 1
+						},
+						"target": {
+							"quantity": 1,
+							"type": "creatureObject"
+						},
+						"rolls": {
+							"P7UeMDVPmv9D9fqE": {
+								"bonus": "",
+								"critThreshold": "20",
+								"type": "attack",
+								"attackType": "meleeWeaponAttack",
+								"ability": "default"
+							},
+							"HUbaIlANmQsN4fYO": {
+								"canCrit": true,
+								"damageType": "slashing",
+								"formula": "1d6 + @finesse.mod",
+								"name": "Shortsword",
+								"type": "damage"
+							}
+						},
+						"consumers": {}
+					},
+					"vQTQD7tzjEVIJLR0": {
+						"name": "Parry",
+						"activation": {},
+						"consumers": {},
+						"rolls": {
+							"tmuyLFz7KQutuiOG": {
+								"type": "generic",
+								"default": true,
+								"label": "Armor Class",
+								"formula": "1d4"
+							}
+						},
+						"prompts": {},
+						"uses": {
+							"value": 0,
+							"max": "",
+							"per": "",
+							"recharge": {
+								"formula": "1d6",
+								"threshold": 6
+							}
+						},
+						"img": "icons/weapons/swords/shortsword-guard-brass.webp"
+					}
+				},
+				"description": "<p><em>Defensive (Medium), Finesse, Parrying</em></p>",
+				"favorite": true,
+				"secretDescription": "",
+				"source": "",
+				"uses": {
+					"value": null,
+					"max": "",
+					"per": null,
+					"recharge": {
+						"formula": "1d6",
+						"threshold": 6
+					}
+				},
+				"schema": {
+					"version": null,
+					"lastMigration": null
+				},
+				"ammunitionProperties": [],
+				"armorCategory": "",
+				"armorProperties": [],
+				"attuned": false,
+				"bulky": false,
+				"craftingComponents": "",
+				"containerId": "",
+				"damagedState": 0,
+				"equippedState": 0,
+				"items": {},
+				"materialProperties": [],
+				"objectType": "weapon",
+				"plotItem": false,
+				"price": "10 gp",
+				"proficient": true,
+				"quantity": 1,
+				"rarity": "mundane",
+				"requiresAttunement": false,
+				"shieldCategory": "",
+				"shieldProperties": [],
+				"unidentified": false,
+				"unidentifiedDescription": "",
+				"unidentifiedName": "",
+				"weaponProperties": [
+					"defensive",
+					"parrying",
+					"finesse"
+				],
+				"weight": 2,
+				"schemaVersion": {
+					"version": 0.013,
+					"lastMigration": {
+						"version": {
+							"schema": 0.011,
+							"foundry": "11.315",
+							"system": "0.16.49"
+						}
+					}
+				}
+			},
+			"folder": null,
+			"_id": "gyU7seYIcV9McLdt",
+			"sort": 0,
+			"ownership": {
+				"default": 0
+			}
+		},
+		{
+			"name": "Crossbow, Heavy",
+			"type": "object",
+			"img": "icons/weapons/crossbows/crossbow-purple.webp",
+			"effects": [
+				{
+					"icon": "icons/weapons/crossbows/crossbow-purple.webp",
+					"origin": "Actor.HF1TKWXUCFYdIotp.Item.PfMKYiR2gSv9NJy8",
+					"flags": {
+						"a5e": {
+							"sort": 0,
+							"transferType": "onUse",
+							"actionId": "GfTlpAtnUyY1S9L0",
+							"duration": {
+								"unit": "hours"
+							}
+						}
+					},
+					"transfer": false,
+					"name": "Poisoned",
+					"_id": "qLamNqHUIH8vxh99",
+					"changes": [
+						{
+							"key": "flags.a5e.effects.statusConditions",
+							"value": "[\"poisoned\"]",
+							"mode": 0,
+							"priority": null
+						}
+					],
+					"disabled": false,
+					"duration": {
+						"startTime": null,
+						"seconds": 3600,
+						"combat": null,
+						"rounds": null,
 						"turns": null,
 						"startRound": null,
 						"startTurn": null
 					},
 					"description": "",
 					"statuses": [
+						"poisoned"
+					],
+					"folder": null
+				},
+				{
+					"icon": "icons/weapons/crossbows/crossbow-purple.webp",
+					"origin": "Actor.HF1TKWXUCFYdIotp.Item.PfMKYiR2gSv9NJy8",
+					"flags": {
+						"a5e": {
+							"sort": 0,
+							"transferType": "onUse",
+							"actionId": "GfTlpAtnUyY1S9L0",
+							"duration": {
+								"unit": "hours"
+							}
+						}
+					},
+					"transfer": false,
+					"name": "Unconscious",
+					"_id": "cYdxa7ejEPZjppjq",
+					"changes": [
+						{
+							"key": "flags.a5e.effects.statusConditions",
+							"value": "[\"poisoned\",\"unconscious\"]",
+							"mode": 0,
+							"priority": null
+						}
+					],
+					"disabled": false,
+					"duration": {
+						"startTime": null,
+						"seconds": 3600,
+						"combat": null,
+						"rounds": null,
+						"turns": null,
+						"startRound": null,
+						"startTurn": null
+					},
+					"description": "",
+					"statuses": [
+						"poisoned",
 						"unconscious"
 					],
 					"folder": null
 				}
 			],
+			"flags": {},
+			"system": {
+				"ac": {
+					"baseFormula": "",
+					"formula": "",
+					"grantsDisadvantage": false,
+					"maxDex": 0,
+					"minStr": 0,
+					"mode": 1,
+					"requiresNoShield": false,
+					"requiresUnarmored": false
+				},
+				"actions": {
+					"GfTlpAtnUyY1S9L0": {
+						"name": "Crossbow, Heavy",
+						"activation": {
+							"cost": "",
+							"type": "",
+							"reactionTrigger": ""
+						},
+						"duration": {
+							"unit": "",
+							"value": ""
+						},
+						"ranges": {
+							"qEoUcVTDwAmQ7Trl": {
+								"range": 100,
+								"unit": "feet"
+							},
+							"7diZnHnjptqLNB28": {
+								"range": 400,
+								"unit": "feet"
+							}
+						},
+						"area": {
+							"shape": "",
+							"size": "",
+							"placeTemplate": false
+						},
+						"target": {
+							"quantity": 1,
+							"type": "creatureObject"
+						},
+						"rolls": {
+							"GyU7GAwsQEJD8IVT": {
+								"bonus": "",
+								"critThreshold": "20",
+								"type": "attack",
+								"attackType": "rangedWeaponAttack",
+								"ability": "default"
+							},
+							"FWyIAPUgYs55WOFX": {
+								"canCrit": true,
+								"damageType": "piercing",
+								"formula": "1d10 + @dex.mod",
+								"name": "Heavy Crossbow",
+								"type": "damage"
+							}
+						},
+						"consumers": {
+							"glHpftrkCMz5Csdd": {
+								"itemid": "",
+								"quantity": 1,
+								"type": "ammunition"
+							}
+						},
+						"prompts": {
+							"kRiEiIosSgZDUNio": {
+								"type": "savingThrow",
+								"default": true,
+								"ability": "con",
+								"saveDC": {
+									"type": "maneuver"
+								}
+							},
+							"sVxYNYmxDuhWswL6": {
+								"type": "effect",
+								"default": true,
+								"effectId": "qLamNqHUIH8vxh99"
+							},
+							"qc2Y1z8iW8jOINZF": {
+								"type": "effect",
+								"default": true,
+								"effectId": "cYdxa7ejEPZjppjq"
+							}
+						}
+					}
+				},
+				"description": "<p><em>Heavy, Loading, Range (100/400), Simple, Two-Handed</em></p>\n<p>If the target is a creature, it makes a DC 13 Constitution saving throw . On a failure, the target is poisoned for 1 hour. If it fails the saving throw by 5 or more, it falls unconscious until it is no longer poisoned, it takes damage, or a creature takes an action to shake it awake.</p>",
+				"favorite": true,
+				"secretDescription": "",
+				"source": "",
+				"uses": {
+					"value": null,
+					"max": "",
+					"per": null,
+					"recharge": {
+						"formula": "1d6",
+						"threshold": 6
+					}
+				},
+				"schema": {
+					"version": null,
+					"lastMigration": null
+				},
+				"ammunitionProperties": [],
+				"armorCategory": "",
+				"armorProperties": [],
+				"attuned": false,
+				"bulky": false,
+				"craftingComponents": "",
+				"containerId": "",
+				"damagedState": 0,
+				"equippedState": 0,
+				"items": {},
+				"materialProperties": [],
+				"objectType": "weapon",
+				"plotItem": false,
+				"price": "100 gp",
+				"proficient": true,
+				"quantity": 1,
+				"rarity": "mundane",
+				"requiresAttunement": false,
+				"shieldCategory": "",
+				"shieldProperties": [],
+				"unidentified": false,
+				"unidentifiedDescription": "",
+				"unidentifiedName": "",
+				"weaponProperties": [
+					"heavy",
+					"loading",
+					"range",
+					"simple",
+					"twoHanded"
+				],
+				"weight": 15,
+				"schemaVersion": {
+					"version": 0.013,
+					"lastMigration": {
+						"version": {
+							"schema": 0.011,
+							"foundry": "11.315",
+							"system": "0.16.49"
+						}
+					}
+				}
+			},
 			"folder": null,
+			"_id": "PfMKYiR2gSv9NJy8",
 			"sort": 0,
 			"ownership": {
 				"default": 0
-			},
-			"flags": {}
+			}
 		}
 	],
 	"effects": [],
 	"flags": {
 		"a5e": {
-			"sheetIsLocked": true
+			"sheetIsLocked": true,
+			"showSpellSlots": false
 		}
 	},
-	"_id": "mbm5cgss7bs96aml"
+	"_id": "0vu6aj4tg1ibcahl"
 }

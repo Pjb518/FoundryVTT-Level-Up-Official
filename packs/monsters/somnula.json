@@ -1,6 +1,6 @@
 {
 	"folder": null,
-	"name": "Laskian Sled Dog",
+	"name": "Somnula",
 	"type": "npc",
 	"img": "icons/svg/mystery-man.svg",
 	"system": {
@@ -10,7 +10,7 @@
 		},
 		"abilities": {
 			"str": {
-				"value": 12,
+				"value": 19,
 				"check": {
 					"expertiseDice": 0,
 					"bonus": ""
@@ -28,25 +28,25 @@
 					"bonus": ""
 				},
 				"save": {
-					"proficient": false,
+					"proficient": true,
 					"expertiseDice": 0,
 					"bonus": ""
 				}
 			},
 			"con": {
-				"value": 10,
+				"value": 19,
 				"check": {
 					"expertiseDice": 0,
 					"bonus": ""
 				},
 				"save": {
-					"proficient": false,
+					"proficient": true,
 					"expertiseDice": 0,
 					"bonus": ""
 				}
 			},
 			"int": {
-				"value": 3,
+				"value": 14,
 				"check": {
 					"expertiseDice": 0,
 					"bonus": ""
@@ -58,19 +58,19 @@
 				}
 			},
 			"wis": {
-				"value": 12,
+				"value": 14,
 				"check": {
 					"expertiseDice": 0,
 					"bonus": ""
 				},
 				"save": {
-					"proficient": false,
+					"proficient": true,
 					"expertiseDice": 0,
 					"bonus": ""
 				}
 			},
 			"cha": {
-				"value": 6,
+				"value": 15,
 				"check": {
 					"expertiseDice": 0,
 					"bonus": ""
@@ -84,7 +84,7 @@
 		},
 		"attributes": {
 			"ac": {
-				"baseFormula": "10 + @dex.mod",
+				"baseFormula": "16",
 				"value": 0
 			},
 			"death": {
@@ -92,8 +92,8 @@
 				"failure": 0
 			},
 			"hp": {
-				"value": 9,
-				"baseMax": 9,
+				"value": 57,
+				"baseMax": 57,
 				"temp": 0,
 				"bonus": 0
 			},
@@ -107,12 +107,12 @@
 					"total": 0
 				},
 				"d8": {
-					"current": 2,
-					"total": 2
-				},
-				"d10": {
 					"current": 0,
 					"total": 0
+				},
+				"d10": {
+					"current": 6,
+					"total": 6
 				},
 				"d12": {
 					"current": 0,
@@ -138,7 +138,7 @@
 					"unit": "feet"
 				},
 				"fly": {
-					"distance": 0,
+					"distance": 40,
 					"unit": "feet"
 				},
 				"swim": {
@@ -146,7 +146,7 @@
 					"unit": "feet"
 				},
 				"walk": {
-					"distance": 40,
+					"distance": 30,
 					"unit": "feet"
 				},
 				"traits": {
@@ -160,7 +160,7 @@
 					"otherwiseBlind": false
 				},
 				"darkvision": {
-					"distance": 0,
+					"distance": 120,
 					"unit": "feet"
 				},
 				"tremorsense": {
@@ -204,21 +204,26 @@
 		"details": {
 			"bio": "",
 			"creatureTypes": [
-				"beast"
+				"fiend"
 			],
 			"isSwarm": false,
-			"cr": 0.125,
+			"cr": 6,
 			"elite": false,
 			"notes": "",
 			"privateNotes": "",
 			"terrain": [
-				"settlement"
+				"abyss",
+				"hell"
 			]
 		},
 		"grants": {},
 		"proficiencies": {
 			"armor": [],
-			"languages": [],
+			"languages": [
+				"abyssal",
+				"common",
+				"Telepathy (100 ft.)"
+			],
 			"tools": [],
 			"weapons": []
 		},
@@ -293,9 +298,9 @@
 			},
 			"arc": {
 				"ability": "int",
-				"proficient": false,
+				"proficient": true,
 				"specialties": [],
-				"expertiseDice": 0,
+				"expertiseDice": 1,
 				"minRoll": 1,
 				"bonuses": {
 					"check": "",
@@ -447,7 +452,7 @@
 			},
 			"rel": {
 				"ability": "int",
-				"proficient": false,
+				"proficient": true,
 				"specialties": [],
 				"expertiseDice": 0,
 				"minRoll": 1,
@@ -469,7 +474,7 @@
 			},
 			"ste": {
 				"ability": "dex",
-				"proficient": false,
+				"proficient": true,
 				"specialties": [],
 				"expertiseDice": 0,
 				"minRoll": 1,
@@ -492,12 +497,24 @@
 		},
 		"source": "toSaveAKingdom",
 		"traits": {
-			"size": "med",
-			"alignment": [],
-			"conditionImmunities": [],
-			"damageImmunities": [],
+			"size": "lg",
+			"alignment": [
+				"chaotic",
+				"evil"
+			],
+			"conditionImmunities": [
+				"poisoned"
+			],
+			"damageImmunities": [
+				"acid",
+				"necrotic",
+				"poison"
+			],
 			"damageResistances": [
-				"cold"
+				"cold",
+				"fire",
+				"Non-Cold Iron Weapons",
+				"Non-Silvered Weapons"
 			],
 			"damageVulnerabilities": []
 		},
@@ -547,7 +564,7 @@
 		}
 	},
 	"prototypeToken": {
-		"name": "Laskian Sled Dog",
+		"name": "Somnula",
 		"displayName": 0,
 		"actorLink": false,
 		"appendNumber": false,
@@ -560,8 +577,8 @@
 			"offsetY": 0,
 			"rotation": 0
 		},
-		"width": 1,
-		"height": 1,
+		"width": 2,
+		"height": 2,
 		"lockRotation": false,
 		"rotation": 0,
 		"alpha": 1,
@@ -704,7 +721,7 @@
 				}
 			},
 			"folder": null,
-			"_id": "readIJJl5fsRR5Zp",
+			"_id": "lkK5oHqa0laVTHoy",
 			"sort": 0,
 			"ownership": {
 				"default": 0
@@ -804,7 +821,7 @@
 				}
 			},
 			"folder": null,
-			"_id": "iIWnbLCzy2ypx8gF",
+			"_id": "W0i6DH4zHyqD6V8e",
 			"sort": 0,
 			"ownership": {
 				"default": 0
@@ -904,7 +921,7 @@
 				}
 			},
 			"folder": null,
-			"_id": "hPK9QZRz8AJYXqtO",
+			"_id": "DZbtTtJhAxRC8lSV",
 			"sort": 0,
 			"ownership": {
 				"default": 0
@@ -1004,7 +1021,7 @@
 				}
 			},
 			"folder": null,
-			"_id": "7S1fF0fzrKu7vlcO",
+			"_id": "AMQKjzbyuhQL4dov",
 			"sort": 0,
 			"ownership": {
 				"default": 0
@@ -1104,7 +1121,7 @@
 				}
 			},
 			"folder": null,
-			"_id": "vNK0iGcyhtW6wzj1",
+			"_id": "U4A7RMze0d7t1spf",
 			"sort": 0,
 			"ownership": {
 				"default": 0
@@ -1204,14 +1221,14 @@
 				}
 			},
 			"folder": null,
-			"_id": "jGYeE1Xu4yk9F5on",
+			"_id": "uTMhH8d6NwWrwfs5",
 			"sort": 0,
 			"ownership": {
 				"default": 0
 			}
 		},
 		{
-			"name": "Keen Hearing and Smell",
+			"name": "Chaotic Evil",
 			"type": "feature",
 			"system": {
 				"ac": {
@@ -1225,7 +1242,7 @@
 					"requiresUnarmored": false
 				},
 				"actions": {},
-				"description": "<p>The sled dog has advantage on Perception checks that rely on hearing and smell.</p>",
+				"description": "<p>The somnula radiates a Chaotic and Evil aura.</p>",
 				"favorite": false,
 				"secretDescription": "",
 				"source": "",
@@ -1248,7 +1265,125 @@
 				"prerequisite": "",
 				"requiresBloodied": false
 			},
-			"_id": "gDKF1s6b4CM92qV7",
+			"_id": "V71LusZHUDRrv3hr",
+			"img": "icons/svg/item-bag.svg",
+			"effects": [],
+			"folder": null,
+			"sort": 0,
+			"ownership": {
+				"default": 0
+			},
+			"flags": {}
+		},
+		{
+			"name": "Magic Resistance",
+			"type": "feature",
+			"system": {
+				"ac": {
+					"baseFormula": "",
+					"formula": "",
+					"grantsDisadvantage": false,
+					"maxDex": 0,
+					"minStr": 0,
+					"mode": 2,
+					"requiresNoShield": false,
+					"requiresUnarmored": false
+				},
+				"actions": {},
+				"description": "<p>The somnula has advantage on saving throws against spells and other magical effects.</p>",
+				"favorite": false,
+				"secretDescription": "",
+				"source": "",
+				"uses": {
+					"value": null,
+					"max": "",
+					"per": null,
+					"recharge": {
+						"formula": "1d6",
+						"threshold": "6"
+					}
+				},
+				"schema": {
+					"version": null,
+					"lastMigration": null
+				},
+				"concentration": false,
+				"featureType": "other",
+				"grants": {},
+				"prerequisite": "",
+				"requiresBloodied": false
+			},
+			"_id": "gq2tLpNcdoGZeu4P",
+			"img": "icons/svg/item-bag.svg",
+			"effects": [],
+			"folder": null,
+			"sort": 0,
+			"ownership": {
+				"default": 0
+			},
+			"flags": {}
+		},
+		{
+			"name": "Multiattack",
+			"type": "feature",
+			"system": {
+				"ac": {
+					"baseFormula": "",
+					"formula": "",
+					"grantsDisadvantage": false,
+					"maxDex": 0,
+					"minStr": 0,
+					"mode": 2,
+					"requiresNoShield": false,
+					"requiresUnarmored": false
+				},
+				"actions": {
+					"dIaJZryzwsqXfWns": {
+						"name": "Multiattack",
+						"activation": {
+							"type": "action",
+							"cost": 1
+						},
+						"consumers": {},
+						"rolls": {},
+						"prompts": {},
+						"uses": {
+							"value": 0,
+							"max": "",
+							"per": "",
+							"recharge": {
+								"formula": "1d6",
+								"rechargeType": "custom",
+								"rechargeAmount": "1",
+								"threshold": 6
+							}
+						}
+					}
+				},
+				"description": "<p>The somnula attacks once with its bite and twice with its claws.</p>",
+				"favorite": true,
+				"secretDescription": "",
+				"source": "",
+				"uses": {
+					"value": null,
+					"max": "",
+					"per": null,
+					"recharge": {
+						"formula": "1d6",
+						"threshold": "6"
+					}
+				},
+				"schema": {
+					"version": null,
+					"lastMigration": null
+				},
+				"concentration": false,
+				"featureType": "other",
+				"grants": {},
+				"prerequisite": "",
+				"requiresBloodied": false
+			},
+			"_id": "FuxhfQi2eeKH3xtT",
 			"img": "icons/svg/item-bag.svg",
 			"effects": [],
 			"folder": null,
@@ -1273,7 +1408,7 @@
 					"requiresUnarmored": false
 				},
 				"actions": {
-					"CJvcQLfUq1X9ibqG": {
+					"LsJUOjx39NuV800u": {
 						"name": "Bite",
 						"activation": {
 							"type": "action",
@@ -1281,33 +1416,34 @@
 						},
 						"consumers": {},
 						"rolls": {
-							"dWlQbGX86XfNNc63": {
+							"HQRx9Db4SzqNqeIm": {
 								"type": "attack",
 								"default": true,
 								"attackType": "meleeWeaponAttack",
 								"proficient": true,
 								"ability": "str"
 							},
-							"PyrbO2bSbs9upNuh": {
+							"RCtWOqv6VRHd3noC": {
 								"type": "damage",
 								"default": true,
-								"formula": "1d4 + @str.mod",
+								"label": "Magical Piercing",
+								"formula": "1d10 + @str.mod",
 								"damageType": "piercing"
 							}
 						},
 						"prompts": {
-							"jE0mlzIjnk496Zmu": {
+							"6kbE6GPTBd8guKke": {
 								"type": "savingThrow",
 								"default": true,
-								"ability": "str",
+								"ability": "wis",
 								"saveDC": {
-									"type": "str"
+									"type": "maneuver"
 								}
 							},
-							"9tdWe7r17DtuU7m3": {
+							"GI2vBUpDbOQoQFzz": {
 								"type": "effect",
 								"default": true,
-								"effectId": "bOORIDdL68SrRHwG"
+								"effectId": "TMJTGmctQmKR1nFy"
 							}
 						},
 						"uses": {
@@ -1322,7 +1458,7 @@
 							}
 						},
 						"ranges": {
-							"2fVldrPnkOkvCWqd": {
+							"nRWbfwVYO89f6HQK": {
 								"range": "fiveFeet"
 							}
 						},
@@ -1332,7 +1468,7 @@
 						}
 					}
 				},
-				"description": "<p>If the target is a creature, it makes a DC 11 Strength saving throw, falling prone on a failure.</p>",
+				"description": "<p>If the target is a creature it makes a DC 15 Wisdom saving throw or falls unconscious for 1d4 rounds, or until it either takes damage or someone uses an action to shake or slap it awake.</p>",
 				"favorite": true,
 				"secretDescription": "",
 				"source": "",
@@ -1355,26 +1491,26 @@
 				"prerequisite": "",
 				"requiresBloodied": false
 			},
-			"_id": "iSvBcshPKXCp0dlQ",
+			"_id": "LHBRtsh5DvYvP6kq",
 			"img": "icons/svg/item-bag.svg",
 			"effects": [
 				{
 					"icon": "icons/svg/item-bag.svg",
-					"origin": "Actor.9swq1ylYhhWN76nf.Item.iSvBcshPKXCp0dlQ",
+					"origin": "Actor.uH0eZLOtZ50HC0uz.Item.LHBRtsh5DvYvP6kq",
 					"flags": {
 						"a5e": {
 							"sort": 0,
 							"transferType": "onUse",
-							"actionId": "CJvcQLfUq1X9ibqG"
+							"actionId": "LsJUOjx39NuV800u"
 						}
 					},
 					"transfer": false,
-					"name": "Prone",
-					"_id": "bOORIDdL68SrRHwG",
+					"name": "Unconscious",
+					"_id": "TMJTGmctQmKR1nFy",
 					"changes": [
 						{
 							"key": "flags.a5e.effects.statusConditions",
-							"value": "[\"prone\"]",
+							"value": "[\"unconscious\"]",
 							"mode": 0,
 							"priority": null
 						}
@@ -1391,7 +1527,245 @@
 					},
 					"description": "",
 					"statuses": [
-						"prone"
+						"unconscious"
+					],
+					"folder": null
+				}
+			],
+			"folder": null,
+			"sort": 0,
+			"ownership": {
+				"default": 0
+			},
+			"flags": {}
+		},
+		{
+			"name": "Claws",
+			"type": "feature",
+			"system": {
+				"ac": {
+					"baseFormula": "",
+					"formula": "",
+					"grantsDisadvantage": false,
+					"maxDex": 0,
+					"minStr": 0,
+					"mode": 2,
+					"requiresNoShield": false,
+					"requiresUnarmored": false
+				},
+				"actions": {
+					"60IIRMg1UHioa4gj": {
+						"name": "Claws",
+						"activation": {
+							"type": "action",
+							"cost": 1
+						},
+						"consumers": {},
+						"rolls": {
+							"v9W1MCfVlTCIOktX": {
+								"type": "attack",
+								"default": true,
+								"attackType": "meleeWeaponAttack",
+								"proficient": true,
+								"ability": "str"
+							},
+							"x1gvWYwXbsMSLagV": {
+								"type": "damage",
+								"default": true,
+								"label": "Magical Slashing",
+								"formula": "1d8 + @str.mod",
+								"damageType": "slashing"
+							}
+						},
+						"prompts": {},
+						"uses": {
+							"value": 0,
+							"max": "",
+							"per": "",
+							"recharge": {
+								"formula": "1d6",
+								"rechargeType": "custom",
+								"rechargeAmount": "1",
+								"threshold": 6
+							}
+						},
+						"ranges": {
+							"EU2wDfBcKDZwpnxy": {
+								"range": "fiveFeet"
+							}
+						},
+						"target": {
+							"type": "creatureObject",
+							"quantity": 1
+						}
+					}
+				},
+				"description": "",
+				"favorite": true,
+				"secretDescription": "",
+				"source": "",
+				"uses": {
+					"value": null,
+					"max": "",
+					"per": null,
+					"recharge": {
+						"formula": "1d6",
+						"threshold": "6"
+					}
+				},
+				"schema": {
+					"version": null,
+					"lastMigration": null
+				},
+				"concentration": false,
+				"featureType": "naturalWeapon",
+				"grants": {},
+				"prerequisite": "",
+				"requiresBloodied": false
+			},
+			"_id": "WVUSCNuorhwW12tL",
+			"img": "icons/svg/item-bag.svg",
+			"effects": [],
+			"folder": null,
+			"sort": 0,
+			"ownership": {
+				"default": 0
+			},
+			"flags": {}
+		},
+		{
+			"name": "Sleep Spittle",
+			"type": "feature",
+			"system": {
+				"ac": {
+					"baseFormula": "",
+					"formula": "",
+					"grantsDisadvantage": false,
+					"maxDex": 0,
+					"minStr": 0,
+					"mode": 2,
+					"requiresNoShield": false,
+					"requiresUnarmored": false
+				},
+				"actions": {
+					"C0QXjAmPaGHsCYl1": {
+						"name": "Sleep Spittle",
+						"activation": {
+							"type": "bonusAction",
+							"cost": 1
+						},
+						"consumers": {},
+						"rolls": {
+							"cun7tn4D8THcFjnT": {
+								"type": "attack",
+								"default": true,
+								"attackType": "rangedWeaponAttack",
+								"proficient": true,
+								"ability": "str"
+							}
+						},
+						"prompts": {
+							"q4T7maH7AP5GwcbU": {
+								"type": "savingThrow",
+								"default": true,
+								"ability": "wis",
+								"saveDC": {
+									"type": "maneuver"
+								}
+							},
+							"sUfEYsOZtLs5Ltyg": {
+								"type": "effect",
+								"default": true,
+								"effectId": "9tTVYOWCYQiRYH8N"
+							}
+						},
+						"uses": {
+							"value": 0,
+							"max": "",
+							"per": "",
+							"recharge": {
+								"formula": "1d6",
+								"rechargeType": "custom",
+								"rechargeAmount": "1",
+								"threshold": 6
+							}
+						},
+						"ranges": {
+							"sPiGTLDEmJoCiCVj": {
+								"range": 40,
+								"unit": "feet"
+							},
+							"ytrEGIHzZyH8N0Pm": {
+								"range": 80,
+								"unit": "feet"
+							}
+						},
+						"target": {
+							"type": "creature",
+							"quantity": 1
+						}
+					}
+				},
+				"description": "<p>The target makes a DC 15 Wisdom saving throw or falls unconscious for 1d4 rounds, or until it either takes damage or someone uses an action to shake or slap it awake.</p>",
+				"favorite": true,
+				"secretDescription": "",
+				"source": "",
+				"uses": {
+					"value": null,
+					"max": "",
+					"per": null,
+					"recharge": {
+						"formula": "1d6",
+						"threshold": "6"
+					}
+				},
+				"schema": {
+					"version": null,
+					"lastMigration": null
+				},
+				"concentration": false,
+				"featureType": "naturalWeapon",
+				"grants": {},
+				"prerequisite": "",
+				"requiresBloodied": false
+			},
+			"_id": "uYJEUHSeuPqRpzmi",
+			"img": "icons/svg/item-bag.svg",
+			"effects": [
+				{
+					"icon": "icons/svg/item-bag.svg",
+					"origin": "Actor.uH0eZLOtZ50HC0uz.Item.uYJEUHSeuPqRpzmi",
+					"flags": {
+						"a5e": {
+							"sort": 0,
+							"transferType": "onUse",
+							"actionId": "C0QXjAmPaGHsCYl1"
+						}
+					},
+					"transfer": false,
+					"name": "Unconscious",
+					"_id": "9tTVYOWCYQiRYH8N",
+					"changes": [
+						{
+							"key": "flags.a5e.effects.statusConditions",
+							"value": "[\"unconscious\"]",
+							"mode": 0,
+							"priority": null
+						}
+					],
+					"disabled": false,
+					"duration": {
+						"startTime": null,
+						"seconds": null,
+						"combat": null,
+						"rounds": null,
+						"turns": null,
+						"startRound": null,
+						"startTurn": null
+					},
+					"description": "",
+					"statuses": [
+						"unconscious"
 					],
 					"folder": null
 				}
@@ -1410,5 +1784,5 @@
 			"sheetIsLocked": true
 		}
 	},
-	"_id": "cpe64lm8xq9a2c6k"
+	"_id": "jr33pq56cmlkr2e4"
 }

@@ -1,6 +1,6 @@
 {
 	"folder": null,
-	"name": "Laskian Sled Dog",
+	"name": "Mariner Ghost Swarm",
 	"type": "npc",
 	"img": "icons/svg/mystery-man.svg",
 	"system": {
@@ -10,7 +10,7 @@
 		},
 		"abilities": {
 			"str": {
-				"value": 12,
+				"value": 9,
 				"check": {
 					"expertiseDice": 0,
 					"bonus": ""
@@ -28,37 +28,37 @@
 					"bonus": ""
 				},
 				"save": {
-					"proficient": false,
+					"proficient": true,
 					"expertiseDice": 0,
 					"bonus": ""
 				}
 			},
 			"con": {
-				"value": 10,
+				"value": 15,
 				"check": {
 					"expertiseDice": 0,
 					"bonus": ""
 				},
 				"save": {
-					"proficient": false,
+					"proficient": true,
 					"expertiseDice": 0,
 					"bonus": ""
 				}
 			},
 			"int": {
-				"value": 3,
+				"value": 15,
 				"check": {
 					"expertiseDice": 0,
 					"bonus": ""
 				},
 				"save": {
-					"proficient": false,
+					"proficient": true,
 					"expertiseDice": 0,
 					"bonus": ""
 				}
 			},
 			"wis": {
-				"value": 12,
+				"value": 14,
 				"check": {
 					"expertiseDice": 0,
 					"bonus": ""
@@ -70,7 +70,7 @@
 				}
 			},
 			"cha": {
-				"value": 6,
+				"value": 20,
 				"check": {
 					"expertiseDice": 0,
 					"bonus": ""
@@ -84,7 +84,7 @@
 		},
 		"attributes": {
 			"ac": {
-				"baseFormula": "10 + @dex.mod",
+				"baseFormula": "15",
 				"value": 0
 			},
 			"death": {
@@ -92,8 +92,8 @@
 				"failure": 0
 			},
 			"hp": {
-				"value": 9,
-				"baseMax": 9,
+				"value": 340,
+				"baseMax": 340,
 				"temp": 0,
 				"bonus": 0
 			},
@@ -107,16 +107,16 @@
 					"total": 0
 				},
 				"d8": {
-					"current": 2,
-					"total": 2
+					"current": 0,
+					"total": 0
 				},
 				"d10": {
 					"current": 0,
 					"total": 0
 				},
 				"d12": {
-					"current": 0,
-					"total": 0
+					"current": 40,
+					"total": 40
 				},
 				"d20": {
 					"current": 0,
@@ -138,19 +138,19 @@
 					"unit": "feet"
 				},
 				"fly": {
-					"distance": 0,
+					"distance": 50,
 					"unit": "feet"
 				},
 				"swim": {
-					"distance": 0,
+					"distance": 50,
 					"unit": "feet"
 				},
 				"walk": {
-					"distance": 40,
+					"distance": 0,
 					"unit": "feet"
 				},
 				"traits": {
-					"hover": false
+					"hover": true
 				}
 			},
 			"senses": {
@@ -160,7 +160,7 @@
 					"otherwiseBlind": false
 				},
 				"darkvision": {
-					"distance": 0,
+					"distance": 120,
 					"unit": "feet"
 				},
 				"tremorsense": {
@@ -204,21 +204,24 @@
 		"details": {
 			"bio": "",
 			"creatureTypes": [
-				"beast"
+				"humanoid"
 			],
 			"isSwarm": false,
-			"cr": 0.125,
-			"elite": false,
+			"cr": 11,
+			"elite": true,
 			"notes": "",
 			"privateNotes": "",
 			"terrain": [
-				"settlement"
+				"tomb",
+				"water"
 			]
 		},
 		"grants": {},
 		"proficiencies": {
 			"armor": [],
-			"languages": [],
+			"languages": [
+				"common"
+			],
 			"tools": [],
 			"weapons": []
 		},
@@ -359,9 +362,9 @@
 			},
 			"ins": {
 				"ability": "wis",
-				"proficient": false,
+				"proficient": true,
 				"specialties": [],
-				"expertiseDice": 0,
+				"expertiseDice": 3,
 				"minRoll": 1,
 				"bonuses": {
 					"check": "",
@@ -416,7 +419,7 @@
 				"ability": "wis",
 				"proficient": true,
 				"specialties": [],
-				"expertiseDice": 0,
+				"expertiseDice": 3,
 				"minRoll": 1,
 				"bonuses": {
 					"check": "",
@@ -469,9 +472,9 @@
 			},
 			"ste": {
 				"ability": "dex",
-				"proficient": false,
+				"proficient": true,
 				"specialties": [],
-				"expertiseDice": 0,
+				"expertiseDice": 3,
 				"minRoll": 1,
 				"bonuses": {
 					"check": "",
@@ -492,12 +495,35 @@
 		},
 		"source": "toSaveAKingdom",
 		"traits": {
-			"size": "med",
+			"size": "huge",
 			"alignment": [],
-			"conditionImmunities": [],
-			"damageImmunities": [],
+			"conditionImmunities": [
+				"charmed",
+				"fatigue",
+				"frightened",
+				"grappled",
+				"paralyzed",
+				"petrified",
+				"poisoned",
+				"prone",
+				"restrained",
+				"strife",
+				"stunned"
+			],
+			"damageImmunities": [
+				"cold",
+				"necrotic",
+				"poison",
+				"Nonmagical Weapons"
+			],
 			"damageResistances": [
-				"cold"
+				"acid",
+				"fire",
+				"lightning",
+				"thunder",
+				"bludgeoning",
+				"piercing",
+				"slashing"
 			],
 			"damageVulnerabilities": []
 		},
@@ -547,7 +573,7 @@
 		}
 	},
 	"prototypeToken": {
-		"name": "Laskian Sled Dog",
+		"name": "Mariner Ghost Swarm",
 		"displayName": 0,
 		"actorLink": false,
 		"appendNumber": false,
@@ -560,8 +586,8 @@
 			"offsetY": 0,
 			"rotation": 0
 		},
-		"width": 1,
-		"height": 1,
+		"width": 3,
+		"height": 3,
 		"lockRotation": false,
 		"rotation": 0,
 		"alpha": 1,
@@ -704,7 +730,7 @@
 				}
 			},
 			"folder": null,
-			"_id": "readIJJl5fsRR5Zp",
+			"_id": "QodqWz3aN7148w5A",
 			"sort": 0,
 			"ownership": {
 				"default": 0
@@ -804,7 +830,7 @@
 				}
 			},
 			"folder": null,
-			"_id": "iIWnbLCzy2ypx8gF",
+			"_id": "94llHWmb9Le0qMzo",
 			"sort": 0,
 			"ownership": {
 				"default": 0
@@ -904,7 +930,7 @@
 				}
 			},
 			"folder": null,
-			"_id": "hPK9QZRz8AJYXqtO",
+			"_id": "H0tvCcuu1lKR2j37",
 			"sort": 0,
 			"ownership": {
 				"default": 0
@@ -1004,7 +1030,7 @@
 				}
 			},
 			"folder": null,
-			"_id": "7S1fF0fzrKu7vlcO",
+			"_id": "SMGmhrYesfUfVkwL",
 			"sort": 0,
 			"ownership": {
 				"default": 0
@@ -1104,7 +1130,7 @@
 				}
 			},
 			"folder": null,
-			"_id": "vNK0iGcyhtW6wzj1",
+			"_id": "S94MWeJAt9QdjoYv",
 			"sort": 0,
 			"ownership": {
 				"default": 0
@@ -1204,14 +1230,84 @@
 				}
 			},
 			"folder": null,
-			"_id": "jGYeE1Xu4yk9F5on",
+			"_id": "0gxxXdGIk1YtNFu4",
 			"sort": 0,
 			"ownership": {
 				"default": 0
 			}
 		},
 		{
-			"name": "Keen Hearing and Smell",
+			"name": "Elite Recovery",
+			"type": "feature",
+			"system": {
+				"ac": {
+					"baseFormula": "",
+					"formula": "",
+					"grantsDisadvantage": false,
+					"maxDex": 0,
+					"minStr": 0,
+					"mode": 2,
+					"requiresNoShield": false,
+					"requiresUnarmored": false
+				},
+				"actions": {
+					"7duww7UtXLiLrWUM": {
+						"name": "Elite Recovery",
+						"activation": {
+							"type": "action",
+							"cost": 1
+						},
+						"consumers": {},
+						"rolls": {},
+						"prompts": {},
+						"uses": {
+							"value": 0,
+							"max": "",
+							"per": "",
+							"recharge": {
+								"formula": "1d6",
+								"rechargeType": "custom",
+								"rechargeAmount": "1",
+								"threshold": 6
+							}
+						}
+					}
+				},
+				"description": "<p>The swarm ends one negative effect currently affecting it. It can use this action as long as it has at least 1 hit point, even while unconscious or incapacitated.</p>",
+				"favorite": true,
+				"secretDescription": "",
+				"source": "",
+				"uses": {
+					"value": null,
+					"max": "",
+					"per": null,
+					"recharge": {
+						"formula": "1d6",
+						"threshold": "6"
+					}
+				},
+				"schema": {
+					"version": null,
+					"lastMigration": null
+				},
+				"concentration": false,
+				"featureType": "other",
+				"grants": {},
+				"prerequisite": "",
+				"requiresBloodied": true
+			},
+			"_id": "jQFHHWPtWneYyuPH",
+			"img": "icons/svg/item-bag.svg",
+			"effects": [],
+			"folder": null,
+			"sort": 0,
+			"ownership": {
+				"default": 0
+			},
+			"flags": {}
+		},
+		{
+			"name": "Ethereal Sight",
 			"type": "feature",
 			"system": {
 				"ac": {
@@ -1225,7 +1321,7 @@
 					"requiresUnarmored": false
 				},
 				"actions": {},
-				"description": "<p>The sled dog has advantage on Perception checks that rely on hearing and smell.</p>",
+				"description": "<p>The swarm can see 60 feet into the Ethereal Plane when it is on the Material Plane, and vice versa.</p>",
 				"favorite": false,
 				"secretDescription": "",
 				"source": "",
@@ -1248,7 +1344,7 @@
 				"prerequisite": "",
 				"requiresBloodied": false
 			},
-			"_id": "gDKF1s6b4CM92qV7",
+			"_id": "5RCw6PfQDn70VQEr",
 			"img": "icons/svg/item-bag.svg",
 			"effects": [],
 			"folder": null,
@@ -1259,7 +1355,7 @@
 			"flags": {}
 		},
 		{
-			"name": "Bite",
+			"name": "Incorporeal Movement",
 			"type": "feature",
 			"system": {
 				"ac": {
@@ -1273,43 +1369,203 @@
 					"requiresUnarmored": false
 				},
 				"actions": {
-					"CJvcQLfUq1X9ibqG": {
-						"name": "Bite",
-						"activation": {
-							"type": "action",
-							"cost": 1
-						},
+					"7i4LQJe9mgyvBXmS": {
+						"name": "Incorporeal Movement",
+						"activation": {},
 						"consumers": {},
 						"rolls": {
-							"dWlQbGX86XfNNc63": {
+							"KaMhaPbPNrRbsXoL": {
+								"type": "damage",
+								"default": true,
+								"canCrit": false,
+								"formula": "1d10",
+								"damageType": "force"
+							}
+						},
+						"prompts": {},
+						"uses": {
+							"value": 0,
+							"max": "",
+							"per": "",
+							"recharge": {
+								"formula": "1d6",
+								"rechargeType": "custom",
+								"rechargeAmount": "1",
+								"threshold": 6
+							}
+						}
+					}
+				},
+				"description": "<p>he swarm can move through other creatures and objects as if they were difficult terrain . It takes 5 (1d10) force damage if it ends its turn inside an object.</p>",
+				"favorite": false,
+				"secretDescription": "",
+				"source": "",
+				"uses": {
+					"value": null,
+					"max": "",
+					"per": null,
+					"recharge": {
+						"formula": "1d6",
+						"threshold": "6"
+					}
+				},
+				"schema": {
+					"version": null,
+					"lastMigration": null
+				},
+				"concentration": false,
+				"featureType": "other",
+				"grants": {},
+				"prerequisite": "",
+				"requiresBloodied": false
+			},
+			"_id": "EGXCCtOGUmDbgTXP",
+			"img": "icons/svg/item-bag.svg",
+			"effects": [],
+			"folder": null,
+			"sort": 0,
+			"ownership": {
+				"default": 0
+			},
+			"flags": {}
+		},
+		{
+			"name": "Swarm of Ghosts",
+			"type": "feature",
+			"system": {
+				"ac": {
+					"baseFormula": "",
+					"formula": "",
+					"grantsDisadvantage": false,
+					"maxDex": 0,
+					"minStr": 0,
+					"mode": 2,
+					"requiresNoShield": false,
+					"requiresUnarmored": false
+				},
+				"actions": {},
+				"description": "<p>The swarm can occupy another creature&rsquo;s space and vice versa. The swarm can&rsquo;t regain hit points or gain temporary hit points. Enemies can move through the swarm, which counts as difficult terrain.</p>",
+				"favorite": false,
+				"secretDescription": "",
+				"source": "",
+				"uses": {
+					"value": null,
+					"max": "",
+					"per": null,
+					"recharge": {
+						"formula": "1d6",
+						"threshold": "6"
+					}
+				},
+				"schema": {
+					"version": null,
+					"lastMigration": null
+				},
+				"concentration": false,
+				"featureType": "other",
+				"grants": {},
+				"prerequisite": "",
+				"requiresBloodied": false
+			},
+			"_id": "HhWJEIfF9vmFkDFU",
+			"img": "icons/svg/item-bag.svg",
+			"effects": [],
+			"folder": null,
+			"sort": 0,
+			"ownership": {
+				"default": 0
+			},
+			"flags": {}
+		},
+		{
+			"name": "Turn Resistance",
+			"type": "feature",
+			"system": {
+				"ac": {
+					"baseFormula": "",
+					"formula": "",
+					"grantsDisadvantage": false,
+					"maxDex": 0,
+					"minStr": 0,
+					"mode": 2,
+					"requiresNoShield": false,
+					"requiresUnarmored": false
+				},
+				"actions": {},
+				"description": "<p>The swarm has advantage on saving throws against any effect that turns undead.</p>",
+				"favorite": false,
+				"secretDescription": "",
+				"source": "",
+				"uses": {
+					"value": null,
+					"max": "",
+					"per": null,
+					"recharge": {
+						"formula": "1d6",
+						"threshold": "6"
+					}
+				},
+				"schema": {
+					"version": null,
+					"lastMigration": null
+				},
+				"concentration": false,
+				"featureType": "other",
+				"grants": {},
+				"prerequisite": "",
+				"requiresBloodied": false
+			},
+			"_id": "g7JBC0sjw1hUm2WE",
+			"img": "icons/svg/item-bag.svg",
+			"effects": [],
+			"folder": null,
+			"sort": 0,
+			"ownership": {
+				"default": 0
+			},
+			"flags": {}
+		},
+		{
+			"name": "Withering Cutlasses",
+			"type": "object",
+			"system": {
+				"ac": {
+					"baseFormula": "",
+					"formula": "",
+					"grantsDisadvantage": false,
+					"maxDex": 0,
+					"minStr": 0,
+					"mode": 2,
+					"requiresNoShield": false,
+					"requiresUnarmored": false
+				},
+				"actions": {
+					"Hm3D2bnUBg0iSkuS": {
+						"name": "Withering Cutlasses",
+						"activation": {},
+						"consumers": {},
+						"rolls": {
+							"nTiyMVHRSH96CspC": {
 								"type": "attack",
 								"default": true,
 								"attackType": "meleeWeaponAttack",
 								"proficient": true,
-								"ability": "str"
+								"ability": "cha"
 							},
-							"PyrbO2bSbs9upNuh": {
+							"nUIgzI8EkXcNwN8p": {
 								"type": "damage",
 								"default": true,
-								"formula": "1d4 + @str.mod",
-								"damageType": "piercing"
-							}
-						},
-						"prompts": {
-							"jE0mlzIjnk496Zmu": {
-								"type": "savingThrow",
-								"default": true,
-								"ability": "str",
-								"saveDC": {
-									"type": "str"
-								}
+								"formula": "8d6 + @cha.mod",
+								"damageType": "necrotic"
 							},
-							"9tdWe7r17DtuU7m3": {
-								"type": "effect",
+							"CvrTVrLTbdr22URo": {
+								"type": "damage",
 								"default": true,
-								"effectId": "bOORIDdL68SrRHwG"
+								"formula": "2d6",
+								"damageType": "psychic"
 							}
 						},
+						"prompts": {},
 						"uses": {
 							"value": 0,
 							"max": "",
@@ -1322,8 +1578,126 @@
 							}
 						},
 						"ranges": {
-							"2fVldrPnkOkvCWqd": {
+							"gAG9s4NH2inB3a4A": {
 								"range": "fiveFeet"
+							}
+						},
+						"target": {
+							"type": "other",
+							"quantity": 1
+						}
+					}
+				},
+				"description": "<p><strong>Target:&nbsp;</strong>one living creature</p>",
+				"favorite": true,
+				"secretDescription": "",
+				"source": "",
+				"uses": {
+					"value": null,
+					"max": "",
+					"per": null,
+					"recharge": {
+						"formula": "1d6",
+						"threshold": "6"
+					}
+				},
+				"schema": {
+					"version": null,
+					"lastMigration": null
+				},
+				"ammunitionProperties": [],
+				"armorCategory": "",
+				"armorProperties": [],
+				"attuned": false,
+				"bulky": false,
+				"craftingComponents": "",
+				"containerId": "",
+				"damagedState": 0,
+				"equippedState": 0,
+				"items": {},
+				"materialProperties": [],
+				"objectType": "weapon",
+				"plotItem": false,
+				"price": 0,
+				"proficient": true,
+				"quantity": 1,
+				"rarity": "mundane",
+				"requiresAttunement": false,
+				"shieldCategory": "",
+				"shieldProperties": [],
+				"unidentified": false,
+				"unidentifiedDescription": "",
+				"unidentifiedName": "",
+				"weaponProperties": [],
+				"weight": 0
+			},
+			"_id": "8TIogaWmFpN1fv3D",
+			"img": "icons/svg/item-bag.svg",
+			"effects": [],
+			"folder": null,
+			"sort": 0,
+			"ownership": {
+				"default": 0
+			},
+			"flags": {}
+		},
+		{
+			"name": "Magic Blast",
+			"type": "feature",
+			"system": {
+				"ac": {
+					"baseFormula": "",
+					"formula": "",
+					"grantsDisadvantage": false,
+					"maxDex": 0,
+					"minStr": 0,
+					"mode": 2,
+					"requiresNoShield": false,
+					"requiresUnarmored": false
+				},
+				"actions": {
+					"pN8MRIC2eLKQb5Qi": {
+						"name": "Magic Blast",
+						"activation": {
+							"type": "action",
+							"cost": 1
+						},
+						"consumers": {},
+						"rolls": {
+							"xnt5LSFLkZyNFUtf": {
+								"type": "attack",
+								"default": true,
+								"attackType": "rangedSpellAttack",
+								"proficient": true,
+								"ability": "cha"
+							},
+							"oPFV5WbUIYkEoplS": {
+								"type": "damage",
+								"default": true,
+								"formula": "6d10 + @cha.mod",
+								"damageType": "force"
+							}
+						},
+						"prompts": {},
+						"uses": {
+							"value": 0,
+							"max": "",
+							"per": "",
+							"recharge": {
+								"formula": "1d6",
+								"rechargeType": "custom",
+								"rechargeAmount": "1",
+								"threshold": 6
+							}
+						},
+						"ranges": {
+							"joo1KTh92NBYeFIt": {
+								"range": 100,
+								"unit": "feet"
+							},
+							"IzhjMcW2A3ij2r9H": {
+								"range": 300,
+								"unit": "feet"
 							}
 						},
 						"target": {
@@ -1332,7 +1706,7 @@
 						}
 					}
 				},
-				"description": "<p>If the target is a creature, it makes a DC 11 Strength saving throw, falling prone on a failure.</p>",
+				"description": "",
 				"favorite": true,
 				"secretDescription": "",
 				"source": "",
@@ -1355,26 +1729,334 @@
 				"prerequisite": "",
 				"requiresBloodied": false
 			},
-			"_id": "iSvBcshPKXCp0dlQ",
+			"_id": "UbGoo1nw99uoHxQ0",
+			"img": "icons/svg/item-bag.svg",
+			"effects": [],
+			"folder": null,
+			"sort": 0,
+			"ownership": {
+				"default": 0
+			},
+			"flags": {}
+		},
+		{
+			"name": "Etherealness",
+			"type": "feature",
+			"system": {
+				"ac": {
+					"baseFormula": "",
+					"formula": "",
+					"grantsDisadvantage": false,
+					"maxDex": 0,
+					"minStr": 0,
+					"mode": 2,
+					"requiresNoShield": false,
+					"requiresUnarmored": false
+				},
+				"actions": {
+					"F4pXcAlvnEsqYduD": {
+						"name": "Etherealness",
+						"activation": {
+							"type": "action",
+							"cost": 1
+						},
+						"consumers": {},
+						"rolls": {},
+						"prompts": {},
+						"uses": {
+							"value": 0,
+							"max": "",
+							"per": "",
+							"recharge": {
+								"formula": "1d6",
+								"rechargeType": "custom",
+								"rechargeAmount": "1",
+								"threshold": 6
+							}
+						}
+					}
+				},
+				"description": "<p>The swarm enters the Ethereal Plane from the Material Plane, or vice versa. It is visible on the Material Plane while it is in the Border Ethereal, and vice versa, yet it can&rsquo;t affect or be affected by anything on the other plane.</p>",
+				"favorite": true,
+				"secretDescription": "",
+				"source": "",
+				"uses": {
+					"value": null,
+					"max": "",
+					"per": null,
+					"recharge": {
+						"formula": "1d6",
+						"threshold": "6"
+					}
+				},
+				"schema": {
+					"version": null,
+					"lastMigration": null
+				},
+				"concentration": false,
+				"featureType": "other",
+				"grants": {},
+				"prerequisite": "",
+				"requiresBloodied": false
+			},
+			"_id": "qqoPVJOw6DKUaydk",
+			"img": "icons/svg/item-bag.svg",
+			"effects": [],
+			"folder": null,
+			"sort": 0,
+			"ownership": {
+				"default": 0
+			},
+			"flags": {}
+		},
+		{
+			"name": "Spirit Absorption",
+			"type": "feature",
+			"system": {
+				"ac": {
+					"baseFormula": "",
+					"formula": "",
+					"grantsDisadvantage": false,
+					"maxDex": 0,
+					"minStr": 0,
+					"mode": 2,
+					"requiresNoShield": false,
+					"requiresUnarmored": false
+				},
+				"actions": {
+					"HxWxVH61Yn0536T2": {
+						"name": "Spirit Absorption",
+						"activation": {
+							"type": "bonusAction",
+							"cost": 1
+						},
+						"consumers": {},
+						"rolls": {
+							"y8eCXU3AM0fYkjkV": {
+								"type": "damage",
+								"default": true,
+								"canCrit": false,
+								"formula": "12d6",
+								"damageType": "necrotic"
+							}
+						},
+						"prompts": {
+							"oIgthALV0roh6z0e": {
+								"type": "savingThrow",
+								"default": true,
+								"ability": "wis",
+								"saveDC": {
+									"type": "cha"
+								},
+								"onSave": "Half damage"
+							},
+							"0PwgzptQ3iF1YDA4": {
+								"type": "effect",
+								"default": true,
+								"effectId": "V8PnQoGtQziwTy3J"
+							}
+						},
+						"uses": {
+							"value": 0,
+							"max": "",
+							"per": "",
+							"recharge": {
+								"formula": "1d6",
+								"rechargeType": "custom",
+								"rechargeAmount": "1",
+								"threshold": 6
+							}
+						},
+						"ranges": {
+							"LobjwXizs8j0eZkQ": {
+								"range": "touch"
+							}
+						}
+					}
+				},
+				"description": "<p>The swarm chooses one creature sharing its space, attempting to rend the target&rsquo;s soul from its body. The target makes a DC 17 Wisdom saving throw , taking 42 (12d6) necrotic damage on a failure or half damage on a success. For the next hour, the target&rsquo;s attacks deal full damage to the swarm (ignoring damage resistances ). If the swarm kills a target that has been damaged by this trait it is drawn into the swarm. Should the target be returned to life within the next hour it is freed from the swarm and the swarm is incapacitated for 1d4 rounds. After a target has been within the swarm for 1 hour it cannot be resurrected by any means.</p>",
+				"favorite": true,
+				"secretDescription": "",
+				"source": "",
+				"uses": {
+					"value": null,
+					"max": "",
+					"per": null,
+					"recharge": {
+						"formula": "1d6",
+						"threshold": "6"
+					}
+				},
+				"schema": {
+					"version": null,
+					"lastMigration": null
+				},
+				"concentration": false,
+				"featureType": "other",
+				"grants": {},
+				"prerequisite": "",
+				"requiresBloodied": false
+			},
+			"_id": "LcW8SE1zs5rZ9tZc",
 			"img": "icons/svg/item-bag.svg",
 			"effects": [
 				{
 					"icon": "icons/svg/item-bag.svg",
-					"origin": "Actor.9swq1ylYhhWN76nf.Item.iSvBcshPKXCp0dlQ",
+					"origin": "Actor.Gn0NeEPCLAvdnXHt.Item.LcW8SE1zs5rZ9tZc",
 					"flags": {
 						"a5e": {
 							"sort": 0,
 							"transferType": "onUse",
-							"actionId": "CJvcQLfUq1X9ibqG"
+							"actionId": "HxWxVH61Yn0536T2",
+							"duration": {
+								"unit": "hours"
+							}
 						}
 					},
 					"transfer": false,
-					"name": "Prone",
-					"_id": "bOORIDdL68SrRHwG",
+					"name": "Full Damage",
+					"_id": "V8PnQoGtQziwTy3J",
+					"changes": [],
+					"disabled": false,
+					"duration": {
+						"startTime": null,
+						"seconds": 3600,
+						"combat": null,
+						"rounds": null,
+						"turns": null,
+						"startRound": null,
+						"startTurn": null
+					},
+					"description": "<p>Attacks deal full damage to the swarm (ignoring damage resistances )</p>",
+					"statuses": [],
+					"folder": null
+				}
+			],
+			"folder": null,
+			"sort": 0,
+			"ownership": {
+				"default": 0
+			},
+			"flags": {}
+		},
+		{
+			"name": "Painful Wail",
+			"type": "feature",
+			"system": {
+				"ac": {
+					"baseFormula": "",
+					"formula": "",
+					"grantsDisadvantage": false,
+					"maxDex": 0,
+					"minStr": 0,
+					"mode": 2,
+					"requiresNoShield": false,
+					"requiresUnarmored": false
+				},
+				"actions": {
+					"LI57Ac0fea0xpuEE": {
+						"name": "Painful Wail",
+						"activation": {
+							"type": "reaction",
+							"cost": 1,
+							"reactionTrigger": "Damaged"
+						},
+						"consumers": {},
+						"rolls": {
+							"WqUgPrNW3i4Syvuu": {
+								"type": "damage",
+								"default": true,
+								"canCrit": false,
+								"formula": "10d6",
+								"damageType": "psychic"
+							}
+						},
+						"prompts": {
+							"6axfs5QWEeeFHFe9": {
+								"type": "savingThrow",
+								"default": true,
+								"ability": "wis",
+								"saveDC": {
+									"type": "cha"
+								},
+								"onSave": "Half damage"
+							},
+							"X24T3PCBT5jxzdJ4": {
+								"type": "effect",
+								"default": true,
+								"effectId": "gH21s05nyx7HIolX"
+							}
+						},
+						"uses": {
+							"value": 0,
+							"max": "",
+							"per": "",
+							"recharge": {
+								"formula": "1d6",
+								"rechargeType": "custom",
+								"rechargeAmount": "1",
+								"threshold": 6
+							}
+						},
+						"ranges": {
+							"RuCpYm1nzQpJFWuj": {
+								"range": "self"
+							}
+						},
+						"area": {
+							"shape": "emanation",
+							"quantity": 1,
+							"radius": 60,
+							"placeTemplate": true
+						}
+					}
+				},
+				"description": "<p>When the swarm is damaged it bellows a painful wail. Each creature within 60 feet of it that can hear it wail makes a DC 17 Wisdom saving throw . On a failed save a creature takes 35 (10d6) psychic damage and becomes frightened for 1 minute. At the end of each of its turns, a frightened creature can repeat its saving throw to end the effect. On a successful save, a creature takes half damage and is not frightened.</p>",
+				"favorite": true,
+				"secretDescription": "",
+				"source": "",
+				"uses": {
+					"value": null,
+					"max": "",
+					"per": null,
+					"recharge": {
+						"formula": "1d6",
+						"threshold": "6"
+					}
+				},
+				"schema": {
+					"version": null,
+					"lastMigration": null
+				},
+				"concentration": false,
+				"featureType": "naturalWeapon",
+				"grants": {},
+				"prerequisite": "",
+				"requiresBloodied": true
+			},
+			"_id": "PIr1iyubkdatPJsV",
+			"img": "icons/svg/item-bag.svg",
+			"effects": [
+				{
+					"icon": "icons/svg/item-bag.svg",
+					"origin": "Actor.Gn0NeEPCLAvdnXHt.Item.PIr1iyubkdatPJsV",
+					"flags": {
+						"a5e": {
+							"sort": 0,
+							"transferType": "onUse",
+							"actionId": "LI57Ac0fea0xpuEE",
+							"duration": {
+								"unit": "minutes"
+							}
+						}
+					},
+					"transfer": false,
+					"name": "Frightened",
+					"_id": "gH21s05nyx7HIolX",
 					"changes": [
 						{
 							"key": "flags.a5e.effects.statusConditions",
-							"value": "[\"prone\"]",
+							"value": "[\"frightened\"]",
 							"mode": 0,
 							"priority": null
 						}
@@ -1382,7 +2064,7 @@
 					"disabled": false,
 					"duration": {
 						"startTime": null,
-						"seconds": null,
+						"seconds": 60,
 						"combat": null,
 						"rounds": null,
 						"turns": null,
@@ -1391,7 +2073,7 @@
 					},
 					"description": "",
 					"statuses": [
-						"prone"
+						"frightened"
 					],
 					"folder": null
 				}
@@ -1410,5 +2092,5 @@
 			"sheetIsLocked": true
 		}
 	},
-	"_id": "cpe64lm8xq9a2c6k"
+	"_id": "98bp1j0ycgkoegkp"
 }

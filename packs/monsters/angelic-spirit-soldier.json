@@ -1,6 +1,5 @@
 {
-	"folder": null,
-	"name": "Laskian Sled Dog",
+	"name": "Angelic Spirit Soldier",
 	"type": "npc",
 	"img": "icons/svg/mystery-man.svg",
 	"system": {
@@ -10,7 +9,7 @@
 		},
 		"abilities": {
 			"str": {
-				"value": 12,
+				"value": 17,
 				"check": {
 					"expertiseDice": 0,
 					"bonus": ""
@@ -22,7 +21,7 @@
 				}
 			},
 			"dex": {
-				"value": 14,
+				"value": 15,
 				"check": {
 					"expertiseDice": 0,
 					"bonus": ""
@@ -34,7 +33,7 @@
 				}
 			},
 			"con": {
-				"value": 10,
+				"value": 51,
 				"check": {
 					"expertiseDice": 0,
 					"bonus": ""
@@ -46,7 +45,7 @@
 				}
 			},
 			"int": {
-				"value": 3,
+				"value": 10,
 				"check": {
 					"expertiseDice": 0,
 					"bonus": ""
@@ -58,7 +57,7 @@
 				}
 			},
 			"wis": {
-				"value": 12,
+				"value": 15,
 				"check": {
 					"expertiseDice": 0,
 					"bonus": ""
@@ -70,7 +69,7 @@
 				}
 			},
 			"cha": {
-				"value": 6,
+				"value": 11,
 				"check": {
 					"expertiseDice": 0,
 					"bonus": ""
@@ -84,7 +83,7 @@
 		},
 		"attributes": {
 			"ac": {
-				"baseFormula": "10 + @dex.mod",
+				"baseFormula": "19",
 				"value": 0
 			},
 			"death": {
@@ -92,8 +91,8 @@
 				"failure": 0
 			},
 			"hp": {
-				"value": 9,
-				"baseMax": 9,
+				"value": 115,
+				"baseMax": 115,
 				"temp": 0,
 				"bonus": 0
 			},
@@ -107,16 +106,16 @@
 					"total": 0
 				},
 				"d8": {
-					"current": 2,
-					"total": 2
+					"current": 0,
+					"total": 0
 				},
 				"d10": {
 					"current": 0,
 					"total": 0
 				},
 				"d12": {
-					"current": 0,
-					"total": 0
+					"current": 11,
+					"total": 11
 				},
 				"d20": {
 					"current": 0,
@@ -146,7 +145,7 @@
 					"unit": "feet"
 				},
 				"walk": {
-					"distance": 40,
+					"distance": 70,
 					"unit": "feet"
 				},
 				"traits": {
@@ -160,7 +159,7 @@
 					"otherwiseBlind": false
 				},
 				"darkvision": {
-					"distance": 0,
+					"distance": 60,
 					"unit": "feet"
 				},
 				"tremorsense": {
@@ -204,21 +203,25 @@
 		"details": {
 			"bio": "",
 			"creatureTypes": [
-				"beast"
+				"celestial"
 			],
 			"isSwarm": false,
-			"cr": 0.125,
+			"cr": 3,
 			"elite": false,
 			"notes": "",
 			"privateNotes": "",
 			"terrain": [
-				"settlement"
+				"astralPlane",
+				"etherealPlane"
 			]
 		},
 		"grants": {},
 		"proficiencies": {
 			"armor": [],
-			"languages": [],
+			"languages": [
+				"celestial",
+				"common"
+			],
 			"tools": [],
 			"weapons": []
 		},
@@ -391,7 +394,7 @@
 				}
 			},
 			"med": {
-				"ability": "wis",
+				"ability": "int",
 				"proficient": false,
 				"specialties": [],
 				"expertiseDice": 0,
@@ -469,7 +472,7 @@
 			},
 			"ste": {
 				"ability": "dex",
-				"proficient": false,
+				"proficient": true,
 				"specialties": [],
 				"expertiseDice": 0,
 				"minRoll": 1,
@@ -492,14 +495,21 @@
 		},
 		"source": "toSaveAKingdom",
 		"traits": {
-			"size": "med",
-			"alignment": [],
-			"conditionImmunities": [],
+			"size": "lg",
+			"conditionImmunities": [
+				"charmed",
+				"fatigue",
+				"frightened",
+				"poisoned",
+				"strife"
+			],
 			"damageImmunities": [],
 			"damageResistances": [
-				"cold"
+				"poison",
+				"radiant"
 			],
-			"damageVulnerabilities": []
+			"damageVulnerabilities": [],
+			"alignment": []
 		},
 		"spellResources": {
 			"slots": {
@@ -547,7 +557,7 @@
 		}
 	},
 	"prototypeToken": {
-		"name": "Laskian Sled Dog",
+		"name": "Angelic Spirit Soldier",
 		"displayName": 0,
 		"actorLink": false,
 		"appendNumber": false,
@@ -560,8 +570,8 @@
 			"offsetY": 0,
 			"rotation": 0
 		},
-		"width": 1,
-		"height": 1,
+		"width": 2,
+		"height": 2,
 		"lockRotation": false,
 		"rotation": 0,
 		"alpha": 1,
@@ -704,7 +714,7 @@
 				}
 			},
 			"folder": null,
-			"_id": "readIJJl5fsRR5Zp",
+			"_id": "3b8Fa74qf4FQZwJB",
 			"sort": 0,
 			"ownership": {
 				"default": 0
@@ -804,7 +814,7 @@
 				}
 			},
 			"folder": null,
-			"_id": "iIWnbLCzy2ypx8gF",
+			"_id": "frDJk7bWTnbmZLYh",
 			"sort": 0,
 			"ownership": {
 				"default": 0
@@ -904,7 +914,7 @@
 				}
 			},
 			"folder": null,
-			"_id": "hPK9QZRz8AJYXqtO",
+			"_id": "bRBvmVVpeCGirv4I",
 			"sort": 0,
 			"ownership": {
 				"default": 0
@@ -1004,7 +1014,7 @@
 				}
 			},
 			"folder": null,
-			"_id": "7S1fF0fzrKu7vlcO",
+			"_id": "yiGz9hYigZoJBTU6",
 			"sort": 0,
 			"ownership": {
 				"default": 0
@@ -1104,7 +1114,7 @@
 				}
 			},
 			"folder": null,
-			"_id": "vNK0iGcyhtW6wzj1",
+			"_id": "kKCGmWpWVnbd37bX",
 			"sort": 0,
 			"ownership": {
 				"default": 0
@@ -1204,14 +1214,14 @@
 				}
 			},
 			"folder": null,
-			"_id": "jGYeE1Xu4yk9F5on",
+			"_id": "uQG5FF78CfeNwwXR",
 			"sort": 0,
 			"ownership": {
 				"default": 0
 			}
 		},
 		{
-			"name": "Keen Hearing and Smell",
+			"name": "Good",
 			"type": "feature",
 			"system": {
 				"ac": {
@@ -1225,7 +1235,7 @@
 					"requiresUnarmored": false
 				},
 				"actions": {},
-				"description": "<p>The sled dog has advantage on Perception checks that rely on hearing and smell.</p>",
+				"description": "<p>The soldier radiates a Good aura.</p>",
 				"favorite": false,
 				"secretDescription": "",
 				"source": "",
@@ -1243,12 +1253,12 @@
 					"lastMigration": null
 				},
 				"concentration": false,
-				"featureType": "other",
+				"featureType": "heritage",
 				"grants": {},
 				"prerequisite": "",
 				"requiresBloodied": false
 			},
-			"_id": "gDKF1s6b4CM92qV7",
+			"_id": "DG2ehFuDNVtKjy1F",
 			"img": "icons/svg/item-bag.svg",
 			"effects": [],
 			"folder": null,
@@ -1259,7 +1269,7 @@
 			"flags": {}
 		},
 		{
-			"name": "Bite",
+			"name": "Pack Tactics",
 			"type": "feature",
 			"system": {
 				"ac": {
@@ -1272,68 +1282,9 @@
 					"requiresNoShield": false,
 					"requiresUnarmored": false
 				},
-				"actions": {
-					"CJvcQLfUq1X9ibqG": {
-						"name": "Bite",
-						"activation": {
-							"type": "action",
-							"cost": 1
-						},
-						"consumers": {},
-						"rolls": {
-							"dWlQbGX86XfNNc63": {
-								"type": "attack",
-								"default": true,
-								"attackType": "meleeWeaponAttack",
-								"proficient": true,
-								"ability": "str"
-							},
-							"PyrbO2bSbs9upNuh": {
-								"type": "damage",
-								"default": true,
-								"formula": "1d4 + @str.mod",
-								"damageType": "piercing"
-							}
-						},
-						"prompts": {
-							"jE0mlzIjnk496Zmu": {
-								"type": "savingThrow",
-								"default": true,
-								"ability": "str",
-								"saveDC": {
-									"type": "str"
-								}
-							},
-							"9tdWe7r17DtuU7m3": {
-								"type": "effect",
-								"default": true,
-								"effectId": "bOORIDdL68SrRHwG"
-							}
-						},
-						"uses": {
-							"value": 0,
-							"max": "",
-							"per": "",
-							"recharge": {
-								"formula": "1d6",
-								"rechargeType": "custom",
-								"rechargeAmount": "1",
-								"threshold": 6
-							}
-						},
-						"ranges": {
-							"2fVldrPnkOkvCWqd": {
-								"range": "fiveFeet"
-							}
-						},
-						"target": {
-							"type": "creatureObject",
-							"quantity": 1
-						}
-					}
-				},
-				"description": "<p>If the target is a creature, it makes a DC 11 Strength saving throw, falling prone on a failure.</p>",
-				"favorite": true,
+				"actions": {},
+				"description": "<p>The soldier has advantage on attack rolls against a creature if at least one of the soldier&rsquo;s allies is within 5 feet of the creature and the ally isn&rsquo;t incapacitated .</p>",
+				"favorite": false,
 				"secretDescription": "",
 				"source": "",
 				"uses": {
@@ -1350,32 +1301,173 @@
 					"lastMigration": null
 				},
 				"concentration": false,
-				"featureType": "naturalWeapon",
+				"featureType": "class",
 				"grants": {},
 				"prerequisite": "",
 				"requiresBloodied": false
 			},
-			"_id": "iSvBcshPKXCp0dlQ",
+			"_id": "HUWwcfTm2U8BKO21",
+			"img": "icons/svg/item-bag.svg",
+			"effects": [],
+			"folder": null,
+			"sort": 0,
+			"ownership": {
+				"default": 0
+			},
+			"flags": {}
+		},
+		{
+			"name": "Regeneration",
+			"type": "feature",
+			"system": {
+				"ac": {
+					"baseFormula": "",
+					"formula": "",
+					"grantsDisadvantage": false,
+					"maxDex": 0,
+					"minStr": 0,
+					"mode": 2,
+					"requiresNoShield": false,
+					"requiresUnarmored": false
+				},
+				"actions": {},
+				"description": "<p>The soldier regains 6 hit points at the start of its turn if it has at least 1 hit point.</p>",
+				"favorite": false,
+				"secretDescription": "",
+				"source": "",
+				"uses": {
+					"value": null,
+					"max": "",
+					"per": null,
+					"recharge": {
+						"formula": "1d6",
+						"threshold": "6"
+					}
+				},
+				"schema": {
+					"version": null,
+					"lastMigration": null
+				},
+				"concentration": false,
+				"featureType": "heritage",
+				"grants": {},
+				"prerequisite": "",
+				"requiresBloodied": false
+			},
+			"_id": "pLhxhGaJ24kmnmsq",
+			"img": "icons/svg/item-bag.svg",
+			"effects": [],
+			"folder": null,
+			"sort": 0,
+			"ownership": {
+				"default": 0
+			},
+			"flags": {}
+		},
+		{
+			"name": "Shifting Celestial Armor",
+			"type": "feature",
+			"system": {
+				"ac": {
+					"baseFormula": "",
+					"formula": "",
+					"grantsDisadvantage": false,
+					"maxDex": 0,
+					"minStr": 0,
+					"mode": 2,
+					"requiresNoShield": false,
+					"requiresUnarmored": false
+				},
+				"actions": {
+					"7pCZkA7TmFFQCokg": {
+						"name": "Use Feature",
+						"activation": {},
+						"consumers": {},
+						"rolls": {
+							"oD01rDGdSt87OKTR": {
+								"type": "generic",
+								"default": true,
+								"formula": "1d6"
+							}
+						},
+						"prompts": {
+							"atT3TFSJHIcLJ9cJ": {
+								"type": "effect",
+								"default": true,
+								"effectId": "bIqUknj09Azm4azL"
+							},
+							"TUThvRbTayUQ4xKH": {
+								"type": "effect",
+								"default": true,
+								"effectId": "6wRPFCA9HLtcyY4S"
+							},
+							"3iQioz3xZu7Ep0oW": {
+								"type": "effect",
+								"default": true,
+								"effectId": "EpBtghRkUOpCEA0x"
+							}
+						},
+						"uses": {
+							"value": 0,
+							"max": "",
+							"per": "",
+							"recharge": {
+								"formula": "1d6",
+								"rechargeType": "custom",
+								"rechargeAmount": "1",
+								"threshold": 6
+							}
+						}
+					}
+				},
+				"description": "<p>At the start of each of its turns, roll 1d6 to determine which type of weapon damage the soldier is immune to. On a 1 or 2, it has resistance to bludgeoning damage. On a 3 or 4, it has resistance to piercing damage. On a 5 or 6, it has resistance to slashing damage.</p>",
+				"favorite": false,
+				"secretDescription": "",
+				"source": "",
+				"uses": {
+					"value": null,
+					"max": "",
+					"per": null,
+					"recharge": {
+						"formula": "1d6",
+						"threshold": "6"
+					}
+				},
+				"schema": {
+					"version": null,
+					"lastMigration": null
+				},
+				"concentration": false,
+				"featureType": "heritage",
+				"grants": {},
+				"prerequisite": "",
+				"requiresBloodied": false
+			},
+			"_id": "Hwrnc199jTwY5OCf",
 			"img": "icons/svg/item-bag.svg",
 			"effects": [
 				{
 					"icon": "icons/svg/item-bag.svg",
-					"origin": "Actor.9swq1ylYhhWN76nf.Item.iSvBcshPKXCp0dlQ",
+					"origin": "Actor.Sf6NEWwSdNVrHb3W.Item.Hwrnc199jTwY5OCf",
 					"flags": {
 						"a5e": {
 							"sort": 0,
 							"transferType": "onUse",
-							"actionId": "CJvcQLfUq1X9ibqG"
+							"actionId": "7pCZkA7TmFFQCokg",
+							"duration": {
+								"type": "rounds",
+								"unit": "minutes"
+							}
 						}
 					},
 					"transfer": false,
-					"name": "Prone",
-					"_id": "bOORIDdL68SrRHwG",
+					"name": "Bludgeoning Resistance",
+					"_id": "bIqUknj09Azm4azL",
 					"changes": [
 						{
-							"key": "flags.a5e.effects.statusConditions",
-							"value": "[\"prone\"]",
-							"mode": 0,
+							"key": "system.traits.damageResistances",
+							"value": "[\"bludgeoning\"]",
+							"mode": 2,
 							"priority": null
 						}
 					],
@@ -1384,15 +1476,91 @@
 						"startTime": null,
 						"seconds": null,
 						"combat": null,
-						"rounds": null,
+						"rounds": 1,
 						"turns": null,
 						"startRound": null,
 						"startTurn": null
 					},
 					"description": "",
-					"statuses": [
-						"prone"
+					"statuses": [],
+					"folder": null
+				},
+				{
+					"icon": "icons/svg/item-bag.svg",
+					"origin": "Actor.Sf6NEWwSdNVrHb3W.Item.Hwrnc199jTwY5OCf",
+					"flags": {
+						"a5e": {
+							"sort": 0,
+							"transferType": "onUse",
+							"actionId": "7pCZkA7TmFFQCokg",
+							"duration": {
+								"type": "rounds",
+								"unit": "minutes"
+							}
+						}
+					},
+					"transfer": false,
+					"name": "Piercing Damage",
+					"_id": "6wRPFCA9HLtcyY4S",
+					"changes": [
+						{
+							"key": "system.traits.damageResistances",
+							"value": "[\"piercing\"]",
+							"mode": 2,
+							"priority": null
+						}
 					],
+					"disabled": false,
+					"duration": {
+						"startTime": null,
+						"seconds": null,
+						"combat": null,
+						"rounds": 1,
+						"turns": null,
+						"startRound": null,
+						"startTurn": null
+					},
+					"description": "",
+					"statuses": [],
+					"folder": null
+				},
+				{
+					"icon": "icons/svg/item-bag.svg",
+					"origin": "Actor.Sf6NEWwSdNVrHb3W.Item.Hwrnc199jTwY5OCf",
+					"flags": {
+						"a5e": {
+							"sort": 0,
+							"transferType": "onUse",
+							"actionId": "7pCZkA7TmFFQCokg",
+							"duration": {
+								"type": "rounds",
+								"unit": "minutes"
+							}
+						}
+					},
+					"transfer": false,
+					"name": "Slashing Resistance",
+					"_id": "EpBtghRkUOpCEA0x",
+					"changes": [
+						{
+							"key": "system.traits.damageResistances",
+							"value": "[\"slashing\"]",
+							"mode": 2,
+							"priority": null
+						}
+					],
+					"disabled": false,
+					"duration": {
+						"startTime": null,
+						"seconds": null,
+						"combat": null,
+						"rounds": 1,
+						"turns": null,
+						"startRound": null,
+						"startTurn": null
+					},
+					"description": "",
+					"statuses": [],
 					"folder": null
 				}
 			],
@@ -1402,13 +1570,244 @@
 				"default": 0
 			},
 			"flags": {}
+		},
+		{
+			"name": "Multiattack",
+			"type": "feature",
+			"system": {
+				"ac": {
+					"baseFormula": "",
+					"formula": "",
+					"grantsDisadvantage": false,
+					"maxDex": 0,
+					"minStr": 0,
+					"mode": 2,
+					"requiresNoShield": false,
+					"requiresUnarmored": false
+				},
+				"actions": {},
+				"description": "<p>The soldier attacks twice.</p>",
+				"favorite": false,
+				"secretDescription": "",
+				"source": "",
+				"uses": {
+					"value": null,
+					"max": "",
+					"per": null,
+					"recharge": {
+						"formula": "1d6",
+						"threshold": "6"
+					}
+				},
+				"schema": {
+					"version": null,
+					"lastMigration": null
+				},
+				"concentration": false,
+				"featureType": "class",
+				"grants": {},
+				"prerequisite": "",
+				"requiresBloodied": false
+			},
+			"_id": "SBK897s6tFslwtgg",
+			"img": "icons/svg/item-bag.svg",
+			"effects": [],
+			"folder": null,
+			"sort": 0,
+			"ownership": {
+				"default": 0
+			},
+			"flags": {}
+		},
+		{
+			"name": "Holy Blade",
+			"type": "object",
+			"system": {
+				"ac": {
+					"baseFormula": "",
+					"formula": "",
+					"grantsDisadvantage": false,
+					"maxDex": 0,
+					"minStr": 0,
+					"mode": 2,
+					"requiresNoShield": false,
+					"requiresUnarmored": false
+				},
+				"actions": {
+					"kQMPIyTR7woYOal4": {
+						"name": "Attack",
+						"activation": {
+							"type": "action",
+							"cost": 1
+						},
+						"consumers": {},
+						"rolls": {
+							"YI53irvR91sCg0fl": {
+								"type": "attack",
+								"default": true,
+								"attackType": "meleeWeaponAttack",
+								"proficient": true,
+								"ability": "default"
+							},
+							"Wmb4asT9UdaWB2zx": {
+								"type": "damage",
+								"default": true,
+								"formula": "2d8+@mod",
+								"damageType": "slashing"
+							},
+							"RpgNlaFonZcZyMNM": {
+								"type": "damage",
+								"default": true,
+								"formula": "2d12",
+								"damageType": "radiant"
+							}
+						},
+						"prompts": {
+							"Tca5ib1vCETpRV9h": {
+								"type": "savingThrow",
+								"default": true,
+								"ability": "str",
+								"saveDC": {
+									"type": "custom",
+									"bonus": "14"
+								},
+								"onSave": "Negates prone"
+							}
+						},
+						"uses": {
+							"value": 0,
+							"max": "",
+							"per": "",
+							"recharge": {
+								"formula": "1d6",
+								"rechargeType": "custom",
+								"rechargeAmount": "1",
+								"threshold": 6
+							}
+						},
+						"duration": {
+							"unit": "instantaneous"
+						},
+						"ranges": {
+							"fMES7dE29NV2Bv9K": {
+								"range": 10,
+								"unit": "feet"
+							}
+						},
+						"target": {
+							"type": "creatureObject",
+							"quantity": 1
+						}
+					}
+				},
+				"description": "",
+				"favorite": false,
+				"secretDescription": "",
+				"source": "",
+				"uses": {
+					"value": null,
+					"max": "",
+					"per": null,
+					"recharge": {
+						"formula": "1d6",
+						"threshold": "6"
+					}
+				},
+				"schema": {
+					"version": null,
+					"lastMigration": null
+				},
+				"ammunitionProperties": [],
+				"armorCategory": "",
+				"armorProperties": [],
+				"attuned": false,
+				"bulky": false,
+				"craftingComponents": "",
+				"containerId": "",
+				"damagedState": 0,
+				"equippedState": 0,
+				"items": {},
+				"materialProperties": [],
+				"objectType": "weapon",
+				"plotItem": false,
+				"price": 0,
+				"proficient": true,
+				"quantity": 1,
+				"rarity": "mundane",
+				"requiresAttunement": false,
+				"shieldCategory": "",
+				"shieldProperties": [],
+				"unidentified": false,
+				"unidentifiedDescription": "",
+				"unidentifiedName": "",
+				"weaponProperties": [],
+				"weight": 0
+			},
+			"_id": "rU5mUSdCPeHvGMJl",
+			"img": "icons/svg/item-bag.svg",
+			"effects": [],
+			"folder": null,
+			"sort": 0,
+			"ownership": {
+				"default": 0
+			},
+			"flags": {}
+		},
+		{
+			"name": "Celestial Step",
+			"type": "feature",
+			"system": {
+				"ac": {
+					"baseFormula": "",
+					"formula": "",
+					"grantsDisadvantage": false,
+					"maxDex": 0,
+					"minStr": 0,
+					"mode": 2,
+					"requiresNoShield": false,
+					"requiresUnarmored": false
+				},
+				"actions": {},
+				"description": "<p>The soldier teleports to an unoccupied space it can see within 20 feet.</p>",
+				"favorite": false,
+				"secretDescription": "",
+				"source": "",
+				"uses": {
+					"value": null,
+					"max": "",
+					"per": null,
+					"recharge": {
+						"formula": "1d6",
+						"threshold": "6"
+					}
+				},
+				"schema": {
+					"version": null,
+					"lastMigration": null
+				},
+				"concentration": false,
+				"featureType": "heritage",
+				"grants": {},
+				"prerequisite": "",
+				"requiresBloodied": false
+			},
+			"_id": "rcNHPmcCstnr6U2N",
+			"img": "icons/svg/item-bag.svg",
+			"effects": [],
+			"folder": null,
+			"sort": 0,
+			"ownership": {
+				"default": 0
+			},
+			"flags": {}
 		}
 	],
 	"effects": [],
+	"folder": null,
 	"flags": {
 		"a5e": {
-			"sheetIsLocked": true
+			"sheetIsLocked": false
 		}
 	},
-	"_id": "cpe64lm8xq9a2c6k"
+	"_id": "wgkl4a6pgoa5ii2i"
 }

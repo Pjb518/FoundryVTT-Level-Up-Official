@@ -1,6 +1,6 @@
 {
 	"folder": null,
-	"name": "Laskian Sled Dog",
+	"name": "Spirit Soldier",
 	"type": "npc",
 	"img": "icons/svg/mystery-man.svg",
 	"system": {
@@ -10,7 +10,7 @@
 		},
 		"abilities": {
 			"str": {
-				"value": 12,
+				"value": 13,
 				"check": {
 					"expertiseDice": 0,
 					"bonus": ""
@@ -34,7 +34,7 @@
 				}
 			},
 			"con": {
-				"value": 10,
+				"value": 13,
 				"check": {
 					"expertiseDice": 0,
 					"bonus": ""
@@ -46,7 +46,7 @@
 				}
 			},
 			"int": {
-				"value": 3,
+				"value": 10,
 				"check": {
 					"expertiseDice": 0,
 					"bonus": ""
@@ -58,7 +58,7 @@
 				}
 			},
 			"wis": {
-				"value": 12,
+				"value": 14,
 				"check": {
 					"expertiseDice": 0,
 					"bonus": ""
@@ -70,7 +70,7 @@
 				}
 			},
 			"cha": {
-				"value": 6,
+				"value": 11,
 				"check": {
 					"expertiseDice": 0,
 					"bonus": ""
@@ -84,7 +84,7 @@
 		},
 		"attributes": {
 			"ac": {
-				"baseFormula": "10 + @dex.mod",
+				"baseFormula": "13",
 				"value": 0
 			},
 			"death": {
@@ -92,8 +92,8 @@
 				"failure": 0
 			},
 			"hp": {
-				"value": 9,
-				"baseMax": 9,
+				"value": 11,
+				"baseMax": 11,
 				"temp": 0,
 				"bonus": 0
 			},
@@ -160,7 +160,7 @@
 					"otherwiseBlind": false
 				},
 				"darkvision": {
-					"distance": 0,
+					"distance": 60,
 					"unit": "feet"
 				},
 				"tremorsense": {
@@ -204,21 +204,25 @@
 		"details": {
 			"bio": "",
 			"creatureTypes": [
-				"beast"
+				"celestial"
 			],
 			"isSwarm": false,
-			"cr": 0.125,
+			"cr": 0.25,
 			"elite": false,
 			"notes": "",
 			"privateNotes": "",
 			"terrain": [
-				"settlement"
+				"astralPlane",
+				"etherealPlane"
 			]
 		},
 		"grants": {},
 		"proficiencies": {
 			"armor": [],
-			"languages": [],
+			"languages": [
+				"celestial",
+				"common"
+			],
 			"tools": [],
 			"weapons": []
 		},
@@ -446,8 +450,8 @@
 				}
 			},
 			"rel": {
-				"ability": "int",
-				"proficient": false,
+				"ability": "wis",
+				"proficient": true,
 				"specialties": [],
 				"expertiseDice": 0,
 				"minRoll": 1,
@@ -469,7 +473,7 @@
 			},
 			"ste": {
 				"ability": "dex",
-				"proficient": false,
+				"proficient": true,
 				"specialties": [],
 				"expertiseDice": 0,
 				"minRoll": 1,
@@ -493,11 +497,16 @@
 		"source": "toSaveAKingdom",
 		"traits": {
 			"size": "med",
-			"alignment": [],
-			"conditionImmunities": [],
+			"alignment": [
+				"good"
+			],
+			"conditionImmunities": [
+				"poisoned"
+			],
 			"damageImmunities": [],
 			"damageResistances": [
-				"cold"
+				"poison",
+				"radiant"
 			],
 			"damageVulnerabilities": []
 		},
@@ -547,7 +556,7 @@
 		}
 	},
 	"prototypeToken": {
-		"name": "Laskian Sled Dog",
+		"name": "Greater Spirit Soldier",
 		"displayName": 0,
 		"actorLink": false,
 		"appendNumber": false,
@@ -704,7 +713,7 @@
 				}
 			},
 			"folder": null,
-			"_id": "readIJJl5fsRR5Zp",
+			"_id": "coIC8EIhQBl5G2zh",
 			"sort": 0,
 			"ownership": {
 				"default": 0
@@ -804,7 +813,7 @@
 				}
 			},
 			"folder": null,
-			"_id": "iIWnbLCzy2ypx8gF",
+			"_id": "QwvxYyhTFgMwXBtT",
 			"sort": 0,
 			"ownership": {
 				"default": 0
@@ -904,7 +913,7 @@
 				}
 			},
 			"folder": null,
-			"_id": "hPK9QZRz8AJYXqtO",
+			"_id": "utNlRiieJP2db6Bm",
 			"sort": 0,
 			"ownership": {
 				"default": 0
@@ -1004,7 +1013,7 @@
 				}
 			},
 			"folder": null,
-			"_id": "7S1fF0fzrKu7vlcO",
+			"_id": "eJjO378RoXMPUSHC",
 			"sort": 0,
 			"ownership": {
 				"default": 0
@@ -1104,7 +1113,7 @@
 				}
 			},
 			"folder": null,
-			"_id": "vNK0iGcyhtW6wzj1",
+			"_id": "JW99C0wNCRvDdopM",
 			"sort": 0,
 			"ownership": {
 				"default": 0
@@ -1204,14 +1213,14 @@
 				}
 			},
 			"folder": null,
-			"_id": "jGYeE1Xu4yk9F5on",
+			"_id": "RKdAmtOE62tm2W5l",
 			"sort": 0,
 			"ownership": {
 				"default": 0
 			}
 		},
 		{
-			"name": "Keen Hearing and Smell",
+			"name": "Good",
 			"type": "feature",
 			"system": {
 				"ac": {
@@ -1225,7 +1234,7 @@
 					"requiresUnarmored": false
 				},
 				"actions": {},
-				"description": "<p>The sled dog has advantage on Perception checks that rely on hearing and smell.</p>",
+				"description": "<p>The soldier radiates a Good aura.</p>",
 				"favorite": false,
 				"secretDescription": "",
 				"source": "",
@@ -1248,7 +1257,7 @@
 				"prerequisite": "",
 				"requiresBloodied": false
 			},
-			"_id": "gDKF1s6b4CM92qV7",
+			"_id": "nP0gpCv4RzwIKoMh",
 			"img": "icons/svg/item-bag.svg",
 			"effects": [],
 			"folder": null,
@@ -1259,7 +1268,55 @@
 			"flags": {}
 		},
 		{
-			"name": "Bite",
+			"name": "Pack Tactics",
+			"type": "feature",
+			"system": {
+				"ac": {
+					"baseFormula": "",
+					"formula": "",
+					"grantsDisadvantage": false,
+					"maxDex": 0,
+					"minStr": 0,
+					"mode": 2,
+					"requiresNoShield": false,
+					"requiresUnarmored": false
+				},
+				"actions": {},
+				"description": "<p>The soldier has advantage on attack rolls against a creature if at least one of the soldier&rsquo;s allies is within 5 feet of the creature and the ally isn&rsquo;t incapacitated.</p>",
+				"favorite": false,
+				"secretDescription": "",
+				"source": "",
+				"uses": {
+					"value": null,
+					"max": "",
+					"per": null,
+					"recharge": {
+						"formula": "1d6",
+						"threshold": "6"
+					}
+				},
+				"schema": {
+					"version": null,
+					"lastMigration": null
+				},
+				"concentration": false,
+				"featureType": "other",
+				"grants": {},
+				"prerequisite": "",
+				"requiresBloodied": false
+			},
+			"_id": "9gWwpFVbKyTRxbVv",
+			"img": "icons/svg/item-bag.svg",
+			"effects": [],
+			"folder": null,
+			"sort": 0,
+			"ownership": {
+				"default": 0
+			},
+			"flags": {}
+		},
+		{
+			"name": "Holy Blade",
 			"type": "feature",
 			"system": {
 				"ac": {
@@ -1273,41 +1330,47 @@
 					"requiresUnarmored": false
 				},
 				"actions": {
-					"CJvcQLfUq1X9ibqG": {
-						"name": "Bite",
+					"BNaJieHBa63NGZXC": {
+						"name": "Holy Blade",
 						"activation": {
 							"type": "action",
 							"cost": 1
 						},
 						"consumers": {},
 						"rolls": {
-							"dWlQbGX86XfNNc63": {
+							"Vv1NjMeI6qZ9O15D": {
 								"type": "attack",
 								"default": true,
 								"attackType": "meleeWeaponAttack",
 								"proficient": true,
-								"ability": "str"
+								"ability": "dex"
 							},
-							"PyrbO2bSbs9upNuh": {
+							"chNm8yc7yGhptbZD": {
 								"type": "damage",
 								"default": true,
-								"formula": "1d4 + @str.mod",
-								"damageType": "piercing"
+								"formula": "1d6 + @dex.mod",
+								"damageType": "slashing"
+							},
+							"27e7Qg3SarmrF1z3": {
+								"type": "damage",
+								"default": true,
+								"formula": "1d4",
+								"damageType": "radiant"
 							}
 						},
 						"prompts": {
-							"jE0mlzIjnk496Zmu": {
+							"d0UN5d2uNjEbBUjK": {
 								"type": "savingThrow",
 								"default": true,
 								"ability": "str",
 								"saveDC": {
-									"type": "str"
+									"type": "maneuver"
 								}
 							},
-							"9tdWe7r17DtuU7m3": {
+							"bnClcN9sVp0eRYP6": {
 								"type": "effect",
 								"default": true,
-								"effectId": "bOORIDdL68SrRHwG"
+								"effectId": "g9JdM5houNjm7NgC"
 							}
 						},
 						"uses": {
@@ -1322,7 +1385,7 @@
 							}
 						},
 						"ranges": {
-							"2fVldrPnkOkvCWqd": {
+							"QgcmPO4qjdGbpx6D": {
 								"range": "fiveFeet"
 							}
 						},
@@ -1332,7 +1395,7 @@
 						}
 					}
 				},
-				"description": "<p>If the target is a creature, it makes a DC 11 Strength saving throw, falling prone on a failure.</p>",
+				"description": "<p>If the target is a creature, it makes a DC 12 Strength saving throw or it is knocked prone.</p>",
 				"favorite": true,
 				"secretDescription": "",
 				"source": "",
@@ -1350,27 +1413,27 @@
 					"lastMigration": null
 				},
 				"concentration": false,
-				"featureType": "naturalWeapon",
+				"featureType": "other",
 				"grants": {},
 				"prerequisite": "",
 				"requiresBloodied": false
 			},
-			"_id": "iSvBcshPKXCp0dlQ",
+			"_id": "thhOboDLkq9DCYri",
 			"img": "icons/svg/item-bag.svg",
 			"effects": [
 				{
 					"icon": "icons/svg/item-bag.svg",
-					"origin": "Actor.9swq1ylYhhWN76nf.Item.iSvBcshPKXCp0dlQ",
+					"origin": "Actor.ile89iLl8I8nw8i3.Item.thhOboDLkq9DCYri",
 					"flags": {
 						"a5e": {
 							"sort": 0,
 							"transferType": "onUse",
-							"actionId": "CJvcQLfUq1X9ibqG"
+							"actionId": "BNaJieHBa63NGZXC"
 						}
 					},
 					"transfer": false,
 					"name": "Prone",
-					"_id": "bOORIDdL68SrRHwG",
+					"_id": "g9JdM5houNjm7NgC",
 					"changes": [
 						{
 							"key": "flags.a5e.effects.statusConditions",
@@ -1410,5 +1473,5 @@
 			"sheetIsLocked": true
 		}
 	},
-	"_id": "cpe64lm8xq9a2c6k"
+	"_id": "b3q1ebdrqlfqlk1z"
 }

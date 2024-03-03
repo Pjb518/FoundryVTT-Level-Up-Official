@@ -1,21 +1,17 @@
 {
-	"name": "Kobold Cultist",
+	"name": "Puny Troll",
 	"type": "npc",
-	"img": "icons/svg/mystery-man.svg",
+	"img": "systems/a5e/assets/troll.webp",
 	"items": [
 		{
-			"_id": "HFrGMeendXntIZF3",
-			"name": "Pack Tactics",
+			"_id": "Z9LiON9IwrCuItSA",
+			"name": "Keen Smell",
 			"type": "feature",
-			"img": "icons/creatures/abilities/paw-print-orange.webp",
+			"img": "icons/creatures/mammals/wolf-shadow-black.webp",
 			"effects": [],
 			"folder": null,
-			"sort": 800000,
-			"flags": {
-				"core": {
-					"sourceId": "Item.hfcWkGVO1eey0xGn"
-				}
-			},
+			"sort": 3,
+			"flags": {},
 			"system": {
 				"ac": {
 					"baseFormula": "",
@@ -28,110 +24,7 @@
 					"requiresUnarmored": false
 				},
 				"actions": {},
-				"description": "<p>The kobold has advantage on attack rolls against a creature if at least one of the rat&rsquo;s allies is within 5 feet of the creature and not incapacitated.</p>",
-				"favorite": true,
-				"secretDescription": "",
-				"source": "",
-				"uses": {
-					"value": null,
-					"max": "",
-					"per": null,
-					"recharge": {
-						"formula": "",
-						"threshold": ""
-					}
-				},
-				"schema": {
-					"version": null,
-					"lastMigration": null
-				},
-				"concentration": false,
-				"featureType": "",
-				"grants": {},
-				"prerequisite": "",
-				"requiresBloodied": false,
-				"schemaVersion": {
-					"version": 0.013,
-					"lastMigration": {
-						"version": {
-							"schema": 0.011,
-							"foundry": "11.315",
-							"system": "0.16.49"
-						}
-					}
-				}
-			},
-			"ownership": {
-				"default": 0
-			}
-		},
-		{
-			"_id": "PbotVP3CvgJ69Vix",
-			"name": "Sunlight Sensitivity",
-			"type": "feature",
-			"img": "icons/svg/item-bag.svg",
-			"effects": [
-				{
-					"icon": "icons/svg/item-bag.svg",
-					"origin": "Actor.rCSNmScIEf9x3leR.Item.PbotVP3CvgJ69Vix",
-					"flags": {
-						"a5e": {
-							"sort": 0,
-							"transferType": "passive"
-						}
-					},
-					"transfer": false,
-					"name": "Sunlight Sensitivity",
-					"_id": "OLlGBjQef9ATCy04",
-					"changes": [
-						{
-							"key": "flags.a5e.effects.rollMode.attack.all",
-							"value": "-1",
-							"mode": 6,
-							"priority": null
-						},
-						{
-							"key": "flags.a5e.effects.rollMode.skillCheck.prc",
-							"value": "-1",
-							"mode": 6,
-							"priority": null
-						}
-					],
-					"disabled": false,
-					"duration": {
-						"startTime": null,
-						"seconds": null,
-						"combat": null,
-						"rounds": null,
-						"turns": null,
-						"startRound": null,
-						"startTurn": null
-					},
-					"description": "",
-					"statuses": [],
-					"folder": null
-				}
-			],
-			"folder": null,
-			"sort": 100000,
-			"flags": {
-				"core": {
-					"sourceId": "Item.sI8MsKFvXA4wXmBZ"
-				}
-			},
-			"system": {
-				"ac": {
-					"baseFormula": "",
-					"formula": "",
-					"grantsDisadvantage": false,
-					"maxDex": 0,
-					"minStr": 0,
-					"mode": 1,
-					"requiresNoShield": false,
-					"requiresUnarmored": false
-				},
-				"actions": {},
-				"description": "<p>While in sunlight, the kobold has disadvantage on attack rolls, as well as on Perception checks that rely on sight.</p>",
+				"description": "<p>The troll has advantage on Perception checks that rely on smell.</p>",
 				"favorite": false,
 				"secretDescription": "",
 				"source": "",
@@ -169,18 +62,14 @@
 			}
 		},
 		{
-			"_id": "jJTvgZR3mi1BpEbE",
-			"name": "Sling",
-			"type": "object",
-			"img": "icons/svg/item-bag.svg",
+			"_id": "nnAonsXRMHJM3PXj",
+			"name": "Regeneration",
+			"type": "feature",
+			"img": "icons/skills/wounds/anatomy-organ-heart-red.webp",
 			"effects": [],
 			"folder": null,
-			"sort": 0,
-			"flags": {
-				"core": {
-					"sourceId": "Item.6zl8tnWEj9SJu8td"
-				}
-			},
+			"sort": 1,
+			"flags": {},
 			"system": {
 				"ac": {
 					"baseFormula": "",
@@ -193,8 +82,275 @@
 					"requiresUnarmored": false
 				},
 				"actions": {
-					"2td6Jkxrlrl7YW5s": {
-						"name": "Sling",
+					"8H0OPOQLSzrgmHuX": {
+						"name": "Regeneration",
+						"activation": {},
+						"consumers": {},
+						"rolls": {
+							"WCY7RYKFrZcSmnJw": {
+								"type": "healing",
+								"default": true,
+								"formula": "10"
+							}
+						},
+						"prompts": {},
+						"uses": {
+							"value": 0,
+							"max": "",
+							"per": "",
+							"recharge": {
+								"formula": "1d6",
+								"rechargeType": "custom",
+								"rechargeAmount": "1",
+								"threshold": 6
+							}
+						}
+					}
+				},
+				"description": "<p>The troll regains 10 hit points at the start of its turn. If the troll takes acid or fire damage, this trait doesn’t function on its next turn. The troll dies only if it starts its turn with 0 hit points and doesn’t regenerate.</p>",
+				"favorite": true,
+				"secretDescription": "",
+				"source": "",
+				"uses": {
+					"value": null,
+					"max": "",
+					"per": null,
+					"recharge": {
+						"formula": "",
+						"threshold": ""
+					}
+				},
+				"schema": {
+					"version": null,
+					"lastMigration": null
+				},
+				"concentration": false,
+				"featureType": "",
+				"grants": {},
+				"prerequisite": "",
+				"requiresBloodied": false,
+				"schemaVersion": {
+					"version": 0.013,
+					"lastMigration": {
+						"version": {
+							"schema": 0.011,
+							"foundry": "11.315",
+							"system": "0.16.49"
+						}
+					}
+				}
+			},
+			"ownership": {
+				"default": 0
+			}
+		},
+		{
+			"_id": "g8ErAT6KkKFqIUyn",
+			"name": "Severed Limbs",
+			"type": "feature",
+			"img": "icons/commodities/biological/hand-yellow-red.webp",
+			"effects": [
+				{
+					"icon": "icons/commodities/biological/hand-yellow-red.webp",
+					"origin": "Actor.humzsQbmK81hVx5n.Item.g8ErAT6KkKFqIUyn",
+					"flags": {
+						"a5e": {
+							"sort": 0,
+							"transferType": "onUse",
+							"actionId": "xS8VaYFYIlWsZGgi",
+							"applyToSelf": true
+						}
+					},
+					"transfer": false,
+					"name": "Severed Limb",
+					"_id": "6Q86TTRcC6aFdEqN",
+					"changes": [
+						{
+							"key": "system.attributes.hp.max",
+							"value": "8",
+							"mode": 3,
+							"priority": null
+						}
+					],
+					"disabled": false,
+					"duration": {
+						"startTime": null,
+						"seconds": null,
+						"combat": null,
+						"rounds": null,
+						"turns": null,
+						"startRound": null,
+						"startTurn": null
+					},
+					"description": "",
+					"statuses": [],
+					"folder": null
+				},
+				{
+					"icon": "icons/commodities/biological/hand-yellow-red.webp",
+					"origin": "Actor.humzsQbmK81hVx5n.Item.g8ErAT6KkKFqIUyn",
+					"flags": {
+						"a5e": {
+							"sort": 0,
+							"transferType": "onUse",
+							"actionId": "xS8VaYFYIlWsZGgi",
+							"applyToSelf": true
+						}
+					},
+					"transfer": false,
+					"name": "Severed Limb",
+					"_id": "51EqYlc464Atx0kh",
+					"changes": [
+						{
+							"key": "system.attributes.hp.max",
+							"value": "8",
+							"mode": 3,
+							"priority": null
+						}
+					],
+					"disabled": false,
+					"duration": {
+						"startTime": null,
+						"seconds": null,
+						"combat": null,
+						"rounds": null,
+						"turns": null,
+						"startRound": null,
+						"startTurn": null
+					},
+					"description": "",
+					"statuses": [],
+					"folder": null
+				}
+			],
+			"folder": null,
+			"sort": 0,
+			"flags": {},
+			"system": {
+				"ac": {
+					"baseFormula": "",
+					"formula": "",
+					"grantsDisadvantage": false,
+					"maxDex": 0,
+					"minStr": 0,
+					"mode": 1,
+					"requiresNoShield": false,
+					"requiresUnarmored": false
+				},
+				"actions": {
+					"4Y4dicmkxXmVxT4N": {
+						"name": "Reattach",
+						"activation": {
+							"type": "bonusAction",
+							"cost": 1
+						},
+						"consumers": {},
+						"rolls": {},
+						"prompts": {},
+						"uses": {
+							"value": 0,
+							"max": "",
+							"per": "",
+							"recharge": {
+								"formula": "1d6",
+								"rechargeType": "custom",
+								"rechargeAmount": "1",
+								"threshold": 6
+							}
+						}
+					},
+					"xS8VaYFYIlWsZGgi": {
+						"name": "Severed Limb",
+						"activation": {},
+						"consumers": {},
+						"rolls": {
+							"rBHlq1ZNbG5lkCpG": {
+								"type": "generic",
+								"default": true,
+								"formula": "d6"
+							}
+						},
+						"prompts": {
+							"U4UL3u39iHzKxERN": {
+								"type": "effect",
+								"default": true,
+								"effectId": "6Q86TTRcC6aFdEqN"
+							}
+						},
+						"uses": {
+							"value": 0,
+							"max": "",
+							"per": "",
+							"recharge": {
+								"formula": "1d6",
+								"rechargeType": "custom",
+								"rechargeAmount": "1",
+								"threshold": 6
+							}
+						},
+						"img": "icons/commodities/biological/hand-yellow-red.webp"
+					}
+				},
+				"description": "<p>If the troll is dealt a critical hit with a slashing weapon, one of its extremities is severed. The extremity has AC 15, 10 hit points, a Speed of 10, and the troll&rsquo;s Regeneration trait. The troll controls the severed extremity and perceives through it with the appropriate senses (for instance, it sees through the eyes of its severed head). As a bonus action, the troll can reattach the extremity. While the troll is missing the extremity, its maximum hit points are reduced by 10. Roll d6 to determine the severed extremity:</p>\n<p>1-3: <strong><em>Arm.</em></strong> If the troll has an arm, it loses an arm. It loses one of its claw attacks, and the severed arm can make a claw attack.</p>\n<p>4-6: <strong><em>Head.</em></strong> If the troll has a head, it loses its head. It loses its bite attack, and the severed head can make a bite attack.&nbsp;</p>",
+				"favorite": true,
+				"secretDescription": "",
+				"source": "",
+				"uses": {
+					"value": null,
+					"max": "",
+					"per": null,
+					"recharge": {
+						"formula": "",
+						"threshold": ""
+					}
+				},
+				"schema": {
+					"version": null,
+					"lastMigration": null
+				},
+				"concentration": false,
+				"featureType": "",
+				"grants": {},
+				"prerequisite": "",
+				"requiresBloodied": false,
+				"schemaVersion": {
+					"version": 0.013,
+					"lastMigration": {
+						"version": {
+							"schema": 0.011,
+							"foundry": "11.315",
+							"system": "0.16.49"
+						}
+					}
+				}
+			},
+			"ownership": {
+				"default": 0
+			}
+		},
+		{
+			"_id": "hxXDrbgIrEEISTl3",
+			"name": "Bite",
+			"type": "feature",
+			"img": "icons/creatures/abilities/mouth-teeth-long-red.webp",
+			"effects": [],
+			"folder": null,
+			"sort": 5,
+			"flags": {},
+			"system": {
+				"ac": {
+					"baseFormula": "",
+					"formula": "",
+					"grantsDisadvantage": false,
+					"maxDex": 0,
+					"minStr": 0,
+					"mode": 1,
+					"requiresNoShield": false,
+					"requiresUnarmored": false
+				},
+				"actions": {
+					"zBFvLQKbofPHWcPg": {
+						"name": "Attack",
 						"activation": {
 							"cost": 1,
 							"type": "action",
@@ -205,8 +361,8 @@
 							"value": ""
 						},
 						"ranges": {
-							"iyirjBUBhl5IshDi": {
-								"range": "long"
+							"LDFUZWqeTxZyjXlT": {
+								"range": "fiveFeet"
 							}
 						},
 						"area": {
@@ -215,32 +371,26 @@
 							"placeTemplate": false
 						},
 						"target": {
-							"quantity": null,
-							"type": "creatureObject"
+							"quantity": 1,
+							"type": "creature"
 						},
 						"rolls": {
-							"Cik2JIkx2PfvvFXJ": {
+							"XbxnPQ4q3wQAg7sC": {
 								"bonus": "",
 								"critThreshold": "20",
 								"type": "attack",
-								"attackType": "rangedWeaponAttack",
-								"ability": "dex"
+								"attackType": "meleeWeaponAttack",
+								"ability": "str"
 							},
-							"O5EPmr6WyyWFQSVX": {
+							"voQ7NtauALIuHjFe": {
 								"canCrit": true,
 								"damageType": "piercing",
-								"formula": "1d4+@dex.mod",
-								"name": "Sling bullet",
+								"formula": "2d6 + @str.mod",
+								"name": "Default",
 								"type": "damage"
 							}
 						},
-						"consumers": {
-							"80AOFFEgqdvYKz4T": {
-								"itemid": "",
-								"quantity": 1,
-								"type": "ammunition"
-							}
-						}
+						"consumers": {}
 					}
 				},
 				"description": "",
@@ -260,35 +410,113 @@
 					"version": null,
 					"lastMigration": null
 				},
-				"ammunitionProperties": [],
-				"armorCategory": "",
-				"armorProperties": [],
-				"attuned": false,
-				"bulky": false,
-				"craftingComponents": "",
-				"containerId": "",
-				"damagedState": 0,
-				"equippedState": 2,
-				"items": {},
-				"materialProperties": [],
-				"objectType": "weapon",
-				"plotItem": false,
-				"price": "0.2",
-				"proficient": true,
-				"quantity": 1,
-				"rarity": "common",
-				"requiresAttunement": false,
-				"shieldCategory": "",
-				"shieldProperties": [],
-				"unidentified": false,
-				"unidentifiedDescription": "",
-				"unidentifiedName": "",
-				"weaponProperties": [
-					"range",
-					"simple"
-				],
-				"weight": 0,
-				"broken": false,
+				"concentration": false,
+				"featureType": "naturalWeapon",
+				"grants": {},
+				"prerequisite": "",
+				"requiresBloodied": false,
+				"schemaVersion": {
+					"version": 0.013,
+					"lastMigration": {
+						"version": {
+							"schema": 0.011,
+							"foundry": "11.315",
+							"system": "0.16.49"
+						}
+					}
+				}
+			},
+			"ownership": {
+				"default": 0
+			}
+		},
+		{
+			"_id": "URYK8eaIcBh0JYwh",
+			"name": "Claw",
+			"type": "feature",
+			"img": "icons/skills/melee/blood-slash-foam-red.webp",
+			"effects": [],
+			"folder": null,
+			"sort": 4,
+			"flags": {},
+			"system": {
+				"ac": {
+					"baseFormula": "",
+					"formula": "",
+					"grantsDisadvantage": false,
+					"maxDex": 0,
+					"minStr": 0,
+					"mode": 1,
+					"requiresNoShield": false,
+					"requiresUnarmored": false
+				},
+				"actions": {
+					"xGvWcNZGDtfOKE3O": {
+						"name": "Attack",
+						"activation": {
+							"cost": 1,
+							"type": "action",
+							"reactionTrigger": ""
+						},
+						"duration": {
+							"unit": "instantaneous",
+							"value": ""
+						},
+						"ranges": {
+							"VFPKqsDf5qqhSwO5": {
+								"range": "10ft"
+							}
+						},
+						"area": {
+							"shape": "",
+							"size": "",
+							"placeTemplate": false
+						},
+						"target": {
+							"quantity": 1,
+							"type": "creature"
+						},
+						"rolls": {
+							"VdMKBJ4ubUDuMMB5": {
+								"bonus": "",
+								"critThreshold": "20",
+								"type": "attack",
+								"attackType": "meleeWeaponAttack",
+								"ability": "str"
+							},
+							"g9XXEKoiOVQHgZxb": {
+								"canCrit": true,
+								"damageType": "slashing",
+								"formula": "2d4 + @str.mod",
+								"name": "Default",
+								"type": "damage"
+							}
+						},
+						"consumers": {}
+					}
+				},
+				"description": "",
+				"favorite": true,
+				"secretDescription": "",
+				"source": "",
+				"uses": {
+					"value": null,
+					"max": "",
+					"per": null,
+					"recharge": {
+						"formula": "",
+						"threshold": ""
+					}
+				},
+				"schema": {
+					"version": null,
+					"lastMigration": null
+				},
+				"concentration": false,
+				"featureType": "naturalWeapon",
+				"grants": {},
+				"prerequisite": "",
+				"requiresBloodied": false,
 				"schemaVersion": {
 					"version": 0.013,
 					"lastMigration": {
@@ -316,7 +544,7 @@
 			},
 			"system": {
 				"actions": {
-					"gUN4xgTdJjAQG713": {
+					"ihTB3Qd18gf30wTQ": {
 						"name": "Shove",
 						"activation": {
 							"cost": 1,
@@ -328,7 +556,7 @@
 							"value": null
 						},
 						"ranges": {
-							"oc4Sgmpsl6EmLXAl": {
+							"0Pz6N18pkr8fI42X": {
 								"range": "fiveFeet"
 							}
 						},
@@ -344,7 +572,7 @@
 							"size": ""
 						},
 						"rolls": {
-							"UCP5eCItCrv5uDKh": {
+							"sq9tbpcnKDjZNGRe": {
 								"canCrit": false,
 								"damageType": "bludgeoning",
 								"formula": "1 + @str.mod",
@@ -353,7 +581,7 @@
 							}
 						},
 						"prompts": {
-							"7CwsTmNCaD2CBuQn": {
+							"P7Be79kcBDT5Bzkj": {
 								"ability": "str",
 								"onSave": "",
 								"saveDC": {
@@ -405,7 +633,7 @@
 			},
 			"folder": null,
 			"sort": 0,
-			"_id": "pRwFcic4NZfLBlhZ"
+			"_id": "E3YYUOzQ1OJlAhrY"
 		},
 		{
 			"name": "Disarm",
@@ -419,7 +647,7 @@
 			},
 			"system": {
 				"actions": {
-					"onL1smesjZbOBhtJ": {
+					"YzxNFE8aiFVfKKQa": {
 						"name": "Disarm",
 						"activation": {
 							"cost": 1,
@@ -431,7 +659,7 @@
 							"value": null
 						},
 						"ranges": {
-							"Ljli6lGJoX9C8mNi": {
+							"PAWzQY2ZLrbTKKyg": {
 								"range": "touch"
 							}
 						},
@@ -447,7 +675,7 @@
 							"size": ""
 						},
 						"rolls": {
-							"mELVGNeha0MRAGPV": {
+							"4ZSyDX5Cjam8CRXh": {
 								"canCrit": false,
 								"damageType": "",
 								"formula": "1 + @str.mod",
@@ -456,7 +684,7 @@
 							}
 						},
 						"prompts": {
-							"W7IPFnvMe1IyU7o6": {
+							"2nYY9ora82ibl7Kw": {
 								"ability": "str",
 								"onSave": "",
 								"saveDC": {
@@ -508,7 +736,7 @@
 			},
 			"folder": null,
 			"sort": 0,
-			"_id": "uvuAKmcCdCBN2zNC"
+			"_id": "4WxSoMUe0WA5TOrU"
 		},
 		{
 			"name": "Grab On",
@@ -522,7 +750,7 @@
 			},
 			"system": {
 				"actions": {
-					"cx0LVpB7dTGbQ9Dl": {
+					"uzkhV47LH9mpQvqX": {
 						"name": "Grab On",
 						"activation": {
 							"cost": 1,
@@ -534,7 +762,7 @@
 							"value": null
 						},
 						"ranges": {
-							"Bm5hgOl5n6biNC0O": {
+							"qSDRBq77gbP5DzR9": {
 								"range": "touch"
 							}
 						},
@@ -550,7 +778,7 @@
 							"size": ""
 						},
 						"prompts": {
-							"yKZsFfJlvoChfXVB": {
+							"YNjh77VIifPW2N31": {
 								"ability": "str",
 								"onSave": "",
 								"saveDC": {
@@ -602,7 +830,7 @@
 			},
 			"folder": null,
 			"sort": 0,
-			"_id": "bmOjbPXwYesHNJm0"
+			"_id": "Iln05kYcezT0wk3X"
 		},
 		{
 			"name": "Knockdown",
@@ -616,7 +844,7 @@
 			},
 			"system": {
 				"actions": {
-					"JkfIRt3za93r2fGj": {
+					"F6odlNAjoO2EaZxN": {
 						"name": "Knockdown",
 						"activation": {
 							"cost": 1,
@@ -628,7 +856,7 @@
 							"value": null
 						},
 						"ranges": {
-							"X35qD4CHT4KEnxcu": {
+							"9xVuAtHGx78eBg2D": {
 								"range": "touch"
 							}
 						},
@@ -644,7 +872,7 @@
 							"size": ""
 						},
 						"prompts": {
-							"8PW5QhgQZ5O9LJGE": {
+							"j2Sz61Yb4l96ublz": {
 								"ability": "str",
 								"onSave": "",
 								"saveDC": {
@@ -696,7 +924,7 @@
 			},
 			"folder": null,
 			"sort": 0,
-			"_id": "oarmPNBvx8zPGacH"
+			"_id": "NFVxIEA2r15MCKAp"
 		},
 		{
 			"name": "Grapple",
@@ -710,7 +938,7 @@
 			},
 			"system": {
 				"actions": {
-					"tGRrKg6Dm06mgFif": {
+					"nODaYidn6SPiKADC": {
 						"name": "Grapple",
 						"activation": {
 							"cost": 1,
@@ -722,7 +950,7 @@
 							"value": null
 						},
 						"ranges": {
-							"MJF1CaW7Ua9CPCHO": {
+							"LU1tZfN9jaBYjLEi": {
 								"range": "touch"
 							}
 						},
@@ -738,7 +966,7 @@
 							"size": ""
 						},
 						"prompts": {
-							"Fj88uG2XG4Qh5Upe": {
+							"ReuPKBlduILKKRp1": {
 								"ability": "str",
 								"onSave": "",
 								"saveDC": {
@@ -790,7 +1018,7 @@
 			},
 			"folder": null,
 			"sort": 0,
-			"_id": "ALEabWqats5kDDgL"
+			"_id": "ZGZq4xJ0IGVO7TWw"
 		},
 		{
 			"name": "Overrun",
@@ -804,7 +1032,7 @@
 			},
 			"system": {
 				"actions": {
-					"Zkefj2YMmCpZv6qb": {
+					"Dus5n72g8hPt0Wwy": {
 						"name": "Overrun",
 						"activation": {
 							"cost": 1,
@@ -816,7 +1044,7 @@
 							"value": null
 						},
 						"ranges": {
-							"78FMzNrivpbkN89W": {
+							"GaraEvLX7aTtdpNp": {
 								"range": "touch"
 							}
 						},
@@ -832,7 +1060,7 @@
 							"size": ""
 						},
 						"prompts": {
-							"fAE9w3yjEfAKNnUx": {
+							"6yEAZB5GUswGc59k": {
 								"ability": "str",
 								"onSave": "",
 								"saveDC": {
@@ -884,360 +1112,24 @@
 			},
 			"folder": null,
 			"sort": 0,
-			"_id": "xsF2KttRwRUUR3u3"
-		},
-		{
-			"name": "Cloth, Padded",
-			"type": "object",
-			"img": "icons/equipment/chest/robe-layered-white.webp",
-			"effects": [],
-			"flags": {},
-			"system": {
-				"ac": {
-					"baseFormula": "11 + @dex.mod",
-					"formula": "",
-					"grantsDisadvantage": false,
-					"maxDex": 0,
-					"minStr": 0,
-					"mode": 2,
-					"requiresNoShield": false,
-					"requiresUnarmored": false
-				},
-				"actions": {},
-				"description": "",
-				"favorite": false,
-				"secretDescription": "",
-				"source": "",
-				"uses": {
-					"value": null,
-					"max": "",
-					"per": null,
-					"recharge": {
-						"formula": "1d6",
-						"threshold": 6
-					}
-				},
-				"schema": {
-					"version": null,
-					"lastMigration": null
-				},
-				"ammunitionProperties": [],
-				"armorCategory": "light",
-				"armorProperties": [],
-				"attuned": false,
-				"bulky": false,
-				"craftingComponents": "",
-				"containerId": "",
-				"damagedState": 0,
-				"equippedState": 2,
-				"items": {},
-				"materialProperties": [
-					"flaw",
-					"comfortable",
-					"underarmor"
-				],
-				"objectType": "armor",
-				"plotItem": false,
-				"price": "5 gp",
-				"proficient": true,
-				"quantity": 1,
-				"rarity": "mundane",
-				"requiresAttunement": false,
-				"shieldCategory": "",
-				"shieldProperties": [],
-				"unidentified": false,
-				"unidentifiedDescription": "",
-				"unidentifiedName": "",
-				"weaponProperties": [],
-				"weight": 6,
-				"schemaVersion": {
-					"version": 0.013,
-					"lastMigration": {
-						"version": {
-							"schema": 0.011,
-							"foundry": "11.315",
-							"system": "0.16.49"
-						}
-					}
-				}
-			},
-			"folder": null,
-			"_id": "zDEnhPK95PBmuQzu",
-			"sort": 0,
-			"ownership": {
-				"default": 0
-			}
-		},
-		{
-			"name": "Sacrificial Dagger",
-			"type": "object",
-			"system": {
-				"ac": {
-					"baseFormula": "",
-					"formula": "",
-					"grantsDisadvantage": false,
-					"maxDex": 0,
-					"minStr": 0,
-					"mode": 2,
-					"requiresNoShield": false,
-					"requiresUnarmored": false
-				},
-				"actions": {
-					"TT7z1c9dwmWjExPl": {
-						"name": "Sacrificial Dagger",
-						"activation": {
-							"type": "action",
-							"cost": 1
-						},
-						"consumers": {},
-						"rolls": {
-							"2314qzf5JjFQThI0": {
-								"type": "attack",
-								"default": true,
-								"attackType": "meleeWeaponAttack",
-								"proficient": true,
-								"ability": "dex"
-							},
-							"Kl1e1QflKcur0FRo": {
-								"type": "damage",
-								"default": true,
-								"formula": "1d6 + @dex.mod",
-								"damageType": "slashing"
-							}
-						},
-						"prompts": {},
-						"uses": {
-							"value": 0,
-							"max": "",
-							"per": "",
-							"recharge": {
-								"formula": "1d6",
-								"rechargeType": "custom",
-								"rechargeAmount": "1",
-								"threshold": 6
-							}
-						},
-						"ranges": {
-							"GWQGcDjxRUOQiXlq": {
-								"range": "fiveFeet"
-							}
-						},
-						"target": {
-							"type": "creatureObject",
-							"quantity": 1
-						}
-					}
-				},
-				"description": "",
-				"favorite": true,
-				"secretDescription": "",
-				"source": "",
-				"uses": {
-					"value": null,
-					"max": "",
-					"per": null,
-					"recharge": {
-						"formula": "1d6",
-						"threshold": "6"
-					}
-				},
-				"schema": {
-					"version": null,
-					"lastMigration": null
-				},
-				"ammunitionProperties": [],
-				"armorCategory": "",
-				"armorProperties": [],
-				"attuned": false,
-				"bulky": false,
-				"craftingComponents": "",
-				"containerId": "",
-				"damagedState": 0,
-				"equippedState": 0,
-				"items": {},
-				"materialProperties": [],
-				"objectType": "weapon",
-				"plotItem": false,
-				"price": 0,
-				"proficient": true,
-				"quantity": 1,
-				"rarity": "mundane",
-				"requiresAttunement": false,
-				"shieldCategory": "",
-				"shieldProperties": [],
-				"unidentified": false,
-				"unidentifiedDescription": "",
-				"unidentifiedName": "",
-				"weaponProperties": [],
-				"weight": 0
-			},
-			"_id": "8uQZoRAbHKSCDDAF",
-			"img": "icons/svg/item-bag.svg",
-			"effects": [],
-			"folder": null,
-			"sort": 0,
-			"ownership": {
-				"default": 0
-			},
-			"flags": {}
-		},
-		{
-			"name": "Fire Breath",
-			"type": "feature",
-			"system": {
-				"ac": {
-					"baseFormula": "",
-					"formula": "",
-					"grantsDisadvantage": false,
-					"maxDex": 0,
-					"minStr": 0,
-					"mode": 2,
-					"requiresNoShield": false,
-					"requiresUnarmored": false
-				},
-				"actions": {
-					"7Pg06jFpxcTIrqcO": {
-						"name": "Fire Breath",
-						"activation": {
-							"type": "action",
-							"cost": 1
-						},
-						"consumers": {
-							"B8WaBpHt0r529hVt": {
-								"type": "itemUses",
-								"default": true,
-								"quantity": 1
-							}
-						},
-						"rolls": {
-							"3dtnETkDulSTvQGE": {
-								"type": "damage",
-								"default": true,
-								"canCrit": false,
-								"formula": "2d6",
-								"damageType": "fire"
-							}
-						},
-						"prompts": {
-							"nvDfMjsySjJz6Yez": {
-								"type": "savingThrow",
-								"default": true,
-								"ability": "dex",
-								"saveDC": {
-									"type": "con"
-								},
-								"onSave": "Half damage"
-							}
-						},
-						"uses": {
-							"value": 0,
-							"max": "",
-							"per": "",
-							"recharge": {
-								"formula": "1d6",
-								"rechargeType": "custom",
-								"rechargeAmount": "1",
-								"threshold": 6
-							}
-						},
-						"ranges": {
-							"Wh8JVqI5zVYCC9P9": {
-								"range": "self"
-							}
-						},
-						"area": {
-							"shape": "cone",
-							"quantity": 1,
-							"length": 10,
-							"placeTemplate": true
-						}
-					}
-				},
-				"description": "<p>Cirothe&rsquo;s kobold minions have been granted a fraction of the dragon&rsquo;s power. The kobold exhales fire in a 10-foot cone. Each creature in the area makes a DC 11 Dexterity saving throw , taking 7 (2d6) fire damage on a failure, or half damage on a success.</p>",
-				"favorite": true,
-				"secretDescription": "",
-				"source": "",
-				"uses": {
-					"value": 1,
-					"max": "1",
-					"per": "recharge",
-					"recharge": {
-						"formula": "1d6",
-						"threshold": 5
-					}
-				},
-				"schema": {
-					"version": null,
-					"lastMigration": null
-				},
-				"concentration": false,
-				"featureType": "naturalWeapon",
-				"grants": {},
-				"prerequisite": "",
-				"requiresBloodied": false
-			},
-			"_id": "xGzEW1NiWNG2nQWb",
-			"img": "icons/svg/item-bag.svg",
-			"effects": [],
-			"folder": null,
-			"sort": 0,
-			"ownership": {
-				"default": 0
-			},
-			"flags": {}
+			"_id": "6r2P3mImF3AwNEx8"
 		}
 	],
-	"effects": [
-		{
-			"icon": "icons/svg/item-bag.svg",
-			"origin": "Actor.rCSNmScIEf9x3leR.Item.PbotVP3CvgJ69Vix",
-			"flags": {
-				"a5e": {
-					"sort": 0,
-					"transferType": "passive"
-				}
-			},
-			"transfer": false,
-			"name": "Sunlight Sensitivity",
-			"_id": "q2WYhc6aKtjrsi7t",
-			"changes": [
-				{
-					"key": "flags.a5e.effects.rollMode.attack.all",
-					"value": "-1",
-					"mode": 6,
-					"priority": null
-				},
-				{
-					"key": "flags.a5e.effects.rollMode.skillCheck.prc",
-					"value": "-1",
-					"mode": 6,
-					"priority": null
-				}
-			],
-			"disabled": true,
-			"duration": {
-				"startTime": 0,
-				"seconds": null,
-				"combat": null,
-				"rounds": null,
-				"turns": null,
-				"startRound": null,
-				"startTurn": null
-			},
-			"description": "",
-			"statuses": [],
-			"folder": null
-		}
-	],
+	"effects": [],
 	"flags": {
 		"a5e": {
+			"availableSpellLevels": [],
+			"showSpellSlots": false,
+			"showSpellPoints": false,
+			"sortMode": 2,
+			"showSpellTab": false,
 			"sheetIsLocked": true
 		}
 	},
 	"system": {
 		"abilities": {
 			"str": {
-				"value": 9,
+				"value": 18,
 				"check": {
 					"expertiseDice": 0,
 					"bonus": ""
@@ -1249,18 +1141,6 @@
 				}
 			},
 			"dex": {
-				"value": 14,
-				"check": {
-					"expertiseDice": 0,
-					"bonus": ""
-				},
-				"save": {
-					"proficient": false,
-					"expertiseDice": 0,
-					"bonus": ""
-				}
-			},
-			"con": {
 				"value": 12,
 				"check": {
 					"expertiseDice": 0,
@@ -1272,8 +1152,8 @@
 					"bonus": ""
 				}
 			},
-			"int": {
-				"value": 9,
+			"con": {
+				"value": 20,
 				"check": {
 					"expertiseDice": 0,
 					"bonus": ""
@@ -1284,7 +1164,7 @@
 					"bonus": ""
 				}
 			},
-			"wis": {
+			"int": {
 				"value": 8,
 				"check": {
 					"expertiseDice": 0,
@@ -1296,8 +1176,20 @@
 					"bonus": ""
 				}
 			},
+			"wis": {
+				"value": 12,
+				"check": {
+					"expertiseDice": 0,
+					"bonus": ""
+				},
+				"save": {
+					"proficient": false,
+					"expertiseDice": 0,
+					"bonus": ""
+				}
+			},
 			"cha": {
-				"value": 9,
+				"value": 8,
 				"check": {
 					"expertiseDice": 0,
 					"bonus": ""
@@ -1520,7 +1412,7 @@
 			},
 			"ste": {
 				"ability": "dex",
-				"proficient": false,
+				"proficient": true,
 				"specialties": [],
 				"expertiseDice": 0,
 				"minRoll": 1,
@@ -1587,7 +1479,7 @@
 		},
 		"attributes": {
 			"ac": {
-				"baseFormula": "12",
+				"baseFormula": "15",
 				"value": 0
 			},
 			"death": {
@@ -1595,23 +1487,23 @@
 				"failure": 0
 			},
 			"hp": {
-				"value": 18,
-				"baseMax": 18,
+				"value": 42,
+				"baseMax": 42,
 				"temp": 0,
 				"bonus": 0
 			},
 			"hitDice": {
 				"d6": {
-					"current": 4,
-					"total": 4
+					"current": 0,
+					"total": 0
 				},
 				"d8": {
 					"current": 0,
 					"total": 0
 				},
 				"d10": {
-					"current": 0,
-					"total": 0
+					"current": 4,
+					"total": 4
 				},
 				"d12": {
 					"current": 0,
@@ -1649,7 +1541,7 @@
 					"unit": "feet"
 				},
 				"walk": {
-					"distance": 30,
+					"distance": 40,
 					"unit": "feet"
 				},
 				"traits": {
@@ -1658,7 +1550,7 @@
 			},
 			"senses": {
 				"blindsight": {
-					"distance": 0,
+					"distance": null,
 					"unit": "feet",
 					"otherwiseBlind": false
 				},
@@ -1667,11 +1559,11 @@
 					"unit": "feet"
 				},
 				"tremorsense": {
-					"distance": 0,
+					"distance": null,
 					"unit": "feet"
 				},
 				"truesight": {
-					"distance": 0,
+					"distance": null,
 					"unit": "feet"
 				}
 			},
@@ -1705,24 +1597,23 @@
 			"cp": 0
 		},
 		"details": {
-			"bio": "",
+			"bio": "<h2><strong>COMBAT</strong></h2><p>The troll ambushes prey and attacks the closest or slowest opponent, ignoring all damage except fire and acid. It flees only if it’s bloodied, it has taken acid or fire damage, and none of its enemies are down.</p><hr class=\"a5e-rule u-my-md\"><h2><strong>NAMES</strong></h2><p>Briarbelly, Burz, Gluck, Raddlepate, Redclaw, Yag</p><hr class=\"a5e-rule u-my-md\"><h2><strong>LEGENDS AND LORE</strong></h2><p>With an Arcana or Nature check, characters can learn the following:</p><p><strong>DC 10</strong> A troll’s unique physiology allows it to heal wounds with incredible speed. Fire and acid temporarily suppress this regeneration.</p><p><strong>DC 15</strong> Though large, trolls are quite stealthy. They can see in the dark and track prey by smell alone.</p><p><strong>DC 20</strong> Because of their regeneration, trolls are prone to mutation. Certain strains have adapted to life underground or deep beneath the waves.</p><hr class=\"a5e-rule u-my-md\"><h2><strong>DESCRIPTION</strong></h2><p>Trolls are 10-foot-tall giant-kin notorious for their alarming countenances, love of treasure, and insatiable hunger. The remains of humanoids who disappear unexpectedly are often later found in the cooking pots of trolls. No wonder then that trolls are so often the villains of instructive fairy tales—once captured by a troll, children have only their wits to protect them from the monster’s terrible hunger.&nbsp;</p><p><strong><em>Regeneration.</em></strong> Trolls are blessed with an unnaturally fast metabolism, which allows them to heal otherwise mortal wounds in mere moments. A severed arm, leg, or even head continues to live and can eventually be reattached to a troll’s body. Killing a troll is generally impossible without destroying its body entirely with fire or acid.&nbsp;</p><p><strong><em>Limitless Hunger.</em></strong> A troll’s regeneration comes at the cost of an enormous appetite. Even a well-fed troll can waste away to skin and bones within mere hours. Always a hair’s breadth away from starvation, trolls can’t afford to be picky about what they eat. Some have been known to consume rotting food, undead flesh, and even other trolls.</p><p>Trolls abhor fire, but they fear starvation even more. Many trolls collect treasure, knowing that they can trade gold for food in desperate circumstances. Some trolls accept work from those who can pay and feed them regularly. Since trolls don’t fear injury, they often work as mercenaries, gladiators, or even adventurers.</p><p><strong><em>Innumerable Varieties.</em></strong> A troll regenerates so quickly that its body completely renews itself within days. This makes trolls particularly vulnerable to mutations such as extra limbs. Over time, a troll often takes on the physical features of its favorite prey. For example, a troll that lives solely on fish may grow scales, while one that feasts regularly upon mountain goats might sport fur and horns.</p><hr class=\"a5e-rule u-my-md\"><h2><strong>BEHAVIOR</strong></h2><p>1 Guarding a bridge, road, or other thoroughfare, demanding tolls</p><p>2 Absentmindedly eating its own fingertips</p><p>3 In its lair, dozing with one bloodshot eye open and alert</p><p>4 In its lair, frantic with hunger, pawing through bones for a morsel of flesh</p><p>5 Creeping about, stealthily searching for prey</p><p>6 Stuffing a living bird or rat into its mouth</p><p>7 Scouting for its employer</p><p>8 Hungry; with treasure to exchange for food</p><p>9 Offering its services as an adventurer or mercenary</p><p>10 Attacking a settlement</p><hr class=\"a5e-rule u-my-md\"><h2><strong>SIGNS</strong></h2><p>1 A half-eaten corpse swarming with maggots. DC 14 Perception check: long, clawed footprints</p><p>2 Bloody, clawed handprints</p><p>3 A cave or tunnel from that issues a rotting smell</p><p>4 Sudden quiet, as if all animals and insects have abruptly fled</p><p>5 A heap of cracked bones</p><p>6 A severed troll hand, finger, or other appendage, still squirming</p><hr class=\"a5e-rule u-my-md\"><h2><strong>ENCOUNTERS</strong></h2><p>Trolls lurk in every dark corner of the world—forests, caves, mountain valleys, and even urban alleyways.</p><p><strong>CR 5–10</strong> 1 or 2 trolls or scrags; faerie eater troll, cave troll, or dread troll; troll or cave troll with 2d6 goblins, grimlocks, soldiers, or orc warriors; troll with 1d4 bugbears or ghouls</p><p><strong>Treasure</strong> 700 gp, 40 pp, 5 bloodstone gems, <em>potion of flying</em>, <em>+1 shortsword </em>(named <em>Eladrin</em>; an attuned wielder can cast <em>misty step</em> once per day and can’t be magically charmed or put to sleep)</p><p><strong>CR 11–16</strong> 2 cave trolls, faerie eater trolls, or dread trolls; troll with 3 or 4 ogres; scrag with 3 or 4 hunter sharks; dread troll with chimera or ettin</p><p><strong>Treasure</strong> 800 gp, masterwork lute (750 gp), bloodstained manuscript of a masterpiece play (750 gp), <em>potion of speed</em>, magic jeweled hatpin (turns into a <em>+2 dagger</em> or <em>+2 spear</em> when command words are spoken)</p><p><strong>CR 17–22</strong> dread troll with 2 or 3 trolls; 4 trolls; 3 cave trolls; 2 faerie eater trolls with corrupted unicorn</p><p><strong>Treasure</strong> 100 pp, 3,000 gp, antique half-plate armor bearing noble heraldry (700 gp), secret missive that would have prevented a past war had it been delivered, magic saddle that grants advantage on ability checks related to riding (2,500 gp), <em>flametongue greatsword</em></p><hr class=\"a5e-rule u-my-md\"><h2><strong>MONSTER TYPE DESCRIPTION</strong></h2><p>Giants look like immense humanoids, standing from 10 feet tall (like ogres) to 30 (like storm giants). Some giants, like trolls, have human-like shapes but monstrous features.</p>",
 			"creatureTypes": [
-				"humanoid"
+				"giant"
 			],
 			"isSwarm": false,
-			"cr": 1,
+			"cr": 3,
 			"elite": false,
-			"privateNotes": "<div>\n<h2>KOBOLD NAMES</h2>\n<p>Blimbik, Flaw, Lublub, Luckluck, Pip Nip, Queek, Skirn, Vis, Zabblescrubble, Zorna</p>\n<h2>&nbsp;</h2>\n<h2>LEGENDS AND LORE</h2>\n<p>With an Arcana or History check, characters can learn the following:</p>\n<p>DC 10 Kobolds are distant relatives of dragons and often serve them in their lairs.</p>\n<p>DC 15 Kobolds go to great lengths to avoid sunlight.</p>\n<p>DC 20 While individually weak, kobolds can be dangerous when encountered in large numbers. They fashion clever traps to protect their underground warrens.</p>\n</div>\n<div>\n<p>Kobolds are small, reptilian humanoids that blend the features of large dogs and tiny, wingless dragons. While many live in the lairs of the dragons they revere, others dwell in trap-ridden warrens far underground.</p>\n<p>Draconic Servitors. Kobolds feel both an awe of and kinship with dragons. Many dragons extend protection to their distant kobold cousins, accepting in return the flattery, adulation, and service they believe all creatures owe them. Kobold servitors resent a dragon&rsquo;s other minions, fearful of the day the dragon no longer values their devotion.</p>\n<p>Kobolds share many characteristics with dragons. They hatch from eggs with an instinct to hoard treasures and trinkets. Like dragons, kobolds enjoy long lifespans. With all the dangers that assail them, though, few kobolds see the natural end of their 100- to 150-year lifespans.</p>\n<p>Proud and Territorial. Smaller and weaker than most sentient species, individual kobolds make easy prey for predators. A kobold community without a dragon patron must rely on stealth, traps, and sheer numbers to survive.</p>\n<p>Most kobolds live in underground warrens far from the sunlight. Often, these warrens are extensions of&nbsp; existing structures such as dungeons, sewers, and natural caverns. As skilled miners with a dragon-like fondness for shiny things, kobolds often move into abandoned mines (or chase the miners out of working ones). Kobolds modify their lairs to their advantage, using low ceilings, cunning traps, and narrow passages to hinder the movement of invaders. Kobolds prefer to fight from a distance and with overwhelming numbers.</p>\n<p>Bigger and stronger creatures often find kobolds contemptible at best, and raid and slaughter them at worst. When the tables are turned, kobolds rarely forgive those who have bullied them, though sometimes flattering words or glittering offerings appease them. Any slight to their dignity enrages them. Kobolds believe that even the smallest relative of a dragon has royal blood coursing through its veins.</p>\n</div>",
+			"privateNotes": "",
 			"notes": "",
 			"terrain": [
-				"ruin"
+				"hills"
 			]
 		},
 		"proficiencies": {
 			"armor": [],
 			"languages": [
-				"common",
-				"draconic"
+				"giant"
 			],
 			"tools": [],
 			"weapons": []
@@ -1775,7 +1666,7 @@
 		},
 		"source": "toSaveAKingdom",
 		"traits": {
-			"size": "sm",
+			"size": "lg",
 			"conditionImmunities": [],
 			"damageImmunities": [],
 			"damageResistances": [],
@@ -1785,11 +1676,11 @@
 		"grants": {}
 	},
 	"prototypeToken": {
-		"name": "Kobold",
+		"name": "Troll",
 		"displayName": 0,
 		"actorLink": false,
-		"width": 1,
-		"height": 1,
+		"width": 2,
+		"height": 2,
 		"lockRotation": false,
 		"rotation": 0,
 		"alpha": 1,
@@ -1797,7 +1688,6 @@
 			"alpha": 0.5,
 			"angle": 360,
 			"bright": 0,
-			"color": null,
 			"coloration": 1,
 			"dim": 0,
 			"luminosity": 0.5,
@@ -1814,6 +1704,7 @@
 				"min": 0,
 				"max": 1
 			},
+			"color": null,
 			"attenuation": 0.5
 		},
 		"disposition": -1,
@@ -1827,10 +1718,10 @@
 		"flags": {},
 		"randomImg": false,
 		"texture": {
-			"src": "systems/a5e/assets/kobold.webp",
+			"src": "systems/a5e/assets/troll.webp",
 			"tint": "#ffffff",
-			"scaleX": 0.5,
-			"scaleY": 0.5,
+			"scaleX": 1,
+			"scaleY": 1,
 			"offsetX": 0,
 			"offsetY": 0,
 			"rotation": 0
@@ -1851,5 +1742,5 @@
 		"prependAdjective": false
 	},
 	"folder": null,
-	"_id": "hk26tmt0bxuz7ss9"
+	"_id": "irwhawt7gtee0fsz"
 }

@@ -1,6 +1,5 @@
 {
-	"folder": null,
-	"name": "Laskian Sled Dog",
+	"name": "Agonized Khyphon",
 	"type": "npc",
 	"img": "icons/svg/mystery-man.svg",
 	"system": {
@@ -10,7 +9,7 @@
 		},
 		"abilities": {
 			"str": {
-				"value": 12,
+				"value": 19,
 				"check": {
 					"expertiseDice": 0,
 					"bonus": ""
@@ -34,7 +33,7 @@
 				}
 			},
 			"con": {
-				"value": 10,
+				"value": 17,
 				"check": {
 					"expertiseDice": 0,
 					"bonus": ""
@@ -46,7 +45,7 @@
 				}
 			},
 			"int": {
-				"value": 3,
+				"value": 16,
 				"check": {
 					"expertiseDice": 0,
 					"bonus": ""
@@ -58,19 +57,19 @@
 				}
 			},
 			"wis": {
-				"value": 12,
+				"value": 14,
 				"check": {
 					"expertiseDice": 0,
 					"bonus": ""
 				},
 				"save": {
-					"proficient": false,
+					"proficient": true,
 					"expertiseDice": 0,
 					"bonus": ""
 				}
 			},
 			"cha": {
-				"value": 6,
+				"value": 17,
 				"check": {
 					"expertiseDice": 0,
 					"bonus": ""
@@ -84,7 +83,7 @@
 		},
 		"attributes": {
 			"ac": {
-				"baseFormula": "10 + @dex.mod",
+				"baseFormula": "19",
 				"value": 0
 			},
 			"death": {
@@ -92,8 +91,8 @@
 				"failure": 0
 			},
 			"hp": {
-				"value": 9,
-				"baseMax": 9,
+				"value": 195,
+				"baseMax": 195,
 				"temp": 0,
 				"bonus": 0
 			},
@@ -107,12 +106,12 @@
 					"total": 0
 				},
 				"d8": {
-					"current": 2,
-					"total": 2
-				},
-				"d10": {
 					"current": 0,
 					"total": 0
+				},
+				"d10": {
+					"current": 23,
+					"total": 23
 				},
 				"d12": {
 					"current": 0,
@@ -138,7 +137,7 @@
 					"unit": "feet"
 				},
 				"fly": {
-					"distance": 0,
+					"distance": 40,
 					"unit": "feet"
 				},
 				"swim": {
@@ -146,7 +145,7 @@
 					"unit": "feet"
 				},
 				"walk": {
-					"distance": 40,
+					"distance": 0,
 					"unit": "feet"
 				},
 				"traits": {
@@ -168,7 +167,7 @@
 					"unit": "feet"
 				},
 				"truesight": {
-					"distance": 0,
+					"distance": 120,
 					"unit": "feet"
 				}
 			},
@@ -204,21 +203,50 @@
 		"details": {
 			"bio": "",
 			"creatureTypes": [
-				"beast"
+				"celestial"
 			],
 			"isSwarm": false,
-			"cr": 0.125,
+			"cr": 14,
 			"elite": false,
 			"notes": "",
 			"privateNotes": "",
 			"terrain": [
-				"settlement"
+				"astralPlane",
+				"etherealPlane",
+				"temple"
 			]
 		},
 		"grants": {},
 		"proficiencies": {
 			"armor": [],
-			"languages": [],
+			"languages": [
+				"abyssal",
+				"aquan",
+				"auran",
+				"celestial",
+				"common",
+				"deep",
+				"draconic",
+				"druidic",
+				"dwarvish",
+				"elvish",
+				"giant",
+				"gnoll",
+				"gnomish",
+				"goblin",
+				"grimlock",
+				"halfling",
+				"ignan",
+				"infernal",
+				"minotaur",
+				"mycelial",
+				"orc",
+				"primordial",
+				"sylvan",
+				"terran",
+				"cant",
+				"undercommon"
+			],
 			"tools": [],
 			"weapons": []
 		},
@@ -293,7 +321,7 @@
 			},
 			"arc": {
 				"ability": "int",
-				"proficient": false,
+				"proficient": true,
 				"specialties": [],
 				"expertiseDice": 0,
 				"minRoll": 1,
@@ -370,7 +398,7 @@
 			},
 			"itm": {
 				"ability": "cha",
-				"proficient": false,
+				"proficient": true,
 				"specialties": [],
 				"expertiseDice": 0,
 				"minRoll": 1,
@@ -392,9 +420,9 @@
 			},
 			"med": {
 				"ability": "wis",
-				"proficient": false,
+				"proficient": true,
 				"specialties": [],
-				"expertiseDice": 0,
+				"expertiseDice": 3,
 				"minRoll": 1,
 				"bonuses": {
 					"check": "",
@@ -414,7 +442,7 @@
 			},
 			"prc": {
 				"ability": "wis",
-				"proficient": true,
+				"proficient": false,
 				"specialties": [],
 				"expertiseDice": 0,
 				"minRoll": 1,
@@ -447,7 +475,7 @@
 			},
 			"rel": {
 				"ability": "int",
-				"proficient": false,
+				"proficient": true,
 				"specialties": [],
 				"expertiseDice": 0,
 				"minRoll": 1,
@@ -492,14 +520,28 @@
 		},
 		"source": "toSaveAKingdom",
 		"traits": {
-			"size": "med",
-			"alignment": [],
-			"conditionImmunities": [],
-			"damageImmunities": [],
-			"damageResistances": [
-				"cold"
+			"size": "lg",
+			"conditionImmunities": [
+				"fatigue",
+				"poisoned",
+				"petrified",
+				"prone",
+				"strife",
+				"Disease"
 			],
-			"damageVulnerabilities": []
+			"damageImmunities": [
+				"poison",
+				"psychic"
+			],
+			"damageResistances": [
+				"cold",
+				"fire",
+				"Bludgeoning, Piercing, and Slashing from nonmagical weapons"
+			],
+			"damageVulnerabilities": [
+				"radiant"
+			],
+			"alignment": []
 		},
 		"spellResources": {
 			"slots": {
@@ -547,7 +589,7 @@
 		}
 	},
 	"prototypeToken": {
-		"name": "Laskian Sled Dog",
+		"name": "Agonized Khyphon",
 		"displayName": 0,
 		"actorLink": false,
 		"appendNumber": false,
@@ -560,8 +602,8 @@
 			"offsetY": 0,
 			"rotation": 0
 		},
-		"width": 1,
-		"height": 1,
+		"width": 2,
+		"height": 2,
 		"lockRotation": false,
 		"rotation": 0,
 		"alpha": 1,
@@ -704,7 +746,7 @@
 				}
 			},
 			"folder": null,
-			"_id": "readIJJl5fsRR5Zp",
+			"_id": "nd1YTDI8PfeK5OXh",
 			"sort": 0,
 			"ownership": {
 				"default": 0
@@ -804,7 +846,7 @@
 				}
 			},
 			"folder": null,
-			"_id": "iIWnbLCzy2ypx8gF",
+			"_id": "ZylJiYx1vPsRkaKA",
 			"sort": 0,
 			"ownership": {
 				"default": 0
@@ -904,7 +946,7 @@
 				}
 			},
 			"folder": null,
-			"_id": "hPK9QZRz8AJYXqtO",
+			"_id": "XVAgvi3xwzBHLI8r",
 			"sort": 0,
 			"ownership": {
 				"default": 0
@@ -1004,7 +1046,7 @@
 				}
 			},
 			"folder": null,
-			"_id": "7S1fF0fzrKu7vlcO",
+			"_id": "DD35x4VoEz26KQOZ",
 			"sort": 0,
 			"ownership": {
 				"default": 0
@@ -1104,7 +1146,7 @@
 				}
 			},
 			"folder": null,
-			"_id": "vNK0iGcyhtW6wzj1",
+			"_id": "OshngrqVO07obpyV",
 			"sort": 0,
 			"ownership": {
 				"default": 0
@@ -1204,14 +1246,14 @@
 				}
 			},
 			"folder": null,
-			"_id": "jGYeE1Xu4yk9F5on",
+			"_id": "TPkMRhJDKAaIDGGD",
 			"sort": 0,
 			"ownership": {
 				"default": 0
 			}
 		},
 		{
-			"name": "Keen Hearing and Smell",
+			"name": "Chaotic",
 			"type": "feature",
 			"system": {
 				"ac": {
@@ -1225,7 +1267,7 @@
 					"requiresUnarmored": false
 				},
 				"actions": {},
-				"description": "<p>The sled dog has advantage on Perception checks that rely on hearing and smell.</p>",
+				"description": "<p>The agonized khyphon radiates a Chaotic aura.</p>",
 				"favorite": false,
 				"secretDescription": "",
 				"source": "",
@@ -1243,12 +1285,12 @@
 					"lastMigration": null
 				},
 				"concentration": false,
-				"featureType": "other",
+				"featureType": "heritage",
 				"grants": {},
 				"prerequisite": "",
 				"requiresBloodied": false
 			},
-			"_id": "gDKF1s6b4CM92qV7",
+			"_id": "lkt21agbZ9mRvSH7",
 			"img": "icons/svg/item-bag.svg",
 			"effects": [],
 			"folder": null,
@@ -1259,7 +1301,55 @@
 			"flags": {}
 		},
 		{
-			"name": "Bite",
+			"name": "Magic Resistance",
+			"type": "feature",
+			"system": {
+				"ac": {
+					"baseFormula": "",
+					"formula": "",
+					"grantsDisadvantage": false,
+					"maxDex": 0,
+					"minStr": 0,
+					"mode": 2,
+					"requiresNoShield": false,
+					"requiresUnarmored": false
+				},
+				"actions": {},
+				"description": "<p>The agonized khyphon has advantage on saving throws made against spells and other magical effects.</p>",
+				"favorite": false,
+				"secretDescription": "",
+				"source": "",
+				"uses": {
+					"value": null,
+					"max": "",
+					"per": null,
+					"recharge": {
+						"formula": "1d6",
+						"threshold": "6"
+					}
+				},
+				"schema": {
+					"version": null,
+					"lastMigration": null
+				},
+				"concentration": false,
+				"featureType": "heritage",
+				"grants": {},
+				"prerequisite": "",
+				"requiresBloodied": false
+			},
+			"_id": "ThwOHaiXnUkTHsyH",
+			"img": "icons/svg/item-bag.svg",
+			"effects": [],
+			"folder": null,
+			"sort": 0,
+			"ownership": {
+				"default": 0
+			},
+			"flags": {}
+		},
+		{
+			"name": "Sickness Carrier",
 			"type": "feature",
 			"system": {
 				"ac": {
@@ -1273,41 +1363,20 @@
 					"requiresUnarmored": false
 				},
 				"actions": {
-					"CJvcQLfUq1X9ibqG": {
-						"name": "Bite",
-						"activation": {
-							"type": "action",
-							"cost": 1
-						},
+					"mMhnb2wb5dMjKMI5": {
+						"name": "Constitution Save",
+						"activation": {},
 						"consumers": {},
-						"rolls": {
-							"dWlQbGX86XfNNc63": {
-								"type": "attack",
-								"default": true,
-								"attackType": "meleeWeaponAttack",
-								"proficient": true,
-								"ability": "str"
-							},
-							"PyrbO2bSbs9upNuh": {
-								"type": "damage",
-								"default": true,
-								"formula": "1d4 + @str.mod",
-								"damageType": "piercing"
-							}
-						},
+						"rolls": {},
 						"prompts": {
-							"jE0mlzIjnk496Zmu": {
+							"23Zed0HINlEUogf8": {
 								"type": "savingThrow",
 								"default": true,
-								"ability": "str",
+								"ability": "con",
 								"saveDC": {
-									"type": "str"
-								}
-							},
-							"9tdWe7r17DtuU7m3": {
-								"type": "effect",
-								"default": true,
-								"effectId": "bOORIDdL68SrRHwG"
+									"type": "spellcasting"
+								},
+								"onSave": "Prevents infection with demon fever."
 							}
 						},
 						"uses": {
@@ -1320,20 +1389,87 @@
 								"rechargeAmount": "1",
 								"threshold": 6
 							}
-						},
-						"ranges": {
-							"2fVldrPnkOkvCWqd": {
-								"range": "fiveFeet"
+						}
+					},
+					"IWvggmhButmxNTjp": {
+						"name": "Wisdom Save",
+						"activation": {},
+						"consumers": {},
+						"rolls": {},
+						"prompts": {
+							"4drI7UqwBPiFCKK9": {
+								"type": "savingThrow",
+								"default": true,
+								"ability": "wis",
+								"saveDC": {
+									"type": "spellcasting"
+								},
+								"onSave": "Gains benefit from the long rest."
 							}
 						},
-						"target": {
-							"type": "creatureObject",
-							"quantity": 1
+						"uses": {
+							"value": 0,
+							"max": "",
+							"per": "",
+							"recharge": {
+								"formula": "1d6",
+								"rechargeType": "custom",
+								"rechargeAmount": "1",
+								"threshold": 6
+							}
 						}
 					}
 				},
-				"description": "<p>If the target is a creature, it makes a DC 11 Strength saving throw, falling prone on a failure.</p>",
-				"favorite": true,
+				"description": "<p>When a creature hits the agonized khyphon with a melee attack using a weapon that does not have reach, it makes a DC 16 Constitution saving throw or becomes infected with demon fever. Whenever the creature attempts to take a long rest , it makes a DC 16 Wisdom saving throw or it gains no benefit from the rest. A protection from evil and good or magic circle spell cast on an infected creature prevents the nightmares for 24 hours, allowing it to benefit from a long rest. A heal spell or more powerful magic permanently cures demon fever. Alternatively, the agonized khyphon can choose to end the infection at any time.</p>",
+				"favorite": false,
+				"secretDescription": "",
+				"source": "",
+				"uses": {
+					"value": null,
+					"max": "",
+					"per": null,
+					"recharge": {
+						"formula": "1d6",
+						"threshold": "6"
+					}
+				},
+				"schema": {
+					"version": null,
+					"lastMigration": null
+				},
+				"concentration": false,
+				"featureType": "heritage",
+				"grants": {},
+				"prerequisite": "",
+				"requiresBloodied": false
+			},
+			"_id": "cOHRds85NfHoCksX",
+			"img": "icons/svg/item-bag.svg",
+			"effects": [],
+			"folder": null,
+			"sort": 0,
+			"ownership": {
+				"default": 0
+			},
+			"flags": {}
+		},
+		{
+			"name": "Multiattack",
+			"type": "feature",
+			"system": {
+				"ac": {
+					"baseFormula": "",
+					"formula": "",
+					"grantsDisadvantage": false,
+					"maxDex": 0,
+					"minStr": 0,
+					"mode": 2,
+					"requiresNoShield": false,
+					"requiresUnarmored": false
+				},
+				"actions": {},
+				"description": "<p>The agonized khyphon makes three attacks with its bandages.</p>",
+				"favorite": false,
 				"secretDescription": "",
 				"source": "",
 				"uses": {
@@ -1355,26 +1491,190 @@
 				"prerequisite": "",
 				"requiresBloodied": false
 			},
-			"_id": "iSvBcshPKXCp0dlQ",
+			"_id": "s4hvYksSjJ9ATS3e",
+			"img": "icons/svg/item-bag.svg",
+			"effects": [],
+			"folder": null,
+			"sort": 0,
+			"ownership": {
+				"default": 0
+			},
+			"flags": {}
+		},
+		{
+			"name": "Bandages",
+			"type": "feature",
+			"system": {
+				"ac": {
+					"baseFormula": "",
+					"formula": "",
+					"grantsDisadvantage": false,
+					"maxDex": 0,
+					"minStr": 0,
+					"mode": 2,
+					"requiresNoShield": false,
+					"requiresUnarmored": false
+				},
+				"actions": {
+					"EAsnnui8H7qlUlMa": {
+						"name": "Bandages",
+						"activation": {
+							"type": "action",
+							"cost": 1
+						},
+						"consumers": {},
+						"rolls": {
+							"1WDwjb3Qoo6JGNxj": {
+								"type": "attack",
+								"default": true,
+								"attackType": "meleeWeaponAttack",
+								"proficient": true,
+								"ability": "default"
+							},
+							"QDxp7HfmpG0aA4r3": {
+								"type": "damage",
+								"default": true,
+								"formula": "2d6+@mod",
+								"damageType": "force"
+							},
+							"YAAlcSg1pfQAf7qi": {
+								"type": "damage",
+								"default": true,
+								"formula": "2d6",
+								"damageType": "psychic"
+							}
+						},
+						"prompts": {
+							"7iE3dfCTn5exQssE": {
+								"type": "savingThrow",
+								"default": true,
+								"ability": "cha",
+								"saveDC": {
+									"type": "spellcasting"
+								},
+								"onSave": "Negates effects"
+							},
+							"5YvWBx8nmi6ev3tx": {
+								"type": "effect",
+								"default": true,
+								"effectId": "g7T3JPBb5esWERew"
+							},
+							"ePXbF5IGXRGHgStL": {
+								"type": "effect",
+								"default": true,
+								"effectId": "K8g7ussQ6efCt1m9"
+							}
+						},
+						"uses": {
+							"value": 0,
+							"max": "",
+							"per": "",
+							"recharge": {
+								"formula": "1d6",
+								"rechargeType": "custom",
+								"rechargeAmount": "1",
+								"threshold": 6
+							}
+						},
+						"duration": {
+							"unit": "instantaneous"
+						},
+						"ranges": {
+							"iw4COkkhe2YEUGWf": {
+								"range": 15,
+								"unit": "feet"
+							}
+						},
+						"target": {
+							"type": "creatureObject",
+							"quantity": 1
+						}
+					}
+				},
+				"description": "<p>The target makes a DC 16 Charisma saving throw . On a failed save, the target is poisoned until the end of its next turn. If the saving throw fails by 5 or more, the target is poisoned and frightened until the end of its next turn.</p>",
+				"favorite": false,
+				"secretDescription": "",
+				"source": "",
+				"uses": {
+					"value": null,
+					"max": "",
+					"per": null,
+					"recharge": {
+						"formula": "1d6",
+						"threshold": "6"
+					}
+				},
+				"schema": {
+					"version": null,
+					"lastMigration": null
+				},
+				"concentration": false,
+				"featureType": "naturalWeapon",
+				"grants": {},
+				"prerequisite": "",
+				"requiresBloodied": false
+			},
+			"_id": "o1c7h5IkNn4KUAGX",
 			"img": "icons/svg/item-bag.svg",
 			"effects": [
 				{
 					"icon": "icons/svg/item-bag.svg",
-					"origin": "Actor.9swq1ylYhhWN76nf.Item.iSvBcshPKXCp0dlQ",
+					"origin": "Actor.Qit6uB6nlHEg0Igi.Item.o1c7h5IkNn4KUAGX",
 					"flags": {
 						"a5e": {
 							"sort": 0,
 							"transferType": "onUse",
-							"actionId": "CJvcQLfUq1X9ibqG"
+							"actionId": "EAsnnui8H7qlUlMa",
+							"duration": {
+								"type": "rounds",
+								"unit": "minutes"
+							}
 						}
 					},
 					"transfer": false,
-					"name": "Prone",
-					"_id": "bOORIDdL68SrRHwG",
+					"name": "Frightened",
+					"_id": "g7T3JPBb5esWERew",
 					"changes": [
 						{
 							"key": "flags.a5e.effects.statusConditions",
-							"value": "[\"prone\"]",
+							"value": "[\"frightened\"]",
+							"mode": 0,
+							"priority": null
+						}
+					],
+					"disabled": false,
+					"duration": {
+						"startTime": null,
+						"seconds": null,
+						"combat": null,
+						"rounds": 1,
+						"turns": null,
+						"startRound": null,
+						"startTurn": null
+					},
+					"description": "",
+					"statuses": [
+						"frightened"
+					],
+					"folder": null
+				},
+				{
+					"icon": "icons/svg/item-bag.svg",
+					"origin": "Actor.Qit6uB6nlHEg0Igi.Item.o1c7h5IkNn4KUAGX",
+					"flags": {
+						"a5e": {
+							"sort": 0,
+							"transferType": "onUse",
+							"actionId": "EAsnnui8H7qlUlMa"
+						}
+					},
+					"transfer": false,
+					"name": "Poisoned",
+					"_id": "K8g7ussQ6efCt1m9",
+					"changes": [
+						{
+							"key": "flags.a5e.effects.statusConditions",
+							"value": "[\"poisoned\"]",
 							"mode": 0,
 							"priority": null
 						}
@@ -1391,7 +1691,7 @@
 					},
 					"description": "",
 					"statuses": [
-						"prone"
+						"poisoned"
 					],
 					"folder": null
 				}
@@ -1402,13 +1702,480 @@
 				"default": 0
 			},
 			"flags": {}
+		},
+		{
+			"name": "Control Bandages",
+			"type": "feature",
+			"system": {
+				"ac": {
+					"baseFormula": "",
+					"formula": "",
+					"grantsDisadvantage": false,
+					"maxDex": 0,
+					"minStr": 0,
+					"mode": 2,
+					"requiresNoShield": false,
+					"requiresUnarmored": false
+				},
+				"actions": {
+					"FFunFtPiI36LJ1B3": {
+						"name": "Use Feature",
+						"activation": {
+							"type": "action",
+							"cost": 1
+						},
+						"consumers": {},
+						"rolls": {},
+						"prompts": {},
+						"uses": {
+							"value": 0,
+							"max": "",
+							"per": "",
+							"recharge": {
+								"formula": "1d6",
+								"rechargeType": "custom",
+								"rechargeAmount": "1",
+								"threshold": 6
+							}
+						},
+						"duration": {
+							"unit": "instantaneous"
+						}
+					}
+				},
+				"description": "<p>Up to four bandages wrapped around the agonized khyphon&rsquo;s body animate under its control. Alternatively, the agonized khyphon can choose to animate bandages it can see within 100 feet of it instead, provided that the bandages aren&rsquo;t being worn or carried. Each animated bandage is an object with AC 20, 20 hit points, resistance to bludgeoning damage, and immunity to psychic and thunder damage.</p>\n<p>When the agonized khyphon uses multiattack on its turn, it can use each animated bandage to make one additional bandage attack.</p>\n<p>An animated bandage reverts to its inanimate state if reduced to 0 hit points or if the agonized khyphon is incapacitated or dies.</p>",
+				"favorite": false,
+				"secretDescription": "",
+				"source": "",
+				"uses": {
+					"value": 1,
+					"max": "1",
+					"per": "recharge",
+					"recharge": {
+						"formula": "1d6",
+						"threshold": "6"
+					}
+				},
+				"schema": {
+					"version": null,
+					"lastMigration": null
+				},
+				"concentration": false,
+				"featureType": "heritage",
+				"grants": {},
+				"prerequisite": "",
+				"requiresBloodied": false
+			},
+			"_id": "JTUsnV1rtYk3gitr",
+			"img": "icons/svg/item-bag.svg",
+			"effects": [],
+			"folder": null,
+			"sort": 0,
+			"ownership": {
+				"default": 0
+			},
+			"flags": {}
+		},
+		{
+			"name": "Harm",
+			"type": "feature",
+			"system": {
+				"ac": {
+					"baseFormula": "",
+					"formula": "",
+					"grantsDisadvantage": false,
+					"maxDex": 0,
+					"minStr": 0,
+					"mode": 2,
+					"requiresNoShield": false,
+					"requiresUnarmored": false
+				},
+				"actions": {
+					"B1CkcVI43Gq7nML4": {
+						"name": "Harm",
+						"activation": {
+							"type": "bonusAction",
+							"cost": 1
+						},
+						"consumers": {
+							"UW20ESsJfqc8zMPu": {
+								"type": "itemUses",
+								"default": true,
+								"quantity": 1
+							}
+						},
+						"rolls": {
+							"Y3n2HKE88SLRF3ns": {
+								"type": "attack",
+								"default": true,
+								"attackType": "meleeSpellAttack",
+								"proficient": true,
+								"ability": "spellcasting"
+							},
+							"jIt5jQV6qjXthxJ4": {
+								"type": "damage",
+								"default": true,
+								"formula": "60",
+								"damageType": "necrotic"
+							}
+						},
+						"prompts": {
+							"MGe3PEhQvrzdBSGD": {
+								"type": "savingThrow",
+								"default": true,
+								"ability": "cha",
+								"saveDC": {
+									"type": "spellcasting"
+								},
+								"onSave": "Negates"
+							},
+							"J3mjIBjMlpDTOZld": {
+								"type": "effect",
+								"default": true,
+								"effectId": "8WuHRcgrI8qGWJ18"
+							},
+							"xL8f4Z2RO3iQC8l2": {
+								"type": "effect",
+								"default": true,
+								"effectId": "6pheGwE9HaV3X3eq"
+							},
+							"8FtuLWNAXRbf3clQ": {
+								"type": "effect",
+								"default": true,
+								"effectId": "2Kjz562M24VJFl9k"
+							}
+						},
+						"uses": {
+							"value": 0,
+							"max": "",
+							"per": "",
+							"recharge": {
+								"formula": "1d6",
+								"rechargeType": "custom",
+								"rechargeAmount": "1",
+								"threshold": 6
+							}
+						},
+						"duration": {
+							"unit": "special"
+						},
+						"ranges": {
+							"5BUfX3dkwlmDfb1P": {
+								"range": 20,
+								"unit": "feet"
+							}
+						},
+						"target": {
+							"type": "creatureObject",
+							"quantity": 1
+						}
+					}
+				},
+				"description": "<p>If the target is a creature it makes a DC 16 Charisma saving throw . On a failed save the creature becomes blinded, deafened, poisoned, or afflicted with a disease of tier 2 or lower (chosen by the agonized khyphon). The creature can repeat the saving throw at the end of each of its turns, ending the effect on itself on a success.</p>",
+				"favorite": false,
+				"secretDescription": "",
+				"source": "",
+				"uses": {
+					"value": 1,
+					"max": "1",
+					"per": "recharge",
+					"recharge": {
+						"formula": "1d6",
+						"threshold": "6"
+					}
+				},
+				"schema": {
+					"version": null,
+					"lastMigration": null
+				},
+				"concentration": false,
+				"featureType": "naturalWeapon",
+				"grants": {},
+				"prerequisite": "",
+				"requiresBloodied": false
+			},
+			"_id": "lro5SXsMcqk3o5Yz",
+			"img": "icons/svg/item-bag.svg",
+			"effects": [
+				{
+					"icon": "icons/svg/item-bag.svg",
+					"origin": "Actor.Qit6uB6nlHEg0Igi.Item.lro5SXsMcqk3o5Yz",
+					"flags": {
+						"a5e": {
+							"sort": 0,
+							"transferType": "onUse",
+							"actionId": "B1CkcVI43Gq7nML4"
+						}
+					},
+					"transfer": false,
+					"name": "Blinded",
+					"_id": "8WuHRcgrI8qGWJ18",
+					"changes": [
+						{
+							"key": "flags.a5e.effects.statusConditions",
+							"value": "[\"blinded\"]",
+							"mode": 0,
+							"priority": null
+						}
+					],
+					"disabled": false,
+					"duration": {
+						"startTime": null,
+						"seconds": null,
+						"combat": null,
+						"rounds": null,
+						"turns": null,
+						"startRound": null,
+						"startTurn": null
+					},
+					"description": "",
+					"statuses": [
+						"blinded"
+					],
+					"folder": null
+				},
+				{
+					"icon": "icons/svg/item-bag.svg",
+					"origin": "Actor.Qit6uB6nlHEg0Igi.Item.lro5SXsMcqk3o5Yz",
+					"flags": {
+						"a5e": {
+							"sort": 0,
+							"transferType": "onUse",
+							"actionId": "B1CkcVI43Gq7nML4"
+						}
+					},
+					"transfer": false,
+					"name": "Deafened",
+					"_id": "6pheGwE9HaV3X3eq",
+					"changes": [
+						{
+							"key": "flags.a5e.effects.statusConditions",
+							"value": "[\"deafened\"]",
+							"mode": 0,
+							"priority": null
+						}
+					],
+					"disabled": false,
+					"duration": {
+						"startTime": null,
+						"seconds": null,
+						"combat": null,
+						"rounds": null,
+						"turns": null,
+						"startRound": null,
+						"startTurn": null
+					},
+					"description": "",
+					"statuses": [
+						"deafened"
+					],
+					"folder": null
+				},
+				{
+					"icon": "icons/svg/item-bag.svg",
+					"origin": "Actor.Qit6uB6nlHEg0Igi.Item.lro5SXsMcqk3o5Yz",
+					"flags": {
+						"a5e": {
+							"sort": 0,
+							"transferType": "onUse",
+							"actionId": "B1CkcVI43Gq7nML4"
+						}
+					},
+					"transfer": false,
+					"name": "Poisoned",
+					"_id": "2Kjz562M24VJFl9k",
+					"changes": [
+						{
+							"key": "flags.a5e.effects.statusConditions",
+							"value": "[\"poisoned\"]",
+							"mode": 0,
+							"priority": null
+						}
+					],
+					"disabled": false,
+					"duration": {
+						"startTime": null,
+						"seconds": null,
+						"combat": null,
+						"rounds": null,
+						"turns": null,
+						"startRound": null,
+						"startTurn": null
+					},
+					"description": "",
+					"statuses": [
+						"poisoned"
+					],
+					"folder": null
+				}
+			],
+			"folder": null,
+			"sort": 0,
+			"ownership": {
+				"default": 0
+			},
+			"flags": {}
+		},
+		{
+			"name": "Quick Reaction",
+			"type": "feature",
+			"system": {
+				"ac": {
+					"baseFormula": "",
+					"formula": "",
+					"grantsDisadvantage": false,
+					"maxDex": 0,
+					"minStr": 0,
+					"mode": 2,
+					"requiresNoShield": false,
+					"requiresUnarmored": false
+				},
+				"actions": {},
+				"description": "<p>The agonized khyphon has 2 reactions each round. Only one reaction may be used to make an opportunity attack.</p>",
+				"favorite": false,
+				"secretDescription": "",
+				"source": "",
+				"uses": {
+					"value": null,
+					"max": "",
+					"per": null,
+					"recharge": {
+						"formula": "1d6",
+						"threshold": "6"
+					}
+				},
+				"schema": {
+					"version": null,
+					"lastMigration": null
+				},
+				"concentration": false,
+				"featureType": "naturalWeapon",
+				"grants": {},
+				"prerequisite": "",
+				"requiresBloodied": false
+			},
+			"_id": "QmpZHXvpSbYcsm6P",
+			"img": "icons/svg/item-bag.svg",
+			"effects": [],
+			"folder": null,
+			"sort": 0,
+			"ownership": {
+				"default": 0
+			},
+			"flags": {}
+		},
+		{
+			"name": "Deflect Attack",
+			"type": "feature",
+			"system": {
+				"ac": {
+					"baseFormula": "",
+					"formula": "",
+					"grantsDisadvantage": false,
+					"maxDex": 0,
+					"minStr": 0,
+					"mode": 2,
+					"requiresNoShield": false,
+					"requiresUnarmored": false
+				},
+				"actions": {
+					"lSCacf6zOaG8tOB5": {
+						"name": "Damage Reduction",
+						"activation": {
+							"type": "reaction",
+							"cost": 1
+						},
+						"consumers": {},
+						"rolls": {
+							"34bHgkl0vMAMiuor": {
+								"type": "generic",
+								"default": true,
+								"formula": "4d6+4"
+							}
+						},
+						"prompts": {},
+						"uses": {
+							"value": 0,
+							"max": "",
+							"per": "",
+							"recharge": {
+								"formula": "1d6",
+								"rechargeType": "custom",
+								"rechargeAmount": "1",
+								"threshold": 6
+							}
+						},
+						"duration": {
+							"unit": "instantaneous"
+						}
+					},
+					"IS2SVAIQNeppfKN6": {
+						"name": "Attack Roll",
+						"activation": {},
+						"consumers": {},
+						"rolls": {
+							"XZoouC7cULxSU0bB": {
+								"type": "attack",
+								"default": true,
+								"attackType": "meleeSpellAttack",
+								"proficient": true,
+								"ability": "spellcasting"
+							}
+						},
+						"prompts": {},
+						"uses": {
+							"value": 0,
+							"max": "",
+							"per": "",
+							"recharge": {
+								"formula": "1d6",
+								"rechargeType": "custom",
+								"rechargeAmount": "1",
+								"threshold": 6
+							}
+						}
+					}
+				},
+				"description": "<p>The agonized khyphon strikes a melee, ranged, or spell attack that would hit it, reducing the attack&rsquo;s damage by [[/r 4d6+4]]. When deflecting a spell attack with an extra effect, the agonized khyphon makes an attack roll opposed by a spellcasting ability check by the spellcaster. On a success, the spell effect is negated.</p>",
+				"favorite": false,
+				"secretDescription": "",
+				"source": "",
+				"uses": {
+					"value": null,
+					"max": "",
+					"per": null,
+					"recharge": {
+						"formula": "1d6",
+						"threshold": "6"
+					}
+				},
+				"schema": {
+					"version": null,
+					"lastMigration": null
+				},
+				"concentration": false,
+				"featureType": "naturalWeapon",
+				"grants": {},
+				"prerequisite": "",
+				"requiresBloodied": false
+			},
+			"_id": "0jbgRrhDqhxRNz3r",
+			"img": "icons/svg/item-bag.svg",
+			"effects": [],
+			"folder": null,
+			"sort": 0,
+			"ownership": {
+				"default": 0
+			},
+			"flags": {}
 		}
 	],
 	"effects": [],
+	"folder": null,
 	"flags": {
 		"a5e": {
-			"sheetIsLocked": true
+			"sheetIsLocked": false
 		}
 	},
-	"_id": "cpe64lm8xq9a2c6k"
+	"_id": "h4qmh24ekarnb6m9"
 }

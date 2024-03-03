@@ -1,6 +1,6 @@
 {
 	"folder": null,
-	"name": "Laskian Sled Dog",
+	"name": "Warmonger",
 	"type": "npc",
 	"img": "icons/svg/mystery-man.svg",
 	"system": {
@@ -10,31 +10,31 @@
 		},
 		"abilities": {
 			"str": {
-				"value": 12,
+				"value": 20,
 				"check": {
 					"expertiseDice": 0,
 					"bonus": ""
 				},
 				"save": {
-					"proficient": false,
+					"proficient": true,
 					"expertiseDice": 0,
 					"bonus": ""
 				}
 			},
 			"dex": {
-				"value": 14,
+				"value": 17,
 				"check": {
 					"expertiseDice": 0,
 					"bonus": ""
 				},
 				"save": {
-					"proficient": false,
+					"proficient": true,
 					"expertiseDice": 0,
 					"bonus": ""
 				}
 			},
 			"con": {
-				"value": 10,
+				"value": 18,
 				"check": {
 					"expertiseDice": 0,
 					"bonus": ""
@@ -46,7 +46,7 @@
 				}
 			},
 			"int": {
-				"value": 3,
+				"value": 18,
 				"check": {
 					"expertiseDice": 0,
 					"bonus": ""
@@ -58,7 +58,7 @@
 				}
 			},
 			"wis": {
-				"value": 12,
+				"value": 17,
 				"check": {
 					"expertiseDice": 0,
 					"bonus": ""
@@ -70,13 +70,13 @@
 				}
 			},
 			"cha": {
-				"value": 6,
+				"value": 15,
 				"check": {
 					"expertiseDice": 0,
 					"bonus": ""
 				},
 				"save": {
-					"proficient": false,
+					"proficient": true,
 					"expertiseDice": 0,
 					"bonus": ""
 				}
@@ -84,7 +84,7 @@
 		},
 		"attributes": {
 			"ac": {
-				"baseFormula": "10 + @dex.mod",
+				"baseFormula": "15",
 				"value": 0
 			},
 			"death": {
@@ -92,8 +92,8 @@
 				"failure": 0
 			},
 			"hp": {
-				"value": 9,
-				"baseMax": 9,
+				"value": 76,
+				"baseMax": 76,
 				"temp": 0,
 				"bonus": 0
 			},
@@ -107,12 +107,12 @@
 					"total": 0
 				},
 				"d8": {
-					"current": 2,
-					"total": 2
-				},
-				"d10": {
 					"current": 0,
 					"total": 0
+				},
+				"d10": {
+					"current": 8,
+					"total": 8
 				},
 				"d12": {
 					"current": 0,
@@ -138,7 +138,7 @@
 					"unit": "feet"
 				},
 				"fly": {
-					"distance": 0,
+					"distance": 40,
 					"unit": "feet"
 				},
 				"swim": {
@@ -160,7 +160,7 @@
 					"otherwiseBlind": false
 				},
 				"darkvision": {
-					"distance": 0,
+					"distance": 60,
 					"unit": "feet"
 				},
 				"tremorsense": {
@@ -204,21 +204,27 @@
 		"details": {
 			"bio": "",
 			"creatureTypes": [
-				"beast"
+				"fiend"
 			],
 			"isSwarm": false,
-			"cr": 0.125,
+			"cr": 6,
 			"elite": false,
 			"notes": "",
 			"privateNotes": "",
 			"terrain": [
-				"settlement"
+				"hell",
+				"ruin",
+				"tomb"
 			]
 		},
 		"grants": {},
 		"proficiencies": {
 			"armor": [],
-			"languages": [],
+			"languages": [
+				"common",
+				"infernal",
+				"Telepathy (100 ft.)"
+			],
 			"tools": [],
 			"weapons": []
 		},
@@ -304,7 +310,7 @@
 			},
 			"ath": {
 				"ability": "str",
-				"proficient": false,
+				"proficient": true,
 				"specialties": [],
 				"expertiseDice": 0,
 				"minRoll": 1,
@@ -348,9 +354,9 @@
 			},
 			"his": {
 				"ability": "int",
-				"proficient": false,
+				"proficient": true,
 				"specialties": [],
-				"expertiseDice": 0,
+				"expertiseDice": 3,
 				"minRoll": 1,
 				"bonuses": {
 					"check": "",
@@ -359,7 +365,7 @@
 			},
 			"ins": {
 				"ability": "wis",
-				"proficient": false,
+				"proficient": true,
 				"specialties": [],
 				"expertiseDice": 0,
 				"minRoll": 1,
@@ -492,12 +498,26 @@
 		},
 		"source": "toSaveAKingdom",
 		"traits": {
-			"size": "med",
-			"alignment": [],
-			"conditionImmunities": [],
-			"damageImmunities": [],
+			"size": "lg",
+			"alignment": [
+				"evil",
+				"lawful"
+			],
+			"conditionImmunities": [
+				"charmed",
+				"paralyzed",
+				"poisoned",
+				"stunned"
+			],
+			"damageImmunities": [
+				"fire",
+				"poison"
+			],
 			"damageResistances": [
-				"cold"
+				"acid",
+				"cold",
+				"necrotic",
+				"Nonmagical Weapons"
 			],
 			"damageVulnerabilities": []
 		},
@@ -547,7 +567,7 @@
 		}
 	},
 	"prototypeToken": {
-		"name": "Laskian Sled Dog",
+		"name": "Warmonger",
 		"displayName": 0,
 		"actorLink": false,
 		"appendNumber": false,
@@ -560,8 +580,8 @@
 			"offsetY": 0,
 			"rotation": 0
 		},
-		"width": 1,
-		"height": 1,
+		"width": 2,
+		"height": 2,
 		"lockRotation": false,
 		"rotation": 0,
 		"alpha": 1,
@@ -704,7 +724,7 @@
 				}
 			},
 			"folder": null,
-			"_id": "readIJJl5fsRR5Zp",
+			"_id": "7mw4XRZBzwrgIy6z",
 			"sort": 0,
 			"ownership": {
 				"default": 0
@@ -804,7 +824,7 @@
 				}
 			},
 			"folder": null,
-			"_id": "iIWnbLCzy2ypx8gF",
+			"_id": "ZYBjgttkGINgvh41",
 			"sort": 0,
 			"ownership": {
 				"default": 0
@@ -904,7 +924,7 @@
 				}
 			},
 			"folder": null,
-			"_id": "hPK9QZRz8AJYXqtO",
+			"_id": "3r1cMtyZqt6dYcNb",
 			"sort": 0,
 			"ownership": {
 				"default": 0
@@ -1004,7 +1024,7 @@
 				}
 			},
 			"folder": null,
-			"_id": "7S1fF0fzrKu7vlcO",
+			"_id": "3sOvm7QooYJlSEuN",
 			"sort": 0,
 			"ownership": {
 				"default": 0
@@ -1104,7 +1124,7 @@
 				}
 			},
 			"folder": null,
-			"_id": "vNK0iGcyhtW6wzj1",
+			"_id": "lak9wQZz7kag9kDf",
 			"sort": 0,
 			"ownership": {
 				"default": 0
@@ -1204,14 +1224,135 @@
 				}
 			},
 			"folder": null,
-			"_id": "jGYeE1Xu4yk9F5on",
+			"_id": "1OyclwFgdk8YjxTa",
 			"sort": 0,
 			"ownership": {
 				"default": 0
 			}
 		},
 		{
-			"name": "Keen Hearing and Smell",
+			"name": "Evil Presence",
+			"type": "feature",
+			"system": {
+				"ac": {
+					"baseFormula": "",
+					"formula": "",
+					"grantsDisadvantage": false,
+					"maxDex": 0,
+					"minStr": 0,
+					"mode": 2,
+					"requiresNoShield": false,
+					"requiresUnarmored": false
+				},
+				"actions": {
+					"0gn0erCC3fTYY57Q": {
+						"name": "Evil Presence",
+						"activation": {},
+						"consumers": {},
+						"rolls": {},
+						"prompts": {
+							"n4bYxWT8T0BNyuRK": {
+								"type": "effect",
+								"default": true,
+								"effectId": "xKvZDL8q7VMG9bf8"
+							}
+						},
+						"uses": {
+							"value": 0,
+							"max": "",
+							"per": "",
+							"recharge": {
+								"formula": "1d6",
+								"rechargeType": "custom",
+								"rechargeAmount": "1",
+								"threshold": 6
+							}
+						}
+					}
+				},
+				"description": "<p>All devils adjacent to the warmonger gains a +1 bonus to Armor Class, attack rolls, and weapon damage rolls. A creature can only benefit from the Evil presence of one warmonger at a time.</p>",
+				"favorite": true,
+				"secretDescription": "",
+				"source": "",
+				"uses": {
+					"value": null,
+					"max": "",
+					"per": null,
+					"recharge": {
+						"formula": "1d6",
+						"threshold": "6"
+					}
+				},
+				"schema": {
+					"version": null,
+					"lastMigration": null
+				},
+				"concentration": false,
+				"featureType": "other",
+				"grants": {},
+				"prerequisite": "",
+				"requiresBloodied": false
+			},
+			"_id": "NK1bFgCoQtqP2YKv",
+			"img": "icons/svg/item-bag.svg",
+			"effects": [
+				{
+					"icon": "icons/svg/item-bag.svg",
+					"origin": "Actor.qm2OzUs6hMnO4hnB.Item.NK1bFgCoQtqP2YKv",
+					"flags": {
+						"a5e": {
+							"sort": 0,
+							"transferType": "onUse",
+							"actionId": "0gn0erCC3fTYY57Q"
+						}
+					},
+					"transfer": false,
+					"name": "Evil Presence",
+					"_id": "xKvZDL8q7VMG9bf8",
+					"changes": [
+						{
+							"key": "system.attributes.ac.changes.bonuses.value",
+							"value": "1",
+							"mode": 2,
+							"priority": null
+						},
+						{
+							"key": "flags.a5e.effects.bonuses.attacks",
+							"value": "{\"label\":\"Evil Presence\",\"formula\":\"1\",\"context\":{\"attackTypes\":[\"meleeWeaponAttack\",\"rangedWeaponAttack\",\"meleeSpellAttack\",\"rangedSpellAttack\"],\"spellLevels\":[\"0\",\"1\",\"2\",\"3\",\"4\",\"5\",\"6\",\"7\",\"8\",\"9\"],\"requiresProficiency\":false},\"default\":true,\"img\":\"icons/svg/upgrade.svg\"}",
+							"mode": 0,
+							"priority": null
+						},
+						{
+							"key": "flags.a5e.effects.bonuses.damage",
+							"value": "{\"label\":\"Evil Presence\",\"formula\":\"1\",\"damageType\":\"\",\"context\":{\"attackTypes\":[\"meleeWeaponAttack\",\"meleeSpellAttack\",\"rangedWeaponAttack\",\"rangedSpellAttack\"],\"damageTypes\":[\"acid\",\"bludgeoning\",\"cold\",\"fire\",\"force\",\"lightning\",\"necrotic\",\"piercing\",\"poison\",\"psychic\",\"radiant\",\"slashing\",\"thunder\"],\"spellLevels\":[\"0\",\"1\",\"2\",\"3\",\"4\",\"5\",\"6\",\"7\",\"8\",\"9\"],\"isCritBonus\":false},\"default\":true,\"img\":\"icons/svg/upgrade.svg\"}",
+							"mode": 0,
+							"priority": null
+						}
+					],
+					"disabled": false,
+					"duration": {
+						"startTime": null,
+						"seconds": null,
+						"combat": null,
+						"rounds": null,
+						"turns": null,
+						"startRound": null,
+						"startTurn": null
+					},
+					"description": "",
+					"statuses": [],
+					"folder": null
+				}
+			],
+			"folder": null,
+			"sort": 0,
+			"ownership": {
+				"default": 0
+			},
+			"flags": {}
+		},
+		{
+			"name": "Freedom of Movement",
 			"type": "feature",
 			"system": {
 				"ac": {
@@ -1225,7 +1366,7 @@
 					"requiresUnarmored": false
 				},
 				"actions": {},
-				"description": "<p>The sled dog has advantage on Perception checks that rely on hearing and smell.</p>",
+				"description": "<p>The warmonger ignores difficult terrain , and magical effects can&rsquo;t reduce its Speed or cause it to be restrained . It can spend 5 feet of movement to escape from nonmagical restraints or being grappled.</p>",
 				"favorite": false,
 				"secretDescription": "",
 				"source": "",
@@ -1248,7 +1389,7 @@
 				"prerequisite": "",
 				"requiresBloodied": false
 			},
-			"_id": "gDKF1s6b4CM92qV7",
+			"_id": "95s70XdkUSWwSvaq",
 			"img": "icons/svg/item-bag.svg",
 			"effects": [],
 			"folder": null,
@@ -1259,7 +1400,55 @@
 			"flags": {}
 		},
 		{
-			"name": "Bite",
+			"name": "Lawful Evil",
+			"type": "feature",
+			"system": {
+				"ac": {
+					"baseFormula": "",
+					"formula": "",
+					"grantsDisadvantage": false,
+					"maxDex": 0,
+					"minStr": 0,
+					"mode": 2,
+					"requiresNoShield": false,
+					"requiresUnarmored": false
+				},
+				"actions": {},
+				"description": "<p>The warmonger radiates a Lawful Evil aura.</p>",
+				"favorite": false,
+				"secretDescription": "",
+				"source": "",
+				"uses": {
+					"value": null,
+					"max": "",
+					"per": null,
+					"recharge": {
+						"formula": "1d6",
+						"threshold": "6"
+					}
+				},
+				"schema": {
+					"version": null,
+					"lastMigration": null
+				},
+				"concentration": false,
+				"featureType": "other",
+				"grants": {},
+				"prerequisite": "",
+				"requiresBloodied": false
+			},
+			"_id": "UPazOLPCdZ7L4Jcf",
+			"img": "icons/svg/item-bag.svg",
+			"effects": [],
+			"folder": null,
+			"sort": 0,
+			"ownership": {
+				"default": 0
+			},
+			"flags": {}
+		},
+		{
+			"name": "Multiattack",
 			"type": "feature",
 			"system": {
 				"ac": {
@@ -1273,43 +1462,279 @@
 					"requiresUnarmored": false
 				},
 				"actions": {
-					"CJvcQLfUq1X9ibqG": {
-						"name": "Bite",
+					"ayT7bHBMoaK947nT": {
+						"name": "Multiattack",
+						"activation": {
+							"type": "action",
+							"cost": 1
+						},
+						"consumers": {},
+						"rolls": {},
+						"prompts": {},
+						"uses": {
+							"value": 0,
+							"max": "",
+							"per": "",
+							"recharge": {
+								"formula": "1d6",
+								"rechargeType": "custom",
+								"rechargeAmount": "1",
+								"threshold": 6
+							}
+						}
+					}
+				},
+				"description": "<p>The warmonger attacks twice.</p>",
+				"favorite": true,
+				"secretDescription": "",
+				"source": "",
+				"uses": {
+					"value": null,
+					"max": "",
+					"per": null,
+					"recharge": {
+						"formula": "1d6",
+						"threshold": "6"
+					}
+				},
+				"schema": {
+					"version": null,
+					"lastMigration": null
+				},
+				"concentration": false,
+				"featureType": "other",
+				"grants": {},
+				"prerequisite": "",
+				"requiresBloodied": false
+			},
+			"_id": "A9Nwhr08A2q6k2qW",
+			"img": "icons/svg/item-bag.svg",
+			"effects": [],
+			"folder": null,
+			"sort": 0,
+			"ownership": {
+				"default": 0
+			},
+			"flags": {}
+		},
+		{
+			"name": "Flaming Longsword",
+			"type": "object",
+			"img": "icons/weapons/swords/greatsword-blue.webp",
+			"effects": [
+				{
+					"icon": "icons/weapons/swords/greatsword-blue.webp",
+					"origin": "Actor.qm2OzUs6hMnO4hnB.Item.RDYLu2MfbkIpnGZp",
+					"flags": {
+						"a5e": {
+							"sort": 0,
+							"transferType": "onUse",
+							"actionId": "v3bptQ9yjfEMnfwo",
+							"duration": {
+								"type": "rounds",
+								"unit": "minutes"
+							}
+						}
+					},
+					"transfer": false,
+					"name": "AC +1",
+					"_id": "Llj5xb79gCEj7iz8",
+					"changes": [
+						{
+							"key": "system.attributes.ac.changes.bonuses.value",
+							"value": "1",
+							"mode": 2,
+							"priority": null
+						}
+					],
+					"disabled": false,
+					"duration": {
+						"startTime": null,
+						"seconds": null,
+						"combat": null,
+						"rounds": null,
+						"turns": 1,
+						"startRound": null,
+						"startTurn": null
+					},
+					"description": "",
+					"statuses": [],
+					"tint": "#ffffff",
+					"folder": null
+				}
+			],
+			"flags": {},
+			"system": {
+				"ac": {
+					"baseFormula": "",
+					"formula": "",
+					"grantsDisadvantage": false,
+					"maxDex": 0,
+					"minStr": 0,
+					"mode": 1,
+					"requiresNoShield": false,
+					"requiresUnarmored": false
+				},
+				"actions": {
+					"rPaMSExLpHCaYkH9": {
+						"name": "Flaming Longsword",
+						"activation": {
+							"cost": "",
+							"type": "",
+							"reactionTrigger": ""
+						},
+						"duration": {
+							"unit": "",
+							"value": ""
+						},
+						"area": {
+							"shape": "",
+							"size": "",
+							"placeTemplate": false,
+							"quantity": 1
+						},
+						"target": {
+							"quantity": 1,
+							"type": "creatureObject"
+						},
+						"rolls": {
+							"UEwQqL1vKVE291PA": {
+								"bonus": "",
+								"critThreshold": "20",
+								"type": "attack",
+								"attackType": "meleeWeaponAttack",
+								"ability": "default"
+							},
+							"x4uy5CMwLzIKdqmH": {
+								"canCrit": true,
+								"damageType": "slashing",
+								"formula": "1d8 + @str.mod",
+								"name": "Longsword",
+								"type": "damage",
+								"label": "Magical Slashing"
+							},
+							"EgIbd1zQEEP1T7Ps": {
+								"type": "damage",
+								"default": true,
+								"formula": "1d6",
+								"damageType": "fire"
+							},
+							"475yMHA7cZoUWE78": {
+								"type": "damage",
+								"default": false,
+								"formula": "2d8",
+								"damageType": "slashing",
+								"label": "Restrained by an infernal net"
+							}
+						},
+						"consumers": {},
+						"ranges": {
+							"lQc65EDLbzdh5sTh": {
+								"range": "fiveFeet"
+							}
+						}
+					}
+				},
+				"description": "<p><em>Defensive (Medium)</em></p>\n<p>If the target is a creature restrained by an infernal net, it takes an extra 9 (2d8) magical slashing damage.</p>",
+				"favorite": true,
+				"secretDescription": "",
+				"source": "",
+				"uses": {
+					"value": null,
+					"max": "",
+					"per": null,
+					"recharge": {
+						"formula": "1d6",
+						"threshold": 6
+					}
+				},
+				"schema": {
+					"version": null,
+					"lastMigration": null
+				},
+				"ammunitionProperties": [],
+				"armorCategory": "",
+				"armorProperties": [],
+				"attuned": false,
+				"bulky": false,
+				"craftingComponents": "",
+				"containerId": "",
+				"damagedState": 0,
+				"equippedState": 0,
+				"items": {},
+				"materialProperties": [],
+				"objectType": "weapon",
+				"plotItem": false,
+				"price": "20 gp",
+				"proficient": true,
+				"quantity": 1,
+				"rarity": "mundane",
+				"requiresAttunement": false,
+				"shieldCategory": "",
+				"shieldProperties": [],
+				"unidentified": false,
+				"unidentifiedDescription": "",
+				"unidentifiedName": "",
+				"weaponProperties": [
+					"defensive"
+				],
+				"weight": 3,
+				"schemaVersion": {
+					"version": 0.013,
+					"lastMigration": {
+						"version": {
+							"schema": 0.011,
+							"foundry": "11.315",
+							"system": "0.16.49"
+						}
+					}
+				}
+			},
+			"folder": null,
+			"_id": "RDYLu2MfbkIpnGZp",
+			"sort": 0,
+			"ownership": {
+				"default": 0
+			}
+		},
+		{
+			"name": "Slam",
+			"type": "feature",
+			"system": {
+				"ac": {
+					"baseFormula": "",
+					"formula": "",
+					"grantsDisadvantage": false,
+					"maxDex": 0,
+					"minStr": 0,
+					"mode": 2,
+					"requiresNoShield": false,
+					"requiresUnarmored": false
+				},
+				"actions": {
+					"DE8aMuSUmOyfD24g": {
+						"name": "Slam",
 						"activation": {
 							"type": "action",
 							"cost": 1
 						},
 						"consumers": {},
 						"rolls": {
-							"dWlQbGX86XfNNc63": {
+							"8bbYNlTK3h0ZrIWD": {
 								"type": "attack",
 								"default": true,
 								"attackType": "meleeWeaponAttack",
 								"proficient": true,
 								"ability": "str"
 							},
-							"PyrbO2bSbs9upNuh": {
+							"Wok4Wu37H4XD26fG": {
 								"type": "damage",
 								"default": true,
-								"formula": "1d4 + @str.mod",
-								"damageType": "piercing"
+								"formula": "1d6 + @str.mod",
+								"damageType": "bludgeoning"
 							}
 						},
-						"prompts": {
-							"jE0mlzIjnk496Zmu": {
-								"type": "savingThrow",
-								"default": true,
-								"ability": "str",
-								"saveDC": {
-									"type": "str"
-								}
-							},
-							"9tdWe7r17DtuU7m3": {
-								"type": "effect",
-								"default": true,
-								"effectId": "bOORIDdL68SrRHwG"
-							}
-						},
+						"prompts": {},
 						"uses": {
 							"value": 0,
 							"max": "",
@@ -1322,7 +1747,7 @@
 							}
 						},
 						"ranges": {
-							"2fVldrPnkOkvCWqd": {
+							"QZIvpPXBeYJ0IXFF": {
 								"range": "fiveFeet"
 							}
 						},
@@ -1332,7 +1757,7 @@
 						}
 					}
 				},
-				"description": "<p>If the target is a creature, it makes a DC 11 Strength saving throw, falling prone on a failure.</p>",
+				"description": "",
 				"favorite": true,
 				"secretDescription": "",
 				"source": "",
@@ -1355,26 +1780,128 @@
 				"prerequisite": "",
 				"requiresBloodied": false
 			},
-			"_id": "iSvBcshPKXCp0dlQ",
+			"_id": "OXNOM7M39QbUJxGH",
+			"img": "icons/svg/item-bag.svg",
+			"effects": [],
+			"folder": null,
+			"sort": 0,
+			"ownership": {
+				"default": 0
+			},
+			"flags": {}
+		},
+		{
+			"name": "Infernal Net",
+			"type": "feature",
+			"system": {
+				"ac": {
+					"baseFormula": "",
+					"formula": "",
+					"grantsDisadvantage": false,
+					"maxDex": 0,
+					"minStr": 0,
+					"mode": 2,
+					"requiresNoShield": false,
+					"requiresUnarmored": false
+				},
+				"actions": {
+					"MVDBJM9xVcBNnxe7": {
+						"name": "Infernal Net",
+						"activation": {
+							"type": "bonusAction",
+							"cost": 1
+						},
+						"consumers": {},
+						"rolls": {
+							"0EgZWKjrpNtce2oG": {
+								"type": "attack",
+								"default": true,
+								"attackType": "rangedWeaponAttack",
+								"proficient": true,
+								"ability": "dex"
+							}
+						},
+						"prompts": {
+							"jWPr6fq9GSyw9I2k": {
+								"type": "effect",
+								"default": true,
+								"effectId": "FtLoBFoepSThKZZo"
+							},
+							"hvoh5YIPKfszByok": {
+								"type": "abilityCheck",
+								"default": true,
+								"ability": "str"
+							}
+						},
+						"uses": {
+							"value": 0,
+							"max": "",
+							"per": "",
+							"recharge": {
+								"formula": "1d6",
+								"rechargeType": "custom",
+								"rechargeAmount": "1",
+								"threshold": 6
+							}
+						},
+						"ranges": {
+							"TzJGVDp3fu6BDi66": {
+								"range": "fiveFeet"
+							},
+							"8tNkIhEFawkiVo9x": {
+								"range": 15,
+								"unit": "feet"
+							}
+						},
+						"target": {
+							"type": "creatureObject",
+							"quantity": 1
+						}
+					}
+				},
+				"description": "<p>A Huge or smaller creature hit by the infernal net is restrained until it is freed. A creature can use its action to make a DC 16 Strength check, freeing itself or another creature within its reach on a success. Dealing 10 slashing damage to the infernal net (AC 13) also frees the creature without harming it, ending the effect and destroying the infernal net, but it is immune to all other types of damage except for acid, cold, radiant, and thunder.</p>",
+				"favorite": true,
+				"secretDescription": "",
+				"source": "",
+				"uses": {
+					"value": null,
+					"max": "",
+					"per": null,
+					"recharge": {
+						"formula": "1d6",
+						"threshold": "6"
+					}
+				},
+				"schema": {
+					"version": null,
+					"lastMigration": null
+				},
+				"concentration": false,
+				"featureType": "other",
+				"grants": {},
+				"prerequisite": "",
+				"requiresBloodied": false
+			},
+			"_id": "m8eTDbLZiNcrrSVx",
 			"img": "icons/svg/item-bag.svg",
 			"effects": [
 				{
 					"icon": "icons/svg/item-bag.svg",
-					"origin": "Actor.9swq1ylYhhWN76nf.Item.iSvBcshPKXCp0dlQ",
+					"origin": "Actor.qm2OzUs6hMnO4hnB.Item.m8eTDbLZiNcrrSVx",
 					"flags": {
 						"a5e": {
 							"sort": 0,
 							"transferType": "onUse",
-							"actionId": "CJvcQLfUq1X9ibqG"
+							"actionId": "MVDBJM9xVcBNnxe7"
 						}
 					},
 					"transfer": false,
-					"name": "Prone",
-					"_id": "bOORIDdL68SrRHwG",
+					"name": "Rrestrained",
+					"_id": "FtLoBFoepSThKZZo",
 					"changes": [
 						{
 							"key": "flags.a5e.effects.statusConditions",
-							"value": "[\"prone\"]",
+							"value": "[\"restrained\"]",
 							"mode": 0,
 							"priority": null
 						}
@@ -1391,7 +1918,7 @@
 					},
 					"description": "",
 					"statuses": [
-						"prone"
+						"restrained"
 					],
 					"folder": null
 				}
@@ -1410,5 +1937,5 @@
 			"sheetIsLocked": true
 		}
 	},
-	"_id": "cpe64lm8xq9a2c6k"
+	"_id": "uhkftkgnak7pkge4"
 }

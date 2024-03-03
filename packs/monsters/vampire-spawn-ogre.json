@@ -1,173 +1,8 @@
 {
-	"name": "Kobold Elite Guard",
+	"name": "Vampire Spawn Ogre",
 	"type": "npc",
-	"img": "icons/svg/mystery-man.svg",
+	"img": "systems/a5e/assets/ogre.webp",
 	"items": [
-		{
-			"_id": "HFrGMeendXntIZF3",
-			"name": "Pack Tactics",
-			"type": "feature",
-			"img": "icons/creatures/abilities/paw-print-orange.webp",
-			"effects": [],
-			"folder": null,
-			"sort": 800000,
-			"flags": {
-				"core": {
-					"sourceId": "Item.hfcWkGVO1eey0xGn"
-				}
-			},
-			"system": {
-				"ac": {
-					"baseFormula": "",
-					"formula": "",
-					"grantsDisadvantage": false,
-					"maxDex": 0,
-					"minStr": 0,
-					"mode": 1,
-					"requiresNoShield": false,
-					"requiresUnarmored": false
-				},
-				"actions": {},
-				"description": "<p>The kobold has advantage on attack rolls against a creature if at least one of the rat&rsquo;s allies is within 5 feet of the creature and not incapacitated.</p>",
-				"favorite": true,
-				"secretDescription": "",
-				"source": "",
-				"uses": {
-					"value": null,
-					"max": "",
-					"per": null,
-					"recharge": {
-						"formula": "",
-						"threshold": ""
-					}
-				},
-				"schema": {
-					"version": null,
-					"lastMigration": null
-				},
-				"concentration": false,
-				"featureType": "",
-				"grants": {},
-				"prerequisite": "",
-				"requiresBloodied": false,
-				"schemaVersion": {
-					"version": 0.013,
-					"lastMigration": {
-						"version": {
-							"schema": 0.011,
-							"foundry": "11.315",
-							"system": "0.16.49"
-						}
-					}
-				}
-			},
-			"ownership": {
-				"default": 0
-			}
-		},
-		{
-			"_id": "PbotVP3CvgJ69Vix",
-			"name": "Sunlight Sensitivity",
-			"type": "feature",
-			"img": "icons/svg/item-bag.svg",
-			"effects": [
-				{
-					"icon": "icons/svg/item-bag.svg",
-					"origin": "Actor.rCSNmScIEf9x3leR.Item.PbotVP3CvgJ69Vix",
-					"flags": {
-						"a5e": {
-							"sort": 0,
-							"transferType": "passive"
-						}
-					},
-					"transfer": false,
-					"name": "Sunlight Sensitivity",
-					"_id": "OLlGBjQef9ATCy04",
-					"changes": [
-						{
-							"key": "flags.a5e.effects.rollMode.attack.all",
-							"value": "-1",
-							"mode": 6,
-							"priority": null
-						},
-						{
-							"key": "flags.a5e.effects.rollMode.skillCheck.prc",
-							"value": "-1",
-							"mode": 6,
-							"priority": null
-						}
-					],
-					"disabled": false,
-					"duration": {
-						"startTime": null,
-						"seconds": null,
-						"combat": null,
-						"rounds": null,
-						"turns": null,
-						"startRound": null,
-						"startTurn": null
-					},
-					"description": "",
-					"statuses": [],
-					"folder": null
-				}
-			],
-			"folder": null,
-			"sort": 100000,
-			"flags": {
-				"core": {
-					"sourceId": "Item.sI8MsKFvXA4wXmBZ"
-				}
-			},
-			"system": {
-				"ac": {
-					"baseFormula": "",
-					"formula": "",
-					"grantsDisadvantage": false,
-					"maxDex": 0,
-					"minStr": 0,
-					"mode": 1,
-					"requiresNoShield": false,
-					"requiresUnarmored": false
-				},
-				"actions": {},
-				"description": "<p>While in sunlight, the kobold has disadvantage on attack rolls, as well as on Perception checks that rely on sight.</p>",
-				"favorite": false,
-				"secretDescription": "",
-				"source": "",
-				"uses": {
-					"value": null,
-					"max": "",
-					"per": null,
-					"recharge": {
-						"formula": "",
-						"threshold": ""
-					}
-				},
-				"schema": {
-					"version": null,
-					"lastMigration": null
-				},
-				"concentration": false,
-				"featureType": "",
-				"grants": {},
-				"prerequisite": "",
-				"requiresBloodied": false,
-				"schemaVersion": {
-					"version": 0.013,
-					"lastMigration": {
-						"version": {
-							"schema": 0.011,
-							"foundry": "11.315",
-							"system": "0.16.49"
-						}
-					}
-				}
-			},
-			"ownership": {
-				"default": 0
-			}
-		},
 		{
 			"name": "Shove",
 			"type": "maneuver",
@@ -180,7 +15,7 @@
 			},
 			"system": {
 				"actions": {
-					"gUN4xgTdJjAQG713": {
+					"ufJIJ0McOUkX0QTM": {
 						"name": "Shove",
 						"activation": {
 							"cost": 1,
@@ -192,7 +27,7 @@
 							"value": null
 						},
 						"ranges": {
-							"oc4Sgmpsl6EmLXAl": {
+							"reqx9bQJmD1r0gjt": {
 								"range": "fiveFeet"
 							}
 						},
@@ -208,7 +43,7 @@
 							"size": ""
 						},
 						"rolls": {
-							"UCP5eCItCrv5uDKh": {
+							"gU3qG9WARv5plBLM": {
 								"canCrit": false,
 								"damageType": "bludgeoning",
 								"formula": "1 + @str.mod",
@@ -217,7 +52,7 @@
 							}
 						},
 						"prompts": {
-							"7CwsTmNCaD2CBuQn": {
+							"ItI0hvRGimQ1L1di": {
 								"ability": "str",
 								"onSave": "",
 								"saveDC": {
@@ -269,7 +104,7 @@
 			},
 			"folder": null,
 			"sort": 0,
-			"_id": "pRwFcic4NZfLBlhZ"
+			"_id": "8PMc6Dd0a168vbxR"
 		},
 		{
 			"name": "Disarm",
@@ -283,7 +118,7 @@
 			},
 			"system": {
 				"actions": {
-					"onL1smesjZbOBhtJ": {
+					"WGVYZAYDHz5uGoHp": {
 						"name": "Disarm",
 						"activation": {
 							"cost": 1,
@@ -295,7 +130,7 @@
 							"value": null
 						},
 						"ranges": {
-							"Ljli6lGJoX9C8mNi": {
+							"4M4CQSY71EPq6Abx": {
 								"range": "touch"
 							}
 						},
@@ -311,7 +146,7 @@
 							"size": ""
 						},
 						"rolls": {
-							"mELVGNeha0MRAGPV": {
+							"nQVYbrpVq9alXvlf": {
 								"canCrit": false,
 								"damageType": "",
 								"formula": "1 + @str.mod",
@@ -320,7 +155,7 @@
 							}
 						},
 						"prompts": {
-							"W7IPFnvMe1IyU7o6": {
+							"SZPYTK9BRAnzhjxs": {
 								"ability": "str",
 								"onSave": "",
 								"saveDC": {
@@ -372,7 +207,7 @@
 			},
 			"folder": null,
 			"sort": 0,
-			"_id": "uvuAKmcCdCBN2zNC"
+			"_id": "1p7ykCy6brY8zrkd"
 		},
 		{
 			"name": "Grab On",
@@ -386,7 +221,7 @@
 			},
 			"system": {
 				"actions": {
-					"cx0LVpB7dTGbQ9Dl": {
+					"KMhDTIDHFUoCLKT0": {
 						"name": "Grab On",
 						"activation": {
 							"cost": 1,
@@ -398,7 +233,7 @@
 							"value": null
 						},
 						"ranges": {
-							"Bm5hgOl5n6biNC0O": {
+							"jrYcbgtJAKZuhiu1": {
 								"range": "touch"
 							}
 						},
@@ -414,7 +249,7 @@
 							"size": ""
 						},
 						"prompts": {
-							"yKZsFfJlvoChfXVB": {
+							"nL8f88SeMfVGoOaX": {
 								"ability": "str",
 								"onSave": "",
 								"saveDC": {
@@ -466,7 +301,7 @@
 			},
 			"folder": null,
 			"sort": 0,
-			"_id": "bmOjbPXwYesHNJm0"
+			"_id": "fHjzQjbedGZuD6rt"
 		},
 		{
 			"name": "Knockdown",
@@ -480,7 +315,7 @@
 			},
 			"system": {
 				"actions": {
-					"JkfIRt3za93r2fGj": {
+					"B4U65uBPxyu544gN": {
 						"name": "Knockdown",
 						"activation": {
 							"cost": 1,
@@ -492,7 +327,7 @@
 							"value": null
 						},
 						"ranges": {
-							"X35qD4CHT4KEnxcu": {
+							"9m4EldlSGHLFwubn": {
 								"range": "touch"
 							}
 						},
@@ -508,7 +343,7 @@
 							"size": ""
 						},
 						"prompts": {
-							"8PW5QhgQZ5O9LJGE": {
+							"Y3NrUIorZbsPCjhV": {
 								"ability": "str",
 								"onSave": "",
 								"saveDC": {
@@ -560,7 +395,7 @@
 			},
 			"folder": null,
 			"sort": 0,
-			"_id": "oarmPNBvx8zPGacH"
+			"_id": "Wl0yVhXc1FmNTvWc"
 		},
 		{
 			"name": "Grapple",
@@ -574,7 +409,7 @@
 			},
 			"system": {
 				"actions": {
-					"tGRrKg6Dm06mgFif": {
+					"D1eo5ChwQsZOKCII": {
 						"name": "Grapple",
 						"activation": {
 							"cost": 1,
@@ -586,7 +421,7 @@
 							"value": null
 						},
 						"ranges": {
-							"MJF1CaW7Ua9CPCHO": {
+							"sQovkcrzHMDhEt3d": {
 								"range": "touch"
 							}
 						},
@@ -602,7 +437,7 @@
 							"size": ""
 						},
 						"prompts": {
-							"Fj88uG2XG4Qh5Upe": {
+							"Vd9PrB1Ht6s9oDn6": {
 								"ability": "str",
 								"onSave": "",
 								"saveDC": {
@@ -654,7 +489,7 @@
 			},
 			"folder": null,
 			"sort": 0,
-			"_id": "ALEabWqats5kDDgL"
+			"_id": "crDIobha4KH7JYzL"
 		},
 		{
 			"name": "Overrun",
@@ -668,7 +503,7 @@
 			},
 			"system": {
 				"actions": {
-					"Zkefj2YMmCpZv6qb": {
+					"H8KgolRjwf9rgCYn": {
 						"name": "Overrun",
 						"activation": {
 							"cost": 1,
@@ -680,7 +515,7 @@
 							"value": null
 						},
 						"ranges": {
-							"78FMzNrivpbkN89W": {
+							"LNbooMIAdzVlZL4G": {
 								"range": "touch"
 							}
 						},
@@ -696,7 +531,7 @@
 							"size": ""
 						},
 						"prompts": {
-							"fAE9w3yjEfAKNnUx": {
+							"wMO6DbEZnMjIa57m": {
 								"ability": "str",
 								"onSave": "",
 								"saveDC": {
@@ -748,10 +583,10 @@
 			},
 			"folder": null,
 			"sort": 0,
-			"_id": "xsF2KttRwRUUR3u3"
+			"_id": "edZmdnWDuN8qCBma"
 		},
 		{
-			"name": "Fire Breath",
+			"name": "Regeneration",
 			"type": "feature",
 			"system": {
 				"ac": {
@@ -765,39 +600,18 @@
 					"requiresUnarmored": false
 				},
 				"actions": {
-					"7Pg06jFpxcTIrqcO": {
-						"name": "Fire Breath",
-						"activation": {
-							"type": "action",
-							"cost": 1
-						},
-						"consumers": {
-							"B8WaBpHt0r529hVt": {
-								"type": "itemUses",
-								"default": true,
-								"quantity": 1
-							}
-						},
+					"D3BPaTj25G62Rg2i": {
+						"name": "Regeneration",
+						"activation": {},
+						"consumers": {},
 						"rolls": {
-							"3dtnETkDulSTvQGE": {
-								"type": "damage",
+							"PDX6jfHXMiwBHK5i": {
+								"type": "healing",
 								"default": true,
-								"canCrit": false,
-								"formula": "4d6",
-								"damageType": "fire"
+								"formula": "10"
 							}
 						},
-						"prompts": {
-							"nvDfMjsySjJz6Yez": {
-								"type": "savingThrow",
-								"default": true,
-								"ability": "dex",
-								"saveDC": {
-									"type": "con"
-								},
-								"onSave": "Half damage"
-							}
-						},
+						"prompts": {},
 						"uses": {
 							"value": 0,
 							"max": "",
@@ -808,31 +622,20 @@
 								"rechargeAmount": "1",
 								"threshold": 6
 							}
-						},
-						"ranges": {
-							"Wh8JVqI5zVYCC9P9": {
-								"range": "self"
-							}
-						},
-						"area": {
-							"shape": "cone",
-							"quantity": 1,
-							"length": 10,
-							"placeTemplate": true
 						}
 					}
 				},
-				"description": "<p>Cirothe&rsquo;s kobold minions have been granted a fraction of the dragon&rsquo;s power. The kobold exhales fire in a 10-foot cone. Each creature in the area makes a DC 13 Dexterity saving throw , taking 14 (4d6) fire damage on a failure, or half damage on a success.</p>",
+				"description": "<p>The ogre regains 10 hit points at the start of its turn if it has at least 1 hit point and hasn&rsquo;t taken radiant damage since its last turn.</p>",
 				"favorite": true,
 				"secretDescription": "",
 				"source": "",
 				"uses": {
-					"value": 1,
-					"max": "1",
-					"per": "recharge",
+					"value": null,
+					"max": "",
+					"per": null,
 					"recharge": {
 						"formula": "1d6",
-						"threshold": 5
+						"threshold": "6"
 					}
 				},
 				"schema": {
@@ -840,12 +643,12 @@
 					"lastMigration": null
 				},
 				"concentration": false,
-				"featureType": "naturalWeapon",
+				"featureType": "other",
 				"grants": {},
 				"prerequisite": "",
 				"requiresBloodied": false
 			},
-			"_id": "xGzEW1NiWNG2nQWb",
+			"_id": "tfqTji8akUaaRZU7",
 			"img": "icons/svg/item-bag.svg",
 			"effects": [],
 			"folder": null,
@@ -856,14 +659,11 @@
 			"flags": {}
 		},
 		{
-			"name": "Leather, Padded",
-			"type": "object",
-			"img": "icons/equipment/chest/vest-leather-brown.webp",
-			"effects": [],
-			"flags": {},
+			"name": "Spider Climb",
+			"type": "feature",
 			"system": {
 				"ac": {
-					"baseFormula": "12 + @dex.mod",
+					"baseFormula": "",
 					"formula": "",
 					"grantsDisadvantage": false,
 					"maxDex": 0,
@@ -873,7 +673,7 @@
 					"requiresUnarmored": false
 				},
 				"actions": {},
-				"description": "",
+				"description": "<p>The ogre can climb even on difficult surfaces and upside down on ceilings.</p>",
 				"favorite": false,
 				"secretDescription": "",
 				"source": "",
@@ -883,58 +683,103 @@
 					"per": null,
 					"recharge": {
 						"formula": "1d6",
-						"threshold": 6
+						"threshold": "6"
 					}
 				},
 				"schema": {
 					"version": null,
 					"lastMigration": null
 				},
-				"ammunitionProperties": [],
-				"armorCategory": "light",
-				"armorProperties": [],
-				"attuned": false,
-				"bulky": false,
-				"craftingComponents": "",
-				"containerId": "",
-				"damagedState": 0,
-				"equippedState": 2,
-				"items": {},
-				"materialProperties": [
-					"comfortable",
-					"flaw"
-				],
-				"objectType": "armor",
-				"plotItem": false,
-				"price": "15 gp",
-				"proficient": true,
-				"quantity": 1,
-				"rarity": "mundane",
-				"requiresAttunement": false,
-				"shieldCategory": "",
-				"shieldProperties": [],
-				"unidentified": false,
-				"unidentifiedDescription": "",
-				"unidentifiedName": "",
-				"weaponProperties": [],
-				"weight": 8,
-				"schemaVersion": {
-					"version": 0.013,
-					"lastMigration": {
-						"version": {
-							"schema": 0.011,
-							"foundry": "11.315",
-							"system": "0.16.49"
-						}
-					}
-				}
+				"concentration": false,
+				"featureType": "other",
+				"grants": {},
+				"prerequisite": "",
+				"requiresBloodied": false
 			},
+			"_id": "5Btc5CYRzMSt1A87",
+			"img": "icons/svg/item-bag.svg",
+			"effects": [],
 			"folder": null,
-			"_id": "EvLa26zehLZQObRe",
 			"sort": 0,
 			"ownership": {
 				"default": 0
-			}
+			},
+			"flags": {}
+		},
+		{
+			"name": "Vampire Weaknesses",
+			"type": "feature",
+			"system": {
+				"ac": {
+					"baseFormula": "",
+					"formula": "",
+					"grantsDisadvantage": false,
+					"maxDex": 0,
+					"minStr": 0,
+					"mode": 2,
+					"requiresNoShield": false,
+					"requiresUnarmored": false
+				},
+				"actions": {
+					"Z1sjUrfia1oUgIgO": {
+						"name": "Vampire Weaknesses",
+						"activation": {},
+						"consumers": {},
+						"rolls": {
+							"VRGJQqQ4tDwbIBzG": {
+								"type": "damage",
+								"default": true,
+								"canCrit": false,
+								"formula": "20",
+								"damageType": "radiant"
+							}
+						},
+						"prompts": {},
+						"uses": {
+							"value": 0,
+							"max": "",
+							"per": "",
+							"recharge": {
+								"formula": "1d6",
+								"rechargeType": "custom",
+								"rechargeAmount": "1",
+								"threshold": 6
+							}
+						}
+					}
+				},
+				"description": "<p>When the ogre ends its turn in contact with one of its weaknesses (such as being bathed in sunlight or running water), it takes 20 radiant damage. While in contact with its weakness, the ogre can&rsquo;t use his Regeneration trait.</p>",
+				"favorite": true,
+				"secretDescription": "",
+				"source": "",
+				"uses": {
+					"value": null,
+					"max": "",
+					"per": null,
+					"recharge": {
+						"formula": "1d6",
+						"threshold": "6"
+					}
+				},
+				"schema": {
+					"version": null,
+					"lastMigration": null
+				},
+				"concentration": false,
+				"featureType": "other",
+				"grants": {},
+				"prerequisite": "",
+				"requiresBloodied": false
+			},
+			"_id": "R6SaHFckPkaJPp6K",
+			"img": "icons/svg/item-bag.svg",
+			"effects": [],
+			"folder": null,
+			"sort": 0,
+			"ownership": {
+				"default": 0
+			},
+			"flags": {}
 		},
 		{
 			"name": "Multiattack",
@@ -951,7 +796,7 @@
 					"requiresUnarmored": false
 				},
 				"actions": {
-					"gif9VRDYcdENdpgC": {
+					"txLJCaOthuUyo8gu": {
 						"name": "Multiattack",
 						"activation": {
 							"type": "action",
@@ -973,7 +818,7 @@
 						}
 					}
 				},
-				"description": "<p>The kobold attacks twice with its longsword.</p>",
+				"description": "<p>The ogre makes two attacks, only one of which can be a bite attack.</p>",
 				"favorite": true,
 				"secretDescription": "",
 				"source": "",
@@ -996,7 +841,7 @@
 				"prerequisite": "",
 				"requiresBloodied": false
 			},
-			"_id": "XzJwpIhXnmz0lDrL",
+			"_id": "uTJzERYE7nv6F6NC",
 			"img": "icons/svg/item-bag.svg",
 			"effects": [],
 			"folder": null,
@@ -1007,389 +852,7 @@
 			"flags": {}
 		},
 		{
-			"name": "Longsword",
-			"type": "object",
-			"img": "icons/weapons/swords/greatsword-blue.webp",
-			"effects": [
-				{
-					"icon": "icons/weapons/swords/greatsword-blue.webp",
-					"origin": "Actor.NpXfYSOAVFZdgq3f.Item.BtXsGNpSUs0rLPgx",
-					"flags": {
-						"a5e": {
-							"sort": 0,
-							"transferType": "onUse",
-							"actionId": "v3bptQ9yjfEMnfwo",
-							"duration": {
-								"type": "rounds",
-								"unit": "minutes"
-							}
-						}
-					},
-					"transfer": false,
-					"name": "AC +1",
-					"_id": "Llj5xb79gCEj7iz8",
-					"changes": [
-						{
-							"key": "system.attributes.ac.changes.bonuses.value",
-							"value": "1",
-							"mode": 2,
-							"priority": null
-						}
-					],
-					"disabled": false,
-					"duration": {
-						"startTime": null,
-						"seconds": null,
-						"combat": null,
-						"rounds": null,
-						"turns": 1,
-						"startRound": null,
-						"startTurn": null
-					},
-					"description": "",
-					"statuses": [],
-					"tint": "#ffffff",
-					"folder": null
-				}
-			],
-			"flags": {},
-			"system": {
-				"ac": {
-					"baseFormula": "",
-					"formula": "",
-					"grantsDisadvantage": false,
-					"maxDex": 0,
-					"minStr": 0,
-					"mode": 1,
-					"requiresNoShield": false,
-					"requiresUnarmored": false
-				},
-				"actions": {
-					"rPaMSExLpHCaYkH9": {
-						"name": "Longsword",
-						"activation": {
-							"cost": "",
-							"type": "",
-							"reactionTrigger": ""
-						},
-						"duration": {
-							"unit": "",
-							"value": ""
-						},
-						"area": {
-							"shape": "",
-							"size": "",
-							"placeTemplate": false,
-							"quantity": 1
-						},
-						"target": {
-							"quantity": 1,
-							"type": "creatureObject"
-						},
-						"rolls": {
-							"UEwQqL1vKVE291PA": {
-								"bonus": "",
-								"critThreshold": "20",
-								"type": "attack",
-								"attackType": "meleeWeaponAttack",
-								"ability": "default"
-							},
-							"x4uy5CMwLzIKdqmH": {
-								"canCrit": true,
-								"damageType": "slashing",
-								"formula": "1d10 + @str.mod",
-								"name": "Longsword",
-								"type": "damage"
-							}
-						},
-						"consumers": {}
-					}
-				},
-				"description": "<p><em>Defensive (Medium)</em></p>",
-				"favorite": true,
-				"secretDescription": "",
-				"source": "",
-				"uses": {
-					"value": null,
-					"max": "",
-					"per": null,
-					"recharge": {
-						"formula": "1d6",
-						"threshold": 6
-					}
-				},
-				"schema": {
-					"version": null,
-					"lastMigration": null
-				},
-				"ammunitionProperties": [],
-				"armorCategory": "",
-				"armorProperties": [],
-				"attuned": false,
-				"bulky": false,
-				"craftingComponents": "",
-				"containerId": "",
-				"damagedState": 0,
-				"equippedState": 0,
-				"items": {},
-				"materialProperties": [],
-				"objectType": "weapon",
-				"plotItem": false,
-				"price": "20 gp",
-				"proficient": true,
-				"quantity": 1,
-				"rarity": "mundane",
-				"requiresAttunement": false,
-				"shieldCategory": "",
-				"shieldProperties": [],
-				"unidentified": false,
-				"unidentifiedDescription": "",
-				"unidentifiedName": "",
-				"weaponProperties": [
-					"defensive"
-				],
-				"weight": 3,
-				"schemaVersion": {
-					"version": 0.013,
-					"lastMigration": {
-						"version": {
-							"schema": 0.011,
-							"foundry": "11.315",
-							"system": "0.16.49"
-						}
-					}
-				}
-			},
-			"folder": null,
-			"_id": "BtXsGNpSUs0rLPgx",
-			"sort": 0,
-			"ownership": {
-				"default": 0
-			}
-		},
-		{
-			"name": "Envenomed Shortbow",
-			"type": "object",
-			"img": "icons/weapons/bows/shortbow-leather.webp",
-			"effects": [],
-			"flags": {},
-			"system": {
-				"ac": {
-					"baseFormula": "",
-					"formula": "",
-					"grantsDisadvantage": false,
-					"maxDex": 0,
-					"minStr": 0,
-					"mode": 1,
-					"requiresNoShield": false,
-					"requiresUnarmored": false
-				},
-				"actions": {
-					"2nctVK3kkML8yfWB": {
-						"name": "Shortbow",
-						"activation": {
-							"cost": "",
-							"type": "",
-							"reactionTrigger": ""
-						},
-						"duration": {
-							"unit": "",
-							"value": ""
-						},
-						"ranges": {
-							"GVdvN8UyT9bL5UjR": {
-								"range": 80,
-								"unit": "feet"
-							},
-							"bEU92hC6IHHfygyk": {
-								"range": 320,
-								"unit": "feet"
-							}
-						},
-						"area": {
-							"shape": "",
-							"size": "",
-							"placeTemplate": false
-						},
-						"target": {
-							"quantity": 1,
-							"type": "creatureObject"
-						},
-						"rolls": {
-							"efzlfELOnZjHcFjj": {
-								"bonus": "",
-								"critThreshold": "20",
-								"type": "attack",
-								"attackType": "rangedWeaponAttack",
-								"ability": "default"
-							},
-							"IcYizCBbaVoMZEf9": {
-								"canCrit": true,
-								"damageType": "piercing",
-								"formula": "1d6 + @dex.mod",
-								"name": "Shortbow",
-								"type": "damage"
-							},
-							"LBJfViQgvcF7y5U4": {
-								"type": "damage",
-								"default": true,
-								"formula": "2d6",
-								"damageType": "poison"
-							}
-						},
-						"consumers": {
-							"VvUkewf6axXeUfV2": {
-								"itemid": "",
-								"quantity": 1,
-								"type": "ammunition",
-								"itemId": "pObqfNTdg9YJdkzO"
-							}
-						}
-					}
-				},
-				"description": "<p><em>Range (80/320), Two-Handed</em></p>",
-				"favorite": true,
-				"secretDescription": "",
-				"source": "",
-				"uses": {
-					"value": null,
-					"max": "",
-					"per": null,
-					"recharge": {
-						"formula": "1d6",
-						"threshold": 6
-					}
-				},
-				"schema": {
-					"version": null,
-					"lastMigration": null
-				},
-				"ammunitionProperties": [],
-				"armorCategory": "",
-				"armorProperties": [],
-				"attuned": false,
-				"bulky": false,
-				"craftingComponents": "",
-				"containerId": "",
-				"damagedState": 0,
-				"equippedState": 2,
-				"items": {},
-				"materialProperties": [],
-				"objectType": "weapon",
-				"plotItem": false,
-				"price": "25 gp",
-				"proficient": true,
-				"quantity": 1,
-				"rarity": "mundane",
-				"requiresAttunement": false,
-				"shieldCategory": "",
-				"shieldProperties": [],
-				"unidentified": false,
-				"unidentifiedDescription": "",
-				"unidentifiedName": "",
-				"weaponProperties": [
-					"range",
-					"twoHanded"
-				],
-				"weight": 2,
-				"schemaVersion": {
-					"version": 0.013,
-					"lastMigration": {
-						"version": {
-							"schema": 0.011,
-							"foundry": "11.315",
-							"system": "0.16.49"
-						}
-					}
-				}
-			},
-			"folder": null,
-			"_id": "z2W9VYR1Mga3RM0r",
-			"sort": 0,
-			"ownership": {
-				"default": 0
-			}
-		},
-		{
-			"name": "Poisoned Arrows",
-			"type": "object",
-			"img": "icons/weapons/ammunition/arrows-war-white.webp",
-			"effects": [],
-			"flags": {},
-			"system": {
-				"ac": {
-					"baseFormula": "",
-					"formula": "",
-					"grantsDisadvantage": false,
-					"maxDex": 0,
-					"minStr": 0,
-					"mode": 1,
-					"requiresNoShield": false,
-					"requiresUnarmored": false
-				},
-				"actions": {},
-				"description": "<p>A bundle of 20 arrows.</p>",
-				"favorite": false,
-				"secretDescription": "",
-				"source": "",
-				"uses": {
-					"value": null,
-					"max": "",
-					"per": null,
-					"recharge": {
-						"formula": "1d6",
-						"threshold": 6
-					}
-				},
-				"schema": {
-					"version": null,
-					"lastMigration": null
-				},
-				"ammunitionProperties": [],
-				"armorCategory": "",
-				"armorProperties": [],
-				"attuned": false,
-				"bulky": false,
-				"craftingComponents": "",
-				"containerId": "",
-				"damagedState": 0,
-				"equippedState": 0,
-				"items": {},
-				"materialProperties": [],
-				"objectType": "ammunition",
-				"plotItem": false,
-				"price": "",
-				"proficient": true,
-				"quantity": 5,
-				"rarity": "mundane",
-				"requiresAttunement": false,
-				"shieldCategory": "",
-				"shieldProperties": [],
-				"unidentified": false,
-				"unidentifiedDescription": "",
-				"unidentifiedName": "",
-				"weaponProperties": [],
-				"weight": 0.05,
-				"schemaVersion": {
-					"version": 0.013,
-					"lastMigration": {
-						"version": {
-							"schema": 0.011,
-							"foundry": "11.315",
-							"system": "0.16.49"
-						}
-					}
-				}
-			},
-			"folder": null,
-			"_id": "pObqfNTdg9YJdkzO",
-			"sort": 100000,
-			"ownership": {
-				"default": 0
-			}
-		},
-		{
-			"name": "Summon Power",
+			"name": "Bite",
 			"type": "feature",
 			"system": {
 				"ac": {
@@ -1403,32 +866,35 @@
 					"requiresUnarmored": false
 				},
 				"actions": {
-					"2Bfpu8wEVoQhOwI7": {
-						"name": "Summon Power",
+					"EQLQ2BJeektv7Dr5": {
+						"name": "Bite",
 						"activation": {
-							"type": "bonusAction",
+							"type": "action",
 							"cost": 1
 						},
 						"consumers": {},
 						"rolls": {
-							"koKAS1VPwz46kanE": {
+							"4FvsL6hvO9fq9pFl": {
+								"type": "attack",
+								"default": true,
+								"attackType": "meleeWeaponAttack",
+								"proficient": true,
+								"ability": "str"
+							},
+							"rupGlxRYu3k5o2f4": {
 								"type": "damage",
 								"default": true,
-								"canCrit": false,
-								"formula": "1d6",
-								"damageType": "fire"
-							}
-						},
-						"prompts": {
-							"tmqC6DMuaUbTYXSw": {
-								"type": "savingThrow",
+								"formula": "1d8 + @str.mod",
+								"damageType": "piercing"
+							},
+							"uVh7RnfPWKyqZ2sU": {
+								"type": "damage",
 								"default": true,
-								"ability": "dex",
-								"saveDC": {
-									"type": "con"
-								}
+								"formula": "2d6",
+								"damageType": "necrotic"
 							}
 						},
+						"prompts": {},
 						"uses": {
 							"value": 0,
 							"max": "",
@@ -1439,10 +905,19 @@
 								"rechargeAmount": "1",
 								"threshold": 6
 							}
+						},
+						"ranges": {
+							"X7bxazEKEHGAYa6U": {
+								"range": "fiveFeet"
+							}
+						},
+						"target": {
+							"type": "other",
+							"quantity": 1
 						}
 					}
 				},
-				"description": "<p>The kobold beseeches Cirothe for more of her energy, rolling to recharge its Fire Breath. On a result of 1, the kobold belches fire onto the nearest creature within 5 feet (randomly determined if there is more than one, or directly onto itself if no creature is within the area). The creature being belched upon must make a DC 13 Dexterity saving throw or take 3 (1d6) fire damage.</p>",
+				"description": "<p><strong>Target:&nbsp;</strong>one willing creature, or a creature that is grappled by the ogre, incapacitated , or restrained</p>\n<p>The target&rsquo;s hit point maximum is reduced by an amount equal to the necrotic damage taken, and the ogre regains hit points equal to that amount. The reduction lasts until the target finishes a long rest . The target dies if this effect reduces its hit point maximum to 0.</p>",
 				"favorite": true,
 				"secretDescription": "",
 				"source": "",
@@ -1460,12 +935,12 @@
 					"lastMigration": null
 				},
 				"concentration": false,
-				"featureType": "other",
+				"featureType": "naturalWeapon",
 				"grants": {},
 				"prerequisite": "",
 				"requiresBloodied": false
 			},
-			"_id": "2kJwrvVEqJ6OrVbR",
+			"_id": "6TiXzhRw3NBKvtHY",
 			"img": "icons/svg/item-bag.svg",
 			"effects": [],
 			"folder": null,
@@ -1474,59 +949,170 @@
 				"default": 0
 			},
 			"flags": {}
-		}
-	],
-	"effects": [
+		},
 		{
-			"icon": "icons/svg/item-bag.svg",
-			"origin": "Actor.rCSNmScIEf9x3leR.Item.PbotVP3CvgJ69Vix",
-			"flags": {
-				"a5e": {
-					"sort": 0,
-					"transferType": "passive"
-				}
-			},
-			"transfer": false,
-			"name": "Sunlight Sensitivity",
-			"_id": "q2WYhc6aKtjrsi7t",
-			"changes": [
-				{
-					"key": "flags.a5e.effects.rollMode.attack.all",
-					"value": "-1",
-					"mode": 6,
-					"priority": null
+			"name": "Claws",
+			"type": "feature",
+			"system": {
+				"ac": {
+					"baseFormula": "",
+					"formula": "",
+					"grantsDisadvantage": false,
+					"maxDex": 0,
+					"minStr": 0,
+					"mode": 2,
+					"requiresNoShield": false,
+					"requiresUnarmored": false
 				},
+				"actions": {
+					"v0c5LsW7s6cH3Fvj": {
+						"name": "Claws",
+						"activation": {
+							"type": "action",
+							"cost": 1
+						},
+						"consumers": {},
+						"rolls": {
+							"rQsTKT7FRhJST3Fn": {
+								"type": "attack",
+								"default": true,
+								"attackType": "meleeWeaponAttack",
+								"proficient": true,
+								"ability": "str"
+							},
+							"eUmZhwGxe5pSpCcH": {
+								"type": "damage",
+								"default": true,
+								"formula": "2d6 + @str.mod",
+								"damageType": "slashing"
+							}
+						},
+						"prompts": {
+							"CB42Od2fW9dqdAM0": {
+								"type": "skillCheck",
+								"default": true,
+								"skill": "acr",
+								"ability": "dex",
+								"label": "Acrobatics"
+							},
+							"sv6DnRnTuPrwAtO2": {
+								"type": "skillCheck",
+								"default": true,
+								"skill": "ath",
+								"ability": "str",
+								"label": "Athletics"
+							},
+							"xCvLsQylC3oa5lfq": {
+								"type": "effect",
+								"default": true,
+								"effectId": "A4rnCGUAylUirUTF"
+							}
+						},
+						"uses": {
+							"value": 0,
+							"max": "",
+							"per": "",
+							"recharge": {
+								"formula": "1d6",
+								"rechargeType": "custom",
+								"rechargeAmount": "1",
+								"threshold": 6
+							}
+						},
+						"ranges": {
+							"Fqe6W7QrXQ4yx4q6": {
+								"range": 10,
+								"unit": "feet"
+							}
+						},
+						"target": {
+							"type": "creature",
+							"quantity": 1
+						}
+					}
+				},
+				"description": "<p>Instead of dealing damage, the ogre can grapple the target (escape DC 16).</p>",
+				"favorite": true,
+				"secretDescription": "",
+				"source": "",
+				"uses": {
+					"value": null,
+					"max": "",
+					"per": null,
+					"recharge": {
+						"formula": "1d6",
+						"threshold": "6"
+					}
+				},
+				"schema": {
+					"version": null,
+					"lastMigration": null
+				},
+				"concentration": false,
+				"featureType": "naturalWeapon",
+				"grants": {},
+				"prerequisite": "",
+				"requiresBloodied": false
+			},
+			"_id": "HM0fqWUWARhH62ek",
+			"img": "icons/svg/item-bag.svg",
+			"effects": [
 				{
-					"key": "flags.a5e.effects.rollMode.skillCheck.prc",
-					"value": "-1",
-					"mode": 6,
-					"priority": null
+					"icon": "icons/svg/item-bag.svg",
+					"origin": "Actor.Q4IR68iQ9Tnkn9HJ.Item.HM0fqWUWARhH62ek",
+					"flags": {
+						"a5e": {
+							"sort": 0,
+							"transferType": "onUse",
+							"actionId": "v0c5LsW7s6cH3Fvj"
+						}
+					},
+					"transfer": false,
+					"name": "Grappled",
+					"_id": "A4rnCGUAylUirUTF",
+					"changes": [
+						{
+							"key": "flags.a5e.effects.statusConditions",
+							"value": "[\"grappled\"]",
+							"mode": 0,
+							"priority": null
+						}
+					],
+					"disabled": false,
+					"duration": {
+						"startTime": null,
+						"seconds": null,
+						"combat": null,
+						"rounds": null,
+						"turns": null,
+						"startRound": null,
+						"startTurn": null
+					},
+					"description": "",
+					"statuses": [
+						"grappled"
+					],
+					"folder": null
 				}
 			],
-			"disabled": true,
-			"duration": {
-				"startTime": 0,
-				"seconds": null,
-				"combat": null,
-				"rounds": null,
-				"turns": null,
-				"startRound": null,
-				"startTurn": null
+			"folder": null,
+			"sort": 0,
+			"ownership": {
+				"default": 0
 			},
-			"description": "",
-			"statuses": [],
-			"folder": null
+			"flags": {}
 		}
 	],
+	"effects": [],
 	"flags": {
 		"a5e": {
-			"sheetIsLocked": false
+			"sheetIsLocked": true
 		}
 	},
 	"system": {
 		"abilities": {
 			"str": {
-				"value": 17,
+				"value": 20,
 				"check": {
 					"expertiseDice": 0,
 					"bonus": ""
@@ -1538,13 +1124,13 @@
 				}
 			},
 			"dex": {
-				"value": 12,
+				"value": 14,
 				"check": {
 					"expertiseDice": 0,
 					"bonus": ""
 				},
 				"save": {
-					"proficient": false,
+					"proficient": true,
 					"expertiseDice": 0,
 					"bonus": ""
 				}
@@ -1562,7 +1148,7 @@
 				}
 			},
 			"int": {
-				"value": 9,
+				"value": 7,
 				"check": {
 					"expertiseDice": 0,
 					"bonus": ""
@@ -1574,19 +1160,19 @@
 				}
 			},
 			"wis": {
-				"value": 11,
+				"value": 9,
 				"check": {
 					"expertiseDice": 0,
 					"bonus": ""
 				},
 				"save": {
-					"proficient": false,
+					"proficient": true,
 					"expertiseDice": 0,
 					"bonus": ""
 				}
 			},
 			"cha": {
-				"value": 8,
+				"value": 11,
 				"check": {
 					"expertiseDice": 0,
 					"bonus": ""
@@ -1756,7 +1342,7 @@
 				"ability": "wis",
 				"proficient": true,
 				"specialties": [],
-				"expertiseDice": 1,
+				"expertiseDice": 0,
 				"minRoll": 1,
 				"bonuses": {
 					"check": "",
@@ -1811,7 +1397,7 @@
 				"ability": "dex",
 				"proficient": true,
 				"specialties": [],
-				"expertiseDice": 1,
+				"expertiseDice": 2,
 				"minRoll": 1,
 				"bonuses": {
 					"check": "",
@@ -1876,7 +1462,7 @@
 		},
 		"attributes": {
 			"ac": {
-				"baseFormula": "12",
+				"baseFormula": "15",
 				"value": 0
 			},
 			"death": {
@@ -1884,23 +1470,23 @@
 				"failure": 0
 			},
 			"hp": {
-				"value": 58,
-				"baseMax": 58,
+				"value": 102,
+				"baseMax": 102,
 				"temp": 0,
 				"bonus": 0
 			},
 			"hitDice": {
 				"d6": {
-					"current": 9,
-					"total": 9
+					"current": 0,
+					"total": 0
 				},
 				"d8": {
 					"current": 0,
 					"total": 0
 				},
 				"d10": {
-					"current": 0,
-					"total": 0
+					"current": 12,
+					"total": 12
 				},
 				"d12": {
 					"current": 0,
@@ -1930,7 +1516,7 @@
 					"unit": "feet"
 				},
 				"fly": {
-					"distance": 30,
+					"distance": 0,
 					"unit": "feet"
 				},
 				"swim": {
@@ -1947,7 +1533,7 @@
 			},
 			"senses": {
 				"blindsight": {
-					"distance": 0,
+					"distance": null,
 					"unit": "feet",
 					"otherwiseBlind": false
 				},
@@ -1956,11 +1542,11 @@
 					"unit": "feet"
 				},
 				"tremorsense": {
-					"distance": 0,
+					"distance": null,
 					"unit": "feet"
 				},
 				"truesight": {
-					"distance": 0,
+					"distance": null,
 					"unit": "feet"
 				}
 			},
@@ -1994,17 +1580,18 @@
 			"cp": 0
 		},
 		"details": {
-			"bio": "",
+			"bio": "<h2>Combat&nbsp;</h2><p>Against foes it deems small and weak, the ogre charges into a group and uses its Sweeping Strike. It attacks a lone foe, or one that has proven itself to be a threat, with its greatclub.</p><hr class=\"a5e-rule u-my-md\"><h2>Names</h2><p>Bellowbriar, Crod, Curdle, Duroth, Fenthis, Gristlefist, Lumme, Meg, Oglock, Zalan</p><hr class=\"a5e-rule u-my-md\"><h2>Legends and Lore</h2><p>With a Culture or History check, characters can learn the following:</p><p><strong>DC 10</strong> Though smaller than their giant ancestors, ogres stand nearly twice as tall as most humanoids. They can see in the dark.</p><p><strong>DC 15</strong> Ogres are formidable melee combatants. Their powerful blows force all but the strongest warriors to give ground.</p><p><strong>DC 20</strong> In ages past, some ogres learned magic to better serve their giant overlords. Though rare, ogre mages still exist today, selling their services to evil creatures such as devils, vampires, and hags.</p><p>Description</p><p>Standing some 10 feet tall and weighing nearly 1,000 pounds, ogres look like massive, barrel-chested humanoids with wide, fanged jaws.&nbsp;</p><p><strong><em>Lost Greatness. </em></strong>Ogres are the descendants of giants forced out of their elementally-infused homes. <a target=\"_blank\" rel=\"noopener noreferrer nofollow\" href=\"https://a5e.tools/node/1637\">Frost giants</a> exiled from the frozen tundra, or <a target=\"_blank\" rel=\"noopener noreferrer nofollow\" href=\"https://a5e.tools/node/1635\">fire giants</a> driven from their volcanic lairs, may give birth to ogres. Though now far removed from their giant ancestors, ogre tribes still remember the calamitous fall of the giants’ empire, and their stories warn against venturing too much or building too high.&nbsp;</p><p><strong><em>Subsistence and Service.</em></strong> Ogres do not boast great craftspeople amongst them: they do not need to, since trees and rocks make serviceable weapons, and their skin is as tough as armor. However, promises of wealth and luxury can coax an ogre into service. For enough gold, an ogre will fight for a master far smaller or weaker than itself. A well-equipped ogre can be a terrifying engine of destruction on the battlefield.</p><p>Behavior</p><p>1 Snoring in lair</p><p>2 Gorging themselves on food and drink</p><p>3 Crafting with clumsy tools</p><p>4 Hunting</p><p>5 Hungry, and mad about it</p><p>6 Attacks trespassers in its domain</p><p>Signs</p><p>1 Guttural roar or laughter</p><p>2 A humanoid or animal corpse with a smashed-in skull&nbsp;</p><p>3 Footprints of big bare feet</p><p>4 A splintered tree; DC 13 Perception check: big footprints</p><p>Encounters</p><p>Ogres can be found in any wild part of the world.</p><p><strong>CR 0–2</strong> <a target=\"_blank\" rel=\"noopener noreferrer nofollow\" href=\"https://a5e.tools/node/1748\">ogre</a> ; 1 or 2 <a target=\"_blank\" rel=\"noopener noreferrer nofollow\" href=\"https://a5e.tools/node/1750\">ogrekin</a></p><p><strong>Treasure</strong> 60 gp, 100 sp, packet of dried herbs (acts as 2 <a target=\"_blank\" rel=\"noopener noreferrer nofollow\" href=\"https://a5e.tools/node/1090\"><em>potions of healing</em></a><em> </em>)</p><p><strong>CR 3–4</strong> <a target=\"_blank\" rel=\"noopener noreferrer nofollow\" href=\"https://a5e.tools/node/1748\">ogre</a> with 2 to 4 <a target=\"_blank\" rel=\"noopener noreferrer nofollow\" href=\"https://a5e.tools/node/1650\">goblins</a> , <a target=\"_blank\" rel=\"noopener noreferrer nofollow\" href=\"https://a5e.tools/node/1905\">warhordling orc warriors</a> , or <a target=\"_blank\" rel=\"noopener noreferrer nofollow\" href=\"https://a5e.tools/node/2009\">wolves</a> ; <a target=\"_blank\" rel=\"noopener noreferrer nofollow\" href=\"https://a5e.tools/node/1748\">ogre</a> with 1 or 2 <a target=\"_blank\" rel=\"noopener noreferrer nofollow\" href=\"https://a5e.tools/node/1445\">bugbears</a> , <a target=\"_blank\" rel=\"noopener noreferrer nofollow\" href=\"https://a5e.tools/node/1947\">giant goats</a> , or <a target=\"_blank\" rel=\"noopener noreferrer nofollow\" href=\"https://a5e.tools/node/1750\">ogrekin</a> ; 2 <a target=\"_blank\" rel=\"noopener noreferrer nofollow\" href=\"https://a5e.tools/node/1748\">ogres</a> ; <a target=\"_blank\" rel=\"noopener noreferrer nofollow\" href=\"https://a5e.tools/node/1749\">cave ogre</a> ; 3 or 4 <a target=\"_blank\" rel=\"noopener noreferrer nofollow\" href=\"https://a5e.tools/node/1750\">ogrekin</a></p><p><strong>Treasure</strong> 180 gp, sack of rare spices (75 gp), giant-sized bottle of wine (acts as 3 <a target=\"_blank\" rel=\"noopener noreferrer nofollow\" href=\"https://a5e.tools/node/1088\"><em>potions of fire giant strength</em></a><em> </em>),<em> </em><a target=\"_blank\" rel=\"noopener noreferrer nofollow\" href=\"https://a5e.tools/node/1241\"><em>1 rapier</em></a><em> </em>(glows in the presence of giants)</p><p><strong>CR 5–10</strong> <a target=\"_blank\" rel=\"noopener noreferrer nofollow\" href=\"https://a5e.tools/node/1749\">cave ogre</a> with 1 to 3 <a target=\"_blank\" rel=\"noopener noreferrer nofollow\" href=\"https://a5e.tools/node/1748\">ogres</a> ; <a target=\"_blank\" rel=\"noopener noreferrer nofollow\" href=\"https://a5e.tools/node/1749\">cave ogre</a> with <a target=\"_blank\" rel=\"noopener noreferrer nofollow\" href=\"https://a5e.tools/node/1489\">ankylosaurus</a> , <a target=\"_blank\" rel=\"noopener noreferrer nofollow\" href=\"https://a5e.tools/node/1983\">cave bear</a> , or <a target=\"_blank\" rel=\"noopener noreferrer nofollow\" href=\"https://a5e.tools/node/1662\">griffon</a> ; <a target=\"_blank\" rel=\"noopener noreferrer nofollow\" href=\"https://a5e.tools/node/1751\">ogre mage</a> ; <a target=\"_blank\" rel=\"noopener noreferrer nofollow\" href=\"https://a5e.tools/node/1751\">ogre mage</a> with <a target=\"_blank\" rel=\"noopener noreferrer nofollow\" href=\"https://a5e.tools/node/1479\">doppelganger</a> or <a target=\"_blank\" rel=\"noopener noreferrer nofollow\" href=\"https://a5e.tools/node/1675\">green hag</a></p><p><strong>Treasure</strong> 400 gp, battered silver ewer etched with bearded giant faces (250 gp),<em> </em><a target=\"_blank\" rel=\"noopener noreferrer nofollow\" href=\"https://a5e.tools/node/1166\"><em>spell scrolls</em></a><em> </em>of <a target=\"_blank\" rel=\"noopener noreferrer nofollow\" href=\"https://a5e.tools/spell/fear\"><em>fear</em></a><em> </em>and <a target=\"_blank\" rel=\"noopener noreferrer nofollow\" href=\"https://a5e.tools/spell/fireball\"><em>fireball</em></a><em> , </em>animal hide mantle branded with runes (acts as <a target=\"_blank\" rel=\"noopener noreferrer nofollow\" href=\"https://a5e.tools/node/944\"><em>gauntlets of ogre power</em></a><em> </em>for the wearer)</p><p><strong>CR 11–16</strong> 2 <a target=\"_blank\" rel=\"noopener noreferrer nofollow\" href=\"https://a5e.tools/node/1751\">ogre mages</a> ; <a target=\"_blank\" rel=\"noopener noreferrer nofollow\" href=\"https://a5e.tools/node/1751\">ogre mage</a> with <a target=\"_blank\" rel=\"noopener noreferrer nofollow\" href=\"https://a5e.tools/node/1475\">cambion</a> , <a target=\"_blank\" rel=\"noopener noreferrer nofollow\" href=\"https://a5e.tools/node/1484\">drider</a> , or <a target=\"_blank\" rel=\"noopener noreferrer nofollow\" href=\"https://a5e.tools/node/1677\">night hag</a> ; <a target=\"_blank\" rel=\"noopener noreferrer nofollow\" href=\"https://a5e.tools/node/1751\">ogre mage</a> with 2 to 4 <a target=\"_blank\" rel=\"noopener noreferrer nofollow\" href=\"https://a5e.tools/node/1748\">ogres</a> ; <a target=\"_blank\" rel=\"noopener noreferrer nofollow\" href=\"https://a5e.tools/node/1751\">ogre mage</a> with 2 or 3 <a target=\"_blank\" rel=\"noopener noreferrer nofollow\" href=\"https://a5e.tools/node/1479\">doppelgangers</a></p><p><strong>Treasure</strong> 2,000 gp, letter from a noble ordering someone’s death, amulet containing the true name of a <a target=\"_blank\" rel=\"noopener noreferrer nofollow\" href=\"https://a5e.tools/node/1502\">hezrou</a> , <a target=\"_blank\" rel=\"noopener noreferrer nofollow\" href=\"https://a5e.tools/node/1166\"><em>spell scrolls</em></a><em> </em>of <a target=\"_blank\" rel=\"noopener noreferrer nofollow\" href=\"https://a5e.tools/spell/chain-lightning\"><em>chain lightning</em></a><em> </em>and <a target=\"_blank\" rel=\"noopener noreferrer nofollow\" href=\"https://a5e.tools/spell/reverse-gravity\"><em>reverse gravity</em></a><em> , </em><a target=\"_blank\" rel=\"noopener noreferrer nofollow\" href=\"https://a5e.tools/node/1219\"><em>wand of binding</em></a></p>",
 			"creatureTypes": [
-				"humanoid"
+				"undead"
 			],
 			"isSwarm": false,
-			"cr": 2,
+			"cr": 6,
 			"elite": false,
-			"privateNotes": "<div>\n<h2>KOBOLD NAMES</h2>\n<p>Blimbik, Flaw, Lublub, Luckluck, Pip Nip, Queek, Skirn, Vis, Zabblescrubble, Zorna</p>\n<h2>&nbsp;</h2>\n<h2>LEGENDS AND LORE</h2>\n<p>With an Arcana or History check, characters can learn the following:</p>\n<p>DC 10 Kobolds are distant relatives of dragons and often serve them in their lairs.</p>\n<p>DC 15 Kobolds go to great lengths to avoid sunlight.</p>\n<p>DC 20 While individually weak, kobolds can be dangerous when encountered in large numbers. They fashion clever traps to protect their underground warrens.</p>\n</div>\n<div>\n<p>Kobolds are small, reptilian humanoids that blend the features of large dogs and tiny, wingless dragons. While many live in the lairs of the dragons they revere, others dwell in trap-ridden warrens far underground.</p>\n<p>Draconic Servitors. Kobolds feel both an awe of and kinship with dragons. Many dragons extend protection to their distant kobold cousins, accepting in return the flattery, adulation, and service they believe all creatures owe them. Kobold servitors resent a dragon&rsquo;s other minions, fearful of the day the dragon no longer values their devotion.</p>\n<p>Kobolds share many characteristics with dragons. They hatch from eggs with an instinct to hoard treasures and trinkets. Like dragons, kobolds enjoy long lifespans. With all the dangers that assail them, though, few kobolds see the natural end of their 100- to 150-year lifespans.</p>\n<p>Proud and Territorial. Smaller and weaker than most sentient species, individual kobolds make easy prey for predators. A kobold community without a dragon patron must rely on stealth, traps, and sheer numbers to survive.</p>\n<p>Most kobolds live in underground warrens far from the sunlight. Often, these warrens are extensions of&nbsp; existing structures such as dungeons, sewers, and natural caverns. As skilled miners with a dragon-like fondness for shiny things, kobolds often move into abandoned mines (or chase the miners out of working ones). Kobolds modify their lairs to their advantage, using low ceilings, cunning traps, and narrow passages to hinder the movement of invaders. Kobolds prefer to fight from a distance and with overwhelming numbers.</p>\n<p>Bigger and stronger creatures often find kobolds contemptible at best, and raid and slaughter them at worst. When the tables are turned, kobolds rarely forgive those who have bullied them, though sometimes flattering words or glittering offerings appease them. Any slight to their dignity enrages them. Kobolds believe that even the smallest relative of a dragon has royal blood coursing through its veins.</p>\n</div>",
+			"privateNotes": "",
 			"notes": "",
 			"terrain": [
-				"ruin",
+				"hills",
+				"mountains",
 				"tomb"
 			]
 		},
@@ -2012,7 +1599,7 @@
 			"armor": [],
 			"languages": [
 				"common",
-				"draconic"
+				"giant"
 			],
 			"tools": [],
 			"weapons": []
@@ -2065,11 +1652,12 @@
 		},
 		"source": "toSaveAKingdom",
 		"traits": {
-			"size": "sm",
+			"size": "lg",
 			"conditionImmunities": [],
 			"damageImmunities": [],
 			"damageResistances": [
-				"fire"
+				"necrotic",
+				"Nonmagical Weapons"
 			],
 			"damageVulnerabilities": [],
 			"alignment": []
@@ -2077,11 +1665,11 @@
 		"grants": {}
 	},
 	"prototypeToken": {
-		"name": "Kobold",
+		"name": "Ogre",
 		"displayName": 0,
 		"actorLink": false,
-		"width": 1,
-		"height": 1,
+		"width": 2,
+		"height": 2,
 		"lockRotation": false,
 		"rotation": 0,
 		"alpha": 1,
@@ -2089,7 +1677,6 @@
 			"alpha": 0.5,
 			"angle": 360,
 			"bright": 0,
-			"color": null,
 			"coloration": 1,
 			"dim": 0,
 			"luminosity": 0.5,
@@ -2106,7 +1693,8 @@
 				"min": 0,
 				"max": 1
 			},
-			"attenuation": 0.5
+			"attenuation": 0.5,
+			"color": null
 		},
 		"disposition": -1,
 		"displayBars": 0,
@@ -2119,13 +1707,13 @@
 		"flags": {},
 		"randomImg": false,
 		"texture": {
-			"src": "systems/a5e/assets/kobold.webp",
-			"tint": "#ffffff",
-			"scaleX": 0.5,
-			"scaleY": 0.5,
+			"src": "systems/a5e/assets/ogre.webp",
+			"scaleX": 1,
+			"scaleY": 1,
 			"offsetX": 0,
 			"offsetY": 0,
-			"rotation": 0
+			"rotation": 0,
+			"tint": "#ffffff"
 		},
 		"sight": {
 			"angle": 360,
@@ -2143,5 +1731,5 @@
 		"prependAdjective": false
 	},
 	"folder": null,
-	"_id": "3x5clwdzyjwzbo1z"
+	"_id": "4o7pj103lcq09bph"
 }

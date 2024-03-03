@@ -1,6 +1,6 @@
 {
 	"folder": null,
-	"name": "Hydrodaemon",
+	"name": "Motleymage",
 	"type": "npc",
 	"img": "icons/svg/mystery-man.svg",
 	"system": {
@@ -22,31 +22,7 @@
 				}
 			},
 			"dex": {
-				"value": 14,
-				"check": {
-					"expertiseDice": 0,
-					"bonus": ""
-				},
-				"save": {
-					"proficient": true,
-					"expertiseDice": 0,
-					"bonus": ""
-				}
-			},
-			"con": {
 				"value": 18,
-				"check": {
-					"expertiseDice": 0,
-					"bonus": ""
-				},
-				"save": {
-					"proficient": true,
-					"expertiseDice": 0,
-					"bonus": ""
-				}
-			},
-			"int": {
-				"value": 9,
 				"check": {
 					"expertiseDice": 0,
 					"bonus": ""
@@ -57,14 +33,38 @@
 					"bonus": ""
 				}
 			},
-			"wis": {
-				"value": 15,
+			"con": {
+				"value": 19,
+				"check": {
+					"expertiseDice": 0,
+					"bonus": ""
+				},
+				"save": {
+					"proficient": false,
+					"expertiseDice": 0,
+					"bonus": ""
+				}
+			},
+			"int": {
+				"value": 13,
 				"check": {
 					"expertiseDice": 0,
 					"bonus": ""
 				},
 				"save": {
 					"proficient": true,
+					"expertiseDice": 0,
+					"bonus": ""
+				}
+			},
+			"wis": {
+				"value": 16,
+				"check": {
+					"expertiseDice": 0,
+					"bonus": ""
+				},
+				"save": {
+					"proficient": false,
 					"expertiseDice": 0,
 					"bonus": ""
 				}
@@ -76,7 +76,7 @@
 					"bonus": ""
 				},
 				"save": {
-					"proficient": false,
+					"proficient": true,
 					"expertiseDice": 0,
 					"bonus": ""
 				}
@@ -92,8 +92,8 @@
 				"failure": 0
 			},
 			"hp": {
-				"value": 76,
-				"baseMax": 76,
+				"value": 85,
+				"baseMax": 85,
 				"temp": 0,
 				"bonus": 0
 			},
@@ -107,12 +107,12 @@
 					"total": 0
 				},
 				"d8": {
-					"current": 0,
-					"total": 0
+					"current": 10,
+					"total": 10
 				},
 				"d10": {
-					"current": 8,
-					"total": 8
+					"current": 0,
+					"total": 0
 				},
 				"d12": {
 					"current": 0,
@@ -138,15 +138,15 @@
 					"unit": "feet"
 				},
 				"fly": {
-					"distance": 40,
+					"distance": 0,
 					"unit": "feet"
 				},
 				"swim": {
-					"distance": 60,
+					"distance": 0,
 					"unit": "feet"
 				},
 				"walk": {
-					"distance": 30,
+					"distance": 25,
 					"unit": "feet"
 				},
 				"traits": {
@@ -160,7 +160,7 @@
 					"otherwiseBlind": false
 				},
 				"darkvision": {
-					"distance": 60,
+					"distance": 0,
 					"unit": "feet"
 				},
 				"tremorsense": {
@@ -175,7 +175,7 @@
 			"inspiration": false,
 			"fatigue": 0,
 			"strife": 0,
-			"spellcasting": "int",
+			"spellcasting": "wis",
 			"casterLevel": 0
 		},
 		"bonuses": {
@@ -204,15 +204,16 @@
 		"details": {
 			"bio": "",
 			"creatureTypes": [
-				"fiend"
+				"humanoid"
 			],
 			"isSwarm": false,
-			"cr": 6,
+			"cr": 3,
 			"elite": false,
 			"notes": "",
 			"privateNotes": "",
 			"terrain": [
-				"hell",
+				"caverns",
+				"laboratory",
 				"ruin",
 				"tomb"
 			]
@@ -221,10 +222,8 @@
 		"proficiencies": {
 			"armor": [],
 			"languages": [
-				"abyssal",
 				"common",
-				"infernal",
-				"Telepathy (100 ft.)"
+				"undercommon"
 			],
 			"tools": [],
 			"weapons": []
@@ -423,7 +422,7 @@
 				"ability": "wis",
 				"proficient": true,
 				"specialties": [],
-				"expertiseDice": 0,
+				"expertiseDice": 1,
 				"minRoll": 1,
 				"bonuses": {
 					"check": "",
@@ -476,7 +475,7 @@
 			},
 			"ste": {
 				"ability": "dex",
-				"proficient": true,
+				"proficient": false,
 				"specialties": [],
 				"expertiseDice": 0,
 				"minRoll": 1,
@@ -487,7 +486,7 @@
 			},
 			"sur": {
 				"ability": "wis",
-				"proficient": false,
+				"proficient": true,
 				"specialties": [],
 				"expertiseDice": 0,
 				"minRoll": 1,
@@ -499,25 +498,11 @@
 		},
 		"source": "toSaveAKingdom",
 		"traits": {
-			"size": "lg",
-			"alignment": [
-				"evil"
-			],
-			"conditionImmunities": [
-				"poisoned"
-			],
-			"damageImmunities": [
-				"acid",
-				"necrotic",
-				"poison"
-			],
-			"damageResistances": [
-				"cold",
-				"fire",
-				"lightning",
-				"Non-Cold Iron Weapons",
-				"Non-Silvered Weapons"
-			],
+			"size": "med",
+			"alignment": [],
+			"conditionImmunities": [],
+			"damageImmunities": [],
+			"damageResistances": [],
 			"damageVulnerabilities": []
 		},
 		"spellResources": {
@@ -566,7 +551,7 @@
 		}
 	},
 	"prototypeToken": {
-		"name": "Hydrodaemon",
+		"name": "Motleymage",
 		"displayName": 0,
 		"actorLink": false,
 		"appendNumber": false,
@@ -579,8 +564,8 @@
 			"offsetY": 0,
 			"rotation": 0
 		},
-		"width": 2,
-		"height": 2,
+		"width": 1,
+		"height": 1,
 		"lockRotation": false,
 		"rotation": 0,
 		"alpha": 1,
@@ -723,7 +708,7 @@
 				}
 			},
 			"folder": null,
-			"_id": "swb7o9gnT1rUL6jO",
+			"_id": "gdCOZc5R8CXgPlPO",
 			"sort": 0,
 			"ownership": {
 				"default": 0
@@ -823,7 +808,7 @@
 				}
 			},
 			"folder": null,
-			"_id": "XxUIFbXnl3q1bqhk",
+			"_id": "zQ03hwSUylp1JB8x",
 			"sort": 0,
 			"ownership": {
 				"default": 0
@@ -923,7 +908,7 @@
 				}
 			},
 			"folder": null,
-			"_id": "5At9ruCAvmo1OsOM",
+			"_id": "GIfIxzfT0EIdnGLl",
 			"sort": 0,
 			"ownership": {
 				"default": 0
@@ -1023,7 +1008,7 @@
 				}
 			},
 			"folder": null,
-			"_id": "sDTeDFqFuheYkTMn",
+			"_id": "KBFcP98wp9rfglgt",
 			"sort": 0,
 			"ownership": {
 				"default": 0
@@ -1123,7 +1108,7 @@
 				}
 			},
 			"folder": null,
-			"_id": "OceiZlpyTY3AEWCr",
+			"_id": "kWKW9evltEm73BY1",
 			"sort": 0,
 			"ownership": {
 				"default": 0
@@ -1223,14 +1208,14 @@
 				}
 			},
 			"folder": null,
-			"_id": "YGEA9n1rJxgZ06yw",
+			"_id": "v5Va38ig4qTPJXZN",
 			"sort": 0,
 			"ownership": {
 				"default": 0
 			}
 		},
 		{
-			"name": "Evil",
+			"name": "Innate Spellcasting",
 			"type": "feature",
 			"system": {
 				"ac": {
@@ -1244,7 +1229,7 @@
 					"requiresUnarmored": false
 				},
 				"actions": {},
-				"description": "<p>The hydrodaemon radiates an Evil aura.</p>",
+				"description": "<p>The motleymage&rsquo;s innate spellcasting ability is Wisdom (spell save DC 13, +5 to hit with spell attacks). The motleymage can innately cast the following spells, requiring no material components:</p>\n<p>At will: @UUID[Compendium.a5e.a5e-spells.Item.z3y2a7pwy9gzcv45]{Acid Splash}, @UUID[Compendium.a5e.a5e-spells.Item.9ot2c39ypiu4l8ws]{Ray of Frost}, @UUID[Compendium.a5e.a5e-spells.Item.ks87w0iees5tbu0z]{Shocking Grasp}</p>\n<p>5/day: @UUID[Compendium.a5e.a5e-spells.Item.4tslywqpami9q4pj]{Magic Missile}, @UUID[Compendium.a5e.a5e-spells.Item.nlto7z4j14ips45w]{Shield}</p>\n<p>3/day: @UUID[Compendium.a5e.a5e-spells.Item.4eidicv0lyqevtwd]{Invisibility}, @UUID[Compendium.a5e.a5e-spells.Item.ijh0tu0wgpsp7v6n]{Misty Step}</p>",
 				"favorite": false,
 				"secretDescription": "",
 				"source": "",
@@ -1267,7 +1252,7 @@
 				"prerequisite": "",
 				"requiresBloodied": false
 			},
-			"_id": "0WiKOjytvNUsDfoK",
+			"_id": "T76dCBkUKA8k4x01",
 			"img": "icons/svg/item-bag.svg",
 			"effects": [],
 			"folder": null,
@@ -1278,7 +1263,1014 @@
 			"flags": {}
 		},
 		{
-			"name": "Magic Resistance",
+			"name": "Acid Splash",
+			"type": "spell",
+			"img": "icons/magic/acid/projectile-smoke-glowing.webp",
+			"effects": [],
+			"flags": {
+				"core": {
+					"sourceId": "Compendium.a5e.a5e-spells.Item.z3y2a7pwy9gzcv45"
+				}
+			},
+			"system": {
+				"actions": {
+					"kGnGXWGTJgpCtDrN": {
+						"name": "Cast Spell",
+						"activation": {
+							"cost": 1,
+							"type": "action",
+							"reactionTrigger": ""
+						},
+						"duration": {
+							"unit": "instantaneous",
+							"value": ""
+						},
+						"ranges": {
+							"swW2Dhm89yY7C2CK": {
+								"range": "medium"
+							}
+						},
+						"area": {
+							"shape": "",
+							"size": "",
+							"placeTemplate": false
+						},
+						"target": {
+							"quantity": 2,
+							"type": "creature"
+						},
+						"rolls": {
+							"Cj65qeJjdlkUWDEc": {
+								"canCrit": false,
+								"damageType": "acid",
+								"formula": "1d6",
+								"name": "",
+								"type": "damage",
+								"scaling": {
+									"mode": "cantrip",
+									"formula": "1d6"
+								}
+							}
+						},
+						"prompts": {
+							"oX9KY6l5VldCVftd": {
+								"ability": "dex",
+								"onSave": "Deals no damage to targets who pass their save",
+								"saveDC": {
+									"type": "spellcasting",
+									"bonus": ""
+								},
+								"type": "savingThrow"
+							}
+						},
+						"consumers": {},
+						"img": "icons/magic/acid/projectile-smoke-glowing.webp"
+					}
+				},
+				"description": "<p>The target is up to two creatures within 5 feet of each other.</p>\n<p>A stinking bubble of acid is conjured out of thin air to fly at the targets, dealing 1d6 acid damage.</p>\n<p>This spell's damage increases by 1d6 when you reach 5th level (2d6), 11th level (3d6), and 17th level (4d6).</p>",
+				"favorite": true,
+				"secretDescription": "",
+				"source": "adventurersGuide",
+				"uses": {
+					"value": null,
+					"max": null,
+					"per": "",
+					"recharge": {
+						"formula": "",
+						"threshold": ""
+					}
+				},
+				"schema": {
+					"version": null,
+					"lastMigration": null
+				},
+				"classes": [
+					"artificer",
+					"sorcerer",
+					"witch",
+					"wizard"
+				],
+				"components": {
+					"vocalized": true,
+					"seen": true,
+					"material": false
+				},
+				"concentration": false,
+				"level": 0,
+				"materials": "",
+				"materialsConsumed": false,
+				"prepared": false,
+				"prerequisite": "",
+				"rare": false,
+				"ritual": false,
+				"schools": {
+					"primary": "conjuration",
+					"secondary": [
+						"acid",
+						"arcane"
+					]
+				},
+				"schemaVersion": {
+					"version": 0.013,
+					"lastMigration": {
+						"version": {
+							"schema": 0.011,
+							"foundry": "11.315",
+							"system": "0.16.49"
+						}
+					}
+				}
+			},
+			"folder": null,
+			"_id": "yq8FykCHAPTjmotV",
+			"sort": 0,
+			"ownership": {
+				"default": 0
+			}
+		},
+		{
+			"name": "Ray of Frost",
+			"type": "spell",
+			"img": "icons/magic/water/projectile-icecicle-glowing.webp",
+			"effects": [
+				{
+					"icon": "icons/magic/water/projectile-icecicle-glowing.webp",
+					"origin": "Actor.BxJNk9frmqKFZOdr.Item.2G8QugupYZI2nisb",
+					"flags": {
+						"a5e": {
+							"sort": 0,
+							"transferType": "onUse",
+							"actionId": "rjaz6n2uCMQHcsGc",
+							"duration": {
+								"type": "rounds",
+								"unit": "minutes"
+							}
+						}
+					},
+					"transfer": false,
+					"name": "Ray of Frost",
+					"_id": "6meIM37yip1QShpH",
+					"changes": [
+						{
+							"key": "system.attributes.movement.burrow.distance",
+							"value": "{\"comparisonOperator\":\">\",\"comparisonValue\":\"10\",\"positiveValue\":\"@original - 10\",\"negativeValue\":\"0\"}",
+							"mode": 7,
+							"priority": null
+						},
+						{
+							"key": "system.attributes.movement.climb.distance",
+							"value": "{\"comparisonOperator\":\">\",\"comparisonValue\":\"10\",\"positiveValue\":\"@original - 10\",\"negativeValue\":\"0\"}",
+							"mode": 7,
+							"priority": null
+						},
+						{
+							"key": "system.attributes.movement.fly.distance",
+							"value": "{\"comparisonOperator\":\">\",\"comparisonValue\":\"10\",\"positiveValue\":\"@original - 10\",\"negativeValue\":\"0\"}",
+							"mode": 7,
+							"priority": null
+						},
+						{
+							"key": "system.attributes.movement.swim.distance",
+							"value": "{\"comparisonOperator\":\">\",\"comparisonValue\":\"10\",\"positiveValue\":\"@original - 10\",\"negativeValue\":\"0\"}",
+							"mode": 7,
+							"priority": null
+						},
+						{
+							"key": "system.attributes.movement.walk.distance",
+							"value": "{\"comparisonOperator\":\">\",\"comparisonValue\":\"10\",\"positiveValue\":\"@original - 10\",\"negativeValue\":\"0\"}",
+							"mode": 7,
+							"priority": null
+						}
+					],
+					"disabled": false,
+					"duration": {
+						"startTime": null,
+						"seconds": null,
+						"combat": null,
+						"rounds": 1,
+						"turns": null,
+						"startRound": null,
+						"startTurn": null
+					},
+					"description": "<p>The target's Speed by 10 feet until the start of your next turn.</p>",
+					"statuses": [],
+					"folder": null
+				}
+			],
+			"flags": {
+				"core": {
+					"sourceId": "Compendium.a5e.a5e-spells.Item.9ot2c39ypiu4l8ws"
+				}
+			},
+			"system": {
+				"actions": {
+					"rjaz6n2uCMQHcsGc": {
+						"name": "Cast Spell",
+						"activation": {
+							"cost": 1,
+							"type": "action",
+							"reactionTrigger": ""
+						},
+						"duration": {
+							"unit": "instantaneous",
+							"value": ""
+						},
+						"ranges": {
+							"MiX7YFyH7f21pqZL": {
+								"range": "medium"
+							}
+						},
+						"area": {
+							"shape": "",
+							"size": "",
+							"placeTemplate": false
+						},
+						"target": {
+							"quantity": "",
+							"type": "creature"
+						},
+						"rolls": {
+							"9Edhi5INnPDZEEz3": {
+								"bonus": "",
+								"critThreshold": 20,
+								"type": "attack",
+								"attackType": "rangedSpellAttack",
+								"ability": "spellcasting"
+							},
+							"8PiujKc60ugoEB2e": {
+								"canCrit": true,
+								"damageType": "cold",
+								"formula": "1d8",
+								"name": "",
+								"type": "damage",
+								"scaling": {
+									"mode": "cantrip",
+									"formula": "1d8"
+								}
+							}
+						},
+						"consumers": {},
+						"prompts": {
+							"GKzeiAKIE2qf79e8": {
+								"type": "effect",
+								"default": true,
+								"effectId": "6meIM37yip1QShpH"
+							}
+						}
+					}
+				},
+				"description": "<p>An icy beam shoots from your outstretched fingers.</p><p>Make a ranged spell attack. On a hit, you deal 1d8 cold damage and reduce the target's Speed by 10 feet until the start of your next turn.</p><p>This spell's damage increases by 1d8 when you reach 5th level (2d8), 11th level (3d8), and 17th level (4d8).</p>",
+				"favorite": true,
+				"secretDescription": "",
+				"source": "adventurersGuide",
+				"uses": {
+					"value": null,
+					"max": "",
+					"per": null,
+					"recharge": {
+						"formula": "",
+						"threshold": ""
+					}
+				},
+				"schema": {
+					"version": null,
+					"lastMigration": null
+				},
+				"classes": [
+					"artificer",
+					"sorcerer",
+					"witch",
+					"wizard"
+				],
+				"components": {
+					"vocalized": true,
+					"seen": true,
+					"material": false
+				},
+				"concentration": false,
+				"level": 0,
+				"materials": "",
+				"materialsConsumed": false,
+				"prepared": false,
+				"prerequisite": "",
+				"rare": false,
+				"ritual": false,
+				"schools": {
+					"primary": "evocation",
+					"secondary": [
+						"arcane",
+						"cold",
+						"movement"
+					]
+				},
+				"schemaVersion": {
+					"version": 0.013,
+					"lastMigration": {
+						"version": {
+							"schema": 0.011,
+							"foundry": "11.315",
+							"system": "0.16.49"
+						}
+					}
+				}
+			},
+			"folder": null,
+			"_id": "2G8QugupYZI2nisb",
+			"sort": 0,
+			"ownership": {
+				"default": 0
+			}
+		},
+		{
+			"name": "Shocking Grasp",
+			"type": "spell",
+			"img": "icons/magic/lightning/fist-unarmed-strike-blue.webp",
+			"effects": [],
+			"flags": {
+				"core": {
+					"sourceId": "Compendium.a5e.a5e-spells.Item.ks87w0iees5tbu0z"
+				}
+			},
+			"system": {
+				"actions": {
+					"FCMGHdwplJ5pXtJw": {
+						"name": "Cast Spell",
+						"activation": {
+							"cost": 1,
+							"type": "action",
+							"reactionTrigger": ""
+						},
+						"duration": {
+							"unit": "instantaneous",
+							"value": ""
+						},
+						"ranges": {
+							"YWTn7x1lDxo0DJo6": {
+								"range": "touch"
+							}
+						},
+						"area": {
+							"shape": "",
+							"size": "",
+							"placeTemplate": false
+						},
+						"target": {
+							"quantity": "",
+							"type": "creature"
+						},
+						"rolls": {
+							"3dtIKI5ZRuME8AcX": {
+								"bonus": "",
+								"critThreshold": 20,
+								"type": "attack",
+								"attackType": "meleeSpellAttack",
+								"ability": "spellcasting"
+							},
+							"0O3jFxHBaNOTZZX3": {
+								"canCrit": true,
+								"damageType": "lightning",
+								"formula": "1d8",
+								"name": "",
+								"type": "damage",
+								"scaling": {
+									"mode": "cantrip",
+									"formula": "1d8"
+								}
+							}
+						},
+						"consumers": {}
+					}
+				},
+				"description": "<p>Electricity arcs from your hand to shock the target. Make a melee spell attack (with advantage if the target is wearing armor made of metal). On a hit, you deal 1d8 lightning damage, and the target can't take reactions until the start of its next turn as the electricity courses through its body.</p><p>This spell's damage increases by 1d8 when you reach 5th level (2d8), 11th level (3d8), and 17th level (4d8).</p>",
+				"favorite": true,
+				"secretDescription": "",
+				"source": "adventurersGuide",
+				"uses": {
+					"value": null,
+					"max": "",
+					"per": null,
+					"recharge": {
+						"formula": "",
+						"threshold": ""
+					}
+				},
+				"schema": {
+					"version": null,
+					"lastMigration": null
+				},
+				"classes": [
+					"artificer",
+					"sorcerer",
+					"wizard"
+				],
+				"components": {
+					"vocalized": true,
+					"seen": true,
+					"material": false
+				},
+				"concentration": false,
+				"level": 0,
+				"materials": "",
+				"materialsConsumed": false,
+				"prepared": false,
+				"prerequisite": "",
+				"rare": false,
+				"ritual": false,
+				"schools": {
+					"primary": "evocation",
+					"secondary": [
+						"affliction",
+						"arcane",
+						"attack",
+						"lightning"
+					]
+				},
+				"schemaVersion": {
+					"version": 0.013,
+					"lastMigration": {
+						"version": {
+							"schema": 0.011,
+							"foundry": "11.315",
+							"system": "0.16.49"
+						}
+					}
+				}
+			},
+			"folder": null,
+			"_id": "XleAXqmqiW3qoHqR",
+			"sort": 0,
+			"ownership": {
+				"default": 0
+			}
+		},
+		{
+			"name": "Magic Missile",
+			"type": "spell",
+			"img": "icons/magic/light/projectiles-salvo-blue.webp",
+			"effects": [],
+			"flags": {
+				"core": {
+					"sourceId": "Compendium.a5e.a5e-spells.Item.4tslywqpami9q4pj"
+				}
+			},
+			"system": {
+				"actions": {
+					"n8F6YqWaiqIIzNR0": {
+						"name": "Magic Missile",
+						"activation": {
+							"cost": 1,
+							"type": "action",
+							"reactionTrigger": ""
+						},
+						"duration": {
+							"unit": "instantaneous",
+							"value": ""
+						},
+						"ranges": {
+							"6MqUfl7klJj1IvrY": {
+								"range": "long"
+							}
+						},
+						"area": {
+							"shape": "",
+							"size": "",
+							"placeTemplate": false
+						},
+						"target": {
+							"quantity": 3,
+							"type": "creature",
+							"scaling": {
+								"mode": "spellLevel",
+								"formula": "1"
+							}
+						},
+						"rolls": {
+							"9r50FkUmjP7Q7Fuf": {
+								"canCrit": false,
+								"damageType": "force",
+								"formula": "1d4+1",
+								"name": "",
+								"type": "damage",
+								"scaling": {
+									"mode": "spellLevel",
+									"formula": "1d4 + 1"
+								}
+							},
+							"YLWJHxOp2UJXUqxK": {
+								"type": "damage",
+								"default": true,
+								"canCrit": false,
+								"formula": "1d4+1",
+								"damageType": "force"
+							},
+							"X8YCjNOIc2PRa7nN": {
+								"type": "damage",
+								"default": true,
+								"canCrit": false,
+								"formula": "1d4+1",
+								"damageType": "force"
+							}
+						},
+						"consumers": {
+							"lLTd5368HmWrdmsx": {
+								"type": "itemUses",
+								"default": true,
+								"quantity": 1
+							}
+						}
+					}
+				},
+				"description": "<p>A trio of glowing darts of magical force unerringly and simultaneously strike the targets, each dealing 1d4+1 force damage.</p><p><strong><em>Cast at Higher Levels.</em></strong> Evoke one additional dart and target up to one additional creature for each slot level above 1st.</p>",
+				"favorite": true,
+				"secretDescription": "",
+				"source": "adventurersGuide",
+				"uses": {
+					"value": 5,
+					"max": "5",
+					"per": "day",
+					"recharge": {
+						"formula": "",
+						"threshold": ""
+					}
+				},
+				"schema": {
+					"version": null,
+					"lastMigration": null
+				},
+				"classes": [
+					"sorcerer",
+					"wielder",
+					"wizard"
+				],
+				"components": {
+					"vocalized": true,
+					"seen": true,
+					"material": false
+				},
+				"concentration": false,
+				"level": 1,
+				"materials": "",
+				"materialsConsumed": false,
+				"prepared": false,
+				"prerequisite": "",
+				"rare": false,
+				"ritual": false,
+				"schools": {
+					"primary": "evocation",
+					"secondary": [
+						"arcane",
+						"attack",
+						"force"
+					]
+				},
+				"schemaVersion": {
+					"version": 0.013,
+					"lastMigration": {
+						"version": {
+							"schema": 0.011,
+							"foundry": "11.315",
+							"system": "0.16.49"
+						}
+					}
+				}
+			},
+			"folder": null,
+			"_id": "prRm6EeX4p7Mjrtv",
+			"sort": 0,
+			"ownership": {
+				"default": 0
+			}
+		},
+		{
+			"name": "Shield",
+			"type": "spell",
+			"img": "icons/magic/defensive/shield-barrier-deflect-teal.webp",
+			"effects": [
+				{
+					"icon": "icons/magic/defensive/shield-barrier-deflect-teal.webp",
+					"origin": "Actor.BxJNk9frmqKFZOdr.Item.LSpCo4BOoppjcPvh",
+					"flags": {
+						"a5e": {
+							"sort": 0,
+							"transferType": "onUse",
+							"actionId": "DfBODFbe1UYn4vIm",
+							"duration": {
+								"type": "rounds",
+								"unit": "minutes"
+							}
+						}
+					},
+					"transfer": false,
+					"name": "Shield",
+					"_id": "3JSn5GwbNdSgD0oS",
+					"changes": [
+						{
+							"key": "system.attributes.ac.changes.bonuses.value",
+							"value": "5",
+							"mode": 2,
+							"priority": null
+						}
+					],
+					"disabled": false,
+					"duration": {
+						"startTime": null,
+						"seconds": null,
+						"combat": null,
+						"rounds": 1,
+						"turns": null,
+						"startRound": null,
+						"startTurn": null
+					},
+					"description": "<p>Until the spell ends, you gain a +5 bonus to your AC (including against the triggering attack) and any magic missile targeting you is harmlessly deflected.</p>",
+					"statuses": [],
+					"folder": null
+				}
+			],
+			"flags": {
+				"core": {
+					"sourceId": "Compendium.a5e.a5e-spells.Item.nlto7z4j14ips45w"
+				}
+			},
+			"system": {
+				"actions": {
+					"DfBODFbe1UYn4vIm": {
+						"name": "Shield",
+						"activation": {
+							"cost": 1,
+							"type": "reaction",
+							"reactionTrigger": "which you take when you are hit by an attack or targeted by the magic missile spell"
+						},
+						"duration": {
+							"unit": "round",
+							"value": "1"
+						},
+						"ranges": {
+							"cbSCCrMm0w21q3jj": {
+								"range": "self"
+							}
+						},
+						"area": {
+							"shape": "",
+							"size": "",
+							"placeTemplate": false
+						},
+						"target": {
+							"quantity": "",
+							"type": "self"
+						},
+						"consumers": {
+							"xCcpHsSu2iODrmFB": {
+								"type": "itemUses",
+								"default": true,
+								"quantity": 1
+							}
+						},
+						"prompts": {
+							"Gpw63XYtGOkkZmXp": {
+								"type": "effect",
+								"default": true,
+								"effectId": "3JSn5GwbNdSgD0oS"
+							}
+						}
+					}
+				},
+				"description": "<p>You create a shimmering arcane barrier between yourself and an oncoming attack. Until the spell ends, you gain a +5 bonus to your AC (including against the triggering attack) and any magic missile targeting you is harmlessly deflected.</p>",
+				"favorite": true,
+				"secretDescription": "",
+				"source": "adventurersGuide",
+				"uses": {
+					"value": 5,
+					"max": "5",
+					"per": "day",
+					"recharge": {
+						"formula": "",
+						"threshold": ""
+					}
+				},
+				"schema": {
+					"version": null,
+					"lastMigration": null
+				},
+				"classes": [
+					"sorcerer",
+					"wielder",
+					"wizard"
+				],
+				"components": {
+					"vocalized": true,
+					"seen": true,
+					"material": false
+				},
+				"concentration": false,
+				"level": 1,
+				"materials": "",
+				"materialsConsumed": false,
+				"prepared": false,
+				"prerequisite": "",
+				"rare": false,
+				"ritual": false,
+				"schools": {
+					"primary": "abjuration",
+					"secondary": [
+						"arcane",
+						"protection"
+					]
+				},
+				"schemaVersion": {
+					"version": 0.013,
+					"lastMigration": {
+						"version": {
+							"schema": 0.011,
+							"foundry": "11.315",
+							"system": "0.16.49"
+						}
+					}
+				}
+			},
+			"folder": null,
+			"_id": "LSpCo4BOoppjcPvh",
+			"sort": 0,
+			"ownership": {
+				"default": 0
+			}
+		},
+		{
+			"name": "Invisibility",
+			"type": "spell",
+			"img": "icons/magic/light/explosion-star-glow-silhouette.webp",
+			"effects": [
+				{
+					"icon": "icons/magic/light/explosion-star-glow-silhouette.webp",
+					"origin": "Actor.BxJNk9frmqKFZOdr.Item.9Q8VJMmhk1Fd7OvV",
+					"flags": {
+						"a5e": {
+							"sort": 0,
+							"transferType": "onUse",
+							"actionId": "JmYFAmw4m4fpTJH3",
+							"duration": {
+								"unit": "hours"
+							}
+						}
+					},
+					"transfer": false,
+					"name": "Invisible",
+					"_id": "o1qvWrwid36w8yeW",
+					"changes": [
+						{
+							"key": "flags.a5e.effects.statusConditions",
+							"value": "[\"invisible\"]",
+							"mode": 0,
+							"priority": null
+						}
+					],
+					"disabled": false,
+					"duration": {
+						"startTime": null,
+						"seconds": 3600,
+						"combat": null,
+						"rounds": null,
+						"turns": null,
+						"startRound": null,
+						"startTurn": null
+					},
+					"description": "",
+					"statuses": [
+						"invisible"
+					],
+					"tint": "#ffffff",
+					"folder": null
+				}
+			],
+			"flags": {
+				"core": {
+					"sourceId": "Compendium.a5e.a5e-spells.Item.4eidicv0lyqevtwd"
+				}
+			},
+			"system": {
+				"actions": {
+					"JmYFAmw4m4fpTJH3": {
+						"name": "Invisibility",
+						"activation": {
+							"cost": 1,
+							"type": "action",
+							"reactionTrigger": ""
+						},
+						"duration": {
+							"unit": "hour",
+							"value": "1"
+						},
+						"ranges": {
+							"njg9gnRa30ArNRv0": {
+								"range": "touch"
+							}
+						},
+						"area": {
+							"shape": "",
+							"size": "",
+							"placeTemplate": false
+						},
+						"target": {
+							"quantity": 1,
+							"type": "creature",
+							"scaling": {
+								"mode": "spellLevel",
+								"formula": "1"
+							}
+						},
+						"consumers": {
+							"WZL1AYU8tslJiTlz": {
+								"type": "itemUses",
+								"default": true,
+								"quantity": 1
+							}
+						},
+						"prompts": {
+							"G31vUlozIW3a3sPx": {
+								"type": "effect",
+								"default": true,
+								"effectId": "o1qvWrwid36w8yeW"
+							}
+						}
+					}
+				},
+				"description": "<p>You wreathe a creature in an illusory veil, making it invisible. Anything the target is carrying or wearing is also invisible as long as it remains in the target's possession. The spell's effects end for a target that attacks or casts a spell.</p><p><strong><em>Cast at Higher Levels.</em></strong> Target one additional creature for each slot level above 2nd.</p>",
+				"favorite": true,
+				"secretDescription": "",
+				"source": "adventurersGuide",
+				"uses": {
+					"value": 3,
+					"max": "3",
+					"per": "day",
+					"recharge": {
+						"formula": "",
+						"threshold": ""
+					}
+				},
+				"schema": {
+					"version": null,
+					"lastMigration": null
+				},
+				"classes": [
+					"artificer",
+					"bard",
+					"sorcerer",
+					"warlock",
+					"witch",
+					"wizard"
+				],
+				"components": {
+					"vocalized": true,
+					"seen": true,
+					"material": true
+				},
+				"concentration": true,
+				"level": 2,
+				"materials": "piece of a veil",
+				"materialsConsumed": false,
+				"prepared": false,
+				"prerequisite": "",
+				"rare": false,
+				"ritual": false,
+				"schools": {
+					"primary": "illusion",
+					"secondary": [
+						"arcane",
+						"obscurement",
+						"shadow"
+					]
+				},
+				"schemaVersion": {
+					"version": 0.013,
+					"lastMigration": {
+						"version": {
+							"schema": 0.011,
+							"foundry": "11.315",
+							"system": "0.16.49"
+						}
+					}
+				}
+			},
+			"folder": null,
+			"_id": "9Q8VJMmhk1Fd7OvV",
+			"sort": 0,
+			"ownership": {
+				"default": 0
+			}
+		},
+		{
+			"name": "Misty Step",
+			"type": "spell",
+			"img": "icons/skills/movement/ball-spinning-blue.webp",
+			"effects": [],
+			"flags": {
+				"core": {
+					"sourceId": "Compendium.a5e.a5e-spells.Item.ijh0tu0wgpsp7v6n"
+				}
+			},
+			"system": {
+				"actions": {
+					"vXZn3iWPurUWz9QK": {
+						"name": "Misty Step",
+						"activation": {
+							"cost": 1,
+							"type": "bonusAction",
+							"reactionTrigger": ""
+						},
+						"duration": {
+							"unit": "instantaneous",
+							"value": ""
+						},
+						"ranges": {
+							"IRVdWzXtFPJ5Ijps": {
+								"range": "short"
+							}
+						},
+						"area": {
+							"shape": "",
+							"size": "",
+							"placeTemplate": false
+						},
+						"target": {
+							"quantity": "",
+							"type": "self"
+						},
+						"consumers": {
+							"XJhiuJeSfq7So4Qv": {
+								"type": "itemUses",
+								"default": true,
+								"quantity": 1
+							}
+						}
+					}
+				},
+				"description": "<p>You teleport to an unoccupied space that you can see, disappearing and reappearing in a swirl of shimmering mist.</p>",
+				"favorite": true,
+				"secretDescription": "",
+				"source": "adventurersGuide",
+				"uses": {
+					"value": 3,
+					"max": "3",
+					"per": "day",
+					"recharge": {
+						"formula": "",
+						"threshold": ""
+					}
+				},
+				"schema": {
+					"version": null,
+					"lastMigration": null
+				},
+				"classes": [
+					"artificer",
+					"elementalistAir",
+					"sorcerer",
+					"warlock",
+					"wielder",
+					"witch",
+					"wizard"
+				],
+				"components": {
+					"vocalized": true,
+					"seen": false,
+					"material": false
+				},
+				"concentration": false,
+				"level": 2,
+				"materials": "",
+				"materialsConsumed": false,
+				"prepared": false,
+				"prerequisite": "",
+				"rare": false,
+				"ritual": false,
+				"schools": {
+					"primary": "conjuration",
+					"secondary": [
+						"arcane",
+						"chaos",
+						"movement",
+						"teleportation"
+					]
+				},
+				"schemaVersion": {
+					"version": 0.013,
+					"lastMigration": {
+						"version": {
+							"schema": 0.011,
+							"foundry": "11.315",
+							"system": "0.16.49"
+						}
+					}
+				}
+			},
+			"folder": null,
+			"_id": "LhCTT1onQoZYCRLP",
+			"sort": 0,
+			"ownership": {
+				"default": 0
+			}
+		},
+		{
+			"name": "Mimicry",
 			"type": "feature",
 			"system": {
 				"ac": {
@@ -1291,8 +2283,34 @@
 					"requiresNoShield": false,
 					"requiresUnarmored": false
 				},
-				"actions": {},
-				"description": "<p>The hydrodaemon has advantage on saving throws against spells and other magical effects.</p>",
+				"actions": {
+					"5ehHdPJZAxoZCrft": {
+						"name": "Mimicry",
+						"activation": {},
+						"consumers": {},
+						"rolls": {},
+						"prompts": {
+							"x7b47qa3VM1ShWyq": {
+								"type": "skillCheck",
+								"default": true,
+								"skill": "ins",
+								"ability": "wis"
+							}
+						},
+						"uses": {
+							"value": 0,
+							"max": "",
+							"per": "",
+							"recharge": {
+								"formula": "1d6",
+								"rechargeType": "custom",
+								"rechargeAmount": "1",
+								"threshold": 6
+							}
+						}
+					}
+				},
+				"description": "<p>The motleymage can mimic animal sounds and humanoid voices. A creature that hears the sounds can tell they are imitations with a successful DC 13 Insight check.</p>",
 				"favorite": false,
 				"secretDescription": "",
 				"source": "",
@@ -1315,7 +2333,7 @@
 				"prerequisite": "",
 				"requiresBloodied": false
 			},
-			"_id": "QTTLZY4lUos16UAG",
+			"_id": "ZhAJsSPK7q0Zk4m9",
 			"img": "icons/svg/item-bag.svg",
 			"effects": [],
 			"folder": null,
@@ -1340,7 +2358,7 @@
 					"requiresUnarmored": false
 				},
 				"actions": {
-					"GbfRLnH69RFma8an": {
+					"FqpqkT6EUp8Kfr1K": {
 						"name": "Multiattack",
 						"activation": {
 							"type": "action",
@@ -1362,7 +2380,7 @@
 						}
 					}
 				},
-				"description": "<p>The hydrodaemon makes one bite attack and two claw attacks.</p>",
+				"description": "<p>The motleymage attacks once and casts a spell.</p>",
 				"favorite": true,
 				"secretDescription": "",
 				"source": "",
@@ -1385,7 +2403,7 @@
 				"prerequisite": "",
 				"requiresBloodied": false
 			},
-			"_id": "fTBiG1PkPMrYE6wD",
+			"_id": "5qi2DxSfJH3wL0ya",
 			"img": "icons/svg/item-bag.svg",
 			"effects": [],
 			"folder": null,
@@ -1396,129 +2414,32 @@
 			"flags": {}
 		},
 		{
-			"name": "Bite",
-			"type": "feature",
-			"system": {
-				"ac": {
-					"baseFormula": "",
-					"formula": "",
-					"grantsDisadvantage": false,
-					"maxDex": 0,
-					"minStr": 0,
-					"mode": 2,
-					"requiresNoShield": false,
-					"requiresUnarmored": false
-				},
-				"actions": {
-					"1eoPHMPqXLsnw7QW": {
-						"name": "Bite",
-						"activation": {
-							"type": "action",
-							"cost": 1
-						},
-						"consumers": {},
-						"rolls": {
-							"L4kHl2Xeyrua6DmS": {
-								"type": "attack",
-								"default": true,
-								"attackType": "meleeWeaponAttack",
-								"proficient": true,
-								"ability": "str"
-							},
-							"m2po3p95HMvEYkD7": {
-								"type": "damage",
-								"default": true,
-								"label": "Magical Piercing",
-								"formula": "1d8 + @str.mod",
-								"damageType": "piercing"
-							}
-						},
-						"prompts": {
-							"IkBQO1w3SpBr9VUd": {
-								"type": "savingThrow",
-								"default": true,
-								"ability": "wis",
-								"saveDC": {
-									"type": "con"
-								}
-							},
-							"yleL0iYPGlbeN8Ep": {
-								"type": "effect",
-								"default": true,
-								"effectId": "0m28H4Th0lzd2AB2"
-							},
-							"VEKZr1nYOljwjvJZ": {
-								"type": "effect",
-								"default": true,
-								"effectId": "WW37zywyBAupp4b7"
-							}
-						},
-						"uses": {
-							"value": 0,
-							"max": "",
-							"per": "",
-							"recharge": {
-								"formula": "1d6",
-								"rechargeType": "custom",
-								"rechargeAmount": "1",
-								"threshold": 6
-							}
-						},
-						"ranges": {
-							"q7sBBkaatmME74gp": {
-								"range": "fiveFeet"
-							}
-						},
-						"target": {
-							"type": "creatureObject",
-							"quantity": 1
-						}
-					}
-				},
-				"description": "<p>&nbsp;If the target is a creature, it makes a DC 15 Wisdom saving throw or falls unconscious for 1d4 rounds. The creature wakes up early if it either takes damage or someone uses an action to shake or slap it awake. Instead of dealing damage, the hydrodaemon can choose to grapple its target instead.</p>",
-				"favorite": true,
-				"secretDescription": "",
-				"source": "",
-				"uses": {
-					"value": null,
-					"max": "",
-					"per": null,
-					"recharge": {
-						"formula": "1d6",
-						"threshold": "6"
-					}
-				},
-				"schema": {
-					"version": null,
-					"lastMigration": null
-				},
-				"concentration": false,
-				"featureType": "naturalWeapon",
-				"grants": {},
-				"prerequisite": "",
-				"requiresBloodied": false
-			},
-			"_id": "41yrN8ndzquFHYfS",
-			"img": "icons/svg/item-bag.svg",
+			"name": "Scimitar",
+			"type": "object",
+			"img": "icons/weapons/swords/scimitar-worn-blue.webp",
 			"effects": [
 				{
-					"icon": "icons/svg/item-bag.svg",
-					"origin": "Actor.DCJzayG4kmks5ZhR.Item.41yrN8ndzquFHYfS",
+					"icon": "icons/weapons/swords/scimitar-worn-blue.webp",
+					"origin": "Actor.BxJNk9frmqKFZOdr.Item.F7csP2IsiyrWr37j",
 					"flags": {
 						"a5e": {
 							"sort": 0,
 							"transferType": "onUse",
-							"actionId": "1eoPHMPqXLsnw7QW"
+							"actionId": "1w6mZi0L5dJhv4TU",
+							"duration": {
+								"type": "rounds",
+								"unit": "minutes"
+							}
 						}
 					},
 					"transfer": false,
-					"name": "Unconscious",
-					"_id": "0m28H4Th0lzd2AB2",
+					"name": "AC +1",
+					"_id": "PiHWvQKjPGNpP7A7",
 					"changes": [
 						{
-							"key": "flags.a5e.effects.statusConditions",
-							"value": "[\"unconscious\"]",
-							"mode": 0,
+							"key": "system.attributes.ac.changes.bonuses.value",
+							"value": "1",
+							"mode": 2,
 							"priority": null
 						}
 					],
@@ -1528,64 +2449,17 @@
 						"seconds": null,
 						"combat": null,
 						"rounds": null,
-						"turns": null,
+						"turns": 1,
 						"startRound": null,
 						"startTurn": null
 					},
 					"description": "",
-					"statuses": [
-						"unconscious"
-					],
-					"folder": null
-				},
-				{
-					"icon": "icons/svg/item-bag.svg",
-					"origin": "Actor.DCJzayG4kmks5ZhR.Item.41yrN8ndzquFHYfS",
-					"flags": {
-						"a5e": {
-							"sort": 0,
-							"transferType": "onUse",
-							"actionId": "1eoPHMPqXLsnw7QW"
-						}
-					},
-					"transfer": false,
-					"name": "Grappled",
-					"_id": "WW37zywyBAupp4b7",
-					"changes": [
-						{
-							"key": "flags.a5e.effects.statusConditions",
-							"value": "[\"grappled\"]",
-							"mode": 0,
-							"priority": null
-						}
-					],
-					"disabled": false,
-					"duration": {
-						"startTime": null,
-						"seconds": null,
-						"combat": null,
-						"rounds": null,
-						"turns": null,
-						"startRound": null,
-						"startTurn": null
-					},
-					"description": "",
-					"statuses": [
-						"grappled"
-					],
+					"statuses": [],
+					"tint": "#ffffff",
 					"folder": null
 				}
 			],
-			"folder": null,
-			"sort": 0,
-			"ownership": {
-				"default": 0
-			},
-			"flags": {}
-		},
-		{
-			"name": "Claw",
-			"type": "feature",
+			"flags": {},
 			"system": {
 				"ac": {
 					"baseFormula": "",
@@ -1593,168 +2467,91 @@
 					"grantsDisadvantage": false,
 					"maxDex": 0,
 					"minStr": 0,
-					"mode": 2,
+					"mode": 1,
 					"requiresNoShield": false,
 					"requiresUnarmored": false
 				},
 				"actions": {
-					"qIbwFpekcWq0w06p": {
-						"name": "Claw",
+					"6obCuJYfNHC8IPSR": {
+						"name": "Scimitar",
 						"activation": {
-							"type": "action",
-							"cost": 1
+							"cost": "",
+							"type": "",
+							"reactionTrigger": ""
 						},
-						"consumers": {},
+						"duration": {
+							"unit": "",
+							"value": ""
+						},
+						"area": {
+							"shape": "",
+							"size": "",
+							"placeTemplate": false,
+							"quantity": 1
+						},
+						"target": {
+							"quantity": 1,
+							"type": "creatureObject"
+						},
 						"rolls": {
-							"QPmsvvMr6slP1pty": {
+							"Z80yvTABrbK7jTpF": {
+								"bonus": "",
+								"critThreshold": "20",
 								"type": "attack",
-								"default": true,
 								"attackType": "meleeWeaponAttack",
-								"proficient": true,
-								"ability": "str"
+								"ability": "default"
 							},
-							"ZupEJSx14MLwGimo": {
-								"type": "damage",
-								"default": true,
-								"formula": "1d6 + @str.mod",
+							"KJiGUS59j662UbJm": {
+								"canCrit": true,
 								"damageType": "slashing",
-								"label": "Magical Slashing"
+								"formula": "1d6 + @finesse.mod",
+								"name": "Scimitar",
+								"type": "damage"
 							}
 						},
-						"prompts": {},
-						"uses": {
-							"value": 0,
-							"max": "",
-							"per": "",
-							"recharge": {
-								"formula": "1d6",
-								"rechargeType": "custom",
-								"rechargeAmount": "1",
-								"threshold": 6
-							}
+						"consumers": {}
+					},
+					"gS4wMUqm6ItBBj90": {
+						"name": "Scimitar (Off-Hand)",
+						"activation": {
+							"cost": "",
+							"type": "",
+							"reactionTrigger": ""
 						},
-						"ranges": {
-							"kmduDclCwDQGdhGi": {
-								"range": 10,
-								"unit": "feet"
-							}
+						"duration": {
+							"unit": "",
+							"value": ""
+						},
+						"area": {
+							"shape": "",
+							"size": "",
+							"placeTemplate": false,
+							"quantity": 1
 						},
 						"target": {
-							"type": "creatureObject",
-							"quantity": 1
-						}
-					}
-				},
-				"description": "",
-				"favorite": true,
-				"secretDescription": "",
-				"source": "",
-				"uses": {
-					"value": null,
-					"max": "",
-					"per": null,
-					"recharge": {
-						"formula": "1d6",
-						"threshold": "6"
-					}
-				},
-				"schema": {
-					"version": null,
-					"lastMigration": null
-				},
-				"concentration": false,
-				"featureType": "naturalWeapon",
-				"grants": {},
-				"prerequisite": "",
-				"requiresBloodied": false
-			},
-			"_id": "kbnJVnmsFjqYfPzW",
-			"img": "icons/svg/item-bag.svg",
-			"effects": [],
-			"folder": null,
-			"sort": 0,
-			"ownership": {
-				"default": 0
-			},
-			"flags": {}
-		},
-		{
-			"name": "Swallow",
-			"type": "feature",
-			"system": {
-				"ac": {
-					"baseFormula": "",
-					"formula": "",
-					"grantsDisadvantage": false,
-					"maxDex": 0,
-					"minStr": 0,
-					"mode": 2,
-					"requiresNoShield": false,
-					"requiresUnarmored": false
-				},
-				"actions": {
-					"GtEJojbMsvIOlkvo": {
-						"name": "Bite",
-						"activation": {
-							"type": "action",
-							"cost": 1
+							"quantity": 1,
+							"type": "creatureObject"
 						},
-						"consumers": {},
 						"rolls": {
-							"L4kHl2Xeyrua6DmS": {
+							"Z80yvTABrbK7jTpF": {
+								"bonus": "",
+								"critThreshold": "20",
 								"type": "attack",
-								"default": true,
 								"attackType": "meleeWeaponAttack",
-								"proficient": true,
-								"ability": "str"
+								"ability": "default"
 							},
-							"m2po3p95HMvEYkD7": {
-								"type": "damage",
-								"default": true,
-								"label": "Magical Piercing",
-								"formula": "1d8 + @str.mod",
-								"damageType": "piercing"
+							"KJiGUS59j662UbJm": {
+								"canCrit": true,
+								"damageType": "slashing",
+								"formula": "1d6 + min(@finesse.mod,0)",
+								"name": "Scimitar",
+								"type": "damage"
 							}
 						},
-						"prompts": {
-							"IkBQO1w3SpBr9VUd": {
-								"type": "savingThrow",
-								"default": true,
-								"ability": "wis",
-								"saveDC": {
-									"type": "con"
-								}
-							},
-							"SBuXD5O9V8P3wNVS": {
-								"type": "effect",
-								"default": true,
-								"effectId": "tIDRy2wPCycBJsWd"
-							}
-						},
-						"uses": {
-							"value": 0,
-							"max": "",
-							"per": "",
-							"recharge": {
-								"formula": "1d6",
-								"rechargeType": "custom",
-								"rechargeAmount": "1",
-								"threshold": 6
-							}
-						},
-						"ranges": {
-							"q7sBBkaatmME74gp": {
-								"range": "fiveFeet"
-							}
-						},
-						"target": {
-							"type": "creatureObject",
-							"quantity": 1
-						},
-						"img": "icons/svg/item-bag.svg"
+						"consumers": {}
 					}
 				},
-				"description": "<p>The hydrodaemon makes a bite attack against a Medium or smaller creature it is grappling. If the attack hits and the hydrodaemon has not swallowed another creature, the target is swallowed and the grapple ends. A swallowed creature has total cover from attacks from outside the hydrodaemon, it is blinded and restrained , and it makes a DC 15 Wisdom saving throw at the beginning of each of the hydrodaemon&rsquo;s turns or it falls unconscious for 1d4 rounds. If the hydrodaemon dies, the target is no longer swallowed.</p>",
+				"description": "<p><em>Defensive (Light), Dual-Wielding, Finesse</em></p>",
 				"favorite": true,
 				"secretDescription": "",
 				"source": "",
@@ -1764,218 +2561,67 @@
 					"per": null,
 					"recharge": {
 						"formula": "1d6",
-						"threshold": "6"
+						"threshold": 6
 					}
 				},
 				"schema": {
 					"version": null,
 					"lastMigration": null
 				},
-				"concentration": false,
-				"featureType": "naturalWeapon",
-				"grants": {},
-				"prerequisite": "",
-				"requiresBloodied": false
-			},
-			"_id": "syGI2O5b5eJxUvyx",
-			"img": "icons/svg/item-bag.svg",
-			"effects": [
-				{
-					"icon": "icons/svg/item-bag.svg",
-					"origin": "Actor.DCJzayG4kmks5ZhR.Item.syGI2O5b5eJxUvyx",
-					"flags": {
-						"a5e": {
-							"sort": 0,
-							"transferType": "onUse",
-							"actionId": "GtEJojbMsvIOlkvo"
+				"ammunitionProperties": [],
+				"armorCategory": "",
+				"armorProperties": [],
+				"attuned": false,
+				"bulky": false,
+				"craftingComponents": "",
+				"containerId": "",
+				"damagedState": 0,
+				"equippedState": 0,
+				"items": {},
+				"materialProperties": [],
+				"objectType": "weapon",
+				"plotItem": false,
+				"price": "20 gp",
+				"proficient": true,
+				"quantity": 1,
+				"rarity": "mundane",
+				"requiresAttunement": false,
+				"shieldCategory": "",
+				"shieldProperties": [],
+				"unidentified": false,
+				"unidentifiedDescription": "",
+				"unidentifiedName": "",
+				"weaponProperties": [
+					"finesse",
+					"defensive",
+					"dualWielding"
+				],
+				"weight": 3,
+				"schemaVersion": {
+					"version": 0.013,
+					"lastMigration": {
+						"version": {
+							"schema": 0.011,
+							"foundry": "11.315",
+							"system": "0.16.49"
 						}
-					},
-					"transfer": false,
-					"name": "Swallowed",
-					"_id": "tIDRy2wPCycBJsWd",
-					"changes": [
-						{
-							"key": "flags.a5e.effects.statusConditions",
-							"value": "[\"blinded\",\"restrained\"]",
-							"mode": 0,
-							"priority": null
-						}
-					],
-					"disabled": false,
-					"duration": {
-						"startTime": null,
-						"seconds": null,
-						"combat": null,
-						"rounds": null,
-						"turns": null,
-						"startRound": null,
-						"startTurn": null
-					},
-					"description": "",
-					"statuses": [
-						"blinded",
-						"restrained"
-					],
-					"folder": null
+					}
 				}
-			],
+			},
 			"folder": null,
+			"_id": "F7csP2IsiyrWr37j",
 			"sort": 0,
 			"ownership": {
 				"default": 0
-			},
-			"flags": {}
-		},
-		{
-			"name": "Sleep Spittle",
-			"type": "feature",
-			"system": {
-				"ac": {
-					"baseFormula": "",
-					"formula": "",
-					"grantsDisadvantage": false,
-					"maxDex": 0,
-					"minStr": 0,
-					"mode": 2,
-					"requiresNoShield": false,
-					"requiresUnarmored": false
-				},
-				"actions": {
-					"KKoqV28kgDYEAJMO": {
-						"name": "Sleep Spittle",
-						"activation": {
-							"type": "action",
-							"cost": 1
-						},
-						"consumers": {},
-						"rolls": {
-							"TQMACCrcQcVEM0x9": {
-								"type": "attack",
-								"default": true,
-								"attackType": "rangedWeaponAttack",
-								"proficient": true,
-								"ability": "dex"
-							}
-						},
-						"prompts": {
-							"KyY49zc3pm0wjzAa": {
-								"type": "savingThrow",
-								"default": true,
-								"ability": "wis",
-								"saveDC": {
-									"type": "con"
-								}
-							},
-							"iTeiBQBbc4mCyxOZ": {
-								"type": "effect",
-								"default": true,
-								"effectId": "3dgU2CVpqIxmKOlO"
-							}
-						},
-						"uses": {
-							"value": 0,
-							"max": "",
-							"per": "",
-							"recharge": {
-								"formula": "1d6",
-								"rechargeType": "custom",
-								"rechargeAmount": "1",
-								"threshold": 6
-							}
-						},
-						"ranges": {
-							"MRpFnOSszGRE1XhP": {
-								"range": 20,
-								"unit": "feet"
-							},
-							"D2ec2BuH1fFiiauA": {
-								"range": 40,
-								"unit": "feet"
-							}
-						},
-						"target": {
-							"type": "creature",
-							"quantity": 1
-						}
-					}
-				},
-				"description": "<p>The creature makes a DC 15 Wisdom saving throw or falls unconscious for 1d4 rounds. The creature wakes up early if it either takes damage or someone uses an action to shake or slap it awake.</p>",
-				"favorite": true,
-				"secretDescription": "",
-				"source": "",
-				"uses": {
-					"value": null,
-					"max": "",
-					"per": null,
-					"recharge": {
-						"formula": "1d6",
-						"threshold": "6"
-					}
-				},
-				"schema": {
-					"version": null,
-					"lastMigration": null
-				},
-				"concentration": false,
-				"featureType": "naturalWeapon",
-				"grants": {},
-				"prerequisite": "",
-				"requiresBloodied": false
-			},
-			"_id": "uDcAqPBYu8TK80Yp",
-			"img": "icons/svg/item-bag.svg",
-			"effects": [
-				{
-					"icon": "icons/svg/item-bag.svg",
-					"origin": "Actor.DCJzayG4kmks5ZhR.Item.uDcAqPBYu8TK80Yp",
-					"flags": {
-						"a5e": {
-							"sort": 0,
-							"transferType": "onUse",
-							"actionId": "KKoqV28kgDYEAJMO"
-						}
-					},
-					"transfer": false,
-					"name": "Unconscious",
-					"_id": "3dgU2CVpqIxmKOlO",
-					"changes": [
-						{
-							"key": "flags.a5e.effects.statusConditions",
-							"value": "[\"unconscious\"]",
-							"mode": 0,
-							"priority": null
-						}
-					],
-					"disabled": false,
-					"duration": {
-						"startTime": null,
-						"seconds": null,
-						"combat": null,
-						"rounds": null,
-						"turns": null,
-						"startRound": null,
-						"startTurn": null
-					},
-					"description": "",
-					"statuses": [
-						"unconscious"
-					],
-					"folder": null
-				}
-			],
-			"folder": null,
-			"sort": 0,
-			"ownership": {
-				"default": 0
-			},
-			"flags": {}
+			}
 		}
 	],
 	"effects": [],
 	"flags": {
 		"a5e": {
-			"sheetIsLocked": true
+			"sheetIsLocked": true,
+			"showSpellSlots": false
 		}
 	},
-	"_id": "mbm5cgss7bs96aml"
+	"_id": "42ensxlc5uoknt5h"
 }

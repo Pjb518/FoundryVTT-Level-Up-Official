@@ -1,8 +1,8 @@
 {
 	"folder": null,
-	"name": "Laskian Sled Dog",
+	"name": "Seraph",
 	"type": "npc",
-	"img": "icons/svg/mystery-man.svg",
+	"img": "systems/a5e/assets/angel.webp",
 	"system": {
 		"schemaVersion": {
 			"version": 0.013,
@@ -10,18 +10,6 @@
 		},
 		"abilities": {
 			"str": {
-				"value": 12,
-				"check": {
-					"expertiseDice": 0,
-					"bonus": ""
-				},
-				"save": {
-					"proficient": false,
-					"expertiseDice": 0,
-					"bonus": ""
-				}
-			},
-			"dex": {
 				"value": 14,
 				"check": {
 					"expertiseDice": 0,
@@ -33,20 +21,32 @@
 					"bonus": ""
 				}
 			},
-			"con": {
-				"value": 10,
+			"dex": {
+				"value": 24,
 				"check": {
 					"expertiseDice": 0,
 					"bonus": ""
 				},
 				"save": {
-					"proficient": false,
+					"proficient": true,
+					"expertiseDice": 0,
+					"bonus": ""
+				}
+			},
+			"con": {
+				"value": 19,
+				"check": {
+					"expertiseDice": 0,
+					"bonus": ""
+				},
+				"save": {
+					"proficient": true,
 					"expertiseDice": 0,
 					"bonus": ""
 				}
 			},
 			"int": {
-				"value": 3,
+				"value": 17,
 				"check": {
 					"expertiseDice": 0,
 					"bonus": ""
@@ -58,19 +58,19 @@
 				}
 			},
 			"wis": {
-				"value": 12,
+				"value": 14,
 				"check": {
 					"expertiseDice": 0,
 					"bonus": ""
 				},
 				"save": {
-					"proficient": false,
+					"proficient": true,
 					"expertiseDice": 0,
 					"bonus": ""
 				}
 			},
 			"cha": {
-				"value": 6,
+				"value": 15,
 				"check": {
 					"expertiseDice": 0,
 					"bonus": ""
@@ -92,8 +92,8 @@
 				"failure": 0
 			},
 			"hp": {
-				"value": 9,
-				"baseMax": 9,
+				"value": 133,
+				"baseMax": 133,
 				"temp": 0,
 				"bonus": 0
 			},
@@ -107,12 +107,12 @@
 					"total": 0
 				},
 				"d8": {
-					"current": 2,
-					"total": 2
-				},
-				"d10": {
 					"current": 0,
 					"total": 0
+				},
+				"d10": {
+					"current": 14,
+					"total": 14
 				},
 				"d12": {
 					"current": 0,
@@ -138,7 +138,7 @@
 					"unit": "feet"
 				},
 				"fly": {
-					"distance": 0,
+					"distance": 120,
 					"unit": "feet"
 				},
 				"swim": {
@@ -146,7 +146,7 @@
 					"unit": "feet"
 				},
 				"walk": {
-					"distance": 40,
+					"distance": 20,
 					"unit": "feet"
 				},
 				"traits": {
@@ -168,7 +168,7 @@
 					"unit": "feet"
 				},
 				"truesight": {
-					"distance": 0,
+					"distance": 120,
 					"unit": "feet"
 				}
 			},
@@ -204,21 +204,25 @@
 		"details": {
 			"bio": "",
 			"creatureTypes": [
-				"beast"
+				"celestial"
 			],
 			"isSwarm": false,
-			"cr": 0.125,
+			"cr": 12,
 			"elite": false,
 			"notes": "",
 			"privateNotes": "",
 			"terrain": [
-				"settlement"
+				"astralPlane",
+				"etherealPlane",
+				"temple"
 			]
 		},
 		"grants": {},
 		"proficiencies": {
 			"armor": [],
-			"languages": [],
+			"languages": [
+				"celestial"
+			],
 			"tools": [],
 			"weapons": []
 		},
@@ -447,9 +451,9 @@
 			},
 			"rel": {
 				"ability": "int",
-				"proficient": false,
+				"proficient": true,
 				"specialties": [],
-				"expertiseDice": 0,
+				"expertiseDice": 5,
 				"minRoll": 1,
 				"bonuses": {
 					"check": "",
@@ -492,12 +496,22 @@
 		},
 		"source": "toSaveAKingdom",
 		"traits": {
-			"size": "med",
-			"alignment": [],
-			"conditionImmunities": [],
-			"damageImmunities": [],
+			"size": "lg",
+			"alignment": [
+				"good",
+				"lawful"
+			],
+			"conditionImmunities": [
+				"charmed",
+				"fatigue",
+				"frightened"
+			],
+			"damageImmunities": [
+				"fire"
+			],
 			"damageResistances": [
-				"cold"
+				"cold",
+				"Nonmagical Weapons"
 			],
 			"damageVulnerabilities": []
 		},
@@ -547,21 +561,21 @@
 		}
 	},
 	"prototypeToken": {
-		"name": "Laskian Sled Dog",
+		"name": "Seraph",
 		"displayName": 0,
 		"actorLink": false,
 		"appendNumber": false,
 		"prependAdjective": false,
 		"texture": {
-			"src": "icons/svg/mystery-man.svg",
+			"src": "systems/a5e/assets/angel.webp",
 			"scaleX": 1,
 			"scaleY": 1,
 			"offsetX": 0,
 			"offsetY": 0,
 			"rotation": 0
 		},
-		"width": 1,
-		"height": 1,
+		"width": 2,
+		"height": 2,
 		"lockRotation": false,
 		"rotation": 0,
 		"alpha": 1,
@@ -704,7 +718,7 @@
 				}
 			},
 			"folder": null,
-			"_id": "readIJJl5fsRR5Zp",
+			"_id": "wgqr3uY1XMs47Dse",
 			"sort": 0,
 			"ownership": {
 				"default": 0
@@ -804,7 +818,7 @@
 				}
 			},
 			"folder": null,
-			"_id": "iIWnbLCzy2ypx8gF",
+			"_id": "eEjEYEYrnm63iHzh",
 			"sort": 0,
 			"ownership": {
 				"default": 0
@@ -904,7 +918,7 @@
 				}
 			},
 			"folder": null,
-			"_id": "hPK9QZRz8AJYXqtO",
+			"_id": "FzDuRlAmTUIoeTg5",
 			"sort": 0,
 			"ownership": {
 				"default": 0
@@ -1004,7 +1018,7 @@
 				}
 			},
 			"folder": null,
-			"_id": "7S1fF0fzrKu7vlcO",
+			"_id": "QOOy9ELJcaXGIqk1",
 			"sort": 0,
 			"ownership": {
 				"default": 0
@@ -1104,7 +1118,7 @@
 				}
 			},
 			"folder": null,
-			"_id": "vNK0iGcyhtW6wzj1",
+			"_id": "PatGLc5Fi21ftdF6",
 			"sort": 0,
 			"ownership": {
 				"default": 0
@@ -1204,14 +1218,14 @@
 				}
 			},
 			"folder": null,
-			"_id": "jGYeE1Xu4yk9F5on",
+			"_id": "2W318IL90odicFDh",
 			"sort": 0,
 			"ownership": {
 				"default": 0
 			}
 		},
 		{
-			"name": "Keen Hearing and Smell",
+			"name": "Angelic Weapons",
 			"type": "feature",
 			"system": {
 				"ac": {
@@ -1225,7 +1239,7 @@
 					"requiresUnarmored": false
 				},
 				"actions": {},
-				"description": "<p>The sled dog has advantage on Perception checks that rely on hearing and smell.</p>",
+				"description": "<p>The seraph&rsquo;s weapon attacks are magical. When the seraph hits with any weapon, the weapon deals an extra 10 (3d6) radiant damage (included in the attack).</p>",
 				"favorite": false,
 				"secretDescription": "",
 				"source": "",
@@ -1248,7 +1262,7 @@
 				"prerequisite": "",
 				"requiresBloodied": false
 			},
-			"_id": "gDKF1s6b4CM92qV7",
+			"_id": "Jz7NKrzNytyNMqiP",
 			"img": "icons/svg/item-bag.svg",
 			"effects": [],
 			"folder": null,
@@ -1259,7 +1273,597 @@
 			"flags": {}
 		},
 		{
-			"name": "Bite",
+			"name": "Divine Knowledge",
+			"type": "feature",
+			"system": {
+				"ac": {
+					"baseFormula": "",
+					"formula": "",
+					"grantsDisadvantage": false,
+					"maxDex": 0,
+					"minStr": 0,
+					"mode": 2,
+					"requiresNoShield": false,
+					"requiresUnarmored": false
+				},
+				"actions": {},
+				"description": "<p>The seraph adds its proficiency bonus to and has advantage on Intelligence checks.</p>",
+				"favorite": false,
+				"secretDescription": "",
+				"source": "",
+				"uses": {
+					"value": null,
+					"max": "",
+					"per": null,
+					"recharge": {
+						"formula": "1d6",
+						"threshold": "6"
+					}
+				},
+				"schema": {
+					"version": null,
+					"lastMigration": null
+				},
+				"concentration": false,
+				"featureType": "other",
+				"grants": {},
+				"prerequisite": "",
+				"requiresBloodied": false
+			},
+			"_id": "rYS8pDMnj9a7d1u3",
+			"img": "icons/svg/item-bag.svg",
+			"effects": [
+				{
+					"icon": "icons/svg/item-bag.svg",
+					"origin": "Actor.bE8wKsKGe847CfU7.Item.rYS8pDMnj9a7d1u3",
+					"flags": {
+						"a5e": {
+							"sort": 0,
+							"transferType": "passive"
+						}
+					},
+					"transfer": false,
+					"name": "Divine Knowledge",
+					"_id": "Pms5paXkJFGD7IUL",
+					"changes": [
+						{
+							"key": "flags.a5e.effects.rollMode.abilityCheck.int",
+							"value": "1",
+							"mode": 6,
+							"priority": null
+						},
+						{
+							"key": "flags.a5e.effects.bonuses.abilities",
+							"value": "{\"label\":\"Divine Knowledge\",\"formula\":\"@prof\",\"damageType\":\"\",\"context\":{\"abilities\":[\"int\"],\"types\":[\"check\"],\"requiresProficiency\":false},\"default\":true,\"img\":\"icons/svg/upgrade.svg\"}",
+							"mode": 0,
+							"priority": null
+						}
+					],
+					"disabled": false,
+					"duration": {
+						"startTime": null,
+						"seconds": null,
+						"combat": null,
+						"rounds": null,
+						"turns": null,
+						"startRound": null,
+						"startTurn": null
+					},
+					"description": "",
+					"statuses": [],
+					"folder": null
+				}
+			],
+			"folder": null,
+			"sort": 0,
+			"ownership": {
+				"default": 0
+			},
+			"flags": {}
+		},
+		{
+			"name": "Flyby",
+			"type": "feature",
+			"system": {
+				"ac": {
+					"baseFormula": "",
+					"formula": "",
+					"grantsDisadvantage": false,
+					"maxDex": 0,
+					"minStr": 0,
+					"mode": 2,
+					"requiresNoShield": false,
+					"requiresUnarmored": false
+				},
+				"actions": {},
+				"description": "<p>&nbsp;The seraph doesn&rsquo;t provoke opportunity attacks when it flies out of an enemy&rsquo;s reach.</p>",
+				"favorite": false,
+				"secretDescription": "",
+				"source": "",
+				"uses": {
+					"value": null,
+					"max": "",
+					"per": null,
+					"recharge": {
+						"formula": "1d6",
+						"threshold": "6"
+					}
+				},
+				"schema": {
+					"version": null,
+					"lastMigration": null
+				},
+				"concentration": false,
+				"featureType": "other",
+				"grants": {},
+				"prerequisite": "",
+				"requiresBloodied": false
+			},
+			"_id": "oIat7cqSBVRpR8yk",
+			"img": "icons/svg/item-bag.svg",
+			"effects": [],
+			"folder": null,
+			"sort": 0,
+			"ownership": {
+				"default": 0
+			},
+			"flags": {}
+		},
+		{
+			"name": "Good",
+			"type": "feature",
+			"system": {
+				"ac": {
+					"baseFormula": "",
+					"formula": "",
+					"grantsDisadvantage": false,
+					"maxDex": 0,
+					"minStr": 0,
+					"mode": 2,
+					"requiresNoShield": false,
+					"requiresUnarmored": false
+				},
+				"actions": {},
+				"description": "<p>The seraph radiates a Lawful aura and a Good aura.</p>",
+				"favorite": false,
+				"secretDescription": "",
+				"source": "",
+				"uses": {
+					"value": null,
+					"max": "",
+					"per": null,
+					"recharge": {
+						"formula": "1d6",
+						"threshold": "6"
+					}
+				},
+				"schema": {
+					"version": null,
+					"lastMigration": null
+				},
+				"concentration": false,
+				"featureType": "other",
+				"grants": {},
+				"prerequisite": "",
+				"requiresBloodied": false
+			},
+			"_id": "uIMAwikv0DZ8Ekpe",
+			"img": "icons/svg/item-bag.svg",
+			"effects": [],
+			"folder": null,
+			"sort": 0,
+			"ownership": {
+				"default": 0
+			},
+			"flags": {}
+		},
+		{
+			"name": "Innate Spellcasting",
+			"type": "feature",
+			"system": {
+				"ac": {
+					"baseFormula": "",
+					"formula": "",
+					"grantsDisadvantage": false,
+					"maxDex": 0,
+					"minStr": 0,
+					"mode": 2,
+					"requiresNoShield": false,
+					"requiresUnarmored": false
+				},
+				"actions": {},
+				"description": "<p>The seraph&rsquo;s innate spellcasting ability is Intelligence. The seraph can innately cast the following spells, requiring no material components:</p>\n<p>At will: @UUID[Compendium.a5e.a5e-spells.Item.h5ssew7apf5ofbhc]{Commune}, @UUID[Compendium.a5e.a5e-spells.Item.jlqrjd03lyl8zb3c]{Detect Evil and Good}</p>\n<p>3/day: @UUID[Compendium.a5e.a5e-spells.Item.24rmiwo0w5pd746x]{Legend Lore}</p>",
+				"favorite": false,
+				"secretDescription": "",
+				"source": "",
+				"uses": {
+					"value": null,
+					"max": "",
+					"per": null,
+					"recharge": {
+						"formula": "1d6",
+						"threshold": "6"
+					}
+				},
+				"schema": {
+					"version": null,
+					"lastMigration": null
+				},
+				"concentration": false,
+				"featureType": "other",
+				"grants": {},
+				"prerequisite": "",
+				"requiresBloodied": false
+			},
+			"_id": "qr1s43YPd0zZNItu",
+			"img": "icons/svg/item-bag.svg",
+			"effects": [],
+			"folder": null,
+			"sort": 0,
+			"ownership": {
+				"default": 0
+			},
+			"flags": {}
+		},
+		{
+			"name": "Commune",
+			"type": "spell",
+			"img": "icons/magic/holy/prayer-hands-glowing-yellow-white.webp",
+			"effects": [],
+			"flags": {
+				"core": {
+					"sourceId": "Compendium.a5e.a5e-spells.Item.h5ssew7apf5ofbhc"
+				}
+			},
+			"system": {
+				"actions": {
+					"iPIndfM7dVBuPUlg": {
+						"name": "Commune",
+						"activation": {
+							"cost": 1,
+							"type": "minute",
+							"reactionTrigger": ""
+						},
+						"duration": {
+							"unit": "minute",
+							"value": "1"
+						},
+						"ranges": {
+							"xSZThq9Mniv0aIqw": {
+								"range": "self"
+							}
+						},
+						"area": {
+							"shape": "",
+							"size": "",
+							"placeTemplate": false
+						},
+						"target": {
+							"quantity": "",
+							"type": "self"
+						},
+						"consumers": {}
+					}
+				},
+				"description": "<p>You contact your deity, a divine proxy, or a personified source of divine power and ask up to 3 questions that could be answered with a yes or a no. You must complete your questions before the spell ends. You receive a correct answer for each question, unless the being does not know. When the being does not know, you receive &quot;unclear&quot; as an answer. The being does not try to deceive, and the Narrator may offer a short phrase as an answer if necessary.</p><p>When you cast this spell again before finishing a long rest, the chance of getting a no answer increases.</p><p>The Narrator makes the following roll in secret: second casting &mdash;25%, third casting &mdash;50%, fourth casting&mdash;75%, fifth casting&mdash;100%.</p>",
+				"favorite": false,
+				"secretDescription": "",
+				"source": "adventurersGuide",
+				"uses": {
+					"value": null,
+					"max": "",
+					"per": null,
+					"recharge": {
+						"formula": "",
+						"threshold": ""
+					}
+				},
+				"schema": {
+					"version": null,
+					"lastMigration": null
+				},
+				"classes": [
+					"cleric",
+					"warlock",
+					"witch"
+				],
+				"components": {
+					"vocalized": true,
+					"seen": true,
+					"material": true
+				},
+				"concentration": false,
+				"level": 5,
+				"materials": "incense and vial of holy or unholy water",
+				"materialsConsumed": false,
+				"prepared": false,
+				"prerequisite": "",
+				"rare": false,
+				"ritual": true,
+				"schools": {
+					"primary": "divination",
+					"secondary": [
+						"divine",
+						"knowledge",
+						"planar"
+					]
+				},
+				"schemaVersion": {
+					"version": 0.013,
+					"lastMigration": {
+						"version": {
+							"schema": 0.011,
+							"foundry": "11.315",
+							"system": "0.16.49"
+						}
+					}
+				}
+			},
+			"folder": null,
+			"_id": "Xu11vGNTw9lSGRrx",
+			"sort": 0,
+			"ownership": {
+				"default": 0
+			}
+		},
+		{
+			"name": "Detect Evil and Good",
+			"type": "spell",
+			"img": "icons/magic/symbols/star-yellow.webp",
+			"effects": [],
+			"flags": {
+				"core": {
+					"sourceId": "Compendium.a5e.a5e-spells.Item.jlqrjd03lyl8zb3c"
+				}
+			},
+			"system": {
+				"actions": {
+					"G0DcVgQdfe1ColYJ": {
+						"name": "Detect Evil and Good",
+						"activation": {
+							"cost": 1,
+							"type": "action",
+							"reactionTrigger": ""
+						},
+						"duration": {
+							"unit": "minute",
+							"value": "10"
+						},
+						"ranges": {
+							"MypYiO8SB0olt3xP": {
+								"range": "30-foot radius"
+							}
+						},
+						"area": {
+							"shape": "",
+							"size": "",
+							"placeTemplate": false
+						},
+						"target": {
+							"quantity": "",
+							"type": "self"
+						},
+						"consumers": {}
+					}
+				},
+				"description": "<p>You attempt to sense the presence of otherworldly forces. You automatically know if there is a place or object within range that has been magically consecrated or desecrated. In addition, on the round you cast it and as an action on subsequent turns until the spell ends, you may make a Wisdom (Religion) check against the passive Deception score of any aberration, celestial, elemental, fey, fiend, or undead creature within range. On a success, you sense the creature's presence, as well as where the creature is located.</p><p>The spell penetrates most barriers but is blocked by 3 feet of wood or dirt, 1 foot of stone, 1 inch of common metal, or a thin sheet of lead.</p>",
+				"favorite": false,
+				"secretDescription": "",
+				"source": "adventurersGuide",
+				"uses": {
+					"value": null,
+					"max": "",
+					"per": null,
+					"recharge": {
+						"formula": "",
+						"threshold": ""
+					}
+				},
+				"schema": {
+					"version": null,
+					"lastMigration": null
+				},
+				"classes": [
+					"cleric",
+					"herald"
+				],
+				"components": {
+					"vocalized": true,
+					"seen": true,
+					"material": false
+				},
+				"concentration": true,
+				"level": 1,
+				"materials": "",
+				"materialsConsumed": false,
+				"prepared": false,
+				"prerequisite": "",
+				"rare": false,
+				"ritual": false,
+				"schools": {
+					"primary": "divination",
+					"secondary": [
+						"divine",
+						"senses"
+					]
+				},
+				"schemaVersion": {
+					"version": 0.013,
+					"lastMigration": {
+						"version": {
+							"schema": 0.011,
+							"foundry": "11.315",
+							"system": "0.16.49"
+						}
+					}
+				}
+			},
+			"folder": null,
+			"_id": "q1n91730sSP3UZEd",
+			"sort": 0,
+			"ownership": {
+				"default": 0
+			}
+		},
+		{
+			"name": "Legend Lore",
+			"type": "spell",
+			"img": "icons/sundries/books/book-open-purple.webp",
+			"effects": [],
+			"flags": {
+				"core": {
+					"sourceId": "Compendium.a5e.a5e-spells.Item.24rmiwo0w5pd746x"
+				}
+			},
+			"system": {
+				"actions": {
+					"pHW4kJaXiBunXgHH": {
+						"name": "Legend Lore",
+						"activation": {
+							"cost": 10,
+							"type": "minute",
+							"reactionTrigger": ""
+						},
+						"duration": {
+							"unit": "instantaneous",
+							"value": ""
+						},
+						"ranges": {
+							"MkK8h8GgIqgDLsGJ": {
+								"range": "self"
+							}
+						},
+						"area": {
+							"shape": "",
+							"size": "",
+							"placeTemplate": false
+						},
+						"target": {
+							"quantity": "",
+							"type": "creatureObject"
+						},
+						"consumers": {
+							"MkIhmqETSVhEZpt5": {
+								"type": "itemUses",
+								"default": true,
+								"quantity": 1
+							}
+						}
+					}
+				},
+				"description": "<p>You learn significant information about the target. This could range from the most up-todate research, lore forgotten in old tales, or even previously unknown information. The spell gives you additional, more detailed information if you already have some knowledge of the target. The spell will not return any information for items not of legendary renown.</p><p>The knowledge you gain is always true, but may be obscured by metaphor, poetic language, or verse.</p><p>If you use the spell for a cursed tome, for instance, you may gain knowledge of the dire words spoken by its creator as they brought it into the world.</p><p><strong><em>Cast at Higher Levels.</em></strong> Your intuition surrounding the target is enhanced and you gain advantage on one Investigation check regarding it for each slot level above 6th.</p>",
+				"favorite": false,
+				"secretDescription": "",
+				"source": "adventurersGuide",
+				"uses": {
+					"value": 3,
+					"max": "3",
+					"per": "day",
+					"recharge": {
+						"formula": "",
+						"threshold": ""
+					}
+				},
+				"schema": {
+					"version": null,
+					"lastMigration": null
+				},
+				"classes": [
+					"bard",
+					"cleric",
+					"wielder",
+					"witch",
+					"wizard"
+				],
+				"components": {
+					"vocalized": true,
+					"seen": true,
+					"material": true
+				},
+				"concentration": false,
+				"level": 5,
+				"materials": "250 gold of incense consumed by the spell and 4 blank, exquisitely bound books worth at least 50 gold each",
+				"materialsConsumed": false,
+				"prepared": false,
+				"prerequisite": "",
+				"rare": false,
+				"ritual": false,
+				"schools": {
+					"primary": "divination",
+					"secondary": [
+						"arcane",
+						"communication",
+						"knowledge"
+					]
+				},
+				"schemaVersion": {
+					"version": 0.013,
+					"lastMigration": {
+						"version": {
+							"schema": 0.011,
+							"foundry": "11.315",
+							"system": "0.16.49"
+						}
+					}
+				}
+			},
+			"folder": null,
+			"_id": "NMxaHaLK6IiYDsFD",
+			"sort": 0,
+			"ownership": {
+				"default": 0
+			}
+		},
+		{
+			"name": "Magic Resistance",
+			"type": "feature",
+			"system": {
+				"ac": {
+					"baseFormula": "",
+					"formula": "",
+					"grantsDisadvantage": false,
+					"maxDex": 0,
+					"minStr": 0,
+					"mode": 2,
+					"requiresNoShield": false,
+					"requiresUnarmored": false
+				},
+				"actions": {},
+				"description": "<p>The seraph has advantage on saving throws made against spells and other magical effects.</p>",
+				"favorite": false,
+				"secretDescription": "",
+				"source": "",
+				"uses": {
+					"value": null,
+					"max": "",
+					"per": null,
+					"recharge": {
+						"formula": "1d6",
+						"threshold": "6"
+					}
+				},
+				"schema": {
+					"version": null,
+					"lastMigration": null
+				},
+				"concentration": false,
+				"featureType": "other",
+				"grants": {},
+				"prerequisite": "",
+				"requiresBloodied": false
+			},
+			"_id": "PtI1oR5nSIwZoODb",
+			"img": "icons/svg/item-bag.svg",
+			"effects": [],
+			"folder": null,
+			"sort": 0,
+			"ownership": {
+				"default": 0
+			},
+			"flags": {}
+		},
+		{
+			"name": "Multiattack",
 			"type": "feature",
 			"system": {
 				"ac": {
@@ -1273,43 +1877,106 @@
 					"requiresUnarmored": false
 				},
 				"actions": {
-					"CJvcQLfUq1X9ibqG": {
-						"name": "Bite",
+					"0E8hOyRzYSKpiq5q": {
+						"name": "Multiattack",
+						"activation": {
+							"type": "action",
+							"cost": 1
+						},
+						"consumers": {},
+						"rolls": {},
+						"prompts": {},
+						"uses": {
+							"value": 0,
+							"max": "",
+							"per": "",
+							"recharge": {
+								"formula": "1d6",
+								"rechargeType": "custom",
+								"rechargeAmount": "1",
+								"threshold": 6
+							}
+						}
+					}
+				},
+				"description": "<p>The seraph attacks three times with its wings.</p>",
+				"favorite": true,
+				"secretDescription": "",
+				"source": "",
+				"uses": {
+					"value": null,
+					"max": "",
+					"per": null,
+					"recharge": {
+						"formula": "1d6",
+						"threshold": "6"
+					}
+				},
+				"schema": {
+					"version": null,
+					"lastMigration": null
+				},
+				"concentration": false,
+				"featureType": "other",
+				"grants": {},
+				"prerequisite": "",
+				"requiresBloodied": false
+			},
+			"_id": "RKcPxR1YWYuP7EvC",
+			"img": "icons/svg/item-bag.svg",
+			"effects": [],
+			"folder": null,
+			"sort": 0,
+			"ownership": {
+				"default": 0
+			},
+			"flags": {}
+		},
+		{
+			"name": "Wings",
+			"type": "feature",
+			"system": {
+				"ac": {
+					"baseFormula": "",
+					"formula": "",
+					"grantsDisadvantage": false,
+					"maxDex": 0,
+					"minStr": 0,
+					"mode": 2,
+					"requiresNoShield": false,
+					"requiresUnarmored": false
+				},
+				"actions": {
+					"HZCBqncQedri27bs": {
+						"name": "Wings",
 						"activation": {
 							"type": "action",
 							"cost": 1
 						},
 						"consumers": {},
 						"rolls": {
-							"dWlQbGX86XfNNc63": {
+							"fyNMBcdGgq2Kb3mz": {
 								"type": "attack",
 								"default": true,
 								"attackType": "meleeWeaponAttack",
 								"proficient": true,
-								"ability": "str"
+								"ability": "dex"
 							},
-							"PyrbO2bSbs9upNuh": {
+							"QD3Bz6zvcdhkawOS": {
 								"type": "damage",
 								"default": true,
-								"formula": "1d4 + @str.mod",
-								"damageType": "piercing"
-							}
-						},
-						"prompts": {
-							"jE0mlzIjnk496Zmu": {
-								"type": "savingThrow",
-								"default": true,
-								"ability": "str",
-								"saveDC": {
-									"type": "str"
-								}
+								"label": "Magical Bludgeoning",
+								"formula": "1d8 + @dex.mod",
+								"damageType": "bludgeoning"
 							},
-							"9tdWe7r17DtuU7m3": {
-								"type": "effect",
+							"xTnMVkGoNWxhUseg": {
+								"type": "damage",
 								"default": true,
-								"effectId": "bOORIDdL68SrRHwG"
+								"formula": "3d6",
+								"damageType": "radiant"
 							}
 						},
+						"prompts": {},
 						"uses": {
 							"value": 0,
 							"max": "",
@@ -1322,8 +1989,9 @@
 							}
 						},
 						"ranges": {
-							"2fVldrPnkOkvCWqd": {
-								"range": "fiveFeet"
+							"noJxnQMnkU7bwh9r": {
+								"range": 10,
+								"unit": "feet"
 							}
 						},
 						"target": {
@@ -1332,7 +2000,7 @@
 						}
 					}
 				},
-				"description": "<p>If the target is a creature, it makes a DC 11 Strength saving throw, falling prone on a failure.</p>",
+				"description": "",
 				"favorite": true,
 				"secretDescription": "",
 				"source": "",
@@ -1355,22 +2023,114 @@
 				"prerequisite": "",
 				"requiresBloodied": false
 			},
-			"_id": "iSvBcshPKXCp0dlQ",
+			"_id": "hXnNyqKYp38KKNyD",
+			"img": "icons/svg/item-bag.svg",
+			"effects": [],
+			"folder": null,
+			"sort": 0,
+			"ownership": {
+				"default": 0
+			},
+			"flags": {}
+		},
+		{
+			"name": "Holy Rending",
+			"type": "feature",
+			"system": {
+				"ac": {
+					"baseFormula": "",
+					"formula": "",
+					"grantsDisadvantage": false,
+					"maxDex": 0,
+					"minStr": 0,
+					"mode": 2,
+					"requiresNoShield": false,
+					"requiresUnarmored": false
+				},
+				"actions": {
+					"URv0jcvlnttjgcjA": {
+						"name": "Holy Rending",
+						"activation": {
+							"type": "bonusAction",
+							"cost": 1
+						},
+						"consumers": {},
+						"rolls": {
+							"dbjP0S8lwpWi5iGO": {
+								"type": "damage",
+								"default": true,
+								"canCrit": false,
+								"formula": "4d6",
+								"damageType": "force"
+							}
+						},
+						"prompts": {
+							"C5eVkFYq3WIHwOCx": {
+								"type": "savingThrow",
+								"default": true,
+								"ability": "str",
+								"saveDC": {
+									"type": "maneuver"
+								}
+							},
+							"p3iOIhqBT0MZ7eQ5": {
+								"type": "effect",
+								"default": true,
+								"effectId": "OifQ5dYGIvyfSfy0"
+							}
+						},
+						"uses": {
+							"value": 0,
+							"max": "",
+							"per": "",
+							"recharge": {
+								"formula": "1d6",
+								"rechargeType": "custom",
+								"rechargeAmount": "1",
+								"threshold": 6
+							}
+						}
+					}
+				},
+				"description": "<p>When the seraph hits the same target with a second or third wing attack on its turn, it can deal an extra 14 (4d6) force damage. The target makes a DC 19 Strength saving throw or it is knocked prone.</p>",
+				"favorite": true,
+				"secretDescription": "",
+				"source": "",
+				"uses": {
+					"value": null,
+					"max": "",
+					"per": null,
+					"recharge": {
+						"formula": "1d6",
+						"threshold": "6"
+					}
+				},
+				"schema": {
+					"version": null,
+					"lastMigration": null
+				},
+				"concentration": false,
+				"featureType": "naturalWeapon",
+				"grants": {},
+				"prerequisite": "",
+				"requiresBloodied": false
+			},
+			"_id": "J4xVI3aiDhRWuc3z",
 			"img": "icons/svg/item-bag.svg",
 			"effects": [
 				{
 					"icon": "icons/svg/item-bag.svg",
-					"origin": "Actor.9swq1ylYhhWN76nf.Item.iSvBcshPKXCp0dlQ",
+					"origin": "Actor.bE8wKsKGe847CfU7.Item.J4xVI3aiDhRWuc3z",
 					"flags": {
 						"a5e": {
 							"sort": 0,
 							"transferType": "onUse",
-							"actionId": "CJvcQLfUq1X9ibqG"
+							"actionId": "URv0jcvlnttjgcjA"
 						}
 					},
 					"transfer": false,
 					"name": "Prone",
-					"_id": "bOORIDdL68SrRHwG",
+					"_id": "OifQ5dYGIvyfSfy0",
 					"changes": [
 						{
 							"key": "flags.a5e.effects.statusConditions",
@@ -1402,13 +2162,173 @@
 				"default": 0
 			},
 			"flags": {}
+		},
+		{
+			"name": "Fast Reactions",
+			"type": "feature",
+			"system": {
+				"ac": {
+					"baseFormula": "",
+					"formula": "",
+					"grantsDisadvantage": false,
+					"maxDex": 0,
+					"minStr": 0,
+					"mode": 2,
+					"requiresNoShield": false,
+					"requiresUnarmored": false
+				},
+				"actions": {},
+				"description": "<p>The seraph can take 2 reactions each round, but never more than one reaction against the same creature.</p>",
+				"favorite": false,
+				"secretDescription": "",
+				"source": "",
+				"uses": {
+					"value": null,
+					"max": "",
+					"per": null,
+					"recharge": {
+						"formula": "1d6",
+						"threshold": "6"
+					}
+				},
+				"schema": {
+					"version": null,
+					"lastMigration": null
+				},
+				"concentration": false,
+				"featureType": "other",
+				"grants": {},
+				"prerequisite": "",
+				"requiresBloodied": false
+			},
+			"_id": "mgQgoZNLcYkKGFwR",
+			"img": "icons/svg/item-bag.svg",
+			"effects": [],
+			"folder": null,
+			"sort": 0,
+			"ownership": {
+				"default": 0
+			},
+			"flags": {}
+		},
+		{
+			"name": "Uncanny Dodge",
+			"type": "feature",
+			"system": {
+				"ac": {
+					"baseFormula": "",
+					"formula": "",
+					"grantsDisadvantage": false,
+					"maxDex": 0,
+					"minStr": 0,
+					"mode": 2,
+					"requiresNoShield": false,
+					"requiresUnarmored": false
+				},
+				"actions": {
+					"xtRvOHv308adB9wt": {
+						"name": "Uncanny Dodge",
+						"activation": {
+							"type": "reaction",
+							"cost": 1
+						},
+						"consumers": {},
+						"rolls": {},
+						"prompts": {},
+						"uses": {
+							"value": 0,
+							"max": "",
+							"per": "",
+							"recharge": {
+								"formula": "1d6",
+								"rechargeType": "custom",
+								"rechargeAmount": "1",
+								"threshold": 6
+							}
+						}
+					}
+				},
+				"description": "<p>When an attacker the seraph can see hits it with an attack, it can halve the attack&rsquo;s damage against it.</p>",
+				"favorite": true,
+				"secretDescription": "",
+				"source": "",
+				"uses": {
+					"value": null,
+					"max": "",
+					"per": null,
+					"recharge": {
+						"formula": "1d6",
+						"threshold": "6"
+					}
+				},
+				"schema": {
+					"version": null,
+					"lastMigration": null
+				},
+				"concentration": false,
+				"featureType": "other",
+				"grants": {},
+				"prerequisite": "",
+				"requiresBloodied": false
+			},
+			"_id": "01EkhxRQUuannkps",
+			"img": "icons/svg/item-bag.svg",
+			"effects": [],
+			"folder": null,
+			"sort": 0,
+			"ownership": {
+				"default": 0
+			},
+			"flags": {}
 		}
 	],
-	"effects": [],
+	"effects": [
+		{
+			"icon": "icons/svg/item-bag.svg",
+			"origin": "Actor.bE8wKsKGe847CfU7.Item.rYS8pDMnj9a7d1u3",
+			"flags": {
+				"a5e": {
+					"sort": 0,
+					"transferType": "passive"
+				}
+			},
+			"transfer": false,
+			"name": "Divine Knowledge",
+			"_id": "Nb7UKY33nzjT8Zah",
+			"changes": [
+				{
+					"key": "flags.a5e.effects.rollMode.abilityCheck.int",
+					"value": "1",
+					"mode": 6,
+					"priority": null
+				},
+				{
+					"key": "flags.a5e.effects.bonuses.abilities",
+					"value": "{\"label\":\"Divine Knowledge\",\"formula\":\"@prof\",\"damageType\":\"\",\"context\":{\"abilities\":[\"int\"],\"types\":[\"check\"],\"requiresProficiency\":false},\"default\":true,\"img\":\"icons/svg/upgrade.svg\"}",
+					"mode": 0,
+					"priority": null
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": 0,
+				"seconds": null,
+				"combat": null,
+				"rounds": null,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "",
+			"statuses": [],
+			"folder": null
+		}
+	],
 	"flags": {
 		"a5e": {
-			"sheetIsLocked": true
+			"sheetIsLocked": true,
+			"showSpellSlots": false
 		}
 	},
-	"_id": "cpe64lm8xq9a2c6k"
+	"_id": "zyf0vae0awxa59m4"
 }

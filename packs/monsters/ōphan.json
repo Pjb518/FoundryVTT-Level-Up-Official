@@ -1,6 +1,6 @@
 {
 	"folder": null,
-	"name": "Hydrodaemon",
+	"name": "Ōphan",
 	"type": "npc",
 	"img": "icons/svg/mystery-man.svg",
 	"system": {
@@ -10,7 +10,7 @@
 		},
 		"abilities": {
 			"str": {
-				"value": 17,
+				"value": 12,
 				"check": {
 					"expertiseDice": 0,
 					"bonus": ""
@@ -22,31 +22,7 @@
 				}
 			},
 			"dex": {
-				"value": 14,
-				"check": {
-					"expertiseDice": 0,
-					"bonus": ""
-				},
-				"save": {
-					"proficient": true,
-					"expertiseDice": 0,
-					"bonus": ""
-				}
-			},
-			"con": {
-				"value": 18,
-				"check": {
-					"expertiseDice": 0,
-					"bonus": ""
-				},
-				"save": {
-					"proficient": true,
-					"expertiseDice": 0,
-					"bonus": ""
-				}
-			},
-			"int": {
-				"value": 9,
+				"value": 17,
 				"check": {
 					"expertiseDice": 0,
 					"bonus": ""
@@ -57,7 +33,7 @@
 					"bonus": ""
 				}
 			},
-			"wis": {
+			"con": {
 				"value": 15,
 				"check": {
 					"expertiseDice": 0,
@@ -69,8 +45,32 @@
 					"bonus": ""
 				}
 			},
-			"cha": {
+			"int": {
+				"value": 11,
+				"check": {
+					"expertiseDice": 0,
+					"bonus": ""
+				},
+				"save": {
+					"proficient": false,
+					"expertiseDice": 0,
+					"bonus": ""
+				}
+			},
+			"wis": {
 				"value": 14,
+				"check": {
+					"expertiseDice": 0,
+					"bonus": ""
+				},
+				"save": {
+					"proficient": true,
+					"expertiseDice": 0,
+					"bonus": ""
+				}
+			},
+			"cha": {
+				"value": 18,
 				"check": {
 					"expertiseDice": 0,
 					"bonus": ""
@@ -92,8 +92,8 @@
 				"failure": 0
 			},
 			"hp": {
-				"value": 76,
-				"baseMax": 76,
+				"value": 115,
+				"baseMax": 115,
 				"temp": 0,
 				"bonus": 0
 			},
@@ -103,16 +103,16 @@
 					"total": 0
 				},
 				"d6": {
-					"current": 0,
-					"total": 0
+					"current": 21,
+					"total": 21
 				},
 				"d8": {
 					"current": 0,
 					"total": 0
 				},
 				"d10": {
-					"current": 8,
-					"total": 8
+					"current": 0,
+					"total": 0
 				},
 				"d12": {
 					"current": 0,
@@ -138,19 +138,19 @@
 					"unit": "feet"
 				},
 				"fly": {
-					"distance": 40,
+					"distance": 90,
 					"unit": "feet"
 				},
 				"swim": {
-					"distance": 60,
+					"distance": 0,
 					"unit": "feet"
 				},
 				"walk": {
-					"distance": 30,
+					"distance": 40,
 					"unit": "feet"
 				},
 				"traits": {
-					"hover": false
+					"hover": true
 				}
 			},
 			"senses": {
@@ -160,7 +160,7 @@
 					"otherwiseBlind": false
 				},
 				"darkvision": {
-					"distance": 60,
+					"distance": 0,
 					"unit": "feet"
 				},
 				"tremorsense": {
@@ -168,14 +168,14 @@
 					"unit": "feet"
 				},
 				"truesight": {
-					"distance": 0,
+					"distance": 120,
 					"unit": "feet"
 				}
 			},
 			"inspiration": false,
 			"fatigue": 0,
 			"strife": 0,
-			"spellcasting": "int",
+			"spellcasting": "cha",
 			"casterLevel": 0
 		},
 		"bonuses": {
@@ -204,27 +204,23 @@
 		"details": {
 			"bio": "",
 			"creatureTypes": [
-				"fiend"
+				"celestial"
 			],
 			"isSwarm": false,
-			"cr": 6,
+			"cr": 10,
 			"elite": false,
 			"notes": "",
 			"privateNotes": "",
 			"terrain": [
-				"hell",
-				"ruin",
-				"tomb"
+				"astralPlane",
+				"etherealPlane"
 			]
 		},
 		"grants": {},
 		"proficiencies": {
 			"armor": [],
 			"languages": [
-				"abyssal",
-				"common",
-				"infernal",
-				"Telepathy (100 ft.)"
+				"celestial"
 			],
 			"tools": [],
 			"weapons": []
@@ -311,7 +307,7 @@
 			},
 			"ath": {
 				"ability": "str",
-				"proficient": true,
+				"proficient": false,
 				"specialties": [],
 				"expertiseDice": 0,
 				"minRoll": 1,
@@ -423,7 +419,7 @@
 				"ability": "wis",
 				"proficient": true,
 				"specialties": [],
-				"expertiseDice": 0,
+				"expertiseDice": 3,
 				"minRoll": 1,
 				"bonuses": {
 					"check": "",
@@ -454,7 +450,7 @@
 			},
 			"rel": {
 				"ability": "int",
-				"proficient": false,
+				"proficient": true,
 				"specialties": [],
 				"expertiseDice": 0,
 				"minRoll": 1,
@@ -476,7 +472,7 @@
 			},
 			"ste": {
 				"ability": "dex",
-				"proficient": true,
+				"proficient": false,
 				"specialties": [],
 				"expertiseDice": 0,
 				"minRoll": 1,
@@ -499,24 +495,21 @@
 		},
 		"source": "toSaveAKingdom",
 		"traits": {
-			"size": "lg",
+			"size": "sm",
 			"alignment": [
-				"evil"
+				"good",
+				"lawful"
 			],
 			"conditionImmunities": [
-				"poisoned"
+				"charmed",
+				"fatigue",
+				"frightened",
+				"strife"
 			],
-			"damageImmunities": [
-				"acid",
-				"necrotic",
-				"poison"
-			],
+			"damageImmunities": [],
 			"damageResistances": [
-				"cold",
 				"fire",
-				"lightning",
-				"Non-Cold Iron Weapons",
-				"Non-Silvered Weapons"
+				"Nonmagical Weapons"
 			],
 			"damageVulnerabilities": []
 		},
@@ -566,7 +559,7 @@
 		}
 	},
 	"prototypeToken": {
-		"name": "Hydrodaemon",
+		"name": "Ōphan",
 		"displayName": 0,
 		"actorLink": false,
 		"appendNumber": false,
@@ -577,10 +570,11 @@
 			"scaleY": 1,
 			"offsetX": 0,
 			"offsetY": 0,
-			"rotation": 0
+			"rotation": 0,
+			"tint": null
 		},
-		"width": 2,
-		"height": 2,
+		"width": 1,
+		"height": 1,
 		"lockRotation": false,
 		"rotation": 0,
 		"alpha": 1,
@@ -595,9 +589,9 @@
 		"light": {
 			"alpha": 0.5,
 			"angle": 360,
-			"bright": 0,
+			"bright": 80,
 			"coloration": 1,
-			"dim": 0,
+			"dim": 120,
 			"attenuation": 0.5,
 			"luminosity": 0.5,
 			"saturation": 0,
@@ -612,7 +606,8 @@
 			"darkness": {
 				"min": 0,
 				"max": 1
-			}
+			},
+			"color": null
 		},
 		"sight": {
 			"enabled": false,
@@ -622,7 +617,8 @@
 			"attenuation": 0.1,
 			"brightness": 0,
 			"saturation": 0,
-			"contrast": 0
+			"contrast": 0,
+			"color": null
 		},
 		"detectionModes": [],
 		"flags": {},
@@ -723,7 +719,7 @@
 				}
 			},
 			"folder": null,
-			"_id": "swb7o9gnT1rUL6jO",
+			"_id": "mul01J4IbX9hyDc0",
 			"sort": 0,
 			"ownership": {
 				"default": 0
@@ -823,7 +819,7 @@
 				}
 			},
 			"folder": null,
-			"_id": "XxUIFbXnl3q1bqhk",
+			"_id": "O3a49KsGwHwLShsV",
 			"sort": 0,
 			"ownership": {
 				"default": 0
@@ -923,7 +919,7 @@
 				}
 			},
 			"folder": null,
-			"_id": "5At9ruCAvmo1OsOM",
+			"_id": "fC37MsH2sC2poHY1",
 			"sort": 0,
 			"ownership": {
 				"default": 0
@@ -1023,7 +1019,7 @@
 				}
 			},
 			"folder": null,
-			"_id": "sDTeDFqFuheYkTMn",
+			"_id": "tdO8EbmtZNdKfBjL",
 			"sort": 0,
 			"ownership": {
 				"default": 0
@@ -1123,7 +1119,7 @@
 				}
 			},
 			"folder": null,
-			"_id": "OceiZlpyTY3AEWCr",
+			"_id": "sbL7fxdA9uSzeygt",
 			"sort": 0,
 			"ownership": {
 				"default": 0
@@ -1223,14 +1219,14 @@
 				}
 			},
 			"folder": null,
-			"_id": "YGEA9n1rJxgZ06yw",
+			"_id": "sbPokIE437wBFIn8",
 			"sort": 0,
 			"ownership": {
 				"default": 0
 			}
 		},
 		{
-			"name": "Evil",
+			"name": "All-Around Vision",
 			"type": "feature",
 			"system": {
 				"ac": {
@@ -1244,7 +1240,7 @@
 					"requiresUnarmored": false
 				},
 				"actions": {},
-				"description": "<p>The hydrodaemon radiates an Evil aura.</p>",
+				"description": "<p>The ōphan cannot be surprised. In addition, it has advantage on sight-based Wisdom (Perception) checks and on saving throws against being blinded.</p>",
 				"favorite": false,
 				"secretDescription": "",
 				"source": "",
@@ -1267,7 +1263,754 @@
 				"prerequisite": "",
 				"requiresBloodied": false
 			},
-			"_id": "0WiKOjytvNUsDfoK",
+			"_id": "wUu3n5RIGe6rAoqi",
+			"img": "icons/svg/item-bag.svg",
+			"effects": [],
+			"folder": null,
+			"sort": 0,
+			"ownership": {
+				"default": 0
+			},
+			"flags": {}
+		},
+		{
+			"name": "Angelic Weapons",
+			"type": "feature",
+			"system": {
+				"ac": {
+					"baseFormula": "",
+					"formula": "",
+					"grantsDisadvantage": false,
+					"maxDex": 0,
+					"minStr": 0,
+					"mode": 2,
+					"requiresNoShield": false,
+					"requiresUnarmored": false
+				},
+				"actions": {},
+				"description": "<p>The ōphan&rsquo;s weapon attacks are magical. When the ōphan hits with any weapon, the weapon deals an extra 10 (3d6) radiant damage (included in the attack).</p>",
+				"favorite": false,
+				"secretDescription": "",
+				"source": "",
+				"uses": {
+					"value": null,
+					"max": "",
+					"per": null,
+					"recharge": {
+						"formula": "1d6",
+						"threshold": "6"
+					}
+				},
+				"schema": {
+					"version": null,
+					"lastMigration": null
+				},
+				"concentration": false,
+				"featureType": "other",
+				"grants": {},
+				"prerequisite": "",
+				"requiresBloodied": false
+			},
+			"_id": "Bswf4ZAfSbw5K1ln",
+			"img": "icons/svg/item-bag.svg",
+			"effects": [],
+			"folder": null,
+			"sort": 0,
+			"ownership": {
+				"default": 0
+			},
+			"flags": {}
+		},
+		{
+			"name": "Innate Spellcasting",
+			"type": "feature",
+			"system": {
+				"ac": {
+					"baseFormula": "",
+					"formula": "",
+					"grantsDisadvantage": false,
+					"maxDex": 0,
+					"minStr": 0,
+					"mode": 2,
+					"requiresNoShield": false,
+					"requiresUnarmored": false
+				},
+				"actions": {},
+				"description": "<p>&nbsp;The ōphan&rsquo;s innate spellcasting ability is Charisma (spell save DC 16). The ōphan can innately cast the following spells, requiring no material components:</p>\n<p>At will: @UUID[Compendium.a5e.a5e-spells.Item.kh26gom04osoo005]{Dancing Lights}, @UUID[Compendium.a5e.a5e-spells.Item.jlqrjd03lyl8zb3c]{Detect Evil and Good}, @UUID[Compendium.a5e.a5e-spells.Item.bqavvq6ju5ti8hr3]{Light}</p>\n<p>3/day each: @UUID[Compendium.a5e.a5e-spells.Item.ew3qtw0gvzelrmgg]{Daylight}</p>\n<p>1/day each: @UUID[Compendium.a5e.a5e-spells.Item.46wyf7rw3rm5kstu]{Sunburst}</p>",
+				"favorite": false,
+				"secretDescription": "",
+				"source": "",
+				"uses": {
+					"value": null,
+					"max": "",
+					"per": null,
+					"recharge": {
+						"formula": "1d6",
+						"threshold": "6"
+					}
+				},
+				"schema": {
+					"version": null,
+					"lastMigration": null
+				},
+				"concentration": false,
+				"featureType": "other",
+				"grants": {},
+				"prerequisite": "",
+				"requiresBloodied": false
+			},
+			"_id": "E0FGQqAFwuSpwN9X",
+			"img": "icons/svg/item-bag.svg",
+			"effects": [],
+			"folder": null,
+			"sort": 0,
+			"ownership": {
+				"default": 0
+			},
+			"flags": {}
+		},
+		{
+			"name": "Dancing Lights",
+			"type": "spell",
+			"img": "icons/magic/light/projectiles-trio-pink.webp",
+			"effects": [],
+			"flags": {
+				"core": {
+					"sourceId": "Compendium.a5e.a5e-spells.Item.kh26gom04osoo005"
+				}
+			},
+			"system": {
+				"actions": {
+					"ujamq8LIqiSNoAYw": {
+						"name": "Dancing Lights",
+						"activation": {
+							"cost": 1,
+							"type": "action",
+							"reactionTrigger": ""
+						},
+						"duration": {
+							"unit": "minute",
+							"value": "1"
+						},
+						"ranges": {
+							"vZh5NgxuSNZSsAbg": {
+								"range": "long"
+							}
+						},
+						"area": {
+							"shape": "",
+							"size": "",
+							"placeTemplate": false
+						},
+						"target": {
+							"quantity": "",
+							"type": "none"
+						},
+						"consumers": {}
+					}
+				},
+				"description": "<p>You create up to four hovering lights which appear as torches, lanterns, or glowing orbs that can be combined into a glowing Medium-sized humanoid form. Each sheds dim light in a 10-foot radius.</p><p>You can use a bonus action to move the lights up to 60 feet so long as each remains within 20 feet of another light created by this spell. A dancing light winks out when it exceeds the spell's range.</p>",
+				"favorite": false,
+				"secretDescription": "",
+				"source": "adventurersGuide",
+				"uses": {
+					"value": null,
+					"max": "",
+					"per": null,
+					"recharge": {
+						"formula": "",
+						"threshold": ""
+					}
+				},
+				"schema": {
+					"version": null,
+					"lastMigration": null
+				},
+				"classes": [
+					"artificer",
+					"bard",
+					"sorcerer",
+					"warlock",
+					"witch",
+					"wizard"
+				],
+				"components": {
+					"vocalized": true,
+					"seen": true,
+					"material": true
+				},
+				"concentration": true,
+				"level": 0,
+				"materials": "bit of phosphorus or wychwood, or a glowworm",
+				"materialsConsumed": false,
+				"prepared": false,
+				"prerequisite": "",
+				"rare": false,
+				"ritual": false,
+				"schools": {
+					"primary": "evocation",
+					"secondary": [
+						"arcane",
+						"utility"
+					]
+				},
+				"schemaVersion": {
+					"version": 0.013,
+					"lastMigration": {
+						"version": {
+							"schema": 0.011,
+							"foundry": "11.315",
+							"system": "0.16.49"
+						}
+					}
+				}
+			},
+			"folder": null,
+			"_id": "wvWiZlcwoLHrDSx3",
+			"sort": 0,
+			"ownership": {
+				"default": 0
+			}
+		},
+		{
+			"name": "Detect Evil and Good",
+			"type": "spell",
+			"img": "icons/magic/symbols/star-yellow.webp",
+			"effects": [],
+			"flags": {
+				"core": {
+					"sourceId": "Compendium.a5e.a5e-spells.Item.jlqrjd03lyl8zb3c"
+				}
+			},
+			"system": {
+				"actions": {
+					"G0DcVgQdfe1ColYJ": {
+						"name": "Detect Evil and Good",
+						"activation": {
+							"cost": 1,
+							"type": "action",
+							"reactionTrigger": ""
+						},
+						"duration": {
+							"unit": "minute",
+							"value": "10"
+						},
+						"ranges": {
+							"MypYiO8SB0olt3xP": {
+								"range": "30-foot radius"
+							}
+						},
+						"area": {
+							"shape": "",
+							"size": "",
+							"placeTemplate": false
+						},
+						"target": {
+							"quantity": "",
+							"type": "self"
+						},
+						"consumers": {}
+					}
+				},
+				"description": "<p>You attempt to sense the presence of otherworldly forces. You automatically know if there is a place or object within range that has been magically consecrated or desecrated. In addition, on the round you cast it and as an action on subsequent turns until the spell ends, you may make a Wisdom (Religion) check against the passive Deception score of any aberration, celestial, elemental, fey, fiend, or undead creature within range. On a success, you sense the creature's presence, as well as where the creature is located.</p><p>The spell penetrates most barriers but is blocked by 3 feet of wood or dirt, 1 foot of stone, 1 inch of common metal, or a thin sheet of lead.</p>",
+				"favorite": false,
+				"secretDescription": "",
+				"source": "adventurersGuide",
+				"uses": {
+					"value": null,
+					"max": "",
+					"per": null,
+					"recharge": {
+						"formula": "",
+						"threshold": ""
+					}
+				},
+				"schema": {
+					"version": null,
+					"lastMigration": null
+				},
+				"classes": [
+					"cleric",
+					"herald"
+				],
+				"components": {
+					"vocalized": true,
+					"seen": true,
+					"material": false
+				},
+				"concentration": true,
+				"level": 1,
+				"materials": "",
+				"materialsConsumed": false,
+				"prepared": false,
+				"prerequisite": "",
+				"rare": false,
+				"ritual": false,
+				"schools": {
+					"primary": "divination",
+					"secondary": [
+						"divine",
+						"senses"
+					]
+				},
+				"schemaVersion": {
+					"version": 0.013,
+					"lastMigration": {
+						"version": {
+							"schema": 0.011,
+							"foundry": "11.315",
+							"system": "0.16.49"
+						}
+					}
+				}
+			},
+			"folder": null,
+			"_id": "z1rDHdcxaUEwdvxC",
+			"sort": 0,
+			"ownership": {
+				"default": 0
+			}
+		},
+		{
+			"name": "Light",
+			"type": "spell",
+			"img": "icons/magic/light/explosion-star-large-blue-yellow.webp",
+			"effects": [],
+			"flags": {
+				"core": {
+					"sourceId": "Compendium.a5e.a5e-spells.Item.bqavvq6ju5ti8hr3"
+				}
+			},
+			"system": {
+				"actions": {
+					"YTmdniTcmdDpTVjH": {
+						"name": "Light",
+						"activation": {
+							"cost": 1,
+							"type": "action",
+							"reactionTrigger": ""
+						},
+						"duration": {
+							"unit": "hour",
+							"value": "1"
+						},
+						"ranges": {
+							"TIPSpMWAXd08fVFw": {
+								"range": "touch"
+							}
+						},
+						"area": {
+							"shape": "",
+							"size": "",
+							"placeTemplate": false
+						},
+						"target": {
+							"quantity": "",
+							"type": "object"
+						},
+						"prompts": {
+							"iNdLjPQnkpNnSZxC": {
+								"ability": "dex",
+								"onSave": "Objects held or worn are not affected on a successful save",
+								"saveDC": {
+									"type": "custom",
+									"bonus": ""
+								},
+								"type": "savingThrow"
+							}
+						},
+						"consumers": {}
+					}
+				},
+				"description": "<p>Until the spell ends, the target emits bright light in a 20-foot radius and dim light an additional 20 feet. Light emanating from the target may be any color. Completely covering the target with something that is not transparent blocks the light. The spell ends when you use an action to dismiss it or if you cast it again.</p>",
+				"favorite": false,
+				"secretDescription": "",
+				"source": "adventurersGuide",
+				"uses": {
+					"value": null,
+					"max": "",
+					"per": null,
+					"recharge": {
+						"formula": "",
+						"threshold": ""
+					}
+				},
+				"schema": {
+					"version": null,
+					"lastMigration": null
+				},
+				"classes": [
+					"artificer",
+					"bard",
+					"cleric",
+					"herald",
+					"sorcerer",
+					"witch",
+					"wizard"
+				],
+				"components": {
+					"vocalized": true,
+					"seen": false,
+					"material": true
+				},
+				"concentration": false,
+				"level": 0,
+				"materials": "small tinder box",
+				"materialsConsumed": false,
+				"prepared": false,
+				"prerequisite": "",
+				"rare": false,
+				"ritual": false,
+				"schools": {
+					"primary": "evocation",
+					"secondary": [
+						"arcane",
+						"utility"
+					]
+				},
+				"schemaVersion": {
+					"version": 0.013,
+					"lastMigration": {
+						"version": {
+							"schema": 0.011,
+							"foundry": "11.315",
+							"system": "0.16.49"
+						}
+					}
+				}
+			},
+			"folder": null,
+			"_id": "JdzJDP2XVoSUwaIv",
+			"sort": 0,
+			"ownership": {
+				"default": 0
+			}
+		},
+		{
+			"name": "Daylight",
+			"type": "spell",
+			"img": "icons/magic/light/beam-strike-orange-gold.webp",
+			"effects": [],
+			"flags": {
+				"core": {
+					"sourceId": "Compendium.a5e.a5e-spells.Item.ew3qtw0gvzelrmgg"
+				}
+			},
+			"system": {
+				"actions": {
+					"AxHjypoPK0igUVLU": {
+						"name": "Daylight",
+						"activation": {
+							"cost": 1,
+							"type": "action",
+							"reactionTrigger": ""
+						},
+						"duration": {
+							"unit": "hour",
+							"value": "1"
+						},
+						"ranges": {
+							"kwYKtO7uzyc2k5SQ": {
+								"range": "medium"
+							}
+						},
+						"area": {
+							"shape": "sphere",
+							"radius": "60",
+							"placeTemplate": false
+						},
+						"target": {
+							"quantity": "",
+							"type": ""
+						},
+						"consumers": {
+							"ZNI3z1TxOA7oqqp9": {
+								"type": "itemUses",
+								"default": true,
+								"quantity": 1
+							}
+						}
+					}
+				},
+				"description": "<p>Magical light fills the area. The area is brightly lit and sheds dim light for an additional 60 feet. If any of the area overlaps with magical darkness created by a spell of 3rd-level or lower, the spell that created the darkness is dispelled.</p><p>When cast on an object that is in your possession or unattended, the light shines from it and moves with it. Completely covering the object with something that is not transparent blocks the light.</p>",
+				"favorite": false,
+				"secretDescription": "",
+				"source": "adventurersGuide",
+				"uses": {
+					"value": 3,
+					"max": "3",
+					"per": "day",
+					"recharge": {
+						"formula": "",
+						"threshold": ""
+					}
+				},
+				"schema": {
+					"version": null,
+					"lastMigration": null
+				},
+				"classes": [
+					"cleric",
+					"druid",
+					"elementalistFire",
+					"herald",
+					"sorcerer",
+					"witch"
+				],
+				"components": {
+					"vocalized": true,
+					"seen": true,
+					"material": false
+				},
+				"concentration": false,
+				"level": 3,
+				"materials": "",
+				"materialsConsumed": false,
+				"prepared": false,
+				"prerequisite": "",
+				"rare": false,
+				"ritual": false,
+				"schools": {
+					"primary": "evocation",
+					"secondary": [
+						"arcane",
+						"divine",
+						"nature"
+					]
+				},
+				"schemaVersion": {
+					"version": 0.013,
+					"lastMigration": {
+						"version": {
+							"schema": 0.011,
+							"foundry": "11.315",
+							"system": "0.16.49"
+						}
+					}
+				}
+			},
+			"folder": null,
+			"_id": "u4n5JQQc6opdS1ij",
+			"sort": 0,
+			"ownership": {
+				"default": 0
+			}
+		},
+		{
+			"name": "Sunburst",
+			"type": "spell",
+			"img": "icons/magic/light/beams-rays-orange-purple-large.webp",
+			"effects": [
+				{
+					"icon": "icons/magic/light/beams-rays-orange-purple-large.webp",
+					"origin": "Actor.vMBwl4w6R4W6eY8t.Item.Qp6gaamMn2KrkaeB",
+					"flags": {
+						"a5e": {
+							"sort": 0,
+							"transferType": "onUse",
+							"actionId": "2AeHwxwNDOL9dtoN",
+							"duration": {
+								"unit": "minutes"
+							}
+						}
+					},
+					"transfer": false,
+					"name": "Blinded",
+					"_id": "yB2ydIrWq5nBr8gO",
+					"changes": [
+						{
+							"key": "flags.a5e.effects.statusConditions",
+							"value": "[\"blinded\"]",
+							"mode": 0,
+							"priority": null
+						}
+					],
+					"disabled": false,
+					"duration": {
+						"startTime": null,
+						"seconds": 60,
+						"combat": null,
+						"rounds": null,
+						"turns": null,
+						"startRound": null,
+						"startTurn": null
+					},
+					"description": "",
+					"statuses": [
+						"blinded"
+					],
+					"folder": null
+				}
+			],
+			"flags": {
+				"core": {
+					"sourceId": "Compendium.a5e.a5e-spells.Item.46wyf7rw3rm5kstu"
+				}
+			},
+			"system": {
+				"actions": {
+					"2AeHwxwNDOL9dtoN": {
+						"name": "Sunburst",
+						"activation": {
+							"cost": 1,
+							"type": "action",
+							"reactionTrigger": ""
+						},
+						"duration": {
+							"unit": "instantaneous",
+							"value": ""
+						},
+						"ranges": {
+							"NATVZ4XkztzyAz2d": {
+								"range": "long"
+							}
+						},
+						"area": {
+							"shape": "sphere",
+							"radius": "60",
+							"placeTemplate": true
+						},
+						"target": {
+							"quantity": "",
+							"type": ""
+						},
+						"rolls": {
+							"zVeYkkutq9mc0PQh": {
+								"canCrit": false,
+								"damageType": "radiant",
+								"formula": "12d6",
+								"name": "",
+								"type": "damage",
+								"scaling": {
+									"mode": "spellLevel",
+									"formula": "2d6"
+								}
+							}
+						},
+						"prompts": {
+							"7j2A8hFM2qRQVEM6": {
+								"ability": "con",
+								"onSave": "Half damage and negates blindness",
+								"saveDC": {
+									"type": "spellcasting",
+									"bonus": ""
+								},
+								"type": "savingThrow"
+							},
+							"sFTKN6DXPJqNuLhv": {
+								"type": "effect",
+								"default": true,
+								"effectId": "yB2ydIrWq5nBr8gO"
+							}
+						},
+						"consumers": {
+							"CrPDDT05YIIoyJrs": {
+								"type": "itemUses",
+								"default": true,
+								"quantity": 1
+							}
+						}
+					}
+				},
+				"description": "<p>Oozes and undead have disadvantage on saving throws made to resist this spell. You create a burst of radiant sunlight that fills the area. Each creature in the area takes 12d6 radiant damage and is blinded for 1 minute. A creature blinded by this spell repeats its saving throw at the end of each of its turns, ending the blindness on a successful save.</p><p>This spell dispels any magical darkness in its area.</p><p><strong><em>Cast at Higher Levels.</em></strong> When using a 9th-level spell slot the damage increases by 2d6.</p>",
+				"favorite": false,
+				"secretDescription": "",
+				"source": "adventurersGuide",
+				"uses": {
+					"value": 1,
+					"max": "1",
+					"per": "day",
+					"recharge": {
+						"formula": "",
+						"threshold": ""
+					}
+				},
+				"schema": {
+					"version": null,
+					"lastMigration": null
+				},
+				"classes": [
+					"druid",
+					"sorcerer",
+					"wizard"
+				],
+				"components": {
+					"vocalized": true,
+					"seen": true,
+					"material": true
+				},
+				"concentration": false,
+				"level": 8,
+				"materials": "piece of sunstone and a bead of stained glass",
+				"materialsConsumed": false,
+				"prepared": false,
+				"prerequisite": "",
+				"rare": false,
+				"ritual": false,
+				"schools": {
+					"primary": "evocation",
+					"secondary": [
+						"arcane",
+						"radiant"
+					]
+				},
+				"schemaVersion": {
+					"version": 0.013,
+					"lastMigration": {
+						"version": {
+							"schema": 0.011,
+							"foundry": "11.315",
+							"system": "0.16.49"
+						}
+					}
+				}
+			},
+			"folder": null,
+			"_id": "Qp6gaamMn2KrkaeB",
+			"sort": 0,
+			"ownership": {
+				"default": 0
+			}
+		},
+		{
+			"name": "Lawful Good",
+			"type": "feature",
+			"system": {
+				"ac": {
+					"baseFormula": "",
+					"formula": "",
+					"grantsDisadvantage": false,
+					"maxDex": 0,
+					"minStr": 0,
+					"mode": 2,
+					"requiresNoShield": false,
+					"requiresUnarmored": false
+				},
+				"actions": {},
+				"description": "<p>The ōphan radiates a Lawful Good aura.</p>",
+				"favorite": false,
+				"secretDescription": "",
+				"source": "",
+				"uses": {
+					"value": null,
+					"max": "",
+					"per": null,
+					"recharge": {
+						"formula": "1d6",
+						"threshold": "6"
+					}
+				},
+				"schema": {
+					"version": null,
+					"lastMigration": null
+				},
+				"concentration": false,
+				"featureType": "other",
+				"grants": {},
+				"prerequisite": "",
+				"requiresBloodied": false
+			},
+			"_id": "3X1IymNTczn1sJkK",
 			"img": "icons/svg/item-bag.svg",
 			"effects": [],
 			"folder": null,
@@ -1292,7 +2035,7 @@
 					"requiresUnarmored": false
 				},
 				"actions": {},
-				"description": "<p>The hydrodaemon has advantage on saving throws against spells and other magical effects.</p>",
+				"description": "<p>The ōphan has advantage on saving throws made against spells and other magical effects.</p>",
 				"favorite": false,
 				"secretDescription": "",
 				"source": "",
@@ -1315,7 +2058,55 @@
 				"prerequisite": "",
 				"requiresBloodied": false
 			},
-			"_id": "QTTLZY4lUos16UAG",
+			"_id": "Eyg6jRucE7Ltzbt9",
+			"img": "icons/svg/item-bag.svg",
+			"effects": [],
+			"folder": null,
+			"sort": 0,
+			"ownership": {
+				"default": 0
+			},
+			"flags": {}
+		},
+		{
+			"name": "Really Lit",
+			"type": "feature",
+			"system": {
+				"ac": {
+					"baseFormula": "",
+					"formula": "",
+					"grantsDisadvantage": false,
+					"maxDex": 0,
+					"minStr": 0,
+					"mode": 2,
+					"requiresNoShield": false,
+					"requiresUnarmored": false
+				},
+				"actions": {},
+				"description": "<p>While conscious, the ōphan sheds bright light in an 80-foot radius and dim light for an additional 40 feet. The effects of a @UUID[Compendium.a5e.a5e-spells.Item.0ou0qutr7p2bedg0]{Darkness} spell (or similar effect) are suspended in any area within 40 feet of the ōphan.</p>",
+				"favorite": false,
+				"secretDescription": "",
+				"source": "",
+				"uses": {
+					"value": null,
+					"max": "",
+					"per": null,
+					"recharge": {
+						"formula": "1d6",
+						"threshold": "6"
+					}
+				},
+				"schema": {
+					"version": null,
+					"lastMigration": null
+				},
+				"concentration": false,
+				"featureType": "other",
+				"grants": {},
+				"prerequisite": "",
+				"requiresBloodied": false
+			},
+			"_id": "Ox5vkfQjqKjnoIbg",
 			"img": "icons/svg/item-bag.svg",
 			"effects": [],
 			"folder": null,
@@ -1340,7 +2131,7 @@
 					"requiresUnarmored": false
 				},
 				"actions": {
-					"GbfRLnH69RFma8an": {
+					"ZHRrLv97VcEiou0Q": {
 						"name": "Multiattack",
 						"activation": {
 							"type": "action",
@@ -1362,7 +2153,7 @@
 						}
 					}
 				},
-				"description": "<p>The hydrodaemon makes one bite attack and two claw attacks.</p>",
+				"description": "<p>The ōphan attacks four times.</p>",
 				"favorite": true,
 				"secretDescription": "",
 				"source": "",
@@ -1385,7 +2176,7 @@
 				"prerequisite": "",
 				"requiresBloodied": false
 			},
-			"_id": "fTBiG1PkPMrYE6wD",
+			"_id": "zdRkirbmu3VhsbtM",
 			"img": "icons/svg/item-bag.svg",
 			"effects": [],
 			"folder": null,
@@ -1396,7 +2187,7 @@
 			"flags": {}
 		},
 		{
-			"name": "Bite",
+			"name": "Slam",
 			"type": "feature",
 			"system": {
 				"ac": {
@@ -1410,215 +2201,32 @@
 					"requiresUnarmored": false
 				},
 				"actions": {
-					"1eoPHMPqXLsnw7QW": {
-						"name": "Bite",
+					"drVdgpgI04Gw0fCv": {
+						"name": "Slam",
 						"activation": {
 							"type": "action",
 							"cost": 1
 						},
 						"consumers": {},
 						"rolls": {
-							"L4kHl2Xeyrua6DmS": {
+							"BFbWSxXcSCrbO5Ng": {
 								"type": "attack",
 								"default": true,
 								"attackType": "meleeWeaponAttack",
 								"proficient": true,
-								"ability": "str"
+								"ability": "dex"
 							},
-							"m2po3p95HMvEYkD7": {
+							"L1U0AmJv0ZjGixwr": {
 								"type": "damage",
 								"default": true,
-								"label": "Magical Piercing",
-								"formula": "1d8 + @str.mod",
-								"damageType": "piercing"
-							}
-						},
-						"prompts": {
-							"IkBQO1w3SpBr9VUd": {
-								"type": "savingThrow",
-								"default": true,
-								"ability": "wis",
-								"saveDC": {
-									"type": "con"
-								}
+								"formula": "1d4 + @dex.mod",
+								"damageType": "bludgeoning"
 							},
-							"yleL0iYPGlbeN8Ep": {
-								"type": "effect",
-								"default": true,
-								"effectId": "0m28H4Th0lzd2AB2"
-							},
-							"VEKZr1nYOljwjvJZ": {
-								"type": "effect",
-								"default": true,
-								"effectId": "WW37zywyBAupp4b7"
-							}
-						},
-						"uses": {
-							"value": 0,
-							"max": "",
-							"per": "",
-							"recharge": {
-								"formula": "1d6",
-								"rechargeType": "custom",
-								"rechargeAmount": "1",
-								"threshold": 6
-							}
-						},
-						"ranges": {
-							"q7sBBkaatmME74gp": {
-								"range": "fiveFeet"
-							}
-						},
-						"target": {
-							"type": "creatureObject",
-							"quantity": 1
-						}
-					}
-				},
-				"description": "<p>&nbsp;If the target is a creature, it makes a DC 15 Wisdom saving throw or falls unconscious for 1d4 rounds. The creature wakes up early if it either takes damage or someone uses an action to shake or slap it awake. Instead of dealing damage, the hydrodaemon can choose to grapple its target instead.</p>",
-				"favorite": true,
-				"secretDescription": "",
-				"source": "",
-				"uses": {
-					"value": null,
-					"max": "",
-					"per": null,
-					"recharge": {
-						"formula": "1d6",
-						"threshold": "6"
-					}
-				},
-				"schema": {
-					"version": null,
-					"lastMigration": null
-				},
-				"concentration": false,
-				"featureType": "naturalWeapon",
-				"grants": {},
-				"prerequisite": "",
-				"requiresBloodied": false
-			},
-			"_id": "41yrN8ndzquFHYfS",
-			"img": "icons/svg/item-bag.svg",
-			"effects": [
-				{
-					"icon": "icons/svg/item-bag.svg",
-					"origin": "Actor.DCJzayG4kmks5ZhR.Item.41yrN8ndzquFHYfS",
-					"flags": {
-						"a5e": {
-							"sort": 0,
-							"transferType": "onUse",
-							"actionId": "1eoPHMPqXLsnw7QW"
-						}
-					},
-					"transfer": false,
-					"name": "Unconscious",
-					"_id": "0m28H4Th0lzd2AB2",
-					"changes": [
-						{
-							"key": "flags.a5e.effects.statusConditions",
-							"value": "[\"unconscious\"]",
-							"mode": 0,
-							"priority": null
-						}
-					],
-					"disabled": false,
-					"duration": {
-						"startTime": null,
-						"seconds": null,
-						"combat": null,
-						"rounds": null,
-						"turns": null,
-						"startRound": null,
-						"startTurn": null
-					},
-					"description": "",
-					"statuses": [
-						"unconscious"
-					],
-					"folder": null
-				},
-				{
-					"icon": "icons/svg/item-bag.svg",
-					"origin": "Actor.DCJzayG4kmks5ZhR.Item.41yrN8ndzquFHYfS",
-					"flags": {
-						"a5e": {
-							"sort": 0,
-							"transferType": "onUse",
-							"actionId": "1eoPHMPqXLsnw7QW"
-						}
-					},
-					"transfer": false,
-					"name": "Grappled",
-					"_id": "WW37zywyBAupp4b7",
-					"changes": [
-						{
-							"key": "flags.a5e.effects.statusConditions",
-							"value": "[\"grappled\"]",
-							"mode": 0,
-							"priority": null
-						}
-					],
-					"disabled": false,
-					"duration": {
-						"startTime": null,
-						"seconds": null,
-						"combat": null,
-						"rounds": null,
-						"turns": null,
-						"startRound": null,
-						"startTurn": null
-					},
-					"description": "",
-					"statuses": [
-						"grappled"
-					],
-					"folder": null
-				}
-			],
-			"folder": null,
-			"sort": 0,
-			"ownership": {
-				"default": 0
-			},
-			"flags": {}
-		},
-		{
-			"name": "Claw",
-			"type": "feature",
-			"system": {
-				"ac": {
-					"baseFormula": "",
-					"formula": "",
-					"grantsDisadvantage": false,
-					"maxDex": 0,
-					"minStr": 0,
-					"mode": 2,
-					"requiresNoShield": false,
-					"requiresUnarmored": false
-				},
-				"actions": {
-					"qIbwFpekcWq0w06p": {
-						"name": "Claw",
-						"activation": {
-							"type": "action",
-							"cost": 1
-						},
-						"consumers": {},
-						"rolls": {
-							"QPmsvvMr6slP1pty": {
-								"type": "attack",
-								"default": true,
-								"attackType": "meleeWeaponAttack",
-								"proficient": true,
-								"ability": "str"
-							},
-							"ZupEJSx14MLwGimo": {
+							"LAWdMrHn4B4r7IWm": {
 								"type": "damage",
 								"default": true,
-								"formula": "1d6 + @str.mod",
-								"damageType": "slashing",
-								"label": "Magical Slashing"
+								"formula": "3d6",
+								"damageType": "radiant"
 							}
 						},
 						"prompts": {},
@@ -1634,9 +2242,8 @@
 							}
 						},
 						"ranges": {
-							"kmduDclCwDQGdhGi": {
-								"range": 10,
-								"unit": "feet"
+							"8Aly5ODQrq18rMUb": {
+								"range": "fiveFeet"
 							}
 						},
 						"target": {
@@ -1668,7 +2275,7 @@
 				"prerequisite": "",
 				"requiresBloodied": false
 			},
-			"_id": "kbnJVnmsFjqYfPzW",
+			"_id": "71TlSQarB3RocnjC",
 			"img": "icons/svg/item-bag.svg",
 			"effects": [],
 			"folder": null,
@@ -1679,7 +2286,7 @@
 			"flags": {}
 		},
 		{
-			"name": "Swallow",
+			"name": "Sunbeam",
 			"type": "feature",
 			"system": {
 				"ac": {
@@ -1693,42 +2300,41 @@
 					"requiresUnarmored": false
 				},
 				"actions": {
-					"GtEJojbMsvIOlkvo": {
-						"name": "Bite",
+					"4zBOppzcD49H3DJ8": {
+						"name": "Sunbeam",
 						"activation": {
 							"type": "action",
 							"cost": 1
 						},
 						"consumers": {},
 						"rolls": {
-							"L4kHl2Xeyrua6DmS": {
+							"5MNld3FjignFRlPV": {
 								"type": "attack",
 								"default": true,
-								"attackType": "meleeWeaponAttack",
+								"attackType": "rangedSpellAttack",
 								"proficient": true,
-								"ability": "str"
+								"ability": "spellcasting"
 							},
-							"m2po3p95HMvEYkD7": {
+							"6ouLza7XS9nnSF0O": {
 								"type": "damage",
 								"default": true,
-								"label": "Magical Piercing",
-								"formula": "1d8 + @str.mod",
-								"damageType": "piercing"
+								"formula": "2d12 + @spellcasting.mod",
+								"damageType": "radiant"
 							}
 						},
 						"prompts": {
-							"IkBQO1w3SpBr9VUd": {
+							"iwmKV8Cx8h4i5a9j": {
 								"type": "savingThrow",
 								"default": true,
-								"ability": "wis",
+								"ability": "con",
 								"saveDC": {
-									"type": "con"
+									"type": "spellcasting"
 								}
 							},
-							"SBuXD5O9V8P3wNVS": {
+							"lLIvGl6qGzHCXquk": {
 								"type": "effect",
 								"default": true,
-								"effectId": "tIDRy2wPCycBJsWd"
+								"effectId": "0BNGOrSu3oBxSUg7"
 							}
 						},
 						"uses": {
@@ -1743,18 +2349,22 @@
 							}
 						},
 						"ranges": {
-							"q7sBBkaatmME74gp": {
-								"range": "fiveFeet"
+							"HG7gvFLmid9Ie6yn": {
+								"range": 200,
+								"unit": "feet"
+							},
+							"A7qSfh20XNKL2lkd": {
+								"range": 800,
+								"unit": "feet"
 							}
 						},
 						"target": {
 							"type": "creatureObject",
 							"quantity": 1
-						},
-						"img": "icons/svg/item-bag.svg"
+						}
 					}
 				},
-				"description": "<p>The hydrodaemon makes a bite attack against a Medium or smaller creature it is grappling. If the attack hits and the hydrodaemon has not swallowed another creature, the target is swallowed and the grapple ends. A swallowed creature has total cover from attacks from outside the hydrodaemon, it is blinded and restrained , and it makes a DC 15 Wisdom saving throw at the beginning of each of the hydrodaemon&rsquo;s turns or it falls unconscious for 1d4 rounds. If the hydrodaemon dies, the target is no longer swallowed.</p>",
+				"description": "<p>If the target is a creature, it makes a DC 16 Constitution saving throw or is blinded until the start of the ōphan&rsquo;s next turn.</p>",
 				"favorite": true,
 				"secretDescription": "",
 				"source": "",
@@ -1777,26 +2387,30 @@
 				"prerequisite": "",
 				"requiresBloodied": false
 			},
-			"_id": "syGI2O5b5eJxUvyx",
+			"_id": "5AQ8axEBQKm8V1gP",
 			"img": "icons/svg/item-bag.svg",
 			"effects": [
 				{
 					"icon": "icons/svg/item-bag.svg",
-					"origin": "Actor.DCJzayG4kmks5ZhR.Item.syGI2O5b5eJxUvyx",
+					"origin": "Actor.vMBwl4w6R4W6eY8t.Item.5AQ8axEBQKm8V1gP",
 					"flags": {
 						"a5e": {
 							"sort": 0,
 							"transferType": "onUse",
-							"actionId": "GtEJojbMsvIOlkvo"
+							"actionId": "4zBOppzcD49H3DJ8",
+							"duration": {
+								"type": "rounds",
+								"unit": "minutes"
+							}
 						}
 					},
 					"transfer": false,
-					"name": "Swallowed",
-					"_id": "tIDRy2wPCycBJsWd",
+					"name": "Blinded",
+					"_id": "0BNGOrSu3oBxSUg7",
 					"changes": [
 						{
 							"key": "flags.a5e.effects.statusConditions",
-							"value": "[\"blinded\",\"restrained\"]",
+							"value": "[\"blinded\"]",
 							"mode": 0,
 							"priority": null
 						}
@@ -1807,14 +2421,13 @@
 						"seconds": null,
 						"combat": null,
 						"rounds": null,
-						"turns": null,
+						"turns": 1,
 						"startRound": null,
 						"startTurn": null
 					},
 					"description": "",
 					"statuses": [
-						"blinded",
-						"restrained"
+						"blinded"
 					],
 					"folder": null
 				}
@@ -1827,7 +2440,7 @@
 			"flags": {}
 		},
 		{
-			"name": "Sleep Spittle",
+			"name": "Solar Flare",
 			"type": "feature",
 			"system": {
 				"ac": {
@@ -1841,35 +2454,34 @@
 					"requiresUnarmored": false
 				},
 				"actions": {
-					"KKoqV28kgDYEAJMO": {
-						"name": "Sleep Spittle",
+					"X8OHqLV6170Wv6HB": {
+						"name": "Solar Flare",
 						"activation": {
-							"type": "action",
-							"cost": 1
+							"type": "reaction",
+							"cost": 1,
+							"reactionTrigger": "Take damage from a melee attack"
 						},
-						"consumers": {},
-						"rolls": {
-							"TQMACCrcQcVEM0x9": {
-								"type": "attack",
+						"consumers": {
+							"vJuN35PWHxCIoVaD": {
+								"type": "itemUses",
 								"default": true,
-								"attackType": "rangedWeaponAttack",
-								"proficient": true,
-								"ability": "dex"
+								"quantity": 1
 							}
 						},
+						"rolls": {},
 						"prompts": {
-							"KyY49zc3pm0wjzAa": {
+							"Hp4olysiTkMADvlz": {
 								"type": "savingThrow",
 								"default": true,
-								"ability": "wis",
+								"ability": "con",
 								"saveDC": {
-									"type": "con"
+									"type": "spellcasting"
 								}
 							},
-							"iTeiBQBbc4mCyxOZ": {
+							"UMowCPkEHOrPFQ6Q": {
 								"type": "effect",
 								"default": true,
-								"effectId": "3dgU2CVpqIxmKOlO"
+								"effectId": "dc20iKtuEuZIPHu1"
 							}
 						},
 						"uses": {
@@ -1882,34 +2494,20 @@
 								"rechargeAmount": "1",
 								"threshold": 6
 							}
-						},
-						"ranges": {
-							"MRpFnOSszGRE1XhP": {
-								"range": 20,
-								"unit": "feet"
-							},
-							"D2ec2BuH1fFiiauA": {
-								"range": 40,
-								"unit": "feet"
-							}
-						},
-						"target": {
-							"type": "creature",
-							"quantity": 1
 						}
 					}
 				},
-				"description": "<p>The creature makes a DC 15 Wisdom saving throw or falls unconscious for 1d4 rounds. The creature wakes up early if it either takes damage or someone uses an action to shake or slap it awake.</p>",
+				"description": "<p>When the ōphan takes damage from a melee attack it blasts its attacker with divine light. The creature makes a DC 16 Constitution saving throw or it is blinded for 1d4 rounds.</p>",
 				"favorite": true,
 				"secretDescription": "",
 				"source": "",
 				"uses": {
-					"value": null,
-					"max": "",
-					"per": null,
+					"value": 1,
+					"max": "1",
+					"per": "recharge",
 					"recharge": {
 						"formula": "1d6",
-						"threshold": "6"
+						"threshold": 5
 					}
 				},
 				"schema": {
@@ -1922,26 +2520,26 @@
 				"prerequisite": "",
 				"requiresBloodied": false
 			},
-			"_id": "uDcAqPBYu8TK80Yp",
+			"_id": "Y2SVYyVDoYpXztkC",
 			"img": "icons/svg/item-bag.svg",
 			"effects": [
 				{
 					"icon": "icons/svg/item-bag.svg",
-					"origin": "Actor.DCJzayG4kmks5ZhR.Item.uDcAqPBYu8TK80Yp",
+					"origin": "Actor.vMBwl4w6R4W6eY8t.Item.Y2SVYyVDoYpXztkC",
 					"flags": {
 						"a5e": {
 							"sort": 0,
 							"transferType": "onUse",
-							"actionId": "KKoqV28kgDYEAJMO"
+							"actionId": "X8OHqLV6170Wv6HB"
 						}
 					},
 					"transfer": false,
-					"name": "Unconscious",
-					"_id": "3dgU2CVpqIxmKOlO",
+					"name": "Blinded",
+					"_id": "dc20iKtuEuZIPHu1",
 					"changes": [
 						{
 							"key": "flags.a5e.effects.statusConditions",
-							"value": "[\"unconscious\"]",
+							"value": "[\"blinded\"]",
 							"mode": 0,
 							"priority": null
 						}
@@ -1958,7 +2556,7 @@
 					},
 					"description": "",
 					"statuses": [
-						"unconscious"
+						"blinded"
 					],
 					"folder": null
 				}
@@ -1974,8 +2572,9 @@
 	"effects": [],
 	"flags": {
 		"a5e": {
-			"sheetIsLocked": true
+			"sheetIsLocked": true,
+			"showSpellSlots": false
 		}
 	},
-	"_id": "mbm5cgss7bs96aml"
+	"_id": "1hos25r9cp9wtjee"
 }

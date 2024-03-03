@@ -1,6 +1,6 @@
 {
 	"folder": null,
-	"name": "Laskian Sled Dog",
+	"name": "Mohrg",
 	"type": "npc",
 	"img": "icons/svg/mystery-man.svg",
 	"system": {
@@ -10,73 +10,73 @@
 		},
 		"abilities": {
 			"str": {
-				"value": 12,
+				"value": 20,
 				"check": {
 					"expertiseDice": 0,
 					"bonus": ""
 				},
 				"save": {
-					"proficient": false,
+					"proficient": true,
 					"expertiseDice": 0,
 					"bonus": ""
 				}
 			},
 			"dex": {
+				"value": 21,
+				"check": {
+					"expertiseDice": 0,
+					"bonus": ""
+				},
+				"save": {
+					"proficient": true,
+					"expertiseDice": 0,
+					"bonus": ""
+				}
+			},
+			"con": {
+				"value": 19,
+				"check": {
+					"expertiseDice": 0,
+					"bonus": ""
+				},
+				"save": {
+					"proficient": true,
+					"expertiseDice": 0,
+					"bonus": ""
+				}
+			},
+			"int": {
+				"value": 11,
+				"check": {
+					"expertiseDice": 0,
+					"bonus": ""
+				},
+				"save": {
+					"proficient": true,
+					"expertiseDice": 0,
+					"bonus": ""
+				}
+			},
+			"wis": {
 				"value": 14,
 				"check": {
 					"expertiseDice": 0,
 					"bonus": ""
 				},
 				"save": {
-					"proficient": false,
-					"expertiseDice": 0,
-					"bonus": ""
-				}
-			},
-			"con": {
-				"value": 10,
-				"check": {
-					"expertiseDice": 0,
-					"bonus": ""
-				},
-				"save": {
-					"proficient": false,
-					"expertiseDice": 0,
-					"bonus": ""
-				}
-			},
-			"int": {
-				"value": 3,
-				"check": {
-					"expertiseDice": 0,
-					"bonus": ""
-				},
-				"save": {
-					"proficient": false,
-					"expertiseDice": 0,
-					"bonus": ""
-				}
-			},
-			"wis": {
-				"value": 12,
-				"check": {
-					"expertiseDice": 0,
-					"bonus": ""
-				},
-				"save": {
-					"proficient": false,
+					"proficient": true,
 					"expertiseDice": 0,
 					"bonus": ""
 				}
 			},
 			"cha": {
-				"value": 6,
+				"value": 18,
 				"check": {
 					"expertiseDice": 0,
 					"bonus": ""
 				},
 				"save": {
-					"proficient": false,
+					"proficient": true,
 					"expertiseDice": 0,
 					"bonus": ""
 				}
@@ -84,7 +84,7 @@
 		},
 		"attributes": {
 			"ac": {
-				"baseFormula": "10 + @dex.mod",
+				"baseFormula": "17",
 				"value": 0
 			},
 			"death": {
@@ -92,8 +92,8 @@
 				"failure": 0
 			},
 			"hp": {
-				"value": 9,
-				"baseMax": 9,
+				"value": 136,
+				"baseMax": 136,
 				"temp": 0,
 				"bonus": 0
 			},
@@ -107,8 +107,8 @@
 					"total": 0
 				},
 				"d8": {
-					"current": 2,
-					"total": 2
+					"current": 16,
+					"total": 16
 				},
 				"d10": {
 					"current": 0,
@@ -146,7 +146,7 @@
 					"unit": "feet"
 				},
 				"walk": {
-					"distance": 40,
+					"distance": 30,
 					"unit": "feet"
 				},
 				"traits": {
@@ -160,7 +160,7 @@
 					"otherwiseBlind": false
 				},
 				"darkvision": {
-					"distance": 0,
+					"distance": 60,
 					"unit": "feet"
 				},
 				"tremorsense": {
@@ -204,21 +204,25 @@
 		"details": {
 			"bio": "",
 			"creatureTypes": [
-				"beast"
+				"undead"
 			],
 			"isSwarm": false,
-			"cr": 0.125,
+			"cr": 11,
 			"elite": false,
 			"notes": "",
 			"privateNotes": "",
 			"terrain": [
-				"settlement"
+				"hell",
+				"ruin",
+				"tomb"
 			]
 		},
 		"grants": {},
 		"proficiencies": {
 			"armor": [],
-			"languages": [],
+			"languages": [
+				"common"
+			],
 			"tools": [],
 			"weapons": []
 		},
@@ -304,9 +308,9 @@
 			},
 			"ath": {
 				"ability": "str",
-				"proficient": false,
+				"proficient": true,
 				"specialties": [],
-				"expertiseDice": 0,
+				"expertiseDice": 2,
 				"minRoll": 1,
 				"bonuses": {
 					"check": "",
@@ -326,7 +330,7 @@
 			},
 			"dec": {
 				"ability": "cha",
-				"proficient": false,
+				"proficient": true,
 				"specialties": [],
 				"expertiseDice": 0,
 				"minRoll": 1,
@@ -469,9 +473,9 @@
 			},
 			"ste": {
 				"ability": "dex",
-				"proficient": false,
+				"proficient": true,
 				"specialties": [],
-				"expertiseDice": 0,
+				"expertiseDice": 3,
 				"minRoll": 1,
 				"bonuses": {
 					"check": "",
@@ -494,10 +498,21 @@
 		"traits": {
 			"size": "med",
 			"alignment": [],
-			"conditionImmunities": [],
-			"damageImmunities": [],
+			"conditionImmunities": [
+				"charmed",
+				"fatigue",
+				"frightened",
+				"paralyzed",
+				"poisoned",
+				"strife"
+			],
+			"damageImmunities": [
+				"necrotic",
+				"poison"
+			],
 			"damageResistances": [
-				"cold"
+				"cold",
+				"piercing"
 			],
 			"damageVulnerabilities": []
 		},
@@ -547,7 +562,7 @@
 		}
 	},
 	"prototypeToken": {
-		"name": "Laskian Sled Dog",
+		"name": "Mohrg",
 		"displayName": 0,
 		"actorLink": false,
 		"appendNumber": false,
@@ -704,7 +719,7 @@
 				}
 			},
 			"folder": null,
-			"_id": "readIJJl5fsRR5Zp",
+			"_id": "2aUFpPgzODvzzNjz",
 			"sort": 0,
 			"ownership": {
 				"default": 0
@@ -804,7 +819,7 @@
 				}
 			},
 			"folder": null,
-			"_id": "iIWnbLCzy2ypx8gF",
+			"_id": "ooMQ9ByA9aNidH1p",
 			"sort": 0,
 			"ownership": {
 				"default": 0
@@ -904,7 +919,7 @@
 				}
 			},
 			"folder": null,
-			"_id": "hPK9QZRz8AJYXqtO",
+			"_id": "XJkEoUNnczyGyUQG",
 			"sort": 0,
 			"ownership": {
 				"default": 0
@@ -1004,7 +1019,7 @@
 				}
 			},
 			"folder": null,
-			"_id": "7S1fF0fzrKu7vlcO",
+			"_id": "uvDuwGDf8DJub0Y3",
 			"sort": 0,
 			"ownership": {
 				"default": 0
@@ -1104,7 +1119,7 @@
 				}
 			},
 			"folder": null,
-			"_id": "vNK0iGcyhtW6wzj1",
+			"_id": "H1RzHwCkHQtZwfg3",
 			"sort": 0,
 			"ownership": {
 				"default": 0
@@ -1204,14 +1219,14 @@
 				}
 			},
 			"folder": null,
-			"_id": "jGYeE1Xu4yk9F5on",
+			"_id": "UKrZjPw8Hu6rd8Nb",
 			"sort": 0,
 			"ownership": {
 				"default": 0
 			}
 		},
 		{
-			"name": "Keen Hearing and Smell",
+			"name": "Create Spawn",
 			"type": "feature",
 			"system": {
 				"ac": {
@@ -1224,9 +1239,34 @@
 					"requiresNoShield": false,
 					"requiresUnarmored": false
 				},
-				"actions": {},
-				"description": "<p>The sled dog has advantage on Perception checks that rely on hearing and smell.</p>",
-				"favorite": false,
+				"actions": {
+					"bxoAUedeBbvSrkah": {
+						"name": "Create Spawn",
+						"activation": {},
+						"consumers": {},
+						"rolls": {},
+						"prompts": {
+							"nXc0ZBs63dUWlJSb": {
+								"type": "effect",
+								"default": true,
+								"effectId": "oyWcQwKND17h4HZY"
+							}
+						},
+						"uses": {
+							"value": 0,
+							"max": "",
+							"per": "",
+							"recharge": {
+								"formula": "1d6",
+								"rechargeType": "custom",
+								"rechargeAmount": "1",
+								"threshold": 6
+							}
+						}
+					}
+				},
+				"description": "<p>When the mohrg slays a humanoid, at the start of its next turn the creature rises as a @UUID[Compendium.a5e.a5e-monsters.Actor.tjjjf7o76iozv0tp]{Zombie} under the mohrg&rsquo;s control. Unlike normal, this zombie&rsquo;s Speed is doubled. Additionally, the mohrg regains 1d6 hit points for every hit die of the slain creature and gains the benefits of a @UUID[Compendium.a5e.a5e-spells.Item.zhtyft34531a9nil]{Haste} spell until the end of its next turn.</p>",
+				"favorite": true,
 				"secretDescription": "",
 				"source": "",
 				"uses": {
@@ -1248,9 +1288,62 @@
 				"prerequisite": "",
 				"requiresBloodied": false
 			},
-			"_id": "gDKF1s6b4CM92qV7",
+			"_id": "toH4gk95QKs2RKUR",
 			"img": "icons/svg/item-bag.svg",
-			"effects": [],
+			"effects": [
+				{
+					"icon": "icons/svg/item-bag.svg",
+					"origin": "Actor.2eEx8kYzrQ5xXEMp.Item.toH4gk95QKs2RKUR",
+					"flags": {
+						"a5e": {
+							"sort": 0,
+							"transferType": "onUse",
+							"actionId": "bxoAUedeBbvSrkah",
+							"applyToSelf": true,
+							"duration": {
+								"type": "rounds",
+								"unit": "minutes"
+							}
+						}
+					},
+					"transfer": false,
+					"name": "Haste",
+					"_id": "oyWcQwKND17h4HZY",
+					"changes": [
+						{
+							"key": "system.attributes.movement.walk.distance",
+							"value": "2",
+							"mode": 1,
+							"priority": null
+						},
+						{
+							"key": "system.attributes.ac.changes.bonuses.value",
+							"value": "2",
+							"mode": 2,
+							"priority": null
+						},
+						{
+							"key": "flags.a5e.effects.rollMode.abilitySave.dex",
+							"value": "1",
+							"mode": 6,
+							"priority": null
+						}
+					],
+					"disabled": false,
+					"duration": {
+						"startTime": null,
+						"seconds": null,
+						"combat": null,
+						"rounds": null,
+						"turns": 1,
+						"startRound": null,
+						"startTurn": null
+					},
+					"description": "",
+					"statuses": [],
+					"folder": null
+				}
+			],
 			"folder": null,
 			"sort": 0,
 			"ownership": {
@@ -1259,7 +1352,7 @@
 			"flags": {}
 		},
 		{
-			"name": "Bite",
+			"name": "Detect Good",
 			"type": "feature",
 			"system": {
 				"ac": {
@@ -1273,41 +1366,224 @@
 					"requiresUnarmored": false
 				},
 				"actions": {
-					"CJvcQLfUq1X9ibqG": {
-						"name": "Bite",
+					"lBrFV4DpoaRffVZE": {
+						"name": "Detect Evil and Good",
+						"activation": {
+							"cost": 1,
+							"type": "action",
+							"reactionTrigger": ""
+						},
+						"consumers": {
+							"aHSOrc2QtsEjaYxa": {
+								"mode": "variable",
+								"spellLevel": 1,
+								"points": 2,
+								"type": "spell"
+							}
+						},
+						"rolls": {},
+						"prompts": {},
+						"uses": {
+							"value": 0,
+							"max": "",
+							"per": "",
+							"recharge": {
+								"formula": "1d6",
+								"rechargeType": "custom",
+								"rechargeAmount": "1",
+								"threshold": 6
+							}
+						},
+						"duration": {
+							"unit": "minute",
+							"value": "10"
+						},
+						"ranges": {
+							"MypYiO8SB0olt3xP": {
+								"range": "30-foot radius"
+							}
+						},
+						"area": {
+							"shape": "",
+							"size": "",
+							"placeTemplate": false
+						},
+						"target": {
+							"quantity": "",
+							"type": "self"
+						},
+						"img": "icons/magic/symbols/star-yellow.webp",
+						"description": "<p>You attempt to sense the presence of otherworldly forces. You automatically know if there is a place or object within range that has been magically consecrated or desecrated. In addition, on the round you cast it and as an action on subsequent turns until the spell ends, you may make a Wisdom (Religion) check against the passive Deception score of any aberration, celestial, elemental, fey, fiend, or undead creature within range. On a success, you sense the creature's presence, as well as where the creature is located.</p><p>The spell penetrates most barriers but is blocked by 3 feet of wood or dirt, 1 foot of stone, 1 inch of common metal, or a thin sheet of lead.</p>",
+						"descriptionOutputs": [
+							"action"
+						]
+					}
+				},
+				"description": "<p>The mohrg can innately cast @UUID[Compendium.a5e.a5e-spells.Item.jlqrjd03lyl8zb3c]{Detect Evil and Good} at will, requiring no material components.</p>",
+				"favorite": true,
+				"secretDescription": "",
+				"source": "",
+				"uses": {
+					"value": null,
+					"max": "",
+					"per": null,
+					"recharge": {
+						"formula": "1d6",
+						"threshold": "6"
+					}
+				},
+				"schema": {
+					"version": null,
+					"lastMigration": null
+				},
+				"concentration": false,
+				"featureType": "other",
+				"grants": {},
+				"prerequisite": "",
+				"requiresBloodied": false
+			},
+			"_id": "NiyOD7Zk5kjTCLrd",
+			"img": "icons/svg/item-bag.svg",
+			"effects": [],
+			"folder": null,
+			"sort": 0,
+			"ownership": {
+				"default": 0
+			},
+			"flags": {}
+		},
+		{
+			"name": "Multiattack",
+			"type": "feature",
+			"system": {
+				"ac": {
+					"baseFormula": "",
+					"formula": "",
+					"grantsDisadvantage": false,
+					"maxDex": 0,
+					"minStr": 0,
+					"mode": 2,
+					"requiresNoShield": false,
+					"requiresUnarmored": false
+				},
+				"actions": {
+					"XakeenN1XjRt7CvA": {
+						"name": "Multiattack",
+						"activation": {
+							"type": "action",
+							"cost": 1
+						},
+						"consumers": {},
+						"rolls": {},
+						"prompts": {},
+						"uses": {
+							"value": 0,
+							"max": "",
+							"per": "",
+							"recharge": {
+								"formula": "1d6",
+								"rechargeType": "custom",
+								"rechargeAmount": "1",
+								"threshold": 6
+							}
+						}
+					}
+				},
+				"description": "<p>The mohrg makes three attacks, only one of which can be a tongue attack.</p>",
+				"favorite": true,
+				"secretDescription": "",
+				"source": "",
+				"uses": {
+					"value": null,
+					"max": "",
+					"per": null,
+					"recharge": {
+						"formula": "1d6",
+						"threshold": "6"
+					}
+				},
+				"schema": {
+					"version": null,
+					"lastMigration": null
+				},
+				"concentration": false,
+				"featureType": "other",
+				"grants": {},
+				"prerequisite": "",
+				"requiresBloodied": false
+			},
+			"_id": "PEd90sUu73CpkKpJ",
+			"img": "icons/svg/item-bag.svg",
+			"effects": [],
+			"folder": null,
+			"sort": 0,
+			"ownership": {
+				"default": 0
+			},
+			"flags": {}
+		},
+		{
+			"name": "Slam",
+			"type": "feature",
+			"system": {
+				"ac": {
+					"baseFormula": "",
+					"formula": "",
+					"grantsDisadvantage": false,
+					"maxDex": 0,
+					"minStr": 0,
+					"mode": 2,
+					"requiresNoShield": false,
+					"requiresUnarmored": false
+				},
+				"actions": {
+					"WlhqkcyKQnbVayLf": {
+						"name": "Slam",
 						"activation": {
 							"type": "action",
 							"cost": 1
 						},
 						"consumers": {},
 						"rolls": {
-							"dWlQbGX86XfNNc63": {
+							"npYFyuMRNvq7hfbl": {
 								"type": "attack",
 								"default": true,
 								"attackType": "meleeWeaponAttack",
 								"proficient": true,
 								"ability": "str"
 							},
-							"PyrbO2bSbs9upNuh": {
+							"ejW8rzFMWUJ0Yovk": {
 								"type": "damage",
 								"default": true,
-								"formula": "1d4 + @str.mod",
-								"damageType": "piercing"
+								"formula": "1d8 + @str.mod",
+								"damageType": "bludgeoning"
+							},
+							"7LxzMEi4Qb4nRKZg": {
+								"type": "damage",
+								"default": true,
+								"formula": "2d8",
+								"damageType": "necrotic"
 							}
 						},
 						"prompts": {
-							"jE0mlzIjnk496Zmu": {
-								"type": "savingThrow",
-								"default": true,
-								"ability": "str",
-								"saveDC": {
-									"type": "str"
-								}
+							"qbG8ArjeSlaNLTAu": {
+								"type": "skillCheck",
+								"default": false,
+								"skill": "acr",
+								"ability": "dex",
+								"label": "Acrobatics"
 							},
-							"9tdWe7r17DtuU7m3": {
+							"vURlDb22mPtYD5aD": {
+								"type": "skillCheck",
+								"default": false,
+								"skill": "ath",
+								"ability": "str",
+								"label": "Athletics"
+							},
+							"6QCkv6MuD6CdBrmR": {
 								"type": "effect",
 								"default": true,
-								"effectId": "bOORIDdL68SrRHwG"
+								"effectId": "JIOyamaAEiCZhMIW"
 							}
 						},
 						"uses": {
@@ -1322,7 +1598,7 @@
 							}
 						},
 						"ranges": {
-							"2fVldrPnkOkvCWqd": {
+							"HiOkdXRSLhnCaiZF": {
 								"range": "fiveFeet"
 							}
 						},
@@ -1332,7 +1608,7 @@
 						}
 					}
 				},
-				"description": "<p>If the target is a creature, it makes a DC 11 Strength saving throw, falling prone on a failure.</p>",
+				"description": "<p>If the target is a creature it is grappled (escape DC 17).</p>",
 				"favorite": true,
 				"secretDescription": "",
 				"source": "",
@@ -1355,26 +1631,26 @@
 				"prerequisite": "",
 				"requiresBloodied": false
 			},
-			"_id": "iSvBcshPKXCp0dlQ",
+			"_id": "tRmn8Q3fsUQoECPd",
 			"img": "icons/svg/item-bag.svg",
 			"effects": [
 				{
 					"icon": "icons/svg/item-bag.svg",
-					"origin": "Actor.9swq1ylYhhWN76nf.Item.iSvBcshPKXCp0dlQ",
+					"origin": "Actor.2eEx8kYzrQ5xXEMp.Item.tRmn8Q3fsUQoECPd",
 					"flags": {
 						"a5e": {
 							"sort": 0,
 							"transferType": "onUse",
-							"actionId": "CJvcQLfUq1X9ibqG"
+							"actionId": "WlhqkcyKQnbVayLf"
 						}
 					},
 					"transfer": false,
-					"name": "Prone",
-					"_id": "bOORIDdL68SrRHwG",
+					"name": "Grappled",
+					"_id": "JIOyamaAEiCZhMIW",
 					"changes": [
 						{
 							"key": "flags.a5e.effects.statusConditions",
-							"value": "[\"prone\"]",
+							"value": "[\"grappled\"]",
 							"mode": 0,
 							"priority": null
 						}
@@ -1391,11 +1667,232 @@
 					},
 					"description": "",
 					"statuses": [
-						"prone"
+						"grappled"
 					],
 					"folder": null
 				}
 			],
+			"folder": null,
+			"sort": 0,
+			"ownership": {
+				"default": 0
+			},
+			"flags": {}
+		},
+		{
+			"name": "Tongue",
+			"type": "feature",
+			"system": {
+				"ac": {
+					"baseFormula": "",
+					"formula": "",
+					"grantsDisadvantage": false,
+					"maxDex": 0,
+					"minStr": 0,
+					"mode": 2,
+					"requiresNoShield": false,
+					"requiresUnarmored": false
+				},
+				"actions": {
+					"V1BEUxabxeLvcK81": {
+						"name": "Tongue",
+						"activation": {
+							"type": "action",
+							"cost": 1
+						},
+						"consumers": {},
+						"rolls": {
+							"F71oFxCqjXMuo8bw": {
+								"type": "attack",
+								"default": true,
+								"attackType": "meleeWeaponAttack",
+								"proficient": true,
+								"ability": "str"
+							}
+						},
+						"prompts": {
+							"E3icv7VhpPUOCv7L": {
+								"type": "savingThrow",
+								"default": true,
+								"ability": "con",
+								"saveDC": {
+									"type": "con"
+								}
+							},
+							"aR5cbW0zN12dngBv": {
+								"type": "effect",
+								"default": true,
+								"effectId": "Z4MCLJLiukKfRl5X"
+							}
+						},
+						"uses": {
+							"value": 0,
+							"max": "",
+							"per": "",
+							"recharge": {
+								"formula": "1d6",
+								"rechargeType": "custom",
+								"rechargeAmount": "1",
+								"threshold": 6
+							}
+						},
+						"ranges": {
+							"crx74wqyz0FsjK7K": {
+								"range": 10,
+								"unit": "feet"
+							}
+						},
+						"target": {
+							"type": "creature",
+							"quantity": 1
+						}
+					}
+				},
+				"description": "<p>The target is paralyzed . At the end of each of its turns, a paralyzed creature can make a DC 16 Constitution saving throw to end the effect on itself.</p>",
+				"favorite": true,
+				"secretDescription": "",
+				"source": "",
+				"uses": {
+					"value": null,
+					"max": "",
+					"per": null,
+					"recharge": {
+						"formula": "1d6",
+						"threshold": "6"
+					}
+				},
+				"schema": {
+					"version": null,
+					"lastMigration": null
+				},
+				"concentration": false,
+				"featureType": "naturalWeapon",
+				"grants": {},
+				"prerequisite": "",
+				"requiresBloodied": false
+			},
+			"_id": "s4sMEsesLZGKxksy",
+			"img": "icons/svg/item-bag.svg",
+			"effects": [
+				{
+					"icon": "icons/svg/item-bag.svg",
+					"origin": "Actor.2eEx8kYzrQ5xXEMp.Item.s4sMEsesLZGKxksy",
+					"flags": {
+						"a5e": {
+							"sort": 0,
+							"transferType": "onUse",
+							"actionId": "V1BEUxabxeLvcK81"
+						}
+					},
+					"transfer": false,
+					"name": "Paralyzed",
+					"_id": "Z4MCLJLiukKfRl5X",
+					"changes": [
+						{
+							"key": "flags.a5e.effects.statusConditions",
+							"value": "[\"paralyzed\"]",
+							"mode": 0,
+							"priority": null
+						}
+					],
+					"disabled": false,
+					"duration": {
+						"startTime": null,
+						"seconds": null,
+						"combat": null,
+						"rounds": null,
+						"turns": null,
+						"startRound": null,
+						"startTurn": null
+					},
+					"description": "",
+					"statuses": [
+						"paralyzed"
+					],
+					"folder": null
+				}
+			],
+			"folder": null,
+			"sort": 0,
+			"ownership": {
+				"default": 0
+			},
+			"flags": {}
+		},
+		{
+			"name": "Fell Smite",
+			"type": "feature",
+			"system": {
+				"ac": {
+					"baseFormula": "",
+					"formula": "",
+					"grantsDisadvantage": false,
+					"maxDex": 0,
+					"minStr": 0,
+					"mode": 2,
+					"requiresNoShield": false,
+					"requiresUnarmored": false
+				},
+				"actions": {
+					"EZ61WJIJ263zUGc7": {
+						"name": "Fell Smite",
+						"activation": {
+							"type": "bonusAction",
+							"cost": 1
+						},
+						"consumers": {},
+						"rolls": {
+							"VaBzHgorXK8hIxhg": {
+								"type": "damage",
+								"default": true,
+								"formula": "2d6",
+								"damageType": "necrotic",
+								"scaling": {
+									"mode": "itemUses",
+									"formula": "1d6"
+								}
+							}
+						},
+						"prompts": {},
+						"uses": {
+							"value": 0,
+							"max": "",
+							"per": "",
+							"recharge": {
+								"formula": "1d6",
+								"rechargeType": "custom",
+								"rechargeAmount": "1",
+								"threshold": 6
+							}
+						}
+					}
+				},
+				"description": "<p>When the mohrg hits a creature with a melee weapon attack, it can choose to expend fell smite points to deal extra damage in addition to the weapon&rsquo;s damage: 1 point for 7 (2d6) necrotic damage, plus 3 (1d6) necrotic damage for each additional point, to a maximum of 17 (5d6 for 4 points).</p>",
+				"favorite": true,
+				"secretDescription": "",
+				"source": "",
+				"uses": {
+					"value": 10,
+					"max": "10",
+					"per": "longRest",
+					"recharge": {
+						"formula": "1d6",
+						"threshold": "6"
+					}
+				},
+				"schema": {
+					"version": null,
+					"lastMigration": null
+				},
+				"concentration": false,
+				"featureType": "other",
+				"grants": {},
+				"prerequisite": "",
+				"requiresBloodied": false
+			},
+			"_id": "gIsudQ8RuPRE1SEz",
+			"img": "icons/svg/item-bag.svg",
+			"effects": [],
 			"folder": null,
 			"sort": 0,
 			"ownership": {
@@ -1410,5 +1907,5 @@
 			"sheetIsLocked": true
 		}
 	},
-	"_id": "cpe64lm8xq9a2c6k"
+	"_id": "bp8bwcqktdh97868"
 }
