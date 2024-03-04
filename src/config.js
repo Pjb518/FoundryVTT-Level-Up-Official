@@ -416,6 +416,22 @@ A5E.damageTypes = {
   thunder: 'A5E.damageTypes.thunder'
 };
 
+A5E.damageColors = {
+  acid: '#fff',
+  bludgeoning: '#fff',
+  cold: '#fff',
+  fire: '#fff',
+  force: '#fff',
+  lightning: '#fff',
+  necrotic: '#fff',
+  piercing: '#fff',
+  poison: '#fff',
+  psychic: '#fff',
+  radiant: '#fff',
+  slashing: '#fff',
+  thunder: '#fff'
+};
+
 A5E.equippedStates = {
   0: 'A5E.equippedState.notCarried',
   1: 'A5E.equippedState.carried',
@@ -453,6 +469,11 @@ A5E.featureTypes = {
 A5E.healingTypes = {
   healing: 'A5E.Healing',
   temporaryHealing: 'A5E.HealingTemporary'
+};
+
+A5E.healingColors = {
+  healing: '#fff',
+  temporaryHealing: '#fff'
 };
 
 /**
