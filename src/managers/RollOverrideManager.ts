@@ -277,6 +277,17 @@ export default class RollOverrideManager {
         if (o.overrideType !== overrideType) return;
         overrides.push(o);
       });
+
+      // Add handling for flanking
+      const flankSetting = game.settings.get('a5e-flanking', 'flankingDND5EMode') ?? false;
+      const isFlanking = !!this.actor.getFlag('a5e', 'flanking');
+      if (flankSetting && isFlanking) {
+        overrides.push({
+          overrideType: 'rollMode',
+          source: 'Flanking',
+          value: CONFIG.A5E.ROLL_MODE.ADVANTAGE
+        });
+      }
     }
 
     return overrides;
@@ -362,7 +373,6 @@ export default class RollOverrideManager {
 
     // Sort the overrides by mode
     overrides.sort((a, b) => (b.mode ?? 2) - (a.mode ?? 2));
-    console.log(overrides);
 
     return 0;
   }

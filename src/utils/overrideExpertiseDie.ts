@@ -14,7 +14,8 @@ export default function overrideExpertiseDie(actor: typeof Actor, dieCount: numb
 
   // Account for flanking
   const isFlanking: boolean = getFlankingBonus(actor);
-  if (isFlanking) addDie += 1;
+  const setting: boolean = game.settings.get('a5e-flanking', 'flankingDND5EMode') ?? false;
+  if (!setting && isFlanking) addDie += 1;
 
   const flag: number | undefined = actor.getFlag('a5e', 'effects.expertiseDie');
   if (flag) addDie += flag;
