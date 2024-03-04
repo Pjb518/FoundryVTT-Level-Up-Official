@@ -11,10 +11,9 @@
 
         if (selectedTokens.length)
             selectedTokens.forEach((token) =>
-                token.actor.applyDamage(damage, { damageType, token }),
+                token.actor.applyDamage(damage, { damageType }),
             );
-        else if (character)
-            character.applyDamage(damage, { damageType, token });
+        else if (character) character.applyDamage(damage, { damageType });
         else ui.notifications.warn("No tokens selected");
     }
 
@@ -26,7 +25,6 @@
             selectedTokens.forEach((token) => {
                 token.actor.applyHealing(roll.total, {
                     temp: healingType !== "healing",
-                    token,
                 });
             });
         } else if (character) {

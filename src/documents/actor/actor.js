@@ -682,7 +682,7 @@ export default class ActorA5e extends Actor {
    *
    * @returns {Promise<Actor5e>}  A Promise which resolves once the damage has been applied
    */
-  async applyDamage(damage, options = { damageType: null, token: null }) {
+  async applyDamage(damage, options = { damageType: null }) {
     const updates = {};
     const { value, temp } = this.system.attributes.hp;
     // eslint-disable-next-line no-param-reassign
@@ -698,7 +698,8 @@ export default class ActorA5e extends Actor {
     }
 
     if (game.settings.get('a5e', 'enableCascadingDamageAndHealing')) {
-      canvas.interface.createScrollingText(options?.token?.center, `-${damage.toString()}`, {});
+      const token = await this.getActiveTokens()?.[0];
+      canvas.interface.createScrollingText(token?.center, `-${damage.toString()}`, {});
     }
 
     Hooks.callAll('a5e.actorDamaged', this, { prevHp: { value, temp }, damage });
@@ -721,7 +722,7 @@ export default class ActorA5e extends Actor {
    *
    * @returns {Promise<Actor5e>}  A Promise which resolves once the damage has been applied
    */
-  async applyHealing(healing, options = { temp: false, token: null }) {
+  async applyHealing(healing, options = { temp: false }) {
     const updates = {};
     const { value, max, temp } = this.system.attributes.hp;
     // eslint-disable-next-line no-param-reassign
@@ -739,7 +740,8 @@ export default class ActorA5e extends Actor {
     }
 
     if (game.settings.get('a5e', 'enableCascadingDamageAndHealing')) {
-      canvas.interface.createScrollingText(options?.token?.center, `+${healing.toString()}`, {});
+      const token = await this.getActiveTokens()?.[0];
+      canvas.interface.createScrollingText(token?.center, `+${healing.toString()}`, {});
     }
 
     Hooks.callAll('a5e.actorHealed', this, { prevHp: { value, temp }, healingData: { healing, options } });
