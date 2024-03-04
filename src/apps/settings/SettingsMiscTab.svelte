@@ -21,9 +21,13 @@
 
     // Stores
     let actionNameType = settings.getStore("newActionNameType");
-    let showLimitedDesc = settings.getStore("showDescriptionOnLimitedPerms");
     let fancySheetsAutoApply = settings.getStore("autoApplyFancySheets");
     let gamemasterTitle = settings.getStore("gamemasterTitle");
+    let showLimitedDesc = settings.getStore("showDescriptionOnLimitedPerms");
+
+    let enableCascadingDamageAndHealing = settings.getStore(
+        "enableCascadingDamageAndHealing",
+    );
 
     let selectedNamingMode =
         updates.get("newActionNameType") ?? $actionNameType ?? "system";
@@ -65,6 +69,21 @@
                     false}
                 on:updateSelection={({ detail }) => {
                     updates.set("autoApplyFancySheets", detail);
+                    reload = true;
+                }}
+            />
+        </FieldWrapper>
+    </Section>
+
+    <Section heading="Cascading Damage Settings">
+        <FieldWrapper hint="A5E.settings.hints.enableCascadingDamageAndHealing">
+            <Checkbox
+                label="A5E.settings.enableCascadingDamageAndHealing"
+                checked={updates.get("enableCascadingDamageAndHealing") ??
+                    $enableCascadingDamageAndHealing ??
+                    false}
+                on:updateSelection={({ detail }) => {
+                    updates.set("enableCascadingDamageAndHealing", detail);
                     reload = true;
                 }}
             />

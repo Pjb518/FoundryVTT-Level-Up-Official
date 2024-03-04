@@ -491,6 +491,18 @@ class A5eGameSettings extends TJSGameSettings {
       },
       {
         namespace,
+        key: 'enableCascadingDamageAndHealing',
+        options: {
+          name: 'A5E.settings.enableCascadingDamageAndHealing',
+          hint: 'A5E.settings.hints.enableCascadingDamageAndHealing',
+          scope: scope.world,
+          config: true,
+          default: true,
+          type: Boolean
+        }
+      },
+      {
+        namespace,
         key: 'gamemasterTitle',
         options: {
           name: 'A5E.settings.gamemasterTitle',
