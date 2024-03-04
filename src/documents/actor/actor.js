@@ -699,7 +699,11 @@ export default class ActorA5e extends Actor {
 
     if (game.settings.get('a5e', 'enableCascadingDamageAndHealing')) {
       const token = await this.getActiveTokens()?.[0];
-      canvas.interface.createScrollingText(token?.center, `-${damage.toString()}`, {});
+      canvas.interface.createScrollingText(
+        token?.center,
+        `-${damage}`,
+        { fill: CONFIG.A5E.damageColors[options.damageType] ?? '#c02a2a' }
+      );
     }
 
     Hooks.callAll('a5e.actorDamaged', this, { prevHp: { value, temp }, damage });
@@ -741,7 +745,9 @@ export default class ActorA5e extends Actor {
 
     if (game.settings.get('a5e', 'enableCascadingDamageAndHealing')) {
       const token = await this.getActiveTokens()?.[0];
-      canvas.interface.createScrollingText(token?.center, `+${healing.toString()}`, {});
+      const fill = CONFIG.A5E.healingColors[options.temp ? 'temporaryHealing' : 'healing'] ?? '#eeee9b';
+
+      canvas.interface.createScrollingText(token?.center, `+${healing}`, { fill });
     }
 
     Hooks.callAll('a5e.actorHealed', this, { prevHp: { value, temp }, healingData: { healing, options } });
