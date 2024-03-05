@@ -1,6 +1,6 @@
 .a5e-skill-specialties {
   display: grid;
-  align-items: center;
+  align-items: flex-start;
   grid-template-columns: min-content 1fr;
   width: 100%;
   gap: 0.25rem 0.75rem;
@@ -9,11 +9,34 @@
   font-size: var(--a5e-text-size-sm);
 
   &__list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.125rem 1ch;
     margin: 0;
     padding: 0;
   }
 
+  &__list-item {
+    display: inline;
+    width: fit-content;
+    padding: 0;
+    margin: 0;
+    line-height: 1;
+    white-space: nowrap;
+    background: transparent;
+
+    &:focus,
+    &:hover {
+      box-shadow: none;
+    }
+
+    &:not(:last-child)::after {
+      content: ",";
+    }
+  }
+
   &__skill {
+    line-height: 1;
     white-space: nowrap;
   }
 }

@@ -5,6 +5,12 @@
     import FormSection from "../LegacyFormSection.svelte";
     import Skill from "../Skill.svelte";
 
+    function determineWhetherToShowSkillSpecialties(skills) {
+        if (game.settings.get("a5e", "hideSkillSpecialties")) return false;
+
+        return Object.values(skills).some((skill) => skill.specialties.length);
+    }
+
     function getSkills(baseSkills) {
         const skills = { ...baseSkills };
 
@@ -16,10 +22,26 @@
         return skills;
     }
 
-    function determineWhetherToShowSkillSpecialties(skills) {
-        if (game.settings.get("a5e", "hideSkillSpecialties")) return false;
+    function getSkillSpecialties(skillKey, skill) {
+        const specialties = skill.specialties;
 
-        return Object.values(skills).some((skill) => skill.specialties.length);
+        if (!Array.isArray(specialties) || !specialties?.length) return [];
+
+        return specialties
+            .sort((a, b) => a.toLowerCase().localeCompare(b.toLowerCase()))
+            .map((specialty) => {
+                if (!skillSpecialties[skillKey]) return specialty;
+
+                return skillSpecialties[skillKey][specialty] ?? specialty;
+            });
+    }
+
+    function rollSkillCheckWithSpecialty(skillKey) {
+        const baseExpertiseDice = $actor.system.skills[skillKey].expertiseDice;
+
+        $actor.rollSkillCheck(skillKey, {
+            expertiseDice: baseExpertiseDice + 1,
+        });
     }
 
     const actor = getContext("actor");
@@ -27,7 +49,6 @@
     const { skillSpecialties } = A5E;
 
     $: skills = getSkills($actor.system.skills);
-
     $: showSpecialties = determineWhetherToShowSkillSpecialties(skills);
 
     $: skillListFlowDirection = game.settings.get(
@@ -42,28 +63,27 @@
             <h3 class="a5e-skill-specialties-heading">Skill Specialties</h3>
 
             <dl class="a5e-skill-specialties">
-                {#each Object.entries(skills) as [key, skill]}
-                    {#if skill.specialties.length}
-                        <dt class="a5e-skill-specialties__skill">
-                            {localize(A5E.skills[key])}
-                        </dt>
-                        <dd class="a5e-skill-specialties__list">
-                            {skill.specialties
-                                .sort((a, b) =>
-                                    a
-                                        .toLowerCase()
-                                        .localeCompare(b.toLowerCase()),
-                                )
-                                .map((specialty) => {
-                                    if (!skillSpecialties[key])
-                                        return specialty;
+                {#each Object.entries(skills) as [skillKey, skill]}
+                    {@const specialties = getSkillSpecialties(skillKey, skill)}
+                    {@const skillName = localize(A5E.skills[skillKey])}
 
-                                    return (
-                                        skillSpecialties[key][specialty] ??
-                                        specialty
-                                    );
-                                })
-                                .join(", ")}
+                    {#if specialties.length}
+                        <dt class="a5e-skill-specialties__skill">
+                            {skillName}
+                        </dt>
+
+                        <dd class="a5e-skill-specialties__list">
+                            {#each specialties as specialty}
+                                <button
+                                    class="a5e-skill-specialties__list-item"
+                                    data-tooltip="Roll {skillName} check with {specialty} specialty"
+                                    data-tooltip-direction="UP"
+                                    on:click={() =>
+                                        rollSkillCheckWithSpecialty(skillKey)}
+                                >
+                                    {specialty}
+                                </button>
+                            {/each}
                         </dd>
                     {/if}
                 {/each}
