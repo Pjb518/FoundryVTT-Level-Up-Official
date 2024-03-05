@@ -193,7 +193,7 @@ export default class ModifierManager {
     if (selectedInitiativeBonuses) {
       value = this.actor.BonusesManager.getSelectedBonusesFormula('initiative', selectedInitiativeBonuses);
     } else {
-      value = this.actor.BonusesManager.getInitiativeBonusesFormula(
+      value = this.actor.BonusesManager.getInitiativeBonusFormula(
         { abilityKey: ability, skillKey: skill }
       );
     }
