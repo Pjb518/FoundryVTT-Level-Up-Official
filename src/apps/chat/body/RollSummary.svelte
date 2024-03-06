@@ -65,6 +65,8 @@
         const rollOutcome = await critTable.roll();
         const result = rollOutcome?.results?.[0];
 
+        critTable.toMessage(rollOutcome.results, { roll: rollOutcome.roll });
+
         console.log(result.text);
     }
 
@@ -156,21 +158,23 @@
     {/if}
 </button>
 
-<!-- {#if rollData.type === "skillCheck" && rollData.skillKey}
+{#if rollData.type === "skillCheck" && rollData.skillKey}
     {#if isCriticalSuccess}
         <button
             on:click={() => rollOnSkillTable(rollData.skillKey, "critical")}
         >
-            Roll Skill Critical
+            <i class="fa-solid fa-dice-d20"></i>
+            Roll on the skill critical table
         </button>
     {/if}
 
     {#if isCriticalFailure}
         <button on:click={() => rollOnSkillTable(rollData.skillKey, "fumble")}>
-            Roll Skill Fumble
+            <i class="fa-solid fa-dice-d20"></i>
+            Roll on the skill fumble table
         </button>
     {/if}
-{/if} -->
+{/if}
 
 {#if showRollConfig}
     <RollConfigurationOptions
