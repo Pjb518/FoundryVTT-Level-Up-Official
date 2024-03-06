@@ -12,7 +12,17 @@
     export let rollData = {};
     export let isAction = true;
 
-    function isCriticalSuccess(roll) {
+    function determineIfCriticalFailure(roll) {
+        const d20Roll = roll.terms.find((term) => term.faces === 20);
+
+        if (!d20Roll) return false;
+
+        return d20Roll.results.some(
+            ({ result, active }) => active && result === 1,
+        );
+    }
+
+    function determineIfCriticalSuccess(roll) {
         const d20Roll = roll.terms.find((term) => term.faces === 20);
 
         if (!d20Roll) return false;
@@ -20,16 +30,6 @@
         return d20Roll.results.some(
             ({ result, active }) =>
                 active && result >= (rollData.critThreshold ?? 20),
-        );
-    }
-
-    function isCriticalFailure(roll) {
-        const d20Roll = roll.terms.find((term) => term.faces === 20);
-
-        if (!d20Roll) return false;
-
-        return d20Roll.results.some(
-            ({ result, active }) => active && result === 1,
         );
     }
 
@@ -49,6 +49,23 @@
         return localize("A5E.ExpertiseDieSpecific", {
             dieSize: getExpertiseDieSize(expertiseDice),
         });
+    }
+
+    async function rollOnSkillTable(skillKey, resultType) {
+        const tableKey =
+            resultType === "critical"
+                ? "skillCriticalTables"
+                : "skillFumbleTables";
+
+        const critTableUUID = CONFIG.A5E[tableKey]?.[skillKey];
+        const critTable = await fromUuid(critTableUUID);
+
+        if (!critTable) return;
+
+        const rollOutcome = await critTable.roll();
+        const result = rollOutcome?.results?.[0];
+
+        console.log(result.text);
     }
 
     async function toggleRollConfig() {
@@ -82,13 +99,16 @@
 
     const message = getContext("message");
     const actor = fromUuidSync($message?.flags?.a5e?.actorId);
+
+    $: isCriticalFailure = determineIfCriticalFailure(roll);
+    $: isCriticalSuccess = determineIfCriticalSuccess(roll);
 </script>
 
 <button class="roll-container" on:click={toggleRollTooltip}>
     <div
         class="roll"
-        class:roll--max={isCriticalSuccess(roll)}
-        class:roll--min={isCriticalFailure(roll)}
+        class:roll--max={isCriticalSuccess}
+        class:roll--min={isCriticalFailure}
         class:roll--wide={!isAction}
     >
         {roll.total}
@@ -135,6 +155,22 @@
         />
     {/if}
 </button>
+
+{#if rollData.type === "skillCheck" && rollData.skillKey}
+    {#if isCriticalSuccess}
+        <button
+            on:click={() => rollOnSkillTable(rollData.skillKey, "critical")}
+        >
+            Roll Skill Critical
+        </button>
+    {/if}
+
+    {#if isCriticalFailure}
+        <button on:click={() => rollOnSkillTable(rollData.skillKey, "fumble")}>
+            Roll Skill Fumble
+        </button>
+    {/if}
+{/if}
 
 {#if showRollConfig}
     <RollConfigurationOptions
