@@ -156,7 +156,7 @@
     {/if}
 </button>
 
-{#if rollData.type === "skillCheck" && rollData.skillKey}
+<!-- {#if rollData.type === "skillCheck" && rollData.skillKey}
     {#if isCriticalSuccess}
         <button
             on:click={() => rollOnSkillTable(rollData.skillKey, "critical")}
@@ -170,7 +170,7 @@
             Roll Skill Fumble
         </button>
     {/if}
-{/if}
+{/if} -->
 
 {#if showRollConfig}
     <RollConfigurationOptions
