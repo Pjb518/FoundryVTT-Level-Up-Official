@@ -42,8 +42,6 @@
             siblings: items,
         });
 
-        console.log(updates);
-
         $actor.updateEmbeddedDocuments(
             "Item",
             updates.map(({ target, update }) => {

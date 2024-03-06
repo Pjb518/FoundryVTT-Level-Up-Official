@@ -7,6 +7,7 @@
 
     import getExpertiseDieSize from "../../../utils/getExpertiseDieSize";
     import RollConfigurationOptions from "./RollConfigurationOptions.svelte";
+    import ChatCard from "../ChatCard.svelte";
 
     export let roll;
     export let rollData = {};
@@ -65,7 +66,29 @@
         const rollOutcome = await critTable.roll();
         const result = rollOutcome?.results?.[0];
 
-        critTable.toMessage(rollOutcome.results, { roll: rollOutcome.roll });
+        const chatData = {
+            user: game.user?.id,
+            speaker: ChatMessage.getSpeaker({ actor }),
+            flags: {
+                a5e: {
+                    actorId: actor.uuid,
+                    cardType: "rollTableOutput",
+                    itemDescription: result?.text,
+                    img: critTable?.img,
+                    name: critTable?.name,
+                    actionName: result?.flags?.title,
+                },
+            },
+            content: "<article></article>",
+        };
+
+        // critTable.toMessage(rollOutcome.results, { roll: rollOutcome.roll });
+        ChatMessage.applyRollMode(
+            chatData,
+            game.settings.get("core", "rollMode"),
+        );
+
+        return ChatMessage.create(chatData);
     }
 
     async function toggleRollConfig() {

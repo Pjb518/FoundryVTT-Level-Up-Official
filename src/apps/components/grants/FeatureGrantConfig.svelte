@@ -33,7 +33,6 @@
     }
 
     function onDropUpdate(key, value) {
-        console.log(key, value);
         if (key === "features.base") {
             if (baseUuids.includes(value)) return;
             onUpdateValue(key, [...baseUuids, value]);

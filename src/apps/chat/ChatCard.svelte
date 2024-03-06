@@ -14,6 +14,7 @@
     function getHeaderComponent() {
         switch ($message?.flags?.a5e?.cardType) {
             case "item":
+            case "rollTableOutput":
                 return ItemActivationHeader;
             case "abilityCheck":
             case "hitDice":
@@ -34,9 +35,9 @@
 
                 return d20Roll.results.some(
                     ({ result, active }) =>
-                        active && result >= (rollData.critThreshold ?? 20)
+                        active && result >= (rollData.critThreshold ?? 20),
                 );
-            }
+            },
         );
 
         if (isCrit === undefined || isCrit === null) return;
@@ -59,7 +60,7 @@
                 }
 
                 return Roll.fromData(rollData.baseRoll);
-            }
+            },
         );
 
         $message.update({ rolls });
@@ -85,7 +86,8 @@
 <CardBody
     {message}
     hideDescription={hideDescription ||
-        $message?.flags?.a5e?.cardType !== "item"}
+        ($message?.flags?.a5e?.cardType !== "item" &&
+            $message?.flags?.a5e?.cardType !== "rollTableOutput")}
     on:reevaluateCritMode={reevaluateCritMode}
 />
 

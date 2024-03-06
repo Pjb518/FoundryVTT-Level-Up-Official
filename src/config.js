@@ -312,6 +312,7 @@ A5E.chatCardTypes = [
   'abilityCheck',
   'hitDice',
   'item',
+  'rollTableOutput',
   'savingThrow',
   'skillCheck'
 ];
