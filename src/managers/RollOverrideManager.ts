@@ -279,14 +279,18 @@ export default class RollOverrideManager {
       });
 
       // Add handling for flanking
-      const flankSetting = game.settings.get('a5e-flanking', 'flankingDND5EMode') ?? false;
-      const isFlanking = !!this.actor.getFlag('a5e', 'flanking');
-      if (flankSetting && isFlanking) {
-        overrides.push({
-          overrideType: 'rollMode',
-          source: 'Flanking',
-          value: CONFIG.A5E.ROLL_MODE.ADVANTAGE
-        });
+      try {
+        const flankSetting = game.settings.get('a5e-flanking', 'flankingDND5EMode') ?? false;
+        const isFlanking = !!this.actor.getFlag('a5e', 'flanking');
+        if (flankSetting && isFlanking) {
+          overrides.push({
+            overrideType: 'rollMode',
+            source: 'Flanking',
+            value: CONFIG.A5E.ROLL_MODE.ADVANTAGE
+          });
+        }
+      } catch {
+        // Do nothing
       }
     }
 
