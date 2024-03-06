@@ -66,8 +66,6 @@
         const result = rollOutcome?.results?.[0];
 
         critTable.toMessage(rollOutcome.results, { roll: rollOutcome.roll });
-
-        console.log(result.text);
     }
 
     async function toggleRollConfig() {
