@@ -185,14 +185,14 @@
             on:click={() => rollOnSkillTable(rollData.skillKey, "critical")}
         >
             <i class="fa-solid fa-dice-d20"></i>
-            Roll on the skill critical table
+            Roll on the skill critical success table
         </button>
     {/if}
 
     {#if isCriticalFailure}
         <button on:click={() => rollOnSkillTable(rollData.skillKey, "fumble")}>
             <i class="fa-solid fa-dice-d20"></i>
-            Roll on the skill fumble table
+            Roll on the skill critical failure table
         </button>
     {/if}
 {/if}
