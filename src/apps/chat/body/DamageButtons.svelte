@@ -1,7 +1,7 @@
 <script>
     function applyDamage(damageType = null, multiplier = 1, temp = false) {
         if (multiplier < 0) {
-            applyHealing(temp ? "temp" : "healing");
+            applyHealing(temp ? "temporaryHealing" : "healing");
             return;
         }
 
@@ -11,9 +11,9 @@
 
         if (selectedTokens.length)
             selectedTokens.forEach((token) =>
-                token.actor.applyDamage(damage, { damageType }),
+                token.actor.applyDamage(damage, damageType),
             );
-        else if (character) character.applyDamage(damage, { damageType });
+        else if (character) character.applyDamage(damage, damageType);
         else ui.notifications.warn("No tokens selected");
     }
 
@@ -23,14 +23,10 @@
 
         if (selectedTokens.length) {
             selectedTokens.forEach((token) => {
-                token.actor.applyHealing(roll.total, {
-                    temp: healingType !== "healing",
-                });
+                token.actor.applyHealing(roll.total, healingType);
             });
         } else if (character) {
-            character.applyHealing(roll.total, {
-                temp: healingType !== "healing",
-            });
+            character.applyHealing(roll.total, healingType);
         } else {
             ui.notifications.warn("No tokens selected");
         }

@@ -682,7 +682,7 @@ export default class ActorA5e extends Actor {
    *
    * @returns {Promise<Actor5e>}  A Promise which resolves once the damage has been applied
    */
-  async applyDamage(damage, options = { damageType: null }) {
+  async applyDamage(damage, damageType = null) {
     const updates = {};
     const { value, temp } = this.system.attributes.hp;
     // eslint-disable-next-line no-param-reassign
@@ -702,11 +702,11 @@ export default class ActorA5e extends Actor {
       canvas.interface.createScrollingText(
         token?.center,
         `-${damage}`,
-        { fill: CONFIG.A5E.damageColors[options.damageType] ?? '#c02a2a' }
+        { fill: CONFIG.A5E.damageColors[damageType] ?? '#c02a2a' }
       );
     }
 
-    Hooks.callAll('a5e.actorDamaged', this, { prevHp: { value, temp }, damage });
+    Hooks.callAll('a5e.actorDamaged', this, { prevHp: { value, temp }, damage, damageType });
     return this.update(updates);
   }
 
@@ -726,13 +726,13 @@ export default class ActorA5e extends Actor {
    *
    * @returns {Promise<Actor5e>}  A Promise which resolves once the damage has been applied
    */
-  async applyHealing(healing, options = { temp: false }) {
+  async applyHealing(healing, healingType) {
     const updates = {};
     const { value, max, temp } = this.system.attributes.hp;
     // eslint-disable-next-line no-param-reassign
     healing = Math.floor(healing);
 
-    if (options.temp) {
+    if (healingType === 'temporaryHealing') {
       if (healing <= temp) {
         ui.notifications.warn('A5E.ActionWarningTempHpNotOverwritten', { localize: true });
         return this;
@@ -745,12 +745,12 @@ export default class ActorA5e extends Actor {
 
     if (game.settings.get('a5e', 'enableCascadingDamageAndHealing')) {
       const token = await this.getActiveTokens()?.[0];
-      const fill = CONFIG.A5E.healingColors[options.temp ? 'temporaryHealing' : 'healing'] ?? '#eeee9b';
+      const fill = CONFIG.A5E.healingColors[healingType] ?? '#eeee9b';
 
       canvas.interface.createScrollingText(token?.center, `+${healing}`, { fill });
     }
 
-    Hooks.callAll('a5e.actorHealed', this, { prevHp: { value, temp }, healingData: { healing, options } });
+    Hooks.callAll('a5e.actorHealed', this, { prevHp: { value, temp }, healing, healingType });
     return this.update(updates);
   }
 
