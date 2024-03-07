@@ -698,7 +698,7 @@ export default class ActorA5e extends Actor {
 
       damageRolls.forEach(([damage, damageType]) => {
         setTimeout(async () => {
-          await displayCascadingNumbers(actor, 'damage', `+${damage}`, damageType);
+          await displayCascadingNumbers(actor, 'damage', `-${damage}`, damageType);
         }, delay);
 
         delay += 300;
@@ -734,7 +734,7 @@ export default class ActorA5e extends Actor {
     }
 
     if (game.settings.get('a5e', 'enableCascadingDamageAndHealing')) {
-      displayCascadingNumbers(this, 'damage', `+${damage}`, damageType);
+      displayCascadingNumbers(this, 'damage', `-${damage}`, damageType);
     }
 
     Hooks.callAll('a5e.actorDamaged', this, { prevHp: { value, temp }, damage, damageType });
