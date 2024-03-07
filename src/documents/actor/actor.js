@@ -40,6 +40,7 @@ import automateHpConditions from '../activeEffect/utils/automateHpConditions';
 import automateMultiLevelConditions from '../activeEffect/utils/automateMultiLevelConditions';
 import getDeterministicBonus from '../../dice/getDeterministicBonus';
 import getRollFormula from '../../utils/getRollFormula';
+import displayCascadingNumbers from '../../utils/displayCascadingDamage';
 
 export default class ActorA5e extends Actor {
   #configDialogMap;
@@ -698,12 +699,7 @@ export default class ActorA5e extends Actor {
     }
 
     if (game.settings.get('a5e', 'enableCascadingDamageAndHealing')) {
-      const token = await this.getActiveTokens()?.[0];
-      canvas.interface.createScrollingText(
-        token?.center,
-        `-${damage}`,
-        { fill: CONFIG.A5E.damageColors[damageType] ?? '#c02a2a' }
-      );
+      displayCascadingNumbers(this, 'damage', `+${damage}`, damageType);
     }
 
     Hooks.callAll('a5e.actorDamaged', this, { prevHp: { value, temp }, damage, damageType });
@@ -744,10 +740,7 @@ export default class ActorA5e extends Actor {
     }
 
     if (game.settings.get('a5e', 'enableCascadingDamageAndHealing')) {
-      const token = await this.getActiveTokens()?.[0];
-      const fill = CONFIG.A5E.healingColors[healingType] ?? '#eeee9b';
-
-      canvas.interface.createScrollingText(token?.center, `+${healing}`, { fill });
+      displayCascadingNumbers(this, 'healing', `+${healing}`, healingType);
     }
 
     Hooks.callAll('a5e.actorHealed', this, { prevHp: { value, temp }, healing, healingType });
