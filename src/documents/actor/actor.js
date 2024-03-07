@@ -674,6 +674,41 @@ export default class ActorA5e extends Actor {
     if (applyUnconscious) automateHpConditions(this, changed, userId, 'unconscious');
   }
 
+  async applyBulkDamage(damageRolls) {
+    const updates = {};
+    const { value, temp } = this.system.attributes.hp;
+
+    const totalDamage = damageRolls.reduce(
+      (cumulativeDamage, [damage]) => cumulativeDamage + Math.floor(damage),
+      0
+    );
+
+    if (temp) {
+      updates['system.attributes.hp'] = {
+        temp: Math.clamped(temp - totalDamage, 0, temp),
+        value: Math.clamped(value + temp - totalDamage, 0, value)
+      };
+    } else {
+      updates['system.attributes.hp.value'] = Math.clamped(value - totalDamage, 0, value);
+    }
+
+    if (game.settings.get('a5e', 'enableCascadingDamageAndHealing')) {
+      const actor = this;
+      let delay = 0;
+
+      damageRolls.forEach(([damage, damageType]) => {
+        setTimeout(async () => {
+          await displayCascadingNumbers(actor, 'damage', `+${damage}`, damageType);
+        }, delay);
+
+        delay += 300;
+      });
+    }
+
+    Hooks.callAll('a5e.actorDamaged', this, { prevHp: { value, temp }, damageRolls });
+    return this.update(updates);
+  }
+
   /**
    * Apply a certain amount of damage to the health pool for Actor, prioritizing temporary hp.
    * Negative damage values will have no effect.
