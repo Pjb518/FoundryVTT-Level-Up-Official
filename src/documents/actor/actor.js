@@ -40,7 +40,7 @@ import automateHpConditions from '../activeEffect/utils/automateHpConditions';
 import automateMultiLevelConditions from '../activeEffect/utils/automateMultiLevelConditions';
 import getDeterministicBonus from '../../dice/getDeterministicBonus';
 import getRollFormula from '../../utils/getRollFormula';
-import displayCascadingNumbers from '../../utils/displayCascadingDamage';
+import displayCascadingNumbers from '../../utils/displayCascadingNumbers';
 
 export default class ActorA5e extends Actor {
   #configDialogMap;
@@ -716,9 +716,8 @@ export default class ActorA5e extends Actor {
    * Negative healing value are ignored.
    *
    * @param {number} healing        An amount of damage to apply to the actor.
-   * @param {Object} options
-   * @param {Boolean} options.temp    A flag for indicating whether the healing being applied is
-   *                                  temporary.
+   * @param {string} healingType    A flag for indicating whether the healing being applied is
+   *                                temporary.
    *
    * @returns {Promise<Actor5e>}  A Promise which resolves once the damage has been applied
    */
