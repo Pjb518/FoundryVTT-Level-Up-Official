@@ -390,9 +390,16 @@ export default function registerPremiumContentConfig(A5E) {
       title: 'Level Up: Gate Pass Gazette Issue #21',
       url: 'https://bit.ly/4c1jnCf'
     },
+    hakansPamphlet: {
+      abbreviation: 'HPtAW',
+      affiliate: false,
+      publisher: 'ravine',
+      title: "Hakan's Pamphlet to Arcane Weaponry",
+      url: 'https://ravine.itch.io/a5e-spells01-arcaneweapon'
+    },
     heroesOldAndNew: {
       abbreviation: 'MMM',
-      affiliate: false,
+      affiliate: true,
       publisher: 'rollThemBones',
       title: 'Heroes Old and New',
       url: 'https://bit.ly/3UevPrJ'
@@ -427,21 +434,21 @@ export default function registerPremiumContentConfig(A5E) {
     },
     mysteriousAndMarvelousMiscellanea: {
       abbreviation: 'MMM',
-      affiliate: false,
+      affiliate: true,
       publisher: 'rollThemBones',
       title: 'Mysterious and Marvelous Miscellanea',
       url: 'https://bit.ly/42fLLM8'
     },
     secretsOfTheSelkies: {
       abbreviation: 'SotS',
-      affiliate: false,
+      affiliate: true,
       publisher: 'speaksAndSpells',
       title: 'Secrets of the Selkies',
       url: 'https://bit.ly/3USEOix'
     },
     sinuousSentinels: {
       abbreviation: 'SinSen',
-      affiliate: false,
+      affiliate: true,
       publisher: 'purpleMartinGames',
       title: 'Sinuous Sentinels',
       url: 'https://bit.ly/3SSNXoy'
