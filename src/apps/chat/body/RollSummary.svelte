@@ -179,7 +179,7 @@
     {/if}
 </button>
 
-{#if rollData.type === "skillCheck" && rollData.skillKey}
+{#if !game.settings.get("a5e", "hideSkillCriticalPrompt") && rollData.type === "skillCheck" && rollData.skillKey}
     {#if isCriticalSuccess}
         <button
             on:click={() => rollOnSkillTable(rollData.skillKey, "critical")}
