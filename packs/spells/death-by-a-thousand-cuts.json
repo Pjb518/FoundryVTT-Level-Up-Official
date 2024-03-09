@@ -1,0 +1,168 @@
+{
+	"name": "Death by a Thousand Cuts",
+	"type": "spell",
+	"img": "icons/sundries/gaming/playing-cards-black.webp",
+	"effects": [],
+	"flags": {},
+	"system": {
+		"actions": {
+			"kGnGXWGTJgpCtDrN": {
+				"name": "Cast Spell",
+				"activation": {
+					"cost": 1,
+					"type": "action",
+					"reactionTrigger": ""
+				},
+				"duration": {
+					"unit": "minute",
+					"value": 1
+				},
+				"ranges": {
+					"swW2Dhm89yY7C2CK": {
+						"range": "medium"
+					}
+				},
+				"area": {
+					"shape": "",
+					"size": "",
+					"placeTemplate": false,
+					"quantity": 1
+				},
+				"target": {
+					"quantity": 1,
+					"type": "creature"
+				},
+				"rolls": {
+					"Cj65qeJjdlkUWDEc": {
+						"canCrit": true,
+						"damageType": "slashing",
+						"formula": "1d4",
+						"name": "",
+						"type": "damage",
+						"scaling": {
+							"mode": "cantrip",
+							"formula": "1d4"
+						}
+					},
+					"DZz5eVKT6d3lmGLj": {
+						"type": "attack",
+						"default": true,
+						"attackType": "rangedSpellAttack",
+						"proficient": true,
+						"ability": "spellcasting"
+					}
+				},
+				"prompts": {},
+				"consumers": {},
+				"img": "icons/sundries/gaming/playing-cards-black.webp"
+			},
+			"lo07ol9naT60Sv69": {
+				"name": "Repeat Spell Attack",
+				"activation": {
+					"cost": 1,
+					"type": "bonusAction",
+					"reactionTrigger": ""
+				},
+				"duration": {
+					"unit": "instantaneous",
+					"value": 1
+				},
+				"ranges": {
+					"swW2Dhm89yY7C2CK": {
+						"range": "medium"
+					}
+				},
+				"area": {
+					"shape": "",
+					"size": "",
+					"placeTemplate": false,
+					"quantity": 1
+				},
+				"target": {
+					"quantity": 1,
+					"type": "creature"
+				},
+				"rolls": {
+					"Cj65qeJjdlkUWDEc": {
+						"canCrit": true,
+						"damageType": "slashing",
+						"formula": "1d4",
+						"name": "",
+						"type": "damage",
+						"scaling": {
+							"mode": "cantrip",
+							"formula": "1d6"
+						}
+					},
+					"DZz5eVKT6d3lmGLj": {
+						"type": "attack",
+						"default": true,
+						"attackType": "rangedSpellAttack",
+						"proficient": true,
+						"ability": "spellcasting"
+					}
+				},
+				"prompts": {},
+				"consumers": {},
+				"img": "icons/sundries/gaming/playing-cards-black.webp"
+			}
+		},
+		"description": "<p>You summon forth an ethereal sheet of paper, or a playing card, and throw it at your target.</p>\n<p>Make a ranged spell attack. On a hit, you deal 1d4 magical slashing damage.</p>\n<p>The spell's damage increases by 1d4 when you reach 5th level (2d4), 11th level (3d4), and 17th level (4d4).</p>\n<hr class=\"a5e-rule u-my-md\">\n<p><strong>Rare: Death by a Thousand Cuts.</strong> Using the power of binding law, you unleash repeated cuts at a target.</p>\n<p>The spell gains the following properties:</p>\n<ul class=\"indentedSelection\">\n<li>it gains the <em>law</em> property.</li>\n<li>its material component becomes \"a document signed by the target\".</li>\n<li>its duration becomes Concentration(1 minute)</li>\n<li>While concentrating on this spell, you can use your bonus action to repeat the attack at the original target.</li>\n</ul>",
+		"favorite": false,
+		"secretDescription": "",
+		"source": "hakansPamphlet",
+		"uses": {
+			"value": null,
+			"max": null,
+			"per": "",
+			"recharge": {
+				"formula": "",
+				"threshold": ""
+			}
+		},
+		"schema": {
+			"version": null,
+			"lastMigration": null
+		},
+		"classes": [
+			"artificer",
+			"sorcerer",
+			"witch",
+			"bard",
+			"cleric",
+			"warlock"
+		],
+		"components": {
+			"vocalized": false,
+			"seen": true,
+			"material": true
+		},
+		"concentration": true,
+		"level": 0,
+		"materials": "a document signed by the target",
+		"materialsConsumed": false,
+		"prepared": false,
+		"prerequisite": "",
+		"rare": true,
+		"ritual": false,
+		"schools": {
+			"primary": "conjuration",
+			"secondary": [
+				"arcane",
+				"law"
+			]
+		},
+		"schemaVersion": {
+			"version": 0.013,
+			"lastMigration": {
+				"version": {
+					"schema": 0.011,
+					"foundry": "11.315",
+					"system": "0.16.49"
+				}
+			}
+		}
+	},
+	"folder": null,
+	"_id": "07enuwp41re6y4qq"
+}
