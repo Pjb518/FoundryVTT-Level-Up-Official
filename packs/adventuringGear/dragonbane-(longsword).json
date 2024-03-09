@@ -1,5 +1,5 @@
 {
-	"name": "Dragonbane (Greatsword)",
+	"name": "Dragonbane (Longsword)",
 	"type": "object",
 	"img": "icons/weapons/swords/sword-guard-red.webp",
 	"effects": [],
@@ -17,7 +17,7 @@
 		},
 		"actions": {
 			"gN1VnpQWmko9P0l8": {
-				"name": "Greatsword",
+				"name": "Longsword",
 				"activation": {
 					"cost": "",
 					"type": "",
@@ -48,39 +48,15 @@
 					"vlUtyqLFnTkfBE3F": {
 						"canCrit": true,
 						"damageType": "slashing",
-						"formula": "2d6 + @str.mod + 2",
+						"formula": "1d8 + @str.mod + 2",
 						"name": "Greatsword",
 						"type": "damage"
 					}
 				},
 				"consumers": {}
 			},
-			"tWq3CWyPcjDp7rNd": {
-				"name": "Parry",
-				"activation": {},
-				"consumers": {},
-				"rolls": {
-					"Wr28F3fXpV7iLaWM": {
-						"type": "generic",
-						"default": true,
-						"label": "Armor Class",
-						"formula": "1d4"
-					}
-				},
-				"prompts": {},
-				"uses": {
-					"value": 0,
-					"max": "",
-					"per": "",
-					"recharge": {
-						"formula": "1d6",
-						"threshold": 6
-					}
-				},
-				"img": "icons/weapons/swords/greatsword-guard-gem-blue.webp"
-			},
 			"ch6McljxyuLFjOhW": {
-				"name": "Greatsword (Vs. Dragons)",
+				"name": "Longsword (Vs. Dragons)",
 				"activation": {
 					"cost": "",
 					"type": "",
@@ -111,7 +87,7 @@
 					"vlUtyqLFnTkfBE3F": {
 						"canCrit": true,
 						"damageType": "slashing",
-						"formula": "2d6 + @str.mod + 3 + 3d6",
+						"formula": "1d8 + @str.mod + 3 + 3d6",
 						"name": "Greatsword",
 						"type": "damage"
 					},
@@ -120,7 +96,8 @@
 						"default": true,
 						"canCrit": true,
 						"damageType": "radiant",
-						"critBonus": "3d10"
+						"critBonus": "3d10",
+						"formula": "1d0"
 					}
 				},
 				"consumers": {}
@@ -167,9 +144,7 @@
 		"unidentifiedDescription": "",
 		"unidentifiedName": "",
 		"weaponProperties": [
-			"parrying",
-			"heavy",
-			"twoHanded"
+			"defensiveMedium"
 		],
 		"weight": 7,
 		"schemaVersion": {
@@ -184,5 +159,5 @@
 		}
 	},
 	"folder": null,
-	"_id": "yjeixcbgsnhhluyn"
+	"_id": "1qfszv1h5phv0nl7"
 }
