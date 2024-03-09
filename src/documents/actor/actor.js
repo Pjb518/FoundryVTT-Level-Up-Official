@@ -694,6 +694,7 @@ export default class ActorA5e extends Actor {
 
     if (game.settings.get('a5e', 'enableCascadingDamageAndHealing')) {
       const actor = this;
+      const delayDelta = game.settings.get('a5e', 'cascadingDamageAndHealingDelay');
       let delay = 0;
 
       damageRolls.forEach(([damage, damageType]) => {
@@ -701,7 +702,7 @@ export default class ActorA5e extends Actor {
           await displayCascadingNumbers(actor, 'damage', `-${damage}`, damageType);
         }, delay);
 
-        delay += 300;
+        delay += delayDelta;
       });
     }
 
@@ -767,6 +768,7 @@ export default class ActorA5e extends Actor {
 
     if (game.settings.get('a5e', 'enableCascadingDamageAndHealing')) {
       const actor = this;
+      const delayDelta = game.settings.get('a5e', 'cascadingDamageAndHealingDelay');
       let delay = 0;
 
       healingRolls.forEach(([healing, healingType]) => {
@@ -776,7 +778,7 @@ export default class ActorA5e extends Actor {
           await displayCascadingNumbers(actor, 'healing', `+${healing}`, healingType);
         }, delay);
 
-        delay += 300;
+        delay += delayDelta;
       });
     }
 

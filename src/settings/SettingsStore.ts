@@ -503,6 +503,18 @@ class A5eGameSettings extends TJSGameSettings {
       },
       {
         namespace,
+        key: 'cascadingDamageAndHealingDelay',
+        options: {
+          name: 'A5E.settings.cascadingDamageAndHealingDelay',
+          hint: 'A5E.settings.hints.cascadingDamageAndHealingDelay',
+          scope: scope.client,
+          config: true,
+          default: 350,
+          type: Number
+        }
+      },
+      {
+        namespace,
         key: 'gamemasterTitle',
         options: {
           name: 'A5E.settings.gamemasterTitle',

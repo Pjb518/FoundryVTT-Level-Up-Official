@@ -25,9 +25,17 @@
     let gamemasterTitle = settings.getStore("gamemasterTitle");
     let showLimitedDesc = settings.getStore("showDescriptionOnLimitedPerms");
 
+    let cascadingDamageAndHealingDelay = settings.getStore(
+        "cascadingDamageAndHealingDelay",
+    );
+
     let enableCascadingDamageAndHealing = settings.getStore(
         "enableCascadingDamageAndHealing",
     );
+
+    let newCascadingDamageAndHealingDelay =
+        updates.get("cascadingDamageAndHealingDelay") ??
+        $cascadingDamageAndHealingDelay;
 
     let selectedNamingMode =
         updates.get("newActionNameType") ?? $actionNameType ?? "system";
@@ -85,6 +93,26 @@
                 on:updateSelection={({ detail }) => {
                     updates.set("enableCascadingDamageAndHealing", detail);
                     reload = true;
+                }}
+            />
+        </FieldWrapper>
+
+        <FieldWrapper
+            heading="A5E.settings.cascadingDamageAndHealingDelay"
+            hint="A5E.settings.hints.cascadingDamageAndHealingDelay"
+        >
+            <input
+                type="number"
+                value={newCascadingDamageAndHealingDelay}
+                on:change={({ target }) => {
+                    const { value } = target;
+
+                    newCascadingDamageAndHealingDelay = Number(value);
+
+                    updates.set(
+                        "cascadingDamageAndHealingDelay",
+                        Number(value),
+                    );
                 }}
             />
         </FieldWrapper>
