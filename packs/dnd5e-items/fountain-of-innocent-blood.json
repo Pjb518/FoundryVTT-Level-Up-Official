@@ -1,0 +1,178 @@
+{
+	"folder": null,
+	"name": "Fountain of Innocent Blood",
+	"type": "object",
+	"img": "icons/magic/death/blood-corruption-vomit-red.webp",
+	"system": {
+		"ac": {
+			"baseFormula": "",
+			"formula": "",
+			"grantsDisadvantage": false,
+			"maxDex": 0,
+			"minStr": 0,
+			"mode": 2,
+			"requiresNoShield": false,
+			"requiresUnarmored": false
+		},
+		"actions": {
+			"TXoNXN40LvtQY6NT": {
+				"name": "Drink",
+				"activation": {},
+				"consumers": {},
+				"rolls": {
+					"0zlGRRtT4xghiLbt": {
+						"type": "savingThrow",
+						"default": true,
+						"ability": "con"
+					}
+				},
+				"prompts": {
+					"WcWbq1uHv6IxXqcz": {
+						"type": "effect",
+						"default": true,
+						"effectId": "fkIwkGRUYl6vftRy"
+					},
+					"qJ0TFTdo86beVB6X": {
+						"type": "effect",
+						"default": true,
+						"effectId": "47enmjBJ2A7WgeXv"
+					}
+				},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"rechargeType": "custom",
+						"rechargeAmount": "1",
+						"threshold": 6
+					}
+				}
+			}
+		},
+		"description": "<p>In the very depths of the Festung is a mystical fountain running with the blood of innocents. Supplying the fountain is an army of nearly invisible imps, who travel the world in spiritual form collecting the blood wherever it may fall.</p>\n<p>You can use an action to drink from this fountain and make a DC 15 Constitution saving throw. On a failed save, you vomit the blood and are poisoned until you complete a long rest. On a successful save, one ability score of your choice (and your maximum for that ability score) increases by 2. In addition, you gain the Evil trait and radiate an aura of evil. If you are Evil you automatically succeed on this saving throw.</p>\n<hr>\n<p>Once you drink from the Fountain of Innocent Blood, you cannot do so again until a month later. An ability score can be increased by this artifact only once.</p>",
+		"favorite": false,
+		"secretDescription": "",
+		"source": "",
+		"uses": {
+			"value": null,
+			"max": "",
+			"per": null,
+			"recharge": {
+				"formula": "1d6",
+				"threshold": "6"
+			}
+		},
+		"schema": {
+			"version": null,
+			"lastMigration": null
+		},
+		"ammunitionProperties": [],
+		"armorCategory": "",
+		"armorProperties": [],
+		"attuned": false,
+		"bulky": false,
+		"craftingComponents": "Unique (uncraftable)",
+		"containerId": "",
+		"damagedState": 0,
+		"equippedState": 0,
+		"items": {},
+		"materialProperties": [],
+		"objectType": "consumable",
+		"plotItem": false,
+		"price": 0,
+		"proficient": true,
+		"quantity": 1,
+		"rarity": "artifact",
+		"requiresAttunement": false,
+		"shieldCategory": "",
+		"shieldProperties": [],
+		"unidentified": false,
+		"unidentifiedDescription": "",
+		"unidentifiedName": "",
+		"weaponProperties": [],
+		"weight": 0
+	},
+	"effects": [
+		{
+			"icon": "icons/magic/death/blood-corruption-vomit-red.webp",
+			"origin": "Item.Yw5lFaRtkgYP9iBw",
+			"flags": {
+				"a5e": {
+					"sort": 0,
+					"transferType": "onUse",
+					"actionId": "TXoNXN40LvtQY6NT",
+					"applyToSelf": true,
+					"duration": {
+						"unit": "hours"
+					}
+				}
+			},
+			"transfer": false,
+			"name": "Poisoned",
+			"_id": "fkIwkGRUYl6vftRy",
+			"changes": [
+				{
+					"key": "flags.a5e.effects.statusConditions",
+					"value": "[\"poisoned\"]",
+					"mode": 0,
+					"priority": null
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": 86400,
+				"combat": null,
+				"rounds": null,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "",
+			"statuses": [
+				"poisoned"
+			],
+			"folder": null
+		},
+		{
+			"icon": "icons/magic/death/blood-corruption-vomit-red.webp",
+			"origin": "Item.Yw5lFaRtkgYP9iBw",
+			"flags": {
+				"a5e": {
+					"sort": 0,
+					"transferType": "onUse",
+					"actionId": "TXoNXN40LvtQY6NT",
+					"applyToSelf": true
+				}
+			},
+			"transfer": false,
+			"name": "Increase Ability Score",
+			"_id": "47enmjBJ2A7WgeXv",
+			"changes": [
+				{
+					"key": "system.traits.alignment",
+					"value": "Evil",
+					"mode": 2,
+					"priority": null
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": null,
+				"combat": null,
+				"rounds": null,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "",
+			"statuses": [],
+			"folder": null
+		}
+	],
+	"flags": {},
+	"_id": "878uwhr1xqkramih"
+}

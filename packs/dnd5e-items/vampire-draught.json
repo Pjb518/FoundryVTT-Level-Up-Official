@@ -1,0 +1,164 @@
+{
+	"folder": null,
+	"name": "Vampire Draught",
+	"type": "object",
+	"img": "icons/consumables/potions/potion-bottle-corked-white.webp",
+	"system": {
+		"ac": {
+			"baseFormula": "",
+			"formula": "",
+			"grantsDisadvantage": false,
+			"maxDex": 0,
+			"minStr": 0,
+			"mode": 2,
+			"requiresNoShield": false,
+			"requiresUnarmored": false
+		},
+		"actions": {
+			"Bz7ZpTpE8aGLoVl3": {
+				"name": "Subjected to Poison",
+				"activation": {},
+				"consumers": {},
+				"rolls": {},
+				"prompts": {
+					"czaa211MQEq3mSGT": {
+						"type": "savingThrow",
+						"default": true,
+						"ability": "con",
+						"saveDC": {
+							"type": "custom",
+							"bonus": "17"
+						}
+					}
+				},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"rechargeType": "custom",
+						"rechargeAmount": "1",
+						"threshold": 6
+					}
+				}
+			},
+			"siCYKtvPrtnz9STJ": {
+				"name": "Sunlight",
+				"activation": {},
+				"consumers": {},
+				"rolls": {},
+				"prompts": {
+					"r8M6FCqRWML3X3Yj": {
+						"type": "savingThrow",
+						"default": true,
+						"ability": "con",
+						"saveDC": {
+							"type": "custom",
+							"bonus": "13"
+						}
+					},
+					"kIjDJAsrcosWjSjm": {
+						"type": "effect",
+						"default": true,
+						"effectId": "o8ICo9Vs7BKgsSWN"
+					}
+				},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"rechargeType": "custom",
+						"rechargeAmount": "1",
+						"threshold": 6
+					}
+				}
+			}
+		},
+		"description": "<p><em>Rare, Contact, Onset (1 hour)</em></p>\n<p>This milky liquid gives living creatures the superficial appearance and weakness of being a vampire. A creature makes a DC 17 Constitution saving throw when subjected to this poison, and on a failure it becomes afflicted. The afflicted creature becomes pale, its canines grow long, and direct sunlight burns it like flame. When the afflicted creature ends its turn in an area of sunlight or first enters into an area of sunlight on a turn, it makes a DC 13 Constitution saving throw or becomes poisoned until it ends its turn in an area of dim light or darkness. At the end of each long rest, an afflicted creature can make a DC 17 Constitution saving throw, ending the effect on itself on a success.</p>",
+		"favorite": false,
+		"secretDescription": "",
+		"source": "",
+		"uses": {
+			"value": null,
+			"max": "",
+			"per": null,
+			"recharge": {
+				"formula": "1d6",
+				"threshold": "6"
+			}
+		},
+		"schema": {
+			"version": null,
+			"lastMigration": null
+		},
+		"ammunitionProperties": [],
+		"armorCategory": "",
+		"armorProperties": [],
+		"attuned": false,
+		"bulky": false,
+		"craftingComponents": "Unique (uncraftable)",
+		"containerId": "",
+		"damagedState": 0,
+		"equippedState": 0,
+		"items": {},
+		"materialProperties": [],
+		"objectType": "consumable",
+		"plotItem": false,
+		"price": "250 gp",
+		"proficient": true,
+		"quantity": 1,
+		"rarity": "rare",
+		"requiresAttunement": false,
+		"shieldCategory": "",
+		"shieldProperties": [],
+		"unidentified": false,
+		"unidentifiedDescription": "",
+		"unidentifiedName": "",
+		"weaponProperties": [],
+		"weight": 0
+	},
+	"effects": [
+		{
+			"icon": "icons/consumables/potions/potion-bottle-corked-white.webp",
+			"origin": "Item.MkWgFJCgIxFHW0QH",
+			"flags": {
+				"a5e": {
+					"sort": 0,
+					"transferType": "onUse",
+					"actionId": "siCYKtvPrtnz9STJ"
+				}
+			},
+			"transfer": false,
+			"name": "Poisoned",
+			"_id": "o8ICo9Vs7BKgsSWN",
+			"changes": [
+				{
+					"key": "flags.a5e.effects.statusConditions",
+					"value": "[\"poisoned\"]",
+					"mode": 0,
+					"priority": null
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": null,
+				"combat": null,
+				"rounds": null,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "",
+			"statuses": [
+				"poisoned"
+			],
+			"folder": null
+		}
+	],
+	"flags": {},
+	"_id": "k0fqnml33nfxo5h0"
+}

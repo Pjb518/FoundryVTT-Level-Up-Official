@@ -1,0 +1,230 @@
+{
+	"name": "Silver Quickbow",
+	"type": "object",
+	"img": "icons/equipment/wrist/bracer-red-silver.webp",
+	"system": {
+		"ac": {
+			"baseFormula": "",
+			"formula": "",
+			"grantsDisadvantage": false,
+			"maxDex": 0,
+			"minStr": 0,
+			"mode": 2,
+			"requiresNoShield": false,
+			"requiresUnarmored": false
+		},
+		"actions": {
+			"hgvqLIAfEasG3cRl": {
+				"name": "Attack",
+				"activation": {},
+				"consumers": {
+					"yF5nQhRY7wK5jM3I": {
+						"type": "ammunition",
+						"default": true,
+						"itemId": "",
+						"quantity": 1
+					}
+				},
+				"rolls": {
+					"cybqvGeeF98KKVJQ": {
+						"type": "attack",
+						"default": true,
+						"attackType": "rangedWeaponAttack",
+						"proficient": true,
+						"ability": "default",
+						"bonus": "1"
+					},
+					"vC236kXSvoLJoqgT": {
+						"type": "damage",
+						"default": true,
+						"formula": "1d4 + @dex.mod + 1",
+						"damageType": "piercing"
+					},
+					"TK9cz3pKG7H1oeXW": {
+						"type": "damage",
+						"default": false,
+						"label": "Vs Undead",
+						"formula": "1d6",
+						"damageType": "radiant"
+					}
+				},
+				"prompts": {},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"rechargeType": "custom",
+						"rechargeAmount": "1",
+						"threshold": 6
+					}
+				},
+				"ranges": {
+					"7B55SIVQKKPBpOXQ": {
+						"range": 50,
+						"unit": "feet"
+					},
+					"mg3WFCkay4dkpgGv": {
+						"range": 100,
+						"unit": "feet"
+					}
+				},
+				"target": {
+					"type": "creatureObject",
+					"quantity": 1
+				}
+			},
+			"9Cskx8GGI5nylEcB": {
+				"name": "Triple Attack",
+				"activation": {},
+				"consumers": {
+					"yF5nQhRY7wK5jM3I": {
+						"type": "ammunition",
+						"default": true,
+						"itemId": "",
+						"quantity": 1
+					}
+				},
+				"rolls": {
+					"cybqvGeeF98KKVJQ": {
+						"type": "attack",
+						"default": true,
+						"attackType": "rangedWeaponAttack",
+						"proficient": true,
+						"ability": "default",
+						"bonus": "1",
+						"label": "With Disadvantage"
+					},
+					"vC236kXSvoLJoqgT": {
+						"type": "damage",
+						"default": true,
+						"formula": "1d4 + @dex.mod + 1",
+						"damageType": "piercing"
+					},
+					"sJ84VpAl1z4L9RHf": {
+						"type": "damage",
+						"default": true,
+						"label": "Vs Undead",
+						"formula": "1d6",
+						"damageType": "radiant"
+					}
+				},
+				"prompts": {},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"rechargeType": "custom",
+						"rechargeAmount": "1",
+						"threshold": 6
+					}
+				},
+				"ranges": {
+					"7B55SIVQKKPBpOXQ": {
+						"range": 50,
+						"unit": "feet"
+					},
+					"mg3WFCkay4dkpgGv": {
+						"range": 100,
+						"unit": "feet"
+					}
+				},
+				"target": {
+					"type": "creatureObject",
+					"quantity": 1
+				}
+			},
+			"89iU044c1LmGPrlf": {
+				"name": "Rain of Bolts",
+				"activation": {
+					"type": "action",
+					"cost": 1
+				},
+				"consumers": {
+					"mMe1nlMSFIksbc2U": {
+						"type": "actionUses",
+						"default": true,
+						"quantity": 1
+					}
+				},
+				"rolls": {},
+				"prompts": {},
+				"uses": {
+					"value": 1,
+					"max": "1",
+					"per": "day",
+					"recharge": {
+						"formula": "1d6",
+						"rechargeType": "custom",
+						"rechargeAmount": "1",
+						"threshold": 6
+					}
+				},
+				"ranges": {
+					"My643RmJTZUxdFmP": {
+						"range": 100,
+						"unit": "feet"
+					}
+				},
+				"area": {
+					"shape": "circle",
+					"quantity": 1,
+					"radius": 40,
+					"placeTemplate": true
+				}
+			}
+		},
+		"description": "<p>This gauntlet fits over the wrist, binding tightly with cords of leather, and one side of it is adorned with a winged silver contraption that has a taut wire connected on the ends and set perpendicular to the bracer. When you take the Attack action using this weapon, you may choose to attack with disadvantage until the start of your next turn to make two additional ranged weapon attacks.</p>\n<hr>\n<p>This archaic weapon is covered in holy iconography. You gain a +1 magical bonus to attack and damage rolls made with this quickbow.</p>\n<p>In addition, while attuned this weapon has the following properties.</p>\n<hr>\n<p><em><strong>Rain of Bolts.</strong></em> You can use an action to fire a rain of bolts. Make a ranged weapon attack against any number of creatures within 40 feet of a point you can see within 100 feet. You must have ammunition for each target, and you make a separate attack roll for each target. You do not have disadvantage for firing the weapon at long range for this action. Once you have used this property, it cannot be used again until the next sunrise.</p>\n<p><em><strong>Silvered Bolts.</strong></em> Every bolt you fire from the quickbow becomes coated in silver as it leaves the flight groove. On a successful hit against an undead, a silvered bolt from this weapon deals an extra 1d6 radiant damage. This silver dissipates after 1 minute.</p>\n<hr>\n<p>Evil and undead creatures take 2d6 radiant damage when touching this weapon and cannot wield it.</p>",
+		"favorite": false,
+		"secretDescription": "",
+		"source": "",
+		"uses": {
+			"value": null,
+			"max": "",
+			"per": null,
+			"recharge": {
+				"formula": "1d6",
+				"threshold": "6"
+			}
+		},
+		"schema": {
+			"version": null,
+			"lastMigration": null
+		},
+		"ammunitionProperties": [],
+		"armorCategory": "",
+		"armorProperties": [],
+		"attuned": false,
+		"bulky": false,
+		"craftingComponents": "Silver used to stake a vampire",
+		"containerId": "",
+		"damagedState": 0,
+		"equippedState": 0,
+		"items": {},
+		"materialProperties": [],
+		"objectType": "weapon",
+		"plotItem": false,
+		"price": "8,500 gp",
+		"proficient": true,
+		"quantity": 1,
+		"rarity": "veryRare",
+		"requiresAttunement": true,
+		"shieldCategory": "",
+		"shieldProperties": [],
+		"unidentified": false,
+		"unidentifiedDescription": "",
+		"unidentifiedName": "",
+		"weaponProperties": [
+			"handMounted",
+			"range"
+		],
+		"weight": 3
+	},
+	"effects": [],
+	"folder": null,
+	"flags": {},
+	"_id": "m9nn2d1j9y80xo7y"
+}

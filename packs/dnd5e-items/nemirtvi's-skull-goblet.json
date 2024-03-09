@@ -1,0 +1,160 @@
+{
+	"folder": null,
+	"name": "Nemirtvi's Skull Goblet",
+	"type": "object",
+	"img": "icons/containers/kitchenware/goblet-engraved-gold.webp",
+	"system": {
+		"ac": {
+			"baseFormula": "",
+			"formula": "",
+			"grantsDisadvantage": false,
+			"maxDex": 0,
+			"minStr": 0,
+			"mode": 2,
+			"requiresNoShield": false,
+			"requiresUnarmored": false
+		},
+		"actions": {
+			"NbAoZ6XzTRLX0tPQ": {
+				"name": "Saving Throw",
+				"activation": {},
+				"consumers": {},
+				"rolls": {
+					"auXLL7CxlcCiANWw": {
+						"type": "savingThrow",
+						"default": true,
+						"ability": "cha"
+					}
+				},
+				"prompts": {
+					"ak2acbTOzR1DVI2F": {
+						"type": "effect",
+						"default": true,
+						"effectId": "kkIIkviztr2qU2nm"
+					}
+				},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"rechargeType": "custom",
+						"rechargeAmount": "1",
+						"threshold": 6
+					}
+				}
+			},
+			"PfvJgNOYePffsew6": {
+				"name": "Drink Blood",
+				"activation": {},
+				"consumers": {
+					"jrqg63HBKtVsu9GH": {
+						"type": "itemUses",
+						"default": true,
+						"quantity": 1
+					}
+				},
+				"rolls": {},
+				"prompts": {},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"rechargeType": "custom",
+						"rechargeAmount": "1",
+						"threshold": 6
+					}
+				},
+				"duration": {
+					"unit": "minute",
+					"value": 10
+				}
+			}
+		},
+		"description": "<p>While the construction of this cup is superlative, the magnificence of its craftsmanship is turned wicked by the grotesque gold-crowned humanoid skull that makes up its bowl. When you use this spellcasting focus to consume Supply during a long rest, you gain a 1d8 expertise die on your next Arcana or Religion check. After making this check, you make a Charisma saving throw (DC 1 + 1 per previous use of this property) or gain the Evil trait (making you radiate an aura of Evil).</p>\n<p>In addition, once per day you can place the blood of a creature that has died within the last hour into the goblet and drink from it. You instantly experi- ence the last 10 minutes of the creature&rsquo;s life through its senses, and you have disadvantage on your next Charisma saving throw against Nemirtvi&rsquo;s skull goblet.</p>",
+		"favorite": false,
+		"secretDescription": "",
+		"source": "",
+		"uses": {
+			"value": 1,
+			"max": "1",
+			"per": "day",
+			"recharge": {
+				"formula": "1d6",
+				"threshold": "6"
+			}
+		},
+		"schema": {
+			"version": null,
+			"lastMigration": null
+		},
+		"ammunitionProperties": [],
+		"armorCategory": "",
+		"armorProperties": [],
+		"attuned": false,
+		"bulky": false,
+		"craftingComponents": "Skull of a royal humanoid",
+		"containerId": "",
+		"damagedState": 0,
+		"equippedState": 0,
+		"items": {},
+		"materialProperties": [],
+		"objectType": "miscellaneous",
+		"plotItem": false,
+		"price": "12,000 gp",
+		"proficient": true,
+		"quantity": 1,
+		"rarity": "veryRare",
+		"requiresAttunement": true,
+		"shieldCategory": "",
+		"shieldProperties": [],
+		"unidentified": false,
+		"unidentifiedDescription": "",
+		"unidentifiedName": "",
+		"weaponProperties": [],
+		"weight": 0
+	},
+	"effects": [
+		{
+			"icon": "icons/containers/kitchenware/goblet-engraved-gold.webp",
+			"origin": "Item.pq1gXnIIbUiBO2wY",
+			"flags": {
+				"a5e": {
+					"sort": 0,
+					"transferType": "onUse",
+					"actionId": "NbAoZ6XzTRLX0tPQ",
+					"applyToSelf": true
+				}
+			},
+			"transfer": false,
+			"name": "Evil",
+			"_id": "kkIIkviztr2qU2nm",
+			"changes": [
+				{
+					"key": "system.traits.alignment",
+					"value": "Evil",
+					"mode": 2,
+					"priority": null
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": null,
+				"combat": null,
+				"rounds": null,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "",
+			"statuses": [],
+			"folder": null
+		}
+	],
+	"flags": {},
+	"_id": "zfk47l6m7nwh170u"
+}

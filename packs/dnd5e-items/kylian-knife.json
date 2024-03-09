@@ -1,0 +1,496 @@
+{
+	"name": "Kylian Knife",
+	"type": "object",
+	"img": "icons/commodities/treasure/token-gold-cross.webp",
+	"system": {
+		"ac": {
+			"baseFormula": "",
+			"formula": "",
+			"grantsDisadvantage": false,
+			"maxDex": 0,
+			"minStr": 0,
+			"mode": 2,
+			"requiresNoShield": false,
+			"requiresUnarmored": false
+		},
+		"actions": {
+			"KNlAlHqrEKRevyrG": {
+				"name": "Crossdagger",
+				"activation": {
+					"type": "action",
+					"cost": 1
+				},
+				"consumers": {},
+				"rolls": {
+					"kaKPPHtqQjDcJgj9": {
+						"type": "attack",
+						"default": true,
+						"attackType": "meleeWeaponAttack",
+						"proficient": true,
+						"ability": "default",
+						"bonus": "2"
+					},
+					"3ZCiQAb4Qq5XOO27": {
+						"type": "damage",
+						"default": true,
+						"formula": "1d4 + @finesse.mod + 2",
+						"damageType": "slashing"
+					}
+				},
+				"prompts": {},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"rechargeType": "custom",
+						"rechargeAmount": "1",
+						"threshold": 6
+					}
+				},
+				"ranges": {
+					"lWd1QeXZeGr5PQgG": {
+						"range": "fiveFeet"
+					}
+				},
+				"target": {
+					"type": "creatureObject",
+					"quantity": 1
+				}
+			},
+			"AEuDNW7X5bPDse5b": {
+				"name": "Crossdagger (Off-Hand)",
+				"activation": {
+					"type": "bonusAction",
+					"cost": 1
+				},
+				"consumers": {},
+				"rolls": {
+					"kaKPPHtqQjDcJgj9": {
+						"type": "attack",
+						"default": true,
+						"attackType": "meleeWeaponAttack",
+						"proficient": true,
+						"ability": "default",
+						"bonus": "2"
+					},
+					"3ZCiQAb4Qq5XOO27": {
+						"type": "damage",
+						"default": true,
+						"formula": "1d4 + min(@finesse.mod,0) + 2",
+						"damageType": "slashing"
+					}
+				},
+				"prompts": {},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"rechargeType": "custom",
+						"rechargeAmount": "1",
+						"threshold": 6
+					}
+				},
+				"ranges": {
+					"lWd1QeXZeGr5PQgG": {
+						"range": "fiveFeet"
+					}
+				},
+				"target": {
+					"type": "creatureObject",
+					"quantity": 1
+				}
+			},
+			"2Vvk6YL0lt4GzDE5": {
+				"name": "Crossdagger (Throw)",
+				"activation": {
+					"type": "action",
+					"cost": 1
+				},
+				"consumers": {
+					"qUcISK5MfRMcQ3Fx": {
+						"type": "itemUses",
+						"default": true,
+						"quantity": 1
+					}
+				},
+				"rolls": {
+					"kaKPPHtqQjDcJgj9": {
+						"type": "attack",
+						"default": true,
+						"attackType": "rangedWeaponAttack",
+						"proficient": true,
+						"ability": "default",
+						"bonus": "2"
+					},
+					"3ZCiQAb4Qq5XOO27": {
+						"type": "damage",
+						"default": true,
+						"formula": "1d4 + @finesse.mod + 2",
+						"damageType": "slashing"
+					}
+				},
+				"prompts": {},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"rechargeType": "custom",
+						"rechargeAmount": "1",
+						"threshold": 6
+					}
+				},
+				"ranges": {
+					"lWd1QeXZeGr5PQgG": {
+						"range": 40,
+						"unit": "feet"
+					},
+					"QDbmhfAcr1uZGLQe": {
+						"range": 80,
+						"unit": "feet"
+					}
+				},
+				"target": {
+					"type": "creatureObject",
+					"quantity": 1
+				}
+			},
+			"GcWkhLPJRMV5dK72": {
+				"name": "Crossdagger (Throw, Off-Hand)",
+				"activation": {
+					"type": "bonusAction",
+					"cost": 1
+				},
+				"consumers": {
+					"qUcISK5MfRMcQ3Fx": {
+						"type": "itemUses",
+						"default": true,
+						"quantity": 1
+					}
+				},
+				"rolls": {
+					"kaKPPHtqQjDcJgj9": {
+						"type": "attack",
+						"default": true,
+						"attackType": "rangedWeaponAttack",
+						"proficient": true,
+						"ability": "default",
+						"bonus": "2"
+					},
+					"3ZCiQAb4Qq5XOO27": {
+						"type": "damage",
+						"default": true,
+						"formula": "1d4 + min(@finesse.mod,0) + 2",
+						"damageType": "slashing"
+					}
+				},
+				"prompts": {},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"rechargeType": "custom",
+						"rechargeAmount": "1",
+						"threshold": 6
+					}
+				},
+				"ranges": {
+					"lWd1QeXZeGr5PQgG": {
+						"range": 40,
+						"unit": "feet"
+					},
+					"QDbmhfAcr1uZGLQe": {
+						"range": 80,
+						"unit": "feet"
+					}
+				},
+				"target": {
+					"type": "creatureObject",
+					"quantity": 1
+				}
+			},
+			"uDwICf50JGXw3rq3": {
+				"name": "Parry",
+				"activation": {},
+				"consumers": {
+					"w7lVqeMs3WVDLgpp": {
+						"type": "itemUses",
+						"default": true,
+						"quantity": 1
+					}
+				},
+				"rolls": {
+					"h3oy8m7fVZAtLEak": {
+						"type": "generic",
+						"default": true,
+						"formula": "1d4"
+					}
+				},
+				"prompts": {},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"rechargeType": "custom",
+						"rechargeAmount": "1",
+						"threshold": 6
+					}
+				}
+			},
+			"wkHVytFInKuVCA2F": {
+				"name": "Spin One Knife",
+				"activation": {},
+				"consumers": {},
+				"rolls": {
+					"Hi4iEK9QmQo35dwR": {
+						"type": "abilityCheck",
+						"default": true,
+						"ability": "dex"
+					}
+				},
+				"prompts": {
+					"CQ45QHNvDwFuhtXr": {
+						"type": "effect",
+						"default": true,
+						"effectId": "6eygVVKISv7zYGX6"
+					}
+				},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"rechargeType": "custom",
+						"rechargeAmount": "1",
+						"threshold": 6
+					}
+				}
+			},
+			"WE1NvwdM3MVhBDe0": {
+				"name": "Spin Two Knives",
+				"activation": {},
+				"consumers": {
+					"NJttg9mDi49EBxUW": {
+						"type": "actionUses",
+						"default": true,
+						"quantity": 1
+					}
+				},
+				"rolls": {
+					"Hi4iEK9QmQo35dwR": {
+						"type": "abilityCheck",
+						"default": true,
+						"ability": "dex"
+					}
+				},
+				"prompts": {
+					"myaP1rabESJimQWA": {
+						"type": "abilityCheck",
+						"default": true,
+						"ability": "dex"
+					},
+					"rDCJpNnHC4DWNdds": {
+						"type": "effect",
+						"default": true,
+						"effectId": "tVPCQLENpbDlsamo"
+					}
+				},
+				"uses": {
+					"value": 5,
+					"max": "5",
+					"per": "hour",
+					"recharge": {
+						"formula": "1d6",
+						"rechargeType": "custom",
+						"rechargeAmount": "1",
+						"threshold": 6
+					}
+				}
+			},
+			"c5sqJVXdGMZyugM0": {
+				"name": "Uncanny Return",
+				"activation": {},
+				"consumers": {
+					"GlUEo6449MQfqHDj": {
+						"type": "itemUses",
+						"default": true,
+						"quantity": -1
+					}
+				},
+				"rolls": {},
+				"prompts": {},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"rechargeType": "custom",
+						"rechargeAmount": "1",
+						"threshold": 6
+					}
+				}
+			}
+		},
+		"description": "<p>A red ruby is set into the hilt of this silver crossdagger and it glows with a soft white light.</p>\n<p>You gain a +2 magical bonus to attack and damage rolls made with this crossdagger.</p>\n<p>You are able to attune to up to two Kylian Knives with only a single attunement slot. While attuned to a Kylian Knife it has the following properties:</p>\n<hr>\n<p><em><strong>Cross Spin.</strong></em> While you are wielding this crossdagger, on your turn you can make a DC 5 Dexterity check to spin it until the start of your next turn. On a success, while the crossdagger is spinning your Speed increases by 10 feet, your AC increases by 2, you have advantage on Dexterity saving throws, and you gain an additional action that can be used only to take the Attack (one weapon attack only), Dash, Disengage, Hide, or Use an Object action. If you are wielding two Kylian Knives you may spin both with a DC 10 Dexterity check, instead increasing your Speed by 20 feet, your AC by 4, and granting you two additional weapon attacks when using your additional action to take the Attack action. You can spin a Kylian Knife in this way for up to 5 rounds, all at once or in smaller increments. The Kylian Knife regains 1 round of spinning capability for every hour it isn&rsquo;t in use.</p>\n<p><em><strong>Uncanny Return.</strong></em> Immediately after you throw a Kylian Knife and either hit or miss a target, you can choose to summon the crossdagger back into your hand (no action required).</p>\n<hr>\n<p>Evil and undead creatures take 2d6 radiant damage when touching this weapon and cannot wield it.</p>",
+		"favorite": false,
+		"secretDescription": "",
+		"source": "",
+		"uses": {
+			"value": 1,
+			"max": "1",
+			"per": null,
+			"recharge": {
+				"formula": "1d6",
+				"threshold": "6"
+			}
+		},
+		"schema": {
+			"version": null,
+			"lastMigration": null
+		},
+		"ammunitionProperties": [],
+		"armorCategory": "",
+		"armorProperties": [],
+		"attuned": false,
+		"bulky": false,
+		"craftingComponents": "Reforged steel used to destroy at least 6 different kinds of undead",
+		"containerId": "",
+		"damagedState": 0,
+		"equippedState": 0,
+		"items": {},
+		"materialProperties": [],
+		"objectType": "weapon",
+		"plotItem": false,
+		"price": "5,000 gp",
+		"proficient": true,
+		"quantity": 1,
+		"rarity": "veryRare",
+		"requiresAttunement": true,
+		"shieldCategory": "",
+		"shieldProperties": [],
+		"unidentified": false,
+		"unidentifiedDescription": "",
+		"unidentifiedName": "",
+		"weaponProperties": [
+			"dualWielding",
+			"finesse",
+			"parrying",
+			"thrown"
+		],
+		"weight": 2
+	},
+	"effects": [
+		{
+			"icon": "icons/commodities/treasure/token-gold-cross.webp",
+			"origin": "Item.DZ0XwEr2SWo3USfF",
+			"flags": {
+				"a5e": {
+					"sort": 0,
+					"transferType": "onUse",
+					"actionId": "wkHVytFInKuVCA2F",
+					"applyToSelf": true,
+					"duration": {
+						"type": "rounds",
+						"unit": "minutes"
+					}
+				}
+			},
+			"transfer": false,
+			"name": "Spinning One Knife",
+			"_id": "6eygVVKISv7zYGX6",
+			"changes": [
+				{
+					"key": "system.attributes.movement.walk.distance",
+					"value": "10",
+					"mode": 2,
+					"priority": null
+				},
+				{
+					"key": "system.attributes.ac.changes.bonuses.value",
+					"value": "2",
+					"mode": 2,
+					"priority": null
+				},
+				{
+					"key": "flags.a5e.effects.rollMode.abilitySave.dex",
+					"value": "1",
+					"mode": 6,
+					"priority": null
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": null,
+				"combat": null,
+				"rounds": null,
+				"turns": 1,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "",
+			"statuses": [],
+			"folder": null
+		},
+		{
+			"icon": "icons/commodities/treasure/token-gold-cross.webp",
+			"origin": "Item.DZ0XwEr2SWo3USfF",
+			"flags": {
+				"a5e": {
+					"sort": 0,
+					"transferType": "onUse",
+					"actionId": "WE1NvwdM3MVhBDe0",
+					"applyToSelf": true,
+					"duration": {
+						"type": "rounds",
+						"unit": "minutes"
+					}
+				}
+			},
+			"transfer": false,
+			"name": "Spinning Two Knives",
+			"_id": "tVPCQLENpbDlsamo",
+			"changes": [
+				{
+					"key": "system.attributes.movement.walk.distance",
+					"value": "20",
+					"mode": 2,
+					"priority": null
+				},
+				{
+					"key": "system.attributes.ac.changes.bonuses.value",
+					"value": "4",
+					"mode": 2,
+					"priority": null
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": null,
+				"combat": null,
+				"rounds": 5,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "",
+			"statuses": [],
+			"folder": null
+		}
+	],
+	"folder": null,
+	"flags": {},
+	"_id": "b9qnrqmuztsmiakl"
+}

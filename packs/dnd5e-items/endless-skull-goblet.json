@@ -1,0 +1,214 @@
+{
+	"folder": null,
+	"name": "Endless Skull Goblet",
+	"type": "object",
+	"img": "icons/containers/kitchenware/goblet-skeletal-black.webp",
+	"system": {
+		"ac": {
+			"baseFormula": "",
+			"formula": "",
+			"grantsDisadvantage": false,
+			"maxDex": 0,
+			"minStr": 0,
+			"mode": 2,
+			"requiresNoShield": false,
+			"requiresUnarmored": false
+		},
+		"actions": {
+			"hiboUduqgfBKT9xn": {
+				"name": "Endless Skull Goblet",
+				"activation": {},
+				"consumers": {},
+				"rolls": {
+					"qgeoX1axauIV5w5X": {
+						"type": "savingThrow",
+						"default": true,
+						"ability": "cha"
+					}
+				},
+				"prompts": {
+					"qvezROyiG5OcLV9l": {
+						"type": "effect",
+						"default": true,
+						"effectId": "MiHCkVRSZHQUlOl4"
+					},
+					"hBS367OGCf3das6X": {
+						"type": "effect",
+						"default": true,
+						"effectId": "3OuVHQqLr87TYW7j"
+					},
+					"5LeSaQ069XJaLJ5j": {
+						"type": "effect",
+						"default": true,
+						"effectId": "WEJwPHD2ONuUS30m"
+					}
+				},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"rechargeType": "custom",
+						"rechargeAmount": "1",
+						"threshold": 6
+					}
+				}
+			}
+		},
+		"description": "<p>This opulent receptacle looks as though it is made from expertly worked gold, but its weight betrays that the grimacing skull which makes up its bowl is merely coated in precious metal. When you use this spellcasting focus to consume Supply during a long rest, you gain 20 temporary hit points. While you have these temporary hit points, you gain an expertise die on your first attack roll each turn.</p>\n<p>In addition, you make a Charisma saving throw (DC 4 + 2 per previous successful save). On a failed save, you gain the Evil trait and radiate an evil aura. On a successful saving throw, you gain an expertise die on your next Wisdom saving throw.</p>",
+		"favorite": false,
+		"secretDescription": "",
+		"source": "",
+		"uses": {
+			"value": null,
+			"max": "",
+			"per": null,
+			"recharge": {
+				"formula": "1d6",
+				"threshold": "6"
+			}
+		},
+		"schema": {
+			"version": null,
+			"lastMigration": null
+		},
+		"ammunitionProperties": [],
+		"armorCategory": "",
+		"armorProperties": [],
+		"attuned": false,
+		"bulky": false,
+		"craftingComponents": "Skull of a master thief and stolen crown",
+		"containerId": "",
+		"damagedState": 0,
+		"equippedState": 0,
+		"items": {},
+		"materialProperties": [],
+		"objectType": "miscellaneous",
+		"plotItem": false,
+		"price": "4,000 gp",
+		"proficient": true,
+		"quantity": 1,
+		"rarity": "rare",
+		"requiresAttunement": true,
+		"shieldCategory": "",
+		"shieldProperties": [],
+		"unidentified": false,
+		"unidentifiedDescription": "",
+		"unidentifiedName": "",
+		"weaponProperties": [],
+		"weight": 0
+	},
+	"effects": [
+		{
+			"icon": "icons/containers/kitchenware/goblet-skeletal-black.webp",
+			"origin": "Item.JjHVbCNRFZJ5RtBD",
+			"flags": {
+				"a5e": {
+					"sort": 0,
+					"transferType": "onUse",
+					"actionId": "hiboUduqgfBKT9xn",
+					"applyToSelf": true
+				}
+			},
+			"transfer": false,
+			"name": "Consume Supply",
+			"_id": "MiHCkVRSZHQUlOl4",
+			"changes": [
+				{
+					"key": "system.attributes.hp.temp",
+					"value": "20",
+					"mode": 6,
+					"priority": null
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": null,
+				"combat": null,
+				"rounds": null,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "",
+			"statuses": [],
+			"folder": null
+		},
+		{
+			"icon": "icons/containers/kitchenware/goblet-skeletal-black.webp",
+			"origin": "Item.JjHVbCNRFZJ5RtBD",
+			"flags": {
+				"a5e": {
+					"sort": 0,
+					"transferType": "onUse",
+					"actionId": "hiboUduqgfBKT9xn",
+					"applyToSelf": true
+				}
+			},
+			"transfer": false,
+			"name": "Endless Skull Goblet - Failure",
+			"_id": "3OuVHQqLr87TYW7j",
+			"changes": [
+				{
+					"key": "system.traits.alignment",
+					"value": "Evil",
+					"mode": 2,
+					"priority": null
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": null,
+				"combat": null,
+				"rounds": null,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "",
+			"statuses": [],
+			"folder": null
+		},
+		{
+			"icon": "icons/containers/kitchenware/goblet-skeletal-black.webp",
+			"origin": "Item.JjHVbCNRFZJ5RtBD",
+			"flags": {
+				"a5e": {
+					"sort": 0,
+					"transferType": "onUse",
+					"actionId": "hiboUduqgfBKT9xn",
+					"applyToSelf": true
+				}
+			},
+			"transfer": false,
+			"name": "Endless Skull Goblet - Success",
+			"_id": "WEJwPHD2ONuUS30m",
+			"changes": [
+				{
+					"key": "system.abilities.wis.save.expertiseDice",
+					"value": "1",
+					"mode": 2,
+					"priority": null
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": null,
+				"combat": null,
+				"rounds": null,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "",
+			"statuses": [],
+			"folder": null
+		}
+	],
+	"flags": {},
+	"_id": "yvwfy55nqffesr5i"
+}

@@ -1,0 +1,196 @@
+{
+	"name": "Hammer of Vengeance",
+	"type": "object",
+	"img": "icons/weapons/hammers/hammer-double-engraved.webp",
+	"effects": [],
+	"flags": {},
+	"system": {
+		"ac": {
+			"baseFormula": "",
+			"formula": "",
+			"grantsDisadvantage": false,
+			"maxDex": 0,
+			"minStr": 0,
+			"mode": 1,
+			"requiresNoShield": false,
+			"requiresUnarmored": false
+		},
+		"actions": {
+			"vyRQ7uPQugLDVOn6": {
+				"name": "Attack",
+				"activation": {
+					"cost": "",
+					"type": "",
+					"reactionTrigger": ""
+				},
+				"duration": {
+					"unit": "",
+					"value": ""
+				},
+				"area": {
+					"shape": "",
+					"size": "",
+					"placeTemplate": false,
+					"quantity": 1
+				},
+				"target": {
+					"quantity": 1,
+					"type": "creatureObject"
+				},
+				"rolls": {
+					"sz34o0lZChAfzq92": {
+						"bonus": "2",
+						"critThreshold": "20",
+						"type": "attack",
+						"attackType": "meleeWeaponAttack",
+						"ability": "default"
+					},
+					"avEzM2ldJEDhQEPF": {
+						"canCrit": true,
+						"damageType": "bludgeoning",
+						"formula": "1d8 + @str.mod + 2",
+						"name": "Warhammer 1H",
+						"type": "damage",
+						"label": "One-Handed",
+						"default": false
+					},
+					"I2YLTXoFuKJbZoVE": {
+						"canCrit": true,
+						"damageType": "bludgeoning",
+						"formula": "1d10 + @str.mod + 2",
+						"name": "Warhammer 2H",
+						"type": "damage",
+						"label": "Two-Handed",
+						"default": false
+					}
+				},
+				"consumers": {}
+			},
+			"AbADRjpT8nLcZoZp": {
+				"name": "Attack Dragon",
+				"activation": {
+					"cost": "",
+					"type": "",
+					"reactionTrigger": ""
+				},
+				"duration": {
+					"unit": "",
+					"value": ""
+				},
+				"area": {
+					"shape": "",
+					"size": "",
+					"placeTemplate": false,
+					"quantity": 1
+				},
+				"target": {
+					"quantity": 1,
+					"type": "creatureObject"
+				},
+				"rolls": {
+					"sz34o0lZChAfzq92": {
+						"bonus": "3",
+						"critThreshold": "20",
+						"type": "attack",
+						"attackType": "meleeWeaponAttack",
+						"ability": "default"
+					},
+					"avEzM2ldJEDhQEPF": {
+						"canCrit": true,
+						"damageType": "bludgeoning",
+						"formula": "1d8 + @str.mod + 3",
+						"name": "Warhammer 1H",
+						"type": "damage",
+						"label": "One-Handed",
+						"default": false
+					},
+					"I2YLTXoFuKJbZoVE": {
+						"canCrit": true,
+						"damageType": "bludgeoning",
+						"formula": "1d10 + @str.mod + 3",
+						"name": "Warhammer 2H",
+						"type": "damage",
+						"label": "Two-Handed",
+						"default": false
+					},
+					"YbmXMoE4qjnRWkxW": {
+						"type": "damage",
+						"default": true,
+						"formula": "2d6",
+						"damageType": "thunder",
+						"critBonus": "3d10"
+					}
+				},
+				"consumers": {},
+				"prompts": {
+					"kd6tCpZFTgdpJgg7": {
+						"type": "savingThrow",
+						"default": true,
+						"ability": "wis",
+						"saveDC": {
+							"type": "custom",
+							"bonus": "20"
+						}
+					}
+				}
+			}
+		},
+		"description": "<p><em>Breaker, Versatile (1d10)</em></p>\n<p>This ancient stone hammer is encrusted with Dwarvish runes, veined with glittering blue metal, and said to be capable of crippling the mind of a dragon. Though it was made by the dwarves of Deephall Point to slay Cirothe, unfortunately the mighty dragon destroyed the stout folk before they could wield it against her.</p>\n<p>You gain a +2 bonus to attack and damage rolls made with this warhammer. When used against a dragon, you instead gain a +3 bonus to attack and damage rolls, and deal an extra 2d6 thunder damage. On a critical hit against a dragon, you deal an extra 3d10 thunder damage.</p>\n<hr>\n<p><em><strong>Shattersoul.</strong></em> Once per round when you use this warhammer to deal damage to a dragon, it makes a DC 20 Wisdom saving throw or suffers one level of strife. On a failure by 5 or more, the dragon also suffers one level of fatigue.</p>\n<hr>\n<p>DESTRUCTION</p>\n<p>The Hammer of Vengeance can be destroyed by a dwarf that attempts to sunder it (which is automatically successful).</p>",
+		"favorite": false,
+		"secretDescription": "",
+		"source": "",
+		"uses": {
+			"value": null,
+			"max": "",
+			"per": null,
+			"recharge": {
+				"formula": "1d6",
+				"threshold": 6
+			}
+		},
+		"schema": {
+			"version": null,
+			"lastMigration": null
+		},
+		"ammunitionProperties": [],
+		"armorCategory": "",
+		"armorProperties": [],
+		"attuned": false,
+		"bulky": false,
+		"craftingComponents": "Unique (uncraftable)",
+		"containerId": "",
+		"damagedState": 0,
+		"equippedState": 0,
+		"items": {},
+		"materialProperties": [],
+		"objectType": "weapon",
+		"plotItem": false,
+		"price": "",
+		"proficient": true,
+		"quantity": 1,
+		"rarity": "artifact",
+		"requiresAttunement": false,
+		"shieldCategory": "",
+		"shieldProperties": [],
+		"unidentified": false,
+		"unidentifiedDescription": "",
+		"unidentifiedName": "",
+		"weaponProperties": [
+			"versatile",
+			"breaker"
+		],
+		"weight": 3,
+		"schemaVersion": {
+			"version": 0.013,
+			"lastMigration": {
+				"version": {
+					"schema": 0.011,
+					"foundry": "11.315",
+					"system": "0.16.49"
+				}
+			}
+		}
+	},
+	"folder": null,
+	"_id": "q4pkpycfsvi5vhgk"
+}

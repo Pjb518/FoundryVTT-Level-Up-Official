@@ -1,0 +1,196 @@
+{
+	"name": "Black Axe",
+	"type": "object",
+	"img": "icons/weapons/axes/axe-battle-blackened.webp",
+	"effects": [],
+	"flags": {},
+	"system": {
+		"ac": {
+			"baseFormula": "",
+			"formula": "",
+			"grantsDisadvantage": false,
+			"maxDex": 0,
+			"minStr": 0,
+			"mode": 1,
+			"requiresNoShield": false,
+			"requiresUnarmored": false
+		},
+		"actions": {
+			"UgJVEbx18NZcnhvL": {
+				"name": "Greataxe",
+				"activation": {
+					"cost": "",
+					"type": "",
+					"reactionTrigger": ""
+				},
+				"duration": {
+					"unit": "",
+					"value": ""
+				},
+				"area": {
+					"shape": "",
+					"size": "",
+					"placeTemplate": false,
+					"quantity": 1
+				},
+				"target": {
+					"quantity": 1,
+					"type": "creatureObject"
+				},
+				"rolls": {
+					"rJJQV0B7jn3C0ysu": {
+						"bonus": "1",
+						"critThreshold": "20",
+						"type": "attack",
+						"attackType": "meleeWeaponAttack",
+						"ability": "default"
+					},
+					"omOVacy2WpbafXMO": {
+						"canCrit": true,
+						"damageType": "slashing",
+						"formula": "1d12 + @str.mod + 1",
+						"name": "Greataxe",
+						"type": "damage"
+					}
+				},
+				"consumers": {}
+			},
+			"nwc4bM1g5ePq15Ou": {
+				"name": "Dark Hunger",
+				"activation": {
+					"type": "bonusAction",
+					"cost": 1
+				},
+				"consumers": {},
+				"rolls": {
+					"Qqj92HVAmOntsCDI": {
+						"type": "attack",
+						"default": true,
+						"attackType": "meleeWeaponAttack",
+						"proficient": true,
+						"ability": "default",
+						"bonus": "1"
+					},
+					"rZwzvJ5AYZoRv8se": {
+						"type": "damage",
+						"default": true,
+						"formula": "1d12 + @str.mod + 1",
+						"damageType": "slashing"
+					},
+					"JVbH02iydYU8w6RW": {
+						"type": "damage",
+						"default": true,
+						"formula": "2d8",
+						"damageType": "necrotic"
+					}
+				},
+				"prompts": {},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"rechargeType": "custom",
+						"rechargeAmount": "1",
+						"threshold": 6
+					}
+				},
+				"ranges": {
+					"mV73AfMdQWYK4983": {
+						"range": "fiveFeet"
+					}
+				},
+				"target": {
+					"type": "creature",
+					"quantity": 1
+				}
+			},
+			"0ng8lHpRLIEPLN6d": {
+				"name": "Flesheater",
+				"activation": {
+					"type": "action",
+					"cost": 1
+				},
+				"consumers": {
+					"3ovmDH6lsXq6BIyZ": {
+						"type": "actionUses",
+						"default": true,
+						"quantity": 1
+					}
+				},
+				"rolls": {},
+				"prompts": {},
+				"uses": {
+					"value": 0,
+					"max": "@prof",
+					"per": "longRest",
+					"recharge": {
+						"formula": "1d6",
+						"rechargeType": "custom",
+						"rechargeAmount": "1",
+						"threshold": 6
+					}
+				}
+			}
+		},
+		"description": "<p><em>Breaker (Wood), Heavy, Two-Handed</em></p>\n<p>This greataxe is macabre in design, bearing a black axehead that seems to shimmer in darkness and a solid white handle that feels like ironhard bone that&rsquo;s always cool to the touch. You gain a +1 bonus on attack and damage rolls using this greataxe.</p>\n<p>Once you have attuned to black axe, it gains the following properties.</p>\n<p><em><strong>Black Blight.</strong></em> Necrotic damage dealt by this greataxe ignores damage resistance . A target immune to necrotic damage takes half damage from necrotic damage dealt by black axe.</p>\n<p><em><strong>Dark Hunger.</strong></em> While you are bloodied and wielding this greataxe, you can use a bonus action to make a melee attack against a living creature within your reach. On a hit, you deal an extra 2d8 necrotic damage, gaining temporary hit points equal to the necrotic damage dealt.</p>\n<p><em><strong>Flesheater.</strong></em> You can use an action to touch black axe against the corpse of a Medium-sized or smaller creature. The greataxe consumes all of the corpse&rsquo;s blood, bones, and flesh to leave only the items it was wearing. Once you have used this property a number of times equal to your proficiency bonus, you must finish a long rest before it can be used again.</p>\n<p><em><strong>Curse: Bloodlust.</strong></em> You are unwilling to part with the greataxe, and you have disadvantage on attacks made against non-bloodied creatures when a living enemy within 30 feet of you is bloodied.</p>\n<p>&nbsp;</p>",
+		"favorite": false,
+		"secretDescription": "",
+		"source": "",
+		"uses": {
+			"value": null,
+			"max": "",
+			"per": null,
+			"recharge": {
+				"formula": "1d6",
+				"threshold": 6
+			}
+		},
+		"schema": {
+			"version": null,
+			"lastMigration": null
+		},
+		"ammunitionProperties": [],
+		"armorCategory": "",
+		"armorProperties": [],
+		"attuned": false,
+		"bulky": false,
+		"craftingComponents": "Gemstone containing an Evil soul",
+		"containerId": "",
+		"damagedState": 0,
+		"equippedState": 0,
+		"items": {},
+		"materialProperties": [],
+		"objectType": "weapon",
+		"plotItem": false,
+		"price": "2,000 gp",
+		"proficient": true,
+		"quantity": 1,
+		"rarity": "rare",
+		"requiresAttunement": true,
+		"shieldCategory": "",
+		"shieldProperties": [],
+		"unidentified": false,
+		"unidentifiedDescription": "",
+		"unidentifiedName": "",
+		"weaponProperties": [
+			"breaker",
+			"heavy",
+			"twoHanded"
+		],
+		"weight": 9,
+		"schemaVersion": {
+			"version": 0.013,
+			"lastMigration": {
+				"version": {
+					"schema": 0.011,
+					"foundry": "11.315",
+					"system": "0.16.49"
+				}
+			}
+		}
+	},
+	"folder": null,
+	"_id": "rzk9vjpngzlkza8o"
+}

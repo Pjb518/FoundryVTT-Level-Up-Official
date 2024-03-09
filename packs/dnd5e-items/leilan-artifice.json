@@ -1,0 +1,223 @@
+{
+	"folder": null,
+	"name": "Leilan Artifice",
+	"type": "object",
+	"img": "icons/weapons/crossbows/handcrossbow-black.webp",
+	"system": {
+		"ac": {
+			"baseFormula": "",
+			"formula": "",
+			"grantsDisadvantage": false,
+			"maxDex": 0,
+			"minStr": 0,
+			"mode": 2,
+			"requiresNoShield": false,
+			"requiresUnarmored": false
+		},
+		"actions": {
+			"NPk8v5w7QTKF79Or": {
+				"name": "Attack",
+				"activation": {
+					"type": "",
+					"cost": 1
+				},
+				"consumers": {
+					"VKMUX4JsaYHaB65E": {
+						"type": "itemUses",
+						"default": true,
+						"quantity": 1
+					}
+				},
+				"rolls": {
+					"4IRKNqFj2LhSRSXG": {
+						"type": "attack",
+						"default": true,
+						"attackType": "rangedWeaponAttack",
+						"proficient": true,
+						"ability": "dex"
+					},
+					"L7bT9gJTgbcZsf2R": {
+						"type": "damage",
+						"default": true,
+						"formula": "1d8 + @dex.mod",
+						"damageType": "thunder"
+					},
+					"MD6ilQ6d53nlqvWp": {
+						"type": "damage",
+						"default": false,
+						"label": "Vs Undead",
+						"formula": "1d6",
+						"damageType": "radiant"
+					}
+				},
+				"prompts": {},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"rechargeType": "custom",
+						"rechargeAmount": "1",
+						"threshold": 6
+					}
+				},
+				"ranges": {
+					"awPqnZw1TZo6KdG6": {
+						"range": 50,
+						"unit": "feet"
+					},
+					"FU3Xqhp6vwxFu8HM": {
+						"range": 150,
+						"unit": "feet"
+					}
+				},
+				"target": {
+					"type": "creatureObject",
+					"quantity": 1
+				}
+			},
+			"y7pJlytBZoMzPGvF": {
+				"name": "Burst Shot",
+				"activation": {
+					"type": "action",
+					"cost": 1
+				},
+				"consumers": {
+					"rq9Yu9NHzeCIs7Eh": {
+						"type": "itemUses",
+						"default": true,
+						"quantity": 2
+					}
+				},
+				"rolls": {
+					"awjD0TIvZukIuFjN": {
+						"type": "attack",
+						"default": true,
+						"attackType": "rangedWeaponAttack",
+						"proficient": true,
+						"ability": "dex"
+					},
+					"nGGbMC6Y9WwtQNzq": {
+						"type": "damage",
+						"default": true,
+						"formula": "4d12 + @dex.mod",
+						"damageType": "thunder"
+					},
+					"mczQeJYQ8ylkag9C": {
+						"type": "damage",
+						"default": true,
+						"formula": "2d8",
+						"damageType": "thunder"
+					}
+				},
+				"prompts": {},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"rechargeType": "custom",
+						"rechargeAmount": "1",
+						"threshold": 6
+					}
+				},
+				"ranges": {
+					"i95wp6PZKuH90COY": {
+						"range": 100,
+						"unit": "feet"
+					}
+				},
+				"target": {
+					"type": "creatureObject",
+					"quantity": 1
+				},
+				"area": {
+					"shape": "emanation",
+					"quantity": 1,
+					"radius": 100,
+					"placeTemplate": true
+				}
+			},
+			"bmQnmPKxDTyknw2V": {
+				"name": "Load",
+				"activation": {},
+				"consumers": {
+					"OkgElHrg7ijwrw75": {
+						"type": "itemUses",
+						"default": true,
+						"quantity": -4
+					},
+					"DuCCoyg9yFIxR3ut": {
+						"type": "ammunition",
+						"default": true,
+						"itemId": "",
+						"quantity": 1
+					}
+				},
+				"rolls": {},
+				"prompts": {},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"rechargeType": "custom",
+						"rechargeAmount": "1",
+						"threshold": 6
+					}
+				}
+			}
+		},
+		"description": "<p>This silver contraption bears a slight resemblance to a crossbow but is stockier&mdash;it has a handle and trigger, then instead of a sliding stock there&rsquo;s a slot two inches across and one wide. A fat barrel covered in countless divine symbols protrudes parallel from the top of the handle, with a hollow opening at the far end from the stock.</p>\n<p>This weapon is known by a few other names&mdash; sunbuster, dayslinger, sungun&mdash;and is thought to be the only one of its kind. When filled with a crystal of distilled sunlight (page 234) and fired, the shining ammunition is transformed into sound. If you are proficient with any type of crossbow you are proficient with this weapon.</p>\n<p>The Leilan Artifice has a range of 50/150 feet, the loading property (each crystal of distilled sunlight is enough for 4 shots), and on a hit it deals thunder damage equal to 1d8 + your Dexterity modifier. On a successful ranged weapon attack against an undead, this weapon deals an extra 1d6 radiant damage.</p>\n<p>While you are attuned to this weapon, on your turn you can use an action to hold the trigger for a burst shot.</p>\n<hr>\n<p><em><strong>Burst Shot.</strong></em> Choose a creature or object within 100 feet and make a ranged weapon attack against it. On a hit, you deal thunder damage equal to 4d12 + your Dexterity modifier. Each creature in front of or behind your target and within 100 feet of you makes a Dexterity saving throw against a DC equal to the result of your attack roll, taking 2d8 thunder damage on a failure. A burst shot consumes half a crystal of distilled sunlight.</p>\n<hr>\n<p>Evil and undead creatures take 2d6 radiant damage when touching this weapon and cannot wield it.</p>",
+		"favorite": false,
+		"secretDescription": "",
+		"source": "",
+		"uses": {
+			"value": 4,
+			"max": "4",
+			"per": null,
+			"recharge": {
+				"formula": "1d6",
+				"threshold": "6"
+			}
+		},
+		"schema": {
+			"version": null,
+			"lastMigration": null
+		},
+		"ammunitionProperties": [],
+		"armorCategory": "",
+		"armorProperties": [],
+		"attuned": false,
+		"bulky": false,
+		"craftingComponents": "Steel blessed with holy water in a hundred different temples",
+		"containerId": "",
+		"damagedState": 0,
+		"equippedState": 0,
+		"items": {},
+		"materialProperties": [],
+		"objectType": "weapon",
+		"plotItem": false,
+		"price": "10,000 gp",
+		"proficient": true,
+		"quantity": 1,
+		"rarity": "veryRare",
+		"requiresAttunement": true,
+		"shieldCategory": "",
+		"shieldProperties": [],
+		"unidentified": false,
+		"unidentifiedDescription": "",
+		"unidentifiedName": "",
+		"weaponProperties": [
+			"range",
+			"loading"
+		],
+		"weight": 0
+	},
+	"effects": [],
+	"flags": {},
+	"_id": "3iq1u702zxy83p4c"
+}

@@ -1,0 +1,167 @@
+{
+	"folder": null,
+	"name": "Wand of Maleficent Detection",
+	"type": "object",
+	"img": "icons/weapons/wands/wand-skull-horned.webp",
+	"system": {
+		"ac": {
+			"baseFormula": "",
+			"formula": "",
+			"grantsDisadvantage": false,
+			"maxDex": 0,
+			"minStr": 0,
+			"mode": 2,
+			"requiresNoShield": false,
+			"requiresUnarmored": false
+		},
+		"actions": {
+			"uVbWpuJj6A7quX6z": {
+				"name": "Recharge",
+				"activation": {
+					"type": "day",
+					"cost": 1
+				},
+				"consumers": {},
+				"rolls": {
+					"k0lCKdU8llGt8JXk": {
+						"type": "generic",
+						"default": true,
+						"formula": "1d4"
+					}
+				},
+				"prompts": {},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"rechargeType": "custom",
+						"rechargeAmount": "1",
+						"threshold": 6
+					}
+				}
+			},
+			"62VrnuGbFQuKxhUb": {
+				"name": "Detect Undead",
+				"activation": {},
+				"consumers": {
+					"FN7OTcUhrRGVr9R3": {
+						"type": "itemUses",
+						"default": true,
+						"quantity": 1
+					}
+				},
+				"rolls": {},
+				"prompts": {},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"rechargeType": "custom",
+						"rechargeAmount": "1",
+						"threshold": 6
+					}
+				},
+				"duration": {
+					"unit": "minute",
+					"value": 1
+				}
+			},
+			"EGIhLniS0teWOFLA": {
+				"name": "Enhance Senses",
+				"activation": {
+					"type": "bonusAction",
+					"cost": 1
+				},
+				"consumers": {
+					"tfFnAmX18moFBWDT": {
+						"type": "itemUses",
+						"default": true,
+						"quantity": 1
+					}
+				},
+				"rolls": {},
+				"prompts": {
+					"WbQrmp8VqMr3fhqZ": {
+						"type": "savingThrow",
+						"default": true,
+						"ability": "wis",
+						"saveDC": {
+							"type": "spellcasting"
+						}
+					}
+				},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"rechargeType": "custom",
+						"rechargeAmount": "1",
+						"threshold": 6
+					}
+				},
+				"ranges": {
+					"g1wzHhYO7xK68OFb": {
+						"range": "self"
+					}
+				},
+				"area": {
+					"shape": "emanation",
+					"quantity": 1,
+					"placeTemplate": true,
+					"radius": 30
+				}
+			}
+		},
+		"description": "<p>This osseous stick is engraved with small runes. The wand has 5 charges and regains 1d4 charges each dawn.&nbsp;</p>\n<p>hile holding the wand, you can use an action to expend a charge and gain the ability to detect undead for 1 minute. You can sense when undead are within 30 feet of you, but cannot determine their number, type, or location.</p>\n<p>As a bonus action, you can briefly enhance your senses to learn the location, number, and type of any creatures of your chosen types within 30 feet of you. When you do so, creatures of those types that are within range make a Wisdom saving throw (DC 8 + your proficiency bonus + your highest mental ability score), with advantage if a creature&rsquo;s CR is higher than your level. On a failed save, you also learn a creature&rsquo;s identity.</p>",
+		"favorite": false,
+		"secretDescription": "",
+		"source": "",
+		"uses": {
+			"value": 5,
+			"max": "5",
+			"per": null,
+			"recharge": {
+				"formula": "1d6",
+				"threshold": "6"
+			}
+		},
+		"schema": {
+			"version": null,
+			"lastMigration": null
+		},
+		"ammunitionProperties": [],
+		"armorCategory": "",
+		"armorProperties": [],
+		"attuned": false,
+		"bulky": false,
+		"craftingComponents": "Bone from a herald’s skeleton",
+		"containerId": "",
+		"damagedState": 0,
+		"equippedState": 0,
+		"items": {},
+		"materialProperties": [],
+		"objectType": "miscellaneous",
+		"plotItem": false,
+		"price": "400 gp",
+		"proficient": true,
+		"quantity": 1,
+		"rarity": "uncommon",
+		"requiresAttunement": false,
+		"shieldCategory": "",
+		"shieldProperties": [],
+		"unidentified": false,
+		"unidentifiedDescription": "",
+		"unidentifiedName": "",
+		"weaponProperties": [],
+		"weight": 0
+	},
+	"effects": [],
+	"flags": {},
+	"_id": "utp9k57g4dj6g0z7"
+}

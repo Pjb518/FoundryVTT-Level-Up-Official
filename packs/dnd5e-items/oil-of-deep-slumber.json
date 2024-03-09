@@ -1,0 +1,134 @@
+{
+	"folder": null,
+	"name": "Oil of Deep Slumber",
+	"type": "object",
+	"img": "icons/consumables/potions/potion-bottle-corked-blue.webp",
+	"system": {
+		"ac": {
+			"baseFormula": "",
+			"formula": "",
+			"grantsDisadvantage": false,
+			"maxDex": 0,
+			"minStr": 0,
+			"mode": 2,
+			"requiresNoShield": false,
+			"requiresUnarmored": false
+		},
+		"actions": {
+			"NSAmmvcykc8YHaji": {
+				"name": "Apply",
+				"activation": {
+					"type": "minute",
+					"cost": 1
+				},
+				"consumers": {},
+				"rolls": {},
+				"prompts": {
+					"xNWS2nNrfVpOLmp8": {
+						"type": "effect",
+						"default": true,
+						"effectId": "MwrZOJ2Ii1qiDRKw"
+					}
+				},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"rechargeType": "custom",
+						"rechargeAmount": "1",
+						"threshold": 6
+					}
+				},
+				"duration": {
+					"unit": "hour",
+					"value": 1
+				}
+			}
+		},
+		"description": "<p>You can spend 1 minute applying this midnight- blue oil flecked with silver to 5 pieces of piercing ammunition. For the next hour, the coated ammunition is magical and can put creatures hit by it to sleep. When a coated piece of ammunition deals damage to a creature with 100 or fewer hit points, the creature instantly falls unconscious.</p>\n<p>The creature remains unconscious for 3d6 minutes or until it takes damage.</p>",
+		"favorite": false,
+		"secretDescription": "",
+		"source": "",
+		"uses": {
+			"value": null,
+			"max": "",
+			"per": null,
+			"recharge": {
+				"formula": "1d6",
+				"threshold": "6"
+			}
+		},
+		"schema": {
+			"version": null,
+			"lastMigration": null
+		},
+		"ammunitionProperties": [],
+		"armorCategory": "",
+		"armorProperties": [],
+		"attuned": false,
+		"bulky": false,
+		"craftingComponents": "Ground moonstone",
+		"containerId": "",
+		"damagedState": 0,
+		"equippedState": 0,
+		"items": {},
+		"materialProperties": [],
+		"objectType": "consumable",
+		"plotItem": false,
+		"price": "6,500 gp",
+		"proficient": true,
+		"quantity": 1,
+		"rarity": "veryRare",
+		"requiresAttunement": false,
+		"shieldCategory": "",
+		"shieldProperties": [],
+		"unidentified": false,
+		"unidentifiedDescription": "",
+		"unidentifiedName": "",
+		"weaponProperties": [],
+		"weight": 0
+	},
+	"effects": [
+		{
+			"icon": "icons/consumables/potions/potion-bottle-corked-blue.webp",
+			"origin": "Item.fBm1XIFNlhu5Avzo",
+			"flags": {
+				"a5e": {
+					"sort": 0,
+					"transferType": "onUse",
+					"actionId": "NSAmmvcykc8YHaji"
+				}
+			},
+			"transfer": false,
+			"name": "Unconscious",
+			"_id": "MwrZOJ2Ii1qiDRKw",
+			"changes": [
+				{
+					"key": "flags.a5e.effects.statusConditions",
+					"value": "[\"unconscious\"]",
+					"mode": 0,
+					"priority": null
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": null,
+				"combat": null,
+				"rounds": null,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "",
+			"statuses": [
+				"unconscious"
+			],
+			"folder": null
+		}
+	],
+	"flags": {},
+	"_id": "7a2vdqse7znsa0ki"
+}

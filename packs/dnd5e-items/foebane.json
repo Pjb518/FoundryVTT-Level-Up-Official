@@ -1,0 +1,181 @@
+{
+	"name": "Foebane",
+	"type": "object",
+	"img": "icons/weapons/swords/greatsword-crossguard-flanged-red.webp",
+	"effects": [],
+	"flags": {},
+	"system": {
+		"ac": {
+			"baseFormula": "",
+			"formula": "",
+			"grantsDisadvantage": false,
+			"maxDex": 0,
+			"minStr": 0,
+			"mode": 1,
+			"requiresNoShield": false,
+			"requiresUnarmored": false
+		},
+		"actions": {
+			"gN1VnpQWmko9P0l8": {
+				"name": "Foebane",
+				"activation": {
+					"cost": "",
+					"type": "",
+					"reactionTrigger": ""
+				},
+				"duration": {
+					"unit": "",
+					"value": ""
+				},
+				"area": {
+					"shape": "",
+					"size": "",
+					"placeTemplate": false,
+					"quantity": 1
+				},
+				"target": {
+					"quantity": 1,
+					"type": "creatureObject"
+				},
+				"rolls": {
+					"dSqwxwRNQwjvOq43": {
+						"bonus": "3",
+						"critThreshold": "20",
+						"type": "attack",
+						"attackType": "meleeWeaponAttack",
+						"ability": "default"
+					},
+					"vlUtyqLFnTkfBE3F": {
+						"canCrit": true,
+						"damageType": "slashing",
+						"formula": "2d6 + @str.mod + 3",
+						"name": "Greatsword",
+						"type": "damage"
+					},
+					"TaNSDJnE7qcVevSs": {
+						"type": "damage",
+						"default": false,
+						"label": "Vs Baned Creature",
+						"formula": "3d6",
+						"damageType": "slashing"
+					},
+					"IyTnKxYfKgEyh1NB": {
+						"type": "damage",
+						"default": false,
+						"label": "Vs Baned Creature",
+						"formula": "0",
+						"damageType": "radiant",
+						"critBonus": "3d10"
+					}
+				},
+				"consumers": {}
+			},
+			"tWq3CWyPcjDp7rNd": {
+				"name": "Parry",
+				"activation": {},
+				"consumers": {},
+				"rolls": {
+					"Wr28F3fXpV7iLaWM": {
+						"type": "generic",
+						"default": true,
+						"label": "Armor Class",
+						"formula": "1d4"
+					}
+				},
+				"prompts": {},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"threshold": 6
+					}
+				},
+				"img": "icons/weapons/swords/greatsword-guard-gem-blue.webp"
+			},
+			"AKoclLPsrhI8ymx5": {
+				"name": "Eat Soul",
+				"activation": {},
+				"consumers": {
+					"NDS7wzH00aM3hR6n": {
+						"type": "itemUses",
+						"default": true,
+						"quantity": -1
+					}
+				},
+				"rolls": {},
+				"prompts": {},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"rechargeType": "custom",
+						"rechargeAmount": "1",
+						"threshold": 6
+					}
+				}
+			}
+		},
+		"description": "<p><em>Heavy, Parrying, Two-Handed</em></p>\n<p>This double-sided blade is made of red-hued iron and is engraved with Draconic runes that glow an unsettling yellow-greenish light. The hilt is made of blackened iron and wrapped with red silver wire, the pommel shaped like the head of a red dragon.</p>\n<p>This Pemberton family heirloom was used to slay the dreaded dragon Cirothe&mdash;an event prepared for centuries beforehand. The ancient enchantments in the blade have come to life, increasing its power and making it one of the most powerful weapons in all of Elissar.</p>\n<p>Foebane has one lesser artifact benefit, one greater artifact benefit, and one greater artifact detriment.</p>\n<p>You gain a +3 bonus to attack and damage rolls made using Foebane.</p>\n<hr>\n<p><em><strong>Bane Foes.</strong></em> After you have attuned to this greatsword, whenever you finish a long rest you can choose a type of creature (aberration, beast, celestial, construct, dragon, elemental, fey, fiend, giant, humanoid, monstrosity, ooze, plant, or undead). Foebane becomes baned against the chosen type of creature until you use this property to choose a different type of creature or become unattuned to it. When you use this greatsword to deal damage against a baned creature you deal an extra 3d6 slashing damage, and on a critical hit you deal an extra 3d10 radiant damage. In addition, you have advantage on saving throws made to resist the attacks and traits of baned creatures.</p>\n<p><em><strong>Souleater.</strong></em> A baned creature killed by Foebane cannot be restored to life by any means unless it is a legendary creature. The first time you use Foebane to kill a baned creature and each time you use it to kill a baned creature of a greater challenge rating, it gains a foe die. You can expend one or more foe dice when making an attack against or ability check to find or track a baned creature, gaining an expertise die for each. When you die or become unattuned to Foebane, all of its foe dice&nbsp; are lost.</p>",
+		"favorite": false,
+		"secretDescription": "",
+		"source": "",
+		"uses": {
+			"value": 0,
+			"max": "9999",
+			"per": null,
+			"recharge": {
+				"formula": "1d6",
+				"threshold": 6
+			}
+		},
+		"schema": {
+			"version": null,
+			"lastMigration": null
+		},
+		"ammunitionProperties": [],
+		"armorCategory": "",
+		"armorProperties": [],
+		"attuned": false,
+		"bulky": false,
+		"craftingComponents": "Unique (uncraftable)",
+		"containerId": "",
+		"damagedState": 0,
+		"equippedState": 0,
+		"items": {},
+		"materialProperties": [],
+		"objectType": "weapon",
+		"plotItem": false,
+		"price": "",
+		"proficient": true,
+		"quantity": 1,
+		"rarity": "artifact",
+		"requiresAttunement": true,
+		"shieldCategory": "",
+		"shieldProperties": [],
+		"unidentified": false,
+		"unidentifiedDescription": "",
+		"unidentifiedName": "",
+		"weaponProperties": [
+			"parrying",
+			"heavy",
+			"twoHanded"
+		],
+		"weight": 7,
+		"schemaVersion": {
+			"version": 0.013,
+			"lastMigration": {
+				"version": {
+					"schema": 0.011,
+					"foundry": "11.315",
+					"system": "0.16.49"
+				}
+			}
+		}
+	},
+	"folder": null,
+	"_id": "a2wr0wx11njfvo98"
+}

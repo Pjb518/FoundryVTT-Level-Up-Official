@@ -1,0 +1,169 @@
+{
+	"folder": null,
+	"name": "Servant's Amulet",
+	"type": "object",
+	"img": "icons/equipment/neck/amulet-round-silver-teal.webp",
+	"system": {
+		"ac": {
+			"baseFormula": "",
+			"formula": "",
+			"grantsDisadvantage": false,
+			"maxDex": 0,
+			"minStr": 0,
+			"mode": 2,
+			"requiresNoShield": false,
+			"requiresUnarmored": false
+		},
+		"actions": {
+			"jqPxwGJ3Opr4ipu1": {
+				"name": "Teleport",
+				"activation": {
+					"type": "bonusAction",
+					"cost": 1
+				},
+				"consumers": {
+					"o5UB2smXT4NRx1tl": {
+						"type": "itemUses",
+						"default": true,
+						"quantity": 100
+					}
+				},
+				"rolls": {},
+				"prompts": {},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"rechargeType": "custom",
+						"rechargeAmount": "1",
+						"threshold": 6
+					}
+				},
+				"ranges": {
+					"UFrT61xNns8IYHMq": {
+						"range": 100,
+						"unit": "feet"
+					}
+				}
+			},
+			"tn8SquY7lQGv4Sxl": {
+				"name": "Remove Amulet",
+				"activation": {},
+				"consumers": {
+					"pEd94zxscKNMjNuT": {
+						"type": "itemUses",
+						"default": true,
+						"quantity": 1
+					}
+				},
+				"rolls": {
+					"Z6xH1xqo9aVl3ai4": {
+						"type": "savingThrow",
+						"default": true,
+						"ability": "con"
+					},
+					"IrYjrgdVUxhsl5XG": {
+						"type": "generic",
+						"default": true,
+						"label": "Strife Levels",
+						"formula": "1d4 + 1"
+					}
+				},
+				"prompts": {},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"rechargeType": "custom",
+						"rechargeAmount": "1",
+						"threshold": 6
+					}
+				}
+			}
+		},
+		"description": "<p>This pewter talisman hangs from a simple silk cord. While you are attuned to and wearing this amulet, you gain the following immunities.</p>\n<ul>\n<li>Divination spells cast by creatures other than the amulet&rsquo;s creator.</li>\n<li>The charmed, frightened, and rattled conditions.</li>\n<li>Any effect that would read your emotions or thoughts (as the @UUID[Compendium.a5e.a5e-spells.Item.wad0cgw4tcdbuvbr]{Mind Blank} spell).</li>\n</ul>\n<p>In addition, you can use a bonus action to teleport up to 100 feet to an unoccupied space you can see (minimum 10 feet). Once you have used this property to teleport a total of 400 feet, you cannot use it again until you finish a long rest.</p>\n<p>When the amulet&rsquo;s creator dies it becomes an amulet of protection.</p>\n<hr>\n<p><em><strong>Cursed.</strong></em> You cannot remove this amulet until you are targeted by @UUID[Compendium.a5e.a5e-spells.Item.l16wg9h1z9s16exb]{Remove Curse} or similar magic. When you do so, the amulet teleports back to its creator and you make a DC 20 Constitutionsaving throw or suffer 1d4+1 levels of strife.</p>\n<p>In addition, when you attune to this amulet the creator may command that you keep their secrets. While you are on the same plane of existence as the amulet&rsquo;s creator, they can telepathically communicate with you, give you commands (as the @UUID[Compendium.a5e.a5e-spells.Item.a64cea2ij2t33xva]{Geas} spell), and you are unable to share information about them through pantomime, speech, writing, or any other means unless they allow you to do so. When you are reduced to 0 hit points while wearing the amulet, you and all of your belongings are teleported back to the amulet&rsquo;s creator.</p>",
+		"favorite": false,
+		"secretDescription": "",
+		"source": "",
+		"uses": {
+			"value": 400,
+			"max": "400",
+			"per": "longRest",
+			"recharge": {
+				"formula": "1d6",
+				"threshold": "6"
+			}
+		},
+		"schema": {
+			"version": null,
+			"lastMigration": null
+		},
+		"ammunitionProperties": [],
+		"armorCategory": "",
+		"armorProperties": [],
+		"attuned": false,
+		"bulky": false,
+		"craftingComponents": "Creator must be evil; eyes and heart from two different humanoids",
+		"containerId": "",
+		"damagedState": 0,
+		"equippedState": 0,
+		"items": {},
+		"materialProperties": [],
+		"objectType": "jewelry",
+		"plotItem": false,
+		"price": "5,000 gp",
+		"proficient": true,
+		"quantity": 1,
+		"rarity": "rare",
+		"requiresAttunement": true,
+		"shieldCategory": "",
+		"shieldProperties": [],
+		"unidentified": false,
+		"unidentifiedDescription": "",
+		"unidentifiedName": "",
+		"weaponProperties": [],
+		"weight": 0
+	},
+	"effects": [
+		{
+			"icon": "icons/equipment/neck/amulet-round-silver-teal.webp",
+			"origin": "Item.dsjgz8S4STrgQzFK",
+			"flags": {
+				"a5e": {
+					"sort": 0,
+					"transferType": "passive"
+				}
+			},
+			"transfer": false,
+			"name": "Servant's Amulet",
+			"_id": "PWCCjFvS9UG02yej",
+			"changes": [
+				{
+					"key": "system.traits.conditionImmunities",
+					"value": "[\"charmed\",\"frightened\",\"rattled\"]",
+					"mode": 2,
+					"priority": null
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": null,
+				"combat": null,
+				"rounds": null,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "",
+			"statuses": [],
+			"folder": null
+		}
+	],
+	"flags": {},
+	"_id": "roc68my8x289fz2v"
+}

@@ -1,0 +1,134 @@
+{
+	"folder": null,
+	"name": "Pearl of Dark Waters",
+	"type": "object",
+	"img": "icons/commodities/gems/pearl-water.webp",
+	"system": {
+		"ac": {
+			"baseFormula": "",
+			"formula": "",
+			"grantsDisadvantage": false,
+			"maxDex": 0,
+			"minStr": 0,
+			"mode": 2,
+			"requiresNoShield": false,
+			"requiresUnarmored": false
+		},
+		"actions": {
+			"CgUTw7cVUyspqL11": {
+				"name": "Touch",
+				"activation": {},
+				"consumers": {},
+				"rolls": {
+					"6b8QdYvtS81jHmBb": {
+						"type": "damage",
+						"default": true,
+						"formula": "14d6",
+						"canCrit": false,
+						"damageType": "necrotic"
+					}
+				},
+				"prompts": {
+					"gxkfryzsitb6Cdx2": {
+						"type": "effect",
+						"default": true,
+						"effectId": "Ua3axpVdQePfupw8"
+					}
+				},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"rechargeType": "custom",
+						"rechargeAmount": "1",
+						"threshold": 6
+					}
+				}
+			}
+		},
+		"description": "<p>This night-black pearl of surpassing quality is the size of an adult human&rsquo;s fist. Just under the surface, dark waters roil and churn. Once a golden pearl with the ability to purify waters and heal the most grievous of wounds, it was taken by the aboleth necromancer Tolamir and twisted to darker purposes.</p>\n<p>The Pearl of Dark Waters is different from most magic items in that it is so closely-tied to its mistress. Any creature that is not Tolamir that touches the Pearl of Dark Waters takes 49 (14d6) necrotic damage and suffers a level of strife, or half if they are Evil or undead. This damage is halved if the Pearl of Dark Waters is still sundered. Additionally, as long as both Tolamir and this artifact are on the same plane, she can remain attuned to it no matter the distance or duration of separation.</p>\n<p>The Pearl of Dark Waters cannot be taken far from the open sea. If it is taken more than 50 miles inland from the coast (including on river ways) it evaporates, immediately reforming on the nearest beach.</p>",
+		"favorite": false,
+		"secretDescription": "",
+		"source": "",
+		"uses": {
+			"value": null,
+			"max": "",
+			"per": null,
+			"recharge": {
+				"formula": "1d6",
+				"threshold": "6"
+			}
+		},
+		"schema": {
+			"version": null,
+			"lastMigration": null
+		},
+		"ammunitionProperties": [],
+		"armorCategory": "",
+		"armorProperties": [],
+		"attuned": false,
+		"bulky": false,
+		"craftingComponents": "Unique (uncraftable)",
+		"containerId": "",
+		"damagedState": 0,
+		"equippedState": 0,
+		"items": {},
+		"materialProperties": [],
+		"objectType": "miscellaneous",
+		"plotItem": false,
+		"price": 0,
+		"proficient": true,
+		"quantity": 1,
+		"rarity": "artifact",
+		"requiresAttunement": true,
+		"shieldCategory": "",
+		"shieldProperties": [],
+		"unidentified": false,
+		"unidentifiedDescription": "",
+		"unidentifiedName": "",
+		"weaponProperties": [],
+		"weight": 0
+	},
+	"effects": [
+		{
+			"icon": "icons/commodities/gems/pearl-water.webp",
+			"origin": "Item.90etmR0Wsgj7Tr38",
+			"flags": {
+				"a5e": {
+					"sort": 0,
+					"transferType": "onUse",
+					"actionId": "CgUTw7cVUyspqL11",
+					"applyToSelf": true
+				}
+			},
+			"transfer": false,
+			"name": "Strife",
+			"_id": "Ua3axpVdQePfupw8",
+			"changes": [
+				{
+					"key": "system.attributes.strife",
+					"value": "1",
+					"mode": 2,
+					"priority": null
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": null,
+				"combat": null,
+				"rounds": null,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "",
+			"statuses": [],
+			"folder": null
+		}
+	],
+	"flags": {},
+	"_id": "iezs8x394xrzi20k"
+}
