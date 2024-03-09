@@ -780,7 +780,7 @@ export default class ActorA5e extends Actor {
       });
     }
 
-    Hooks.callAll('a5e.actorDamaged', this, { prevHp: { value, temp }, healingRolls });
+    Hooks.callAll('a5e.actorHealed', this, { prevHp: { value, temp }, healingRolls });
     return this.update(updates);
   }
 
