@@ -14,6 +14,7 @@
     let exhaustion = settings.getStore("replaceFatigueAndStrife");
     let hideA5eSkills = settings.getStore("hideA5eSkills");
     let hideExpertiseDice = settings.getStore("hideExpertiseDice");
+    let hideSkillCriticalPrompt = settings.getStore("hideSkillCriticalPrompt");
     let hideSkillSpecialties = settings.getStore("hideSkillSpecialties");
     let simpleInitiative = settings.getStore("simpleInitiative");
 </script>
@@ -51,6 +52,19 @@
                 false}
             on:updateSelection={({ detail }) => {
                 updates.set("hideExpertiseDice", detail);
+                reload = true;
+            }}
+        />
+    </FieldWrapper>
+
+    <FieldWrapper hint="A5E.settings.hints.hideSkillCriticalPrompt">
+        <Checkbox
+            label="A5E.settings.hideSkillCriticalPrompt"
+            checked={updates.get("hideSkillCriticalPrompt") ??
+                $hideSkillCriticalPrompt ??
+                false}
+            on:updateSelection={({ detail }) => {
+                updates.set("hideSkillCriticalPrompt", detail);
                 reload = true;
             }}
         />
