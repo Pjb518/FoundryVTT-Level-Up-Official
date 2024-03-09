@@ -67,6 +67,31 @@
     automatically set up encounters for published adventures.
 </p>
 
+<h3>
+    <a
+        class="patreon-link"
+        href="https://www.patreon.com/posts/preview-flanking-99659434"
+        target="_blank"
+    >
+        <i
+            class="tier-indicator tier-indicator--silver fa-solid fa-circle"
+            data-tooltip="This tool is available to silver tier patrons"
+        />
+        Flanking Automation
+    </a>
+</h3>
+
+<p>
+    Our new Flanking Automation module automatically detects flanking conditions
+    against targeted tokens and preselects an additional expertise die in the
+    roll dialog when you make attack rolls.
+</p>
+
+<p>
+    If you're using the A5e Foundry system to play standard D&D 5e, you can
+    instead configure the module to grant advantage in the module settings.
+</p>
+
 <style lang="scss">
     .tier-indicator {
         position: relative;
