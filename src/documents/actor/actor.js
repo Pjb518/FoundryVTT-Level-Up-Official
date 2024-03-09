@@ -773,7 +773,7 @@ export default class ActorA5e extends Actor {
         if (!showCascadingTemp && healingType === 'temporaryHealing') return;
 
         setTimeout(async () => {
-          await displayCascadingNumbers(actor, 'healing', healing, healingType);
+          await displayCascadingNumbers(actor, 'healing', `+${healing}`, healingType);
         }, delay);
 
         delay += 300;
