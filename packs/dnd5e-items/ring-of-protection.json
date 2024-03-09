@@ -1,72 +1,57 @@
 {
-	"name": "Ring of Protection",
 	"type": "object",
-	"img": "icons/equipment/finger/ring-faceted-grey.webp",
-	"effects": [
-		{
-			"icon": "https://assets.forge-vtt.com/bazaar/core/icons/svg/aura.svg",
-			"origin": "Item.FSjG2252DthIqklK",
-			"flags": {
-				"a5e": {
-					"sort": 0,
-					"transferType": "passive"
-				}
-			},
-			"transfer": false,
-			"name": "Saving Throw Bonus",
-			"_id": "ipg903ivgFYbAb7N",
-			"changes": [
-				{
-					"key": "flags.a5e.effects.bonuses.abilities",
-					"mode": 0,
-					"value": "{\"context\":{\"abilities\":[\"str\",\"dex\",\"con\",\"int\",\"wis\",\"cha\"],\"types\":[\"save\"],\"requiresProficiency\":false},\"formula\":\"1\",\"label\":\"Ability Bonus\",\"default\":true}",
-					"priority": null
-				}
-			],
-			"disabled": false,
-			"duration": {
-				"startTime": null,
-				"seconds": null,
-				"combat": null,
-				"rounds": null,
-				"turns": null,
-				"startRound": null,
-				"startTurn": null
-			},
-			"description": "",
-			"statuses": [],
-			"tint": "#ffffff",
-			"folder": null
-		}
-	],
+	"img": "icons/equipment/finger/ring-cabochon-silver-gold-red.webp",
+	"name": "Ring of Protection",
 	"flags": {},
 	"system": {
 		"ac": {
-			"baseFormula": "1",
+			"baseFormula": "",
 			"formula": "",
 			"grantsDisadvantage": false,
 			"maxDex": 0,
 			"minStr": 0,
-			"mode": 1,
+			"mode": 2,
 			"requiresNoShield": false,
 			"requiresUnarmored": false
 		},
-		"actions": {},
-		"description": "<p><strong>Crafting Components:</strong> Diamond dust</p><hr class=\"a5e-rule u-my-md\"><p>While wearing this ring, you gain a +1 bonus to Armor Class and saving throws</p>",
+		"actions": {
+			"3p2ZtBMz1AL60sHx": {
+				"activation": {
+					"cost": null,
+					"type": "",
+					"reactionTrigger": ""
+				},
+				"duration": {
+					"unit": "",
+					"value": ""
+				},
+				"target": {
+					"quantity": null,
+					"type": "self"
+				},
+				"name": "Use Ring of Protection",
+				"ranges": {
+					"IEwwRd3971MJtDI3": {
+						"range": "self"
+					}
+				}
+			}
+		},
+		"description": "<p><em>(Requires attunement)</em></p>\n<p>You gain a +1 bonus to AC and saving throws while wearing this ring.</p>",
 		"favorite": false,
 		"secretDescription": "",
-		"source": "adventurersGuide",
+		"source": "",
 		"uses": {
 			"value": null,
 			"max": "",
 			"per": null,
 			"recharge": {
 				"formula": "1d6",
-				"threshold": 6
+				"threshold": "6"
 			}
 		},
 		"schema": {
-			"version": null,
+			"version": 0.01,
 			"lastMigration": null
 		},
 		"ammunitionProperties": [],
@@ -80,9 +65,9 @@
 		"equippedState": 0,
 		"items": {},
 		"materialProperties": [],
-		"objectType": "jewelry",
+		"objectType": "miscellaneous",
 		"plotItem": false,
-		"price": "1,000 gp",
+		"price": "3500gp",
 		"proficient": true,
 		"quantity": 1,
 		"rarity": "rare",
@@ -93,18 +78,9 @@
 		"unidentifiedDescription": "",
 		"unidentifiedName": "",
 		"weaponProperties": [],
-		"weight": 0,
-		"schemaVersion": {
-			"version": 0.013,
-			"lastMigration": {
-				"version": {
-					"schema": 0.011,
-					"foundry": "11.315",
-					"system": "0.16.49"
-				}
-			}
-		}
+		"weight": 0
 	},
+	"effects": [],
 	"folder": null,
 	"_id": "j1nccjvetel2zvm4"
 }
