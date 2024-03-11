@@ -1,5 +1,5 @@
 // eslint-disable-next-line max-classes-per-file
-export default class A5EDataModel extends foundry.abstract.DataModel {
+export default class A5EDataModel extends foundry.abstract.TypeDataModel {
   static _documentType: string;
 
   static _schemaTemplates: Array<any> = [];
@@ -93,6 +93,7 @@ export default class A5EDataModel extends foundry.abstract.DataModel {
       }
     }
 
+    // @ts-ignore
     return Base;
   }
 }

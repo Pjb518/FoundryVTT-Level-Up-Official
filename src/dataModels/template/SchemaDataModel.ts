@@ -13,7 +13,7 @@ export type SchemaSchema = {
   }
 };
 
-export default class SchemaDataModel extends foundry.abstract.DataModel {
+export default class SchemaDataModel extends foundry.abstract.TypeDataModel {
   static defineSchema(): SchemaSchema {
     return {
       schemaVersion: new foundry.data.fields.SchemaField({

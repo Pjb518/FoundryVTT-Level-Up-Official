@@ -1,4 +1,4 @@
-export default class SubFeature extends foundry.abstract.DataModel {
+export default class SubFeature extends foundry.abstract.TypeDataModel {
   static defineSchema() {
     const { fields } = foundry.data;
     return {
