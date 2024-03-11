@@ -20,8 +20,13 @@
     const A5E = CONFIG.A5E;
 
     function updateRangeValue(option) {
-        range = isStandardRange(option) ? option : customValue;
-        if (includeUnit) range = Number(range);
+        const isStandard = isStandardRange(option);
+
+        if (isStandard) {
+            range = option;
+            customValue = "";
+        } else if (includeUnit) range = parseInt(option, 10);
+        else range = customValue;
 
         updateDocumentDataFromField(
             $item,
