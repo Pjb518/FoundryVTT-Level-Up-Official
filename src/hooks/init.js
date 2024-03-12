@@ -25,10 +25,7 @@ import SpellCompendiumSheet from '../apps/SpellCompendiumSheet';
 import CharacterData from '../dataModels/actor/CharacterData';
 import NPCData from '../dataModels/actor/NPCData';
 
-import BackgroundDataModel from '../dataModels/item/BackgroundDataModel';
-import CultureDataModel from '../dataModels/item/CultureDataModel';
-import DestinyDataModel from '../dataModels/item/DestinyDataModel';
-import HeritageDataModel from '../dataModels/item/HeritageDataModel';
+import itemDataModels from '../dataModels/item/itemModels';
 
 // Effects
 import constructEffectOptions from '../documents/activeEffect/utils/constructEffectOptions';
@@ -103,10 +100,12 @@ export default function init() {
     CONFIG.Actor.dataModels.npc = NPCData;
   }
 
-  CONFIG.Item.dataModels.background = BackgroundDataModel;
-  CONFIG.Item.dataModels.culture = CultureDataModel;
-  CONFIG.Item.dataModels.destiny = DestinyDataModel;
-  CONFIG.Item.dataModels.heritage = HeritageDataModel;
+  CONFIG.Item.dataModels = itemDataModels;
+
+  // CONFIG.Item.dataModels.background = BackgroundDataModel;
+  // CONFIG.Item.dataModels.culture = CultureDataModel;
+  // CONFIG.Item.dataModels.destiny = DestinyDataModel;
+  // CONFIG.Item.dataModels.heritage = HeritageDataModel;
 
   // Initialize the game's A5E namespace
   game.a5e = {
