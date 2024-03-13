@@ -10,8 +10,12 @@ import zeroDiceTerms from './zeroDiceTerms';
  * @returns {?number}        The resulting deterministic bonus, or null is one could not be
  *                           calculated.
  */
-export default function getDeterministicBonus(formula, rollData = {}) {
-  const zeroedFormula = zeroDiceTerms(formula.toString() || '0', rollData);
+export default function getDeterministicBonus(
+  formula: string | number,
+  rollData: Record<string, any> = {}
+): number | null {
+  if (!formula) return null;
+  const zeroedFormula: string = zeroDiceTerms(formula.toString() || '0', rollData);
 
   const roll = new Roll(zeroedFormula, rollData);
   if (!Roll.validate(roll.formula)) throw Error('Invalid roll formula');
