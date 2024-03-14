@@ -92,7 +92,6 @@ export default class ActorA5e extends Actor {
 
     // Managers
     this.RollOverrideManager = new RollOverrideManager(this);
-    this.SpellBooks = new SpellBookManager(this);
   }
 
   /**
@@ -167,6 +166,7 @@ export default class ActorA5e extends Actor {
     this.RollOverrideManager.initialize();
 
     // Initialize the SpellBooks
+    this.SpellBooks = new SpellBookManager(this);
     this.SpellBooks.forEach((spellBook) => spellBook.prepareBaseData());
   }
 

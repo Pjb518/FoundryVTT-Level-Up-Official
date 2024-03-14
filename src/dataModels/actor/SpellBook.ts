@@ -13,7 +13,6 @@ export default class SpellBook extends A5EDataModel {
   }
 
   static defineSchema() {
-    console.error('Here');
     const { fields } = foundry.data;
 
     const slotData: Record<string, any> = {};
@@ -35,33 +34,6 @@ export default class SpellBook extends A5EDataModel {
       ability: new fields.StringField({ required: true, initial: 'int' }),
       casterType: new fields.StringField({ required: true, initial: 'full' }),
       preparedType: new fields.StringField({ required: true, initial: 'prepared' }),
-      spellResources: new fields.SchemaField({
-        slots: new fields.SchemaField(slotData),
-        innate: new fields.SchemaField({
-          current: new fields.NumberField({
-            required: true, integer: true, min: 0, initial: 0
-          }),
-          max: new fields.NumberField({
-            required: true, integer: true, min: 0, initial: 0
-          })
-        }),
-        pact: new fields.SchemaField({
-          current: new fields.NumberField({
-            required: true, integer: true, min: 0, initial: 0
-          }),
-          max: new fields.NumberField({
-            required: true, integer: true, min: 0, initial: 0
-          })
-        }),
-        points: new fields.SchemaField({
-          current: new fields.NumberField({
-            required: true, integer: true, min: 0, initial: 0
-          }),
-          max: new fields.NumberField({
-            required: true, integer: true, min: 0, initial: 0
-          })
-        })
-      }),
       spellIds: new fields.ArrayField(
         new fields.StringField({ required: true, initial: '' }),
         { required: true, initial: [] }
@@ -69,6 +41,9 @@ export default class SpellBook extends A5EDataModel {
     };
   }
 
+  // ======================================
+  // Getters
+  // ======================================
   get arePactSlots(): boolean {
     return this.preparedType === 'pact';
   }
@@ -94,15 +69,9 @@ export default class SpellBook extends A5EDataModel {
     return 0;
   }
 
-  get spellResourceData(): any {
-    if (this.arePactSlots) return this.spellResources.pact;
-    if (this.arePoints) return this.spellResources.points;
-    if (this.isInnate) return this.spellResources.innate;
-
-    // Return slots based on progression
-    return this.spellResources.slots;
-  }
-
+  // ======================================
+  // Data Preparation
+  // ======================================
   prepareBaseData(): void {
     super.prepareBaseData();
     const actor = this.parent;
@@ -120,10 +89,10 @@ export default class SpellBook extends A5EDataModel {
     }
 
     this.slug = `${this.name}-spellcasting`.slugify();
-    this.prepareRollStats();
+    this.prepareSpellBookStats();
   }
 
-  prepareRollStats(): void {
+  prepareSpellBookStats(): void {
     const actor = this.parent;
     if (!actor) return;
 
@@ -138,10 +107,45 @@ export default class SpellBook extends A5EDataModel {
       ability: this.ability,
       casterType: this.casterType,
       dc: spellDC,
-      progressionDivisor: this.progressionDivisor,
-      spellResources: this.spellResourceData
+      progressionDivisor: this.progressionDivisor
     };
 
     this.stats = stats;
+  }
+
+  // ======================================
+  // API Methods
+  // ======================================
+  addSpell(spell: typeof Item) {
+    if (spell.type !== 'spell') {
+      ui.notifications.error('You can only add spells to a spell book');
+    }
+
+    this.spellIds.push(spell.id);
+    this.update({ spellIds: this.spellIds });
+  }
+
+  addSpells(spells: typeof Item[]) {
+    const newIds = spells.reduce((acc: string[], spell: typeof Item) => {
+      if (spell.type !== 'spell') return acc;
+      acc.push(spell.id);
+      return acc;
+    }, []);
+
+    const spellIds = [...this.spellIds, ...newIds];
+    this.update({ spellIds });
+  }
+
+  removeSpell(spell: typeof Item) {
+    const spellIds = this.spellIds.filter((id: string) => id !== spell.id);
+    this.update({ spellIds });
+  }
+
+  async delete() {
+    const { spellIds } = this;
+    await this.parent.deleteEmbeddedDocuments('Item', spellIds);
+
+    const id = this._id;
+    this.parent.SpellBooks.remove(id);
   }
 }

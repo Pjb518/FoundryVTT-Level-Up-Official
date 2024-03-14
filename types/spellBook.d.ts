@@ -13,5 +13,4 @@ export interface SpellBookStats {
   casterType: string;
   dc: number;
   progressionDivisor: number;
-  spellResources: any;
 }
