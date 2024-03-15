@@ -172,6 +172,13 @@ export default function registerPremiumContentConfig(A5E) {
       title: 'Level Up: Adventures in ZEITGEIST',
       url: 'https://bit.ly/3u99LnT'
     },
+    agentOfTheMagus: {
+      abbreviation: 'AotM',
+      affiliate: false,
+      publisher: 'ravine',
+      title: 'Agent of the Magus',
+      url: 'https://ravine.itch.io/a5e-subclass01-magus'
+    },
     arcaneSniper: {
       abbreviation: 'AS',
       affiliate: true,
@@ -198,7 +205,7 @@ export default function registerPremiumContentConfig(A5E) {
       affiliate: false,
       publisher: 'koboldPress',
       title: 'Deep Magic Volume 2',
-      url: ''
+      url: 'https://bit.ly/3v2z4Zf'
     },
     doseOfDungeonpunk: {
       abbreviation: 'DOD:TH',
@@ -571,6 +578,27 @@ export default function registerPremiumContentConfig(A5E) {
       publisher: 'purpleMartinGames',
       title: 'Thematic Toolkit: Venomous Shadow',
       url: 'https://preview.drivethrurpg.com/en/product/400541/thematic-toolkit-venomous-shadow-a5e?affiliate_id=1388381'
+    },
+    theErrantSeer: {
+      abbreviation: 'TRS',
+      affiliate: false,
+      publisher: 'ravine',
+      title: 'The Errant Seer',
+      url: 'https://ravine.itch.io/a5e-subclass03-errant-seer'
+    },
+    theRuinStrider: {
+      abbreviation: 'TRS',
+      affiliate: false,
+      publisher: 'ravine',
+      title: 'The Ruin Stider',
+      url: 'https://ravine.itch.io/a5e-subclass02-ruin-strider'
+    },
+    theSpellbreaker: {
+      abbreviation: 'TS',
+      affiliate: false,
+      publisher: 'ravine',
+      title: 'The Spellbreaker',
+      url: 'https://ravine.itch.io/a5e-subclass04-spellbreaker'
     },
     toSaveAKingdom: {
       abbreviation: 'TSaK',
