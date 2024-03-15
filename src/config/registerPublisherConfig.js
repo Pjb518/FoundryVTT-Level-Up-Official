@@ -5,6 +5,7 @@ export default function registerPublisherConfig(A5E) {
     dmSarah: 'DM Sarah',
     enPublishing: 'EN Publishing',
     joshGentry: 'Josh Gentry',
+    koboldPress: 'Kobold Press',
     plantWitchPress: 'Plant Witch Press',
     purpleMartinGames: 'Purple Martin Games',
     ravine: 'Ravine',

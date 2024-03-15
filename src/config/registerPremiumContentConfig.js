@@ -186,6 +186,20 @@ export default function registerPremiumContentConfig(A5E) {
       title: 'Confidence Mage',
       url: 'https://preview.drivethrurpg.com/en/product/403897/confidence-mage-a5e?affiliate_id=1388381'
     },
+    deepMagic1: {
+      abbreviation: 'DM Vol.1',
+      affiliate: true,
+      publisher: 'koboldPress',
+      title: 'Deep Magic Volume 1',
+      url: 'https://bit.ly/3TfgMvP'
+    },
+    deepMagic2: {
+      abbreviation: 'DM Vol.2',
+      affiliate: false,
+      publisher: 'koboldPress',
+      title: 'Deep Magic Volume 2',
+      url: ''
+    },
     doseOfDungeonpunk: {
       abbreviation: 'DOD:TH',
       affiliate: true,
