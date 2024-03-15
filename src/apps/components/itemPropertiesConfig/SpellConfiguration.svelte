@@ -214,6 +214,25 @@
                 }}
             />
         </Section>
+
+        <Section
+            --a5e-section-body-direction="row"
+            --a5e-section-body-gap="0.75rem"
+        >
+            <FieldWrapper>
+                <Checkbox
+                    label="A5E.RequiresBloodied"
+                    checked={$item.system.requiresBloodied}
+                    on:updateSelection={({ detail }) => {
+                        updateDocumentDataFromField(
+                            $item,
+                            "system.requiresBloodied",
+                            detail,
+                        );
+                    }}
+                />
+            </FieldWrapper>
+        </Section>
     {:else}
         <FormSection>
             <dl class="summary-list">
