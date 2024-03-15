@@ -235,8 +235,19 @@ export default class ActorSheet extends SvelteApplication {
       if (dragData?.parentId === this.actor?.id) return;
     }
 
-    const { uuid } = dragData;
-    const document = await fromUuid(uuid);
+    const { uuid, type } = dragData;
+
+    let document = null;
+    if (type) {
+      try {
+        const cls = CONFIG[type]?.documentClass;
+        document = await cls.fromDropData(dragData);
+      } catch (e) {
+        document = await fromUuid(uuid);
+      }
+    } else {
+      document = await fromUuid(uuid);
+    }
 
     this._onDropDocument(document, options);
   }
