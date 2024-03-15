@@ -91,7 +91,7 @@ If you've developed a module for the Level Up system and would like it listed he
 This system is offered and may be used under the terms of the Open Game License v1.0a and the accompanying
 Level Up: Advanced 5th Edition [Systems Reference Document](https://www.levelup5e.com/system-reference-document).
 
-The content of the `public/packs/dnd5e-*` directories is sourced from the [Dungeons and Dragons SRD 5.1](https://media.wizards.com/2023/downloads/dnd/SRD_CC_v5.1.pdf), licensed under [CC-BY-4.0](https://creativecommons.org/licenses/by/4.0). The content contained in the remaining `public/packs/` directories is used under the terms of the [Open Game License v1.0a](https://opengamingfoundation.org/ogl.html). A copy of the license can be found in the `LICENSE-OGL.md` document.
+The content of the `public/packs/dnd5e-*` directories is sourced from the [Dungeons and Dragons SRD 5.1](https://media.wizards.com/2023/downloads/dnd/SRD_CC_v5.1.pdf), licensed under [CC-BY-4.0](https://creativecommons.org/licenses/by/4.0). Documents that have a source property of `strangerSights` are used with special permission from the author: Sarah Breyfogle (DM Sarah). The remaining content contained in the `public/packs/` directories is used under the terms of the [Open Game License v1.0a](https://opengamingfoundation.org/ogl.html). A copy of the license can be found in the `LICENSE-OGL.md` document.
 
 Various icons are in the `public/assets/icons` directory are sourced from [game-icons.net](https://www.game-icons.net) and are licensed under [CC-BY-3.0](https://creativecommons.org/licenses/by/3.0). Attributions and license details are provided in the `LICENSE.md` file in that directory.
 
