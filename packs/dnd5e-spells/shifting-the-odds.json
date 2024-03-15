@@ -1,204 +1,192 @@
 {
-  "folder": "Q5gbBAlhyAidWAkB",
-  "name": "Shifting the Odds",
-  "type": "spell",
-  "img": "icons/magic/unholy/energy-smoke-pink.webp",
-  "system": {
-    "actions": {
-      "i5WnuyWcrGpnSLv6": {
-        "name": "Shifting the Odds",
-        "activation": {
-          "type": "bonusAction",
-          "cost": 1
-        },
-        "consumers": {
-          "yRiTpP4p7vZGLaNl": {
-            "type": "spell",
-            "default": true,
-            "mode": "variable",
-            "spellLevel": 2,
-            "points": 3
-          }
-        },
-        "rolls": {},
-        "prompts": {
-          "RkkEqwDJpYWzX0Gj": {
-            "type": "effect",
-            "default": true,
-            "effectId": "M1olMtQTKxlQgRm8"
-          },
-          "BlzkaoQV2TKEGLjZ": {
-            "type": "effect",
-            "default": true,
-            "effectId": "osJUgWySxtMp3C2f"
-          }
-        },
-        "uses": {
-          "value": 0,
-          "max": "",
-          "per": "",
-          "recharge": {
-            "formula": "1d6",
-            "rechargeType": "custom",
-            "rechargeAmount": "1",
-            "threshold": 6
-          }
-        },
-        "ranges": {
-          "MQTM3xZpTtMPDr7g": {
-            "range": "self"
-          }
-        },
-        "target": {
-          "type": "creature",
-          "quantity": 1
-        },
-        "duration": {
-          "unit": "instantaneous"
-        }
-      }
-    },
-    "description": "<p>By wrapping yourself in strands of chaotic energy,&nbsp;you gain advantage on the next attack roll or ability&nbsp;check that you make. Fate is a cruel mistress,&nbsp;however, and her scales must always be balanced.&nbsp;The second attack roll or ability check (whichever&nbsp;occurs first) that you make after casting shifting the&nbsp;odds is made with disadvantage.</p>",
-    "favorite": false,
-    "secretDescription": "",
-    "source": "deepMagic1",
-    "uses": {
-      "value": null,
-      "max": "",
-      "per": null,
-      "recharge": {
-        "formula": "1d6",
-        "threshold": "6"
-      }
-    },
-    "schema": {
-      "version": null,
-      "lastMigration": null
-    },
-    "classes": [
-      "bard",
-      "sorcerer",
-      "wizard"
-    ],
-    "components": {
-      "vocalized": true,
-      "seen": false,
-      "material": false
-    },
-    "concentration": false,
-    "level": 2,
-    "materials": "",
-    "materialsConsumed": false,
-    "prepared": false,
-    "prerequisite": "",
-    "rare": false,
-    "ritual": false,
-    "schools": {
-      "primary": "divination",
-      "secondary": [
-        "chaos",
-        "enhancement"
-      ]
-    }
-  },
-  "effects": [
-    {
-      "icon": "icons/magic/unholy/energy-smoke-pink.webp",
-      "origin": "Item.wUKzDtHDn1D1NK8I",
-      "flags": {
-        "a5e": {
-          "sort": 0,
-          "transferType": "onUse",
-          "actionId": "i5WnuyWcrGpnSLv6",
-          "applyToSelf": true
-        }
-      },
-      "transfer": false,
-      "name": "First Roll",
-      "_id": "M1olMtQTKxlQgRm8",
-      "changes": [
-        {
-          "key": "flags.a5e.effects.rollMode.attack.all",
-          "value": "1",
-          "mode": 6,
-          "priority": null
-        },
-        {
-          "key": "flags.a5e.effects.rollMode.abilityCheck.all",
-          "value": "1",
-          "mode": 6,
-          "priority": null
-        }
-      ],
-      "disabled": false,
-      "duration": {
-        "startTime": null,
-        "seconds": null,
-        "combat": null,
-        "rounds": null,
-        "turns": null,
-        "startRound": null,
-        "startTurn": null
-      },
-      "description": "",
-      "statuses": []
-    },
-    {
-      "icon": "icons/magic/unholy/energy-smoke-pink.webp",
-      "origin": "Item.wUKzDtHDn1D1NK8I",
-      "flags": {
-        "a5e": {
-          "sort": 0,
-          "transferType": "onUse",
-          "actionId": "i5WnuyWcrGpnSLv6",
-          "applyToSelf": false
-        }
-      },
-      "transfer": false,
-      "name": "Second Roll",
-      "_id": "osJUgWySxtMp3C2f",
-      "changes": [
-        {
-          "key": "flags.a5e.effects.rollMode.attack.all",
-          "value": "-1",
-          "mode": 6,
-          "priority": null
-        },
-        {
-          "key": "flags.a5e.effects.rollMode.abilityCheck.all",
-          "value": "-1",
-          "mode": 6,
-          "priority": null
-        }
-      ],
-      "disabled": false,
-      "duration": {
-        "startTime": null,
-        "seconds": null,
-        "combat": null,
-        "rounds": null,
-        "turns": null,
-        "startRound": null,
-        "startTurn": null
-      },
-      "description": "",
-      "statuses": []
-    }
-  ],
-  "flags": {
-    "exportSource": {
-      "world": "clean-test",
-      "system": "a5e",
-      "coreVersion": "11.315",
-      "systemVersion": "0.17.13"
-    }
-  },
-  "_stats": {
-    "systemId": "a5e",
-    "systemVersion": "0.17.13",
-    "coreVersion": "11.315",
-    "createdTime": 1710257301690,
-    "modifiedTime": 1710257475575,
-    "lastModifiedBy": "BDqRFxyWZFKs757e"
-  }
+	"folder": null,
+	"name": "Shifting the Odds",
+	"type": "spell",
+	"img": "icons/magic/unholy/energy-smoke-pink.webp",
+	"system": {
+		"actions": {
+			"i5WnuyWcrGpnSLv6": {
+				"name": "Shifting the Odds",
+				"activation": {
+					"type": "bonusAction",
+					"cost": 1
+				},
+				"consumers": {
+					"yRiTpP4p7vZGLaNl": {
+						"type": "spell",
+						"default": true,
+						"mode": "variable",
+						"spellLevel": 2,
+						"points": 3
+					}
+				},
+				"rolls": {},
+				"prompts": {
+					"RkkEqwDJpYWzX0Gj": {
+						"type": "effect",
+						"default": true,
+						"effectId": "M1olMtQTKxlQgRm8"
+					},
+					"BlzkaoQV2TKEGLjZ": {
+						"type": "effect",
+						"default": true,
+						"effectId": "osJUgWySxtMp3C2f"
+					}
+				},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"rechargeType": "custom",
+						"rechargeAmount": "1",
+						"threshold": 6
+					}
+				},
+				"ranges": {
+					"MQTM3xZpTtMPDr7g": {
+						"range": "self"
+					}
+				},
+				"target": {
+					"type": "creature",
+					"quantity": 1
+				},
+				"duration": {
+					"unit": "instantaneous"
+				}
+			}
+		},
+		"description": "<p>By wrapping yourself in strands of chaotic energy,&nbsp;you gain advantage on the next attack roll or ability&nbsp;check that you make. Fate is a cruel mistress,&nbsp;however, and her scales must always be balanced.&nbsp;The second attack roll or ability check (whichever&nbsp;occurs first) that you make after casting shifting the&nbsp;odds is made with disadvantage.</p>",
+		"favorite": false,
+		"secretDescription": "",
+		"source": "deepMagic1",
+		"uses": {
+			"value": null,
+			"max": "",
+			"per": null,
+			"recharge": {
+				"formula": "1d6",
+				"threshold": "6"
+			}
+		},
+		"schema": {
+			"version": null,
+			"lastMigration": null
+		},
+		"classes": [
+			"bard",
+			"sorcerer",
+			"wizard"
+		],
+		"components": {
+			"vocalized": true,
+			"seen": false,
+			"material": false
+		},
+		"concentration": false,
+		"level": 2,
+		"materials": "",
+		"materialsConsumed": false,
+		"prepared": false,
+		"prerequisite": "",
+		"rare": false,
+		"ritual": false,
+		"schools": {
+			"primary": "divination",
+			"secondary": [
+				"chaos",
+				"enhancement"
+			]
+		}
+	},
+	"effects": [
+		{
+			"icon": "icons/magic/unholy/energy-smoke-pink.webp",
+			"origin": "Item.wUKzDtHDn1D1NK8I",
+			"flags": {
+				"a5e": {
+					"sort": 0,
+					"transferType": "onUse",
+					"actionId": "i5WnuyWcrGpnSLv6",
+					"applyToSelf": true
+				}
+			},
+			"transfer": false,
+			"name": "First Roll",
+			"_id": "M1olMtQTKxlQgRm8",
+			"changes": [
+				{
+					"key": "flags.a5e.effects.rollMode.attack.all",
+					"value": "1",
+					"mode": 6,
+					"priority": null
+				},
+				{
+					"key": "flags.a5e.effects.rollMode.abilityCheck.all",
+					"value": "1",
+					"mode": 6,
+					"priority": null
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": null,
+				"combat": null,
+				"rounds": null,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "",
+			"statuses": [],
+			"folder": null
+		},
+		{
+			"icon": "icons/magic/unholy/energy-smoke-pink.webp",
+			"origin": "Item.wUKzDtHDn1D1NK8I",
+			"flags": {
+				"a5e": {
+					"sort": 0,
+					"transferType": "onUse",
+					"actionId": "i5WnuyWcrGpnSLv6",
+					"applyToSelf": false
+				}
+			},
+			"transfer": false,
+			"name": "Second Roll",
+			"_id": "osJUgWySxtMp3C2f",
+			"changes": [
+				{
+					"key": "flags.a5e.effects.rollMode.attack.all",
+					"value": "-1",
+					"mode": 6,
+					"priority": null
+				},
+				{
+					"key": "flags.a5e.effects.rollMode.abilityCheck.all",
+					"value": "-1",
+					"mode": 6,
+					"priority": null
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": null,
+				"combat": null,
+				"rounds": null,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "",
+			"statuses": [],
+			"folder": null
+		}
+	],
+	"flags": {},
+	"_id": "j0xgp3wmy1atz5ca"
 }
