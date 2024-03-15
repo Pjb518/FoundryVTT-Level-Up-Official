@@ -28,8 +28,9 @@ export default class SpellBookManager extends Map<string, SpellBook> {
   }
 
   remove(id: string) {
-    this.actor.update({
-      [`system.spellBooks.-=${id}`]: null
-    });
+    const spellBook = this.get(id);
+    if (!spellBook) return;
+
+    spellBook.delete();
   }
 }

@@ -60,6 +60,10 @@ export default class SpellBook extends A5EDataModel {
     return this.preparedType === 'prepared';
   }
 
+  get isRitual(): boolean {
+    return this.preparedType === 'ritual';
+  }
+
   get progressionDivisor(): number {
     if (this.casterType === 'full') return 1;
     if (this.casterType === 'half') return 2;
@@ -121,6 +125,8 @@ export default class SpellBook extends A5EDataModel {
       ui.notifications.error('You can only add spells to a spell book');
     }
 
+    // TODO: Add logic to add a uses consumer for innate spells.
+
     this.spellIds.push(spell.id);
     this.update({ spellIds: this.spellIds });
   }
@@ -146,6 +152,9 @@ export default class SpellBook extends A5EDataModel {
     await this.parent.deleteEmbeddedDocuments('Item', spellIds);
 
     const id = this._id;
-    this.parent.SpellBooks.remove(id);
+
+    this.parent.update({
+      [`system.spellBooks.-=${id}`]: null
+    });
   }
 }
