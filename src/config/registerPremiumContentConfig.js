@@ -580,7 +580,7 @@ export default function registerPremiumContentConfig(A5E) {
       url: 'https://preview.drivethrurpg.com/en/product/400541/thematic-toolkit-venomous-shadow-a5e?affiliate_id=1388381'
     },
     theErrantSeer: {
-      abbreviation: 'TRS',
+      abbreviation: 'TES',
       affiliate: false,
       publisher: 'ravine',
       title: 'The Errant Seer',
