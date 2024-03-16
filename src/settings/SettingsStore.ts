@@ -301,6 +301,18 @@ class A5eGameSettings extends TJSGameSettings {
       // Chat Card Settings
       {
         namespace,
+        key: 'enableDamageRollColors',
+        options: {
+          name: 'A5E.settings.enableDamageRollColors',
+          hint: 'A5E.settings.hints.enableDamageRollColors',
+          scope: scope.client,
+          config: true,
+          default: true,
+          type: Boolean
+        }
+      },
+      {
+        namespace,
         key: 'hideChatDescriptionsByDefault',
         options: {
           name: 'A5E.settings.hideChatDescriptionsByDefault',
