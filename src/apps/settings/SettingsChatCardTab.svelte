@@ -12,7 +12,7 @@
 
     const isGM = game.user.isGM;
 
-    let damageRollColors = settings.getStore("enableDamageRollColors");
+    let enableDamageRollColors = settings.getStore("enableDamageRollColors");
     let hideDescription = settings.getStore("hideChatDescriptionsByDefault");
     let hideHpRolls = settings.getStore("hideRandomizedHPRolls");
     let protectRolls = settings.getStore("protectRolls");
@@ -23,11 +23,11 @@
     <FieldWrapper hint="A5E.settings.hints.enableDamageRollColors">
         <Checkbox
             label="A5E.settings.enableDamageRollColors"
-            checked={updates.get("damageRollColors") ??
-                $damageRollColors ??
+            checked={updates.get("enableDamageRollColors") ??
+                $enableDamageRollColors ??
                 false}
             on:updateSelection={({ detail }) => {
-                updates.set("damageRollColors", detail);
+                updates.set("enableDamageRollColors", detail);
                 reload = true;
             }}
         />

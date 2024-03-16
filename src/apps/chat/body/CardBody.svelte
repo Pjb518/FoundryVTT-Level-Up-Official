@@ -35,6 +35,8 @@
     }
 
     function prepareRollColor(rollData) {
+        if (!game.settings.get("a5e", "enableDamageRollColors")) return null;
+
         const { damageColors, healingColors } = CONFIG.A5E;
 
         if (rollData.type === "damage") {
