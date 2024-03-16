@@ -7,7 +7,6 @@
 
     import getExpertiseDieSize from "../../../utils/getExpertiseDieSize";
     import RollConfigurationOptions from "./RollConfigurationOptions.svelte";
-    import ChatCard from "../ChatCard.svelte";
 
     export let roll;
     export let rollData = {};
@@ -216,6 +215,7 @@
 
 <style lang="scss">
     .roll {
+        position: relative;
         display: flex;
         flex-grow: 0;
         align-items: center;
@@ -224,20 +224,28 @@
         width: 2.5rem;
         font-size: var(--a5e-text-size-lg);
         font-weight: 700;
-        background: rgba(0, 0, 0, 0.05);
-        border: 1px solid #ccc;
+        border: 0.5px solid var(--a5e-roll-color, #ccc);
         border-radius: $border-radius-standard;
 
+        &::after {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: var(--a5e-roll-color, rgba(0, 0, 0, 0.05));
+            opacity: 0.3;
+        }
+
         &--max {
+            --a5e-roll-color: #97ae8f;
             color: #18520b;
-            background-color: #c7d0c0;
-            border: 1px solid #97ae8f;
         }
 
         &--min {
+            --a5e-roll-color: #f0b5b5;
             color: #aa0200;
-            background-color: #ffdddd;
-            border: 1px solid #f0b5b5;
         }
 
         &--wide {
