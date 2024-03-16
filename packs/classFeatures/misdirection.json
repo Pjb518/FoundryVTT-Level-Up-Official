@@ -1,0 +1,306 @@
+{
+	"folder": null,
+	"name": "Misdirection",
+	"type": "feature",
+	"img": "icons/magic/defensive/shield-barrier-deflect-teal.webp",
+	"system": {
+		"ac": {
+			"baseFormula": "",
+			"formula": "",
+			"grantsDisadvantage": false,
+			"maxDex": 0,
+			"minStr": 0,
+			"mode": 2,
+			"requiresNoShield": false,
+			"requiresUnarmored": false
+		},
+		"actions": {
+			"dwdmepcETPFRhDK5": {
+				"name": "Mislead",
+				"activation": {
+					"cost": 1,
+					"type": "action",
+					"reactionTrigger": ""
+				},
+				"consumers": {
+					"ruQobWpBVSf5QHmq": {
+						"type": "itemUses",
+						"default": true,
+						"quantity": 1
+					}
+				},
+				"rolls": {},
+				"prompts": {},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"rechargeType": "custom",
+						"rechargeAmount": "1",
+						"threshold": 6
+					}
+				},
+				"duration": {
+					"unit": "hour",
+					"value": "1"
+				},
+				"ranges": {
+					"yPf6fuuXnKuJg3dU": {
+						"range": "self"
+					}
+				},
+				"area": {
+					"shape": "",
+					"size": "",
+					"placeTemplate": false,
+					"quantity": 1
+				},
+				"target": {
+					"quantity": "",
+					"type": "self"
+				},
+				"img": "icons/magic/light/explosion-star-glow-silhouette.webp",
+				"description": "<p>You become invisible. At the same time, an illusory copy of you appears where you're standing.</p><p>This invisibility ends when you cast a spell but the copy lasts until the spell ends.</p><p>You can use an action to move your copy up to twice your Speed, have it speak, make gestures, or behave however you'd like.</p><p>You may see and hear through your copy. Until the spell ends, you can use a bonus action to switch between your copy's senses and your own, or back again. While using your copy's senses you are blind and deaf to your body's surroundings.</p><p>The copy is revealed as an illusion with any physical interaction, as solid objects and creatures pass through it.</p>",
+				"descriptionOutputs": [
+					"action"
+				]
+			},
+			"HcVlGUdgYojRQGrG": {
+				"name": "Greater Invisibility",
+				"activation": {
+					"cost": 1,
+					"type": "action",
+					"reactionTrigger": ""
+				},
+				"consumers": {
+					"AApzajtxdvOGQNd3": {
+						"type": "itemUses",
+						"default": true,
+						"quantity": 1
+					}
+				},
+				"rolls": {},
+				"prompts": {
+					"8vugqrvZ9zTJvpZK": {
+						"type": "effect",
+						"default": true,
+						"effectId": "jyK6dZmZykERNKlw"
+					}
+				},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"rechargeType": "custom",
+						"rechargeAmount": "1",
+						"threshold": 6
+					}
+				},
+				"duration": {
+					"unit": "minute",
+					"value": "1"
+				},
+				"ranges": {
+					"W6tgJQlUE0Ja8L5f": {
+						"range": "touch"
+					}
+				},
+				"area": {
+					"shape": "",
+					"size": "",
+					"placeTemplate": false,
+					"quantity": 1
+				},
+				"target": {
+					"quantity": "",
+					"type": "creature"
+				},
+				"img": "icons/magic/light/explosion-star-glow-silhouette.webp",
+				"description": "<p>The target is invisible. Anything the target is carrying or wearing is also invisible as long as it remains in the target's possession.</p>",
+				"descriptionOutputs": [
+					"action"
+				]
+			},
+			"Ph3kUKGTrQfAcqLU": {
+				"name": "Phantasmal Killer",
+				"activation": {
+					"cost": 1,
+					"type": "action",
+					"reactionTrigger": ""
+				},
+				"consumers": {
+					"0CJTqEvDc6WM3egD": {
+						"type": "itemUses",
+						"default": true,
+						"quantity": 1
+					}
+				},
+				"rolls": {
+					"avhOjbUNXont4ouv": {
+						"canCrit": false,
+						"damageType": "psychic",
+						"formula": "5d10",
+						"name": "",
+						"type": "damage",
+						"scaling": {
+							"mode": null,
+							"formula": "1d10"
+						}
+					}
+				},
+				"prompts": {
+					"Zhikxr4YJriBqfqi": {
+						"ability": "wis",
+						"onSave": "Special",
+						"saveDC": {
+							"type": "spellcasting",
+							"bonus": ""
+						},
+						"type": "savingThrow"
+					}
+				},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"rechargeType": "custom",
+						"rechargeAmount": "1",
+						"threshold": 6
+					}
+				},
+				"duration": {
+					"unit": "minute",
+					"value": "1"
+				},
+				"ranges": {
+					"nuvlObI0N6anyAz5": {
+						"range": "long"
+					}
+				},
+				"area": {
+					"shape": "",
+					"size": "",
+					"placeTemplate": false
+				},
+				"target": {
+					"quantity": "",
+					"type": "creature"
+				},
+				"img": "icons/magic/death/skull-horned-worn-fire-blue.webp",
+				"description": "<p>You create an illusion that invokes the target's deepest fears. Only the target can see this illusion.</p><p>When the spell is cast and at the end of each of its turns, the target makes a Wisdom saving throw or takes 4d10 psychic damage and becomes frightened.</p><p>The spell ends early when the target succeeds on its saving throw. A target that succeeds on its initial saving throw takes half damage.</p><p><strong><em>Cast at Higher Levels.</em></strong> The damage increases by 1d10 for each slot level above the 4th.</p>",
+				"descriptionOutputs": [
+					"action"
+				]
+			},
+			"9VQz03QUBGj8Qt8Q": {
+				"name": "Confusion",
+				"activation": {
+					"cost": 1,
+					"type": "action",
+					"reactionTrigger": ""
+				},
+				"consumers": {
+					"qaz9rgw7IAYMzqYA": {
+						"type": "itemUses",
+						"default": true,
+						"quantity": 1
+					}
+				},
+				"rolls": {},
+				"prompts": {
+					"1Zi60xIIA6CmYRCQ": {
+						"ability": "wis",
+						"onSave": "Negates effect",
+						"saveDC": {
+							"type": "spellcasting",
+							"bonus": ""
+						},
+						"type": "savingThrow"
+					},
+					"ocpTg4Xds9x5O9f3": {
+						"type": "effect",
+						"default": true,
+						"effectId": "2wGiliUjJKlBJYp3"
+					},
+					"BqXUbid7ECMSCHWT": {
+						"type": "effect",
+						"default": true,
+						"effectId": "gJe691nLuizKcGEa"
+					}
+				},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"rechargeType": "custom",
+						"rechargeAmount": "1",
+						"threshold": 6
+					}
+				},
+				"duration": {
+					"unit": "minute",
+					"value": "1"
+				},
+				"ranges": {
+					"w8MGoR07H5rLDR2t": {
+						"range": "long"
+					}
+				},
+				"area": {
+					"shape": "sphere",
+					"radius": 15,
+					"placeTemplate": true,
+					"scaling": {
+						"mode": null,
+						"formula": {
+							"quantity": "1",
+							"radius": "5"
+						}
+					}
+				},
+				"target": {
+					"quantity": "",
+					"type": ""
+				},
+				"img": "icons/magic/sonic/projectile-sound-rings-wave.webp",
+				"description": "<p>You assault the minds of your targets, filling them with delusions and making them confused until the spell ends. On a successful saving throw, a target is rattled for 1 round. At the end of each of its turns, a confused target makes a Wisdom saving throw to end the spell's effects on it.</p><p><strong><em>Cast at Higher Levels.</em></strong> The spell's area increases by 5 feet for each slot level above 4th.</p>",
+				"descriptionOutputs": [
+					"action"
+				]
+			}
+		},
+		"description": "<p>Your patron has granted you a sliver of their power&nbsp;to keep you out of harm's way.</p>\n<p>Beginning at 14th level, you are considered under the protection of a specific version of the @UUID[Compendium.a5e.a5e-spells.Item.fujxumfdi1t6zh9p]{Contingency} spell. You don't need to provide the material components for either the <em>contingency </em>spell or the spell cast by <em>contingency</em>.</p>\n<p>After a long rest, you can set the trigger of the <em>contingency </em>(and inform your Narrator). When you do so, you cannot change the trigger until you finish [[/r 1d4]] long rests.</p>\n<p>The contingency spell protecting you can only cast one of the following spells at 5th level: @UUID[Compendium.a5e.a5e-spells.Item.f0lq2ogke9k8f1v9]{Mislead}, @UUID[Compendium.a5e.a5e-spells.Item.0cdtrkihoe9jdon1]{Greater Invisibility}, @UUID[Compendium.a5e.a5e-spells.Item.6y4rq48okutkormg]{Phantasmal Killer} or @UUID[Compendium.a5e.a5e-spells.Item.pdvg7c9emjgnib07]{Confusion}.</p>\n<p>You don't need to know the spell for it to be cast as part of contingency's effect. You can choose which spell is cast when contingency triggers.</p>\n<p>Once contingency has been triggered, this feature cannot be used again before you finish [[/r 2d4]] long rests.</p>",
+		"favorite": false,
+		"secretDescription": "",
+		"source": "agentOfTheMagus",
+		"uses": {
+			"value": 1,
+			"max": "1",
+			"per": null,
+			"recharge": {
+				"formula": "1d6",
+				"threshold": "6"
+			}
+		},
+		"schema": {
+			"version": null,
+			"lastMigration": null
+		},
+		"concentration": false,
+		"featureType": "class",
+		"grants": {},
+		"prerequisite": "",
+		"requiresBloodied": false
+	},
+	"effects": [],
+	"flags": {},
+	"_id": "pta3ivx5d5mpk3om"
+}
