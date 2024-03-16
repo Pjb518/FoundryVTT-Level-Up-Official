@@ -1,7 +1,7 @@
 import BaseItemData from './BaseItemData';
 import Armor from './template/Armor';
 
-export default class FeatureDataModel extends BaseItemData.mixin(Armor) {
+export default class ObjectDataModel extends BaseItemData.mixin(Armor) {
   static defineSchema() {
     const { fields } = foundry.data;
 

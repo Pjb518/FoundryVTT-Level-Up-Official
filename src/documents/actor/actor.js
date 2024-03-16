@@ -90,8 +90,6 @@ export default class ActorA5e extends Actor {
       weapons: DetailsConfigDialog
     };
 
-    // Managers
-    this.RollOverrideManager = new RollOverrideManager(this);
   }
 
   /**
@@ -177,6 +175,7 @@ export default class ActorA5e extends Actor {
   prepareBaseData() {
     // Register Managers
     this.BonusesManager = new BonusesManager(this);
+    this.RollOverrideManager = new RollOverrideManager(this);
     this.grants = new ActorGrantsManager(this);
 
     // Add AC data to the actor.
