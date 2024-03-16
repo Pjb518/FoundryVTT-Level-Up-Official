@@ -29,7 +29,8 @@ export default class SpellDataModel extends BaseItemData {
           new fields.StringField({ required: true, initial: '' }),
           { required: true, initial: [] }
         )
-      })
+      }),
+      spellBook: new fields.StringField({ required: true, initial: '', nullable: false })
     });
   }
 }

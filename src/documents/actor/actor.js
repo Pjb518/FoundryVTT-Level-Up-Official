@@ -89,7 +89,6 @@ export default class ActorA5e extends Actor {
       types: DetailsConfigDialog,
       weapons: DetailsConfigDialog
     };
-
   }
 
   /**
@@ -164,8 +163,8 @@ export default class ActorA5e extends Actor {
     this.RollOverrideManager.initialize();
 
     // Initialize the SpellBooks
-    this.SpellBooks = new SpellBookManager(this);
-    this.SpellBooks.forEach((spellBook) => spellBook.prepareBaseData());
+    this.spellBooks = new SpellBookManager(this);
+    this.spellBooks.forEach((spellBook) => spellBook.prepareBaseData());
   }
 
   /**
