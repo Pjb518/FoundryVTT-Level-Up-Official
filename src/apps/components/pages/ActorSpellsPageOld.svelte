@@ -9,12 +9,12 @@
 
     import CreateMenu from "../actorUtilityBar/CreateMenu.svelte";
     import Filter from "../actorUtilityBar/Filter.svelte";
+    import ItemCategory from "../ItemCategory.svelte";
     import Search from "../actorUtilityBar/Search.svelte";
     import Sort from "../actorUtilityBar/Sort.svelte";
     import TabFooter from "../TabFooter.svelte";
     import UtilityBar from "../actorUtilityBar/UtilityBar.svelte";
     import ShowDescription from "../actorUtilityBar/ShowDescription.svelte";
-    import SpellBook from "../SpellBook.svelte";
 
     function openCompendium() {
         const pack = new SpellCompendiumSheet(
@@ -34,8 +34,6 @@
     const { spellLevels } = CONFIG.A5E;
     const reducerType = "spells";
 
-    const spellBooks = $actor.spellBooks;
-
     $: menuList = Object.entries(spellLevels);
     $: spellResources = $actor.system.spellResources;
 
@@ -54,6 +52,19 @@
         ? true
         : $actor.flags?.a5e?.sheetIsLocked ?? true;
 
+    $: isSpellLevelVisible = (level) => {
+        if (!sheetIsLocked) return true;
+
+        const maxSlots = $actor.system.spellResources.slots[level]?.max;
+        const showSpellSlots = $actor.flags?.a5e?.showSpellSlots ?? true;
+        const spellQuantity = [...$spells._levels[level]].length;
+
+        if (spellQuantity) return true;
+        if (showSpellSlots && maxSlots > 0) return true;
+
+        return false;
+    };
+
     let showDescription = false;
     let showUses = false;
 
@@ -66,15 +77,39 @@
     });
 </script>
 
-<div class="a5e-page-wrapper a5e-page-wrapper--item-list">
-    {#each [...spellBooks] as [spellBookId, spellBook] (spellBookId)}
-        <SpellBook
-            {spellBook}
-            {showUses}
-            reducer={$spells._books[spellBookId]}
+{#if $actor.isOwner}
+    <UtilityBar>
+        <Search {reducerType} />
+        <ShowDescription
+            on:updateSelection={() => (showDescription = !showDescription)}
         />
+        <Sort {reducerType} />
+        <Filter {reducerType} />
+        <CreateMenu {reducerType} {menuList} />
+
+        <button
+            class="a5e-import-from-compendium-button fa-solid fa-download"
+            on:click={openCompendium}
+            data-tooltip="Import Spells from Compendium"
+            data-tooltip-direction="UP"
+        ></button>
+    </UtilityBar>
+{/if}
+
+<section class="a5e-page-wrapper a5e-page-wrapper--item-list">
+    {#each Object.entries(spellLevels) as [level, label]}
+        {#if isSpellLevelVisible(level)}
+            <ItemCategory
+                {level}
+                {label}
+                {showDescription}
+                {showUses}
+                items={$spells._levels[level]}
+                type="spellLevels"
+            />
+        {/if}
     {/each}
-</div>
+</section>
 
 <TabFooter --padding-right="1rem">
     <!-- Prepared Spells Count -->

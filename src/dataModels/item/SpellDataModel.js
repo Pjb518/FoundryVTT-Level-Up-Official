@@ -19,7 +19,7 @@ export default class SpellDataModel extends BaseItemData {
       }),
       materials: new fields.StringField({ required: true, initial: '' }),
       materialsConsumed: new fields.BooleanField({ required: true, initial: false }),
-      prepared: new fields.BooleanField({ required: true, initial: false }),
+      prepared: new fields.NumberField({ required: true, initial: 0 }),
       prerequisite: new fields.StringField({ required: true, initial: '' }),
       rare: new fields.BooleanField({ required: true, initial: false }),
       ritual: new fields.BooleanField({ required: true, initial: false }),

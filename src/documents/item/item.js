@@ -453,17 +453,6 @@ export default class ItemA5e extends BaseItemA5e {
     return consumer;
   }
 
-  async togglePrepared() {
-    if (!this.type === 'spell' || !this.actor) return;
-
-    const currentState = Number(this.system.prepared);
-    const newState = (currentState + 1) % 3;
-
-    await this.update({
-      'system.prepared': newState
-    });
-  }
-
   async recharge(actionId, state = false) {
     if (state || !this.actor) return;
     let max = getDeterministicBonus(this.system.uses.max, this.actor.getRollData());
