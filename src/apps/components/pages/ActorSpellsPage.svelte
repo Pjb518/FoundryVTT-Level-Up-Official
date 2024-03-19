@@ -5,38 +5,14 @@
     import updateDocumentDataFromField from "../../../utils/updateDocumentDataFromField";
     import usesRequired from "../../../utils/usesRequired";
 
-    import SpellCompendiumSheet from "../../SpellCompendiumSheet";
-
-    import CreateMenu from "../actorUtilityBar/CreateMenu.svelte";
-    import Filter from "../actorUtilityBar/Filter.svelte";
-    import Search from "../actorUtilityBar/Search.svelte";
-    import Sort from "../actorUtilityBar/Sort.svelte";
     import TabFooter from "../TabFooter.svelte";
-    import UtilityBar from "../actorUtilityBar/UtilityBar.svelte";
-    import ShowDescription from "../actorUtilityBar/ShowDescription.svelte";
     import SpellBook from "../SpellBook.svelte";
-
-    function openCompendium() {
-        const pack = new SpellCompendiumSheet(
-            { collection: game.packs.get("a5e.a5e-spells") },
-            {
-                importer: (docs) => {
-                    $actor.createEmbeddedDocuments("Item", docs);
-                },
-            },
-        );
-
-        pack.render(true);
-    }
 
     const actor = getContext("actor");
     const { spells } = actor;
-    const { spellLevels } = CONFIG.A5E;
-    const reducerType = "spells";
 
     const spellBooks = $actor.spellBooks;
 
-    $: menuList = Object.entries(spellLevels);
     $: spellResources = $actor.system.spellResources;
 
     $: preparedSpellCount = $actor.items.filter((item) => {
@@ -54,7 +30,6 @@
         ? true
         : $actor.flags?.a5e?.sheetIsLocked ?? true;
 
-    let showDescription = false;
     let showUses = false;
 
     const unsubscribe = spells.subscribe((_) => {
@@ -69,6 +44,7 @@
 <div class="a5e-page-wrapper a5e-page-wrapper--item-list">
     {#each [...spellBooks] as [spellBookId, spellBook] (spellBookId)}
         <SpellBook
+            {spellBookId}
             {spellBook}
             {showUses}
             reducer={$spells._books[spellBookId]}

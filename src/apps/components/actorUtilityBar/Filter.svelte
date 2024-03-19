@@ -8,10 +8,15 @@
 
     import MultiStateCheckBoxGroup from "../MultiStateCheckBoxGroup.svelte";
 
+    export let reducerId = "";
     export let reducerType;
+    export let reducer = null;
 
     const actor = getContext("actor");
-    const reducer = actor[reducerType];
+
+    if (!reducer) {
+        reducer = actor[reducerType];
+    }
 
     function getFilterTooltip(numInclusiveFilters, numExclusiveFilters) {
         if (numInclusiveFilters && numExclusiveFilters) {
@@ -26,7 +31,7 @@
     }
 
     function onUpdateFilters(inclusiveFilters, exclusiveFilters) {
-        $actor.setFlag("a5e", `filters.${reducerType}`, {
+        $actor.setFlag("a5e", flagId, {
             inclusive: inclusiveFilters,
             exclusive: exclusiveFilters,
         });
@@ -40,12 +45,12 @@
     function toggleAll(filters) {
         filters = Object.keys(filters);
         const sectionFilters = activeFilters?.inclusive?.filter((f) =>
-            filters.includes(f)
+            filters.includes(f),
         );
 
         if (arraysAreEqual(sectionFilters, filters)) {
             const inclusiveFilters = activeFilters?.inclusive?.filter(
-                (f) => !filters.includes(f)
+                (f) => !filters.includes(f),
             );
             return onUpdateFilters(inclusiveFilters, []);
         }
@@ -59,13 +64,16 @@
     }
 
     const filterSections = Object.values(CONFIG.A5E.filters[reducerType] ?? {});
-    let activeFilters = $actor.getFlag("a5e", `filters.${reducerType}`) ?? {};
+    const flagId = reducerId
+        ? `filters.${reducerType}.${reducerId}`
+        : `filters.${reducerType}`;
+    let activeFilters = $actor.getFlag("a5e", flagId) ?? {};
 
     $: numInclusiveFilters = activeFilters?.inclusive?.length ?? 0;
     $: numExclusiveFilters = activeFilters?.exclusive?.length ?? 0;
     $: filterTooltip = getFilterTooltip(
         numInclusiveFilters,
-        numExclusiveFilters
+        numExclusiveFilters,
     );
 
     updateFilters(reducer, reducerType, activeFilters);
@@ -112,7 +120,7 @@
                         <div class="filters u-text-xs u-w-full">
                             <MultiStateCheckBoxGroup
                                 options={Object.entries(filters).map(
-                                    ([value, { label }]) => [value, label]
+                                    ([value, { label }]) => [value, label],
                                 )}
                                 selected={[
                                     activeFilters?.inclusive ?? [],

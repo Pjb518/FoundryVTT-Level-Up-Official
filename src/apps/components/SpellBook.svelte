@@ -10,6 +10,7 @@
     import Sort from "./actorUtilityBar/Sort.svelte";
     import UtilityBar from "./actorUtilityBar/UtilityBar.svelte";
 
+    export let spellBookId;
     export let spellBook;
     export let showUses;
     export let reducer;
@@ -63,9 +64,9 @@
             <ShowDescription
                 on:updateSelection={() => (showDescription = !showDescription)}
             />
-            <Sort {reducerType} />
-            <Filter {reducerType} />
-            <CreateMenu {reducerType} {menuList} />
+            <Sort {reducerType} {reducer} />
+            <Filter {reducerType} reducerId={spellBookId} {reducer} />
+            <CreateMenu {reducerType} {menuList} {reducer} />
 
             <button
                 class="a5e-import-from-compendium-button fa-solid fa-download"

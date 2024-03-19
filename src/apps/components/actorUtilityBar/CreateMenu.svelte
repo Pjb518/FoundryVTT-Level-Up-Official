@@ -15,6 +15,7 @@
     export let menuList = [];
     export let offset = { x: 0, y: 0 };
     export let reducerType = null;
+    export let reducer = null;
     export let options = {};
     export let entityTypeOverride = null;
 
@@ -33,6 +34,11 @@
     }
 
     const document = getContext("actor") ?? getContext("item");
+
+    if (!reducer) {
+        reducer = document[reducerType];
+    }
+
     const dispatch = createEventDispatcher();
 </script>
 

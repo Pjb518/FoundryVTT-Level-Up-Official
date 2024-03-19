@@ -8,10 +8,14 @@
     } from "../../handlers/sortingHandlers";
 
     export let reducerType;
+    export let reducer = null;
     export let documentName = "Item";
 
     const document = getContext("actor") ?? getContext("item");
-    const reducer = document[reducerType];
+
+    if (!reducer) {
+        reducer = document[reducerType];
+    }
 
     const sortIcons = {
         0: "fa-sort",
