@@ -2,6 +2,8 @@
     import { localize } from "#runtime/svelte/helper";
     import { getContext } from "svelte";
 
+    import SpellCompendiumSheet from "../SpellCompendiumSheet";
+
     import CreateMenu from "./actorUtilityBar/CreateMenu.svelte";
     import Filter from "./actorUtilityBar/Filter.svelte";
     import ItemCategory from "./ItemCategory.svelte";
@@ -20,6 +22,7 @@
             { collection: game.packs.get("a5e.a5e-spells") },
             {
                 importer: (docs) => {
+                    docs.forEach((doc) => (doc.system.spellBook = spellBookId));
                     $actor.createEmbeddedDocuments("Item", docs);
                 },
             },
