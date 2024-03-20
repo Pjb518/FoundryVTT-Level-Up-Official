@@ -15,29 +15,13 @@ export default class SpellBook extends A5EDataModel {
   static defineSchema() {
     const { fields } = foundry.data;
 
-    const slotData: Record<string, any> = {};
-    [1, 2, 3, 4, 5, 6, 7, 8, 9].forEach((level) => {
-      slotData[level] = new fields.SchemaField({
-        current: new fields.NumberField({
-          required: true, integer: true, min: 0, initial: 0
-        }),
-        max: new fields.NumberField({
-          required: true, integer: true, min: 0, initial: 0
-        })
-      });
-    });
-
     return {
       _id: new fields.DocumentIdField({ initial: () => foundry.utils.randomID() }),
       name: new fields.StringField({ required: true, initial: 'New Spell Book' }),
 
       ability: new fields.StringField({ required: true, initial: 'int' }),
       casterType: new fields.StringField({ required: true, initial: 'full' }),
-      preparedType: new fields.StringField({ required: true, initial: 'prepared' }),
-      spellIds: new fields.ArrayField(
-        new fields.StringField({ required: true, initial: '' }),
-        { required: true, initial: [] }
-      )
+      preparedType: new fields.StringField({ required: true, initial: 'prepared' })
     };
   }
 
@@ -64,6 +48,10 @@ export default class SpellBook extends A5EDataModel {
     return this.preparedType === 'ritual';
   }
 
+  get spellIds(): string[] {
+    return this.spells.map((spell: typeof Item) => spell.id);
+  }
+
   get progressionDivisor(): number {
     if (this.casterType === 'full') return 1;
     if (this.casterType === 'half') return 2;
@@ -82,14 +70,11 @@ export default class SpellBook extends A5EDataModel {
     this.spells = new foundry.utils.Collection();
     if (!actor) return;
 
-    for (const id of this.spellIds) {
-      try {
-        const spell = actor.items.get(id);
-        if (spell) this.spells.set(spell.id, spell);
-      } catch (e) {
-        // eslint-disable-next-line no-console
-        console.error(`Failed to load spell with id ${id}`);
-      }
+    for (const item of actor.items) {
+      if (item.type !== 'spell') continue;
+
+      if (item.system.spellBook !== this._id) continue;
+      this.spells.set(item.id, item);
     }
 
     this.slug = `${this.name}-spellcasting`.slugify();
@@ -120,33 +105,6 @@ export default class SpellBook extends A5EDataModel {
   // ======================================
   // API Methods
   // ======================================
-  addSpell(spell: typeof Item) {
-    if (spell.type !== 'spell') {
-      ui.notifications.error('You can only add spells to a spell book');
-    }
-
-    // TODO: Add logic to add a uses consumer for innate spells.
-
-    this.spellIds.push(spell.id);
-    this.update({ spellIds: this.spellIds });
-  }
-
-  addSpells(spells: typeof Item[]) {
-    const newIds = spells.reduce((acc: string[], spell: typeof Item) => {
-      if (spell.type !== 'spell') return acc;
-      acc.push(spell.id);
-      return acc;
-    }, []);
-
-    const spellIds = [...this.spellIds, ...newIds];
-    this.update({ spellIds });
-  }
-
-  removeSpell(spell: typeof Item) {
-    const spellIds = this.spellIds.filter((id: string) => id !== spell.id);
-    this.update({ spellIds });
-  }
-
   async delete() {
     const { spellIds } = this;
     await this.parent.deleteEmbeddedDocuments('Item', spellIds);
