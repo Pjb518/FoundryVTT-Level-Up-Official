@@ -860,6 +860,7 @@ export default class ActorA5e extends Actor {
       mod: Math.max(data.dex.mod, data.str.mod)
     };
 
+    // TODO: Remove these before releasing spellbook functionality
     data.spell = {
       mod: this._calculateSpellcastingMod()
     };
@@ -867,11 +868,17 @@ export default class ActorA5e extends Actor {
     data.spellcasting = {
       mod: data.spell.mod
     };
+    data.spellDC = this.system.attributes.spellDC;
 
     data.level = this.system.details.level;
 
-    data.spellDC = this.system.attributes.spellDC;
     data.maneuverDC = this.system.attributes.maneuverDC;
+
+    // Add spellbook data
+    foundry.utils.mergeObject(
+      data,
+      this.spellBooks?.getRollData() ?? {}
+    );
 
     return data;
   }

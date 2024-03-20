@@ -274,7 +274,10 @@ export default class BaseActorData extends A5EDataModel.mixin(SchemaDataModel) {
         link: new fields.StringField({ required: true, initial: '' }),
         publisher: new fields.StringField({ required: true, initial: '' })
       }),
-      spellBooks: new fields.ObjectField({ required: true, initial: {} }),
+      spellBooks: new RecordField(
+        new fields.DocumentIdField({ required: true, initial: () => foundry.utils.randomID() }),
+        new fields.ObjectField()
+      ),
       traits: new fields.SchemaField({
         size: new fields.StringField({ required: true, initial: 'med' }),
         alignment: new fields.ArrayField(

@@ -77,7 +77,7 @@ export default class SpellBook extends A5EDataModel {
       this.spells.set(item.id, item);
     }
 
-    this.slug = `${this.name}-spellcasting`.slugify();
+    this.slug = `spellbook-${this.name}`.slugify();
     this.prepareSpellBookStats();
   }
 
@@ -92,14 +92,32 @@ export default class SpellBook extends A5EDataModel {
       actor.system.abilities[this.ability || 'int'].check.mod
     ].join(' + '), actor.getRollData()) || 10;
 
+    const { abilities } = actor.system;
+    const spellMod = abilities[this.ability || 'int'].check.mod;
+
     const stats = {
       ability: this.ability,
-      casterType: this.casterType,
       dc: spellDC,
+      mode: this.mode,
+      mod: spellMod,
       progressionDivisor: this.progressionDivisor
     };
 
     this.stats = stats;
+  }
+
+  getRollData(): Record<string, any> {
+    const data: Record<string, any> = {};
+    const { slug } = this;
+    const { stats } = this;
+
+    data[`${slug}-ability`] = stats.ability;
+    data[`${slug}-dc`] = stats.dc;
+    data[`${slug}-mod`] = stats.mod;
+    data[`${slug}-mode`] = stats.mode;
+    data[`${slug}-progressionDivisor`] = stats.progressionDivisor;
+
+    return data;
   }
 
   // ======================================

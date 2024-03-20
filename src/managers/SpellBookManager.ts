@@ -33,4 +33,14 @@ export default class SpellBookManager extends Map<string, SpellBook> {
 
     spellBook.delete();
   }
+
+  getRollData(): Record<string, any> {
+    const data: Record<string, any> = {};
+
+    this.forEach((spellBook: SpellBook) => {
+      Object.assign(data, spellBook.getRollData());
+    });
+
+    return data;
+  }
 }
