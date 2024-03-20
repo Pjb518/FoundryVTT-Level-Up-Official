@@ -3,14 +3,14 @@ export interface SpellBookData {
   name: string;
   slug: string;
 
-  attribute: string;
+  ability: string;
   preparedType: string;
-  spellIds: string[];
 }
 
 export interface SpellBookStats {
   ability: string;
-  casterType: string;
   dc: number;
+  mod: number;
+  mode: string;
   progressionDivisor: number;
 }

@@ -4,6 +4,8 @@ import SpellBook from '../dataModels/actor/SpellBook';
 export default class SpellBookManager extends Map<string, SpellBook> {
   private actor: typeof Actor;
 
+  default: SpellBook | null;
+
   constructor(actor: typeof Actor) {
     super();
 
@@ -17,6 +19,14 @@ export default class SpellBookManager extends Map<string, SpellBook> {
         const spellBook = new SpellBook(data, { parent: this.actor });
         this.set(id, spellBook);
       });
+
+    // If only one spell book exists, set it as the default
+    if (this.size === 1) {
+      const defaultSpellBook: SpellBook = this.values().next().value;
+      if (!defaultSpellBook.default) defaultSpellBook.updateSource({ default: true });
+    }
+
+    this.default = [...this.values()].find((spellBook: SpellBook) => spellBook.default) ?? null;
   }
 
   add(data: SpellBookData) {
@@ -40,6 +50,12 @@ export default class SpellBookManager extends Map<string, SpellBook> {
     this.forEach((spellBook: SpellBook) => {
       Object.assign(data, spellBook.getRollData());
     });
+
+    // Add the default spell book
+    const defaultSpellBook = this.default;
+    if (defaultSpellBook) {
+      Object.assign(data, defaultSpellBook.getRollData('spellbook-default'));
+    }
 
     return data;
   }

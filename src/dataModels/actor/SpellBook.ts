@@ -3,6 +3,16 @@ import A5EDataModel from '../A5EDataModel';
 import getDeterministicBonus from '../../dice/getDeterministicBonus';
 
 export default class SpellBook extends A5EDataModel {
+  declare _id: string;
+
+  declare name: string;
+
+  declare default: boolean;
+
+  declare mode: string;
+
+  declare preparedType: string;
+
   spells: Collection<any> = new foundry.utils.Collection();
 
   stats: Record<string, any> = {};
@@ -18,6 +28,7 @@ export default class SpellBook extends A5EDataModel {
     return {
       _id: new fields.DocumentIdField({ initial: () => foundry.utils.randomID() }),
       name: new fields.StringField({ required: true, initial: 'New Spell Book' }),
+      default: new fields.BooleanField({ required: true, initial: false }),
 
       ability: new fields.StringField({ required: true, initial: 'int' }),
       mode: new fields.StringField({ required: true, initial: 'fullCaster' }),
@@ -106,9 +117,9 @@ export default class SpellBook extends A5EDataModel {
     this.stats = stats;
   }
 
-  getRollData(): Record<string, any> {
+  getRollData(prefix?: string): Record<string, any> {
     const data: Record<string, any> = {};
-    const { slug } = this;
+    const slug = prefix || this.slug;
     const { stats } = this;
 
     data[`${slug}-ability`] = stats.ability;
