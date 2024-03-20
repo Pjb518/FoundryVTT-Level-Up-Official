@@ -8,7 +8,7 @@
     } from "../../handlers/sortingHandlers";
 
     export let reducerType;
-    export let reducerId;
+    export let reducerId = null;
     export let reducer = null;
     export let documentName = "Item";
 

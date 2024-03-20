@@ -423,7 +423,7 @@ export default class ItemA5e extends BaseItemA5e {
 
     return Object.entries(promptsByType).reduce((defaultPrompts, [promptType, promptGroup]) => {
       defaultPrompts.push(...promptGroup.reduce((acc, [, prompt]) => {
-        if (promptType === 'savingThrow') prompt.dc = computeSaveDC(this.actor, prompt.saveDC);
+        if (promptType === 'savingThrow') prompt.dc = computeSaveDC(this.actor, this, prompt.saveDC);
 
         if (prompt.default ?? true) acc.push(prompt);
 

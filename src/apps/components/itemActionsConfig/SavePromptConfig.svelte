@@ -31,7 +31,7 @@
 
     function onSaveDCUpdate(actor) {
         try {
-            const saveDC = computeSaveDC(actor, {
+            const saveDC = computeSaveDC(actor, $item, {
                 type: prompt?.saveDC?.type,
                 bonus: saveDCBonus,
             });
