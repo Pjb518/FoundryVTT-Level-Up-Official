@@ -44,9 +44,9 @@
 </script>
 
 {#if !sheetIsLocked || [...spellBooks].length > 1}
-    <ul class="a5e-spellbook-list">
+    <nav class="a5e-spellbook-list">
         {#each [...spellBooks] as [spellBookId, spellBook]}
-            <li
+            <button
                 class="a5e-spellbook-list__item"
                 class:a5e-spellbook-list__item--active={currentSpellBook ===
                     spellBookId}
@@ -55,19 +55,17 @@
                 }}
             >
                 {spellBook.name}
-            </li>
+            </button>
         {/each}
 
         {#if !sheetIsLocked}
-            <li
-                class="a5e-spellbook-list__item a5e-spellbook-list__item--add"
+            <button
+                class="a5e-spellbook-list__item a5e-spellbook-list__item--add fa-solid fa-plus"
                 data-tooltip="Create new spell book"
                 on:click={() => $actor.spellBooks.add({})}
-            >
-                <i class="fa-solid fa-plus"></i>
-            </li>
+            />
         {/if}
-    </ul>
+    </nav>
 {/if}
 
 <SpellBook
@@ -177,12 +175,13 @@
             display: flex;
             align-items: center;
             justify-content: center;
+            width: fit-content;
+            margin: 0;
             padding: 0.375rem 0.75rem;
             line-height: 1;
             background: rgba(0 0 0 / 0.05);
             border: 1px solid #ccc;
             border-radius: 3px;
-            cursor: pointer;
 
             &--active {
                 background-color: hsl(190, 21%, 33%);
