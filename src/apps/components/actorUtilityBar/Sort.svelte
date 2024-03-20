@@ -8,6 +8,7 @@
     } from "../../handlers/sortingHandlers";
 
     export let reducerType;
+    export let reducerId;
     export let reducer = null;
     export let documentName = "Item";
 
@@ -37,10 +38,14 @@
         let newMode = (sortMode + 1) % 3;
         newMode = newMode === 0 ? 1 : newMode;
 
-        await $document.setFlag("a5e", "sortMode", newMode);
+        await $document.setFlag("a5e", flagId, newMode);
     }
 
-    $: sortMode = $document.getFlag("a5e", "sortMode") || 0;
+    let flagId = reducerId
+        ? `sortMode.${reducerType}.${reducerId}`
+        : `sortMode.${reducerType}`;
+
+    $: sortMode = $document.getFlag("a5e", flagId) || 0;
 </script>
 
 <TJSIconButton

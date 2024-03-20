@@ -67,7 +67,7 @@
             <ShowDescription
                 on:updateSelection={() => (showDescription = !showDescription)}
             />
-            <Sort {reducerType} {reducer} />
+            <Sort {reducerType} {reducer} reducerId={spellBookId} />
             <Filter {reducerType} reducerId={spellBookId} {reducer} />
             <CreateMenu {reducerType} {menuList} {reducer} />
 
