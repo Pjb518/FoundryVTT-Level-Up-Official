@@ -20,7 +20,7 @@ export default class SpellBook extends A5EDataModel {
       name: new fields.StringField({ required: true, initial: 'New Spell Book' }),
 
       ability: new fields.StringField({ required: true, initial: 'int' }),
-      casterType: new fields.StringField({ required: true, initial: 'full' }),
+      mode: new fields.StringField({ required: true, initial: 'fullCaster' }),
       preparedType: new fields.StringField({ required: true, initial: 'prepared' })
     };
   }
@@ -53,10 +53,10 @@ export default class SpellBook extends A5EDataModel {
   }
 
   get progressionDivisor(): number {
-    if (this.casterType === 'full') return 1;
-    if (this.casterType === 'half') return 2;
-    if (this.casterType === 'third') return 3;
-    if (this.casterType === 'quarter') return 4;
+    if (this.casterType === 'fullCaster') return 1;
+    if (this.casterType === 'halfCaster') return 2;
+    if (this.casterType === 'tertiaryCaster') return 3;
+    if (this.casterType === 'quaternaryCaster') return 4;
 
     return 0;
   }
