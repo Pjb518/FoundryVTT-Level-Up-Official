@@ -222,7 +222,7 @@ export default class ActorSheet extends SvelteApplication {
     sheetConfigDialog.render(true);
   }
 
-  async _onDrop(event, options = {}) {
+  async _onDrop(event, options: Record<string, any> = {}) {
     const transferData = event.dataTransfer.getData('text/plain');
     if (!transferData) return;
 
@@ -233,6 +233,12 @@ export default class ActorSheet extends SvelteApplication {
     if (currentTab !== 'inventory') {
       if (dragData?.actorId === this.actor?.id) return;
       if (dragData?.parentId === this.actor?.id) return;
+    }
+
+    if (currentTab === 'spells') {
+      const target = event.target.closest('.a5e-spellbook');
+      const spellBookId = target?.getAttribute('data-spell-book-id') ?? '';
+      if (spellBookId) options.spellBookId = spellBookId;
     }
 
     const { uuid, type } = dragData;
@@ -259,22 +265,22 @@ export default class ActorSheet extends SvelteApplication {
   }
 
   // eslint-disable-next-line no-unused-vars, no-empty-function, @typescript-eslint/no-unused-vars
-  async #onDropActor(actor) {
+  async #onDropActor(actor: typeof Actor) {
     //
   }
 
-  async #onDropActiveEffect(effect) {
+  async #onDropActiveEffect(effect: typeof ActiveEffect) {
     this.actor.createEmbeddedDocuments('ActiveEffect', [effect]);
   }
 
-  async #onDropItem(item, options = {}) {
+  async #onDropItem(item: typeof Item, options: Record<string, any> = {}) {
     if (item.type === 'destiny') this.#onDropDestiny(item);
     else if (item.type === 'object') this.#onDropObject(item, options);
-    else if (item.type === 'spell') this.#onDropSpell(item);
+    else if (item.type === 'spell') this.#onDropSpell(item, options);
     else this.actor.createEmbeddedDocuments('Item', [item]);
   }
 
-  async #onDropDestiny(item) {
+  async #onDropDestiny(item: typeof Item) {
     if (this.actor.type !== 'character') {
       ui.notifications.warn('Destiny documents cannot be added to NPCs.');
       return;
@@ -294,7 +300,7 @@ export default class ActorSheet extends SvelteApplication {
     ]);
   }
 
-  async #onDropObject(item, options) {
+  async #onDropObject(item: typeof Item, options: Record<string, any>) {
     if (item.system.objectType === 'container' && item.parent?.id !== this.actor.id) {
       const container = await SubObjectManager.createContainerOnActor(this.actor, item);
 
@@ -318,10 +324,12 @@ export default class ActorSheet extends SvelteApplication {
       ?.updateContainer(options.containerUuid ?? '');
   }
 
-  async #onDropSpell(item) {
+  async #onDropSpell(item: typeof Item, options: Record<string, any>) {
     const currentTab = this.tempSettings[this.actor.uuid]?.currentTab;
     if (currentTab !== 'inventory') {
-      this.actor.createEmbeddedDocuments('Item', [item]);
+      const itemData = item.toObject();
+      itemData.system.spellBook = options.spellBookId;
+      this.actor.createEmbeddedDocuments('Item', [itemData]);
       return;
     }
 

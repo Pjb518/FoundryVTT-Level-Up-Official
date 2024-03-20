@@ -126,8 +126,7 @@
     draggable="true"
     data-document-uuid={item.uuid}
     on:dragstart={onDragStart}
-    on:drop|preventDefault|stopPropagation={(e) =>
-        dispatch("dropObject", event)}
+    on:drop|preventDefault|stopPropagation={(e) => dispatch("dropObject", e)}
     on:click={() => {
         showDescription = !showDescription;
     }}

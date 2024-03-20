@@ -57,7 +57,8 @@
     let showDescription = false;
 </script>
 
-<article>
+<!-- The class name shouldn't change as it is used to find the closest spell book for onDrop -->
+<article class="a5e-spellbook" data-spell-book-id={spellBookId}>
     <header>
         <h3>{spellBook.name}</h3>
     </header>
