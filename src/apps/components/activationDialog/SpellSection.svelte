@@ -42,7 +42,7 @@
         else if (option === "noConsume") disableBaseSlotOptions();
         else disabled = [];
 
-        spellData.level = consumer.spellLevel;
+        spellData.level = getDefaultSpellLevel();
     }
 
     function disableBaseSlotOptions() {
@@ -75,6 +75,18 @@
         ];
     }
 
+    function getDefaultSpellLevel() {
+        const defaultLevel = consumer.spellLevel ?? $item.system?.level ?? 1;
+        const smallestAvailable = Math.min(...availableSpellSlots.map(Number));
+
+        const selection =
+            spellData.consume === "noConsume"
+                ? defaultLevel
+                : Math.max(defaultLevel, smallestAvailable);
+
+        return selection;
+    }
+
     // =======================================================
     // Actor data
     let spellResources = $actor.system.spellResources;
@@ -93,9 +105,6 @@
     const consumer = Object.values(consumers.spell ?? {})?.[0]?.[1] ?? {};
     let mode = consumer.mode ?? "variable";
 
-    spellData.level = consumer.spellLevel ?? $item.system?.level ?? 1;
-    spellData.points =
-        consumer.points ?? A5E.spellLevelCost[$item.system?.level] ?? 1;
     spellData.basePoints = consumer.points ?? 1;
     spellData.baseLevel = consumer.spellLevel ?? $item.system.level ?? 1;
 
@@ -127,6 +136,10 @@
     if (spellBook.disableSpellConsumers) {
         spellData.consume = "noConsume";
     }
+
+    spellData.level = getDefaultSpellLevel();
+    spellData.points =
+        consumer.points ?? A5E.spellLevelCost[$item.system?.level] ?? 1;
 
     if (spellData.consume === "spellSlot") disableSpellSlotOptions();
     else if (spellData.consume === "noConsume") disableBaseSlotOptions();

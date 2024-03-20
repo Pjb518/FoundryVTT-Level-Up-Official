@@ -375,12 +375,6 @@ export default class ItemA5e extends BaseItemA5e {
           []
         );
 
-      const spellLevel = spellConsumer.spellLevel ?? this.system?.level ?? 1;
-      const spellPoints = spellConsumer.points ?? CONFIG.A5E.spellLevelCost[spellLevel] ?? 1;
-      spellData.level = spellLevel;
-      spellData.points = spellPoints;
-      spellData.basePoints = spellPoints;
-      spellData.baseLevel = spellLevel;
       // eslint-disable-next-line no-nested-ternary
       spellData.consume = mode === 'pointsOnly'
         ? 'spellPoint'
@@ -392,7 +386,19 @@ export default class ItemA5e extends BaseItemA5e {
         spellData.consume = 'noConsume';
       }
 
-      const spellBook = this.parent?.spellBooks?.get(this.system.spellBookId);
+      const defaultLevel = spellConsumer.spellLevel ?? this.system?.level ?? 1;
+      const smallestAvailable = Math.min(...availableSpellSlots.map(Number));
+      const spellLevel = spellData.consume === 'noConsume'
+        ? defaultLevel
+        : Math.max(defaultLevel, smallestAvailable);
+      const spellPoints = spellConsumer.points ?? CONFIG.A5E.spellLevelCost[spellLevel] ?? 1;
+
+      spellData.basePoints = spellPoints;
+      spellData.baseLevel = spellLevel;
+      spellData.level = spellLevel;
+      spellData.points = spellPoints;
+
+      const spellBook = this.parent?.spellBooks?.get(this.system.spellBook);
       if (spellBook.disableSpellConsumers) spellData.consume = 'noConsume';
     }
 
