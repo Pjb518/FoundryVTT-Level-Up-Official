@@ -59,7 +59,10 @@
 </script>
 
 <!-- The class name shouldn't change as it is used to find the closest spell book for onDrop -->
-<article class="a5e-page-wrapper" data-spell-book-id={spellBookId}>
+<article
+    class="a5e-page-wrapper a5e-page-wrapper--scrollable"
+    data-spell-book-id={spellBookId}
+>
     {#if $actor.isOwner}
         <UtilityBar>
             <Search {reducerType} {reducer} />

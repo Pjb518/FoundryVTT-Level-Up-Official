@@ -43,28 +43,32 @@
     });
 </script>
 
-<ul class="a5e-spellbook-list">
-    {#each [...spellBooks] as [spellBookId, spellBook]}
-        <li
-            class="a5e-spellbook-list__item"
-            class:a5e-spellbook-list__item--active={currentSpellBook ===
-                spellBookId}
-            on:click={() => {
-                currentSpellBook = spellBookId;
-            }}
-        >
-            {spellBook.name}
-        </li>
-    {/each}
+{#if !sheetIsLocked || [...spellBooks].length > 1}
+    <ul class="a5e-spellbook-list">
+        {#each [...spellBooks] as [spellBookId, spellBook]}
+            <li
+                class="a5e-spellbook-list__item"
+                class:a5e-spellbook-list__item--active={currentSpellBook ===
+                    spellBookId}
+                on:click={() => {
+                    currentSpellBook = spellBookId;
+                }}
+            >
+                {spellBook.name}
+            </li>
+        {/each}
 
-    <li
-        class="a5e-spellbook-list__item a5e-spellbook-list__item--add"
-        data-tooltip="Create new spell book"
-        on:click={() => $actor.spellBooks.add({})}
-    >
-        <i class="fa-solid fa-plus"></i>
-    </li>
-</ul>
+        {#if !sheetIsLocked}
+            <li
+                class="a5e-spellbook-list__item a5e-spellbook-list__item--add"
+                data-tooltip="Create new spell book"
+                on:click={() => $actor.spellBooks.add({})}
+            >
+                <i class="fa-solid fa-plus"></i>
+            </li>
+        {/if}
+    </ul>
+{/if}
 
 <SpellBook
     spellBookId={currentSpellBook}
