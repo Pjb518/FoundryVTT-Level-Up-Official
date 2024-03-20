@@ -1,3 +1,17 @@
+function getSpellBookAbility(actor: typeof Actor, item: typeof Item): string {
+  let spellBook: any;
+
+  const actorData: any = actor.system;
+  const spellBookId = item.system.spellBook;
+
+  if (spellBookId) spellBook = actor.spellBooks.get(item.system.spellBook);
+  else spellBook = actor.spellBooks.default;
+
+  if (!spellBook) return actorData.attributes.spellcasting ?? 'int';
+
+  return spellBook.stats.ability || 'int';
+}
+
 /**
  * A utility function for determining the correct attribute to use for a given attack roll.
  */
@@ -17,12 +31,12 @@ export default function getAttackAbility(
   }
 
   if (attackData.ability === 'spellcasting') {
-    return actorData.attributes.spellcasting ?? 'int';
+    return getSpellBookAbility(actor, item);
   }
 
   if (attackData?.ability === 'default') {
     if (['meleeSpellAttack', 'rangedSpellAttack'].includes(attackData.attackType)) {
-      return actorData.attributes.spellcasting ?? 'int';
+      return getSpellBookAbility(actor, item);
     }
 
     if (attackData.attackType === 'meleeWeaponAttack') {
