@@ -12,16 +12,18 @@
     import UtilityBar from "./actorUtilityBar/UtilityBar.svelte";
 
     export let spellBookId;
-    export let spellBook;
     export let showUses;
     export let reducer;
 
-    function openCompendium() {
+    function openSpellCompendium() {
         const pack = new SpellCompendiumSheet(
             { collection: game.packs.get("a5e.a5e-spells") },
             {
                 importer: (docs) => {
-                    docs.forEach((doc) => (doc.system.spellBook = spellBookId));
+                    docs.forEach((doc) => {
+                        doc.system.spellBook = spellBookId;
+                    });
+
                     $actor.createEmbeddedDocuments("Item", docs);
                 },
             },
@@ -70,10 +72,10 @@
 
             <button
                 class="a5e-import-from-compendium-button fa-solid fa-download"
-                on:click={openCompendium}
+                on:click={openSpellCompendium}
                 data-tooltip="Import Spells from Compendium"
                 data-tooltip-direction="UP"
-            ></button>
+            />
         </UtilityBar>
     {/if}
 

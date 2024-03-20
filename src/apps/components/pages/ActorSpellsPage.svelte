@@ -36,14 +36,23 @@
         showUses = usesRequired(spells);
     });
 
+    let currentSpellBook = [...spellBooks]?.[0]?.[0];
+
     onDestroy(() => {
         unsubscribe();
     });
 </script>
 
 <ul class="a5e-spellbook-list">
-    {#each [...spellBooks] as [_, spellBook]}
-        <li class="a5e-spellbook-list__item">
+    {#each [...spellBooks] as [spellBookId, spellBook]}
+        <li
+            class="a5e-spellbook-list__item"
+            class:a5e-spellbook-list__item--active={currentSpellBook ===
+                spellBookId}
+            on:click={() => {
+                currentSpellBook = spellBookId;
+            }}
+        >
             {spellBook.name}
         </li>
     {/each}
@@ -51,19 +60,17 @@
     <li
         class="a5e-spellbook-list__item a5e-spellbook-list__item--add"
         data-tooltip="Create new spell book"
+        on:click={() => $actor.spellBooks.add({})}
     >
         <i class="fa-solid fa-plus"></i>
     </li>
 </ul>
 
-{#each [...spellBooks] as [spellBookId, spellBook] (spellBookId)}
-    <SpellBook
-        {spellBookId}
-        {spellBook}
-        {showUses}
-        reducer={$spells._books[spellBookId]}
-    />
-{/each}
+<SpellBook
+    spellBookId={currentSpellBook}
+    {showUses}
+    reducer={$spells._books[currentSpellBook]}
+/>
 
 <TabFooter --padding-right="1rem">
     <!-- Prepared Spells Count -->
@@ -172,6 +179,12 @@
             border: 1px solid #ccc;
             border-radius: 3px;
             cursor: pointer;
+
+            &--active {
+                background-color: hsl(190, 21%, 33%);
+                border-color: hsl(190, 21%, 28%);
+                color: hsl(190, 21%, 100%);
+            }
 
             &--add {
                 min-width: 2rem;
