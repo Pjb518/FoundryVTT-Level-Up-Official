@@ -1,5 +1,4 @@
 <script>
-    import { localize } from "#runtime/svelte/helper";
     import { getContext } from "svelte";
 
     import SpellCompendiumSheet from "../SpellCompendiumSheet";
@@ -58,10 +57,7 @@
 </script>
 
 <!-- The class name shouldn't change as it is used to find the closest spell book for onDrop -->
-<article class="a5e-spellbook" data-spell-book-id={spellBookId}>
-    <header>
-        <h3>{spellBook.name}</h3>
-    </header>
+<article class="a5e-page-wrapper" data-spell-book-id={spellBookId}>
     {#if $actor.isOwner}
         <UtilityBar>
             <Search {reducerType} {reducer} />

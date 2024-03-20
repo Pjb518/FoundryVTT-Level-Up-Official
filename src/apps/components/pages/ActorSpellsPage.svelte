@@ -41,16 +41,29 @@
     });
 </script>
 
-<div class="a5e-page-wrapper a5e-page-wrapper--item-list">
-    {#each [...spellBooks] as [spellBookId, spellBook] (spellBookId)}
-        <SpellBook
-            {spellBookId}
-            {spellBook}
-            {showUses}
-            reducer={$spells._books[spellBookId]}
-        />
+<ul class="a5e-spellbook-list">
+    {#each [...spellBooks] as [_, spellBook]}
+        <li class="a5e-spellbook-list__item">
+            {spellBook.name}
+        </li>
     {/each}
-</div>
+
+    <li
+        class="a5e-spellbook-list__item a5e-spellbook-list__item--add"
+        data-tooltip="Create new spell book"
+    >
+        <i class="fa-solid fa-plus"></i>
+    </li>
+</ul>
+
+{#each [...spellBooks] as [spellBookId, spellBook] (spellBookId)}
+    <SpellBook
+        {spellBookId}
+        {spellBook}
+        {showUses}
+        reducer={$spells._books[spellBookId]}
+    />
+{/each}
 
 <TabFooter --padding-right="1rem">
     <!-- Prepared Spells Count -->
@@ -139,5 +152,30 @@
 <style lang="scss">
     .disable-pointer-events {
         pointer-events: none;
+    }
+
+    .a5e-spellbook-list {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.375rem;
+        margin: 0;
+        padding: 0;
+        list-style: none;
+
+        &__item {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 0.375rem 0.75rem;
+            line-height: 1;
+            background: rgba(0 0 0 / 0.05);
+            border: 1px solid #ccc;
+            border-radius: 3px;
+            cursor: pointer;
+
+            &--add {
+                min-width: 2rem;
+            }
+        }
     }
 </style>
