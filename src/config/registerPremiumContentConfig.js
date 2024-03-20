@@ -460,6 +460,7 @@ export default function registerPremiumContentConfig(A5E) {
       title: 'Mysterious and Marvelous Miscellanea',
       url: 'https://bit.ly/42fLLM8'
     },
+
     secretsOfTheSelkies: {
       abbreviation: 'SotS',
       affiliate: true,
@@ -599,6 +600,13 @@ export default function registerPremiumContentConfig(A5E) {
       publisher: 'ravine',
       title: 'The Spellbreaker',
       url: 'https://ravine.itch.io/a5e-subclass04-spellbreaker'
+    },
+    toilAndTrouble: {
+      abbreviation: 'TaT',
+      affiliate: true,
+      publisher: 'plantWitchPress',
+      title: 'Toil and Trouble',
+      url: 'https://bit.ly/3HE10VQ'
     },
     toSaveAKingdom: {
       abbreviation: 'TSaK',
