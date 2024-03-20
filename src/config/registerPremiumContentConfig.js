@@ -613,6 +613,13 @@ export default function registerPremiumContentConfig(A5E) {
       publisher: 'enPublishing',
       title: 'Level Up: Trials and Treasures',
       url: 'https://bit.ly/3w8ha7b'
+    },
+    ventureForth: {
+      abbreviation: 'VF',
+      affiliate: true,
+      publisher: 'speaksAndSpells',
+      title: 'Venture Forth',
+      url: ''
     }
   };
 }
