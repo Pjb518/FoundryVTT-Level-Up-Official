@@ -327,9 +327,13 @@ export default class ActorSheet extends SvelteApplication {
   async #onDropSpell(item: typeof Item, options: Record<string, any>) {
     const currentTab = this.tempSettings[this.actor.uuid]?.currentTab;
     if (currentTab !== 'inventory') {
-      const itemData = item.toObject();
-      itemData.system.spellBook = options.spellBookId;
-      this.actor.createEmbeddedDocuments('Item', [itemData]);
+      const { spellBookId } = options;
+
+      if (spellBookId) {
+        const spellBook = this.actor.spellBooks.get(spellBookId);
+        spellBook?.addSpell(item);
+      }
+
       return;
     }
 

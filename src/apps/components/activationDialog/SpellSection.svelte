@@ -18,6 +18,7 @@
     const { A5E } = CONFIG;
     const action = $item.actions[actionId];
     const spellLevels = Object.entries(A5E.spellLevels).slice(1);
+    const spellBook = $actor.spellBooks.get($item.system.spellBook);
 
     const consumeOptions = {
         spellSlot: "A5E.ConsumeSpellSlot",
@@ -120,6 +121,10 @@
     }
 
     if ($item.system?.level === null || $item.system?.level === undefined) {
+        spellData.consume = "noConsume";
+    }
+
+    if (spellBook.disableSpellConsumers) {
         spellData.consume = "noConsume";
     }
 

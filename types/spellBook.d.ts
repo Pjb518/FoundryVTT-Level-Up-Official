@@ -4,13 +4,13 @@ export interface SpellBookData {
   slug: string;
 
   ability: string;
-  preparedType: string;
+  disableSpellConsumers: boolean;
+  showSpellPoints: boolean;
+  showSpellSlots: boolean;
 }
 
 export interface SpellBookStats {
   ability: string;
   dc: number;
   mod: number;
-  mode: string;
-  progressionDivisor: number;
 }

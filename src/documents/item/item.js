@@ -391,6 +391,9 @@ export default class ItemA5e extends BaseItemA5e {
       if (this.system?.level === null || this.system?.level === undefined) {
         spellData.consume = 'noConsume';
       }
+
+      const spellBook = this.parent?.spellBooks?.get(this.system.spellBookId);
+      if (spellBook.disableSpellConsumers) spellData.consume = 'noConsume';
     }
 
     return {

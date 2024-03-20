@@ -9,9 +9,17 @@ export default class SpellBook extends A5EDataModel {
 
   declare default: boolean;
 
-  declare mode: string;
+  declare img: string;
 
-  declare preparedType: string;
+  declare ability: string;
+
+  declare disableSpellConsumers: boolean;
+
+  declare showSpellPoints: boolean;
+
+  declare showSpellSlots: boolean;
+
+  declare slug: string;
 
   spells: Collection<any> = new foundry.utils.Collection();
 
@@ -29,47 +37,21 @@ export default class SpellBook extends A5EDataModel {
       _id: new fields.DocumentIdField({ initial: () => foundry.utils.randomID() }),
       name: new fields.StringField({ required: true, initial: 'New Spell Book' }),
       default: new fields.BooleanField({ required: true, initial: false }),
+      img: new fields.StringField({ required: true, initial: 'icons/svg/book.svg' }),
 
       ability: new fields.StringField({ required: true, initial: 'int' }),
-      mode: new fields.StringField({ required: true, initial: 'fullCaster' }),
-      preparedType: new fields.StringField({ required: true, initial: 'prepared' })
+      disableSpellConsumers: new fields.BooleanField({ required: true, initial: false }),
+      showSpellPoints: new fields.BooleanField({ required: true, initial: false }),
+      showSpellSlots: new fields.BooleanField({ required: true, initial: true })
     };
   }
 
   // ======================================
   // Getters
   // ======================================
-  get arePactSlots(): boolean {
-    return this.preparedType === 'pact';
-  }
-
-  get arePoints(): boolean {
-    return this.preparedType === 'points';
-  }
-
-  get isInnate(): boolean {
-    return this.preparedType === 'innate';
-  }
-
-  get isPrepared(): boolean {
-    return this.preparedType === 'prepared';
-  }
-
-  get isRitual(): boolean {
-    return this.preparedType === 'ritual';
-  }
 
   get spellIds(): string[] {
     return this.spells.map((spell: typeof Item) => spell.id);
-  }
-
-  get progressionDivisor(): number {
-    if (this.casterType === 'fullCaster') return 1;
-    if (this.casterType === 'halfCaster') return 2;
-    if (this.casterType === 'tertiaryCaster') return 3;
-    if (this.casterType === 'quaternaryCaster') return 4;
-
-    return 0;
   }
 
   // ======================================
@@ -109,9 +91,7 @@ export default class SpellBook extends A5EDataModel {
     const stats = {
       ability: this.ability,
       dc: spellDC,
-      mode: this.mode,
-      mod: spellMod,
-      progressionDivisor: this.progressionDivisor
+      mod: spellMod
     };
 
     this.stats = stats;
@@ -125,8 +105,6 @@ export default class SpellBook extends A5EDataModel {
     data[`${slug}-ability`] = stats.ability;
     data[`${slug}-dc`] = stats.dc;
     data[`${slug}-mod`] = stats.mod;
-    data[`${slug}-mode`] = stats.mode;
-    data[`${slug}-progressionDivisor`] = stats.progressionDivisor;
 
     return data;
   }
@@ -134,6 +112,33 @@ export default class SpellBook extends A5EDataModel {
   // ======================================
   // API Methods
   // ======================================
+  addSpell(item: typeof Item) {
+    const actor = this.parent;
+    if (!actor) return;
+
+    const spell = this.#updateSpellData(item);
+    if (!spell) return;
+    actor.createEmbeddedDocuments('Item', [spell]);
+  }
+
+  addSpells(items: typeof Item[]) {
+    const actor = this.parent;
+    if (!actor) return;
+
+    const spells = items.map((item) => this.#updateSpellData(item));
+    actor.createEmbeddedDocuments('Item', spells);
+  }
+
+  #updateSpellData(item: typeof Item): any {
+    const actor = this.parent;
+    if (!actor) return null;
+
+    const spell = item.toObject();
+    spell.system.spellBook = this._id;
+
+    return spell;
+  }
+
   async delete() {
     const { spellIds } = this;
     await this.parent.deleteEmbeddedDocuments('Item', spellIds);
