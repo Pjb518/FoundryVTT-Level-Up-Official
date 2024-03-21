@@ -340,13 +340,13 @@ export default class BaseActorData extends A5EDataModel.mixin(SchemaDataModel) {
             max: new fields.NumberField({ required: true, initial: 0, integer: true })
           })
         }),
-        pactSlots: new fields.SchemaField({
-          current: new fields.NumberField({ required: true, initial: 0, integer: true }),
-          max: new fields.NumberField({ required: true, initial: 0, integer: true }),
-          level: new fields.NumberField({
-            required: true, initial: 1, max: 5, integer: true
-          })
-        }),
+        // pactSlots: new fields.SchemaField({
+        //   current: new fields.NumberField({ required: true, initial: 0, integer: true }),
+        //   max: new fields.NumberField({ required: true, initial: 0, integer: true }),
+        //   level: new fields.NumberField({
+        //     required: true, initial: 1, max: 5, integer: true
+        //   })
+        // }),
         points: new fields.SchemaField({
           current: new fields.NumberField({ required: true, initial: 0, integer: true }),
           max: new fields.NumberField({ required: true, initial: 0, integer: true })
