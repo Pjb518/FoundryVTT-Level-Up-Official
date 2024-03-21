@@ -1,3 +1,4 @@
+import type { SpellBookStats } from 'types/spellBook';
 import A5EDataModel from '../A5EDataModel';
 
 import getDeterministicBonus from '../../dice/getDeterministicBonus';
@@ -21,9 +22,9 @@ export default class SpellBook extends A5EDataModel {
 
   declare slug: string;
 
-  spells: Collection<any> = new foundry.utils.Collection();
+  declare stats: SpellBookStats;
 
-  stats: Record<string, any> = {};
+  spells: Collection<any> = new foundry.utils.Collection();
 
   constructor(data: any, options: any = {}) {
     // @ts-ignore
@@ -95,18 +96,6 @@ export default class SpellBook extends A5EDataModel {
     };
 
     this.stats = stats;
-  }
-
-  getRollData(prefix?: string): Record<string, any> {
-    const data: Record<string, any> = {};
-    const slug = prefix || this.slug;
-    const { stats } = this;
-
-    data[`${slug}-ability`] = stats.ability;
-    data[`${slug}-dc`] = stats.dc;
-    data[`${slug}-mod`] = stats.mod;
-
-    return data;
   }
 
   // ======================================

@@ -860,25 +860,20 @@ export default class ActorA5e extends Actor {
       mod: Math.max(data.dex.mod, data.str.mod)
     };
 
-    // TODO: Remove these before releasing spellbook functionality
-    data.spell = {
-      mod: this._calculateSpellcastingMod()
-    };
-
-    data.spellcasting = {
-      mod: data.spell.mod
-    };
-    data.spellDC = this.system.attributes.spellDC;
-
     data.level = this.system.details.level;
-
     data.maneuverDC = this.system.attributes.maneuverDC;
 
-    // Add spellbook data
-    foundry.utils.mergeObject(
-      data,
-      this.spellBooks?.getRollData() ?? {}
-    );
+    const defaultSpellBook = this.spellBooks.default;
+
+    if (defaultSpellBook) {
+      data.spell = { mod: defaultSpellBook.stats.mod };
+      data.spellcasting = { mod: defaultSpellBook.stats.mod };
+      data.spellDC = defaultSpellBook.stats.dc;
+    } else {
+      data.spell = { mod: this._calculateSpellcastingMod() };
+      data.spellcasting = { mod: data.spell.mod };
+      data.spellDC = this.system.attributes.spellDC;
+    }
 
     return data;
   }
