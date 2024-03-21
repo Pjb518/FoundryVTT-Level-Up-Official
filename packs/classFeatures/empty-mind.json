@@ -1,24 +1,104 @@
 {
 	"name": "Empty Mind",
 	"type": "feature",
-	"img": "icons/svg/item-bag.svg",
-	"effects": [],
+	"img": "icons/magic/holy/prayer-hands-glowing-yellow-green.webp",
+	"effects": [
+		{
+			"icon": "icons/magic/holy/prayer-hands-glowing-yellow-green.webp",
+			"origin": "Item.yVfVQw3k6y6JQrNZ",
+			"flags": {
+				"a5e": {
+					"sort": 0,
+					"transferType": "onUse",
+					"actionId": "XRBm6r1BISeY5q7V",
+					"applyToSelf": true,
+					"duration": {
+						"unit": "hours"
+					}
+				}
+			},
+			"transfer": false,
+			"name": "Empty Mind",
+			"_id": "MCx23V267dfULpV2",
+			"changes": [
+				{
+					"key": "system.traits.damageResistances",
+					"value": "[\"psychic\"]",
+					"mode": 2,
+					"priority": null
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": 3600,
+				"combat": null,
+				"rounds": null,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "<p>Gain resistance to psychic damage and make saving throws against enchantment spells with advantage.</p>",
+			"statuses": [],
+			"folder": null
+		}
+	],
 	"flags": {},
 	"system": {
 		"ac": {
 			"baseFormula": "",
 			"formula": "",
+			"grantsDisadvantage": false,
 			"maxDex": 0,
 			"minStr": 0,
 			"mode": 2,
 			"requiresNoShield": false,
 			"requiresUnarmored": false
 		},
-		"actions": {},
-		"description": "<p>Starting at 7th level, you can empty your mind and easily disguise your emotions. As an action, you can spend 1 exertion to enter a meditative empty mind state. This lasts for 1 hour. While in this state, Insight checks against you have disadvantage.</p><p>In addition, you gain advantage on saving throws made against enchantment spells and resistance to psychic damage.</p>",
+		"actions": {
+			"XRBm6r1BISeY5q7V": {
+				"name": "Empty Mind",
+				"activation": {
+					"type": "action",
+					"cost": 1
+				},
+				"consumers": {
+					"tb5KtaWD2mC6vDP9": {
+						"type": "resource",
+						"default": true,
+						"resource": "exertion",
+						"quantity": 1
+					}
+				},
+				"rolls": {},
+				"prompts": {
+					"G8WKFMb5bghwNqWf": {
+						"type": "effect",
+						"default": true,
+						"effectId": "MCx23V267dfULpV2"
+					}
+				},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"rechargeType": "custom",
+						"rechargeAmount": "1",
+						"threshold": 6
+					}
+				},
+				"duration": {
+					"unit": "hour",
+					"value": 1
+				}
+			}
+		},
+		"description": "<p>Starting at 7th level, as an action, you can spend 1 exertion to enter a meditative empty mind state. This lasts for 1 hour. While in this state, Insight checks against you have disadvantage.</p>\n<p>In addition, you gain resistance to psychic damage and make saving throws against enchantment spells with advantage.</p>",
 		"favorite": false,
 		"secretDescription": "",
-		"source": "",
+		"source": "adventurersGuide",
 		"uses": {
 			"value": null,
 			"max": "",

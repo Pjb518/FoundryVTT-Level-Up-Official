@@ -1,0 +1,142 @@
+{
+	"name": "Paralyzing Strike",
+	"type": "feature",
+	"img": "icons/skills/melee/sword-damaged-broken-glow-red.webp",
+	"effects": [
+		{
+			"icon": "icons/skills/melee/sword-damaged-broken-glow-red.webp",
+			"origin": "Item.80H1V0sT6sSKGp4m",
+			"flags": {
+				"a5e": {
+					"sort": 0,
+					"transferType": "onUse",
+					"actionId": "D38WYaTFORoNrgZV",
+					"duration": {
+						"type": "rounds",
+						"unit": "minutes"
+					}
+				}
+			},
+			"transfer": false,
+			"name": "Paralyzed",
+			"_id": "RsE8FvEKM3uq04qF",
+			"changes": [
+				{
+					"key": "flags.a5e.effects.statusConditions",
+					"value": "[\"paralyzed\"]",
+					"mode": 0,
+					"priority": null
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": null,
+				"combat": null,
+				"rounds": null,
+				"turns": 1,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "",
+			"statuses": [
+				"paralyzed"
+			],
+			"folder": null
+		}
+	],
+	"flags": {},
+	"system": {
+		"ac": {
+			"baseFormula": "",
+			"formula": "",
+			"grantsDisadvantage": false,
+			"maxDex": 0,
+			"minStr": 0,
+			"mode": 2,
+			"requiresNoShield": false,
+			"requiresUnarmored": false
+		},
+		"actions": {
+			"D38WYaTFORoNrgZV": {
+				"name": "Paralyzing Strike",
+				"activation": {
+					"cost": "",
+					"type": "",
+					"reactionTrigger": ""
+				},
+				"duration": {
+					"unit": "",
+					"value": ""
+				},
+				"area": {
+					"shape": "",
+					"size": "",
+					"placeTemplate": false
+				},
+				"target": {
+					"quantity": "",
+					"type": ""
+				},
+				"prompts": {
+					"6tU0fxwgbyq3NUnh": {
+						"ability": "con",
+						"onSave": "",
+						"saveDC": {
+							"type": "custom",
+							"bonus": "8 + @prof + @wis.mod"
+						},
+						"type": "savingThrow"
+					},
+					"AABw0xD9BtF33JIp": {
+						"type": "effect",
+						"default": true,
+						"effectId": "RsE8FvEKM3uq04qF"
+					}
+				},
+				"consumers": {
+					"rvRHQGl4MA2cyg5a": {
+						"type": "resource",
+						"default": true,
+						"resource": "exertion",
+						"quantity": 2
+					}
+				}
+			}
+		},
+		"description": "<p>When you hit a creature with a melee weapon attack, you can spend 2 exertion to attempt a paralyzing strike. The target must succeed on a Constitution saving throw or be paralyzed until the end of your next turn.</p>",
+		"favorite": false,
+		"secretDescription": "",
+		"source": "adventurersGuide",
+		"uses": {
+			"value": null,
+			"max": "",
+			"per": null,
+			"recharge": {
+				"formula": "1d6",
+				"threshold": 6
+			}
+		},
+		"schema": {
+			"version": null,
+			"lastMigration": null
+		},
+		"concentration": false,
+		"featureType": "class",
+		"grants": {},
+		"prerequisite": "9th level",
+		"requiresBloodied": false,
+		"schemaVersion": {
+			"version": 0.013,
+			"lastMigration": {
+				"version": {
+					"schema": 0.011,
+					"foundry": "11.315",
+					"system": "0.16.49"
+				}
+			}
+		}
+	},
+	"folder": null,
+	"_id": "n37frzy7ja5gyo33"
+}

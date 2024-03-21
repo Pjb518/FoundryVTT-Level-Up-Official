@@ -1,13 +1,601 @@
 {
 	"name": "Perfect Fist",
 	"type": "feature",
-	"img": "icons/svg/item-bag.svg",
-	"effects": [],
+	"img": "icons/skills/melee/unarmed-punch-fist-yellow-red.webp",
+	"effects": [
+		{
+			"icon": "icons/skills/melee/unarmed-punch-fist-yellow-red.webp",
+			"origin": "Item.MJ4T1Q3GahdDpBNQ",
+			"flags": {
+				"a5e": {
+					"sort": 0,
+					"transferType": "onUse",
+					"actionId": "vrGsvHOYTwiykRiH",
+					"applyToSelf": true
+				}
+			},
+			"transfer": false,
+			"name": "Additional Damage",
+			"_id": "83xEYFnijROQrsy2",
+			"changes": [],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": null,
+				"combat": null,
+				"rounds": null,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "<p>Deal additional damage equal to twice your martial arts die.</p>",
+			"statuses": [],
+			"folder": null
+		},
+		{
+			"icon": "icons/skills/melee/unarmed-punch-fist-yellow-red.webp",
+			"origin": "Item.MJ4T1Q3GahdDpBNQ",
+			"flags": {
+				"a5e": {
+					"sort": 0,
+					"transferType": "onUse",
+					"actionId": "vrGsvHOYTwiykRiH",
+					"applyToSelf": false,
+					"duration": {
+						"unit": "minutes"
+					}
+				}
+			},
+			"transfer": false,
+			"name": "Blinded and Deafened",
+			"_id": "wVVQHlaXqfVabCKX",
+			"changes": [
+				{
+					"key": "flags.a5e.effects.statusConditions",
+					"value": "[\"blinded\",\"deafened\"]",
+					"mode": 0,
+					"priority": null
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": 60,
+				"combat": null,
+				"rounds": null,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "",
+			"statuses": [
+				"blinded",
+				"deafened"
+			],
+			"folder": null
+		},
+		{
+			"icon": "icons/skills/melee/unarmed-punch-fist-yellow-red.webp",
+			"origin": "Item.MJ4T1Q3GahdDpBNQ",
+			"flags": {
+				"a5e": {
+					"sort": 0,
+					"transferType": "onUse",
+					"actionId": "vrGsvHOYTwiykRiH",
+					"duration": {
+						"unit": "minutes"
+					}
+				}
+			},
+			"transfer": false,
+			"name": "Paralyzed",
+			"_id": "78YRUXzr0AMXxAaf",
+			"changes": [
+				{
+					"key": "flags.a5e.effects.statusConditions",
+					"value": "[\"paralyzed\"]",
+					"mode": 0,
+					"priority": null
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": 60,
+				"combat": null,
+				"rounds": null,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "",
+			"statuses": [
+				"paralyzed"
+			],
+			"folder": null
+		},
+		{
+			"icon": "icons/skills/melee/unarmed-punch-fist-yellow-red.webp",
+			"origin": "Item.MJ4T1Q3GahdDpBNQ",
+			"flags": {
+				"a5e": {
+					"sort": 0,
+					"transferType": "onUse",
+					"actionId": "vrGsvHOYTwiykRiH",
+					"duration": {
+						"unit": "minutes"
+					}
+				}
+			},
+			"transfer": false,
+			"name": "Prone and Poisoned",
+			"_id": "xTXXdP4wmAEbk5xP",
+			"changes": [
+				{
+					"key": "flags.a5e.effects.statusConditions",
+					"value": "[\"poisoned\",\"prone\"]",
+					"mode": 0,
+					"priority": null
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": 60,
+				"combat": null,
+				"rounds": null,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "",
+			"statuses": [
+				"poisoned",
+				"prone"
+			],
+			"folder": null
+		},
+		{
+			"icon": "icons/skills/melee/unarmed-punch-fist-yellow-red.webp",
+			"origin": "Item.MJ4T1Q3GahdDpBNQ",
+			"flags": {
+				"a5e": {
+					"sort": 0,
+					"transferType": "onUse",
+					"actionId": "vrGsvHOYTwiykRiH",
+					"duration": {
+						"type": "rounds",
+						"unit": "minutes"
+					}
+				}
+			},
+			"transfer": false,
+			"name": "No Healing",
+			"_id": "0KoludqHVp108Q45",
+			"changes": [],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": null,
+				"combat": null,
+				"rounds": null,
+				"turns": 1,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "<p>Healing features, spells, and traits have no effect.</p>",
+			"statuses": [],
+			"folder": null
+		},
+		{
+			"icon": "icons/skills/melee/unarmed-punch-fist-yellow-red.webp",
+			"origin": "Item.MJ4T1Q3GahdDpBNQ",
+			"flags": {
+				"a5e": {
+					"sort": 0,
+					"transferType": "onUse",
+					"actionId": "vrGsvHOYTwiykRiH"
+				}
+			},
+			"transfer": false,
+			"name": "Lose Spell Slot",
+			"_id": "JD5JGgU6W4ukJ5og",
+			"changes": [],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": null,
+				"combat": null,
+				"rounds": null,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "<p>Lose a spell slot from highest available level.</p>",
+			"statuses": [],
+			"folder": null
+		},
+		{
+			"icon": "icons/skills/melee/unarmed-punch-fist-yellow-red.webp",
+			"origin": "Item.MJ4T1Q3GahdDpBNQ",
+			"flags": {
+				"a5e": {
+					"sort": 0,
+					"transferType": "onUse",
+					"actionId": "vrGsvHOYTwiykRiH"
+				}
+			},
+			"transfer": false,
+			"name": "Lose Exertion",
+			"_id": "cntwcEPaIeIkyIGy",
+			"changes": [
+				{
+					"key": "system.attributes.exertion.current",
+					"value": "6",
+					"mode": 3,
+					"priority": null
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": null,
+				"combat": null,
+				"rounds": null,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "<p>Lose 6 exertion.</p>",
+			"statuses": [],
+			"folder": null
+		},
+		{
+			"icon": "icons/skills/melee/unarmed-punch-fist-yellow-red.webp",
+			"origin": "Item.MJ4T1Q3GahdDpBNQ",
+			"flags": {
+				"a5e": {
+					"sort": 0,
+					"transferType": "onUse",
+					"actionId": "vrGsvHOYTwiykRiH",
+					"duration": {
+						"type": "rounds",
+						"unit": "minutes"
+					}
+				}
+			},
+			"transfer": false,
+			"name": "No Additional Actions",
+			"_id": "tdgAGxTxEqXyZ5y5",
+			"changes": [],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": null,
+				"combat": null,
+				"rounds": null,
+				"turns": 1,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "<p>Can’t use bonus actions, legendary actions, or reactions until the beginning of your next turn.</p>",
+			"statuses": [],
+			"folder": null
+		},
+		{
+			"icon": "icons/skills/melee/unarmed-punch-fist-yellow-red.webp",
+			"origin": "Item.MJ4T1Q3GahdDpBNQ",
+			"flags": {
+				"a5e": {
+					"sort": 0,
+					"transferType": "onUse",
+					"actionId": "vrGsvHOYTwiykRiH"
+				}
+			},
+			"transfer": false,
+			"name": "Fatigue",
+			"_id": "EYku3rYOw6qO7X2o",
+			"changes": [
+				{
+					"key": "system.attributes.fatigue",
+					"value": "1",
+					"mode": 2,
+					"priority": null
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": null,
+				"combat": null,
+				"rounds": null,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "",
+			"statuses": [],
+			"folder": null
+		},
+		{
+			"icon": "icons/skills/melee/unarmed-punch-fist-yellow-red.webp",
+			"origin": "Item.MJ4T1Q3GahdDpBNQ",
+			"flags": {
+				"a5e": {
+					"sort": 0,
+					"transferType": "onUse",
+					"actionId": "yFhOIQChCNVkSZZV",
+					"applyToSelf": true
+				}
+			},
+			"transfer": false,
+			"name": "Additional Damage",
+			"_id": "EIwRyeeaZBZa5Mls",
+			"changes": [],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": null,
+				"combat": null,
+				"rounds": null,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "<p>Deal additional damage equal to twice your martial arts die.</p>",
+			"statuses": [],
+			"folder": null
+		},
+		{
+			"icon": "icons/skills/melee/unarmed-punch-fist-yellow-red.webp",
+			"origin": "Item.MJ4T1Q3GahdDpBNQ",
+			"flags": {
+				"a5e": {
+					"sort": 0,
+					"transferType": "onUse",
+					"actionId": "yFhOIQChCNVkSZZV",
+					"duration": {
+						"unit": "minutes"
+					}
+				}
+			},
+			"transfer": false,
+			"name": "Paralyzed",
+			"_id": "MONkoA6noqcPxfIm",
+			"changes": [
+				{
+					"key": "flags.a5e.effects.statusConditions",
+					"value": "[\"paralyzed\"]",
+					"mode": 0,
+					"priority": null
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": 60,
+				"combat": null,
+				"rounds": null,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "",
+			"statuses": [
+				"paralyzed"
+			],
+			"folder": null
+		},
+		{
+			"icon": "icons/skills/melee/unarmed-punch-fist-yellow-red.webp",
+			"origin": "Item.MJ4T1Q3GahdDpBNQ",
+			"flags": {
+				"a5e": {
+					"sort": 0,
+					"transferType": "onUse",
+					"actionId": "yFhOIQChCNVkSZZV",
+					"duration": {
+						"unit": "minutes"
+					}
+				}
+			},
+			"transfer": false,
+			"name": "Prone and Poisoned",
+			"_id": "QVdl0VfVYeDT0Mkp",
+			"changes": [
+				{
+					"key": "flags.a5e.effects.statusConditions",
+					"value": "[\"poisoned\",\"prone\"]",
+					"mode": 0,
+					"priority": null
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": 60,
+				"combat": null,
+				"rounds": null,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "",
+			"statuses": [
+				"poisoned",
+				"prone"
+			],
+			"folder": null
+		},
+		{
+			"icon": "icons/skills/melee/unarmed-punch-fist-yellow-red.webp",
+			"origin": "Item.MJ4T1Q3GahdDpBNQ",
+			"flags": {
+				"a5e": {
+					"sort": 0,
+					"transferType": "onUse",
+					"actionId": "yFhOIQChCNVkSZZV",
+					"duration": {
+						"type": "rounds",
+						"unit": "minutes"
+					}
+				}
+			},
+			"transfer": false,
+			"name": "No Healing",
+			"_id": "N826McKNAhRXrlLN",
+			"changes": [],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": null,
+				"combat": null,
+				"rounds": null,
+				"turns": 1,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "<p>Healing features, spells, and traits have no effect.</p>",
+			"statuses": [],
+			"folder": null
+		},
+		{
+			"icon": "icons/skills/melee/unarmed-punch-fist-yellow-red.webp",
+			"origin": "Item.MJ4T1Q3GahdDpBNQ",
+			"flags": {
+				"a5e": {
+					"sort": 0,
+					"transferType": "onUse",
+					"actionId": "yFhOIQChCNVkSZZV"
+				}
+			},
+			"transfer": false,
+			"name": "Lose Spell Slot",
+			"_id": "flRQkHNjWOsOOr04",
+			"changes": [],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": null,
+				"combat": null,
+				"rounds": null,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "<p>Lose a spell slot from highest available level.</p>",
+			"statuses": [],
+			"folder": null
+		},
+		{
+			"icon": "icons/skills/melee/unarmed-punch-fist-yellow-red.webp",
+			"origin": "Item.MJ4T1Q3GahdDpBNQ",
+			"flags": {
+				"a5e": {
+					"sort": 0,
+					"transferType": "onUse",
+					"actionId": "yFhOIQChCNVkSZZV"
+				}
+			},
+			"transfer": false,
+			"name": "Lose Exertion",
+			"_id": "gt1HFtYsRdbmmY77",
+			"changes": [
+				{
+					"key": "system.attributes.exertion.current",
+					"value": "6",
+					"mode": 3,
+					"priority": null
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": null,
+				"combat": null,
+				"rounds": null,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "<p>Lose 6 exertion.</p>",
+			"statuses": [],
+			"folder": null
+		},
+		{
+			"icon": "icons/skills/melee/unarmed-punch-fist-yellow-red.webp",
+			"origin": "Item.MJ4T1Q3GahdDpBNQ",
+			"flags": {
+				"a5e": {
+					"sort": 0,
+					"transferType": "onUse",
+					"actionId": "yFhOIQChCNVkSZZV",
+					"duration": {
+						"type": "rounds",
+						"unit": "minutes"
+					}
+				}
+			},
+			"transfer": false,
+			"name": "No Additional Actions",
+			"_id": "yKVpHUNytnvN4Tzt",
+			"changes": [],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": null,
+				"combat": null,
+				"rounds": null,
+				"turns": 1,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "<p>Can’t use bonus actions, legendary actions, or reactions until the beginning of your next turn.</p>",
+			"statuses": [],
+			"folder": null
+		},
+		{
+			"icon": "icons/skills/melee/unarmed-punch-fist-yellow-red.webp",
+			"origin": "Item.MJ4T1Q3GahdDpBNQ",
+			"flags": {
+				"a5e": {
+					"sort": 0,
+					"transferType": "onUse",
+					"actionId": "yFhOIQChCNVkSZZV"
+				}
+			},
+			"transfer": false,
+			"name": "Fatigue",
+			"_id": "CD4mFh4tCnq81SLW",
+			"changes": [
+				{
+					"key": "system.attributes.fatigue",
+					"value": "1",
+					"mode": 2,
+					"priority": null
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": null,
+				"combat": null,
+				"rounds": null,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "",
+			"statuses": [],
+			"folder": null
+		}
+	],
 	"flags": {},
 	"system": {
 		"ac": {
 			"baseFormula": "",
 			"formula": "",
+			"grantsDisadvantage": false,
 			"maxDex": 0,
 			"minStr": 0,
 			"mode": 2,
@@ -16,7 +604,7 @@
 		},
 		"actions": {
 			"i6Uv3NFsiB13wAcg": {
-				"name": "Perfect Fist",
+				"name": "0 HP",
 				"activation": {
 					"cost": "",
 					"type": "",
@@ -29,7 +617,8 @@
 				"area": {
 					"shape": "",
 					"size": "",
-					"placeTemplate": false
+					"placeTemplate": false,
+					"quantity": 1
 				},
 				"target": {
 					"quantity": "",
@@ -46,13 +635,168 @@
 						"type": "savingThrow"
 					}
 				},
-				"consumers": {}
+				"consumers": {
+					"uA0LaPO1pPTSfH0j": {
+						"type": "resource",
+						"default": true,
+						"resource": "exertion",
+						"quantity": 3
+					}
+				}
+			},
+			"vrGsvHOYTwiykRiH": {
+				"name": "Two or More Unarmed Strikes",
+				"activation": {},
+				"consumers": {
+					"XegHjsIy8S93GUDu": {
+						"type": "resource",
+						"default": true,
+						"resource": "exertion",
+						"quantity": 3
+					}
+				},
+				"rolls": {},
+				"prompts": {
+					"UVrxQqzpp5lgTAU4": {
+						"type": "savingThrow",
+						"default": true,
+						"ability": "con",
+						"saveDC": {
+							"type": "maneuver"
+						}
+					},
+					"xP3jwwNlV3kPbif9": {
+						"type": "effect",
+						"default": true,
+						"effectId": "83xEYFnijROQrsy2"
+					},
+					"ovAbvDY5xcLelUU8": {
+						"type": "effect",
+						"default": true,
+						"effectId": "78YRUXzr0AMXxAaf"
+					},
+					"zchMCHzCSmXWK5OM": {
+						"type": "effect",
+						"default": true,
+						"effectId": "xTXXdP4wmAEbk5xP"
+					},
+					"zPAkVorWxxDZxwB2": {
+						"type": "effect",
+						"default": true,
+						"effectId": "0KoludqHVp108Q45"
+					},
+					"oxKT50S8YmiFV9QX": {
+						"type": "effect",
+						"default": true,
+						"effectId": "JD5JGgU6W4ukJ5og"
+					},
+					"RD4ouxbRKFrbcUpj": {
+						"type": "effect",
+						"default": true,
+						"effectId": "cntwcEPaIeIkyIGy"
+					},
+					"9Z1yiAnv6nJZiwBG": {
+						"type": "effect",
+						"default": true,
+						"effectId": "tdgAGxTxEqXyZ5y5"
+					},
+					"BQnz739kwv7wuBUN": {
+						"type": "effect",
+						"default": true,
+						"effectId": "EYku3rYOw6qO7X2o"
+					}
+				},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"rechargeType": "custom",
+						"rechargeAmount": "1",
+						"threshold": 6
+					}
+				}
+			},
+			"yFhOIQChCNVkSZZV": {
+				"name": "After Two Unarmed Strikes",
+				"activation": {},
+				"consumers": {
+					"XegHjsIy8S93GUDu": {
+						"type": "resource",
+						"default": true,
+						"resource": "exertion",
+						"quantity": 1
+					}
+				},
+				"rolls": {},
+				"prompts": {
+					"UVrxQqzpp5lgTAU4": {
+						"type": "savingThrow",
+						"default": true,
+						"ability": "con",
+						"saveDC": {
+							"type": "maneuver"
+						}
+					},
+					"xP3jwwNlV3kPbif9": {
+						"type": "effect",
+						"default": true,
+						"effectId": "EIwRyeeaZBZa5Mls"
+					},
+					"ovAbvDY5xcLelUU8": {
+						"type": "effect",
+						"default": true,
+						"effectId": "MONkoA6noqcPxfIm"
+					},
+					"zchMCHzCSmXWK5OM": {
+						"type": "effect",
+						"default": true,
+						"effectId": "QVdl0VfVYeDT0Mkp"
+					},
+					"zPAkVorWxxDZxwB2": {
+						"type": "effect",
+						"default": true,
+						"effectId": "N826McKNAhRXrlLN"
+					},
+					"oxKT50S8YmiFV9QX": {
+						"type": "effect",
+						"default": true,
+						"effectId": "flRQkHNjWOsOOr04"
+					},
+					"RD4ouxbRKFrbcUpj": {
+						"type": "effect",
+						"default": true,
+						"effectId": "gt1HFtYsRdbmmY77"
+					},
+					"9Z1yiAnv6nJZiwBG": {
+						"type": "effect",
+						"default": true,
+						"effectId": "yKVpHUNytnvN4Tzt"
+					},
+					"BQnz739kwv7wuBUN": {
+						"type": "effect",
+						"default": true,
+						"effectId": "CD4mFh4tCnq81SLW"
+					}
+				},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"rechargeType": "custom",
+						"rechargeAmount": "1",
+						"threshold": 6
+					}
+				}
 			}
 		},
-		"description": "<p>Starting at 17th level, you reach mastery of the way of the fist. When you make an unarmed strike, you score critical hits on a roll of 19–20. If you already have a feature that increases the range of your critical hits, your critical hit range increases by 1 (maximum 17–20). In addition, when you use a bonus action to make an unarmed strike, it deals an additional damage die.</p><p>[[/r 1d4 #d4 die]] [[/r 1d6 #d6 die]] [[/r 1d8 #d8 die]] [[/r 1d10 #d10 die]] [[/r 1d12 #d12 die]]</p><p>If a creature is reduced to 0 hit points by your unarmed strikes, you can spend 3 exertion to make its body and soul be destroyed in an implosion. The target can’t be brought back from the dead, except with a wish spell.</p><p>When you hit a creature with two or more unarmed strikes in the same turn, you can spend 3 exertion to force it to make a Constitution saving throw, dealing one effect from the list below on a failure. For each successful unarmed strike after the second, you can spend 1 exertion to deal one additional effect. For example, if you hit with four unarmed attacks, you can spend 5 exertion to deal three effects. You can’t choose the same effect more than once, and on a successful saving throw all effects are negated.</p><ul><li><p>Deal additional damage equal to twice your martial arts die.</p></li><li><p>The creature is blinded and deafened for 1 minute.</p></li><li><p>The creature is paralyzed for 1 minute. At the beginning of each of its turns, the creature can repeat the saving throw, ending the effect on itself on a success.</p></li><li><p>The creature is knocked prone and becomes poisoned for 1 minute.</p></li><li><p>Healing features, spells, and traits have no effect on the creature until the beginning of your next turn.</p></li><li><p>The creature loses a spell slot from its highest available level.</p></li><li><p>The creature loses 6 exertion.</p></li><li><p>The creature can’t use bonus actions, legendary actions, or reactions until the beginning of your next turn.</p></li><li><p>The creature gains a level of fatigue.</p></li></ul>",
+		"description": "<p>Starting at 17th level, when you make an unarmed strike, you score critical hits on a roll of 19&ndash;20. If you already have a feature that increases the range of your critical hits, your critical hit range increases by 1 (maximum 17&ndash;20). In addition, when you use a bonus action to make an unarmed strike, the attack deals an additional damage die.</p>\n<p>When your unarmed strike reduces a creature to 0 hit points, you can spend 3 exertion to utterly destroy the target&rsquo;s body and soul. The target can&rsquo;t be restored to life by any means short of a @UUID[Compendium.a5e.a5e-spells.Item.pe52jryde7ljobzq]{Wish} spell.</p>\n<p>When you hit a creature with two or more unarmed strikes in the same turn, you can spend 3 exertion to force it to make a Constitution saving throw. On a failed save, the target suffers one effect you choose from the list below. For each successful unarmed strike after the second, you can spend 1 exertion to deal one additional effect. For example, if you hit with four unarmed attacks, you can spend 5 exertion to deal three effects. You can&rsquo;t choose the same effect more than once, and a successful saving throw negates all effects.</p>\n<ul>\n<li>The target takes extra damage equal to twice your martial arts die.</li>\n<li>The target is blinded and deafened for 1 minute.</li>\n<li>The target is paralyzed for 1 minute. At the start of each of its turns, the target can repeat the saving throw, ending the effect on a success.</li>\n<li>The target is knocked prone and becomes poisoned for 1 minute.</li>\n<li>Features, spells, and traits that would restore the target&rsquo;s hit points have no effect on the target until the start of your next turn.</li>\n<li>The target loses a spell slot from its highest available level.</li>\n<li>The target loses 6 exertion.</li>\n<li>The target can&rsquo;t use bonus actions, legendary actions, or reactions until the start of your next turn.</li>\n<li>The target gains a level of fatigue.</li>\n</ul>",
 		"favorite": false,
 		"secretDescription": "",
-		"source": "",
+		"source": "adventurersGuide",
 		"uses": {
 			"value": null,
 			"max": "",

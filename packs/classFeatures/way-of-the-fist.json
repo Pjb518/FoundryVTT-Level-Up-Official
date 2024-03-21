@@ -1,13 +1,14 @@
 {
 	"name": "Way of the Fist",
 	"type": "feature",
-	"img": "icons/svg/item-bag.svg",
+	"img": "icons/skills/melee/unarmed-punch-fist.webp",
 	"effects": [],
 	"flags": {},
 	"system": {
 		"ac": {
 			"baseFormula": "",
 			"formula": "",
+			"grantsDisadvantage": false,
 			"maxDex": 0,
 			"minStr": 0,
 			"mode": 2,
@@ -41,37 +42,48 @@
 						"damageType": "",
 						"formula": "1d4",
 						"name": "d4 die",
-						"type": "damage"
+						"type": "damage",
+						"default": false
 					},
 					"OuhJqxcFotMZVOUg": {
 						"canCrit": false,
 						"damageType": "",
 						"formula": "1d6",
 						"name": "d6 die",
-						"type": "damage"
+						"type": "damage",
+						"default": false
 					},
 					"7FzTQKk7VK5WpZKA": {
 						"canCrit": false,
 						"damageType": "",
 						"formula": "1d8",
 						"name": "d8 die",
-						"type": "damage"
+						"type": "damage",
+						"default": false
 					},
 					"bWNPeqcwUPbWzrJq": {
 						"canCrit": false,
 						"damageType": "",
 						"formula": "1d10",
 						"name": "d10 die",
-						"type": "damage"
+						"type": "damage",
+						"default": false
 					}
 				},
-				"consumers": {}
+				"consumers": {
+					"cNedX4epqvie1dMC": {
+						"type": "resource",
+						"default": true,
+						"resource": "exertion",
+						"quantity": 1
+					}
+				}
 			}
 		},
-		"description": "<p>Starting at 6th level, you regain exertion equal to half your proficiency bonus when you score a critical hit with an unarmed strike. When you hit a creature with an unarmed strike, you can spend 1 exertion to deal additional damage equal to your martial arts die.</p><p>[[/r 1d4 #d4 die]] [[/r 1d6 #d6 die]] [[/r 1d8 #d8 die]] [[/r 1d10 #d10 die]] [[/r 1d12 #d12 die]]</p>",
+		"description": "<p>Starting at 6th level, you regain exertion equal to half your proficiency bonus (rounded down) when you critically hit with an unarmed strike. When you hit a creature with an unarmed strike, you can spend 1 exertion to deal additional damage equal to your martial arts die.</p>",
 		"favorite": false,
 		"secretDescription": "",
-		"source": "",
+		"source": "adventurersGuide",
 		"uses": {
 			"value": null,
 			"max": "",

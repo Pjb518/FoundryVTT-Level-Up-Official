@@ -1,0 +1,113 @@
+{
+	"name": "Hurricane Walk",
+	"type": "feature",
+	"img": "icons/magic/air/wind-stream-purple.webp",
+	"effects": [],
+	"flags": {},
+	"system": {
+		"ac": {
+			"baseFormula": "",
+			"formula": "",
+			"grantsDisadvantage": false,
+			"maxDex": 0,
+			"minStr": 0,
+			"mode": 2,
+			"requiresNoShield": false,
+			"requiresUnarmored": false
+		},
+		"actions": {
+			"9J3qm0FZ1u5tiILJ": {
+				"name": "Fly",
+				"activation": {
+					"cost": 1,
+					"type": "bonusAction",
+					"reactionTrigger": ""
+				},
+				"consumers": {
+					"kXlNja2rlW8136XG": {
+						"type": "resource",
+						"default": true,
+						"resource": "exertion",
+						"quantity": 1
+					}
+				},
+				"rolls": {},
+				"prompts": {
+					"R63Yzmz9Y3qZ0mPg": {
+						"type": "effect",
+						"default": true,
+						"effectId": "f7HJasNajZGyTMya"
+					}
+				},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"rechargeType": "custom",
+						"rechargeAmount": "1",
+						"threshold": 6
+					}
+				},
+				"duration": {
+					"unit": "turn",
+					"value": 1
+				},
+				"ranges": {
+					"EloZQoMyroOm4LUA": {
+						"range": "self"
+					}
+				},
+				"area": {
+					"shape": "",
+					"size": "",
+					"placeTemplate": false
+				},
+				"target": {
+					"quantity": 1,
+					"type": ""
+				},
+				"img": "icons/magic/fire/projectile-feathers-embers-gold.webp",
+				"description": "<p>The target gains a flying speed of 60 feet. When the spell ends, the target falls if it is off the ground.</p><p><strong><em>Cast at Higher Levels.</em></strong> Target one additional creature for each slot level above 3rd.</p>",
+				"descriptionOutputs": [
+					"action"
+				]
+			}
+		},
+		"description": "<p>You can use a bonus action and spend 1 exertion to cast @UUID[Compendium.a5e.a5e-spells.Item.aedq05b8pz7t02wd]{Fly} on yourself. You also have advantage on Stealth checks made to move silently. The effect lasts until the start of your next turn.</p>",
+		"favorite": false,
+		"secretDescription": "",
+		"source": "adventurersGuide",
+		"uses": {
+			"value": null,
+			"max": null,
+			"per": "",
+			"recharge": {
+				"formula": "1d6",
+				"threshold": 6
+			}
+		},
+		"schema": {
+			"version": null,
+			"lastMigration": null
+		},
+		"concentration": false,
+		"featureType": "knack",
+		"grants": {},
+		"prerequisite": "Gale Walk",
+		"requiresBloodied": false,
+		"schemaVersion": {
+			"version": 0.013,
+			"lastMigration": {
+				"version": {
+					"schema": 0.011,
+					"foundry": "11.315",
+					"system": "0.16.49"
+				}
+			}
+		}
+	},
+	"folder": null,
+	"_id": "2ra4inj0bs4trptj"
+}

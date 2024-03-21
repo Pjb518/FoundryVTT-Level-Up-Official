@@ -1,0 +1,131 @@
+{
+	"name": "Deflect Spells",
+	"type": "feature",
+	"img": "icons/magic/defensive/shield-barrier-deflect-gold.webp",
+	"effects": [],
+	"flags": {},
+	"system": {
+		"ac": {
+			"baseFormula": "",
+			"formula": "",
+			"grantsDisadvantage": false,
+			"maxDex": 0,
+			"minStr": 0,
+			"mode": 2,
+			"requiresNoShield": false,
+			"requiresUnarmored": false
+		},
+		"actions": {
+			"IwZCJykQ88rXokrh": {
+				"name": "Deflect Spells",
+				"activation": {
+					"cost": 1,
+					"type": "reaction",
+					"reactionTrigger": "When hit by a ranged spell attack that deals damage"
+				},
+				"duration": {
+					"unit": "",
+					"value": 1
+				},
+				"area": {
+					"shape": "",
+					"size": "",
+					"placeTemplate": false,
+					"quantity": 1
+				},
+				"target": {
+					"quantity": "",
+					"type": ""
+				},
+				"rolls": {
+					"UJpRfc3crRx1dlrs": {
+						"type": "generic",
+						"default": true,
+						"label": "Reduce Damage",
+						"formula": "2d10 + @dex.mod + @level"
+					}
+				},
+				"consumers": {
+					"DwEjawy2k7dAVUrO": {
+						"type": "resource",
+						"default": true,
+						"resource": "exertion",
+						"quantity": 2
+					}
+				}
+			},
+			"cGl8jFo7f8NgIP09": {
+				"name": "Redirect Spell",
+				"activation": {},
+				"consumers": {
+					"Mf1fy2rJZNS8V1Di": {
+						"type": "resource",
+						"default": true,
+						"resource": "exertion",
+						"quantity": 1
+					}
+				},
+				"rolls": {
+					"VRZ3XNqKMG7B9tAf": {
+						"type": "attack",
+						"default": true,
+						"attackType": "rangedSpellAttack",
+						"proficient": true,
+						"ability": "wis"
+					}
+				},
+				"prompts": {},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"rechargeType": "custom",
+						"rechargeAmount": "1",
+						"threshold": 6
+					}
+				},
+				"ranges": {
+					"lxSWtPHCxyg2fBGG": {
+						"range": "short"
+					}
+				}
+			}
+		},
+		"description": "<p>When you are hit by a ranged spell attack that deals damage, you can use your reaction and spend 2 exertion to reduce the damage by 2d10 + your Dexterity modifier + your adept level. If you reduce the damage to 0, you can spend 1 exertion to redirect the spell to another target within 30 feet of you as part of the same reaction. Your bonus for this attack is equal to your proficiency bonus + your Wisdom modifier.</p>",
+		"favorite": false,
+		"secretDescription": "",
+		"source": "adventurersGuide",
+		"uses": {
+			"value": null,
+			"max": "",
+			"per": null,
+			"recharge": {
+				"formula": "1d6",
+				"threshold": 6
+			}
+		},
+		"schema": {
+			"version": null,
+			"lastMigration": null
+		},
+		"concentration": false,
+		"featureType": "class",
+		"grants": {},
+		"prerequisite": "Deflect Missiles, 9th level",
+		"requiresBloodied": false,
+		"schemaVersion": {
+			"version": 0.013,
+			"lastMigration": {
+				"version": {
+					"schema": 0.011,
+					"foundry": "11.315",
+					"system": "0.16.49"
+				}
+			}
+		}
+	},
+	"folder": null,
+	"_id": "d4c2c0dfldc6to3y"
+}

@@ -1,13 +1,14 @@
 {
 	"name": "Unorthodox Arsenal",
 	"type": "feature",
-	"img": "icons/svg/item-bag.svg",
+	"img": "icons/commodities/wood/furniture-stool-brown.webp",
 	"effects": [],
 	"flags": {},
 	"system": {
 		"ac": {
 			"baseFormula": "",
 			"formula": "",
+			"grantsDisadvantage": false,
 			"maxDex": 0,
 			"minStr": 0,
 			"mode": 2,
@@ -65,13 +66,20 @@
 						"type": "damage"
 					}
 				},
-				"consumers": {}
+				"consumers": {
+					"YLq5LIS8eZxzW9ix": {
+						"type": "resource",
+						"default": true,
+						"resource": "exertion",
+						"quantity": 1
+					}
+				}
 			}
 		},
-		"description": "<p>Starting at 3rd level, everything can be a weapon in your hands. You are proficient with improvised weapons. When you hit a target with an improvised weapon, you can spend 1 exertion to deal additional damage equal to your martial arts die or use a basic maneuver against the same target.</p><p>[[/r 1d4 #d4 die]] [[/r 1d6 #d6 die]] [[/r 1d8 #d8 die]] [[/r 1d10 #d10 die]] [[/r 1d12 #d12 die]]</p>",
+		"description": "<p>Starting at 3rd level, you are proficient with improvised weapons. When you hit a target with an improvised weapon, you can spend 1 exertion to deal additional damage equal to your martial arts die or use a basic maneuver against the same target.</p>",
 		"favorite": false,
 		"secretDescription": "",
-		"source": "",
+		"source": "adventurersGuide",
 		"uses": {
 			"value": null,
 			"max": "",
@@ -87,7 +95,22 @@
 		},
 		"concentration": false,
 		"featureType": "class",
-		"grants": {},
+		"grants": {
+			"jo0UBbBoYxGHhgkx": {
+				"grantType": "trait",
+				"level": 0,
+				"optional": false,
+				"label": "Unorthodox Arsenal",
+				"traits": {
+					"base": [
+						"Improvised Weapons"
+					],
+					"options": [],
+					"total": 0,
+					"traitType": "weapons"
+				}
+			}
+		},
 		"prerequisite": "",
 		"requiresBloodied": false,
 		"schemaVersion": {

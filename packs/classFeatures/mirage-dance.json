@@ -1,0 +1,114 @@
+{
+	"name": "Mirage Dance",
+	"type": "feature",
+	"img": "icons/magic/defensive/illusion-evasion-echo-purple.webp",
+	"effects": [],
+	"flags": {},
+	"system": {
+		"ac": {
+			"baseFormula": "",
+			"formula": "",
+			"grantsDisadvantage": false,
+			"maxDex": 0,
+			"minStr": 0,
+			"mode": 2,
+			"requiresNoShield": false,
+			"requiresUnarmored": false
+		},
+		"actions": {
+			"V9rfjtrIBSqZp26N": {
+				"name": "Mirror Image",
+				"activation": {
+					"cost": 1,
+					"type": "bonusAction",
+					"reactionTrigger": ""
+				},
+				"consumers": {
+					"aV0pB1LncYYu9nTe": {
+						"type": "resource",
+						"default": true,
+						"resource": "exertion",
+						"quantity": 2
+					}
+				},
+				"rolls": {},
+				"prompts": {
+					"4zUptViB11jFU6vm": {
+						"type": "generic",
+						"default": true,
+						"label": "Targeting",
+						"formula": "1d20"
+					}
+				},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"rechargeType": "custom",
+						"rechargeAmount": "1",
+						"threshold": 6
+					}
+				},
+				"duration": {
+					"unit": "turn",
+					"value": 1
+				},
+				"ranges": {
+					"3i0f88Lm0bS35D2m": {
+						"range": "self"
+					}
+				},
+				"area": {
+					"shape": "",
+					"size": "",
+					"placeTemplate": false
+				},
+				"target": {
+					"quantity": "",
+					"type": "self"
+				},
+				"img": "icons/magic/defensive/illusion-evasion-echo-purple.webp",
+				"description": "<p>A total of 3 illusory copies of yourself appear in your space. For the duration, these copies move with you and mimic your actions, creating confusion as to which is real.&nbsp;You can use an action to dismiss them.</p>\n<p>Each time you're targeted by a creature's attack, roll a d20 to see if it targets you or one of your copies.</p>\n<p>With 3 copies, a roll of 6 or higher means a copy is targeted. With two copies, a roll of 8 or higher targets a copy, and with 1 copy a roll of 11 or higher targets the copy.</p>\n<p>A copy's AC is 10 + your Dexterity modifier, and when it is hit by an attack a copy is destroyed.&nbsp;It may be destroyed only by an attack that hits it.&nbsp;All other damage and effects have no impact.</p>\n<p>Attacking creatures that have truesight, cannot see, have blindsight, or rely on other nonvisual senses are unaffected by this spell.</p>\n<p><strong><em>Cast at Higher Levels.</em></strong> When using a 5th-level spell slot, the duration increases to concentration (1 hour).</p>",
+				"descriptionOutputs": [
+					"action"
+				]
+			}
+		},
+		"description": "<p>As a bonus action, you can spend 2 exertion to start a mirage dance. Until the end of your next turn, you are under the effect of the @UUID[Compendium.a5e.a5e-spells.Item.05w9nzp0kvu94k3h]{Mirror Image} spell.</p>",
+		"favorite": false,
+		"secretDescription": "",
+		"source": "adventurersGuide",
+		"uses": {
+			"value": null,
+			"max": "",
+			"per": null,
+			"recharge": {
+				"formula": "1d6",
+				"threshold": 6
+			}
+		},
+		"schema": {
+			"version": null,
+			"lastMigration": null
+		},
+		"concentration": false,
+		"featureType": "class",
+		"grants": {},
+		"prerequisite": "5th level",
+		"requiresBloodied": false,
+		"schemaVersion": {
+			"version": 0.013,
+			"lastMigration": {
+				"version": {
+					"schema": 0.011,
+					"foundry": "11.315",
+					"system": "0.16.49"
+				}
+			}
+		}
+	},
+	"folder": null,
+	"_id": "zhydxzjhojfk9itt"
+}

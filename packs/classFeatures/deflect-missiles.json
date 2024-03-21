@@ -1,0 +1,159 @@
+{
+	"name": "Deflect Missiles",
+	"type": "feature",
+	"img": "icons/skills/ranged/arrow-flying-gray-brown.webp",
+	"effects": [],
+	"flags": {},
+	"system": {
+		"ac": {
+			"baseFormula": "",
+			"formula": "",
+			"grantsDisadvantage": false,
+			"maxDex": 0,
+			"minStr": 0,
+			"mode": 2,
+			"requiresNoShield": false,
+			"requiresUnarmored": false
+		},
+		"actions": {
+			"kAeuN4UVhaPJWcDw": {
+				"name": "Deflect Missiles",
+				"activation": {
+					"cost": 1,
+					"type": "reaction",
+					"reactionTrigger": "When you are hit by a ranged weapon attack"
+				},
+				"duration": {
+					"unit": "",
+					"value": ""
+				},
+				"area": {
+					"shape": "",
+					"size": "",
+					"placeTemplate": false,
+					"quantity": 1
+				},
+				"target": {
+					"quantity": 1,
+					"type": "creatureObject"
+				},
+				"rolls": {
+					"rDAV92Pxhjh4pjU4": {
+						"bonus": "",
+						"critThreshold": "20",
+						"type": "attack",
+						"ability": "dex"
+					},
+					"3Nfj9y2OViPRcUL1": {
+						"type": "generic",
+						"default": true,
+						"label": "Reduce Damage",
+						"formula": "1d10 + @dex.mod + @level"
+					}
+				},
+				"consumers": {}
+			},
+			"XPLN942lvSF9EUYN": {
+				"name": "Ranged Weapon Attack",
+				"activation": {},
+				"consumers": {
+					"weKcn0Mwo87Mjmsg": {
+						"type": "resource",
+						"default": true,
+						"resource": "exertion",
+						"quantity": 1
+					}
+				},
+				"rolls": {
+					"8sxggsVxRFYz4dQy": {
+						"type": "attack",
+						"default": true,
+						"attackType": "rangedWeaponAttack",
+						"proficient": true,
+						"ability": "dex"
+					},
+					"yKG1zW4mj6chJpqx": {
+						"type": "damage",
+						"default": false,
+						"formula": "1d4 + @dex.mod"
+					},
+					"frUHqEBgdGtegDKk": {
+						"type": "damage",
+						"default": false,
+						"formula": "1d6 + @dex.mod"
+					},
+					"lNPujuggbdiY4IGo": {
+						"type": "damage",
+						"default": false,
+						"formula": "1d8 + @dex.mod"
+					},
+					"F8GPa3asyOSRtipw": {
+						"type": "damage",
+						"default": false,
+						"formula": "1d10 + @dex.mod"
+					}
+				},
+				"prompts": {},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"rechargeType": "custom",
+						"rechargeAmount": "1",
+						"threshold": 6
+					}
+				},
+				"ranges": {
+					"ny5iNOtTyL7K7vKU": {
+						"range": 20,
+						"unit": "feet"
+					},
+					"uGQtLvDEoyTrR3k0": {
+						"range": 60,
+						"unit": "feet"
+					}
+				},
+				"target": {
+					"type": "creatureObject",
+					"quantity": 1
+				}
+			}
+		},
+		"description": "<p>When you are hit by a ranged weapon attack, you can use your reaction to reduce the damage by 1d10 + your Dexterity modifier + your adept level. If you reduce the damage to 0, you can catch the missile if it is possible to do so (the missile is small enough to hold, you have a hand free). If you catch the missile, as part of this reaction you can spend 1 exertion to make a ranged weapon attack with the weapon or ammunition you just caught. The missile counts as an adept weapon and you have proficiency for the attack, which has a normal range of 20 feet and a long range of 60 feet.</p>",
+		"favorite": false,
+		"secretDescription": "",
+		"source": "adventurersGuide",
+		"uses": {
+			"value": null,
+			"max": "",
+			"per": null,
+			"recharge": {
+				"formula": "1d6",
+				"threshold": 6
+			}
+		},
+		"schema": {
+			"version": null,
+			"lastMigration": null
+		},
+		"concentration": false,
+		"featureType": "class",
+		"grants": {},
+		"prerequisite": "",
+		"requiresBloodied": false,
+		"schemaVersion": {
+			"version": 0.013,
+			"lastMigration": {
+				"version": {
+					"schema": 0.011,
+					"foundry": "11.315",
+					"system": "0.16.49"
+				}
+			}
+		}
+	},
+	"folder": null,
+	"_id": "6hkqh73swnupa2r7"
+}
