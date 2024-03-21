@@ -9,9 +9,12 @@
     import SpellBook from "../SpellBook.svelte";
 
     const actor = getContext("actor");
-    const { spells } = actor;
+    let { spells } = actor;
 
-    const spellBooks = $actor.spellBooks;
+    async function addSpellBook() {
+        await $actor.spellBooks.add({});
+        spells.initialize(); // Manually refresh reducer
+    }
 
     $: spellResources = $actor.system.spellResources;
 
@@ -36,7 +39,8 @@
         showUses = usesRequired(spells);
     });
 
-    let currentSpellBook = [...spellBooks]?.[0]?.[0];
+    $: spellBooks = $actor.spellBooks;
+    $: currentSpellBook = [...spellBooks]?.[0]?.[0];
 
     onDestroy(() => {
         unsubscribe();
@@ -62,7 +66,7 @@
             <button
                 class="a5e-spellbook-list__item a5e-spellbook-list__item--add fa-solid fa-plus"
                 data-tooltip="Create new spell book"
-                on:click={() => $actor.spellBooks.add({})}
+                on:click={() => addSpellBook()}
             />
         {/if}
     </nav>

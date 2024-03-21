@@ -29,12 +29,14 @@ export default class SpellBookManager extends Map<string, SpellBook> {
     this.default = [...this.values()].find((spellBook: SpellBook) => spellBook.default) ?? null;
   }
 
-  add(data: SpellBookData) {
+  async add(data: SpellBookData) {
     const id = data?._id ?? foundry.utils.randomID();
 
-    this.actor.update({
+    await this.actor.update({
       [`system.spellBooks.${id}`]: data
     });
+
+    return this.get(id);
   }
 
   remove(id: string) {
