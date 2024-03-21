@@ -460,7 +460,13 @@ export default function registerPremiumContentConfig(A5E) {
       title: 'Mysterious and Marvelous Miscellanea',
       url: 'https://bit.ly/42fLLM8'
     },
-
+    paradigmsOfSkill: {
+      abbreviation: 'PoS',
+      affiliate: true,
+      publisher: 'plantWitchPress',
+      title: 'Paradigms of Skill',
+      url: ''
+    },
     secretsOfTheSelkies: {
       abbreviation: 'SotS',
       affiliate: true,
