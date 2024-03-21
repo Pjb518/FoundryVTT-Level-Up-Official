@@ -863,9 +863,9 @@ export default class ActorA5e extends Actor {
     data.level = this.system.details.level;
     data.maneuverDC = this.system.attributes.maneuverDC;
 
-    const defaultSpellBook = this.spellBooks.default;
+    const defaultSpellBook = this.spellBooks?.default;
 
-    if (defaultSpellBook) {
+    if (defaultSpellBook && defaultSpellBook?.stats) {
       data.spell = { mod: defaultSpellBook.stats.mod };
       data.spellcasting = { mod: defaultSpellBook.stats.mod };
       data.spellDC = defaultSpellBook.stats.dc;
