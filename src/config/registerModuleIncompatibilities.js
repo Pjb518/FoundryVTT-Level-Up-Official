@@ -91,6 +91,10 @@ export default function registerModuleIncompatibilities(A5E) {
     'gamemaster-title-editor': {
       reason: "The system already provides settings to configure a GM's title, so this module is unnecessary in the A5e system. It may also conflict with the system's built-in configuration options.",
       priority: 'medium'
+    },
+    'party-overview': {
+      reason: 'The system already includes an interface to display summary statistics for an adventuring party that provides far more functionality than the Party Overview module.',
+      priority: 'low'
     }
   };
 }
