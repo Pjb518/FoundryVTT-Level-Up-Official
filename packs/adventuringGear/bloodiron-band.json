@@ -1,0 +1,140 @@
+{
+	"folder": null,
+	"name": "Bloodiron Band",
+	"type": "object",
+	"img": "icons/equipment/wrist/bracer-armored-steel.webp",
+	"system": {
+		"ac": {
+			"baseFormula": "",
+			"formula": "",
+			"grantsDisadvantage": false,
+			"maxDex": 0,
+			"minStr": 0,
+			"mode": 2,
+			"requiresNoShield": false,
+			"requiresUnarmored": false
+		},
+		"actions": {
+			"E0yeF5yR40nkLxWs": {
+				"name": "Bloodied Creature",
+				"activation": {},
+				"consumers": {},
+				"rolls": {
+					"2X4oVvqvf1QYF6xN": {
+						"type": "savingThrow",
+						"default": true,
+						"ability": "wis"
+					}
+				},
+				"prompts": {},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"rechargeType": "custom",
+						"rechargeAmount": "1",
+						"threshold": 6
+					}
+				},
+				"ranges": {
+					"H2f4VMROC9HIGGsK": {
+						"range": 15,
+						"unit": "feet"
+					}
+				},
+				"target": {
+					"type": "creature",
+					"quantity": 1
+				}
+			}
+		},
+		"description": "<p>The Bloodiron Band gleams a metallic crimson and is set with dozens of spikes on the inside so that it pierces the skin as it closes on the forearm during attunement. Wearing this band increases your Strength to 20. It has no effect if your Strength is equal to or greater than 20.</p>\n<p><em><strong>Curse.</strong></em> Because of the horrific materials required in its construction, each band comes with a terrible cost. While attuned to the bloodiron band, your maximum hit points are reduced by a number equal to twice your level. Additionally, at the start of your turn, if another creature within 15 feet of you is bloodied, you must make a DC 15 Wisdom saving throw (gaining advantage if the creature is an ally). On a failure, you must attempt to move to a space within reach and take the attack action against that creature.</p>",
+		"favorite": false,
+		"secretDescription": "",
+		"source": "gpg1",
+		"uses": {
+			"value": null,
+			"max": "",
+			"per": null,
+			"recharge": {
+				"formula": "1d6",
+				"threshold": "6"
+			}
+		},
+		"schema": {
+			"version": null,
+			"lastMigration": null
+		},
+		"ammunitionProperties": [],
+		"armorCategory": "",
+		"armorProperties": [],
+		"attuned": false,
+		"bulky": false,
+		"craftingComponents": "Celestial blood harvested from pools deep beneath the Fellspire",
+		"containerId": "",
+		"damagedState": 0,
+		"equippedState": 0,
+		"items": {},
+		"materialProperties": [],
+		"objectType": "jewelry",
+		"plotItem": false,
+		"price": "2,500 gp",
+		"proficient": true,
+		"quantity": 1,
+		"rarity": "rare",
+		"requiresAttunement": true,
+		"shieldCategory": "",
+		"shieldProperties": [],
+		"unidentified": false,
+		"unidentifiedDescription": "",
+		"unidentifiedName": "",
+		"weaponProperties": [],
+		"weight": 0
+	},
+	"effects": [
+		{
+			"icon": "icons/equipment/wrist/bracer-armored-steel.webp",
+			"origin": "Item.HUYRp1HaisL43LaH",
+			"flags": {
+				"a5e": {
+					"sort": 0,
+					"transferType": "passive"
+				}
+			},
+			"transfer": false,
+			"name": "Bloodiron Band",
+			"_id": "qiwGboUDfmCRB7hU",
+			"changes": [
+				{
+					"key": "system.abilities.str.value",
+					"value": "20",
+					"mode": 5,
+					"priority": null
+				},
+				{
+					"key": "system.attributes.hp.max",
+					"value": "2*@level",
+					"mode": 3,
+					"priority": null
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": null,
+				"combat": null,
+				"rounds": null,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "",
+			"statuses": [],
+			"folder": null
+		}
+	],
+	"flags": {},
+	"_id": "s7bxkthcips74ki1"
+}
