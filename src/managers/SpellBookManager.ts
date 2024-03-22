@@ -45,4 +45,8 @@ export default class SpellBookManager extends Map<string, SpellBook> {
 
     spellBook.delete();
   }
+
+  removeAll() {
+    this.forEach((spellBook: SpellBook) => spellBook.delete());
+  }
 }
