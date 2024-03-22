@@ -223,7 +223,7 @@
 <div class="sticky-add-button">
     <CreateMenu
         {menuList}
-        offset={{ x: -110, y: -130 }}
+        offset={{ x: -110, y: -100 }}
         documentName="Consumer"
         on:press={({ detail }) =>
             ActionsManager.addConsumer($item, [actionId, action], detail)}
