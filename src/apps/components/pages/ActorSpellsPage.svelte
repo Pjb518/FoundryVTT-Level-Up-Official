@@ -14,6 +14,7 @@
     async function addSpellBook() {
         await $actor.spellBooks.add({});
         spells.initialize(); // Manually refresh reducer
+        currentSpellBook = currentSpellBook; // This is stupid, but it works
     }
 
     $: spellResources = $actor.system.spellResources;
@@ -72,11 +73,13 @@
     </nav>
 {/if}
 
-<SpellBook
-    spellBookId={currentSpellBook}
-    {showUses}
-    reducer={$spells._books[currentSpellBook]}
-/>
+{#if currentSpellBook && $spells._books[currentSpellBook]}
+    <SpellBook
+        spellBookId={currentSpellBook}
+        {showUses}
+        reducer={$spells._books[currentSpellBook]}
+    />
+{/if}
 
 <TabFooter --padding-right="1rem">
     <!-- Prepared Spells Count -->
