@@ -465,7 +465,7 @@ export default function registerPremiumContentConfig(A5E) {
       affiliate: true,
       publisher: 'plantWitchPress',
       title: 'Paradigms of Skill',
-      url: ''
+      url: 'https://bit.ly/3TvtZRl'
     },
     secretsOfTheSelkies: {
       abbreviation: 'SotS',
