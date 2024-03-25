@@ -36,7 +36,7 @@ export default class SpellBookManager extends Map<string, SpellBook> {
       [`system.spellBooks.${id}`]: data
     });
 
-    return this.get(id);
+    return id;
   }
 
   remove(id: string) {

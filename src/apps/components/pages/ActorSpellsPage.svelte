@@ -17,9 +17,18 @@
     let { spells } = actor;
 
     async function addSpellBook() {
-        await $actor.spellBooks.add({ ability: "default" });
+        const initialSpellBookQuantity = Object.keys(
+            $actor.system.spellBooks ?? {},
+        ).length;
+
+        const newSpellBookId = await $actor.spellBooks.add({});
         spells.initialize(); // Manually refresh reducer
-        currentSpellBook = currentSpellBook; // This is stupid, but it works
+
+        if (initialSpellBookQuantity === 0) {
+            updateCurrentSpellBook(newSpellBookId);
+        } else {
+            currentSpellBook = currentSpellBook; // This is stupid, but it works
+        }
     }
 
     async function configureSpellbook(spellBookId) {
