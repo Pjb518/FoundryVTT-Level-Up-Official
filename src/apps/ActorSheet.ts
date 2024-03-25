@@ -229,6 +229,7 @@ export default class ActorSheet extends SvelteApplication {
     const dragData = JSON.parse(transferData);
 
     const currentTab = this.tempSettings[this.actor.uuid]?.currentTab;
+    const currentSpellBook = this.tempSettings[this.actor.uuid]?.currentSpellBook;
 
     if (currentTab !== 'inventory') {
       if (dragData?.actorId === this.actor?.id) return;
@@ -236,9 +237,7 @@ export default class ActorSheet extends SvelteApplication {
     }
 
     if (currentTab === 'spells') {
-      const target = event.target.closest('[data-spell-book-id]');
-      const spellBookId = target?.getAttribute('data-spell-book-id') ?? '';
-      if (spellBookId) options.spellBookId = spellBookId;
+      if (currentSpellBook) options.spellBookId = currentSpellBook;
     }
 
     const { uuid, type } = dragData;

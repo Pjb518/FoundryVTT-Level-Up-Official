@@ -1,6 +1,6 @@
 <script>
     import { localize } from "#runtime/svelte/helper";
-    import { getContext, onDestroy } from "svelte";
+    import { getContext } from "svelte";
 
     import updateDocumentDataFromField from "../../../utils/updateDocumentDataFromField";
 
@@ -10,6 +10,8 @@
     import SpellBook from "../SpellBook.svelte";
     import SpellbookConfigDialog from "../../dialogs/SpellbookConfigDialog.svelte";
     import SpellbookDeletionConfirmationDialog from "../../dialogs/initializers/SpellbookDeletionConfirmationDialog";
+
+    import ActorSheetTempSettingsStore from "../../../stores/ActorSheetTempSettingsStore";
 
     const actor = getContext("actor");
     let { spells } = actor;
@@ -42,6 +44,25 @@
         $actor.spellBooks.remove(currentSpellBook);
     }
 
+    function updateCurrentSpellBook(spellBookId) {
+        const { uuid } = $actor;
+        currentSpellBook = spellBookId;
+
+        ActorSheetTempSettingsStore.update((currentSettings) => ({
+            ...currentSettings,
+            [uuid]: {
+                ...(currentSettings[uuid] ?? {}),
+                currentSpellBook: spellBookId,
+            },
+        }));
+    }
+
+    let tempSettings = {};
+
+    ActorSheetTempSettingsStore.subscribe((store) => {
+        tempSettings = store;
+    });
+
     $: spellResources = $actor.system.spellResources;
 
     $: preparedSpellCount = $actor.items.filter((item) => {
@@ -60,19 +81,21 @@
         : $actor.flags?.a5e?.sheetIsLocked ?? true;
 
     $: spellBooks = $actor.spellBooks;
-    $: currentSpellBook = [...spellBooks]?.[0]?.[0];
+
+    let currentSpellBook =
+        tempSettings[$actor?.uuid]?.currentSpellBook ??
+        Object.keys($actor.system.spellBooks ?? {})?.[0];
 </script>
 
 {#if !sheetIsLocked || [...spellBooks].length > 1}
     <nav class="a5e-spellbook-list">
-        {#each [...spellBooks] as [spellBookId, spellBook]}
+        {#each [...spellBooks] as [spellBookId, spellBook], index}
             <button
                 class="a5e-spellbook-list__item"
-                class:a5e-spellbook-list__item--active={currentSpellBook ===
-                    spellBookId}
-                on:click={() => {
-                    currentSpellBook = spellBookId;
-                }}
+                class:a5e-spellbook-list__item--active={currentSpellBook
+                    ? currentSpellBook === spellBookId
+                    : index === 0}
+                on:click={() => updateCurrentSpellBook(spellBookId)}
             >
                 {spellBook.name}
 
