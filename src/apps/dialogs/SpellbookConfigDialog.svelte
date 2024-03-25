@@ -82,6 +82,22 @@
                 }}
             />
         </FieldWrapper>
+
+        <FieldWrapper
+            hint="When enabled, resource consumers for spell slots and points will be ignored by default. This is useful for things like ritual books, where you're rarely if ever going to want to consume a spell slot."
+        >
+            <Checkbox
+                label="Disable Spell Consumers"
+                checked={book?.disableSpellConsumers ?? false}
+                on:updateSelection={({ detail }) => {
+                    updateDocumentDataFromField(
+                        $document,
+                        `system.spellBooks.${spellBookId}.disableSpellConsumers`,
+                        detail,
+                    );
+                }}
+            />
+        </FieldWrapper>
     </Section>
 </form>
 
