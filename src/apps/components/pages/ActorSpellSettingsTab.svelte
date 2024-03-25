@@ -17,63 +17,31 @@
 <Section heading="Spell Resource Settings" --a5e-section-body-gap="0.75rem">
     <FieldWrapper>
         <Checkbox
-            label="A5E.SpellShowSpellSlots"
-            checked={flags?.showSpellSlots ?? true}
+            label="A5E.settings.restoreSpellSlotsOnShortRest"
+            checked={flags?.restoreSpellSlotsOnShortRest ?? false}
             on:updateSelection={({ detail }) => {
                 updateDocumentDataFromField(
                     $actor,
-                    "flags.a5e.showSpellSlots",
+                    "flags.a5e.restoreSpellSlotsOnShortRest",
                     detail,
                 );
             }}
         />
     </FieldWrapper>
-
-    {#if flags?.showSpellSlots ?? true}
-        <FieldWrapper>
-            <Checkbox
-                label="A5E.settings.restoreSpellSlotsOnShortRest"
-                checked={flags?.restoreSpellSlotsOnShortRest ?? false}
-                on:updateSelection={({ detail }) => {
-                    updateDocumentDataFromField(
-                        $actor,
-                        "flags.a5e.restoreSpellSlotsOnShortRest",
-                        detail,
-                    );
-                }}
-            />
-        </FieldWrapper>
-    {/if}
 
     <FieldWrapper>
         <Checkbox
-            label="A5E.SpellShowSpellPoints"
-            checked={flags?.showSpellPoints ?? false}
+            label="A5E.settings.restoreSpellPointsOnShortRest"
+            checked={flags?.restoreSpellPointsOnShortRest ?? true}
             on:updateSelection={({ detail }) => {
                 updateDocumentDataFromField(
                     $actor,
-                    "flags.a5e.showSpellPoints",
+                    "flags.a5e.restoreSpellPointsOnShortRest",
                     detail,
                 );
             }}
         />
     </FieldWrapper>
-
-    {#if flags?.showSpellPoints ?? false}
-        <FieldWrapper>
-            <Checkbox
-                label="A5E.settings.restoreSpellPointsOnShortRest"
-                checked={flags?.restoreSpellPointsOnShortRest ?? true}
-                on:updateSelection={({ detail }) => {
-                    updateDocumentDataFromField(
-                        $actor,
-                        "flags.a5e.restoreSpellPointsOnShortRest",
-                        detail,
-                    );
-                }}
-            />
-        </FieldWrapper>
-    {/if}
 </Section>
 
 <Section
@@ -81,7 +49,7 @@
     --a5e-section-body-gap="0.75rem"
 >
     <RadioGroup
-        heading="A5E.SpellcastingAbilityScore"
+        heading="A5E.DefaultSpellcastingAbilityScore"
         optionStyles="min-width:2rem; text-align: center;"
         options={Object.entries(abilityAbbreviations)}
         selected={$actor.system.attributes.spellcasting}

@@ -22,7 +22,7 @@
 </script>
 
 <form>
-    <Section>
+    <Section --a5e-section-body-gap="0.75rem">
         <FieldWrapper heading="Spell Book Name">
             <input
                 type="text"
