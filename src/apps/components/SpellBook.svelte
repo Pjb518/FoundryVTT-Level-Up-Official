@@ -1,5 +1,5 @@
 <script>
-    import { getContext } from "svelte";
+    import { getContext, onDestroy } from "svelte";
 
     import SpellCompendiumSheet from "../SpellCompendiumSheet";
 
@@ -11,8 +11,9 @@
     import Sort from "./actorUtilityBar/Sort.svelte";
     import UtilityBar from "./actorUtilityBar/UtilityBar.svelte";
 
+    import usesRequired from "../../utils/usesRequired";
+
     export let spellBookId;
-    export let showUses;
     export let reducer;
 
     function openSpellCompendium() {
@@ -36,6 +37,14 @@
     const { spellLevels } = CONFIG.A5E;
     const reducerType = "spells";
 
+    let showUses = false;
+
+    const unsubscribe = reducer.subscribe((_) => {
+        showUses = usesRequired(
+            Object.values($reducer._levels).flatMap((x) => [...x]),
+        );
+    });
+
     $: menuList = Object.entries(spellLevels);
 
     $: sheetIsLocked = !$actor.isOwner
@@ -56,6 +65,10 @@
     };
 
     let showDescription = false;
+
+    onDestroy(() => {
+        unsubscribe();
+    });
 </script>
 
 <!-- The class name shouldn't change as it is used to find the closest spell book for onDrop -->

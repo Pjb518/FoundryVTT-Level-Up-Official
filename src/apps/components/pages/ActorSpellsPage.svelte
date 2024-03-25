@@ -3,7 +3,6 @@
     import { getContext, onDestroy } from "svelte";
 
     import updateDocumentDataFromField from "../../../utils/updateDocumentDataFromField";
-    import usesRequired from "../../../utils/usesRequired";
 
     import GenericConfigDialog from "../../dialogs/initializers/GenericConfigDialog";
 
@@ -60,18 +59,8 @@
         ? true
         : $actor.flags?.a5e?.sheetIsLocked ?? true;
 
-    let showUses = false;
-
-    const unsubscribe = spells.subscribe((_) => {
-        showUses = usesRequired(spells);
-    });
-
     $: spellBooks = $actor.spellBooks;
     $: currentSpellBook = [...spellBooks]?.[0]?.[0];
-
-    onDestroy(() => {
-        unsubscribe();
-    });
 </script>
 
 {#if !sheetIsLocked || [...spellBooks].length > 1}
@@ -115,7 +104,6 @@
 {#if currentSpellBook && $spells._books[currentSpellBook]}
     <SpellBook
         spellBookId={currentSpellBook}
-        {showUses}
         reducer={$spells._books[currentSpellBook]}
     />
 {/if}

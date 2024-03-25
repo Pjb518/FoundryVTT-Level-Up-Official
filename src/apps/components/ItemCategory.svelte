@@ -11,8 +11,10 @@
     export let items;
     export let type;
     export let showDescription = false;
-    export let showUses = false;
     export let showQuantity = false;
+    export let showSpellPoints = false;
+    export let showSpellSlots = false;
+    export let showUses = false;
 
     const actor = getContext("actor");
     const sheet = getContext("sheet");
@@ -95,9 +97,6 @@
 
         return { areas: `"${areas}"`, columns };
     }
-
-    $: showSpellSlots = $actor.flags?.a5e?.showSpellSlots ?? true;
-    $: showSpellPoints = $actor.flags?.a5e?.showSpellPoints ?? false;
 
     $: headingTemplateConfiguration = getHeadingTemplateConfiguration(
         showUses,
