@@ -165,7 +165,7 @@
     {/if}
 
     <ul class="a5e-item-list">
-        {#each [...items] as item (item.id)}
+        {#each [...items] as item (item?.id)}
             <Item
                 {item}
                 {showDescription}

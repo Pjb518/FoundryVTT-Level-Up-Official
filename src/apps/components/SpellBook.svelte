@@ -51,6 +51,7 @@
     });
 
     $: menuList = Object.entries(spellLevels);
+    $: spellBook = $actor?.spellBooks?.get(spellBookId);
 
     $: sheetIsLocked = !$actor.isOwner
         ? true
@@ -107,6 +108,8 @@
                     {level}
                     {label}
                     {showDescription}
+                    showSpellPoints={spellBook.showSpellPoints}
+                    showSpellSlots={spellBook.showSpellSlots}
                     {showUses}
                     items={$reducer?._levels?.[level]}
                     type="spellLevels"
