@@ -1,0 +1,476 @@
+{
+	"folder": null,
+	"name": "Crown of the Crystal Sovereign",
+	"type": "object",
+	"img": "icons/commodities/treasure/crown-gold-satin-gems-red.webp",
+	"system": {
+		"ac": {
+			"baseFormula": "",
+			"formula": "",
+			"grantsDisadvantage": false,
+			"maxDex": 0,
+			"minStr": 0,
+			"mode": 2,
+			"requiresNoShield": false,
+			"requiresUnarmored": false
+		},
+		"actions": {
+			"oMqcM7nfSRYXWE0B": {
+				"name": "Crystal Skin",
+				"activation": {},
+				"consumers": {},
+				"rolls": {
+					"WhY0O5W2Cq9PCoe7": {
+						"type": "generic",
+						"default": true,
+						"formula": "1d4"
+					}
+				},
+				"prompts": {},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"rechargeType": "custom",
+						"rechargeAmount": "1",
+						"threshold": 6
+					}
+				}
+			},
+			"IlB9nNh6HXRfWfW8": {
+				"name": "Clairvoyance",
+				"activation": {
+					"cost": 10,
+					"type": "minute",
+					"reactionTrigger": ""
+				},
+				"consumers": {},
+				"rolls": {},
+				"prompts": {},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"rechargeType": "custom",
+						"rechargeAmount": "1",
+						"threshold": 6
+					}
+				},
+				"duration": {
+					"unit": "minute",
+					"value": "10"
+				},
+				"ranges": {
+					"bwjQraHVyhBDroPZ": {
+						"range": "1 mile"
+					}
+				},
+				"area": {
+					"shape": "",
+					"size": "",
+					"placeTemplate": false,
+					"quantity": 1
+				},
+				"target": {
+					"quantity": "",
+					"type": ""
+				},
+				"img": "icons/magic/perception/orb-crystal-ball-scrying-blue.webp",
+				"description": "<p>An invisible sensor is created within the spell's range. The sensor remains there for the duration, and it cannot be targeted or attacked.</p><p>Choose seeing or hearing when you cast the spell.</p><p>You may use that sense through the sensor as if you were there. As an action, you may switch which sense you are using through the sensor.</p><p>A creature able to see invisible things (from the see invisibility spell or truesight, for instance) sees a 4-inch diameter glowing, ethereal orb.</p>",
+				"descriptionOutputs": [
+					"action"
+				]
+			},
+			"xx1YfWi23oX3OxvI": {
+				"name": "Regal Bearing",
+				"activation": {
+					"type": "action",
+					"cost": 1
+				},
+				"consumers": {
+					"PA98SnFTUnmKLih9": {
+						"type": "actionUses",
+						"default": true,
+						"quantity": 1
+					}
+				},
+				"rolls": {},
+				"prompts": {
+					"fq4aYWfnfEbOwJHk": {
+						"type": "savingThrow",
+						"default": true,
+						"ability": "wis",
+						"saveDC": {
+							"type": "custom",
+							"bonus": "8 + @prof + @cha.mod"
+						}
+					},
+					"vlkeIUZz6SNboCcv": {
+						"type": "effect",
+						"default": true,
+						"effectId": "RikbLoqDLjfDUJUI"
+					}
+				},
+				"uses": {
+					"value": 0,
+					"max": "@cha.mod",
+					"per": "day",
+					"recharge": {
+						"formula": "1d6",
+						"rechargeType": "custom",
+						"rechargeAmount": "1",
+						"threshold": 6
+					}
+				},
+				"ranges": {
+					"49Gxmr34OzK0EWrh": {
+						"range": "medium"
+					}
+				}
+			},
+			"ByYeBDJX6I189OTW": {
+				"name": "Regal Bearing",
+				"activation": {
+					"type": "reaction",
+					"cost": 1,
+					"reactionTrigger": "Targeted with any attack by a creature within 10 feet"
+				},
+				"consumers": {
+					"PA98SnFTUnmKLih9": {
+						"type": "actionUses",
+						"default": true,
+						"quantity": 1
+					}
+				},
+				"rolls": {},
+				"prompts": {
+					"fq4aYWfnfEbOwJHk": {
+						"type": "savingThrow",
+						"default": true,
+						"ability": "wis",
+						"saveDC": {
+							"type": "custom",
+							"bonus": "8 + @prof + @cha.mod"
+						}
+					},
+					"vlkeIUZz6SNboCcv": {
+						"type": "effect",
+						"default": true,
+						"effectId": "Ivdg5rnVKtIyKCGZ"
+					}
+				},
+				"uses": {
+					"value": 0,
+					"max": "@cha.mod",
+					"per": "day",
+					"recharge": {
+						"formula": "1d6",
+						"rechargeType": "custom",
+						"rechargeAmount": "1",
+						"threshold": 6
+					}
+				},
+				"ranges": {
+					"49Gxmr34OzK0EWrh": {
+						"range": "medium"
+					}
+				}
+			},
+			"5QGnlwFNZwflSulz": {
+				"name": "Summon Item",
+				"activation": {
+					"type": "action",
+					"cost": 1
+				},
+				"consumers": {},
+				"rolls": {
+					"u1U9JEMMlvBcizoj": {
+						"type": "savingThrow",
+						"default": true,
+						"ability": "wis"
+					}
+				},
+				"prompts": {},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"rechargeType": "custom",
+						"rechargeAmount": "1",
+						"threshold": 6
+					}
+				}
+			},
+			"YGrA7grRHUIgYjcR": {
+				"name": "Store Item",
+				"activation": {
+					"type": "action",
+					"cost": 1
+				},
+				"consumers": {},
+				"rolls": {},
+				"prompts": {},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"rechargeType": "custom",
+						"rechargeAmount": "1",
+						"threshold": 6
+					}
+				}
+			},
+			"z3tL3tCRU6FMXFvQ": {
+				"name": "Scrying",
+				"activation": {
+					"cost": 10,
+					"type": "minute",
+					"reactionTrigger": ""
+				},
+				"consumers": {},
+				"rolls": {},
+				"prompts": {
+					"EPTW9bO0k35sFNNt": {
+						"ability": "wis",
+						"onSave": "Negates effect for 24 hours",
+						"saveDC": {
+							"type": "custom",
+							"bonus": ""
+						},
+						"type": "savingThrow"
+					}
+				},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"rechargeType": "custom",
+						"rechargeAmount": "1",
+						"threshold": 6
+					}
+				},
+				"duration": {
+					"unit": "minute",
+					"value": "10"
+				},
+				"ranges": {
+					"qOCRptUDIby1Pqv6": {
+						"range": "self"
+					}
+				},
+				"area": {
+					"shape": "",
+					"size": "",
+					"placeTemplate": false
+				},
+				"target": {
+					"quantity": "",
+					"type": "creature"
+				},
+				"img": "icons/magic/perception/orb-crystal-ball-scrying-blue.webp",
+				"description": "<p>You can see and hear a specific creature that you choose. The difficulty of the saving throw for this spell is modified by your knowledge of the target and whether you possess a physical item with a connection to the target.</p><p>On a failed save, you can see and hear the target through an invisible sensor that appears within 10 feet of it and moves with the target. Any creature who can see invisibility or rolls a critical success on its saving throw perceives the sensor as a fist-sized glowing orb hovering in the air. Creatures cannot see or hear you through the sensor.</p><p>If you choose to target a location, the sensor appears at that location and is immobile.</p>",
+				"descriptionOutputs": [
+					"action"
+				]
+			}
+		},
+		"description": "<p>This crown looks like a braid of pure crystal and its front is a set of three pointed, curling spires that give its wearer an imposing, regal silhouette. Once worn by the monarch of an ancient crystal palace deep underground, the crown was lost after its wearer&rsquo;s grasping schemes brought calamity on their people. The power, ambition, and ruthless might of the Crystal Sovereign of Coranaal still lingers, granting the wearer the following properties:</p>\n<p><strong>Crystal Skin.</strong> Your skin takes on a jagged, shimmering appearance and feels firm and cold to the touch. You gain +2 to your Armor Class. Additionally, when you&rsquo;re hit by a ranged spell attack, roll 1d4. On a 3, you are unaffected and the spell is reflected back at its caster, rolling again to see if it hits.</p>\n<p><strong>All-Seeing.</strong> You gain truesight out to 30 feet. Additionally, you can use this trait to cast @UUID[Compendium.a5e.a5e-spells.Item.usz7we3sepg9tv9d]{Clairvoyance} at will, using the crown as your material component.</p>\n<p><strong>Lord Under The Mountain.</strong> Your Prestige Rating is increased by 2, or 4 if you&rsquo;re underground.</p>\n<p><strong>Regal Bearing.</strong> A number of times per day equal to your Charisma modifier you can, as an action, target one creature that can see you within 60 feet. It must succeed on a Wisdom saving throw (DC = 8 + your proficiency modifier + your Charisma modifier) or use its next turn to fall prone in supplication, taking no other actions. Additionally, when you&rsquo;re targeted with any attack by a creature within 10 feet of you, you can force it to make this saving throw as a reaction. On a failure it has disadvantage on the attack and then falls prone as above.</p>\n<p><strong>Greed of Coronaal.</strong> It&rsquo;s said that, even as their palace crumbled, the Crystal Sovereign still coveted and guarded their treasures. You can use an action to summon an item from the hoard of Coronaal, an endlessly enormous extra dimensional space that you can access remotely. You instinctively know what&rsquo;s inside, and when you first access the hoard, roll on Treasure for Challenge Ratings 23-30 to determine what&rsquo;s already there. This doesn&rsquo;t mean that you have any desire to share, however, and must make a DC 14 Wisdom saving throw to willingly part, even temporarily, with any item that has been in the hoard.</p>\n<p>You can also use an action to touch an item of up to Large size and send it to the hoard. However, the crown shuns items it deems unworthy, casting them into the Astral Plane if you attempt to store them. This includes magic items of common or uncommon rarity and any mundane items worth less than 500 gp. Additionally, as a security feature, creatures cannot enter this space; even the wearer can only access it remotely.</p>\n<p>Otherwise, the hoard has the limitations of any other interdimensional space in regards to Supply and dead creatures. Placing another interdimensional item, such as a @UUID[Compendium.a5e.a5e-adventuring-gear.Item.qf2ofov8rlaop2kr]{Portable Hole}, in the hoard destroys the lesser item, scattering its contents across the Astral Plane. Additionally, 4 ([[/r 2d4]]) random valuables from the horde are also lost in this way, though the crown of the crystal sovereign is otherwise unaffected.</p>\n<p><strong>Curse.</strong> When you attune to this crown, your Destiny immediately changes to @UUID[Compendium.a5e.a5e-destinies.Item.4ee2167tvhkgnpki]{Dominion} if it&rsquo;s not already, and you can only fulfill it by reclaiming the Crystal Palace of Coronaal, which is lost to time and overtaken by creatures from the depths. You lose any existing Destiny features. In addition, if you have a chance to advance this Destiny (as determined by the Narrator) and do not take it, you lose all benefits from the crown and suffer a level of strife each week until you pursue the opportunity, at which point you lose all strife gained this way and regain the benefits of the crown. These levels of strife cannot otherwise be removed.</p>\n<p>The crown remains firmly affixed to your head and cannot be removed in any way, nor can your attunement be broken, unless you are beheaded, at which point you can never attune to the item again, even if you are brought back to life. The only other exception is if you reclaim the Crystal Palace and then choose to, in the presence of 4 sentient creatures, formally renounce your title while sitting on the throne of Coronaal, at which point the palace and crown begin to crumble, ending your attunement and destroying the item.</p>\n<p><strong>Escalation.</strong> When you fulfill this destiny, the save DC of Regal Bearing and the Armor Class bonus of Crystal Skin increase by 2, while the range of your truesight increases by 60 ft, your Prestige bonus is increased by 2, and you can cast @UUID[Compendium.a5e.a5e-spells.Item.ppht0do531mq84uw]{Scrying} at will using the crown as a focus.</p>",
+		"favorite": false,
+		"secretDescription": "",
+		"source": "gpg3",
+		"uses": {
+			"value": 0,
+			"max": "",
+			"per": "",
+			"recharge": {
+				"formula": "1d6",
+				"threshold": 6
+			}
+		},
+		"ammunitionProperties": [],
+		"armorCategory": "",
+		"armorProperties": [],
+		"attuned": false,
+		"bulky": false,
+		"craftingComponents": "Unique (uncraftable)",
+		"containerId": "",
+		"damagedState": 0,
+		"equippedState": 0,
+		"items": {},
+		"materialProperties": [],
+		"objectType": "jewelry",
+		"plotItem": false,
+		"price": "0",
+		"proficient": true,
+		"quantity": 1,
+		"rarity": "artifact",
+		"requiresAttunement": true,
+		"shieldCategory": "",
+		"shieldProperties": [],
+		"unidentified": false,
+		"unidentifiedDescription": "",
+		"unidentifiedName": "",
+		"weaponProperties": [],
+		"weight": 0,
+		"schemaVersion": {
+			"version": 0.013,
+			"lastMigration": null
+		}
+	},
+	"effects": [
+		{
+			"icon": "icons/commodities/treasure/crown-gold-satin-gems-red.webp",
+			"origin": "Item.lpfearSIqoHirIEK",
+			"flags": {
+				"a5e": {
+					"sort": 0,
+					"transferType": "passive"
+				}
+			},
+			"transfer": false,
+			"name": "Crystal Skin",
+			"_id": "iC2al6APzGD2Hf2M",
+			"changes": [
+				{
+					"key": "system.attributes.ac.changes.bonuses.value",
+					"value": "2",
+					"mode": 2,
+					"priority": null
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": null,
+				"combat": null,
+				"rounds": null,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "",
+			"statuses": [],
+			"folder": null
+		},
+		{
+			"icon": "icons/commodities/treasure/crown-gold-satin-gems-red.webp",
+			"origin": "Item.lpfearSIqoHirIEK",
+			"flags": {
+				"a5e": {
+					"sort": 0,
+					"transferType": "passive"
+				}
+			},
+			"transfer": false,
+			"name": "All-Seeing",
+			"_id": "Ep8HRMlAMTPvQrSN",
+			"changes": [
+				{
+					"key": "system.attributes.senses.truesight.distance",
+					"value": "30",
+					"mode": 6,
+					"priority": null
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": null,
+				"combat": null,
+				"rounds": null,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "",
+			"statuses": [],
+			"folder": null
+		},
+		{
+			"icon": "icons/commodities/treasure/crown-gold-satin-gems-red.webp",
+			"origin": "Item.lpfearSIqoHirIEK",
+			"flags": {
+				"a5e": {
+					"sort": 0,
+					"transferType": "onUse",
+					"actionId": "xx1YfWi23oX3OxvI"
+				}
+			},
+			"transfer": false,
+			"name": "Prone",
+			"_id": "RikbLoqDLjfDUJUI",
+			"changes": [
+				{
+					"key": "flags.a5e.effects.statusConditions",
+					"value": "[\"prone\"]",
+					"mode": 0,
+					"priority": null
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": null,
+				"combat": null,
+				"rounds": null,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "",
+			"statuses": [
+				"prone"
+			],
+			"folder": null
+		},
+		{
+			"icon": "icons/commodities/treasure/crown-gold-satin-gems-red.webp",
+			"origin": "Item.lpfearSIqoHirIEK",
+			"flags": {
+				"a5e": {
+					"sort": 0,
+					"transferType": "onUse",
+					"actionId": "ByYeBDJX6I189OTW"
+				}
+			},
+			"transfer": false,
+			"name": "Prone",
+			"_id": "Ivdg5rnVKtIyKCGZ",
+			"changes": [
+				{
+					"key": "flags.a5e.effects.statusConditions",
+					"value": "[\"prone\"]",
+					"mode": 0,
+					"priority": null
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": null,
+				"combat": null,
+				"rounds": null,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "",
+			"statuses": [
+				"prone"
+			],
+			"folder": null
+		}
+	],
+	"flags": {},
+	"_id": "4i9gdyw7b3t42gib"
+}
