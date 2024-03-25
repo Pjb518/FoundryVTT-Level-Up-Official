@@ -43,6 +43,10 @@
     }
 
     async function deleteSpellbook(spellBookId) {
+        const initialSpellBookQuantity = Object.keys(
+            $actor.system.spellBooks ?? {},
+        ).length;
+
         const dialog = new SpellbookDeletionConfirmationDialog();
         await dialog.render(true);
 
@@ -51,6 +55,10 @@
         if (!confirmDeletion) return;
 
         $actor.spellBooks.remove(spellBookId);
+
+        if (initialSpellBookQuantity === 1) {
+            updateCurrentSpellBook(null);
+        }
 
         if (currentSpellBook === spellBookId) {
             const firstSpellBook = Object.keys(
