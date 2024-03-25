@@ -7,7 +7,7 @@
         const doc = await collection.getDocument(document._id);
 
         if (customImporter) {
-            customImporter([doc]);
+            customImporter([doc.toObject()]);
             return;
         }
 
