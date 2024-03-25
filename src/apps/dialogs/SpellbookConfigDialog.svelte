@@ -19,8 +19,6 @@
     ];
 
     $: book = $document.spellBooks?.get(spellBookId);
-    $: bookName = book?.name;
-    $: spellcastingAbility = book?.ability ?? "default";
 </script>
 
 <form>
@@ -29,7 +27,7 @@
             <input
                 type="text"
                 spellcheck="false"
-                value={bookName}
+                value={book?.name || ""}
                 on:change={({ target }) => {
                     updateDocumentDataFromField(
                         $document,
@@ -45,14 +43,43 @@
             hint="Spells in this spellbook will use this spellcasting ability for the purposes of spell attack roll and spell save DCs in place of the sheet default."
         >
             <RadioGroup
+                allowDeselect={false}
                 options={abilityOptions}
-                selected={spellcastingAbility}
+                selected={book?.ability ?? "default"}
                 on:updateSelection={({ detail }) =>
                     updateDocumentDataFromField(
                         $document,
                         `system.spellBooks.${spellBookId}.ability`,
                         detail,
                     )}
+            />
+        </FieldWrapper>
+
+        <FieldWrapper>
+            <Checkbox
+                label="Show Spell Slots"
+                checked={book?.showSpellSlots ?? true}
+                on:updateSelection={({ detail }) => {
+                    updateDocumentDataFromField(
+                        $document,
+                        `system.spellBooks.${spellBookId}.showSpellSlots`,
+                        detail,
+                    );
+                }}
+            />
+        </FieldWrapper>
+
+        <FieldWrapper>
+            <Checkbox
+                label="Show Spell Points"
+                checked={book?.showSpellPoints ?? false}
+                on:updateSelection={({ detail }) => {
+                    updateDocumentDataFromField(
+                        $document,
+                        `system.spellBooks.${spellBookId}.showSpellPoints`,
+                        detail,
+                    );
+                }}
             />
         </FieldWrapper>
     </Section>
