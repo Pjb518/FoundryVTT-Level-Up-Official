@@ -229,7 +229,8 @@ export default class ActorSheet extends SvelteApplication {
     const dragData = JSON.parse(transferData);
 
     const currentTab = this.tempSettings[this.actor.uuid]?.currentTab;
-    const currentSpellBook = this.tempSettings[this.actor.uuid]?.currentSpellBook;
+    const currentSpellBook = this.tempSettings[this.actor.uuid]?.currentSpellBook
+      ?? Object.keys(this.actor?.system?.spellBooks)?.[0];
 
     if (currentTab !== 'inventory') {
       if (dragData?.actorId === this.actor?.id) return;
@@ -325,6 +326,7 @@ export default class ActorSheet extends SvelteApplication {
 
   async #onDropSpell(item: typeof Item, options: Record<string, any>) {
     const currentTab = this.tempSettings[this.actor.uuid]?.currentTab;
+
     if (currentTab !== 'inventory') {
       const { spellBookId } = options;
       const defaultSpellBookId = this.actor.spellBooks.default?._id;

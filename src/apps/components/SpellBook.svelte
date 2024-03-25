@@ -108,8 +108,8 @@
                     {level}
                     {label}
                     {showDescription}
-                    showSpellPoints={spellBook.showSpellPoints}
-                    showSpellSlots={spellBook.showSpellSlots}
+                    showSpellPoints={spellBook?.showSpellPoints ?? false}
+                    showSpellSlots={spellBook?.showSpellSlots ?? true}
                     {showUses}
                     items={$reducer?._levels?.[level]}
                     type="spellLevels"
