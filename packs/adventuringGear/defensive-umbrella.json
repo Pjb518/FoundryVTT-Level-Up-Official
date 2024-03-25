@@ -1,0 +1,321 @@
+{
+	"folder": null,
+	"name": "Defensive Umbrella",
+	"type": "object",
+	"img": "icons/weapons/staves/staff-ornate.webp",
+	"system": {
+		"ac": {
+			"baseFormula": "",
+			"formula": "",
+			"grantsDisadvantage": false,
+			"maxDex": 0,
+			"minStr": 0,
+			"mode": 2,
+			"requiresNoShield": false,
+			"requiresUnarmored": false
+		},
+		"actions": {
+			"vbbBPWXfaeZ3xd8v": {
+				"name": "Open/Close",
+				"activation": {
+					"type": "action",
+					"cost": 1
+				},
+				"consumers": {},
+				"rolls": {},
+				"prompts": {},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"rechargeType": "custom",
+						"rechargeAmount": "1",
+						"threshold": 6
+					}
+				}
+			},
+			"d3L1FZg6EqUj4pzd": {
+				"name": "Transform",
+				"activation": {
+					"type": "bonusAction",
+					"cost": 1
+				},
+				"consumers": {},
+				"rolls": {},
+				"prompts": {
+					"d9gKC9BWTtknbBO2": {
+						"type": "effect",
+						"default": true,
+						"effectId": "oP9c68nHxpuEmeCm"
+					}
+				},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"rechargeType": "custom",
+						"rechargeAmount": "1",
+						"threshold": 6
+					}
+				}
+			},
+			"L1ECtTAempulfh0H": {
+				"name": "Rapier",
+				"activation": {
+					"cost": "",
+					"type": "",
+					"reactionTrigger": ""
+				},
+				"consumers": {},
+				"rolls": {
+					"r9swSspq97S1RfWR": {
+						"bonus": "1",
+						"critThreshold": "20",
+						"type": "attack",
+						"attackType": "meleeWeaponAttack",
+						"ability": "default"
+					},
+					"uJI9p3ltabvV4LYr": {
+						"canCrit": true,
+						"damageType": "piercing",
+						"formula": "1d8 + @finesse.mod + 1",
+						"name": "Rapier",
+						"type": "damage"
+					}
+				},
+				"prompts": {},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"rechargeType": "custom",
+						"rechargeAmount": "1",
+						"threshold": 6
+					}
+				},
+				"duration": {
+					"unit": "",
+					"value": ""
+				},
+				"area": {
+					"shape": "",
+					"size": "",
+					"placeTemplate": false,
+					"quantity": 1
+				},
+				"target": {
+					"quantity": 1,
+					"type": "creatureObject"
+				},
+				"img": "icons/weapons/swords/swords-sharp-worn.webp"
+			},
+			"vl0sWKXe7Ba9sTyc": {
+				"name": "Attack",
+				"activation": {
+					"cost": 1,
+					"type": "action",
+					"reactionTrigger": ""
+				},
+				"consumers": {},
+				"rolls": {
+					"0onujWd69TrxSFx9": {
+						"bonus": "",
+						"critThreshold": "20",
+						"type": "attack",
+						"attackType": "meleeWeaponAttack",
+						"ability": "default"
+					},
+					"LtAo4IlsDvgZtY4N": {
+						"canCrit": true,
+						"damageType": "bludgeoning",
+						"formula": "1d4 + @str.mod",
+						"name": "Shield Throw (Improvised Weapon)",
+						"type": "damage"
+					}
+				},
+				"prompts": {},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"rechargeType": "custom",
+						"rechargeAmount": "1",
+						"threshold": 6
+					}
+				},
+				"duration": {
+					"unit": "instantaneous",
+					"value": ""
+				},
+				"area": {
+					"shape": "",
+					"size": "",
+					"placeTemplate": false
+				},
+				"target": {
+					"quantity": 1,
+					"type": "creatureObject"
+				},
+				"ranges": {
+					"EpKqbUWwQUWXS2jo": {
+						"range": "fiveFeet"
+					}
+				},
+				"img": "icons/equipment/shield/buckler-wooden-round-hole.webp"
+			},
+			"uNMWrxtN1trgUAtN": {
+				"name": "Throw Shield",
+				"activation": {
+					"cost": 1,
+					"type": "action",
+					"reactionTrigger": ""
+				},
+				"consumers": {},
+				"rolls": {
+					"vV1SqDEbycch5fyq": {
+						"bonus": "",
+						"critThreshold": "20",
+						"type": "attack",
+						"attackType": "rangedWeaponAttack",
+						"ability": "default"
+					},
+					"6Oj8NEmbBy3Ier4l": {
+						"canCrit": true,
+						"damageType": "bludgeoning",
+						"formula": "1d6 + @str.mod",
+						"name": "Shield Throw (Improvised Weapon)",
+						"type": "damage"
+					}
+				},
+				"prompts": {},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"rechargeType": "custom",
+						"rechargeAmount": "1",
+						"threshold": 6
+					}
+				},
+				"duration": {
+					"unit": "instantaneous",
+					"value": ""
+				},
+				"area": {
+					"shape": "",
+					"size": "",
+					"placeTemplate": false
+				},
+				"target": {
+					"quantity": 1,
+					"type": "creatureObject"
+				},
+				"ranges": {
+					"nXycDivUjsF1iPtC": {
+						"range": 20,
+						"unit": "feet"
+					},
+					"PaS4lTDIKjOk6kJR": {
+						"range": "medium"
+					}
+				},
+				"img": "icons/equipment/shield/buckler-wooden-round-hole.webp"
+			}
+		},
+		"description": "<p>This is an unassuming-looking black umbrella, but it can provide impressive protection when needed. As a bonus action when the umbrella is open, you can press a button in the handle. The canopy immediately flattens and hardens into a @UUID[Compendium.a5e.a5e-adventuring-gear.Item.vf83modl46ytbqgg]{+1 light shield} and the handle transforms into a @UUID[Compendium.a5e.a5e-adventuring-gear.Item.6knwjq3586qmvdg4]{+1 rapier}. You count as already wielding both and are considered proficient as long as you are attuned to the defensive umbrella. You can return the sword and shield to umbrella form as an action by bringing the two parts together and speaking the command word. Opening or closing the umbrella requires an action.</p>",
+		"favorite": false,
+		"secretDescription": "",
+		"source": "gpg2",
+		"uses": {
+			"value": 0,
+			"max": "",
+			"per": "",
+			"recharge": {
+				"formula": "1d6",
+				"threshold": 6
+			}
+		},
+		"ammunitionProperties": [],
+		"armorCategory": "",
+		"armorProperties": [],
+		"attuned": false,
+		"bulky": false,
+		"craftingComponents": "Shards of a +1 weapon",
+		"containerId": "",
+		"damagedState": 0,
+		"equippedState": 0,
+		"items": {},
+		"materialProperties": [],
+		"objectType": "weapon",
+		"plotItem": false,
+		"price": "1,800 gp",
+		"proficient": true,
+		"quantity": 1,
+		"rarity": "rare",
+		"requiresAttunement": true,
+		"shieldCategory": "",
+		"shieldProperties": [],
+		"unidentified": false,
+		"unidentifiedDescription": "",
+		"unidentifiedName": "",
+		"weaponProperties": [
+			"defensiveLight",
+			"finesse"
+		],
+		"weight": 1,
+		"schemaVersion": {
+			"version": 0.013,
+			"lastMigration": null
+		}
+	},
+	"effects": [
+		{
+			"icon": "icons/weapons/staves/staff-ornate.webp",
+			"origin": "Item.UVxDlmPChJdWN7jH",
+			"flags": {
+				"a5e": {
+					"sort": 0,
+					"transferType": "onUse",
+					"actionId": "d3L1FZg6EqUj4pzd",
+					"applyToSelf": true
+				}
+			},
+			"transfer": false,
+			"name": "Shield, Light +1",
+			"_id": "oP9c68nHxpuEmeCm",
+			"changes": [
+				{
+					"key": "system.attributes.ac.changes.bonuses.value",
+					"value": "2",
+					"mode": 2,
+					"priority": null
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": null,
+				"combat": null,
+				"rounds": null,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "",
+			"statuses": [],
+			"folder": null
+		}
+	],
+	"flags": {},
+	"_id": "y9x8ap2yeh8a6ug2"
+}
