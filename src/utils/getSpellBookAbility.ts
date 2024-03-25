@@ -11,6 +11,7 @@ export default function getSpellBookAbility(
   else spellBook = actor.spellBooks.default;
 
   if (!spellBook) return actorData.attributes.spellcasting ?? 'int';
+  if (spellBook.stats.ability === 'default') return actorData.attributes.spellcasting ?? 'int';
 
   return spellBook.stats.ability || 'int';
 }
