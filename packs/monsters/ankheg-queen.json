@@ -16,6 +16,7 @@
 				"ac": {
 					"baseFormula": "",
 					"formula": "",
+					"grantsDisadvantage": false,
 					"maxDex": 0,
 					"minStr": 0,
 					"mode": 1,
@@ -62,7 +63,7 @@
 		},
 		{
 			"_id": "5mdimMZ7zSdJuj20",
-			"name": "Acid Glob (Legendary Action)",
+			"name": "Acid Glob",
 			"type": "feature",
 			"img": "icons/magic/acid/projectile-smoke-glowing.webp",
 			"effects": [],
@@ -73,6 +74,7 @@
 				"ac": {
 					"baseFormula": "",
 					"formula": "",
+					"grantsDisadvantage": false,
 					"maxDex": 0,
 					"minStr": 0,
 					"mode": 1,
@@ -81,9 +83,9 @@
 				},
 				"actions": {
 					"6E0FxGkh2vp80KHX": {
-						"name": "Acid Glob (Legendary Action)",
+						"name": "Acid Glob",
 						"activation": {
-							"cost": null,
+							"cost": 1,
 							"type": "legendaryAction",
 							"reactionTrigger": ""
 						},
@@ -174,6 +176,7 @@
 				"ac": {
 					"baseFormula": "",
 					"formula": "",
+					"grantsDisadvantage": false,
 					"maxDex": 0,
 					"minStr": 0,
 					"mode": 1,
@@ -262,6 +265,7 @@
 				"ac": {
 					"baseFormula": "",
 					"formula": "",
+					"grantsDisadvantage": false,
 					"maxDex": 0,
 					"minStr": 0,
 					"mode": 1,
@@ -367,6 +371,7 @@
 				"ac": {
 					"baseFormula": "",
 					"formula": "",
+					"grantsDisadvantage": false,
 					"maxDex": 0,
 					"minStr": 0,
 					"mode": 1,
@@ -457,7 +462,7 @@
 		},
 		{
 			"_id": "uiaioQp8q7sOegRY",
-			"name": "Acid Spray (Recharge 6)",
+			"name": "Acid Spray",
 			"type": "feature",
 			"img": "icons/magic/acid/projectile-faceted-glob.webp",
 			"effects": [],
@@ -472,6 +477,7 @@
 				"ac": {
 					"baseFormula": "",
 					"formula": "",
+					"grantsDisadvantage": false,
 					"maxDex": 0,
 					"minStr": 0,
 					"mode": 1,
@@ -480,7 +486,7 @@
 				},
 				"actions": {
 					"EIcy8Vw8Zkjg494S": {
-						"name": "Acid Spray (Recharge 6)",
+						"name": "Acid Spray",
 						"activation": {
 							"cost": "",
 							"type": "action",
@@ -519,7 +525,13 @@
 								"type": "savingThrow"
 							}
 						},
-						"consumers": {}
+						"consumers": {
+							"hBXpu8tLTbm7iKg2": {
+								"type": "itemUses",
+								"default": true,
+								"quantity": 1
+							}
+						}
 					}
 				},
 				"description": "<p>The ankheg spits a 30-foot-long, 5-foot-wide stream of acid. Each creature in the area makes a DC 13 Dexterity saving throw, taking 14 (4d6) acid damage on a failure or half damage on a success. If the ankheg is grappling a target, it instead bathes the target in acid, dealing 14 (4d6) acid damage with no saving throw only to that target.</p>",
@@ -527,12 +539,12 @@
 				"secretDescription": "",
 				"source": "",
 				"uses": {
-					"value": null,
-					"max": "",
-					"per": null,
+					"value": 1,
+					"max": "1",
+					"per": "recharge",
 					"recharge": {
 						"formula": "",
-						"threshold": ""
+						"threshold": 6
 					}
 				},
 				"schema": {
@@ -1628,7 +1640,12 @@
 			"elite": false,
 			"privateNotes": "",
 			"notes": "",
-			"terrain": []
+			"terrain": [
+				"desert",
+				"grassland",
+				"hills",
+				"settlement"
+			]
 		},
 		"proficiencies": {
 			"armor": [],
@@ -1690,7 +1707,8 @@
 			"damageResistances": [
 				"acid"
 			],
-			"damageVulnerabilities": []
+			"damageVulnerabilities": [],
+			"alignment": []
 		},
 		"grants": {}
 	},
