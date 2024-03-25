@@ -1,0 +1,134 @@
+{
+	"folder": null,
+	"name": "Eyes of the Slayer",
+	"type": "feature",
+	"img": "icons/skills/melee/blade-tip-chipped-blood-red.webp",
+	"system": {
+		"ac": {
+			"baseFormula": "",
+			"formula": "",
+			"grantsDisadvantage": false,
+			"maxDex": 0,
+			"minStr": 0,
+			"mode": 2,
+			"requiresNoShield": false,
+			"requiresUnarmored": false
+		},
+		"actions": {
+			"ZrXAhMHTkWs1YJZd": {
+				"name": "Eyes of the Slayer",
+				"activation": {
+					"type": "bonusAction",
+					"cost": 1
+				},
+				"consumers": {},
+				"rolls": {},
+				"prompts": {
+					"kY1SBfwPTOTdGTAg": {
+						"type": "savingThrow",
+						"default": true,
+						"ability": "wis",
+						"saveDC": {
+							"type": "custom",
+							"bonus": "@itm.passive"
+						},
+						"onSave": "Immune for 24 hours"
+					},
+					"n4FzlbPryg7FdjNh": {
+						"type": "effect",
+						"default": true,
+						"effectId": "IoAWSQ2UIL6ZbACG"
+					}
+				},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"rechargeType": "custom",
+						"rechargeAmount": "1",
+						"threshold": 6
+					}
+				},
+				"ranges": {
+					"4imJLfmHfmZ1DTp4": {
+						"range": 20,
+						"unit": "feet"
+					}
+				},
+				"target": {
+					"type": "creature",
+					"quantity": 1
+				}
+			}
+		},
+		"description": "<p>While you are not incapacitated, you can use a bonus action to fix any hostile creature within 20 feet of you with an unsettling look, seeming to stare into its very soul. The creature makes a Wisdom saving throw with a DC equal to your passive Intimidation score. On a failure, it is frightened until the end of its next turn. On a success, it is immune to this ability for 24 hours.</p>",
+		"favorite": false,
+		"secretDescription": "",
+		"source": "gpg2",
+		"uses": {
+			"value": 0,
+			"max": "",
+			"per": "",
+			"recharge": {
+				"formula": "1d6",
+				"threshold": 6
+			}
+		},
+		"concentration": false,
+		"featureType": "destiny",
+		"grants": {},
+		"prerequisite": "",
+		"schemaVersion": {
+			"version": 0.013,
+			"lastMigration": null
+		},
+		"requiresBlooded": false
+	},
+	"effects": [
+		{
+			"icon": "icons/skills/melee/blade-tip-chipped-blood-red.webp",
+			"origin": "Item.qJg71pRoTBDq9sxO",
+			"flags": {
+				"a5e": {
+					"sort": 0,
+					"transferType": "onUse",
+					"actionId": "ZrXAhMHTkWs1YJZd",
+					"duration": {
+						"type": "rounds",
+						"unit": "minutes"
+					}
+				}
+			},
+			"transfer": false,
+			"name": "Frightened",
+			"_id": "IoAWSQ2UIL6ZbACG",
+			"changes": [
+				{
+					"key": "flags.a5e.effects.statusConditions",
+					"value": "[\"frightened\"]",
+					"mode": 0,
+					"priority": null
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": null,
+				"combat": null,
+				"rounds": null,
+				"turns": 1,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "",
+			"statuses": [
+				"frightened"
+			],
+			"folder": null
+		}
+	],
+	"flags": {},
+	"_id": "ixksx77ehmbat0qh"
+}
