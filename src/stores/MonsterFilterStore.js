@@ -1,4 +1,4 @@
-import { writable } from "svelte/store";
+import { writable } from 'svelte/store';
 
 const MonsterFilterStore = writable({
   cr: {
@@ -18,6 +18,12 @@ const MonsterFilterStore = writable({
     exclusiveMode: 0
   },
   miscellaneous: {
+    inclusive: [],
+    inclusiveMode: 0,
+    exclusive: [],
+    exclusiveMode: 0
+  },
+  terrain: {
     inclusive: [],
     inclusiveMode: 0,
     exclusive: [],

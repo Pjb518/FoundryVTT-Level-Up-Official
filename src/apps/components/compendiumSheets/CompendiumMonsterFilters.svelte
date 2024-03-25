@@ -8,7 +8,7 @@
     export const compendiumType = "monster";
 
     const filterStore = getContext("filterStore");
-    const { actorSizes, creatureTypes } = CONFIG.A5E;
+    const { actorSizes, creatureTypes, terrainTypes } = CONFIG.A5E;
 
     function getChallengeRatingRangeLabel({ cr }) {
         const { min, max } = cr;
@@ -30,6 +30,11 @@
             filterKey: "creatureTypes",
             heading: "Creature Types",
             options: creatureTypes,
+        },
+        {
+            filterKey: "terrain",
+            heading: "Terrain",
+            options: terrainTypes,
         },
         {
             filterKey: "creatureSize",

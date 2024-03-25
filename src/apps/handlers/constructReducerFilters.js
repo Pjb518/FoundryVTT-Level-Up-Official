@@ -101,6 +101,10 @@ const monstersFilterConfig = {
         type: 'boolean'
       }
     }
+  },
+  terrain: {
+    key: 'system.details.terrain',
+    type: 'array'
   }
 };
 
