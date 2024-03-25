@@ -40,7 +40,7 @@ export default class SpellBook extends A5EDataModel {
       default: new fields.BooleanField({ required: true, initial: false }),
       img: new fields.StringField({ required: true, initial: 'icons/svg/book.svg' }),
 
-      ability: new fields.StringField({ required: true, initial: 'int' }),
+      ability: new fields.StringField({ required: true, initial: 'default' }),
       disableSpellConsumers: new fields.BooleanField({ required: true, initial: false }),
       showSpellPoints: new fields.BooleanField({ required: true, initial: false }),
       showSpellSlots: new fields.BooleanField({ required: true, initial: true })
@@ -79,15 +79,20 @@ export default class SpellBook extends A5EDataModel {
     const actor = this.parent;
     if (!actor) return;
 
+    let { ability } = this;
+
+    if (this.ability === 'default') ability = actor.system.attributes.spellcasting;
+    if (!this.ability) ability = 'int';
+
     const spellDC = getDeterministicBonus([
       8,
       actor.system.attributes.prof,
       actor.system.bonuses.spellDc || 0,
-      actor.system.abilities[this.ability || 'int'].check.mod
+      actor.system.abilities[ability].check.mod
     ].join(' + '), actor.getRollData()) || 10;
 
     const { abilities } = actor.system;
-    const spellMod = abilities[this.ability || 'int'].check.mod;
+    const spellMod = abilities[ability].check.mod;
 
     const stats = {
       ability: this.ability,
