@@ -40,9 +40,14 @@
     let showUses = false;
 
     const unsubscribe = reducer.subscribe((_) => {
-        showUses = usesRequired(
-            Object.values($reducer._levels).flatMap((x) => [...x]),
+        const spells = Object.keys(spellLevels).reduce(
+            (spellBookSpells, level) => {
+                spellBookSpells.push(...$reducer?._levels[level]);
+                return spellBookSpells;
+            },
+            [],
         );
+        showUses = usesRequired(spells);
     });
 
     $: menuList = Object.entries(spellLevels);

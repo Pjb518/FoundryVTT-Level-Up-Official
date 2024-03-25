@@ -31,7 +31,7 @@
         await dialog.render(true);
     }
 
-    async function deleteSpellbook() {
+    async function deleteSpellbook(spellBookId) {
         const dialog = new SpellbookDeletionConfirmationDialog();
         await dialog.render(true);
 
@@ -85,7 +85,8 @@
 
                     <i
                         class="a5e-control-button a5e-control-button--delete fa-solid fa-trash"
-                        on:click|stopPropagation={deleteSpellbook}
+                        on:click|stopPropagation={() =>
+                            deleteSpellbook(spellBookId)}
                     />
                 {/if}
             </button>
