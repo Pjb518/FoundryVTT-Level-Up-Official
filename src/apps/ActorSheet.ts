@@ -236,7 +236,7 @@ export default class ActorSheet extends SvelteApplication {
     }
 
     if (currentTab === 'spells') {
-      const target = event.target.closest('.a5e-spellbook');
+      const target = event.target.closest('[data-spell-book-id]');
       const spellBookId = target?.getAttribute('data-spell-book-id') ?? '';
       if (spellBookId) options.spellBookId = spellBookId;
     }
@@ -328,10 +328,13 @@ export default class ActorSheet extends SvelteApplication {
     const currentTab = this.tempSettings[this.actor.uuid]?.currentTab;
     if (currentTab !== 'inventory') {
       const { spellBookId } = options;
+      const defaultSpellBookId = this.actor.spellBooks.default._id;
 
-      if (spellBookId) {
-        const spellBook = this.actor.spellBooks.get(spellBookId);
+      if (spellBookId || defaultSpellBookId) {
+        const spellBook = this.actor.spellBooks.get(spellBookId || defaultSpellBookId);
         spellBook?.addSpell(item);
+      } else {
+        ui.notifications.error('No spell book detected.');
       }
 
       return;
