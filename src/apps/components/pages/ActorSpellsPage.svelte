@@ -7,6 +7,7 @@
 
     import TabFooter from "../TabFooter.svelte";
     import SpellBook from "../SpellBook.svelte";
+    import SpellbookDeletionConfirmationDialog from "../../dialogs/initializers/SpellbookDeletionConfirmationDialog";
 
     const actor = getContext("actor");
     let { spells } = actor;
@@ -15,6 +16,19 @@
         await $actor.spellBooks.add({});
         spells.initialize(); // Manually refresh reducer
         currentSpellBook = currentSpellBook; // This is stupid, but it works
+    }
+
+    async function configureSpellbook() {}
+
+    async function deleteSpellbook() {
+        const dialog = new SpellbookDeletionConfirmationDialog();
+        await dialog.render(true);
+
+        const { confirmDeletion } = await dialog.promise;
+
+        if (!confirmDeletion) return;
+
+        $actor.spellBooks.remove(currentSpellBook);
     }
 
     $: spellResources = $actor.system.spellResources;
@@ -29,12 +43,6 @@
 
         return true;
     }).length;
-
-    async function configureSpellbook() {}
-
-    async function deleteSpellbook() {
-        $actor.spellBooks.remove(currentSpellBook);
-    }
 
     $: sheetIsLocked = !$actor.isOwner
         ? true
