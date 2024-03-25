@@ -30,6 +30,12 @@
         return true;
     }).length;
 
+    async function configureSpellbook() {}
+
+    async function deleteSpellbook() {
+        $actor.spellBooks.remove(currentSpellBook);
+    }
+
     $: sheetIsLocked = !$actor.isOwner
         ? true
         : $actor.flags?.a5e?.sheetIsLocked ?? true;
@@ -64,10 +70,13 @@
                 {#if !sheetIsLocked}
                     <i
                         class="a5e-control-button a5e-control-button--config fa-solid fa-gear"
-                    ></i>
+                        on:click|stopPropagation={configureSpellbook}
+                    />
+
                     <i
                         class="a5e-control-button a5e-control-button--delete fa-solid fa-trash"
-                    ></i>
+                        on:click|stopPropagation={deleteSpellbook}
+                    />
                 {/if}
             </button>
         {/each}
