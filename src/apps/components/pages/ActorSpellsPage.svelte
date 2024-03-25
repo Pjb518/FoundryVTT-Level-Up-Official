@@ -41,7 +41,15 @@
 
         if (!confirmDeletion) return;
 
-        $actor.spellBooks.remove(currentSpellBook);
+        $actor.spellBooks.remove(spellBookId);
+
+        if (currentSpellBook === spellBookId) {
+            const firstSpellBook = Object.keys(
+                $actor.system.spellBooks ?? {},
+            )?.[0];
+
+            updateCurrentSpellBook(firstSpellBook);
+        }
     }
 
     function updateCurrentSpellBook(spellBookId) {
