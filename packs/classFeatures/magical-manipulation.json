@@ -1,0 +1,78 @@
+{
+	"folder": null,
+	"name": "Magical Manipulation",
+	"type": "feature",
+	"img": "icons/magic/control/debuff-energy-hold-blue-yellow.webp",
+	"system": {
+		"ac": {
+			"baseFormula": "",
+			"formula": "",
+			"grantsDisadvantage": false,
+			"maxDex": 0,
+			"minStr": 0,
+			"mode": 2,
+			"requiresNoShield": false,
+			"requiresUnarmored": false
+		},
+		"actions": {
+			"URLPRF44YhVry7bL": {
+				"name": "Magical Manipulation",
+				"activation": {
+					"type": "reaction",
+					"cost": 1,
+					"reactionTrigger": "Saving throw as the result of a spell attack or effect"
+				},
+				"consumers": {
+					"D3L284RaJ9OJCQEm": {
+						"type": "itemUses",
+						"default": true,
+						"quantity": 1
+					}
+				},
+				"rolls": {},
+				"prompts": {},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"rechargeType": "custom",
+						"rechargeAmount": "1",
+						"threshold": 6
+					}
+				},
+				"ranges": {
+					"8IfeqUK49sskYC5f": {
+						"range": "short"
+					}
+				}
+			}
+		},
+		"description": "<p>Starting at 10th level, your ability to affect magic and probability increases. When you or any ally you can see within 30 ft must make a saving throw as the result of a spell attack or effect, you can use your reaction to grant that creature advantage on the saving throw.</p>\n<p>One you have used this feature a number of times equal to half your proficiency bonus, you cannot use it again until you have finished a short or long rest.</p>",
+		"favorite": false,
+		"secretDescription": "",
+		"source": "gpg2",
+		"uses": {
+			"value": 0,
+			"max": "@prof/2",
+			"per": "shortRest",
+			"recharge": {
+				"formula": "1d6",
+				"threshold": 6
+			}
+		},
+		"concentration": false,
+		"featureType": "class",
+		"grants": {},
+		"prerequisite": "",
+		"schemaVersion": {
+			"version": 0.013,
+			"lastMigration": null
+		},
+		"requiresBlooded": false
+	},
+	"effects": [],
+	"flags": {},
+	"_id": "y15vu7dh2nplmafu"
+}

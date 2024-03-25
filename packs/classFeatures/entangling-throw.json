@@ -1,0 +1,147 @@
+{
+	"folder": null,
+	"name": "Entangling Throw",
+	"type": "feature",
+	"img": "icons/commodities/materials/material-woven.webp",
+	"system": {
+		"ac": {
+			"baseFormula": "",
+			"formula": "",
+			"grantsDisadvantage": false,
+			"maxDex": 0,
+			"minStr": 0,
+			"mode": 2,
+			"requiresNoShield": false,
+			"requiresUnarmored": false
+		},
+		"actions": {
+			"2cOyn3pcnAUChpyS": {
+				"name": "Entangling Throw",
+				"activation": {},
+				"consumers": {
+					"Sp04bFlV8pBRfalO": {
+						"type": "itemUses",
+						"default": true,
+						"quantity": 1
+					},
+					"FNwkhd7bXPnk51OA": {
+						"type": "resource",
+						"default": true,
+						"resource": "exertion",
+						"quantity": 1
+					},
+					"n8u9xLoZwg0Sa38Q": {
+						"type": "actionUses",
+						"default": true,
+						"quantity": 1
+					}
+				},
+				"rolls": {
+					"yG7mipT4367eucsF": {
+						"type": "attack",
+						"default": true,
+						"attackType": "rangedWeaponAttack",
+						"proficient": true,
+						"ability": "default"
+					}
+				},
+				"prompts": {
+					"PeGQvqe099zdjgw1": {
+						"type": "abilityCheck",
+						"default": true,
+						"ability": "str"
+					},
+					"k1rKMmLJnFUJ9rO2": {
+						"type": "effect",
+						"default": true,
+						"effectId": "vLBRwP1lEqlFHqIB"
+					}
+				},
+				"uses": {
+					"value": 0,
+					"max": "@wis.mod",
+					"per": "shortRest",
+					"recharge": {
+						"formula": "1d6",
+						"rechargeType": "custom",
+						"rechargeAmount": "1",
+						"threshold": 6
+					}
+				},
+				"target": {
+					"type": "creatureObject",
+					"quantity": 1
+				},
+				"ranges": {
+					"p3EIeoN87spg9yc0": {
+						"range": 20,
+						"unit": "feet"
+					}
+				}
+			}
+		},
+		"description": "<p>At 11th level, at the end of each short rest, you can put together a number of bundles of such materials equal to your proficiency bonus, each costing 5 silver worth of raw materials. Alternatively, if the Narrator determines the environment is suitable, you can collect the maximum amount of such materials at no cost on a successful Survival check to Hunt and Gather, while gaining half the usual amount of supply (rounded down).</p>\n<p>Once each turn, you can spend 1 exertion to make an entangling throw at a target within 20 feet with a ranged weapon attack you are considered proficient at, either expending a bundle of material or using what is available in the environment (at Narrator discretion). You do not have disadvantage from making an entangling throw at a creature you have hit with a melee weapon attack since the start of your last turn from being within its reach. On a hit, the target makes a Strength check against your maneuver DC or becomes grappled. At the start of each of its turns, the target repeats the check, ending the effect on itself on a success. The material from the entangling throw can also be destroyed (AC equal to your maneuver DC, hit points equal to your adept level).</p>\n<p>Once you have used this feature a number of times equal to your Wisdom modifier, you cannot do so again until you finish a long rest.</p>",
+		"favorite": false,
+		"secretDescription": "",
+		"source": "gpg2",
+		"uses": {
+			"value": 0,
+			"max": "@prof",
+			"per": "shortRest",
+			"recharge": {
+				"formula": "1d6",
+				"threshold": 6
+			}
+		},
+		"concentration": false,
+		"featureType": "class",
+		"grants": {},
+		"prerequisite": "",
+		"schemaVersion": {
+			"version": 0.013,
+			"lastMigration": null
+		},
+		"requiresBlooded": false
+	},
+	"effects": [
+		{
+			"icon": "icons/commodities/materials/material-woven.webp",
+			"origin": "Item.0lo01mRnmYfyPRuE",
+			"flags": {
+				"a5e": {
+					"sort": 0,
+					"transferType": "onUse",
+					"actionId": "2cOyn3pcnAUChpyS"
+				}
+			},
+			"transfer": false,
+			"name": "Grappled",
+			"_id": "vLBRwP1lEqlFHqIB",
+			"changes": [
+				{
+					"key": "flags.a5e.effects.statusConditions",
+					"value": "[\"grappled\"]",
+					"mode": 0,
+					"priority": null
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": null,
+				"combat": null,
+				"rounds": null,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "",
+			"statuses": [
+				"grappled"
+			],
+			"folder": null
+		}
+	],
+	"flags": {},
+	"_id": "i5e0y6ge9scxtb7m"
+}
