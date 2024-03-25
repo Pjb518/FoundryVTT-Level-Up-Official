@@ -5,20 +5,32 @@
     import updateDocumentDataFromField from "../../../utils/updateDocumentDataFromField";
     import usesRequired from "../../../utils/usesRequired";
 
+    import GenericConfigDialog from "../../dialogs/initializers/GenericConfigDialog";
+
     import TabFooter from "../TabFooter.svelte";
     import SpellBook from "../SpellBook.svelte";
+    import SpellbookConfigDialog from "../../dialogs/SpellbookConfigDialog.svelte";
     import SpellbookDeletionConfirmationDialog from "../../dialogs/initializers/SpellbookDeletionConfirmationDialog";
 
     const actor = getContext("actor");
     let { spells } = actor;
 
     async function addSpellBook() {
-        await $actor.spellBooks.add({});
+        await $actor.spellBooks.add({ ability: "default" });
         spells.initialize(); // Manually refresh reducer
         currentSpellBook = currentSpellBook; // This is stupid, but it works
     }
 
-    async function configureSpellbook() {}
+    async function configureSpellbook(spellBookId) {
+        const dialog = new GenericConfigDialog(
+            $actor,
+            "Configure Spell Book",
+            SpellbookConfigDialog,
+            { spellBookId },
+        );
+
+        await dialog.render(true);
+    }
 
     async function deleteSpellbook() {
         const dialog = new SpellbookDeletionConfirmationDialog();
@@ -78,7 +90,8 @@
                 {#if !sheetIsLocked}
                     <i
                         class="a5e-control-button a5e-control-button--config fa-solid fa-gear"
-                        on:click|stopPropagation={configureSpellbook}
+                        on:click|stopPropagation={() =>
+                            configureSpellbook(spellBookId)}
                     />
 
                     <i

@@ -1,0 +1,68 @@
+<script>
+    import { getContext } from "svelte";
+    import { localize } from "#runtime/svelte/helper";
+
+    import prepareAbilityOptions from "../dataPreparationHelpers/prepareAbilityOptions";
+    import updateDocumentDataFromField from "../../utils/updateDocumentDataFromField";
+
+    import Checkbox from "../components/Checkbox.svelte";
+    import FieldWrapper from "../components/FieldWrapper.svelte";
+    import RadioGroup from "../components/RadioGroup.svelte";
+    import Section from "../components/Section.svelte";
+
+    export let { document, appId, spellBookId } =
+        getContext("#external").application;
+
+    const abilityOptions = [
+        ["default", "A5E.abilities.default"],
+        ...prepareAbilityOptions(),
+    ];
+
+    $: book = $document.spellBooks?.get(spellBookId);
+    $: bookName = book?.name;
+    $: spellcastingAbility = book?.ability ?? "default";
+</script>
+
+<form>
+    <Section>
+        <FieldWrapper heading="Spell Book Name">
+            <input
+                type="text"
+                spellcheck="false"
+                value={bookName}
+                on:change={({ target }) => {
+                    updateDocumentDataFromField(
+                        $document,
+                        `system.spellBooks.${spellBookId}.name`,
+                        target.value,
+                    );
+                }}
+            />
+        </FieldWrapper>
+
+        <FieldWrapper
+            heading="Spellcasting Ability"
+            hint="Spells in this spellbook will use this spellcasting ability for the purposes of spell attack roll and spell save DCs in place of the sheet default."
+        >
+            <RadioGroup
+                options={abilityOptions}
+                selected={spellcastingAbility}
+                on:updateSelection={({ detail }) =>
+                    updateDocumentDataFromField(
+                        $document,
+                        `system.spellBooks.${spellBookId}.ability`,
+                        detail,
+                    )}
+            />
+        </FieldWrapper>
+    </Section>
+</form>
+
+<style lang="scss">
+    form {
+        display: flex;
+        flex-direction: column;
+        gap: 0.5rem;
+        padding: 0.75rem;
+    }
+</style>

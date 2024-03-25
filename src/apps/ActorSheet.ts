@@ -328,7 +328,7 @@ export default class ActorSheet extends SvelteApplication {
     const currentTab = this.tempSettings[this.actor.uuid]?.currentTab;
     if (currentTab !== 'inventory') {
       const { spellBookId } = options;
-      const defaultSpellBookId = this.actor.spellBooks.default._id;
+      const defaultSpellBookId = this.actor.spellBooks.default?._id;
 
       if (spellBookId || defaultSpellBookId) {
         const spellBook = this.actor.spellBooks.get(spellBookId || defaultSpellBookId);
