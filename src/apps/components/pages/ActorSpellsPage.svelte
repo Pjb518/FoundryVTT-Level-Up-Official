@@ -60,6 +60,15 @@
                 }}
             >
                 {spellBook.name}
+
+                {#if !sheetIsLocked}
+                    <i
+                        class="a5e-control-button a5e-control-button--config fa-solid fa-gear"
+                    ></i>
+                    <i
+                        class="a5e-control-button a5e-control-button--delete fa-solid fa-trash"
+                    ></i>
+                {/if}
             </button>
         {/each}
 
@@ -182,6 +191,7 @@
             display: flex;
             align-items: center;
             justify-content: center;
+            gap: 0.75rem;
             width: fit-content;
             margin: 0;
             padding: 0.375rem 0.75rem;
@@ -189,6 +199,11 @@
             background: rgba(0 0 0 / 0.05);
             border: 1px solid #ccc;
             border-radius: 3px;
+
+            &:focus,
+            &:hover {
+                box-shadow: none;
+            }
 
             &--active {
                 background-color: hsl(190, 21%, 33%);
@@ -199,6 +214,16 @@
             &--add {
                 min-width: 2rem;
             }
+        }
+    }
+
+    .a5e-control-button {
+        margin: 0;
+        padding: 0;
+        transition: all 0.15s ease-in-out;
+
+        &:hover {
+            transform: scale(1.2);
         }
     }
 </style>
