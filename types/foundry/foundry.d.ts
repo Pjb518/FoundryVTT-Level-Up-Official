@@ -40,6 +40,6 @@ interface Set<T> {
 interface String {
   capitalize(): string;
   titleCase(): string;
-  slugify(replacement?: string, strict: boolean): string;
+  slugify(replacement?: string, strict?: boolean): string;
   stripScripts(): string;
 }

@@ -1,40 +1,93 @@
 <script>
     import { localize } from "#runtime/svelte/helper";
-    import { getContext, onDestroy } from "svelte";
+    import { getContext } from "svelte";
 
     import updateDocumentDataFromField from "../../../utils/updateDocumentDataFromField";
-    import usesRequired from "../../../utils/usesRequired";
 
-    import SpellCompendiumSheet from "../../SpellCompendiumSheet";
+    import GenericConfigDialog from "../../dialogs/initializers/GenericConfigDialog";
 
-    import CreateMenu from "../actorUtilityBar/CreateMenu.svelte";
-    import Filter from "../actorUtilityBar/Filter.svelte";
-    import ItemCategory from "../ItemCategory.svelte";
-    import Search from "../actorUtilityBar/Search.svelte";
-    import Sort from "../actorUtilityBar/Sort.svelte";
     import TabFooter from "../TabFooter.svelte";
-    import UtilityBar from "../actorUtilityBar/UtilityBar.svelte";
-    import ShowDescription from "../actorUtilityBar/ShowDescription.svelte";
+    import SpellBook from "../SpellBook.svelte";
+    import SpellbookConfigDialog from "../../dialogs/SpellbookConfigDialog.svelte";
+    import SpellbookDeletionConfirmationDialog from "../../dialogs/initializers/SpellbookDeletionConfirmationDialog";
 
-    function openCompendium() {
-        const pack = new SpellCompendiumSheet(
-            { collection: game.packs.get("a5e.a5e-spells") },
-            {
-                importer: (docs) => {
-                    $actor.createEmbeddedDocuments("Item", docs);
-                },
-            },
-        );
-
-        pack.render(true);
-    }
+    import ActorSheetTempSettingsStore from "../../../stores/ActorSheetTempSettingsStore";
 
     const actor = getContext("actor");
-    const { spells } = actor;
-    const { spellLevels } = CONFIG.A5E;
-    const reducerType = "spells";
+    let { spells } = actor;
 
-    $: menuList = Object.entries(spellLevels);
+    async function addSpellBook() {
+        const initialSpellBookQuantity = Object.keys(
+            $actor.system.spellBooks ?? {},
+        ).length;
+
+        const newSpellBookId = await $actor.spellBooks.add({});
+        spells.initialize(); // Manually refresh reducer
+
+        if (initialSpellBookQuantity === 0) {
+            updateCurrentSpellBook(newSpellBookId);
+        } else {
+            currentSpellBook = currentSpellBook; // This is stupid, but it works
+        }
+    }
+
+    async function configureSpellbook(spellBookId) {
+        const dialog = new GenericConfigDialog(
+            $actor,
+            "Configure Spell Book",
+            SpellbookConfigDialog,
+            { spellBookId },
+        );
+
+        await dialog.render(true);
+    }
+
+    async function deleteSpellbook(spellBookId) {
+        const initialSpellBookQuantity = Object.keys(
+            $actor.system.spellBooks ?? {},
+        ).length;
+
+        const dialog = new SpellbookDeletionConfirmationDialog();
+        await dialog.render(true);
+
+        const { confirmDeletion } = await dialog.promise;
+
+        if (!confirmDeletion) return;
+
+        $actor.spellBooks.remove(spellBookId);
+
+        if (initialSpellBookQuantity === 1) {
+            updateCurrentSpellBook(null);
+        }
+
+        if (currentSpellBook === spellBookId) {
+            const firstSpellBook = Object.keys(
+                $actor.system.spellBooks ?? {},
+            )?.[0];
+
+            updateCurrentSpellBook(firstSpellBook);
+        }
+    }
+
+    function updateCurrentSpellBook(spellBookId) {
+        const { uuid } = $actor;
+        currentSpellBook = spellBookId;
+
+        ActorSheetTempSettingsStore.update((currentSettings) => ({
+            ...currentSettings,
+            [uuid]: {
+                ...(currentSettings[uuid] ?? {}),
+                currentSpellBook: spellBookId,
+            },
+        }));
+    }
+
+    let tempSettings = {};
+
+    ActorSheetTempSettingsStore.subscribe((store) => {
+        tempSettings = store;
+    });
+
     $: spellResources = $actor.system.spellResources;
 
     $: preparedSpellCount = $actor.items.filter((item) => {
@@ -52,64 +105,61 @@
         ? true
         : $actor.flags?.a5e?.sheetIsLocked ?? true;
 
-    $: isSpellLevelVisible = (level) => {
-        if (!sheetIsLocked) return true;
+    $: spellBooks = $actor.spellBooks;
 
-        const maxSlots = $actor.system.spellResources.slots[level]?.max;
-        const showSpellSlots = $actor.flags?.a5e?.showSpellSlots ?? true;
-        const spellQuantity = [...$spells._levels[level]].length;
-
-        if (spellQuantity) return true;
-        if (showSpellSlots && maxSlots > 0) return true;
-
-        return false;
-    };
-
-    let showDescription = false;
-    let showUses = false;
-
-    const unsubscribe = spells.subscribe((_) => {
-        showUses = usesRequired(spells);
-    });
-
-    onDestroy(() => {
-        unsubscribe();
-    });
+    let currentSpellBook =
+        tempSettings[$actor?.uuid]?.currentSpellBook ??
+        Object.keys($actor.system.spellBooks ?? {})?.[0];
 </script>
 
-{#if $actor.isOwner}
-    <UtilityBar>
-        <Search {reducerType} />
-        <ShowDescription
-            on:updateSelection={() => (showDescription = !showDescription)}
-        />
-        <Sort {reducerType} />
-        <Filter {reducerType} />
-        <CreateMenu {reducerType} {menuList} />
+{#if !sheetIsLocked || [...spellBooks].length > 1}
+    <nav class="a5e-spellbook-list">
+        {#each [...spellBooks] as [spellBookId, spellBook], index}
+            <button
+                class="a5e-spellbook-list__item"
+                class:a5e-spellbook-list__item--active={currentSpellBook
+                    ? currentSpellBook === spellBookId
+                    : index === 0}
+                on:click={() => updateCurrentSpellBook(spellBookId)}
+            >
+                {spellBook.name}
 
-        <button
-            class="a5e-import-from-compendium-button fa-solid fa-download"
-            on:click={openCompendium}
-            data-tooltip="Import Spells from Compendium"
-            data-tooltip-direction="UP"
-        ></button>
-    </UtilityBar>
-{/if}
+                {#if !sheetIsLocked}
+                    <!-- svelte-ignore a11y-click-events-have-key-events -->
+                    <!-- svelte-ignore a11y-no-static-element-interactions -->
+                    <i
+                        class="a5e-control-button a5e-control-button--config fa-solid fa-gear"
+                        on:click|stopPropagation={() =>
+                            configureSpellbook(spellBookId)}
+                    />
 
-<section class="a5e-page-wrapper a5e-page-wrapper--item-list">
-    {#each Object.entries(spellLevels) as [level, label]}
-        {#if isSpellLevelVisible(level)}
-            <ItemCategory
-                {level}
-                {label}
-                {showDescription}
-                {showUses}
-                items={$spells._levels[level]}
-                type="spellLevels"
+                    <!-- svelte-ignore a11y-click-events-have-key-events -->
+                    <!-- svelte-ignore a11y-no-static-element-interactions -->
+                    <i
+                        class="a5e-control-button a5e-control-button--delete fa-solid fa-trash"
+                        on:click|stopPropagation={() =>
+                            deleteSpellbook(spellBookId)}
+                    />
+                {/if}
+            </button>
+        {/each}
+
+        {#if !sheetIsLocked}
+            <button
+                class="a5e-spellbook-list__item a5e-spellbook-list__item--add fa-solid fa-plus"
+                data-tooltip="Create new spell book"
+                on:click={() => addSpellBook()}
             />
         {/if}
-    {/each}
-</section>
+    </nav>
+{/if}
+
+{#if currentSpellBook && $spells._books[currentSpellBook]}
+    <SpellBook
+        spellBookId={currentSpellBook}
+        reducer={$spells._books[currentSpellBook]}
+    />
+{/if}
 
 <TabFooter --padding-right="1rem">
     <!-- Prepared Spells Count -->
@@ -198,5 +248,53 @@
 <style lang="scss">
     .disable-pointer-events {
         pointer-events: none;
+    }
+
+    .a5e-spellbook-list {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.375rem;
+        margin: 0;
+        padding: 0;
+        list-style: none;
+
+        &__item {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.75rem;
+            width: fit-content;
+            margin: 0;
+            padding: 0.375rem 0.75rem;
+            line-height: 1;
+            background: rgba(0 0 0 / 0.05);
+            border: 1px solid #ccc;
+            border-radius: 3px;
+
+            &:focus,
+            &:hover {
+                box-shadow: none;
+            }
+
+            &--active {
+                background-color: hsl(190, 21%, 33%);
+                border-color: hsl(190, 21%, 28%);
+                color: hsl(190, 21%, 100%);
+            }
+
+            &--add {
+                min-width: 2rem;
+            }
+        }
+    }
+
+    .a5e-control-button {
+        margin: 0;
+        padding: 0;
+        transition: all 0.15s ease-in-out;
+
+        &:hover {
+            transform: scale(1.2);
+        }
     }
 </style>

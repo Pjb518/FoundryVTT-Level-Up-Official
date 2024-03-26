@@ -8,10 +8,15 @@
     } from "../../handlers/sortingHandlers";
 
     export let reducerType;
+    export let reducerId = null;
+    export let reducer = null;
     export let documentName = "Item";
 
     const document = getContext("actor") ?? getContext("item");
-    const reducer = document[reducerType];
+
+    if (!reducer) {
+        reducer = document[reducerType];
+    }
 
     const sortIcons = {
         0: "fa-sort",
@@ -33,10 +38,14 @@
         let newMode = (sortMode + 1) % 3;
         newMode = newMode === 0 ? 1 : newMode;
 
-        await $document.setFlag("a5e", "sortMode", newMode);
+        await $document.setFlag("a5e", flagId, newMode);
     }
 
-    $: sortMode = $document.getFlag("a5e", "sortMode") || 0;
+    let flagId = reducerId
+        ? `sortMode.${reducerType}.${reducerId}`
+        : `sortMode.${reducerType}`;
+
+    $: sortMode = $document.getFlag("a5e", flagId) || 0;
 </script>
 
 <TJSIconButton

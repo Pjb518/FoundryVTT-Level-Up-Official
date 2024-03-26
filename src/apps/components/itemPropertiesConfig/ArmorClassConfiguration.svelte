@@ -38,7 +38,7 @@
                 type="text"
                 name="system.ac.baseFormula"
                 id="{appId}-ac-base-formula"
-                value={$item.system.ac.baseFormula ?? ""}
+                value={$item.system.ac?.baseFormula ?? ""}
                 on:change={({ target }) =>
                     updateDocumentDataFromField(
                         $item,
@@ -55,7 +55,7 @@
                     data-dtype="Number"
                     name="system.ac.maxDex"
                     id="{appId}-ac-max-dex"
-                    value={$item.system.ac.maxDex ?? 0}
+                    value={$item.system.ac?.maxDex ?? 0}
                     on:change={({ target }) =>
                         updateDocumentDataFromField(
                             $item,
@@ -71,7 +71,7 @@
                     data-dtype="Number"
                     name="system.ac.minStr"
                     id="{appId}-ac-min-str"
-                    value={$item.system.ac.minStr ?? 0}
+                    value={$item.system.ac?.minStr ?? 0}
                     on:change={({ target }) =>
                         updateDocumentDataFromField(
                             $item,
@@ -106,7 +106,7 @@
             <FieldWrapper>
                 <Checkbox
                     label="A5E.armorClass.grantsDisadvantage"
-                    checked={$item.system.ac.grantsDisadvantage ?? false}
+                    checked={$item.system.ac?.grantsDisadvantage ?? false}
                     on:updateSelection={({ detail }) =>
                         updateDocumentDataFromField(
                             $item,
@@ -121,7 +121,7 @@
             <FieldWrapper>
                 <Checkbox
                     label="A5E.armorClass.requiresNoShield"
-                    checked={$item.system.ac.requiresNoShield ?? false}
+                    checked={$item.system.ac?.requiresNoShield ?? false}
                     on:updateSelection={({ detail }) =>
                         updateDocumentDataFromField(
                             $item,
@@ -134,7 +134,7 @@
             <FieldWrapper>
                 <Checkbox
                     label="A5E.armorClass.requiresUnarmored"
-                    checked={$item.system.ac.requiresUnarmored ?? false}
+                    checked={$item.system.ac?.requiresUnarmored ?? false}
                     on:updateSelection={({ detail }) =>
                         updateDocumentDataFromField(
                             $item,
@@ -152,7 +152,7 @@
                 </dt>
 
                 <dd class="u-m-0 u-p-0">
-                    {$item.system.ac.formula ?? ""}
+                    {$item.system.ac?.formula ?? ""}
                 </dd>
             </div>
 
@@ -162,7 +162,7 @@
                 </dt>
 
                 <dd class="u-m-0 u-p-0">
-                    {$item.system.ac.maxDex ?? 0}
+                    {$item.system.ac?.maxDex ?? 0}
                 </dd>
             </div>
 
@@ -172,7 +172,7 @@
                 </dt>
 
                 <dd class="u-m-0 u-p-0">
-                    {$item.system.ac.minStr ?? 0}
+                    {$item.system.ac?.minStr ?? 0}
                 </dd>
             </div>
 
@@ -182,7 +182,7 @@
                 </dt>
 
                 <dd class="u-m-0 u-p-0">
-                    {armorModes[$item.system.ac.mode]}
+                    {armorModes[$item.system.ac?.mode]}
                 </dd>
             </div>
 
@@ -193,7 +193,7 @@
                     </dt>
 
                     <dd class="u-m-0 u-p-0">
-                        {$item.system.ac.requiresNoShield ?? false}
+                        {$item.system.ac?.requiresNoShield ?? false}
                     </dd>
                 </div>
 
@@ -203,7 +203,7 @@
                     </dt>
 
                     <dd class="u-m-0 u-p-0">
-                        {$item.system.ac.requiresUnarmored ?? false}
+                        {$item.system.ac?.requiresUnarmored ?? false}
                     </dd>
                 </div>
             {/if}

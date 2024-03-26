@@ -146,9 +146,9 @@ export default class RestManager {
 
   #restoreUses() {
     const items = Array.from(this.#actor.items);
-    const rollData = this.#actor.getRollData();
 
     items.forEach((item) => {
+      const rollData = this.#actor.getRollData(item);
       const { uses } = item.system;
       const updates = { _id: item.id };
 
@@ -157,11 +157,11 @@ export default class RestManager {
         item.actions.entries().forEach(([id, action]) => {
           const actionUses = action.uses ?? {};
 
-        if (!this.restTypes.includes(actionUses?.per) || !actionUses?.max) return;
+          if (!this.restTypes.includes(actionUses?.per) || !actionUses?.max) return;
 
-        updates[`system.actions.${id}.uses.value`] = getDeterministicBonus(actionUses.max, rollData);
-      });
-    }
+          updates[`system.actions.${id}.uses.value`] = getDeterministicBonus(actionUses.max, rollData);
+        });
+      }
 
       // Restore Item uses
       if (!this.restTypes.includes(uses?.per) || !uses?.max) {

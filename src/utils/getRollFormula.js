@@ -9,6 +9,7 @@ export default function getRollFormula(actor, rollData = {}) {
     actor,
     rollMode: rollData.rollMode ?? CONFIG.A5E.ROLL_MODE.NORMAL,
     minRoll: rollData.minRoll ?? 1,
+    item: rollData.item ?? null,
     modifiers: modifierManager.getModifiers()
   }).rollFormula;
 }

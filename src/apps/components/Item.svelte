@@ -76,7 +76,7 @@
                     async: true,
                     secrets: item.isOwner,
                     relativeTo: item,
-                    rollData: $actor?.getRollData() ?? {},
+                    rollData: $actor?.getRollData(this) ?? {},
                 },
             )) ?? localize("A5E.NoDescription");
 
@@ -126,8 +126,7 @@
     draggable="true"
     data-document-uuid={item.uuid}
     on:dragstart={onDragStart}
-    on:drop|preventDefault|stopPropagation={(e) =>
-        dispatch("dropObject", event)}
+    on:drop|preventDefault|stopPropagation={(e) => dispatch("dropObject", e)}
     on:click={() => {
         showDescription = !showDescription;
     }}

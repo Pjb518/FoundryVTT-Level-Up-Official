@@ -8,9 +8,13 @@
     } from "../../handlers/handleSearchFilter";
 
     export let reducerType;
+    export let reducer = null;
 
     const document = getContext("actor") ?? getContext("item");
-    const reducer = document[reducerType];
+
+    if (!reducer) {
+        reducer = document[reducerType];
+    }
 
     const input = addSearchFilter(reducer);
     onDestroy(() => removeSearchFilter(reducer));

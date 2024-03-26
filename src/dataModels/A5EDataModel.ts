@@ -25,7 +25,7 @@ export default class A5EDataModel extends foundry.abstract.TypeDataModel {
   static defineSchema(): any {
     const schema = {};
     for (const template of this._schemaTemplates) {
-      if (!template.defineSchema) throw new Error(`Invalid dnd5e template mixin ${template} defined on class ${this.constructor}`);
+      if (!template.defineSchema) throw new Error(`Invalid a5e template mixin ${template} defined on class ${this.constructor}`);
       this.mergeSchema(schema, template.defineSchema());
     }
 

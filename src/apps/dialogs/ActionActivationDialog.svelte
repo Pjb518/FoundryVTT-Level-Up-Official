@@ -78,7 +78,11 @@
                 (acc, [key, prompt]) => {
                     if (selectedPrompts.includes(key)) {
                         if (prompt.type === "savingThrow") {
-                            prompt.dc = computeSaveDC($actor, prompt.saveDC);
+                            prompt.dc = computeSaveDC(
+                                $actor,
+                                $item,
+                                prompt.saveDC,
+                            );
                         }
 
                         acc.push(prompt);

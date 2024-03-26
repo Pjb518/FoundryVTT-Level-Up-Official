@@ -295,7 +295,7 @@ export default class TemplatePreparationManager {
     properties.forEach((property) => {
       const scalingFormula = getDeterministicBonus(
         area.scaling?.formula?.[property] ?? 0,
-        this.#actor.getRollData()
+        this.#actor.getRollData(this.#item)
       ) ?? 1;
 
       area[property] = parseInt(area[property], 10) + (scalingFormula * multiplier);
@@ -362,7 +362,7 @@ export default class TemplatePreparationManager {
     properties.forEach((property) => {
       const scalingFormula = getDeterministicBonus(
         area.scaling?.formula?.[property] ?? 0,
-        this.#actor.getRollData()
+        this.#actor.getRollData(this.#item)
       ) ?? 1;
 
       area[property] = parseInt(area[property], 10) + (scalingFormula * multiplier);

@@ -1,3 +1,5 @@
+import getSpellBookAbility from './getSpellBookAbility';
+
 /**
  * A utility function for determining the correct attribute to use for a given attack roll.
  */
@@ -17,12 +19,12 @@ export default function getAttackAbility(
   }
 
   if (attackData.ability === 'spellcasting') {
-    return actorData.attributes.spellcasting ?? 'int';
+    return getSpellBookAbility(actor, item);
   }
 
   if (attackData?.ability === 'default') {
     if (['meleeSpellAttack', 'rangedSpellAttack'].includes(attackData.attackType)) {
-      return actorData.attributes.spellcasting ?? 'int';
+      return getSpellBookAbility(actor, item);
     }
 
     if (attackData.attackType === 'meleeWeaponAttack') {

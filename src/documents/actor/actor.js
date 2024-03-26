@@ -6,6 +6,7 @@ import ActiveEffectA5e from '../activeEffect/activeEffect';
 import ActorGrantsManager from '../../managers/ActorGrantsManager';
 import BonusesManager from '../../managers/BonusesManager';
 import MigrationRunnerBase from '../../migration/MigrationRunnerBase';
+import SpellBookManager from '../../managers/SpellBookManager';
 import RestManager from '../../managers/RestManager';
 import RollOverrideManager from '../../managers/RollOverrideManager';
 import RollPreparationManager from '../../managers/RollPreparationManager';
@@ -160,6 +161,10 @@ export default class ActorA5e extends Actor {
     if ((this.system.schemaVersion?.version ?? this.system.schema?.version) < 0.005) return;
     this.prepareArmorClass();
     this.RollOverrideManager.initialize();
+
+    // Initialize the SpellBooks
+    this.spellBooks = new SpellBookManager(this);
+    this.spellBooks.forEach((spellBook) => spellBook.prepareBaseData());
   }
 
   /**
@@ -169,8 +174,8 @@ export default class ActorA5e extends Actor {
   prepareBaseData() {
     // Register Managers
     this.BonusesManager = new BonusesManager(this);
-    this.grants = new ActorGrantsManager(this);
     this.RollOverrideManager = new RollOverrideManager(this);
+    this.grants = new ActorGrantsManager(this);
 
     // Add AC data to the actor.
     if ((this.system.schemaVersion?.version ?? this.system.schema?.version) >= 0.005) {
@@ -827,7 +832,7 @@ export default class ActorA5e extends Actor {
   }
 
   /** @inheritdoc */
-  getRollData() {
+  getRollData(item = null) {
     const data = { ...super.getRollData() };
     const { abilities, skills } = this.system;
 
@@ -855,18 +860,28 @@ export default class ActorA5e extends Actor {
       mod: Math.max(data.dex.mod, data.str.mod)
     };
 
-    data.spell = {
-      mod: this._calculateSpellcastingMod()
-    };
-
-    data.spellcasting = {
-      mod: data.spell.mod
-    };
-
     data.level = this.system.details.level;
-
-    data.spellDC = this.system.attributes.spellDC;
     data.maneuverDC = this.system.attributes.maneuverDC;
+
+    // Add item rollData
+    if (item) {
+      data.item = item.getRollData();
+    }
+
+    if (item && item.type === 'spell') {
+      const spellBook = this.spellBooks.get(item.system.spellBook);
+      if (spellBook) {
+        data.spell = { mod: spellBook.stats.mod };
+        data.spellcasting = { mod: spellBook.stats.mod };
+        data.spellDC = spellBook.stats.dc;
+      }
+    }
+
+    if (!data.spell || !data.spellDC) {
+      data.spell = { mod: this._calculateSpellcastingMod() };
+      data.spellcasting = { mod: data.spell.mod };
+      data.spellDC = this.system.attributes.spellDC;
+    }
 
     return data;
   }

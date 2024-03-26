@@ -59,7 +59,7 @@ export default class ResourceConsumptionManager {
 
     const max = getDeterministicBonus(
       actionUses?.max ?? actionUses.value,
-      this.#actor.getRollData()
+      this.#actor.getRollData(this.#item)
     );
     const newValue = Math.clamped(actionUses.value - quantity, 0, max);
 
@@ -85,7 +85,7 @@ export default class ResourceConsumptionManager {
 
     const max = getDeterministicBonus(
       this.#item.system.uses.max ?? value,
-      this.#actor.getRollData()
+      this.#actor.getRollData(this.#item)
     );
     this.#updates.item['system.uses.value'] = Math.clamped(value - quantity, 0, max);
   }

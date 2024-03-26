@@ -40,11 +40,14 @@
 
     $: actionUses = $item.actions[actionId].uses ?? {};
     $: itemUses = $item.system.uses;
-    $: itemMaxUses = getDeterministicBonus(itemUses.max, $actor.getRollData());
+    $: itemMaxUses = getDeterministicBonus(
+        itemUses.max,
+        $actor.getRollData($item),
+    );
 
     $: actionMaxUses = getDeterministicBonus(
         actionUses?.max ?? 0,
-        $actor.getRollData(),
+        $actor.getRollData($item),
     );
 </script>
 

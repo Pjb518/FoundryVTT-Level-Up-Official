@@ -4,6 +4,7 @@
 
     export let checked;
     export let label;
+    export let disabled = false;
 
     const id = foundry.utils.randomID();
     const dispatch = createEventDispatcher();
@@ -13,6 +14,7 @@
     <input
         class="checkbox"
         type="checkbox"
+        {disabled}
         {id}
         {checked}
         on:change={({ target }) => dispatch("updateSelection", target.checked)}

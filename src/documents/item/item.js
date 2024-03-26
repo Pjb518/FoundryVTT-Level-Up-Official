@@ -189,7 +189,7 @@ export default class ItemA5e extends BaseItemA5e {
               async: true,
               secrets: this.isOwner,
               relativeTo: this,
-              rollData: this?.actor?.getRollData() ?? {}
+              rollData: this?.actor?.getRollData(this) ?? {}
             })
             : null,
           itemDescription: action?.descriptionOutputs?.includes('item') ?? true
@@ -197,7 +197,7 @@ export default class ItemA5e extends BaseItemA5e {
               async: true,
               secrets: this.isOwner,
               relativeTo: this,
-              rollData: this?.actor?.getRollData() ?? {}
+              rollData: this?.actor?.getRollData(this) ?? {}
             })
             : null,
           unidentifiedDescription: action?.descriptionOutputs?.includes('item') ?? true
@@ -205,7 +205,7 @@ export default class ItemA5e extends BaseItemA5e {
               async: true,
               secrets: this.isOwner,
               relativeTo: this,
-              rollData: this?.actor?.getRollData() ?? {}
+              rollData: this?.actor?.getRollData(this) ?? {}
             })
             : null,
           prompts: activationData.prompts,
@@ -375,12 +375,6 @@ export default class ItemA5e extends BaseItemA5e {
           []
         );
 
-      const spellLevel = spellConsumer.spellLevel ?? this.system?.level ?? 1;
-      const spellPoints = spellConsumer.points ?? CONFIG.A5E.spellLevelCost[spellLevel] ?? 1;
-      spellData.level = spellLevel;
-      spellData.points = spellPoints;
-      spellData.basePoints = spellPoints;
-      spellData.baseLevel = spellLevel;
       // eslint-disable-next-line no-nested-ternary
       spellData.consume = mode === 'pointsOnly'
         ? 'spellPoint'
@@ -391,6 +385,21 @@ export default class ItemA5e extends BaseItemA5e {
       if (this.system?.level === null || this.system?.level === undefined) {
         spellData.consume = 'noConsume';
       }
+
+      const defaultLevel = spellConsumer.spellLevel ?? this.system?.level ?? 1;
+      const smallestAvailable = Math.min(...availableSpellSlots.map(Number));
+      const spellLevel = spellData.consume === 'noConsume'
+        ? defaultLevel
+        : Math.max(defaultLevel, smallestAvailable);
+      const spellPoints = spellConsumer.points ?? CONFIG.A5E.spellLevelCost[spellLevel] ?? 1;
+
+      spellData.basePoints = spellPoints;
+      spellData.baseLevel = spellLevel;
+      spellData.level = spellLevel;
+      spellData.points = spellPoints;
+
+      const spellBook = this.parent?.spellBooks?.get(this.system.spellBook);
+      if (spellBook.disableSpellConsumers) spellData.consume = 'noConsume';
     }
 
     return {
@@ -423,7 +432,7 @@ export default class ItemA5e extends BaseItemA5e {
 
     return Object.entries(promptsByType).reduce((defaultPrompts, [promptType, promptGroup]) => {
       defaultPrompts.push(...promptGroup.reduce((acc, [, prompt]) => {
-        if (promptType === 'savingThrow') prompt.dc = computeSaveDC(this.actor, prompt.saveDC);
+        if (promptType === 'savingThrow') prompt.dc = computeSaveDC(this.actor, this, prompt.saveDC);
 
         if (prompt.default ?? true) acc.push(prompt);
 
@@ -453,20 +462,9 @@ export default class ItemA5e extends BaseItemA5e {
     return consumer;
   }
 
-  async togglePrepared() {
-    if (!this.type === 'spell' || !this.actor) return;
-
-    const currentState = Number(this.system.prepared);
-    const newState = (currentState + 1) % 3;
-
-    await this.update({
-      'system.prepared': newState
-    });
-  }
-
   async recharge(actionId, state = false) {
     if (state || !this.actor) return;
-    let max = getDeterministicBonus(this.system.uses.max, this.actor.getRollData());
+    let max = getDeterministicBonus(this.system.uses.max, this.actor.getRollData(this));
     let current = this.system.uses.value;
     let formula = this.system.uses.recharge.formula || '1d6';
     let threshold = this.system.uses.recharge.threshold ?? 6;
@@ -477,7 +475,7 @@ export default class ItemA5e extends BaseItemA5e {
     if (actionId) {
       const action = this.actions[actionId];
 
-      max = getDeterministicBonus(action.uses?.max ?? '', this.actor.getRollData());
+      max = getDeterministicBonus(action.uses?.max ?? '', this.actor.getRollData(this));
       current = action.uses?.value ?? 0;
       formula = action.uses?.recharge?.formula || '1d6';
       threshold = action.uses?.recharge?.threshold ?? 6;
@@ -487,7 +485,8 @@ export default class ItemA5e extends BaseItemA5e {
     }
 
     // Recharge Roll
-    const rechargeRoll = await new Roll(formula, this.getRollData()).evaluate({ async: true });
+    const rechargeRoll = await new Roll(formula, this.actor.getRollData(this))
+      .evaluate({ async: true });
 
     // TODO: Make the message prettier
     rechargeRoll.toMessage();
@@ -499,7 +498,7 @@ export default class ItemA5e extends BaseItemA5e {
     else {
       const rechargeAmountRoll = await new Roll(
         rechargeAmount,
-        this.getRollData()
+        this.actor.getRollData(this)
       ).evaluate({ async: true });
 
       // TODO: Add the roll back in when the custom recharge amount config is added.

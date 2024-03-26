@@ -274,6 +274,10 @@ export default class BaseActorData extends A5EDataModel.mixin(SchemaDataModel) {
         link: new fields.StringField({ required: true, initial: '' }),
         publisher: new fields.StringField({ required: true, initial: '' })
       }),
+      spellBooks: new RecordField(
+        new fields.DocumentIdField({ required: true, initial: () => foundry.utils.randomID() }),
+        new fields.ObjectField()
+      ),
       traits: new fields.SchemaField({
         size: new fields.StringField({ required: true, initial: 'med' }),
         alignment: new fields.ArrayField(
@@ -336,6 +340,13 @@ export default class BaseActorData extends A5EDataModel.mixin(SchemaDataModel) {
             max: new fields.NumberField({ required: true, initial: 0, integer: true })
           })
         }),
+        // pactSlots: new fields.SchemaField({
+        //   current: new fields.NumberField({ required: true, initial: 0, integer: true }),
+        //   max: new fields.NumberField({ required: true, initial: 0, integer: true }),
+        //   level: new fields.NumberField({
+        //     required: true, initial: 1, max: 5, integer: true
+        //   })
+        // }),
         points: new fields.SchemaField({
           current: new fields.NumberField({ required: true, initial: 0, integer: true }),
           max: new fields.NumberField({ required: true, initial: 0, integer: true })

@@ -32,9 +32,13 @@
     async function exportToActor() {
         const collection = document;
 
-        const documents = await Promise.all(
-            [...$reducer].map(async (doc) => collection.getDocument(doc._id)),
-        );
+        const documents = (
+            await Promise.all(
+                [...$reducer].map(async (doc) =>
+                    collection.getDocument(doc._id),
+                ),
+            )
+        ).map((doc) => doc.toObject());
 
         customImporter(documents);
     }

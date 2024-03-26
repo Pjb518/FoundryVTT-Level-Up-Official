@@ -116,7 +116,9 @@ export default class RollPreparationManager {
   }
 
   async #prepareAttackRoll(_roll) {
-    const { rollFormula } = constructRollFormula({ actor: this.#actor, formula: _roll.formula });
+    const { rollFormula } = constructRollFormula({
+      actor: this.#actor, formula: _roll.formula, item: this.#item
+    });
 
     if (!rollFormula) return null;
 
@@ -208,6 +210,7 @@ export default class RollPreparationManager {
     const { rollFormula } = constructRollFormula({
       actor: this.#actor,
       formula: this.#applyDamageOrHealingScaling(_roll),
+      item: this.#item,
       modifiers
     });
 
@@ -261,7 +264,9 @@ export default class RollPreparationManager {
   }
 
   async #prepareGenericRoll(_roll) {
-    const { rollFormula } = constructRollFormula({ actor: this.#actor, formula: _roll.formula });
+    const { rollFormula } = constructRollFormula({
+      actor: this.#actor, formula: _roll.formula, item: this.#item
+    });
 
     if (!rollFormula) return null;
 
@@ -278,7 +283,8 @@ export default class RollPreparationManager {
   async #prepareHealingRoll(_roll) {
     const { rollFormula } = constructRollFormula({
       actor: this.#actor,
-      formula: this.#applyDamageOrHealingScaling(_roll)
+      formula: this.#applyDamageOrHealingScaling(_roll),
+      item: this.#item
     });
 
     if (!rollFormula) return null;
@@ -399,7 +405,9 @@ export default class RollPreparationManager {
       value: _roll.bonus
     });
 
-    const { rollFormula } = constructD20RollFormula({ actor: this.#actor, modifiers });
+    const { rollFormula } = constructD20RollFormula({
+      actor: this.#actor, item: this.#item, modifiers
+    });
 
     if (!rollFormula) return null;
 
