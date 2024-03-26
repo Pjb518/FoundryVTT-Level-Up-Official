@@ -1,7 +1,6 @@
 export interface SpellBookData {
   _id: string;
   name: string;
-  default: boolean;
   img: string;
   slug: string;
 

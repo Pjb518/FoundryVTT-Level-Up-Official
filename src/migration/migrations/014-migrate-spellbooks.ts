@@ -9,7 +9,6 @@ export default class Migration014SpellBooks extends MigrationBase {
     const spellBook = {
       _id: id,
       name: 'New Spell Book',
-      default: true,
       img: 'icons/svg/book.svg',
 
       ability: 'default',

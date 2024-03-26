@@ -329,10 +329,9 @@ export default class ActorSheet extends SvelteApplication {
 
     if (currentTab !== 'inventory') {
       const { spellBookId } = options;
-      const defaultSpellBookId = this.actor.spellBooks.default?._id;
 
-      if (spellBookId || defaultSpellBookId) {
-        const spellBook = this.actor.spellBooks.get(spellBookId || defaultSpellBookId);
+      if (spellBookId) {
+        const spellBook = this.actor.spellBooks.get(spellBookId);
         spellBook?.addSpell(item);
       } else {
         ui.notifications.error('No spell book detected.');

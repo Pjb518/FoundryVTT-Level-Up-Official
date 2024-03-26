@@ -55,20 +55,6 @@
             />
         </FieldWrapper>
 
-        <FieldWrapper
-            warning="Unable to deselect the default spellbook if only 1 spellbook is available."
-            showWarning={$document.spellBooks.size === 1}
-        >
-            <Checkbox
-                label="Set as Default Spellbook"
-                checked={book?.default ?? false}
-                disabled={$document.spellBooks.size === 1}
-                on:updateSelection={({ detail }) => {
-                    if (detail) $document.spellBooks.setDefault(spellBookId);
-                }}
-            />
-        </FieldWrapper>
-
         <FieldWrapper>
             <Checkbox
                 label="Show Spell Slots"

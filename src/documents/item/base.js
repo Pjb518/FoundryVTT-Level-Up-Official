@@ -24,6 +24,13 @@ export default class BaseItemA5e extends Item {
 
   prepareDerivedData() { }
 
+  /** @inheritdoc */
+  getRollData() {
+    const data = { ...super.getRollData() };
+
+    return data;
+  }
+
   // *****************************************************************************************
   /**
    * A handler for activating an item. An actionId can be passed to this method to use a specific

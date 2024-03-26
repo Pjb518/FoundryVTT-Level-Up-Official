@@ -8,7 +8,6 @@ export default function getSpellBookAbility(
   const spellBookId = item.system.spellBook;
 
   if (spellBookId) spellBook = actor.spellBooks.get(item.system.spellBook);
-  else spellBook = actor.spellBooks.default;
 
   if (!spellBook) return actorData.attributes.spellcasting ?? 'int';
   if (spellBook.stats.ability === 'default') return actorData.attributes.spellcasting ?? 'int';

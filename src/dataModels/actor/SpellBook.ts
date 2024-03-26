@@ -8,8 +8,6 @@ export default class SpellBook extends A5EDataModel {
 
   declare name: string;
 
-  declare default: boolean;
-
   declare img: string;
 
   declare ability: string;
@@ -37,7 +35,6 @@ export default class SpellBook extends A5EDataModel {
     return {
       _id: new fields.DocumentIdField({ initial: () => foundry.utils.randomID() }),
       name: new fields.StringField({ required: true, initial: 'New Spell Book' }),
-      default: new fields.BooleanField({ required: true, initial: false }),
       img: new fields.StringField({ required: true, initial: 'icons/svg/book.svg' }),
 
       ability: new fields.StringField({ required: true, initial: 'default' }),

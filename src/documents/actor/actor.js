@@ -832,7 +832,7 @@ export default class ActorA5e extends Actor {
   }
 
   /** @inheritdoc */
-  getRollData() {
+  getRollData(item = null) {
     const data = { ...super.getRollData() };
     const { abilities, skills } = this.system;
 
@@ -863,17 +863,14 @@ export default class ActorA5e extends Actor {
     data.level = this.system.details.level;
     data.maneuverDC = this.system.attributes.maneuverDC;
 
-    const defaultSpellBook = this.spellBooks?.default;
-
-    if (defaultSpellBook && defaultSpellBook?.stats) {
-      data.spell = { mod: defaultSpellBook.stats.mod };
-      data.spellcasting = { mod: defaultSpellBook.stats.mod };
-      data.spellDC = defaultSpellBook.stats.dc;
-    } else {
-      data.spell = { mod: this._calculateSpellcastingMod() };
-      data.spellcasting = { mod: data.spell.mod };
-      data.spellDC = this.system.attributes.spellDC;
+    // Add item rollData
+    if (item) {
+      data.item = item.getRollData();
     }
+
+    data.spell = { mod: this._calculateSpellcastingMod() };
+    data.spellcasting = { mod: data.spell.mod };
+    data.spellDC = this.system.attributes.spellDC;
 
     return data;
   }
