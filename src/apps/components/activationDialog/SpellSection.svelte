@@ -79,10 +79,11 @@
         const defaultLevel = consumer.spellLevel ?? $item.system?.level ?? 1;
         const smallestAvailable = Math.min(...availableSpellSlots.map(Number));
 
-        const selection =
-            spellData.consume === "noConsume"
-                ? defaultLevel
-                : Math.max(defaultLevel, smallestAvailable);
+        const selection = ["noConsume", "spellPoint"].includes(
+            spellData.consume,
+        )
+            ? defaultLevel
+            : Math.max(defaultLevel, smallestAvailable);
 
         return selection;
     }
