@@ -868,9 +868,20 @@ export default class ActorA5e extends Actor {
       data.item = item.getRollData();
     }
 
-    data.spell = { mod: this._calculateSpellcastingMod() };
-    data.spellcasting = { mod: data.spell.mod };
-    data.spellDC = this.system.attributes.spellDC;
+    if (item && item.type === 'spell') {
+      const spellBook = this.spellBooks.get(item.system.spellBook);
+      if (spellBook) {
+        data.spell = { mod: spellBook.stats.mod };
+        data.spellcasting = { mod: spellBook.stats.mod };
+        data.spellDC = spellBook.stats.dc;
+      }
+    }
+
+    if (!data.spell || !data.spellDC) {
+      data.spell = { mod: this._calculateSpellcastingMod() };
+      data.spellcasting = { mod: data.spell.mod };
+      data.spellDC = this.system.attributes.spellDC;
+    }
 
     return data;
   }

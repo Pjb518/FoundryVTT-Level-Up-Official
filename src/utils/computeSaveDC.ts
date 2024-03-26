@@ -8,7 +8,7 @@ export default function computeSaveDC(
 ): number | null {
   if (!actor) return null;
 
-  const rollData: object = actor.getRollData();
+  const rollData: object = actor.getRollData(item);
   const terms: (string | number)[] = [];
 
   if (saveDC?.type === 'spellcasting') {

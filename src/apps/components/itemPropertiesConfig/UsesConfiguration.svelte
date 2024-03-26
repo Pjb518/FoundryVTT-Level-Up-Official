@@ -15,7 +15,7 @@
         const maxUses = item.actor
             ? getDeterministicBonus(
                   uses?.max ?? 0,
-                  item.actor?.getRollData() ?? {},
+                  item.actor?.getRollData(item) ?? {},
               )
             : uses?.max;
 

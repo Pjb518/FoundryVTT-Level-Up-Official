@@ -76,7 +76,7 @@
                     async: true,
                     secrets: item.isOwner,
                     relativeTo: item,
-                    rollData: $actor?.getRollData() ?? {},
+                    rollData: $actor?.getRollData(this) ?? {},
                 },
             )) ?? localize("A5E.NoDescription");
 

@@ -10,9 +10,9 @@ import simplifyOperatorTerms from './simplifyOperatorTerms';
  * @returns {string} A valid roll formula that can be passed to Roll.
  */
 export default function constructD20RollFormula({
-  actor, minRoll, modifiers, rollMode
+  actor, item, minRoll, modifiers, rollMode
 }) {
-  const rollData = actor.getRollData();
+  const rollData = actor.getRollData(item);
 
   const parts = [
     constructD20Term({ actor, minRoll, rollMode }),

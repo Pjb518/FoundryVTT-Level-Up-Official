@@ -152,7 +152,7 @@
             max: action
                 ? getDeterministicBonus(
                       action.uses?.max ?? 0,
-                      $actor.getRollData(),
+                      $actor.getRollData(item),
                   )
                 : 0,
             updatePath: `system.actions.${actionId}.uses`,
@@ -161,7 +161,7 @@
             value: item.system?.uses?.value ?? 0,
             max: getDeterministicBonus(
                 item.system?.uses?.max ?? 0,
-                $actor.getRollData(),
+                $actor.getRollData(item),
             ),
             updatePath: "system.uses",
         },

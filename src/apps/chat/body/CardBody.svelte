@@ -298,6 +298,7 @@
             const { rollFormula } = constructRollFormula({
                 actor: token,
                 formula: prompt.formula,
+                item: item,
             });
 
             await new Roll(rollFormula).toMessage({ async: true });

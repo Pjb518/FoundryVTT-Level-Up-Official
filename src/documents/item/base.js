@@ -65,7 +65,7 @@ export default class BaseItemA5e extends Item {
               async: true,
               secrets: this.isOwner,
               relativeTo: this,
-              rollData: this?.actor?.getRollData() ?? {}
+              rollData: this?.actor?.getRollData(this) ?? {}
             })
             : null,
           itemDescription: action?.descriptionOutputs?.includes('item') ?? true
@@ -73,7 +73,7 @@ export default class BaseItemA5e extends Item {
               async: true,
               secrets: this.isOwner,
               relativeTo: this,
-              rollData: this?.actor?.getRollData() ?? {}
+              rollData: this?.actor?.getRollData(this) ?? {}
             })
             : null,
           unidentifiedDescription: action?.descriptionOutputs?.includes('item') ?? true
@@ -81,7 +81,7 @@ export default class BaseItemA5e extends Item {
               async: true,
               secrets: this.isOwner,
               relativeTo: this,
-              rollData: this?.actor?.getRollData() ?? {}
+              rollData: this?.actor?.getRollData(this) ?? {}
             })
             : null,
           img: action?.img ?? this.img,
