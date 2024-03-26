@@ -125,12 +125,16 @@
                 {spellBook.name}
 
                 {#if !sheetIsLocked}
+                    <!-- svelte-ignore a11y-click-events-have-key-events -->
+                    <!-- svelte-ignore a11y-no-static-element-interactions -->
                     <i
                         class="a5e-control-button a5e-control-button--config fa-solid fa-gear"
                         on:click|stopPropagation={() =>
                             configureSpellbook(spellBookId)}
                     />
 
+                    <!-- svelte-ignore a11y-click-events-have-key-events -->
+                    <!-- svelte-ignore a11y-no-static-element-interactions -->
                     <i
                         class="a5e-control-button a5e-control-button--delete fa-solid fa-trash"
                         on:click|stopPropagation={() =>
