@@ -534,13 +534,31 @@
 			"conditionImmunities": [],
 			"damageImmunities": [],
 			"damageResistances": [],
-			"damageVulnerabilities": []
+			"damageVulnerabilities": [],
+			"alignment": []
 		},
 		"schemaVersion": {
-			"version": 0.013,
-			"lastMigration": null
+			"version": 0.014,
+			"lastMigration": {
+				"version": {
+					"schema": 0.013,
+					"foundry": "11.315",
+					"system": "0.17.17"
+				}
+			}
 		},
-		"grants": {}
+		"grants": {},
+		"spellBooks": {
+			"fcIAxNtgHFBKt0Mq": {
+				"_id": "fcIAxNtgHFBKt0Mq",
+				"name": "New Spell Book",
+				"img": "icons/svg/book.svg",
+				"ability": "default",
+				"disableSpellConsumers": false,
+				"showSpellPoints": false,
+				"showSpellSlots": true
+			}
+		}
 	},
 	"prototypeToken": {
 		"name": "Brain Slug",
@@ -632,57 +650,28 @@
 				"source": "",
 				"uses": {
 					"value": 3,
-					"max": 3,
+					"max": "3",
 					"per": "day",
 					"recharge": {
 						"formula": "1d6",
-						"threshold": "6"
+						"threshold": 6
 					}
-				},
-				"schema": {
-					"version": null,
-					"lastMigration": null
 				},
 				"concentration": false,
 				"featureType": "",
 				"grants": {},
 				"prerequisite": "",
-				"requiresBloodied": false,
-				"ability": "",
-				"actionOptions": [],
-				"activation": {
-					"cost": "",
-					"type": "",
-					"reactionTrigger": ""
+				"schemaVersion": {
+					"version": 0.014,
+					"lastMigration": {
+						"version": {
+							"schema": 0.014,
+							"foundry": "11.315",
+							"system": "0.17.17"
+						}
+					}
 				},
-				"attack": {
-					"bonus": "",
-					"critThreshold": 20,
-					"type": ""
-				},
-				"area": {
-					"shape": ""
-				},
-				"check": {
-					"ability": "str"
-				},
-				"damage": [],
-				"duration": {
-					"unit": "",
-					"value": ""
-				},
-				"healing": [],
-				"proficient": true,
-				"range": [],
-				"save": {
-					"dc": "",
-					"onSave": "",
-					"targetAbility": ""
-				},
-				"target": {
-					"quantity": "",
-					"type": ""
-				}
+				"requiresBlooded": false
 			},
 			"effects": [],
 			"folder": null,
@@ -714,72 +703,29 @@
 				"secretDescription": "",
 				"source": "",
 				"uses": {
-					"value": null,
+					"value": 0,
 					"max": "",
-					"per": null,
+					"per": "",
 					"recharge": {
 						"formula": "1d6",
-						"threshold": "6"
+						"threshold": 6
 					}
-				},
-				"schema": {
-					"version": null,
-					"lastMigration": null
 				},
 				"concentration": false,
 				"featureType": "",
 				"grants": {},
 				"prerequisite": "",
-				"requiresBloodied": false,
-				"ability": null,
-				"actionOptions": [
-					"attack",
-					"damage",
-					"savingThrow"
-				],
-				"activation": {
-					"cost": 1,
-					"type": "action",
-					"reactionTrigger": ""
-				},
-				"attack": {
-					"bonus": "",
-					"critThreshold": "20",
-					"type": "meleeWeaponAttack"
-				},
-				"area": {
-					"shape": ""
-				},
-				"check": {
-					"ability": "str"
-				},
-				"damage": [
-					{
-						"canCrit": true,
-						"damageType": "piercing",
-						"defaultSelection": true,
-						"formula": "1",
-						"name": "Burrow"
+				"schemaVersion": {
+					"version": 0.014,
+					"lastMigration": {
+						"version": {
+							"schema": 0.014,
+							"foundry": "11.315",
+							"system": "0.17.17"
+						}
 					}
-				],
-				"duration": {
-					"unit": "",
-					"value": ""
 				},
-				"healing": [],
-				"proficient": true,
-				"range": [
-					"0"
-				],
-				"save": {
-					"dc": "12",
-					"onSave": "negate charmed & loss of control, instead gain 1 level of Fatigue",
-					"targetAbility": "int"
-				},
-				"target": {
-					"quantity": 1,
-					"type": "creature"
-				}
+				"requiresBlooded": false
 			},
 			"effects": [],
 			"folder": null,
@@ -807,16 +753,12 @@
 				"source": "",
 				"uses": {
 					"value": 3,
-					"max": 3,
+					"max": "3",
 					"per": "day",
 					"recharge": {
 						"formula": "1d6",
-						"threshold": "6"
+						"threshold": 6
 					}
-				},
-				"schema": {
-					"version": null,
-					"lastMigration": null
 				},
 				"classes": [],
 				"components": {
@@ -824,11 +766,10 @@
 					"seen": false,
 					"material": false
 				},
-				"concentration": true,
 				"level": 2,
 				"materials": "miniature bottle of red wine and some soap",
 				"materialsConsumed": false,
-				"prepared": true,
+				"prepared": 1,
 				"prerequisite": "",
 				"rare": false,
 				"ritual": false,
@@ -839,47 +780,17 @@
 						"compulsion"
 					]
 				},
-				"ability": "spellcasting",
-				"actionOptions": [
-					"savingThrow",
-					"damage"
-				],
-				"activation": {
-					"cost": 1,
-					"type": "action",
-					"reactionTrigger": ""
+				"schemaVersion": {
+					"version": 0.014,
+					"lastMigration": {
+						"version": {
+							"schema": 0.014,
+							"foundry": "11.315",
+							"system": "0.17.17"
+						}
+					}
 				},
-				"attack": {
-					"bonus": "",
-					"critThreshold": 20,
-					"type": ""
-				},
-				"area": {
-					"shape": "",
-					"size": ""
-				},
-				"check": {
-					"ability": "str"
-				},
-				"damage": [],
-				"duration": {
-					"unit": "hour",
-					"value": "8"
-				},
-				"healing": [],
-				"proficient": true,
-				"range": [
-					"short"
-				],
-				"save": {
-					"dc": "@spellDC",
-					"onSave": "Negates effect",
-					"targetAbility": "wis"
-				},
-				"target": {
-					"quantity": "",
-					"type": "creature"
-				}
+				"spellBook": "fcIAxNtgHFBKt0Mq"
 			},
 			"_id": "PCCzvNhpY6nBoxBZ",
 			"folder": null,
@@ -946,22 +857,12 @@
 				"secretDescription": "",
 				"source": "",
 				"uses": {
-					"value": null,
+					"value": 0,
 					"max": "",
-					"per": null,
+					"per": "",
 					"recharge": {
 						"formula": "1d6",
 						"threshold": 6
-					}
-				},
-				"schema": {
-					"version": 0.003,
-					"lastMigration": {
-						"version": {
-							"schema": null,
-							"foundry": "10.291",
-							"system": "0.10.7"
-						}
 					}
 				},
 				"concentration": false,
@@ -969,7 +870,17 @@
 				"exertionCost": 0,
 				"isStance": false,
 				"prerequisite": "",
-				"tradition": ""
+				"tradition": "",
+				"schemaVersion": {
+					"version": 0.014,
+					"lastMigration": {
+						"version": {
+							"schema": 0.014,
+							"foundry": "11.315",
+							"system": "0.17.17"
+						}
+					}
+				}
 			},
 			"_id": "Ymfpujr24wtTgfBb",
 			"folder": null,
@@ -1036,22 +947,12 @@
 				"secretDescription": "",
 				"source": "",
 				"uses": {
-					"value": null,
+					"value": 0,
 					"max": "",
-					"per": null,
+					"per": "",
 					"recharge": {
 						"formula": "1d6",
 						"threshold": 6
-					}
-				},
-				"schema": {
-					"version": 0.003,
-					"lastMigration": {
-						"version": {
-							"schema": null,
-							"foundry": "10.291",
-							"system": "0.10.7"
-						}
 					}
 				},
 				"concentration": false,
@@ -1059,7 +960,17 @@
 				"exertionCost": 0,
 				"isStance": false,
 				"prerequisite": "",
-				"tradition": ""
+				"tradition": "",
+				"schemaVersion": {
+					"version": 0.014,
+					"lastMigration": {
+						"version": {
+							"schema": 0.014,
+							"foundry": "11.315",
+							"system": "0.17.17"
+						}
+					}
+				}
 			},
 			"_id": "CotK66cmHo6R0h7K",
 			"folder": null,
@@ -1135,22 +1046,12 @@
 				"secretDescription": "",
 				"source": "",
 				"uses": {
-					"value": null,
+					"value": 0,
 					"max": "",
-					"per": null,
+					"per": "",
 					"recharge": {
 						"formula": "1d6",
 						"threshold": 6
-					}
-				},
-				"schema": {
-					"version": 0.003,
-					"lastMigration": {
-						"version": {
-							"schema": null,
-							"foundry": "10.291",
-							"system": "0.10.7"
-						}
 					}
 				},
 				"concentration": false,
@@ -1158,7 +1059,17 @@
 				"exertionCost": 0,
 				"isStance": false,
 				"prerequisite": "",
-				"tradition": ""
+				"tradition": "",
+				"schemaVersion": {
+					"version": 0.014,
+					"lastMigration": {
+						"version": {
+							"schema": 0.014,
+							"foundry": "11.315",
+							"system": "0.17.17"
+						}
+					}
+				}
 			},
 			"_id": "ldsX8hbAz8Tw7Wvp",
 			"folder": null,
@@ -1225,22 +1136,12 @@
 				"secretDescription": "",
 				"source": "",
 				"uses": {
-					"value": null,
+					"value": 0,
 					"max": "",
-					"per": null,
+					"per": "",
 					"recharge": {
 						"formula": "1d6",
 						"threshold": 6
-					}
-				},
-				"schema": {
-					"version": 0.003,
-					"lastMigration": {
-						"version": {
-							"schema": null,
-							"foundry": "10.291",
-							"system": "0.10.7"
-						}
 					}
 				},
 				"concentration": false,
@@ -1248,7 +1149,17 @@
 				"exertionCost": 0,
 				"isStance": false,
 				"prerequisite": "",
-				"tradition": ""
+				"tradition": "",
+				"schemaVersion": {
+					"version": 0.014,
+					"lastMigration": {
+						"version": {
+							"schema": 0.014,
+							"foundry": "11.315",
+							"system": "0.17.17"
+						}
+					}
+				}
 			},
 			"_id": "sUPZHAQSrw51i5W6",
 			"folder": null,
@@ -1315,22 +1226,12 @@
 				"secretDescription": "",
 				"source": "",
 				"uses": {
-					"value": null,
+					"value": 0,
 					"max": "",
-					"per": null,
+					"per": "",
 					"recharge": {
 						"formula": "1d6",
 						"threshold": 6
-					}
-				},
-				"schema": {
-					"version": 0.003,
-					"lastMigration": {
-						"version": {
-							"schema": null,
-							"foundry": "10.291",
-							"system": "0.10.7"
-						}
 					}
 				},
 				"concentration": false,
@@ -1338,7 +1239,17 @@
 				"exertionCost": 0,
 				"isStance": false,
 				"prerequisite": "",
-				"tradition": ""
+				"tradition": "",
+				"schemaVersion": {
+					"version": 0.014,
+					"lastMigration": {
+						"version": {
+							"schema": 0.014,
+							"foundry": "11.315",
+							"system": "0.17.17"
+						}
+					}
+				}
 			},
 			"_id": "TWcRA1Rnd13C2GKC",
 			"folder": null,
@@ -1414,22 +1325,12 @@
 				"secretDescription": "",
 				"source": "",
 				"uses": {
-					"value": null,
+					"value": 0,
 					"max": "",
-					"per": null,
+					"per": "",
 					"recharge": {
 						"formula": "1d6",
 						"threshold": 6
-					}
-				},
-				"schema": {
-					"version": 0.003,
-					"lastMigration": {
-						"version": {
-							"schema": null,
-							"foundry": "10.291",
-							"system": "0.10.7"
-						}
 					}
 				},
 				"concentration": false,
@@ -1437,7 +1338,17 @@
 				"exertionCost": 0,
 				"isStance": false,
 				"prerequisite": "",
-				"tradition": ""
+				"tradition": "",
+				"schemaVersion": {
+					"version": 0.014,
+					"lastMigration": {
+						"version": {
+							"schema": 0.014,
+							"foundry": "11.315",
+							"system": "0.17.17"
+						}
+					}
+				}
 			},
 			"_id": "mtgONd99q30fIkUw",
 			"folder": null,
@@ -1455,7 +1366,9 @@
 			],
 			"showSpellSlots": false,
 			"showSpellPoints": false,
-			"sheetIsLocked": true
+			"sheetIsLocked": true,
+			"sortMode": {},
+			"filters": {}
 		}
 	},
 	"folder": null,

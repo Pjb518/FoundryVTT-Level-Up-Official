@@ -542,13 +542,31 @@
 			],
 			"damageImmunities": [],
 			"damageResistances": [],
-			"damageVulnerabilities": []
+			"damageVulnerabilities": [],
+			"alignment": []
 		},
 		"schemaVersion": {
-			"version": 0.013,
-			"lastMigration": null
+			"version": 0.014,
+			"lastMigration": {
+				"version": {
+					"schema": 0.013,
+					"foundry": "11.315",
+					"system": "0.17.17"
+				}
+			}
 		},
-		"grants": {}
+		"grants": {},
+		"spellBooks": {
+			"wfcDlrqR7bhsVxlZ": {
+				"_id": "wfcDlrqR7bhsVxlZ",
+				"name": "New Spell Book",
+				"img": "icons/svg/book.svg",
+				"ability": "default",
+				"disableSpellConsumers": false,
+				"showSpellPoints": false,
+				"showSpellSlots": true
+			}
+		}
 	},
 	"prototypeToken": {
 		"name": "Archfey Warlord",
@@ -639,58 +657,29 @@
 				"secretDescription": "",
 				"source": "",
 				"uses": {
-					"value": null,
+					"value": 0,
 					"max": "",
-					"per": null,
+					"per": "",
 					"recharge": {
 						"formula": "1d6",
-						"threshold": "6"
+						"threshold": 6
 					}
-				},
-				"schema": {
-					"version": null,
-					"lastMigration": null
 				},
 				"concentration": false,
 				"featureType": "other",
 				"grants": {},
 				"prerequisite": "",
-				"requiresBloodied": false,
-				"ability": "",
-				"actionOptions": [],
-				"activation": {
-					"cost": "",
-					"type": "",
-					"reactionTrigger": ""
+				"schemaVersion": {
+					"version": 0.014,
+					"lastMigration": {
+						"version": {
+							"schema": 0.014,
+							"foundry": "11.315",
+							"system": "0.17.17"
+						}
+					}
 				},
-				"attack": {
-					"bonus": "",
-					"critThreshold": 20,
-					"type": ""
-				},
-				"area": {
-					"shape": ""
-				},
-				"check": {
-					"ability": "str"
-				},
-				"damage": [],
-				"duration": {
-					"unit": "",
-					"value": ""
-				},
-				"healing": [],
-				"proficient": true,
-				"range": [],
-				"save": {
-					"dc": "",
-					"onSave": "",
-					"targetAbility": ""
-				},
-				"target": {
-					"quantity": "",
-					"type": ""
-				}
+				"requiresBlooded": false
 			},
 			"effects": [],
 			"folder": null,
@@ -722,60 +711,29 @@
 				"secretDescription": "",
 				"source": "",
 				"uses": {
-					"value": null,
+					"value": 0,
 					"max": "",
-					"per": null,
+					"per": "",
 					"recharge": {
 						"formula": "1d6",
-						"threshold": "6"
+						"threshold": 6
 					}
-				},
-				"schema": {
-					"version": null,
-					"lastMigration": null
 				},
 				"concentration": false,
 				"featureType": "other",
 				"grants": {},
 				"prerequisite": "",
-				"requiresBloodied": false,
-				"ability": "",
-				"actionOptions": [],
-				"activation": {
-					"cost": 1,
-					"type": "action",
-					"reactionTrigger": ""
+				"schemaVersion": {
+					"version": 0.014,
+					"lastMigration": {
+						"version": {
+							"schema": 0.014,
+							"foundry": "11.315",
+							"system": "0.17.17"
+						}
+					}
 				},
-				"attack": {
-					"bonus": "",
-					"critThreshold": 20,
-					"type": ""
-				},
-				"area": {
-					"shape": ""
-				},
-				"check": {
-					"ability": "str"
-				},
-				"damage": [],
-				"duration": {
-					"unit": "special",
-					"value": ""
-				},
-				"healing": [],
-				"proficient": true,
-				"range": [
-					"self"
-				],
-				"save": {
-					"dc": "",
-					"onSave": "",
-					"targetAbility": ""
-				},
-				"target": {
-					"quantity": "",
-					"type": ""
-				}
+				"requiresBlooded": false
 			},
 			"effects": [],
 			"folder": null,
@@ -807,99 +765,29 @@
 				"secretDescription": "",
 				"source": "",
 				"uses": {
-					"value": null,
+					"value": 0,
 					"max": "",
-					"per": null,
+					"per": "",
 					"recharge": {
 						"formula": "1d6",
-						"threshold": "6"
+						"threshold": 6
 					}
-				},
-				"schema": {
-					"version": null,
-					"lastMigration": null
 				},
 				"concentration": false,
 				"featureType": "naturalWeapon",
 				"grants": {},
 				"prerequisite": "",
-				"requiresBloodied": false,
-				"ability": "default",
-				"actionOptions": [
-					"attack",
-					"damage"
-				],
-				"activation": {
-					"cost": 1,
-					"type": "action",
-					"reactionTrigger": ""
-				},
-				"attack": {
-					"bonus": "",
-					"critThreshold": "20",
-					"type": "meleeWeaponAttack"
-				},
-				"area": {
-					"shape": ""
-				},
-				"check": {
-					"ability": "str"
-				},
-				"damage": [
-					{
-						"canCrit": true,
-						"damageType": "piercing",
-						"defaultSelection": true,
-						"formula": "1d8 + @mod",
-						"name": "Glittering Dagger"
-					},
-					{
-						"canCrit": true,
-						"damageType": "cold",
-						"defaultSelection": false,
-						"formula": "2d6",
-						"name": "Cold"
-					},
-					{
-						"canCrit": true,
-						"damageType": "fire",
-						"defaultSelection": false,
-						"formula": "2d6",
-						"name": "Fire"
-					},
-					{
-						"canCrit": true,
-						"damageType": "lightning",
-						"defaultSelection": false,
-						"formula": "2d6",
-						"name": "Lightning"
-					},
-					{
-						"canCrit": true,
-						"damageType": "psychic",
-						"defaultSelection": false,
-						"formula": "2d6",
-						"name": "Psychic"
+				"schemaVersion": {
+					"version": 0.014,
+					"lastMigration": {
+						"version": {
+							"schema": 0.014,
+							"foundry": "11.315",
+							"system": "0.17.17"
+						}
 					}
-				],
-				"duration": {
-					"unit": "",
-					"value": ""
 				},
-				"healing": [],
-				"proficient": true,
-				"range": [
-					"5ft."
-				],
-				"save": {
-					"dc": "",
-					"onSave": "",
-					"targetAbility": ""
-				},
-				"target": {
-					"quantity": 1,
-					"type": "creature"
-				}
+				"requiresBlooded": false
 			},
 			"effects": [],
 			"folder": null,
@@ -931,61 +819,29 @@
 				"secretDescription": "",
 				"source": "",
 				"uses": {
-					"value": null,
+					"value": 0,
 					"max": "",
-					"per": null,
+					"per": "",
 					"recharge": {
 						"formula": "1d6",
-						"threshold": "6"
+						"threshold": 6
 					}
-				},
-				"schema": {
-					"version": null,
-					"lastMigration": null
 				},
 				"concentration": false,
 				"featureType": "other",
 				"grants": {},
 				"prerequisite": "",
-				"requiresBloodied": false,
-				"ability": "",
-				"actionOptions": [],
-				"activation": {
-					"cost": 1,
-					"type": "bonusAction",
-					"reactionTrigger": ""
+				"schemaVersion": {
+					"version": 0.014,
+					"lastMigration": {
+						"version": {
+							"schema": 0.014,
+							"foundry": "11.315",
+							"system": "0.17.17"
+						}
+					}
 				},
-				"attack": {
-					"bonus": "",
-					"critThreshold": 20,
-					"type": ""
-				},
-				"area": {
-					"shape": "sphere",
-					"radius": 30
-				},
-				"check": {
-					"ability": "str"
-				},
-				"damage": [],
-				"duration": {
-					"unit": "special",
-					"value": ""
-				},
-				"healing": [],
-				"proficient": true,
-				"range": [
-					"self"
-				],
-				"save": {
-					"dc": "",
-					"onSave": "",
-					"targetAbility": ""
-				},
-				"target": {
-					"quantity": "",
-					"type": "self"
-				}
+				"requiresBlooded": false
 			},
 			"effects": [],
 			"folder": null,
@@ -1021,60 +877,29 @@
 				"secretDescription": "",
 				"source": "",
 				"uses": {
-					"value": null,
+					"value": 0,
 					"max": "",
-					"per": null,
+					"per": "",
 					"recharge": {
 						"formula": "1d6",
-						"threshold": "6"
+						"threshold": 6
 					}
-				},
-				"schema": {
-					"version": null,
-					"lastMigration": null
 				},
 				"concentration": false,
 				"featureType": "other",
 				"grants": {},
 				"prerequisite": "",
-				"requiresBloodied": false,
-				"ability": "",
-				"actionOptions": [],
-				"activation": {
-					"cost": 1,
-					"type": "bonusAction",
-					"reactionTrigger": ""
+				"schemaVersion": {
+					"version": 0.014,
+					"lastMigration": {
+						"version": {
+							"schema": 0.014,
+							"foundry": "11.315",
+							"system": "0.17.17"
+						}
+					}
 				},
-				"attack": {
-					"bonus": "",
-					"critThreshold": 20,
-					"type": ""
-				},
-				"area": {
-					"shape": ""
-				},
-				"check": {
-					"ability": "str"
-				},
-				"damage": [],
-				"duration": {
-					"unit": "",
-					"value": ""
-				},
-				"healing": [],
-				"proficient": true,
-				"range": [
-					"medium"
-				],
-				"save": {
-					"dc": "",
-					"onSave": "",
-					"targetAbility": ""
-				},
-				"target": {
-					"quantity": "",
-					"type": ""
-				}
+				"requiresBlooded": false
 			},
 			"effects": [],
 			"folder": null,
@@ -1106,89 +931,29 @@
 				"secretDescription": "",
 				"source": "",
 				"uses": {
-					"value": null,
+					"value": 0,
 					"max": "",
-					"per": null,
+					"per": "",
 					"recharge": {
 						"formula": "1d6",
-						"threshold": "6"
+						"threshold": 6
 					}
-				},
-				"schema": {
-					"version": null,
-					"lastMigration": null
 				},
 				"concentration": false,
 				"featureType": "other",
 				"grants": {},
 				"prerequisite": "",
-				"requiresBloodied": false,
-				"ability": null,
-				"actionOptions": [
-					"damage"
-				],
-				"activation": {
-					"cost": 1,
-					"type": "reaction",
-					"reactionTrigger": "Targeted by one melee attack that would hit it made by a creature it can see."
-				},
-				"attack": {
-					"bonus": "",
-					"critThreshold": 20,
-					"type": ""
-				},
-				"area": {
-					"shape": ""
-				},
-				"check": {
-					"ability": "str"
-				},
-				"damage": [
-					{
-						"canCrit": false,
-						"damageType": "cold",
-						"defaultSelection": false,
-						"formula": "4d6",
-						"name": "Cold"
-					},
-					{
-						"canCrit": false,
-						"damageType": "fire",
-						"defaultSelection": false,
-						"formula": "4d6",
-						"name": "Fire"
-					},
-					{
-						"canCrit": false,
-						"damageType": "lightning",
-						"defaultSelection": false,
-						"formula": "4d6",
-						"name": "Lightning"
-					},
-					{
-						"canCrit": false,
-						"damageType": "psychic",
-						"defaultSelection": false,
-						"formula": "4d6",
-						"name": "Psychic"
+				"schemaVersion": {
+					"version": 0.014,
+					"lastMigration": {
+						"version": {
+							"schema": 0.014,
+							"foundry": "11.315",
+							"system": "0.17.17"
+						}
 					}
-				],
-				"duration": {
-					"unit": "instantaneous",
-					"value": ""
 				},
-				"healing": [],
-				"proficient": true,
-				"range": [],
-				"save": {
-					"dc": "",
-					"onSave": "",
-					"targetAbility": ""
-				},
-				"target": {
-					"quantity": 1,
-					"type": "creature"
-				}
+				"requiresBlooded": false
 			},
 			"effects": [],
 			"folder": null,
@@ -1220,58 +985,29 @@
 				"secretDescription": "",
 				"source": "",
 				"uses": {
-					"value": null,
+					"value": 0,
 					"max": "",
-					"per": null,
+					"per": "",
 					"recharge": {
 						"formula": "1d6",
-						"threshold": "6"
+						"threshold": 6
 					}
-				},
-				"schema": {
-					"version": null,
-					"lastMigration": null
 				},
 				"concentration": false,
 				"featureType": "other",
 				"grants": {},
 				"prerequisite": "",
-				"requiresBloodied": false,
-				"ability": "",
-				"actionOptions": [],
-				"activation": {
-					"cost": "",
-					"type": "",
-					"reactionTrigger": ""
+				"schemaVersion": {
+					"version": 0.014,
+					"lastMigration": {
+						"version": {
+							"schema": 0.014,
+							"foundry": "11.315",
+							"system": "0.17.17"
+						}
+					}
 				},
-				"attack": {
-					"bonus": "",
-					"critThreshold": 20,
-					"type": ""
-				},
-				"area": {
-					"shape": ""
-				},
-				"check": {
-					"ability": "str"
-				},
-				"damage": [],
-				"duration": {
-					"unit": "",
-					"value": ""
-				},
-				"healing": [],
-				"proficient": true,
-				"range": [],
-				"save": {
-					"dc": "",
-					"onSave": "",
-					"targetAbility": ""
-				},
-				"target": {
-					"quantity": "",
-					"type": ""
-				}
+				"requiresBlooded": false
 			},
 			"effects": [],
 			"folder": null,
@@ -1303,58 +1039,29 @@
 				"secretDescription": "",
 				"source": "",
 				"uses": {
-					"value": null,
+					"value": 0,
 					"max": "",
-					"per": null,
+					"per": "",
 					"recharge": {
 						"formula": "1d6",
-						"threshold": "6"
+						"threshold": 6
 					}
-				},
-				"schema": {
-					"version": null,
-					"lastMigration": null
 				},
 				"concentration": false,
 				"featureType": "other",
 				"grants": {},
 				"prerequisite": "",
-				"requiresBloodied": false,
-				"ability": "",
-				"actionOptions": [],
-				"activation": {
-					"cost": "",
-					"type": "",
-					"reactionTrigger": ""
+				"schemaVersion": {
+					"version": 0.014,
+					"lastMigration": {
+						"version": {
+							"schema": 0.014,
+							"foundry": "11.315",
+							"system": "0.17.17"
+						}
+					}
 				},
-				"attack": {
-					"bonus": "",
-					"critThreshold": 20,
-					"type": ""
-				},
-				"area": {
-					"shape": ""
-				},
-				"check": {
-					"ability": "str"
-				},
-				"damage": [],
-				"duration": {
-					"unit": "",
-					"value": ""
-				},
-				"healing": [],
-				"proficient": true,
-				"range": [],
-				"save": {
-					"dc": "",
-					"onSave": "",
-					"targetAbility": ""
-				},
-				"target": {
-					"quantity": "",
-					"type": ""
-				}
+				"requiresBlooded": false
 			},
 			"effects": [],
 			"folder": null,
@@ -1387,59 +1094,28 @@
 				"source": "",
 				"uses": {
 					"value": 1,
-					"max": 1,
+					"max": "1",
 					"per": "day",
 					"recharge": {
 						"formula": "1d6",
-						"threshold": "6"
+						"threshold": 6
 					}
-				},
-				"schema": {
-					"version": null,
-					"lastMigration": null
 				},
 				"concentration": false,
 				"featureType": "other",
 				"grants": {},
 				"prerequisite": "",
-				"requiresBloodied": false,
-				"ability": "",
-				"actionOptions": [],
-				"activation": {
-					"cost": 1,
-					"type": "action",
-					"reactionTrigger": ""
+				"schemaVersion": {
+					"version": 0.014,
+					"lastMigration": {
+						"version": {
+							"schema": 0.014,
+							"foundry": "11.315",
+							"system": "0.17.17"
+						}
+					}
 				},
-				"attack": {
-					"bonus": "",
-					"critThreshold": 20,
-					"type": ""
-				},
-				"area": {
-					"shape": ""
-				},
-				"check": {
-					"ability": "str"
-				},
-				"damage": [],
-				"duration": {
-					"unit": "instantaneous",
-					"value": ""
-				},
-				"healing": [],
-				"proficient": true,
-				"range": [
-					"short"
-				],
-				"save": {
-					"dc": "",
-					"onSave": "",
-					"targetAbility": ""
-				},
-				"target": {
-					"quantity": null,
-					"type": "creature"
-				}
+				"requiresBlooded": false
 			},
 			"effects": [],
 			"folder": null,
@@ -1471,60 +1147,29 @@
 				"secretDescription": "",
 				"source": "",
 				"uses": {
-					"value": null,
+					"value": 0,
 					"max": "",
-					"per": null,
+					"per": "",
 					"recharge": {
 						"formula": "1d6",
-						"threshold": "6"
+						"threshold": 6
 					}
-				},
-				"schema": {
-					"version": null,
-					"lastMigration": null
 				},
 				"concentration": false,
 				"featureType": "other",
 				"grants": {},
 				"prerequisite": "",
-				"requiresBloodied": false,
-				"ability": "",
-				"actionOptions": [],
-				"activation": {
-					"cost": 1,
-					"type": "bonusAction",
-					"reactionTrigger": ""
+				"schemaVersion": {
+					"version": 0.014,
+					"lastMigration": {
+						"version": {
+							"schema": 0.014,
+							"foundry": "11.315",
+							"system": "0.17.17"
+						}
+					}
 				},
-				"attack": {
-					"bonus": "",
-					"critThreshold": 20,
-					"type": ""
-				},
-				"area": {
-					"shape": ""
-				},
-				"check": {
-					"ability": "str"
-				},
-				"damage": [],
-				"duration": {
-					"unit": "minute",
-					"value": 1
-				},
-				"healing": [],
-				"proficient": true,
-				"range": [
-					"short"
-				],
-				"save": {
-					"dc": "",
-					"onSave": "",
-					"targetAbility": ""
-				},
-				"target": {
-					"quantity": null,
-					"type": "creature"
-				}
+				"requiresBlooded": false
 			},
 			"effects": [],
 			"folder": null,
@@ -1556,60 +1201,29 @@
 				"secretDescription": "",
 				"source": "",
 				"uses": {
-					"value": null,
+					"value": 0,
 					"max": "",
-					"per": null,
+					"per": "",
 					"recharge": {
 						"formula": "1d6",
-						"threshold": "6"
+						"threshold": 6
 					}
-				},
-				"schema": {
-					"version": null,
-					"lastMigration": null
 				},
 				"concentration": false,
 				"featureType": "other",
 				"grants": {},
 				"prerequisite": "",
-				"requiresBloodied": false,
-				"ability": "",
-				"actionOptions": [],
-				"activation": {
-					"cost": 1,
-					"type": "bonusAction",
-					"reactionTrigger": ""
+				"schemaVersion": {
+					"version": 0.014,
+					"lastMigration": {
+						"version": {
+							"schema": 0.014,
+							"foundry": "11.315",
+							"system": "0.17.17"
+						}
+					}
 				},
-				"attack": {
-					"bonus": "",
-					"critThreshold": 20,
-					"type": ""
-				},
-				"area": {
-					"shape": ""
-				},
-				"check": {
-					"ability": "str"
-				},
-				"damage": [],
-				"duration": {
-					"unit": "minute",
-					"value": 1
-				},
-				"healing": [],
-				"proficient": true,
-				"range": [
-					"short"
-				],
-				"save": {
-					"dc": "",
-					"onSave": "",
-					"targetAbility": ""
-				},
-				"target": {
-					"quantity": 1,
-					"type": "creature"
-				}
+				"requiresBlooded": false
 			},
 			"effects": [],
 			"folder": null,
@@ -1641,62 +1255,29 @@
 				"secretDescription": "",
 				"source": "",
 				"uses": {
-					"value": null,
+					"value": 0,
 					"max": "",
-					"per": null,
+					"per": "",
 					"recharge": {
 						"formula": "1d6",
-						"threshold": "6"
+						"threshold": 6
 					}
-				},
-				"schema": {
-					"version": null,
-					"lastMigration": null
 				},
 				"concentration": false,
 				"featureType": "other",
 				"grants": {},
 				"prerequisite": "",
-				"requiresBloodied": false,
-				"ability": "",
-				"actionOptions": [
-					"savingThrow"
-				],
-				"activation": {
-					"cost": 1,
-					"type": "bonusAction",
-					"reactionTrigger": ""
+				"schemaVersion": {
+					"version": 0.014,
+					"lastMigration": {
+						"version": {
+							"schema": 0.014,
+							"foundry": "11.315",
+							"system": "0.17.17"
+						}
+					}
 				},
-				"attack": {
-					"bonus": "",
-					"critThreshold": 20,
-					"type": ""
-				},
-				"area": {
-					"shape": ""
-				},
-				"check": {
-					"ability": "str"
-				},
-				"damage": [],
-				"duration": {
-					"unit": "day",
-					"value": 1
-				},
-				"healing": [],
-				"proficient": true,
-				"range": [
-					"short"
-				],
-				"save": {
-					"dc": "18",
-					"onSave": "Negates effects and is immune to this warlord's Fey Glamour for a year and a day.",
-					"targetAbility": "wis"
-				},
-				"target": {
-					"quantity": 1,
-					"type": "creature"
-				}
+				"requiresBlooded": false
 			},
 			"effects": [],
 			"folder": null,
@@ -1728,58 +1309,29 @@
 				"secretDescription": "",
 				"source": "",
 				"uses": {
-					"value": null,
+					"value": 0,
 					"max": "",
-					"per": null,
+					"per": "",
 					"recharge": {
 						"formula": "1d6",
-						"threshold": "6"
+						"threshold": 6
 					}
-				},
-				"schema": {
-					"version": null,
-					"lastMigration": null
 				},
 				"concentration": false,
 				"featureType": "other",
 				"grants": {},
 				"prerequisite": "",
-				"requiresBloodied": false,
-				"ability": "",
-				"actionOptions": [],
-				"activation": {
-					"cost": "",
-					"type": "",
-					"reactionTrigger": ""
+				"schemaVersion": {
+					"version": 0.014,
+					"lastMigration": {
+						"version": {
+							"schema": 0.014,
+							"foundry": "11.315",
+							"system": "0.17.17"
+						}
+					}
 				},
-				"attack": {
-					"bonus": "",
-					"critThreshold": 20,
-					"type": ""
-				},
-				"area": {
-					"shape": ""
-				},
-				"check": {
-					"ability": "str"
-				},
-				"damage": [],
-				"duration": {
-					"unit": "",
-					"value": ""
-				},
-				"healing": [],
-				"proficient": true,
-				"range": [],
-				"save": {
-					"dc": "",
-					"onSave": "",
-					"targetAbility": ""
-				},
-				"target": {
-					"quantity": "",
-					"type": ""
-				}
+				"requiresBlooded": false
 			},
 			"effects": [],
 			"folder": null,
@@ -1807,16 +1359,12 @@
 				"source": "",
 				"uses": {
 					"value": 3,
-					"max": 3,
+					"max": "3",
 					"per": "year",
 					"recharge": {
 						"formula": "1d6",
-						"threshold": "6"
+						"threshold": 6
 					}
-				},
-				"schema": {
-					"version": null,
-					"lastMigration": null
 				},
 				"classes": [],
 				"components": {
@@ -1824,11 +1372,10 @@
 					"seen": false,
 					"material": false
 				},
-				"concentration": false,
 				"level": 9,
 				"materials": "",
 				"materialsConsumed": false,
-				"prepared": false,
+				"prepared": 0,
 				"prerequisite": "",
 				"rare": false,
 				"ritual": false,
@@ -1838,46 +1385,17 @@
 						"arcane"
 					]
 				},
-				"ability": "spellcasting",
-				"actionOptions": [
-					"damage"
-				],
-				"activation": {
-					"cost": 1,
-					"type": "action",
-					"reactionTrigger": ""
+				"schemaVersion": {
+					"version": 0.014,
+					"lastMigration": {
+						"version": {
+							"schema": 0.014,
+							"foundry": "11.315",
+							"system": "0.17.17"
+						}
+					}
 				},
-				"attack": {
-					"bonus": "",
-					"critThreshold": 20,
-					"type": ""
-				},
-				"area": {
-					"shape": "",
-					"size": ""
-				},
-				"check": {
-					"ability": "str"
-				},
-				"damage": [],
-				"duration": {
-					"unit": "instantaneous",
-					"value": ""
-				},
-				"healing": [],
-				"proficient": true,
-				"range": [
-					""
-				],
-				"save": {
-					"dc": "",
-					"onSave": "",
-					"targetAbility": ""
-				},
-				"target": {
-					"quantity": "",
-					"type": "other"
-				}
+				"spellBook": "wfcDlrqR7bhsVxlZ"
 			},
 			"_id": "ijUwu4lN77LQ4R0y",
 			"folder": null,
@@ -1903,17 +1421,13 @@
 				"secretDescription": "",
 				"source": "",
 				"uses": {
-					"value": null,
+					"value": 0,
 					"max": "",
-					"per": null,
+					"per": "",
 					"recharge": {
 						"formula": "1d6",
-						"threshold": "6"
+						"threshold": 6
 					}
-				},
-				"schema": {
-					"version": null,
-					"lastMigration": null
 				},
 				"classes": [],
 				"components": {
@@ -1921,11 +1435,10 @@
 					"seen": true,
 					"material": false
 				},
-				"concentration": false,
 				"level": 3,
 				"materials": "",
 				"materialsConsumed": false,
-				"prepared": false,
+				"prepared": 0,
 				"prerequisite": "",
 				"rare": false,
 				"ritual": false,
@@ -1938,44 +1451,17 @@
 						"utility"
 					]
 				},
-				"ability": "spellcasting",
-				"actionOptions": [],
-				"activation": {
-					"cost": 1,
-					"type": "action",
-					"reactionTrigger": ""
+				"schemaVersion": {
+					"version": 0.014,
+					"lastMigration": {
+						"version": {
+							"schema": 0.014,
+							"foundry": "11.315",
+							"system": "0.17.17"
+						}
+					}
 				},
-				"attack": {
-					"bonus": "",
-					"critThreshold": 20,
-					"type": ""
-				},
-				"area": {
-					"shape": "sphere",
-					"radius": "30"
-				},
-				"check": {
-					"ability": "str"
-				},
-				"damage": [],
-				"duration": {
-					"unit": "minute",
-					"value": "10"
-				},
-				"healing": [],
-				"proficient": true,
-				"range": [
-					"self"
-				],
-				"save": {
-					"dc": "",
-					"onSave": "",
-					"targetAbility": ""
-				},
-				"target": {
-					"quantity": "",
-					"type": ""
-				}
+				"spellBook": "wfcDlrqR7bhsVxlZ"
 			},
 			"_id": "beOJs3j49h8WGfxC",
 			"folder": null,
@@ -2002,16 +1488,12 @@
 				"source": "",
 				"uses": {
 					"value": 3,
-					"max": 3,
+					"max": "3",
 					"per": "day",
 					"recharge": {
 						"formula": "1d6",
-						"threshold": "6"
+						"threshold": 6
 					}
-				},
-				"schema": {
-					"version": null,
-					"lastMigration": null
 				},
 				"classes": [],
 				"components": {
@@ -2019,11 +1501,10 @@
 					"seen": true,
 					"material": false
 				},
-				"concentration": true,
 				"level": 1,
 				"materials": "",
 				"materialsConsumed": false,
-				"prepared": false,
+				"prepared": 0,
 				"prerequisite": "",
 				"rare": false,
 				"ritual": false,
@@ -2035,47 +1516,17 @@
 						"terrain"
 					]
 				},
-				"ability": "spellcasting",
-				"actionOptions": [
-					"savingThrow",
-					"abilityCheck"
-				],
-				"activation": {
-					"cost": 1,
-					"type": "action",
-					"reactionTrigger": ""
+				"schemaVersion": {
+					"version": 0.014,
+					"lastMigration": {
+						"version": {
+							"schema": 0.014,
+							"foundry": "11.315",
+							"system": "0.17.17"
+						}
+					}
 				},
-				"attack": {
-					"bonus": "",
-					"critThreshold": 20,
-					"type": ""
-				},
-				"area": {
-					"shape": "cube",
-					"width": "20"
-				},
-				"check": {
-					"ability": "str"
-				},
-				"damage": [],
-				"duration": {
-					"unit": "minute",
-					"value": "1"
-				},
-				"healing": [],
-				"proficient": true,
-				"range": [
-					"long"
-				],
-				"save": {
-					"dc": "@spellDC",
-					"onSave": "Negates effect",
-					"targetAbility": "str"
-				},
-				"target": {
-					"quantity": "",
-					"type": ""
-				}
+				"spellBook": "wfcDlrqR7bhsVxlZ"
 			},
 			"_id": "4csWJzA8PstEZlif",
 			"folder": null,
@@ -2106,58 +1557,29 @@
 				"secretDescription": "",
 				"source": "",
 				"uses": {
-					"value": null,
+					"value": 0,
 					"max": "",
-					"per": null,
+					"per": "",
 					"recharge": {
 						"formula": "1d6",
-						"threshold": "6"
+						"threshold": 6
 					}
-				},
-				"schema": {
-					"version": null,
-					"lastMigration": null
 				},
 				"concentration": false,
 				"featureType": "other",
 				"grants": {},
 				"prerequisite": "",
-				"requiresBloodied": false,
-				"ability": "",
-				"actionOptions": [],
-				"activation": {
-					"cost": 1,
-					"type": "bonusAction",
-					"reactionTrigger": ""
+				"schemaVersion": {
+					"version": 0.014,
+					"lastMigration": {
+						"version": {
+							"schema": 0.014,
+							"foundry": "11.315",
+							"system": "0.17.17"
+						}
+					}
 				},
-				"attack": {
-					"bonus": "",
-					"critThreshold": 20,
-					"type": ""
-				},
-				"area": {
-					"shape": ""
-				},
-				"check": {
-					"ability": "str"
-				},
-				"damage": [],
-				"duration": {
-					"unit": "instantaneous",
-					"value": ""
-				},
-				"healing": [],
-				"proficient": true,
-				"range": [],
-				"save": {
-					"dc": "",
-					"onSave": "",
-					"targetAbility": ""
-				},
-				"target": {
-					"quantity": "",
-					"type": ""
-				}
+				"requiresBlooded": false
 			},
 			"effects": [],
 			"folder": null,
@@ -2193,58 +1615,29 @@
 				"secretDescription": "",
 				"source": "",
 				"uses": {
-					"value": null,
+					"value": 0,
 					"max": "",
-					"per": null,
+					"per": "",
 					"recharge": {
 						"formula": "1d6",
-						"threshold": "6"
+						"threshold": 6
 					}
-				},
-				"schema": {
-					"version": null,
-					"lastMigration": null
 				},
 				"concentration": false,
 				"featureType": "other",
 				"grants": {},
 				"prerequisite": "",
-				"requiresBloodied": false,
-				"ability": "",
-				"actionOptions": [],
-				"activation": {
-					"cost": "",
-					"type": "",
-					"reactionTrigger": ""
+				"schemaVersion": {
+					"version": 0.014,
+					"lastMigration": {
+						"version": {
+							"schema": 0.014,
+							"foundry": "11.315",
+							"system": "0.17.17"
+						}
+					}
 				},
-				"attack": {
-					"bonus": "",
-					"critThreshold": 20,
-					"type": ""
-				},
-				"area": {
-					"shape": ""
-				},
-				"check": {
-					"ability": "str"
-				},
-				"damage": [],
-				"duration": {
-					"unit": "",
-					"value": ""
-				},
-				"healing": [],
-				"proficient": true,
-				"range": [],
-				"save": {
-					"dc": "",
-					"onSave": "",
-					"targetAbility": ""
-				},
-				"target": {
-					"quantity": "",
-					"type": ""
-				}
+				"requiresBlooded": false
 			},
 			"effects": [],
 			"folder": null,
@@ -2316,22 +1709,12 @@
 				"secretDescription": "",
 				"source": "",
 				"uses": {
-					"value": null,
+					"value": 0,
 					"max": "",
-					"per": null,
+					"per": "",
 					"recharge": {
 						"formula": "1d6",
 						"threshold": 6
-					}
-				},
-				"schema": {
-					"version": 0.003,
-					"lastMigration": {
-						"version": {
-							"schema": null,
-							"foundry": "10.291",
-							"system": "0.10.7"
-						}
 					}
 				},
 				"concentration": false,
@@ -2339,7 +1722,17 @@
 				"exertionCost": 0,
 				"isStance": false,
 				"prerequisite": "",
-				"tradition": ""
+				"tradition": "",
+				"schemaVersion": {
+					"version": 0.014,
+					"lastMigration": {
+						"version": {
+							"schema": 0.014,
+							"foundry": "11.315",
+							"system": "0.17.17"
+						}
+					}
+				}
 			},
 			"_id": "sEmMhISxp9Z1pA3B",
 			"folder": null,
@@ -2406,22 +1799,12 @@
 				"secretDescription": "",
 				"source": "",
 				"uses": {
-					"value": null,
+					"value": 0,
 					"max": "",
-					"per": null,
+					"per": "",
 					"recharge": {
 						"formula": "1d6",
 						"threshold": 6
-					}
-				},
-				"schema": {
-					"version": 0.003,
-					"lastMigration": {
-						"version": {
-							"schema": null,
-							"foundry": "10.291",
-							"system": "0.10.7"
-						}
 					}
 				},
 				"concentration": false,
@@ -2429,7 +1812,17 @@
 				"exertionCost": 0,
 				"isStance": false,
 				"prerequisite": "",
-				"tradition": ""
+				"tradition": "",
+				"schemaVersion": {
+					"version": 0.014,
+					"lastMigration": {
+						"version": {
+							"schema": 0.014,
+							"foundry": "11.315",
+							"system": "0.17.17"
+						}
+					}
+				}
 			},
 			"_id": "c0ihCBENCxuXojqu",
 			"folder": null,
@@ -2505,22 +1898,12 @@
 				"secretDescription": "",
 				"source": "",
 				"uses": {
-					"value": null,
+					"value": 0,
 					"max": "",
-					"per": null,
+					"per": "",
 					"recharge": {
 						"formula": "1d6",
 						"threshold": 6
-					}
-				},
-				"schema": {
-					"version": 0.003,
-					"lastMigration": {
-						"version": {
-							"schema": null,
-							"foundry": "10.291",
-							"system": "0.10.7"
-						}
 					}
 				},
 				"concentration": false,
@@ -2528,7 +1911,17 @@
 				"exertionCost": 0,
 				"isStance": false,
 				"prerequisite": "",
-				"tradition": ""
+				"tradition": "",
+				"schemaVersion": {
+					"version": 0.014,
+					"lastMigration": {
+						"version": {
+							"schema": 0.014,
+							"foundry": "11.315",
+							"system": "0.17.17"
+						}
+					}
+				}
 			},
 			"_id": "EgiuBojo5gDruBtf",
 			"folder": null,
@@ -2595,22 +1988,12 @@
 				"secretDescription": "",
 				"source": "",
 				"uses": {
-					"value": null,
+					"value": 0,
 					"max": "",
-					"per": null,
+					"per": "",
 					"recharge": {
 						"formula": "1d6",
 						"threshold": 6
-					}
-				},
-				"schema": {
-					"version": 0.003,
-					"lastMigration": {
-						"version": {
-							"schema": null,
-							"foundry": "10.291",
-							"system": "0.10.7"
-						}
 					}
 				},
 				"concentration": false,
@@ -2618,7 +2001,17 @@
 				"exertionCost": 0,
 				"isStance": false,
 				"prerequisite": "",
-				"tradition": ""
+				"tradition": "",
+				"schemaVersion": {
+					"version": 0.014,
+					"lastMigration": {
+						"version": {
+							"schema": 0.014,
+							"foundry": "11.315",
+							"system": "0.17.17"
+						}
+					}
+				}
 			},
 			"_id": "oLEnDdoDeP653v2R",
 			"folder": null,
@@ -2685,22 +2078,12 @@
 				"secretDescription": "",
 				"source": "",
 				"uses": {
-					"value": null,
+					"value": 0,
 					"max": "",
-					"per": null,
+					"per": "",
 					"recharge": {
 						"formula": "1d6",
 						"threshold": 6
-					}
-				},
-				"schema": {
-					"version": 0.003,
-					"lastMigration": {
-						"version": {
-							"schema": null,
-							"foundry": "10.291",
-							"system": "0.10.7"
-						}
 					}
 				},
 				"concentration": false,
@@ -2708,7 +2091,17 @@
 				"exertionCost": 0,
 				"isStance": false,
 				"prerequisite": "",
-				"tradition": ""
+				"tradition": "",
+				"schemaVersion": {
+					"version": 0.014,
+					"lastMigration": {
+						"version": {
+							"schema": 0.014,
+							"foundry": "11.315",
+							"system": "0.17.17"
+						}
+					}
+				}
 			},
 			"_id": "r84AwJXntaP439wV",
 			"folder": null,
@@ -2784,22 +2177,12 @@
 				"secretDescription": "",
 				"source": "",
 				"uses": {
-					"value": null,
+					"value": 0,
 					"max": "",
-					"per": null,
+					"per": "",
 					"recharge": {
 						"formula": "1d6",
 						"threshold": 6
-					}
-				},
-				"schema": {
-					"version": 0.003,
-					"lastMigration": {
-						"version": {
-							"schema": null,
-							"foundry": "10.291",
-							"system": "0.10.7"
-						}
 					}
 				},
 				"concentration": false,
@@ -2807,7 +2190,17 @@
 				"exertionCost": 0,
 				"isStance": false,
 				"prerequisite": "",
-				"tradition": ""
+				"tradition": "",
+				"schemaVersion": {
+					"version": 0.014,
+					"lastMigration": {
+						"version": {
+							"schema": 0.014,
+							"foundry": "11.315",
+							"system": "0.17.17"
+						}
+					}
+				}
 			},
 			"_id": "vQuU75vMxM4WhS1V",
 			"folder": null,
@@ -2834,7 +2227,9 @@
 			"IncludeAbilityModifiersForSkills": true,
 			"showManeuverTab": false,
 			"showSpellTab": true,
-			"sheetIsLocked": false
+			"sheetIsLocked": false,
+			"sortMode": {},
+			"filters": {}
 		}
 	},
 	"folder": null,

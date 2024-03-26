@@ -532,13 +532,31 @@
 			"conditionImmunities": [],
 			"damageImmunities": [],
 			"damageResistances": [],
-			"damageVulnerabilities": []
+			"damageVulnerabilities": [],
+			"alignment": []
 		},
 		"schemaVersion": {
-			"version": 0.013,
-			"lastMigration": null
+			"version": 0.014,
+			"lastMigration": {
+				"version": {
+					"schema": 0.013,
+					"foundry": "11.315",
+					"system": "0.17.17"
+				}
+			}
 		},
-		"grants": {}
+		"grants": {},
+		"spellBooks": {
+			"D77CoKRet1zH4B8T": {
+				"_id": "D77CoKRet1zH4B8T",
+				"name": "New Spell Book",
+				"img": "icons/svg/book.svg",
+				"ability": "default",
+				"disableSpellConsumers": false,
+				"showSpellPoints": false,
+				"showSpellSlots": true
+			}
+		}
 	},
 	"prototypeToken": {
 		"name": "Dire Bison",
@@ -629,79 +647,29 @@
 				"secretDescription": "",
 				"source": "",
 				"uses": {
-					"value": null,
+					"value": 0,
 					"max": "",
-					"per": null,
+					"per": "",
 					"recharge": {
 						"formula": "1d6",
-						"threshold": "6"
+						"threshold": 6
 					}
-				},
-				"schema": {
-					"version": null,
-					"lastMigration": null
 				},
 				"concentration": false,
 				"featureType": "naturalWeapon",
 				"grants": {},
 				"prerequisite": "",
-				"requiresBloodied": false,
-				"ability": "default",
-				"actionOptions": [
-					"attack",
-					"damage",
-					"savingThrow"
-				],
-				"activation": {
-					"cost": 1,
-					"type": "action",
-					"reactionTrigger": ""
-				},
-				"attack": {
-					"bonus": "",
-					"critThreshold": "20",
-					"type": "meleeWeaponAttack"
-				},
-				"area": {
-					"shape": ""
-				},
-				"check": {
-					"ability": "str"
-				},
-				"damage": [
-					{
-						"canCrit": true,
-						"damageType": "bludgeoning",
-						"defaultSelection": true,
-						"formula": "4d10 + @mod",
-						"name": "Base Hit"
-					},
-					{
-						"canCrit": true,
-						"damageType": "bludgeoning",
-						"defaultSelection": true,
-						"formula": "2d8",
-						"name": "Additional if moved in straight line for 20ft."
+				"schemaVersion": {
+					"version": 0.014,
+					"lastMigration": {
+						"version": {
+							"schema": 0.014,
+							"foundry": "11.315",
+							"system": "0.17.17"
+						}
 					}
-				],
-				"duration": {
-					"unit": "instantaneous",
-					"value": ""
 				},
-				"healing": [],
-				"proficient": true,
-				"range": [
-					"5ft"
-				],
-				"save": {
-					"dc": "15",
-					"onSave": "Negates effects.",
-					"targetAbility": "str"
-				},
-				"target": {
-					"quantity": 1,
-					"type": "creature"
-				}
+				"requiresBlooded": false
 			},
 			"effects": [],
 			"folder": null,
@@ -733,71 +701,29 @@
 				"secretDescription": "",
 				"source": "",
 				"uses": {
-					"value": null,
+					"value": 0,
 					"max": "",
-					"per": null,
+					"per": "",
 					"recharge": {
 						"formula": "1d6",
-						"threshold": "6"
+						"threshold": 6
 					}
-				},
-				"schema": {
-					"version": null,
-					"lastMigration": null
 				},
 				"concentration": false,
 				"featureType": "naturalWeapon",
 				"grants": {},
 				"prerequisite": "",
-				"requiresBloodied": false,
-				"ability": "default",
-				"actionOptions": [
-					"savingThrow",
-					"damage"
-				],
-				"activation": {
-					"cost": 1,
-					"type": "action",
-					"reactionTrigger": ""
-				},
-				"attack": {
-					"bonus": "",
-					"critThreshold": 20,
-					"type": ""
-				},
-				"area": {
-					"shape": ""
-				},
-				"check": {
-					"ability": "str"
-				},
-				"damage": [
-					{
-						"canCrit": false,
-						"damageType": "bludgeoning",
-						"defaultSelection": true,
-						"formula": "3d8 + @mod",
-						"name": ""
+				"schemaVersion": {
+					"version": 0.014,
+					"lastMigration": {
+						"version": {
+							"schema": 0.014,
+							"foundry": "11.315",
+							"system": "0.17.17"
+						}
 					}
-				],
-				"duration": {
-					"unit": "instantaneous",
-					"value": ""
 				},
-				"healing": [],
-				"proficient": true,
-				"range": [
-					"40ft."
-				],
-				"save": {
-					"dc": "15",
-					"onSave": "Negates effects.",
-					"targetAbility": "dex"
-				},
-				"target": {
-					"quantity": "",
-					"type": ""
-				}
+				"requiresBlooded": false
 			},
 			"effects": [],
 			"folder": null,
@@ -865,22 +791,12 @@
 				"secretDescription": "",
 				"source": "",
 				"uses": {
-					"value": null,
+					"value": 0,
 					"max": "",
-					"per": null,
+					"per": "",
 					"recharge": {
 						"formula": "1d6",
 						"threshold": 6
-					}
-				},
-				"schema": {
-					"version": 0.003,
-					"lastMigration": {
-						"version": {
-							"schema": null,
-							"foundry": "10.291",
-							"system": "0.10.7"
-						}
 					}
 				},
 				"concentration": false,
@@ -888,7 +804,17 @@
 				"exertionCost": 0,
 				"isStance": false,
 				"prerequisite": "",
-				"tradition": ""
+				"tradition": "",
+				"schemaVersion": {
+					"version": 0.014,
+					"lastMigration": {
+						"version": {
+							"schema": 0.014,
+							"foundry": "11.315",
+							"system": "0.17.17"
+						}
+					}
+				}
 			},
 			"_id": "msJlP1LiHbO8RxDT",
 			"folder": null,
@@ -955,22 +881,12 @@
 				"secretDescription": "",
 				"source": "",
 				"uses": {
-					"value": null,
+					"value": 0,
 					"max": "",
-					"per": null,
+					"per": "",
 					"recharge": {
 						"formula": "1d6",
 						"threshold": 6
-					}
-				},
-				"schema": {
-					"version": 0.003,
-					"lastMigration": {
-						"version": {
-							"schema": null,
-							"foundry": "10.291",
-							"system": "0.10.7"
-						}
 					}
 				},
 				"concentration": false,
@@ -978,7 +894,17 @@
 				"exertionCost": 0,
 				"isStance": false,
 				"prerequisite": "",
-				"tradition": ""
+				"tradition": "",
+				"schemaVersion": {
+					"version": 0.014,
+					"lastMigration": {
+						"version": {
+							"schema": 0.014,
+							"foundry": "11.315",
+							"system": "0.17.17"
+						}
+					}
+				}
 			},
 			"_id": "Ij7u6P6JPe9TKhe5",
 			"folder": null,
@@ -1054,22 +980,12 @@
 				"secretDescription": "",
 				"source": "",
 				"uses": {
-					"value": null,
+					"value": 0,
 					"max": "",
-					"per": null,
+					"per": "",
 					"recharge": {
 						"formula": "1d6",
 						"threshold": 6
-					}
-				},
-				"schema": {
-					"version": 0.003,
-					"lastMigration": {
-						"version": {
-							"schema": null,
-							"foundry": "10.291",
-							"system": "0.10.7"
-						}
 					}
 				},
 				"concentration": false,
@@ -1077,7 +993,17 @@
 				"exertionCost": 0,
 				"isStance": false,
 				"prerequisite": "",
-				"tradition": ""
+				"tradition": "",
+				"schemaVersion": {
+					"version": 0.014,
+					"lastMigration": {
+						"version": {
+							"schema": 0.014,
+							"foundry": "11.315",
+							"system": "0.17.17"
+						}
+					}
+				}
 			},
 			"_id": "nVmxymnAbpjaqkzS",
 			"folder": null,
@@ -1144,22 +1070,12 @@
 				"secretDescription": "",
 				"source": "",
 				"uses": {
-					"value": null,
+					"value": 0,
 					"max": "",
-					"per": null,
+					"per": "",
 					"recharge": {
 						"formula": "1d6",
 						"threshold": 6
-					}
-				},
-				"schema": {
-					"version": 0.003,
-					"lastMigration": {
-						"version": {
-							"schema": null,
-							"foundry": "10.291",
-							"system": "0.10.7"
-						}
 					}
 				},
 				"concentration": false,
@@ -1167,7 +1083,17 @@
 				"exertionCost": 0,
 				"isStance": false,
 				"prerequisite": "",
-				"tradition": ""
+				"tradition": "",
+				"schemaVersion": {
+					"version": 0.014,
+					"lastMigration": {
+						"version": {
+							"schema": 0.014,
+							"foundry": "11.315",
+							"system": "0.17.17"
+						}
+					}
+				}
 			},
 			"_id": "b2FDZ56uCl98YrlN",
 			"folder": null,
@@ -1234,22 +1160,12 @@
 				"secretDescription": "",
 				"source": "",
 				"uses": {
-					"value": null,
+					"value": 0,
 					"max": "",
-					"per": null,
+					"per": "",
 					"recharge": {
 						"formula": "1d6",
 						"threshold": 6
-					}
-				},
-				"schema": {
-					"version": 0.003,
-					"lastMigration": {
-						"version": {
-							"schema": null,
-							"foundry": "10.291",
-							"system": "0.10.7"
-						}
 					}
 				},
 				"concentration": false,
@@ -1257,7 +1173,17 @@
 				"exertionCost": 0,
 				"isStance": false,
 				"prerequisite": "",
-				"tradition": ""
+				"tradition": "",
+				"schemaVersion": {
+					"version": 0.014,
+					"lastMigration": {
+						"version": {
+							"schema": 0.014,
+							"foundry": "11.315",
+							"system": "0.17.17"
+						}
+					}
+				}
 			},
 			"_id": "OkjU6Rse5jW6oJJy",
 			"folder": null,
@@ -1333,22 +1259,12 @@
 				"secretDescription": "",
 				"source": "",
 				"uses": {
-					"value": null,
+					"value": 0,
 					"max": "",
-					"per": null,
+					"per": "",
 					"recharge": {
 						"formula": "1d6",
 						"threshold": 6
-					}
-				},
-				"schema": {
-					"version": 0.003,
-					"lastMigration": {
-						"version": {
-							"schema": null,
-							"foundry": "10.291",
-							"system": "0.10.7"
-						}
 					}
 				},
 				"concentration": false,
@@ -1356,7 +1272,17 @@
 				"exertionCost": 0,
 				"isStance": false,
 				"prerequisite": "",
-				"tradition": ""
+				"tradition": "",
+				"schemaVersion": {
+					"version": 0.014,
+					"lastMigration": {
+						"version": {
+							"schema": 0.014,
+							"foundry": "11.315",
+							"system": "0.17.17"
+						}
+					}
+				}
 			},
 			"_id": "yq72UASzgNE0CRF8",
 			"folder": null,
@@ -1367,7 +1293,12 @@
 		}
 	],
 	"effects": [],
-	"flags": {},
+	"flags": {
+		"a5e": {
+			"sortMode": {},
+			"filters": {}
+		}
+	},
 	"folder": null,
 	"_id": "1fivfgvsdbkudmwe"
 }
