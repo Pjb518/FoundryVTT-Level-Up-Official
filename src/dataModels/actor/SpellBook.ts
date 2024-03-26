@@ -79,7 +79,7 @@ export default class SpellBook extends A5EDataModel {
     let { ability } = this;
 
     if (this.ability === 'default') ability = actor.system.attributes.spellcasting;
-    if (!this.ability) ability = 'int';
+    if (!ability) ability = 'int';
 
     const spellDC = getDeterministicBonus([
       8,
