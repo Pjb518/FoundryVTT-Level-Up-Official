@@ -188,7 +188,8 @@
                 <input
                     class="number-input"
                     type="number"
-                    value={spellResources.points.max}
+                    value={spellResources.points.current ??
+                        spellResources.points.max}
                     disabled
                 />
             </div>
