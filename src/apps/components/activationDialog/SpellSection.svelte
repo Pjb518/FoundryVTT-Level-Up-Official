@@ -133,7 +133,7 @@
         spellData.consume = "noConsume";
     }
 
-    if (spellBook.disableSpellConsumers) {
+    if (spellBook?.disableSpellConsumers) {
         spellData.consume = "noConsume";
     }
 

@@ -464,7 +464,7 @@ export default class RollPreparationManager {
     const spellConsumer = this.#consumers.spell;
     if (foundry.utils.isEmpty(spellConsumer)) return roll.formula;
 
-    const { basePoints } = spellConsumer;
+    const basePoints = spellConsumer?.basePoints || 1;
     if (basePoints >= spellConsumer.points) return roll.formula;
 
     const delta = Math.max(0, spellConsumer.points - basePoints);

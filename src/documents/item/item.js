@@ -399,7 +399,7 @@ export default class ItemA5e extends BaseItemA5e {
       spellData.points = spellPoints;
 
       const spellBook = this.parent?.spellBooks?.get(this.system.spellBook);
-      if (spellBook.disableSpellConsumers) spellData.consume = 'noConsume';
+      if (spellBook?.disableSpellConsumers) spellData.consume = 'noConsume';
     }
 
     return {
