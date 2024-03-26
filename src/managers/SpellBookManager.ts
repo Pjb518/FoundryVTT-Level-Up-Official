@@ -4,7 +4,7 @@ import SpellBook from '../dataModels/actor/SpellBook';
 export default class SpellBookManager extends Map<string, SpellBook> {
   private actor: typeof Actor;
 
-  default: SpellBook | null;
+  default: SpellBook | null = null;
 
   constructor(actor: typeof Actor) {
     super();
@@ -18,15 +18,16 @@ export default class SpellBookManager extends Map<string, SpellBook> {
         data._id = id;
         const spellBook = new SpellBook(data, { parent: this.actor });
         this.set(id, spellBook);
+
+        // Set the default spell book
+        if (data.default) this.default = spellBook;
       });
 
     // If only one spell book exists, set it as the default
-    if (this.size === 1) {
+    if (this.size === 1 && !this.default) {
       const defaultSpellBook: SpellBook = this.values().next().value;
       if (!defaultSpellBook.default) defaultSpellBook.updateSource({ default: true });
     }
-
-    this.default = [...this.values()].find((spellBook: SpellBook) => spellBook.default) ?? null;
   }
 
   async add(data: SpellBookData) {
@@ -37,6 +38,19 @@ export default class SpellBookManager extends Map<string, SpellBook> {
     });
 
     return id;
+  }
+
+  async setDefault(id: string): Promise<boolean> {
+    const spellBook = this.get(id);
+    if (!spellBook) return false;
+
+    const updates = {};
+    this.forEach((sb: SpellBook) => {
+      updates[`system.spellBooks.${sb._id}.default`] = sb._id === id;
+    });
+
+    await this.actor.update(updates);
+    return true;
   }
 
   remove(id: string) {
