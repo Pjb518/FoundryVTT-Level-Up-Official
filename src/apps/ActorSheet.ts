@@ -237,9 +237,7 @@ export default class ActorSheet extends SvelteApplication {
       if (dragData?.parentId === this.actor?.id) return;
     }
 
-    if (currentTab === 'spells') {
-      if (currentSpellBook) options.spellBookId = currentSpellBook;
-    }
+    if (currentSpellBook) options.spellBookId = currentSpellBook;
 
     const { uuid, type } = dragData;
 
