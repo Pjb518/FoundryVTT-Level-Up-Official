@@ -1,4 +1,5 @@
 import BackgroundDataModel from './BackgroundDataModel';
+import ClassDataModel from './ClassDataModel';
 import CultureDataModel from './CultureDataModel';
 import DestinyDataModel from './DestinyDataModel';
 import HeritageDataModel from './HeritageDataModel';
@@ -10,6 +11,7 @@ import SpellDataModel from './SpellDataModel';
 
 const itemDataModels = {
   background: BackgroundDataModel,
+  class: ClassDataModel,
   culture: CultureDataModel,
   destiny: DestinyDataModel,
   heritage: HeritageDataModel,
