@@ -4,22 +4,35 @@ export default class A5EDataModel extends foundry.abstract.TypeDataModel {
 
   static _schemaTemplates: Array<any> = [];
 
-  static _immiscible: Set<string> = new Set(['length', 'mixed', 'name', 'prototype', 'migrateData', 'defineSchema']);
+  static _immiscible: Set<string> = new Set(['length', 'mixed', 'name', 'prototype', 'cleanData', '_cleanData',
+    '_initializationOrder', 'validateJoint', '_validateJoint', 'migrateData', '_migrateData',
+    'shimData', '_shimData', 'defineSchema']);
 
   /**
-   * @override
+   * The field names of the base templates used for construction.
+   * @type {Set<string>}
+   * @private
    */
-  _cleanType(data, options: any = {}) {
-    options.source = options.source ?? data;
+  static get _schemaTemplateFields() {
+    const fieldNames = Object.freeze(
+      new Set(this._schemaTemplates.map((t) => t.schema.keys()).flat())
+    );
 
-    // Clean each field that belongs to the schema
-    for (const [name, field] of this.entries()) {
-      if (!(name in data) && options.partial) continue;
-      data[name] = field.clean(data[name], options);
-      if (data[name] === undefined) delete data[name];
-    }
+    Object.defineProperty(this, '_schemaTemplateFields', {
+      value: fieldNames,
+      writable: false,
+      configurable: false
+    });
 
-    return data;
+    return fieldNames;
+  }
+
+  static metadata: any = Object.freeze({
+    systemFlagsModel: null
+  });
+
+  get metadata() {
+    return A5EDataModel.metadata;
   }
 
   static defineSchema(): any {
@@ -77,8 +90,67 @@ export default class A5EDataModel extends foundry.abstract.TypeDataModel {
     return super.migrateData(source);
   }
 
-  static mixin(...templates: A5EDataModel[]): A5EDataModel {
-    const Base = class extends this { };
+  // static cleanData(source: Record<string, any>, options: Record<string, any> = {}) {
+  //   this._cleanData(source, options);
+  //   return super.cleanData(source, options);
+  // }
+
+  // static _cleanData(source: Record<string, any>, options: Record<string, any> = {}) {
+  //   for (const template of this._schemaTemplates) {
+  //     template._cleanData?.(source, options);
+  //   }
+  // }
+
+  // eslint-disable-next-line generator-star-spacing
+  static * _initializationOrder() {
+    for (const template of this._schemaTemplates) {
+      for (const entry of template._initializationOrder()) {
+        entry[1] = this.schema.get(entry[0]);
+        yield entry;
+      }
+    }
+
+    for (const entry of this.schema.entries()) {
+      if (this._schemaTemplateFields.has(entry[0])) continue;
+      yield entry;
+    }
+  }
+
+  // static validateJoint(data: Record<string, any>) {
+  //   this._validateJoint(data);
+  //   return super.validateJoint(data);
+  // }
+
+  // static _validateJoint(data) {
+  //   for (const template of this._schemaTemplates) {
+  //     template._validateJoint(data);
+  //   }
+  // }
+
+  // static migrateData(source: Record<string, any>) {
+  //   this._migrateData(source);
+  //   return super.migrateData(source);
+  // }
+
+  // static _migrateData(source: Record<string, any>) {
+  //   for (const template of this._schemaTemplates) {
+  //     template._migrateData(source);
+  //   }
+  // }
+
+  // static shimData(data: Record<string, any>, options: Record<string, any>) {
+  //   this._shimData(data, options);
+  //   return super.shimData(data, options);
+  // }
+
+  // static _shimData(data: Record<string, any>, options: Record<string, any>) {
+  //   for (const template of this._schemaTemplates) {
+  //     template._shimData(data, options);
+  //   }
+  // }
+
+  static mixin(...templates: any[]): typeof A5EDataModel {
+    const Base: typeof A5EDataModel = class extends A5EDataModel { };
     Object.defineProperty(Base, '_schemaTemplates', {
       value: Object.seal([...this._schemaTemplates, ...templates]),
       writable: false,
@@ -86,14 +158,35 @@ export default class A5EDataModel extends foundry.abstract.TypeDataModel {
     });
 
     for (const template of templates) {
+      // Take all static methods and fields from template and mix in to base class
       for (const [key, value] of Object.entries(Object.getOwnPropertyDescriptors(template))) {
-        // eslint-disable-next-line no-continue
         if (this._immiscible.has(key)) continue;
         Object.defineProperty(Base.prototype, key, value);
       }
+
+      // Take all instance methods and fields from template and mix in to base class
+      for (const [key, descriptor] of Object.entries(
+        Object.getOwnPropertyDescriptors(template.prototype)
+      )) {
+        if (['constructor'].includes(key)) continue;
+        Object.defineProperty(Base.prototype, key, descriptor);
+      }
     }
 
-    // @ts-ignore
     return Base;
+  }
+
+  // @ts-ignore
+  override _cleanType(data: Record<string, any>, options: any = {}) {
+    options.source = options.source ?? data;
+
+    // Clean each field that belongs to the schema
+    for (const [name, field] of this.entries()) {
+      if (!(name in data) && options.partial) continue;
+      data[name] = field.clean(data[name], options);
+      if (data[name] === undefined) delete data[name];
+    }
+
+    return data;
   }
 }
