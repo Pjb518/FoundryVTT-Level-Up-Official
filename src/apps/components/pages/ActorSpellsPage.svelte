@@ -110,6 +110,10 @@
     let currentSpellBook =
         tempSettings[$actor?.uuid]?.currentSpellBook ??
         Object.keys($actor.system.spellBooks ?? {})?.[0];
+
+    if (!$spells._books[currentSpellBook]) {
+        spells.initialize();
+    }
 </script>
 
 {#if !sheetIsLocked || [...spellBooks].length > 1}
