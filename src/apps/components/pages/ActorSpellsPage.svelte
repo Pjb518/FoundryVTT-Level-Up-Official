@@ -155,10 +155,13 @@
 {/if}
 
 {#if currentSpellBook && $spells._books[currentSpellBook]}
-    <SpellBook
-        spellBookId={currentSpellBook}
-        reducer={$spells._books[currentSpellBook]}
-    />
+    <!-- This is needed to refresh filters-->
+    {#key currentSpellBook}
+        <SpellBook
+            spellBookId={currentSpellBook}
+            reducer={$spells._books[currentSpellBook]}
+        />
+    {/key}
 {/if}
 
 <TabFooter --padding-right="1rem">
