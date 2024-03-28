@@ -47,6 +47,8 @@ export default class ClassItemA5e extends OriginItemA5e {
       current: this.totalHitDice - this.system.hp.hitDiceUsed,
       total: this.totalHitDice
     };
+
+    this.casting = this.prepareCasterData();
   }
 
   prepareMaxHitPoints() {
@@ -56,6 +58,22 @@ export default class ClassItemA5e extends OriginItemA5e {
       if (level > this.classLevels) return acc;
       return acc + value.hp;
     }, 0);
+  }
+
+  prepareCasterData() {
+    const { casterType } = this.system.spellcasting;
+    if (!casterType || casterType === 'none') return null;
+
+    // TODO: Prepare caster data
+    return {
+      type: casterType
+    };
+  }
+
+  getRollData() {
+    const data = { ...super.getRollData() };
+    // TODO: Add class specific data here
+    return data;
   }
 
   async _onCreate(data, options, userId) {
