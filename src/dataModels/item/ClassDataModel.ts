@@ -8,6 +8,9 @@ export default class ClassDataModel extends A5EDataModel.mixin(SchemaDataModel) 
     return this.mergeSchema(super.defineSchema(), {
       slug: new fields.StringField({ nullable: false, initial: '' }),
       description: new fields.HTMLField({ nullable: false, initial: '' }),
+      classLevels: new fields.NumberField({
+        nullable: false, initial: 0, min: 0, max: 20
+      }),
       combatManeuvers: new fields.SchemaField({
         startingManeuvers: new fields.NumberField({ nullable: false, initial: 0, min: 0 })
       }),
@@ -30,7 +33,7 @@ export default class ClassDataModel extends A5EDataModel.mixin(SchemaDataModel) 
       }),
       resources: new fields.ArrayField(
         new fields.SchemaField({
-          name: new fields.StringField({ nullable: false, initial: '' }),
+          name: new fields.StringField({ nullable: false, initial: 'New Resource' }),
           reference: new fields.SchemaField(
             Array.from({ length: 20 }, (_, i) => i + 1)
               .reduce((acc, level) => {
@@ -38,7 +41,6 @@ export default class ClassDataModel extends A5EDataModel.mixin(SchemaDataModel) 
                 return acc;
               }, {})
           ),
-          slug: new fields.StringField({ nullable: false, initial: '' }),
           type: new fields.StringField({
             nullable: false,
             initial: '',

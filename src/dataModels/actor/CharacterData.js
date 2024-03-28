@@ -16,6 +16,9 @@ export default class CharacterData extends BaseActorData {
           recoverOnRest: new fields.BooleanField({ required: true, initial: true })
         })
       }),
+      classes: new fields.SchemaField({
+        startingClass: new fields.StringField({ required: true, initial: '' })
+      }),
       details: new fields.SchemaField({
         age: new fields.StringField({ required: true, initial: '' }),
         appearance: new fields.StringField({ required: true, initial: '' }),
