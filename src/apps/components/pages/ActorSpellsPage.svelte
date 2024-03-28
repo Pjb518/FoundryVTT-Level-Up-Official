@@ -187,7 +187,7 @@
     {/if}
 
     <!-- Spell Points -->
-    {#if $actor.flags.a5e?.showSpellPoints ?? false}
+    {#if $actor.spellBooks?.get(currentSpellBook)?.showSpellPoints ?? false}
         <div class="u-flex u-flex-wrap u-align-center u-gap-md">
             <h3 class="u-mb-0 u-text-bold u-text-sm u-flex-grow-1">
                 {localize("A5E.SpellPoints")}
