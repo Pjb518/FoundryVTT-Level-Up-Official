@@ -13,8 +13,8 @@ export default class SpellBookManager extends Map<string, SpellBook> {
     const spellBookData: SpellBookData = this.actor.system.spellBooks ?? {};
     Object.entries(spellBookData ?? {})
       .forEach(([id, data]: [string, SpellBookData]) => {
-        data._id = id;
         const spellBook = new SpellBook(data, { parent: this.actor });
+        spellBook._id = id;
         this.set(id, spellBook);
       });
   }

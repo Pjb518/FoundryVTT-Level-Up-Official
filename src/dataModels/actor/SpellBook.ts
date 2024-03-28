@@ -33,7 +33,6 @@ export default class SpellBook extends A5EDataModel {
     const { fields } = foundry.data;
 
     return {
-      _id: new fields.DocumentIdField({ initial: () => foundry.utils.randomID() }),
       name: new fields.StringField({ required: true, initial: 'New Spell Book' }),
       img: new fields.StringField({ required: true, initial: 'icons/svg/book.svg' }),
 
