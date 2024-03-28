@@ -8,6 +8,9 @@ export default class ClassDataModel extends A5EDataModel.mixin(SchemaDataModel) 
     return this.mergeSchema(super.defineSchema(), {
       slug: new fields.StringField({ nullable: false, initial: '' }),
       description: new fields.HTMLField({ nullable: false, initial: '' }),
+      combatManeuvers: new fields.SchemaField({
+        startingManeuvers: new fields.NumberField({ nullable: false, initial: 0, min: 0 })
+      }),
       hp: new fields.SchemaField({
         hitDiceSize: new fields.NumberField({
           nullable: false, initial: 6, min: 4, max: 20
@@ -22,10 +25,32 @@ export default class ClassDataModel extends A5EDataModel.mixin(SchemaDataModel) 
         )
       }),
       grants: new fields.ObjectField({
-        nullable: false,
-        initial: () => { }
+        nullable: false
+        // initial: () => { }
       }),
+      resources: new fields.ArrayField(
+        new fields.SchemaField({
+          name: new fields.StringField({ nullable: false, initial: '' }),
+          reference: new fields.SchemaField(
+            Array.from({ length: 20 }, (_, i) => i + 1)
+              .reduce((acc, level) => {
+                acc[level] = new fields.StringField({ nullable: false, initial: 0, min: 0 });
+                return acc;
+              }, {})
+          ),
+          slug: new fields.StringField({ nullable: false, initial: '' }),
+          type: new fields.StringField({
+            nullable: false,
+            initial: '',
+            choices: ['number', 'dice', 'string']
+          })
+        })
+      ),
       source: new fields.StringField({ nullable: false, initial: '' }),
+      spellcasting: new fields.SchemaField({
+        ability: new fields.StringField({ nullable: false, initial: 'none' }),
+        casterType: new fields.StringField({ nullable: false, initial: 'none' })
+      }),
       wealth: new fields.StringField({ nullable: false, initial: '' })
     });
   }
