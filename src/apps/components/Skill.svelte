@@ -225,7 +225,6 @@
             color: rgba(0, 0, 0, 0.25);
             cursor: pointer;
 
-            &--jack,
             &--proficient {
                 color: $color-primary;
             }
