@@ -4,7 +4,10 @@ export default class Migration014SpellBooks extends MigrationBase {
   static version = 0.014;
 
   async updateActor(actorData: Record<string, any>) {
-    const id = foundry.utils.randomID();
+    const id = Object.keys(actorData.system.spellBooks ?? {})?.[0] || foundry.utils.randomID();
+
+    const showSpellPoints = foundry.utils.getProperty(actorData, 'flags.a5e.showSpellPoints') ?? false;
+    const showSpellSlots = foundry.utils.getProperty(actorData, 'flags.a5e.showSpellSlots') ?? true;
 
     const spellBook = {
       _id: id,
@@ -13,8 +16,8 @@ export default class Migration014SpellBooks extends MigrationBase {
 
       ability: 'default',
       disableSpellConsumers: false,
-      showSpellPoints: false,
-      showSpellSlots: true
+      showSpellPoints,
+      showSpellSlots
     };
 
     actorData['system.spellBooks'] = { [id]: spellBook };
@@ -22,6 +25,8 @@ export default class Migration014SpellBooks extends MigrationBase {
     // Update flags
     actorData['flags.a5e.filters.-=exclusive'] = null;
     actorData['flags.a5e.filters.-=inclusive'] = null;
+    actorData['flags.a5e.-=showSpellPoints'] = null;
+    actorData['flags.a5e.-=showSpellSlots'] = null;
     foundry.utils.setProperty(actorData, 'flags.a5e.sortMode', {});
 
     // Update items

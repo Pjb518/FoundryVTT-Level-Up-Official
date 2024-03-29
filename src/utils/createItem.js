@@ -1,4 +1,7 @@
+import { get } from 'svelte/store';
 import { localize } from '#runtime/svelte/helper';
+
+import ActorSheetTempSettingsStore from '../stores/ActorSheetTempSettingsStore';
 
 function getItemName(itemType, subType) {
   if (itemType === 'feature') {
@@ -52,9 +55,15 @@ function createObject(type) {
   };
 }
 
-function createSpell(type) {
+function createSpell(type, options = {}) {
+  const { actor } = options;
+
+  const spellBookId = get(ActorSheetTempSettingsStore)?.[actor.uuid]?.currentSpellBook
+    || actor.spellBooks?.first()?._id;
+
   const system = {
-    level: Number(type)
+    level: Number(type),
+    spellBook: spellBookId
   };
 
   if (system.level === 0) return system;
@@ -89,7 +98,7 @@ export default async function createItem(actor, itemType, subType) {
   const updateData = {
     name: localize('A5E.NewItem', { type: localize(getItemName(itemType, subType)) }),
     type: itemType,
-    system: itemMappings[itemType](subType)
+    system: itemMappings[itemType](subType, { actor })
   };
 
   const documents = await actor.createEmbeddedDocuments('Item', [updateData]);

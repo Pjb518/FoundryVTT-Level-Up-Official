@@ -110,6 +110,10 @@
     let currentSpellBook =
         tempSettings[$actor?.uuid]?.currentSpellBook ??
         Object.keys($actor.system.spellBooks ?? {})?.[0];
+
+    if (!$spells._books[currentSpellBook]) {
+        spells.initialize();
+    }
 </script>
 
 {#if !sheetIsLocked || [...spellBooks].length > 1}
@@ -155,10 +159,13 @@
 {/if}
 
 {#if currentSpellBook && $spells._books[currentSpellBook]}
-    <SpellBook
-        spellBookId={currentSpellBook}
-        reducer={$spells._books[currentSpellBook]}
-    />
+    <!-- This is needed to refresh filters-->
+    {#key currentSpellBook}
+        <SpellBook
+            spellBookId={currentSpellBook}
+            reducer={$spells._books[currentSpellBook]}
+        />
+    {/key}
 {/if}
 
 <TabFooter --padding-right="1rem">
@@ -180,7 +187,7 @@
     {/if}
 
     <!-- Spell Points -->
-    {#if $actor.flags.a5e?.showSpellPoints ?? false}
+    {#if $actor.spellBooks?.get(currentSpellBook)?.showSpellPoints ?? false}
         <div class="u-flex u-flex-wrap u-align-center u-gap-md">
             <h3 class="u-mb-0 u-text-bold u-text-sm u-flex-grow-1">
                 {localize("A5E.SpellPoints")}

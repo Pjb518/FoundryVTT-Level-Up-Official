@@ -1120,6 +1120,7 @@ A5E.skillSpecialties = {
     courtlyManners: 'A5E.skillSpecialties.courtlyManners',
     cuisine: 'A5E.skillSpecialties.cuisine',
     etiquette: 'A5E.skillSpecialties.etiquette',
+    fencingProtocol: 'A5E.skillSpecialties.fencingProtocol',
     laws: 'A5E.skillSpecialties.laws',
     linguistics: 'A5E.skillSpecialties.linguistics',
     regionalGoods: 'A5E.skillSpecialties.regionalGoods',

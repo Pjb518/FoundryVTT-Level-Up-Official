@@ -14,6 +14,7 @@ export default class SpellDataModel extends BaseItemData {
         seen: new fields.BooleanField({ required: true, initial: false }),
         material: new fields.BooleanField({ required: true, initial: false })
       }),
+      concentration: new fields.BooleanField({ required: true, initial: false }),
       level: new fields.NumberField({
         required: true, initial: 0, integer: true, min: 0
       }),
