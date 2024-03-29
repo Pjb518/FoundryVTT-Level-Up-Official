@@ -5,17 +5,212 @@ export default function registerClassesConfig(A5E) {
     halfCaster: 'A5E.classes.casterTypes.halfCaster',
     tertiaryCaster: 'A5E.classes.casterTypes.tertiaryCaster',
     quaternaryCaster: 'A5E.classes.casterTypes.quaternaryCaster',
-    artificer: 'A5E.classes.casterTypes.artificer',
-    warlock5e: 'A5E.classes.casterTypes.warlock5e',
+    artificerA5e: 'A5E.classes.casterTypes.artificerA5e',
+    artificer5e: 'A5E.classes.casterTypes.artificer5e',
+    elementalist: 'A5E.classes.casterTypes.elementalist',
     warlockA5e: 'A5E.classes.casterTypes.warlockA5e',
+    warlock5e: 'A5E.classes.casterTypes.warlock5e',
     wielder: 'A5E.classes.casterTypes.wielder'
   };
 
+  // ------------------------------------------------------------
+  // Spell Casting Progression
+  // ------------------------------------------------------------
+  A5E.SPELL_SLOT_TABLE = {
+    1: [2],
+    2: [3],
+    3: [4, 2],
+    4: [4, 3],
+    5: [4, 3, 2],
+    6: [4, 3, 3],
+    7: [4, 3, 3, 1],
+    8: [4, 3, 3, 2],
+    9: [4, 3, 3, 3, 1],
+    10: [4, 3, 3, 3, 2],
+    11: [4, 3, 3, 3, 2, 1],
+    12: [4, 3, 3, 3, 2, 1],
+    13: [4, 3, 3, 3, 2, 1, 1],
+    14: [4, 3, 3, 3, 2, 1, 1],
+    15: [4, 3, 3, 3, 2, 1, 1, 1],
+    16: [4, 3, 3, 3, 2, 1, 1, 1],
+    17: [4, 3, 3, 3, 2, 1, 1, 1, 1],
+    18: [4, 3, 3, 3, 3, 1, 1, 1, 1],
+    19: [4, 3, 3, 3, 3, 2, 1, 1, 1],
+    20: [4, 3, 3, 3, 3, 2, 2, 1, 1]
+  };
+
+  A5E.SPELL_POINTS_TABLE_ELEMENTALIST = {
+    1: { points: 2, level: 1 },
+    2: { points: 4, level: 1 },
+    3: { points: 5, level: 1 },
+    4: { points: 6, level: 1 },
+    5: { points: 7, level: 2 },
+    6: { points: 8, level: 2 },
+    7: { points: 9, level: 2 },
+    8: { points: 10, level: 2 },
+    9: { points: 11, level: 3 },
+    10: { points: 12, level: 3 },
+    11: { points: 13, level: 3 },
+    12: { points: 14, level: 3 },
+    13: { points: 15, level: 4 },
+    14: { points: 16, level: 4 },
+    15: { points: 17, level: 4 },
+    16: { points: 18, level: 4 },
+    17: { points: 19, level: 5 },
+    18: { points: 20, level: 5 },
+    19: { points: 21, level: 5 },
+    20: { points: 22, level: 5 }
+  };
+
+  A5E.SPELL_POINTS_TABLE_WARLOCK = {
+    1: { points: 2, level: 1 },
+    2: { points: 4, level: 1 },
+    3: { points: 6, level: 2 },
+    4: { points: 8, level: 2 },
+    5: { points: 10, level: 3 },
+    6: { points: 11, level: 3 },
+    7: { points: 12, level: 4 },
+    8: { points: 13, level: 4 },
+    9: { points: 14, level: 5 },
+    10: { points: 17, level: 5 },
+    11: { points: 21, level: 5 },
+    12: { points: 22, level: 5 },
+    13: { points: 24, level: 5 },
+    14: { points: 25, level: 5 },
+    15: { points: 26, level: 5 },
+    16: { points: 27, level: 5 },
+    17: { points: 28, level: 5 },
+    18: { points: 29, level: 5 },
+    19: { points: 30, level: 5 },
+    20: { points: 31, level: 5 }
+  };
+
+  A5E.PACT_SLOT_TABLE = {
+    1: { slots: 1, level: 1 },
+    2: { slots: 2, level: 1 },
+    3: { slots: 2, level: 2 },
+    4: { slots: 2, level: 2 },
+    5: { slots: 2, level: 3 },
+    6: { slots: 2, level: 3 },
+    7: { slots: 2, level: 4 },
+    8: { slots: 2, level: 4 },
+    9: { slots: 2, level: 5 },
+    10: { slots: 2, level: 5 },
+    11: { slots: 3, level: 5 },
+    12: { slots: 3, level: 5 },
+    13: { slots: 3, level: 5 },
+    14: { slots: 3, level: 5 },
+    15: { slots: 3, level: 5 },
+    16: { slots: 3, level: 5 },
+    17: { slots: 4, level: 5 },
+    18: { slots: 4, level: 5 },
+    19: { slots: 4, level: 5 },
+    20: { slots: 4, level: 5 }
+  };
+
+  A5E.ARTIFICER_SPELL_INVENTIONS = {
+    1: { count: 2, level: 1 },
+    2: { count: 2, level: 1 },
+    3: { count: 2, level: 1 },
+    4: { count: 2, level: 1 },
+    5: { count: 2, level: 2 },
+    6: { count: 3, level: 2 },
+    7: { count: 3, level: 2 },
+    8: { count: 3, level: 2 },
+    9: { count: 3, level: 3 },
+    10: { count: 4, level: 3 },
+    11: { count: 4, level: 3 },
+    12: { count: 4, level: 3 },
+    13: { count: 4, level: 4 },
+    14: { count: 5, level: 4 },
+    15: { count: 5, level: 4 },
+    16: { count: 5, level: 4 },
+    17: { count: 5, level: 5 },
+    18: { count: 6, level: 5 },
+    19: { count: 6, level: 5 },
+    20: { count: 6, level: 5 }
+  };
+
+  A5E.WIELDER_ARTIFACT_CHARGES = {
+    1: { charges: 2, level: 1 },
+    2: { charges: 4, level: 1 },
+    3: { charges: 5, level: 1 },
+    4: { charges: 6, level: 1 },
+    5: { charges: 7, level: 2 },
+    6: { charges: 8, level: 2 },
+    7: { charges: 9, level: 2 },
+    8: { charges: 10, level: 2 },
+    9: { charges: 11, level: 3 },
+    10: { charges: 12, level: 3 },
+    11: { charges: 13, level: 3 },
+    12: { charges: 14, level: 3 },
+    13: { charges: 15, level: 4 },
+    14: { charges: 16, level: 4 },
+    15: { charges: 17, level: 4 },
+    16: { charges: 18, level: 4 },
+    17: { charges: 19, level: 5 },
+    18: { charges: 20, level: 5 },
+    19: { charges: 21, level: 5 },
+    20: { charges: 22, level: 5 }
+  };
+
   A5E.casterProgression = {
-    fullCaster: 1,
-    halfCaster: 2,
-    tertiaryCaster: 3,
-    quaternaryCaster: 4,
-    artificer: 2
+    none: { type: null, config: null, reference: null },
+    fullCaster: {
+      type: 'multiplier',
+      config: A5E.SPELL_SLOT_TABLE,
+      resource: 'slots',
+      multiplier: 1
+    },
+    halfCaster: {
+      type: 'multiplier',
+      config: A5E.SPELL_SLOT_TABLE,
+      resource: 'slots',
+      multiplier: 0.5
+    },
+    tertiaryCaster: {
+      type: 'multiplier',
+      config: A5E.SPELL_SLOT_TABLE,
+      resource: 'slots',
+      multiplier: 0.33
+    },
+    quaternaryCaster: {
+      type: 'multiplier',
+      config: A5E.SPELL_SLOT_TABLE,
+      resource: 'slots',
+      multiplier: 0.25
+    },
+    artificer5e: {
+      type: 'multiplier',
+      config: A5E.SPELL_SLOT_TABLE,
+      resource: 'slots',
+      multiplier: 0.5,
+      roundUp: true
+    },
+    artificerA5e: {
+      type: 'reference',
+      config: A5E.ARTIFICER_SPELL_INVENTIONS,
+      resource: 'inventions'
+    },
+    elementalist: {
+      type: 'reference',
+      config: A5E.SPELL_POINTS_TABLE_ELEMENTALIST,
+      resource: 'points'
+    },
+    warlockA5e: {
+      type: 'reference',
+      config: A5E.SPELL_POINTS_TABLE,
+      resource: 'points'
+    },
+    warlock5e: {
+      type: 'reference',
+      config: A5E.PACT_SLOT_TABLE,
+      resource: 'slots'
+    },
+    wielder: {
+      type: 'reference',
+      config: A5E.WIELDER_ARTIFACT_CHARGES,
+      resource: 'artifactCharges'
+    }
   };
 }
