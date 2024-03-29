@@ -33,8 +33,8 @@ export default class ClassResourceManager extends Map<string, ClassResource> {
         warnings.push(`Resource ${resource.name} reference value must be a number`);
       }
 
-      if (resource.type === 'dice' && typeof value !== 'string') {
-        warnings.push(`Resource ${resource.name} reference value must be a string`);
+      if (resource.type === 'dice' && typeof value !== 'number') {
+        warnings.push(`Resource ${resource.name} reference value must be a number`);
       }
 
       if (resource.type === 'string' && typeof value !== 'string') {
