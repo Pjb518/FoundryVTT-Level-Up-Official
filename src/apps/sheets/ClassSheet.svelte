@@ -4,6 +4,7 @@
     import { getContext, setContext } from "svelte";
     import { ApplicationShell } from "#runtime/svelte/component/core";
 
+    import ClassPropertiesTab from "../components/pages/ClassPropertiesTab.svelte";
     import ItemDescriptionTab from "../components/pages/ItemDescriptionTab.svelte";
     import ItemGrantsTab from "../components/pages/ItemGrantsTab.svelte";
     import ItemSheetHeader from "../components/itemSheetsHeader/ItemSheetHeader.svelte";
@@ -23,6 +24,11 @@
             name: "description",
             label: "A5E.Description",
             component: ItemDescriptionTab,
+        },
+        {
+            name: "properties",
+            label: "A5E.ItemSheetLabelPropertiesTab",
+            component: ClassPropertiesTab,
         },
         {
             name: "grants",

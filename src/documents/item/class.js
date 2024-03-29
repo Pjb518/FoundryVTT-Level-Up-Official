@@ -66,7 +66,8 @@ export default class ClassItemA5e extends OriginItemA5e {
 
     // TODO: Prepare caster data
     return {
-      type: casterType
+      type: casterType,
+      divisor: CONFIG.A5E.casterProgression[casterType] ?? null
     };
   }
 
