@@ -10,7 +10,7 @@ export default class FeatureDataModel extends BaseItemData.mixin(Armor) {
       featureType: new fields.StringField({ required: true, initial: '' }),
       grants: new fields.ObjectField({ required: true, initial: {} }),
       prerequisite: new fields.StringField({ required: true, initial: '' }),
-      requiresBlooded: new fields.BooleanField({ required: true, initial: false })
+      requiresBloodied: new fields.BooleanField({ required: true, initial: false })
     });
   }
 }
