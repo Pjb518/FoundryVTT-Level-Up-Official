@@ -1,5 +1,6 @@
 <script>
     import { getContext } from "svelte";
+    import { localize } from "#runtime/svelte/helper";
 
     import Checkbox from "../Checkbox.svelte";
     import FieldWrapper from "../FieldWrapper.svelte";
@@ -39,5 +40,31 @@
                 );
             }}
         />
+    </FieldWrapper>
+
+    <FieldWrapper
+        hint="A5E.settings.hints.deathSaveThreshold"
+        --a5e-field-wrapper-direction="row"
+        --a5e-field-wrapper-item-alignment="center"
+    >
+        <input
+            id="{actor.id}-death-save-threshold"
+            class="a5e-input a5e-input--small a5e-input--slim"
+            type="number"
+            min="0"
+            max="20"
+            value={flags.a5e?.deathSaveThreshold ?? 10}
+            on:change={({ target }) => {
+                updateDocumentDataFromField(
+                    $actor,
+                    "flags.a5e.deathSaveThreshold",
+                    parseInt(target.value, 10),
+                );
+            }}
+        />
+
+        <label for="{actor.id}-death-save-threshold">
+            {localize("A5E.settings.deathSaveThreshold")}
+        </label>
     </FieldWrapper>
 </Section>

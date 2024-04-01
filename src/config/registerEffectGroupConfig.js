@@ -99,6 +99,7 @@ export default function registerEffectGroupConfig(A5E) {
     deathSaves: {
       label: 'A5E.effects.groups.deathSaves',
       items: [
+        'flags.a5e.deathSaveThreshold',
         'flags.a5e.effects.rollMode.deathSave',
         'system.attributes.death.failure',
         'system.attributes.death.success'

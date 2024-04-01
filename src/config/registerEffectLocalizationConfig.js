@@ -4,6 +4,7 @@
  */
 export default function registerEffectLocalizationConfig(A5E) {
   A5E.effectsKeyLocalizations = {
+    'flags.a5e.deathSaveThreshold': 'A5E.effects.keys.flags.deathSaveThreshold',
     'flags.a5e.effects.bonuses.abilities': 'A5E.effects.keys.bonuses.ability',
     'flags.a5e.effects.bonuses.attacks': 'A5E.effects.keys.bonuses.attacks',
     'flags.a5e.effects.bonuses.damage': 'A5E.effects.keys.bonuses.damage',

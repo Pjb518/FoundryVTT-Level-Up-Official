@@ -23,4 +23,6 @@ export default function modifyDerivedOptions(options: Object) {
       options['flags.a5e.effects.senses.allDistances'] = [0, MODES.DEFAULT_MODES];
       options['flags.a5e.effects.senses.allUnits'] = ['', MODES.OVERRIDE_ONLY, Object.entries(CONFIG.A5E.visionUnits), 'RADIO'];
     });
+
+  options['flags.a5e.deathSaveThreshold'] = [0, MODES.DEFAULT_MODES];
 }

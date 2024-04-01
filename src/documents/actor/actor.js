@@ -1695,7 +1695,7 @@ export default class ActorA5e extends Actor {
         updates['system.attributes.strife'] = strife + 1;
       }
     } else if (d20Result === 20) updates['system.attributes.hp.value'] = 1;
-    else if (d20Result < 10) updates['system.attributes.death'].failure += 1;
+    else if (d20Result < (this.getFlag('a5e', 'deathSaveThreshold') || 10)) updates['system.attributes.death'].failure += 1;
     else updates['system.attributes.death'].success += 1;
 
     await this.update(updates);
