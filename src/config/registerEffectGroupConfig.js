@@ -151,6 +151,8 @@ export default function registerEffectGroupConfig(A5E) {
     movement: {
       label: 'A5E.effects.groups.movement',
       items: [
+        'flags.a5e.effects.movement.allDistances',
+        'flags.a5e.effects.movement.allUnits',
         'system.attributes.movement.burrow.distance',
         'system.attributes.movement.burrow.unit',
         'system.attributes.movement.climb.distance',
@@ -254,6 +256,8 @@ export default function registerEffectGroupConfig(A5E) {
     senses: {
       label: 'A5E.effects.groups.senses',
       items: [
+        'flags.a5e.effects.senses.allSenses',
+        'flags.a5e.effects.senses.allUnits',
         'system.attributes.senses.blindsight.distance',
         'system.attributes.senses.blindsight.unit',
         'system.attributes.senses.blindsight.otherwiseBlind',

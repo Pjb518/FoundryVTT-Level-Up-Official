@@ -75,7 +75,6 @@ export default class ActiveEffectA5e extends ActiveEffect {
     // eslint-disable-next-line no-constant-binary-expression
     if (this.isSuppressed) return null;
 
-    console.log(_change);
     const change = foundry.utils.deepClone(_change);
     change.key = change.key.replace('@token.', '');
 
@@ -478,9 +477,50 @@ export default class ActiveEffectA5e extends ActiveEffect {
   // -------------------------------------------------------
   static generateExpandedEffects(applyObjects) {
     const expandedApplyObjects = [];
+    const removalKeys = [];
 
     applyObjects.forEach(({ change, effect }) => {
       if (!CONFIG.A5E.EXPANDED_EFFECTS.has(change.key)) return;
+
+      if (change.key === 'flags.a5e.effects.movement.allDistances') {
+        const movementTypes = Object.keys(CONFIG.A5E.movement);
+        movementTypes.forEach((movementType) => {
+          const expandedChange = foundry.utils.deepClone(change);
+          expandedChange.key = `system.attributes.movement.${movementType}.distance`;
+          expandedApplyObjects.push({ effect, change: expandedChange });
+          removalKeys.push(change.key);
+        });
+      }
+
+      if (change.key === 'flags.a5e.effects.movements.allUnits') {
+        const movementTypes = Object.keys(CONFIG.A5E.movement);
+        movementTypes.forEach((movementType) => {
+          const expandedChange = foundry.utils.deepClone(change);
+          expandedChange.key = `system.attributes.movement.${movementType}.unit`;
+          expandedApplyObjects.push({ effect, change: expandedChange });
+          removalKeys.push(change.key);
+        });
+      }
+
+      if (change.key === 'flags.a5e.effects.senses.allSenses') {
+        const senses = Object.keys(CONFIG.A5E.senses);
+        senses.forEach((sense) => {
+          const expandedChange = foundry.utils.deepClone(change);
+          expandedChange.key = `system.attributes.senses.${sense}.value`;
+          expandedApplyObjects.push({ effect, change: expandedChange });
+          removalKeys.push(change.key);
+        });
+      }
+
+      if (change.key === 'flags.a5e.effects.senses.allUnits') {
+        const senses = Object.keys(CONFIG.A5E.senses);
+        senses.forEach((sense) => {
+          const expandedChange = foundry.utils.deepClone(change);
+          expandedChange.key = `system.attributes.senses.${sense}.unit`;
+          expandedApplyObjects.push({ effect, change: expandedChange });
+          removalKeys.push(change.key);
+        });
+      }
 
       if (change.key === 'system.attributes.spellDC') {
         const spellBookIds = Object.keys(effect.parent?.system?.spellBooks ?? {});
@@ -490,6 +530,11 @@ export default class ActiveEffectA5e extends ActiveEffect {
           expandedApplyObjects.push({ effect, change: expandedChange });
         });
       }
+    });
+
+    removalKeys.forEach((key) => {
+      const idx = applyObjects.findIndex((e) => e.change.key === key);
+      if (idx !== -1) applyObjects.splice(idx, 1);
     });
 
     applyObjects.push(...expandedApplyObjects);
@@ -520,9 +565,8 @@ export default class ActiveEffectA5e extends ActiveEffect {
       });
     });
 
+    // Add support for expanded effects
     this.generateExpandedEffects(applyObjects);
-    console.log(applyObjects);
-    // TODO: Add support for expanded effects
 
     if (currentPhase === 'afterDerived') applyObjects.push(...document.effectPhases?.[currentPhase] ?? []);
     applyObjects.sort((a, b) => (a.change.priority ?? 0) - (b.change.priority ?? 0));

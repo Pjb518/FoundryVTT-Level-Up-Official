@@ -76,6 +76,9 @@ export default function registerActiveEffectConfig(A5E) {
 
   A5E.EXPANDED_EFFECTS = new Set([
     'system.attributes.spellDC',
-    'flags.a5e.effects.movement.all'
+    'flags.a5e.effects.movement.allDistances',
+    'flags.a5e.effects.movement.allUnits',
+    'flags.a5e.effects.senses.allSenses',
+    'flags.a5e.effects.senses.allUnits'
   ]);
 }
