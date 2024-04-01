@@ -256,7 +256,7 @@ export default function registerEffectGroupConfig(A5E) {
     senses: {
       label: 'A5E.effects.groups.senses',
       items: [
-        'flags.a5e.effects.senses.allSenses',
+        'flags.a5e.effects.senses.allDistances',
         'flags.a5e.effects.senses.allUnits',
         'system.attributes.senses.blindsight.distance',
         'system.attributes.senses.blindsight.unit',

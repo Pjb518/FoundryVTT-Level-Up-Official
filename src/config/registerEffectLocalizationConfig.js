@@ -66,7 +66,7 @@ export default function registerEffectLocalizationConfig(A5E) {
     'flags.a5e.effects.rollMode.skillCheck.slt': 'A5E.effects.keys.flags.rollMode.skillChecks.slt',
     'flags.a5e.effects.rollMode.skillCheck.ste': 'A5E.effects.keys.flags.rollMode.skillChecks.ste',
     'flags.a5e.effects.rollMode.skillCheck.sur': 'A5E.effects.keys.flags.rollMode.skillChecks.sur',
-    'flags.a5e.effects.senses.allSenses': 'A5E.effects.keys.flags.senses.allSenses',
+    'flags.a5e.effects.senses.allDistances': 'A5E.effects.keys.flags.senses.allDistances',
     'flags.a5e.effects.senses.allUnits': 'A5E.effects.keys.flags.senses.allUnits',
     'system.abilities.cha.check.bonus': 'A5E.effects.keys.abilities.charismaCheckBonus',
     'system.abilities.cha.check.expertiseDice': 'A5E.effects.keys.abilities.charismaCheckExpertiseDice',
