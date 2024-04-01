@@ -113,7 +113,7 @@ export default class ActorSheet extends SvelteApplication {
       isPack: this.actor.pack
     };
 
-    if (!PERMS.isPack && (PERMS.isGM || (PERMS.isOwner && PERMS.canConfigure))) {
+    if ((PERMS.isGM || (PERMS.isOwner && PERMS.canConfigure))) {
       buttons.unshift({
         label: this.options.token ? 'Token' : 'Prototype Token',
         class: 'configure-token',
