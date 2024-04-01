@@ -75,6 +75,7 @@ export default class ActiveEffectA5e extends ActiveEffect {
     // eslint-disable-next-line no-constant-binary-expression
     if (this.isSuppressed) return null;
 
+    console.log(_change);
     const change = foundry.utils.deepClone(_change);
     change.key = change.key.replace('@token.', '');
 
@@ -475,6 +476,25 @@ export default class ActiveEffectA5e extends ActiveEffect {
   // -------------------------------------------------------
   //  Static Methods
   // -------------------------------------------------------
+  static generateExpandedEffects(applyObjects) {
+    const expandedApplyObjects = [];
+
+    applyObjects.forEach(({ change, effect }) => {
+      if (!CONFIG.A5E.EXPANDED_EFFECTS.has(change.key)) return;
+
+      if (change.key === 'system.attributes.spellDC') {
+        const spellBookIds = Object.keys(effect.parent?.system?.spellBooks ?? {});
+        spellBookIds.forEach((spellBookId) => {
+          const expandedChange = foundry.utils.deepClone(change);
+          expandedChange.key = `system.spellBooks.${spellBookId}.stats.dc`;
+          expandedApplyObjects.push({ effect, change: expandedChange });
+        });
+      }
+    });
+
+    applyObjects.push(...expandedApplyObjects);
+  }
+
   /**
    *
    * @param {} document
@@ -484,7 +504,7 @@ export default class ActiveEffectA5e extends ActiveEffect {
   static applyEffects(document, effects, currentPhase, nextPhase, predicate = () => true) {
     const overrides = {};
 
-    // Get token data
+    // Get apply data
     const applyObjects = effects.flatMap((effect) => {
       if (effect.disabled || effect.isSuppressed) return [];
 
@@ -499,6 +519,10 @@ export default class ActiveEffectA5e extends ActiveEffect {
         return { effect, change };
       });
     });
+
+    this.generateExpandedEffects(applyObjects);
+    console.log(applyObjects);
+    // TODO: Add support for expanded effects
 
     if (currentPhase === 'afterDerived') applyObjects.push(...document.effectPhases?.[currentPhase] ?? []);
     applyObjects.sort((a, b) => (a.change.priority ?? 0) - (b.change.priority ?? 0));

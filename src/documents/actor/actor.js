@@ -155,16 +155,18 @@ export default class ActorA5e extends Actor {
   prepareData() {
     this.prepareBaseData();
     super.prepareEmbeddedDocuments();
+
     this.prepareDerivedData();
+
+    // Initialize the SpellBooks
+    this.spellBooks = new SpellBookManager(this);
+    this.spellBooks.forEach((spellBook) => spellBook.prepareBaseData());
+
     this.afterDerivedData();
 
     if ((this.system.schemaVersion?.version ?? this.system.schema?.version) < 0.005) return;
     this.prepareArmorClass();
     this.RollOverrideManager.initialize();
-
-    // Initialize the SpellBooks
-    this.spellBooks = new SpellBookManager(this);
-    this.spellBooks.forEach((spellBook) => spellBook.prepareBaseData());
   }
 
   /**
