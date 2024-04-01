@@ -19,7 +19,7 @@ export default function getActivationCostLabel(item, action) {
   } else if (['none', 'special'].includes(activation.type)) {
     activationLabel = CONFIG.A5E.abilityActivationTypes[activation?.type];
   } else {
-    activationLabel = `${activation.cost} ${CONFIG.A5E.abilityActivationTypes[activation.type]}`;
+    activationLabel = `${activation.cost ?? 1} ${CONFIG.A5E.abilityActivationTypes[activation.type]}`;
   }
 
   if (item?.system?.ritual) activationLabel += ' (Ritual)';
