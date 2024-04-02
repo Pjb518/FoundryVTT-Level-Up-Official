@@ -1,0 +1,116 @@
+{
+	"name": "Concealed Weapon",
+	"type": "spell",
+	"img": "icons/skills/melee/strike-weapons-orange.webp",
+	"effects": [],
+	"folder": null,
+	"flags": {},
+	"system": {
+		"actions": {
+			"cDniHOWwWdZGNIJp": {
+				"name": "Cast Spell",
+				"activation": {
+					"type": "action",
+					"cost": 1
+				},
+				"consumers": {
+					"tEDrRTD4lIkHg4e8": {
+						"type": "spell",
+						"default": true,
+						"mode": "variable",
+						"spellLevel": 2,
+						"points": 3
+					}
+				},
+				"rolls": {},
+				"prompts": {},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"rechargeType": "custom",
+						"rechargeAmount": "1",
+						"threshold": 6
+					}
+				},
+				"duration": {
+					"unit": "hour",
+					"value": 8
+				},
+				"ranges": {
+					"VUTPlKhawKmqM933": {
+						"range": "self"
+					}
+				}
+			},
+			"Lc2S4xEecl7joBRu": {
+				"name": "End Spell",
+				"activation": {
+					"type": "bonusAction",
+					"cost": 1
+				},
+				"consumers": {},
+				"rolls": {},
+				"prompts": {},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"rechargeType": "custom",
+						"rechargeAmount": "1",
+						"threshold": 6
+					}
+				}
+			}
+		},
+		"description": "<p>When you cast this spell, you utter a command word and transform one non-magical weapon into a mundane object of roughly equivalent size. For example you might change a dagger into a book or a sword into a broom. As a bonus action, a creature can grasp the item and utter the command word again to end the spell early, transforming the object back into its original weapon form.&nbsp;</p>\n<p><strong>Cast At Higher Levels. </strong>By using a 3rd-level spell slot, you can transform a common, uncommon, or rare magical weapon this way (though the object it becomes is still non-magical). A 4th level spell slot can transform a very rare weapon, and a 5th-level can transform a legendary weapon.</p>",
+		"favorite": false,
+		"secretDescription": "",
+		"source": "moarComplete",
+		"uses": {
+			"value": 0,
+			"max": "",
+			"per": "",
+			"recharge": {
+				"formula": "1d6",
+				"threshold": 6
+			}
+		},
+		"classes": [
+			"bard",
+			"sorcerer",
+			"wizard"
+		],
+		"components": {
+			"vocalized": true,
+			"seen": true,
+			"material": true
+		},
+		"concentration": false,
+		"level": 2,
+		"materials": "the weapon to be transformed",
+		"materialsConsumed": false,
+		"prepared": 0,
+		"prerequisite": "",
+		"rare": false,
+		"ritual": false,
+		"schools": {
+			"primary": "transmutation",
+			"secondary": [
+				"arcane",
+				"obscurement",
+				"weaponry"
+			]
+		},
+		"schemaVersion": {
+			"version": 0.014,
+			"lastMigration": null
+		},
+		"spellBook": ""
+	},
+	"_id": "cpagkzhcb8ksyfho"
+}

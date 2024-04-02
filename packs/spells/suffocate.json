@@ -1,0 +1,172 @@
+{
+	"folder": null,
+	"name": "Suffocate",
+	"type": "spell",
+	"img": "icons/magic/water/orb-ice-opaque.webp",
+	"system": {
+		"actions": {
+			"977eB9k6pn5eAopV": {
+				"name": "Cast Spell",
+				"activation": {
+					"type": "action",
+					"cost": 1
+				},
+				"consumers": {
+					"hf3inhSjDadTTKgC": {
+						"type": "spell",
+						"default": true,
+						"mode": "variable",
+						"spellLevel": 4,
+						"points": 6
+					}
+				},
+				"rolls": {},
+				"prompts": {
+					"9tsontJPYGVgNHoO": {
+						"type": "savingThrow",
+						"default": true,
+						"ability": "con",
+						"saveDC": {
+							"type": "spellcasting"
+						},
+						"onSave": "negates"
+					},
+					"3Czjq0aul8uTo1bt": {
+						"type": "effect",
+						"default": true,
+						"effectId": "o53FydgroSEoqJJz"
+					}
+				},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"threshold": 6
+					}
+				},
+				"duration": {
+					"unit": "minute",
+					"value": 10
+				},
+				"ranges": {
+					"EaQYQ3jdQmXpQZwk": {
+						"range": "medium"
+					}
+				},
+				"target": {
+					"type": "creature",
+					"quantity": 1
+				}
+			},
+			"Fk8orgZH2GQg3cjK": {
+				"name": "Psychic Damage",
+				"activation": {},
+				"consumers": {},
+				"rolls": {
+					"7T94VpV4vc30XKxC": {
+						"type": "damage",
+						"default": true,
+						"canCrit": false,
+						"formula": "3d8",
+						"damageType": "psychic"
+					}
+				},
+				"prompts": {},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"rechargeType": "custom",
+						"rechargeAmount": "1",
+						"threshold": 6
+					}
+				}
+			}
+		},
+		"description": "<p>You create a swirling bubble of air around the target&rsquo;s head, denying it the ability to speak or take a breath. While under the effect of the spell, a creature cannot spend any exertion points or cast spells with voiced components. At the start of each of the creature&rsquo;s turns, it takes 3d8 psychic damage from the pain, falling unconscious and beginning to suffocate if it reaches 0 hp. At the end of each of its turns, it can repeat the saving throw, ending the effect on a successful saving throw.</p>",
+		"favorite": false,
+		"secretDescription": "",
+		"source": "moarComplete",
+		"uses": {
+			"value": 0,
+			"max": "",
+			"per": "",
+			"recharge": {
+				"formula": "1d6",
+				"threshold": 6
+			}
+		},
+		"classes": [
+			"elementalistAir",
+			"sorcerer",
+			"warlock",
+			"witch",
+			"wizard"
+		],
+		"components": {
+			"vocalized": true,
+			"seen": true,
+			"material": false
+		},
+		"concentration": true,
+		"level": 4,
+		"materials": "",
+		"materialsConsumed": false,
+		"prepared": 0,
+		"prerequisite": "",
+		"rare": false,
+		"ritual": false,
+		"schools": {
+			"primary": "evocation",
+			"secondary": [
+				"affliction",
+				"air",
+				"arcane"
+			]
+		},
+		"schemaVersion": {
+			"version": 0.014,
+			"lastMigration": null
+		},
+		"spellBook": ""
+	},
+	"effects": [
+		{
+			"icon": "icons/magic/water/orb-ice-opaque.webp",
+			"origin": "Item.0r1gBH4tnQQK6u9n",
+			"flags": {
+				"a5e": {
+					"sort": 0,
+					"transferType": "onUse",
+					"actionId": "977eB9k6pn5eAopV",
+					"duration": {
+						"unit": "minutes"
+					}
+				}
+			},
+			"transfer": false,
+			"name": "Bubble of Air",
+			"_id": "o53FydgroSEoqJJz",
+			"changes": [],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": 600,
+				"combat": null,
+				"rounds": null,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "<p>Cannot spend any exertion points or cast spells with voiced components.</p>",
+			"statuses": [],
+			"folder": null
+		}
+	],
+	"flags": {},
+	"_id": "ze3755jxzkq0mdne"
+}

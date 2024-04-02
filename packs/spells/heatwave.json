@@ -1,0 +1,188 @@
+{
+	"folder": null,
+	"name": "Heatwave",
+	"type": "spell",
+	"img": "icons/magic/air/fog-gas-smoke-swirling-orange.webp",
+	"system": {
+		"actions": {
+			"DwW3s0D9gbXkrvSX": {
+				"name": "Cast Spell",
+				"activation": {
+					"type": "action",
+					"cost": 1
+				},
+				"consumers": {
+					"Ku2qPZP3T1w32biB": {
+						"type": "spell",
+						"default": true,
+						"mode": "variable",
+						"spellLevel": 5,
+						"points": 7
+					}
+				},
+				"rolls": {
+					"A3hoTuhA46nKjxPy": {
+						"type": "damage",
+						"default": true,
+						"formula": "3d6",
+						"damageType": "fire",
+						"label": "Extreme Heat",
+						"canCrit": false
+					}
+				},
+				"prompts": {
+					"a3WoDJyUy4ifLjb5": {
+						"type": "savingThrow",
+						"default": true,
+						"ability": "con",
+						"saveDC": {
+							"type": "spellcasting"
+						},
+						"label": "Extreme Heat",
+						"onSave": "half damage & no fatigue"
+					},
+					"3ZjYUCVCTyqb0gRE": {
+						"type": "effect",
+						"default": true,
+						"effectId": "pfyFMRnf01BzLuh9",
+						"label": "Fatigue (max 2 levels)"
+					}
+				},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"threshold": 6
+					}
+				},
+				"duration": {
+					"unit": "hour",
+					"value": 24
+				},
+				"ranges": {
+					"a8KYSSyEd4qw2LEf": {
+						"range": "self"
+					}
+				},
+				"area": {
+					"shape": "sphere",
+					"quantity": 1,
+					"radius": 30,
+					"scaling": {
+						"mode": "spellLevel",
+						"formula": {
+							"radius": "10"
+						}
+					},
+					"placeTemplate": true
+				}
+			},
+			"qDANS89YXbOJoExl": {
+				"name": "Change Temperature",
+				"activation": {
+					"type": "action",
+					"cost": 1
+				},
+				"consumers": {},
+				"rolls": {},
+				"prompts": {},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"rechargeType": "custom",
+						"rechargeAmount": "1",
+						"threshold": 6
+					}
+				}
+			}
+		},
+		"description": "<p>You increase the temperature of the air around you, up from cold temperatures to comfortable temperatures, or to extreme heat. If you create extreme heat, all creatures other than you who start their turn in the area or who enter it for the first time in their turn must make a Constitution saving throw, taking 3d6 fire damage and 1 level of fatigue on a failure, or half damage and no fatigue on a success. A creature can only suffer 2 ranks of fatigue from this spell, and suffers no fatigue if acclimated to hot environments or is resistant or immune to fire damage. If a creature reaches the doomed condition due to this fatigue, it will die of heat stroke unless treated or dealt cold damage.</p>\n<p>As an action, you can deactivate the heat, or change the temperature to comfortable or extreme.</p>\n<p><strong>Cast at Higher Levels.</strong> The spell&rsquo;s area increases by 10 feet for every slot level above 5th.</p>",
+		"favorite": false,
+		"secretDescription": "",
+		"source": "moarComplete",
+		"uses": {
+			"value": 0,
+			"max": "",
+			"per": "",
+			"recharge": {
+				"formula": "1d6",
+				"threshold": 6
+			}
+		},
+		"classes": [
+			"druid",
+			"elementalistFire",
+			"sorcerer",
+			"wizard"
+		],
+		"components": {
+			"vocalized": true,
+			"seen": true,
+			"material": false
+		},
+		"concentration": true,
+		"level": 5,
+		"materials": "",
+		"materialsConsumed": false,
+		"prepared": 0,
+		"prerequisite": "",
+		"rare": false,
+		"ritual": false,
+		"schools": {
+			"primary": "evocation",
+			"secondary": [
+				"arcane",
+				"fire",
+				"nature"
+			]
+		},
+		"schemaVersion": {
+			"version": 0.014,
+			"lastMigration": null
+		},
+		"spellBook": ""
+	},
+	"effects": [
+		{
+			"icon": "icons/magic/air/fog-gas-smoke-swirling-orange.webp",
+			"origin": "Item.mvzwsuEtraD8FTS7",
+			"flags": {
+				"a5e": {
+					"sort": 0,
+					"transferType": "onUse"
+				}
+			},
+			"transfer": false,
+			"name": "Fatigue",
+			"_id": "pfyFMRnf01BzLuh9",
+			"changes": [
+				{
+					"key": "system.attributes.fatigue",
+					"mode": 2,
+					"value": "1",
+					"priority": null
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": null,
+				"combat": null,
+				"rounds": null,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "",
+			"statuses": [],
+			"folder": null
+		}
+	],
+	"flags": {},
+	"_id": "0jfkyisinn29kfc3"
+}

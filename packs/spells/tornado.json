@@ -1,0 +1,214 @@
+{
+	"folder": null,
+	"name": "Tornado",
+	"type": "spell",
+	"img": "icons/magic/air/wind-tornado-cyclone-white.webp",
+	"system": {
+		"actions": {
+			"9NCLwoBd9bJLmbsU": {
+				"name": "Cast Spell",
+				"activation": {
+					"type": "action",
+					"cost": 1
+				},
+				"consumers": {
+					"OE0P02c9DPs7zT2J": {
+						"type": "spell",
+						"default": true,
+						"mode": "variable",
+						"spellLevel": 8,
+						"points": 11
+					}
+				},
+				"rolls": {
+					"RfLqc59eKwZV7z3h": {
+						"type": "damage",
+						"default": true,
+						"formula": "8d8",
+						"damageType": "bludgeoning",
+						"label": "Contact Damage",
+						"canCrit": false
+					}
+				},
+				"prompts": {
+					"AZH73SP6sYJ6Fw1R": {
+						"type": "savingThrow",
+						"default": true,
+						"ability": "dex",
+						"saveDC": {
+							"type": "spellcasting"
+						},
+						"label": "",
+						"onSave": "half damage, not lifted & restrained"
+					},
+					"FYDgwvkoF0fW0SsR": {
+						"type": "skillCheck",
+						"default": false,
+						"skill": "ath",
+						"ability": "str",
+						"label": "Athletics"
+					},
+					"Clk1ZuROTzaP8kna": {
+						"type": "skillCheck",
+						"default": false,
+						"skill": "acr",
+						"ability": "dex",
+						"label": "Acrobatics"
+					},
+					"4hdiAS053BGejO6X": {
+						"type": "effect",
+						"default": true,
+						"effectId": "vitTgNQwcI91HHtL"
+					},
+					"Id4Zm7Lqp0wEX1Vg": {
+						"type": "generic",
+						"default": true,
+						"label": "Ejected Direction",
+						"formula": "1d8"
+					},
+					"kWx6qYX3Z9Y2p1qM": {
+						"type": "generic",
+						"default": true,
+						"label": "Distance from Tornado",
+						"formula": "(1d12)*5"
+					}
+				},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"threshold": 6
+					}
+				},
+				"duration": {
+					"unit": "minute",
+					"value": 1
+				},
+				"ranges": {
+					"wPLzh0qbvYGOhXNS": {
+						"range": "1200",
+						"unit": "feet"
+					}
+				},
+				"area": {
+					"shape": "cylinder",
+					"quantity": 1,
+					"placeTemplate": true,
+					"radius": 5,
+					"height": 40
+				}
+			},
+			"Kf9rULm7RWK7i8MG": {
+				"name": "Ongoing Damage",
+				"activation": {},
+				"consumers": {},
+				"rolls": {
+					"Rm3kjkuCnRM37htu": {
+						"type": "damage",
+						"default": true,
+						"canCrit": false,
+						"formula": "3d6",
+						"damageType": "bludgeoning"
+					}
+				},
+				"prompts": {},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"rechargeType": "custom",
+						"rechargeAmount": "1",
+						"threshold": 6
+					}
+				}
+			}
+		},
+		"description": "<p>You create a powerful tornado of swirling wind. It is 10 feet wide at its base, 40 feet wide at its top, and 40 feet tall. If a creature comes in contact with the whirlwind, it must make a Dexterity saving throw, or take 8d8 bludgeoning damage and be lifted into the tornado. On a successful save the target takes half damage and is not lifted; huge or larger creatures cannot be lifted. A lifted creature is restrained in the tornado and takes 3d6 bludgeoning damage at the end of each of their turns. At the start of each of a restrained creature&rsquo;s turns, it is lifted 5 feet higher into the tornado, unless it is already at the top. Restrained creatures move with the tornado.</p>\n<p>On your turn, you can move the tornado up to 30 feet in any direction along the ground. It sucks up any medium or smaller unsecured objects, snuffs out any small unprotected fires, and spreads large fires.</p>\n<p>A restrained creature can use an action to make an Athletics or Acrobatics check against your spell save DC to escape the tornado. If successful, it is ejected from the tornado in a random direction; roll a d8 to determine direction away from the tornado. The creature falls a number of feet away equal to 1d12 x 5 ft (unless it can fly).</p>",
+		"favorite": false,
+		"secretDescription": "",
+		"source": "moarComplete",
+		"uses": {
+			"value": 0,
+			"max": "",
+			"per": "",
+			"recharge": {
+				"formula": "1d6",
+				"threshold": 6
+			}
+		},
+		"classes": [
+			"druid"
+		],
+		"components": {
+			"vocalized": true,
+			"seen": true,
+			"material": true
+		},
+		"concentration": true,
+		"level": 8,
+		"materials": "a mote of elemental air",
+		"materialsConsumed": false,
+		"prepared": 0,
+		"prerequisite": "",
+		"rare": false,
+		"ritual": false,
+		"schools": {
+			"primary": "evocation",
+			"secondary": [
+				"air",
+				"nature",
+				"weather"
+			]
+		},
+		"schemaVersion": {
+			"version": 0.014,
+			"lastMigration": null
+		},
+		"spellBook": ""
+	},
+	"effects": [
+		{
+			"icon": "icons/magic/air/wind-tornado-cyclone-white.webp",
+			"origin": "Item.5pMLHKutC5nNNcHQ",
+			"flags": {
+				"a5e": {
+					"sort": 0,
+					"transferType": "onUse",
+					"actionId": "9NCLwoBd9bJLmbsU"
+				}
+			},
+			"transfer": false,
+			"name": "Lifted",
+			"_id": "vitTgNQwcI91HHtL",
+			"changes": [
+				{
+					"key": "flags.a5e.effects.statusConditions",
+					"value": "[\"restrained\"]",
+					"mode": 0,
+					"priority": null
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": null,
+				"combat": null,
+				"rounds": null,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "",
+			"statuses": [
+				"restrained"
+			],
+			"folder": null
+		}
+	],
+	"flags": {},
+	"_id": "ajxs7v7usfte05qe"
+}

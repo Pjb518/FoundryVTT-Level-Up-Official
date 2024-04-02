@@ -1,0 +1,119 @@
+{
+	"name": "Dino-Rite: Thunderer",
+	"type": "feature",
+	"img": "icons/creatures/reptiles/lizard-iguana-green.webp",
+	"effects": [],
+	"folder": null,
+	"flags": {},
+	"system": {
+		"ac": {
+			"baseFormula": "",
+			"formula": "",
+			"grantsDisadvantage": false,
+			"maxDex": 0,
+			"minStr": 0,
+			"mode": 2,
+			"requiresNoShield": false,
+			"requiresUnarmored": false
+		},
+		"actions": {
+			"lQxG0S8yEY4yjENl": {
+				"name": "Thunderwave",
+				"activation": {
+					"cost": 1,
+					"type": "action",
+					"reactionTrigger": ""
+				},
+				"consumers": {
+					"NrfTaOkM3nbq0jVn": {
+						"type": "itemUses",
+						"default": true,
+						"quantity": 1
+					}
+				},
+				"rolls": {
+					"YTGdpIjQaVqA1JqS": {
+						"canCrit": false,
+						"damageType": "thunder",
+						"formula": "2d8",
+						"name": "",
+						"type": "damage",
+						"scaling": {
+							"mode": "spellLevel",
+							"formula": "1d8"
+						}
+					}
+				},
+				"prompts": {
+					"pmWVvarbBoH64W7f": {
+						"ability": "con",
+						"onSave": "Half damage and negates push",
+						"saveDC": {
+							"type": "spellcasting",
+							"bonus": ""
+						},
+						"type": "savingThrow"
+					}
+				},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"rechargeType": "custom",
+						"rechargeAmount": "1",
+						"threshold": 6
+					}
+				},
+				"duration": {
+					"unit": "instantaneous",
+					"value": ""
+				},
+				"ranges": {
+					"071AJ8wHawS0KVfl": {
+						"range": "self"
+					}
+				},
+				"area": {
+					"shape": "cube",
+					"width": "15",
+					"placeTemplate": false,
+					"quantity": 1
+				},
+				"target": {
+					"quantity": "",
+					"type": ""
+				},
+				"img": "icons/magic/sonic/explosion-shock-wave-teal.webp",
+				"descriptionOutputs": [
+					"action"
+				],
+				"description": "<p>You create a wave of thunderous force, damaging creatures and pushing them back. Creatures in the area take 2d8 thunder damage and are pushed 10 feet away from you.</p>\n<p>Unsecured objects completely within the area are also pushed 10 feet away from you. The thunderous boom of the spell is audible out to 300 feet.</p>"
+			}
+		},
+		"description": "<p>Herbivorous titans like diplodocus and brontosaurus. You can use this trait to cast thunderwave once between long rests. Your spellcasting ability for this spell is your choice of Intelligence, Wisdom, or Charisma.</p>",
+		"favorite": false,
+		"secretDescription": "",
+		"source": "moarComplete",
+		"uses": {
+			"value": 1,
+			"max": "1",
+			"per": "longRest",
+			"recharge": {
+				"formula": "1d6",
+				"threshold": 6
+			}
+		},
+		"concentration": false,
+		"featureType": "culture",
+		"grants": {},
+		"prerequisite": "",
+		"requiresBloodied": false,
+		"schemaVersion": {
+			"version": 0.014,
+			"lastMigration": null
+		}
+	},
+	"_id": "xci06r00dxdb0qxw"
+}

@@ -1,0 +1,282 @@
+{
+	"name": "Unnerving Strike",
+	"type": "spell",
+	"img": "icons/magic/fire/dagger-rune-enchant-flame-purple.webp",
+	"system": {
+		"actions": {
+			"dLNCBBf3ZUZcoVkv": {
+				"name": "Cast Spell",
+				"activation": {
+					"type": "action",
+					"cost": 1
+				},
+				"consumers": {
+					"XbR8lkhkKzxfK886": {
+						"type": "spell",
+						"default": true,
+						"mode": "variable",
+						"spellLevel": 1,
+						"points": 2
+					}
+				},
+				"rolls": {},
+				"prompts": {
+					"Qlfuisj6e4enrZ2D": {
+						"type": "effect",
+						"default": true,
+						"effectId": "MdVQkUaQJEKNrZMY"
+					}
+				},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"rechargeType": "custom",
+						"rechargeAmount": "1",
+						"threshold": 6
+					}
+				},
+				"duration": {
+					"unit": "instantaneous"
+				},
+				"ranges": {
+					"9KxtwmiTcGUo1Vcj": {
+						"range": "self"
+					}
+				}
+			}
+		},
+		"description": "<p><em><strong>Association:</strong> Rogue class</em></p>\n<p>You amplify your attack to wound not just the target&rsquo;s body, but its mind as well.</p>\n<p>When you deal @UUID[Compendium.a5e.a5e-class-features.Item.4727pnvz5nwn3h23]{Sneak Attack} damage with a melee attack, you may cast this spell as part of the Sneak Attack, transforming the bonus damage from your Sneak Attack into psychic damage. In addition, depending on the spell slot level used to cast this spell, you inflict one of the following sets of conditions on the target until the end of its next turn:</p>\n<p><strong>1st-level: </strong>Rattled.</p>\n<p><strong>2nd-level:</strong> Frightened and rattled.</p>\n<p><strong>3rd-level: </strong>Frightened, rattled, and the target gains a level of strife (to a maximum of 3 levels). The strife persists until removed normally.</p>\n<p><strong>4th-level or higher: </strong>Paralyzed and and the target gains a level of strife (to a maximum of 4 levels). The strife persists until removed normally.</p>\n<p>For the purposes of determining spells cast in a round, this spell counts as having a casting time of one action.</p>",
+		"favorite": false,
+		"secretDescription": "",
+		"source": "moarComplete",
+		"uses": {
+			"value": 0,
+			"max": "",
+			"per": "",
+			"recharge": {
+				"formula": "1d6",
+				"threshold": 6
+			}
+		},
+		"classes": [
+			"bard",
+			"warlock",
+			"witch"
+		],
+		"components": {
+			"vocalized": true,
+			"seen": true,
+			"material": false
+		},
+		"concentration": false,
+		"level": 1,
+		"materials": "",
+		"materialsConsumed": false,
+		"prepared": 0,
+		"prerequisite": "Sneak Attack class feature",
+		"rare": false,
+		"ritual": false,
+		"schools": {
+			"primary": "evocation",
+			"secondary": [
+				"arcane",
+				"attack",
+				"weaponry",
+				"fear",
+				"psychic",
+				"multiclass"
+			]
+		},
+		"schemaVersion": {
+			"version": 0.014,
+			"lastMigration": null
+		},
+		"spellBook": ""
+	},
+	"effects": [
+		{
+			"icon": "icons/magic/fire/dagger-rune-enchant-flame-purple.webp",
+			"origin": "Item.51R08KG7XcyG1kLT",
+			"flags": {
+				"a5e": {
+					"sort": 0,
+					"transferType": "onUse",
+					"actionId": "dLNCBBf3ZUZcoVkv",
+					"duration": {
+						"type": "rounds",
+						"unit": "minutes"
+					}
+				}
+			},
+			"transfer": false,
+			"name": "Rattled",
+			"_id": "MdVQkUaQJEKNrZMY",
+			"changes": [
+				{
+					"key": "flags.a5e.effects.statusConditions",
+					"value": "[\"rattled\"]",
+					"mode": 0,
+					"priority": null
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": null,
+				"combat": null,
+				"rounds": null,
+				"turns": 1,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "",
+			"statuses": [
+				"rattled"
+			],
+			"folder": null
+		},
+		{
+			"icon": "icons/magic/fire/dagger-rune-enchant-flame-purple.webp",
+			"origin": "Item.51R08KG7XcyG1kLT",
+			"flags": {
+				"a5e": {
+					"sort": 0,
+					"transferType": "onUse",
+					"actionId": "dLNCBBf3ZUZcoVkv",
+					"duration": {
+						"type": "rounds",
+						"unit": "minutes"
+					}
+				}
+			},
+			"transfer": false,
+			"name": "Frightened and Rattled",
+			"_id": "8xKUSBmPCtn3ZBN6",
+			"changes": [
+				{
+					"key": "flags.a5e.effects.statusConditions",
+					"value": "[\"rattled\",\"frightened\"]",
+					"mode": 0,
+					"priority": null
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": null,
+				"combat": null,
+				"rounds": null,
+				"turns": 1,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "",
+			"statuses": [
+				"rattled",
+				"frightened"
+			],
+			"folder": null
+		},
+		{
+			"icon": "icons/magic/fire/dagger-rune-enchant-flame-purple.webp",
+			"origin": "Item.51R08KG7XcyG1kLT",
+			"flags": {
+				"a5e": {
+					"sort": 0,
+					"transferType": "onUse",
+					"actionId": "dLNCBBf3ZUZcoVkv",
+					"duration": {
+						"type": "rounds",
+						"unit": "minutes"
+					}
+				}
+			},
+			"transfer": false,
+			"name": "Frightened, Rattled, and Strife",
+			"_id": "zcZUH3bvncGW6QMu",
+			"changes": [
+				{
+					"key": "flags.a5e.effects.statusConditions",
+					"value": "[\"rattled\",\"frightened\"]",
+					"mode": 0,
+					"priority": null
+				},
+				{
+					"key": "system.attributes.strife",
+					"value": "1",
+					"mode": 2,
+					"priority": null
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": null,
+				"combat": null,
+				"rounds": null,
+				"turns": 1,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "<p>Maximum of 3 levels of Strife. The strife persists until removed normally.</p>",
+			"statuses": [
+				"rattled",
+				"frightened"
+			],
+			"folder": null
+		},
+		{
+			"icon": "icons/magic/fire/dagger-rune-enchant-flame-purple.webp",
+			"origin": "Item.51R08KG7XcyG1kLT",
+			"flags": {
+				"a5e": {
+					"sort": 0,
+					"transferType": "onUse",
+					"actionId": "dLNCBBf3ZUZcoVkv",
+					"duration": {
+						"type": "rounds",
+						"unit": "minutes"
+					}
+				}
+			},
+			"transfer": false,
+			"name": "Paralyzed and Strife",
+			"_id": "t1bg7MPvknXLtKk0",
+			"changes": [
+				{
+					"key": "flags.a5e.effects.statusConditions",
+					"value": "[\"paralyzed\"]",
+					"mode": 0,
+					"priority": null
+				},
+				{
+					"key": "system.attributes.strife",
+					"value": "",
+					"mode": 2,
+					"priority": null
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": null,
+				"combat": null,
+				"rounds": null,
+				"turns": 1,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "<p>Maximum of 4 levels of Strife. The strife persists until removed normally.</p>",
+			"statuses": [
+				"paralyzed"
+			],
+			"folder": null
+		}
+	],
+	"flags": {},
+	"folder": null,
+	"_id": "qgsq60aib8scvnzg"
+}

@@ -1,0 +1,150 @@
+{
+	"folder": null,
+	"name": "Wavecrash",
+	"type": "spell",
+	"img": "icons/magic/water/pseudopod-teal.webp",
+	"system": {
+		"actions": {
+			"Ey6TwrUZkVDqEDC1": {
+				"name": "Cast Spell",
+				"activation": {
+					"type": "action",
+					"cost": 1
+				},
+				"consumers": {},
+				"rolls": {},
+				"prompts": {
+					"Oh3LeLghyd1QPJVp": {
+						"type": "savingThrow",
+						"default": true,
+						"ability": "str",
+						"saveDC": {
+							"type": "spellcasting"
+						},
+						"onSave": "only pushed 5 ft, not knocked prone"
+					},
+					"pTyGrtNR6w4nd5Go": {
+						"type": "effect",
+						"default": true,
+						"effectId": "6ozi0XXz4Scmcmwj"
+					}
+				},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"threshold": 6
+					}
+				},
+				"duration": {
+					"unit": "instantaneous"
+				},
+				"ranges": {
+					"NMYJZIpXb7nGZ6af": {
+						"range": "self"
+					}
+				},
+				"area": {
+					"shape": "cube",
+					"quantity": 1,
+					"width": 15,
+					"placeTemplate": true,
+					"scaling": {
+						"mode": "spellLevel",
+						"formula": {
+							"width": "5"
+						}
+					}
+				}
+			}
+		},
+		"description": "<p>You summon a wave of water emanating from your space, shoving creatures and objects away. Creatures in the area are pushed away from you out of the area and fall prone.</p>\n<p>Creatures that succeed their saving throws are pushed 5 feet and do not fall prone, though they may choose to fall prone in their space if they do not wish to be pushed.<br>Unsecured objects within the area are pushed as well. Uncovered non-magical fires are extinguished.</p>\n<p><strong>Cast at Higher Levels.</strong> Increase the area of the spell by 5 feet for every slot level above 1st.</p>",
+		"favorite": false,
+		"secretDescription": "",
+		"source": "moarComplete",
+		"uses": {
+			"value": 0,
+			"max": "",
+			"per": "",
+			"recharge": {
+				"formula": "1d6",
+				"threshold": 6
+			}
+		},
+		"classes": [
+			"druid",
+			"elementalistWater",
+			"sorcerer",
+			"wizard"
+		],
+		"components": {
+			"vocalized": true,
+			"seen": true,
+			"material": false
+		},
+		"concentration": false,
+		"level": 1,
+		"materials": "",
+		"materialsConsumed": false,
+		"prepared": 0,
+		"prerequisite": "",
+		"rare": false,
+		"ritual": false,
+		"schools": {
+			"primary": "conjuration",
+			"secondary": [
+				"arcane",
+				"nature",
+				"water"
+			]
+		},
+		"schemaVersion": {
+			"version": 0.014,
+			"lastMigration": null
+		},
+		"spellBook": ""
+	},
+	"effects": [
+		{
+			"icon": "icons/magic/water/pseudopod-teal.webp",
+			"origin": "Item.PkZK2AZRCQiTXRvk",
+			"flags": {
+				"a5e": {
+					"sort": 0,
+					"transferType": "onUse",
+					"actionId": "Ey6TwrUZkVDqEDC1"
+				}
+			},
+			"transfer": false,
+			"name": "Prone",
+			"_id": "6ozi0XXz4Scmcmwj",
+			"changes": [
+				{
+					"key": "flags.a5e.effects.statusConditions",
+					"value": "[\"prone\"]",
+					"mode": 0,
+					"priority": null
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": null,
+				"combat": null,
+				"rounds": null,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "",
+			"statuses": [
+				"prone"
+			],
+			"folder": null
+		}
+	],
+	"flags": {},
+	"_id": "1fxe6ezdd9lwee6q"
+}

@@ -1,0 +1,137 @@
+{
+	"name": "Push Through",
+	"type": "spell",
+	"img": "icons/skills/movement/figure-running-gray.webp",
+	"system": {
+		"actions": {
+			"cpO3TeT5UY5E7KPi": {
+				"name": "Cast Spell",
+				"activation": {
+					"type": "bonusAction",
+					"cost": 1
+				},
+				"consumers": {
+					"RpaBv3WxpavJ8oEO": {
+						"type": "spell",
+						"default": true,
+						"mode": "variable",
+						"spellLevel": 1,
+						"points": 2
+					}
+				},
+				"rolls": {},
+				"prompts": {
+					"7b3Z5yHBrXL5fPxB": {
+						"type": "effect",
+						"default": true,
+						"effectId": "P5EVBGAsRJhNkFEi"
+					}
+				},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"rechargeType": "custom",
+						"rechargeAmount": "1",
+						"threshold": 6
+					}
+				},
+				"duration": {
+					"unit": "minute",
+					"value": 1
+				},
+				"ranges": {
+					"6WHaWnloxlvVM9Rx": {
+						"range": "self"
+					}
+				}
+			}
+		},
+		"description": "<p><em><strong>Association:</strong> Fighter class</em></p>\n<p>The harder you strive, the more you resist.</p>\n<p>When you cast this spell, and whenever you spend exertion until the spell ends, you can make an additional saving throw against an effect or condition that a saving throw can end. You gain a bonus to the saving throw equal to the exertion you spent (if any).</p>",
+		"favorite": false,
+		"secretDescription": "",
+		"source": "moarComplete",
+		"uses": {
+			"value": 0,
+			"max": "",
+			"per": "",
+			"recharge": {
+				"formula": "1d6",
+				"threshold": 6
+			}
+		},
+		"classes": [
+			"cleric",
+			"druid",
+			"herald",
+			"witch"
+		],
+		"components": {
+			"vocalized": true,
+			"seen": true,
+			"material": false
+		},
+		"concentration": true,
+		"level": 1,
+		"materials": "",
+		"materialsConsumed": false,
+		"prepared": 0,
+		"prerequisite": "Fighting Style class feature",
+		"rare": false,
+		"ritual": false,
+		"schools": {
+			"primary": "abjuration",
+			"secondary": [
+				"arcane",
+				"attack",
+				"divine",
+				"nature",
+				"multiclass"
+			]
+		},
+		"schemaVersion": {
+			"version": 0.014,
+			"lastMigration": null
+		},
+		"spellBook": ""
+	},
+	"effects": [
+		{
+			"icon": "icons/skills/movement/figure-running-gray.webp",
+			"origin": "Item.FZ2fCSiG9UTu87EC",
+			"flags": {
+				"a5e": {
+					"sort": 0,
+					"transferType": "onUse",
+					"actionId": "cpO3TeT5UY5E7KPi",
+					"applyToSelf": true,
+					"duration": {
+						"unit": "minutes"
+					}
+				}
+			},
+			"transfer": false,
+			"name": "Push Through",
+			"_id": "P5EVBGAsRJhNkFEi",
+			"changes": [],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": 60,
+				"combat": null,
+				"rounds": null,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "<p>When you cast this spell, and whenever you spend exertion until the spell ends, you can make an additional saving throw against an effect or condition that a saving throw can end. You gain a bonus to the saving throw equal to the exertion you spent (if any).</p>",
+			"statuses": [],
+			"folder": null
+		}
+	],
+	"flags": {},
+	"folder": null,
+	"_id": "d3nyph6s4lee7t5e"
+}

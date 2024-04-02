@@ -1,0 +1,176 @@
+{
+	"folder": null,
+	"name": "Best Served Cold",
+	"type": "spell",
+	"img": "icons/magic/light/explosion-star-blue-large.webp",
+	"system": {
+		"actions": {
+			"zNRAwynhWf98A6xw": {
+				"name": "Cast Spell",
+				"activation": {
+					"type": "bonusAction",
+					"cost": 1
+				},
+				"consumers": {
+					"pT4eXJh3TBH3QaVD": {
+						"type": "spell",
+						"default": true,
+						"mode": "variable",
+						"spellLevel": 1,
+						"points": 2
+					}
+				},
+				"rolls": {},
+				"prompts": {},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"rechargeType": "custom",
+						"rechargeAmount": "1",
+						"threshold": 6
+					}
+				},
+				"duration": {
+					"unit": "minute",
+					"value": 1
+				},
+				"ranges": {
+					"pzgM8Ush2lq30eDo": {
+						"range": "self"
+					}
+				}
+			},
+			"VGpZdhJpLl0mzO14": {
+				"name": "Melee Weapon Attack",
+				"activation": {},
+				"consumers": {},
+				"rolls": {
+					"ucOs8mvlutxyNxhM": {
+						"type": "damage",
+						"default": true,
+						"formula": "3d6",
+						"damageType": "cold"
+					}
+				},
+				"prompts": {
+					"xywNRyzjEgp4PonQ": {
+						"type": "savingThrow",
+						"default": true,
+						"ability": "con",
+						"saveDC": {
+							"type": "spellcasting"
+						}
+					},
+					"TBwrjdESUyHhLg4S": {
+						"type": "effect",
+						"default": true,
+						"effectId": "47sA2Lce0seR6hKQ"
+					}
+				},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"rechargeType": "custom",
+						"rechargeAmount": "1",
+						"threshold": 6
+					}
+				}
+			}
+		},
+		"description": "<p><em><strong>Association:</strong> Berserker class</em></p>\n<p>You still your hot-blooded fury and strike your enemy with icy, malicious calm.</p>\n<p>The next time you hit with a melee weapon attack while the spell is active, it deals an additional 3d6 cold damage. The target must also make a Constitution saving throw against your spell save DC or have its movement speed halved for 1 minute. The spell then ends.</p>\n<p>The creature may re-attempt the saving throw at the end of each of its turns, ending the effect on a success. Additionally, if the creature takes any fire damage, the effect ends early.</p>\n<p>You cannot cast this spell while raging even if you normally could due to archetype features or feat benefits.</p>\n<p>&nbsp;</p>",
+		"favorite": false,
+		"secretDescription": "",
+		"source": "moarComplete",
+		"uses": {
+			"value": 0,
+			"max": "",
+			"per": "",
+			"recharge": {
+				"formula": "1d6",
+				"threshold": 6
+			}
+		},
+		"classes": [
+			"sorcerer",
+			"warlock",
+			"witch",
+			"wizard"
+		],
+		"components": {
+			"vocalized": true,
+			"seen": true,
+			"material": false
+		},
+		"concentration": true,
+		"level": 1,
+		"materials": "",
+		"materialsConsumed": false,
+		"prepared": 0,
+		"prerequisite": "Rage class feature",
+		"rare": false,
+		"ritual": false,
+		"schools": {
+			"primary": "evocation",
+			"secondary": [
+				"arcane",
+				"attack",
+				"cold",
+				"weaponry",
+				"multiclass"
+			]
+		},
+		"schemaVersion": {
+			"version": 0.014,
+			"lastMigration": null
+		},
+		"spellBook": ""
+	},
+	"effects": [
+		{
+			"icon": "icons/magic/light/explosion-star-blue-large.webp",
+			"origin": "Item.UlkJt1Ji40HxyCQ1",
+			"flags": {
+				"a5e": {
+					"sort": 0,
+					"transferType": "onUse",
+					"actionId": "VGpZdhJpLl0mzO14",
+					"duration": {
+						"unit": "minutes"
+					}
+				}
+			},
+			"transfer": false,
+			"name": "Reduce Speed",
+			"_id": "47sA2Lce0seR6hKQ",
+			"changes": [
+				{
+					"key": "system.attributes.movement.walk.distance",
+					"value": "0.5",
+					"mode": 1,
+					"priority": null
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": 60,
+				"combat": null,
+				"rounds": null,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "",
+			"statuses": [],
+			"folder": null
+		}
+	],
+	"flags": {},
+	"_id": "hhntbfcope8buohk"
+}

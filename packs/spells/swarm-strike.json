@@ -1,0 +1,193 @@
+{
+	"name": "Swarm Strike",
+	"type": "spell",
+	"img": "icons/creatures/invertebrates/wasp-swarm-attack.webp",
+	"effects": [
+		{
+			"icon": "icons/creatures/invertebrates/wasp-swarm-attack.webp",
+			"origin": "Item.vSmXi9NE0Ljzbzug",
+			"flags": {
+				"a5e": {
+					"sort": 0,
+					"transferType": "onUse",
+					"actionId": "jtyrumsySd4NLv0y",
+					"duration": {
+						"unit": "minutes"
+					}
+				}
+			},
+			"transfer": false,
+			"name": "Rattled",
+			"_id": "uOKt03qvXZQFUhxk",
+			"changes": [
+				{
+					"key": "flags.a5e.effects.statusConditions",
+					"value": "[\"rattled\"]",
+					"mode": 0,
+					"priority": null
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": 60,
+				"combat": null,
+				"rounds": null,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "",
+			"statuses": [
+				"rattled"
+			],
+			"folder": null
+		}
+	],
+	"folder": null,
+	"flags": {},
+	"system": {
+		"actions": {
+			"jtyrumsySd4NLv0y": {
+				"name": "Cast Spell",
+				"activation": {
+					"type": "bonusAction",
+					"cost": 1
+				},
+				"consumers": {
+					"QD7pPyFw4a7HYIt4": {
+						"type": "spell",
+						"default": true,
+						"mode": "variable",
+						"spellLevel": 1,
+						"points": 2
+					}
+				},
+				"rolls": {
+					"2uW5rqmrJM34qGOv": {
+						"type": "damage",
+						"default": true,
+						"formula": "1d6",
+						"damageType": "poison",
+						"scaling": {
+							"mode": "spellLevel",
+							"formula": "1d6"
+						}
+					}
+				},
+				"prompts": {
+					"PsOw9OtMIeGMGEVV": {
+						"type": "savingThrow",
+						"default": true,
+						"ability": "con",
+						"saveDC": {
+							"type": "spellcasting"
+						}
+					},
+					"3YyKxWEfzHp34kGI": {
+						"type": "effect",
+						"default": true,
+						"effectId": "uOKt03qvXZQFUhxk"
+					}
+				},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"rechargeType": "custom",
+						"rechargeAmount": "1",
+						"threshold": 6
+					}
+				},
+				"duration": {
+					"unit": "minute",
+					"value": 1
+				},
+				"ranges": {
+					"3HNC1cw61VaLPPOD": {
+						"range": "self"
+					}
+				}
+			},
+			"4myD8Mu8K5w0Z9gJ": {
+				"name": "Ongoing Damage",
+				"activation": {},
+				"consumers": {},
+				"rolls": {
+					"9iphohoaKEdsu2iy": {
+						"type": "damage",
+						"default": true,
+						"canCrit": false,
+						"formula": "1d6",
+						"damageType": "poison",
+						"scaling": {
+							"mode": "spellLevel",
+							"formula": "1d6"
+						}
+					}
+				},
+				"prompts": {},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"rechargeType": "custom",
+						"rechargeAmount": "1",
+						"threshold": 6
+					}
+				}
+			}
+		},
+		"description": "<p>The next time you hit a creature with a weapon attack during the spell’s duration, your weapon emits a strange buzzing sound, and the attack deals an extra 1d6 poison damage to the target as it is engulfed in a swarm of stinging insects.</p><p>At the start of each of its turns until the spell ends, the target must make a Constitution saving throw. On a failed save, it takes 1d6 poison damage. On a successful save, the spell ends. The spell also ends early if the target or another creature within 5 feet of it uses an action to repel the swarm, or if some other effect repels the swarm (such as the target being submerged in water).</p><p><strong>Cast At Higher Levels.</strong> If you cast this spell using a spell slot of 2nd level or higher, the damage increases by 1d6 for each slot level above 1st. The target is also Rattled for the</p>",
+		"favorite": false,
+		"secretDescription": "",
+		"source": "moarComplete",
+		"uses": {
+			"value": 0,
+			"max": "",
+			"per": "",
+			"recharge": {
+				"formula": "1d6",
+				"threshold": 6
+			}
+		},
+		"classes": [
+			"druid",
+			"herald",
+			"warlock"
+		],
+		"components": {
+			"vocalized": true,
+			"seen": false,
+			"material": false
+		},
+		"concentration": false,
+		"level": 1,
+		"materials": "",
+		"materialsConsumed": false,
+		"prepared": 0,
+		"prerequisite": "",
+		"rare": false,
+		"ritual": false,
+		"schools": {
+			"primary": "conjuration",
+			"secondary": [
+				"arcane",
+				"divine",
+				"nature",
+				"poison",
+				"weaponry"
+			]
+		},
+		"schemaVersion": {
+			"version": 0.014,
+			"lastMigration": null
+		},
+		"spellBook": ""
+	},
+	"_id": "pt7w1als0wlajqek"
+}

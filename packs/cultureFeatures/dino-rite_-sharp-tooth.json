@@ -1,0 +1,89 @@
+{
+	"name": "Dino-Rite: Sharp-Tooth",
+	"type": "feature",
+	"img": "icons/creatures/reptiles/lizard-iguana-green.webp",
+	"effects": [],
+	"folder": null,
+	"flags": {},
+	"system": {
+		"ac": {
+			"baseFormula": "",
+			"formula": "",
+			"grantsDisadvantage": false,
+			"maxDex": 0,
+			"minStr": 0,
+			"mode": 2,
+			"requiresNoShield": false,
+			"requiresUnarmored": false
+		},
+		"actions": {
+			"mLwGcolChbkKgZxp": {
+				"name": "Sharp-Tooth",
+				"activation": {
+					"type": "action",
+					"cost": 1
+				},
+				"consumers": {},
+				"rolls": {
+					"eupBvFkkWO23BFKD": {
+						"type": "attack",
+						"default": true,
+						"attackType": "meleeWeaponAttack",
+						"proficient": true,
+						"ability": "str"
+					},
+					"rHIxjvHpVWfZxA7Q": {
+						"type": "damage",
+						"default": true,
+						"formula": "1d8 + @str.mod",
+						"damageType": "piercing"
+					}
+				},
+				"prompts": {},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"rechargeType": "custom",
+						"rechargeAmount": "1",
+						"threshold": 6
+					}
+				},
+				"target": {
+					"type": "creature",
+					"quantity": 1
+				},
+				"ranges": {
+					"RgbiOlQoHjpQJA11": {
+						"range": "fiveFeet"
+					}
+				}
+			}
+		},
+		"description": "<p>Fanged tyrants like allosaurus and spinosaurus. You have a bite attack, a natural weapon dealing 1d8 piercing damage. (Your bite uses Strength for attack and damage rolls. This is not an unarmed strike.) Some adherents of this path have a pronounced—even exaggerated—jawline or underbite.</p>",
+		"favorite": false,
+		"secretDescription": "",
+		"source": "moarComplete",
+		"uses": {
+			"value": 0,
+			"max": "",
+			"per": "",
+			"recharge": {
+				"formula": "1d6",
+				"threshold": 6
+			}
+		},
+		"concentration": false,
+		"featureType": "culture",
+		"grants": {},
+		"prerequisite": "",
+		"requiresBloodied": false,
+		"schemaVersion": {
+			"version": 0.014,
+			"lastMigration": null
+		}
+	},
+	"_id": "1plxe50e2teipdqq"
+}

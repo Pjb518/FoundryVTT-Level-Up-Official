@@ -1,36 +1,49 @@
 {
 	"name": "Flare Shot",
 	"type": "spell",
-	"img": "icons/magic/fire/projectile-arrow-fire-orange-yellow.webp",
+	"img": "icons/magic/light/projectile-beam-yellow.webp",
 	"system": {
 		"actions": {
-			"HO4pVCI1q3xCysCu": {
-				"name": "Cast Spell",
+			"JXdepH1j51zUPI3O": {
+				"name": "Cast Spell At Target",
 				"activation": {
 					"type": "action",
 					"cost": 1
 				},
 				"consumers": {},
 				"rolls": {
-					"UG0onhi31wjeQUuX": {
+					"UPBudbzXYRySB14C": {
 						"type": "damage",
 						"default": true,
+						"formula": "0",
+						"damageType": "radiant",
 						"scaling": {
 							"mode": "cantrip",
 							"formula": "1d4"
-						},
-						"formula": "0",
-						"damageType": "radiant"
+						}
 					}
 				},
-				"prompts": {},
+				"prompts": {
+					"qhh6NobLt2A2zCMX": {
+						"type": "effect",
+						"default": true,
+						"effectId": "R2sDkL9ZcWz4S6SQ"
+					}
+				},
 				"uses": {
 					"value": 0,
 					"max": "",
 					"per": "",
 					"recharge": {
 						"formula": "1d6",
+						"rechargeType": "custom",
+						"rechargeAmount": "1",
 						"threshold": 6
+					}
+				},
+				"ranges": {
+					"Msdn73QR2mm1D4Pd": {
+						"range": "medium"
 					}
 				},
 				"duration": {
@@ -40,30 +53,55 @@
 				"target": {
 					"type": "creatureObject",
 					"quantity": 1
+				}
+			},
+			"iJFX6TM2acMJyafb": {
+				"name": "Cast Spell At Sky",
+				"activation": {
+					"type": "action",
+					"cost": 1
+				},
+				"consumers": {},
+				"rolls": {},
+				"prompts": {},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"rechargeType": "custom",
+						"rechargeAmount": "1",
+						"threshold": 6
+					}
 				},
 				"ranges": {
-					"kMMO7qJoUHEjhBqx": {
+					"Msdn73QR2mm1D4Pd": {
 						"range": "medium"
 					}
+				},
+				"duration": {
+					"unit": "minute",
+					"value": 1
+				},
+				"target": {
+					"type": "",
+					"quantity": 1
 				}
 			}
 		},
-		"description": "<p>Your shot glows brightly as it streaks toward its target.</p><p>As part of the action used to cast this spell, make a ranged weapon attack against a target within range of the weapon you are wielding. On a hit, the target takes normal weapon damage and sheds bright light to a range of 20 feet from its point of impact and dim light to a range of 40 feet from its point of impact. Alternatively, you may fire the shot into the sky, where it slowly descends over the course of a minute, shedding bright light to a range of 100 feet and dim light to a range of 200 feet. If it impacts something, the ranges decrease to 20/40 feet as if you had fired it into a target. You may only have one such light effect active at a time. If you cast the spell again, the prior target/shot stops glowing immediately.</p><p>At 5th level, the target takes an additional 1d4 points of radiant damage on a hit. This increases to 2d4 at level 11 and 3d4 at level 17.</p>",
+		"description": "<p>Your shot glows brightly as it streaks toward its target.&nbsp;As part of the action used to cast this spell, make a ranged weapon attack against a target within range of your weapon. On a hit, the target takes normal weapon damage and sheds bright light to a range of 20 feet from its point of impact and dim light to a range of 40 feet from its point of impact.</p>\n<p>Alternatively, you may fire the shot into the sky, where it slowly descends over the course of a minute, shedding bright light to a range of 100 feet and dim light to a range of 200 feet. If it impacts something, the ranges decrease to 20/40 feet as if you had fired it into a target.</p>\n<p>You may only have one such light effect active at a time. If you cast the spell again, the prior target or shot stops glowing immediately.</p>\n<p><strong><em>Cast at Higher Levels:</em></strong></p>\n<p>At 5th level, the target takes an additional 1d4 points of <em>radiant</em> damage on a hit.&nbsp;At 11th level, the damage increases to 2d4.&nbsp;At 17th level, the damage increases to 3d4.</p>\n<p>&nbsp;</p>",
 		"favorite": false,
 		"secretDescription": "",
-		"source": "arcaneSniper",
+		"source": "moarComplete",
 		"uses": {
-			"value": null,
+			"value": 0,
 			"max": "",
-			"per": null,
+			"per": "",
 			"recharge": {
 				"formula": "1d6",
-				"threshold": "6"
+				"threshold": 6
 			}
-		},
-		"schema": {
-			"version": null,
-			"lastMigration": null
 		},
 		"classes": [
 			"cleric",
@@ -76,9 +114,9 @@
 		},
 		"concentration": false,
 		"level": 0,
-		"materials": "A ranged weapon",
+		"materials": "a ranged weapon",
 		"materialsConsumed": false,
-		"prepared": false,
+		"prepared": 0,
 		"prerequisite": "",
 		"rare": false,
 		"ritual": false,
@@ -91,17 +129,57 @@
 			]
 		},
 		"schemaVersion": {
-			"version": 0.013,
-			"lastMigration": {
-				"version": {
-					"schema": 0.011,
-					"foundry": "11.315",
-					"system": "0.16.49"
-				}
-			}
-		}
+			"version": 0.014,
+			"lastMigration": null
+		},
+		"spellBook": ""
 	},
-	"effects": [],
+	"effects": [
+		{
+			"icon": "icons/magic/light/projectile-beam-yellow.webp",
+			"origin": "Item.HPaVKLpULFHJJAdh",
+			"flags": {
+				"a5e": {
+					"sort": 0,
+					"transferType": "onUse",
+					"actionId": "JXdepH1j51zUPI3O",
+					"duration": {
+						"unit": "minutes"
+					}
+				}
+			},
+			"transfer": false,
+			"name": "Light",
+			"_id": "R2sDkL9ZcWz4S6SQ",
+			"changes": [
+				{
+					"key": "@token.light.bright",
+					"value": "20",
+					"mode": 6,
+					"priority": null
+				},
+				{
+					"key": "@token.light.dim",
+					"value": "40",
+					"mode": 6,
+					"priority": null
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": 60,
+				"combat": null,
+				"rounds": null,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "",
+			"statuses": [],
+			"folder": null
+		}
+	],
 	"flags": {},
 	"folder": null,
 	"_id": "wwt8tl6wfx5up0x0"

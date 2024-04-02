@@ -1,0 +1,228 @@
+{
+	"folder": null,
+	"name": "Freeze",
+	"type": "spell",
+	"img": "icons/magic/water/barrier-ice-crystal-wall-jagged-blue.webp",
+	"system": {
+		"actions": {
+			"1RSkMJm2mx3vcxao": {
+				"name": "Cast Spell",
+				"activation": {
+					"type": "action",
+					"cost": 1
+				},
+				"consumers": {
+					"JtvP2CFnDrjJh0TC": {
+						"type": "spell",
+						"default": true,
+						"mode": "variable",
+						"spellLevel": 2,
+						"points": 3
+					}
+				},
+				"rolls": {},
+				"prompts": {
+					"calP5nBu43ai4wI0": {
+						"type": "savingThrow",
+						"default": true,
+						"ability": "str",
+						"saveDC": {
+							"type": "spellcasting"
+						},
+						"label": ""
+					},
+					"myUViaGaf3pXhkeL": {
+						"type": "effect",
+						"default": true,
+						"effectId": "WscFwbGivAz8AcpS"
+					}
+				},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"threshold": 6
+					}
+				},
+				"duration": {
+					"unit": "instantaneous"
+				},
+				"ranges": {
+					"HH7i60Cre78eEd5M": {
+						"range": "medium"
+					}
+				},
+				"area": {
+					"shape": "circle",
+					"quantity": 1,
+					"radius": 20,
+					"placeTemplate": true
+				}
+			},
+			"UXS68iF1b3YpFopd": {
+				"name": "Enter/End Turn",
+				"activation": {
+					"type": "none"
+				},
+				"consumers": {},
+				"rolls": {},
+				"prompts": {
+					"tAHwkEyfKhsvfG1N": {
+						"type": "skillCheck",
+						"default": true,
+						"skill": "acr",
+						"ability": "dex",
+						"label": "Enter or End Turn in Area"
+					},
+					"UIzkefodWsFTbrCU": {
+						"type": "effect",
+						"default": true,
+						"effectId": "5Zaeghw3PE9xyWSI"
+					}
+				},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"threshold": 6
+					}
+				},
+				"duration": {
+					"unit": "minute",
+					"value": 1
+				},
+				"descriptionOutputs": [
+					"action"
+				],
+				"description": "<p>If the area of the circle includes the ground, it is also difficult terrain for 1 minute, or until it takes any fire damage. Creatures entering the area or ending their turn there must make Acrobatics checks against your spell save DC or fall prone, slipping on the ice.</p>"
+			}
+		},
+		"description": "<p>You create a burst of intense cold and ice at a point you can see. If they fail their save, creature&rsquo;s in the area are grappled as they are encrusted with ice. They are encrusted until they or another creature within reach of it uses an action to make a Strength saving throw to break away the ice.</p>\n<p>If the area of the circle includes the ground, it is also difficult terrain for 1 minute, or until it takes any fire damage. Creatures entering the area or ending their turn there must make Acrobatics checks against your spell save DC or fall prone, slipping on the ice.</p>",
+		"favorite": false,
+		"secretDescription": "",
+		"source": "moarComplete",
+		"uses": {
+			"value": 0,
+			"max": "",
+			"per": "",
+			"recharge": {
+				"formula": "1d6",
+				"threshold": 6
+			}
+		},
+		"classes": [
+			"druid",
+			"elementalistWater",
+			"sorcerer",
+			"wizard"
+		],
+		"components": {
+			"vocalized": true,
+			"seen": true,
+			"material": true
+		},
+		"concentration": false,
+		"level": 2,
+		"materials": "a vial of pure melted water",
+		"materialsConsumed": false,
+		"prepared": 0,
+		"prerequisite": "",
+		"rare": false,
+		"ritual": false,
+		"schools": {
+			"primary": "evocation",
+			"secondary": [
+				"cold",
+				"arcane",
+				"nature"
+			]
+		},
+		"schemaVersion": {
+			"version": 0.014,
+			"lastMigration": null
+		},
+		"spellBook": ""
+	},
+	"effects": [
+		{
+			"icon": "icons/magic/water/barrier-ice-crystal-wall-jagged-blue.webp",
+			"origin": "Item.dnSoGvhKmYY1M7Fe",
+			"flags": {
+				"a5e": {
+					"sort": 0,
+					"transferType": "onUse",
+					"actionId": "1RSkMJm2mx3vcxao"
+				}
+			},
+			"transfer": false,
+			"name": "Grappled",
+			"_id": "WscFwbGivAz8AcpS",
+			"changes": [
+				{
+					"key": "flags.a5e.effects.statusConditions",
+					"value": "[\"grappled\"]",
+					"mode": 0,
+					"priority": null
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": null,
+				"combat": null,
+				"rounds": null,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "",
+			"statuses": [
+				"grappled"
+			],
+			"folder": null
+		},
+		{
+			"icon": "icons/magic/water/barrier-ice-crystal-wall-jagged-blue.webp",
+			"origin": "Item.dnSoGvhKmYY1M7Fe",
+			"flags": {
+				"a5e": {
+					"sort": 0,
+					"transferType": "onUse",
+					"actionId": "UXS68iF1b3YpFopd"
+				}
+			},
+			"transfer": false,
+			"name": "Prone",
+			"_id": "5Zaeghw3PE9xyWSI",
+			"changes": [
+				{
+					"key": "flags.a5e.effects.statusConditions",
+					"value": "[\"prone\"]",
+					"mode": 0,
+					"priority": null
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": null,
+				"combat": null,
+				"rounds": null,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "",
+			"statuses": [
+				"prone"
+			],
+			"folder": null
+		}
+	],
+	"flags": {},
+	"_id": "cqfc42384jfmai69"
+}
