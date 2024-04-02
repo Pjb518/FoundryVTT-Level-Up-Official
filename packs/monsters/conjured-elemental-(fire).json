@@ -37,7 +37,8 @@
 				"save": {
 					"proficient": false,
 					"expertiseDice": 0,
-					"bonus": ""
+					"bonus": "",
+					"concentrationBonus": ""
 				}
 			},
 			"int": {
@@ -482,7 +483,11 @@
 			"elite": false,
 			"privateNotes": "",
 			"notes": "",
-			"terrain": []
+			"terrain": [
+				"laboratory",
+				"ruin",
+				"temple"
+			]
 		},
 		"proficiencies": {
 			"armor": [],
@@ -563,8 +568,8 @@
 		},
 		"grants": {},
 		"spellBooks": {
-			"0gz40af0FOw6wHJQ": {
-				"_id": "0gz40af0FOw6wHJQ",
+			"mDHIJLVUFOzIA94K": {
+				"_id": "mDHIJLVUFOzIA94K",
 				"name": "New Spell Book",
 				"img": "icons/svg/book.svg",
 				"ability": "default",
@@ -595,7 +600,7 @@
 		"disposition": 0,
 		"displayBars": 30,
 		"bar1": {
-			"attribute": "attributes.hp.value"
+			"attribute": "attributes.hp"
 		},
 		"bar2": {
 			"attribute": null
@@ -1516,13 +1521,13 @@
 					"key": "flags.a5e.effects.bonuses.skills",
 					"value": "{\"context\":{\"skills\":[\"prc\"],\"passiveOnly\":true,\"requiresProficiency\":false},\"formula\":\"2\",\"label\":\"Skill Bonus\",\"default\":true}",
 					"mode": 0,
-					"priority": 20
+					"priority": 0
 				},
 				{
 					"key": "system.details.cr",
 					"mode": 6,
 					"value": "2",
-					"priority": null
+					"priority": 0
 				}
 			],
 			"disabled": false,
@@ -1556,7 +1561,7 @@
 					"key": "flags.a5e.effects.bonuses.attacks",
 					"value": "{\"context\":{\"attackTypes\":[\"meleeWeaponAttack\"]},\"formula\":\"0\",\"label\":\"Melee Weapon Attack\",\"img\":\"icons/svg/upgrade.svg\",\"default\":true}",
 					"mode": 0,
-					"priority": 50
+					"priority": 0
 				}
 			],
 			"disabled": false,
