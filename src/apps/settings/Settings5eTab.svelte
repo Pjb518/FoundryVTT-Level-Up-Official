@@ -13,6 +13,7 @@
     let deathSaves = settings.getStore("5eStyleDeathSaves");
     let exhaustion = settings.getStore("replaceFatigueAndStrife");
     let hideA5eSkills = settings.getStore("hideA5eSkills");
+    let hideBrokenAndDamaged = settings.getStore("hideBrokenAndDamaged");
     let hideExpertiseDice = settings.getStore("hideExpertiseDice");
     let hideSkillCriticalPrompt = settings.getStore("hideSkillCriticalPrompt");
     let hideSkillSpecialties = settings.getStore("hideSkillSpecialties");
@@ -105,6 +106,23 @@
             on:updateSelection={({ detail }) => {
                 updates.set("simpleInitiative", detail);
                 reload = true;
+            }}
+        />
+    </FieldWrapper>
+</Section>
+
+<Section
+    heading="A5E.settings.sectionHeader.sheetSettings"
+    --a5e-section-body-gap="0.5rem"
+>
+    <FieldWrapper hint="A5E.settings.hints.hideBrokenAndDamaged">
+        <Checkbox
+            label="A5E.settings.hideBrokenAndDamaged"
+            checked={updates.get("hideBrokenAndDamaged") ??
+                $hideBrokenAndDamaged ??
+                false}
+            on:updateSelection={({ detail }) => {
+                updates.set("hideBrokenAndDamaged", detail);
             }}
         />
     </FieldWrapper>

@@ -419,6 +419,18 @@ class A5eGameSettings extends TJSGameSettings {
       },
       {
         namespace,
+        key: 'hideBrokenAndDamaged',
+        options: {
+          name: 'A5E.settings.hideBrokenAndDamaged',
+          hint: 'A5E.settings.hints.hideBrokenAndDamaged',
+          scope: scope.world,
+          config: true,
+          default: false,
+          type: Boolean
+        }
+      },
+      {
+        namespace,
         key: 'hideExpertiseDice',
         options: {
           name: 'A5E.settings.hideExpertiseDice',
