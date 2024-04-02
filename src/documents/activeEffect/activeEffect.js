@@ -558,7 +558,7 @@ export default class ActiveEffectA5e extends ActiveEffect {
         effect.statuses.forEach((statusId) => document.statuses.add(statusId));
       }
 
-      return effect.changes.filter(predicate).map((change) => {
+      return effect._source.changes.filter(predicate).map((change) => {
         const originalPriority = (change.priority ?? 0) * change.mode;
         change.priority = originalPriority ?? change.mode * 10;
         return { effect, change };
