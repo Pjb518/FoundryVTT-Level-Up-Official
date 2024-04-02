@@ -3,6 +3,7 @@
 [![License: MIT](https://img.shields.io/badge/Software_License-MIT-blue.svg)](https://mit-license.org/)
 [![License: CC BY 4.0](https://img.shields.io/badge/Content_License-CC_BY_4.0-blue.svg)](https://creativecommons.org/licenses/by/4.0/)
 [![License: OGL 1.0a](https://img.shields.io/badge/Content_License-OGL_1.0a-blue.svg)](https://opengamingfoundation.org/ogl.html)
+[![License: OGL 1.0a](https://img.shields.io/badge/Content_License-ORC-blue.svg)](https://paizo.com/orclicense)
 
 ![Supported Foundry Versions](https://img.shields.io/endpoint?url=https://foundryshields.com/version?url=https://github.com/Pjb518/FoundryVTT-Level-Up-Official/releases/latest/download/system.json&color=blue)
 ![Latest Release Download Count](https://img.shields.io/github/downloads/Pjb518/FoundryVTT-Level-Up-Official/latest/a5e.zip)
