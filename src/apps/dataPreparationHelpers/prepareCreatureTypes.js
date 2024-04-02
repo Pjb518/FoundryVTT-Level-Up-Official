@@ -9,6 +9,10 @@ export default function prepareCreatureTypes(data) {
     (type) => localize(CONFIG.A5E.creatureTypes[type] ?? type)
   );
 
+  if (data.system.details.isSquad) {
+    typeLabels.push(localize('Squad'));
+  }
+
   if (data.system.details.isSwarm) {
     typeLabels.push(localize('A5E.CreatureSwarm'));
   }
