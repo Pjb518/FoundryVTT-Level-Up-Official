@@ -29,6 +29,8 @@
         } else {
             currentSpellBook = currentSpellBook; // This is stupid, but it works
         }
+
+        configureSpellbook(newSpellBookId);
     }
 
     async function configureSpellbook(spellBookId) {
