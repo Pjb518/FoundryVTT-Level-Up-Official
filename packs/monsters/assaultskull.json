@@ -38,7 +38,8 @@
 				"save": {
 					"proficient": false,
 					"expertiseDice": 0,
-					"bonus": ""
+					"bonus": "",
+					"concentrationBonus": ""
 				}
 			},
 			"int": {
@@ -497,7 +498,24 @@
 			"elite": false,
 			"privateNotes": "",
 			"notes": "",
-			"terrain": []
+			"terrain": [
+				"caverns",
+				"desert",
+				"forest",
+				"grassland",
+				"hills",
+				"jungle",
+				"laboratory",
+				"mountains",
+				"ruin",
+				"settlement",
+				"sewer",
+				"swamp",
+				"temple",
+				"tomb",
+				"tundra",
+				"water"
+			]
 		},
 		"proficiencies": {
 			"armor": [],
@@ -611,7 +629,7 @@
 		"disposition": 0,
 		"displayBars": 20,
 		"bar1": {
-			"attribute": "attributes.hp.value"
+			"attribute": "attributes.hp"
 		},
 		"bar2": {
 			"attribute": null
@@ -1532,7 +1550,7 @@
 			"flags": {}
 		},
 		{
-			"name": "Elemental Blast (Recharge 6)",
+			"name": "Elemental Blast",
 			"type": "feature",
 			"system": {
 				"ac": {
@@ -1650,7 +1668,7 @@
 			"flags": {}
 		},
 		{
-			"name": "Hyperneedle (3/Day)",
+			"name": "Hyperneedle",
 			"type": "feature",
 			"system": {
 				"ac": {
@@ -1761,7 +1779,7 @@
 			"flags": {}
 		},
 		{
-			"name": "Sensor Sweep (Recharge 4–6)",
+			"name": "Sensor Sweep",
 			"type": "feature",
 			"system": {
 				"ac": {
@@ -1854,7 +1872,7 @@
 			"flags": {}
 		},
 		{
-			"name": "Overclock (1/Day, While Bloodied)",
+			"name": "Overclock",
 			"type": "feature",
 			"system": {
 				"ac": {
@@ -1915,7 +1933,7 @@
 				"featureType": "other",
 				"grants": {},
 				"prerequisite": "",
-				"requiresBloodied": false,
+				"requiresBloodied": true,
 				"schemaVersion": {
 					"version": 0.014,
 					"lastMigration": {

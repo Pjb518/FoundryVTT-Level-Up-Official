@@ -38,7 +38,8 @@
 				"save": {
 					"proficient": false,
 					"expertiseDice": 0,
-					"bonus": ""
+					"bonus": "",
+					"concentrationBonus": ""
 				}
 			},
 			"int": {
@@ -483,7 +484,11 @@
 			"elite": false,
 			"privateNotes": "",
 			"notes": "",
-			"terrain": []
+			"terrain": [
+				"ruin",
+				"temple",
+				"tomb"
+			]
 		},
 		"proficiencies": {
 			"armor": [],
@@ -1629,7 +1634,7 @@
 			"flags": {}
 		},
 		{
-			"name": "Blinding Rebuke (1/Day)",
+			"name": "Blinding Rebuke",
 			"type": "feature",
 			"system": {
 				"ac": {
@@ -1650,7 +1655,13 @@
 							"cost": 1,
 							"reactionTrigger": "Targeted by a harmful spell or hit by an attack made by a creature within 30 feet of it."
 						},
-						"consumers": {},
+						"consumers": {
+							"EoMhVb3tP7f7uoaU": {
+								"type": "itemUses",
+								"default": true,
+								"quantity": 1
+							}
+						},
 						"rolls": {
 							"515ssog9l8mOxq72": {
 								"type": "damage",
@@ -1721,7 +1732,7 @@
 			"flags": {}
 		},
 		{
-			"name": "Consume Spell (1/Day)",
+			"name": "Consume Spell",
 			"type": "feature",
 			"system": {
 				"ac": {
@@ -1742,7 +1753,13 @@
 							"cost": 1,
 							"reactionTrigger": "When a creature within 60 feet casts a spell"
 						},
-						"consumers": {},
+						"consumers": {
+							"Il0EzvwhHqYgFNum": {
+								"type": "itemUses",
+								"default": true,
+								"quantity": 1
+							}
+						},
 						"rolls": {},
 						"prompts": {},
 						"uses": {
