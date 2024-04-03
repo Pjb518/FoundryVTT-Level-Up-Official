@@ -51,7 +51,21 @@ export default class ClassDataModel extends A5EDataModel.mixin(SchemaDataModel) 
       source: new fields.StringField({ nullable: false, initial: '' }),
       spellcasting: new fields.SchemaField({
         ability: new fields.StringField({ nullable: false, initial: 'none' }),
-        casterType: new fields.StringField({ nullable: false, initial: 'none' })
+        casterType: new fields.StringField({ nullable: false, initial: 'none' }),
+        knownCantrips: new fields.SchemaField(
+          Array.from({ length: 20 }, (_, i) => i + 1)
+            .reduce((acc, level) => {
+              acc[level] = new fields.NumberField({ nullable: false, initial: 0, min: 0 });
+              return acc;
+            }, {})
+        ),
+        knownSpells: new fields.SchemaField(
+          Array.from({ length: 20 }, (_, i) => i + 1)
+            .reduce((acc, level) => {
+              acc[level] = new fields.NumberField({ nullable: false, initial: 0, min: 0 });
+              return acc;
+            }, {})
+        )
       }),
       wealth: new fields.StringField({ nullable: false, initial: '' })
     });

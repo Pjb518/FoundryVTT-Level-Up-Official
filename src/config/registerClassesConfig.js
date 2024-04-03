@@ -199,7 +199,7 @@ export default function registerClassesConfig(A5E) {
     },
     warlockA5e: {
       type: 'reference',
-      config: A5E.SPELL_POINTS_TABLE,
+      config: A5E.SPELL_POINTS_TABLE_WARLOCK,
       resource: 'points'
     },
     warlock5e: {

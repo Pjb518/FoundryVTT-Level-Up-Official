@@ -37,6 +37,8 @@ export default class ClassItemA5e extends OriginItemA5e {
   prepareBaseData() {
     super.prepareBaseData();
 
+    // TODO: If no parent class reset classLevels, hitDice, hp
+
     // Set up class resource manager
     this.resources = new ClassResourceManager(this);
   }
@@ -62,13 +64,52 @@ export default class ClassItemA5e extends OriginItemA5e {
 
   prepareCasterData() {
     const { casterType } = this.system.spellcasting;
-    if (!casterType || casterType === 'none') return null;
+    if (!casterType || casterType === 'none' || !this.classLevels) return null;
 
-    // TODO: Prepare caster data
-    return {
-      type: casterType,
-      divisor: CONFIG.A5E.casterProgression[casterType] ?? null
-    };
+    const progressionConfig = CONFIG.A5E.casterProgression[casterType] ?? null;
+    if (!progressionConfig) return null;
+
+    const {
+      type, config, resource, multiplier, roundUp
+    } = progressionConfig;
+
+    const data = { casterType, resource };
+
+    // Add spellcasting resource data
+    if (type === 'multiplier' && resource === 'slots') {
+      const roundFunc = roundUp ? Math.ceil : Math.floor;
+      const slots = config[roundFunc(this.classLevels * multiplier)];
+
+      data.slots = Object.fromEntries(slots.map((slot, idx) => ([
+        idx + 1,
+        slot
+      ])));
+    }
+
+    if (type === 'reference') {
+      const ref = config[this.classLevels];
+      if (resource === 'slots') {
+        data.slots = { [ref.level]: ref.slots };
+      } else if (resource === 'points') {
+        data.points = ref.points;
+        data.maxLevel = ref.level;
+      } else if (resource === 'inventions') {
+        data.inventions = ref.count;
+        data.maxLevel = ref.level;
+      } else if (resource === 'artifactCharges') {
+        data.charges = ref.charges;
+        data.maxLevel = ref.level;
+      }
+    }
+
+    // Add known data for spells and cantrips
+    const knownCantrips = this.system.spellcasting.knownCantrips[this.classLevels] ?? 0;
+    const knownSpells = this.system.spellcasting.knownSpells[this.classLevels] ?? 0;
+
+    if (knownCantrips) data.knownCantrips = knownCantrips;
+    if (knownSpells) data.knownSpells = knownSpells;
+
+    return data;
   }
 
   getRollData() {
