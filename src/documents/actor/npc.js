@@ -1,6 +1,9 @@
 import BaseActorA5e from './base';
 
 export default class NPCActorA5E extends BaseActorA5e {
+  // -------------------------------------------------------------
+  // Data Preparation Methods
+  // -------------------------------------------------------------
   /**
    * @returns {String} hitPointFormula
    */

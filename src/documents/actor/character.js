@@ -2,6 +2,36 @@ import BaseActorA5e from './base';
 
 export default class CharacterActorA5E extends BaseActorA5e {
   /**
+   * @type {Record<string, ClassItemA5e>}
+   */
+  #classes;
+
+  get classes() {
+    if (this.#classes !== undefined) return this.#classes;
+
+    this.#classes = this.items.reduce((acc, item) => {
+      if (item.type !== 'class') return acc;
+
+      acc[item.slug] = item;
+      return acc;
+    }, {});
+
+    return this.#classes;
+  }
+
+  // -------------------------------------------------------------
+  // Data Preparation Methods
+  // -------------------------------------------------------------
+  /**
+   * Sets the order of when to prepare data.
+   * @override
+   */
+  prepareData() {
+    this.#classes = undefined;
+    super.prepareData();
+  }
+
+  /**
    * Prepare base data for the actor.
    * @override
    */
@@ -30,7 +60,58 @@ export default class CharacterActorA5E extends BaseActorA5e {
 
   prepareSpellResources() {
     const actorData = this.system;
-    console.log(actorData);
+    const { classes } = this;
+    const spellSlotClasses = [];
+
+    Object.values(classes).forEach((cls) => {
+      const { casting } = cls;
+      if (!casting) return;
+
+      if (casting.progressionType === 'multiplier') {
+        spellSlotClasses.push(cls);
+        return;
+      }
+
+      // TODO: Point multi-classing
+
+      if (casting.resource === 'inventions') {
+        actorData.spellResources.inventions.max += (casting.inventions || 0);
+      } else if (casting.resource === 'artifactCharges') {
+        actorData.spellResources.artifactCharges.max += (casting.charges || 0);
+      } else if (casting.resource === 'slots') {
+        Object.entries(casting.slots).forEach(([level, slotCount]) => {
+          actorData.spellResources.slots[level].max += slotCount;
+        });
+      }
+    });
+
+    // Add spell slot data
+    if (spellSlotClasses.length === 1) {
+      const cls = spellSlotClasses[0];
+      const { slots: classSlots } = cls.casting;
+
+      Object.entries(classSlots).forEach(([level, slotCount]) => {
+        actorData.spellResources.slots[level].max += slotCount;
+      });
+    } else if (spellSlotClasses.length > 1) {
+      const total = spellSlotClasses.reduce((acc, cls) => {
+        const { classLevels } = cls;
+
+        const progressionConfig = CONFIG.A5E.casterProgression[cls.casting.casterType];
+        if (!progressionConfig) return acc;
+
+        const roundFunc = progressionConfig.roundUp ? Math.ceil : Math.floor;
+        return acc + roundFunc(classLevels * progressionConfig.multiplier);
+      }, 0);
+
+      CONFIG.A5E.SPELL_SLOT_TABLE[total].forEach((slotCount, idx) => {
+        actorData.spellResources.slots[idx + 1].max += slotCount;
+      });
+    }
+
+    // TODO: Implement Known Spells
+    // TODO: Implement Known Cantrips
+    // TODO: Implement max level
   }
 
   // -------------------------------------------------------------

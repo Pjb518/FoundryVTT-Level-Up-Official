@@ -74,7 +74,7 @@ export default class ClassItemA5e extends OriginItemA5e {
       type, config, resource, multiplier, roundUp
     } = progressionConfig;
 
-    const data = { casterType, resource };
+    const data = { casterType, resource, progressionType: type };
 
     // Add spellcasting resource data
     if (type === 'multiplier' && resource === 'slots') {
