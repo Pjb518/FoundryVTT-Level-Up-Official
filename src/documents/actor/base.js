@@ -43,7 +43,7 @@ import getDeterministicBonus from '../../dice/getDeterministicBonus';
 import getRollFormula from '../../utils/getRollFormula';
 import displayCascadingNumbers from '../../utils/displayCascadingNumbers';
 
-export default class ActorA5e extends Actor {
+export default class BaseActorA5e extends Actor {
   #configDialogMap;
 
   constructor(...args) {
@@ -99,25 +99,11 @@ export default class ActorA5e extends Actor {
   }
 
   /**
-   * @returns {String} hitPointFormula
+   * @returns {Number}
    */
-  get hitPointFormula() {
-    const { hitDice } = this.system.attributes;
-    const { mod } = this.system.abilities.con;
-
-    let hitDiceCount = 0;
-    const parts = [];
-
-    Object.entries(hitDice).forEach(([dieSize, { total: diceQuantity }]) => {
-      if (!diceQuantity) return;
-
-      parts.push(`${diceQuantity}${dieSize}`);
-      hitDiceCount += diceQuantity;
-    });
-
-    if (hitDiceCount === 0) return null;
-
-    return `${parts.join(' + ')} + ${hitDiceCount * mod}`;
+  get isBloodied() {
+    const { max, value } = this.system.attributes.hp;
+    return (value / max) * 100 <= 50;
   }
 
   /**
@@ -148,6 +134,9 @@ export default class ActorA5e extends Actor {
     };
   }
 
+  // -------------------------------------------------------------
+  // Data Preparation Methods
+  // -------------------------------------------------------------
   /**
    * Sets the order of when to prepare data.
    * @override
@@ -187,47 +176,12 @@ export default class ActorA5e extends Actor {
         override: null, bonuses: { components: [], value: 0 }
       };
     }
-
-    // Add base bonuses for abilities
-    // Object.entries(this.system.abilities).forEach(([abilityKey, ability]) => {
-    //   const value = getDeterministicBonus(
-    //     [
-    //       ability.value,
-    //       this.BonusesManager.getAbilityBonusesFormula(abilityKey, 'base').trim()
-    //     ].filter(Boolean).join(' + ')
-    //   );
-
-    //   ability.value = value ?? ability.value;
-    // });
-
-    const actorType = this.type;
-    if (actorType === 'character') {
-      this.prepareCharacterData();
-    } else {
-      this.prepareNPCData();
-    }
   }
 
   /**
-   * Prepare the base data for an actor of type character.
-   */
-  prepareCharacterData() {
-    // Calculate the proficiency bonus for the character with a minimum value of 2.
-    this.system.attributes.prof = Math.max(2, Math.floor((this.system.details.level + 7) / 4));
-  }
-
-  /**
-   * Prepare the base data for an actor of type npc.
-   */
-  prepareNPCData() {
-    // Calculate the proficiency bonus for the character with a minimum value of 2.
-    this.system.attributes.prof = Math.max(2, Math.floor((this.system.details.cr + 7) / 4));
-  }
-
-  /**
-   * Apply activeEffects to the actor with the phase 'applyAEs'.
-   * @override
-   */
+     * Apply activeEffects to the actor with the phase 'applyAEs'.
+     * @override
+     */
   applyActiveEffects() {
     this.overrides = {};
 
@@ -269,9 +223,9 @@ export default class ActorA5e extends Actor {
   }
 
   /**
-   * Prepares derived data for the actor.
-   * @override
-   */
+     * Prepares derived data for the actor.
+     * @override
+     */
   prepareDerivedData() {
     const actorData = this.system;
 
@@ -347,13 +301,6 @@ export default class ActorA5e extends Actor {
       // eslint-disable-next-line no-console
       console.error(`Failed to calculate a spell DC for ${this.name}`);
       actorData.attributes.spellDC = null;
-    }
-
-    if (this.type === 'character') {
-      actorData.attributes.attunement.current = this.items.reduce((acc, curr) => {
-        const { requiresAttunement, attuned } = curr.system;
-        return (requiresAttunement && attuned) ? acc + 1 : acc;
-      }, 0);
     }
 
     this.prepareSkills();
@@ -488,6 +435,9 @@ export default class ActorA5e extends Actor {
     return changes;
   }
 
+  /**
+  * Prepare skill data for the actor.
+  */
   prepareSkills() {
     const actorData = this.system;
     const proficiencyBonus = actorData.attributes.prof;
@@ -533,6 +483,11 @@ export default class ActorA5e extends Actor {
     });
   }
 
+  /**
+  * Calculate passive score for this actor.
+  * @param {String} skillKey - The key of the skill to calculate the passive score for.
+  * @param {Object} skill    - The skill object to calculate the passive score for.
+  */
   _calculatePassiveScore(skillKey, skill) {
     const rollData = this.getRollData();
 
@@ -544,6 +499,9 @@ export default class ActorA5e extends Actor {
     ].filter(Boolean).join(' + '), rollData);
   }
 
+  /**
+  * Prepare movement data taking into account any bonuses.
+  */
   prepareMovement() {
     const { movement } = this.system.attributes;
     for (const [type, { distance }] of Object.entries(movement)) {
@@ -556,6 +514,9 @@ export default class ActorA5e extends Actor {
     }
   }
 
+  /**
+  * Prepare senses data taking into account any bonuses.
+  */
   prepareSenses() {
     const { senses } = this.system.attributes;
     for (const [type, { distance }] of Object.entries(senses)) {
@@ -575,8 +536,8 @@ export default class ActorA5e extends Actor {
   }
 
   /**
-   * Prepare active effects for the actor with the phase 'afterDerived'.
-   */
+  * Prepare active effects for the actor with the phase 'afterDerived'.
+  */
   afterDerivedData() {
     ActiveEffectA5e.applyEffects(
       this,
@@ -588,143 +549,18 @@ export default class ActorA5e extends Actor {
     );
   }
 
-  /** @inheritdoc */
-  async _preCreate(data, options, user) {
-    await super._preCreate(data, options, user);
-
-    const items = [...this.items];
-    // Add schema version
-    if (!this.system.schemaVersion?.version && !this.system.schema?.version) {
-      let version = null;
-      if (['number', 'string'].includes(typeof this.system.ac)) version = 0.004;
-      else if (items.some((i) => typeof i.system?.equipped === 'boolean')) version = 0.003;
-      else if (items.some((i) => typeof i.system?.recharge === 'string')) version = 0.002;
-      else if (items.some((i) => typeof i.system?.uses?.max === 'number')) version = 0.001;
-      else if (typeof this.system.attributes.movement?.walk?.unit !== 'string') version = null;
-      else version = MigrationRunnerBase.LATEST_SCHEMA_VERSION;
-
-      this.updateSource({
-        'system.schemaVersion.version': version
-      });
-    }
-
-    // Player character configuration
-    if (this.type === 'character') {
-      const prototypeToken = { vision: true, actorLink: true, disposition: 1 };
-      this.updateSource({ prototypeToken });
-    }
-  }
-
-  /** @inheritdoc */
-  async _preUpdate(changed, options, user) {
-    const hasRemoveFlag = Object.keys(this.flags?.a5e ?? {}).includes('-=autoApplyFSConditions');
-    const isRemoveFlag = Object.keys(changed?.flags?.a5e ?? {}).includes('-=-=autoApplyFSConditions');
-
-    if (hasRemoveFlag && !isRemoveFlag) {
-      await this.unsetFlag('a5e', '-=autoApplyFSConditions');
-    }
-
-    const autoApplyFSConditions = changed?.flags?.a5e?.autoApplyFSConditions ?? true;
-    if (autoApplyFSConditions) {
-      automateMultiLevelConditions(this, foundry.utils.deepClone(changed), user.id);
-    }
-
-    foundry.utils.setProperty(changed, 'flags.a5e.-=autoApplyFSConditions', null);
-
-    await super._preUpdate(changed, options, user);
-
-    // If hp drops below 0, set the value to 0.
-    if (foundry.utils.getProperty(changed, 'system.attributes.hp.value') < 0) {
-      foundry.utils.setProperty(changed, 'system.attributes.hp.value', 0);
-    }
-
-    // If temp hp drops to or below 0, set the value to 0.
-    if (foundry.utils.getProperty(changed, 'system.attributes.hp.temp') <= 0) {
-      foundry.utils.setProperty(changed, 'system.attributes.hp.temp', 0);
-    }
-
-    // Reset death save counters
-    const isUnconscious = this.system.attributes.hp.value === 0;
-    const willRegainConsciousness = foundry.utils.getProperty(changed, 'system.attributes.hp.value') > 0;
-
-    if (isUnconscious && willRegainConsciousness) {
-      foundry.utils.setProperty(changed, 'system.attributes.death.success', 0);
-      foundry.utils.setProperty(changed, 'system.attributes.death.failure', 0);
-    }
-
-    // Update prototype token sizes to reflect the actor's token size
-    const automateTokenSize = this.flags?.a5e?.automatePrototypeTokenSize
-      ?? game.settings.get('a5e', 'automatePrototypeTokenSize')
-      ?? true;
-
-    if (automateTokenSize) {
-      if (foundry.utils.getProperty(changed, 'system.traits.size')) {
-        const newSize = changed.system.traits.size;
-
-        // If titanic token is already larger than 5, don't change it
-        if (newSize !== 'titan' || this.prototypeToken.width < 5) {
-          foundry.utils.setProperty(changed, 'prototypeToken.height', CONFIG.A5E.tokenDimensions[newSize]);
-          foundry.utils.setProperty(changed, 'prototypeToken.width', CONFIG.A5E.tokenDimensions[newSize]);
-        }
-      }
-    }
-  }
-
-  _onUpdate(changed, options, userId) {
-    super._onUpdate(changed, options, userId);
-
-    const applyBloodied = game.settings.get('a5e', 'automateBloodiedApplication') ?? true;
-    const applyUnconscious = game.settings.get('a5e', 'automateUnconsciousApplication') ?? true;
-
-    if (applyBloodied) automateHpConditions(this, changed, userId, 'bloodied');
-    if (applyUnconscious) automateHpConditions(this, changed, userId, 'unconscious');
-  }
-
-  async applyBulkDamage(damageRolls) {
-    const updates = {};
-    const { value, temp } = this.system.attributes.hp;
-
-    const totalDamage = damageRolls.reduce(
-      (cumulativeDamage, [damage]) => cumulativeDamage + Math.floor(damage),
-      0
-    );
-
-    if (temp) {
-      updates['system.attributes.hp'] = {
-        temp: Math.clamped(temp - totalDamage, 0, temp),
-        value: Math.clamped(value + temp - totalDamage, 0, value)
-      };
-    } else {
-      updates['system.attributes.hp.value'] = Math.clamped(value - totalDamage, 0, value);
-    }
-
-    if (game.settings.get('a5e', 'enableCascadingDamageAndHealing')) {
-      const actor = this;
-      const delayDelta = game.settings.get('a5e', 'cascadingDamageAndHealingDelay');
-      let delay = 0;
-
-      damageRolls.forEach(([damage, damageType]) => {
-        setTimeout(async () => {
-          await displayCascadingNumbers(actor, 'damage', `-${damage}`, damageType);
-        }, delay);
-
-        delay += delayDelta;
-      });
-    }
-
-    Hooks.callAll('a5e.actorDamaged', this, { prevHp: { value, temp }, damageRolls });
-    return this.update(updates);
-  }
-
+  // -------------------------------------------------------------
+  // Data Update Helpers
+  // -------------------------------------------------------------
   /**
-   * Apply a certain amount of damage to the health pool for Actor, prioritizing temporary hp.
-   * Negative damage values will have no effect.
-   *
-   * @param {number} damage  An amount of damage to apply to the actor.
-   * @param {string} damageType A key indicating the type of damage the actor is taking.
-   *
-   * @returns {Promise<Actor5e>}  A Promise which resolves once the damage has been applied
-   */
+    * Apply a certain amount of damage to the health pool for Actor, prioritizing temporary hp.
+    * Negative damage values will have no effect.
+    *
+    * @param {number} damage  An amount of damage to apply to the actor.
+    * @param {string} damageType A key indicating the type of damage the actor is taking.
+    *
+    * @returns {Promise<Actor5e>}  A Promise which resolves once the damage has been applied
+  */
   async applyDamage(damage, damageType = null) {
     const updates = {};
     const { value, temp } = this.system.attributes.hp;
@@ -806,7 +642,7 @@ export default class ActorA5e extends Actor {
    *                                temporary.
    *
    * @returns {Promise<Actor5e>}  A Promise which resolves once the damage has been applied
-   */
+  */
   async applyHealing(healing, healingType) {
     const updates = {};
     const { value, max, temp } = this.system.attributes.hp;
@@ -894,281 +730,6 @@ export default class ActorA5e extends Actor {
     return abilities[spellcastingAbility].check.mod;
   }
 
-  addBonus(type = 'damage') {
-    const bonuses = foundry.utils.duplicate(this._source.system.bonuses[type] ?? {});
-
-    if (!Object.keys(CONFIG.A5E.bonusTypes)?.includes(type)) return;
-
-    this.update({
-      [`system.bonuses.${type}`]: {
-        ...bonuses,
-        [foundry.utils.randomID()]: {}
-      }
-    });
-  }
-
-  #configure(key, title, data, options) {
-    if (!this.isOwner) return;
-
-    const component = this.#configDialogMap[key];
-    let dialog = null;
-
-    if (key === 'ability') dialog = this.dialogs.abilities[data.abilityKey];
-    else if (key === 'skill') dialog = this.dialogs.skills[data.skillKey];
-    else if (Object.values(CONFIG.A5E.bonusDialogKeys).includes(key)) {
-      dialog = this.dialogs.bonuses[data.bonusID];
-    }
-    else dialog = this.dialogs[key];
-
-    if (!dialog) {
-      dialog = new GenericConfigDialog(this, title, component, data, options);
-
-      if (key === 'ability') this.dialogs.abilities[data.abilityKey] = dialog;
-      else if (key === 'skill') this.dialogs.skills[data.skillKey] = dialog;
-      else if (Object.values(CONFIG.A5E.bonusDialogKeys).includes(key)) {
-        this.dialogs.bonuses[data.bonusID] = dialog;
-      }
-      else this.dialogs[key] = dialog;
-    }
-
-    dialog.render(true);
-  }
-
-  configureAbilityScore(data = {}, options = {}) {
-    const title = localize(
-      'A5E.AbilityCheckPromptTitle',
-      { name: this.name, ability: localize(CONFIG.A5E.abilities[data.abilityKey]) }
-    );
-
-    this.#configure('ability', title, data, options);
-  }
-
-  configureAlignment(data = {}, options = {}) {
-    const title = localize('A5E.AlignmentConfigurationPrompt', { name: this.name });
-
-    data.heading ??= 'A5E.Alignments';
-    data.propertyKey ??= 'system.traits.alignment';
-    data.configObject ??= CONFIG.A5E.alignments;
-    data.type ??= 'alignment';
-
-    this.#configure('alignment', title, data, options);
-  }
-
-  configureArmorClass(data = {}, options = {}) {
-    const title = localize('A5E.ACConfigurationPrompt', { name: this.name });
-    this.#configure('armorClass', title, data, options);
-  }
-
-  configureArmorProficiencies(data = {}, options = {}) {
-    const title = localize('A5E.ArmorProficienciesConfigurationPrompt', { name: this.name });
-
-    data.heading ??= 'A5E.ArmorProficiencies';
-    data.propertyKey ??= 'system.proficiencies.armor';
-    data.configObject ??= CONFIG.A5E.armor;
-    data.type ??= 'armorTypes';
-
-    this.#configure('armor', title, data, options);
-  }
-
-  configureConditionImmunities(data = {}, options = {}) {
-    const title = localize('A5E.ConditionImmunitiesConfigurationPrompt', { name: this.name });
-
-    data.heading ??= 'A5E.ConditionImmunities';
-    data.configObject ??= CONFIG.A5E.conditions;
-    data.propertyKey ??= 'system.traits.conditionImmunities';
-    data.type ??= 'conditionImmunities';
-
-    this.#configure('conditionImmunities', title, data, options);
-  }
-
-  configureCreatureTypes(data = {}, options = {}) {
-    const title = localize('A5E.CreatureTypesConfigurationPrompt', { name: this.name });
-
-    data.heading ??= 'A5E.CreatureTypePlural';
-    data.configObject ??= CONFIG.A5E.creatureTypes;
-    data.propertyKey ??= 'system.details.creatureTypes';
-    data.type ??= 'creatureTypes';
-
-    this.#configure('types', title, data, options);
-  }
-
-  configureBonus(bonusID, type = 'damage') {
-    const dialogKey = CONFIG.A5E.bonusDialogKeys[type];
-    if (!dialogKey) return;
-
-    const dialogName = `${this.name} ${localize(CONFIG.A5E.bonusLabels[type]?.dialogName ?? type)}`;
-    this.#configure(dialogKey, dialogName, { bonusID });
-  }
-
-  configureCreatureTerrains(data = {}, options = {}) {
-    data.heading ??= 'A5E.CreatureTerrainsLabel';
-    data.configObject ??= CONFIG.A5E.terrainTypes;
-    data.propertyKey ??= 'system.details.terrain';
-    data.type ??= 'creatureTerrains';
-
-    this.#configure('terrain', `${this.name}: Configure Creature Terrains`, data, options);
-  }
-
-  configureDamageImmunities(data = {}, options = {}) {
-    const title = localize('A5E.DamageImmunitiesConfigurationPrompt', { name: this.name });
-
-    data.heading ??= 'A5E.DamageTypePlural';
-    data.configObject ??= CONFIG.A5E.damageTypes;
-    data.propertyKey ??= 'system.traits.damageImmunities';
-    data.type ??= 'damageImmunities';
-
-    this.#configure('damageImmunities', title, data, options);
-  }
-
-  configureDamageResistances(data = {}, options = {}) {
-    const title = localize('A5E.DamageResistancesConfigurationPrompt', { name: this.name });
-
-    data.heading ??= 'A5E.DamageTypePlural';
-    data.configObject ??= CONFIG.A5E.damageTypes;
-    data.propertyKey ??= 'system.traits.damageResistances';
-    data.type ??= 'damageResistances';
-
-    this.#configure('damageResistances', title, data, options);
-  }
-
-  configureDamageVulnerabilities(data = {}, options = {}) {
-    const title = localize('A5E.DamageVulnerabilitiesConfigurationPrompt', { name: this.name });
-
-    data.heading ??= 'A5E.DamageTypePlural';
-    data.configObject ??= CONFIG.A5E.damageTypes;
-    data.propertyKey ??= 'system.traits.damageVulnerabilities';
-    data.type ??= 'damageVulnerabilities';
-
-    this.#configure('damageVulnerabilities', title, data, options);
-  }
-
-  configureHealth(data = {}, options = {}) {
-    const title = localize('A5E.HitPointsConfigurationPrompt', { name: this.name });
-    options.width ??= 380;
-    this.#configure('health', title, data, options);
-  }
-
-  configureInitiative(data = {}, options = {}) {
-    const title = localize('A5E.InitiativeConfigurationPrompt', { name: this.name });
-    this.#configure('initiative', title, data, { ...options, width: options.width ?? 432 });
-  }
-
-  configureLanguages(data = {}, options = {}) {
-    const title = localize('A5E.LanguagesConfigurationPrompt', { name: this.name });
-
-    data.heading ??= 'A5E.Languages';
-    data.configObject ??= CONFIG.A5E.languages;
-    data.propertyKey ??= 'system.proficiencies.languages';
-    data.type ??= 'languages';
-
-    this.#configure('languages', title, data, options);
-  }
-
-  configureMovement(data = {}, options = {}) {
-    const title = localize('A5E.MovementConfigurationPrompt', { name: this.name });
-    this.#configure('movement', title, data, options);
-  }
-
-  configureManeuverTraditions(data = {}, options = {}) {
-    const title = localize('A5E.ManeuverTraditionsConfigurationPrompt', { name: this.name });
-
-    data.heading ??= 'A5E.ManeuverTraditionPlural';
-    data.configObject ??= CONFIG.A5E.maneuverTraditions;
-    data.propertyKey ??= 'system.proficiencies.traditions';
-    data.type ??= 'maneuverTraditions';
-
-    this.#configure('maneuverTraditions', title, data, options);
-  }
-
-  configureSenses(data = {}, options = {}) {
-    const title = localize('A5E.SensesConfigurationPrompt', { name: this.name });
-    this.#configure('senses', title, data, options);
-  }
-
-  configureSizeCategory(data = {}, options = {}) {
-    const title = localize('A5E.SizeCategoryConfigurationPrompt', { name: this.name });
-
-    data.heading ??= 'A5E.SizeCategory';
-    data.configObject ??= CONFIG.A5E.actorSizes;
-    data.propertyKey ??= 'system.traits.size';
-    data.type ??= 'size';
-
-    this.#configure('size', title, data, options);
-  }
-
-  configureSkill(data = {}, options = { width: 440 }) {
-    const title = localize(
-      'A5E.SkillConfigurationPrompt',
-      { name: this.name, skill: localize(CONFIG.A5E.skills[data.skillKey]) }
-    );
-
-    this.#configure('skill', title, data, options);
-  }
-
-  configureToolProficiencies(data = {}, options = {}) {
-    const title = localize('A5E.ToolProficienciesConfigurationPrompt', { name: this.name });
-
-    data.heading ??= 'A5E.ToolProficiencies';
-    data.configObject ??= CONFIG.A5E.tools;
-    data.propertyKey ??= 'system.proficiencies.tools';
-    data.type ??= 'tools';
-
-    this.#configure('tools', title, data, options);
-  }
-
-  configureWeaponProficiencies(data = {}, options = {}) {
-    const title = localize('A5E.WeaponProficienciesConfigurationPrompt', { name: this.name });
-
-    data.heading ??= 'A5E.WeaponPlural';
-    data.configObject ??= CONFIG.A5E.weapons;
-    data.propertyKey ??= 'system.proficiencies.weapons';
-    data.type ??= 'weapons';
-
-    this.#configure('weapons', title, data, options);
-  }
-
-  async deleteBonus(id, type = 'damage') {
-    // Close dialog
-    const dialog = this.dialogs.bonuses[id];
-    await dialog?.close();
-    delete this.dialogs.bonuses[id];
-
-    await this.update({
-      [`system.bonuses.${type}`]: {
-        [`-=${id}`]: null
-      }
-    });
-  }
-
-  duplicateBonus(id, type = 'damage') {
-    let defaultLabel;
-    const bonuses = foundry.utils.duplicate(this._source.system.bonuses[type] ?? {});
-
-    if (foundry.utils.isEmpty(bonuses)) return;
-
-    const newBonus = foundry.utils.duplicate(
-      this.system.bonuses[type][id]
-    );
-
-    if (type === 'damage') defaultLabel = localize('A5E.NewDamageBonus');
-    else if (type === 'healing') defaultLabel = localize('A5E.NewHealingBonus');
-    else defaultLabel = 'New Bonus';
-
-    newBonus.label = `${newBonus.label || defaultLabel} (Copy)`;
-
-    this.update({
-      [`system.bonuses.${type}`]: {
-        ...bonuses,
-        [foundry.utils.randomID()]: newBonus
-      }
-    });
-  }
-
-  get isBloodied() {
-    const { max, value } = this.system.attributes.hp;
-    return (value / max) * 100 <= 50;
-  }
-
   async modifyTokenAttribute(attribute, value, isDelta, isBar) {
     if (attribute === 'attributes.hp') {
       const hp = getProperty(this.system, attribute);
@@ -1185,34 +746,106 @@ export default class ActorA5e extends Actor {
     return super.modifyTokenAttribute(attribute, value, isDelta, isBar);
   }
 
-  async recoverExertionUsingHitDice() {
-    const { current, max } = this.system.attributes.exertion;
-
-    const [lowestAvailableHitDie] = Object.entries(this.system.attributes.hitDice).find(
-      // eslint-disable-next-line no-unused-vars, @typescript-eslint/no-unused-vars
-      ([_, { current: c, total: t }]) => c > 0 && t > 0
-    );
-
-    if (!lowestAvailableHitDie) {
-      ui.notifications.warn(`${this.name} has no hit dice remaining.`);
-      return;
+  // -------------------------------------------------------------
+  // Resources Reset Handlers
+  // -------------------------------------------------------------
+  /**
+   *
+   * @param {Object} restOptions
+   * @param {Boolean} restOptions.consumeSupply
+   * @param {Boolean} restOptions.haven
+   * @param {Boolean} restOptions.recoverStrifeAndFatigue
+   * @param {'long' | 'short'} restOptions.restType
+   * @returns
+   */
+  async triggerRest(restOptions = {}) {
+    let restData;
+    if (foundry.utils.isEmpty(restOptions)) {
+      const title = localize('A5E.RestConfigurationPrompt', { name: this.name });
+      const dialog = new GenericConfigDialog(this, title, RestDialog);
+      await dialog.render(true);
+      restData = await dialog?.promise;
+    } else {
+      restData = foundry.utils.mergeObject({
+        consumeSupply: false,
+        haven: true,
+        recoverStrifeAndFatigue: true,
+        restType: 'short'
+      }, restOptions);
     }
 
-    const roll = await new Roll('1d4');
+    if (!restData) return;
+    const restManger = new RestManager(this, restData);
 
-    // TODO: Make the message prettier
-    await roll.toMessage();
-    const newExertion = Math.min((current ?? 0) + roll.total, max);
-    const newHitDieCount = this.system.attributes.hitDice[lowestAvailableHitDie].current - 1;
-
-    await this.update({
-      'system.attributes': {
-        'exertion.current': newExertion,
-        [`hitDice.${lowestAvailableHitDie}.current`]: newHitDieCount
-      }
-    });
+    await restManger.restoreResources();
   }
 
+  async updateDeathSavingThrowFigures(roll) {
+    const { death, fatigue, strife } = this.system.attributes;
+    const { success, failure } = death;
+    const d20Result = roll.dice[0].total;
+
+    const updates = {
+      'system.attributes.death': { success, failure }
+    };
+
+    if (d20Result === 1) {
+      if (game.settings.get('a5e', '5eStyleDeathSaves')) {
+        updates['system.attributes.death'].failure += 2;
+      } else {
+        updates['system.attributes.death'].failure += 1;
+        updates['system.attributes.fatigue'] = fatigue + 1;
+        updates['system.attributes.strife'] = strife + 1;
+      }
+    } else if (d20Result === 20) updates['system.attributes.hp.value'] = 1;
+    else if (d20Result < (this.getFlag('a5e', 'deathSaveThreshold') || 10)) updates['system.attributes.death'].failure += 1;
+    else updates['system.attributes.death'].success += 1;
+
+    await this.update(updates);
+  }
+
+  async rechargeGenericResource(resource) {
+    if (!this.system.resources[resource]) return;
+
+    // eslint-disable-next-line max-len
+    const max = getDeterministicBonus(this.system.resources[resource].max, this.getRollData());
+    const current = this.system.resources[resource].value;
+    const formula = this.system.resources[resource]?.recharge?.formula || '1d6';
+    const threshold = this.system.resources[resource]?.recharge?.threshold || 6;
+    const rechargeType = this.system.resources[resource]?.recharge?.rechargeType || 'custom';
+    const rechargeAmount = this.system.resources[resource]?.recharge?.rechargeAmount || '1';
+    const updatePath = `system.resources.${resource}.value`;
+
+    // Recharge Roll
+    const rechargeRoll = await new Roll(formula, this.getRollData()).evaluate({ async: true });
+
+    // TODO: Make the message prettier
+    rechargeRoll.toMessage();
+
+    if (rechargeRoll.total < threshold) return;
+
+    if (rechargeType === 'min') await this.update({ [updatePath]: 0 });
+    else if (rechargeType === 'max') await this.update({ [updatePath]: max });
+    else {
+      const rechargeAmountRoll = await new Roll(
+        rechargeAmount,
+        this.getRollData()
+      ).evaluate({ async: true });
+
+      // TODO: Add the roll back in when the custom recharge amount config is added.
+      // rechargeAmountRoll.toMessage();
+
+      await this.update({ [updatePath]: Math.min(max, current + rechargeAmountRoll.total) });
+    }
+  }
+
+  // -------------------------------------------------------------
+  // Sheet Toggles
+  // -------------------------------------------------------------
+
+  // -------------------------------------------------------------
+  // Roll Handlers
+  // -------------------------------------------------------------
   /**
    * Rolls an ability check for a given skill. A dialog is presented to the user so that they can
    * perform choose the size of the expertise die to use for the check.
@@ -1630,108 +1263,372 @@ export default class ActorA5e extends Actor {
     return dialogData;
   }
 
-  toggleElite() {
-    this.update({ 'system.details.elite': !this.system.details.elite });
-  }
+  // -------------------------------------------------------------
+  // Config Handlers
+  // -------------------------------------------------------------
+  addBonus(type = 'damage') {
+    const bonuses = foundry.utils.duplicate(this._source.system.bonuses[type] ?? {});
 
-  toggleInspiration() {
-    const currentState = this.system.attributes.inspiration;
-    this.update({ 'system.attributes.inspiration': !currentState });
+    if (!Object.keys(CONFIG.A5E.bonusTypes)?.includes(type)) return;
 
-    if (currentState) {
-      Hooks.callAll('a5e.inspirationUsed', this);
-    } else {
-      Hooks.callAll('a5e.inspirationGained', this);
-    }
-  }
-
-  /**
-   *
-   * @param {Object} restOptions
-   * @param {Boolean} restOptions.consumeSupply
-   * @param {Boolean} restOptions.haven
-   * @param {Boolean} restOptions.recoverStrifeAndFatigue
-   * @param {'long' | 'short'} restOptions.restType
-   * @returns
-   */
-  async triggerRest(restOptions = {}) {
-    let restData;
-    if (foundry.utils.isEmpty(restOptions)) {
-      const title = localize('A5E.RestConfigurationPrompt', { name: this.name });
-      const dialog = new GenericConfigDialog(this, title, RestDialog);
-      await dialog.render(true);
-      restData = await dialog?.promise;
-    } else {
-      restData = foundry.utils.mergeObject({
-        consumeSupply: false,
-        haven: true,
-        recoverStrifeAndFatigue: true,
-        restType: 'short'
-      }, restOptions);
-    }
-
-    if (!restData) return;
-    const restManger = new RestManager(this, restData);
-
-    await restManger.restoreResources();
-  }
-
-  async updateDeathSavingThrowFigures(roll) {
-    const { death, fatigue, strife } = this.system.attributes;
-    const { success, failure } = death;
-    const d20Result = roll.dice[0].total;
-
-    const updates = {
-      'system.attributes.death': { success, failure }
-    };
-
-    if (d20Result === 1) {
-      if (game.settings.get('a5e', '5eStyleDeathSaves')) {
-        updates['system.attributes.death'].failure += 2;
-      } else {
-        updates['system.attributes.death'].failure += 1;
-        updates['system.attributes.fatigue'] = fatigue + 1;
-        updates['system.attributes.strife'] = strife + 1;
+    this.update({
+      [`system.bonuses.${type}`]: {
+        ...bonuses,
+        [foundry.utils.randomID()]: {}
       }
-    } else if (d20Result === 20) updates['system.attributes.hp.value'] = 1;
-    else if (d20Result < (this.getFlag('a5e', 'deathSaveThreshold') || 10)) updates['system.attributes.death'].failure += 1;
-    else updates['system.attributes.death'].success += 1;
-
-    await this.update(updates);
+    });
   }
 
-  async rechargeGenericResource(resource) {
-    if (!this.system.resources[resource]) return;
+  #configure(key, title, data, options) {
+    if (!this.isOwner) return;
 
-    // eslint-disable-next-line max-len
-    const max = getDeterministicBonus(this.system.resources[resource].max, this.getRollData());
-    const current = this.system.resources[resource].value;
-    const formula = this.system.resources[resource]?.recharge?.formula || '1d6';
-    const threshold = this.system.resources[resource]?.recharge?.threshold || 6;
-    const rechargeType = this.system.resources[resource]?.recharge?.rechargeType || 'custom';
-    const rechargeAmount = this.system.resources[resource]?.recharge?.rechargeAmount || '1';
-    const updatePath = `system.resources.${resource}.value`;
+    const component = this.#configDialogMap[key];
+    let dialog = null;
 
-    // Recharge Roll
-    const rechargeRoll = await new Roll(formula, this.getRollData()).evaluate({ async: true });
-
-    // TODO: Make the message prettier
-    rechargeRoll.toMessage();
-
-    if (rechargeRoll.total < threshold) return;
-
-    if (rechargeType === 'min') await this.update({ [updatePath]: 0 });
-    else if (rechargeType === 'max') await this.update({ [updatePath]: max });
-    else {
-      const rechargeAmountRoll = await new Roll(
-        rechargeAmount,
-        this.getRollData()
-      ).evaluate({ async: true });
-
-      // TODO: Add the roll back in when the custom recharge amount config is added.
-      // rechargeAmountRoll.toMessage();
-
-      await this.update({ [updatePath]: Math.min(max, current + rechargeAmountRoll.total) });
+    if (key === 'ability') dialog = this.dialogs.abilities[data.abilityKey];
+    else if (key === 'skill') dialog = this.dialogs.skills[data.skillKey];
+    else if (Object.values(CONFIG.A5E.bonusDialogKeys).includes(key)) {
+      dialog = this.dialogs.bonuses[data.bonusID];
     }
+    else dialog = this.dialogs[key];
+
+    if (!dialog) {
+      dialog = new GenericConfigDialog(this, title, component, data, options);
+
+      if (key === 'ability') this.dialogs.abilities[data.abilityKey] = dialog;
+      else if (key === 'skill') this.dialogs.skills[data.skillKey] = dialog;
+      else if (Object.values(CONFIG.A5E.bonusDialogKeys).includes(key)) {
+        this.dialogs.bonuses[data.bonusID] = dialog;
+      }
+      else this.dialogs[key] = dialog;
+    }
+
+    dialog.render(true);
+  }
+
+  configureAbilityScore(data = {}, options = {}) {
+    const title = localize(
+      'A5E.AbilityCheckPromptTitle',
+      { name: this.name, ability: localize(CONFIG.A5E.abilities[data.abilityKey]) }
+    );
+
+    this.#configure('ability', title, data, options);
+  }
+
+  configureAlignment(data = {}, options = {}) {
+    const title = localize('A5E.AlignmentConfigurationPrompt', { name: this.name });
+
+    data.heading ??= 'A5E.Alignments';
+    data.propertyKey ??= 'system.traits.alignment';
+    data.configObject ??= CONFIG.A5E.alignments;
+    data.type ??= 'alignment';
+
+    this.#configure('alignment', title, data, options);
+  }
+
+  configureArmorClass(data = {}, options = {}) {
+    const title = localize('A5E.ACConfigurationPrompt', { name: this.name });
+    this.#configure('armorClass', title, data, options);
+  }
+
+  configureArmorProficiencies(data = {}, options = {}) {
+    const title = localize('A5E.ArmorProficienciesConfigurationPrompt', { name: this.name });
+
+    data.heading ??= 'A5E.ArmorProficiencies';
+    data.propertyKey ??= 'system.proficiencies.armor';
+    data.configObject ??= CONFIG.A5E.armor;
+    data.type ??= 'armorTypes';
+
+    this.#configure('armor', title, data, options);
+  }
+
+  configureConditionImmunities(data = {}, options = {}) {
+    const title = localize('A5E.ConditionImmunitiesConfigurationPrompt', { name: this.name });
+
+    data.heading ??= 'A5E.ConditionImmunities';
+    data.configObject ??= CONFIG.A5E.conditions;
+    data.propertyKey ??= 'system.traits.conditionImmunities';
+    data.type ??= 'conditionImmunities';
+
+    this.#configure('conditionImmunities', title, data, options);
+  }
+
+  configureCreatureTypes(data = {}, options = {}) {
+    const title = localize('A5E.CreatureTypesConfigurationPrompt', { name: this.name });
+
+    data.heading ??= 'A5E.CreatureTypePlural';
+    data.configObject ??= CONFIG.A5E.creatureTypes;
+    data.propertyKey ??= 'system.details.creatureTypes';
+    data.type ??= 'creatureTypes';
+
+    this.#configure('types', title, data, options);
+  }
+
+  configureBonus(bonusID, type = 'damage') {
+    const dialogKey = CONFIG.A5E.bonusDialogKeys[type];
+    if (!dialogKey) return;
+
+    const dialogName = `${this.name} ${localize(CONFIG.A5E.bonusLabels[type]?.dialogName ?? type)}`;
+    this.#configure(dialogKey, dialogName, { bonusID });
+  }
+
+  configureCreatureTerrains(data = {}, options = {}) {
+    data.heading ??= 'A5E.CreatureTerrainsLabel';
+    data.configObject ??= CONFIG.A5E.terrainTypes;
+    data.propertyKey ??= 'system.details.terrain';
+    data.type ??= 'creatureTerrains';
+
+    this.#configure('terrain', `${this.name}: Configure Creature Terrains`, data, options);
+  }
+
+  configureDamageImmunities(data = {}, options = {}) {
+    const title = localize('A5E.DamageImmunitiesConfigurationPrompt', { name: this.name });
+
+    data.heading ??= 'A5E.DamageTypePlural';
+    data.configObject ??= CONFIG.A5E.damageTypes;
+    data.propertyKey ??= 'system.traits.damageImmunities';
+    data.type ??= 'damageImmunities';
+
+    this.#configure('damageImmunities', title, data, options);
+  }
+
+  configureDamageResistances(data = {}, options = {}) {
+    const title = localize('A5E.DamageResistancesConfigurationPrompt', { name: this.name });
+
+    data.heading ??= 'A5E.DamageTypePlural';
+    data.configObject ??= CONFIG.A5E.damageTypes;
+    data.propertyKey ??= 'system.traits.damageResistances';
+    data.type ??= 'damageResistances';
+
+    this.#configure('damageResistances', title, data, options);
+  }
+
+  configureDamageVulnerabilities(data = {}, options = {}) {
+    const title = localize('A5E.DamageVulnerabilitiesConfigurationPrompt', { name: this.name });
+
+    data.heading ??= 'A5E.DamageTypePlural';
+    data.configObject ??= CONFIG.A5E.damageTypes;
+    data.propertyKey ??= 'system.traits.damageVulnerabilities';
+    data.type ??= 'damageVulnerabilities';
+
+    this.#configure('damageVulnerabilities', title, data, options);
+  }
+
+  configureHealth(data = {}, options = {}) {
+    const title = localize('A5E.HitPointsConfigurationPrompt', { name: this.name });
+    options.width ??= 380;
+    this.#configure('health', title, data, options);
+  }
+
+  configureInitiative(data = {}, options = {}) {
+    const title = localize('A5E.InitiativeConfigurationPrompt', { name: this.name });
+    this.#configure('initiative', title, data, { ...options, width: options.width ?? 432 });
+  }
+
+  configureLanguages(data = {}, options = {}) {
+    const title = localize('A5E.LanguagesConfigurationPrompt', { name: this.name });
+
+    data.heading ??= 'A5E.Languages';
+    data.configObject ??= CONFIG.A5E.languages;
+    data.propertyKey ??= 'system.proficiencies.languages';
+    data.type ??= 'languages';
+
+    this.#configure('languages', title, data, options);
+  }
+
+  configureMovement(data = {}, options = {}) {
+    const title = localize('A5E.MovementConfigurationPrompt', { name: this.name });
+    this.#configure('movement', title, data, options);
+  }
+
+  configureManeuverTraditions(data = {}, options = {}) {
+    const title = localize('A5E.ManeuverTraditionsConfigurationPrompt', { name: this.name });
+
+    data.heading ??= 'A5E.ManeuverTraditionPlural';
+    data.configObject ??= CONFIG.A5E.maneuverTraditions;
+    data.propertyKey ??= 'system.proficiencies.traditions';
+    data.type ??= 'maneuverTraditions';
+
+    this.#configure('maneuverTraditions', title, data, options);
+  }
+
+  configureSenses(data = {}, options = {}) {
+    const title = localize('A5E.SensesConfigurationPrompt', { name: this.name });
+    this.#configure('senses', title, data, options);
+  }
+
+  configureSizeCategory(data = {}, options = {}) {
+    const title = localize('A5E.SizeCategoryConfigurationPrompt', { name: this.name });
+
+    data.heading ??= 'A5E.SizeCategory';
+    data.configObject ??= CONFIG.A5E.actorSizes;
+    data.propertyKey ??= 'system.traits.size';
+    data.type ??= 'size';
+
+    this.#configure('size', title, data, options);
+  }
+
+  configureSkill(data = {}, options = { width: 440 }) {
+    const title = localize(
+      'A5E.SkillConfigurationPrompt',
+      { name: this.name, skill: localize(CONFIG.A5E.skills[data.skillKey]) }
+    );
+
+    this.#configure('skill', title, data, options);
+  }
+
+  configureToolProficiencies(data = {}, options = {}) {
+    const title = localize('A5E.ToolProficienciesConfigurationPrompt', { name: this.name });
+
+    data.heading ??= 'A5E.ToolProficiencies';
+    data.configObject ??= CONFIG.A5E.tools;
+    data.propertyKey ??= 'system.proficiencies.tools';
+    data.type ??= 'tools';
+
+    this.#configure('tools', title, data, options);
+  }
+
+  configureWeaponProficiencies(data = {}, options = {}) {
+    const title = localize('A5E.WeaponProficienciesConfigurationPrompt', { name: this.name });
+
+    data.heading ??= 'A5E.WeaponPlural';
+    data.configObject ??= CONFIG.A5E.weapons;
+    data.propertyKey ??= 'system.proficiencies.weapons';
+    data.type ??= 'weapons';
+
+    this.#configure('weapons', title, data, options);
+  }
+
+  async deleteBonus(id, type = 'damage') {
+    // Close dialog
+    const dialog = this.dialogs.bonuses[id];
+    await dialog?.close();
+    delete this.dialogs.bonuses[id];
+
+    await this.update({
+      [`system.bonuses.${type}`]: {
+        [`-=${id}`]: null
+      }
+    });
+  }
+
+  duplicateBonus(id, type = 'damage') {
+    let defaultLabel;
+    const bonuses = foundry.utils.duplicate(this._source.system.bonuses[type] ?? {});
+
+    if (foundry.utils.isEmpty(bonuses)) return;
+
+    const newBonus = foundry.utils.duplicate(
+      this.system.bonuses[type][id]
+    );
+
+    if (type === 'damage') defaultLabel = localize('A5E.NewDamageBonus');
+    else if (type === 'healing') defaultLabel = localize('A5E.NewHealingBonus');
+    else defaultLabel = 'New Bonus';
+
+    newBonus.label = `${newBonus.label || defaultLabel} (Copy)`;
+
+    this.update({
+      [`system.bonuses.${type}`]: {
+        ...bonuses,
+        [foundry.utils.randomID()]: newBonus
+      }
+    });
+  }
+
+  // -------------------------------------------------------------
+  // Document Update Hooks
+  // -------------------------------------------------------------
+  /** @inheritdoc */
+  async _preCreate(data, options, user) {
+    await super._preCreate(data, options, user);
+
+    const items = [...this.items];
+    // Add schema version
+    if (!this.system.schemaVersion?.version && !this.system.schema?.version) {
+      let version = null;
+      if (['number', 'string'].includes(typeof this.system.ac)) version = 0.004;
+      else if (items.some((i) => typeof i.system?.equipped === 'boolean')) version = 0.003;
+      else if (items.some((i) => typeof i.system?.recharge === 'string')) version = 0.002;
+      else if (items.some((i) => typeof i.system?.uses?.max === 'number')) version = 0.001;
+      else if (typeof this.system.attributes.movement?.walk?.unit !== 'string') version = null;
+      else version = MigrationRunnerBase.LATEST_SCHEMA_VERSION;
+
+      this.updateSource({
+        'system.schemaVersion.version': version
+      });
+    }
+
+    // Player character configuration
+    if (this.type === 'character') {
+      const prototypeToken = { vision: true, actorLink: true, disposition: 1 };
+      this.updateSource({ prototypeToken });
+    }
+  }
+
+  /** @inheritdoc */
+  async _preUpdate(changed, options, user) {
+    const hasRemoveFlag = Object.keys(this.flags?.a5e ?? {}).includes('-=autoApplyFSConditions');
+    const isRemoveFlag = Object.keys(changed?.flags?.a5e ?? {}).includes('-=-=autoApplyFSConditions');
+
+    if (hasRemoveFlag && !isRemoveFlag) {
+      await this.unsetFlag('a5e', '-=autoApplyFSConditions');
+    }
+
+    const autoApplyFSConditions = changed?.flags?.a5e?.autoApplyFSConditions ?? true;
+    if (autoApplyFSConditions) {
+      automateMultiLevelConditions(this, foundry.utils.deepClone(changed), user.id);
+    }
+
+    foundry.utils.setProperty(changed, 'flags.a5e.-=autoApplyFSConditions', null);
+
+    await super._preUpdate(changed, options, user);
+
+    // If hp drops below 0, set the value to 0.
+    if (foundry.utils.getProperty(changed, 'system.attributes.hp.value') < 0) {
+      foundry.utils.setProperty(changed, 'system.attributes.hp.value', 0);
+    }
+
+    // If temp hp drops to or below 0, set the value to 0.
+    if (foundry.utils.getProperty(changed, 'system.attributes.hp.temp') <= 0) {
+      foundry.utils.setProperty(changed, 'system.attributes.hp.temp', 0);
+    }
+
+    // Reset death save counters
+    const isUnconscious = this.system.attributes.hp.value === 0;
+    const willRegainConsciousness = foundry.utils.getProperty(changed, 'system.attributes.hp.value') > 0;
+
+    if (isUnconscious && willRegainConsciousness) {
+      foundry.utils.setProperty(changed, 'system.attributes.death.success', 0);
+      foundry.utils.setProperty(changed, 'system.attributes.death.failure', 0);
+    }
+
+    // Update prototype token sizes to reflect the actor's token size
+    const automateTokenSize = this.flags?.a5e?.automatePrototypeTokenSize
+      ?? game.settings.get('a5e', 'automatePrototypeTokenSize')
+      ?? true;
+
+    if (automateTokenSize) {
+      if (foundry.utils.getProperty(changed, 'system.traits.size')) {
+        const newSize = changed.system.traits.size;
+
+        // If titanic token is already larger than 5, don't change it
+        if (newSize !== 'titan' || this.prototypeToken.width < 5) {
+          foundry.utils.setProperty(changed, 'prototypeToken.height', CONFIG.A5E.tokenDimensions[newSize]);
+          foundry.utils.setProperty(changed, 'prototypeToken.width', CONFIG.A5E.tokenDimensions[newSize]);
+        }
+      }
+    }
+  }
+
+  /** @inheritdoc */
+  _onUpdate(changed, options, userId) {
+    super._onUpdate(changed, options, userId);
+
+    const applyBloodied = game.settings.get('a5e', 'automateBloodiedApplication') ?? true;
+    const applyUnconscious = game.settings.get('a5e', 'automateUnconsciousApplication') ?? true;
+
+    if (applyBloodied) automateHpConditions(this, changed, userId, 'bloodied');
+    if (applyUnconscious) automateHpConditions(this, changed, userId, 'unconscious');
   }
 }

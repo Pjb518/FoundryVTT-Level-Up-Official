@@ -4,11 +4,11 @@ import ItemSheetA5e from '../apps/ItemSheet';
 
 import A5E from '../config';
 import ActiveEffectA5e from '../documents/activeEffect/activeEffect';
-import ActorA5e from '../documents/actor/actor';
 import D20Roll from '../dice/d20Roll';
 import TokenA5e from '../documents/token/token';
 import TokenDocumentA5e from '../documents/tokenDocument';
 
+import ActorProxy from '../documents/actor/actorProxy';
 import ItemProxy from '../documents/item/itemProxy';
 
 // Canvas
@@ -78,7 +78,7 @@ import { gameSettings } from '../settings/SettingsStore';
 export default function init() {
   CONFIG.A5E = A5E;
   CONFIG.ActiveEffect.documentClass = ActiveEffectA5e;
-  CONFIG.Actor.documentClass = ActorA5e;
+  CONFIG.Actor.documentClass = ActorProxy;
   CONFIG.Actor.trackableAttributes = trackableAttributes;
   CONFIG.Item.documentClass = ItemProxy;
   CONFIG.Token.documentClass = TokenDocumentA5e;
@@ -130,8 +130,8 @@ export default function init() {
       D20Roll
     },
     documentClasses: {
-      ActorA5e,
-      // TODO: Add item document classes back in
+      ...A5E.Actor.documentClasses,
+      ...A5E.Item.documentClasses,
       TokenDocumentA5e,
       TokenA5e
     },

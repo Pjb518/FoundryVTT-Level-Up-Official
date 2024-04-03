@@ -88,6 +88,9 @@
                     detail,
                 )}
         />
+
+        Known cantrips go here. <br />
+        Known spells go here. <br />
     </Section>
 
     <Section heading="Wealth">

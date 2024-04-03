@@ -41,9 +41,7 @@ export default class ClassItemA5e extends OriginItemA5e {
 
     // Set up class resource manager
     this.resources = new ClassResourceManager(this);
-  }
 
-  prepareDerivedData() {
     this.maxHp = this.prepareMaxHitPoints();
     this.hitDice = {
       current: this.totalHitDice - this.system.hp.hitDiceUsed,
@@ -51,6 +49,9 @@ export default class ClassItemA5e extends OriginItemA5e {
     };
 
     this.casting = this.prepareCasterData();
+  }
+
+  prepareDerivedData() {
   }
 
   prepareMaxHitPoints() {
